@@ -1,40 +1,49 @@
 using Content.Server._FarHorizons.NodeContainer.Nodes;
+using Content.Server.AlertLevel;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Atmos.Piping.Components;
+using Content.Server.Audio;
+using Content.Server.Chat.Systems;
+using Content.Server.Explosion.EntitySystems;
 using Content.Server.NodeContainer.EntitySystems;
+using Content.Server.Radio.EntitySystems;
+using Content.Server.Station.Systems;
 using Content.Shared._FarHorizons.Power.Generation.FissionGenerator;
 using Content.Shared.Atmos.Piping.Components;
 using Content.Shared.Atmos;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Radiation.Components;
-using Robust.Server.GameObjects;
-using Robust.Shared.Containers;
-using System.Linq;
-using Content.Server.Explosion.EntitySystems;
-using Content.Server.Radio.EntitySystems;
-using Robust.Shared.Prototypes;
 using Content.Shared.Radio;
-using Content.Server.Chat.Systems;
-using Content.Server.Station.Systems;
+using Robust.Server.GameObjects;
+using Robust.Shared.Audio.Systems;
+using Robust.Shared.Audio;
+using Robust.Shared.Containers;
+using Robust.Shared.Prototypes;
+using Robust.Shared.Random;
+using System.Linq;
 
 namespace Content.Server._FarHorizons.Power.Generation.FissionGenerator;
 
 public sealed class NuclearReactorSystem : SharedNuclearReactorSystem
 {
     // The great wall of dependencies
+    [Dependency] private readonly AlertLevelSystem _alertLevel = default!;
     [Dependency] private readonly AtmosphereSystem _atmosphereSystem = default!;
+    [Dependency] private readonly ChatSystem _chatSystem = default!;
     [Dependency] private readonly EntityManager _entityManager = default!;
+    [Dependency] private readonly ExplosionSystem _explosionSystem = default!;
+    [Dependency] private readonly IPrototypeManager _prototypes = default!;
+    [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly MetaDataSystem _metaDataSystem = default!;
     [Dependency] private readonly NodeContainerSystem _nodeContainer = default!;
     [Dependency] private readonly NodeGroupSystem _nodeGroupSystem = default!;
-    [Dependency] private readonly ReactorPartSystem _partSystem = default!;
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-    [Dependency] private readonly UserInterfaceSystem _uiSystem = null!;
-    [Dependency] private readonly ExplosionSystem _explosionSystem = default!;
     [Dependency] private readonly RadioSystem _radioSystem = default!;
-    [Dependency] private readonly IPrototypeManager _prototypes = default!;
-    [Dependency] private readonly ChatSystem _chatSystem = default!;
+    [Dependency] private readonly ReactorPartSystem _partSystem = default!;
+    [Dependency] private readonly ServerGlobalSoundSystem _soundSystem = default!;
+    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
+    [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly StationSystem _station = default!;
+    [Dependency] private readonly UserInterfaceSystem _uiSystem = null!;
 
     private static readonly int _gridWidth = NuclearReactorComponent.ReactorGridWidth;
     private static readonly int _gridHeight = NuclearReactorComponent.ReactorGridHeight;
@@ -123,7 +132,7 @@ public sealed class NuclearReactorSystem : SharedNuclearReactorSystem
             return;
 
         // Try to connect to a distant pipe
-        // This is BAD and I HATE IT... and I'm too lazy to fix it
+        // TODO: This is BAD and I HATE IT... and I'm too lazy to fix it
         if (inlet.ReachableNodes.Count == 0)
             _nodeGroupSystem.QueueReflood(inlet);
         if (outlet.ReachableNodes.Count == 0)
@@ -170,7 +179,7 @@ public sealed class NuclearReactorSystem : SharedNuclearReactorSystem
                     _partSystem.ProcessHeat(ReactorComp, ent, GetGridNeighbors(comp, x, y), this);
                     comp.TemperatureGrid[x, y] = ReactorComp.Temperature;
 
-                    if (ReactorComp.RodType == (byte)ReactorPartComponent.RodTypes.Control)
+                    if (ReactorComp.RodType == (byte)ReactorPartComponent.RodTypes.Control && ReactorComp.IsControlRod)
                     {
                         AvgControlRodInsertion += ReactorComp.NeutronCrossSection;
                         ReactorComp.ConfiguredInsertionLevel = comp.ControlRodInsertion;
@@ -180,7 +189,7 @@ public sealed class NuclearReactorSystem : SharedNuclearReactorSystem
                     if (ReactorComp.Melted)
                         MeltedComps++;
 
-                    comp.FluxGrid[x, y] = _partSystem.ProcessNeutrons(ReactorComp, comp.FluxGrid[x, y], out var deltaT);
+                    comp.FluxGrid[x, y] = _partSystem.ProcessNeutrons(ReactorComp, comp.FluxGrid[x, y], uid, out var deltaT);
                     TempChange += deltaT;
 
                     TotalNRads += ReactorComp.NRadioactive;
@@ -239,7 +248,6 @@ public sealed class NuclearReactorSystem : SharedNuclearReactorSystem
         // If there's still input gas left over
         _atmosphereSystem.Merge(AirContents, GasInput);
 
-        // TODO: probably more for this
         UpdateTempIndicators(ent);
 
         comp.RadiationLevel = Math.Clamp(comp.RadiationLevel + TempRads, 0, 50);
@@ -273,6 +281,7 @@ public sealed class NuclearReactorSystem : SharedNuclearReactorSystem
         _atmosphereSystem.Merge(outlet.Air, AirContents);
 
         UpdateVisuals(ent);
+        UpdateAudio(ent);
     }
 
     private void CatastrophicOverload(Entity<NuclearReactorComponent> ent)
@@ -280,12 +289,15 @@ public sealed class NuclearReactorSystem : SharedNuclearReactorSystem
         var comp = ent.Comp;
         var uid = ent.Owner;
 
-        // TODO: Audio
-
         var stationUid = _station.GetStationInMap(Transform(uid).MapID);
+        if (stationUid != null)
+            _alertLevel.SetLevel(stationUid.Value, comp.MeltdownAlertLevel, true, true, true);
+
         var announcement = Loc.GetString("reactor-meltdown-announcement");
         var sender = Loc.GetString("reactor-meltdown-announcement-sender");
         _chatSystem.DispatchStationAnnouncement(stationUid ?? uid, announcement, sender, false, null, Color.Orange);
+
+        _soundSystem.PlayGlobalOnStation(uid, _audio.ResolveSound(comp.MeltdownSound));
 
         comp.Melted = true;
         var MeltdownBadness = 0f;
@@ -314,7 +326,11 @@ public sealed class NuclearReactorSystem : SharedNuclearReactorSystem
         if (T != null)
             _atmosphereSystem.Merge(T, comp.AirContents);
 
-        // TODO: shrapnel
+        // You did not see graphite on the roof. You're in shock. Report to medical.
+        for (var i = 0; i < _random.Next(10, 30); i++)
+            SpawnAtPosition("NuclearWasteChunk", new(uid, _random.NextVector2(4)));
+
+        _audio.PlayPvs(new SoundPathSpecifier("/Audio/Effects/metal_break5.ogg"), uid);
         _explosionSystem.QueueExplosion(ent.Owner, "Default", Math.Max(100, MeltdownBadness * 5), 1, 4, 0, canCreateVacuum: false);
 
         // Reset grids
@@ -324,6 +340,15 @@ public sealed class NuclearReactorSystem : SharedNuclearReactorSystem
         Array.Clear(comp.FluxGrid);
 
         UpdateGridVisual(ent.Owner, comp);
+
+        // Stop Alarms
+        if (_audio.IsPlaying(comp.AlarmAudioHighThermal))
+            comp.AlarmAudioHighThermal = _audio.Stop(comp.AlarmAudioHighThermal);
+        if (_audio.IsPlaying(comp.AlarmAudioHighTemp))
+            comp.AlarmAudioHighTemp = _audio.Stop(comp.AlarmAudioHighTemp);
+        if (_audio.IsPlaying(comp.AlarmAudioHighRads))
+            comp.AlarmAudioHighRads = _audio.Stop(comp.AlarmAudioHighRads);
+
     }
 
     protected override void SendEngiRadio(Entity<NuclearReactorComponent> ent, string message)
@@ -331,6 +356,39 @@ public sealed class NuclearReactorSystem : SharedNuclearReactorSystem
         _engi ??= _prototypes.Index<RadioChannelPrototype>(ent.Comp.AlertChannel);
 
         _radioSystem.SendRadioMessage(ent.Owner, message, _engi, ent);
+    }
+
+    private void UpdateAudio(Entity<NuclearReactorComponent> ent)
+    {
+        var comp = ent.Comp;
+        var uid = ent.Owner;
+
+        if (comp.ThermalPower > 10000000)
+        {
+            if (!_audio.IsPlaying(comp.AlarmAudioHighThermal))
+                comp.AlarmAudioHighThermal = _audio.PlayPvs(new SoundPathSpecifier("/Audio/_FarHorizons/Machines/reactor_alarm_1.ogg"), uid, AudioParams.Default.WithLoop(true).WithVolume(-3))?.Entity;
+        }
+        else
+            if (_audio.IsPlaying(comp.AlarmAudioHighThermal))
+                comp.AlarmAudioHighThermal = _audio.Stop(comp.AlarmAudioHighThermal);
+
+        if (comp.Temperature > comp.ReactorOverheatTemp)
+        {
+            if (!_audio.IsPlaying(comp.AlarmAudioHighTemp))
+                comp.AlarmAudioHighTemp = _audio.PlayPvs(new SoundPathSpecifier("/Audio/_FarHorizons/Machines/reactor_alarm_2.ogg"), uid, AudioParams.Default.WithLoop(true).WithVolume(-3))?.Entity;
+        }
+        else
+            if (_audio.IsPlaying(comp.AlarmAudioHighTemp))
+                comp.AlarmAudioHighTemp = _audio.Stop(comp.AlarmAudioHighTemp);
+
+        if (comp.RadiationLevel > 15)
+        {
+            if (!_audio.IsPlaying(comp.AlarmAudioHighRads))
+                comp.AlarmAudioHighRads = _audio.PlayPvs(new SoundPathSpecifier("/Audio/_FarHorizons/Machines/reactor_alarm_3.ogg"), uid, AudioParams.Default.WithLoop(true).WithVolume(-3))?.Entity;
+        }
+        else
+            if (_audio.IsPlaying(comp.AlarmAudioHighRads))
+                comp.AlarmAudioHighRads = _audio.Stop(comp.AlarmAudioHighRads);
     }
 
     private static List<ReactorPartComponent?> GetGridNeighbors(NuclearReactorComponent reactor, int x, int y)
@@ -418,7 +476,7 @@ public sealed class NuclearReactorSystem : SharedNuclearReactorSystem
     {
         var comp = EnsureComp<RadiationSourceComponent>(ent.Owner);
 
-        comp.Intensity = ent.Comp.RadiationLevel;
+        comp.Intensity = Math.Max(ent.Comp.RadiationLevel, ent.Comp.Melted ? 10 : 0);
         ent.Comp.RadiationLevel /= 2;
     }
 
@@ -519,7 +577,10 @@ public sealed class NuclearReactorSystem : SharedNuclearReactorSystem
         if (comp.PartSlot.Item == null)
         {
             if (part!.Melted) // No removing a part if it's melted
+            {
+                _audio.PlayPvs(new SoundPathSpecifier("/Audio/Machines/custom_deny.ogg"), ent.Owner);
                 return;
+            }
 
             var item = SpawnInContainerOrDrop("BaseReactorItem", ent.Owner, "part_slot");
             _metaDataSystem.SetEntityName(item, part!.Name);

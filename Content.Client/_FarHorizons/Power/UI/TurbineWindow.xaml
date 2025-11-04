@@ -24,7 +24,7 @@
 			<!--Right panel-->
 			<BoxContainer Name="RightPanel" Orientation="Vertical" Margin="5 5 5 5" SeparationOverride="10">
 				<!--Indicator Lights-->
-				<PanelContainer Name="Indicators" StyleClasses="Inset" VerticalExpand="True">
+				<PanelContainer Name="Indicators" StyleClasses="Inset">
 					<GridContainer Columns="4">
 						<Label Text="{Loc 'comp-turbine-ui-overspeed'}" StyleClasses="StatusFieldTitle" />
 						<TextureRect Name="TurbineOverspeed" SetSize="16 16" HorizontalAlignment="Right" />

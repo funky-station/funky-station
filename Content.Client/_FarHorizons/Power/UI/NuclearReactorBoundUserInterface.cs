@@ -29,6 +29,7 @@ public sealed class NuclearReactorBoundUserInterface : BoundUserInterface
         base.Open();
 
         _window = this.CreateWindow<NuclearReactorWindow>();
+        _window.SetEntity(Owner);
 
         _window.ItemActionButtonPressed += OnActionButtonPressed;
         _window.EjectButtonPressed += OnEjectButtonPressed;

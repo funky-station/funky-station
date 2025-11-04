@@ -67,6 +67,7 @@ public sealed class TurbineSystem : SharedTurbineSystem
         }
 
         // Try to connect to a distant pipe
+        // TODO: This is BAD and I HATE IT... and I'm too lazy to fix it
         if (inlet.ReachableNodes.Count == 0) 
             _nodeGroupSystem.QueueReflood(inlet);
         if (outlet.ReachableNodes.Count == 0)
@@ -176,7 +177,8 @@ public sealed class TurbineSystem : SharedTurbineSystem
                 comp.RPM = NextRPM;
             }
 
-            if (_audio.IsPlaying(comp.AlarmAudioUnderspeed) && (comp.RPM > 10  || (!comp.Stalling && comp.Undertemp))) { comp.AlarmAudioUnderspeed = _audio.Stop(comp.AlarmAudioUnderspeed); }
+            if (_audio.IsPlaying(comp.AlarmAudioUnderspeed) && (comp.FlowRate <= 0 || (!comp.Stalling && comp.Undertemp)))
+                comp.AlarmAudioUnderspeed = _audio.Stop(comp.AlarmAudioUnderspeed);
 
             if (comp.RPM > 10)
             {

@@ -1,5 +1,6 @@
 using Content.Shared.Atmos;
 using Content.Shared.Containers.ItemSlots;
+using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 
 namespace Content.Shared._FarHorizons.Power.Generation.FissionGenerator;
@@ -26,12 +27,21 @@ public sealed partial class NuclearReactorComponent : Component
     [DataField]
     public float ControlRodInsertion = 2;
 
+    [ViewVariables(VVAccess.ReadOnly)]
     [DataField]
-    public bool isSmoking = false;
+    public float AvgInsertion = 0;
+
+    public SoundSpecifier MeltdownSound = new SoundPathSpecifier("/Audio/_FarHorizons/Machines/meltdown_siren.ogg");
+
     [DataField]
-    public bool isBurning = false;
+    public bool IsSmoking = false;
+    [DataField]
+    public bool IsBurning = false;
     [DataField]
     public string AlertChannel = "Engineering";
+
+    [DataField]
+    public string MeltdownAlertLevel = "yellow";
 
     [ViewVariables(VVAccess.ReadOnly)]
     [DataField]
@@ -39,6 +49,9 @@ public sealed partial class NuclearReactorComponent : Component
     public float[] ThermalPowerL1 = new float[32];
     public float[] ThermalPowerL2 = new float[32];
 
+    public EntityUid? AlarmAudioHighThermal;
+    public EntityUid? AlarmAudioHighTemp;
+    public EntityUid? AlarmAudioHighRads;
 
     [DataField]
     public ItemSlot PartSlot = new();
@@ -77,9 +90,6 @@ public sealed partial class NuclearReactorComponent : Component
     [ViewVariables(VVAccess.ReadOnly)]
     [DataField("controlRods")]
     public int DetectedControlRods = 0;
-    [ViewVariables(VVAccess.ReadOnly)]
-    [DataField("controlRodsInsertion")]
-    public float AvgInsertion = 0;
     [ViewVariables(VVAccess.ReadOnly)]
     [DataField("totalN-Rads")]
     public float TotalNRads = 0;

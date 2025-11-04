@@ -85,23 +85,23 @@ public abstract class SharedNuclearReactorSystem : EntitySystem
 
         if (comp.Temperature >= comp.ReactorOverheatTemp)
         {
-            if(!comp.isSmoking)
+            if(!comp.IsSmoking)
             {
-                comp.isSmoking = true;
+                comp.IsSmoking = true;
                 _appearance.SetData(uid, ReactorVisuals.Smoke, true);
                 _popupSystem.PopupEntity(Loc.GetString("reactor-smoke-start", ("owner", uid)), uid, PopupType.MediumCaution);
                 SendEngiRadio(ent, Loc.GetString("reactor-smoke-start-message", ("owner", uid), ("temperature", Math.Round(comp.Temperature))));
             }
-            if (comp.Temperature >= comp.ReactorFireTemp && !comp.isBurning)
+            if (comp.Temperature >= comp.ReactorFireTemp && !comp.IsBurning)
             {
-                comp.isBurning = true;
+                comp.IsBurning = true;
                 _appearance.SetData(uid, ReactorVisuals.Fire, true);
                 _popupSystem.PopupEntity(Loc.GetString("reactor-fire-start", ("owner", uid)), uid, PopupType.MediumCaution);
                 SendEngiRadio(ent, Loc.GetString("reactor-fire-start-message", ("owner", uid), ("temperature", Math.Round(comp.Temperature))));
             }
-            else if (comp.Temperature < comp.ReactorFireTemp && comp.isBurning)
+            else if (comp.Temperature < comp.ReactorFireTemp && comp.IsBurning)
             {
-                comp.isBurning = false;
+                comp.IsBurning = false;
                 _appearance.SetData(uid, ReactorVisuals.Fire, false);
                 _popupSystem.PopupEntity(Loc.GetString("reactor-fire-stop", ("owner", uid)), uid, PopupType.Medium);
                 SendEngiRadio(ent, Loc.GetString("reactor-fire-stop-message", ("owner", uid)));
@@ -109,9 +109,9 @@ public abstract class SharedNuclearReactorSystem : EntitySystem
         }
         else
         {
-            if(comp.isSmoking)
+            if(comp.IsSmoking)
             {
-                comp.isSmoking = false;
+                comp.IsSmoking = false;
                 _appearance.SetData(uid, ReactorVisuals.Smoke, false);
                 _popupSystem.PopupEntity(Loc.GetString("reactor-smoke-stop", ("owner", uid)), uid, PopupType.Medium);
                 SendEngiRadio(ent, Loc.GetString("reactor-smoke-stop-message", ("owner", uid)));

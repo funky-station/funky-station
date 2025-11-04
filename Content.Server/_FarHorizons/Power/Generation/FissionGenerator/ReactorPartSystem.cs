@@ -38,8 +38,6 @@ public sealed class ReactorPartSystem : SharedReactorPartSystem
 
             var ThermalEnergy = _atmosphereSystem.GetThermalEnergy(reactorPart.AirContents);
 
-            var COECheck = ThermalEnergy + reactorPart.Temperature * reactorPart.ThermalMass;
-
             var Hottest = Math.Max(gasTemp, compTemp);
             var Coldest = Math.Min(gasTemp, compTemp);
 
@@ -52,10 +50,6 @@ public sealed class ReactorPartSystem : SharedReactorPartSystem
 
             reactorPart.Temperature = (float)Math.Clamp(compTemp -
                 ((_atmosphereSystem.GetThermalEnergy(reactorPart.AirContents) - ThermalEnergy) / reactorPart.ThermalMass), Coldest, Hottest);
-
-            var COEVerify = _atmosphereSystem.GetThermalEnergy(reactorPart.AirContents) + reactorPart.Temperature * reactorPart.ThermalMass;
-            if (Math.Abs(COEVerify - COECheck) > 64)
-                throw new Exception("COE violation, difference of " + Math.Abs(COEVerify - COECheck));
 
             if (gasTemp < 0 || compTemp < 0)
                 throw new Exception("Reactor part temperature went below 0k.");

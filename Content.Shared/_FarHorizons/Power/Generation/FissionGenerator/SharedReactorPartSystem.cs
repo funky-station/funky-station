@@ -2,6 +2,8 @@ using Content.Shared.Atmos;
 using Content.Shared.Examine;
 using Content.Shared.Radiation.Components;
 using Robust.Server.GameObjects;
+using Robust.Shared.Audio;
+using Robust.Shared.Audio.Systems;
 using Robust.Shared.Random;
 
 namespace Content.Shared._FarHorizons.Power.Generation.FissionGenerator;
@@ -11,6 +13,7 @@ public abstract class SharedReactorPartSystem : EntitySystem
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly SharedPointLightSystem _lightSystem = default!;
     [Dependency] private readonly EntityManager _entityManager = default!;
+    [Dependency] private readonly SharedAudioSystem _audio = default!;
 
     private readonly float _rate = 5;
     private readonly float _bias = 1.5f;
@@ -181,7 +184,7 @@ public abstract class SharedReactorPartSystem : EntitySystem
     /// <param name="reactorPart">Reactor part applying the calculations</param>
     /// <param name="neutrons">Neutrons to be processed</param>
     /// <returns></returns>
-    public virtual List<ReactorNeutron> ProcessNeutrons(ReactorPartComponent reactorPart, List<ReactorNeutron> neutrons, out float thermalEnergy)
+    public virtual List<ReactorNeutron> ProcessNeutrons(ReactorPartComponent reactorPart, List<ReactorNeutron> neutrons, EntityUid uid, out float thermalEnergy)
     {
         thermalEnergy = 0;
         var flux = new List<ReactorNeutron>(neutrons);
@@ -267,6 +270,7 @@ public abstract class SharedReactorPartSystem : EntitySystem
                     reactorPart.NeutronCrossSection -= Math.Min(0.1f, reactorPart.NeutronCrossSection - reactorPart.ConfiguredInsertionLevel);
                 else
                     reactorPart.NeutronCrossSection += Math.Min(0.1f, reactorPart.ConfiguredInsertionLevel - reactorPart.NeutronCrossSection);
+                _audio.PlayPvs(new SoundPathSpecifier("/Audio/_FarHorizons/Machines/relay_click.ogg"), uid);
             }
         }
 

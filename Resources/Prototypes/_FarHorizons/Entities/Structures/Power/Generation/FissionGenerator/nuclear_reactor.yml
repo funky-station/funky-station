@@ -38,9 +38,9 @@
         enum.ReactorVisualLayers.Status:
           Off: { visible: false}
           Active: { state: reactor_status_active, visible: true }
-          Overheat: { state: reactor_status_overheat }
-          Meltdown: { state: reactor_status_meltdown }
-          Boom: { state: reactor_status_boom }
+          Overheat: { state: reactor_status_overheat, visible: true }
+          Meltdown: { state: reactor_status_meltdown, visible: true }
+          Boom: { state: reactor_status_boom, visible: true }
       enum.ReactorVisuals.Input:
         enum.ReactorVisualLayers.Input:
           True: { visible: true }
@@ -53,7 +53,7 @@
         enum.ReactorVisualLayers.Lights:
           LightsOff: { visible: false }
           LightsWarning: { state: reactor_lights_warning, visible: true }
-          LightsMeltdown: { state: reactor_lights_meltdown }
+          LightsMeltdown: { state: reactor_lights_meltdown, visible: true }
       # enum.ReactorVisuals.Smoke:
       #   enum.ReactorVisualLayers.Smoke:
       #     True: {visible: true}
@@ -79,6 +79,7 @@
         - MachineMask
         layer:
         - MachineLayer
+        - HighImpassable
   - type: Anchorable
     flags: 
     - Anchorable
@@ -124,7 +125,7 @@
   - type: Lock
     unlockOnClick: false
 
-#Visual parts on the reactor
+# Visual parts on the reactor
 - type: entity
   id: ReactorComponent
   name: reactor component
@@ -167,3 +168,24 @@
     bodyType: Static
   - type: Transform
     noRot: true
+
+# Nuclear waste resultant from a meltdown
+- type: entity
+  id: NuclearWasteChunk
+  parent: BaseItem
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _FarHorizons/Structures/Power/Generation/FissionGenerator/nuclear_waste.rsi
+    layers:
+      - state: nuclear_waste
+        map: [ "base" ]
+  - type: Item
+    size: Huge
+  - type: MultiHandedItem
+  - type: RandomSprite
+    available:
+    - base:
+        nuclear_waste: "" # Allows for multiple waste sprites... even though there's just one
+  - type: RadiationSource
+    intensity: 1.6

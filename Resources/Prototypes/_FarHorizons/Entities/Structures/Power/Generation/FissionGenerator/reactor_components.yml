@@ -8,7 +8,7 @@
     state: default_rod
   - type: Item
     size: Huge
-    sprite: _FarHorizons/Structures/Power/Generation/FissionGenerator/reactor_parts.rsi
+  - type: MultiHandedItem
   - type: Tag
     tags:
     - ReactorPart

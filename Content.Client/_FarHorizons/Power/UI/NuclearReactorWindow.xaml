@@ -12,14 +12,17 @@
 				<!--Insert/remove controls-->
 			    <BoxContainer Name="Controls" Orientation="Vertical">
 				    <GridContainer Name="ControlGrid" Columns="3" Margin="2 2 2 2">
-					    <Button Name="XDecrement" Text="-X"/>
+					    <Button Name="XDecrement" Text="-X" Disabled="true"/>
 					    <Label Name="XPos" Text="0" StyleClasses="LabelKeyText" />
 					    <Button Name="XIncrement" Text="+X"/>
-					    <Button Name="YDecrement" Text="-Y"/>
+					    <Button Name="YDecrement" Text="-Y" Disabled="true"/>
 					    <Label Name="YPos" Text="0" StyleClasses="LabelKeyText" />
 					    <Button Name="YIncrement" Text="+Y"/>
 				    </GridContainer>
-				    <Button Name="ItemAction" Text="{Loc comp-nuclear-reactor-ui-insert-button}"/>
+					<controls:StripeBack>
+						<Button Name="ItemAction" Text="{Loc comp-nuclear-reactor-ui-insert-button}"/>
+						<Label Name="ItemActionLock" Text="{Loc comp-nuclear-reactor-ui-locked}" Visible="false" HorizontalAlignment="Center" VerticalAlignment="Center" />
+					</controls:StripeBack>
 			    </BoxContainer>
 				
 				<!--Target info-->
@@ -99,12 +102,15 @@
 					<BoxContainer Name="ControlRods" Orientation="Horizontal">
 						<ProgressBar Name="ControlRodsActual" MaxValue="2" SetSize="5 100" Margin="5" Vertical="True" />
 						<ProgressBar Name="ControlRodsSet" MaxValue="2" SetSize="5 100" Margin="5" Vertical="True" />
-						<BoxContainer Name="ControlRodsButtons" Orientation="Vertical">
-							<Button Name="ControlRodsInsertLarge" Text="+ +"/>
-							<Button Name="ControlRodsInsert" Text=" + "/>
-							<Button Name="ControlRodsRemove" Text=" - "/>
-							<Button Name="ControlRodsRemoveLarge" Text="- -"/>
-						</BoxContainer>
+						<controls:StripeBack>
+							<BoxContainer Name="ControlRodsButtons" Orientation="Vertical">
+								<Button Name="ControlRodsInsertLarge" Text="+ +"/>
+								<Button Name="ControlRodsInsert" Text=" + "/>
+								<Button Name="ControlRodsRemove" Text=" - "/>
+								<Button Name="ControlRodsRemoveLarge" Text="- -"/>
+							</BoxContainer>
+							<Label Name="ControlRodsLock" Text="{Loc comp-nuclear-reactor-ui-locked}" Visible="false" HorizontalAlignment="Center" VerticalAlignment="Center" />
+						</controls:StripeBack>
 					</BoxContainer>
 
 				</BoxContainer>

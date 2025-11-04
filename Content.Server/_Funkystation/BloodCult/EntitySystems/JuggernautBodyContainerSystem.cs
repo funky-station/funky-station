@@ -1,0 +1,61 @@
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
+using System.Linq;
+using Content.Server.Mind;
+using Content.Shared.BloodCult.Components;
+using Content.Shared.Mind;
+using Content.Shared.Mind.Components;
+using Content.Shared.Mobs;
+using Content.Shared.Mobs.Components;
+using Robust.Shared.Containers;
+
+namespace Content.Server.BloodCult.EntitySystems;
+
+public sealed class JuggernautBodyContainerSystem : EntitySystem
+{
+    [Dependency] private readonly SharedContainerSystem _container = default!;
+    [Dependency] private readonly MindSystem _mind = default!;
+
+    public override void Initialize()
+    {
+        base.Initialize();
+        
+        SubscribeLocalEvent<JuggernautBodyContainerComponent, MobStateChangedEvent>(OnMobStateChanged);
+    }
+
+    private void OnMobStateChanged(EntityUid uid, JuggernautBodyContainerComponent component, MobStateChangedEvent args)
+    {
+        // When the juggernaut dies, eject the body
+        if (args.NewMobState == MobState.Dead)
+        {
+            EjectBody(uid, component);
+        }
+    }
+
+    private void EjectBody(EntityUid uid, JuggernautBodyContainerComponent component)
+    {
+        if (!_container.TryGetContainer(uid, component.ContainerId, out var container))
+            return;
+
+        var coordinates = Transform(uid).Coordinates;
+        
+        // Get the juggernaut's mind before ejecting
+        EntityUid? juggernautMindId = CompOrNull<MindContainerComponent>(uid)?.Mind;
+        MindComponent? juggernautMindComp = CompOrNull<MindComponent>(juggernautMindId);
+        
+        // Eject all entities from the container (should just be the body)
+        foreach (var contained in container.ContainedEntities.ToArray())
+        {
+            _container.Remove(contained, container, destination: coordinates);
+            
+            // Transfer the mind back to the body
+            if (juggernautMindId != null && juggernautMindComp != null)
+            {
+                _mind.TransferTo((EntityUid)juggernautMindId, contained, mind: juggernautMindComp);
+            }
+        }
+    }
+}
+

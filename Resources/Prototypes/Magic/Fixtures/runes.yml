@@ -118,6 +118,7 @@
   parent: BaseBloodCultRune
   id: ReviveRune
   name: "revive rune"
+  description: A blood-soaked rune that brings the dead back to life by draining the invoker's blood.
   components:
     - type: ReviveCultistOnTrigger
     - type: Sprite

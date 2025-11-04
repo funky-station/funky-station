@@ -123,12 +123,33 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 	protected override void Started(EntityUid uid, BloodCultRuleComponent component, GameRuleComponent gameRule, GameRuleStartedEvent args)
     {
         base.Started(uid, component, gameRule, args);
-		SelectTarget(component);
+		// Calculate blood requirements based on player count instead of selecting targets
+		CalculateBloodRequirements(component);
 		component.InitialReportTime = _timing.CurTime + TimeSpan.FromSeconds(1);
 		SetConversionsNeeded(component);
 		SelectVeilTargets(component);
 		component.CheckTime = _timing.CurTime + component.TimerWait;
     }
+
+	/// <summary>
+	/// Calculates blood requirements for each phase based on current player count.
+	/// Each phase requires 100u of blood per player.
+	/// </summary>
+	private void CalculateBloodRequirements(BloodCultRuleComponent component)
+	{
+		var allAliveHumans = _mind.GetAliveHumans();
+		double bloodPerPlayer = 100.0;
+		
+		// Calculate blood needed for each phase
+		double totalBloodForPhase = allAliveHumans.Count * bloodPerPlayer;
+		
+		component.BloodRequiredForEyes = totalBloodForPhase;
+		component.BloodRequiredForRise = totalBloodForPhase * 2.0; // Second phase requires cumulative blood
+		component.BloodRequiredForVeil = totalBloodForPhase * 3.0; // Third phase requires cumulative blood
+		
+		// Reset blood collected to 0
+		component.BloodCollected = 0.0;
+	}
 
 	private void SelectVeilTargets(BloodCultRuleComponent component)
 	{
@@ -818,16 +839,16 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 			);
 			return false;
 		}
-		else
-		{
-			foreach (EntityUid invoker in sacrifice.Invokers)
-				Speak(invoker, Loc.GetString("cult-invocation-offering"));
-			_SacrificeVictim(sacrifice.Target, cultistUid);
-			component.ReviveCharges = component.ReviveCharges + component.ChargesForSacrifice;
-			component.TargetsDown.Add((EntityUid)component.Target);
-			SelectTarget(component, true);
-			return true;
-		}
+	else
+	{
+		foreach (EntityUid invoker in sacrifice.Invokers)
+			Speak(invoker, Loc.GetString("cult-invocation-offering"));
+		_SacrificeVictim(sacrifice.Target, cultistUid);
+		component.ReviveCharges = component.ReviveCharges + component.ChargesForSacrifice;
+		component.TargetsDown.Add((EntityUid)component.Target);
+		SelectTarget(component, true);
+		return true;
+	}
 	}
 
 	private bool _SacrificeNonTarget(SacrificingData sacrifice, BloodCultRuleComponent component, EntityUid cultistUid)
@@ -848,20 +869,20 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 			);
 			return false;
 		}
-		else
+	else
+	{
+		foreach (EntityUid invoker in sacrifice.Invokers)
 		{
-			foreach (EntityUid invoker in sacrifice.Invokers)
-			{
-				Speak(invoker, Loc.GetString("cult-invocation-offering"));
-			}
-
-			if (_SacrificeVictim(sacrifice.Target, cultistUid))
-			{
-				component.ReviveCharges = component.ReviveCharges + component.ChargesForSacrifice;
-				return true;
-			}
+			Speak(invoker, Loc.GetString("cult-invocation-offering"));
 		}
-		return false;
+
+		if (_SacrificeVictim(sacrifice.Target, cultistUid))
+		{
+			component.ReviveCharges = component.ReviveCharges + component.ChargesForSacrifice;
+			return true;
+		}
+	}
+	return false;
 	}
 
 	private bool _SacrificeVictim(EntityUid uid, EntityUid? casterUid)
@@ -1127,17 +1148,64 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 			AnnounceToCultists(purpleMessage,
 					color:new Color(111, 80, 143, 255), fontSize:12, newlineNeeded:true);
 
-		var conversionsUntilRise = GetConversionsToRise(component, cultists);
-		if (specificCultist != null)
-			AnnounceToCultist(Loc.GetString("cult-status-veil-weak-cultdata", ("cultCount", (cultists.Count+constructs.Count).ToString()),
-				("cultUntilRise", conversionsUntilRise.ToString()), ("cultistCount", cultists.Count.ToString()),
-				("constructCount", constructs.Count.ToString())),
-				(EntityUid)specificCultist, fontSize: 11, newlineNeeded:true);
+	var conversionsUntilRise = GetConversionsToRise(component, cultists);
+	if (specificCultist != null)
+		AnnounceToCultist(Loc.GetString("cult-status-veil-weak-cultdata", ("cultCount", (cultists.Count+constructs.Count).ToString()),
+			("cultUntilRise", conversionsUntilRise.ToString()), ("cultistCount", cultists.Count.ToString()),
+			("constructCount", constructs.Count.ToString())),
+			(EntityUid)specificCultist, fontSize: 11, newlineNeeded:true);
+	else
+		AnnounceToCultists(Loc.GetString("cult-status-veil-weak-cultdata", ("cultCount", (cultists.Count+constructs.Count).ToString()),
+			("cultUntilRise", conversionsUntilRise.ToString()), ("cultistCount", cultists.Count.ToString()),
+			("constructCount", constructs.Count.ToString())),
+			fontSize: 11, newlineNeeded:true);
+
+	// Display blood collection progress
+	string bloodMessage = GetBloodProgressMessage(component);
+	if (specificCultist != null)
+		AnnounceToCultist(bloodMessage, (EntityUid)specificCultist, color: new Color(139, 0, 0, 255), fontSize: 11, newlineNeeded: true);
+	else
+		AnnounceToCultists(bloodMessage, color: new Color(139, 0, 0, 255), fontSize: 11, newlineNeeded: true);
+	}
+
+	private string GetBloodProgressMessage(BloodCultRuleComponent component)
+	{
+		double currentBlood = component.BloodCollected;
+		string currentPhase = "";
+		double nextThreshold = 0.0;
+		double bloodNeeded = 0.0;
+
+		// Determine current phase and next threshold
+		if (!component.HasEyes)
+		{
+			currentPhase = "Eyes";
+			nextThreshold = component.BloodRequiredForEyes;
+			bloodNeeded = nextThreshold - currentBlood;
+		}
+		else if (!component.HasRisen)
+		{
+			currentPhase = "Rise";
+			nextThreshold = component.BloodRequiredForRise;
+			bloodNeeded = nextThreshold - currentBlood;
+		}
+		else if (!component.VeilWeakened)
+		{
+			currentPhase = "Veil";
+			nextThreshold = component.BloodRequiredForVeil;
+			bloodNeeded = nextThreshold - currentBlood;
+		}
 		else
-			AnnounceToCultists(Loc.GetString("cult-status-veil-weak-cultdata", ("cultCount", (cultists.Count+constructs.Count).ToString()),
-				("cultUntilRise", conversionsUntilRise.ToString()), ("cultistCount", cultists.Count.ToString()),
-				("constructCount", constructs.Count.ToString())),
-				fontSize: 11, newlineNeeded:true);
+		{
+			// All phases complete
+			return Loc.GetString("cult-blood-progress-complete", 
+				("bloodCollected", Math.Round(currentBlood, 1).ToString()));
+		}
+
+		return Loc.GetString("cult-blood-progress",
+			("bloodCollected", Math.Round(currentBlood, 1).ToString()),
+			("bloodNeeded", Math.Round(bloodNeeded, 1).ToString()),
+			("nextPhase", currentPhase),
+			("totalRequired", Math.Round(nextThreshold, 1).ToString()));
 	}
 
 	public void DistributeCommune(BloodCultRuleComponent component, string message, EntityUid sender)
@@ -1156,6 +1224,20 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 			AnnounceToCultists(message = Loc.GetString("cult-commune-message", ("name", metaData.EntityName),
 				("job", job), ("message", formattedMessage)), color:new Color(166, 27, 27, 255),
 				fontSize: 12, newlineNeeded:false, includeGhosts:true);
+		}
+	}
+
+	/// <summary>
+	/// Adds blood to the ritual pool when someone is converted.
+	/// </summary>
+	public void AddBloodForConversion(double amount = 100.0)
+	{
+		var query = EntityQueryEnumerator<BloodCultRuleComponent, GameRuleComponent>();
+		while (query.MoveNext(out var uid, out var ruleComp, out var gameRule))
+		{
+			ruleComp.BloodCollected += amount;
+			// BloodCultRuleComponent is server-only and doesn't need to be dirtied
+			return;
 		}
 	}
 }

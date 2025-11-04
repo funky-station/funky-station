@@ -46,6 +46,9 @@ cult-invocation-fail-teamkill = Nar'Sie rejects your offering of another Cultist
 cult-invocation-fail-mindshielded = Your victim resists Nar'Sie's influence!
 cult-invocation-fail-resisted = This holy being resists Nar'Sie's influence!
 cult-invocation-fail = More cultists must be present!
+cult-invocation-fail-noshell = An empty juggernaut shell must be present on the rune to perform a sacrifice!
+cult-revive-success = The ritual is complete! Life flows back into the body as your own blood is drained!
+cult-invocation-mindshield-break = The power of Nar'Sie shatters the mindshield! The ritual tears at your very essence!
 cult-invocation-target-fail = More cultists must be present to sacrifice one Nar'Sie desires!
 cult-invocation-narsie-fail = At least nine cultists must stand atop the rune, distributed evenly, to rend the veil.
 
@@ -65,7 +68,17 @@ cult-shade-summoned = The stolen soul materializes as a servant Shade!
 cult-shade-recalled = You recapture the stolen soul, rejuvinating it!
 cult-shade-servant = You have been released from your prison, but you are still bound to {$name}'s will. Help them succeed in their goals at all costs.
 
+cult-juggernaut-created = The soul is bound into the shell, creating a mighty Juggernaut!
+
+cult-juggernaut-shell-needs-dead = The shell can only accept dead bodies with souls!
+
 cult-soulstone-empty = You are unable to contact any soul from this stone -- perhaps it is empty.
+
+cult-soulstone-created = The entity's soul is captured within the soulstone!
+
+cult-blood-transmuted = The blood turns dark and profane as Nar'Sie's influence corrupts it!
+
+bloodcult-juggernaut-healed-by-blood = The juggernaut absorbs the blood, its wounds knitting together!
 
 cult-status-veil-strong = [italic]The Veil needs to be weakened before we are able to summon The Dark One.[/italic]
 
@@ -80,6 +93,9 @@ cult-status-veil-weak-goal = [italic]Current goal: Summon Nar'Sie by invoking th
 cult-status-veil-weak-cultdata = Current cult members: {$cultCount} | Conversions until Rise: {$cultUntilRise}
     Cultists: {$cultistCount}
     Constructs: {$constructCount}
+
+cult-blood-progress = [italic]Blood Collected: {$bloodCollected}u / {$totalRequired}u. {$bloodNeeded}u more needed for {$nextPhase}.[/italic]
+cult-blood-progress-complete = [italic]Blood Collected: {$bloodCollected}u. All blood thresholds have been met![/italic]
 
 cult-narsie-sacrifice-accept = "I accept your sacrifice."
 cult-narsie-target-down = "Yes! This is the one I desire! You have done well."

@@ -18,6 +18,7 @@ using Content.Server.GameTicking.Rules;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.BloodCult;
 using Content.Shared.BloodCult.Components;
+using Content.Shared.Mobs;
 
 namespace Content.Server.BloodCult.EntitySystems;
 
@@ -39,6 +40,7 @@ public sealed class SoulStoneSystem : EntitySystem
 
 		SubscribeLocalEvent<SoulStoneComponent, AfterInteractEvent>(OnTryCaptureSoul);
 		SubscribeLocalEvent<SoulStoneComponent, UseInHandEvent>(OnUseInHand);
+		SubscribeLocalEvent<ShadeComponent, MobStateChangedEvent>(OnShadeDeath);
 
 		_shadeQuery = GetEntityQuery<ShadeComponent>();
 	}
@@ -91,6 +93,13 @@ public sealed class SoulStoneSystem : EntitySystem
 				var coordinates = Transform((EntityUid)args.User).Coordinates;
 				var construct = Spawn("MobBloodCultShade", coordinates);
 				_mind.TransferTo((EntityUid)mindContainer.Mind, construct, mind:mindComp);
+				
+				// Set the soulstone reference on the Shade so it knows where to return
+				if (TryComp<ShadeComponent>(construct, out var shadeComp))
+				{
+					shadeComp.SourceSoulstone = ent;
+				}
+				
 				_audioSystem.PlayPvs("/Audio/Magic/blink.ogg", coordinates);
 				_popupSystem.PopupEntity(
 					Loc.GetString("cult-shade-summoned"),
@@ -108,4 +117,35 @@ public sealed class SoulStoneSystem : EntitySystem
 			}
 		}
 	}
+
+	private void OnShadeDeath(Entity<ShadeComponent> shade, ref MobStateChangedEvent args)
+	{
+		// Only handle when the Shade dies
+		if (args.NewMobState != MobState.Dead)
+			return;
+
+		// Check if the Shade has a source soulstone and a mind
+		if (shade.Comp.SourceSoulstone == null)
+			return;
+
+		var soulstone = shade.Comp.SourceSoulstone.Value;
+		
+		// Verify the soulstone still exists
+		if (!Exists(soulstone))
+			return;
+
+		// Get the Shade's mind
+		EntityUid? mindId = CompOrNull<MindContainerComponent>(shade)?.Mind;
+		if (mindId == null || !TryComp<MindComponent>(mindId, out var mindComp))
+			return;
+
+		// Transfer the mind back to the soulstone
+		var coordinates = Transform(shade).Coordinates;
+		_mind.TransferTo((EntityUid)mindId, soulstone, mind: mindComp);
+		_audioSystem.PlayPvs("/Audio/Magic/blink.ogg", coordinates);
+		
+		// Delete the Shade entity
+		QueueDel(shade);
+	}
 }
+

@@ -14,4 +14,10 @@ namespace Content.Shared.BloodCult.Components;
 [RegisterComponent, NetworkedComponent]
 public sealed partial class ShadeComponent : Component
 {
+	/// <summary>
+	/// The soulstone that this Shade originated from.
+	/// When the Shade dies, the mind returns to this soulstone.
+	/// </summary>
+	[DataField]
+	public EntityUid? SourceSoulstone;
 }

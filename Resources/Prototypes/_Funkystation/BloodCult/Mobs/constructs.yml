@@ -64,16 +64,46 @@
     #- type: Hands
     - type: ZombieImmune
     - type: Damageable
+      damageContainer: BloodCultConstruct
       damageModifierSet: CultJuggernaut
     - type: BloodCultConstruct
+    - type: Reactive
+      groups:
+        Flammable: [ Touch ]
+        Extinguish: [ Touch ]
+      reactions:
+      - reagents: [ Blood, Slime, Sap, InsectBlood, CopperBlood, AmmoniaBlood, ZombieBlood, ChangelingBlood, UnholyBlood ]
+        methods: [ Touch ]
+        effects:
+        - !type:HealthChange
+          scaleByQuantity: true
+          damage:
+            groups:
+              Brute: -3
+              Burn: -3
+        - !type:PopupMessage
+          type: Local
+          visualType: Medium
+          messages: [ "bloodcult-juggernaut-healed-by-blood" ]
+          probability: 0.5
     - type: MindContainer
     - type: Juggernaut
+    - type: JuggernautBodyContainer
+      containerId: juggernaut_body_container
+    - type: ContainerContainer
+      containers:
+        juggernaut_body_container: !type:ContainerSlot
     - type: Physics
     - type: InputMover
     - type: MobMover
+    - type: Speech
+    - type: Emoting
     - type: ReplacementAccent
-      accent: genericAggressive
+      accent: juggernaut
     - type: CombatMode
+    - type: Puller
+      needsHands: false
+    - type: Pullable
     - type: HTN
       rootTask:
         task: SimpleHostileCompound
@@ -86,6 +116,7 @@
     - type: MobState
       allowedStates:
         - Alive
+        - Critical
         - Dead
     - type: MeleeWeapon
       hidden: true
@@ -101,6 +132,8 @@
       states:
         Alive:
           Base: juggernaut
+        Critical:
+          Base: juggernaut_dead
         Dead:
           Base: juggernaut_dead
     - type: Fixtures
@@ -117,7 +150,8 @@
     - type: MobThresholds
       thresholds:
         0: Alive
-        140: Dead
+        140: Critical
+        280: Dead
     - type: MovementSpeedModifier
       baseWalkSpeed: 2.0
       baseSprintSpeed: 2.5
@@ -150,7 +184,8 @@
     #- type: Hands
     - type: ZombieImmune
     - type: Damageable
-      #damageModifierSet: CultJuggernaut
+      damageContainer: BloodCultConstruct
+      damageModifierSet: CultShade
     - type: BloodCultConstruct
     - type: MindContainer
     - type: Shade

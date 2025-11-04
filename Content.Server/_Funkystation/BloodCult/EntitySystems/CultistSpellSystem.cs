@@ -39,6 +39,8 @@ using Content.Shared.PowerCell.Components;
 using Content.Shared.Silicons.Borgs.Components;
 using Content.Shared.Weapons.Melee;
 using Content.Shared.Weapons.Melee.Events;
+using Content.Server.Construction;
+using Content.Server.Construction.Components;
 
 
 namespace Content.Server.BloodCult.EntitySystems;
@@ -66,6 +68,7 @@ public sealed partial class CultistSpellSystem : EntitySystem
 	[Dependency] private readonly SharedStunSystem _stun = default!;
 	
 	[Dependency] private readonly IPrototypeManager _protoMan = default!;
+	[Dependency] private readonly ConstructionSystem _construction = default!;
 
 	private EntityQuery<EmpowerOnStandComponent> _runeQuery;
 
@@ -89,6 +92,7 @@ public sealed partial class CultistSpellSystem : EntitySystem
 		SubscribeLocalEvent<BloodCultistComponent, EventCultistTwistedConstruction>(OnTwistedConstruction);
 
 		SubscribeLocalEvent<BloodCultistComponent, CarveSpellDoAfterEvent>(OnCarveSpellDoAfter);
+		SubscribeLocalEvent<BloodCultistComponent, TwistedConstructionDoAfterEvent>(OnTwistedConstructionDoAfter);
 	}
 
 	private bool TryUseAbility(Entity<BloodCultistComponent> ent, BaseActionEvent args)
@@ -327,22 +331,71 @@ public sealed partial class CultistSpellSystem : EntitySystem
 
 	private void OnTwistedConstruction(Entity<BloodCultistComponent> ent, ref EventCultistTwistedConstruction args)
 	{
-		var canConvert = TryComp<StackComponent>(args.Target, out var stack) && (stack.StackTypeId == "Plasteel");
-		if (stack == null || !canConvert || !TryUseAbility(ent, args))
+		// Check if target is a plasteel stack
+		if (TryComp<StackComponent>(args.Target, out var stack) && stack.StackTypeId == "Plasteel")
+		{
+			if (!TryUseAbility(ent, args))
+				return;
+
+			var count = stack.Count;
+			var thirties_to_spawn = (int)((float)count / 30.0f);
+			var tens_to_spawn = (int)(((float)count - 30.0f*(float)thirties_to_spawn) / 10.0f);
+			var ones_to_spawn = (int)(((float)count - 10.0f*(float)tens_to_spawn) - 30.0f*(float)thirties_to_spawn);
+
+			for (int i = 0; i < thirties_to_spawn; i++)
+				Spawn("SheetRunedMetal30", Transform(args.Target).Coordinates);
+			for (int i = 0; i < tens_to_spawn; i++)
+				Spawn("SheetRunedMetal10", Transform(args.Target).Coordinates);
+			for (int i = 0; i < ones_to_spawn; i++)
+				Spawn("SheetRunedMetal1", Transform(args.Target).Coordinates);
+
+			QueueDel(args.Target);
+			args.Handled = true;
 			return;
-		var count = stack.Count;
-		var thirties_to_spawn = (int)((float)count / 30.0f);
-		var tens_to_spawn = (int)(((float)count - 30.0f*(float)thirties_to_spawn) / 10.0f);
-		var ones_to_spawn = (int)(((float)count - 10.0f*(float)tens_to_spawn) - 30.0f*(float)thirties_to_spawn);
+		}
 
-		for (int i = 0; i < thirties_to_spawn; i++)
-			Spawn("SheetRunedMetal30", Transform(args.Target).Coordinates);
-		for (int i = 0; i < tens_to_spawn; i++)
-			Spawn("SheetRunedMetal10", Transform(args.Target).Coordinates);
-		for (int i = 0; i < ones_to_spawn; i++)
-			Spawn("SheetRunedMetal1", Transform(args.Target).Coordinates);
+		// Check if target is a reinforced wall
+		if (TryComp<ConstructionComponent>(args.Target, out var construction) && 
+		    construction.Graph == "Girder" && 
+		    construction.Node == "reinforcedWall")
+		{
+			if (!TryUseAbility(ent, args))
+				return;
 
-		QueueDel(args.Target);
-		args.Handled = true;
+			// Start do-after for wall deconstruction
+			var doAfterArgs = new DoAfterArgs(EntityManager, ent, TimeSpan.FromSeconds(3), 
+				new TwistedConstructionDoAfterEvent(args.Target), ent, target: args.Target)
+			{
+				BreakOnMove = true,
+				BreakOnDamage = true,
+				NeedHand = false,
+			};
+
+			_doAfter.TryStartDoAfter(doAfterArgs);
+			args.Handled = true;
+			return;
+		}
+	}
+
+	private void OnTwistedConstructionDoAfter(Entity<BloodCultistComponent> ent, ref TwistedConstructionDoAfterEvent args)
+	{
+		if (args.Cancelled || args.Target == null || !TryComp<ConstructionComponent>(args.Target, out var construction))
+			return;
+
+		// Verify it's still a reinforced wall
+		if (construction.Graph != "Girder" || construction.Node != "reinforcedWall")
+			return;
+
+		var targetCoords = Transform(args.Target).Coordinates;
+
+		// Spawn a stack of 4 plasteel sheets (the amount used to build a reinforced wall)
+		var plasteel = Spawn("SheetPlasteel1", targetCoords);
+		if (TryComp<StackComponent>(plasteel, out var stack))
+		{
+			stack.Count = 4;
+		}
+
+		// Change the wall to a girder
+		_construction.ChangeNode(args.Target, ent, "girder", performActions: true, construction: construction);
 	}
 }

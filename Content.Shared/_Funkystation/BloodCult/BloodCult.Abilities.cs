@@ -96,6 +96,16 @@ public sealed partial class CultistSpellComponent : Component
     }
 }
 
+[Serializable, NetSerializable] public sealed partial class TwistedConstructionDoAfterEvent : SimpleDoAfterEvent
+{
+	[NonSerialized] public EntityUid Target;
+
+    public TwistedConstructionDoAfterEvent(EntityUid target)
+    {
+		Target = target;
+    }
+}
+
 #endregion
 
 #region Spells

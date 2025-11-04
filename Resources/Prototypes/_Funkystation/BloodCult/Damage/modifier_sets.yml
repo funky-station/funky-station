@@ -6,9 +6,22 @@
 
 - type: damageModifierSet
   id: CultJuggernaut
+  coefficients:
+    Poison: 0
+    Radiation: 0
+    Asphyxiation: 0
+    Bloodloss: 0
   flatReductions:
     Blunt: 10.0
     Slash: 10.0
     Piercing: 10.0
     Shock: 10.0
     Heat: 10.0
+
+- type: damageModifierSet
+  id: CultShade
+  coefficients:
+    Poison: 0
+    Radiation: 0
+    Asphyxiation: 0
+    Bloodloss: 0

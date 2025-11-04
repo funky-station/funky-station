@@ -74,6 +74,26 @@ public sealed partial class BloodCultRuleComponent : Component
 	[DataField] public List<EntityUid> TargetsDown = new List<EntityUid>();
 
 	/// <summary>
+	/// Current amount of blood collected for the ritual.
+	/// </summary>
+	[DataField] public double BloodCollected = 0.0;
+
+	/// <summary>
+	/// Blood required to reach the first phase (Eyes).
+	/// </summary>
+	[DataField] public double BloodRequiredForEyes = 0.0;
+
+	/// <summary>
+	/// Blood required to reach the second phase (Rise).
+	/// </summary>
+	[DataField] public double BloodRequiredForRise = 0.0;
+
+	/// <summary>
+	/// Blood required to reach the third phase (Veil Weakened).
+	/// </summary>
+	[DataField] public double BloodRequiredForVeil = 0.0;
+
+	/// <summary>
 	///	Conversions needed until glowing eyes -- set when cult is initialized.
 	/// </summary>
 	[DataField] public int ConversionsUntilEyes = 0;

@@ -26,6 +26,8 @@ using Robust.Shared.Containers;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
+using Content.Server.GameTicking.Rules.Components;
+using Content.Shared.GameTicking.Components;
 
 namespace Content.Server.BloodCult.Systems;
 
@@ -348,13 +350,39 @@ public sealed partial class CultHealingSourceSystem : EntitySystem
 			if (keys.Count == 0)
 				return;
 			
+			// Apply healing multiplier based on cult progression
+			float healingMultiplier = GetHealingMultiplier();
+			float adjustedHealing = healingPerSecond * healingMultiplier;
+			
 			var ds = new DamageSpecifier();
 			foreach (var key in keys)
 			{
-				ds.DamageDict.Add(key, FixedPoint2.New(-(healingPerSecond * time) / keys.Count));
+				ds.DamageDict.Add(key, FixedPoint2.New(-(adjustedHealing * time) / keys.Count));
 			}
 			_damageableSystem.TryChangeDamage(uid, ds, true, false, origin: uid);
 		}
+	}
+
+	private float GetHealingMultiplier()
+	{
+		// Check the blood cult rule component to determine phase
+		var query = EntityQueryEnumerator<BloodCultRuleComponent, GameRuleComponent>();
+		while (query.MoveNext(out var uid, out var ruleComp, out var gameRule))
+		{
+			// Phase 3 (Rise): 50% more healing
+			if (ruleComp.HasRisen)
+				return 1.5f;
+			
+			// Phase 2 (Eyes): 25% more healing
+			if (ruleComp.HasEyes)
+				return 1.25f;
+			
+			// Phase 1 (Base): normal healing
+			return 1.0f;
+		}
+		
+		// Default if no rule found
+		return 1.0f;
 	}
 
 	public void CultReconvertEntity(EntityUid uid)

@@ -5355,3 +5355,11 @@ Entries:
       message: Added impaired mobility trait.
   id: 641
   time: '2025-11-04T22:30:06.0000000+00:00'
+- author: TrixxedHeart
+  changes:
+    - type: Add
+      message: Added canes to the trinkets loadout tab.
+    - type: Add
+      message: Added offset canes. They can be crafted in the medical lathe.
+  id: 642
+  time: '2025-11-04T22:30:45.0000000+00:00'

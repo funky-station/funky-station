@@ -6,6 +6,7 @@
 # SPDX-FileCopyrightText: 2024 Theapug <159912420+Teapug@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 88tv <131759102+88tv@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 8tv <eightev@gmail.com>
+# SPDX-FileCopyrightText: 2025 MaiaArai <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
@@ -18,6 +19,15 @@
     requirement:
       !type:RoleTimeRequirement
       role: JobNanotrasenRepresentative
+      time: 72000 #20 hrs
+
+- type: loadoutEffectGroup
+  id: SeniorCentralCommand
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:DepartmentTimeRequirement
+      department: CentralCommand
       time: 72000 #20 hrs
 
 #hat
@@ -82,7 +92,7 @@
   id: NanotrasenRepresentativePaperworkGloves
   effects:
   - !type:GroupLoadoutEffect
-    proto: SeniorNanotrasenRepresentative
+    proto: SeniorCentralCommand
   equipment:
     gloves: ClothingHandsGlovesHop
 

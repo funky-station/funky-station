@@ -39,7 +39,10 @@
 // SPDX-FileCopyrightText: 2024 mkanke-real <mikekanke@gmail.com>
 // SPDX-FileCopyrightText: 2024 terezi <147006836+terezi-station@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 ArsCatalyst <Heartflareburst@gmail.com>
+// SPDX-FileCopyrightText: 2025 Dusty_Plant <34702649+Dusty-Plant@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Dusty_Plant <ytsur2001@gmail.com>
 // SPDX-FileCopyrightText: 2025 EmillyCoelho <167008606+Ichaie@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Evaisa <mail@evaisa.dev>
 // SPDX-FileCopyrightText: 2025 Ichaie <ichaicoelho@gmail.com>
 // SPDX-FileCopyrightText: 2025 LaCumbiaDelCoronavirus <90893484+LaCumbiaDelCoronavirus@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Spanky <180730777+spanky-spanky@users.noreply.github.com>
@@ -49,9 +52,12 @@
 // SPDX-FileCopyrightText: 2025 marc-pelletier <113944176+marc-pelletier@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
+// SPDX-FileCopyrightText: 2025 salpphie <53307242+salpphie@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 salpphie <alyssa.thomas51@gmail.com>
 // SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 willow <willowzeta632146@proton.me>
+// SPDX-FileCopyrightText: 2025 wilowzeta <willowzeta632146@proton.me>
 //
 // SPDX-License-Identifier: MIT
 
@@ -138,9 +144,11 @@ namespace Content.IntegrationTests.Tests
             "Divide", // funkystation
             "Glacier", // funkystation
 			"Eden", // funkystation
+			"Court", // funkystation
             "Barratry", // Harmony
             "Eclipse", // Harmony
             "Kettle", // Goobstation - add Kettle
+            "Olympus", // funkystation - hey a step I didn't know existed
             "Amber",
             "HotSprings",
             "Gate",

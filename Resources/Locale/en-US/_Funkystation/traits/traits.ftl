@@ -53,3 +53,9 @@ trait-lizard-dragger-desc = You can drag objects without an open hand, like Liza
 
 trait-acrobat-name = Acrobat
 trait-acrobat-desc = You move much faster in low-gravity, similar to a moth.
+
+trait-nitrogen-breathing-name = Oxygen Allergy
+trait-nitrogen-breathing-desc = You seem to have Vox relatives. Oxygen poisons you. Mask and nitrogen tank included.
+
+trait-supermatter-hallucination-immune-name = Supermatter Immunity
+trait-supermatter-hallucination-immune-desc = You are immune to hallucinations caused by supermatter exposure.

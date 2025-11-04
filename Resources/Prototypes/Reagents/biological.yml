@@ -202,10 +202,10 @@
 
 - type: reagent
   parent: Blood
-  id: UnholyBlood
-  name: reagent-name-unholy-blood
+  id: SanguinePerniculate
+  name: reagent-name-sanguine-perniculate
   group: Biological
-  desc: reagent-desc-unholy-blood
+  desc: reagent-desc-sanguine-perniculate
   physicalDesc: reagent-physical-desc-profane
   flavor: forbidden
   color: "#660000"

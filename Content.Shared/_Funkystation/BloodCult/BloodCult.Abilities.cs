@@ -102,7 +102,21 @@ public sealed partial class CultistSpellComponent : Component
 
     public TwistedConstructionDoAfterEvent(EntityUid target)
     {
-		Target = target;
+        Target = target;
+    }
+}
+
+[Serializable, NetSerializable] public sealed partial class MindshieldBreakDoAfterEvent : SimpleDoAfterEvent
+{
+	[NonSerialized] public EntityUid Victim;
+	[NonSerialized] public EntityUid[] Participants;
+	[NonSerialized] public EntityCoordinates RuneLocation;
+
+    public MindshieldBreakDoAfterEvent(EntityUid victim, EntityUid[] participants, EntityCoordinates runeLocation)
+    {
+        Victim = victim;
+		Participants = participants;
+		RuneLocation = runeLocation;
     }
 }
 

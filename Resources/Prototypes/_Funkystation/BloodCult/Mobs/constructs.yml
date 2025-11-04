@@ -8,7 +8,7 @@
   name: juggernaut shell
   id: CultJuggernautShell
   parent: BaseBloodCultContraband
-  description: A large, inert monstrosity made from runed metal.
+  description: A large, inert monstrosity made from runed metal. Can be completed by dragging a dead body onto it or using a filled soulstone on it.
   components:
   - type: BloodCultConstructShell
   - type: Construction
@@ -72,7 +72,7 @@
         Flammable: [ Touch ]
         Extinguish: [ Touch ]
       reactions:
-      - reagents: [ Blood, Slime, Sap, InsectBlood, CopperBlood, AmmoniaBlood, ZombieBlood, ChangelingBlood, UnholyBlood ]
+      - reagents: [ Blood, Slime, Sap, InsectBlood, CopperBlood, AmmoniaBlood, ZombieBlood, ChangelingBlood, SanguinePerniculate ]
         methods: [ Touch ]
         effects:
         - !type:HealthChange

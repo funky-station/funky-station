@@ -41,16 +41,39 @@ public sealed partial class BloodCultConstructSystem : EntitySystem
     {
 		if (args.Target == null || !HasComp<BloodCultConstructShellComponent>(args.Target))
 			return;
-		var coordinates = Transform((EntityUid)args.Target).Coordinates;
+		
+		// Get the mind from the soulstone
 		EntityUid? mindId = CompOrNull<MindContainerComponent>(ent)?.Mind;
 		MindComponent? mindComp = CompOrNull<MindComponent>(mindId);
-		if (mindId != null && mindComp != null)
+		
+		if (mindId == null || mindComp == null)
 		{
-			QueueDel((EntityUid)args.Target);
-			var construct = Spawn("MobBloodCultJuggernaut", coordinates);
-			_mind.TransferTo((EntityUid)mindId, construct, mind:mindComp);
-			QueueDel(ent);
+			_popup.PopupEntity(Loc.GetString("cult-soulstone-empty"), args.User, args.User, PopupType.Medium);
+			args.Handled = true;
+			return;
 		}
+		
+		var shellCoordinates = Transform((EntityUid)args.Target).Coordinates;
+		
+		// Play sacrifice audio
+		_audio.PlayPvs(new SoundPathSpecifier("/Audio/Magic/disintegrate.ogg"), shellCoordinates);
+		
+		// Delete the shell and spawn the juggernaut
+		QueueDel((EntityUid)args.Target);
+		var juggernaut = Spawn("MobBloodCultJuggernaut", shellCoordinates);
+		
+		// Transfer mind from soulstone to juggernaut
+		_mind.TransferTo((EntityUid)mindId, juggernaut, mind:mindComp);
+		
+		// Delete the soulstone
+		QueueDel(ent);
+		
+		// Play transformation audio
+		_audio.PlayPvs(new SoundPathSpecifier("/Audio/Magic/blink.ogg"), shellCoordinates);
+		
+		// Notify the user
+		_popup.PopupEntity(Loc.GetString("cult-juggernaut-created"), args.User, args.User, PopupType.Large);
+		
 		args.Handled = true;
 	}
 

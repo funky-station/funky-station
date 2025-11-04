@@ -13,12 +13,15 @@ using Robust.Server.GameObjects;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Audio;
 using Robust.Shared.Containers;
+using Robust.Shared.Timing;
 using Content.Shared.FixedPoint;
 using Content.Shared.Trigger;
+using Content.Shared.DoAfter;
 using Content.Server.Explosion.EntitySystems;
 using Content.Server.Popups;
 using Content.Shared.Popups;
 using Content.Server.BloodCult;
+using Content.Server.BloodCult.Components;
 using Content.Shared.BloodCult;
 using Content.Shared.BloodCult.Components;
 using Content.Shared.Damage;
@@ -34,6 +37,7 @@ using Content.Server.Body.Systems;
 using Content.Shared.Roles;
 using Content.Server.Roles;
 using Content.Server.Mind;
+using Content.Server.Chat.Systems;
 using Content.Shared.Stunnable;
 using Content.Shared.StatusEffect;
 using Content.Shared.Chemistry.EntitySystems;
@@ -53,18 +57,52 @@ namespace Content.Server.BloodCult.EntitySystems
 		[Dependency] private readonly BloodCultistSystem _bloodCultist = default!;
 		[Dependency] private readonly MindSystem _mind = default!;
 		[Dependency] private readonly SharedAudioSystem _audio = default!;
-		[Dependency] private readonly BloodCultConstructSystem _constructSystem = default!;
 		[Dependency] private readonly SharedContainerSystem _container = default!;
 		[Dependency] private readonly BloodstreamSystem _bloodstream = default!;
 		[Dependency] private readonly SharedStunSystem _stun = default!;
 		[Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
 		[Dependency] private readonly PuddleSystem _puddle = default!;
 		[Dependency] private readonly BloodCultRuleSystem _bloodCultRule = default!;
+		[Dependency] private readonly BodySystem _bodySystem = default!;
+		[Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
+		[Dependency] private readonly IGameTiming _gameTiming = default!;
+		[Dependency] private readonly ChatSystem _chat = default!;
+		[Dependency] private readonly SharedTransformSystem _transform = default!;
 
 		public override void Initialize()
 		{
 			base.Initialize();
 			SubscribeLocalEvent<OfferOnTriggerComponent, TriggerEvent>(HandleOfferTrigger);
+			SubscribeLocalEvent<MindshieldBreakDoAfterEvent>(OnMindshieldBreakComplete);
+		}
+
+		public override void Update(float frameTime)
+		{
+			base.Update(frameTime);
+
+			var curTime = _gameTiming.CurTime;
+			var query = EntityQueryEnumerator<MindshieldBreakRitualComponent>();
+			while (query.MoveNext(out var uid, out var ritual))
+			{
+				// Check if it's time to chant
+				if (curTime >= ritual.NextChantTime && ritual.ChantCount < 3)
+				{
+					ritual.ChantCount++;
+					ritual.NextChantTime = curTime + TimeSpan.FromSeconds(2);
+
+					// Make all participants chant gibberish
+					foreach (var cultist in ritual.Participants)
+					{
+						if (!Exists(cultist))
+							continue;
+
+						// Generate random gibberish chant
+						var chants = new[] { "Ia! Ia!", "N'ghft!", "Y'hah!", "Vulgtm!", "Shogg!", "Uln!", "Ftaghn!" };
+						var chant = chants[Random.Shared.Next(chants.Length)] + " " + chants[Random.Shared.Next(chants.Length)];
+						_chat.TrySendInGameICMessage(cultist, chant, InGameICChatType.Speak, false);
+					}
+				}
+			}
 		}
 
 		private void HandleOfferTrigger(EntityUid uid, OfferOnTriggerComponent component, TriggerEvent args)
@@ -117,26 +155,30 @@ namespace Content.Server.BloodCult.EntitySystems
 						user, user, PopupType.MediumCaution
 					);
 			}
+			else if (HasComp<MindShieldComponent>(offerable))
+			{
+				// Mindshielded victim - attempt to break mindshield
+				_BreakMindshield(offerable, user, cultistsInRange, Transform(uid).Coordinates);
+			}
 			else if (_CanBeConverted(offerable))
 			{
-				// Check if this is a soulstone-eligible entity (IPC, brain types, etc.)
+				// Check if this is a soulstone-eligible entity (cannot bleed)
 				if (_IsSoulstoneEligible(offerable))
 				{
-					// Create a soulstone for special entities
+					// Create a soulstone for entities that cannot bleed
 					_CreateSoulstoneFromEntity(offerable, user, uid, cultistsInRange);
 				}
 				else
 				{
 					// Normal conversion for organic humanoids
 					_bloodCultist.UseConvertRune(offerable, user, uid, cultistsInRange);
-					// Add 100u of blood to the ritual pool for converting someone
-					_bloodCultRule.AddBloodForConversion(100.0);
+					
+					// Add blood to the ritual pool based on the victim's current blood level
+					// If they're at 50% blood, only add 50u instead of 100u
+					var bloodPercentage = _bloodstream.GetBloodLevelPercentage(offerable);
+					var bloodAmount = 100.0 * bloodPercentage;
+					_bloodCultRule.AddBloodForConversion(bloodAmount);
 				}
-			}
-			else if (HasComp<MindShieldComponent>(offerable) && shells.Count > 0)
-			{
-				// Mindshielded victim with a shell present - attempt to break mindshield
-				_BreakMindshield(offerable, user, shells[0], cultistsInRange);
 			}
 			else if (_CanBeSacrificed(offerable, shells))
 			{
@@ -183,13 +225,12 @@ namespace Content.Server.BloodCult.EntitySystems
 				continue;
 			
 			// Check if the solution contains any blood types
-			var bloodTypes = new[] { "Blood", "Slime", "Sap", "InsectBlood", "CopperBlood", "AmmoniaBlood", "ZombieBlood", "ChangelingBlood" };
 			FixedPoint2 totalBloodAmount = FixedPoint2.Zero;
 			var bloodReagentsFound = new List<(ReagentId reagent, FixedPoint2 amount)>();
 
 			foreach (var reagentQuantity in solution.Contents)
 			{
-				if (bloodTypes.Contains(reagentQuantity.Reagent.Prototype))
+				if (BloodCultConstants.SacrificeBloodReagents.Contains(reagentQuantity.Reagent.Prototype))
 				{
 					bloodReagentsFound.Add((reagentQuantity.Reagent, reagentQuantity.Quantity));
 					totalBloodAmount += reagentQuantity.Quantity;
@@ -199,12 +240,12 @@ namespace Content.Server.BloodCult.EntitySystems
 			if (totalBloodAmount <= 0)
 				continue;
 
-			// Convert all blood types to UnholyBlood
+			// Convert all blood types to SanguinePerniculate
 			foreach (var (reagent, amount) in bloodReagentsFound)
 			{
 				solution.RemoveReagent(reagent, amount);
 			}
-			solution.AddReagent(new ReagentId("UnholyBlood", null), totalBloodAmount);			_solutionContainer.UpdateChemicals(beakerSolution.Value);
+			solution.AddReagent(new ReagentId("SanguinePerniculate", null), totalBloodAmount);			_solutionContainer.UpdateChemicals(beakerSolution.Value);
 
 			// Spill the container
 			var spillSolution = _solutionContainer.SplitSolution(beakerSolution.Value, solution.Volume);
@@ -258,34 +299,9 @@ namespace Content.Server.BloodCult.EntitySystems
 
 	private bool _IsSoulstoneEligible(EntityUid uid)
 	{
-		// Check if it's an IPC (via species check)
-		if (TryComp<HumanoidAppearanceComponent>(uid, out var humanoid) && humanoid.Species == "IPC")
-			return true;
-
-		// Check entity prototype ID for specific brain/core/slime types
-		if (TryComp<MetaDataComponent>(uid, out var meta) && meta.EntityPrototype != null)
-		{
-			var protoId = meta.EntityPrototype.ID;
-			var soulstoneEntities = new[] 
-			{ 
-				"PositronicBrain", 
-				"MobDionaNymph",
-				"OrganThavenBrain"
-			};
-			
-			if (soulstoneEntities.Contains(protoId))
-				return true;
-			
-			// Check for adult slimes (any color variant)
-			if (protoId.StartsWith("MobAdultSlimes"))
-				return true;
-		}
-
-		// Check for regular brain component (already in brains list, but covers all brain types)
-		if (HasComp<BrainComponent>(uid))
-			return true;
-
-		return false;
+		// Entities that cannot bleed (no bloodstream) should be captured in soulstones
+		// This includes IPCs, positronic brains, slimes, and other non-organic entities
+		return !HasComp<BloodstreamComponent>(uid);
 	}
 
 	private void _CreateSoulstoneFromEntity(EntityUid victim, EntityUid user, EntityUid rune, EntityUid[] cultistsInRange)
@@ -322,8 +338,17 @@ namespace Content.Server.BloodCult.EntitySystems
 		var soulstone = Spawn("CultSoulStone", coordinates);
 		_mind.TransferTo((EntityUid)mindId, soulstone, mind:mindComp);
 		
-		// Delete the original entity
-		QueueDel(victim);
+		// Gib the original entity (for realism)
+		var gibs = _bodySystem.GibBody(victim);
+		
+		// Delete any brain or mind container from the gibs to prevent soulless brains
+		foreach (var gib in gibs)
+		{
+			if (HasComp<BrainComponent>(gib) || HasComp<MindContainerComponent>(gib))
+			{
+				QueueDel(gib);
+			}
+		}
 		
 		// Play success audio
 		_audio.PlayPvs(new SoundPathSpecifier("/Audio/Magic/blink.ogg"), coordinates);
@@ -344,10 +369,10 @@ namespace Content.Server.BloodCult.EntitySystems
 		return shells.Count > 0;
 	}
 
-	private void _BreakMindshield(EntityUid victim, EntityUid user, EntityUid shell, EntityUid[] cultistsInRange)
+	private void _BreakMindshield(EntityUid victim, EntityUid user, EntityUid[] cultistsInRange, EntityCoordinates runeLocation)
 	{
-		// Check if enough cultists are present
-		if (cultistsInRange.Length < 1)
+		// Require 3 cultists total (user + 2 others)
+		if (cultistsInRange.Length < 3)
 		{
 			_popupSystem.PopupEntity(
 				Loc.GetString("cult-invocation-fail"),
@@ -356,12 +381,31 @@ namespace Content.Server.BloodCult.EntitySystems
 			return;
 		}
 
-		var shellCoordinates = Transform(shell).Coordinates;
-		
-		// Play dramatic audio
-		_audio.PlayPvs(new SoundPathSpecifier("/Audio/_Funkystation/Ambience/Antag/creepyshriek.ogg"), shellCoordinates);
-		
-		// Show dramatic message to all cultists
+		// Start the 6 second ritual with DoAfter
+		var doAfterEvent = new MindshieldBreakDoAfterEvent(victim, cultistsInRange, runeLocation);
+		var doAfterArgs = new DoAfterArgs(EntityManager, user, TimeSpan.FromSeconds(6), doAfterEvent, user, target: victim)
+		{
+			BreakOnMove = true,
+			BreakOnDamage = true,
+			NeedHand = false,
+			DistanceThreshold = 2.5f,
+			AttemptFrequency = AttemptFrequency.EveryTick, // Check every tick to validate participants
+			// Custom validation will check if other cultists are still in range
+		};
+
+		if (!_doAfter.TryStartDoAfter(doAfterArgs))
+			return;
+
+		// Create ritual tracking component on the user to handle periodic chanting
+		var ritual = EnsureComp<MindshieldBreakRitualComponent>(user);
+		ritual.Victim = victim;
+		ritual.Participants = cultistsInRange;
+		ritual.RuneLocation = runeLocation;
+		ritual.StartTime = _gameTiming.CurTime;
+		ritual.NextChantTime = _gameTiming.CurTime; // Chant immediately
+		ritual.ChantCount = 0;
+
+		// Show dramatic start message to all cultists
 		foreach (EntityUid cultist in cultistsInRange)
 		{
 			_popupSystem.PopupEntity(
@@ -369,9 +413,76 @@ namespace Content.Server.BloodCult.EntitySystems
 				cultist, cultist, PopupType.LargeCaution
 			);
 		}
+	}
+
+	private void OnMindshieldBreakComplete(MindshieldBreakDoAfterEvent args)
+	{
+		if (args.Handled)
+			return;
+
+		var user = args.User;
+
+		// Safety check: ensure user still exists
+		if (!Exists(user))
+			return;
+
+		// Remove the ritual tracking component
+		RemCompDeferred<MindshieldBreakRitualComponent>(user);
+
+		if (args.Cancelled)
+		{
+			_popupSystem.PopupEntity(
+				Loc.GetString("cult-invocation-interrupted"),
+				user, user, PopupType.MediumCaution
+			);
+			return;
+		}
+
+		var victim = args.Victim;
+
+		// Safety check: ensure victim still exists (could be deleted, gibbed, etc. during DoAfter)
+		if (!Exists(victim))
+		{
+			_popupSystem.PopupEntity(
+				Loc.GetString("cult-invocation-interrupted"),
+				user, user, PopupType.MediumCaution
+			);
+			return;
+		}
+		var participants = args.Participants;
+
+		// Validate that all participants are still present and in range
+		var validParticipants = new List<EntityUid>();
+		foreach (var cultist in participants)
+		{
+			if (!Exists(cultist) || _mobState.IsDead(cultist))
+				continue;
+
+			var cultistPos = _transform.GetWorldPosition(cultist);
+			var runePos = _transform.ToMapCoordinates(args.RuneLocation).Position;
+			if ((cultistPos - runePos).Length() > 2.5f)
+				continue;
+
+			validParticipants.Add(cultist);
+		}
+
+		// Still need 3 cultists at the end
+		if (validParticipants.Count < 3)
+		{
+			_popupSystem.PopupEntity(
+				Loc.GetString("cult-invocation-fail"),
+				user, user, PopupType.MediumCaution
+			);
+			return;
+		}
+
+		var coordinates = Transform(victim).Coordinates;
 		
-		// Apply bleeding and stun to all participating cultists
-		foreach (EntityUid cultist in cultistsInRange)
+		// Play dramatic completion audio
+		_audio.PlayPvs(new SoundPathSpecifier("/Audio/_Funkystation/Ambience/Antag/creepyshriek.ogg"), coordinates);
+		
+		// Apply bleeding and stun to ONLY the participating cultists
+		foreach (EntityUid cultist in validParticipants)
 		{
 			// Apply heavy bleeding
 			if (TryComp<BloodstreamComponent>(cultist, out var bloodstream))
@@ -386,11 +497,22 @@ namespace Content.Server.BloodCult.EntitySystems
 			}
 		}
 		
+		// Stun the victim as well
+		if (TryComp<StatusEffectsComponent>(victim, out var victimStatus))
+		{
+			_stun.TryParalyze(victim, TimeSpan.FromSeconds(10), true, victimStatus);
+		}
+		
 		// Remove the mindshield from the victim
 		RemComp<MindShieldComponent>(victim);
 		
-		// Now proceed with the normal sacrifice
-		_SacrificeIntoShell(victim, user, shell, cultistsInRange);
+		// Show success message - victim will need to be converted/sacrificed on a second attempt
+		_popupSystem.PopupEntity(
+			Loc.GetString("cult-invocation-mindshield-success"),
+			user, user, PopupType.Large
+		);
+
+		args.Handled = true;
 	}
 
 	private void _SacrificeIntoShell(EntityUid victim, EntityUid user, EntityUid shell, EntityUid[] cultistsInRange)

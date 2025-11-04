@@ -2,5 +2,11 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
-unholy-blood-holywater-reaction = The unholy blood violently reacts with the holy water, releasing noxious gas!
+reagent-name-edge-essentia = edge essentia
+reagent-desc-edge-essentia = A dark, cursed substance that corrupts the blood of wounded victims, turning their bleeding wounds into sources of sanguine perniculate.
 
+reagent-effect-guidebook-bleed-sanguine-perniculate =
+    { $chance ->
+        [1] Converts
+       *[other] Has a {NATURALPERCENT($chance, 2)} chance to convert
+    } bleeding blood into sanguine perniculate

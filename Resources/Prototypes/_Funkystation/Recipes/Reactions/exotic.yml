@@ -151,16 +151,17 @@
     Muigroc: 2
 
 - type: reaction
-  id: UnholyPurification
+  id: SanguinePurification
   reactants:
-    UnholyBlood:
-      amount: 10 # 10u of Unholy Blood is needed to create 1u of Zauker. This is to stop it from being an absolutely massive amount of Zauker.
+    SanguinePerniculate:
+      amount: 1
     Holywater:
       amount: 1
+  products:
+    FoamingAgent: 1
+    Razorium: 1
   effects:
-  - !type:CreateGas
-    gas: Zauker
   - !type:PopupMessage
     visualType: LargeCaution
-    messages: [ "unholy-blood-holywater-reaction" ]
+    messages: [ "sanguine-perniculate-holywater-reaction" ]
     type: Pvs

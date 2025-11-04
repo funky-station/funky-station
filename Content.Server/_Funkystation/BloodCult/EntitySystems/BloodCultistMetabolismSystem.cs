@@ -29,8 +29,8 @@ public sealed class BloodCultistMetabolismSystem : EntitySystem
 
     private void OnCultistInit(EntityUid uid, BloodCultistComponent component, ComponentInit args)
     {
-        // Change blood type to Unholy Blood
-        _bloodstream.ChangeBloodReagent(uid, "UnholyBlood");
+        // Change blood type to Sanguine Perniculate
+        _bloodstream.ChangeBloodReagent(uid, "SanguinePerniculate");
         
         // Add a blood gland organ (separate from stomach, so we don't interfere with eating)
         if (!TryComp<BodyComponent>(uid, out var body))

@@ -47,8 +47,12 @@ cult-invocation-fail-mindshielded = Your victim resists Nar'Sie's influence!
 cult-invocation-fail-resisted = This holy being resists Nar'Sie's influence!
 cult-invocation-fail = More cultists must be present!
 cult-invocation-fail-noshell = An empty juggernaut shell must be present on the rune to perform a sacrifice!
+cult-invocation-interrupted = The ritual was interrupted!
 cult-revive-success = The ritual is complete! Life flows back into the body as your own blood is drained!
+cult-sanguine-perniculate-heal = The sanguine perniculate soothes your wounds, healing {$amount} holy damage!
+cult-holywater-burn = The holy water burns you for {$amount} damage!
 cult-invocation-mindshield-break = The power of Nar'Sie shatters the mindshield! The ritual tears at your very essence!
+cult-invocation-mindshield-success = The mindshield has been broken! The victim is now vulnerable to conversion.
 cult-invocation-target-fail = More cultists must be present to sacrifice one Nar'Sie desires!
 cult-invocation-narsie-fail = At least nine cultists must stand atop the rune, distributed evenly, to rend the veil.
 

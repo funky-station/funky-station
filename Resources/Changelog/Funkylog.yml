@@ -5307,3 +5307,11 @@ Entries:
       message: Added custom door accesses and doors for both Librarian and Reporter
   id: 635
   time: '2025-11-01T20:40:01.0000000+00:00'
+- author: wgreen84
+  changes:
+    - type: Add
+      message: >-
+        Wirebrush. Included in starter kits for Janitor, also in the Janitor
+        Supply Crate.
+  id: 636
+  time: '2025-11-01T23:17:25.0000000+00:00'

@@ -1,3 +1,4 @@
+# SPDX-FileCopyrightText: 2025 Mora <46364955+TrixxedHeart@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 TrixxedHeart <46364955+TrixxedBit@users.noreply.github.com>
 #
 # SPDX-License-Identifier: MIT
@@ -14,7 +15,7 @@
   - type: Item
     size: Normal
     sprite: Objects/Weapons/Melee/offset_canes/standard.rsi
-#  - type: MobilityAid TODO // Mobility Impaired is not implemented yet, if you do add it, make sure to add it to the cane.yml as well
+  - type: MobilityAid
   - type: MeleeWeapon
     wideAnimationRotation: 45
     damage:

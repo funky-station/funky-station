@@ -30,7 +30,6 @@
 - type: roleLoadout
   id: JobInternalAffairsAgent
   groups:
-  - SecurityGlasses
   - InternalAffairsAgentJumpsuit
   - InternalAffairsAgentOuterClothing
   - InternalAffairsAgentGloves

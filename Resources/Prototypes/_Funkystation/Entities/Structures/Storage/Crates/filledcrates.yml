@@ -11,3 +11,23 @@
   - type: StorageFill
     contents:
     - id: VendingMachineRestockSol
+
+- type: entity
+  id: CrateVendingMachineRestockNipponFilled
+  parent: CratePlastic
+  name: Nippon-tan restock crate
+  description: Contains a restock box for the Nippon-tan.
+  components:
+  - type: StorageFill
+    contents:
+      - id: VendingMachineRestockNippon
+
+- type: entity
+  id: CrateVendingMachineRestockFitnessFilled
+  parent: CratePlastic
+  name: SweatMAX restock crate
+  description: Contains a restock box for the SweatMAX.
+  components:
+  - type: StorageFill
+    contents:
+      - id: VendingMachineRestockFitness

@@ -66,6 +66,7 @@ using Content.Server.PDA.Ringer;
 using Content.Server.Traitor.Uplink;
 using Content.Shared.Changeling;
 using Content.Shared.Heretic;
+using Content.Shared.Implants;
 
 namespace Content.Server.GameTicking.Rules;
 
@@ -103,7 +104,8 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
         SubscribeLocalEvent<CommandStaffComponent, MobStateChangedEvent>(OnCommandMobStateChanged);
         SubscribeLocalEvent<HeadRevolutionaryComponent, MobStateChangedEvent>(OnHeadRevMobStateChanged);
         SubscribeLocalEvent<HeadRevolutionaryComponent, DeclareOpenRevoltEvent>(OnHeadRevDeclareOpenRevolt); //Funky Station
-
+        
+        SubscribeLocalEvent<RevolutionaryLieutenantComponent, ImplantImplantedEvent>(OnLieutenantImplant); // Funky Station
         SubscribeLocalEvent<RevolutionaryRuleComponent, AfterAntagEntitySelectedEvent>(AfterEntitySelected); // Funky Station
         SubscribeLocalEvent<RevolutionaryRoleComponent, GetBriefingEvent>(OnGetBriefing);
         SubscribeLocalEvent<HeadRevolutionaryComponent, AfterFlashedEvent>(OnPostFlash);
@@ -119,6 +121,30 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
     private void AfterEntitySelected(Entity<RevolutionaryRuleComponent> ent, ref AfterAntagEntitySelectedEvent args)
     {
         MakeHeadRevolutionary(args.EntityUid, ent);
+    }
+    
+    // dont need checks for multiple implants since we alr disabled that
+    private bool CanBeLieutenant(EntityUid uid)
+    {
+        return !HasComp<HeadRevolutionaryComponent>(uid) && HasComp<RevolutionaryComponent>(uid);
+    }
+    
+    private void OnLieutenantImplant(Entity<RevolutionaryLieutenantComponent> component, ref ImplantImplantedEvent ev)
+    {
+        if (ev.Implanted == null)
+            return;
+
+        if (!CanBeLieutenant(ev.Implanted.Value)) 
+            return;
+        
+        if (!_mind.TryGetMind(ev.Implanted.Value, out var mindId, out _))
+            return;
+        
+        EnsureComp<RevolutionaryLieutenantComponent>(ev.Implanted.Value);
+        _antag.SendBriefing(ev.Implanted.Value, Loc.GetString("rev-lieutenant-greeting"), Color.Red, null);
+        
+        if (_role.MindHasRole<RevolutionaryRoleComponent>(mindId, out var revRoleComp))
+            AddComp(revRoleComp.Value, new RoleBriefingComponent { Briefing = Loc.GetString("rev-lieutenant-greeting") }, overwrite: true);
     }
 
     /// <summary>

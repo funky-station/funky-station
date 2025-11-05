@@ -53,3 +53,30 @@
       solution: drink
     - type: ExaminableSolution
       solution: drink
+
+- type: entity
+  parent: BaseSubdermalImplant
+  id: RevolutionaryLieutenantImplant
+  name: revolutionary lieutenant implanter
+  description: This allows a revolutionary to see other revolutionaries, along giving them an icon that denotes them as a lieutenant. Revolutionaries should organize around these lieutenants as units.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SubdermalImplant
+    whitelist:
+      components:
+      - Revolutionary
+    blacklist:
+      components:
+      - MindShield
+  - type: RevolutionaryLieutenant
+  - type: RadioImplant
+    radioChannels:
+    - Syndicate
+
+- type: entity
+  parent: BaseImplantOnlyImplanterSyndi
+  id: LieutenantRevolutionaryImplanter # thisll work for now but we should have a custom one for revs
+  name: revolutionary lieutenant implanter
+  components:
+  - type: Implanter
+    implant: RevolutionaryLieutenantImplant

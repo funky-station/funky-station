@@ -58,3 +58,17 @@
   - !type:ListingLimitedStockCondition
     stock: 1
   saleLimit: 1
+  
+- type: listing
+  id: RevolutionaryUplinkRevLieutenantImplanter
+  name: fast draw implanter
+  description: A syringe with tools for quick implant removal. It has small gold stars on its body.
+  productEntity: LieutenantRevolutionaryImplanter
+  cost:
+    RevCoin: 5 # Temporary price
+  categories:
+  - RevolutionaryUplinkDefault
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 3
+  saleLimit: 1

@@ -3,18 +3,104 @@
 # SPDX-FileCopyrightText: 2024 Mr. 27 <45323883+Dutch-VanDerLinde@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 88tv <131759102+88tv@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 8tv <eightev@gmail.com>
+# SPDX-FileCopyrightText: 2025 TheHolyAegis <76066612+TheHolyAegis@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 TheHolyAegis <sanderkamphuis719@gmail.com>
+# SPDX-FileCopyrightText: 2025 TrixxedHeart <46364955+TrixxedBit@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
 - type: loadoutEffectGroup
-  id: SeniorJanitorial
+  id: BronzeJanitorial
   effects:
   - !type:JobRequirementLoadoutEffect
     requirement:
       !type:RoleTimeRequirement
       role: JobJanitor
-      time: 187200 #52 hrs (1 hour per week for 1 year)
+      time: 36000 #10 hrs
+
+- type: loadoutEffectGroup
+  id: SilverJanitorial
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobJanitor
+      time: 90000 #25 hrs
+
+- type: loadoutEffectGroup
+  id: GoldJanitorial
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobJanitor
+      time: 252000 #70 hrs
+
+- type: loadoutEffectGroup
+  id: PlatinumJanitorial
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobJanitor
+      time: 630000 #175 hrs
+
+- type: loadoutEffectGroup
+  id: RubyJanitorial
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobJanitor
+      time: 1260000 #350 hrs
+
+- type: loadoutEffectGroup
+  id: AmethystJanitorial
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobJanitor
+      time: 2160000 #600 hrs
+
+- type: loadoutEffectGroup
+  id: EmeraldJanitorial
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobJanitor
+      time: 3600000 #1000 hrs
+
+- type: loadoutEffectGroup
+  id: PrismaticJanitorial
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobJanitor
+      time: 5400000 #1500 hrs
+
+- type: loadoutEffectGroup
+  id: JanitorMaidOutfit
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobJanitor
+      time: 36000 #10 hrs
+
+- type: loadoutEffectGroup
+  id: JanitorMaidOutfitmini
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobJanitor
+      time: 36000 #10 hrs
 
 # Head
 - type: loadout
@@ -32,6 +118,24 @@
   id: JanitorJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtJanitor
+
+- type: loadout
+  id: JanitorialMaidOutfit
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: JanitorMaidOutfit
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtJanimaid
+  groupBy: "maid"
+
+- type: loadout
+  id: JanitorialMaidOutfitmini
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: JanitorMaidOutfitmini
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtJanimaidmini
+  groupBy: "maid"
 
 # Gloves
 - type: loadout
@@ -57,10 +161,73 @@
 
 # Misc
 - type: loadout
-  id: JanitorGoldenPlunger
+  id: JanitorBronzePlunger
   effects:
   - !type:GroupLoadoutEffect
-    proto: SeniorJanitorial
+    proto: BronzeJanitorial
+  storage:
+    back:
+    - BronzePlunger
+
+- type: loadout
+  id: JanitorSilverPlunger
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SilverJanitorial
+  storage:
+    back:
+    - SilverPlunger
+
+- type: loadout
+  id: JanitorGoldPlunger
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: GoldJanitorial
   storage:
     back:
     - GoldenPlunger
+
+- type: loadout
+  id: JanitorPlatinumPlunger
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PlatinumJanitorial
+  storage:
+    back:
+    - PlatinumPlunger
+
+- type: loadout
+  id: JanitorRubyPlunger
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: RubyJanitorial
+  storage:
+    back:
+    - RubyPlunger
+
+- type: loadout
+  id: JanitorAmethystPlunger
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: AmethystJanitorial
+  storage:
+    back:
+    - AmethystPlunger
+
+- type: loadout
+  id: JanitorEmeraldPlunger
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: EmeraldJanitorial
+  storage:
+    back:
+    - EmeraldPlunger
+
+- type: loadout
+  id: JanitorPrismaticPlunger
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PrismaticJanitorial
+  storage:
+    back:
+    - PrismaticPlunger

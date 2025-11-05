@@ -11,6 +11,8 @@
 # SPDX-FileCopyrightText: 2024 TsjipTsjip <19798667+TsjipTsjip@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Catazeus <200477155+Catazeus@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 TheHolyAegis <sanderkamphuis719@gmail.com>
 # SPDX-FileCopyrightText: 2025 empty0set <16693552+empty0set@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 empty0set <empty0set@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 ilyamikcoder <me@ilyamikcoder.com>
@@ -98,6 +100,7 @@
     sprite: /Textures/_Funkystation/Interface/Misc/job_icons.rsi
     state: CentralCommandOfficial
   jobName: job-name-centcomoff
+  allowSelection: false
 
 - type: jobIcon
   parent: JobIcon
@@ -567,7 +570,7 @@
   icon:
     sprite: /Textures/Interface/Misc/job_icons.rsi
     state: CommandMaid
-  allowSelection: false
+  jobName: job-name-command-maid
 
 - type: jobIcon
   parent: JobIcon

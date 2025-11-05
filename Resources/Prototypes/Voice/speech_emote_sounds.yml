@@ -26,11 +26,15 @@
 # SPDX-FileCopyrightText: 2024 no <165581243+pissdemon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Fr0goo <153249069+Fr0goo@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 KOTOB <59124164+kotobdev@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 TrixxedHeart <46364955+TrixxedBit@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tyranex <bobthezombie4@gmail.com>
+# SPDX-FileCopyrightText: 2025 ilyamikcoder <me@ilyamikcoder.com>
 # SPDX-FileCopyrightText: 2025 jackel234 <52829582+jackel234@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 wafehling <wafehling@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -295,9 +299,13 @@
       params:
         volume: -7
     Cough:
-      path: /Audio/_Goobstation/Voice/Vox/vox_cough.ogg #Placeholder from goob until Imp inevitably comes out with a better one
+      path: /Audio/Voice/Vox/vox_cough.ogg
+    Sigh:
+      path: /Audio/Voice/Vox/vox_sigh.ogg
     Sneeze:
       path: /Audio/_Goobstation/Voice/Vox/vox_sneeze.ogg #Placeholder from goob until Imp inevitably comes out with a better one
+    Click:
+      path: /Audio/Voice/Vox/vox_click.ogg
     Chitter:
       collection: VoxChitter
       params:
@@ -313,7 +321,7 @@
     Caw:
       collection: HarpyCaws #This is a placeholder for now
     DefaultDeathgasp:
-      path: /Audio/_Goobstation/Voice/Vox/vox_deathgasp.ogg #Placeholder from goob until Imp inevitably comes out with a better one
+      path: /Audio/Effects/Gasp/vox_DeathGasp.ogg
       params:
         volume: -5
     Hiss:
@@ -544,6 +552,8 @@
         volume: -6
     Salute:
       collection: Salutes
+    Blink: # Imp
+      collection: Blinks # Imp
 
 - type: emoteSounds
   id: DionaBodyEmotes
@@ -561,6 +571,8 @@
       path: /Audio/Voice/Diona/diona_salute.ogg
       params:
        volume: -5
+    Blink: # Imp
+      collection: Blinks # Imp
 
 - type: emoteSounds
   id: ReptilianBodyEmotes
@@ -579,6 +591,8 @@
         volume: -6
     Salute:
       collection: Salutes
+    Blink: # Imp
+      collection: Blinks # Imp
 
 # mobs
 - type: emoteSounds

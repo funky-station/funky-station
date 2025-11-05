@@ -3,6 +3,7 @@
 # SPDX-FileCopyrightText: 2025 heree <79546981+hereelabs@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 hereelabs <hahmorm@gmail.com>
 # SPDX-FileCopyrightText: 2025 kbarkevich <24629810+kbarkevich@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 mkanke-real <mikekanke@gmail.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
@@ -29,13 +30,11 @@
   components:
   - type: Sprite
     layers:
-    - state: cc #base
+    - state: default #base
     - state: decal-stripe-cc #decal
     - sprite: _Funkystation/Interface/Misc/job_icons.rsi #icon
       offset: "-0.125, 0.09375"
       state: Magistrate
-  - type: Item
-    heldPrefix: cc
   - type: PresetIdCard
     job: Magistrate
 
@@ -62,7 +61,6 @@
   - type: Sprite
     layers:
     - state: cc #base
-    - state: decal-stripe-cc #decal
     - sprite: _Goobstation/Interface/Misc/job_icons.rsi #icon
       offset: "-0.125, 0.09375"
       state: nanotrasenrepresentative
@@ -145,3 +143,20 @@
   - type: Sprite
     layers:
     - state: retro_nanotrasen
+
+- type: entity
+  parent: IDCardStandard
+  id: SpaceCowboyIDCard
+  name: space cowboy ID card
+  components:
+  - type: Sprite
+    layers:
+    - sprite: _Funkystation/Objects/Misc/id_cards.rsi
+      state: cowboy #base
+    - sprite: _Funkystation/Objects/Misc/id_cards.rsi
+      state: decal-stripe-party #decal
+    - sprite: _Funkystation/Interface/Misc/job_icons.rsi #icon
+      offset: "-0.125, 0.09375"
+      state: Cowboy
+  - type: PresetIdCard
+    job: SpaceCowboy

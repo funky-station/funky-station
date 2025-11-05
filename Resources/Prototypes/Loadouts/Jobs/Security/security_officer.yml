@@ -7,7 +7,10 @@
 # SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Teasq <Xerithin@gmail.com>
+# SPDX-FileCopyrightText: 2025 TrixxedHeart <46364955+TrixxedBit@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 W.xyz() <tptechteam@gmail.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 w.xyz() <84605679+pirakaplant@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -64,6 +67,16 @@
     eyes: ClothingEyesGlassesSecurity
 
 - type: loadout
+  id: SecurityHud
+  equipment:
+    eyes: ClothingEyesHudSecurity
+
+- type: loadout
+  id: SecurityEyepatch
+  equipment:
+    eyes: ClothingEyesEyepatchHudSecurity
+
+- type: loadout
   id: SecurityJamjarGlasses
   equipment:
     eyes: ClothingEyesGlassesSecjar
@@ -73,26 +86,31 @@
   id: SecurityJumpsuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitSec
+  groupBy: "jumpsuit"
 
 - type: loadout
   id: SecurityJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtSec
+  groupBy: "jumpskirt"
 
 - type: loadout
   id: SecurityJumpsuitGrey
   equipment:
     jumpsuit: ClothingUniformJumpsuitSecGrey
+  groupBy: "jumpsuit"
 
 - type: loadout
   id: SecurityJumpskirtGrey
   equipment:
     jumpsuit: ClothingUniformJumpskirtSecGrey
+  groupBy: "jumpskirt"
 
 - type: loadout
   id: TrooperUniform
-  equipment: 
+  equipment:
     jumpsuit: ClothingUniformSecurityTrooper
+  groupBy: "jumpsuit"
 
 - type: loadout
   id: SeniorOfficerJumpsuit
@@ -101,6 +119,7 @@
     proto: SeniorOfficer
   equipment:
     jumpsuit: ClothingUniformJumpsuitSeniorOfficer
+  groupBy: "jumpsuit"
 
 - type: loadout
   id: SeniorOfficerJumpskirt
@@ -109,6 +128,7 @@
     proto: SeniorOfficer
   equipment:
     jumpsuit: ClothingUniformJumpskirtSeniorOfficer
+  groupBy: "jumpskirt"
 
 # Back
 - type: loadout
@@ -142,16 +162,30 @@
   id: ArmorVest
   equipment:
     outerClothing: ClothingOuterArmorBasic
+  groupBy: "armor"
 
 - type: loadout
   id: ArmorVestSlim
   equipment:
     outerClothing: ClothingOuterArmorBasicSlim
+  groupBy: "armor"
 
 - type: loadout
   id: SecurityOfficerWintercoat
   equipment:
     outerClothing: ClothingOuterWinterSec
+
+# Gloves - Funky
+
+- type: loadout
+  id: BlackGloves
+  equipment:
+    gloves: ClothingHandsGlovesColorBlack
+
+- type: loadout
+  id: FingerlessGloves
+  equipment:
+    gloves: ClothingHandsGlovesFingerless
 
 # Shoes
 - type: loadout
@@ -192,4 +226,4 @@
   storage:
     back:
     - Dinkystar
-    
+

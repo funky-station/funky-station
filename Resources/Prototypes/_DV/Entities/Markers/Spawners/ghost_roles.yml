@@ -1,3 +1,4 @@
+# SPDX-FileCopyrightText: 2025 Dark <darkwindleaf@hotmail.co.uk>
 # SPDX-FileCopyrightText: 2025 V <97265903+formlessnameless@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
@@ -39,3 +40,19 @@
     - state: green
     - sprite: _DV/Objects/Misc/recruiter_pen.rsi
       state: empty
+
+- type: entity
+  categories: [ HideSpawnMenu, Spawner ]
+  parent: BaseAntagSpawner
+  id: SpawnPointGhostSynthesis
+  components:
+  - type: GhostRole
+    name: ghost-role-information-synthesis-name
+    description: ghost-role-information-synthesis-description
+    rules: ghost-role-information-synthesis-rules
+    requirements: # keep in sync with the antag prototype
+    - !type:OverallPlaytimeRequirement
+      time: 86400 # 24h so you probably know some general lore or something
+    - !type:RoleTimeRequirement
+      role: JobChemist
+      time: 7200 # 2h chemist so you know how to make CH

@@ -1,8 +1,9 @@
+# SPDX-FileCopyrightText: 2025 Mora <46364955+trixxedheart@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
-# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+# SPDX-License-Identifier: MIT
 
 # Settings for cloning bodies
 # If you add a new trait, job specific component or a component doing visual/examination changes for humanoids
@@ -21,6 +22,7 @@
   - Fingerprint
   - NpcFactionMember
   # traits
+  - ImpairedMobility
   # - LegsParalyzed (you get healed)
   - LightweightDrunk
   - Narcolepsy

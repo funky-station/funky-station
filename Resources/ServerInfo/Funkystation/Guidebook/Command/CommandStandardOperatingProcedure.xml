@@ -20,22 +20,42 @@ SPDX-License-Identifier: MIT
 
   [bold]4.[/bold] Command members must ensure that Nanotrasen corporate secrets remain confidential, and may reprimand or punish fellow command members who threaten this confidentiality;
 
-  [bold]5.[/bold] In the event of a confirmed threat to the station or Nanotrasen as a whole, command members may temporarily reveal related corporate secrets to crewmembers;
+  [bold]5.[/bold] Command members must report such confidentiality breaks as soon as reasonable to a member of Central Command staff on station, or to Central via fax;
 
-  [bold]6.[/bold] Command members must report such confidentiality breaks as soon as the event is resolved;
+  [bold]6.[/bold] Command members must must follow the direction of Central Command staff in respect to decisions regarding the revelation of corporate secrets to general crew. In the event of emergency, or no such staff on station, command may reveal certain secrets pertaining to specific confirmed threats if they deem it necessary;
 
-  [bold]7.[/bold] Command members must follow any Central Command officer's (such as the Nanotrasen Representative, Internal Affairs Agent, or the Magistrate) direction on corporate secrets;
+  [bold]7.[/bold] Command members must accept and assist in carrying out any penalties for breaches of conduct imposed by Central Command staff.
+  
+  [bold]8.[/bold] Command is not to alter the length of a shift through early evacuation or shift extension except in the circumstances outlined below;
 
-  [bold]8.[/bold] Command members must accept any fine, punishment, demotion, or death when a Central Command officer informs them of a wrongful break of their confidentiality agreement.
+  ### Circumstances Warrenting Shift length alteration
+
+  [bold]1.[/bold] Command may call the shuttle early in the event of catastrophic damage that renders two or more departments largely incapable of work OR that renders a single department 100% inoperable.
+
+  [bold]2.[/bold] Command may call the shuttle early in the case of a mass casualty event which renders more than 30% of the crew incapacitated or dead.
+
+  [bold]3.[/bold] Command may extend the length of a shift if there is a project for which [bold]all[/bold] living crew on shift and in good standing have explicitly consented to work overtime for no extra pay.
+
+  [bold]4.[/bold] Command may extend the length of a shift if there is an approved project for which overtime funds have been granted via a fax from Central Command.
+
+  ## General Command OOC Rules
+
+  [bold]0.[/bold] Command is held to a higher standard when it comes to breaking SOP, though following SOP is still not necessarily a rule.
+
+  [bold]1.[/bold]These rules and SOP apply to you even if you are promoted into a command position. You will still be held accountable to command expectations in all gameplay aspects that do not DIRECTLY relate to your antagonist objectives.
+
+  [bold]2.[/bold] Command should always act professionally, prioritizing the station running smoothly over antics. The station CAN run smoothly when antics are happening though.
+
+  [bold]3.[/bold] It is the duty of command to make sure that interns in their departments are TAUGHT. You should prioritize this over non station critical activities.
 
 
   # Captain SOP
 
-  [bold]1.[/bold] The Captain is not permitted to perform regular Security Duty. However, they may still assist Security if they are understaffed, or if they see a crime being committed. However, the Captain is not permitted to take items from the Armory under normal circumstances, unless authorized by the Head of Security. In addition, the Captain may not requisition weaponry for themselves from Cargo and/or Science, unless there's an immediate threat to station and/or crew;
+  [bold]1.[/bold] The Captain is not permitted to perform regular Security Duty. However, they may still assist Security if they are understaffed, or if they see a crime being committed. 
+  
+  [bold]2.[/bold] The Captain is not permitted to take items from the Armory under normal circumstances, unless authorized by the Head of Security. In addition, the Captain may not requisition weaponry for themselves from Cargo and/or Science, unless there's an immediate threat to station and/or crew;
 
-  [bold]2.[/bold] If a Department lacks a Head of Staff, the Captain should make reasonable efforts to appoint an Acting Head of Staff, if there are available personnel to fill the position;
-
-  [bold]3.[/bold] The Captain is to ensure that Space Law is being correctly applied. This should be done in cooperation with the Head of Security;
+  [bold]3.[/bold] If a Department lacks a Head of Staff, the Captain should make reasonable efforts to appoint an Acting Head of Staff, if there are available personnel to fill the position. The Acting Head of Staff must be a member of the Department vetted prior to shift start by central command, not a promoted member from another department;
 
   [bold]4.[/bold] The Captain is not to leave the Station unless given specific permission by Central Command, or it happens to be the end of the shift. To do so is to be considered abandoning their posts and is grounds for termination;
 
@@ -45,9 +65,13 @@ SPDX-License-Identifier: MIT
 
   [bold]7.[/bold] The Captain, despite being in charge of the Station, is not separate from NanoTrasen. Any attempts to disregard general company policy are to be considered an instant condition for contract termination;
 
-  [bold]8.[/bold] The Captain may only promote personnel to an Acting Head of Staff position if there is no assigned Head of Staff associated with the Department. The Acting Head of Staff must be a member of the Department they are to lead. See below for more information on Chain of Command;
+  [bold]8.[/bold] The Captain may not fire any Head of Staff without reasonable justification (ie, incompetency, criminal activity, or otherwise any action that endangers/compromises the station and/or crew). The Captain may not fire any Central Command staff (NanoTrasen Representative, etc) without permission from Central Command. If such crewmembers are blatantly acting against the well-being and safety of the crew and station, the captain has the authority to confine them to their quarters pending a response from Central Command.
 
-  [bold]9.[/bold] The Captain may not fire any Head of Staff without reasonable justification (ie, incompetency, criminal activity, or otherwise any action that endangers/compromises the station and/or crew). The Captain may not fire any Central Command VIPs (NanoTrasen Representative, etc) without permission from Central Command, unless they are blatantly acting against the well-being and safety of the crew and station. The Captain must also follow HoP SOP point 5.
+  [bold]9.[/bold] The Captain must follow the SOP of any role who's duties they explicitly perform or whos authority they explicitly invoke while performing said duties or invoking said authority.
+
+  ## Captain OOC Rules
+
+  [bold]1.[/bold] You should not be acting in the capacity of a dictator and micromanaging every aspect of the station. When you act as the HoP for example to give accesses, you need to follow their SOP and get approval from the head of staff of that department.
 
 
   # Head of Personnel SOP
@@ -60,7 +84,7 @@ SPDX-License-Identifier: MIT
 
   [bold]4.[/bold] The Head of Personnel may not fire any personnel without authorization from the relevant Head of Staff, unless other conditions apply (see Space Law and General Standard Operating Procedure);
 
-  [bold]5.[/bold] The Head of Personnel may not promote anyone to any Central Command role. This includes the Magistrate, IAA, and others;
+  [bold]5.[/bold] The Head of Personnel may not promote anyone to any Central Command role. The use of Central Command ID icons is also prohibited without explicit approval;
 
   [bold]6.[/bold] The Head of Personnel is free to utilize paperwork at their discretion. However, during major station emergencies, expediency should take precedence over bureaucracy;
 
@@ -68,42 +92,93 @@ SPDX-License-Identifier: MIT
 
   [bold]8.[/bold] The Head of Personnel is not permitted to perform Security duty. The Head of Personnel is permitted to carry a Disabler for self-defense only.
 
+  ## Head of Personnel OOC Rules
+
+  [bold]1.[/bold] You are a non combatant, and should only ever enter combat as a last resort or in self-defense.
+
+
+  # Internal Affairs Agent SOP
+
+  [bold]1.[/bold] Internal Affairs Agents are to ensure that Standard Operating Procedure is being properly followed, and to contact the relevant Head of Staff when it is not;
+
+  [bold]2.[/bold] Internal Affairs Agents are to follow the following chain of escalation should their reports be ignored, or they feel a judgement is incorrect: Relevant Head of Staff -> Captain -> NanoTrasen Representative -> Magistrate -> Central Command;
+
+  [bold]3.[/bold] Internal Affairs Agents are only to concern themselves with matters of space law if there is no Magistrate and no NanoTrasen Representative aboard the station, or if the Magistrate or NanoTrasen Representative give them orders to do so, or if Central Command contacts them directly and requests that they do so;
+
+  [bold]4.[/bold] Internal Affairs Agents must be granted permission from the presiding Judge (i.e. the Magistrate or Nanotrasen Representative) to serve as legal representation for personnel in any court hearing. Internal Affairs Agents may only serve as legal representation for personnel if another Internal Affairs Agent is capable of assuming the role of prosecution, and if no Lawyer is available. Internal Affairs Agents must also request permission from any potential client before serving as their legal representative, as said client may choose to either represent themselves, or request someone else;
+
+  [bold]5.[/bold] Internal Affairs Agents may administer class 1 penalties for misconduct concerning Standard Operating Procedure after first recieving approval from the NanoTrasen Representative or Magistrate. They may only administer penalties for misconduct concerning misinterpretation of space law in the absense of a NanoTrasen Representative and Magistrate, and may never administer class 2 or 3 penalties even when serving as the only Central Command staff on station.
+
+  [bold]6.[/bold] Internal Affairs Agents are permitted to carry their flash and their administrative sunglasses;
+
+  ## Internal Affairs Agent OOC Rules
+
+  [bold]1.[/bold] You are a non combatant advisor, and should not be participating in combat except in the case of self defense.
+
+  [bold]2.[/bold] You have a lot of power as an Internal Affairs Agent. Abuse of this trust will result in a permanent, non appealable role ban from CC roles. Your job is to make the round more fun through interesting role play, not just be an authoritarian power tripper.
+
 
   # Nanotrasen Representative SOP
 
   [bold]1.[/bold] The NanoTrasen Representative is to ensure that every Department is following Standard Operating Procedure, up to and including the respective Head of Staff. If a Head of Staff is not available for a Department, the NanoTrasen Representative must ensure that the Captain appoints an Acting Head of Staff for said Department;
 
-  [bold]2.[/bold] The NanoTrasen Representative must attempt to resolve any breach of Standard Operating Procedure locally before contacting Central Command. This is an imperative: Standard Operating Procedure should always be followed unless there is a very good reason not to;
+  [bold]2.[/bold] The NanoTrasen Representative must attempt to resolve any breach of Standard Operating Procedure locally before contacting Central Command.
 
-  [bold]3.[/bold] The NanoTrasen Representative must, together with the Head of Security, ensure that Space Law is being followed and correctly applied;
+  [bold]3.[/bold] In the absense of a Magistrate, the NanoTrasen Representative must ensure that space law is being adequately followed and enforced.
 
-  [bold]4.[/bold] The NanoTrasen Representative may not threaten the use of a fax in order to gain leverage over any personnel, up to and including Command. In addition, they may not threaten to fire or have Central Command fire anyone, unless they actually possess a demotion note;
+  [bold]4.[/bold] The NanoTrasen Representative may administer class 1 and 2 penalties for misconduct concerning Standard Operating Procedure. They may only administer penalties for misconduct concerning misinterpretation of space law in the absense of a Magistrate, and may never administer class 3 penalties even when there is no acting Magistrate;
 
-  [bold]5.[/bold] The NanoTrasen Representative is permitted to carry their flash and a blade-cane, or a stun baton if the blade-cane is lost.
+  [bold]6.[/bold] The NanoTrasen Representative must follow the directions of the Magistrate and defer to their judgement in matters not concerning standard operating procedure, but should advocate their stance firmly in the case of disagreements, and escalate to Central Command directly if they feel there has been wrongdoing;
+
+  [bold]7.[/bold] The NanoTrasen Representative is permitted to carry their flash and a blade-cane, or a stun baton if the blade-cane is lost;
+
+  ## Nanotrasen Representative OOC Rules
+
+  [bold]1.[/bold] You are not a Mega Captain. You are really only on station as an advisor, and should generally only exersize your authority in regard to matters other than SOP in extreme circumstances, or obvious cases of wrongdoing. 
+
+  [bold]2.[/bold] You are a non combatant advisor, and should not be participating in combat except in the case of self defense.
+
+  [bold]3.[/bold] You have a lot of power as the NanoTrasen Representative. Abuse of this trust will result in a permanent, non appealable role ban from CC roles. Your job is to make the round more fun through interesting role play, not just be an authoritarian power tripper.
+
 
   # Magistrate SOP
 
-  [bold]1.[/bold] The Magistrate is to ensure that Space Law is applied correctly. If it is not, they are to make it so;
+  [bold]1.[/bold] The Magistrate holds the ultimate punitive authority on station. When exercising this authority the Magistrate is directly exercising the will of Central Command;
 
-  [bold]2.[/bold] The Magistrate has the final say on whether Trials take place, and should ensure they should only occur for Capital Sentences. Similarly, Magistrates are to ensure that Trials do not happen for Defendants that are self-evidently guilty;
+  [bold]2.[/bold] The Magistrate may overrule anyone, save Central Command, in all matters concerning Space Law.
 
-  [bold]3.[/bold] The Magistrate may overrule anyone in all matters concerning Space Law. This does not extend to Emergency Response Teams, Central Command Officials or direct Central Command communications;
+  [bold]3.[/bold] The Magistrate is to ensure that station resources are not wasted on trials that are frivolous in nature or whos outcomes are a forgone conclusion. Magistrates have authority to summarily sentence and pass judgement in such cases, but should ensure due diligence has been enforced in regards to the collection of evidence;
 
-  [bold]4.[/bold] The Magistrate is permitted to carry their flash;
+  [bold]4.[/bold] The Magistrate is not above Space Law and may not make rulings in matters concerning their own potential misconduct;
 
-  [bold]5.[/bold] The Magistrate is not above Space Law. Similarly, the Magistrate cannot overrule Security on a sentence imposed against themselves;
+  [bold]5.[/bold] The Magistrate is to ensure that the NanoTrasen Representative and internal affairs agents under their command are responding appropriately to matters of and misconduct regarding Standard Operating Procedure.
 
-  [bold]6.[/bold] In the absence of Internal Affairs Agents or a NanoTrasen Representative, the Magistrate may elect to handle matters of Standard Operating Procedure. Otherwise, the Magistrate is only to ensure that the NanoTrasen Representative under their command are handling such matters;
+  [bold]6.[/bold] The Magistrate, outside the context of a trial, should only concern themselves with crimes that either have fuzzy evidence, require careful deliberation of circumstances, or have been horrendously mishandled;
 
-  [bold]7.[/bold] The Magistrate may not impede the expedient functioning of Security for the sake of micromanaging every aspect it. The Magistrate should only concern themselves with crimes that either have fuzzy evidence, or require careful deliberation of circumstances;
+  [bold]7.[/bold] The Magistrate may administer class 1, 2, and 3 penalties for misconduct concerning the misinterpretation of space law. They should consult with the NanoTrasen Representative before administering penalties for misconduct concerning standard operating procedure, but have authority to administer up to class 3 penalties for those breaches as well.
 
-  [bold]8.[/bold] The Magistrate is to contact Central Command immediately if their decisions are being ignored, provided said decision actually match up with Space Law and Standard Operating Procedure.
+  [bold]8.[/bold] The Magistrate is permitted to carry their flash;
 
+  ## Magistrate OOC Rules
+
+  [bold]1.[/bold] You are not a mega Captain. You are really only on station as an advisor, and should generally only exersize your authority in regard to matters other than space law in extreme circumstances, or obvious cases of wrongdoing.
+
+  [bold]2.[/bold] You are a non combatant advisor, and should not be participating in combat except in the case of self defense.
+
+  [bold]3.[/bold] You have a LOT of power as the Magistrate. Abuse of this trust will result in a permanent, non appealable role ban from CC roles. Your job is to make the round more fun through interesting role play, not just be an authoritarian power tripper.
+
+  # Central Command Staff Punitive Measures
+
+  [bold]Class 1.[/bold] Central Command staff may confiscate any NanoTrasen equipment in the posession of crew or command as a penalty for misconduct;
+
+  [bold]Class 2.[/bold] Central Command staff may impose a demotion upon crew or command as a penalty for egregious misconduct;
+
+  [bold]Class 3.[/bold] Central Command staff may order the execution of staff in the case of egregious misconduct. This should be as a last resort, after other punishments have failed to lead to reform.
 
   # If you need to deviate,
 
   [bold]Document document document![/bold]
-  After action reports, calling CentCom on the fabled red phone, or even praying will be heard by CentCom and your actions may be excused if they were determined to be in the best interest for NanoTrasen.
+  After action reports, calling CentCom on the fabled red phone, or even praying will be heard by CentCom and your actions may be excused if they were determined to be in the best interest of NanoTrasen.
 
 
   # I don't see my job listed here

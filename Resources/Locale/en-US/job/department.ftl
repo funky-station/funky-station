@@ -21,4 +21,5 @@ department-Medical = Medical
 department-Security = Security
 department-Science = Science
 department-Silicon = Silicon
+department-Ghostrole = Ghostrole
 department-Specific = Station specific

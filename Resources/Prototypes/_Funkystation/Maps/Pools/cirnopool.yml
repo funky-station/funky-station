@@ -1,3 +1,4 @@
+# SPDX-FileCopyrightText: 2025 EmillyCoelho <167008606+Ichaie@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Huhm-1 <cameronhillard40@gmail.com>
 # SPDX-FileCopyrightText: 2025 Ichaie <ichaicoelho@gmail.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
@@ -9,9 +10,11 @@
   maps: #funky station
   - roid_outpost
   - Amber
+  - Gax
   - Elkridge
   - Glacier
   - Box
   - Bagel
   - Barratry
   - Fland
+  - OasisHighPop

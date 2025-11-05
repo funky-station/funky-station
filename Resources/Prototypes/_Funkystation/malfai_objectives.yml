@@ -1,4 +1,6 @@
-﻿# SPDX-FileCopyrightText: 2025 YourName
+# SPDX-FileCopyrightText: 2025 Tyranex <bobthezombie4@gmail.com>
+# SPDX-FileCopyrightText: 2025 YourName
+#
 # SPDX-License-Identifier: MIT
 
 # Base objective for all Malf AI objectives
@@ -77,7 +79,7 @@
     sabotageType: Protect
   - type: TargetObjective
     title: objective-condition-keep-alive-title
-  - type: PickRandomPerson
+  - type: MalfAiPickProtectTarget
   - type: KeepAliveCondition
 
 # Sabotage: Control cyborgs

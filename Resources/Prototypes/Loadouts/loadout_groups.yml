@@ -942,7 +942,7 @@
   - StationEngineerWintercoat
 
 - type: loadoutGroup
-  id: EngineerBelt
+  id: StationEngineerBelt
   name: loadout-group-station-engineer-belt
   minLimit: 1
   loadouts:

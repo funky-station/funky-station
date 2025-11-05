@@ -30,6 +30,10 @@
         - ReagentId: Radium
           Quantity: 200
         canReact: false
+  - type: GuideHelp
+    guides:
+    - NuclearReactor
+    - Power
   
 - type: entity
   id: BaseReactorPart

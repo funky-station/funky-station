@@ -95,6 +95,10 @@
     access: [["Engineering"]]
   - type: Lock
     unlockOnClick: false
+  - type: GuideHelp
+    guides:
+    - NuclearReactor
+    - Power
   
 # Arrow to indicate flow
 - type: entity

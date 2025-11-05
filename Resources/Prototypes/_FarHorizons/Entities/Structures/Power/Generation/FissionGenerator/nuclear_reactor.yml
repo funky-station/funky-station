@@ -124,6 +124,10 @@
     access: [["Engineering"]]
   - type: Lock
     unlockOnClick: false
+  - type: GuideHelp
+    guides:
+    - NuclearReactor
+    - Power
 
 # Visual parts on the reactor
 - type: entity

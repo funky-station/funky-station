@@ -135,6 +135,9 @@
 	In the presence of oxygen and at the temperatures of the Reactor, tritium will begin to burn, creating large amounts of heat.
 
 	## Reactor Radiation
+	<Box>
+		<GuideEntityEmbed Entity="SignRadiation" Caption=""/>
+	</Box>
 	The Reactor sometimes allows some radiation to leak out, which can pose a danger to unprotected crew.
 
 	The radiation level of the Reactor is determined by how many neutrons are escaping the Reactor grid.

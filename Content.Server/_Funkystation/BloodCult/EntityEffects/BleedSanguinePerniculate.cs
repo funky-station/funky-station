@@ -11,7 +11,7 @@ using Robust.Shared.Prototypes;
 namespace Content.Server.BloodCult.EntityEffects;
 
 /// <summary>
-/// Makes an entity bleed Sanguine Perniculate instead of their normal blood type, but only if they're already bleeding.
+/// Makes an entity bleed Sanguine Perniculate instead of their normal blood type while they metabolize Edge Essentia.
 /// Changes what blood they bleed out, not their internal blood.
 /// </summary>
 public sealed partial class BleedSanguinePerniculate : EntityEffect
@@ -24,10 +24,6 @@ public sealed partial class BleedSanguinePerniculate : EntityEffect
         if (!args.EntityManager.TryGetComponent<BloodstreamComponent>(args.TargetEntity, out var bloodstream))
             return;
 
-        // Only work if the entity is already bleeding
-        if (bloodstream.BleedAmount <= 0)
-            return;
-
         // Store their original blood type if not already stored
         if (!args.EntityManager.TryGetComponent<EdgeEssentiaBloodComponent>(args.TargetEntity, out var edgeEssentiaComp))
         {
@@ -36,6 +32,7 @@ public sealed partial class BleedSanguinePerniculate : EntityEffect
         }
 
         // Change their blood type to Sanguine Perniculate so that when they bleed, it comes out as Sanguine Perniculate
+        // This happens every metabolism tick, ensuring their blood type stays as SanguinePerniculate while Edge Essentia is active
         var bloodstreamSystem = args.EntityManager.System<BloodstreamSystem>();
         bloodstreamSystem.ChangeBloodReagent(args.TargetEntity, "SanguinePerniculate", bloodstream);
     }

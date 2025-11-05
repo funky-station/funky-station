@@ -45,7 +45,6 @@ using Content.Shared.Bed.Cryostorage;
 
 using Content.Server.BloodCult.EntitySystems;
 using Content.Shared.BloodCult.Prototypes;
-using Content.Shared.BloodCult.Prototypes;
 
 using Content.Server.Ghost;
 using Content.Server.Ghost.Roles;
@@ -84,15 +83,13 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 	[Dependency] private readonly MobStateSystem _mobSystem = default!;
 	[Dependency] private readonly StationSystem _stationSystem = default!;
 	[Dependency] private readonly IChatManager _chatManager = default!;
-	[Dependency] private readonly ChatSystem _chatSystem = default!;
 	[Dependency] private readonly SharedActionsSystem _actions = default!;
 	[Dependency] private readonly SharedBodySystem _body = default!;
 	[Dependency] private readonly AppearanceSystem _appearance = default!;
 	[Dependency] private readonly NpcFactionSystem _npcFaction = default!;
 	[Dependency] private readonly IAdminLogManager _adminLogger = default!;
 	[Dependency] private readonly IConsoleHost _consoleHost = default!;
-
-	[Dependency] private readonly IEntityManager _entManager = default!;
+	[Dependency] private readonly SharedTransformSystem _transformSystem = default!;
 
 	public readonly string CultComponentId = "BloodCultist";
 
@@ -481,6 +478,28 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 			}
 		}
 
+		// Check if blood thresholds have been reached for stage progression
+		if (!component.HasEyes && component.BloodCollected >= component.BloodRequiredForEyes)
+		{
+			component.HasEyes = true;
+			EmpowerCultists(cultists);
+			AnnounceStatus(component, cultists);
+		}
+
+		if (!component.HasRisen && component.BloodCollected >= component.BloodRequiredForRise)
+		{
+			component.HasRisen = true;
+			RiseCultists(cultists);
+			AnnounceStatus(component, cultists);
+		}
+
+		if (!component.VeilWeakened && component.BloodCollected >= component.BloodRequiredForVeil)
+		{
+			component.VeilWeakened = true;
+			// Veil weakening announcement is handled separately in the ActiveTick
+		}
+
+		// Also check conversion-based progression as a fallback/alternative path
 		if (!component.HasEyes && GetConversionsToEyes(component, cultists) == 0)
 		{
 			component.HasEyes = true;
@@ -619,22 +638,22 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 			{
 				if (component.WeakVeil1 != null && component.WeakVeil2 != null && component.WeakVeil3 != null)
 				{
-					WeakVeilLocation? currentSummoningLoc = null;
-					WeakVeilLocation weakVeil1 = (WeakVeilLocation)component.WeakVeil1;
-					WeakVeilLocation weakVeil2 = (WeakVeilLocation)component.WeakVeil2;
-					WeakVeilLocation weakVeil3 = (WeakVeilLocation)component.WeakVeil3;
-					if (weakVeil1.Coordinates.InRange(_entManager, Transform(cultistUid).Coordinates, weakVeil1.ValidRadius))
-					{
-						currentSummoningLoc = weakVeil1;
-					}
-					else if (weakVeil2.Coordinates.InRange(_entManager, Transform(cultistUid).Coordinates, weakVeil2.ValidRadius))
-					{
-						currentSummoningLoc = weakVeil2;
-					}
-					else if (weakVeil3.Coordinates.InRange(_entManager, Transform(cultistUid).Coordinates, weakVeil3.ValidRadius))
-					{
-						currentSummoningLoc = weakVeil3;
-					}
+				WeakVeilLocation? currentSummoningLoc = null;
+				WeakVeilLocation weakVeil1 = (WeakVeilLocation)component.WeakVeil1;
+				WeakVeilLocation weakVeil2 = (WeakVeilLocation)component.WeakVeil2;
+				WeakVeilLocation weakVeil3 = (WeakVeilLocation)component.WeakVeil3;
+				if (_transformSystem.InRange(weakVeil1.Coordinates, Transform(cultistUid).Coordinates, weakVeil1.ValidRadius))
+				{
+					currentSummoningLoc = weakVeil1;
+				}
+				else if (_transformSystem.InRange(weakVeil2.Coordinates, Transform(cultistUid).Coordinates, weakVeil2.ValidRadius))
+				{
+					currentSummoningLoc = weakVeil2;
+				}
+				else if (_transformSystem.InRange(weakVeil3.Coordinates, Transform(cultistUid).Coordinates, weakVeil3.ValidRadius))
+				{
+					currentSummoningLoc = weakVeil3;
+				}
 
 					if (currentSummoningLoc == null)
 					{
@@ -670,7 +689,7 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 							}
 							// Make sure the location for summoning propogates to new cultists.
 							component.LocationForSummon = cultist.LocationForSummon;
-							_chatSystem.DispatchGlobalAnnouncement(
+							_chat.DispatchGlobalAnnouncement(
 								Loc.GetString("cult-veil-drawing-crewwarning", ("name", name)),
 								"Central Command Higher Dimensional Affairs",
 								true,
@@ -833,8 +852,8 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 			MaxDuration = 30
 		};
 
-		GhostRoleComponent ghostRole = _entManager.AddComponent<GhostRoleComponent>(uid);
-		_entManager.AddComponent<GhostTakeoverAvailableComponent>(uid);
+		GhostRoleComponent ghostRole = AddComp<GhostRoleComponent>(uid);
+		EnsureComp<GhostTakeoverAvailableComponent>(uid);
 		ghostRole.RoleName = Loc.GetString("cult-ghost-role-name");
 		ghostRole.RoleDescription = Loc.GetString("cult-ghost-role-desc");
 		ghostRole.RoleRules = Loc.GetString("cult-ghost-role-rules");
@@ -1233,8 +1252,9 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 
 		EntityUid? mindId = CompOrNull<MindContainerComponent>(sender)?.Mind;
 
-		if (mindId != null && TryComp<MetaDataComponent>(sender, out var metaData))
+		if (mindId != null)
 		{
+			var metaData = MetaData(sender);
 			_chat.TrySendInGameICMessage(sender, Loc.GetString("cult-commune-incantation"), InGameICChatType.Whisper, ChatTransmitRange.Normal);
 			_jobs.MindTryGetJob(mindId, out var prototype);
 			string job = "Crewmember";

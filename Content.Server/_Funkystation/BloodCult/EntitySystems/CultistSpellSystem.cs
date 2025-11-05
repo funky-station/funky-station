@@ -66,9 +66,11 @@ public sealed partial class CultistSpellSystem : EntitySystem
 	[Dependency] private readonly IGameTiming _gameTiming = default!;
 	[Dependency] private readonly IEntityManager _entMan = default!;
 	[Dependency] private readonly SharedStunSystem _stun = default!;
-	
-	[Dependency] private readonly IPrototypeManager _protoMan = default!;
 	[Dependency] private readonly ConstructionSystem _construction = default!;
+
+	private static readonly ProtoId<DamageTypePrototype> BloodlossDamageType = "Bloodloss";
+	private static readonly ProtoId<DamageTypePrototype> IonDamageType = "Ion";
+	private static readonly ProtoId<DamageTypePrototype> SlashDamageType = "Slash";
 
 	private EntityQuery<EmpowerOnStandComponent> _runeQuery;
 
@@ -117,11 +119,11 @@ public sealed partial class CultistSpellSystem : EntitySystem
 		{
 			DamageSpecifier appliedDamageSpecifier;
 			if (damageable.Damage.DamageDict.ContainsKey("Bloodloss"))
-				appliedDamageSpecifier = new DamageSpecifier(_protoMan.Index<DamageTypePrototype>("Bloodloss"), FixedPoint2.New(actionComp.HealthCost));
+				appliedDamageSpecifier = new DamageSpecifier(_proto.Index(BloodlossDamageType), FixedPoint2.New(actionComp.HealthCost));
 			else if (damageable.Damage.DamageDict.ContainsKey("Ion"))
-				appliedDamageSpecifier = new DamageSpecifier(_protoMan.Index<DamageTypePrototype>("Ion"), FixedPoint2.New(actionComp.HealthCost));
+				appliedDamageSpecifier = new DamageSpecifier(_proto.Index(IonDamageType), FixedPoint2.New(actionComp.HealthCost));
 			else
-				appliedDamageSpecifier = new DamageSpecifier(_protoMan.Index<DamageTypePrototype>("Slash"), FixedPoint2.New(actionComp.HealthCost));
+				appliedDamageSpecifier = new DamageSpecifier(_proto.Index(SlashDamageType), FixedPoint2.New(actionComp.HealthCost));
 			_damageableSystem.TryChangeDamage(ent, appliedDamageSpecifier, true, origin: ent);
 		}
 
@@ -208,7 +210,7 @@ public sealed partial class CultistSpellSystem : EntitySystem
 			return;
 
 		DamageSpecifier appliedDamageSpecifier = new DamageSpecifier(
-			_protoMan.Index<DamageTypePrototype>("Slash"),
+			_proto.Index(SlashDamageType),
 			FixedPoint2.New(args.CultAbility.HealthDrain * (args.StandingOnRune ? 1 : 3))
 		);
 
@@ -359,11 +361,45 @@ public sealed partial class CultistSpellSystem : EntitySystem
 		    construction.Graph == "Girder" && 
 		    construction.Node == "reinforcedWall")
 		{
-			if (!TryUseAbility(ent, args))
-				return;
+			// Wall deconstruction doesn't consume spell charges
+			// Get invocation from the action component and chant it
+			if (TryComp<CultistSpellComponent>(args.Action, out var actionComp))
+			{
+				_bloodCultRules.Speak(ent, actionComp.Invocation);
+				if (actionComp.CastSound != null)
+					_audioSystem.PlayPvs(actionComp.CastSound, ent);
+			}
 
 			// Start do-after for wall deconstruction
 			var doAfterArgs = new DoAfterArgs(EntityManager, ent, TimeSpan.FromSeconds(3), 
+				new TwistedConstructionDoAfterEvent(args.Target), ent, target: args.Target)
+			{
+				BreakOnMove = true,
+				BreakOnDamage = true,
+				NeedHand = false,
+			};
+
+			_doAfter.TryStartDoAfter(doAfterArgs);
+			args.Handled = true;
+			return;
+		}
+
+		// Check if target is a reinforced girder
+		if (TryComp<ConstructionComponent>(args.Target, out var girderConstruction) && 
+		    girderConstruction.Graph == "Girder" && 
+		    girderConstruction.Node == "reinforcedGirder")
+		{
+			// Girder downgrade doesn't consume spell charges
+			// Get invocation from the action component and chant it
+			if (TryComp<CultistSpellComponent>(args.Action, out var actionComp))
+			{
+				_bloodCultRules.Speak(ent, actionComp.Invocation);
+				if (actionComp.CastSound != null)
+					_audioSystem.PlayPvs(actionComp.CastSound, ent);
+			}
+
+			// Start do-after for reinforced girder downgrade
+			var doAfterArgs = new DoAfterArgs(EntityManager, ent, TimeSpan.FromSeconds(2), 
 				new TwistedConstructionDoAfterEvent(args.Target), ent, target: args.Target)
 			{
 				BreakOnMove = true,
@@ -382,21 +418,43 @@ public sealed partial class CultistSpellSystem : EntitySystem
 		if (args.Cancelled || args.Target == null || !TryComp<ConstructionComponent>(args.Target, out var construction))
 			return;
 
-		// Verify it's still a reinforced wall
-		if (construction.Graph != "Girder" || construction.Node != "reinforcedWall")
+		// Verify it's a valid target (reinforced wall or reinforced girder)
+		if (construction.Graph != "Girder" || 
+		    (construction.Node != "reinforcedWall" && construction.Node != "reinforcedGirder"))
 			return;
 
+		// Don't consume spell charges for wall deconstruction - only for plasteel conversion
 		var targetCoords = Transform(args.Target).Coordinates;
 
-		// Spawn a stack of 2 plasteel sheets (the amount to upgrade girder to reinforced girder)
-		var plasteel = Spawn("SheetPlasteel1", targetCoords);
-		if (TryComp<StackComponent>(plasteel, out var stack))
+		if (construction.Node == "reinforcedWall")
 		{
-			stack.Count = 2;
-		}
+			// Reinforced wall -> reinforced girder
+			// Spawn a stack of 2 plasteel sheets (the amount to upgrade girder to reinforced girder)
+			// Use the base SheetPlasteel entity to avoid stacking bugs
+			var plasteel = Spawn("SheetPlasteel", targetCoords);
+			if (TryComp<StackComponent>(plasteel, out var stack))
+			{
+				stack.Count = 2;
+				Dirty(plasteel, stack);
+			}
 
-		// Change the wall to a reinforced girder (this will spawn the 2 plasteel from the wall plating)
-		// The construction graph automatically handles spawning materials when deconstructing
-		_construction.ChangeNode(args.Target, ent, "reinforcedGirder", performActions: true, construction: construction);
+			// Change the wall to a reinforced girder (this will spawn the 2 plasteel from the wall plating)
+			// The construction graph automatically handles spawning materials when deconstructing
+			_construction.ChangeNode(args.Target, ent, "reinforcedGirder", performActions: true, construction: construction);
+		}
+		else if (construction.Node == "reinforcedGirder")
+		{
+			// Reinforced girder -> regular girder
+			// Spawn a stack of 2 plasteel sheets (the amount used to upgrade to reinforced girder)
+			var plasteel = Spawn("SheetPlasteel", targetCoords);
+			if (TryComp<StackComponent>(plasteel, out var stack))
+			{
+				stack.Count = 2;
+				Dirty(plasteel, stack);
+			}
+
+			// Change the reinforced girder to a regular girder
+			_construction.ChangeNode(args.Target, ent, "girder", performActions: true, construction: construction);
+		}
 	}
 }

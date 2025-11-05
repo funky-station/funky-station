@@ -33,6 +33,8 @@
     damage:
       types:
         Slash: 15
+    soundHit:
+      path: /Audio/Weapons/bladeslice.ogg
   - type: Item
     size: Small
   - type: Clothing

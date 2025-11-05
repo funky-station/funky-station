@@ -4,11 +4,19 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
-//using Content.Server.Body.Systems;
+using Robust.Shared.GameStates;
+using Robust.Shared.Prototypes;
 
 namespace Content.Shared.BloodCult.Components
 {
-    [RegisterComponent]//, Access(typeof(BrainSystem))]
+    [RegisterComponent, NetworkedComponent]
     public sealed partial class SoulStoneComponent : Component
-    {}
+    {
+        /// <summary>
+        /// The prototype ID of the original entity that was used to create this soulstone.
+        /// When the soulstone breaks, it will revert to this entity type.
+        /// </summary>
+        [DataField]
+        public EntProtoId? OriginalEntityPrototype;
+    }
 }

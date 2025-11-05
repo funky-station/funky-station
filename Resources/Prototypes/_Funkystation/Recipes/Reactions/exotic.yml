@@ -5,6 +5,8 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
+
+
 - type: reaction
   id: ExoticReagent
   reactants:
@@ -158,10 +160,6 @@
     Holywater:
       amount: 1
   products:
-    FoamingAgent: 1
+    Water: 1
+    Fluorosurfactant: 1
     Razorium: 1
-  effects:
-  - !type:PopupMessage
-    visualType: LargeCaution
-    messages: [ "sanguine-perniculate-holywater-reaction" ]
-    type: Pvs

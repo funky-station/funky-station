@@ -21,3 +21,19 @@
   - type: Item
     size: Small
     heldPrefix: soulstone
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Glass
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 5
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+          params:
+            volume: -4
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]

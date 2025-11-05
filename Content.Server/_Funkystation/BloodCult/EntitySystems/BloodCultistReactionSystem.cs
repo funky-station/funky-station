@@ -5,7 +5,8 @@
 
 using Content.Server.Fluids.EntitySystems;
 using Content.Server.GameTicking.Rules;
-using Content.Server.Medical;
+using Content.Server.Body.Systems;
+using Content.Server.Body.Components;
 using Content.Server.Popups;
 using Content.Shared.BloodCult;
 using Content.Shared.BloodCult.Components;
@@ -23,15 +24,14 @@ namespace Content.Server.BloodCult.EntitySystems;
 /// <summary>
 /// Unified system to handle all blood cultist reagent reactions.
 /// This includes:
-/// - Blood consumption (ingestion) -> vomits Sanguine Perniculate, adds to ritual pool
+/// - Blood consumption (ingestion) -> causes bleeding, restores blood levels, adds to ritual pool
 /// - Sanguine Perniculate (touch) -> heals holy damage
 /// - Holy Water (touch) -> deals additional holy damage
 /// </summary>
 public sealed class BloodCultistReactionSystem : EntitySystem
 {
 	[Dependency] private readonly BloodCultRuleSystem _bloodCultRule = default!;
-	[Dependency] private readonly PuddleSystem _puddle = default!;
-	[Dependency] private readonly VomitSystem _vomit = default!;
+	[Dependency] private readonly BloodstreamSystem _bloodstream = default!;
 	[Dependency] private readonly DamageableSystem _damageable = default!;
 	[Dependency] private readonly PopupSystem _popup = default!;
 	[Dependency] private readonly SharedAudioSystem _audio = default!;
@@ -71,7 +71,8 @@ public sealed class BloodCultistReactionSystem : EntitySystem
 
 	/// <summary>
 	/// Handles blood consumption by cultists.
-	/// When cultists ingest blood, they vomit Sanguine Perniculate and add to the ritual pool.
+	/// When cultists ingest blood, they bleed briefly and restore their blood levels.
+	/// This does NOT add to the ritual pool anymore - only bleeding from wounds counts.
 	/// </summary>
 	private void HandleBloodIngestion(EntityUid uid, ref ReactionEntityEvent args)
 	{
@@ -83,16 +84,26 @@ public sealed class BloodCultistReactionSystem : EntitySystem
 		if (bloodAmount <= 0)
 			return;
 
-		// Add to the global ritual pool
-		_bloodCultRule.AddBloodForConversion(bloodAmount.Float());
+		// Restore the cultist's blood levels (like Saline)
+		// Each unit of consumed blood restores 6 units of their blood volume
+		if (TryComp<BloodstreamComponent>(uid, out var bloodstream))
+		{
+			_bloodstream.TryModifyBloodLevel(uid, bloodAmount.Float() * 6.0f, bloodstream);
+			
+			// Cause brief bleeding (1 unit/second for each 5 units consumed)
+			// This represents the blood being processed through their system
+			var bleedAmount = bloodAmount.Float() / 5.0f;
+			if (bleedAmount > 0.5f)
+			{
+				_bloodstream.TryModifyBleedAmount(uid, bleedAmount, bloodstream);
+			}
+		}
 
-		// Make the cultist vomit Sanguine Perniculate
-		var vomitSolution = new Solution();
-		vomitSolution.AddReagent(new ReagentId("SanguinePerniculate", null), bloodAmount);
-		_puddle.TrySpillAt(Transform(uid).Coordinates, vomitSolution, out _);
-
-		// Trigger vomit effects (slowdown, popup)
-		_vomit.Vomit(uid, thirstAdded: -bloodAmount.Float() / 2, hungerAdded: -bloodAmount.Float() / 2);
+		// Visual feedback
+		_popup.PopupEntity(
+			Loc.GetString("cult-blood-consumed", ("amount", bloodAmount.Float())),
+			uid, uid, PopupType.Small
+		);
 	}
 
 	/// <summary>

@@ -1,0 +1,29 @@
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
+- type: reagent
+  id: EdgeEssentia
+  name: reagent-name-edge-essentia
+  group: Exotic
+  desc: reagent-desc-edge-essentia
+  physicalDesc: reagent-physical-desc-profane
+  flavor: forbidden
+  color: "#330000"
+  boilingPoint: 98.0
+  meltingPoint: -5.0
+  recognizable: true
+  metabolisms:
+    Poison:
+      metabolismRate: 0.2
+      effects:
+      - !type:BleedSanguinePerniculate
+        probability: 0.5
+      - !type:AdjustReagent
+        reagent: EdgeEssentia
+        amount: -0.2
+      - !type:HealthChange
+        damage:
+          types:
+            Poison: 0.2
+

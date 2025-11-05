@@ -5,6 +5,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
 using Robust.Shared.Audio.Systems;
+using Robust.Shared.Audio;
 using Robust.Shared.GameObjects;
 using Content.Shared.Interaction.Events;
 using Content.Server.Mind;
@@ -24,6 +25,10 @@ using Content.Shared.Damage.Prototypes;
 using Content.Shared.FixedPoint;
 using Robust.Shared.Prototypes;
 using Content.Server.Roles;
+using Content.Server.Body.Systems;
+using Content.Shared.Body.Components;
+using Content.Server.Body.Components;
+using Content.Shared.Destructible;
 
 namespace Content.Server.BloodCult.EntitySystems;
 
@@ -39,6 +44,7 @@ public sealed class SoulStoneSystem : EntitySystem
 	[Dependency] private readonly DamageableSystem _damageable = default!;
 	[Dependency] private readonly IPrototypeManager _prototypeManager = default!;
 	[Dependency] private readonly RoleSystem _role = default!;
+	[Dependency] private readonly BloodstreamSystem _bloodstream = default!;
 
 	private EntityQuery<ShadeComponent> _shadeQuery;
 
@@ -49,6 +55,7 @@ public sealed class SoulStoneSystem : EntitySystem
 		SubscribeLocalEvent<SoulStoneComponent, AfterInteractEvent>(OnTryCaptureSoul);
 		SubscribeLocalEvent<SoulStoneComponent, UseInHandEvent>(OnUseInHand);
 		SubscribeLocalEvent<ShadeComponent, MobStateChangedEvent>(OnShadeDeath);
+		SubscribeLocalEvent<SoulStoneComponent, DestructionEventArgs>(OnSoulStoneDestroyed);
 
 		_shadeQuery = GetEntityQuery<ShadeComponent>();
 	}
@@ -105,24 +112,23 @@ public sealed class SoulStoneSystem : EntitySystem
 					_role.MindAddRole(mindId, "MindRoleCultist", mindComp);
 				}
 				
-				// Damage the user for releasing the shade
-				if (TryComp<DamageableComponent>(args.User, out var damageable))
+			// Damage the user for releasing the shade
+			if (TryComp<DamageableComponent>(args.User, out var damageable))
+			{
+				var damage = new DamageSpecifier();
+				
+				// Deal significant slash damage (30 points)
+				damage.DamageDict.Add("Slash", FixedPoint2.New(30));
+				
+				_damageable.TryChangeDamage(args.User, damage, ignoreResistances: false);
+				
+				// Add a very large bleed if the user has a bloodstream
+				if (TryComp<BloodstreamComponent>(args.User, out var bloodstream))
 				{
-					var damage = new DamageSpecifier();
-					
-					// Deal 20 bloodloss damage if they have blood
-					if (damageable.Damage.DamageDict.ContainsKey("Bloodloss"))
-					{
-						damage.DamageDict.Add("Bloodloss", FixedPoint2.New(20));
-					}
-					// Otherwise deal brute damage (for non-organic cultists, which shouldn't exist but this handles it just in case)
-					else
-					{
-						damage.DamageDict.Add("Blunt", FixedPoint2.New(20));
-					}
-					
-					_damageable.TryChangeDamage(args.User, damage, ignoreResistances: false);
+					// Add 10 units/second bleed - this is a massive bleed that will rapidly drain blood
+					_bloodstream.TryModifyBleedAmount(args.User, 10.0f, bloodstream);
 				}
+			}
 				
 				var coordinates = Transform((EntityUid)args.User).Coordinates;
 				var construct = Spawn("MobBloodCultShade", coordinates);
@@ -180,6 +186,35 @@ public sealed class SoulStoneSystem : EntitySystem
 		
 		// Delete the Shade entity
 		QueueDel(shade);
+	}
+
+	private void OnSoulStoneDestroyed(Entity<SoulStoneComponent> soulstone, ref DestructionEventArgs args)
+	{
+		// Get the mind from the soulstone
+		EntityUid? mindId = CompOrNull<MindContainerComponent>(soulstone)?.Mind;
+		if (mindId == null || !TryComp<MindComponent>(mindId, out var mindComp))
+			return;
+
+		// Get the original entity prototype
+		if (soulstone.Comp.OriginalEntityPrototype == null)
+			return;
+
+		var originalPrototype = soulstone.Comp.OriginalEntityPrototype.Value;
+
+		// Spawn the original entity at the soulstone's location
+		var coordinates = Transform(soulstone).Coordinates;
+		var originalEntity = Spawn(originalPrototype, coordinates);
+
+		// Transfer the mind to the original entity
+		_mind.TransferTo((EntityUid)mindId, originalEntity, mind: mindComp);
+
+		// Play breaking sound (glass break sound is appropriate)
+		_audioSystem.PlayPvs(new SoundPathSpecifier("/Audio/Effects/glassbr1.ogg"), coordinates);
+		
+		_popupSystem.PopupEntity(
+			Loc.GetString("cult-soulstone-shattered"),
+			soulstone, PopupType.MediumCaution
+		);
 	}
 }
 

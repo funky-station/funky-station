@@ -109,7 +109,7 @@ public sealed partial class CultistSpellComponent : Component
 [Serializable, NetSerializable] public sealed partial class MindshieldBreakDoAfterEvent : SimpleDoAfterEvent
 {
 	[NonSerialized] public EntityUid Victim;
-	[NonSerialized] public EntityUid[] Participants;
+	[NonSerialized] public EntityUid[] Participants = Array.Empty<EntityUid>();
 	[NonSerialized] public EntityCoordinates RuneLocation;
 
     public MindshieldBreakDoAfterEvent(EntityUid victim, EntityUid[] participants, EntityCoordinates runeLocation)

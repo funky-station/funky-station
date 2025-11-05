@@ -51,8 +51,8 @@ cult-invocation-interrupted = The ritual was interrupted!
 cult-revive-success = The ritual is complete! Life flows back into the body as your own blood is drained!
 cult-sanguine-perniculate-heal = The sanguine perniculate soothes your wounds, healing {$amount} holy damage!
 cult-holywater-burn = The holy water burns you for {$amount} damage!
-cult-invocation-mindshield-break = The power of Nar'Sie shatters the mindshield! The ritual tears at your very essence!
-cult-invocation-mindshield-success = The mindshield has been broken! The victim is now vulnerable to conversion.
+cult-invocation-mindshield-break = You begin the ritual to shatter the mindshield. Nar'Sie demands sacrifice!
+cult-invocation-mindshield-success = The power of Nar'Sie shatters the mindshield! The ritual tears at your very essence!
 cult-invocation-target-fail = More cultists must be present to sacrifice one Nar'Sie desires!
 cult-invocation-narsie-fail = At least nine cultists must stand atop the rune, distributed evenly, to rend the veil.
 
@@ -74,13 +74,21 @@ cult-shade-servant = You have been released from your prison, but you are still 
 
 cult-juggernaut-created = The soul is bound into the shell, creating a mighty Juggernaut!
 
+cult-juggernaut-reactivated = The soul returns to the Juggernaut! It remains wounded and needs blood to fully recover.
+
 cult-juggernaut-shell-needs-dead = The shell can only accept dead bodies with souls!
+
+cult-juggernaut-critical-soulstone-ejected = The Juggernaut's form collapses, and the soulstone is ejected!
 
 cult-soulstone-empty = You are unable to contact any soul from this stone -- perhaps it is empty.
 
-cult-soulstone-created = The entity's soul is captured within the soulstone!
+cult-soulstone-created = The entity's brain is captured by Nar'Sie's crystalized blood!
+
+cult-soulstone-shattered = The soulstone shatters and the soul returns to its original form!
 
 cult-blood-transmuted = The blood turns dark and profane as Nar'Sie's influence corrupts it!
+
+cult-blood-consumed = You consume the blood, feeling it course through your veins!
 
 bloodcult-juggernaut-healed-by-blood = The juggernaut absorbs the blood, its wounds knitting together!
 

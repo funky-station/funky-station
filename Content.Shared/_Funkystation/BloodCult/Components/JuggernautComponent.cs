@@ -14,4 +14,17 @@ namespace Content.Shared.BloodCult.Components;
 [RegisterComponent, NetworkedComponent]
 public sealed partial class JuggernautComponent : Component
 {
+	/// <summary>
+	/// The soulstone that was used to create this juggernaut.
+	/// Will be ejected when the juggernaut becomes critical.
+	/// </summary>
+	[DataField]
+	public EntityUid? SourceSoulstone;
+
+	/// <summary>
+	/// Whether the juggernaut is currently inactive (soulstone has been ejected).
+	/// Inactive juggernauts cannot move or act, even if healed, until a soulstone is reinserted.
+	/// </summary>
+	[DataField]
+	public bool IsInactive;
 }

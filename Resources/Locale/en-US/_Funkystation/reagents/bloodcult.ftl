@@ -10,3 +10,5 @@ reagent-effect-guidebook-bleed-sanguine-perniculate =
         [1] Converts
        *[other] Has a {NATURALPERCENT($chance, 2)} chance to convert
     } bleeding blood into sanguine perniculate
+
+sanguine-perniculate-holywater-reaction = The unholy blood violently reacts with the holy water, purging itself!

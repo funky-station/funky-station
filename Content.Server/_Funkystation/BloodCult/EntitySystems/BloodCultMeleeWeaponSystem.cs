@@ -40,14 +40,32 @@ public sealed class BloodCultMeleeWeaponSystem : EntitySystem
 		if (args.IsHit &&
 			args.HitEntities.Any())
 		{
-			if (args.HitEntities.Any(r => HasComp<CultResistantComponent>(r)))
-				blockedByChaplain = true;
-			if (args.HitEntities.Any(r => HasComp<BloodCultistComponent>(r)) || args.HitEntities.Any(r => HasComp<BloodCultConstructComponent>(r)))
-				blockedByCultist = true;
+			// Cast to List to modify - MeleeHitEvent is constructed with a List<EntityUid>
+			if (args.HitEntities is not List<EntityUid> hitList)
+				return;
+			
+			// Remove protected entities from the hit list instead of canceling the entire event
+			// This allows hitting enemies while protecting allies in wide attacks
+			for (int i = hitList.Count - 1; i >= 0; i--)
+			{
+				var target = hitList[i];
+				
+				if (HasComp<CultResistantComponent>(target))
+				{
+					blockedByChaplain = true;
+					hitList.RemoveAt(i);
+				}
+				else if (HasComp<BloodCultistComponent>(target) || HasComp<BloodCultConstructComponent>(target))
+				{
+					blockedByCultist = true;
+					hitList.RemoveAt(i);
+				}
+			}
+			
+			// Only cancel the entire event if ALL entities were protected (no valid targets remain)
+			if (hitList.Count == 0)
+				args.Handled = true;
 		}
-
-		if (blockedByChaplain || blockedByCultist)
-			args.Handled = true;
 
 		if (blockedByChaplain)
 		{

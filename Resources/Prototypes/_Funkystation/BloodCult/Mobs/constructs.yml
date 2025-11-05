@@ -90,6 +90,7 @@
           visualType: Medium
           messages: [ "bloodcult-juggernaut-healed-by-blood" ]
           probability: 0.5
+        - !type:JuggernautBloodCorruption
     - type: MindContainer
     - type: Juggernaut
     - type: JuggernautBodyContainer
@@ -97,6 +98,7 @@
     - type: ContainerContainer
       containers:
         juggernaut_body_container: !type:ContainerSlot
+        juggernaut_soulstone_container: !type:ContainerSlot
     - type: Physics
     - type: InputMover
     - type: MobMover
@@ -138,7 +140,7 @@
           Base: juggernaut
           BaseUnshaded: nautdamage
         Critical:
-          Base: juggernaut_dead
+          Base: juggernaut
         Dead:
           Base: juggernaut_dead
     - type: Fixtures

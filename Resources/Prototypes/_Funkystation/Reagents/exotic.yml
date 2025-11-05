@@ -169,23 +169,3 @@
         conditions:
         - !type:ReagentThreshold
           min: 20
-
-- type: reagent
-  id: EdgeEssentia
-  name: reagent-name-edge-essentia
-  group: Exotic
-  desc: reagent-desc-edge-essentia
-  physicalDesc: reagent-physical-desc-profane
-  flavor: forbidden
-  color: "#330000"
-  boilingPoint: 98.0
-  meltingPoint: -5.0
-  recognizable: true
-  metabolisms:
-    Poison:
-      effects:
-      - !type:BleedSanguinePerniculate
-      - !type:HealthChange
-        damage:
-          types:
-            Poison: 0.5

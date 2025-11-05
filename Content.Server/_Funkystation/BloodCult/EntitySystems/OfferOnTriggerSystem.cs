@@ -14,7 +14,6 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Audio;
 using Robust.Shared.Containers;
 using Robust.Shared.Timing;
-using Content.Shared.FixedPoint;
 using Content.Shared.Trigger;
 using Content.Shared.DoAfter;
 using Content.Server.Explosion.EntitySystems;
@@ -27,6 +26,7 @@ using Content.Shared.BloodCult.Components;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.Mobs.Systems;
+using Content.Shared.FixedPoint;
 using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
 using Content.Shared.Humanoid;
@@ -35,6 +35,7 @@ using Content.Shared.Body.Part;
 using Content.Shared.Body.Components;
 using Content.Server.Body.Components;
 using Content.Server.Body.Systems;
+using Content.Shared.Body.Organ;
 using Content.Shared.Roles;
 using Content.Server.Roles;
 using Content.Server.Mind;
@@ -47,6 +48,10 @@ using Content.Shared.Chemistry.Reagent;
 using Content.Server.Fluids.EntitySystems;
 using Content.Server.GameTicking.Rules;
 using Content.Shared._EinsteinEngines.Silicon.Components;
+using Content.Shared.Silicons.Borgs.Components;
+using Content.Shared.Tag;
+using Content.Shared.Implants;
+using Content.Shared.Implants.Components;
 
 namespace Content.Server.BloodCult.EntitySystems
 {
@@ -70,42 +75,143 @@ namespace Content.Server.BloodCult.EntitySystems
 		[Dependency] private readonly IGameTiming _gameTiming = default!;
 		[Dependency] private readonly ChatSystem _chat = default!;
 		[Dependency] private readonly SharedTransformSystem _transform = default!;
+		[Dependency] private readonly DamageableSystem _damageable = default!;
+		[Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+		[Dependency] private readonly TagSystem _tag = default!;
+		[Dependency] private readonly SharedSubdermalImplantSystem _implantSystem = default!;
+
+		private static readonly ProtoId<DamageTypePrototype> SlashDamageType = "Slash";
 
 		public override void Initialize()
 		{
-			base.Initialize();
-			SubscribeLocalEvent<OfferOnTriggerComponent, TriggerEvent>(HandleOfferTrigger);
-			SubscribeLocalEvent<MindshieldBreakDoAfterEvent>(OnMindshieldBreakComplete);
-		}
+		base.Initialize();
+		SubscribeLocalEvent<OfferOnTriggerComponent, TriggerEvent>(HandleOfferTrigger);
+		SubscribeLocalEvent<BloodCultistComponent, MindshieldBreakDoAfterEvent>(OnMindshieldBreakComplete);
+	}
 
-		public override void Update(float frameTime)
+	public override void Update(float frameTime)
+	{
+		base.Update(frameTime);
+
+		var curTime = _gameTiming.CurTime;
+		var query = EntityQueryEnumerator<MindshieldBreakRitualComponent>();
+		while (query.MoveNext(out var uid, out var ritual))
 		{
-			base.Update(frameTime);
-
-			var curTime = _gameTiming.CurTime;
-			var query = EntityQueryEnumerator<MindshieldBreakRitualComponent>();
-			while (query.MoveNext(out var uid, out var ritual))
+			// Validate ritual conditions BEFORE chanting
+			// This ensures multiplayer robustness
+			
+			// Check if victim still exists
+			if (!Exists(ritual.Victim))
 			{
-				// Check if it's time to chant
-				if (curTime >= ritual.NextChantTime && ritual.ChantCount < 3)
+				_FailRitual(uid, "cult-invocation-interrupted");
+				continue;
+			}
+			
+			// Validate all participants are still alive, in range, and not deleted
+			var runePos = _transform.ToMapCoordinates(ritual.RuneLocation).Position;
+			var validParticipants = 0;
+			
+			foreach (var participant in ritual.Participants)
+			{
+				// Check if participant exists
+				if (!Exists(participant))
+					continue;
+				
+				// Check if participant is dead
+				if (_mobState.IsDead(participant))
+					continue;
+				
+				// Check if participant is in range of the rune (2.5m)
+				var participantPos = _transform.GetWorldPosition(participant);
+				if ((participantPos - runePos).Length() > 2.5f)
+					continue;
+				
+				validParticipants++;
+			}
+			
+			// Need at least 3 valid participants to continue the ritual
+			if (validParticipants < 3)
+			{
+				_FailRitual(uid, "cult-invocation-fail");
+				continue;
+			}
+			
+			// Check if it's time to chant
+			if (curTime >= ritual.NextChantTime && ritual.ChantCount < 3)
+			{
+				ritual.ChantCount++;
+				ritual.NextChantTime = curTime + TimeSpan.FromSeconds(2);
+
+				// Make all participants chant gibberish (only those still valid)
+				foreach (var participant in ritual.Participants)
 				{
-					ritual.ChantCount++;
-					ritual.NextChantTime = curTime + TimeSpan.FromSeconds(2);
+					if (!Exists(participant) || _mobState.IsDead(participant))
+						continue;
+					
+					var participantPos = _transform.GetWorldPosition(participant);
+					if ((participantPos - runePos).Length() > 2.5f)
+						continue;
 
-					// Make all participants chant gibberish
-					foreach (var cultist in ritual.Participants)
-					{
-						if (!Exists(cultist))
-							continue;
-
-						// Generate random gibberish chant
-						var chants = new[] { "Ia! Ia!", "N'ghft!", "Y'hah!", "Vulgtm!", "Shogg!", "Uln!", "Ftaghn!" };
-						var chant = chants[Random.Shared.Next(chants.Length)] + " " + chants[Random.Shared.Next(chants.Length)];
-						_chat.TrySendInGameICMessage(cultist, chant, InGameICChatType.Speak, false);
-					}
+					// Generate random gibberish chant
+					var chants = new[] { "Ia! Ia!", "N'ghft!", "Y'hah!", "Vulgtm!", "Shogg!", "Uln!", "Ftaghn!" };
+					var chant = chants[Random.Shared.Next(chants.Length)] + " " + chants[Random.Shared.Next(chants.Length)];
+					_chat.TrySendInGameICMessage(participant, chant, InGameICChatType.Speak, false);
 				}
 			}
 		}
+	}
+	
+	/// <summary>
+	/// Cancels a mindshield breaking ritual and shows failure message to all participants
+	/// </summary>
+	private void _FailRitual(EntityUid ritualist, string localizationKey)
+	{
+		// Get the ritual component to show message to all participants
+		EntityUid[] participants = Array.Empty<EntityUid>();
+		if (TryComp<MindshieldBreakRitualComponent>(ritualist, out var ritual))
+		{
+			participants = ritual.Participants;
+		}
+		
+		// Show failure message to all participants
+		foreach (var participant in participants)
+		{
+			if (!Exists(participant))
+				continue;
+			
+			_popupSystem.PopupEntity(
+				Loc.GetString(localizationKey),
+				participant, participant, PopupType.MediumCaution
+			);
+		}
+		
+		// If no participants (component already removed), at least show to ritualist
+		if (participants.Length == 0)
+		{
+			_popupSystem.PopupEntity(
+				Loc.GetString(localizationKey),
+				ritualist, ritualist, PopupType.MediumCaution
+			);
+		}
+		
+		// Cancel any MindshieldBreakDoAfterEvent DoAfters on the ritualist
+		if (TryComp<DoAfterComponent>(ritualist, out var doAfterComp))
+		{
+			// Find and cancel the mindshield breaking DoAfter
+			foreach (var (id, doAfter) in doAfterComp.DoAfters)
+			{
+				if (doAfter.Args.Event is MindshieldBreakDoAfterEvent)
+				{
+					_doAfter.Cancel(ritualist, id, doAfterComp);
+					break;
+				}
+			}
+		}
+		
+		// Remove the ritual component
+		// This ensures the completion handler will return early if it somehow still fires
+		RemCompDeferred<MindshieldBreakRitualComponent>(ritualist);
+	}
 
 		private void HandleOfferTrigger(EntityUid uid, OfferOnTriggerComponent component, TriggerEvent args)
 		{
@@ -116,77 +222,74 @@ namespace Content.Server.BloodCult.EntitySystems
 			if (!TryComp(user, out BloodCultistComponent? bloodCultist))
 				return;
 
-			var offerLookup = _lookup.GetEntitiesInRange(uid, component.OfferRange);
-			var invokeLookup = _lookup.GetEntitiesInRange(uid, component.InvokeRange);
-			EntityUid[] cultistsInRange = Array.FindAll(invokeLookup.ToArray(), item => ((HasComp<BloodCultistComponent>(item) || HasComp<BloodCultConstructComponent>(item)) && !_mobState.IsDead(item)));
+		var offerLookup = _lookup.GetEntitiesInRange(uid, component.OfferRange);
+		var invokeLookup = _lookup.GetEntitiesInRange(uid, component.InvokeRange);
+		EntityUid[] cultistsInRange = Array.FindAll(invokeLookup.ToArray(), item => ((HasComp<BloodCultistComponent>(item) || HasComp<BloodCultConstructComponent>(item)) && !_mobState.IsDead(item)));
 
-			List<EntityUid> humanoids = new List<EntityUid>();
-			List<EntityUid> brains = new List<EntityUid>();
-			List<EntityUid> shells = new List<EntityUid>();
-			foreach (var look in offerLookup)
-			{
-				if (HasComp<HumanoidAppearanceComponent>(look))
-					humanoids.Add(look);
-				else if (HasComp<BrainComponent>(look))
-					brains.Add(look);
-				else if (HasComp<BloodCultConstructShellComponent>(look))
-					shells.Add(look);
-			}
+		List<EntityUid> humanoids = new List<EntityUid>();
+		List<EntityUid> brains = new List<EntityUid>();
+		List<EntityUid> shells = new List<EntityUid>();
+		foreach (var look in offerLookup)
+		{
+			// Humanoids, cyborgs, and other sentient mobs that can be soulstoned
+			if (HasComp<HumanoidAppearanceComponent>(look) || HasComp<BorgChassisComponent>(look))
+				humanoids.Add(look);
+			else if (HasComp<BrainComponent>(look))
+				brains.Add(look);
+			else if (HasComp<BloodCultConstructShellComponent>(look))
+				shells.Add(look);
+		}
 
-			EntityUid? candidate = null;
-			if (humanoids.Count > 0)
-				candidate = humanoids[0];
-			else if (brains.Count > 0)
-				candidate = brains[0];
+		EntityUid? candidate = null;
+		if (humanoids.Count > 0)
+			candidate = humanoids[0];
+		else if (brains.Count > 0)
+			candidate = brains[0];
 
 			if (candidate != null)
 			{
 				EntityUid offerable = (EntityUid) candidate;
 
-				if (!_IsValidTarget(offerable, out var mind))
-				{
-					_popupSystem.PopupEntity(
-							Loc.GetString("cult-invocation-fail-nosoul"),
-							user, user, PopupType.MediumCaution
-						);
-				}
-			else if (HasComp<BloodCultistComponent>(offerable) || (mind != null && _role.MindHasRole<BloodCultRoleComponent>((EntityUid)mind)))
+			if (!_IsValidTarget(offerable, out var mind))
 			{
 				_popupSystem.PopupEntity(
-						Loc.GetString("cult-invocation-fail-teamkill"),
+						Loc.GetString("cult-invocation-fail-nosoul"),
 						user, user, PopupType.MediumCaution
 					);
 			}
-			else if (HasComp<MindShieldComponent>(offerable))
-			{
-				// Mindshielded victim - attempt to break mindshield
-				_BreakMindshield(offerable, user, cultistsInRange, Transform(uid).Coordinates);
-			}
-			else if (_CanBeConverted(offerable))
-			{
-				// Check if this is a soulstone-eligible entity (cannot bleed)
-				if (_IsSoulstoneEligible(offerable))
-				{
-					// Create a soulstone for entities that cannot bleed
-					_CreateSoulstoneFromEntity(offerable, user, uid, cultistsInRange);
-				}
-				else
-				{
-					// Normal conversion for organic humanoids
-					_bloodCultist.UseConvertRune(offerable, user, uid, cultistsInRange);
-					
-					// Add blood to the ritual pool based on the victim's current blood level
-					// If they're at 50% blood, only add 50u instead of 100u
-					var bloodPercentage = _bloodstream.GetBloodLevelPercentage(offerable);
-					var bloodAmount = 100.0 * bloodPercentage;
-					_bloodCultRule.AddBloodForConversion(bloodAmount);
-				}
-			}
-			else if (_CanBeSacrificed(offerable, shells))
-			{
-				// Dead or otherwise non-convertible entity with shell - sacrifice into shell
-				_SacrificeIntoShell(offerable, user, shells[0], cultistsInRange);
-			}
+		else if (HasComp<BloodCultistComponent>(offerable) || (mind != null && _role.MindHasRole<BloodCultRoleComponent>((EntityUid)mind)))
+		{
+			_popupSystem.PopupEntity(
+					Loc.GetString("cult-invocation-fail-teamkill"),
+					user, user, PopupType.MediumCaution
+				);
+		}
+		else if (HasComp<MindShieldComponent>(offerable))
+		{
+			// Mindshielded victim - attempt to break mindshield
+			_BreakMindshield(offerable, user, cultistsInRange, Transform(uid).Coordinates);
+		}
+		else if (_IsSoulstoneEligible(offerable))
+		{
+			// Soulstone-eligible entities (IPCs, critical cyborgs, positronic brains, etc.)
+			_CreateSoulstoneFromEntity(offerable, user, uid, cultistsInRange);
+		}
+		else if (_CanBeConverted(offerable))
+		{
+			// Normal conversion for organic humanoids
+			_bloodCultist.UseConvertRune(offerable, user, uid, cultistsInRange);
+			
+			// Add blood to the ritual pool based on the victim's current blood level
+			// If they're at 50% blood, only add 50u instead of 100u
+			var bloodPercentage = _bloodstream.GetBloodLevelPercentage(offerable);
+			var bloodAmount = 100.0 * bloodPercentage;
+			_bloodCultRule.AddBloodForConversion(bloodAmount);
+		}
+		else if (_CanBeSacrificed(offerable, shells))
+		{
+			// Dead or otherwise non-convertible entity with shell - sacrifice into shell
+			_SacrificeIntoShell(offerable, user, shells[0], cultistsInRange);
+		}
 			else if (shells.Count == 0)
 			{
 				// No shell present - show error message
@@ -295,11 +398,7 @@ namespace Content.Server.BloodCult.EntitySystems
 
 	private bool _CanBeConverted(EntityUid uid)
 	{
-		// Allow soulstone-eligible entities even if dead
-		if (_IsSoulstoneEligible(uid))
-			return !HasComp<MindShieldComponent>(uid); //It shouldn't reach here if they have a mindshield, but just for safety
-		
-		// Regular entities must be alive
+		// Regular entities must be alive and not mindshielded
 		return !_mobState.IsDead(uid) &&  // must not be dead
 			!HasComp<MindShieldComponent>(uid);  // must not be mindshielded
 	}
@@ -309,6 +408,11 @@ namespace Content.Server.BloodCult.EntitySystems
 		// Entities that cannot bleed (no bloodstream) or are synthetic should be captured in soulstones
 		// This includes IPCs, positronic brains, borgs, slimes, and other non-organic entities
 		// Note: IPCs have bloodstream (for oil) but are silicon-based, so check for SiliconComponent
+		
+		// Cyborgs can only be soulstoned when in critical state
+		if (HasComp<BorgChassisComponent>(uid))
+			return _mobState.IsCritical(uid);
+		
 		return !HasComp<BloodstreamComponent>(uid) || HasComp<SiliconComponent>(uid);
 	}
 
@@ -337,33 +441,64 @@ namespace Content.Server.BloodCult.EntitySystems
 			return;
 		}
 
-		var coordinates = Transform(victim).Coordinates;
-		
-		// Play sacrifice audio
-		_audio.PlayPvs(new SoundPathSpecifier("/Audio/Magic/disintegrate.ogg"), coordinates);
-		
-		// Create soulstone and transfer mind
-		var soulstone = Spawn("CultSoulStone", coordinates);
-		_mind.TransferTo((EntityUid)mindId, soulstone, mind:mindComp);
-		
-		// Destroy the original entity
-		// Check if it has a body to gib, otherwise just delete it
-		if (TryComp<BodyComponent>(victim, out _))
+	var coordinates = Transform(victim).Coordinates;
+	
+	// Store the soul container's prototype to use when the soulstone breaks
+	// This will be the brain organ for bodies, or the entity itself for standalone items like positronic brains
+	EntProtoId? originalEntityPrototype = null;
+	
+	// Destroy the original entity or remove its soul container
+	if (TryComp<BodyComponent>(victim, out var body))
+	{
+		// Find and remove the brain/soul container from the body
+		bool brainRemoved = false;
+		var brains = _bodySystem.GetBodyOrganEntityComps<BrainComponent>((victim, body));
+		foreach (var (brainUid, brainComp, organComp) in brains)
 		{
-			// Gib the body and delete ALL gibs (the soul has been captured, leave nothing behind)
-			var gibs = _bodySystem.GibBody(victim, gibOrgans: true);
-			foreach (var gib in gibs)
+			// Store the brain organ's prototype before deleting it
+			if (TryComp<MetaDataComponent>(brainUid, out var brainMeta) && brainMeta.EntityPrototype != null)
 			{
-				// Delete all gibs - no remains should be left when a soul is captured
-				QueueDel(gib);
+				originalEntityPrototype = brainMeta.EntityPrototype.ID;
 			}
+			
+			// Remove the brain from the body and delete it
+			_bodySystem.RemoveOrgan(brainUid, organComp);
+			QueueDel(brainUid);
+			brainRemoved = true;
+			break; // Only take the first brain
 		}
-		else
+
+		// If no brain was found but has a body, just delete the whole entity
+		if (!brainRemoved)
 		{
-			// No body to gib (e.g., positronic brain, item-based entities)
-			// Just delete the entity directly
 			QueueDel(victim);
 		}
+	}
+	else
+	{
+		// No body to process (e.g., positronic brain, item-based entities)
+		// Store the entity's prototype since the entity itself is the soul container
+		if (TryComp<MetaDataComponent>(victim, out var victimMeta) && victimMeta.EntityPrototype != null)
+		{
+			originalEntityPrototype = victimMeta.EntityPrototype.ID;
+		}
+		// Delete the entity directly
+		QueueDel(victim);
+	}
+	
+	// Play sacrifice audio
+	_audio.PlayPvs(new SoundPathSpecifier("/Audio/Magic/disintegrate.ogg"), coordinates);
+	
+	// Create soulstone and transfer mind
+	var soulstone = Spawn("CultSoulStone", coordinates);
+	_mind.TransferTo((EntityUid)mindId, soulstone, mind:mindComp);
+	
+	// Store the original soul container prototype in the soulstone component
+	if (TryComp<SoulStoneComponent>(soulstone, out var soulstoneComp) && originalEntityPrototype != null)
+	{
+		soulstoneComp.OriginalEntityPrototype = originalEntityPrototype;
+		Dirty(soulstone, soulstoneComp);
+	}
 		
 		// Play success audio
 		_audio.PlayPvs(new SoundPathSpecifier("/Audio/Magic/blink.ogg"), coordinates);
@@ -430,87 +565,119 @@ namespace Content.Server.BloodCult.EntitySystems
 		}
 	}
 
-	private void OnMindshieldBreakComplete(MindshieldBreakDoAfterEvent args)
+	private void OnMindshieldBreakComplete(Entity<BloodCultistComponent> cultist, ref MindshieldBreakDoAfterEvent args)
 	{
 		if (args.Handled)
 			return;
 
-		var user = args.User;
+		var user = cultist.Owner;
 
 		// Safety check: ensure user still exists
 		if (!Exists(user))
 			return;
 
-		// Remove the ritual tracking component
-		RemCompDeferred<MindshieldBreakRitualComponent>(user);
-
-		if (args.Cancelled)
+		// Get data from the ritual tracking component
+		if (!TryComp<MindshieldBreakRitualComponent>(user, out var ritual))
 		{
+			// Component was removed early, ritual failed
+			return;
+		}
+
+		var victim = ritual.Victim;
+		var participants = ritual.Participants;
+		var runeLocation = ritual.RuneLocation;
+
+	// Remove the ritual tracking component
+	RemCompDeferred<MindshieldBreakRitualComponent>(user);
+
+	// If the ritual was interrupted (user moved, took damage, etc.), show failure message to all participants
+	if (args.Cancelled)
+	{
+		foreach (var participant in participants)
+		{
+			if (!Exists(participant))
+				continue;
+			
 			_popupSystem.PopupEntity(
 				Loc.GetString("cult-invocation-interrupted"),
-				user, user, PopupType.MediumCaution
+				participant, participant, PopupType.MediumCaution
 			);
-			return;
 		}
+		return;
+	}
 
-		var victim = args.Victim;
-
-		// Safety check: ensure victim still exists (could be deleted, gibbed, etc. during DoAfter)
-		if (!Exists(victim))
+	// Safety check: ensure victim still exists (could be deleted, gibbed, etc. during DoAfter)
+	if (!Exists(victim))
+	{
+		foreach (var participant in participants)
 		{
+			if (!Exists(participant))
+				continue;
+			
 			_popupSystem.PopupEntity(
 				Loc.GetString("cult-invocation-interrupted"),
-				user, user, PopupType.MediumCaution
+				participant, participant, PopupType.MediumCaution
 			);
-			return;
 		}
-		var participants = args.Participants;
+		return;
+	}
 
-		// Validate that all participants are still present and in range
-		var validParticipants = new List<EntityUid>();
-		foreach (var cultist in participants)
+	// Validate that all participants are still present and in range
+	var validParticipants = new List<EntityUid>();
+	foreach (var participant in participants)
+	{
+		if (!Exists(participant) || _mobState.IsDead(participant))
+			continue;
+
+		var participantPos = _transform.GetWorldPosition(participant);
+		var runePos = _transform.ToMapCoordinates(runeLocation).Position;
+		if ((participantPos - runePos).Length() > 2.5f)
+			continue;
+
+		validParticipants.Add(participant);
+	}
+
+	// Still need 3 cultists at the end
+	if (validParticipants.Count < 3)
+	{
+		// Show failure message to all participants who are still around
+		foreach (var participant in participants)
 		{
-			if (!Exists(cultist) || _mobState.IsDead(cultist))
+			if (!Exists(participant))
 				continue;
-
-			var cultistPos = _transform.GetWorldPosition(cultist);
-			var runePos = _transform.ToMapCoordinates(args.RuneLocation).Position;
-			if ((cultistPos - runePos).Length() > 2.5f)
-				continue;
-
-			validParticipants.Add(cultist);
-		}
-
-		// Still need 3 cultists at the end
-		if (validParticipants.Count < 3)
-		{
+			
 			_popupSystem.PopupEntity(
-				Loc.GetString("cult-invocation-fail"),
-				user, user, PopupType.MediumCaution
+				Loc.GetString("cult-invocation-interrupted"),
+				participant, participant, PopupType.MediumCaution
 			);
-			return;
 		}
+		return;
+	}
 
 		var coordinates = Transform(victim).Coordinates;
 		
 		// Play dramatic completion audio
 		_audio.PlayPvs(new SoundPathSpecifier("/Audio/_Funkystation/Ambience/Antag/creepyshriek.ogg"), coordinates);
 		
-		// Apply bleeding and stun to ONLY the participating cultists
-		foreach (EntityUid cultist in validParticipants)
+	// Apply damage, bleeding, and stun to ONLY the participating cultists
+	foreach (EntityUid participant in validParticipants)
+	{
+		// Apply slash damage (20 points) - the ritual tears at their flesh
+		var damageSpec = new DamageSpecifier(_prototypeManager.Index(SlashDamageType), FixedPoint2.New(20));
+		_damageable.TryChangeDamage(participant, damageSpec, ignoreResistances: false);
+		
+		// Apply heavy bleeding (5 units/second)
+		if (TryComp<BloodstreamComponent>(participant, out var bloodstream))
 		{
-			// Apply heavy bleeding
-			if (TryComp<BloodstreamComponent>(cultist, out var bloodstream))
-			{
-				_bloodstream.TryModifyBleedAmount(cultist, 5.0f, bloodstream);
-			}
-			
-			// Apply stun and knockdown
-			if (TryComp<StatusEffectsComponent>(cultist, out var status))
-			{
-				_stun.TryParalyze(cultist, TimeSpan.FromSeconds(3), true, status);
-			}
+			_bloodstream.TryModifyBleedAmount(participant, 5.0f, bloodstream);
 		}
+		
+		// Apply stun and knockdown
+		if (TryComp<StatusEffectsComponent>(participant, out var status))
+		{
+			_stun.TryParalyze(participant, TimeSpan.FromSeconds(3), true, status);
+		}
+	}
 		
 		// Stun the victim as well
 		if (TryComp<StatusEffectsComponent>(victim, out var victimStatus))
@@ -518,16 +685,71 @@ namespace Content.Server.BloodCult.EntitySystems
 			_stun.TryParalyze(victim, TimeSpan.FromSeconds(10), true, victimStatus);
 		}
 		
-		// Remove the mindshield from the victim
-		RemComp<MindShieldComponent>(victim);
+	// NOW remove the mindshield from the victim (at the end of the ritual)
+	// First verify the victim actually has a MindShieldComponent
+	if (!TryComp<MindShieldComponent>(victim, out var _))
+	{
+		// No mindshield component - ritual shouldn't have been possible
+		_popupSystem.PopupEntity(
+			Loc.GetString("cult-invocation-fail"),
+			user, user, PopupType.MediumCaution
+		);
+		args.Handled = true;
+		return;
+	}
+	
+	// Find the physical mindshield implant and destroy it
+	if (_container.TryGetContainer(victim, ImplanterComponent.ImplantSlotId, out var implantContainer))
+	{
+		EntityUid? mindshieldImplant = null;
 		
-		// Show success message - victim will need to be converted/sacrificed on a second attempt
+		// Find the mindshield implant by checking both tag AND SubdermalImplantComponent
+		foreach (var implant in implantContainer.ContainedEntities)
+		{
+			if (_tag.HasTag(implant, "MindShield") && TryComp<SubdermalImplantComponent>(implant, out var _))
+			{
+				mindshieldImplant = implant;
+				break;
+			}
+		}
+		
+		// If we found the implant, destroy it (this will automatically remove the MindShieldComponent)
+		if (mindshieldImplant != null)
+		{
+			_implantSystem.ForceRemove(victim, mindshieldImplant.Value);
+		}
+		else
+		{
+			// No mindshield implant found - already removed somehow or mismatch
+			_popupSystem.PopupEntity(
+				Loc.GetString("cult-invocation-fail"),
+				user, user, PopupType.MediumCaution
+			);
+			args.Handled = true;
+			return;
+		}
+	}
+	else
+	{
+		// No implant container - entity can't have implants
+		_popupSystem.PopupEntity(
+			Loc.GetString("cult-invocation-fail"),
+			user, user, PopupType.MediumCaution
+		);
+		args.Handled = true;
+		return;
+	}
+		
+	// Show success message to all participants who were affected by the ritual
+	foreach (var participant in validParticipants)
+	{
 		_popupSystem.PopupEntity(
 			Loc.GetString("cult-invocation-mindshield-success"),
-			user, user, PopupType.Large
+			participant, participant, PopupType.Large
 		);
+	}
 
-		args.Handled = true;
+	args.Handled = true;
 	}
 
 	private void _SacrificeIntoShell(EntityUid victim, EntityUid user, EntityUid shell, EntityUid[] cultistsInRange)

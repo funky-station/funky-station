@@ -104,9 +104,17 @@ namespace Content.Server.BloodCult.EntitySystems
 			// Apply different conditions based on cultist status
 			if (isCultist)
 			{
-				// Cultists are revived with 50 slash damage
-				var slashDamage = new DamageSpecifier(_protoMan.Index<DamageTypePrototype>("Slash"), FixedPoint2.New(50));
-				_damageableSystem.TryChangeDamage(look, slashDamage, true, origin: user);
+				// Cultists are revived with bloodloss + slash damage to simulate the blood cost
+				var revivalDamage = new DamageSpecifier();
+				revivalDamage.DamageDict.Add("Bloodloss", FixedPoint2.New(80));  // Increased from 50
+				revivalDamage.DamageDict.Add("Slash", FixedPoint2.New(30));
+				_damageableSystem.TryChangeDamage(look, revivalDamage, true, origin: user);
+				
+				// Add bleeding effect to simulate the blood cost
+				if (TryComp<BloodstreamComponent>(look, out var revivedBloodstream))
+				{
+					_bloodstream.TryModifyBleedAmount(look, 8.0f, revivedBloodstream);  // Heavy bleeding
+				}
 			}
 			else
 			{

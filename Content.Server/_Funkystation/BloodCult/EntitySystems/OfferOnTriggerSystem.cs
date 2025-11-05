@@ -281,27 +281,40 @@ namespace Content.Server.BloodCult.EntitySystems
 			
 			// Add blood to the ritual pool based on the victim's current blood level
 			// If they're at 50% blood, only add 50u instead of 100u
+			// Also account for blood already spilled from EdgeEssentia wounds
 			var bloodPercentage = _bloodstream.GetBloodLevelPercentage(offerable);
-			var bloodAmount = 100.0 * bloodPercentage;
-			_bloodCultRule.AddBloodForConversion(bloodAmount);
+			var bloodFromConversion = 100.0 * bloodPercentage;
+			
+			// Check if this entity has already contributed blood via EdgeEssentia bleeding
+			var alreadyContributed = 0.0;
+			if (TryComp<BloodCollectionTrackerComponent>(offerable, out var tracker))
+			{
+				alreadyContributed = tracker.TotalBloodCollected;
+			}
+			
+			// Ensure total contribution from this entity never exceeds 100 units
+			var remainingAllowance = Math.Max(0, 100.0 - alreadyContributed);
+			var bloodToAdd = Math.Min(bloodFromConversion, remainingAllowance);
+			
+			if (bloodToAdd > 0)
+			{
+				_bloodCultRule.AddBloodForConversion(bloodToAdd);
+				
+				// Update the tracker
+				var conversionTracker = EnsureComp<BloodCollectionTrackerComponent>(offerable);
+				conversionTracker.TotalBloodCollected = Math.Min(conversionTracker.TotalBloodCollected + (float)bloodToAdd, conversionTracker.MaxBloodPerEntity);
+			}
 		}
 		else if (_CanBeSacrificed(offerable, shells))
 		{
 			// Dead or otherwise non-convertible entity with shell - sacrifice into shell
 			_SacrificeIntoShell(offerable, user, shells[0], cultistsInRange);
 		}
-			else if (shells.Count == 0)
-			{
-				// No shell present - show error message
-				_popupSystem.PopupEntity(
-						Loc.GetString("cult-invocation-fail-noshell"),
-						user, user, PopupType.MediumCaution
-					);
-			}
 			else
 			{
+				// Entity cannot be converted, soulstoned, or sacrificed
 				_popupSystem.PopupEntity(
-						Loc.GetString("cult-invocation-fail-mindshielded"),
+						Loc.GetString("cult-invocation-fail"),
 						user, user, PopupType.MediumCaution
 					);
 			}

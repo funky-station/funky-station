@@ -50,6 +50,10 @@ public sealed class MeleeStomachInjectorSystem : EntitySystem
 
         foreach (var target in args.HitEntities)
         {
+            // Verify target still exists (could be deleted/gibbed during melee event)
+            if (!Exists(target))
+                continue;
+
             // Find the target's stomach
             if (!TryComp<BodyComponent>(target, out var body))
                 continue;
@@ -58,6 +62,10 @@ public sealed class MeleeStomachInjectorSystem : EntitySystem
             var stomachs = _body.GetBodyOrganEntityComps<StomachComponent>(new Entity<BodyComponent?>(target, body));
             foreach (var (stomachUid, stomach, _) in stomachs)
             {
+                // Verify stomach organ still exists
+                if (!Exists(stomachUid))
+                    continue;
+
                 // Try to inject into the stomach using the proper StomachSystem method
                 var splitSolution = removedSolution.SplitSolution(amountPerTarget);
                 if (_stomach.TryTransferSolution(stomachUid, splitSolution, stomach))

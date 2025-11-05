@@ -11,4 +11,9 @@ reagent-effect-guidebook-bleed-sanguine-perniculate =
        *[other] Has a {NATURALPERCENT($chance, 2)} chance to convert
     } bleeding blood into sanguine perniculate
 
+reagent-effect-condition-guidebook-is-blood-cultist = { $invert ->
+    [true] the target is not a blood cultist
+    *[false] the target is a blood cultist
+    }
+
 sanguine-perniculate-holywater-reaction = The unholy blood violently reacts with the holy water, purging itself!

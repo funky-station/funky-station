@@ -160,6 +160,10 @@
     Holywater:
       amount: 1
   products:
-    Water: 1
-    Fluorosurfactant: 1
-    Razorium: 1
+    Holywater: 2
+  effects:
+    - !type:AreaReactionEffect
+      prototypeId: Smoke
+      duration: 8
+      sound:
+        path: /Audio/Effects/smoke.ogg

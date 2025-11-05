@@ -21,6 +21,10 @@ public sealed partial class BleedSanguinePerniculate : EntityEffect
 
     public override void Effect(EntityEffectBaseArgs args)
     {
+        // Verify target entity exists (could be deleted during metabolism processing)
+        if (!args.EntityManager.EntityExists(args.TargetEntity))
+            return;
+
         if (!args.EntityManager.TryGetComponent<BloodstreamComponent>(args.TargetEntity, out var bloodstream))
             return;
 

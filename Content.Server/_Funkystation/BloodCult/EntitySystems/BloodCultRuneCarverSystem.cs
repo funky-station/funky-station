@@ -29,6 +29,8 @@ using Content.Shared.Damage.Prototypes;
 using Content.Shared.Verbs;
 using Content.Shared.Popups;
 using Content.Server.Popups;
+using Content.Server.Body.Components;
+using Content.Server.Body.Systems;
 using Content.Shared.BloodCult;
 using Content.Shared.BloodCult.Components;
 
@@ -48,6 +50,7 @@ public sealed partial class BloodCultRuneCarverSystem : EntitySystem
 	[Dependency] private readonly PopupSystem _popupSystem = default!;
 	[Dependency] private readonly IPrototypeManager _prototypeManager = default!;
 	[Dependency] private readonly IEntityManager _entManager = default!;
+	[Dependency] private readonly BloodstreamSystem _bloodstream = default!;
 
 	private EntityQuery<BloodCultRuneComponent> _runeQuery;
 
@@ -215,9 +218,21 @@ public sealed partial class BloodCultRuneCarverSystem : EntitySystem
 		// Delete the animation
         QueueDel(ev.Rune);
 
+		// Apply bloodloss damage + bleeding + slashing damage when drawing runes
 		DamageSpecifier appliedDamageSpecifier;
 		if (ent.Comp.Damage.DamageDict.ContainsKey("Bloodloss"))
-			appliedDamageSpecifier = new DamageSpecifier(_protoMan.Index<DamageTypePrototype>("Bloodloss"), FixedPoint2.New(ev.BleedOnCarve));
+		{
+			// Organic entities: bloodloss + slash damage
+			appliedDamageSpecifier = new DamageSpecifier();
+			appliedDamageSpecifier.DamageDict.Add("Bloodloss", FixedPoint2.New(ev.BleedOnCarve));
+			appliedDamageSpecifier.DamageDict.Add("Slash", FixedPoint2.New(10));
+			
+			// Add bleeding effect
+			if (TryComp<BloodstreamComponent>(ent, out var bloodstream))
+			{
+				_bloodstream.TryModifyBleedAmount(ent, ev.BleedOnCarve / 10f, bloodstream);
+			}
+		}
 		else if (ent.Comp.Damage.DamageDict.ContainsKey("Ion"))
 			appliedDamageSpecifier = new DamageSpecifier(_protoMan.Index<DamageTypePrototype>("Ion"), FixedPoint2.New(ev.BleedOnCarve));
 		else

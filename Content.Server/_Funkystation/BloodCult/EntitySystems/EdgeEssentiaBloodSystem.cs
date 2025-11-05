@@ -42,28 +42,43 @@ public sealed class EdgeEssentiaBloodSystem : EntitySystem
 
 		_nextUpdate = curTime + TimeSpan.FromSeconds(1);
 
-		// Check if BloodCult game rule is active (cache this check)
-		_bloodCultRuleActive = HasBloodCultRule();
-
 		// Check all entities with EdgeEssentiaBloodComponent
 		var query = EntityQueryEnumerator<EdgeEssentiaBloodComponent, BloodstreamComponent>();
-		while (query.MoveNext(out var uid, out var edgeEssentia, out var bloodstream))
+		
+		// Early exit if no entities need processing (zero-cost when no cultists are active)
+		if (!query.MoveNext(out var uid, out var edgeEssentia, out var bloodstream))
+			return;
+
+		// At least one entity exists with EdgeEssentiaBloodComponent
+		// Check if BloodCult game rule is active (only needed if we're tracking blood loss)
+		_bloodCultRuleActive = HasBloodCultRule();
+
+		// Process the first entity
+		do
 		{
+			// Verify entity still exists (could be deleted during processing)
+			if (!Exists(uid))
+				continue;
+
 			// Track how much Sanguine Perniculate they're bleeding out (only if cult rule is active)
-			if (_bloodCultRuleActive)
+			if (_bloodCultRuleActive && bloodstream.BloodReagent == "SanguinePerniculate")
 			{
 				TrackSanguinePerniculateLoss(uid, edgeEssentia, bloodstream);
 			}
 
-			// Check if they still have Edge Essentia in their system OR if their blood type is still SanguinePerniculate
-			// Keep tracking as long as they're bleeding cursed blood
-			if (HasEdgeEssentia(uid, bloodstream) || bloodstream.BloodReagent == "SanguinePerniculate")
+			// Check if they still have Edge Essentia in their system
+			if (HasEdgeEssentia(uid, bloodstream))
 				continue;
 
-			// No Edge Essentia left AND blood type has been restored, remove the component
+			// Verify entity still exists before modifying blood type
+			if (!Exists(uid))
+				continue;
+
+			// No Edge Essentia left - restore their original blood type and remove the component
 			_bloodstream.ChangeBloodReagent(uid, edgeEssentia.OriginalBloodReagent, bloodstream);
 			RemCompDeferred<EdgeEssentiaBloodComponent>(uid);
 		}
+		while (query.MoveNext(out uid, out edgeEssentia, out bloodstream));
 	}
 
 	/// <summary>
@@ -77,10 +92,6 @@ public sealed class EdgeEssentiaBloodSystem : EntitySystem
 
 	private void TrackSanguinePerniculateLoss(EntityUid uid, EdgeEssentiaBloodComponent edgeEssentia, BloodstreamComponent bloodstream)
 	{
-		// Only track if they're actively bleeding
-		if (bloodstream.BleedAmount <= 0)
-			return;
-
 		// Only count blood from player-controlled entities (those with an ACTUAL mind, not just the component)
 		// This prevents farming non-sentient entities like slimes, animals, etc.
 		if (!TryComp<MindContainerComponent>(uid, out var mindContainer) || mindContainer.Mind == null)
@@ -91,45 +102,30 @@ public sealed class EdgeEssentiaBloodSystem : EntitySystem
 		if (tracker.TotalBloodCollected >= tracker.MaxBloodPerEntity)
 			return;
 
-		// Check the temporary blood solution to see how much Sanguine Perniculate was bled out
-		if (!_solutionContainer.ResolveSolution(uid, bloodstream.BloodTemporarySolutionName, ref bloodstream.TemporarySolution, out var tempSolution))
+		// Only track if their blood type is SanguinePerniculate AND they're bleeding
+		if (bloodstream.BloodReagent != "SanguinePerniculate" || bloodstream.BleedAmount <= 0)
 			return;
 
-		// Look for Sanguine Perniculate in the temporary solution (blood that's being/about to be spilled)
-		FixedPoint2 sanguineAmount = FixedPoint2.Zero;
-		foreach (var reagent in tempSolution.Contents)
+		// Track based on how much they're bleeding per second
+		// BleedAmount represents units of blood lost per second
+		var bloodLostThisTick = bloodstream.BleedAmount;
+		
+		// Enforce the per-entity cap with double-safety
+		var remainingCapacity = Math.Max(0, tracker.MaxBloodPerEntity - tracker.TotalBloodCollected);
+		var bloodToAdd = Math.Min(bloodLostThisTick, remainingCapacity);
+		
+		// Hard cap: never exceed the maximum
+		if (bloodToAdd > 0 && tracker.TotalBloodCollected < tracker.MaxBloodPerEntity)
 		{
-			if (reagent.Reagent.Prototype == "SanguinePerniculate")
-			{
-				sanguineAmount += reagent.Quantity;
-			}
-		}
-
-		// If Sanguine Perniculate was bled out and we haven't tracked it yet
-		if (sanguineAmount > 0 && sanguineAmount > edgeEssentia.LastTrackedBloodAmount)
-		{
-			var newBloodLoss = sanguineAmount - edgeEssentia.LastTrackedBloodAmount;
+			// Ensure we don't go over the cap even with floating point errors
+			bloodToAdd = Math.Min(bloodToAdd, tracker.MaxBloodPerEntity - tracker.TotalBloodCollected);
 			
-			// Enforce the per-entity cap
-			var remainingCapacity = tracker.MaxBloodPerEntity - tracker.TotalBloodCollected;
-			var bloodToAdd = Math.Min(newBloodLoss.Float(), remainingCapacity);
+			// Add to the ritual pool
+			_bloodCultRule.AddBloodForConversion(bloodToAdd);
 			
-			if (bloodToAdd > 0)
-			{
-				// Add to the ritual pool
-				_bloodCultRule.AddBloodForConversion(bloodToAdd);
-				
-				// Update the tracker
-				tracker.TotalBloodCollected += bloodToAdd;
-			}
-			
-			// Update the tracked amount
-			edgeEssentia.LastTrackedBloodAmount = sanguineAmount;
-		}
-		// If the temporary solution was cleared (blood was spilled), reset the tracker
-		else if (sanguineAmount == 0)
-		{
-			edgeEssentia.LastTrackedBloodAmount = FixedPoint2.Zero;
+			// Update the tracker and clamp to max
+			tracker.TotalBloodCollected = Math.Min(tracker.TotalBloodCollected + bloodToAdd, tracker.MaxBloodPerEntity);
+			Dirty(uid, tracker);
 		}
 	}
 

@@ -26,6 +26,19 @@
         - id: ClothingOuterHardsuitEVA
         - id: ClothingHeadHelmetEVA
         - id: ClothingMaskBreath
+  - type: Sprite
+    noRot: true
+    sprite: _Funkystation/Structures/Storage/Lockers/suit_storage_EVA.rsi
+    layers:
+    - state: base
+    - state: door
+      map: [ "enum.StorageVisualLayers.Door" ]
+    - state: welded
+      visible: false
+      map: [ "enum.WeldableLayers.BaseWelded" ]
+    - state: locked
+      map: [ "enum.LockVisualLayers.Lock" ]
+      shader: unshaded
 
 #Basic EVA (Big Ass Helmet)
 - type: entity
@@ -40,6 +53,19 @@
         - id: ClothingOuterHardsuitEVA
         - id: ClothingHeadHelmetEVALarge
         - id: ClothingMaskBreath
+  - type: Sprite
+    noRot: true
+    sprite: _Funkystation/Structures/Storage/Lockers/suit_storage_EVA.rsi
+    layers:
+    - state: base
+    - state: door
+      map: [ "enum.StorageVisualLayers.Door" ]
+    - state: welded
+      visible: false
+      map: [ "enum.WeldableLayers.BaseWelded" ]
+    - state: locked
+      map: [ "enum.LockVisualLayers.Lock" ]
+      shader: unshaded
 
 #Emergency EVA
 - type: entity
@@ -150,6 +176,19 @@
         - id: NitrogenTankFilled
         - id: ClothingOuterHardsuitAtmos
         - id: ClothingMaskBreath
+  - type: Sprite
+    noRot: true
+    sprite: _Funkystation/Structures/Storage/Lockers/suit_storage_atmos.rsi
+    layers:
+    - state: base
+    - state: door
+      map: [ "enum.StorageVisualLayers.Door" ]
+    - state: welded
+      visible: false
+      map: [ "enum.WeldableLayers.BaseWelded" ]
+    - state: locked
+      map: [ "enum.LockVisualLayers.Lock" ]
+      shader: unshaded
   - type: AccessReader
     access: [["Atmospherics"]]
 
@@ -165,6 +204,19 @@
         - id: NitrogenTankFilled
         - id: ClothingOuterHardsuitSecurity
         - id: ClothingMaskBreath
+  - type: Sprite
+    noRot: true
+    sprite: _Funkystation/Structures/Storage/Lockers/suit_storage_sec.rsi
+    layers:
+    - state: base
+    - state: door
+      map: [ "enum.StorageVisualLayers.Door" ]
+    - state: welded
+      visible: false
+      map: [ "enum.WeldableLayers.BaseWelded" ]
+    - state: locked
+      map: [ "enum.LockVisualLayers.Lock" ]
+      shader: unshaded
   - type: AccessReader
     access: [["Security"]]
 
@@ -178,6 +230,19 @@
     containers:
       entity_storage: !type:NestedSelector
         tableId: FillChiefEngineerHardsuit
+  - type: Sprite
+    noRot: true
+    sprite: _Funkystation/Structures/Storage/Lockers/suit_storage_CE.rsi
+    layers:
+    - state: base
+    - state: door
+      map: [ "enum.StorageVisualLayers.Door" ]
+    - state: welded
+      visible: false
+      map: [ "enum.WeldableLayers.BaseWelded" ]
+    - state: locked
+      map: [ "enum.LockVisualLayers.Lock" ]
+      shader: unshaded
   - type: AccessReader
     access: [["ChiefEngineer"]]
 
@@ -191,6 +256,19 @@
     containers:
       entity_storage: !type:NestedSelector
         tableId: FillChiefMedicalOfficerHardsuit
+  - type: Sprite
+    noRot: true
+    sprite: _Funkystation/Structures/Storage/Lockers/suit_storage_CMO.rsi
+    layers:
+    - state: base
+    - state: door
+      map: [ "enum.StorageVisualLayers.Door" ]
+    - state: welded
+      visible: false
+      map: [ "enum.WeldableLayers.BaseWelded" ]
+    - state: locked
+      map: [ "enum.LockVisualLayers.Lock" ]
+      shader: unshaded
   - type: AccessReader
     access: [ [ "ChiefMedicalOfficer" ] ]
 
@@ -204,6 +282,19 @@
     containers:
       entity_storage: !type:NestedSelector
         tableId: FillResearchDirectorHardsuit
+  - type: Sprite
+    noRot: true
+    sprite: _Funkystation/Structures/Storage/Lockers/suit_storage_RD.rsi
+    layers:
+    - state: base
+    - state: door
+      map: [ "enum.StorageVisualLayers.Door" ]
+    - state: welded
+      visible: false
+      map: [ "enum.WeldableLayers.BaseWelded" ]
+    - state: locked
+      map: [ "enum.LockVisualLayers.Lock" ]
+      shader: unshaded
   - type: AccessReader
     access: [ [ "ResearchDirector" ] ]
 
@@ -217,6 +308,19 @@
     containers:
       entity_storage: !type:NestedSelector
         tableId: FillHeadOfSecurityHardsuit
+  - type: Sprite
+    noRot: true
+    sprite: _Funkystation/Structures/Storage/Lockers/suit_storage_HOS.rsi
+    layers:
+    - state: base
+    - state: door
+      map: [ "enum.StorageVisualLayers.Door" ]
+    - state: welded
+      visible: false
+      map: [ "enum.WeldableLayers.BaseWelded" ]
+    - state: locked
+      map: [ "enum.LockVisualLayers.Lock" ]
+      shader: unshaded
   - type: AccessReader
     access: [["HeadOfSecurity"]]
 
@@ -232,6 +336,19 @@
         - id: NitrogenTankFilled
         - id: ClothingOuterHardsuitWarden
         - id: ClothingMaskBreath
+  - type: Sprite
+    noRot: true
+    sprite: _Funkystation/Structures/Storage/Lockers/suit_storage_warden.rsi
+    layers:
+    - state: base
+    - state: door
+      map: [ "enum.StorageVisualLayers.Door" ]
+    - state: welded
+      visible: false
+      map: [ "enum.WeldableLayers.BaseWelded" ]
+    - state: locked
+      map: [ "enum.LockVisualLayers.Lock" ]
+      shader: unshaded
   - type: AccessReader
     access: [["Armory"]]
 
@@ -245,6 +362,19 @@
     containers:
       entity_storage: !type:NestedSelector
         tableId: FillCaptainHardsuit
+  - type: Sprite
+    noRot: true
+    sprite: _Funkystation/Structures/Storage/Lockers/suit_storage_captain.rsi
+    layers:
+    - state: base
+    - state: door
+      map: [ "enum.StorageVisualLayers.Door" ]
+    - state: welded
+      visible: false
+      map: [ "enum.WeldableLayers.BaseWelded" ]
+    - state: locked
+      map: [ "enum.LockVisualLayers.Lock" ]
+      shader: unshaded
   - type: AccessReader
     access: [["Captain"]]
 
@@ -261,6 +391,19 @@
       - id: ClothingShoesBootsMag
       - id: ClothingOuterHardsuitSpatio
       - id: ClothingMaskGasExplorer
+  - type: Sprite
+    noRot: true
+    sprite: _Funkystation/Structures/Storage/Lockers/suit_storage_salvage.rsi
+    layers:
+    - state: base
+    - state: door
+      map: [ "enum.StorageVisualLayers.Door" ]
+    - state: welded
+      visible: false
+      map: [ "enum.WeldableLayers.BaseWelded" ]
+    - state: locked
+      map: [ "enum.LockVisualLayers.Lock" ]
+      shader: unshaded
   - type: AccessReader
     access: [["Salvage"]]
 
@@ -277,6 +420,19 @@
         - id: ClothingOuterHardsuitSyndie
         - id: ClothingShoesBootsMagSyndie
         - id: ClothingMaskGasSyndicate
+  - type: Sprite
+    noRot: true
+    sprite: _Funkystation/Structures/Storage/Lockers/suit_storage_syndicate.rsi
+    layers:
+    - state: base
+    - state: door
+      map: [ "enum.StorageVisualLayers.Door" ]
+    - state: welded
+      visible: false
+      map: [ "enum.WeldableLayers.BaseWelded" ]
+    - state: locked
+      map: [ "enum.LockVisualLayers.Lock" ]
+      shader: unshaded
 
 #Pirate Captain's hardsuit
 - type: entity

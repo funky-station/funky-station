@@ -1,5 +1,6 @@
 # SPDX-FileCopyrightText: 2025 Mish <bluscout78@yahoo.com>
 # SPDX-FileCopyrightText: 2025 Teasq <Xerithin@gmail.com>
+# SPDX-FileCopyrightText: 2025 TheHolyAegis <76066612+TheHolyAegis@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 TheHolyAegis <sanderkamphuis719@gmail.com>
 # SPDX-FileCopyrightText: 2025 kbarkevich <24629810+kbarkevich@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
@@ -43,6 +44,7 @@
   id: InternalAffairsAgentGear
   equipment:
     id: InternalAffairsAgentPDA
+    eyes: ClothingEyesGlassesCommand
     shoes: ClothingShoesBootsLaceup
     ears: ClothingHeadsetCentCom
     pocket1: BookSpaceLaw

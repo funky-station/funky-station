@@ -5393,3 +5393,11 @@ Entries:
       message: Changed some minor things (i.e. moved some lights)
   id: 643
   time: '2025-11-05T01:51:55.0000000+00:00'
+- author: TheHolyAegis
+  changes:
+    - type: Add
+      message: >-
+        Added Central Command access to the Internal Affairs Agent, since they
+        are Central Command staff.
+  id: 644
+  time: '2025-11-05T06:35:17.0000000+00:00'

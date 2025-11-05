@@ -5413,3 +5413,9 @@ Entries:
       message: Adds the OOC Author of books to the examine window
   id: 646
   time: '2025-11-05T06:39:30.0000000+00:00'
+- author: TheHolyAegis
+  changes:
+    - type: Tweak
+      message: Changed dead chat to ghost chat, since that's more fitting
+  id: 647
+  time: '2025-11-05T18:33:11.0000000+00:00'

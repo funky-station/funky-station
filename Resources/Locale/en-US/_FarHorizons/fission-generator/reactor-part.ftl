@@ -12,4 +12,5 @@ reactor-part-rad-3 = It's very radioactive.
 reactor-part-rad-4 = It's extremely radioactive.
 reactor-part-rad-5 = It's impossibly radioactive.
 
-reactor-part-hot = It's hot to the touch.
+reactor-part-hot = [color=yellow]It's hot to the touch.[/color]
+reactor-part-burning = [color=red]Heat distorts the air around it.[/color]

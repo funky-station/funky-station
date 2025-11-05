@@ -12,6 +12,24 @@
   - type: Tag
     tags:
     - ReactorPart
+  - type: Edible
+    transferAmount: null
+    delay: 30
+    forceFeedDelay: 60
+  - type: FlavorProfile
+    flavors:
+      - metal
+      - electrons
+  - type: BadFood
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: Uranium
+          Quantity: 800
+        - ReagentId: Radium
+          Quantity: 200
+        canReact: false
   
 - type: entity
   id: BaseReactorPart

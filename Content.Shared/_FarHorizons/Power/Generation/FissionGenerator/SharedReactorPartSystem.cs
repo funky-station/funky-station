@@ -1,4 +1,5 @@
 using Content.Shared.Atmos;
+using Content.Shared.Damage.Components;
 using Content.Shared.Examine;
 using Content.Shared.Radiation.Components;
 using Robust.Server.GameObjects;
@@ -18,6 +19,10 @@ public abstract class SharedReactorPartSystem : EntitySystem
     private readonly float _rate = 5;
     private readonly float _bias = 1.5f;
 
+    private readonly float _threshold  = 0.5f;
+    private float _accumulator = 0f;
+
+    #region Item Methods
     public override void Initialize()
     {
         base.Initialize();
@@ -77,15 +82,25 @@ public abstract class SharedReactorPartSystem : EntitySystem
                     break;
             }
 
-            if(comp.Temperature>Atmospherics.T0C+80)
+            if (comp.Temperature > Atmospherics.T0C + 500)
+                args.PushMarkup(Loc.GetString("reactor-part-burning"));
+            else if (comp.Temperature > Atmospherics.T0C + 80)
                 args.PushMarkup(Loc.GetString("reactor-part-hot"));
         }
     }
 
     public override void Update(float frameTime)
     {
-        base.Update(frameTime);
+        _accumulator += frameTime;
+        if (_accumulator > _threshold)
+        {
+            AccUpdate();
+            _accumulator = 0;
+        }
+    }
 
+    private void AccUpdate()
+    {
         var query = EntityQueryEnumerator<ReactorPartComponent>();
         while (query.MoveNext(out var uid, out var component))
         {
@@ -102,22 +117,34 @@ public abstract class SharedReactorPartSystem : EntitySystem
                 _lightSystem.SetColor(uid, Color.FromHex("#22bbff"), lightcomp);
                 _lightSystem.SetRadius(uid, 1.2f, lightcomp);
             }
-            
-            if (component.Temperature == Atmospherics.T20C)
-                continue;
 
-            if(Math.Abs(component.Temperature - Atmospherics.T20C)>0.1)
+            var burncomp = EnsureComp<DamageOnInteractComponent>(uid);
+
+            if (component.Temperature == Atmospherics.T20C)
+            {
+                burncomp.IsDamageActive = false;
+                continue;
+            }
+
+            if (Math.Abs(component.Temperature - Atmospherics.T20C)>0.1)
                 component.Temperature -= (component.Temperature - Atmospherics.T20C) * 0.01f;
             else
                 component.Temperature = Atmospherics.T20C;
+
+            var damage = Math.Max((component.Temperature - Atmospherics.T0C - 80) / 20, 0);
+            burncomp.IgnoreResistances = component.Temperature > Atmospherics.T0C + 500;
+            burncomp.IsDamageActive = true;
+            burncomp.Damage = new() { DamageDict = new() { { "Heat", damage } } };
+            Dirty(uid, burncomp);
         }
     }
+    #endregion
 
     #region Methods
-        /// <summary>
-        /// Melts the related ReactorPart.
-        /// </summary>
-        /// <param name="reactorPart">ReactorPart to be melted</param>
+    /// <summary>
+    /// Melts the related ReactorPart.
+    /// </summary>
+    /// <param name="reactorPart">ReactorPart to be melted</param>
     public void Melt(ReactorPartComponent reactorPart, Entity<NuclearReactorComponent> reactorEnt, SharedNuclearReactorSystem reactorSystem)
     {
         if (reactorPart.Melted)

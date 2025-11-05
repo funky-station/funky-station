@@ -23,6 +23,8 @@
       color: "#b12023"
     - state: detail_bookmark
       color: "#2c5491"
+  - type: OocAuthorship
+    oocAuthor: mkanke
   - type: Paper
     stampedBy:
     - stampedColor: '#134975'
@@ -155,6 +157,3 @@
       - one pie tin
 
         Bake in a microwave on high for 15 seconds.
-
-
-      [italic]OOC Author - mkanke[/italic]

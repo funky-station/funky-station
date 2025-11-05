@@ -25,6 +25,7 @@
   supervisors: job-supervisors-ntr
   canBeAntag: false
   access:
+  - CentralCommand
   - Cargo
   - Brig
   - External

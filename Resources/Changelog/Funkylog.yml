@@ -5419,3 +5419,13 @@ Entries:
       message: Changed dead chat to ghost chat, since that's more fitting
   id: 647
   time: '2025-11-05T18:33:11.0000000+00:00'
+- author: TheHolyAegis
+  changes:
+    - type: Remove
+      message: >-
+        Removed the security glasses loadout group from the Internal Affairs
+        Agent.
+    - type: Add
+      message: Instead, added administrative glasses to their default loadout
+  id: 648
+  time: '2025-11-05T18:33:50.0000000+00:00'

@@ -5437,3 +5437,11 @@ Entries:
       message: Minor fixes to various guidebook entries.
   id: 649
   time: '2025-11-05T23:29:58.0000000+00:00'
+- author: TheHolyAegis
+  changes:
+    - type: Fix
+      message: >-
+        The airlocks in Fland are finally receiving power, you know which ones I
+        am talking about
+  id: 650
+  time: '2025-11-05T23:31:20.0000000+00:00'

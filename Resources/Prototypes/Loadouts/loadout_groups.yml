@@ -104,6 +104,12 @@
   - ClothingNeckTransPin
   - ClothingNeckAutismPin
   - ClothingNeckGoldAutismPin
+  - OffsetCane
+  - OffsetCaneWood
+  - OffsetCaneClown
+  - OffsetCaneMime
+  - OffsetCaneNT
+  - Cane
   - CardBoxBlack # goobstation
   - CardBoxNanotrasen # goobstation
   - TowelColorBlack

@@ -77,6 +77,17 @@
   equipment:
     outerClothing: ClothingOuterWinterCE
 
+# Belts (Funky!)
+- type: loadout
+  id: ChiefEngineerUtilityBelt
+  equipment:
+    belt: ClothingBeltChiefEngineerFilled
+
+- type: loadout
+  id: ChiefEngineerHarness
+  equipment:
+    belt: ClothingBeltChiefEngineeringHarnessFilled
+
 # Shoes
 - type: loadout
   id: BrownShoes

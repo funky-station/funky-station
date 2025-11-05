@@ -90,7 +90,6 @@
     id: CEPDA
 #    eyes: ClothingEyesGlassesMeson
     ears: ClothingHeadsetAltEngineering # Goobstation
-    belt: ClothingBeltUtilityEngineering
   storage:
     back:
     - Flash

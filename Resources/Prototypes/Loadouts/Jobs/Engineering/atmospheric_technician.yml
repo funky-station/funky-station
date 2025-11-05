@@ -49,6 +49,17 @@
   equipment:
     outerClothing: ClothingOuterWinterAtmos
 
+# Belts (Funky!)
+- type: loadout
+  id: AtmosphericTechnicianUtilityBelt
+  equipment:
+    belt: ClothingBeltUtilityEngineering
+
+- type: loadout
+  id: AtmosphericTechnicianHarness
+  equipment:
+    belt: ClothingBeltEngineeringHarnessFilled
+
 # Shoes
 - type: loadout
   id: WhiteShoes

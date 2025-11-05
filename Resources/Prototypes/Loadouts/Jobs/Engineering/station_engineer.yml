@@ -1,4 +1,4 @@
-# SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
+  # SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2024 BeeRobynn <robynthewarcrime@proton.me>
 # SPDX-FileCopyrightText: 2024 Mr. 27 <45323883+Dutch-VanDerLinde@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Pancake <Pangogie@users.noreply.github.com>
@@ -130,6 +130,17 @@
   id: StationEngineerWintercoat
   equipment:
     outerClothing: ClothingOuterWinterEngi
+
+# Belts (Funky!)
+- type: loadout
+  id: EngineerUtilityBelt
+  equipment:
+    belt: ClothingBeltUtilityEngineering
+
+- type: loadout
+  id: EngineerHarness
+  equipment:
+    belt: ClothingBeltEngineeringHarnessFilled
 
 # Shoes
 - type: loadout

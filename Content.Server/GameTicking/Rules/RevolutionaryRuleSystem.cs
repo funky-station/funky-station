@@ -67,6 +67,7 @@ using Content.Server.Traitor.Uplink;
 using Content.Shared.Changeling;
 using Content.Shared.Heretic;
 using Content.Shared.Implants;
+using Robust.Shared.Audio;
 
 namespace Content.Server.GameTicking.Rules;
 
@@ -141,7 +142,7 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
             return;
         
         EnsureComp<RevolutionaryLieutenantComponent>(ev.Implanted.Value);
-        _antag.SendBriefing(ev.Implanted.Value, Loc.GetString("rev-lieutenant-greeting"), Color.Red, null);
+        _antag.SendBriefing(ev.Implanted.Value, Loc.GetString("rev-lieutenant-greeting"), Color.Red, new SoundPathSpecifier("/Audio/_Funkystation/Ambience/Antag/Revolutionary/rev_lieu_intro.ogg"));
         
         if (_role.MindHasRole<RevolutionaryRoleComponent>(mindId, out var revRoleComp))
             AddComp(revRoleComp.Value, new RoleBriefingComponent { Briefing = Loc.GetString("rev-lieutenant-greeting") }, overwrite: true);

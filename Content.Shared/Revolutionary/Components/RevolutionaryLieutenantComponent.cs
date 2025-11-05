@@ -12,7 +12,7 @@ namespace Content.Shared.Revolutionary.Components;
 public sealed partial class RevolutionaryLieutenantComponent : Component
 {
     /// <summary>
-    /// The status icon corresponding to the head revolutionary.
+    /// The status icon corresponding to a lieutenant.
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public ProtoId<FactionIconPrototype> StatusIcon { get; set; } = "RevolutionaryLieutenantFaction";

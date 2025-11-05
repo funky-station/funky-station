@@ -5363,3 +5363,33 @@ Entries:
       message: Added offset canes. They can be crafted in the medical lathe.
   id: 642
   time: '2025-11-04T22:30:45.0000000+00:00'
+- author: TheHolyAegis
+  changes:
+    - type: Tweak
+      message: >-
+        Changed the library doors to have the new library access (the ones that
+        go to their room)
+    - type: Add
+      message: >-
+        Added an captain's ID outside of the locker, preparing for the day that
+        it will be removed from the locker
+    - type: Add
+      message: >-
+        Added an AutoDrobe to the bar, next to the theatre, so people can get
+        their costumes
+    - type: Add
+      message: Added a cargo techfab to their department
+    - type: Fix
+      message: Powered the dock airlock for the salvage shuttle
+    - type: Add
+      message: Added a salvage shuttle console to their room
+    - type: Fix
+      message: Fixed the mime room being displayed as spaced, when in reality it wasn't
+    - type: Add
+      message: >-
+        Added a intercom near the engineering so people can contact engineering
+        despite the lack of front desk
+    - type: Tweak
+      message: Changed some minor things (i.e. moved some lights)
+  id: 643
+  time: '2025-11-05T01:51:55.0000000+00:00'

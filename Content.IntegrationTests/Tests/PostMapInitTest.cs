@@ -41,6 +41,7 @@
 // SPDX-FileCopyrightText: 2025 ArsCatalyst <Heartflareburst@gmail.com>
 // SPDX-FileCopyrightText: 2025 Dusty_Plant <34702649+Dusty-Plant@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Dusty_Plant <ytsur2001@gmail.com>
+// SPDX-FileCopyrightText: 2025 EmillyCoelho <167008606+EmilyCoelhoBR@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 EmillyCoelho <167008606+Ichaie@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Evaisa <mail@evaisa.dev>
 // SPDX-FileCopyrightText: 2025 Ichaie <ichaicoelho@gmail.com>

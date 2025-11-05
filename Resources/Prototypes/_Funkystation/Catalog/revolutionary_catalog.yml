@@ -61,8 +61,8 @@
   
 - type: listing
   id: RevolutionaryUplinkRevLieutenantImplanter
-  name: fast draw implanter
-  description: A syringe with tools for quick implant removal. It has small gold stars on its body.
+  name: revolutionary lieutenant implanter
+  description: This allows a revolutionary to see other revolutionaries, along giving them an icon that denotes them as a lieutenant. Revolutionaries should organize around these lieutenants as units.
   productEntity: LieutenantRevolutionaryImplanter
   cost:
     RevCoin: 5 # Temporary price

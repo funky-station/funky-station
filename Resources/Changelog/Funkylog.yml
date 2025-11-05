@@ -5401,3 +5401,9 @@ Entries:
         are Central Command staff.
   id: 644
   time: '2025-11-05T06:35:17.0000000+00:00'
+- author: mkanke-real
+  changes:
+    - type: Remove
+      message: Removed drunken resilience
+  id: 645
+  time: '2025-11-05T06:36:11.0000000+00:00'

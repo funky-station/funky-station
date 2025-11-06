@@ -99,6 +99,21 @@ public sealed class BloodCultistReactionSystem : EntitySystem
 			}
 		}
 
+		// Heal a very tiny amount of toxin damage (0.5 toxin per 10u blood)
+		if (TryComp<DamageableComponent>(uid, out var damageable))
+		{
+			if (damageable.Damage.DamageDict.TryGetValue("Poison", out var toxinDamage) && toxinDamage > 0)
+			{
+				var healAmount = bloodAmount.Float() * 0.05f;  // Very tiny: 0.5 per 10u
+				if (healAmount > 0)
+				{
+					var healSpec = new DamageSpecifier();
+					healSpec.DamageDict.Add("Poison", FixedPoint2.New(-healAmount));
+					_damageable.TryChangeDamage(uid, healSpec, false, false, damageable);
+				}
+			}
+		}
+
 		// Visual feedback
 		_popup.PopupEntity(
 			Loc.GetString("cult-blood-consumed", ("amount", bloodAmount.Float())),

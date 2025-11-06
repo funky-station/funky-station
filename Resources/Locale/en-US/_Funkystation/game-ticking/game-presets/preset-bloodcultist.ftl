@@ -53,6 +53,7 @@ cult-sanguine-perniculate-heal = The sanguine perniculate soothes your wounds, h
 cult-holywater-burn = The holy water burns you for {$amount} damage!
 cult-invocation-mindshield-break = You begin the ritual to shatter the mindshield. Nar'Sie demands sacrifice!
 cult-invocation-mindshield-success = The power of Nar'Sie shatters the mindshield! The ritual tears at your very essence!
+cult-invocation-mindshield-too-early = The veil is too strong! Nar'Sie's power is not yet sufficient to break mindshields. More blood must be spilled!
 cult-invocation-target-fail = More cultists must be present to sacrifice one Nar'Sie desires!
 cult-invocation-narsie-fail = At least nine cultists must stand atop the rune, distributed evenly, to rend the veil.
 
@@ -67,6 +68,7 @@ cult-spell-exceeded = You cannot carve another spell!
 cult-spell-havealready = You already have that spell!
 cult-spell-fail = You fail to cast the spell!
 cult-spell-repelled = Holy magic protects your target!
+cult-spell-sleep-dream = You feel an overwhelming wave of drowsiness as visions of blood and terror flood your mind!
 
 cult-shade-summoned = The stolen soul materializes as a servant Shade!
 cult-shade-recalled = You recapture the stolen soul, rejuvinating it!
@@ -120,6 +122,7 @@ cult-ascend-1 = The veil weakens as your cult grows, and your eyes begin to glow
 cult-ascend-2 = The veil weakens as your cult grows, and you are unable to hide your true nature!
 
 cult-deconverted = You suddenly de-convert, and no longer consider yourself a cultist!
+cult-break-control = {$name} looks bewildered as Nar'Sie's influence is shattered!
 
 cult-commune-window = Commune
 cult-commune-info = Whisper into the veil and communicate with your fellow worshippers.

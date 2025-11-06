@@ -20,6 +20,9 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Audio;
 using Robust.Shared.Containers;
 using Content.Shared.Damage;
+using Robust.Shared.Physics.Systems;
+using Robust.Shared.Physics.Components;
+using Robust.Shared.Random;
 
 namespace Content.Server.BloodCult.EntitySystems;
 
@@ -30,6 +33,8 @@ public sealed partial class BloodCultConstructSystem : EntitySystem
 	[Dependency] private readonly PopupSystem _popup = default!;
 	[Dependency] private readonly SharedAudioSystem _audio = default!;
 	[Dependency] private readonly SharedContainerSystem _container = default!;
+	[Dependency] private readonly SharedPhysicsSystem _physics = default!;
+	[Dependency] private readonly IRobustRandom _random = default!;
 
 	public override void Initialize()
 	{
@@ -227,6 +232,13 @@ public sealed partial class BloodCultConstructSystem : EntitySystem
 		if (_container.TryGetContainer(juggernaut, "juggernaut_soulstone_container", out var container))
 		{
 			_container.Remove(soulstone, container);
+		}
+
+		// Give the soulstone a physics push for visual effect
+		if (TryComp<PhysicsComponent>(soulstone, out var physics))
+		{
+			var randomDirection = _random.NextVector2(2.0f, 4.0f); // Stronger impulse for dramatic ejection
+			_physics.ApplyLinearImpulse(soulstone, randomDirection, body: physics);
 		}
 
 		// Play audio effect

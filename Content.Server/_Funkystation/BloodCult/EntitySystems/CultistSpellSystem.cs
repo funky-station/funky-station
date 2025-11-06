@@ -41,6 +41,12 @@ using Content.Shared.Weapons.Melee;
 using Content.Shared.Weapons.Melee.Events;
 using Content.Server.Construction;
 using Content.Server.Construction.Components;
+using Content.Server.Body.Systems;
+using Content.Server.Body.Components;
+using Content.Shared.Chemistry.Components;
+using Content.Shared.Chemistry.Reagent;
+using Content.Shared.Mindshield.Components;
+using Content.Server.Stack;
 
 
 namespace Content.Server.BloodCult.EntitySystems;
@@ -67,6 +73,8 @@ public sealed partial class CultistSpellSystem : EntitySystem
 	[Dependency] private readonly IEntityManager _entMan = default!;
 	[Dependency] private readonly SharedStunSystem _stun = default!;
 	[Dependency] private readonly ConstructionSystem _construction = default!;
+	[Dependency] private readonly BloodstreamSystem _bloodstream = default!;
+	[Dependency] private readonly StackSystem _stackSystem = default!;
 
 	private static readonly ProtoId<DamageTypePrototype> BloodlossDamageType = "Bloodloss";
 	private static readonly ProtoId<DamageTypePrototype> IonDamageType = "Ion";
@@ -127,8 +135,9 @@ public sealed partial class CultistSpellSystem : EntitySystem
 			_damageableSystem.TryChangeDamage(ent, appliedDamageSpecifier, true, origin: ent);
 		}
 
-		// verbalize invocation
-		_bloodCultRules.Speak(ent, actionComp.Invocation);
+		// verbalize invocation - generate random 2-word chant
+		var invocation = _bloodCultRules.GenerateChant(wordCount: 2);
+		_bloodCultRules.Speak(ent, invocation);
 
 		// play sound
 		if (actionComp.CastSound != null)
@@ -225,8 +234,12 @@ public sealed partial class CultistSpellSystem : EntitySystem
 			
 			_damageableSystem.TryChangeDamage(ent, appliedDamageSpecifier, true, origin: ent);
 			_audioSystem.PlayPvs(args.CultAbility.CarveSound, ent);
-			if (args.StandingOnRune)
-				_bloodCultRules.Speak(ent, Loc.GetString("cult-invocation-empowering"));
+		if (args.StandingOnRune)
+		{
+			// Generate random chant when empowered by rune
+			var invocation = _bloodCultRules.GenerateChant(wordCount: 2);
+			_bloodCultRules.Speak(ent, invocation);
+		}
 		}
 
         Dirty(ent, ent.Comp);
@@ -282,16 +295,16 @@ public sealed partial class CultistSpellSystem : EntitySystem
 		if (args.Handled || !TryUseAbility(ent, args) || HasComp<BloodCultistComponent>(args.Target))
 			return;
 
-		float staminaDamage = 90f;
-		float empDamage = 1000f;
-		int stunTime = 10;
+		float empDamage = 5000f;  // EMP damage for borgs/IPCs
+		float empDuration = 12f;  // EMP duration in seconds
 		int selfStunTime = 4;
 
 		args.Handled = true;
 
 		var target = args.Target;
 
-		if (HasComp<CultResistantComponent>(target))
+		// Mindshield and holy protection repel cult magic
+		if (HasComp<CultResistantComponent>(target) || HasComp<MindShieldComponent>(target))
 		{
 			_popup.PopupEntity(
 					Loc.GetString("cult-spell-repelled"),
@@ -304,15 +317,37 @@ public sealed partial class CultistSpellSystem : EntitySystem
 			_powerCell.TryGetBatteryFromSlot(target, out EntityUid? batteryUid, out BatteryComponent? _) &&
 			batteryUid != null)
 		{
-			_emp.DoEmpEffects((EntityUid)batteryUid, empDamage, stunTime);
-			_statusEffect.TryAddStatusEffect<MutedComponent>(target, "Muted", TimeSpan.FromSeconds(stunTime), false);
+			// Apply EMP damage directly to the borg's battery
+			_emp.DoEmpEffects((EntityUid)batteryUid, empDamage, empDuration);
+			_statusEffect.TryAddStatusEffect<MutedComponent>(target, "Muted", TimeSpan.FromSeconds(empDuration), false);
+		}
+		else if (TryComp<BloodstreamComponent>(target, out var bloodstream))
+		{
+			// Inject sleep chemicals (Nocturine + Chloral Hydrate)
+			var sleepSolution = new Solution();
+			sleepSolution.AddReagent("Nocturine", FixedPoint2.New(15));  // 15u Nocturine
+			sleepSolution.AddReagent("ChloralHydrate", FixedPoint2.New(5));  // 5u Chloral Hydrate
+			
+			_bloodstream.TryAddToChemicals(target, sleepSolution, bloodstream);
+			
+			// Show the dream message
+			_popup.PopupEntity(
+				Loc.GetString("cult-spell-sleep-dream"),
+				target, target, PopupType.LargeCaution
+			);
+			
+			// Mark them for follow-up attacks
+			EnsureComp<CultMarkedComponent>(target);
+			
+			// Mute them
+			_statusEffect.TryAddStatusEffect<MutedComponent>(target, "Muted", TimeSpan.FromSeconds(15), false);
 		}
 		else
 		{
-			_stun.TryKnockdown(target, TimeSpan.FromSeconds(stunTime), true);
-			_stamina.TakeStaminaDamage(target, staminaDamage, visual: false);
-			EnsureComp<CultMarkedComponent>(target);
-			_statusEffect.TryAddStatusEffect<MutedComponent>(target, "Muted", TimeSpan.FromSeconds(stunTime), false);
+			// Fallback for entities without bloodstream (IPCs, rare cases)
+			// Apply EMP effects directly to the entity
+			_emp.DoEmpEffects(target, empDamage, empDuration);
+			_statusEffect.TryAddStatusEffect<MutedComponent>(target, "Muted", TimeSpan.FromSeconds(empDuration), false);
 		}
 	}
 
@@ -362,10 +397,11 @@ public sealed partial class CultistSpellSystem : EntitySystem
 		    construction.Node == "reinforcedWall")
 		{
 			// Wall deconstruction doesn't consume spell charges
-			// Get invocation from the action component and chant it
+			// Generate random chant for wall deconstruction
 			if (TryComp<CultistSpellComponent>(args.Action, out var actionComp))
 			{
-				_bloodCultRules.Speak(ent, actionComp.Invocation);
+				var invocation = _bloodCultRules.GenerateChant(wordCount: 2);
+				_bloodCultRules.Speak(ent, invocation);
 				if (actionComp.CastSound != null)
 					_audioSystem.PlayPvs(actionComp.CastSound, ent);
 			}
@@ -390,10 +426,11 @@ public sealed partial class CultistSpellSystem : EntitySystem
 		    girderConstruction.Node == "reinforcedGirder")
 		{
 			// Girder downgrade doesn't consume spell charges
-			// Get invocation from the action component and chant it
+			// Generate random chant for girder deconstruction
 			if (TryComp<CultistSpellComponent>(args.Action, out var actionComp))
 			{
-				_bloodCultRules.Speak(ent, actionComp.Invocation);
+				var invocation = _bloodCultRules.GenerateChant(wordCount: 2);
+				_bloodCultRules.Speak(ent, invocation);
 				if (actionComp.CastSound != null)
 					_audioSystem.PlayPvs(actionComp.CastSound, ent);
 			}
@@ -430,13 +467,8 @@ public sealed partial class CultistSpellSystem : EntitySystem
 		{
 			// Reinforced wall -> reinforced girder
 			// Spawn a stack of 2 plasteel sheets (the amount to upgrade girder to reinforced girder)
-			// Use the base SheetPlasteel entity to avoid stacking bugs
-			var plasteel = Spawn("SheetPlasteel", targetCoords);
-			if (TryComp<StackComponent>(plasteel, out var stack))
-			{
-				stack.Count = 2;
-				Dirty(plasteel, stack);
-			}
+			// Use StackSystem.Spawn to properly initialize the stack for client-side rendering
+			_stackSystem.Spawn(2, new ProtoId<StackPrototype>("Plasteel"), targetCoords);
 
 			// Change the wall to a reinforced girder (this will spawn the 2 plasteel from the wall plating)
 			// The construction graph automatically handles spawning materials when deconstructing
@@ -446,12 +478,8 @@ public sealed partial class CultistSpellSystem : EntitySystem
 		{
 			// Reinforced girder -> regular girder
 			// Spawn a stack of 2 plasteel sheets (the amount used to upgrade to reinforced girder)
-			var plasteel = Spawn("SheetPlasteel", targetCoords);
-			if (TryComp<StackComponent>(plasteel, out var stack))
-			{
-				stack.Count = 2;
-				Dirty(plasteel, stack);
-			}
+			// Use StackSystem.Spawn to properly initialize the stack for client-side rendering
+			_stackSystem.Spawn(2, new ProtoId<StackPrototype>("Plasteel"), targetCoords);
 
 			// Change the reinforced girder to a regular girder
 			_construction.ChangeNode(args.Target, ent, "girder", performActions: true, construction: construction);

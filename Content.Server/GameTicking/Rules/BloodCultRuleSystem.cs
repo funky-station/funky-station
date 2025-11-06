@@ -499,18 +499,19 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 			// Veil weakening announcement is handled separately in the ActiveTick
 		}
 
-		// Also check conversion-based progression as a fallback/alternative path
-		if (!component.HasEyes && GetConversionsToEyes(component, cultists) == 0)
-		{
-			component.HasEyes = true;
-			EmpowerCultists(cultists);
-		}
-
-		if (!component.HasRisen && GetConversionsToRise(component, cultists) == 0)
-		{
-			component.HasRisen = true;
-			RiseCultists(cultists);
-		}
+		// Disabled: Conversion-based progression conflicts with blood-based progression
+		// The blood system provides better gameplay and doesn't trigger prematurely with low player counts
+		// if (!component.HasEyes && GetConversionsToEyes(component, cultists) == 0)
+		// {
+		// 	component.HasEyes = true;
+		// 	EmpowerCultists(cultists);
+		// }
+		//
+		// if (!component.HasRisen && GetConversionsToRise(component, cultists) == 0)
+		// {
+		// 	component.HasRisen = true;
+		// 	RiseCultists(cultists);
+		// }
 
 		foreach (EntityUid cultistUid in cultists)
 		{
@@ -998,6 +999,28 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 
 		var ev = new SpeakSpellEvent((EntityUid)uid, speech);
 		RaiseLocalEvent(ref ev);
+	}
+
+	/// <summary>
+	/// Generates a random cult chant by combining phrases from the cult-chants.ftl localization file.
+	/// </summary>
+	/// <param name="wordCount">Number of words in the chant (default: 2)</param>
+	/// <returns>A randomly generated cult chant</returns>
+	public string GenerateChant(int wordCount = 2)
+	{
+		const int totalChants = 15; // Total number of cult-chant-X entries in cult-chants.ftl
+		
+		if (wordCount < 1)
+			wordCount = 1;
+		
+		var chantParts = new List<string>();
+		for (int i = 0; i < wordCount; i++)
+		{
+			var chantIndex = Random.Shared.Next(1, totalChants + 1);
+			chantParts.Add(Loc.GetString($"cult-chant-{chantIndex}"));
+		}
+		
+		return string.Join(" ", chantParts);
 	}
 
 	public void AnnounceToEveryone(string message, uint fontSize = 14, Color? color = null,

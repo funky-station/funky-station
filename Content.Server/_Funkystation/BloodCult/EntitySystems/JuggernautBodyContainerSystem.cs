@@ -9,7 +9,11 @@ using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
+using Content.Shared.Physics;
 using Robust.Shared.Containers;
+using Robust.Shared.Physics.Components;
+using Robust.Shared.Physics.Systems;
+using Robust.Shared.Random;
 
 namespace Content.Server.BloodCult.EntitySystems;
 
@@ -17,6 +21,8 @@ public sealed class JuggernautBodyContainerSystem : EntitySystem
 {
     [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly MindSystem _mind = default!;
+    [Dependency] private readonly SharedPhysicsSystem _physics = default!;
+    [Dependency] private readonly IRobustRandom _random = default!;
 
     public override void Initialize()
     {
@@ -27,8 +33,8 @@ public sealed class JuggernautBodyContainerSystem : EntitySystem
 
     private void OnMobStateChanged(EntityUid uid, JuggernautBodyContainerComponent component, MobStateChangedEvent args)
     {
-        // When the juggernaut dies, eject the body
-        if (args.NewMobState == MobState.Dead)
+        // When the juggernaut goes critical or dies, eject the body
+        if (args.NewMobState == MobState.Critical || args.NewMobState == MobState.Dead)
         {
             EjectBody(uid, component);
         }
@@ -49,6 +55,13 @@ public sealed class JuggernautBodyContainerSystem : EntitySystem
         foreach (var contained in container.ContainedEntities.ToArray())
         {
             _container.Remove(contained, container, destination: coordinates);
+            
+            // Give the body a physics push for visual effect
+            if (TryComp<PhysicsComponent>(contained, out var physics))
+            {
+                var randomDirection = _random.NextVector2(2.0f, 4.0f); // Dramatic ejection
+                _physics.ApplyLinearImpulse(contained, randomDirection, body: physics);
+            }
             
             // Transfer the mind back to the body
             if (juggernautMindId != null && juggernautMindComp != null)

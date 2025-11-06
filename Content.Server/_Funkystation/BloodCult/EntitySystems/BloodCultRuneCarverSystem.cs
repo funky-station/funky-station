@@ -140,7 +140,14 @@ public sealed partial class BloodCultRuneCarverSystem : EntitySystem
             return;
         }
 
-		// Third, verify that a new rune can be placed here.
+		// Third, if clicking on yourself and no rune is selected, open the selection UI
+		if (args.User == target && string.IsNullOrEmpty(ent.Comp.Rune))
+		{
+			TryOpenUi(ent, args.User, ent.Comp);
+			return;
+		}
+
+		// Fourth, verify that a new rune can be placed here.
 		if (args.User != target
 			|| !args.ClickLocation.IsValid(EntityManager)
 			|| !CanPlaceRuneAt(args.ClickLocation, out var location))
@@ -254,6 +261,13 @@ public sealed partial class BloodCultRuneCarverSystem : EntitySystem
 				_transform.AnchorEntity((rune, runeTransform), ((EntityUid)gridUid, grid), targetTile.GridIndices);
 				_damageableSystem.TryChangeDamage(ent, appliedDamageSpecifier, true, origin: ent);
 				_audioSystem.PlayPvs(ev.CarveSound, ent);
+				
+				// Clear the selected rune so the UI opens automatically on next click
+				if (TryComp<BloodCultRuneCarverComponent>(ev.CarverUid, out var carverComp))
+				{
+					carverComp.Rune = "";
+					carverComp.InProgress = "";
+				}
 			}
 			else
 			{

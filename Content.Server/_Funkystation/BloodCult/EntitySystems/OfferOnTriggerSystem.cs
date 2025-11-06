@@ -42,16 +42,17 @@ using Content.Server.Mind;
 using Content.Server.Chat.Systems;
 using Content.Shared.Stunnable;
 using Content.Shared.StatusEffect;
-using Content.Shared.Chemistry.EntitySystems;
-using Content.Shared.Chemistry.Components;
-using Content.Shared.Chemistry.Reagent;
-using Content.Server.Fluids.EntitySystems;
 using Content.Server.GameTicking.Rules;
+using Content.Server.GameTicking.Rules.Components;
 using Content.Shared._EinsteinEngines.Silicon.Components;
 using Content.Shared.Silicons.Borgs.Components;
 using Content.Shared.Tag;
 using Content.Shared.Implants;
 using Content.Shared.Implants.Components;
+using Robust.Shared.Physics.Systems;
+using Robust.Shared.Physics.Components;
+using Robust.Shared.Random;
+using Content.Shared.GameTicking.Components;
 
 namespace Content.Server.BloodCult.EntitySystems
 {
@@ -65,11 +66,9 @@ namespace Content.Server.BloodCult.EntitySystems
 		[Dependency] private readonly MindSystem _mind = default!;
 		[Dependency] private readonly SharedAudioSystem _audio = default!;
 		[Dependency] private readonly SharedContainerSystem _container = default!;
-		[Dependency] private readonly BloodstreamSystem _bloodstream = default!;
-		[Dependency] private readonly SharedStunSystem _stun = default!;
-		[Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
-		[Dependency] private readonly PuddleSystem _puddle = default!;
-		[Dependency] private readonly BloodCultRuleSystem _bloodCultRule = default!;
+	[Dependency] private readonly BloodstreamSystem _bloodstream = default!;
+	[Dependency] private readonly SharedStunSystem _stun = default!;
+	[Dependency] private readonly BloodCultRuleSystem _bloodCultRule = default!;
 		[Dependency] private readonly BodySystem _bodySystem = default!;
 		[Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
 		[Dependency] private readonly IGameTiming _gameTiming = default!;
@@ -77,8 +76,10 @@ namespace Content.Server.BloodCult.EntitySystems
 		[Dependency] private readonly SharedTransformSystem _transform = default!;
 		[Dependency] private readonly DamageableSystem _damageable = default!;
 		[Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-		[Dependency] private readonly TagSystem _tag = default!;
-		[Dependency] private readonly SharedSubdermalImplantSystem _implantSystem = default!;
+	[Dependency] private readonly TagSystem _tag = default!;
+	[Dependency] private readonly SharedSubdermalImplantSystem _implantSystem = default!;
+	[Dependency] private readonly SharedPhysicsSystem _physics = default!;
+	[Dependency] private readonly IRobustRandom _random = default!;
 
 		private static readonly ProtoId<DamageTypePrototype> SlashDamageType = "Slash";
 
@@ -152,10 +153,9 @@ namespace Content.Server.BloodCult.EntitySystems
 					if ((participantPos - runePos).Length() > 2.5f)
 						continue;
 
-					// Generate random gibberish chant
-					var chants = new[] { "Ia! Ia!", "N'ghft!", "Y'hah!", "Vulgtm!", "Shogg!", "Uln!", "Ftaghn!" };
-					var chant = chants[Random.Shared.Next(chants.Length)] + " " + chants[Random.Shared.Next(chants.Length)];
-					_chat.TrySendInGameICMessage(participant, chant, InGameICChatType.Speak, false);
+				// Generate random cult chant (2 words)
+				var chant = _bloodCultRule.GenerateChant(wordCount: 2);
+				_chat.TrySendInGameICMessage(participant, chant, InGameICChatType.Speak, false);
 				}
 			}
 		}
@@ -228,7 +228,7 @@ namespace Content.Server.BloodCult.EntitySystems
 
 		List<EntityUid> humanoids = new List<EntityUid>();
 		List<EntityUid> brains = new List<EntityUid>();
-		List<EntityUid> shells = new List<EntityUid>();
+		// List<EntityUid> shells = new List<EntityUid>(); // Disabled - use revival instead
 		foreach (var look in offerLookup)
 		{
 			// Humanoids, cyborgs, and other sentient mobs that can be soulstoned
@@ -236,8 +236,8 @@ namespace Content.Server.BloodCult.EntitySystems
 				humanoids.Add(look);
 			else if (HasComp<BrainComponent>(look))
 				brains.Add(look);
-			else if (HasComp<BloodCultConstructShellComponent>(look))
-				shells.Add(look);
+			// else if (HasComp<BloodCultConstructShellComponent>(look))
+			// 	shells.Add(look);
 		}
 
 		EntityUid? candidate = null;
@@ -305,11 +305,12 @@ namespace Content.Server.BloodCult.EntitySystems
 				conversionTracker.TotalBloodCollected = Math.Min(conversionTracker.TotalBloodCollected + (float)bloodToAdd, conversionTracker.MaxBloodPerEntity);
 			}
 		}
-		else if (_CanBeSacrificed(offerable, shells))
-		{
-			// Dead or otherwise non-convertible entity with shell - sacrifice into shell
-			_SacrificeIntoShell(offerable, user, shells[0], cultistsInRange);
-		}
+		// Disabled: Sacrifice into shell - cultists should revive and convert instead
+		// else if (_CanBeSacrificed(offerable, shells))
+		// {
+		// 	// Dead or otherwise non-convertible entity with shell - sacrifice into shell
+		// 	_SacrificeIntoShell(offerable, user, shells[0], cultistsInRange);
+		// }
 			else
 			{
 				// Entity cannot be converted, soulstoned, or sacrificed
@@ -321,73 +322,15 @@ namespace Content.Server.BloodCult.EntitySystems
 			}
 			else
 			{
-				// No valid conversion or sacrifice target found, check for blood containers
-				_ProcessBloodContainers(uid, user, offerLookup);
-			}
-			args.Handled = true;
-		}
-
-		private void _ProcessBloodContainers(EntityUid rune, EntityUid user, HashSet<EntityUid> entitiesOnRune)
-		{
-			bool processedAny = false;
-
-			foreach (var entity in entitiesOnRune)
-			{
-				// Skip if it's a humanoid or brain (already handled above)
-				if (HasComp<HumanoidAppearanceComponent>(entity) || HasComp<BrainComponent>(entity))
-					continue;
-
-			// Try to get solution container - we only check direct solutions, not nested containers
-			if (!_solutionContainer.TryGetSolution(entity, "beaker", out var beakerSolution, out var solution) &&
-				!_solutionContainer.TryGetSolution(entity, "drink", out beakerSolution, out solution))
-				continue;
-			
-			// Check if the solution contains any blood types
-			FixedPoint2 totalBloodAmount = FixedPoint2.Zero;
-			var bloodReagentsFound = new List<(ReagentId reagent, FixedPoint2 amount)>();
-
-			foreach (var reagentQuantity in solution.Contents)
-			{
-				if (BloodCultConstants.SacrificeBloodReagents.Contains(reagentQuantity.Reagent.Prototype))
-				{
-					bloodReagentsFound.Add((reagentQuantity.Reagent, reagentQuantity.Quantity));
-					totalBloodAmount += reagentQuantity.Quantity;
-				}
-			}
-
-			if (totalBloodAmount <= 0)
-				continue;
-
-			// Convert all blood types to SanguinePerniculate
-			foreach (var (reagent, amount) in bloodReagentsFound)
-			{
-				solution.RemoveReagent(reagent, amount);
-			}
-			solution.AddReagent(new ReagentId("SanguinePerniculate", null), totalBloodAmount);			_solutionContainer.UpdateChemicals(beakerSolution.Value);
-
-			// Spill the container
-			var spillSolution = _solutionContainer.SplitSolution(beakerSolution.Value, solution.Volume);
-			_puddle.TrySpillAt(Transform(entity).Coordinates, spillSolution, out _);
-
-				// Play audio and show popup
-				_audio.PlayPvs(new SoundPathSpecifier("/Audio/_Funkystation/Ambience/Antag/creepyshriek.ogg"), Transform(rune).Coordinates);
-				_popupSystem.PopupEntity(
-					Loc.GetString("cult-blood-transmuted"),
-					user, user, PopupType.Medium
-				);
-
-				processedAny = true;
-			}
-
-			if (!processedAny)
-			{
-				// No valid target or container found
+				// No valid target found
 				_popupSystem.PopupEntity(
 					Loc.GetString("cult-invocation-fail"),
 					user, user, PopupType.MediumCaution
 				);
 			}
+			args.Handled = true;
 		}
+
 
 		private bool _IsSacrificeTarget(EntityUid target, BloodCultistComponent comp)
 		{
@@ -512,6 +455,13 @@ namespace Content.Server.BloodCult.EntitySystems
 		soulstoneComp.OriginalEntityPrototype = originalEntityPrototype;
 		Dirty(soulstone, soulstoneComp);
 	}
+	
+	// Give the soulstone a physics push for visual effect
+	if (TryComp<PhysicsComponent>(soulstone, out var physics))
+	{
+		var randomDirection = _random.NextVector2(1.5f, 3.5f); // Random impulse between 1.5 and 3.5 units
+		_physics.ApplyLinearImpulse(soulstone, randomDirection, body: physics);
+	}
 		
 		// Play success audio
 		_audio.PlayPvs(new SoundPathSpecifier("/Audio/Magic/blink.ogg"), coordinates);
@@ -522,18 +472,37 @@ namespace Content.Server.BloodCult.EntitySystems
 			user, user, PopupType.Large
 		);
 		
-		// Add blood to the ritual pool
-		_bloodCultRule.AddBloodForConversion(100.0);
+		// Note: Soulstone creation does NOT add blood to the ritual pool
+		// Only conversions (based on victim's blood level) and EdgeEssentia bleeding count toward stages
 	}
 
-	private bool _CanBeSacrificed(EntityUid uid, List<EntityUid> shells)
-	{
-		// Sacrifice requires a juggernaut shell to be present
-		return shells.Count > 0;
-	}
+	// Disabled - cultists should revive and convert instead
+	// private bool _CanBeSacrificed(EntityUid uid, List<EntityUid> shells)
+	// {
+	// 	// Sacrifice requires a juggernaut shell to be present
+	// 	return shells.Count > 0;
+	// }
 
 	private void _BreakMindshield(EntityUid victim, EntityUid user, EntityUid[] cultistsInRange, EntityCoordinates runeLocation)
 	{
+		// Check if the cult has reached stage 2 (HasRisen) - required to break mindshields
+		var query = EntityQueryEnumerator<BloodCultRuleComponent, GameRuleComponent>();
+		BloodCultRuleComponent? cultRule = null;
+		while (query.MoveNext(out var uid, out var ruleComp, out var gameRule))
+		{
+			cultRule = ruleComp;
+			break;
+		}
+
+		if (cultRule != null && !cultRule.HasRisen)
+		{
+			_popupSystem.PopupEntity(
+				Loc.GetString("cult-invocation-mindshield-too-early"),
+				user, user, PopupType.LargeCaution
+			);
+			return;
+		}
+
 		// Require 3 cultists total (user + 2 others)
 		if (cultistsInRange.Length < 3)
 		{
@@ -765,71 +734,73 @@ namespace Content.Server.BloodCult.EntitySystems
 	args.Handled = true;
 	}
 
-	private void _SacrificeIntoShell(EntityUid victim, EntityUid user, EntityUid shell, EntityUid[] cultistsInRange)
-	{
-		// Get the victim's mind
-		EntityUid? mindId = CompOrNull<MindContainerComponent>(victim)?.Mind;
-		MindComponent? mindComp = CompOrNull<MindComponent>(mindId);
-		
-		if (mindId == null || mindComp == null)
-		{
-			_popupSystem.PopupEntity(
-				Loc.GetString("cult-invocation-fail-nosoul"),
-				user, user, PopupType.MediumCaution
-			);
-			return;
-		}
-
-		// Check if enough cultists are present
-		// Require at least 1 cultist (matching the regular sacrifice requirement)
-		if (cultistsInRange.Length < 1)
-		{
-			_popupSystem.PopupEntity(
-				Loc.GetString("cult-invocation-fail"),
-				user, user, PopupType.MediumCaution
-			);
-			return;
-		}
-
-		// Perform the sacrifice ritual announcement
-		foreach (EntityUid invoker in cultistsInRange)
-		{
-			// Make cultists speak the ritual words
-			// This mimics the behavior in BloodCultRuleSystem
-			if (TryComp<BloodCultistComponent>(invoker, out var _))
-			{
-				// Speak ritual words
-			}
-		}
-
-		// Get shell coordinates
-		var shellCoordinates = Transform(shell).Coordinates;
-		
-		// Play sacrifice audio
-		_audio.PlayPvs(new SoundPathSpecifier("/Audio/Magic/disintegrate.ogg"), shellCoordinates);
-		
-		// Delete the shell and spawn the juggernaut
-		QueueDel(shell);
-		var juggernaut = Spawn("MobBloodCultJuggernaut", shellCoordinates);
-		
-		// Get the juggernaut's body container
-		if (_container.TryGetContainer(juggernaut, "juggernaut_body_container", out var container))
-		{
-			// Insert the victim's body into the juggernaut
-			_container.Insert(victim, container);
-		}
-		
-		// Transfer mind from victim to juggernaut
-		_mind.TransferTo((EntityUid)mindId, juggernaut, mind:mindComp);
-		
-		// Play transformation audio
-		_audio.PlayPvs(new SoundPathSpecifier("/Audio/Magic/blink.ogg"), shellCoordinates);
-		
-		// Notify the cultists
-		_popupSystem.PopupEntity(
-			Loc.GetString("cult-juggernaut-created"),
-			user, user, PopupType.Large
-		);
-	}
+	// Disabled - cultists should revive and convert instead
+	// May re-enable in the future if shells become more common
+	// private void _SacrificeIntoShell(EntityUid victim, EntityUid user, EntityUid shell, EntityUid[] cultistsInRange)
+	// {
+	// 	// Get the victim's mind
+	// 	EntityUid? mindId = CompOrNull<MindContainerComponent>(victim)?.Mind;
+	// 	MindComponent? mindComp = CompOrNull<MindComponent>(mindId);
+	// 	
+	// 	if (mindId == null || mindComp == null)
+	// 	{
+	// 		_popupSystem.PopupEntity(
+	// 			Loc.GetString("cult-invocation-fail-nosoul"),
+	// 			user, user, PopupType.MediumCaution
+	// 		);
+	// 		return;
+	// 	}
+	//
+	// 	// Check if enough cultists are present
+	// 	// Require at least 1 cultist (matching the regular sacrifice requirement)
+	// 	if (cultistsInRange.Length < 1)
+	// 	{
+	// 		_popupSystem.PopupEntity(
+	// 			Loc.GetString("cult-invocation-fail"),
+	// 			user, user, PopupType.MediumCaution
+	// 		);
+	// 		return;
+	// 	}
+	//
+	// 	// Perform the sacrifice ritual announcement
+	// 	foreach (EntityUid invoker in cultistsInRange)
+	// 	{
+	// 		// Make cultists speak the ritual words
+	// 		// This mimics the behavior in BloodCultRuleSystem
+	// 		if (TryComp<BloodCultistComponent>(invoker, out var _))
+	// 		{
+	// 			// Speak ritual words
+	// 		}
+	// 	}
+	//
+	// 	// Get shell coordinates
+	// 	var shellCoordinates = Transform(shell).Coordinates;
+	// 	
+	// 	// Play sacrifice audio
+	// 	_audio.PlayPvs(new SoundPathSpecifier("/Audio/Magic/disintegrate.ogg"), shellCoordinates);
+	// 	
+	// 	// Delete the shell and spawn the juggernaut
+	// 	QueueDel(shell);
+	// 	var juggernaut = Spawn("MobBloodCultJuggernaut", shellCoordinates);
+	// 	
+	// 	// Get the juggernaut's body container
+	// 	if (_container.TryGetContainer(juggernaut, "juggernaut_body_container", out var container))
+	// 	{
+	// 		// Insert the victim's body into the juggernaut
+	// 		_container.Insert(victim, container);
+	// 	}
+	// 	
+	// 	// Transfer mind from victim to juggernaut
+	// 	_mind.TransferTo((EntityUid)mindId, juggernaut, mind:mindComp);
+	// 	
+	// 	// Play transformation audio
+	// 	_audio.PlayPvs(new SoundPathSpecifier("/Audio/Magic/blink.ogg"), shellCoordinates);
+	// 	
+	// 	// Notify the cultists
+	// 	_popupSystem.PopupEntity(
+	// 		Loc.GetString("cult-juggernaut-created"),
+	// 		user, user, PopupType.Large
+	// 	);
+	// }
 	}
 }

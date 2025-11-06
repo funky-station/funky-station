@@ -209,7 +209,7 @@ public sealed class SoulStoneSystem : EntitySystem
 		_mind.TransferTo((EntityUid)mindId, originalEntity, mind: mindComp);
 
 		// Play breaking sound (glass break sound is appropriate)
-		_audioSystem.PlayPvs(new SoundPathSpecifier("/Audio/Effects/glassbr1.ogg"), coordinates);
+		_audioSystem.PlayPvs(new SoundPathSpecifier("/Audio/Effects/glass_break1.ogg"), coordinates);
 		
 		_popupSystem.PopupEntity(
 			Loc.GetString("cult-soulstone-shattered"),

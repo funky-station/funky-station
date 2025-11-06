@@ -77,7 +77,7 @@ chat-manager-send-admin-announcement-wrap-message = [bold]{$adminChannelName}: {
 
 chat-manager-send-hook-ooc-wrap-message = OOC: [bold](D){$senderName}:[/bold] {$message}
 
-chat-manager-dead-channel-name = DEAD
+chat-manager-dead-channel-name = GHOST
 chat-manager-admin-channel-name = ADMIN
 
 chat-manager-rate-limited = You are sending messages too quickly!

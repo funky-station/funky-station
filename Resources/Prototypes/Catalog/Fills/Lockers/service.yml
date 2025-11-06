@@ -29,10 +29,14 @@
 # SPDX-FileCopyrightText: 2024 Ubaser <134914314+UbaserB@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Джексон Миссиссиппи <tripwiregamer@gmail.com>
+# SPDX-FileCopyrightText: 2025 Dani <57107055+wgreen84@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 Teasq <Xerithin@gmail.com>
+# SPDX-FileCopyrightText: 2025 Tiniest Shark <head.rebel@yahoo.com>
+# SPDX-FileCopyrightText: 2025 Tropica1Owl <159095310+Tropica1Owl@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 tea <xerithin@gmail.com>
 # SPDX-FileCopyrightText: 2025 tropii <tropicalowl@outlook.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
@@ -118,6 +122,8 @@
         amount: 2
       - id: Plunger
         amount: 2
+      - id: WireBrush
+        amount: 2
 
 - type: entity
   id: ClosetLegalFilled
@@ -139,7 +145,7 @@
     contents:
       - id: ClothingHandsGlovesLeather
       - id: ClothingOuterApronBotanist
-      - id: ClothingHeadBandBotany
+      - id: ClothingHeadBandGreen
       - id: RobustHarvestChemistryBottle
         prob: 0.3
       - id: ClothingBeltPlant

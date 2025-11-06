@@ -1,0 +1,77 @@
+# SPDX-FileCopyrightText: 2025 Ilya Mikheev <me@ilyamikcoder.com>
+# SPDX-FileCopyrightText: 2025 ilyamikcoder <me@ilyamikcoder.com>
+#
+# SPDX-License-Identifier: MIT
+
+- type: securityStatus
+  id: SecurityStatusNone
+  name: criminal-records-status-none
+  priority: 999
+  cartridgeLabel: criminal-records-cartridge-none
+
+- type: securityStatus
+  id: SecurityStatusSuspected
+  name: criminal-records-status-suspected
+  securityIcon: SecurityIconSuspected
+  requiresReason: true
+  radioMessage: criminal-records-console-suspected
+  removalRadioMessage: criminal-records-console-not-suspected
+  priority: 4
+  cartridgeLabel: criminal-records-cartridge-suspected
+
+- type: securityStatus
+  id: SecurityStatusSearch
+  name: criminal-records-status-search
+  securityIcon: SecurityIconSearch
+  requiresReason: true
+  radioMessage: criminal-records-console-search
+  removalRadioMessage: criminal-records-console-no-more-search
+  priority: 4
+  cartridgeLabel: criminal-records-cartridge-search
+
+- type: securityStatus
+  id: SecurityStatusWanted
+  name: criminal-records-status-wanted
+  securityIcon: SecurityIconWanted
+  requiresReason: true
+  radioMessage: criminal-records-console-wanted
+  removalRadioMessage: criminal-records-console-not-wanted
+  priority: 3
+  cartridgeLabel: criminal-records-cartridge-wanted
+
+- type: securityStatus
+  id: SecurityStatusDetained
+  name: criminal-records-status-detained
+  securityIcon: SecurityIconIncarcerated
+  radioMessage: criminal-records-console-detained
+  removalRadioMessage: criminal-records-console-released
+  priority: 2
+  cartridgeLabel: criminal-records-cartridge-detained
+
+- type: securityStatus
+  id: SecurityStatusDischarged
+  name: criminal-records-status-discharged
+  securityIcon: SecurityIconDischarged
+  radioMessage: criminal-records-console-released
+  removalRadioMessage: criminal-records-console-not-discharged
+  priority: 1
+  cartridgeLabel: criminal-records-cartridge-discharged
+
+- type: securityStatus
+  id: SecurityStatusParoled
+  name: criminal-records-status-paroled
+  securityIcon: SecurityIconParoled
+  radioMessage: criminal-records-console-paroled
+  removalRadioMessage: criminal-records-console-not-parole
+  priority: 1
+  cartridgeLabel: criminal-records-cartridge-paroled
+
+- type: securityStatus
+  id: SecurityStatusIncapacitated
+  name: criminal-records-status-incapacitated
+  securityIcon: SecurityIconIncapacitated
+  requiresReason: true
+  radioMessage: criminal-records-console-incapacitated
+  removalRadioMessage: criminal-records-console-not-incapacitated
+  priority: 0
+  cartridgeLabel: criminal-records-cartridge-incapacitated

@@ -1,0 +1,17 @@
+# SPDX-FileCopyrightText: 2025 Ilya Mikheev <me@ilyamikcoder.com>
+#
+# SPDX-License-Identifier: MIT
+
+- type: securityIcon
+  parent: SecurityIcon
+  id: SecurityIconSearch
+  icon:
+    sprite: /Textures/_Funkystation/Interface/Misc/security_icons.rsi
+    state: hud_search
+
+- type: securityIcon
+  parent: SecurityIcon
+  id: SecurityIconIncapacitated
+  icon:
+    sprite: /Textures/_Funkystation/Interface/Misc/security_icons.rsi
+    state: hud_incapacitated

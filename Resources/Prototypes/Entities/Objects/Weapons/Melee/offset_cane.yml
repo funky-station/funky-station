@@ -1,0 +1,80 @@
+# SPDX-FileCopyrightText: 2025 Mora <46364955+TrixxedHeart@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 TrixxedHeart <46364955+TrixxedBit@users.noreply.github.com>
+#
+# SPDX-License-Identifier: MIT
+
+- type: entity
+  parent: BaseItem
+  id: OffsetCane
+  name: standard offset cane
+  description: A standard offset cane, essential for getting around when your legs aren't up to the task. May or may not grant you the wisdom of the elderly.
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Melee/offset_canes/standard.rsi
+    state: icon
+  - type: Item
+    size: Normal
+    sprite: Objects/Weapons/Melee/offset_canes/standard.rsi
+  - type: MobilityAid
+  - type: MeleeWeapon
+    wideAnimationRotation: 45
+    damage:
+      types:
+        Blunt: 5
+  - type: StaminaDamageOnHit
+    damage: 5
+  - type: Wieldable
+  - type: IncreaseDamageOnWield
+    damage:
+      types:
+        Blunt: 3
+  - type: UseDelay
+    delay: 1
+
+- type: entity
+  parent: OffsetCane
+  id: OffsetCaneClown
+  name: rainbow offset cane
+  description: A rainbow offset cane, perfect for clowns and those who enjoy a splash of color in their lives.
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Melee/offset_canes/clown.rsi
+    state: icon
+  - type: Item
+    sprite: Objects/Weapons/Melee/offset_canes/clown.rsi
+
+- type: entity
+  parent: OffsetCane
+  id: OffsetCaneMime
+  name: striped offset cane
+  description: A black and white striped cane, perfect for silent performances.
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Melee/offset_canes/mime.rsi
+    state: icon
+  - type: Item
+    sprite: Objects/Weapons/Melee/offset_canes/mime.rsi
+
+- type: entity
+  parent: OffsetCane
+  id: OffsetCaneNT
+  name: nanotrasen offset cane
+  description: A nanotrasen standard issue offset cane with the NT logo, favored by those who prefer a more corporate look.
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Melee/offset_canes/nanotrasen.rsi
+    state: icon
+  - type: Item
+    sprite: Objects/Weapons/Melee/offset_canes/nanotrasen.rsi
+
+- type: entity
+  parent: OffsetCane
+  id: OffsetCaneWood
+  name: wooden offset cane
+  description: A wooden offset cane, a classic choice for those who appreciate natural materials and a sturdy grip.
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Melee/offset_canes/wood.rsi
+    state: icon
+  - type: Item
+    sprite: Objects/Weapons/Melee/offset_canes/wood.rsi

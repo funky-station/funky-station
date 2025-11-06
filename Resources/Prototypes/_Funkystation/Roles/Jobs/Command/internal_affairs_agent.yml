@@ -50,3 +50,4 @@
   storage:
     back:
     - Flash
+    - BluespaceLifelineImplanter

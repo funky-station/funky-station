@@ -12,6 +12,8 @@ using Content.Shared.Popups;
 using Content.Shared.BloodCult.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Server.GameTicking.Rules;
+using Content.Server.GameTicking.Rules.Components;
+using Content.Shared.GameTicking.Components;
 using Content.Shared.BloodCult;
 using Content.Server.Explosion.EntitySystems;
 
@@ -86,13 +88,14 @@ namespace Content.Server.BloodCult.EntitySystems
 			}
 		}
 
-		// Get the map this rune is on
+		// Get the map this rune is on. Make sure the rune is valid before using it later in the function.
 		if (!TryComp<TransformComponent>(uid, out var xform) || !TryComp<MapGridComponent>(xform.GridUid, out var _))
 		{
 			args.Handled = true;
 			return;
 		}
 
+		//If the map itself isn't valid, don't continue.
 		var mapUid = xform.MapUid ?? EntityUid.Invalid;
 		if (!mapUid.IsValid())
 		{
@@ -100,29 +103,46 @@ namespace Content.Server.BloodCult.EntitySystems
 			return;
 		}
 
-		// Count how many cultists are currently standing on TearVeilRunes on this map
-		var cultistsOnRunes = CountCultistsOnRunes(mapUid);
+	// Get the minimum cultists required from the game rule
+	var query = EntityQueryEnumerator<BloodCultRuleComponent, GameRuleComponent>();
+	BloodCultRuleComponent? cultRule = null;
+	while (query.MoveNext(out _, out var ruleComp, out _))
+	{
+		cultRule = ruleComp;
+		break;
+	}
+	
+	if (cultRule == null)
+	{
+		args.Handled = true;
+		return;
+	}
+	
+	var minimumRequired = cultRule.MinimumCultistsForVeilRitual;
 
-		if (cultistsOnRunes < component.MinimumCultists)
-		{
-			_popupSystem.PopupEntity(
-				Loc.GetString("cult-veil-ritual-not-enough-cultists", 
-					("current", cultistsOnRunes), 
-					("required", component.MinimumCultists)),
-				user, user, PopupType.LargeCaution
-			);
-			args.Handled = true;
-			return;
-		}
+	// Count how many cultists are currently standing on TearVeilRunes on this map
+	var cultistsOnRunes = CountCultistsOnRunes(mapUid);
 
-		// Ritual can begin!
-		component.RitualInProgress = true;
-		component.RitualMapUid = mapUid;
-		component.CurrentChantStep = 0;
-		component.TimeUntilNextChant = component.ChantInterval;
+	if (cultistsOnRunes < minimumRequired)
+	{
+		_popupSystem.PopupEntity(
+			Loc.GetString("cult-veil-ritual-not-enough-cultists", 
+				("current", cultistsOnRunes), 
+				("required", minimumRequired)),
+			user, user, PopupType.LargeCaution
+		);
+		args.Handled = true;
+		return;
+	}
 
-		// Announce to all cultists that the ritual has begun
-		AnnounceRitualStart(component.MinimumCultists);
+	// Ritual can begin!
+	component.RitualInProgress = true;
+	component.RitualMapUid = mapUid;
+	component.CurrentChantStep = 0;
+	component.TimeUntilNextChant = component.ChantInterval;
+
+	// Announce to all cultists that the ritual has begun
+	AnnounceRitualStart(minimumRequired);
 
 		// Immediately perform the first chant
 		ProcessChantStep(uid, component, xform);
@@ -130,35 +150,52 @@ namespace Content.Server.BloodCult.EntitySystems
 		args.Handled = true;
 	}
 
-		/// <summary>
-		/// Processes a single chant step in the ritual.
-		/// </summary>
-		private void ProcessChantStep(EntityUid runeUid, TearVeilComponent component, TransformComponent xform)
+	/// <summary>
+	/// Processes a single chant step in the ritual.
+	/// </summary>
+	private void ProcessChantStep(EntityUid runeUid, TearVeilComponent component, TransformComponent xform)
+	{
+		if (component.RitualMapUid == null || !component.RitualMapUid.Value.IsValid())
 		{
-			if (component.RitualMapUid == null || !component.RitualMapUid.Value.IsValid())
-			{
-				EndRitual(component, false);
-				return;
-			}
+			EndRitual(component, false);
+			return;
+		}
 
-			// Count cultists on runes
-			var cultistsOnRunes = GetCultistsOnRunes(component.RitualMapUid.Value);
-			var cultistCount = cultistsOnRunes.Count;
+		// Get the minimum cultists required from the game rule
+		var ruleQuery = EntityQueryEnumerator<BloodCultRuleComponent, GameRuleComponent>();
+		BloodCultRuleComponent? cultRule = null;
+		while (ruleQuery.MoveNext(out _, out var ruleComp, out _))
+		{
+			cultRule = ruleComp;
+			break;
+		}
+		
+		if (cultRule == null)
+		{
+			EndRitual(component, false);
+			return;
+		}
+		
+		var minimumRequired = cultRule.MinimumCultistsForVeilRitual;
 
-			if (cultistCount < component.MinimumCultists)
-			{
-				// Not enough cultists, ritual fails
-				_popupSystem.PopupEntity(
-					Loc.GetString("cult-veil-ritual-not-enough-at-end", 
-						("current", cultistCount), 
-						("required", component.MinimumCultists)),
-					runeUid, PopupType.LargeCaution
-				);
+		// Count cultists on runes
+		var cultistsOnRunes = GetCultistsOnRunes(component.RitualMapUid.Value);
+		var cultistCount = cultistsOnRunes.Count;
 
-				AnnounceRitualFailure();
-				EndRitual(component, false);
-				return;
-			}
+		if (cultistCount < minimumRequired)
+		{
+			// Not enough cultists, ritual fails
+			_popupSystem.PopupEntity(
+				Loc.GetString("cult-veil-ritual-not-enough-at-end", 
+					("current", cultistCount), 
+					("required", minimumRequired)),
+				runeUid, PopupType.LargeCaution
+			);
+
+			AnnounceRitualFailure();
+			EndRitual(component, false);
+			return;
+		}
 
 			// Make all cultists on runes chant
 			var chant = _bloodCultRule.GenerateChant(wordCount: 3);

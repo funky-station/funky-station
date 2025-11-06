@@ -193,24 +193,24 @@ public struct WeakVeilLocation
 
 public struct SacrificingData
 {
-	public EntityUid Target;
+	public EntityUid Victim;
 	public EntityUid[] Invokers;
 
-	public SacrificingData(EntityUid target, EntityUid[] invokers)
+	public SacrificingData(EntityUid victim, EntityUid[] invokers)
 	{
-		Target = target;
+		Victim = victim;
 		Invokers = invokers;
 	}
 }
 
 public struct ConvertingData
 {
-	public EntityUid Target;
+	public EntityUid Subject;
 	public EntityUid[] Invokers;
 
-	public ConvertingData(EntityUid target, EntityUid[] invokers)
+	public ConvertingData(EntityUid subject, EntityUid[] invokers)
 	{
-		Target = target;
+		Subject = subject;
 		Invokers = invokers;
 	}
 }

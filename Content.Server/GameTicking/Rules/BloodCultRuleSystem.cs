@@ -82,7 +82,6 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 	[Dependency] private readonly SharedJobSystem _jobs = default!;
 	[Dependency] private readonly RoundEndSystem _roundEnd = default!;
 	[Dependency] private readonly MobStateSystem _mobSystem = default!;
-	[Dependency] private readonly StationSystem _stationSystem = default!;
 	[Dependency] private readonly IChatManager _chatManager = default!;
 	[Dependency] private readonly SharedActionsSystem _actions = default!;
 	[Dependency] private readonly SharedBodySystem _body = default!;
@@ -145,8 +144,8 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 		CalculateBloodRequirements(component);
 		component.InitialReportTime = _timing.CurTime + TimeSpan.FromSeconds(1);
 		SetConversionsNeeded(component);
+		SetMinimumCultistsForVeilRitual(component);
 		SelectVeilTargets(component);
-		component.CheckTime = _timing.CurTime + component.TimerWait;
     }
 
 	/// <summary>
@@ -203,94 +202,6 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 		component.WeakVeil3 = beaconsList[third];
 	}
 
-	/// <summary>
-    /// Selects a new target for the Cultists. Prioritizes Security and Command.
-	/// Cannot select somebody who is already a cultist.
-    /// </summary>
-	private void SelectTarget(BloodCultRuleComponent component, bool wipe = true)
-	{
-		// TODO: Should also add a command line command to force a re-selection of the target, so that admins can
-		//		intervene if a target is like way out in the middle of nowhere or something.
-
-		// target already assigned
-        if (!wipe && component.Target != null)
-            return;
-
-		// veil has begun to be weakened
-		if (component.TargetsDown.Count >= 1)
-		{
-			if (!component.HasEyes)
-			{
-				component.HasEyes = true;
-				EmpowerCultists(GetCultists());
-			}
-		}
-
-		// veil has been sufficiently weakened
-		if (component.TargetsDown.Count >= component.TargetsRequired)
-		{
-			if (!component.HasRisen)
-			{
-				component.HasRisen = true;
-				// RiseCultists moved to CompleteVeilRitual (when VeilWeakened becomes true)
-			}
-			component.Target = null;
-			component.VeilWeakened = true;
-		}
-
-        // Get all relevant crew
-        var allHumans = new HashSet<Entity<MindComponent>>();
-	foreach (var person in _mind.GetAliveHumans())//;//(args.MindId);
-	{
-		var mind = person.Comp;
-		var mindCompEntity = person.Owner;
-		if (_stationSystem.GetOwningStation(mind.CurrentEntity) != null &&
-			!HasComp<CryostorageContainedComponent>(mind.CurrentEntity) &&
-			!HasComp<CultResistantComponent>(mind.CurrentEntity) &&
-			!_role.MindHasRole<BloodCultRoleComponent>(mindCompEntity, out var _))
-			allHumans.Add(person);
-	}
-
-		// no other humans to kill
-		if (allHumans.Count == 0)
-        {
-			// If there are no remaining possible targets, allow
-			//	the cultists to summon Nar'Sie right away.
-			if (!component.HasRisen)
-			{
-				component.HasRisen = true;
-				EmpowerCultists(GetCultists());
-				RiseCultists(GetCultists());
-			}
-			component.Target = null;
-			component.VeilWeakened = true;
-            return;
-        }
-
-		// try to pick sec/command
-        var allPotentialTargets = new HashSet<Entity<MindComponent>>();
-        foreach (var person in allHumans)
-        {
-            if (TryComp<MindComponent>(person, out var mind) &&
-				mind.OwnedEntity is { } ent &&
-				(HasComp<CommandStaffComponent>(ent) || HasComp<SecurityStaffComponent>(ent)))
-                allPotentialTargets.Add(person);
-        }
-
-		// if there are no sec/command, just pick from the general crew pool
-        if (allPotentialTargets.Count == 0)
-            allPotentialTargets = allHumans; // fallback to non-head and non-sec target
-
-		// TODO: Check for TimeOfDeath being null (makes sure they're not dead)
-		// Can also check to see if Session is null, which means they logged out
-		component.Target = (EntityUid)_random.Pick(allPotentialTargets);
-
-		// Assign original body to track future mis-matches
-		var targetMind = CompOrNull<MindComponent>((EntityUid)component.Target);
-		if (targetMind != null)
-			component.TargetOriginalBody = targetMind.CurrentEntity;
-	}
-
 	private void AfterEntitySelected(Entity<BloodCultRuleComponent> ent, ref AfterAntagEntitySelectedEvent args)
     {
         MakeCultist(args.EntityUid, ent);
@@ -304,13 +215,6 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
     {
         if (_TryAssignCultMind(traitor))
 		{
-			// re-select target if needed
-			if (_mind.TryGetMind(traitor, out var mindId, out var _))
-			{
-				if (component.Target != null && component.Target == mindId)
-					SelectTarget(component, true);
-			}
-
 			if (TryComp<BloodCultistComponent>(traitor, out var cultist))
 			{
 				// add cultist starting abilities
@@ -390,94 +294,6 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 			}
 		}
 
-		if (component.Target != null)
-		{
-			// If the target has gone catatonic, pick another one.
-			var targetMind = CompOrNull<MindComponent>((EntityUid)component.Target);
-			if (targetMind?.UserId == null)
-			{
-				SelectTarget(component, true);
-				if (!component.VeilWeakened)
-				{
-					AnnounceStatus(component, cultists);
-				}
-			}
-			// When entered cryo
-			if (targetMind != null && HasComp<CryostorageContainedComponent>(targetMind.CurrentEntity))
-			{
-				SelectTarget(component, true);
-				if (!component.VeilWeakened)
-				{
-					AnnounceStatus(component, cultists);
-				}
-			}
-
-			// Reselection Timer checks
-			if (component.OffStationReselectTimerActive)
-			{
-				//Re-select target if the allocated time has passed
-				if (component.OffStationTargetReselectTime <= _timing.CurTime)
-				{
-					component.OffStationReselectTimerActive = false;
-
-					SelectTarget(component, true);
-					component.MismatchReselectTimerActive = false;
-					if (!component.VeilWeakened)
-					{
-						AnnounceStatus(component, cultists);
-					}
-				}
-				//Target returns to station, stop the timer
-				else if (targetMind != null && _stationSystem.GetOwningStation(targetMind.CurrentEntity) != null)
-				{
-					component.OffStationReselectTimerActive = false;
-				}
-			}
-
-			if (component.MismatchReselectTimerActive)
-			{
-				//Re-select target if the allocated time has passed
-				if (component.MismatchTargetReselectTime <= _timing.CurTime)
-				{
-					component.MismatchReselectTimerActive = false;
-
-					SelectTarget(component, true);
-					component.OffStationReselectTimerActive = false;
-					if (!component.VeilWeakened)
-					{
-						AnnounceStatus(component, cultists);
-					}
-				}
-				// Target mind returns to original body and is thus identifiable again.
-				else if (targetMind != null && targetMind.CurrentEntity == component.TargetOriginalBody)
-				{
-					component.MismatchReselectTimerActive = false;
-				}
-			}
-
-			// Check target off station + body mismatch, governs timer starting.
-			if (component.CheckTime <= _timing.CurTime)
-			{
-				component.CheckTime = _timing.CurTime + component.TimerWait;
-
-				if (targetMind != null)
-				{
-					//If target is off-station, start a 2 minute timer to re-select a target
-					if (!component.OffStationReselectTimerActive && _stationSystem.GetOwningStation(targetMind.CurrentEntity) == null)
-					{
-						component.OffStationTargetReselectTime = _timing.CurTime + component.OffStationTimer;
-						component.OffStationReselectTimerActive = true;
-					}
-					//If target's brain leaves the original body, start a 5 minute timer to re-select a target
-					if (!component.MismatchReselectTimerActive && targetMind.CurrentEntity != component.TargetOriginalBody)
-					{
-						component.MismatchTargetReselectTime = _timing.CurTime + component.MismatchTimer;
-						component.MismatchReselectTimerActive = true;
-					}
-				}
-			}
-		}
-
 		// Check if blood thresholds have been reached for stage progression
 		if (!component.HasEyes && component.BloodCollected >= component.BloodRequiredForEyes)
 		{
@@ -532,18 +348,7 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 			// Apply active revives
 			if (cultist.BeingRevived)
 			{
-				if (component.ReviveCharges >= component.CostToRevive)
-				{
-					component.ReviveCharges = component.ReviveCharges - component.CostToRevive;
-					_ReviveCultist(cultistUid, cultist.ReviverUid);
-				}
-				else if (cultist.ReviverUid != null)
-				{
-					_popupSystem.PopupEntity(
-							Loc.GetString("cult-invocation-revive-fail"),
-							(EntityUid)cultist.ReviverUid, (EntityUid)cultist.ReviverUid, PopupType.MediumCaution
-						);
-				}
+				_ReviveCultist(cultistUid, cultist.ReviverUid);
 				cultist.BeingRevived = false;
 				cultist.ReviverUid = null;
 			}
@@ -552,25 +357,11 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 			if (cultist.Sacrifice != null)
 			{
 				SacrificingData sacrifice = (SacrificingData)cultist.Sacrifice;
-				TryComp<MindContainerComponent>(sacrifice.Target, out var sacrificeMind);
-
-				if ((sacrificeMind?.Mind != null) && (component.Target != null) && (sacrificeMind.Mind == component.Target))
+				
+				if (_SacrificeOffering(sacrifice, component, cultistUid))
 				{
-					// A target is being sacrificed!
-					if (_SacrificeTarget(sacrifice, component, cultistUid))
-					{
-						AnnounceToCultists(Loc.GetString("cult-narsie-target-down"), newlineNeeded:true);
-						component.TotalSacrifices = component.TotalSacrifices + 1;
-					}
-				}
-				else
-				{
-					// A non-target is being sacrificed!
-					if (_SacrificeNonTarget(sacrifice, component, cultistUid))
-					{
-						AnnounceToCultist(Loc.GetString("cult-narsie-sacrifice-accept"), cultistUid, newlineNeeded:true);
-						component.TotalSacrifices = component.TotalSacrifices + 1;
-					}
+					AnnounceToCultist(Loc.GetString("cult-narsie-sacrifice-accept"), cultistUid, newlineNeeded:true);
+					component.TotalSacrifices = component.TotalSacrifices + 1;
 				}
 
 				cultist.Sacrifice = null;
@@ -580,22 +371,7 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 			if (cultist.Convert != null)
 			{
 				ConvertingData convert = (ConvertingData)cultist.Convert;
-				TryComp<MindContainerComponent>(convert.Target, out var convertMind);
-				if ((convertMind?.Mind != null) && (component.Target != null) && (convertMind.Mind == component.Target))
-				{
-					// Override convert and begin sacrificing -- this is a target!
-					SacrificingData sacrifice = new SacrificingData(convert.Target, convert.Invokers);
-					if (_SacrificeTarget(sacrifice, component, cultistUid))
-					{
-						AnnounceToCultists(Loc.GetString("cult-narsie-target-down"), newlineNeeded:true);
-						component.TotalSacrifices = component.TotalSacrifices + 1;
-					}
-				}
-				else
-				{
-					// A non-target is being converted.
-					_ConvertNonTarget(convert, component, cultistUid);
-				}
+				_ConvertOffering(convert, component, cultistUid);
 				cultist.Convert = null;
 			}
 
@@ -861,36 +637,12 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 
 	public void TrySacrificeVictim(EntityUid uid, BloodCultistComponent comp, ref SacrificeRuneEvent args)
 	{
-		comp.Sacrifice = new  SacrificingData(args.Target, args.Invokers);
+		comp.Sacrifice = new  SacrificingData(args.Victim, args.Invokers);
 	}
 
-	private bool _SacrificeTarget(SacrificingData sacrifice, BloodCultRuleComponent component, EntityUid cultistUid)
+	private bool _SacrificeOffering(SacrificingData sacrifice, BloodCultRuleComponent component, EntityUid cultistUid)
 	{
-		if (component.Target == null)
-			return false;
-		if (sacrifice.Invokers.Length < component.CultistsToSacrificeTarget)
-		{
-			_popupSystem.PopupEntity(
-				Loc.GetString("cult-invocation-target-fail"),
-				cultistUid, cultistUid, PopupType.MediumCaution
-			);
-			return false;
-		}
-	else
-	{
-		foreach (EntityUid invoker in sacrifice.Invokers)
-			Speak(invoker, Loc.GetString("cult-invocation-offering"));
-		_SacrificeVictim(sacrifice.Target, cultistUid);
-		component.ReviveCharges = component.ReviveCharges + component.ChargesForSacrifice;
-		component.TargetsDown.Add((EntityUid)component.Target);
-		SelectTarget(component, true);
-		return true;
-	}
-	}
-
-	private bool _SacrificeNonTarget(SacrificingData sacrifice, BloodCultRuleComponent component, EntityUid cultistUid)
-	{
-		if (HasComp<CultResistantComponent>(sacrifice.Target))
+		if (HasComp<CultResistantComponent>(sacrifice.Victim))
 		{
 			_popupSystem.PopupEntity(
 				Loc.GetString("cult-invocation-fail-resisted"),
@@ -913,9 +665,8 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 			Speak(invoker, Loc.GetString("cult-invocation-offering"));
 		}
 
-		if (_SacrificeVictim(sacrifice.Target, cultistUid))
+		if (_SacrificeVictim(sacrifice.Victim, cultistUid))
 		{
-			component.ReviveCharges = component.ReviveCharges + component.ChargesForSacrifice;
 			return true;
 		}
 	}
@@ -955,12 +706,12 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 
 	public void TryConvertVictim(EntityUid uid, BloodCultistComponent comp, ref ConvertRuneEvent args)
 	{
-		comp.Convert = new ConvertingData(args.Target, args.Invokers);
+		comp.Convert = new ConvertingData(args.Subject, args.Invokers);
 	}
 
-	private bool _ConvertNonTarget(ConvertingData convert, BloodCultRuleComponent component, EntityUid cultistUid)
+	private bool _ConvertOffering(ConvertingData convert, BloodCultRuleComponent component, EntityUid cultistUid)
 	{
-		if (HasComp<CultResistantComponent>(convert.Target))
+		if (HasComp<CultResistantComponent>(convert.Subject))
 		{
 			_popupSystem.PopupEntity(
 				Loc.GetString("cult-invocation-fail-resisted"),
@@ -972,8 +723,7 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 		{
 			foreach (EntityUid invoker in convert.Invokers)
 				Speak(invoker, Loc.GetString("cult-invocation-offering"));
-			component.ReviveCharges = component.ReviveCharges + component.ChargesForSacrifice;
-			_ConvertVictim(convert.Target, component);
+			_ConvertVictim(convert.Subject, component);
 			return true;
 		}
 		else
@@ -1110,6 +860,17 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 		component.ConversionsUntilRise = (int)Math.Ceiling((float)allAliveHumans.Count * 0.3f);
 	}
 
+	/// <summary>
+	/// Calculates the minimum number of cultists required for the Tear Veil ritual based on player count.
+	/// Uses 1/8th of total players (12.5%), with a minimum of 2 cultists.
+	/// </summary>
+	private void SetMinimumCultistsForVeilRitual(BloodCultRuleComponent component)
+	{
+		var allAliveHumans = _mind.GetAliveHumans();
+		// 1/8th (12.5%) of players, minimum of 2
+		component.MinimumCultistsForVeilRitual = Math.Max(2, (int)Math.Ceiling((float)allAliveHumans.Count * 0.125f));
+	}
+
 	private int GetConversionsToEyes(BloodCultRuleComponent component, List<EntityUid> cultists)
 	{
 		// Has the cultist group reached the needed conversions?
@@ -1200,19 +961,6 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 				("firstLoc", name1),
 				("secondLoc", name2),
 				("thirdLoc", name3));
-		}
-		else if (component.Target != null)
-		{
-			//var targ = (Entity<MindComponent>)component.Target;
-			if (component.Target != null && TryComp<MindComponent>(component.Target, out var mindComp) && TryComp<MetaDataComponent>(mindComp.OwnedEntity, out var metaData))
-			{
-				_jobs.MindTryGetJob(component.Target, out var prototype);
-				string job = "crewmember.";
-				if (prototype != null)
-					job = prototype.LocalizedName;
-				purpleMessage = purpleMessage + "\n" + Loc.GetString("cult-status-veil-strong-goal", ("targetName", metaData.EntityName),
-					("targetJob", job), ("cultistsRequired", component.CultistsToSacrificeTarget.ToString()));
-			}
 		}
 		if (specificCultist != null)
 			AnnounceToCultist(purpleMessage,

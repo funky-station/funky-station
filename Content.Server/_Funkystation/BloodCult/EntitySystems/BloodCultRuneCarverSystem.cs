@@ -7,6 +7,7 @@
 
 //using Content.Shared.Tag;
 using System.Linq;
+using Robust.Shared.Audio;
 using Robust.Shared.GameObjects;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
@@ -46,10 +47,7 @@ public sealed partial class BloodCultRuneCarverSystem : EntitySystem
 	[Dependency] private readonly IPrototypeManager _protoMan = default!;
 	[Dependency] private readonly DamageableSystem _damageableSystem = default!;
 	[Dependency] private readonly SharedAudioSystem _audioSystem = default!;
-	[Dependency] private readonly BloodCultRuleSystem _cultRule = default!;
 	[Dependency] private readonly PopupSystem _popupSystem = default!;
-	[Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-	[Dependency] private readonly IEntityManager _entManager = default!;
 	[Dependency] private readonly BloodstreamSystem _bloodstream = default!;
 
 	private EntityQuery<BloodCultRuneComponent> _runeQuery;
@@ -166,17 +164,17 @@ public sealed partial class BloodCultRuneCarverSystem : EntitySystem
 				return;
 			}
 
-			// If they made it to here, they are trying to draw a confirmed tear veil rune.
-			// Ensure that the location is valid.
-			WeakVeilLocation locationForSummon = (WeakVeilLocation)(cultist.LocationForSummon);
-			if (!locationForSummon.Coordinates.InRange(_entManager, Transform(args.User).Coordinates, locationForSummon.ValidRadius))
-			{
-				_popupSystem.PopupEntity(
-					Loc.GetString("cult-veil-drawing-wronglocation", ("name", locationForSummon.Name)),
-					args.User, args.User, PopupType.MediumCaution
-				);
-				return;
-			}
+		// If they made it to here, they are trying to draw a confirmed tear veil rune.
+		// Ensure that the location is valid.
+		WeakVeilLocation locationForSummon = (WeakVeilLocation)(cultist.LocationForSummon);
+		if (!_transform.InRange(locationForSummon.Coordinates, Transform(args.User).Coordinates, locationForSummon.ValidRadius))
+		{
+			_popupSystem.PopupEntity(
+				Loc.GetString("cult-veil-drawing-wronglocation", ("name", locationForSummon.Name)),
+				args.User, args.User, PopupType.MediumCaution
+			);
+			return;
+		}
 
 			// Check to make sure no other tear veil runes already exist.
 			var summonRunes = AllEntityQuery<TearVeilComponent, BloodCultRuneComponent>();
@@ -205,7 +203,7 @@ public sealed partial class BloodCultRuneCarverSystem : EntitySystem
             CancelDuplicate = false,
         };
 
-		if (_prototypeManager.TryIndex(ent.Comp.Rune, out var ritualPrototype))
+		if (_protoMan.TryIndex(ent.Comp.Rune, out var ritualPrototype))
 			_popupSystem.PopupEntity(
 				Loc.GetString("cult-rune-drawing-vowel-first") +
 				("aeiou".Contains(ritualPrototype.Name.ToLower()[0]) ? "n" : "") +
@@ -285,12 +283,12 @@ public sealed partial class BloodCultRuneCarverSystem : EntitySystem
 		if (!HasComp<BloodCultistComponent>(args.User))
 		{
 			QueueDel(uid);
-			Spawn("Ash", Transform(args.User).Coordinates);
-			_popupSystem.PopupEntity(
-				Loc.GetString("cult-dagger-equip-fail"),
-				args.User, args.User, PopupType.SmallCaution
-			);
-			_audioSystem.PlayPvs("/Audio/Effects/lightburn.ogg", Transform(args.User).Coordinates);
+		Spawn("Ash", Transform(args.User).Coordinates);
+		_popupSystem.PopupEntity(
+			Loc.GetString("cult-dagger-equip-fail"),
+			args.User, args.User, PopupType.SmallCaution
+		);
+		_audioSystem.PlayPvs(new SoundPathSpecifier("/Audio/Effects/lightburn.ogg"), Transform(args.User).Coordinates);
 		}
 	}
 

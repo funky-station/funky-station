@@ -42,7 +42,6 @@ public sealed class SoulStoneSystem : EntitySystem
 	[Dependency] private readonly MobStateSystem _mobState = default!;
 	[Dependency] private readonly IEntityManager _entityManager = default!;
 	[Dependency] private readonly DamageableSystem _damageable = default!;
-	[Dependency] private readonly IPrototypeManager _prototypeManager = default!;
 	[Dependency] private readonly RoleSystem _role = default!;
 	[Dependency] private readonly BloodstreamSystem _bloodstream = default!;
 
@@ -84,7 +83,7 @@ public sealed class SoulStoneSystem : EntitySystem
 			{
 				var coordinates = Transform((EntityUid)args.Target).Coordinates;
 				_mind.TransferTo((EntityUid)mindContainer.Mind, ent, mind:mindComp);
-				_audioSystem.PlayPvs("/Audio/Magic/blink.ogg", coordinates);
+				_audioSystem.PlayPvs(new SoundPathSpecifier("/Audio/Magic/blink.ogg"), coordinates);
 				_popupSystem.PopupEntity(
 					Loc.GetString("cult-shade-recalled"),
 					args.User, args.User, PopupType.SmallCaution
@@ -135,12 +134,12 @@ public sealed class SoulStoneSystem : EntitySystem
 				_mind.TransferTo((EntityUid)mindContainer.Mind, construct, mind:mindComp);
 				
 				// Set the soulstone reference on the Shade so it knows where to return
-				if (TryComp<ShadeComponent>(construct, out var shadeComp))
-				{
-					shadeComp.SourceSoulstone = ent;
-				}
-				
-				_audioSystem.PlayPvs("/Audio/Magic/blink.ogg", coordinates);
+			if (TryComp<ShadeComponent>(construct, out var shadeComp))
+			{
+				shadeComp.SourceSoulstone = ent;
+			}
+			
+			_audioSystem.PlayPvs(new SoundPathSpecifier("/Audio/Magic/blink.ogg"), coordinates);
 				_popupSystem.PopupEntity(
 					Loc.GetString("cult-shade-summoned"),
 					args.User, args.User, PopupType.SmallCaution
@@ -179,10 +178,10 @@ public sealed class SoulStoneSystem : EntitySystem
 		if (mindId == null || !TryComp<MindComponent>(mindId, out var mindComp))
 			return;
 
-		// Transfer the mind back to the soulstone
-		var coordinates = Transform(shade).Coordinates;
-		_mind.TransferTo((EntityUid)mindId, soulstone, mind: mindComp);
-		_audioSystem.PlayPvs("/Audio/Magic/blink.ogg", coordinates);
+	// Transfer the mind back to the soulstone
+	var coordinates = Transform(shade).Coordinates;
+	_mind.TransferTo((EntityUid)mindId, soulstone, mind: mindComp);
+	_audioSystem.PlayPvs(new SoundPathSpecifier("/Audio/Magic/blink.ogg"), coordinates);
 		
 		// Delete the Shade entity
 		QueueDel(shade);
@@ -190,27 +189,30 @@ public sealed class SoulStoneSystem : EntitySystem
 
 	private void OnSoulStoneDestroyed(Entity<SoulStoneComponent> soulstone, ref DestructionEventArgs args)
 	{
+	
+		// Figure out where the soulstone is
+		var coordinates = Transform(soulstone).Coordinates;
+		// Glassbreak sound playing at the coordinates above
+		_audioSystem.PlayPvs(new SoundPathSpecifier("/Audio/Effects/glass_break1.ogg"), coordinates);
+
 		// Get the mind from the soulstone
 		EntityUid? mindId = CompOrNull<MindContainerComponent>(soulstone)?.Mind;
-		if (mindId == null || !TryComp<MindComponent>(mindId, out var mindComp))
-			return;
 
-		// Get the original entity prototype
-		if (soulstone.Comp.OriginalEntityPrototype == null)
-			return;
 
-		var originalPrototype = soulstone.Comp.OriginalEntityPrototype.Value;
+		// Figure out what the original entity was, probably a positronic brain or IPC brain
+		if (soulstone.Comp.OriginalEntityPrototype != null)
+		{
+			var originalPrototype = soulstone.Comp.OriginalEntityPrototype.Value;
+			// Spawn the original entity at the soulstone's location
+			var originalEntity = Spawn(originalPrototype, coordinates);
+			// Transfer the mind to the original entity
+			if (mindId != null && TryComp<MindComponent>(mindId, out var mindComp))
+			{
+				_mind.TransferTo((EntityUid)mindId, originalEntity, mind: mindComp);
+			}
+		}
 
-		// Spawn the original entity at the soulstone's location
-		var coordinates = Transform(soulstone).Coordinates;
-		var originalEntity = Spawn(originalPrototype, coordinates);
 
-		// Transfer the mind to the original entity
-		_mind.TransferTo((EntityUid)mindId, originalEntity, mind: mindComp);
-
-		// Play breaking sound (glass break sound is appropriate)
-		_audioSystem.PlayPvs(new SoundPathSpecifier("/Audio/Effects/glass_break1.ogg"), coordinates);
-		
 		_popupSystem.PopupEntity(
 			Loc.GetString("cult-soulstone-shattered"),
 			soulstone, PopupType.MediumCaution

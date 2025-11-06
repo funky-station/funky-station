@@ -6,9 +6,9 @@ using System.Linq;
 using Content.Server.BloodCult.Components;
 using Content.Server.Body.Components;
 using Content.Server.Body.Systems;
-using Content.Server.Chemistry.Containers.EntitySystems;
 using Content.Shared.Body.Components;
 using Content.Shared.Chemistry.Components;
+using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Weapons.Melee.Events;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
@@ -20,10 +20,9 @@ namespace Content.Server.BloodCult.EntitySystems;
 /// </summary>
 public sealed class MeleeStomachInjectorSystem : EntitySystem
 {
-    [Dependency] private readonly SolutionContainerSystem _solutionContainer = default!;
+    [Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
     [Dependency] private readonly BodySystem _body = default!;
     [Dependency] private readonly StomachSystem _stomach = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
 
     public override void Initialize()
     {

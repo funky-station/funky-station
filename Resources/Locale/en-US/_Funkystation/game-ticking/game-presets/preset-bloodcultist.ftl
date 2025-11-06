@@ -39,6 +39,22 @@ cult-veil-drawing-wronglocation = You must draw this rune at the {$name} area!
 cult-veil-drawing-alreadyexists = Somebody has already drawn a tear veil rune!
 cult-veil-drawing-crewwarning = Figments from an eldritch god are being summoned into the {$name} area from an unknown dimension. Disrupt this ritual at all costs, before the station is destroyed. Space Law and SOP are hereby suspended. The entire crew must kill cultists on sight.
 
+cult-veil-ritual-already-in-progress = A Tear the Veil ritual is already in progress!
+cult-veil-ritual-not-enough-cultists = Not enough cultists are on Tear Veil runes! {$current} cultists present, {$required} required.
+cult-veil-ritual-started = The Tear the Veil ritual has begun! {$required} cultists must remain on their runes to complete the ritual. Do not leave your rune!
+cult-veil-ritual-not-enough-at-end = The ritual fails! Not enough cultists remained on runes. {$current} cultists present, {$required} required.
+cult-veil-ritual-failed = The Tear the Veil ritual has failed! The cultists were unable to maintain the ritual.
+cult-veil-ritual-success = The Tear the Veil ritual is complete! The veil has been weakened, and Nar'Sie's power grows!
+
+cult-final-ritual-already-in-progress = The final summoning ritual is already in progress!
+cult-final-ritual-not-enough-cultists = Not enough cultists stand upon the summoning runes! {$current} present, {$required} required. All three runes must be occupied!
+cult-final-ritual-started = THE FINAL RITUAL BEGINS! All cultists must remain on the summoning runes! Nar'Sie's arrival is at hand!
+cult-final-ritual-not-enough-at-end = The summoning fails! Not enough cultists remained on the runes. {$current} cultists present, {$required} required.
+cult-final-ritual-failed = The final summoning has failed! Nar'Sie's wrath will be terrible!
+cult-final-ritual-success = NAR'SIE COMES! THE GEOMETER OF BLOOD TEARS THROUGH THE VEIL!
+
+cult-rift-spawned = Reality tears open as a rift bleeds profane essence into the world! The final ritual site has been prepared!
+
 cult-invocation-blood-drain = You feel your veins narrow as your blood drains!
 cult-invocation-revive-fail = Nar'Sie demands more sacrifice!
 cult-invocation-fail-nosoul = Nar'Sie rejects this soulless husk!

@@ -1,0 +1,71 @@
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
+using Robust.Shared.GameObjects;
+using Robust.Shared.GameStates;
+
+namespace Content.Shared.BloodCult.Components;
+
+/// <summary>
+/// Marks an entity as a Blood Cult reality rift that pulses Sanguine Perniculate.
+/// The final ritual requires cultists to chant on runes around this rift.
+/// </summary>
+[RegisterComponent, NetworkedComponent]
+public sealed partial class BloodCultRiftComponent : Component
+{
+	/// <summary>
+	/// Time between pulses (in seconds).
+	/// </summary>
+	[DataField]
+	public float PulseInterval = 30f;
+
+	/// <summary>
+	/// Time until next pulse.
+	/// </summary>
+	[DataField]
+	public float TimeUntilNextPulse = 30f;
+
+	/// <summary>
+	/// Amount of Sanguine Perniculate to add per pulse.
+	/// </summary>
+	[DataField]
+	public float BloodPerPulse = 50f;
+
+	/// <summary>
+	/// The 3 summoning runes associated with this rift.
+	/// </summary>
+	[DataField]
+	public List<EntityUid> SummoningRunes = new();
+
+	/// <summary>
+	/// Is the final ritual currently in progress?
+	/// </summary>
+	[DataField]
+	public bool RitualInProgress = false;
+
+	/// <summary>
+	/// Current chant step in the final ritual.
+	/// </summary>
+	[DataField]
+	public int CurrentChantStep = 0;
+
+	/// <summary>
+	/// Total chant steps needed.
+	/// </summary>
+	[DataField]
+	public int TotalChantSteps = 6;
+
+	/// <summary>
+	/// Time between chants (in seconds).
+	/// </summary>
+	[DataField]
+	public float ChantInterval = 5f;
+
+	/// <summary>
+	/// Time until next chant.
+	/// </summary>
+	[DataField]
+	public float TimeUntilNextChant = 0f;
+}
+

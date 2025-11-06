@@ -459,8 +459,14 @@ namespace Content.Server.BloodCult.EntitySystems
 	// Give the soulstone a physics push for visual effect
 	if (TryComp<PhysicsComponent>(soulstone, out var physics))
 	{
-		var randomDirection = _random.NextVector2(1.5f, 3.5f); // Random impulse between 1.5 and 3.5 units
-		_physics.ApplyLinearImpulse(soulstone, randomDirection, body: physics);
+		// Wake the physics body so it responds to the impulse
+		_physics.SetAwake((soulstone, physics), true);
+		
+		// Generate a random direction and speed (5-10 units/sec similar to a weak throw)
+		var randomDirection = _random.NextVector2();
+		var speed = _random.NextFloat(5f, 10f);
+		var impulse = randomDirection * speed * physics.Mass;
+		_physics.ApplyLinearImpulse(soulstone, impulse, body: physics);
 	}
 		
 		// Play success audio

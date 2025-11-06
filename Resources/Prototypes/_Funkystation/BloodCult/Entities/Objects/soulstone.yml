@@ -23,12 +23,12 @@
     heldPrefix: soulstone
   - type: Damageable
     damageContainer: Inorganic
-    damageModifierSet: Glass
+    damageModifierSet: RGlass
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 5
+        damage: 100
       behaviors:
       - !type:PlaySoundBehavior
         sound:

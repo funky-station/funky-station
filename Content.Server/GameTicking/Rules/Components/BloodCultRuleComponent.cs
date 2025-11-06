@@ -21,7 +21,7 @@ namespace Content.Server.GameTicking.Rules.Components;
 /// Component for the BloodCultRuleSystem that stores info about winning/losing, player counts required
 ///	for stuff, and other round-wide stuff.
 /// </summary>
-[RegisterComponent, Access(typeof(BloodCultRuleSystem))]
+[RegisterComponent, Access(typeof(BloodCultRuleSystem), typeof(BloodCult.EntitySystems.BloodCultRiftSetupSystem))]
 public sealed partial class BloodCultRuleComponent : Component
 {
 	/// <summary>

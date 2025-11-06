@@ -59,8 +59,14 @@ public sealed class JuggernautBodyContainerSystem : EntitySystem
             // Give the body a physics push for visual effect
             if (TryComp<PhysicsComponent>(contained, out var physics))
             {
-                var randomDirection = _random.NextVector2(2.0f, 4.0f); // Dramatic ejection
-                _physics.ApplyLinearImpulse(contained, randomDirection, body: physics);
+                // Wake the physics body so it responds to the impulse
+                _physics.SetAwake((contained, physics), true);
+                
+                // Generate a random direction and speed (8-15 units/sec for dramatic ejection)
+                var randomDirection = _random.NextVector2();
+                var speed = _random.NextFloat(8f, 15f);
+                var impulse = randomDirection * speed * physics.Mass;
+                _physics.ApplyLinearImpulse(contained, impulse, body: physics);
             }
             
             // Transfer the mind back to the body

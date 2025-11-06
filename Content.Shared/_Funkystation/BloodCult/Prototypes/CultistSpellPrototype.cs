@@ -10,7 +10,6 @@ using Robust.Shared.Serialization;
 
 namespace Content.Shared.BloodCult.Prototypes;
 
-[Serializable, NetSerializable, DataDefinition]
 [Prototype("cultAbility")]
 public sealed partial class CultAbilityPrototype : IPrototype
 {

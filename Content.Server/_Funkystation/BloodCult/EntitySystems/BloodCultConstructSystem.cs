@@ -234,12 +234,18 @@ public sealed partial class BloodCultConstructSystem : EntitySystem
 			_container.Remove(soulstone, container);
 		}
 
-		// Give the soulstone a physics push for visual effect
-		if (TryComp<PhysicsComponent>(soulstone, out var physics))
-		{
-			var randomDirection = _random.NextVector2(2.0f, 4.0f); // Stronger impulse for dramatic ejection
-			_physics.ApplyLinearImpulse(soulstone, randomDirection, body: physics);
-		}
+	// Give the soulstone a physics push for visual effect
+	if (TryComp<PhysicsComponent>(soulstone, out var physics))
+	{
+		// Wake the physics body so it responds to the impulse
+		_physics.SetAwake((soulstone, physics), true);
+		
+		// Generate a random direction and speed (8-15 units/sec for dramatic ejection)
+		var randomDirection = _random.NextVector2();
+		var speed = _random.NextFloat(8f, 15f);
+		var impulse = randomDirection * speed * physics.Mass;
+		_physics.ApplyLinearImpulse(soulstone, impulse, body: physics);
+	}
 
 		// Play audio effect
 		var coordinates = Transform(juggernaut).Coordinates;

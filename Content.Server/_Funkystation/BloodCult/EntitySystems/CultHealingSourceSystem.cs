@@ -50,7 +50,6 @@ public sealed partial class CultHealingSourceSystem : EntitySystem
     [Dependency] private readonly SharedTransformSystem _transform = default!;
 	[Dependency] private readonly DamageableSystem _damageableSystem = default!;
 	[Dependency] private readonly MobStateSystem _mobState = default!;
-	[Dependency] private readonly IPrototypeManager _protoMan = default!;
 
 	/// <summary>
 	/// 	Subscribe to the cult healing system's server CCVars.

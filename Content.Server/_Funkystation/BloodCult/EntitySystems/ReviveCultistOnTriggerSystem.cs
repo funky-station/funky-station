@@ -5,6 +5,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
 using System.Numerics;
+using Robust.Shared.Audio;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Prototypes;
@@ -33,18 +34,12 @@ namespace Content.Server.BloodCult.EntitySystems
 {
 	public sealed partial class ReviveCultistOnTriggerSystem : EntitySystem
 	{
-		[Dependency] private readonly EntityManager _entManager = default!;
-		[Dependency] private readonly SharedTransformSystem _transform = default!;
-		[Dependency] private readonly MapSystem _mapSystem = default!;
 		[Dependency] private readonly SharedAudioSystem _audioSystem = default!;
 		[Dependency] private readonly DamageableSystem _damageableSystem = default!;
 		[Dependency] private readonly PopupSystem _popupSystem = default!;
-		[Dependency] private readonly IPrototypeManager _protoMan = default!;
-		[Dependency] private readonly IMapManager _mapManager = default!;
 
 		[Dependency] private readonly EntityLookupSystem _lookup = default!;
 		[Dependency] private readonly MobStateSystem _mobState = default!;
-		[Dependency] private readonly BloodCultistSystem _bloodCultist = default!;
 		[Dependency] private readonly BloodstreamSystem _bloodstream = default!;
 		[Dependency] private readonly BloodCultRuleSystem _bloodCultRule = default!;
 		[Dependency] private readonly RejuvenateSystem _rejuvenate = default!;
@@ -129,7 +124,7 @@ namespace Content.Server.BloodCult.EntitySystems
 			}
 			
 			// Play effects
-			_audioSystem.PlayPvs("/Audio/Magic/staff_healing.ogg", Transform(look).Coordinates);
+			_audioSystem.PlayPvs(new SoundPathSpecifier("/Audio/Magic/staff_healing.ogg"), Transform(look).Coordinates);
 			_popupSystem.PopupEntity(
 				Loc.GetString("cult-revive-success"),
 				user, user, PopupType.Large

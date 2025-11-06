@@ -4,194 +4,306 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
-using System.Numerics;
 using System.Linq;
-using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
-using Robust.Shared.Prototypes;
-using Robust.Server.GameObjects;
-using Robust.Shared.Audio.Systems;
-using Content.Shared.FixedPoint;
-using Content.Shared.Trigger;
-using Content.Server.Explosion.EntitySystems;
+using Robust.Shared.Timing;
 using Content.Server.Popups;
 using Content.Shared.Popups;
 using Content.Shared.BloodCult.Components;
-using Content.Shared.Damage;
-using Content.Shared.Damage.Prototypes;
 using Content.Shared.Mobs.Systems;
 using Content.Server.GameTicking.Rules;
 using Content.Shared.BloodCult;
+using Content.Server.Explosion.EntitySystems;
 
 namespace Content.Server.BloodCult.EntitySystems
 {
+	/// <summary>
+	/// Handles the Tear the Veil ritual that progresses the cult to stage 3 (Veil Weakened).
+	/// Requires multiple cultists to stand on TearVeilRunes and chant together.
+	/// </summary>
 	public sealed partial class TearVeilSystem : EntitySystem
 	{
-		[Dependency] private readonly EntityManager _entManager = default!;
-		[Dependency] private readonly SharedTransformSystem _transform = default!;
-		[Dependency] private readonly MapSystem _mapSystem = default!;
-		[Dependency] private readonly SharedAudioSystem _audioSystem = default!;
-		[Dependency] private readonly DamageableSystem _damageableSystem = default!;
 		[Dependency] private readonly PopupSystem _popupSystem = default!;
-		[Dependency] private readonly IPrototypeManager _protoMan = default!;
-		[Dependency] private readonly IMapManager _mapManager = default!;
 		[Dependency] private readonly MobStateSystem _mobState = default!;
 		[Dependency] private readonly BloodCultRuleSystem _bloodCultRule = default!;
 		[Dependency] private readonly EntityLookupSystem _lookup = default!;
-
-		private EntityQuery<BloodCultRuneComponent> _runeQuery;
-		private EntityQuery<ForceBarrierComponent> _barrierQuery;
 
 		public override void Initialize()
 		{
 			base.Initialize();
 
-			_runeQuery = GetEntityQuery<BloodCultRuneComponent>();
-			_barrierQuery = GetEntityQuery<ForceBarrierComponent>();
-
-			SubscribeLocalEvent<TearVeilComponent, TriggerEvent>(HandleTearVeil);
+			SubscribeLocalEvent<TearVeilComponent, TriggerEvent>(OnTriggerRitual);
 		}
 
-		private void HandleTearVeil(EntityUid uid, TearVeilComponent component, TriggerEvent args)
+		public override void Update(float frameTime)
 		{
-			if (_entManager.TryGetComponent<TransformComponent>(uid, out var xform) && TryComp<BloodCultistComponent>(args.User, out var bloodCultist))
+			base.Update(frameTime);
+
+			// Process all active rituals
+			var ritualQuery = EntityQueryEnumerator<TearVeilComponent, TransformComponent>();
+			while (ritualQuery.MoveNext(out var runeUid, out var component, out var xform))
 			{
-				if (CanTearVeil(xform.Coordinates, out List<EntityUid> _))
+				if (!component.RitualInProgress)
+					continue;
+
+				// Decrement time until next chant
+				component.TimeUntilNextChant -= frameTime;
+
+				if (component.TimeUntilNextChant <= 0)
 				{
-					bloodCultist.NarsieSummoned = xform.Coordinates;
-				}
-				else
-				{
-					bloodCultist.FailedNarsieSummon = true;
+					// Time to perform the next chant step
+					ProcessChantStep(runeUid, component, xform);
 				}
 			}
+		}
+
+	/// <summary>
+	/// When a cultist triggers a TearVeilRune, check if there are enough cultists on runes and start the ritual.
+	/// </summary>
+	private void OnTriggerRitual(EntityUid uid, TearVeilComponent component, TriggerEvent args)
+	{
+		// Only cultists can trigger the ritual
+		if (args.User == null || !TryComp<BloodCultistComponent>(args.User, out var cultist))
+		{
 			args.Handled = true;
+			return;
 		}
 
-		private bool CanTearVeil(EntityCoordinates triggeredAt, out List<EntityUid> cultists)
+		var user = args.User.Value;
+
+		// Check if a ritual is already in progress anywhere
+		var existingRitualQuery = EntityQueryEnumerator<TearVeilComponent>();
+		while (existingRitualQuery.MoveNext(out var existingUid, out var existingComp))
 		{
-			cultists = new List<EntityUid>();
+			if (existingComp.RitualInProgress)
+			{
+				_popupSystem.PopupEntity(
+					Loc.GetString("cult-veil-ritual-already-in-progress"),
+					user, user, PopupType.MediumCaution
+				);
+				args.Handled = true;
+				return;
+			}
+		}
 
-			var bottomLeft = triggeredAt.Offset(new Vector2(-1,-1));
-			var left = triggeredAt.Offset(new Vector2(-1,0));
-			var topLeft = triggeredAt.Offset(new Vector2(-1,1));
+		// Get the map this rune is on
+		if (!TryComp<TransformComponent>(uid, out var xform) || !TryComp<MapGridComponent>(xform.GridUid, out var _))
+		{
+			args.Handled = true;
+			return;
+		}
 
-			var bottom = triggeredAt.Offset(new Vector2(0, -1));
-			var top = triggeredAt.Offset(new Vector2(0, 1));
+		var mapUid = xform.MapUid ?? EntityUid.Invalid;
+		if (!mapUid.IsValid())
+		{
+			args.Handled = true;
+			return;
+		}
 
-			var bottomRight = triggeredAt.Offset(new Vector2(1,-1));
-			var right = triggeredAt.Offset(new Vector2(1,0));
-			var topRight = triggeredAt.Offset(new Vector2(1,1));
+		// Count how many cultists are currently standing on TearVeilRunes on this map
+		var cultistsOnRunes = CountCultistsOnRunes(mapUid);
 
-			var lookup0 = _lookup.GetEntitiesInRange(triggeredAt, 1.1f);
-			var lookup1 = _lookup.GetEntitiesInRange(topLeft, 0.225f);
-			var lookup2 = _lookup.GetEntitiesInRange(top, 0.225f);
-			var lookup3 = _lookup.GetEntitiesInRange(topRight, 0.225f);
-			var lookup4 = _lookup.GetEntitiesInRange(left, 0.225f);
-			var lookup5 = _lookup.GetEntitiesInRange(triggeredAt, 0.225f);
-			var lookup6 = _lookup.GetEntitiesInRange(right, 0.225f);
-			var lookup7 = _lookup.GetEntitiesInRange(bottomLeft, 0.225f);
-			var lookup8 = _lookup.GetEntitiesInRange(bottom, 0.225f);
-			var lookup9 = _lookup.GetEntitiesInRange(bottomRight, 0.225f);
-			bool didFindCultist = false;
+		if (cultistsOnRunes < component.MinimumCultists)
+		{
+			_popupSystem.PopupEntity(
+				Loc.GetString("cult-veil-ritual-not-enough-cultists", 
+					("current", cultistsOnRunes), 
+					("required", component.MinimumCultists)),
+				user, user, PopupType.LargeCaution
+			);
+			args.Handled = true;
+			return;
+		}
 
-			int cultistsFound = 0;
-			bool found1 = false;
-			bool found2 = false;
-			bool found3 = false;
-			bool found4 = false;
-			bool found5 = false;
-			bool found6 = false;
-			bool found7 = false;
-			bool found8 = false;
-			bool found9 = false;
+		// Ritual can begin!
+		component.RitualInProgress = true;
+		component.RitualMapUid = mapUid;
+		component.CurrentChantStep = 0;
+		component.TimeUntilNextChant = component.ChantInterval;
 
-			foreach (var look in lookup0)
+		// Announce to all cultists that the ritual has begun
+		AnnounceRitualStart(component.MinimumCultists);
+
+		// Immediately perform the first chant
+		ProcessChantStep(uid, component, xform);
+
+		args.Handled = true;
+	}
+
+		/// <summary>
+		/// Processes a single chant step in the ritual.
+		/// </summary>
+		private void ProcessChantStep(EntityUid runeUid, TearVeilComponent component, TransformComponent xform)
+		{
+			if (component.RitualMapUid == null || !component.RitualMapUid.Value.IsValid())
 			{
-				if ((TryComp<BloodCultistComponent>(look, out var _) || TryComp<BloodCultConstructComponent>(look, out var _)) && !_mobState.IsDead(look))
-				{
-					cultistsFound = cultistsFound + 1;
-					cultists.Add(look);
-				}
+				EndRitual(component, false);
+				return;
 			}
-			foreach (var look in lookup1)
+
+			// Count cultists on runes
+			var cultistsOnRunes = GetCultistsOnRunes(component.RitualMapUid.Value);
+			var cultistCount = cultistsOnRunes.Count;
+
+			if (cultistCount < component.MinimumCultists)
 			{
-				// TODO: Support summoned ghosts to help with this summoning
-				if ((TryComp<BloodCultistComponent>(look, out var _) || TryComp<BloodCultConstructComponent>(look, out var _)) && !_mobState.IsDead(look))
-				{
-					found1 = true;
-					break;
-				}
+				// Not enough cultists, ritual fails
+				_popupSystem.PopupEntity(
+					Loc.GetString("cult-veil-ritual-not-enough-at-end", 
+						("current", cultistCount), 
+						("required", component.MinimumCultists)),
+					runeUid, PopupType.LargeCaution
+				);
+
+				AnnounceRitualFailure();
+				EndRitual(component, false);
+				return;
 			}
-			foreach (var look in lookup2)
+
+			// Make all cultists on runes chant
+			var chant = _bloodCultRule.GenerateChant(wordCount: 3);
+			foreach (var cultist in cultistsOnRunes)
 			{
-				if ((TryComp<BloodCultistComponent>(look, out var _) || TryComp<BloodCultConstructComponent>(look, out var _)) && !_mobState.IsDead(look))
+				if (Exists(cultist))
 				{
-					found2 = true;
-					break;
-				}
-			}
-			foreach (var look in lookup3)
-			{
-				if ((TryComp<BloodCultistComponent>(look, out var _) || TryComp<BloodCultConstructComponent>(look, out var _)) && !_mobState.IsDead(look))
-				{
-					found3 = true;
-					break;
-				}
-			}
-			foreach (var look in lookup4)
-			{
-				if ((TryComp<BloodCultistComponent>(look, out var _) || TryComp<BloodCultConstructComponent>(look, out var _)) && !_mobState.IsDead(look))
-				{
-					found4 = true;
-					break;
-				}
-			}
-			foreach (var look in lookup5)
-			{
-				if ((TryComp<BloodCultistComponent>(look, out var _) || TryComp<BloodCultConstructComponent>(look, out var _)) && !_mobState.IsDead(look))
-				{
-					found5 = true;
-					break;
-				}
-			}
-			foreach (var look in lookup6)
-			{
-				if ((TryComp<BloodCultistComponent>(look, out var _) || TryComp<BloodCultConstructComponent>(look, out var _)) && !_mobState.IsDead(look))
-				{
-					found6 = true;
-					break;
-				}
-			}
-			foreach (var look in lookup7)
-			{
-				if ((TryComp<BloodCultistComponent>(look, out var _) || TryComp<BloodCultConstructComponent>(look, out var _)) && !_mobState.IsDead(look))
-				{
-					found7 = true;
-					break;
-				}
-			}
-			foreach (var look in lookup8)
-			{
-				if ((TryComp<BloodCultistComponent>(look, out var _) || TryComp<BloodCultConstructComponent>(look, out var _)) && !_mobState.IsDead(look))
-				{
-					found8 = true;
-					break;
-				}
-			}
-			foreach (var look in lookup9)
-			{
-				if ((TryComp<BloodCultistComponent>(look, out var _) || TryComp<BloodCultConstructComponent>(look, out var _)) && !_mobState.IsDead(look))
-				{
-					found9 = true;
-					break;
+					_bloodCultRule.Speak(cultist, chant);
 				}
 			}
 
-			bool[] tilesArray = new bool[9] { found1, found2, found3, found4, found5, found6, found7, found8, found9 };
-			tilesArray.Where(c => c).Count();
+			// Increment chant step
+			component.CurrentChantStep++;
 
-			return (cultistsFound>=9) && (tilesArray.Where(c => c).Count() >= 6);
+			// Check if ritual is complete
+			if (component.CurrentChantStep >= component.TotalChantSteps)
+				{
+				// SUCCESS! Progress the cult to stage 3
+				_bloodCultRule.CompleteVeilRitual();
+				AnnounceRitualSuccess();
+				EndRitual(component, true);
+			}
+			else
+			{
+				// Schedule next chant
+				component.TimeUntilNextChant = component.ChantInterval;
+			}
+		}
+
+		/// <summary>
+		/// Ends the ritual and resets its state.
+		/// </summary>
+		private void EndRitual(TearVeilComponent component, bool success)
+		{
+			component.RitualInProgress = false;
+			component.RitualMapUid = null;
+			component.CurrentChantStep = 0;
+			component.TimeUntilNextChant = 0f;
+				}
+
+		/// <summary>
+		/// Counts how many live cultists are currently standing on TearVeilRunes on the specified map.
+		/// </summary>
+		private int CountCultistsOnRunes(EntityUid mapUid)
+		{
+			var count = 0;
+			var runeQuery = EntityQueryEnumerator<TearVeilComponent, TransformComponent>();
+
+			while (runeQuery.MoveNext(out var runeUid, out var _, out var runeXform))
+				{
+				// Only count runes on the same map
+				if (runeXform.MapUid != mapUid)
+					continue;
+
+				// Look for cultists near this rune
+				var nearbyEntities = _lookup.GetEntitiesInRange(runeXform.Coordinates, 0.5f);
+				foreach (var entity in nearbyEntities)
+				{
+					// Check if this is a live cultist or construct
+					if ((HasComp<BloodCultistComponent>(entity) || HasComp<BloodCultConstructComponent>(entity)) 
+						&& !_mobState.IsDead(entity))
+				{
+						count++;
+						break; // Only count once per rune
+				}
+			}
+			}
+
+			return count;
+		}
+
+		/// <summary>
+		/// Gets a list of all live cultists currently standing on TearVeilRunes on the specified map.
+		/// </summary>
+		private List<EntityUid> GetCultistsOnRunes(EntityUid mapUid)
+		{
+			var cultists = new List<EntityUid>();
+			var runeQuery = EntityQueryEnumerator<TearVeilComponent, TransformComponent>();
+
+			while (runeQuery.MoveNext(out var runeUid, out var _, out var runeXform))
+			{
+				// Only count runes on the same map
+				if (runeXform.MapUid != mapUid)
+					continue;
+
+				// Look for cultists near this rune
+				var nearbyEntities = _lookup.GetEntitiesInRange(runeXform.Coordinates, 0.5f);
+				foreach (var entity in nearbyEntities)
+				{
+					// Check if this is a live cultist or construct
+					if ((HasComp<BloodCultistComponent>(entity) || HasComp<BloodCultConstructComponent>(entity)) 
+						&& !_mobState.IsDead(entity))
+				{
+						cultists.Add(entity);
+						break; // Only add once per rune
+				}
+			}
+			}
+
+			return cultists;
+		}
+
+		/// <summary>
+		/// Announces to all cultists that the Tear the Veil ritual has begun.
+		/// </summary>
+		private void AnnounceRitualStart(int requiredCultists)
+		{
+			var cultistQuery = EntityQueryEnumerator<BloodCultistComponent>();
+			while (cultistQuery.MoveNext(out var cultistUid, out var _))
+			{
+				_popupSystem.PopupEntity(
+					Loc.GetString("cult-veil-ritual-started", ("required", requiredCultists)),
+					cultistUid, cultistUid, PopupType.LargeCaution
+				);
+				}
+			}
+
+		/// <summary>
+		/// Announces to all cultists that the ritual has failed.
+		/// </summary>
+		private void AnnounceRitualFailure()
+			{
+			var cultistQuery = EntityQueryEnumerator<BloodCultistComponent>();
+			while (cultistQuery.MoveNext(out var cultistUid, out var _))
+			{
+				_popupSystem.PopupEntity(
+					Loc.GetString("cult-veil-ritual-failed"),
+					cultistUid, cultistUid, PopupType.LargeCaution
+				);
+				}
+			}
+
+		/// <summary>
+		/// Announces to all cultists that the ritual has succeeded.
+		/// </summary>
+		private void AnnounceRitualSuccess()
+		{
+			var cultistQuery = EntityQueryEnumerator<BloodCultistComponent>();
+			while (cultistQuery.MoveNext(out var cultistUid, out var _))
+			{
+				_popupSystem.PopupEntity(
+					Loc.GetString("cult-veil-ritual-success"),
+					cultistUid, cultistUid, PopupType.LargeCaution
+				);
+			}
 		}
 	}
 }

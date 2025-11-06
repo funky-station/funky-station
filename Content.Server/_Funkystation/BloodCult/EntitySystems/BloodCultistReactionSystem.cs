@@ -30,7 +30,6 @@ namespace Content.Server.BloodCult.EntitySystems;
 /// </summary>
 public sealed class BloodCultistReactionSystem : EntitySystem
 {
-	[Dependency] private readonly BloodCultRuleSystem _bloodCultRule = default!;
 	[Dependency] private readonly BloodstreamSystem _bloodstream = default!;
 	[Dependency] private readonly DamageableSystem _damageable = default!;
 	[Dependency] private readonly PopupSystem _popup = default!;

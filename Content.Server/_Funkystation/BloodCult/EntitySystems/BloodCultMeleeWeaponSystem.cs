@@ -69,13 +69,13 @@ public sealed class BloodCultMeleeWeaponSystem : EntitySystem
 
 		if (blockedByChaplain)
 		{
-			_popupSystem.PopupEntity(
-					Loc.GetString("cult-attack-repelled"),
-					args.User, args.User, PopupType.MediumCaution
-				);
-			var coordinates = Transform(args.User).Coordinates;
-			_audioSystem.PlayPvs("/Audio/Effects/holy.ogg", coordinates);
-			var offsetRandomCoordinates = coordinates.Offset(_random.NextVector2(1f, 1.5f));
+		_popupSystem.PopupEntity(
+				Loc.GetString("cult-attack-repelled"),
+				args.User, args.User, PopupType.MediumCaution
+			);
+		var coordinates = Transform(args.User).Coordinates;
+		_audioSystem.PlayPvs(new SoundPathSpecifier("/Audio/Effects/holy.ogg"), coordinates);
+		var offsetRandomCoordinates = coordinates.Offset(_random.NextVector2(1f, 1.5f));
             _hands.ThrowHeldItem(args.User, offsetRandomCoordinates);
 		}
 		if (blockedByCultist)

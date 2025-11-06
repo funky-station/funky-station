@@ -69,7 +69,6 @@ public sealed partial class CultistSpellSystem : EntitySystem
 	[Dependency] private readonly SharedTransformSystem _transform = default!;
 	[Dependency] private readonly MapSystem _mapSystem = default!;
 	[Dependency] private readonly IMapManager _mapManager = default!;
-	[Dependency] private readonly IGameTiming _gameTiming = default!;
 	[Dependency] private readonly IEntityManager _entMan = default!;
 	[Dependency] private readonly SharedStunSystem _stun = default!;
 	[Dependency] private readonly ConstructionSystem _construction = default!;
@@ -310,7 +309,7 @@ public sealed partial class CultistSpellSystem : EntitySystem
 					Loc.GetString("cult-spell-repelled"),
 					ent, ent, PopupType.MediumCaution
 				);
-			_audioSystem.PlayPvs("/Audio/Effects/holy.ogg", Transform(ent).Coordinates);
+			_audioSystem.PlayPvs(new SoundPathSpecifier("/Audio/Effects/holy.ogg"), Transform(ent).Coordinates);
 			_stun.TryKnockdown(ent, TimeSpan.FromSeconds(selfStunTime), true);
 		}
 		else if (HasComp<BorgChassisComponent>(target) &&
@@ -452,7 +451,7 @@ public sealed partial class CultistSpellSystem : EntitySystem
 
 	private void OnTwistedConstructionDoAfter(Entity<BloodCultistComponent> ent, ref TwistedConstructionDoAfterEvent args)
 	{
-		if (args.Cancelled || args.Target == null || !TryComp<ConstructionComponent>(args.Target, out var construction))
+		if (args.Cancelled || !TryComp<ConstructionComponent>(args.Target, out var construction))
 			return;
 
 		// Verify it's a valid target (reinforced wall or reinforced girder)

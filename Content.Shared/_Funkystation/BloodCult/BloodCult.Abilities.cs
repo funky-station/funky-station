@@ -7,7 +7,6 @@
 using Robust.Shared.Serialization;
 using Robust.Shared.GameStates;
 using Robust.Shared.Map;
-using Robust.Shared.Serialization;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 using Content.Shared.BloodCult.Prototypes;
@@ -98,7 +97,7 @@ public sealed partial class CultistSpellComponent : Component
 
 [Serializable, NetSerializable] public sealed partial class TwistedConstructionDoAfterEvent : SimpleDoAfterEvent
 {
-	[NonSerialized] public EntityUid Target;
+	[NonSerialized] public new EntityUid Target;
 
     public TwistedConstructionDoAfterEvent(EntityUid target)
     {

@@ -7,6 +7,8 @@
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Maths;
+using Robust.Shared.Physics.Components;
+using Robust.Shared.Physics.Systems;
 using Robust.Shared.Player;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
@@ -70,14 +72,13 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 	[Dependency] private readonly AntagSelectionSystem _antag = default!;
 	[Dependency] private readonly MindSystem _mind = default!;
 	[Dependency] private readonly RoleSystem _role = default!;
-	[Dependency] private readonly GhostSystem _ghost = default!;
 	[Dependency] private readonly RejuvenateSystem _rejuvenate = default!;
-	[Dependency] private readonly GhostRoleSystem _ghostRole = default!;
 	[Dependency] private readonly CultistSpellSystem _cultistSpell = default!;
 	[Dependency] private readonly PopupSystem _popupSystem = default!;
 	[Dependency] private readonly IRobustRandom _random = default!;
 	[Dependency] private readonly IGameTiming _timing = default!;
 	[Dependency] private readonly ChatSystem _chat = default!;
+	[Dependency] private readonly SharedPhysicsSystem _physics = default!;
 	[Dependency] private readonly SharedJobSystem _jobs = default!;
 	[Dependency] private readonly RoundEndSystem _roundEnd = default!;
 	[Dependency] private readonly MobStateSystem _mobSystem = default!;
@@ -93,10 +94,10 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 
 	public readonly string CultComponentId = "BloodCultist";
 
-	[ValidatePrototypeId<EntityPrototype>] static EntProtoId mindRole = "MindRoleCultist";
+	private static readonly EntProtoId MindRole = "MindRoleCultist";
 
-	[ValidatePrototypeId<NpcFactionPrototype>] public readonly ProtoId<NpcFactionPrototype> BloodCultistFactionId = "BloodCultist";
-    [ValidatePrototypeId<NpcFactionPrototype>] public readonly ProtoId<NpcFactionPrototype> NanotrasenFactionId = "NanoTrasen";
+	public static readonly ProtoId<NpcFactionPrototype> BloodCultistFactionId = "BloodCultist";
+    public static readonly ProtoId<NpcFactionPrototype> NanotrasenFactionId = "NanoTrasen";
 
 	public override void Initialize()
 	{
@@ -231,7 +232,7 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 			if (!component.HasRisen)
 			{
 				component.HasRisen = true;
-				RiseCultists(GetCultists());
+				// RiseCultists moved to CompleteVeilRitual (when VeilWeakened becomes true)
 			}
 			component.Target = null;
 			component.VeilWeakened = true;
@@ -239,17 +240,16 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 
         // Get all relevant crew
         var allHumans = new HashSet<Entity<MindComponent>>();
-		foreach (var person in _mind.GetAliveHumans())//;//(args.MindId);
-		{
-			var mind = person.Comp;
-			var mindCompEntity = mind.Owner;
-			if (mindCompEntity != null &&
-				_stationSystem.GetOwningStation(mind.CurrentEntity) != null &&
-				!HasComp<CryostorageContainedComponent>(mind.CurrentEntity) &&
-				!HasComp<CultResistantComponent>(mind.CurrentEntity) &&
-				!_role.MindHasRole<BloodCultRoleComponent>(mindCompEntity, out var _))
-				allHumans.Add(person);
-		}
+	foreach (var person in _mind.GetAliveHumans())//;//(args.MindId);
+	{
+		var mind = person.Comp;
+		var mindCompEntity = person.Owner;
+		if (_stationSystem.GetOwningStation(mind.CurrentEntity) != null &&
+			!HasComp<CryostorageContainedComponent>(mind.CurrentEntity) &&
+			!HasComp<CultResistantComponent>(mind.CurrentEntity) &&
+			!_role.MindHasRole<BloodCultRoleComponent>(mindCompEntity, out var _))
+			allHumans.Add(person);
+	}
 
 		// no other humans to kill
 		if (allHumans.Count == 0)
@@ -331,7 +331,7 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 				}
 			}
 
-			if (component.HasRisen)
+			if (component.VeilWeakened)
 			{
 				if (EntityManager.TryGetComponent(traitor, out AppearanceComponent? appearance))
 				{
@@ -352,7 +352,7 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 		if (!_mind.TryGetMind(traitor, out var mindId, out var mind))
             return false;
 
-		_role.MindAddRole(mindId, mindRole.Id, mind, true);
+		_role.MindAddRole(mindId, MindRole, mind, true);
 
 		EnsureComp<BloodCultistComponent>(traitor);
 
@@ -489,15 +489,12 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 		if (!component.HasRisen && component.BloodCollected >= component.BloodRequiredForRise)
 		{
 			component.HasRisen = true;
-			RiseCultists(cultists);
+			// RiseCultists moved to CompleteVeilRitual (when VeilWeakened becomes true)
 			AnnounceStatus(component, cultists);
 		}
 
-		if (!component.VeilWeakened && component.BloodCollected >= component.BloodRequiredForVeil)
-		{
-			component.VeilWeakened = true;
-			// Veil weakening announcement is handled separately in the ActiveTick
-		}
+		// Stage 3 (VeilWeakened) requires the Tear the Veil ritual to be completed
+		// This is handled by the TearVeilSystem and cannot be triggered by blood collection alone
 
 		// Disabled: Conversion-based progression conflicts with blood-based progression
 		// The blood system provides better gameplay and doesn't trigger prematurely with low player counts
@@ -937,6 +934,20 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 			_body.GibBody(uid, true);
 			var soulstone = Spawn("CultSoulStone", coordinates);
 			_mind.TransferTo((EntityUid)mindId, soulstone, mind:mindComp);
+		
+		// Give the soulstone a physics push for visual effect
+		if (TryComp<PhysicsComponent>(soulstone, out var physics))
+		{
+			// Wake the physics body so it responds to the impulse
+			_physics.SetAwake((soulstone, physics), true);
+			
+			// Generate a random direction and speed (5-10 units/sec similar to a weak throw)
+			var randomDirection = _random.NextVector2();
+			var speed = _random.NextFloat(5f, 10f);
+			var impulse = randomDirection * speed * physics.Mass;
+			_physics.ApplyLinearImpulse(soulstone, impulse, body: physics);
+		}
+			
 			return true;
 		}
 		return false;
@@ -1299,6 +1310,70 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 		{
 			ruleComp.BloodCollected += amount;
 			// BloodCultRuleComponent is server-only and doesn't need to be dirtied
+			return;
+		}
+	}
+
+	/// <summary>
+	/// Progresses the cult to stage 3 (Veil Weakened) when the Tear the Veil ritual is completed.
+	/// Sets up the final summoning ritual site.
+	/// </summary>
+	public void CompleteVeilRitual()
+	{
+		var query = EntityQueryEnumerator<BloodCultRuleComponent, GameRuleComponent>();
+		while (query.MoveNext(out var uid, out var ruleComp, out var gameRule))
+		{
+			if (!ruleComp.HasRisen)
+				return; // Can't complete the ritual before reaching stage 2
+
+			if (!ruleComp.VeilWeakened)
+			{
+				ruleComp.VeilWeakened = true;
+
+				// Set up the final summoning ritual site
+				var riftSetup = EntityManager.System<BloodCult.EntitySystems.BloodCultRiftSetupSystem>();
+				var rift = riftSetup.TrySetupRitualSite(ruleComp);
+
+				if (rift != null)
+				{
+					// Announce rift creation to all cultists
+					var cultists = GetCultists();
+					
+					// Give cultists their halos now that the veil has been torn
+					RiseCultists(cultists);
+					
+					foreach (var cultist in cultists)
+					{
+						_popupSystem.PopupEntity(
+							Loc.GetString("cult-rift-spawned"),
+							cultist, cultist, PopupType.LargeCaution
+						);
+					}
+				}
+
+				// Announcement will be handled in ActiveTick
+			}
+			return;
+		}
+	}
+
+	/// <summary>
+	/// Announces Nar'Sie's summon to the entire station and triggers end-game events.
+	/// </summary>
+	public void AnnounceNarsieSummon()
+	{
+		var query = EntityQueryEnumerator<BloodCultRuleComponent, GameRuleComponent>();
+		while (query.MoveNext(out var uid, out var ruleComp, out var gameRule))
+		{
+			ruleComp.CultistsWin = true;
+			ruleComp.CultVictoryEndTime = _timing.CurTime + ruleComp.CultVictoryEndDelay;
+
+			// Station-wide announcement
+			_chat.DispatchGlobalAnnouncement(
+				Loc.GetString("cult-narsie-spawning"),
+				colorOverride: Color.DarkRed
+			);
+
 			return;
 		}
 	}

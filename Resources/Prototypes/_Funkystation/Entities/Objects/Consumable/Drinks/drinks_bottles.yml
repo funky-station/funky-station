@@ -2,7 +2,7 @@
   parent: [DrinkBottleVisualsAll, DrinkBottleGlassBaseFull]
   id: DrinkHammeredBottleFull
   name: hammered bottle
-  description: A faded label simply says 'Get sloshed in a sip!'
+  description: For those looking to die an early, alcohol-sodden grave.
   components:
   - type: SolutionContainerManager
     solutions:
@@ -12,4 +12,5 @@
           Quantity: 150
   - type: Sprite
     sprite: _Funkystation/Objects/Consumable/Drinks/hammeredbottle.rsi
+    state: icon
   - type: Sealable

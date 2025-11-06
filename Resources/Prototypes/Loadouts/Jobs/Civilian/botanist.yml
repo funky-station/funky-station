@@ -2,6 +2,7 @@
 # SPDX-FileCopyrightText: 2024 Mr. 27 <45323883+Dutch-VanDerLinde@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 tea <xerithin@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -12,9 +13,44 @@
     head: ClothingHeadHatTrucker
 
 - type: loadout
-  id: BotanistBandana
+  id: BotanistBandanaBlack
   equipment:
-    head: ClothingHeadBandBotany
+    head: ClothingHeadBandBlack
+
+- type: loadout
+  id: BotanistBandanaBlue
+  equipment:
+    head: ClothingHeadBandBlue
+
+- type: loadout
+  id: BotanistBandanaBrown
+  equipment:
+    head: ClothingHeadBandBrown
+
+- type: loadout
+  id: BotanistBandanaGold
+  equipment:
+    head: ClothingHeadBandGold
+
+- type: loadout
+  id: BotanistBandanaGreen
+  equipment:
+    head: ClothingHeadBandGreen
+
+- type: loadout
+  id: BotanistBandanaGrey
+  equipment:
+    head: ClothingHeadBandGrey
+
+- type: loadout
+  id: BotanistBandanaRed
+  equipment:
+    head: ClothingHeadBandRed
+
+- type: loadout
+  id: BotanistBandanaSkull
+  equipment:
+    head: ClothingHeadBandSkull
 
 # Jumpsuit
 - type: loadout

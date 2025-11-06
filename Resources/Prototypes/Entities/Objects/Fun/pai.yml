@@ -90,11 +90,13 @@
   - type: IntrinsicRadioReceiver
   - type: IntrinsicRadioTransmitter
     intrinsicChannels:
-    - Binary
+    #- Binary
+    - Emergency #Temporary default ability to yell into emergency until I get it as a shop purchase. -Nictis
   - type: ActiveRadio
     intrinsicChannels:
-    - Binary
+    #- Binary - No more reporting any interestingly lawed silicons, or informing the crew of malfAI -Nictis
     - Common
+    - Emergency
   - type: DoAfter
   - type: Actions
   - type: Store
@@ -156,9 +158,12 @@
   - type: IntrinsicRadioTransmitter
     intrinsicChannels:
     - Syndicate
+    - Emergency #If you think paramed will actually rescue your user... -Nictis
   - type: ActiveRadio
     intrinsicChannels:
     - Syndicate
+    - Emergency #The Syndicate pAI should not be missing features of the NT pAI I think -Nictis
+    - Common #See above
   - type: Appearance
   - type: GenericVisualizer
     visuals:

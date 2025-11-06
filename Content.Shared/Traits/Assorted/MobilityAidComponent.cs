@@ -1,4 +1,5 @@
 // SPDX-FileCopyrightText: 2025 Mora <46364955+trixxedheart@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 vectorassembly <vectorassembly@icloud.com>
 //
 // SPDX-License-Identifier: MIT
 

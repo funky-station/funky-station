@@ -5445,3 +5445,11 @@ Entries:
         am talking about
   id: 650
   time: '2025-11-05T23:31:20.0000000+00:00'
+- author: Teasq
+  changes:
+    - type: Add
+      message: New botany sprites! More to come
+    - type: Remove
+      message: Botany bandana
+  id: 651
+  time: '2025-11-06T06:15:24.0000000+00:00'

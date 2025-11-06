@@ -30,7 +30,7 @@ public sealed partial class BloodCultRuneCarverComponent : Component
 	/// <summary>
     ///     The entity to spawn when used on self.
     /// </summary>
-    [DataField, AutoNetworkedField] public string Rune = "BarrierRune";
+    [DataField, AutoNetworkedField] public string Rune = "";
 
 	/// <summary>
     ///     Blood damage to apply to self when used to carve a rune.

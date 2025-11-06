@@ -102,16 +102,17 @@ public sealed class EdgeEssentiaBloodSystem : EntitySystem
 		if (tracker.TotalBloodCollected >= tracker.MaxBloodPerEntity)
 			return;
 
-		// Only track if their blood type is SanguinePerniculate AND they're bleeding
-		if (bloodstream.BloodReagent != "SanguinePerniculate" || bloodstream.BleedAmount <= 0)
-			return;
+	// Only track if their blood type is SanguinePerniculate AND they're bleeding
+	if (bloodstream.BloodReagent != "SanguinePerniculate" || bloodstream.BleedAmount <= 0)
+		return;
 
 		// Track based on how much they're bleeding per second
 		// BleedAmount represents units of blood lost per second
-		var bloodLostThisTick = bloodstream.BleedAmount;
-		
-		// Enforce the per-entity cap with double-safety
-		var remainingCapacity = Math.Max(0, tracker.MaxBloodPerEntity - tracker.TotalBloodCollected);
+		// Only 1/4th of the bleed rate contributes to the ritual pool, since the bleed amount is much higher than the quantity of blood someone has
+		var bloodLostThisTick = (double)(bloodstream.BleedAmount * 0.25f);
+			
+		// Enforce the per-entity cap. Mechanically making there no benefit to capturing people for bleeding.
+		var remainingCapacity = Math.Max(0.0, tracker.MaxBloodPerEntity - tracker.TotalBloodCollected);
 		var bloodToAdd = Math.Min(bloodLostThisTick, remainingCapacity);
 		
 		// Hard cap: never exceed the maximum
@@ -124,7 +125,7 @@ public sealed class EdgeEssentiaBloodSystem : EntitySystem
 			_bloodCultRule.AddBloodForConversion(bloodToAdd);
 			
 			// Update the tracker and clamp to max
-			tracker.TotalBloodCollected = Math.Min(tracker.TotalBloodCollected + bloodToAdd, tracker.MaxBloodPerEntity);
+			tracker.TotalBloodCollected = (float)Math.Min(tracker.TotalBloodCollected + bloodToAdd, tracker.MaxBloodPerEntity);
 			Dirty(uid, tracker);
 		}
 	}

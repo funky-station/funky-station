@@ -1,68 +1,10 @@
-# SPDX-FileCopyrightText: 2021 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021 E F R <602406+Efruit@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021 Elijahrane <60792108+Elijahrane@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021 Mith-randalf <84274729+Mith-randalf@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021 Paul Ritter <ritter.paul1@googlemail.com>
-# SPDX-FileCopyrightText: 2021 buletsponge <96000213+buletsponge@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021 wrexbe <81056464+wrexbe@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 0x6273 <0x40@keemail.me>
-# SPDX-FileCopyrightText: 2022 20kdc <asdd2808@gmail.com>
-# SPDX-FileCopyrightText: 2022 Cheackraze <71046427+Cheackraze@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Kara <lunarautomaton6@gmail.com>
-# SPDX-FileCopyrightText: 2022 Moony <moonheart08@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Morbo <14136326+Morb0@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Myctai <108953437+Myctai@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Peptide90 <78795277+Peptide90@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 TaralGit <76408146+TaralGit@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 TimrodDX <timrod@gmail.com>
-# SPDX-FileCopyrightText: 2022 Veritius <veritiusgaming@gmail.com>
-# SPDX-FileCopyrightText: 2022 and_a <and_a@DESKTOP-RJENGIR>
-# SPDX-FileCopyrightText: 2022 corentt <36075110+corentt@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 metalgearsloth <comedian_vs_clown@hotmail.com>
-# SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-# SPDX-FileCopyrightText: 2022 moonheart08 <moonheart08@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Checkraze <71046427+Cheackraze@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Emisse <99158783+Emisse@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Eoin Mcloughlin <helloworld@eoinrul.es>
-# SPDX-FileCopyrightText: 2023 Kevin Zheng <kevinz5000@gmail.com>
-# SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Scribbles0 <91828755+Scribbles0@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 WIN-AOO91TUKDC7\geniy <bogdanilchev@yandex.ru>
-# SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 deltanedas <@deltanedas:kde.org>
-# SPDX-FileCopyrightText: 2023 eoineoineoin <github@eoinrul.es>
-# SPDX-FileCopyrightText: 2023 not-gavnaed <114421346+not-gavnaed@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
-# SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
-# SPDX-FileCopyrightText: 2024 Brandon Hu <103440971+Brandon-Huu@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Krunklehorn <42424291+Krunklehorn@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 MilenVolf <63782763+MilenVolf@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 PJBot <pieterjan.briers+bot@gmail.com>
-# SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
-# SPDX-FileCopyrightText: 2024 Preston Smith <92108534+thetolbean@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
-# SPDX-FileCopyrightText: 2024 Ubaser <134914314+UbaserB@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Verm <32827189+Vermidia@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 rottenheadphones <juaelwe@outlook.com>
-# SPDX-FileCopyrightText: 2025 Dusty-Plant <34702649+Dusty-Plant@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Dusty_Plant <34702649+Dusty-Plant@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Evaisa <mail@evaisa.dev>
-# SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
-# SPDX-FileCopyrightText: 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 salpphie <53307242+salpphie@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 meta:
   format: 7
   category: Map
   engineVersion: 266.0.0
   forkId: ""
   forkVersion: ""
-  time: 11/06/2025 14:19:03
+  time: 11/06/2025 17:55:14
   entityCount: 24864
 maps:
 - 1
@@ -10823,7 +10765,7 @@ entities:
       pos: 32.5,48.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -170528.36
+      secondsUntilStateChange: -170988.6
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -11100,7 +11042,7 @@ entities:
       pos: -28.5,49.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -296755.3
+      secondsUntilStateChange: -297215.53
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -11485,7 +11427,7 @@ entities:
       pos: -8.5,55.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -248924.97
+      secondsUntilStateChange: -249385.2
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -11716,7 +11658,7 @@ entities:
       pos: -30.5,31.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -285764.9
+      secondsUntilStateChange: -286225.12
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -21354,7 +21296,7 @@ entities:
         This book details the long and fantastic history of the station known today as NT14 Court, which started out as the most daring project of its era.
 
 
-        Drafted by Donk.co in 2545, the station plans envisioned a grand space mall that would have attracted denizens of planets from all over the sector. 
+        Drafted by Donk.co in 2908, the station plans envisioned a grand space mall that would have attracted denizens of planets from all over the sector. 
 
         Sporting multiple docking arms, a powerful and extremely modern (for its time) singularity engine, grand gardened hallways with real plants and insects and multiple sections dedicated to all types of stores, it was to be the gleaming space jewel of the Donk corporation.
 
@@ -21362,16 +21304,13 @@ entities:
         Unfortunately for the consumers of the sector, however, the project proved much harder to complete than first imagined. 
 
 
-        Starting with 2547, when the project had barely started, the excavation team, mining the anchor asteroid for resources, came upon an old temple filled with space carp and containing multiple treasures. This attracted the attention of space pirates, and in 2549, taking advantage of some contract disputes between Donk.co and its security detail, two pirate shuttles attacked the station as it had been left undefended, breaching the atmosphere on multiple levels and sacking it for most of its riches.
+        Starting with 2910 when the project had barely started, the excavation team, mining the anchor asteroid for resources, came upon an old temple filled with space carp and containing multiple treasures. This attracted the attention of space pirates, and in 2912, taking advantage of some contract disputes between Donk.co and its security detail, two pirate shuttles attacked the station as it had been left undefended, breaching the atmosphere on multiple levels and sacking it for most of its riches.
 
 
-        Donk.co eventually scrapped the project after multiple failed attempts at recovery and many complaints from its investors, leaving the station unsold and unmanned for decades, during which time many space drifters, wildlife and squatters used it as shelter. 
+        Donk.co eventually scrapped the project after multiple failed attempts at recovery and many complaints from its investors, leaving the station unsold and unmanned for decades, during which time many space drifters, wildlife and squatters used it as shelter; during this era, a small group of people decided to rebuild the station and make it their own, a space home for those who had been ostracized, were outlaws or simply had nowhere else to go. They reportedly used the unfinished gardens to grow food and wood, mining a significant portion of the remaining asteroid for materials as well as to trade for other supplies.
 
 
-        After some time, a small group of people decided to rebuild the station and make it their own, a space home for those who had been ostracized, were outlaws or simply had nowhere else to go. They reportedly used the unfinished gardens to grow food and wood, mining a significant portion of the remaining asteroid for materials as well as to trade for other supplies. 
-
-
-        During the following years, the station went through gradual changes and was eventually sold to Interdyne for a fraction of its cost of construction. The pharmaceuticals corporation used it as a research outpost, negotiating with the locals for security, supplies and maintenance as well as occasional test subjects.
+        In the following years, the station went through gradual changes and was eventually sold to Interdyne for a fraction of its cost of construction. The pharmaceuticals corporation used it as a research outpost, negotiating with the locals for security, supplies and maintenance as well as occasional test subjects.
 
 
         This new arrangement lasted for some time, but ended abruptly when an incident involving a virus going out of control wiped out most of the station's population.
@@ -21383,7 +21322,7 @@ entities:
         When NanoTrasen acquired the station after settling a dispute with Cybersun for territory control, the board of representatives decided to restore the derelict scrap heap to its long dreamed-of glory, making it a glorious addition to the rising corporation's many new assets and dubbing it Court Station in reference to the last surviving echo of Donk.co's failure.
 
 
-        Today, Court station serves as a functional (if a little dense) research, trading and production outpost for NanoTrasen, capable of supporting a full shift's worth of crew. It won the "cozy" award in NT's 2971 station awards event, and occasionally attracts tourists for its rich and intriguing history.
+        Today, Court station serves as a functional (if a little dense) research, trading and production outpost for NanoTrasen, capable of supporting a full shift's worth of crew. It won the "cozy" award in NT's 2981 station awards event, and occasionally attracts tourists for its rich and intriguing history.
 
 
     - type: Physics
@@ -64304,7 +64243,7 @@ entities:
       pos: 13.5,7.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -351293.12
+      secondsUntilStateChange: -351753.34
       state: Opening
   - uid: 1805
     components:
@@ -159330,7 +159269,7 @@ entities:
       pos: -4.5,1.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -372844.88
+      secondsUntilStateChange: -373305.1
       state: Opening
   - uid: 2193
     components:

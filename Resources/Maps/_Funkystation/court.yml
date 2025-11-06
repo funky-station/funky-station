@@ -4,8 +4,8 @@ meta:
   engineVersion: 266.0.0
   forkId: ""
   forkVersion: ""
-  time: 11/06/2025 12:58:06
-  entityCount: 24865
+  time: 11/06/2025 14:19:03
+  entityCount: 24864
 maps:
 - 1
 grids:
@@ -10765,7 +10765,7 @@ entities:
       pos: 32.5,48.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -168033.73
+      secondsUntilStateChange: -170528.36
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -11042,7 +11042,7 @@ entities:
       pos: -28.5,49.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -294260.7
+      secondsUntilStateChange: -296755.3
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -11427,7 +11427,7 @@ entities:
       pos: -8.5,55.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -246430.34
+      secondsUntilStateChange: -248924.97
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -11658,7 +11658,7 @@ entities:
       pos: -30.5,31.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -283270.28
+      secondsUntilStateChange: -285764.9
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -21287,7 +21287,6 @@ entities:
   - uid: 24809
     components:
     - type: MetaData
-      desc: A rather boring book about the station you're standing in
       name: An account of the strange origins of Court station
     - type: Transform
       pos: 27.457674,34.705173
@@ -21297,30 +21296,33 @@ entities:
         This book details the long and fantastic history of the station known today as NT14 Court, which started out as the most daring project of its era.
 
 
-        Drafted by Donk.co in 2545, the plans to the station envisioned a grand space mall that would have attracted denizens of planets from all over the sector. 
+        Drafted by Donk.co in 2545, the station plans envisioned a grand space mall that would have attracted denizens of planets from all over the sector. 
 
-        Sporting multiple docking arms, a powerful and extremely modern (for its time) singularity engine needed to satisfy the enormous projected power requirements of the mall, grand gardened hallways with real plants and insects and multiple sections dedicated to all types of stores, it was to be the gleaming space jewel of the Donk corporation.
+        Sporting multiple docking arms, a powerful and extremely modern (for its time) singularity engine, grand gardened hallways with real plants and insects and multiple sections dedicated to all types of stores, it was to be the gleaming space jewel of the Donk corporation.
 
 
         Unfortunately for the consumers of the sector, however, the project proved much harder to complete than first imagined. 
 
 
-        Starting with 2547, when the project had barely started, the excavation team, mining the anchor asteroid for resources, came upon an old temple filled with space carp and containing multiple treasures. This attracted the attention of space pirates, and in 2549, taking advantage of some contract issues with Donk.co's security detail, two pirate shuttles attacked the station as it had been left undefended, breaching the atmosphere on multiple levels and sacking it for most of its riches.
+        Starting with 2547, when the project had barely started, the excavation team, mining the anchor asteroid for resources, came upon an old temple filled with space carp and containing multiple treasures. This attracted the attention of space pirates, and in 2549, taking advantage of some contract disputes between Donk.co and its security detail, two pirate shuttles attacked the station as it had been left undefended, breaching the atmosphere on multiple levels and sacking it for most of its riches.
 
 
-        Donk.co eventually scrapped the project after multiple attempts at recovery and many complaints from its investors. The station remained unsold and unmanned for decades, during which time many space drifters, wildlife and squatters made the ghost station their home. 
+        Donk.co eventually scrapped the project after multiple failed attempts at recovery and many complaints from its investors, leaving the station unsold and unmanned for decades, during which time many space drifters, wildlife and squatters used it as shelter. 
 
 
-        Eventually, a small group of people decided to rebuild the station and make it their own, a space home for those who had been ostracized, were outlaws or simply had nowhere else to go. They reportedly used the unfinished gardens to grow food and wood, mining a significant portion of the remaining asteroid for materials as well as to trade for other supplies. 
+        After some time, a small group of people decided to rebuild the station and make it their own, a space home for those who had been ostracized, were outlaws or simply had nowhere else to go. They reportedly used the unfinished gardens to grow food and wood, mining a significant portion of the remaining asteroid for materials as well as to trade for other supplies. 
 
 
-        Over the next few hundred years, the station went through gradual changes and was eventually sold to Interdyne for a fraction of its cost of construction. The pharmaceuticals corporation used it as a research outpost, negotiating with the locals for security, supplies and maintenance as well as occasional test subjects.
+        During the following years, the station went through gradual changes and was eventually sold to Interdyne for a fraction of its cost of construction. The pharmaceuticals corporation used it as a research outpost, negotiating with the locals for security, supplies and maintenance as well as occasional test subjects.
 
 
         This new arrangement lasted for some time, but ended abruptly when an incident involving a virus going out of control wiped out most of the station's population.
 
 
-        Over the next few hundred years and many meteor showers, very few things remained of the original design; the mall's food court, however, had miraculously been spared from most of the damage and when NanoTrasen acquired the station after settling a dispute with cybersun for territory control, the board of representatives decided to refurbish and restore the derelict scrap heap to its long dreamed-of glory, making it an addition to the rising corporation's many new assets and choosing Court as its designation in reference to the last surviving echo of Donk.co's failure.
+        After the next few decades and many meteor showers, very few things remained of the original design; the mall's food court, however, had miraculously been spared from most of the damage.
+
+
+        When NanoTrasen acquired the station after settling a dispute with Cybersun for territory control, the board of representatives decided to restore the derelict scrap heap to its long dreamed-of glory, making it a glorious addition to the rising corporation's many new assets and dubbing it Court Station in reference to the last surviving echo of Donk.co's failure.
 
 
         Today, Court station serves as a functional (if a little dense) research, trading and production outpost for NanoTrasen, capable of supporting a full shift's worth of crew. It won the "cozy" award in NT's 2971 station awards event, and occasionally attracts tourists for its rich and intriguing history.
@@ -64244,7 +64246,7 @@ entities:
       pos: 13.5,7.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -348798.5
+      secondsUntilStateChange: -351293.12
       state: Opening
   - uid: 1805
     components:
@@ -116980,12 +116982,6 @@ entities:
     - type: Transform
       pos: 8.5,107.5
       parent: 2
-  - uid: 15790
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -16.5,17.5
-      parent: 2
   - uid: 16370
     components:
     - type: Transform
@@ -121326,11 +121322,6 @@ entities:
     components:
     - type: Transform
       pos: -43.566315,16.47187
-      parent: 2
-  - uid: 15168
-    components:
-    - type: Transform
-      pos: -36.48468,81.64569
       parent: 2
   - uid: 15169
     components:
@@ -148565,6 +148556,12 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -24.5,59.5
       parent: 2
+  - uid: 15168
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -16.5,17.5
+      parent: 2
   - uid: 15608
     components:
     - type: Transform
@@ -159275,7 +159272,7 @@ entities:
       pos: -4.5,1.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -370350.25
+      secondsUntilStateChange: -372844.88
       state: Opening
   - uid: 2193
     components:

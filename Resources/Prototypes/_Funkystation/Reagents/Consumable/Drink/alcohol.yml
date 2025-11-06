@@ -81,6 +81,29 @@
         amount: 0.07
 
 - type: reagent
+  id: MoonshineSyndicate
+  name: reagent-name-moonshine
+  parent: BaseAlcohol
+  desc: reagent-desc-moonshine
+  physicalDesc: reagent-physical-desc-pungent
+  flavor: moonshine
+  color: "#d1d7d155"
+  metamorphicSprite:
+    sprite: Objects/Consumable/Drinks/moonshineglass.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 6
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 2
+      - !type:AdjustReagent
+        reagent: Ethanol
+        amount: 1.5
+
+- type: reagent
   id: PineappleMargherita
   name: reagent-name-pineapple-margherita
   parent: BaseAlcohol

@@ -168,8 +168,6 @@
           HeatM3: { state: heat_cap_melted_3 }
           HeatM4: { state: heat_cap_melted_4 }
   - type: Appearance
-  - type: Physics
-    bodyType: Static
   - type: Transform
     noRot: true
   - type: Tag

@@ -5393,3 +5393,63 @@ Entries:
       message: Changed some minor things (i.e. moved some lights)
   id: 643
   time: '2025-11-05T01:51:55.0000000+00:00'
+- author: TheHolyAegis
+  changes:
+    - type: Add
+      message: >-
+        Added Central Command access to the Internal Affairs Agent, since they
+        are Central Command staff.
+  id: 644
+  time: '2025-11-05T06:35:17.0000000+00:00'
+- author: mkanke-real
+  changes:
+    - type: Remove
+      message: Removed drunken resilience
+  id: 645
+  time: '2025-11-05T06:36:11.0000000+00:00'
+- author: mkanke-real
+  changes:
+    - type: Add
+      message: Adds the OOC Author of books to the examine window
+  id: 646
+  time: '2025-11-05T06:39:30.0000000+00:00'
+- author: TheHolyAegis
+  changes:
+    - type: Tweak
+      message: Changed dead chat to ghost chat, since that's more fitting
+  id: 647
+  time: '2025-11-05T18:33:11.0000000+00:00'
+- author: TheHolyAegis
+  changes:
+    - type: Remove
+      message: >-
+        Removed the security glasses loadout group from the Internal Affairs
+        Agent.
+    - type: Add
+      message: Instead, added administrative glasses to their default loadout
+  id: 648
+  time: '2025-11-05T18:33:50.0000000+00:00'
+- author: Mariiibo
+  changes:
+    - type: Add
+      message: An entry in Cargo SOP regarding mail.
+    - type: Tweak
+      message: Minor fixes to various guidebook entries.
+  id: 649
+  time: '2025-11-05T23:29:58.0000000+00:00'
+- author: TheHolyAegis
+  changes:
+    - type: Fix
+      message: >-
+        The airlocks in Fland are finally receiving power, you know which ones I
+        am talking about
+  id: 650
+  time: '2025-11-05T23:31:20.0000000+00:00'
+- author: Teasq
+  changes:
+    - type: Add
+      message: New botany sprites! More to come
+    - type: Remove
+      message: Botany bandana
+  id: 651
+  time: '2025-11-06T06:15:24.0000000+00:00'

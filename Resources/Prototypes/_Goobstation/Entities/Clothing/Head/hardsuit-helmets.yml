@@ -172,13 +172,13 @@
 - type: entity
   parent: ClothingHeadHelmetHardsuitBasic
   id: ClothingHeadHelmetHEV
-  name: HEV helmet
+  name:   HEV helmet
   description: Not included in a set with crowbar, long jump module and gravity manipulation device.
   components:
   - type: Sprite
-    sprite: _Goobstation/Clothing/Head/Helmets/hev.rsi
+    sprite: _Funkystation/Clothing/Head/Hardsuits/hev.rsi
   - type: Clothing
-    sprite: _Goobstation/Clothing/Head/Helmets/hev.rsi
+    sprite: _Funkystation/Clothing/Head/Hardsuits/hev.rsi
   - type: Armor
     modifiers:
       coefficients:

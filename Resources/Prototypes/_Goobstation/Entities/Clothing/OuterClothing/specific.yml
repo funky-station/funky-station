@@ -15,9 +15,9 @@
   description: A full-body hazardous environment suit designed to protect its wearer from radiation, energy discharges, blunt-force trauma, and disintegration during the handling of hazardous materials.
   components:
   - type: Sprite
-    sprite: _Goobstation/Clothing/OuterClothing/Suits/hev.rsi
+    sprite: _Funkystation/Clothing/OuterClothing/Hardsuits/hev.rsi
   - type: Clothing
-    sprite: _Goobstation/Clothing/OuterClothing/Suits/hev.rsi
+    sprite: _Funkystation/Clothing/OuterClothing/Hardsuits/hev.rsi
   - type: ExplosionResistance
     damageCoefficient: 0.7
   - type: Armor

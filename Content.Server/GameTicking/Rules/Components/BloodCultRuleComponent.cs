@@ -109,6 +109,26 @@ public sealed partial class BloodCultRuleComponent : Component
 	[DataField] public bool VeilWeakened = false;
 
 	/// <summary>
+	/// Has the blood anomaly spawn been scheduled after weakening the veil?
+	/// </summary>
+	[DataField] public bool BloodAnomalySpawnScheduled = false;
+
+	/// <summary>
+	/// Has the blood anomaly been spawned for the final ritual?
+	/// </summary>
+	[DataField] public bool BloodAnomalySpawned = false;
+
+	/// <summary>
+	/// The time the blood anomaly should be spawned, if scheduled.
+	/// </summary>
+	[DataField] public TimeSpan? BloodAnomalySpawnTime = null;
+
+	/// <summary>
+	/// The spawned blood anomaly entity.
+	/// </summary>
+	[DataField] public EntityUid? BloodAnomalyUid = null;
+
+	/// <summary>
 	/// Whether or not the VeilWeakened announcement has played.
 	/// </summary>
 	[DataField] public bool VeilWeakenedAnnouncementPlayed = false;

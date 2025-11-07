@@ -2,19 +2,34 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
-using Content.Server.Popups;
-using Content.Shared.Popups;
-using Content.Shared.BloodCult.Components;
-using Content.Shared.Mobs.Systems;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Numerics;
 using Content.Server.GameTicking.Rules;
-using Content.Shared.BloodCult;
 using Content.Server.Explosion.EntitySystems;
+using Content.Server.Popups;
+using Content.Shared.Anomaly;
+using Content.Shared.BloodCult;
+using Content.Shared.BloodCult.Components;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.FixedPoint;
+using Content.Shared.Mobs.Systems;
+using Content.Shared.Popups;
+using Content.Server.Camera;
+using Content.Server.Body.Systems;
+using Content.Server.Mind;
+using Content.Shared.Mind.Components;
+using Robust.Shared.Audio;
+using Robust.Shared.Audio.Systems;
+using Robust.Shared.Player;
+using Robust.Server.Player;
+using Robust.Shared.Random;
 using Robust.Server.GameObjects;
+using Robust.Shared.Timing;
 
 namespace Content.Server.BloodCult.EntitySystems;
 
@@ -23,12 +38,26 @@ namespace Content.Server.BloodCult.EntitySystems;
 /// </summary>
 public sealed partial class BloodCultRiftSystem : EntitySystem
 {
+	private const float ShakeRange = 25f;
+	private static readonly float[] ShakeIntervals = { 15f, 7.5f, 3.5f, 1.75f };
+	private static readonly float[] ShakeIntensities = { 5f, 6f, 7.5f, 9f };
+
 	[Dependency] private readonly PopupSystem _popupSystem = default!;
 	[Dependency] private readonly MobStateSystem _mobState = default!;
 	[Dependency] private readonly BloodCultRuleSystem _bloodCultRule = default!;
 	[Dependency] private readonly EntityLookupSystem _lookup = default!;
 	[Dependency] private readonly AppearanceSystem _appearance = default!;
 	[Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
+	[Dependency] private readonly CameraRecoilSystem _cameraRecoil = default!;
+	[Dependency] private readonly SharedTransformSystem _transformSystem = default!;
+	[Dependency] private readonly IPlayerManager _playerManager = default!;
+	[Dependency] private readonly IRobustRandom _random = default!;
+	[Dependency] private readonly ExplosionSystem _explosionSystem = default!;
+	[Dependency] private readonly BodySystem _bodySystem = default!;
+	[Dependency] private readonly MindSystem _mindSystem = default!;
+	[Dependency] private readonly OfferOnTriggerSystem _offerSystem = default!;
+	[Dependency] private readonly IGameTiming _timing = default!;
+	[Dependency] private readonly SharedAudioSystem _audio = default!;
 
 	public override void Initialize()
 	{
@@ -56,11 +85,17 @@ public sealed partial class BloodCultRiftSystem : EntitySystem
 			// Handle active ritual chanting
 			if (riftComp.RitualInProgress)
 			{
+				HandleShakeSequence(riftUid, riftComp, xform, frameTime);
+
 				riftComp.TimeUntilNextChant -= frameTime;
 				if (riftComp.TimeUntilNextChant <= 0)
 				{
 					ProcessChantStep(riftUid, riftComp, xform);
 				}
+			}
+			else if (riftComp.FinalSacrificePending && !riftComp.FinalSacrificeDone)
+			{
+				TryPerformFinalSacrifice(riftUid, riftComp, xform);
 			}
 		}
 	}
@@ -82,6 +117,106 @@ public sealed partial class BloodCultRiftSystem : EntitySystem
 		{
 			_appearance.SetData(riftUid, AnomalyVisualLayers.Animated, true, appearance);
 			// Animation will auto-hide after animation completes
+		}
+	}
+
+	private void HandleShakeSequence(EntityUid riftUid, BloodCultRiftComponent component, TransformComponent xform, float frameTime)
+	{
+		if (component.FinalSacrificeDone || component.SacrificesCompleted >= component.RequiredSacrifices)
+			return;
+
+		if (component.ShakeDelays.Count <= component.NextShakeIndex)
+		{
+			if (!component.FinalSacrificePending)
+			{
+				component.FinalSacrificePending = true;
+				TryPerformFinalSacrifice(riftUid, component, xform);
+			}
+			return;
+		}
+
+		component.TimeUntilNextShake -= frameTime;
+		if (component.TimeUntilNextShake > 0)
+			return;
+
+		var intensity = ShakeIntensities[Math.Min(component.NextShakeIndex, ShakeIntensities.Length - 1)];
+		DoShake(riftUid, xform, intensity);
+
+		component.NextShakeIndex++;
+		if (component.NextShakeIndex < component.ShakeDelays.Count)
+		{
+			component.TimeUntilNextShake = component.ShakeDelays[component.NextShakeIndex];
+		}
+		else
+		{
+			component.FinalSacrificePending = true;
+			component.TimeUntilNextShake = 0f;
+			TryPerformFinalSacrifice(riftUid, component, xform);
+		}
+	}
+
+	private void DoShake(EntityUid riftUid, TransformComponent xform, float intensity)
+	{
+		var epicenter = _transformSystem.ToMapCoordinates(xform.Coordinates);
+		var filter = Filter.Empty();
+		filter.AddInRange(epicenter, ShakeRange, _playerManager, EntityManager);
+
+		foreach (var session in filter.Recipients)
+		{
+			if (session.AttachedEntity is not EntityUid uid)
+				continue;
+
+			var playerPos = _transformSystem.GetWorldPosition(uid);
+			var delta = epicenter.Position - playerPos;
+			if (delta.LengthSquared() < 0.0001f)
+				delta = new Vector2(0.01f, 0f);
+
+			var distance = delta.Length();
+			var effect = intensity * (1 - distance / ShakeRange);
+			if (effect <= 0f)
+				continue;
+
+			_cameraRecoil.KickCamera(uid, -Vector2.Normalize(delta) * effect);
+		}
+
+		_audio.PlayPvs(new SoundPathSpecifier("/Audio/Effects/Fluids/blood1.ogg"), riftUid, AudioParams.Default.WithVolume(-3f));
+	}
+
+	private void TryPerformFinalSacrifice(EntityUid riftUid, BloodCultRiftComponent component, TransformComponent xform)
+	{
+		if (component.FinalSacrificeDone || component.SacrificesCompleted >= component.RequiredSacrifices)
+			return;
+
+		var cultistsOnRunes = GetCultistsOnSummoningRunes(component);
+		if (cultistsOnRunes.Count == 0)
+			return;
+
+		var victim = _random.Pick(cultistsOnRunes);
+		if (!TryComp<TransformComponent>(victim, out var victimXform))
+			return;
+
+		var coords = victimXform.Coordinates;
+		var mapCoords = _transformSystem.ToMapCoordinates(coords);
+
+		if (_offerSystem.TryForceSoulstoneCreation(victim, coords))
+		{
+			component.SacrificesCompleted++;
+			component.FinalSacrificePending = false;
+
+			if (component.SacrificesCompleted >= component.RequiredSacrifices)
+			{
+				component.FinalSacrificeDone = true;
+			}
+			else
+			{
+				component.NextShakeIndex = 0;
+				component.TimeUntilNextShake = component.ShakeDelays.Count > 0 ? component.ShakeDelays[0] : 0f;
+			}
+		}
+		else
+		{
+			component.FinalSacrificePending = false;
+			component.TimeUntilNextShake = 1f;
 		}
 	}
 
@@ -119,24 +254,54 @@ public sealed partial class BloodCultRiftSystem : EntitySystem
 			return;
 		}
 
-		// Check if all 3 runes have cultists on them
-		var cultistsOnRunes = GetCultistsOnSummoningRunes(component);
-		if (cultistsOnRunes.Count < 3)
+		// Ensure the cult has weakened the veil (blood collected plus ritual)
+		if (!_bloodCultRule.TryGetActiveRule(out var ruleComp) || !ruleComp.VeilWeakened || ruleComp.BloodCollected < ruleComp.BloodRequiredForVeil)
 		{
 			_popupSystem.PopupEntity(
-				Loc.GetString("cult-final-ritual-not-enough-cultists",
-					("current", cultistsOnRunes.Count),
-					("required", 3)),
+				Loc.GetString("cult-final-ritual-too-early",
+					("collected", Math.Round(ruleComp.BloodCollected, 1)),
+					("required", Math.Round(ruleComp.BloodRequiredForVeil, 1))),
 				user, user, PopupType.LargeCaution
 			);
 			args.Handled = true;
 			return;
 		}
 
+		// Check if all 3 runes have cultists on them
+		var cultistsOnRunes = GetCultistsOnSummoningRunes(component);
+		if (cultistsOnRunes.Count < 3)
+		{
+			var allowPopup = component.LastNotEnoughCultistsPopup == TimeSpan.Zero ||
+				(_timing.CurTime - component.LastNotEnoughCultistsPopup) > TimeSpan.FromSeconds(1);
+
+			if (allowPopup)
+			{
+				component.LastNotEnoughCultistsPopup = _timing.CurTime;
+				_popupSystem.PopupEntity(
+					Loc.GetString("cult-final-ritual-not-enough-cultists",
+						("current", cultistsOnRunes.Count),
+						("required", 3)),
+					user, user, PopupType.LargeCaution
+				);
+			}
+			args.Handled = true;
+			return;
+		}
+
 		// Ritual can begin!
 		component.RitualInProgress = true;
+		component.LastNotEnoughCultistsPopup = _timing.CurTime;
 		component.CurrentChantStep = 0;
+		component.SacrificesCompleted = 0;
+		component.RequiredSacrifices = 3;
+		component.FinalSacrificeDone = false;
+		component.RequiredSacrifices = 3;
 		component.TimeUntilNextChant = component.ChantInterval;
+		component.ShakeDelays.Clear();
+		component.ShakeDelays.AddRange(ShakeIntervals);
+		component.NextShakeIndex = component.ShakeDelays.Count > 0 ? 0 : 0;
+		component.TimeUntilNextShake = component.ShakeDelays.Count > 0 ? component.ShakeDelays[0] : 0f;
+		component.FinalSacrificePending = component.ShakeDelays.Count == 0;
 
 		// Announce to all cultists
 		AnnounceRitualStart();
@@ -187,10 +352,18 @@ public sealed partial class BloodCultRiftSystem : EntitySystem
 		// Check if ritual is complete
 		if (component.CurrentChantStep >= component.TotalChantSteps)
 		{
-			// SUCCESS! Summon Nar'Sie
-			SummonNarsie(runeUid, xform);
-			AnnounceRitualSuccess();
-			EndRitual(component, true);
+			if (component.SacrificesCompleted >= component.RequiredSacrifices)
+			{
+				// SUCCESS! Summon Nar'Sie
+				SummonNarsie(runeUid, xform);
+				AnnounceRitualSuccess();
+				EndRitual(component, true);
+			}
+			else
+			{
+				component.CurrentChantStep = component.TotalChantSteps;
+				component.TimeUntilNextChant = component.ChantInterval;
+			}
 		}
 		else
 		{
@@ -225,7 +398,7 @@ public sealed partial class BloodCultRiftSystem : EntitySystem
 	/// </summary>
 	private List<EntityUid> GetCultistsOnSummoningRunes(BloodCultRiftComponent riftComp)
 	{
-		var cultists = new List<EntityUid>();
+		var cultists = new HashSet<EntityUid>();
 
 		foreach (var runeUid in riftComp.SummoningRunes)
 		{
@@ -241,12 +414,11 @@ public sealed partial class BloodCultRiftSystem : EntitySystem
 					&& !_mobState.IsDead(entity))
 				{
 					cultists.Add(entity);
-					break; // Only count one per rune
 				}
 			}
 		}
 
-		return cultists;
+		return cultists.ToList();
 	}
 
 	/// <summary>
@@ -257,6 +429,12 @@ public sealed partial class BloodCultRiftSystem : EntitySystem
 		component.RitualInProgress = false;
 		component.CurrentChantStep = 0;
 		component.TimeUntilNextChant = 0f;
+		component.ShakeDelays.Clear();
+		component.NextShakeIndex = 0;
+		component.TimeUntilNextShake = 0f;
+		component.FinalSacrificePending = false;
+		component.FinalSacrificeDone = false;
+		component.SacrificesCompleted = 0;
 	}
 
 	private void AnnounceRitualStart()
@@ -295,13 +473,3 @@ public sealed partial class BloodCultRiftSystem : EntitySystem
 		}
 	}
 }
-
-/// <summary>
-/// Anomaly visual layers for the rift pulsing animation.
-/// </summary>
-public enum AnomalyVisualLayers : byte
-{
-	Base,
-	Animated
-}
-

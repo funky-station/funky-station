@@ -4,7 +4,7 @@
   noSpawn: true
   components:
   - type: Sprite
-    drawdepth: HighFloorObjects
+    drawdepth: FloorObjects
     sprite: _Funkystation/Structures/BloodCult/bloodrune.rsi
     layers:
       - map: ["enum.EffectLayers.Unshaded"]

@@ -56,4 +56,10 @@ public sealed partial class TearVeilComponent : Component
 	/// </summary>
 	[DataField]
 	public int MinimumCultists = 3;
+
+	/// <summary>
+	/// Has this rune already been used to successfully weaken the veil?
+	/// </summary>
+	[DataField]
+	public bool RitualCompleted;
 }

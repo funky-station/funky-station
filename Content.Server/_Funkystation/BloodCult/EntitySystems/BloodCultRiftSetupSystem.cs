@@ -2,31 +2,43 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
+using System.Collections.Generic;
 using System.Numerics;
+using Content.Server.Atmos.EntitySystems;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
-using Robust.Shared.Random;
 using Robust.Shared.Physics.Components;
+using Robust.Shared.Random;
 using Content.Server.GameTicking.Rules.Components;
+using Content.Server.GameTicking.Rules;
 using Content.Shared.BloodCult.Components;
+using Content.Shared.BloodCult;
 using Content.Shared.Maps;
 using Content.Shared.Physics;
 using Content.Shared.Coordinates.Helpers;
 using Content.Shared.SubFloor;
 using Content.Shared.Pinpointer;
 using Robust.Server.GameObjects;
+using Robust.Shared.GameObjects;
 
 namespace Content.Server.BloodCult.EntitySystems;
 
 /// <summary>
 /// Handles setting up the final Blood Cult summoning ritual site.
-/// Finds a valid 2x3 space near a departmental beacon, replaces flooring, and spawns the rift with runes.
+/// Finds a valid 3x3 space near a departmental beacon, replaces flooring, and spawns the rift with runes.
 /// </summary>
 public sealed class BloodCultRiftSetupSystem : EntitySystem
 {
 	[Dependency] private readonly IRobustRandom _random = default!;
 	[Dependency] private readonly MapSystem _mapSystem = default!;
 	[Dependency] private readonly ITileDefinitionManager _tileDefManager = default!;
+	[Dependency] private readonly AtmosphereSystem _atmosphere = default!;
+	[Dependency] private readonly SharedTransformSystem _transformSystem = default!;
+
+	private const float MinPressureKpa = 50f;
+	private const float MaxPressureKpa = 300f;
+	private const float MinTemperatureK = 150f;
+	private const float MaxTemperatureK = 300f;
 
 	/// <summary>
 	/// Attempts to set up the final summoning ritual site.
@@ -39,20 +51,154 @@ public sealed class BloodCultRiftSetupSystem : EntitySystem
 		if (beacons.Count == 0)
 			return null;
 
-		var targetBeacon = _random.Pick(beacons);
-		var beaconCoords = Transform(targetBeacon).Coordinates;
+		EntityUid? rift = null;
+		WeakVeilLocation? finalLocation = null;
 
-		// 2. Find a valid 2x3 space near the beacon
-		if (!TryFindValid2x3Space(beaconCoords, out var centerCoords, out var gridUid, out var grid) || grid == null)
-			return null;
+		// Try random locations near each beacon
+		var shuffledBeacons = new List<EntityUid>(beacons);
+		_random.Shuffle(shuffledBeacons);
 
-		// 3. Replace flooring with reinforced
+		foreach (var beacon in shuffledBeacons)
+		{
+		if (TrySpawnAtBeacon(beacon, out rift, out _, out finalLocation))
+				break;
+		}
+
+		// Fallback: try around cultists
+		if (rift == null)
+		{
+		var cultists = CollectCultists();
+			_random.Shuffle(cultists);
+			foreach (var cultist in cultists)
+			{
+				if (!TryComp<TransformComponent>(cultist, out var cultistXform))
+					continue;
+
+			if (TryFindValid3x3Space(cultistXform.Coordinates, out var centerCoords, out var gridUid, out var grid))
+				{
+					ReplaceFlooring(gridUid, grid, centerCoords);
+					rift = SpawnRiftAndRunes(centerCoords);
+					var meta = MetaData(cultist);
+				var riftCoords = TryComp<TransformComponent>(rift.Value, out var riftXform) ? riftXform.Coordinates : centerCoords;
+				finalLocation = new WeakVeilLocation(meta.EntityName, cultist, meta.EntityPrototype?.ID ?? string.Empty, riftCoords, 3.0f);
+					break;
+				}
+			}
+		}
+
+		// Fallback: force spawn on a cultist
+		if (rift == null)
+		{
+		var cultists = CollectCultists();
+			foreach (var cultist in cultists)
+			{
+				if (!TryComp<TransformComponent>(cultist, out var cultistXform))
+					continue;
+
+			var coords = cultistXform.Coordinates;
+			if (!TryResolveGrid(coords, out var gridUid, out var grid))
+					continue;
+
+			ReplaceFlooring(gridUid, grid, coords);
+				rift = SpawnRiftAndRunes(coords);
+				var meta = MetaData(cultist);
+			var riftCoords = TryComp<TransformComponent>(rift.Value, out var riftXform) ? riftXform.Coordinates : coords;
+			finalLocation = new WeakVeilLocation(meta.EntityName, cultist, meta.EntityPrototype?.ID ?? string.Empty, riftCoords, 3.0f);
+				break;
+			}
+		}
+
+		// Fallback: force spawn on a beacon
+		if (rift == null)
+		{
+			foreach (var beacon in beacons)
+			{
+			var coords = Transform(beacon).Coordinates;
+			if (!TryResolveGrid(coords, out var gridUid, out var grid))
+					continue;
+
+			ReplaceFlooring(gridUid, grid, coords);
+				rift = SpawnRiftAndRunes(coords);
+				var meta = MetaData(beacon);
+			var riftCoords = TryComp<TransformComponent>(rift.Value, out var riftXform) ? riftXform.Coordinates : coords;
+			finalLocation = new WeakVeilLocation(meta.EntityName, beacon, meta.EntityPrototype?.ID ?? string.Empty, riftCoords, 3.0f);
+				break;
+			}
+		}
+
+		if (rift != null && finalLocation != null)
+		{
+			cultRule.LocationForSummon = finalLocation;
+			return rift;
+		}
+
+		return null;
+	}
+
+	private bool TrySpawnAtBeacon(EntityUid beacon, out EntityUid? rift, out EntityCoordinates? coords, out WeakVeilLocation? location)
+	{
+		rift = null;
+		coords = null;
+		location = null;
+
+		var beaconCoords = Transform(beacon).Coordinates;
+
+		for (var i = 0; i < 100; i++)
+		{
+			var offset = _random.NextVector2(0f, 6f);
+			var targetCoords = beaconCoords.Offset(offset);
+
+			if (!TryFindValid3x3Space(targetCoords, out var centerCoords, out var gridUid, out var grid))
+				continue;
+
 		ReplaceFlooring(gridUid, grid, centerCoords);
+		rift = SpawnRiftAndRunes(centerCoords);
 
-		// 4. Spawn rift and runes
-		var rift = SpawnRiftAndRunes(centerCoords);
+		var beaconMeta = MetaData(beacon);
+		var locationName = beaconMeta.EntityPrototype?.EditorSuffix ?? beaconMeta.EntityPrototype?.Name ?? beaconMeta.EntityName;
+		var protoId = beaconMeta.EntityPrototype?.ID ?? string.Empty;
+		coords = TryComp<TransformComponent>(rift.Value, out var riftXform) ? riftXform.Coordinates : centerCoords;
+		location = new WeakVeilLocation(locationName, beacon, protoId, coords.Value, 3.0f);
+			return true;
+		}
 
-		return rift;
+		return false;
+	}
+
+	private bool TryResolveGrid(EntityCoordinates coords, out EntityUid gridUid, out MapGridComponent grid)
+	{
+		gridUid = EntityUid.Invalid;
+	grid = default!;
+
+	if (EntityManager.TryGetComponent<MapGridComponent>(coords.EntityId, out var directGrid) && directGrid != null)
+	{
+		gridUid = coords.EntityId;
+		grid = directGrid;
+		return true;
+	}
+
+	var resolvedGrid = _transformSystem.GetGrid(coords);
+	if (resolvedGrid is not { } gridEntity)
+		return false;
+
+	if (!EntityManager.TryGetComponent<MapGridComponent>(gridEntity, out var resolvedComp) || resolvedComp == null)
+		return false;
+
+	gridUid = gridEntity;
+	grid = resolvedComp;
+	return true;
+	}
+
+	private List<EntityUid> CollectCultists()
+	{
+		var cultists = new List<EntityUid>();
+		var query = EntityQueryEnumerator<BloodCultistComponent>();
+		while (query.MoveNext(out var cultistUid, out _))
+		{
+			cultists.Add(cultistUid);
+		}
+
+		return cultists;
 	}
 
 	private List<EntityUid> GetDepartmentalBeacons()
@@ -72,17 +218,15 @@ public sealed class BloodCultRiftSetupSystem : EntitySystem
 		return beacons;
 	}
 
-	private bool TryFindValid2x3Space(EntityCoordinates center, out EntityCoordinates validCenter,
-		out EntityUid gridUid, out MapGridComponent? grid)
+private bool TryFindValid3x3Space(EntityCoordinates center, out EntityCoordinates validCenter,
+	out EntityUid gridUid, out MapGridComponent grid)
 	{
 		validCenter = EntityCoordinates.Invalid;
 		gridUid = EntityUid.Invalid;
-		grid = null;
+	grid = default!;
 
-	if (!TryComp<MapGridComponent>(center.EntityId, out grid))
+	if (!TryResolveGrid(center, out gridUid, out grid))
 		return false;
-
-	gridUid = center.EntityId;
 	var centerTile = _mapSystem.TileIndicesFor(gridUid, grid, center);
 
 	// Search in a 10x10 area around the beacon
@@ -92,7 +236,7 @@ public sealed class BloodCultRiftSetupSystem : EntitySystem
 		{
 			var testTile = new Vector2i(centerTile.X + x, centerTile.Y + y);
 
-			if (IsValid2x3Space(gridUid, grid, testTile))
+			if (IsValid3x3Space(gridUid, grid, testTile))
 			{
 				validCenter = _mapSystem.GridTileToLocal(gridUid, grid, testTile);
 				return true;
@@ -103,14 +247,14 @@ public sealed class BloodCultRiftSetupSystem : EntitySystem
 		return false;
 	}
 
-	private bool IsValid2x3Space(EntityUid gridUid, MapGridComponent grid, Vector2i bottomLeft)
+	private bool IsValid3x3Space(EntityUid gridUid, MapGridComponent grid, Vector2i center)
 	{
-		// Check a 2-wide by 3-tall area
-		for (var x = 0; x < 2; x++)
+		// Check a 3x3 area centered on the candidate tile
+		for (var x = -1; x <= 1; x++)
 		{
-			for (var y = 0; y < 3; y++)
+			for (var y = -1; y <= 1; y++)
 			{
-				var checkTile = new Vector2i(bottomLeft.X + x, bottomLeft.Y + y);
+				var checkTile = new Vector2i(center.X + x, center.Y + y);
 
 				if (!IsTileValid(gridUid, grid, checkTile))
 					return false;
@@ -123,8 +267,18 @@ public sealed class BloodCultRiftSetupSystem : EntitySystem
 	private bool IsTileValid(EntityUid gridUid, MapGridComponent grid, Vector2i tile)
 	{
 		// Check if tile exists and is not space
-		var tileRef = _mapSystem.GetTileRef(gridUid, grid, tile);
-		if (tileRef.Tile.IsEmpty)
+	var tileRef = _mapSystem.GetTileRef(gridUid, grid, tile);
+	if (tileRef.Tile.IsEmpty)
+		return false;
+
+	var mapUid = Transform(gridUid).MapUid;
+	var mixture = _atmosphere.GetTileMixture(gridUid, mapUid, tile, excite: false);
+	if (mixture == null)
+		return false;
+
+	if (mixture.Pressure < MinPressureKpa || mixture.Pressure > MaxPressureKpa)
+		return false;
+	if (mixture.Temperature < MinTemperatureK || mixture.Temperature > MaxTemperatureK)
 			return false;
 
 		// Check for blocking entities (walls, etc)
@@ -138,7 +292,8 @@ public sealed class BloodCultRiftSetupSystem : EntitySystem
 			// Block on walls or dense structures
 			if (TryComp<PhysicsComponent>(entity, out var physics))
 			{
-				if ((physics.CollisionLayer & (int)CollisionGroup.Impassable) != 0)
+				var blockingLayers = CollisionGroup.Impassable | CollisionGroup.WallLayer | CollisionGroup.GlassLayer | CollisionGroup.FullTileLayer | CollisionGroup.AirlockLayer | CollisionGroup.GlassAirlockLayer;
+				if ((physics.CollisionLayer & (int)blockingLayers) != 0)
 					return false;
 			}
 		}
@@ -150,12 +305,11 @@ public sealed class BloodCultRiftSetupSystem : EntitySystem
 	{
 		var centerTile = _mapSystem.TileIndicesFor(gridUid, grid, center);
 
-		// Get reinforced floor tile
-		var reinforcedTileDef = (ContentTileDefinition)_tileDefManager["FloorReinforced"];
+		// Replace 3x3 area with reinforced exterior hull flooring (centered around the rift position)
+		var reinforcedTileDef = (ContentTileDefinition)_tileDefManager["FloorHullReinforced"];
 		var reinforcedTile = new Tile(reinforcedTileDef.TileId);
 
-		// Replace 2x3 area with reinforced flooring (centered around the rift position)
-		for (var x = -1; x <= 0; x++)
+		for (var x = -1; x <= 1; x++)
 		{
 			for (var y = -1; y <= 1; y++)
 			{
@@ -170,24 +324,35 @@ public sealed class BloodCultRiftSetupSystem : EntitySystem
 		// Spawn rift at center
 		var rift = Spawn("BloodCultRift", center);
 		var riftComp = EnsureComp<BloodCultRiftComponent>(rift);
+		riftComp.SummoningRunes.Clear();
+		riftComp.OfferingRunes.Clear();
 
-		// Spawn 3 runes: left (-1, 0), right (1, 0), bottom (0, -1)
-		var leftRune = Spawn("TearVeilRune", center.Offset(new Vector2(-1, 0)));
-		var rightRune = Spawn("TearVeilRune", center.Offset(new Vector2(1, 0)));
-		var bottomRune = Spawn("TearVeilRune", center.Offset(new Vector2(0, -1)));
+		// Spawn 4 offering runes around the rift: left, right, bottom, top
+		var leftRune = Spawn("OfferingRune", center.Offset(new Vector2(-1, 0)));
+		var rightRune = Spawn("OfferingRune", center.Offset(new Vector2(1, 0)));
+		var bottomRune = Spawn("OfferingRune", center.Offset(new Vector2(0, -1)));
+		var topRune = Spawn("OfferingRune", center.Offset(new Vector2(0, 1)));
 
-		// Mark as final summoning runes
+		// Mark them as final summoning runes associated with this rift
 		var leftFinal = EnsureComp<FinalSummoningRuneComponent>(leftRune);
 		var rightFinal = EnsureComp<FinalSummoningRuneComponent>(rightRune);
 		var bottomFinal = EnsureComp<FinalSummoningRuneComponent>(bottomRune);
+		var topFinal = EnsureComp<FinalSummoningRuneComponent>(topRune);
 
 		leftFinal.RiftUid = rift;
 		rightFinal.RiftUid = rift;
 		bottomFinal.RiftUid = rift;
+		topFinal.RiftUid = rift;
 
+		// Track these runes for chanting and offerings
 		riftComp.SummoningRunes.Add(leftRune);
 		riftComp.SummoningRunes.Add(rightRune);
 		riftComp.SummoningRunes.Add(bottomRune);
+		riftComp.SummoningRunes.Add(topRune);
+		riftComp.OfferingRunes.Add(leftRune);
+		riftComp.OfferingRunes.Add(rightRune);
+		riftComp.OfferingRunes.Add(bottomRune);
+		riftComp.OfferingRunes.Add(topRune);
 
 		return rift;
 	}

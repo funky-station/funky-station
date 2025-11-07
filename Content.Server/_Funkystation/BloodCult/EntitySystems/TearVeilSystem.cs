@@ -4,6 +4,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
+using System.Collections.Generic;
 using System.Linq;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
@@ -54,6 +55,9 @@ namespace Content.Server.BloodCult.EntitySystems
 			var ritualQuery = EntityQueryEnumerator<TearVeilComponent, TransformComponent>();
 			while (ritualQuery.MoveNext(out var runeUid, out var component, out var xform))
 			{
+				if (component.RitualCompleted)
+					continue;
+
 				if (!component.RitualInProgress)
 					continue;
 
@@ -97,8 +101,19 @@ namespace Content.Server.BloodCult.EntitySystems
 			}
 		}
 
+		// Prevent re-activation if the veil has already been weakened.
+		if (component.RitualCompleted)
+		{
+			_popupSystem.PopupEntity(
+				Loc.GetString("cult-veil-ritual-already-completed"),
+				user, user, PopupType.MediumCaution);
+			args.Handled = true;
+			return;
+		}
+
 		// Get the map this rune is on. Make sure the rune is valid before using it later in the function.
-		if (!TryComp<TransformComponent>(uid, out var xform) || !TryComp<MapGridComponent>(xform.GridUid, out var _))
+		var xform = Transform(uid);
+		if (xform.GridUid is not { } gridUid || !TryComp<MapGridComponent>(gridUid, out _))
 		{
 			args.Handled = true;
 			return;
@@ -207,11 +222,11 @@ namespace Content.Server.BloodCult.EntitySystems
 		}
 
 		// Make all cultists on runes chant
-		var chant = _bloodCultRule.GenerateChant(wordCount: 3);
 		foreach (var cultist in cultistsOnRunes)
 		{
 			if (Exists(cultist))
 			{
+				var chant = _bloodCultRule.GenerateChant(wordCount: 3);
 				_bloodCultRule.Speak(cultist, chant);
 			}
 		}
@@ -221,10 +236,11 @@ namespace Content.Server.BloodCult.EntitySystems
 
 		// Check if ritual is complete
 		if (component.CurrentChantStep >= component.TotalChantSteps)
-			{
+		{
 			// SUCCESS! Progress the cult to stage 3
 			_bloodCultRule.CompleteVeilRitual();
 			AnnounceRitualSuccess();
+			MarkRitualCompleted();
 			EndRitual(component, true);
 		}
 		else
@@ -245,44 +261,25 @@ namespace Content.Server.BloodCult.EntitySystems
 			component.TimeUntilNextChant = 0f;
 				}
 
+		private void MarkRitualCompleted()
+		{
+			var runeQuery = EntityQueryEnumerator<TearVeilComponent>();
+			while (runeQuery.MoveNext(out var _, out var rune))
+			{
+				rune.RitualCompleted = true;
+				rune.RitualInProgress = false;
+				rune.RitualMapUid = null;
+				rune.CurrentChantStep = 0;
+				rune.TimeUntilNextChant = 0f;
+			}
+		}
+
 		/// <summary>
 		/// Counts how many live cultists are currently standing on TearVeilRunes on the specified map.
 		/// </summary>
 		private int CountCultistsOnRunes(EntityUid mapUid)
 		{
-			var count = 0;
-			var runeQuery = EntityQueryEnumerator<TearVeilComponent, TransformComponent>();
-
-			while (runeQuery.MoveNext(out var runeUid, out var _, out var runeXform))
-				{
-				// Only count runes on the same map
-				if (runeXform.MapUid != mapUid)
-					continue;
-
-				// Look for cultists near this rune
-                var runeCoords = _transform.ToMapCoordinates(runeXform.Coordinates);
-                var nearbyEntities = _lookup.GetEntitiesInRange(runeCoords, 0.75f);
-				foreach (var entity in nearbyEntities)
-				{
-					// Check if this is a live cultist or construct
-					if ((HasComp<BloodCultistComponent>(entity) || HasComp<BloodCultConstructComponent>(entity)) 
-						&& !_mobState.IsDead(entity))
-				{
-						count++;
-						break; // Only count once per rune
-				}
-			}
-			}
-
-			return count;
-		}
-
-		/// <summary>
-		/// Gets a list of all live cultists currently standing on TearVeilRunes on the specified map.
-		/// </summary>
-		private List<EntityUid> GetCultistsOnRunes(EntityUid mapUid)
-		{
-			var cultists = new List<EntityUid>();
+			var cultists = new HashSet<EntityUid>();
 			var runeQuery = EntityQueryEnumerator<TearVeilComponent, TransformComponent>();
 
 			while (runeQuery.MoveNext(out var runeUid, out var _, out var runeXform))
@@ -292,21 +289,51 @@ namespace Content.Server.BloodCult.EntitySystems
 					continue;
 
 				// Look for cultists near this rune
-                var runeCoords = _transform.ToMapCoordinates(runeXform.Coordinates);
-                var nearbyEntities = _lookup.GetEntitiesInRange(runeCoords, 0.75f);
+		        var runeCoords = _transform.ToMapCoordinates(runeXform.Coordinates);
+		        var nearbyEntities = _lookup.GetEntitiesInRange(runeCoords, 0.75f);
 				foreach (var entity in nearbyEntities)
 				{
 					// Check if this is a live cultist or construct
-					if ((HasComp<BloodCultistComponent>(entity) || HasComp<BloodCultConstructComponent>(entity)) 
+					if ((HasComp<BloodCultistComponent>(entity) || HasComp<BloodCultConstructComponent>(entity))
 						&& !_mobState.IsDead(entity))
-				{
+					{
 						cultists.Add(entity);
-						break; // Only add once per rune
+					}
 				}
 			}
+
+			return cultists.Count;
+		}
+
+		/// <summary>
+		/// Gets a list of all live cultists currently standing on TearVeilRunes on the specified map.
+		/// </summary>
+		private List<EntityUid> GetCultistsOnRunes(EntityUid mapUid)
+		{
+			var cultists = new HashSet<EntityUid>();
+			var runeQuery = EntityQueryEnumerator<TearVeilComponent, TransformComponent>();
+
+			while (runeQuery.MoveNext(out var runeUid, out var _, out var runeXform))
+			{
+				// Only count runes on the same map
+				if (runeXform.MapUid != mapUid)
+					continue;
+
+				// Look for cultists near this rune
+		        var runeCoords = _transform.ToMapCoordinates(runeXform.Coordinates);
+		        var nearbyEntities = _lookup.GetEntitiesInRange(runeCoords, 0.75f);
+				foreach (var entity in nearbyEntities)
+				{
+					// Check if this is a live cultist or construct
+					if ((HasComp<BloodCultistComponent>(entity) || HasComp<BloodCultConstructComponent>(entity))
+						&& !_mobState.IsDead(entity))
+					{
+						cultists.Add(entity);
+					}
+				}
 			}
 
-			return cultists;
+			return cultists.ToList();
 		}
 
 		/// <summary>

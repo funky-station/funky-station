@@ -39,3 +39,13 @@
             volume: -4
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+
+- type: entity
+  id: CultSoulStoneShard
+  parent: CultSoulStone
+  name: soulstone shard
+  description: A fragment of Nar'Sie's crystalized blood, still humming with trapped souls.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/BloodCult/Objects/soulstone.rsi
+    state: soulstone

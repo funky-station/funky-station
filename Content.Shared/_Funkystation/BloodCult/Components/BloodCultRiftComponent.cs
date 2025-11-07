@@ -2,6 +2,8 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
+using System;
+using System.Collections.Generic;
 using Robust.Shared.GameObjects;
 
 namespace Content.Shared.BloodCult.Components;
@@ -39,10 +41,47 @@ public sealed partial class BloodCultRiftComponent : Component
 	public List<EntityUid> SummoningRunes = new();
 
 	/// <summary>
+	/// Offering runes positioned around the anomaly for sacrifices.
+	/// </summary>
+	[DataField]
+	public List<EntityUid> OfferingRunes = new();
+
+	/// <summary>
 	/// Is the final ritual currently in progress?
 	/// </summary>
 	[DataField]
 	public bool RitualInProgress = false;
+
+	/// <summary>
+	/// Sequence of shakes remaining to play during the final ritual.
+	/// </summary>
+	[DataField]
+	public List<float> ShakeDelays = new();
+
+	/// <summary>
+	/// Index into <see cref="ShakeDelays"/> for the next shake.
+	/// </summary>
+	[DataField]
+	public int NextShakeIndex = 0;
+
+	/// <summary>
+	/// Time remaining until the next scheduled shake.
+	/// </summary>
+	[DataField]
+	public float TimeUntilNextShake = 0f;
+
+	/// <summary>
+	/// Whether the final sacrifice event should trigger after the shake sequence completes.
+	/// </summary>
+	[DataField]
+	public bool FinalSacrificePending = false;
+
+	/// <summary>
+	/// Whether the final sacrifice has already occurred.
+	/// </summary>
+	[DataField]
+	public bool FinalSacrificeDone = false;
+
 
 	/// <summary>
 	/// Current chant step in the final ritual.
@@ -54,18 +93,36 @@ public sealed partial class BloodCultRiftComponent : Component
 	/// Total chant steps needed.
 	/// </summary>
 	[DataField]
-	public int TotalChantSteps = 6;
+	public int RequiredSacrifices = 3;
+
+	/// <summary>
+	/// Number of sacrifices completed during the final ritual.
+	/// </summary>
+	[DataField]
+	public int SacrificesCompleted = 0;
+
+	/// <summary>
+	/// Total chant steps needed.
+	/// </summary>
+	[DataField]
+	public int TotalChantSteps = 18;
 
 	/// <summary>
 	/// Time between chants (in seconds).
 	/// </summary>
 	[DataField]
-	public float ChantInterval = 5f;
+	public float ChantInterval = 12f;
 
 	/// <summary>
 	/// Time until next chant.
 	/// </summary>
 	[DataField]
 	public float TimeUntilNextChant = 0f;
+
+	/// <summary>
+	/// When the "not enough cultists" popup was last shown, to prevent spam.
+	/// </summary>
+	[DataField]
+	public TimeSpan LastNotEnoughCultistsPopup = TimeSpan.Zero;
 }
 

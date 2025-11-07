@@ -384,8 +384,8 @@ public sealed partial class BloodCultRuneCarverSystem : EntitySystem
             case "ReviveRune":
                 effectPrototype = "FxBloodCultRuneRevive";
                 return true;
-            case "TearVeilRune":
-                effectPrototype = "FxBloodCultRuneTearVeil";
+		case "TearVeilRune":
+				effectPrototype = "TearVeilRune_drawing";
                 return true;
             default:
                 effectPrototype = null;

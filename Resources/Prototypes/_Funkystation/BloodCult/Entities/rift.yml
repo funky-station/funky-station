@@ -47,7 +47,7 @@
         hard: false
         layer:
         - MidImpassable
-  - type: BloodCultRiftComponent
+  - type: BloodCultRift
     pulseInterval: 30.0
     bloodPerPulse: 50.0
   - type: SolutionContainerManager

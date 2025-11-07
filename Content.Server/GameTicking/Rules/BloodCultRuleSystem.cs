@@ -4,6 +4,7 @@
 //
 // SPDX-License-Identifier: MIT
 
+using System;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Maths;
@@ -38,6 +39,7 @@ using Content.Shared.Body.Systems;
 using Robust.Shared.Random;
 using Robust.Server.GameObjects;
 using Content.Shared.Roles.Jobs;
+using Content.Shared.Localizations;
 using Content.Shared.Pinpointer;
 using Content.Shared.Actions;
 using Content.Shared.Ghost;
@@ -297,6 +299,49 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 			}
 		}
 
+		// Handle deferred spawning of the blood anomaly and runes once the veil is weakened
+		if (component.BloodAnomalySpawnScheduled && component.BloodAnomalySpawnTime != null)
+		{
+			if (_timing.CurTime >= component.BloodAnomalySpawnTime)
+			{
+				var riftSetup = EntityManager.System<BloodCult.EntitySystems.BloodCultRiftSetupSystem>();
+				var rift = riftSetup.TrySetupRitualSite(component);
+
+				if (rift != null)
+				{
+					component.BloodAnomalySpawnScheduled = false;
+					component.BloodAnomalySpawned = true;
+					component.BloodAnomalySpawnTime = null;
+					component.BloodAnomalyUid = rift;
+
+					if (component.LocationForSummon != null)
+					{
+						var summonLocation = (WeakVeilLocation) component.LocationForSummon;
+						foreach (var cultist in cultists)
+						{
+							if (!TryComp<BloodCultistComponent>(cultist, out var cultistComp))
+								continue;
+							cultistComp.LocationForSummon = summonLocation;
+							DirtyField(cultist, cultistComp, nameof(BloodCultistComponent.LocationForSummon));
+						}
+					}
+
+					foreach (var cultist in cultists)
+					{
+						_popupSystem.PopupEntity(
+							Loc.GetString("cult-rift-spawned"),
+							cultist, cultist, PopupType.LargeCaution);
+					}
+
+					AnnounceStatus(component, cultists);
+				}
+				else
+				{
+					component.BloodAnomalySpawnTime = _timing.CurTime + TimeSpan.FromSeconds(30);
+				}
+			}
+		}
+
 		// Check if blood thresholds have been reached for stage progression
 		if (!component.HasEyes && component.BloodCollected >= component.BloodRequiredForEyes)
 		{
@@ -454,12 +499,7 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 		{
 			component.CultVictoryAnnouncementPlayed = true;
 			component.CultVictoryEndTime = null;
-
-			//EndRound();
-			_roundEnd.DoRoundEndBehavior(RoundEndBehavior.ShuttleCall,
-				component.ShuttleCallTime,
-				textCall: "cult-win-announcement-shuttle-call",
-				textAnnounce: "cult-win-announcement");
+			_roundEnd.EndRound();
 			return;
 		}
     }
@@ -525,6 +565,22 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 
         return cultistList;
     }
+
+	public bool TryGetActiveRule(out BloodCultRuleComponent component)
+	{
+		var query = EntityQueryEnumerator<BloodCultRuleComponent, GameRuleComponent>();
+		while (query.MoveNext(out var uid, out var ruleComp, out var gameRule))
+		{
+			if (!GameTicker.IsGameRuleActive(uid, gameRule))
+				continue;
+
+			component = ruleComp;
+			return true;
+		}
+
+		component = default!;
+		return false;
+	}
 
 	private void OnGetBriefing(EntityUid uid, BloodCultRoleComponent comp, ref GetBriefingEvent args)
     {
@@ -877,13 +933,16 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 		}
 	}
 
-	private void RiseCultists(List<EntityUid> cultists)
+	private void RiseCultists(List<EntityUid> cultists, bool announce = true)
 	{
-		// Announce to everyone that the cult is rising and then do the rising
-		AnnounceToCultists(
-			Loc.GetString("cult-ascend-2")+"\n",
-			newlineNeeded:true
-		);
+		if (announce)
+		{
+			// Announce to everyone that the cult is rising and then do the rising
+			AnnounceToCultists(
+				Loc.GetString("cult-ascend-2")+"\n",
+				newlineNeeded:true
+			);
+		}
 		foreach (EntityUid cultist in cultists)
 		{
 			if (EntityManager.TryGetComponent(cultist, out AppearanceComponent? appearance))
@@ -912,9 +971,23 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 					color:new Color(111, 80, 143, 255), fontSize:24, newlineNeeded:true);
 			return;
 		}
-		string purpleMessage = !component.VeilWeakened ?
-				Loc.GetString("cult-status-veil-strong") :
-				Loc.GetString("cult-status-veil-weak");
+		string purpleMessage;
+		if (!component.VeilWeakened)
+		{
+			purpleMessage = Loc.GetString("cult-status-veil-strong");
+		}
+		else if (component.BloodAnomalySpawned)
+		{
+			purpleMessage = Loc.GetString("cult-status-veil-weak-anomaly");
+		}
+		else if (component.BloodAnomalySpawnScheduled)
+		{
+			purpleMessage = Loc.GetString("cult-status-veil-weak-pending");
+		}
+		else
+		{
+			purpleMessage = Loc.GetString("cult-status-veil-weak");
+		}
 
 		if (component.VeilWeakened)
 		{
@@ -927,10 +1000,32 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 				name2 = ((WeakVeilLocation)(component.WeakVeil2)).Name;
 			if (component.WeakVeil3 != null)
 				name3 = ((WeakVeilLocation)(component.WeakVeil3)).Name;
-			purpleMessage = purpleMessage + "\n" + Loc.GetString("cult-status-veil-weak-goal",
+
+			var goalKey = component.BloodAnomalySpawned
+				? "cult-status-veil-weak-goal-anomaly"
+				: component.BloodAnomalySpawnScheduled
+					? "cult-status-veil-weak-goal-pending"
+					: "cult-status-veil-weak-goal";
+
+			purpleMessage += "\n" + Loc.GetString(goalKey,
 				("firstLoc", name1),
 				("secondLoc", name2),
 				("thirdLoc", name3));
+		}
+
+		if (component.VeilWeakened && component.LocationForSummon != null)
+		{
+			var summonLocation = (WeakVeilLocation) component.LocationForSummon;
+			purpleMessage += "\n" + Loc.GetString("cult-status-veil-weak-rift-location",
+				("location", summonLocation.Name));
+
+			if (specificCultist != null)
+			{
+				if (TryGetRiftDirectionMessage(specificCultist.Value, summonLocation, out var directionLine))
+					purpleMessage += "\n" + directionLine;
+				else
+					purpleMessage += "\n" + Loc.GetString("cult-status-veil-weak-direction-nosense");
+			}
 		}
 		if (specificCultist != null)
 			AnnounceToCultist(purpleMessage,
@@ -1009,8 +1104,18 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 			string message = Loc.GetString("cult-blood-progress-stage-complete",
 				("bloodCollected", Math.Round(currentBlood, 1).ToString()),
 				("totalRequired", Math.Round(nextThreshold, 1).ToString()));
-			
-			message += "\n" + Loc.GetString("cult-blood-progress-final-summon");
+			message += "\n" + Loc.GetString(
+				component.BloodAnomalySpawned
+					? "cult-blood-progress-final-summon-ready"
+					: component.BloodAnomalySpawnScheduled
+						? "cult-blood-progress-final-summon-pending"
+						: "cult-blood-progress-final-summon");
+
+			if (component.LocationForSummon != null)
+			{
+				message += "\n" + Loc.GetString("cult-blood-progress-final-summon-location",
+					("location", ((WeakVeilLocation)component.LocationForSummon).Name));
+			}
 			
 			return message;
 		}
@@ -1020,6 +1125,34 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 			("bloodNeeded", Math.Round(bloodNeeded, 1).ToString()),
 			("nextPhase", currentPhase),
 			("totalRequired", Math.Round(nextThreshold, 1).ToString()));
+	}
+
+	private bool TryGetRiftDirectionMessage(EntityUid cultistUid, WeakVeilLocation location, out string message)
+	{
+		message = string.Empty;
+
+		if (!TryComp<TransformComponent>(cultistUid, out var cultistXform) || cultistXform.GridUid == null || !cultistXform.GridUid.Value.IsValid())
+			return false;
+
+		var cultistCoords = _transformSystem.ToMapCoordinates(cultistXform.Coordinates);
+		var targetCoords = _transformSystem.ToMapCoordinates(location.Coordinates);
+
+		if (cultistCoords.MapId != targetCoords.MapId)
+			return false;
+
+		var delta = targetCoords.Position - cultistCoords.Position;
+
+		const float threshold = 0.5f;
+		if (delta.LengthSquared() < threshold * threshold)
+		{
+			message = Loc.GetString("cult-status-veil-weak-direction-here", ("location", location.Name));
+			return true;
+		}
+
+		var dir = Direction.Invalid;
+		message = Loc.GetString("cult-blood-progress-final-summon-location",
+			("location", location.Name));
+		return true;
 	}
 
 	public void DistributeCommune(BloodCultRuleComponent component, string message, EntityUid sender)
@@ -1084,29 +1217,16 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 			if (!ruleComp.VeilWeakened)
 			{
 				ruleComp.VeilWeakened = true;
+				var cultists = GetCultists();
+				RiseCultists(cultists, announce: false);
 
-				// Set up the final summoning ritual site
-				var riftSetup = EntityManager.System<BloodCult.EntitySystems.BloodCultRiftSetupSystem>();
-				var rift = riftSetup.TrySetupRitualSite(ruleComp);
-
-				if (rift != null)
-				{
-					// Announce rift creation to all cultists
-					var cultists = GetCultists();
-					
-					// Give cultists their halos now that the veil has been torn
-					RiseCultists(cultists);
-					
-					foreach (var cultist in cultists)
-					{
-						_popupSystem.PopupEntity(
-							Loc.GetString("cult-rift-spawned"),
-							cultist, cultist, PopupType.LargeCaution
-						);
-					}
-				}
+				ruleComp.BloodAnomalySpawnScheduled = true;
+				ruleComp.BloodAnomalySpawned = false;
+				ruleComp.BloodAnomalySpawnTime = _timing.CurTime + TimeSpan.FromMinutes(2);
+				ruleComp.BloodAnomalyUid = null;
 
 				// Announcement will be handled in ActiveTick
+				AnnounceStatus(ruleComp, cultists);
 			}
 			return;
 		}

@@ -386,20 +386,6 @@ namespace Content.Server.BloodCult.EntitySystems
 
 	private void _CreateSoulstoneFromEntity(EntityUid victim, EntityUid user, EntityUid rune, EntityUid[] cultistsInRange)
 	{
-		// Get the victim's mind
-		EntityUid? mindId = CompOrNull<MindContainerComponent>(victim)?.Mind;
-		MindComponent? mindComp = CompOrNull<MindComponent>(mindId);
-		
-		if (mindId == null || mindComp == null)
-		{
-			_popupSystem.PopupEntity(
-				Loc.GetString("cult-invocation-fail-nosoul"),
-				user, user, PopupType.MediumCaution
-			);
-			return;
-		}
-
-		// Check if enough cultists are present
 		if (cultistsInRange.Length < 1)
 		{
 			_popupSystem.PopupEntity(
@@ -409,93 +395,111 @@ namespace Content.Server.BloodCult.EntitySystems
 			return;
 		}
 
-	var coordinates = Transform(victim).Coordinates;
-	
-	// Store the soul container's prototype to use when the soulstone breaks
-	// This will be the brain organ for bodies, or the entity itself for standalone items like positronic brains
-	EntProtoId? originalEntityPrototype = null;
-	
-	// Destroy the original entity or remove its soul container
-	if (TryComp<BodyComponent>(victim, out var body))
+		var coordinates = Transform(victim).Coordinates;
+		CreateSoulstoneInternal(victim, coordinates, user, true);
+	}
+
+	public bool TryForceSoulstoneCreation(EntityUid victim, EntityCoordinates coordinates)
 	{
-		// Find and remove the brain/soul container from the body
-		bool brainRemoved = false;
-		var brains = _bodySystem.GetBodyOrganEntityComps<BrainComponent>((victim, body));
-		foreach (var (brainUid, brainComp, organComp) in brains)
+		return CreateSoulstoneInternal(victim, coordinates, null, false, true);
+	}
+
+	private bool CreateSoulstoneInternal(EntityUid victim, EntityCoordinates coordinates, EntityUid? user, bool showPopup, bool autoActivateShade = false)
+	{
+		EntityUid? mindId = CompOrNull<MindContainerComponent>(victim)?.Mind;
+		MindComponent? mindComp = mindId != null ? CompOrNull<MindComponent>(mindId) : null;
+
+		if (mindId == null || mindComp == null)
 		{
-			// Store the brain organ's prototype before deleting it
-			if (TryComp<MetaDataComponent>(brainUid, out var brainMeta) && brainMeta.EntityPrototype != null)
+			if (showPopup && user != null)
 			{
-				originalEntityPrototype = brainMeta.EntityPrototype.ID;
+				_popupSystem.PopupEntity(
+					Loc.GetString("cult-invocation-fail-nosoul"),
+					user.Value, user.Value, PopupType.MediumCaution
+				);
 			}
-			
-			// Remove the brain from the body and delete it
-			_bodySystem.RemoveOrgan(brainUid, organComp);
-			QueueDel(brainUid);
-			brainRemoved = true;
-			break; // Only take the first brain
+			return false;
 		}
 
-		// If no brain was found but has a body, just delete the whole entity
-		if (!brainRemoved)
+		EntProtoId? originalEntityPrototype = null;
+
+		if (TryComp<BodyComponent>(victim, out var body))
 		{
+			var brains = _bodySystem.GetBodyOrganEntityComps<BrainComponent>((victim, body));
+			var brainRemoved = false;
+			foreach (var (brainUid, brainComp, organComp) in brains)
+			{
+				if (TryComp<MetaDataComponent>(brainUid, out var brainMeta) && brainMeta.EntityPrototype != null)
+					originalEntityPrototype = brainMeta.EntityPrototype.ID;
+
+				_bodySystem.RemoveOrgan(brainUid, organComp);
+				QueueDel(brainUid);
+				brainRemoved = true;
+				break;
+			}
+
+			if (!brainRemoved)
+			{
+				QueueDel(victim);
+			}
+		}
+		else
+		{
+			if (TryComp<MetaDataComponent>(victim, out var victimMeta) && victimMeta.EntityPrototype != null)
+				originalEntityPrototype = victimMeta.EntityPrototype.ID;
+
 			QueueDel(victim);
 		}
-	}
-	else
-	{
-		// No body to process (e.g., positronic brain, item-based entities)
-		// Store the entity's prototype since the entity itself is the soul container
-		if (TryComp<MetaDataComponent>(victim, out var victimMeta) && victimMeta.EntityPrototype != null)
+
+		_audio.PlayPvs(new SoundPathSpecifier("/Audio/Magic/disintegrate.ogg"), coordinates);
+
+		var soulstonePrototype = autoActivateShade ? "CultSoulStoneShard" : "CultSoulStone";
+		var soulstone = Spawn(soulstonePrototype, coordinates);
+		_mind.TransferTo(mindId.Value, soulstone, mind: mindComp);
+
+		EnsureComp<SpeechComponent>(soulstone);
+		EnsureComp<EmotingComponent>(soulstone);
+
+		if (TryComp<SoulStoneComponent>(soulstone, out var soulstoneComp) && originalEntityPrototype != null)
 		{
-			originalEntityPrototype = victimMeta.EntityPrototype.ID;
+			soulstoneComp.OriginalEntityPrototype = originalEntityPrototype;
+			Dirty(soulstone, soulstoneComp);
 		}
-		// Delete the entity directly
-		QueueDel(victim);
-	}
-	
-	// Play sacrifice audio
-	_audio.PlayPvs(new SoundPathSpecifier("/Audio/Magic/disintegrate.ogg"), coordinates);
-	
-	// Create soulstone and transfer mind
-	var soulstone = Spawn("CultSoulStone", coordinates);
-	_mind.TransferTo((EntityUid)mindId, soulstone, mind:mindComp);
-	
-	// Ensure the soulstone can speak but not move
-	EnsureComp<SpeechComponent>(soulstone);
-	EnsureComp<EmotingComponent>(soulstone);
-	
-	// Store the original soul container prototype in the soulstone component
-	if (TryComp<SoulStoneComponent>(soulstone, out var soulstoneComp) && originalEntityPrototype != null)
-	{
-		soulstoneComp.OriginalEntityPrototype = originalEntityPrototype;
-		Dirty(soulstone, soulstoneComp);
-	}
-	
-	// Give the soulstone a physics push for visual effect
-	if (TryComp<PhysicsComponent>(soulstone, out var physics))
-	{
-		// Wake the physics body so it responds to the impulse
-		_physics.SetAwake((soulstone, physics), true);
-		
-		// Generate a random direction and speed (5-10 units/sec similar to a weak throw)
-		var randomDirection = _random.NextVector2();
-		var speed = _random.NextFloat(5f, 10f);
-		var impulse = randomDirection * speed * physics.Mass;
-		_physics.ApplyLinearImpulse(soulstone, impulse, body: physics);
-	}
-		
-		// Play success audio
+
+		if (TryComp<PhysicsComponent>(soulstone, out var physics))
+		{
+			_physics.SetAwake((soulstone, physics), true);
+			var randomDirection = _random.NextVector2();
+			var speed = _random.NextFloat(5f, 10f);
+			var impulse = randomDirection * speed * physics.Mass;
+			_physics.ApplyLinearImpulse(soulstone, impulse, body: physics);
+		}
+
 		_audio.PlayPvs(new SoundPathSpecifier("/Audio/Magic/blink.ogg"), coordinates);
-		
-		// Notify the cultists
-		_popupSystem.PopupEntity(
-			Loc.GetString("cult-soulstone-created"),
-			user, user, PopupType.Large
-		);
-		
-		// Note: Soulstone creation does NOT add blood to the ritual pool
-		// Only conversions (based on victim's blood level) and EdgeEssentia bleeding count toward stages
+
+		if (autoActivateShade && TryComp<MindContainerComponent>(soulstone, out var soulstoneMind) && soulstoneMind.Mind != null)
+		{
+			if (TryComp<MindComponent>((EntityUid)soulstoneMind.Mind, out var mind))
+			{
+				var shade = Spawn("MobBloodCultShade", coordinates);
+				_mind.TransferTo((EntityUid)soulstoneMind.Mind, shade, mind: mind);
+
+				if (TryComp<ShadeComponent>(shade, out var shadeComp))
+					shadeComp.SourceSoulstone = soulstone;
+
+				_audio.PlayPvs(new SoundPathSpecifier("/Audio/Magic/blink.ogg"), coordinates);
+			}
+		}
+
+		if (showPopup && user != null)
+		{
+			_popupSystem.PopupEntity(
+				Loc.GetString("cult-soulstone-created"),
+				user.Value, user.Value, PopupType.Large
+			);
+		}
+
+		return true;
 	}
 
 	// Disabled - cultists should revive and convert instead

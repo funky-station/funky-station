@@ -41,10 +41,11 @@ cult-veil-drawing-confirmed = You may now draw the Tear Veil rune at {$name}!
 
 cult-veil-ritual-already-in-progress = A Tear the Veil ritual is already in progress!
 cult-veil-ritual-not-enough-cultists = Not enough cultists are on Tear Veil runes! {$current} cultists present, {$required} required.
-cult-veil-ritual-started = The Tear the Veil ritual has begun! {$required} cultists must remain on their runes to complete the ritual. Do not leave your rune!
+cult-veil-ritual-started = The Tear the Veil ritual has begun! {$required} cultists must remain on their rune to complete the ritual.
 cult-veil-ritual-not-enough-at-end = The ritual fails! Not enough cultists remained on runes. {$current} cultists present, {$required} required.
 cult-veil-ritual-failed = The Tear the Veil ritual has failed! The cultists were unable to maintain the ritual.
 cult-veil-ritual-success = The Tear the Veil ritual is complete! The veil has been weakened, and Nar'Sie's power grows!
+cult-veil-ritual-already-completed = The Tear the Veil ritual has already been completed. The veil cannot be weakened further.
 
 cult-final-ritual-already-in-progress = The final summoning ritual is already in progress!
 cult-final-ritual-not-enough-cultists = Not enough cultists stand upon the summoning runes! {$current} present, {$required} required. All three runes must be occupied!
@@ -52,6 +53,7 @@ cult-final-ritual-started = THE FINAL RITUAL BEGINS! All cultists must remain on
 cult-final-ritual-not-enough-at-end = The summoning fails! Not enough cultists remained on the runes. {$current} cultists present, {$required} required.
 cult-final-ritual-failed = The final summoning has failed! Nar'Sie's wrath will be terrible!
 cult-final-ritual-success = NAR'SIE COMES! THE GEOMETER OF BLOOD TEARS THROUGH THE VEIL!
+cult-final-ritual-too-early = The blood tithe is incomplete! {$collected}u gathered, {$required}u required before the final summoning may begin.
 
 cult-rift-spawned = Reality tears open as a rift bleeds profane essence into the world! The final ritual site has been prepared!
 
@@ -115,12 +117,21 @@ bloodcult-juggernaut-healed-by-blood = The juggernaut absorbs the blood, its wou
 cult-status-veil-strong = [italic]The Veil needs to be weakened before we are able to summon The Dark One.[/italic]
 
 cult-status-veil-weak = [italic]You and your acolytes have succeeded in preparing the station for the ultimate ritual![/italic]
+cult-status-veil-weak-pending = [italic]The veil is torn. A blood anomaly will manifest soon—ready your offering runes and prepare sacrifices.[/italic]
+cult-status-veil-weak-anomaly = [italic]The blood anomaly has manifested! Feed it with sacrifices to empower the final summoning ritual.[/italic]
 cult-veil-torn = The veil... is... torn!
+cult-rift-spawn-soon = The veil screams. A blood anomaly will manifest in two minutes—prepare your offerings!
 
 cult-status-veil-strong-goal = [italic]Current goal: Sacrifice {$targetName}, the {$targetJob} via invoking an offer rune with its body or brain on it and at least {$cultistsRequired} cultists around it.[/italic]
 
 cult-status-veil-weak-goal = [italic]Current goal: Summon Nar'Sie by invoking the rune 'Tear Veil' with 9 cultists, constructs, or summoned ghosts on it.
     The summoning can only be accomplished in the {$firstLoc} area, the {$secondLoc} area, or the {$thirdLoc} area - where the veil is weak enough for the ritual to begin.[/italic]
+cult-status-veil-weak-goal-pending = [italic]Current goal: Await the arrival of the holy blood of Nar'Sie as you spill more blood in her name![/italic]
+cult-status-veil-weak-goal-anomaly = [italic]Current goal: Feed the blood anomaly at {$firstLoc}, {$secondLoc}, or {$thirdLoc} with offering runes, then gather 9 cultists, constructs, or summoned ghosts on Tear Veil to summon Nar'Sie.[/italic]
+cult-status-veil-weak-rift-location = [italic]The final rift coalesces around {$location}. The ritual must be completed there.[/italic]
+cult-status-veil-weak-direction = [italic]{$location} lies to your {$direction}. Follow the call of the rift.[/italic]
+cult-status-veil-weak-direction-here = [italic]You stand at {$location}; the rift is within reach.[/italic]
+cult-status-veil-weak-direction-nosense = [italic]The rift is beyond your senses; you must find a better vantage point.[/italic]
 
 cult-status-veil-weak-cultdata = Current cult members: {$cultCount} | Conversions until Rise: {$cultUntilRise}
     Cultists: {$cultistCount}
@@ -134,6 +145,9 @@ cult-blood-progress = [italic]Blood Collected: {$bloodCollected}u / {$totalRequi
 cult-blood-progress-stage-complete = [italic]Blood Collected: {$bloodCollected}u / {$totalRequired}u (Stage complete)[/italic]
 cult-blood-progress-tear-veil = [italic]Next objective: Perform the Tear Veil ritual at {$location1}, {$location2}, or {$location3}.[/italic]
 cult-blood-progress-final-summon = [italic]Next objective: Find the reality rift and perform the final summoning ritual with 9 cultists.[/italic]
+cult-blood-progress-final-summon-pending = [italic]Next objective: Await the manifestation of the blood rift.[/italic]
+cult-blood-progress-final-summon-ready = [italic]Next objective: Chant the final summoning ritual to bring Nar'Sie into this reality![/italic]
+cult-blood-progress-final-summon-location = [italic]Final summoning site: {$location}.[/italic]
 cult-blood-progress-complete = [italic]Blood Collected: {$bloodCollected}u. All blood thresholds have been met![/italic]
 
 cult-narsie-sacrifice-accept = "I accept your sacrifice."

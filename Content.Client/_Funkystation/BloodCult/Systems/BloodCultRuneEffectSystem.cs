@@ -30,7 +30,7 @@ public sealed class BloodCultRuneEffectSystem : EntitySystem
 
     private ManualPlaybackEffectSystem? _manualPlaybackSystem;
 
-    private const string TearVeilEffectPrototype = "FxBloodCultRuneTearVeil";
+    private const string TearVeilEffectPrototype = "TearVeilRune_drawing";
 
     public override void Initialize()
     {
@@ -101,41 +101,50 @@ public sealed class BloodCultRuneEffectSystem : EntitySystem
         manualEffect.RowsPerColumn = 4;
         manualEffect.ColumnsOverride = 0;
         manualEffect.Direction = RsiDirection.South;
-        manualEffect.ManualPlaybackEnabled = !string.Equals(ev.Prototype, TearVeilEffectPrototype, StringComparison.Ordinal);
+        var isTearVeil = string.Equals(ev.Prototype, TearVeilEffectPrototype, StringComparison.Ordinal);
+
+        manualEffect.ManualPlaybackEnabled = !isTearVeil;
 
         var useManual = manualEffect.ManualPlaybackEnabled
-                         && !string.Equals(ev.Prototype, TearVeilEffectPrototype, StringComparison.Ordinal)
                          && TryGetManualPlaybackSystem(out var manualSystem)
                          && manualSystem.TryEnableManualPlayback(spriteEntity, manualEffect);
 
         if (!useManual)
         {
-            manualEffect.ActiveManualPlayback = false;
-            manualEffect.Frames = Array.Empty<Texture>();
-            manualEffect.FrameDelays = Array.Empty<float>();
-            manualEffect.TotalDelay = 0f;
+            var handledFallback = false;
 
-            if (_sprite.TryGetLayer(spriteEntity, manualEffect.LayerKey, out var layer, false))
+            if (isTearVeil)
+                handledFallback = TryEnableTearVeilFallback(spriteEntity, manualEffect);
+
+            if (!handledFallback)
             {
-                manualEffect.BaseColor = layer.Color;
-                manualEffect.BaseShader = layer.ShaderPrototype;
-                manualEffect.BaseUnshaded = layer.ShaderPrototype == SpriteSystem.UnshadedId;
-                if (!_sprite.LayerMapTryGet(spriteEntity, manualEffect.LayerKey, out var layerIndex, false))
-                    layerIndex = -1;
-                manualEffect.LayerIndex = layerIndex;
+                manualEffect.ActiveManualPlayback = false;
+                manualEffect.Frames = Array.Empty<Texture>();
+                manualEffect.FrameDelays = Array.Empty<float>();
+                manualEffect.TotalDelay = 0f;
 
-                _sprite.LayerSetAutoAnimated(spriteEntity, manualEffect.LayerKey, true);
-                _sprite.LayerSetAnimationTime(spriteEntity, manualEffect.LayerKey, 0f);
-                if (manualEffect.LayerIndex >= 0)
+                if (_sprite.TryGetLayer(spriteEntity, manualEffect.LayerKey, out var layer, false))
                 {
-                    if (manualEffect.BaseUnshaded)
-                        sprite.LayerSetShader(manualEffect.LayerIndex, (ShaderInstance?) null, SpriteSystem.UnshadedId.Id);
-                    else if (manualEffect.BaseShader is { } shader)
-                        sprite.LayerSetShader(manualEffect.LayerIndex, shader.Id);
-                    else
-                        sprite.LayerSetShader(manualEffect.LayerIndex, (ShaderInstance?) null, null);
+                    manualEffect.BaseColor = layer.Color;
+                    manualEffect.BaseShader = layer.ShaderPrototype;
+                    manualEffect.BaseUnshaded = layer.ShaderPrototype == SpriteSystem.UnshadedId;
+                    if (!_sprite.LayerMapTryGet(spriteEntity, manualEffect.LayerKey, out var layerIndex, false))
+                        layerIndex = -1;
+                    manualEffect.LayerIndex = layerIndex;
+
+                    _sprite.LayerSetAutoAnimated(spriteEntity, manualEffect.LayerKey, true);
+                    _sprite.LayerSetAnimationTime(spriteEntity, manualEffect.LayerKey, 0f);
+                    if (manualEffect.LayerIndex >= 0)
+                    {
+                        if (manualEffect.BaseUnshaded)
+                            sprite.LayerSetShader(manualEffect.LayerIndex, (ShaderInstance?) null, SpriteSystem.UnshadedId.Id);
+                        else if (manualEffect.BaseShader is { } shader)
+                            sprite.LayerSetShader(manualEffect.LayerIndex, shader.Id);
+                        else
+                            sprite.LayerSetShader(manualEffect.LayerIndex, (ShaderInstance?) null, null);
+                    }
+                    _sprite.LayerSetColor(spriteEntity, manualEffect.LayerKey, manualEffect.BaseColor);
                 }
-                _sprite.LayerSetColor(spriteEntity, manualEffect.LayerKey, manualEffect.BaseColor);
             }
         }
 
@@ -206,5 +215,61 @@ public sealed class BloodCultRuneEffectSystem : EntitySystem
         state.BaseUnshaded = false;
         state.BaseColor = Color.White;
         state.LayerIndex = -1;
+    }
+
+    private bool TryEnableTearVeilFallback(Entity<SpriteComponent?> spriteEntity, ManualPlaybackStateComponent manualEffect)
+    {
+        if (!_sprite.TryGetLayer(spriteEntity, manualEffect.LayerKey, out var layer, false))
+            return false;
+
+        manualEffect.BaseShader = layer.ShaderPrototype;
+        manualEffect.BaseUnshaded = layer.ShaderPrototype == SpriteSystem.UnshadedId;
+        if (!_sprite.LayerMapTryGet(spriteEntity, manualEffect.LayerKey, out var layerIndex, false))
+            layerIndex = -1;
+        manualEffect.LayerIndex = layerIndex;
+
+        var state = layer.ActualState;
+        if (state == null)
+            return false;
+
+        var frames = state.GetFrames(manualEffect.Direction);
+        if (frames.Length == 0)
+            return false;
+
+        var delays = state.GetDelays();
+        var frameDelays = new float[frames.Length];
+
+        for (var i = 0; i < frames.Length; i++)
+            frameDelays[i] = delays.Length > i ? delays[i] : 0.1f;
+
+        manualEffect.Frames = frames;
+        manualEffect.FrameDelays = frameDelays;
+
+        var totalDelay = 0f;
+        foreach (var delay in frameDelays)
+            totalDelay += delay;
+
+        if (totalDelay <= 0f)
+            totalDelay = frameDelays.Length * 0.1f;
+
+        manualEffect.TotalDelay = totalDelay;
+        manualEffect.BaseColor = layer.Color;
+        manualEffect.ActiveManualPlayback = true;
+
+        _sprite.LayerSetAutoAnimated(spriteEntity, manualEffect.LayerKey, false);
+        _sprite.LayerSetTexture(spriteEntity, manualEffect.LayerKey, frames[0]);
+        _sprite.LayerSetColor(spriteEntity, manualEffect.LayerKey, manualEffect.BaseColor);
+
+        if (manualEffect.LayerIndex >= 0)
+        {
+            if (manualEffect.BaseUnshaded)
+                spriteEntity.Comp?.LayerSetShader(manualEffect.LayerIndex, (ShaderInstance?) null, SpriteSystem.UnshadedId.Id);
+            else if (manualEffect.BaseShader is { } shader)
+                spriteEntity.Comp?.LayerSetShader(manualEffect.LayerIndex, shader.Id);
+            else
+                spriteEntity.Comp?.LayerSetShader(manualEffect.LayerIndex, (ShaderInstance?) null, null);
+        }
+
+        return true;
     }
 }

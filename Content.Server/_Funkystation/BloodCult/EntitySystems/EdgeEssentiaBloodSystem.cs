@@ -5,6 +5,7 @@
 using Content.Server.BloodCult.EntityEffects;
 using Content.Server.Body.Components;
 using Content.Server.Body.Systems;
+using Content.Server.GameTicking;
 using Content.Server.GameTicking.Rules;
 using Content.Server.GameTicking.Rules.Components;
 using Content.Shared.BloodCult.Components;
@@ -28,6 +29,7 @@ public sealed class EdgeEssentiaBloodSystem : EntitySystem
 	[Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
 	[Dependency] private readonly BloodstreamSystem _bloodstream = default!;
 	[Dependency] private readonly BloodCultRuleSystem _bloodCultRule = default!;
+	[Dependency] private readonly GameTicker _gameTicker = default!;
 
 	private TimeSpan _nextUpdate = TimeSpan.Zero;
 	private bool _bloodCultRuleActive = false;
@@ -51,7 +53,7 @@ public sealed class EdgeEssentiaBloodSystem : EntitySystem
 
 		// At least one entity exists with EdgeEssentiaBloodComponent
 		// Check if BloodCult game rule is active (only needed if we're tracking blood loss)
-		_bloodCultRuleActive = HasBloodCultRule();
+		_bloodCultRuleActive = _gameTicker.IsGameRuleActive<BloodCultRuleComponent>();
 
 		// Process the first entity
 		do
@@ -79,15 +81,6 @@ public sealed class EdgeEssentiaBloodSystem : EntitySystem
 			RemCompDeferred<EdgeEssentiaBloodComponent>(uid);
 		}
 		while (query.MoveNext(out uid, out edgeEssentia, out bloodstream));
-	}
-
-	/// <summary>
-	/// Checks if the BloodCult game rule is currently active
-	/// </summary>
-	private bool HasBloodCultRule()
-	{
-		var query = EntityQueryEnumerator<BloodCultRuleComponent, GameRuleComponent>();
-		return query.MoveNext(out _, out _, out _);
 	}
 
 	private void TrackSanguinePerniculateLoss(EntityUid uid, EdgeEssentiaBloodComponent edgeEssentia, BloodstreamComponent bloodstream)
@@ -132,7 +125,6 @@ public sealed class EdgeEssentiaBloodSystem : EntitySystem
 
 	private bool HasEdgeEssentia(EntityUid uid, BloodstreamComponent bloodstream)
 	{
-		// Check if there's Edge Essentia in their chemical solution (metabolism container)
 		if (!_solutionContainer.ResolveSolution(uid, bloodstream.ChemicalSolutionName, ref bloodstream.ChemicalSolution, out var chemSolution))
 			return false;
 

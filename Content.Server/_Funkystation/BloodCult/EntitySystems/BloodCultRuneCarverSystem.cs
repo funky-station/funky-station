@@ -6,6 +6,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
 //using Content.Shared.Tag;
+using System;
 using System.Linq;
 using Robust.Shared.Audio;
 using Robust.Shared.GameObjects;
@@ -53,6 +54,7 @@ public sealed partial class BloodCultRuneCarverSystem : EntitySystem
 	[Dependency] private readonly BloodstreamSystem _bloodstream = default!;
 
 	private EntityQuery<BloodCultRuneComponent> _runeQuery;
+	private uint _nextEffectId = 1;
 
 	public override void Initialize()
 	{
@@ -188,10 +190,17 @@ public sealed partial class BloodCultRuneCarverSystem : EntitySystem
 			timeToCarve = 45.0f;
 		}
 
-		// Fourth, raise an event to place a rune here.
-		var rune = Spawn(ent.Comp.InProgress, location);
+		// Fourth, raise an effect event to place a rune here.
+		uint? effectId = null;
+		var duration = TimeSpan.FromSeconds(timeToCarve);
+		if (TryGetRuneEffectPrototype(ent.Comp.Rune, out var effectPrototype))
+		{
+			effectId = _nextEffectId++;
+			RaiseEffectEvent(effectId.Value, effectPrototype, location, RuneEffectAction.Start, duration);
+		}
+
 		var dargs = new DoAfterArgs(EntityManager, args.User, timeToCarve, new DrawRuneDoAfterEvent(
-			ent, rune, location, ent.Comp.Rune, ent.Comp.BleedOnCarve, ent.Comp.CarveSound), args.User
+			ent, EntityUid.Invalid, location, ent.Comp.Rune, ent.Comp.BleedOnCarve, ent.Comp.CarveSound, effectId, duration), args.User
 		)
         {
             BreakOnDamage = true,
@@ -279,6 +288,9 @@ public sealed partial class BloodCultRuneCarverSystem : EntitySystem
 		else
 			appliedDamageSpecifier = new DamageSpecifier(_protoMan.Index<DamageTypePrototype>("Slash"), FixedPoint2.New(ev.BleedOnCarve));
 
+        if (ev.EffectId.HasValue)
+            RaiseEffectEvent(ev.EffectId.Value, null, ev.Coords, RuneEffectAction.Stop, TimeSpan.Zero);
+
         if (!ev.Cancelled)
 		{
 			var gridUid = _transform.GetGrid(ev.Coords);
@@ -308,6 +320,10 @@ public sealed partial class BloodCultRuneCarverSystem : EntitySystem
 				QueueDel(rune);
 			}
 		}
+        else
+        {
+            return;
+        }
     }
 
 	private void OnUseInHand(Entity<BloodCultRuneCarverComponent> ent, ref UseInHandEvent ev)
@@ -351,4 +367,42 @@ public sealed partial class BloodCultRuneCarverSystem : EntitySystem
 		}
 		return true;
 	}
+
+    private bool TryGetRuneEffectPrototype(string runePrototype, out string? effectPrototype)
+    {
+        switch (runePrototype)
+        {
+            case "BarrierRune":
+                effectPrototype = "FxBloodCultRuneBarrier";
+                return true;
+            case "EmpoweringRune":
+                effectPrototype = "FxBloodCultRuneEmpowering";
+                return true;
+            case "OfferingRune":
+                effectPrototype = "FxBloodCultRuneOffering";
+                return true;
+            case "ReviveRune":
+                effectPrototype = "FxBloodCultRuneRevive";
+                return true;
+            case "TearVeilRune":
+                effectPrototype = "FxBloodCultRuneTearVeil";
+                return true;
+            default:
+                effectPrototype = null;
+                return false;
+        }
+    }
+
+    private void RaiseEffectEvent(uint effectId, string? prototype, EntityCoordinates coords, RuneEffectAction action, TimeSpan duration)
+    {
+        var netCoords = GetNetCoordinates(coords);
+        var ev = new RuneDrawingEffectEvent(effectId, prototype, netCoords, action, duration);
+        RaiseNetworkEvent(ev, Filter.Pvs(coords, entityMan: EntityManager));
+    }
+
+    private NetCoordinates GetNetCoordinates(EntityCoordinates coords)
+    {
+        var netEntity = EntityManager.GetNetEntity(coords.EntityId);
+        return new NetCoordinates(netEntity, coords.Position);
+    }
 }

@@ -40,6 +40,7 @@ using Content.Shared.Roles;
 using Content.Server.Roles;
 using Content.Server.Mind;
 using Content.Server.Chat.Systems;
+using Content.Server.GameTicking;
 using Content.Shared.Stunnable;
 using Content.Shared.StatusEffect;
 using Content.Server.GameTicking.Rules;
@@ -67,10 +68,11 @@ namespace Content.Server.BloodCult.EntitySystems
 		[Dependency] private readonly BloodCultistSystem _bloodCultist = default!;
 		[Dependency] private readonly MindSystem _mind = default!;
 		[Dependency] private readonly SharedAudioSystem _audio = default!;
+		[Dependency] private readonly GameTicker _gameTicker = default!;
 		[Dependency] private readonly SharedContainerSystem _container = default!;
-	[Dependency] private readonly BloodstreamSystem _bloodstream = default!;
-	[Dependency] private readonly SharedStunSystem _stun = default!;
-	[Dependency] private readonly BloodCultRuleSystem _bloodCultRule = default!;
+		[Dependency] private readonly BloodstreamSystem _bloodstream = default!;
+		[Dependency] private readonly SharedStunSystem _stun = default!;
+		[Dependency] private readonly BloodCultRuleSystem _bloodCultRule = default!;
 		[Dependency] private readonly BodySystem _bodySystem = default!;
 		[Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
 		[Dependency] private readonly IGameTiming _gameTiming = default!;
@@ -78,10 +80,10 @@ namespace Content.Server.BloodCult.EntitySystems
 		[Dependency] private readonly SharedTransformSystem _transform = default!;
 		[Dependency] private readonly DamageableSystem _damageable = default!;
 		[Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-	[Dependency] private readonly TagSystem _tag = default!;
-	[Dependency] private readonly SharedSubdermalImplantSystem _implantSystem = default!;
-	[Dependency] private readonly SharedPhysicsSystem _physics = default!;
-	[Dependency] private readonly IRobustRandom _random = default!;
+		[Dependency] private readonly TagSystem _tag = default!;
+		[Dependency] private readonly SharedSubdermalImplantSystem _implantSystem = default!;
+		[Dependency] private readonly SharedPhysicsSystem _physics = default!;
+		[Dependency] private readonly IRobustRandom _random = default!;
 
 		private static readonly ProtoId<DamageTypePrototype> SlashDamageType = "Slash";
 
@@ -163,7 +165,8 @@ namespace Content.Server.BloodCult.EntitySystems
 
 					// Generate random cult chant (2 words)
 					var chant = _bloodCultRule.GenerateChant(wordCount: 2);
-					_chat.TrySendInGameICMessage(participant, chant, InGameICChatType.Speak, false);
+					var chatType = _gameTicker.IsGameRuleActive<BloodCultRuleComponent>() ? InGameICChatType.Speak : InGameICChatType.Whisper;
+					_chat.TrySendInGameICMessage(participant, chant, chatType, false);
 					chantersCount++;
 				}
 			}

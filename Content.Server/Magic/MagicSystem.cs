@@ -59,7 +59,8 @@ public sealed class MagicSystem : SharedMagicSystem
 
     private void OnSpellSpoken(ref SpeakSpellEvent args)
     {
-        _chat.TrySendInGameICMessage(args.Performer, Loc.GetString(args.Speech), InGameICChatType.Speak, false);
+        var chatType = _gameTicker.IsGameRuleActive<BloodCultRuleComponent>() ? InGameICChatType.Speak : InGameICChatType.Whisper;
+        _chat.TrySendInGameICMessage(args.Performer, Loc.GetString(args.Speech), chatType, false);
     }
 
     public override void OnVoidApplause(VoidApplauseSpellEvent ev)

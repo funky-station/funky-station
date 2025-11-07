@@ -67,8 +67,10 @@ public sealed partial class CultistSpellComponent : Component
 	[NonSerialized] public string EntityId;
 	[NonSerialized] public int BleedOnCarve;
 	[NonSerialized] public SoundSpecifier CarveSound;
+    [NonSerialized] public uint? EffectId;
+    [NonSerialized] public TimeSpan Duration;
 
-    public DrawRuneDoAfterEvent(EntityUid carverUid, EntityUid rune, EntityCoordinates coords, string entityId, int bleedOnCarve, SoundSpecifier carveSound)
+    public DrawRuneDoAfterEvent(EntityUid carverUid, EntityUid rune, EntityCoordinates coords, string entityId, int bleedOnCarve, SoundSpecifier carveSound, uint? effectId, TimeSpan duration)
     {
 		CarverUid = carverUid;
         Rune = rune;
@@ -76,6 +78,8 @@ public sealed partial class CultistSpellComponent : Component
 		EntityId = entityId;
 		BleedOnCarve = bleedOnCarve;
 		CarveSound = carveSound;
+        EffectId = effectId;
+        Duration = duration;
     }
 }
 
@@ -152,3 +156,29 @@ public sealed partial class EventCultistSanguineDream : EntityTargetActionEvent 
 public sealed partial class EventCultistTwistedConstruction : EntityTargetActionEvent { }
 
 #endregion
+
+[Serializable, NetSerializable]
+public sealed class RuneDrawingEffectEvent : EntityEventArgs
+{
+    public readonly uint EffectId;
+    public readonly string? Prototype;
+    public readonly NetCoordinates Coordinates;
+    public readonly RuneEffectAction Action;
+    public readonly TimeSpan Duration;
+
+    public RuneDrawingEffectEvent(uint effectId, string? prototype, NetCoordinates coordinates, RuneEffectAction action, TimeSpan duration)
+    {
+        EffectId = effectId;
+        Prototype = prototype;
+        Coordinates = coordinates;
+        Action = action;
+        Duration = duration;
+    }
+}
+
+[Serializable, NetSerializable]
+public enum RuneEffectAction : byte
+{
+    Start,
+    Stop
+}

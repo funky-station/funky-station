@@ -5,6 +5,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
 using System.Linq;
+using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Timing;
 using Robust.Shared.Audio;
@@ -34,8 +35,9 @@ namespace Content.Server.BloodCult.EntitySystems
 		[Dependency] private readonly MobStateSystem _mobState = default!;
 		[Dependency] private readonly BloodCultRuleSystem _bloodCultRule = default!;
 		[Dependency] private readonly EntityLookupSystem _lookup = default!;
-		[Dependency] private readonly AlertLevelSystem _alertLevel = default!;
-		[Dependency] private readonly StationSystem _station = default!;
+        [Dependency] private readonly AlertLevelSystem _alertLevel = default!;
+        [Dependency] private readonly StationSystem _station = default!;
+        [Dependency] private readonly SharedTransformSystem _transform = default!;
 
 		public override void Initialize()
 		{
@@ -258,7 +260,8 @@ namespace Content.Server.BloodCult.EntitySystems
 					continue;
 
 				// Look for cultists near this rune
-				var nearbyEntities = _lookup.GetEntitiesInRange(runeXform.Coordinates, 0.5f);
+                var runeCoords = _transform.ToMapCoordinates(runeXform.Coordinates);
+                var nearbyEntities = _lookup.GetEntitiesInRange(runeCoords, 0.75f);
 				foreach (var entity in nearbyEntities)
 				{
 					// Check if this is a live cultist or construct
@@ -289,7 +292,8 @@ namespace Content.Server.BloodCult.EntitySystems
 					continue;
 
 				// Look for cultists near this rune
-				var nearbyEntities = _lookup.GetEntitiesInRange(runeXform.Coordinates, 0.5f);
+                var runeCoords = _transform.ToMapCoordinates(runeXform.Coordinates);
+                var nearbyEntities = _lookup.GetEntitiesInRange(runeCoords, 0.75f);
 				foreach (var entity in nearbyEntities)
 				{
 					// Check if this is a live cultist or construct

@@ -25,7 +25,7 @@ SPDX-License-Identifier: MIT
     <GuideEntityEmbed Entity="PosterContrabandEnlistGorlex" Caption=""/>
   </Box>
 
-  You've just been chosen to be a nuclear operative for the [color=#ff0000]Syndicate[/color]. You have one goal, to blow up one of Nanotrasen's finest vessels with a nuclear fission explosive.
+  You've just been chosen to be a nuclear operative for the [color=#ff0000]Syndicate[/color]. You have one goal: blow up one of Nanotrasen's finest vessels with a nuclear fission explosive.
 
   ## Operatives
   Your team will be made up of several different roles, which are:
@@ -39,7 +39,7 @@ SPDX-License-Identifier: MIT
     <GuideEntityEmbed Entity="ClothingOuterHardsuitSyndieCommander" Caption="commander's hardsuit"/>
   </Box>
 
-  If you have been selected as the Agent or Commander but don't feel ready, one of your teammates can take responsibility.
+  You should only enable the Agent or Commander roles if you intend to take on their responsibilities. Do not use them as an extra chance for rolling Nuclear Operative, with intent to push their responsibilities off on another player.
 
   ## The Disk
 
@@ -75,7 +75,7 @@ SPDX-License-Identifier: MIT
   </Box>
 
   You'll also have to choose if you want to [color=red]declare war[/color] or not. Doing so grants your team [bold]200 extra telecrystals each[/bold].
-  However, the crew will immediately know of your existence and will have plenty of time to prepare for your arrival.
+  However, the crew will immediately learn of your existence and will have plenty of time to prepare for your arrival.
 
   The [bold]Commander[/bold] is the only person who can declare war. Make your choice quick, [italic]this is a limited-time offer![/italic]
   <Box>

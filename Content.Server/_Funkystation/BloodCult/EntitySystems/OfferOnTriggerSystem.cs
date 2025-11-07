@@ -53,6 +53,8 @@ using Robust.Shared.Physics.Systems;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Random;
 using Content.Shared.GameTicking.Components;
+using Content.Shared.Speech;
+using Content.Shared.Emoting;
 
 namespace Content.Server.BloodCult.EntitySystems
 {
@@ -143,9 +145,15 @@ namespace Content.Server.BloodCult.EntitySystems
 				ritual.ChantCount++;
 				ritual.NextChantTime = curTime + TimeSpan.FromSeconds(2);
 
-				// Make all participants chant gibberish (only those still valid)
+				// Make only the minimum required participants chant (first 3 valid cultists)
+				int chantersCount = 0;
+				const int requiredChanters = 3;
+				
 				foreach (var participant in ritual.Participants)
 				{
+					if (chantersCount >= requiredChanters)
+						break;
+					
 					if (!Exists(participant) || _mobState.IsDead(participant))
 						continue;
 					
@@ -153,9 +161,10 @@ namespace Content.Server.BloodCult.EntitySystems
 					if ((participantPos - runePos).Length() > 2.5f)
 						continue;
 
-				// Generate random cult chant (2 words)
-				var chant = _bloodCultRule.GenerateChant(wordCount: 2);
-				_chat.TrySendInGameICMessage(participant, chant, InGameICChatType.Speak, false);
+					// Generate random cult chant (2 words)
+					var chant = _bloodCultRule.GenerateChant(wordCount: 2);
+					_chat.TrySendInGameICMessage(participant, chant, InGameICChatType.Speak, false);
+					chantersCount++;
 				}
 			}
 		}
@@ -448,6 +457,10 @@ namespace Content.Server.BloodCult.EntitySystems
 	// Create soulstone and transfer mind
 	var soulstone = Spawn("CultSoulStone", coordinates);
 	_mind.TransferTo((EntityUid)mindId, soulstone, mind:mindComp);
+	
+	// Ensure the soulstone can speak but not move
+	EnsureComp<SpeechComponent>(soulstone);
+	EnsureComp<EmotingComponent>(soulstone);
 	
 	// Store the original soul container prototype in the soulstone component
 	if (TryComp<SoulStoneComponent>(soulstone, out var soulstoneComp) && originalEntityPrototype != null)

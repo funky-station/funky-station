@@ -3,15 +3,15 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
 using Robust.Shared.GameObjects;
-using Robust.Shared.GameStates;
 
 namespace Content.Shared.BloodCult.Components;
 
 /// <summary>
 /// Marks an entity as a Blood Cult reality rift that pulses Sanguine Perniculate.
 /// The final ritual requires cultists to chant on runes around this rift.
+/// This is a server-only component that tracks ritual state.
 /// </summary>
-[RegisterComponent, NetworkedComponent]
+[RegisterComponent]
 public sealed partial class BloodCultRiftComponent : Component
 {
 	/// <summary>

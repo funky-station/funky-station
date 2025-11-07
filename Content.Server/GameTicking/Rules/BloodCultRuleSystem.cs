@@ -60,6 +60,8 @@ using Content.Shared.Chat;
 using Robust.Shared.Console;
 using Content.Server.Administration;
 using Content.Shared.Administration;
+using Content.Shared.Speech;
+using Content.Shared.Emoting;
 
 namespace Content.Server.GameTicking.Rules;
 
@@ -223,7 +225,8 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 				_cultistSpell.AddSpell(traitor, cultist, (ProtoId<CultAbilityPrototype>) "SpellsSelect", recordKnownSpell:false);
 
 				// propogate the selected Nar'Sie summon location
-				cultist.ShowTearVeilRune = component.VeilWeakened;
+				// Enable Tear Veil rune if stage 2 (HasRisen) or later has been reached
+				cultist.ShowTearVeilRune = component.HasRisen || component.VeilWeakened;
 				cultist.LocationForSummon = component.LocationForSummon;
 			}
 
@@ -307,6 +310,15 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 			component.HasRisen = true;
 			// RiseCultists moved to CompleteVeilRitual (when VeilWeakened becomes true)
 			AnnounceStatus(component, cultists);
+			
+			// Enable Tear Veil rune for all cultists at stage 2
+			foreach (EntityUid cultist in cultists)
+			{
+				if (!TryComp<BloodCultistComponent>(cultist, out var cultistComp))
+					continue;
+				cultistComp.ShowTearVeilRune = true;
+				DirtyField(cultist, cultistComp, nameof(BloodCultistComponent.ShowTearVeilRune));
+			}
 		}
 
 		// Stage 3 (VeilWeakened) requires the Tear the Veil ritual to be completed
@@ -330,6 +342,14 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 		{
 			if (!TryComp<BloodCultistComponent>(cultistUid, out var cultist))
 				continue;
+
+			// Ensure ShowTearVeilRune is always correct based on current stage
+			bool shouldShowTearVeil = component.HasRisen || component.VeilWeakened;
+			if (cultist.ShowTearVeilRune != shouldShowTearVeil)
+			{
+				cultist.ShowTearVeilRune = shouldShowTearVeil;
+				DirtyField(cultistUid, cultist, nameof(BloodCultistComponent.ShowTearVeilRune));
+			}
 
 			// Show cult status
 			if (cultist.StudyingVeil)
@@ -405,75 +425,6 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 					_appearance.SetData(cultistUid, CultEyesVisuals.CultEyes, false, appearance);
 					_appearance.SetData(cultistUid, CultHaloVisuals.CultHalo, false, appearance);
 				}
-			}
-
-			// Did someone just try to draw the tear veil rune for the first time?
-			if (cultist.TryingDrawTearVeil)
-			{
-				if (component.WeakVeil1 != null && component.WeakVeil2 != null && component.WeakVeil3 != null)
-				{
-				WeakVeilLocation? currentSummoningLoc = null;
-				WeakVeilLocation weakVeil1 = (WeakVeilLocation)component.WeakVeil1;
-				WeakVeilLocation weakVeil2 = (WeakVeilLocation)component.WeakVeil2;
-				WeakVeilLocation weakVeil3 = (WeakVeilLocation)component.WeakVeil3;
-				if (_transformSystem.InRange(weakVeil1.Coordinates, Transform(cultistUid).Coordinates, weakVeil1.ValidRadius))
-				{
-					currentSummoningLoc = weakVeil1;
-				}
-				else if (_transformSystem.InRange(weakVeil2.Coordinates, Transform(cultistUid).Coordinates, weakVeil2.ValidRadius))
-				{
-					currentSummoningLoc = weakVeil2;
-				}
-				else if (_transformSystem.InRange(weakVeil3.Coordinates, Transform(cultistUid).Coordinates, weakVeil3.ValidRadius))
-				{
-					currentSummoningLoc = weakVeil3;
-				}
-
-					if (currentSummoningLoc == null)
-					{
-						// Case : They are not standing in a valid location.
-						_popupSystem.PopupEntity(
-							Loc.GetString("cult-veil-drawing-toostrong"),
-							cultistUid, cultistUid, PopupType.MediumCaution
-						);
-					}
-					else
-					{
-						//if (cultist.ConfirmedSummonLocation)
-						if (!cultist.AskedToConfirm)
-						{
-							// Case : They are standing in a valid location, but have not been asked to confirm yet.
-							string name = ((WeakVeilLocation)currentSummoningLoc).Name;
-							_popupSystem.PopupEntity(
-								Loc.GetString("cult-veil-drawing-pleaseconfirm", ("name", name)),
-								cultistUid, cultistUid, PopupType.MediumCaution
-							);
-							cultist.AskedToConfirm = true;
-						}
-						else
-						{
-							// Case : They are standing in a valid location and have already been asked to confirm. Alert the crew!
-							string name = ((WeakVeilLocation)currentSummoningLoc).Name;
-							foreach (var currCultist in GetCultists())
-							{
-								if (!TryComp<BloodCultistComponent>(currCultist, out var cultMember))
-									continue;
-								cultMember.ConfirmedSummonLocation = true;
-								cultMember.LocationForSummon = ((WeakVeilLocation)currentSummoningLoc);
-							}
-							// Make sure the location for summoning propogates to new cultists.
-							component.LocationForSummon = cultist.LocationForSummon;
-							_chat.DispatchGlobalAnnouncement(
-								Loc.GetString("cult-veil-drawing-crewwarning", ("name", name)),
-								"Central Command Higher Dimensional Affairs",
-								true,
-								new SoundPathSpecifier("/Audio/Announcements/war.ogg"),
-								Color.Red);
-							//AnnounceToEveryone(Loc.GetString("cult-veil-drawing-crewwarning", ("name", name))+"\n", fontSize:18, newlineNeeded:true);
-						}
-					}
-				}
-				cultist.TryingDrawTearVeil = false;
 			}
 
 			// Did someone just fail to summon Nar'Sie?
@@ -660,9 +611,15 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 		}
 	else
 	{
+		// Only make the minimum required number of cultists speak
+		int speakerCount = 0;
 		foreach (EntityUid invoker in sacrifice.Invokers)
 		{
+			if (speakerCount >= component.CultistsToSacrifice)
+				break;
+			
 			Speak(invoker, Loc.GetString("cult-invocation-offering"));
+			speakerCount++;
 		}
 
 		if (_SacrificeVictim(sacrifice.Victim, cultistUid))
@@ -685,6 +642,10 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 			_body.GibBody(uid, true);
 			var soulstone = Spawn("CultSoulStone", coordinates);
 			_mind.TransferTo((EntityUid)mindId, soulstone, mind:mindComp);
+			
+			// Ensure the soulstone can speak but not move
+			EnsureComp<SpeechComponent>(soulstone);
+			EnsureComp<EmotingComponent>(soulstone);
 		
 		// Give the soulstone a physics push for visual effect
 		if (TryComp<PhysicsComponent>(soulstone, out var physics))
@@ -721,8 +682,17 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 		}
 		else if (convert.Invokers.Length >= component.CultistsToConvert)
 		{
+			// Only make the minimum required number of cultists speak
+			int speakerCount = 0;
 			foreach (EntityUid invoker in convert.Invokers)
+			{
+				if (speakerCount >= component.CultistsToConvert)
+					break;
+				
 				Speak(invoker, Loc.GetString("cult-invocation-offering"));
+				speakerCount++;
+			}
+			
 			_ConvertVictim(convert.Subject, component);
 			return true;
 		}
@@ -1010,15 +980,39 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 		}
 		else if (!component.VeilWeakened)
 		{
-			currentPhase = "Veil";
-			nextThreshold = component.BloodRequiredForVeil;
-			bloodNeeded = nextThreshold - currentBlood;
+			// Stage 2 complete - need to do Tear Veil ritual
+			nextThreshold = component.BloodRequiredForRise;
+			
+			string message = Loc.GetString("cult-blood-progress-stage-complete",
+				("bloodCollected", Math.Round(currentBlood, 1).ToString()),
+				("totalRequired", Math.Round(nextThreshold, 1).ToString()));
+			
+			// Show Tear Veil locations if they exist
+			if (component.WeakVeil1 != null && component.WeakVeil2 != null && component.WeakVeil3 != null)
+			{
+				string name1 = ((WeakVeilLocation)component.WeakVeil1).Name;
+				string name2 = ((WeakVeilLocation)component.WeakVeil2).Name;
+				string name3 = ((WeakVeilLocation)component.WeakVeil3).Name;
+				message += "\n" + Loc.GetString("cult-blood-progress-tear-veil",
+					("location1", name1),
+					("location2", name2),
+					("location3", name3));
+			}
+			
+			return message;
 		}
 		else
 		{
-			// All phases complete
-			return Loc.GetString("cult-blood-progress-complete", 
-				("bloodCollected", Math.Round(currentBlood, 1).ToString()));
+			// Stage 3 - Veil is weakened, need to do final summoning
+			nextThreshold = component.BloodRequiredForVeil;
+			
+			string message = Loc.GetString("cult-blood-progress-stage-complete",
+				("bloodCollected", Math.Round(currentBlood, 1).ToString()),
+				("totalRequired", Math.Round(nextThreshold, 1).ToString()));
+			
+			message += "\n" + Loc.GetString("cult-blood-progress-final-summon");
+			
+			return message;
 		}
 
 		return Loc.GetString("cult-blood-progress",
@@ -1037,7 +1031,9 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 		if (mindId != null)
 		{
 			var metaData = MetaData(sender);
-			_chat.TrySendInGameICMessage(sender, Loc.GetString("cult-commune-incantation"), InGameICChatType.Whisper, ChatTransmitRange.Normal);
+			// Generate a random single-word chant from cult-chants.ftl
+			var chant = GenerateChant(wordCount: 1);
+			_chat.TrySendInGameICMessage(sender, chant, InGameICChatType.Whisper, ChatTransmitRange.Normal);
 			_jobs.MindTryGetJob(mindId, out var prototype);
 			string job = "Crewmember";
 			if (prototype != null)
@@ -1050,13 +1046,24 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 
 	/// <summary>
 	/// Adds blood to the ritual pool when someone is converted.
+	/// Caps blood at the current stage threshold to prevent over-collection.
 	/// </summary>
 	public void AddBloodForConversion(double amount = 100.0)
 	{
 		var query = EntityQueryEnumerator<BloodCultRuleComponent, GameRuleComponent>();
 		while (query.MoveNext(out var uid, out var ruleComp, out var gameRule))
 		{
-			ruleComp.BloodCollected += amount;
+			// Determine the current stage cap
+			double currentCap = ruleComp.BloodRequiredForVeil;
+			if (!ruleComp.HasEyes)
+				currentCap = ruleComp.BloodRequiredForEyes;
+			else if (!ruleComp.HasRisen)
+				currentCap = ruleComp.BloodRequiredForRise;
+			else if (!ruleComp.VeilWeakened)
+				currentCap = ruleComp.BloodRequiredForRise; // Cap at Rise threshold until Tear Veil ritual is done
+			
+			// Add blood but don't exceed the current stage cap
+			ruleComp.BloodCollected = Math.Min(ruleComp.BloodCollected + amount, currentCap);
 			// BloodCultRuleComponent is server-only and doesn't need to be dirtied
 			return;
 		}

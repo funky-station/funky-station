@@ -14,6 +14,8 @@
   - type: Construction
     graph: CultJuggernautShell
     node: juggernautShell
+  - type: Transform
+    anchored: true
   - type: Sprite
     sprite: _Funkystation/BloodCult/Mobs/constructs.rsi
     state: juggernaut
@@ -128,8 +130,9 @@
       hidden: true
       soundHit:
         path: /Audio/Effects/wood_destroy2.ogg
-      angle: 0
+      angle: 60
       animation: WeaponArcSmash
+      wideAnimation: WeaponArcSmash
       damage:
         types:
           Blunt: 15

@@ -15,7 +15,7 @@ namespace Content.Shared.BloodCult.Components;
 public sealed partial class ReviveCultistOnTriggerComponent : Component
 {
 	/// <summary>
-    ///     The range at which the revive rune can function.
+    ///     The range at which the revive rune can detect dead targets.
     /// </summary>
-    [DataField] public float ReviveRange = 0.2f;
+    [DataField] public float ReviveRange = 0.8f;
 }

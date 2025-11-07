@@ -34,10 +34,10 @@ cult-rune-drawing-vowel-second = into the floor with blood...
 cult-rune-select = Select Rune
 
 cult-veil-drawing-toostrong = The veil is too strong here to tear open.
-cult-veil-drawing-pleaseconfirm = Use the dagger again to confirm the {$name} area -- beware, the crew will be alerted!
+cult-veil-drawing-pleaseconfirm = Use the dagger again to confirm the {$name} area.
 cult-veil-drawing-wronglocation = You must draw this rune at the {$name} area!
-cult-veil-drawing-alreadyexists = Somebody has already drawn a tear veil rune!
-cult-veil-drawing-crewwarning = Figments from an eldritch god are being summoned into the {$name} area from an unknown dimension. Disrupt this ritual at all costs, before the station is destroyed. Space Law and SOP are hereby suspended. The entire crew must kill cultists on sight.
+cult-veil-drawing-alreadyexists-location = A tear veil rune has already been drawn at {$name}. Choose a different location.
+cult-veil-drawing-confirmed = You may now draw the Tear Veil rune at {$name}!
 
 cult-veil-ritual-already-in-progress = A Tear the Veil ritual is already in progress!
 cult-veil-ritual-not-enough-cultists = Not enough cultists are on Tear Veil runes! {$current} cultists present, {$required} required.
@@ -65,8 +65,9 @@ cult-invocation-fail = More cultists must be present!
 cult-invocation-fail-noshell = An empty juggernaut shell must be present on the rune to perform a sacrifice!
 cult-invocation-interrupted = The ritual was interrupted!
 cult-revive-success = The ritual is complete! Life flows back into the body as your own blood is drained!
+cult-revive-fail-notarget = No valid target found to revive! The target must be dead and on the rune.
 cult-sanguine-perniculate-heal = The sanguine perniculate soothes your wounds, healing {$amount} holy damage!
-cult-holywater-burn = The holy water burns you for {$amount} damage!
+cult-holywater-burn = The holy water burns you!
 cult-invocation-mindshield-break = You begin the ritual to shatter the mindshield. Nar'Sie demands sacrifice!
 cult-invocation-mindshield-success = The power of Nar'Sie shatters the mindshield! The ritual tears at your very essence!
 cult-invocation-mindshield-too-early = The veil is too strong! Nar'Sie's power is not yet sufficient to break mindshields. More blood must be spilled!
@@ -84,7 +85,8 @@ cult-spell-exceeded = You cannot carve another spell!
 cult-spell-havealready = You already have that spell!
 cult-spell-fail = You fail to cast the spell!
 cult-spell-repelled = Holy magic protects your target!
-cult-spell-sleep-dream = You feel an overwhelming wave of drowsiness as visions of blood and terror flood your mind!
+cult-spell-sleep-dream = You feel an overwhelming wave of drowsiness as nightmares of blood-soaked knives flood your mind!
+cult-spell-allied-cultist = You cannot target a fellow devotee of Nar'Sie!
 
 cult-shade-summoned = The stolen soul materializes as a servant Shade!
 cult-shade-recalled = You recapture the stolen soul, rejuvinating it!
@@ -129,6 +131,9 @@ cult-status-cultdata = Current cult members: {$cultCount}
     Constructs: {$constructCount}
 
 cult-blood-progress = [italic]Blood Collected: {$bloodCollected}u / {$totalRequired}u. {$bloodNeeded}u more needed for {$nextPhase}.[/italic]
+cult-blood-progress-stage-complete = [italic]Blood Collected: {$bloodCollected}u / {$totalRequired}u (Stage complete)[/italic]
+cult-blood-progress-tear-veil = [italic]Next objective: Perform the Tear Veil ritual at {$location1}, {$location2}, or {$location3}.[/italic]
+cult-blood-progress-final-summon = [italic]Next objective: Find the reality rift and perform the final summoning ritual with 9 cultists.[/italic]
 cult-blood-progress-complete = [italic]Blood Collected: {$bloodCollected}u. All blood thresholds have been met![/italic]
 
 cult-narsie-sacrifice-accept = "I accept your sacrifice."

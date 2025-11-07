@@ -93,12 +93,12 @@ Blood spells are incantations that must be physically carved into the invoker's 
 The summon dagger spell allows a cultist to instantly grant themselves a weapon and a rune-carving tool. Useful for new devotees and those who have lost their old daggers.
 
   <Box>
-    <GuideEntityEmbed Entity="ActionCultistStun" Caption="Stun"/>
+    <GuideEntityEmbed Entity="ActionCultistSanguineDream" Caption="Sanguine Dream"/>
   </Box>
 
-The stun spell will temporarilly knock over, drain the stamina of, silence, and mark a victim. A marked victim may be struck once with a cult dagger to enhance the effects of a stun. This spell may also be used to EMP Cyborgs.
+The Sanguine Dream spell plunges a victim into a nightmare-filled sleep where they dream of blood-soaked knives. The target will be silenced and marked for follow-up attacks. A marked victim may be struck once with a cult dagger to jolt them awake, leaving them disoriented and vulnerable to further stunning effects. This also drains energy from cybernetic entities.
 
-This spell may permit you to silently and more efficiently kidnap those your cult requires, giving you ample time to strip them of their suit coordinates and communications headset prior to abduction. It is recommended that all cultists keep a stun spell prepared when roaming beyond their selected base of operations, [bold]just in case.[/bold]
+This spell may permit you to silently and more efficiently kidnap those your cult requires. It will not work on those whos minds are shielded. It is recommended that all cultists keep a Sanguine Dream spell prepared when roaming beyond their selected base of operations, [bold]just in case.[/bold]
 
   <Box>
     <GuideEntityEmbed Entity="ActionCultistTwistedConstruction" Caption="Twisted Construction"/>

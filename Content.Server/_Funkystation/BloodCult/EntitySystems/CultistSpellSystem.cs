@@ -46,6 +46,7 @@ using Content.Server.Body.Components;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Mindshield.Components;
+using Content.Shared.Mind.Components;
 using Content.Server.Stack;
 
 
@@ -95,7 +96,7 @@ public sealed partial class CultistSpellSystem : EntitySystem
 
 		SubscribeLocalEvent<BloodCultistComponent, EventCultistStudyVeil>(OnStudyVeil);
 		SubscribeLocalEvent<BloodCultistComponent, BloodCultCommuneSendMessage>(OnCommune);
-		SubscribeLocalEvent<BloodCultistComponent, EventCultistStun>(OnStun);
+		SubscribeLocalEvent<BloodCultistComponent, EventCultistSanguineDream>(OnSanguineDream);
 		SubscribeLocalEvent<CultMarkedComponent, AttackedEvent>(OnMarkedAttacked);
 
 		SubscribeLocalEvent<BloodCultistComponent, EventCultistTwistedConstruction>(OnTwistedConstruction);
@@ -134,9 +135,12 @@ public sealed partial class CultistSpellSystem : EntitySystem
 			_damageableSystem.TryChangeDamage(ent, appliedDamageSpecifier, true, origin: ent);
 		}
 
-		// verbalize invocation - generate random 2-word chant
-		var invocation = _bloodCultRules.GenerateChant(wordCount: 2);
-		_bloodCultRules.Speak(ent, invocation);
+		// verbalize invocation - generate random 2-word chant (skip for StudyVeil and Commune abilities)
+		if (actionComp.AbilityId != "StudyVeil" && actionComp.AbilityId != "Commune")
+		{
+			var invocation = _bloodCultRules.GenerateChant(wordCount: 2);
+			_bloodCultRules.Speak(ent, invocation);
+		}
 
 		// play sound
 		if (actionComp.CastSound != null)
@@ -289,9 +293,42 @@ public sealed partial class CultistSpellSystem : EntitySystem
 		args.Handled = true;
 	}
 
-	private void OnStun(Entity<BloodCultistComponent> ent, ref EventCultistStun args)
+	/// <summary>
+	/// Helper method to check if an entity is a cultist, including SSD cultists by checking their mind.
+	/// </summary>
+	private bool IsTargetCultist(EntityUid target)
 	{
-		if (args.Handled || !TryUseAbility(ent, args) || HasComp<BloodCultistComponent>(args.Target))
+		// Check if the target's body has BloodCultistComponent
+		if (HasComp<BloodCultistComponent>(target))
+			return true;
+
+		// Check if the target's mind has BloodCultistComponent (for SSD cultists)
+		if (TryComp<MindContainerComponent>(target, out var mindContainer) && 
+		    mindContainer.Mind != null &&
+		    HasComp<BloodCultistComponent>(mindContainer.Mind.Value))
+			return true;
+
+		return false;
+	}
+
+	private void OnSanguineDream(Entity<BloodCultistComponent> ent, ref EventCultistSanguineDream args)
+	{
+		if (args.Handled)
+			return;
+
+		var target = args.Target;
+
+		// Check if target is an allied cultist (including SSD cultists)
+		if (IsTargetCultist(target))
+		{
+			_popup.PopupEntity(
+				Loc.GetString("cult-spell-allied-cultist"),
+				ent, ent, PopupType.MediumCaution
+			);
+			return;
+		}
+
+		if (!TryUseAbility(ent, args))
 			return;
 
 		float empDamage = 5000f;  // EMP damage for borgs/IPCs
@@ -299,8 +336,6 @@ public sealed partial class CultistSpellSystem : EntitySystem
 		int selfStunTime = 4;
 
 		args.Handled = true;
-
-		var target = args.Target;
 
 		// Mindshield and holy protection repel cult magic
 		if (HasComp<CultResistantComponent>(target) || HasComp<MindShieldComponent>(target))

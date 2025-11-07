@@ -100,9 +100,9 @@
     rechargeTime: 0
 
 - type: entity
-  id: ActionCultistStun
-  name: Stun
-  description: A potent spell that will knock down, silence, and mark a target. Stabbing marked targets with your cult dagger will stun and re-silence them. EMPs Cyborgs.
+  id: ActionCultistSanguineDream
+  name: Sanguine Dream
+  description: A sinister spell that plunges a target into a nightmare-filled sleep, where they dream of crimson-stained blades. EMPs Cyborgs.
   categories: [ HideSpawnMenu ]
   components:
   - type: Icon
@@ -124,7 +124,7 @@
     iconOn:
       sprite: _Funkystation/BloodCult/spells_cultist.rsi
       state: stun_selected
-    event: !type:EventCultistStun {}
+    event: !type:EventCultistSanguineDream {}
     #useDelay: 60  TIME DELAY BETWEEN ACTION USES
     #deselectOnMiss: False
     #targetingIndicator: True  # apparently defaults to using what is held in hand?
@@ -132,7 +132,7 @@
     #sound: a SoundSpecifier. Should probably be used instead of castSound down below.
     #iconOn:  # The sprite when selected. USE THIS.
   - type: CultistSpell
-    abilityId: CultStun
+    abilityId: SanguineDream
     charges: 1
     infinite: False
     healthCost: 0

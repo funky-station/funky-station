@@ -19,6 +19,8 @@ using Robust.Shared.Player;
 using Robust.Shared.Utility;
 
 using Content.Server.GameTicking.Rules;
+using Content.Server.GameTicking.Rules.Components;
+using Content.Shared.GameTicking.Components;
 using Content.Shared.FixedPoint;
 using Content.Shared.Interaction;
 using Content.Shared.Interaction.Events;
@@ -156,35 +158,31 @@ public sealed partial class BloodCultRuneCarverSystem : EntitySystem
 		// Third and a half, if this is a TearVeilRune, do a special location check.
 		if (ent.Comp.Rune == "TearVeilRune")
 		{
-			// If they have not yet confirmed the summon location, check to make sure
-			// that this is a valid one and ask them to confirm.
-			if (cultist.LocationForSummon == null)
-			{
-				cultist.TryingDrawTearVeil = true;
-				return;
-			}
-
-		// If they made it to here, they are trying to draw a confirmed tear veil rune.
-		// Ensure that the location is valid.
-		WeakVeilLocation locationForSummon = (WeakVeilLocation)(cultist.LocationForSummon);
-		if (!_transform.InRange(locationForSummon.Coordinates, Transform(args.User).Coordinates, locationForSummon.ValidRadius))
-		{
-			_popupSystem.PopupEntity(
-				Loc.GetString("cult-veil-drawing-wronglocation", ("name", locationForSummon.Name)),
-				args.User, args.User, PopupType.MediumCaution
-			);
-			return;
-		}
-
-			// Check to make sure no other tear veil runes already exist.
-			var summonRunes = AllEntityQuery<TearVeilComponent, BloodCultRuneComponent>();
-			while (summonRunes.MoveNext(out var uid, out _, out var _))
+			if (!TryGetValidVeilLocation(args.ClickLocation, out var locationForSummon))
 			{
 				_popupSystem.PopupEntity(
-					Loc.GetString("cult-veil-drawing-alreadyexists"),
+					Loc.GetString("cult-veil-drawing-toostrong"),
 					args.User, args.User, PopupType.MediumCaution
 				);
 				return;
+			}
+
+			cultist.LocationForSummon = locationForSummon;
+
+			// Allow multiple tear veil runes to exist (one per location)
+			// Check if a rune already exists at THIS specific location
+			var summonRunes = AllEntityQuery<TearVeilComponent, BloodCultRuneComponent, TransformComponent>();
+			while (summonRunes.MoveNext(out var existingRuneUid, out _, out var _, out var runeXform))
+			{
+				// Check if this existing rune is in range of the current location we're trying to draw at
+				if (_transform.InRange(runeXform.Coordinates, locationForSummon.Coordinates, locationForSummon.ValidRadius))
+				{
+					_popupSystem.PopupEntity(
+						Loc.GetString("cult-veil-drawing-alreadyexists-location", ("name", locationForSummon.Name)),
+						args.User, args.User, PopupType.MediumCaution
+					);
+					return;
+				}
 			}
 
 			timeToCarve = 45.0f;
@@ -217,6 +215,44 @@ public sealed partial class BloodCultRuneCarverSystem : EntitySystem
 			);
 		_doAfter.TryStartDoAfter(dargs);
     }
+
+	private bool TryGetValidVeilLocation(EntityCoordinates placement, out WeakVeilLocation location)
+	{
+		var ruleQuery = EntityQueryEnumerator<BloodCultRuleComponent, GameRuleComponent>();
+		while (ruleQuery.MoveNext(out _, out var ruleComp, out _))
+		{
+			if (ruleComp.WeakVeil1 != null)
+			{
+				var candidate = (WeakVeilLocation)ruleComp.WeakVeil1;
+				if (_transform.InRange(candidate.Coordinates, placement, candidate.ValidRadius))
+				{
+					location = candidate;
+					return true;
+				}
+			}
+			if (ruleComp.WeakVeil2 != null)
+			{
+				var candidate = (WeakVeilLocation)ruleComp.WeakVeil2;
+				if (_transform.InRange(candidate.Coordinates, placement, candidate.ValidRadius))
+				{
+					location = candidate;
+					return true;
+				}
+			}
+			if (ruleComp.WeakVeil3 != null)
+			{
+				var candidate = (WeakVeilLocation)ruleComp.WeakVeil3;
+				if (_transform.InRange(candidate.Coordinates, placement, candidate.ValidRadius))
+				{
+					location = candidate;
+					return true;
+				}
+			}
+		}
+
+		location = default;
+		return false;
+	}
 
 	private void OnRuneDoAfter(Entity<DamageableComponent> ent, ref DrawRuneDoAfterEvent ev)
     {

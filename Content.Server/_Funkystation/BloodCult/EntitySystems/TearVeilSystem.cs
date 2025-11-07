@@ -7,6 +7,8 @@
 using System.Linq;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Timing;
+using Robust.Shared.Audio;
+using Robust.Shared.Maths;
 using Content.Server.Popups;
 using Content.Shared.Popups;
 using Content.Shared.BloodCult.Components;
@@ -16,6 +18,9 @@ using Content.Server.GameTicking.Rules.Components;
 using Content.Shared.GameTicking.Components;
 using Content.Shared.BloodCult;
 using Content.Server.Explosion.EntitySystems;
+using Content.Server.AlertLevel;
+using Content.Server.Station.Systems;
+using Content.Server.Station.Components;
 
 namespace Content.Server.BloodCult.EntitySystems
 {
@@ -29,6 +34,8 @@ namespace Content.Server.BloodCult.EntitySystems
 		[Dependency] private readonly MobStateSystem _mobState = default!;
 		[Dependency] private readonly BloodCultRuleSystem _bloodCultRule = default!;
 		[Dependency] private readonly EntityLookupSystem _lookup = default!;
+		[Dependency] private readonly AlertLevelSystem _alertLevel = default!;
+		[Dependency] private readonly StationSystem _station = default!;
 
 		public override void Initialize()
 		{
@@ -197,33 +204,33 @@ namespace Content.Server.BloodCult.EntitySystems
 			return;
 		}
 
-			// Make all cultists on runes chant
-			var chant = _bloodCultRule.GenerateChant(wordCount: 3);
-			foreach (var cultist in cultistsOnRunes)
+		// Make all cultists on runes chant
+		var chant = _bloodCultRule.GenerateChant(wordCount: 3);
+		foreach (var cultist in cultistsOnRunes)
+		{
+			if (Exists(cultist))
 			{
-				if (Exists(cultist))
-				{
-					_bloodCultRule.Speak(cultist, chant);
-				}
-			}
-
-			// Increment chant step
-			component.CurrentChantStep++;
-
-			// Check if ritual is complete
-			if (component.CurrentChantStep >= component.TotalChantSteps)
-				{
-				// SUCCESS! Progress the cult to stage 3
-				_bloodCultRule.CompleteVeilRitual();
-				AnnounceRitualSuccess();
-				EndRitual(component, true);
-			}
-			else
-			{
-				// Schedule next chant
-				component.TimeUntilNextChant = component.ChantInterval;
+				_bloodCultRule.Speak(cultist, chant);
 			}
 		}
+
+		// Increment chant step
+		component.CurrentChantStep++;
+
+		// Check if ritual is complete
+		if (component.CurrentChantStep >= component.TotalChantSteps)
+			{
+			// SUCCESS! Progress the cult to stage 3
+			_bloodCultRule.CompleteVeilRitual();
+			AnnounceRitualSuccess();
+			EndRitual(component, true);
+		}
+		else
+		{
+			// Schedule next chant
+			component.TimeUntilNextChant = component.ChantInterval;
+		}
+	}
 
 		/// <summary>
 		/// Ends the ritual and resets its state.
@@ -329,10 +336,11 @@ namespace Content.Server.BloodCult.EntitySystems
 			}
 
 		/// <summary>
-		/// Announces to all cultists that the ritual has succeeded.
+		/// Announces to all cultists that the ritual has succeeded and alerts the crew via Delta alert.
 		/// </summary>
 		private void AnnounceRitualSuccess()
 		{
+			// Alert all cultists
 			var cultistQuery = EntityQueryEnumerator<BloodCultistComponent>();
 			while (cultistQuery.MoveNext(out var cultistUid, out var _))
 			{
@@ -340,6 +348,13 @@ namespace Content.Server.BloodCult.EntitySystems
 					Loc.GetString("cult-veil-ritual-success"),
 					cultistUid, cultistUid, PopupType.LargeCaution
 				);
+			}
+			
+			// Set all stations to Delta alert level to notify the crew
+			var stationQuery = EntityQueryEnumerator<StationDataComponent>();
+			while (stationQuery.MoveNext(out var stationUid, out var _))
+			{
+				_alertLevel.SetLevel(stationUid, "delta", true, true, true);
 			}
 		}
 	}

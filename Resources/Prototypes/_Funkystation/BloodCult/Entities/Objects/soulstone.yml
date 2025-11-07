@@ -18,6 +18,8 @@
   - type: SoulStone
   - type: Clickable
   - type: MindContainer
+  - type: Speech
+  - type: Emoting
   - type: Item
     size: Small
     heldPrefix: soulstone

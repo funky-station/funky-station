@@ -142,7 +142,7 @@ namespace Content.Server.BloodCult.EntitySystems
 
 		// No valid target found
 		_popupSystem.PopupEntity(
-			Loc.GetString("cult-invocation-fail"),
+			Loc.GetString("cult-revive-fail-notarget"),
 			user, user, PopupType.MediumCaution
 		);
 		args.Handled = true;

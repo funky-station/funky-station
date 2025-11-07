@@ -23,6 +23,9 @@ using Content.Shared.Damage;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Random;
+using Content.Shared.Speech;
+using Content.Shared.Emoting;
+using Robust.Shared.Map;
 
 namespace Content.Server.BloodCult.EntitySystems;
 
@@ -35,6 +38,7 @@ public sealed partial class BloodCultConstructSystem : EntitySystem
 	[Dependency] private readonly SharedContainerSystem _container = default!;
 	[Dependency] private readonly SharedPhysicsSystem _physics = default!;
 	[Dependency] private readonly IRobustRandom _random = default!;
+	[Dependency] private readonly SharedTransformSystem _transform = default!;
 
 	public override void Initialize()
 	{
@@ -79,14 +83,17 @@ public sealed partial class BloodCultConstructSystem : EntitySystem
 			return;
 		}
 		
-		var shellCoordinates = Transform(shell).Coordinates;
+		var shellTransform = Transform(shell);
+		var shellCoordinates = shellTransform.Coordinates;
+		var shellRotation = shellTransform.LocalRotation;
 		
 		// Play sacrifice audio
 		_audio.PlayPvs(new SoundPathSpecifier("/Audio/Magic/disintegrate.ogg"), shellCoordinates);
 		
-		// Delete the shell and spawn the juggernaut
+		// Delete the shell and spawn the juggernaut at the exact position with rotation
 		QueueDel(shell);
-		var juggernaut = Spawn("MobBloodCultJuggernaut", shellCoordinates);
+		var juggernaut = SpawnAtPosition("MobBloodCultJuggernaut", shellCoordinates);
+		_transform.SetLocalRotation(juggernaut, shellRotation);
 		
 		// Store the soulstone in the juggernaut's container
 		if (_container.TryGetContainer(juggernaut, "juggernaut_soulstone_container", out var soulstoneContainer))
@@ -172,14 +179,17 @@ public sealed partial class BloodCultConstructSystem : EntitySystem
 			return;
 		}
 
-		var shellCoordinates = Transform(uid).Coordinates;
+		var shellTransform = Transform(uid);
+		var shellCoordinates = shellTransform.Coordinates;
+		var shellRotation = shellTransform.LocalRotation;
 		
 		// Play sacrifice audio
 		_audio.PlayPvs(new SoundPathSpecifier("/Audio/Magic/disintegrate.ogg"), shellCoordinates);
 		
-		// Delete the shell and spawn the juggernaut
+		// Delete the shell and spawn the juggernaut at the exact position with rotation
 		QueueDel(uid);
-		var juggernaut = Spawn("MobBloodCultJuggernaut", shellCoordinates);
+		var juggernaut = SpawnAtPosition("MobBloodCultJuggernaut", shellCoordinates);
+		_transform.SetLocalRotation(juggernaut, shellRotation);
 		
 		// Get the juggernaut's body container
 		if (_container.TryGetContainer(juggernaut, "juggernaut_body_container", out var container))
@@ -227,6 +237,10 @@ public sealed partial class BloodCultConstructSystem : EntitySystem
 
 		// Transfer the mind back to the soulstone
 		_mind.TransferTo((EntityUid)mindId, soulstone, mind: mindComp);
+		
+		// Ensure the soulstone can speak but not move
+		EnsureComp<SpeechComponent>(soulstone);
+		EnsureComp<EmotingComponent>(soulstone);
 
 		// Remove the soulstone from the container and spawn it at the juggernaut's location
 		if (_container.TryGetContainer(juggernaut, "juggernaut_soulstone_container", out var container))

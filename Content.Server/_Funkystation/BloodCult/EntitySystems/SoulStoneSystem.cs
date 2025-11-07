@@ -29,6 +29,9 @@ using Content.Server.Body.Systems;
 using Content.Shared.Body.Components;
 using Content.Server.Body.Components;
 using Content.Shared.Destructible;
+using Content.Shared.Movement.Events;
+using Content.Shared.Speech;
+using Content.Shared.Emoting;
 
 namespace Content.Server.BloodCult.EntitySystems;
 
@@ -55,8 +58,37 @@ public sealed class SoulStoneSystem : EntitySystem
 		SubscribeLocalEvent<SoulStoneComponent, UseInHandEvent>(OnUseInHand);
 		SubscribeLocalEvent<ShadeComponent, MobStateChangedEvent>(OnShadeDeath);
 		SubscribeLocalEvent<SoulStoneComponent, DestructionEventArgs>(OnSoulStoneDestroyed);
+		
+		// Prevent soulstones from moving or rotating
+		SubscribeLocalEvent<SoulStoneComponent, UpdateCanMoveEvent>(OnSoulstoneMove);
+		SubscribeLocalEvent<SoulStoneComponent, MoveInputEvent>(OnSoulstoneMoveInput);
+		
+		// Ensure soulstones can speak and emote when they have a mind
+		SubscribeLocalEvent<SoulStoneComponent, ComponentStartup>(OnSoulstoneStartup);
 
 		_shadeQuery = GetEntityQuery<ShadeComponent>();
+	}
+	
+	private void OnSoulstoneStartup(EntityUid uid, SoulStoneComponent component, ComponentStartup args)
+	{
+		// Ensure the soulstone has speech components if it has a mind
+		if (TryComp<MindContainerComponent>(uid, out var mindContainer) && mindContainer.Mind != null)
+		{
+			EnsureComp<SpeechComponent>(uid);
+			EnsureComp<EmotingComponent>(uid);
+		}
+	}
+
+	private void OnSoulstoneMove(EntityUid uid, SoulStoneComponent component, UpdateCanMoveEvent args)
+	{
+		// Prevent all movement for soulstones
+		args.Cancel();
+	}
+
+	private void OnSoulstoneMoveInput(EntityUid uid, SoulStoneComponent component, ref MoveInputEvent args)
+	{
+		// Prevent rotation by not processing the input at all
+		// The UpdateCanMoveEvent already prevents actual movement
 	}
 
 	private void OnTryCaptureSoul(Entity<SoulStoneComponent> ent, ref AfterInteractEvent args)
@@ -181,6 +213,11 @@ public sealed class SoulStoneSystem : EntitySystem
 	// Transfer the mind back to the soulstone
 	var coordinates = Transform(shade).Coordinates;
 	_mind.TransferTo((EntityUid)mindId, soulstone, mind: mindComp);
+	
+	// Ensure the soulstone can speak but not move
+	EnsureComp<SpeechComponent>(soulstone);
+	EnsureComp<EmotingComponent>(soulstone);
+	
 	_audioSystem.PlayPvs(new SoundPathSpecifier("/Audio/Magic/blink.ogg"), coordinates);
 		
 		// Delete the Shade entity

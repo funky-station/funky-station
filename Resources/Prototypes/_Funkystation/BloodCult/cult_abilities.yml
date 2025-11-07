@@ -29,11 +29,11 @@
   - ActionCultistSummonDagger
 
 - type: cultAbility
-  id: CultStun
+  id: SanguineDream
   healthDrain: 10
   doAfterLength: 5
   actionPrototypes:
-  - ActionCultistStun
+  - ActionCultistSanguineDream
 
 - type: cultAbility
   id: CultTwistedConstruction

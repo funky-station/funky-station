@@ -45,8 +45,6 @@ namespace Content.Shared.Mobs.Systems;
 public partial class MobStateSystem
 {
     [Dependency] private readonly TagSystem _tag = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly IComponentFactory _factory = default!;
 
     private static readonly ProtoId<TagPrototype> ForceStandOnReviveTag = "ForceStandOnRevive";
 

@@ -1,3 +1,4 @@
+# SPDX-FileCopyrightText: 2025 TheHolyAegis <76066612+TheHolyAegis@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 TheHolyAegis <sanderkamphuis719@gmail.com>
 # SPDX-FileCopyrightText: 2025 empty0set <16693552+empty0set@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 empty0set <empty0set@users.noreply.github.com>
@@ -22,6 +23,7 @@
   access:
   - Service
   - Janitor
+  - Kitchen
   - Maintenance
   - Command
   special:

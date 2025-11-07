@@ -1,4 +1,5 @@
 // SPDX-FileCopyrightText: 2025 Skye <57879983+Rainbeon@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Terkala <appleorange64@gmail.com>
 // SPDX-FileCopyrightText: 2025 kbarkevich <24629810+kbarkevich@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
@@ -29,7 +30,7 @@ public sealed partial class CultAbilityPrototype : IPrototype
 	/// <summary>
 	///		Health drain to prepare this spell.
 	/// </summary>
-	[DataField] public int HealthDrain = 0;
+	[DataField] public int HealthDrain = 15;
 
 	/// <summary>
 	///		Length of DoAfter to carve this spell.

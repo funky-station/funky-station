@@ -21,6 +21,8 @@
   femaleFirstNames: NamesDionaFirst
   lastNames: NamesDionaLast
   naming: TheFirstofLast
+  sexes:
+  - Unsexed
 
 - type: speciesBaseSprites
   id: MobDionaSprites

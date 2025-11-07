@@ -2,7 +2,7 @@
   id: BaseNuclearReactor
   parent: BaseStructure
   name: nuclear reactor
-  description: Should you really be standing this close to that?
+  description: A nuclear reactor vessel, with slots for fuel rods and other components. Hey wait, didn't one of these explode once?
   components:
   - type: Sprite
     sprite: _FarHorizons/Structures/Power/Generation/FissionGenerator/nuclear_reactor.rsi
@@ -178,6 +178,7 @@
 - type: entity
   id: NuclearWasteChunk
   parent: BaseItem
+  name: nuclear debris
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
@@ -191,7 +192,7 @@
   - type: RandomSprite
     available:
     - base:
-        nuclear_waste: "" # Allows for multiple waste sprites... even though there's just one
+        nuclear_waste: "" # Allows for multiple debris sprites... even though there's just one
   - type: RadiationSource
     intensity: 1.6
 

@@ -49,6 +49,9 @@ public sealed class NuclearReactorSystem : SharedNuclearReactorSystem
     private static readonly int _gridHeight = NuclearReactorComponent.ReactorGridHeight;
     private RadioChannelPrototype? _engi;
 
+    private readonly float _threshold = 0.5f;
+    private float _accumulator = 0f;
+
     public override void Initialize()
     {
         base.Initialize();
@@ -508,6 +511,15 @@ public sealed class NuclearReactorSystem : SharedNuclearReactorSystem
 
     public override void Update(float frameTime)
     {
+        _accumulator += frameTime;
+        if (_accumulator > _threshold)
+        {
+            AccUpdate();
+            _accumulator = 0;
+        }
+    }
+    private void AccUpdate()
+    {
         var query = EntityQueryEnumerator<NuclearReactorComponent>();
 
         while (query.MoveNext(out var uid, out var reactor))
@@ -545,7 +557,7 @@ public sealed class NuclearReactorSystem : SharedNuclearReactorSystem
             }
         }
 
-        // This is transmitting close to 2.3KB of data every tick... ouch
+        // This is transmitting close to 2.3KB of data every time it's called... ouch
         _uiSystem.SetUiState(uid, NuclearReactorUiKey.Key,
            new NuclearReactorBuiState
            {
@@ -554,7 +566,7 @@ public sealed class NuclearReactorSystem : SharedNuclearReactorSystem
                IconGrid = icon,
                PartInfo = partInfo,
                PartName = partName,
-               ItemName = reactor.PartSlot.Item != null ? Identity.Name((EntityUid)reactor.PartSlot.Item, _entityManager) : null,
+               ItemName = reactor.PartSlot.Item != null ? Identity.Name(reactor.PartSlot.Item.Value, _entityManager) : null,
 
                ReactorTemp = reactor.Temperature,
                ReactorRads = reactor.RadiationLevel,
@@ -600,6 +612,7 @@ public sealed class NuclearReactorSystem : SharedNuclearReactorSystem
         }
 
         UpdateGridVisual(ent.Owner, comp);
+        UpdateUI(ent.Owner, comp);
     }
 
     private void OnControlRodMessage(Entity<NuclearReactorComponent> ent, ref ReactorControlRodModifyMessage args) 

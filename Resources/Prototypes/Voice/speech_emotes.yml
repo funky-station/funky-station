@@ -102,9 +102,11 @@
   category: Vocal
   icon: Interface/Emotes/honk.png
   whitelist:
-    requireAll: true
+    # requireAll: true # Funkystation: let bots emote
+    tags:
+    - Bot # Funkystation: let bots emote
     components:
-    - Vocal
+    # - Vocal # Funkystation: let bots emote (redundant? you can't emote without Vocal anyway?)
     - BorgChassis
   chatMessages: ["chat-emote-msg-honk"]
   chatTriggers:
@@ -440,6 +442,7 @@
     tags:
     - IPCEmotes
     - HarpyEmotes
+    - Bot # Funkystation: let bots emote
     components:
     - BorgChassis
     - PAI
@@ -503,6 +506,7 @@
     tags:
     - IPCEmotes
     - HarpyEmotes
+    - Bot # Funkystation: let bots emote
     components:
     - BorgChassis
     - PAI
@@ -521,6 +525,7 @@
     tags:
     - IPCEmotes
     - HarpyEmotes
+    - Bot # Funkystation: let bots emote
     components:
     - BorgChassis
     - PAI
@@ -540,6 +545,7 @@
     tags:
     - IPCEmotes
     - HarpyEmotes
+    - Bot # Funkystation: let bots emote
     components:
     - BorgChassis
     - PAI
@@ -565,6 +571,7 @@
     tags:
     - IPCEmotes
     - HarpyEmotes
+    - Bot # Funkystation: let bots emote
     components:
     - BorgChassis
     - PAI

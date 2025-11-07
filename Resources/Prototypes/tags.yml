@@ -726,6 +726,9 @@
 - type: Tag
   id: ForceNoFixRotations # fixrotations command WON'T target this
 
+- type: Tag # Funkystation
+  id: ForceStandOnRevive
+
 - type: Tag
   id: FreezerElectronics
 
@@ -1530,7 +1533,7 @@
 
 - type: Tag
   id: Truncheon
-  
+
 - type: Tag
   id: TurretCompatibleWeapon # Used in the construction of sentry turrets
 

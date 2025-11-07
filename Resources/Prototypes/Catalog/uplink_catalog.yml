@@ -165,17 +165,17 @@
   - UplinkWeaponry
   saleLimit: 1 # WD EDIT
 
-# Heavy Hit and Run
-- type: listing
-  id: UplinkRevolverRattler
-  name: Rattler
-  description: Who built this?! Uses .45 magnum
-  productEntity: WeaponRevolverRattler
-  cost:
-    Telecrystal: 20 # Temporary price
-  categories:
-  - UplinkWeaponry
-  saleLimit: 1
+# Heavy Hit and Run (should be reworked or something before added back into the uplink)
+#- type: listing
+#  id: UplinkRevolverRattler
+#  name: Rattler
+#  description: Who built this?! Uses .45 magnum
+#  productEntity: WeaponRevolverRattler
+#  cost:
+#    Telecrystal: 20 # Temporary price
+#  categories:
+#  - UplinkWeaponry
+#  saleLimit: 1
 
 - type: listing
   id: UplinkRevolverPython

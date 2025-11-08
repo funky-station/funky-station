@@ -13,11 +13,11 @@ SPDX-License-Identifier: MIT
 
   [bold]2.[/bold] In the event of a major crisis, such as Nuclear Operatives or a Blob Organism, expediency is to be favored over paperwork, as excessive bureaucracy may be detrimental to the well-being of the station;
 
-  [bold]3.[/bold] The Quartermaster is not permitted to authorize the ordering of Security equipment and/or gear without express permission from the Head of Security and/or Captain. An exception is made during extreme emergencies, such as Nuclear Operatives or a Blob Organism, where said equipment is to be delivered to Security, post haste;
+  [bold]3.[/bold] The Quartermaster is not permitted to authorize the ordering of Security equipment and/or gear without express permission from the Head of Security and/or Captain. An exception is made during extreme emergencies, such as Nuclear Operatives or a Blob Organism, where said equipment is to be delivered to Security, post-haste;
 
   [bold]4.[/bold] The Quartermaster is permitted to authorize non-departmental orders (such as a Medical Doctor asking for Insulated Gloves) without express permission from the respective Head of Staff (in this example, the Chief Engineer), utilizing their best judgement, although they may still request a stamped form. However, any breach of Standard Operating Procedure and/or Space Law that results from said order will also implicate the Quartermaster;
 
-  [bold]5.[/bold] The Quartermaster is not permitted to authorize the purchase of a Supermatter Crate without express permission from the Chief Engineer;
+  [bold]5.[/bold] The Quartermaster is not permitted to authorize the purchase of an HFR Crate without express permission from the Chief Engineer;
 
   [bold]6.[/bold] The Quartermaster is required to follow the guidelines put in place for Cargo Technicians;
 
@@ -39,11 +39,13 @@ SPDX-License-Identifier: MIT
 
   [bold]8.[/bold] Cargo Technicians must send back all crates that have been ordered, with accompanying stamped manifest inside the crate;
 
-  [bold]9.[/bold] Cargo Technicians should ensure that a single Department does not fully drain the Ore Redemption Machine, as it can be utilized by multiple Departments;
+  [bold]9.[/bold] Cargo Technicians should ensure that a single Department does not fully drain the Ore Processor, as it can be utilized by multiple Departments;
 
   [bold]10.[/bold] Cargo Technicians are not permitted to ask for space credits in exchange for legal cargo crate orders or autolathe requests from crew members;
 
   [bold]11.[/bold] Cargo Technicians are not permitted to trade items and/or favors in exchange for items with regular personnel without express consent from the Quartermaster;
+
+  [bold]12.[/bold] Cargo Technicians should ensure that at least one person is handling mail delivery, should the mail teleporter be turned on and functioning.
 
   # Salvage Specialist
 

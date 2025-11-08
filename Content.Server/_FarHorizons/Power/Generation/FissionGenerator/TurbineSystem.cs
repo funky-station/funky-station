@@ -167,7 +167,7 @@ public sealed class TurbineSystem : SharedTurbineSystem
             if (NewRPM < 0 || NextRPM < 0)
             {
                 // Stator load is too high
-                if (!_audio.IsPlaying(comp.AlarmAudioUnderspeed))
+                if (!_audio.IsPlaying(comp.AlarmAudioUnderspeed) && !comp.Undertemp && comp.FlowRate > 0)
                 {
                     comp.AlarmAudioUnderspeed = _audio.PlayPvs(new SoundPathSpecifier("/Audio/_FarHorizons/Machines/alarm_beep.ogg"), uid, AudioParams.Default.WithLoop(true).WithVolume(-4))?.Entity;
                 }
@@ -180,7 +180,7 @@ public sealed class TurbineSystem : SharedTurbineSystem
                 comp.RPM = NextRPM;
             }
 
-            if (_audio.IsPlaying(comp.AlarmAudioUnderspeed) && (comp.FlowRate <= 0 || (!comp.Stalling && comp.Undertemp)))
+            if (_audio.IsPlaying(comp.AlarmAudioUnderspeed) && (comp.FlowRate <= 0 || comp.Undertemp || comp.RPM > 10))
                 comp.AlarmAudioUnderspeed = _audio.Stop(comp.AlarmAudioUnderspeed);
 
             if (comp.RPM > 10)

@@ -173,8 +173,6 @@ public sealed partial class BloodCultRiftSystem : EntitySystem
 			return;
 
 		var cultistsOnRunes = GetCultistsOnSummoningRunes(component);
-		var cultistsOnRunes = GetCultistsOnSummoningRunes(component);
-		var cultistsOnRunes = GetCultistsOnSummoningRunes(component);
 
 		if (cultistsOnRunes.Count == 0)
 		{
@@ -343,12 +341,17 @@ public sealed partial class BloodCultRiftSystem : EntitySystem
 		EnsurePendingSacrifice(component, cultistsOnRunes);
 
 		var chant = _bloodCultRule.GenerateChant(wordCount: 4); // Longer chants for final ritual
+
+		bool hasPendingSacrifice = component.PendingSacrifice != null;
+		var pendingUid = component.PendingSacrifice;
+		bool shouldPromoteAllToLeaders = !hasPendingSacrifice && cultistCount == 1;
+
 		foreach (var cultist in cultistsOnRunes)
 		{
 			if (!Exists(cultist))
 				continue;
 
-			var text = component.PendingSacrifice == cultist ? chant : "Nar'Sie!";
+			var text = (component.PendingSacrifice == cultist || shouldPromoteAllToLeaders) ? chant : "Nar'Sie!";
 			_bloodCultRule.Speak(cultist, text, forceLoud: true);
 		}
 

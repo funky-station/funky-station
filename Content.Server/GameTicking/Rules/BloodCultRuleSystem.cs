@@ -167,6 +167,7 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 	[Dependency] private readonly IAdminLogManager _adminLogger = default!;
 	[Dependency] private readonly IConsoleHost _consoleHost = default!;
 	[Dependency] private readonly SharedTransformSystem _transformSystem = default!;
+	[Dependency] private readonly BloodCultMindShieldSystem _mindShield = default!;
 
 	public readonly string CultComponentId = "BloodCultist";
 
@@ -510,33 +511,12 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 			// Check for decultification
 			if (cultist.DeCultification >= 100.0f)
 			{
-				RemCompDeferred<BloodCultistComponent>(cultistUid);
-
 				_popupSystem.PopupEntity(Loc.GetString("cult-deconverted"),
 					cultistUid, cultistUid, PopupType.LargeCaution
 				);
 
-				if (!_mind.TryGetMind(cultistUid, out var mindId, out _))
-					continue;
-
-				// remove their antag role
-				_role.MindTryRemoveRole<BloodCultRoleComponent>(mindId);
-
-				// reverse their loyalties
-				_npcFaction.RemoveFaction(mindId, BloodCultistFactionId, false);
-				_npcFaction.AddFaction(mindId, NanotrasenFactionId);
-
-				foreach(var action in _actions.GetActions(cultistUid))
-				{
-					if (TryComp<CultistSpellComponent>(action.Id, out var actionComp))
-						_actions.RemoveAction(cultistUid, action.Id);
-				}
-
-				if (EntityManager.TryGetComponent(cultistUid, out AppearanceComponent? appearance))
-				{
-					_appearance.SetData(cultistUid, CultEyesVisuals.CultEyes, false, appearance);
-					_appearance.SetData(cultistUid, CultHaloVisuals.CultHalo, false, appearance);
-				}
+				_mindShield.TryDeconvert(cultistUid, popupLocId: null, stunDuration: TimeSpan.Zero, log: false);
+				continue;
 			}
 
 			// Did someone just fail to summon Nar'Sie?
@@ -1094,11 +1074,10 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 
 	var totalCultists = cultists.Count;
 	var totalConstructs = constructs.Count;
-	var cultMemberSummary = totalConstructs > 0
-		? $"{totalCultists} (+{totalConstructs} constructs)"
-		: totalCultists.ToString();
 
-	var cultistLine = Loc.GetString("cult-status-cultdata", ("cultMembers", cultMemberSummary));
+	var cultistLine = Loc.GetString("cult-status-cultdata",
+		("cultMembers", totalCultists),
+		("constructCount", totalConstructs));
 
 	if (specificCultist != null)
 		AnnounceToCultist(cultistLine,

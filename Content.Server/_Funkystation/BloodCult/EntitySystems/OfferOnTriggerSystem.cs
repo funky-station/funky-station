@@ -228,7 +228,7 @@ namespace Content.Server.BloodCult.EntitySystems
 
 		private void HandleOfferTrigger(EntityUid uid, OfferOnTriggerComponent component, TriggerEvent args)
 		{
-			if (args.User == null)
+			if (args.Handled || args.User == null)
 				return;
 			EntityUid user = (EntityUid)args.User;
 

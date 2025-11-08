@@ -96,14 +96,8 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
         SubscribeLocalEvent<CosmicImposingComponent, RefreshMovementSpeedModifiersEvent>(OnImpositionMoveSpeed);
 
         SubscribeLocalEvent<CosmicCultExamineComponent, ExaminedEvent>(OnCosmicCultExamined);
-        SubscribeLocalEvent<CosmicCultComponent, EncryptionChannelsChangedEvent>(OnTransmitterChannelsChangedCult, after: new[] { typeof(IntrinsicRadioKeySystem) });
-
-        SubscribeLocalEvent<RadioSendAttemptEvent>(OnRadioSendAttempt);
-        SubscribeLocalEvent<CosmicJammerComponent, AnchorStateChangedEvent>(OnJammerAnchorStateChange);
 
         SubscribeLocalEvent<CosmicCultComponent, PolymorphedEvent>(OnCultistPolymorphed);
-        SubscribeLocalEvent<SpeechOverrideComponent, GotEquippedEvent>(OnGotSpeechOverrideEquipped);
-        SubscribeLocalEvent<SpeechOverrideComponent, GotUnequippedEvent>(OnGotSpeechOverrideUnequipped);
 
         SubscribeFinale(); //Hook up the cosmic cult finale system
     }
@@ -235,25 +229,10 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
     #endregion
 
     #region Edge cases
-    /// <summary>
-    /// Edge Case to handle IPCs losing astral murmur after panel operations.
-    /// </summary>
-    private void OnTransmitterChannelsChangedCult(EntityUid uid, CosmicCultComponent component, EncryptionChannelsChangedEvent args)
-    {
-        if (!TryComp<IntrinsicRadioTransmitterComponent>(uid, out IntrinsicRadioTransmitterComponent? transmitter) || !TryComp<ActiveRadioComponent>(uid, out ActiveRadioComponent? activeRadio))
-            return;
-
-        if (transmitter.Channels.Contains(CosmicRadio) && activeRadio.Channels.Contains(CosmicRadio))
-            return;
-
-        transmitter.Channels.Add(CosmicRadio);
-        activeRadio.Channels.Add(CosmicRadio);
-
-
-    }
 
     /// <summary>
     /// When a cultist gets polymorphed, ensure that the resulting entity has all the necessary components. Mostly there for kitsune my behated.
+    /// Thankfuly, there are no kitsune on Funky, but I'll include this as well to avoid possible polymorph shenanigans in the future.
     /// </summary>
     private void OnCultistPolymorphed(Entity<CosmicCultComponent> ent, ref PolymorphedEvent args)
     {
@@ -299,32 +278,6 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
             return;
         _actions.RemoveAction(ent.Owner, ent.Comp.CosmicMonumentPlaceActionEntity);
         _actions.RemoveAction(ent.Owner, ent.Comp.CosmicMonumentMoveActionEntity);
-    }
-    #endregion
-
-    #region Cosmic jammer
-    private void OnJammerAnchorStateChange(Entity<CosmicJammerComponent> ent, ref AnchorStateChangedEvent args)
-    {
-        ent.Comp.Active = args.Anchored;
-        _ambient.SetAmbience(ent, args.Anchored);
-        _lights.SetEnabled(ent, args.Anchored);
-    }
-
-    private void OnRadioSendAttempt(ref RadioSendAttemptEvent args)
-    {
-        if (args.Channel == CosmicRadio) return; // Cult can still communicate within range of a jammer.
-
-        var source = Transform(args.RadioSource).Coordinates;
-        var query = EntityQueryEnumerator<CosmicJammerComponent, TransformComponent>();
-
-        while (query.MoveNext(out var uid, out var jammer, out var transform))
-        {
-            if (_transform.InRange(source, transform.Coordinates, jammer.Range) && jammer.Active)
-            {
-                args.Cancelled = true;
-                return;
-            }
-        }
     }
     #endregion
 }

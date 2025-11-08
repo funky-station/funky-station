@@ -44,12 +44,6 @@ public sealed class CosmicRiftSystem : EntitySystem
             return;
         }
 
-        if (HasComp<BibleUserComponent>(args.User))
-        {
-            _popup.PopupEntity(Loc.GetString("cosmiccult-rift-chaplainoops"), args.User, args.User);
-            return;
-        }
-
         if (!TryComp<CosmicCultComponent>(args.User, out var cultist))
         {
             _popup.PopupEntity(Loc.GetString(HasComp<BibleUserComponent>(args.User) ? "cosmiccult-rift-chaplainoops" : "cosmiccult-rift-invaliduser"), args.User, args.User);

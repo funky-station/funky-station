@@ -5459,3 +5459,25 @@ Entries:
       message: updated Court station for the third playtest
   id: 652
   time: '2025-11-07T22:22:04.0000000+00:00'
+- author: ilyamikcoder
+  changes:
+    - type: Add
+      message: Cleanbot and Medibot ghostroles.
+    - type: Tweak
+      message: Sentient bots can now use cyborg emotions.
+    - type: Tweak
+      message: Sentient bots can now see their health.
+    - type: Tweak
+      message: Sentient bots will now have glitchy speech when damaged.
+    - type: Tweak
+      message: >-
+        Some sentient bots that have proper rotational sprites (cleanbot,
+        supplybot, mimebot) can now use Combat Mode to spin efficiently.
+    - type: Tweak
+      message: >-
+        Bots are no longer destroyed immediately upon death; rather, they now
+        have a critical state similar to cyborgs.
+    - type: Fix
+      message: Supplybots can now see the Pull indicator properly.
+  id: 653
+  time: '2025-11-08T00:34:33.0000000+00:00'

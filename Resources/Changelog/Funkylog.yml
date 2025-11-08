@@ -5481,3 +5481,9 @@ Entries:
       message: Supplybots can now see the Pull indicator properly.
   id: 653
   time: '2025-11-08T00:34:33.0000000+00:00'
+- author: carccborg
+  changes:
+    - type: Add
+      message: IPCs now have a tank slot.
+  id: 654
+  time: '2025-11-08T00:36:56.0000000+00:00'

@@ -38,7 +38,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
   ## Your Uplink
   [bold][color=#5e9cff]Head Revolutionaries[/color][/bold] are chosen at the start of the shift. They are given a PDA uplink similar to a Syndicate uplink.
 
-  Telecrystals cannot be used in this PDA, instead a new currency, [color=#ff0000]RevCoin[/color], must be used. Be sure to lock your uplink after you're done using it.
+  Telecrystals cannot be used in this PDA. Instead, a new currency, [color=#ff0000]RevCoin[/color], must be used. Be sure to lock your uplink after you're done using it.
   
   There are no restocks, so there is no point in saving RevCoin.
 
@@ -61,7 +61,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
     <GuideEntityEmbed Entity="ClothingHeadHatWelding"/>
   </Box>
   
-  Keep in mind, that if someone is mindshielded while a revolutionary, they are able to remember everything from their past, including who converted them.
+  Keep in mind that, if someone is mindshielded while a revolutionary, they are able to remember everything from their past, including who converted them.
 
   ## Your tools
   <Box>

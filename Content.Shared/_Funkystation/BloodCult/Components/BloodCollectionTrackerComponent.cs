@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 Terkala <appleorange64@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -15,13 +15,13 @@ public sealed partial class BloodCollectionTrackerComponent : Component
 {
     /// <summary>
     /// Total amount of blood collected from this entity so far.
-    /// Capped at 100 units per entity.
     /// </summary>
     [DataField]
     public float TotalBloodCollected;
 
     /// <summary>
     /// Maximum amount of blood that can be collected from a single entity.
+    /// Prevents farming a single entity indefinitely.
     /// </summary>
     [DataField]
     public float MaxBloodPerEntity = 100.0f;

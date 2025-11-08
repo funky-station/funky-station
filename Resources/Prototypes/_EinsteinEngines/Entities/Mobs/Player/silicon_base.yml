@@ -4,6 +4,7 @@
 # SPDX-FileCopyrightText: 2025 KiraZen_ <209320699+KiraZen-Underscore@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Lyndomen <49795619+lyndomen@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Mish <bluscout78@yahoo.com>
+# SPDX-FileCopyrightText: 2025 No Elka <no.elka.the.god@gmail.com>
 # SPDX-FileCopyrightText: 2025 Skye <57879983+Rainbeon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
@@ -361,3 +362,4 @@
     - type: Targeting
     - type: SurgeryTarget
     - type: LayingDown
+    - type: CosmicCenserTarget # Funky - coscult fix

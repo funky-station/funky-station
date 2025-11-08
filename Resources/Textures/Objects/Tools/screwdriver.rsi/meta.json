@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "license": "CC-BY-SA-3.0",
-  "copyright": "Taken from https://github.com/ParadiseSS13/Paradise",
+  "license": "CC-BY-NC-4.0",
+  "copyright": "screwdriver/map/bits by vectorassembly, everything else - Taken from https://github.com/ParadiseSS13/Paradise (CC-BY-SA-3.0)",
   "size": {
     "x": 32,
     "y": 32

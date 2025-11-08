@@ -4,8 +4,8 @@ meta:
   engineVersion: 266.0.0
   forkId: ""
   forkVersion: ""
-  time: 11/08/2025 23:08:19
-  entityCount: 20586
+  time: 11/08/2025 23:24:13
+  entityCount: 20588
 maps:
 - 1
 grids:
@@ -13703,7 +13703,7 @@ entities:
       pos: -10.5,-40.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -144832.33
+      secondsUntilStateChange: -144902.69
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -13880,7 +13880,7 @@ entities:
       pos: -7.5,-7.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -324375.66
+      secondsUntilStateChange: -324446
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -14406,7 +14406,7 @@ entities:
       pos: -27.5,10.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -502778.6
+      secondsUntilStateChange: -502848.94
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -98916,6 +98916,13 @@ entities:
     - type: Transform
       pos: 3.5,4.5
       parent: 2
+- proto: SignIAA
+  entities:
+  - uid: 20587
+    components:
+    - type: Transform
+      pos: -38.5,-22.5
+      parent: 2
 - proto: SignInterrogation
   entities:
   - uid: 1653
@@ -98961,6 +98968,11 @@ entities:
     components:
     - type: Transform
       pos: -28.5,-16.5
+      parent: 2
+  - uid: 20588
+    components:
+    - type: Transform
+      pos: -39.5,-19.5
       parent: 2
 - proto: SignLibrary
   entities:

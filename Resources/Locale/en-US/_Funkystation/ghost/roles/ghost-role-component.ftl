@@ -21,3 +21,22 @@ ghost-role-information-medibot-rules = You are [bold]Medibot[/bold], a premium u
                                         You don't remember any of your previous life, and you don't remember anything you learned as a ghost.
                                         You are allowed to remember knowledge about the game in general, such as how to cook, how to use objects, etc.
                                         You are absolutely [color=red]NOT[/color] allowed to remember, say, the name, appearance, etc. of your previous character.
+
+ghost-role-information-mini-dragon-name = Mini Dragon
+ghost-role-information-mini-dragon-description = A small dragon-like creature that likes to create hoards.
+ghost-role-information-mini-dragon-rules = You are a Mini Dragon. You want to gather things, make a hoard and protect it.
+                                        You are not hostile to the crew, but outside of that you are free to choose how to talk and act.
+
+                                        You don't remember any of your previous life, and you don't remember anything you learned as a ghost.
+                                        You are allowed to remember knowledge about the game in general, such as how to cook, how to use objects, etc.
+                                        You are absolutely [color=red]NOT[/color] allowed to remember, say, the name, appearance, etc. of your previous character.
+
+ghost-role-information-galena-name = Galena the Dragon
+ghost-role-information-galena-description = The NTR's pet dragon.
+ghost-role-information-galena-rules = You are [bold]Galena the Dragon[/bold]. The NTR's trusted pet dragon.
+                                        You are part of central command, and as such are held to higher standards.
+                                        Always help the NTR and only use your teeth when necessary.
+
+                                        You don't remember any of your previous life, and you don't remember anything you learned as a ghost.
+                                        You are allowed to remember knowledge about the game in general, such as how to cook, how to use objects, etc.
+                                        You are absolutely [color=red]NOT[/color] allowed to remember, say, the name, appearance, etc. of your previous character.

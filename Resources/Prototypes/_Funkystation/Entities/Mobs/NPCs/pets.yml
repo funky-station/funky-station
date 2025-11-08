@@ -1,0 +1,147 @@
+- type: entity
+  name: mini dragon
+  id: BaseMobMiniDragon
+  parent: [ SimpleSpaceMobBase, FlyingMobBase, MobCombat ]
+  description: It's a mini dragon, sometimes also known as a poodle dragon. These small space dragons are the result of a failed experiment to create weaponizable space dragons by making them obedient and less agressive, resulting instead in small, intelligent space dragons that while not hostile tend to have eccentric personalities.
+  abstract: true
+  components:
+    - type: InputMover
+    - type: MobMover
+    - type: HTN
+      rootTask:
+        task: RuminantHostileCompound
+      blackboard:
+        NavSmash: !type:Bool
+          true
+    - type: NpcFactionMember
+      factions:
+      - PetsNT
+      - Dragon
+    - type: Sprite
+      drawdepth: Mobs
+      sprite: _Funkystation/Mobs/Pets/minidragon.rsi
+      layers:
+      - map: [ "enum.DamageStateVisualLayers.Base" ]
+        state: alive
+      - map: [ "enum.DamageStateVisualLayers.BaseUnshaded" ]
+      state: alive_mouth
+      shader: unshaded
+    - type: CombatMode
+    - type: Physics
+    - type: Fixtures
+      fixtures:
+        fix1:
+          shape:
+            !type:PhysShapeCircle
+            radius: 0.35
+          density: 50
+          mask:
+            - FlyingMobMask
+          layer:
+            - FlyingMobLayer
+    - type: MobState
+    - type: MobThresholds
+      thresholds:
+      0: Alive
+      125: Critical
+      150: Dead
+    - type: MovementSpeedModifier
+      baseWalkSpeed: 2.5
+      baseSprintSpeed: 3.5
+    - type: Stamina
+      critThreshold: 100
+    - type: DamageStateVisuals
+      states:
+        Alive:
+          Base: alive
+          BaseUnshaded: alive_mouth
+        Critical:
+          Base: crit
+          BaseUnshaded: crit_mouth
+        Dead:
+          Base: dead
+          BaseUnshaded: dead_mouth
+    - type: Butcherable
+      spawned:
+        - id: FoodMeatFish
+          amount: 3
+        - id: MaterialToothSpaceCarp1
+          amount: 4
+          maxAmount: 4
+        - id: MaterialCarpScale1 # Funky 
+          amount: 5
+          prob: 1          
+    - type: MeleeWeapon
+      altDisarm: false
+      angle: 0
+      animation: WeaponArcBite
+      soundHit:
+        path: /Audio/Effects/bite.ogg
+      damage:
+        types:
+          Blunt: 6
+          Slash: 6
+    - type: TypingIndicator
+      proto: lizard
+    - type: Tag
+      tags:
+        - Carp
+        - DoorBumpOpener
+        - CannotSuicide
+    - type: ReplacementAccent
+      accent: genericAggressive
+    - type: Speech
+      speechSounds: Lizard
+      speechVerb: Reptilian
+      allowedEmotes: ['Thump']
+    - type: InteractionPopup
+      successChance: 0.5 
+      interactSuccessString: petting-success-minidragon
+      interactFailureString: petting-failure-minidragon
+      interactFailureSound:
+        path: /Audio/Effects/bite.ogg
+    - type: Body # Shitmed: Special carp organs
+      prototype: Carp
+    - type: SurgeryTarget # Shitmed
+    - type: UserInterface # Shitmed
+      interfaces:
+        enum.SurgeryUIKey.Key:
+          type: SurgeryBui
+    - type: NightVision # EE edit
+      isActive: true
+      toggleAction: null
+      color: "#50595C"
+      activateSound: null
+      deactivateSound: null
+    - type: CombatPower # Funky
+      factor: 2 
+    - type: GhostRole
+      prob: 1
+      makeSentient: true
+      allowSpeech: true
+      allowMovement: true
+      name: ghost-role-information-mini-dragon-name
+      description: ghost-role-information-mini-dragon-description
+      rules: ghost-role-information-mini-dragon-rules
+    - type: GhostTakeoverAvailable
+    - type: Puller
+      needsHands: false
+
+- type: entity
+  name: mini dragon
+  parent: BaseMobMiniDragon
+  id: MobMiniDragon
+  components:
+    - type: Sprite
+      layers:
+      - map: [ "enum.DamageStateVisualLayers.Base" ]
+        state: alive
+      - map: [ "enum.DamageStateVisualLayers.BaseUnshaded" ]
+        state: alive_mouth
+        shader: unshaded
+    - type: RandomSprite
+      available:
+      - enum.DamageStateVisualLayers.Base:
+          alive: Rainbow
+        enum.DamageStateVisualLayers.BaseUnshaded:
+          mouth: ""

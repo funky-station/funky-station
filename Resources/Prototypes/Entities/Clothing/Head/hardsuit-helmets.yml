@@ -414,8 +414,8 @@
 - type: entity
   parent: [ ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase ]
   id: ClothingHeadHelmetHardsuitMedical
-  name: chief medical officer's hardsuit helmet
-  description: Lightweight medical hardsuit helmet that doesn't restrict your head movements.
+  name: chief medical officer's voidsuit helmet
+  description: Lightweight medical voidsuit helmet that doesn't restrict your head movements.
   components:
   - type: Sprite
     sprite: _Funkystation/Clothing/Head/Hardsuits/medical.rsi

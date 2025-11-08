@@ -2,6 +2,7 @@
 # SPDX-FileCopyrightText: 2025 Teasq <Xerithin@gmail.com>
 # SPDX-FileCopyrightText: 2025 mkanke-real <mikekanke@gmail.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 tea <xerithin@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -54,8 +55,8 @@
 - type: entity
   parent: ClothingEyesGlassesJamjar
   id: ClothingEyesGlassesChemjar
-  name: chemical analysis jamjar glasses
-  description: These retro glasses remind you of breaking SOP by making explosives.
+  name: chemical analysis jamgogs
+  description: These retro goggles remind you of breaking SOP by making explosives.
   components:
   - type: Sprite
     sprite: _Funkystation/Clothing/Eyes/Jamjars/chemjar.rsi
@@ -97,7 +98,7 @@
     - WhitelistChameleon
 
 - type: entity
-  parent: ClothingEyesGlassesJamjar
+  parent: [ClothingEyesGlassesJamjar, BaseEngineeringContraband]
   id: ClothingEyesGlassesJamgog
   name: engineering jamgoggles
   description: These retro glasses remind you of setting the tesla loose.

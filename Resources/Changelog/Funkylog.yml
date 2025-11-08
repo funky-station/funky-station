@@ -5487,3 +5487,9 @@ Entries:
       message: IPCs now have a tank slot.
   id: 654
   time: '2025-11-08T00:36:56.0000000+00:00'
+- author: Teasq
+  changes:
+    - type: Tweak
+      message: chemical jamjar glasses are now jamgoggles. Whoa.
+  id: 655
+  time: '2025-11-08T18:23:29.0000000+00:00'

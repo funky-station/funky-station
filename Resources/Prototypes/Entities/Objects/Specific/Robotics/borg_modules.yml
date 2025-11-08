@@ -818,7 +818,7 @@
 
 - type: entity
   id: BorgModuleOperative
-  parent: [ BaseBorgModuleSyndicate, BaseProviderBorgModule ]
+  parent: [ BaseBorgModuleSyndicate, BaseProviderBorgModule, BaseSyndicateContraband ]
   name: operative cyborg module
   description: A module that comes with a crowbar, an Emag, an Access Breaker and a syndicate pinpointer.
   components:
@@ -837,7 +837,7 @@
 
 - type: entity
   id: BorgModuleEsword
-  parent: [ BaseBorgModuleSyndicate, BaseProviderBorgModule ]
+  parent: [ BaseBorgModuleSyndicate, BaseProviderBorgModule, BaseSyndicateContraband ]
   name: energy sword cyborg module
   description: A module that comes with a double energy sword.
   components:
@@ -847,7 +847,7 @@
       - state: icon-syndicate
     - type: ItemBorgModule
       items:
-      - CyborgEnergySwordDouble
+      - CyborgEnergySword
       - PinpointerSyndicateNuclear
     - type: BorgModuleIcon
       icon: { sprite: Interface/Actions/actions_borg.rsi, state: syndicate-esword-module }
@@ -868,6 +868,40 @@
         - PinpointerSyndicateNuclear
     - type: BorgModuleIcon
       icon: { sprite: Interface/Actions/actions_borg.rsi, state: syndicate-l6c-module }
+
+- type: entity
+  id: BorgModuleDoubleEsword
+  parent: [ BaseBorgModuleSyndicate, BaseProviderBorgModule, BaseSyndicateContraband ]
+  name: double energy sword cyborg module
+  description: A weapons module that comes with a double energy sword.
+  components:
+  - type: Sprite
+    layers:
+    - state: syndicate
+    - state: icon-syndicate
+  - type: ItemBorgModule
+    items:
+    - CyborgEnergySwordDouble
+    - PinpointerSyndicateNuclear
+  - type: BorgModuleIcon
+    icon: { sprite: Interface/Actions/actions_borg.rsi, state: syndicate-desword-module }
+
+- type: entity
+  parent: [ BaseBorgModuleSyndicateAssault, BaseProviderBorgModule, BaseSyndicateContraband ]
+  id: BorgModuleC20r
+  name: C20-r ROW cyborg module
+  description: A weapons module that comes with a C-20r.
+  components:
+  - type: Sprite
+    layers:
+    - state: syndicate
+    - state: icon-syndicate
+  - type: ItemBorgModule
+    items:
+    - WeaponSubMachineGunC20rROW
+    - PinpointerSyndicateNuclear
+  - type: BorgModuleIcon
+    icon: { sprite: Interface/Actions/actions_borg.rsi, state: syndicate-c20r-module }
 
 - type: entity
   id: BorgModuleMartyr

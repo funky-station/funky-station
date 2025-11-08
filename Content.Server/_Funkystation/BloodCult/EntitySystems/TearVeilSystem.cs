@@ -227,7 +227,7 @@ namespace Content.Server.BloodCult.EntitySystems
 			if (Exists(cultist))
 			{
 				var chant = _bloodCultRule.GenerateChant(wordCount: 3);
-				_bloodCultRule.Speak(cultist, chant);
+				_bloodCultRule.Speak(cultist, chant, forceLoud: true);
 			}
 		}
 

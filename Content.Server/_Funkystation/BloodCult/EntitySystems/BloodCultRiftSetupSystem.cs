@@ -333,17 +333,6 @@ private bool TryFindValid3x3Space(EntityCoordinates center, out EntityCoordinate
 		var bottomRune = Spawn("OfferingRune", center.Offset(new Vector2(0, -1)));
 		var topRune = Spawn("OfferingRune", center.Offset(new Vector2(0, 1)));
 
-		// Mark them as final summoning runes associated with this rift
-		var leftFinal = EnsureComp<FinalSummoningRuneComponent>(leftRune);
-		var rightFinal = EnsureComp<FinalSummoningRuneComponent>(rightRune);
-		var bottomFinal = EnsureComp<FinalSummoningRuneComponent>(bottomRune);
-		var topFinal = EnsureComp<FinalSummoningRuneComponent>(topRune);
-
-		leftFinal.RiftUid = rift;
-		rightFinal.RiftUid = rift;
-		bottomFinal.RiftUid = rift;
-		topFinal.RiftUid = rift;
-
 		// Track these runes for chanting and offerings
 		riftComp.SummoningRunes.Add(leftRune);
 		riftComp.SummoningRunes.Add(rightRune);

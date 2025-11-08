@@ -23,6 +23,7 @@ using Content.Server.Camera;
 using Content.Server.Body.Systems;
 using Content.Server.Mind;
 using Content.Shared.Mind.Components;
+using Content.Shared.Ghost;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Player;
@@ -39,6 +40,7 @@ namespace Content.Server.BloodCult.EntitySystems;
 public sealed partial class BloodCultRiftSystem : EntitySystem
 {
 	private const float ShakeRange = 25f;
+	private const float SummoningRuneDetectionRange = 1.5f;
 	private static readonly float[] ShakeIntervals = { 15f, 7.5f, 3.5f, 1.75f };
 	private static readonly float[] ShakeIntensities = { 5f, 6f, 7.5f, 9f };
 
@@ -80,6 +82,13 @@ public sealed partial class BloodCultRiftSystem : EntitySystem
 			{
 				PulseRift(riftUid, riftComp);
 				riftComp.TimeUntilNextPulse = riftComp.PulseInterval;
+			}
+
+			riftComp.TimeUntilRuneRefresh -= frameTime;
+			if (riftComp.TimeUntilRuneRefresh <= 0f)
+			{
+				RefreshSummoningRunes(riftUid, riftComp, xform);
+				riftComp.TimeUntilRuneRefresh = riftComp.RuneRefreshInterval;
 			}
 
 			// Handle active ritual chanting
@@ -188,6 +197,8 @@ public sealed partial class BloodCultRiftSystem : EntitySystem
 			return;
 
 		var cultistsOnRunes = GetCultistsOnSummoningRunes(component);
+		cultistsOnRunes.RemoveAll(uid => HasComp<GhostComponent>(uid));
+
 		if (cultistsOnRunes.Count == 0)
 			return;
 
@@ -242,6 +253,8 @@ public sealed partial class BloodCultRiftSystem : EntitySystem
 		}
 
 		var riftUid = finalRune.RiftUid.Value;
+		var riftXform = Transform(riftUid);
+		RefreshSummoningRunes(riftUid, component, riftXform);
 
 		// Don't start if ritual is already in progress
 		if (component.RitualInProgress)
@@ -419,6 +432,48 @@ public sealed partial class BloodCultRiftSystem : EntitySystem
 		}
 
 		return cultists.ToList();
+	}
+
+	private void RefreshSummoningRunes(EntityUid riftUid, BloodCultRiftComponent component, TransformComponent riftXform)
+	{
+		var runesInRange = new HashSet<EntityUid>();
+		var nearbyEntities = _lookup.GetEntitiesInRange(riftXform.Coordinates, SummoningRuneDetectionRange);
+
+		foreach (var entity in nearbyEntities)
+		{
+			if (!TryComp<OfferOnTriggerComponent>(entity, out _) || Deleted(entity))
+				continue;
+
+			runesInRange.Add(entity);
+
+			var finalRune = EnsureComp<FinalSummoningRuneComponent>(entity);
+			if (finalRune.RiftUid != riftUid)
+			{
+				finalRune.RiftUid = riftUid;
+				Dirty(entity, finalRune);
+			}
+
+			if (!component.SummoningRunes.Contains(entity))
+				component.SummoningRunes.Add(entity);
+
+			if (!component.OfferingRunes.Contains(entity))
+				component.OfferingRunes.Add(entity);
+		}
+
+		component.SummoningRunes.RemoveAll(uid =>
+		{
+			if (!Exists(uid) || !runesInRange.Contains(uid))
+			{
+				if (TryComp<FinalSummoningRuneComponent>(uid, out var runeComp) && runeComp.RiftUid == riftUid)
+					RemComp<FinalSummoningRuneComponent>(uid);
+
+				return true;
+			}
+
+			return false;
+		});
+
+		component.OfferingRunes.RemoveAll(uid => !Exists(uid) || !runesInRange.Contains(uid));
 	}
 
 	/// <summary>

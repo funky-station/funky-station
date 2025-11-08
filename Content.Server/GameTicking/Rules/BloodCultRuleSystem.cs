@@ -14,6 +14,7 @@ using Robust.Shared.Player;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 using Content.Shared.GameTicking.Components;
+using Content.Server.GameTicking;
 using Content.Server.Roles;
 using Content.Server.RoundEnd;
 using Content.Server.Antag;
@@ -34,10 +35,12 @@ using Content.Shared.Mobs.Systems;
 using Content.Server.Administration.Systems;
 using Content.Server.Popups;
 using Content.Shared.Popups;
-using Content.Shared.Magic.Events;
 using Content.Shared.Body.Systems;
 using Robust.Shared.Random;
 using Robust.Server.GameObjects;
+using Robust.Server.Player;
+using Robust.Shared.Enums;
+using Content.Server.Body.Components;
 using Content.Shared.Roles.Jobs;
 using Content.Shared.Localizations;
 using Content.Shared.Pinpointer;
@@ -72,6 +75,73 @@ namespace Content.Server.GameTicking.Rules;
 /// </summary>
 public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 {
+	private enum BloodStage
+	{
+		Rise,
+		Veil
+	}
+
+	private void PrepareNextStageRequirement(BloodCultRuleComponent component, BloodStage stage)
+	{
+		double totalRemaining = 0.0;
+
+		foreach (var session in _playerManager.Sessions)
+		{
+			if (session.Status != SessionStatus.InGame)
+				continue;
+
+			if (session.AttachedEntity is not { } entity || Deleted(entity))
+				continue;
+
+			if (!TryComp<BloodstreamComponent>(entity, out _))
+				continue;
+			// Sums up the total remaining possible blood for each player
+			var tracker = EnsureComp<BloodCollectionTrackerComponent>(entity);
+			var remaining = Math.Max(0f, tracker.MaxBloodPerEntity - tracker.TotalBloodCollected);
+			totalRemaining += remaining;
+		}
+
+		component.BloodCollected = 0.0;
+		
+
+		switch (stage)
+		{
+			case BloodStage.Rise:
+			{
+				// Change this to make the phase require different amounts of blood
+				var required = totalRemaining / 6.0;
+				component.BloodRequiredForRise = required;
+				break;
+			}
+			case BloodStage.Veil:
+			{
+				// Change this to make the phase require different amounts of blood
+				var required = totalRemaining / 6.0;
+				component.BloodRequiredForVeil = required;
+				break;
+			}
+		}
+	}
+
+	private void CompleteRiseStage(BloodCultRuleComponent component, List<EntityUid> cultists)
+	{
+		if (component.HasRisen)
+			return;
+
+		component.HasRisen = true;
+		PrepareNextStageRequirement(component, BloodStage.Veil);
+		AnnounceStatus(component, cultists);
+
+		foreach (var cultist in cultists)
+		{
+			if (!TryComp<BloodCultistComponent>(cultist, out var cultistComp))
+				continue;
+
+			cultistComp.ShowTearVeilRune = true;
+			DirtyField(cultist, cultistComp, nameof(BloodCultistComponent.ShowTearVeilRune));
+		}
+	}
+
 	[Dependency] private readonly SharedAudioSystem _audio = default!;
 	[Dependency] private readonly AntagSelectionSystem _antag = default!;
 	[Dependency] private readonly MindSystem _mind = default!;
@@ -81,6 +151,8 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 	[Dependency] private readonly PopupSystem _popupSystem = default!;
 	[Dependency] private readonly IRobustRandom _random = default!;
 	[Dependency] private readonly IGameTiming _timing = default!;
+	[Dependency] private readonly GameTicker _gameTicker = default!;
+	[Dependency] private readonly IPlayerManager _playerManager = default!;
 	[Dependency] private readonly ChatSystem _chat = default!;
 	[Dependency] private readonly SharedPhysicsSystem _physics = default!;
 	[Dependency] private readonly SharedJobSystem _jobs = default!;
@@ -158,17 +230,11 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 	/// </summary>
 	private void CalculateBloodRequirements(BloodCultRuleComponent component)
 	{
-		var allAliveHumans = _mind.GetAliveHumans();
-		double bloodPerPlayer = 100.0;
-		
-		// Calculate blood needed for each phase
-		double totalBloodForPhase = allAliveHumans.Count * bloodPerPlayer;
-		
-		component.BloodRequiredForEyes = totalBloodForPhase;
-		component.BloodRequiredForRise = totalBloodForPhase * 2.0; // Second phase requires cumulative blood
-		component.BloodRequiredForVeil = totalBloodForPhase * 3.0; // Third phase requires cumulative blood
-		
-		// Reset blood collected to 0
+		var readyCount = Math.Max(0, _gameTicker.ReadyPlayerCount());
+		var groups = Math.Max(1.0, Math.Ceiling(readyCount / 20.0));
+		component.BloodRequiredForEyes = groups * 100.0;
+		component.BloodRequiredForRise = 0.0; //Calculated later in the round
+		component.BloodRequiredForVeil = 0.0; //Calculated later in the round
 		component.BloodCollected = 0.0;
 	}
 
@@ -348,22 +414,15 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 			component.HasEyes = true;
 			EmpowerCultists(cultists);
 			AnnounceStatus(component, cultists);
+			PrepareNextStageRequirement(component, BloodStage.Rise);
+
+			if (component.BloodRequiredForRise <= 0)
+				CompleteRiseStage(component, cultists);
 		}
 
-		if (!component.HasRisen && component.BloodCollected >= component.BloodRequiredForRise)
+		if (component.HasEyes && !component.HasRisen && component.BloodRequiredForRise > 0 && component.BloodCollected >= component.BloodRequiredForRise)
 		{
-			component.HasRisen = true;
-			// RiseCultists moved to CompleteVeilRitual (when VeilWeakened becomes true)
-			AnnounceStatus(component, cultists);
-			
-			// Enable Tear Veil rune for all cultists at stage 2
-			foreach (EntityUid cultist in cultists)
-			{
-				if (!TryComp<BloodCultistComponent>(cultist, out var cultistComp))
-					continue;
-				cultistComp.ShowTearVeilRune = true;
-				DirtyField(cultist, cultistComp, nameof(BloodCultistComponent.ShowTearVeilRune));
-			}
+			CompleteRiseStage(component, cultists);
 		}
 
 		// Stage 3 (VeilWeakened) requires the Tear the Veil ritual to be completed
@@ -779,13 +838,28 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 		_role.MindRemoveRole<BloodCultRoleComponent>(args.Mind.Owner);
 	}
 
-	public void Speak(EntityUid? uid, string speech)
+	public void Speak(EntityUid? uid, string speech, bool forceLoud = false)
 	{
 		if (uid == null || string.IsNullOrWhiteSpace(speech))
 			return;
 
-		var ev = new SpeakSpellEvent((EntityUid)uid, speech);
-		RaiseLocalEvent(ref ev);
+		if (!Loc.TryGetString(speech, out var message))
+			message = speech;
+
+		OnBloodCultSpellSpoken(uid.Value, message, forceLoud);
+	}
+
+	private void OnBloodCultSpellSpoken(EntityUid performer, string speech, bool forceLoud)
+	{
+		var chatType = InGameICChatType.Speak;
+
+		if (!forceLoud)
+		{
+			if (!TryGetActiveRule(out var component) || !component.VeilWeakened)
+				chatType = InGameICChatType.Whisper;
+		}
+
+		_chat.TrySendInGameICMessage(performer, speech, chatType, false);
 	}
 
 	/// <summary>
@@ -1193,7 +1267,7 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 			else if (!ruleComp.HasRisen)
 				currentCap = ruleComp.BloodRequiredForRise;
 			else if (!ruleComp.VeilWeakened)
-				currentCap = ruleComp.BloodRequiredForRise; // Cap at Rise threshold until Tear Veil ritual is done
+				currentCap = ruleComp.BloodRequiredForVeil;
 			
 			// Add blood but don't exceed the current stage cap
 			ruleComp.BloodCollected = Math.Min(ruleComp.BloodCollected + amount, currentCap);

@@ -484,6 +484,15 @@ namespace Content.Server.BloodCult.EntitySystems
 				var shade = Spawn("MobBloodCultShade", coordinates);
 				_mind.TransferTo((EntityUid)soulstoneMind.Mind, shade, mind: mind);
 
+				var shadeCultist = EnsureComp<BloodCultistComponent>(shade);
+
+				if (_bloodCultRule.TryGetActiveRule(out var activeRule))
+				{
+					shadeCultist.ShowTearVeilRune = activeRule.HasRisen || activeRule.VeilWeakened;
+					shadeCultist.LocationForSummon = activeRule.LocationForSummon;
+					Dirty(shade, shadeCultist);
+				}
+
 				if (TryComp<ShadeComponent>(shade, out var shadeComp))
 					shadeComp.SourceSoulstone = soulstone;
 

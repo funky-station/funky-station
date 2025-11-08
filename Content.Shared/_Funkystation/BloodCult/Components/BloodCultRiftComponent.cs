@@ -47,6 +47,16 @@ public sealed partial class BloodCultRiftComponent : Component
 	public List<EntityUid> OfferingRunes = new();
 
 	/// <summary>
+	/// How often to refresh rune tracking.
+	/// </summary>
+	[DataField] public float RuneRefreshInterval = 0.5f;
+
+	/// <summary>
+	/// Time remaining until next rune refresh.
+	/// </summary>
+	[DataField] public float TimeUntilRuneRefresh = 0f;
+
+	/// <summary>
 	/// Is the final ritual currently in progress?
 	/// </summary>
 	[DataField]

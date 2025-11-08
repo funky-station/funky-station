@@ -38,7 +38,6 @@ using Content.Shared.Magic.Events;
 using Content.Shared.Mind;
 using Content.Shared.Tag;
 using Robust.Shared.Prototypes;
-
 namespace Content.Server.Magic;
 
 public sealed class MagicSystem : SharedMagicSystem
@@ -59,8 +58,7 @@ public sealed class MagicSystem : SharedMagicSystem
 
     private void OnSpellSpoken(ref SpeakSpellEvent args)
     {
-        var chatType = _gameTicker.IsGameRuleActive<BloodCultRuleComponent>() ? InGameICChatType.Speak : InGameICChatType.Whisper;
-        _chat.TrySendInGameICMessage(args.Performer, Loc.GetString(args.Speech), chatType, false);
+        _chat.TrySendInGameICMessage(args.Performer, Loc.GetString(args.Speech), InGameICChatType.Speak, false);
     }
 
     public override void OnVoidApplause(VoidApplauseSpellEvent ev)

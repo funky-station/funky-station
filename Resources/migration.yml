@@ -624,5 +624,8 @@ VariedXenoArtifactItem: ComplexXenoArtifactItem
 ClothingBackpackDuffelSurgeryFilled: SurgeryKitFilled
 ClothingBackpackDuffelSyndicateFilledMedical: SurgeryKitSyndicateFilled
 
+# 2025-08-18
+CentcomPDA: CentcomOfficialPDA
+
 # 2025-10-28
 DrinkKiraSpecial: DrinkOrangeLimeSodaGlass

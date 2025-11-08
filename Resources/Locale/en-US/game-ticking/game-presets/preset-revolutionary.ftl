@@ -42,10 +42,16 @@ roles-antag-rev-objective = Your objective is to ensure the safety and follow th
 
 rev-break-control = {$name} has remembered their true allegiance!
 
+rev-lieutenant-greeting = 
+    You are a Revolutionary Lieutenant.
+    You are able to see your comrades, but are unable to convert anyone.
+    Lead your department and co-ordinate with your fellow revolutionaries and head revolutionaries.
+    Viva la revolución!
+
 rev-role-greeting =
     You are a Revolutionary.
     You are tasked with taking over the station and protecting the Head Revolutionaries.
-    Get rid of all of the Command staff.
+    Get rid of all of the Command staff, and listen to your Lieutenants!
     Viva la revolución!
 
 rev-briefing = Help your head revolutionaries convert or get rid of every head to take over the station.

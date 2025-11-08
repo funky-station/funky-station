@@ -12,6 +12,7 @@
 # SPDX-FileCopyrightText: 2024 John Space <bigdumb421@gmail.com>
 # SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Джексон Миссиссиппи <tripwiregamer@gmail.com>
+# SPDX-FileCopyrightText: 2025 Carccborg <225926381+carccborg@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 QueerCats <jansencheng3@gmail.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
@@ -19,7 +20,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
 # Funky Edit
-# Humans, but no tank or headset slot
+# Humans, but no headset slot
 - type: inventoryTemplate
   id: ipc
   slots:
@@ -136,3 +137,14 @@
       dependsOnComponents:
       - type: AllowBackStorage
       displayName: Back Storage
+    - name: tankstorage
+      slotTexture: tank_storage
+      slotFlags:   TANKSTORAGE
+      slotGroup: MainHotbar
+      stripTime: 3
+      uiWindowPos: 3,0
+      strippingWindowPos: 1, 5
+      dependsOn: outerClothing
+      dependsOnComponents:
+      - type: AllowTankStorage
+      displayName: Tank Storage

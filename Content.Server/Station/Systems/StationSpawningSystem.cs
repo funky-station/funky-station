@@ -259,6 +259,11 @@ public sealed class StationSpawningSystem : SharedStationSpawningSystem
                     _metaSystem.SetEntityName(entity.Value, profile.Name);
                 }
             }
+            else
+            {
+                // we still want to set their name appropriately
+                _metaSystem.SetEntityName(entity.Value, profile.Name);
+            }
 
 
             _humanoidSystem.LoadProfile(entity.Value, profile);

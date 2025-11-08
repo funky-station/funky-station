@@ -25,6 +25,8 @@
       color: "#ff0000"
     - state: icon_text3
       color: "#d5dc1d"
+  - type: OocAuthorship
+    oocAuthor: Stabithar
   - type: Paper
     stampedBy:
     - stampedColor: '#134975'
@@ -95,9 +97,6 @@
 
       Captain Nichael Trace and his crew will return in: The Zero-Sum Symphony: Book Two: The Omega Stratagem, available soon from authorised NanoTrasen retailers.
 
-
-      [italic]OOC Author - Stabithar[/italic]
-
 #Submitted by Stabithar
 - type: entity
   parent: BookBase
@@ -118,6 +117,8 @@
     - state: icon_nuclear
     - state: icon_text3
       color: "#d5dc1d"
+  - type: OocAuthorship
+    oocAuthor: Stabithar
   - type: Paper
     stampedBy:
     - stampedColor: '#134975'
@@ -183,6 +184,3 @@
       ◄●●●►
 
       Captain Nichael Trace and his crew will return in: The Zero-Sum Gambit series, available available soon from authorised NanoTrasen retailers.
-
-
-      [italic]OOC Author - Stabithar[/italic]

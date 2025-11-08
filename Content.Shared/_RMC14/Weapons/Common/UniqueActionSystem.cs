@@ -1,3 +1,4 @@
+// SPDX-FileCopyrightText: 2025 Toaster <mrtoastymyroasty@gmail.com>
 // SPDX-FileCopyrightText: 2025 jackel234 <52829582+jackel234@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
@@ -68,6 +69,7 @@ public sealed class UniqueActionSystem : EntitySystem
         if (!_actionBlockerSystem.CanInteract(userUid, targetUid))
             return;
 
-        RaiseLocalEvent(targetUid, new UniqueActionEvent(userUid));
+        var ev = new UniqueActionEvent(userUid);
+        RaiseLocalEvent(targetUid, ref ev);
     }
 }

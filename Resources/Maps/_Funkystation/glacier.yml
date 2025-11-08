@@ -56,6 +56,7 @@
 # SPDX-FileCopyrightText: 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 rottenheadphones <juaelwe@outlook.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 tea <xerithin@gmail.com>
 # SPDX-FileCopyrightText: 2025 willowzeta <willowzeta632146@proton.me>
 # SPDX-FileCopyrightText: 2025 wilowzeta <willowzeta632146@proton.me>
 #
@@ -59436,7 +59437,7 @@ entities:
     - type: Transform
       pos: -20.205872,-19.217335
       parent: 2
-- proto: ClothingHeadBandBotany
+- proto: ClothingHeadBandGreen
   entities:
   - uid: 8211
     components:
@@ -96792,7 +96793,7 @@ entities:
 
         [bold]1. Turn on the air supply and waste filter.[/bold]
 
-        The cryogenics pods are essentially sanitary atmospheric isolation chambers designed to be extremely hot or cold without impacting the surrounding environment, while also preventing the patient from experiencing much of the ill effects of such an enviroment. 
+        The cryogenics pods are essentially sanitary atmospheric isolation chambers designed to be extremely hot or cold without impacting the surrounding environment, while also preventing the patient from experiencing much of the ill effects of such an enviroment.
 
 
         In order to prevent the occupant from suffocating, you need to supply breathable air from the atmospheric distribution network ("distro") and filter carbon dioxide from the cryogenics air supply system.
@@ -96815,7 +96816,7 @@ entities:
 
         [bold]5. Place a beaker with the preferred cryogenic chemical into the slot on the cryopod.[/bold]
 
-        Cryoxadone is the most common cryogenics chemical. Medical bays are often stocked with it at the beginning of shifts, and it is exceptionally cheap to produce for how effective it is as medicine. 
+        Cryoxadone is the most common cryogenics chemical. Medical bays are often stocked with it at the beginning of shifts, and it is exceptionally cheap to produce for how effective it is as medicine.
 
 
         Other chemicals are desirable for their ability to work on the dead, with cryoxadone cannot accomplish.

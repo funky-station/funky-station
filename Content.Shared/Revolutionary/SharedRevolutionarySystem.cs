@@ -42,10 +42,12 @@ public abstract class SharedRevolutionarySystem : EntitySystem
         SubscribeLocalEvent<MindShieldComponent, MapInitEvent>(MindShieldImplanted);
         SubscribeLocalEvent<RevolutionaryComponent, ComponentGetStateAttemptEvent>(OnRevCompGetStateAttempt);
         SubscribeLocalEvent<HeadRevolutionaryComponent, ComponentGetStateAttemptEvent>(OnRevCompGetStateAttempt);
+        SubscribeLocalEvent<RevolutionaryLieutenantComponent, ComponentGetStateAttemptEvent>(OnLieuRevCompGetStateAttempt);
         SubscribeLocalEvent<RevolutionaryComponent, ComponentStartup>(DirtyRevComps);
         SubscribeLocalEvent<HeadRevolutionaryComponent, ComponentStartup>(DirtyRevComps);
+        SubscribeLocalEvent<RevolutionaryLieutenantComponent, ComponentStartup>(DirtyRevComps);
         SubscribeLocalEvent<ShowAntagIconsComponent, ComponentStartup>(DirtyRevComps);
-
+        
         SubscribeLocalEvent<HeadRevolutionaryComponent, AddImplantAttemptEvent>(OnHeadRevImplantAttempt);
         SubscribeLocalEvent<RevolutionaryComponent, AddImplantAttemptEvent>(OnRevImplantAttempt);
     }
@@ -94,6 +96,14 @@ public abstract class SharedRevolutionarySystem : EntitySystem
     {
         args.Cancelled = !CanGetState(args.Player);
     }
+    
+    /// <summary>
+    /// Determines if a Lieutenant Rev component should be sent to the client.
+    /// </summary>
+    private void OnLieuRevCompGetStateAttempt(EntityUid uid, RevolutionaryLieutenantComponent comp, ref ComponentGetStateAttemptEvent args)
+    {
+        args.Cancelled = !CanGetState(args.Player);
+    }
 
     /// <summary>
     /// The criteria that determine whether a Rev/HeadRev component should be sent to a client.
@@ -106,7 +116,7 @@ public abstract class SharedRevolutionarySystem : EntitySystem
         if (player?.AttachedEntity is not {} uid)
             return true;
 
-        if (HasComp<RevolutionaryComponent>(uid) || HasComp<HeadRevolutionaryComponent>(uid))
+        if (HasComp<RevolutionaryComponent>(uid) || HasComp<HeadRevolutionaryComponent>(uid) || HasComp<RevolutionaryLieutenantComponent>(uid))
             return true;
 
         return HasComp<ShowAntagIconsComponent>(uid);
@@ -129,6 +139,12 @@ public abstract class SharedRevolutionarySystem : EntitySystem
 
         var headRevComps = AllEntityQuery<HeadRevolutionaryComponent>();
         while (headRevComps.MoveNext(out var uid, out var comp))
+        {
+            Dirty(uid, comp);
+        }
+
+        var lieuRevComps = AllEntityQuery<RevolutionaryLieutenantComponent>();
+        while (lieuRevComps.MoveNext(out var uid, out var comp))
         {
             Dirty(uid, comp);
         }

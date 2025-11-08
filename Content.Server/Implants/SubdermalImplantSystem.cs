@@ -84,7 +84,15 @@ public sealed class SubdermalImplantSystem : SharedSubdermalImplantSystem
         SubscribeLocalEvent<SubdermalImplantComponent, ActivateImplantEvent>(OnActivateImplantEvent);
         SubscribeLocalEvent<SubdermalImplantComponent, UseScramImplantEvent>(OnScramImplant);
         SubscribeLocalEvent<SubdermalImplantComponent, UseDnaScramblerImplantEvent>(OnDnaScramblerImplant);
+        SubscribeLocalEvent<ScramImplantComponent, ImplantImplantedEvent>(OnScramImplantImplanted);
+    }
 
+    private void OnScramImplantImplanted(Entity<ScramImplantComponent> entity, ref ImplantImplantedEvent ev)
+    {
+        if (ev.Implanted == null)
+            return;
+        
+        EnsureComp<ScramImplantComponent>(ev.Implanted.Value);
     }
 
     private void OnStoreRelay(EntityUid uid, StoreComponent store, ImplantRelayEvent<AfterInteractUsingEvent> implantRelay)

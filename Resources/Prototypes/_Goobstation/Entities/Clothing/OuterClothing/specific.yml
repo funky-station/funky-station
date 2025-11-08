@@ -2,7 +2,9 @@
 # SPDX-FileCopyrightText: 2024 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
 # SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 AtlasHD <99688062+AtlasHDD@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 McBosserson <148172569+McBosserson@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 unknown <alexander.kuepper1234@gmail.com>
 #
@@ -15,9 +17,9 @@
   description: A full-body hazardous environment suit designed to protect its wearer from radiation, energy discharges, blunt-force trauma, and disintegration during the handling of hazardous materials.
   components:
   - type: Sprite
-    sprite: _Goobstation/Clothing/OuterClothing/Suits/hev.rsi
+    sprite: _Funkystation/Clothing/OuterClothing/Hardsuits/hev.rsi
   - type: Clothing
-    sprite: _Goobstation/Clothing/OuterClothing/Suits/hev.rsi
+    sprite: _Funkystation/Clothing/OuterClothing/Hardsuits/hev.rsi
   - type: ExplosionResistance
     damageCoefficient: 0.7
   - type: Armor

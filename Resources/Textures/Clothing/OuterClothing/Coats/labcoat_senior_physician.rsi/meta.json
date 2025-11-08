@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Base sprite from TG Station, recoloured for Funky Station by AraiMaia",
+  "copyright": "Edit by Nairodian (github) of labcoat.rsi from Space-Station-14 at pull request https://github.com/space-wizards/space-station-14/pull/10758,",
   "size": {
     "x": 32,
     "y": 32
@@ -19,14 +19,6 @@
     },
     {
       "name": "open-equipped-OUTERCLOTHING",
-      "directions": 4
-    },
-    {
-      "name": "equipped-OUTERCLOTHING-vox",
-      "directions": 4
-    },
-    {
-      "name": "open-equipped-OUTERCLOTHING-vox",
       "directions": 4
     },
     {

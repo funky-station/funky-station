@@ -5453,3 +5453,49 @@ Entries:
       message: Botany bandana
   id: 651
   time: '2025-11-06T06:15:24.0000000+00:00'
+- author: Dusty-Plant
+  changes:
+    - type: Tweak
+      message: updated Court station for the third playtest
+  id: 652
+  time: '2025-11-07T22:22:04.0000000+00:00'
+- author: ilyamikcoder
+  changes:
+    - type: Add
+      message: Cleanbot and Medibot ghostroles.
+    - type: Tweak
+      message: Sentient bots can now use cyborg emotions.
+    - type: Tweak
+      message: Sentient bots can now see their health.
+    - type: Tweak
+      message: Sentient bots will now have glitchy speech when damaged.
+    - type: Tweak
+      message: >-
+        Some sentient bots that have proper rotational sprites (cleanbot,
+        supplybot, mimebot) can now use Combat Mode to spin efficiently.
+    - type: Tweak
+      message: >-
+        Bots are no longer destroyed immediately upon death; rather, they now
+        have a critical state similar to cyborgs.
+    - type: Fix
+      message: Supplybots can now see the Pull indicator properly.
+  id: 653
+  time: '2025-11-08T00:34:33.0000000+00:00'
+- author: carccborg
+  changes:
+    - type: Add
+      message: IPCs now have a tank slot.
+  id: 654
+  time: '2025-11-08T00:36:56.0000000+00:00'
+- author: Teasq
+  changes:
+    - type: Tweak
+      message: chemical jamjar glasses are now jamgoggles. Whoa.
+  id: 655
+  time: '2025-11-08T18:23:29.0000000+00:00'
+- author: NoElkaTheGod
+  changes:
+    - type: Fix
+      message: IPC cosmic cultists can be properly deconverted now.
+  id: 656
+  time: '2025-11-08T18:49:10.0000000+00:00'

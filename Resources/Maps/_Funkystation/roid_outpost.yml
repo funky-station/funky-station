@@ -4,8 +4,8 @@ meta:
   engineVersion: 266.0.0
   forkId: ""
   forkVersion: ""
-  time: 11/08/2025 22:56:21
-  entityCount: 20585
+  time: 11/08/2025 23:08:19
+  entityCount: 20586
 maps:
 - 1
 grids:
@@ -12245,6 +12245,11 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -53.5,11.5
       parent: 2
+    - type: DeviceList
+      devices:
+      - 8401
+      - 8402
+      - 8403
   - uid: 111
     components:
     - type: Transform
@@ -13698,7 +13703,7 @@ entities:
       pos: -10.5,-40.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -144730.02
+      secondsUntilStateChange: -144832.33
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -13875,7 +13880,7 @@ entities:
       pos: -7.5,-7.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -324273.34
+      secondsUntilStateChange: -324375.66
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -14401,7 +14406,7 @@ entities:
       pos: -27.5,10.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -502676.28
+      secondsUntilStateChange: -502778.6
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -64620,7 +64625,6 @@ entities:
     - type: GasFilter
       filterGases:
       - Nitrogen
-      enabled: True
     - type: AtmosPipeColor
       color: '#0055CCFF'
 - proto: GasMinerCarbonDioxide
@@ -81910,18 +81914,27 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -56.5,15.5
       parent: 2
+    - type: DeviceNetwork
+      deviceLists:
+      - 110
   - uid: 8402
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -56.5,14.5
       parent: 2
+    - type: DeviceNetwork
+      deviceLists:
+      - 110
   - uid: 8403
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -56.5,13.5
       parent: 2
+    - type: DeviceNetwork
+      deviceLists:
+      - 110
   - uid: 9516
     components:
     - type: Transform
@@ -88319,7 +88332,7 @@ entities:
   - uid: 9041
     components:
     - type: Transform
-      pos: 24.204851,8.717708
+      pos: 24.126259,8.7436285
       parent: 2
     - type: NetworkConfigurator
       linkModeActive: False
@@ -91696,6 +91709,12 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -37.5,-46.5
+      parent: 2
+  - uid: 20586
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -54.5,11.5
       parent: 2
 - proto: PoweredlightExterior
   entities:

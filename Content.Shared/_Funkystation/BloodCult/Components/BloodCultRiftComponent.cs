@@ -4,6 +4,7 @@
 
 using System;
 using System.Collections.Generic;
+using Robust.Shared.Audio;
 using Robust.Shared.GameObjects;
 
 namespace Content.Shared.BloodCult.Components;
@@ -134,5 +135,38 @@ public sealed partial class BloodCultRiftComponent : Component
 	/// </summary>
 	[DataField]
 	public TimeSpan LastNotEnoughCultistsPopup = TimeSpan.Zero;
+
+	/// <summary>
+	/// The cultist earmarked for the next sacrifice cycle.
+	/// This tracks who leads the chant.
+	/// </summary>
+	[DataField]
+	public EntityUid? PendingSacrifice = null;
+
+	/// <summary>
+	/// Chants completed in the current sacrifice cycle.
+	/// Once 3 chants are completed, Nar'Sie is summoned.
+	/// </summary>
+	[DataField]
+	public int ChantsCompletedInCycle = 0;
+
+	/// <summary>
+	/// Music played during the final ritual. TODO: Replace with a better Blood Cult track.
+	/// </summary>
+	[DataField]
+	public SoundSpecifier RitualMusic = new SoundCollectionSpecifier("NukeMusic");
+
+	/// <summary>
+	/// Tracks whether the ritual music is currently active.
+	/// </summary>
+	[DataField]
+	public bool RitualMusicPlaying = false;
+
+	/// <summary>
+	/// Minimum number of chanting cultists required to sustain the ritual.
+	/// This number is reduced by 1 every time a cultist is killed during the ritual.
+	/// </summary>
+	[DataField]
+	public int RequiredCultistsForChant = 3;
 }
 

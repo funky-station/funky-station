@@ -23,6 +23,7 @@ using Content.Server.Explosion.EntitySystems;
 using Content.Server.AlertLevel;
 using Content.Server.Station.Systems;
 using Content.Server.Station.Components;
+using Content.Shared.Mind.Components;
 
 namespace Content.Server.BloodCult.EntitySystems
 {
@@ -282,23 +283,21 @@ namespace Content.Server.BloodCult.EntitySystems
 			var cultists = new HashSet<EntityUid>();
 			var runeQuery = EntityQueryEnumerator<TearVeilComponent, TransformComponent>();
 
-			while (runeQuery.MoveNext(out var runeUid, out var _, out var runeXform))
+			while (runeQuery.MoveNext(out var runeUid, out _, out var runeXform))
 			{
 				// Only count runes on the same map
 				if (runeXform.MapUid != mapUid)
 					continue;
 
 				// Look for cultists near this rune
-		        var runeCoords = _transform.ToMapCoordinates(runeXform.Coordinates);
-		        var nearbyEntities = _lookup.GetEntitiesInRange(runeCoords, 0.75f);
+				var runeCoords = _transform.ToMapCoordinates(runeXform.Coordinates);
+				var nearbyEntities = _lookup.GetEntitiesInRange(runeCoords, 0.75f);
 				foreach (var entity in nearbyEntities)
 				{
-					// Check if this is a live cultist or construct
-					if ((HasComp<BloodCultistComponent>(entity) || HasComp<BloodCultConstructComponent>(entity))
-						&& !_mobState.IsDead(entity))
-					{
-						cultists.Add(entity);
-					}
+					if (!IsValidChantParticipant(entity))
+						continue;
+
+					cultists.Add(entity);
 				}
 			}
 
@@ -313,27 +312,39 @@ namespace Content.Server.BloodCult.EntitySystems
 			var cultists = new HashSet<EntityUid>();
 			var runeQuery = EntityQueryEnumerator<TearVeilComponent, TransformComponent>();
 
-			while (runeQuery.MoveNext(out var runeUid, out var _, out var runeXform))
+			while (runeQuery.MoveNext(out var runeUid, out _, out var runeXform))
 			{
 				// Only count runes on the same map
 				if (runeXform.MapUid != mapUid)
 					continue;
 
 				// Look for cultists near this rune
-		        var runeCoords = _transform.ToMapCoordinates(runeXform.Coordinates);
-		        var nearbyEntities = _lookup.GetEntitiesInRange(runeCoords, 0.75f);
+				var runeCoords = _transform.ToMapCoordinates(runeXform.Coordinates);
+				var nearbyEntities = _lookup.GetEntitiesInRange(runeCoords, 0.75f);
 				foreach (var entity in nearbyEntities)
 				{
-					// Check if this is a live cultist or construct
-					if ((HasComp<BloodCultistComponent>(entity) || HasComp<BloodCultConstructComponent>(entity))
-						&& !_mobState.IsDead(entity))
-					{
-						cultists.Add(entity);
-					}
+					if (!IsValidChantParticipant(entity))
+						continue;
+
+					cultists.Add(entity);
 				}
 			}
 
 			return cultists.ToList();
+		}
+
+		private bool IsValidChantParticipant(EntityUid entity)
+		{
+			if (!HasComp<BloodCultistComponent>(entity))
+				return false;
+
+			if (_mobState.IsDead(entity) || _mobState.IsCritical(entity))
+				return false;
+
+			if (!TryComp<MindContainerComponent>(entity, out var mind) || mind.Mind == null)
+				return false;
+
+			return true;
 		}
 
 		/// <summary>

@@ -399,6 +399,13 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 							cultist, cultist, PopupType.LargeCaution);
 					}
 
+					if (component.LocationForSummon != null)
+					{
+						var summonLocation = (WeakVeilLocation) component.LocationForSummon;
+						var message = Loc.GetString("cult-central-rift-warning", ("location", summonLocation.Name));
+						_chat.DispatchGlobalAnnouncement(message, "Central Command");
+					}
+
 					AnnounceStatus(component, cultists);
 				}
 				else
@@ -1063,30 +1070,6 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 			purpleMessage = Loc.GetString("cult-status-veil-weak");
 		}
 
-		if (component.VeilWeakened)
-		{
-			string name1 = "Unknown";
-			string name2 = "Unknown";
-			string name3 = "Unknown";
-			if (component.WeakVeil1 != null)
-				name1 = ((WeakVeilLocation)(component.WeakVeil1)).Name;
-			if (component.WeakVeil2 != null)
-				name2 = ((WeakVeilLocation)(component.WeakVeil2)).Name;
-			if (component.WeakVeil3 != null)
-				name3 = ((WeakVeilLocation)(component.WeakVeil3)).Name;
-
-			var goalKey = component.BloodAnomalySpawned
-				? "cult-status-veil-weak-goal-anomaly"
-				: component.BloodAnomalySpawnScheduled
-					? "cult-status-veil-weak-goal-pending"
-					: "cult-status-veil-weak-goal";
-
-			purpleMessage += "\n" + Loc.GetString(goalKey,
-				("firstLoc", name1),
-				("secondLoc", name2),
-				("thirdLoc", name3));
-		}
-
 		if (component.VeilWeakened && component.LocationForSummon != null)
 		{
 			var summonLocation = (WeakVeilLocation) component.LocationForSummon;
@@ -1108,15 +1091,19 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 			AnnounceToCultists(purpleMessage,
 					color:new Color(111, 80, 143, 255), fontSize:12, newlineNeeded:true);
 
+	var totalCultists = cultists.Count;
+	var totalConstructs = constructs.Count;
+	var cultMemberSummary = totalConstructs > 0
+		? $"{totalCultists} (+{totalConstructs} constructs)"
+		: totalCultists.ToString();
+
+	var cultistLine = Loc.GetString("cult-status-cultdata", ("cultMembers", cultMemberSummary));
+
 	if (specificCultist != null)
-		AnnounceToCultist(Loc.GetString("cult-status-cultdata", ("cultCount", (cultists.Count+constructs.Count).ToString()),
-			("cultistCount", cultists.Count.ToString()),
-			("constructCount", constructs.Count.ToString())),
+		AnnounceToCultist(cultistLine,
 			(EntityUid)specificCultist, fontSize: 11, newlineNeeded:true);
 	else
-		AnnounceToCultists(Loc.GetString("cult-status-cultdata", ("cultCount", (cultists.Count+constructs.Count).ToString()),
-			("cultistCount", cultists.Count.ToString()),
-			("constructCount", constructs.Count.ToString())),
+		AnnounceToCultists(cultistLine,
 			fontSize: 11, newlineNeeded:true);
 
 	// Display blood collection progress

@@ -117,7 +117,7 @@ bloodcult-juggernaut-healed-by-blood = The juggernaut absorbs the blood, its wou
 cult-status-veil-strong = [italic]The Veil needs to be weakened before we are able to summon The Dark One.[/italic]
 
 cult-status-veil-weak = [italic]You and your acolytes have succeeded in preparing the station for the ultimate ritual![/italic]
-cult-status-veil-weak-pending = [italic]The veil is torn. A blood anomaly will manifest soon—ready your offering runes and prepare sacrifices.[/italic]
+cult-status-veil-weak-pending = [italic]A blood anomaly will manifest soon—ready your offering runes and prepare sacrifices.[/italic]
 cult-status-veil-weak-anomaly = [italic]The blood anomaly has manifested! Feed it with sacrifices to empower the final summoning ritual.[/italic]
 cult-veil-torn = The veil... is... torn!
 cult-rift-spawn-soon = The veil screams. A blood anomaly will manifest in two minutes—prepare your offerings!
@@ -132,14 +132,9 @@ cult-status-veil-weak-rift-location = [italic]The final rift coalesces around {$
 cult-status-veil-weak-direction = [italic]{$location} lies to your {$direction}. Follow the call of the rift.[/italic]
 cult-status-veil-weak-direction-here = [italic]You stand at {$location}; the rift is within reach.[/italic]
 cult-status-veil-weak-direction-nosense = [italic]The rift is beyond your senses; you must find a better vantage point.[/italic]
+cult-central-rift-warning = Attention! A rift in reality has been opened in { $location }. If this tear is opened, the station will be lost!
 
-cult-status-veil-weak-cultdata = Current cult members: {$cultCount} | Conversions until Rise: {$cultUntilRise}
-    Cultists: {$cultistCount}
-    Constructs: {$constructCount}
-
-cult-status-cultdata = Current cult members: {$cultCount}
-    Cultists: {$cultistCount}
-    Constructs: {$constructCount}
+cult-status-cultdata = Current cult members: {$cultMembers} cultists and {$constructCount} constructs
 
 cult-blood-progress = [italic]Blood Collected: {$bloodCollected}u / {$totalRequired}u. {$bloodNeeded}u more needed for {$nextPhase}.[/italic]
 cult-blood-progress-stage-complete = [italic]Blood Collected: {$bloodCollected}u / {$totalRequired}u (Stage complete)[/italic]

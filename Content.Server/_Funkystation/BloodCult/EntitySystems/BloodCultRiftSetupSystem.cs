@@ -13,6 +13,8 @@ using Content.Server.GameTicking.Rules.Components;
 using Content.Server.GameTicking.Rules;
 using Content.Shared.BloodCult.Components;
 using Content.Shared.BloodCult;
+using Content.Shared.Chemistry.EntitySystems;
+using Content.Shared.FixedPoint;
 using Content.Shared.Maps;
 using Content.Shared.Physics;
 using Content.Shared.Coordinates.Helpers;
@@ -34,7 +36,10 @@ public sealed class BloodCultRiftSetupSystem : EntitySystem
 	[Dependency] private readonly ITileDefinitionManager _tileDefManager = default!;
 	[Dependency] private readonly AtmosphereSystem _atmosphere = default!;
 	[Dependency] private readonly SharedTransformSystem _transformSystem = default!;
+	[Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
 
+	//Arbitrary values for safe temperature and pressure ranges.
+	//If the location is outside these ranges, it'll fallback to a different site selection logic for the blood anomaly.
 	private const float MinPressureKpa = 50f;
 	private const float MaxPressureKpa = 300f;
 	private const float MinTemperatureK = 150f;
@@ -342,6 +347,14 @@ private bool TryFindValid3x3Space(EntityCoordinates center, out EntityCoordinate
 		riftComp.OfferingRunes.Add(rightRune);
 		riftComp.OfferingRunes.Add(bottomRune);
 		riftComp.OfferingRunes.Add(topRune);
+
+		//this pre-fills the blood pool with sanguine perniculate.
+		if (_solutionContainer.TryGetSolution(rift, "sanguine_pool", out var solutionEnt, out var solution))
+		{
+			var deficit = solution.MaxVolume - solution.Volume;
+			if (deficit > FixedPoint2.Zero)
+				_solutionContainer.TryAddReagent(solutionEnt.Value, "SanguinePerniculate", deficit, out _);
+		}
 
 		return rift;
 	}

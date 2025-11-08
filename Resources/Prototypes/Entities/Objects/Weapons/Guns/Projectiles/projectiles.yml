@@ -307,6 +307,7 @@
       params:
         volume: 5
   - type: Sprite
+    noRot: false
     sprite: Objects/Weapons/Guns/Projectiles/projectiles_tg.rsi
     layers:
     - state: omnilaser
@@ -320,7 +321,7 @@
           bounds: "-0.15,-0.3,0.15,0.3"
         hard: false
         mask:
-        - Opaque # Goobstation
+        - Opaque
       fly-by: # Inlined definition to avoid anchor issues
         shape: !type:PhysShapeCircle
           radius: 0.6
@@ -355,6 +356,7 @@
       params:
         volume: 5
   - type: Sprite
+    noRot: false
     sprite: Objects/Weapons/Guns/Projectiles/projectiles_tg.rsi
     layers:
     - state: omnilaser
@@ -368,7 +370,7 @@
           bounds: "-0.15,-0.3,0.15,0.3"
         hard: false
         mask:
-        - Opaque # Goobstation
+        - Opaque
       fly-by: # Inlined definition to avoid anchor issues
         shape: !type:PhysShapeCircle
           radius: 0.6
@@ -1030,6 +1032,7 @@
       params:
         volume: 5
   - type: Sprite
+    noRot: false
     sprite: Objects/Weapons/Guns/Projectiles/projectiles_tg.rsi
     layers:
     - state: omnilaser
@@ -1043,7 +1046,7 @@
           bounds: "-0.15,-0.3,0.15,0.3"
         hard: false
         mask:
-        - Opaque # Goobstation
+        - Opaque
       fly-by: # Inlined definition to avoid anchor issues
         shape: !type:PhysShapeCircle
           radius: 0.6

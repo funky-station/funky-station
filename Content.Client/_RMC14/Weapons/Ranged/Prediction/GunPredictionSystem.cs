@@ -101,6 +101,10 @@ public sealed class GunPredictionSystem : SharedGunPredictionSystem
             return;
         }
 
+        // Skip collision with shooter and weapon if IgnoreShooter is true, matching SharedProjectileSystem.PreventCollision behavior
+        if (projectile.IgnoreShooter && (args.OtherEntity == projectile.Shooter || args.OtherEntity == projectile.Weapon))
+            return;
+
         var netEnt = GetNetEntity(args.OtherEntity);
         var pos = _transform.GetMapCoordinates(args.OtherEntity);
         var hit = new HashSet<(NetEntity, MapCoordinates)> { (netEnt, pos) };
@@ -143,8 +147,22 @@ public sealed class GunPredictionSystem : SharedGunPredictionSystem
             if (contacts.Count == 0)
                 continue;
 
-            var hit = new HashSet<(NetEntity, MapCoordinates)>();
+            // Filter out shooter and weapon if IgnoreShooter is true, matching SharedProjectileSystem.PreventCollision behavior
+            var filteredContacts = new List<EntityUid>();
             foreach (var contact in contacts)
+            {
+                // Skip shooter and weapon to prevent immediate collision at spawn point
+                if (projectile.IgnoreShooter && (contact == projectile.Shooter || contact == projectile.Weapon))
+                    continue;
+
+                filteredContacts.Add(contact);
+            }
+
+            if (filteredContacts.Count == 0)
+                continue;
+
+            var hit = new HashSet<(NetEntity, MapCoordinates)>();
+            foreach (var contact in filteredContacts)
             {
                 var netEnt = GetNetEntity(contact);
                 var pos = _transform.GetMapCoordinates(contact);
@@ -154,7 +172,7 @@ public sealed class GunPredictionSystem : SharedGunPredictionSystem
             var ev = new PredictedProjectileHitEvent(uid.Id, hit);
             RaiseNetworkEvent(ev);
 
-            _projectile.ProjectileCollide((uid, projectile, physics), contacts.First());
+            _projectile.ProjectileCollide((uid, projectile, physics), filteredContacts.First());
         }
 
         var predictedQuery = EntityQueryEnumerator<PredictedProjectileHitComponent, SpriteComponent, TransformComponent>();

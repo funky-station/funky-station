@@ -16,8 +16,7 @@
 //
 // SPDX-License-Identifier: MIT
 
-using Content.Shared._Funkystation.Humanoid.Events;
-using Content.Shared._Shitmed.Humanoid.Events;
+using Content.Shared._Funkystation.Traits;
 using Content.Shared.GameTicking;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
@@ -38,60 +37,58 @@ public sealed class TraitSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
+
         SubscribeLocalEvent<PlayerSpawnCompleteEvent>(OnPlayerSpawnComplete);
-        SubscribeLocalEvent<ProfileWithEntityLoadFinishedEvent>(OnProfileLoadFinished);
     }
 
-    private void OnProfileLoadFinished(ProfileWithEntityLoadFinishedEvent ev)
-    {
-        ApplyTraitsToEntity(ev.Uid, ev.Profile.TraitPreferences);
-    }
-
+    // When the player is spawned in, add all trait components selected during character creation
     private void OnPlayerSpawnComplete(PlayerSpawnCompleteEvent args)
     {
+        // Check if player's job allows to apply traits
         if (args.JobId == null ||
-            !_prototypeManager.TryIndex<JobPrototype>(args.JobId, out var protoJob) ||
+            !_prototypeManager.TryIndex<JobPrototype>(args.JobId ?? string.Empty, out var protoJob) ||
             !protoJob.ApplyTraits)
         {
             return;
         }
 
-        ApplyTraitsToEntity(args.Mob, args.Profile.TraitPreferences);
-    }
-
-    /// <summary>
-    /// Applies all valid traits from the given list to the target entity.
-    /// </summary>
-    public void ApplyTraitsToEntity(EntityUid target, IReadOnlySet<ProtoId<TraitPrototype>> traitIds)
-    {
-        foreach (var traitId in traitIds)
+        foreach (var traitId in args.Profile.TraitPreferences)
         {
             if (!_prototypeManager.TryIndex<TraitPrototype>(traitId, out var traitPrototype))
             {
                 Log.Warning($"No trait found with ID {traitId}!");
-                continue;
+                return;
             }
 
-            if (_whitelistSystem.IsWhitelistFail(traitPrototype.Whitelist, target) ||
-                _whitelistSystem.IsBlacklistPass(traitPrototype.Blacklist, target))
+            if (_whitelistSystem.IsWhitelistFail(traitPrototype.Whitelist, args.Mob) ||
+                _whitelistSystem.IsBlacklistPass(traitPrototype.Blacklist, args.Mob))
                 continue;
 
-            if (TryComp<HumanoidAppearanceComponent>(target, out var appearance) &&
+            // Check species restrictions
+            if (TryComp<HumanoidAppearanceComponent>(args.Mob, out var appearance) &&
                 traitPrototype.SpeciesRestrictions != null &&
                 traitPrototype.SpeciesRestrictions.Contains(appearance.Species))
                 continue;
 
-            EntityManager.AddComponents(target, traitPrototype.Components, false);
+            // Add all components required by the prototype
+            EntityManager.AddComponents(args.Mob, traitPrototype.Components, false);
 
+            if (traitPrototype.Components.Count != 0)
+                RaiseLocalEvent(args.Mob, new TraitComponentAddedEvent(traitPrototype, args), true);
+
+            // Add item required by the trait
             if (traitPrototype.TraitGear == null)
                 continue;
 
-            if (!TryComp(target, out HandsComponent? handsComponent))
+            if (!TryComp(args.Mob, out HandsComponent? handsComponent))
                 continue;
 
-            var coords = Transform(target).Coordinates;
+            var coords = Transform(args.Mob).Coordinates;
             var inhandEntity = EntityManager.SpawnEntity(traitPrototype.TraitGear, coords);
-            _sharedHandsSystem.TryPickup(target, inhandEntity, checkActionBlocker: false, handsComp: handsComponent);
+            _sharedHandsSystem.TryPickup(args.Mob,
+                inhandEntity,
+                checkActionBlocker: false,
+                handsComp: handsComponent);
         }
     }
 }

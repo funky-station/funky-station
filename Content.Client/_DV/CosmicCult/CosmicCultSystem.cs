@@ -116,6 +116,7 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
         if (TryComp<CosmicStarMarkOffsetComponent>(uid, out var offset))
         {
             sprite.LayerSetOffset(CosmicRevealedKey.Key, offset.Offset);
+            sprite.LayerSetState(layer, offset.StarState);
         }
     }
 

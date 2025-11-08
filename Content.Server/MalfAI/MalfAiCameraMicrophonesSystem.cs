@@ -1,4 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Terkala <appleorange64@gmail.com>
 // SPDX-FileCopyrightText: 2025 Tyranex <bobthezombie4@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
@@ -78,8 +77,7 @@ public sealed class MalfAiCameraMicrophonesSystem : EntitySystem
             return;
 
         var xformQuery = GetEntityQuery<TransformComponent>();
-        if (!TryComp<TransformComponent>(ev.Source, out var sourceXform))
-            return;
+        var sourceXform = Transform(ev.Source);
         var sourcePos = _xforms.GetWorldPosition(sourceXform, xformQuery);
 
 
@@ -95,8 +93,7 @@ public sealed class MalfAiCameraMicrophonesSystem : EntitySystem
                 continue;
 
             var eye = core.Comp.RemoteEntity.Value;
-            if (!TryComp<TransformComponent>(eye, out var eyeXform))
-                continue;
+            var eyeXform  = Transform(eye);
             var eyePos = _xforms.GetWorldPosition(eyeXform, xformQuery);
 
             // Find cameras where BOTH the speaker AND the AI eye are in range of the SAME camera.

@@ -1,5 +1,4 @@
 # SPDX-FileCopyrightText: 2025 Ilya Mikheev <me@ilyamikcoder.com>
-# SPDX-FileCopyrightText: 2025 ilyamikcoder <me@ilyamikcoder.com>
 #
 # SPDX-License-Identifier: MIT
 
@@ -14,8 +13,8 @@
   name: criminal-records-status-suspected
   securityIcon: SecurityIconSuspected
   requiresReason: true
-  radioMessage: criminal-records-console-suspected
-  removalRadioMessage: criminal-records-console-not-suspected
+  radioMessage: criminal-records-console-wanted
+  removalRadioMessage: criminal-records-console-not-wanted
   priority: 4
   cartridgeLabel: criminal-records-cartridge-suspected
 

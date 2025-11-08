@@ -45,7 +45,6 @@ using Content.Server.Body.Components;
 using Content.Shared.Roles.Jobs;
 using Content.Shared.Localizations;
 using Content.Shared.Pinpointer;
-using Content.Shared.Actions;
 using Content.Shared.Ghost;
 using Content.Shared.Database;
 using Content.Server.Administration.Logs;
@@ -160,7 +159,6 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 	[Dependency] private readonly RoundEndSystem _roundEnd = default!;
 	[Dependency] private readonly MobStateSystem _mobSystem = default!;
 	[Dependency] private readonly IChatManager _chatManager = default!;
-	[Dependency] private readonly SharedActionsSystem _actions = default!;
 	[Dependency] private readonly SharedBodySystem _body = default!;
 	[Dependency] private readonly AppearanceSystem _appearance = default!;
 	[Dependency] private readonly NpcFactionSystem _npcFaction = default!;
@@ -1190,7 +1188,6 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 			return true;
 		}
 
-		var dir = Direction.Invalid;
 		message = Loc.GetString("cult-blood-progress-final-summon-location",
 			("location", location.Name));
 		return true;

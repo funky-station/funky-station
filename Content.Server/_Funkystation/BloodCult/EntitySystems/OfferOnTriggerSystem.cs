@@ -430,7 +430,8 @@ namespace Content.Server.BloodCult.EntitySystems
 			var brainRemoved = false;
 			foreach (var (brainUid, brainComp, organComp) in brains)
 			{
-				if (TryComp<MetaDataComponent>(brainUid, out var brainMeta) && brainMeta.EntityPrototype != null)
+				var brainMeta = MetaData(brainUid);
+				if (brainMeta.EntityPrototype != null)
 					originalEntityPrototype = brainMeta.EntityPrototype.ID;
 
 				_bodySystem.RemoveOrgan(brainUid, organComp);
@@ -446,7 +447,8 @@ namespace Content.Server.BloodCult.EntitySystems
 		}
 		else
 		{
-			if (TryComp<MetaDataComponent>(victim, out var victimMeta) && victimMeta.EntityPrototype != null)
+			var victimMeta = MetaData(victim);
+			if (victimMeta.EntityPrototype != null)
 				originalEntityPrototype = victimMeta.EntityPrototype.ID;
 
 			QueueDel(victim);

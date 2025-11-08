@@ -153,5 +153,7 @@ public sealed class DeconversionSystem : EntitySystem
         {
             RemComp<RogueAscendedInfectionComponent>(uid);
         }
+
+        _bloodCultMindShield.TryDeconvert(uid, popupLocId: null, log: false);
     }
 }

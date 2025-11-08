@@ -77,8 +77,8 @@
           type: Bloodsucker
         damage:
           groups:
-            Brute: -3
-            Burn: -1.25
+            Brute: -2.25
+            Burn: -0.50
   plantMetabolism:
     - !type:PlantAdjustWater
       amount: 0.5
@@ -98,6 +98,17 @@
   hydrogenPotential: 6.6
   recognizable: true
   physicalDesc: reagent-physical-desc-slimy
+  metabolisms:
+    Medicine:
+      effects:
+      - !type:HealthChange
+        conditions:
+        - !type:OrganType
+          type: Bloodsucker
+        damage:
+          groups:
+            Brute: -2.25
+            Burn: -0.50
 
 - type: reagent
   id: Slime
@@ -121,6 +132,16 @@
       effects:
       - !type:SatiateHunger
         factor: 1
+    Medicine:
+      effects:
+      - !type:HealthChange
+        conditions:
+        - !type:OrganType
+          type: Bloodsucker
+        damage:
+          groups:
+            Brute: -2.25
+            Burn: -0.50
   footstepSound:
     collection: FootstepBlood
     params:
@@ -150,6 +171,16 @@
         factor: 1
       - !type:SatiateThirst
         factor: 1
+    Medicine:
+      effects:
+      - !type:HealthChange
+        conditions:
+        - !type:OrganType
+          type: Bloodsucker
+        damage:
+          groups:
+            Brute: -2.25
+            Burn: -0.50
   footstepSound:
     collection: FootstepBlood
     params:
@@ -165,6 +196,17 @@
   color: "#162581"
   recognizable: true
   physicalDesc: reagent-physical-desc-metallic
+  metabolisms:
+    Medicine:
+      effects:
+      - !type:HealthChange
+        conditions:
+        - !type:OrganType
+          type: Bloodsucker
+        damage:
+          groups:
+            Brute: -2.25
+            Burn: -0.50
 
 - type: reagent
   parent: Blood
@@ -177,6 +219,17 @@
   hydrogenPotential: 7.6
   recognizable: true
   physicalDesc: reagent-physical-desc-pungent
+  metabolisms:
+    Medicine:
+      effects:
+      - !type:HealthChange
+        conditions:
+        - !type:OrganType
+          type: Bloodsucker
+        damage:
+          groups:
+            Brute: -2.25
+            Burn: -0.50
 
 - type: reagent
   id: ZombieBlood
@@ -192,6 +245,16 @@
       effects:
       - !type:SatiateThirst
         factor: -0.5
+    Medicine:
+      effects:
+      - !type:HealthChange
+        conditions:
+        - !type:OrganType
+          type: Bloodsucker
+        damage:
+          groups:
+            Brute: -2.25
+            Burn: -0.50
     Poison:
       effects:
       - !type:HealthChange
@@ -220,16 +283,6 @@
       effects:
       - !type:SatiateThirst
         factor: 0.5
-    Medicine:
-      effects:
-      - !type:HealthChange
-        conditions:
-        - !type:OrganType
-          type: Bloodsucker
-        damage:
-          groups:
-            Brute: -3
-            Burn: -1.25
     Poison:
       effects:
       - !type:HealthChange

@@ -2,6 +2,8 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
+using System.Collections.Generic;
+using Content.Server.Body.Components;
 using Content.Server.Body.Systems;
 using Content.Shared.BloodCult;
 using Content.Shared.Body.Components;
@@ -19,6 +21,11 @@ public sealed class BloodCultistMetabolismSystem : EntitySystem
     [Dependency] private readonly BloodstreamSystem _bloodstream = default!;
     [Dependency] private readonly SharedBodySystem _body = default!;
 
+    /// <summary>
+    ///     Tracks the original blood reagent for cultists so it can be restored on shutdown.
+    /// </summary>
+    private readonly Dictionary<EntityUid, string> _originalBloodReagents = new();
+
     public override void Initialize()
     {
         base.Initialize();
@@ -29,8 +36,11 @@ public sealed class BloodCultistMetabolismSystem : EntitySystem
 
     private void OnCultistInit(EntityUid uid, BloodCultistComponent component, ComponentInit args)
     {
-        // Change blood type to Sanguine Perniculate
-        _bloodstream.ChangeBloodReagent(uid, "SanguinePerniculate");
+        // Record their current blood reagent so we can restore it on shutdown.
+        if (TryComp<BloodstreamComponent>(uid, out var bloodstream))
+        {
+            _originalBloodReagents[uid] = bloodstream.BloodReagent;
+        }
         
         // Add a blood gland organ (separate from stomach, so we don't interfere with eating)
         if (!TryComp<BodyComponent>(uid, out var body))
@@ -74,8 +84,16 @@ public sealed class BloodCultistMetabolismSystem : EntitySystem
     private void OnCultistShutdown(EntityUid uid, BloodCultistComponent component, ComponentShutdown args)
     {
         // Restore blood type to normal Blood
-        _bloodstream.ChangeBloodReagent(uid, "Blood");
-        
+        if (_originalBloodReagents.TryGetValue(uid, out var original))
+        {
+            _originalBloodReagents.Remove(uid);
+
+            if (TryComp<BloodstreamComponent>(uid, out var bloodstream))
+            {
+                _bloodstream.ChangeBloodReagent(uid, original, bloodstream);
+            }
+        }
+
         // Remove the blood gland organ if it exists
         if (!TryComp<BodyComponent>(uid, out var body))
             return;

@@ -4,6 +4,7 @@
 
 - type: entity
   id: CrateVendingMachineRestocSolFilled
+  abstract: true
   parent: CratePlastic
   name: Mars Mart restock crate
   description: Contains a restock box for the Mars Mart.
@@ -14,6 +15,7 @@
 
 - type: entity
   id: CrateVendingMachineRestockNipponFilled
+  abstract: true
   parent: CratePlastic
   name: Nippon-tan restock crate
   description: Contains a restock box for the Nippon-tan.
@@ -24,6 +26,7 @@
 
 - type: entity
   id: CrateVendingMachineRestockFitnessFilled
+  abstract: true
   parent: CratePlastic
   name: SweatMAX restock crate
   description: Contains a restock box for the SweatMAX.

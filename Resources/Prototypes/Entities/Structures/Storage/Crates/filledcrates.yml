@@ -6,6 +6,7 @@
 
 - type: entity
   id: CrateVendingMachineRestockBoozeFilled
+  abstract: true
   parent: CratePlastic
   name: Booze-O-Mat restock crate
   description: Contains a restock box for the Booze-O-Mat.
@@ -16,6 +17,7 @@
 
 - type: entity
   id: CrateVendingMachineRestockChefvendFilled
+  abstract: true
   parent: CratePlastic
   name: ChefVend restock crate
   description: Contains a restock box for the ChefVend.
@@ -26,6 +28,7 @@
 
 - type: entity
   id: CrateVendingMachineRestockClothesFilled
+  abstract: true
   parent: CratePlastic
   name: clothing restock crate
   description: Contains a restock box for the clothes vending machines.
@@ -36,6 +39,7 @@
 
 - type: entity
   id: CrateVendingMachineRestockAutoDrobeFilled
+  abstract: true
   parent: CratePlastic
   name: AutoDrobe restock crate
   description: Contains a restock box for the AutoDrobe.
@@ -46,6 +50,7 @@
 
 - type: entity
   id: CrateVendingMachineRestockCondimentStationFilled
+  abstract: true
   parent: CratePlastic
   name: condiment station restock crate
   description: Contains a restock box for the condiment station.
@@ -56,6 +61,7 @@
 
 - type: entity
   id: CrateVendingMachineRestockDinnerwareFilled
+  abstract: true
   parent: CratePlastic
   name: Plasteel Chef restock crate
   description: Contains a restock box for the Plasteel Chef vending machine.
@@ -66,6 +72,7 @@
 
 - type: entity
   id: CrateVendingMachineRestockGamesFilled
+  abstract: true
   parent: CratePlastic
   name: Good Clean Fun restock crate
   description: Contains a restock box for the Good Clean Fun vending machine.
@@ -76,6 +83,7 @@
 
 - type: entity
   id: CrateVendingMachineRestockHotDrinksFilled
+  abstract: true
   parent: CratePlastic
   name: Solar's Best restock crate
   description: Contains two restock boxes for Solar's Best Hot Drinks vending machine.
@@ -87,6 +95,7 @@
 
 - type: entity
   id: CrateVendingMachineRestockPTechFilled
+  abstract: true
   parent: CratePlastic
   name: PTech restock crate
   description: Contains a restock box for the PTech bureaucracy dispenser.
@@ -96,6 +105,7 @@
       - id: VendingMachineRestockPTech
 
 - type: entity
+  abstract: true
   id: CrateVendingMachineRestockRobustSoftdrinksFilled
   parent: CratePlastic
   name: beverage vendor restock crate
@@ -108,6 +118,7 @@
 
 - type: entity
   id: CrateVendingMachineRestockSmokesFilled
+  abstract: true
   parent: CratePlastic
   name: ShadyCigs restock crate
   description: Contains two restock boxes for the ShadyCigs vending machine.
@@ -119,6 +130,7 @@
 
 - type: entity
   id: CrateVendingMachineRestockVendomatFilled
+  abstract: true
   parent: CratePlastic
   name: Vendomat restock crate
   description: Contains a restock box for a Vendomat vending machine.
@@ -129,6 +141,7 @@
 
 - type: entity
   id: CrateVendingMachineRestockTankDispenserFilled
+  abstract: true
   parent: CratePlastic
   name: tank dispenser restock crate
   description: Contains a restock box for an Engineering or Atmospherics tank dispenser.
@@ -139,6 +152,7 @@
 
 - type: entity
   id: CrateVendingMachineRestockHappyHonkFilled
+  abstract: true
   parent: CratePlastic
   name: Happy Honk restock crate
   description: Contains a restock box for a happy honk dispenser.
@@ -150,6 +164,7 @@
 
 - type: entity
   id: CrateVendingMachineRestockGetmoreChocolateCorpFilled
+  abstract: true
   parent: CratePlastic
   name: Getmore Chocolate Corp restock crate
   description: Contains a restock box for a Getmore Chocolate Corp dispenser.
@@ -161,6 +176,7 @@
 
 - type: entity
   id: CrateVendingMachineRestockChangFilled
+  abstract: true
   parent: CratePlastic
   name: Chang restock crate
   description: Contains a restock box for a Mr. Chang dispenser.
@@ -172,6 +188,7 @@
 
 - type: entity
   id: CrateVendingMachineRestockDiscountDansFilled
+  abstract: true
   parent: CratePlastic
   name: Discount Dans restock crate
   description: Contains a restock box for a Discount Dan's dispenser.
@@ -183,6 +200,7 @@
 
 - type: entity
   id: CrateVendingMachineRestockDonutFilled
+  abstract: true
   parent: CratePlastic
   name: Donut restock crate
   description: Contains a restock box for a Monkin' Donuts dispenser.

@@ -34,6 +34,7 @@
 // SPDX-FileCopyrightText: 2025 DrSmugleaf <10968691+DrSmugleaf@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 // SPDX-FileCopyrightText: 2025 Toaster <mrtoastymyroasty@gmail.com>
+// SPDX-FileCopyrightText: 2025 Toastermeister <215405651+Toastermeister@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
@@ -624,11 +625,16 @@ public abstract partial class SharedGunSystem : EntitySystem
 
                     Recoil(user, mapDirection, gun.CameraRecoilScalarModified);
 
-                    if (IsClientSide(ent!.Value))
-                        Del(ent.Value);
-                    else if (_netManager.IsClient)
-                        RemoveShootable(ent.Value);
-                    MarkPredicted(ent!.Value, 0);
+                    // Note: CreateAndFireProjectiles handles MarkPredicted internally and may delete the entity (spread projectiles)
+                    // For non-spread AmmoComponent projectiles, the entity shoots itself and becomes the projectile
+                    // Don't delete it if it's still valid and has a ProjectileComponent (it's now flying as a projectile)
+                    if (Exists(ent!.Value) && !HasComp<ProjectileComponent>(ent.Value))
+                    {
+                        if (IsClientSide(ent.Value))
+                            Del(ent.Value);
+                        else if (_netManager.IsClient)
+                            RemoveShootable(ent.Value);
+                    }
                     break;
                 case HitscanPrototype hitscan:
                     EntityUid? lastHit = null;

@@ -123,6 +123,20 @@
     MailSyndieToolbox: 0.1
     MailBloodredPhone: 0.1
     MailInsulsGambling: 0.6
+    MailMedibot: 0.1
+    MailFireBot: 0.1
+    MailCleanBot: 0.1
+    MailMimeBot: 0.1
+    MailSupplyBot: 0.1
+    MailAgentDecoy: 0.1
+    MailCommanderDecoy: 0.1
+    MailEliteDecoy: 0.1
+    MailJuggernautDecoy: 0.1
+    MailOperativeDecoy: 0.1
+    MailLandMine: 0.1
+    MailLightImplant: 0.1
+    MailSadTromboneImplant: 0.1
+    MailBikeHornImplant: 0.1
   # Tools
     MailSignallerKit: 0.5
     MailFlashlight: 0.8
@@ -136,6 +150,7 @@
     MailSword: 0.2
     MailSwitchblade: 0.05
     MailBrassKnuckles: 0.1
+    MailBowKit: 0.1
   # Departments
   departments:
     Cargo:

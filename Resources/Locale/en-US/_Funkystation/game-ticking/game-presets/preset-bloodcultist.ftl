@@ -3,7 +3,7 @@
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 Terkala <appleorange64@gmail.com>
 #
-# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+# SPDX-License-Identifier: AGPL-3.0-or-later OR MIT
 
 roles-antag-cult-name = Blood Cultist
 roles-antag-cult-objective = Your objective is to summon your master, the Geometer of Blood, Nar'Sie. Through conversion, domination, and blood may She be brought back into this world. Cooperate with your fellow Cultists to tear open the veil and bring about Her coming!

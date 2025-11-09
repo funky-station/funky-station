@@ -14,8 +14,6 @@ using Content.Server.GameTicking.Events;
 using Content.Server.Objectives.Components;
 using Content.Server.Pinpointer;
 using Content.Server.Popups;
-using Content.Server.Radio;
-using Content.Server.Radio.Components;
 using Content.Server.Station.Systems;
 using Content.Shared._DV.CosmicCult.Components;
 using Content.Shared._DV.CosmicCult;

@@ -549,7 +549,6 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 			component.CultVictoryEndTime = null;
 			_roundEnd.EndRound();
 			return;
-		}
     }
 
 	private void EndRound()

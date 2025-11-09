@@ -258,11 +258,8 @@ namespace Content.Server.BloodCult.EntitySystems
 			// else if (HasComp<BloodCultConstructShellComponent>(look))
 			// 	shells.Add(look);
 		}
-
-
-		
+    
 		EntityUid? candidate = null;
-
 		// todo: Re-write this logic to be a bit more concise.
 		if (humanoids.Count > 0)
 		{

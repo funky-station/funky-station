@@ -102,6 +102,7 @@
   - type: Clothing
     sprite: Clothing/Eyes/Hud/command.rsi
   - type: ShowJobIcons
+  - type: ShowMindShieldIcons
 
 - type: entity
   parent: ClothingEyesBase

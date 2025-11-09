@@ -267,6 +267,7 @@
   - type: IdentityBlocker
     coverage: EYES
   - type: ShowJobIcons
+  - type: ShowMindShieldIcons
 
 - type: entity
   parent: ClothingEyesBase
@@ -337,7 +338,7 @@
 - type: entity
   parent: ClothingEyesBase
   id: ClothingEyesDealbreakers
-  name: Dealbreakers 
+  name: Dealbreakers
   description: Now YOUR chance to be a LEGALLY DISTINCT [[HYPERLINK BLOCKED]] for ONLY [[9.99]]!
   components:
   - type: Sprite
@@ -351,7 +352,7 @@
   - type: IdentityBlocker
     coverage: EYES
   - type: VisionCorrection
-  
+
 - type: entity
   parent: [ClothingEyesBase, ShowSecurityIcons, BaseSecurityContraband]
   id: ClothingEyesGlassesNoir

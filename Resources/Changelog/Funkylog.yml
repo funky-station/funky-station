@@ -5487,3 +5487,29 @@ Entries:
       message: IPCs now have a tank slot.
   id: 654
   time: '2025-11-08T00:36:56.0000000+00:00'
+- author: Teasq
+  changes:
+    - type: Tweak
+      message: chemical jamjar glasses are now jamgoggles. Whoa.
+  id: 655
+  time: '2025-11-08T18:23:29.0000000+00:00'
+- author: NoElkaTheGod
+  changes:
+    - type: Fix
+      message: IPC cosmic cultists can be properly deconverted now.
+  id: 656
+  time: '2025-11-08T18:49:10.0000000+00:00'
+- author: lolmatdi
+  changes:
+    - type: Add
+      message: Added everyone's favorite alien kids song to the jukebox
+  id: 657
+  time: '2025-11-08T22:37:01.0000000+00:00'
+- author: lolmatdi
+  changes:
+    - type: Add
+      message: >-
+        The Chemist can now select the Senior Physician clothing in their
+        loadout!
+  id: 658
+  time: '2025-11-09T05:54:03.0000000+00:00'

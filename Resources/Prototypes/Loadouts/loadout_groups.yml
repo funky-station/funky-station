@@ -62,6 +62,7 @@
 # SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 lolmatdi <59433122+lolmatdi@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
@@ -1499,6 +1500,11 @@
   loadouts:
   - WhiteJumpsuit
   - WhiteJumpskirt
+- type: loadoutGroup
+  id: MedicalChemistHead
+  name: loadout-group-medical-chemist-head
+  loadouts:
+  - SeniorPhysicianBeret
 
 - type: loadoutGroup #Funky
   id: MedicalChemistGlasses
@@ -1514,6 +1520,8 @@
   loadouts:
   - ChemistJumpsuit
   - ChemistJumpskirt
+  - SeniorPhysicianJumpsuit
+  - SeniorPhysicianJumpskirt
 
 - type: loadoutGroup
   id: ChemistOuterClothing
@@ -1523,6 +1531,7 @@
   - RegularLabCoat
   - ChemistLabCoat
   - ChemistWintercoat
+  - SeniorPhysicianLabCoat
 
 - type: loadoutGroup
   id: ChemistBackpack

@@ -5505,3 +5505,11 @@ Entries:
       message: Added everyone's favorite alien kids song to the jukebox
   id: 657
   time: '2025-11-08T22:37:01.0000000+00:00'
+- author: lolmatdi
+  changes:
+    - type: Add
+      message: >-
+        The Chemist can now select the Senior Physician clothing in their
+        loadout!
+  id: 658
+  time: '2025-11-09T05:54:03.0000000+00:00'

@@ -129,10 +129,6 @@ public sealed class CosmicCorruptingSystem : EntitySystem
                     {
                         ConvertEntity(convertedEnt, conversion);
                     }
-                    else if (TryComp<CosmicCorruptibleComponent>(convertedEnt, out var corruptible))
-                    {
-                        ConvertEntity(convertedEnt, corruptible.ConvertTo);
-                    }
                 }
 
                 //spawn the vfx if we should

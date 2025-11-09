@@ -4,6 +4,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
+using Content.Server._DV.CosmicCult.Abilities;
 using Content.Server.RoundEnd;
 using Content.Shared._DV.CosmicCult.Components;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;

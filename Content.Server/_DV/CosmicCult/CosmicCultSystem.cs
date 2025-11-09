@@ -28,6 +28,7 @@ using Content.Shared.Movement.Systems;
 using Content.Shared.Polymorph;
 using Content.Shared.Speech.Components;
 using Content.Shared.StatusEffect;
+using Content.Shared.Temperature.Components;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.EntitySerialization.Systems;
@@ -253,19 +254,12 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
             EnsureComp<CosmicCultLeadComponent>(args.NewEntity);
         if (HasComp<CosmicStarMarkComponent>(args.OldEntity))
             EnsureComp<CosmicStarMarkComponent>(args.NewEntity);
-        if (HasComp<CosmicSubtleMarkComponent>(args.OldEntity))
-            EnsureComp<CosmicSubtleMarkComponent>(args.NewEntity);
         if (HasComp<TemperatureImmunityComponent>(args.OldEntity))
             EnsureComp<TemperatureImmunityComponent>(args.NewEntity);
         if (HasComp<PressureImmunityComponent>(args.OldEntity))
             EnsureComp<PressureImmunityComponent>(args.NewEntity);
-        EnsureComp<IntrinsicRadioReceiverComponent>(args.NewEntity); // All cultists should have those, so we don't check for them separately
-        EnsureComp<IntrinsicRadioTransmitterComponent>(args.NewEntity, out var transmitter);
-        EnsureComp<ActiveRadioComponent>(args.NewEntity, out var radio);
-        EnsureComp<CosmicCultAssociatedRuleComponent>(args.NewEntity, out var associatedComp);
+        EnsureComp<CosmicCultAssociatedRuleComponent>(args.NewEntity, out var associatedComp); // All cultists should have those, so we don't check for them separately
         EnsureComp<CosmicCenserTargetComponent>(args.NewEntity);
-        radio.Channels.Add("CosmicRadio");
-        transmitter.Channels.Add("CosmicRadio");
         associatedComp.CultGamerule = cult;
 
     }

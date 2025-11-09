@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 Terkala <appleorange64@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -7,6 +7,9 @@ using Content.Server.Body.Systems;
 using Content.Shared.EntityEffects;
 using Content.Shared.FixedPoint;
 using Robust.Shared.Prototypes;
+using Robust.Shared.GameObjects;
+using Robust.Shared.IoC;
+using Content.Shared.Chemistry.Reagent;
 
 namespace Content.Server.BloodCult.EntityEffects;
 
@@ -32,13 +35,31 @@ public sealed partial class BleedSanguinePerniculate : EntityEffect
         if (!args.EntityManager.TryGetComponent<EdgeEssentiaBloodComponent>(args.TargetEntity, out var edgeEssentiaComp))
         {
             edgeEssentiaComp = args.EntityManager.AddComponent<EdgeEssentiaBloodComponent>(args.TargetEntity);
-            edgeEssentiaComp.OriginalBloodReagent = bloodstream.BloodReagent;
+            if (!TryGetPrototypeBloodReagent(args.TargetEntity, args.EntityManager, out var originalBlood))
+                originalBlood = bloodstream.BloodReagent;
+
+            edgeEssentiaComp.OriginalBloodReagent = originalBlood;
         }
 
         // Change their blood type to Sanguine Perniculate so that when they bleed, it comes out as Sanguine Perniculate
         // This happens every metabolism tick, ensuring their blood type stays as SanguinePerniculate while Edge Essentia is active
         var bloodstreamSystem = args.EntityManager.System<BloodstreamSystem>();
         bloodstreamSystem.ChangeBloodReagent(args.TargetEntity, "SanguinePerniculate", bloodstream);
+    }
+
+    private bool TryGetPrototypeBloodReagent(EntityUid uid, IEntityManager entityManager, out ProtoId<ReagentPrototype> bloodReagent)
+    {
+        bloodReagent = default!;
+
+        if (!entityManager.TryGetComponent<MetaDataComponent>(uid, out var meta) || meta.EntityPrototype == null)
+            return false;
+
+        var componentFactory = IoCManager.Resolve<IComponentFactory>();
+        if (!meta.EntityPrototype.TryGetComponent(componentFactory.GetComponentName<BloodstreamComponent>(), out BloodstreamComponent? prototypeBloodstream))
+            return false;
+
+        bloodReagent = prototypeBloodstream.BloodReagent;
+        return true;
     }
 }
 

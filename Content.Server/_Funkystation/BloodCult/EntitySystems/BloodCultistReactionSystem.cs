@@ -57,6 +57,7 @@ public sealed class BloodCultistReactionSystem : EntitySystem
 		if (args.Method == ReactionMethod.Touch)
 		{
 			// Check for Sanguine Perniculate healing
+			// This ONLY heals holy damage. Nothing else.
 			if (args.Reagent.ID == "SanguinePerniculate")
 			{
 				HandleSanguinePerniculateTouch(uid, ref args);
@@ -71,8 +72,7 @@ public sealed class BloodCultistReactionSystem : EntitySystem
 
 	/// <summary>
 	/// Handles blood consumption by cultists.
-	/// When cultists ingest blood, they bleed briefly and restore their blood levels.
-	/// This does NOT add to the ritual pool anymore - only bleeding from wounds counts.
+	/// Used to be used to collect blood for the ritual pool, but that's been removed.
 	/// </summary>
 	private void HandleBloodIngestion(EntityUid uid, ref ReactionEntityEvent args)
 	{
@@ -85,34 +85,38 @@ public sealed class BloodCultistReactionSystem : EntitySystem
 			return;
 
 		// Restore the cultist's blood levels (like Saline)
-		// Each unit of consumed blood restores 6 units of their blood volume
+		// Each unit of consumed blood restores 2 units of their blood volume
 		if (TryComp<BloodstreamComponent>(uid, out var bloodstream))
 		{
-			_bloodstream.TryModifyBloodLevel(uid, bloodAmount.Float() * 6.0f, bloodstream);
+			_bloodstream.TryModifyBloodLevel(uid, bloodAmount.Float() * 2.0f, bloodstream);
 			
+			/// Commented out below code. Why did I ever think it was a good idea to bleed when you drink blood?
 			// Cause brief bleeding (1 unit/second for each 5 units consumed)
 			// This represents the blood being processed through their system
-			var bleedAmount = bloodAmount.Float() / 5.0f;
-			if (bleedAmount > 0.5f)
-			{
-				_bloodstream.TryModifyBleedAmount(uid, bleedAmount, bloodstream);
-			}
+			//var bleedAmount = bloodAmount.Float() / 5.0f;
+			//if (bleedAmount > 0.5f)
+			//{
+			//	_bloodstream.TryModifyBleedAmount(uid, bleedAmount, bloodstream);
+			//}
+			
 		}
 
+		/// Commented out, handled by the blooddrinker flag now
 		// Heal a very tiny amount of toxin damage (0.5 toxin per 10u blood)
-		if (TryComp<DamageableComponent>(uid, out var damageable))
-		{
-			if (damageable.Damage.DamageDict.TryGetValue("Poison", out var toxinDamage) && toxinDamage > 0)
-			{
-				var healAmount = bloodAmount.Float() * 0.05f;  // Very tiny: 0.5 per 10u
-				if (healAmount > 0)
-				{
-					var healSpec = new DamageSpecifier();
-					healSpec.DamageDict.Add("Poison", FixedPoint2.New(-healAmount));
-					_damageable.TryChangeDamage(uid, healSpec, false, false, damageable);
-				}
-			}
-		}
+		// This is to make sure blood cultists don't have to worry too much about drinking from the floor.
+		//if (TryComp<DamageableComponent>(uid, out var damageable))
+		//{
+		//	if (damageable.Damage.DamageDict.TryGetValue("Poison", out var toxinDamage) && toxinDamage > 0)
+		//	{
+		//		var healAmount = bloodAmount.Float() * 0.05f;  // Very tiny: 0.5 per 10u
+		//		if (healAmount > 0)
+		//		{
+		//			var healSpec = new DamageSpecifier();
+		//			healSpec.DamageDict.Add("Poison", FixedPoint2.New(-healAmount));
+		//			_damageable.TryChangeDamage(uid, healSpec, false, false, damageable);
+		//		}
+		//	}
+		//}
 
 		// Visual feedback
 		_popup.PopupEntity(

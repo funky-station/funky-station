@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 Terkala <appleorange64@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -15,7 +15,7 @@ namespace Content.Server.BloodCult.Components;
 public sealed partial class ReagentAutoRefillComponent : Component
 {
     /// <summary>
-    /// The solution to refill (e.g., "melee")
+    /// The solution to refill
     /// </summary>
     [DataField(required: true)]
     public string Solution = string.Empty;

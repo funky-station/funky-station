@@ -3,9 +3,10 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
 using Content.Server.Fluids.EntitySystems;
-using Content.Shared.EntityEffects;
-using Content.Shared.Chemistry.Reagent;
+using Content.Shared.BloodCult;
 using Content.Shared.Chemistry.Components;
+using Content.Shared.Chemistry.Reagent;
+using Content.Shared.EntityEffects;
 using Content.Shared.FixedPoint;
 using Robust.Shared.Prototypes;
 
@@ -27,6 +28,19 @@ public sealed partial class JuggernautBloodCorruption : EntityEffect
     {
         // Only process if we have reagent args
         if (args is not EntityEffectReagentArgs reagentArgs)
+            return;
+
+        // Validate the reagent being applied
+        var reagentId = reagentArgs.Reagent?.ID;
+        if (string.IsNullOrEmpty(reagentId))
+            return;
+
+        // Ignore already corrupted blood or reagents that shouldn't be corrupted.
+        if (reagentId == CorruptedReagent || !BloodCultConstants.SacrificeBloodReagents.Contains(reagentId))
+            return;
+
+        // No quantity, no corruption.
+        if (reagentArgs.Quantity <= FixedPoint2.Zero)
             return;
 
         var puddleSystem = args.EntityManager.System<PuddleSystem>();

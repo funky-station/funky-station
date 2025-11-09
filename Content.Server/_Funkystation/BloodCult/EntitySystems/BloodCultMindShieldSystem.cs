@@ -59,6 +59,8 @@ public sealed class BloodCultMindShieldSystem : EntitySystem
         {
             _roleSystem.MindTryRemoveRole<BloodCultRoleComponent>(mindId);
             _npcFaction.RemoveFaction(mindId, BloodCultRuleSystem.BloodCultistFactionId, false);
+            // Possible to add other factions back here? It'd have to track their original faction
+            // Todo: add a component to track original factions
             _npcFaction.AddFaction(mindId, BloodCultRuleSystem.NanotrasenFactionId);
 
             if (log)
@@ -93,6 +95,7 @@ public sealed class BloodCultMindShieldSystem : EntitySystem
         if (!removeVisuals)
             return;
 
+        // Remove the cultist visuals
         if (TryComp<AppearanceComponent>(uid, out var appearance))
         {
             _appearance.SetData(uid, CultEyesVisuals.CultEyes, false, appearance);

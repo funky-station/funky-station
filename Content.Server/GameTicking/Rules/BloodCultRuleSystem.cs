@@ -80,7 +80,7 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 		Rise,
 		Veil
 	}
-
+	//Making this dynamic. Allows for better balancing because it keeps track of exactly how much blood the cult could ever get.
 	private void PrepareNextStageRequirement(BloodCultRuleComponent component, BloodStage stage)
 	{
 		double totalRemaining = 0.0;
@@ -226,7 +226,8 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 
 	/// <summary>
 	/// Calculates blood requirements for each phase based on current player count.
-	/// Each phase requires 100u of blood per player.
+	/// Starts based on readyup count. Later on it calculates based on how many players could ever count.
+	/// todo: Make it not count people in the ghost bar. No idea how to do that.
 	/// </summary>
 	private void CalculateBloodRequirements(BloodCultRuleComponent component)
 	{
@@ -257,6 +258,8 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 				beaconsList.Add(veilLoc);
 			}
         }
+		// Todo add something complicated here if there are less than 3 station beacons.
+		// Which should never happen, but would totally break the game mode. So I'm having it fallback and just return with no beacon set.
 		if (beaconsList.Count < 3)
 			return;
 		int first = _random.Next(0, beaconsList.Count);
@@ -554,6 +557,7 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
         _roundEnd.EndRound();
     }
 
+	// todo: This doesn't count correctly. And it happens after Nar'Sie is summoned and has already eaten at least all of the cultists on the final ritual site.
 	protected override void AppendRoundEndText(EntityUid uid, BloodCultRuleComponent component, GameRuleComponent gameRule,
         ref RoundEndTextAppendEvent args)
     {
@@ -590,6 +594,8 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
         return everyoneList;
 	}
 
+	// todo: Maybe make a more performant version of this. 
+	// I don't think it calls this get cultists check too frequently though, I didn't make any on-tick events that should be calling this, so it's not spawning an on-tick all-entity query.
 	private List<EntityUid> GetCultists(bool includeConstructs = false)
     {
         var cultistList = new List<EntityUid>();
@@ -638,13 +644,15 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 		comp.BeingRevived = true;
 	}
 
+	// todo: Make it not heal the cultist fully, or make them bleeding or something? Balancing issue.
 	private void _ReviveCultist(EntityUid uid, EntityUid? casterUid)
 	{
 		Speak(casterUid, Loc.GetString("cult-invocation-revive"));
 		_audio.PlayPvs(new SoundPathSpecifier("/Audio/Magic/staff_healing.ogg"), uid);
 		_rejuvenate.PerformRejuvenate(uid);
 	}
-
+	
+	// Don't think this is used anymore.
 	private void TryGhostifyCultist(EntityUid uid, BloodCultistComponent comp, ref GhostifyRuneEvent args)
 	{
 		if (HasComp<GhostRoleComponent>(uid) || HasComp<GhostTakeoverAvailableComponent>(uid))
@@ -1056,12 +1064,8 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 				("location", summonLocation.Name));
 
 			if (specificCultist != null)
-			{
-				if (TryGetRiftDirectionMessage(specificCultist.Value, summonLocation, out var directionLine))
-					purpleMessage += "\n" + directionLine;
-				else
-					purpleMessage += "\n" + Loc.GetString("cult-status-veil-weak-direction-nosense");
-			}
+				purpleMessage += "\n" + Loc.GetString("cult-blood-progress-final-summon-location",
+					("location", summonLocation.Name));
 		}
 		if (specificCultist != null)
 			AnnounceToCultist(purpleMessage,
@@ -1166,32 +1170,12 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 			("totalRequired", Math.Round(nextThreshold, 1).ToString()));
 	}
 
-	private bool TryGetRiftDirectionMessage(EntityUid cultistUid, WeakVeilLocation location, out string message)
-	{
-		message = string.Empty;
-
-		if (!TryComp<TransformComponent>(cultistUid, out var cultistXform) || cultistXform.GridUid == null || !cultistXform.GridUid.Value.IsValid())
-			return false;
-
-		var cultistCoords = _transformSystem.ToMapCoordinates(cultistXform.Coordinates);
-		var targetCoords = _transformSystem.ToMapCoordinates(location.Coordinates);
-
-		if (cultistCoords.MapId != targetCoords.MapId)
-			return false;
-
-		var delta = targetCoords.Position - cultistCoords.Position;
-
-		const float threshold = 0.5f;
-		if (delta.LengthSquared() < threshold * threshold)
-		{
-			message = Loc.GetString("cult-status-veil-weak-direction-here", ("location", location.Name));
-			return true;
-		}
-
-		message = Loc.GetString("cult-blood-progress-final-summon-location",
-			("location", location.Name));
-		return true;
-	}
+	// private bool TryGetRiftDirectionMessage(EntityUid cultistUid, WeakVeilLocation location, out string message)
+	// {
+	// 	message = Loc.GetString("cult-blood-progress-final-summon-location",
+	// 		("location", location.Name));
+	// 	return true;
+	// }
 
 	public void DistributeCommune(BloodCultRuleComponent component, string message, EntityUid sender)
 	{

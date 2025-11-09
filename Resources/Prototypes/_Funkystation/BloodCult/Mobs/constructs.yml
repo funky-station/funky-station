@@ -79,15 +79,15 @@
         Flammable: [ Touch ]
         Extinguish: [ Touch ]
       reactions:
-      - reagents: [ Blood, Slime, Sap, InsectBlood, CopperBlood, AmmoniaBlood, ZombieBlood, ChangelingBlood, SanguinePerniculate ]
+      - reagents: [ Blood, Slime, Sap, InsectBlood, CopperBlood, AmmoniaBlood, ZombieBlood, ChangelingBlood]
         methods: [ Touch ]
         effects:
         - !type:HealthChange
           scaleByQuantity: true
           damage:
             groups:
-              Brute: -3
-              Burn: -3
+              Brute: -2
+              Burn: -2
         - !type:PopupMessage
           type: Local
           visualType: Medium

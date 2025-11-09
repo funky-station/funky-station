@@ -18,15 +18,13 @@ namespace Content.Server.BloodCult.EntityEffects.EffectConditions;
 public sealed partial class IsBloodCultist : EntityEffectCondition
 {
     /// <summary>
-    /// If true, condition passes when entity IS a cultist.
-    /// If false, condition passes when entity is NOT a cultist.
     /// </summary>
     [DataField]
     public bool Invert = false;
 
     public override bool Condition(EntityEffectBaseArgs args)
     {
-        // Verify target entity exists (could be deleted during effect processing)
+        // Verify target entity exists (helps avoid errors if this entity is deleted in the same tick)
         if (!args.EntityManager.EntityExists(args.TargetEntity))
             return false;
 

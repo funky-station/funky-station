@@ -14,6 +14,7 @@ namespace Content.Server.BloodCult.EntitySystems;
 /// <summary>
 /// Handles automatic refilling of reagents in solution containers.
 /// Used by cult daggers to regenerate their Edge Essentia over time.
+/// Maybe a bit too fancy. But I wanted it to be more interesting than just always it inject the same amount.
 /// </summary>
 public sealed class ReagentAutoRefillSystem : EntitySystem
 {

@@ -2,7 +2,6 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
-using System.Collections.Generic;
 using Content.Server.Body.Components;
 using Content.Server.Body.Systems;
 using Content.Shared.BloodCult;
@@ -10,6 +9,8 @@ using Content.Shared.Body.Components;
 using Content.Shared.Body.Organ;
 using Content.Shared.Body.Part;
 using Content.Shared.Body.Systems;
+using Robust.Shared.GameObjects;
+using Robust.Shared.IoC;
 
 namespace Content.Server.BloodCult.EntitySystems;
 
@@ -21,11 +22,6 @@ public sealed class BloodCultistMetabolismSystem : EntitySystem
     [Dependency] private readonly BloodstreamSystem _bloodstream = default!;
     [Dependency] private readonly SharedBodySystem _body = default!;
 
-    /// <summary>
-    ///     Tracks the original blood reagent for cultists so it can be restored on shutdown.
-    /// </summary>
-    private readonly Dictionary<EntityUid, string> _originalBloodReagents = new();
-
     public override void Initialize()
     {
         base.Initialize();
@@ -36,13 +32,9 @@ public sealed class BloodCultistMetabolismSystem : EntitySystem
 
     private void OnCultistInit(EntityUid uid, BloodCultistComponent component, ComponentInit args)
     {
-        // Record their current blood reagent so we can restore it on shutdown.
-        if (TryComp<BloodstreamComponent>(uid, out var bloodstream))
-        {
-            _originalBloodReagents[uid] = bloodstream.BloodReagent;
-        }
-        
         // Add a blood gland organ (separate from stomach, so we don't interfere with eating)
+        // Basically this is a Nar'Sie organ that ensures they always bleed sanguine perniculate
+        // There's probably a better way to implement this, so feel free to refactor it away if you figure it out
         if (!TryComp<BodyComponent>(uid, out var body))
             return;
         
@@ -84,15 +76,13 @@ public sealed class BloodCultistMetabolismSystem : EntitySystem
     private void OnCultistShutdown(EntityUid uid, BloodCultistComponent component, ComponentShutdown args)
     {
         // Restore blood type to normal Blood
-        if (_originalBloodReagents.TryGetValue(uid, out var original))
-        {
-            _originalBloodReagents.Remove(uid);
+		if (!TryGetPrototypeBloodReagent(uid, out var restoreReagent))
+			restoreReagent = string.Empty;
 
-            if (TryComp<BloodstreamComponent>(uid, out var bloodstream))
-            {
-                _bloodstream.ChangeBloodReagent(uid, original, bloodstream);
-            }
-        }
+		if (!string.IsNullOrEmpty(restoreReagent) && TryComp<BloodstreamComponent>(uid, out var bloodstream))
+		{
+			_bloodstream.ChangeBloodReagent(uid, restoreReagent, bloodstream);
+		}
 
         // Remove the blood gland organ if it exists
         if (!TryComp<BodyComponent>(uid, out var body))
@@ -110,5 +100,20 @@ public sealed class BloodCultistMetabolismSystem : EntitySystem
             }
         }
     }
+
+	private bool TryGetPrototypeBloodReagent(EntityUid uid, out string bloodReagent)
+	{
+		bloodReagent = string.Empty;
+
+		if (!TryComp<MetaDataComponent>(uid, out var meta) || meta.EntityPrototype == null)
+			return false;
+
+		var componentFactory = IoCManager.Resolve<IComponentFactory>();
+		if (!meta.EntityPrototype.TryGetComponent(componentFactory.GetComponentName<BloodstreamComponent>(), out BloodstreamComponent? prototypeBloodstream))
+			return false;
+
+		bloodReagent = prototypeBloodstream.BloodReagent;
+		return true;
+	}
 }
 

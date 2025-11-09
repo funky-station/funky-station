@@ -38,6 +38,7 @@ using Content.Server.PowerCell;
 using Content.Shared.PowerCell;
 using Content.Shared.PowerCell.Components;
 using Content.Shared.Silicons.Borgs.Components;
+using Content.Shared._EinsteinEngines.Silicon.Components;
 using Content.Shared.Weapons.Melee;
 using Content.Shared.Weapons.Melee.Events;
 using Content.Server.Construction;
@@ -98,7 +99,7 @@ public sealed partial class CultistSpellSystem : EntitySystem
 		SubscribeLocalEvent<BloodCultistComponent, EventCultistStudyVeil>(OnStudyVeil);
 		SubscribeLocalEvent<BloodCultistComponent, BloodCultCommuneSendMessage>(OnCommune);
 		SubscribeLocalEvent<BloodCultistComponent, EventCultistSanguineDream>(OnSanguineDream);
-		SubscribeLocalEvent<CultMarkedComponent, AttackedEvent>(OnMarkedAttacked);
+		//SubscribeLocalEvent<CultMarkedComponent, AttackedEvent>(OnMarkedAttacked);
 
 		SubscribeLocalEvent<BloodCultistComponent, EventCultistTwistedConstruction>(OnTwistedConstruction);
 
@@ -345,15 +346,25 @@ public sealed partial class CultistSpellSystem : EntitySystem
 					Loc.GetString("cult-spell-repelled"),
 					ent, ent, PopupType.MediumCaution
 				);
+			// todo: Play a different sound if they have a mindshield.
 			_audioSystem.PlayPvs(new SoundPathSpecifier("/Audio/Effects/holy.ogg"), Transform(ent).Coordinates);
+			// Knock down the cultist who cast the spell. Might need balancing
 			_stun.TryKnockdown(ent, TimeSpan.FromSeconds(selfStunTime), true);
 		}
+		else if (HasComp<SiliconComponent>(target) &&
+			_powerCell.TryGetBatteryFromSlot(target, out EntityUid? ipcBatteryUid, out BatteryComponent? _) &&
+			ipcBatteryUid != null)
+		{
+			// Apply EMP damage directly to the IPC's battery
+			_emp.DoEmpEffects((EntityUid)ipcBatteryUid, empDamage, empDuration);
+			_statusEffect.TryAddStatusEffect<MutedComponent>(target, "Muted", TimeSpan.FromSeconds(empDuration), false);
+		}
 		else if (HasComp<BorgChassisComponent>(target) &&
-			_powerCell.TryGetBatteryFromSlot(target, out EntityUid? batteryUid, out BatteryComponent? _) &&
-			batteryUid != null)
+			_powerCell.TryGetBatteryFromSlot(target, out EntityUid? borgBatteryUid, out BatteryComponent? _) &&
+			borgBatteryUid != null)
 		{
 			// Apply EMP damage directly to the borg's battery
-			_emp.DoEmpEffects((EntityUid)batteryUid, empDamage, empDuration);
+			_emp.DoEmpEffects((EntityUid)borgBatteryUid, empDamage, empDuration);
 			_statusEffect.TryAddStatusEffect<MutedComponent>(target, "Muted", TimeSpan.FromSeconds(empDuration), false);
 		}
 		else if (TryComp<BloodstreamComponent>(target, out var bloodstream))
@@ -361,7 +372,7 @@ public sealed partial class CultistSpellSystem : EntitySystem
 			// Inject sleep chemicals (Nocturine + Chloral Hydrate)
 			var sleepSolution = new Solution();
 			sleepSolution.AddReagent("Nocturine", FixedPoint2.New(15));  // 15u Nocturine
-			sleepSolution.AddReagent("ChloralHydrate", FixedPoint2.New(5));  // 5u Chloral Hydrate
+			sleepSolution.AddReagent("EdgeEssentia", FixedPoint2.New(5));  // 5u Edge Essentia
 			
 			_bloodstream.TryAddToChemicals(target, sleepSolution, bloodstream);
 			
@@ -372,35 +383,40 @@ public sealed partial class CultistSpellSystem : EntitySystem
 			);
 			
 			// Mark them for follow-up attacks
-			EnsureComp<CultMarkedComponent>(target);
+			// disabled for now, follow up attacks work, but end up being too fancy and not really needed.
+			//EnsureComp<CultMarkedComponent>(target);
 			
-			// Mute them
+			// Added a manual mute, since I know upstream has a possible Nocturine debuff that makes it take effect slower.
+			// The intent is for this to work to kidnap any non-mindshielded crew member.
 			_statusEffect.TryAddStatusEffect<MutedComponent>(target, "Muted", TimeSpan.FromSeconds(15), false);
 		}
 		else
 		{
 			// Fallback for entities without bloodstream (IPCs, rare cases)
-			// Apply EMP effects directly to the entity
+			// Apply EMP effects directly to the entity, and mute them.
+			// todo: Explore if this is a less fancy way to do it. Might be able to just do this for all entities?
 			_emp.DoEmpEffects(target, empDamage, empDuration);
 			_statusEffect.TryAddStatusEffect<MutedComponent>(target, "Muted", TimeSpan.FromSeconds(empDuration), false);
 		}
 	}
 
-	private void OnMarkedAttacked(Entity<CultMarkedComponent> ent, ref AttackedEvent args)
-	{
-		var advancedStaminaDamage = 100;
-		var advancedStunTime = 15;
-		if (HasComp<BloodCultRuneCarverComponent>(args.Used))
-		{
-			_stun.TryKnockdown(ent, TimeSpan.FromSeconds(advancedStunTime), true);
-			_stamina.TakeStaminaDamage(ent, advancedStaminaDamage, visual: false);
-			_stun.TryStun(ent, TimeSpan.FromSeconds(advancedStunTime), true);
-			_statusEffect.TryAddStatusEffect<MutedComponent>(ent, "Muted", TimeSpan.FromSeconds(advancedStunTime), false);
-			_entMan.RemoveComponent<CultMarkedComponent>(ent);
-			_audioSystem.PlayPvs(new SoundPathSpecifier("/Audio/Items/Defib/defib_zap.ogg"), ent, AudioParams.Default.WithVolume(-3f));
-		}
-	}
+	// Disabled for now. May be re-enabled if balance needs it.
+	//private void OnMarkedAttacked(Entity<CultMarkedComponent> ent, ref AttackedEvent args)
+	//{
+	//	var advancedStaminaDamage = 100;
+	//	var advancedStunTime = 15;
+	//	if (HasComp<BloodCultRuneCarverComponent>(args.Used))
+	//	{
+	//		_stun.TryKnockdown(ent, TimeSpan.FromSeconds(advancedStunTime), true);
+	//		_stamina.TakeStaminaDamage(ent, advancedStaminaDamage, visual: false);
+	//		_stun.TryStun(ent, TimeSpan.FromSeconds(advancedStunTime), true);
+	//		_statusEffect.TryAddStatusEffect<MutedComponent>(ent, "Muted", TimeSpan.FromSeconds(advancedStunTime), false);
+	//		_entMan.RemoveComponent<CultMarkedComponent>(ent);
+	//		_audioSystem.PlayPvs(new SoundPathSpecifier("/Audio/Items/Defib/defib_zap.ogg"), ent, AudioParams.Default.WithVolume(-3f));
+	//	}
+	//}
 
+	// todo: This is a bit buggy. Doesn't stack stuff properly. Doesn't crash, just looks weird.
 	private void OnTwistedConstruction(Entity<BloodCultistComponent> ent, ref EventCultistTwistedConstruction args)
 	{
 		// Check if target is a plasteel stack

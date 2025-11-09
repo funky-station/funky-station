@@ -366,9 +366,14 @@ public sealed partial class CultHealingSourceSystem : EntitySystem
 	private float GetHealingMultiplier()
 	{
 		// Check the blood cult rule component to determine phase
+		// The later the phase, the more healing. This should become extremely strong later.
 		var query = EntityQueryEnumerator<BloodCultRuleComponent, GameRuleComponent>();
 		while (query.MoveNext(out var uid, out var ruleComp, out var gameRule))
 		{
+			// Phase 4 (Veil Weakened): 100% more healing
+			if (ruleComp.VeilWeakened)
+				return 2.0f;
+
 			// Phase 3 (Rise): 50% more healing
 			if (ruleComp.HasRisen)
 				return 1.5f;

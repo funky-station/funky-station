@@ -81,6 +81,8 @@ public sealed partial class BloodCultRiftSystem : EntitySystem
 		base.Update(frameTime);
 
 		// Process all rifts
+		// All uh... one of them. If there's more than one there's a bug. But hey, it could happen? Hopefully not.
+		// But the EntityQueryEnumerator would break if we only had it handle one, so it works.
 		var riftQuery = EntityQueryEnumerator<BloodCultRiftComponent, TransformComponent>();
 		while (riftQuery.MoveNext(out var riftUid, out var riftComp, out var xform))
 		{
@@ -92,6 +94,8 @@ public sealed partial class BloodCultRiftSystem : EntitySystem
 				riftComp.TimeUntilNextPulse = riftComp.PulseInterval;
 			}
 
+			// Refresh the summoning runes flag.
+			// This only happens if someone cleaned the original runes, and cultists have replace runes.
 			riftComp.TimeUntilRuneRefresh -= frameTime;
 			if (riftComp.TimeUntilRuneRefresh <= 0f)
 			{
@@ -116,6 +120,7 @@ public sealed partial class BloodCultRiftSystem : EntitySystem
 	/// </summary>
 	private void PulseRift(EntityUid riftUid, BloodCultRiftComponent riftComp)
 	{
+		// If this check fails, something is very wrong. All rifts should have a solution container.
 		if (!_solutionContainer.TryGetSolution(riftUid, "sanguine_pool", out var solutionEnt, out var solution))
 			return;
 
@@ -123,6 +128,7 @@ public sealed partial class BloodCultRiftSystem : EntitySystem
 		var amount = FixedPoint2.New(riftComp.BloodPerPulse);
 		if (_solutionContainer.TryAddReagent(solutionEnt.Value, "SanguinePerniculate", amount, out var accepted))
 		{
+			// Using fancy adding of reagents to overflow so it actually acts like a bucket. Better than just spawning it on the floor directly.
 			var overflow = amount - accepted;
 			if (overflow > FixedPoint2.Zero)
 				SpillOverflow(riftUid, overflow);
@@ -133,6 +139,7 @@ public sealed partial class BloodCultRiftSystem : EntitySystem
 		}
 
 		// Trigger pulse animation
+		// This is actually the normal liquid anom animation. Why not use existing animations.
 		if (TryComp<AppearanceComponent>(riftUid, out var appearance))
 		{
 			_appearance.SetData(riftUid, AnomalyVisualLayers.Animated, true, appearance);
@@ -142,6 +149,10 @@ public sealed partial class BloodCultRiftSystem : EntitySystem
 
 	private void DoShake(EntityUid riftUid, TransformComponent xform, float intensity)
 	{
+		// Not sure how far out this shakes it for. But I think it works pretty good?
+		// May have to adjust later. It works at close range pretty well.
+		// todo: Test how much the shake actually works from across the map
+		// todo: I'm pretty sure the shake direction is wrong. It should be from the rift to the player.
 		var epicenter = _transformSystem.ToMapCoordinates(xform.Coordinates);
 		var filter = Filter.Empty();
 		filter.AddInRange(epicenter, ShakeRange, _playerManager, EntityManager);
@@ -164,16 +175,19 @@ public sealed partial class BloodCultRiftSystem : EntitySystem
 			_cameraRecoil.KickCamera(uid, -Vector2.Normalize(delta) * effect);
 		}
 
+		// Play the blood sound. I couldn't find a better sound for this.
+		// todo: Find a better sound
 		_audio.PlayPvs(new SoundPathSpecifier("/Audio/Effects/Fluids/blood1.ogg"), riftUid, AudioParams.Default.WithVolume(-3f));
 	}
 
 	private void TryPerformFinalSacrifice(EntityUid riftUid, BloodCultRiftComponent component, TransformComponent xform)
 	{
+		// Make sure it actually needs to be done.
 		if (component.FinalSacrificeDone || component.SacrificesCompleted >= component.RequiredSacrifices)
 			return;
 
 		var cultistsOnRunes = GetCultistsOnSummoningRunes(component);
-
+			
 		if (cultistsOnRunes.Count == 0)
 		{
 			component.ChantsCompletedInCycle = SacrificeChantDelays.Length;
@@ -181,11 +195,16 @@ public sealed partial class BloodCultRiftSystem : EntitySystem
 			return;
 		}
 
+		// If we haven't picked someone to lead the chant, pick someone. 
+		// Whoever gets the fancy chant is the next to die. Hopefully that's spooky and ominous.
+		// I want people thinking "Why am I saying something different from everyone else?"
+		// Foreshadowing is fun *evil laugh*
 		if (component.PendingSacrifice is not { } pending || !cultistsOnRunes.Contains(pending))
 		{
 			component.PendingSacrifice = _random.Pick(cultistsOnRunes);
 		}
 
+		// If the person who has the pending sacrifice flag doesn't exist, restart the chant.
 		if (!TryComp<TransformComponent>(component.PendingSacrifice.Value, out var victimXform))
 		{
 			component.ChantsCompletedInCycle = SacrificeChantDelays.Length;
@@ -193,6 +212,17 @@ public sealed partial class BloodCultRiftSystem : EntitySystem
 			return;
 		}
 
+		// If the person who has the pending sacrifice flag isn't on a rune, restart the chant.
+		if (!cultistsOnRunes.Contains(component.PendingSacrifice.Value))
+		{
+			component.PendingSacrifice = null;
+			component.ChantsCompletedInCycle = SacrificeChantDelays.Length;
+			component.TimeUntilNextChant = 1f;
+			return;
+		}
+
+		// Kill the sacrifice and soulstone them. If it can't kill them, restart the chant.
+		// This should never happen, because if the code gets this far it should be able to kill them.
 		var victim = component.PendingSacrifice.Value;
 		if (!_offerSystem.TryForceSoulstoneCreation(victim, victimXform.Coordinates))
 		{
@@ -201,6 +231,7 @@ public sealed partial class BloodCultRiftSystem : EntitySystem
 			return;
 		}
 
+		//Increment the sacrifices, play an announcement, and reset the chant.
 		component.SacrificesCompleted++;
 		component.RequiredCultistsForChant = Math.Max(1, component.RequiredCultistsForChant - 1);
 		component.PendingSacrifice = null;
@@ -303,6 +334,8 @@ public sealed partial class BloodCultRiftSystem : EntitySystem
 		component.TimeUntilNextShake = 0f;
 		component.NextShakeIndex = 0;
 
+		// Uses placeholder music for now.
+		// todo: find better bloodcult music
 		StartRitualMusic(riftUid, component);
 
 		// Announce to all cultists
@@ -334,7 +367,26 @@ public sealed partial class BloodCultRiftSystem : EntitySystem
 			);
 
 			AnnounceRitualFailure();
-			EndRitual(runeUid, component, false);
+
+			if (component.RitualMusicPlaying)
+			{
+				_sound.StopStationEventMusic(runeUid, StationEventMusicType.CosmicCult);
+				component.RitualMusicPlaying = false;
+			}
+
+			component.RitualInProgress = false;
+			component.CurrentChantStep = 0;
+			component.TimeUntilNextChant = 0f;
+			component.ShakeDelays.Clear();
+			component.NextShakeIndex = 0;
+			component.TimeUntilNextShake = 0f;
+			component.FinalSacrificePending = false;
+			component.FinalSacrificeDone = false;
+			component.SacrificesCompleted = 0;
+			component.PendingSacrifice = null;
+			component.ChantsCompletedInCycle = 0;
+			// Don't reset the required cultists for chant. If people are dead let them keep the counter going.
+			//component.RequiredCultistsForChant = 3;
 			return;
 		}
 
@@ -382,7 +434,24 @@ public sealed partial class BloodCultRiftSystem : EntitySystem
 				// SUCCESS! Summon Nar'Sie
 				SummonNarsie(runeUid, xform);
 				AnnounceRitualSuccess();
-				EndRitual(runeUid, component, true);
+				// Stop the music, and make sure there's no shake or chanting ongoing.
+				// The shake and chanting should stop on their own when Nar'Sie eats them, but just incase.
+				if (component.RitualMusicPlaying)
+				{
+					_sound.StopStationEventMusic(runeUid, StationEventMusicType.CosmicCult);
+					component.RitualMusicPlaying = false;
+				}
+
+				component.RitualInProgress = false;
+				component.CurrentChantStep = 0;
+				component.TimeUntilNextChant = 0f;
+				component.ShakeDelays.Clear();
+				component.NextShakeIndex = 0;
+				component.TimeUntilNextShake = 0f;
+				component.FinalSacrificePending = false;
+				component.FinalSacrificeDone = false;
+				component.PendingSacrifice = null;
+				component.ChantsCompletedInCycle = 0;
 			}
 			else
 			{
@@ -403,6 +472,8 @@ public sealed partial class BloodCultRiftSystem : EntitySystem
 		var narsieSpawn = Spawn("MobNarsieSpawn", coordinates);
 
 		// Mark all cultists as having summoned Nar'Sie
+		// This probably is part of the reason the endgame counter doesn't work for how many cultists there are.
+		// todo: fix the endgame counter
 		var cultistQuery = EntityQueryEnumerator<BloodCultistComponent>();
 		while (cultistQuery.MoveNext(out var cultistUid, out var cultist))
 		{
@@ -441,6 +512,7 @@ public sealed partial class BloodCultRiftSystem : EntitySystem
 		return result;
 	}
 
+	// Only used if someone has cleaned up the original runes, and cultists have replaced them.
 	private void RefreshSummoningRunes(EntityUid riftUid, BloodCultRiftComponent component, TransformComponent riftXform)
 	{
 		var runesInRange = new HashSet<EntityUid>();
@@ -483,31 +555,6 @@ public sealed partial class BloodCultRiftSystem : EntitySystem
 		component.OfferingRunes.RemoveAll(uid => !Exists(uid) || !runesInRange.Contains(uid));
 	}
 
-	/// <summary>
-	/// Ends the ritual and resets its state.
-	/// </summary>
-	private void EndRitual(EntityUid riftUid, BloodCultRiftComponent component, bool success)
-	{
-		if (component.RitualMusicPlaying)
-		{
-			_sound.StopStationEventMusic(riftUid, StationEventMusicType.CosmicCult);
-			component.RitualMusicPlaying = false;
-		}
-
-		component.RitualInProgress = false;
-		component.CurrentChantStep = 0;
-		component.TimeUntilNextChant = 0f;
-		component.ShakeDelays.Clear();
-		component.NextShakeIndex = 0;
-		component.TimeUntilNextShake = 0f;
-		component.FinalSacrificePending = false;
-		component.FinalSacrificeDone = false;
-		component.SacrificesCompleted = 0;
-		component.PendingSacrifice = null;
-		component.ChantsCompletedInCycle = 0;
-		component.RequiredCultistsForChant = 3;
-	}
-
 	private void EnsurePendingSacrifice(BloodCultRiftComponent component, List<EntityUid> cultists)
 	{
 		if (component.PendingSacrifice is { } pending && cultists.Contains(pending))
@@ -530,7 +577,7 @@ public sealed partial class BloodCultRiftSystem : EntitySystem
 		var resolved = _audio.ResolveSound(component.RitualMusic);
 		if (ResolvedSoundSpecifier.IsNullOrEmpty(resolved))
 			return;
-
+        // todo: fix this. It's not the right music. But I don't know of better music.
 		_sound.DispatchStationEventMusic(riftUid, resolved, StationEventMusicType.Nuke);
 		component.RitualMusicPlaying = true;
 	}
@@ -539,9 +586,9 @@ public sealed partial class BloodCultRiftSystem : EntitySystem
 	{
 		string? message = completed switch
 		{
-			1 => "The first of three tears is complete",
-			2 => "The second of three tears is complete",
-			3 => "The final tear is complete",
+			1 => "The first sacrifice is complete. Nar'Sie begins to enter our reality.",
+			2 => "The second sacrifice is complete. The Geometer of Blood pries open the veil.",
+			3 => "The final sacrifice is complete. She. Is. Here.",
 			_ => null
 		};
 

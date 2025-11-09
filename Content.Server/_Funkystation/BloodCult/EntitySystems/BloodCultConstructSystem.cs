@@ -63,7 +63,7 @@ public sealed partial class BloodCultConstructSystem : EntitySystem
 			return;
 		}
 
-		// Check if target is an inactive juggernaut
+		// Check if target is an inactive juggernaut (critical state)
 		if (TryComp<JuggernautComponent>(args.Target, out var juggComp) && juggComp.IsInactive)
 		{
 			_ReactivateJuggernaut(ent, args.User, args.Target.Value, juggComp);
@@ -80,10 +80,12 @@ public sealed partial class BloodCultConstructSystem : EntitySystem
 		
 		if (mindId == null || mindComp == null)
 		{
+			//No mind in the soulstone
 			_popup.PopupEntity(Loc.GetString("cult-soulstone-empty"), user, user, PopupType.Medium);
 			return;
 		}
 		
+		// Figure out the shell's location so we can spawn the completed juggernaut there
 		var shellTransform = Transform(shell);
 		var shellCoordinates = shellTransform.Coordinates;
 		var shellRotation = shellTransform.LocalRotation;
@@ -91,12 +93,12 @@ public sealed partial class BloodCultConstructSystem : EntitySystem
 		// Play sacrifice audio
 		_audio.PlayPvs(new SoundPathSpecifier("/Audio/Magic/disintegrate.ogg"), shellCoordinates);
 		
-		// Delete the shell and spawn the juggernaut at the exact position with rotation
+		// Delete the shell and spawn the juggernaut at the exact coords with rotation
 		QueueDel(shell);
 		var juggernaut = SpawnAtPosition("MobBloodCultJuggernaut", shellCoordinates);
 		_transform.SetLocalRotation(juggernaut, shellRotation);
 		
-		// Store the soulstone in the juggernaut's container
+		// Store the soulstone in the juggernaut's container. It'll be ejected if the juggernaut is crit
 		if (_container.TryGetContainer(juggernaut, "juggernaut_soulstone_container", out var soulstoneContainer))
 		{
 			_container.Insert(soulstone, soulstoneContainer);
@@ -115,7 +117,7 @@ public sealed partial class BloodCultConstructSystem : EntitySystem
 		// Play transformation audio
 		_audio.PlayPvs(new SoundPathSpecifier("/Audio/Magic/blink.ogg"), shellCoordinates);
 		
-		// Notify the user
+		// Play a message
 		_popup.PopupEntity(Loc.GetString("cult-juggernaut-created"), user, user, PopupType.Large);
 	}
 
@@ -162,6 +164,7 @@ public sealed partial class BloodCultConstructSystem : EntitySystem
 		args.Handled = true;
 	}
 
+	//This is for the use case where we were exploring letting people drag bodies into the juggernaut shell. It's technically unused.
 	private void OnDragDropTarget(EntityUid uid, BloodCultConstructShellComponent component, ref DragDropTargetEvent args)
 	{
 		// Verify the dragged entity is a dead body with a mind
@@ -210,6 +213,7 @@ public sealed partial class BloodCultConstructSystem : EntitySystem
 		
 		args.Handled = true;
 	}
+
 
 	private void OnJuggernautStateChanged(Entity<JuggernautComponent> juggernaut, ref MobStateChangedEvent args)
 	{

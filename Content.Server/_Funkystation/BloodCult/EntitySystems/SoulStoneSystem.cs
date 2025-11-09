@@ -83,6 +83,7 @@ public sealed class SoulStoneSystem : EntitySystem
 	private void OnSoulstoneMove(EntityUid uid, SoulStoneComponent component, UpdateCanMoveEvent args)
 	{
 		// Prevent all movement for soulstones
+		// todo: Make it so they can't rotate when they click around on the ground.
 		args.Cancel();
 	}
 

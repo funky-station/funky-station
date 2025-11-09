@@ -57,6 +57,7 @@ using Robust.Shared.Random;
 using Content.Shared.GameTicking.Components;
 using Content.Shared.Speech;
 using Content.Shared.Emoting;
+using Content.Shared.NPC.Systems;
 
 namespace Content.Server.BloodCult.EntitySystems
 {
@@ -85,6 +86,7 @@ namespace Content.Server.BloodCult.EntitySystems
 		[Dependency] private readonly SharedSubdermalImplantSystem _implantSystem = default!;
 		[Dependency] private readonly SharedPhysicsSystem _physics = default!;
 		[Dependency] private readonly IRobustRandom _random = default!;
+		[Dependency] private readonly NpcFactionSystem _npcFaction = default!;
 
 		private static readonly ProtoId<DamageTypePrototype> SlashDamageType = "Slash";
 
@@ -241,27 +243,46 @@ namespace Content.Server.BloodCult.EntitySystems
 
 		List<EntityUid> humanoids = new List<EntityUid>();
 		List<EntityUid> brains = new List<EntityUid>();
+		List<EntityUid> borgs = new List<EntityUid>();
 		// List<EntityUid> shells = new List<EntityUid>(); // Disabled - use revival instead
 		foreach (var look in offerLookup)
 		{
 			// Humanoids, cyborgs, and other sentient mobs that can be soulstoned
-			if (HasComp<HumanoidAppearanceComponent>(look) || HasComp<BorgChassisComponent>(look))
+			// This is how I make it so it doesn't soulstone hammy or other station pets or space carp, etc.
+			if (HasComp<HumanoidAppearanceComponent>(look))
 				humanoids.Add(look);
+			else if (HasComp<BorgChassisComponent>(look))
+				borgs.Add(look);
 			else if (HasComp<BrainComponent>(look))
 				brains.Add(look);
 			// else if (HasComp<BloodCultConstructShellComponent>(look))
 			// 	shells.Add(look);
 		}
 
+
+		
 		EntityUid? candidate = null;
+
+		// todo: Re-write this logic to be a bit more concise.
 		if (humanoids.Count > 0)
-			candidate = humanoids[0];
+		{
+			foreach (var humanlike in humanoids)
+			{
+				if (!HasComp<BloodCultistComponent>(humanlike))
+				{
+					candidate = humanlike;
+					break;
+				}
+			}
+		}
+		else if (borgs.Count > 0)
+			candidate = borgs[0];
 		else if (brains.Count > 0)
 			candidate = brains[0];
 
-			if (candidate != null)
-			{
-				EntityUid offerable = (EntityUid) candidate;
+		if (candidate != null)
+		{
+			EntityUid offerable = (EntityUid) candidate;
 
 			if (!_IsValidTarget(offerable, out var mind))
 			{
@@ -270,68 +291,68 @@ namespace Content.Server.BloodCult.EntitySystems
 						user, user, PopupType.MediumCaution
 					);
 			}
-		else if (HasComp<BloodCultistComponent>(offerable) || (mind != null && _role.MindHasRole<BloodCultRoleComponent>((EntityUid)mind)))
-		{
-			_popupSystem.PopupEntity(
-					Loc.GetString("cult-invocation-fail-teamkill"),
-					user, user, PopupType.MediumCaution
-				);
-		}
-		else if (HasComp<MindShieldComponent>(offerable))
-		{
-			// Mindshielded victim - attempt to break mindshield
-			_BreakMindshield(offerable, user, cultistsInRange, Transform(uid).Coordinates);
-		}
-		else if (_IsSoulstoneEligible(offerable))
-		{
-			// Soulstone-eligible entities (IPCs, critical cyborgs, positronic brains, etc.)
-			_CreateSoulstoneFromEntity(offerable, user, uid, cultistsInRange);
-		}
-		else if (_CanBeConverted(offerable))
-		{
-			// Normal conversion for organic humanoids
-			_bloodCultist.UseConvertRune(offerable, user, uid, cultistsInRange);
-			
-			// Add blood to the ritual pool based on the victim's current blood level
-			// If they're at 50% blood, only add 50u instead of 100u
-			// Also account for blood already spilled from EdgeEssentia wounds
-			var bloodPercentage = _bloodstream.GetBloodLevelPercentage(offerable);
-			var bloodFromConversion = 100.0 * bloodPercentage;
-			
-			// Check if this entity has already contributed blood via EdgeEssentia bleeding
-			var alreadyContributed = 0.0;
-			if (TryComp<BloodCollectionTrackerComponent>(offerable, out var tracker))
+			else if (HasComp<BloodCultistComponent>(offerable) || (mind != null && _role.MindHasRole<BloodCultRoleComponent>((EntityUid)mind)))
 			{
-				alreadyContributed = tracker.TotalBloodCollected;
-			}
-			
-			// Ensure total contribution from this entity never exceeds 100 units
-			var remainingAllowance = Math.Max(0, 100.0 - alreadyContributed);
-			var bloodToAdd = Math.Min(bloodFromConversion, remainingAllowance);
-			
-			if (bloodToAdd > 0)
-			{
-				_bloodCultRule.AddBloodForConversion(bloodToAdd);
-				
-				// Update the tracker
-				var conversionTracker = EnsureComp<BloodCollectionTrackerComponent>(offerable);
-				conversionTracker.TotalBloodCollected = Math.Min(conversionTracker.TotalBloodCollected + (float)bloodToAdd, conversionTracker.MaxBloodPerEntity);
-			}
-		}
-		// Disabled: Sacrifice into shell - cultists should revive and convert instead
-		// else if (_CanBeSacrificed(offerable, shells))
-		// {
-		// 	// Dead or otherwise non-convertible entity with shell - sacrifice into shell
-		// 	_SacrificeIntoShell(offerable, user, shells[0], cultistsInRange);
-		// }
-			else
-			{
-				// Entity cannot be converted, soulstoned, or sacrificed
 				_popupSystem.PopupEntity(
-						Loc.GetString("cult-invocation-fail"),
+						Loc.GetString("cult-invocation-fail-teamkill"),
 						user, user, PopupType.MediumCaution
 					);
 			}
+			else if (HasComp<MindShieldComponent>(offerable))
+			{
+				// Mindshielded - attempt to break mindshield
+				_BreakMindshield(offerable, user, cultistsInRange, Transform(uid).Coordinates);
+			}
+			else if (_IsSoulstoneEligible(offerable))
+			{
+				// Soulstone-eligible entities (IPCs, critical cyborgs, positronic brains, etc.)
+				_CreateSoulstoneFromEntity(offerable, user, uid, cultistsInRange);
+			}
+			else if (_CanBeConverted(offerable))
+			{
+				// Normal conversion for organic humanoids
+				_bloodCultist.UseConvertRune(offerable, user, uid, cultistsInRange);
+				
+				// Add blood to the ritual pool based on the victim's current blood level
+				// If they're at 50% blood, only add 50u instead of 100u
+				// Also account for blood already spilled from EdgeEssentia wounds
+				var bloodPercentage = _bloodstream.GetBloodLevelPercentage(offerable);
+				var bloodFromConversion = 100.0 * bloodPercentage;
+				
+				// Check if this entity has already contributed blood via EdgeEssentia bleeding
+				var alreadyContributed = 0.0;
+				if (TryComp<BloodCollectionTrackerComponent>(offerable, out var tracker))
+				{
+					alreadyContributed = tracker.TotalBloodCollected;
+				}
+				
+				// Ensure total contribution from this entity never exceeds 100 units
+				var remainingAllowance = Math.Max(0, 100.0 - alreadyContributed);
+				var bloodToAdd = Math.Min(bloodFromConversion, remainingAllowance);
+				
+				if (bloodToAdd > 0)
+				{
+					_bloodCultRule.AddBloodForConversion(bloodToAdd);
+					
+					// Update the tracker
+					var conversionTracker = EnsureComp<BloodCollectionTrackerComponent>(offerable);
+					conversionTracker.TotalBloodCollected = Math.Min(conversionTracker.TotalBloodCollected + (float)bloodToAdd, conversionTracker.MaxBloodPerEntity);
+				}
+			}
+			// Disabled: Sacrifice into shell - cultists should revive and convert instead
+			// else if (_CanBeSacrificed(offerable, shells))
+			// {
+			// 	// Dead or otherwise non-convertible entity with shell - sacrifice into shell
+			// 	_SacrificeIntoShell(offerable, user, shells[0], cultistsInRange);
+			// }
+				else
+				{
+					// Entity cannot be converted, soulstoned, or sacrificed
+					_popupSystem.PopupEntity(
+							Loc.GetString("cult-invocation-fail"),
+							user, user, PopupType.MediumCaution
+						);
+				}
 			}
 			else
 			{
@@ -378,9 +399,11 @@ namespace Content.Server.BloodCult.EntitySystems
 		// This includes IPCs, positronic brains, borgs, slimes, and other non-organic entities
 		// Note: IPCs have bloodstream (for oil) but are silicon-based, so check for SiliconComponent
 		
-		// Cyborgs can only be soulstoned when in critical state
+		// disabled:Cyborgs can only be soulstoned when in critical state
+		// Decided it would be easier to just allow cyborgs to be soulstoned even if they're not crit.
+		// Couldn't figure out a lore reason that Nar'Sie would be stopped by their battery being powered.
 		if (HasComp<BorgChassisComponent>(uid))
-			return _mobState.IsCritical(uid);
+			return true;
 		
 		return !HasComp<BloodstreamComponent>(uid) || HasComp<SiliconComponent>(uid);
 	}
@@ -424,10 +447,30 @@ namespace Content.Server.BloodCult.EntitySystems
 
 		EntProtoId? originalEntityPrototype = null;
 
-		if (TryComp<BodyComponent>(victim, out var body))
+		var brainRemoved = false;
+
+		if (HasComp<BorgChassisComponent>(victim))
+		{
+			if (_container.TryGetContainer(victim, "borg_brain", out var brainContainer))
+			{
+				foreach (var contained in brainContainer.ContainedEntities)
+				{
+					var brainUid = contained;
+					var brainMeta = MetaData(brainUid);
+					if (brainMeta.EntityPrototype != null)
+						originalEntityPrototype = brainMeta.EntityPrototype.ID;
+
+					_container.Remove(brainUid, brainContainer);
+					QueueDel(brainUid);
+					brainRemoved = true;
+					break;
+				}
+			}
+		}
+
+		if (!brainRemoved && TryComp<BodyComponent>(victim, out var body))
 		{
 			var brains = _bodySystem.GetBodyOrganEntityComps<BrainComponent>((victim, body));
-			var brainRemoved = false;
 			foreach (var (brainUid, brainComp, organComp) in brains)
 			{
 				var brainMeta = MetaData(brainUid);
@@ -445,7 +488,7 @@ namespace Content.Server.BloodCult.EntitySystems
 				QueueDel(victim);
 			}
 		}
-		else
+		else if (!brainRemoved)
 		{
 			var victimMeta = MetaData(victim);
 			if (victimMeta.EntityPrototype != null)
@@ -469,6 +512,8 @@ namespace Content.Server.BloodCult.EntitySystems
 			Dirty(soulstone, soulstoneComp);
 		}
 
+		// This gives the soulstone a tiny nudge.
+		// It makes it quite a bit more visually interestina and draws the eye to it rather than it being hidden under the body.
 		if (TryComp<PhysicsComponent>(soulstone, out var physics))
 		{
 			_physics.SetAwake((soulstone, physics), true);
@@ -480,6 +525,7 @@ namespace Content.Server.BloodCult.EntitySystems
 
 		_audio.PlayPvs(new SoundPathSpecifier("/Audio/Magic/blink.ogg"), coordinates);
 
+		// Only used during the final ritual, so the soulstones made from dead cultists don't just spawn and sit there.
 		if (autoActivateShade && TryComp<MindContainerComponent>(soulstone, out var soulstoneMind) && soulstoneMind.Mind != null)
 		{
 			if (TryComp<MindComponent>((EntityUid)soulstoneMind.Mind, out var mind))
@@ -495,6 +541,8 @@ namespace Content.Server.BloodCult.EntitySystems
 					shadeCultist.LocationForSummon = activeRule.LocationForSummon;
 					Dirty(shade, shadeCultist);
 				}
+
+				_npcFaction.AddFaction(shade, BloodCultRuleSystem.BloodCultistFactionId);
 
 				if (TryComp<ShadeComponent>(shade, out var shadeComp))
 					shadeComp.SourceSoulstone = soulstone;
@@ -699,7 +747,8 @@ namespace Content.Server.BloodCult.EntitySystems
 		}
 	}
 		
-		// Stun the victim as well
+		// Stun the victim as well, so they don't run away. 
+		// This stun should apply even if they're waking up from nocturine.
 		if (TryComp<StatusEffectsComponent>(victim, out var victimStatus))
 		{
 			_stun.TryParalyze(victim, TimeSpan.FromSeconds(10), true, victimStatus);

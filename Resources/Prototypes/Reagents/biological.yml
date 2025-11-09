@@ -79,6 +79,7 @@
           groups:
             Brute: -2.25
             Burn: -0.50
+            Toxin: -0.10
   plantMetabolism:
     - !type:PlantAdjustWater
       amount: 0.5
@@ -109,6 +110,7 @@
           groups:
             Brute: -2.25
             Burn: -0.50
+            Toxin: -0.10
 
 - type: reagent
   id: Slime
@@ -142,6 +144,7 @@
           groups:
             Brute: -2.25
             Burn: -0.50
+            Toxin: -0.10
   footstepSound:
     collection: FootstepBlood
     params:
@@ -181,6 +184,7 @@
           groups:
             Brute: -2.25
             Burn: -0.50
+            Toxin: -0.10
   footstepSound:
     collection: FootstepBlood
     params:
@@ -207,6 +211,7 @@
           groups:
             Brute: -2.25
             Burn: -0.50
+            Toxin: -0.10
 
 - type: reagent
   parent: Blood
@@ -230,6 +235,7 @@
           groups:
             Brute: -2.25
             Burn: -0.50
+            Toxin: -0.10
 
 - type: reagent
   id: ZombieBlood
@@ -255,6 +261,7 @@
           groups:
             Brute: -2.25
             Burn: -0.50
+            Toxin: -0.10
     Poison:
       effects:
       - !type:HealthChange

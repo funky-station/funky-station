@@ -20,6 +20,7 @@ using Content.Shared.Physics;
 using Content.Shared.Coordinates.Helpers;
 using Content.Shared.SubFloor;
 using Content.Shared.Pinpointer;
+using Content.Shared.Mind.Components;
 using Robust.Server.GameObjects;
 using Robust.Shared.GameObjects;
 
@@ -65,7 +66,13 @@ public sealed class BloodCultRiftSetupSystem : EntitySystem
 
 		foreach (var beacon in shuffledBeacons)
 		{
-		if (TrySpawnAtBeacon(beacon, out rift, out _, out finalLocation))
+			for (var attempt = 0; attempt < 10; attempt++)
+			{
+				if (TrySpawnAtBeacon(beacon, out rift, out _, out finalLocation))
+					break;
+			}
+
+			if (rift != null)
 				break;
 		}
 
@@ -103,7 +110,8 @@ public sealed class BloodCultRiftSetupSystem : EntitySystem
 			var coords = cultistXform.Coordinates;
 			if (!TryResolveGrid(coords, out var gridUid, out var grid))
 					continue;
-
+			// Clear all walls and blockers. It's only meant as a fallback if all normal attempts fail.
+			ClearBlockingEntities(gridUid, grid, coords);
 			ReplaceFlooring(gridUid, grid, coords);
 				rift = SpawnRiftAndRunes(coords);
 				var meta = MetaData(cultist);
@@ -121,7 +129,8 @@ public sealed class BloodCultRiftSetupSystem : EntitySystem
 			var coords = Transform(beacon).Coordinates;
 			if (!TryResolveGrid(coords, out var gridUid, out var grid))
 					continue;
-
+			// Clear all walls and blockers. It's only meant as a fallback if all normal attempts fail.
+			ClearBlockingEntities(gridUid, grid, coords);
 			ReplaceFlooring(gridUid, grid, coords);
 				rift = SpawnRiftAndRunes(coords);
 				var meta = MetaData(beacon);
@@ -147,14 +156,21 @@ public sealed class BloodCultRiftSetupSystem : EntitySystem
 		location = null;
 
 		var beaconCoords = Transform(beacon).Coordinates;
+		var offsetX = _random.NextFloat(-10f, 10f);
+		var offsetY = _random.NextFloat(-10f, 10f);
+		if (!TryComp<TransformComponent>(beacon, out var beaconTransform))
+			return false;
 
-		for (var i = 0; i < 100; i++)
-		{
-			var offset = _random.NextVector2(0f, 6f);
-			var targetCoords = beaconCoords.Offset(offset);
+		var anchorGrid = beaconTransform.GridUid ?? beaconTransform.MapUid;
+		if (anchorGrid == null || !anchorGrid.Value.IsValid())
+			return false;
 
-			if (!TryFindValid3x3Space(targetCoords, out var centerCoords, out var gridUid, out var grid))
-				continue;
+		var targetCoords = new EntityCoordinates(anchorGrid.Value, beaconCoords.Position + new Vector2(offsetX, offsetY));
+		if (targetCoords.EntityId == EntityUid.Invalid)
+			return false;
+
+		if (!TryFindValid3x3Space(targetCoords, out var centerCoords, out var gridUid, out var grid))
+			return false;
 
 		ReplaceFlooring(gridUid, grid, centerCoords);
 		rift = SpawnRiftAndRunes(centerCoords);
@@ -164,34 +180,31 @@ public sealed class BloodCultRiftSetupSystem : EntitySystem
 		var protoId = beaconMeta.EntityPrototype?.ID ?? string.Empty;
 		coords = TryComp<TransformComponent>(rift.Value, out var riftXform) ? riftXform.Coordinates : centerCoords;
 		location = new WeakVeilLocation(locationName, beacon, protoId, coords.Value, 3.0f);
-			return true;
-		}
-
-		return false;
+		return true;
 	}
 
 	private bool TryResolveGrid(EntityCoordinates coords, out EntityUid gridUid, out MapGridComponent grid)
 	{
 		gridUid = EntityUid.Invalid;
-	grid = default!;
+		grid = default!;
 
-	if (EntityManager.TryGetComponent<MapGridComponent>(coords.EntityId, out var directGrid) && directGrid != null)
-	{
-		gridUid = coords.EntityId;
-		grid = directGrid;
+		if (EntityManager.TryGetComponent<MapGridComponent>(coords.EntityId, out var directGrid) && directGrid != null)
+		{
+			gridUid = coords.EntityId;
+			grid = directGrid;
+			return true;
+		}
+
+		var resolvedGrid = _transformSystem.GetGrid(coords);
+		if (resolvedGrid is not { } gridEntity)
+			return false;
+
+		if (!EntityManager.TryGetComponent<MapGridComponent>(gridEntity, out var resolvedComp) || resolvedComp == null)
+			return false;
+
+		gridUid = gridEntity;
+		grid = resolvedComp;
 		return true;
-	}
-
-	var resolvedGrid = _transformSystem.GetGrid(coords);
-	if (resolvedGrid is not { } gridEntity)
-		return false;
-
-	if (!EntityManager.TryGetComponent<MapGridComponent>(gridEntity, out var resolvedComp) || resolvedComp == null)
-		return false;
-
-	gridUid = gridEntity;
-	grid = resolvedComp;
-	return true;
 	}
 
 	private List<EntityUid> CollectCultists()
@@ -306,11 +319,43 @@ private bool TryFindValid3x3Space(EntityCoordinates center, out EntityCoordinate
 		return true;
 	}
 
+	private void ClearBlockingEntities(EntityUid gridUid, MapGridComponent grid, EntityCoordinates center)
+	{
+		var centerTile = _mapSystem.TileIndicesFor(gridUid, grid, center);
+
+		// Always a 3x3, so just clear that area
+		for (var x = -1; x <= 1; x++)
+		{
+			for (var y = -1; y <= 1; y++)
+			{
+				var tileIndices = new Vector2i(centerTile.X + x, centerTile.Y + y);
+				var anchored = _mapSystem.GetAnchoredEntities(gridUid, grid, tileIndices);
+
+				foreach (var entity in anchored)
+				{
+					// Safety check, never delete a player.
+					if (TryComp<MindContainerComponent>(entity, out var mind) && mind.Mind != null)
+						continue;
+					
+					// Destroy walls and other blockers so it doesn't spawn inside a wall.
+					if (TryComp<PhysicsComponent>(entity, out var physics))
+					{
+						var blockingLayers = CollisionGroup.Impassable | CollisionGroup.WallLayer | CollisionGroup.FullTileLayer | CollisionGroup.AirlockLayer;
+						if ((physics.CollisionLayer & (int)blockingLayers) != 0)
+							QueueDel(entity);
+					}
+				}
+			}
+		}
+	}
+
 	private void ReplaceFlooring(EntityUid gridUid, MapGridComponent grid, EntityCoordinates center)
 	{
 		var centerTile = _mapSystem.TileIndicesFor(gridUid, grid, center);
 
 		// Replace 3x3 area with reinforced exterior hull flooring (centered around the rift position)
+		// Todo: Get a cooler looking bloodcult floor tile. 
+		// I just want to make sure they can't de-grid the anomaly because that'd break the code. And it needs to have adjacent tiles open because it needs those for offering runes to work.
 		var reinforcedTileDef = (ContentTileDefinition)_tileDefManager["FloorHullReinforced"];
 		var reinforcedTile = new Tile(reinforcedTileDef.TileId);
 
@@ -348,7 +393,8 @@ private bool TryFindValid3x3Space(EntityCoordinates center, out EntityCoordinate
 		riftComp.OfferingRunes.Add(bottomRune);
 		riftComp.OfferingRunes.Add(topRune);
 
-		//this pre-fills the blood pool with sanguine perniculate.
+		// Pre-fills the blood pool with sanguine perniculate.
+		// This makes it so the anomaly spills blood onto the floor when it pulses, rather than taking a while to fill up. It'll make a slowly-growing ocean of blood.
 		if (_solutionContainer.TryGetSolution(rift, "sanguine_pool", out var solutionEnt, out var solution))
 		{
 			var deficit = solution.MaxVolume - solution.Volume;

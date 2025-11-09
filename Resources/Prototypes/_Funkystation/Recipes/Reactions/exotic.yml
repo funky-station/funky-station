@@ -157,11 +157,11 @@
   id: SanguinePurification
   reactants:
     SanguinePerniculate:
-      amount: 1
+      amount: 5
     Holywater:
-      amount: 1
+      amount: 5
   products:
-    Holywater: 2
+    Holywater: 4 # So the amount of holy water reduces by 20% each time it's used
   effects:
     - !type:AreaReactionEffect
       prototypeId: Smoke

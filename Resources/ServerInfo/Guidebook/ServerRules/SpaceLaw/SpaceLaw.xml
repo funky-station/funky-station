@@ -48,7 +48,7 @@ SPDX-License-Identifier: MIT
 
   Use common sense and humanity when issuing punishments. You should not always seek out the highest punishment you can, you don't have to always give the maximum time or always look to demote someone. Always take in account the severity and only charge for what is needed for someone to learn their lesson.
 
-  [bold]Accessory, Attempting, And Intention:[/bold] If someone intentionally, knowingly and substantially assists someone in enacting a crime they can be charged with the relevant crimes, such as an engineer giving someone tools, who says they are going to break into an area. Same goes for a clear and solid attempt at a crime, or a person who shows clear intent to act out a crime, such as a syndicate nuclear operative arming a nuke but getting arrested before it goes off, they can still be charged with terrorism. Does not apply to crimes that have an attempted listing already, like attempted murder.
+  [bold]Accessory, Attempting, And Intention:[/bold] If someone intentionally, knowingly and substantially assists someone in enacting a crime they can be charged with the relevant crimes, such as an engineer giving someone tools, who says they are going to break into an area. Same goes for a clear and solid attempt at a crime, or a person who shows clear intent to act out a crime, such as a syndicate nuclear operative arming a nuke but getting arrested before it goes off, they can still be charged with station-wide destruction. Does not apply to crimes that have an attempted listing already, like attempted murder.
 
   [bold]Stackable Crimes:[/bold] Crimes are to be considered 'stackable' in the sense that if you charge someone with two or more different crimes, you should combine the times you would give them for each crime.
 
@@ -56,9 +56,9 @@ SPDX-License-Identifier: MIT
 
   [bold]Executions:[/bold] Executions may be authorized by the Captain / acting Captain after a trial has been conducted. Executions may also be approved by CentComm, following formal contact.
 
-  
-  # Repeat Offenses 
-  Offenses repeated again after having been detained for the same crime can have more time added to the recommended maximum sentencing. The general guideline is as follows: 
+
+  # Repeat Offenses
+  Offenses repeated again after having been detained for the same crime can have more time added to the recommended maximum sentencing. The general guideline is as follows:
 
   ## Second Offenses
   [bold]Recommended Increase:[/bold] Recommended to increase sentencing time by 1.5x for the same crime only.
@@ -71,7 +71,7 @@ SPDX-License-Identifier: MIT
 
   [bold]If brigtime goes above 20 minutes, perma is highly recommended.[/bold]
 
-  
+
   # Crimes
 
   # I Degree
@@ -294,7 +294,7 @@ SPDX-License-Identifier: MIT
 
   [bold]Notes:[/bold] Applies if the suspect is excessively uncooperative or the implant fails to function due to the mental state of the prisoner already being too far gone. If the implant fails the Recommended Maximum Punishment is upped to Expedited Execution.
 
-  ## Terrorism
+  ## Station-wide Destruction
 
   [bold]Description[/bold]: To engage in maliciously destructive actions which threaten to destroy, or successfully destroy a vessel or habitat.
 

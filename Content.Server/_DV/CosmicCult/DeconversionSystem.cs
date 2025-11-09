@@ -6,7 +6,6 @@
 
 using Content.Server._DV.CosmicCult.Components;
 using Content.Server.Bible.Components;
-using Content.Server.EUI;
 using Content.Server.Polymorph.Components;
 using Content.Server.Polymorph.Systems;
 using Content.Shared._DV.CosmicCult.Components.Examine;
@@ -39,10 +38,6 @@ public sealed class DeconversionSystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedToolSystem _tools = default!;
     [Dependency] private readonly UseDelaySystem _delay = default!;
-    [Dependency] private readonly SharedStunSystem _stun = default!;
-    [Dependency] private readonly SharedMindSystem _mind = default!;
-    [Dependency] private readonly IPlayerManager _playerMan = default!;
-    [Dependency] private readonly EuiManager _euiMan = default!;
     [Dependency] private readonly PolymorphSystem _polymorph = default!;
 
     public override void Initialize()

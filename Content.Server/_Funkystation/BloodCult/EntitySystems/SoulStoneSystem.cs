@@ -8,6 +8,8 @@
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Audio;
 using Robust.Shared.GameObjects;
+using Robust.Shared.Maths;
+using Robust.Shared.Player;
 using Content.Shared.Interaction.Events;
 using Content.Server.Mind;
 using Content.Shared.Mind;
@@ -33,6 +35,8 @@ using Content.Shared.Destructible;
 using Content.Shared.Movement.Events;
 using Content.Shared.Speech;
 using Content.Shared.Emoting;
+using Content.Shared.Effects;
+using System.Collections.Generic;
 
 namespace Content.Server.BloodCult.EntitySystems;
 
@@ -48,6 +52,7 @@ public sealed class SoulStoneSystem : EntitySystem
 	[Dependency] private readonly DamageableSystem _damageable = default!;
 	[Dependency] private readonly RoleSystem _role = default!;
 	[Dependency] private readonly BloodstreamSystem _bloodstream = default!;
+	[Dependency] private readonly SharedColorFlashEffectSystem _color = default!;
 
 	private EntityQuery<ShadeComponent> _shadeQuery;
 
@@ -66,6 +71,7 @@ public sealed class SoulStoneSystem : EntitySystem
 		
 		// Ensure soulstones can speak and emote when they have a mind
 		SubscribeLocalEvent<SoulStoneComponent, ComponentStartup>(OnSoulstoneStartup);
+		SubscribeLocalEvent<SoulStoneComponent, DamageChangedEvent>(OnSoulstoneDamaged);
 
 		_shadeQuery = GetEntityQuery<ShadeComponent>();
 	}
@@ -91,6 +97,18 @@ public sealed class SoulStoneSystem : EntitySystem
 	{
 		// Prevent rotation by not processing the input at all
 		// The UpdateCanMoveEvent already prevents actual movement
+	}
+
+	private void OnSoulstoneDamaged(EntityUid uid, SoulStoneComponent component, DamageChangedEvent args)
+	{
+		if (!args.DamageIncreased)
+			return;
+
+		if (!TryComp<TransformComponent>(uid, out var xform))
+			return;
+
+		var filter = Filter.Pvs(xform.Coordinates, entityMan: EntityManager);
+		_color.RaiseEffect(Color.FromHex("#bf2cff"), new List<EntityUid> { uid }, filter);
 	}
 
 	private void OnTryCaptureSoul(Entity<SoulStoneComponent> ent, ref AfterInteractEvent args)

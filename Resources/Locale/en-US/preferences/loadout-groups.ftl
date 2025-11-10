@@ -238,6 +238,7 @@ loadout-group-chemist-jumpsuit = Chemist jumpsuit
 loadout-group-chemist-outerclothing = Chemist outer clothing
 loadout-group-chemist-backpack = Chemist backpack
 loadout-group-medical-chemist-glasses = Chemist glasses
+loadout-group-medical-chemist-head = Chemist head
 
 loadout-group-paramedic-head = Paramedic head
 loadout-group-paramedic-jumpsuit = Paramedic jumpsuit

@@ -50,15 +50,52 @@ public sealed class CameraRecoilSystem : SharedCameraRecoilSystem
         if (!Resolve(uid, ref component, false))
             return;
 
+        // Validate input recoil vector
+        if (!float.IsFinite(recoil.X) || !float.IsFinite(recoil.Y))
+            return;
+
         recoil *= _intensity;
+
+        // Validate recoil after intensity multiplication
+        if (!float.IsFinite(recoil.X) || !float.IsFinite(recoil.Y))
+            return;
+
+        // Reset CurrentKick if it contains invalid values
+        if (!float.IsFinite(component.CurrentKick.X) || !float.IsFinite(component.CurrentKick.Y))
+            component.CurrentKick = Vector2.Zero;
 
         // Use really bad math to "dampen" kicks when we're already kicked.
         var existing = component.CurrentKick.Length();
+        if (!float.IsFinite(existing))
+            existing = 0f;
+
         var dampen = existing / KickMagnitudeMax;
+        if (!float.IsFinite(dampen))
+            dampen = 0f;
+
         component.CurrentKick += recoil * (1 - dampen);
 
-        if (component.CurrentKick.Length() > KickMagnitudeMax)
-            component.CurrentKick = component.CurrentKick.Normalized() * KickMagnitudeMax;
+        // Validate after addition
+        if (!float.IsFinite(component.CurrentKick.X) || !float.IsFinite(component.CurrentKick.Y))
+        {
+            component.CurrentKick = Vector2.Zero;
+            return;
+        }
+
+        var currentLength = component.CurrentKick.Length();
+        if (currentLength > KickMagnitudeMax && float.IsFinite(currentLength))
+        {
+            var normalized = component.CurrentKick.Normalized();
+            // Only use normalized if it's valid
+            if (float.IsFinite(normalized.X) && float.IsFinite(normalized.Y))
+            {
+                component.CurrentKick = normalized * KickMagnitudeMax;
+            }
+            else
+            {
+                component.CurrentKick = Vector2.Zero;
+            }
+        }
 
         component.LastKickTime = 0;
     }

@@ -9,7 +9,7 @@ using Content.Shared._DV.Roles;
 using Content.Shared.Ninja.Components;
 using Content.Shared.Objectives.Components;
 using Content.Shared.Roles;
-using Content.Shared.Warps;
+using Content.Server.Warps; // Funky, was Content.Shared.Warps, and I ain't porting the refactor
 using Robust.Shared.Random;
 
 namespace Content.Server.Objectives.Systems;

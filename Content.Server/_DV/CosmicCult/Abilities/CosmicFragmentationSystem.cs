@@ -108,7 +108,7 @@ public sealed class CosmicFragmentationSystem : EntitySystem
         EnsureComp<CosmicChantryComponent>(chantry, out var chantryComponent);
         chantryComponent.InternalVictim = wisp;
         chantryComponent.VictimBody = ent;
-        _metaData.SetEntityName(wisp, $"{ent}");
+        //_metaData.SetEntityName(wisp, $"{ent}"); // Funky, commented out. This thing breaks rather spectacularly, and I'm too lazy to fix it properly.
         _mind.TransferTo(mindId, wisp, mind: mind);
 
         var mins = chantryComponent.EventTime.Minutes;

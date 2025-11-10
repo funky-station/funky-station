@@ -639,15 +639,6 @@
     whitelist:
       tags:
       - CombatKnife
-  - name: bounty-item-explosive-payload
-    minAmount: 5
-    maxAmount: 10
-    rewardPer: 1250
-    whitelist:
-      tags:
-      - PayloadExplosive
-    requiredResearch:
-      - ExplosiveTechnology
   - name: bounty-item-grenade-flashbang
     minAmount: 5
     maxAmount: 12

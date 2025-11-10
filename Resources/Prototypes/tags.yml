@@ -706,10 +706,6 @@
   id: Eyes
 
 - type: Tag
-  id: PayloadExplosive
-
-
-- type: Tag
   id: Figurine
 
 - type: Tag

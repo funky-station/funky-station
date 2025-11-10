@@ -61,9 +61,6 @@
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
-  - type: Tag
-    tags:
-    - PayloadExplosive
 
 - type: entity
   name: chemical payload

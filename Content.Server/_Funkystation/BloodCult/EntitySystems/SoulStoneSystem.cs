@@ -164,7 +164,7 @@ public sealed class SoulStoneSystem : EntitySystem
 				}
 				
 			// Damage the user for releasing the shade
-			if (TryComp<DamageableComponent>(args.User, out var damageable))
+			if (TryComp<DamageableComponent>(args.User, out _))
 			{
 				var damage = new DamageSpecifier();
 				
@@ -181,23 +181,23 @@ public sealed class SoulStoneSystem : EntitySystem
 				}
 			}
 				
-				var coordinates = Transform((EntityUid)args.User).Coordinates;
-				var construct = Spawn("MobBloodCultShade", coordinates);
-				_mind.TransferTo((EntityUid)mindContainer.Mind, construct, mind:mindComp);
+				var summonCoordinates = Transform((EntityUid)args.User).Coordinates;
+				var shadeEntity = Spawn("MobBloodCultShade", summonCoordinates);
+				_mind.TransferTo((EntityUid)mindContainer.Mind, shadeEntity, mind:mindComp);
 				
 				// Set the soulstone reference on the Shade so it knows where to return
-			if (TryComp<ShadeComponent>(construct, out var shadeComp))
-			{
-				shadeComp.SourceSoulstone = ent;
-			}
+				if (TryComp<ShadeComponent>(shadeEntity, out var shadeComponent))
+				{
+					shadeComponent.SourceSoulstone = ent;
+				}
 			
-			_audioSystem.PlayPvs(new SoundPathSpecifier("/Audio/Magic/blink.ogg"), coordinates);
+				_audioSystem.PlayPvs(new SoundPathSpecifier("/Audio/Magic/blink.ogg"), summonCoordinates);
 				_popupSystem.PopupEntity(
 					Loc.GetString("cult-shade-summoned"),
 					args.User, args.User, PopupType.SmallCaution
 				);
-				string summonerName = _entityManager.GetComponent<MetaDataComponent>(args.User).EntityName;
-				_cultRuleSystem.AnnounceToCultist(Loc.GetString("cult-shade-servant", ("name", summonerName)), construct);
+				var summonerDisplayName = _entityManager.GetComponent<MetaDataComponent>(args.User).EntityName;
+				_cultRuleSystem.AnnounceToCultist(Loc.GetString("cult-shade-servant", ("name", summonerDisplayName)), shadeEntity);
 			}
 			else
 			{

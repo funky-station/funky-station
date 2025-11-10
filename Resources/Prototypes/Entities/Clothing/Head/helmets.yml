@@ -108,7 +108,7 @@
 
 #Mercenary Helmet
 - type: entity
-  parent: [ ClothingHeadHelmetBase, BaseMajorContraband ]
+  parent: [ ClothingHeadHelmetBase, BaseSecurityCargoContraband ] # Funky Edit
   id: ClothingHeadHelmetMerc
   name: mercenary helmet
   description: The combat helmet is commonly used by mercenaries, is strong, light and smells like gunpowder and the jungle.
@@ -117,6 +117,13 @@
     sprite: Clothing/Head/Helmets/merc_helmet.rsi
   - type: Clothing
     sprite: Clothing/Head/Helmets/merc_helmet.rsi
+  - type: Armor # Helmet meant more for salvage, but with recuded pirece resist as that is something they dont deal wiht very often. 
+    modifiers:
+      coefficients:
+        Blunt: 0.85
+        Slash: 0.85
+        Piercing: 0.90
+        Caustic: 0.85
 
 #SWAT Helmet
 - type: entity

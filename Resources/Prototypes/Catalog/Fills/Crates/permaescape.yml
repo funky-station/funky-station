@@ -118,7 +118,7 @@
     - id: WeaponRevolverPirate
       prob: 0.15
       orGroup: gun
-      
+
 - type: entity
   id: CratePermaEscapeBureaucracy
   parent: CrateGenericSteel
@@ -311,7 +311,6 @@
       - id: ClothingHandsMercGlovesCombat
         prob: 0.05
       - id: ClothingBackpackMerc
-        prob: 0.50
       - id: ClothingShoesBootsMerc
         prob: 0.50
       - id: ClothingOuterVestWebMerc

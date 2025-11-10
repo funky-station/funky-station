@@ -41,3 +41,26 @@
       - id: LightBulbCrystalPink
       - id: LightBulbCrystalRed
       - id: LightBulbCrystalRed
+
+- type: entity
+  name: premium M.R.E.
+  parent: BoxMRE
+  id: BoxMREPrmium
+  description: A box of standard NT ERT rations. Filled with everything you want in a balanced meal after a hard day's work.
+  components:
+  - type: Storage
+    maxItemSize: Normal
+    grid:
+    - 0,0,3,3
+  - type: StorageFill
+    contents:
+      - id: DrinkMREFlask
+      - id: FoodTinMRE
+      - id: FoodTinBeans
+      - id: FoodSnackProteinbar
+      - id: FoodTinPeaches
+      - id: FoodSnackMooncakeWrapped
+      - id: DrinkMilkCartonMiniChocolate
+      - id: FoodBakedCookieOatmeal
+      - id: FoodBakedCookieOatmeal
+      - id: FoodSaladValid

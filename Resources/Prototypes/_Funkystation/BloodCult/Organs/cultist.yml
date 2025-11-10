@@ -11,9 +11,8 @@
   - type: Organ
     slotId: blood_gland
   - type: Sprite
-    sprite: Mobs/Species/Human/organs.rsi
-    state: heart
-    color: "#330000"
+    sprite: _Funkystation/BloodCult/Objects/soulstone.rsi
+    state: soulstone
   - type: Metabolizer
     metabolizerTypes: [ Bloodsucker ]
     solutionOnBody: true

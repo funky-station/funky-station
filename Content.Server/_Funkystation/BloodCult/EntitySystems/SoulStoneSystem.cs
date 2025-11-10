@@ -219,6 +219,7 @@ public sealed class SoulStoneSystem : EntitySystem
 		if (shade.Comp.SourceSoulstone == null)
 			return;
 
+
 		var soulstone = shade.Comp.SourceSoulstone.Value;
 		
 		// Verify the soulstone still exists

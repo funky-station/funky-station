@@ -23,7 +23,7 @@ SPDX-License-Identifier: MIT
 
   - Printing the label gives you a [color=cyan]Bounty Manifest[/color] listing the goods that need to be acquired. You can print out infinite Bounty Manifests, so ensure you are not repeating the same work as another Cargo Technician.
 
-  - Skipping a bounty replaces that bounty with a new one, as there can only be six active bounties at any time. Skipping has a 15-minute cooldown and voids that bounty, which may anger other Cargo Technicians working on it.
+  - Skipping a bounty replaces that bounty with a new one, as there can only be six active bounties at any time. Skipping has a 3-minute cooldown and voids that bounty, which may anger other Cargo Technicians working on it.
 
   ## Fulfilling Bounties
 

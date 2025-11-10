@@ -301,7 +301,7 @@ public sealed partial class BloodCultRuneCarverSystem : EntitySystem
 			}
 			var targetTile = _mapSystem.GetTileRef(gridUid.Value, grid, ev.Coords);
 
-			var rune = Spawn(ev.EntityId, ev.Coords);  // Spawn the final rune
+		var rune = Spawn(ev.EntityId, ev.Coords);  // Spawn the final rune
 
 			if (gridUid != null && TryComp<TransformComponent>(rune, out var runeTransform))
 			{

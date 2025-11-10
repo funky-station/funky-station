@@ -72,14 +72,14 @@
     - type: BloodCultConstruct
     - type: Bloodstream
       bloodMaxVolume: 0
-      bloodReagent: None
+      bloodReagent: Blood
       maxBleedAmount: 0
     - type: Reactive
       groups:
         Flammable: [ Touch ]
         Extinguish: [ Touch ]
       reactions:
-      - reagents: [ Blood, Slime, Sap, InsectBlood, CopperBlood, AmmoniaBlood, ZombieBlood, ChangelingBlood]
+      - reagents: [ Blood, Slime, Sap, InsectBlood, CopperBlood, AmmoniaBlood, ZombieBlood, BloodChangeling]
         methods: [ Touch ]
         effects:
         - !type:HealthChange
@@ -200,7 +200,7 @@
     - type: BloodCultConstruct
     - type: Bloodstream
       bloodMaxVolume: 0
-      bloodReagent: None
+      bloodReagent: Blood
       maxBleedAmount: 0
     - type: MindContainer
     - type: Shade

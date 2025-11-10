@@ -4,7 +4,7 @@
 - type: entity
   id: FxBloodCultRuneBarrier
   name: barrier rune
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     drawdepth: FloorObjects
@@ -20,7 +20,7 @@
 - type: entity
   id: FxBloodCultRuneEmpowering
   name: empowering rune
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     drawdepth: HighFloorObjects
@@ -36,7 +36,7 @@
 - type: entity
   id: FxBloodCultRuneOffering
   name: offering rune
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     drawdepth: HighFloorObjects
@@ -52,7 +52,7 @@
 - type: entity
   id: FxBloodCultRuneRevive
   name: revive rune
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     drawdepth: HighFloorObjects
@@ -68,7 +68,7 @@
 - type: entity
   id: FxBloodCultRuneTearVeil
   name: tear veil rune
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     drawdepth: HighFloorObjects

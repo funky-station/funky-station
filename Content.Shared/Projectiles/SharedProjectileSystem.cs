@@ -26,6 +26,7 @@
 // SPDX-FileCopyrightText: 2025 DrSmugleaf <10968691+DrSmugleaf@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 // SPDX-FileCopyrightText: 2025 Toaster <mrtoastymyroasty@gmail.com>
+// SPDX-FileCopyrightText: 2025 Toastermeister <215405651+Toastermeister@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
 // SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
@@ -137,7 +138,19 @@ public abstract partial class SharedProjectileSystem : EntitySystem
             ? _transform.ToCoordinates(collisionCoordinates.Value)
             : Transform(projectile).Coordinates;
         var otherName = ToPrettyString(target);
-        var direction = ourBody.LinearVelocity.Normalized();
+        
+        // Calculate direction for camera recoil, ensuring it's valid
+        var velocity = ourBody.LinearVelocity;
+        Vector2 direction = Vector2.Zero;
+        var velocityLength = velocity.Length();
+        if (velocityLength > 0.001f && float.IsFinite(velocity.X) && float.IsFinite(velocity.Y))
+        {
+            direction = velocity.Normalized();
+            // Double-check the normalized vector is valid
+            if (!float.IsFinite(direction.X) || !float.IsFinite(direction.Y))
+                direction = Vector2.Zero;
+        }
+        
         var modifiedDamage = _net.IsServer
             ? _damageableSystem.TryChangeDamage(target,
                 ev.Damage,
@@ -172,7 +185,11 @@ public abstract partial class SharedProjectileSystem : EntitySystem
         if (!deleted)
         {
             _guns.PlayImpactSound(target, modifiedDamage, component.SoundHit, component.ForceSound, filter, projectile);
-            _sharedCameraRecoil.KickCamera(target, direction);
+            // Only apply camera kick if direction is valid (non-zero, finite)
+            if (direction != Vector2.Zero)
+            {
+                _sharedCameraRecoil.KickCamera(target, direction);
+            }
         }
 
         component.DamagedEntity = true;

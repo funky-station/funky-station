@@ -7,11 +7,11 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
 - type: entity
-  name: cane blade
+  name: candy-cane blade
   suffix: Nanotrasen
   parent: BaseItem
   id: CaneBladeNanotrasen
-  description: A sharp blade with a cane shaped hilt, a Nanotrasen logo is engraved on the blade.
+  description: A Nanotrasen brand candy-cane blade for use against those who wish to ruin funkmas.
   components:
   - type: Sharp
   - type: Sprite

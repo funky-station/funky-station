@@ -658,10 +658,13 @@ namespace Content.Server.GameTicking
                 }
                 bool isdead = false;
                 bool isinvalid = true;
-                if (TryComp<MobStateComponent>(mind.LastEntity, out var comp))
+                if (mind.LastEntity != null)
                 {
-                    isdead = comp.CurrentState == MobState.Dead;
-                    isinvalid = comp.CurrentState == MobState.Invalid;
+                    if (TryComp<MobStateComponent>(mind.LastEntity, out var comp))
+                    {
+                        isdead = comp.CurrentState == MobState.Dead;
+                        isinvalid = comp.CurrentState == MobState.Invalid;
+                    }
                 }
                 //funky end
                 var playerEndRoundInfo = new RoundEndMessageEvent.RoundEndPlayerInfo()

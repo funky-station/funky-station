@@ -166,21 +166,4 @@ public sealed partial class MindComponent : Component
     [ViewVariables, Access(typeof(SharedMindSystem), typeof(SharedGameTicker))]
     // TODO remove this after moving IPlayerManager functions to shared
     public ICommonSession? Session { get; set; }
-
-
-    //Funky begin
-    /// <summary>
-    ///     Last message sent by this mind.
-    /// </summary>
-    [DataField]
-    public string? LastMessage { get; set; }
-
-    ///<summary>
-    ///     The last entity this mind has possessed.
-    ///     Currently used to display the correct "image" of the player,
-    ///     if the player has been borged, for example.
-    ///</summary>
-    [DataField, AutoNetworkedField]
-    public EntityUid? LastEntity { get; set; }
-    //Funky end
 }

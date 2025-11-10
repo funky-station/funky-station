@@ -38,7 +38,7 @@
       ]
     },
     {
-      "name": "alive_mouth",
+      "name": "mouth",
       "directions": 4,
       "delays": [
         [

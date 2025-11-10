@@ -5,7 +5,7 @@
 - type: entity
   name: mini dragon
   id: BaseMobMiniDragon
-  parent: [ SimpleSpaceMobBase, FlyingMobBase, MobCombat ]
+  parent: [ SimpleSpaceMobBase, FlyingMobBase ]
   description: It's a mini dragon, sometimes also known as a poodle dragon. These small space dragons are the result of a failed experiment to create weaponizable space dragons by making them obedient and less agressive, resulting instead in small, intelligent space dragons that while not hostile tend to have eccentric personalities.
   abstract: true
   components:
@@ -13,23 +13,16 @@
     - type: MobMover
     - type: HTN
       rootTask:
-        task: RuminantHostileCompound
+        task: XenoCompound
       blackboard:
         NavSmash: !type:Bool
           true
-    - type: NpcFactionMember
-      factions:
-      - PetsNT
-      - Dragon
     - type: Sprite
       drawdepth: Mobs
       sprite: _Funkystation/Mobs/Pets/minidragon.rsi
       layers:
       - map: [ "enum.DamageStateVisualLayers.Base" ]
         state: alive
-      - map: [ "enum.DamageStateVisualLayers.BaseUnshaded" ]
-      state: alive_mouth
-      shader: unshaded
     - type: CombatMode
     - type: Physics
     - type: Fixtures
@@ -37,28 +30,24 @@
         fix1:
           shape:
             !type:PhysShapeCircle
-            radius: 0.35
-          density: 50
+            radius: 0.3
+          density: 60
           mask:
             - FlyingMobMask
           layer:
             - FlyingMobLayer
-    - type: MobState
     - type: MobThresholds
       thresholds:
-      0: Alive
-      125: Critical
-      150: Dead
-    - type: MovementSpeedModifier
-      baseWalkSpeed: 2.5
-      baseSprintSpeed: 3.5
+        0: Alive
+        125: Critical
+        150: Dead
     - type: Stamina
       critThreshold: 100
     - type: DamageStateVisuals
       states:
         Alive:
           Base: alive
-          BaseUnshaded: alive_mouth
+          BaseUnshaded: mouth
         Critical:
           Base: crit
           BaseUnshaded: crit_mouth
@@ -67,29 +56,24 @@
           BaseUnshaded: dead_mouth
     - type: Butcherable
       spawned:
-        - id: FoodMeatFish
-          amount: 3
+        - id: FoodMeatDragon
+          amount: 1
         - id: MaterialToothSpaceCarp1
           amount: 4
-          maxAmount: 4
         - id: MaterialCarpScale1 # Funky 
-          amount: 5
-          prob: 1          
+          amount: 5    
     - type: MeleeWeapon
       altDisarm: false
-      angle: 0
-      animation: WeaponArcBite
       soundHit:
-        path: /Audio/Effects/bite.ogg
+        path: /Audio/Weapons/Xeno/alien_claw_flesh3.ogg
       damage:
         types:
-          Blunt: 6
-          Slash: 6
+          Piercing: 7.5
+          Slash: 7.5
     - type: TypingIndicator
       proto: lizard
     - type: Tag
       tags:
-        - Carp
         - DoorBumpOpener
         - CannotSuicide
     - type: ReplacementAccent
@@ -118,18 +102,40 @@
       activateSound: null
       deactivateSound: null
     - type: CombatPower # Funky
-      factor: 2 
-    - type: GhostRole
-      prob: 1
-      makeSentient: true
-      allowSpeech: true
-      allowMovement: true
-      name: ghost-role-information-mini-dragon-name
-      description: ghost-role-information-mini-dragon-description
-      rules: ghost-role-information-mini-dragon-rules
-    - type: GhostTakeoverAvailable
+      factor: 2
     - type: Puller
       needsHands: false
+    - type: MovementSpeedModifier
+      baseWalkSpeed: 2.5
+      baseSprintSpeed: 3.5
+      weightlessModifier: 1.5
+    - type: MobState
+    - type: MobStateActions
+      actions:
+        Critical:
+        - ActionCritSuccumb
+        - ActionCritLastWords 
+    - type: SlowOnDamage
+      speedModifierThresholds:
+        75: 0.8
+        100: 0.6 
+    - type: StatusEffects # Overwriting basesimplemob to remove flash, getting flashed as dragon just feelsbad
+      allowed:
+      - SlowedDown
+      - Electrocution
+      - ForcedSleep
+      - TemporaryBlindness
+      - Pacified
+      - RadiationProtection
+      - Drowsiness
+      - Adrenaline
+    - type: Metabolizer
+      solutionOnBody: false
+      updateInterval: 0.25
+      metabolizerTypes: [ Dragon ]
+      groups:
+      - id: Medicine
+      - id: Poison
 
 - type: entity
   name: mini dragon
@@ -141,7 +147,7 @@
       - map: [ "enum.DamageStateVisualLayers.Base" ]
         state: alive
       - map: [ "enum.DamageStateVisualLayers.BaseUnshaded" ]
-        state: alive_mouth
+        state: mouth
         shader: unshaded
     - type: RandomSprite
       available:
@@ -149,3 +155,20 @@
           alive: Rainbow
         enum.DamageStateVisualLayers.BaseUnshaded:
           mouth: ""
+    - type: GhostRole
+      prob: 1
+      makeSentient: true
+      allowSpeech: true
+      allowMovement: true
+      name: ghost-role-information-mini-dragon-name
+      description: ghost-role-information-mini-dragon-description
+      rules: ghost-role-information-mini-dragon-rules
+      raffle:
+        settings: default
+      mindRoles:
+      - MindRoleGhostRoleFreeAgent
+    - type: GhostTakeoverAvailable
+    - type: NpcFactionMember
+      factions:
+      - Passive
+    - type: FactionException

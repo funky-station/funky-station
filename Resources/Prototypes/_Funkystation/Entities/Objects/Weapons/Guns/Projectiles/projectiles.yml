@@ -1,0 +1,42 @@
+# SPDX-FileCopyrightText: 2025 tea <xerithin@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  name: holy bolt
+  id: BulletEnergyHolyBolt
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Reflective
+    reflective:
+    - Energy
+  - type: FlyBySound
+    sound:
+      collection: EnergyMiss
+      params:
+        volume: 5
+  - type: Sprite
+    sprite: _Funkystation/Objects/Weapons/Projectiles/holyarrow.rsi
+    layers:
+    - state: projectile
+      shader: unshaded
+  - type: Ammo
+  - type: Physics
+  - type: Fixtures
+    fixtures:
+      projectile:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.2,-0.2,0.2,0.2"
+        hard: false
+        mask:
+        - Opaque
+  - type: Projectile
+    impactEffect: BulletImpactEffectRedDisabler
+    damage:
+      types:
+        Heat: 23 #reduce to 15 if holy damage ever becomes a thing
+        Holy: 20
+    soundHit:
+      collection: MeatLaserImpact

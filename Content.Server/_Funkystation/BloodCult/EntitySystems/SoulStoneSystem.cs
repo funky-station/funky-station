@@ -1,4 +1,5 @@
 // SPDX-FileCopyrightText: 2025 Skye <57879983+Rainbeon@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Terkala <appleorange64@gmail.com>
 // SPDX-FileCopyrightText: 2025 kbarkevich <24629810+kbarkevich@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 // SPDX-FileCopyrightText: 2025 Terkala <appleorange64@gmail.com>
@@ -19,7 +20,9 @@ using Content.Server.Popups;
 using Content.Shared.Interaction;
 using Content.Shared.DoAfter;
 using Content.Server.GameTicking.Rules;
+using Content.Shared.Mobs;
 using Content.Shared.Mobs.Systems;
+using Content.Shared.Mobs.Components;
 using Content.Shared.BloodCult;
 using Content.Shared.BloodCult.Components;
 using Content.Shared.Mobs;
@@ -154,7 +157,14 @@ public sealed class SoulStoneSystem : EntitySystem
 
 		if (TryComp<BloodCultistComponent>(args.User, out var _) && TryComp<MindContainerComponent>(ent, out var mindContainer))
 		{
-			if (mindContainer.Mind != null && TryComp<MindComponent>((EntityUid)mindContainer.Mind, out var mindComp))
+		if (mindContainer.Mind != null && TryComp<MindComponent>((EntityUid)mindContainer.Mind, out var mindComp))
+		{
+			var coordinates = Transform((EntityUid)args.User).Coordinates;
+			var construct = Spawn("MobBloodCultShade", coordinates);
+			_mind.TransferTo((EntityUid)mindContainer.Mind, construct, mind:mindComp);
+			
+			// Link the shade back to the soulstone so it can return on death
+			if (TryComp<ShadeComponent>(construct, out var shadeComp))
 			{
 				// Make the mind in the soulstone a cultist (without giving them cultist abilities yet)
 				var mindId = (EntityUid)mindContainer.Mind;
@@ -199,6 +209,30 @@ public sealed class SoulStoneSystem : EntitySystem
 				string summonerName = _entityManager.GetComponent<MetaDataComponent>(args.User).EntityName;
 				_cultRuleSystem.AnnounceToCultist(Loc.GetString("cult-shade-servant", ("name", summonerName)), construct);
 			}
+			
+		// Apply bloodloss damage to the user for summoning
+		if (TryComp<DamageableComponent>(args.User, out var damageable))
+		{
+			string damageType;
+			if (damageable.Damage.DamageDict.ContainsKey(BloodlossDamage))
+				damageType = BloodlossDamage;
+			else if (damageable.Damage.DamageDict.ContainsKey(IonDamage))
+				damageType = IonDamage;
+			else
+				damageType = SlashDamage;
+			
+			var bloodDamage = new DamageSpecifier(_protoMan.Index<DamageTypePrototype>(damageType), FixedPoint2.New(15));
+			_damageableSystem.TryChangeDamage(args.User, bloodDamage, true, origin: args.User);
+		}
+			
+			_audioSystem.PlayPvs("/Audio/Magic/blink.ogg", coordinates);
+			_popupSystem.PopupEntity(
+				Loc.GetString("cult-shade-summoned"),
+				args.User, args.User, PopupType.SmallCaution
+			);
+			string summonerName = _entityManager.GetComponent<MetaDataComponent>(args.User).EntityName;
+			_cultRuleSystem.AnnounceToCultist(Loc.GetString("cult-shade-servant", ("name", summonerName)), construct);
+		}
 			else
 			{
 				_popupSystem.PopupEntity(

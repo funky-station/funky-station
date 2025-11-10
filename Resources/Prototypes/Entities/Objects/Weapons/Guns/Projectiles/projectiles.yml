@@ -70,6 +70,7 @@
 # SPDX-FileCopyrightText: 2025 ThatOneMoon <91613003+ThatOneMoon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
 # SPDX-FileCopyrightText: 2025 Toaster <mrtoastymyroasty@gmail.com>
+# SPDX-FileCopyrightText: 2025 Toastermeister <215405651+Toastermeister@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 kbarkevich <24629810+kbarkevich@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
@@ -307,6 +308,7 @@
       params:
         volume: 5
   - type: Sprite
+    noRot: false
     sprite: Objects/Weapons/Guns/Projectiles/projectiles_tg.rsi
     layers:
     - state: omnilaser
@@ -320,7 +322,7 @@
           bounds: "-0.15,-0.3,0.15,0.3"
         hard: false
         mask:
-        - Opaque # Goobstation
+        - Opaque
       fly-by: # Inlined definition to avoid anchor issues
         shape: !type:PhysShapeCircle
           radius: 0.6
@@ -355,6 +357,7 @@
       params:
         volume: 5
   - type: Sprite
+    noRot: false
     sprite: Objects/Weapons/Guns/Projectiles/projectiles_tg.rsi
     layers:
     - state: omnilaser
@@ -368,7 +371,7 @@
           bounds: "-0.15,-0.3,0.15,0.3"
         hard: false
         mask:
-        - Opaque # Goobstation
+        - Opaque
       fly-by: # Inlined definition to avoid anchor issues
         shape: !type:PhysShapeCircle
           radius: 0.6
@@ -1030,6 +1033,7 @@
       params:
         volume: 5
   - type: Sprite
+    noRot: false
     sprite: Objects/Weapons/Guns/Projectiles/projectiles_tg.rsi
     layers:
     - state: omnilaser
@@ -1043,7 +1047,7 @@
           bounds: "-0.15,-0.3,0.15,0.3"
         hard: false
         mask:
-        - Opaque # Goobstation
+        - Opaque
       fly-by: # Inlined definition to avoid anchor issues
         shape: !type:PhysShapeCircle
           radius: 0.6

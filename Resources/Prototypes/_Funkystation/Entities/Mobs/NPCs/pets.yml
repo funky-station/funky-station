@@ -79,8 +79,8 @@
     - type: ReplacementAccent
       accent: genericAggressive
     - type: Speech
+      speechVerb: LargeMob
       speechSounds: Lizard
-      speechVerb: Reptilian
       allowedEmotes: ['Thump']
     - type: InteractionPopup
       successChance: 0.5 
@@ -119,7 +119,7 @@
       speedModifierThresholds:
         75: 0.8
         100: 0.6 
-    - type: StatusEffects # Overwriting basesimplemob to remove flash, getting flashed as dragon just feelsbad
+    - type: StatusEffects
       allowed:
       - SlowedDown
       - Electrocution
@@ -136,6 +136,11 @@
       groups:
       - id: Medicine
       - id: Poison
+    - type: Flammable
+      damage:
+        types: {}
+    - type: Temperature
+      heatDamageThreshold: 800
 
 - type: entity
   name: mini dragon

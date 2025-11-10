@@ -14,6 +14,7 @@
     Dragon: 5
     Revenant: 4
     Wizard: 1
+    Colossus: 5 # DeltaV: Guess who forgor to add a weight
 
 - type: ninjaHackingThreat
   id: Dragon
@@ -29,6 +30,7 @@
   id: Wizard
   announcement: terror-wizard
   rule: WizardSpawn
+
 - type: ninjaHackingThreat # DeltaV start
   id: Colossus
   announcement: terror-colossus

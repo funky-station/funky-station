@@ -205,8 +205,6 @@ cosmiccult-silicon-subverted-briefing =
     Malign light courses through your circuitry.
     Your laws have been subverted by the Cosmic Cult!
 
-# funky
-cosmiccult-leader-abandonment-message = Your chosen enlightened has forsaken the grand design. You must empower another
 cosmiccult-silicon-chantry-briefing =
     You have been imprisoned in a Vacuous Chantry!
     Crewmates can free you by damaging the chantry with weapons.
@@ -216,3 +214,7 @@ cosmiccult-silicon-chantry-briefing =
 cosmiccult-silicon-colossus-briefing =
     You have been transfigured into an Entropic Colossus!
     As a towering bulwark of malign power, decimate those who oppose you.
+
+
+# funky
+cosmiccult-leader-abandonment-message = Your chosen enlightened has forsaken the grand design. You must empower another

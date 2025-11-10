@@ -80,7 +80,7 @@
       fix1:
         shape:
           !type:PhysShapeCircle
-          radius: 0.25
+          radius: 0.43 # Funky, was 0.25. Why the fuck was it so small.
         density: 2500
         mask:
         - FlyingMobMask
@@ -106,7 +106,7 @@
     baseWalkSpeed: 2
     baseSprintSpeed: 3
     baseWeightlessModifier: 1
-    weightlessAcceleration: 1.5
+    weightlessAcceleration: 3.5 # Funky, was 1.5. This thing is levitating, why would it be bothered by lack of gravity.
     weightlessFriction: 1
   - type: AmbientSound
     volume: +8
@@ -122,8 +122,8 @@
     - DoorBumpOpener
     - Unimplantable
   - type: Damageable
-    damageContainer: StructuralInorganic
-    damageModifierSet: Metallic
+    damageContainer: Inorganic # Funky, was StructuralInorganic. Non-structures taking structural damage is kinda weird for balance.
+    damageModifierSet: CosmicColossus # Funky, was Metallic
   - type: Bloodstream
     bloodMaxVolume: 650
     maxBleedAmount: 0.1
@@ -163,8 +163,8 @@
       enabled: true
       isLooped: true
       reverseWhenFinished: true
-  - type: ContentEye
-    maxZoom: 1.2, 1.2
+  #- type: ContentEye # Funky, commented out. What are you, a sniper or something? You don't need that.
+  #  maxZoom: 1.2, 1.2
   - type: StatusEffects
     allowed:
     - Stutter
@@ -208,9 +208,9 @@
     range: 2
     damage:
       types:
-        Blunt: 25
-        Asphyxiation: 5
-        Cold: 5
+        Blunt: 40 # Funky, was 25. It can't do much besides punching things, and does so rather slowly, so it punches like a freight train to compensate.
+        Asphyxiation: 10 # Funky, was 5
+        Cold: 10 # Funky, was 5
         Structural: 60
     soundHit:
       path: /Audio/_DV/CosmicCult/cosmicsword_glance.ogg
@@ -225,14 +225,14 @@
   - type: MeleeThrowOnHit
     speed: 8
     distance: 7
-  - type: Reflect
-    reflectProb: .15
-    spread: 120
-    soundOnReflect:
-      path: /Audio/_DV/CosmicCult/cosmicsword_glance.ogg
-      params:
-        variation: 0.2
-        volume: -6
+  #- type: Reflect # Funky, commented out. Reflects are uncool, added more resists instead.
+  #  reflectProb: .15
+  #  spread: 120
+  #  soundOnReflect:
+  #    path: /Audio/_DV/CosmicCult/cosmicsword_glance.ogg
+  #    params:
+  #      variation: 0.2
+  #      volume: -6
   - type: GhostRole
     name: ghost-role-information-colossus-name
     description: ghost-role-information-colossus-description
@@ -245,6 +245,13 @@
   - type: GuideHelp
     guides:
     - CosmicColossus
+  - type: PassiveDamage # Funky. Much weaker than Slumber Shell, but doesn't scale with current damage, so you can actually ever be above half health.
+    allowedStates:
+    - Alive
+    damage:
+      groups:
+        Brute: -1
+        Burn: -0.5
 
 - type: entity
   parent: [ MobCosmicColossusBase ]
@@ -261,7 +268,7 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      450: Dead
+      400: Dead # Funky, was 450. Why were they different bruh.
   - type: CosmicCorrupting
     mobile: true
     autoDisable: false

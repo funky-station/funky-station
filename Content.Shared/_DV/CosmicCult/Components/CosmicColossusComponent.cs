@@ -57,7 +57,7 @@ public sealed partial class CosmicColossusComponent : Component
 
     [DataField] public TimeSpan AttackWait = TimeSpan.FromSeconds(1.5);
 
-    [DataField] public TimeSpan HibernationWait = TimeSpan.FromSeconds(20);
+    [DataField] public TimeSpan HibernationWait = TimeSpan.FromSeconds(30); // Funky, was 20
 
     [DataField] public TimeSpan DeathWait = TimeSpan.FromMinutes(15);
 

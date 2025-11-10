@@ -1,0 +1,7 @@
+- type: damageModifierSet # Funky, new resists for the colossus
+  id: CosmicColossus
+  coefficients:
+    Blunt: 0.4 # You really don't want to melee this thing anyway
+    Slash: 0.4
+    Piercing: 0.5
+    Heat: 0.8 # Lasers and stuff are rather effective

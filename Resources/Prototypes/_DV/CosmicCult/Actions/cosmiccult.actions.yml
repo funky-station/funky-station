@@ -236,16 +236,20 @@
   name: Slumber Shell
   description: Slumber your body for a period of time to regenerate integrity. Must be done on stable ground.
   components:
-  - type: LimitedCharges
-    maxCharges: 2
+  #- type: LimitedCharges # Funky, commented out. Limited healing is bad.
+  #  maxCharges: 2
   - type: InstantAction
-    useDelay: 120
+    useDelay: 180 # Funky, was 120
     checkCanInteract: false
     itemIconStyle: NoItem
     icon:
       sprite: _DV/CosmicCult/Icons/cosmiccult_abilities.rsi
       state: slumber
     event: !type:EventCosmicColossusHibernate {}
+  - type: ConfirmableAction # Funky. Accidentally using this mid-combat is not nice (you'll die and look stupid doing so)
+    popup: cosmicability-hibernate-confirm
+    confirmDelay: 0.1
+    primeTime: 5
 
 - type: entity
   id: ActionCosmicColossusEffigy

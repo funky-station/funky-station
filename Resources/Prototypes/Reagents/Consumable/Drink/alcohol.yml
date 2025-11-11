@@ -434,7 +434,7 @@
   desc: reagent-desc-vodka
   physicalDesc: reagent-physical-desc-strong-smelling
   flavor: vodka
-  color: "#ee7732"
+  color: "#FFFFFF"
   recognizable: true
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/ginvodkaglass.rsi

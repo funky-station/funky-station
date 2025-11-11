@@ -5547,3 +5547,11 @@ Entries:
       message: Bleach now cleans!
   id: 663
   time: '2025-11-11T23:01:38.0000000+00:00'
+- author: Mariiibo
+  changes:
+    - type: Tweak
+      message: >-
+        Tweaked multiple Antagonist guidebook entries, fixing outdated info and
+        attempting to improve readability.
+  id: 664
+  time: '2025-11-11T23:07:13.0000000+00:00'

@@ -124,19 +124,19 @@
     soundEmpty:
       path: /Audio/_DV/Weapons/Guns/Empty/dry_fire.ogg
   - type: Battery
-    maxCharge: 2400
-    startingCharge: 2400
+    maxCharge: 1200
+    startingCharge: 1200
   - type: ProjectileBatteryAmmoProvider
     proto: BulletDisabler
-    fireCost: 100
+    fireCost: 50
   - type: EnergyGun
     fireModes:
     - proto: BulletDisabler
-      fireCost: 100
+      fireCost: 50
       name: disabling
       state: disabler
     - proto: BulletEnergyGunRevolver
-      fireCost: 200
+      fireCost: 100
       name: lethal
       state: lethal
   - type: MagazineVisuals

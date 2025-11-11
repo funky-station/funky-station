@@ -5535,3 +5535,9 @@ Entries:
       message: Medibot ghostrole now actually works.
   id: 661
   time: '2025-11-11T06:44:44.0000000+00:00'
+- author: kosticia, ported to Funky by zergologist
+  changes:
+    - type: Tweak
+      message: Kira special drink has been renamed to the citrus bikeshed.
+  id: 662
+  time: '2025-11-11T22:46:55.0000000+00:00'

@@ -21,7 +21,7 @@ public sealed partial class CosmicTileDetonatorComponent : Component
 
     [DataField] public EntProtoId TileDetonation = "MobTileDamageArea";
 
-    [DataField] public TimeSpan DetonateWait = TimeSpan.FromSeconds(0.525);
+    [DataField] public TimeSpan DetonateWait = TimeSpan.FromSeconds(0.2); // Funky, was 0.525
 
     [DataField] public Vector2i DetonationCenter;
 

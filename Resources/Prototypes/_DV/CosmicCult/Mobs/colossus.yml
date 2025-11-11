@@ -208,9 +208,9 @@
     range: 2
     damage:
       types:
-        Blunt: 40 # Funky, was 25. It can't do much besides punching things, and does so rather slowly, so it punches like a freight train to compensate.
-        Asphyxiation: 10 # Funky, was 5
-        Cold: 10 # Funky, was 5
+        Blunt: 50 # Funky, was 25. It can't do much besides punching things, and does so rather slowly, so it punches like a freight train to compensate.
+        Asphyxiation: 5
+        Cold: 5
         Structural: 60
     soundHit:
       path: /Audio/_DV/CosmicCult/cosmicsword_glance.ogg
@@ -224,7 +224,7 @@
         volume: -4
   - type: MeleeThrowOnHit
     speed: 8
-    distance: 7
+    distance: 5 # Funky, was 7. Playing football with tider as a ball is fun only for so long.
   #- type: Reflect # Funky, commented out. Reflects are uncool, added more resists instead.
   #  reflectProb: .15
   #  spread: 120

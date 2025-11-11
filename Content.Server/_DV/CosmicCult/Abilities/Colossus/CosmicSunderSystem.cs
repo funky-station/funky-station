@@ -32,14 +32,18 @@ public sealed class CosmicSunderSystem : EntitySystem
         _appearance.SetData(ent, ColossusVisuals.Status, ColossusStatus.Action);
         _transform.SetCoordinates(ent, args.Target);
         _transform.AnchorEntity(ent);
-        _stun.TryStun(ent, ent.Comp.AttackWait, true); // Funky
+        _stun.TryStun(ent, comp.AttackWait + comp.TeleportWait, true); // Funky
 
-        comp.Attacking = true;
-        comp.AttackHoldTimer = comp.AttackWait + _timing.CurTime;
-        Spawn(comp.Attack1Vfx, args.Target);
+        //Begin Funky changes
+        comp.Teleporting = true;
+        comp.AttackHoldTimer = comp.AttackWait + _timing.CurTime + comp.TeleportWait;
+        comp.TeleportTimer = _timing.CurTime + comp.TeleportWait;
+        //TODO spawn some cool telegraph effects
+        //Spawn(comp.Attack1Vfx, args.Target);
 
-        var detonator = Spawn(comp.TileDetonations, args.Target);
-        EnsureComp<CosmicTileDetonatorComponent>(detonator, out var detonateComp);
-        detonateComp.DetonationTimer = _timing.CurTime;
+        //var detonator = Spawn(comp.TileDetonations, args.Target);
+        //EnsureComp<CosmicTileDetonatorComponent>(detonator, out var detonateComp);
+        //detonateComp.DetonationTimer = _timing.CurTime;
+        //End Funky changes
     }
 }

@@ -21,6 +21,7 @@ using Content.Server.Warps; // Funky, was Content.Shared.Warps, and I ain't port
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Physics.Components;
+using Robust.Shared.Physics.Events; // Funky
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Timing;
 
@@ -46,6 +47,8 @@ public sealed class CosmicColossusSystem : EntitySystem
         base.Initialize();
         SubscribeLocalEvent<CosmicColossusComponent, ComponentInit>(OnSpawn);
         SubscribeLocalEvent<CosmicColossusComponent, MobStateChangedEvent>(OnMobStateChanged);
+        SubscribeLocalEvent<CosmicColossusComponent, PreventCollideEvent>(OnPreventCollide); // Funky
+        SubscribeLocalEvent<CosmicColossusComponent, BeforeDamageChangedEvent>(OnColossusDamaged); // Funky
     }
 
     public override void Update(float frameTime)
@@ -82,6 +85,17 @@ public sealed class CosmicColossusSystem : EntitySystem
                 dspec.DamageDict.Add("Heat", damage.Value);
                 _damage.TryChangeDamage(ent, dspec, true);
             }
+            // Begin Funky changes
+            if (comp.Teleporting && _timing.CurTime >= comp.TeleportTimer)
+            {
+                comp.Attacking = true;
+                comp.Teleporting = false;
+                Spawn(comp.Attack1Vfx, Transform(ent).Coordinates);
+                var detonator = Spawn(comp.TileDetonations, Transform(ent).Coordinates);
+                EnsureComp<CosmicTileDetonatorComponent>(detonator, out var detonateComp);
+                detonateComp.DetonationTimer = _timing.CurTime;
+            }
+            // End Funky changes
         }
     }
 
@@ -119,5 +133,23 @@ public sealed class CosmicColossusSystem : EntitySystem
         RemComp<PointLightComponent>(ent);
         RemComp<WarpPointComponent>(ent);
         RemComp<CosmicCorruptingComponent>(ent);
+    }
+
+    /// <summary>
+    /// Funky. Prevents the colossus from colliding with stuff (i.e. bullets) when mid-teleport. I have a bad feeling about this one.
+    /// </summary>
+    private void OnPreventCollide(EntityUid uid, CosmicColossusComponent comp, ref PreventCollideEvent args)
+    {
+        if (comp.Teleporting)
+            args.Cancelled = true;
+    }
+
+    /// <summary>
+    /// Funky. Prevents the colossus from taking damage when mid-teleport.
+    /// </summary>
+    private void OnColossusDamaged(Entity<CosmicColossusComponent> ent, ref BeforeDamageChangedEvent args)
+    {
+        if (ent.Comp.Teleporting)
+            args.Cancelled = true;
     }
 }

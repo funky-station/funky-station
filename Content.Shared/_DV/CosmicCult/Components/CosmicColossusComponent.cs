@@ -30,6 +30,9 @@ public sealed partial class CosmicColossusComponent : Component
     [AutoPausedField, DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
     public TimeSpan DeathTimer = default!;
 
+    [AutoPausedField, DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
+    public TimeSpan TeleportTimer = default!; // Funky
+
     [DataField] public SoundSpecifier ReawakenSfx = new SoundPathSpecifier("/Audio/_DV/CosmicCult/colossus_spawn.ogg");
 
     [DataField] public SoundSpecifier DeathSfx = new SoundPathSpecifier("/Audio/_DV/CosmicCult/colossus_death.ogg");
@@ -62,11 +65,15 @@ public sealed partial class CosmicColossusComponent : Component
 
     [DataField] public TimeSpan DeathWait = TimeSpan.FromMinutes(15);
 
+    [DataField] public TimeSpan TeleportWait = TimeSpan.FromSeconds(1.5); // Funky
+
     [DataField] public bool Attacking;
 
     [DataField] public bool Hibernating;
 
     [DataField] public bool Timed;
+
+    [DataField] public bool Teleporting; // Funky
 }
 
 [Serializable, NetSerializable]

@@ -252,6 +252,10 @@
       groups:
         Brute: -1
         Burn: -0.5
+  - type: Eye # Funky. Let da big boi actually see the monument.
+    visMask:
+      - Normal
+      - CosmicCultMonument
 
 - type: entity
   parent: [ MobCosmicColossusBase ]

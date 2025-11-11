@@ -4,7 +4,5 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Mind
+  - type: LastWords
   - type: ContainerContainer
-    containers:
-      mind_roles: !type:Container
-        ents: []

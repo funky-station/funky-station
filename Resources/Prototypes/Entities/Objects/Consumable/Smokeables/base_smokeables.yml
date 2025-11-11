@@ -66,6 +66,10 @@
         reagents:
           - ReagentId: Nicotine
             Quantity: 10
+  - type: MeleeWeapon
+    damage:
+      types:
+        Heat: 1
 
 - type: entity
   parent: BaseSmokable
@@ -92,6 +96,10 @@
     solutions:
       smokable:
         maxVol: 30
+  - type: MeleeWeapon
+    damage:
+      types:
+        Heat: 1
 
 - type: entity
   parent: BaseItem

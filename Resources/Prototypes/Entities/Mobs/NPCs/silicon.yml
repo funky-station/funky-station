@@ -476,6 +476,7 @@
     rules: ghost-role-information-medibot-rules
     raffle:
       settings: default
+  - type: GhostTakeoverAvailable
 
 - type: entity
   parent:

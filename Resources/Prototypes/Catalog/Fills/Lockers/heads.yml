@@ -255,6 +255,7 @@
     - id: PDA_cartridge_case
     - id: RadioHandheldService #funkystation
     - id: RadioHandheldCommand #funkystation
+    - id: ClothingOuterHardsuitBasic #funkystation
 
 - type: entity
   id: LockerHeadOfPersonnelFilled

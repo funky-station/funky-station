@@ -1,5 +1,7 @@
+using Content.Shared._FarHorizons.PhysicalMaterial;
 using Content.Shared.Atmos;
 using Robust.Shared.GameStates;
+using Robust.Shared.Prototypes;
 
 namespace Content.Shared._FarHorizons.Power.Generation.FissionGenerator;
 
@@ -99,43 +101,52 @@ public sealed partial class ReactorPartComponent : Component
     public float ThermalMass = 420 * 250; //specific heat capacity of steel (420 J/KgK) * mass of component (Kg)
     #endregion
 
+    [DataField("material")]
+    public ProtoId<PhysicalMaterialPrototype> Material = "steel";
+
+    [DataField]
+    public MaterialProperties Properties = new();
+
+    [DataField]
+    public bool SetProperties = true;
+
     #region Properties
-    // SS13 material properties for Steel
-    /// <summary>
-    /// The material density of the rod. Determines how likley it is to interact with neutrons.
-    /// </summary>
-    [DataField]
-    public float PropertyDensity = 4;
+    //// SS13 material properties for Steel
+    ///// <summary>
+    ///// The material density of the rod. Determines how likley it is to interact with neutrons.
+    ///// </summary>
+    //[DataField]
+    //public float PropertyDensity = 4;
 
-    /// <summary>
-    /// The thermal conductivity of the rod. Determines the rate of heat transfer.
-    /// </summary>
-    [DataField]
-    public float PropertyThermal = 7; //was 6
+    ///// <summary>
+    ///// The thermal conductivity of the rod. Determines the rate of heat transfer.
+    ///// </summary>
+    //[DataField]
+    //public float PropertyThermal = 7; //was 6
 
-    /// <summary>
-    /// The material hardness of the rod. Determines how likley it is to reflect neutrons.
-    /// </summary>
-    [DataField]
-    public float PropertyHard = 3;
+    ///// <summary>
+    ///// The material hardness of the rod. Determines how likley it is to reflect neutrons.
+    ///// </summary>
+    //[DataField]
+    //public float PropertyHard = 3;
 
-    /// <summary>
-    /// Neutron radioactivity, basically how much fuel is in the rod.
-    /// </summary>
-    [DataField]
-    public float NRadioactive = 0;
+    ///// <summary>
+    ///// Neutron radioactivity, basically how much fuel is in the rod.
+    ///// </summary>
+    //[DataField]
+    //public float NRadioactive = 0;
 
-    /// <summary>
-    /// Radioactivity.
-    /// </summary>
-    [DataField]
-    public float Radioactive = 0;
+    ///// <summary>
+    ///// Radioactivity.
+    ///// </summary>
+    //[DataField]
+    //public float Radioactive = 0;
 
-    /// <summary>
-    /// How much spent fuel is in the rod.
-    /// </summary>
-    [DataField]
-    public float SpentFuel = 0;
+    ///// <summary>
+    ///// How much spent fuel is in the rod.
+    ///// </summary>
+    //[DataField]
+    //public float SpentFuel = 0;
     #endregion
 
     #region Type specific
@@ -149,7 +160,7 @@ public sealed partial class ReactorPartComponent : Component
     /// How adept the gas channel is at transfering heat to/from gasses.
     /// </summary>
     [DataField]
-    public float GasThermalCrossSection = 25; //was 15
+    public float GasThermalCrossSection = 15; //was 15
 
     /// <summary>
     /// The gas mixture inside the gas channel.
@@ -179,12 +190,15 @@ public sealed partial class ReactorPartComponent : Component
         GasVolume = source.GasVolume;
         ThermalMass = source.ThermalMass;
 
-        PropertyDensity = source.PropertyDensity;
-        PropertyThermal = source.PropertyThermal;
-        PropertyHard = source.PropertyHard;
-        NRadioactive = source.NRadioactive;
-        Radioactive = source.Radioactive;
-        SpentFuel = source.SpentFuel;
+        Material = source.Material;
+        Properties = source.Properties;
+
+        //PropertyDensity = source.PropertyDensity;
+        //PropertyThermal = source.PropertyThermal;
+        //PropertyHard = source.PropertyHard;
+        //NRadioactive = source.NRadioactive;
+        //Radioactive = source.Radioactive;
+        //SpentFuel = source.SpentFuel;
 
         ConfiguredInsertionLevel = source.ConfiguredInsertionLevel;
         GasThermalCrossSection = source.GasThermalCrossSection;
@@ -214,8 +228,9 @@ public static class BaseReactorComponents
         IsControlRod = true,
         NeutronCrossSection = 2.0f,
         ThermalCrossSection = 10,
-        PropertyDensity = 6,
-        PropertyHard = 5,
+        Material = "bohrum",
+        //PropertyDensity = 6,
+        //PropertyHard = 5,
     };
 
     public static readonly ReactorPartComponent FuelRod = new()
@@ -226,10 +241,11 @@ public static class BaseReactorComponents
         NeutronCrossSection = 1.0f,
         ThermalCrossSection = 10,
         ThermalMass = 420000,
-        Radioactive = 5,
-        PropertyHard = 2,
-        PropertyDensity = 4,
-        PropertyThermal = 6,
+        Material = "cerenkite",
+        //Radioactive = 5,
+        //PropertyHard = 2,
+        //PropertyDensity = 4,
+        //PropertyThermal = 6,
     };
 
     public static readonly ReactorPartComponent GasChannel = new()

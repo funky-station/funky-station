@@ -172,9 +172,13 @@ public sealed class NuclearReactorSystem : SharedNuclearReactorSystem
             {
                 if (comp.ComponentGrid![x, y] != null)
                 {
-                    var ReactorComp = comp.ComponentGrid[x, y];
-                    var gas = _partSystem.ProcessGas(ReactorComp!, ent, args, GasInput);
-                    GasInput.Volume -= ReactorComp!.GasVolume;
+                    var ReactorComp = comp.ComponentGrid[x, y]!;
+
+                    if (ReactorComp.SetProperties)
+                        _partSystem.SetProperties(ReactorComp);
+
+                    var gas = _partSystem.ProcessGas(ReactorComp, ent, args, GasInput);
+                    GasInput.Volume -= ReactorComp.GasVolume;
 
                     if (gas != null)
                         _atmosphereSystem.Merge(AirContents, gas);
@@ -195,9 +199,9 @@ public sealed class NuclearReactorSystem : SharedNuclearReactorSystem
                     comp.FluxGrid[x, y] = _partSystem.ProcessNeutrons(ReactorComp, comp.FluxGrid[x, y], uid, out var deltaT);
                     TempChange += deltaT;
 
-                    TotalNRads += ReactorComp.NRadioactive;
-                    TotalRads += ReactorComp.Radioactive;
-                    TotalSpent += ReactorComp.SpentFuel;
+                    TotalNRads += ReactorComp.Properties.NeutronRadioactivity;
+                    TotalRads += ReactorComp.Properties.Radioactivity;
+                    TotalSpent += ReactorComp.Properties.FissileIsotopes;
                 }
                 else
                     comp.TemperatureGrid[x, y] = 0;
@@ -424,7 +428,7 @@ public sealed class NuclearReactorSystem : SharedNuclearReactorSystem
             var DeltaT = reactor.Temperature - reactor.AirContents.Temperature;
             var DeltaTr = Math.Pow(reactor.Temperature, 4) - Math.Pow(reactor.AirContents.Temperature, 4);
 
-            var k = (Math.Pow(10, 6 / 5) - 1) / 2;
+            var k = PhysicalMaterialSystem.CalculateHeatTransferCoefficient(_prototypes.Index(reactor.Material).Properties, null);
             var A = 1 * (0.4 * 8);
 
             var ThermalEnergy = _atmosphereSystem.GetThermalEnergy(reactor.AirContents);
@@ -545,10 +549,15 @@ public sealed class NuclearReactorSystem : SharedNuclearReactorSystem
         {
             for (var y = 0; y < _gridHeight; y++)
             {
+                var reactorPart = reactor.ComponentGrid[x, y];
+
+                if (reactorPart != null && reactorPart.SetProperties)
+                    _partSystem.SetProperties(reactorPart);
+
                 var pos = (x * _gridWidth) + y;
                 temp[pos] = reactor.TemperatureGrid[x, y];
                 neutron[pos] = reactor.NeutronGrid[x, y];
-                icon[pos] = reactor.ComponentGrid[x, y] != null ? reactor.ComponentGrid[x, y]!.IconStateInserted : "base";
+                icon[pos] = reactorPart != null ? reactorPart!.IconStateInserted : "base";
 
                 partName[pos] = reactor.ComponentGrid[x, y] != null ? reactor.ComponentGrid[x, y]!.Name : "empty";
                 partInfo[pos] = reactor.ComponentGrid[x, y] != null ? reactor.ComponentGrid[x, y]!.NRadioactive : 0;

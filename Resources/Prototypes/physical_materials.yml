@@ -1,0 +1,57 @@
+# Metals
+
+# Base metal material parent
+- type: physicalMaterial
+  id: metal
+  color: "#8C8C8C"
+  properties:
+    electrical: 5
+    thermal: 6
+    density: 4
+    chemical: 6
+  
+- type: physicalMaterial
+  parent: metal
+  id: steel
+  properties:
+    hard: 3
+    density: 4
+
+- type: physicalMaterial
+  parent: metal
+  id: bohrum # Technically not in SS14, but I need it for the reactor
+  properties:
+    hard: 5
+    density: 6
+    chemical: 7
+
+- type: physicalMaterial
+  parent: metal
+  id: cerenkite # Technically not in SS14, but I need it for the reactor
+  properties:
+    electrical: 6
+    hard: 2
+    radioactive: 5
+
+- type: physicalMaterial
+  parent: metal
+  id: uranium
+  color: "#32a852"
+  properties:
+    electrical: 4
+    thermal: 3
+    hard: 5
+    density: 7
+    radioactive: 4
+    n_radioactive: 3
+
+- type: physicalMaterial
+  parent: metal
+  id: plutonium
+  color: "#230e4d"
+  properties:
+    electrical: 7
+    hard: 7
+    density: 8
+    radioactive: 3
+    n_radioactive: 5

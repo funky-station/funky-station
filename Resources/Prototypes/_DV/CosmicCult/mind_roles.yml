@@ -25,7 +25,7 @@
   - type: MindRole
     antagPrototype: CosmicAntagColossus
     roleType: TeamAntagonist
-    subtype: role-subtype-colossus
+    #subtype: role-subtype-colossus  # Funky, tis doesn't work
     exclusiveAntag: true
   - type: CosmicColossusRole
   - type: RoleBriefing

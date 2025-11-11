@@ -105,7 +105,7 @@
   - type: MovementSpeedModifier
     baseWalkSpeed: 2
     baseSprintSpeed: 3
-    baseWeightlessModifier: 1
+    #baseWeightlessModifier: 1 # Funky, tis doesn't work
     weightlessAcceleration: 3.5 # Funky, was 1.5. This thing is levitating, why would it be bothered by lack of gravity.
     weightlessFriction: 1
   - type: AmbientSound
@@ -268,7 +268,7 @@
     nameSegments:
     - ColossusNames
     - ColossusTitlesLone
-    nameFormat: name-format-colossus
+    #nameFormat: name-format-colossus # Funky, tis doesn't work
   - type: MobThresholds
     thresholds:
       0: Alive

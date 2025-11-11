@@ -613,6 +613,12 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
 
         Timer.Spawn(TimeSpan.FromSeconds(30), () => { StewardVote(); });
     }
+
+    public void SetChantryActive(EntityUid ent, bool active) //Access(typeof(MyAss))
+    {
+        if (AssociatedGamerule(ent) is { } cult)
+            cult.Comp.ChantryActive = active;
+    }
     // end funky
 
     #region De- & Conversion

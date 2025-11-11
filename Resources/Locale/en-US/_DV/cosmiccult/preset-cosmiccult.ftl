@@ -218,3 +218,6 @@ cosmiccult-silicon-colossus-briefing =
 
 # funky
 cosmiccult-leader-abandonment-message = Your chosen enlightened has forsaken the grand design. You must empower another
+cosmiccult-chantry-destroyed = Λ-CDM levels {$location} have returned back to normal.
+cosmiccult-chantry-completed = Sudden spike in Λ-CDM was detected {$location}. Whatever is happening there, it is too late to prevent it.
+cosmiccult-chantry-already-present = You cannot do this while another Chantry is present!

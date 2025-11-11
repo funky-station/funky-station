@@ -32,6 +32,7 @@ public sealed class CosmicChantrySystem : EntitySystem
     [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly SharedRoleSystem _role = default!;
     [Dependency] private readonly NavMapSystem _navMap = default!;
+    [Dependency] private readonly CosmicCultRuleSystem _cultRule = default!; // Funky
 
     /// <summary>
     /// Mind role to add to colossi.
@@ -62,6 +63,16 @@ public sealed class CosmicChantrySystem : EntitySystem
             {
                 if (!_mind.TryGetMind(comp.InternalVictim, out var mindEnt, out var mind))
                     return;
+                // Begin Funky changes
+                var indicatedLocation = FormattedMessage.RemoveMarkupOrThrow(_navMap.GetNearestBeaconString((uid, Transform(uid))));
+                _sound.PlayGlobalOnStation(uid, _audio.ResolveSound(comp.ChantryAlarm)); // Same sound as when creatin the chantry. Sue me.
+                _chatSystem.DispatchStationAnnouncement(uid,
+                Loc.GetString("cosmiccult-chantry-completed", ("location", indicatedLocation)),
+                null, false, null,
+                Color.Red);
+
+                _cultRule.SetChantryActive(uid, false);
+                // End Funky changes
                 mind.PreventGhosting = false;
                 var tgtpos = Transform(uid).Coordinates;
                 var colossus = Spawn(comp.Colossus, tgtpos);
@@ -102,6 +113,16 @@ public sealed class CosmicChantrySystem : EntitySystem
 
         mind.PreventGhosting = false;
         _mind.TransferTo(mindId, comp.VictimBody);
+        // Begin Funky changes
+        var indicatedLocation = FormattedMessage.RemoveMarkupOrThrow(_navMap.GetNearestBeaconString((ent, Transform(ent))));
+        _sound.PlayGlobalOnStation(ent, _audio.ResolveSound(comp.ChantryDestroyedAlarm));
+        _chatSystem.DispatchStationAnnouncement(ent,
+        Loc.GetString("cosmiccult-chantry-destroyed", ("location", indicatedLocation)),
+        null, false, null,
+        Color.Green);
+
+        _cultRule.SetChantryActive(ent, false);
+        // End Funky changes
         QueueDel(comp.InternalVictim);
     }
 }

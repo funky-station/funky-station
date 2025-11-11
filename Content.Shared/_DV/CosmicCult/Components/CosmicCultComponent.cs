@@ -155,6 +155,10 @@ public sealed partial class CosmicCultComponent : Component
     /// </summary>
     [DataField]
     public ProtoId<AlertPrototype> EntropyAlert = "CosmicEntropy";
+
+    [DataField]
+    public EntityUid? CosmicFragmentationActionEntity;
+
     #endregion
 
     /// <summary>

@@ -111,6 +111,9 @@ public sealed partial class CosmicCultRuleComponent : Component
 
     [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoPausedField]
     public TimeSpan? ExtraRiftTimer;
+
+    [DataField]
+    public bool ChantryActive; // Funky
 }
 
 public enum WinType : byte

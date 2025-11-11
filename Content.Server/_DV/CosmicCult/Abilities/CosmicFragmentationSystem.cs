@@ -9,6 +9,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
 using Content.Server._DV.Objectives.Events;
+using Content.Server.Actions;
 using Content.Server.Antag;
 using Content.Shared.Popups;
 using Content.Server.Radio.Components;
@@ -34,6 +35,8 @@ public sealed class CosmicFragmentationSystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
+    [Dependency] private readonly ActionsSystem _actions = default!;
+    [Dependency] private readonly CosmicCultRuleSystem _cultRule = default!; // Funky
 
     private ProtoId<RadioChannelPrototype> _cultRadio = "CosmicRadio";
 
@@ -60,6 +63,8 @@ public sealed class CosmicFragmentationSystem : EntitySystem
         comp.CosmicImpositionDuration = CosmicCultComponent.DefaultCosmicImpositionDuration;
         comp.CosmicBlankDuration = CosmicCultComponent.DefaultCosmicBlankDuration;
         comp.CosmicBlankDelay = CosmicCultComponent.DefaultCosmicBlankDelay;
+        _actions.RemoveAction(ent.Owner, comp.CosmicFragmentationActionEntity);
+        comp.CosmicFragmentationActionEntity = null;
     }
 
     private void OnCosmicFragmentation(Entity<CosmicCultComponent> ent, ref EventCosmicFragmentation args)
@@ -80,14 +85,24 @@ public sealed class CosmicFragmentationSystem : EntitySystem
 
     private void OnFragmentBorg(Entity<BorgChassisComponent> ent, ref MalignFragmentationEvent args)
     {
-        if (!_mind.TryGetMind(args.Target, out var mindId, out var mind))
+        // Begin Funky changes
+        if (!_mind.TryGetMind(args.Target, out var mindId, out var mind) || _cultRule.AssociatedGamerule(args.User) is not { } cult)
         {
             args.Cancelled = true;
             return;
         }
+        if (cult.Comp.ChantryActive)
+        {
+            _popup.PopupEntity(Loc.GetString("cosmiccult-chantry-already-present"), args.User, args.User);
+            args.Cancelled = true;
+            return;
+        }
+        _cultRule.SetChantryActive(args.User, true); // Prevent multiple chantries from being created at once
         var wisp = Spawn("CosmicChantryWisp", Transform(args.Target).Coordinates);
         var chantry = Spawn("CosmicBorgChantry", Transform(args.Target).Coordinates);
+        _cultRule.TransferCultAssociation(args.User, chantry);
         EnsureComp<CosmicChantryComponent>(chantry, out var chantryComponent);
+        // End Funky changes
         chantryComponent.InternalVictim = wisp;
         chantryComponent.VictimBody = args.Target;
         _mind.TransferTo(mindId, wisp, mind: mind);

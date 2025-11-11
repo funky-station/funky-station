@@ -41,11 +41,15 @@ public sealed partial class CosmicColossusComponent : Component
 
     [DataField] public SoundSpecifier DoAfterSfx = new SoundPathSpecifier("/Audio/Machines/airlock_creaking.ogg");
 
+    [DataField] public SoundSpecifier TeleportSfx = new SoundPathSpecifier("/Audio/_DV/CosmicCult/effigy_supercritical.ogg"); // Funky
+
     [DataField] public EntProtoId CultVfx = "CosmicGenericVFX";
 
     [DataField] public EntProtoId CultBigVfx = "CosmicGlareAbilityVFX";
 
     [DataField] public EntProtoId Attack1Vfx = "CosmicColossusAttack1Vfx";
+    
+    [DataField] public EntProtoId TeleportVFX = "CosmicImpositionAbilityVFX"; // Funky
 
     [DataField] public EntProtoId TileDetonations = "MobTileDamageZone";
 

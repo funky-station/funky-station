@@ -220,7 +220,7 @@
   description: Use your colossal strength to force open a doorway.
   components:
   - type: EntityTargetAction
-    useDelay: 8
+    #useDelay: 8 # Funky, why is there a cooldown on prying literally nobody does that
     range: 2
     whitelist:
       components:

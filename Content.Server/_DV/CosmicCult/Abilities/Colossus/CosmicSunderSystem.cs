@@ -6,6 +6,7 @@
 using Content.Shared._DV.CosmicCult;
 using Content.Shared._DV.CosmicCult.Components;
 using Content.Shared.Stunnable; // Funky
+using Robust.Shared.Audio.Systems; // Funky
 using Robust.Shared.Timing;
 
 namespace Content.Server._DV.CosmicCult.Abilities;
@@ -16,6 +17,7 @@ public sealed class CosmicSunderSystem : EntitySystem
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly SharedStunSystem _stun = default!; // Funky
+    [Dependency] private readonly SharedAudioSystem _audio = default!; // Funky
 
     public override void Initialize()
     {
@@ -38,12 +40,8 @@ public sealed class CosmicSunderSystem : EntitySystem
         comp.Teleporting = true;
         comp.AttackHoldTimer = comp.AttackWait + _timing.CurTime + comp.TeleportWait;
         comp.TeleportTimer = _timing.CurTime + comp.TeleportWait;
-        //TODO spawn some cool telegraph effects
-        //Spawn(comp.Attack1Vfx, args.Target);
-
-        //var detonator = Spawn(comp.TileDetonations, args.Target);
-        //EnsureComp<CosmicTileDetonatorComponent>(detonator, out var detonateComp);
-        //detonateComp.DetonationTimer = _timing.CurTime;
+        Spawn(ent.Comp.TeleportVFX, Transform(ent).Coordinates);
+        _audio.PlayPvs(ent.Comp.TeleportSfx, ent);
         //End Funky changes
     }
 }

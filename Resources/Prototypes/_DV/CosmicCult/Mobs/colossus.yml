@@ -286,7 +286,7 @@
     nameSegments:
     - ColossusNames
     - ColossusTitlesBase
-    nameFormat: name-format-colossus
+    #nameFormat: name-format-colossus # Funky, tis doesn't work
   - type: MobThresholds
     thresholds:
       0: Alive

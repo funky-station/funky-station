@@ -1,0 +1,14 @@
+- type: tile
+  id: FloorRedCarpetOffice
+  name: tiles-office-carpet-red-floor
+  sprite: /Textures/_FarHorizons/Tiles/carpetofficered.png
+  baseTurf: Plating
+  isSubfloor: false
+  deconstructTools: [ Prying ]
+  footstepSounds:
+    collection: FootstepCarpet
+  barestepSounds:
+    collection: BarestepCarpet
+  friction: 1.25
+  itemDrop: FloorTileItemCarpetOffice
+  heatCapacity: 10000

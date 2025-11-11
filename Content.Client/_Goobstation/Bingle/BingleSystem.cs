@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 Siggy <Siggymaxwell@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Robust.Client.GameObjects;
 using Content.Shared._Goobstation.Bingle;
 using Content.Shared.CombatMode;

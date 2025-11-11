@@ -259,13 +259,13 @@
 - type: entity
   parent: ClothingHandsButcherable
   id: ClothingHandsGlovesRobohands
-  name: robohands gloves
-  description: Beep boop borp!
+  name: roboticist's gloves
+  description: Tekkou-styled fingerless gloves with a fingerloop. Won't protect you from live wires, but will look GREAT doing it.
   components:
   - type: Sprite
-    sprite: Clothing/Hands/Gloves/robohands.rsi
+    sprite: _Funkystation/Clothing/Hands/Gloves/robohands.rsi
   - type: Clothing
-    sprite: Clothing/Hands/Gloves/robohands.rsi
+    sprite: _Funkystation/Clothing/Hands/Gloves/robohands.rsi
   - type: Fiber
     fiberMaterial: fibers-leather
     fiberColor: fibers-black

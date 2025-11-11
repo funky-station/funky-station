@@ -426,13 +426,13 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtRoboticist
-  name: roboticist jumpskirt
-  description: It's a slimming black with reinforced seams; great for industrial work.
+  name: roboticist's sleeveless interfacing suit
+  description: It's a slimming black with reinforced neuro-connectors; with a waist-tied lab coat and no sleeves, for maximum fashion.
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpskirt/roboticist.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/roboticist.rsi
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpskirt/roboticist.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/roboticist.rsi
 
 - type: entity
   parent: [ClothingUniformSkirtBase, BaseSecurityContraband]

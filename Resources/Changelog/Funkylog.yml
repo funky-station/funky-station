@@ -5529,3 +5529,9 @@ Entries:
         with a Bluespace Lifeline implanter in their inventory.
   id: 660
   time: '2025-11-11T03:14:46.0000000+00:00'
+- author: ilyamikcoder
+  changes:
+    - type: Fix
+      message: Medibot ghostrole now actually works.
+  id: 661
+  time: '2025-11-11T06:44:44.0000000+00:00'

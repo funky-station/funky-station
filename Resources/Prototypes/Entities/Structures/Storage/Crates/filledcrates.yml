@@ -1,156 +1,137 @@
-# SPDX-FileCopyrightText: 2025 ThatOneMoon <91613003+ThatOneMoon@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
 # SPDX-FileCopyrightText: 2025 mkanke-real <mikekanke@gmail.com>
 #
-# SPDX-License-Identifier: AGPL-3.0-or-later
+# SPDX-License-Identifier: MIT
 
-#Boxes
-- type: entity
-  id: BoxVendingMachineRestockNipponFilled
-  parent: CardboardBoxLarge
-  name: Nippon-tan restock box
-  description: Contains a restock box for the Nippon-tan.
-  components:
-  - type: StorageFill
-    contents:
-    - id: VendingMachineRestockNippon
+#Crates moved out of the catalogue as their cargo order contents are now in boxes
 
 - type: entity
-  id: BoxVendingMachineRestockFitnessFilled
-  parent: CardboardBoxLarge
-  name: SweatMAX restock box
-  description: Contains a restock box for the SweatMAX.
-  components:
-  - type: StorageFill
-    contents:
-    - id: VendingMachineRestockFitness
-
-- type: entity
-  id: BoxVendingMachineRestocSolFilled
-  parent: CardboardBoxLarge
-  name: Mars Mart restock box
-  description: Contains a restock box for the Mars Mart.
-  components:
-  - type: StorageFill
-    contents:
-    - id: VendingMachineRestockSol
-
-- type: entity
-  id: BoxVendingMachineRestockBoozeFilled
-  parent: CardboardBoxLarge
+  id: CrateVendingMachineRestockBoozeFilled
+  abstract: true
+  parent: CratePlastic
   name: Booze-O-Mat restock crate
   description: Contains a restock box for the Booze-O-Mat.
   components:
   - type: StorageFill
     contents:
-    - id: VendingMachineRestockBooze
+      - id: VendingMachineRestockBooze
 
 - type: entity
-  id: BoxVendingMachineRestockChefvendFilled
-  parent: CardboardBoxLarge
+  id: CrateVendingMachineRestockChefvendFilled
+  abstract: true
+  parent: CratePlastic
   name: ChefVend restock crate
   description: Contains a restock box for the ChefVend.
   components:
   - type: StorageFill
     contents:
-    - id: VendingMachineRestockChefvend
+      - id: VendingMachineRestockChefvend
 
 - type: entity
-  id: BoxVendingMachineRestockClothesFilled
-  parent: CardboardBoxLarge
+  id: CrateVendingMachineRestockClothesFilled
+  abstract: true
+  parent: CratePlastic
   name: clothing restock crate
   description: Contains a restock box for the clothes vending machines.
   components:
   - type: StorageFill
     contents:
-    - id: VendingMachineRestockClothes
+      - id: VendingMachineRestockClothes
 
 - type: entity
-  id: BoxVendingMachineRestockAutoDrobeFilled
-  parent: CardboardBoxLarge
+  id: CrateVendingMachineRestockAutoDrobeFilled
+  abstract: true
+  parent: CratePlastic
   name: AutoDrobe restock crate
   description: Contains a restock box for the AutoDrobe.
   components:
   - type: StorageFill
     contents:
-    - id: VendingMachineRestockCostumes
+      - id: VendingMachineRestockCostumes
 
 - type: entity
-  id: BoxVendingMachineRestockCondimentStationFilled
-  parent: CardboardBoxLarge
+  id: CrateVendingMachineRestockCondimentStationFilled
+  abstract: true
+  parent: CratePlastic
   name: condiment station restock crate
   description: Contains a restock box for the condiment station.
   components:
   - type: StorageFill
     contents:
-    - id: VendingMachineRestockCondimentStation
+      - id: VendingMachineRestockCondimentStation
 
 - type: entity
-  id: BoxVendingMachineRestockDinnerwareFilled
-  parent: CardboardBoxLarge
+  id: CrateVendingMachineRestockDinnerwareFilled
+  abstract: true
+  parent: CratePlastic
   name: Plasteel Chef restock crate
   description: Contains a restock box for the Plasteel Chef vending machine.
   components:
   - type: StorageFill
     contents:
-    - id: VendingMachineRestockDinnerware
+      - id: VendingMachineRestockDinnerware
 
 - type: entity
-  id: BoxVendingMachineRestockGamesFilled
-  parent: CardboardBoxLarge
+  id: CrateVendingMachineRestockGamesFilled
+  abstract: true
+  parent: CratePlastic
   name: Good Clean Fun restock crate
   description: Contains a restock box for the Good Clean Fun vending machine.
   components:
   - type: StorageFill
     contents:
-    - id: VendingMachineRestockGames
+      - id: VendingMachineRestockGames
 
 - type: entity
-  id: BoxVendingMachineRestockHotDrinksFilled
-  parent: CardboardBoxLarge
+  id: CrateVendingMachineRestockHotDrinksFilled
+  abstract: true
+  parent: CratePlastic
   name: Solar's Best restock crate
   description: Contains two restock boxes for Solar's Best Hot Drinks vending machine.
   components:
   - type: StorageFill
     contents:
-    - id: VendingMachineRestockHotDrinks
-      amount: 2
+      - id: VendingMachineRestockHotDrinks
+        amount: 2
 
 - type: entity
-  id: BoxVendingMachineRestockPTechFilled
-  parent: CardboardBoxLarge
+  id: CrateVendingMachineRestockPTechFilled
+  abstract: true
+  parent: CratePlastic
   name: PTech restock crate
   description: Contains a restock box for the PTech bureaucracy dispenser.
   components:
   - type: StorageFill
     contents:
-    - id: VendingMachineRestockPTech
+      - id: VendingMachineRestockPTech
 
 - type: entity
-  id: BoxVendingMachineRestockRobustSoftdrinksFilled
-  parent: CardboardBoxLarge
+  abstract: true
+  id: CrateVendingMachineRestockRobustSoftdrinksFilled
+  parent: CratePlastic
   name: beverage vendor restock crate
   description: Contains restock boxes for beverage vending machines.
   components:
   - type: StorageFill
     contents:
-    - id: VendingMachineRestockRobustSoftdrinks
-      amount: 2
+      - id: VendingMachineRestockRobustSoftdrinks
+        amount: 2
 
 - type: entity
-  id: BoxVendingMachineRestockSmokesFilled
-  parent: CardboardBoxLarge
+  id: CrateVendingMachineRestockSmokesFilled
+  abstract: true
+  parent: CratePlastic
   name: ShadyCigs restock crate
   description: Contains two restock boxes for the ShadyCigs vending machine.
   components:
   - type: StorageFill
     contents:
-    - id: VendingMachineRestockSmokes
-      amount: 2
+      - id: VendingMachineRestockSmokes
+        amount: 2
 
 - type: entity
-  id: BoxVendingMachineRestockVendomatFilled
-  parent: CardboardBoxLarge
+  id: CrateVendingMachineRestockVendomatFilled
+  abstract: true
+  parent: CratePlastic
   name: Vendomat restock crate
   description: Contains a restock box for a Vendomat vending machine.
   components:
@@ -159,66 +140,72 @@
     - id: VendingMachineRestockVendomat
 
 - type: entity
-  id: BoxVendingMachineRestockTankDispenserFilled
-  parent: CardboardBoxLarge
+  id: CrateVendingMachineRestockTankDispenserFilled
+  abstract: true
+  parent: CratePlastic
   name: tank dispenser restock crate
   description: Contains a restock box for an Engineering or Atmospherics tank dispenser.
   components:
   - type: StorageFill
     contents:
-    - id: VendingMachineRestockTankDispenser
+      - id: VendingMachineRestockTankDispenser
 
 - type: entity
-  id: BoxVendingMachineRestockHappyHonkFilled
-  parent: CardboardBoxLarge
+  id: CrateVendingMachineRestockHappyHonkFilled
+  abstract: true
+  parent: CratePlastic
   name: Happy Honk restock crate
   description: Contains a restock box for a happy honk dispenser.
   components:
   - type: StorageFill
     contents:
-    - id: VendingMachineRestockHappyHonk
-      amount: 2
+      - id: VendingMachineRestockHappyHonk
+        amount: 2
 
 - type: entity
-  id: BoxVendingMachineRestockGetmoreChocolateCorpFilled
-  parent: CardboardBoxLarge
+  id: CrateVendingMachineRestockGetmoreChocolateCorpFilled
+  abstract: true
+  parent: CratePlastic
   name: Getmore Chocolate Corp restock crate
   description: Contains a restock box for a Getmore Chocolate Corp dispenser.
   components:
   - type: StorageFill
     contents:
-    - id: VendingMachineRestockGetmoreChocolateCorp
-      amount: 2
+      - id: VendingMachineRestockGetmoreChocolateCorp
+        amount: 2
 
 - type: entity
-  id: BoxVendingMachineRestockChangFilled
-  parent: CardboardBoxLarge
+  id: CrateVendingMachineRestockChangFilled
+  abstract: true
+  parent: CratePlastic
   name: Chang restock crate
   description: Contains a restock box for a Mr. Chang dispenser.
   components:
   - type: StorageFill
     contents:
-    - id: VendingMachineRestockChang
-      amount: 2
+      - id: VendingMachineRestockChang
+        amount: 2
 
 - type: entity
-  id: BoxVendingMachineRestockDiscountDansFilled
-  parent: CardboardBoxLarge
+  id: CrateVendingMachineRestockDiscountDansFilled
+  abstract: true
+  parent: CratePlastic
   name: Discount Dans restock crate
   description: Contains a restock box for a Discount Dan's dispenser.
   components:
   - type: StorageFill
     contents:
-    - id: VendingMachineRestockDiscountDans
-      amount: 2
+      - id: VendingMachineRestockDiscountDans
+        amount: 2
 
 - type: entity
-  id: BoxVendingMachineRestockDonutFilled
-  parent: CardboardBoxLarge
+  id: CrateVendingMachineRestockDonutFilled
+  abstract: true
+  parent: CratePlastic
   name: Donut restock crate
   description: Contains a restock box for a Monkin' Donuts dispenser.
   components:
   - type: StorageFill
     contents:
-    - id: VendingMachineRestockDonut
-      amount: 2
+      - id: VendingMachineRestockDonut
+        amount: 2

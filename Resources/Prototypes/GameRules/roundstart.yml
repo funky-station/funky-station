@@ -203,7 +203,7 @@
       fallbackRoles: [ NukeopsMedic ]  # prevents the roundstarter from assigning multiple back up commanders.
       spawnerPrototype: SpawnPointNukeopsOperative
       max: 3
-      playerRatio: 10
+      playerRatio: 8
       startingGear: SyndicateOperativeGearFull
       roleLoadout:
       - RoleSurvivalNukie

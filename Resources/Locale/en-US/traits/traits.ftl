@@ -79,6 +79,3 @@ trait-species-restricted = Your species cannot take this trait.
 
 trait-impaired-mobility-name = Impaired Mobility
 trait-impaired-mobility-desc = You have difficulty moving without a mobility aid.
-
-trait-true-accentless-name = Truely Accentless
-trait-true-accentless-desc = You have no accent whatsoever.

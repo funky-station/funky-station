@@ -138,25 +138,3 @@
   cost: 1
   components:
   - type: FrontalLisp
-
-# 2 cost
-- type: trait
-  id: TrueAccentless
-  name: trait-true-accentless-name
-  description: trait-true-accentless-desc
-  category: SpeechTraits
-  cost: 1
-  components:
-  - type: TrueAccentless
-    removes:
-    - type: SocialAnxiety
-    - type: RussianAccent
-    - type: GermanAccent
-    - type: LizardAccent
-    - type: MothAccent
-    - type: PirateAccent
-    - type: FrontalLisp
-    - type: ReplacementAccent
-      accent: dwarf
-    - type: ReplacementAccent
-      accent: cowboy

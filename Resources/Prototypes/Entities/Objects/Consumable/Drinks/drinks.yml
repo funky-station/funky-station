@@ -69,9 +69,11 @@
 # SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 wafehling <wafehling@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 BearWithMe18 <77765510+BearWithMe18@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Noah Leach <77765510+BearWithMe18@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 RedBookcase <crazykid1590@gmail.com>
 # SPDX-FileCopyrightText: 2025 SharkSnake98 <peanutbuttersharky@gmail.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 kosticia <kosticia46@gmail.com>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 vectorassembly <vectorassembly@icloud.com>
@@ -1445,19 +1447,19 @@
 
 - type: entity
   parent: DrinkGlass
-  id: DrinkKiraSpecial
-  suffix: kira special
+  id: DrinkOrangeLimeSodaGlass
+  suffix: citrus bikeshed
   components:
-    - type: SolutionContainerManager
-      solutions:
-        drink:
-          maxVol: 30
-          reagents:
-            - ReagentId: KiraSpecial
-              Quantity: 30
-    - type: Icon
-      sprite: Objects/Consumable/Drinks/kiraspecial.rsi
-      state: icon
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: OrangeLimeSoda
+          Quantity: 30
+  - type: Icon
+    sprite: Objects/Consumable/Drinks/orangelime_soda.rsi
+    state: icon
 
 - type: entity
   parent: DrinkGlass

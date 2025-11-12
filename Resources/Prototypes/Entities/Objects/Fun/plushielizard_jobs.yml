@@ -1,4 +1,9 @@
-﻿# This base is created so we don't have to define the different sprite path for each plushie job.
+# SPDX-FileCopyrightText: 2025 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Dani Green <wgreen84gamergame@gmail.com>
+#
+# SPDX-License-Identifier: MIT
+
+# This base is created so we don't have to define the different sprite path for each plushie job.
 - type: entity
   parent: PlushieLizard
   id: BasePlushieLizardJob

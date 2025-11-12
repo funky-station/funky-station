@@ -24,6 +24,7 @@
     children:
     - id: KingRatMigration
     - id: SnailMigration
+    - id: MiniDragonMigration
 
 # events
 
@@ -72,6 +73,25 @@
     specialEntries:
     - id: SpawnPointGhostRatKing
       prob: 0.001
+    
+# Funky Start
+- type: entity
+  id: MiniDragonMigration
+  parent: BaseStationEventLongDelay #funky
+  components:
+  - type: StationEvent
+    earliestStart: 15
+    weight: 3
+    duration: 20
+    minimumPlayers: 1
+  - type: VentCrittersRule
+    min: 1 # DeltaV
+    max: 3 # DeltaV
+    playerRatio: 70 # DeltaV: Mostly ignore player scaling
+    table: !type:GroupSelector # DeltaV: EntityTable instead of spawn entries
+      children:
+      - id: SpawnPointGhostMiniDragon
+# Funky End
 
 - type: entity
   id: CockroachMigration

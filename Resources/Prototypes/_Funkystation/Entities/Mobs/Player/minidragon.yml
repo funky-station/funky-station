@@ -6,7 +6,7 @@
   name: mini dragon
   id: BaseMobMiniDragon
   parent: [ SimpleSpaceMobBase, FlyingMobBase ]
-  description: It's a mini dragon, sometimes also known as a poodle dragon. These small space dragons are the result of a failed experiment to create weaponizable space dragons by making them obedient and less agressive, resulting instead in small, intelligent space dragons that while not hostile tend to have eccentric personalities.
+  description: It's a mini dragon, sometimes also known as a poodle dragon. These small and suprisingly hardy space dragons are not actually baby dragons, but are closely related to full sized dragons. While friendlier than your average dragon, they tend to have eccentric personalities and a penchant for greed to match their draconic ancestry.
   abstract: true
   components:
     - type: InputMover
@@ -42,7 +42,7 @@
         125: Critical
         150: Dead
     - type: Stamina
-      critThreshold: 100
+      critThreshold: 200
     - type: DamageStateVisuals
       states:
         Alive:
@@ -77,11 +77,11 @@
         - DoorBumpOpener
         - CannotSuicide
     - type: ReplacementAccent
-      accent: genericAggressive
+      accent: lizard
     - type: Speech
-      speechVerb: LargeMob
       speechSounds: Lizard
-      allowedEmotes: ['Thump']
+      speechVerb: Reptilian
+      allowedEmotes: ['Thump', 'Chirp', 'Gurgle', 'Weh']
     - type: InteractionPopup
       successChance: 0.5 
       interactSuccessString: petting-success-minidragon
@@ -106,8 +106,8 @@
     - type: Puller
       needsHands: false
     - type: MovementSpeedModifier
-      baseWalkSpeed: 2.5
-      baseSprintSpeed: 3.5
+      baseWalkSpeed: 3
+      baseSprintSpeed: 4
       weightlessModifier: 1.5
     - type: MobState
     - type: MobStateActions
@@ -141,6 +141,22 @@
         types: {}
     - type: Temperature
       heatDamageThreshold: 800
+    - type: Prying # Open door from xeno.yml.
+      pryPowered: true
+      force: true
+      speedModifier: 2.5
+      useSound:
+        path: /Audio/Items/crowbar.ogg
+    - type: PassiveDamage
+      allowedStates:
+      - Alive
+      - Critical
+      damageCap: 150
+      damage:
+        groups:
+          Brute: -0.15
+          Burn: -0.15
+          Toxin: -0.15
 
 - type: entity
   name: mini dragon

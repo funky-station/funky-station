@@ -1,4 +1,8 @@
-﻿# Job-specific trinkets
+# SPDX-FileCopyrightText: 2025 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
+#
+# SPDX-License-Identifier: MIT
+
+# Job-specific trinkets
 
 - type: loadout
   id: LizardPlushieCaptain

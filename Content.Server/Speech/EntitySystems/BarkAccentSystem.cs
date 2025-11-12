@@ -12,6 +12,8 @@
 //
 // SPDX-License-Identifier: MIT
 
+using System.Linq;
+using System.Text;
 using Content.Server.Speech.Components;
 using Robust.Shared.Random;
 
@@ -29,8 +31,18 @@ namespace Content.Server.Speech.EntitySystems
         {
             { "ah", "arf" },
             { "Ah", "Arf" },
-            { "oh", "oof" },
-            { "Oh", "Oof" },
+        };
+
+        private static readonly HashSet<char> Vowels = new HashSet<char>
+        {
+            'a', 'e', 'i', 'o', 'u',
+            'A', 'E', 'I', 'O', 'U'
+        };
+
+        private static readonly HashSet<string> ShortWordExceptions = new HashSet<string>
+        {
+            "uh", "Uh", "UH",
+            "oh", "Oh", "OH"
         };
 
         public override void Initialize()
@@ -45,8 +57,74 @@ namespace Content.Server.Speech.EntitySystems
                 message = message.Replace(word, repl);
             }
 
-            return message.Replace("!", _random.Pick(Barks))
-                .Replace("l", "r").Replace("L", "R");
+            // Add 'r' to words starting with vowels
+            var words = message.Split(' ');
+            var result = new StringBuilder();
+
+            for (int i = 0; i < words.Length; i++)
+            {
+                if (i > 0)
+                    result.Append(' ');
+
+                var word = words[i];
+                if (word.Length > 0 && Vowels.Contains(word[0]))
+                {
+                    // Skip 1-3 letter words unless they're exceptions (uh, oh)
+                    if (word.Length <= 3 && !ShortWordExceptions.Contains(word))
+                    {
+                        result.Append(word);
+                        continue;
+                    }
+
+                    // Add 'R' for uppercase vowels, 'r' for lowercase vowels
+                    if (char.IsUpper(word[0]))
+                    {
+                        result.Append('R');
+                        // Check if word is fully capitalized
+                        bool isFullyCaps = word.Length > 1 && word.All(c => !char.IsLetter(c) || char.IsUpper(c));
+
+                        if (isFullyCaps)
+                        {
+                            // Keep the vowel capitalized for fully caps words
+                            result.Append(word);
+                        }
+                        else
+                        {
+                            // Make the first letter lowercase after adding capital R
+                            result.Append(char.ToLower(word[0]));
+                            if (word.Length > 1)
+                                result.Append(word.Substring(1));
+                        }
+                    }
+                    else
+                    {
+                        result.Append('r');
+                        result.Append(word);
+                    }
+                }
+                else if (word.Length > 0 && char.IsLetter(word[0]))
+                {
+                    // Replace consonant with 'R' or 'r'
+                    if (char.IsUpper(word[0]))
+                    {
+                        result.Append('R');
+                        if (word.Length > 1)
+                            result.Append(word.Substring(1));
+                    }
+                    else
+                    {
+                        result.Append('r');
+                        if (word.Length > 1)
+                            result.Append(word.Substring(1));
+                    }
+                }
+                else
+                {
+                    result.Append(word);
+                }
+            }
+
+            return result.ToString();
         }
 
         private void OnAccent(EntityUid uid, BarkAccentComponent component, AccentGetEvent args)

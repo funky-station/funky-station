@@ -76,8 +76,7 @@
       tags:
         - DoorBumpOpener
         - CannotSuicide
-    - type: ReplacementAccent
-      accent: LizardAccent
+    - type: LizardAccent
     - type: Speech
       speechSounds: Lizard
       speechVerb: Reptilian

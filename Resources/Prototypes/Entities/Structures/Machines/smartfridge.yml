@@ -37,7 +37,7 @@
     energy: 1.6
     color: "#9dc5c9"
   - type: Machine
-    board: SmartFridgeCircuitboard
+    board: SmartFridgeMachineCircuitboard
   - type: ContainerContainer
     containers:
       smart_fridge_inventory: !type:Container

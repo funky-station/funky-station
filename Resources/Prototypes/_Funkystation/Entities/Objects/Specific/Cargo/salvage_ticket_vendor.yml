@@ -1,0 +1,27 @@
+- type: entity
+  parent: [BaseStructure, StorePresetSalvageVendor]
+  id: VendingMachineSalvage
+  name: Salvage Vendor
+  description: A dwarf's best friend!
+  components:
+  - type: UserInterface
+    interfaces:
+      enum.StoreUiKey.Key:
+        type: StoreBoundUserInterface
+  - type: ActivatableUI
+    key: enum.StoreUiKey.Key
+  - type: Store
+    balance:
+      SalvageTicket: 0
+  - type: Sprite
+    sprite: Structures/Machines/VendingMachines/mining.rsi
+    state: "off"
+  - type: PointLight
+    radius: 2
+    energy: 1.6
+    color: "#b89f25"
+    mask: /Textures/Effects/LightMasks/cone.png
+    autoRot: true
+  - type: GuideHelp
+    guides:
+    - Salvage

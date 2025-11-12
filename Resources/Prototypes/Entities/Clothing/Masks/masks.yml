@@ -205,10 +205,9 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.90
-        Slash: 0.90
+        Blunt: 0.95
+        Slash: 0.95
         Piercing: 0.95
-        Heat: 0.95
 
 - type: entity
   parent: ClothingMaskPullableBase

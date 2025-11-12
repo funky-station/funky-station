@@ -34,16 +34,16 @@
         prob: 0.2
       - id: ClothingBeltMilitaryWebbing
         prob: 0.2
-        
-#Garunteed chameleon kit spawn, for the syndicate dropship
+
+#Garunteed nukie meal spawn, for the syndicate dropship # Funky Change, replaced the chameleon kit with a nukie meal, because its such a fucking headache
 - type: entity
-  id: LockerSyndicateShipGearBasicChameleonKit
+  id: LockerSyndicateShipGearBasicNukieMeal
   parent: LockerSyndicateShipGearBasic
-  suffix: Basic ship gear, Random, Chameleon Kit
+  suffix: Basic ship gear, Random, Nukie meal
   components:
   - type: StorageFill
     contents:
-      - id: ClothingBackpackChameleonFill
+      - id: HappyHonkNukieSnacks
       - id: CrowbarRed
         prob: 0.6
       - id: ClothingShoesBootsCombat

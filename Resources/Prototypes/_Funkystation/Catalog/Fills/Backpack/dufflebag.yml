@@ -1,8 +1,8 @@
 - type: entity
   parent: ClothingBackpackDuffelSalvage
   id: ClothingBackpackDuffelSalvageHelldiver
-  name: NT-01 Bundle 
-  description: "For Nanotrasen!" 
+  name: Diving Hardsuit Bundle
+  description: "For Nanotrasen!"
   components:
   - type: StorageFill
     contents:

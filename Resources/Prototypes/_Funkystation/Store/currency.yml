@@ -8,7 +8,95 @@
   displayName: store-currency-display-revcoin
   canWithdraw: false
 
+# Salvage Reward Tickets 
+
 - type: currency
   id: SalvageTicket
   displayName: store-currency-display-salvageticket
   canWithdraw: true
+
+- type: entity
+  name: salvage exchange ticket
+  parent: BaseItem
+  id: SalvageTicket
+  suffix: 1 
+  description: Exchange your tickets for equipment!
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Specific/Cargo/salvage_reward_ticket.rsi
+    state: ticket
+  - type: Item
+    sprite: _Funkystation/Objects/Specific/Cargo/salvage_reward_ticket.rsi
+    shape:
+    - 0,0,1,1
+  - type: Stack
+    count: 1
+    stackType: SalvageRewardTicket
+  # Goobstation - Custom stack splitting dialog
+  - type: UserInterface
+    interfaces:
+      enum.StackCustomSplitUiKey.Key:
+        type: StackCustomSplitBoundUserInterface
+  - type: StaticPrice
+    price: 0
+  - type: StackPrice
+    price: 0
+  - type: Currency
+    price:
+      SalvageTicket: 1 
+  - type: Material
+  - type: PhysicalComposition
+    MaterialComposition:
+      RewardTicket: 100
+
+- type: entity
+  parent: SalvageTicket
+  id: SalvageTicket2
+  suffix: 2
+  components:
+  - type: Stack
+    count: 2
+
+- type: entity
+  parent: SalvageTicket
+  id: SalvageTicket3
+  suffix: 3
+  components:
+  - type: Stack
+    count: 3
+
+- type: entity
+  parent: SalvageTicket
+  id: SalvageTicket5
+  suffix: 5
+  components:
+  - type: Stack
+    count: 5
+
+- type: entity
+  parent: SalvageTicket
+  id: SalvageTicket75
+  suffix: 75
+  components:
+  - type: Stack
+    count: 75
+
+- type: entity
+  parent: SalvageTicket
+  id: SalvageTicket100
+  suffix: 100
+  components:
+  - type: Stack
+    count: 100
+
+- type: material
+  id: RewardTicket
+  stackEntity: SalvageTicket
+  name: salvage-reward-ticket
+  price: 0.01   
+
+- type: stack
+  id: SalvageRewardTicket
+  name: salvageticket
+  icon: _Funkystation/Objects/Specific/Cargo/salvage_reward_ticket.rsi
+  spawn: SalvageTicket

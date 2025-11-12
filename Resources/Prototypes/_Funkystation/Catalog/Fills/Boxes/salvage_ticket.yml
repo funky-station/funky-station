@@ -1,0 +1,62 @@
+- type: entity
+  id: BoxSalvageVendShuttleKit
+  parent: CardboardBoxLarge
+  name: shuttle board kit
+  description: A box filled with all the necessary boards needed to create a new shuttle, or repair an existing one. You didn't crash into something, right?
+  components:
+  - type: StorageFill
+    contents:
+    - id: ThrusterMachineCircuitboard
+      amount: 4
+    - id: WallmountGeneratorAPUElectronics
+      amount: 2
+    - id: ShuttleConsoleCircuitboard
+    - id: GyroscopeMachineCircuitboard
+    - id: APCElectronics
+    - id: WallmountSubstationElectronics
+
+- type: entity
+  id: BoxSalvageCookoutKit
+  parent: CardboardBoxLarge
+  name: field cookout kit
+  description: A box containing a electric grill and freezer board, skewers, 6 pack of beer, and assorted condiments. 
+  components:
+  - type: StorageFill
+    contents:
+    - id: FreezerElectronics
+    - id: ElectricGrillMachineCircuitboard
+    - id: DrinkBeerCan
+      amount: 6  
+    - id: FoodKebabSkewer
+      amount: 3    
+    - id: FoodCondimentBottleBBQ
+    - id: FoodCondimentBottleHotsauce    
+    - id: FoodCondimentBottleKetchup    
+    - id: FoodCondimentBottleBBQ        
+    - id: FoodShakerPepper   
+      amount: 2     
+    - id: FoodShakerSalt          
+      amount: 2         
+
+- type: entity
+  id: BoxSalvageMedicalKit
+  parent: CardboardBoxLarge
+  name: field medical kit
+  description: A box containing materials needed to construct a medical bed and medibot, body bags, medical supplies and a defibrillator.
+  components:
+  - type: StorageFill
+    contents:
+    - id: Defibrillator
+    - id: MedkitAdvancedFilled
+    - id: SheetPlasteel1
+      amount: 2
+    - id: MaterialDurathread1
+      amount: 2 
+    - id: LeftArmBorg
+    - id: ProximitySensor      
+    - id: Jug        
+    - id: BodyBagFolded   
+      amount: 2     
+    - id: ClothingEyesHudMedical
+    - id: EmergencyMedipen
+      amount: 2            

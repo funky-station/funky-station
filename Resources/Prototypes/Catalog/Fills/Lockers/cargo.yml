@@ -45,13 +45,8 @@
       - id: RadioHandheldCargo #funkystation
       - id: SeismicCharge
         amount: 2
-      - id: OreBag
-      - id: Flare
-        prob: 0.3
-      - id: Flare
-        prob: 0.3
-      - id: Flare
-        prob: 0.3
+      - id: WeaponFlareGun
+      - id: BoxShotgunFlare
 
 - type: entity
   id: LockerSalvageSpecialistFilled
@@ -67,10 +62,5 @@
       - id: RadioHandheldCargo #funkystation
       - id: SeismicCharge
         amount: 2
-      - id: OreBag
-      - id: Flare
-        prob: 0.3
-      - id: Flare
-        prob: 0.3
-      - id: Flare
-        prob: 0.3
+      - id: WeaponFlareGun
+      - id: BoxShotgunFlare

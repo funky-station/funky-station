@@ -1,4 +1,44 @@
+# Store Preset 
+- type: entity
+  id: StorePresetSalvageVendor
+  components:
+  - type: Store
+    name: vendor-salvage-ticket-machine
+    categories:
+    - SalvageVendorWearables
+    - SalvageVendorEquipment
+    - SalvageVendorSupplies
+    - SalvageVendorMisc
+    - SalvageVendorStandard
+    currencyWhitelist:
+    - SalvageTicket
+    balance:
+      SalvageTicket: 0
+    sales:
+      enabled: false
+
+
 - type: storeCategory
   id: SalvageVendorWearables
   name: store-category-salvage-wearables
   priority: 1
+
+- type: storeCategory
+  id: SalvageVendorEquipment
+  name: store-category-salvage-equipment
+  priority: 2
+
+- type: storeCategory
+  id: SalvageVendorSupplies
+  name: store-category-salvage-supplies
+  priority: 3
+
+- type: storeCategory
+  id: SalvageVendorMisc
+  name: store-category-salvage-misc
+  priority: 4
+
+- type: storeCategory
+  id: SalvageVendorStandard
+  name: store-category-salvage-standard
+  priority: 5

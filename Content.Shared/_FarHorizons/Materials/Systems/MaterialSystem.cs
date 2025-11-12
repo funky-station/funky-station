@@ -1,6 +1,6 @@
-namespace Content.Shared._FarHorizons.PhysicalMaterial.Systems;
+namespace Content.Shared._FarHorizons.Materials.Systems;
 
-public sealed class PhysicalMaterialSystem
+public sealed class MaterialSystem
 {
     public static double CalculateHeatTransferCoefficient(MaterialProperties? materialA, MaterialProperties? materialB)
     {
@@ -22,6 +22,6 @@ public sealed class PhysicalMaterialSystem
             else if (materialB.ElectricalConductivity > 0)
                 hTC2 = Math.Max(materialB.ElectricalConductivity, 0);
 
-        return ((Math.Pow(10, hTC1 / 5) - 1) + (Math.Pow(10, hTC2 / 5) - 1))/2;
+        return ((Math.Pow(10, hTC1 / 5) - 1) + (Math.Pow(10, hTC2 / 5) - 1)) / 2;
     }
 }

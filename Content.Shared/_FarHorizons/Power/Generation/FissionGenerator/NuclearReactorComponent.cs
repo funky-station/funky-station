@@ -75,7 +75,7 @@ public sealed partial class NuclearReactorComponent : Component
     public bool ApplyPrefab = true;
 
     [DataField("material")]
-    public ProtoId<PhysicalMaterialPrototype> Material = "steel";
+    public ProtoId<MaterialPrototype> Material = "Steel";
 
     [DataField("inlet")]
     public string InletName { get; set; } = "inlet";

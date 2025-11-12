@@ -1,35 +1,8 @@
-using Robust.Shared.Prototypes;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.Array;
+namespace Content.Shared._FarHorizons.Materials;
 
-namespace Content.Shared._FarHorizons.PhysicalMaterial;
-
-[Prototype]
-public sealed partial class PhysicalMaterialPrototype : IPrototype, IInheritingPrototype
-{
-    [ViewVariables]
-    [ParentDataField(typeof(AbstractPrototypeIdArraySerializer<PhysicalMaterialPrototype>))]
-    public string[]? Parents { get; private set; }
-
-    [ViewVariables]
-    [AbstractDataField]
-    public bool Abstract { get; private set; } = false;
-
-    [IdDataField, ViewVariables]
-    public string ID { get; private set; } = default!;
-
-    [DataField("name")]
-    public LocId Name { get; private set; } = string.Empty;
-
-    [DataField("description")]
-    public LocId Description { get; private set; } = string.Empty;
-
-    [DataField("color")]
-    public Color Color { get; private set; } = Color.Lime;
-
-    [DataField("properties")]
-    public MaterialProperties Properties { get; private set; } = default!;
-}
-
+/// <summary>
+/// A data type that stores information on a material's properties
+/// </summary>
 [DataDefinition]
 public sealed partial class MaterialProperties()
 {
@@ -69,6 +42,10 @@ public sealed partial class MaterialProperties()
     [DataField("plasma_offgas")]
     public float ActivePlasma { get; set; } = 0;
 
+    /// <summary>
+    /// Creates a new <see cref="MaterialProperties"> with information from an existing one.
+    /// </summary>
+    /// <param name="source"></param>
     public MaterialProperties(MaterialProperties source) : this()
     {
         ElectricalConductivity = source.ElectricalConductivity;

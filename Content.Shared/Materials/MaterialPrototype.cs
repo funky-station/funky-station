@@ -75,5 +75,12 @@ namespace Content.Shared.Materials
         /// </summary>
         [DataField(required: true)]
         public double Price = 0;
+
+        // Far Horizons Edit
+        /// <summary>
+        /// The physical properties of this material.
+        /// </summary>
+        [DataField("properties")]
+        public MaterialProperties Properties { get; private set; } = default!;
     }
 }

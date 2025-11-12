@@ -103,6 +103,14 @@
   icon: { sprite: Objects/Materials/Sheets/other.rsi, state: uranium }
   color: "#32a852"
   price: 0.85 # $85 for 1 unit
+  properties: # FH edit
+    electrical: 4
+    thermal: 3
+    hard: 5
+    density: 7
+    chemical: 6
+    radioactive: 4
+    n_radioactive: 3
 
 - type: material
   id: Bananium

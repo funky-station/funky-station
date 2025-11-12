@@ -25,6 +25,12 @@
   name: materials-steel
   icon: { sprite: Objects/Materials/Sheets/metal.rsi, state: steel }
   price: 0.15 # $15 for 1 unit
+  properties: # FH edit
+    electrical: 5
+    thermal: 6
+    hard: 3
+    density: 4
+    chemical: 6
 
 - type: material
   id: Gold

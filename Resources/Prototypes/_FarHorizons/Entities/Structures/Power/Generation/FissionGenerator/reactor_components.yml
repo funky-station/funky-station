@@ -61,7 +61,7 @@
   description: A fuel rod for a nuclear reactor.
   components:
   - type: ReactorPart
-    material: cerenkite
+    material: Cerenkite
 
 - type: entity
   id: UraniumFuelRod
@@ -70,7 +70,7 @@
   description: A fuel rod for a nuclear reactor.
   components:
   - type: ReactorPart
-    material: uranium
+    material: Uranium
 
 - type: entity
   id: PlutoniumFuelRod
@@ -79,7 +79,7 @@
   description: A fuel rod for a nuclear reactor.
   components:
   - type: ReactorPart
-    material: plutonium
+    material: Plutonium
 
 - type: entity
   id: ReactorControlRod
@@ -93,7 +93,7 @@
     iconStateCap: "control_cap"
     isControlRod: true
     neutronCrossSection: 2.0
-    material: bohrum
+    material: Bohrum
 
 - type: entity
   id: ReactorGasChannel

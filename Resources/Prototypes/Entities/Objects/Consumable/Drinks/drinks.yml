@@ -222,8 +222,6 @@
         - state: fill1
           map: ["enum.SolutionContainerLayers.Fill"]
           visible: false
-        - state: icon-front
-          map: ["enum.SolutionContainerLayers.Overlay"]
     - type: Appearance
     - type: SolutionContainerManager
       solutions:

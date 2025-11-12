@@ -11,9 +11,6 @@
             "name": "icon"
         },
         {
-            "name": "icon-front"
-        },
-        {
             "name": "fill1"
         },
         {
@@ -21,12 +18,6 @@
         },
         {
             "name": "fill3"
-        },
-        {
-            "name": "fill4"
-        },
-        {
-            "name": "fill5"
         }
     ]
 }

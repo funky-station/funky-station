@@ -230,7 +230,7 @@
         drink:
           maxVol: 30
     - type: SolutionContainerVisuals
-      maxFillLevels: 5
+      maxFillLevels: 3
       fillBaseName: fill
 
 - type: entity

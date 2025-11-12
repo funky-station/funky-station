@@ -76,7 +76,7 @@
     - Magboots # Funky
 
 - type: entity
-  parent: [ClothingShoesBootsMagBase]
+  parent: [ClothingShoesBootsMagBase, BaseEngineeringScienceSalvageContraband]
   id: ClothingShoesBootsMag
 
 - type: entity
@@ -103,7 +103,7 @@
     stealGroup: ClothingShoesBootsMagAdv
 
 - type: entity
-  parent: [ClothingShoesBootsMagBase]
+  parent: [ClothingShoesBootsMagBase, BaseEngineeringScienceSalvageContraband]
   id: ClothingShoesBootsMagSci
   components:
   - type: Sprite

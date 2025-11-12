@@ -110,7 +110,7 @@
         Blunt: 10
 
 - type: entity
-  parent: [ClothingEyesBase, BaseEngineeringContraband]
+  parent: [ClothingEyesBase, BaseEngineeringSalvageContraband]
   id: ClothingEyesGlassesMeson
   name: engineering goggles #less confusion
   description: Green-tinted goggles using a proprietary polymer that provides protection from eye damage of all types.
@@ -337,7 +337,7 @@
 - type: entity
   parent: ClothingEyesBase
   id: ClothingEyesDealbreakers
-  name: Dealbreakers 
+  name: Dealbreakers
   description: Now YOUR chance to be a LEGALLY DISTINCT [[HYPERLINK BLOCKED]] for ONLY [[9.99]]!
   components:
   - type: Sprite
@@ -351,7 +351,7 @@
   - type: IdentityBlocker
     coverage: EYES
   - type: VisionCorrection
-  
+
 - type: entity
   parent: [ClothingEyesBase, ShowSecurityIcons, BaseSecurityContraband]
   id: ClothingEyesGlassesNoir

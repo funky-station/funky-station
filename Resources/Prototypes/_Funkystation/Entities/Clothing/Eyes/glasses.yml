@@ -98,7 +98,7 @@
     - WhitelistChameleon
 
 - type: entity
-  parent: [ClothingEyesGlassesJamjar, BaseEngineeringContraband]
+  parent: [ClothingEyesGlassesJamjar, BaseEngineeringSalvageContraband]
   id: ClothingEyesGlassesJamgog
   name: engineering jamgoggles
   description: These retro glasses remind you of setting the tesla loose.

@@ -1,9 +1,6 @@
 using Content.Shared.Atmos;
-using Content.Shared.Containers.ItemSlots;
-using Robust.Shared.Audio;
-using Robust.Shared.GameStates;
-using Content.Shared._FarHorizons.Materials;
 using Robust.Shared.Prototypes;
+using Content.Shared.Materials;
 
 namespace Content.Shared._FarHorizons.Power.Generation.FissionGenerator;
 
@@ -149,7 +146,7 @@ public sealed partial class NuclearReactorComponent : Component
     /// Material the reactor is made out of
     /// </summary>
     [DataField("material")]
-    public ProtoId<PhysicalMaterialPrototype> Material = "steel";
+    public ProtoId<MaterialPrototype> Material = "Steel";
 
     [DataField]
     public string PipeName { get; set; } = "pipe";

@@ -90,6 +90,7 @@
     iconStateCap: "control_cap"
     isControlRod: true
     neutronCrossSection: 2.0
+    material: Bohrum
 
 - type: entity
   id: BohrumReactorControlRod

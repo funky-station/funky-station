@@ -7,6 +7,9 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Random;
+using Robust.Shared.Prototypes;
+using Content.Shared._FarHorizons.Materials;
+using Content.Shared._FarHorizons.Materials.Systems;
 
 namespace Content.Shared._FarHorizons.Power.Generation.FissionGenerator;
 
@@ -43,7 +46,7 @@ public abstract class SharedReactorPartSystem : EntitySystem
 
         using (args.PushGroup(nameof(ReactorPartComponent)))
         {
-            switch(comp.NRadioactive)
+            switch (comp.Properties.NeutronRadioactivity)
             {
                 case > 8:
                     args.PushMarkup(Loc.GetString("reactor-part-nrad-5"));
@@ -65,7 +68,7 @@ public abstract class SharedReactorPartSystem : EntitySystem
                     break;
             }
 
-            switch (comp.Radioactive)
+            switch (comp.Properties.Radioactivity)
             {
                 case > 8:
                     args.PushMarkup(Loc.GetString("reactor-part-rad-5"));
@@ -175,7 +178,7 @@ public abstract class SharedReactorPartSystem : EntitySystem
                 continue;
 
             var DeltaT = reactorPart.Temperature - RC.Temperature;
-            var k = (Math.Pow(10, reactorPart.PropertyThermal / 5) - 1 + (Math.Pow(10, RC.PropertyThermal / 5) - 1)) / 2;
+            var k = MaterialSystem.CalculateHeatTransferCoefficient(reactorPart.Properties, RC.Properties);
             var A = Math.Min(reactorPart.ThermalCrossSection, RC.ThermalCrossSection);
 
             reactorPart.Temperature = (float)(reactorPart.Temperature - (k * A * (0.5 * 8) / reactorPart.ThermalMass * DeltaT));
@@ -193,7 +196,7 @@ public abstract class SharedReactorPartSystem : EntitySystem
         {
             var DeltaT = reactorPart.Temperature - reactor.Temperature;
 
-            var k = (Math.Pow(10, reactorPart.PropertyThermal / 5) - 1 + (Math.Pow(10, 7 / 5) - 1)) / 2;
+            var k = MaterialSystem.CalculateHeatTransferCoefficient(reactorPart.Properties, _proto.Index(reactor.Material).Properties);
             var A = reactorPart.ThermalCrossSection;
 
             reactorPart.Temperature = (float)(reactorPart.Temperature - (k * A * (0.5 * 8) / reactorPart.ThermalMass * DeltaT));
@@ -314,6 +317,8 @@ public abstract class SharedReactorPartSystem : EntitySystem
     }
 
     public virtual List<ReactorNeutron> ProcessNeutronsGas(ReactorPartComponent reactorPart, List<ReactorNeutron> neutrons) => neutrons;
+
+    public void SetProperties(ReactorPartComponent reactorPart, out MaterialProperties properties) => properties = new MaterialProperties(_proto.Index(reactorPart.Material).Properties);
 
     /// <summary>
     /// Returns true according to a percent chance

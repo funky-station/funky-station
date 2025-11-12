@@ -23,7 +23,6 @@ using Robust.Shared.Random;
 using System.Linq;
 using Content.Shared.Atmos.Piping.Components;
 using Content.Shared._FarHorizons.Materials.Systems;
-using Content.Server.NodeContainer.Nodes;
 
 namespace Content.Server._FarHorizons.Power.Generation.FissionGenerator;
 
@@ -427,7 +426,7 @@ public sealed class NuclearReactorSystem : SharedNuclearReactorSystem
             var DeltaT = reactor.Temperature - reactor.AirContents.Temperature;
             var DeltaTr = Math.Pow(reactor.Temperature, 4) - Math.Pow(reactor.AirContents.Temperature, 4);
 
-            var k = (Math.Pow(10, 6 / 5) - 1) / 2;
+            var k = MaterialSystem.CalculateHeatTransferCoefficient(_prototypes.Index(reactor.Material).Properties, null);
             var A = 1 * (0.4 * 8);
 
             var ThermalEnergy = _atmosphereSystem.GetThermalEnergy(reactor.AirContents);

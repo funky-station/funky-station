@@ -31,7 +31,7 @@ using Content.Shared.Humanoid.Prototypes;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Preferences;
 using Content.Shared.Roles;
-using Content.Goobstation.Common.Barks; // Goob Station - Barks
+using Content.Shared._Goobstation.Barks; // Goob Station - Barks
 using Robust.Shared;
 using Robust.Shared.Configuration;
 using Robust.Shared.GameObjects.Components.Localization;
@@ -62,7 +62,8 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
     [Dependency] private readonly ISerializationManager _serManager = default!;
     [Dependency] private readonly MarkingManager _markingManager = default!;
 
-    public static readonly ProtoId<SpeciesPrototype> DefaultSpecies = "Human";
+    [ValidatePrototypeId<SpeciesPrototype>]
+    public const string DefaultSpecies = "Human";
     public static readonly ProtoId<BarkPrototype> DefaultBarkVoice = "Alto"; // Goob Station - Barks
 
     public override void Initialize()

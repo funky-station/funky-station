@@ -625,7 +625,7 @@ public sealed partial class ChatSystem : SharedChatSystem
 
         SendInVoiceRange(ChatChannel.Local, message, wrappedMessage, source, range);
 
-        var ev = new EntitySpokeEvent(source, message, null, null);
+        var ev = new EntitySpokeEvent(source, message, null, null, false);
         RaiseLocalEvent(source, ev, true);
 
         // To avoid logging any messages sent by entities that are not players, like vendors, cloning, etc.
@@ -748,7 +748,7 @@ public sealed partial class ChatSystem : SharedChatSystem
             null,
             MessageRangeHideChatForReplay(range)));
 
-        var ev = new EntitySpokeEvent(source, message, channel, obfuscatedMessage);
+        var ev = new EntitySpokeEvent(source, message, channel, obfuscatedMessage, true);
         RaiseLocalEvent(source, ev, true);
         if (!hideLog)
             if (originalMessage == message)
@@ -1222,6 +1222,7 @@ public sealed class EntitySpokeEvent : EntityEventArgs
 {
     public readonly EntityUid Source;
     public readonly string Message;
+    public readonly bool IsWhisper;
     public readonly string? ObfuscatedMessage; // not null if this was a whisper
 
     /// <summary>
@@ -1230,11 +1231,12 @@ public sealed class EntitySpokeEvent : EntityEventArgs
     /// </summary>
     public RadioChannelPrototype? Channel;
 
-    public EntitySpokeEvent(EntityUid source, string message, RadioChannelPrototype? channel, string? obfuscatedMessage)
+    public EntitySpokeEvent(EntityUid source, string message, RadioChannelPrototype? channel, string? obfuscatedMessage, bool isWhisper)
     {
         Source = source;
         Message = message;
         Channel = channel;
+        IsWhisper = isWhisper;
         ObfuscatedMessage = obfuscatedMessage;
     }
 }

@@ -2,7 +2,7 @@
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 
-namespace Content.Goobstation.Common.Barks;
+namespace Content.Shared._Goobstation.Barks;
 
 [Prototype("bark")]
 public sealed partial class BarkPrototype : IPrototype

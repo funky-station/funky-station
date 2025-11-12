@@ -1,4 +1,4 @@
-using Content.Goobstation.Common.Barks;
+using Content.Shared._Goobstation.Barks; // Goob Station - Barks
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Configuration;
@@ -6,9 +6,9 @@ using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
-using Content.Goobstation.Common.CCVar;
+using Content.Shared._Goobstation.CCVar;
 
-namespace Content.Goobstation.Client.Barks;
+namespace Content.Client._Goobstation.Barks;
 
 public sealed class BarkSystem : EntitySystem
 {

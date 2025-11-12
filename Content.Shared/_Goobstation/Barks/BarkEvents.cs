@@ -1,6 +1,6 @@
 using Robust.Shared.Serialization;
 
-namespace Content.Goobstation.Common.Barks;
+namespace Content.Shared._Goobstation.Barks;
 
 [Serializable, NetSerializable]
 public sealed class PlayBarkEvent(NetEntity sourceUid, string message, bool whisper) : EntityEventArgs

@@ -29,4 +29,20 @@ public sealed partial class GoobCVars
         CVarDef.Create("gamedirector.minimumtimeuntilfirstevent", 300f, CVar.SERVERONLY);
 
     #endregion
+
+    #region Chat
+
+        /// <summary>
+    /// Set to true to enable voice barks and disable default speech sounds.
+    /// </summary>
+    public static readonly CVarDef<bool> BarksEnabled =
+        CVarDef.Create("voice.barks_enabled", false, CVar.SERVER | CVar.REPLICATED | CVar.ARCHIVE);
+    
+    /// <summary>
+    /// Client volume setting for barks.
+    /// </summary>
+    public static readonly CVarDef<float> BarksVolume =
+        CVarDef.Create("voice.barks_volume", 1f, CVar.CLIENTONLY | CVar.ARCHIVE);
+    
+    #endregion
 }

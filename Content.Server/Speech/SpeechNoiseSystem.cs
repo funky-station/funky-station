@@ -21,8 +21,8 @@ using Robust.Shared.Timing;
 using Robust.Shared.Random;
 
 // Goob Station
- using Content.Goobstation.Common.Barks;
-using Content.Goobstation.Common.CCVar;
+using Content.Shared._Goobstation.CCVar; // Goob Station - Barks
+using Content.Shared._Goobstation.Barks; // Goob Station - Barks
 using Robust.Shared.Configuration;
 
 
@@ -83,7 +83,6 @@ namespace Content.Server.Speech
         {
             // Goob station - Barks
             if (component.SpeechSounds == null
-                || !args.Language.SpeechOverride.RequireSpeech
                 || _cfg.GetCVar(GoobCVars.BarksEnabled) // Goob Station - Barks
                 && HasComp<SpeechSynthesisComponent>(uid))
                 return;

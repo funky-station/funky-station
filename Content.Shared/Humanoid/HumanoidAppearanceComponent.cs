@@ -6,7 +6,7 @@
 //
 // SPDX-License-Identifier: MIT
 
-using Content.Goobstation.Common.Barks; // Goob Station - Barks
+using Content.Shared._Goobstation.Barks; // Goob Station - Barks
 using Content.Shared.DisplacementMap;
 using Content.Shared.Humanoid.Markings;
 using Content.Shared.Humanoid.Prototypes;

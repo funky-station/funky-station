@@ -3,7 +3,7 @@
 // SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
-using Content.Goobstation.Common.Barks;
+using Content.Shared._Goobstation.Barks;
 using System.Linq;
 
 namespace Content.Client.Lobby.UI;

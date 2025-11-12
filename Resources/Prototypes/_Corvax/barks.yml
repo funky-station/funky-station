@@ -266,7 +266,7 @@
 
 # Durk
 - type: soundCollection
-  id: DurkBark
+  id: AniCross
   files:
     - /Audio/_Goobstation/Voice/Barks/Durk/a.wav
     - /Audio/_Goobstation/Voice/Barks/Durk/e.wav
@@ -276,11 +276,11 @@
     - /Audio/_Goobstation/Voice/Barks/Durk/y.wav
 
 - type: bark
-  id: Durk
-  name: Durk
+  id: AniCross
+  name: AniCross
   volume: 1
   frequency: 0.9
   minPitch: 0.9
   maxPitch: 1.1
   soundCollection:
-    collection: DurkBark
+    collection: AniCross

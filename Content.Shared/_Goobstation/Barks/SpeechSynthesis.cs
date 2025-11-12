@@ -1,7 +1,7 @@
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
-namespace Content.Goobstation.Common.Barks;
+namespace Content.Shared._Goobstation.Barks;
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class SpeechSynthesisComponent : Component

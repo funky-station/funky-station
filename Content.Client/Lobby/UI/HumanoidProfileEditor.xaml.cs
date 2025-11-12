@@ -107,8 +107,8 @@ using Content.Shared._Funkystation.Records;
 // End CD - Character Records
 
 using Direction = Robust.Shared.Maths.Direction;
-using Content.Goobstation.Common.CCVar; // Goob Station - Barks
-using Content.Goobstation.Common.Barks; // Goob Station - Barks
+using Content.Shared._Goobstation.CCVar; // Goob Station - Barks
+using Content.Shared._Goobstation.Barks; // Goob Station - Barks
 namespace Content.Client.Lobby.UI
 {
     [GenerateTypedNameReferences]

@@ -1,9 +1,9 @@
 using Content.Server.Chat.Systems;
-using Content.Goobstation.Common.Barks;
 using Robust.Shared.Configuration;
-using Content.Goobstation.Common.CCVar;
+using Content.Shared._Goobstation.CCVar; // Goob Station - Barks
+using Content.Shared._Goobstation.Barks; // Goob Station - Barks
 
-namespace Content.Goobstation.Server.Barks;
+namespace Content.Server._Goobstation.Barks;
 
 public sealed class BarkSystem : EntitySystem
 {
@@ -18,7 +18,6 @@ public sealed class BarkSystem : EntitySystem
     private void OnEntitySpoke(EntityUid uid, SpeechSynthesisComponent comp, EntitySpokeEvent args)
     {
         if (comp.VoicePrototypeId is null
-            || !args.Language.SpeechOverride.RequireSpeech
             || !_configurationManager.GetCVar(GoobCVars.BarksEnabled))
             return;
 

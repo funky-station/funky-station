@@ -334,7 +334,7 @@ namespace Content.Server.Database
                 traits.ToHashSet(),
                 loadouts,
                 profile.Enabled,
-                cdRecords // CD - Character Records
+                cdRecords, // CD - Character Records
                 barkVoice // Goob Station - Barks
             );
         }

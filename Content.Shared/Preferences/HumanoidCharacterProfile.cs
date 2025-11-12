@@ -54,7 +54,7 @@ using Content.Shared.Preferences.Loadouts;
 using Content.Shared.Random;
 using Content.Shared.Random.Helpers;
 using Content.Shared.Roles;
-using Content.Goobstation.Common.Barks; // Goob Station - Barks
+using Content.Shared._Goobstation.Barks; // Goob Station - Barks
 using Content.Shared.Traits;
 using Robust.Shared.Collections;
 using Robust.Shared.Configuration;
@@ -199,7 +199,7 @@ namespace Content.Shared.Preferences
             Dictionary<string, RoleLoadout> loadouts,
             bool enabled,
             // Begin CD - Character Records
-            PlayerProvidedCharacterRecords? cdCharacterRecords
+            PlayerProvidedCharacterRecords? cdCharacterRecords,
             // End CD - Character Records
 
             ProtoId<BarkPrototype> barkVoice) // Goob Station - Barks
@@ -222,20 +222,6 @@ namespace Content.Shared.Preferences
             CDCharacterRecords = cdCharacterRecords;
             // End CD - Character Records
             BarkVoice = barkVoice; // Goob Station - Barks
-
-            var hasHighPrority = false;
-            foreach (var (key, value) in _jobPriorities)
-            {
-                if (value == JobPriority.Never)
-                    _jobPriorities.Remove(key);
-                else if (value != JobPriority.High)
-                    continue;
-
-                if (hasHighPrority)
-                    _jobPriorities[key] = JobPriority.Medium;
-
-                hasHighPrority = true;
-            }
         }
 
         /// <summary>Copy constructor</summary>
@@ -255,8 +241,9 @@ namespace Content.Shared.Preferences
                 new HashSet<ProtoId<TraitPrototype>>(other.TraitPreferences),
                 new Dictionary<string, RoleLoadout>(other.Loadouts),
                 other.Enabled,
-                other.CDCharacterRecords // CD - Character Records
-                other.BarkVoice) // Goob Station - Barks
+                other.CDCharacterRecords, // CD - Character Records
+                other.BarkVoice // Goob Station - Barks
+                )
         {
         }
 

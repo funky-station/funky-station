@@ -68,6 +68,16 @@
   result: DrinkGlassCoupeShaped
 
 - type: latheRecipe
+  parent: DrinkMug
+  id: DrinkGlassCollinsShaped
+  result: DrinkGlassCollinsShaped
+
+- type: latheRecipe
+  parent: DrinkMug
+  id: DrinkGlassLowballShaped
+  result: DrinkGlassLowballShaped
+
+- type: latheRecipe
   id: CustomDrinkJug
   result: CustomDrinkJug
   completetime: 2

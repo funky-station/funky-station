@@ -232,6 +232,52 @@
       fillBaseName: fill
 
 - type: entity
+  name: collins glass
+  description: A tall glass with a small mouth, perfect for mixing cocktails and keeping fizzy drinks bubbling.
+  parent: DrinkGlassBase
+  id: DrinkGlassCollinsShaped
+  components:
+    - type: Sprite
+      sprite: Objects/Consumable/Drinks/glass_collins_shape.rsi
+      layers:
+        - state: icon
+          map: ["enum.SolutionContainerLayers.Base"]
+        - state: fill1
+          map: ["enum.SolutionContainerLayers.Fill"]
+          visible: false
+    - type: Appearance
+    - type: SolutionContainerManager
+      solutions:
+        drink:
+          maxVol: 30
+    - type: SolutionContainerVisuals
+      maxFillLevels: 3
+      fillBaseName: fill
+
+- type: entity
+  name: lowball glass
+  description: A glass for the old fashioned sort.
+  parent: DrinkGlassBase
+  id: DrinkGlassLowballShaped
+  components:
+    - type: Sprite
+      sprite: Objects/Consumable/Drinks/glass_lowball_shape.rsi
+      layers:
+        - state: icon
+          map: ["enum.SolutionContainerLayers.Base"]
+        - state: fill1
+          map: ["enum.SolutionContainerLayers.Fill"]
+          visible: false
+    - type: Appearance
+    - type: SolutionContainerManager
+      solutions:
+        drink:
+          maxVol: 30
+    - type: SolutionContainerVisuals
+      maxFillLevels: 3
+      fillBaseName: fill
+
+- type: entity
   parent: DrinkGlass
   id: DrinkAbsintheGlass
   suffix: absinthe

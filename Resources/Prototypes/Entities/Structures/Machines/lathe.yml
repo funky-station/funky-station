@@ -351,6 +351,8 @@
     - DrinkGlass
     - DrinkShotGlass
     - DrinkGlassCoupeShaped
+    - DrinkGlassCollinsShaped
+    - DrinkGlassLowballShaped
     - CustomDrinkJug
     - FoodPlate
     - FoodPlateSmall
@@ -438,6 +440,8 @@
     - DrinkGlass
     - DrinkShotGlass
     - DrinkGlassCoupeShaped
+    - DrinkGlassCollinsShaped
+    - DrinkGlassLowballShaped
     - CustomDrinkJug
     - FoodPlate
     - FoodPlateSmall

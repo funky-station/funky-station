@@ -31,7 +31,7 @@ public sealed partial class PhysicalMaterialPrototype : IPrototype, IInheritingP
 }
 
 [DataDefinition]
-public partial struct MaterialProperties()
+public sealed partial class MaterialProperties()
 {
     [DataField("electrical")]
     public float ElectricalConductivity { get; set; } = 5;

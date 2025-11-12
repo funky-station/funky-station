@@ -174,8 +174,8 @@ public sealed class NuclearReactorSystem : SharedNuclearReactorSystem
                 {
                     var ReactorComp = comp.ComponentGrid[x, y]!;
 
-                    if (ReactorComp.SetProperties)
-                        _partSystem.SetProperties(ReactorComp);
+                    if (ReactorComp.Properties == null)
+                        _partSystem.SetProperties(ReactorComp, out ReactorComp.Properties);
 
                     var gas = _partSystem.ProcessGas(ReactorComp, ent, args, GasInput);
                     GasInput.Volume -= ReactorComp.GasVolume;
@@ -551,13 +551,13 @@ public sealed class NuclearReactorSystem : SharedNuclearReactorSystem
             {
                 var reactorPart = reactor.ComponentGrid[x, y];
 
-                if (reactorPart != null && reactorPart.SetProperties)
-                    _partSystem.SetProperties(reactorPart);
+                if (reactorPart != null && reactorPart.Properties == null)
+                        _partSystem.SetProperties(reactorPart, out reactorPart.Properties);
 
                 var pos = (x * _gridWidth) + y;
                 temp[pos] = reactor.TemperatureGrid[x, y];
                 neutron[pos] = reactor.NeutronGrid[x, y];
-                icon[pos] = reactorPart != null ? reactorPart!.IconStateInserted : "base";
+                icon[pos] = reactorPart != null ? reactorPart.IconStateInserted : "base";
 
                 partName[pos] = reactor.ComponentGrid[x, y] != null ? reactor.ComponentGrid[x, y]!.Name : "empty";
                 partInfo[pos] = reactor.ComponentGrid[x, y] != null ? reactor.ComponentGrid[x, y]!.NRadioactive : 0;

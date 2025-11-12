@@ -105,10 +105,7 @@ public sealed partial class ReactorPartComponent : Component
     public ProtoId<PhysicalMaterialPrototype> Material = "steel";
 
     [DataField]
-    public MaterialProperties Properties = new();
-
-    [DataField]
-    public bool SetProperties = true;
+    public MaterialProperties? Properties;
 
     #region Properties
     //// SS13 material properties for Steel
@@ -229,8 +226,6 @@ public static class BaseReactorComponents
         NeutronCrossSection = 2.0f,
         ThermalCrossSection = 10,
         Material = "bohrum",
-        //PropertyDensity = 6,
-        //PropertyHard = 5,
     };
 
     public static readonly ReactorPartComponent FuelRod = new()
@@ -242,10 +237,6 @@ public static class BaseReactorComponents
         ThermalCrossSection = 10,
         ThermalMass = 420000,
         Material = "cerenkite",
-        //Radioactive = 5,
-        //PropertyHard = 2,
-        //PropertyDensity = 4,
-        //PropertyThermal = 6,
     };
 
     public static readonly ReactorPartComponent GasChannel = new()

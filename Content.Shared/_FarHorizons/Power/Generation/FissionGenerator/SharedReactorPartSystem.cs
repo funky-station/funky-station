@@ -39,8 +39,8 @@ public abstract class SharedReactorPartSystem : EntitySystem
         if (!args.IsInDetailsRange)
             return;
 
-        if (comp.SetProperties)
-            SetProperties(comp);
+        if (comp.Properties == null)
+            SetProperties(comp, out comp.Properties);
 
         using (args.PushGroup(nameof(ReactorPartComponent)))
         {
@@ -110,8 +110,8 @@ public abstract class SharedReactorPartSystem : EntitySystem
         var query = EntityQueryEnumerator<ReactorPartComponent>();
         while (query.MoveNext(out var uid, out var component))
         {
-            if (component.SetProperties)
-                SetProperties(component);
+            if (component.Properties == null)
+                SetProperties(component, out component.Properties);
 
             if (!_entityManager.HasComponent<RadiationSourceComponent>(uid))
             {
@@ -172,8 +172,8 @@ public abstract class SharedReactorPartSystem : EntitySystem
 
     public void ProcessHeat(ReactorPartComponent reactorPart, Entity<NuclearReactorComponent> reactorEnt, List<ReactorPartComponent?> AdjacentComponents, SharedNuclearReactorSystem reactorSystem)
     {
-        if (reactorPart.SetProperties)
-            SetProperties(reactorPart);
+        if (reactorPart.Properties == null)
+            SetProperties(reactorPart, out reactorPart.Properties);
 
         // Intercomponent calculation
         foreach (var RC in AdjacentComponents)
@@ -181,8 +181,8 @@ public abstract class SharedReactorPartSystem : EntitySystem
             if (RC == null)
                 continue;
 
-            if (RC.SetProperties)
-                SetProperties(RC);
+            if (RC.Properties == null)
+                SetProperties(RC, out RC.Properties);
 
             var DeltaT = reactorPart.Temperature - RC.Temperature;
             var k = PhysicalMaterialSystem.CalculateHeatTransferCoefficient(reactorPart.Properties, RC.Properties);
@@ -231,8 +231,8 @@ public abstract class SharedReactorPartSystem : EntitySystem
         thermalEnergy = 0;
         var flux = new List<ReactorNeutron>(neutrons);
 
-        if (reactorPart.SetProperties)
-            SetProperties(reactorPart);
+        if (reactorPart.Properties == null)
+            SetProperties(reactorPart, out reactorPart.Properties);
 
         foreach (var neutron in flux)
         {
@@ -331,11 +331,7 @@ public abstract class SharedReactorPartSystem : EntitySystem
 
     public MaterialProperties GetMaterialProperties(ReactorPartComponent reactorPart) => _proto.Index(reactorPart.Material).Properties;
 
-    public void SetProperties(ReactorPartComponent reactorPart)
-    {
-        reactorPart.Properties = new MaterialProperties(GetMaterialProperties(reactorPart));
-        reactorPart.SetProperties = false;
-    }
+    public void SetProperties(ReactorPartComponent reactorPart, out MaterialProperties properties) => properties = new MaterialProperties(GetMaterialProperties(reactorPart));
 
     /// <summary>
     /// Returns true according to a percent chance

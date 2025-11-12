@@ -98,7 +98,7 @@
   name: EG-4 energy revolver
   parent: [ BaseWeaponBatterySmall, BaseSecurityContraband ]
   id: WeaponEnergyRevolver
-  description: An energy revolver capable of firing both lethal and disabling projectiles. This model seems to be made with subpar materials and outfitted with a standard power cell. #alluding to it's previous state
+  description: An energy revolver capable of firing both lethal and disabling projectiles. This model seems to be outfitted with a standard power cell. #alluding to it's previous state
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Guns/Battery/erevolver.rsi

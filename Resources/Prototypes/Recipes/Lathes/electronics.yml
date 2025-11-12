@@ -614,6 +614,11 @@
 
 - type: latheRecipe
   parent: BaseCircuitboardRecipe
+  id: SmartFridgeMachineCircuitboard
+  result: SmartFridgeMachineCircuitboard
+
+- type: latheRecipe
+  parent: BaseCircuitboardRecipe
   id: TelecomServerCircuitboard
   result: TelecomServerCircuitboard
 

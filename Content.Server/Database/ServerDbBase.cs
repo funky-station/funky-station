@@ -307,6 +307,8 @@ namespace Content.Server.Database
                 loadouts[role.RoleName] = loadout;
             }
 
+            var barkVoice = profile.BarkVoice ?? SharedHumanoidAppearanceSystem.DefaultBarkVoice; // Goob Station - Barks
+
             return new HumanoidCharacterProfile(
                 profile.CharacterName,
                 profile.FlavorText,
@@ -333,6 +335,7 @@ namespace Content.Server.Database
                 loadouts,
                 profile.Enabled,
                 cdRecords // CD - Character Records
+                barkVoice // Goob Station - Barks
             );
         }
 
@@ -389,6 +392,7 @@ namespace Content.Server.Database
             // There are JsonIgnore annotations to ensure that entries are not stored as JSON.
             profile.CDProfile.CharacterRecords = JsonSerializer.SerializeToDocument(humanoid.CDCharacterRecords ?? PlayerProvidedCharacterRecords.DefaultRecords());
             // End CD - Character Records
+            profile.BarkVoice = humanoid.BarkVoice; // Goob Station - Barks
 
             profile.Loadouts.Clear();
 

@@ -304,6 +304,8 @@
       flatReductions:
         Heat: 10 # capable of touching light bulbs and stoves without feeling pain!
   - type: IntercomOnlyBypass
+  - type: SpeechSynthesis # Corvax-Frontier-Barks
+    voice: Borg
 
 - type: entity
   abstract: true
@@ -401,6 +403,8 @@
   - type: ExplosionResistance #Goobstation - Ion Damage
     damageCoefficient: 0.5
   - type: FlashImmunity
+  - type: SpeechSynthesis # Corvax-Frontier-Barks
+    voice: BorgSyndie
 
 - type: entity
   id: BaseBorgChassisDerelict

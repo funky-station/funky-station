@@ -6,6 +6,7 @@
 // SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Kara <lunarautomaton6@gmail.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 //
 // SPDX-License-Identifier: MIT
 
@@ -19,6 +20,12 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Robust.Shared.Random;
 
+// Goob Station
+ using Content.Goobstation.Common.Barks;
+using Content.Goobstation.Common.CCVar;
+using Robust.Shared.Configuration;
+
+
 namespace Content.Server.Speech
 {
     public sealed class SpeechSoundSystem : EntitySystem
@@ -27,6 +34,9 @@ namespace Content.Server.Speech
         [Dependency] private readonly IPrototypeManager _protoManager = default!;
         [Dependency] private readonly IRobustRandom _random = default!;
         [Dependency] private readonly SharedAudioSystem _audio = default!;
+
+        // Goobs tation
+        [Dependency] private readonly IConfigurationManager _cfg = default!;
 
         public override void Initialize()
         {
@@ -71,8 +81,13 @@ namespace Content.Server.Speech
 
         private void OnEntitySpoke(EntityUid uid, SpeechComponent component, EntitySpokeEvent args)
         {
-            if (component.SpeechSounds == null)
+            // Goob station - Barks
+            if (component.SpeechSounds == null
+                || !args.Language.SpeechOverride.RequireSpeech
+                || _cfg.GetCVar(GoobCVars.BarksEnabled) // Goob Station - Barks
+                && HasComp<SpeechSynthesisComponent>(uid))
                 return;
+            // END
 
             var currentTime = _gameTiming.CurTime;
             var cooldown = TimeSpan.FromSeconds(component.SoundCooldownTime);

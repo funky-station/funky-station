@@ -6,6 +6,7 @@
 // SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
 // SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 //
 // SPDX-License-Identifier: MIT
 
@@ -41,6 +42,9 @@ public sealed partial class ContentAudioSystem : SharedContentAudioSystem
     public const float LobbyMultiplier = 3f;
     public const float InterfaceMultiplier = 2f;
     
+    public const float VoiceChatMultiplier = 5f;
+    public const float BarksMultiplier = 3f; // Goob Station - Barks
+
     public override void Initialize()
     {
         base.Initialize();

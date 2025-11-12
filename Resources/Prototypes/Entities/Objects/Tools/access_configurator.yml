@@ -14,6 +14,8 @@
 # SPDX-FileCopyrightText: 2025 Kip <tfraser520@gmail.com>
 # SPDX-FileCopyrightText: 2025 Mish <bluscout78@yahoo.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 ilyamikcoder <me@ilyamikcoder.com>
+# SPDX-FileCopyrightText: 2025 mkanke-real <mikekanke@gmail.com>
 # SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
@@ -74,6 +76,8 @@
       # begin Funkystation: make actually usable for fixing turnstiles and such
       - GenpopEnter
       - GenpopLeave
+      - Library
+      - Reporter
       # end Funkystation
       privilegedIdSlot:
         name: id-card-console-privileged-id
@@ -155,6 +159,8 @@
     - Wizard
     - GenpopEnter
     - GenpopLeave
+    - Library
+    - Reporter
     privilegedIdSlot:
       name: id-card-console-privileged-id
       ejectSound: /Audio/Machines/id_swipe.ogg

@@ -10,6 +10,7 @@
 # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 DevilishMilk <michaellapjr@gmail.com>
 # SPDX-FileCopyrightText: 2025 Mish <bluscout78@yahoo.com>
+# SPDX-FileCopyrightText: 2025 Terkala <appleorange64@gmail.com>
 # SPDX-FileCopyrightText: 2025 misghast <51974455+misterghast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
@@ -23,6 +24,20 @@
     - changeling
   name: changeling-gamemode-title
   description: changeling-gamemode-description
+  showInVote: false
+  rules:
+    - Changeling
+    - SubGamemodesRule
+    - BasicStationEventScheduler
+    - MeteorSwarmScheduler
+    - BasicRoundstartVariation
+    
+- type: gamePreset
+  id: SecretChangeling
+  alias:
+    - secretling
+  name: secret-title
+  description: secret-description
   showInVote: false
   rules:
     - Changeling
@@ -47,6 +62,22 @@
     - MeteorSwarmScheduler
     - BasicRoundstartVariation
 
+- type: gamePreset
+  id: SecretTraitorling
+  alias:
+    - secretlingtraitor
+    - secrettraitorling
+  name: secret-title
+  description: secret-description
+  showInVote: false
+  rules:
+    - CalmLing
+    - CalmTraitor
+    - SubGamemodesRule
+    - BasicStationEventScheduler
+    - MeteorSwarmScheduler
+    - BasicRoundstartVariation
+    
 - type: gamePreset
   id: NukeTraitor
   alias:
@@ -116,6 +147,20 @@
   - blab
   name: blob-title
   description: blob-description
+  showInVote: false
+  rules:
+  - BlobGameMode
+  - BasicStationEventScheduler
+  - BasicRoundstartVariation
+  - SubGamemodesRule
+  - MeteorSwarmScheduler
+
+- type: gamePreset
+  id: SecretBlob
+  alias:
+  - secretblab
+  name: secret-title
+  description: secret-description
   showInVote: false
   rules:
   - BlobGameMode

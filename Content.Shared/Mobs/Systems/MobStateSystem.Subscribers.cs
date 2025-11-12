@@ -9,6 +9,7 @@
 // SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Mr. 27 <45323883+Dutch-VanDerLinde@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Ilya Mikheev <me@ilyamikcoder.com>
 // SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 // SPDX-FileCopyrightText: 2025 Tyranex <bobthezombie4@gmail.com>
 // SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
@@ -33,15 +34,20 @@ using Content.Shared.Pointing;
 using Content.Shared.Pulling.Events;
 using Content.Shared.Speech;
 using Content.Shared.Standing;
+using Content.Shared.Tag;
 using Content.Shared.Silicons.Borgs.Components;
 using Content.Shared.Strip.Components;
 using Content.Shared.Throwing;
-using Robust.Shared.Physics.Components;
+using Robust.Shared.Prototypes;
 
 namespace Content.Shared.Mobs.Systems;
 
 public partial class MobStateSystem
 {
+    [Dependency] private readonly TagSystem _tag = default!;
+
+    private static readonly ProtoId<TagPrototype> ForceStandOnReviveTag = "ForceStandOnRevive";
+
     //General purpose event subscriptions. If you can avoid it register these events inside their own systems
     private void SubscribeEvents()
     {
@@ -96,10 +102,11 @@ public partial class MobStateSystem
                 //unused
                 break;
             case MobState.Critical:
-                if (HasComp<BorgChassisComponent>(target))
-                    _standing.Stand(target, force: true);
-                else
-                    _standing.Stand(target);
+                var forceStand = false;
+                if (TryComp<TagComponent>(target, out var tag))
+                    forceStand = _tag.HasTag(tag, ForceStandOnReviveTag);
+
+                _standing.Stand(target, force: forceStand);
                 break;
             case MobState.Dead:
                 RemComp<CollisionWakeComponent>(target);

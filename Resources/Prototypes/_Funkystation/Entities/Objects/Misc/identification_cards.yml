@@ -30,13 +30,11 @@
   components:
   - type: Sprite
     layers:
-    - state: cc #base
+    - state: default #base
     - state: decal-stripe-cc #decal
     - sprite: _Funkystation/Interface/Misc/job_icons.rsi #icon
       offset: "-0.125, 0.09375"
       state: Magistrate
-  - type: Item
-    heldPrefix: cc
   - type: PresetIdCard
     job: Magistrate
 
@@ -63,7 +61,6 @@
   - type: Sprite
     layers:
     - state: cc #base
-    - state: decal-stripe-cc #decal
     - sprite: _Goobstation/Interface/Misc/job_icons.rsi #icon
       offset: "-0.125, 0.09375"
       state: nanotrasenrepresentative

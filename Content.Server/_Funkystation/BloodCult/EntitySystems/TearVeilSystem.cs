@@ -1,4 +1,5 @@
 // SPDX-FileCopyrightText: 2025 Skye <57879983+Rainbeon@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Terkala <appleorange64@gmail.com>
 // SPDX-FileCopyrightText: 2025 kbarkevich <24629810+kbarkevich@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
@@ -93,7 +94,7 @@ namespace Content.Server.BloodCult.EntitySystems
 			var lookup7 = _lookup.GetEntitiesInRange(bottomLeft, 0.225f);
 			var lookup8 = _lookup.GetEntitiesInRange(bottom, 0.225f);
 			var lookup9 = _lookup.GetEntitiesInRange(bottomRight, 0.225f);
-			bool didFindCultist = false;
+			//bool didFindCultist = false;//never used
 
 			int cultistsFound = 0;
 			bool found1 = false;

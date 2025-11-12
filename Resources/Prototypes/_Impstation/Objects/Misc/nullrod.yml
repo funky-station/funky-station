@@ -1,8 +1,10 @@
+# SPDX-FileCopyrightText: 2025 QueerCats <jansencheng3@gmail.com>
 # SPDX-FileCopyrightText: 2025 Skye <57879983+Rainbeon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 tea <xerithin@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -84,7 +86,7 @@
   name: gildgrail
   id: NullRodGrail
   parent: NullRodBase
-  description: Looks so expensive, it's almost concerning. Can hold a deceptively large volume of liquid. Said to ward off evil.
+  description: Looks so expensive, it's almost concerning. Can hold a large volume of liquid, and apparate holy water.
   components:
   - type: Sprite
     sprite: _Impstation/Objects/Misc/nullrod_grail.rsi
@@ -127,6 +129,18 @@
     solution: grail
   - type: Spillable
     solution: grail
+  - type: UseDelay
+    delay: 5
+  - type: ItemToggle
+  - type: ComponentToggler
+    components:
+    - type: SolutionRegeneration
+      solution: grail
+      generated:
+        reagents:
+        - ReagentId: Holywater
+          Quantity: 25
+      duration: 5
   - type: Appearance
   - type: SolutionContainerVisuals
     maxFillLevels: 5
@@ -167,9 +181,9 @@
   - type: Clothing
     sprite: _Impstation/Objects/Misc/nullrod_glove.rsi
   - type: StaminaDamageOnHit
-    damage: 23
+    damage: 25
   - type: MeleeWeapon
-    attackRate: 0.68
+    attackRate: 0.75
     damage:
       types:
         Blunt: 14
@@ -179,11 +193,8 @@
       params:
         variation: 0.35
     mustBeEquippedToUse: true
-  - type: MeleeThrowOnHit
-    unanchorOnHit: true
-    speed: 7
   - type: Reflect
-    reflectProb: .22
+    reflectProb: .25
     spread: 120
   - type: Fiber
     fiberMaterial: fibers-metallic
@@ -209,10 +220,6 @@
     sprite: _Impstation/Objects/Misc/nullrod_bow.rsi
     layers:
     - state: nullrod_bow
-    - state: unwielded-arrow
-      shader: unshaded
-      map: [ arrow ]
-      visible: false
   - type: Item
     size: Huge
   - type: Wieldable
@@ -224,70 +231,60 @@
   - type: Gun
     minAngle: 0
     maxAngle: 5
-    fireRate: 1.5
+    fireRate: 0.8
     selectedMode: SemiAuto
     availableModes:
     - SemiAuto
     soundGunshot:
       collection: BulletMiss
     soundEmpty: null
-  - type: ItemSlots
-    slots:
-      projectiles:
-        name: Projectiles
-        startingItem: null
-        insertSound: /Audio/Weapons/Guns/Misc/arrow_nock.ogg
-        whitelist:
-          tags:
-          - HolyArrow
-  - type: ContainerContainer
-    containers:
-      projectiles: !type:ContainerSlot
-  - type: ContainerAmmoProvider
-    container: projectiles
-  - type: Appearance
-  - type: ItemMapper
-    spriteLayers:
-    - arrow
-    mapLayers:
-      arrow:
-        whitelist:
-          tags:
-          - HolyArrow
+  - type: Battery
+    maxCharge: 60
+    startingCharge: 0
+  - type: ProjectileBatteryAmmoProvider
+    proto: BulletEnergyHolyBolt
+    fireCost: 15
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 1
+  - type: AmmoCounter
+  - type: Tag
+    tags:
+    - NoRecharge
 
-- type: entity
-  name: aureate quiver
-  parent: [ BaseAmmoProvider, BaseMinorContraband ]
-  id: NullRodArrowQuiver
-  description: A divine quiver, bristling with sparks of light.
-  components:
-    - type: Sprite
-      sprite: _Impstation/Objects/Misc/nullrod_quiver.rsi
-      layers:
-      - state: quiver-0
-        map: ["enum.GunVisualLayers.Mag"]
-      - state: quiver_unshaded
-        shader: unshaded
-    - type: Item
-      size: Large
-      shape:
-      - 0,0,2,2
-      sprite: _Impstation/Objects/Misc/nullrod_quiver.rsi
-    - type: Clothing
-      quickEquip: false
-      sprite: _Impstation/Objects/Misc/nullrod_quiver.rsi
-      slots:
-      - Back
-      - backStorage
-    - type: BallisticAmmoProvider
-      proto: HolyArrow
-      mayTransfer: true
-      capacity: 7
-      whitelist:
-        tags:
-        - HolyArrow
-    - type: MagazineVisuals
-      magState: quiver
-      steps: 1
-      zeroVisible: false
-    - type: Appearance
+#- type: entity
+#  name: aureate quiver
+#  parent: [ BaseAmmoProvider, BaseMinorContraband ]
+#  id: NullRodArrowQuiver
+#  description: A divine quiver, bristling with sparks of light.
+#  components:
+#    - type: Sprite
+#      sprite: _Impstation/Objects/Misc/nullrod_quiver.rsi
+#      layers:
+#      - state: quiver-0
+#        map: ["enum.GunVisualLayers.Mag"]
+#      - state: quiver_unshaded
+#        shader: unshaded
+#    - type: Item
+#      size: Large
+#      shape:
+#      - 0,0,2,2
+#      sprite: _Impstation/Objects/Misc/nullrod_quiver.rsi
+#    - type: Clothing
+#      quickEquip: false
+#      sprite: _Impstation/Objects/Misc/nullrod_quiver.rsi
+#      slots:
+#      - Back
+#      - backStorage
+#    - type: BallisticAmmoProvider
+#      proto: HolyArrow
+#      mayTransfer: true
+#      capacity: 7
+#      whitelist:
+#        tags:
+#        - HolyArrow
+#    - type: MagazineVisuals
+#      magState: quiver
+#      steps: 1
+#      zeroVisible: false
+#    - type: Appearance

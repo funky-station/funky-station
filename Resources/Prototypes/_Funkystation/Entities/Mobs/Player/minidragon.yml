@@ -77,7 +77,7 @@
         - DoorBumpOpener
         - CannotSuicide
     - type: ReplacementAccent
-      accent: lizard
+      accent: LizardAccent
     - type: Speech
       speechSounds: Lizard
       speechVerb: Reptilian
@@ -140,7 +140,7 @@
       damage:
         types: {}
     - type: Temperature
-      heatDamageThreshold: 800
+      heatDamageThreshold: 1200
     - type: Prying # Open door from xeno.yml.
       pryPowered: true
       force: true

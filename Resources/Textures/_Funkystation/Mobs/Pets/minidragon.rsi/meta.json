@@ -76,8 +76,11 @@
     {
       "name": "dead"
     },
-	  {
+	{
       "name": "dead_mouth"
+    },
+	{
+      "name": "icon"
     }
   ]
 }

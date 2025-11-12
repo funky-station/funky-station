@@ -34,10 +34,10 @@
     count: 1
     stackType: SalvageRewardTicket
   # Goobstation - Custom stack splitting dialog
-  - type: UserInterface
-    interfaces:
-      enum.StackCustomSplitUiKey.Key:
-        type: StackCustomSplitBoundUserInterface
+#  - type: UserInterface
+#    interfaces:
+#      enum.StackCustomSplitUiKey.Key:
+#        type: StackCustomSplitBoundUserInterface
   - type: StaticPrice
     price: 0
   - type: StackPrice

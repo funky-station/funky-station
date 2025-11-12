@@ -534,3 +534,5 @@
       orGroup: puddleMess
     - id: SmugglerStashVariationPass
       prob: 0.90
+    - id: CutWireVariationPass # funkystation
+      prob: 0.20 # would suck if it happened every single round, but it's something for engi to be vigilant of

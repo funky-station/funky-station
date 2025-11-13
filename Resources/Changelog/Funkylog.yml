@@ -5561,3 +5561,15 @@ Entries:
       message: Readded CutWireVariationPass to roundstart variation
   id: 665
   time: '2025-11-13T03:25:45.0000000+00:00'
+- author: zergologist
+  changes:
+    - type: Add
+      message: >-
+        Glowing blush, now you can have radiant cheeks (or even a second set of
+        glowing eyes)
+    - type: Tweak
+      message: >-
+        Changed the number of thaven head slot customization options from four
+        to five
+  id: 666
+  time: '2025-11-13T03:26:42.0000000+00:00'

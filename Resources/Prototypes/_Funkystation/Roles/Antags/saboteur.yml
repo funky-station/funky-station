@@ -1,0 +1,23 @@
+- type: antag
+  id: Saboteur
+  name: roles-antag-saboteur-name
+  antagonist: true
+  setPreference: true
+  objective: roles-antag-saboteur-objective
+  guides: [ Thieves ]
+  requirements:
+  - !type:OverallPlaytimeRequirement
+    time: 3600 # 1h
+  - !type:DepartmentTimeRequirement
+    department: Engineering
+    time: 3600 # 1h
+
+- type: startingGear
+  id: SaboteurGear
+  storage:
+    back:
+    - ClothingHandsGlovesColorYellow
+    - Wirecutter
+    - Screwdriver
+    - AccessBreaker
+    - Emag

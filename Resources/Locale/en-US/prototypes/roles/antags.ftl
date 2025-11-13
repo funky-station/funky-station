@@ -74,3 +74,6 @@ roles-antag-dragon-objective = Create a carp army to take over this quadrant.
 
 roles-antag-malfunctioning-ai-name = Malfunctioning AI
 roles-antag-malfunctioning-ai-objective = Sabotage the station as a malfunctioning AI.
+
+roles-antag-saboteur-name = Saboteur
+roles-antag-saboteur-name = Be annoying by making sure no electronic device functions like they are expected.

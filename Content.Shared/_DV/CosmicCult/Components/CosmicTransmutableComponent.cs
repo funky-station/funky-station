@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2025 No Elka <125199100+NoElkaTheGod@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 No Elka <no.elka.the.god@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared._DV.CosmicCult.Components;

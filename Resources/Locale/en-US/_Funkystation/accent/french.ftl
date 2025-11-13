@@ -32,10 +32,12 @@ accent-french-words-replace-7 = bonne nuit
 accent-french-words-8 = mister
 accent-french-words-8-2 = mr.
 accent-french-words-8-3 = gentleman
+accent-french-words-8-4 = sir
 accent-french-words-replace-8 = monsieur
 
 accent-french-words-9 = misters
 accent-french-words-9-2 = gentlemen
+accent-french-words-9-3 = sirs
 accent-french-words-replace-9 = monsieurs
 
 accent-french-words-10 = madam

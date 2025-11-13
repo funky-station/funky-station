@@ -4,6 +4,7 @@ using Content.Shared._FarHorizons.Power.Generation.FissionGenerator;
 using Content.Shared.Atmos;
 using Robust.Shared.Random;
 using DependencyAttribute = Robust.Shared.IoC.DependencyAttribute;
+using Content.Shared._FarHorizons.PhysicalMaterial.Systems;
 
 namespace Content.Server._FarHorizons.Power.Generation.FissionGenerator;
 
@@ -33,7 +34,7 @@ public sealed class ReactorPartSystem : SharedReactorPartSystem
             var DeltaT = compTemp - gasTemp;
             var DeltaTr = (compTemp + gasTemp) * (compTemp - gasTemp) * (Math.Pow(compTemp, 2) + Math.Pow(gasTemp, 2));
 
-            var k = MaterialSystem.CalculateHeatTransferCoefficient(reactorPart.Properties, null);
+            var k = PhysicalMaterialSystem.CalculateHeatTransferCoefficient(reactorPart.Properties, null);
             var A = reactorPart.GasThermalCrossSection * (0.4 * 8);
 
             var ThermalEnergy = _atmosphereSystem.GetThermalEnergy(reactorPart.AirContents);

@@ -172,13 +172,9 @@ public sealed class NuclearReactorSystem : SharedNuclearReactorSystem
             {
                 if (comp.ComponentGrid![x, y] != null)
                 {
-                    var ReactorComp = comp.ComponentGrid[x, y]!;
-
-                    if (ReactorComp.Properties == null)
-                        _partSystem.SetProperties(ReactorComp, out ReactorComp.Properties);
-
-                    var gas = _partSystem.ProcessGas(ReactorComp, ent, args, GasInput);
-                    GasInput.Volume -= ReactorComp.GasVolume;
+                    var ReactorComp = comp.ComponentGrid[x, y];
+                    var gas = _partSystem.ProcessGas(ReactorComp!, ent, args, GasInput);
+                    GasInput.Volume -= ReactorComp!.GasVolume;
 
                     if (gas != null)
                         _atmosphereSystem.Merge(AirContents, gas);
@@ -199,9 +195,9 @@ public sealed class NuclearReactorSystem : SharedNuclearReactorSystem
                     comp.FluxGrid[x, y] = _partSystem.ProcessNeutrons(ReactorComp, comp.FluxGrid[x, y], uid, out var deltaT);
                     TempChange += deltaT;
 
-                    TotalNRads += ReactorComp.Properties.NeutronRadioactivity;
-                    TotalRads += ReactorComp.Properties.Radioactivity;
-                    TotalSpent += ReactorComp.Properties.FissileIsotopes;
+                    TotalNRads += ReactorComp.NRadioactive;
+                    TotalRads += ReactorComp.Radioactive;
+                    TotalSpent += ReactorComp.SpentFuel;
                 }
                 else
                     comp.TemperatureGrid[x, y] = 0;
@@ -428,7 +424,7 @@ public sealed class NuclearReactorSystem : SharedNuclearReactorSystem
             var DeltaT = reactor.Temperature - reactor.AirContents.Temperature;
             var DeltaTr = Math.Pow(reactor.Temperature, 4) - Math.Pow(reactor.AirContents.Temperature, 4);
 
-            var k = MaterialSystem.CalculateHeatTransferCoefficient(_prototypes.Index(reactor.Material).Properties, null);
+            var k = (Math.Pow(10, 6 / 5) - 1) / 2;
             var A = 1 * (0.4 * 8);
 
             var ThermalEnergy = _atmosphereSystem.GetThermalEnergy(reactor.AirContents);
@@ -549,15 +545,10 @@ public sealed class NuclearReactorSystem : SharedNuclearReactorSystem
         {
             for (var y = 0; y < _gridHeight; y++)
             {
-                var reactorPart = reactor.ComponentGrid[x, y];
-
-                if (reactorPart != null && reactorPart.Properties == null)
-                        _partSystem.SetProperties(reactorPart, out reactorPart.Properties);
-
                 var pos = (x * _gridWidth) + y;
                 temp[pos] = reactor.TemperatureGrid[x, y];
                 neutron[pos] = reactor.NeutronGrid[x, y];
-                icon[pos] = reactorPart != null ? reactorPart.IconStateInserted : "base";
+                icon[pos] = reactor.ComponentGrid[x, y] != null ? reactor.ComponentGrid[x, y]!.IconStateInserted : "base";
 
                 partName[pos] = reactor.ComponentGrid[x, y] != null ? reactor.ComponentGrid[x, y]!.Name : "empty";
                 partInfo[pos] = reactor.ComponentGrid[x, y] != null ? reactor.ComponentGrid[x, y]!.NRadioactive : 0;
@@ -616,17 +607,22 @@ public sealed class NuclearReactorSystem : SharedNuclearReactorSystem
             else
                 return;
 
-            comp.ComponentGrid[(int)pos.X, (int)pos.Y]!.Name = Identity.Name((EntityUid)comp.PartSlot.Item, _entityManager);
+            _adminLog.Add(LogType.Action, $"{ToPrettyString(args.Actor):actor} added {ToPrettyString(comp.PartSlot.Item):item} to position {args.Position} in {ToPrettyString(ent):target}");
+            comp.ComponentGrid[(int)pos.X, (int)pos.Y]!.Name = Identity.Name(comp.PartSlot.Item.Value, _entityManager);
             _entityManager.DeleteEntity(comp.PartSlot.Item);
         }
 
-        UpdateGridVisual(comp);
+        UpdateGridVisual(ent.Owner, comp);
         UpdateUI(ent.Owner, comp);
     }
 
-    private void OnControlRodMessage(Entity<NuclearReactorComponent> ent, ref ReactorControlRodModifyMessage args) 
-        => ent.Comp.ControlRodInsertion = Math.Clamp(ent.Comp.ControlRodInsertion + args.Change, 0, 2);
-
+    private void OnControlRodMessage(Entity<NuclearReactorComponent> ent, ref ReactorControlRodModifyMessage args)
+    {
+        ent.Comp.ControlRodInsertion = Math.Clamp(ent.Comp.ControlRodInsertion + args.Change, 0, 2);
+        _adminLog.Add(LogType.Action, $"{ToPrettyString(args.Actor):actor} set control rod insertion of {ToPrettyString(ent):target} to {ent.Comp.ControlRodInsertion}");
+        UpdateUI(ent.Owner, ent.Comp);
+    }
+    
     private void UpdateVisuals(Entity<NuclearReactorComponent> ent)
     {
         var comp = ent.Comp;

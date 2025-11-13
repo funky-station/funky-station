@@ -78,13 +78,7 @@ public sealed class TurbineSystem : SharedTurbineSystem
 
         UpdateAppearance(uid, comp);
 
-        //var InletStartingPressure = inlet.Air.Pressure;
-        //var TransferMoles = 0f;
-        //if (InletStartingPressure > 0)
-        //{
-        //    TransferMoles = comp.FlowRate * InletStartingPressure / (Atmospherics.R * inlet.Air.Temperature);
-        //}
-        var AirContents = inlet.Air.RemoveVolume(Math.Min(comp.FlowRate * _atmosphereSystem.PumpSpeedup() * args.dt, inlet.Air.Volume));
+        var AirContents = inlet.Air.RemoveVolume(Math.Min(comp.FlowRate * _atmosphereSystem.PumpSpeedup() * args.dt, inlet.Air.Volume) * inlet.Air.Temperature * Atmospherics.R / inlet.Air.Temperature) ?? new GasMixture();
 
         comp.LastVolumeTransfer = AirContents.Volume;
         comp.LastGen = 0;
@@ -208,8 +202,6 @@ public sealed class TurbineSystem : SharedTurbineSystem
 
             _atmosphereSystem.Merge(outlet.Air, AirContents);
         }
-        //inlet.Air.Volume = comp.FlowRate;
-        AirContents!.Volume = comp.FlowRate;
 
         // Explode
         if (!comp.Ruined && (comp.BladeHealth <= 0|| comp.RPM>comp.BestRPM*4))

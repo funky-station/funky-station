@@ -12,3 +12,6 @@ saboteur-role-greeting-equipment =
 objective-issuer-saboteur = [color=#746694]Criminal[/color]
 
 saboteur-round-end-agent-name = saboteur
+
+admin-verb-make-saboteur = Make the target into a saboteur.
+admin-verb-text-make-saboteur = Make saboteur.

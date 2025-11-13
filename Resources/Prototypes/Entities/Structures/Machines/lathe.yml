@@ -482,6 +482,7 @@
     - ClothingHeadHatCone
     - FreezerElectronics
     - Lantern #funky
+    - UtilityKnife #funky
     # Begin Delta-V additions
     - CassetteTape
     - TapeRecorder
@@ -784,6 +785,9 @@
     - OperatingTableCircuitboard # Shitmed Change
     - BorgChargerCircuitboard
     - ThermomachineFreezerMachineCircuitBoard # Assmos - Moved to staticRecipes from dynamicRecipes
+    - SubstationMachineCircuitboard #WHY DID THE RECIPE EXIST BUT NOT IMPLEMENTED
+    - WallmountSubstationElectronics #QoL for shuttle builders
+    - SMESMachineCircuitboard #read sbstation machine board comment
     dynamicRecipes:
     - HellfireFreezerMachineCircuitBoard
     - PortableScrubberMachineCircuitBoard
@@ -1393,6 +1397,7 @@
     - ParamedHypo # Goobstation - ParamedHypo
     - autoInjectorCartridgeCase
     - autoInjectorCartridgeCaseSoft
+    - UtilityKnife #funky
     dynamicRecipes:
     - ChemicalPayload
     - CryostasisBeaker

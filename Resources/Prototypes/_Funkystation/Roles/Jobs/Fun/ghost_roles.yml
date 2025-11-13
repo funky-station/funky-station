@@ -6,6 +6,7 @@
   id: SpaceCowboy
   name: Space Cowboy
   description: ghost-role-information-space-cowboy-description
+  setPreference: false
   requirements:
   - !type:OverallPlaytimeRequirement
     time: 36000 #10 hrs

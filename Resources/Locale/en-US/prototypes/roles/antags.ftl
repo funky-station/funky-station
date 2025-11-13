@@ -76,4 +76,4 @@ roles-antag-malfunctioning-ai-name = Malfunctioning AI
 roles-antag-malfunctioning-ai-objective = Sabotage the station as a malfunctioning AI.
 
 roles-antag-saboteur-name = Saboteur
-roles-antag-saboteur-name = Be annoying by making sure no electronic device functions like they are expected.
+roles-antag-saboteur-objective = Be annoying by making sure no electronic device functions like they are expected.

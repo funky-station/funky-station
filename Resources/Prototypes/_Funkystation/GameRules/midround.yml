@@ -16,7 +16,7 @@
       lateJoinAdditional: true
       allowNonHumans: true
       multiAntagSetting: NotExclusive
-      startingGear: ThiefGear
+      startingGear: SaboteurGear
       components:
       - type: Pacified
 

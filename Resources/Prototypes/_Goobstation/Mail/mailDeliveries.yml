@@ -138,6 +138,13 @@
     MailLightImplant: 0.1
     MailSadTromboneImplant: 0.1
     MailBikeHornImplant: 0.1
+    MailSyndicateBusinessCard: 0.3
+    MailBloodRedBrewPair: 0.4
+    MailChangelingStingPair: 0.4
+    MailClownFood: 0.4
+    MailBloodRedBrewPack: 0.2
+    MailChangelingStingPack: 0.2
+    MailCarpBundle: 0.3
   # Tools
     MailSignallerKit: 0.5
     MailFlashlight: 0.8

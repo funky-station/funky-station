@@ -574,3 +574,12 @@
     - id: ClothingHandsGlovesConducting
       amount: 7
     - id: ClothingHandsGlovesColorYellow
+
+- type: entity
+  parent: BaseMailSmall
+  id: MailNukieFood
+  suffix: Nukie Food
+  components:
+  - type: Mail
+    contents:
+    - id: HappyHonkNukieSnacksSafe

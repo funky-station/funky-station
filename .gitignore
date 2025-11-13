@@ -3941,9 +3941,3 @@ Resources/MapImages
 /release-funny/SS14.Server_win-x64/zstd.dll
 /release-funny/SS14.Client.zip
 /release-funny/SS14.Server_win-x64.zip
-
-‎Tools/changelog/package-lock.json
-Resources/Prototypes/_Funkystation/Store/salvage_vendor.yml
-Resources/Prototypes/_Funkystation/Catalog/salvage_catalog.yml
-Resources/Locale/en-US/_Funkystation/store/salvage_catalog_desc.ftl
-Resources/Prototypes/_Funkystation/Store/salvage_categories.yml

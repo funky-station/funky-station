@@ -9,6 +9,7 @@
   materials:
     RawIron: 100
     Coal: 25
+  printTicket: true       
 
 - type: latheRecipe
   id: SheetGlassIndustrial
@@ -17,6 +18,7 @@
   materials:
     RawQuartz: 100
     Coal: 25
+  printTicket: true       
 
 - type: latheRecipe
   id: SheetPlasmaIndustrial
@@ -25,6 +27,7 @@
   materials:
     RawPlasma: 100
     Coal: 35
+  printTicket: true       
 
 - type: latheRecipe
   id: IngotGoldIndustrial
@@ -33,6 +36,8 @@
   materials:
     RawGold: 100
     Coal: 55
+    printTicket: true
+  ticketProtoId: SalvageTicket2
 
 - type: latheRecipe
   id: IngotSilverIndustrial
@@ -41,6 +46,8 @@
   materials:
     RawSilver: 100
     Coal: 45
+    printTicket: true
+  ticketProtoId: SalvageTicket2
 
 - type: latheRecipe
   id: SheetUraniumIndustrial
@@ -49,6 +56,8 @@
   materials:
     RawUranium: 100
     Coal: 60
+  printTicket: true
+  ticketProtoId: SalvageTicket3
 
 - type: latheRecipe
   id: MaterialBananiumIndustrial
@@ -57,6 +66,8 @@
   materials:
     RawBananium: 100
     Coal: 100 
+  printTicket: true
+  ticketProtoId: SalvageTicket5
 
 - type: latheRecipe
   id: MaterialDiamondIndustrial
@@ -64,3 +75,5 @@
   completetime: 0
   materials:
     Coal: 8000   
+  printTicket: true
+  ticketProtoId: SalvageTicket75  

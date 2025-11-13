@@ -12,24 +12,6 @@
   - type: Tag
     tags:
     - ReactorPart
-  - type: Edible
-    transferAmount: null
-    delay: 30
-    forceFeedDelay: 60
-  - type: FlavorProfile
-    flavors:
-      - metal
-      - electrons
-  - type: BadFood
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        reagents:
-        - ReagentId: Uranium
-          Quantity: 800
-        - ReagentId: Radium
-          Quantity: 200
-        canReact: false
   - type: GuideHelp
     guides:
     - NuclearReactor
@@ -42,10 +24,13 @@
   components:
   - type: ReactorPart
 
+# Fuel Rods
 - type: entity
   id: BaseReactorFuelRod
   parent: BaseReactorPart
   categories: [ HideSpawnMenu ]
+  name: fuel rod
+  description: A fuel rod for a nuclear reactor.
   components:
   - type: ReactorPart
     iconStateInserted: "fuel"
@@ -53,37 +38,45 @@
     neutronCrossSection: 1.0
     thermalCrossSection: 10
     thermalMass: 420000 # specific heat capacity of steel (420 J/KgK) * mass of component (1000Kg)
-
+  
 - type: entity
-  id: CerenkiteFuelRod
+  id: CerenkiteReactorFuelRod
   parent: BaseReactorFuelRod
   name: cerenkite fuel rod
-  description: A fuel rod for a nuclear reactor.
   components:
   - type: ReactorPart
     material: Cerenkite
 
 - type: entity
-  id: UraniumFuelRod
+  id: UraniumReactorFuelRod
   parent: BaseReactorFuelRod
   name: uranium fuel rod
-  description: A fuel rod for a nuclear reactor.
   components:
   - type: ReactorPart
     material: Uranium
 
 - type: entity
-  id: PlutoniumFuelRod
+  id: PlutoniumReactorFuelRod
   parent: BaseReactorFuelRod
   name: plutonium fuel rod
-  description: A fuel rod for a nuclear reactor.
   components:
   - type: ReactorPart
     material: Plutonium
 
 - type: entity
-  id: ReactorControlRod
+  id: BananiumReactorFuelRod
+  parent: BaseReactorFuelRod
+  name: bananium fuel rod
+  description: A honk rod for a nuclear reactor.
+  components:
+  - type: ReactorPart
+    material: Bananium
+
+# Control Rods
+- type: entity
+  id: BaseReactorControlRod
   parent: BaseReactorPart
+  categories: [ HideSpawnMenu ]
   name: control rod
   description: A control rod assembly for a nuclear reactor.
   components:
@@ -93,12 +86,21 @@
     iconStateCap: "control_cap"
     isControlRod: true
     neutronCrossSection: 2.0
-    material: Bohrum
 
 - type: entity
-  id: ReactorGasChannel
+  id: BohrumReactorControlRod
+  parent: BaseReactorControlRod
+  name: bohrum control rod
+  components:
+  - type: ReactorPart
+    material: Bohrum
+
+# Gas Channel Rods
+- type: entity
+  id: BaseReactorGasChannel
   parent: BaseReactorPart
-  name: gas channel
+  categories: [ HideSpawnMenu ]
+  name: gas channel rod
   description: A gas channel for a nuclear reactor.
   components:
   - type: ReactorPart
@@ -110,9 +112,27 @@
     thermalMass: 21000
 
 - type: entity
-  id: ReactorHeatExchanger
+  id: SteelReactorGasChannel
+  parent: BaseReactorGasChannel
+  name: steel gas channel rod
+  components:
+  - type: ReactorPart
+    material: Steel
+
+- type: entity
+  id: BrassReactorGasChannel
+  parent: BaseReactorGasChannel
+  name: brass gas channel rod
+  components:
+  - type: ReactorPart
+    material: Brass
+
+# Heat Exchanger Rods
+- type: entity
+  id: BaseReactorHeatExchanger
   parent: BaseReactorPart
-  name: heat exchanger
+  categories: [ HideSpawnMenu ]
+  name: heat exchanger rod
   description: A heat exchanger for a nuclear reactor.
   components:
   - type: ReactorPart
@@ -120,3 +140,19 @@
     iconStateCap: "heat_cap"
     neutronCrossSection: 0.1
     thermalCrossSection: 25
+
+- type: entity
+  id: SteelReactorHeatExchanger
+  parent: BaseReactorHeatExchanger
+  name: steel heat exchanger rod
+  components:
+  - type: ReactorPart
+    material: Steel
+
+- type: entity
+  id: BrassReactorHeatExchanger
+  parent: BaseReactorHeatExchanger
+  name: brass heat exchanger rod
+  components:
+  - type: ReactorPart
+    material: Brass

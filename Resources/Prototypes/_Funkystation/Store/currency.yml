@@ -36,10 +36,10 @@
     count: 1
     stackType: SalvageRewardTicket
   # Goobstation - Custom stack splitting dialog
-#  - type: UserInterface
-#    interfaces:
-#      enum.StackCustomSplitUiKey.Key:
-#        type: StackCustomSplitBoundUserInterface
+  - type: UserInterface
+    interfaces:
+      enum.StackCustomSplitUiKey.Key:
+        type: StackCustomSplitBoundUserInterface
   - type: StaticPrice
     price: 0
   - type: StackPrice
@@ -101,5 +101,5 @@
 - type: stack
   id: SalvageRewardTicket
   name: salvageticket
-  icon: _Funkystation/Objects/Specific/Cargo/salvage_reward_ticket.rsi
+  icon: { sprite: /Textures/_Funkystation/Objects/Specific//Cargo/salvage_reward_ticket.rsi, state: ticket }
   spawn: SalvageTicket

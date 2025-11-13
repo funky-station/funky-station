@@ -7,6 +7,8 @@
 // SPDX-License-Identifier: MIT
 
 using Content.Server.Speech.Components;
+using Robust.Shared.Random;
+using System.Linq;
 using System.Text.RegularExpressions;
 
 namespace Content.Server.Speech.EntitySystems;
@@ -16,6 +18,7 @@ namespace Content.Server.Speech.EntitySystems;
 /// </summary>
 public sealed class FrenchAccentSystem : EntitySystem
 {
+    [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly ReplacementAccentSystem _replacement = default!;
 
     private static readonly Regex RegexThLower = new(@"th");
@@ -91,6 +94,19 @@ public sealed class FrenchAccentSystem : EntitySystem
         msg = RegexEndIcsLower.Replace(msg, "iques");
         msg = RegexEndIcUpper.Replace(msg, "IQUE");
         msg = RegexEndIcsUpper.Replace(msg, "IQUES");
+
+        // 30% chance to prefix any single-word message with "le".
+        if (!msg.Any(Char.IsWhiteSpace) && _random.Prob(0.3f))
+        {
+            if (msg.Any(char.IsLower))
+            {
+                msg = "Le " + msg.ToLower();
+            }
+            else
+            {
+                msg = "LE " + msg;
+            }
+        }
 
         return msg;
     }

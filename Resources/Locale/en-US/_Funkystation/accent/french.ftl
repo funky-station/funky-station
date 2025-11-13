@@ -260,3 +260,30 @@ accent-french-words-replace-73 = corps
 
 accent-french-words-74 = magnificent
 accent-french-words-replace-74 = magnifique
+
+accent-french-words-75 = cheese
+accent-french-words-replace-75 = fromage
+
+accent-french-words-76 = cheeses
+accent-french-words-replace-76 = fromages
+
+accent-french-words-77 = snail
+accent-french-words-replace-77 = escargot
+
+accent-french-words-78 = snail
+accent-french-words-replace-78 = escargots
+
+accent-french-words-79 = quarter pounder
+accent-french-words-replace-79 = royale with cheese
+
+accent-french-words-80 = quarter pounders
+accent-french-words-replace-80 = royales with cheese
+
+accent-french-words-81 = very
+accent-french-words-replace-81 = très
+
+accent-french-words-82 = rizzler
+accent-french-words-replace-82 = charismeur
+
+accent-french-words-83 = rizzlers
+accent-french-words-replace-83 = charismeurs

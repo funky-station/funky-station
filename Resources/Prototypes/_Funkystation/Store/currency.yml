@@ -101,5 +101,5 @@
 - type: stack
   id: SalvageRewardTicket
   name: salvageticket
-  icon: { sprite: _Funkystation/Objects/Specific//Cargo/salvage_reward_ticket.rsi, state: ticket }
+  icon: { sprite: _Funkystation/Objects/Specific/Cargo/salvage_reward_ticket.rsi, state: ticket }
   spawn: SalvageTicket

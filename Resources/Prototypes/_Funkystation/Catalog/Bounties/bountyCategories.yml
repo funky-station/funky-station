@@ -1025,11 +1025,6 @@
     maxAmount: 60
     rewardPer: 65
     reagent: BlueHawaiian
-  - name: bounty-item-citrus-bikeshed
-    minAmount: 60
-    maxAmount: 60
-    rewardPer: 65
-    reagent: DrinkOrangeLimeSodaGlass
   - name: bounty-item-andalusia
     minAmount: 60
     maxAmount: 60

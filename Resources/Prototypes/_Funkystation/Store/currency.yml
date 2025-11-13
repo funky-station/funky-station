@@ -29,7 +29,6 @@
     sprite: _Funkystation/Objects/Specific/Cargo/salvage_reward_ticket.rsi
     state: ticket
   - type: Item
-    sprite: _Funkystation/Objects/Specific/Cargo/salvage_reward_ticket.rsi
     shape:
     - 0,0,1,1
   - type: Stack

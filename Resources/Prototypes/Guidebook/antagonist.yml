@@ -37,6 +37,7 @@
   - MinorAntagonists
   - SpaceNinja
   - Thieves
+  - Hackers
   - MalfunctioningAI
 
 - type: guideEntry
@@ -83,3 +84,8 @@
   id: MalfunctioningAI
   name: guide-entry-malfunctioningai
   text: "/ServerInfo/Guidebook/Antagonist/MalfunctioningAI.xml"
+
+- type: guideEntry
+  id: Hackers
+  name: guide-entry-hackers
+  text: "/ServerInfo/Guidebook/Antagonist/Hackers.xml"

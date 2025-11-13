@@ -54,8 +54,10 @@ public sealed class CosmicTransmuteSystem : EntitySystem
         _lookup.GetEntitiesInRange(Transform(ent).Coordinates, ent.Comp.TransmuteRange, _entities);
         _entities.RemoveWhere(item => 
         !TryComp<CosmicTransmutableComponent>(item, out var comp)
-        || _proto.TryIndex(comp.TransmutesTo) == false
-        || _proto.TryIndex(comp.RequiredGlyphType) == false
+        || comp.TransmutesTo is not { } transmutesTo
+        || comp.RequiredGlyphType is not { } requiredGlyphType
+        || _proto.TryIndex(transmutesTo, out var result) == false
+        || _proto.TryIndex(requiredGlyphType, out var glyph) == false
         || comp.RequiredGlyphType != MetaData(ent).EntityPrototype!.ID);
         return _entities;
     }

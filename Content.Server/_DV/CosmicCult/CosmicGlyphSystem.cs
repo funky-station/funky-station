@@ -99,22 +99,14 @@ public sealed class CosmicGlyphSystem : SharedCosmicGlyphSystem
             ent.Comp.State = GlyphStatus.Cooldown;
             ent.Comp.Timer = _timing.CurTime + ent.Comp.CooldownTime;
         }
-        else
-        {
-            _appearance.SetData(ent, GlyphVisuals.Status, GlyphStatus.Ready);
-            ent.Comp.State = GlyphStatus.Ready;
-        }
 
         if (ent.Comp.User is not { } user) return;
         var cultists = GatherCultists(ent, ent.Comp.ActivationRange);
-        var tryInvokeEv = new TryActivateGlyphEvent(user, cultists);
-        RaiseLocalEvent(ent, ref tryInvokeEv);
         var tgtpos = Transform(ent).Coordinates;
-        if (tryInvokeEv.Cancelled || cultists.Count < ent.Comp.RequiredCultists)
-        {
-            _audio.PlayPvs(ent.Comp.FailSFX, tgtpos);
+        var ev = new TryActivateGlyphEvent(user, cultists);
+        RaiseLocalEvent(ent, ref ev);
+        if (ev.Cancelled || cultists.Count < ent.Comp.RequiredCultists)
             return;
-        }
 
         var damage = ent.Comp.ActivationDamage / cultists.Count;
         foreach (var cultist in cultists)

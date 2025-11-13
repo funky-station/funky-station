@@ -38,8 +38,6 @@ public abstract class SharedCosmicCultSystem : EntitySystem
         SubscribeLocalEvent<CosmicCultLeadComponent, ComponentStartup>(OnCosmicCultConversion);
         SubscribeLocalEvent<CosmicCultComponent, ComponentRemove>(OnCosmicCultDeconversion);
         SubscribeLocalEvent<CosmicCultLeadComponent, ComponentRemove>(OnCosmicCultDeconversion);
-        SubscribeLocalEvent<CosmicCultComponent, ComponentStartup>(DirtyCosmicCultComps);
-        SubscribeLocalEvent<CosmicCultLeadComponent, ComponentStartup>(DirtyCosmicCultComps);
 
         SubscribeLocalEvent<CosmicTransmutableComponent, GetVerbsEvent<ExamineVerb>>(OnTransmutableExamined);
         SubscribeLocalEvent<CosmicCultExamineComponent, ExaminedEvent>(OnCosmicCultExamined);
@@ -47,13 +45,13 @@ public abstract class SharedCosmicCultSystem : EntitySystem
 
     private void OnTransmutableExamined(Entity<CosmicTransmutableComponent> ent, ref GetVerbsEvent<ExamineVerb> args)
     {
-        if (_proto.TryIndex(ent.Comp.TransmutesTo) == false || _proto.TryIndex(ent.Comp.RequiredGlyphType) == false)
+        if (ent.Comp.TransmutesTo is not { } transmutesTo || ent.Comp.RequiredGlyphType is not { } requiredGlyphType)
+            return;
+        if (_proto.TryIndex(transmutesTo, out var result) == false || _proto.TryIndex(requiredGlyphType, out var glyph) == false)
             return;
         if (!EntityIsCultist(args.User)) //non-cultists don't need to know this anyway
             return;
-        var result = _proto.TryIndex(ent.Comp.TransmutesTo).Name;
-        var glyph = _proto.TryIndex(ent.Comp.RequiredGlyphType).Name;
-        var text = Loc.GetString("cosmic-examine-transmutable", ("result", result), ("glyph", glyph));
+        var text = Loc.GetString("cosmic-examine-transmutable", ("result", result.Name), ("glyph", glyph.Name));
         var msg = new FormattedMessage();
         msg.AddMarkupOrThrow(text);
         _examine.AddHoverExamineVerb(args,
@@ -66,15 +64,6 @@ public abstract class SharedCosmicCultSystem : EntitySystem
     private void OnCosmicCultExamined(Entity<CosmicCultExamineComponent> ent, ref ExaminedEvent args)
     {
         args.PushMarkup(Loc.GetString(EntitySeesCult(args.Examiner) ? ent.Comp.CultistText : ent.Comp.OthersText));
-    }
-
-    private void OnSubtleMarkExamined(Entity<CosmicSubtleMarkComponent> ent, ref ExaminedEvent args)
-    {
-        var ev = new SeeIdentityAttemptEvent();
-        RaiseLocalEvent(ent, ev);
-        if (ev.TotalCoverage.HasFlag(IdentityBlockerCoverage.EYES)) return;
-
-        args.PushMarkup(Loc.GetString(ent.Comp.ExamineText));
     }
 
     public bool EntityIsCultist(EntityUid user)

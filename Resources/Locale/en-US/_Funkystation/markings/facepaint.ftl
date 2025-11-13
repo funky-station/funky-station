@@ -15,3 +15,10 @@ marking-FacepaintEyebrowsThaven = Eyebrows
 marking-FacepaintEyebrowsThaven-facepaint_eyebrows = Eyebrows
 marking-FacepaintLipstickThaven = Lipstick
 marking-FacepaintLipstickThaven-facepaint_lipstick = Lipstick
+
+marking-FacepaintBlushHeadUnshaded = Glowing Blush
+marking-FacepaintBlushHeadUnshaded-facepaint_blush = Glowing Blush
+marking-FacepaintBlushSnoutUnshaded = Glowing Blush
+marking-FacepaintBlushSnoutUnshaded-facepaint_blush = Glowing Blush
+marking-FacepaintBlushThavenUnshaded = Glowing Blush
+marking-FacepaintBlushThavenUnshaded-facepaint_blush = Glowing Blush

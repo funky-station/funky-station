@@ -716,3 +716,70 @@
     contents:
     - id: BikeHornImplanter
       amount: 3
+
+- type: entity
+  parent: BaseMail
+  id: MailSyndicateBusinessCard
+  suffix: Syndicate Business Card
+  components:
+  - type: Mail
+    contents:
+    - id: SyndicateBusinessCard
+
+- type: entity
+  parent: BaseMailSmall
+  id: MailBloodRedBrewPair
+  suffix: Blood Red Brew Pair
+  components:
+  - type: Mail
+    contents:
+    - id: DrinkNukieCan
+      amount: 2
+
+- type: entity
+  parent: BaseMailSmall
+  id: MailChangelingStingPair
+  suffix: Changeling Sting Pair
+  components:
+  - type: Mail
+    contents:
+    - id: DrinkChangelingStingCan
+      amount: 2
+
+- type: entity
+  parent: BaseMailSmall
+  id: MailClownFood
+  suffix: Clown Food
+  components:
+  - type: Mail
+    contents:
+    - id: FoodMealHappyHonkBigBite
+
+- type: entity
+  parent: BaseMailLarge
+  id: MailBloodRedBrewPack
+  suffix: Blood Red Brew Pack
+  components:
+  - type: Mail
+    contents:
+    - id: DrinkNukieCan
+      amount: 6
+
+- type: entity
+  parent: BaseMailLarge
+  id: MailChangelingStingPack
+  suffix: Changeling Sting Pack
+  components:
+  - type: Mail
+    contents:
+    - id: DrinkChangelingStingCan
+      amount: 6
+
+- type: entity
+  parent: BaseMailLarge
+  id: MailCarpBundle
+  suffix: Carp Bundle
+  components:
+  - type: Mail
+    contents:
+    - id: ClothingBackpackDuffelSyndicateCarpSuit

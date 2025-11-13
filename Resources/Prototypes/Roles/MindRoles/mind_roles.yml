@@ -355,3 +355,13 @@
     exclusiveAntag: true
     roleType: MalfunctioningSilicon
   - type: MalfAiRole
+
+# Saboteur
+- type: entity
+  parent: BaseMindRoleAntag
+  id: MindRoleSaboteur
+  name: Saboteur Role
+  components:
+  - type: MindRole
+    antagPrototype: Saboteur
+  - type: SaboteurRole

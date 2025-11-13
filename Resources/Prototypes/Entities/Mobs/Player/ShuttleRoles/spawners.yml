@@ -1049,3 +1049,12 @@
   - type: RandomSpawner
     prototypes:
     - RandomHumanoidCossack
+
+  - type: entity
+    name: zombie spawner
+    id: ZombieSpawner
+    parent: MarkerBase
+    components:
+    - type: RandomSpawner
+      prototypes:
+      - RandomZombie

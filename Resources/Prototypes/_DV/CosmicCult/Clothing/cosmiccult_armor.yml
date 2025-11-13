@@ -91,6 +91,9 @@
   - type: BatterySelfRecharger
     autoRecharge: true
     autoRechargeRate: 5
+  - type: CosmicTransmutable # Reforging not real
+    transmutesTo: null
+    requiredGlyphType: null
 
 
 # COSMIC CULT HARDSUIT HELMET

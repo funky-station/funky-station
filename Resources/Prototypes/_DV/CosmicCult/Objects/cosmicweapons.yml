@@ -77,6 +77,9 @@
       - state: inhand-left
       right:
       - state: inhand-right
+  - type: CosmicTransmutable # Reforging not real
+    transmutesTo: null
+    requiredGlyphType: null
 
 - type: entity
   name: vacuous lance
@@ -170,6 +173,9 @@
         restitution: 0.3
         friction: 0.2
   - type: Sharp
+  - type: CosmicTransmutable # Reforging not real
+    transmutesTo: null
+    requiredGlyphType: null
 
 
 - type: entity
@@ -267,3 +273,6 @@
       - state: inhand-left
       right:
       - state: inhand-right
+  - type: CosmicTransmutable # Reforging not real
+    transmutesTo: null
+    requiredGlyphType: null

@@ -250,6 +250,8 @@
         Slash: 0.95
         Piercing: 0.95
         Heat: 0.95
+  - type: IngestionBlocker # Goobstation
+    blockSmokeIngestion: true
 
 - type: entity
   parent: ClothingMaskPullableBase
@@ -343,6 +345,9 @@
         Slash: 0.95
         Piercing: 0.95
         Heat: 0.95
+  - type: Hailer # Goobstation - Hailer
+  - type: IngestionBlocker # Goobstation
+    blockSmokeIngestion: true
 
 - type: entity
   parent: ClothingMaskBase
@@ -482,6 +487,9 @@
         Slash: 0.90
         Piercing: 0.95
         Heat: 0.95
+  - type: Hailer # Goobstation - Hailer
+  - type: IngestionBlocker # Goobstation
+    blockSmokeIngestion: true
 
 - type: entity
   parent: [ ClothingMaskGas, BaseSecurityCargoContraband ]
@@ -548,6 +556,8 @@
         Slash: 0.80
         Piercing: 0.90
         Heat: 0.90
+  - type: IngestionBlocker # Goobstation
+    blockSmokeIngestion: true
 
 - type: entity
   parent: ClothingMaskBase

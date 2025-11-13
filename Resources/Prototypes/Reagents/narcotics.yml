@@ -517,6 +517,15 @@
         conditions:
         - !type:ReagentThreshold
           min: 5
+      - !type:MovespeedModifier
+        walkSpeedModifier: 0.7
+        sprintSpeedModifier: 0.7
+      - !type:MovespeedModifier
+        conditions:
+        - !type:ReagentThreshold
+          min: 20
+        walkSpeedModifier: 0.35
+        sprintSpeedModifier: 0.35
 
 - type: reagent
   id: Happiness

@@ -21,7 +21,7 @@
 - type: entity
   parent: [BaseSaboteurObjective, BaseLivingObjective]
   id: EscapeSaboteurShuttleObjective
-  name: Become the greatest saboteur of all time
+  name: Become the greatest hacker of all time
   description: Make sure you don't get caught.
   components:
   - type: Objective

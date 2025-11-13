@@ -19,7 +19,7 @@ public sealed class SaboteurRuleSystem : GameRuleSystem<SaboteurRuleComponent>
 
         SubscribeLocalEvent<SaboteurRuleComponent, AfterAntagEntitySelectedEvent>(AfterAntagSelected);
 
-        SubscribeLocalEvent<SaboteurRuleComponent, GetBriefingEvent>(OnGetBriefing);
+        SubscribeLocalEvent<SaboteurRoleComponent, GetBriefingEvent>(OnGetBriefing);
     }
 
     // Greeting upon saboteur activation
@@ -30,7 +30,7 @@ public sealed class SaboteurRuleSystem : GameRuleSystem<SaboteurRuleComponent>
     }
 
     // Character screen briefing
-    private void OnGetBriefing(Entity<SaboteurRuleComponent> role, ref GetBriefingEvent args)
+    private void OnGetBriefing(Entity<SaboteurRoleComponent> role, ref GetBriefingEvent args)
     {
         var ent = args.Mind.Comp.OwnedEntity;
 

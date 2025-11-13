@@ -302,8 +302,8 @@ public sealed partial class AdminVerbSystem
         {
             Text = Loc.GetString("admin-verb-text-make-saboteur"),
             Category = VerbCategory.Antag,
-            // Icon = new SpriteSpecifier.Rsi(new("/Textures/Objects/Tools/wirecutters.rsi"), "cutters-map"),
-            Icon = new SpriteSpecifier.Rsi(new("/Textures/Interface/Misc/job_icons.rsi"), "CommandMaid"),
+            Icon = new SpriteSpecifier.Rsi(new("/Textures/Objects/Tools/wirecutters.rsi"), "cutters-map"),
+            // Icon = new SpriteSpecifier.Rsi(new("/Textures/Interface/Misc/job_icons.rsi"), "CommandMaid"),
             Act = () =>
             {
                 _antag.ForceMakeAntag<SaboteurRuleComponent>(targetPlayer, "Saboteur");

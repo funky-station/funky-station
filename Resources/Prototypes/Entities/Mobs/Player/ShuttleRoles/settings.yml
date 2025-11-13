@@ -874,3 +874,26 @@
     - type: Loadout
       prototypes: [ CossackGear ]
       roleLoadout: [ RoleSurvivalEVA ]
+
+- type: randomHumanoidSettings
+  id: Zombie
+  parent: EventHumanoid
+  speciesBlacklist:
+  - IPC
+  components:
+    - type: PendingZombie
+    - type: ZombifyOnDeath
+    - type: Damageable
+      damage:
+        types:
+          Bloodloss: 0
+          Asphyxiation: 0
+          Slash: 100
+          Blunt: 99
+    - type: Loadout
+      prototypes:
+      - ResearchAssistantGear
+      - ScientistGear
+      - MedicalInternGear
+      - ChemistGear
+      - DoctorGear

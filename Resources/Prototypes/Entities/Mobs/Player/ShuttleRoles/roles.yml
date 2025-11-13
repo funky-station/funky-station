@@ -692,3 +692,10 @@
       state: banner-yellow
     - type: RandomHumanoidSpawner
       settings: Cossack
+
+- type: entity
+  id: RandomZombie
+  name: zombie ghost role
+  components:
+    - type: RandomHumanoidSpawner
+      settings: Zombie

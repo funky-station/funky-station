@@ -66,7 +66,7 @@
       points: 1
       required: false
     Head:
-      points: 2
+      points: 3 # 2 < 3, Funky Change
       required: false #imp
     HeadSide: #imp
       points: 2

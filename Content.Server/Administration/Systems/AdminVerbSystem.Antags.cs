@@ -294,6 +294,21 @@ public sealed partial class AdminVerbSystem
         };
         args.Verbs.Add(malfAi);
 
+        // Funkystation - Saboteur
+        Verb saboteur = new()
+        {
+            Text = Loc.GetString("admin-verb-text-make-thief"),
+            Category = VerbCategory.Antag,
+            Icon = new SpriteSpecifier.Rsi(new ResPath("/Textures/Objects/Tools/wirecutters.rsi"), "cutters-map"),
+            Act = () =>
+            {
+                _antag.ForceMakeAntag<ThiefRuleComponent>(targetPlayer, DefaultThiefRule);
+            },
+            Impact = LogImpact.High,
+            Message = Loc.GetString("admin-verb-make-thief"),
+        };
+        args.Verbs.Add(saboteur);
+
         var paradoxCloneName = Loc.GetString("admin-verb-text-make-paradox-clone");
         Verb paradox = new()
         {

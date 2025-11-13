@@ -81,6 +81,6 @@ namespace Content.Shared.Materials
         /// The physical properties of this material.
         /// </summary>
         [DataField("properties")]
-        public MaterialProperties Properties { get; private set; } = default!;
+        public MaterialProperties Properties { get; private set; } = new();
     }
 }

@@ -105,7 +105,7 @@ public abstract class SharedReactorPartSystem : EntitySystem
         }
     }
 
-    private void AccUpdate()
+    protected virtual void AccUpdate()
     {
         var query = EntityQueryEnumerator<ReactorPartComponent>();
         while (query.MoveNext(out var uid, out var component))
@@ -161,7 +161,7 @@ public abstract class SharedReactorPartSystem : EntitySystem
 
         reactorPart.Melted = true;
         reactorPart.IconStateCap += "_melted_" + _random.Next(1, 4 + 1);
-        reactorSystem.UpdateGridVisual(reactorEnt.Owner, reactorEnt.Comp);
+        reactorSystem.UpdateGridVisual(reactorEnt.Comp);
         reactorPart.NeutronCrossSection = 5f;
         reactorPart.ThermalCrossSection = 20f;
         reactorPart.IsControlRod = false;

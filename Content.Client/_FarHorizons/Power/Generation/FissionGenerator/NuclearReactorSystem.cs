@@ -17,6 +17,6 @@ public sealed class NuclearReactorSystem : SharedNuclearReactorSystem
 
     private void ReactorExamined(EntityUid uid, NuclearReactorComponent comp, ClientExaminedEvent args)
     {
-        Spawn(ArrowPrototype, new EntityCoordinates(uid,0, 0));
-     } 
+        Spawn(ArrowPrototype, new EntityCoordinates(uid, 0, 0));
+    }
 }

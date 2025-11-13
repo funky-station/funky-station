@@ -11,6 +11,7 @@ public abstract class SharedNuclearReactorSystem : EntitySystem
     [Dependency] private readonly EntityManager _entityManager = default!;
     [Dependency] private readonly ItemSlotsSystem _slotsSystem = default!;
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
+    [Dependency] private readonly IPrototypeManager _proto = default!;
 
     public override void Initialize()
     {
@@ -22,24 +23,33 @@ public abstract class SharedNuclearReactorSystem : EntitySystem
 
     protected bool ReactorTryGetSlot(EntityUid uid, string slotID, out ItemSlot? itemSlot) => _slotsSystem.TryGetSlot(uid, slotID, out itemSlot);
 
-    public virtual void UpdateGridVisual(EntityUid uid, NuclearReactorComponent? comp)
+    public void UpdateGridVisual(NuclearReactorComponent comp)
     {
         for (var x = 0; x < NuclearReactorComponent.ReactorGridWidth; x++)
         {
             for (var y = 0; y < NuclearReactorComponent.ReactorGridHeight; y++)
             {
-                if(comp!.ComponentGrid[x, y] == null)
+                var entId = _entityManager.GetEntity(comp.VisualGrid[x, y]);
+                var gridComp = comp.ComponentGrid[x, y];
+                if (gridComp == null)
                 {
-                    _appearance.SetData(_entityManager.GetEntity(comp.VisualGrid[x, y]), ReactorCapVisuals.Sprite, ReactorCaps.Base);
+                    _appearance.SetData(entId, ReactorCapVisuals.Sprite, ReactorCaps.Base);
                     continue;
                 }
                 else
-                    _appearance.SetData(_entityManager.GetEntity(comp.VisualGrid[x, y]), ReactorCapVisuals.Sprite, ChoseSprite(comp.ComponentGrid[x,y]!.IconStateCap));
+                {
+                    if (_entityManager.TryGetComponent<ReactorPartVisualComponent>(entId, out var visual))
+                    {
+                        visual.color = _proto.Index(gridComp.Material).Color;
+                        Dirty(entId, visual);
+                    }
+                    _appearance.SetData(entId, ReactorCapVisuals.Sprite, ChooseSprite(gridComp.IconStateCap));
+                }
             }
         }
     }
 
-    private static ReactorCaps ChoseSprite(string capName) => capName switch
+    private static ReactorCaps ChooseSprite(string capName) => capName switch
     {
         "base_cap" => ReactorCaps.Base,
 

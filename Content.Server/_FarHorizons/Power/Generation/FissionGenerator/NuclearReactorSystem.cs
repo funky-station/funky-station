@@ -620,7 +620,7 @@ public sealed class NuclearReactorSystem : SharedNuclearReactorSystem
             _entityManager.DeleteEntity(comp.PartSlot.Item);
         }
 
-        UpdateGridVisual(ent.Owner, comp);
+        UpdateGridVisual(comp);
         UpdateUI(ent.Owner, comp);
     }
 

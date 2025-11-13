@@ -39,6 +39,7 @@
 // SPDX-License-Identifier: MIT
 
 using Content.Server._DV.CosmicCult.Components;
+using Content.Server._Funkystation.GameTicking.Rules.Components;
 using Content.Server.Administration.Commands;
 using Content.Server.Antag;
 using Content.Server.GameTicking;
@@ -297,15 +298,16 @@ public sealed partial class AdminVerbSystem
         // Funkystation - Saboteur
         Verb saboteur = new()
         {
-            Text = Loc.GetString("admin-verb-text-make-thief"),
+            Text = Loc.GetString("admin-verb-text-make-saboteur"),
             Category = VerbCategory.Antag,
-            Icon = new SpriteSpecifier.Rsi(new ResPath("/Textures/Objects/Tools/wirecutters.rsi"), "cutters-map"),
+            // Icon = new SpriteSpecifier.Rsi(new("/Textures/Objects/Tools/wirecutters.rsi"), "cutters-map"),
+            Icon = new SpriteSpecifier.Rsi(new("/Textures/Interface/Misc/job_icons.rsi"), "CommandMaid"),
             Act = () =>
             {
-                _antag.ForceMakeAntag<ThiefRuleComponent>(targetPlayer, DefaultThiefRule);
+                _antag.ForceMakeAntag<SaboteurRuleComponent>(targetPlayer, "Saboteur");
             },
             Impact = LogImpact.High,
-            Message = Loc.GetString("admin-verb-make-thief"),
+            Message = Loc.GetString("admin-verb-make-saboteur"),
         };
         args.Verbs.Add(saboteur);
 

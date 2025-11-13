@@ -1,0 +1,26 @@
+- type: entity
+  parent: BaseGameRule
+  id: Saboteur
+  components:
+  - type: SaboteurRule
+  - type: AntagObjectives
+    objectives:
+    - EscapeSaboteurShuttleObjective
+  - type: AntagSelection
+    selectionTime: IntraPlayerSpawn # Goobstation
+    agentName: saboteur-round-end-agent-name
+    definitions:
+    - prefRoles: [ Saboteur ]
+      max: 3
+      playerRatio: 20 #funky reduce le rate
+      lateJoinAdditional: true
+      allowNonHumans: true
+      multiAntagSetting: NotExclusive
+      startingGear: ThiefGear
+      components:
+      - type: Pacified
+
+      mindRoles:
+      - MindRoleSaboteur
+      briefing:
+        sound: "/Audio/Misc/thief_greeting.ogg"

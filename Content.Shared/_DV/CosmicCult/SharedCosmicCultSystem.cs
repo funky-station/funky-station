@@ -9,7 +9,6 @@ using Content.Shared._DV.CosmicCult.Components;
 using Content.Shared.Antag;
 using Content.Shared.Examine;
 using Content.Shared.Ghost;
-using Content.Shared.IdentityManagement.Components;
 using Content.Shared.Mind;
 using Content.Shared.Roles;
 using Content.Shared.Verbs;
@@ -44,16 +43,16 @@ public abstract class SharedCosmicCultSystem : EntitySystem
 
         SubscribeLocalEvent<CosmicTransmutableComponent, GetVerbsEvent<ExamineVerb>>(OnTransmutableExamined);
         SubscribeLocalEvent<CosmicCultExamineComponent, ExaminedEvent>(OnCosmicCultExamined);
-        SubscribeLocalEvent<CosmicSubtleMarkComponent, ExaminedEvent>(OnSubtleMarkExamined);
     }
 
     private void OnTransmutableExamined(Entity<CosmicTransmutableComponent> ent, ref GetVerbsEvent<ExamineVerb> args)
     {
-        if (ent.Comp.TransmutesTo == "" || ent.Comp.RequiredGlyphType == "") return;
+        if (_proto.TryIndex(ent.Comp.TransmutesTo) == false || _proto.TryIndex(ent.Comp.RequiredGlyphType) == false)
+            return;
         if (!EntityIsCultist(args.User)) //non-cultists don't need to know this anyway
             return;
-        var result = _proto.Index(ent.Comp.TransmutesTo).Name;
-        var glyph = _proto.Index(ent.Comp.RequiredGlyphType).Name;
+        var result = _proto.TryIndex(ent.Comp.TransmutesTo).Name;
+        var glyph = _proto.TryIndex(ent.Comp.RequiredGlyphType).Name;
         var text = Loc.GetString("cosmic-examine-transmutable", ("result", result), ("glyph", glyph));
         var msg = new FormattedMessage();
         msg.AddMarkupOrThrow(text);

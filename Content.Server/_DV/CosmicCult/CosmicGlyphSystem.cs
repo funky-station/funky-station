@@ -62,10 +62,6 @@ public sealed class CosmicGlyphSystem : SharedCosmicGlyphSystem
                 comp.State = GlyphStatus.Ready;
                 return;
             }
-            if (comp.State == GlyphStatus.Active)
-            {
-                ActivateGlyph(new Entity<CosmicGlyphComponent>(uid, comp));
-            }
             if (comp.State == GlyphStatus.Despawning)
             {
                 QueueDel(uid);
@@ -86,20 +82,9 @@ public sealed class CosmicGlyphSystem : SharedCosmicGlyphSystem
             return;
         }
 
-        var ev = new CheckGlyphConditionsEvent(args.User, cultists);
-        RaiseLocalEvent(uid, ref ev);
-        if (ev.Cancelled) return;
-
         args.Handled = true;
         uid.Comp.User = args.User;
-        if (uid.Comp.ActivationTime > TimeSpan.FromSeconds(0))
-        {
-            _appearance.SetData(uid, GlyphVisuals.Status, GlyphStatus.Active);
-            uid.Comp.State = GlyphStatus.Active;
-            uid.Comp.Timer = _timing.CurTime + uid.Comp.ActivationTime;
-            _audio.PlayPvs(uid.Comp.ChargeSFX, Transform(uid).Coordinates);
-        }
-        else ActivateGlyph(uid);
+        ActivateGlyph(uid);
     }
 
     private void ActivateGlyph(Entity<CosmicGlyphComponent> ent)

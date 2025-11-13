@@ -9,57 +9,57 @@ SPDX-License-Identifier: MIT
 <Document>
   # Chief Engineer
 
-  [bold]1.[/bold] The Chief Engineer must make sure to properly wire Solar Panels and activate the Anti-Matter Engine (AME) if available, and co-ordinate a plan with their team to activate a more powerful engine for long-term station use;
+  [bold]E1.01.[/bold] The Chief Engineer must make sure to properly wire Solar Panels and activate the Anti-Matter Engine (AME) if available, and co-ordinate a plan with their team to activate a more powerful engine for long-term station use;
 
-  [bold]2.[/bold] The Chief Engineer, along with the Research Director, is responsible for maintaining the integrity of Telecommunications. The Chief Engineer must not hinder the proper functionality of Telecommunications, and must diagnose and repair any issues that arise;
+  [bold]E1.02.[/bold] The Chief Engineer, along with the Research Director, is responsible for maintaining the integrity of Telecommunications. The Chief Engineer must not hinder the proper functionality of Telecommunications, and must diagnose and repair any issues that arise;
 
-  [bold]3.[/bold] The Chief Engineer is bound to the same rules regarding the axe as Atmospheric Technicians;
+  [bold]E1.03.[/bold] The Chief Engineer is bound to the same rules regarding the axe as Atmospheric Technicians;
 
-  [bold]4.[/bold] The Chief Engineer is permitted to carry a flash and a disabler;
+  [bold]E1.04.[/bold] The Chief Engineer is permitted to carry a flash and a disabler;
 
-  [bold]5.[/bold] The Chief Engineer is responsible for maintaining the integrity of all power sources set up on the station. Neglecting this duty is grounds for termination should the Supermatter delaminates or if power fails on the station;
+  [bold]E1.05.[/bold] The Chief Engineer is responsible for maintaining the integrity of all power sources set up on the station. Neglecting this duty is grounds for termination should the Supermatter delaminates or if power fails on the station;
 
-  [bold]6.[/bold] The Chief Engineer may declare an area "Condemned", if it is damaged to the point where repairs cannot reasonably be completed within an acceptable frame of time;
+  [bold]E1.06.[/bold] The Chief Engineer may declare an area "Condemned", if it is damaged to the point where repairs cannot reasonably be completed within an acceptable frame of time;
 
-  [bold]7.[/bold] The Chief Engineer is permitted to grant Building Permits to crewmembers, and may dismantle or destroy unauthorized buildings / setups;
+  [bold]E1.07.[/bold] The Chief Engineer is permitted to grant Building Permits to crewmembers, and may dismantle or destroy unauthorized buildings / setups;
 
-  [bold]8.[/bold] The Chief Engineer is responsible for maintaining the integrity of the Station's Atmospherics System. Failure to maintain this integrity is grounds for termination.
+  [bold]E1.08.[/bold] The Chief Engineer is responsible for maintaining the integrity of the Station's Atmospherics System. Failure to maintain this integrity is grounds for termination.
 
   # Station Engineer
 
-  [bold]1.[/bold] Engineers must properly wire Solar Panels and activate the Anti-Matter Engine (AME) if available, and co-ordinate a plan to activate a more powerful engine for long-term station use;
+  [bold]E2.01.[/bold] Engineers must properly wire Solar Panels and activate the Anti-Matter Engine (AME) if available, and co-ordinate a plan to activate a more powerful engine for long-term station use;
 
-  [bold]2.[/bold] Engineers are responsible for maintaining the integrity of all engines aboard the station, even those that are de-activated or inert. Neglecting this duty is grounds for termination should an engine malfunction;
+  [bold]E2.02.[/bold] Engineers are responsible for maintaining the integrity of all engines aboard the station, even those that are de-activated or inert. Neglecting this duty is grounds for termination should an engine malfunction;
 
-  [bold]3.[/bold] Engineers are permitted to construct additional engines (such as additional SM/Tesla/Singularity engines) with approval from the Chief Engineer;
+  [bold]E2.03.[/bold] Engineers are permitted to construct additional engines (such as additional SM/Tesla/Singularity engines) with approval from the Chief Engineer;
 
-  [bold]4.[/bold] Engineers are permitted to carry out solo reconstruction/rebuilding/personal projects if there is no damage to the station that requires fixing;
+  [bold]E2.04.[/bold] Engineers are permitted to carry out solo reconstruction/rebuilding/personal projects if there is no damage to the station that requires fixing;
 
-  [bold]5.[/bold] Engineers must check each active engine at least once per 30 minutes;
+  [bold]E2.05.[/bold] Engineers must check each active engine at least once per 30 minutes;
 
-  [bold]6.[/bold] Engineers must constantly monitor the Supermatter engine if it is online and under emitter fire;
+  [bold]E2.06.[/bold] Engineers must constantly monitor the Supermatter engine if it is online and under emitter fire;
 
-  [bold]7.[/bold] Engineers must respond promptly to breaches, regardless of size. Failure to report within fifteen (15) minutes will be considered a breach of Standard Operating Procedure, unless there are no spare Engineers to report or an Atmospheric Technician has arrived on scene first. All Hazard Zones must be cordoned off with Engineering Tape or holobarriers, for the safety of crewmembers;
+  [bold]E2.07.[/bold] Engineers must respond promptly to breaches, regardless of size. Failure to report within fifteen (15) minutes will be considered a breach of Standard Operating Procedure, unless there are no spare Engineers to report or an Atmospheric Technician has arrived on scene first. All Hazard Zones must be cordoned off with Engineering Tape or holobarriers, for the safety of crewmembers;
 
-  [bold]8.[/bold] Engineers are permitted to hack doors to gain unauthorized access to locations if said locations happen to require urgent repairs;
+  [bold]E2.08.[/bold] Engineers are permitted to hack doors to gain unauthorized access to locations if said locations happen to require urgent repairs;
 
-  [bold]9.[/bold] Engineers are to maintain the integrity of the Station's Power Network;
+  [bold]E2.09.[/bold] Engineers are to maintain the integrity of the Station's Power Network;
 
-  [bold]10.[/bold] Engineers must ensure there is at least one (1) engineering hardsuit available on the station at all times, unless there is an emergency that requires the use of all suits.
+  [bold]E2.10.[/bold] Engineers must ensure there is at least one (1) engineering hardsuit available on the station at all times, unless there is an emergency that requires the use of all suits.
 
   # Atmospheric Technician
 
-  [bold]1.[/bold] Atmospheric Technicians are permitted to completely repipe the Atmospherics Piping Setup, provided they do not pump harmful gases into anywhere except the burn chamber;
+  [bold]E3.01.[/bold] Atmospheric Technicians are permitted to completely repipe the Atmospherics Piping Setup, provided they do not pump harmful gases into anywhere except the burn chamber;
 
-  [bold]2.[/bold] Atmospheric Technicians are not permitted to create volatile mixes using Plasma and Oxygen, nor are they permitted to create any potentially harmful mixes with Carbon Dioxide and/or Nitrous Oxide. An exception is made when working with the burn chamber;
+  [bold]E3.02.[/bold] Atmospheric Technicians are not permitted to create volatile mixes using Plasma and Oxygen, nor are they permitted to create any potentially harmful mixes with Carbon Dioxide and/or Nitrous Oxide. An exception is made when working with the burn chamber;
 
-  [bold]3.[/bold] Atmospheric Technicians are permitted to cool Plasma and store it for later use in Radiation Collectors. Likewise, they are permitted to cool Nitrogen or Carbon Dioxide and store it for use as coolant for the Supermatter Engine;
+  [bold]E3.03.[/bold] Atmospheric Technicians are permitted to cool Plasma and store it for later use in Radiation Collectors. Likewise, they are permitted to cool Nitrogen or Carbon Dioxide and store it for use as coolant for the Supermatter Engine;
 
-  [bold]4.[/bold] Atmospheric Technicians are not permitted to take the axe out of its case unless there is an immediate and urgent threat to their life or urgent access to crisis locations is necessary. The axe must be returned to the case afterwards, and the case locked;
+  [bold]E3.04.[/bold] Atmospheric Technicians are not permitted to take the axe out of its case unless there is an immediate and urgent threat to their life or urgent access to crisis locations is necessary. The axe must be returned to the case afterwards, and the case locked;
 
-  [bold]5.[/bold] Atmospheric Technicians are not permitted to tamper with the default values on Air Alarms. They are, however, permitted to create small, acclimatized rooms for species that require special atmospheric conditions (such as Vox), provided they receive express permission from the Chief Engineer;
+  [bold]E3.05.[/bold] Atmospheric Technicians are not permitted to tamper with the default values on Air Alarms. They are, however, permitted to create small, acclimatized rooms for species that require special atmospheric conditions (such as Vox), provided they receive express permission from the Chief Engineer;
 
-  [bold]6.[/bold] Atmospheric Technicians must periodically check on the Central Alarms Computer, in periods of, at most, thirty (30) minutes;
+  [bold]E3.06.[/bold] Atmospheric Technicians must periodically check on the Central Alarms Computer, in periods of, at most, thirty (30) minutes;
 
-  [bold]7.[/bold] Atmospheric Technicians must respond promptly to piping and station breaches. Failure to report within fifteen (15) minutes will be considered a breach of Standard Operating Procedure, unless there are no spare Atmospheric Technicians to report, or an Engineer has arrived at scene first. All Hazard Zones must be cordoned off with Engineering Tape or holobarriers, for the safety of all crewmembers.
+  [bold]E3.07.[/bold] Atmospheric Technicians must respond promptly to piping and station breaches. Failure to report within fifteen (15) minutes will be considered a breach of Standard Operating Procedure, unless there are no spare Atmospheric Technicians to report, or an Engineer has arrived at scene first. All Hazard Zones must be cordoned off with Engineering Tape or holobarriers, for the safety of all crewmembers.
 </Document>

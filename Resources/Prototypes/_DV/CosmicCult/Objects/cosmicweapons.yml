@@ -153,6 +153,7 @@
     - 0,1,3,1
     - 2,0,2,2
     storedRotation: 45
+    storedOffset: 5,0
     sprite: _DV/CosmicCult/Objects/cosmiclance-inhands.rsi
     inhandVisuals:
       left:
@@ -188,6 +189,7 @@
   name: astral razor
   parent: BaseItem
   id: ScytheCosmicCult
+  description: A malign scythe wrought of indescribable material, forcibly extruded down into reality. It radiates otherworldly power, seeping life force from whatever it impacts.
   components:
   - type: CosmicEquipment
   - type: Sprite
@@ -224,7 +226,6 @@
     damage:
       types:
         Slash: 10
-        Structural: 15
     soundHit:
       path: /Audio/_DV/CosmicCult/cosmicsword_hit.ogg
       params:
@@ -259,7 +260,6 @@
         Asphyxiation: 10
         Ion: 10
         Cold: 10
-        Structural: 5
   - type: GunRequiresWield
   - type: Item
     size: Ginormous

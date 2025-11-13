@@ -93,7 +93,7 @@
   description: uplink-syndicate-autoinjector-softcase-desc
   productEntity: autoInjectorCartridgeCaseSoftFilled
   cost:
-    Telecrystal: 20
+    Telecrystal: 10
   categories:
   - UplinkChemicals
   conditions:

@@ -1,0 +1,23 @@
+- type: entity
+  abstract: true
+  parent: BaseObjective
+  id: BaseSaboteurObjective
+  components:
+  - type: Objective
+    issuer: objective-issuer-saboteur
+  - type: RoleRequirement
+    roles:
+    - SaboteurRole
+
+- type: entity
+  parent: [BaseSaboteurObjective, BaseLivingObjective]
+  id: EscapeSaboteurShuttleObjective
+  name: Become the greatest saboteur of all time
+  description: Make sure you don't get caught.
+  components:
+  - type: Objective
+    difficulty: 1
+    icon:
+      sprite: Structures/Furniture/chairs.rsi
+      state: shuttle
+  - type: EscapeShuttleCondition

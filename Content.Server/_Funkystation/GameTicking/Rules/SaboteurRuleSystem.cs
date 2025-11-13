@@ -22,7 +22,7 @@ public sealed class SaboteurRuleSystem : GameRuleSystem<SaboteurRuleComponent>
     private void AfterAntagSelected(Entity<SaboteurRuleComponent> mindId, ref AfterAntagEntitySelectedEvent args)
     {
         var ent = args.EntityUid;
-        _antag.SendBriefing(ent, MakeBriefing(ent), null, null);
+        _antag.SendBriefing(ent, MakeBriefing(), null, null);
     }
 
     // Character screen briefing
@@ -32,15 +32,12 @@ public sealed class SaboteurRuleSystem : GameRuleSystem<SaboteurRuleComponent>
 
         if (ent is null)
             return;
-        args.Append(MakeBriefing(ent.Value));
+        args.Append(MakeBriefing());
     }
 
-    private string MakeBriefing(EntityUid ent)
+    private string MakeBriefing()
     {
-        var isHuman = HasComp<HumanoidAppearanceComponent>(ent);
         var briefing = Loc.GetString("saboteur-role-greeting");
-
-        if (isHuman)
             briefing += "\n \n" + Loc.GetString("saboteur-role-greeting-equipment") + "\n";
 
         return briefing;

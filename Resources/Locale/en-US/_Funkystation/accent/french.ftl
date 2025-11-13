@@ -1,6 +1,4 @@
 accent-french-words-1 = yes
-accent-french-words-1-2 = yea
-accent-french-words-1-3 = yeah
 accent-french-words-replace-1 = oui
 
 accent-french-words-2 = no
@@ -63,12 +61,12 @@ accent-french-words-replace-15 = mesdemoiselles
 accent-french-words-16 = please
 accent-french-words-replace-16 = s'il vous plaît
 
-accent-french-words-17 = thank you
-accent-french-words-17-2 = thanks
-accent-french-words-replace-17 = merci
+accent-french-words-17 = thank you very much
+accent-french-words-replace-17 = merci beaucoup
 
-accent-french-words-18 = thank you very much
-accent-french-words-replace-18 = merci beaucoup
+accent-french-words-18 = thank you
+accent-french-words-18-2 = thanks
+accent-french-words-replace-18 = merci
 
 accent-french-words-19 = shit
 accent-french-words-19-2 = crap
@@ -79,7 +77,7 @@ accent-french-words-20-2 = commander
 accent-french-words-replace-20 = commandement
 
 accent-french-words-21 = commanders
-accent-french-words-replace-20 = commandements
+accent-french-words-replace-21 = commandements
 
 accent-french-words-22 = captain
 accent-french-words-replace-22 = captaine
@@ -91,10 +89,10 @@ accent-french-words-24 = security
 accent-french-words-replace-24 = sécurité
 
 accent-french-words-25 = head of security
-accent-french-words-replace-25 = chef de la sécurité
+accent-french-words-replace-25 = chef du sécurité
 
 accent-french-words-26 = heads of security
-accent-french-words-replace-26 = chefs de la sécurité
+accent-french-words-replace-26 = chefs du sécurité
 
 accent-french-words-27 = officer
 accent-french-words-replace-27 = officier
@@ -235,7 +233,7 @@ accent-french-words-replace-67 = magistrats
 accent-french-words-68 = representative
 accent-french-words-replace-68 = représentant
 
-accent-french-words-66 = representatives
+accent-french-words-69 = representatives
 accent-french-words-replace-69 = représentants
 
 accent-french-words-70 = folder
@@ -245,47 +243,53 @@ accent-french-words-71 = folders
 accent-french-words-replace-71 = dossiers
 
 accent-french-words-72 = the deathsquad
-accent-french-words-72-2 = the deathsquads
-accent-french-words-72-3 = the death squad
-accent-french-words-72-4 = the death squads
-accent-french-words-72-5 = deathsquad
-accent-french-words-72-6 = deathsquads
-accent-french-words-72-7 = death squad
-accent-french-words-72-8 = death squads
-accent-french-words-replace-72 = le corps de la mort
+accent-french-words-72-2 = the death squad
+accent-french-words-72-3 = deathsquad
+accent-french-words-72-4 = death squad
+accent-french-words-replace-72 = le escadron de mort
 
-accent-french-words-73 = army
-accent-french-words-73-2 = armies
-accent-french-words-73-3 = squad
-accent-french-words-73-4 = squads
-accent-french-words-replace-73 = corps
+accent-french-words-73 = the deathsquads
+accent-french-words-73-4 = the death squads
+accent-french-words-73-5 = deathsquad
+accent-french-words-73-7 = death squad
+accent-french-words-replace-73 = les escadrons de mort
 
-accent-french-words-74 = magnificent
-accent-french-words-replace-74 = magnifique
+accent-french-words-74 = army
+accent-french-words-74-2 = armies
+accent-french-words-74-3 = squad
+accent-french-words-74-4 = squads
+accent-french-words-replace-74 = corps
 
-accent-french-words-75 = cheese
-accent-french-words-replace-75 = fromage
+accent-french-words-75 = magnificent
+accent-french-words-replace-75 = magnifique
 
-accent-french-words-76 = cheeses
-accent-french-words-replace-76 = fromages
+accent-french-words-76 = cheese
+accent-french-words-replace-76 = fromage
 
-accent-french-words-77 = snail
-accent-french-words-replace-77 = escargot
+accent-french-words-77 = cheeses
+accent-french-words-replace-77 = fromages
 
 accent-french-words-78 = snail
-accent-french-words-replace-78 = escargots
+accent-french-words-replace-78 = escargot
 
-accent-french-words-79 = quarter pounder
-accent-french-words-replace-79 = royale with cheese
+accent-french-words-79 = snail
+accent-french-words-replace-79 = escargots
 
-accent-french-words-80 = quarter pounders
-accent-french-words-replace-80 = royales with cheese
+accent-french-words-80 = quarter pounder
+accent-french-words-replace-80 = royale with cheese
 
-accent-french-words-81 = very
-accent-french-words-replace-81 = très
+accent-french-words-81 = quarter pounders
+accent-french-words-replace-81 = royales with cheese
 
-accent-french-words-82 = rizzler
-accent-french-words-replace-82 = charismeur
+accent-french-words-82 = very
+accent-french-words-replace-82 = très
 
-accent-french-words-83 = rizzlers
-accent-french-words-replace-83 = charismeurs
+accent-french-words-83 = rizzler
+accent-french-words-replace-83 = charismeur
+
+accent-french-words-84 = rizzlers
+accent-french-words-replace-84 = charismeurs
+
+accent-french-words-85 = yea
+accent-french-words-85-2 = yeah
+accent-french-words-replace-85 = ouais

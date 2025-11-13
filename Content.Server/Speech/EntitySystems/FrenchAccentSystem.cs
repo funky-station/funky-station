@@ -96,16 +96,27 @@ public sealed class FrenchAccentSystem : EntitySystem
         msg = RegexEndIcUpper.Replace(msg, "IQUE");
         msg = RegexEndIcsUpper.Replace(msg, "IQUES");
 
-        // 30% chance to prefix any single-word message with "le".
+        // 30% chance to prefix any single-word message with "le" or "l'".
+        // This does not work properly with diacritics!
+        // I tried but I couldn't get a one-size-fits-all solution to work.
         if (!msg.Any(Char.IsWhiteSpace) && _random.Prob(0.3f))
         {
             if (msg.Any(char.IsLower))
             {
-                msg = "Le " + msg.ToLower();
+                msg = msg.ToLower();
+                msg = msg[0] switch
+                {
+                    'a' or 'e' or 'i' or 'o' or 'u' or '\'' => "L'",
+                    _ => "Le "
+                } + msg;
             }
             else
             {
-                msg = "LE " + msg;
+                msg = msg[0] switch
+                {
+                    'a' or 'e' or 'i' or 'o' or 'u' or '\'' => "L'",
+                    _ => "LE "
+                } + msg;
             }
         }
 

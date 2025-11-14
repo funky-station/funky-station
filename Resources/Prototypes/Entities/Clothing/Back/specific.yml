@@ -97,7 +97,7 @@
   parent: Clothing
   id: ClothingBackpackFirefighterTank
   name: backpack firefighter tank
-  description: A refrigerated backpack water tank that can switch modes to launch ATMOS resin or work as a high pressure extinguisher. 
+  description: A refrigerated backpack water tank that can switch modes to launch ATMOS resin or work as a high pressure extinguisher.
   components:
   - type: Tag
     tags:
@@ -140,3 +140,34 @@
   - type: ContainerContainer
     containers:
       nozzle_slot: !type:ContainerSlot
+
+- type: entity
+  parent: ClothingBackpack
+  id: XenoborgMaterialBag
+  name: silicon storage square
+  description: A knockoff version of a bluespace bag, can vacumn up select materials, unfit for use by humanoids due to harmful emissions.
+  components:
+  - type: Sprite
+    sprite: Objects/Specific/Robotics/silicon_storage_cube.rsi
+    state: xenoborg
+  - type: MagnetPickup
+  - type: Dumpable
+  - type: Storage
+    grid:
+    - 0,0,7,3
+    quickInsert: true
+    areaInsert: true
+    whitelist:
+      tags:
+        - Sheet
+        - ConstructionMaterial
+        - RawMaterial
+        - Ingot
+      components:
+        - ConstructionMaterial
+        - Circuitboard
+        - Flatpack
+        - FloorTile
+    blacklist:
+      components:
+      - SiliconLawProvider

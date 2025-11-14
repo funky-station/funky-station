@@ -32,6 +32,7 @@
     - Blob # Goobstation - Blob
     - AllHostile
     - Wizard
+    - Xenoborg
 
 - type: npcFaction
   id: NanoTrasen
@@ -61,6 +62,8 @@
 
 - type: npcFaction
   id: PetsNT
+  friendly:
+  - NanoTrasen
   hostile:
   - Mouse
   - SimpleHostile

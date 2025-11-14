@@ -78,7 +78,7 @@ public sealed class CosmicConversionSystem : EntitySystem
                     // Begin Funky
                     if (comp.BufferSpeedup <= TimeSpan.FromSeconds(0)) continue; // We can't speed this up any more, so no popup or anything
                     comp.BufferTimer -= comp.BufferSpeedup;
-                    comp.BufferSpeedup = Math.Clamp(comp.BufferSpeedup - BufferSpeedupFaloff, 0, comp.BufferSpeedup); // Converting gives diminishing returns, caps out at 180 seconds with current values
+                    comp.BufferSpeedup = TimeSpan.FromSeconds(Math.Clamp((comp.BufferSpeedup - comp.BufferSpeedupFaloff).TotalSeconds, 0, comp.BufferSpeedup.TotalSeconds));
                     // End Funky
                     _popup.PopupCoordinates(Loc.GetString("cosmiccult-finale-speedup"), Transform(monument).Coordinates, PopupType.Large);
                 }

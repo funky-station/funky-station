@@ -16,25 +16,29 @@ SPDX-License-Identifier: MIT
   </Box>
 
   Harpies are an avian human mutation, sprouting feathered wings and ruffled tails.
-  They see the world through an ultraviolet view, slash with their claws dealing
-  [color=#ec3a3a]piercing [/color]damage, and walk around on digitrade legs.
-  Their most iconic ability, however, is to take to the skies!
 
-  ## Sing your heart out
+  ## Claws
 
-  Harpies are capable of singing out a tune on the spot with their voice, allowing for you to play music wherever you are,
-  as long as you aren't muffled
+  Harpies' talons are sharp and varies, and their unarmed attacks deal [color=#ec3a3a]Piercing[/color] damage.
 
-  ## Take to the skies!
+  ## Singing Voice
 
-  Harpies can fly with their wings to increase their movement speed dramatically, at the cost of heavy stamina drain and a temporary inability to use their hands.
-  Their wings give them better acceleration if there is no gravity on the station, but they still can't move without equipment when floating out in space.
+  Harpies are capable of singing out a tune on the spot with their voice, allowing for you to play music with any
+  instrument wherever you are, as long as you aren't muffled!
+
+  ## Natural Flight
+
+  Harpies can fly with their wings to increase their movement speed dramatically, at the cost of heavy stamina drain
+  and a temporary inability to use their hands. Their wings also give them better acceleration if there is no gravity
+  on the station, but they still can't move without equipment when floating out in space. Finally, Harpies cannot
+  set off landmines or cut their feet on shards of glass!
 
   ## Weaknesses
 
-  Due to their digitrade legs, they are unable to wear any type of footwear.
-  Along with this, harpies have sensitive lungs. This causes them to breathe [color=#1e90ff]3 times faster[/color] than other species and
-  gasp when there is 0.2 combined mols of either miasma or CO2 in the air.
+  Harpies take 15% more [color=#ec3a3a]Blunt[/color], [color=#ec3a3a]Slashing[/color] and [color=#ec3a3a]Piercing[/color] damage.
+  Due to their digitrade legs, Harpies are unable to wear any type of footwear.
+  Harpies have sensitive lungs. This causes them to breathe [color=#1e90ff]3 times faster[/color] than other species
+  and gasp when there is 0.2 combined mols of either miasma or CO2 in the air.
 
 
 

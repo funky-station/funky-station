@@ -17,25 +17,26 @@ SPDX-License-Identifier: MIT
 
   ## Diet
 
-  - Can eat raw meat.
-  - Will get poisoned by Theobromine (Chocolate, Tea, Coffee) and Allicin (Onion, Garlic).
+  Rodentia share evolutionary roots with rodents, and so they cannot metabolize Theobromine or Allicin. Be careful
+  when eating chocolate, onions, or garlic, and avoid coffee and tea!
 
-  ## Benefits
+  ## Claws
 
-  - Uses their claws to do some Slashing and Blunt damage.
-  - Smaller than humans.
-  - Can fit in duffelbags.
+  Rodentia have dull claws, which do a mixture of [color=#ec3a3a]Blunt[/color] and [color=#ec3a3a]Slashing[/color] damage.
 
-  ## Special
+  ## Rummaging
 
-  - Can Rummage in disposal chutes, which can sometimes dig up food.
-  - Can store small items in their cheeks. Having items in their mouth makes their speech unintelligible, and they will drop all items in their mouth if attacked, stunned, or shoved.
-  - Can "sneak" underneath tables, but not doors.
+  Rodentia can rummage in disposal units, potentially finding food or other useful !
+
+  ## Cheek Storage
+
+  Rodentia can store small items in their cheeks. Having items in their mouth makes their speech unintelligible, and
+  they will drop all items in their mouth if attacked, stunned, or shoved.
 
   ## Drawbacks
 
-  - Takes 30% more Blunt damage, and 15% more Slash and Piercing damage.
-  - Always triggers mousetraps, regardless of whether or not they are wearing shoes.
-  - Gets hungry 33% faster.
+  Rodentia take 30% more [color=#ec3a3a]Blunt[/color] damage, and 15% more [color=#ec3a3a]Slashing[/color] and [color=#ec3a3a]Piercing[/color] damage.
+  Rodentia always triggers mousetraps, regardless of whether or not they are wearing shoes.
+  Rodentia get hungry 33% faster.
 
 </Document>

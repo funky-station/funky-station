@@ -15,11 +15,18 @@ SPDX-License-Identifier: MIT
     <GuideEntityEmbed Entity="MobGingerbread" Caption=""/>
   </Box>
 
-  Gingerbreads are a species of sentient confectionary. They have sugar for blood, and can be butchered for cookies.
+  Gingerbreads are a species of sentient confectionary, with sugar for blood and cookies for flesh.
 
-  ## Damage stats
+  ## Cookie Biology
 
-  Gingerbreads take 3x less heat damage than Humans, but take a lot of damage from being exposed to water externally.
-  They take 3x more damage from being exposed to water externally than Slimes.
+  Thanks to their anomalous sugar-based biology, Gingerbreads have sugar instead of blood, and can restore blood by
+  eating candies and other sugary foods. They also take 75% less asphyxiation damage, 50% less heat damage, and are
+  completely immune to bloodloss, cold, and cellular damage!
+
+  ## Drawbacks
+
+  Gingerbreads take 50% more blunt damage than other species.
+  Gingerbreads are injured by water, becoming soggy and limp.
+  Your crewmates might be tempted to butcher you to get cookies...
 
 </Document>

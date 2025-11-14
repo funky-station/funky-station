@@ -101,7 +101,7 @@
         factor: 2
       - !type:AdjustReagent
         reagent: Ethanol
-        amount: 1.5
+        amount: 1.25 # Yes, this decays into more ethanol then what would go in, but haha drunk man fall over (and dies)
 
 - type: reagent
   id: PineappleMargherita

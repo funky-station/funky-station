@@ -124,6 +124,17 @@
   - UplinkChemicals
 
 - type: listing
+  id: UplinkMoonshine
+  name: uplink-moonshine-name
+  description: uplink-moonshine-desc
+  productEntity: DrinkHammeredBottleFull
+  cost:
+    Telecrystal: 20
+  categories:
+  - UplinkChemicals
+  saleLimit: 1
+
+- type: listing
   id: UplinkAutoInjectorBundle
   name: uplink-autoinjector-bundle-name
   description: uplink-autoinjector-bundle-desc

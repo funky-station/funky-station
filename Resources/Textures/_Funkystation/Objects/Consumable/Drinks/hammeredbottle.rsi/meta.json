@@ -1,19 +1,22 @@
 {
     "version": 1,
+
+    "license": "CC-BY-SA-4.0",
+    "copyright": "Made by callmebeef for FunkyStation 11/4/25",
+
     "size":
     {
         "x": 32,
         "y": 32
     },
-    "license": "CC-BY-SA-4.0",
-    "copyright": "Made by callmebeef for FunkyStation 11/4/25",
+
     "states":
     [
         {
             "name": "icon"
         },
         {
-            "name": "icon_opened"
+            "name": "icon_open"
         }
     ]
 }

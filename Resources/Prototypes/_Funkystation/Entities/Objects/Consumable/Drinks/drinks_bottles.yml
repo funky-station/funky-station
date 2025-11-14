@@ -1,8 +1,8 @@
 - type: entity
-  parent: [DrinkBottleVisualsAll, DrinkBottleGlassBaseFull]
+  parent: [DrinkBottleVisualsOpenable, DrinkBottleGlassBaseFull, BaseSyndicateContraband]
   id: DrinkHammeredBottleFull
-  name: hammered bottle
-  description: For those looking to die an early, alcohol-sodden grave.
+  name: hammershine bottle
+  description: For those looking to die an early, ethanol-sodden grave.
   components:
   - type: SolutionContainerManager
     solutions:

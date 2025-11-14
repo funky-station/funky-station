@@ -95,6 +95,7 @@
     inHandsOnly: false
   - type: Item
     size: Small
+    storedRotation: -45
 
 - type: entity
   parent: BaseHandheldInstrument

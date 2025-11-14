@@ -71,6 +71,7 @@
     program: 124
   - type: Item
     size: Small
+    storedRotation: -90
   - type: Prayable
     usableByAtheists: true
     sentMessage: prayer-popup-notify-centcom-sent

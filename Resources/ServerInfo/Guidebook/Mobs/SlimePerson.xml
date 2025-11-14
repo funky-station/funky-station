@@ -43,17 +43,14 @@ SPDX-License-Identifier: MIT
   ## Slime Healing
 
   Slime People have a very slight accelerated regeneration compared to other humanoids, their slime coagulating at
-  twice the rate of other species' and below 65 damage.
+  twice the rate of other species' and below 65 damage. This healing factor coincidentally also makes their slime a
+  debatably nutritious source of food for other species.
 
-  ## Non-Newtonian Biology
+  ## Damage
 
-  Slime People take 40% reduced [color=#ec3a3a]Blunt[/color] damage and 20% reduced [color=#ec3a3a]Poison[/color], as well as 80% reduced [color=#ec3a3a]Cellular[/color].
-
-  ## Drawbacks
-
-  Slime People take 50% more [color=#ec3a3a]Cold[/color] damage, 20% more [color=#ec3a3a]Piercing[/color] damage, and 20% more [color=#ec3a3a]Slashing[/color] damage.
-  Slime Ppeople are injured when splashed with water, washing away some of their slime.
-  Slime People take pressure damage 9% faster than other species.
-  Slime blood is a source of debatably nutritious food for other species.
+  Due to their non-newtonian biology, Slime People take 40% reduced [color=#ec3a3a]Blunt[/color] damage and 20% reduced [color=#ec3a3a]Poison[/color],
+  as well as 80% reduced [color=#ec3a3a]Cellular[/color]. However, they also take 50% more [color=#ec3a3a]Cold[/color] damage,
+  20% more [color=#ec3a3a]Piercing[/color] damage, and 20% more [color=#ec3a3a]Slashing[/color] damage. They suffer from barotrauma
+  9% faster than other species, and they also become injured when splashed with water, as some of their slime is washed away.
 
 </Document>

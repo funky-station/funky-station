@@ -19,7 +19,8 @@ SPDX-License-Identifier: MIT
 
   ## Claws And Beaks
 
-  Harpies' talons and beaks are pointed and sharp, and their unarmed attacks deal [color=#ec3a3a]Piercing[/color] damage.
+  Harpies' talons and beaks are pointed and sharp, and their unarmed attacks deal [color=#ec3a3a]Piercing[/color] damage. Unfortunately,
+  their digitigrade legs and sharp talons mean they cannot comfortably wear any footwear.
 
   ## Singing Voice
 
@@ -33,13 +34,12 @@ SPDX-License-Identifier: MIT
   on the station, but they still can't move without equipment when floating out in space. Finally, Harpies cannot
   set off landmines or cut their feet on shards of glass!
 
-  ## Weaknesses
-
-  Harpies take 15% more [color=#ec3a3a]Blunt[/color], [color=#ec3a3a]Slashing[/color] and [color=#ec3a3a]Piercing[/color] damage.
-  Due to their digitrade legs, Harpies are unable to wear any type of footwear.
+  ## Sensitive Lungs
   Harpies have sensitive lungs. This causes them to breathe [color=#1e90ff]3 times faster[/color] than other species
   and gasp when there is 0.2 combined mols of either miasma or CO2 in the air.
 
-
+  ## Damage
+  Harpies take 15% more [color=#ec3a3a]Blunt[/color], [color=#ec3a3a]Slashing[/color] and [color=#ec3a3a]Piercing[/color] damage due to
+  their hollow bones and avian physiology.
 
 </Document>

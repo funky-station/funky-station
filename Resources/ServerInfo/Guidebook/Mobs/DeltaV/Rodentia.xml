@@ -18,25 +18,26 @@ SPDX-License-Identifier: MIT
   ## Diet
 
   Rodentia share evolutionary roots with rodents, and so they cannot metabolize Theobromine or Allicin. Be careful
-  when eating chocolate, onions, or garlic, and avoid coffee and tea!
+  when eating chocolate, onions, or garlic, and avoid coffee and tea! Despite their dietary restrictions, they get
+  hungry 33% faster than other species.
 
   ## Claws
 
   Rodentia have dull claws, which do a mixture of [color=#ec3a3a]Blunt[/color] and [color=#ec3a3a]Slashing[/color] damage.
 
-  ## Rummaging
+  ## Sticky Fingers
 
-  Rodentia can rummage in disposal units, potentially finding food or other useful !
+  Rodentia can rummage in disposal units, potentially finding food and other useful trinkets! Unfortunately, their
+  feet also have a tendency to get painfully caught in mousetraps, even if they're wearing shoes.
 
   ## Cheek Storage
 
   Rodentia can store small items in their cheeks. Having items in their mouth makes their speech unintelligible, and
   they will drop all items in their mouth if attacked, stunned, or shoved.
 
-  ## Drawbacks
+  ## Damage
 
-  Rodentia take 30% more [color=#ec3a3a]Blunt[/color] damage, and 15% more [color=#ec3a3a]Slashing[/color] and [color=#ec3a3a]Piercing[/color] damage.
-  Rodentia always triggers mousetraps, regardless of whether or not they are wearing shoes.
-  Rodentia get hungry 33% faster.
+  Due to being smaller and more fragile than other species,Rodentia take 30% more [color=#ec3a3a]Blunt[/color] damage, and
+  15% more [color=#ec3a3a]Slashing[/color] and [color=#ec3a3a]Piercing[/color] damage.
 
 </Document>

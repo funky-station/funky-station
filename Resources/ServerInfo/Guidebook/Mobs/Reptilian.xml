@@ -14,9 +14,10 @@ SPDX-License-Identifier: MIT
 
   Evolved from snakes, lizards, crocodiles, and all sorts of other reptiles, Reptilians are a hardy alien species.
 
-  ## Claws
+  ## Claws and Tails
 
-  Reptilian claws are sharp, and deal [color=#ec3a3a]Slashing[/color] damage.
+  Reptilian claws are sharp, and deal [color=#ec3a3a]Slashing[/color] damage. Additionally, Reptilians' tails enable
+  them to drag objects and people with both of their hands free.
 
   ## Diet
 
@@ -24,16 +25,9 @@ SPDX-License-Identifier: MIT
   paper, crayons, and drink blood without biological consequences.
   Your fellow crew might look at you differently, though...
 
-  ## Temperature
+  ## Damage
 
-  Reptilians are accustomed to a higher temperature range than humans, and get cold much quicker as a result.
-
-  ## Tails
-
-  Reptilians can drag objects and people with their tails, keeping both of their hands free.
-
-  ## Drawbacks
-
-  Reptilians take 30% more [color=#ec3a3a]Cold[/color] damage.
+  Reptilians are more comfortable in higher temperatures than other species, but tend to get cold quicker as a result,
+  and suffer 30% more [color=#ec3a3a]Cold[/color] damage.
 
 </Document>

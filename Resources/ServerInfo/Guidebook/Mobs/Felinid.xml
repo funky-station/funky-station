@@ -18,7 +18,8 @@ SPDX-License-Identifier: MIT
   ## Diet
 
   Felinids share evolutionary roots with cats, and so they cannot metabolize Theobromine or Allicin. Be careful
-  when eating chocolate, onions, or garlic, and avoid coffee and tea!
+  when eating chocolate, onions, or garlic, and avoid coffee and tea! Despite their dietary restrictions, they get
+  thirsty 20% faster than other species.
 
   ## Claws
 
@@ -30,13 +31,12 @@ SPDX-License-Identifier: MIT
 
   ## Padded Feet
 
-  Felinids can creep around silently when they're not wearing shoes.
+  Felinids can creep around silently when they're not wearing shoes, but are prone to being stunned quicker and have
+  25% less stamina than other species.
 
-  ## Drawbacks
+  ## Damage
 
-  Felinids take 15% more [color=#ec3a3a]Blunt[/color], [color=#ec3a3a]Slashing[/color] and [color=#ec3a3a]Piercing[/color] damage.
-  Felinids take 30% more Cold damage than other species.
-  Felinids get thirsty 20% faster.
-  Felinids have 25% less stamina than other species.
+  Felinids take 15% more [color=#ec3a3a]Blunt[/color], [color=#ec3a3a]Slashing[/color] and [color=#ec3a3a]Piercing[/color] damage,
+  and take 30% more [color=#ec3a3a]Cold[/color] damage than other species.
 
 </Document>

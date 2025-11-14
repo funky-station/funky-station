@@ -12,6 +12,7 @@
 # SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Mish <bluscout78@yahoo.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 tea <xerithin@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -98,6 +99,7 @@
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeLightRifleSilver
+    capacity: 14
   - type: Sprite
     layers:
     - state: base

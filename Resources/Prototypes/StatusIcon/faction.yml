@@ -50,6 +50,7 @@
       - ShowAntagIcons
       - HeadRevolutionary
       - ShowRevolutionaryIcons
+      - RevolutionaryLieutenant
   icon:
     sprite: /Textures/Interface/Misc/job_icons.rsi
     state: Revolutionary
@@ -62,9 +63,23 @@
     components:
       - ShowAntagIcons
       - Revolutionary
+      - RevolutionaryLieutenant
   icon:
     sprite: /Textures/Interface/Misc/job_icons.rsi
     state: HeadRevolutionary
+
+- type: factionIcon
+  id: RevolutionaryLieutenantFaction
+  isShaded: true
+  priority: 11
+  showTo:
+    components:
+    - ShowAntagIcons
+    - Revolutionary
+    - RevolutionaryLieutenant
+  icon:
+    sprite: /Textures/_Funkystation/Interface/Misc/job_icons.rsi
+    state: Lieutenant
 
 - type: factionIcon
   id: SyndicateFaction

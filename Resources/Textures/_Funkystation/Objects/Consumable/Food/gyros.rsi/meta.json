@@ -1,0 +1,52 @@
+{
+  "version": 1,
+  "license": "CC-BY-NC-4.0",
+  "copyright": "sprited by zergologist (discord)",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "meat"
+    },
+    {
+      "name": "mystery"
+    },
+    {
+      "name": "tofu"
+    },    
+    {
+      "name": "gyros-inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "gyros-inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "meat-inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "meat-inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "mystery-inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "mystery-inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "tofu-inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "tofu-inhand-right",
+      "directions": 4
+    }
+  ]
+}

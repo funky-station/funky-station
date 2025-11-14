@@ -1,3 +1,4 @@
+# SPDX-FileCopyrightText: 2025 Xcybitt <lenazheng88@gmail.com>
 # SPDX-FileCopyrightText: 2025 Xcybitt <xcybitt@gmail.com>
 # SPDX-FileCopyrightText: 2025 mkanke-real <mikekanke@gmail.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
@@ -19,7 +20,7 @@
     - id: ClothingBackpackSyndicate
     - id: ClothingHandsGlovesFingerless
 
-    
+
 - type: entity
   parent: BaseMailLarge
   id: MailNinjaOutfit
@@ -132,7 +133,7 @@
     - id: ClothingOuterDogi
 
 - type: entity
-  parent: BaseMailLarge
+  parent: BaseMailSmall
   id: MailCatHats
   suffix: Cat Hats
   components:

@@ -50,6 +50,9 @@ public sealed partial class TurbineComponent : Component
     [DataField]
     public float FlowRateMax = Atmospherics.MaxTransferRate * 5;
 
+    [DataField]
+    public float OutputPressure = Atmospherics.MaxOutputPressure * 3;
+
     /// <summary>
     /// Max/min temperatures
     /// </summary>

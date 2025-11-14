@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 CallMeBEEF <94567502+CallMeBEEF@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
 - type: entity
   parent: [DrinkBottleVisualsOpenable, DrinkBottleGlassBaseFull, BaseSyndicateContraband]
   id: DrinkHammeredBottleFull

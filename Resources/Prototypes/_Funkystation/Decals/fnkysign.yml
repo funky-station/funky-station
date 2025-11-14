@@ -1,0 +1,97 @@
+- type: decal
+  id: FNKYSign1
+  tags: ["station"]
+  sprite:
+    sprite: Decals/fnkysign.rsi
+    state: fnkysign1
+
+- type: decal
+  id: FNKYSign2
+  tags: ["station"]
+  sprite:
+    sprite: Decals/fnkysign.rsi
+    state: fnkysign2
+
+- type: decal
+  id: FNKYSign3
+  tags: ["station"]
+  sprite:
+    sprite: Decals/fnkysign.rsi
+    state: fnkysign3
+
+- type: decal
+  id: FNKYSign4
+  tags: ["station"]
+  sprite:
+    sprite: Decals/fnkysign.rsi
+    state: fnkysign4
+
+- type: decal
+  id: FNKYSign5
+  tags: ["station"]
+  sprite:
+    sprite: Decals/fnkysign.rsi
+    state: fnkysign5
+
+- type: decal
+  id: FNKYSign6
+  tags: ["station"]
+  sprite:
+    sprite: Decals/fnkysign.rsi
+    state: fnkysign6
+
+- type: decal
+  id: FNKYSign7
+  tags: ["station"]
+  sprite:
+    sprite: Decals/fnkysign.rsi
+    state: fnkysign7
+
+- type: decal
+  id: FNKYSign1Alt
+  tags: ["station"]
+  sprite:
+    sprite: Decals/fnkysign.rsi
+    state: fnkysign1alt
+
+- type: decal
+  id: FNKYSign2Alt
+  tags: ["station"]
+  sprite:
+    sprite: Decals/fnkysign.rsi
+    state: fnkysign2alt
+
+- type: decal
+  id: FNKYSign3Alt
+  tags: ["station"]
+  sprite:
+    sprite: Decals/fnkysign.rsi
+    state: fnkysign3alt
+
+- type: decal
+  id: FNKYSign4Alt
+  tags: ["station"]
+  sprite:
+    sprite: Decals/fnkysign.rsi
+    state: fnkysign4alt
+
+- type: decal
+  id: FNKYSign5Alt
+  tags: ["station"]
+  sprite:
+    sprite: Decals/fnkysign.rsi
+    state: fnkysign5alt
+
+- type: decal
+  id: FNKYSign6alt
+  tags: ["station"]
+  sprite:
+    sprite: Decals/fnkysign.rsi
+    state: fnkysign6alt
+
+- type: decal
+  id: FNKYSign7Alt
+  tags: ["station"]
+  sprite:
+    sprite: Decals/fnkysign.rsi
+    state: fnkysign7alt

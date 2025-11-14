@@ -22,7 +22,6 @@ SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
   <Box>
     <GuideEntityEmbed Entity="OrganThavenBrain" Caption=""/>
   </Box>
-
   The Thaven have a unique brain structure, similar to a positronic brain, and thus have "Moods" which affect them
   similarly to a borg's Laws. [color=#ffa500]These Moods must be followed to the best of your ability![/color]
 
@@ -31,6 +30,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
   The specifics of that are up to you, but if a Mood is violated, you must seek to correct your mistake immediately if possible.[/color]
 
   ## Mood Swings
+
   Thaven brains are susceptible to fluctuations in electromagnetic fields.
   As a result, their ability to synchronize and regulate their Moods tends to degrade with extended exposure to the
   cosmic rays that permeate NT stations.
@@ -40,20 +40,24 @@ SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
   which can give them additional, often severely debilitating moods.
 
   ## Thaven Nerve Pinch
+
   Thaven hand-to-hand martial arts have a focus on inflicting non-permanent damage. As a result, [color=#ffa500]their unarmed
-  attacks are slow, and deal no damage,[/color] but [color=#1e90ff]cause a fair amount of stun buildup.[/color]
+  attacks are slow, and deal no normal damage,[/color] but deal a decent 18 [color=yellow]Stamina[/color].
 
   ## Breathing
+
   Due to sharing a common ancestor with space carp, Thaven lungs are strange, resilient organs that generate energy
   from the motion of respiration alone. As such, [color=#1e90ff]Thaven can safely breathe any kind of atmosphere,[/color]
   though unlike their genetic lineage, [color=#ffa500]they're still vulnerable to asphyxiation and barotrauma.[/color]
 
   ## Damage
+
   Due to their relatively fragile bone structure and unique nervous system, they take
-  10% more damage from [color=#ec3a3a]blunt[/color], [color=#ec3a3a]slash[/color], [color=#ec3a3a]pierce[/color], and [color=#ec3a3a]genetic[/color], and 20% more damage from [color=#ec3a3a]radiation[/color],
-  but their aquatic ancestry allows them to take 10% less damage from [color=#ec3a3a]heat[/color], [color=#ec3a3a]cold[/color], and [color=#ec3a3a]poison[/color].
+  10% more damage from [color=orange]Blunt[/color], [color=orange]Slashing[/color], [color=orange]Piercing[/color], and [color=mediumpurple]Genetic[/color], and 20% more damage from [color=green]Radiation[/color],
+  but their aquatic ancestry allows them to take 10% less damage from [color=red]Heat[/color], [color=cornflowerblue]Cold[/color], and [color=mediumpurple]Poison[/color].
 
   ## Thaven Naming Conventions
+
   Thaven typically name themselves after a single virtue they hold dear. Sometimes these names can be long and unwieldy.
 
   - [color=#449944]Acceptable:[/color] Honesty

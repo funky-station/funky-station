@@ -36,15 +36,14 @@ SPDX-License-Identifier: MIT
 
   ## Vox Livers
 
-  Vox [color=#1e90ff]slowly recover from low levels of poison damage[/color] on their own, so long as they are careful
-  not to exceed 20 poison damage.
-  This allows them to endure breathing station air for up to thirty seconds at a time without lasting damage, letting
-  them quickly eat, drink, take oral medication, and so on.
+  Vox [color=#1e90ff]slowly recover from low levels of Poison damage[/color] on their own, so long as they are careful
+  not to exceed 20 Poison damage. This allows them to endure breathing station air for up to thirty seconds at a time
+  without lasting damage, letting them quickly eat, drink, take oral medication, and so on.
   A thirty second oxygen exposure takes them two minutes to recover from.
   If their health does not seem to improve within a minute of oxygen exposure, they should seek medical attention.
 
   ## Claws
 
-  Vox have sharp claws, and deal [color=#ec3a3a]Slashing[/color] damage with their unarmed attack.
+  Vox have sharp claws, and deal [color=orange]Slashing[/color] damage with their unarmed attack.
 
 </Document>

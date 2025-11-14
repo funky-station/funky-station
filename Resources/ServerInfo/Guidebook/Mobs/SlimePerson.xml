@@ -48,9 +48,9 @@ SPDX-License-Identifier: MIT
 
   ## Damage
 
-  Due to their non-newtonian biology, Slime People take 40% reduced [color=#ec3a3a]Blunt[/color] damage and 20% reduced [color=#ec3a3a]Poison[/color],
-  as well as 80% reduced [color=#ec3a3a]Cellular[/color]. However, they also take 50% more [color=#ec3a3a]Cold[/color] damage,
-  20% more [color=#ec3a3a]Piercing[/color] damage, and 20% more [color=#ec3a3a]Slashing[/color] damage. They suffer from barotrauma
+  Due to their non-newtonian biology, Slime People take 40% reduced [color=orange]Blunt[/color] damage and 20% reduced [color=green]Poison[/color],
+  as well as 80% reduced [color=mediumpurple]Cellular[/color]. However, they also take 50% more [color=cornflowerblue]Cold[/color] damage,
+  20% more [color=orange]Piercing[/color] damage, and 20% more [color=orange]Slashing[/color] damage. They suffer from barotrauma
   9% faster than other species, and they also become injured when splashed with water, as some of their slime is washed away.
 
 </Document>

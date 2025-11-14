@@ -51,7 +51,7 @@ SPDX-License-Identifier: MIT
   ## Repairing
   <Box HorizontalAlignment="Stretch">
     <GuideEntityEmbed Entity="WelderIndustrialAdvanced" Caption="Welder"/>
-    Welders can be used to repair [color=yellow]Brute[/color] damage and stop [color=orange]Bleeding[/color].
+    Welders can be used to repair [color=orange]Brute[/color] damage and stop [color=red]Bleeding[/color].
   </Box>
   <Box HorizontalAlignment="Stretch">
     <GuideEntityEmbed Entity="CableApcStack" Caption="Cables (any type)"/>
@@ -67,7 +67,7 @@ SPDX-License-Identifier: MIT
   </Box>
   <Box HorizontalAlignment="Stretch">
     <GuideEntityEmbed Entity="SheetPlastic" Caption="Plastic Sheets"/>
-    Plastic Sheets can be used to stop [color=orange]Bleeding[/color].
+    Plastic Sheets can be used to stop [color=red]Bleeding[/color].
   </Box>
   <Box HorizontalAlignment="Stretch">
     <GuideEntityEmbed Entity="Oilpack" Caption="Oil Packs"/>

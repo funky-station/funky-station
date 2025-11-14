@@ -43,6 +43,12 @@ public sealed partial class CosmicFinaleComponent : Component
     [DataField, AutoNetworkedField]
     public TimeSpan CheckWait = TimeSpan.FromSeconds(5);
 
+    [DataField, AutoNetworkedField]
+    public TimeSpan BufferSpeedup = TimeSpan.FromSeconds(40); // Funky. How much to speed up the buffer phase when converting someone.
+
+    [DataField, AutoNetworkedField]
+    public TimeSpan BufferSpeedupFaloff = TimeSpan.FromSeconds(5); // Funky. Each time someone is converted during buffer phase, the speedup gets reduced by this value.
+
     [DataField]
     public SoundSpecifier CancelEventSound = new SoundPathSpecifier("/Audio/Misc/notice2.ogg");
 

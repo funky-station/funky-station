@@ -75,7 +75,11 @@ public sealed class CosmicConversionSystem : EntitySystem
                 var finaleQuery = EntityQueryEnumerator<CosmicFinaleComponent>(); // Enumerator for The Monument's Finale
                 while (finaleQuery.MoveNext(out var monument, out var comp) && comp.CurrentState == FinaleState.ActiveBuffer)
                 {
-                    comp.BufferTimer -= TimeSpan.FromSeconds(45);
+                    // Begin Funky
+                    if (comp.BufferSpeedup <= TimeSpan.FromSeconds(0)) continue; // We can't speed this up any more, so no popup or anything
+                    comp.BufferTimer -= comp.BufferSpeedup;
+                    comp.BufferSpeedup = Math.Clamp(comp.BufferSpeedup - BufferSpeedupFaloff, 0, comp.BufferSpeedup); // Converting gives diminishing returns, caps out at 180 seconds with current values
+                    // End Funky
                     _popup.PopupCoordinates(Loc.GetString("cosmiccult-finale-speedup"), Transform(monument).Coordinates, PopupType.Large);
                 }
             }

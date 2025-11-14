@@ -507,6 +507,30 @@ public sealed class NuclearReactorSystem : SharedNuclearReactorSystem
                 ent.Comp.VisualGrid[x, y] = _entityManager.GetNetEntity(SpawnAttachedTo("ReactorComponent", new(ent.Owner, xspace * (y - 3), (-yspace * (x - 3)) - yoff)));
             }
         }
+        comp.RadiationLevel = Math.Clamp(comp.RadiationLevel + MeltdownBadness, 0, 200);
+        comp.AirContents.AdjustMoles(Gas.Tritium, MeltdownBadness * 15);
+        comp.AirContents.Temperature = Math.Max(comp.Temperature, comp.AirContents.Temperature);
+
+        var T = _atmosphereSystem.GetTileMixture(ent.Owner, excite: true);
+        if (T != null)
+            _atmosphereSystem.Merge(T, comp.AirContents);
+
+        _adminLog.Add(LogType.Explosion, LogImpact.High, $"{ToPrettyString(ent):reactor} catastrophically overloads, meltdown badness: {MeltdownBadness}");
+
+        // You did not see graphite on the roof. You're in shock. Report to medical.
+        for (var i = 0; i < _random.Next(10, 30); i++)
+            SpawnAtPosition("NuclearDebrisChunk", new(uid, _random.NextVector2(4)));
+
+        _audio.PlayPvs(new SoundPathSpecifier("/Audio/Effects/metal_break5.ogg"), uid);
+        _explosionSystem.QueueExplosion(ent.Owner, "Radioactive", Math.Max(100, MeltdownBadness * 5), 1, 5, 0, canCreateVacuum: false);
+
+        // Reset grids
+        Array.Clear(comp.ComponentGrid);
+        Array.Clear(comp.NeutronGrid);
+        Array.Clear(comp.TemperatureGrid);
+        Array.Clear(comp.FluxGrid);
+
+        UpdateGridVisual(comp);
     }
 
     public override void Update(float frameTime)

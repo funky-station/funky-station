@@ -94,3 +94,13 @@
   id: HeadofSecurityWinterCoat
   equipment:
     outerClothing: ClothingOuterWinterHoS
+
+- type: loadout
+  id: HeadofSecurityArmorVest
+  equipment:
+    outerClothing: ClothingOuterArmorBasic
+
+- type: loadout
+  id: HeadofSecurityArmorVestSlim
+  equipment:
+    outerClothing: ClothingOuterArmorBasicSlim

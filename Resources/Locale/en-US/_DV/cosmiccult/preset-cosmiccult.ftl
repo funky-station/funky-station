@@ -33,7 +33,7 @@ cosmiccult-finale-ready = A terrifying light surges forth from The Monument!
 cosmiccult-finale-speedup = The beckoning quickens! Energy surges through the surroundings...
 
 cosmiccult-finale-degen = You feel yourself unravelling!
-cosmiccult-finale-location = Scanners are detecting an enormous Λ-CDM spike {$location}!
+cosmiccult-finale-location = Scanners are detecting an enormous Λ-CDM spike {$location}! Stop it at all costs!
 cosmiccult-finale-cancel-begin = Your mind's willpower begins to shatter the ritual...
 cosmiccult-finale-beckon-begin = The whispers in the back of your mind intensify...
 cosmiccult-finale-beckon-success = You beckon for the final curtain call.
@@ -181,8 +181,8 @@ cosmiccult-radio-tier1-progress = The Monument is beckoned unto the station...
 cosmiccult-announce-tier2-progress = An unnerving numbness prickles your senses.
 cosmiccult-announce-tier2-warning = Scanners detect a notable increase in Λ-CDM! Rifts in realspace may appear shortly. Please alert your station's chaplain if sighted.
 
-cosmiccult-announce-tier3-progress = Arcs of bluespace energy crackle across the station's groaning structure. The end draws near.
-cosmiccult-announce-tier3-warning = Critical increase in Λ-CDM detected. Infected personnel are to be subdued or neutralized on sight.
+cosmiccult-announce-tier3-progress = Reality itself starts slowly falling apart around you. The end draws near.
+cosmiccult-announce-tier3-warning = Critical increase in Λ-CDM detected. Full crew mobilization strongly advised. Infected personnel are to be neutralized on sight.
 
 cosmiccult-announce-finale-warning = All station crew. The Λ-CDM anomaly is going supercritical, instruments failing; blue-to-real transitional event horizon IMMINENT. If you are not already on counter-protocol, immediately sortie and intervene. Repeat: Intervene immediately or die.
 

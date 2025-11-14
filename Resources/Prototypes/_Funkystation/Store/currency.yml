@@ -28,8 +28,9 @@
   components:
   - type: Sprite
     sprite: _Funkystation/Objects/Specific/Cargo/salvage_reward_ticket.rsi
-    state: ticket
+    state: icon
   - type: Item
+    sprite: _Funkystation/Objects/Specific/Cargo/salvage_reward_ticket.rsi
     shape:
     - 0,0,1,1
   - type: Stack
@@ -96,10 +97,12 @@
   id: RewardTicket
   stackEntity: SalvageTicket
   name: salvage-reward-ticket
+  unit: materials-unit-piece
+  icon: { sprite: _Funkystation/Objects/Specific/Cargo/salvage_reward_ticket.rsi, state: icon }
   price: 0.01   
 
 - type: stack
   id: SalvageRewardTicket
   name: salvageticket
-  icon: { sprite: _Funkystation/Objects/Specific/Cargo/salvage_reward_ticket.rsi, state: ticket }
+  icon: { sprite: _Funkystation/Objects/Specific/Cargo/salvage_reward_ticket.rsi, state: icon }
   spawn: SalvageTicket

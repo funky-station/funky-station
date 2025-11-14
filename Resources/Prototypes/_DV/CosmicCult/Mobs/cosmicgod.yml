@@ -126,3 +126,4 @@
     raffle:
         settings: short
   - type: GhostTakeoverAvailable
+  - type: SupermatterImmune # Funky

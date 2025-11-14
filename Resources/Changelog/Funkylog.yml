@@ -5535,3 +5535,41 @@ Entries:
       message: Medibot ghostrole now actually works.
   id: 661
   time: '2025-11-11T06:44:44.0000000+00:00'
+- author: kosticia, ported to Funky by zergologist
+  changes:
+    - type: Tweak
+      message: Kira special drink has been renamed to the citrus bikeshed.
+  id: 662
+  time: '2025-11-11T22:46:55.0000000+00:00'
+- author: wgreen84
+  changes:
+    - type: Tweak
+      message: Bleach now cleans!
+  id: 663
+  time: '2025-11-11T23:01:38.0000000+00:00'
+- author: Mariiibo
+  changes:
+    - type: Tweak
+      message: >-
+        Tweaked multiple Antagonist guidebook entries, fixing outdated info and
+        attempting to improve readability.
+  id: 664
+  time: '2025-11-11T23:07:13.0000000+00:00'
+- author: Komonighub
+  changes:
+    - type: Tweak
+      message: Readded CutWireVariationPass to roundstart variation
+  id: 665
+  time: '2025-11-13T03:25:45.0000000+00:00'
+- author: zergologist
+  changes:
+    - type: Add
+      message: >-
+        Glowing blush, now you can have radiant cheeks (or even a second set of
+        glowing eyes)
+    - type: Tweak
+      message: >-
+        Changed the number of thaven head slot customization options from four
+        to five
+  id: 666
+  time: '2025-11-13T03:26:42.0000000+00:00'

@@ -12,12 +12,28 @@ SPDX-License-Identifier: MIT
     <GuideEntityEmbed Entity="MobReptilian" Caption=""/>
   </Box>
 
-  They can ONLY eat fruits and meat, but can eat raw meat and drink blood without any ill effects.
-  They prefer a somewhat higher temperature range than humans.
-  They can drag objects with their tail, keeping both their hands free.
+  Evolved from snakes, lizards, crocodiles, and all sorts of other reptiles, Reptilians are a hardy alien species.
 
-  Their unarmed claw attacks deal Slash damage instead of Blunt.
+  ## Claws
 
-  They take [color=#ffa500]30% more Cold damage.[/color]
+  Reptilian claws are sharp, and deal [color=#ec3a3a]Slashing[/color] damage.
+
+  ## Diet
+
+  Reptilians can only eat fruits, meat, and certain special foods like chocolate. They can, however, eat raw meat,
+  paper, crayons, and drink blood without biological consequences.
+  Your fellow crew might look at you differently, though...
+
+  ## Temperature
+
+  Reptilians are accustomed to a higher temperature range than humans, and get cold much quicker as a result.
+
+  ## Tails
+
+  Reptilians can drag objects and people with their tails, keeping both of their hands free.
+
+  ## Drawbacks
+
+  Reptilians take 30% more [color=#ec3a3a]Cold[/color] damage.
 
 </Document>

@@ -20,13 +20,13 @@ SPDX-License-Identifier: MIT
   ## Cookie Biology
 
   Thanks to their anomalous sugar-based biology, Gingerbreads have sugar instead of blood, and can restore blood by
-  eating candies and other sugary foods. They also take 75% less asphyxiation damage, 50% less heat damage, and are
-  completely immune to bloodloss, cold, and cellular damage!
+  eating candies and other sugary foods. They also take 50% less [color=#ec3a3a]Heat[/color] damage from fire, and are completely
+  immune to [color=#ec3a3a]Asphyxiation[/color], [color=#ec3a3a]Bloodloss[/color], [color=#ec3a3a]Cold[/color], and [color=#ec3a3a]Cellular[/color] damage!
 
   ## Drawbacks
 
-  Gingerbreads take 50% more blunt damage than other species.
-  Gingerbreads are injured by water, becoming soggy and limp.
+  Gingerbreads take 50% more [color=#ec3a3a]Blunt[/color] damage than other species.
+  Gingerbreads are injured when splashed with water, becoming soggy and limp.
   Your crewmates might be tempted to butcher you to get cookies...
 
 </Document>

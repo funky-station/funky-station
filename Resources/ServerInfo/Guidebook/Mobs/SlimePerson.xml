@@ -18,35 +18,42 @@ SPDX-License-Identifier: MIT
     <GuideEntityEmbed Entity="MobSlimePerson" Caption=""/>
   </Box>
 
-  Slime people are sentient blobs of non-newtonian fluid and organs who breathe nitrogen.
+  Slime People are sentient blobs of non-newtonian fluid and organs who breathe nitrogen.
 
-  ## Slime Lungs
+  ## Slime Core
 
-  Slime people breathe nitrogen instead of oxygen, which is abundant in the station air, but harder to find compressed
-  into gas tanks. They exhale nitrous oxide and are unaffected by it. Slime people asphyxiate 80% slower than humans.
+  <GuideEntityEmbed Entity="SentientSlimeCore" Caption=""/>
 
-  ## Slime Metabolism
+  Among many other physiological differences, Slime People's organs are compressed into a single "core" located in
+  their stomach region, acting as the brain, heart, eyes, stomach, kidneys, and liver. This core can process up to six
+  reagents instead of the usual three.
 
-  Slime people can metabolize six reagents at once, instead of the usual two.
+  ## Breathing
+
+  Slime People breathe nitrogen instead of oxygen, which is abundant in the station air, but harder to find compressed
+  into gas tanks. They exhale nitrous oxide and are unaffected by it.
+  Furthermore, Slime People asphyxiate five times slower than humans, making the rarity of nitrogen tanks less of a
+  severe threat to their survivability in an emergency.
 
   ## Slime Storage
 
-  Slime people have an [bold]internal 2x3 storage inventory[/bold] inside of their slime membrane. Anyone can see
-  what's inside and take it out of you without asking, so be careful.
+  Slime People have an [bold]internal 2x3 storage inventory[/bold] inside of their slime membrane. Anyone can see
+  what's inside and take it out of them without asking, and thrown items can sometimes get stuck inside, so be careful.
 
   ## Slime Healing
 
-  Slime people have a very slight accelerated regeneration compared to other humanoids.
+  Slime People have a very slight accelerated regeneration compared to other humanoids, their slime coagulating at
+  twice the rate of other species' and below 65 damage.
 
-  ## Non-Newtonian Body
+  ## Non-Newtonian Biology
 
-  Slimes take 40% reduced [color=#ec3a3a]Blunt[/color] damage and 20% reduced [color=#ec3a3a]Poison[/color], as well
-  as 80% reduced [color=#ec3a3a]Cellular[/color]. Slime people also take pressure damage 9% faster than other species.
+  Slime People take 40% reduced [color=#ec3a3a]Blunt[/color] damage and 20% reduced [color=#ec3a3a]Poison[/color], as well as 80% reduced [color=#ec3a3a]Cellular[/color].
 
   ## Drawbacks
 
-  Slime blood cannot be regenerated from iron. Additionally, slime blood is a source of debatably nutritious food for
-  other species.
-  Slimes take 50% more [color=#ec3a3a]Cold[/color] damage, 20% more [color=#ec3a3a]Piercing[/color] damage, and 20% more [color=#ec3a3a]Slashing[/color] damage.
+  Slime People take 50% more [color=#ec3a3a]Cold[/color] damage, 20% more [color=#ec3a3a]Piercing[/color] damage, and 20% more [color=#ec3a3a]Slashing[/color] damage.
+  Slime Ppeople are injured when splashed with water, washing away some of their slime.
+  Slime People take pressure damage 9% faster than other species.
+  Slime blood is a source of debatably nutritious food for other species.
 
 </Document>

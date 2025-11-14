@@ -12,21 +12,33 @@ SPDX-License-Identifier: MIT
     <GuideEntityEmbed Entity="MobArachnid" Caption=""/>
   </Box>
 
-  They have two additional Pocket slots in their inventory. They can eat raw meat without any ill effects, but some foods like chocolate and onion poisons them.
-  They suffocate 50% faster, and their Blue Blood can't be metabolised from Iron, being based on Copper instead.
+  Arachnids are an eight-legged species of sentient giant spider.
 
-  Their unarmed attacks deal Piercing damage instead of Blunt.
+  ## Arachnid Physiology
+
+  Thanks to their additional arms and legs, Arachnids have two additional Pocket slots in their inventory.
+  They suffocate 50% faster and recover from it 50% slower, and their Blue Blood can't be metabolised from Iron, being
+  based on Copper instead.
+
+  ## Diet
+
+  Arachnids share evolutionary roots with spiders, and so they cannot metabolize Theobromine or Allicin. Be careful
+  when eating chocolate, onions, or garlic, and avoid coffee and tea! Despite their dietary restrictions, they can eat
+  raw meat without any ill effects.
+
+  ## Pincers
+
+  Arachnids' sharp legs and pincers cause them to deal [color=#ec3a3a]Piercing[/color] damage with their unarmed attacks.
 
   ## Sericulture
-
   <Box>
     <GuideEntityEmbed Entity="MaterialWebSilk" Caption=""/>
     <GuideEntityEmbed Entity="ClothingUniformJumpskirtWeb" Caption=""/>
     <GuideEntityEmbed Entity="WebShield" Caption=""/>
     <GuideEntityEmbed Entity="WallWeb" Caption=""/>
   </Box>
-
-  Arachnids can create Websilk at the cost of getting more hungry. They (and only they) can craft bundles of websilk into various items from clothing and shields to entire walls.
+  Arachnids can create Websilk at the cost of getting more hungry. They (and only they) can craft bundles of websilk
+  into various items from clothing, shields, and medicine to entire walls and furniture.
 
 
 </Document>

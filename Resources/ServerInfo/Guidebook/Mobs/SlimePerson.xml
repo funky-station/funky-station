@@ -21,9 +21,9 @@ SPDX-License-Identifier: MIT
   Slime People are sentient blobs of non-newtonian fluid and organs who breathe nitrogen.
 
   ## Slime Core
-
-  <GuideEntityEmbed Entity="SentientSlimeCore" Caption=""/>
-
+  <Box>
+    <GuideEntityEmbed Entity="SentientSlimeCore" Caption=""/>
+  </Box>
   Among many other physiological differences, Slime People's organs are compressed into a single "core" located in
   their stomach region, acting as the brain, heart, eyes, stomach, kidneys, and liver. This core can process up to six
   reagents instead of the usual three.

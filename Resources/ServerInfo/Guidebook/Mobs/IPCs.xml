@@ -80,4 +80,14 @@ SPDX-License-Identifier: MIT
     [color=red]NEVER ELECTROCUTE AN IPC with a defibrillator or in any other way while it is dead, as this will cause the battery to discharge energy rays outward![/color]
   </Box>
 
+  ## IPC Naming Conventions
+
+  IPCs typically have 3-5 characters names followed by a hyphen and numbers.
+
+  [bullet] ARMA-206
+
+  [bullet] YPT-042
+
+  [bullet] WISP-524
+
 </Document>

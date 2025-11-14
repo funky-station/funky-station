@@ -47,7 +47,7 @@
   materials:
     RawSilver: 100
     Coal: 45
-    printTicket: true
+  printTicket: true
   ticketProtoId: SalvageTicket2
 
 - type: latheRecipe

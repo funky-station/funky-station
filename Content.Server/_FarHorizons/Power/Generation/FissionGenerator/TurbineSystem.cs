@@ -51,6 +51,28 @@ public sealed class TurbineSystem : SharedTurbineSystem
     {
         base.Initialize();
         SubscribeLocalEvent<TurbineComponent, AtmosDeviceUpdateEvent>(OnUpdate);
+        SubscribeLocalEvent<TurbineComponent, GasAnalyzerScanEvent>(OnAnalyze);
+    }
+
+    private void OnAnalyze(EntityUid uid, TurbineComponent comp, ref GasAnalyzerScanEvent args)
+    {
+        args.GasMixtures ??= [];
+
+        if (_nodeContainer.TryGetNode(comp.InletEnt, comp.PipeName, out PipeNode? inlet) && inlet.Air.Volume != 0f)
+        {
+            var inletAirLocal = inlet.Air.Clone();
+            inletAirLocal.Multiply(inlet.Volume / inlet.Air.Volume);
+            inletAirLocal.Volume = inlet.Volume;
+            args.GasMixtures.Add((Loc.GetString("gas-analyzer-window-text-inlet"), inletAirLocal));
+        }
+
+        if (_nodeContainer.TryGetNode(comp.OutletEnt, comp.PipeName, out PipeNode? outlet) && outlet.Air.Volume != 0f)
+        {
+            var outletAirLocal = outlet.Air.Clone();
+            outletAirLocal.Multiply(outlet.Volume / outlet.Air.Volume);
+            outletAirLocal.Volume = outlet.Volume;
+            args.GasMixtures.Add((Loc.GetString("gas-analyzer-window-text-outlet"), outletAirLocal));
+        }
     }
 
     private void OnUpdate(EntityUid uid, TurbineComponent comp, ref AtmosDeviceUpdateEvent args)
@@ -60,22 +82,15 @@ public sealed class TurbineSystem : SharedTurbineSystem
 
         supplier.MaxSupply = comp.LastGen;
 
-        if (!_nodeContainer.TryGetNodes(uid, comp.InletName, comp.OutletName, out OffsetPipeNode? inlet, out OffsetPipeNode? outlet))
-        {
-            comp.HasPipes = false;
-            return;
-        }
-        else
-        {
-            comp.HasPipes = true;
-        }
+        if (comp.InletEnt.Id == 0)
+            comp.InletEnt = SpawnAttachedTo("TurbineGasPipe", new(uid, -1, -1), rotation: Angle.FromDegrees(-90));
+        if (comp.OutletEnt.Id == 0)
+            comp.OutletEnt = SpawnAttachedTo("TurbineGasPipe", new(uid, 1, -1), rotation: Angle.FromDegrees(90));
 
-        // Try to connect to a distant pipe
-        // TODO: This is BAD and I HATE IT... and I'm too lazy to fix it
-        if (inlet.ReachableNodes.Count == 0) 
-            _nodeGroupSystem.QueueReflood(inlet);
-        if (outlet.ReachableNodes.Count == 0)
-            _nodeGroupSystem.QueueReflood(outlet);
+        if (!_nodeContainer.TryGetNode(comp.InletEnt, comp.PipeName, out PipeNode? inlet))
+            return;
+        if (!_nodeContainer.TryGetNode(comp.OutletEnt, comp.PipeName, out PipeNode? outlet))
+            return;
 
         UpdateAppearance(uid, comp);
 

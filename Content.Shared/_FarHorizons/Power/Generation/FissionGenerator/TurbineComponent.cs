@@ -130,11 +130,12 @@ public sealed partial class TurbineComponent : Component
     /// </summary>
     public ProtoId<ToolQualityPrototype> RepairTool = "Welding";
 
-    [DataField("inlet")]
-    public string InletName { get; set; } = "inlet";
-
-    [DataField("outlet")]
-    public string OutletName { get; set; } = "outlet";
+    [DataField]
+    public string PipeName { get; set; } = "pipe";
+    [DataField]
+    public EntityUid InletEnt = default!;
+    [DataField]
+    public EntityUid OutletEnt = default!;
 
     public bool IsSparking = false;
     public bool IsSmoking = false;

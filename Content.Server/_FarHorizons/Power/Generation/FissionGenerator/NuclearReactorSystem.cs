@@ -59,18 +59,16 @@ public sealed class NuclearReactorSystem : SharedNuclearReactorSystem
     {
         base.Initialize();
         SubscribeLocalEvent<NuclearReactorComponent, AtmosDeviceUpdateEvent>(OnUpdate);
-        SubscribeLocalEvent<NuclearReactorComponent, AtmosDeviceEnabledEvent>(OnEnabled);
-        SubscribeLocalEvent<NuclearReactorComponent, AtmosDeviceDisabledEvent>(OnDisabled);
+        SubscribeLocalEvent<NuclearReactorComponent, AtmosDeviceEnabledEvent>(OnEnable);
+        SubscribeLocalEvent<NuclearReactorComponent, GasAnalyzerScanEvent>(OnAnalyze);
 
         SubscribeLocalEvent<NuclearReactorComponent, EntInsertedIntoContainerMessage>(OnPartChanged);
         SubscribeLocalEvent<NuclearReactorComponent, EntRemovedFromContainerMessage>(OnPartChanged);
         SubscribeLocalEvent<NuclearReactorComponent, ReactorItemActionMessage>(OnItemActionMessage);
         SubscribeLocalEvent<NuclearReactorComponent, ReactorControlRodModifyMessage>(OnControlRodMessage);
     }
-
-    private void OnPartChanged(EntityUid uid, NuclearReactorComponent component, ContainerModifiedMessage args) => ReactorTryGetSlot(uid, "part_slot", out component.PartSlot!);
-
-    private void OnEnabled(EntityUid uid, NuclearReactorComponent comp, ref AtmosDeviceEnabledEvent args)
+    
+    private void OnEnable(Entity<NuclearReactorComponent> ent, ref AtmosDeviceEnabledEvent args)
     {
         comp.ComponentGrid = new ReactorPartComponent[_gridWidth, _gridHeight];
         var prefab = SelectPrefab(comp.Prefab);
@@ -87,20 +85,28 @@ public sealed class NuclearReactorSystem : SharedNuclearReactorSystem
         UpdateGridVisual(uid, comp);
     }
 
-    private void OnDisabled(EntityUid uid, NuclearReactorComponent comp, ref AtmosDeviceDisabledEvent args)
+    private void OnAnalyze(EntityUid uid, NuclearReactorComponent comp, ref GasAnalyzerScanEvent args)
     {
-        comp.ApplyPrefab = default!;
-        comp.Temperature = Atmospherics.T20C;
+        args.GasMixtures ??= [];
 
-        foreach(var RC in comp.ComponentGrid)
-            if(RC != null)
-                RC.Temperature = Atmospherics.T20C;
+        if (_nodeContainer.TryGetNode(comp.InletEnt, comp.PipeName, out PipeNode? inlet) && inlet.Air.Volume != 0f)
+        {
+            var inletAirLocal = inlet.Air.Clone();
+            inletAirLocal.Multiply(inlet.Volume / inlet.Air.Volume);
+            inletAirLocal.Volume = inlet.Volume;
+            args.GasMixtures.Add((Loc.GetString("gas-analyzer-window-text-inlet"), inletAirLocal));
+        }
 
-        Array.Clear(comp.ComponentGrid);
-        Array.Clear(comp.VisualGrid);
-        Array.Clear(comp.FluxGrid);
-        comp.AirContents?.Clear();
+        if (_nodeContainer.TryGetNode(comp.OutletEnt, comp.PipeName, out PipeNode? outlet) && outlet.Air.Volume != 0f)
+        {
+            var outletAirLocal = outlet.Air.Clone();
+            outletAirLocal.Multiply(outlet.Volume / outlet.Air.Volume);
+            outletAirLocal.Volume = outlet.Volume;
+            args.GasMixtures.Add((Loc.GetString("gas-analyzer-window-text-outlet"), outletAirLocal));
+        }
     }
+
+    private void OnPartChanged(EntityUid uid, NuclearReactorComponent component, ContainerModifiedMessage args) => ReactorTryGetSlot(uid, "part_slot", out component.PartSlot!);
 
     private void OnUpdate(Entity<NuclearReactorComponent> ent, ref AtmosDeviceUpdateEvent args)
     {
@@ -134,15 +140,15 @@ public sealed class NuclearReactorSystem : SharedNuclearReactorSystem
             UpdateGridVisual(uid, comp);
         }
 
-        if (!_nodeContainer.TryGetNodes(uid, comp.InletName, comp.OutletName, out OffsetPipeNode? inlet, out OffsetPipeNode? outlet))
-            return;
+        if (comp.InletEnt.Id == 0)
+            comp.InletEnt = SpawnAttachedTo("ReactorGasPipe", new(ent.Owner, -2, -1), rotation:Angle.FromDegrees(-90));
+        if (comp.OutletEnt.Id == 0)
+            comp.OutletEnt = SpawnAttachedTo("ReactorGasPipe", new(ent.Owner, 2, 1), rotation: Angle.FromDegrees(90));
 
-        // Try to connect to a distant pipe
-        // TODO: This is BAD and I HATE IT... and I'm too lazy to fix it
-        if (inlet.ReachableNodes.Count == 0)
-            _nodeGroupSystem.QueueReflood(inlet);
-        if (outlet.ReachableNodes.Count == 0)
-            _nodeGroupSystem.QueueReflood(outlet);
+        if (!_nodeContainer.TryGetNode(comp.InletEnt, comp.PipeName, out PipeNode? inlet))
+            return;
+        if (!_nodeContainer.TryGetNode(comp.OutletEnt, comp.PipeName, out PipeNode? outlet))
+            return;
 
         _appearance.SetData(uid, ReactorVisuals.Input, inlet.Air.Moles.Sum() > 20);
         _appearance.SetData(uid, ReactorVisuals.Output, outlet.Air.Moles.Sum() > 20);

@@ -79,11 +79,12 @@ public sealed partial class NuclearReactorComponent : Component
     [DataField("material")]
     public ProtoId<PhysicalMaterialPrototype> Material = "steel";
 
-    [DataField("inlet")]
-    public string InletName { get; set; } = "inlet";
-
-    [DataField("outlet")]
-    public string OutletName { get; set; } = "outlet";
+    [DataField]
+    public string PipeName { get; set; } = "pipe";
+    [DataField]
+    public EntityUid InletEnt = default!;
+    [DataField]
+    public EntityUid OutletEnt = default!;
 
     #region Debug
     [ViewVariables(VVAccess.ReadOnly)]

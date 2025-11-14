@@ -862,17 +862,6 @@
   saleLimit: 1 # WD EDIT
 
 - type: listing
-  id: UplinkMoonshine
-  name: uplink-moonshine-name
-  description: uplink-moonshine-desc
-  productEntity: DrinkHammeredBottleFull
-  cost:
-    Telecrystal: 20
-  categories:
-  - UplinkChemicals
-  saleLimit: 1 # WD EDIT
-
-- type: listing
   id: UplinkMedsBundle
   name: uplink-meds-bundle-name
   description: uplink-meds-bundle-desc

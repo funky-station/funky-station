@@ -106,7 +106,8 @@ public sealed class FrenchAccentSystem : EntitySystem
                 msg = msg.ToLower();
                 msg = msg[0] switch
                 {
-                    'a' or 'e' or 'i' or 'o' or 'u' or '\'' => "L'",
+                    'a' or 'e' or 'i' or 'o' or 'u' => "L'",
+                    '\'' => "L",
                     _ => "Le "
                 } + msg;
             }
@@ -114,7 +115,8 @@ public sealed class FrenchAccentSystem : EntitySystem
             {
                 msg = msg[0] switch
                 {
-                    'a' or 'e' or 'i' or 'o' or 'u' or '\'' => "L'",
+                    'a' or 'e' or 'i' or 'o' or 'u' => "L'",
+                    '\'' => "L",
                     _ => "LE "
                 } + msg;
             }

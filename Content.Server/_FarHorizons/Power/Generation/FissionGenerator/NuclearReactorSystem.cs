@@ -21,12 +21,9 @@ using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using System.Linq;
-<<<<<<< HEAD
-=======
 using Content.Shared.Atmos.Piping.Components;
 using Content.Shared._FarHorizons.Materials.Systems;
 using Content.Server.NodeContainer.Nodes;
->>>>>>> aa8b222b61 (Reactor and Turbine move gas like pumps)
 
 namespace Content.Server._FarHorizons.Power.Generation.FissionGenerator;
 
@@ -477,9 +474,6 @@ public sealed class NuclearReactorSystem : SharedNuclearReactorSystem
         return ProcessedGas;
     }
 
-<<<<<<< HEAD
-    private void ProcessCaseRadiation(Entity<NuclearReactorComponent> ent)
-=======
     private float CalculateTransferVolume(float volume, PipeNode inlet, PipeNode outlet, float dt)
     {
         var wantToTransfer = volume * _atmosphereSystem.PumpSpeedup() * dt;
@@ -491,7 +485,6 @@ public sealed class NuclearReactorSystem : SharedNuclearReactorSystem
     }
 
     private void CatastrophicOverload(Entity<NuclearReactorComponent> ent)
->>>>>>> aa8b222b61 (Reactor and Turbine move gas like pumps)
     {
         var comp = EnsureComp<RadiationSourceComponent>(ent.Owner);
 

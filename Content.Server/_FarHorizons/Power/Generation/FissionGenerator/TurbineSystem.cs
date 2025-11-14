@@ -12,14 +12,11 @@ using Content.Shared.Popups;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Audio;
 using Robust.Shared.Random;
-<<<<<<< HEAD
 using Content.Shared.Administration.Logs;
 using Robust.Server.GameObjects;
 using Content.Server.Weapons.Ranged.Systems;
 using Content.Server._FarHorizons.NodeContainer.Nodes;
-=======
 using Content.Server.NodeContainer.Nodes;
->>>>>>> aa8b222b61 (Reactor and Turbine move gas like pumps)
 
 namespace Content.Server._FarHorizons.Power.Generation.FissionGenerator;
 

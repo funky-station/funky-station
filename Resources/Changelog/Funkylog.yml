@@ -5617,3 +5617,19 @@ Entries:
       message: Departmental suit storage lockers now have unique sprites.
   id: 672
   time: '2025-11-15T08:08:37.0000000+00:00'
+- author: mkanke-real
+  changes:
+    - type: Add
+      message: Added Psych to Bagel
+    - type: Add
+      message: Added navigational floor decals to Bagel
+    - type: Fix
+      message: Fixed Bagel grav generator power and vox box atmos
+    - type: Fix
+      message: Fixed AI turrets not being linked
+    - type: Tweak
+      message: Moved IAA office on Bagel to next to NTR rep office
+    - type: Tweak
+      message: Librarian and Reporter now have doors locked to their jobs on Bagel
+  id: 673
+  time: '2025-11-15T22:48:02.0000000+00:00'

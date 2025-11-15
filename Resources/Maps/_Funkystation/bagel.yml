@@ -1,74 +1,11 @@
-# SPDX-FileCopyrightText: 2021 20kdc <asdd2808@gmail.com>
-# SPDX-FileCopyrightText: 2021 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021 E F R <602406+Efruit@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021 Elijahrane <60792108+Elijahrane@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021 Mith-randalf <84274729+Mith-randalf@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021 Paul Ritter <ritter.paul1@googlemail.com>
-# SPDX-FileCopyrightText: 2021 buletsponge <96000213+buletsponge@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021 wrexbe <81056464+wrexbe@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Jacob Tong <10494922+ShadowCommander@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Kara <lunarautomaton6@gmail.com>
-# SPDX-FileCopyrightText: 2022 Moony <moonheart08@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Morbo <14136326+Morb0@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Myctai <108953437+Myctai@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Peptide90 <78795277+Peptide90@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 TaralGit <76408146+TaralGit@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 TimrodDX <timrod@gmail.com>
-# SPDX-FileCopyrightText: 2022 Veritius <veritiusgaming@gmail.com>
-# SPDX-FileCopyrightText: 2022 and_a <and_a@DESKTOP-RJENGIR>
-# SPDX-FileCopyrightText: 2022 metalgearsloth <metalgearsloth@gmail.com>
-# SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-# SPDX-FileCopyrightText: 2022 moonheart08 <moonheart08@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Eoin Mcloughlin <helloworld@eoinrul.es>
-# SPDX-FileCopyrightText: 2023 Jackrost <jackrost@mail.ru>
-# SPDX-FileCopyrightText: 2023 Kevin Zheng <kevinz5000@gmail.com>
-# SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Ubaser <134914314+UbaserB@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 WIN-AOO91TUKDC7\geniy <bogdanilchev@yandex.ru>
-# SPDX-FileCopyrightText: 2023 daerSeebaer <61566539+daerSeebaer@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 eoineoineoin <github@eoinrul.es>
-# SPDX-FileCopyrightText: 2023 metalgearsloth <comedian_vs_clown@hotmail.com>
-# SPDX-FileCopyrightText: 2023 not-gavnaed <114421346+not-gavnaed@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 88tv <131759102+88tv@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 8tv <eightev@gmail.com>
-# SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
-# SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
-# SPDX-FileCopyrightText: 2024 Emisse <99158783+Emisse@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Krunklehorn <42424291+Krunklehorn@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 NkoKirkto <153374559+NkoKirkto@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 NkoKirkto <halloleute640mail.com>
-# SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-# SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
-# SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
-# SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
-# SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Icepick <122653407+Icepicked@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
-# SPDX-FileCopyrightText: 2025 VMSolidus <evilexecutive@gmail.com>
-# SPDX-FileCopyrightText: 2025 aada <ss.adasts@gmail.com>
-# SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 kbarkevich <24629810+kbarkevich@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 mkanke-real <mikekanke@gmail.com>
-# SPDX-FileCopyrightText: 2025 rottenheadphones <juaelwe@outlook.com>
-# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
-#
-# SPDX-License-Identifier: MIT
-
 meta:
   format: 7
   category: Map
   engineVersion: 266.0.0
   forkId: ""
   forkVersion: ""
-  time: 11/05/2025 04:47:02
-  entityCount: 28142
+  time: 11/15/2025 20:33:17
+  entityCount: 28145
 maps:
 - 3201
 grids:
@@ -3034,6 +2971,175 @@ entities:
           decals:
             4773: -30,-48
         - node:
+            color: '#FFFFFFFF'
+            id: DirFloorTileAtmos
+          decals:
+            6555: 14.9973755,8.000284
+            6564: -15.001135,9.001324
+        - node:
+            color: '#FFFFFFFF'
+            id: DirFloorTileBar
+          decals:
+            6627: 16.496338,6.500036
+        - node:
+            color: '#FFFFFFFF'
+            id: DirFloorTileBotany
+          decals:
+            6546: 28.000511,-25.498564
+            6602: 17.497217,-23.996664
+        - node:
+            color: '#FFFFFFFF'
+            id: DirFloorTileBridge
+          decals:
+            6590: 0,-23
+            6591: 0.5011654,-22.999462
+        - node:
+            color: '#FFFFFFFF'
+            id: DirFloorTileCCOffice
+          decals:
+            6542: -0.50052685,-24.49851
+            6570: -17.498615,7.502262
+        - node:
+            color: '#FFFFFFFF'
+            id: DirFloorTileCargo
+          decals:
+            6541: 0.98507416,-23.990877
+            6549: 17.499428,7.5031643
+            6577: -13.999289,8.000071
+            6610: 15.502045,-22.496206
+        - node:
+            color: '#FFFFFFFF'
+            id: DirFloorTileChapel
+          decals:
+            6535: -0.9961357,-24.500605
+            6563: -16.498592,9.004655
+        - node:
+            color: '#FFFFFFFF'
+            id: DirFloorTileChem
+          decals:
+            6539: 43.9986,-25.502783
+        - node:
+            color: '#FFFFFFFF'
+            id: DirFloorTileComms
+          decals:
+            6623: 17.49931,6.999614
+        - node:
+            color: '#FFFFFFFF'
+            id: DirFloorTileEngi
+          decals:
+            6527: 1.489455,-24.497637
+            6554: 14.99855,8.49863
+            6576: -14.001141,8.497053
+            6611: 16.999922,-22.499756
+        - node:
+            color: '#FFFFFFFF'
+            id: DirFloorTileEvac
+          decals:
+            6544: 0.99206996,-24.496809
+            6547: 16.002035,8.996738
+            6548: 17.502977,8.000147
+            6609: 16.00252,-22.499756
+        - node:
+            color: '#FFFFFFFF'
+            id: DirFloorTileGrav
+          decals:
+            6556: 15.000925,7.4997516
+        - node:
+            color: '#FFFFFFFF'
+            id: DirFloorTileHOP
+          decals:
+            6526: 1.495961,-24.990017
+        - node:
+            color: '#FFFFFFFF'
+            id: DirFloorTileJani
+          decals:
+            6543: -0.49813968,-23.994698
+            6571: -17.503601,8.503327
+        - node:
+            color: '#FFFFFFFF'
+            id: DirFloorTileKitchen
+          decals:
+            6529: 1.4930991,-23.493847
+            6579: -14.004853,7.0072145
+            6626: 16.997272,6.5011477
+        - node:
+            color: '#FFFFFFFF'
+            id: DirFloorTileLawyer
+          decals:
+            6537: -0.99968517,-23.49954
+            6586: -39,-25
+            6587: -39.005013,-24.49969
+        - node:
+            color: '#FFFFFFFF'
+            id: DirFloorTileMedical
+          decals:
+            6528: 1.4930044,-23.979355
+            6578: -14.004853,7.5006475
+            6598: 17.499928,-24.499897
+            6624: 15.999376,6.501501
+        - node:
+            color: '#FFFFFFFF'
+            id: DirFloorTileNewsroom
+          decals:
+            6551: 17.496675,8.500311
+            6612: 16.506546,-22.499756
+        - node:
+            color: '#FFFFFFFF'
+            id: DirFloorTilePointerLeft
+          decals:
+            6533: -0.99893934,-25.496193
+            6538: -0.99968517,-23.002558
+            6572: -17.500051,9.0038595
+            6573: -17.500051,6.5018463
+        - node:
+            color: '#FFFFFFFF'
+            id: DirFloorTilePointerRight
+          decals:
+            6530: 1.4930991,-22.989765
+            6531: 1.4895496,-25.488205
+            6574: -14.0004015,6.494685
+            6575: -14.0004015,8.998661
+            6603: 17.500767,-23.499681
+            6604: 17.499779,-25.49772
+        - node:
+            color: '#FFFFFFFF'
+            id: DirFloorTilePointerUp
+          decals:
+            6565: -16.001043,9.003963
+            6566: -15.504117,9.003963
+            6599: 14.999266,-22.498928
+            6600: 17.501501,-22.502478
+        - node:
+            color: '#FFFFFFFF'
+            id: DirFloorTileScience
+          decals:
+            6536: -0.99968517,-23.992971
+            6569: -17.498768,7.9998627
+            6622: 14.999678,6.9960637
+        - node:
+            color: '#FFFFFFFF'
+            id: DirFloorTileSecurity
+          decals:
+            6532: -1.0023804,-25.004728
+            6568: -17.498768,6.998798
+            6625: 15.502451,6.505051
+        - node:
+            color: '#FFFFFFFF'
+            id: DirFloorTileTheater
+          decals:
+            6545: 22.002064,-23.000242
+            6605: 17.500616,-25.004055
+        - node:
+            color: '#FFFFFFFF'
+            id: DirFloorTileTools
+          decals:
+            6550: 16.502312,9.0002575
+        - node:
+            color: '#FFFFFFFF'
+            id: DirFloorTileViro
+          decals:
+            6540: 44.499077,-25.495682
+        - node:
             cleanable: True
             color: '#FFFFFFFF'
             id: Dirt
@@ -3185,6 +3291,12 @@ entities:
             130: -16,-42
             131: -15,-40
             132: -12,-42
+        - node:
+            cleanable: True
+            color: '#8080808E'
+            id: DirtHeavy
+          decals:
+            6585: -15,14
         - node:
             cleanable: True
             color: '#FFFFFFFF'
@@ -3533,7 +3645,6 @@ entities:
             96: 17,-4
             97: 17,5
             98: -37,0
-            103: -1,-24
             104: 0,-28
             105: 16,-21
             106: 19,-30
@@ -3600,12 +3711,10 @@ entities:
             667: -37,4
             669: -37,-15
             681: -16,7
-            684: -15,9
             818: -9,-25
             819: -8,-25
             820: -8,-25
             825: -4,-24
-            826: -1,-25
             828: 16,-25
             829: 16,-25
             830: 13,-25
@@ -4502,6 +4611,12 @@ entities:
             123: -7,-43
             124: -6,-42
             125: -15,-40
+        - node:
+            cleanable: True
+            color: '#8080808E'
+            id: DirtMedium
+          decals:
+            6584: -17,9
         - node:
             color: '#FFFFFFFF'
             id: DirtMedium
@@ -5755,6 +5870,9 @@ entities:
             6487: 9,-23
             6488: 8,-23
             6489: 7,-23
+            6589: 1,-23
+            6608: 15,-23
+            6619: 17,9
         - node:
             color: '#A4610696'
             id: QuarterTileOverlayGreyscale
@@ -5880,7 +5998,6 @@ entities:
             2579: 15,11
             2580: 15,9
             2582: 15,-22
-            2583: 15,-23
             2611: 15,23
             2612: 15,24
             2613: 15,25
@@ -6055,6 +6172,14 @@ entities:
             919: 54,20
             920: 52,20
             923: 56,22
+        - node:
+            color: '#808080FF'
+            id: QuarterTileOverlayGreyscale180
+          decals:
+            6581: -15,7
+            6582: -16,7
+            6583: -17,7
+            6617: 17,7
         - node:
             color: '#9FED5896'
             id: QuarterTileOverlayGreyscale180
@@ -6251,8 +6376,8 @@ entities:
             6317: -20,7
             6483: -17,7
             6484: -16,7
-            6485: -15,7
-            6486: -14,7
+            6580: -15,7
+            6616: 15,7
         - node:
             color: '#9FED584A'
             id: QuarterTileOverlayGreyscale270
@@ -6526,6 +6651,15 @@ entities:
             1567: 40,18
             1568: 39,18
         - node:
+            color: '#808080FF'
+            id: QuarterTileOverlayGreyscale90
+          decals:
+            6567: -15,9
+            6588: -1,-23
+            6607: 17,-23
+            6615: 17,9
+            6618: 15,9
+        - node:
             color: '#9FED5896'
             id: QuarterTileOverlayGreyscale90
           decals:
@@ -6634,14 +6768,11 @@ entities:
             2317: -23,9
             2318: -24,9
             2326: -14,9
-            2327: -15,9
             2566: 17,14
             2567: 17,13
             2568: 17,12
             2569: 17,11
-            2581: 17,9
             2584: 17,-22
-            2585: 17,-23
             2643: 1,-28
             2644: 1,-29
             2645: 1,-30
@@ -7211,8 +7342,6 @@ entities:
             1759: -37,5
             1765: -15,10
             1766: -15,22
-            1770: 17,6
-            1771: 17,10
             1772: 41,12
             1780: 17,22
             1781: 17,26
@@ -7251,6 +7380,8 @@ entities:
             6034: 60,-3
             6035: 60,-4
             6095: 49,4
+            6613: 17,6
+            6620: 17,10
         - node:
             color: '#52B4E996'
             id: WarnLineGreyscaleE
@@ -7305,7 +7436,6 @@ entities:
             5569: -14,-23
             6314: -20,8
             6315: -20,7
-            6318: -14,7
         - node:
             color: '#52B4E996'
             id: WarnLineGreyscaleN
@@ -7549,8 +7679,6 @@ entities:
             1758: -39,5
             1763: -17,10
             1767: -17,22
-            1768: 15,10
-            1769: 15,6
             1773: 39,12
             1778: 15,22
             1779: 15,26
@@ -7591,6 +7719,8 @@ entities:
             6094: 48,4
             6289: -10,4
             6290: -10,5
+            6614: 15,6
+            6621: 15,10
         - node:
             color: '#FFFFFFFF'
             id: WarnLineW
@@ -11416,6 +11546,7 @@ entities:
       - 585
       - 4001
       - 3996
+      - 5145
   - uid: 4046
     components:
     - type: Transform
@@ -11621,6 +11752,8 @@ entities:
       - 3196
       - 24828
       - 3197
+      - 28144
+      - 28145
   - uid: 9812
     components:
     - type: Transform
@@ -13029,7 +13162,7 @@ entities:
       pos: -29.5,37.5
       parent: 60
     - type: Door
-      secondsUntilStateChange: -168773.33
+      secondsUntilStateChange: -171785.75
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -15124,7 +15257,7 @@ entities:
       pos: -17.5,4.5
       parent: 60
     - type: Door
-      secondsUntilStateChange: -6792.1504
+      secondsUntilStateChange: -9804.574
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -19333,7 +19466,7 @@ entities:
   - uid: 172
     components:
     - type: Transform
-      pos: 40.001945,-10.39305
+      pos: 40.20482,-10.413788
       parent: 60
     - type: Physics
       angularDamping: 0
@@ -19346,8 +19479,11 @@ entities:
   - uid: 20758
     components:
     - type: Transform
-      pos: 40.53146,-10.39305
+      pos: 40.668026,-10.389827
       parent: 60
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
   - uid: 20759
     components:
     - type: Transform
@@ -19625,7 +19761,7 @@ entities:
   - uid: 261
     components:
     - type: Transform
-      pos: 39.456387,-10.387704
+      pos: 39.74161,-10.413788
       parent: 60
     - type: Physics
       angularDamping: 0
@@ -19751,7 +19887,7 @@ entities:
   - uid: 7282
     components:
     - type: Transform
-      pos: 38.884087,-10.355627
+      pos: 39.29438,-10.43775
       parent: 60
     - type: Physics
       angularDamping: 0
@@ -71464,17 +71600,17 @@ entities:
     - type: Transform
       pos: 40.5,-12.5
       parent: 60
+  - uid: 931
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 36.5,-10.5
+      parent: 60
   - uid: 9505
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -42.5,11.5
-      parent: 60
-  - uid: 21418
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 36.5,-10.5
       parent: 60
 - proto: ComputerCargoBounty
   entities:
@@ -71501,10 +71637,10 @@ entities:
       parent: 60
 - proto: ComputerCargoOrdersMedical
   entities:
-  - uid: 931
+  - uid: 11886
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
+      rot: -1.5707963267948966 rad
       pos: 49.5,-11.5
       parent: 60
 - proto: ComputerCargoOrdersScience
@@ -71674,6 +71810,24 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 32.5,-14.5
+      parent: 60
+  - uid: 16637
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 52.5,-26.5
+      parent: 60
+  - uid: 21418
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 38.5,-10.5
+      parent: 60
+  - uid: 28143
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 49.5,-10.5
       parent: 60
 - proto: ComputerPowerMonitoring
   entities:
@@ -82340,6 +82494,7 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 9749
+      - 2121
   - uid: 5201
     components:
     - type: Transform
@@ -83031,6 +83186,24 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 27979
+  - uid: 28144
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -16.5,-19.5
+      parent: 60
+    - type: DeviceNetwork
+      deviceLists:
+      - 9749
+  - uid: 28145
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -16.5,-17.5
+      parent: 60
+    - type: DeviceNetwork
+      deviceLists:
+      - 9749
 - proto: Fireplace
   entities:
   - uid: 5810
@@ -84988,7 +85161,6 @@ entities:
     - type: GasFilter
       filterGases:
       - Nitrogen
-      enabled: True
     - type: AtmosPipeColor
       color: '#0055CCFF'
   - uid: 23468
@@ -103085,6 +103257,12 @@ entities:
       parent: 60
     - type: AtmosPipeColor
       color: '#990000FF'
+  - uid: 13518
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 15.5,9.5
+      parent: 60
   - uid: 13534
     components:
     - type: Transform
@@ -109798,13 +109976,6 @@ entities:
       parent: 60
     - type: AtmosPipeColor
       color: '#990000FF'
-  - uid: 16637
-    components:
-    - type: Transform
-      pos: 15.5,9.5
-      parent: 60
-    - type: AtmosPipeColor
-      color: '#990000FF'
   - uid: 16654
     components:
     - type: Transform
@@ -112243,8 +112414,6 @@ entities:
       pos: -12.5,4.5
       parent: 60
     - type: DeviceNetwork
-      configurators:
-      - 16090
       deviceLists:
       - 21965
 - proto: GasVentScrubber
@@ -112846,14 +113015,6 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 45.5,0.5
-      parent: 60
-    - type: AtmosPipeColor
-      color: '#990000FF'
-  - uid: 13518
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 15.5,8.5
       parent: 60
     - type: AtmosPipeColor
       color: '#990000FF'
@@ -128626,11 +128787,9 @@ entities:
   - uid: 16090
     components:
     - type: Transform
-      pos: 0.9292721,21.224678
+      pos: 0.954521,21.186213
       parent: 60
     - type: NetworkConfigurator
-      devices:
-        'UID: 35409': 28114
       linkModeActive: False
     - type: Physics
       angularDamping: 0
@@ -144596,7 +144755,7 @@ entities:
   - uid: 12863
     components:
     - type: Transform
-      pos: 38.424107,-10.216627
+      pos: 37.523277,-10.673313
       parent: 60
     - type: Physics
       angularDamping: 0
@@ -154537,11 +154696,6 @@ entities:
     components:
     - type: Transform
       pos: -59.5,27.5
-      parent: 60
-  - uid: 11886
-    components:
-    - type: Transform
-      pos: 38.5,-10.5
       parent: 60
   - uid: 12360
     components:
@@ -176910,26 +177064,46 @@ entities:
     - type: Transform
       pos: -113.5,8.5
       parent: 60
+    - type: DeviceNetwork
+      deviceLists:
+      - 27993
+      - 27992
   - uid: 12578
     components:
     - type: Transform
       pos: -109.5,8.5
       parent: 60
+    - type: DeviceNetwork
+      deviceLists:
+      - 27993
+      - 27992
   - uid: 12580
     components:
     - type: Transform
       pos: -114.5,19.5
       parent: 60
+    - type: DeviceNetwork
+      deviceLists:
+      - 27992
+      - 27993
   - uid: 12611
     components:
     - type: Transform
       pos: -108.5,19.5
       parent: 60
+    - type: DeviceNetwork
+      deviceLists:
+      - 27992
+      - 27993
   - uid: 12613
     components:
     - type: Transform
       pos: -107.5,30.5
       parent: 60
+    - type: DeviceNetwork
+      deviceLists:
+      - 27992
+      - 27993
   - uid: 12619
     components:
     - type: Transform
@@ -176940,16 +177114,28 @@ entities:
     - type: Transform
       pos: -107.5,21.5
       parent: 60
+    - type: DeviceNetwork
+      deviceLists:
+      - 27992
+      - 27993
   - uid: 12677
     components:
     - type: Transform
       pos: -115.5,21.5
       parent: 60
+    - type: DeviceNetwork
+      deviceLists:
+      - 27992
+      - 27993
   - uid: 12678
     components:
     - type: Transform
       pos: -115.5,30.5
       parent: 60
+    - type: DeviceNetwork
+      deviceLists:
+      - 27992
+      - 27993
 - proto: WeaponEnergyTurretAIControlPanel
   entities:
   - uid: 27992
@@ -176958,12 +177144,32 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -107.5,16.5
       parent: 60
+    - type: DeviceList
+      devices:
+      - 12613
+      - 12611
+      - 12580
+      - 12676
+      - 12677
+      - 12678
+      - 12578
+      - 12572
   - uid: 27993
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -110.5,20.5
       parent: 60
+    - type: DeviceList
+      devices:
+      - 12613
+      - 12611
+      - 12580
+      - 12676
+      - 12677
+      - 12678
+      - 12578
+      - 12572
 - proto: WeaponMeleeNeedle
   entities:
   - uid: 8228

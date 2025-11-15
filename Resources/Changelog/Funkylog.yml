@@ -5639,3 +5639,9 @@ Entries:
       message: resprited the spationaut hardsuit
   id: 674
   time: '2025-11-15T23:28:20.0000000+00:00'
+- author: Toastermeister
+  changes:
+    - type: Fix
+      message: Fixed visuals for energy projectiles, they no longer collide wrong.
+  id: 675
+  time: '2025-11-15T23:31:53.0000000+00:00'

@@ -23,13 +23,19 @@ public sealed class FancyLighterSystem : EntitySystem
 
     private void OnLighterClose(EntityUid uid, FancyLighterComponent component, ref ItemToggleDeactivateAttemptEvent args)
     {
-        _audio.Stop(_audioUid, _audioComponent);
+        if (!args.Cancelled)
+        {
+            _audio.Stop(_audioUid, _audioComponent);
+        }
     }
 
     private void OnLighterOpen(EntityUid uid, FancyLighterComponent component, ref ItemToggleActivateAttemptEvent args)
     {
-        (EntityUid, AudioComponent) audio = _audio.PlayPvs(component.SoundActivate, uid).GetValueOrDefault();
-        _audioUid = audio.Item1;
-        _audioComponent = audio.Item2;
+        if (!args.Cancelled)
+        {
+            (EntityUid, AudioComponent) audio = _audio.PlayPvs(component.SoundActivate, uid).GetValueOrDefault();
+            _audioUid = audio.Item1;
+            _audioComponent = audio.Item2;
+        }
     }
 }

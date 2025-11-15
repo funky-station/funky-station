@@ -286,7 +286,7 @@
     - state: zippo_fancy_open
       map: ["open"]
       visible: false
-    - state: lighter_flame
+    - state: lighter_fancy_flame
       map: ["flame"]
       visible: false
       shader: unshaded

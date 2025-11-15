@@ -5593,3 +5593,11 @@ Entries:
       message: Made tear gas give slowdown!
   id: 669
   time: '2025-11-15T07:05:10.0000000+00:00'
+- author: Xcybitt
+  changes:
+    - type: Tweak
+      message: Buffed the syndicate cartridge autoinjector cooldown!
+    - type: Tweak
+      message: Halved the price of the soft cartridge autoinjector bundle!
+  id: 670
+  time: '2025-11-15T07:09:53.0000000+00:00'

@@ -268,3 +268,32 @@
       shader: unshaded
   - type: StealTarget
     stealGroup: FlippoEngravedLighter
+
+- type: entity
+  name: commemorative flippo lighter
+  parent: FlippoLighter
+  id: CommemorativeFlippoLighter
+  description: "A cheap looking flippo lighter, still lasts quite a while. A bizarre image is stamped on the front."
+  components:
+  - type: Sprite
+    sprite: Objects/Tools/lighters.rsi
+    layers:
+    - state: zippo_fancy_icon_base
+      map: ["base"]
+    - state: zippo_top
+      map: ["top"]
+      visible: false
+    - state: zippo_fancy_open
+      map: ["open"]
+      visible: false
+    - state: lighter_flame
+      map: ["flame"]
+      visible: false
+      shader: unshaded
+  - type: ItemToggle
+    predictable: false
+    soundDeactivate:
+      path: /Audio/Items/Lighters/zippo_fancy_close.ogg
+  - type: FancyLighter
+    soundActivate:
+      path: /Audio/Items/Lighters/zippo_fancy_open.ogg

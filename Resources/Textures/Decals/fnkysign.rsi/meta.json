@@ -1,0 +1,53 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "sprited by willowzeta (github)",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "fnkysign1"
+    },
+    {
+      "name": "fnkysign2"
+    },
+    {
+      "name": "fnkysign3"
+    },
+    {
+      "name": "fnkysign4"
+    },
+    {
+      "name": "fnkysign5"
+    },
+    {
+      "name": "fnkysign6"
+    },
+    {
+      "name": "fnkysign7"
+    },
+    {
+      "name": "fnkysign1alt"
+    },
+    {
+      "name": "fnkysign2alt"
+    },
+    {
+      "name": "fnkysign3alt"
+    },
+    {
+      "name": "fnkysign4alt"
+    },
+    {
+      "name": "fnkysign5alt"
+    },
+    {
+      "name": "fnkysign6alt"
+    },
+    {
+      "name": "fnkysign7alt"
+    }
+  ]
+}

@@ -9,31 +9,7 @@
   },
   "states": [
     {
-      "name": "normal-unshaded",
-      "delays": [
-        [
-          4.7,
-          0.1
-        ]
-      ]
-    },
-    {
-      "name": "deny-unshaded",
-      "delays": [
-        [
-          0.13,
-          0.13
-        ]
-      ]
-    },
-    {
       "name": "off"
-    },
-    {
-      "name": "broken"
-    },
-    {
-      "name": "panel"
     }
   ]
-}
+} 

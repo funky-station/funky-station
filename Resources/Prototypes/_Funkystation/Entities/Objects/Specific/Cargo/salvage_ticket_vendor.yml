@@ -18,7 +18,7 @@
     balance:
       SalvageTicket: 0
   - type: Sprite
-    sprite: Structures/Machines/VendingMachines/mining.rsi
+    sprite: _Funkystation/Objects/Specific/Cargo/ticket_vendor.rsi
     state: "off"
   - type: PointLight
     radius: 2

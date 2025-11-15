@@ -1,4 +1,9 @@
-﻿using Content.Shared.Tools.Components;
+// SPDX-FileCopyrightText: 2025 BuildTools <unconfigured@null.spigotmc.org>
+// SPDX-FileCopyrightText: 2025 mycobiota <154991750+mycobiota@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
+using Content.Shared.Tools.Components;
 using Content.Shared.Item.ItemToggle.Components;
 using Robust.Shared.Audio.Components;
 using Robust.Shared.Audio.Systems;

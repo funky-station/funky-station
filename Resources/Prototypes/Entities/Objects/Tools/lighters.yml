@@ -299,3 +299,10 @@
   - type: FancyLighter
     soundActivate:
       path: /Audio/Items/Lighters/zippo_fancy_open.ogg
+  - type: SolutionContainerManager
+    solutions:
+      Welder:
+        reagents:
+        - ReagentId: WeldingFuel
+          Quantity: 9
+        maxVol: 11

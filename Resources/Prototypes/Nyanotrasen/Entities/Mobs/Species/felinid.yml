@@ -80,7 +80,7 @@
       types:
         Blunt: 1
   - type: Stamina
-    critThreshold: 25 # Goobstation - Siouxcide, felinids take 3 disabler shots to down  | Funkystation - reduced to 25 for fun! 
+    critThreshold: 75 # Goobstation - Siouxcide, felinids take 3 disabler shots to down
   - type: TypingIndicator
     proto: felinid
   # - type: PseudoItem

@@ -1,6 +1,6 @@
 
 
-vendor-salvage-ticket-machine = Salvage Ticket Exchange 
+vendor-salvage-ticket-machine = Salvage Ticket Exchange
 store-preset-name-salvage = Salvage Vendor
 store-currency-display-salvageticket = Salvage Tickets
 store-category-salvage-wearables = Wearables
@@ -11,20 +11,20 @@ store-category-salvage-standard = Standard Equipment
 vendor-salvage-spationaught-name = Spationaut Hardsuit
 vendor-salvage-spationaught-desc = A lightweight hardsuit designed for industrial EVA in zero gravity.
 
-vendor-salvage-mining-suit-name = Mining Hardsuit 
+vendor-salvage-mining-suit-name = Mining Hardsuit
 vendor-salvage-mining-suit-desc = A special suit that protects against hazardous, low pressure environments. Has reinforced plating for wildlife encounters.
 
-vendor-salvage-helldiver-kit-name = Diving Hardsuit 
-vendor-salvage-helldiver-kit-desc = A unique variant of the classic mining hardsuit, given to only the most dedicated salvagers. 
+vendor-salvage-helldiver-kit-name = Diving Hardsuit
+vendor-salvage-helldiver-kit-desc = A unique variant of the classic mining hardsuit, given to only the most dedicated salvagers.
 
-vendor-salvage-maxim-name = Maxim Hardsuit 
+vendor-salvage-maxim-name = Maxim Hardsuit
 vendor-salvage-maxim-desc = Fire. Heat. These things forge great weapons, they also forge great salvagers.
 
 vendor-salvage-salvage-rig-name = Salvage Rig
 vendor-salvage-salvage-rig-desc = Universal unloading system for work in space.
 
 vendor-salvage-merc-gas-mask-name = Mercenary Armored Gas Mask
-vendor-salvage-merc-gas-mask-desc = A reliable military-style gas mask built for combat, offers more protection compared to the explorers gas mask. 
+vendor-salvage-merc-gas-mask-desc = A reliable military-style gas mask built for combat, offers more protection compared to the explorers gas mask.
 
 vendor-salvage-merc-web-vest-name = Mercenary Web Vest
 vendor-salvage-merc-web-vest-desc = A high-quality armored vest is commonly used by mercenaries. It's surprisingly flexible and light, made for fighting hostile wildlife.
@@ -38,8 +38,8 @@ vendor-salvage-merc-boots-desc = Boots that have gone through many conflicts and
 vendor-salvage-salvage-rig-merc-name = Mercenary Webbing
 vendor-salvage-salvage-rig-merc-desc = Ideal for storing everything from ammo to weapons and combat essentials.
 
-vendor-salvage-merc-backpack-name = Mercenary Backpack 
-vendor-salvage-merc-backpack-desc = A reliable combat backpack, has more room for storage compared to standard backpacks. 
+vendor-salvage-merc-backpack-name = Mercenary Backpack
+vendor-salvage-merc-backpack-desc = A reliable combat backpack, has more room for storage compared to standard backpacks.
 
 # Supplies
 
@@ -48,8 +48,8 @@ store-category-salvage-supplies = Supplies
 vendor-salvage-carp-pocket-name = Box of Carp-Pockets
 vendor-salvage-carp-pocket-desc = A rarely seen edition of donk pocket, made specifically for hard-working salvagers.
 
-vendor-salvage-premium-mre-name = Premium M.R.E 
-vendor-salvage-premium-mre-desc = A box of standard NT ERT rations. Filled with everything you want in a balanced meal after a hard day's work. 
+vendor-salvage-premium-mre-name = Premium M.R.E
+vendor-salvage-premium-mre-desc = A box of standard NT ERT rations. Filled with everything you want in a balanced meal after a hard day's work.
 
 vendor-salvage-emergency-pen-name = Emergency Medipen
 vendor-salvage-emergency-pen-desc = A rapid and safe way to stabilize patients in critical condition for personnel without advanced medical knowledge.
@@ -57,7 +57,7 @@ vendor-salvage-emergency-pen-desc = A rapid and safe way to stabilize patients i
 vendor-salvage-vodka-name = Vodka Bottle
 vendor-salvage-vodka-desc = Aah, vodka. Prime choice of drink AND fuel by Russians worldwide.
 
-vendor-salvage-double-nitrogen-name = Double Emergency N2 Tank 
+vendor-salvage-double-nitrogen-name = Double Emergency N2 Tank
 vendor-salvage-double-nitrogen-desc = A high-grade dual-tank emergency life support container, it can hold 2.5 L of gas.
 
 vendor-salvage-double-oxygen-name = Double Emergency O2 Tank
@@ -94,7 +94,7 @@ vendor-salvage-mini-jetpack-desc = A downscaled jetpack that can fit on your bel
 vendor-salvage-box-shotgun-flare-name = Ammunition Box (12 gauge flare)
 vendor-salvage-box-shotgun-flare-desc = A box of 16 flare gun shells.
 
-# Misc 
+# Misc
 
 store-category-salvage-misc = Misc.
 
@@ -108,7 +108,7 @@ vendor-salvage-shuttle-kit-name = Shuttle Boards Kit
 vendor-salvage-shuttle-kit-desc = A box filled with all the necessary boards needed to create a new shuttle, or repair an existing one. You didn't crash into something, right?
 
 vendor-salvage-medical-kit-name = Field Medical Kit
-vendor-salvage-medical-kit-desc = A box containing materials needed to construct a medical bed and medibot, body bags, medical supplies and a defibrillator.
+vendor-salvage-medical-kit-desc = A box containing medical supplies, defibrillator,body bags and the materials needed to construct a medibot.
 
 vendor-salvage-cookout-name = Field Cookout Kit
 vendor-salvage-cookout-desc = A box containing a electric grill and freezer board, skewers, 6 pack of beer, and assorted condiments.

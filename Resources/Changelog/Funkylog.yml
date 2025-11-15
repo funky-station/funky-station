@@ -5579,3 +5579,9 @@ Entries:
       message: You can now wear black/blue jetpacks on your tank slot again!
   id: 667
   time: '2025-11-15T04:40:31.0000000+00:00'
+- author: Komonighub
+  changes:
+    - type: Tweak
+      message: Changed felinid stamcrit from 75 to 25
+  id: 668
+  time: '2025-11-15T04:42:31.0000000+00:00'

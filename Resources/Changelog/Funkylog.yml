@@ -5585,3 +5585,11 @@ Entries:
       message: Changed felinid stamcrit from 75 to 25
   id: 668
   time: '2025-11-15T04:42:31.0000000+00:00'
+- author: Xcybitt
+  changes:
+    - type: Tweak
+      message: Made more security related masks have filters!
+    - type: Tweak
+      message: Made tear gas give slowdown!
+  id: 669
+  time: '2025-11-15T07:05:10.0000000+00:00'

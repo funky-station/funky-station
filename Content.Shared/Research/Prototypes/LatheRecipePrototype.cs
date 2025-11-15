@@ -66,6 +66,7 @@ namespace Content.Shared.Research.Prototypes
         [DataField]
         public EntProtoId? Result;
 
+        // Funky Change, Salvage Ticket System
         [DataField]
         public bool PrintTicket = false;
 

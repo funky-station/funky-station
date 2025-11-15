@@ -55,3 +55,22 @@
         prob: 0.2
       - id: ClothingBeltMilitaryWebbing
         prob: 0.2
+
+- type: entity
+  id: LockerSyndicateShipGearBasicChameleonKit
+  parent: LockerSyndicateShipGearBasic
+  suffix: Basic ship gear, Random, Chameleon Kit
+  components:
+  - type: StorageFill
+    contents:
+    - id: ClothingBackpackChameleonFill
+    - id: CrowbarRed
+      prob: 0.6
+    - id: ClothingShoesBootsCombat
+      prob: 0.4
+    - id: ClothingUniformJumpsuitOperative
+      prob: 0.4
+    - id: ClothingHandsGlovesCombat
+      prob: 0.2
+    - id: ClothingBeltMilitaryWebbing
+      prob: 0.2

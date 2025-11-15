@@ -5573,3 +5573,9 @@ Entries:
         to five
   id: 666
   time: '2025-11-13T03:26:42.0000000+00:00'
+- author: Komonighub
+  changes:
+    - type: Tweak
+      message: You can now wear black/blue jetpacks on your tank slot again!
+  id: 667
+  time: '2025-11-15T04:40:31.0000000+00:00'

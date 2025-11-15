@@ -5601,3 +5601,9 @@ Entries:
       message: Halved the price of the soft cartridge autoinjector bundle!
   id: 670
   time: '2025-11-15T07:09:53.0000000+00:00'
+- author: wgreen84
+  changes:
+    - type: Tweak
+      message: Carp and Dragon care less about fire damage now.
+  id: 671
+  time: '2025-11-15T07:41:51.0000000+00:00'

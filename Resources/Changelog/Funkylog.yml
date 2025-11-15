@@ -5633,3 +5633,9 @@ Entries:
       message: Librarian and Reporter now have doors locked to their jobs on Bagel
   id: 673
   time: '2025-11-15T22:48:02.0000000+00:00'
+- author: Teasq
+  changes:
+    - type: Tweak
+      message: resprited the spationaut hardsuit
+  id: 674
+  time: '2025-11-15T23:28:20.0000000+00:00'

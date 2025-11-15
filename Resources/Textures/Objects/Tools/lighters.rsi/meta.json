@@ -68,10 +68,16 @@
       "name": "zippo_engraved_icon_base"
     },
     {
+      "name": "zippo_fancy_icon_base"
+    },
+    {
       "name": "zippo_open"
     },
     {
       "name": "zippo_engraved_open"
+    },
+    {
+      "name": "zippo_fancy_open"
     },
     {
       "name": "zippo_top"

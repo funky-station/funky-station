@@ -9,6 +9,7 @@ using Content.Server.Advertise.Components;
 using Content.Server.Chat.Systems;
 using Content.Server.Power.Components;
 using Content.Shared.VendingMachines;
+using Content.Shared.Mind.Components;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
@@ -62,6 +63,14 @@ public sealed class AdvertiseSystem : EntitySystem
     {
         if (!Resolve(uid, ref advert))
             return;
+
+        // begin Funkystation: do not advertise when controlled by player
+        if (TryComp<MindContainerComponent>(uid, out var mindContainer))
+        {
+            if (mindContainer.Mind != null)
+                return;
+        }
+        // end Funkystation
 
         var attemptEvent = new AttemptAdvertiseEvent(uid);
         RaiseLocalEvent(uid, ref attemptEvent);

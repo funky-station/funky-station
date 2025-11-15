@@ -58,3 +58,17 @@
   - !type:ListingLimitedStockCondition
     stock: 1
   saleLimit: 1
+  
+- type: listing
+  id: RevolutionaryUplinkRevLieutenantImplanter
+  name: revolutionary lieutenant implanter
+  description: This allows a revolutionary to see other revolutionaries, along giving them an icon that denotes them as a lieutenant. Revolutionaries should organize around these lieutenants as units.
+  productEntity: LieutenantRevolutionaryImplanter
+  cost:
+    RevCoin: 5 # Temporary price
+  categories:
+  - RevolutionaryUplinkDefault
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 3
+  saleLimit: 1

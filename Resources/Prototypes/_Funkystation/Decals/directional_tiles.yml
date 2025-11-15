@@ -1,0 +1,277 @@
+# SPDX-FileCopyrightText: 2025 wilowzeta <willowzeta632146@proton.me>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: decal
+  id: DirFloorTileAI
+  sprite:
+    sprite: Decals/directional_tiles.rsi
+    state: ai
+
+- type: decal
+  id: DirFloorTileAICommand
+  sprite:
+    sprite: Decals/directional_tiles.rsi
+    state: ai_command
+
+- type: decal
+  id: DirFloorTileAnchor
+  sprite:
+    sprite: Decals/directional_tiles.rsi
+    state: anchor
+
+- type: decal
+  id: DirFloorTileArmory
+  sprite:
+    sprite: Decals/directional_tiles.rsi
+    state: armory
+
+- type: decal
+  id: DirFloorTileAtmos
+  sprite:
+    sprite: Decals/directional_tiles.rsi
+    state: atmos
+
+- type: decal
+  id: DirFloorTileBar
+  sprite:
+    sprite: Decals/directional_tiles.rsi
+    state: bar
+
+- type: decal
+  id: DirFloorTileBotany
+  sprite:
+    sprite: Decals/directional_tiles.rsi
+    state: botany
+
+- type: decal
+  id: DirFloorTileBridge
+  sprite:
+    sprite: Decals/directional_tiles.rsi
+    state: bridge
+
+- type: decal
+  id: DirFloorTileBrig
+  sprite:
+    sprite: Decals/directional_tiles.rsi
+    state: brig
+
+- type: decal
+  id: DirFloorTileCargo
+  sprite:
+    sprite: Decals/directional_tiles.rsi
+    state: cargo
+
+- type: decal
+  id: DirFloorTileCCOffice
+  sprite:
+    sprite: Decals/directional_tiles.rsi
+    state: cco
+
+- type: decal
+  id: DirFloorTileChapel
+  sprite:
+    sprite: Decals/directional_tiles.rsi
+    state: chapel
+
+- type: decal
+  id: DirFloorTileChem
+  sprite:
+    sprite: Decals/directional_tiles.rsi
+    state: chem
+
+- type: decal
+  id: DirFloorTileComms
+  sprite:
+    sprite: Decals/directional_tiles.rsi
+    state: comms
+
+- type: decal
+  id: DirFloorTileCourtroom
+  sprite:
+    sprite: Decals/directional_tiles.rsi
+    state: court
+
+- type: decal
+  id: DirFloorTileCryosleep
+  sprite:
+    sprite: Decals/directional_tiles.rsi
+    state: cryo
+
+- type: decal
+  id: DirFloorTileDetective
+  sprite:
+    sprite: Decals/directional_tiles.rsi
+    state: det
+
+- type: decal
+  id: DirFloorTileEngi
+  sprite:
+    sprite: Decals/directional_tiles.rsi
+    state: engi
+
+- type: decal
+  id: DirFloorTileEvac
+  sprite:
+    sprite: Decals/directional_tiles.rsi
+    state: evac
+
+- type: decal
+  id: DirFloorTileGeneticsMed
+  sprite:
+    sprite: Decals/directional_tiles.rsi
+    state: gene_med
+
+- type: decal
+  id: DirFloorTileGeneticsSci
+  sprite:
+    sprite: Decals/directional_tiles.rsi
+    state: gene_sci
+
+- type: decal
+  id: DirFloorTileGrav
+  sprite:
+    sprite: Decals/directional_tiles.rsi
+    state: grav
+
+- type: decal
+  id: DirFloorTileHOP
+  sprite:
+    sprite: Decals/directional_tiles.rsi
+    state: hop
+
+- type: decal
+  id: DirFloorTileIA
+  sprite:
+    sprite: Decals/directional_tiles.rsi
+    state: ia
+
+- type: decal
+  id: DirFloorTileJani
+  sprite:
+    sprite: Decals/directional_tiles.rsi
+    state: jani
+
+- type: decal
+  id: DirFloorTileKitchen
+  sprite:
+    sprite: Decals/directional_tiles.rsi
+    state: kitchen
+
+- type: decal
+  id: DirFloorTileLawyer
+  sprite:
+    sprite: Decals/directional_tiles.rsi
+    state: law
+
+- type: decal
+  id: DirFloorTileLibrary
+  sprite:
+    sprite: Decals/directional_tiles.rsi
+    state: library
+
+- type: decal
+  id: DirFloorTileMagi
+  sprite:
+    sprite: Decals/directional_tiles.rsi
+    state: magi
+
+- type: decal
+  id: DirFloorTileMedical
+  sprite:
+    sprite: Decals/directional_tiles.rsi
+    state: med
+
+- type: decal
+  id: DirFloorTileNewsroom
+  sprite:
+    sprite: Decals/directional_tiles.rsi
+    state: news
+
+- type: decal
+  id: DirFloorTilePointerDown
+  sprite:
+    sprite: Decals/directional_tiles.rsi
+    state: pointer_down
+
+- type: decal
+  id: DirFloorTilePointerLeft
+  sprite:
+    sprite: Decals/directional_tiles.rsi
+    state: pointer_left
+
+- type: decal
+  id: DirFloorTilePointerRight
+  sprite:
+    sprite: Decals/directional_tiles.rsi
+    state: pointer_right
+
+- type: decal
+  id: DirFloorTilePointerUp
+  sprite:
+    sprite: Decals/directional_tiles.rsi
+    state: pointer_up
+
+- type: decal
+  id: DirFloorTilePsych
+  sprite:
+    sprite: Decals/directional_tiles.rsi
+    state: psych
+
+- type: decal
+  id: DirFloorTileRobo
+  sprite:
+    sprite: Decals/directional_tiles.rsi
+    state: robo
+
+- type: decal
+  id: DirFloorTileSalvage
+  sprite:
+    sprite: Decals/directional_tiles.rsi
+    state: salvage
+
+- type: decal
+  id: DirFloorTileScience
+  sprite:
+    sprite: Decals/directional_tiles.rsi
+    state: sci
+
+- type: decal
+  id: DirFloorTileSecurity
+  sprite:
+    sprite: Decals/directional_tiles.rsi
+    state: security
+
+- type: decal
+  id: DirFloorTileTheater
+  sprite:
+    sprite: Decals/directional_tiles.rsi
+    state: theater
+
+- type: decal
+  id: DirFloorTileTools
+  sprite:
+    sprite: Decals/directional_tiles.rsi
+    state: tools
+
+- type: decal
+  id: DirFloorTileVault
+  sprite:
+    sprite: Decals/directional_tiles.rsi
+    state: vault
+
+- type: decal
+  id: DirFloorTileViro
+  sprite:
+    sprite: Decals/directional_tiles.rsi
+    state: viro
+
+- type: decal
+  id: DirFloorTileZoo
+  sprite:
+    sprite: Decals/directional_tiles.rsi
+    state: zoo
+
+
+
+

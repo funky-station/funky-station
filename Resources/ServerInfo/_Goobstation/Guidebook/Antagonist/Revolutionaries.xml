@@ -38,7 +38,9 @@ SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
   ## Your Uplink
   [bold][color=#5e9cff]Head Revolutionaries[/color][/bold] are chosen at the start of the shift. They are given a PDA uplink similar to a Syndicate uplink.
 
-  Telecrystals cannot be used in this PDA, instead a new currency, [color=#ff0000]RevCoin[/color], must be used. Be sure to lock your uplink after you're done using it.
+  Telecrystals cannot be used in this PDA. Instead, a new currency, [color=#ff0000]RevCoin[/color], must be used. Be sure to lock your uplink after you're done using it.
+  
+  There are no restocks, so there is no point in saving RevCoin.
 
   <Box>
     <GuideEntityEmbed Entity="RevCoin"/>
@@ -48,7 +50,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
   [color=cyan]Mindshield implanters[/color] are an obstruction to the revolution. These will:
   - Prevent the implanted person from being converted into a [color=red]Revolutionary[/color]
   - De-convert Revolutionaries, and will make them no longer loyal to your cause
-  - [bold]Visibly be destroyed upon being implanted into a [color=#5e9cff]Head Revolutionary[/color][/bold], giving you away
+  - [bold]Be visibly destroyed upon being implanted into a [color=#5e9cff]Head Revolutionary[/color][/bold], giving you away
   - NOT protect against flash disorientation
 
   These however, do protect against flash disorientation and conversion.
@@ -58,6 +60,8 @@ SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
     <GuideEntityEmbed Entity="ClothingEyesGlassesSecurity"/>
     <GuideEntityEmbed Entity="ClothingHeadHatWelding"/>
   </Box>
+  
+  Keep in mind that, if someone is mindshielded while a revolutionary, they are able to remember everything from their past, including who converted them.
 
   ## Your tools
   <Box>
@@ -66,9 +70,19 @@ SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
   Your flash and your fast draw implanter are your bread and butter. You can remove mindshields from crew members and implant them in animals, so you can continue converting.
 
-  You do not need a special flash or anything. Regular ones on the station will do.
+  You do not need a special flash. Any flash in your hands is a tool for conversion.
 
-  People will notice when you start converting. Plan your conversions carefully, as a wrong move will alert security.
+  People will notice when you start converting. Plan your conversions carefully, as one wrong move can alert security.
+
+  <Box>
+    <GuideEntityEmbed Entity="LieutenantRevolutionaryImplanter"/>
+  </Box>
+  
+  This tool allows you to convert an otherwise regular revolutionary to a lieutenant, allowing you to build cadres of revolutionaries ready to act on a moments notice.
+  
+  This is your organizing tool. These lieutenants, while unable to convert anyone, can see the revolutionary status of all crew on-board. 
+  
+  They also have intrinsic radio access to the Syndicate channel, allowing them to co-ordinate with you from anywhere on the station.
 
   <Box>
     <GuideEntityEmbed Entity="RevsFastDrawImplanter"/>
@@ -89,7 +103,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
     <GuideEntityEmbed Entity="ClothingEyesGlassesSunglasses"/>
   </Box>
 
-  Style. Prevents you from getting flashed yourself. Useful if you are being chased by security or over-zealous crew members.
+  Style. Prevents you from being flashed. Useful if you are being chased by security or over-zealous crew members.
 
   ## Extra Tools
 

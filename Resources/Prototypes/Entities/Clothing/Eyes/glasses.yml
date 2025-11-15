@@ -39,6 +39,7 @@
 # SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 88tv <131759102+88tv@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 8tv <eightev@gmail.com>
+# SPDX-FileCopyrightText: 2025 ALooseGoose <ALooseGoosey@gmail.com>
 # SPDX-FileCopyrightText: 2025 AtlasHD <99688062+AtlasHDD@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Dragon232347 <122056448+Dragon232347@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
@@ -110,7 +111,7 @@
         Blunt: 10
 
 - type: entity
-  parent: [ClothingEyesBase, BaseEngineeringContraband]
+  parent: [ClothingEyesBase, BaseEngineeringSalvageContraband]
   id: ClothingEyesGlassesMeson
   name: engineering goggles #less confusion
   description: Green-tinted goggles using a proprietary polymer that provides protection from eye damage of all types.
@@ -337,7 +338,7 @@
 - type: entity
   parent: ClothingEyesBase
   id: ClothingEyesDealbreakers
-  name: Dealbreakers 
+  name: Dealbreakers
   description: Now YOUR chance to be a LEGALLY DISTINCT [[HYPERLINK BLOCKED]] for ONLY [[9.99]]!
   components:
   - type: Sprite
@@ -351,7 +352,7 @@
   - type: IdentityBlocker
     coverage: EYES
   - type: VisionCorrection
-  
+
 - type: entity
   parent: [ClothingEyesBase, ShowSecurityIcons, BaseSecurityContraband]
   id: ClothingEyesGlassesNoir

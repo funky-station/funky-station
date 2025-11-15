@@ -38,6 +38,8 @@
 # SPDX-FileCopyrightText: 2025 LucasTheDrgn <kirbyfan.95@gmail.com>
 # SPDX-FileCopyrightText: 2025 PurpleTranStar <purpletranstars@gmail.com>
 # SPDX-FileCopyrightText: 2025 Starry <202317940+PurpleTranStar@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Starry <tehevilduckiscoming@gmail.com>
+# SPDX-FileCopyrightText: 2025 Xcybitt <197952719+Xcybitt@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
@@ -517,6 +519,15 @@
         conditions:
         - !type:ReagentThreshold
           min: 5
+      - !type:MovespeedModifier
+        walkSpeedModifier: 0.7
+        sprintSpeedModifier: 0.7
+      - !type:MovespeedModifier
+        conditions:
+        - !type:ReagentThreshold
+          min: 20
+        walkSpeedModifier: 0.35
+        sprintSpeedModifier: 0.35
 
 - type: reagent
   id: Happiness

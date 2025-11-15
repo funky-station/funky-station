@@ -1,6 +1,7 @@
 // SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
 // SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
 // SPDX-FileCopyrightText: 2024 Wrexbe (Josh) <81056464+wrexbe@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Ilya Mikheev <me@ilyamikcoder.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
 // SPDX-License-Identifier: MIT

@@ -5573,3 +5573,47 @@ Entries:
         to five
   id: 666
   time: '2025-11-13T03:26:42.0000000+00:00'
+- author: Komonighub
+  changes:
+    - type: Tweak
+      message: You can now wear black/blue jetpacks on your tank slot again!
+  id: 667
+  time: '2025-11-15T04:40:31.0000000+00:00'
+- author: Komonighub
+  changes:
+    - type: Tweak
+      message: Changed felinid stamcrit from 75 to 25
+  id: 668
+  time: '2025-11-15T04:42:31.0000000+00:00'
+- author: Xcybitt
+  changes:
+    - type: Tweak
+      message: Made more security related masks have filters!
+    - type: Tweak
+      message: Made tear gas give slowdown!
+  id: 669
+  time: '2025-11-15T07:05:10.0000000+00:00'
+- author: Xcybitt
+  changes:
+    - type: Tweak
+      message: Buffed the syndicate cartridge autoinjector cooldown!
+    - type: Tweak
+      message: Halved the price of the soft cartridge autoinjector bundle!
+  id: 670
+  time: '2025-11-15T07:09:53.0000000+00:00'
+- author: wgreen84
+  changes:
+    - type: Tweak
+      message: Carp and Dragon care less about fire damage now.
+  id: 671
+  time: '2025-11-15T07:41:51.0000000+00:00'
+- author: AraiMaia
+  changes:
+    - type: Add
+      message: New sprites for every closet.
+    - type: Add
+      message: New sprites for the suit storage lockers.
+    - type: Add
+      message: Departmental suit storage lockers now have unique sprites.
+  id: 672
+  time: '2025-11-15T08:08:37.0000000+00:00'

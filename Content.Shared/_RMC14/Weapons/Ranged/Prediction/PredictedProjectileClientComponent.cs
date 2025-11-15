@@ -5,6 +5,7 @@
 //
 // SPDX-License-Identifier: MIT
 
+using Content.Shared.FixedPoint;
 using Robust.Shared.GameStates;
 using Robust.Shared.Map;
 
@@ -18,4 +19,28 @@ public sealed partial class PredictedProjectileClientComponent : Component
 
     [DataField]
     public EntityCoordinates? Coordinates;
+
+    [DataField]
+    public bool IgnoreShooter = true;
+
+    [DataField]
+    public bool DeleteOnCollide = true;
+
+    [DataField]
+    public bool OnlyCollideWhenShot = false;
+
+    [DataField]
+    public bool DamagedEntity;
+
+    [DataField]
+    public bool ProjectileSpent;
+
+    [DataField]
+    public FixedPoint2 PenetrationThreshold = FixedPoint2.Zero;
+
+    [DataField]
+    public List<string>? PenetrationDamageTypeRequirement;
+
+    [DataField]
+    public FixedPoint2 PenetrationAmount = FixedPoint2.Zero;
 }

@@ -40,27 +40,48 @@ public abstract partial class SharedGunSystem
         if (args.Current is not BatteryAmmoProviderComponentState state)
             return;
 
+        var prototypeChanged = false;
+
         component.Shots = state.Shots;
         component.Capacity = state.MaxShots;
         component.FireCost = state.FireCost;
 
-        if (component is HitscanBatteryAmmoProviderComponent hitscan && state.Prototype != null) // Shitmed Change
-            hitscan.Prototype = state.Prototype;
+        // CRITICAL FIX: Sync prototype for BOTH hitscan AND projectile components
+        if (state.Prototype != null)
+        {
+            if (component is HitscanBatteryAmmoProviderComponent hitscan)
+            {
+                prototypeChanged = hitscan.Prototype != state.Prototype;
+                hitscan.Prototype = state.Prototype;
+            }
+            else if (component is ProjectileBatteryAmmoProviderComponent projectile)
+            {
+                prototypeChanged = projectile.Prototype != state.Prototype;
+                projectile.Prototype = state.Prototype;
+            }
+        }
+
+        // If prototype changed, update appearance to reflect the new fire mode
+        if (prototypeChanged)
+            UpdateBatteryAppearance(uid, component);
     }
 
     private void OnBatteryGetState(EntityUid uid, BatteryAmmoProviderComponent component, ref ComponentGetState args)
     {
-        var state = new BatteryAmmoProviderComponentState() // Shitmed Change
+        var state = new BatteryAmmoProviderComponentState()
         {
             Shots = component.Shots,
             MaxShots = component.Capacity,
             FireCost = component.FireCost,
         };
 
-        if (TryComp<HitscanBatteryAmmoProviderComponent>(uid, out var hitscan)) // Shitmed Change
-           state.Prototype = hitscan.Prototype;
+        // CRITICAL FIX: Include prototype for BOTH hitscan AND projectile components
+        if (component is HitscanBatteryAmmoProviderComponent hitscan)
+            state.Prototype = hitscan.Prototype;
+        else if (component is ProjectileBatteryAmmoProviderComponent projectile)
+            state.Prototype = projectile.Prototype;
 
-        args.State = state; // Shitmed Change
+        args.State = state;
     }
 
     private void OnBatteryExamine(EntityUid uid, BatteryAmmoProviderComponent component, ExaminedEvent args)

@@ -192,7 +192,7 @@
   category: cargoproduct-category-name-service
   group: market
 
- - type: cargoProduct
+- type: cargoProduct
   id: CrateVendingMachineRestockSalvageEquipment
   icon:
     sprite: Objects/Specific/Service/vending_machine_restock.rsi

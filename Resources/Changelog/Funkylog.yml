@@ -5607,3 +5607,13 @@ Entries:
       message: Carp and Dragon care less about fire damage now.
   id: 671
   time: '2025-11-15T07:41:51.0000000+00:00'
+- author: AraiMaia
+  changes:
+    - type: Add
+      message: New sprites for every closet.
+    - type: Add
+      message: New sprites for the suit storage lockers.
+    - type: Add
+      message: Departmental suit storage lockers now have unique sprites.
+  id: 672
+  time: '2025-11-15T08:08:37.0000000+00:00'

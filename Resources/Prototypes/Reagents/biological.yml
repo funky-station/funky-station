@@ -192,6 +192,7 @@
       - !type:SatiateThirst
         factor: -0.5
     Poison:
+      metabolismRate: 0.2 # Funkyc
       effects:
       - !type:HealthChange
         damage:

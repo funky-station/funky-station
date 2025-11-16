@@ -261,14 +261,15 @@
   parent: ClothingHandsButcherable
   id: ClothingHandsGlovesRobohands
   name: roboticist's gloves
-  description: Tekkou-styled fingerless gloves with a fingerloop. Won't protect you from live wires, but will look GREAT doing it.
+  description: Tekkou-styled gloves for the ultimate mechanical tinkerer
   components:
   - type: Sprite
     sprite: _Funkystation/Clothing/Hands/Gloves/robohands.rsi
   - type: Clothing
     sprite: _Funkystation/Clothing/Hands/Gloves/robohands.rsi
+  - type: Insulated
   - type: Fiber
-    fiberMaterial: fibers-leather
+    fiberMaterial: fibers-insulative
     fiberColor: fibers-black
   - type: FingerprintMask
 

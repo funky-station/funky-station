@@ -5676,3 +5676,11 @@ Entries:
       message: The NTR and Magistrate PDA's now have the Centcomm pen inside.
   id: 678
   time: '2025-11-16T21:22:20.0000000+00:00'
+- author: ferynn
+  changes:
+    - type: Tweak
+      message: >-
+        Buffs to Changeling Armblade, Chitinous Armor. Minor tweak to Chameleon
+        Skin. More abilities usable while restrained.
+  id: 679
+  time: '2025-11-16T21:26:10.0000000+00:00'

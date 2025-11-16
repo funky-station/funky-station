@@ -2,8 +2,11 @@
 # SPDX-FileCopyrightText: 2025 Fenn <162015305+TooSillyFennec@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 Terkala <appleorange64@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
+
 
 - type: reaction
   id: ExoticReagent
@@ -149,3 +152,17 @@
       amount: 1
   products:
     Muigroc: 2
+
+- type: reaction
+  id: SanguinePurification
+  reactants:
+    SanguinePerniculate:
+      amount: 2
+    Holywater:
+      amount: 2
+  effects:
+    - !type:AreaReactionEffect
+      prototypeId: Smoke
+      duration: 8
+      sound:
+        path: /Audio/Effects/smoke.ogg

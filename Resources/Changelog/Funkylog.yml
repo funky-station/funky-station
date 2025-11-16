@@ -5653,3 +5653,34 @@ Entries:
         maintenance loot.
   id: 676
   time: '2025-11-16T00:49:28.0000000+00:00'
+- author: ThatOneMoon
+  changes:
+    - type: Add
+      message: >-
+        Added in a new Premium M.R.E, contains much more and a variety of food
+        compared to standard M.R.Es, currently only found as rare salvage loot
+    - type: Tweak
+      message: >-
+        Mercenary Web Vest and Helmets have had their armor values tweaked,
+        Focusing now on Blunt/Slash protection with aditional Caustic
+        protection.
+    - type: Tweak
+      message: >-
+        Mercenary Backpacks have had their inventory increased, now standing
+        inbetween a Satchel and Dufflebag
+  id: 677
+  time: '2025-11-16T21:04:02.0000000+00:00'
+- author: ferynn
+  changes:
+    - type: Tweak
+      message: The NTR and Magistrate PDA's now have the Centcomm pen inside.
+  id: 678
+  time: '2025-11-16T21:22:20.0000000+00:00'
+- author: ferynn
+  changes:
+    - type: Tweak
+      message: >-
+        Buffs to Changeling Armblade, Chitinous Armor. Minor tweak to Chameleon
+        Skin. More abilities usable while restrained.
+  id: 679
+  time: '2025-11-16T21:26:10.0000000+00:00'

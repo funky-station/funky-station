@@ -122,6 +122,7 @@
   - type: Tool
     qualities:
       - Prying
+      - Axing
 
 # Assmos - Metal Hydrogen
 - type: entity

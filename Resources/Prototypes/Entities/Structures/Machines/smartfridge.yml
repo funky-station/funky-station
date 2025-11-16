@@ -5,14 +5,16 @@
 # SPDX-FileCopyrightText: 2024 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 Janet Blackquill <uhhadd@gmail.com>
+# SPDX-FileCopyrightText: 2025 Lillian Industries <47704287+luegamer@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 QueerCats <jansencheng3@gmail.com>
+# SPDX-FileCopyrightText: 2025 Toaster <mrtoastymyroasty@gmail.com>
 # SPDX-FileCopyrightText: 2025 meganerobot <drewsta199@hotmail.co.uk>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
 - type: entity
-  parent: BaseStructureDynamic
+  parent: [BaseStructureDynamic, ConstructibleMachine]
   id: SmartFridge
   name: SmartFridge
   description: A refrigerated storage unit for keeping items cold and fresh.
@@ -31,13 +33,26 @@
     - state: smartfridge_door
       map: ["enum.StorageVisualLayers.Door"]
       shader: unshaded
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: PointLight
     radius: 1.5
     energy: 1.6
     color: "#9dc5c9"
+  - type: Machine
+    board: SmartFridgeMachineCircuitboard
   - type: ContainerContainer
     containers:
       smart_fridge_inventory: !type:Container
+      machine_board: !type:Container
+      machine_parts: !type:Container
+  - type: Construction
+    graph: Machine
+    node: machine
+    containers:
+    - machine_parts
+    - machine_board
+    - smart_fridge_inventory
   - type: LitOnPowered
   - type: ApcPowerReceiver
     powerLoad: 200
@@ -61,6 +76,8 @@
     interfaces:
       enum.SmartFridgeUiKey.Key:
         type: SmartFridgeBoundUserInterface
+  - type: WiresPanel
+  - type: WiresVisuals
   - type: AccessReader
   - type: UseDelay
     delay: 1
@@ -89,24 +106,15 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 100
+        damage: 300
       behaviors:
-      - !type:DoActsBehavior
-        acts: ["Breakage"]
-    - trigger:
-        !type:DamageTrigger
-        damage: 200
-      behaviors:
-      - !type:SpawnEntitiesBehavior
-        spawn:
-          SheetSteel1:
-            min: 1
-            max: 1
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
       - !type:PlaySoundBehavior
         sound:
           collection: MetalBreak
+      - !type:ChangeConstructionNodeBehavior
+        node: machineFrame
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
   - type: Damageable
     damageContainer: StructuralInorganic
     damageModifierSet: Metallic

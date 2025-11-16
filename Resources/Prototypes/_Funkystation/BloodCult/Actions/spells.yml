@@ -1,8 +1,9 @@
 # SPDX-FileCopyrightText: 2025 Skye <57879983+Rainbeon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 kbarkevich <24629810+kbarkevich@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDS-FileCopyrightText: 2025 Terkala <appleorange64@gmail.com>
 #
-# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+# SPDX-License-Identifier: AGPL-3.0-or-later OR MIT
 
 # actions
 - type: entity
@@ -100,9 +101,9 @@
     rechargeTime: 0
 
 - type: entity
-  id: ActionCultistStun
-  name: Stun
-  description: A potent spell that will knock down, silence, and mark a target. Stabbing marked targets with your cult dagger will stun and re-silence them. EMPs Cyborgs.
+  id: ActionCultistSanguineDream
+  name: Sanguine Dream
+  description: A sinister spell that plunges a target into a nightmare-filled sleep, where they dream of crimson-stained blades. EMPs Cyborgs.
   categories: [ HideSpawnMenu ]
   components:
   - type: Icon
@@ -124,7 +125,7 @@
     iconOn:
       sprite: _Funkystation/BloodCult/spells_cultist.rsi
       state: stun_selected
-    event: !type:EventCultistStun {}
+    event: !type:EventCultistSanguineDream {}
     #useDelay: 60  TIME DELAY BETWEEN ACTION USES
     #deselectOnMiss: False
     #targetingIndicator: True  # apparently defaults to using what is held in hand?
@@ -132,7 +133,7 @@
     #sound: a SoundSpecifier. Should probably be used instead of castSound down below.
     #iconOn:  # The sprite when selected. USE THIS.
   - type: CultistSpell
-    abilityId: CultStun
+    abilityId: SanguineDream
     charges: 1
     infinite: False
     healthCost: 0
@@ -144,7 +145,7 @@
 - type: entity
   id: ActionCultistTwistedConstruction
   name: Twisted Construction
-  description: A sinister spell used to convert plasteel into runed metal. # and airlocks into cult airlocks.
+  description: A sinister spell used to convert plasteel into runed metal or deconstruct reinforced walls to extract plasteel.
   categories: [ HideSpawnMenu ]
   components:
   - type: Icon
@@ -157,6 +158,9 @@
     whitelist:
       components:
       - Stack
+      - Construction
+      tags:
+      - Wall
     canTargetSelf: False
     interactOnMiss: False
     itemIconStyle: NoItem

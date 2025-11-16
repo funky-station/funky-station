@@ -5645,3 +5645,11 @@ Entries:
       message: Fixed visuals for energy projectiles, they no longer collide wrong.
   id: 675
   time: '2025-11-15T23:31:53.0000000+00:00'
+- author: mycobiota
+  changes:
+    - type: Add
+      message: >-
+        A strange "commemorative" flippo lighter can now be found very rarely as
+        maintenance loot.
+  id: 676
+  time: '2025-11-16T00:49:28.0000000+00:00'

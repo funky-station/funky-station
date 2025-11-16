@@ -489,6 +489,7 @@
     - CassetteTape
     - TapeRecorder
     # End Delta-V additions
+    - UtilityKnife #funk
     dynamicRecipes:
     - BoomboxRed
     - BoomboxGreen
@@ -1397,6 +1398,7 @@
     - ParamedHypo # Goobstation - ParamedHypo
     - autoInjectorCartridgeCase
     - autoInjectorCartridgeCaseSoft
+    - UtilityKnife #if you don't have scalpels ig #funk
     dynamicRecipes:
     - ChemicalPayload
     - CryostasisBeaker

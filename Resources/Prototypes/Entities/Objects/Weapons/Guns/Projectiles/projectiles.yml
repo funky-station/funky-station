@@ -1017,6 +1017,7 @@
             - Impassable
             - HighImpassable
     - type: GrapplingProjectile
+    - type: IgnorePrediction
 
 - type: entity
   name : disabler bolt smg

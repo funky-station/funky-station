@@ -173,6 +173,7 @@
 # SPDX-FileCopyrightText: 2025 Toaster <mrtoastymyroasty@gmail.com>
 # SPDX-FileCopyrightText: 2025 TrixxedHeart <46364955+TrixxedBit@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 V <97265903+formlessnameless@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Xcybitt <197952719+Xcybitt@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Xcybitt <xcybitt@gmail.com>
 # SPDX-FileCopyrightText: 2025 aa5g21 <aa5g21@soton.ac.uk>
 # SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
@@ -484,10 +485,12 @@
     - ClothingHeadHatCone
     - FreezerElectronics
     - Lantern #funky
+    - SurveillanceWirelessCameraBodyEntertainment #funk
     # Begin Delta-V additions
     - CassetteTape
     - TapeRecorder
     # End Delta-V additions
+    - UtilityKnife #funk
     dynamicRecipes:
     - BoomboxRed
     - BoomboxGreen
@@ -1168,6 +1171,7 @@
     - SecHypo # Goobstation
     - autoInjectorCartridgeCase
     - autoInjectorCartridgeCaseSoft
+    - SurveillanceWirelessCameraBodySecurity #funk
     dynamicRecipes:
     - BoxBeanbag
     - BoxShotgunIncendiary
@@ -1396,6 +1400,7 @@
     - ParamedHypo # Goobstation - ParamedHypo
     - autoInjectorCartridgeCase
     - autoInjectorCartridgeCaseSoft
+    - UtilityKnife #if you don't have scalpels ig #funk
     dynamicRecipes:
     - ChemicalPayload
     - CryostasisBeaker

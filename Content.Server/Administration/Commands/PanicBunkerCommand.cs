@@ -2,6 +2,9 @@
 // SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2023 Morb <14136326+Morb0@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Hannah Giovanna Dawson <karakkaraz@gmail.com>
+// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
+// SPDX-FileCopyrightText: 2025 marc-pelletier <113944176+marc-pelletier@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
 // SPDX-License-Identifier: MIT
@@ -22,18 +25,18 @@ public sealed class PanicBunkerCommand : LocalizedCommands
 
     public override void Execute(IConsoleShell shell, string argStr, string[] args)
     {
-        var toggle = Toggle(CCVars.PanicBunkerEnabled, shell, args, _cfg);
+        var toggle = Toggle(CCVars.PanicBunkerEnabled, shell, args, _cfg, LocalizationManager);
         if (toggle == null)
             return;
 
         shell.WriteLine(Loc.GetString(toggle.Value ? "panicbunker-command-enabled" : "panicbunker-command-disabled"));
     }
 
-    public static bool? Toggle(CVarDef<bool> cvar, IConsoleShell shell, string[] args, IConfigurationManager config)
+    public static bool? Toggle(CVarDef<bool> cvar, IConsoleShell shell, string[] args, IConfigurationManager config, ILocalizationManager loc)
     {
         if (args.Length > 1)
         {
-            shell.WriteError(Loc.GetString("shell-need-between-arguments",("lower", 0), ("upper", 1)));
+            shell.WriteError(loc.GetString("shell-need-between-arguments",("lower", 0), ("upper", 1)));
             return null;
         }
 
@@ -46,7 +49,7 @@ public sealed class PanicBunkerCommand : LocalizedCommands
 
         if (args.Length == 1 && !bool.TryParse(args[0], out enabled))
         {
-            shell.WriteError(Loc.GetString("shell-argument-must-be-boolean"));
+            shell.WriteError(loc.GetString("shell-argument-must-be-boolean"));
             return null;
         }
 
@@ -64,7 +67,7 @@ public sealed class PanicBunkerDisableWithAdminsCommand : LocalizedCommands
 
     public override void Execute(IConsoleShell shell, string argStr, string[] args)
     {
-        var toggle = PanicBunkerCommand.Toggle(CCVars.PanicBunkerDisableWithAdmins, shell, args, _cfg);
+        var toggle = PanicBunkerCommand.Toggle(CCVars.PanicBunkerDisableWithAdmins, shell, args, _cfg, LocalizationManager);
         if (toggle == null)
             return;
 
@@ -84,7 +87,7 @@ public sealed class PanicBunkerEnableWithoutAdminsCommand : LocalizedCommands
 
     public override void Execute(IConsoleShell shell, string argStr, string[] args)
     {
-        var toggle = PanicBunkerCommand.Toggle(CCVars.PanicBunkerEnableWithoutAdmins, shell, args, _cfg);
+        var toggle = PanicBunkerCommand.Toggle(CCVars.PanicBunkerEnableWithoutAdmins, shell, args, _cfg, LocalizationManager);
         if (toggle == null)
             return;
 
@@ -104,7 +107,7 @@ public sealed class PanicBunkerCountDeadminnedCommand : LocalizedCommands
 
     public override void Execute(IConsoleShell shell, string argStr, string[] args)
     {
-        var toggle = PanicBunkerCommand.Toggle(CCVars.PanicBunkerCountDeadminnedAdmins, shell, args, _cfg);
+        var toggle = PanicBunkerCommand.Toggle(CCVars.PanicBunkerCountDeadminnedAdmins, shell, args, _cfg, LocalizationManager);
         if (toggle == null)
             return;
 
@@ -124,7 +127,7 @@ public sealed class PanicBunkerShowReasonCommand : LocalizedCommands
 
     public override void Execute(IConsoleShell shell, string argStr, string[] args)
     {
-        var toggle = PanicBunkerCommand.Toggle(CCVars.PanicBunkerShowReason, shell, args, _cfg);
+        var toggle = PanicBunkerCommand.Toggle(CCVars.PanicBunkerShowReason, shell, args, _cfg, LocalizationManager);
         if (toggle == null)
             return;
 

@@ -25,6 +25,8 @@
       visible: false
   - type: PaperVisuals
     backgroundModulate: "#eb87c0"
+  - type: PaperLabelType
+    paperType: PaperDyedPink
 
 - type: entity
   parent: Paper
@@ -45,6 +47,8 @@
       visible: false
   - type: PaperVisuals
     backgroundModulate: "#ba453f"
+  - type: PaperLabelType
+    paperType: PaperDyedRed
 
 - type: entity
   parent: Paper
@@ -65,6 +69,8 @@
       visible: false
   - type: PaperVisuals
     backgroundModulate: "#ec912e"
+  - type: PaperLabelType
+    paperType: PaperDyedOrange
 
 - type: entity
   parent: Paper
@@ -85,6 +91,8 @@
       visible: false
   - type: PaperVisuals
     backgroundModulate: "#fee36c"
+  - type: PaperLabelType
+    paperType: PaperDyedYellow
 
 - type: entity
   parent: Paper
@@ -105,6 +113,8 @@
       visible: false
   - type: PaperVisuals
     backgroundModulate: "#c7dd4b"
+  - type: PaperLabelType
+    paperType: PaperDyedGrass
 
 - type: entity
   parent: Paper
@@ -125,6 +135,8 @@
       visible: false
   - type: PaperVisuals
     backgroundModulate: "#0da04d"
+  - type: PaperLabelType
+    paperType: PaperDyedGreen
 
 - type: entity
   parent: Paper
@@ -145,6 +157,8 @@
       visible: false
   - type: PaperVisuals
     backgroundModulate: "#1796c8"
+  - type: PaperLabelType
+    paperType: PaperDyedOcean
 
 - type: entity
   parent: Paper
@@ -165,6 +179,8 @@
       visible: false
   - type: PaperVisuals
     backgroundModulate: "#49cddd"
+  - type: PaperLabelType
+    paperType: PaperDyedSky
 
 - type: entity
   parent: Paper
@@ -185,6 +201,8 @@
       visible: false
   - type: PaperVisuals
     backgroundModulate: "#938bda"
+  - type: PaperLabelType
+    paperType: PaperDyedPurple
 
 - type: entity
   parent: Paper
@@ -205,6 +223,8 @@
       visible: false
   - type: PaperVisuals
     backgroundModulate: "#cfbdaa"
+  - type: PaperLabelType
+    paperType: PaperDyedTan
 
 - type: entity
   parent: Paper
@@ -225,6 +245,8 @@
       visible: false
   - type: PaperVisuals
     backgroundModulate: "#a47449"
+  - type: PaperLabelType
+    paperType: PaperDyedBrown
 
 - type: entity
   parent: BoxBase

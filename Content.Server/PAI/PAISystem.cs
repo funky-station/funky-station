@@ -16,7 +16,11 @@
 // SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
 // SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 ArchRBX <5040911+ArchRBX@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Sophia Rustfield <gitlab@catwolf.xyz>
 // SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 archrbx <punk.gear5260@fastmail.com>
+// SPDX-FileCopyrightText: 2025 jackel234 <52829582+jackel234@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
@@ -26,13 +30,19 @@ using Content.Server.Ghost.Roles;
 using Content.Server.Ghost.Roles.Components;
 using Content.Server.Instruments;
 using Content.Server.Kitchen.Components;
+using Content.Server.Store.Systems;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Mind.Components;
 using Content.Shared.PAI;
 using Content.Shared.Popups;
-using Robust.Shared.Random;
-using System.Text;
+using Content.Shared.Store;
+using Content.Shared.Store.Components;
 using Content.Shared.Instruments;
+using Robust.Shared.Random;
+using Robust.Shared.Prototypes;
+using System.Text;
+using Robust.Server.Containers;
+using Content.Shared.PDA;
 using Robust.Shared.Player;
 
 namespace Content.Server.PAI;
@@ -43,12 +53,15 @@ public sealed class PAISystem : SharedPAISystem
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly MetaDataSystem _metaData = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private readonly StoreSystem _store = default!;
     [Dependency] private readonly ToggleableGhostRoleSystem _toggleableGhostRole = default!;
+    [Dependency] private readonly ContainerSystem _containerSystem = default!;
+    [Dependency] private readonly SharedUserInterfaceSystem _ui = default!;
 
     /// <summary>
     /// Possible symbols that can be part of a scrambled pai's name.
     /// </summary>
-    private static readonly char[] SYMBOLS = new[] { '#', '~', '-', '@', '&', '^', '%', '$', '*', ' '};
+    private static readonly char[] SYMBOLS = new[] { '#', '~', '-', '@', '&', '^', '%', '$', '*', ' ' };
 
     public override void Initialize()
     {
@@ -58,6 +71,9 @@ public sealed class PAISystem : SharedPAISystem
         SubscribeLocalEvent<PAIComponent, MindAddedMessage>(OnMindAdded);
         SubscribeLocalEvent<PAIComponent, MindRemovedMessage>(OnMindRemoved);
         SubscribeLocalEvent<PAIComponent, BeingMicrowavedEvent>(OnMicrowaved);
+
+        SubscribeLocalEvent<PAIComponent, PAIShopActionEvent>(OnShop);
+        SubscribeLocalEvent<PAIComponent, PAIOpenPdaActionEvent>(OnOpenPda);
     }
 
     private void OnUseInHand(EntityUid uid, PAIComponent component, UseInHandEvent args)
@@ -123,6 +139,35 @@ public sealed class PAISystem : SharedPAISystem
         // add 's pAI to the scrambled name
         var val = Loc.GetString("pai-system-pai-name-raw", ("name", name.ToString()));
         _metaData.SetEntityName(uid, val);
+    }
+
+    private void OnShop(Entity<PAIComponent> ent, ref PAIShopActionEvent args)
+    {
+        if (!TryComp<StoreComponent>(ent, out var store))
+            return;
+
+        _store.ToggleUi(args.Performer, ent, store);
+    }
+
+    private void OnOpenPda(Entity<PAIComponent> ent, ref PAIOpenPdaActionEvent args)
+    {
+        if (!_containerSystem.TryGetContainingContainer(ent.Owner, out var container))
+        {
+            // not contained in anything
+            return;
+        }
+        if (!TryComp<PdaComponent>(container.Owner, out var pda_comp) ||
+            !TryComp<UserInterfaceComponent>(container.Owner, out var ui_comp) ||
+            !TryComp<ActorComponent>(ent.Owner, out var actor))
+        {
+            // not contained in a PDA or the PDA has no ui for some reason
+            return;
+        }
+        if (!_ui.TryToggleUi((container.Owner, ui_comp), PdaUiKey.Key, actor.PlayerSession))
+        {
+            // failed to open the ui
+            return;
+        }
     }
 
     public void PAITurningOff(EntityUid uid)

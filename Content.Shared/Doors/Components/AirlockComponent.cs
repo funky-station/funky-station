@@ -10,6 +10,7 @@
 // SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 TheSecondLord <88201625+TheSecondLord@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
 // SPDX-License-Identifier: MIT
@@ -29,6 +30,12 @@ namespace Content.Shared.Doors.Components;
 [Access(typeof(SharedAirlockSystem), Friend = AccessPermissions.ReadWriteExecute, Other = AccessPermissions.Read)]
 public sealed partial class AirlockComponent : Component
 {
+    /// <summary>
+    /// Funky - Prevents the airlock's powered state from being changed while the airlock is under the effect of an EMP.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public bool ForceDisabled = false;
+
     [DataField, AutoNetworkedField]
     public bool Powered;
 

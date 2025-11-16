@@ -27,6 +27,7 @@
 // SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 no <165581243+pissdemon@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 // SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
@@ -40,7 +41,6 @@ using Content.Server.Shuttles.Components;
 using Content.Server.Shuttles.Events;
 using Content.Server.Station.Events;
 using Content.Shared.Body.Components;
-using Content.Shared.Buckle.Components;
 using Content.Shared.CCVar;
 using Content.Shared.Database;
 using Content.Shared.Ghost;
@@ -108,11 +108,8 @@ public sealed partial class ShuttleSystem
     private readonly HashSet<Entity<NoFTLComponent>> _noFtls = new();
 
     private EntityQuery<BodyComponent> _bodyQuery;
-    private EntityQuery<BuckleComponent> _buckleQuery;
     private EntityQuery<FTLSmashImmuneComponent> _immuneQuery;
-    private EntityQuery<PhysicsComponent> _physicsQuery;
     private EntityQuery<StatusEffectsComponent> _statusQuery;
-    private EntityQuery<TransformComponent> _xformQuery;
 
     private void InitializeFTL()
     {
@@ -120,11 +117,8 @@ public sealed partial class ShuttleSystem
         SubscribeLocalEvent<FTLComponent, ComponentShutdown>(OnFtlShutdown);
 
         _bodyQuery = GetEntityQuery<BodyComponent>();
-        _buckleQuery = GetEntityQuery<BuckleComponent>();
         _immuneQuery = GetEntityQuery<FTLSmashImmuneComponent>();
-        _physicsQuery = GetEntityQuery<PhysicsComponent>();
         _statusQuery = GetEntityQuery<StatusEffectsComponent>();
-        _xformQuery = GetEntityQuery<TransformComponent>();
 
         _cfg.OnValueChanged(CCVars.FTLStartupTime, time => DefaultStartupTime = time, true);
         _cfg.OnValueChanged(CCVars.FTLTravelTime, time => DefaultTravelTime = time, true);

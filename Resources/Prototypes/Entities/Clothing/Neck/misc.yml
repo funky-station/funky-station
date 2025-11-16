@@ -15,6 +15,7 @@
 # SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 QueerCats <jansencheng3@gmail.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
 # SPDX-FileCopyrightText: 2025 ZarathushtraSpitama <bloodcunt@protonmail.com>
 # SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
@@ -70,7 +71,7 @@
   parent: ClothingNeckBase
   id: ClothingNeckBling
   name: bling
-  description: Damn, it feels good to be a gangster.
+  description:  It would make you feel like a gangster, if it was not made out of cheap plastic. # Funky
   components:
   - type: Sprite
     sprite: Clothing/Neck/Misc/bling.rsi
@@ -78,6 +79,11 @@
     sprite: Clothing/Neck/Misc/bling.rsi
   - type: Item
     sprite: Clothing/Neck/Misc/bling.rsi
+  - type: PhysicalComposition
+    materialComposition:
+      Plastic: 200  
+  - type: StaticPrice
+    price: 45         
 
 - type: entity
   parent: ClothingNeckBase

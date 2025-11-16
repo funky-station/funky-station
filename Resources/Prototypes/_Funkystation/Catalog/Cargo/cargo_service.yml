@@ -1,6 +1,18 @@
+# SPDX-FileCopyrightText: 2025 McBosserson <mcbosserson@hotmail.com>
+# SPDX-FileCopyrightText: 2025 ThatOneMoon <91613003+ThatOneGuy227@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: cargoProduct
+  id: ServiceFoodShrimpRaw
+  icon:
+    sprite: _Funkystation/Objects/Consumable/Food/meat.rsi
+    state: shrimpfried
+  product: CrateFoodShrimpRaw
+  cost: 350
+  category: cargoproduct-category-name-service
+  group: market
 
 - type: cargoProduct
   id: BulkCleanNade
@@ -30,4 +42,4 @@
   product: CrateServiceColoredLightBulb 
   cost: 800
   category: cargoproduct-category-name-service
-  group: market    
+  group: market

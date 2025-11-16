@@ -70,16 +70,33 @@
 # SPDX-FileCopyrightText: 2024 marc-pelletier <113944176+marc-pelletier@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Эдуард <36124833+Ertanic@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 88tv <131759102+88tv@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Catazeus <200477155+Catazeus@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Cthyga <41489382+Cthyga@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Cymric22 <seanadams305@gmail.com>
+# SPDX-FileCopyrightText: 2025 DevilishMilk <michaellapjr@gmail.com>
+# SPDX-FileCopyrightText: 2025 Mish <bluscout78@yahoo.com>
+# SPDX-FileCopyrightText: 2025 PurpleTranStar <tehevilduckiscoming@gmail.com>
+# SPDX-FileCopyrightText: 2025 Rainbow <ev0lvkitten@gmail.com>
+# SPDX-FileCopyrightText: 2025 SigmaTheDragon <162711378+SigmaTheDragon@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Skye <57879983+Rainbeon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 ThatOneMoon <91613003+ThatOneMoon@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
+# SPDX-FileCopyrightText: 2025 Tyranex <bobthezombie4@gmail.com>
 # SPDX-FileCopyrightText: 2025 Unkn0wn_Gh0st <shadowstalkermll@gmail.com>
+# SPDX-FileCopyrightText: 2025 Xcybitt <197952719+Xcybitt@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Xcybitt <xcybitt@gmail.com>
 # SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
 # SPDX-FileCopyrightText: 2025 mkanke-real <mikekanke@gmail.com>
+# SPDX-FileCopyrightText: 2025 mqole <113324899+mqole@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
+# SPDX-FileCopyrightText: 2025 rosieposie <52761126+rosieposieeee@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 willowzeta <willowzeta632146@proton.me>
+# SPDX-FileCopyrightText: 2025 wilowzeta <willowzeta632146@proton.me>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -106,6 +123,12 @@
     - id: AstroNavCartridge
     - id: ClothingOuterHardsuitLuxury
     - id: ClothingHandsKnuckleDustersQM
+    # Funky
+    - id: CargoTechFabCircuitboard
+    - id: OxygenTankFilled
+    - id: NitrogenTankFilled
+    - id: RadioHandheldCargo #funkystation
+    - id: RadioHandheldCommand #funkystation
 
 - type: entity
   id: LockerQuarterMasterFilled
@@ -140,6 +163,7 @@
     - id: WeaponDisabler
     - id: ClothingEyesGlassesCommand
     - id: BookCorporateSecrets # funky
+    - id: RadioHandheldCommand #funkystation
 
 # No laser table + Laser table
 - type: entityTable
@@ -228,7 +252,11 @@
     # - id: WeaponDisabler
     - id: WeaponDisablerPlus # funkystation adding unique hop weapon
     - id: ClothingEyesHudCommand
+    - id: SOSCartridge # DeltaV - adds SOS app https://github.com/DeltaV-Station/Delta-v/pull/2812
     - id: PDA_cartridge_case
+    - id: RadioHandheldService #funkystation
+    - id: RadioHandheldCommand #funkystation
+    - id: ClothingOuterHardsuitBasic #funkystation
 
 - type: entity
   id: LockerHeadOfPersonnelFilled
@@ -260,6 +288,8 @@
     - id: RubberStampCE
     - id: BaseHandheldStationMapPowerCe
     - id: RPD # RPD
+    - id: RadioHandheldEngineering #funkystation
+    - id: RadioHandheldCommand #funkystation
 # Hardsuit table, used for suit storage as well
 - type: entityTable
   id: FillChiefEngineerHardsuit
@@ -304,7 +334,7 @@
   table: !type:AllSelector
     children:
     - id: BoxEncryptionKeyMedical
-    - id: ClothingBackpackDuffelSurgeryFilled
+    - id: SurgeryKitFilled
     - id: ClothingCloakCmo
     - id: ClothingEyesHudMedical
     - id: ClothingHandsGlovesNitrile
@@ -318,6 +348,12 @@
     - id: CargoRequestMedicalComputerCircuitboard
     - id: MedkitFilled
     - id: RubberStampCMO
+    - id: RadioHandheldMedical #funkystation
+    - id: RadioHandheldCommand #funkystation
+    - id: LauncherSyringe #funkystation
+    - id: MiniSyringe     #funkystation
+    - id: MiniSyringe     #funkystation
+    - id: MiniSyringe     #funkystation
     # Goobstation
     #- id: CloningPodMachineCircuitboard
     - id: MedicalScannerMachineCircuitboard
@@ -380,10 +416,11 @@
     - id: ResearchComputerCircuitboard
     - id: CargoRequestScienceComputerCircuitboard
     - id: RubberStampRd
-    - id: EncryptionKeyBinary # goobstation - readd the cool binary channel access. fuck you.
     - id: AnomalyLocator # GoobStation - adding anomaly locator to the RD locker to reduce the amount of anoms that crit
     - id: CigarCase
       prob: 0.15 # GoobStation - RD needs cigs for uhh... science...
+    - id: RadioHandheldScience #funkystation
+    - id: RadioHandheldCommand #funkystation
 
 # Hardsuit table, used for suit storage as well
 - type: entityTable
@@ -446,6 +483,7 @@
     - id: WeaponDisabler
     - id: WantedListCartridge
     - id: DrinkHosFlask
+    - id: RadioHandheldCommand #funkystation, no sec radio since they start with one
 
 # Hardsuit table, used for suit storage as well
 - type: entityTable
@@ -499,3 +537,6 @@
     - id: SpaceCash1000
     - id: BeachBall
     - id: BikeHorn
+    - id: RadioHandheldCommand #funkystation
+    - id: RadioHandheldEmergency #funkystation
+    - id: WeaponPistolWyvern #funkieststation

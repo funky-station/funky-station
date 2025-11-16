@@ -9,7 +9,8 @@
 # SPDX-FileCopyrightText: 2024 Emisse <99158783+Emisse@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Zadeon <loldude9000@gmail.com>
-# SPDX-FileCopyrightText: 2024 brainfood1183 <113240905+brainfood1183@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Firewars763 <35506916+Firewars763@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 brainfood1183 <113240905+brainfood1183@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
@@ -89,8 +90,20 @@
   oreEntity: MobSpawnCrabIron
 
 - type: ore
+  id: OreCoalCrab
+  oreEntity: MobSpawnCrabCoal
+
+- type: ore
   id: OreSilverCrab
   oreEntity: MobSpawnCrabSilver
+
+- type: ore
+  id: OreGoldCrab
+  oreEntity: MobSpawnCrabGold
+
+- type: ore
+  id: OreBananiumCrab
+  oreEntity: MobSpawnCrabBananium
 
 - type: ore
   id: OreUraniumCrab
@@ -122,3 +135,6 @@
     OreIronCrab: 5
     OreUraniumCrab: 2
     OreSilverCrab: 3
+    OreBananiumCrab: 1
+    OreCoalCrab: 5
+    OreGoldCrab: 2

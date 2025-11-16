@@ -23,6 +23,7 @@
 // SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 superjj18 <gagnonjake@gmail.com>
+// SPDX-FileCopyrightText: 2025 DevilishMilk <michaellapjr@gmail.com>
 // SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 // SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
 // SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
@@ -246,7 +247,7 @@ namespace Content.Server.Communications
             if (message.Actor is not { Valid: true } mob)
                 return;
 
-            if (!CanUse(mob, uid))
+            if (!CanUse(mob, uid) || !comp.CanAlert) // funky - canAlert
             {
                 _popupSystem.PopupCursor(Loc.GetString("comms-console-permission-denied"), message.Actor, PopupType.Medium);
                 return;
@@ -295,7 +296,7 @@ namespace Content.Server.Communications
             // allow admemes with vv
             Loc.TryGetString(comp.Title, out var title);
             title ??= comp.Title;
-			
+
 			Console.WriteLine(comp.Title);
 
 			List<string> announcementWords = new List<string>{};

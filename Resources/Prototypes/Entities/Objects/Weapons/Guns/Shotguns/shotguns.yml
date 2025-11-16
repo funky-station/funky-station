@@ -44,9 +44,13 @@
 # SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 EmoGarbage404 <retron404@gmail.com>
+# SPDX-FileCopyrightText: 2025 QueerCats <jansencheng3@gmail.com>
+# SPDX-FileCopyrightText: 2025 SigmaTheDragon <162711378+SigmaTheDragon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 jackel234 <52829582+jackel234@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 misghast <51974455+misterghast@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 mkanke-real <mikekanke@gmail.com>
 # SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
@@ -106,7 +110,7 @@
   # Don't parent to BaseWeaponShotgun because it differs significantly
   parent: [BaseItem, BaseGunWieldable, BaseSyndicateContraband]
   id: WeaponShotgunBulldog
-  description: An automatic magazine-fed shotgun for close-quarters combat. Kicks like a mule on steroids. Uses .50 shotgun shells.
+  description: An automatic magazine-fed shotgun for close-quarters combat. Kicks like a mule on steroids. Uses 12 gauge shotgun shells.
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Shotguns/bulldog.rsi
@@ -163,14 +167,16 @@
   name: double-barreled shotgun
   parent: [BaseWeaponShotgun, BaseGunWieldable, BaseSecurityBartenderZookeeperContraband]
   id: WeaponShotgunDoubleBarreled
-  description: An immortal classic. Uses .50 shotgun shells.
+  description: An immortal classic. Uses 12 gauge shotgun shells.
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Shotguns/db_shotgun.rsi
   - type: Item
     size: Normal
+    storedOffset: -8,-8
     shape:
-    - 0,0,4,0
+    - 0,0,3,0
+    - 0,1,1,1
     sprite: Objects/Weapons/Guns/Shotguns/db_shotgun_inhands_64x.rsi
   - type: GunRequiresWield #remove when inaccuracy on spreads is fixed
   - type: Gun
@@ -186,7 +192,7 @@
   name: double-barreled shotgun
   parent: WeaponShotgunDoubleBarreled
   id: WeaponShotgunDoubleBarreledRubber
-  description: An immortal classic. Uses .50 shotgun shells.
+  description: An immortal classic. Uses 12 gauge shotgun shells.
   suffix: Non-Lethal
   components:
   - type: BallisticAmmoProvider
@@ -196,7 +202,7 @@
   name: Enforcer
   parent: [BaseWeaponShotgun, BaseGunWieldable, BaseSecurityContraband]
   id: WeaponShotgunEnforcer
-  description: A premium semi-automatic shotgun, and the pride of all security forces. Uses .50 shotgun shells.
+  description: A premium semi-automatic shotgun, and the pride of all security forces. Uses 12 gauge shotgun shells.
   components: # intend for Enforcer to have wider choke for semi-auto function
   - type: Sprite
     sprite: Objects/Weapons/Guns/Shotguns/enforcer.rsi
@@ -219,7 +225,7 @@
   name: Kammerer
   parent: [BaseWeaponShotgun, BaseGunWieldable, BaseSecurityContraband]
   id: WeaponShotgunKammerer
-  description: An old yet faithful design, and a favorite among irregular forces of many worlds. Uses .50 shotgun shells.
+  description: An old yet faithful design, and a favorite among irregular forces of many worlds. Uses 12 gauge shotgun shells.
   components: # intend for Kammerer to have tighter choke for slower fire rate and/or manual cycling
   - type: Item
     size: Normal
@@ -242,14 +248,17 @@
   name: sawn-off shotgun
   parent: [ BaseWeaponShotgun, BaseSecurityBartenderContraband ]
   id: WeaponShotgunSawn
-  description: Groovy! Uses .50 shotgun shells.
+  description: Groovy! Uses 12 gauge shotgun shells.
   components: # needs to be super inaccurate because you don't need to wield it
   - type: Sprite
     sprite: Objects/Weapons/Guns/Shotguns/sawn.rsi
   - type: Clothing
     sprite: Objects/Weapons/Guns/Shotguns/sawn.rsi
   - type: Item
-    size: Small
+    size: Normal
+    storedOffset: 0,0
+    shape:
+    - 0,0,1,1
     sprite: Objects/Weapons/Guns/Shotguns/sawn_inhands_64x.rsi
   - type: Gun
     fireRate: 3
@@ -265,7 +274,7 @@
   name: sawn-off shotgun
   parent: WeaponShotgunSawn
   id: WeaponShotgunSawnEmpty
-  description: Groovy! Uses .50 shotgun shells.
+  description: Groovy! Uses 12 gauge shotgun shells.
   suffix: Empty
   components:
   - type: BallisticAmmoProvider
@@ -279,7 +288,7 @@
   name: handmade pistol
   parent: [BaseWeaponShotgun, BaseMinorContraband]
   id: WeaponShotgunHandmade
-  description: Looks unreliable. Uses .50 shotgun shells.
+  description: Looks unreliable. Uses 12 gauge shotgun shells.
   components:
   - type: Item
     size: Small
@@ -325,7 +334,7 @@
   name: improvised shotgun
   parent: [BaseWeaponShotgun, BaseGunWieldable, BaseMinorContraband]
   id: WeaponShotgunImprovised
-  description: A shitty, hand-made shotgun that uses .50 shotgun shells. It can only hold one round in the chamber.
+  description: A shitty, hand-made shotgun that uses 12 gauge shotgun shells. It can only hold one round in the chamber.
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Shotguns/improvised_shotgun.rsi

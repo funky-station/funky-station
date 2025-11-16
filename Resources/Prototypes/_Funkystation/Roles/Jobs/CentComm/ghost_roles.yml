@@ -1,0 +1,44 @@
+# SPDX-FileCopyrightText: 2025 Josh Hilsberg <thejoulesberg@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: job
+  id: CentralCommandIntern
+  name: Central Command Intern
+  description: ghost-role-information-centcom-intern-description
+  playTimeTracker: CentralCommandIntern
+  requirements:
+  - !type:OverallPlaytimeRequirement
+    time: 360000 #100 hrs
+  weight: 0
+  startingGear: CentralCommandInternGear
+  icon: JobIconCentralCommandIntern
+  requireAdminNotify: true
+  joinNotifyCrew: false
+  supervisors: job-supervisors-central-commanders
+  canBeAntag: false
+  access:
+  - CentralCommand
+  - Maintenance
+  - Lawyer
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant ]
+
+- type: startingGear
+  id: CentralCommandInternGear
+  equipment:
+    id: BaseCentcomPDA
+    shoes: ClothingShoesBootsLaceup
+    eyes: ClothingEyesGlassesCommand
+    ears: ClothingHeadsetCentCom
+    pocket2: RubberStampCentcom
+    gloves: ClothingHandsGlovesHop
+    belt: BoxFolderCentComClipboard
+    back: ClothingBackpackCentcom
+    jumpsuit: ClothingUniformJumpsuitCentcomAgent
+  inhand:
+  - BriefcaseBrownFilled
+  storage:
+    back:
+    - BookSpaceLaw

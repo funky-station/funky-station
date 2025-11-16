@@ -43,3 +43,6 @@ chat-radio-freelance = Freelance
 # not headset but whatever
 chat-radio-handheld = Handheld
 chat-radio-binary = Binary
+
+# funkystation specific
+chat-radio-emergency = Emergency

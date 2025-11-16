@@ -2,6 +2,7 @@
 // SPDX-FileCopyrightText: 2023 brainfood1183 <113240905+brainfood1183@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2023 chromiumboy <50505512+chromiumboy@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Quantum-cross <7065792+Quantum-cross@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
 // SPDX-License-Identifier: MIT
@@ -23,6 +24,14 @@ public enum AnomalyVisualLayers : byte
 {
     Base,
     Animated
+}
+
+[Serializable, NetSerializable]
+public enum AnomalyStabilityVisuals : byte
+{
+    Stable = 1,
+    Decaying = 2,
+    Growing = 3,
 }
 
 /// <summary>
@@ -49,7 +58,7 @@ public enum AnomalousParticleType : byte
 public enum AnomalyVesselVisuals : byte
 {
     HasAnomaly,
-    AnomalyState
+    AnomalySeverity,
 }
 
 [Serializable, NetSerializable]
@@ -74,6 +83,27 @@ public enum AnomalyGeneratorVisualLayers : byte
 public enum AnomalyScannerUiKey : byte
 {
     Key
+}
+
+[Serializable, NetSerializable]
+public enum AnomalyScannerVisuals : byte
+{
+    HasAnomaly,
+    AnomalyStability,
+    AnomalySeverity,
+    AnomalyNextPulse,
+    AnomalyIsSupercritical,
+}
+
+[Serializable, NetSerializable]
+public enum AnomalyScannerVisualLayers : byte
+{
+    Base,
+    Screen,
+    SeverityMask,
+    Stability,
+    Pulse,
+    Supercritical,
 }
 
 [Serializable, NetSerializable]

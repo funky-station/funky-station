@@ -35,6 +35,11 @@
 # SPDX-FileCopyrightText: 2024 potato1234_x <79580518+potato1234x@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 takemysoult <143123247+takemysoult@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 LucasTheDrgn <kirbyfan.95@gmail.com>
+# SPDX-FileCopyrightText: 2025 PurpleTranStar <purpletranstars@gmail.com>
+# SPDX-FileCopyrightText: 2025 Starry <202317940+PurpleTranStar@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Starry <tehevilduckiscoming@gmail.com>
+# SPDX-FileCopyrightText: 2025 Xcybitt <197952719+Xcybitt@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
@@ -320,6 +325,47 @@
         refresh: false
 
 - type: reagent
+  id: ForeverWeed
+  name: reagent-name-forever-weed
+  group: Narcotics
+  desc: reagent-desc-forever-weed
+  physicalDesc: reagent-physical-desc-syrupy
+  flavor: bitter
+  color: "#1b8b3d"
+  metabolisms:
+    Narcotic:
+      effects:
+      - !type:AdjustReagent
+        conditions:
+        - !type:ReagentThreshold
+          reagent: ForeverWeed
+          max: 5
+        reagent: ForeverWeed
+        amount: 1
+      - !type:GenericStatusEffect
+        key: SeeingRainbows
+        component: SeeingRainbows
+        type: Add
+        time: 32
+        refresh: false
+      - !type:PopupMessage
+        type: Local
+        messages:
+          - "foreverweed-effect-longtime"
+          - "foreverweed-effect-parents"
+          - "foreverweed-effect-paranoia-one"
+          - "foreverweed-effect-paranoia-two"
+          - "foreverweed-effect-paranoia-three"
+          - "foreverweed-effect-syndicate"
+          - "foreverweed-effect-space-cops"
+          - "foreverweed-effect-space-cops-paranoia"
+          - "foreverweed-effect-captain"
+          - "foreverweed-effect-captain-paranoia"
+          - "foreverweed-effect-centcomm"
+          - "foreverweed-effect-centcomm-paranoia"
+        probability: 0.01
+
+- type: reagent
   id: Bananadine
   name: reagent-name-bananadine
   group: Narcotics
@@ -473,6 +519,15 @@
         conditions:
         - !type:ReagentThreshold
           min: 5
+      - !type:MovespeedModifier
+        walkSpeedModifier: 0.7
+        sprintSpeedModifier: 0.7
+      - !type:MovespeedModifier
+        conditions:
+        - !type:ReagentThreshold
+          min: 20
+        walkSpeedModifier: 0.35
+        sprintSpeedModifier: 0.35
 
 - type: reagent
   id: Happiness

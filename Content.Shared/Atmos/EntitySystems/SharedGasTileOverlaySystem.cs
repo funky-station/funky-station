@@ -10,6 +10,7 @@
 // SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
 // SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Quantum-cross <7065792+Quantum-cross@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
 // SPDX-License-Identifier: MIT
@@ -24,6 +25,11 @@ namespace Content.Shared.Atmos.EntitySystems
 {
     public abstract class SharedGasTileOverlaySystem : EntitySystem
     {
+        private const float TempAtMinHeatDistortion = 325.0f;
+        private const float TempAtMaxHeatDistortion = 1000.0f;
+        private const float HeatDistortionSlope = 1.0f / (TempAtMaxHeatDistortion - TempAtMinHeatDistortion);
+        private const float HeatDistortionIntercept = -TempAtMinHeatDistortion * HeatDistortionSlope;
+
         public const byte ChunkSize = 8;
         protected float AccumulatedFrameTime;
         protected bool PvsEnabled;
@@ -88,14 +94,18 @@ namespace Content.Shared.Atmos.EntitySystems
             [ViewVariables]
             public readonly byte[] Opacity;
 
+            [ViewVariables]
+            public readonly float Temperature;
+
             // TODO change fire color based on temps
             // But also: dont dirty on a 0.01 kelvin change in temperatures.
             // Either have a temp tolerance, or map temperature -> byte levels
 
-            public GasOverlayData(byte fireState, byte[] opacity)
+            public GasOverlayData(byte fireState, byte[] opacity, float temperature)
             {
                 FireState = fireState;
                 Opacity = opacity;
+                Temperature = temperature;
             }
 
             public bool Equals(GasOverlayData other)
@@ -115,8 +125,22 @@ namespace Content.Shared.Atmos.EntitySystems
                     }
                 }
 
+                if (!MathHelper.CloseToPercent(Temperature, other.Temperature))
+                    return false;
+
                 return true;
             }
+        }
+
+        /// <summary>
+        /// Calculate the heat distortion from a temperature.
+        /// Returns 0.0f below TempAtMinHeatDistortion and 1.0f above TempAtMaxHeatDistortion.
+        /// </summary>
+        /// <param name="temp"></param>
+        /// <returns></returns>
+        public static float GetHeatDistortionStrength(float temp)
+        {
+            return MathHelper.Clamp01(temp * HeatDistortionSlope + HeatDistortionIntercept);
         }
 
         [Serializable, NetSerializable]

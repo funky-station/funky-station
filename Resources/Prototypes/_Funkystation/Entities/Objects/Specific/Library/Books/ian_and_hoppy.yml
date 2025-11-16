@@ -1,0 +1,80 @@
+# SPDX-FileCopyrightText: 2025 mkanke-real <mikekanke@gmail.com>
+#
+# SPDX-License-Identifier: MIT
+
+#submited by Sevenups
+- type: entity
+  parent: BookBase
+  id: IanHoppyBook1
+  name: "The Adventures of Hoppy and Ian Book I"
+  description: A childrens book based on a dog named Ian and a productive worker named Hoppy.
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/books.rsi
+    layers:
+    - state: paper
+    - state: cover_base
+      color: "#2267c7"
+    - state: decor_bottom
+      color: "#2cb040"
+    - state: decor_wingette
+      color: "#3aa6f8"
+    - state: icon_ian
+    - state: icon_text2
+      color: "#ffffff"
+    - state: detail_bookmark
+      color: "#d11717"
+  - type: OocAuthorship
+    oocAuthor: Sevenups
+  - type: Paper
+    stampedBy:
+    - stampedColor: '#134975'
+      stampedName: "NT APPROVED"
+    content: |2
+      [head=2]The Adventures of Hoppy and Ian[/head]
+      [head=3]Book I: Ian delivers the mail[/head]
+      A book by Chris McKendry
+      ================================================
+      Ian was asleep in his great big soft doggie basket. Ian can normally be found sleeping in his basket or chasing mice on the station. Ian lived a wonderful life.
+      “Welcome to the station, crew.” A voice boomed from all around Ian.
+      Ian knew that meant that it was time to wake up. It was going to be a wonderful morning, and another productive shift for him and his best friend, Hoppy!
+      “It’s time to wake up, Ian,” said Hoppy in his usual cheerful voice. “Besides, I have a very important job for you, Ian. It’s fun to have a productive day.”
+      Ian opened one eye and gave a great big lazy yawn, taking in the office. Ian knew today was going to be a productive day. He was so excited to help Nanotrasen reach its quarterly profit goal. Ian knew that first of all, Hoppy had to give him his breakfast. With a great big yawn, Ian closed his big, sleepy eye and waited for Hoppy to get him his favorite breakfast, French Toast.
+      “Come on, Ian, I have a letter for you to deliver for me!” said Hoppy with a laugh.
+      Hoppy knew all too well that Ian would not get to work without his favorite morning treat. With a woosh of the doors opening and closing, Hoppy went off to the kitchen with Ian fast asleep in his great big soft doggie basket.
+
+      “It’s your favorite!” A voice came gliding across the room.
+      Ian opened one big sleepy eye and sniffed with his wet little puppy nose. The delicious smell of French Toast wafted from somewhere, Ian’s favorite! With a big stretch of his short little puppy legs and a glance around the room, Ian saw that Hoppy was back with his morning meal.
+      “Come on, Ian! I have a letter for you to deliver.” Said, Hoppy.
+      “Not before I’ve had my French Toast!” Ian yipped back.
+      With a jolly chuckle, Hoppy put the French Toast in Ian’s bowl, and Ian bounced over to the bowl and munched down on his breakfast treat.
+      “Well Ian, I think it is about time we started our productive shift.” said Hoppy.
+      “Ruff ruff! I love working for Nanotrasen!” replied Ian.
+      “Can you take this letter, and deliver it to the quartermaster, please Ian?” Hoppy said as he pulled out a letter from his pocket, handing it over to Ian.
+      Ian took the letter in his doggie mouth and trotted his way to the door.
+      “Oh, and make sure to deliver the letter before you play with your friends!” Hoppy said.
+      “Ruff!” Ian replied, wagging his stubby little doggie tail.
+
+      Ian trotted his way down the hall, making his way past the kitchen, where he could smell French toast! Ian trotted past the delicious smell and continued down the hall. He had an important job to do.
+
+      Next, he made his way past the medical bay, where a voice sounded out from a window.
+      “Hello, Ian!” said Dr. Lightseeker. “Can you play?”
+      “After I’ve delivered this letter.” Ian woofed back.
+      “Great!” said Dr. Lightseeker.
+      Ian rounded the corner, and ahead of him, he saw the sign he had been looking for: Cargo. Ian gave a great big “Woof!”, excited to deliver his mail. He approached the counter, but oh no! The counter was much too high for Ian to reach.
+      “Too high!” said Ian, “What should I do?”
+      “I can help you with that, Ian.” a voice came from behind.
+      Ian turned around and, with a great big wag of his tail, saw Security Officer Blorp.
+      “I am so glad to see you being productive, Ian! Nanotranen is very proud of you. Remember, Ian, if you are ever in trouble, you can always trust NanoTrasen’s security officers.” Officer Blorp said.
+      “Wow, thank you Officer Blorp, when we deliver this, do you want to play?” Ian woofed back.
+      “Of course!” Officer Blorp replied.
+      With a great big leap of his little doggie paws, Ian jumped into Officer Blorp’s arm, and together they placed the Quartermaster’s letter on the desk.
+      “Thanks a lot!” Yipped Ian. “Come and play with Dr. Lightseeker.”
+      Ian jumped out of Officer Blorp’s arms, and he bounded back down the hallway towards medical, with Officer Blorp following Ian.
+
+      “Now can you play?” asked Dr. Lightseeker.
+      Ian ran in circles in the hall, excitedly.
+      “Yes! Now I can play, and I found a new friend!” Ian yipped happily.
+      Officer Blorp came running up with Ian and panted, “Can I join?”
+      “Of course!” said Dr. Lightseeker, “And then we can all go and eat French toast!”
+      Ian barked, “Hoppy was right! It is fun to have a productive shift!”

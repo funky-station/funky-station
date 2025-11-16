@@ -18,7 +18,7 @@
       maxAmount: 2
 
 - type: entity
-  parent: BaseMail
+  parent: BaseMailSmall
   id: MailScienceBoards
   suffix: Materials
   components:
@@ -38,7 +38,7 @@
       orGroup: SciBoard
 
 - type: entity
-  parent: BaseMail
+  parent: BaseMailSmall
   id: MailScienceTools
   suffix: Sci Tools
   components:

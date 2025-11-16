@@ -5,6 +5,7 @@
 # SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2024 fishbait <gnesse@gmail.com>
 # SPDX-FileCopyrightText: 2024 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Rainbow <ev0lvkitten@gmail.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
@@ -108,25 +109,24 @@
   id: BaseBlob # ReactiveSpines
   coefficients:
     Blunt: 0.25
-    Slash: 0.25
+    Slash: 0.55
     Piercing: 0.25
     Heat: 2.00
 
 - type: damageModifierSet
-  id: ElectromagneticWebBlob # Explosive Lattice
+  id: ElectromagneticWebBlob # Electromagnetic Web
   coefficients:
-    Blunt: 0.50
-    Slash: 0.50
-    Piercing: 0.50
+    Blunt: 0.375
+    Slash: 0.825
+    Piercing: 0.375
     Heat: 2.50
-    Shock: 0.50
 
 - type: damageModifierSet
   id: ExplosiveLatticeBlob # Explosive Lattice
   coefficients:
     Blunt: 0.25
-    Slash: 0.25
-    Piercing: 0.25
+    Slash: 0.55
+    Piercing: 0.325
     Heat: 3.00
     Shock: 1.50
 
@@ -142,6 +142,6 @@
   id: BlobReflective # If it reflects lasers, then it must be fragile?
   coefficients:
     Blunt: 0.9
-    Slash: 0.9
+    Slash: 1.98
     Piercing: 0.9
-    Heat: 1.5
+    Heat: 1.0

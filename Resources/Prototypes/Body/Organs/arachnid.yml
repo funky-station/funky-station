@@ -15,6 +15,7 @@
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 TheSecondLord <88201625+TheSecondLord@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 hereelabs <hahmorme@gmail.com>
 # SPDX-FileCopyrightText: 2025 mkanke-real <mikekanke@gmail.com>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
@@ -84,6 +85,13 @@
       # Funky change ends
   - type: Metabolizer
     updateInterval: 1.5
+    maxReagents: 3
+    # Funky - Arachnids had the Animal metabolizer type, even though there is indeed an Arachnid metabolizer type. This messes with chemicals that rely on the Arachnid metabolizer type.
+    metabolizerTypes: [ Arachnid ]
+    groups:
+    - id: Food
+    - id: Drink
+    # Funky change ends
   - type: Tag # goob edit
     tags:
     - Meat
@@ -183,7 +191,7 @@
   - type: Metabolizer # The liver metabolizes certain chemicals only, like alcohol.
     updateInterval: 1.5
     maxReagents: 1
-    metabolizerTypes: [Animal]
+    metabolizerTypes: [Arachnid] # Funky
     groups:
     - id: Alcohol
       rateModifier: 0.1 # removes alcohol very slowly along with the stomach removing it as a drink
@@ -218,7 +226,7 @@
   - type: Metabolizer
     updateInterval: 1.5
     maxReagents: 5
-    metabolizerTypes: [Animal]
+    metabolizerTypes: [Arachnid] # Funky
     removeEmpty: true
   - type: Tag # goob edit
     tags:

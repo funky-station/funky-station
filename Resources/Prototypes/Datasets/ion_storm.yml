@@ -6,6 +6,7 @@
 # SPDX-FileCopyrightText: 2024 Mr. 27 <45323883+Dutch-VanDerLinde@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 TurboTracker <130304754+TurboTrackerss14@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 strO0pwafel <153459934+strO0pwafel@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Rainbow <ev0lvkitten@gmail.com>
 # SPDX-FileCopyrightText: 2025 Tadeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 funnyfurby <furbyb772@gmail.com>
@@ -348,6 +349,7 @@
   id: IonStormCrew
   values:
   - ANIMALS
+  - ASSISTANTS
   - ARTIFICIAL INTELLIGENCES
   - ATMOSPHERIC TECHNICIANS
   - BARTENDERS
@@ -369,14 +371,15 @@
   - HEADS OF SECURITY
   - HEADS OF STAFF
   - JANITORS
+  - INTERNAL AFFAIRS AGENTS
   - LAWYERS
   - LIBRARIANS
   - MEDICAL DOCTORS
   - MIMES
   - MUSICIANS
+  - NANOTRASEN REPRESENTATIVES
   - NON-CREW
   - PARAMEDICS
-  - PASSENGERS
   - QUARTERMASTERS
   - RESEARCH DIRECTORS
   - ROBOTICISTS
@@ -388,6 +391,8 @@
   # - VIROLOGISTS
   - WARDENS
   - JOHNS
+  - PRISONERS
+  - VISITORS
 
 # only including complex dangerous or funny drinks no water allowed
 - type: dataset

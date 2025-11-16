@@ -1,5 +1,6 @@
 // SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
 // SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Simon <63975668+Simyon264@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
 // SPDX-License-Identifier: MIT
@@ -21,4 +22,10 @@ public sealed partial class CCVars
 
     public static readonly CVarDef<int> MaxMidiLaggedBatches =
         CVarDef.Create("midi.max_lagged_batches", 8, CVar.SERVERONLY);
+
+    /// <summary>
+    /// Defines the max amount of characters to allow in the "Midi channel selector".
+    /// </summary>
+    public static readonly CVarDef<int> MidiMaxChannelNameLength =
+        CVarDef.Create("midi.max_channel_name_length", 64, CVar.SERVERONLY);
 }

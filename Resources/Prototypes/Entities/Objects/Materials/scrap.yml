@@ -5,11 +5,14 @@
 # SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
+
+# Funky station - rebalanced scrap return values to include more plastic
 - type: entity
   parent: BaseItem
   id: BaseScrap
@@ -130,8 +133,8 @@
         glass-6: ""
   - type: PhysicalComposition
     materialComposition:
-      Glass: 1500 # 15 sheets
-      Steel: 500 # 5 sheets
+      Plastic: 1500 # 15 sheets
+      Glass: 500 # 5 sheets
 
 - type: entity
   parent: BaseScrap
@@ -187,7 +190,7 @@
     - state: junk-bucket
   - type: PhysicalComposition
     materialComposition:
-      Plastic: 300 # 3 sheets
+      Plastic: 500 # 3 sheets
 
 - type: entity
   parent: BaseScrap
@@ -200,8 +203,9 @@
     - state: junk-camera
   - type: PhysicalComposition
     materialComposition:
-      Steel: 500 # 5 sheets
-      Glass: 100 # 1 sheet
+      Steel: 100 # 1 sheets
+      Plastic: 200 # 2 sheets
+      Glass: 300 # 3 sheets
 
 - type: entity
   parent: BaseScrap
@@ -215,6 +219,7 @@
   - type: PhysicalComposition
     materialComposition:
       Steel: 300 # 3 sheets
+      Plastic: 300 # 3 sheets
 
 - type: entity
   parent: BaseScrap
@@ -230,6 +235,7 @@
   - type: PhysicalComposition
     materialComposition:
       Steel: 200 # 2 sheets
+      Plastic: 200 # 2 sheets
 
 - type: entity
   parent: BaseScrap
@@ -277,7 +283,8 @@
     - state: junk-fireextinguisher
   - type: PhysicalComposition
     materialComposition:
-      Steel: 600 # 6 sheets
+      Steel: 400 # 4 sheets
+      Plastic: 200 # 2 sheets
 
 - type: entity
   parent: BaseScrap
@@ -329,7 +336,8 @@
     size: Large
   - type: PhysicalComposition
     materialComposition:
-      Steel: 700 # 7 sheets
+      Steel: 300 # 3 sheets
+      Plastic: 400 # 4 sheets
 
 - type: entity
   parent: BaseScrap
@@ -350,8 +358,8 @@
   - type: Item
   - type: PhysicalComposition
     materialComposition:
-      Steel: 400 # 4 sheets
-      Plastic: 300 # 3 sheets
+      Steel: 200 # 2 sheets
+      Plastic: 600 # 6 sheets
 
 - type: entity
   parent: BaseScrap
@@ -367,8 +375,8 @@
     heldPrefix: jetpack
   - type: PhysicalComposition
     materialComposition:
-      Steel: 1000 # 10 sheets
-      Plastic: 200 # 2 sheets
+      Steel: 500 # 5 sheets
+      Plastic: 500 # 5 sheets
 
 - type: entity
   parent: BaseScrap
@@ -419,8 +427,8 @@
     size: Small
   - type: PhysicalComposition
     materialComposition:
-      Steel: 300 # 3 sheets
-      Plastic: 200 # 2 sheets
+      Steel: 500 # 5 sheets
+      Plastic: 400 # 4 sheets
 
 - type: entity
   parent: BaseScrap
@@ -435,7 +443,7 @@
     size: Small
   - type: PhysicalComposition
     materialComposition:
-      Gold: 100 # 1 sheet
+      Gold: 500 # 5 ingots
       Plastic: 400 # 4 sheets
 
 - type: entity

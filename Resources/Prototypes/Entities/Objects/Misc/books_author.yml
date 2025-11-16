@@ -6,6 +6,7 @@
 # SPDX-FileCopyrightText: 2024 Kira Bridgeton <161087999+Verbalase@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 PoTeletubby <ajcraigaz@gmail.com>
 # SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 mkanke-real <mikekanke@gmail.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
@@ -29,7 +30,7 @@
       - state: icon_pentagramm
         color: "#911129"
       - state: detail_bookmark
-        color: red 
+        color: red
     - type: Paper
       content: book-text-narsielegend
 
@@ -461,9 +462,9 @@
       - state: cover_base
         color: "#0f204f"
       - state: decor_vertical_middle
-        color: "#3c6ab0" 
+        color: "#3c6ab0"
       - state: decor_spine
-        color: "#3c6ab0" 
+        color: "#3c6ab0"
       - state: icon_stars2
       - state: icon_aurora
       - state: detail_bookmark
@@ -653,7 +654,7 @@
   parent: BookBase
   id: BookJanitorTale
   name: the tales of a tired janitor
-  description: A clean looking book, smelling vaguely of soap and bleach. 
+  description: A clean looking book, smelling vaguely of soap and bleach.
   components:
   - type: Sprite
     sprite: Objects/Misc/books.rsi

@@ -8,3 +8,8 @@
   license: "CC-BY-SA-3.0"
   copyright: "Multiple effects taken from Paradise Station"
   source: "https://github.com/ParadiseSS13/Paradise/tree/master/sound"
+
+- files: ["malfai_start.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Created by gameplayah on commision"
+  source: "https://gpsinform.carrd.co/"

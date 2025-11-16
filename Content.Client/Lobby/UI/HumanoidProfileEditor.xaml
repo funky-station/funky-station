@@ -17,232 +17,157 @@ SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 
 SPDX-License-Identifier: MIT-->
 
-<BoxContainer
-    HorizontalExpand="True"
-    xmlns="https://spacestation14.io"
-    xmlns:cc="clr-namespace:Content.Client.Administration.UI.CustomControls"
-    xmlns:humanoid="clr-namespace:Content.Client.Humanoid"
-    xmlns:ui="clr-namespace:Content.Client.Lobby.UI"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    <!--  Left side  -->
-    <BoxContainer
-        HorizontalExpand="True"
-        Margin="10,10,10,10"
-        Orientation="Vertical">
-        <!--  Middle container  -->
-        <BoxContainer
-            HorizontalExpand="True"
-            Orientation="Horizontal"
-            SeparationOverride="10">
-            <!--  Name box  -->
-            <BoxContainer Orientation="Vertical">
-                <ui:HighlightedContainer>
-                    <BoxContainer Orientation="Vertical">
-                        <ui:HighlightedContainer>
-                            <BoxContainer Orientation="Vertical">
-                                <BoxContainer Orientation="Horizontal" VerticalExpand="True">
-                                    <Label Text="{Loc 'humanoid-profile-editor-name-label'}" />
-                                    <LineEdit
-                                        Margin="5,0,0,0"
-                                        MinSize="270 0"
-                                        Name="NameEdit"
-                                        VerticalAlignment="Center" />
-                                    <Button Name="NameRandomize" Text="{Loc 'humanoid-profile-editor-name-random-button'}" />
+<BoxContainer xmlns="https://spacestation14.io"
+              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+              xmlns:humanoid="clr-namespace:Content.Client.Humanoid"
+              xmlns:ui="clr-namespace:Content.Client.Lobby.UI"
+              xmlns:profileEditorControls="clr-namespace:Content.Client.Lobby.UI.ProfileEditorControls"
+              HorizontalExpand="True">
+        <!-- Left side -->
+        <BoxContainer Orientation="Vertical" Margin="10 10 10 10" HorizontalExpand="True">
+            <!-- Middle container -->
+            <BoxContainer Orientation="Horizontal" SeparationOverride="10" HorizontalExpand="True">
+                <!-- Name box-->
+                <BoxContainer Orientation="Vertical">
+                    <ui:HighlightedContainer>
+                        <BoxContainer Orientation="Vertical">
+                            <ui:HighlightedContainer>
+                                <BoxContainer Orientation="Vertical">
+                                    <BoxContainer Orientation="Horizontal" VerticalExpand="True">
+                                        <Label Text="{Loc 'humanoid-profile-editor-name-label'}" />
+                                        <LineEdit Name="NameEdit" MinSize="270 0" VerticalAlignment="Center" Margin="5 0 0 0" />
+                                        <Button Name="NameRandomize" Text="{Loc 'humanoid-profile-editor-name-random-button'}" />
+                                    </BoxContainer>
+                                    <Button Name="RandomizeEverythingButton" HorizontalAlignment="Center"
+                                            HorizontalExpand="False" MaxWidth="256"
+                                            Text="{Loc 'humanoid-profile-editor-randomize-everything-button'}" />
+                                    <RichTextLabel Name="WarningLabel" HorizontalExpand="False"
+                                                   VerticalExpand="True" MaxWidth="425"
+                                                   HorizontalAlignment="Left" />
                                 </BoxContainer>
-                                <Button
-                                    HorizontalAlignment="Center"
-                                    HorizontalExpand="False"
-                                    MaxWidth="256"
-                                    Name="RandomizeEverythingButton"
-                                    Text="{Loc 'humanoid-profile-editor-randomize-everything-button'}" />
-                                <RichTextLabel
-                                    HorizontalAlignment="Left"
-                                    HorizontalExpand="False"
-                                    MaxWidth="425"
-                                    Name="WarningLabel"
-                                    VerticalExpand="True" />
+                            </ui:HighlightedContainer>
+                        </BoxContainer>
+                    </ui:HighlightedContainer>
+                </BoxContainer>
+                <!-- Import/Export -->
+                <BoxContainer Orientation="Vertical" MinSize="60 0" HorizontalExpand="True" HorizontalAlignment="Right">
+                    <ui:HighlightedContainer Name="ProfileHighlight">
+                        <BoxContainer Orientation="Vertical">
+                            <Button Name="SaveButton" Text="{Loc 'humanoid-profile-editor-save-button'}"/>
+                            <Button Name="ResetButton" Disabled="True" Text="{Loc 'humanoid-profile-editor-reset-button'}"/>
+                            <Button Name="ImportButton" Text="{Loc 'humanoid-profile-editor-import-button'}"/>
+                            <Button Name="ExportButton" Text="{Loc 'humanoid-profile-editor-export-button'}"/>
+                            <Button Name="ExportImageButton" Text="{Loc 'humanoid-profile-editor-export-image-button'}"/>
+                            <Button Name="OpenImagesButton" Text="{Loc 'humanoid-profile-editor-open-image-button'}"/>
+                        </BoxContainer>
+                    </ui:HighlightedContainer>
+                </BoxContainer>
+            </BoxContainer>
+            <Control MinHeight="10" />
+            <!-- tabContainer -->
+            <TabContainer Name="TabContainer" VerticalExpand="True">
+                <BoxContainer Orientation="Vertical">
+                    <ScrollContainer VerticalExpand="True">
+                        <!-- appearanceList -->
+                        <BoxContainer Orientation="Vertical">
+                            <BoxContainer Margin="10" Orientation="Vertical" HorizontalExpand="True">
+                                <!-- Species -->
+                                <BoxContainer HorizontalExpand="True">
+                                    <Label Text="{Loc 'humanoid-profile-editor-species-label'}" />
+                                    <Control HorizontalExpand="True"/>
+                                    <TextureButton Name="SpeciesInfoButton" Scale="0.3 0.3"
+                                                   VerticalAlignment="Center"
+                                                   ToolTip="{Loc 'humanoid-profile-editor-guidebook-button-tooltip'}"/>
+                                    <OptionButton Name="SpeciesButton" HorizontalAlignment="Right" />
+                                </BoxContainer>
+                                <!-- Age -->
+                                <BoxContainer HorizontalExpand="True">
+                                    <Label Text="{Loc 'humanoid-profile-editor-age-label'}" />
+                                    <Control HorizontalExpand="True"/>
+                                    <LineEdit Name="AgeEdit" MinSize="40 0" HorizontalAlignment="Right" />
+                                </BoxContainer>
+                                <!--  Goobstation - Preferred Borg Name Container  -->
+                                <!--  Borg Name  -->
+                                <BoxContainer HorizontalExpand="True">
+                                    <Label Text="{Loc 'humanoid-profile-editor-borgname-label'}" />
+                                    <Control HorizontalExpand="True" />
+                                    <LineEdit
+                                        HorizontalAlignment="Right"
+                                        MinSize="270 0"
+                                        Name="BorgNameEdit" />
+                                    <Button Name="BorgNameRandomize" Text="{Loc 'humanoid-profile-editor-name-random-button'}" />
+                                </BoxContainer>
+                                <!--  End of Goobstation  -->
+                                <!-- Sex -->
+                                <BoxContainer HorizontalExpand="True">
+                                    <Label Text="{Loc 'humanoid-profile-editor-sex-label'}" />
+                                    <Control HorizontalExpand="True"/>
+                                    <OptionButton Name="SexButton" HorizontalAlignment="Right" />
+                                </BoxContainer>
+                                <!-- Pronouns -->
+                                <BoxContainer HorizontalExpand="True">
+                                    <Label Text="{Loc 'humanoid-profile-editor-pronouns-label'}" />
+                                    <Control HorizontalExpand="True"/>
+                                    <OptionButton Name="PronounsButton" HorizontalAlignment="Right" />
+                                </BoxContainer>
+                                <!-- Show clothing -->
+                                <BoxContainer HorizontalExpand="True">
+                                    <Label Text="{Loc 'humanoid-profile-editor-clothing'}" />
+                                    <Control HorizontalExpand="True"/>
+                                    <Button Name="ShowClothes" Pressed="True" ToggleMode="True" Text="{Loc 'humanoid-profile-editor-clothing-show'}" HorizontalAlignment="Right" />
+                                </BoxContainer>
+                                <!-- Spawn Priority -->
+                                <BoxContainer HorizontalExpand="True">
+                                    <Label Text="{Loc 'humanoid-profile-editor-spawn-priority-label'}" />
+                                    <Control HorizontalExpand="True"/>
+                                    <OptionButton Name="SpawnPriorityButton" HorizontalAlignment="Right" />
+                                </BoxContainer>
                             </BoxContainer>
-                        </ui:HighlightedContainer>
-                    </BoxContainer>
-                </ui:HighlightedContainer>
-            </BoxContainer>
-            <!--  Import/Export  -->
-            <BoxContainer
-                HorizontalAlignment="Right"
-                HorizontalExpand="True"
-                MinSize="60 0"
-                Orientation="Vertical">
-                <ui:HighlightedContainer Name="ProfileHighlight">
-                    <BoxContainer Orientation="Vertical">
-                        <Button Name="SaveButton" Text="{Loc 'humanoid-profile-editor-save-button'}" />
-                        <Button
-                            Disabled="True"
-                            Name="ResetButton"
-                            Text="{Loc 'humanoid-profile-editor-reset-button'}" />
-                        <Button Name="ImportButton" Text="{Loc 'humanoid-profile-editor-import-button'}" />
-                        <Button Name="ExportButton" Text="{Loc 'humanoid-profile-editor-export-button'}" />
-                        <Button Name="ExportImageButton" Text="{Loc 'humanoid-profile-editor-export-image-button'}" />
-                        <Button Name="OpenImagesButton" Text="{Loc 'humanoid-profile-editor-open-image-button'}" />
-                    </BoxContainer>
-                </ui:HighlightedContainer>
-            </BoxContainer>
+                            <!-- Skin -->
+                            <BoxContainer Margin="10" HorizontalExpand="True" Orientation="Vertical">
+                                <Label Text="{Loc 'humanoid-profile-editor-skin-color-label'}" />
+                                <Slider HorizontalExpand="True" Name="Skin" MinValue="0" MaxValue="100" Value="20" />
+                                <BoxContainer Name="RgbSkinColorContainer" Visible="False" Orientation="Vertical" HorizontalExpand="True"></BoxContainer>
+                            </BoxContainer>
+                            <!-- Hair -->
+                            <BoxContainer Margin="10" Orientation="Horizontal">
+                                <humanoid:SingleMarkingPicker Name="HairStylePicker" Category="Hair" />
+                                <humanoid:SingleMarkingPicker Name="FacialHairPicker" Category="FacialHair" />
+                            </BoxContainer>
+                            <!-- Eyes -->
+                            <BoxContainer Margin="10" Orientation="Vertical">
+                                <Label Text="{Loc 'humanoid-profile-editor-eyes-label'}" />
+                                <humanoid:EyeColorPicker Name="EyeColorPicker" />
+                            </BoxContainer>
+                        </BoxContainer>
+                    </ScrollContainer>
+                </BoxContainer>
+                <BoxContainer Orientation="Vertical">
+                    <!-- Jobs -->
+                    <ScrollContainer VerticalExpand="True">
+                        <BoxContainer Name="JobList" Orientation="Vertical" />
+                    </ScrollContainer>
+                </BoxContainer>
+                <BoxContainer Orientation="Vertical" Margin="10">
+                    <!-- Antags -->
+                    <ScrollContainer VerticalExpand="True">
+                        <BoxContainer Name="AntagList" Orientation="Vertical" />
+                    </ScrollContainer>
+                </BoxContainer>
+                <BoxContainer Orientation="Vertical" Margin="10">
+                    <!-- Traits -->
+                    <ScrollContainer VerticalExpand="True">
+                        <BoxContainer Name="TraitsList" Orientation="Vertical" />
+                    </ScrollContainer>
+                </BoxContainer>
+                <BoxContainer Name="MarkingsTab" Orientation="Vertical" Margin="10">
+                    <!-- Markings -->
+                    <ScrollContainer VerticalExpand="True">
+                        <humanoid:MarkingPicker Name="Markings" IgnoreCategories="Hair,FacialHair" />
+                    </ScrollContainer>
+                </BoxContainer>
+            </TabContainer>
         </BoxContainer>
-        <Control MinHeight="10" />
-        <!--  tabContainer  -->
-        <TabContainer Name="TabContainer" VerticalExpand="True">
-            <BoxContainer Orientation="Vertical">
-                <ScrollContainer VerticalExpand="True">
-                    <!--  appearanceList  -->
-                    <BoxContainer Orientation="Vertical">
-                        <BoxContainer
-                            HorizontalExpand="True"
-                            Margin="10"
-                            Orientation="Vertical">
-                            <!--  Species  -->
-                            <BoxContainer HorizontalExpand="True">
-                                <Label Text="{Loc 'humanoid-profile-editor-species-label'}" />
-                                <Control HorizontalExpand="True" />
-                                <TextureButton
-                                    Name="SpeciesInfoButton"
-                                    Scale="0.3 0.3"
-                                    ToolTip="{Loc 'humanoid-profile-editor-guidebook-button-tooltip'}"
-                                    VerticalAlignment="Center" />
-                                <OptionButton HorizontalAlignment="Right" Name="SpeciesButton" />
-                            </BoxContainer>
-                            <!--  Age  -->
-                            <BoxContainer HorizontalExpand="True">
-                                <Label Text="{Loc 'humanoid-profile-editor-age-label'}" />
-                                <Control HorizontalExpand="True" />
-                                <LineEdit
-                                    HorizontalAlignment="Right"
-                                    MinSize="40 0"
-                                    Name="AgeEdit" />
-                            </BoxContainer>
-                            <!--  Goobstation - Preferred Borg Name Container  -->
-                            <!--  Borg Name  -->
-                            <BoxContainer HorizontalExpand="True">
-                                <Label Text="{Loc 'humanoid-profile-editor-borgname-label'}" />
-                                <Control HorizontalExpand="True" />
-                                <LineEdit
-                                    HorizontalAlignment="Right"
-                                    MinSize="270 0"
-                                    Name="BorgNameEdit" />
-                                <Button Name="BorgNameRandomize" Text="{Loc 'humanoid-profile-editor-name-random-button'}" />
-                            </BoxContainer>
-                            <!--  End of Goobstation  -->
-                            <!--  Sex  -->
-                            <BoxContainer HorizontalExpand="True">
-                                <Label Text="{Loc 'humanoid-profile-editor-sex-label'}" />
-                                <Control HorizontalExpand="True" />
-                                <OptionButton HorizontalAlignment="Right" Name="SexButton" />
-                            </BoxContainer>
-                            <!--  Pronouns  -->
-                            <BoxContainer HorizontalExpand="True">
-                                <Label Text="{Loc 'humanoid-profile-editor-pronouns-label'}" />
-                                <Control HorizontalExpand="True" />
-                                <OptionButton HorizontalAlignment="Right" Name="PronounsButton" />
-                            </BoxContainer>
-                            <!--  Show clothing  -->
-                            <BoxContainer HorizontalExpand="True">
-                                <Label Text="{Loc 'humanoid-profile-editor-clothing'}" />
-                                <Control HorizontalExpand="True" />
-                                <Button
-                                    HorizontalAlignment="Right"
-                                    Name="ShowClothes"
-                                    Pressed="True"
-                                    Text="{Loc 'humanoid-profile-editor-clothing-show'}"
-                                    ToggleMode="True" />
-                            </BoxContainer>
-                            <!--  Spawn Priority  -->
-                            <BoxContainer HorizontalExpand="True">
-                                <Label Text="{Loc 'humanoid-profile-editor-spawn-priority-label'}" />
-                                <Control HorizontalExpand="True" />
-                                <OptionButton HorizontalAlignment="Right" Name="SpawnPriorityButton" />
-                            </BoxContainer>
-                        </BoxContainer>
-                        <!--  Skin  -->
-                        <BoxContainer
-                            HorizontalExpand="True"
-                            Margin="10"
-                            Orientation="Vertical">
-                            <Label Text="{Loc 'humanoid-profile-editor-skin-color-label'}" />
-                            <Slider
-                                HorizontalExpand="True"
-                                MaxValue="100"
-                                MinValue="0"
-                                Name="Skin"
-                                Value="20" />
-                            <BoxContainer
-                                HorizontalExpand="True"
-                                Name="RgbSkinColorContainer"
-                                Orientation="Vertical"
-                                Visible="False" />
-                        </BoxContainer>
-                        <!--  Hair  -->
-                        <BoxContainer Margin="10" Orientation="Horizontal">
-                            <humanoid:SingleMarkingPicker Category="Hair" Name="HairStylePicker" />
-                            <humanoid:SingleMarkingPicker Category="FacialHair" Name="FacialHairPicker" />
-                        </BoxContainer>
-                        <!--  Eyes  -->
-                        <BoxContainer Margin="10" Orientation="Vertical">
-                            <Label Text="{Loc 'humanoid-profile-editor-eyes-label'}" />
-                            <humanoid:EyeColorPicker Name="EyeColorPicker" />
-                        </BoxContainer>
-                    </BoxContainer>
-                </ScrollContainer>
-            </BoxContainer>
-            <BoxContainer Orientation="Vertical">
-                <!--  Jobs  -->
-                <OptionButton Name="PreferenceUnavailableButton" />
-                <ScrollContainer VerticalExpand="True">
-                    <BoxContainer Name="JobList" Orientation="Vertical" />
-                </ScrollContainer>
-            </BoxContainer>
-            <BoxContainer Margin="10" Orientation="Vertical">
-                <!--  Antags  -->
-                <ScrollContainer VerticalExpand="True">
-                    <BoxContainer Name="AntagList" Orientation="Vertical" />
-                </ScrollContainer>
-            </BoxContainer>
-            <BoxContainer Margin="10" Orientation="Vertical">
-                <!--  Traits  -->
-                <ScrollContainer VerticalExpand="True">
-                    <BoxContainer Name="TraitsList" Orientation="Vertical" />
-                </ScrollContainer>
-            </BoxContainer>
-            <BoxContainer
-                Margin="10"
-                Name="MarkingsTab"
-                Orientation="Vertical">
-                <!--  Markings  -->
-                <ScrollContainer VerticalExpand="True">
-                    <humanoid:MarkingPicker IgnoreCategories="Hair,FacialHair" Name="Markings" />
-                </ScrollContainer>
-            </BoxContainer>
-        </TabContainer>
-    </BoxContainer>
-    <!--  Right side  -->
-    <BoxContainer
-        Orientation="Vertical"
-        VerticalAlignment="Center"
-        VerticalExpand="True">
-        <SpriteView
-            Name="SpriteView"
-            Scale="8 8"
-            SizeFlagsStretchRatio="1" />
-        <BoxContainer
-            HorizontalAlignment="Center"
-            Margin="0,5"
-            Orientation="Horizontal">
-            <Button
-                Name="SpriteRotateLeft"
-                StyleClasses="OpenRight"
-                Text="◀" />
-            <cc:VSeparator Margin="2,0,3,0" />
-            <Button
-                Name="SpriteRotateRight"
-                StyleClasses="OpenLeft"
-                Text="▶" />
-        </BoxContainer>
-    </BoxContainer>
+        <!-- Right side -->
+        <profileEditorControls:ProfilePreview Name="Preview"/>
 </BoxContainer>

@@ -1,0 +1,34 @@
+# SPDX-FileCopyrightText: 2025 hivehum <ketchupfaced@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+
+- type: entity
+  parent: SeedBase
+  name: packet of hops seeds
+  id: HopsSeeds
+  components:
+  - type: Seed
+    seedId: hops
+  - type: Sprite
+    sprite: _Impstation/Objects/Specific/Hydroponics/hops.rsi
+
+- type: entity
+  parent: SeedBase
+  name: packet of HoPs seeds
+  id: HoPsSeeds # really riding on yaml being case sensitive here
+  components:
+  - type: Seed
+    seedId: employedhops
+  - type: Sprite
+    sprite: _Impstation/Objects/Specific/Hydroponics/employedhops.rsi
+
+- type: entity
+  parent: SeedBase
+  name: packet of agent grain seeds
+  id: AgentGrainSeeds
+  components:
+  - type: Seed
+    seedId: agentgrain
+  - type: Sprite
+    sprite: _Impstation/Objects/Specific/Hydroponics/agentgrain.rsi

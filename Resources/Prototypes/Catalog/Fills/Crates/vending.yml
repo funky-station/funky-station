@@ -10,6 +10,7 @@
 # SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 ThatOneMoon <91613003+ThatOneGuy227@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
+# SPDX-FileCopyrightText: 2025 mnva <218184747+mnva0@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
@@ -109,7 +110,7 @@
   id: CrateVendingMachineRestockMedicalFilled
   parent: CrateMedicalSecure
   name: NanoMed restock crate
-  description: Contains a restock box, compatible with the NanoMed and NanoMedPlus.
+  description: Contains a restock box, compatible with the NanoMed and NanoMed Plus.
   components:
   - type: StorageFill
     contents:

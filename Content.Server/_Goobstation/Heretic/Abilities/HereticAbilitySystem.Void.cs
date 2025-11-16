@@ -2,6 +2,7 @@
 // SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
 // SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
 // SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Kandiyaki <106633914+Kandiyaki@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 jackel234 <52829582+jackel234@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
@@ -14,8 +15,10 @@ using Content.Server.Temperature.Components;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.Heretic;
+using Content.Shared.Physics;
 using Content.Shared.Temperature.Components;
 using Robust.Shared.Audio;
+using Robust.Shared.Physics;
 using Robust.Shared.Physics.Components;
 using System.Linq;
 using Content.Server.Temperature.Systems;
@@ -49,6 +52,13 @@ public sealed partial class HereticAbilitySystem : EntitySystem
     {
         RemComp<BarotraumaComponent>(ent);
         EnsureComp<AristocratComponent>(ent);
+
+        if(TryComp<FixturesComponent>(ent, out var fixtures) && TryComp<PhysicsComponent>(ent, out var physics))
+        {
+            var fix = fixtures.Fixtures.First();
+            _phys.SetCollisionMask(ent, fix.Key, fix.Value, (int)CollisionGroup.Opaque);
+            _phys.SetCollisionLayer(ent, fix.Key, fix.Value, (int)CollisionGroup.BulletImpassable);
+        }
     }
 
     private void OnVoidBlast(Entity<HereticComponent> ent, ref HereticVoidBlastEvent args)
@@ -65,10 +75,13 @@ public sealed partial class HereticAbilitySystem : EntitySystem
             _phys.SetBodyStatus(rod, phys, BodyStatus.InAir);
 
             var xform = Transform(rod);
-            var vel = Transform(ent).WorldRotation.ToWorldVec() * 15f;
+            var direction = _transform.ToMapCoordinates(args.Target).Position - _transform.GetWorldPosition(ent);
+            direction.Normalize();
+
+            var vel = direction * 15f;
 
             _phys.SetLinearVelocity(rod, vel, body: phys);
-            xform.LocalRotation = Transform(ent).LocalRotation;
+            xform.LocalRotation = direction.ToAngle();
         }
 
         args.Handled = true;

@@ -1,4 +1,5 @@
 # SPDX-FileCopyrightText: 2025 ilyamikcoder <imc-ext+github@ilyamikcoder.com>
+# SPDX-FileCopyrightText: 2025 mkanke-real <mikekanke@gmail.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
@@ -118,3 +119,76 @@
     sprite: _Funkystation/Structures/Doors/Airlocks/Standard/maint_command.rsi
   - type: Wires
     layoutId: AirlockCommand
+
+- type: entity
+  parent: AirlockServiceLocked
+  id: AirlockLibraryLocked
+  suffix: Library, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsLibrary ]
+
+- type: entity
+  parent: AirlockServiceGlassLocked
+  id: AirlockLibraryGlassLocked
+  suffix: Library, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsLibrary ]
+
+- type: entity
+  parent: AirlockMaint
+  id: AirlockMaintLibrary
+  name: library maintenance access
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Structures/Doors/Airlocks/Standard/maint_service.rsi
+  - type: Wires
+    layoutId: AirlockService
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsLibrary ]
+
+- type: entity
+  parent: AirlockServiceLocked
+  id: AirlockReporterLocked
+  suffix: Reporter, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsReporter ]
+
+- type: entity
+  parent: AirlockServiceGlassLocked
+  id: AirlockReporterGlassLocked
+  suffix: Reporter, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsReporter ]
+
+- type: entity
+  parent: AirlockMaint
+  id: AirlockMaintReporter
+  name: reporter maintenance access
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Structures/Doors/Airlocks/Standard/maint_service.rsi
+  - type: Wires
+    layoutId: AirlockService
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsReporter ]
+
+#Fun
+
+- type: entity
+  parent: AirlockServiceLocked
+  id: AirlockSpaceCowboyLocked
+  suffix: SpaceCowboy, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSpaceCowboy ]

@@ -1,4 +1,9 @@
 # SPDX-FileCopyrightText: 2025 Gansu <68031780+GansuLalan@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 QueerCats <jansencheng3@gmail.com>
+# SPDX-FileCopyrightText: 2025 ScarKy0 <scarky0@onet.eu>
+# SPDX-FileCopyrightText: 2025 ThatOneMoon <91613003+ThatOneMoon@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
+# SPDX-FileCopyrightText: 2025 Xcybitt <xcybitt@gmail.com>
 # SPDX-FileCopyrightText: 2025 aa5g21 <aa5g21@soton.ac.uk>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
@@ -6,7 +11,7 @@
 
 - type: entity
   id: MusicTechFab
-  parent: [BaseLatheLube, BaseSiloUtilizer] # Goob edit
+  parent: [BaseLatheLube] # Goob edit
   name: music techfab
   description: Prints equipment for use by the musician.
   components:
@@ -54,3 +59,87 @@
     - BagpipeInstrument
   - type: Machine
     board: MusicTechFabCircuitboard
+  - type: MaterialStorage
+    whitelist:
+      tags:
+      - Sheet
+      - RawMaterial
+      - Ingot
+  - type: MaterialSiloClient
+
+- type: entity
+  id: CargoTechFab
+  parent: [BaseLatheLube] # Goob edit
+  name: cargo techfab
+  description: Prints equipment for use by cargo personnel.
+  components:
+  - type: Sprite
+    sprite: Structures/Machines/techfab.rsi
+    layers:
+    - state: icon
+      map: ["enum.LatheVisualLayers.IsRunning"]
+    - state: cargo
+    - state: unlit
+      shader: unshaded
+      map: ["enum.PowerDeviceVisualLayers.Powered"]
+    - state: inserting
+      map: ["enum.MaterialStorageVisualLayers.Inserting"]
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: Lathe
+    idleState: icon
+    runningState: icon
+    staticRecipes:
+    - BoxShotgunFlare
+    - WeaponFlareGun
+    - FultonBeacon
+    - Fulton
+    - AppraisalTool
+    - SheetRGlass
+    - SheetPGlass
+    - SheetRPGlass
+    - SheetUGlass
+    - SheetRUGlass
+    - SheetPlasteel
+    - ToolboxArtistic
+    - ToolboxEmergency
+    - ToolboxElectrical
+    - ToolboxMechanical
+    - OreBag
+    - Pickaxe
+    - MaterialBag
+    - GrapplingGun
+    - NFWeaponHoloflareGun
+    - HandheldGPSBasic
+    - MailCapsulePrimed
+    dynamicRecipes:
+    - MiningDrill
+    - MiningDrillDiamond
+    - HandHeldMassScanner
+    - MineralScannerEmpty
+    - AdvancedMineralScannerEmpty
+    - WeaponProtoKineticAccelerator
+    - ClothingShoesBootsMagSci
+    - OreBagOfHolding # It can create bluespace bags, but *not* synthethic bluespace crystals from diamonds and plasma
+    - ClothingBackpackHolding
+    - ClothingBackpackSatchelHolding
+    - ClothingBackpackDuffelHolding
+    - WeaponPlasmaCutter
+    - MechEquipmentGrabber
+    - MechEquipmentDrill
+    - MechEquipmentDrillDiamond
+    - MechEquipmentKineticAccelerator
+    - CargoTelepadMachineCircuitboard
+  - type: EmagLatheRecipes
+    emagStaticRecipes:
+    - ToolboxSyndicate
+  - type: Machine
+    board: CargoTechFabCircuitboard
+  - type: MaterialStorage
+    whitelist:
+      tags:
+      - Sheet
+      - RawMaterial
+      - Ingot
+  - type: RequireProjectileTarget
+  - type: MaterialSiloClient

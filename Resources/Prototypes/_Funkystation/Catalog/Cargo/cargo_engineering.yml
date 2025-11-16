@@ -1,4 +1,7 @@
+# SPDX-FileCopyrightText: 2025 AtlasHD <99688062+AtlasHDD@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 ThatOneMoon <91613003+ThatOneGuy227@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
+# SPDX-FileCopyrightText: 2025 unknown <alexander.kuepper1234@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -30,4 +33,14 @@
   product: CrateBasicHardsuit
   cost: 4500
   category: cargoproduct-category-name-engineering
-  group: market  
+  group: market
+
+- type: cargoProduct
+  id: EngineeringHEVCrate
+  icon:
+    sprite: _Goobstation/Clothing/OuterClothing/Suits/hev.rsi
+    state: icon
+  product: CrateEngineeringHEV
+  cost: 5000
+  category: cargoproduct-category-name-engineering
+  group: market

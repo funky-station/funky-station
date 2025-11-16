@@ -70,10 +70,19 @@
 # SPDX-FileCopyrightText: 2024 mkanke-real <mikekanke@gmail.com>
 # SPDX-FileCopyrightText: 2024 potato1234_x <79580518+potato1234x@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 88tv <131759102+88tv@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 LucasTheDrgn <kirbyfan.95@gmail.com>
+# SPDX-FileCopyrightText: 2025 McBosserson <148172569+McBosserson@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 McBosserson <mcbosserson@hotmail.com>
+# SPDX-FileCopyrightText: 2025 Milon <milonpl.git@proton.me>
 # SPDX-FileCopyrightText: 2025 PresentAJ <Ajdpersonalemail@gmail.com>
+# SPDX-FileCopyrightText: 2025 Smith <182301147+AgentSmithRadio@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Starry <202317940+PurpleTranStar@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 Ultimite <138839119+UltimiteTheHog@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Velken <8467292+Velken@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 kosticia <kosticia46@gmail.com>
 # SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
@@ -174,7 +183,7 @@
     FoodTomato: 1
     FoodOnionSlice: 2
 
-- type: microwaveMealRecipe
+- type: microwaveMealRecipe #Added to metamorph recipes
   id: RecipeBrainBurger
   name: brain burger recipe
   result: FoodBurgerBrain
@@ -195,7 +204,7 @@
     FoodMeat: 1
     ClothingHeadHatCatEars: 1
 
-- type: microwaveMealRecipe
+- type: microwaveMealRecipe #Added to metamorph recipes
   id: RecipeCheeseburger
   name: cheeseburger recipe
   result: FoodBurgerCheese
@@ -206,7 +215,7 @@
     FoodMeat: 1
     FoodCheeseSlice: 1
 
-- type: microwaveMealRecipe
+- type: microwaveMealRecipe #Added to metamorph recipes
   id: RecipeChickenSandwich
   name: chicken sandwich recipe
   result: FoodBurgerChicken
@@ -238,7 +247,7 @@
     FoodBreadBun: 1
     FoodMeatCorgi: 1
 
-- type: microwaveMealRecipe
+- type: microwaveMealRecipe #Added to metamorph recipes
   id: RecipeCrabBurger
   name: crab burger recipe
   result: FoodBurgerCrab
@@ -265,7 +274,7 @@
     CrayonGreen: 1
     Flare: 1
 
-- type: microwaveMealRecipe
+- type: microwaveMealRecipe #Added to metamorph recipes
   id: RecipeDuckBurger
   name: duck sandwich recipe
   result: FoodBurgerDuck
@@ -1765,6 +1774,18 @@
     OrganAnimalHeart: 1
 
 - type: microwaveMealRecipe
+  id: RecipeBerryDelight
+  name: berry delight recipe
+  result: FoodCakeBerryDelight
+  time: 5
+  group: Cake
+  solids:
+    FoodCakePlain: 1
+    FoodBerries: 5
+  reagents:
+    Milk: 10
+
+- type: microwaveMealRecipe
   id: RecipeBreadDog
   name: bread dog recipe
   result: MobBreadDog
@@ -1885,6 +1906,13 @@
   solids:
     FoodDonkpocketCarp: 1
 
+- type: microwaveMealRecipe
+  id: RecipeDonkpocketMoth
+  name: warm moth-pocket recipe
+  result: FoodDonkpocketMothWarm
+  time: 5
+  solids:
+    FoodDonkpocketMoth: 1
 
 - type: microwaveMealRecipe
   id: RecipeHotChili
@@ -2258,6 +2286,28 @@
     FoodSnackChocolateBar: 2
 
 - type: microwaveMealRecipe
+  id: RecipeRainbowCannabisButter
+  name: cannabis butter recipe
+  result: FoodRainbowCannabisButter
+  time: 15
+  solids:
+    FoodButter: 1
+    LeavesCannabisRainbow: 6
+
+- type: microwaveMealRecipe
+  id: RecipeForeverWeedBrownies
+  name: cannabis brownie recipe
+  result: FoodBakedForeverWeedBrownieBatch
+  time: 25
+  reagents:
+    Flour: 15
+    Sugar: 30
+  solids:
+    FoodRainbowCannabisButter: 2
+    FoodSnackChocolateBar: 2
+    FoodEgg: 3
+
+- type: microwaveMealRecipe
   id: RecipeCornInButter
   name: corn in butter recipe
   result: FoodMealCornInButter
@@ -2288,6 +2338,74 @@
   group: Breads
   solids:
     FoodDoughTortillaFlat: 1 # one third of a standard bread dough recipe
+
+- type: microwaveMealRecipe
+  id: RecipeTacoBeef
+  name: beef taco recipe
+  result: FoodTacoBeef
+  time: 10
+  solids:
+    FoodTacoShell: 1
+    FoodMeatCutlet: 1
+    FoodCheeseSlice: 1
+
+- type: microwaveMealRecipe
+  id: RecipeTacoChicken
+  name: chicken taco recipe
+  result: FoodTacoChicken
+  time: 10
+  solids:
+    FoodTacoShell: 1
+    FoodMeatChickenCutlet: 1
+    FoodCheeseSlice: 1
+
+- type: microwaveMealRecipe
+  id: RecipeTacoFish
+  name: fish taco recipe
+  result: FoodTacoFish
+  time: 10
+  solids:
+    FoodTacoShell: 1
+    FoodMeatFish: 1
+    FoodOnionSlice: 2
+    FoodTomato: 1
+    FoodCabbage: 1
+
+- type: microwaveMealRecipe
+  id: RecipeTacoRat
+  name: rat taco recipe
+  result: FoodTacoRat
+  time: 10
+  solids:
+    FoodTacoShell: 1
+    FoodCheeseSlice: 1
+    FoodMeatRat: 1
+
+- type: microwaveMealRecipe
+  id: RecipeTacoBeefSupreme
+  name: beef taco supreme recipe
+  result: FoodTacoBeefSupreme
+  time: 10
+  solids:
+    FoodTacoShell: 1
+    FoodCheeseSlice: 1
+    FoodMeatCutlet: 1
+    FoodTomato: 1
+    FoodCabbage: 1
+    FoodOnionSlice: 2
+
+- type: microwaveMealRecipe
+  id: RecipeTacoChickenSupreme
+  name: beef taco supreme recipe
+  result: FoodTacoChickenSupreme
+  time: 10
+  solids:
+    FoodTacoShell: 1
+    FoodCheeseSlice: 1
+    FoodMeatChickenCutlet: 1
+    FoodTomato: 1
+    FoodCabbage: 1
+    FoodOnionSlice: 2
 
 - type: microwaveMealRecipe
   id: RecipeCroissant
@@ -2358,15 +2476,14 @@
     FoodCheeseSlice: 1
     FoodButterSlice: 1
 
-#shrimp!
 - type: microwaveMealRecipe
-  id: RecipeShrimpFried
-  name: fried shrimp recipe
-  result: FoodShrimpFried
+  id: RecipeGrilledCheeseSandwichCotton
+  name: cotton grilled cheese sandwich recipe
+  result: FoodBakedGrilledCheeseSandwichCotton
   time: 10
-  group: Savory
   solids:
-    FoodShrimpRaw : 1
+    FoodBreadCottonSlice: 2
+    FoodCheeseSlice: 1
     FoodButterSlice: 1
 
 - type: microwaveMealRecipe
@@ -2381,3 +2498,15 @@
     MobMothroach: 1
     OrganAnimalHeart: 1
     MoproachShoes: 1
+
+- type: microwaveMealRecipe
+  id: RecipeCottonCake
+  name: cotton cake recipe
+  result: FoodCakeCotton
+  time: 5
+  group: Cake
+  reagents:
+    Fiber: 10
+  solids:
+    FoodCakePlain: 1
+    

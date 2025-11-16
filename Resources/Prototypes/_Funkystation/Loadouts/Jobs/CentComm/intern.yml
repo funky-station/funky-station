@@ -1,0 +1,30 @@
+# SPDX-FileCopyrightText: 2025 Josh Hilsberg <thejoulesberg@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+# Backpack
+- type: loadout
+  id: CentralCommandInternBackpack
+  equipment:
+    back: ClothingBackpackCentcom
+
+- type: loadout
+  id: CentralCommandInternSatchel
+  equipment:
+    back: ClothingBackpackSatchelLeather
+
+# Belt
+- type: loadout
+  id: CentralCommandInternClipboard
+  equipment:
+    belt: BoxFolderCentComClipboard
+
+- type: loadout
+  id: CentralCommandInternJumpsuit
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitCentcomAgent
+
+- type: loadout
+  id: CentralCommandInternGloves
+  equipment:
+    gloves: ClothingHandsGlovesHop

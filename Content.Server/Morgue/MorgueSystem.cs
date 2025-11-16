@@ -21,6 +21,7 @@
 // SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
 // SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
 // SPDX-FileCopyrightText: 2024 Token <esil.bektay@yandex.com>
+// SPDX-FileCopyrightText: 2025 DevilishMilk <michaellapjr@gmail.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
 // SPDX-License-Identifier: MIT
@@ -30,6 +31,7 @@ using Content.Shared.Body.Components;
 using Content.Shared.Examine;
 using Content.Shared.Morgue;
 using Content.Shared.Morgue.Components;
+using Content.Shared.Traits.Assorted;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Player;
 
@@ -89,7 +91,7 @@ public sealed class MorgueSystem : EntitySystem
             if (!hasMob && HasComp<BodyComponent>(ent))
                 hasMob = true;
 
-            if (HasComp<ActorComponent>(ent))
+            if (HasComp<ActorComponent>(ent) && !HasComp<UnrevivableComponent>(ent)) //funky - unrevivables don't trigger the soul alarm
             {
                 _appearance.SetData(uid, MorgueVisuals.Contents, MorgueContents.HasSoul, app);
                 return;

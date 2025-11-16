@@ -1,3 +1,4 @@
+# SPDX-FileCopyrightText: 2025 Rainbow <ev0lvkitten@gmail.com>
 # SPDX-FileCopyrightText: 2025 Skye <57879983+Rainbeon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
@@ -8,6 +9,8 @@
   name: Declare Open Revolt
   description: Declares Open Revolt, allowing all Revolutionaries to see each other's Revolutionary status, at the cost of outing the name of all Head Revolutionaries.
   components:
+  - type: ConfirmableAction
+    popup: revolutionaries-open-revolt-confirmation
   - type: InstantAction
     itemIconStyle: NoItem
     checkCanInteract: false

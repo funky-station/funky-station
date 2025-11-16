@@ -1,6 +1,7 @@
 // SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
 // SPDX-FileCopyrightText: 2024 IProduceWidgets <107586145+IProduceWidgets@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
+// SPDX-FileCopyrightText: 2025 Quantum-cross <7065792+Quantum-cross@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
@@ -84,7 +85,7 @@ public sealed class TraitorRuleTest
         Assert.That(dummies.All(x => x.AttachedEntity == null));
 
         // Opt-in the player for the traitor role
-        await pair.SetAntagPreference(TraitorAntagRoleName, true);
+        await pair.SetAntagPreferences([TraitorAntagRoleName]);
 
         // Add the game rule
         TraitorRuleComponent traitorRule = null;

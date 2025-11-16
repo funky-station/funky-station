@@ -1,6 +1,7 @@
 // SPDX-FileCopyrightText: 2022 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2022 Steven K <84935671+ModeratelyAware@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
 // SPDX-License-Identifier: MIT
@@ -8,11 +9,14 @@
 using Content.Client.Botany.Components;
 using Content.Shared.Botany;
 using Robust.Client.GameObjects;
+using Robust.Shared.Utility;
 
 namespace Content.Client.Botany;
 
 public sealed class PlantHolderVisualizerSystem : VisualizerSystem<PlantHolderVisualsComponent>
 {
+    [Dependency] private readonly SpriteSystem _sprite = default!;
+
     public override void Initialize()
     {
         base.Initialize();
@@ -24,8 +28,8 @@ public sealed class PlantHolderVisualizerSystem : VisualizerSystem<PlantHolderVi
         if (!TryComp<SpriteComponent>(uid, out var sprite))
             return;
 
-        sprite.LayerMapReserveBlank(PlantHolderLayers.Plant);
-        sprite.LayerSetVisible(PlantHolderLayers.Plant, false);
+        _sprite.LayerMapReserve((uid, sprite), PlantHolderLayers.Plant);
+        _sprite.LayerSetVisible((uid, sprite), PlantHolderLayers.Plant, false);
     }
 
     protected override void OnAppearanceChange(EntityUid uid, PlantHolderVisualsComponent component, ref AppearanceChangeEvent args)
@@ -38,12 +42,12 @@ public sealed class PlantHolderVisualizerSystem : VisualizerSystem<PlantHolderVi
         {
             var valid = !string.IsNullOrWhiteSpace(state);
 
-            args.Sprite.LayerSetVisible(PlantHolderLayers.Plant, valid);
+            _sprite.LayerSetVisible((uid, args.Sprite), PlantHolderLayers.Plant, valid);
 
             if (valid)
             {
-                args.Sprite.LayerSetRSI(PlantHolderLayers.Plant, rsi);
-                args.Sprite.LayerSetState(PlantHolderLayers.Plant, state);
+                _sprite.LayerSetRsi((uid, args.Sprite), PlantHolderLayers.Plant, new ResPath(rsi));
+                _sprite.LayerSetRsiState((uid, args.Sprite), PlantHolderLayers.Plant, state);
             }
         }
     }

@@ -93,7 +93,7 @@ public abstract class SwitchableOverlaySystem<TComp, TEvent> : EntitySystem
 
     private void OnGetState(EntityUid uid, TComp component, ref ComponentGetState args)
     {
-        args.State = new SwitchableVisionOverlayComponentState
+        args.State = new SwitchableOverlayComponentState
         {
             Color = component.Color,
             IsActive = component.IsActive,
@@ -107,7 +107,7 @@ public abstract class SwitchableOverlaySystem<TComp, TEvent> : EntitySystem
 
     private void OnHandleState(EntityUid uid, TComp component, ref ComponentHandleState args)
     {
-        if (args.Current is not SwitchableVisionOverlayComponentState state)
+        if (args.Current is not SwitchableOverlayComponentState state)
             return;
 
         component.Color = state.Color;

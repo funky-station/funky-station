@@ -2,17 +2,20 @@
 // SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 ilya.mikheev.coder <imc-ext+github@ilyamikcoder.com>
 // SPDX-FileCopyrightText: 2024 Эдуард <36124833+Ertanic@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Ilya Mikheev <me@ilyamikcoder.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
 // SPDX-License-Identifier: MIT
 
 using System.Linq;
+using Robust.Shared.Prototypes;
 using Content.Server.CartridgeLoader;
 using Content.Server.CartridgeLoader.Cartridges;
 using Content.Server.StationRecords.Systems;
 using Content.Shared.CriminalRecords;
 using Content.Shared.CriminalRecords.Systems;
 using Content.Shared.Security;
+using Content.Shared._Funkystation.Security;
 using Content.Shared.StationRecords;
 using Content.Server.GameTicking;
 using Content.Server.Station.Systems;
@@ -31,6 +34,7 @@ namespace Content.Server.CriminalRecords.Systems;
 /// </summary>
 public sealed class CriminalRecordsSystem : SharedCriminalRecordsSystem
 {
+    [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly GameTicker _ticker = default!;
     [Dependency] private readonly StationRecordsSystem _records = default!;
     [Dependency] private readonly StationSystem _station = default!;
@@ -58,11 +62,11 @@ public sealed class CriminalRecordsSystem : SharedCriminalRecordsSystem
     /// Reason should only be passed if status is Wanted, nullability isn't checked.
     /// </summary>
     /// <returns>True if the status is changed, false if not</returns>
-    public bool TryChangeStatus(StationRecordKey key, SecurityStatus status, string? reason, string? initiatorName = null)
+    public bool TryChangeStatus(StationRecordKey key, SecurityStatusPrototype status, string? reason, string? initiatorName = null)
     {
         // don't do anything if its the same status
         if (!_records.TryGetRecord<CriminalRecord>(key, out var record)
-            || status == record.Status)
+            || status.ID == record.Status)
             return false;
 
         OverwriteStatus(key, record, status, reason, initiatorName);
@@ -73,9 +77,9 @@ public sealed class CriminalRecordsSystem : SharedCriminalRecordsSystem
     /// <summary>
     /// Sets the status without checking previous status or reason nullability.
     /// </summary>
-    public void OverwriteStatus(StationRecordKey key, CriminalRecord record, SecurityStatus status, string? reason, string? initiatorName = null)
+    public void OverwriteStatus(StationRecordKey key, CriminalRecord record, SecurityStatusPrototype status, string? reason, string? initiatorName = null)
     {
-        record.Status = status;
+        record.Status = status.ID;
         record.Reason = reason;
         record.InitiatorName = initiatorName;
 
@@ -135,7 +139,7 @@ public sealed class CriminalRecordsSystem : SharedCriminalRecordsSystem
         if (index >= record.History.Count)
             return false;
 
-        var history = record.History[(int)index];
+        var history = record.History[(int) index];
         record.History.RemoveAt((int) index);
 
         var args = new CriminalHistoryRemovedEvent(history);
@@ -176,7 +180,7 @@ public sealed class CriminalRecordsSystem : SharedCriminalRecordsSystem
             return;
 
         var records = _records.GetRecordsOfType<CriminalRecord>(station)
-            .Where(cr => cr.Item2.Status is not SecurityStatus.None || cr.Item2.History.Count > 0)
+            .Where(cr => !_proto.Index(cr.Item2.Status).IsNone() || cr.Item2.History.Count > 0)
             .Select(cr =>
             {
                 var (i, r) = cr;
@@ -185,7 +189,7 @@ public sealed class CriminalRecordsSystem : SharedCriminalRecordsSystem
                 _records.TryGetRecord(key, out GeneralStationRecord? generalRecord);
                 return new WantedRecord(generalRecord!, r.Status, r.Reason, r.InitiatorName, r.History);
             });
-        var state = new WantedListUiState(records.ToList());
+        var state = new WantedListUiState([.. records]);
 
         _cartridge.UpdateCartridgeUiState(loaderUid, state);
     }

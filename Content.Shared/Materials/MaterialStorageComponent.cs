@@ -1,8 +1,9 @@
 // SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2023 Hannah Giovanna Dawson <karakkaraz@gmail.com>
 // SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 QueerCats <jansencheng3@gmail.com>
 // SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
@@ -88,6 +89,24 @@ public enum MaterialStorageVisuals : byte
 {
     Inserting
 }
+
+/// <summary>
+/// Collects all the materials stored on a <see cref="MaterialStorageComponent"/>
+/// </summary>
+/// <param name="Entity">The entity holding all these materials</param>
+/// <param name="Materials">A dictionary of all materials held</param>
+/// <param name="LocalOnly">An optional specifier. Non-local sources (silo, etc.) should not add materials when this is false.</param>
+[ByRefEvent]
+public readonly record struct GetStoredMaterialsEvent(Entity<MaterialStorageComponent> Entity, Dictionary<ProtoId<MaterialPrototype>, int> Materials, bool LocalOnly);
+
+/// <summary>
+/// After using materials, removes them from storage.
+/// </summary>
+/// <param name="Entity">The entity that held the materials and is being used up</param>
+/// <param name="Materials">A dictionary of the difference of materials left.</param>
+/// <param name="LocalOnly">An optional specifier. Non-local sources (silo, etc.) should not consume materials when this is false.</param>
+[ByRefEvent]
+public readonly record struct ConsumeStoredMaterialsEvent(Entity<MaterialStorageComponent> Entity, Dictionary<ProtoId<MaterialPrototype>, int> Materials, bool LocalOnly);
 
 /// <summary>
 /// event raised on the materialStorage when a material entity is inserted into it.

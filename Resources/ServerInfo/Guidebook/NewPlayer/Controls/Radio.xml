@@ -18,23 +18,25 @@ Local is normal speech at normal volume.
 
 Whisper can only be heard when nearby somebody. You automatically whisper into your radio to send messages over it.
 
-Emotes are gestures that you make. Can be recieved by anyone who is not blinded. You will often see mimes do many emotes.
+Emotes are gestures that you make. Can be received by anyone who is not blinded. You will often see mimes do many emotes.
 
-Whisper messages can be sent by starting your message with [color=#a4885c][keybind="FocusWhisperChatWindow"/][/color] and Emotes can be sent by starting your message with ([color=#a4885c]@[/color]).
+Whisper messages can be sent by starting your message with [color=#a4885c][keybind="FocusWhisperChatWindow"/][/color] and Emotes can be sent by starting your message with ([color=#a4885c]@[/color]) or ([color=#a4885c]*[/color]).
 You can also cycle through all of these text channels by pressing [keybind="CycleChatChannelForward"/].
 
 People may not be able to make out all of what you're saying if you're standing too far away from them. This is especially important if you're whispering.
 
 ## Radio
 
-Your radio allows you to communicate across the entire station and to your specific [color=#a4885c]department[/color].
+Your radio allows you to communicate to your specific [color=#a4885c]department[/color]. To communicate to the entire station, you need to use intercoms placed throughout the station to broadcast your message. You can listen to Common, but not speak in it from your headset.
 
 <Box>
   <GuideEntityEmbed Entity="ClothingHeadsetGrey"/>
+  <GuideEntityEmbed Entity="Intercom"/>
 </Box>
 
-To send a [color=#a4885c]station-wide[/color] message over the radio preface, use the [color=#32cd32]Common[/color] channel by beginning your text with [color=#32cd32]semi-colon (;)[/color].
-People standing right next to you might catch bits of your radio message, even if they don't have the access to the relevant radio channel. Watch for eavesdroppers.
+To send a [color=#a4885c]station-wide[/color] message over the radio preface, use the intercom. Click on it, select the channel you wish to communicate on, and enable the microphone to start transmitting your speech over the [color=#32cd32]Common[/color] channel. You can also enable the speaker to listen to [color=#32cd32]Common[/color] from the intercom. It will transmit everything you say within a specific range, with whispers needing to be closer to the intercom to be picked up.
+
+Intercoms near certain departments will also have their specific department channels, which you can use to communicate in that channel.
 
 ## Departmental Radio
 
@@ -66,7 +68,7 @@ You can take out encryption keys by using a [color=#a4885c]screwdriver[/color] o
 All command members have extras of their relevant encryption key, but you can also request one at the HoP's office when you're getting your job changed.
 
 ## OOC Channels
-OOC (out-of-character) channels exist outside of the game world. They are LOOC, OOC and Dead chat.
+OOC (out-of-character) channels exist outside the game world. They are LOOC, OOC and Dead chat.
 
 LOOC is on during the rounds, OOC is typically off until the round ends and you can only see and talk in Dead chat when you are, well, dead.
 

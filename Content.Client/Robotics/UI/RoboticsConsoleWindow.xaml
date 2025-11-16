@@ -39,6 +39,7 @@ SPDX-License-Identifier: MIT
                 <BoxContainer Name="DangerZone" Margin="5" Orientation="Horizontal" HorizontalExpand="True" HorizontalAlignment="Center" Visible="False">
                     <Button Name="DisableButton" Text="{Loc 'robotics-console-disable'}" StyleClasses="OpenRight"/>
                     <Button Name="DestroyButton" Text="{Loc 'robotics-console-destroy'}" StyleClasses="OpenLeft"/>
+                    <Button Name="ImposeLawButton" Text="{Loc 'malfai-robotics-impose-law-button'}" Margin="10 0 0 0"/>
                 </BoxContainer>
                 <Label Name="LockedMessage" Text="{Loc 'robotics-console-locked-message'}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
             </controls:StripeBack>

@@ -1,6 +1,7 @@
 // SPDX-FileCopyrightText: 2024 John Space <bigdumb421@gmail.com>
 // SPDX-FileCopyrightText: 2024 fishbait <gnesse@gmail.com>
 // SPDX-FileCopyrightText: 2025 QueerCats <jansencheng3@gmail.com>
+// SPDX-FileCopyrightText: 2025 Rainbow <ev0lvkitten@gmail.com>
 // SPDX-FileCopyrightText: 2025 Skye <57879983+Rainbeon@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
@@ -138,6 +139,7 @@ public sealed class BlobCoreSystem : EntitySystem
 
         var store = EnsureComp<StoreComponent>(uid);
         store.CurrencyWhitelist.Add(BlobMoney);
+        ChangeBlobPoint((uid, component), component.InitialPoints, store);
 
         UpdateAllAlerts((uid, component));
         ChangeChem(uid, component.DefaultChem, component);

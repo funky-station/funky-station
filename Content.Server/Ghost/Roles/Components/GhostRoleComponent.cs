@@ -23,6 +23,7 @@
 // SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
 // SPDX-FileCopyrightText: 2024 no <165581243+pissdemon@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 poeMota <142114334+poeMota@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Josh Hilsberg <thejoulesberg@gmail.com>
 // SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 // SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
@@ -46,11 +47,22 @@ public sealed partial class GhostRoleComponent : Component
 
     [DataField("rules")] private string _roleRules = "ghost-role-component-default-rules";
 
+    [DataField("requirements")] private HashSet<JobRequirement>? _requirements;
+
     // Actually make use of / enforce this requirement?
     // Why is this even here.
     // Move to ghost role prototype & respect CCvars.GameRoleTimerOverride
-    [DataField("requirements")]
-    public HashSet<JobRequirement>? Requirements;
+    [ViewVariables(VVAccess.ReadWrite)]
+    [Access(typeof(GhostRoleSystem), Other = AccessPermissions.ReadWriteExecute)]
+    public HashSet<JobRequirement>? Requirements
+    {
+        get => _requirements;
+        set
+        {
+            _requirements = value;
+            IoCManager.Resolve<IEntityManager>().System<GhostRoleSystem>().UpdateAllEui();
+        }
+    }
 
     /// <summary>
     /// Whether the <see cref="MakeSentientCommand"/> should run on the mob.
@@ -141,5 +153,8 @@ public sealed partial class GhostRoleComponent : Component
     [DataField("job")]
     [Access(typeof(GhostRoleSystem), Other = AccessPermissions.ReadWriteExecute)] // also FIXME Friends
     public ProtoId<JobPrototype>? JobProto = null;
+
+    [Access(typeof(GhostRoleSystem))]
+    public EntityUid? SpawnerGhostRoleEntity;
 }
 

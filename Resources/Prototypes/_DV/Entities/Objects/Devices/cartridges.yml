@@ -25,7 +25,7 @@
   - type: Cartridge
     programName: mail-metrics-program-name
     icon:
-      sprite: Nyanotrasen/Objects/Specific/Mail/mail.rsi
+      sprite: _Funkystation/Objects/Specific/Mail/mail_mailer.rsi
       state: icon
   - type: Tag
     tags:

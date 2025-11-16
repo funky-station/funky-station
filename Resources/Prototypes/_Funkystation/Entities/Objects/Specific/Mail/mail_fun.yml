@@ -16,7 +16,7 @@
     - id: PaperBluespaceGorilla
 
 - type: entity
-  parent: BaseMail
+  parent: BaseMailSmall
   id: MailMuggingThreat
   suffix: Mugging Threat
   components:
@@ -27,7 +27,7 @@
     - id: DrinkMugHeart
 
 - type: entity
-  parent: BaseMailLarge
+  parent: BaseMailLargeFlat
   id: MailSkele
   suffix: Skele Mail
   components:
@@ -38,7 +38,7 @@
     - id: MobSkeletonCloset
 
 - type: entity
-  parent: BaseMail
+  parent: BaseMailSmall
   id: MailEgging
   suffix: Egging Mail
   components:
@@ -64,7 +64,7 @@
       orGroup: spamMail
 
 - type: entity
-  parent: BaseMail
+  parent: BaseMailSmall
   id: MailMasks
   suffix: Masks
   components:

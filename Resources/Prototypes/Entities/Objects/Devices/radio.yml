@@ -12,6 +12,7 @@
 # SPDX-FileCopyrightText: 2024 Ramlik <105449767+Ramlik@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 wilowzeta <willowzeta632146@proton.me>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -30,11 +31,19 @@
   - type: Speech
     speechVerb: Robotic
   - type: Sprite
-    sprite: Objects/Devices/communication.rsi
+    sprite: _Funkystation/Objects/Devices/radio.rsi
     layers:
-    - state: walkietalkie
-    - state: walkietalkie-on
-    state: walkietalkie
+    - state: base
+    - state: active
+      visible: false
+      shader: unshaded
+      map: [ "enum.ToggleVisuals.Layer" ]
+  - type: GenericVisualizer
+    visuals:
+      enum.ToggleVisuals.Toggled:
+        enum.ToggleVisuals.Layer:
+          True: { visible: true }
+          False: { visible: false }
   - type: Item
     sprite: Objects/Devices/communication.rsi
     heldPrefix: walkietalkie
@@ -54,7 +63,20 @@
     channels:
     - Security
   - type: Sprite
-    sprite: Objects/Devices/securityhandy.rsi
+    sprite: _Funkystation/Objects/Devices/radio.rsi
+    layers:
+    - state: base
+    - state: cap-security
+    - state: active
+      visible: false
+      shader: unshaded
+      map: [ "enum.ToggleVisuals.Layer" ]
+  - type: GenericVisualizer
+    visuals:
+      enum.ToggleVisuals.Toggled:
+        enum.ToggleVisuals.Layer:
+          True: { visible: true }
+          False: { visible: false }
   - type: Item
     sprite: Objects/Devices/securityhandy.rsi
     heldPrefix: walkietalkie

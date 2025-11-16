@@ -31,6 +31,7 @@ namespace Content.IntegrationTests.Tests
             var client = pair.Client;
             var prototypeManager = client.ResolveDependency<IPrototypeManager>();
             var resourceCache = client.ResolveDependency<IResourceCache>();
+            var spriteSys = client.System<SpriteSystem>();
 
             await client.WaitAssertion(() =>
             {
@@ -41,7 +42,7 @@ namespace Content.IntegrationTests.Tests
 
                     Assert.DoesNotThrow(() =>
                     {
-                        var _ = SpriteComponent.GetPrototypeTextures(proto, resourceCache).ToList();
+                        var _ = spriteSys.GetPrototypeTextures(proto).ToList();
                     }, "Prototype {0} threw an exception when getting its textures.",
                         proto.ID);
                 }

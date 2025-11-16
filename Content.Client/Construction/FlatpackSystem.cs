@@ -1,5 +1,6 @@
 // SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
 // SPDX-License-Identifier: MIT
@@ -15,6 +16,7 @@ namespace Content.Client.Construction;
 public sealed class FlatpackSystem : SharedFlatpackSystem
 {
     [Dependency] private readonly AppearanceSystem _appearance = default!;
+    [Dependency] private readonly SpriteSystem _sprite = default!;
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -49,6 +51,6 @@ public sealed class FlatpackSystem : SharedFlatpackSystem
         }
 
         if (color != null)
-            args.Sprite.LayerSetColor(FlatpackVisualLayers.Overlay, color.Value);
+            _sprite.LayerSetColor((ent.Owner, args.Sprite), FlatpackVisualLayers.Overlay, color.Value);
     }
 }

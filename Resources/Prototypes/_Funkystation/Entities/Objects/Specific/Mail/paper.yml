@@ -148,3 +148,34 @@
                  Sincerely,
                 the Zombies
 #Suggested by Miish
+
+- type: entity
+  id: PaperJellyOfTheMonth
+  categories: [ HideSpawnMenu ]
+  suffix: "Jelly of the Month"
+  parent: Paper
+  components:
+  - type: Paper
+    stampedBy:
+    - stampedColor: '#B45BEB'
+      stampedName: "JotM"
+    #      stampType: Signature #DeltaV - Not compatible with our signatures code stuff apparently
+    content: |2
+      ====================================================
+         Greetings and congratulations on your exclusive subscription to the jelly of the month club! No matter if you signed yourself up of a VERY generous friend we are sure you will enjoy our wide collection of Jellies, shipped DIRECTLY to you no matter where you are in the galaxy.
+      ====================================================
+
+- type: entity
+  id: PaperCheeseAd
+  categories: [ HideSpawnMenu ]
+  suffix: "Cheese Ad"
+  parent: Paper
+  components:
+  - type: Paper
+    content:
+
+      ====================================================
+        Hello and thank you for your subscription for Cheese Wheel Weekly! This weeks cheese of choice is an excellent cheddar. Rich in both taste and aroma it is sure to spice up any dish made with it, especially any and all pizzas that come into your life!
+
+        Next week will be a beautiful brie from a colony tucked deep away at the edges of habitable space. What colony you say? We can't just be giving everything away so look forward to next weeks shipment!
+      ====================================================

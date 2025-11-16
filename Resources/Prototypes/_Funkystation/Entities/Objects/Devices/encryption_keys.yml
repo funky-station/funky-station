@@ -1,0 +1,18 @@
+# SPDX-FileCopyrightText: 2025 wilowzeta <willowzeta632146@proton.me>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  parent: EncryptionKey
+  id: EncryptionKeyEmergency
+  name: emergency encryption key
+  description: An encryption key used by paramedics, brigmedics, and security dispatchers.
+  components:
+  - type: EncryptionKey
+    channels:
+    - Emergency
+    defaultChannel: Emergency
+  - type: Sprite
+    layers:
+    - state: default
+    - state: label-emergency

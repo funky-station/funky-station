@@ -1,0 +1,34 @@
+# SPDX-FileCopyrightText: 2025 Xcybitt <xcybitt@gmail.com>
+# SPDX-FileCopyrightText: 2025 mkanke-real <mikekanke@gmail.com>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
+- type: entity
+  parent: BaseMailLarge
+  id: MailMedicalSurgeryKit
+  suffix: SurgeryKit
+  components:
+  - type: Mail
+    contents:
+    - id: SurgeryKitFilled
+
+- type: entity
+  parent: BaseMail
+  id: MailOmnizineBottle
+  suffix: Omnizine Bottle
+  components:
+  - type: Mail
+    isFragile: true
+    contents:
+    - id: OmnizineChemistryBottle
+
+# Chemist
+- type: entity
+  parent: BaseMailLarge
+  id: MailMedicalBluespaceBeaker
+  suffix: Bluespace Beaker
+  components:
+  - type: Mail
+    contents:
+    - id: BluespaceBeaker

@@ -24,8 +24,11 @@
 # SPDX-FileCopyrightText: 2024 geraeumig <171753363+geraeumig@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 geraeumig <alfenos@proton.me>
 # SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Carrot <carpecarrot@gmail.com>
+# SPDX-FileCopyrightText: 2025 Currot <carpecarrot@gmail.com>
 # SPDX-FileCopyrightText: 2025 Erisiaa <185582649+Erisiaa@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Fr0goo <153249069+Fr0goo@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Ilya Mikheev <me@ilyamikcoder.com>
 # SPDX-FileCopyrightText: 2025 Mish <bluscout78@yahoo.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 Tyranex <bobthezombie4@gmail.com>
@@ -44,6 +47,9 @@
   whitelist:
     components:
     - Vocal
+  blacklist:
+    components:
+    - PAI
   chatMessages: ["chat-emote-msg-scream"]
   chatTriggers:
     - scream
@@ -71,6 +77,9 @@
   whitelist:
     components:
     - Vocal
+  blacklist:
+    components:
+    - PAI
   chatMessages: ["chat-emote-msg-laugh"]
   chatTriggers:
     - laugh
@@ -95,9 +104,11 @@
   category: Vocal
   icon: Interface/Emotes/honk.png
   whitelist:
-    requireAll: true
+    # requireAll: true # Funkystation: let bots emote
+    tags:
+    - Bot # Funkystation: let bots emote
     components:
-    - Vocal
+    # - Vocal # Funkystation: let bots emote (redundant? you can't emote without Vocal anyway?)
     - BorgChassis
   chatMessages: ["chat-emote-msg-honk"]
   chatTriggers:
@@ -142,6 +153,9 @@
   whitelist:
     components:
     - Vocal
+  blacklist:
+    components:
+    - PAI
   chatMessages: ["chat-emote-msg-crying"]
   chatTriggers:
     - cry
@@ -410,6 +424,9 @@
   whitelist:
     components:
     - MobState
+  blacklist:
+    components:
+      - PAI
   chatMessages: ["chat-emote-msg-deathgasp"]
   chatTriggers:
   - deathgasp
@@ -427,8 +444,10 @@
     tags:
     - IPCEmotes
     - HarpyEmotes
+    - Bot # Funkystation: let bots emote
     components:
     - BorgChassis
+    - PAI
   category: Vocal
   icon: Interface/Emotes/buzz.png
   chatMessages: ["chat-emote-msg-buzz"]
@@ -489,8 +508,10 @@
     tags:
     - IPCEmotes
     - HarpyEmotes
+    - Bot # Funkystation: let bots emote
     components:
     - BorgChassis
+    - PAI
   icon: Interface/Emotes/beep.png
   chatMessages: ["chat-emote-msg-beep"]
   chatTriggers:
@@ -506,8 +527,10 @@
     tags:
     - IPCEmotes
     - HarpyEmotes
+    - Bot # Funkystation: let bots emote
     components:
     - BorgChassis
+    - PAI
   category: Vocal
   icon: Interface/Emotes/chime.png
   chatMessages: ["chat-emote-msg-chime"]
@@ -524,8 +547,10 @@
     tags:
     - IPCEmotes
     - HarpyEmotes
+    - Bot # Funkystation: let bots emote
     components:
     - BorgChassis
+    - PAI
   category: Vocal
   icon: Interface/Emotes/buzztwo.png
   chatMessages: ["chat-emote-msg-buzzestwo"]
@@ -548,8 +573,10 @@
     tags:
     - IPCEmotes
     - HarpyEmotes
+    - Bot # Funkystation: let bots emote
     components:
     - BorgChassis
+    - PAI
   category: Vocal
   icon: Interface/Emotes/ping.png
   chatMessages: ["chat-emote-msg-ping"]

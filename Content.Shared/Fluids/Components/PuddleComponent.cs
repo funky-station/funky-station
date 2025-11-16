@@ -3,6 +3,7 @@
 // SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
 // SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
+// SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+pronana@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 // SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
@@ -29,6 +30,12 @@ namespace Content.Shared.Fluids.Components
         public FixedPoint2 OverflowVolume = FixedPoint2.New(20);
 
         [DataField("solution")] public string SolutionName = "puddle";
+
+        /// <summary>
+        /// Default minimum speed someone must be moving to slip for all reagents.
+        /// </summary>
+        [DataField]
+        public float DefaultSlippery = 5.5f;
 
         [ViewVariables]
         public Entity<SolutionComponent>? Solution;

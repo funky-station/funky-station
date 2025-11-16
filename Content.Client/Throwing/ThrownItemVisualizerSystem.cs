@@ -2,6 +2,9 @@
 // SPDX-FileCopyrightText: 2024 Kara <lunarautomaton6@gmail.com>
 // SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
+// SPDX-FileCopyrightText: 2025 Toaster <mrtoastymyroasty@gmail.com>
+// SPDX-FileCopyrightText: 2025 Toastermeister <215405651+Toastermeister@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
 // SPDX-License-Identifier: MIT
@@ -19,6 +22,7 @@ namespace Content.Client.Throwing;
 public sealed class ThrownItemVisualizerSystem : EntitySystem
 {
     [Dependency] private readonly AnimationPlayerSystem _anim = default!;
+    [Dependency] private readonly SpriteSystem _sprite = default!;
 
     private const string AnimationKey = "thrown-item";
 
@@ -32,7 +36,14 @@ public sealed class ThrownItemVisualizerSystem : EntitySystem
 
     private void OnAutoHandleState(EntityUid uid, ThrownItemComponent component, ref AfterAutoHandleStateEvent args)
     {
-        if (!TryComp<SpriteComponent>(uid, out var sprite) || !component.Animate)
+        if (!TryComp<SpriteComponent>(uid, out var sprite))
+            return;
+
+        // Ensure thrown items are visible (items from containers may be occluded)
+        _sprite.SetVisible((uid, sprite), true);
+        _sprite.SetContainerOccluded((uid, sprite), false);
+
+        if (!component.Animate)
             return;
 
         var animationPlayer = EnsureComp<AnimationPlayerComponent>(uid);
@@ -54,7 +65,7 @@ public sealed class ThrownItemVisualizerSystem : EntitySystem
             return;
 
         if (TryComp<SpriteComponent>(uid, out var sprite) && component.OriginalScale != null)
-            sprite.Scale = component.OriginalScale.Value;
+            _sprite.SetScale((uid, sprite), component.OriginalScale.Value);
 
         _anim.Stop(uid, AnimationKey);
     }
@@ -68,7 +79,7 @@ public sealed class ThrownItemVisualizerSystem : EntitySystem
             return null;
 
         var scale = ent.Comp2.Scale;
-        var lenFloat = (float) length.TotalSeconds;
+        var lenFloat = (float)length.TotalSeconds;
 
         // TODO use like actual easings here
         return new Animation

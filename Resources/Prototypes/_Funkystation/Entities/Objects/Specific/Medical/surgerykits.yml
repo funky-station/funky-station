@@ -1,0 +1,36 @@
+# SPDX-FileCopyrightText: 2025 Catazeus <200477155+Catazeus@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+
+- type: entity
+  name: surgery kit
+  description: Basic, but professional kit. Contains basic necessities for surgery.
+  parent: BaseStorageItem
+  id: SurgeryKit
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Specific/Medical/surgerykits.rsi
+    state: surgerykit
+  - type: Storage
+    maxItemSize: Normal
+    grid:
+    - 0,0,5,3
+  - type: Item
+    size: Ginormous
+    sprite: _Funkystation/Objects/Specific/Medical/surgerykits.rsi
+    heldPrefix: surgerykit
+  - type: PhysicalComposition
+    materialComposition:
+      Plastic: 150
+
+- type: entity
+  name: field surgery kit
+  description: "Interdyne's portable surgery solution."
+  parent: [SurgeryKit, BaseSyndicateContraband]
+  id: SurgeryKitSyndicate
+  components:
+  - type: Sprite
+    state: surgerykitsyndicate
+  - type: Item
+    heldPrefix: surgerykitsyndicate

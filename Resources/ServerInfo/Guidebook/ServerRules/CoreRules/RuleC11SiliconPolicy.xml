@@ -20,7 +20,9 @@ SPDX-License-Identifier: MIT
   When resolving conflicts between orders based on the same law, you may choose how to resolve the conflict yourself, if not required by laws to do so in a specific way. You must remain consistent with whatever method of conflict resolution you decided upon (such as recency, or crew rank).
 
   ## Crew
-  Any person with a valid ID that displays on your HUD counts as crew, unless you have a law that redefines what crew is. This does still include zombies, changelings, traitors, or any other antagonists with IDs that appear on the HUD.
+  Any person with a valid station job ID or CentComm ID that displays on your HUD counts as crew, unless you have a law that redefines what crew is. This does still include zombies, changelings, traitors, or any other antagonists with valid IDs that appear on the HUD.
+
+  Prisoner, visitor, blank, and hostile ID icons do not count as crew by default.
 
   You can not perform an action that causes someone to not be considered crew, or directly request that someone be made non-crew.
 

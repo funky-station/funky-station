@@ -102,9 +102,8 @@ SPDX-License-Identifier: MIT
         [color=black]Manslaughter (M)[/color]
       </Box>
     </ColorBox>
-    <ColorBox Color="#fd6864">
+    <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        [color=black]Attempted Murder (M)[/color]
       </Box>
     </ColorBox>
     <ColorBox>
@@ -587,8 +586,6 @@ SPDX-License-Identifier: MIT
 
   ## IV Degree Crimes
   - Particularly violent offenders may be placed in permanent confinement.
-  - Attempted murder and murder are linked crimes and cannot be stacked together.
-  - Attempted murderers should be granted a more lenient sentence than a murderer.
   <Table Columns="3">
     <ColorBox>
       <Box>
@@ -603,21 +600,6 @@ SPDX-License-Identifier: MIT
     <ColorBox>
       <Box>
         Notes
-      </Box>
-    </ColorBox>
-    <ColorBox>
-      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        Attempted Murder
-      </Box>
-    </ColorBox>
-    <ColorBox>
-      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        To make an attempt to use physical force against someone with the clear intent to kill.
-      </Box>
-    </ColorBox>
-    <ColorBox>
-      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        Make sure you've got the proof to back up the intention claims.
       </Box>
     </ColorBox>
     <ColorBox>

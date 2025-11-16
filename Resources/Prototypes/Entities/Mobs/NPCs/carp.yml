@@ -42,7 +42,12 @@
 # SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 no <165581243+pissdemon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Binbag <124107163+Binbagg@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 PicklOH <62030853+PicklOH@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 ThatOneMoon <91613003+ThatOneMoon@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
+# SPDX-FileCopyrightText: 2025 TheSecondLord <88201625+TheSecondLord@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 V <97265903+formlessnameless@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 misghast <51974455+misterghast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
@@ -112,6 +117,9 @@
         - id: MaterialToothSpaceCarp1
           amount: 1
           maxAmount: 4
+        - id: MaterialCarpScale1 # Funky 
+          amount: 1
+          prob: 0.1          
     - type: MeleeWeapon
       altDisarm: false
       angle: 0
@@ -245,7 +253,11 @@
     - type: HTN
       rootTask:
         task: DragonCarpCompound
-
+    - type: Flammable
+      damage:
+       types: {}
+    - type: Temperature
+      heatDamageThreshold: 1200
 - type: entity
   id: MobCarpDungeon
   parent: MobCarp
@@ -317,8 +329,8 @@
         - id: MaterialToothSharkminnow1
           amount: 1
           maxAmount: 3
-        - id: MaterialChitinSharkminnow1 # Funky
-          amount: 1
+        - id: MaterialCarpScale1 # Funky
+          amount: 2
           maxAmount: 4
     - type: MeleeWeapon
       damage:

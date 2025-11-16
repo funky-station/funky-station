@@ -6,6 +6,7 @@
 # SPDX-FileCopyrightText: 2024 metalgearsloth <comedian_vs_clown@hotmail.com>
 # SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 SigmaTheDragon <162711378+SigmaTheDragon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
@@ -48,7 +49,7 @@
 - type: entity
   parent: AmmoProviderShotgunShell
   id: BoxBeanbag
-  name: ammunition box (.50 beanbag)
+  name: ammunition box (12 gauge beanbag)
   components:
     - type: BallisticAmmoProvider
       proto: ShellShotgunBeanbag
@@ -61,7 +62,7 @@
       - state: beanbag
 
 - type: entity
-  name: ammunition box (.50 pellet)
+  name: ammunition box (12 gauge pellet)
   parent: AmmoProviderShotgunShell
   id: BoxLethalshot
   components:
@@ -76,7 +77,7 @@
       - state: lethal
 
 - type: entity
-  name: ammunition box (.50 slug)
+  name: ammunition box (12 gauge slug)
   parent: AmmoProviderShotgunShell
   id: BoxShotgunSlug
   components:
@@ -95,7 +96,7 @@
       - state: slug
 
 - type: entity
-  name: ammunition box (.50 flare)
+  name: ammunition box (12 gauge flare)
   parent: AmmoProviderShotgunShell
   id: BoxShotgunFlare
   components:
@@ -110,7 +111,7 @@
       - state: flare
 
 - type: entity
-  name: ammunition box (.50 incendiary)
+  name: ammunition box (12 gauge incendiary)
   parent: AmmoProviderShotgunShell
   id: BoxShotgunIncendiary
   components:
@@ -125,7 +126,7 @@
       - state: incendiary
 
 - type: entity
-  name: ammunition box (.50 uranium)
+  name: ammunition box (12 gauge uranium)
   parent: AmmoProviderShotgunShell
   id: BoxShotgunUranium
   components:
@@ -144,7 +145,7 @@
       - state: uranium
 
 - type: entity
-  name: ammunition box (.50 practice)
+  name: ammunition box (12 gauge practice)
   parent: AmmoProviderShotgunShell
   id: BoxShotgunPractice
   components:
@@ -159,7 +160,7 @@
       - state: practice
 
 - type: entity
-  name: ammunition box (.50 tranquilizer)
+  name: ammunition box (12 gauge tranquilizer)
   parent: AmmoProviderShotgunShell
   id: BoxShellTranquilizer
   components:

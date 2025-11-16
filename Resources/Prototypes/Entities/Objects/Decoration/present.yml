@@ -24,7 +24,9 @@
 # SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 miapyxel <retromannnnn@gmail.com>
 # SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Mish <bluscout78@yahoo.com>
+# SPDX-FileCopyrightText: 2025 kosticia <kosticia46@gmail.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
@@ -306,6 +308,8 @@
       - id: FoodBoxDonkpocketBerry
         orGroup: GiftPool
       - id: FoodBoxDonkpocketHonk
+        orGroup: GiftPool
+      - id: FoodBoxDonkpocketMoth
         orGroup: GiftPool
       - id: ClothingHandsGlovesColorPurple
         orGroup: GiftPool

@@ -1,4 +1,5 @@
 # SPDX-FileCopyrightText: 2025 Goomson <GoomsonCode@proton.me>
+# SPDX-FileCopyrightText: 2025 mkanke-real <mikekanke@gmail.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
@@ -61,3 +62,12 @@
     maxOccurrences: 2 # should be the same as [copies] in shuttle_incoming_event.yml
   - type: LoadMapRule
     preloadedGrid: wanderingNomad
+
+- type: entity
+  parent: BaseUnknownShuttleRule
+  id: UnknownShuttleSpaceCowboy
+  components:
+  - type: StationEvent
+    maxOccurrences: 2 # should be the same as [copies] in shuttle_incoming_event.yml
+  - type: LoadMapRule
+    preloadedGrid: wanderingspacecowboy

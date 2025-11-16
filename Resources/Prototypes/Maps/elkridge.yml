@@ -26,6 +26,7 @@
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 willowzeta <willowzeta632146@proton.me>
+# SPDX-FileCopyrightText: 2025 wilowzeta <willowzeta632146@proton.me>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -55,7 +56,6 @@
             Magistrate: [ 1, 1 ]
             NanotrasenRepresentative: [ 1, 1 ]
             InternalAffairsAgent: [ 2, 2 ]
-            BlueshieldOfficer: [ 1, 1 ]
             HeadOfPersonnel: [ 1, 1 ]
             Bartender: [ 1, 1 ]
             Botanist: [ 1, 2 ]
@@ -80,7 +80,7 @@
             #science
             ResearchDirector: [ 1, 1 ]
             Scientist: [ 3, 4 ]
-            Roboticist: [ 1, 1 ]
+            Roboticist: [ 2, 2 ]
             ResearchAssistant: [ 2, 2 ]
             #security
             HeadOfSecurity: [ 1, 1 ]
@@ -91,7 +91,7 @@
             Lawyer: [ 1, 1 ]
             #supply
             Quartermaster: [ 1, 1 ]
-            SalvageSpecialist: [ 2, 2 ]
+            SalvageSpecialist: [ 3, 3 ]
             CargoTechnician: [ 2, 3 ]
             #civilian
             Passenger: [ -1, -1 ]

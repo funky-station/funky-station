@@ -20,6 +20,7 @@
 # SPDX-FileCopyrightText: 2024 Verm <32827189+Vermidia@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Whisper <121047731+QuietlyWhisper@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 potato1234_x <79580518+potato1234x@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+pronana@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
@@ -196,7 +197,8 @@
   id: Razorium
   name: reagent-name-razorium
   group: Toxins
-  slippery: true
+  slipData:
+    requiredSlipSpeed: 3.5
   desc: reagent-desc-razorium
   physicalDesc: reagent-physical-desc-reflective
   flavor: sharp
@@ -235,7 +237,8 @@
   id: Fresium
   name: reagent-name-fresium
   group: Toxins
-  slippery: true
+  slipData:
+    requiredSlipSpeed: 3.5
   desc: reagent-desc-fresium
   physicalDesc: reagent-physical-desc-frosty
   flavor: cold
@@ -331,7 +334,8 @@
   physicalDesc: reagent-physical-desc-funny
   flavor: funny
   color: "#FF4DD2"
-  slippery: true #clown juice gotta slip
+  slipData:
+    requiredSlipSpeed: 3.5 #clown juice gotta slip
   metabolisms:
     Medicine:
       effects:

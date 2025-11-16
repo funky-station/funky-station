@@ -5,10 +5,12 @@
 # SPDX-FileCopyrightText: 2025 88tv <131759102+88tv@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 8tv <eightev@gmail.com>
 # SPDX-FileCopyrightText: 2025 Mish <bluscout78@yahoo.com>
+# SPDX-FileCopyrightText: 2025 Síťa <82587252+sitovina@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Teromax34 <148102813+Teromax34@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 heree <79546981+hereelabs@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 hereelabs <hahmorm@gmail.com>
+# SPDX-FileCopyrightText: 2025 mkanke-real <mikekanke@gmail.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 yeet <t.sith96@gmail.com>
 #
@@ -75,3 +77,41 @@
     wideAnimationRotation: 180
     soundHit:
       path: /Audio/Voice/Moth/moth_laugh.ogg
+
+- type: entity
+  id: BoxFunLizardPlushieBulk
+  parent: CardboardBoxLarge
+  name: bulk lizard plushie box
+  description: A buncha soft lizard plushies. Throw them around and then wonder how you're gonna explain this purchase to NT.
+  components:
+  - type: StorageFill
+    contents:
+    - id: PlushieLizard
+      amount: 3
+    - id: PlushieSpaceLizard
+      amount: 3
+
+- type: entity
+  id: BoxFunSharkPlushieBulk
+  parent: CardboardBoxLarge
+  name: bulk soft toy shark box
+  description: A crate filled with a variety of everyone's favorite finned friend. Rawr!
+  components:
+  - type: StorageFill
+    contents:
+    - id: PlushieSharkBlue
+      amount: 2
+    - id: PlushieSharkPink
+      amount: 2
+    - id: PlushieSharkGrey
+      amount: 2
+
+- type: entity
+  id: BoxFunArtSupplies
+  parent: CardboardBoxLarge
+  name: art supplies
+  description: Make some happy little accidents with lots of crayons!
+  components:
+  - type: StorageFill
+    contents:
+    - id: CrayonBox

@@ -16,7 +16,6 @@
   color: "#DC143C"
   recognizable: true
   physicalDesc: reagent-physical-desc-viscous
-  slippery: false
   metabolisms:
     # like a shitter omnizine, and a shittier ichor
     Drink:
@@ -47,7 +46,6 @@
   color: "#ff624a" # a slightly warmer color than the ichor extracted from dragon flesh
   recognizable: true
   physicalDesc: reagent-physical-desc-shimmering-blood
-  slippery: false
   metabolisms:
     Food:
       effects:

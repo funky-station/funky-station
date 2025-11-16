@@ -1,0 +1,43 @@
+# SPDX-FileCopyrightText: 2025 MaiaArai <158123176+YaraaraY@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  parent: [ClothingOuterWinterCoat, BaseCentcommContraband]
+  id: ClothingOuterWinterNTR
+  name: nanotrasen representative's winter coat
+  description: Sleek, comfortable, imposing. Perfect for keeping clipboards and stamps in - or a gun.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/OuterClothing/WinterCoats/ntr_winter_coat.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/OuterClothing/WinterCoats/ntr_winter_coat.rsi
+  - type: Item
+    size: Normal
+
+- type: entity
+  parent: [ClothingOuterWinterCoat, BaseCentcommContraband]
+  id: ClothingOuterWinterIAA
+  name: internal affair agent's winter coat
+  description: No blizzard or storm can hide SOP violations from the wearer of this warm coat.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/OuterClothing/WinterCoats/iaa_winter_coat.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/OuterClothing/WinterCoats/iaa_winter_coat.rsi
+  - type: Item
+    size: Normal
+
+- type: entity
+  parent: [ClothingOuterWinterCoat, BaseCentcommContraband]
+  id: ClothingOuterWinterMagistrate
+  name: magistrate's winter coat
+  description: Bundle up, justice waits for no weather.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/OuterClothing/WinterCoats/magi_winter_coat.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/OuterClothing/WinterCoats/magi_winter_coat.rsi
+  - type: Item
+    size: Normal

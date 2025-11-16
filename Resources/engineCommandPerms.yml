@@ -29,7 +29,6 @@
   - vvread
   - vvwrite
   - vvinvoke
-  - scale
   - spin
 
 - Flags: DEBUG
@@ -38,7 +37,6 @@
   - inrangeunoccluded
   - lsgrid
   - lsmap
-  - listplayers
   - loc
   - mem
   - netaudit
@@ -90,7 +88,6 @@
   - pvs_override_info
   - merge_grids
 
-
 - Flags: MAPPING
   Commands:
   - addmap
@@ -110,11 +107,14 @@
 
 - Flags: ADMIN
   Commands:
-  - listplayers
   - tp
   - tpto
   - looc_budget
   - looc_budget_get
+
+- Flags: PII
+  Commands:
+  - listplayers
 
 - Flags: FUN
   Commands:

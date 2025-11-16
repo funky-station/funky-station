@@ -1,5 +1,6 @@
 // SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
 // SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Quantum-cross <7065792+Quantum-cross@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
 // SPDX-License-Identifier: MIT
@@ -16,6 +17,7 @@ using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.XAML;
 using Robust.Shared.Configuration;
+using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 
 namespace Content.Client.Lobby.UI
@@ -27,18 +29,41 @@ namespace Content.Client.Lobby.UI
     public sealed partial class CharacterSetupGui : Control
     {
         [Dependency] private readonly IClientPreferencesManager _preferencesManager = default!;
-        [Dependency] private readonly IEntityManager _entManager = default!;
-        [Dependency] private readonly IPrototypeManager _protomanager = default!;
+        [Dependency] private readonly IPrototypeManager _protoManager = default!;
         [Dependency] private readonly IResourceCache _resourceCache = default!;
         [Dependency] private readonly IConfigurationManager _cfg = default!;
+        [Dependency] private readonly ISharedPlayerManager _playerManager = default!;
 
         private readonly Button _createNewCharacterButton;
+        private readonly HumanoidProfileEditor _humanoidProfileEditor;
 
+        /// <summary>
+        /// This just holds which character is currently selected, but only for UI rendering purposes!
+        /// The player preferences no longer tracks the "currently selected character slot"
+        /// </summary>
+        public int? SelectedCharacterSlot;
+
+        /// <summary>
+        /// Action invoked when a character is selected (update the profile editor)
+        /// </summary>
         public event Action<int>? SelectCharacter;
+
+        /// <summary>
+        /// Action invoked when we should delete a character in a slot
+        /// </summary>
         public event Action<int>? DeleteCharacter;
 
-        public CharacterSetupGui(HumanoidProfileEditor profileEditor)
+        /// <summary>
+        /// Action invoked when we should enable or disable a character in a slot
+        /// </summary>
+        public event Action<(int, bool)>? SetCharacterEnable;
+
+        /// <summary>
+        /// UI Class for the character customization window that pops up when you click "Customize" on the lobby screen
+        /// </summary>
+        public CharacterSetupGui(HumanoidProfileEditor profileEditor, JobPriorityEditor jobPriorityEditor)
         {
+            _humanoidProfileEditor = profileEditor;
             RobustXamlLoader.Load(this);
             IoCManager.InjectDependencies(this);
 
@@ -65,17 +90,29 @@ namespace Content.Client.Lobby.UI
             };
 
             CharEditor.AddChild(profileEditor);
+            JobPriorityEditor.AddChild(jobPriorityEditor);
             RulesButton.OnPressed += _ => new RulesAndInfoWindow().Open();
 
             StatsButton.OnPressed += _ => new PlaytimeStatsWindow().OpenCentered();
 
             _cfg.OnValueChanged(CCVars.SeeOwnNotes, p => AdminRemarksButton.Visible = p, true);
+
+            // This is in the same button group as the character picker buttons
+            JobPrioritiesButton.OnPressed += args =>
+            {
+                jobPriorityEditor.LoadJobPriorities();
+                CharEditor.Visible = false;
+                JobPriorityEditor.Visible = true;
+                ReloadCharacterPickers(selectJobPriorities: true);
+            };
         }
 
         /// <summary>
         /// Disposes and reloads all character picker buttons from the preferences data.
         /// </summary>
-        public void ReloadCharacterPickers()
+        /// <param name="selectJobPriorities">If true, then reload with the job priorities button selected instead of
+        /// one of the character picker buttons</param>
+        public void ReloadCharacterPickers(bool selectJobPriorities = false)
         {
             _createNewCharacterButton.Orphan();
             Characters.DisposeAllChildren();
@@ -83,37 +120,63 @@ namespace Content.Client.Lobby.UI
             var numberOfFullSlots = 0;
             var characterButtonsGroup = new ButtonGroup();
 
+            // Include the Edit Job Priorities button into this group
+            JobPrioritiesButton.Group = characterButtonsGroup;
+
             if (!_preferencesManager.ServerDataLoaded)
             {
                 return;
             }
 
+            CharEditor.Visible = !selectJobPriorities;
+            JobPriorityEditor.Visible = selectJobPriorities;
+
             _createNewCharacterButton.ToolTip =
                 Loc.GetString("character-setup-gui-create-new-character-button-tooltip",
                     ("maxCharacters", _preferencesManager.Settings!.MaxCharacterSlots));
 
-            var selectedSlot = _preferencesManager.Preferences?.SelectedCharacterIndex;
-
+            // If there is no slot selected and no profile loaded, we will select the first one
+            var first = !SelectedCharacterSlot.HasValue;
             foreach (var (slot, character) in _preferencesManager.Preferences!.Characters)
             {
+                if (character is not HumanoidCharacterProfile humanoid)
+                    continue;
+                var isSelected = !selectJobPriorities &&  (SelectedCharacterSlot.HasValue ? slot == SelectedCharacterSlot : first);
                 numberOfFullSlots++;
-                var characterPickerButton = new CharacterPickerButton(_entManager,
-                    _protomanager,
+                var characterPickerButton = new CharacterPickerButton(
+                    _preferencesManager,
+                    _protoManager,
+                    _playerManager,
                     characterButtonsGroup,
-                    character,
-                    slot == selectedSlot);
+                    humanoid,
+                    isSelected);
+
+                // If this button is selected we need to initialize the editor with this profile
+                if (isSelected && _humanoidProfileEditor.Profile == null)
+                    _humanoidProfileEditor.SetProfile(slot);
 
                 Characters.AddChild(characterPickerButton);
 
                 characterPickerButton.OnPressed += args =>
                 {
+                    SelectedCharacterSlot = slot;
                     SelectCharacter?.Invoke(slot);
+                    CharEditor.Visible = true;
+                    JobPriorityEditor.Visible = false;
+                    _humanoidProfileEditor.SetProfile(slot);
                 };
 
                 characterPickerButton.OnDeletePressed += () =>
                 {
                     DeleteCharacter?.Invoke(slot);
                 };
+
+                characterPickerButton.OnEnableToggled += pressed =>
+                {
+                    SetCharacterEnable?.Invoke((slot, pressed));
+                };
+                if(first)
+                    first = false;
             }
 
             _createNewCharacterButton.Disabled = numberOfFullSlots >= _preferencesManager.Settings.MaxCharacterSlots;

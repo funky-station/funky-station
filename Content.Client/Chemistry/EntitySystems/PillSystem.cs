@@ -1,5 +1,6 @@
 // SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2023 metalgearsloth <comedian_vs_clown@hotmail.com>
+// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
 // SPDX-License-Identifier: MIT
@@ -11,6 +12,8 @@ namespace Content.Client.Chemistry.EntitySystems;
 
 public sealed class PillSystem : EntitySystem
 {
+    [Dependency] private readonly SpriteSystem _sprite = default!;
+
     public override void Initialize()
     {
         base.Initialize();
@@ -22,9 +25,9 @@ public sealed class PillSystem : EntitySystem
         if (!TryComp(uid, out SpriteComponent? sprite))
             return;
 
-        if (!sprite.TryGetLayer(0, out var layer))
+        if (!_sprite.TryGetLayer((uid, sprite), 0, out var layer, false))
             return;
 
-        layer.SetState($"pill{component.PillType + 1}");
+        _sprite.LayerSetRsiState(layer, $"pill{component.PillType + 1}");
     }
 }

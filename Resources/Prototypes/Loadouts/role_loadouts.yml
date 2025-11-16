@@ -22,17 +22,24 @@
 # SPDX-FileCopyrightText: 2025 88tv <131759102+88tv@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 8tv <eightev@gmail.com>
 # SPDX-FileCopyrightText: 2025 Icepick <122653407+Icepicked@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 MaiaArai <158123176+YaraaraY@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 PoquitoDondito <danielchristianstone@gmail.com>
 # SPDX-FileCopyrightText: 2025 SaffronFennec <firefoxwolf2020@protonmail.com>
+# SPDX-FileCopyrightText: 2025 SigmaTheDragon <162711378+SigmaTheDragon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 Teasq <Xerithin@gmail.com>
+# SPDX-FileCopyrightText: 2025 W.xyz() <tptechteam@gmail.com>
+# SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 ZarathushtraSpitama <bloodcunt@protonmail.com>
 # SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 empty0set <16693552+empty0set@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 empty0set <empty0set@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 ferynn <117872973+ferynn@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 lolmatdi <59433122+lolmatdi@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 w.xyz() <84605679+pirakaplant@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -252,6 +259,7 @@
   - CargoTechnicianBackpack
   - CargoTechnicianOuterClothing
   - CargoTechnicianShoes
+  - CargoPDA
   - Glasses
   - Survival
   - Trinkets
@@ -403,6 +411,7 @@
   - SecurityNeck
   - SecurityBackpack
   - SecurityOuterClothing
+  - SecurityGloves # Funky
   - SecurityShoes
   - SecurityPDA
   - SecurityBelt
@@ -426,12 +435,16 @@
   - Trinkets
   - SecurityStar
   - GroupSpeciesBreathToolSecurity
+  - LoadoutDetectiveWeapon
 
 - type: roleLoadout
   id: JobSecurityCadet
   groups:
   - SecurityCadetJumpsuit
+  - SecurityGlasses #Funky
   - SecurityBackpack
+  - SecurityGloves # Funky
+  - SecurityShoes
   - SurvivalSecurity
   - SecurityOuterClothing # Goobstation - Why not.
   - Trinkets
@@ -464,6 +477,7 @@
   - MedicalDoctorJumpsuit
   - MedicalGloves
   - MedicalBackpack
+  - MedicalNeck
   - MedicalDoctorOuterClothing
   - MedicalShoes
   - MedicalDoctorPDA
@@ -478,6 +492,7 @@
   - MedicalInternJumpsuit
   - MedicalBackpack
   - Glasses
+  - MedicalNeck
   - SurvivalMedical
   - Trinkets
   - GroupSpeciesBreathToolMedical
@@ -485,11 +500,13 @@
 - type: roleLoadout
   id: JobChemist
   groups:
+  - MedicalChemistHead
   - MedicalMask
   - MedicalChemistGlasses #Funky
   - ChemistJumpsuit
   - MedicalGloves
   - ChemistBackpack
+  - MedicalNeck
   - ChemistOuterClothing
   - MedicalShoes
   - SurvivalMedical
@@ -505,6 +522,7 @@
   - ParamedicJumpsuit
   - MedicalGloves
   - MedicalBackpack
+  - MedicalNeck
   - ParamedicOuterClothing
   - ParamedicShoes
   - Glasses
@@ -541,6 +559,7 @@
   - MedicalBackpack
   - Glasses
   - Survival
+  - MedicalNeck
   - Trinkets
   - GroupSpeciesBreathTool
 

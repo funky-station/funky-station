@@ -15,6 +15,7 @@
 # SPDX-FileCopyrightText: 2024 strO0pwafel <153459934+strO0pwafel@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 V <97265903+formlessnameless@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
@@ -267,6 +268,7 @@
     stampedName: stamp-component-stamped-name-warden
     stampedColor: "#5b0000"
     stampState: "paper_stamp-warden"
+    stampLargeIcon: "large_stamp-warden" # Funky!
   - type: Sprite
     state: stamp-warden
 
@@ -306,6 +308,7 @@
     stampedName: stamp-component-stamped-name-detective
     stampedColor: "#754d36"
     stampState: "paper_stamp-detective"
+    stampLargeIcon: "large_stamp-det" # Funky!
   - type: Sprite
     state: stamp-detective
 
@@ -319,6 +322,7 @@
     stampedName: stamp-component-stamped-name-greytide
     stampedColor: "#323232"
     stampState: "paper_stamp-greytide"
+    stampLargeIcon: "large_stamp-greytide" # Funky!
   - type: Sprite
     state: stamp-greytide
 
@@ -333,6 +337,7 @@
     stampedName: stamp-component-stamped-name-psychologist
     stampedColor: "#5B97BC"
     stampState: "paper_stamp-psychologist"
+    stampLargeIcon: "large_stamp-psych" # Funky!
   - type: Sprite
     state: stamp-psychologist
 
@@ -347,5 +352,6 @@
     stampedName: Wizard
     stampedColor: "#881bc1"
     stampState: "paper_stamp-wizard"
+    stampLargeIcon: "large_stamp-wiz" # Funky!
   - type: Sprite
     state: stamp-wizard

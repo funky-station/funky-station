@@ -30,6 +30,7 @@
 # SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 wafehling <wafehling@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 Xcybitt <xcybitt@gmail.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
@@ -199,11 +200,16 @@
   parent: [ClothingShoesBaseWinterBoots, ClothingShoesMilitaryBase, BaseSecurityContraband]
   id: ClothingShoesBootsWinterSec
   name: security winter boots
+  description: Nanotrasen-issue Security winter boots for cold combat scenarios or cold combat situations. All cold combat, all the time.
   components:
   - type: Sprite
     sprite: Clothing/Shoes/Boots/winterbootssec.rsi
   - type: Clothing
     sprite: Clothing/Shoes/Boots/winterbootssec.rsi
+  - type: ClothingSlowOnDamageModifier # Goobstation
+    modifier: 0.55
+  - type: ClothingModifyStunTime # Goobstation
+    modifier: 0.85
 
 - type: entity
   parent: [ClothingShoesBaseWinterBoots, BaseSyndicateContraband]

@@ -11,6 +11,7 @@
 # SPDX-FileCopyrightText: 2024 Tristan <traynor123123@gmail.com>
 # SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Benjamin Velliquette <32338704+bVelliquette@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Rainbow <ev0lvkitten@gmail.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
@@ -56,9 +57,9 @@
     sprite: Objects/Specific/Medical/implanter.rsi
     state: implanter0
   content:
-  - StorageImplanter
   - DnaScramblerImplanter
   - EphedrineChemistryBottle
+  - FreedomImplanter
   - SoapOmega
   - Syringe
   - DrinkShaker

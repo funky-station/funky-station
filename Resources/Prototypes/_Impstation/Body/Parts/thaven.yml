@@ -1,5 +1,6 @@
 # SPDX-FileCopyrightText: 2025 ATDoop <bug@bug.bug>
 # SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 mkanke-real <mikekanke@gmail.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
@@ -20,77 +21,132 @@
   name: "thaven torso"
   parent: [PartThaven, BaseTorso]
   components:
+  - type: Item
+    size: Ginormous
+    shape:
+    - 0,0,5,3
   - type: Sprite
     state: "torso"
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Fat
+        Quantity: 10
+      - ReagentId: ShimmeringBlood
+        Quantity: 20
 
 - type: entity
   id: HeadThaven
   name: "thaven head"
   parent: [PartThaven, BaseHead]
   components:
+  - type: Item
+    size: Huge
+    shape:
+    - 0,0,1,1
   - type: Sprite
     state: "head"
+    offset: 0,-0.3
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Fat
+        Quantity: 5
+      - ReagentId: ShimmeringBlood
+        Quantity: 10
 
 - type: entity
   id: LeftArmThaven
   name: "left thaven arm"
   parent: [PartThaven, BaseLeftArm]
   components:
+  - type: Item
+    size: Normal
+    shape:
+    - 0,0,0,1
   - type: Sprite
     state: "l_arm"
+    offset: -0.2,0
 
 - type: entity
   id: RightArmThaven
   name: "right thaven arm"
   parent: [PartThaven, BaseRightArm]
   components:
+  - type: Item
+    size: Normal
+    shape:
+    - 0,0,0,1
   - type: Sprite
     state: "r_arm"
+    offset: 0.2,0
 
 - type: entity
   id: LeftHandThaven
   name: "left thaven hand"
   parent: [PartThaven, BaseLeftHand]
   components:
+  - type: Item
+    size: Tiny
   - type: Sprite
     state: "l_hand"
+    offset: -0.2,0.1
 
 - type: entity
   id: RightHandThaven
   name: "right thaven hand"
   parent: [PartThaven, BaseRightHand]
   components:
+  - type: Item
+    size: Tiny
   - type: Sprite
     state: "r_hand"
+    offset: 0.2,0.1
 
 - type: entity
   id: LeftLegThaven
   name: "left thaven leg"
   parent: [PartThaven, BaseLeftLeg]
   components:
+  - type: Item
+    size: Normal
+    shape:
+    - 0,0,0,1
   - type: Sprite
     state: "l_leg"
+    offset: -0.1,0.3
 
 - type: entity
   id: RightLegThaven
   name: "right thaven leg"
   parent: [PartThaven, BaseRightLeg]
   components:
+  - type: Item
+    size: Normal
+    shape:
+    - 0,0,0,1
   - type: Sprite
     state: "r_leg"
+    offset: 0.1,0.3
 
 - type: entity
   id: LeftFootThaven
   name: "left thaven foot"
   parent: [PartThaven, BaseLeftFoot]
   components:
+  - type: Item
+    size: Tiny
   - type: Sprite
     state: "l_foot"
+    offset: -0.15,0.45
 
 - type: entity
   id: RightFootThaven
   name: "right thaven foot"
   parent: [PartThaven, BaseRightFoot]
   components:
+  - type: Item
+    size: Tiny
   - type: Sprite
     state: "r_foot"
+    offset: 0.15,0.45

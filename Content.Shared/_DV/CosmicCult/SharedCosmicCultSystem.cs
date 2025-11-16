@@ -1,5 +1,6 @@
 // SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
+// SPDX-FileCopyrightText: 2025 ferynn <witchy.girl.me@gmail.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
@@ -12,6 +13,7 @@ using Content.Shared.Roles;
 using Content.Shared._DV.Roles;
 using Robust.Shared.GameStates;
 using Robust.Shared.Player;
+using Content.Shared.Mindshield.Components;
 
 namespace Content.Shared._DV.CosmicCult;
 
@@ -26,8 +28,12 @@ public abstract class SharedCosmicCultSystem : EntitySystem
 
         SubscribeLocalEvent<CosmicCultComponent, ComponentGetStateAttemptEvent>(OnCosmicCultCompGetStateAttempt);
         SubscribeLocalEvent<CosmicCultLeadComponent, ComponentGetStateAttemptEvent>(OnCosmicCultCompGetStateAttempt);
-        SubscribeLocalEvent<CosmicCultComponent, ComponentStartup>(DirtyCosmicCultComps);
-        SubscribeLocalEvent<CosmicCultLeadComponent, ComponentStartup>(DirtyCosmicCultComps);
+        SubscribeLocalEvent<CosmicCultComponent, ComponentStartup>(OnCosmicCultConversion);
+        SubscribeLocalEvent<CosmicCultLeadComponent, ComponentStartup>(OnCosmicCultConversion);
+        SubscribeLocalEvent<CosmicCultComponent, ComponentRemove>(OnCosmicCultDeconversion);
+        SubscribeLocalEvent<CosmicCultLeadComponent, ComponentRemove>(OnCosmicCultDeconversion);
+
+
     }
 
     public bool EntityIsCultist(EntityUid user)
@@ -75,15 +81,16 @@ public abstract class SharedCosmicCultSystem : EntitySystem
         return HasComp<ShowAntagIconsComponent>(uid);
     }
 
-    /// <summary>
-    /// Dirties all the Cult components so they are sent to clients.
-    ///
-    /// We need to do this because if a Cult component was not earlier sent to a client and for example the client
-    /// becomes a Cult then we need to send all the components to it. To my knowledge there is no way to do this on a
-    /// per client basis so we are just dirtying all the components.
-    /// </summary>
-    private void DirtyCosmicCultComps<T>(EntityUid someUid, T someComp, ComponentStartup ev)
+    private void OnCosmicCultConversion<T>(EntityUid someUid, T someComp, ComponentStartup ev)
     {
+        ///DirtyCosmicCultComps
+        /// <summary>
+        /// Dirties all the Cult components so they are sent to clients.
+        ///
+        /// We need to do this because if a Cult component was not earlier sent to a client and for example the client
+        /// becomes a Cult then we need to send all the components to it. To my knowledge there is no way to do this on a
+        /// per client basis so we are just dirtying all the components.
+        /// </summary>
         var cosmicCultComps = AllEntityQuery<CosmicCultComponent>();
         while (cosmicCultComps.MoveNext(out var uid, out var comp))
         {
@@ -94,6 +101,26 @@ public abstract class SharedCosmicCultSystem : EntitySystem
         while (cosmicCultLeadComps.MoveNext(out var uid, out var comp))
         {
             Dirty(uid, comp);
+        }
+        //If the cultist has a mindshield, break it //Funky
+        if (HasComp<MindShieldComponent>(someUid))
+        {
+            if (TryComp<MindShieldComponent>(someUid, out var mindShieldComp))
+            {
+                mindShieldComp.Broken = true;
+                Dirty(someUid, mindShieldComp);
+            }
+        }
+    }
+    private void OnCosmicCultDeconversion<T>(EntityUid uid, T someComp, ComponentRemove ev)
+    {
+        if (HasComp<MindShieldComponent>(uid))
+        {
+            if (TryComp<MindShieldComponent>(uid, out var mindShieldComp))
+            {
+                mindShieldComp.Broken = false;
+                Dirty(uid, mindShieldComp);
+            }
         }
     }
 }

@@ -2,12 +2,14 @@
 // SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
 // SPDX-FileCopyrightText: 2024 ElectroJr <leonsfriedrich@gmail.com>
-// SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 MilenVolf <63782763+MilenVolf@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
 // SPDX-FileCopyrightText: 2024 Vasilis <vasilis@pikachu.systems>
 // SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Quantum-cross <7065792+Quantum-cross@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
 // SPDX-License-Identifier: MIT
@@ -16,12 +18,14 @@
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using Content.Server.Database;
 using Content.Server.Preferences.Managers;
 using Content.Shared.Preferences;
 using Content.Shared.Roles;
+using JetBrains.Annotations;
 using Robust.Shared.GameObjects;
 using Robust.Shared.Map;
-using Robust.Shared.Network;
+using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.UnitTesting;
 
@@ -125,9 +129,16 @@ public sealed partial class TestPair
         HashSet<string>? ignored = null,
         bool ignoreAbstract = true,
         bool ignoreTestPrototypes = true)
-        where T : IComponent
+        where T : IComponent, new()
     {
-        var id = Server.ResolveDependency<IComponentFactory>().GetComponentName(typeof(T));
+        if (!Server.ResolveDependency<IComponentFactory>().TryGetRegistration<T>(out var reg)
+            && !Client.ResolveDependency<IComponentFactory>().TryGetRegistration<T>(out reg))
+        {
+            Assert.Fail($"Unknown component: {typeof(T).Name}");
+            return new();
+        }
+
+        var id = reg.Name;
         var list = new List<(EntityPrototype, T)>();
         foreach (var proto in Server.ProtoMan.EnumeratePrototypes<EntityPrototype>())
         {
@@ -176,73 +187,40 @@ public sealed partial class TestPair
     }
 
     /// <summary>
-    /// Set a user's antag preferences. Modified preferences are automatically reset at the end of the test.
+    /// Add dummy players to the pair with server saved job priority preferences
     /// </summary>
-    public async Task SetAntagPreference(ProtoId<AntagPrototype> id, bool value, NetUserId? user = null)
+    /// <param name="jobPriorities">Job priorities to initialize the players with</param>
+    /// <param name="count">How many players to add</param>
+    /// <returns>Enumerable of sessions for the new players</returns>
+    [PublicAPI]
+    public Task<IEnumerable<ICommonSession>> AddDummyPlayers(Dictionary<ProtoId<JobPrototype>,JobPriority> jobPriorities, int count=1)
     {
-        user ??= Client.User!.Value;
-        if (user is not {} userId)
-            return;
-
-        var prefMan = Server.ResolveDependency<IServerPreferencesManager>();
-        var prefs = prefMan.GetPreferences(userId);
-
-        // Automatic preference resetting only resets slot 0.
-        Assert.That(prefs.SelectedCharacterIndex, Is.EqualTo(0));
-
-        var profile = (HumanoidCharacterProfile) prefs.Characters[0];
-        var newProfile = profile.WithAntagPreference(id, value);
-        _modifiedProfiles.Add(userId);
-        await Server.WaitPost(() => prefMan.SetProfile(userId, 0, newProfile).Wait());
+        return AddDummyPlayers(jobPriorities, jobPriorities.Keys, count);
     }
 
-    /// <summary>
-    /// Set a user's job preferences.  Modified preferences are automatically reset at the end of the test.
-    /// </summary>
-    public async Task SetJobPriority(ProtoId<JobPrototype> id, JobPriority value, NetUserId? user = null)
+    [PublicAPI]
+    public async Task<IEnumerable<ICommonSession>> AddDummyPlayers(
+        Dictionary<ProtoId<JobPrototype>,JobPriority> jobPriorities,
+        IEnumerable<ProtoId<JobPrototype>> jobPreferences,
+        int count=1)
     {
-        user ??= Client.User!.Value;
-        if (user is { } userId)
-            await SetJobPriorities(userId, (id, value));
-    }
-
-    /// <inheritdoc cref="SetJobPriority"/>
-    public async Task SetJobPriorities(params (ProtoId<JobPrototype>, JobPriority)[] priorities)
-        => await SetJobPriorities(Client.User!.Value, priorities);
-
-    /// <inheritdoc cref="SetJobPriority"/>
-    public async Task SetJobPriorities(NetUserId user, params (ProtoId<JobPrototype>, JobPriority)[] priorities)
-    {
-        var highCount = priorities.Count(x => x.Item2 == JobPriority.High);
-        Assert.That(highCount, Is.LessThanOrEqualTo(1), "Cannot have more than one high priority job");
-
         var prefMan = Server.ResolveDependency<IServerPreferencesManager>();
-        var prefs = prefMan.GetPreferences(user);
-        var profile = (HumanoidCharacterProfile) prefs.Characters[0];
-        var dictionary = new Dictionary<ProtoId<JobPrototype>, JobPriority>(profile.JobPriorities);
+        var dbMan = Server.ResolveDependency<UserDbDataManager>();
 
-        // Automatic preference resetting only resets slot 0.
-        Assert.That(prefs.SelectedCharacterIndex, Is.EqualTo(0));
-
-        if (highCount != 0)
+        var sessions = await Server.AddDummySessions(count);
+        await RunTicksSync(5);
+        var tasks = sessions.Select(s =>
         {
-            foreach (var (key, priority) in dictionary)
-            {
-                if (priority == JobPriority.High)
-                    dictionary[key] = JobPriority.Medium;
-            }
-        }
+            // dbMan.ClientConnected(s);
+            dbMan.WaitLoadComplete(s).Wait();
+            var newProfile = HumanoidCharacterProfile.Random().WithJobPreferences(jobPreferences).AsEnabled();
+            return Task.WhenAll(
+                prefMan.SetJobPriorities(s.UserId, jobPriorities),
+                prefMan.SetProfile(s.UserId, 0, newProfile));
+        });
+        await Server.WaitPost(() => Task.WhenAll(tasks).Wait());
+        await RunTicksSync(5);
 
-        foreach (var (job, priority) in priorities)
-        {
-            if (priority == JobPriority.Never)
-                dictionary.Remove(job);
-            else
-                dictionary[job] = priority;
-        }
-
-        var newProfile = profile.WithJobPriorities(dictionary);
-        _modifiedProfiles.Add(user);
-        await Server.WaitPost(() => prefMan.SetProfile(user, 0, newProfile).Wait());
+        return sessions;
     }
 }

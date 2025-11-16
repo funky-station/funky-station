@@ -5,6 +5,7 @@
 // SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Kara <lunarautomaton6@gmail.com>
+// SPDX-FileCopyrightText: 2025 DevilishMilk <michaellapjr@gmail.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
 // SPDX-License-Identifier: MIT
@@ -18,11 +19,11 @@ namespace Content.Shared.Jittering;
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class JitteringComponent : Component
 {
-    [AutoNetworkedField]
+    [DataField, AutoNetworkedField] // funky - added datafield
     [ViewVariables(VVAccess.ReadWrite)]
     public float Amplitude { get; set; }
 
-    [AutoNetworkedField]
+    [DataField, AutoNetworkedField] // funky - added datafield
     [ViewVariables(VVAccess.ReadWrite)]
     public float Frequency { get; set; }
 

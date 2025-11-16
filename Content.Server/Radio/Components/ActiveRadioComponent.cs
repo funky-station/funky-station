@@ -2,6 +2,7 @@
 // SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2023 adamsong <adamsong@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Currot <carpecarrot@gmail.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
 // SPDX-License-Identifier: MIT
@@ -22,6 +23,12 @@ public sealed partial class ActiveRadioComponent : Component
     /// </summary>
     [DataField("channels", customTypeSerializer: typeof(PrototypeIdHashSetSerializer<RadioChannelPrototype>))]
     public HashSet<string> Channels = new();
+
+    /// <summary>
+    ///     The channels that this radio will always listen on.
+    /// </summay>
+    [DataField("intrinsicChannels", customTypeSerializer: typeof(PrototypeIdHashSetSerializer<RadioChannelPrototype>))]
+    public HashSet<string> IntrinsicChannels = new();
 
     /// <summary>
     /// A toggle for globally receiving all radio channels.

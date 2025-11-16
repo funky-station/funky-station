@@ -61,6 +61,9 @@ thaven-mood-room-holy-desc = Thaven must congregate at least three times per day
 thaven-mood-delicacy-name = Just Like Mom Used To Make
 thaven-mood-delicacy-desc = {$edible} is a traditional Thaven delicacy. All Thaven aboard the station should gather as many as possible and organize a feast.
 
+thaven-mood-thirstquencher-name = Thirst Quencher
+thaven-mood-thirstquencher-desc = {$drink} is a traditional Thaven beverage. All Thaven aboard the station should make as many as possible and hold a drinking party.
+
 thaven-mood-holiday-name = Today is {$day}
 thaven-mood-holiday-desc = You think you remember the traditional celebrations...
 

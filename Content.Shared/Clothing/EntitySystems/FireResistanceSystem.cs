@@ -1,4 +1,5 @@
 // SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 QueerCats <jansencheng3@gmail.com>
 // SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
@@ -20,11 +21,19 @@ public sealed class FireResistanceSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<FireResistanceComponent, GetFireResistanceEvent>(OnGetResistance);
+        SubscribeLocalEvent<FireResistanceComponent, GetFireResistanceEvent>(OnGetFireResistance);
         SubscribeLocalEvent<FireResistanceComponent, ArmorExamineEvent>(OnArmorExamine);
+
+        SubscribeLocalEvent<FireResistanceComponent, InventoryRelayedEvent<GetFireResistanceEvent>>(RelayedFireResistance);
     }
 
-    private void OnGetResistance(Entity<FireResistanceComponent> ent, ref GetFireResistanceEvent args)
+    private void RelayedFireResistance(Entity<FireResistanceComponent> ent,
+        ref InventoryRelayedEvent<GetFireResistanceEvent> args)
+    {
+        OnGetFireResistance(ent, ref args.Args);
+    }
+
+    private void OnGetFireResistance(Entity<FireResistanceComponent> ent, ref GetFireResistanceEvent args)
     {
         args.DamageCoefficient *= ent.Comp.DamageCoefficient;
     }

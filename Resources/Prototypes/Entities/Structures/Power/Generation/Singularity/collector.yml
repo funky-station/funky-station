@@ -19,6 +19,7 @@
 # SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Kevin Zheng <kevinz5000@gmail.com>
+# SPDX-FileCopyrightText: 2025 Do You Like Beans <bowenjonathan407@gmail.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
@@ -89,6 +90,15 @@
       - reactantPrototype: Plasma
         powerGenerationEfficiency: 1
         reactantBreakdownRate: 0.0001
+      - reactantPrototype: Tritium
+        powerGenerationEfficiency: 1.25
+        reactantBreakdownRate: 0.000125
+      - reactantPrototype: Frezon
+        powerGenerationEfficiency: 0.75
+        reactantBreakdownRate: 0.000025
+      - reactantPrototype: Nitrogen
+        powerGenerationEfficiency: 0.50
+        reactantBreakdownRate: 0.000005
   - type: RadiationReceiver
   - type: PowerSupplier
   - type: Anchorable

@@ -1,4 +1,5 @@
 // SPDX-FileCopyrightText: 2025 Skye <57879983+Rainbeon@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Terkala <appleorange64@gmail.com>
 // SPDX-FileCopyrightText: 2025 kbarkevich <24629810+kbarkevich@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
@@ -28,7 +29,6 @@ using Content.Shared.Humanoid;
 using Content.Shared.Mindshield.Components;
 using Content.Shared.Body.Part;
 using Content.Server.Body.Components;
-using Content.Shared.Body.Systems;
 using Content.Shared.Roles;
 using Content.Server.Roles;
 
@@ -39,7 +39,6 @@ namespace Content.Server.BloodCult.EntitySystems
 		[Dependency] private readonly PopupSystem _popupSystem = default!;
 		[Dependency] private readonly EntityLookupSystem _lookup = default!;
 		[Dependency] private readonly MobStateSystem _mobState = default!;
-		[Dependency] private readonly SharedBodySystem _body = default!;
 		[Dependency] private readonly SharedRoleSystem _role = default!;
 		[Dependency] private readonly BloodCultistSystem _bloodCultist = default!;
 
@@ -72,47 +71,99 @@ namespace Content.Server.BloodCult.EntitySystems
 					brains.Add(look);
 			}
 
-			EntityUid? candidate = null;
-			if (humanoids.Count > 0)
-				candidate = humanoids[0];
-			else if (brains.Count > 0)
-				candidate = brains[0];
+		// Combine all candidates, prioritizing humanoids first
+		List<EntityUid> allCandidates = new List<EntityUid>();
+		allCandidates.AddRange(humanoids);
+		allCandidates.AddRange(brains);
 
-			if (candidate != null)
+		bool actionPerformed = false;
+
+		// First, try to convert any one valid target
+		foreach (var candidate in allCandidates)
+		{
+			if (!_IsValidTarget(candidate, out var mind))
+				continue;
+			
+			if (HasComp<BloodCultistComponent>(candidate) || (mind != null && _role.MindHasRole<BloodCultRoleComponent>((EntityUid)mind)))
+				continue;
+			
+			if (_CanBeConverted(candidate))
 			{
-				EntityUid offerable = (EntityUid) candidate;
+				_bloodCultist.UseConvertRune(candidate, user, uid, cultistsInRange);
+				actionPerformed = true;
+				break;
+			}
+		}
 
-				if (!_IsValidTarget(offerable, out var mind))
+		// If no conversion happened, try to sacrifice any one valid target
+		if (!actionPerformed)
+		{
+			foreach (var candidate in allCandidates)
+			{
+				if (!_IsValidTarget(candidate, out var mind))
+					continue;
+				
+				if (HasComp<BloodCultistComponent>(candidate) || (mind != null && _role.MindHasRole<BloodCultRoleComponent>((EntityUid)mind)))
+					continue;
+				
+				if (_CanBeSacrificed(candidate))
 				{
-					_popupSystem.PopupEntity(
-							Loc.GetString("cult-invocation-fail-nosoul"),
-							user, user, PopupType.MediumCaution
-						);
-				}
-				else if (HasComp<BloodCultistComponent>(offerable) || (mind != null && _role.MindHasRole<BloodCultRoleComponent>((EntityUid)mind)))
-				{
-					_popupSystem.PopupEntity(
-							Loc.GetString("cult-invocation-fail-teamkill"),
-							user, user, PopupType.MediumCaution
-						);
-				}
-				else if (_CanBeConverted(offerable))
-				{
-					_bloodCultist.UseConvertRune(offerable, user, uid, cultistsInRange);
-				}
-				else if (_CanBeSacrificed(offerable))
-				{
-					_bloodCultist.UseSacrificeRune(offerable, user, uid, cultistsInRange);
-				}
-				else
-				{
-					_popupSystem.PopupEntity(
-							Loc.GetString("cult-invocation-fail-mindshielded"),
-							user, user, PopupType.MediumCaution
-						);
+					_bloodCultist.UseSacrificeRune(candidate, user, uid, cultistsInRange);
+					actionPerformed = true;
+					break;
 				}
 			}
-			args.Handled = true;
+		}
+
+		// If no action was performed, show appropriate error message
+		if (!actionPerformed)
+		{
+			// Check what kind of error to show
+			bool foundNoSoul = false;
+			bool foundTeamkill = false;
+			bool foundMindshielded = false;
+
+			foreach (var candidate in allCandidates)
+			{
+				if (!_IsValidTarget(candidate, out var mind))
+				{
+					foundNoSoul = true;
+				}
+				else if (HasComp<BloodCultistComponent>(candidate) || (mind != null && _role.MindHasRole<BloodCultRoleComponent>((EntityUid)mind)))
+				{
+					foundTeamkill = true;
+				}
+				else if (!_CanBeConverted(candidate) && !_CanBeSacrificed(candidate))
+				{
+					foundMindshielded = true;
+				}
+			}
+
+			// Show the most relevant error message
+			if (foundTeamkill)
+			{
+				_popupSystem.PopupEntity(
+						Loc.GetString("cult-invocation-fail-teamkill"),
+						user, user, PopupType.MediumCaution
+					);
+			}
+			else if (foundMindshielded)
+			{
+				_popupSystem.PopupEntity(
+						Loc.GetString("cult-invocation-fail-mindshielded"),
+						user, user, PopupType.MediumCaution
+					);
+			}
+			else if (foundNoSoul)
+			{
+				_popupSystem.PopupEntity(
+						Loc.GetString("cult-invocation-fail-nosoul"),
+						user, user, PopupType.MediumCaution
+					);
+			}
+		}
+
+		args.Handled = true;
 		}
 
 		private bool _IsSacrificeTarget(EntityUid target, BloodCultistComponent comp)

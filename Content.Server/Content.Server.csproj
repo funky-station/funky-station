@@ -64,8 +64,26 @@ SPDX-License-Identifier: MIT
     <ProjectReference Include="..\Content.Shared\Content.Shared.csproj" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Resources\Prototypes\Actions\" />
+    <Folder Include="Resources\Prototypes\Store\" />
     <Folder Include="_DV\StationEvents\Components\" />
     <Folder Include="_DV\StationEvents\Events\" />
+    <Folder Include="_Funkystation\MalfAI\Components\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="MalfAI\MalfAiApcSiphonedComponent.cs" />
+    <Compile Remove="_Funkystation\Factory\Systems\MalfAiRoboticsFactorySystem.cs" />
+    <Compile Remove="MalfAI\MalfAiCameraNetworkUpgradeSystem.cs" />
+    <Compile Remove="Audio\OggDurationHelper.cs" />
+    <Compile Remove="Objectives\Components\MalfAiControlBorgsObjectiveComponent.cs" />
+    <Compile Remove="Objectives\Components\MalfAiSabotageObjectiveComponent.cs" />
+    <Compile Remove="MalfAI\MalfAiShopSystem.cs" />
+    <Compile Remove="_Funkystation\MalfAI\Systems\MalfAiAntagInfoSystem.cs" />
+    <Compile Remove="SurveillanceCamera\SurveillanceCameraMicrophoneComponent.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Resources\Prototypes\Store\malf_ai.yml" />
+    <None Remove="Resources\Prototypes\Actions\malf_ai.yml" />
   </ItemGroup>
   <Import Project="..\RobustToolbox\MSBuild\Robust.Properties.targets" />
 </Project>

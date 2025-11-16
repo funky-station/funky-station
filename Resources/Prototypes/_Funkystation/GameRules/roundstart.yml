@@ -1,4 +1,6 @@
 # SPDX-FileCopyrightText: 2025 Skye <57879983+Rainbeon@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Terkala <appleorange64@gmail.com>
+# SPDX-FileCopyrightText: 2025 Tyranex <bobthezombie4@gmail.com>
 # SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 kbarkevich <24629810+kbarkevich@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 misghast <51974455+misterghast@users.noreply.github.com>
@@ -17,8 +19,8 @@
     selectionTime: IntraPlayerSpawn
     definitions:
     - prefRoles: [ BloodCultist ]
-      max: 3
-      playerRatio: 15
+      max: 5
+      playerRatio: 12
       startingGear: BloodCultistGear
       briefing:
         text: cult-start-briefing
@@ -64,3 +66,33 @@
   - type: Tag
     tags:
       - RoundstartAntag
+
+- type: entity
+  id: MalfAi
+  parent: BaseGameRule
+  components:
+  - type: GameRule
+    minPlayers: 20
+  - type: MalfAiRule
+  - type: AntagObjectives
+    objectives:
+    - MalfAiSurviveObjective
+  - type: AntagRandomObjectives
+    sets:
+    - groups: MalfAiSabotageObjectives
+      maxPicks: 3
+    maxDifficulty: 8
+  - type: AntagSelection
+    selectionTime: PostPlayerSpawn
+    definitions:
+    - prefRoles: [ MalfunctioningAI ]
+      max: 1
+      allowNonHumans: true
+      briefing:
+        text: roles-antag-malfunctioning-ai-briefing
+        color: Red
+        sound: "/Audio/_Funkystation/Ambience/Antag/malfai_start.ogg"
+      components:
+      - type: MalfAiMarker
+      mindRoles:
+      - MindRoleMalfAi

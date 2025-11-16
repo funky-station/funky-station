@@ -5,6 +5,7 @@
 # SPDX-FileCopyrightText: 2024 fishbait <gnesse@gmail.com>
 # SPDX-FileCopyrightText: 2025 Fenn <162015305+TooSillyFennec@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 McBosserson <148172569+McBosserson@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 McBosserson <mcbosserson@hotmail.com>
 # SPDX-FileCopyrightText: 2025 Speebro <speebro@notreal.com>
 # SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
@@ -177,7 +178,9 @@
   - type: SolutionContainerManager
     solutions:
       drink:
-        maxVol: 15  #Low volume but a full patch  will last for 60 seconds
+        maxVol: 15  #Low volume but a full patch  will last for 30 seconds
+  - type: RefillableSolution
+    solution: drink
   - type: Construction
     graph: MedicalPatchMakeshift
     node: medicalPatchMakeshift
@@ -203,8 +206,8 @@
   result: MedicalPatchTherapeutic
   completetime: 2
   materials:
-    Cloth: 100
-    Plastic: 100
+    Cloth: 50
+    Plastic: 50
 
 - type: latheRecipe
   id: MedicalPatchLarge

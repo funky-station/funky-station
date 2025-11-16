@@ -7,6 +7,8 @@
 # SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
 # SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+Pronana@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+pronana@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
 # SPDX-License-Identifier: MIT
@@ -15,7 +17,8 @@
   id: BaseDrink
   group: Drinks
   abstract: true
-  slippery: true
+  slipData:
+    requiredSlipSpeed: 3.5
   metabolisms:
     Drink:
       effects:
@@ -59,6 +62,9 @@
   id: BaseAlcohol
   group: Drinks
   abstract: true
+  slipData:
+    requiredSlipSpeed: 3.5
+  friction: 0.4
   metabolisms:
     Drink:
       effects:

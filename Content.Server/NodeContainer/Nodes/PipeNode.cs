@@ -19,15 +19,19 @@
 // SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
 // SPDX-FileCopyrightText: 2024 Kara <lunarautomaton6@gmail.com>
 // SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Steve <marlumpy@gmail.com>
+// SPDX-FileCopyrightText: 2025 chromiumboy <50505512+chromiumboy@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
-// SPDX-License-Identifier: MIT
+// SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Server.Atmos;
 using Content.Server.NodeContainer.EntitySystems;
 using Content.Server.NodeContainer.NodeGroups;
 using Content.Shared.Atmos;
-using Robust.Shared.Map;
+using Content.Shared.Atmos.Components;
+using Content.Shared.NodeContainer;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Utility;
 
@@ -35,7 +39,7 @@ namespace Content.Server.NodeContainer.Nodes
 {
     /// <summary>
     ///     Connects with other <see cref="PipeNode"/>s whose <see cref="PipeDirection"/>
-    ///     correctly correspond.
+    ///     and <see cref="CurrentPipeLayer"/> correctly correspond.
     /// </summary>
     [DataDefinition]
     [Virtual]
@@ -46,6 +50,12 @@ namespace Content.Server.NodeContainer.Nodes
         /// </summary>
         [DataField("pipeDirection")]
         public PipeDirection OriginalPipeDirection;
+
+        /// <summary>
+        ///     The *current* layer to which the pipe node is assigned.
+        /// </summary>
+        [DataField("pipeLayer")]
+        public AtmosPipeLayer CurrentPipeLayer = AtmosPipeLayer.Primary;
 
         /// <summary>
         ///     The *current* pipe directions (accounting for rotation)
@@ -227,6 +237,7 @@ namespace Content.Server.NodeContainer.Nodes
             foreach (var pipe in PipesInDirection(pos, pipeDir, grid, nodeQuery))
             {
                 if (pipe.NodeGroupID == NodeGroupID
+                    && pipe.CurrentPipeLayer == CurrentPipeLayer
                     && pipe.CurrentPipeDirection.HasDirection(pipeDir.GetOpposite()))
                 {
                     yield return pipe;

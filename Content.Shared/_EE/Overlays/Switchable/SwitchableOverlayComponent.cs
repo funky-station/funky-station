@@ -1,5 +1,6 @@
 // SPDX-FileCopyrightText: 2025 TheSecondLord <88201625+TheSecondLord@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 V <97265903+formlessnameless@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -8,10 +9,9 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 
 namespace Content.Shared._EE.Overlays.Switchable;
-
 public abstract partial class SwitchableOverlayComponent : BaseOverlayComponent
 {
-    [DataField, AutoNetworkedField]
+    [DataField]
     public bool IsActive;
 
     [DataField]
@@ -49,7 +49,7 @@ public abstract partial class SwitchableOverlayComponent : BaseOverlayComponent
 }
 
 [Serializable, NetSerializable]
-public sealed class SwitchableVisionOverlayComponentState : IComponentState
+public sealed class SwitchableOverlayComponentState : IComponentState
 {
     public Color Color;
     public bool IsActive;

@@ -369,8 +369,8 @@ uplink-toolbox-desc = A full compliment of tools for the mechanically inclined t
 uplink-syndicate-jaws-of-life-name = Jaws Of Life
 uplink-syndicate-jaws-of-life-desc = A combined prying and cutting tool. Useful for entering the station or its departments.
 
-uplink-duffel-surgery-name = Surgical Duffel Bag
-uplink-duffel-surgery-desc = A large duffel bag containing a full suite of surgical tools.
+uplink-field-surgery-kit-name = Field Surgery Kit
+uplink-field-surgery-kit-desc = A large kit with everything to deploy surgery where needed.
 
 uplink-power-sink-name = Power Sink
 uplink-power-sink-desc = Drains immense amounts of electricity from the grid, then explodes once it's saturated. Use wrench to connect it to wires.
@@ -524,6 +524,9 @@ uplink-syndicate-segway-crate-desc = Be an enemy of the corporation, in style!
 uplink-syndicate-sponge-box-name = Syndicate Sponge Box
 uplink-syndicate-sponge-box-desc = A box containing 6 syndicate sponges disguised as monkey cubes, these cubes turn into a variety of angry wildlife after coming into contact with water.
 
+uplink-chair-folding-spawn-folded-steel-name = Steel Folding Chair
+uplink-chair-folding-spawn-folded-steel-desc = A reinforced folding chair. Guaranteed to send an opponent straight to their corner - or the morgue.
+
 uplink-syndicate-dinocube-box-name = Syndicate Dino Box
 uplink-syndicate-dinocube-box-desc = A box containing 6 random compacted dinosaurs, these cubes turn into a variety of angry prehistoric wildlife after coming into contact with water.
 
@@ -586,13 +589,13 @@ uplink-bribe-name = Lobbying Bundle
 uplink-bribe-desc = A heartfelt gift that can help you sway someone's opinion. Real or counterfeit? Yes.
 
 uplink-hypodart-name = Hypodart
-uplink-hypodart-desc = A seemingly unremarkable dart with an enlarged reservoir for chemicals. It can store up to 7u reagents in itself, and instantly inject when it hits the target. Starts empty.
+uplink-hypodart-desc = A seemingly unremarkable dart with an enlarged reservoir for chemicals. It can store up to 9u reagents in itself, and instantly inject when it hits the target. Starts empty.
 
 uplink-barber-scissors-name = Barber Scissors
 uplink-barber-scissors-desc = A good tool to give your fellow agent a nice haircut, unless you want to give it to yourself.
 
 uplink-backpack-syndicate-name = Syndicate backpack
-uplink-backpack-syndicate-desc = A lightweight explosion-proof backpack for holding various traitor goods
+uplink-backpack-syndicate-desc = A lightweight explosion-proof backpack for holding various traitor goods.
 
 uplink-cameraBug-name = Camera bug
 uplink-cameraBug-desc = A portable device that allows you to view the station's cameras.
@@ -616,10 +619,22 @@ uplink-autoinjector-cart-sedative-name = Syndicate Sedative Cartridge
 uplink-autoinjector-cart-sedative-desc = Contains one Syndicate branded autoinjector cartridge. Can provide almost instant (but temporary) sedation upon injection. Contains ONE dose of 15u of Nocturine.
 
 uplink-autoinjector-cart-gunshot-name = Syndicate Gunshot Cartridge
-uplink-autoinjector-cart-gunshot-desc = Contains one Syndicate branded autoinjector cartridge. Provides a single dose of Puncturase and Tranexamic acid, designed to stabilise a patient who has been shot. Contains ONE dose of 10u Puncturase and 5u Tranexamic Acid
+uplink-autoinjector-cart-gunshot-desc = Contains one Syndicate branded autoinjector cartridge. Provides a single dose of Puncturase and Tranexamic acid, designed to stabilise a patient who has been shot. Contains ONE dose of 10u Puncturase and 5u Tranexamic Acid.
 
 uplink-syndicate-autoinjector-softcase-name = Cartridge Autoinjector Soft Case (Filled)
 uplink-syndicate-autoinjector-softcase-desc = Contains 4 different cartridges for use in an autoinjector. Provide enough chems to stabilise a patient. One for airloss, critical injury, brute injury and burns. Each is single use!
 
 uplink-autoinjector-bundle-name = Syndicate Cartridge Autoinjector Bundle
 uplink-autoinjector-bundle-desc = A bag containing 4 Syndicate branded cartridge autoinjectors as well as hard and soft cases, both filled with various cartridges, and a few extras for treating gunshot wounds. For healing in a pinch when you don't have time to stop!
+
+uplink-syndie-kit-name = Random Syndie-Kit
+uplink-syndie-kit-desc = Get your hands on one of our premium, custom-tailored syndie-kits! Contains a selection of gear to fit a given theme, often including items you cannot find elsewhere in your uplink! Only 1 available per uplink.
+
+uplink-radio-handheld-syndicate-name = Syndicate Radio
+uplink-radio-handheld-syndicate-desc = This tiny radio does not have a speaker, but will relay anything it hears to the Syndicate radio channel. Perfect for planting a listening device on places and people.
+
+uplink-emp-flashlight-name = EMP Flashlight
+uplink-emp-flashlight-desc = Looks and functions like a regular flashlight, with the added capability of releasing a focused EMP into things you hit with it. Has 3 charges, and regenerates charges slowly.
+
+uplink-reagent-implanter-name = Empty Reagent Implanter
+uplink-reagent-implanter-desc = Can be filled with up to 45 units of any chemical. Once implanted, you can activate the implant to inject up to 15 units of the stored chemical into your bloodstream. Has 3 uses, and cannot be refilled.

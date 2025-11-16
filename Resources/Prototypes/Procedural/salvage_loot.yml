@@ -6,6 +6,9 @@
 # SPDX-FileCopyrightText: 2024 Zadeon <loldude9000@gmail.com>
 # SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 mac6na6na <132022491+mac6na6na@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
+# SPDX-FileCopyrightText: 2025 TheSecondLord <88201625+TheSecondLord@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 V <97265903+formlessnameless@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
@@ -32,7 +35,7 @@
           prob: 0.5
         - proto: ChemDispenserMachineCircuitboard
           cost: 2
-        - proto: CircuitImprinter
+        - proto: BiofabricatorMachineCircuitboard # Funky
           cost: 2
         - proto: CloningConsoleComputerCircuitboard
           cost: 2
@@ -41,13 +44,13 @@
         - proto: CognizineChemistryBottle
         - proto: FoodBoxDonkpocketCarp
           prob: 0.5
-        - proto: CrateSalvageEquipment
+        - proto: CratePermaEscapeGiftsFromSyndicate # Funky
           cost: 3
           prob: 0.5
         - proto: GasRecycler
           cost: 2
         - proto: GeneratorRTG
-          cost: 5
+          cost: 2
         - proto: GravityGeneratorMini
           cost: 2
         - proto: GyroscopeUnanchored
@@ -59,37 +62,37 @@
           cost: 5
         - proto: OmnizineChemistryBottle
           prob: 0.5
-        - proto: PortableGeneratorPacman
-          cost: 2
-        - proto: PortableGeneratorSuperPacman
-          cost: 3
+#        - proto: PortableGeneratorPacman
+#          cost: 2
+#        - proto: PortableGeneratorSuperPacman
+#          cost: 3
         - proto: PowerCellAntiqueProto
           cost: 5
           prob: 0.5
-        - proto: ProtolatheMachineCircuitboard
+        - proto: SyndicateMicrowaveMachineCircuitboard #Funky 
         - proto: RandomArtifactSpawner
           cost: 2
         - proto: RandomCargoCorpseSpawner
           cost: 2
-          prob: 0.5
+#          prob: 0.5
         - proto: RandomCommandCorpseSpawner
-          cost: 5
-          prob: 0.5
+          cost: 2
+ #         prob: 0.5
         - proto: RandomEngineerCorpseSpawner
           cost: 2
-          prob: 0.5
+#        prob: 0.5
         - proto: RandomMedicCorpseSpawner
           cost: 2
-          prob: 0.5
+#          prob: 0.5
         - proto: RandomScienceCorpseSpawner
           cost: 2
-          prob: 0.5
+#          prob: 0.5
         - proto: RandomSecurityCorpseSpawner
           cost: 2
-          prob: 0.5
+#          prob: 0.5
         - proto: RandomServiceCorpseSpawner
           cost: 2
-          prob: 0.5
+#          prob: 0.5
         - proto: ResearchAndDevelopmentServerMachineCircuitboard
           cost: 5
           prob: 0.5
@@ -97,21 +100,21 @@
           prob: 0.5
         - proto: ResearchDisk5000
           prob: 0.5
-        - proto: RipleyHarness
-          cost: 3
-          prob: 0.5
-        - proto: SpaceCash1000
+#        - proto: RipleyHarness
+#         cost: 3
+#         prob: 0.5
+#        - proto: SpaceCash1000
         - proto: SpaceCash10000
           cost: 10
         - proto: SpaceCash2500
           cost: 3
         - proto: SpaceCash5000
           cost: 5
-        - proto: TechnologyDiskRare
-          cost: 5
-          prob: 0.5
-        - proto: ThrusterUnanchored
-        - proto: WaterTankHighCapacity
+#        - proto: TechnologyDiskRare
+#          cost: 5
+#          prob: 0.5
+#        - proto: ThrusterUnanchored
+#        - proto: WaterTankHighCapacity
         - proto: WeldingFuelTankHighCapacity
           cost: 3
         - proto: WeaponTeslaGun

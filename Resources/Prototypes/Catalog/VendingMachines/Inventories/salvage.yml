@@ -11,6 +11,7 @@
 # SPDX-FileCopyrightText: 2025 misghast <51974455+misterghast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 wilowzeta <willowzeta632146@proton.me>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -24,7 +25,7 @@
     FlashlightLantern: 2
     Floodlight: 2
     HandheldGPSBasic: 2
-    RadioHandheld: 2
+    RadioHandheldCargo: 2 #funkystation
     WeaponGrapplingGun: 4
     WeaponProtoKineticAccelerator: 4
     SeismicCharge: 2

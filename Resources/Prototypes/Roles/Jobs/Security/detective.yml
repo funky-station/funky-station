@@ -27,11 +27,14 @@
 # SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 88tv <131759102+88tv@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 8tv <eightev@gmail.com>
+# SPDX-FileCopyrightText: 2025 Ilya Mikheev <me@ilyamikcoder.com>
 # SPDX-FileCopyrightText: 2025 IronDragoon <8961391+IronDragoon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 IronDragoon <you@example.com>
 # SPDX-FileCopyrightText: 2025 Mish <bluscout78@yahoo.com>
+# SPDX-FileCopyrightText: 2025 SigmaTheDragon <162711378+SigmaTheDragon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Skye <57879983+Rainbeon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Teasq <Xerithin@gmail.com>
+# SPDX-FileCopyrightText: 2025 ilyamikcoder <me@ilyamikcoder.com>
 # SPDX-FileCopyrightText: 2025 kbarkevich <24629810+kbarkevich@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
@@ -58,6 +61,10 @@
   - Detective
   - Cryogenics
   - External
+  # begin Funkystation: give out missing genpop accesses
+  - GenpopEnter
+  - GenpopLeave
+  # end Funkystation
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]
@@ -70,7 +77,7 @@
   equipment:
     #eyes: ClothingEyesGlassesSecurity
     ears: ClothingHeadsetAltSecurityRegular # Goobstation
-    belt: ClothingBeltHolsterFilled
+    belt: ClothingBeltHolster
   storage:
     back:
     - Flash

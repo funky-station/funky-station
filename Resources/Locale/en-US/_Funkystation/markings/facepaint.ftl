@@ -1,0 +1,24 @@
+marking-FacepaintClownThaven = Clown Facepaint
+marking-FacepaintClownMinimalThaven = Minimalist Clown Facepaint
+marking-FacepaintClownSadThaven = Sad Clown Facepaint
+marking-FacepaintClownSeriousThaven = Serious Clown Facepaint
+marking-FacepaintClownSmugThaven = Smug Clown Facepaint
+marking-FacepaintMimeThaven = Mime Facepaint
+marking-FacepaintMimeBlushThaven = Blushing Mime Facepaint
+marking-FacepaintMimeOddThaven = Odd Mime Facepaint
+marking-FacepaintMimeSadThaven = Sad Mime Facepaint
+marking-FacepaintMimeSeriousThaven = Serious Mime Facepaint
+marking-FacepaintWhiteThaven = White Facepaint
+marking-FacepaintBlushThaven = Blush
+marking-FacepaintBlushThaven-facepaint_blush = Blush
+marking-FacepaintEyebrowsThaven = Eyebrows
+marking-FacepaintEyebrowsThaven-facepaint_eyebrows = Eyebrows
+marking-FacepaintLipstickThaven = Lipstick
+marking-FacepaintLipstickThaven-facepaint_lipstick = Lipstick
+
+marking-FacepaintBlushHeadUnshaded = Glowing Blush
+marking-FacepaintBlushHeadUnshaded-facepaint_blush = Glowing Blush
+marking-FacepaintBlushSnoutUnshaded = Glowing Blush
+marking-FacepaintBlushSnoutUnshaded-facepaint_blush = Glowing Blush
+marking-FacepaintBlushThavenUnshaded = Glowing Blush
+marking-FacepaintBlushThavenUnshaded-facepaint_blush = Glowing Blush

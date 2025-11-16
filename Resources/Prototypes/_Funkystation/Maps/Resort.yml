@@ -1,5 +1,6 @@
 # SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 ArsCatalyst <Heartflareburst@gmail.com>
+# SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 kbarkevich <24629810+kbarkevich@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 mkanke-real <mikekanke@gmail.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
@@ -29,8 +30,7 @@
           Captain: [ 1, 1 ]
           Magistrate: [ 1, 1 ]
           NanotrasenRepresentative: [ 1, 1 ]
-          InternalAffairsAgent: [ 1, 2 ]
-          BlueshieldOfficer: [ 1, 1 ]
+          InternalAffairsAgent: [ 2, 2 ]
           HeadOfPersonnel: [ 1, 1 ]
           Bartender: [ 2, 2 ]
           Botanist: [ 3, 3 ]

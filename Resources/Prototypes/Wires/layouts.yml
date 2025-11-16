@@ -21,6 +21,7 @@
 # SPDX-FileCopyrightText: 2025 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tadeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 chromiumboy <50505512+chromiumboy@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 mkanke-real <mikekanke@gmail.com>
 # SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
@@ -234,7 +235,6 @@
   - !type:PowerWireAction
   - !type:AiInteractWireAction
   - !type:AccessWireAction
-
 - type: wireLayout
   id: WeaponEnergyTurret
   dummyWires: 4
@@ -244,7 +244,6 @@
     pulseTimeout: 15
   - !type:AiInteractWireAction
   - !type:AccessWireAction
-
 - type: wireLayout
   id: TurretControls
   dummyWires: 2

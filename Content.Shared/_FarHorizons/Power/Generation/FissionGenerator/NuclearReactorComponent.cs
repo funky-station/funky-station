@@ -48,8 +48,8 @@ public sealed partial class NuclearReactorComponent : Component
     [ViewVariables(VVAccess.ReadOnly)]
     [DataField]
     public float ThermalPower = 0;
-    public float[] ThermalPowerL1 = new float[32];
-    public float[] ThermalPowerL2 = new float[32];
+    public int ThermalPowerCount = 0;
+    public int ThermalPowerPrecision = 128;
 
     public EntityUid? AlarmAudioHighThermal;
     public EntityUid? AlarmAudioHighTemp;

@@ -108,6 +108,7 @@
     proto: PelletShotgunFlare
   - type: SpentAmmoVisuals
     state: "flare"
+  - type: IgnorePrediction
 
 - type: entity
   id: ShellShotgun

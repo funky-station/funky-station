@@ -127,11 +127,6 @@ namespace Content.Shared.Cuffs
             SubscribeLocalEvent<CuffableComponent, UseAttemptEvent>(CheckAct);
             SubscribeLocalEvent<CuffableComponent, InteractionAttemptEvent>(CheckInteract);
 
-            // funky - fuck crawl meta
-            SubscribeLocalEvent<CuffableComponent, DownedEvent>(OnDowned);
-            SubscribeLocalEvent<CuffableComponent, StoodEvent>(OnStood);
-            // funky - end
-
             SubscribeLocalEvent<HandcuffComponent, AfterInteractEvent>(OnCuffAfterInteract);
             SubscribeLocalEvent<HandcuffComponent, MeleeHitEvent>(OnCuffMeleeHit);
             SubscribeLocalEvent<HandcuffComponent, AddCuffDoAfterEvent>(OnAddCuffDoAfter);
@@ -146,7 +141,7 @@ namespace Content.Shared.Cuffs
                 // allow interaction with something you are buckled into (for if you are laying in a bed)
                 if (TryComp<BuckleComponent>(args.Uid, out var buckleComp) && args.Target == buckleComp.BuckledTo)
                     return;
-                // allow interaction with yourself. 
+                // allow interaction with yourself.
                 if (args.Uid == args.Target)
                     return;
             }
@@ -155,24 +150,6 @@ namespace Content.Shared.Cuffs
             if (!ent.Comp.CanStillInteract)
                 args.Cancelled = true;
         }
-
-        // funky - fuck crawl meta
-        private void OnDowned(EntityUid uid, CuffableComponent component, DownedEvent args)
-        {
-            component.CanStillInteract = false;
-            Dirty(uid, component);
-        }
-
-        private void OnStood(EntityUid uid, CuffableComponent component, StoodEvent args)
-        {
-            if (component.CuffedHandCount == 0)
-            {
-                component.CanStillInteract = true;
-                _actionBlocker.UpdateCanMove(uid);
-                Dirty(uid, component);
-            }
-        }
-        // funky - end
 
         private void OnUncuffAttempt(ref UncuffAttemptEvent args)
         {

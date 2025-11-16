@@ -15,12 +15,64 @@ public sealed partial class NuclearReactorComponent : Component
     public readonly int ReactorOverheatTemp = 1200;
     public readonly int ReactorFireTemp = 1500;
     public readonly int ReactorMeltdownTemp = 2000;
-    
-    [DataField]
+
+    // Making this a DataField causes the game to explode, neat
+    /// <summary>
+    /// 2D grid of reactor components, or null where there are no components. Size is ReactorGridWidth x ReactorGridHeight
+    /// </summary>
+    public ReactorPartComponent?[,] ComponentGrid = new ReactorPartComponent[ReactorGridWidth, ReactorGridHeight];
+
+    // Woe, 3 dimensions be upon ye
+    /// <summary>
+    /// 2D grid of lists of neutrons in each grid slot of the component grid.
+    /// </summary>
+    public List<ReactorNeutron>[,] FluxGrid = new List<ReactorNeutron>[ReactorGridWidth, ReactorGridHeight];
+
+    /// <summary>
+    /// Number of neutrons that hit the edge of the reactor grid last tick
+    /// </summary>
+    [ViewVariables]
     public float RadiationLevel = 0;
+
+    /// <summary>
+    /// Gas mixtrue currently in the reactor
+    /// </summary>
+    public GasMixture? AirContents;
+
+    /// <summary>
+    /// Reactor casing temperature
+    /// </summary>
+    [ViewVariables]
+    public float Temperature = Atmospherics.T20C;
+
+    /// <summary>
+    /// Thermal mass. Basically how much energy it takes to heat this up 1Kelvin
+    /// </summary>
+    [DataField]
+    public float ThermalMass = 420 * 2000; // specific heat capacity of steel (420 J/KgK) * mass of reactor (Kg)
+
+    /// <summary>
+    /// Volume of gas to process each tick
+    /// </summary>
     [DataField]
     public float ReactorVesselGasVolume = 200;
-    [DataField]
+
+    /// <summary>
+    /// Flag indicating the reactor is overheating
+    /// </summary>
+    [ViewVariables]
+    public bool IsSmoking = false;
+
+    /// <summary>
+    /// Flag indicating the reactor is on fire
+    /// </summary>
+    [ViewVariables]
+    public bool IsBurning = false;
+
+    /// <summary>
+    /// Flag indicating total meltdown has happened
+    /// </summary>
+    [ViewVariables]
     public bool Melted = false;
     [DataField]
     public float Temperature = Atmospherics.T20C;
@@ -30,7 +82,6 @@ public sealed partial class NuclearReactorComponent : Component
     public float ControlRodInsertion = 2;
 
     [ViewVariables(VVAccess.ReadOnly)]
-    [DataField]
     public float AvgInsertion = 0;
 
     public SoundSpecifier MeltdownSound = new SoundPathSpecifier("/Audio/_FarHorizons/Machines/meltdown_siren.ogg");
@@ -58,16 +109,18 @@ public sealed partial class NuclearReactorComponent : Component
     public string MeltdownAlertLevel = "yellow";
 
     [ViewVariables(VVAccess.ReadOnly)]
-    [DataField]
     public float ThermalPower = 0;
     public int ThermalPowerCount = 0;
     public int ThermalPowerPrecision = 128;
 
+    [ViewVariables]
     public EntityUid? AlarmAudioHighThermal;
+    [ViewVariables]
     public EntityUid? AlarmAudioHighTemp;
+    [ViewVariables]
     public EntityUid? AlarmAudioHighRads;
 
-    [DataField]
+    [ViewVariables]
     public ItemSlot PartSlot = new();
 
     // Making this a DataField causes the game to explode, neat
@@ -85,37 +138,38 @@ public sealed partial class NuclearReactorComponent : Component
 
     [DataField]
     public string Prefab = "normal";
-    [DataField]
+
+    /// <summary>
+    /// Flag indicating the reactor should apply the selected prefab
+    /// </summary>
+    [ViewVariables]
     public bool ApplyPrefab = true;
 
+    /// <summary>
+    /// Material the reactor is made out of
+    /// </summary>
     [DataField("material")]
     public ProtoId<PhysicalMaterialPrototype> Material = "steel";
 
     [DataField]
     public string PipeName { get; set; } = "pipe";
-    [DataField]
+    [ViewVariables]
     public EntityUid? InletEnt;
-    [DataField]
+    [ViewVariables]
     public EntityUid? OutletEnt;
 
     #region Debug
     [ViewVariables(VVAccess.ReadOnly)]
-    [DataField("neutrons")]
     public int NeutronCount = 0;
     [ViewVariables(VVAccess.ReadOnly)]
-    [DataField("meltedParts")]
     public int MeltedParts = 0;
     [ViewVariables(VVAccess.ReadOnly)]
-    [DataField("controlRods")]
     public int DetectedControlRods = 0;
     [ViewVariables(VVAccess.ReadOnly)]
-    [DataField("totalN-Rads")]
     public float TotalNRads = 0;
     [ViewVariables(VVAccess.ReadOnly)]
-    [DataField("totalRads")]
     public float TotalRads = 0;
     [ViewVariables(VVAccess.ReadOnly)]
-    [DataField("spentFuel")]
     public float TotalSpent = 0;
     #endregion
 }

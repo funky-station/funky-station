@@ -11,7 +11,7 @@ public sealed partial class TurbineComponent : Component
     /// <summary>
     /// Power generated last tick
     /// </summary>
-    [DataField]
+    [ViewVariables(VVAccess.ReadOnly)]
     public float LastGen = 0;
 
     /// <summary>
@@ -23,7 +23,7 @@ public sealed partial class TurbineComponent : Component
     /// <summary>
     /// Current RPM of turbine
     /// </summary>
-    [DataField("RPM"), AutoNetworkedField]
+    [ViewVariables, AutoNetworkedField]
     public float RPM = 0;
 
     /// <summary>
@@ -76,31 +76,43 @@ public sealed partial class TurbineComponent : Component
     /// <summary>
     /// If the turbine is functional or not
     /// </summary>
-    [DataField]
+    [ViewVariables]
     public bool Ruined = false;
+
+    /// <summary>
+    /// Flag indicating the turbine is sparking
+    /// </summary>
+    [ViewVariables]
+    public bool IsSparking = false;
+
+    /// <summary>
+    /// Flag indicating the turbine is smoking
+    /// </summary>
+    [ViewVariables]
+    public bool IsSmoking = false;
 
     /// <summary>
     /// Flag for indicating that energy available is less than needed to turn the turbine
     /// </summary>
-    [DataField]
+    [ViewVariables]
     public bool Stalling = false;
 
     /// <summary>
     /// Flag for RPM being > BestRPM*1.2
     /// </summary>
-    [DataField]
+    [ViewVariables]
     public bool Overspeed = false;
 
     /// <summary>
     /// Flag for gas tempurature being > MaxTemp - 500
     /// </summary>
-    [DataField]
+    [ViewVariables]
     public bool Overtemp = false;
 
     /// <summary>
     /// Flag for gas tempurature being < MinTemp
     /// </summary>
-    [DataField]
+    [ViewVariables]
     public bool Undertemp = false;
 
     /// <summary>
@@ -109,10 +121,9 @@ public sealed partial class TurbineComponent : Component
     [DataField]
     public float PowerMultiplier = 1;
 
-    [DataField]
+    [ViewVariables]
     public EntityUid? AlarmAudioOvertemp;
-
-    [DataField]
+    [ViewVariables]
     public EntityUid? AlarmAudioUnderspeed;
 
     /// <summary>
@@ -128,13 +139,14 @@ public sealed partial class TurbineComponent : Component
     /// <summary>
     /// Tool capability needed to repair
     /// </summary>
+    [DataField]
     public ProtoId<ToolQualityPrototype> RepairTool = "Welding";
 
     [DataField]
     public string PipeName { get; set; } = "pipe";
-    [DataField]
+    [ViewVariables]
     public EntityUid? InletEnt;
-    [DataField]
+    [ViewVariables]
     public EntityUid? OutletEnt;
 
     public bool IsSparking = false;
@@ -143,13 +155,10 @@ public sealed partial class TurbineComponent : Component
     
     //Debugging
     [ViewVariables(VVAccess.ReadOnly)]
-    [DataField("HasPipes")]
     public bool HasPipes = false;
     [ViewVariables(VVAccess.ReadOnly)]
-    [DataField("SupplierMaxSupply")]
     public float SupplierMaxSupply = 0;
     [ViewVariables(VVAccess.ReadOnly)]
-    [DataField("LastVolumeTransfer")]
     public float LastVolumeTransfer = 0;
 
 }

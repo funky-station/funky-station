@@ -207,6 +207,8 @@
       - id: BoxTapeRecorder # DeltaV
       - id: SpeedLoaderMagnum
       - id: CrayonBox
+      - id: RadioHandheldSecurityListening
+        amount: 3
 
 - type: entity
   id: ClosetBombFilled

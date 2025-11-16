@@ -1499,6 +1499,9 @@
     transmitFrequencyId: SurveillanceCamera
   - type: WiredNetworkConnection
   - type: DeviceNetworkRequiresPower
+  - type: Speech
+    speechVerb: Robotic
+  - type: SurveillanceCameraSpeaker
   - type: SurveillanceCameraMonitor
   - type: ActivatableUI
     key: enum.SurveillanceCameraMonitorUiKey.Key

@@ -1,31 +1,29 @@
 - type: entity
   id: ImprovisedEnergySword
-  name: improvaised energy sword
+  name: improvised energy sword
   description: A energy sword cobbled together from random parts. Burns through power like no other.
-  parent: BaseItem
+  parent: [BaseItem, BaseMajorContraband]
   components:
   - type: Sprite
-    sprite: Objects/Weapons/Melee/e_sword.rsi
+    sprite: _Funkystation/Objects/Weapons/Melee/improvised_esword.rsi
     layers:
-    - state: e_sword
-    - state: e_sword_blade
-      color: "#FFFFFF"
+    - state: icon
+    - state: icon-ON
       visible: false
       shader: unshaded
       map: [ "blade" ]
-  - type: EnergySword
   - type: ToggleCellDraw
   - type: PowerCellDraw
-    Enabled: true
-    DrawRate: 3
-    UseRate: 20
-  - type: ContainerContainer
-    containers:
-      cell_slot: !type:ContainerSlot
+    drawRate: 15
+  - type: PowerCellSlot
+    cellSlotId: cell_slot
   - type: ItemSlots
     slots:
       cell_slot:
         name: power-cell-slot-component-slot-name-default
+  - type: ContainerContainer
+    containers:
+      cell_slot: !type:ContainerSlot
   - type: ItemToggle
     soundActivate:
       path: /Audio/Weapons/ebladeon.ogg
@@ -43,7 +41,7 @@
       doAfterDuration: 4.0
   - type: ItemToggleHot
   - type: ItemToggleSize
-    activatedSize: ginormous
+    activatedSize: Ginormous
   - type: ItemTogglePointLight
   - type: ItemToggleMeleeWeapon
     activatedSoundOnHit:
@@ -61,8 +59,8 @@
         variation: 0.125
     activatedDamage:
       types:
-        Slash: 8
-        Heat: 8
+        Slash: 10
+        Heat: 12
         Structural: 5
   - type: MeleeWeapon
     wideAnimationRotation: -135
@@ -72,25 +70,34 @@
         Blunt: 4.5
   - type: Item
     size: Huge
-    sprite: Objects/Weapons/Melee/e_sword-inhands.rsi
+    sprite: _Funkystation/Objects/Weapons/Melee/improvised_esword.rsi
   - type: UseDelay
     delay: 1.0
   - type: PointLight
     enabled: false
     radius: 2
     energy: 2
-    color: white
+    color: "#42BFC8"
     netsync: false
   - type: Appearance
   - type: ToggleableLightVisuals # Add support for multiple layers
     spriteLayer: blade
     inhandVisuals:
       left:
-      - state: inhand-left-blade
+      - state: inhand-left-ON
         shader: unshaded
       right:
-      - state: inhand-right-blade
+      - state: inhand-right-ON
         shader: unshaded
+  - type: Clothing
+    sprite: _Funkystation/Objects/Weapons/Melee/improvised_esword.rsi
+    quickEquip: false
+    slots:
+    - Back
+    - backStorage
   - type: IgnitionSource
     temperature: 700
+  - type: Construction
+    graph: Tsword
+    node: tsword
 

@@ -64,6 +64,15 @@
   - type: Icon
     sprite: _Funkystation/Objects/Devices/pda.rsi
     state: pda-magi
+  - type: CartridgeLoader
+    preinstalled:
+    - CrewManifestCartridge
+    - NotekeeperCartridge
+    - NanoTaskCartridge
+    - NewsReaderCartridge
+    - WantedListCartridge
+    - NanoChatCartridge
+    - SOSCartridge
 
 - type: entity
   parent: BaseSecurityPDA

@@ -133,8 +133,8 @@
   - type: TemperatureProtection
     heatingCoefficient: 0.005
     coolingCoefficient: 0.005
-  - type: FireProtection
-    reduction: 0.2
+  - type: FireResistance
+    damageCoefficient: 0.01
 
 #Engineering Hardsuit
 - type: entity

@@ -43,3 +43,12 @@ public enum LightLayers : byte
     /// </summary>
     Unshaded,
 }
+/// <summary>
+///     Generic enum keys for toggle-visualizer appearance data & sprite layers.
+/// </summary>
+[Serializable, NetSerializable]
+public enum ToggleVisuals : byte
+{
+    Toggled,
+    Layer
+}

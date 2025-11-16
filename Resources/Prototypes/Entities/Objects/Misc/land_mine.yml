@@ -66,7 +66,6 @@
         path: /Audio/Effects/beep_landmine.ogg
         params:
             maxDistance: 10
-  - type: Armable
   - type: StepTrigger
     requiredTriggeredSpeed: 0
     stepOn: true

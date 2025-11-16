@@ -102,21 +102,18 @@ public abstract class SharedNuclearReactorSystem : EntitySystem
                 comp.IsSmoking = true;
                 _appearance.SetData(uid, ReactorVisuals.Smoke, true);
                 _popupSystem.PopupEntity(Loc.GetString("reactor-smoke-start", ("owner", uid)), uid, PopupType.MediumCaution);
-                SendEngiRadio(ent, Loc.GetString("reactor-smoke-start-message", ("owner", uid), ("temperature", Math.Round(comp.Temperature))));
             }
             if (comp.Temperature >= comp.ReactorFireTemp && !comp.IsBurning)
             {
                 comp.IsBurning = true;
                 _appearance.SetData(uid, ReactorVisuals.Fire, true);
                 _popupSystem.PopupEntity(Loc.GetString("reactor-fire-start", ("owner", uid)), uid, PopupType.MediumCaution);
-                SendEngiRadio(ent, Loc.GetString("reactor-fire-start-message", ("owner", uid), ("temperature", Math.Round(comp.Temperature))));
             }
             else if (comp.Temperature < comp.ReactorFireTemp && comp.IsBurning)
             {
                 comp.IsBurning = false;
                 _appearance.SetData(uid, ReactorVisuals.Fire, false);
                 _popupSystem.PopupEntity(Loc.GetString("reactor-fire-stop", ("owner", uid)), uid, PopupType.Medium);
-                SendEngiRadio(ent, Loc.GetString("reactor-fire-stop-message", ("owner", uid)));
             }
         }
         else
@@ -126,12 +123,9 @@ public abstract class SharedNuclearReactorSystem : EntitySystem
                 comp.IsSmoking = false;
                 _appearance.SetData(uid, ReactorVisuals.Smoke, false);
                 _popupSystem.PopupEntity(Loc.GetString("reactor-smoke-stop", ("owner", uid)), uid, PopupType.Medium);
-                SendEngiRadio(ent, Loc.GetString("reactor-smoke-stop-message", ("owner", uid)));
             }
         }
     }
-
-    protected virtual void SendEngiRadio(Entity<NuclearReactorComponent> ent, string message) { }
 }
 
 public static class NuclearReactorPrefabs

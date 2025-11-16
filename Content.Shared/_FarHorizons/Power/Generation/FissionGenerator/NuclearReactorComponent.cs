@@ -40,7 +40,19 @@ public sealed partial class NuclearReactorComponent : Component
     [DataField]
     public bool IsBurning = false;
     [DataField]
-    public string AlertChannel = "Engineering";
+    public string EngineeringChannel = "Engineering";
+
+    /// <summary>
+    /// Last reported temperature during overheat events
+    /// </summary>
+    [ViewVariables]
+    public float LastSendTemperature = Atmospherics.T20C;
+
+    /// <summary>
+    /// If the reactor has given the nuclear emergency warning
+    /// </summary>
+    [ViewVariables]
+    public bool HasSentWarning = false;
 
     [DataField]
     public string MeltdownAlertLevel = "yellow";

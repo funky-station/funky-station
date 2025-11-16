@@ -273,24 +273,9 @@ public sealed class NuclearReactorSystem : SharedNuclearReactorSystem
         comp.TotalRads = TotalRads;
         comp.TotalSpent = TotalSpent;
 
-<<<<<<< HEAD
-        // Averaging my averages
-        for(var i = 1; i < comp.ThermalPowerL1.Length; i++)
-        {
-            comp.ThermalPowerL1[i-1]=comp.ThermalPowerL1[i];
-        }
-        comp.ThermalPowerL1[^1] = TempChange;
-        for (var i = 1; i < comp.ThermalPowerL2.Length; i++)
-        {
-            comp.ThermalPowerL2[i - 1] = comp.ThermalPowerL2[i];
-        }
-        comp.ThermalPowerL2[^1] = comp.ThermalPowerL1.Average();
-        comp.ThermalPower = comp.ThermalPowerL2.Average();
-=======
         if (comp.ThermalPowerCount < comp.ThermalPowerPrecision)
             comp.ThermalPowerCount++;
         comp.ThermalPower += (TempChange - comp.ThermalPower) / Math.Min(comp.ThermalPowerCount, comp.ThermalPowerPrecision);
->>>>>>> 9117239a5a (Better thermal power averaging)
 
         if (comp.Temperature > comp.ReactorMeltdownTemp) // Disabled the explode if over 1000 rads thing, hope the server survives
         {

@@ -20,10 +20,11 @@
     MailBag: 2
     WeaponMailLake: 1 # Frontier
     BoxMailCapsulePrimed: 2 # Frontier
+    BoxEnvelope: 2 #funk
   contrabandInventory:
     ClothingShoesSkates: 1
-  emaggedInventory: # Hello there, would you please sign this pettition? 
+  emaggedInventory: # Hello there, would you please sign this pettition?
     ClothingOuterCoatSpaceAsshole: 1
     ClothingEyesGlassesSunglasses: 1
-    Shovel: 1  
+    Shovel: 1
     BoxFolderClipboard: 1

@@ -12,6 +12,7 @@
 // SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 // SPDX-FileCopyrightText: 2025 TheSecondLord <88201625+TheSecondLord@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 V <97265903+formlessnameless@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 ferynn <witchy.girl.me@gmail.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
@@ -682,7 +683,7 @@ public sealed partial class ChangelingSystem
 
         EnsureComp<StealthComponent>(uid);
         EnsureComp<StealthOnMoveComponent>(uid, out var stealthOnMoveComponent);
-        stealthOnMoveComponent.MovementVisibilityRate = 1f; // funkystation - fucking nerf this garbage
+        stealthOnMoveComponent.MovementVisibilityRate = .8f; // funkystation - fucking nerf this garbage
         _popup.PopupEntity(Loc.GetString("changeling-chameleon-start"), uid, uid);
     }
     public void OnEphedrineOverdose(EntityUid uid, ChangelingComponent comp, ref ActionEphedrineOverdoseEvent args)

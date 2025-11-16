@@ -28,6 +28,12 @@
   text: "/ServerInfo/Funkystation/Guidebook/Command/CommandStandardOperatingProcedure.xml"
   children:
   - CommandTrainingManual
+  - OrderOfSuccession
+
+- type: guideEntry
+  id: OrderOfSuccession
+  name: guide-entry-order-of-succession
+  text: "/ServerInfo/Funkystation/Guidebook/Command/OrderOfSuccession.xml"
 
 - type: guideEntry
   id: AlertLevelsSOP

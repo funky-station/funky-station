@@ -72,6 +72,10 @@
   - type: ReactorPart
     material: Bananium
 
+- type: entity
+  id: CerenkiteFuelRod # Dummy protoype to help mappers
+  parent: Error
+
 # Control Rods
 - type: entity
   id: BaseReactorControlRod

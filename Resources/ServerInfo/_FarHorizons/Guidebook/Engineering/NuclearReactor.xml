@@ -16,10 +16,10 @@
 
 	## Reactor Rods
 	<Box>
-		<GuideEntityEmbed Entity="UraniumFuelRod"/>
-		<GuideEntityEmbed Entity="ReactorControlRod"/>
-		<GuideEntityEmbed Entity="ReactorGasChannel"/>
-		<GuideEntityEmbed Entity="ReactorHeatExchanger"/>
+		<GuideEntityEmbed Entity="UraniumReactorFuelRod" Caption="fuel rod"/>
+		<GuideEntityEmbed Entity="BohrumReactorControlRod" Caption="control rod"/>
+		<GuideEntityEmbed Entity="SteelReactorGasChannel" Caption="gas channel"/>
+		<GuideEntityEmbed Entity="SteelReactorHeatExchanger" Caption="heat exchanger"/>
 	</Box>
 
 	Reactor Rods are the parts that go into the Reactor grid and cause it to function.

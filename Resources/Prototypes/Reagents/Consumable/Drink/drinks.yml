@@ -306,6 +306,15 @@
   metamorphicMaxFillLevels: 5
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 2
+      - !type:GenericStatusEffect
+        key: Drowsiness
+        time: 2.0
+        type: Remove
 
 - type: reagent
   id: IcedTea
@@ -329,6 +338,10 @@
       - !type:AdjustReagent
         reagent: Theobromine
         amount: 0.05
+      - !type:GenericStatusEffect
+        key: Drowsiness
+        time: 2.0
+        type: Remove
 
 - type: reagent
   id: JuiceBerryPoison

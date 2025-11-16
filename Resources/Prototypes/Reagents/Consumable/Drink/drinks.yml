@@ -66,6 +66,23 @@
       - !type:AdjustReagent
         reagent: Theobromine
         amount: 0.05
+      - !type:AdjustTemperature
+        amount: 5000 # thermal energy, not temperature!
+  reactiveEffects:
+    Acidic:
+      methods: [ Touch ]
+      effects:
+      - !type:HealthChange
+        scaleByQuantity: true
+        ignoreResistances: false
+        damage:
+          types:
+            Heat: 0.1
+      - !type:Emote
+        emote: Scream
+        probability: 0.1
+      - !type:AdjustTemperature
+        amount: 1000 # thermal energy, not temperature!
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/coffeeglass.rsi
     state: icon_empty
@@ -90,6 +107,23 @@
       - !type:AdjustReagent
         reagent: Theobromine
         amount: 0.05
+      - !type:AdjustTemperature
+        amount: 5000 # thermal energy, not temperature!
+  reactiveEffects:
+    Acidic:
+      methods: [ Touch ]
+      effects:
+      - !type:HealthChange
+        scaleByQuantity: true
+        ignoreResistances: false
+        damage:
+          types:
+            Heat: 0.1
+      - !type:Emote
+        emote: Scream
+        probability: 0.1
+      - !type:AdjustTemperature
+        amount: 1000 # thermal energy, not temperature!
 
 - type: reagent
   id: Cream
@@ -156,6 +190,23 @@
         key: Drowsiness
         time: 2.0
         type: Remove
+      - !type:AdjustTemperature
+        amount: 5000 # thermal energy, not temperature!
+  reactiveEffects:
+    Acidic:
+      methods: [ Touch ]
+      effects:
+      - !type:HealthChange
+        scaleByQuantity: true
+        ignoreResistances: false
+        damage:
+          types:
+            Heat: 0.1
+      - !type:Emote
+        emote: Scream
+        probability: 0.1
+      - !type:AdjustTemperature
+        amount: 1000 # thermal energy, not temperature!
 
 - type: reagent
   id: GreenTea
@@ -171,6 +222,32 @@
   metamorphicMaxFillLevels: 4
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 2
+      - !type:AdjustTemperature
+        amount: 5000 # thermal energy, not temperature!
+      - !type:GenericStatusEffect
+        key: Drowsiness
+        time: 2.0
+        type: Remove
+  reactiveEffects:
+    Acidic:
+      methods: [ Touch ]
+      effects:
+      - !type:HealthChange
+        scaleByQuantity: true
+        ignoreResistances: false
+        damage:
+          types:
+            Heat: 0.1
+      - !type:Emote
+        emote: Scream
+        probability: 0.1
+      - !type:AdjustTemperature
+        amount: 1000 # thermal energy, not temperature!
 
 - type: reagent
   id: Grenadine
@@ -454,6 +531,27 @@
       - !type:AdjustReagent
         reagent: Theobromine
         amount: 0.05
+      - !type:AdjustTemperature
+        amount: 5000 # thermal energy, not temperature!
+      - !type:GenericStatusEffect
+        key: Drowsiness
+        time: 2.0
+        type: Remove
+  reactiveEffects:
+    Acidic:
+      methods: [ Touch ]
+      effects:
+      - !type:HealthChange
+        scaleByQuantity: true
+        ignoreResistances: false
+        damage:
+          types:
+            Heat: 0.1
+      - !type:Emote
+        emote: Scream
+        probability: 0.1
+      - !type:AdjustTemperature
+        amount: 1000 # thermal energy, not temperature!
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/teaglass.rsi
     state: icon_empty

@@ -40,6 +40,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
+    checkCanInteract: false
     itemIconStyle: NoItem
     icon:
       sprite: _Goobstation/Changeling/changeling_abilities.rsi
@@ -127,6 +128,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
+    checkCanInteract: false
     itemIconStyle: NoItem
     icon:
       sprite: _Goobstation/Changeling/changeling_abilities.rsi
@@ -143,6 +145,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
+    checkCanInteract: false
     useDelay: 5
     itemIconStyle: NoItem
     icon:
@@ -199,6 +202,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
+    checkCanInteract: false
     useDelay: 2
     itemIconStyle: NoItem
     icon:
@@ -231,6 +235,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
+    checkCanInteract: false
     useDelay: 2
     itemIconStyle: NoItem
     icon:
@@ -239,7 +244,7 @@
     event: !type:ToggleChitinousArmorEvent {}
   - type: ChangelingAction
     chemicalCost: 25
-    requireAbsorbed: 2
+    requireAbsorbed: 3
 
 - type: entity
   id: ActionToggleOrganicShield
@@ -248,6 +253,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
+    checkCanInteract: false
     useDelay: 2
     itemIconStyle: NoItem
     icon:
@@ -265,6 +271,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
+    checkCanInteract: false
     useDelay: 10
     itemIconStyle: NoItem
     icon:
@@ -283,6 +290,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
+    checkCanInteract: false
     useDelay: 10
     itemIconStyle: NoItem
     icon:
@@ -301,6 +309,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
+    checkCanInteract: false
     useDelay: 1
     itemIconStyle: NoItem
     icon:
@@ -609,6 +618,7 @@
   components:
   - type: InstantAction
     useDelay: 2
+    checkCanInteract: false
     itemIconStyle: NoItem
     icon:
       sprite: _Goobstation/Changeling/changeling_abilities.rsi

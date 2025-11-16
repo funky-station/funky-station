@@ -47,7 +47,7 @@
   icon: { sprite: _Goobstation/Changeling/changeling_abilities.rsi, state: chitinous_armor }
   productAction: ActionToggleChitinousArmor
   cost:
-    EvolutionPoint: 4
+    EvolutionPoint: 6
   categories:
   - ChangelingAbilityCombat
   conditions:

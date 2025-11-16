@@ -682,7 +682,7 @@ public sealed partial class ChangelingSystem
 
         EnsureComp<StealthComponent>(uid);
         EnsureComp<StealthOnMoveComponent>(uid, out var stealthOnMoveComponent);
-        stealthOnMoveComponent.MovementVisibilityRate = 1f; // funkystation - fucking nerf this garbage
+        stealthOnMoveComponent.MovementVisibilityRate = .8f; // funkystation - fucking nerf this garbage
         _popup.PopupEntity(Loc.GetString("changeling-chameleon-start"), uid, uid);
     }
     public void OnEphedrineOverdose(EntityUid uid, ChangelingComponent comp, ref ActionEphedrineOverdoseEvent args)

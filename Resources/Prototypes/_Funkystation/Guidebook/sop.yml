@@ -39,8 +39,8 @@
   - BlueAlertSOP
   - RedAlertSOP
   - VioletAlertSOP
-  - DeltaAlertSOP
   - GammaAlertSOP
+  - DeltaAlertSOP
   - OctarineAlertSOP
 
 - type: guideEntry

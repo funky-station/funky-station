@@ -3,43 +3,28 @@ SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 
 SPDX-License-Identifier: MIT
 -->
-
 <Document>
   # Station Alert - Delta
 
   <Box>
-    [italic]Called by: A Heretic ascending, a Blob reaching sufficent mass, or the on-board Nuclear Fission Device being activated.[/italic]
+    [italic]The station is on the precipice of destruction. Act decisively to resolve the situation. Any cost is justified to achieve this goal.[/italic]
   </Box>
   
-  There is imminent risk of station destruction or loss of all crew life.
-  
-  [bold]Conditions:[/bold]
-  
-  A Heretic has completed their Ritual of Ascension and is poised to enact their wrath on the station.
-
-  [bold]OR[/bold]
-
-  A Blob organism is halfway complete in overtaking the station, and will soon subsume all life onboard.
-
-  [bold]OR[/bold]
-
-  The on-board Nuclear Fission Device has been activated and will soon detonate. 
-
+  There is imminent risk of station destruction or loss of all crew life. Failure to act will lead to catastrophic consequences.
+ 
   [bold]Security:[/bold]
   
-  Martial Law is enacted. Standard Operating Procedure is suspended. Security personnel have full permission to do whatever it takes to ensure that the safety of the station and crew is maintained. Personnel interfering with emergency procedures may be detained. Security are cleared to use lethal force in response to any physical threat. Assault of Command or ERT may be punished with immediate field execution.
+  Martial Law is enacted. Standard Operating Procedure is suspended. Security personnel have full permission to do whatever it takes to ensure that the safety of the station and crew is maintained. Personnel interfering with emergency procedures may be removed as the situation demands. Security are cleared to use lethal force in response to any physical threat. Assault of Command or ERT may be punished with immediate field execution.
 
   Random searches are fully permitted, allowed and encouraged. Security personnel may detain any personnel refusing a random search in order to conduct said search;
 
   Security personnel are to cooperate fully with any Central Command Staff (such as Emergency Response Teams) in order to eliminate the threat to the station.
   
-  In the case of a Central Command-authorized activation of the on-board Nuclear Fission Device, all Security personnel are to stand down.
+  In the case of a Central Command-authorized activation of the on-board Nuclear Fission Device, all Security personnel are to protect the device.
 
   [bold]Secure Areas:[/bold]
 
-  EVA Storage, Tech Storage, Gravity Generator, Engineering Secure Storage, AI Upload, Vault, Gateway, anywhere else requiring command level access that does not get regularly used.
-
-  Procedures are irrelevant.
+  Anywhere requiring Command or Security access. Any locations designated by Command.
 
   [bold]General Crew:[/bold]
   
@@ -49,5 +34,7 @@ SPDX-License-Identifier: MIT
 
   Visitors to the station (anyone with Civilian-level access) are to remain inside the Bar, Library or Dormitories unless directed otherwise by Security, Command, or Central Command Staff.
   
-  In the case of a Central Command-authorized activation of the on-board Nuclear Fission Device, all personnel are to stand down.
+  In the case of an uncontainable infectious or subsuming threat, the crew must ensure that quarantine procedures are followed and that the threat stays contained to the station, even at the cost of their lives.
+  
+  In the case of a Central Command-authorized activation of the on-board Nuclear Fission Device, all personnel are to stand down and follow Central Command directives.
 </Document>

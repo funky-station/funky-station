@@ -124,6 +124,11 @@
     access: [["Engineering"]]
   - type: Lock
     unlockOnClick: false
+  - type: WarpPoint
+    location: Nuclear Reactor
+    blacklist:
+      tags:
+      - GhostOnlyWarp
   - type: GuideHelp
     guides:
     - NuclearReactor

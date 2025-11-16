@@ -82,9 +82,9 @@ public sealed partial class NuclearReactorComponent : Component
     [DataField]
     public string PipeName { get; set; } = "pipe";
     [DataField]
-    public EntityUid InletEnt = default!;
+    public EntityUid? InletEnt;
     [DataField]
-    public EntityUid OutletEnt = default!;
+    public EntityUid? OutletEnt;
 
     #region Debug
     [ViewVariables(VVAccess.ReadOnly)]

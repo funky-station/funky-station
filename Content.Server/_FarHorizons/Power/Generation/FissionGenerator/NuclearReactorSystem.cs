@@ -87,9 +87,12 @@ public sealed class NuclearReactorSystem : SharedNuclearReactorSystem
 
     private void OnAnalyze(EntityUid uid, NuclearReactorComponent comp, ref GasAnalyzerScanEvent args)
     {
+        if (!comp.InletEnt.HasValue || !comp.OutletEnt.HasValue)
+            return;
+
         args.GasMixtures ??= [];
 
-        if (_nodeContainer.TryGetNode(comp.InletEnt, comp.PipeName, out PipeNode? inlet) && inlet.Air.Volume != 0f)
+        if (_nodeContainer.TryGetNode(comp.InletEnt.Value, comp.PipeName, out PipeNode? inlet) && inlet.Air.Volume != 0f)
         {
             var inletAirLocal = inlet.Air.Clone();
             inletAirLocal.Multiply(inlet.Volume / inlet.Air.Volume);
@@ -97,7 +100,7 @@ public sealed class NuclearReactorSystem : SharedNuclearReactorSystem
             args.GasMixtures.Add((Loc.GetString("gas-analyzer-window-text-inlet"), inletAirLocal));
         }
 
-        if (_nodeContainer.TryGetNode(comp.OutletEnt, comp.PipeName, out PipeNode? outlet) && outlet.Air.Volume != 0f)
+        if (_nodeContainer.TryGetNode(comp.OutletEnt.Value, comp.PipeName, out PipeNode? outlet) && outlet.Air.Volume != 0f)
         {
             var outletAirLocal = outlet.Air.Clone();
             outletAirLocal.Multiply(outlet.Volume / outlet.Air.Volume);
@@ -140,14 +143,14 @@ public sealed class NuclearReactorSystem : SharedNuclearReactorSystem
             UpdateGridVisual(uid, comp);
         }
 
-        if (comp.InletEnt.Id == 0)
+        if (!comp.InletEnt.HasValue || EntityManager.Deleted(comp.InletEnt.Value))
             comp.InletEnt = SpawnAttachedTo("ReactorGasPipe", new(ent.Owner, -2, -1), rotation:Angle.FromDegrees(-90));
-        if (comp.OutletEnt.Id == 0)
+        if (!comp.OutletEnt.HasValue || EntityManager.Deleted(comp.OutletEnt.Value))
             comp.OutletEnt = SpawnAttachedTo("ReactorGasPipe", new(ent.Owner, 2, 1), rotation: Angle.FromDegrees(90));
 
-        if (!_nodeContainer.TryGetNode(comp.InletEnt, comp.PipeName, out PipeNode? inlet))
+        if (!_nodeContainer.TryGetNode(comp.InletEnt.Value, comp.PipeName, out PipeNode? inlet))
             return;
-        if (!_nodeContainer.TryGetNode(comp.OutletEnt, comp.PipeName, out PipeNode? outlet))
+        if (!_nodeContainer.TryGetNode(comp.OutletEnt.Value, comp.PipeName, out PipeNode? outlet))
             return;
 
         _appearance.SetData(uid, ReactorVisuals.Input, inlet.Air.Moles.Sum() > 20);

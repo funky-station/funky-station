@@ -133,9 +133,9 @@ public sealed partial class TurbineComponent : Component
     [DataField]
     public string PipeName { get; set; } = "pipe";
     [DataField]
-    public EntityUid InletEnt = default!;
+    public EntityUid? InletEnt;
     [DataField]
-    public EntityUid OutletEnt = default!;
+    public EntityUid? OutletEnt;
 
     public bool IsSparking = false;
     public bool IsSmoking = false;

@@ -4,8 +4,11 @@
 # SPDX-FileCopyrightText: 2025 DevilishMilk <michaellapjr@gmail.com>
 # SPDX-FileCopyrightText: 2025 Mish <bluscout78@yahoo.com>
 # SPDX-FileCopyrightText: 2025 PurpleTranStar <purpletranstars@gmail.com>
+# SPDX-FileCopyrightText: 2025 PurpleTranStar <tehevilduckiscoming@gmail.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 ferynn <witchy.girl.me@gmail.com>
 # SPDX-FileCopyrightText: 2025 kbarkevich <24629810+kbarkevich@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 mqole <113324899+mqole@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
@@ -49,7 +52,7 @@
   - type: Pda
     id: MagistrateIDCard
     penSlot:
-      startingItem: LuxuryPen
+      startingItem: PenCentcom
       priority: -1
       whitelist:
         tags:
@@ -145,7 +148,7 @@
   - type: Pda
     id: NanotrasenRepresentativeIDCard
     penSlot:
-      startingItem: LuxuryPen
+      startingItem: PenCentcom
       priority: -1
       whitelist:
         tags:

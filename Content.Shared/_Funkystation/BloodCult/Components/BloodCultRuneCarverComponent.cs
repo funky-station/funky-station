@@ -2,8 +2,9 @@
 // SPDX-FileCopyrightText: 2025 kbarkevich <24629810+kbarkevich@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 mkanke-real <mikekanke@gmail.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 Terkala <appleorange64@gmail.com>
 //
-// SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+// SPDX-License-Identifier: AGPL-3.0-or-later OR MIT
 
 using System.Text;
 using Robust.Shared.Audio;
@@ -30,7 +31,7 @@ public sealed partial class BloodCultRuneCarverComponent : Component
 	/// <summary>
     ///     The entity to spawn when used on self.
     /// </summary>
-    [DataField, AutoNetworkedField] public string Rune = "BarrierRune";
+    [DataField, AutoNetworkedField] public string Rune = "";
 
 	/// <summary>
     ///     Blood damage to apply to self when used to carve a rune.

@@ -4,10 +4,12 @@
 // SPDX-FileCopyrightText: 2025 mkanke-real <mikekanke@gmail.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
-// SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+// SPDX-License-Identifier: AGPL-3.0-or-later OR MIT
 
 //using Content.Shared.Tag;
+using System;
 using System.Linq;
+using Robust.Shared.Audio;
 using Robust.Shared.GameObjects;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
@@ -19,6 +21,8 @@ using Robust.Shared.Player;
 using Robust.Shared.Utility;
 
 using Content.Server.GameTicking.Rules;
+using Content.Server.GameTicking.Rules.Components;
+using Content.Shared.GameTicking.Components;
 using Content.Shared.FixedPoint;
 using Content.Shared.Interaction;
 using Content.Shared.Interaction.Events;
@@ -30,6 +34,8 @@ using Content.Shared.Damage.Prototypes;
 using Content.Shared.Verbs;
 using Content.Shared.Popups;
 using Content.Server.Popups;
+using Content.Server.Body.Components;
+using Content.Server.Body.Systems;
 using Content.Shared.BloodCult;
 using Content.Shared.BloodCult.Components;
 
@@ -45,11 +51,11 @@ public sealed partial class BloodCultRuneCarverSystem : EntitySystem
 	[Dependency] private readonly IPrototypeManager _protoMan = default!;
 	[Dependency] private readonly DamageableSystem _damageableSystem = default!;
 	[Dependency] private readonly SharedAudioSystem _audioSystem = default!;
-	[Dependency] private readonly BloodCultRuleSystem _cultRule = default!;
 	[Dependency] private readonly PopupSystem _popupSystem = default!;
-	[Dependency] private readonly IEntityManager _entManager = default!;
+	[Dependency] private readonly BloodstreamSystem _bloodstream = default!;
 
 	private EntityQuery<BloodCultRuneComponent> _runeQuery;
+	private uint _nextEffectId = 1;
 
 	public override void Initialize()
 	{
@@ -137,7 +143,14 @@ public sealed partial class BloodCultRuneCarverSystem : EntitySystem
             return;
         }
 
-		// Third, verify that a new rune can be placed here.
+		// Third, if clicking on yourself and no rune is selected, open the selection UI
+		if (args.User == target && string.IsNullOrEmpty(ent.Comp.Rune))
+		{
+			TryOpenUi(ent, args.User, ent.Comp);
+			return;
+		}
+
+		// Fourth, verify that a new rune can be placed here.
 		if (args.User != target
 			|| !args.ClickLocation.IsValid(EntityManager)
 			|| !CanPlaceRuneAt(args.ClickLocation, out var location))
@@ -148,44 +161,47 @@ public sealed partial class BloodCultRuneCarverSystem : EntitySystem
 		// Third and a half, if this is a TearVeilRune, do a special location check.
 		if (ent.Comp.Rune == "TearVeilRune")
 		{
-			// If they have not yet confirmed the summon location, check to make sure
-			// that this is a valid one and ask them to confirm.
-			if (cultist.LocationForSummon == null)
-			{
-				cultist.TryingDrawTearVeil = true;
-				return;
-			}
-
-			// If they made it to here, they are trying to draw a confirmed tear veil rune.
-			// Ensure that the location is valid.
-			WeakVeilLocation locationForSummon = (WeakVeilLocation)(cultist.LocationForSummon);
-			if (!locationForSummon.Coordinates.InRange(_entManager, Transform(args.User).Coordinates, locationForSummon.ValidRadius))
+			if (!TryGetValidVeilLocation(args.ClickLocation, out var locationForSummon))
 			{
 				_popupSystem.PopupEntity(
-					Loc.GetString("cult-veil-drawing-wronglocation", ("name", locationForSummon.Name)),
+					Loc.GetString("cult-veil-drawing-toostrong"),
 					args.User, args.User, PopupType.MediumCaution
 				);
 				return;
 			}
 
-			// Check to make sure no other tear veil runes already exist.
-			var summonRunes = AllEntityQuery<TearVeilComponent, BloodCultRuneComponent>();
-			while (summonRunes.MoveNext(out var uid, out _, out var _))
+			cultist.LocationForSummon = locationForSummon;
+
+			// Allow multiple tear veil runes to exist (one per location)
+			// Check if a rune already exists at THIS specific location
+			var summonRunes = AllEntityQuery<TearVeilComponent, BloodCultRuneComponent, TransformComponent>();
+			while (summonRunes.MoveNext(out var existingRuneUid, out _, out var _, out var runeXform))
 			{
-				_popupSystem.PopupEntity(
-					Loc.GetString("cult-veil-drawing-alreadyexists"),
-					args.User, args.User, PopupType.MediumCaution
-				);
-				return;
+				// Check if this existing rune is in range of the current location we're trying to draw at
+				if (_transform.InRange(runeXform.Coordinates, locationForSummon.Coordinates, locationForSummon.ValidRadius))
+				{
+					_popupSystem.PopupEntity(
+						Loc.GetString("cult-veil-drawing-alreadyexists-location", ("name", locationForSummon.Name)),
+						args.User, args.User, PopupType.MediumCaution
+					);
+					return;
+				}
 			}
 
 			timeToCarve = 45.0f;
 		}
 
-		// Fourth, raise an event to place a rune here.
-		var rune = Spawn(ent.Comp.InProgress, location);
+		// Fourth, raise an effect event to place a rune here.
+		uint? effectId = null;
+		var duration = TimeSpan.FromSeconds(timeToCarve);
+		if (TryGetRuneEffectPrototype(ent.Comp.Rune, out var effectPrototype))
+		{
+			effectId = _nextEffectId++;
+			RaiseEffectEvent(effectId.Value, effectPrototype, location, RuneEffectAction.Start, duration);
+		}
+
 		var dargs = new DoAfterArgs(EntityManager, args.User, timeToCarve, new DrawRuneDoAfterEvent(
-			ent, rune, location, ent.Comp.Rune, ent.Comp.BleedOnCarve, ent.Comp.CarveSound), args.User
+			ent, EntityUid.Invalid, location, ent.Comp.Rune, ent.Comp.BleedOnCarve, ent.Comp.CarveSound, effectId, duration), args.User
 		)
         {
             BreakOnDamage = true,
@@ -210,18 +226,71 @@ public sealed partial class BloodCultRuneCarverSystem : EntitySystem
 		_doAfter.TryStartDoAfter(dargs);
     }
 
+	private bool TryGetValidVeilLocation(EntityCoordinates placement, out WeakVeilLocation location)
+	{
+		var ruleQuery = EntityQueryEnumerator<BloodCultRuleComponent, GameRuleComponent>();
+		while (ruleQuery.MoveNext(out _, out var ruleComp, out _))
+		{
+			if (ruleComp.WeakVeil1 != null)
+			{
+				var candidate = (WeakVeilLocation)ruleComp.WeakVeil1;
+				if (_transform.InRange(candidate.Coordinates, placement, candidate.ValidRadius))
+				{
+					location = candidate;
+					return true;
+				}
+			}
+			if (ruleComp.WeakVeil2 != null)
+			{
+				var candidate = (WeakVeilLocation)ruleComp.WeakVeil2;
+				if (_transform.InRange(candidate.Coordinates, placement, candidate.ValidRadius))
+				{
+					location = candidate;
+					return true;
+				}
+			}
+			if (ruleComp.WeakVeil3 != null)
+			{
+				var candidate = (WeakVeilLocation)ruleComp.WeakVeil3;
+				if (_transform.InRange(candidate.Coordinates, placement, candidate.ValidRadius))
+				{
+					location = candidate;
+					return true;
+				}
+			}
+		}
+
+		location = default;
+		return false;
+	}
+
 	private void OnRuneDoAfter(Entity<DamageableComponent> ent, ref DrawRuneDoAfterEvent ev)
     {
 		// Delete the animation
         QueueDel(ev.Rune);
 
+		// Apply bloodloss damage + bleeding + slashing damage when drawing runes
 		DamageSpecifier appliedDamageSpecifier;
 		if (ent.Comp.Damage.DamageDict.ContainsKey("Bloodloss"))
-			appliedDamageSpecifier = new DamageSpecifier(_protoMan.Index<DamageTypePrototype>("Bloodloss"), FixedPoint2.New(ev.BleedOnCarve));
+		{
+			// Organic entities: bloodloss + slash damage
+			appliedDamageSpecifier = new DamageSpecifier();
+			appliedDamageSpecifier.DamageDict.Add("Bloodloss", FixedPoint2.New(ev.BleedOnCarve));
+			appliedDamageSpecifier.DamageDict.Add("Slash", FixedPoint2.New(10));
+			
+			// Add bleeding effect
+			if (TryComp<BloodstreamComponent>(ent, out var bloodstream))
+			{
+				_bloodstream.TryModifyBleedAmount(ent, ev.BleedOnCarve / 10f, bloodstream);
+			}
+		}
 		else if (ent.Comp.Damage.DamageDict.ContainsKey("Ion"))
 			appliedDamageSpecifier = new DamageSpecifier(_protoMan.Index<DamageTypePrototype>("Ion"), FixedPoint2.New(ev.BleedOnCarve));
 		else
 			appliedDamageSpecifier = new DamageSpecifier(_protoMan.Index<DamageTypePrototype>("Slash"), FixedPoint2.New(ev.BleedOnCarve));
+
+        if (ev.EffectId.HasValue)
+            RaiseEffectEvent(ev.EffectId.Value, null, ev.Coords, RuneEffectAction.Stop, TimeSpan.Zero);
 
         if (!ev.Cancelled)
 		{
@@ -232,20 +301,30 @@ public sealed partial class BloodCultRuneCarverSystem : EntitySystem
 			}
 			var targetTile = _mapSystem.GetTileRef(gridUid.Value, grid, ev.Coords);
 
-		var rune = Spawn(ev.EntityId, ev.Coords);  // Spawn the final rune
+			var rune = Spawn(ev.EntityId, ev.Coords);  // Spawn the final rune
 
-		if (gridUid != null)
-		{
-			var runeTransform = Transform(rune);
-			_transform.AnchorEntity((rune, runeTransform), ((EntityUid)gridUid, grid), targetTile.GridIndices);
-			_damageableSystem.TryChangeDamage(ent, appliedDamageSpecifier, true, origin: ent);
-			_audioSystem.PlayPvs(ev.CarveSound, ent);
+			if (gridUid != null && TryComp<TransformComponent>(rune, out var runeTransform))
+			{
+				_transform.AnchorEntity((rune, runeTransform), ((EntityUid)gridUid, grid), targetTile.GridIndices);
+				_damageableSystem.TryChangeDamage(ent, appliedDamageSpecifier, true, origin: ent);
+				_audioSystem.PlayPvs(ev.CarveSound, ent);
+				
+				// Clear the selected rune so the UI opens automatically on next click
+				if (TryComp<BloodCultRuneCarverComponent>(ev.CarverUid, out var carverComp))
+				{
+					carverComp.Rune = "";
+					carverComp.InProgress = "";
+				}
+			}
+			else
+			{
+				QueueDel(rune);
+			}
 		}
-		else
-		{
-			QueueDel(rune);
-		}
-		}
+        else
+        {
+            return;
+        }
     }
 
 	private void OnUseInHand(Entity<BloodCultRuneCarverComponent> ent, ref UseInHandEvent ev)
@@ -257,12 +336,12 @@ public sealed partial class BloodCultRuneCarverSystem : EntitySystem
 		if (!HasComp<BloodCultistComponent>(args.User))
 		{
 			QueueDel(uid);
-			Spawn("Ash", Transform(args.User).Coordinates);
-			_popupSystem.PopupEntity(
-				Loc.GetString("cult-dagger-equip-fail"),
-				args.User, args.User, PopupType.SmallCaution
-			);
-			_audioSystem.PlayPvs("/Audio/Effects/lightburn.ogg", Transform(args.User).Coordinates);
+		Spawn("Ash", Transform(args.User).Coordinates);
+		_popupSystem.PopupEntity(
+			Loc.GetString("cult-dagger-equip-fail"),
+			args.User, args.User, PopupType.SmallCaution
+		);
+		_audioSystem.PlayPvs(new SoundPathSpecifier("/Audio/Effects/lightburn.ogg"), Transform(args.User).Coordinates);
 		}
 	}
 
@@ -289,4 +368,42 @@ public sealed partial class BloodCultRuneCarverSystem : EntitySystem
 		}
 		return true;
 	}
+
+    private bool TryGetRuneEffectPrototype(string runePrototype, out string? effectPrototype)
+    {
+        switch (runePrototype)
+        {
+            case "BarrierRune":
+                effectPrototype = "FxBloodCultRuneBarrier";
+                return true;
+            case "EmpoweringRune":
+                effectPrototype = "FxBloodCultRuneEmpowering";
+                return true;
+            case "OfferingRune":
+                effectPrototype = "FxBloodCultRuneOffering";
+                return true;
+            case "ReviveRune":
+                effectPrototype = "FxBloodCultRuneRevive";
+                return true;
+		case "TearVeilRune":
+				effectPrototype = "TearVeilRune_drawing";
+                return true;
+            default:
+                effectPrototype = null;
+                return false;
+        }
+    }
+
+    private void RaiseEffectEvent(uint effectId, string? prototype, EntityCoordinates coords, RuneEffectAction action, TimeSpan duration)
+    {
+        var netCoords = GetNetCoordinates(coords);
+        var ev = new RuneDrawingEffectEvent(effectId, prototype, netCoords, action, duration);
+        RaiseNetworkEvent(ev, Filter.Pvs(coords, entityMan: EntityManager));
+    }
+
+    private NetCoordinates GetNetCoordinates(EntityCoordinates coords)
+    {
+        var netEntity = EntityManager.GetNetEntity(coords.EntityId);
+        return new NetCoordinates(netEntity, coords.Position);
+    }
 }

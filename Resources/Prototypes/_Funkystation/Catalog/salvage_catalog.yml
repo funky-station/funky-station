@@ -115,19 +115,19 @@
   - !type:ListingLimitedStockCondition
     stock: 2
 
-# - type: listing
-#  id: SalvageVendorBackpackMerc
-#  name: vendor-salvage-merc-backpack-name
-#  description: vendor-salvage-merc-backpack-desc
-#  icon: { sprite: Clothing/Back/Backpacks/merc.rsi, state: icon}
-#  productEntity: ClothingBackpackMerc
-#  cost:
-#    SalvageTicket: 500
-#  categories:
-#  - SalvageVendorWearables
-#  conditions:
-#  - !type:ListingLimitedStockCondition
-#    stock: 4
+- type: listing
+  id: SalvageVendorBackpackMerc
+  name: vendor-salvage-merc-backpack-name
+  description: vendor-salvage-merc-backpack-desc
+  icon: { sprite: Clothing/Back/Backpacks/merc.rsi, state: icon}
+  productEntity: ClothingBackpackMerc
+  cost:
+    SalvageTicket: 500
+  categories:
+  - SalvageVendorWearables
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 4
 
 - type: listing
   id: SalvageVendorMercHelmet
@@ -265,16 +265,16 @@
   categories:
   - SalvageVendorSupplies
 
-#- type: listing
-#  id: SalvageVendorPremiumMRE
-#  name: vendor-salvage-premium-mre-name
-#  description: vendor-salvage-premium-mre-desc
-#  icon: { sprite:  Objects/Storage/boxes.rsi, state: box_olive}
-#  productEntity: BoxMREPrmium
-#  cost:
-#    SalvageTicket: 175
-#  categories:
-#  - SalvageVendorSupplies
+- type: listing
+  id: SalvageVendorPremiumMRE
+  name: vendor-salvage-premium-mre-name
+  description: vendor-salvage-premium-mre-desc
+  icon: { sprite:  Objects/Storage/boxes.rsi, state: box_olive}
+  productEntity: BoxMREPrmium
+  cost:
+    SalvageTicket: 175
+  categories:
+  - SalvageVendorSupplies
 
 - type: listing
   id: SalvageVendorEmergencyPen

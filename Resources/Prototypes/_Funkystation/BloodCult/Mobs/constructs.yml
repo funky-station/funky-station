@@ -1,19 +1,22 @@
 # SPDX-FileCopyrightText: 2025 Skye <57879983+Rainbeon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 kbarkevich <24629810+kbarkevich@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 Terkala <appleorange64@gmail.com>
 #
-# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+# SPDX-License-Identifier: AGPL-3.0-or-later OR MIT
 
 - type: entity
   name: juggernaut shell
   id: CultJuggernautShell
   parent: BaseBloodCultContraband
-  description: A large, inert monstrosity made from runed metal.
+  description: A large, inert monstrosity made from runed metal. Can be completed by dragging a dead body onto it or using a filled soulstone on it.
   components:
   - type: BloodCultConstructShell
   - type: Construction
     graph: CultJuggernautShell
     node: juggernautShell
+  - type: Transform
+    anchored: true
   - type: Sprite
     sprite: _Funkystation/BloodCult/Mobs/constructs.rsi
     state: juggernaut
@@ -64,16 +67,52 @@
     #- type: Hands
     - type: ZombieImmune
     - type: Damageable
+      damageContainer: BloodCultConstruct
       damageModifierSet: CultJuggernaut
     - type: BloodCultConstruct
+    - type: Bloodstream
+      bloodMaxVolume: 0
+      bloodReagent: Blood
+      maxBleedAmount: 0
+    - type: Reactive
+      groups:
+        Flammable: [ Touch ]
+        Extinguish: [ Touch ]
+      reactions:
+      - reagents: [ Blood, Slime, Sap, InsectBlood, CopperBlood, AmmoniaBlood, ZombieBlood, BloodChangeling]
+        methods: [ Touch ]
+        effects:
+        - !type:HealthChange
+          scaleByQuantity: true
+          damage:
+            groups:
+              Brute: -2
+              Burn: -2
+        - !type:PopupMessage
+          type: Local
+          visualType: Medium
+          messages: [ "bloodcult-juggernaut-healed-by-blood" ]
+          probability: 0.5
+        - !type:JuggernautBloodCorruption
     - type: MindContainer
     - type: Juggernaut
+    - type: JuggernautBodyContainer
+      containerId: juggernaut_body_container
+    - type: ContainerContainer
+      containers:
+        juggernaut_body_container: !type:ContainerSlot
+        juggernaut_soulstone_container: !type:ContainerSlot
     - type: Physics
     - type: InputMover
     - type: MobMover
+    - type: Speech
+    - type: Emoting
     - type: ReplacementAccent
-      accent: genericAggressive
+      accent: juggernaut
     - type: CombatMode
+    - type: Puller
+      needsHands: false
+    - type: Pullable
     - type: HTN
       rootTask:
         task: SimpleHostileCompound
@@ -86,13 +125,15 @@
     - type: MobState
       allowedStates:
         - Alive
+        - Critical
         - Dead
     - type: MeleeWeapon
       hidden: true
       soundHit:
         path: /Audio/Effects/wood_destroy2.ogg
-      angle: 0
+      angle: 60
       animation: WeaponArcSmash
+      wideAnimation: WeaponArcSmash
       damage:
         types:
           Blunt: 15
@@ -100,6 +141,9 @@
     - type: DamageStateVisuals
       states:
         Alive:
+          Base: juggernaut
+          BaseUnshaded: nautdamage
+        Critical:
           Base: juggernaut
         Dead:
           Base: juggernaut_dead
@@ -117,7 +161,8 @@
     - type: MobThresholds
       thresholds:
         0: Alive
-        140: Dead
+        140: Critical
+        280: Dead
     - type: MovementSpeedModifier
       baseWalkSpeed: 2.0
       baseSprintSpeed: 2.5
@@ -150,8 +195,13 @@
     #- type: Hands
     - type: ZombieImmune
     - type: Damageable
-      #damageModifierSet: CultJuggernaut
+      damageContainer: BloodCultConstruct
+      damageModifierSet: CultShade
     - type: BloodCultConstruct
+    - type: Bloodstream
+      bloodMaxVolume: 0
+      bloodReagent: Blood
+      maxBleedAmount: 0
     - type: MindContainer
     - type: Shade
     - type: Physics

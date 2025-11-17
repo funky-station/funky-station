@@ -50,16 +50,16 @@
       tags:
       - BaseballBat
 
-#- type: cargoBounty
-#  id: BountyBrain
-#  reward: 12500
-#  description: bounty-description-brain
-#  entries:
-#  - name: bounty-item-brain
-#    amount: 1
-#    whitelist:
-#      components:
-#      - Brain
+- type: cargoBounty
+  id: BountyBrain
+  reward: 12500
+  description: bounty-description-brain
+  entries:
+  - name: bounty-item-brain
+    amount: 1
+    whitelist:
+      components:
+      - Brain
 
 - type: cargoBounty
   id: BountyBread

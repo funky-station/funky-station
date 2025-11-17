@@ -232,6 +232,7 @@ public sealed class TurbineSystem : SharedTurbineSystem
         {
             TearApart(uid, comp);
         }
+        Dirty(uid, comp);
     }
 
     private float CalculateTransferVolume(TurbineComponent comp, PipeNode inlet, PipeNode outlet, float dt)

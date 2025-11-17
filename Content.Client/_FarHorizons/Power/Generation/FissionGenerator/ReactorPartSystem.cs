@@ -1,4 +1,3 @@
-
 using Content.Shared._FarHorizons.Power.Generation.FissionGenerator;
 using Robust.Client.GameObjects;
 using Robust.Shared.Prototypes;

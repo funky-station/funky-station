@@ -66,13 +66,13 @@ namespace Content.Shared.Research.Prototypes
         [DataField]
         public EntProtoId? Result;
 
-        // Funky Change, Salvage Ticket System
+        //Start Funky change, Salvage Ticket System
         [DataField]
         public bool PrintTicket = false;
 
         [DataField]
         public EntProtoId TicketProtoId = "SalvageTicket";
-
+        // End Funky change
 
         [DataField]
         public Dictionary<ProtoId<ReagentPrototype>, FixedPoint2>? ResultReagents;

@@ -267,12 +267,13 @@ namespace Content.Server.Lathe
                     var result = Spawn(resultProto, Transform(uid).Coordinates);
                     _stack.TryMergeToContacts(result);
                 }  
-                   // Funky Change, Salvage Ticket system
+                   //Start Funky change, Salvage Ticket system
                    if (comp.CurrentRecipe.PrintTicket) 
                     {
                         var tickets = Spawn(comp.CurrentRecipe.TicketProtoId, Transform(uid).Coordinates);
                         _stack.TryMergeToContacts(tickets);
                     }
+                    // End Funky 
                 if (comp.CurrentRecipe.ResultReagents is { } resultReagents &&
                     comp.ReagentOutputSlotId is { } slotId)
                 {

@@ -51,3 +51,8 @@
   id: fresh
   flavorType: Base
   description: flavor-base-fresh
+
+- type: flavor
+  id: forbidden
+  flavorType: Complex
+  description: flavor-complex-forbidden

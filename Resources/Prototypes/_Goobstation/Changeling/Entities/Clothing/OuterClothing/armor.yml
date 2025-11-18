@@ -6,33 +6,34 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
-- type: entity
-  parent: ClothingOuterBaseLarge
-  id: ChangelingClothingOuterArmor
-  name: chitinous armor
-  description: An all-consuming chitinous mass of armor.
-  suffix: Unremoveable
-  components:
-  - type: Sprite
-    sprite: _Goobstation/Changeling/ling_armor.rsi
-  - type: Clothing
-    sprite: _Goobstation/Changeling/ling_armor.rsi
-  - type: StaminaResistance
-    damageCoefficient: 0.40
-  - type: Armor
-    modifiers:
-      coefficients:
-        Blunt: 0.5
-        Slash: 0.5
-        Piercing: 0.5
-        Heat: 0.5
-        Radiation: 0.5
-        Caustic: 0.5
-  - type: ClothingSpeedModifier
-    walkModifier: 0.7
-    sprintModifier: 0.65
-  - type: HeldSpeedModifier
-  - type: ExplosionResistance
-    damageCoefficient: 0.5
-  - type: GroupExamine
-  - type: Unremoveable
+# Funkystation: moved to hardsuit
+# - type: entity
+  # parent: ClothingOuterBaseLarge
+  # id: ChangelingClothingOuterArmor
+  # name: chitinous armor
+  # description: An all-consuming chitinous mass of armor.
+  # suffix: Unremoveable
+  # components:
+  # - type: Sprite
+    # sprite: _Goobstation/Changeling/ling_armor.rsi
+  # - type: Clothing
+    # sprite: _Goobstation/Changeling/ling_armor.rsi
+  # - type: StaminaResistance
+    # damageCoefficient: 0.40
+  # - type: Armor
+    # modifiers:
+      # coefficients:
+        # Blunt: 0.5
+        # Slash: 0.5
+        # Piercing: 0.5
+        # Heat: 0.5
+        # Radiation: 0.5
+        # Caustic: 0.5
+  # - type: ClothingSpeedModifier
+    # walkModifier: 0.7
+    # sprintModifier: 0.65
+  # - type: HeldSpeedModifier
+  # - type: ExplosionResistance
+    # damageCoefficient: 0.5
+  # - type: GroupExamine
+  # - type: Unremoveable

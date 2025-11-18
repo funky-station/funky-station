@@ -1,5 +1,6 @@
 # SPDX-FileCopyrightText: 2025 ATDoop <bug@bug.bug>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 Zergologist <114537969+Chedd-Error@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
@@ -58,7 +59,7 @@
       required: true
       defaultMarkings: [ ThavenEars1 ]
     Head:
-      points: 4
+      points: 5 # 4 < 5, Funky, makes it so that you can have even more customization options on your thaven, sickeningly many even
       required: false
     Chest:
       points: 4

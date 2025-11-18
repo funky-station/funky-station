@@ -30,9 +30,9 @@ public sealed partial class ChangelingInfectionComponent : Component
 
     public float FirstSymptomsDelay = 600f;
 
-    public float KnockedOutDelay = 1200f;
+    public float KnockedOutDelay = 1800f;
 
-    public float FullyInfectedDelay = 1320f;
+    public float FullyInfectedDelay = 1920f;
 
     public float ScarySymptomChance = 0.1f;
 

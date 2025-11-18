@@ -1,4 +1,5 @@
 // SPDX-FileCopyrightText: 2025 Eris <erisfiregamer1@gmail.com>
+// SPDX-FileCopyrightText: 2025 Xcybitt <197952719+Xcybitt@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 misghast <51974455+misterghast@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //

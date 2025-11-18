@@ -87,10 +87,9 @@
   equipment:
   # eyes: ClothingEyesGlassesSecurity
     ears: ClothingHeadsetAltSecurityRegular # Goobstation
-    pocket1: WeaponPistolMk58
+    pocket1: WeaponEnergyGunEnergyPistol # funkystation
   storage:
     back:
     - Flash
-    - MagazinePistol
     - SecHypo # Goobstation
     - CartridgeEmergency

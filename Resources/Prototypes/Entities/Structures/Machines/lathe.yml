@@ -732,7 +732,9 @@
     - MagazinePistolLargeIncendiary # Funkystation
     - MagazineBoxPistolLargeUranium # Funkystation
     - MagazineBoxPistolLargeIncendiary # Funkystation
-
+    - WeaponEnergyGunEnergyPistol # Funkystation
+    - WeaponTeslaGun # Funkystation 
+ 
 - type: entity
   id: ProtolatheHyperConvection
   parent: [Protolathe, BaseHyperlathe]
@@ -1212,6 +1214,8 @@
     - MagazinePistolLargeIncendiary # Funkystation
     - MagazineBoxPistolLargeUranium # Funkystation
     - MagazineBoxPistolLargeIncendiary # Funkystation
+    - WeaponEnergyGunEnergyPistol # Funkystation
+    - WeaponTeslaGun # Funkystation 
     - PortableRecharger
     - PowerCageHigh
     - PowerCageMedium

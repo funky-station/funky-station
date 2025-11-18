@@ -283,14 +283,18 @@
         map: ["enum.GunVisualLayers.MagUnshaded"]
         shader: unshaded
   - type: Gun
-    projectileSpeed: 10
+    projectileSpeed: 8
     soundGunshot:
       path: /Audio/Effects/Lightning/lightningshock.ogg
       params:
         variation: 0.2
+    fireRate: 0.5
+  - type: Battery
+    maxCharge: 3000
+    startingCharge: 3000
   - type: ProjectileBatteryAmmoProvider
     proto: TeslaGunBullet
-    fireCost: 300
+    fireCost: 1000
   - type: MagazineVisuals
     magState: mag
     steps: 5
@@ -301,10 +305,10 @@
       - SpecialWeapon
 
 - type: entity
-  name: practice laser rifle
+  name: practice laser carbine
   parent: [BaseWeaponBattery, BaseGunWieldable]
   id: WeaponLaserCarbinePractice
-  description: This modified laser rifle fires nearly harmless beams in the 40-watt range, for target practice.
+  description: This modified carbine rifle fires nearly harmless beams in the 40-watt range, for target practice.
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Battery/laser_gun.rsi
@@ -318,21 +322,32 @@
     magState: mag
     steps: 5
     zeroVisible: false
+  - type: Battery
+    maxCharge: 2000
+    startingCharge: 2000
+  - type: Item
+    size: Huge
+    shape:
+    - 0,0,3,1
   - type: Appearance
   - type: Clothing
     sprite: Objects/Weapons/Guns/Battery/laser_gun.rsi
   - type: Gun
+    fireRate: 2
     selectedMode: SemiAuto
+    shotsPerBurst: 3
+    burstFireRate: 2
     availableModes:
     - SemiAuto
+    - Burst
   - type: HitscanBatteryAmmoProvider
     proto: RedLaserPractice
-    fireCost: 62.5
+    fireCost: 80
   - type: StaticPrice
     price: 300
 
 - type: entity
-  name: laser rifle
+  name: laser carbine
   parent: [WeaponLaserCarbinePractice, BaseGunWieldable, BaseSecurityContraband]
   id: WeaponLaserCarbine
   description: Favoured by Nanotrasen Security for being cheap and easy to use.
@@ -340,8 +355,8 @@
   - type: StaticPrice
     price: 420
   - type: HitscanBatteryAmmoProvider
-    proto: RedLaser
-    fireCost: 62.5
+    proto: RedMediumLaser
+    fireCost: 80
   - type: Tag
     tags:
       - Rifle

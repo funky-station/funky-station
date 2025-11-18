@@ -5,10 +5,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
 - type: entity
-  name: miniature laser pistol # Funkystation: copied multiphase for making head of personnel energy pistol. components inspired by multiphase and crusher for the integrated light
-  parent: [BaseWeaponBatterySmall, BaseCommandContraband, BaseItem] # Frontier: added BaseC2ContrabandUnredeemable. Goobstation: removed BaseC2ContrabandUnredeemable, added BaseCommandContraband
+  name: RG-2 energy pistol # Funkystation: retooled into a security sidearm
+  parent: [BaseWeaponBatterySmall, BaseSecurityContraband, BaseItem] # Funkystation: Changed from Command to Security contraband
   id: WeaponEnergyGunEnergyPistol
-  description: A miniature, bolt-based multi mode self defense laser pistol.
+  description: A bolt-based dual mode energy pistol, favored as the standard issue sidearm for Nanotrasen Security personnel.
   components:
   - type: Sprite
     sprite: _Funkystation/Objects/Weapons/miniature_laser_pistol.rsi
@@ -22,10 +22,10 @@
       map: ["enum.GunVisualLayers.MagUnshaded"]
       shader: unshaded
   - type: Clothing
-    quickEquip: false # Frontier
-    slots: # Frontier
-    # - Back # Frontier
-    - backStorage #Frontier
+    quickEquip: false
+    slots:
+    - Back
+    - backStorage
     - Belt
     sprite: _Funkystation/Objects/Weapons/miniature_laser_pistol.rsi
   - type: Gun
@@ -37,22 +37,18 @@
     maxCharge: 1500
     startingCharge: 1500
   - type: ProjectileBatteryAmmoProvider
-    proto: BulletDisabler
-    fireCost: 50
-  - type: EnergyGun
+    proto: BulletEnergyGunLaser
+    fireCost: 100
+  - type: BatteryWeaponFireModes
     fireModes:
     - proto: BulletDisabler
-      fireCost: 50
+      fireCost: 80
       name: disabling
       state: disabler
     - proto: BulletEnergyGunLaser
       fireCost: 100
       name: lethal
       state: lethal
-    - proto: BulletEnergyGunIon
-      fireCost: 100
-      name: ion
-      state: special
   - type: MagazineVisuals
     magState: mag
     steps: 5
@@ -64,24 +60,16 @@
         Firemode:
           Disabler: { state: mode-disabler }
           Lethal: { state: mode-lethal }
-          Special: { state: mode-ion }
   - type: Tag
     tags:
-    - HighRiskItem
     - Sidearm
-  - type: BatterySelfRecharger
-    autoRecharge: false
-    autoRechargeRate: 40
   - type: StaticPrice
     price: 750
-  - type: UnpoweredFlashlight
-  - type: PointLight
-    enabled: false
-    mask: /Textures/Effects/LightMasks/cone.png
-    autoRot: true
   - type: Item
     sprite: _Funkystation/Objects/Weapons/miniature_laser_pistol_inhands_64x.rsi
     heldPrefix: energy
+
+
 - type: entity
   name: disabler plus
   description: A sophisticated disabler with additional capacity and integrated flashlight. Intended for self defense situations only.

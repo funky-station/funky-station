@@ -94,6 +94,7 @@
   parent: ClothingOuterWinterCoatToggleable
   id: ClothingOuterWinterAtmos
   name: atmospherics winter coat
+  description: A rarely used winter coat, as you're too busy dealing with atmospheric work. Still comfortable though.
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
@@ -137,10 +138,23 @@
     clothingPrototype: ClothingHeadHatHoodWinterBartender
 
 - type: entity
-  parent: [ClothingOuterWinterCoatToggleable, BaseCommandContraband]
+  parent: [ClothingOuterWinterCoatToggleable, BaseCommandContraband, AllowBackStorageClothingCombat]
   id: ClothingOuterWinterCap
+  description: It's one of your spare carapace sewn into a durathread winter coat specially made for you. Or so they say. It's comfortable enough, at least.
   name: captain's winter coat
   components:
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.55
+        Slash: 0.55
+        Piercing: 0.65
+        Heat: 0.55
+        Caustic: 0.9
+  - type: ExplosionResistance
+    damageCoefficient: 0.7
+  - type: StaminaResistance
+    damageCoefficient: 0.8
   - type: Sprite
     sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
     layers:
@@ -186,6 +200,7 @@
   parent: [ClothingOuterWinterCoatToggleable, BaseCommandContraband]
   id: ClothingOuterWinterCE
   name: chief engineer's winter coat
+  description: A rarely used winter coat, as you're too busy suiting up for engineering work. Still really comfortable though.
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
@@ -209,6 +224,7 @@
   parent: [ ClothingOuterWinterCoatToggleable, BaseCentcommContraband ]
   id: ClothingOuterWinterCentcom
   name: CentComm winter coat
+  description: A special winter coat built to ensure maximum comfort for the wearer. Seems to be sewn with the utmost care and the best materials possible.
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
@@ -254,6 +270,7 @@
   parent: ClothingOuterWinterCoatToggleable
   id: ClothingOuterWinterChem
   name: chemistry winter coat
+  description: A winter coat that is specially treated to prevent chemical burns. Seems to have several deep stains despite the treatment.
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
@@ -284,6 +301,7 @@
   parent: [ClothingOuterWinterCoatToggleable, BaseCommandContraband]
   id: ClothingOuterWinterCMO
   name: chief medical officer's winter coat
+  description: A specially made winter coat with a coating to prevent chemical burns and extra padding sewn in to help with unruly patients.
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
@@ -324,6 +342,7 @@
   parent: ClothingOuterWinterCoatToggleable
   id: ClothingOuterWinterEngi
   name: engineering winter coat
+  description: A yellow winter coat built to withstand the cold, not the vacuum of space. At least it's comfortable.
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
@@ -377,6 +396,7 @@
   parent: [ClothingOuterWinterCoatToggleable, BaseCommandContraband]
   id: ClothingOuterWinterHoP
   name: head of personnel's winter coat
+  description: A normal winter coat dyed with the head of personnel's colours.
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
@@ -440,6 +460,7 @@
   parent: ClothingOuterWinterCoatToggleable
   id: ClothingOuterWinterHydro
   name: hydroponics winter coat
+  description: A normal winter coat dyed hydroponics colours.
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
@@ -463,6 +484,7 @@
   parent: ClothingOuterWinterCoatToggleable
   id: ClothingOuterWinterJani
   name: janitorial winter coat
+  description:  A purple winter coat sewn with some padding and coating to help keep you clean.
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
@@ -493,6 +515,7 @@
   parent: ClothingOuterWinterCoatToggleable
   id: ClothingOuterWinterMed
   name: medical winter coat
+  description:  A white winter coat sewn with some padding and coating to help keep you sterile.
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
@@ -546,6 +569,7 @@
   parent: ClothingOuterWinterCoatToggleable
   id: ClothingOuterWinterMiner
   name: mining winter coat
+  description:  A winter coat coloured with salvage colours. Comfortable, but not spacefaring.
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
@@ -569,6 +593,7 @@
   parent: ClothingOuterWinterCoatToggleable
   id: ClothingOuterWinterPara
   name: paramedic winter coat
+  description:  A medical winter coat coloured with paramedic colours. Tragically, you can't seem to fit a siren on it.
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
@@ -599,6 +624,7 @@
   parent: [ClothingOuterWinterCoatToggleable, BaseCommandContraband]
   id: ClothingOuterWinterQM
   name: quartermaster's winter coat
+  description:  A normal winter coat dyed with the quartermaster's colours. Comfortable and cost efficient, what else could you ask for?
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
@@ -623,6 +649,7 @@
   parent: [ClothingOuterWinterCoatToggleable, BaseCommandContraband]
   id: ClothingOuterWinterRD
   name: research director's winter coat
+  description:  A normal winter coat dyed with the research director's colours. Seems to have some slimy residue. Probably from when you cuddled Smile.
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
@@ -653,6 +680,7 @@
   parent: ClothingOuterWinterCoatToggleable
   id: ClothingOuterWinterRobo
   name: robotics winter coat
+  description:  A normal winter coat dyed with robotics' colours.
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
@@ -677,6 +705,7 @@
   parent: ClothingOuterWinterCoatToggleable
   id: ClothingOuterWinterSci
   name: science winter coat
+  description:  A normal winter coat dyed with science's colours.
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
@@ -704,7 +733,7 @@
     clothingPrototype: ClothingHeadHatHoodWinterSci
 
 - type: entity
-  parent: [ClothingOuterWinterCoatToggleable, BaseSecurityContraband]
+  parent: [ClothingOuterWinterCoatToggleable, BaseSecurityContraband, AllowBackStorageClothingCombat]
   id: ClothingOuterWinterSec
   name: security winter coat
   description: A red winter coat outfitted with standard type I armored vest padding with some modifications as to fit both the padding and the insulation.

@@ -727,10 +727,10 @@
   result: ClothingUniformJumpskirtWarden
 
 # Command winter coats
-- type: latheRecipe
-  parent: BaseCommandCoatRecipe
-  id: ClothingOuterWinterCap
-  result: ClothingOuterWinterCap
+#- type: latheRecipe  #giving this armor, no way am i gonna let armor actually just be fabbed
+#  parent: BaseCommandCoatRecipe
+#  id: ClothingOuterWinterCap
+#  result: ClothingOuterWinterCap
 
 - type: latheRecipe
   parent: BaseCommandCoatRecipe
@@ -868,10 +868,10 @@
   id: ClothingOuterWinterRobo
   result: ClothingOuterWinterRobo
 
-- type: latheRecipe
-  parent: BaseCoatRecipe
-  id: ClothingOuterWinterSec
-  result: ClothingOuterWinterSec
+#- type: latheRecipe   #this has armor, probably not the best to let be fabbable normally
+#  parent: BaseCoatRecipe
+#  id: ClothingOuterWinterSec
+#  result: ClothingOuterWinterSec
 
 - type: latheRecipe
   parent: BaseCoatRecipe

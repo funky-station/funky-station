@@ -138,14 +138,14 @@ cult-central-rift-warning = Attention! A rift in reality has been opened in { $l
 
 cult-status-cultdata = Current cult members: {$cultMembers} cultists and {$constructCount} constructs
 
-cult-blood-progress = [italic]Blood Collected: {$bloodCollected}u / {$totalRequired}u. {$bloodNeeded}u more needed for {$nextPhase}.[/italic]
-cult-blood-progress-stage-complete = [italic]Blood Collected: {$bloodCollected}u / {$totalRequired}u (Stage complete)[/italic]
-cult-blood-progress-tear-veil = [italic]Next objective: Perform the Tear Veil ritual at {$location1}, {$location2}, or {$location3}.[/italic]
+cult-blood-progress = [italic]Blood Spilled: {$bloodCollected}u / {$totalRequired}u. {$bloodNeeded}u more needed for {$nextPhase}. Convert non-believers or spill their blood with your cult dagger.[/italic]
+cult-blood-progress-stage-complete = [italic]Blood Spilled: {$bloodCollected}u / {$totalRequired}u (Stage complete)[/italic]
+cult-blood-progress-tear-veil = [italic]Next objective: Perform the Tear Veil ritual at {$location1}, {$location2}, or {$location3} with {$required} cultists.[/italic]
 cult-blood-progress-final-summon = [italic]Next objective: Find the reality rift and perform the final summoning ritual with 9 cultists.[/italic]
 cult-blood-progress-final-summon-pending = [italic]Next objective: Await the manifestation of the blood rift.[/italic]
 cult-blood-progress-final-summon-ready = [italic]Next objective: Chant the final summoning ritual to bring Nar'Sie into this reality![/italic]
 cult-blood-progress-final-summon-location = [italic]Final summoning site: {$location}.[/italic]
-cult-blood-progress-complete = [italic]Blood Collected: {$bloodCollected}u. All blood thresholds have been met![/italic]
+cult-blood-progress-complete = [italic]Blood Spilled: {$bloodCollected}u. All blood thresholds have been met![/italic]
 
 cult-narsie-sacrifice-accept = "I accept your sacrifice."
 cult-narsie-target-down = "Yes! This is the one I desire! You have done well."

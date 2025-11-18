@@ -50,6 +50,7 @@ using Content.Shared.Ghost;
 using Content.Shared.Database;
 using Content.Server.Administration.Logs;
 using Content.Shared.Bed.Cryostorage;
+using Content.Shared.Bed.Sleep;
 
 using Content.Server.BloodCult.EntitySystems;
 using Content.Shared.BloodCult.Prototypes;
@@ -167,6 +168,7 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 	[Dependency] private readonly IConsoleHost _consoleHost = default!;
 	[Dependency] private readonly SharedTransformSystem _transformSystem = default!;
 	[Dependency] private readonly BloodCultMindShieldSystem _mindShield = default!;
+	[Dependency] private readonly SleepingSystem _sleeping = default!;
 
 	public readonly string CultComponentId = "BloodCultist";
 
@@ -870,6 +872,12 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 		_audio.PlayPvs(new SoundPathSpecifier("/Audio/_Funkystation/Ambience/Antag/creepyshriek.ogg"), uid);
 		MakeCultist(uid, component);
 		_rejuvenate.PerformRejuvenate(uid);
+		
+		// Wake up sleeping players 
+		if (TryComp<SleepingComponent>(uid, out var sleeping))
+		{
+			_sleeping.TryWaking((uid, sleeping), force: true);
+		}
 	}
 
 	private void OnMindAdded(EntityUid uid, BloodCultistComponent cultist, MindAddedMessage args)
@@ -1185,7 +1193,8 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 				message += "\n" + Loc.GetString("cult-blood-progress-tear-veil",
 					("location1", name1),
 					("location2", name2),
-					("location3", name3));
+					("location3", name3),
+					("required", component.MinimumCultistsForVeilRitual));
 			}
 			
 			return message;

@@ -231,6 +231,12 @@
     state: pointer_up
 
 - type: decal
+  id: DirFloorTilePower
+  sprite:
+    sprite: Decals/directional_tiles.rsi
+    state: power
+
+- type: decal
   id: DirFloorTilePsych
   sprite:
     sprite: Decals/directional_tiles.rsi
@@ -270,7 +276,7 @@
   id: DirFloorTileSingularity
   sprite:
     sprite: Decals/directional_tiles.rsi
-    state: ai
+    state: singularity
 
 - type: decal
   id: DirFloorTileSolars
@@ -327,10 +333,10 @@
     state: xenoarch
 
 - type: decal
-  id: DirFloorTileXenoarch
+  id: DirFloorTileXenobio
   sprite:
     sprite: Decals/directional_tiles.rsi
-    state: xenoarch
+    state: xenobio
 
 - type: decal
   id: DirFloorTileZoo

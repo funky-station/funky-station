@@ -144,3 +144,6 @@
   - type: EmitSoundOnTrigger
     sound:
       path: "/Audio/Weapons/Guns/Gunshots/batrifle.ogg"
+  - type: Tag
+    tags:
+    - LethalGrenade

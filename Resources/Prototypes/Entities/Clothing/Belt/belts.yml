@@ -591,6 +591,7 @@
         - Truncheon
         - BolaEnergy # Goobstation
         - NonlethalGrenade
+        - LethalGrenade
       components:
         - Stunbaton
         - FlashOnTrigger

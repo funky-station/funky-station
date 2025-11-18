@@ -1111,6 +1111,9 @@
   id: NonlethalGrenade
 
 - type: Tag
+  id: LethalGrenade
+  
+- type: Tag
   id: NoRecharge # Assmos - Crystallizer
 
 - type: Tag

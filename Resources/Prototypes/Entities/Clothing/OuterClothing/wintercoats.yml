@@ -460,7 +460,7 @@
   parent: ClothingOuterWinterCoatToggleable
   id: ClothingOuterWinterHydro
   name: hydroponics winter coat
-  description: A normal winter coat dyed hydroponics colours.
+  description: A normal winter coat dyed with hydroponics' colours.
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/WinterCoats/coat.rsi

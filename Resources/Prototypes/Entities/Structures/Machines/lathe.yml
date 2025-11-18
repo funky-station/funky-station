@@ -676,6 +676,9 @@
     - ClothingEyesNightVisionGoggles # Funky - EE nightvision
     - ClothingEyesNightVisionDiagnosticGoggles # Funky - EE nightvision
     - ClothingEyesThermalVisionGoggles # Funky - EE nightvision
+    - SadTromboneImplanter
+    - LightImplanter
+    - BikeHornImplanter
   - type: EmagLatheRecipes
     emagDynamicRecipes:
     - BoxBeanbag
@@ -722,6 +725,8 @@
     - MagazinePistolLargeIncendiary # Funkystation
     - MagazineBoxPistolLargeUranium # Funkystation
     - MagazineBoxPistolLargeIncendiary # Funkystation
+    - MindShieldImplanter
+    - TrackingImplanter
 
 - type: entity
   id: ProtolatheHyperConvection
@@ -1236,6 +1241,8 @@
     - WeaponMechCombatFlashbangLauncher
     - WeaponMechCombatMissileRack8
     - ClothingEyesNightVisionSecurityGoggles # Funky - EE nightvision
+    - MindShieldImplanter
+    - TrackingImplanter
   - type: EmagLatheRecipes # Goobstation
     emagStaticRecipes:
     - GrenadeShrapnel #funky
@@ -1399,6 +1406,9 @@
     - BluespaceBeaker
     - SyringeBluespace
     - SyringeCryostasis
+    - SadTromboneImplanter
+    - LightImplanter
+    - BikeHornImplanter
     # Shitmed Change
     - EnergyScalpel
     - EnergyCautery

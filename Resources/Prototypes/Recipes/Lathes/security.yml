@@ -484,14 +484,14 @@
   result: MagazineBoxPistolLargeIncendiary
   materials:
     Plastic: 450
-    
+
 - type: latheRecipe
   parent: BaseAmmoRecipe
   id: MagazineBoxPistolLargePractice
   result: MagazineBoxPistolLargePractice
   materials:
     Steel: 150
-    
+
 - type: latheRecipe
   parent: BaseAmmoRecipe
   id: MagazineBoxPistolLargeUranium
@@ -868,3 +868,27 @@
   materials:
     Steel: 400
     Plastic: 200
+
+- type: latheRecipe
+  id: MindShieldImplanter
+  result: MindShieldImplanter
+  completetime: 3
+  materials:
+    Steel: 1000
+    Glass: 1000
+    Plasma: 1000
+    Uranium: 1000
+    Gold: 500
+    Silver: 500
+    Diamond: 50
+
+- type: latheRecipe
+  id: TrackingImplanter
+  result: TrackingImplanter
+  completetime: 3
+  materials:
+    Steel: 1000
+    Glass: 1000
+    Gold: 150
+    Silver: 150
+    Plastic: 500

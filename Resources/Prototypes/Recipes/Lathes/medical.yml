@@ -273,6 +273,33 @@
     Steel: 100
     Wood: 100
 
+- type: latheRecipe
+  id: SadTromboneImplanter
+  result: SadTromboneImplanter
+  completetime: 3
+  materials:
+    Steel: 1000
+    Glass: 200
+
+- type: latheRecipe
+  id: LightImplanter
+  result: LightImplanter
+  completetime: 3
+  materials:
+    Steel: 800
+    Glass: 800
+    Plasma: 10
+    Plastic: 100
+
+- type: latheRecipe
+  id: BikeHornImplanter
+  result: BikeHornImplanter
+  completetime: 3
+  materials:
+    Steel: 800
+    Glass: 200
+    Plastic: 500
+
 # funky station
 
 - type: latheRecipe

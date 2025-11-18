@@ -17,6 +17,9 @@
             "name": "anchor"
         },
         {
+            "name": "anomlab"
+        },
+        {
             "name": "armory"
         },
         {
@@ -98,7 +101,13 @@
             "name": "med"
         },
         {
+            "name": "morgue"
+        },
+        {
             "name": "news"
+        },
+        {
+            "name": "ordnance"
         },
         {
             "name": "pointer_down"
@@ -122,10 +131,28 @@
             "name": "salvage"
         },
         {
+            "name": "satellite"
+        },
+        {
             "name": "sci"
         },
         {
             "name": "security"
+        },
+        {
+            "name": "singularity"
+        },
+        {
+            "name": "solars"
+        },
+        {
+            "name": "spicyrock"
+        },
+        {
+            "name": "telesci"
+        },
+        {
+            "name": "tesla"
         },
         {
             "name": "theater"
@@ -138,6 +165,12 @@
         },
         {
             "name": "viro"
+        },
+        {
+            "name": "xenoarch"
+        },
+        {
+            "name": "xenobio"
         },
         {
             "name": "zoo"

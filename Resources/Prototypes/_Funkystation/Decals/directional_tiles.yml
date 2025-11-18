@@ -21,6 +21,12 @@
     state: anchor
 
 - type: decal
+  id: DirFloorTileAnomalyLab
+  sprite:
+    sprite: Decals/directional_tiles.rsi
+    state: anomlab
+
+- type: decal
   id: DirFloorTileArmory
   sprite:
     sprite: Decals/directional_tiles.rsi
@@ -183,10 +189,22 @@
     state: med
 
 - type: decal
+  id: DirFloorTileMorgue
+  sprite:
+    sprite: Decals/directional_tiles.rsi
+    state: morgue
+
+- type: decal
   id: DirFloorTileNewsroom
   sprite:
     sprite: Decals/directional_tiles.rsi
     state: news
+
+- type: decal
+  id: DirFloorTileOrdnanceLab
+  sprite:
+    sprite: Decals/directional_tiles.rsi
+    state: ordnance
 
 - type: decal
   id: DirFloorTilePointerDown
@@ -231,6 +249,12 @@
     state: salvage
 
 - type: decal
+  id: DirFloorTileSatelliteArray
+  sprite:
+    sprite: Decals/directional_tiles.rsi
+    state: satellite
+
+- type: decal
   id: DirFloorTileScience
   sprite:
     sprite: Decals/directional_tiles.rsi
@@ -241,6 +265,36 @@
   sprite:
     sprite: Decals/directional_tiles.rsi
     state: security
+
+- type: decal
+  id: DirFloorTileSingularity
+  sprite:
+    sprite: Decals/directional_tiles.rsi
+    state: ai
+
+- type: decal
+  id: DirFloorTileSolars
+  sprite:
+    sprite: Decals/directional_tiles.rsi
+    state: solars
+
+- type: decal
+  id: DirFloorTileSupermatter
+  sprite:
+    sprite: Decals/directional_tiles.rsi
+    state: spicyrock
+
+- type: decal
+  id: DirFloorTileTelescience
+  sprite:
+    sprite: Decals/directional_tiles.rsi
+    state: telesci
+
+- type: decal
+  id: DirFloorTileTesla
+  sprite:
+    sprite: Decals/directional_tiles.rsi
+    state: tesla
 
 - type: decal
   id: DirFloorTileTheater
@@ -265,6 +319,18 @@
   sprite:
     sprite: Decals/directional_tiles.rsi
     state: viro
+
+- type: decal
+  id: DirFloorTileXenoarch
+  sprite:
+    sprite: Decals/directional_tiles.rsi
+    state: xenoarch
+
+- type: decal
+  id: DirFloorTileXenoarch
+  sprite:
+    sprite: Decals/directional_tiles.rsi
+    state: xenoarch
 
 - type: decal
   id: DirFloorTileZoo

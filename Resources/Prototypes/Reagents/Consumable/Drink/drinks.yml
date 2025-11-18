@@ -66,6 +66,37 @@
       - !type:AdjustReagent
         reagent: Theobromine
         amount: 0.05
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentThreshold
+          min: 30
+        damage:
+          types:
+            Poison: 0.5
+      - !type:MovespeedModifier
+        conditions:
+        - !type:ReagentThreshold
+          min: 30
+        walkSpeedModifier: 1.1
+        sprintSpeedModifier: 1.1
+      - !type:PopupMessage
+        conditions:
+        - !type:ReagentThreshold
+          min: 30
+        visualType: Medium
+        messages: ["ephedrine-effect-tight-pain", "ephedrine-effect-heart-pounds"]
+        type: Local
+        probability: 0.05
+      - !type:GenericStatusEffect
+        conditions:
+        - !type:ReagentThreshold
+          min: 30
+        key: Stutter
+        component: StutteringAccent
+      - !type:Jitter
+        conditions:
+        - !type:ReagentThreshold
+          min: 30
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/coffeeglass.rsi
     state: icon_empty
@@ -214,6 +245,37 @@
         key: Drowsiness
         time: 2.0
         type: Remove
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentThreshold
+          min: 30
+        damage:
+          types:
+            Poison: 0.5
+      - !type:MovespeedModifier
+        conditions:
+        - !type:ReagentThreshold
+          min: 30
+        walkSpeedModifier: 1.1
+        sprintSpeedModifier: 1.1
+      - !type:PopupMessage
+        conditions:
+        - !type:ReagentThreshold
+          min: 30
+        visualType: Medium
+        messages: ["ephedrine-effect-tight-pain", "ephedrine-effect-heart-pounds"]
+        type: Local
+        probability: 0.05
+      - !type:GenericStatusEffect
+        conditions:
+        - !type:ReagentThreshold
+          min: 30
+        key: Stutter
+        component: StutteringAccent
+      - !type:Jitter
+        conditions:
+        - !type:ReagentThreshold
+          min: 30
 
 - type: reagent
   id: IcedGreenTea

@@ -47,7 +47,6 @@
 # SPDX-FileCopyrightText: 2025 Mish <bluscout78@yahoo.com>
 # SPDX-FileCopyrightText: 2025 SigmaTheDragon <162711378+SigmaTheDragon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
-# SPDX-FileCopyrightText: 2025 Xcybitt <197952719+Xcybitt@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Xcybitt <xcybitt@gmail.com>
 # SPDX-FileCopyrightText: 2025 ferynn <117872973+ferynn@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
@@ -485,14 +484,14 @@
   result: MagazineBoxPistolLargeIncendiary
   materials:
     Plastic: 450
-
+    
 - type: latheRecipe
   parent: BaseAmmoRecipe
   id: MagazineBoxPistolLargePractice
   result: MagazineBoxPistolLargePractice
   materials:
     Steel: 150
-
+    
 - type: latheRecipe
   parent: BaseAmmoRecipe
   id: MagazineBoxPistolLargeUranium
@@ -869,12 +868,3 @@
   materials:
     Steel: 400
     Plastic: 200
-
-- type: latheRecipe
-  id: SurveillanceWirelessCameraBodySecurity
-  result: SurveillanceWirelessCameraBodySecurity
-  completetime: 3
-  materials:
-    Cloth: 200
-    Steel: 100
-    Plastic: 100

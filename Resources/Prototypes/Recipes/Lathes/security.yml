@@ -490,14 +490,14 @@
   result: MagazineBoxPistolLargeIncendiary
   materials:
     Plastic: 450
-
+    
 - type: latheRecipe
   parent: BaseAmmoRecipe
   id: MagazineBoxPistolLargePractice
   result: MagazineBoxPistolLargePractice
   materials:
     Steel: 150
-
+    
 - type: latheRecipe
   parent: BaseAmmoRecipe
   id: MagazineBoxPistolLargeUranium
@@ -874,12 +874,3 @@
   materials:
     Steel: 400
     Plastic: 200
-
-- type: latheRecipe
-  id: SurveillanceWirelessCameraBodySecurity
-  result: SurveillanceWirelessCameraBodySecurity
-  completetime: 3
-  materials:
-    Cloth: 200
-    Steel: 100
-    Plastic: 100

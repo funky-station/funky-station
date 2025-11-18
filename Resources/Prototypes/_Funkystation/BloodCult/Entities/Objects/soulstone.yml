@@ -9,7 +9,7 @@
   id: CultSoulStone
   parent: [ BaseItem, BaseBloodCultContraband ]
   name: soul stone
-  description: "May or may not contain a stolen soul."
+  description: "Crystalized blood of Nar'Sie, containing the brain and soul of the damned."
   components:
   - type: Sprite
     sprite: _Funkystation/BloodCult/Objects/soulstone.rsi
@@ -31,7 +31,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 50
+        damage: 30
       behaviors:
       - !type:PlaySoundBehavior
         sound:

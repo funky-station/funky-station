@@ -105,6 +105,40 @@
     - SecretDirector
 
 - type: gamePreset
+  id: BloodCult
+  alias:
+    - bloodcult
+    - cult
+  name: bloodcult-title
+  description: bloodcult-description
+  showInVote: false
+  rules:
+    - DummyNonAntagChance
+    - BloodCult
+    - SubGamemodesRule
+    - BasicStationEventScheduler
+    - MeteorSwarmScheduler
+    - SpaceTrafficControlEventScheduler
+    - BasicRoundstartVariation
+
+- type: gamePreset
+  id: BloodCult
+  alias:
+    - secretbloodcult
+  name: secret-title
+  description: secret-description
+  showInVote: false
+  rules:
+    - DummyNonAntagChance
+    - BloodCult
+    - SubGamemodesRule
+    - BasicStationEventScheduler
+    - MeteorSwarmScheduler
+    - SpaceTrafficControlEventScheduler
+    - BasicRoundstartVariation
+
+
+- type: gamePreset
   id: MalfAi
   alias:
   - malfai
@@ -136,4 +170,5 @@
   - MeteorSwarmScheduler
   - SpaceTrafficControlEventScheduler
   - BasicRoundstartVariation
+
 

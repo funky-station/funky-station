@@ -42,6 +42,7 @@ using Robust.Server.GameObjects;
 using Robust.Server.Player;
 using Robust.Shared.Enums;
 using Content.Server.Body.Components;
+using Content.Shared.Body.Part;
 using Content.Shared.Roles.Jobs;
 using Content.Shared.Localizations;
 using Content.Shared.Pinpointer;
@@ -109,14 +110,14 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 			case BloodStage.Rise:
 			{
 				// Change this to make the phase require different amounts of blood
-				var required = totalRemaining / 6.0;
+				var required = totalRemaining / 10.0;
 				component.BloodRequiredForRise = required;
 				break;
 			}
 			case BloodStage.Veil:
 			{
 				// Change this to make the phase require different amounts of blood
-				var required = totalRemaining / 6.0;
+				var required = totalRemaining / 10.0;
 				component.BloodRequiredForVeil = required;
 				break;
 			}
@@ -232,7 +233,7 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 	private void CalculateBloodRequirements(BloodCultRuleComponent component)
 	{
 		var readyCount = Math.Max(0, _gameTicker.ReadyPlayerCount());
-		var groups = Math.Max(1.0, Math.Ceiling(readyCount / 20.0));
+		var groups = Math.Max(1.0, Math.Ceiling(readyCount / 30.0));
 		component.BloodRequiredForEyes = groups * 100.0;
 		component.BloodRequiredForRise = 0.0; //Calculated later in the round
 		component.BloodRequiredForVeil = 0.0; //Calculated later in the round
@@ -320,6 +321,11 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 			_npcFaction.RemoveFaction(traitor, NanotrasenFactionId, false);
 			_npcFaction.AddFaction(traitor, BloodCultistFactionId);
 
+			// Ensure the blood gland organ is added (makes them bleed SanguinePerniculate)
+			// This is normally handled by BloodCultistMetabolismSystem.OnCultistInit, but for round-start
+			// cultists the body might not be ready when ComponentInit fires, so we ensure it here too
+			_EnsureBloodGlandOrgan(traitor);
+
 			return true;
 		}
 		return false;
@@ -341,6 +347,50 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
             //AddComp(cultRoleComp.Value, new RoleBriefingComponent { Briefing = Loc.GetString("head-rev-briefing", ("code", string.Join("-", code).Replace("sharp", "#"))) }, overwrite: true);
 
         return true;
+	}
+
+	/// <summary>
+	/// Ensures the blood gland organ is added to the cultist.
+	/// This organ makes them bleed SanguinePerniculate instead of normal blood.
+	/// </summary>
+	private void _EnsureBloodGlandOrgan(EntityUid uid)
+	{
+		if (!TryComp<BodyComponent>(uid, out var body))
+			return;
+		
+		// Check if they already have a blood gland
+		bool hasBloodGland = false;
+		foreach (var (organUid, organ) in _body.GetBodyOrgans(uid, body))
+		{
+			if (organ.SlotId == "blood_gland")
+			{
+				hasBloodGland = true;
+				break;
+			}
+		}
+		
+		if (hasBloodGland)
+			return;
+		
+		// Find the torso to add the blood gland
+		var parts = _body.GetBodyChildren(uid, body);
+		foreach (var (partUid, part) in parts)
+		{
+			if (part.PartType == BodyPartType.Torso)
+			{
+				// Create the blood_gland slot if it doesn't exist
+				if (!part.Organs.ContainsKey("blood_gland"))
+				{
+					_body.TryCreateOrganSlot(partUid, "blood_gland", out _, part);
+				}
+				
+				// Spawn and insert blood gland
+				var coords = Transform(uid).Coordinates;
+				var bloodGland = Spawn("OrganBloodGland", coords);
+				_body.InsertOrgan(partUid, bloodGland, "blood_gland", part);
+				break;
+			}
+		}
 	}
 
 	protected override void ActiveTick(EntityUid uid, BloodCultRuleComponent component, GameRuleComponent gameRule, float frameTime)
@@ -961,8 +1011,9 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 	private void SetMinimumCultistsForVeilRitual(BloodCultRuleComponent component)
 	{
 		var allAliveHumans = _mind.GetAliveHumans();
-		// 1/8th (12.5%) of players, minimum of 2
-		component.MinimumCultistsForVeilRitual = Math.Max(2, (int)Math.Ceiling((float)allAliveHumans.Count * 0.125f));
+		// 5% of players, minimum of 2, maximum of 4
+		// So at 20 players its 2, at 20-60 players its 3, at 60+ players its 4
+		component.MinimumCultistsForVeilRitual = Math.Max(2, Math.Min(4,(int)Math.Ceiling((float)allAliveHumans.Count * 0.05f)));
 	}
 
 	private int GetConversionsToEyes(BloodCultRuleComponent component, List<EntityUid> cultists)

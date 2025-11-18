@@ -33,6 +33,7 @@
 // SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 JoulesBerg <104539820+JoulesBerg@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 ferynn <witchy.girl.me@gmail.com>
 // SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
@@ -127,11 +128,6 @@ namespace Content.Shared.Cuffs
             SubscribeLocalEvent<CuffableComponent, UseAttemptEvent>(CheckAct);
             SubscribeLocalEvent<CuffableComponent, InteractionAttemptEvent>(CheckInteract);
 
-            // funky - fuck crawl meta
-            SubscribeLocalEvent<CuffableComponent, DownedEvent>(OnDowned);
-            SubscribeLocalEvent<CuffableComponent, StoodEvent>(OnStood);
-            // funky - end
-
             SubscribeLocalEvent<HandcuffComponent, AfterInteractEvent>(OnCuffAfterInteract);
             SubscribeLocalEvent<HandcuffComponent, MeleeHitEvent>(OnCuffMeleeHit);
             SubscribeLocalEvent<HandcuffComponent, AddCuffDoAfterEvent>(OnAddCuffDoAfter);
@@ -146,7 +142,7 @@ namespace Content.Shared.Cuffs
                 // allow interaction with something you are buckled into (for if you are laying in a bed)
                 if (TryComp<BuckleComponent>(args.Uid, out var buckleComp) && args.Target == buckleComp.BuckledTo)
                     return;
-                // allow interaction with yourself. 
+                // allow interaction with yourself.
                 if (args.Uid == args.Target)
                     return;
             }
@@ -155,24 +151,6 @@ namespace Content.Shared.Cuffs
             if (!ent.Comp.CanStillInteract)
                 args.Cancelled = true;
         }
-
-        // funky - fuck crawl meta
-        private void OnDowned(EntityUid uid, CuffableComponent component, DownedEvent args)
-        {
-            component.CanStillInteract = false;
-            Dirty(uid, component);
-        }
-
-        private void OnStood(EntityUid uid, CuffableComponent component, StoodEvent args)
-        {
-            if (component.CuffedHandCount == 0)
-            {
-                component.CanStillInteract = true;
-                _actionBlocker.UpdateCanMove(uid);
-                Dirty(uid, component);
-            }
-        }
-        // funky - end
 
         private void OnUncuffAttempt(ref UncuffAttemptEvent args)
         {

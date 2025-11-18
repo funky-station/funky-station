@@ -1544,7 +1544,7 @@
     - ClothingUniformJumpskirtWarden
     - ClothingHeadHatParamedicsoft
     # Winter outfits
-    - ClothingOuterWinterCap
+    #- ClothingOuterWinterCap
     - ClothingOuterWinterCE
     - ClothingOuterWinterCMO
     - ClothingOuterWinterHoP
@@ -1573,7 +1573,7 @@
     - ClothingOuterWinterViro
     - ClothingOuterWinterSci
     - ClothingOuterWinterRobo
-    - ClothingOuterWinterSec
+    #- ClothingOuterWinterSec
     # Ties
     - ClothingNeckTieRed
     - ClothingNeckTieDet

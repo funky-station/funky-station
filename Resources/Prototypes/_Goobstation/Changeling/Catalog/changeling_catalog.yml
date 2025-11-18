@@ -354,18 +354,18 @@
 #  - !type:ListingLimitedStockCondition
 #    stock: 1
 
-# disabled for now
-#- type: listing
-#  id: EvolutionMenuUtilityInfectTarget
-#  name: evolutionmenu-utility-infecttarget-name
-#  description: evolutionmenu-utility-infecttarget-desc
-#  icon: { sprite: _Goobstation/Changeling/changeling_abilities.rsi, state: lay_egg }
-#  productAction: ActionInfectTarget
-#  cost:
-#    EvolutionPoint: 8
-#  categories:
-#  - ChangelingAbilityUtility
-#  conditions:
-#  - !type:ListingLimitedStockCondition
-#    stock: 1
+# disabled for now #undisabled, if another incident happens again fml
+- type: listing
+  id: EvolutionMenuUtilityInfectTarget
+  name: evolutionmenu-utility-infecttarget-name
+  description: evolutionmenu-utility-infecttarget-desc
+  icon: { sprite: _Goobstation/Changeling/changeling_abilities.rsi, state: lay_egg }
+  productAction: ActionInfectTarget
+  cost:
+    EvolutionPoint: 8
+  categories:
+  - ChangelingAbilityUtility
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
 

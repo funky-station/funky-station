@@ -107,7 +107,7 @@
     Steel: 1500
     Glass: 800
     Silver: 250
-    Diamond: 100
+    #Diamond: 100
 
 - type: latheRecipe
   id: DurandLArm
@@ -178,7 +178,7 @@
   materials:
     Steel: 1500
     Glass: 250
-    Diamond: 100
+    #Diamond: 100
 
 - type: latheRecipe
   id: GygaxLArm

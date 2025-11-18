@@ -490,7 +490,6 @@
     - ClothingHeadHatCone
     - FreezerElectronics
     - Lantern #funky
-    - SurveillanceWirelessCameraBodyEntertainment #funk
     # Begin Delta-V additions
     - CassetteTape
     - TapeRecorder
@@ -1178,7 +1177,6 @@
     - SecHypo # Goobstation
     - autoInjectorCartridgeCase
     - autoInjectorCartridgeCaseSoft
-    - SurveillanceWirelessCameraBodySecurity #funk
     dynamicRecipes:
     - BoxBeanbag
     - BoxShotgunIncendiary

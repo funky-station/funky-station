@@ -153,13 +153,10 @@ public sealed class NuclearReactorSystem : SharedNuclearReactorSystem
         if (comp.Melted)
             return;
 
-        // I wish I could do a lot of this stuff on init, but it gets mad if I try
         if (!comp.InletEnt.HasValue || EntityManager.Deleted(comp.InletEnt.Value))
-            comp.InletEnt = SpawnAttachedTo("ReactorGasPipe", new(uid, -2, -1), rotation: Angle.FromDegrees(-90));
+            comp.InletEnt = SpawnAttachedTo("ReactorGasPipe", new(ent.Owner, -2, -1), rotation: Angle.FromDegrees(-90));
         if (!comp.OutletEnt.HasValue || EntityManager.Deleted(comp.OutletEnt.Value))
-            comp.OutletEnt = SpawnAttachedTo("ReactorGasPipe", new(uid, 2, 1), rotation: Angle.FromDegrees(90));
-
-        CheckAnchoredPipes(uid, comp);
+            comp.OutletEnt = SpawnAttachedTo("ReactorGasPipe", new(ent.Owner, 2, 1), rotation: Angle.FromDegrees(90));
 
         if (!_nodeContainer.TryGetNode(comp.InletEnt.Value, comp.PipeName, out PipeNode? inlet))
             return;
@@ -356,7 +353,6 @@ public sealed class NuclearReactorSystem : SharedNuclearReactorSystem
         "meltdown" => NuclearReactorPrefabs.Meltdown,
         "alignment" => NuclearReactorPrefabs.Alignment,
         "arachne" => NuclearReactorPrefabs.Arachne,
-        "lens" => NuclearReactorPrefabs.Lens,
         _ => NuclearReactorPrefabs.Empty,
     };
 

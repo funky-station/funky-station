@@ -26,7 +26,7 @@ public sealed class ReactorPartSystem : SharedReactorPartSystem
     public GasMixture? ProcessGas(ReactorPartComponent reactorPart, Entity<NuclearReactorComponent> reactorEnt, AtmosDeviceUpdateEvent args, GasMixture inGas)
     {
         if (reactorPart.RodType != ReactorPartComponent.RodTypes.GasChannel)
-    return null;
+            return null;
 
         GasMixture? ProcessedGas = null;
         if (reactorPart.AirContents != null)

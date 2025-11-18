@@ -32,7 +32,7 @@
     sprite: Clothing/Neck/Ties/dettie.rsi
   - type: Clothing
     sprite: Clothing/Neck/Ties/dettie.rsi
-    
+
 - type: entity
   parent: ClothingNeckBase
   id: ClothingNeckTieSci
@@ -48,3 +48,33 @@
     - ClothMade
     - HamsterWearable
     - WhitelistChameleon
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckTieDisco
+  name: horrific necktie
+  description: A garish, horribly vivid, multicoloured necktie. It's your friend now, Bratan!
+  components:
+  - type: Sprite
+    sprite: Clothing/Neck/Ties/discotie.rsi
+  - type: Clothing
+    sprite: Clothing/Neck/Ties/discotie.rsi
+  - type: GhostRole
+    makeSentient: true
+    allowSpeech: true
+    allowMovement: false
+    name: ghost-role-information-horrific-necktie-name
+    description: ghost-role-information-horrific-necktie-description
+    rules: ghost-role-information-familiar-rules
+  - type: BlockMovement
+  - type: Speech
+    speechVerb: Default
+    speechSounds: Tenor
+  - type: GhostTakeoverAvailable
+  - type: Vocal
+    sounds:
+      Unsexed: MaleHuman
+  - type: Grammar
+    attributes:
+      proper: false
+      gender: male

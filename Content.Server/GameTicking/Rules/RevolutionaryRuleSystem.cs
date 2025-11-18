@@ -59,10 +59,9 @@ using Content.Shared.Cuffs.Components;
 using Content.Shared.Revolutionary;
 using Content.Server.Communications;
 using System.Linq;
-using System.Threading;
-using Content.Shared.Chat;
 using Content.Server.Chat.Systems;
 using Content.Server.PDA.Ringer;
+using Content.Server.Speech.Components;
 using Content.Server.Traitor.Uplink;
 using Content.Shared.Changeling;
 using Content.Shared.Heretic;
@@ -201,6 +200,12 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
 
                     component.HasRevAnnouncementPlayed = true;
 
+                    var rev = AllEntityQuery<RevolutionaryComponent, MindContainerComponent>(); //funky start
+                    while (rev.MoveNext(out var revvy, out _, out _))
+                    {
+                        AddComp<MaoistAccentComponent>(revvy);
+                    } //funky end
+
                     component.RevVictoryEndTime = _timing.CurTime + component.RevVictoryEndDelay;
                 }
             }
@@ -236,7 +241,7 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
                         Loc.GetString("revolutionaries-open-revolt-announcement", ("nameList", headRevNameList)),
                         Loc.GetString("revolutionaries-sender-cc"),
                         colorOverride: Color.Red);
-                
+
                 component.OpenRevoltAnnouncementPending = false;
             }
         }

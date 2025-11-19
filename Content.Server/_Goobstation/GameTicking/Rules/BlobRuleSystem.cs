@@ -90,9 +90,9 @@ public sealed class BlobRuleSystem : GameRuleSystem<BlobRuleComponent>
             check[stationUid.Value] += comp.BlobTiles.Count;
             if(stationUid == _roundEndSystem.GetStation() && (component.Stage != BlobStage.Default)) //if blob is on station and discovered/delta
             {
-                if (_roundEndSystem.IsRoundEndRequested() && component.recallCount < 3) //Here to still recall if something bypasses normal
+                if (_roundEndSystem.IsRoundEndRequested() && component.RecallCount < 3) //Here to still recall if something bypasses normal
                 {
-                    component.recallCount += 1; //sanity check in case of some looping evac calling condition, so it eventually ceases.
+                    component.RecallCount += 1; //sanity check in case of some looping evac calling condition, so it eventually ceases.
                     _roundEndSystem.CancelRoundEndCountdown(null,false,false);
                     _chatSystem.DispatchGlobalAnnouncement(
                         Loc.GetString("blob-alert-recall-shuttle-expanded"),

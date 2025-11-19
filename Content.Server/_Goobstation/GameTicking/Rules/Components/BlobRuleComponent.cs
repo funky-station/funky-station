@@ -26,8 +26,8 @@ public sealed partial class BlobRuleComponent : Component
     [ViewVariables]
     public float Accumulator = 0f;
 
-    [ViewVariables]
-    public int recallCount = 0;
+    [DataField,ViewVariables(VVAccess.ReadWrite)]
+    public int RecallCount = 0;
 }
 
 

@@ -876,11 +876,10 @@
   materials:
     Steel: 1000
     Glass: 1000
-    Plasma: 1000
-    Uranium: 1000
+    Plasma: 1500
+    Uranium: 1500
     Gold: 500
     Silver: 500
-    Diamond: 50
 
 - type: latheRecipe
   id: TrackingImplanter

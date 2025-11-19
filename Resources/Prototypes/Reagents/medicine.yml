@@ -1201,6 +1201,8 @@
           types:
             Heat: 8
             Holy: 5
+      - !type:DeCultify
+        amount: 2.5
     Acidic:
       methods: [ Touch ]
       effects:

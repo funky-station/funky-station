@@ -26,3 +26,19 @@
     icon: Interface/Actions/web.png
     event: !type:SericultureActionEvent
     useDelay: 1
+
+- type: entity
+  id: ActionWrap
+  name: Cocoon prey
+  description: Wrap a nearby humanoid in immobilizing silk.
+  components:
+  - type: EntityTargetAction
+    whitelist:
+      components:
+      - Body
+    canTargetSelf: false
+    interactOnMiss: false
+    itemIconStyle: NoItem
+    icon: Interface/Actions/web.png
+    iconOn: Interface/Actions/web.png
+    event: !type:WrapActionEvent {}

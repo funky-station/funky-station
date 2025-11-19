@@ -11,6 +11,7 @@ using Content.Shared.Body.Components; // Shitmed Change
 using Content.Shared.DoAfter;
 using Content.Shared.Gravity;
 using Content.Shared.Input;
+using Content.Shared.Interaction.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Standing;
@@ -79,7 +80,7 @@ public abstract class SharedLayingDownSystem : EntitySystem
 
         RaiseNetworkEvent(new CheckAutoGetUpEvent(GetNetEntity(uid)));
 
-        if (HasComp<KnockedDownComponent>(uid) || !_mobState.IsAlive(uid))
+        if (HasComp<KnockedDownComponent>(uid) || !_mobState.IsAlive(uid) || HasComp<BlockMovementComponent>(uid))
             return;
 
         if (_standing.IsDown(uid, standing))

@@ -1,6 +1,4 @@
 # SPDX-FileCopyrightText: 2025 TheSecondLord <88201625+TheSecondLord@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Xcybitt <197952719+Xcybitt@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 willowzeta <willowzeta632146@proton.me>
 # SPDX-FileCopyrightText: 2025 wilowzeta <willowzeta632146@proton.me>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -242,29 +240,3 @@
     sprite: Objects/Devices/securityhandy.rsi
     heldPrefix: walkietalkie
 
-- type: entity
-  name: security listening radio
-  description: A handy security radio. The speaker seems to have been modified to not work.
-  parent: [ RadioHandheld, BaseSecurityContraband ]
-  id: RadioHandheldSecurityListening
-  components:
-  - type: RadioMicrophone
-    broadcastChannel: Security
-  - type: Sprite
-    sprite: _Funkystation/Objects/Devices/radio.rsi
-    layers:
-    - state: base
-    - state: cap-security
-    - state: active
-      visible: false
-      shader: unshaded
-      map: [ "enum.ToggleVisuals.Layer" ]
-  - type: GenericVisualizer
-    visuals:
-      enum.ToggleVisuals.Toggled:
-        enum.ToggleVisuals.Layer:
-          True: { visible: true }
-          False: { visible: false }
-  - type: Item
-    sprite: Objects/Devices/securityhandy.rsi
-    heldPrefix: walkietalkie

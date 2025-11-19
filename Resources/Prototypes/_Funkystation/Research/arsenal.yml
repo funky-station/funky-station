@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 # Tier 1
 - type: technology
   id: WeaponEnergyPistolTech

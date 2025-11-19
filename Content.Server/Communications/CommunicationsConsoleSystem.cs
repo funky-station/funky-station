@@ -349,7 +349,12 @@ namespace Content.Server.Communications
             RaiseLocalEvent(ref ev);
             if (ev.Cancelled)
             {
-                _popupSystem.PopupEntity(ev.Reason ?? Loc.GetString("comms-console-shuttle-unavailable"), uid, message.Actor);
+                string? combinedReason = null;
+                foreach (string reason in ev.Reason)
+                {
+                    combinedReason = combinedReason + reason + "\n";
+                }
+                _popupSystem.PopupEntity(combinedReason ?? Loc.GetString("comms-console-shuttle-unavailable"), uid, message.Actor);
                 return;
             }
 
@@ -395,6 +400,6 @@ namespace Content.Server.Communications
         public EntityUid Uid = Uid;
         public CommunicationsConsoleComponent Component = Component;
         public EntityUid? Sender = Sender;
-        public string? Reason;
+        public List<string> Reason = new List<string>();
     }
 }

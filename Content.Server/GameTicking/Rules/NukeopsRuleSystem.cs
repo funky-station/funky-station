@@ -382,7 +382,7 @@ public sealed class NukeopsRuleSystem : GameRuleSystem<NukeopsRuleComponent>
                 if (warTime < nukeops.WarNukieArriveDelay)
                 {
                     ev.Cancelled = true;
-                    ev.Reason = Loc.GetString("war-ops-shuttle-call-unavailable");
+                    ev.Reason.Add(Loc.GetString("war-ops-shuttle-call-unavailable"));
                     return;
                 }
 
@@ -390,7 +390,7 @@ public sealed class NukeopsRuleSystem : GameRuleSystem<NukeopsRuleComponent>
                 if (operatives.Any(op => _stationSystem.GetOwningStation(op.Item1.Owner) != null))
                 {
                     ev.Cancelled = true;
-                    ev.Reason = Loc.GetString("shuttle-call-warops-nukies-present");
+                    ev.Reason.Add(Loc.GetString("shuttle-call-warops-nukies-present"));
                     return;
                 }
             }
@@ -401,7 +401,7 @@ public sealed class NukeopsRuleSystem : GameRuleSystem<NukeopsRuleComponent>
             if (operatives.Any(op => _stationSystem.GetOwningStation(op.Item1.Owner) != null))
             {
                 ev.Cancelled = true;
-                ev.Reason = Loc.GetString("shuttle-call-error");
+                ev.Reason.Add(Loc.GetString("shuttle-call-error"));
                 return;
             }
         }

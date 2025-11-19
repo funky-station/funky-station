@@ -36,7 +36,7 @@ public abstract partial class SharedAtmosphereSystem
 
     private void OnMaskToggled(Entity<BreathToolComponent> ent, ref ItemMaskToggledEvent args)
     {
-        if (args.Mask.Comp.IsToggled)
+        if (args.IsToggled)
         {
             DisconnectInternals(ent, forced: true);
         }
@@ -44,7 +44,7 @@ public abstract partial class SharedAtmosphereSystem
         {
             if (_internalsQuery.TryComp(args.Wearer, out var internals))
             {
-                _internals.ConnectBreathTool((args.Wearer.Value, internals), ent);
+                _internals.ConnectBreathTool((args.Wearer, internals), ent);
             }
         }
     }

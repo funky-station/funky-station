@@ -20,6 +20,7 @@ using Content.Shared.Database;
 using Robust.Shared.Player;
 using System.Linq;
 using Content.Server._Funkystation.Atmos.Components;
+using Content.Shared.Atmos.Components;
 
 namespace Content.Server._Funkystation.Atmos.EntitySystems;
 /// <summary>
@@ -121,7 +122,7 @@ public sealed class BluespaceVendorSystem : EntitySystem
         }
 
         UpdatePumpingAppearance(uid, vendor, true);
-        
+
         // When retrieving, add selected gases from bluespace to tank
         var initMoles = Math.Min(((releasePressure * tankMixture.Volume) / (Atmospherics.R * Atmospherics.T20C) - tankMixture.TotalMoles), 0.2f) / isRetrievingCount;
 
@@ -132,11 +133,11 @@ public sealed class BluespaceVendorSystem : EntitySystem
 
             var moles = initMoles;
             moles = moles >= bluespaceMixture.GetMoles(i) ? bluespaceMixture.GetMoles(i) : moles;
-            
+
             bluespaceMixture.AdjustMoles(i, -moles);
             if (bluespaceMixture.GetMoles(i) < 0.01f)
                 vendor.BluespaceVendorRetrieveList[i] = !vendor.BluespaceVendorRetrieveList[i];
-                
+
             var addedGases = new GasMixture();
             addedGases.AdjustMoles(i, moles);
             addedGases.Temperature = Atmospherics.T20C;
@@ -170,7 +171,7 @@ public sealed class BluespaceVendorSystem : EntitySystem
             return;
 
         if (vendor.GasTankSlot.Item != null)
-        {   
+        {
             UpdateTankAppearance(uid, vendor);
             var gasTank = Comp<GasTankComponent>(vendor.GasTankSlot.Item.Value);
             vendor.TankGasMixture = gasTank.Air;
@@ -182,7 +183,7 @@ public sealed class BluespaceVendorSystem : EntitySystem
     {
         if (args.Container.ID != vendor.TankContainerName)
             return;
-        
+
         HandleTankRemoval(uid, vendor);
     }
 
@@ -209,11 +210,11 @@ public sealed class BluespaceVendorSystem : EntitySystem
 
         if (!vendor.BluespaceSenderConnected)
             return;
-        
+
         var gasTank = Comp<GasTankComponent>(vendor.GasTankSlot.Item.Value);
         var mixture = gasTank.Air;
         var removedAir = mixture.Remove(mixture.TotalMoles);
-        
+
         _atmos.Merge(vendor.BluespaceGasMixture, removedAir);
         DirtyUI(uid, vendor);
     }

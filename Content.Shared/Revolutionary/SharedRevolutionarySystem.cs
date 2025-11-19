@@ -25,6 +25,7 @@ using Robust.Shared.Player;
 using Content.Shared.Antag;
 using Content.Shared.Strip.Components;
 using Content.Shared._DV.CosmicCult.Components;
+
 using Content.Shared._DV.Roles;
 
 namespace Content.Shared.Revolutionary;
@@ -47,7 +48,7 @@ public abstract class SharedRevolutionarySystem : EntitySystem
         SubscribeLocalEvent<HeadRevolutionaryComponent, ComponentStartup>(DirtyRevComps);
         SubscribeLocalEvent<RevolutionaryLieutenantComponent, ComponentStartup>(DirtyRevComps);
         SubscribeLocalEvent<ShowAntagIconsComponent, ComponentStartup>(DirtyRevComps);
-        
+
         SubscribeLocalEvent<HeadRevolutionaryComponent, AddImplantAttemptEvent>(OnHeadRevImplantAttempt);
         SubscribeLocalEvent<RevolutionaryComponent, AddImplantAttemptEvent>(OnRevImplantAttempt);
     }
@@ -96,7 +97,7 @@ public abstract class SharedRevolutionarySystem : EntitySystem
     {
         args.Cancelled = !CanGetState(args.Player);
     }
-    
+
     /// <summary>
     /// Determines if a Lieutenant Rev component should be sent to the client.
     /// </summary>

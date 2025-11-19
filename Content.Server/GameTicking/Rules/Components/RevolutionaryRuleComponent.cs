@@ -83,4 +83,17 @@ public sealed partial class RevolutionaryRuleComponent : Component
 
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public bool OpenRevoltAnnouncementPending = false;
+
+    [DataField, ViewVariables(VVAccess.ReadWrite)]
+    public int RevHeat = 0;
+
+    public enum HeatLevel
+    {
+        Low = 1,
+        Medium = 3,
+        High = 6,
+        VeryHigh = 10,
+        Extreme = 20
+    }
+
 }

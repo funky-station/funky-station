@@ -67,6 +67,8 @@ using Content.Server.Traitor.Uplink;
 using Content.Shared.Changeling;
 using Content.Shared.Heretic;
 using Content.Shared.Implants;
+using Content.Shared.Roles;
+using Content.Shared.Roles.Jobs;
 using Robust.Shared.Audio;
 
 namespace Content.Server.GameTicking.Rules;
@@ -93,7 +95,8 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
     [Dependency] private readonly ChatSystem _chatSystem = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly UplinkSystem _uplink = default!;
-
+    [Dependency] private readonly SharedRoleSystem _sharedRoleSystem = default!;
+    [Dependency] private readonly IPrototypeManager _prototypes = default!;
 
     //Used in OnPostFlash, no reference to the rule component is available
     public readonly ProtoId<NpcFactionPrototype> RevolutionaryNpcFaction = "Revolutionary";
@@ -105,7 +108,7 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
         SubscribeLocalEvent<CommandStaffComponent, MobStateChangedEvent>(OnCommandMobStateChanged);
         SubscribeLocalEvent<HeadRevolutionaryComponent, MobStateChangedEvent>(OnHeadRevMobStateChanged);
         SubscribeLocalEvent<HeadRevolutionaryComponent, DeclareOpenRevoltEvent>(OnHeadRevDeclareOpenRevolt); //Funky Station
-        
+
         SubscribeLocalEvent<RevolutionaryLieutenantComponent, ImplantImplantedEvent>(OnLieutenantImplant); // Funky Station
         SubscribeLocalEvent<RevolutionaryRuleComponent, AfterAntagEntitySelectedEvent>(AfterEntitySelected); // Funky Station
         SubscribeLocalEvent<RevolutionaryRoleComponent, GetBriefingEvent>(OnGetBriefing);
@@ -123,27 +126,27 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
     {
         MakeHeadRevolutionary(args.EntityUid, ent);
     }
-    
+
     // dont need checks for multiple implants since we alr disabled that
     private bool CanBeLieutenant(EntityUid uid)
     {
         return !HasComp<HeadRevolutionaryComponent>(uid) && HasComp<RevolutionaryComponent>(uid);
     }
-    
+
     private void OnLieutenantImplant(Entity<RevolutionaryLieutenantComponent> component, ref ImplantImplantedEvent ev)
     {
         if (ev.Implanted == null)
             return;
 
-        if (!CanBeLieutenant(ev.Implanted.Value)) 
+        if (!CanBeLieutenant(ev.Implanted.Value))
             return;
-        
+
         if (!_mind.TryGetMind(ev.Implanted.Value, out var mindId, out _))
             return;
-        
+
         EnsureComp<RevolutionaryLieutenantComponent>(ev.Implanted.Value);
         _antag.SendBriefing(ev.Implanted.Value, Loc.GetString("rev-lieutenant-greeting"), Color.Red, new SoundPathSpecifier("/Audio/_Funkystation/Ambience/Antag/Revolutionary/rev_lieu_intro.ogg"));
-        
+
         if (_role.MindHasRole<RevolutionaryRoleComponent>(mindId, out var revRoleComp))
             AddComp(revRoleComp.Value, new RoleBriefingComponent { Briefing = Loc.GetString("rev-lieutenant-greeting") }, overwrite: true);
     }
@@ -263,7 +266,7 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
                         Loc.GetString("revolutionaries-open-revolt-announcement", ("nameList", headRevNameList)),
                         Loc.GetString("revolutionaries-sender-cc"),
                         colorOverride: Color.Red);
-                
+
                 component.OpenRevoltAnnouncementPending = false;
             }
         }
@@ -366,7 +369,51 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
 
         _npcFaction.AddFaction(ev.Target, RevolutionaryNpcFaction);
         var revComp = EnsureComp<RevolutionaryComponent>(ev.Target);
+        var query = QueryActiveRules();
+        while (query.MoveNext(out var queryUid, out _, out var revolutionary, out _))
+        {
+            if (_sharedRoleSystem.MindHasRole<JobRoleComponent>(mindId, out var jobRole))
+            {
+                MindRoleComponent mindComp = jobRole.Value.Comp1;
+                ProtoId<JobPrototype>? jobProto = mindComp.JobPrototype;
+                if (jobProto != null)
+                {
+                    if (jobProto?.Id == "Magistrate" || jobProto?.Id == "NanotrasenRepresentative")
+                    {
+                        revolutionary.RevHeat = revolutionary.RevHeat + (int)RevolutionaryRuleComponent.HeatLevel.Extreme;
+                    }
+                    else if (jobProto?.Id == "Captain" || jobProto?.Id == "HeadOfSecurity")
+                    {
+                        revolutionary.RevHeat = revolutionary.RevHeat + (int)RevolutionaryRuleComponent.HeatLevel.VeryHigh;
+                    }
+                    else
+                    {
+                        var departmentProtos = _prototypes.EnumeratePrototypes<DepartmentPrototype>().ToList();
+                        foreach (var department in departmentProtos)
+                        {
+                            if (department.Roles.Contains((ProtoId<JobPrototype>) jobProto!))
+                            {
+                                if (department.ID == "Command" || department.ID == "CentralCommand") //hits all other command + IAA
+                                {
+                                    revolutionary.RevHeat = revolutionary.RevHeat + (int)RevolutionaryRuleComponent.HeatLevel.High;
+                                }
+                                else if (department.ID == "Security") //HOS is excluded through earlier condition
+                                {
+                                    revolutionary.RevHeat = revolutionary.RevHeat + (int)RevolutionaryRuleComponent.HeatLevel.Medium;
+                                }
+                                else
+                                {
+                                    revolutionary.RevHeat = revolutionary.RevHeat + (int) RevolutionaryRuleComponent.HeatLevel.Low;
+                                }
+                            }
 
+                        }
+                    }
+
+                }
+
+            }
+        }
         if (comp.ConvertGivesRevVision)
             EnsureComp<ShowRevolutionaryIconsComponent>(ev.Target);
 

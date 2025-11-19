@@ -229,6 +229,48 @@
 
 - type: entity
   parent: [DrinkBottleVisualsAll, DrinkBottleGlassBaseFull]
+  id: DrinkApplejackBottleFull
+  name: Buckin' Bronco's Applejack
+  description: A bottle of apple brandy. Not as sweet as you might expect.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        reagents:
+        - ReagentId: Applejack
+          Quantity: 100
+  - type: Label
+    currentLabel: reagent-name-applejack
+  - type: Sprite
+    sprite: Objects/Consumable/Drinks/alco-bottle.rsi
+    layers:
+      - state: icon_red
+        map: ["enum.OpenableVisuals.Layer"]
+      - state: fill-1
+        map: ["enum.SolutionContainerLayers.Fill"]
+        visible: false
+  - type: SolutionContainerVisuals
+    maxFillLevels: 6
+    fillBaseName: fill-
+
+- type: entity
+  parent: [DrinkBottleVisualsOpenable, DrinkBottleGlassBaseFull]
+  id: DrinkBittersBottleFull
+  name: Epiolos' Old-Fashioned Authentic bitters
+  description: A bottle which, despite being produced in the past month, looks like it was made in 1904.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        reagents:
+        - ReagentId: Bitters
+          Quantity: 100
+  - type: Sprite
+    sprite: Objects/Consumable/Drinks/bittersbottle.rsi
+  - type: Sealable
+
+- type: entity
+  parent: [DrinkBottleVisualsAll, DrinkBottleGlassBaseFull]
   id: DrinkBlueCuracaoBottleFull
   name: Miss Blue Curaçao
   description: A fruity, exceptionally azure drink. Does not allow the imbiber to use the fifth magic.

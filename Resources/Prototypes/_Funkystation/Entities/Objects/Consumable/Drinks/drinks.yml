@@ -109,4 +109,30 @@
         reagents:
         - ReagentId: Amaretto
           Quantity: 30
+
+- type: entity
+  parent: DrinkGlass
+  id: Applejack
+  suffix: applejack
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Applejack
+          Quantity: 30
+
+- type: entity
+  parent: DrinkGlass
+  id: Bitters
+  suffix: bitters
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Bitters
+          Quantity: 30
 # pignog

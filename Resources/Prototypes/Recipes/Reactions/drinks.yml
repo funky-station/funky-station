@@ -712,7 +712,7 @@
   requiredMixerCategories:
     - Shake
   reactants:
-    JuiceApple:
+    Applejack:
       amount: 1
     Cognac:
       amount: 1

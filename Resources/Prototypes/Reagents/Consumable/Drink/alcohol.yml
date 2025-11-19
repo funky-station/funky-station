@@ -143,6 +143,54 @@
   fizziness: 0.6
 
 - type: reagent
+  parent: BaseAlcohol
+  id: Applejack
+  name: reagent-name-applejack
+  desc: reagent-desc-applejack
+  physicalDesc: reagent-physical-desc-tangy
+  flavor: applejack
+  color: "#ae0000"
+  recognizable: true
+  metamorphicSprite:
+    sprite: Objects/Consumable/Drinks/applejack.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 4
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 2
+      - !type:AdjustReagent
+        reagent: Ethanol
+        amount: 0.2
+
+- type: reagent
+  parent: BaseAlcohol
+  id: Bitters
+  name: reagent-name-bitters
+  desc: reagent-desc-bitters
+  physicalDesc: reagent-physical-desc-strong-smelling
+  flavor: bitters
+  color: "#504121"
+  recognizable: true
+  metamorphicSprite:
+    sprite: Objects/Consumable/Drinks/bittersglass.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 4
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 2
+      - !type:AdjustReagent
+        reagent: Ethanol
+        amount: 0.3
+
+- type: reagent
   id: BlueCuracao
   name: reagent-name-blue-curacao
   parent: BaseAlcohol

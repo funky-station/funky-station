@@ -19,4 +19,10 @@ reagent-name-pineapple-margherita = pineapple margherita
 reagent-desc-pineapple-margherita = Outlawed in Space Italy.
 
 reagent-name-amaretto = amaretto
-reagent-desc-tayquila = A gentle and syrup like drink, tastes of almonds and apricots.
+reagent-desc-amaretto = A gentle and syrup like drink, tastes of almonds and apricots.
+
+reagent-name-applejack = applejack
+reagent-desc-applejack = The perfect beverage for when you feel the need to horse around.
+
+reagent-name-bitters = bitters
+reagent-desc-applejack = A bartender's best friend.

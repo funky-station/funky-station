@@ -13,6 +13,16 @@
   description: flavor-complex-amaretto
 
 - type: flavor
+  id: applejack
+  flavorType: Complex
+  description: flavor-complex-applejack
+
+- type: flavor
+  id: bitters
+  flavorType: Complex
+  description: flavor-complex-bitters
+
+- type: flavor
   id: eggnog
   flavorType: Complex
   description: flavor-complex-eggnog

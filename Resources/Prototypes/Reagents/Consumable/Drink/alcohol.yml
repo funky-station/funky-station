@@ -102,6 +102,30 @@
   fizziness: 0.6
 
 - type: reagent
+  parent: BaseAlcohol
+  id: Amaretto
+  name: reagent-name-amaretto
+  desc: reagent-desc-amaretto
+  physicalDesc: reagent-physical-desc-sweet
+  flavor: amaretto
+  color: "#9d3636"
+  recognizable: true
+  metamorphicSprite:
+    sprite: Objects/Consumable/Drinks/amarettoglass.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 5
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 2
+      - !type:AdjustReagent
+        reagent: Ethanol
+        amount: 0.2
+
+- type: reagent
   id: Beer
   name: reagent-name-beer
   parent: BaseAlcohol

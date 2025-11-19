@@ -96,4 +96,17 @@
         reagents:
         - ReagentId: PineappleMargherita
           Quantity: 30
+
+- type: entity
+  parent: DrinkGlass
+  id: Amaretto
+  suffix: amaretto
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Amaretto
+          Quantity: 30
 # pignog

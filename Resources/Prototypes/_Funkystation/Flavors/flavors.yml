@@ -8,6 +8,11 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
 - type: flavor
+  id: amaretto
+  flavorType: Complex
+  description: flavor-complex-amaretto
+
+- type: flavor
   id: eggnog
   flavorType: Complex
   description: flavor-complex-eggnog
@@ -41,7 +46,7 @@
   id: pineapple-margherita
   flavorType: Complex
   description: flavor-complex-pineapple-margherita
-  
+
 - type: flavor
   id: shrimp
   flavorType: Complex

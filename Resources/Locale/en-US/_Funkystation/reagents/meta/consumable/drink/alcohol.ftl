@@ -17,3 +17,6 @@ reagent-desc-margherita-drink = Made explicitly without pineapple juice.
 
 reagent-name-pineapple-margherita = pineapple margherita
 reagent-desc-pineapple-margherita = Outlawed in Space Italy.
+
+reagent-name-amaretto = amaretto
+reagent-desc-tayquila = A gentle and syrup like drink, tastes of almonds and apricots.

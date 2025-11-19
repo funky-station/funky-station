@@ -11,6 +11,7 @@ flavor-complex-eggnog = like egg and nog
 flavor-complex-peggnog = like nothing you've ever tasted before
 
 ## alcohols
+flavor-complex-amaretto = like fruity and nutty sweetness
 flavor-complex-chutzpah = like you're falling far below rock bottom
 flavor-complex-margherita-drink = like you're sipping a pizza on a beach
 flavor-complex-spiked-eggnog = like alcoholic egg and alcoholic nog

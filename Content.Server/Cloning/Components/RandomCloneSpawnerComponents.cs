@@ -12,7 +12,6 @@ namespace Content.Server.Cloning.Components;
 /// <summary>
 ///     This is added to a marker entity in order to spawn a clone of a random player.
 /// </summary>
-[RegisterComponent, EntityCategory("Spawner")]
 public sealed partial class RandomCloneSpawnerComponent : Component
 {
     /// <summary>

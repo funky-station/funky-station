@@ -13,7 +13,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
 using Content.Server.Chat.Systems;
-using Content.Server.EntityEffects.Effects.StatusEffects;
 using Content.Server.Heretic.Components;
 using Content.Server.Speech.EntitySystems;
 using Content.Server.Temperature.Components;
@@ -25,7 +24,6 @@ using Content.Shared.Damage.Systems;
 using Content.Shared.DoAfter;
 using Content.Shared.Doors.Components;
 using Content.Shared.Doors.Systems;
-using Content.Shared.Explosion.Components;
 using Content.Shared.Eye.Blinding.Systems;
 using Content.Shared.Heretic;
 using Content.Shared.Interaction;

@@ -72,7 +72,6 @@ namespace Content.Server.Zombies
         [Dependency] private readonly EmoteOnDamageSystem _emoteOnDamage = default!;
         [Dependency] private readonly MobStateSystem _mobState = default!;
         [Dependency] private readonly SharedPopupSystem _popup = default!;
-        [Dependency] private readonly NameModifierSystem _nameMod = default!;
         [Dependency] private readonly SharedRoleSystem _role = default!;
 
         public const SlotFlags ProtectiveSlots =

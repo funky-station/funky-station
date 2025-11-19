@@ -3,8 +3,6 @@
 //
 // SPDX-License-Identifier: MIT
 
-using Content.Server.Temperature.Components;
-using Content.Shared.EntityEffects;
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared.EntityEffects.EffectConditions;

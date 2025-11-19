@@ -16,6 +16,19 @@
 # Free
 
 - type: trait
+  id: CowboyAccent
+  name: trait-cowboy-name
+  description: trait-cowboy-desc
+  category: SpeechTraits
+  cost: 0
+  components:
+  - type: ReplacementAccent
+    accent: cowboy
+  prerequisite: SouthernAccent
+
+# 1 Cost
+
+- type: trait
   id: Accentless
   name: trait-accentless-name
   description: trait-accentless-desc
@@ -28,8 +41,6 @@
     - type: MothAccent
     - type: ReplacementAccent
       accent: dwarf
-
-# 1 Cost
 
 - type: trait
   id: SouthernAccent
@@ -48,16 +59,6 @@
   cost: 1
   components:
   - type: PirateAccent
-
-- type: trait
-  id: CowboyAccent
-  name: trait-cowboy-name
-  description: trait-cowboy-desc
-  category: SpeechTraits
-  cost: 1
-  components:
-  - type: ReplacementAccent
-    accent: cowboy
 
 - type: trait
   id: GermanAccent

@@ -654,6 +654,30 @@ namespace Content.Client.Lobby.UI
                         selector.Preference = false;
                     }
 
+                    // Check if required traits have not been chosen - Funky
+
+                    if (trait.Prerequisite != null && (!Profile?.TraitPreferences.Contains(trait.Prerequisite) ?? false))
+                    {
+                        selector.Checkbox.Disabled = true;
+                        selector.Checkbox.Label.FontColorOverride = Color.Orange;
+                        var tooltip = new PanelContainer
+                        {
+                            StyleClasses = { StyleNano.StyleClassTooltipPanel },
+                            Children =
+                            {
+                                new Label
+                                {
+                                    // I can't get interpolation to work :<
+                                    Text = Loc.GetString("trait-prerequisite-required-1") + " " + trait.Prerequisite + " " + Loc.GetString("trait-prerequisite-required-2"),
+                                    HorizontalAlignment = HAlignment.Center,
+                                    FontColorOverride = Color.FromHex("#C8C8C8")
+                                }
+                            }
+                        };
+                        selector.Checkbox.TooltipSupplier = _ => tooltip;
+                        selector.Preference = false;
+                    }
+
                     selector.PreferenceChanged += preference =>
                     {
                         if (preference)

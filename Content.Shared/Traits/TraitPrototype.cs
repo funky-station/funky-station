@@ -60,6 +60,12 @@ public sealed partial class TraitPrototype : IPrototype
     public HashSet<string>? SpeciesRestrictions;
 
     /// <summary>
+    /// Trait required to take this trait.
+    /// </summary>
+    [DataField]
+    public string Prerequisite { get; private set; } = default!;
+
+    /// <summary>
     /// The components that get added to the player, when they pick this trait.
     /// </summary>
     [DataField]

@@ -385,7 +385,7 @@
       groups:
         Brute: -5
   - type: SurgeryRepeatableStep
-  - type: SurgeryOperatingTableCondition # funkystation - fuck you
+  #- type: SurgeryOperatingTableCondition # funkystation - fuck you  #hoping this isn't gonna be too bad, but i so want tending someone's wounds with shitty tools to be a thing for fucked amounts of emergency
   - type: SurgeryStepDirtiness # DeltaV - surgery cross contamination
     toolDirtiness: 0.5
     gloveDirtiness: 0.5
@@ -413,7 +413,7 @@
       types:
         Slash: 2
   - type: SurgeryRepeatableStep
-  - type: SurgeryOperatingTableCondition # funkystation - fuck you
+  #- type: SurgeryOperatingTableCondition # funkystation - fuck you
   - type: SurgeryStepDirtiness # DeltaV - surgery cross contamination
     toolDirtiness: 0.5
     gloveDirtiness: 0.5

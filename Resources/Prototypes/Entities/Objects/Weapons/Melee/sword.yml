@@ -94,6 +94,13 @@
     weight: 0.0002 # 5,000 times less likely than 1 regular animal
   - type: PirateAccent
     # not putting a BlockMovement component here cause that's funny.
+  - type: Scalpel # Shitmed
+    speed: 0.75
+  - type: SurgeryTool # Shitmed
+    startSound:
+      path: /Audio/_Shitmed/Medical/Surgery/scalpel1.ogg
+    endSound:
+      path: /Audio/_Shitmed/Medical/Surgery/scalpel2.ogg
 
 - type: entity
   name: katana
@@ -126,6 +133,13 @@
     slots:
     - Back
     - Belt
+  - type: Scalpel # Shitmed
+    speed: 0.75
+  - type: SurgeryTool # Shitmed
+    startSound:
+      path: /Audio/_Shitmed/Medical/Surgery/scalpel1.ogg
+    endSound:
+      path: /Audio/_Shitmed/Medical/Surgery/scalpel2.ogg
 
 - type: entity
   name: energy katana
@@ -159,6 +173,13 @@
     - Back
     - Belt
   - type: Reflect
+  - type: Scalpel # Shitmed
+    speed: 0.75
+  - type: SurgeryTool # Shitmed
+    startSound:
+      path: /Audio/_Shitmed/Medical/Surgery/scalpel1.ogg
+    endSound:
+      path: /Audio/_Shitmed/Medical/Surgery/scalpel2.ogg
 
 - type: entity
   name: machete
@@ -185,6 +206,13 @@
     shape:
     - 0,0,0,2
   - type: DisarmMalus
+  - type: Scalpel # Shitmed
+    speed: 0.75
+  - type: SurgeryTool # Shitmed
+    startSound:
+      path: /Audio/_Shitmed/Medical/Surgery/scalpel1.ogg
+    endSound:
+      path: /Audio/_Shitmed/Medical/Surgery/scalpel2.ogg
 
 - type: entity
   name: claymore
@@ -212,6 +240,13 @@
     slots:
     - back
   - type: DisarmMalus
+  - type: Scalpel # Shitmed
+    speed: 0.75
+  - type: SurgeryTool # Shitmed
+    startSound:
+      path: /Audio/_Shitmed/Medical/Surgery/scalpel1.ogg
+    endSound:
+      path: /Audio/_Shitmed/Medical/Surgery/scalpel2.ogg
 
 - type: entity
   name: cutlass
@@ -238,6 +273,13 @@
     shape:
     - 0,0,0,2
   - type: DisarmMalus
+  - type: Scalpel # Shitmed
+    speed: 0.75
+  - type: SurgeryTool # Shitmed
+    startSound:
+      path: /Audio/_Shitmed/Medical/Surgery/scalpel1.ogg
+    endSound:
+      path: /Audio/_Shitmed/Medical/Surgery/scalpel2.ogg
 
 - type: entity
   name: throngler
@@ -269,3 +311,10 @@
     - type: Grammar
       attributes:
         proper: true
+    - type: Scalpel # Shitmed
+      speed: 0.75
+    - type: SurgeryTool # Shitmed
+      startSound:
+        path: /Audio/_Shitmed/Medical/Surgery/scalpel1.ogg
+      endSound:
+        path: /Audio/_Shitmed/Medical/Surgery/scalpel2.ogg

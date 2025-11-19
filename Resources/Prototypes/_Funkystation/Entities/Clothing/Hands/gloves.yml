@@ -15,3 +15,7 @@
     fiberMaterial: fibers-rubber
     fiberColor: fibers-yellow
   - type: FingerprintMask
+  - type: ClothingGrantComponent # funky - tie surgery speed to gloves
+    component:
+    - type: SurgerySpeedModifier
+      speedModifier: 1.1

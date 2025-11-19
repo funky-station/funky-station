@@ -52,6 +52,10 @@
         color: "#9C0DE1"
   - type: Fiber
     fiberColor: fibers-purple
+  - type: ClothingGrantComponent # funky - tie surgery speed to gloves
+    component:
+    - type: SurgerySpeedModifier
+      speedModifier: 0.5
 
 # Red Gloves
 - type: entity
@@ -81,6 +85,10 @@
         color: "#940000"
   - type: Fiber
     fiberColor: fibers-red
+  - type: ClothingGrantComponent # funky - tie surgery speed to gloves
+    component:
+    - type: SurgerySpeedModifier
+      speedModifier: 0.5
 
 # Blue Gloves
 - type: entity
@@ -110,6 +118,10 @@
         color: "#0089EF"
   - type: Fiber
     fiberColor: fibers-blue
+  - type: ClothingGrantComponent # funky - tie surgery speed to gloves
+    component:
+    - type: SurgerySpeedModifier
+      speedModifier: 0.5
 
 # Teal Gloves
 - type: entity
@@ -139,6 +151,10 @@
         color: "#3CB57C"
   - type: Fiber
     fiberColor: fibers-teal
+  - type: ClothingGrantComponent # funky - tie surgery speed to gloves
+    component:
+    - type: SurgerySpeedModifier
+      speedModifier: 0.5
 
 # Brown Gloves
 - type: entity
@@ -168,6 +184,10 @@
         color: "#723A02"
   - type: Fiber
     fiberColor: fibers-brown
+  - type: ClothingGrantComponent # funky - tie surgery speed to gloves
+    component:
+    - type: SurgerySpeedModifier
+      speedModifier: 0.5
 
 # Grey Gloves
 - type: entity
@@ -197,6 +217,10 @@
         color: "#999999"
   - type: Fiber
     fiberColor: fibers-grey
+  - type: ClothingGrantComponent # funky - tie surgery speed to gloves
+    component:
+    - type: SurgerySpeedModifier
+      speedModifier: 0.5
 
 # Green Gloves
 - type: entity
@@ -226,6 +250,10 @@
         color: "#5ABF2F"
   - type: Fiber
     fiberColor: fibers-green
+  - type: ClothingGrantComponent # funky - tie surgery speed to gloves
+    component:
+    - type: SurgerySpeedModifier
+      speedModifier: 0.5
 
 # Light Brown Gloves
 - type: entity
@@ -255,6 +283,10 @@
         color: "#C09F72"
   - type: Fiber
     fiberColor: fibers-light-brown
+  - type: ClothingGrantComponent # funky - tie surgery speed to gloves
+    component:
+    - type: SurgerySpeedModifier
+      speedModifier: 0.5
 
 # Orange Gloves
 - type: entity
@@ -284,6 +316,10 @@
         color: "#EF8100"
   - type: Fiber
     fiberColor: fibers-orange
+  - type: ClothingGrantComponent # funky - tie surgery speed to gloves
+    component:
+    - type: SurgerySpeedModifier
+      speedModifier: 0.5
 
 # White Gloves
 - type: entity
@@ -313,6 +349,10 @@
         color: "#EAE8E8"
   - type: Fiber
     fiberColor: fibers-white
+  - type: ClothingGrantComponent # funky - tie surgery speed to gloves
+    component:
+    - type: SurgerySpeedModifier
+      speedModifier: 0.5
 
 # Black Gloves
 # TECHNICALLY, if you ported the worn state to the RSI, this could be greyscaled, but I do not really feel like doing that.
@@ -340,6 +380,10 @@
     - id: ClothingHandsGlovesFingerless
   - type: Fiber
     fiberColor: fibers-black
+  - type: ClothingGrantComponent # funky - tie surgery speed to gloves
+    component:
+    - type: SurgerySpeedModifier
+      speedModifier: 0.5
 
 # Insulated Gloves (Yellow Gloves)
 # Currently can not be greyscaled without looking like shit.
@@ -362,6 +406,10 @@
   - type: Fiber
     fiberMaterial: fibers-insulative
     fiberColor: fibers-yellow
+  - type: ClothingGrantComponent # funky - tie surgery speed to gloves
+    component:
+    - type: SurgerySpeedModifier
+      speedModifier: 1.1
 
 # Budget Insulated Gloves
 - type: entity
@@ -389,6 +437,10 @@
   - type: Fiber
     fiberMaterial: fibers-insulative-frayed
     fiberColor: fibers-yellow
+  - type: ClothingGrantComponent # funky - tie surgery speed to gloves
+    component:
+    - type: SurgerySpeedModifier
+      speedModifier: 1.0
 
 # Conductive Insulated Gloves
 - type: entity
@@ -400,3 +452,7 @@
     coefficient: 5 # zap em good
   - type: Tag
     tags: [] # ignore "WhitelistChameleon" tag
+  - type: ClothingGrantComponent # funky - tie surgery speed to gloves
+    component:
+    - type: SurgerySpeedModifier
+      speedModifier: 1.1

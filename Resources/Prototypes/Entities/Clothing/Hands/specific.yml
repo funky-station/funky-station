@@ -31,6 +31,10 @@
       interfaces:
         enum.ChameleonUiKey.Key:
           type: ChameleonBoundUserInterface
+    - type: ClothingGrantComponent # funky - tie surgery speed to gloves
+      component:
+      - type: SurgerySpeedModifier
+        speedModifier: 0.5
 
 - type: entity
   parent: ClothingHandsChameleon
@@ -40,3 +44,7 @@
   - type: Thieving
     stripTimeReduction: 2
     stealthy: true
+  - type: ClothingGrantComponent # funky - tie surgery speed to gloves
+    component:
+    - type: SurgerySpeedModifier
+      speedModifier: 0.5

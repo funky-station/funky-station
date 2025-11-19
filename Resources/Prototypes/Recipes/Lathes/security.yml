@@ -484,14 +484,14 @@
   result: MagazineBoxPistolLargeIncendiary
   materials:
     Plastic: 450
-    
+
 - type: latheRecipe
   parent: BaseAmmoRecipe
   id: MagazineBoxPistolLargePractice
   result: MagazineBoxPistolLargePractice
   materials:
     Steel: 150
-    
+
 - type: latheRecipe
   parent: BaseAmmoRecipe
   id: MagazineBoxPistolLargeUranium
@@ -868,3 +868,18 @@
   materials:
     Steel: 400
     Plastic: 200
+
+- type: latheRecipe
+  id: ClothingHandsSecurityKnuckleDusters
+  result: ClothingHandsSecurityKnuckleDusters
+  completetime: 3
+  materials:
+    Steel: 500
+
+- type: latheRecipe
+  id: ClothingHandsTruncheonKnuckleDusters
+  result: ClothingHandsTruncheonKnuckleDusters
+  completetime: 3
+  materials:
+    Steel: 500
+    Plastic: 500

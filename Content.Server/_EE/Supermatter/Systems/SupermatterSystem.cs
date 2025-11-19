@@ -168,7 +168,7 @@ public sealed partial class SupermatterSystem : EntitySystem
         _audio.PlayPvs(sm.DustSound, uid);
 
         // Prevent spam or excess power production
-        AddComp<SupermatterImmuneComponent>(target);
+        GrantSupermatterImmunity(target);
 
         _chatManager.SendAdminAlert($"{EntityManager.ToPrettyString(uid):uid} has consumed {EntityManager.ToPrettyString(target):target}");
         _adminLog.Add(LogType.EntityDelete, LogImpact.High, $"{EntityManager.ToPrettyString(target):target} touched {EntityManager.ToPrettyString(uid):uid} and was destroyed at {Transform(uid).Coordinates:coordinates}");
@@ -214,8 +214,8 @@ public sealed partial class SupermatterSystem : EntitySystem
             _audio.PlayPvs(sm.DustSound, uid);
 
             // Prevent spam or excess power production
-            AddComp<SupermatterImmuneComponent>(target);
-            AddComp<SupermatterImmuneComponent>(item);
+            GrantSupermatterImmunity(target);
+            GrantSupermatterImmunity(item);
 
             _adminLog.Add(LogType.EntityDelete, LogImpact.High, $"{EntityManager.ToPrettyString(target):target} touched {EntityManager.ToPrettyString(uid):uid} with {EntityManager.ToPrettyString(item):item} and was destroyed at {Transform(uid).Coordinates:coordinates}");
             EntityManager.SpawnEntity(sm.CollisionResultPrototype, Transform(target).Coordinates);
@@ -235,7 +235,7 @@ public sealed partial class SupermatterSystem : EntitySystem
             _audio.PlayPvs(sm.DustSound, uid);
 
             // Prevent spam or excess power production
-            AddComp<SupermatterImmuneComponent>(item);
+            GrantSupermatterImmunity(item);
 
             _adminLog.Add(LogType.EntityDelete, LogImpact.High, $"{EntityManager.ToPrettyString(target):target} touched {EntityManager.ToPrettyString(uid):uid} with {EntityManager.ToPrettyString(item):item} and destroyed it at {Transform(uid).Coordinates:coordinates}");
             EntityManager.QueueDeleteEntity(item);
@@ -317,7 +317,8 @@ public sealed partial class SupermatterSystem : EntitySystem
         }
 
         // Prevent spam or excess power production
-        AddComp<SupermatterImmuneComponent>(target);
+        GrantSupermatterImmunity(target);
+
 
         EntityManager.QueueDeleteEntity(target);
 
@@ -343,6 +344,14 @@ public sealed partial class SupermatterSystem : EntitySystem
         _adminLog.Add(LogType.Unknown, LogImpact.Extreme, $"{EntityManager.ToPrettyString(uid):uid} was powered for the first time by gas mixture at {Transform(uid).Coordinates:coordinates}");
         _chatManager.SendAdminAlert($"{EntityManager.ToPrettyString(uid):uid} was powered for the first time by gas mixture");
         sm.HasBeenPowered = true;
+    }
+
+    private void GrantSupermatterImmunity(EntityUid entity)
+    {
+        if (HasComp<SupermatterImmuneComponent>(entity))
+            return;
+
+        AddComp<SupermatterImmuneComponent>(entity);
     }
 
     private SupermatterStatusType GetStatus(EntityUid uid, SupermatterComponent sm)

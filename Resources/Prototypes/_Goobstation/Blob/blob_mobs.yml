@@ -229,6 +229,7 @@
     - type: Hands
       showInHands: true
     - type: BlobObserver
+    - type: SupermatterImmune
     - type: Visibility
       layer: 2
     - type: ContentEye

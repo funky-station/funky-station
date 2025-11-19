@@ -239,6 +239,52 @@
         amount: 0.2
 
 - type: reagent
+  id: CremeDeCacao
+  name: reagent-name-creme-de-cacao
+  parent: BaseAlcohol
+  desc: reagent-desc-creme-de-cacao
+  physicalDesc: reagent-physical-desc-sweet
+  flavor: cremedecacao
+  color: "#662d0b"
+  metamorphicSprite:
+    sprite: Objects/Consumable/Drinks/cremedecacaoglass.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 4
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 2
+      - !type:AdjustReagent
+        reagent: Ethanol
+        amount: 0.2
+
+- type: reagent
+  id: CremeDeMenthe
+  name: reagent-name-creme-de-menthe
+  parent: BaseAlcohol
+  desc: reagent-desc-creme-de-menthe
+  physicalDesc: reagent-physical-desc-minty
+  flavor: cremedementhe
+  color: "#2b9b6c"
+  metamorphicSprite:
+    sprite: Objects/Consumable/Drinks/cremedementheglass.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 4
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 2
+      - !type:AdjustReagent
+        reagent: Ethanol
+        amount: 0.2
+
+- type: reagent
   id: DeadRum
   name: reagent-name-dead-rum
   parent: BaseAlcohol
@@ -341,7 +387,6 @@
       - !type:AdjustReagent
         reagent: Ethanol
         amount: 0.2
-
 
 - type: reagent
   id: CoffeeLiqueur

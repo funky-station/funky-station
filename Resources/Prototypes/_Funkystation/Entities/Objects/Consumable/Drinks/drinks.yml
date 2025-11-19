@@ -136,4 +136,30 @@
         reagents:
         - ReagentId: Bitters
           Quantity: 30
+
+- type: entity
+  parent: DrinkGlass
+  id: CremeDeCacao
+  suffix: creme de cacao
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: CremeDeCacao
+          Quantity: 30
+
+- type: entity
+  parent: DrinkGlass
+  id: CremeDeMenthe
+  suffix: creme de menthe
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: CremeDeMenthe
+          Quantity: 30
 # pignog

@@ -25,4 +25,10 @@ reagent-name-applejack = applejack
 reagent-desc-applejack = The perfect beverage for when you feel the need to horse around.
 
 reagent-name-bitters = bitters
-reagent-desc-applejack = A bartender's best friend.
+reagent-desc-bitters = A bartender's best friend.
+
+reagent-name-creme-de-cacao = creme de cacao
+reagent-desc-creme-de-cacao = A chocolatey liqueur excellent for adding dessert notes to beverages and bribing sororities.
+
+reagent-name-creme-de-menthe = creme de menthe
+reagent-desc-creme-de-menthe = A minty liqueur excellent for refreshing, cool drinks.

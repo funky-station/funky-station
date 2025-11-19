@@ -25,6 +25,16 @@
   description: flavor-complex-bitters
 
 - type: flavor
+  id: cremedecacao
+  flavorType: Complex
+  description: flavor-complex-creme-de-cacao
+
+- type: flavor
+  id: cremedementhe
+  flavorType: Complex
+  description: flavor-complex-creme-de-menthe
+
+- type: flavor
   id: eggnog
   flavorType: Complex
   description: flavor-complex-eggnog

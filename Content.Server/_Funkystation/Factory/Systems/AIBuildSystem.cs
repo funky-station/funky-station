@@ -6,6 +6,7 @@ using Content.Server._Funkystation.Factory.Components;
 using Content.Shared.DoAfter;
 using Content.Shared._Funkystation.Factory;
 using Content.Shared._Funkystation.Factory.Components;
+using Content.Shared.Actions.Components;
 using Content.Shared.MalfAI;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
@@ -152,20 +153,21 @@ public sealed partial class AIBuildSystem : EntitySystem
 
     private void RemoveRoboticsFactoryAction(EntityUid performer)
     {
-        // Remove the Robotics Factory action (ActionMalfAiRoboticsFactory) from the performer.
-        // We search via ActionsComponent -> BaseActionComponent.BaseEvent type.
-        if (!TryComp<Content.Shared.Actions.ActionsComponent>(performer, out var actionsComp))
+        if (!TryComp<ActionsComponent>(performer, out var actionsComp))
             return;
 
         var toRemove = new List<EntityUid>();
-        foreach (var (actId, actComp) in _actions.GetActions(performer, actionsComp))
+        foreach (var action in _actions.GetActions(performer, actionsComp))
         {
-            if (actComp.BaseEvent is Content.Shared.Actions.Events.MalfAiRoboticsFactoryActionEvent)
-                toRemove.Add(actId);
+            var actionEvent = _actions.GetEvent(action.Owner);
+            if (actionEvent is Content.Shared.Actions.Events.MalfAiRoboticsFactoryActionEvent)
+                toRemove.Add(action.Owner);
         }
 
-        foreach (var id in toRemove)
-            _actions.RemoveAction(performer, id, actionsComp);
+        foreach (var actId in toRemove)
+        {
+            _actions.RemoveAction(performer, actId);
+        }
     }
 
     /// <summary>

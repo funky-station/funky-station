@@ -115,18 +115,6 @@
     proto: lawyer
 
 - type: entity
-  id: ActionStethoscope
-  name: Listen with stethoscope
-  components:
-  - type: EntityTargetAction
-    icon:
-      sprite: Clothing/Neck/Misc/stethoscope.rsi
-      state: icon
-    event: !type:StethoscopeActionEvent
-    checkCanInteract: false
-    priority: -1
-
-- type: entity
   parent: ClothingNeckBase
   id: Dinkystar
   name: star sticker

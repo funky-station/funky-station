@@ -12,6 +12,7 @@ using Content.Shared.Inventory.Events;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Timing;
 using Content.Server.Chat.Systems;
+using Content.Shared.Actions.Components;
 using Robust.Shared.Random;
 
 namespace Content.Shared.Hailer.EntitySystems;

@@ -560,11 +560,11 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 				_npcFaction.RemoveFaction(mindId, BloodCultistFactionId, false);
 				_npcFaction.AddFaction(mindId, NanotrasenFactionId);
 
-				foreach(var action in _actions.GetActions(cultistUid))
-				{
-					if (TryComp<CultistSpellComponent>(action.Id, out var actionComp))
-						_actions.RemoveAction(cultistUid, action.Id);
-				}
+                foreach(var action in _actions.GetActions(cultistUid))
+                {
+                    if (TryComp<CultistSpellComponent>(action.Owner, out var actionComp))
+                        _actions.RemoveAction(cultistUid, action.Owner);
+                }
 
 				if (EntityManager.TryGetComponent(cultistUid, out AppearanceComponent? appearance))
 				{

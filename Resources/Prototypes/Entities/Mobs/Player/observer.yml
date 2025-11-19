@@ -195,7 +195,6 @@
     icon: Interface/Actions/toggle-other-ghosts.png
   #end Funkystation
     clientExclusive: true
-  - type: InstantAction
     event: !type:ToggleGhostsActionEvent
 
 - type: entity

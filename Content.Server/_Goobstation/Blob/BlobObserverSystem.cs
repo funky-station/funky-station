@@ -179,8 +179,8 @@ public sealed class BlobObserverSystem : SharedBlobObserverSystem
             return;
         }
 
-        _action.GrantActions(uid, component.Core.Value.Comp.Actions, component.Core.Value);
-        _viewSubscriberSystem.AddViewSubscriber(component.Core.Value, playerSession); // GrantActions require keep in pvs
+        _action.GrantActions(uid, component.Core.Value.Comp.Actions, component.Core.Value.Owner);
+        _viewSubscriberSystem.AddViewSubscriber(component.Core.Value, playerSession);
     }
 
     private void OnPlayerAttached(EntityUid uid, BlobObserverComponent component, PlayerAttachedEvent args)
@@ -337,7 +337,7 @@ public sealed class BlobObserverSystem : SharedBlobObserverSystem
         var newCore = Spawn(blobCoreComponent.TilePrototypes[BlobTileType.Core], args.Target);
 
         blobCoreComponent.CanSplit = false;
-        _action.RemoveAction(args.Action);
+        _action.RemoveAction(args.Performer, args.Action.Owner);
 
         if (TryComp<BlobCoreComponent>(newCore, out var newBlobCoreComponent))
         {

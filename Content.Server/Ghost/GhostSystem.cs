@@ -290,22 +290,6 @@ namespace Content.Server.Ghost
                 _eye.SetVisibilityMask(uid, eyeComponent.VisibilityMask & ~(int) VisibilityFlags.Ghost, eyeComponent);
         }
 
-        private void OnMapInit(EntityUid uid, GhostComponent component, MapInitEvent args)
-        {
-            if (_actions.AddAction(uid, ref component.BooActionEntity, out var act, component.BooAction)
-                && act.UseDelay != null)
-            {
-                var start = _gameTiming.CurTime;
-                var end = start + act.UseDelay.Value;
-                _actions.SetCooldown(component.BooActionEntity.Value, start, end);
-            }
-
-            _actions.AddAction(uid, ref component.ToggleGhostHearingActionEntity, component.ToggleGhostHearingAction);
-            _actions.AddAction(uid, ref component.ToggleLightingActionEntity, component.ToggleLightingAction);
-            _actions.AddAction(uid, ref component.ToggleFoVActionEntity, component.ToggleFoVAction);
-            _actions.AddAction(uid, ref component.ToggleGhostsActionEntity, component.ToggleGhostsAction);
-        }
-
         private void OnGhostExamine(EntityUid uid, GhostComponent component, ExaminedEvent args)
         {
             var timeSinceDeath = _gameTiming.RealTime.Subtract(component.TimeOfDeath);

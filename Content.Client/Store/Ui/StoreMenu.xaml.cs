@@ -35,6 +35,7 @@ using Robust.Client.UserInterface.XAML;
 using Robust.Shared.Prototypes;
 using Robust.Client.ResourceManagement;
 using Content.Client.MalfAI.Theme;
+using Content.Shared.Actions;
 
 namespace Content.Client.Store.Ui;
 
@@ -198,7 +199,7 @@ public sealed partial class StoreMenu : DefaultWindow
 
     private void AddListingGui(ListingData listing)
     {
-	// Apply category filtering for both Malf and normal shops.
+        // Apply category filtering for both Malf and normal shops.
         if (!listing.Categories.Contains(CurrentCategory))
             return;
 
@@ -221,13 +222,17 @@ public sealed partial class StoreMenu : DefaultWindow
             if (texture == null)
             {
                 var actionId = _entityManager.Spawn(listing.ProductAction);
-                if (_entityManager.System<ActionsSystem>().GetAction(actionId, out var action) &&
-                    action.Icon != null)
+                var action = _entityManager.System<SharedActionsSystem>().GetAction(actionId);
+                if (action != null && action.Value.Comp.Icon != null)
                 {
-                    texture = spriteSys.Frame0(action.Icon);
+                    texture = spriteSys.Frame0(action.Value.Comp.Icon);
                 }
+
+                // Don't forget to clean up the spawned action!
+                _entityManager.DeleteEntity(actionId);
             }
         }
+
 
         if (_malfThemeApplied && _malfFont != null)
         {

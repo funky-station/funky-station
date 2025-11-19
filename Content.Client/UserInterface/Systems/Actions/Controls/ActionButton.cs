@@ -43,7 +43,10 @@ public sealed class ActionButton : Control, IEntityControl
     private IEntityManager _entities;
     private SpriteSystem? _spriteSys;
     private ActionUIController? _controller;
-    private SharedChargesSystem _sharedChargesSys;
+    private SharedChargesSystem? _sharedChargesSys;
+
+    private SharedChargesSystem? SharedChargesSys => _sharedChargesSys ??= _entities?.System<SharedChargesSystem>();
+
     private bool _beingHovered;
     private bool _depressed;
     private bool _toggled;
@@ -86,7 +89,7 @@ public sealed class ActionButton : Control, IEntityControl
 
         _entities = entities;
         _spriteSys = spriteSys;
-        _sharedChargesSys = _entities.System<SharedChargesSystem>();
+        _sharedChargesSys = null;
         _controller = controller;
 
         MouseFilter = MouseFilterMode.Pass;
@@ -221,14 +224,13 @@ public sealed class ActionButton : Control, IEntityControl
         // TODO: Don't touch this use an event make callers able to add their own shit for actions or I kill you.
         if (_entities.TryGetComponent(Action, out LimitedChargesComponent? actionCharges))
         {
-            var charges = _sharedChargesSys.GetCurrentCharges((Action.Value, actionCharges, null));
-            chargesText = FormattedMessage.FromMarkupPermissive(Loc.GetString($"Charges: {charges.ToString()}/{actionCharges.MaxCharges}"));
-
-            if (_entities.TryGetComponent(Action, out AutoRechargeComponent? autoRecharge))
+            var shared = SharedChargesSys;
+            if (shared != null)
             {
-                var chargeTimeRemaining = _sharedChargesSys.GetNextRechargeTime((Action.Value, actionCharges, autoRecharge));
-                chargesText.AddText(Loc.GetString($"{Environment.NewLine}Time Til Recharge: {chargeTimeRemaining}"));
+                var charges = shared.GetCurrentCharges(Action.Value, actionCharges);
+                chargesText = FormattedMessage.FromMarkupPermissive($"Charges: {charges}/{actionCharges.MaxCharges}");
             }
+
         }
 
         return new ActionAlertTooltip(name, decr, charges: chargesText);
@@ -314,22 +316,27 @@ public sealed class ActionButton : Control, IEntityControl
         }
 
         _controller ??= UserInterfaceManager.GetUIController<ActionUIController>();
-        _spriteSys ??= _entities.System<SpriteSystem>();
+        _spriteSys ??= _entities?.System<SpriteSystem>();
         var icon = action.Comp.Icon;
+
         if (_controller.SelectingTargetFor == action || action.Comp.Toggled)
         {
             if (action.Comp.IconOn is {} iconOn)
                 icon = iconOn;
 
             if (action.Comp.BackgroundOn is {} background)
-                _buttonBackgroundTexture = _spriteSys.Frame0(background);
+            {
+                if (_spriteSys != null)
+                    _buttonBackgroundTexture = _spriteSys.Frame0(background);
+            }
         }
         else
         {
             _buttonBackgroundTexture = Theme.ResolveTexture("SlotBackground");
         }
 
-        SetActionIcon(icon != null ? _spriteSys.Frame0(icon) : null);
+        SetActionIcon(icon != null && _spriteSys != null ? _spriteSys.Frame0(icon) : null);
+
     }
 
     public void UpdateBackground()

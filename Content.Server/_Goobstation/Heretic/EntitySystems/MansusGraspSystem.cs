@@ -150,9 +150,9 @@ public sealed partial class MansusGraspSystem : EntitySystem
 
             foreach (var action in _actions.GetActions(args.User))
             {
-                if (TryPrototype(action.Id, out var actionPrototype) && actionPrototype.ID.Equals("ActionHereticMansusGrasp"))
+                if (MetaData(action.Owner).EntityPrototype?.ID == "ActionHereticMansusGrasp")
                 {
-                    _actions.SetIfBiggerCooldown(action.Id, GraspCooldown);
+                    _actions.SetIfBiggerCooldown(action.Owner, GraspCooldown);
                 }
             }
         }

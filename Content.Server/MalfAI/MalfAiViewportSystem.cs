@@ -6,6 +6,7 @@ using Content.Server.Actions;
 using Content.Shared.MalfAI;
 using Content.Shared.MalfAI.Actions;
 using Content.Shared.Actions;
+using Content.Shared.Actions.Components;
 using Content.Shared.Actions.Events;
 using Content.Shared.Mind;
 using Content.Shared.Silicons.StationAi;

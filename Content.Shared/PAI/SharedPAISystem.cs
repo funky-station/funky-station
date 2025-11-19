@@ -52,8 +52,8 @@ public abstract class SharedPAISystem : EntitySystem
 
     private void OnShutdown(Entity<PAIComponent> ent, ref ComponentShutdown args)
     {
-        _actions.RemoveAction(ent, ent.Comp.ShopAction);
-        _actions.RemoveAction(ent, ent.Comp.OpenPdaAction);
+        _actions.RemoveAction(ent.Owner, ent.Comp.ShopAction);
+        _actions.RemoveAction(ent.Owner, ent.Comp.OpenPdaAction);
     }
 
     private void EnableEncryption(Entity<PAIComponent> ent, ref PAIEnableEncryptionEvent args)

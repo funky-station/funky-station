@@ -248,7 +248,7 @@ public sealed class MalfAiGyroscopeSystem : EntitySystem
         // Drive client radial cooldown and server lockout through the Actions system.
         var start = _timing.CurTime;
         var end = start + TimeSpan.FromSeconds(3);
-        _actions.SetCooldown(ev.Action, start, end);
+        _actions.SetCooldown((EntityUid?)ev.Action, TimeSpan.FromSeconds(3));
 
         // Mark handled so ActionsUseDelay will also be respected by the system.
         ev.Handled = true;

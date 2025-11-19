@@ -65,7 +65,7 @@ public sealed partial class CultistSpellSystem : EntitySystem
 	[Dependency] private readonly IGameTiming _gameTiming = default!;
 	[Dependency] private readonly IEntityManager _entMan = default!;
 	[Dependency] private readonly SharedStunSystem _stun = default!;
-	
+
 	[Dependency] private readonly IPrototypeManager _protoMan = default!;
 
 	private EntityQuery<EmpowerOnStandComponent> _runeQuery;
@@ -177,10 +177,10 @@ public sealed partial class CultistSpellSystem : EntitySystem
 					// Find and remove all actions matching this prototype
 					foreach (var action in _action.GetActions(uid))
 					{
-						var protoId = MetaData(action.Id).EntityPrototype?.ID;
+						var protoId = MetaData(action.Owner).EntityPrototype?.ID;
 						if (protoId != null && protoId == actionProto)
 						{
-							_action.RemoveAction(uid, action.Id);
+							_action.RemoveAction(uid, action.Owner);
 						}
 					}
 				}
@@ -235,26 +235,26 @@ public sealed partial class CultistSpellSystem : EntitySystem
 	if (!args.StandingOnRune && ent.Comp.KnownSpells.Count > 0)
 	{
 		// Remove all actions for known spells
-		for (int i = ent.Comp.KnownSpells.Count - 1; i >= 0; i--)
-		{
-			var knownSpellId = ent.Comp.KnownSpells[i];
-			var knownSpell = GetSpell(knownSpellId);
-			if (knownSpell.ActionPrototypes != null)
-			{
-			foreach (var actionProto in knownSpell.ActionPrototypes)
-			{
-				// Find and remove all actions matching this prototype
-				foreach (var action in _action.GetActions(ent))
-				{
-					var protoId = MetaData(action.Id).EntityPrototype?.ID;
-					if (protoId != null && protoId == actionProto)
-					{
-						_action.RemoveAction(ent, action.Id);
-					}
-				}
-			}
-			}
-		}
+        for (int i = ent.Comp.KnownSpells.Count - 1; i >= 0; i--)
+        {
+            var knownSpellId = ent.Comp.KnownSpells[i];
+            var knownSpell = GetSpell(knownSpellId);
+            if (knownSpell.ActionPrototypes != null)
+            {
+                foreach (var actionProto in knownSpell.ActionPrototypes)
+                {
+                    // Find and remove all actions matching this prototype
+                    foreach (var action in _action.GetActions(ent.Owner))
+                    {
+                        var protoId = MetaData(action.Owner).EntityPrototype?.ID;
+                        if (protoId != null && protoId == actionProto)
+                        {
+                            _action.RemoveAction(ent.Owner, action.Owner);
+                        }
+                    }
+                }
+            }
+        }
 		// Clear the known spells list
 		ent.Comp.KnownSpells.Clear();
 	}
@@ -275,7 +275,7 @@ public sealed partial class CultistSpellSystem : EntitySystem
 			}
 			if (args.RecordKnownSpell)
 				ent.Comp.KnownSpells.Add(args.CultAbility);
-			
+
 			_damageableSystem.TryChangeDamage(ent, appliedDamageSpecifier, true, origin: ent);
 			_audioSystem.PlayPvs(args.CultAbility.CarveSound, ent);
 			if (args.StandingOnRune)

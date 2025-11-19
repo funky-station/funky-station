@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Numerics;
 using Content.Shared.Actions;
+using Content.Shared.Actions.Components;
 using Robust.Shared.Log;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
@@ -238,18 +239,21 @@ public sealed partial class AiBuildActionSystem : EntitySystem
 
     private void RemoveRoboticsFactoryAction(EntityUid performer)
     {
-        if (!TryComp<Content.Shared.Actions.ActionsComponent>(performer, out var actionsComp))
+        if (!TryComp<ActionsComponent>(performer, out var actionsComp))
             return;
 
         var toRemove = new List<EntityUid>();
-        foreach (var (actId, actComp) in _actions.GetActions(performer, actionsComp))
+        foreach (var action in _actions.GetActions(performer, actionsComp))
         {
-            if (actComp.BaseEvent is Content.Shared.Actions.Events.MalfAiRoboticsFactoryActionEvent)
-                toRemove.Add(actId);
+            var actionEvent = _actions.GetEvent(action.Owner);
+            if (actionEvent is Content.Shared.Actions.Events.MalfAiRoboticsFactoryActionEvent)
+                toRemove.Add(action.Owner);
         }
 
-        foreach (var id in toRemove)
-            _actions.RemoveAction(performer, id, actionsComp);
+        foreach (var actId in toRemove)
+        {
+            _actions.RemoveAction(performer, actId);
+        }
     }
 
     // Attempts to anchor an entity if it has a transform and can be anchored.

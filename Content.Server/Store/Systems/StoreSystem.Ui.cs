@@ -32,6 +32,8 @@ using Content.Server.PDA.Ringer;
 using Content.Server.Stack;
 using Content.Server.Store.Components;
 using Content.Shared.Actions;
+using Content.Shared.Actions.Components;
+using Content.Shared.Charges.Systems;
 using Content.Shared.Database;
 using Content.Shared.FixedPoint;
 using Content.Shared.Hands.EntitySystems;
@@ -59,6 +61,7 @@ public sealed partial class StoreSystem
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly StackSystem _stack = default!;
     [Dependency] private readonly UserInterfaceSystem _ui = default!;
+    [Dependency] private readonly SharedChargesSystem _charges = default!;
 
     // goobstation - heretics
     [Dependency] private readonly HereticKnowledgeSystem _heretic = default!;
@@ -251,18 +254,17 @@ public sealed partial class StoreSystem
                 {
                     foreach (var existingAction in buyerActions.Actions)
                     {
-                        if (TryComp<MetaDataComponent>(existingAction, out var metaData) &&
-                            metaData.EntityPrototype?.ID == listing.ProductAction)
+                        if (!TryComp<MetaDataComponent>(existingAction, out var metaData) ||
+                            metaData.EntityPrototype?.ID != listing.ProductAction)
+                            continue;
+                        // Found existing action, add charges to it using existing method
+                        if (listing.ProductActionCharges is > 0)
                         {
-                            // Found existing action, add charges to it using existing method
-                            if (listing.ProductActionCharges.HasValue && listing.ProductActionCharges > 0)
-                            {
-                                _actions.AddCharges(existingAction, listing.ProductActionCharges.Value);
-                            }
-                            actionId = existingAction;
-                            existingActionFound = true;
-                            break;
+                            _charges.AddCharges(existingAction, listing.ProductActionCharges.Value);
                         }
+                        actionId = existingAction;
+                        existingActionFound = true;
+                        break;
                     }
                 }
 
@@ -282,7 +284,7 @@ public sealed partial class StoreSystem
                             // Found existing action, add charges to it using existing method
                             if (listing.ProductActionCharges.HasValue && listing.ProductActionCharges > 0)
                             {
-                                _actions.AddCharges(existingAction, listing.ProductActionCharges.Value);
+                                _charges.AddCharges(existingAction, listing.ProductActionCharges.Value);
                             }
                             actionId = existingAction;
                             existingActionFound = true;

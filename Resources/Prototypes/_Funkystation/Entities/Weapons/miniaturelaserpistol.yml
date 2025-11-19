@@ -39,7 +39,7 @@
   - type: ProjectileBatteryAmmoProvider
     proto: BulletEnergyGunLaser
     fireCost: 100
-  - type: BatteryWeaponFireModes
+  - type: EnergyGun
     fireModes:
     - proto: BulletDisabler
       fireCost: 80

@@ -35,6 +35,7 @@ using Content.Server.Body.Systems;
 using Content.Server.Chat;
 using Content.Server.Chat.Systems;
 using Content.Server.Emoting.Systems;
+using Content.Server.Roles;
 using Content.Server.Speech.EntitySystems;
 using Content.Shared.Anomaly.Components;
 using Content.Shared.Bed.Sleep;
@@ -44,11 +45,13 @@ using Content.Shared.Damage;
 using Content.Shared.Humanoid;
 using Content.Shared.Inventory;
 using Content.Shared.Mind;
+using Content.Shared.Mind.Components;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.NameModifier.EntitySystems;
 using Content.Shared.Popups;
+using Content.Shared.Roles;
 using Content.Shared.Weapons.Melee.Events;
 using Content.Shared.Zombies;
 using Robust.Shared.Prototypes;
@@ -71,6 +74,7 @@ namespace Content.Server.Zombies
         [Dependency] private readonly MobStateSystem _mobState = default!;
         [Dependency] private readonly SharedPopupSystem _popup = default!;
         [Dependency] private readonly NameModifierSystem _nameMod = default!;
+        [Dependency] private readonly SharedRoleSystem _role = default!;
 
         public const SlotFlags ProtectiveSlots =
             SlotFlags.FEET |

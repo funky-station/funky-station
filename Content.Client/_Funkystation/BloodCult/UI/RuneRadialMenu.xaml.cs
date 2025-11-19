@@ -10,6 +10,8 @@ using Content.Client.UserInterface.Controls;
 using Content.Shared.BloodCult;
 //using Content.Shared.BloodCult.Prototypes;
 using Robust.Client.GameObjects;
+using Robust.Client.Graphics;
+using Robust.Client.ResourceManagement;
 using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.XAML;
 using Robust.Shared.GameObjects;
@@ -27,6 +29,7 @@ public sealed partial class RuneRadialMenu : RadialMenu
     [Dependency] private readonly IEntitySystemManager _entitySystem = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly ISharedPlayerManager _playerManager = default!;
+    [Dependency] private readonly IResourceCache _resourceCache = default!;
     private readonly SpriteSystem _spriteSystem;
 
 	public event Action<string>? SendRunesMessageAction;
@@ -79,7 +82,7 @@ public sealed partial class RuneRadialMenu : RadialMenu
 				{
 					VerticalAlignment = VAlignment.Center,
 					HorizontalAlignment = HAlignment.Center,
-					Texture = _spriteSystem.GetPrototypeIcon(rune).Default,
+					Texture = GetRuneIconTexture(rune),
 					TextureScale = new Vector2(2f, 2f)
 				};
 				button.AddChild(texture);
@@ -99,7 +102,7 @@ public sealed partial class RuneRadialMenu : RadialMenu
 				{
 					VerticalAlignment = VAlignment.Center,
 					HorizontalAlignment = HAlignment.Center,
-					Texture = _spriteSystem.GetPrototypeIcon(rune).Default,
+					Texture = GetRuneIconTexture(rune),
 					TextureScale = new Vector2(1f, 1f)
 				};
 				button.AddChild(texture);
@@ -108,6 +111,26 @@ public sealed partial class RuneRadialMenu : RadialMenu
         }
 
         AddRuneButtonOnClickAction(main);
+    }
+
+    // All the runes have a -icon variant in the rsi, so we can just load the texture from the rsi
+    // TearVeilRune is special because it has a different rsi
+    private Texture GetRuneIconTexture(string rune)
+    {
+        var iconName = rune == "TearVeilRune" 
+            ? "narsierune-icon" 
+            : rune.Replace("Rune", "").ToLowerInvariant() + "-icon";
+        
+        var rsiPath = rune == "TearVeilRune"
+            ? "_Funkystation/Structures/BloodCult/narsierune.rsi"
+            : "_Funkystation/Structures/BloodCult/bloodrune.rsi";
+
+        // Try to load the icon texture, fallback to prototype icon if not found
+        var iconPath = new ResPath($"/Textures/{rsiPath}/{iconName}.png");
+        if (_resourceCache.TryGetResource<TextureResource>(iconPath, out var textureResource))
+            return textureResource.Texture;
+
+        return _spriteSystem.GetPrototypeIcon(rune).Default;
     }
 
     private void AddRuneButtonOnClickAction(RadialContainer mainControl)

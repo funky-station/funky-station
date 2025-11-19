@@ -42,6 +42,7 @@ using Robust.Server.GameObjects;
 using Robust.Server.Player;
 using Robust.Shared.Enums;
 using Content.Server.Body.Components;
+using Content.Shared.Body.Components;
 using Content.Shared.Body.Part;
 using Content.Shared.Roles.Jobs;
 using Content.Shared.Localizations;

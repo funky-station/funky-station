@@ -51,6 +51,7 @@
 # SPDX-FileCopyrightText: 2025 Wolfkey-SomeoneElseTookMyUsername <wolfkey75@gmail.com>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 lukachukai <219865375+lukachukai2@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -149,10 +150,10 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 50
+        maxVol: 60
         reagents:
         - ReagentId: Flour
-          Quantity: 50
+          Quantity: 60
 
 - type: entity
   parent: [ReagentPacketBase, ItemHeftyBase]
@@ -165,10 +166,10 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 20
+        maxVol: 30
         reagents:
         - ReagentId: Flour
-          Quantity: 20
+          Quantity: 30
 
 - type: entity
   parent: ReagentPacketBase
@@ -183,7 +184,7 @@
       food:
         reagents:
         - ReagentId: Cornmeal
-          Quantity: 50
+          Quantity: 60
 
 - type: entity
   parent: ReagentPacketBase
@@ -196,10 +197,10 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 20
+        maxVol: 30
         reagents:
         - ReagentId: Cornmeal
-          Quantity: 20
+          Quantity: 30
 
 - type: entity
   parent: ReagentPacketBase

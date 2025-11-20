@@ -5737,3 +5737,9 @@ Entries:
       message: The inventory grid of Large Cardboard Boxes has been slightly increased.
   id: 683
   time: '2025-11-20T00:23:18.0000000+00:00'
+- author: Drywink
+  changes:
+    - type: Fix
+      message: The SM should no longer ash any blob observer!
+  id: 684
+  time: '2025-11-20T00:49:58.0000000+00:00'

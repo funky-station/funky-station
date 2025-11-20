@@ -53,6 +53,11 @@ public sealed partial class AudioTab : Control
             scale: ContentAudioSystem.MidiVolumeMultiplier);
 
         Control.AddOptionPercentSlider(
+            CVars.JukeboxVolume,
+            SliderVolumeMidi,
+            scale: ContentAudioSystem.JukeboxVolumeMultiplier);
+
+        Control.AddOptionPercentSlider(
             CCVars.AmbientMusicVolume,
             SliderVolumeAmbientMusic,
             scale: ContentAudioSystem.AmbientMusicMultiplier);

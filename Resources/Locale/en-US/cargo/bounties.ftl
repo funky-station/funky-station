@@ -151,6 +151,59 @@ bounty-item-multiver = Multiver
 bounty-item-dexalin = Dexalin
 bounty-item-space-cleaner = Space Cleaner
 
+bounty-item-scrap-plate = Scrap Plate
+bounty-item-scrap-helmet = Scrap Helmet
+bounty-item-fire-bomb = Fire Bomb
+bounty-item-improvised-bow = Improvised Bow
+bounty-item-improvised-shotgun = Improvised Shotgun
+bounty-item-makeshift-shield = Makeshift Shield
+bounty-item-wooden-buckler = Wooden Buckler
+bounty-item-makeshift-stunprod = Makeshift Stunprod
+bounty-item-makeshift-bola = Makeshift Bola
+bounty-item-svalinn-pistol = Svalinn Pistol
+
+bounty-item-disabler-smg = Disabler SMG
+bounty-item-truncheon = Truncheon
+bounty-item-xray-cannon = Xray Cannon
+bounty-item-laser-cannon = Laser Cannon
+bounty-item-security-hud = Security Hud
+bounty-item-medsec-hud = MedSec Hud
+bounty-item-cybernetic-security-eyes = Cybernetic Security Eyes
+bounty-item-explosive-payload = Explosive Payload
+
+bounty-item-biosynthectic-eyes = Biosynthetic Eyes
+bounty-item-biosynthectic-lung = Biosynthetic Lungs
+bounty-item-biosynthectic-liver = Biosynthetic Liver
+bounty-item-biosynthectic-heart = Biosynthetic Heart
+bounty-item-autoinjector-cartrige = Autoinjector Cartrige
+bounty-item-medical-autoinjector = Autoinjector
+bounty-item-health-analyzer = Health Analyzer
+bounty-item-cybernetic-medical-eyes = Cybernetic Medical Eyes
+bounty-item-defibrillator = Defibrilator
+bounty-item-medical-hud = Medical Hud
+bounty-item-surgery-advanced-tool = Advanced Surgery Tool
+
+bounty-item-bahama-mama = Bahama Mama
+bounty-item-erika-suprise = Erika Suprise
+bounty-item-bloody-mary = BloodyMary
+bounty-item-blue-hawaiian = Blue Hawaiian
+bounty-item-citrus-bikeshed = Citrus Bikeshed
+bounty-item-andalusia = Andalusia
+bounty-item-watermelon-wakeup = Watermelon Wakeup
+bounty-item-xeno-basher = Xeno Basher
+bounty-item-cogchamp = Cogchamp
+bounty-item-demons-blood = Demons Blood
+bounty-item-cosmopolitan = Cosmopolitan
+bounty-item-beepsky-smash = Beepsky Smash
+bounty-item-classic-martini = Classic Martini
+bounty-item-posca = Posca
+bounty-item-the-martinez = The Martinez
+bounty-item-doctors-delight = Doctors Delight
+bounty-item-tayquila = Tayquila
+bounty-item-fever-dream = Fever Dream
+bounty-item-gargle-blaster = Gargle Blaster
+
+
 bounty-description-artifact = NanoTrasen is in some hot water for stealing artifacts from non-spacefaring planets. Return one and we'll compensate you for it.
 bounty-description-baseball-bat = Baseball fever is going on at CentComm! Be a dear and ship them some baseball bats, so that management can live out their childhood dream.
 bounty-description-box-hugs = Several chief officials have sustained serious boo-boos. A box of hugs is urgently needed to aid in their recovery.

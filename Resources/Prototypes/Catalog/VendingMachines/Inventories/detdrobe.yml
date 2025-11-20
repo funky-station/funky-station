@@ -7,6 +7,7 @@
 # SPDX-FileCopyrightText: 2024 Flareguy <78941145+Flareguy@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Ghagliiarghii <68826635+Ghagliiarghii@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 John Space <bigdumb421@gmail.com>
+# SPDX-FileCopyrightText: 2025 SharkSnake98 <sharksnake87@gmail.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
@@ -31,6 +32,7 @@
     ClothingUniformMiamiViceSkirt: 2 #imp
     ClothingOuterVestDetective: 2
     ClothingNeckTieDet: 2
+    ClothingNeckTieDisco: 1
     ClothingHeadHatFedoraGrey: 2
     ClothingHandsGlovesColorBlack: 2
     ClothingHandsGlovesLatex: 2

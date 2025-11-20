@@ -152,9 +152,9 @@
   description: A sturdy jumpsuit, issued to members of the Cargo department.
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpsuit/cargotech.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/cargotech.rsi
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpsuit/cargotech.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/cargotech.rsi
 
 - type: entity
   parent: ClothingUniformBase
@@ -596,9 +596,9 @@
   description: 'What can brown do for you?'
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpsuit/qm.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/qm.rsi
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpsuit/qm.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/qm.rsi
 
 - type: entity
   parent: [ClothingUniformBase, BaseCommandContraband]
@@ -607,9 +607,9 @@
   description: A sharp turtleneck made for the hardy work environment of supply.
   components:
     - type: Sprite
-      sprite: Clothing/Uniforms/Jumpsuit/qmturtle.rsi
+      sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/qmturtle.rsi
     - type: Clothing
-      sprite: Clothing/Uniforms/Jumpsuit/qmturtle.rsi
+      sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/qmturtle.rsi
 
 - type: entity
   parent: [ClothingUniformBase, BaseCommandContraband]

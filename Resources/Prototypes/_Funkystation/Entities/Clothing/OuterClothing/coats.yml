@@ -2,6 +2,7 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
+# Magistrate's Coat
 - type: entity
   parent: [ClothingOuterStorageBase, BaseCentcommContraband]
   id: ClothingOuterMagistrateCoat
@@ -14,3 +15,67 @@
     sprite: _Funkystation/Clothing/OuterClothing/Coats/magi_coat.rsi
   - type: Item
     size: Normal
+
+# Cargo Windbreaker
+- type: entity
+  parent: [ClothingOuterStorageFoldableBase]
+  id: ClothingOuterCargoWindbreaker
+  name: cargo tech windbreaker
+  description: We work, to earn the right to work.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/OuterClothing/Coats/cargo_windbreaker.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/OuterClothing/Coats/cargo_windbreaker.rsi
+  - type: Item
+    size: Normal
+  - type: TemperatureProtection
+    heatingCoefficient: 1.1
+    coolingCoefficient: 0.1
+  - type: Armor
+    modifiers:
+      coefficients:
+        Slash: 0.95
+        Heat: 0.90
+
+- type: entity
+  parent: [ClothingOuterStorageFoldableBase]
+  id: ClothingOuterCargoCourierWindbreaker
+  name: mail carrier windbreaker
+  description: Here at Nanotrasen Interstellar, we make sure all our workers are properly equipped to do their jobs regardless of atmospheric conditions!
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/OuterClothing/Coats/courier_windbreaker.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/OuterClothing/Coats/courier_windbreaker.rsi
+  - type: Item
+    size: Normal
+  - type: TemperatureProtection
+    heatingCoefficient: 1.1
+    coolingCoefficient: 0.1
+  - type: Armor
+    modifiers:
+      coefficients:
+        Slash: 0.95
+        Heat: 0.90
+
+- type: entity
+  parent: [ClothingOuterStorageFoldableBase]
+  id: ClothingOuterCargoSeniorWindbreaker
+  name: senior cargo tech windbreaker
+  description: Looks a little dull and faded, but is incomparably comfy. Smells like money.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/OuterClothing/Coats/senior_cargo_windbreaker.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/OuterClothing/Coats/senior_cargo_windbreaker.rsi
+  - type: Item
+    size: Normal
+  - type: TemperatureProtection
+    heatingCoefficient: 1.1
+    coolingCoefficient: 0.1
+  - type: Armor
+    modifiers:
+      coefficients:
+        Slash: 0.95
+        Heat: 0.90

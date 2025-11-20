@@ -1,0 +1,10 @@
+﻿# Cargo Liftbelt
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckCargoLiftBelt
+  name: lift belt
+  description: An industrial grade lift belt designed for handling heavy cargo.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Neck/Misc/liftbelt.rsi

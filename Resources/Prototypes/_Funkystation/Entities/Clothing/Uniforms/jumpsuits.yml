@@ -267,3 +267,16 @@
     sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/magistrateturtleneck.rsi
   - type: Clothing
     sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/magistrateturtleneck.rsi
+
+# cargo shirt! (by AraiMaia)
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitCargoShirt
+  name: cargo tech shirt
+  description: A worn office shirt over a pair of cargo pants. Formal-casual.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/cargoshirt.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/cargoshirt.rsi

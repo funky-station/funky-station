@@ -80,9 +80,9 @@
   description: A sturdy jumpskirt, issued to members of the Cargo department.
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpskirt/cargotech.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/cargotech.rsi
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpskirt/cargotech.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/cargotech.rsi
 
 - type: entity
   parent: [ClothingUniformSkirtBase, BaseCommandContraband]
@@ -387,9 +387,9 @@
   description: 'What can brown do for you?'
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpskirt/qm.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/qm.rsi
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpskirt/qm.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/qm.rsi
 
 - type: entity
   parent: [ClothingUniformSkirtBase, BaseCommandContraband]
@@ -398,9 +398,9 @@
   description: A sharp turtleneck made for the hardy work environment of supply.
   components:
     - type: Sprite
-      sprite: Clothing/Uniforms/Jumpskirt/qmturtleskirt.rsi
+      sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/qmturtleskirt.rsi
     - type: Clothing
-      sprite: Clothing/Uniforms/Jumpskirt/qmturtleskirt.rsi
+      sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/qmturtleskirt.rsi
 
 - type: entity
   parent: [ClothingUniformSkirtBase, BaseCommandContraband]

@@ -44,3 +44,16 @@
     sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/qm_suit.rsi
   - type: Clothing
     sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/qm_suit.rsi
+
+# cargo top! (by AraiMaia)
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitCargoTop
+  name: cargo tech top
+  description: A black tanktop over a pair of cargo pants, with an office shirt tied around the waist. Gets toasty moving that freight.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/cargoshirt.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/cargoshirt.rsi

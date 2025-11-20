@@ -10,6 +10,9 @@
   requirements:
   - !type:OverallPlaytimeRequirement
     time: 360000 #100 hrs
+  - !type:DepartmentTimeRequirement
+    department: CentralCommand
+    time: 72000 #20 hours
   weight: 0
   startingGear: CentralCommandInternGear
   icon: JobIconCentralCommandIntern

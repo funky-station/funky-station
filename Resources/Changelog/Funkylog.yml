@@ -5702,3 +5702,44 @@ Entries:
       message: Updated Court station for the fifth round of playtests
   id: 682
   time: '2025-11-20T00:17:03.0000000+00:00'
+- author: ThatOneMoon
+  changes:
+    - type: Add
+      message: >-
+        Security, Medical, Bar and Makeshift Weapon cargo bounties have been
+        vastly exanded with all of them now asking for a greater variety of
+        things.
+    - type: Add
+      message: >-
+        Departmental lockboxes have been added to the crafting menu, made the
+        same way as other crates. 
+    - type: Remove
+      message: Clown, Library and Instrument bounties have been removed from the pool.
+    - type: Tweak
+      message: >-
+        Autoinjectors and their cartriges have been made less expensive to
+        print.
+    - type: Tweak
+      message: >-
+        Svalinns have been made less expensive to print, and can now be made in
+        the cargo techfab.
+    - type: Tweak
+      message: 'Cybernetics can be made in the medical techfab when researched. '
+    - type: Tweak
+      message: >-
+        Compact Defibrdilators have been made obtainable, unlocked from Advanced
+        Treatment reseach and printed at the Medical Techfab.
+    - type: Tweak
+      message: Vials have been made printable at the medical techfab.
+    - type: Tweak
+      message: Aprons are now printable at the uniform printer
+    - type: Tweak
+      message: The inventory grid of Large Cardboard Boxes has been slightly increased.
+  id: 683
+  time: '2025-11-20T00:23:18.0000000+00:00'
+- author: Drywink
+  changes:
+    - type: Fix
+      message: The SM should no longer ash any blob observer!
+  id: 684
+  time: '2025-11-20T00:49:58.0000000+00:00'

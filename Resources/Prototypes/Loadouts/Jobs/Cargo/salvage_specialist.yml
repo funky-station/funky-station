@@ -6,16 +6,6 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
-# Senior Stuff
-- type: loadoutEffectGroup
-  id: SeniorCargo
-  effects:
-  - !type:JobRequirementLoadoutEffect
-    requirement:
-      !type:DepartmentTimeRequirement
-      department: Cargo
-      time: 216000 #60 hrs
-
 # Jumpsuit
 - type: loadout
   id: SalvageSpecialistJumpsuit

@@ -35,6 +35,16 @@
   description: flavor-complex-creme-de-menthe
 
 - type: flavor
+  id: fernet
+  flavorType: Complex
+  description: flavor-complex-fernet
+
+- type: flavor
+  id: hakkamate
+  flavorType: Complex
+  description: flavor-complex-hakka-mate
+
+- type: flavor
   id: eggnog
   flavorType: Complex
   description: flavor-complex-eggnog

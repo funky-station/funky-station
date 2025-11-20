@@ -162,4 +162,30 @@
         reagents:
         - ReagentId: CremeDeMenthe
           Quantity: 30
+
+- type: entity
+  parent: DrinkGlass
+  id: Fernet
+  suffix: fernet
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Fernet
+          Quantity: 30
+
+- type: entity
+  parent: DrinkGlass
+  id: HakkaMate
+  suffix: hakka mate
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: HakkaMate
+          Quantity: 30
 # pignog

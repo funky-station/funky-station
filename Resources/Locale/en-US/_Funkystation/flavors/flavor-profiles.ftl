@@ -17,9 +17,11 @@ flavor-complex-bitters = like Spiced alcohol
 flavor-complex-creme-de-cacao = slick and aromatic with a hint of chocolate swirling in a bite of alcohol
 flavor-complex-creme-de-menthe = minty, cool, and invigorating, like a splash of cold streamwater
 flavor-complex-chutzpah = like you're falling far below rock bottom
+flavor-complex-fernet = like utter bitterness
 flavor-complex-margherita-drink = like you're sipping a pizza on a beach
 flavor-complex-spiked-eggnog = like alcoholic egg and alcoholic nog
 flavor-complex-pineapple-margherita = like pineapples on pizza
+flavor-complex-hakka-mate = like bubbly yerba mate
 
 ## base
 flavor-base-fresh = fresh

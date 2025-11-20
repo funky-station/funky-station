@@ -32,3 +32,6 @@ reagent-desc-creme-de-cacao = A chocolatey liqueur excellent for adding dessert 
 
 reagent-name-creme-de-menthe = creme de menthe
 reagent-desc-creme-de-menthe = A minty liqueur excellent for refreshing, cool drinks.
+
+reagent-name-fernet = fernet
+reagent-desc-creme-de-menthe = Pure Fernet. Only an absolute madman would drink this pure.

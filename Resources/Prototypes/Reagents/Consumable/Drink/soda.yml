@@ -288,7 +288,7 @@
     state: icon_empty
   metamorphicMaxFillLevels: 5
   metamorphicFillBaseName: fill-
-  metamorphicChangeColor: false  
+  metamorphicChangeColor: false
   metabolisms:
     Drink:
       effects:
@@ -316,3 +316,18 @@
   physicalDesc: reagent-physical-desc-fizzy
   flavor: metallic
   color: "#66538F"
+
+- type: reagent
+  id: HakkaMate
+  name: reagent-name-hakka-mate
+  parent: BaseSoda
+  desc: reagent-desc-hakka-mate
+  physicalDesc: reagent-physical-desc-fizzy
+  flavor: hakkamate
+  color: "#cc9633"
+  metamorphicSprite:
+    sprite: Objects/Consumable/Drinks/hakkamate.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 4
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false

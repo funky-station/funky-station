@@ -365,6 +365,29 @@
         boozePower: 2
 
 - type: reagent
+  id: Fernet
+  name: reagent-name-fernet
+  parent: BaseAlcohol
+  desc: reagent-desc-fernet
+  physicalDesc: reagent-physical-desc-strong-smelling
+  flavor: fernet
+  color: "#324638"
+  metamorphicSprite:
+    sprite: Objects/Consumable/Drinks/fernetglass.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 4
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 2
+      - !type:AdjustReagent
+        reagent: Ethanol
+        amount: 0.3
+
+- type: reagent
   id: Gin
   name: reagent-name-gin
   parent: BaseAlcohol

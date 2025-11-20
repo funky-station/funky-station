@@ -1,15 +1,14 @@
-using System.Collections.Generic;
 using Content.Shared.Clothing;
 using Content.Shared.Humanoid;
 using Content.Shared.Species.Arachnid;
 using Robust.Client.GameObjects;
-using Robust.Shared.GameStates;
 
 namespace Content.Client.Species;
 
 public sealed class CocoonVisualizerSystem : VisualizerSystem<CocoonedComponent>
 {
     [Dependency] private readonly SharedHumanoidAppearanceSystem _humanoidAppearance = default!;
+    [Dependency] private readonly AppearanceSystem _appearance = default!;
 
     // List of clothing layer names that we hide when cocooned
     private static readonly string[] ClothingLayers = new[]
@@ -104,15 +103,12 @@ public sealed class CocoonVisualizerSystem : VisualizerSystem<CocoonedComponent>
         // Hide only clothing layers that exist and are visible
         foreach (var layerName in ClothingLayers)
         {
-            if (SpriteSystem.LayerMapTryGet((ent, sprite), layerName, out _, false))
+            if (SpriteSystem.LayerMapTryGet((ent, sprite), layerName, out var index, false))
             {
                 // Check if the layer is visible before hiding it
-                if (SpriteSystem.LayerMapTryGet((ent, sprite), layerName, out var index, false))
+                if (sprite[index].Visible)
                 {
-                    if (sprite[index].Visible)
-                    {
-                        SpriteSystem.LayerSetVisible((ent, sprite), layerName, false);
-                    }
+                    SpriteSystem.LayerSetVisible((ent, sprite), layerName, false);
                 }
             }
         }
@@ -151,6 +147,22 @@ public sealed class CocoonVisualizerSystem : VisualizerSystem<CocoonedComponent>
         if (TryComp<HumanoidAppearanceComponent>(ent, out var humanoid))
         {
             _humanoidAppearance.SetLayersVisibility(ent, BodyLayers, true, permanent: true, humanoid);
+        }
+
+        // Restore clothing layers by iterating over ClothingLayers and making them visible
+        foreach (var layerName in ClothingLayers)
+        {
+            if (SpriteSystem.LayerMapTryGet((ent, sprite), layerName, out _, false))
+            {
+                SpriteSystem.LayerSetVisible((ent, sprite), layerName, true);
+            }
+        }
+
+        // Trigger an appearance update to refresh the clothing system
+        // This ensures clothing layers are properly shown based on what's equipped
+        if (TryComp<AppearanceComponent>(ent, out var appearance))
+        {
+            _appearance.QueueUpdate(ent, appearance);
         }
     }
 }

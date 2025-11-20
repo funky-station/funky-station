@@ -31,6 +31,7 @@
 # SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Komoni <131829655+Komonighub@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Middleson5 <Chance@thethiers.com>
 # SPDX-FileCopyrightText: 2025 Mish <bluscout78@yahoo.com>
 # SPDX-FileCopyrightText: 2025 Rainbow <ev0lvkitten@gmail.com>
@@ -534,3 +535,5 @@
       orGroup: puddleMess
     - id: SmugglerStashVariationPass
       prob: 0.90
+    - id: CutWireVariationPass # funkystation
+      prob: 0.20 # would suck if it happened every single round, but it's something for engi to be vigilant of

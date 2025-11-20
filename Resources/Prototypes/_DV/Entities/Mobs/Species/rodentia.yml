@@ -23,6 +23,7 @@
 # SPDX-FileCopyrightText: 2025 Skye <57879983+Rainbeon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 emmawantsblahaj <coolbloxxie@yahoo.com.au>
 # SPDX-FileCopyrightText: 2025 kbarkevich <24629810+kbarkevich@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
@@ -39,6 +40,7 @@
     species: Rodentia
   - type: Hunger
     baseDecayRate: 0.0467 # 33% faster than usual
+  - type: Thirst
   - type: Carriable # Carrying system from nyanotrasen.
   - type: Inventory
     speciesId: rodentia

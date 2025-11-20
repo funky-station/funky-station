@@ -100,7 +100,6 @@
   - !type:AddComponentSpecial
     components:
       - type: CommandStaff
-      - type: SecurityStaff
 
 - type: startingGear
   id: HoSGear

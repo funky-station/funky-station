@@ -31,6 +31,30 @@
     {
       "name": "teleport"
     },
+	    {
+      "name": "barrier-icon"
+    },
+    {
+      "name": "bloodboil-icon"
+    },
+    {
+      "name": "empowering-icon"
+    },
+    {
+      "name": "offering-icon"
+    },
+    {
+      "name": "revive-icon"
+    },
+    {
+      "name": "spiritrealm-icon"
+    },
+    {
+      "name": "summoning-icon"
+    },
+    {
+      "name": "teleport-icon"
+    },
     {
       "name": "empowering_drawing",
         "delays": [

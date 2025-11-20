@@ -5690,3 +5690,9 @@ Entries:
       message: You can now spawn as a chemist without a hat
   id: 680
   time: '2025-11-20T00:12:20.0000000+00:00'
+- author: 88tv
+  changes:
+    - type: Add
+      message: Added 35 new tips.
+  id: 681
+  time: '2025-11-20T00:14:34.0000000+00:00'

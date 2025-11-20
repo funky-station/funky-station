@@ -1414,6 +1414,8 @@
     - ParamedHypo # Goobstation - ParamedHypo
     - autoInjectorCartridgeCase
     - autoInjectorCartridgeCaseSoft
+    - MedHUD # Funky
+    - Vial # Funky
     - UtilityKnife #if you don't have scalpels ig #funk
     dynamicRecipes:
     - ChemicalPayload
@@ -1431,6 +1433,12 @@
     - OmnimedTool
     - MedicalCyberneticEyes
     - ClothingEyesNightVisionMedicalGoggles # Funky - EE nightvision
+    - CompactDefib # Funky Change
+    - JawsOfLifeLeftArm # Funky Change
+    - JawsOfLifeRightArm # Funky Change
+    - SpeedLeftLeg # Funky Change
+    - SpeedRightLeg # Funky Change
+    - BasicCyberneticEyes # Funky Change
   - type: Machine
     board: MedicalTechFabCircuitboard
   - type: StealTarget
@@ -1462,6 +1470,7 @@
     - ClothingUniformJumpskirtColorGrey
     - ClothingUniformJumpsuitBartender
     - ClothingUniformJumpskirtBartender
+    - ApronBartender # Funky Change
     - ClothingHeadHatCapcap
     - ClothingHeadHatCaptain
     - ClothingUniformJumpsuitCaptain
@@ -1486,6 +1495,7 @@
     - ClothingUniformJumpskirtChaplain
     - ClothingUniformJumpsuitChef
     - ClothingUniformJumpskirtChef
+    - ApronChef # Funky Change
     - ClothingUniformJumpsuitChemistry
     - ClothingUniformJumpskirtChemistry
     - ClothingUniformJumpsuitClown
@@ -1518,6 +1528,7 @@
     - ClothingUniformJumpskirtHoSParadeMale
     - ClothingUniformJumpsuitHydroponics
     - ClothingUniformJumpskirtHydroponics
+    - ApronHydroponics # Funky Change
     - ClothingUniformJumpsuitJanitor
     - ClothingUniformJumpskirtJanitor
     - ClothingUniformJumpsuitLawyerBlack

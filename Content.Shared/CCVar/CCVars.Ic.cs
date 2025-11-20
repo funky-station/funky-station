@@ -1,5 +1,6 @@
 // SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
 // SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 lzk <124214523+lzk228@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
 // SPDX-License-Identifier: MIT
@@ -51,4 +52,17 @@ public sealed partial class CCVars
     /// </summary>
     public static readonly CVarDef<bool> ICShowSSDIndicator =
         CVarDef.Create("ic.show_ssd_indicator", true, CVar.CLIENTONLY);
+
+    /// <summary>
+    ///     Forces SSD characters to sleep after ICSSDSleepTime seconds
+    /// </summary>
+    public static readonly CVarDef<bool> ICSSDSleep =
+        CVarDef.Create("ic.ssd_sleep", true, CVar.SERVER);
+
+    /// <summary>
+    ///     Time between character getting SSD status and falling asleep
+    ///     Won't work without ICSSDSleep
+    /// </summary>
+    public static readonly CVarDef<float> ICSSDSleepTime =
+        CVarDef.Create("ic.ssd_sleep_time", 600f, CVar.SERVER);
 }

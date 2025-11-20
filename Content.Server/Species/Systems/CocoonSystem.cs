@@ -10,7 +10,6 @@ using Content.Shared.Nutrition.EntitySystems;
 using Content.Shared.Popups;
 using Content.Shared.Species.Arachnid;
 using Content.Shared.Standing;
-using Robust.Client.GameObjects;
 
 namespace Content.Server.Species.Arachnid;
 
@@ -22,7 +21,6 @@ public sealed class CocoonSystem : SharedCocoonSystem
     [Dependency] private readonly ActionBlockerSystem _blocker = default!;
     [Dependency] private readonly IComponentFactory _componentFactory = default!;
     [Dependency] private readonly StandingStateSystem _standing = default!;
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
 
     public override void Initialize()
     {
@@ -140,14 +138,6 @@ public sealed class CocoonSystem : SharedCocoonSystem
         }
 
         EnsureComp<MumbleAccentComponent>(uid);
-
-        /*if (!TryComp<SpriteComponent>(uid, out var sprite))
-            return;
-        if (sprite.LayerMapTryGet(CocoonedKey.Key, out _))
-            return;
-
-        var layer = sprite.AddLayer(component.Sprite);
-        sprite.LayerMapSet(CocoonedKey.Key, layer);*/
     }
 
     private void OnCocoonShutdown(EntityUid uid, CocoonedComponent component, ComponentShutdown args)

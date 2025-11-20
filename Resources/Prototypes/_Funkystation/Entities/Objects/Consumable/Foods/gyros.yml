@@ -1,0 +1,99 @@
+# SPDX-FileCopyrightText: 2025 Zergologist <114537969+Chedd-Error@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  parent: FoodInjectableBase
+  id: FoodGyrosBase
+  abstract: true
+  components:
+  - type: FlavorProfile
+    flavors:
+      - bread
+      - meaty
+      - onion
+      - tomato
+  - type: Food
+    transferAmount: 5
+  - type: Sprite
+    sprite: _Funkystation/Objects/Consumable/Food/gyros.rsi
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 40
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 25
+        - ReagentId: Vitamin
+          Quantity: 5
+        - ReagentId: Protein
+          Quantity: 6
+        - ReagentId: TzatzikiSauce
+          Quantity: 4
+  - type: Item
+    sprite: _Funkystation/Objects/Consumable/Food/gyros.rsi
+
+- type: entity
+  name: meat gyro
+  parent: FoodGyrosBase
+  id: FoodGyrosMeat
+  description: A messy Greek dish loaded with spiced meat, tomato, greens, red onions and tzatziki sauce all on a pita bread.
+  components:
+  - type: Sprite
+    state: meat
+  - type: Tag
+    tags:
+    - Meat
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: gyros-inhand-left
+      - state: meat-inhand-left
+      right:
+      - state: gyros-inhand-right
+      - state: meat-inhand-right
+
+- type: entity
+  name: mystery gyro
+  parent: FoodGyrosBase
+  id: FoodGyrosMystery
+  description: That greek dish, you know the one. How do you pronounce it again?
+  components:
+  - type: Sprite
+    state: mystery
+  - type: Tag
+    tags:
+    - Meat
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: gyros-inhand-left
+      - state: mystery-inhand-left
+      right:
+      - state: gyros-inhand-right
+      - state: mystery-inhand-right
+  - type: RandomMetadata
+    nameSegments: [NamesGyros]
+
+- type: entity
+  name: tofu gyro
+  parent: FoodGyrosBase
+  id: FoodGyrosTofu
+  description: Questionably greek but undeniably gyros. Now vegetarian!
+  components:
+  - type: FlavorProfile
+    flavors:
+      - bread
+      - tofu
+      - onion
+      - tomato
+  - type: Sprite
+    state: tofu
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: gyros-inhand-left
+      - state: tofu-inhand-left
+      right:
+      - state: gyros-inhand-right
+      - state: tofu-inhand-right

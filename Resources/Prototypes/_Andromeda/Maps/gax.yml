@@ -26,6 +26,7 @@
             Captain: [ 1, 1 ]
             HeadOfPersonnel: [ 1, 1 ]
             Magistrate: [ 1, 1 ]
+            NanotrasenRepresentative: [ 1, 1 ]
             InternalAffairsAgent: [ 1, 2 ]
             Bartender: [ 1, 1 ]
             Botanist: [2 , 3 ]
@@ -48,6 +49,7 @@
             #Science
             ResearchDirector: [ 1, 1 ]
             Scientist: [ 3, 4 ]
+            Roboticist: [ 2, 3 ]
             ResearchAssistant: [ 1, 2 ]
             #Security
             HeadOfSecurity: [ 1, 1 ]

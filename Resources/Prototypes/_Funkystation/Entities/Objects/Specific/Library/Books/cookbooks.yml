@@ -1,0 +1,159 @@
+# SPDX-FileCopyrightText: 2025 mkanke-real <mikekanke@gmail.com>
+#
+# SPDX-License-Identifier: MIT
+
+- type: entity
+  parent: BookBase
+  id: BookCookbookPie
+  name: Granny Pecan's guide to pies
+  description: An older book full of pie recipies.
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/books.rsi
+    layers:
+    - state: paper
+    - state: cover_base
+      color: "#e88a36"
+    - state: decor_bottom
+      color: "#b05b2c"
+    - state: decor_wingette
+      color: "#f8c53a"
+    - state: icon_apple
+    - state: icon_text2
+      color: "#b12023"
+    - state: detail_bookmark
+      color: "#2c5491"
+  - type: OocAuthorship
+    oocAuthor: mkanke
+  - type: Paper
+    stampedBy:
+    - stampedColor: '#134975'
+      stampedName: "NT APPROVED"
+    content: |2
+      [color=#1b67a5][head=1]Granny Pecons[/head]
+      [head=2]Guide to Pies[/head][/color]
+      A book by Gertrude Pecon
+      ================================================
+      [italic]In loving memory of my late husband Jacob Pecon. Without his help as a taste tester I never could have reached this point.[/italic]
+      ================================================
+      Table of contents:
+      - Unit conversion
+      - Different Doughs
+      - Apple Pie
+      - Baklava
+      - Banana Cream
+      - Berry Clafoutis
+      - Cherry
+      - Frosty
+      - Meat
+      - Mime Tart
+      - Pumpkin
+      - Xeno Meat
+        ===============================================
+        [head=2]Unit Conversion[/head]
+        A Pinch = 1 unit
+        A Cup = 5 units
+        A Scoop = 15 units
+        A Heap = 30 units
+        ===============================================
+        [head=1]Basic Dough[/head]
+
+      - A scoop of flour
+      - 2 eggs
+      - A dash of salt
+        ==============================================
+        [head=1]Cotton Dough[/head]
+
+      - 2 cups of fiber
+      - A cup of flour
+      - 2 cups of water
+        ===============================================
+        [color=#dd1533][head=1]Apple Pie[/head][/color]
+
+        A slightly sweat pie made with delicious red apples from the fall harvest. A favorite of the more patriotic folks around.
+
+      - one pie dough
+      - three apples
+      - one pie tin
+
+        Bake in a microwave on high for 15 seconds.
+        ===============================================
+        [color=#5a3826][head=1]Baklava[/head][/color]
+
+        A healthy nutty treat, perfect for a early winter day to remind you of summer.
+
+      - one pie dough
+      - one packet of pistachio
+      - one pie tin
+
+        Bake in a microwave on high for 15 seconds.
+        ===============================================
+        [color=#ffce00][head=1]Banana Cream[/head][/color]
+
+        No proper clown can be without this treat. Do them a favor and make them some with love to cheer up someones day.
+
+      - one pie dough
+      - three bananas
+      - one pie tin
+
+        Bake in a microwave on high for 15 seconds.
+        ===============================================
+        [color=#8d4e85][head=1]Berry Clafoutis[/head][/color]
+
+        Spring is here anytime this delectable hits the table. It brings nothing but joy to all who taste it.
+
+      - one pie dough
+      - three berries
+      - one pie tin
+
+        Bake in a microwave on high for 15 seconds.
+        ===============================================
+        [color=#790604][head=1]Cherry Pie[/head][/color]
+
+        Late summer is here with this treat for the youths. You are sure to bring a smile with this sweet treat wherever you go.
+
+      - one pie dough
+      - five cherries
+      - one pie tin
+
+        Bake in a microwave on high for 15 seconds.
+        ===============================================
+        [color=#bfdfed][head=1]Frosty Pepper Pie[/head][/color]
+
+        The depths of winter hit your taste buds with the first bite. Perfect for chilling yourself out after a hot summer day.
+
+      - one pie dough
+      - three chilly peppers
+      - one pie tin
+
+        Bake in a microwave on high for 15 seconds.
+        ===============================================
+        [color=#ec1e2f][head=1]Meat Pie[/head][/color]
+
+        Savory does not begin to descript the taste of this pie. it is full of rich flavors sure to please any meat eaters in your circle of friends.
+
+      - one pie dough
+      - three pieces of meat
+      - one pie tin
+
+        Bake in a microwave on high for 15 seconds.
+        ===============================================
+        [color=#dd7518][head=1]Pumpkin Pie[/head][/color]
+
+        The leaves are changing and the chills are here. Its time to enjoy a delectable pumpkin pie with your family to warm you up.
+
+      - one pie dough
+      - one pumpkin
+      - one pie tin
+
+        Bake in a microwave on high for 15 seconds.
+        ===============================================
+        [color=#6cc417][head=1]Xeno Pie[/head][/color]
+
+        Quite the strange dish, I have only been able to work with this once but it made quite the unique taste!
+
+      - one pie dough
+      - three xeno meats
+      - one pie tin
+
+        Bake in a microwave on high for 15 seconds.

@@ -22,9 +22,11 @@
 # SPDX-FileCopyrightText: 2024 yglop <95057024+yglop@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Eris <erisfiregamer1@gmail.com>
 # SPDX-FileCopyrightText: 2025 Rainbow <ev0lvkitten@gmail.com>
+# SPDX-FileCopyrightText: 2025 Skye <57879983+Rainbeon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 TheSecondLord <88201625+TheSecondLord@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 V <97265903+formlessnameless@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 ferynn <witchy.girl.me@gmail.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
@@ -39,6 +41,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
+    checkCanInteract: false
     itemIconStyle: NoItem
     icon:
       sprite: _Goobstation/Changeling/changeling_abilities.rsi
@@ -126,6 +129,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
+    checkCanInteract: false
     itemIconStyle: NoItem
     icon:
       sprite: _Goobstation/Changeling/changeling_abilities.rsi
@@ -142,6 +146,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
+    checkCanInteract: false
     useDelay: 5
     itemIconStyle: NoItem
     icon:
@@ -198,6 +203,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
+    checkCanInteract: false
     useDelay: 2
     itemIconStyle: NoItem
     icon:
@@ -230,6 +236,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
+    checkCanInteract: false
     useDelay: 2
     itemIconStyle: NoItem
     icon:
@@ -238,7 +245,7 @@
     event: !type:ToggleChitinousArmorEvent {}
   - type: ChangelingAction
     chemicalCost: 25
-    requireAbsorbed: 2
+    requireAbsorbed: 3
 
 - type: entity
   id: ActionToggleOrganicShield
@@ -247,6 +254,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
+    checkCanInteract: false
     useDelay: 2
     itemIconStyle: NoItem
     icon:
@@ -264,6 +272,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
+    checkCanInteract: false
     useDelay: 10
     itemIconStyle: NoItem
     icon:
@@ -282,6 +291,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
+    checkCanInteract: false
     useDelay: 10
     itemIconStyle: NoItem
     icon:
@@ -300,6 +310,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
+    checkCanInteract: false
     useDelay: 1
     itemIconStyle: NoItem
     icon:
@@ -608,6 +619,7 @@
   components:
   - type: InstantAction
     useDelay: 2
+    checkCanInteract: false
     itemIconStyle: NoItem
     icon:
       sprite: _Goobstation/Changeling/changeling_abilities.rsi
@@ -616,20 +628,20 @@
   - type: ChangelingAction
     chemicalCost: 20
 
-- type: entity
-  id: ActionHivemindAccess
-  name: Hivemind Access
-  description: Tune your chemical receptors for hivemind communication.
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: InstantAction
-    checkCanInteract: false
-    checkConsciousness: false
-    itemIconStyle: NoItem
-    icon:
-      sprite: _Goobstation/Changeling/changeling_abilities.rsi
-      state: hivemind_access
-    event: !type:ActionHivemindAccessEvent {}
-  - type: ChangelingAction
-    chemicalCost: 0
-    useInLesserForm: true
+#- type: entity
+#  id: ActionHivemindAccess
+#  name: Hivemind Access
+#  description: Tune your chemical receptors for hivemind communication.
+#  categories: [ HideSpawnMenu ]
+#  components:
+#  - type: InstantAction
+#    checkCanInteract: false
+#    checkConsciousness: false
+#    itemIconStyle: NoItem
+#    icon:
+#      sprite: _Goobstation/Changeling/changeling_abilities.rsi
+#      state: hivemind_access
+#    event: !type:ActionHivemindAccessEvent {}
+#  - type: ChangelingAction
+#    chemicalCost: 0
+#    useInLesserForm: true

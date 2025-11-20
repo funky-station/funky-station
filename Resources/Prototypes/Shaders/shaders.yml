@@ -152,3 +152,9 @@
     strength_scale: 1.0
     speed_scale: 1.0
     grid_ent_from_viewport_local: 1,0,0,1,0,1
+
+# Malf AI Doomsday ripple shader
+- type: shader
+  id: MalfDoomsdayRipple
+  kind: source
+  path: "/Textures/Shaders/malf_doomsday_ripple.swsl"

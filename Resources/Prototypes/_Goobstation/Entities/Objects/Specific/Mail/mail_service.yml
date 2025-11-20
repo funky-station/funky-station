@@ -1,6 +1,7 @@
 # SPDX-FileCopyrightText: 2024 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
 # SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 mkanke-real <mikekanke@gmail.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
@@ -233,7 +234,7 @@
       maxAmount: 5
 
 - type: entity
-  parent: BaseMail
+  parent: BaseMailSmall
   id: MailMimeBottleOfNothing
   suffix: Bottle of Nothing
   components:
@@ -243,7 +244,7 @@
 
 #Botanist
 - type: entity
-  parent: BaseMail
+  parent: BaseMailSmall
   id: MailMutatedProduce
   suffix: Mutated Produce
   components:
@@ -293,7 +294,7 @@
       prob: 0.05
 
 - type: entity
-  parent: BaseMailLarge
+  parent: BaseMailSmall
   id: MailBotanistChemicalBottles
   suffix: Botanist Chemicals
   components:
@@ -357,7 +358,7 @@
       orGroup: Seeds
 
 - type: entity
-  parent: BaseMail
+  parent: BaseMailSmall
   id: MailKudzuDeterrent
   suffix: Antikudzu
   components:
@@ -367,7 +368,7 @@
 
 # Janitor
 - type: entity
-  parent: BaseMail
+  parent: BaseMailSmall
   id: MailSoaps # Also for clown and mime
   suffix: Soaps
   components:
@@ -380,7 +381,7 @@
       orGroup: Ad
 
 - type: entity
-  parent: BaseMail
+  parent: BaseMailSmall
   id: MailSoapsOmega # Also for clown and mime
   suffix: Omega Soap
   components:
@@ -394,7 +395,7 @@
 
 # Musician
 - type: entity
-  parent: BaseMailLarge
+  parent: BaseMailLargeFlat
   id: MailInstrumentLarge
   suffix: Instruments, Large
   components:

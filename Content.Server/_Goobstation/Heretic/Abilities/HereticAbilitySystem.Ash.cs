@@ -3,6 +3,8 @@
 // SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
 // SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
+// SPDX-FileCopyrightText: 2025 Kandiyaki <106633914+Kandiyaki@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 mqole <113324899+mqole@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
@@ -18,11 +20,18 @@ using Content.Server.Temperature.Components;
 using Content.Shared.Temperature.Components;
 using Content.Server.Body.Components;
 using Content.Shared.Armor;
+using Robust.Server.Audio;
+using Robust.Shared.Audio;
 
 namespace Content.Server.Heretic.Abilities;
 
 public sealed partial class HereticAbilitySystem : EntitySystem
 {
+    [Dependency] private readonly AudioSystem _audio = default!;
+    [Dependency] private readonly BlazingDashSystem _blazingDash = default!;
+    public SoundSpecifier JauntExitSound = new SoundPathSpecifier("/Audio/Magic/fireball.ogg");
+    public const float RebirthRange = 3f;
+
     private void SubscribeAsh()
     {
         SubscribeLocalEvent<HereticComponent, EventHereticAshenShift>(OnJaunt);
@@ -30,6 +39,7 @@ public sealed partial class HereticAbilitySystem : EntitySystem
         SubscribeLocalEvent<HereticComponent, PolymorphRevertEvent>(OnJauntEnd);
 
         SubscribeLocalEvent<HereticComponent, EventHereticVolcanoBlast>(OnVolcano);
+        SubscribeLocalEvent<HereticComponent, EventHereticBlazingDash>(OnBlazingDash);
         SubscribeLocalEvent<HereticComponent, EventHereticNightwatcherRebirth>(OnNWRebirth);
         SubscribeLocalEvent<HereticComponent, EventHereticFlames>(OnFlames);
         SubscribeLocalEvent<HereticComponent, EventHereticCascade>(OnCascade);
@@ -37,16 +47,28 @@ public sealed partial class HereticAbilitySystem : EntitySystem
         SubscribeLocalEvent<HereticComponent, HereticAscensionAshEvent>(OnAscensionAsh);
     }
 
+    //keeping this in for when i eventually make it possible to turn the shitpig into the Ashen Pig
     private void OnJaunt(Entity<HereticComponent> ent, ref EventHereticAshenShift args)
     {
         if (TryUseAbility(ent, args) && TryDoJaunt(ent))
             args.Handled = true;
     }
+
+    //a few of the flesh ghouls use this so it stays too
     private void OnJauntGhoul(Entity<GhoulComponent> ent, ref EventHereticAshenShift args)
     {
         if (TryUseAbility(ent, args) && TryDoJaunt(ent))
             args.Handled = true;
     }
+
+    private void OnBlazingDash(Entity<HereticComponent> ent, ref EventHereticBlazingDash args)
+    {
+        if (!TryUseAbility(ent, args))
+            return;
+
+        _blazingDash.TryDoDash(ent, ref args);
+    }
+
     private bool TryDoJaunt(EntityUid ent)
     {
         Spawn("PolymorphAshJauntAnimation", Transform(ent).Coordinates);
@@ -58,6 +80,13 @@ public sealed partial class HereticAbilitySystem : EntitySystem
     private void OnJauntEnd(Entity<HereticComponent> ent, ref PolymorphRevertEvent args)
     {
         Spawn("PolymorphAshJauntEndAnimation", Transform(ent).Coordinates);
+
+        // play a distinct sound, audible thru walls, so you can track where that slippery fuck went
+        _audio.PlayPvs(JauntExitSound, ent, AudioParams.Default
+            .WithVolume(-2f)
+            .WithMaxDistance(15f)
+            .WithRolloffFactor(0.8f)
+            );
     }
 
     private void OnVolcano(Entity<HereticComponent> ent, ref EventHereticVolcanoBlast args)
@@ -89,7 +118,7 @@ public sealed partial class HereticAbilitySystem : EntitySystem
         if (!TryUseAbility(ent, args))
             return;
 
-        var lookup = _lookup.GetEntitiesInRange(ent, 5f);
+        var lookup = _lookup.GetEntitiesInRange(ent, RebirthRange);
 
         foreach (var look in lookup)
         {

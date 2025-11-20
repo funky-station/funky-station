@@ -29,7 +29,7 @@
   requirements:
     - !type:DepartmentTimeRequirement
       department: Medical
-      time: 72000 #20 hrs
+      time: 126000 #35 hrs
       inverted: true # stop playing intern if you're good at med!
   startingGear: MedicalInternGear
   icon: "JobIconMedicalIntern"

@@ -1,0 +1,82 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-4.0",
+  "copyright": "created by smuglysuperior for Impstation",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+    "states": [
+        {
+            "name": "heretic-mirror-icon",
+            "delays": [
+                [
+                    1.5,
+                    0.2,
+                    0.1,
+                    0.2
+                ]
+            ]
+        },
+        {
+            "name": "heretic-mirror-inhand-right",
+            "directions": 4,
+            "delays": [
+                [
+                    0.2,
+                    0.1,
+                    0.2,
+                    1.5
+                ],
+                [
+                    0.2,
+                    0.1,
+                    0.2,
+                    1.5
+                ],
+                [
+                    0.2,
+                    0.1,
+                    0.2,
+                    1.5
+                ],
+                [
+                    0.2,
+                    0.1,
+                    0.2,
+                    1.5
+                ]
+            ]
+        },
+        {
+            "name": "heretic-mirror-inhand-left",
+            "directions": 4,
+            "delays": [
+                [
+                    0.2,
+                    0.1,
+                    0.2,
+                    1.5
+                ],
+                [
+                    0.2,
+                    0.1,
+                    0.2,
+                    1.5
+                ],
+                [
+                    0.2,
+                    0.1,
+                    0.2,
+                    1.5
+                ],
+                [
+                    0.2,
+                    0.1,
+                    0.2,
+                    1.5
+                ]
+            ]
+        }
+    ]
+}

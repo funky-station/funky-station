@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 DevilishMilk <michaellapjr@gmail.com>
+# SPDX-FileCopyrightText: 2025 Mish <bluscout78@yahoo.com>
+# SPDX-FileCopyrightText: 2025 Xcybitt <xcybitt@gmail.com>
+# SPDX-FileCopyrightText: 2025 willowzeta <willowzeta632146@proton.me>
 # SPDX-FileCopyrightText: 2025 wilowzeta <willowzeta632146@proton.me>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -28,3 +32,18 @@
       - EncryptionKeySecurity
       - EncryptionKeyEmergency
       - EncryptionKeyCommon
+
+- type: entity
+  parent: ClothingHeadset
+  id: ClothingHeadsetReporter
+  name: reporter headset
+  description: A headset for the most important role on-station barring the Clown.
+  components:
+  - type: IntercomOnlyBypass #have fun
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Ears/Headsets/reporter.rsi
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeyCommon
+      - EncryptionKeyService

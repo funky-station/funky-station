@@ -1,5 +1,6 @@
 // SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
 // SPDX-License-Identifier: MIT
@@ -11,6 +12,8 @@ namespace Content.Client.Dice;
 
 public sealed class DiceSystem : SharedDiceSystem
 {
+    [Dependency] private readonly SpriteSystem _sprite = default!;
+
     public override void Initialize()
     {
         base.Initialize();
@@ -24,11 +27,11 @@ public sealed class DiceSystem : SharedDiceSystem
             return;
 
         // TODO maybe just move each die to its own RSI?
-        var state = sprite.LayerGetState(0).Name;
+        var state = _sprite.LayerGetRsiState((entity.Owner, sprite), 0).Name;
         if (state == null)
             return;
 
         var prefix = state.Substring(0, state.IndexOf('_'));
-        sprite.LayerSetState(0, $"{prefix}_{entity.Comp.CurrentValue}");
+        _sprite.LayerSetRsiState((entity.Owner, sprite), 0, $"{prefix}_{entity.Comp.CurrentValue}");
     }
 }

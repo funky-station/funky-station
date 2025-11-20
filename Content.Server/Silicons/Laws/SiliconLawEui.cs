@@ -12,6 +12,8 @@ using Content.Shared.Administration;
 using Content.Shared.Eui;
 using Content.Shared.Silicons.Laws;
 using Content.Shared.Silicons.Laws.Components;
+using Content.Shared.MalfAI;
+using Content.Shared.Mind.Components;
 
 namespace Content.Server.Silicons.Laws;
 

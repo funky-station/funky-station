@@ -20,6 +20,8 @@ heretic-blade-examine = [color=yellow]Using it while held will break the blade a
 heretic-blade-use = The blade shatters, and you feel the voices pulling you away.
 
 ## paths exclusive
+heretic-ghoul-examine = { CAPITALIZE(POSS-ADJ($ent)) } body looks like a decaying corpse.
+
 heretic-rust-mark-itembreak = {$name} shatters into dust!
 heretic-blade-void-examine = [color=cyan]While there is at least a single marked heathen in a large proximity, teleport behind its back without breaking the blade.[/color]
 
@@ -30,6 +32,10 @@ heretic-manselink-start = You begin connecting this creature's mind to yours.
 heretic-manselink-start-target = You feel your mind being pulled somewhere...
 
 ## living heart
+heretic-fleshsurgery-barf = The contents of your stomach come pouring out!
+heretic-fleshsurgery-eyes = Your vision becomes dull and cloudy!
+heretic-fleshsurgery-mute = Your tongue falls limp!
+
 heretic-livingheart-notargets = No available targets, visit the rune.
 heretic-livingheart-offstation = It's {$state}, off-station, {$direction}!
 heretic-livingheart-onstation = It's {$state}, {$direction}!
@@ -39,6 +45,7 @@ heretic-livingheart-unknown = It's... not in this plane of reality.
 heretic-speech-mansusgrasp = R'CH T'H TR'TH!
 
 heretic-speech-ash-jaunt = ASH'N P'SSG'
+heretic-speech-ash-dash = FL'SH F'R'
 heretic-speech-ash-volcano = V'LC'N!
 heretic-speech-ash-rebirth = G'LR'Y T' TH' N'GHT'W'TCH'ER!
 heretic-speech-ash-flame = FL'MS!!

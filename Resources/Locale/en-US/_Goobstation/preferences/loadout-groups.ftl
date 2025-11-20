@@ -13,6 +13,8 @@
 loadout-group-ntr-head = Nanotrasen Representative head
 loadout-group-ntr-neck = Nanotrasen Representative neck
 loadout-group-ntr-backpack = Nanotrasen Representative backpack
+loadout-group-ntr-outer = Nanotrasen Representative outer clothing
+loadout-group-ntr-gloves = Nanotrasen Representative gloves
 loadout-group-ntr-jumpsuit = Nanotrasen Representative jumpsuit
 loadout-group-ntr-belt = Nanotrasen Representative belt
 loadout-group-ntr-shoes = Nanotrasen Representative shoes

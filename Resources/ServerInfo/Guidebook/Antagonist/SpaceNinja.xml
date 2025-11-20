@@ -19,10 +19,10 @@ SPDX-License-Identifier: MIT
 
   You are an elite mercenary that [color=#66FF00]The Spider Clan[/color] has sent to wreak all kinds of havoc on the station. You are equipped to keep it silent-but-deadly.
 
-  Whether you decide to mercilessly pick off the station's crew one by one or stay out of trouble, your discipline has taught you that [italic]your objectives must be at least attempted[/italic]. For honor!
+  Whether you decide to mercilessly pick off the station's crew one by one or stay out of trouble, your discipline has taught you that [italic]your objectives must at least be attempted[/italic]. For honor!
 
   ## Standard Equipment
-  You begin implanted with a [color=cyan]death acidifier[/color], so if you are captured or KIA all your precious equipment is kept out of enemy hands.
+  You begin implanted with a [color=cyan]death acidifier[/color], so that if you are captured or KIA, all of your precious equipment is kept out of enemy hands.
 
   Your bag is full of [bold]tools[/bold] and a [bold]survival box[/bold]. You also carry a [color=cyan]jetpack[/color] and a [color=cyan]pinpointer[/color] that will lead you to the station.
 
@@ -39,7 +39,7 @@ SPDX-License-Identifier: MIT
     <GuideEntityEmbed Entity="ClothingShoesSpaceNinja" Caption="your boots"/>
   </Box>
 
-  Your single most important item is [color=#66FF00]your suit[/color], without it none of your abilities would work.
+  Your single most important item is [color=#66FF00]your suit[/color]. Without it, none of your abilities would work.
   Your suit requires power to function, which is supplied by its [bold]internal battery[/bold]. It can be replaced, and [italic]high capacity batteries[/italic] mean a [italic]highly effective ninja[/italic].
 
   [bold]You can recharge your internal battery directly[/bold] by using [color=#66FF00]your gloves[/color]. You can see the current charge by examining the suit or checking the nifty battery alert on your screen.

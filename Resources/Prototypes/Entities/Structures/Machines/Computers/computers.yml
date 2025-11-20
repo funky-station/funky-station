@@ -89,8 +89,10 @@
 # SPDX-FileCopyrightText: 2024 icekot8 <93311212+icekot8@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 DevilishMilk <michaellapjr@gmail.com>
 # SPDX-FileCopyrightText: 2025 Kip <tfraser520@gmail.com>
 # SPDX-FileCopyrightText: 2025 Lyndomen <49795619+Lyndomen@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Minerva <218184747+mnva0@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Mish <bluscout78@yahoo.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
@@ -883,6 +885,7 @@
     title: comms-console-announcement-title-nukie
     color: "#ff0000"
     canShuttle: false
+    canAlert: false #funky
     global: true #announce to everyone they're about to fuck shit up
     sound: /Audio/Announcements/war.ogg
   - type: Computer
@@ -916,6 +919,7 @@
     title: comms-console-announcement-title-wizard
     color: "#ff00ff"
     canShuttle: false
+    canAlert: false #funky
     global: true #announce to everyone they're about to fuck shit up
     sound: /Audio/Announcements/war.ogg
   - type: Computer

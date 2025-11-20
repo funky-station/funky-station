@@ -4,6 +4,9 @@
 # SPDX-FileCopyrightText: 2024 yglop <95057024+yglop@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Eris <erisfiregamer1@gmail.com>
 # SPDX-FileCopyrightText: 2025 Mish <bluscout78@yahoo.com>
+# SPDX-FileCopyrightText: 2025 TheSecondLord <88201625+TheSecondLord@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 V <97265903+formlessnameless@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 ferynn <witchy.girl.me@gmail.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
@@ -45,7 +48,7 @@
   icon: { sprite: _Goobstation/Changeling/changeling_abilities.rsi, state: chitinous_armor }
   productAction: ActionToggleChitinousArmor
   cost:
-    EvolutionPoint: 4
+    EvolutionPoint: 6
   categories:
   - ChangelingAbilityCombat
   conditions:
@@ -338,19 +341,19 @@
   - !type:ListingLimitedStockCondition
     stock: 1
 
-- type: listing
-  id: EvolutionMenuUtilityHivemindAccess
-  name: evolutionmenu-utility-hivemindaccess-name
-  description: evolutionmenu-utility-hivemindaccess-desc
-  icon: { sprite: _Goobstation/Changeling/changeling_abilities.rsi, state: hivemind_access }
-  productAction: ActionHivemindAccess
-  cost:
-    EvolutionPoint: 4
-  categories:
-  - ChangelingAbilityUtility
-  conditions:
-  - !type:ListingLimitedStockCondition
-    stock: 1
+#- type: listing
+#  id: EvolutionMenuUtilityHivemindAccess
+#  name: evolutionmenu-utility-hivemindaccess-name
+#  description: evolutionmenu-utility-hivemindaccess-desc
+#  icon: { sprite: _Goobstation/Changeling/changeling_abilities.rsi, state: hivemind_access }
+#  productAction: ActionHivemindAccess
+#  cost:
+#    EvolutionPoint: 4
+#  categories:
+#  - ChangelingAbilityUtility
+#  conditions:
+#  - !type:ListingLimitedStockCondition
+#    stock: 1
 
 # disabled for now
 #- type: listing

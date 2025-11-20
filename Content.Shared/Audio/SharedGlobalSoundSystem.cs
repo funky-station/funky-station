@@ -54,6 +54,7 @@ public enum StationEventMusicType : byte
 {
     Nuke,
     CosmicCult, // DeltaV - Cosmic Cult
+    Doomsday, // Funky - Malf AI Doomsday Protocol
 }
 
 /// <summary>

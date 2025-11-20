@@ -1,0 +1,18 @@
+# Yes, one entry for a single prototype looks strange, but it's mainly for future-proofing.
+# This will be used in a future update for more Malf AI factory block entries.
+
+# Malf AI Robotics Factory Action Prototype
+- type: entity
+  id: ActionMalfAiRoboticsFactory
+  name: malfai-robotics-factory-name
+  description: malfai-robotics-factory-desc
+  components:
+  - type: WorldTargetAction
+    itemIconStyle: BigAction
+    priority: -5
+    checkCanAccess: false
+    range: 99999
+    icon:
+      sprite: Interface/Actions/actions_malf_ai.rsi
+      state: malfai_bg_factory
+    event: !type:MalfAiRoboticsFactoryActionEvent

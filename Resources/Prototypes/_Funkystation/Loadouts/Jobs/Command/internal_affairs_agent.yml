@@ -1,7 +1,68 @@
+# SPDX-FileCopyrightText: 2025 MaiaArai <158123176+YaraaraY@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 TrixxedHeart <46364955+TrixxedBit@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 kbarkevich <24629810+kbarkevich@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
+# Roletime Requirement, Funky!
+- type: loadoutEffectGroup
+  id: SeniorInternalAffairsAgent
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobInternalAffairsAgent
+      time: 108000 #30 hrs
+
+# Jumpsuit
+- type: loadout
+  id: InternalAffairsAgentTurtleneckBlack
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitIAATurtleneckBlack
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SeniorInternalAffairsAgent
+  groupBy: "jumpsuit"
+
+- type: loadout
+  id: InternalAffairsAgentTurtleneckRed
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitIAATurtleneckRed
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SeniorInternalAffairsAgent
+  groupBy: "jumpsuit"
+
+- type: loadout
+  id: InternalAffairsAgentTurtleneckBlue
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitIAATurtleneckBlue
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SeniorInternalAffairsAgent
+  groupBy: "jumpsuit"
+
+# Outer
+- type: loadout
+  id: InternalAffairsAgentWinterCoat
+  equipment:
+    outerClothing: ClothingOuterWinterIAA
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SeniorInternalAffairsAgent
+
+# Gloves
+- type: loadout
+  id: InternalAffairsAgentGlovesBlack
+  equipment:
+    hands: ClothingHandsGlovesColorBlack
+
+- type: loadout
+  id: InternalAffairsAgentGlovesRed
+  equipment:
+    hands: ClothingHandsGlovesColorRed
 
 # Backpack
 - type: loadout

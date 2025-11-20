@@ -5,7 +5,7 @@
 
 #Chaplain
 - type: entity
-  parent: BaseMail
+  parent: BaseMailSmall
   id: MailChapCandles
   suffix: Candles
   components:
@@ -42,7 +42,7 @@
       prob: 0.05
 #Bartender
 - type: entity
-  parent: BaseMail
+  parent: BaseMailSmall
   id: MailBartenderTools
   suffix: Bartender Tools
   components:
@@ -62,7 +62,7 @@
       orGroup: Bartools
 
 - type: entity
-  parent: BaseMail
+  parent: BaseMailSmall
   id: MailBartenderPremiumBooze
   suffix: Premium Booze
   components:
@@ -85,7 +85,7 @@
       orGroup: PremiumBooze
 #Janitor
 - type: entity
-  parent: BaseMail
+  parent: BaseMailLarge
   id: MailJanitorReplacementLights
   suffix: Janitor Replacement Lights
   components:
@@ -103,7 +103,7 @@
 
 #Chef
 - type: entity
-  parent: BaseMail
+  parent: BaseMailSmall
   id: MailChefCheese
   suffix: Cheese for Jani
   components:

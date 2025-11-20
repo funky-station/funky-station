@@ -82,7 +82,7 @@ SPDX-License-Identifier: MIT
   </Box>
 
   ## High Voltage Network
-  The [color=Orange]High Voltage[/color] Network is used for moving large amount of power across the station. It is used to power most power handling equipment, such as SMES units and Substations.
+  The [color=Orange]High Voltage[/color] Network is used for moving large amounts of power across the station. It is used to power most power handling equipment, such as SMES units and Substations.
 
   Most high-output generators output power to the [color=Orange]High Voltage[/color] Network.
 

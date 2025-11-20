@@ -1,0 +1,44 @@
+# SPDX-FileCopyrightText: 2025 SigmaTheDragon <162711378+SigmaTheDragon@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  name: Salamander
+  parent: [BaseWeaponRevolver, BaseSyndicateContraband]
+  id: WeaponRevolverSalamander
+  description: A miniscule revolver chambered in .50 AE, the salamander is a cheap covert assasination tool. Try to not miss.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Weapons/Guns/Revolvers/salamander.rsi
+  - type: Clothing
+    sprite: _Funkystation/Objects/Weapons/Guns/Revolvers/salamander.rsi
+  - type: Gun
+    minAngle: 10
+    maxAngle: 30
+    angleIncrease: 10
+    angleDecay: 5
+    fireRate: 3
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/rifle2.ogg
+  - type: RevolverAmmoProvider
+    capacity: 3
+    chambers: [ True, True, True ]
+    ammoSlots: [ null, null, null ]
+    proto: CartridgePistolLarge
+    whitelist:
+      tags:
+        - CartridgePistolLarge
+  - type: MagazineVisuals
+    magState: mag
+    steps: 3
+    zeroVisible: true
+  - type: Appearance
+  - type: StaticPrice
+    price: 500
+  - type: Item
+    size: Tiny
+    shape:
+    - 0,0,1,0
+  - type: Tag
+    tags:
+      - RevolverSalamander

@@ -1,4 +1,5 @@
 # SPDX-FileCopyrightText: 2025 Goomson <GoomsonCode@proton.me>
+# SPDX-FileCopyrightText: 2025 mkanke-real <mikekanke@gmail.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
@@ -31,4 +32,9 @@
 - type: preloadedGrid
   id: wanderingNomad
   path: /Maps/_Funkystation/Shuttles/ShuttleEvent/wanderingNomad.yml
+  copies: 2
+
+- type: preloadedGrid
+  id: wanderingspacecowboy
+  path: /Maps/_Funkystation/Shuttles/ShuttleEvent/spacecowboyshuttle.yml
   copies: 2

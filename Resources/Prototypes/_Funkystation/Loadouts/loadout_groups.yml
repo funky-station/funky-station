@@ -1,9 +1,11 @@
 # SPDX-FileCopyrightText: 2025 AtlasHD <99688062+AtlasHDD@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Josh Hilsberg <thejoulesberg@gmail.com>
 # SPDX-FileCopyrightText: 2025 JoulesBerg <104539820+JoulesBerg@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 MaiaArai <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 SaffronFennec <firefoxwolf2020@protonmail.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 Teasq <Xerithin@gmail.com>
+# SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 kbarkevich <24629810+kbarkevich@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
@@ -19,6 +21,24 @@
   - LawyerJumpskirtBlue
   - LawyerJumpsuitRed
   - LawyerJumpskirtRed
+  - InternalAffairsAgentTurtleneckBlack
+  - InternalAffairsAgentTurtleneckRed
+  - InternalAffairsAgentTurtleneckBlue
+
+- type: loadoutGroup
+  id: InternalAffairsAgentOuterClothing
+  name: loadout-group-iaa-outer
+  minLimit: 0
+  loadouts:
+    - InternalAffairsAgentWinterCoat
+
+- type: loadoutGroup
+  id: InternalAffairsAgentGloves
+  name: loadout-group-iaa-gloves
+  minLimit: 0
+  loadouts:
+  - InternalAffairsAgentGlovesBlack
+  - InternalAffairsAgentGlovesRed
 
 - type: loadoutGroup
   id: InternalAffairsAgentBackpack
@@ -45,15 +65,51 @@
   - ChaplainBibleBhuddhist
 
 - type: loadoutGroup
+  id: MagistrateHead
+  name: loadout-group-magistrate-head
+  minLimit: 0
+  loadouts:
+  - MagistrateOfficerBeret
+  - NanotrasenRepresentativeMAA
+
+- type: loadoutGroup
   id: MagistrateJumpsuit
   name: loadout-group-magistrate-jumpsuit
   loadouts:
+  - MagistrateSuit
+  - MagistrateTurtleneck
   - LawyerJumpsuit
   - LawyerJumpskirt
   - LawyerJumpsuitBlue
   - LawyerJumpskirtBlue
   - LawyerJumpsuitPurple
   - LawyerJumpskirtPurple
+
+- type: loadoutGroup
+  id: MagistrateOuterClothing
+  name: loadout-group-magistrate-outer
+  minLimit: 0
+  maxLimit: 1
+  loadouts:
+  - MagistrateCoat
+  - MagistrateWinterCoat
+
+- type: loadoutGroup
+  id: MagistrateGloves
+  name: loadout-group-magistrate-gloves
+  minLimit: 0
+  maxLimit: 1
+  loadouts:
+  - NanotrasenRepresentativePaperworkGloves
+  - NanotrasenRepresentativeBlackGloves
+
+- type: loadoutGroup
+  id: MagistrateShoes
+  name: loadout-group-magistrate-shoes
+  loadouts:
+  - NanotrasenRepresentativeBoots
+  - NanotrasenRepresentativeShoes
+  - NanotrasenRepresentativeHeels
 
 - type: loadoutGroup
   id: MagistrateBackpack

@@ -37,6 +37,7 @@
   - MinorAntagonists
   - SpaceNinja
   - Thieves
+  - MalfunctioningAI
 
 - type: guideEntry
   id: Traitors
@@ -77,3 +78,8 @@
   id: Wizard
   name: guide-entry-wizard
   text: "/ServerInfo/Guidebook/Antagonist/Wizard.xml"
+
+- type: guideEntry
+  id: MalfunctioningAI
+  name: guide-entry-malfunctioningai
+  text: "/ServerInfo/Guidebook/Antagonist/MalfunctioningAI.xml"

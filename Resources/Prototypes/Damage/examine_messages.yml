@@ -13,3 +13,12 @@
     - comp-window-damaged-4
     - comp-window-damaged-5
     - comp-window-damaged-6
+
+- type: examinableDamage
+  id: StationAiCoreMessages
+  messages:
+    - station-ai-core-damaged-1
+    - station-ai-core-damaged-2
+    - station-ai-core-damaged-3
+    - station-ai-core-damaged-4
+    - station-ai-core-damaged-5

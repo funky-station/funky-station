@@ -1,9 +1,22 @@
 # SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2024 Mr. 27 <45323883+Dutch-VanDerLinde@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 MaiaArai <158123176+YaraaraY@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 TrixxedHeart <46364955+TrixxedBit@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
+# Senior Stuff
+- type: loadoutEffectGroup
+  id: SeniorCargo
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:DepartmentTimeRequirement
+      department: Cargo
+      time: 216000 #60 hrs
 
 # Head
 - type: loadout
@@ -16,11 +29,31 @@
   id: CargoTechnicianJumpsuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitCargo
+  groupBy: "jumpsuit"
 
 - type: loadout
   id: CargoTechnicianJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtCargo
+  groupBy: "jumpskirt"
+
+- type: loadout
+  id: SeniorCargoTechnicianJumpskirt
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SeniorCargo
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtSeniorCargo
+  groupBy: "jumpskirt"
+
+- type: loadout
+  id: SeniorCargoTechnicianJumpsuit
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SeniorCargo
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitSeniorCargo
+  groupBy: "jumpsuit"
 
 # Back
 - type: loadout
@@ -43,9 +76,33 @@
   id: CargoTechnicianWintercoat
   equipment:
     outerClothing: ClothingOuterWinterCargo
+  groupBy: "coat"
+
+- type: loadout
+  id: SeniorCargoTechnicianWinterCoat
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SeniorCargo
+  equipment:
+    jumpsuit: ClothingOuterWinterSeniorCargo
+  groupBy: "coat"
 
 # Shoes
 - type: loadout
   id: CargoWinterBoots
   equipment:
     shoes: ClothingShoesBootsWinterCargo
+
+# ID
+- type: loadout
+  id: CargoPDA
+  equipment:
+    id: CargoPDA
+
+- type: loadout
+  id: SeniorCargoPDA
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SeniorCargo
+  equipment:
+    id: SeniorCargoPDA

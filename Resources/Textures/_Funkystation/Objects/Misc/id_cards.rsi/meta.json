@@ -128,6 +128,9 @@
             "name": "retro_nanotrasen"
         },
         {
+            "name": "cowboy"
+        },
+        {
             "name": "default-inhand-left",
             "directions": 4
         },

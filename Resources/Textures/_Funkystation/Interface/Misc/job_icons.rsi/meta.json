@@ -1,7 +1,7 @@
 {
     "version": 1,
     "license": "CC-BY-SA-3.0",
-    "copyright": "Internal Affairs Agent taken from Paradise @ https://paradisestation.org/wiki/index.php?title=File:Hud_iaa.png, redesign by @pirakaplant (GitHub); BSO, Helldiver, CBURN, CCO, HECU, Magistrate, Cluwne, Wizard, Death Squad icons made for Funky Station by @Catazeus (GitHub)",
+    "copyright": "Internal Affairs Agent taken from Paradise @ https://paradisestation.org/wiki/index.php?title=File:Hud_iaa.png, redesign by @pirakaplant (GitHub); BSO, Helldiver, CBURN, CCO, HECU, Magistrate, Cluwne, Wizard, Death Squad icons made for Funky Station by @Catazeus (GitHub), Lieutenant icon by @pirakaplant (GitHub)",
     "size": {
         "x": 8,
         "y": 8
@@ -15,6 +15,9 @@
         },
         {
             "name": "Blueshield"
+        },
+        {
+            "name": "Lieutenant"
         },
         {
             "name": "Helldiver"
@@ -57,6 +60,9 @@
         },
         {
             "name": "Cluwne"
+        },
+        {
+            "name": "Cowboy"
         }
     ]
 }

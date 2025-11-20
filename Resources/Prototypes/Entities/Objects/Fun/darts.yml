@@ -13,6 +13,7 @@
 # SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Nictis <39938897+Nictis@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 TheSecondLord <88201625+TheSecondLord@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
@@ -144,13 +145,13 @@
   - type: SolutionContainerManager
     solutions:
       melee:
-        maxVol: 7
+        maxVol: 9
   - type: SolutionInjectOnEmbed
-    transferAmount: 7
+    transferAmount: 9
     blockSlots: NONE
     solution: melee
   - type: SolutionTransfer
-    maxTransferAmount: 7
+    maxTransferAmount: 9
 
 - type: entity
   name: dartboard

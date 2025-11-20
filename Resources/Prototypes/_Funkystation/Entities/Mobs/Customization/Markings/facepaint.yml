@@ -1,0 +1,232 @@
+# SPDX-FileCopyrightText: 2025 Zergologist <114537969+Chedd-Error@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+## Thaven Facepaints for Funky, they're just the human-faced ones translated up two pixels
+## That's it. My frontier Facepaints for Funky
+## File is open to more, Funky-specific Facepaints
+
+##Thavens, use [Thaven] for restriction
+- type: marking
+  id: FacepaintClownThaven
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Thaven]
+  forcedColoring: true
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
+  sprites:
+  - sprite: _Funkystation/Mobs/Customization/Facepaints/thaven.rsi
+    state: facepaint_clown
+
+- type: marking
+  id: FacepaintClownMinimalThaven
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Thaven]
+  forcedColoring: true
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
+  sprites:
+  - sprite: _Funkystation/Mobs/Customization/Facepaints/thaven.rsi
+    state: facepaint_clown_minimal
+
+- type: marking
+  id: FacepaintClownSadThaven
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Thaven]
+  forcedColoring: true
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
+  sprites:
+  - sprite: _Funkystation/Mobs/Customization/Facepaints/thaven.rsi
+    state: facepaint_clown_sad
+
+- type: marking
+  id: FacepaintClownSeriousThaven
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Thaven]
+  forcedColoring: true
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
+  sprites:
+  - sprite: _Funkystation/Mobs/Customization/Facepaints/thaven.rsi
+    state: facepaint_clown_serious
+
+- type: marking
+  id: FacepaintClownSmugThaven
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Thaven]
+  forcedColoring: true
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
+  sprites:
+  - sprite: _Funkystation/Mobs/Customization/Facepaints/thaven.rsi
+    state: facepaint_clown_smug
+
+- type: marking
+  id: FacepaintMimeThaven
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Thaven]
+  forcedColoring: true
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
+  sprites:
+  - sprite: _Funkystation/Mobs/Customization/Facepaints/thaven.rsi
+    state: facepaint_mime
+
+- type: marking
+  id: FacepaintMimeBlushThaven
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Thaven]
+  forcedColoring: true
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
+  sprites:
+  - sprite: _Funkystation/Mobs/Customization/Facepaints/thaven.rsi
+    state: facepaint_mime_blush
+
+- type: marking
+  id: FacepaintMimeOddThaven
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Thaven]
+  forcedColoring: true
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
+  sprites:
+  - sprite: _Funkystation/Mobs/Customization/Facepaints/thaven.rsi
+    state: facepaint_mime_odd
+
+- type: marking
+  id: FacepaintMimeSadThaven
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Thaven]
+  forcedColoring: true
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
+  sprites:
+  - sprite: _Funkystation/Mobs/Customization/Facepaints/thaven.rsi
+    state: facepaint_mime_sad
+
+- type: marking
+  id: FacepaintMimeSeriousThaven
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Thaven]
+  forcedColoring: true
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
+  sprites:
+  - sprite: _Funkystation/Mobs/Customization/Facepaints/thaven.rsi
+    state: facepaint_mime_serious
+
+- type: marking
+  id: FacepaintWhiteThaven
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Thaven]
+  forcedColoring: true
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
+  sprites:
+  - sprite: _Funkystation/Mobs/Customization/Facepaints/thaven.rsi
+    state: facepaint_white
+
+- type: marking
+  id: FacepaintBlushThaven
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Thaven]
+  sprites:
+  - sprite: _Funkystation/Mobs/Customization/Facepaints/thaven.rsi
+    state: facepaint_blush
+
+- type: marking
+  id: FacepaintEyebrowsThaven
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Thaven]
+  sprites:
+  - sprite: _Funkystation/Mobs/Customization/Facepaints/thaven.rsi
+    state: facepaint_eyebrows
+
+- type: marking
+  id: FacepaintLipstickThaven
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Thaven]
+  sprites:
+  - sprite: _Funkystation/Mobs/Customization/Facepaints/thaven.rsi
+    state: facepaint_lipstick
+
+## Glowing Blush, because thavens need four eyes
+
+- type: marking
+  id: FacepaintBlushHeadUnshaded
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Arachnid, Dwarf, Felinid, Harpy, Human, Moth, SlimePerson] # Funky: remove Goblin, Oni, Sheleg
+  sprites:
+  - sprite: _NF/Mobs/Customization/Facepaints/shared.rsi
+    state: facepaint_blush
+  shader: unshaded
+
+- type: marking
+  id: FacepaintBlushSnoutUnshaded
+  bodyPart: Snout
+  markingCategory: Head
+  speciesRestriction: [Reptilian, Vulpkanin]
+  sprites:
+  - sprite: _NF/Mobs/Customization/Facepaints/shared.rsi
+    state: facepaint_blush
+  shader: unshaded
+  
+- type: marking
+  id: FacepaintBlushThavenUnshaded
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Thaven]
+  sprites:
+  - sprite: _Funkystation/Mobs/Customization/Facepaints/thaven.rsi
+    state: facepaint_blush
+  shader: unshaded

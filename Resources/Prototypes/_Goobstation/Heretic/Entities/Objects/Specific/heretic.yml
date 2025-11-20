@@ -69,3 +69,29 @@
           Quantity: 80
         - ReagentId: TranexamicAcid
           Quantity: 20
+
+- type: entity
+  name: wildering mirror
+  parent: [BaseItem, BaseMagicContraband]
+  id: HereticMirror
+  description: "A multiplicity of vistas! A bewilderment of views! Gaze upon me, and rejoice in the dissolution of your senses!"
+  components:
+  - type: Sprite
+    sprite: _Impstation/Heretic/wildering_mirror.rsi
+    state: heretic-mirror-icon
+  - type: Item
+    size: Normal
+    sprite: _Impstation/Heretic/wildering_mirror.rsi
+    heldPrefix: heretic-mirror
+  - type: Appearance
+  - type: PointLight
+    enabled: true
+    color: "#F8FF9A"
+    radius: 3.5
+    softness: 1
+    autoRot: true
+  - type: Reflect
+    reflectProb: 0.6
+    reflects:
+    - Energy
+    spread: 330

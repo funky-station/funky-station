@@ -1,4 +1,5 @@
 # SPDX-FileCopyrightText: 2025 Mish <bluscout78@yahoo.com>
+# SPDX-FileCopyrightText: 2025 Toaster <mrtoastymyroasty@gmail.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
@@ -43,6 +44,7 @@
     size: Tiny
     heldPrefix: 1
   - type: FoodSequenceElement
-    sprite:
-      sprite: _Funkystation/Mobs/Animals/roingus.rsi
-      state: dead
+    entries:
+      Burger: RoingusBurger
+      Taco: RoingusTaco
+

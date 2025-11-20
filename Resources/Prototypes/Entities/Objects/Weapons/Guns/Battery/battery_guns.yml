@@ -60,9 +60,11 @@
 # SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 vanx <61917534+Vaaankas@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Cthyga <41489382+Cthyga@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 EmoGarbage404 <retron404@gmail.com>
 # SPDX-FileCopyrightText: 2025 JoulesBerg <104539820+JoulesBerg@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Liamofthesky <157073227+Liamofthesky@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 QueerCats <jansencheng3@gmail.com>
+# SPDX-FileCopyrightText: 2025 SigmaTheDragon <162711378+SigmaTheDragon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 ThatOneMoon <91613003+ThatOneMoon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
@@ -209,6 +211,9 @@
     steps: 5
     zeroVisible: true
   - type: Multishot # Goobstation
+  - type: Tag
+    tags:
+    - SvalinnPistol
 
 - type: entity
   name: retro laser blaster
@@ -484,6 +489,7 @@
     tags:
       - SpecialWeapon
       - TurretCompatibleWeapon
+      - LaserCannon
 
 - type: entity
   name: portable particle decelerator
@@ -546,6 +552,7 @@
   - type: Tag
     tags:
       - SpecialWeapon
+      - XrayCannon
 
 - type: entity
   name: practice disabler
@@ -624,6 +631,7 @@
   - type: Tag
     tags:
       - Taser
+      - DisablerSMG
   - type: Sprite
     sprite: Objects/Weapons/Guns/Battery/disabler_smg.rsi
     layers:
@@ -922,7 +930,7 @@
   name: X-01 Multiphase # Goobstation - Changed the capitalization because it was annoying me.
   parent: [BaseWeaponBatterySmall, BaseCommandContraband] # Frontier: added BaseC2ContrabandUnredeemable. Goobstation: removed BaseC2ContrabandUnredeemable, added BaseCommandContraband
   id: WeaponEnergyGunMultiphase
-  description: This is an expensive, modern recreation of the antique laser gun. This gun has several unique firemodes, but lacks the ability to recharge over time.
+  description: This is an expensive, modern recreation of the antique laser gun. This gun has several unique firemodes and slowly recharges over time.
   components:
   - type: Sprite
     sprite: _DV/Objects/Weapons/Guns/Battery/multiphase_energygun.rsi

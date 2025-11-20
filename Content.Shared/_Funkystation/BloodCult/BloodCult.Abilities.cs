@@ -1,13 +1,13 @@
 // SPDX-FileCopyrightText: 2025 Skye <57879983+Rainbeon@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 kbarkevich <24629810+kbarkevich@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 Terkala <appleorange64@gmail.com>
 //
-// SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+// SPDX-License-Identifier: AGPL-3.0-or-later OR MIT
 
 using Robust.Shared.Serialization;
 using Robust.Shared.GameStates;
 using Robust.Shared.Map;
-using Robust.Shared.Serialization;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 using Content.Shared.BloodCult.Prototypes;
@@ -19,7 +19,7 @@ namespace Content.Shared.BloodCult;
 [RegisterComponent, NetworkedComponent]
 public sealed partial class CultistSpellComponent : Component
 {
-	public static List<ProtoId<CultAbilityPrototype>> ValidSpells = new List<ProtoId<CultAbilityPrototype>>{"SummonDagger", "CultStun", "CultTwistedConstruction"};
+	public static List<ProtoId<CultAbilityPrototype>> ValidSpells = new List<ProtoId<CultAbilityPrototype>>{"SummonDagger", "SanguineDream", "CultTwistedConstruction"};
 
 	/// <summary>
 	/// 	ID of the prototype that summons this spell.
@@ -68,8 +68,10 @@ public sealed partial class CultistSpellComponent : Component
 	[NonSerialized] public string EntityId;
 	[NonSerialized] public int BleedOnCarve;
 	[NonSerialized] public SoundSpecifier CarveSound;
+    [NonSerialized] public uint? EffectId;
+    [NonSerialized] public TimeSpan Duration;
 
-    public DrawRuneDoAfterEvent(EntityUid carverUid, EntityUid rune, EntityCoordinates coords, string entityId, int bleedOnCarve, SoundSpecifier carveSound)
+    public DrawRuneDoAfterEvent(EntityUid carverUid, EntityUid rune, EntityCoordinates coords, string entityId, int bleedOnCarve, SoundSpecifier carveSound, uint? effectId, TimeSpan duration)
     {
 		CarverUid = carverUid;
         Rune = rune;
@@ -77,6 +79,8 @@ public sealed partial class CultistSpellComponent : Component
 		EntityId = entityId;
 		BleedOnCarve = bleedOnCarve;
 		CarveSound = carveSound;
+        EffectId = effectId;
+        Duration = duration;
     }
 }
 
@@ -93,6 +97,30 @@ public sealed partial class CultistSpellComponent : Component
 		CultAbility = cultAbility;
 		RecordKnownSpell = recordKnownSpell;
 		StandingOnRune = standingOnRune;
+    }
+}
+
+[Serializable, NetSerializable] public sealed partial class TwistedConstructionDoAfterEvent : SimpleDoAfterEvent
+{
+	[NonSerialized] public new EntityUid Target;
+
+    public TwistedConstructionDoAfterEvent(EntityUid target)
+    {
+        Target = target;
+    }
+}
+
+[Serializable, NetSerializable] public sealed partial class MindshieldBreakDoAfterEvent : SimpleDoAfterEvent
+{
+	[NonSerialized] public EntityUid Victim;
+	[NonSerialized] public EntityUid[] Participants = Array.Empty<EntityUid>();
+	[NonSerialized] public EntityCoordinates RuneLocation;
+
+    public MindshieldBreakDoAfterEvent(EntityUid victim, EntityUid[] participants, EntityCoordinates runeLocation)
+    {
+        Victim = victim;
+		Participants = participants;
+		RuneLocation = runeLocation;
     }
 }
 
@@ -125,7 +153,33 @@ public sealed class BloodCultSpellsBuiState : BoundUserInterfaceState
 
 public sealed partial class EventCultistStudyVeil : InstantActionEvent { }
 public sealed partial class EventCultistSummonDagger : InstantActionEvent { }
-public sealed partial class EventCultistStun : EntityTargetActionEvent { }
+public sealed partial class EventCultistSanguineDream : EntityTargetActionEvent { }
 public sealed partial class EventCultistTwistedConstruction : EntityTargetActionEvent { }
 
 #endregion
+
+[Serializable, NetSerializable]
+public sealed class RuneDrawingEffectEvent : EntityEventArgs
+{
+    public readonly uint EffectId;
+    public readonly string? Prototype;
+    public readonly NetCoordinates Coordinates;
+    public readonly RuneEffectAction Action;
+    public readonly TimeSpan Duration;
+
+    public RuneDrawingEffectEvent(uint effectId, string? prototype, NetCoordinates coordinates, RuneEffectAction action, TimeSpan duration)
+    {
+        EffectId = effectId;
+        Prototype = prototype;
+        Coordinates = coordinates;
+        Action = action;
+        Duration = duration;
+    }
+}
+
+[Serializable, NetSerializable]
+public enum RuneEffectAction : byte
+{
+    Start,
+    Stop
+}

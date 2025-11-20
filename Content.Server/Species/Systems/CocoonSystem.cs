@@ -2,6 +2,7 @@ using Content.Server.Popups;
 using Content.Server.Speech.Components;
 using Content.Shared.ActionBlocker;
 using Content.Shared.DoAfter;
+using Content.Shared.Hands.Components;
 using Content.Shared.Humanoid;
 using Content.Shared.Verbs;
 using Content.Shared.Interaction.Components;
@@ -73,11 +74,14 @@ public sealed class CocoonSystem : SharedCocoonSystem
         if (!_blocker.CanInteract(user, target))
             return;
 
+        // Only require hands if the entity has hands (spiders don't have hands)
+        var needHand = HasComp<HandsComponent>(user);
+
         var doAfter = new DoAfterArgs(EntityManager, user, TimeSpan.FromSeconds(component.WrapDuration), new WrapDoAfterEvent(), user, target)
         {
             BreakOnMove = true,
             BreakOnDamage = true,
-            NeedHand = true,
+            NeedHand = needHand,
             DistanceThreshold = 1.5f,
             CancelDuplicate = true,
             BlockDuplicate = true,
@@ -86,7 +90,6 @@ public sealed class CocoonSystem : SharedCocoonSystem
         if (!_doAfter.TryStartDoAfter(doAfter))
             return;
 
-        // Play ziptie start sound for everyone within 10 meters
         var mapCoords = _transform.GetMapCoordinates(target);
         var filter = Filter.Empty().AddInRange(mapCoords, 10f);
         var entityCoords = _transform.ToCoordinates(mapCoords);
@@ -112,7 +115,11 @@ public sealed class CocoonSystem : SharedCocoonSystem
         if (!_blocker.CanInteract(performer, target))
             return;
 
-        _hunger.ModifyHunger(performer, -component.HungerCost);
+        // Only consume hunger if the entity has a HungerComponent
+        if (TryComp<Content.Shared.Nutrition.Components.HungerComponent>(performer, out var hunger))
+        {
+            _hunger.ModifyHunger(performer, -component.HungerCost);
+        }
 
         var cocoon = EnsureComp<CocoonedComponent>(target);
         Dirty(target, cocoon);
@@ -203,12 +210,15 @@ public sealed class CocoonSystem : SharedCocoonSystem
             {
                 Text = Loc.GetString("arachnid-unwrap-verb", ("target", uid)),
 
-                Priority = 10, // Higher = appears near top in context menu
+                Priority = 10,
 
                 Act = () =>
                 {
                     if (!_blocker.CanInteract(args.User, uid))
                         return;
+
+                    // Only require hands if the entity has hands
+                    var needHand = HasComp<HandsComponent>(args.User);
 
                     var doAfter = new DoAfterArgs(
                         EntityManager,
@@ -220,7 +230,7 @@ public sealed class CocoonSystem : SharedCocoonSystem
                     {
                         BreakOnMove = true,
                         BreakOnDamage = true,
-                        NeedHand = true,
+                        NeedHand = needHand,
                         DistanceThreshold = 1.5f,
                         CancelDuplicate = true,
                         BlockDuplicate = true,
@@ -229,7 +239,6 @@ public sealed class CocoonSystem : SharedCocoonSystem
                     if (!_doAfter.TryStartDoAfter(doAfter))
                         return;
 
-                    // Play ziptie start sound for everyone within 10 meters
                     var mapCoords = _transform.GetMapCoordinates(uid);
                     var filter = Filter.Empty().AddInRange(mapCoords, 10f);
                     var entityCoords = _transform.ToCoordinates(mapCoords);

@@ -18,7 +18,7 @@ public abstract class SharedCocoonSystem : EntitySystem
 
     private void OnMapInit(EntityUid uid, CocoonerComponent component, MapInitEvent args)
     {
-        _actions.AddAction(uid, ref component.ActionEntity, component.WrapAction);
+        _actions.AddAction(uid, ref component.ActionEntity, component.WrapAction, container: uid);
     }
 
     private void OnShutdown(EntityUid uid, CocoonerComponent component, ComponentShutdown args)

@@ -1,14 +1,58 @@
-using System.Linq;
+using System.Collections.Generic;
 using Content.Shared.Clothing;
 using Content.Shared.Humanoid;
 using Content.Shared.Species.Arachnid;
 using Robust.Client.GameObjects;
+using Robust.Shared.GameStates;
 
 namespace Content.Client.Species;
 
 public sealed class CocoonVisualizerSystem : VisualizerSystem<CocoonedComponent>
 {
     [Dependency] private readonly SharedHumanoidAppearanceSystem _humanoidAppearance = default!;
+
+    // List of clothing layer names that we hide when cocooned
+    private static readonly string[] ClothingLayers = new[]
+    {
+        "jumpsuit",
+        "shoes",
+        "gloves",
+        "ears",
+        "outerClothing",
+        "eyes",
+        "belt",
+        "id",
+        "back",
+        "neck",
+        "mask",
+        "head",
+        "pocket1",
+        "pocket2"
+    };
+
+    // List of humanoid body appearance layers to hide (excluding special layers like StencilMask, Handcuffs, etc.)
+    private static readonly HumanoidVisualLayers[] BodyLayers = new[]
+    {
+        HumanoidVisualLayers.Special,
+        HumanoidVisualLayers.Tail,
+        HumanoidVisualLayers.Wings,
+        HumanoidVisualLayers.Hair,
+        HumanoidVisualLayers.FacialHair,
+        HumanoidVisualLayers.Chest,
+        HumanoidVisualLayers.Head,
+        HumanoidVisualLayers.Snout,
+        HumanoidVisualLayers.HeadSide,
+        HumanoidVisualLayers.HeadTop,
+        HumanoidVisualLayers.Eyes,
+        HumanoidVisualLayers.RArm,
+        HumanoidVisualLayers.LArm,
+        HumanoidVisualLayers.RHand,
+        HumanoidVisualLayers.LHand,
+        HumanoidVisualLayers.RLeg,
+        HumanoidVisualLayers.LLeg,
+        HumanoidVisualLayers.RFoot,
+        HumanoidVisualLayers.LFoot,
+    };
 
     public override void Initialize()
     {
@@ -42,29 +86,34 @@ public sealed class CocoonVisualizerSystem : VisualizerSystem<CocoonedComponent>
     {
         // Reserve the layer if it doesn't exist
         // This will add the layer at the end, making it render on top of other layers (which is desired for a cocoon overlay)
-        if (!SpriteSystem.LayerMapTryGet((ent, sprite), CocoonedKey.Key, out var cocoonLayerIndex, false))
+        if (!SpriteSystem.LayerMapTryGet((ent, sprite), CocoonedKey.Key, out _, false))
         {
-            cocoonLayerIndex = SpriteSystem.LayerMapReserve((ent, sprite), CocoonedKey.Key);
+            SpriteSystem.LayerMapReserve((ent, sprite), CocoonedKey.Key);
         }
 
         // Set the sprite from the component's data field
         SpriteSystem.LayerSetSprite((ent, sprite), CocoonedKey.Key, ent.Comp.Sprite);
         SpriteSystem.LayerSetVisible((ent, sprite), CocoonedKey.Key, true);
 
-        // Hide all humanoid visual layers when cocooned
+        // Hide only body appearance layers when cocooned (not special layers like StencilMask, Handcuffs, etc.)
         if (TryComp<HumanoidAppearanceComponent>(ent, out var humanoid))
         {
-            var allLayers = Enum.GetValues<HumanoidVisualLayers>();
-            _humanoidAppearance.SetLayersVisibility(ent, allLayers, false, permanent: true, humanoid);
+            _humanoidAppearance.SetLayersVisibility(ent, BodyLayers, false, permanent: true, humanoid);
         }
 
-        // Hide ALL sprite layers except the cocoon layer
-        // This ensures clothing layers (which may be added dynamically) are also hidden
-        for (var i = 0; i < sprite.AllLayers.Count(); i++)
+        // Hide only clothing layers that exist and are visible
+        foreach (var layerName in ClothingLayers)
         {
-            if (i != cocoonLayerIndex)
+            if (SpriteSystem.LayerMapTryGet((ent, sprite), layerName, out _, false))
             {
-                sprite[i].Visible = false;
+                // Check if the layer is visible before hiding it
+                if (SpriteSystem.LayerMapTryGet((ent, sprite), layerName, out var index, false))
+                {
+                    if (sprite[index].Visible)
+                    {
+                        SpriteSystem.LayerSetVisible((ent, sprite), layerName, false);
+                    }
+                }
             }
         }
     }
@@ -82,7 +131,7 @@ public sealed class CocoonVisualizerSystem : VisualizerSystem<CocoonedComponent>
         if (args.Sprite == null)
             return;
 
-        // Re-hide all layers when appearance changes (clothing system might have shown them again)
+        // Re-hide clothing layers when appearance changes (clothing system might have shown them again)
         SetupCocoonVisuals((uid, component), args.Sprite);
     }
 
@@ -97,19 +146,11 @@ public sealed class CocoonVisualizerSystem : VisualizerSystem<CocoonedComponent>
             SpriteSystem.LayerSetVisible((ent, sprite), CocoonedKey.Key, false);
         }
 
-        // Restore all humanoid visual layers when uncocooned
+        // Restore only the body appearance layers we hid (remove from PermanentlyHidden)
+        // This will allow the humanoid appearance system to handle visibility normally
         if (TryComp<HumanoidAppearanceComponent>(ent, out var humanoid))
         {
-            var allLayers = Enum.GetValues<HumanoidVisualLayers>();
-            _humanoidAppearance.SetLayersVisibility(ent, allLayers, true, permanent: true, humanoid);
-        }
-
-        // Restore all sprite layers visibility when uncocooned
-        // The clothing system will handle showing/hiding based on what's equipped
-        foreach (var layer in sprite.AllLayers)
-        {
-            layer.Visible = true;
+            _humanoidAppearance.SetLayersVisibility(ent, BodyLayers, true, permanent: true, humanoid);
         }
     }
 }
-

@@ -20,6 +20,8 @@
     - state: icon_eye
     - state: detail_bookmark
       color: "#AD03DE"
+  - type: OocAuthorship
+    oocAuthor: Soggy
   - type: Paper
     stampedBy:
     - stampedColor: '#134975'
@@ -46,7 +48,3 @@
 
       In the law industry, this functioned as a barrier to stop undue defamation. For independent authors though, this meant a death sentence- either in the writing industry or otherwise. This lead to the Free Fiction Convention (FFC) of 2512, composed of such writers, who brainstormed a creeping, dangerous threat to replace the banned, beloved Agents of their manuscripts.
       Thus, the Changeling was born, and with it a sub-genre of science fiction many recognize today.
-
-
-
-      [italic]OOC Author - Soggy[/italic]

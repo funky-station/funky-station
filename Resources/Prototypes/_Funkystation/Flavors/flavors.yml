@@ -50,6 +50,11 @@
   description: flavor-complex-melon-soda
 
 - type: flavor
+  id: navyrum
+  flavorType: Complex
+  description: flavor-complex-navy-rum
+
+- type: flavor
   id: eggnog
   flavorType: Complex
   description: flavor-complex-eggnog

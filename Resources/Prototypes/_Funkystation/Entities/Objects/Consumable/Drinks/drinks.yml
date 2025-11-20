@@ -201,4 +201,17 @@
         reagents:
         - ReagentId: MelonSoda
           Quantity: 30
+
+- type: entity
+  parent: DrinkGlass
+  id: NavyRum
+  suffix: navy rum
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: NavyRum
+          Quantity: 30
 # pignog

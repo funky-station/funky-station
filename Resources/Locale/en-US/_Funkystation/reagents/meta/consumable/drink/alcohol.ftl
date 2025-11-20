@@ -35,3 +35,6 @@ reagent-desc-creme-de-menthe = A minty liqueur excellent for refreshing, cool dr
 
 reagent-name-fernet = fernet
 reagent-desc-fernet = Pure Fernet. Only an absolute madman would drink this pure.
+
+reagent-name-navy-rum = navy rum
+reagent-desc-navy-rum = Splice the mainbrace, and God save the King. It's white rum.

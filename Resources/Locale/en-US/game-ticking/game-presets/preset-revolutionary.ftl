@@ -88,8 +88,17 @@ rev-headrev-name-user = [color=#5e9cff]{$name}[/color] ([color=gray]{$username}[
 rev-headrev-name = [color=#5e9cff]{$name}[/color] converted {$count} {$count ->
     [one] person
     *[other] people
-}
+} 
+rev-gamma-pre-open-revolt = An anomalous surge in psionic energy has been detected on station. Subneural signal decryption in progress. All crew standby for further instructions.
+rev-gamma-open-revolt = 
+    Psionic signal decryption completed. 
 
+    Warning! 
+
+    Revolutionary cells are active on the station, and have reached a critical mass of support. All remaining loyalist crew are to mobilize to defeat the rebellion. 
+
+    The rebellion leaders have been identified, and are to be detained or eliminated at any cost: {$nameList}. 
+rev-gamma-post-open-revolt = The rebelling forces have reached a critical mass. All loyalist crew are ordered to mobilize to defeat the rebellion, under the direction of remaining Security and Command.
 ## Deconverted window
 
 rev-deconverted-title = Deconverted!

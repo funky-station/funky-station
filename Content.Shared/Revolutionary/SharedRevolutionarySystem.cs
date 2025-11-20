@@ -70,6 +70,8 @@ public abstract class SharedRevolutionarySystem : EntitySystem
             var stunTime = TimeSpan.FromSeconds(4);
             var name = Identity.Entity(uid, EntityManager);
             RemComp<RevolutionaryComponent>(uid);
+            var ev = new RevDeconvertedEvent(uid);
+            RaiseLocalEvent(ref ev);
             _sharedStun.TryParalyze(uid, stunTime, true);
             _popupSystem.PopupEntity(Loc.GetString("rev-break-control", ("name", name)), uid);
         }
@@ -200,5 +202,11 @@ public abstract class SharedRevolutionarySystem : EntitySystem
     public void ToggleConvertGivesVision(Entity<HeadRevolutionaryComponent> headRev, bool toggle = true)
     {
         headRev.Comp.ConvertGivesRevVision = toggle;
+    }
+
+    [ByRefEvent]
+    public record struct RevDeconvertedEvent(EntityUid Uid)
+    {
+        public EntityUid Uid = Uid;
     }
 }

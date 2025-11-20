@@ -85,7 +85,16 @@ public sealed partial class RevolutionaryRuleComponent : Component
     public bool OpenRevoltAnnouncementPending = false;
 
     [DataField, ViewVariables(VVAccess.ReadWrite)]
-    public int RevHeat = 0;
+    public double RevHeat = 0;
+
+    [DataField, ViewVariables(VVAccess.ReadWrite)]
+    public double HeatThreshold = 0;
+
+    [DataField, ViewVariables(VVAccess.ReadWrite)]
+    public bool GammaCalled = false;
+
+    [DataField]
+    public double CrewPercent = .6;
 
     public enum HeatLevel
     {

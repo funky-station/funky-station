@@ -78,6 +78,8 @@
     tags:
       - Armor
       - WhitelistChameleon
+  - type: ClothingModifyStunTime # Goobstation
+    modifier: 0.5
 
 #Standard armor vest, allowed for security and bartenders
 - type: entity
@@ -120,6 +122,8 @@
   - type: StaminaResistance
     damageCoefficient: 0.85
   - type: GroupExamine
+  - type: ClothingModifyStunTime # Goobstation
+    modifier: 0.5
 
 - type: entity
   parent: [ClothingOuterBaseLarge, AllowBackStorageClothingCombat, BaseSecurityContraband]
@@ -142,6 +146,8 @@
     damageCoefficient: 0.80
   - type: StaminaResistance
     damageCoefficient: 0.85
+  - type: ClothingModifyStunTime # Goobstation
+    modifier: 0.5
 
 - type: entity
   parent: ClothingOuterArmorBase
@@ -166,6 +172,8 @@
     reflectProb: 1
     reflects:
       - Energy
+  - type: ClothingModifyStunTime # Goobstation
+    modifier: 0.5
 
 - type: entity
   parent: [ClothingOuterBaseLarge, AllowBackStorageClothingCombat, BaseSyndicateContraband ]
@@ -250,6 +258,8 @@
   - type: Tag
     tags:
       - SpecialArmor
+  - type: ClothingModifyStunTime # Goobstation
+    modifier: 0.0
 
 - type: entity
   parent: [ ClothingOuterBaseLarge, BaseMajorContraband, AllowBackStorageClothingCombat ]
@@ -370,6 +380,8 @@
   - type: Tag
     tags:
       - SpecialArmor
+  - type: ClothingModifyStunTime # Goobstation
+    modifier: 0.5
 
 - type: entity
   parent: [ ClothingOuterBaseLarge, BaseMajorContraband, AllowBackStorageClothingCombat, AllowTankStorageClothing ]
@@ -428,6 +440,8 @@
     node: armor
   - type: ProtectedFromStepTriggers
     slots: WITHOUT_POCKET
+  - type: ClothingModifyStunTime # Goobstation
+    modifier: 0.5
 
 - type: entity
   parent: [ ClothingOuterBaseLarge, BaseMajorContraband, AllowBackStorageClothingCombat ]
@@ -478,6 +492,8 @@
   - type: Tag
     tags:
       - MetalHydrogenArmor
+  - type: ClothingModifyStunTime # Goobstation
+    modifier: 0.5
 
 - type: entity
   parent: [ClothingOuterBaseLarge, AllowBackStorageClothingCombat, AllowTankStorageClothing]
@@ -519,3 +535,5 @@
   - type: Construction
     graph: AtmosianArmor
     node: armor
+  - type: ClothingModifyStunTime # Goobstation
+    modifier: 0.5

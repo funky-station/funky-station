@@ -91,6 +91,8 @@
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitBlueshield
+  - type: ClothingModifyStunTime # Goobstation
+    modifier: 0.0
 
 
 # cybersun stealth
@@ -139,3 +141,5 @@
     - type: StealthOnMove
       passiveVisibilityRate: -0.5
       movementVisibilityRate: 0.6
+  - type: ClothingModifyStunTime # Goobstation
+    modifier: 0.5 #if you stun someone invisible you deserve something

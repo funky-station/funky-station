@@ -198,6 +198,8 @@
     - Hardsuit
     - WhitelistChameleon
     - HardsuitSpatio
+  - type: ClothingModifyStunTime # Goobstation
+    modifier: 0.8 #let me run rahhhh
 
 #Salvage Hardsuit
 - type: entity
@@ -229,6 +231,8 @@
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitSalvage
+  - type: ClothingModifyStunTime # Goobstation
+    modifier: 0.7 #let me run rahhhh
 
 #Goliath Hardsuit
 - type: entity
@@ -264,6 +268,8 @@
   - type: Construction
     graph: HardsuitGoliath
     node: hardsuitGoliath
+  - type: ClothingModifyStunTime # Goobstation
+    modifier: 0.5 #gold star for killing enough goliaths
 
 #Maxim Hardsuit
 - type: entity
@@ -299,6 +305,8 @@
     coolingCoefficient: 0.001
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitMaxim
+  - type: ClothingModifyStunTime # Goobstation
+    modifier: 0.0 #genuinely this is basically just nukie level gear, why not this too
 
 #Security Hardsuit
 - type: entity
@@ -332,6 +340,8 @@
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitSecurity
+  - type: ClothingModifyStunTime # Goobstation
+    modifier: 0.5
 
 #Brigmedic Hardsuit
 - type: entity
@@ -365,6 +375,8 @@
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitBrigmedic
+  - type: ClothingModifyStunTime # Goobstation
+    modifier: 0.5
 
 #Warden's Hardsuit
 - type: entity
@@ -398,6 +410,8 @@
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitWarden
+  - type: ClothingModifyStunTime # Goobstation
+    modifier: 0.5
 
 #Captain's Hardsuit
 - type: entity
@@ -432,6 +446,8 @@
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitCap
+  - type: ClothingModifyStunTime # Goobstation
+    modifier: 0.5
 
 #Chief Engineer's Hardsuit
 - type: entity
@@ -576,6 +592,8 @@
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitSecurityRed
+  - type: ClothingModifyStunTime # Goobstation
+    modifier: 0.5
 
 #Luxury Mining Hardsuit
 - type: entity
@@ -652,6 +670,8 @@
     - MonkeyWearable
     - Hardsuit
     - WhitelistChameleon
+  - type: ClothingModifyStunTime # Goobstation
+    modifier: 0.0
 
 # Syndicate Medic Hardsuit
 - type: entity
@@ -670,6 +690,9 @@
     tags:
     - Hardsuit
     - WhitelistChameleon
+  - type: ClothingModifyStunTime # Goobstation
+    modifier: 0.0
+
 
 #Syndicate Elite Hardsuit
 - type: entity
@@ -711,6 +734,8 @@
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitSyndieElite
+  - type: ClothingModifyStunTime # Goobstation
+    modifier: 0.0
 
 #Syndicate Commander Hardsuit
 - type: entity
@@ -745,6 +770,8 @@
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitSyndieCommander
+  - type: ClothingModifyStunTime # Goobstation
+    modifier: 0.0
 
 #Cybersun Juggernaut Hardsuit
 - type: entity
@@ -779,6 +806,8 @@
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitCybersun
+  - type: ClothingModifyStunTime # Goobstation
+    modifier: 0.0
 
 #Wizard Hardsuit
 - type: entity
@@ -813,6 +842,8 @@
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitWizard
+  - type: ClothingModifyStunTime # Goobstation
+    modifier: 0.0
 
 #Ling Space Suit
 - type: entity
@@ -912,6 +943,8 @@
     clothingPrototype: ClothingHeadHelmetHardsuitPirateCap
   - type: StaticPrice
     price: 0
+  - type: ClothingModifyStunTime # Goobstation
+    modifier: 0.0
 
 #CENTCOMM / ERT HARDSUITS
 #ERT Leader Hardsuit
@@ -1040,6 +1073,8 @@
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitDeathsquad
+  - type: ClothingModifyStunTime # Goobstation
+    modifier: 0.0
 
 #CBURN Hardsuit
 - type: entity
@@ -1079,6 +1114,8 @@
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetCBURN
+  - type: ClothingModifyStunTime # Goobstation
+    modifier: 0.0
 
 #MISC. HARDSUITS
 #Clown Hardsuit

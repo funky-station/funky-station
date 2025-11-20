@@ -75,3 +75,5 @@
     netsync: false
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHelldiver
+  - type: ClothingModifyStunTime # Goobstation
+    modifier: 0.8

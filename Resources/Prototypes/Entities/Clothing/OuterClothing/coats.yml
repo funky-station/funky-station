@@ -79,6 +79,8 @@
     - id: FlippoEngravedLighter
   - type: ExplosionResistance
     damageCoefficient: 1 #its a coat. it doesnt do shit
+  - type: ClothingModifyStunTime # Goobstation
+    modifier: 0.5
 
 - type: entity
   parent: [ClothingOuterCoatDetectiveLoadout]
@@ -129,6 +131,8 @@
     damageCoefficient: 0.8
   - type: StaminaResistance
     damageCoefficient: 0.8
+  - type: ClothingModifyStunTime # Goobstation
+    modifier: 0.5
 
 - type: entity
   abstract: true
@@ -146,6 +150,9 @@
     damageCoefficient: 0.9
   - type: StaminaResistance
     damageCoefficient: 0.8
+  - type: ClothingModifyStunTime # Goobstation
+    modifier: 0.5
+
 - type: entity
   parent: [ClothingOuterArmorHoS, ClothingOuterStorageBase, BaseSecurityCommandContraband]
   id: ClothingOuterCoatHoSTrench
@@ -420,6 +427,8 @@
         Blunt: 0.8
         Slash: 0.65
         Piercing: 0.85
+  - type: ClothingModifyStunTime # Goobstation
+    modifier: 0.5
 
 - type: entity
   parent: ClothingOuterStorageBase
@@ -472,6 +481,8 @@
         Piercing: 0.65
         Heat: 0.85
         Caustic: 0.75
+  - type: ClothingModifyStunTime # Goobstation
+    modifier: 0.5
 
 - type: entity
   parent: ClothingOuterStorageFoldableBase

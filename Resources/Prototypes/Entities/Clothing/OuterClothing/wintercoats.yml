@@ -158,6 +158,8 @@
       - state: CAP-equipped-OUTERCLOTHING
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodWinterCaptain
+  - type: ClothingModifyStunTime # Goobstation
+    modifier: 0.5
 
 - type: entity
   parent: ClothingOuterWinterCoatToggleable
@@ -737,6 +739,8 @@
     damageCoefficient: 0.80
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodWinterSec
+  - type: ClothingModifyStunTime # Goobstation
+    modifier: 0.5
 
 - type: entity
   parent: ClothingOuterWinterCoatToggleable

@@ -95,3 +95,5 @@
   - type: Tag
     tags:
     - ScrapArmor
+  - type: ClothingModifyStunTime # Goobstation
+    modifier: 0.0

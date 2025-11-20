@@ -91,6 +91,8 @@
   - type: BatterySelfRecharger
     autoRecharge: true
     autoRechargeRate: 5
+  - type: ClothingModifyStunTime # Goobstation
+    modifier: 0.5 #nukie level kit but I REALLY don't know about giving them stun res too
 
 
 # COSMIC CULT HARDSUIT HELMET

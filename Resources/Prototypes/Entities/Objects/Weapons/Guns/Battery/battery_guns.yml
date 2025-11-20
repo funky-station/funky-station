@@ -211,6 +211,9 @@
     steps: 5
     zeroVisible: true
   - type: Multishot # Goobstation
+  - type: Tag
+    tags:
+    - SvalinnPistol
 
 - type: entity
   name: retro laser blaster
@@ -501,6 +504,7 @@
     tags:
       - SpecialWeapon
       - TurretCompatibleWeapon
+      - LaserCannon
 
 - type: entity
   name: portable particle decelerator
@@ -563,6 +567,7 @@
   - type: Tag
     tags:
       - SpecialWeapon
+      - XrayCannon
 
 - type: entity
   name: practice disabler
@@ -641,6 +646,7 @@
   - type: Tag
     tags:
       - Taser
+      - DisablerSMG
   - type: Sprite
     sprite: Objects/Weapons/Guns/Battery/disabler_smg.rsi
     layers:

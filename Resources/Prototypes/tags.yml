@@ -216,6 +216,12 @@
   id: Balloon # Default value in BalloonPopperComponent. Tagged entities will be viscously maimed by corresponding poppers.
 
 - type: Tag
+  id: AdvancedSurgeryTool # CargoBounty: BountyAdvancedSurgeryTool
+
+- type: Tag
+  id: AutoinjectorCartridge # CargoBounty: BountyAutoinjectorCartridge
+
+- type: Tag
   id: Banana # CargoBounty: BountyBanana
 
 - type: Tag
@@ -372,6 +378,18 @@
 
 - type: Tag
   id: CableCoil # Storage whitelist: BaseClothingBeltEngineering, BorgModuleCable
+
+- type: Tag
+  id: BiosynthecticHeart # CargoBounty: BountyBiosynthecticHeart
+
+- type: Tag
+  id: BiosynthecticLiver # CargoBounty: BountyBiosynthecticLiver
+
+- type: Tag
+  id: BiosynthecticEyes # CargoBounty: BountyBiosynthecticEyes
+
+- type: Tag
+  id: BiosynthecticLung # CargoBounty: BountyBiosynthecticLung
 
 - type: Tag
   id: Cake # CargoBounty blacklist: BountyFruit, BountyVegetable
@@ -642,6 +660,12 @@
   id: DockEmergency # Used bv EmergencyShuttleSystem for finding a priority FTL destination.
 
 - type: Tag
+  id: CyberneticSecurityEyes # CargoBounty: CyberneticSecurityEyes
+
+- type: Tag
+  id: CyberneticMedicalEyes # CargoBounty: CyberneticMedicalEyes
+
+- type: Tag
   id: Document # A superset of Paper tag. Represents a paper-like entity with writing on it, but is not necessarily writeable itself. Storage whitelist: MailCart
 
 - type: Tag
@@ -706,6 +730,12 @@
 
 - type: Tag
   id: EncryptionScience # ItemMapper: TelecomServer
+
+- type: Tag
+  id: Defibrillator # CargoBounty: Defibtrillator
+
+- type: Tag
+  id: DisablerSMG # CargoBounty: DisablerSMG
 
 - type: Tag
   id: EncryptionSecurity # ItemMapper: TelecomServer
@@ -794,6 +824,12 @@
   id: Fruit # SpecialDigestible: OrganReptilianStomach. CargoBounty: BountyFruit
 
 ## G ##
+
+- type: Tag
+  id: FireBomb # CargoBounty: FireBomb
+
+- type: Tag
+  id: FlashPayload # CargoBounty: FlashPayload
 
 - type: Tag
   id: Galaxythistle # CargoBounty: BountyGalaxyThistle
@@ -965,6 +1001,9 @@
   id: Hotsauce # Storage whitelist: ClothingBeltChef and FoodCartHot. ItemMapper: ClothingBeltChef and FoodCartHot
 
 - type: Tag
+  id: HealthAnalyzer # CargoBounty: HealthAnalyzer
+
+- type: Tag
   id: HudMedical # ConstructionGraph: HudMedSec
 
 - type: Tag
@@ -994,8 +1033,17 @@
   id: IntercomElectronics # ConstructionGraph: Intercom
 
 - type: Tag
+  id: ImprovisedBow # CargoBounty: ImprovisedBow
+
+- type: Tag
+  id: ImprovisedShotgun # CargoBounty: ImprovisedShotgun
+
+- type: Tag
   id: InvalidForGlobalSpawnSpell # Used by SharedMagicSystem to skip tagged entity for an all living humans spawn spell.
   # Implemented only in server ZombieSystem.
+
+- type: Tag # Jaws of Life Arms
+  id: JWLArms # CargoBounty: JWLArms
 
 - type: Tag
   id: InvalidForSurvivorAntag # Used by server MagicSystem and SurvivorRuleSystem to alter mind roles from global spawn spells.
@@ -1036,6 +1084,9 @@
 
 - type: Tag
   id: Lemon # CargoBounty: BountyLemon
+
+- type: Tag
+  id: LaserCannon # CargoBounty: LaserCannon
 
 - type: Tag
   id: LightBulb # Storage whitelist: BoxLightbulb. ConstructionGraph: HelmetJustice
@@ -1181,6 +1232,24 @@
 
 - type: Tag
   id: Nugget # ItemCounter: FoodBoxNugget
+
+- type: Tag
+  id: MakeshiftBola # CargoBounty: MakeshiftBola
+
+- type: Tag
+  id: MakeshiftStunprod # CargoBounty: MakeshiftStunprod
+
+- type: Tag
+  id: MakeshiftShield # CargoBounty: MakeshiftShield
+
+- type: Tag
+  id: MedSecHud # CargoBounty: MedSecHud
+
+- type: Tag
+  id: MedicalHud # CargoBounty: MedicalHud
+
+- type: Tag
+  id: MedicalAutoinjector # CargoBounty: MedicalAutoinjector
 
 - type: Tag
   id: NukeOpsUplink # Used by NukeopsRuleSystem to find nukie uplinks during warops. Whitelisting for ListingPrototypes.
@@ -1434,6 +1503,21 @@
   id: Scarf # CargoBounty: BountyWarmCloth
 
 - type: Tag
+  id: ScrapHelmet # CargoBounty: ScrapHelmet
+
+- type: Tag
+  id: ScrapArmor # CargoBounty: ScrapArmor
+
+- type: Tag
+  id: SvalinnPistol # CargoBounty: SvalinnPistol
+
+- type: Tag
+  id: SpeedLegs # CargoBounty: SpeedLegs
+
+- type: Tag
+  id: SecurityCyberneticEyes # CargoBounty: SecurityCyberneticEyes
+
+- type: Tag
   id: Screwdriver # Storage whitelist: BaseClothingBeltEngineering. ItemMapper: BaseClothingBeltEngineering
 
 - type: Tag # Flags items that scurrets can wear in their back and outerwear slots.
@@ -1582,6 +1666,9 @@
   id: Spellbook # Storage whitelist: Bookshelf
 
 ## T ##
+
+- type: Tag # goob edit
+  id: Table
 
 - type: Tag
   id: TabletopBoard # Storage whitelist: BooksBag, BorgModuleService
@@ -1743,6 +1830,9 @@
   # MaterialStorage whitelist: Sheetifier
 
 - type: Tag
+  id: WoodenBuckler # CargoBounty: WoodenBuckler
+
+- type: Tag
   id: WoodwindInstrument # even more like our atmos
   # MachineBoard construction: DawInstrumentMachineCircuitboard
 
@@ -1776,6 +1866,8 @@
 - type: Tag
   id: XenoborgModuleStealth # Cyborg module category for evil stealth xenoborg
 
+- type: Tag
+  id: XrayCannon # CargoBounty: XrayCannon
 ## Y ##
 ## Z ##
 # ALPHABETICAL

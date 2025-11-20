@@ -164,9 +164,9 @@
   id: WoodenBuckler
   description: A small round wooden makeshift shield.
   components:
-    - type: Tag 
+    - type: Tag
       tags:
-      - WoodenBuckler    
+      - WoodenBuckler
     - type: Sprite
       state: buckler-icon
     - type: Item
@@ -275,9 +275,9 @@
   id: MakeshiftShield
   description: A rundown looking shield, not good for much.
   components:
-    - type: Tag 
+    - type: Tag
       tags:
-      - MakeshiftShield  
+      - MakeshiftShield
     - type: Sprite
       state: makeshift-icon
     - type: Item

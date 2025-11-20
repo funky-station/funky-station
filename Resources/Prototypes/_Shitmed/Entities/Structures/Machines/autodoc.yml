@@ -90,7 +90,7 @@
     grid:
     - 0,0,3,3
   - type: SurgerySpeedModifier
-    speedModifier: 0.80 # Slightly slower than surgeon using normal tools
+    speedModifier: 2 # Slightly slower than surgeon using normal tools   #genuinely with the time needed to set it up, it deserves to be faster
   - type: GuideHelp
     guides: [ Autodoc ]
   - type: SurgeryCleansDirt # Required for it to clean it's surgical tools.
@@ -104,7 +104,7 @@
   - type: Machine
     board: AutodocSyndieCircuitboard
   - type: SurgerySpeedModifier
-    speedModifier: 1.0 # as good as a surgeon using a multitool, nukies need it or something
+    speedModifier: 3 # as good as a surgeon using a multitool, nukies need it or something
 
 # Autodoc tools
 

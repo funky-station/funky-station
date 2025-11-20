@@ -1,6 +1,28 @@
+# SPDX-FileCopyrightText: 2025 ThatOneMoon <91613003+ThatOneMoon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: latheRecipe
+  id: ApronBartender
+  result: ClothingOuterApronBar
+  completetime: 3
+  materials:
+    Cloth: 200
+
+- type: latheRecipe
+  id: ApronHydroponics
+  result: ClothingOuterApronBotanist
+  completetime: 3
+  materials:
+    Cloth: 200
+
+- type: latheRecipe
+  id: ApronChef
+  result: ClothingOuterApronChef
+  completetime: 3
+  materials:
+    Cloth: 200
 
 - type: latheRecipe
   parent: BaseCommandJumpsuitRecipe

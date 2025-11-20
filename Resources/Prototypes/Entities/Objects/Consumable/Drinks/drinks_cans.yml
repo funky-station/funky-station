@@ -843,3 +843,28 @@
     sprite: Objects/Consumable/Drinks/hakkamate_can.rsi
   - type: Item
     sprite: Objects/Consumable/Drinks/hakkamate_can.rsi
+
+- type: entity
+  parent: DrinkCanBaseFull
+  id: DrinkMelonSodaCan
+  name: katsuga melon soda can
+  description: A can of katsuna melon soda. Has the distinct taste of melon and soda, unsurprisingly.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: MelonSoda
+          Quantity: 30
+      grindable:
+        reagents:
+        - ReagentId: Aluminium
+          Quantity: 4
+        - ReagentId: Iron
+          Quantity: 1
+  - type: Drink
+  - type: Sprite
+    sprite: Objects/Consumable/Drinks/melonsoda_can.rsi
+  - type: Item
+    sprite: Objects/Consumable/Drinks/melonsoda_can.rsi

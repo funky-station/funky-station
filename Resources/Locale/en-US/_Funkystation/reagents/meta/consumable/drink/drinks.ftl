@@ -11,3 +11,6 @@ reagent-desc-peggnog = A vile combination of space cola and eggnog.
 
 reagent-name-hakka-mate = hakka-mate
 reagent-desc-hakka-mate = A Martian-made yerba mate soda, dragged straight out of the pits of a hacking convention.
+
+reagent-name-melon-soda = melon soda
+reagent-desc-melon-soda = A neon green hit of nostalgia.

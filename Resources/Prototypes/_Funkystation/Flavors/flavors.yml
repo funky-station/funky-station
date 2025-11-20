@@ -45,6 +45,11 @@
   description: flavor-complex-hakka-mate
 
 - type: flavor
+  id: melonsoda
+  flavorType: Complex
+  description: flavor-complex-melon-soda
+
+- type: flavor
   id: eggnog
   flavorType: Complex
   description: flavor-complex-eggnog

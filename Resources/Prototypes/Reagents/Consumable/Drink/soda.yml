@@ -331,3 +331,18 @@
   metamorphicMaxFillLevels: 4
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
+
+- type: reagent
+  id: MelonSoda
+  name: reagent-name-melon-soda
+  parent: BaseSoda
+  desc: reagent-desc-melon-soda
+  physicalDesc: reagent-physical-desc-fizzy
+  flavor: melonsoda
+  color: "#33cc4f"
+  metamorphicSprite:
+    sprite: Objects/Consumable/Drinks/melonsoda.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 4
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false

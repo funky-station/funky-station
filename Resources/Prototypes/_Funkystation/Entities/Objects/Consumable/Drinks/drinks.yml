@@ -188,4 +188,17 @@
         reagents:
         - ReagentId: HakkaMate
           Quantity: 30
+
+- type: entity
+  parent: DrinkGlass
+  id: MelonSoda
+  suffix: melon soda
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: MelonSoda
+          Quantity: 30
 # pignog

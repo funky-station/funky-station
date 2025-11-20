@@ -22,6 +22,7 @@ flavor-complex-margherita-drink = like you're sipping a pizza on a beach
 flavor-complex-spiked-eggnog = like alcoholic egg and alcoholic nog
 flavor-complex-pineapple-margherita = like pineapples on pizza
 flavor-complex-hakka-mate = like bubbly yerba mate
+flavor-complex-melon-soda = like fizzy melon
 
 ## base
 flavor-base-fresh = fresh

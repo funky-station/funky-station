@@ -47,6 +47,8 @@
     components:
     - type: MimePowers
     - type: FrenchAccent
+    - type: ReplacementAccent
+      accent: french
 
 - type: startingGear
   id: MimeGear

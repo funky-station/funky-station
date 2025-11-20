@@ -18,9 +18,12 @@ public sealed class GermanVernacularSystem : EntitySystem
     [Dependency] private readonly ReplacementAccentSystem _replacement = default!;
 
     private static readonly Regex RegexThe = new(@"(?<=\s|^)the(?=\s|$)", RegexOptions.IgnoreCase);
-    private static readonly Regex RegexAUmlaut = new(@"ä", RegexOptions.IgnoreCase);
-    private static readonly Regex RegexOUmlaut = new(@"ö", RegexOptions.IgnoreCase);
-    private static readonly Regex RegexUUmlaut = new(@"ü", RegexOptions.IgnoreCase);
+    private static readonly Regex RegexAUmlautUpper = new(@"Ä");
+    private static readonly Regex RegexAUmlautLower = new(@"ä");
+    private static readonly Regex RegexOUmlautUpper = new(@"Ö");
+    private static readonly Regex RegexOUmlautLower = new(@"ö");
+    private static readonly Regex RegexUUmlautUpper = new(@"Ü");
+    private static readonly Regex RegexUUmlautLower = new(@"ü");
 
     public override void Initialize()
     {
@@ -49,9 +52,12 @@ public sealed class GermanVernacularSystem : EntitySystem
         }
 
         // Also we're undoing all the umlauts because they mess with word replacement.
-        msg = RegexAUmlaut.Replace(message, "a");
-        msg = RegexOUmlaut.Replace(message, "o");
-        msg = RegexAUmlaut.Replace(message, "u");
+        msg = RegexAUmlautUpper.Replace(message, "A");
+        msg = RegexAUmlautLower.Replace(message, "a");
+        msg = RegexOUmlautUpper.Replace(message, "O");
+        msg = RegexOUmlautLower.Replace(message, "o");
+        msg = RegexUUmlautUpper.Replace(message, "U");
+        msg = RegexUUmlautLower.Replace(message, "u");
 
         msg = _replacement.ApplyReplacements(msg, "german");
 

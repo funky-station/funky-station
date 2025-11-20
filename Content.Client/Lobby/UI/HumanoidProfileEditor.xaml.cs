@@ -652,6 +652,7 @@ namespace Content.Client.Lobby.UI
                         };
                         selector.Checkbox.TooltipSupplier = _ => tooltip;
                         selector.Preference = false;
+                        Profile = Profile?.WithoutTraitPreference(trait.ID, _prototypeManager);
                     }
 
                     // Check if required traits have not been chosen - Funky
@@ -674,6 +675,7 @@ namespace Content.Client.Lobby.UI
                         };
                         selector.Checkbox.TooltipSupplier = _ => tooltip;
                         selector.Preference = false;
+                        Profile = Profile?.WithoutTraitPreference(trait.ID, _prototypeManager);
                     }
 
                     selector.PreferenceChanged += preference =>

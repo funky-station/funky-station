@@ -12,6 +12,15 @@ trait-funky-desc = Put some funky flair on your inflections.
 trait-scandinavian-name = Scandinavian accent
 trait-scandinavian-desc = You sound like you come from some nondescript northern European nation. Or you're a Viking!
 
+trait-french-vernacular-name = French vernacular
+trait-french-vernacular-desc = You intensify your Frenchness with some familar-sounding loanwords.
+
+trait-german-vernacular-name = German vernacular
+trait-german-vernacular-desc = You drop a lot of words like "Schmetterling" and "Krankenwagen" in your speech.
+
+trait-russian-vernacular-name = Russian vernacular
+trait-russian-vernacular-desc = When you speak, you can't help but introduce a few Russian words.
+
 trait-extra-lightweight-name = Extreme Lightweight
 trait-extra-lightweight-desc = You are the lightest of lightweights. Even a shot will hit you the same as a glass.
 

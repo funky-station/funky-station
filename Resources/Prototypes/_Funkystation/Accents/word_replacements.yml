@@ -130,3 +130,14 @@
     accent-french-words-84: accent-french-words-replace-84
     accent-french-words-85: accent-french-words-replace-85
     accent-french-words-85-1: accent-french-words-replace-85
+
+- type: accent # This is just for "ze" and "wat".
+  id: germanaccent
+  wordReplacements:
+    accent-german-words-3: accent-german-words-replace-3
+    accent-german-words-26: accent-german-words-replace-26
+
+- type: accent # Okay, so we actually need to do this for GermanVernacularSystem to work properly.
+  id: germanthe
+  wordReplacements:
+    accent-german-words-replace-3: accent-german-words-3

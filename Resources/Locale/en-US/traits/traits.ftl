@@ -45,8 +45,8 @@ trait-snoring-desc = You will snore while sleeping.
 trait-liar-name = Pathological liar
 trait-liar-desc = You can hardly bring yourself to tell the truth. Sometimes you lie anyway.
 
-trait-cowboy-name = Cowboy accent
-trait-cowboy-desc = You speak with a distinct cowboy accent!
+trait-cowboy-name = Cowboy vernacular
+trait-cowboy-desc = You speak with the vocabulary of a cowboy!
 
 trait-german-name = German accent
 trait-german-desc = You seem to come from space Germany.
@@ -80,5 +80,4 @@ trait-species-restricted = Your species cannot take this trait.
 trait-impaired-mobility-name = Impaired Mobility
 trait-impaired-mobility-desc = You have difficulty moving without a mobility aid.
 
-trait-prerequisite-required-1 = This trait requires the
-trait-prerequisite-required-2 = trait.
+trait-prerequisite-required = This trait requires the {$prerequisite} trait.

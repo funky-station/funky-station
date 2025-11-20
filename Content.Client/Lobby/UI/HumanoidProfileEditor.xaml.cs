@@ -655,7 +655,6 @@ namespace Content.Client.Lobby.UI
                     }
 
                     // Check if required traits have not been chosen - Funky
-
                     if (trait.Prerequisite != null && (!Profile?.TraitPreferences.Contains(trait.Prerequisite) ?? false))
                     {
                         selector.Checkbox.Disabled = true;
@@ -667,8 +666,7 @@ namespace Content.Client.Lobby.UI
                             {
                                 new Label
                                 {
-                                    // I can't get interpolation to work :<
-                                    Text = Loc.GetString("trait-prerequisite-required-1") + " " + trait.Prerequisite + " " + Loc.GetString("trait-prerequisite-required-2"),
+                                    Text = Loc.GetString("trait-prerequisite-required", ("prerequisite", trait.Prerequisite)),
                                     HorizontalAlignment = HAlignment.Center,
                                     FontColorOverride = Color.FromHex("#C8C8C8")
                                 }

@@ -22,7 +22,7 @@ public sealed class RussianAccentSystem : EntitySystem
 
     public string Accentuate(string message)
     {
-        var accentedMessage = new StringBuilder(_replacement.ApplyReplacements(message, "russian"));
+        var accentedMessage = new StringBuilder(message);
 
         for (var i = 0; i < accentedMessage.Length; i++)
         {

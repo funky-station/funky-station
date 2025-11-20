@@ -47,6 +47,8 @@
 # SPDX-FileCopyrightText: 2025 Mish <bluscout78@yahoo.com>
 # SPDX-FileCopyrightText: 2025 SigmaTheDragon <162711378+SigmaTheDragon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 ThatOneMoon <91613003+ThatOneMoon@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
 # SPDX-FileCopyrightText: 2025 Xcybitt <197952719+Xcybitt@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Xcybitt <xcybitt@gmail.com>
 # SPDX-FileCopyrightText: 2025 ferynn <117872973+ferynn@users.noreply.github.com>
@@ -151,8 +153,11 @@
   id: WeaponLaserSvalinn
   result: WeaponLaserSvalinn
   materials:
-    Steel: 2000
-    Gold: 500
+    Steel: 1000
+    Plastic: 500
+    Glass: 300
+    Silver: 200
+
 
 - type: latheRecipe
   parent: BaseWeaponRecipeLong
@@ -485,14 +490,14 @@
   result: MagazineBoxPistolLargeIncendiary
   materials:
     Plastic: 450
-
+    
 - type: latheRecipe
   parent: BaseAmmoRecipe
   id: MagazineBoxPistolLargePractice
   result: MagazineBoxPistolLargePractice
   materials:
     Steel: 150
-
+    
 - type: latheRecipe
   parent: BaseAmmoRecipe
   id: MagazineBoxPistolLargeUranium
@@ -832,7 +837,7 @@
   completetime: 15
   materials:
     Steel: 2000
-    Uranium: 2000
+    Uranium: 1500
     Plastic: 1000
     Plasma: 500
     Glass: 500
@@ -869,12 +874,3 @@
   materials:
     Steel: 400
     Plastic: 200
-
-- type: latheRecipe
-  id: SurveillanceWirelessCameraBodySecurity
-  result: SurveillanceWirelessCameraBodySecurity
-  completetime: 3
-  materials:
-    Cloth: 200
-    Steel: 100
-    Plastic: 100

@@ -1,6 +1,5 @@
 using Content.Server.Popups;
 using Content.Server.Speech.Components;
-using Content.Shared._DV.CosmicCult.Components;
 using Content.Shared.ActionBlocker;
 using Content.Shared.DoAfter;
 using Content.Shared.Humanoid;
@@ -10,6 +9,9 @@ using Content.Shared.Nutrition.EntitySystems;
 using Content.Shared.Popups;
 using Content.Shared.Species.Arachnid;
 using Content.Shared.Standing;
+using Robust.Shared.Audio;
+using Robust.Shared.Audio.Systems;
+using Robust.Shared.Player;
 
 namespace Content.Server.Species.Arachnid;
 
@@ -21,6 +23,8 @@ public sealed class CocoonSystem : SharedCocoonSystem
     [Dependency] private readonly ActionBlockerSystem _blocker = default!;
     [Dependency] private readonly IComponentFactory _componentFactory = default!;
     [Dependency] private readonly StandingStateSystem _standing = default!;
+    [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly SharedTransformSystem _transform = default!;
 
     public override void Initialize()
     {
@@ -82,6 +86,12 @@ public sealed class CocoonSystem : SharedCocoonSystem
         if (!_doAfter.TryStartDoAfter(doAfter))
             return;
 
+        // Play ziptie start sound for everyone within 10 meters
+        var mapCoords = _transform.GetMapCoordinates(target);
+        var filter = Filter.Empty().AddInRange(mapCoords, 10f);
+        var entityCoords = _transform.ToCoordinates(mapCoords);
+        _audio.PlayStatic(new SoundPathSpecifier("/Audio/Items/Handcuffs/rope_start.ogg"), filter, entityCoords, true);
+
         _popups.PopupEntity(Loc.GetString("arachnid-wrap-start-user", ("target", target)), user, user);
         _popups.PopupEntity(Loc.GetString("arachnid-wrap-start-target", ("user", user)), target, target, PopupType.LargeCaution);
 
@@ -107,6 +117,12 @@ public sealed class CocoonSystem : SharedCocoonSystem
         var cocoon = EnsureComp<CocoonedComponent>(target);
         Dirty(target, cocoon);
 
+        // Play ziptie sound for everyone within 10 meters
+        var mapCoords = _transform.GetMapCoordinates(target);
+        var filter = Filter.Empty().AddInRange(mapCoords, 10f);
+        var entityCoords = _transform.ToCoordinates(mapCoords);
+        _audio.PlayStatic(new SoundPathSpecifier("/Audio/Items/Handcuffs/rope_end.ogg"), filter, entityCoords, true);
+
         _popups.PopupEntity(Loc.GetString("arachnid-wrap-complete-user", ("target", target)), performer, performer);
         _popups.PopupEntity(Loc.GetString("arachnid-wrap-complete-target"), target, target, PopupType.LargeCaution);
 
@@ -117,6 +133,12 @@ public sealed class CocoonSystem : SharedCocoonSystem
     {
         if (args.Cancelled || args.Handled || args.Args.Target == null)
             return;
+
+        // Play ziptie sound for everyone within 10 meters
+        var mapCoords = _transform.GetMapCoordinates(uid);
+        var filter = Filter.Empty().AddInRange(mapCoords, 10f);
+        var entityCoords = _transform.ToCoordinates(mapCoords);
+        _audio.PlayStatic(new SoundPathSpecifier("/Audio/Items/Handcuffs/rope_breakout.ogg"), filter, entityCoords, true);
 
         RemCompDeferred<CocoonedComponent>(uid);
 
@@ -206,6 +228,12 @@ public sealed class CocoonSystem : SharedCocoonSystem
 
                     if (!_doAfter.TryStartDoAfter(doAfter))
                         return;
+
+                    // Play ziptie start sound for everyone within 10 meters
+                    var mapCoords = _transform.GetMapCoordinates(uid);
+                    var filter = Filter.Empty().AddInRange(mapCoords, 10f);
+                    var entityCoords = _transform.ToCoordinates(mapCoords);
+                    _audio.PlayStatic(new SoundPathSpecifier("/Audio/Items/Handcuffs/rope_start.ogg"), filter, entityCoords, true);
 
                     _popups.PopupEntity(Loc.GetString("arachnid-unwrap-start-user", ("target", uid)), args.User, args.User);
                     _popups.PopupEntity(Loc.GetString("arachnid-unwrap-start-target", ("user", args.User)), uid, uid);

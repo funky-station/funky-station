@@ -108,7 +108,7 @@
   id: BloodCult
   alias:
     - bloodcult
-    - cult
+    - bcult
   name: bloodcult-title
   description: bloodcult-description
   showInVote: false
@@ -117,12 +117,11 @@
     - BloodCult
     - SubGamemodesRule
     - BasicStationEventScheduler
-    - MeteorSwarmScheduler
     - SpaceTrafficControlEventScheduler
     - BasicRoundstartVariation
 
 - type: gamePreset
-  id: BloodCult
+  id: SecretBloodCult
   alias:
     - secretbloodcult
   name: secret-title

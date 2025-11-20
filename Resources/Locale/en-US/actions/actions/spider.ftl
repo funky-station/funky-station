@@ -24,3 +24,4 @@ arachnid-unwrap-start-user = You begin unwrapping the cocoon restraining {$targe
 arachnid-unwrap-start-target = {$user} begins to unwrap you from the cocoon!
 arachnid-unwrap-user = You tear apart the cocoon restraining {$target}.
 arachnid-unwrap-target = {$user} frees you from the cocoon!
+arachnid-cocoon-broken = The cocoon breaks apart from the damage!

@@ -9,6 +9,24 @@ public sealed partial class CocoonedComponent : Component
 {
     [DataField]
     public SpriteSpecifier Sprite = new SpriteSpecifier.Rsi(new("/Textures/Mobs/Effects/cocooned.rsi"), "cocooned");
+
+    /// <summary>
+    ///     Accumulated damage that the cocoon has absorbed. The cocoon breaks after reaching 10 damage.
+    /// </summary>
+    [DataField, ViewVariables(VVAccess.ReadWrite)]
+    public float AccumulatedDamage = 0f;
+
+    /// <summary>
+    ///     Maximum damage the cocoon can absorb before breaking.
+    /// </summary>
+    [DataField]
+    public float MaxDamage = 10f;
+
+    /// <summary>
+    ///     Percentage of damage that the cocoon absorbs (0.3 = 30%).
+    /// </summary>
+    [DataField]
+    public float AbsorbPercentage = 0.3f;
 }
 
 [Serializable, NetSerializable]

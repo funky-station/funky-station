@@ -1,6 +1,8 @@
 using Content.Server.Popups;
 using Content.Server.Speech.Components;
 using Content.Shared.ActionBlocker;
+using Content.Shared.Damage;
+using Content.Shared.Damage.Prototypes;
 using Content.Shared.DoAfter;
 using Content.Shared.Hands.Components;
 using Content.Shared.Humanoid;
@@ -41,6 +43,42 @@ public sealed class CocoonSystem : SharedCocoonSystem
         SubscribeLocalEvent<CocoonedComponent, UnwrapDoAfterEvent>(OnUnwrapDoAfter);
 
         SubscribeLocalEvent<CocoonedComponent, StandAttemptEvent>(OnStandAttempt);
+        SubscribeLocalEvent<CocoonedComponent, DamageModifyEvent>(OnDamageModify);
+    }
+
+    private void OnDamageModify(Entity<CocoonedComponent> ent, ref DamageModifyEvent args)
+    {
+        // Only absorb positive damage
+        if (!args.OriginalDamage.AnyPositive())
+            return;
+
+        var originalTotalDamage = args.OriginalDamage.GetTotal().Float();
+        if (originalTotalDamage <= 0)
+            return;
+
+        // Calculate 30% of the original damage to absorb
+        var absorbedDamage = originalTotalDamage * ent.Comp.AbsorbPercentage;
+        
+        // Reduce the damage by 30% (victim only takes 70%)
+        // Apply coefficient to all damage types that were originally present
+        var reducePercentage = 1f - ent.Comp.AbsorbPercentage;
+        var modifier = new DamageModifierSet();
+        foreach (var key in args.OriginalDamage.DamageDict.Keys)
+        {
+            modifier.Coefficients.TryAdd(key, reducePercentage);
+        }
+        args.Damage = DamageSpecifier.ApplyModifierSet(args.Damage, modifier);
+
+        // Accumulate the absorbed damage on the cocoon
+        ent.Comp.AccumulatedDamage += absorbedDamage;
+        Dirty(ent, ent.Comp);
+
+        // Break the cocoon if it reaches max damage
+        if (ent.Comp.AccumulatedDamage >= ent.Comp.MaxDamage)
+        {
+            RemCompDeferred<CocoonedComponent>(ent);
+            _popups.PopupEntity(Loc.GetString("arachnid-cocoon-broken"), ent, ent, PopupType.LargeCaution);
+        }
     }
 
     private void OnStandAttempt(Entity<CocoonedComponent> ent, ref StandAttemptEvent args)

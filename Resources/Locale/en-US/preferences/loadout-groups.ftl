@@ -128,6 +128,7 @@ loadout-group-quartermaster-outerclothing = Quartermaster outer clothing
 loadout-group-quartermaster-shoes = Quartermaster shoes
 
 loadout-group-cargo-technician-head = Cargo Technician head
+loadout-group-cargo-technician-neck = Cargo Technician neck
 loadout-group-cargo-technician-jumpsuit = Cargo Technician jumpsuit
 loadout-group-cargo-technician-backpack = Cargo Technician backpack
 loadout-group-cargo-technician-outerclothing = Cargo Technician outer clothing

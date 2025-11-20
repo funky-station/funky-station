@@ -777,6 +777,9 @@
   name: loadout-group-quartermaster-shoes
   loadouts:
   - BrownShoes
+  - NanotrasenRepresentativeBoots #These are just laceup shoes.
+  - WorkBoots
+  - SalvageBoots
   - CargoWinterBoots
 
 - type: loadoutGroup
@@ -788,6 +791,13 @@
   - CargoTechnicianHeadMail # Goob/DeltaV - Mail
 
 - type: loadoutGroup
+  id: CargoTechnicianNeck
+  name: loadout-group-cargo-technician-neck
+  minLimit: 0
+  loadouts:
+  - CargoTechnicianLiftBelt
+
+- type: loadoutGroup
   id: CargoTechnicianJumpsuit
   name: loadout-group-cargo-technician-jumpsuit
   loadouts:
@@ -795,6 +805,8 @@
   - CargoTechnicianJumpskirt
   - SeniorCargoTechnicianJumpsuit #Funky!
   - SeniorCargoTechnicianJumpskirt #Funky!
+  - CargoTechnicianOfficeShirt #Funky!
+  - CargoTechnicianTop #Funky!
   - CargoTechnicianJumpsuitMail # Goob/DeltaV - Mail
   - CargoTechnicianJumpskirtMail # Goob/DeltaV - Mail
 
@@ -818,8 +830,8 @@
   name: loadout-group-cargo-technician-outerclothing
   minLimit: 0
   loadouts:
-  - CargoTechnicianWintercoat
-  - SeniorCargoTechnicianWinterCoat #Funky!
+  - CargoTechnicianWindbreaker #Funky!
+  - SeniorCargoTechnicianWindbreaker #Funky!
   - CargoTechnicianWintercoatMail # Goob/DeltaV - Mail
 
 - type: loadoutGroup
@@ -827,6 +839,8 @@
   name: loadout-group-cargo-technician-shoes
   loadouts:
   - BlackShoes
+  - SalvageBoots
+  - WorkBoots
   - CargoWinterBoots
 
 - type: loadoutGroup

@@ -255,6 +255,7 @@
   id: JobCargoTechnician
   groups:
   - CargoTechnicianHead
+  - CargoTechnicianNeck
   - CargoTechnicianJumpsuit
   - CargoTechnicianBackpack
   - CargoTechnicianOuterClothing

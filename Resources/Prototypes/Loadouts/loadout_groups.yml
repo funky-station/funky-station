@@ -770,6 +770,7 @@
   name: loadout-group-quartermaster-outerclothing
   minLimit: 0
   loadouts:
+  - QuartermasterWindbreaker
   - QuartermasterWintercoat
 
 - type: loadoutGroup

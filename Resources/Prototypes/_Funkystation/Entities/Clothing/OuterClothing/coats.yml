@@ -102,3 +102,24 @@
       coefficients:
         Slash: 0.95
         Heat: 0.90
+
+- type: entity
+  parent: [ClothingOuterStorageFoldableBase]
+  id: ClothingOuterQMWindbreaker
+  name: quartermaster's windbreaker
+  description: For increasing quarterly productivity by 0.3%, Nanotrasen has awarded you this distinguished windbreaker to set you apart from the common drones. You're a Quartermaster, after all.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/OuterClothing/Coats/qm_windbreaker.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/OuterClothing/Coats/qm_windbreaker.rsi
+  - type: Item
+    size: Normal
+  - type: TemperatureProtection
+    heatingCoefficient: 1.1
+    coolingCoefficient: 0.1
+  - type: Armor
+    modifiers:
+      coefficients:
+        Slash: 0.95
+        Heat: 0.90

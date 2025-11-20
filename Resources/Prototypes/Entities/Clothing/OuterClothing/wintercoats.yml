@@ -601,20 +601,10 @@
   name: quartermaster's winter coat
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
-    layers:
-    - state: QM-icon
+    sprite: _Funkystation/Clothing/OuterClothing/WinterCoats/qm_winter_coat.rsi
   - type: Item
-    inhandVisuals:
-      left:
-      - state: QM-inhand-left
-      right:
-      - state: QM-inhand-right
   - type: Clothing
-    sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
-    clothingVisuals:
-      outerClothing:
-      - state: QM-equipped-OUTERCLOTHING
+    sprite: _Funkystation/Clothing/OuterClothing/WinterCoats/qm_winter_coat.rsi
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodWinterQM
 

@@ -479,9 +479,9 @@
   name: quartermaster's coat hood
   components:
   - type: Sprite
-    sprite: Clothing/Head/Hoods/Coat/hoodqm.rsi
+    sprite: _Funkystation/Clothing/Head/Hoods/Coat/hoodqm.rsi
   - type: Clothing
-    sprite: Clothing/Head/Hoods/Coat/hoodqm.rsi
+    sprite: _Funkystation/Clothing/Head/Hoods/Coat/hoodqm.rsi
 
 - type: entity
   parent: ClothingHeadHatHoodWinterBase

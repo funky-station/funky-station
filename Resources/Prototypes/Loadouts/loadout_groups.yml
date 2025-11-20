@@ -1504,6 +1504,7 @@
 - type: loadoutGroup
   id: MedicalChemistHead
   name: loadout-group-medical-chemist-head
+  minLimit: 0
   loadouts:
   - SeniorPhysicianBeret
 

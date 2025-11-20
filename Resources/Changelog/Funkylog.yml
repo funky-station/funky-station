@@ -5617,3 +5617,129 @@ Entries:
       message: Departmental suit storage lockers now have unique sprites.
   id: 672
   time: '2025-11-15T08:08:37.0000000+00:00'
+- author: mkanke-real
+  changes:
+    - type: Add
+      message: Added Psych to Bagel
+    - type: Add
+      message: Added navigational floor decals to Bagel
+    - type: Fix
+      message: Fixed Bagel grav generator power and vox box atmos
+    - type: Fix
+      message: Fixed AI turrets not being linked
+    - type: Tweak
+      message: Moved IAA office on Bagel to next to NTR rep office
+    - type: Tweak
+      message: Librarian and Reporter now have doors locked to their jobs on Bagel
+  id: 673
+  time: '2025-11-15T22:48:02.0000000+00:00'
+- author: Teasq
+  changes:
+    - type: Tweak
+      message: resprited the spationaut hardsuit
+  id: 674
+  time: '2025-11-15T23:28:20.0000000+00:00'
+- author: Toastermeister
+  changes:
+    - type: Fix
+      message: Fixed visuals for energy projectiles, they no longer collide wrong.
+  id: 675
+  time: '2025-11-15T23:31:53.0000000+00:00'
+- author: mycobiota
+  changes:
+    - type: Add
+      message: >-
+        A strange "commemorative" flippo lighter can now be found very rarely as
+        maintenance loot.
+  id: 676
+  time: '2025-11-16T00:49:28.0000000+00:00'
+- author: ThatOneMoon
+  changes:
+    - type: Add
+      message: >-
+        Added in a new Premium M.R.E, contains much more and a variety of food
+        compared to standard M.R.Es, currently only found as rare salvage loot
+    - type: Tweak
+      message: >-
+        Mercenary Web Vest and Helmets have had their armor values tweaked,
+        Focusing now on Blunt/Slash protection with aditional Caustic
+        protection.
+    - type: Tweak
+      message: >-
+        Mercenary Backpacks have had their inventory increased, now standing
+        inbetween a Satchel and Dufflebag
+  id: 677
+  time: '2025-11-16T21:04:02.0000000+00:00'
+- author: ferynn
+  changes:
+    - type: Tweak
+      message: The NTR and Magistrate PDA's now have the Centcomm pen inside.
+  id: 678
+  time: '2025-11-16T21:22:20.0000000+00:00'
+- author: ferynn
+  changes:
+    - type: Tweak
+      message: >-
+        Buffs to Changeling Armblade, Chitinous Armor. Minor tweak to Chameleon
+        Skin. More abilities usable while restrained.
+  id: 679
+  time: '2025-11-16T21:26:10.0000000+00:00'
+- author: lolmatdi
+  changes:
+    - type: Fix
+      message: You can now spawn as a chemist without a hat
+  id: 680
+  time: '2025-11-20T00:12:20.0000000+00:00'
+- author: 88tv
+  changes:
+    - type: Add
+      message: Added 35 new tips.
+  id: 681
+  time: '2025-11-20T00:14:34.0000000+00:00'
+- author: Dusty-Plant
+  changes:
+    - type: Tweak
+      message: Updated Court station for the fifth round of playtests
+  id: 682
+  time: '2025-11-20T00:17:03.0000000+00:00'
+- author: ThatOneMoon
+  changes:
+    - type: Add
+      message: >-
+        Security, Medical, Bar and Makeshift Weapon cargo bounties have been
+        vastly exanded with all of them now asking for a greater variety of
+        things.
+    - type: Add
+      message: >-
+        Departmental lockboxes have been added to the crafting menu, made the
+        same way as other crates. 
+    - type: Remove
+      message: Clown, Library and Instrument bounties have been removed from the pool.
+    - type: Tweak
+      message: >-
+        Autoinjectors and their cartriges have been made less expensive to
+        print.
+    - type: Tweak
+      message: >-
+        Svalinns have been made less expensive to print, and can now be made in
+        the cargo techfab.
+    - type: Tweak
+      message: 'Cybernetics can be made in the medical techfab when researched. '
+    - type: Tweak
+      message: >-
+        Compact Defibrdilators have been made obtainable, unlocked from Advanced
+        Treatment reseach and printed at the Medical Techfab.
+    - type: Tweak
+      message: Vials have been made printable at the medical techfab.
+    - type: Tweak
+      message: Aprons are now printable at the uniform printer
+    - type: Tweak
+      message: The inventory grid of Large Cardboard Boxes has been slightly increased.
+  id: 683
+  time: '2025-11-20T00:23:18.0000000+00:00'
+- author: Drywink
+  changes:
+    - type: Fix
+      message: The SM should no longer ash any blob observer!
+  id: 684
+  time: '2025-11-20T00:49:58.0000000+00:00'

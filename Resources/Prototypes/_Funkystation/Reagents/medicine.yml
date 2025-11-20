@@ -616,35 +616,3 @@
         scaleByQuantity: true
         damage:
           Burn: -0.25
-
-# cryo
-- type: reagent
-  id: Argentoxadone
-  name: reagent-name-argentoxadone
-  group: Medicine
-  desc: reagent-desc-argentoxadone
-  physicalDesc: reagent-physical-desc-metallic
-  flavor: medicine
-  color: "#f7cbf4"
-  worksOnTheDead: true
-  metabolisms:
-    Medicine:
-      effects:
-      - !type:HealthChange
-        conditions:
-        - !type:Temperature
-          max: 213.0
-        - !type:OrganType
-          type: Thaven
-          shouldHave: true
-        damage:
-          types:
-            Bloodloss: -6
-      - !type:ModifyBloodLevel
-        conditions:
-        - !type:Temperature
-          max: 213.0
-        - !type:OrganType
-          type: Thaven
-          shouldHave: true
-        amount: 6

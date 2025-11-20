@@ -67,6 +67,3 @@ reagent-desc-styptic-powder = A powder that helps to control bleeding and heal p
 
 reagent-name-silver-sulfadiazine = silver sulfadiazine
 reagent-desc-silver-sulfadiazine = An antibacterial compound used topically on burn victims.
-
-reagent-name-argentoxadone = argentoxadone
-reagent-desc-argentoxadone = A cryogenics chemical. Used to treat severe blood loss in Thavens and other creatures with shimmering, sliver-based blood. Works regardless of the patient being alive or dead.

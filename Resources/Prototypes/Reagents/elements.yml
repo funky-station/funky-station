@@ -198,23 +198,12 @@
         damage:
           types:
             Poison: 0.1
-      - !type:HealthChange # Funky change, makes thaven and carpkin more fey, iron burns them 
-        conditions:
-        - !type:OrganType
-          type: Thaven
-          shouldHave: true
-        damage:
-          types:
-            Caustic: 0.2
     Medicine:
       effects:
       - !type:ModifyBloodLevel
         conditions:
         - !type:OrganType
           type: Arachnid
-          shouldHave: false
-        - !type:OrganType # Funky change, makes thaven and carpkin more fey, iron poisons them
-          type: Thaven
           shouldHave: false
         amount: 0.4
 
@@ -335,16 +324,6 @@
   color: "#d0d0d0"
   boilingPoint: 2212.0
   meltingPoint: 960.5
-  metabolisms: # Funky change, makes thaven and carpkin more fey, regenerate blood by injecting silver 
-    Medicine:
-      effects:
-      - !type:ModifyBloodLevel
-        conditions:
-        - !type:OrganType
-          type: Thaven
-          shouldHave: true
-        amount: 0.4
-
 
 - type: reagent
   id: Sulfur

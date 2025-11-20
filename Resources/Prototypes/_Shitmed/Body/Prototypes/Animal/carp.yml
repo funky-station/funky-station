@@ -15,7 +15,7 @@
       connections:
       - tail
       organs: # funky change, turned this from space animal organs to appropriate space carp and thaven organs
-        lungs: OrganCarpLungs # Immunity to airloss
+        lungs: OrganThavenLungs # no more free breathlessness for you
         stomach: OrganCarpStomach
         liver: OrganCarpLiver
         heart: OrganCarpHeart # Immunity to cold

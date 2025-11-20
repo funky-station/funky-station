@@ -263,7 +263,7 @@
   id: OrganCarpHeart
   parent: OrganThavenHeart
   name: carp heart
-  description: "A dark and toxic heart pulsing with a prismatic ichor. Strong enough alone to keep a carp from exploding from the void, but needs help to keep it from exploding otherwise."
+  description: "A dark and toxic heart pulsing with a prismatic ichor. Strong enough to keep a carp from exploding from the void."
   components: 
   - type: Sprite
     sprite: _Funkystation/Mobs/Species/Space/Carp/organs.rsi
@@ -277,7 +277,7 @@
   id: OrganMinnowHeart
   parent: BaseSpaceAnimalOrgan
   name: sharkminnow heart
-  description: "The large, dark heart of sharkminnows and closely related species. Perpetually beating, it appears a little dry."
+  description: "The large, dark heart of sharkminnows. Perpetually beating, it appears a little dry."
   components:
   - type: Sprite
     sprite: _Funkystation/Mobs/Species/Space/Carp/organs.rsi
@@ -354,7 +354,7 @@
   parent: OrganCarpLungs
   id: OrganDragonLungs
   name: dragon lungs
-  description: "The large, fire-breathing lungs of a space dragon. Without the might of a dragon behind it, it requires some form of an atmosphere supplied to it to actually function."
+  description: "The large, fire-breathing 'lungs' of a space dragon. Ripped from their rightful place, they require an atmosphere supplied to them in order to function."
   components:
   - type: Sprite
     layers:

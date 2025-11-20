@@ -12,7 +12,7 @@
       connections:
       - tail
       organs:
-        lungs: OrganCarpLungs
+        lungs: OrganThavenLungs
         stomach: OrganCarpStomach
         liver: OrganCarpLiver
         heart: OrganMinnowHeart

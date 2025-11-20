@@ -69,7 +69,7 @@
 - type: entity
   id: OrganThavenLungs
   parent: OrganHumanLungs
-  name: thaven lungs
+  name: carpkin lungs # Funky change, now meant to be used in carp as well instead of space animal lungs
   description: "Technically not lungs since they don't draw chemicals from the air, these strange, durable organs use the motion of respiration to provide energy for cell maintenance."
   components:
   - type: Sprite

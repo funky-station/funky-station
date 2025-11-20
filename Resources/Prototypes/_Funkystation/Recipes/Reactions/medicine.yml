@@ -272,18 +272,3 @@
       amount: 1
   products:
     SilverSulfadiazine: 5
-
-#cryo
-- type: reaction
-  id: Argentoxadone
-  minTemp: 370
-  reactants:
-    Silver:
-      amount: 2
-    Cryoxadone:
-      amount: 1
-    ShimmeringBlood:
-      amount: 1
-      catalyst: true
-  products:
-    Argentoxadone: 4

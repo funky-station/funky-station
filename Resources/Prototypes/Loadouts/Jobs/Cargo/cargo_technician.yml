@@ -24,6 +24,15 @@
   equipment:
     head: ClothingHeadHatCargosoft
 
+- type: loadout
+  id: SeniorCargoTechnicianBeret
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SeniorCargo
+  equipment:
+    head: ClothingHeadHatCargoSeniorBeret
+  groupBy: "jumpsuit"
+
 # Neck
 - type: loadout
   id: CargoTechnicianLiftBelt
@@ -54,6 +63,12 @@
   equipment:
     jumpsuit: ClothingUniformJumpsuitCargoTop
   groupBy: "jumpskirt"
+
+- type: loadout
+  id: CargoTechnicianMailJumpsuit
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitCargoMailJumpSuit
+  groupBy: "jumpsuit"
 
 - type: loadout
   id: SeniorCargoTechnicianJumpskirt

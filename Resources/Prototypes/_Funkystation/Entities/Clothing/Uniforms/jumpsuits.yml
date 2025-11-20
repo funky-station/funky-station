@@ -280,3 +280,29 @@
     sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/cargoshirt.rsi
   - type: Clothing
     sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/cargoshirt.rsi
+
+# bridges suit! (by AraiMaia)
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitCargoMailJumpSuit
+  name: mail carrier's jumpsuit
+  description: A jumpsuit that facilitates deliveries, be it cargo or babies. Keep on keeping on!
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/mailsuit.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/mailsuit.rsi
+
+# senior salvage uniform! (by AraiMaia)
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitSeniorSalvage
+  name: senior salvage specialist jumpsuit
+  description: Covered in dried blood and dust. Smells like carp.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/senior_salvage.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/senior_salvage.rsi

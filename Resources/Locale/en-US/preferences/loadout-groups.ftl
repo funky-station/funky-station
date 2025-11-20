@@ -135,6 +135,8 @@ loadout-group-cargo-technician-outerclothing = Cargo Technician outer clothing
 loadout-group-cargo-technician-shoes = Cargo Technician shoes
 loadout-group-cargo-technician-id = Cargo Technician ID
 
+loadout-group-salvage-specialist-head = Salvage Specialist head
+loadout-group-salvage-specialist-jumpsuit = Salvage Specialist jumpsuit
 loadout-group-salvage-specialist-backpack = Salvage Specialist backpack
 loadout-group-salvage-specialist-outerclothing = Salvage Specialist outer clothing
 loadout-group-salvage-specialist-shoes = Salvage Specialist shoes

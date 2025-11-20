@@ -269,9 +269,12 @@
 - type: roleLoadout
   id: JobSalvageSpecialist
   groups:
+  - SalvageSpecialistHead
+  - SalvageSpecialistJumpsuit
   - SalvageSpecialistBackpack
   - SalvageSpecialistOuterClothing
   - SalvageSpecialistShoes
+  - CargoPDA
   - Glasses
   - Survival
   - Trinkets

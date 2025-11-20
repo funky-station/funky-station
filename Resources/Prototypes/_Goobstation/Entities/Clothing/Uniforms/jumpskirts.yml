@@ -49,6 +49,6 @@
   description: Enemy of dogs everywhere.
   components:
   - type: Sprite
-    sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/mailman.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/mailman.rsi
   - type: Clothing
-    sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/mailman.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/mailman.rsi

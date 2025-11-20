@@ -43,6 +43,6 @@
   description: Smells like a good pension.
   components:
   - type: Sprite
-    sprite: _Goobstation/Clothing/Head/Hats/mailman.rsi
+    sprite: _Funkystation/Clothing/Head/Hats/mailman.rsi
   - type: Clothing
-    sprite: _Goobstation/Clothing/Head/Hats/mailman.rsi
+    sprite: _Funkystation/Clothing/Head/Hats/mailman.rsi

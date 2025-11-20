@@ -38,6 +38,28 @@
         Slash: 0.95
         Heat: 0.90
 
+# Cargo Windbreaker
+- type: entity
+  parent: [ClothingOuterStorageFoldableBase]
+  id: ClothingOuterSalvageWindbreaker
+  name: salvage specialist windbreaker
+  description: In surprisingly good condition. Probably never worn. Won't fit over your hardsuit.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/OuterClothing/Coats/salvage_windbreaker.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/OuterClothing/Coats/salvage_windbreaker.rsi
+  - type: Item
+    size: Normal
+  - type: TemperatureProtection
+    heatingCoefficient: 1.1
+    coolingCoefficient: 0.1
+  - type: Armor
+    modifiers:
+      coefficients:
+        Slash: 0.95
+        Heat: 0.90
+
 - type: entity
   parent: [ClothingOuterStorageFoldableBase]
   id: ClothingOuterCargoCourierWindbreaker

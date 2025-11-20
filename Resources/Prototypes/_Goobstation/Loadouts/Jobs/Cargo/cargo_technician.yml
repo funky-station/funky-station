@@ -16,14 +16,18 @@
   id: CargoTechnicianJumpsuitMail
   equipment:
     jumpsuit: ClothingUniformMailCarrier
+  groupBy: "jumpsuit"
+
 
 - type: loadout
   id: CargoTechnicianJumpskirtMail
   equipment:
     jumpsuit: ClothingUniformSkirtMailCarrier
+  groupBy: "jumpskirt"
 
 # OuterClothing
 - type: loadout
   id: CargoTechnicianWintercoatMail
   equipment:
-    outerClothing: ClothingOuterWinterCoatMail
+    outerClothing: ClothingOuterCargoCourierWindbreaker
+  groupBy: "coat"

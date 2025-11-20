@@ -4,6 +4,7 @@ using Content.Shared.ActionBlocker;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.DoAfter;
+using Content.Shared.Eye.Blinding.Components;
 using Content.Shared.Hands.Components;
 using Content.Shared.Humanoid;
 using Content.Shared.Verbs;
@@ -76,9 +77,21 @@ public sealed class CocoonSystem : SharedCocoonSystem
         // Break the cocoon if it reaches max damage
         if (ent.Comp.AccumulatedDamage >= ent.Comp.MaxDamage)
         {
+            PlayCocoonRemovalSound(ent);
             RemCompDeferred<CocoonedComponent>(ent);
             _popups.PopupEntity(Loc.GetString("arachnid-cocoon-broken"), ent, ent, PopupType.LargeCaution);
         }
+    }
+
+    /// <summary>
+    ///     Plays the cocoon removal sound for everyone within range.
+    /// </summary>
+    private void PlayCocoonRemovalSound(EntityUid uid)
+    {
+        var mapCoords = _transform.GetMapCoordinates(uid);
+        var filter = Filter.Empty().AddInRange(mapCoords, 10f);
+        var entityCoords = _transform.ToCoordinates(mapCoords);
+        _audio.PlayStatic(new SoundPathSpecifier("/Audio/Items/Handcuffs/rope_breakout.ogg"), filter, entityCoords, true);
     }
 
     private void OnStandAttempt(Entity<CocoonedComponent> ent, ref StandAttemptEvent args)
@@ -179,11 +192,8 @@ public sealed class CocoonSystem : SharedCocoonSystem
         if (args.Cancelled || args.Handled || args.Args.Target == null)
             return;
 
-        // Play ziptie sound for everyone within 10 meters
-        var mapCoords = _transform.GetMapCoordinates(uid);
-        var filter = Filter.Empty().AddInRange(mapCoords, 10f);
-        var entityCoords = _transform.ToCoordinates(mapCoords);
-        _audio.PlayStatic(new SoundPathSpecifier("/Audio/Items/Handcuffs/rope_breakout.ogg"), filter, entityCoords, true);
+        // Play cocoon removal sound for everyone within 10 meters
+        PlayCocoonRemovalSound(uid);
 
         RemCompDeferred<CocoonedComponent>(uid);
 
@@ -205,6 +215,7 @@ public sealed class CocoonSystem : SharedCocoonSystem
         }
 
         EnsureComp<MumbleAccentComponent>(uid);
+        EnsureComp<TemporaryBlindnessComponent>(uid);
     }
 
     private void OnCocoonShutdown(EntityUid uid, CocoonedComponent component, ComponentShutdown args)
@@ -215,6 +226,11 @@ public sealed class CocoonSystem : SharedCocoonSystem
         if (HasComp<MumbleAccentComponent>(uid))
         {
             RemComp<MumbleAccentComponent>(uid);
+        }
+
+        if (HasComp<TemporaryBlindnessComponent>(uid))
+        {
+            RemComp<TemporaryBlindnessComponent>(uid);
         }
     }
 

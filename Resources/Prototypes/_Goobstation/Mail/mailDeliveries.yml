@@ -2,6 +2,8 @@
 # SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
 # SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 Mish <bluscout78@yahoo.com>
+# SPDX-FileCopyrightText: 2025 Xcybitt <lenazheng88@gmail.com>
+# SPDX-FileCopyrightText: 2025 Xcybitt <xcybitt@gmail.com>
 # SPDX-FileCopyrightText: 2025 mkanke-real <mikekanke@gmail.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
@@ -30,6 +32,11 @@
     MailUnusualFood: 0.5
     MailBakedGoods: 0.75
     MailLollipops: 1
+    MailBadCigs: 0.1
+    Mail24Pack: 0.1
+    MailCatBerry: 0.05
+    MailSuppermatter: 0.1
+    MailSuppermatterShard: 0.5
   # Costumes
     MailCosplayMaid: 0.6
     MailCosplayWizard: 0.6
@@ -42,8 +49,17 @@
     MailMothSuit: 0.1
     MailRedRacoonSuit: 0.1
     MailViceSuit: 0.2
+    MailNinjaOutfit: 0.1
+    MailNukieOutfit: 0.1
+    MailMercOutfit: 0.1
+    MailHECU1: 0.1
+    MailHECU2: 0.1
+    MailShrineMaidenOutfit: 0.2
+    MailSyndicateSurplus: 0.1
+    MailDogi: 0.3
+    MailCatHats: 0.5
   # Fun
-    MailEMP: 0.2
+    MailEMP: 0.1 # Xcy - People comically hate this, bumping down by half to 0.1
     MailSmoke: 0.3
     MailPAI: 0.9
     MailPlushie: 0.9
@@ -59,12 +75,67 @@
     MailMuggingThreat: 0.2
     MailSkele: 0.05
     MailSpamMail: 0.5
+    MailJammiesBundle: 0.3
+    MailBalloonNukies: 0.05
+    MailFoamCrossbows: 0.2
+    MailFoamGuns: 0.2
+    MailPresent: 0.1
+    MailFoamBlade: 0.2
+    MailPracticeGuns: 0.1
+    MailCorgiBalloon: 0.5
+    MailNTBalloon: 0.3
+    MailSynBalloon: 0.2
+    MailCatEars: 0.05
+    MailWehPackage: 0.01
+    MailStrangePills: 0.1
+    MailDealbreakers: 0.3
+    MailOutlawGlasses: 0.2
+    MailSingulothToy: 0.1
+    MailTeslaToy: 0.2
+    MailSpaceGlue: 0.2
+    MailSpaceLube: 0.1
+    MailGlorpMiku: 0.05
+    MailDrazilPlush: 0.1
+    MailGodoPlush: 0.1
+    MailGocrazyPlush: 0.1
+    MailToySword: 0.2
+    MailCapGuns: 0.1
+    MailCancerMouse: 0.1
+    MailSecWhistle: 0.4
+    MailSyndWhistle: 0.2
+    MailGayWackpack: 0.05
+    MailSecurityPracticeBomb: 0.01
+    MailReporterKit: 0.1
+    MailSpectralLocator: 0.3
+    MailPortableMixer: 0.2
+    MailInfiniteCrayon: 0.01
+    MailKitten: 0.2
+    MailCak: 0.1
+    MailBreadDog: 0.1
+    MailCognizineBottle: 0.05
+    MailHandheldTV: 0.5
+    MailMothroach: 0.1
+    MailHonkBot: 0.1
+    MailJonkBot: 0.05
+    MailSyndieDrobe: 0.01
+    MailPeelMortar: 0.2
+    MailMousetrapMortar: 0.2
+    MailSyndieToolbox: 0.1
+    MailBloodredPhone: 0.1
+    MailInsulsGambling: 0.6
   # Tools
     MailSignallerKit: 0.5
     MailFlashlight: 0.8
+    MailFilledBelt: 0.4
+    MailBetterFilledBelt: 0.2
+    MailFakeInsuls: 0.8
+    MailInsuls: 0.4
+    MailHandheldMap: 0.6
   # Weapons
     MailKnife: 0.3
     MailSword: 0.2
+    MailSwitchblade: 0.05
+    MailBrassKnuckles: 0.1
   # Departments
   departments:
     Cargo:
@@ -80,6 +151,8 @@
       MailMedicalStabilizers: 2
       MailMedicalRareTopicals: 0.5
       MailMedicalRollerBed: 1
+      MailMedicalSurgeryKit: 0.5
+      MailOmnizineBottle: 0.1
     Engineering:
       MailPowerTool: 1.2
       MailCircuitboardService: 1.6
@@ -87,6 +160,7 @@
       MailEngineeringBoards: 1.5
       MailEngineeringCables: 2
       MailEngineeringMaterials: 2
+      MailRechargingRCDRPD: 0.2
       MailScienceHazardousMaterials: 0.2
     Science:
       MailScienceRareMaterials: 0.5
@@ -101,24 +175,33 @@
       MailSecurityNonlethalsKit: 1.6
       MailSecuritySpaceLaw: 1
       MailSecurityJusticeHelm: 0.2
+      MailSecurityPracticeShotgun: 0.1
+      MailSecurityPracticeBomb: 0.05
+      MailSecurityFlareShells: 0.2
   jobs: # Jobs
     Bartender:
       MailBartenderTools: 0.5
       MailBartenderPremiumBooze: 0.5
+      MailBartenderKeg: 0.2
     Botanist:
       MailMutatedProduce: 1.6
       MailBotanistChemicalBottles: 2
       MailBotanistSeeds: 2
       MailKudzuDeterrent: 2
+      MailCatberrySeeds: 0.01
+      MailPlantAnalyzer: 0.5
     Chaplain:
       MailChapCandles: 0.3
       MailWitchery: 1
     Chef:
       MailScienceHazardousMaterials: 0.05
       MailChefCheese: 1
+      MailDonkcowave: 0.1
+      MailFatExtractor: 0.5
     Chemist:
       MailMedicalChemistrySupplement: 2
       MailMedicalChemistryChems: 0.3
+      MailMedicalBluespaceBeaker: 0.1
     ChiefEngineer:
       MailPowerTool: 1.2
       MailCircuitboardService: 1.6
@@ -148,9 +231,11 @@
       MailSecuritySpaceLaw: 2
       MailWardenCrowdControl: 1.2
       MailDetectiveForensicSupplement: 1.2
+      MailSecurityPracticeBomb: 0.1
     Janitor:
       MailSoaps: 2
       MailSoapsOmega: 0.5
+      MailJanitorMoproach: 0.1
       MailJanitorReplacementLights: 1
     Lawyer:
       MailLuxuryPen: 2
@@ -175,3 +260,4 @@
       MailScienceRareMaterials: 2
     Warden:
       MailWardenCrowdControl: 2
+      MailSecurityPracticeBomb: 0.1

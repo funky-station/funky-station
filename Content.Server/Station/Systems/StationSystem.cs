@@ -571,6 +571,24 @@ public sealed class StationSystem : EntitySystem
 
         return null;
     }
+    
+    // funkystation
+    /// <summary>
+    /// Returns true if the entity is on a station proper, not just on a StationMember
+    /// otherwise just returns false if not on a station or whatever 
+    /// </summary>
+    public bool IsEntityOnStationGrid(EntityUid entity)
+    {
+        var res = GetOwningStation(entity);
+        
+        if (res == null)
+            return false;
+
+        if (!TryComp<StationMemberComponent>(res, out var comp))
+            return false;
+        
+        return Transform(entity).GridUid == Transform(comp.Station).GridUid;
+    }
 }
 
 /// <summary>

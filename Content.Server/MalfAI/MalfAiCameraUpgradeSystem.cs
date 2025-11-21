@@ -20,27 +20,21 @@ public sealed class MalfAiCameraUpgradeSystem : EntitySystem
     {
         base.Initialize();
 
-        // Toggle action (bind to the AI while it's in-core to avoid default-generic handler plumbing)
-        SubscribeLocalEvent<StationAiHeldComponent, MalfAiToggleCameraUpgradeActionEvent>(OnToggle);
-
         // Core presence changes (enable when entering core if desired; disable on leaving)
         SubscribeLocalEvent<StationAiHeldComponent, ComponentStartup>(OnHeldStartup);
         SubscribeLocalEvent<StationAiHeldComponent, ComponentShutdown>(OnHeldShutdown);
+
+        // Grant-on-purchase event
+        SubscribeLocalEvent<MalfAiMarkerComponent, MalfAiCameraUpgradeUnlockedEvent>(OnCameraUpgradeUnlocked);
     }
 
-    private void OnToggle(EntityUid uid, StationAiHeldComponent held, ref MalfAiToggleCameraUpgradeActionEvent ev)
+    private void OnCameraUpgradeUnlocked(EntityUid uid, MalfAiMarkerComponent marker, MalfAiCameraUpgradeUnlockedEvent ev)
     {
-        if (uid == EntityUid.Invalid)
-            return;
-
         var comp = EnsureComp<MalfAiCameraUpgradeComponent>(uid);
+        comp.EnabledDesired = true;
 
-        // Flip desired state
-        comp.EnabledDesired = !comp.EnabledDesired;
-
-        // Compute effective based on core status (we are in-core due to StationAiHeldComponent)
-        comp.EnabledEffective = comp.EnabledDesired;
-
+        // Effective only while the AI is in its core (StationAiHeldComponent present).
+        comp.EnabledEffective = HasComp<StationAiHeldComponent>(uid);
         Dirty(uid, comp);
     }
 

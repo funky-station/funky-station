@@ -1,3 +1,4 @@
+# SPDX-FileCopyrightText: 2025 TrixxedHeart <46364955+TrixxedBit@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
@@ -7,18 +8,22 @@
   id: ClothingUniformNightclubSuit
   equipment:
     jumpsuit: ClothingUniformNightclubSuit
+  groupBy: "jumpsuit"
 
 - type: loadout
   id: ClothingUniformNightclubSuitSkirt
   equipment:
     jumpsuit: ClothingUniformNightclubSuitSkirt
+  groupBy: "jumpskirt"
 
 - type: loadout
   id: ClothingUniformSeniorBartender
   equipment:
     jumpsuit: ClothingUniformSeniorBartender
+  groupBy: "jumpsuit"
 
 - type: loadout
   id: ClothingUniformSeniorBartenderSkirt
   equipment:
     jumpsuit: ClothingUniformSeniorBartenderSkirt
+  groupBy: "jumpskirt"

@@ -20,7 +20,7 @@ SPDX-License-Identifier: MIT
   Atmospherics setups are a necessity for your long-term comfort, but are generally underdocumented, resulting in them being a bit tricky to set up. The following attempts to cover the basics.
 
   ## Standard Mix
-  Breathing pure O2 or pure N2 is generally bad for the health of your crew, and it is recommended to instead aim for a mix of [color=#a4885c]78% N2 and 22% O2 at 101.24kPa.[/color] It's recommended that your gas mixer setup be set to output at least 300kPA for faster re-pressurization of rooms, without posing too much of an overpressurization risk, should traitors sabotage the distro.
+  Breathing pure O2 or pure N2 is generally bad for the health of your crew, and it is recommended to instead aim for a mix of [color=#a4885c]74% N2 and 26% O2 at 101.24kPa.[/color] It's recommended that your gas mixer setup be set to output at least 300kPA for faster re-pressurization of rooms, without posing too much of an overpressurization risk, should traitors sabotage the distro.
   <Box>
     <GuideEntityEmbed Entity="OxygenCanister"/>
     <GuideEntityEmbed Entity="NitrogenCanister"/>

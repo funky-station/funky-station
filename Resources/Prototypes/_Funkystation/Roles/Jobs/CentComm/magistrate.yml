@@ -1,7 +1,10 @@
+# SPDX-FileCopyrightText: 2025 88tv <131759102+88tv@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 8tv <eightev@gmail.com>
 # SPDX-FileCopyrightText: 2025 Josh Hilsberg <thejoulesberg@gmail.com>
 # SPDX-FileCopyrightText: 2025 JoulesBerg <104539820+JoulesBerg@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 MaiaArai <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
@@ -12,9 +15,15 @@
   description: "Serve directly under CentComm. As the stations central legal authority, you authorize executions, extended detentions, warrants, etc."
   playTimeTracker: JobMagistrate
   requirements:
+  - !type:RoleTimeRequirement
+    role: JobHeadOfSecurity
+    time: 54000 #15 hrs - to unlock HOS, you need to play security for 35 hours (10 warden, 20 secoff, 5 cadet).
+  - !type:DepartmentTimeRequirement
+    department: CentralCommand
+    time: 72000 #20 hrs - not NT rep hours, as that requires command role time - too stringent. IAA will do.
   - !type:DepartmentTimeRequirement
     department: Security
-    time: 360000 #100 hrs
+    time: 270000 #75 hrs - to demand 25 hours of security in addition to the 20 hour HOS requirement, which implies 50 total hours in security roles once complete.
   weight: 20
   startingGear: MagistrateGear
   icon: "JobIconMagistrate"
@@ -46,7 +55,6 @@
   id: MagistrateGear
   equipment:
     id: MagistratePDA
-    shoes: ClothingShoesBootsLaceup
     eyes: ClothingEyesGlassesSecurity
     ears: ClothingHeadsetCentCom
     pocket2: RubberStampMagistrate
@@ -56,3 +64,4 @@
     back:
     - Flash
     - BookSpaceLaw
+    - BluespaceLifelineImplanter

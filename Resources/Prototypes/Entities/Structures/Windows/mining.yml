@@ -7,6 +7,7 @@
 # SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2024 chromiumboy <50505512+chromiumboy@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
 # SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
@@ -16,8 +17,8 @@
 
 - type: entity
   id: MiningWindow
-  name: mining window
-  parent: WindowRCDResistant
+  name: mining shuttle window
+  parent: ShuttleWindow
   components:
   - type: Sprite
     drawdepth: WallTops
@@ -65,7 +66,7 @@
     damageOverlay:
       sprite: Structures/Windows/cracks.rsi
   - type: StaticPrice
-    price: 100
+    price: 160
   - type: CosmicCorruptible # DeltaV - Cosmic Cult
     convertTo: WindowCosmicCult
 

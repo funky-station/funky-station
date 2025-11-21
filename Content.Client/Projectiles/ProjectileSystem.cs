@@ -1,15 +1,17 @@
 // SPDX-FileCopyrightText: 2023 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2024 DrSmugleaf <10968691+DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
+// SPDX-FileCopyrightText: 2025 Toastermeister <215405651+Toastermeister@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
 // SPDX-License-Identifier: MIT
 
 using Content.Shared.Projectiles;
-using Robust.Shared.Spawners;
 using Content.Shared.Weapons.Ranged.Systems;
 using Robust.Client.Animations;
 using Robust.Client.GameObjects;
-using Robust.Shared.GameStates;
 using TimedDespawnComponent = Robust.Shared.Spawners.TimedDespawnComponent;
 
 namespace Content.Client.Projectiles;
@@ -17,11 +19,12 @@ namespace Content.Client.Projectiles;
 public sealed class ProjectileSystem : SharedProjectileSystem
 {
     [Dependency] private readonly AnimationPlayerSystem _player = default!;
+    [Dependency] private readonly SpriteSystem _sprite = default!;
 
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeNetworkEvent<ImpactEffectEvent>(OnProjectileImpact);
+        SubscribeAllEvent<ImpactEffectEvent>(OnProjectileImpact);
     }
 
     private void OnProjectileImpact(ImpactEffectEvent ev)
@@ -36,8 +39,8 @@ public sealed class ProjectileSystem : SharedProjectileSystem
         if (TryComp<SpriteComponent>(ent, out var sprite))
         {
             sprite[EffectLayers.Unshaded].AutoAnimated = false;
-            sprite.LayerMapTryGet(EffectLayers.Unshaded, out var layer);
-            var state = sprite.LayerGetState(layer);
+            _sprite.LayerMapTryGet((ent, sprite), EffectLayers.Unshaded, out var layer, false);
+            var state = _sprite.LayerGetRsiState((ent, sprite), layer);
             var lifetime = 0.5f;
 
             if (TryComp<TimedDespawnComponent>(ent, out var despawn))

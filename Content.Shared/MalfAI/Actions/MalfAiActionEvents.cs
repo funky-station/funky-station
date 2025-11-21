@@ -87,16 +87,3 @@ public sealed partial class MalfAiOverrideMachineActionEvent : WorldTargetAction
 {
 }
 
-/// <summary>
-/// Action event for toggling the Malf AI camera upgrade.
-/// </summary>
-public sealed partial class MalfAiToggleCameraUpgradeActionEvent : InstantActionEvent
-{
-}
-
-/// <summary>
-/// Action event for toggling the Malf AI camera microphones upgrade.
-/// </summary>
-public sealed partial class MalfAiToggleCameraMicrophonesActionEvent : InstantActionEvent
-{
-}

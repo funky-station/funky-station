@@ -1,0 +1,186 @@
+# SPDX-FileCopyrightText: 2025 mkanke-real <mikekanke@gmail.com>
+#
+# SPDX-License-Identifier: MIT
+
+#Submitted by Stabithar
+- type: entity
+  parent: BookBase
+  id: ZeroSumSymphonyVol1
+  name: "The Zero-Sum Symphony Book One: Phantom Breach"
+  description: A military thriller about an assault on a NanoTrasen station by a Syndicate Nuclear Operative.
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/books.rsi
+    layers:
+    - state: paper
+    - state: cover_base
+      color: "#000000"
+    - state: decor_bottom
+      color: "#700000"
+    - state: icon_chemical
+      color: "#00ff1b"
+    - state: icon_eye
+      color: "#00ff1b"
+    - state: icon_skull
+      color: "#ff0000"
+    - state: icon_text3
+      color: "#d5dc1d"
+  - type: OocAuthorship
+    oocAuthor: Stabithar
+  - type: Paper
+    stampedBy:
+    - stampedColor: '#134975'
+      stampedName: "NT APPROVED"
+    content: |2
+      [head=2]The Zero-Sum Symphony[/head]
+      [head=3]Book One: Phantom Breach[/head]
+      A book by Genevieve Blaine
+
+      ================================================
+      The following is a work of fiction. Any resemblance to any events or persons, living or dead, is entirely coincidental
+      ================================================
+
+      "November-Uniform-Kilo-Indigo-Echo"
+      Chunk Bulkslab awoke to the radio playing his favourite sounds. Today, he was going to be a bad guy.
+      "Fuck yes," he said to himself, "It's time to Nuclear Operate."
+
+      Chunk had trained for weeks for this day, making him among the most experienced and skilled members of the Gorilla-X Wreckers.
+      He strutted over to his communications computer, the only link he had to the outside world, thinking to himself about the perfect taunt, the perfect threat to send the NanoTrasen station he was about to assault into disorder and disarray.
+      Using only his middle finger, he typed out “hey nanotrasen you smell BAD” and hit “send”. 'Heh, got ‘em with that one', he thought aloud. He sidled across to his shuttle computer and jabbed the blood-red button in the center that would take him to NanoTrasen space.
+      “Piloting a shuttle must be hard,” he mused as the ship powered on its inefficient FTL drive, “I’m glad I don’t have to know h-GURK.”
+      He had forgotten to fasten his seatbelt.
+
+      ◄●●●►
+
+      Captain Nichael Trace sat pensively at the head of the conference table in his station’s bridge.
+      “Captain, as you requested, we’ve gone to Blue Alert after receiving the missive, but we really should–”
+      “You’re right, Dev. I just had to consider all of our options,” Nichael interrupted.
+      The thaven Head of Personnel raised an eyebrow. “Dev?”
+      Nichael slumped a little and took off his glasses. “You’re right, Devotion. I was tense. Can you forgive me?” he asked, his blue eyes staring pleadingly at his majordomo.
+      Devotion sighed. “I’ve talked to you before about you being overly familiar and gregarious with your crew…” they muttered, “But I forgive you- under the circumstances”
+      A devilish grin crossed Nichael’s face. “Thanks, HoP!” he exclaimed.
+      Despite their best efforts, the corners of the thaven’s mouth twitched into a smile.
+
+      “At any rate,” Nichael’s face took on a serious tone, “We need to make preparations. I want Engineering installing extra cameras for our AI. Security, I want our officers coiled and ready to protect everyone at a moment’s notice. Medical, stand by. Science and Cargo, just because we’ve been threatened doesn’t mean we should stop making discoveries and fulfilling orders. Is everyone clear?”
+      The officers saluted. The AI’s face on the holo-pad lacked the capability, but indicated its assent nonetheless.
+      “And, Devotion?”
+      “Yes, Captain?”
+      Nichael grinned. “I have a plan.”
+
+      ◄●●●►
+
+      Chunk Bulkslab was jolted awake again by his shuttle leaving FTL. “Wow, all of that travel sure made me hungry,” he said to no-one in particular. He skulked over to his blood-red locker and took out a live mothroach that screamed at him as he bit into it, spilling green blood over the blood-red décor.
+      “Mmph. Blech.” he choked, spitting bits of chitin out, “This is neither tasty nor nutritionally valid, but I love being cruel to adorable helpless creatures.”
+      “Oh shit! This is no time for snacking, I need to Nuclear Operate.” Chunk dropped the mothroach carcass and donned his blood-red hardsuit. “I’m going to need the biggest guns where I’m going,” he thought aloud, grabbing a pair of L6 SAWs, “And I almost forgot, my pAI. Syndicate pAIs aren’t that clever, but they might come in handy.”
+      “Damn, you look badass!” The pAI beeped.
+      “Fuck yeah,” Chunk smirked as he jumped out of his shuttle’s airlock towards the station.
+
+      ‘Landing’ in the station’s gravity field, Chunk pulled some C4 out of his blood-red backpack. He followed the pAI’s directions on how to set it, and placed it on the station wall, letting one of his machine guns float next to him.
+      “Fuck!” He yelled, gasping, as the explosion rang out, sending his gun flying. “Hey wait, pAI, how come I can’t breathe?”
+      “Uh, it looks like you forgot to bring an oxygen tank.” the pAI responded.
+      “Shit! What do we do?” Chunk panicked.
+      “Well, it’s a NT station, so there’ll be emergency O2 cabinets within easy access”
+      Chunk nodded smugly, “Like taking candy from a baby, which is also a thing I love to do.”
+      He stepped into the breach in the station’s walls he’d made, catching sight of an Assistant dressed in grey, who rushed over to an intercom.
+      “Ach, that guy looks like a nukie!” Tadhg Derre shouted.
+      “Hell yeah I do,” chortled Chunk, waving his gun in Tadhg’s direction and pulling the trigger. He nearly fell over from the recoil, his blood-red magboots the only thing keeping him upright as a wide spray of bullets flew towards the assistant.
+
+      One of them found its mark as Tadhg dove around a corner. He fumbled in his backpack for the survival box containing his emergency med-pen and jabbed it into his leg. He woozily watched the wound close. I’d better get to med-bay, he thought, limping in that direction.
+
+      Across the station, Paramedic IPC SAV-104 looked at her crew monitor. She spoke into her headset, “AI, it looks like that report came from near north-eastern maints.”
+      “Confirmed,” came the reply over the Medical channel.
+      Switching to the Command channel, Station AI Serv_OS reported: “Visual confirmation of the threat acquired. Recommend raising alert level to red.”
+      “Roger that, AI,” replied Captain Trace, quickly inputting commands on his communications console.
+      The Red Alert alarm rang out across the station, quickly followed by the captain’s voice: “Well, folks, looks like we got ourselves a dangerous animal in maints. Follow your department heads’ instructions and we’ll be in the clear in no time.” Nichael winked at his Head of Personnel, who remained impassive.
+
+      ◄●●●►
+
+      Captain Nichael Trace and his crew will return in: The Zero-Sum Symphony: Book Two: The Omega Stratagem, available soon from authorised NanoTrasen retailers.
+
+#Submitted by Stabithar
+- type: entity
+  parent: BookBase
+  id: ZeroSumSymphonyVol2
+  name: "The Zero-Sum Symphony Book Two: The Omega Stratagem"
+  description: A military thriller about an assault on a NanoTrasen station by a Syndicate Nuclear Operative.
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/books.rsi
+    layers:
+    - state: paper
+    - state: cover_base
+      color: "#000000"
+    - state: decor_bottom
+      color: "#700000"
+    - state: icon_mount
+      color: "#134975"
+    - state: icon_nuclear
+    - state: icon_text3
+      color: "#d5dc1d"
+  - type: OocAuthorship
+    oocAuthor: Stabithar
+  - type: Paper
+    stampedBy:
+    - stampedColor: '#134975'
+      stampedName: "NT APPROVED"
+    content: |2
+      [head=2]The Zero-Sum Symphony[/head]
+      [head=3]Book Two: The Omega Stratagem[/head]
+      A book by Genevieve Blaine
+
+      ================================================
+      The following is a work of fiction. Any resemblance to any events or persons, living or dead, is entirely coincidental
+      ================================================
+
+      “What do we do now?” the Syndicate pAI beeped.
+      “Well, now I’ve got my O2, the pinpointer says we should be going this way.” Chunk Bulkslab, Nuclear Operative, strategised.
+      “How do we get there? I don’t know the layout of this station.”
+      “Well, I guess we could check one of the maps on the walls, but I,” Chunk shouldered his L6 SAW, “favour the direct approach.”
+      Chunk held down the trigger of his firearm as bullets sprayed into the walls, the girders, the glass, the grilles, as his rampage took him closer and closer to the station’s vault.
+      “How come we haven’t seen any more of the crew?” the pAI beeped.
+      “They must not care about the station, just like how I don’t care about my shuttle,” Chunk said, smugly.
+      The pAI sounded a tone of agreement as the operator entered the back side of the vault.
+      “Fuck yeah, this is everything we need!” Chunk shouted, seeing the nuclear authentication disk sitting opposite to the nuclear fission device, “It’s time to Operate this, Nuclearly!”
+      Chunk inserted the disk and jabbed at the keypad with his middle finger: “1-2-3-4-5.”
+
+      Nothing happened.
+
+      “Fuck! Why isn’t this working?” Chunk cried.
+      “Check the disk!” beeped the pAI urgently.
+      The operator ejected the disk and scanned it for any imperfections, his eyes finally landing on the Donk Co. logo on the front, marking it as a fake.
+      “Foiled! By NanoTrasen’s joie de vivre and love of jokes!” he howled.
+      The vault doors opened. “That’s not even a real code.” Captain Nichael Trace was standing in the doorway, his cloak falling over his outstretched hand, holding - what looked like - the real nuclear authentication disk.
+      “Heh, you sure made a mistake coming here alone!” Chunk taunted, grabbing his L6 and firing a fusillade towards the captain-
+      Of a single bullet.
+      Nichael’s sabre flashed in the air, returning to its sheath as the bullet fell to the ground in front of him. “Whoa, AI, that was close! I thought you said he was all out!”
+      “Apologies, Captain,” toned Serv_OS, the Station AI over the holopad, “It appears when I was counting the rounds fired and taking care of the rest of the station, I encountered an ‘off-by-one’ error.”
+      “Hey pAI! How come you weren’t counting like their AI was?” Chunk started angrily.
+      “Uhhhhh was I supposed to? I was programmed with a jukebox, but there’s no good music in Syndicate space.” the pAI beeped.
+      “Well, whatever,” grimaced Chunk, “I gotta get dat disk!” and lunged at the captain.
+      Captain Nichael Trace let his arm fall, revealing a squad of security officers behind him, and a volley of disabler rounds stopped Chunk in his tracks non-lethally.
+      “Your first mistake,” calmly explained the captain, looking over his glasses, “was believing that someone like you could take on a NanoTrasen station.”
+      Security Officer Protects-the-Innocent dashed forward, handcuffs in her hand, to restrain the operator.
+      “Your next mistake,” continued Nichael, smiling, “was relying on guns that need ammunition. Our energy weapons can be recharged indefinitely.”
+
+      Finally, Chunk saw how hopeless his situation was. He broke down in tears. “I had the backing of the entire Syndicate!”
+      “That may be,” intoned the captain, as his cloak billowed behind him, “but I had the backing of the crew of $station_name!”
+      The operator sobbed, “This was supposed to be my Omega Stratagem!”
+      “Well, it looks like your ‘omega stratagem’,” said Nichael, pushing his glasses back into position, “turned into a ‘ω’ for NanoTrasen!”
+      The crew laughed behind him, as the blood-red hardsuit’s helmet was retracted, letting syndicate tears spill onto the floor. “What- what happens now?” stammered the defeated operator, “A-are you going to execute me?”
+      Nichael seemed taken aback for perhaps the first time in the shift. “Execution? We can’t do that without a full trial in the presence of a Central Command official! And why would we, in the first place?”
+      “It’s just,” blubbered Chunk, “Gorilla-X said they would replace my blood with acid if I failed. I thought- I thought you were going to do something e-even worse.”
+
+      A shadow drew across Captain Trace’s countenance. His normally jovial demeanour was marred with obvious disgust, as his glasses took on a reflective sheen, hiding the hatred that boiled in his eyes. “I can hardly believe the Syndicate would be so vile. Even, no- especially, towards their own people!”
+      There was silence in the room. Chunk even stopped sobbing, his grief dampened by the force of the captain’s emotion.
+
+      Captain Nichael Trace took a deep breath and set his jaw stoically. “We have the technology to deal with any implants you might have been given. You can come back to Central Command with us, where if you want it - after a period of re-acclimatisation of course - I’m sure we can find a place for you among the crew of NanoTrasen.”
+      “Y- you mean it??” the ex-operator sniffed deeply.
+      “Of course!” Light seemed to return to the captain’s face. “After all, why would we trade fire, when we can share a drink instead?”
+      Chunk looked puzzled, until Nichael brought out a metamorphic glass and began to fill it from the tap on the side of the nuclear fission device. It took on the shape of a bottle of Nuclear Cola.
+      “Cheers, everyone!” he cried out, “To NanoTrasen!”
+
+      “To NanoTrasen!!” came the reply from the crew and the erstwhile Nukie.
+
+      ◄●●●►
+
+      Captain Nichael Trace and his crew will return in: The Zero-Sum Gambit series, available available soon from authorised NanoTrasen retailers.

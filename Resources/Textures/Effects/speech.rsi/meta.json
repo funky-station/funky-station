@@ -179,6 +179,37 @@
             "name": "diona2"
         },
         {
+            "name": "emote0",
+            "delays": [
+                [
+                    0.5,
+                    0.5,
+                    0.5,
+                    0.5
+                ]
+            ]
+        },
+        {
+            "name": "emote1",
+            "delays": [
+                [
+                    1.5,
+                    1.5
+                ]
+            ]
+        },
+        {
+            "name": "emote2",
+            "delays": [
+                [
+                    1.5,
+                    1.5,
+                    5,
+                    1
+                ]
+            ]
+        },
+        {
             "name": "gingerbread0",
             "delays": [
                 [
@@ -394,6 +425,23 @@
                 ]
             ]
         },
+
+        {
+            "name": "outofcharacter0",
+            "delays": [
+                [
+                    0.4,
+                    0.4,
+                    0.4,
+                    0.4
+                ]
+            ]
+        },
+
+        {
+            "name": "outofcharacter1"
+        },
+
         {
             "name": "machine0",
             "delays": [

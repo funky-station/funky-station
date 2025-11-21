@@ -1,4 +1,7 @@
 // SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
+// SPDX-FileCopyrightText: 2025 Toastermeister <215405651+Toastermeister@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 chromiumboy <50505512+chromiumboy@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
@@ -15,6 +18,7 @@ public sealed partial class DeployableTurretSystem : SharedDeployableTurretSyste
 {
     [Dependency] private readonly AppearanceSystem _appearance = default!;
     [Dependency] private readonly AnimationPlayerSystem _animation = default!;
+    [Dependency] private readonly SpriteSystem _sprite = default!;
 
     public override void Initialize()
     {
@@ -89,20 +93,17 @@ public sealed partial class DeployableTurretSystem : SharedDeployableTurretSyste
         if (_animation.HasRunningAnimation(ent, animPlayer, DeployableTurretComponent.AnimationKey))
             return;
 
-        if (state == ent.Comp.VisualState)
-            return;
-
         var targetState = state & DeployableTurretState.Deployed;
         var destinationState = ent.Comp.VisualState & DeployableTurretState.Deployed;
 
         if (targetState != destinationState)
-            targetState = targetState | DeployableTurretState.Retracting;
+            targetState |= DeployableTurretState.Retracting;
 
         ent.Comp.VisualState = state;
 
         // Toggle layer visibility
-        sprite.LayerSetVisible(DeployableTurretVisuals.Weapon, (targetState & DeployableTurretState.Deployed) > 0);
-        sprite.LayerSetVisible(PowerDeviceVisualLayers.Powered, HasAmmo(ent) && targetState == DeployableTurretState.Retracted);
+        _sprite.LayerSetVisible((ent.Owner, sprite), DeployableTurretVisuals.Weapon, (targetState & DeployableTurretState.Deployed) > 0);
+        _sprite.LayerSetVisible((ent.Owner, sprite), PowerDeviceVisualLayers.Powered, HasAmmo(ent) && targetState == DeployableTurretState.Retracted);
 
         // Change the visual state
         switch (targetState)
@@ -116,11 +117,11 @@ public sealed partial class DeployableTurretSystem : SharedDeployableTurretSyste
                 break;
 
             case DeployableTurretState.Deployed:
-                sprite.LayerSetState(DeployableTurretVisuals.Turret, ent.Comp.DeployedState);
+                _sprite.LayerSetRsiState((ent.Owner, sprite), DeployableTurretVisuals.Turret, ent.Comp.DeployedState);
                 break;
 
             case DeployableTurretState.Retracted:
-                sprite.LayerSetState(DeployableTurretVisuals.Turret, ent.Comp.RetractedState);
+                _sprite.LayerSetRsiState((ent.Owner, sprite), DeployableTurretVisuals.Turret, ent.Comp.RetractedState);
                 break;
         }
     }

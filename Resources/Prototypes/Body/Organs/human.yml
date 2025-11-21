@@ -69,10 +69,10 @@
   - type: FlavorProfile
     flavors:
       - people
-  - type: Tag # goob edit
+  - type: Tag
     tags:
-    - Meat
-    - Organ
+      - Meat
+      - Organ
 
 - type: entity
   id: BaseHumanOrgan
@@ -98,11 +98,11 @@
   - type: Examiner
   - type: BlockMovement
   - type: BadFood
-  - type: Tag # goob edit
+  - type: Tag
     tags:
-    - Meat
-    - Organ
-    - Brain
+      - Meat
+      - Organ
+      - Brain
   - type: SolutionContainerManager
     solutions:
       organ:
@@ -118,18 +118,13 @@
     flavors:
       - people
   - type: FoodSequenceElement
-    sprite:
-      sprite: Mobs/Species/Human/organs.rsi
-      state: brain
     entries:
-      burger:
-        name: food-sequence-content-brain
-      taco:
-        name: food-sequence-content-brain
+      Burger: Brain
+      Taco: Brain
   - type: Item
     size: Small
     shape:
-    - 0,0,1,1
+      - 0,0,1,1
     heldPrefix: brain
 
 - type: entity
@@ -145,11 +140,11 @@
     layers:
       - state: eyeball-l
       - state: eyeball-r
-  - type: Tag # goob edit
+  - type: Tag
     tags:
-    - Meat
-    - Organ
-    - Eyes
+      - Meat
+      - Organ
+      - Eyes
   - type: Item
     size: Small
     shape:
@@ -166,20 +161,11 @@
     size: Tiny
   - type: Sprite
     state: tongue
-  - type: FoodSequenceElement
-    sprite:
-      sprite: Mobs/Species/Human/organs.rsi
-      state: tongue
-    entries:
-      burger:
-        name: food-sequence-content-tongue
-      taco:
-        name: food-sequence-content-tongue
   - type: Tag # goob edit
     tags:
-    - Meat
-    - Organ
-    - Tongue
+      - Meat
+      - Organ
+      - Tongue
 
 - type: entity
   id: OrganHumanAppendix
@@ -193,7 +179,7 @@
       visible: false
   - type: Tag
     tags:
-    - Organ
+      - Organ
 
 - type: entity
   id: OrganHumanEars
@@ -204,22 +190,13 @@
   - type: Item
     size: Small
     shape:
-    - 0,0,1,1
+      - 0,0,1,1
   - type: Sprite
     state: ears
-  - type: FoodSequenceElement
-    sprite:
-      sprite: Mobs/Species/Human/organs.rsi
-      state: ears
-    entries:
-      burger:
-        name: food-sequence-content-ears
-      taco:
-        name: food-sequence-content-ears
   - type: Ears # Shitmed Change
   - type: Tag
     tags:
-    - Organ
+      - Organ
 
 - type: entity
   id: OrganHumanLungs
@@ -236,7 +213,7 @@
   - type: Item
     size: Normal
     shape:
-    - 0,0,1,1
+      - 0,0,1,1
     heldPrefix: lungs
   - type: Lung
   - type: Metabolizer
@@ -263,9 +240,9 @@
           Quantity: 5
   - type: Tag # goob edit
     tags:
-    - Meat
-    - Organ
-    - Lungs
+      - Meat
+      - Organ
+      - Lungs
 
 - type: entity
   id: OrganHumanHeart
@@ -290,9 +267,9 @@
     - id: Narcotic
   - type: Tag # goob edit
     tags:
-    - Meat
-    - Organ
-    - Heart
+      - Meat
+      - Organ
+      - Heart
   - type: Item
     size: Tiny
     heldPrefix: heart
@@ -310,7 +287,7 @@
   - type: Item
     size: Normal
     shape:
-    - 0,0,1,1
+      - 0,0,1,1
     heldPrefix: stomach
   - type: SolutionContainerManager
     solutions:
@@ -338,20 +315,11 @@
     groups:
     - id: Food
     - id: Drink
-  - type: FoodSequenceElement
-    sprite:
-      sprite: Mobs/Species/Human/organs.rsi
-      state: stomach
-    entries:
-      burger:
-        name: food-sequence-content-stomach
-      taco:
-        name: food-sequence-content-stomach
   - type: Tag # goob edit
     tags:
-    - Meat
-    - Organ
-    - Stomach
+      - Meat
+      - Organ
+      - Stomach
 
 - type: entity
   id: OrganHumanLiver
@@ -375,20 +343,11 @@
     groups:
     - id: Alcohol
       rateModifier: 0.1 # removes alcohol very slowly along with the stomach removing it as a drink
-  - type: FoodSequenceElement
-    sprite:
-      sprite: Mobs/Species/Human/organs.rsi
-      state: liver
-    entries:
-      burger:
-        name: food-sequence-content-liver
-      taco:
-        name: food-sequence-content-liver
   - type: Tag # goob edit
     tags:
-    - Meat
-    - Organ
-    - Liver
+      - Meat
+      - Organ
+      - Liver
 
 - type: entity
   id: OrganHumanKidneys
@@ -414,6 +373,6 @@
     removeEmpty: true
   - type: Tag # goob edit
     tags:
-    - Meat
-    - Organ
-    - Kidneys
+      - Meat
+      - Organ
+      - Kidneys

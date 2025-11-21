@@ -33,6 +33,7 @@
 # SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 strO0pwafel <153459934+strO0pwafel@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 Xcybitt <xcybitt@gmail.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
@@ -706,6 +707,7 @@
   parent: [ClothingOuterWinterCoatToggleable, BaseSecurityContraband]
   id: ClothingOuterWinterSec
   name: security winter coat
+  description: A red winter coat outfitted with standard type I armored vest padding with some modifications as to fit both the padding and the insulation.
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
@@ -722,6 +724,17 @@
     clothingVisuals:
       outerClothing:
       - state: SEC-equipped-OUTERCLOTHING
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.7
+        Slash: 0.7
+        Piercing: 0.7
+        Heat: 0.85
+  - type: ExplosionResistance
+    damageCoefficient: 0.90
+  - type: StaminaResistance
+    damageCoefficient: 0.80
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodWinterSec
 

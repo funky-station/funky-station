@@ -1,0 +1,144 @@
+# SPDX-FileCopyrightText: 2025 Xcybitt <lenazheng88@gmail.com>
+# SPDX-FileCopyrightText: 2025 Xcybitt <xcybitt@gmail.com>
+# SPDX-FileCopyrightText: 2025 mkanke-real <mikekanke@gmail.com>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
+- type: entity
+  parent: BaseMailLarge
+  id: MailNukieOutfit
+  suffix: Nukie Outfit
+  components:
+  - type: Mail
+    contents:
+    - id: ClothingMaskNeckGaiter
+    - id: ClothingUniformJumpsuitOperative
+    - id: ClothingBeltMilitaryWebbing
+    - id: ClothingShoesBootsSyndieFilled
+    - id: ClothingHeadHatSyndie
+    - id: ClothingBackpackSyndicate
+    - id: ClothingHandsGlovesFingerless
+
+
+- type: entity
+  parent: BaseMailLarge
+  id: MailNinjaOutfit
+  suffix: Ninja Outfit
+  components:
+  - type: Mail
+    contents:
+    - id: ClothingUniformJumpsuitNinja
+    - id: Katana
+    - id: ClothingMaskNinja
+    - id: ClothingHeadHelmetSpaceNinja
+    - id: ThrowingStar
+
+- type: entity
+  parent: BaseMailLarge
+  id: MailJammiesBundle
+  suffix: Syndicate Pyjama Bundle
+  components:
+  - type: Mail
+    contents:
+    - id: ClothingBackpackDuffelSyndicatePyjamaBundle
+
+- type: entity
+  parent: BaseMailLarge
+  id: MailMercOutfit
+  suffix: Mercenary Outfit
+  components:
+  - type: Mail
+    contents:
+    - id: ClothingHandsGlovesMercFingerless
+    - id: ClothingShoesBootsMercFilled
+    - id: ClothingBeltMercWebbing
+    - id: ClothingBackpackMerc
+    - id: ClothingHeadHatBeretMerc
+    - id: ClothingUniformJumpsuitMercenary
+
+- type: entity
+  parent: BaseMailLarge
+  id: MailHECU1
+  suffix: HECU Beret
+  components:
+  - type: Mail
+    contents:
+    - id: ClothingHandsGlovesMercFingerless
+    - id: ClothingShoesBootsMercFilled
+    - id: ClothingBeltMercWebbing
+    - id: ClothingBackpackMerc
+    - id: ClothingHeadHatBeret
+    - id: ClothingUniformHecu
+    - id: ClothingMaskGasMerc
+
+- type: entity
+  parent: BaseMailLarge
+  id: MailHECU2
+  suffix: HECU Helmet
+  components:
+  - type: Mail
+    contents:
+    - id: ClothingHandsGlovesMercFingerless
+    - id: ClothingShoesBootsMercFilled
+    - id: ClothingBeltMercWebbing
+    - id: ClothingBackpackMerc
+    - id: ClothingHeadHelmetMerc
+    - id: ClothingUniformHecu
+    - id: ClothingMaskGasMerc
+
+- type: entity
+  parent: BaseMailLarge
+  id: MailShrineMaidenOutfit
+  suffix: Shrine Maiden
+  components:
+  - type: Mail
+    contents:
+    - id: ClothingOuterSuitShrineMaiden
+    - id: ClothingHeadHatShrineMaidenWig
+    - id: Gohei
+    - id: ClothingShoesWizard
+    - id: PlushieCirno
+
+- type: entity
+  parent: BaseMailLarge
+  id: MailSyndicateSurplus
+  suffix: Syndicate Surplus
+  components:
+  - type: Mail
+    contents:
+    - id: ClothingUniformJumpsuitIMDSyndicate
+    - id: ClothingUniformJumpsuitCCRSyndicate
+    - id: ClothingUniformJumpsuitCHESyndicate
+    - id: ClothingUniformJumpsuitWSMSyndicate
+    - id: ClothingUniformJumpsuitHRDSyndicate
+    - id: ClothingHeadHatHRDCapSyndicate
+    - id: ClothingUniformJumpsuitGCMSyndicate
+    - id: ClothingUniformJumpsuitHCRSyndicate
+    - id: ClothingNeckScarfStripedSyndieGreen
+    - id: ClothingNeckScarfStripedSyndieRed
+    - id: ClothingUniformJumpsuitSyndieFormal
+    - id: ClothingOuterWinterSyndie
+    - id: ClothingOuterWinterSyndieCap
+    - id: ClothingShoesBootsWinterSyndicate
+    - id: ClothingOuterCoatSyndieCap
+
+- type: entity
+  parent: BaseMailLarge
+  id: MailDogi
+  suffix: Dogi
+  components:
+  - type: Mail
+    contents:
+    - id: ClothingOuterDogi
+
+- type: entity
+  parent: BaseMailSmall
+  id: MailCatHats
+  suffix: Cat Hats
+  components:
+  - type: Mail
+    contents:
+    - id: ClothingHeadHatAnimalCat
+    - id: ClothingHeadHatAnimalCatBrown
+    - id: ClothingHeadHatAnimalCatBlack

@@ -1,8 +1,10 @@
 // SPDX-FileCopyrightText: 2025 Skye <57879983+Rainbeon@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Terkala <appleorange64@gmail.com>
 // SPDX-FileCopyrightText: 2025 kbarkevich <24629810+kbarkevich@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 Terkala <appleorange64@gmail.com>
 //
-// SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+// SPDX-License-Identifier: AGPL-3.0-or-later OR MIT
 
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
@@ -10,7 +12,6 @@ using Robust.Shared.Serialization;
 
 namespace Content.Shared.BloodCult.Prototypes;
 
-[Serializable, NetSerializable, DataDefinition]
 [Prototype("cultAbility")]
 public sealed partial class CultAbilityPrototype : IPrototype
 {
@@ -29,7 +30,7 @@ public sealed partial class CultAbilityPrototype : IPrototype
 	/// <summary>
 	///		Health drain to prepare this spell.
 	/// </summary>
-	[DataField] public int HealthDrain = 0;
+	[DataField] public int HealthDrain = 15;
 
 	/// <summary>
 	///		Length of DoAfter to carve this spell.

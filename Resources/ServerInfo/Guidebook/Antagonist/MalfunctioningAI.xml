@@ -28,7 +28,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
     <GuideEntityEmbed Entity="BorgChassisGeneric" Caption=""/>
   </Box>
   Hacking cyborgs is your key to interacting with parts of the station you otherwise cannot. You can hack cyborgs through the robotics console, which will add them to your
-  Malfunctioning Cyborgs menu.
+  Malfunctioning Cyborgs menu. Hacking a cyborg costs 25 CPU per cyborg.
 
   you can directly alter the laws, teleport your eye to, and sync hacked cyborgs to the [color=#0000FF]MASTER LAWSET.[/color]
 

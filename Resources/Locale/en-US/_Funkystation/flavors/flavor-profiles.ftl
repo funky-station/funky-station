@@ -12,7 +12,7 @@ flavor-complex-peggnog = like nothing you've ever tasted before
 
 ## alcohols
 flavor-complex-amaretto = like fruity and nutty sweetness
-flavor-complex-applejack = like An honest day's work at the orchard
+flavor-complex-applejack = like an honest day's work at the orchard
 flavor-complex-bitters = like Spiced alcohol
 flavor-complex-creme-de-cacao = slick and aromatic with a hint of chocolate swirling in a bite of alcohol
 flavor-complex-creme-de-menthe = minty, cool, and invigorating, like a splash of cold streamwater

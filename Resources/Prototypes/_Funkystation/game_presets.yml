@@ -19,6 +19,7 @@
   - BasicStationEventScheduler
   #- AntagStationEventScheduler
   - BasicRoundstartVariation
+  - RegularStationPayouts
 
 - type: gamePreset
   id: HereticTraitor
@@ -34,8 +35,8 @@
   - BasicStationEventScheduler
   #- AntagStationEventScheduler
   - BasicRoundstartVariation
+  - RegularStationPayouts
   
-
 - type: gamePreset
   id: ChangelingHeretics
   alias:
@@ -50,7 +51,7 @@
   - BasicStationEventScheduler
   #- AntagStationEventScheduler
   - BasicRoundstartVariation
-
+  - RegularStationPayouts
 
 - type: gamePreset
   id: BlobTraitor
@@ -67,6 +68,7 @@
   - BasicStationEventScheduler
   #- AntagStationEventScheduler
   - BasicRoundstartVariation
+  - RegularStationPayouts
 
 - type: gamePreset
   id: TheDrunkard
@@ -79,6 +81,7 @@
   minPlayers: 5
   rules:
     - IncidentDynamic
+    - RegularStationPayouts
 
 - type: gamePreset
   id: TheApostle
@@ -92,6 +95,7 @@
   minPlayers: 5
   rules:
     - ApocalypseDynamic
+    - RegularStationPayouts
 
 - type: gamePreset
   id: SecretDirector
@@ -103,6 +107,7 @@
   description: secret-director-description
   rules:
     - SecretDirector
+    - RegularStationPayouts
 
 - type: gamePreset
   id: MalfAi
@@ -120,6 +125,7 @@
   - MeteorSwarmScheduler
   - SpaceTrafficControlEventScheduler
   - BasicRoundstartVariation
+  - RegularStationPayouts
 
 - type: gamePreset
   id: SecretMalfAi
@@ -136,4 +142,4 @@
   - MeteorSwarmScheduler
   - SpaceTrafficControlEventScheduler
   - BasicRoundstartVariation
-
+  - RegularStationPayouts

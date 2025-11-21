@@ -1,0 +1,89 @@
+- type: paymentSalary
+  id: NormalJobSalary
+  salary: 50
+  roles:
+  - CargoTechnician
+  - SalvageSpecialist
+  - Bartender
+  - Boxer
+  - Chaplain
+  - Chef
+  - Clown
+  - Janitor
+  - Lawyer
+  - Librarian
+  - Mime
+  - Musician
+  - Reporter
+  - Zookeeper
+  - ServiceWorker
+  - PartyMaker
+  - TechnicalAssistant
+  - ResearchAssistant
+  - MedicalIntern
+
+- type: paymentSalary
+  id: TechJobSalary
+  salary: 100
+  roles:
+  - AtmosphericTechnician
+  - StationEngineer
+  - Chemist
+  - MedicalDoctor
+  - Psychologist
+  - Paramedic
+  - Scientist
+  - Roboticist
+
+- type: paymentSalary
+  id: HazardSalary
+  salary: 50
+  roles:
+  - SalvageSpecialist
+  - Clown
+  - Zookeeper
+  - TechnicalAssistant
+  - AtmosphericTechnician
+  - StationEngineer
+  - ChiefEngineer
+  - Paramedic
+  - SecurityCadet
+  - SecurityOfficer
+  - Detective
+  - Warden
+  - SecurityClown
+  - HeadOfSecurity
+  - Scientist
+  - Roboticist
+  - ResearchAssistant
+  - ResearchDirector
+  - Captain
+
+- type: paymentSalary
+  id: SecuritySalary
+  salary: 150
+  roles:
+  - SecurityCadet
+  - SecurityOfficer
+  - Detective
+
+- type: paymentSalary
+  id: CommandSalary
+  salary: 250
+  roles:
+  - HeadOfSecurity
+  - ResearchDirector
+  - ChiefEngineer
+  - ChiefMedicalOfficer
+  - HeadOfPersonnel
+  - CommandMaid
+  - BlueshieldOfficer
+  - InternalAffairsAgent
+
+- type: paymentSalary
+  id: CeoSalary
+  salary: 400
+  roles:
+  - Captain
+  - NanotrasenRepresentative
+  - Magistrate

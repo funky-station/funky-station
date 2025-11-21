@@ -96,3 +96,16 @@
       - type: MalfAiMarker
       mindRoles:
       - MindRoleMalfAi
+
+- type: entity
+  id: RegularStationPayouts
+  parent: BaseGameRule
+  components:
+  - type: GameRule
+    MinPlayers: 0 # idk a good value, if balances are saved this could get taken advantage of on lowpop. I'll leave it up to someone else.
+  - type: StationRegularPayout
+    # I am still figuring out how to get the prototypes working, but for now its set in code so :shrug:
+    # these currently do nothing.
+    scripBaseStationBalanceAdd: 3000
+    scripPerPlayerBalanceAdd: 300
+    regularPayoutInterval: 1 # in minutes, set to 1 for testing

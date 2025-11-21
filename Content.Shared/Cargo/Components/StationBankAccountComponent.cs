@@ -4,6 +4,7 @@
 //
 // SPDX-License-Identifier: MIT
 
+using Content.Shared._Funkystation.Economy;
 using Content.Shared.Cargo.Prototypes;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
@@ -14,7 +15,7 @@ namespace Content.Shared.Cargo.Components;
 /// <summary>
 /// Added to the abstract representation of a station to track its money.
 /// </summary>
-[RegisterComponent, NetworkedComponent, Access(typeof(SharedCargoSystem)), AutoGenerateComponentPause, AutoGenerateComponentState]
+[RegisterComponent, NetworkedComponent, Access(typeof(SharedCargoSystem), typeof(SharedPayoutSystem)), AutoGenerateComponentPause, AutoGenerateComponentState]
 public sealed partial class StationBankAccountComponent : Component
 {
     /// <summary>
@@ -74,6 +75,27 @@ public sealed partial class StationBankAccountComponent : Component
     /// </summary>
     [DataField]
     public TimeSpan IncomeDelay = TimeSpan.FromSeconds(50);
+    
+    /// <summary>
+    /// funky station: company scrip
+    /// starter station scrip balance
+    /// </summary>
+    [ViewVariables(VVAccess.ReadWrite), DataField, AutoNetworkedField]
+    public int ScripBalance = 60_000;
+
+    /// <summary>
+    /// funky station: company scrip
+    /// time between payouts
+    /// </summary>
+    [ViewVariables(VVAccess.ReadWrite), DataField, AutoNetworkedField]
+    public TimeSpan ScripStationPayoutPeriod = TimeSpan.FromMinutes(10);
+
+    /// <summary>
+    /// funky station: company scrip
+    /// payout people who are detained or wanted
+    /// </summary>
+    [ViewVariables(VVAccess.ReadWrite), DataField, AutoNetworkedField]
+    public bool ScripPayoutDetainedOrWanted = false;
 }
 
 /// <summary>

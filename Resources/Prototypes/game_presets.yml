@@ -53,6 +53,7 @@
     - SpaceTrafficControlEventScheduler
     - SpaceTrafficControlFriendlyEventScheduler
     - BasicRoundstartVariation
+    - RegularStationPayouts
 
 - type: gamePreset
   id: SecretSurvival
@@ -67,6 +68,7 @@
     - SpaceTrafficControlEventScheduler
     - SpaceTrafficControlFriendlyEventScheduler
     - BasicRoundstartVariation
+    - RegularStationPayouts
 
 - type: gamePreset
   id: KesslerSyndrome
@@ -82,6 +84,7 @@
     - RampingStationEventScheduler
     - SpaceTrafficControlEventScheduler
     - BasicRoundstartVariation
+    - RegularStationPayouts
 
 - type: gamePreset
   id: SecretKesslerSyndrome
@@ -95,6 +98,7 @@
     - RampingStationEventScheduler
     - SpaceTrafficControlEventScheduler
     - BasicRoundstartVariation
+    - RegularStationPayouts
 
 - type: gamePreset
   id: AllAtOnce
@@ -115,6 +119,7 @@
     - Changeling # Goobstation - changeling playtest
     - SpaceTrafficControlEventScheduler
     - BasicRoundstartVariation
+    - RegularStationPayouts
 
 - type: gamePreset
   id: AllerAtOnce
@@ -144,6 +149,7 @@
     - SpaceTrafficControlFriendlyEventScheduler
     - BasicRoundstartVariation
     - Changeling # Goobstation - changeling playtest
+    - RegularStationPayouts
 
 - type: gamePreset
   id: Extended
@@ -158,6 +164,7 @@
   - MeteorSwarmScheduler
   - SpaceTrafficControlEventScheduler
   - BasicRoundstartVariation
+  - RegularStationPayouts
 
 - type: gamePreset
   id: Greenshift
@@ -170,6 +177,7 @@
   rules:
   - SpaceTrafficControlFriendlyEventScheduler
   - BasicRoundstartVariation
+  - RegularStationPayouts
 
 - type: gamePreset
   id: Secret
@@ -181,6 +189,7 @@
   description: secret-description
   rules:
     - Secret
+    - RegularStationPayouts
 
 - type: gamePreset
   id: SecretExtended #For Admin Use: Runs Extended but shows "Secret" in lobby.
@@ -194,6 +203,7 @@
     - MeteorSwarmScheduler
     - SpaceTrafficControlEventScheduler
     - BasicRoundstartVariation
+    - RegularStationPayouts
 
 - type: gamePreset
   id: SecretGreenshift #For Admin Use: Runs Greenshift but shows "Secret" in lobby.
@@ -205,6 +215,7 @@
   rules:
   - SpaceTrafficControlFriendlyEventScheduler
   - BasicRoundstartVariation
+  - RegularStationPayouts
 
 - type: gamePreset
   id: Sandbox
@@ -233,6 +244,7 @@
     - MeteorSwarmScheduler
     - SpaceTrafficControlEventScheduler
     - BasicRoundstartVariation
+    - RegularStationPayouts
 
 - type: gamePreset
   id: SecretTraitor
@@ -249,6 +261,7 @@
     - MeteorSwarmScheduler
     - SpaceTrafficControlEventScheduler
     - BasicRoundstartVariation
+    - RegularStationPayouts
 
 - type: gamePreset
   id: Deathmatch
@@ -278,6 +291,7 @@
     - MeteorSwarmScheduler
     - SpaceTrafficControlEventScheduler
     - BasicRoundstartVariation
+    - RegularStationPayouts
 
 - type: gamePreset
   id: SecretNukeops
@@ -294,6 +308,7 @@
     - MeteorSwarmScheduler
     - SpaceTrafficControlEventScheduler
     - BasicRoundstartVariation
+    - RegularStationPayouts
 
 - type: gamePreset
   id: Revolutionary
@@ -312,6 +327,7 @@
   - MeteorSwarmScheduler
   - SpaceTrafficControlEventScheduler
   - BasicRoundstartVariation
+  - RegularStationPayouts
 
 - type: gamePreset
   id: SecretRevolutionary
@@ -329,6 +345,7 @@
   - MeteorSwarmScheduler
   - SpaceTrafficControlEventScheduler
   - BasicRoundstartVariation
+  - RegularStationPayouts
 
 - type: gamePreset
   id: SecretWizard
@@ -344,6 +361,7 @@
   - MeteorSwarmScheduler
   - SpaceTrafficControlEventScheduler
   - BasicRoundstartVariation
+  - RegularStationPayouts
 
 - type: gamePreset
   id: Zombie
@@ -362,6 +380,7 @@
   - MeteorSwarmScheduler
   - SpaceTrafficControlEventScheduler
   - BasicRoundstartVariation
+  - RegularStationPayouts
 
 - type: gamePreset
   id: SecretZombie
@@ -376,6 +395,7 @@
   - MeteorSwarmScheduler
   - SpaceTrafficControlEventScheduler
   - BasicRoundstartVariation
+  - RegularStationPayouts
 
 - type: gamePreset
   id: Zombieteors
@@ -392,3 +412,4 @@
   - KesslerSyndromeScheduler
   - SpaceTrafficControlEventScheduler
   - BasicRoundstartVariation
+  - RegularStationPayouts

@@ -47,7 +47,6 @@ namespace Content.Client.PDA
         public const int SettingsView = 2;
         public const int ProgramContentView = 3;
 
-
         private string _pdaOwner = Loc.GetString("comp-pda-ui-unknown");
         private string _owner = Loc.GetString("comp-pda-ui-unknown");
         private string _jobTitle = Loc.GetString("comp-pda-ui-unassigned");
@@ -55,7 +54,6 @@ namespace Content.Client.PDA
         private string _alertLevel = Loc.GetString("comp-pda-ui-unknown");
         private string _instructions = Loc.GetString("comp-pda-ui-unknown");
         
-
         private int _currentView;
 
         public event Action<EntityUid>? OnProgramItemPressed;
@@ -74,8 +72,8 @@ namespace Content.Client.PDA
             EjectPenButton.IconTexture = new SpriteSpecifier.Texture(new("/Textures/Interface/pencil.png"));
             EjectIdButton.IconTexture = new SpriteSpecifier.Texture(new("/Textures/Interface/eject.png"));
             EjectPaiButton.IconTexture = new SpriteSpecifier.Texture(new("/Textures/Interface/pai.png"));
+            NanoPayButton.IconTexture = new SpriteSpecifier.Texture(new("/Textures/Interface/pai.png"));
             ProgramCloseButton.IconTexture = new SpriteSpecifier.Texture(new("/Textures/Interface/Nano/cross.svg.png"));
-
 
             HomeButton.OnPressed += _ => ToHomeScreen();
 
@@ -88,7 +86,6 @@ namespace Content.Client.PDA
 
                 ChangeView(ProgramListView);
             };
-
 
             SettingsButton.OnPressed += _ =>
             {
@@ -147,9 +144,6 @@ namespace Content.Client.PDA
                 _clipboard.SetText(_instructions);
             };
 
-            
-
-
             HideAllViews();
             ToHomeScreen();
         }
@@ -169,7 +163,6 @@ namespace Content.Client.PDA
             {
                 PdaOwnerLabel.Visible = false;
             }
-
 
             if (state.PdaOwnerInfo.IdOwner != null || state.PdaOwnerInfo.JobTitle != null)
             {
@@ -326,7 +319,6 @@ namespace Content.Client.PDA
             ProgramTitle.LabelText = title;
             ChangeView(ProgramContentView);
         }
-
 
         /// <summary>
         /// Changes the current view to the given view number

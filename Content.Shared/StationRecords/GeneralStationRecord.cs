@@ -77,4 +77,10 @@ public sealed record GeneralStationRecord
     /// </summary>
     [DataField]
     public string? DNA;
+    
+    /// <summary>
+    /// Funky Station - Scrip
+    /// </summary>
+    [DataField]
+    public double Balance;
 }

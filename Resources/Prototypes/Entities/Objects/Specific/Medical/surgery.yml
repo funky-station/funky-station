@@ -28,6 +28,7 @@
 # SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tadeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
 # SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 kbarkevich <24629810+kbarkevich@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
@@ -401,6 +402,9 @@
     speed: 1.5
   - type: Drill
     speed: 1.5
+  - type: Tag
+    tags:
+    - AdvancedSurgeryTool
 
 - type: entity
   name: energy scalpel
@@ -432,6 +436,10 @@
     speed: 1.5
   - type: BoneSaw
     speed: 1.5
+  - type: Tag
+    tags:
+    - AdvancedSurgeryTool
+
 
 - type: entity
   name: mechanical pinches
@@ -467,6 +475,9 @@
     speed: 1.5
   - type: Tending
     speed: 1.5
+  - type: Tag
+    tags:
+    - AdvancedSurgeryTool
 
 - type: entity
   name: medical multitool
@@ -501,6 +512,9 @@
     speed: 0.75  # funkystation
   - type: Tending
     speed: 0.75  # funkystation
+  - type: Tag
+    tags:
+    - AdvancedSurgeryTool
 
 - type: entity
   parent: [ OmnimedTool, BaseSyndicateContraband ]

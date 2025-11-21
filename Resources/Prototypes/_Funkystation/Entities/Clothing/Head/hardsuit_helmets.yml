@@ -130,11 +130,14 @@
         Quantity: 0.5   
   - type: LeakyObject        
 
+# This is a very jank way to make the healing effect and could probably be replaced by something else, but it works,
+# Because only this helmet is meant to produce this regent, the proto ID is being kept here. 
+
 - type: reagent
   id: HivelordEssence
-  name: reagent-name-granibitulari
+  name: reagent-name-hivelord-essence
   group: Medicine
-  desc: reagent-desc-granibitulari
+  desc: reagent-desc-hivelord-essence
   physicalDesc: reagent-physical-desc-gloopy
   flavor: medicine
   color: "#c7e4e8"

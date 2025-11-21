@@ -883,3 +883,18 @@
     Cloth: 200
     Steel: 100
     Plastic: 100
+    
+- type: latheRecipe  
+  id: ClothingHandsSecurityKnuckleDusters
+  result: ClothingHandsSecurityKnuckleDusters
+  completetime: 3
+  materials:
+    Steel: 500
+
+- type: latheRecipe
+  id: ClothingHandsTruncheonKnuckleDusters
+  result: ClothingHandsTruncheonKnuckleDusters
+  completetime: 3
+  materials:
+    Steel: 500
+    Plastic: 500

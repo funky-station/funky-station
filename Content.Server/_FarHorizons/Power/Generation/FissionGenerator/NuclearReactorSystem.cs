@@ -26,6 +26,10 @@ using Content.Shared.Atmos.Piping.Components;
 
 namespace Content.Server._FarHorizons.Power.Generation.FissionGenerator;
 
+// Ported and modified from goonstation by Jhrushbe.
+// CC-BY-NC-SA-3.0
+// https://github.com/goonstation/goonstation/blob/master/code/obj/nuclearreactor/nuclearreactor.dm
+
 public sealed class NuclearReactorSystem : SharedNuclearReactorSystem
 {
     // The great wall of dependencies

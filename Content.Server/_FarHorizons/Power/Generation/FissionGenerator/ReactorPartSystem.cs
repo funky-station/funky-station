@@ -7,6 +7,10 @@ using Robust.Shared.Random;
 
 namespace Content.Server._FarHorizons.Power.Generation.FissionGenerator;
 
+// Ported and modified from goonstation by Jhrushbe.
+// CC-BY-NC-SA-3.0
+// https://github.com/goonstation/goonstation/blob/master/code/obj/nuclearreactor/reactorcomponents.dm
+
 public sealed class ReactorPartSystem : SharedReactorPartSystem
 {
     [Dependency] private readonly AtmosphereSystem _atmosphereSystem = default!;

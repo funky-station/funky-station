@@ -1354,6 +1354,12 @@
     size: Normal
     sprite: Objects/Fun/toys.rsi
     heldPrefix: foamcrossbow
+  - type: Clothing
+    sprite: Objects/Weapons/Guns/Battery/taser.rsi
+    quickEquip: false
+    slots:
+    - Belt
+    - backStorage
   - type: Gun
     fireRate: 0.5
     selectedMode: SemiAuto
@@ -1396,6 +1402,12 @@
   - type: Item
     sprite: Objects/Fun/toys.rsi
     heldPrefix: capgun
+  - type: Clothing
+    sprite: Objects/Weapons/Guns/Revolvers/deckard.rsi
+    quickEquip: false
+    slots:
+    - backStorage
+    - Belt
   - type: Tag
     tags:
     - Sidearm

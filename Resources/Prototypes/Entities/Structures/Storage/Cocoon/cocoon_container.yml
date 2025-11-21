@@ -1,0 +1,18 @@
+- type: entity
+  id: CocoonContainer
+  name: cocoon
+  description: A web cocoon containing a victim.
+  components:
+  - type: Sprite
+    sprite: Mobs/Effects/cocooned.rsi
+    state: cocooned
+  - type: Transform
+  - type: EntityStorage
+    capacity: 1
+    open: false
+  - type: ContainerContainer
+    containers:
+      entity_storage: !type:Container
+  - type: CocoonContainer
+    maxDamage: 10
+    absorbPercentage: 0.3

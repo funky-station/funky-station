@@ -1,11 +1,14 @@
+using System.Linq;
 using Content.Server.Popups;
 using Content.Server.Speech.Components;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
+using Content.Shared.Damage.Systems;
 using Content.Shared.DoAfter;
 using Content.Shared.Eye.Blinding.Components;
 using Content.Shared.Hands.Components;
+using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Humanoid;
 using Content.Shared.Verbs;
 using Content.Shared.Interaction.Components;
@@ -13,9 +16,13 @@ using Content.Shared.Nutrition.EntitySystems;
 using Content.Shared.Popups;
 using Content.Shared.Species.Arachnid;
 using Content.Shared.Standing;
+using Content.Shared.Storage.Components;
+using Content.Shared.Storage.EntitySystems;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
+using Robust.Shared.Containers;
 using Robust.Shared.Player;
+using Robust.Shared.Utility;
 
 namespace Content.Server.Species.Arachnid;
 
@@ -29,6 +36,10 @@ public sealed class CocoonSystem : SharedCocoonSystem
     [Dependency] private readonly StandingStateSystem _standing = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private readonly SharedHandsSystem _hands = default!;
+    [Dependency] private readonly SharedEntityStorageSystem _entityStorage = default!;
+    [Dependency] private readonly SharedContainerSystem _container = default!;
+    [Dependency] private readonly DamageableSystem _damageable = default!;
 
     public override void Initialize()
     {
@@ -37,17 +48,15 @@ public sealed class CocoonSystem : SharedCocoonSystem
         SubscribeLocalEvent<CocoonerComponent, WrapActionEvent>(OnWrapAction);
         SubscribeLocalEvent<CocoonerComponent, WrapDoAfterEvent>(OnWrapDoAfter);
 
-        SubscribeLocalEvent<CocoonedComponent, ComponentStartup>(OnCocoonStartup);
-        SubscribeLocalEvent<CocoonedComponent, ComponentShutdown>(OnCocoonShutdown);
-
-        SubscribeLocalEvent<CocoonedComponent, GetVerbsEvent<InteractionVerb>>(OnGetInteractionVerb);
-        SubscribeLocalEvent<CocoonedComponent, UnwrapDoAfterEvent>(OnUnwrapDoAfter);
-
-        SubscribeLocalEvent<CocoonedComponent, StandAttemptEvent>(OnStandAttempt);
-        SubscribeLocalEvent<CocoonedComponent, DamageModifyEvent>(OnDamageModify);
+        // Container-based cocoon system
+        SubscribeLocalEvent<CocoonContainerComponent, ComponentStartup>(OnCocoonContainerStartup);
+        SubscribeLocalEvent<CocoonContainerComponent, ComponentShutdown>(OnCocoonContainerShutdown);
+        SubscribeLocalEvent<CocoonContainerComponent, DamageModifyEvent>(OnCocoonContainerDamage);
+        SubscribeLocalEvent<CocoonContainerComponent, GetVerbsEvent<InteractionVerb>>(OnGetUnwrapVerb);
+        SubscribeLocalEvent<CocoonContainerComponent, UnwrapDoAfterEvent>(OnUnwrapDoAfter);
     }
 
-    private void OnDamageModify(Entity<CocoonedComponent> ent, ref DamageModifyEvent args)
+    private void OnCocoonContainerDamage(Entity<CocoonContainerComponent> ent, ref DamageModifyEvent args)
     {
         // Only absorb positive damage
         if (!args.OriginalDamage.AnyPositive())
@@ -57,10 +66,10 @@ public sealed class CocoonSystem : SharedCocoonSystem
         if (originalTotalDamage <= 0)
             return;
 
-        // Calculate 30% of the original damage to absorb
+        // Calculate percentage of the original damage to absorb
         var absorbedDamage = originalTotalDamage * ent.Comp.AbsorbPercentage;
         
-        // Reduce the damage by 30% (victim only takes 70%)
+        // Reduce the damage by the absorb percentage (victim only takes the remainder)
         // Apply coefficient to all damage types that were originally present
         var reducePercentage = 1f - ent.Comp.AbsorbPercentage;
         var modifier = new DamageModifierSet();
@@ -70,16 +79,25 @@ public sealed class CocoonSystem : SharedCocoonSystem
         }
         args.Damage = DamageSpecifier.ApplyModifierSet(args.Damage, modifier);
 
-        // Accumulate the absorbed damage on the cocoon
+        // Accumulate the absorbed damage on the cocoon container
         ent.Comp.AccumulatedDamage += absorbedDamage;
         Dirty(ent, ent.Comp);
+
+        // Pass the reduced damage to the victim inside
+        if (ent.Comp.Victim != null && Exists(ent.Comp.Victim.Value))
+        {
+            // Apply the reduced damage directly to the victim
+            _damageable.TryChangeDamage(ent.Comp.Victim.Value, args.Damage, origin: args.Origin);
+        }
+
+        // The container itself takes minimal/no damage (we handle breaking via accumulated damage)
+        // Set damage to zero so the container doesn't take structural damage
+        args.Damage = new DamageSpecifier();
 
         // Break the cocoon if it reaches max damage
         if (ent.Comp.AccumulatedDamage >= ent.Comp.MaxDamage)
         {
-            PlayCocoonRemovalSound(ent);
-            RemCompDeferred<CocoonedComponent>(ent);
-            _popups.PopupEntity(Loc.GetString("arachnid-cocoon-broken"), ent, ent, PopupType.LargeCaution);
+            BreakCocoon(ent);
         }
     }
 
@@ -94,9 +112,52 @@ public sealed class CocoonSystem : SharedCocoonSystem
         _audio.PlayStatic(new SoundPathSpecifier("/Audio/Items/Handcuffs/rope_breakout.ogg"), filter, entityCoords, true);
     }
 
-    private void OnStandAttempt(Entity<CocoonedComponent> ent, ref StandAttemptEvent args)
+    private void OnCocoonContainerStartup(EntityUid uid, CocoonContainerComponent component, ComponentStartup args)
     {
-        args.Cancel();
+        // Victim setup is handled after insertion in OnWrapDoAfter
+        // This is because ComponentStartup may fire before the victim is set
+    }
+
+    /// <summary>
+    /// Applies effects to a victim when they are cocooned.
+    /// </summary>
+    private void SetupVictimEffects(EntityUid victim)
+    {
+        // Force prone
+        if (HasComp<StandingStateComponent>(victim))
+        {
+            _standing.Down(victim);
+        }
+
+        if (!HasComp<BlockMovementComponent>(victim))
+        {
+            AddComp<BlockMovementComponent>(victim);
+        }
+
+        EnsureComp<MumbleAccentComponent>(victim);
+        EnsureComp<TemporaryBlindnessComponent>(victim);
+    }
+
+    private void OnCocoonContainerShutdown(EntityUid uid, CocoonContainerComponent component, ComponentShutdown args)
+    {
+        if (component.Victim == null || !Exists(component.Victim.Value))
+            return;
+
+        var victim = component.Victim.Value;
+
+        // Remove effects from victim
+        if (HasComp<BlockMovementComponent>(victim))
+            RemComp<BlockMovementComponent>(victim);
+
+        if (HasComp<MumbleAccentComponent>(victim))
+        {
+            RemComp<MumbleAccentComponent>(victim);
+        }
+
+        if (HasComp<TemporaryBlindnessComponent>(victim))
+        {
+            RemComp<TemporaryBlindnessComponent>(victim);
+        }
     }
 
     private void OnWrapAction(EntityUid uid, CocoonerComponent component, ref WrapActionEvent args)
@@ -116,7 +177,9 @@ public sealed class CocoonSystem : SharedCocoonSystem
             return;
         }
 
-        if (HasComp<CocoonedComponent>(target))
+        // Check if target is already in a cocoon container
+        if (_container.TryGetContainingContainer(target, out var existingContainer) &&
+            HasComp<CocoonContainerComponent>(existingContainer.Owner))
         {
             _popups.PopupEntity(Loc.GetString("arachnid-wrap-already"), user, user);
             return;
@@ -160,8 +223,16 @@ public sealed class CocoonSystem : SharedCocoonSystem
         var performer = args.User;
         var target = args.Args.Target.Value;
 
-        if (!HasComp<HumanoidAppearanceComponent>(target) || HasComp<CocoonedComponent>(target))
+        if (!HasComp<HumanoidAppearanceComponent>(target))
             return;
+
+        // Check if target is already in a cocoon container
+        if (_container.TryGetContainingContainer(target, out var container) &&
+            HasComp<CocoonContainerComponent>(container.Owner))
+        {
+            _popups.PopupEntity(Loc.GetString("arachnid-wrap-already"), performer, performer);
+            return;
+        }
 
         if (!_blocker.CanInteract(performer, target))
             return;
@@ -172,13 +243,47 @@ public sealed class CocoonSystem : SharedCocoonSystem
             _hunger.ModifyHunger(performer, -component.HungerCost);
         }
 
-        var cocoon = EnsureComp<CocoonedComponent>(target);
-        Dirty(target, cocoon);
+        // Spawn cocoon container at target's position
+        var targetCoords = _transform.GetMapCoordinates(target);
+        var cocoonContainer = Spawn("CocoonContainer", targetCoords);
+        
+        // Set up the container component
+        if (!TryComp<CocoonContainerComponent>(cocoonContainer, out var cocoonComp))
+        {
+            Log.Error("CocoonContainer spawned without CocoonContainerComponent!");
+            Del(cocoonContainer);
+            return;
+        }
+
+        cocoonComp.Victim = target;
+        Dirty(cocoonContainer, cocoonComp);
+
+        // Drop all items from victim's hands before inserting
+        if (TryComp<HandsComponent>(target, out var hands))
+        {
+            foreach (var hand in _hands.EnumerateHands(target, hands))
+            {
+                if (hand.HeldEntity != null)
+                {
+                    _hands.TryDrop(target, hand, checkActionBlocker: false);
+                }
+            }
+        }
+
+        // Insert victim into container
+        if (!_entityStorage.Insert(target, cocoonContainer))
+        {
+            Log.Error($"Failed to insert {target} into cocoon container {cocoonContainer}");
+            Del(cocoonContainer);
+            return;
+        }
+
+        // Apply effects to victim after insertion (ComponentStartup may have fired before victim was set)
+        SetupVictimEffects(target);
 
         // Play ziptie sound for everyone within 10 meters
-        var mapCoords = _transform.GetMapCoordinates(target);
-        var filter = Filter.Empty().AddInRange(mapCoords, 10f);
-        var entityCoords = _transform.ToCoordinates(mapCoords);
+        var filter = Filter.Empty().AddInRange(targetCoords, 10f);
+        var entityCoords = _transform.ToCoordinates(targetCoords);
         _audio.PlayStatic(new SoundPathSpecifier("/Audio/Items/Handcuffs/rope_end.ogg"), filter, entityCoords, true);
 
         _popups.PopupEntity(Loc.GetString("arachnid-wrap-complete-user", ("target", target)), performer, performer);
@@ -187,122 +292,103 @@ public sealed class CocoonSystem : SharedCocoonSystem
         args.Handled = true;
     }
 
-    private void OnUnwrapDoAfter(EntityUid uid, CocoonedComponent component, ref UnwrapDoAfterEvent args)
+    private void OnUnwrapDoAfter(EntityUid uid, CocoonContainerComponent component, ref UnwrapDoAfterEvent args)
     {
-        if (args.Cancelled || args.Handled || args.Args.Target == null)
+        if (args.Cancelled || args.Handled)
             return;
 
         // Play cocoon removal sound for everyone within 10 meters
         PlayCocoonRemovalSound(uid);
 
-        RemCompDeferred<CocoonedComponent>(uid);
-
-        _popups.PopupEntity(Loc.GetString("arachnid-unwrap-user", ("target", uid)), args.User, args.User);
-        _popups.PopupEntity(Loc.GetString("arachnid-unwrap-target", ("user", args.User)), uid, uid);
-    }
-
-    private void OnCocoonStartup(EntityUid uid, CocoonedComponent component, ComponentStartup args)
-    {
-        // Force prone
-        if (HasComp<StandingStateComponent>(uid))
+        // Remove victim from container
+        if (component.Victim != null && Exists(component.Victim.Value))
         {
-            _standing.Down(uid);
+            _entityStorage.Remove(component.Victim.Value, uid);
         }
 
-        if (!HasComp<BlockMovementComponent>(uid))
+        // Delete the container
+        Del(uid);
+
+        if (component.Victim != null && Exists(component.Victim.Value))
         {
-            AddComp<BlockMovementComponent>(uid);
-        }
-
-        EnsureComp<MumbleAccentComponent>(uid);
-        EnsureComp<TemporaryBlindnessComponent>(uid);
-    }
-
-    private void OnCocoonShutdown(EntityUid uid, CocoonedComponent component, ComponentShutdown args)
-    {
-        if (HasComp<BlockMovementComponent>(uid))
-            RemComp<BlockMovementComponent>(uid);
-
-        if (HasComp<MumbleAccentComponent>(uid))
-        {
-            RemComp<MumbleAccentComponent>(uid);
-        }
-
-        if (HasComp<TemporaryBlindnessComponent>(uid))
-        {
-            RemComp<TemporaryBlindnessComponent>(uid);
+            _popups.PopupEntity(Loc.GetString("arachnid-unwrap-user", ("target", component.Victim.Value)), args.User, args.User);
+            _popups.PopupEntity(Loc.GetString("arachnid-unwrap-target", ("user", args.User)), component.Victim.Value, component.Victim.Value);
         }
     }
 
-    private void OnGetInteractionVerb(EntityUid uid, CocoonedComponent component, GetVerbsEvent<InteractionVerb> args)
+    private void OnGetUnwrapVerb(EntityUid uid, CocoonContainerComponent component, GetVerbsEvent<InteractionVerb> args)
     {
         // Must be in range, must be able to interact
         if (!args.CanAccess)
             return;
 
-        // Can't unwrap yourself
-        if (args.User == uid)
+        if (!args.CanInteract)
+            return;
+
+        // Unwrapping verb
+        var unwrapVerb = new InteractionVerb
         {
-            var verb = new InteractionVerb
+            Text = Loc.GetString("arachnid-unwrap-verb", ("target", component.Victim ?? uid)),
+            Priority = 10,
+            Act = () =>
             {
-                Text = Loc.GetString("arachnid-unwrap-verb"),
-                Priority = 1,
-                Act = () =>
+                if (!_blocker.CanInteract(args.User, uid))
+                    return;
+
+                // Only require hands if the entity has hands
+                var needHand = HasComp<HandsComponent>(args.User);
+
+                var doAfter = new DoAfterArgs(
+                    EntityManager,
+                    args.User,
+                    TimeSpan.FromSeconds(10.0f),
+                    new UnwrapDoAfterEvent(),
+                    uid,
+                    uid)
                 {
-                    _popups.PopupEntity(Loc.GetString("arachnid-unwrap-self"), uid, uid);
-                }
-            };
-            args.Verbs.Add(verb);
-        }
-        else
-        {
-            if (!args.CanInteract)
-                return;
+                    BreakOnMove = true,
+                    BreakOnDamage = true,
+                    NeedHand = needHand,
+                    DistanceThreshold = 1.5f,
+                    CancelDuplicate = true,
+                    BlockDuplicate = true,
+                };
 
-            // Unwrapping verb
-            var unwrapVerb = new InteractionVerb
-            {
-                Text = Loc.GetString("arachnid-unwrap-verb", ("target", uid)),
+                if (!_doAfter.TryStartDoAfter(doAfter))
+                    return;
 
-                Priority = 10,
+                var mapCoords = _transform.GetMapCoordinates(uid);
+                var filter = Filter.Empty().AddInRange(mapCoords, 10f);
+                var entityCoords = _transform.ToCoordinates(mapCoords);
+                _audio.PlayStatic(new SoundPathSpecifier("/Audio/Items/Handcuffs/rope_start.ogg"), filter, entityCoords, true);
 
-                Act = () =>
+                var targetName = component.Victim != null && Exists(component.Victim.Value) ? component.Victim.Value : uid;
+                _popups.PopupEntity(Loc.GetString("arachnid-unwrap-start-user", ("target", targetName)), args.User, args.User);
+                if (component.Victim != null && Exists(component.Victim.Value))
                 {
-                    if (!_blocker.CanInteract(args.User, uid))
-                        return;
-
-                    // Only require hands if the entity has hands
-                    var needHand = HasComp<HandsComponent>(args.User);
-
-                    var doAfter = new DoAfterArgs(
-                        EntityManager,
-                        args.User,
-                        TimeSpan.FromSeconds(10.0f),
-                        new UnwrapDoAfterEvent(),
-                        uid,
-                        uid)
-                    {
-                        BreakOnMove = true,
-                        BreakOnDamage = true,
-                        NeedHand = needHand,
-                        DistanceThreshold = 1.5f,
-                        CancelDuplicate = true,
-                        BlockDuplicate = true,
-                    };
-
-                    if (!_doAfter.TryStartDoAfter(doAfter))
-                        return;
-
-                    var mapCoords = _transform.GetMapCoordinates(uid);
-                    var filter = Filter.Empty().AddInRange(mapCoords, 10f);
-                    var entityCoords = _transform.ToCoordinates(mapCoords);
-                    _audio.PlayStatic(new SoundPathSpecifier("/Audio/Items/Handcuffs/rope_start.ogg"), filter, entityCoords, true);
-
-                    _popups.PopupEntity(Loc.GetString("arachnid-unwrap-start-user", ("target", uid)), args.User, args.User);
-                    _popups.PopupEntity(Loc.GetString("arachnid-unwrap-start-target", ("user", args.User)), uid, uid);
+                    _popups.PopupEntity(Loc.GetString("arachnid-unwrap-start-target", ("user", args.User)), component.Victim.Value, component.Victim.Value);
                 }
-            };
-            args.Verbs.Add(unwrapVerb);
-        }
+            }
+        };
+        args.Verbs.Add(unwrapVerb);
     }
+
+    /// <summary>
+    /// Breaks the cocoon container and releases the victim.
+    /// </summary>
+    private void BreakCocoon(Entity<CocoonContainerComponent> cocoon)
+    {
+        PlayCocoonRemovalSound(cocoon);
+
+        // Remove victim from container before deleting
+        if (cocoon.Comp.Victim != null && Exists(cocoon.Comp.Victim.Value))
+        {
+            _entityStorage.Remove(cocoon.Comp.Victim.Value, cocoon);
+            _popups.PopupEntity(Loc.GetString("arachnid-cocoon-broken"), cocoon.Comp.Victim.Value, cocoon.Comp.Victim.Value, PopupType.LargeCaution);
+        }
+
+        // Delete the container
+        Del(cocoon);
+    }
+
 }

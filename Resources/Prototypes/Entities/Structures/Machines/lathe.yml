@@ -549,6 +549,7 @@
     - CartridgePoison
     - SecHypo # Goobstation
     - ParamedHypo # Goobstation - ParamedHypo
+    - ClothingHandsSecurityKnuckleDusters #funk
   - type: BlueprintReceiver
     whitelist:
       tags:
@@ -735,7 +736,8 @@
     - MagazineBoxPistolLargeIncendiary # Funkystation
     - WeaponEnergyGunEnergyPistol # Funkystation
     - WeaponTeslaGun # Funkystation 
- 
+    - ClothingHandsTruncheonKnuckleDusters # funk
+
 - type: entity
   id: ProtolatheHyperConvection
   parent: [Protolathe, BaseHyperlathe]
@@ -1179,6 +1181,7 @@
     - SecHypo # Goobstation
     - autoInjectorCartridgeCase
     - autoInjectorCartridgeCaseSoft
+    - ClothingHandsSecurityKnuckleDusters #funk
     dynamicRecipes:
     - BoxBeanbag
     - BoxShotgunIncendiary
@@ -1252,6 +1255,7 @@
     - WeaponMechCombatFlashbangLauncher
     - WeaponMechCombatMissileRack8
     - ClothingEyesNightVisionSecurityGoggles # Funky - EE nightvision
+    - ClothingHandsTruncheonKnuckleDusters # funk
   - type: EmagLatheRecipes # Goobstation
     emagStaticRecipes:
     - GrenadeShrapnel #funky

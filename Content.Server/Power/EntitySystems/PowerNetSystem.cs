@@ -21,8 +21,9 @@
 // SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 // SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 Terkala <appleorange64@gmail.com>
 //
-// SPDX-License-Identifier: MIT
+// SPDX-License-Identifier: AGPL-3.0-or-later or MIT
 
 using System.Linq;
 using Content.Server.NodeContainer.EntitySystems;
@@ -369,15 +370,16 @@ namespace Content.Server.Power.EntitySystems
                     {
                         _battery.SetCharge(uid, battery.CurrentCharge - apcBattery.IdleLoad * frameTime, battery);
                     }
-                    // Otherwise try to charge the battery
-                    else if (powered && !_battery.IsFull(uid, battery))
+                    // Otherwise try to charge the battery, but only if it's below 95% capacity
+                    else if (powered && battery.CurrentCharge < battery.MaxCharge * 0.95f)
                     {
                         apcReceiver.Load += apcBattery.BatteryRechargeRate * apcBattery.BatteryRechargeEfficiency;
                         _battery.SetCharge(uid, battery.CurrentCharge + apcBattery.BatteryRechargeRate * frameTime, battery);
                     }
 
                     // Enable / disable the battery if the state changed
-                    var enableBattery = requireBattery && battery.CurrentCharge > 0;
+                    // Battery only enables if we need it AND the battery has more than 20% charge
+                    var enableBattery = requireBattery && battery.CurrentCharge > battery.MaxCharge * 0.2f;
 
                     if (apcBattery.Enabled != enableBattery)
                     {

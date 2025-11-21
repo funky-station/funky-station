@@ -112,6 +112,17 @@
     - WallMount
   - type: Physics
     bodyType: Static
+  - type: ContainerContainer
+    containers:
+      board: !type:Container
+        ents: [ ]
+  - type: ItemSlots
+    slots:
+      mop_slot:
+        name: table_slot_hidden
+        whitelist:
+          tags:
+          - ListeningBug
   - type: Fixtures
     fixtures:
       fix1:
@@ -153,6 +164,7 @@
     mode: SnapgridCenter
     snap:
     - Wallmount
+
 
 - type: entity
   name: light

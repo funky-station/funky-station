@@ -14,6 +14,7 @@
   - type: TelecomExempt
   - type: RadioMicrophone
     broadcastChannel: Syndicate
+    listenRange: 6
   - type: Speech
     speechVerb: Robotic
   - type: Sprite
@@ -26,9 +27,22 @@
     size: Tiny
     sprite: _Funkystation/Objects/Devices/syndicate_radio.rsi
     heldPrefix: walkietalkie
+  - type: Appearance
+  - type: SubFloorHide
+  - type: Anchorable
+  - type: CollideOnAnchor
+  - type: Transform
+    anchored: false
+  - type: BlockAnchorOn
+    blacklist:
+      components:
+      - AnchoredStorageFilter
+  - type: Visibility
+    layer: 1
   - type: Tag
     tags:
     - Radio
+    - ListeningBug
 
 - type: entity
   name: service handheld radio

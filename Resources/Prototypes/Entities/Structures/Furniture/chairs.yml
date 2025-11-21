@@ -113,6 +113,17 @@
           collection: MetalBreak
   - type: StaticPrice
     price: 50
+  - type: ContainerContainer
+    containers:
+      board: !type:Container
+        ents: [ ]
+  - type: ItemSlots
+    slots:
+      mop_slot:
+        name: table_slot_hidden
+        whitelist:
+          tags:
+          - ListeningBug
 
 #Starts unanchored, cannot be rotated while anchored
 - type: entity

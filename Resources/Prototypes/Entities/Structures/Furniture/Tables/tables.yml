@@ -151,6 +151,17 @@
     node: CounterWoodFrame
   - type: RequireProjectileTarget # Goobstation - Crawling
     ignoreThrow: true
+  - type: ContainerContainer
+    containers:
+      board: !type:Container
+        ents: [ ]
+  - type: ItemSlots
+    slots:
+      mop_slot:
+        name: table_slot_hidden
+        whitelist:
+          tags:
+          - ListeningBug
 
 - type: entity
   id: CounterMetalFrame

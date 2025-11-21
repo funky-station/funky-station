@@ -97,6 +97,13 @@
     containers:
       board: !type:Container
         ents: []
+  - type: ItemSlots
+    slots:
+      mop_slot:
+        name: computer_slot_accessory
+        whitelist:
+          tags:
+          - ListeningBug
   - type: LightningTarget
     priority: 1
   - type: RequireProjectileTarget

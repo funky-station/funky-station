@@ -77,6 +77,17 @@
   - type: WirelessNetworkConnection
     range: 1200
   - type: StationLimitedNetwork
+  - type: ContainerContainer
+    containers:
+      board: !type:Container
+        ents: [ ]
+  - type: ItemSlots
+    slots:
+      mop_slot:
+        name: table_slot_hidden
+        whitelist:
+          tags:
+          - ListeningBug
 
 - type: entity
   abstract: true

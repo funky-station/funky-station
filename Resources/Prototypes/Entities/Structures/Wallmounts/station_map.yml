@@ -39,6 +39,17 @@
                 collection: GlassBreak
             - !type:DoActsBehavior
               acts: [ "Destruction" ]
+    - type: ContainerContainer
+      containers:
+        board: !type:Container
+          ents: [ ]
+    - type: ItemSlots
+      slots:
+        mop_slot:
+          name: computer_slot_accessory
+          whitelist:
+            tags:
+            - ListeningBug
 
 - type: entity
   id: StationMap

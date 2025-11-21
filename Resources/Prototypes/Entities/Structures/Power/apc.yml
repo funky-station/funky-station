@@ -198,6 +198,17 @@
     guides:
     - VoltageNetworks
     - Power
+  - type: ContainerContainer
+    containers:
+      board: !type:Container
+        ents: [ ]
+  - type: ItemSlots
+    slots:
+      mop_slot:
+        name: computer_slot_accessory
+        whitelist:
+          tags:
+          - ListeningBug
 
 # APC under construction
 - type: entity

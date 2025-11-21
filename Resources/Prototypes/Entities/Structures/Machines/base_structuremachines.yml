@@ -95,6 +95,13 @@
     containers:
       machine_board: !type:Container
       machine_parts: !type:Container
+  - type: ItemSlots
+    slots:
+      mop_slot:
+        name: computer_slot_accessory
+        whitelist:
+          tags:
+          - ListeningBug
   - type: Construction
     graph: Machine
     node: machine

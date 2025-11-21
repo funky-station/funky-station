@@ -79,6 +79,17 @@
   - type: Wires
     boardName: wires-board-name-barsign
     layoutId: BarSign
+  - type: ContainerContainer
+    containers:
+      board: !type:Container
+        ents: [ ]
+  - type: ItemSlots
+    slots:
+      mop_slot:
+        name: computer_slot_accessory
+        whitelist:
+          tags:
+          - ListeningBug
 
 - type: entity
   parent: BaseBarSign

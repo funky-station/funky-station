@@ -93,6 +93,17 @@
   - type: StaticPrice
     price: 75
   - type: RequireProjectileTarget
+  - type: ContainerContainer
+    containers:
+      board: !type:Container
+        ents: [ ]
+  - type: ItemSlots
+    slots:
+      mop_slot:
+        name: table_slot_hidden
+        whitelist:
+          tags:
+          - ListeningBug
 
 - type: entity
   id: PoweredLightPostSmallEmpty

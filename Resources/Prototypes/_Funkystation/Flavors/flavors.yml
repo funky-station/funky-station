@@ -55,6 +55,12 @@
   description: flavor-complex-navy-rum
 
 - type: flavor
+  id: ricebeer
+  flavorType: Complex
+  description: flavor-complex-rice-beer
+- type: flavor
+
+- type: flavor
   id: eggnog
   flavorType: Complex
   description: flavor-complex-eggnog

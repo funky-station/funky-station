@@ -450,6 +450,27 @@
     fillBaseName: fill-
 
 - type: entity
+  parent: [DrinkBottleVisualsAll, DrinkBottleGlassBaseFull]
+  id: DrinkRiceBeerBottleFull
+  name: Kaze rice beer
+  description: A bottle of rice beer made from rice, as opposed to all the other grains and crops they could've used. When will this beer-making stop!?
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        reagents:
+        - ReagentId: RiceBeer
+          Quantity: 100
+  - type: Label
+    currentLabel: reagent-name-rice-beer
+  - type: Sprite
+    sprite: Objects/Consumable/Drinks/ricebeerbottle.rsi
+  - type: Sealable
+  - type: SolutionContainerVisuals
+    maxFillLevels: 5
+    fillBaseName: fill-
+
+- type: entity
   parent: [DrinkBottleVisualsAll, DrinkBottlePlasticBaseFull]
   id: DrinkColaBottleFull
   name: Space Cola bottle

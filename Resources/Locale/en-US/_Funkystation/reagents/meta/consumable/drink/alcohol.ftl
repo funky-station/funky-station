@@ -38,3 +38,6 @@ reagent-desc-fernet = Pure Fernet. Only an absolute madman would drink this pure
 
 reagent-name-navy-rum = navy rum
 reagent-desc-navy-rum = Splice the mainbrace, and God save the King. It's white rum.
+
+reagent-name-rice-beer = rice beer
+reagent-desc-rice-beer = A light, rice-based lagered beer popular on Mars. Considered a hate crime against Bavarians under the Reinheitsgebot Act of 1516.

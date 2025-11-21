@@ -24,6 +24,7 @@ flavor-complex-pineapple-margherita = like pineapples on pizza
 flavor-complex-hakka-mate = like bubbly yerba mate
 flavor-complex-melon-soda = like fizzy melon
 flavor-complex-navy-rum = like a life on the waves
+flavor-complex-rice-beer = like mild carbonated malt
 
 ## base
 flavor-base-fresh = fresh

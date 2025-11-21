@@ -214,4 +214,17 @@
         reagents:
         - ReagentId: NavyRum
           Quantity: 30
+
+- type: entity
+  parent: DrinkGlass
+  id: RiceBeer
+  suffix: rice beer
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: RiceBeer
+          Quantity: 30
 # pignog

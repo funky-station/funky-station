@@ -411,6 +411,29 @@
         amount: 0.2
 
 - type: reagent
+  id: RiceBeer
+  name: reagent-name-rice-beer
+  parent: BaseAlcohol
+  desc: reagent-desc-rice-beer
+  physicalDesc: reagent-physical-desc-crisp
+  flavor: ricebeer
+  color: "#d5e65e"
+  metamorphicSprite:
+    sprite: Objects/Consumable/Drinks/ricebeerglass.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 4
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 2
+      - !type:AdjustReagent
+        reagent: Ethanol
+        amount: 0.2
+
+- type: reagent
   id: Gin
   name: reagent-name-gin
   parent: BaseAlcohol

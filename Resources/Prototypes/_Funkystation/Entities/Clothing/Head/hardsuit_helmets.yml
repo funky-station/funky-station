@@ -37,7 +37,7 @@
 
 # Helldivers, Funky
 - type: entity
-  parent: ClothingHeadHelmetHardsuitGoliath
+  parent: ClothingHeadHelmetBase
   id: ClothingHeadHelmetHelldiver
   name: salvage NT-01 tactical helmet
   description: This armor is the NanoTrasen standard issue, made from the same titanium alloy as the Goliath hull.

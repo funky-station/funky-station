@@ -36,6 +36,7 @@
 # SPDX-FileCopyrightText: 2024 godisdeadLOL <169250097+godisdeadLOL@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 no <165581243+pissdemon@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 PicklOH <62030853+PicklOH@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Sparlight <twiksparlight@gmail.com>
 # SPDX-FileCopyrightText: 2025 Tadeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
@@ -164,7 +165,7 @@
     - Drowsiness
     - Adrenaline
   - type: Temperature
-    heatDamageThreshold: 800
+    heatDamageThreshold: 2400
   - type: Metabolizer
     solutionOnBody: false
     updateInterval: 0.25

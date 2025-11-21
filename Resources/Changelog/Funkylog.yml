@@ -5749,3 +5749,9 @@ Entries:
       message: Changeling entering stasis now confirms if you want to do that.
   id: 685
   time: '2025-11-21T03:56:33.0000000+00:00'
+- author: wgreen84
+  changes:
+    - type: Add
+      message: Weh plushies that represent all the standard SS14 jobs!
+  id: 686
+  time: '2025-11-21T03:57:28.0000000+00:00'

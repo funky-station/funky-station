@@ -20,6 +20,10 @@ using Content.Server.NodeContainer.Nodes;
 
 namespace Content.Server._FarHorizons.Power.Generation.FissionGenerator;
 
+// Ported and modified from goonstation by Jhrushbe.
+// CC-BY-NC-SA-3.0
+// https://github.com/goonstation/goonstation/blob/master/code/obj/nuclearreactor/turbine.dm
+
 public sealed class TurbineSystem : SharedTurbineSystem
 {
     [Dependency] private readonly GunSystem _gun = default!;

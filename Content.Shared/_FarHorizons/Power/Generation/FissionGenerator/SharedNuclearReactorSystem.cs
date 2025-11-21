@@ -1,3 +1,4 @@
+using Content.Shared.Popups;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Popups;
@@ -6,6 +7,10 @@ using Content.Shared.Administration.Logs;
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared._FarHorizons.Power.Generation.FissionGenerator;
+
+// Ported and modified from goonstation by Jhrushbe.
+// CC-BY-NC-SA-3.0
+// https://github.com/goonstation/goonstation/blob/master/code/obj/nuclearreactor/nuclearreactor.dm
 
 public abstract class SharedNuclearReactorSystem : EntitySystem
 {

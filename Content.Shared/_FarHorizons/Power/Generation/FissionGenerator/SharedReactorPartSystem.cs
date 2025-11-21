@@ -10,6 +10,10 @@ using Robust.Shared.Random;
 
 namespace Content.Shared._FarHorizons.Power.Generation.FissionGenerator;
 
+// Ported and modified from goonstation by Jhrushbe.
+// CC-BY-NC-SA-3.0
+// https://github.com/goonstation/goonstation/blob/master/code/obj/nuclearreactor/reactorcomponents.dm
+
 public abstract class SharedReactorPartSystem : EntitySystem
 {
     [Dependency] private readonly IRobustRandom _random = default!;

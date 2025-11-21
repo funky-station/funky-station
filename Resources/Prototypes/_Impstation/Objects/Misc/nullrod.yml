@@ -222,6 +222,11 @@
     - state: nullrod_bow
   - type: Item
     size: Huge
+  - type: Clothing
+    quickEquip: false
+    slots:
+    - Back
+    - backStorage
   - type: Wieldable
     wieldSound:
       path: /Audio/Items/bow_pull.ogg

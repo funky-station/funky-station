@@ -5765,3 +5765,9 @@ Entries:
       message: Added security truncheon knuckles into the riot control research.
   id: 687
   time: '2025-11-21T03:58:20.0000000+00:00'
+- author: Xcybitt
+  changes:
+    - type: Add
+      message: Added bodycams and nopros into the secfab and lathe respectively.
+  id: 688
+  time: '2025-11-21T19:28:24.0000000+00:00'

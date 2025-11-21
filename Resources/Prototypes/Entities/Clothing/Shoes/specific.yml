@@ -158,6 +158,57 @@
     maxContactWalkSlowdown: 0.7
 
 - type: entity
+  parent: [ ClothingShoesBase, BaseJanitorContraband ]
+  id: ClothingShoesBlueGaloshes
+  name: blue galoshes
+  description: BLUE Rubber boots. why are they blue? we will never know
+  components:
+  - type: Sprite
+    sprite: Clothing/Shoes/Specific/blue_galoshes.rsi
+  - type: Clothing
+    sprite: Clothing/Shoes/Specific/blue_galoshes.rsi
+  - type: NoSlip
+  - type: SlowedOverSlippery
+    slowdownModifier: 0.7
+  - type: SpeedModifierContactCapClothing
+    maxContactSprintSlowdown: 0.7
+    maxContactWalkSlowdown: 0.7
+
+- type: entity
+  parent: [ ClothingShoesBase, BaseJanitorContraband ]
+  id: ClothingShoesOrangeGaloshes
+  name: orange galoshes
+  description: ORANGE Rubber boots. why are they orange? we will never know
+  components:
+  - type: Sprite
+    sprite: Clothing/Shoes/Specific/orange_galoshes.rsi
+  - type: Clothing
+    sprite: Clothing/Shoes/Specific/orange_galoshes.rsi
+  - type: NoSlip
+  - type: SlowedOverSlippery
+    slowdownModifier: 0.7
+  - type: SpeedModifierContactCapClothing
+    maxContactSprintSlowdown: 0.7
+    maxContactWalkSlowdown: 0.7
+
+- type: entity
+  parent: [ ClothingShoesBase, BaseJanitorContraband ]
+  id: ClothingShoesPurpleGaloshes
+  name: purple galoshes
+  description: PURPLE Rubber boots. why are they orange? we will never know
+  components:
+  - type: Sprite
+    sprite: Clothing/Shoes/Specific/purple_galoshes.rsi
+  - type: Clothing
+    sprite: Clothing/Shoes/Specific/purple_galoshes.rsi
+  - type: NoSlip
+  - type: SlowedOverSlippery
+    slowdownModifier: 0.7
+  - type: SpeedModifierContactCapClothing
+    maxContactSprintSlowdown: 0.7
+    maxContactWalkSlowdown: 0.7
+
+- type: entity
   parent: [ClothingShoesBaseButcherable, BaseMajorContraband]
   id: ClothingShoesSpaceNinja
   name: space ninja shoes

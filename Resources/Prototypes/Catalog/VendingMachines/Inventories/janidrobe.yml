@@ -22,12 +22,20 @@
   startingInventory:
     ClothingUniformJumpsuitJanitor: 2
     ClothingUniformJumpskirtJanitor: 2
+    ClothingUniformJaniCoveralls: 2
+    ClothingUniformOverallsJanitor: 2
+    ClothingUniformCarpExterminator: 2
     ClothingHandsGlovesJanitor: 2
+    ClothingHandsBlueGlovesJanitor: 2
+    ClothingHandsOrangeGlovesJanitor: 2
+    ClothingHandsPurpleGlovesJanitor: 2
     ClothingShoesColorBlack: 2
     ClothingHeadHatPurplesoft: 2
     ClothingBeltJanitor: 2
     ClothingHeadsetService: 2
     ClothingOuterWinterJani: 2
+    ClothingHeadRainHat: 2
+    ClothingOuterCoatRain: 2
     ClothingNeckScarfStripedPurple: 3
   contrabandInventory:
     ToyFigurineJanitor: 1

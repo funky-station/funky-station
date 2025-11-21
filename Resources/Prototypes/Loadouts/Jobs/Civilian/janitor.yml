@@ -107,17 +107,54 @@
   id: JanitorHead
   equipment:
     head: ClothingHeadHatPurplesoft
+  groupBy: "caps"
+
+- type: loadout
+  id: YellowJanitorHead
+  equipment:
+    head: ClothingHeadHatYellowsoft
+  groupBy: "caps"
+
+- type: loadout
+  id: OrangeJanitorHead
+  equipment:
+    head: ClothingHeadHatOrangesoft
+  groupBy: "caps"
+
+- type: loadout
+  id: RainHat
+  equipment:
+    head: ClothingHeadRainHat
 
 # Jumpsuit
 - type: loadout
   id: JanitorJumpsuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitJanitor
+  groupBy: "jumpsuits"
 
 - type: loadout
   id: JanitorJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtJanitor
+
+- type: loadout
+  id: JanitorCoveralls
+  equipment:
+    jumpsuit: ClothingUniformJaniCoveralls
+  groupBy: "jumpsuits"
+
+- type: loadout
+  id: JanitorOveralls
+  equipment:
+    jumpsuit: ClothingUniformOverallsJanitor
+  groupBy: "theoveralls"
+
+- type: loadout
+  id: CarpExterminator
+  equipment:
+    jumpsuit: ClothingUniformCarpExterminator
+  groupBy: "theoveralls"
 
 - type: loadout
   id: JanitorialMaidOutfit
@@ -142,22 +179,70 @@
   id: JanitorRubberGloves
   equipment:
     gloves: ClothingHandsGlovesJanitor
+  groupBy: "rubber gloves"
+
+
+- type: loadout
+  id: JanitorBlueRubberGloves
+  equipment:
+    gloves: ClothingHandsBlueGlovesJanitor
+  groupBy: "rubber gloves"
+
+- type: loadout
+  id: JanitorOrangeRubberGloves
+  equipment:
+    gloves: ClothingHandsOrangeGlovesJanitor
+  groupBy: "rubber gloves"
+
+- type: loadout
+  id: JanitorPurpleRubberGloves
+  equipment:
+    gloves: ClothingHandsPurpleGlovesJanitor
+  groupBy: "rubber gloves"
 
 - type: loadout
   id: OrangeGloves
   equipment:
     gloves: ClothingHandsGlovesColorOrange
+  groupBy: "gloves"
 
 - type: loadout
   id: PurpleGloves
   equipment:
     gloves: ClothingHandsGlovesColorPurple
+  groupBy: "gloves"
 
 # Outer clothing
 - type: loadout
   id: JanitorWintercoat
   equipment:
     outerClothing: ClothingOuterWinterJani
+
+- type: loadout
+  id: RainCoat
+  equipment:
+    outerClothing: ClothingOuterCoatRain
+
+# Shoes
+- type: loadout
+  id: Galoshes
+  equipment:
+    shoes: ClothingShoesGaloshes
+
+- type: loadout
+  id: BlueGaloshes
+  equipment:
+    shoes: ClothingShoesBlueGaloshes
+
+- type: loadout
+  id: OrangeGaloshes
+  equipment:
+    shoes: ClothingShoesOrangeGaloshes
+
+- type: loadout
+  id: PurpleGaloshes
+  equipment:
+    shoes: ClothingShoesPurpleGaloshes
 
 # Misc
 - type: loadout

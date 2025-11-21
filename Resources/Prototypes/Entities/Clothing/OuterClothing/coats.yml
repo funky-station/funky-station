@@ -539,3 +539,19 @@
   parent: [ClothingOuterStorageFoldableBaseOpened, ClothingOuterCoatExpensive]
   id: ClothingOuterCoatExpensiveOpened
   name: expensive coat
+
+- type: entity
+  parent: ClothingOuterStorageFoldableBase
+  id: ClothingOuterCoatRain
+  name: rain coat
+  description: you never know when it might rain in space...
+  components:
+  - type: Sprite
+    sprite: Clothing/OuterClothing/Coats/rain_coat.rsi
+  - type: Clothing
+    sprite: Clothing/OuterClothing/Coats/rain_coat.rsi
+
+- type: entity
+  parent: [ClothingOuterStorageFoldableBaseOpened, ClothingOuterCoatRain]
+  id: ClothingOuterCoatRainOpened
+  name: rain coat

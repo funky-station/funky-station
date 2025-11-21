@@ -516,6 +516,52 @@
     fiberColor: fibers-yellow
   - type: FingerprintMask
 
+- type: entity
+  parent: ClothingHandsBase
+  id: ClothingHandsBlueGlovesJanitor
+  name: blue rubber gloves
+  description: High-quality rubber gloves, squeaky to do some cleaning!
+  components:
+  - type: Sprite
+    sprite: Clothing/Hands/Gloves/janitorblue.rsi
+  - type: Clothing
+    sprite: Clothing/Hands/Gloves/janitorblue.rsi
+  - type: Fiber
+    fiberMaterial: fibers-rubber
+    fiberColor: fibers-blue
+  - type: FingerprintMask
+
+- type: entity
+  parent: ClothingHandsBase
+  id: ClothingHandsOrangeGlovesJanitor
+  name: orange rubber gloves
+  description: High-quality rubber gloves, squeaky to do some cleaning!
+  components:
+  - type: Sprite
+    sprite: Clothing/Hands/Gloves/janitororange.rsi
+  - type: Clothing
+    sprite: Clothing/Hands/Gloves/janitororange.rsi
+  - type: Fiber
+    fiberMaterial: fibers-rubber
+    fiberColor: fibers-orange
+  - type: FingerprintMask
+
+- type: entity
+  parent: ClothingHandsBase
+  id: ClothingHandsPurpleGlovesJanitor
+  name: purple rubber gloves
+  description: High-quality rubber gloves, squeaky to do some cleaning!
+  components:
+  - type: Sprite
+    sprite: Clothing/Hands/Gloves/janitorpurple.rsi
+  - type: Clothing
+    sprite: Clothing/Hands/Gloves/janitorpurple.rsi
+  - type: Fiber
+    fiberMaterial: fibers-rubber
+    fiberColor: fibers-purple
+  - type: FingerprintMask
+
+
 #Knuckledusters
 - type: entity
   parent: [ClothingHandsBase, BaseMinorContraband]

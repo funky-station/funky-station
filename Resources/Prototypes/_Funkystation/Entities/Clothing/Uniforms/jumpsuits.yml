@@ -267,3 +267,37 @@
     sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/magistrateturtleneck.rsi
   - type: Clothing
     sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/magistrateturtleneck.rsi
+
+# Janitor clothes (by Frogoo)
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformOverallsJanitor
+  name: janitor overalls
+  description: All salvagers retire to janitor work eventully
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/janioveralls.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/janioveralls.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformCarpExterminator
+  name: carp exterminator overalls
+  description: a special pair of overalls made to keep you clean through a endless wave of carp
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/carp_exterminator.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/carp_exterminator.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJaniCoveralls
+  name: jani coveralls
+  description: a extremly old janitor coveralls. its completly covered in dust and stains.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/jani_coveralls.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/jani_coveralls.rsi

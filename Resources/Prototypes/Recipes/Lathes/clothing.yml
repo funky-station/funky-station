@@ -412,6 +412,21 @@
   id: ClothingUniformJumpskirtJanitor
   result: ClothingUniformJumpskirtJanitor
 
+- type: latheRecipe
+  parent: BaseJumpsuitRecipe
+  id: ClothingUniformJaniCoveralls
+  result: ClothingUniformJaniCoveralls
+
+- type: latheRecipe
+  parent: BaseJumpsuitRecipe
+  id: ClothingUniformOverallsJanitor
+  result: ClothingUniformOverallsJanitor
+
+- type: latheRecipe
+  parent: BaseJumpsuitRecipe
+  id: ClothingUniformCarpExterminator
+  result: ClothingUniformCarpExterminator
+
 ## Lawyer
 
 - type: latheRecipe

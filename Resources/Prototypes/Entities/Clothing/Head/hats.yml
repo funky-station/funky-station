@@ -1243,3 +1243,14 @@
   - type: Clothing
     equippedPrefix: on
     sprite: Clothing/Head/Hats/propellerhat.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadRainHat
+  name: rain hat
+  description: a hat to protect your head from rain! essential for any slime person to have just incase
+  components:
+  - type: Sprite
+    sprite: Clothing/Head/Hats/rain_hat.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Hats/rain_hat.rsi

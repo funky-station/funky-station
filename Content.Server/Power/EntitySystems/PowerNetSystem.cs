@@ -378,8 +378,8 @@ namespace Content.Server.Power.EntitySystems
                     }
 
                     // Enable / disable the battery if the state changed
-                    // Battery only enables if we need it AND the battery has more than 20% charge
-                    var enableBattery = requireBattery && battery.CurrentCharge > battery.MaxCharge * 0.2f;
+                    // Battery only enables if we need it AND the battery has more than 5% charge
+                    var enableBattery = requireBattery && battery.CurrentCharge > battery.MaxCharge * 0.05f;
 
                     if (apcBattery.Enabled != enableBattery)
                     {

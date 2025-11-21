@@ -21,6 +21,7 @@
 # SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
 # SPDX-FileCopyrightText: 2024 yglop <95057024+yglop@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Eris <erisfiregamer1@gmail.com>
+# SPDX-FileCopyrightText: 2025 Kit <nikkiestes0@gmail.com>
 # SPDX-FileCopyrightText: 2025 Rainbow <ev0lvkitten@gmail.com>
 # SPDX-FileCopyrightText: 2025 Skye <57879983+Rainbeon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
@@ -161,6 +162,7 @@
 
 - type: entity
   id: ActionEnterStasis
+  parent: BaseSuicideAction
   name: Enter regenerative stasis
   description: Fake your death and start regenerating. Drains all your chemicals. Consumes biomass.
   categories: [ HideSpawnMenu ]

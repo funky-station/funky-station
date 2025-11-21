@@ -64,7 +64,7 @@ public sealed partial class TraitPrototype : IPrototype
     /// Trait required to take this trait.
     /// </summary>
     [DataField]
-    public string Prerequisite { get; private set; } = default!;
+    public string? Prerequisite { get; private set; }
 
     /// <summary>
     /// The components that get added to the player, when they pick this trait.

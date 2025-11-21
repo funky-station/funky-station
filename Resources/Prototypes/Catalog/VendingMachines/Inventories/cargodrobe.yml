@@ -31,6 +31,8 @@
     ClothingUniformJumpsuitCargo: 3
     ClothingUniformJumpskirtCargo: 3
     ClothingUniformJumpsuitSalvageSpecialist: 3
+    ClothingUniformJumpsuitCargoPilot: 1 # Funky Station
+    ClothingHeadCargoPilotHelmet: 1 # Funky Station
     ClothingShoesColorBlack: 3
     ClothingShoesBootsSalvage: 3
     ClothingHandsGlovesFingerless: 3

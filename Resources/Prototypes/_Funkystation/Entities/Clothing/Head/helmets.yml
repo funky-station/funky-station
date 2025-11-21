@@ -14,3 +14,31 @@
     sprite: _Funkystation/Clothing/Head/Helmets/merc_helmet_syndicate.rsi
   - type: Clothing
     sprite: _Funkystation/Clothing/Head/Helmets/merc_helmet_syndicate.rsi
+
+# Pilot Helmet
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadCargoPilotHelmet
+  name: cargo shuttle pilot helmet
+  description: A padded helmet meant for handling high-Gs and shuttle collisions. Ironically, not rated for space.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Head/Helmets/pilot_helmet.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Head/Helmets/pilot_helmet.rsi
+    equipSound: /Audio/Mecha/mechmove03.ogg
+    unequipSound: /Audio/Mecha/mechmove03.ogg
+    equipDelay: 2
+    unequipDelay: 2
+  - type: Item
+    size: Normal
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+    - HelmetEVA
+  - type: HideLayerClothing
+    slots:
+    - Hair
+    - Snout
+    - HeadTop
+    - HeadSide

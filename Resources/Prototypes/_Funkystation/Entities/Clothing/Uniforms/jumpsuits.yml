@@ -306,3 +306,17 @@
     sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/senior_salvage.rsi
   - type: Clothing
     sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/senior_salvage.rsi
+
+# cargo pilot suit! (by AraiMaia)
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitCargoPilot
+  name: cargo shuttle pilot jumpsuit
+  description: Made of a fire-retardant textile and built to withstand rapid shifts in gravity. Too bad it can't handle the vacuum of space.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/pilot_jumpsuit.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/pilot_jumpsuit.rsi
+

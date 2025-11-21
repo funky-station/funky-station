@@ -5755,3 +5755,13 @@ Entries:
       message: Weh plushies that represent all the standard SS14 jobs!
   id: 686
   time: '2025-11-21T03:57:28.0000000+00:00'
+- author: Xcybitt
+  changes:
+    - type: Add
+      message: >-
+        Added security knuckles and truncheon knuckles into the sec techfab, and
+        emagged lathes and protolathes.
+    - type: Tweak
+      message: Added security truncheon knuckles into the riot control research.
+  id: 687
+  time: '2025-11-21T03:58:20.0000000+00:00'

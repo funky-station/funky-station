@@ -898,4 +898,16 @@
     Glass: 1000
     Gold: 150
     Silver: 150
+  id: ClothingHandsSecurityKnuckleDusters
+  result: ClothingHandsSecurityKnuckleDusters
+  completetime: 3
+  materials:
+    Steel: 500
+
+- type: latheRecipe
+  id: ClothingHandsTruncheonKnuckleDusters
+  result: ClothingHandsTruncheonKnuckleDusters
+  completetime: 3
+  materials:
+    Steel: 500
     Plastic: 500

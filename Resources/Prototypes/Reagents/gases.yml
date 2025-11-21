@@ -475,17 +475,17 @@
         effectProto: StatusEffectForcedSleeping
         time: 200
       - !type:GenericStatusEffect # DeltaV: anesthesia changes
-          conditions:
-          - !type:ReagentThreshold
-            reagent: NitrousOxide
-            min: 1
-          - !type:OrganType
-            type: Slime
-            shouldHave: false
-          key: Anesthesia
-          component: Anesthesia
-          time: 200
-          type: Add
+        conditions:
+        - !type:ReagentThreshold
+          reagent: NitrousOxide
+          min: 1
+        - !type:OrganType
+          type: Slime
+          shouldHave: false
+        key: Anesthesia
+        component: Anesthesia
+        time: 200
+        type: Add
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold

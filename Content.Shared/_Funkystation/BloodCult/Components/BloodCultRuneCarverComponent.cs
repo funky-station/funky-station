@@ -19,8 +19,8 @@ public sealed partial class BloodCultRuneCarverComponent : Component
 	// TODO: Switch from using this static list of valid runes to a dynamic list stored in the BloodCultistComponent, which
 	// can be accessed from both the server and from the client UI code
 	public static string[] ValidRunes = {
-		"BarrierRune", "EmpoweringRune", "OfferingRune", "ReviveRune", "TearVeilRune"//,
-		//"BloodBoilRune", "SpiritRealmRune", "SummoningRune", "TeleportRune"
+		"BarrierRune", "EmpoweringRune", "OfferingRune", "ReviveRune", "SummoningRune", "TearVeilRune"//,
+		//"BloodBoilRune", "SpiritRealmRune", "TeleportRune"
 	};
 
 	/// <summary>

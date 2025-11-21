@@ -16,8 +16,11 @@ using Robust.Client.ResourceManagement;
 using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.XAML;
 using Robust.Shared.GameObjects;
+using Robust.Shared.Graphics;
+using Robust.Shared.Graphics.RSI;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization.TypeSerializers.Implementations;
 using Robust.Shared.Utility;
 using System.Numerics;
 using Content.Shared.BloodCult.Components;
@@ -28,7 +31,7 @@ public sealed partial class RuneRadialMenu : RadialMenu
 {
     [Dependency] private readonly EntityManager _entityManager = default!;
     [Dependency] private readonly IEntitySystemManager _entitySystem = default!;
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+    //[Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly ISharedPlayerManager _playerManager = default!;
     [Dependency] private readonly IResourceCache _resourceCache = default!;
     private readonly SpriteSystem _spriteSystem;
@@ -126,11 +129,17 @@ public sealed partial class RuneRadialMenu : RadialMenu
             ? "_Funkystation/Structures/BloodCult/narsierune.rsi"
             : "_Funkystation/Structures/BloodCult/bloodrune.rsi";
 
-        // Try to load the icon texture, fallback to prototype icon if not found
-        var iconPath = new ResPath($"/Textures/{rsiPath}/{iconName}.png");
-        if (_resourceCache.TryGetResource<TextureResource>(iconPath, out var textureResource))
-            return textureResource.Texture;
+        // Load the RSI state properly instead of raw PNG
+        var fullRsiPath = SpriteSpecifierSerializer.TextureRoot / new ResPath(rsiPath);
+        if (_resourceCache.TryGetResource<RSIResource>(fullRsiPath, out var rsiResource))
+        {
+            if (rsiResource.RSI.TryGetState(iconName, out var state))
+            {
+                return state.Frame0;
+            }
+        }
 
+        // Fallback to prototype icon if RSI state not found
         return _spriteSystem.GetPrototypeIcon(rune).Default;
     }
 

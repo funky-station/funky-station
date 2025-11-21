@@ -39,7 +39,7 @@ namespace Content.Server.BloodCult.EntitySystems
 		[Dependency] private readonly BloodCultRuleSystem _bloodCultRule = default!;
 		[Dependency] private readonly EntityLookupSystem _lookup = default!;
         [Dependency] private readonly AlertLevelSystem _alertLevel = default!;
-        [Dependency] private readonly StationSystem _station = default!;
+        //[Dependency] private readonly StationSystem _station = default!;
         [Dependency] private readonly SharedTransformSystem _transform = default!;
 
 		public override void Initialize()

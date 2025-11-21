@@ -1,8 +1,9 @@
 # SPDX-FileCopyrightText: 2025 Skye <57879983+Rainbeon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 kbarkevich <24629810+kbarkevich@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 Terkala <appleorange64@gmail.com>
 #
-# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+# SPDX-License-Identifier: AGPL-3.0-or-later or MIT
 
 - type: entity
   parent: [ SheetMetalBase, BaseBloodCultContraband ]
@@ -29,6 +30,7 @@
     - state: runedmetal_3
       map: ["base"]
   - type: Item
+    sprite: _Funkystation/BloodCult/Sheets/metal.rsi
     heldPrefix: runedmetal
   - type: Appearance
 
@@ -39,7 +41,7 @@
   suffix: Full
   components:
   - type: Sprite
-    state: runedmetal
+    state: runedmetal_3
   - type: Stack
     stackType: RunedMetal
     count: 30
@@ -51,7 +53,7 @@
   suffix: 10
   components:
   - type: Sprite
-    state: runedmetal
+    state: runedmetal_2
   - type: Stack
     stackType: RunedMetal
     count: 10

@@ -30,7 +30,7 @@ public sealed partial class CultAbilityPrototype : IPrototype
 	/// <summary>
 	///		Health drain to prepare this spell.
 	/// </summary>
-	[DataField] public int HealthDrain = 15;
+	[DataField] public int HealthDrain = 7;
 
 	/// <summary>
 	///		Length of DoAfter to carve this spell.

@@ -38,7 +38,7 @@
 
 - type: cultAbility
   id: CultTwistedConstruction
-  healthDrain: 12
+  healthDrain: 10
   doAfterLength: 5
   actionPrototypes:
   - ActionCultistTwistedConstruction

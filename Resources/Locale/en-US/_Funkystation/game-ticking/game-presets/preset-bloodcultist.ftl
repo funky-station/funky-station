@@ -182,3 +182,14 @@ cult-roundend-sacrifices = The blood cult rendered {$sacrifices} souls up to the
 cult-soulstone-role-name = Trapped Soul
 cult-soulstone-role-description = You are trapped in a soulstone. You can speak and will be released as a shade when a cultist uses the stone.
 cult-soulstone-role-rules = You are serving the blood cult. Follow the orders of the cultist who holds your soulstone and help them achieve their goals.
+
+cult-summoning-juggernaut-shell = The rune pulses with dark energy as a juggernaut shell materializes!
+cult-summoning-pylon = The rune glows crimson as a pylon anchors itself to reality!
+cult-summoning-no-materials = Place Runed Metal or Runed Glass on the summoning rune. 30 runed metal summons a juggernaut shell; 10 runed glass summons a pylon.
+cult-summoning-insufficient-materials = Not enough materials! You need 30 runed metal for a juggernaut shell or 10 runed glass for a pylon.
+cult-summoning-need-more-metal = Not enough runed metal! You have {$have}, but need {$needed} for a juggernaut shell.
+cult-summoning-need-more-glass = Not enough runed glass! You have {$have}, but need {$needed} for a pylon.
+cult-summoning-pylon-location-blocked = The pylon cannot be summoned here - the location is blocked!
+cult-summoning-pylon-no-grid = The pylon cannot be summoned here.
+cult-summoning-pylon-anchor-failed = The pylon failed to anchor properly!
+cult-summoning-pylon-failed = The pylon summoning failed! Your materials have been refunded.

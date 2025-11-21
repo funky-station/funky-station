@@ -235,20 +235,9 @@
   description: A coat specifically designed for work inside cold storage, sorely needed by cold-blooded lizard chefs.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
-    layers:
-    - state: CHEF-icon
-  - type: Item
-    inhandVisuals:
-      left:
-      - state: CHEF-inhand-left
-      right:
-      - state: CHEF-inhand-right
+    sprite: _Funkystation/Clothing/OuterClothing/Coats/chef_freezer_coat.rsi
   - type: Clothing
-    sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
-    clothingVisuals:
-      outerClothing:
-      - state: CHEF-equipped-OUTERCLOTHING
+    sprite: _Funkystation/Clothing/OuterClothing/Coats/chef_freezer_coat.rsi
 
 - type: entity
   parent: ClothingOuterWinterCoatToggleable

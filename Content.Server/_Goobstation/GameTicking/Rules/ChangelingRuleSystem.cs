@@ -22,6 +22,7 @@ using Content.Shared.Store;
 using Content.Shared.Store.Components;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Random;
 using System.Text;
 using Content.Shared._EinsteinEngines.Silicon.Components;
 
@@ -34,6 +35,8 @@ public sealed partial class ChangelingRuleSystem : GameRuleSystem<ChangelingRule
     [Dependency] private readonly SharedRoleSystem _role = default!;
     [Dependency] private readonly NpcFactionSystem _npcFaction = default!;
     [Dependency] private readonly ObjectivesSystem _objective = default!;
+    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+    [Dependency] private readonly IRobustRandom _random = default!;
 
     public readonly SoundSpecifier BriefingSound = new SoundPathSpecifier("/Audio/_Goobstation/Ambience/Antag/changeling_start.ogg");
 
@@ -45,7 +48,7 @@ public sealed partial class ChangelingRuleSystem : GameRuleSystem<ChangelingRule
 
     public readonly ProtoId<CurrencyPrototype> Currency = "EvolutionPoint";
 
-    [ValidatePrototypeId<EntityPrototype>] EntProtoId mindRole = "MindRoleChangeling";
+    public static readonly EntProtoId MindRole = "MindRoleChangeling";
 
     public override void Initialize()
     {
@@ -67,18 +70,32 @@ public sealed partial class ChangelingRuleSystem : GameRuleSystem<ChangelingRule
         if (!_mind.TryGetMind(target, out var mindId, out var mind))
             return false;
 
-        _role.MindAddRole(mindId, mindRole.Id, mind, true);
+        _role.MindAddRole(mindId, MindRole, mind, true);
+
 
         // briefing
+        rule.ChangelingHive = "ChangelingFlavor";
+        var hive = _random.Pick(_prototypeManager.Index(rule.ChangelingHive).Values);
+        rule.ChangelingHive = hive;
+
         if (TryComp<MetaDataComponent>(target, out var metaData))
         {
-            var briefing = Loc.GetString("changeling-role-greeting", ("name", metaData?.EntityName ?? "Unknown"));
-            var briefingShort = Loc.GetString("changeling-role-greeting-short", ("name", metaData?.EntityName ?? "Unknown"));
+            var briefing = new StringBuilder();
+            briefing.AppendLine(Loc.GetString("changeling-role-greeting-intro", ("name", metaData?.EntityName ?? "Unknown")));
+            briefing.AppendLine(Loc.GetString($"changeling-role-greeting-{rule.ChangelingHive}"));
+            briefing.AppendLine(Loc.GetString($"changeling-role-greeting-objectives"));
+            briefing.AppendLine(Loc.GetString($"changeling-role-greeting-final"));
 
-            _antag.SendBriefing(target, briefing, Color.Yellow, BriefingSound);
+            var briefingshort = new StringBuilder();
+            briefingshort.AppendLine("\n" + Loc.GetString("changeling-role-greeting-short", ("name", metaData?.EntityName ?? "Unknown")));
+            briefingshort.AppendLine("\n" + Loc.GetString($"changeling-{rule.ChangelingHive}-intro"));
+            briefingshort.AppendLine("\n" + Loc.GetString($"changeling-{rule.ChangelingHive}-doctrine"));
+            briefingshort.AppendLine("\n" + Loc.GetString($"changeling-{rule.ChangelingHive}-allies"));
+
+            _antag.SendBriefing(target, briefing.ToString(), Color.Yellow, BriefingSound);
 
             if (_role.MindHasRole<ChangelingRoleComponent>(mindId, out var mr))
-                AddComp(mr.Value, new RoleBriefingComponent { Briefing = briefingShort }, overwrite: true);
+                AddComp(mr.Value, new RoleBriefingComponent { Briefing = briefingshort.ToString() }, overwrite: true);
         }
         // hivemind stuff
         _npcFaction.RemoveFaction(target, NanotrasenFactionId, false);

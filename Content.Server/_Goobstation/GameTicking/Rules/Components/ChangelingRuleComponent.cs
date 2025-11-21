@@ -10,6 +10,7 @@
 using Content.Shared.NPC.Prototypes;
 using Content.Shared.Roles;
 using Content.Shared.Store;
+using Content.Shared.Dataset;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 
@@ -19,6 +20,9 @@ namespace Content.Server.GameTicking.Rules.Components;
 public sealed partial class ChangelingRuleComponent : Component
 {
     public readonly List<EntityUid> ChangelingMinds = new();
+
+    [DataField]
+    public ProtoId<DatasetPrototype> ChangelingHive = "ChangelingFlavor";
 
     public readonly List<ProtoId<StoreCategoryPrototype>> StoreCategories = new()
     {

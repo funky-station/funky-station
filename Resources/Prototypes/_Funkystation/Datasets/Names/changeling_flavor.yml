@@ -1,0 +1,10 @@
+- type: dataset
+  id: ChangelingFlavor
+  values:
+  - "hiveless"
+  - "pale-choir"
+  - "swarm-of-ichor"
+  - "solstice-shroud"
+  - "red-garden"
+  - "crownless-knights"
+  - "false-light"

@@ -177,8 +177,7 @@
     - id: FoodMeatDragon
       amount: 4
     - id: MaterialCarpScale1 # Funky
-      amount: 5
-      maxAmount: 10
+      amount: 15
   - type: InteractionPopup
     successChance: 0.25 # It's no goose, but you better smell like carp.
     interactSuccessString: petting-success-dragon
@@ -279,8 +278,8 @@
     - id: FoodMeatDragon
       amount: 2
     - id: MaterialCarpScale1 # Funky
-      amount: 3
-      maxAmount: 7   
+      amount: 6
+      maxAmount: 12
   - type: MeleeWeapon
     damage:
       groups:

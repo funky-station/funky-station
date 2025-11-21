@@ -17,3 +17,6 @@
     graph: SharkminnowShoes
     node: sharkminnowShoes
   - type: Magboots
+  - type: Tag
+    tags:
+    - SharkminnowShoes

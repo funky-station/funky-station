@@ -115,9 +115,9 @@
         - id: MaterialToothSpaceCarp1
           amount: 1
           maxAmount: 4
-        - id: MaterialCarpScale1 # Funky 
+        - id: MaterialCarpScale1 # Funky
           amount: 1
-          prob: 0.1          
+          prob: 0.5
     - type: MeleeWeapon
       altDisarm: false
       angle: 0
@@ -324,7 +324,7 @@
           amount: 1
           maxAmount: 3
         - id: MaterialCarpScale1 # Funky
-          amount: 2
+          amount: 3
           maxAmount: 4
     - type: MeleeWeapon
       damage:

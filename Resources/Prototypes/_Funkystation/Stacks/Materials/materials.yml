@@ -10,3 +10,10 @@
   icon: { sprite: _Funkystation/Objects/Materials/Mob/carpscale.rsi, state: scale}
   spawn: MaterialCarpScale1
   maxCount: 30
+
+- type: stack
+  id: HivelordTendril
+  name: hivelord tendril
+  icon: { sprite: _Funkystation/Objects/Materials/Mob/hivelord_tendril.rsi, state: tendril}
+  spawn: MaterialHivelordTendril1
+  maxCount: 30

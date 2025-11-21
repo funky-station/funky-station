@@ -20,6 +20,32 @@
   objectType: Item
 
 - type: construction
+  name: hivelord hardsuit
+  id: HardsuitHivelord
+  graph: HardsuitHivelord
+  startNode: start
+  targetNode: hardsuitHivelord
+  category: construction-category-clothing
+  objectType: Item
+  description: A eerie hardsuit made from the remaining pieces of a Hivelord, grants a small fraction of their regenerative abilities while worn.
+  icon:
+    sprite: _Funkystation/Clothing/OuterClothing/Hardsuits/hivelord.rsi
+    state: icon
+
+- type: construction
+  name: carp scale hardsuit
+  id: HardsuitCarpScale
+  graph: HardsuitCarpScale
+  startNode: start
+  targetNode: hardsuitCarpScale
+  category: construction-category-clothing
+  objectType: Item
+  description: A hardsuit adorned with flexible and durable scales, has a jetpack built into it.
+  icon:
+    sprite: _Funkystation/Clothing/OuterClothing/Hardsuits/carp_scale.rsi
+    state: icon
+
+- type: construction
   name: sharkminnow shoes
   id: SharkminnowShoes
   graph: SharkminnowShoes

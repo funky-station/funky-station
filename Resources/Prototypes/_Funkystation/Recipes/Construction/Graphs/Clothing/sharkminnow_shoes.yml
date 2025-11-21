@@ -13,7 +13,7 @@
     - to: sharkminnowShoes
       steps:
         - material: CarpScale
-          amount: 15
+          amount: 6
           doAfter: 8
         - tag: Magboots
           name: magboots

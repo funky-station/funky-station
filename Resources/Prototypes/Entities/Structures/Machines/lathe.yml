@@ -151,6 +151,7 @@
 # SPDX-FileCopyrightText: 2025 IronDragoon <you@example.com>
 # SPDX-FileCopyrightText: 2025 Komoni <131829655+Komonighub@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Liamofthesky <157073227+Liamofthesky@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Lillian Industries <47704287+luegamer@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Lyndomen <49795619+lyndomen@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 McBosserson <148172569+McBosserson@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 McBosserson <mcbosserson@hotmail.com>
@@ -171,6 +172,7 @@
 # SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
 # SPDX-FileCopyrightText: 2025 TheSecondLord <88201625+TheSecondLord@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Toaster <mrtoastymyroasty@gmail.com>
+# SPDX-FileCopyrightText: 2025 Toastermeister <215405651+Toastermeister@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 TrixxedHeart <46364955+TrixxedBit@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 V <97265903+formlessnameless@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Xcybitt <197952719+Xcybitt@users.noreply.github.com>
@@ -547,6 +549,7 @@
     - CartridgePoison
     - SecHypo # Goobstation
     - ParamedHypo # Goobstation - ParamedHypo
+    - ClothingHandsSecurityKnuckleDusters #funk
   - type: BlueprintReceiver
     whitelist:
       tags:
@@ -731,6 +734,7 @@
     - MagazinePistolLargeIncendiary # Funkystation
     - MagazineBoxPistolLargeUranium # Funkystation
     - MagazineBoxPistolLargeIncendiary # Funkystation
+    - ClothingHandsTruncheonKnuckleDusters # funk
 
 - type: entity
   id: ProtolatheHyperConvection
@@ -1175,6 +1179,7 @@
     - SecHypo # Goobstation
     - autoInjectorCartridgeCase
     - autoInjectorCartridgeCaseSoft
+    - ClothingHandsSecurityKnuckleDusters #funk
     dynamicRecipes:
     - BoxBeanbag
     - BoxShotgunIncendiary
@@ -1246,6 +1251,7 @@
     - WeaponMechCombatFlashbangLauncher
     - WeaponMechCombatMissileRack8
     - ClothingEyesNightVisionSecurityGoggles # Funky - EE nightvision
+    - ClothingHandsTruncheonKnuckleDusters # funk
   - type: EmagLatheRecipes # Goobstation
     emagStaticRecipes:
     - GrenadeShrapnel #funky
@@ -1403,6 +1409,8 @@
     - ParamedHypo # Goobstation - ParamedHypo
     - autoInjectorCartridgeCase
     - autoInjectorCartridgeCaseSoft
+    - MedHUD # Funky
+    - Vial # Funky
     - UtilityKnife #if you don't have scalpels ig #funk
     dynamicRecipes:
     - ChemicalPayload
@@ -1417,6 +1425,12 @@
     - OmnimedTool
     - MedicalCyberneticEyes
     - ClothingEyesNightVisionMedicalGoggles # Funky - EE nightvision
+    - CompactDefib # Funky Change
+    - JawsOfLifeLeftArm # Funky Change
+    - JawsOfLifeRightArm # Funky Change
+    - SpeedLeftLeg # Funky Change
+    - SpeedRightLeg # Funky Change
+    - BasicCyberneticEyes # Funky Change
   - type: Machine
     board: MedicalTechFabCircuitboard
   - type: StealTarget
@@ -1448,6 +1462,7 @@
     - ClothingUniformJumpskirtColorGrey
     - ClothingUniformJumpsuitBartender
     - ClothingUniformJumpskirtBartender
+    - ApronBartender # Funky Change
     - ClothingHeadHatCapcap
     - ClothingHeadHatCaptain
     - ClothingUniformJumpsuitCaptain
@@ -1472,6 +1487,7 @@
     - ClothingUniformJumpskirtChaplain
     - ClothingUniformJumpsuitChef
     - ClothingUniformJumpskirtChef
+    - ApronChef # Funky Change
     - ClothingUniformJumpsuitChemistry
     - ClothingUniformJumpskirtChemistry
     - ClothingUniformJumpsuitClown
@@ -1504,6 +1520,7 @@
     - ClothingUniformJumpskirtHoSParadeMale
     - ClothingUniformJumpsuitHydroponics
     - ClothingUniformJumpskirtHydroponics
+    - ApronHydroponics # Funky Change
     - ClothingUniformJumpsuitJanitor
     - ClothingUniformJumpskirtJanitor
     - ClothingUniformJumpsuitLawyerBlack

@@ -898,6 +898,15 @@
     Glass: 1000
     Gold: 150
     Silver: 150
+  id: SurveillanceWirelessCameraBodySecurity
+  result: SurveillanceWirelessCameraBodySecurity
+  completetime: 3
+  materials:
+    Cloth: 200
+    Steel: 100
+    Plastic: 100
+    
+- type: latheRecipe  
   id: ClothingHandsSecurityKnuckleDusters
   result: ClothingHandsSecurityKnuckleDusters
   completetime: 3

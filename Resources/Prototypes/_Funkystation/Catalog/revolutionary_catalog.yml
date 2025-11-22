@@ -1,4 +1,5 @@
 # SPDX-FileCopyrightText: 2025 Tadeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 mkanke-real <mikekanke@gmail.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
@@ -23,13 +24,13 @@
   description: Make yourself look suspicious, in style.
   productEntity: ClothingEyesGlassesSunglasses
   cost:
-    RevCoin: 10 # Temporary price
+    RevCoin: 5 # Temporary price
   categories:
   - RevolutionaryUplinkDefault
   conditions:
   - !type:ListingLimitedStockCondition
-    stock: 1
-  saleLimit: 1
+    stock: 2
+  saleLimit: 2
 
 - type: listing
   id: RevolutionaryUplinkSyndieKey
@@ -58,7 +59,7 @@
   - !type:ListingLimitedStockCondition
     stock: 1
   saleLimit: 1
-  
+
 - type: listing
   id: RevolutionaryUplinkRevLieutenantImplanter
   name: revolutionary lieutenant implanter
@@ -71,4 +72,46 @@
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 3
+  saleLimit: 1
+
+- type: listing
+  id: RevolutionaryUplinkCameraBug
+  name: camera bug
+  description: Have eyes everywhere to direct the revolution's movements to further your cause.
+  productEntity: CameraBug
+  cost:
+    RevCoin: 5 # Temporary price
+  categories:
+  - RevolutionaryUplinkDefault
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 3
+  saleLimit: 1
+
+- type: listing
+  id: RevolutionaryUplinkListeningBug
+  name: listening bug
+  description: No secrets are safe on the station with this addition to your toolkit.
+  productEntity: RadioHandheldSyndicate
+  cost:
+    RevCoin: 2 # Temporary price
+  categories:
+  - RevolutionaryUplinkDefault
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 5
+  saleLimit: 5
+
+- type: listing
+  id: RevolutionaryUplinkTrenchWhistle
+  name: trench whistle
+  description: If things go loud give the call and your allies will come to your aid.
+  productEntity: SyndicateWhistle
+  cost:
+    RevCoin: 1 # Temporary price
+  categories:
+  - RevolutionaryUplinkDefault
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
   saleLimit: 1

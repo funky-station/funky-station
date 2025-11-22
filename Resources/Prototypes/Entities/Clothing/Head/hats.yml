@@ -346,6 +346,14 @@
   - type: ContainerContainer
     containers:
       storagebase: !type:Container
+      hidden_slot: !type:ContainerSlot
+  - type: ItemSlots
+    slots:
+      hidden_slot:
+        name: computer_slot_accessory
+        whitelist:
+          tags:
+          - ListeningBug
   - type: PilotedClothing
     pilotWhitelist:
       tags:

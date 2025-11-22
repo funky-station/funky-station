@@ -176,6 +176,14 @@
       machine_board: !type:Container
       machine_parts: !type:Container
       ballistic-ammo: !type:Container
+      hidden_slot: !type:ContainerSlot
+  - type: ItemSlots
+    slots:
+      hidden_slot:
+        name: computer_slot_accessory
+        whitelist:
+          tags:
+          - ListeningBug
   - type: Destructible
     thresholds:
     - trigger:
@@ -326,6 +334,14 @@
     containers:
       machine_board: !type:Container
       machine_parts: !type:Container
+      hidden_slot: !type:ContainerSlot
+  - type: ItemSlots
+    slots:
+      hidden_slot:
+        name: computer_slot_accessory
+        whitelist:
+          tags:
+          - ListeningBug
   - type: Destructible
     thresholds:
     - trigger:

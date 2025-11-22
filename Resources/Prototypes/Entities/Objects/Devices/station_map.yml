@@ -38,6 +38,17 @@
       interfaces:
         enum.StationMapUiKey.Key:
           type: StationMapBoundUserInterface
+    - type: ContainerContainer
+      containers:
+        board: !type:Container
+        hidden_slot: !type:ContainerSlot
+    - type: ItemSlots
+      slots:
+        hidden_slot:
+          name: computer_slot_accessory
+          whitelist:
+            tags:
+            - ListeningBug
 
 - type: entity
   id: HandheldStationMap

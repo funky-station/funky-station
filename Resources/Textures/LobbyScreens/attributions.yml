@@ -193,3 +193,8 @@
   license: "CC-BY-NC-3.0"
   copyright: "frogoo"
   source: "https://funkystation.org"
+
+- files: ["ratburgers.webp"]
+  license: "CC-BY-NC-3.0"
+  copyright: "nikitavix on Discord"
+  source: "https://funkystation.org"

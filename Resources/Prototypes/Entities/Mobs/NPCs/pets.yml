@@ -72,7 +72,9 @@
 # SPDX-FileCopyrightText: 2025 Ekpy <33184056+Ekpy@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Errant <35878406+Errant-4@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 PurpleTranStar <purpletranstars@gmail.com>
+# SPDX-FileCopyrightText: 2025 Starry <202317940+PurpleTranStar@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 jackel234 <jackel234@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
@@ -925,6 +927,45 @@
     attributes:
       proper: true
       gender: male
+
+# Funkystation baybee - This was copied directly from Pun Pun, as Yip-Yap is basically just the kobold version of Pun Pun for the Chef.
+- type: entity
+  name: Yip-Yap
+  parent: MobKobold
+  id: MobKoboldYipYap
+  description: A mischevious little kobold, who loves to cook food just as much as he loves eating it. 
+  components:
+    - type: GhostRole
+      prob: 1
+      makeSentient: true
+      allowSpeech: true
+      allowMovement: true
+      name: ghost-role-information-yipyap-name
+      description: ghost-role-information-yipyap-description
+      rules: ghost-role-information-nonantagonist-rules
+    - type: GhostTakeoverAvailable
+    - type: Butcherable
+      butcheringType: Spike
+      spawned:
+        - id: FoodMeat
+          amount: 3
+        - id: FoodShakerSalt
+          amount: 1
+        - id: FoodShakerPepper
+          amount: 1
+    - type: Tag
+      tags:
+        - CannotSuicide
+        - DoorBumpOpener
+        - VimPilot
+        - AnomalyHost
+    - type: Loadout
+      prototypes: [ MobKoboldGear ]
+    - type: Grammar
+      attributes:
+        proper: true
+        gender: male
+# End of Funky edits
 
 - type: entity
   name: Tropico

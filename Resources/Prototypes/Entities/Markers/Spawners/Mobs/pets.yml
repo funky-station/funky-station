@@ -1,7 +1,9 @@
+# SPDX-FileCopyrightText: 2025 88tv <131759102+88tv@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 8tv <eightev@gmail.com>
 # SPDX-FileCopyrightText: 2025 Crude Oil <124208219+CroilBird@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Errant <35878406+Errant-4@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Southbridge <7013162+southbridge-fur@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 jackel234 <jackel234@users.noreply.github.com>
 #
 # SPDX-License-Identifier: MIT
 
@@ -224,6 +226,23 @@
   - type: ConditionalSpawner
     prototypes:
     - MobMonkeyPunpun
+      
+#Funkystation start
+- type: entity
+  parent: MarkerBase
+  id: SpawnMobKoboldYipYap
+  name: Yip-Yap Spawner
+  suffix: Chef Pet
+  components:
+    - type: Sprite
+      layers:
+        - state: green
+        - state: kobold 
+          sprite: Mobs/Animals/kobold.rsi
+    - type: ConditionalSpawner
+      prototypes:
+        - MobKoboldYipYap
+#Funkystation end
 
 - type: entity
   parent: MarkerBase

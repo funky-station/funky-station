@@ -1,8 +1,10 @@
 # SPDX-FileCopyrightText: 2025 ATDoop <bug@bug.bug>
 # SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 ferynn <117872973+ferynn@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 ferynn <witchy.girl.me@gmail.com>
 # SPDX-FileCopyrightText: 2025 funnyfurby <furbyb772@gmail.com>
 # SPDX-FileCopyrightText: 2025 funnyfurby <furbyfunny44@gmail.com>
+# SPDX-FileCopyrightText: 2025 jackel234 <jackel234@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
@@ -22,6 +24,7 @@
   id: MoodPets
   values:
   - Pun Pun the Monkey
+  - Yip-Yap the Kobold
   - Hamlet the Hamster
   - Shiva the Spider
   - Ian the Corgi
@@ -107,7 +110,7 @@
   - Mothroachburger
   - Amanita Jelly
   - Spicy Rock Pizza
-  
+
 - type: dataset
   id: MoodDrinkables
   values:
@@ -123,7 +126,7 @@
   - Hippie's Delight
   - Tayquila
   - Three Mile Island Iced Tea
-  
+
 - type: dataset
   id: MoodHolidays
   values:

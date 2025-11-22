@@ -353,6 +353,7 @@ public sealed class NuclearReactorSystem : SharedNuclearReactorSystem
         "meltdown" => NuclearReactorPrefabs.Meltdown,
         "alignment" => NuclearReactorPrefabs.Alignment,
         "arachne" => NuclearReactorPrefabs.Arachne,
+        "lens" => NuclearReactorPrefabs.Lens,
         _ => NuclearReactorPrefabs.Empty,
     };
 

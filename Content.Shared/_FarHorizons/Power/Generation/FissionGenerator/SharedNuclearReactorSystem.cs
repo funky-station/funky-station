@@ -289,4 +289,29 @@ public static class NuclearReactorPrefabs
             g, h, g, h, g, h, g
         }
     };
+
+    public static readonly ReactorPartComponent?[,] Lens =
+    {
+        {
+            g, h, g, h, g, h, g
+        },
+        {
+            h, f, c, g, c, f, h
+        },
+        {
+            g, c, c, h, c, c, g
+        },
+        {
+            h, g, h, f, h, g, h
+        },
+        {
+            g, c, c, h, c, c, g
+        },
+        {
+            h, f, c, g, c, f, h
+        },
+        {
+            g, h, g, h, g, h, g
+        }
+    };
 }

@@ -484,6 +484,7 @@
     - id: WantedListCartridge
     - id: DrinkHosFlask
     - id: RadioHandheldCommand #funkystation, no sec radio since they start with one
+    - id: HandheldStationMap #funk, all HoS' must find their way
 
 # Hardsuit table, used for suit storage as well
 - type: entityTable

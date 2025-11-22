@@ -64,6 +64,7 @@
         - id: ClothingUniformJumpskirtOperative
         - id: ClothingHeadsetAltSyndicate
         - id: ClothingEyesHudSyndicate
+        - id: HandheldStationMap #funk, i kinda don't want memorizing the station to be somewhat of a must for nukies
 
 - type: entityTable
   id: FillLockerEmergencyStandard

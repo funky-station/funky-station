@@ -1,5 +1,6 @@
 using Content.Shared.Storage.Components;
 using Robust.Shared.GameStates;
+using Robust.Shared.Network;
 using Robust.Shared.Serialization;
 
 namespace Content.Shared.Species.Arachnid;
@@ -33,5 +34,14 @@ public sealed partial class CocoonContainerComponent : Component
     /// </summary>
     [DataField]
     public float AbsorbPercentage = 0.3f;
+}
+
+/// <summary>
+/// Networked event sent from server to client to trigger the instant rotation animation.
+/// </summary>
+[Serializable, NetSerializable]
+public sealed class CocoonRotationAnimationEvent(NetEntity cocoon) : EntityEventArgs
+{
+    public NetEntity Cocoon = cocoon;
 }
 

@@ -6,6 +6,7 @@
   - type: Sprite
     sprite: Mobs/Effects/cocooned.rsi
     state: cocooned
+    noRot: true
   - type: Transform
   - type: Physics
     bodyType: Dynamic
@@ -28,8 +29,9 @@
     absorbPercentage: 0.3
   - type: Appearance
   - type: RotationVisuals
+    defaultRotation: 0
     horizontalRotation: 90
-  - type: StandingState
+    AnimationTime: 0
   - type: Clickable
   - type: Pullable
   - type: InteractionOutline

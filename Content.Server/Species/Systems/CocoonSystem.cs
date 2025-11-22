@@ -18,7 +18,6 @@ using Content.Shared.Species.Arachnid;
 using Content.Shared.Standing;
 using Content.Shared.Storage.Components;
 using Content.Shared.Storage.EntitySystems;
-using Content.Shared.Rotation;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
@@ -41,7 +40,6 @@ public sealed class CocoonSystem : SharedCocoonSystem
     [Dependency] private readonly SharedHandsSystem _hands = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly DamageableSystem _damageable = default!;
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
 
     private const string CocoonContainerId = "cocoon_victim";
 
@@ -72,7 +70,7 @@ public sealed class CocoonSystem : SharedCocoonSystem
 
         // Calculate percentage of the original damage to absorb
         var absorbedDamage = originalTotalDamage * ent.Comp.AbsorbPercentage;
-        
+
         // Reduce the damage by the absorb percentage (victim only takes the remainder)
         // Apply coefficient to all damage types that were originally present
         var reducePercentage = 1f - ent.Comp.AbsorbPercentage;
@@ -250,7 +248,7 @@ public sealed class CocoonSystem : SharedCocoonSystem
         // Spawn cocoon container at target's position
         var targetCoords = _transform.GetMapCoordinates(target);
         var cocoonContainer = Spawn("CocoonContainer", targetCoords);
-        
+
         // Set up the container component
         if (!TryComp<CocoonContainerComponent>(cocoonContainer, out var cocoonComp))
         {
@@ -260,35 +258,8 @@ public sealed class CocoonSystem : SharedCocoonSystem
         }
 
         cocoonComp.Victim = target;
+
         Dirty(cocoonContainer, cocoonComp);
-
-        // Check if the victim was standing - if so, animate the cocoon to fall horizontally
-        // If the victim was already prone, set cocoon to prone immediately without animation
-        var victimWasStanding = !_standing.IsDown(target);
-        if (victimWasStanding)
-        {
-            // Make the cocoon container go prone (fall to ground horizontally) - this will animate
-            _standing.Down(cocoonContainer, playSound: false, dropHeldItems: false, force: true);
-        }
-        else
-        {
-            // Victim was already prone - set cocoon to prone immediately without animation
-            if (TryComp<StandingStateComponent>(cocoonContainer, out var standingState))
-            {
-                standingState.CurrentState = StandingState.Lying;
-                Dirty(cocoonContainer, standingState);
-            }
-            
-            // Set rotation state directly to horizontal (this skips the animation)
-            _appearance.SetData(cocoonContainer, RotationVisuals.RotationState, RotationState.Horizontal);
-        }
-
-        // Sync the cocoon container's rotation to match the victim's rotation
-        if (TryComp<TransformComponent>(target, out var victimXform) &&
-            TryComp<TransformComponent>(cocoonContainer, out var cocoonXform))
-        {
-            _transform.SetLocalRotation(cocoonContainer, victimXform.LocalRotation, cocoonXform);
-        }
 
         // Drop all items from victim's hands before inserting
         if (TryComp<HandsComponent>(target, out var hands))
@@ -315,6 +286,9 @@ public sealed class CocoonSystem : SharedCocoonSystem
 
         // Apply effects to victim after insertion (ComponentStartup may have fired before victim was set)
         SetupVictimEffects(target);
+
+        // Send networked event to client to trigger instant rotation animation
+        RaiseNetworkEvent(new CocoonRotationAnimationEvent(GetNetEntity(cocoonContainer)));
 
         // Play ziptie sound for everyone within 10 meters
         var filter = Filter.Empty().AddInRange(targetCoords, 10f);

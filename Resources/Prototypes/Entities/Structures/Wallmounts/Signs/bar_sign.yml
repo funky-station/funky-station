@@ -82,11 +82,10 @@
     layoutId: BarSign
   - type: ContainerContainer
     containers:
-      board: !type:Container
-        ents: [ ]
+      hidden_slot: !type:ContainerSlot
   - type: ItemSlots
     slots:
-      mop_slot:
+      hidden_slot:
         name: computer_slot_accessory
         whitelist:
           tags:

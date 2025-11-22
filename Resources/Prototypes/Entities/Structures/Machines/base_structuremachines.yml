@@ -97,7 +97,6 @@
       machine_board: !type:Container
       machine_parts: !type:Container
       hidden_slot: !type:ContainerSlot
-        ents: [ ]
   - type: ItemSlots
     slots:
       hidden_slot:

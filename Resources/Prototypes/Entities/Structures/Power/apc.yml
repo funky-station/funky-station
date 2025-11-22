@@ -203,7 +203,6 @@
       board: !type:Container
         ents: [ ]
       hidden_slot: !type:ContainerSlot
-        ents: [ ]
   - type: ItemSlots
     slots:
       hidden_slot:

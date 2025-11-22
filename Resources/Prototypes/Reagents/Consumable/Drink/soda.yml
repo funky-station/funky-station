@@ -348,3 +348,18 @@
   metamorphicMaxFillLevels: 4
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
+
+- type: reagent
+  id: 24VoltEnergy
+  name: reagent-name-24-volt-energy
+  parent: BaseSoda
+  desc: reagent-desc-24-volt-energy
+  physicalDesc: reagent-physical-desc-acidic
+  flavor: 24voltenergy
+  color: "#a5e65d"
+  metamorphicSprite:
+    sprite: Objects/Consumable/Drinks/glass_collins_shape.rsi
+    state: icon
+  metamorphicMaxFillLevels: 3
+  metamorphicFillBaseName: fill
+  metamorphicChangeColor: true

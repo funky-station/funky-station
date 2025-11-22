@@ -227,4 +227,43 @@
         reagents:
         - ReagentId: RiceBeer
           Quantity: 30
+
+- type: entity
+  parent: DrinkGlass
+  id: Shochu
+  suffix: shochu
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Shochu
+          Quantity: 30
+
+- type: entity
+  parent: DrinkGlass
+  id: TripleSec
+  suffix: triple sec
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: TripleSec
+          Quantity: 30
+
+- type: entity
+  parent: DrinkGlass
+  id: 24VoltEnergy
+  suffix: 24 volt energy
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: 24VoltEnergy
+          Quantity: 30
 # pignog

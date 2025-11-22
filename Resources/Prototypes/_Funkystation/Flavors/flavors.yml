@@ -61,6 +61,24 @@
 - type: flavor
 
 - type: flavor
+  id: shochu
+  flavorType: Complex
+  description: flavor-complex-shochu
+- type: flavor
+
+- type: flavor
+  id: triplesec
+  flavorType: Complex
+  description: flavor-complex-triple-sec
+- type: flavor
+
+- type: flavor
+  id: 24voltenergy
+  flavorType: Complex
+  description: flavor-complex-24-volt-energy
+- type: flavor
+
+- type: flavor
   id: eggnog
   flavorType: Complex
   description: flavor-complex-eggnog

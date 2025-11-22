@@ -41,3 +41,9 @@ reagent-desc-navy-rum = Splice the mainbrace, and God save the King. It's white 
 
 reagent-name-rice-beer = rice beer
 reagent-desc-rice-beer = A light, rice-based lagered beer popular on Mars. Considered a hate crime against Bavarians under the Reinheitsgebot Act of 1516.
+
+reagent-name-shochu = shochu
+reagent-desc-shochu = 	Also known as soju or baijiu, this drink is made from fermented rice, much like sake, but at a generally higher proof making it more similar to a true spirit.
+
+reagent-name-triple-sec = triple sec
+reagent-desc-triple-sec = A sweet and vibrant orange liqueur.

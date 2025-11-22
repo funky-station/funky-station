@@ -471,6 +471,48 @@
     fillBaseName: fill-
 
 - type: entity
+  parent: [DrinkBottleVisualsAll, DrinkBottleGlassBaseFull]
+  id: DrinkShochuBottleFull
+  name: "Hādohittā Premium shochu"
+  description: Similar to sake, but a lot stronger. This particular brand appears to be rice shochu.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        reagents:
+        - ReagentId: Shochu
+          Quantity: 100
+  - type: Label
+    currentLabel: reagent-name-shochu
+  - type: Sprite
+    sprite: Objects/Consumable/Drinks/shochubottle.rsi
+  - type: Sealable
+  - type: SolutionContainerVisuals
+    maxFillLevels: 3
+    fillBaseName: fill-
+
+- type: entity
+  parent: [DrinkBottleVisualsAll, DrinkBottleGlassBaseFull]
+  id: DrinkTripleSecBottleFull
+  name: "Wernon triple sec"
+  description: You don't need to be a member of security to enjoy this bottle of Wernon triple sec. May or may not be triple-distilled, depending on who you ask.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        reagents:
+        - ReagentId: TripleSec
+          Quantity: 100
+  - type: Label
+    currentLabel: reagent-name-triple-sec
+  - type: Sprite
+    sprite: Objects/Consumable/Drinks/triplesecbottle.rsi
+  - type: Sealable
+  - type: SolutionContainerVisuals
+    maxFillLevels: 5
+    fillBaseName: fill-
+
+- type: entity
   parent: [DrinkBottleVisualsAll, DrinkBottlePlasticBaseFull]
   id: DrinkColaBottleFull
   name: Space Cola bottle

@@ -434,6 +434,52 @@
         amount: 0.2
 
 - type: reagent
+  id: Shochu
+  name: reagent-name-shochu
+  parent: BaseAlcohol
+  desc: reagent-desc-shochu
+  physicalDesc: reagent-physical-desc-strong-smelling
+  flavor: shochu
+  color: "#DEDEE6"
+  metamorphicSprite:
+    sprite: Objects/Consumable/Drinks/shochuglass.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 5
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 2
+      - !type:AdjustReagent
+        reagent: Ethanol
+        amount: 0.2
+
+- type: reagent
+  id: TripleSec
+  name: reagent-name-triple-sec
+  parent: BaseAlcohol
+  desc: reagent-desc-triple-sec
+  physicalDesc: reagent-physical-desc-citric
+  flavor: triplesec
+  color: "#e6a65d"
+  metamorphicSprite:
+    sprite: Objects/Consumable/Drinks/triplesecglass.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 4
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 2
+      - !type:AdjustReagent
+        reagent: Ethanol
+        amount: 0.2
+
+- type: reagent
   id: Gin
   name: reagent-name-gin
   parent: BaseAlcohol

@@ -869,3 +869,28 @@
     sprite: Objects/Consumable/Drinks/melonsoda_can.rsi
   - type: Item
     sprite: Objects/Consumable/Drinks/melonsoda_can.rsi
+
+- type: entity
+  parent: DrinkCanBaseFull
+  id: Drink24VoltEnergySodaCan
+  name: 24 Volt Energy can
+  description: A can of 24 volt energy. Has a certain battery-acid taste to it which can't be beat.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: 24VoltEnergy
+          Quantity: 30
+      grindable:
+        reagents:
+        - ReagentId: Aluminium
+          Quantity: 4
+        - ReagentId: Iron
+          Quantity: 1
+  - type: Drink
+  - type: Sprite
+    sprite: Objects/Consumable/Drinks/24voltenergy.rsi
+  - type: Item
+    sprite: Objects/Consumable/Drinks/24voltenergy.rsi

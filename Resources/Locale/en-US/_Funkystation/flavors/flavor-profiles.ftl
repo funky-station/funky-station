@@ -25,6 +25,9 @@ flavor-complex-hakka-mate = like bubbly yerba mate
 flavor-complex-melon-soda = like fizzy melon
 flavor-complex-navy-rum = like a life on the waves
 flavor-complex-rice-beer = like mild carbonated malt
+flavor-complex-shochu = like stiff rice wine
+flavor-complex-triple-sec = warm and flowery with an orange taste which recalls the ocean air and summer wind of the caribbean
+flavor-complex-24-volt-energy = like sour pear-flavoured battery acid
 
 ## base
 flavor-base-fresh = fresh

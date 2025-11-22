@@ -5771,3 +5771,22 @@ Entries:
       message: Added bodycams and nopros into the secfab and lathe respectively.
   id: 688
   time: '2025-11-21T19:28:24.0000000+00:00'
+- author: pirakaplant
+  changes:
+    - type: Tweak
+      message: >-
+        The French, German, and Russian accents are now split into "accents" and
+        "vernaculars", so you can choose to have an accent without the foreign
+        vocabulary.
+    - type: Tweak
+      message: >-
+        The Cowboy vernacular (formerly the Cowboy accent) now costs 0 points
+        and requires the Southern accent.
+    - type: Remove
+      message: >-
+        The French accent no longer has a chance to prefix single words with
+        "le".
+    - type: Fix
+      message: Funky and Scandinavian clones now have their accents.
+  id: 689
+  time: '2025-11-22T08:28:35.0000000+00:00'

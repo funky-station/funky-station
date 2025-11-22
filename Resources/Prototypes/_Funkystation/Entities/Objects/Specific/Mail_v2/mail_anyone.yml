@@ -574,3 +574,15 @@
     - id: ClothingHandsGlovesConducting
       amount: 7
     - id: ClothingHandsGlovesColorYellow
+
+- type: entity
+  parent: BaseMailLarge
+  id: MailNukie
+  suffix: Nukie #just a box... huh?
+  components:
+  - type: Mail
+    contents:
+    - id: MobSyndicateFootsoldierNukie
+    - id: WeaponPistolViper #to clog up hands + give the reciever a fighting chance
+    - id: CombatKnife
+    - id: WeaponSubMachineGunC20rLottery

@@ -284,13 +284,15 @@ public sealed class CocoonSystem : SharedCocoonSystem
             return;
         }
 
+        // Check if victim was standing before applying effects (SetupVictimEffects forces them down)
+        var victimWasStanding = !_standing.IsDown(target);
+
         // Apply effects to victim after insertion (ComponentStartup may have fired before victim was set)
         SetupVictimEffects(target);
 
-        // Send networked event to client to trigger instant rotation animation
-        RaiseNetworkEvent(new CocoonRotationAnimationEvent(GetNetEntity(cocoonContainer)));
+        // Send networked event to client to trigger rotation animation
+        RaiseNetworkEvent(new CocoonRotationAnimationEvent(GetNetEntity(cocoonContainer), victimWasStanding));
 
-        // Play ziptie sound for everyone within 10 meters
         var filter = Filter.Empty().AddInRange(targetCoords, 10f);
         var entityCoords = _transform.ToCoordinates(targetCoords);
         _audio.PlayStatic(new SoundPathSpecifier("/Audio/Items/Handcuffs/rope_end.ogg"), filter, entityCoords, true);

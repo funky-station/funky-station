@@ -1,3 +1,4 @@
+using Content.Shared.Rotation;
 using Content.Shared.Species.Arachnid;
 using Robust.Client.Animations;
 using Robust.Client.GameObjects;
@@ -9,6 +10,7 @@ namespace Content.Client.Species;
 public sealed class CocoonVisualizerSystem : EntitySystem
 {
     [Dependency] private readonly AnimationPlayerSystem _animation = default!;
+    [Dependency] private readonly AppearanceSystem _appearance = default!;
 
     public override void Initialize()
     {
@@ -20,20 +22,28 @@ public sealed class CocoonVisualizerSystem : EntitySystem
     private void OnCocoonRotationAnimation(CocoonRotationAnimationEvent args)
     {
         var cocoon = GetEntity(args.Cocoon);
-        HandleCocoonSpawnAnimation(cocoon);
+        HandleCocoonSpawnAnimation(cocoon, args.VictimWasStanding);
     }
 
     /// <summary>
-    /// Custom function to handle the instant rotation animation when a cocoon is spawned.
+    /// Custom function to handle the rotation animation when a cocoon is spawned.
     /// Called from server via networked event.
     /// </summary>
-    public void HandleCocoonSpawnAnimation(EntityUid uid)
+    public void HandleCocoonSpawnAnimation(EntityUid uid, bool victimWasStanding)
     {
         if (!TryComp<SpriteComponent>(uid, out var sprite))
             return;
 
-        // Play instant 90 degree rotation animation
-        PlayInstantRotationAnimation(uid, sprite, Angle.FromDegrees(90));
+        if (victimWasStanding)
+        {
+            // If victim was standing, use appearance system for smooth animation
+            _appearance.SetData(uid, RotationVisuals.RotationState, RotationState.Horizontal);
+        }
+        else
+        {
+            // If victim was already down, play instant 90 degree rotation animation
+            PlayInstantRotationAnimation(uid, sprite, Angle.FromDegrees(90));
+        }
     }
 
     private void PlayInstantRotationAnimation(EntityUid uid, SpriteComponent spriteComp, Angle rotation)

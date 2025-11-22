@@ -37,11 +37,12 @@ public sealed partial class CocoonContainerComponent : Component
 }
 
 /// <summary>
-/// Networked event sent from server to client to trigger the instant rotation animation.
+/// Networked event sent from server to client to trigger the rotation animation.
 /// </summary>
 [Serializable, NetSerializable]
-public sealed class CocoonRotationAnimationEvent(NetEntity cocoon) : EntityEventArgs
+public sealed class CocoonRotationAnimationEvent(NetEntity cocoon, bool victimWasStanding) : EntityEventArgs
 {
     public NetEntity Cocoon = cocoon;
+    public bool VictimWasStanding = victimWasStanding;
 }
 

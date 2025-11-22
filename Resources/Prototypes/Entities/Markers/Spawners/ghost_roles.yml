@@ -22,8 +22,10 @@
 # SPDX-FileCopyrightText: 2024 no <165581243+pissdemon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Джексон Миссиссиппи <tripwiregamer@gmail.com>
+# SPDX-FileCopyrightText: 2025 ALooseGoose <aloosegoosey@gmail.com>
 # SPDX-FileCopyrightText: 2025 Mish <bluscout78@yahoo.com>
 # SPDX-FileCopyrightText: 2025 Rainbow <ev0lvkitten@gmail.com>
+# SPDX-FileCopyrightText: 2025 Skye <57879983+Rainbeon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 heree <79546981+hereelabs@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 hereelabs <hahmorm@gmail.com>
@@ -248,6 +250,18 @@
 
 - type: entity
   categories: [ HideSpawnMenu, Spawner ]
+  parent: SpawnPointGhostDerelictCyborg
+  id: SpawnPointGhostDerelictEngineeringCyborg
+  components:
+  - type: GhostRole
+    name: ghost-role-information-derelict-engineering-cyborg-name
+    description: ghost-role-information-derelict-engineering-cyborg-description
+    rules: ghost-role-information-silicon-rules
+    raffle:
+      settings: default
+
+- type: entity
+  categories: [ HideSpawnMenu, Spawner ]
   parent: BaseAntagSpawner
   id: SpawnPointGhostDerelictCyborg
   components:
@@ -263,6 +277,54 @@
     - state: green
     - sprite: Mobs/Silicon/chassis.rsi
       state: derelict_icon
+
+- type: entity
+  categories: [ HideSpawnMenu, Spawner ]
+  parent: SpawnPointGhostDerelictCyborg
+  id: SpawnPointGhostDerelictJanitorCyborg
+  components:
+  - type: GhostRole
+    name: ghost-role-information-derelict-janitor-cyborg-name
+    description: ghost-role-information-derelict-janitor-cyborg-description
+    rules: ghost-role-information-silicon-rules
+    raffle:
+      settings: default
+
+- type: entity
+  categories: [ HideSpawnMenu, Spawner ]
+  parent: SpawnPointGhostDerelictCyborg
+  id: SpawnPointGhostDerelictMedicalCyborg
+  components:
+  - type: GhostRole
+    name: ghost-role-information-derelict-medical-cyborg-name
+    description: ghost-role-information-derelict-medical-cyborg-description
+    rules: ghost-role-information-silicon-rules
+    raffle:
+      settings: default
+
+- type: entity
+  categories: [ HideSpawnMenu, Spawner ]
+  parent: SpawnPointGhostDerelictCyborg
+  id: SpawnPointGhostDerelictMiningCyborg
+  components:
+  - type: GhostRole
+    name: ghost-role-information-derelict-mining-cyborg-name
+    description: ghost-role-information-derelict-mining-cyborg-description
+    rules: ghost-role-information-silicon-rules
+    raffle:
+      settings: default
+
+- type: entity
+  categories: [ HideSpawnMenu, Spawner ]
+  parent: SpawnPointGhostDerelictCyborg
+  id: SpawnPointGhostDerelictSyndicateAssaultCyborg
+  components:
+  - type: GhostRole
+    name: ghost-role-information-derelict-syndicate-assault-cyborg-name
+    description: ghost-role-information-derelict-syndicate-assault-cyborg-description
+    rules: ghost-role-information-silicon-rules
+    raffle:
+      settings: default
 
 - type: entity
   categories: [ HideSpawnMenu, Spawner ]

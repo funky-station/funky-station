@@ -10,6 +10,7 @@
 // SPDX-FileCopyrightText: 2023 forkeyboards <91704530+forkeyboards@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 SaffronFennec <firefoxwolf2020@protonmail.com>
+// SPDX-FileCopyrightText: 2025 W.xyz() <tptechteam@gmail.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
 // SPDX-License-Identifier: MIT
@@ -58,6 +59,12 @@ public sealed partial class TraitPrototype : IPrototype
     /// </summary>
     [DataField]
     public HashSet<string>? SpeciesRestrictions;
+
+    /// <summary>
+    /// Trait required to take this trait.
+    /// </summary>
+    [DataField]
+    public string? Prerequisite { get; private set; }
 
     /// <summary>
     /// The components that get added to the player, when they pick this trait.

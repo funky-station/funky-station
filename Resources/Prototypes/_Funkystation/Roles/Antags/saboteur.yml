@@ -1,0 +1,27 @@
+# SPDX-FileCopyrightText: 2025 TheHolyAegis <sanderkamphuis719@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: antag
+  id: Saboteur
+  name: roles-antag-saboteur-name
+  antagonist: true
+  setPreference: true
+  objective: roles-antag-saboteur-objective
+  guides: [ Hackers ]
+  requirements:
+  - !type:OverallPlaytimeRequirement
+    time: 3600 # 1h
+  - !type:DepartmentTimeRequirement
+    department: Engineering
+    time: 3600 # 1h
+
+- type: startingGear
+  id: SaboteurGear
+  storage:
+    back:
+    - ClothingHandsGlovesColorYellow
+    - Wirecutter
+    - Screwdriver
+    - AccessBreaker
+    - Emag

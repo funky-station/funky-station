@@ -30,6 +30,8 @@
 // SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
 // SPDX-FileCopyrightText: 2025 Skye <57879983+Rainbeon@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 TheHolyAegis <sanderkamphuis719@gmail.com>
+// SPDX-FileCopyrightText: 2025 Tyranex <bobthezombie4@gmail.com>
 // SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
 // SPDX-FileCopyrightText: 2025 kbarkevich <24629810+kbarkevich@users.noreply.github.com>
@@ -39,6 +41,7 @@
 // SPDX-License-Identifier: MIT
 
 using Content.Server._DV.CosmicCult.Components;
+using Content.Server._Funkystation.GameTicking.Rules.Components;
 using Content.Server.Administration.Commands;
 using Content.Server.Antag;
 using Content.Server.GameTicking;
@@ -293,6 +296,22 @@ public sealed partial class AdminVerbSystem
             Message = Loc.GetString("admin-verb-make-malfai")
         };
         args.Verbs.Add(malfAi);
+
+        // Funkystation - Saboteur
+        Verb saboteur = new()
+        {
+            Text = Loc.GetString("admin-verb-text-make-saboteur"),
+            Category = VerbCategory.Antag,
+            Icon = new SpriteSpecifier.Rsi(new("/Textures/Objects/Tools/wirecutters.rsi"), "cutters-map"),
+            // Icon = new SpriteSpecifier.Rsi(new("/Textures/Interface/Misc/job_icons.rsi"), "CommandMaid"),
+            Act = () =>
+            {
+                _antag.ForceMakeAntag<SaboteurRuleComponent>(targetPlayer, "Saboteur");
+            },
+            Impact = LogImpact.High,
+            Message = Loc.GetString("admin-verb-make-saboteur"),
+        };
+        args.Verbs.Add(saboteur);
 
         var paradoxCloneName = Loc.GetString("admin-verb-text-make-paradox-clone");
         Verb paradox = new()

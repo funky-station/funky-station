@@ -1,0 +1,8 @@
+# Starlight, under MIT License
+- type: entity
+  save: false
+  name: Urist McSpaceRaptor
+  parent: BaseMobAvali
+  id: MobAvali
+
+#chirp!

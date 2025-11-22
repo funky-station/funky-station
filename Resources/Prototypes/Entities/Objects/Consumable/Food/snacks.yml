@@ -510,6 +510,7 @@
   - type: Tag
     tags:
       - ReptilianFood
+      - AvianFood
   - type: Sprite
     state: nutribrick-open
   - type: Food

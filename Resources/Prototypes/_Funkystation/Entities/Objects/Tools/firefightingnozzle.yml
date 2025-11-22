@@ -1,4 +1,5 @@
 # SPDX-FileCopyrightText: 2025 Steve <marlumpy@gmail.com>
+# SPDX-FileCopyrightText: 2025 Terkala <appleorange64@gmail.com>
 # SPDX-FileCopyrightText: 2025 marc-pelletier <113944176+marc-pelletier@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
@@ -43,14 +44,13 @@
       tags:
       - NozzleBackTank
       - AtmosBackTank
-
+  - type: UseDelay
   - type: PacifismAllowedGun
   - type: Gun
     fireRate: 1
     selectedMode: SemiAuto
     availableModes:
     - SemiAuto
-    - FullAuto
     soundGunshot:
       path: /Audio/Effects/thunk.ogg
     soundEmpty:

@@ -1,4 +1,5 @@
 // SPDX-FileCopyrightText: 2025 Skye <57879983+Rainbeon@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Terkala <appleorange64@gmail.com>
 // SPDX-FileCopyrightText: 2025 kbarkevich <24629810+kbarkevich@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
@@ -6,8 +7,11 @@
 
 using System.Text.Json.Serialization;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Audio.Systems;
+using Robust.Shared.Audio;
 using Content.Shared.EntityEffects;
 using Content.Shared.BloodCult;
+using Content.Shared.Damage.Systems;
 
 namespace Content.Server.EntityEffects.Effects;
 
@@ -38,6 +42,25 @@ public sealed partial class DeCultify : EntityEffect
 			scale = reagentArgs.Scale.Float();
 		}
 
-		bloodCultist.DeCultification += Amount * scale;
+		var oldDeCultification = bloodCultist.DeCultification;
+		var newDeCultification = oldDeCultification + (Amount * scale);
+		bloodCultist.DeCultification = newDeCultification;
+
+		// If this application causes deconversion (crosses 100 threshold), play sound and knock down
+		if (oldDeCultification < 100.0f && newDeCultification >= 100.0f)
+		{
+			var audioSystem = args.EntityManager.System<SharedAudioSystem>();
+			var staminaSystem = args.EntityManager.System<StaminaSystem>();
+
+			// Play holy sound
+			audioSystem.PlayPvs(
+				new SoundPathSpecifier("/Audio/Effects/holy.ogg"),
+				args.TargetEntity,
+				AudioParams.Default
+			);
+
+			// Apply stamina damage to knock them down
+			staminaSystem.TakeStaminaDamage(args.TargetEntity, 100f, visual: false);
+		}
 	}
 }

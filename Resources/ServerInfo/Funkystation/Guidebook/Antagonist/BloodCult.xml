@@ -84,6 +84,13 @@ The [bold][color=#ff6666]revive rune[/color][/bold] may be used by cultists to a
 
 The [bold][color=#ff6666]barrier rune[/color][/bold] allows the [color=#ff3333]Geometer[/color] to physically defend [color=#ff3333]Her[/color] followers through the use of magical barriers. When activated, an impenetrable forcefield will temporarily manifest above it, and any adjacent [color=#ff3333]barrier runes[/color] will be activated as well. There is no limit to the length of this chain, save for the fortitude of the invoker -- their blood will be drained for the ritual at a rate determined by the number of barriers produced.
 
+  <Box>
+    <GuideEntityEmbed Entity="SummoningRune" Caption="summoning rune"/>
+  </Box>
+
+The [bold][color=#ff6666]summoning rune[/color][/bold] allows the [color=#ff3333]Geometer[/color] to physically manifest [color=#ff3333]Her[/color] structures and servants from her realm into our own. When activated, a summoning rune will bring a [color=#ff3333]Juggernaut Shell[/color] or a [color=#ff3333]Pylon[/color] into reality, using runed metal or glass.
+
+
 ## Blood Spells
 
 Blood spells are incantations that must be physically carved into the invoker's skin by a [color=#ff3333]higher entity[/color] prior to their use. Fortunately for you, as the veil is thin in this sector of space, [color=#ff3333]your Patron[/color] is capable of reaching forth and etching the appropriate sigils onto your person without your hands needing to be free or unrestrained. Without the aid of an [color=#ff6666]empowering rune[/color], however, the carving will have to be a crude one, and there may only be enough room on your body for one sigil at a time.
@@ -106,7 +113,7 @@ This spell may permit you to silently and more efficiently kidnap those your cul
     <GuideEntityEmbed Entity="ActionCultistTwistedConstruction" Caption="Twisted Construction"/>
   </Box>
 
-The twisted construction spell allows cultists to rip plasteel from the very walls of the station, without expending the spell. But the true power comes from converting stacks of plasteel into [color=#bbbbbb]runed metal[/color], which does expend the spell.
+The twisted construction spell allows cultists to convert stacks of steel or glass into [color=#bbbbbb]runed metal[/color] or [color=#bbbbbb]runed glass[/color].
 
 ## Structures
 

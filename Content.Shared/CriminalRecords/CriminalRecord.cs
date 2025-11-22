@@ -1,13 +1,15 @@
 // SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
 // SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Эдуард <36124833+Ertanic@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Ilya Mikheev <me@ilyamikcoder.com>
 // SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
 // SPDX-License-Identifier: MIT
 
-using Content.Shared.Security;
+using Content.Shared._Funkystation.Security;
 using Robust.Shared.Serialization;
+using Robust.Shared.Prototypes;
 
 namespace Content.Shared.CriminalRecords;
 
@@ -22,7 +24,7 @@ public sealed partial record CriminalRecord
     /// Status of the person (None, Wanted, Detained).
     /// </summary>
     [DataField]
-    public SecurityStatus Status = SecurityStatus.None;
+    public ProtoId<SecurityStatusPrototype> Status = "SecurityStatusNone";
 
     /// <summary>
     /// When Status is Wanted, the reason for it.
@@ -42,7 +44,7 @@ public sealed partial record CriminalRecord
     /// This should have charges and time served added after someone is detained.
     /// </summary>
     [DataField]
-    public List<CrimeHistory> History = new();
+    public List<CrimeHistory> History = [];
 }
 
 /// <summary>

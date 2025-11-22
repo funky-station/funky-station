@@ -34,6 +34,7 @@ loadout-group-species-restriction = This item is not available for your current 
 
 # Miscellaneous
 loadout-group-trinkets = Trinkets
+loadout-group-jobtrinkets = Job trinkets
 loadout-group-glasses = Glasses
 loadout-group-backpack = Backpack
 loadout-group-instruments = Instruments
@@ -199,6 +200,7 @@ loadout-group-security-neck = Security neck
 loadout-group-security-backpack = Security backpack
 loadout-group-security-belt = Security Belt
 loadout-group-security-outerclothing = Security outer clothing
+loadout-group-security-gloves = Security gloves
 loadout-group-security-shoes = Security shoes
 loadout-group-security-id = Security ID
 
@@ -237,6 +239,7 @@ loadout-group-chemist-jumpsuit = Chemist jumpsuit
 loadout-group-chemist-outerclothing = Chemist outer clothing
 loadout-group-chemist-backpack = Chemist backpack
 loadout-group-medical-chemist-glasses = Chemist glasses
+loadout-group-medical-chemist-head = Chemist head
 
 loadout-group-paramedic-head = Paramedic head
 loadout-group-paramedic-jumpsuit = Paramedic jumpsuit

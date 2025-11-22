@@ -1,3 +1,4 @@
+# SPDX-FileCopyrightText: 2025 Xcybitt <lenazheng88@gmail.com>
 # SPDX-FileCopyrightText: 2025 Xcybitt <xcybitt@gmail.com>
 # SPDX-FileCopyrightText: 2025 mkanke-real <mikekanke@gmail.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
@@ -23,7 +24,7 @@
     - id: ClothingBeltChiefEngineerFilled
 
 - type: entity
-  parent: BaseMailLarge
+  parent: BaseMailSmall
   id: MailInsuls
   suffix: Insuls
   components:
@@ -32,7 +33,7 @@
     - id: ClothingHandsGlovesColorYellow
 
 - type: entity
-  parent: BaseMailLarge
+  parent: BaseMailSmall
   id: MailFakeInsuls
   suffix: Fake Insuls
   components:
@@ -91,7 +92,7 @@
       amount: 2
 
 - type: entity
-  parent: BaseMailLarge
+  parent: BaseMailSmall
   id: MailPresent
   suffix: Present
   components:
@@ -100,7 +101,7 @@
     - id: PresentRandom
 
 - type: entity
-  parent: BaseMailLarge
+  parent: BaseMailLargeFlat
   id: MailFoamBlade
   suffix: Foam Blade
   components:
@@ -121,7 +122,7 @@
       amount: 2
 
 - type: entity
-  parent: BaseMail
+  parent: BaseMailSmall
   id: MailCatEars
   suffix: Cat Ears
   components:
@@ -130,7 +131,7 @@
     - id: ClothingHeadHatCatEars
 
 - type: entity
-  parent: BaseMail
+  parent: BaseMailSmall
   id: MailCorgiBalloon
   suffix: Corgi Balloon
   components:
@@ -139,7 +140,7 @@
     - id: BalloonCorgi
 
 - type: entity
-  parent: BaseMail
+  parent: BaseMailSmall
   id: MailNTBalloon
   suffix: NT Balloon
   components:
@@ -148,7 +149,7 @@
     - id: BalloonNT
 
 - type: entity
-  parent: BaseMail
+  parent: BaseMailSmall
   id: MailSynBalloon
   suffix: Syndicate Balloon
   components:
@@ -169,7 +170,7 @@
 
 
 - type: entity
-  parent: BaseMailLarge
+  parent: BaseMailSmall
   id: MailStrangePills
   suffix: Strange Pills
   components:
@@ -292,15 +293,6 @@
 
 - type: entity
   parent: BaseMail
-  id: MailCodex
-  suffix: Codex Cicatrix 
-  components:
-  - type: Mail
-    contents:
-    - id: CodexCicatrix
-
-- type: entity
-  parent: BaseMail
   id: MailCancerMouse
   suffix: Cancer Mouse
   components:
@@ -405,7 +397,7 @@
     - id: InfinityCrayon
 
 - type: entity
-  parent: BaseMail
+  parent: BaseMailSmall
   id: MailBrassKnuckles
   suffix: BrassKnuckles
   components:
@@ -460,7 +452,7 @@
     - id: FoodCakeSuppermatter
 
 - type: entity
-  parent: BaseMail
+  parent: BaseMailSmall
   id: MailSuppermatterShard
   suffix: Suppermatter Shard
   components:
@@ -497,3 +489,88 @@
     contents:
     - id: RCDRecharging
     - id: RPDRecharging
+
+#
+- type: entity
+  parent: BaseMailLarge
+  id: MailMothroach
+  suffix: Mothroach
+  components:
+  - type: Mail
+    contents:
+    - id: MobMothroach
+      amount: 5
+
+- type: entity
+  parent: BaseMailLarge
+  id: MailHonkBot
+  suffix: HonkBot
+  components:
+  - type: Mail
+    contents:
+    - id: MobHonkBot
+
+- type: entity
+  parent: BaseMailLarge
+  id: MailJonkBot
+  suffix: JonkBot
+  components:
+  - type: Mail
+    contents:
+    - id: MobJonkBot
+
+- type: entity
+  parent: BaseMailLarge
+  id: MailSyndieDrobe
+  suffix: SyndieDrobe
+  components:
+  - type: Mail
+    contents:
+    - id: VendingMachineSyndieDrobe
+
+- type: entity
+  parent: BaseMailLargeFlat
+  id: MailPeelMortar
+  suffix: Peel Mortar
+  components:
+  - type: Mail
+    contents:
+    - id: WeaponMechSpecialBananaMortar
+
+- type: entity
+  parent: BaseMailLargeFlat
+  id: MailMousetrapMortar
+  suffix: Mousetrap Mortar
+  components:
+  - type: Mail
+    contents:
+    - id: WeaponMechSpecialMousetrapMortar
+
+- type: entity
+  parent: BaseMailLarge
+  id: MailSyndieToolbox
+  suffix: Syndicate Toolbox
+  components:
+  - type: Mail
+    contents:
+    - id: ToolboxSyndicate
+
+- type: entity
+  parent: BaseMailSmall
+  id: MailBloodredPhone
+  suffix: Bloodred Phone
+  components:
+  - type: Mail
+    contents:
+    - id: PhoneInstrumentSyndicate
+
+- type: entity
+  parent: BaseMailLarge
+  id: MailInsulsGambling
+  suffix: Insuls Gambling #when it sucks, hit da slots
+  components:
+  - type: Mail
+    contents:
+    - id: ClothingHandsGlovesConducting
+      amount: 7
+    - id: ClothingHandsGlovesColorYellow

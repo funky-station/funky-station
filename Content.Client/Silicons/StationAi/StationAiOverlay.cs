@@ -1,6 +1,8 @@
 // SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
 // SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
 // SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Evaisa <evagiacosa1@gmail.com>
+// SPDX-FileCopyrightText: 2025 Evaisa <mail@evaisa.dev>
 // SPDX-FileCopyrightText: 2025 Tyranex <bobthezombie4@gmail.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
@@ -52,6 +54,8 @@ public sealed class StationAiOverlay : Overlay
     private readonly List<Vector2> _circleCenters = new(16);
     private readonly List<(Vector2 pos, float dist2)> _cameraCandidates = new(32);
 
+    private EntityUid _lastGridUid = EntityUid.Invalid; // goobstation - off grid vision fix
+
     public StationAiOverlay()
     {
         IoCManager.InjectDependencies(this);
@@ -84,11 +88,27 @@ public sealed class StationAiOverlay : Overlay
         _entManager.TryGetComponent(gridUid, out MapGridComponent? grid);
         _entManager.TryGetComponent(gridUid, out BroadphaseComponent? broadphase);
 
+        // begin goobstation - off grid vision fix
+        // If our current entity isn't on a valid grid/broadphase, reuse the last known valid grid so vision doesn't go black.
+        if ((grid == null || broadphase == null) && _lastGridUid != EntityUid.Invalid)
+        {
+            if (_entManager.TryGetComponent(_lastGridUid, out MapGridComponent? lastGrid)
+                && _entManager.TryGetComponent(_lastGridUid, out BroadphaseComponent? lastBroadphase))
+            {
+                grid = lastGrid;
+                broadphase = lastBroadphase;
+                gridUid = _lastGridUid;
+            }
+        }
+        // end goobstation - off grid vision fix
+
         var invMatrix = args.Viewport.GetWorldToLocalMatrix();
         _accumulator -= (float) _timing.FrameTime.TotalSeconds;
 
         if (grid != null && broadphase != null)
         {
+            _lastGridUid = gridUid; // goobstation - off grid vision fix
+
             var lookups = _entManager.System<EntityLookupSystem>();
             var xforms = _entManager.System<SharedTransformSystem>();
 

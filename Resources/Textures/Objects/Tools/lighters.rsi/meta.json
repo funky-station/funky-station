@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Taken from tgstation at https://github.com/tgstation/tgstation/commit/a28b24f149702527f3eb22f5c686f06c836f2f99; sprite has been edited. Engraved zippo drawn by Darkenson.",
+  "copyright": "Taken from tgstation at https://github.com/tgstation/tgstation/commit/a28b24f149702527f3eb22f5c686f06c836f2f99; sprite has been edited. Engraved zippo drawn by Darkenson. 'Fancy' commemorative flippo drawn by mycobiota.",
   "size": {
     "x": 32,
     "y": 32
@@ -15,6 +15,15 @@
     },
     {
       "name": "lighter_flame",
+      "delays": [
+        [
+          0.2,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "lighter_fancy_flame",
       "delays": [
         [
           0.2,
@@ -68,10 +77,16 @@
       "name": "zippo_engraved_icon_base"
     },
     {
+      "name": "zippo_fancy_icon_base"
+    },
+    {
       "name": "zippo_open"
     },
     {
       "name": "zippo_engraved_open"
+    },
+    {
+      "name": "zippo_fancy_open"
     },
     {
       "name": "zippo_top"

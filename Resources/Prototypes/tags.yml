@@ -69,7 +69,6 @@
 # SPDX-FileCopyrightText: 2024 BeeRobynn <robynthewarcrime@proton.me>
 # SPDX-FileCopyrightText: 2024 CatMagic <135462166+CatMagic1@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Debug <49997488+DebugOk@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Emisse <99158783+Emisse@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Errant <35878406+Errant-4@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Firewatch <54725557+musicmanvr@users.noreply.github.com>
@@ -113,7 +112,6 @@
 # SPDX-FileCopyrightText: 2024 Whisper <121047731+QuietlyWhisper@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 beck-thompson <107373427+beck-thompson@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 brainfood1183 <113240905+brainfood1183@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 chromiumboy <50505512+chromiumboy@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 deltanedas <@deltanedas:kde.org>
 # SPDX-FileCopyrightText: 2024 icekot8 <93311212+icekot8@users.noreply.github.com>
@@ -127,19 +125,30 @@
 # SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
 # SPDX-FileCopyrightText: 2025 88tv <131759102+88tv@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Amethyst <52829582+jackel234@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 ArionGekkota <58326140+ArionGekkota@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Dani <57107055+wgreen84@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Ed <96445749+TheShuEd@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 EmillyCoelho <167008606+Ichaie@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Firewars763 <35506916+Firewars763@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Icepick <122653407+Icepicked@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Ichaie <ichaicoelho@gmail.com>
+# SPDX-FileCopyrightText: 2025 Ilya Mikheev <me@ilyamikcoder.com>
 # SPDX-FileCopyrightText: 2025 IronDragoon <8961391+IronDragoon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Lary <89530982+LaryNevesPR@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 McBosserson <148172569+McBosserson@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Milon <milonpl.git@proton.me>
 # SPDX-FileCopyrightText: 2025 RedBookcase <Usualmoves@gmail.com>
 # SPDX-FileCopyrightText: 2025 RedBookcase <crazykid1590@gmail.com>
+# SPDX-FileCopyrightText: 2025 Schuyler Duryee <skywd7766@gmail.com>
 # SPDX-FileCopyrightText: 2025 Sparlight <twiksparlight@gmail.com>
 # SPDX-FileCopyrightText: 2025 Steve <marlumpy@gmail.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 Tiniest Shark <head.rebel@yahoo.com>
 # SPDX-FileCopyrightText: 2025 Toaster <mrtoastymyroasty@gmail.com>
+# SPDX-FileCopyrightText: 2025 Toastermeister <215405651+Toastermeister@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Tyranex <bobthezombie4@gmail.com>
 # SPDX-FileCopyrightText: 2025 V <97265903+formlessnameless@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 chromiumboy <50505512+chromiumboy@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 marc-pelletier <113944176+marc-pelletier@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 mkanke-real <mikekanke@gmail.com>
 # SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
@@ -194,6 +203,12 @@
 
 - type: Tag
   id: ATVKeys
+
+- type: Tag
+  id: AdvancedSurgeryTool
+
+- type: Tag
+  id: AutoinjectorCartrige
 
 - type: Tag
   id: Balloon
@@ -350,6 +365,18 @@
 
 - type: Tag
   id: BypassInteractionRangeChecks
+
+- type: Tag
+  id: BiosynthecticHeart
+
+- type: Tag
+  id: BiosynthecticLiver
+
+- type: Tag
+  id: BiosynthecticEyes
+
+- type: Tag
+  id: BiosynthecticLung
 
 - type: Tag
   id: CableCoil
@@ -582,6 +609,12 @@
   id: CubanCarp
 
 - type: Tag
+  id: CyberneticSecurityEyes
+
+- type: Tag
+  id: CyberneticMedicalEyes
+
+- type: Tag
   id: DeathAcidifier
 
 - type: Tag
@@ -643,6 +676,12 @@
 
 - type: Tag
   id: Dropper
+
+- type: Tag
+  id: Defibrillator
+
+- type: Tag
+  id: DisablerSMG
 
 - type: Tag
   id: Duck
@@ -719,11 +758,21 @@
 - type: Tag
   id: ForceNoFixRotations # fixrotations command WON'T target this
 
+- type: Tag # Funkystation
+  id: ForceStandOnRevive
+
 - type: Tag
   id: FreezerElectronics
 
 - type: Tag
   id: Fruit
+
+- type: Tag
+  id: FireBomb
+
+- type: Tag
+  id: FlashPayload
+
 
 - type: Tag
   id: Galaxythistle
@@ -769,6 +818,7 @@
 
 - type: Tag
   id: GrenadeFlashBang
+
 
 - type: Tag
   id: HudMedical
@@ -882,6 +932,9 @@
   id: Hotsauce
 
 - type: Tag
+  id: HealthAnalyzer
+
+- type: Tag
   id: Ice
 
 - type: Tag
@@ -909,7 +962,18 @@
   id: InvalidForSurvivorAntag
 
 - type: Tag
+  id: ImprovisedBow
+
+- type: Tag
+  id: ImprovisedShotgun
+
+
+- type: Tag
   id: JawsOfLife
+
+- type: Tag # Jaws of Life Arms
+  id: JWLArms
+
 
 - type: Tag
   id: Kangaroo
@@ -949,6 +1013,9 @@
 
 - type: Tag # goob edit
   id: Lungs
+
+- type: Tag
+  id: LaserCannon
 
 - type: Tag
   id: Machete
@@ -1088,6 +1155,24 @@
 
 - type: Tag
   id: Multitool
+
+- type: Tag
+  id: MakeshiftBola
+
+- type: Tag
+  id: MakeshiftStunprod
+
+- type: Tag
+  id: MakeshiftShield
+
+- type: Tag
+  id: MedSecHud
+
+- type: Tag
+  id: MedicalHud
+
+- type: Tag
+  id: MedicalAutoinjector
 
 - type: Tag
   id: NoBlockAnchoring
@@ -1467,6 +1552,22 @@
 - type: Tag
   id: Spellbook
 
+- type: Tag
+  id: ScrapHelmet
+
+- type: Tag
+  id: ScrapArmor
+
+- type: Tag
+  id: SvalinnPistol
+
+- type: Tag
+  id: SpeedLegs
+
+- type: Tag
+  id: SecurityCyberneticEyes
+
+
 - type: Tag # goob edit
   id: Table
 
@@ -1543,6 +1644,9 @@
   id: UtilityBelt
 
 - type: Tag
+  id: UtilityKnife
+
+- type: Tag
   id: Vegetable
 
 - type: Tag
@@ -1568,6 +1672,9 @@
 
 - type: Tag
   id: WallmountSubstationElectronics
+
+- type: Tag # Funky edit
+  id: WallMount
 
 - type: Tag
   id: WeaponAntiqueLaser
@@ -1609,6 +1716,9 @@
   id: Wine
 
 - type: Tag
+  id: WireBrush
+
+- type: Tag
   id: Wirecutter
 
 - type: Tag
@@ -1634,5 +1744,11 @@
 
 - type: Tag
   id: WriteIgnoreStamps
+
+- type: Tag
+  id: WoodenBuckler
+
+- type: Tag
+  id: XrayCannon
 
 # ALPHABETICAL

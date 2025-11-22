@@ -65,6 +65,7 @@
 # SPDX-FileCopyrightText: 2025 Catazeus <200477155+Catazeus@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Icepick <122653407+Icepicked@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 JoulesBerg <104539820+JoulesBerg@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 MaiaArai <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 empty0set <16693552+empty0set@users.noreply.github.com>
@@ -673,7 +674,6 @@
   - type: Sprite
     layers:
     - state: cc #base
-    - state: decal-stripe-cc #decal
     - sprite: _Funkystation/Interface/Misc/job_icons.rsi #icon
       offset: "-0.125, 0.09375"
       state: CentralCommandOfficial
@@ -691,7 +691,7 @@
   components:
   - type: Sprite
     layers:
-    - state: gold #base
+    - state: default #base
     - state: decal-stripe-cc #decal
     - state: decal-discriminator-ert #decal
     - sprite: _Funkystation/Interface/Misc/job_icons.rsi #icon
@@ -699,8 +699,6 @@
       state: ERT-Leader
   - type: PresetIdCard
     job: ERTLeader
-  - type: Item
-    heldPrefix: gold
   - type: NanoChatCard # DeltaV
     listNumber: false
 
@@ -711,14 +709,12 @@
   components:
   - type: Sprite
     layers:
-    - state: cc #base
+    - state: default #base
     - state: decal-stripe-cc #decal
     - state: decal-discriminator-ert #decal
     - sprite: _Funkystation/Interface/Misc/job_icons.rsi #icon
       offset: "-0.125, 0.09375"
       state: ERT-Chaplain
-  - type: Item
-    heldPrefix: cc
   - type: PresetIdCard
     job: ERTChaplain
   - type: NanoChatCard # DeltaV
@@ -731,14 +727,12 @@
   components:
   - type: Sprite
     layers:
-    - state: cc #base
+    - state: default #base
     - state: decal-stripe-cc #decal
     - state: decal-discriminator-ert #decal
     - sprite: _Funkystation/Interface/Misc/job_icons.rsi #icon
       offset: "-0.125, 0.09375"
       state: ERT-Engineer
-  - type: Item
-    heldPrefix: cc
   - type: PresetIdCard
     job: ERTEngineer
   - type: NanoChatCard # DeltaV
@@ -751,14 +745,12 @@
   components:
   - type: Sprite
     layers:
-    - state: cc #base
+    - state: default #base
     - state: decal-stripe-cc #decal
     - state: decal-discriminator-ert #decal
     - sprite: _Funkystation/Interface/Misc/job_icons.rsi #icon
       offset: "-0.125, 0.09375"
       state: ERT-Janitor
-  - type: Item
-    heldPrefix: cc
   - type: PresetIdCard
     job: ERTJanitor
   - type: NanoChatCard # DeltaV
@@ -771,14 +763,12 @@
   components:
   - type: Sprite
     layers:
-    - state: cc #base
+    - state: default #base
     - state: decal-stripe-cc #decal
     - state: decal-discriminator-ert #decal
     - sprite: _Funkystation/Interface/Misc/job_icons.rsi #icon
       offset: "-0.125, 0.09375"
       state: ERT-Medic
-  - type: Item
-    heldPrefix: cc
   - type: PresetIdCard
     job: ERTMedical
   - type: NanoChatCard # DeltaV
@@ -791,14 +781,12 @@
   components:
   - type: Sprite
     layers:
-    - state: cc #base
+    - state: default #base
     - state: decal-stripe-cc #decal
     - state: decal-discriminator-ert #decal
     - sprite: _Funkystation/Interface/Misc/job_icons.rsi #icon
       offset: "-0.125, 0.09375"
       state: ERT-Security
-  - type: Item
-    heldPrefix: cc
   - type: PresetIdCard
     job: ERTSecurity
   - type: NanoChatCard # DeltaV
@@ -826,14 +814,12 @@
   components:
   - type: Sprite
     layers:
-    - state: cc #base
+    - state: default #base
     - state: decal-stripe-cc #decal
     - state: decal-discriminator-deathsquad #decal
     - sprite: _Funkystation/Interface/Misc/job_icons.rsi #icon
       offset: "-0.125, 0.09375"
       state: DeathSquad
-  - type: Item
-    heldPrefix: cc
   - type: PresetIdCard
     job: DeathSquad
   - type: NanoChatCard # DeltaV
@@ -1070,13 +1056,11 @@
   components:
   - type: Sprite
     layers:
-    - state: cc #base
+    - state: default #base
     - state: decal-stripe-cc #decal
     - sprite: _Funkystation/Interface/Misc/job_icons.rsi #icon
       offset: "-0.125, 0.09375"
       state: CBURN
-  - type: Item
-    heldPrefix: cc
   - type: PresetIdCard
     job: CBURN
   - type: NanoChatCard # DeltaV
@@ -1259,7 +1243,7 @@
   - type: Sprite
     layers:
     - state: default #base
-    - state: decal-stripe-cc #decal
+    - state: decal-stripe-command #decal
     - sprite: Interface/Misc/job_icons.rsi #icon
       offset: "-0.125, 0.09375"
       state: CommandMaid

@@ -3,15 +3,14 @@
 // SPDX-FileCopyrightText: 2022 keronshb <54602815+keronshb@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Krunklehorn <42424291+Krunklehorn@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Tadeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 Zergologist <114537969+Chedd-Error@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
 // SPDX-License-Identifier: MIT
 
 using Content.Shared.Alert;
 using Content.Shared.Inventory;
-using Content.Shared.Mindshield.Components;
 using Content.Shared.Strip.Components;
-using Robust.Shared.Prototypes;
 
 namespace Content.Shared.Strip;
 

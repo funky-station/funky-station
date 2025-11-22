@@ -1,3 +1,5 @@
+// SPDX-FileCopyrightText: 2025 Tyranex <bobthezombie4@gmail.com>
+//
 // SPDX-License-Identifier: MIT
 
 using Content.Shared.Mind;
@@ -50,6 +52,13 @@ public sealed class CyborgFactorySystem : EntitySystem
     private void OnEntityProcessed(EntityUid factoryUid, RoboticsFactoryGridComponent component, MaterialReclaimerProcessEntityEvent args)
     {
         var entity = args.Entity;
+
+        // Don't process crew if unanchored
+        if (!Transform(factoryUid).Anchored)
+        {
+            args.Handled = true;
+            return;
+        }
 
         // Capture prior name (if any) before gibbing
         string? priorName = null;

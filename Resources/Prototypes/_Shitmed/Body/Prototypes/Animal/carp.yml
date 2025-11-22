@@ -1,5 +1,6 @@
 # SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 Patrycja <git@ptrcnull.me>
+# SPDX-FileCopyrightText: 2025 Zergologist <114537969+Chedd-Error@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
@@ -13,11 +14,11 @@
       part: TorsoAnimal
       connections:
       - tail
-      organs:
-        lungs: OrganSpaceAnimalLungs # Immunity to airloss
-        stomach: OrganAnimalStomach
-        liver: OrganSpaceAnimalLiver
-        heart: OrganSpaceAnimalHeart # Immunity to cold
-        kidneys: OrganAnimalKidneys
+      organs: # funky change, turned this from space animal organs to appropriate space carp and thaven organs
+        lungs: OrganThavenLungs # no more free breathlessness for you
+        stomach: OrganCarpStomach
+        liver: OrganCarpLiver
+        heart: OrganCarpHeart # Immunity to cold
+        kidneys: OrganThavenKidneys # no real difference would be made if they were their own thing
     tail:
       part: TailCarp

@@ -56,16 +56,37 @@
   - BaseHandheldStationMap
   - BaseHandheldComputer
   suffix: Handheld, Powered
+  components:
+  - type: ContainerContainer
+    containers:
+      board: !type:Container
+      hidden_slot: !type:ContainerSlot
+  - type: ItemSlots
+    slots:
+      hidden_slot:
+        name: computer_slot_accessory
+        whitelist:
+          tags:
+          - ListeningBug
 
 - type: entity
   id: HandheldStationMapEmpty
   parent: HandheldStationMap
   suffix: Handheld, Empty
   components:
+  - type: ContainerContainer
+    containers:
+      board: !type:Container
+      hidden_slot: !type:ContainerSlot
   - type: ItemSlots
     slots:
       cell_slot:
         name: power-cell-slot-component-slot-name-default
+      hidden_slot:
+        name: computer_slot_accessory
+        whitelist:
+          tags:
+          - ListeningBug
 
 - type: entity
   id: HandheldStationMapUnpowered

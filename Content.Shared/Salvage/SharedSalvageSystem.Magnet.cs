@@ -21,12 +21,15 @@ namespace Content.Shared.Salvage;
 public abstract partial class SharedSalvageSystem
 {
     private readonly List<SalvageMapPrototype> _salvageMaps = new();
+    private readonly List<RuinMapPrototype> _ruinMaps = new();
 
     private readonly Dictionary<ISalvageMagnetOffering, float> _offeringWeights = new()
     {
-        { new AsteroidOffering(), 4.5f },
-        { new DebrisOffering(), 3.5f },
-        { new SalvageOffering(), 2.0f },
+        //Only disabled for testing purposes
+        //{ new AsteroidOffering(), 4.5f },
+        //{ new DebrisOffering(), 3.5f },
+        //{ new SalvageOffering(), 2.0f },
+        { new RuinOffering(), 2.0f }
     };
 
     private readonly List<ProtoId<DungeonConfigPrototype>> _asteroidConfigs = new()
@@ -107,6 +110,23 @@ public abstract partial class SharedSalvageSystem
                 return new SalvageOffering
                 {
                     SalvageMap = map,
+                };
+            case RuinOffering:
+                // Ruin map seed
+                _ruinMaps.Clear();
+                _ruinMaps.AddRange(_proto.EnumeratePrototypes<RuinMapPrototype>());
+                _ruinMaps.Sort((x, y) => string.Compare(x.ID, y.ID, StringComparison.Ordinal));
+                if (_ruinMaps.Count == 0)
+                {
+                    // Fallback if no ruin maps are defined
+                    throw new InvalidOperationException("No ruin map prototypes are defined for ruin offerings.");
+                }
+                var ruinMapIndex = rand.Next(_ruinMaps.Count);
+                var ruinMap = _ruinMaps[ruinMapIndex];
+
+                return new RuinOffering
+                {
+                    RuinMap = ruinMap,
                 };
             default:
                 throw new NotImplementedException($"Salvage type {type} not implemented!");

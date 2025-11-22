@@ -20,6 +20,7 @@ using Content.Shared.Radio;
 using Content.Shared.Salvage.Magnet;
 using Robust.Shared.Exceptions;
 using Robust.Shared.Map;
+using Robust.Shared.Map.Components;
 
 namespace Content.Server.Salvage;
 
@@ -30,6 +31,8 @@ public sealed partial class SalvageSystem
     [ValidatePrototypeId<RadioChannelPrototype>]
     private const string MagnetChannel = "Supply";
 
+    private SalvageRuinGenerator? _ruinGenerator;
+
     private EntityQuery<SalvageMobRestrictionsComponent> _salvMobQuery;
     private EntityQuery<MobStateComponent> _mobStateQuery;
 
@@ -39,6 +42,15 @@ public sealed partial class SalvageSystem
     {
         _salvMobQuery = GetEntityQuery<SalvageMobRestrictionsComponent>();
         _mobStateQuery = GetEntityQuery<MobStateComponent>();
+
+        // Create ruin generator with dependencies
+        _ruinGenerator = new SalvageRuinGenerator(
+            _mapManager,
+            _prototypeManager,
+            _random,
+            _mapSystem,
+            _tileDefinitionManager,
+            _loader);
 
         SubscribeLocalEvent<SalvageMagnetDataComponent, MapInitEvent>(OnMagnetDataMapInit);
 
@@ -315,6 +327,38 @@ public sealed partial class SalvageSystem
                 }
 
                 break;
+            case RuinOffering ruin:
+                // Generate 5 ruins
+                const int ruinCount = 5;
+                var ruinResults = new List<SalvageRuinGenerator.RuinResult>();
+
+                for (var i = 0; i < ruinCount; i++)
+                {
+                    var ruinSeed = seed + i;
+                    var ruinResult = _ruinGenerator?.GenerateRuin(ruin.RuinMap.MapPath, ruinSeed, floodFillPoints: 50);
+                    if (ruinResult != null)
+                    {
+                        ruinResults.Add(ruinResult);
+                    }
+                }
+
+                if (ruinResults.Count == 0)
+                {
+                    Report(magnet, MagnetChannel, "salvage-system-announcement-spawn-no-debris-available");
+                    _mapSystem.DeleteMap(salvMapXform.MapID);
+                    return;
+                }
+
+                // Create grids for each ruin
+                var ruinGrids = new List<(Entity<MapGridComponent> Grid, Box2 Bounds)>();
+                foreach (var ruinResult in ruinResults)
+                {
+                    var ruinGrid = _mapManager.CreateGridEntity(salvMap);
+                    _mapSystem.SetTiles(ruinGrid.Owner, ruinGrid.Comp, ruinResult.FloorTiles);
+                    ruinGrids.Add((ruinGrid, ruinResult.Bounds));
+                }
+
+                break;
             default:
                 throw new ArgumentOutOfRangeException();
         }
@@ -368,42 +412,109 @@ public sealed partial class SalvageSystem
             worldAngle = _random.NextAngle();
         }
 
-        if (!TryGetSalvagePlacementLocation(magnet, mapId, attachedBounds, bounds!.Value, worldAngle, out var spawnLocation, out var spawnAngle))
+        // Handle ruin placement separately for clustered layout
+        if (offering is RuinOffering)
         {
-            Report(magnet.Owner, MagnetChannel, "salvage-system-announcement-spawn-no-debris-available");
-            _mapSystem.DeleteMap(salvMapXform.MapID);
-            return;
-        }
-
-        // I have no idea if we want to return on failure or not
-        // but I assume trying to set the parent with a null value wouldn't have worked out anyways
-        if (!_mapSystem.TryGetMap(spawnLocation.MapId, out var spawnUid))
-            return;
-
-        data.Comp.ActiveEntities = null;
-        mapChildren = salvMapXform.ChildEnumerator;
-
-        // It worked, move it into position and cleanup values.
-        while (mapChildren.MoveNext(out var mapChild))
-        {
-            var salvXForm = _xformQuery.GetComponent(mapChild);
-            var localPos = salvXForm.LocalPosition;
-
-            _transform.SetParent(mapChild, salvXForm, spawnUid.Value);
-            _transform.SetWorldPositionRotation(mapChild, spawnLocation.Position + localPos, spawnAngle, salvXForm);
-
-            data.Comp.ActiveEntities ??= new List<EntityUid>();
-            data.Comp.ActiveEntities?.Add(mapChild);
-
-            // Handle mob restrictions
-            var children = salvXForm.ChildEnumerator;
-
-            while (children.MoveNext(out var child))
+            // Get ruin grids we created (they're already on salvMap from the switch case)
+            var ruinGridList = new List<(Entity<MapGridComponent> Grid, Box2 Bounds)>();
+            mapChildren = salvMapXform.ChildEnumerator;
+            while (mapChildren.MoveNext(out var mapChild))
             {
-                if (!_salvMobQuery.TryGetComponent(child, out var salvMob))
+                if (!_gridQuery.TryGetComponent(mapChild, out var childGrid))
                     continue;
 
-                salvMob.LinkedEntity = mapChild;
+                var childAABB = childGrid.LocalAABB;
+                ruinGridList.Add(((mapChild, childGrid), childAABB));
+            }
+
+            if (ruinGridList.Count == 0)
+            {
+                Report(magnet.Owner, MagnetChannel, "salvage-system-announcement-spawn-no-debris-available");
+                _mapSystem.DeleteMap(salvMapXform.MapID);
+                return;
+            }
+
+            // Plan clustered placements
+            if (!PlanRuinPlacements(magnet, mapId, attachedBounds, ruinGridList, worldAngle, out var placements))
+            {
+                Report(magnet.Owner, MagnetChannel, "salvage-system-announcement-spawn-no-debris-available");
+                _mapSystem.DeleteMap(salvMapXform.MapID);
+                return;
+            }
+
+            if (placements.Count == 0 || !_mapSystem.TryGetMap(placements[0].Position.MapId, out var spawnUid))
+            {
+                _mapSystem.DeleteMap(salvMapXform.MapID);
+                return;
+            }
+
+            data.Comp.ActiveEntities = null;
+
+            // Place each ruin at its planned position
+            for (var i = 0; i < ruinGridList.Count && i < placements.Count; i++)
+            {
+                var (grid, _) = ruinGridList[i];
+                var (placementPos, placementAngle) = placements[i];
+                var salvXForm = _xformQuery.GetComponent(grid.Owner);
+                var localPos = salvXForm.LocalPosition;
+
+                _transform.SetParent(grid.Owner, salvXForm, spawnUid.Value);
+                _transform.SetWorldPositionRotation(grid.Owner, placementPos.Position + localPos, placementAngle, salvXForm);
+
+                data.Comp.ActiveEntities ??= new List<EntityUid>();
+                data.Comp.ActiveEntities.Add(grid.Owner);
+
+                // Handle mob restrictions
+                var children = salvXForm.ChildEnumerator;
+                while (children.MoveNext(out var child))
+                {
+                    if (!_salvMobQuery.TryGetComponent(child, out var salvMob))
+                        continue;
+
+                    salvMob.LinkedEntity = grid.Owner;
+                }
+            }
+        }
+        else
+        {
+            // Standard placement for other offerings
+            if (!TryGetSalvagePlacementLocation(magnet, mapId, attachedBounds, bounds!.Value, worldAngle, out var spawnLocation, out var spawnAngle))
+            {
+                Report(magnet.Owner, MagnetChannel, "salvage-system-announcement-spawn-no-debris-available");
+                _mapSystem.DeleteMap(salvMapXform.MapID);
+                return;
+            }
+
+            // I have no idea if we want to return on failure or not
+            // but I assume trying to set the parent with a null value wouldn't have worked out anyways
+            if (!_mapSystem.TryGetMap(spawnLocation.MapId, out var spawnUid))
+                return;
+
+            data.Comp.ActiveEntities = null;
+            mapChildren = salvMapXform.ChildEnumerator;
+
+            // It worked, move it into position and cleanup values.
+            while (mapChildren.MoveNext(out var mapChild))
+            {
+                var salvXForm = _xformQuery.GetComponent(mapChild);
+                var localPos = salvXForm.LocalPosition;
+
+                _transform.SetParent(mapChild, salvXForm, spawnUid.Value);
+                _transform.SetWorldPositionRotation(mapChild, spawnLocation.Position + localPos, spawnAngle, salvXForm);
+
+                data.Comp.ActiveEntities ??= new List<EntityUid>();
+                data.Comp.ActiveEntities?.Add(mapChild);
+
+                // Handle mob restrictions
+                var children = salvXForm.ChildEnumerator;
+
+                while (children.MoveNext(out var child))
+                {
+                    if (!_salvMobQuery.TryGetComponent(child, out var salvMob))
+                        continue;
+
+                    salvMob.LinkedEntity = mapChild;
+                }
             }
         }
 
@@ -418,6 +529,129 @@ public sealed partial class SalvageSystem
         };
 
         RaiseLocalEvent(ref active);
+    }
+
+    private bool PlanRuinPlacements(
+        Entity<SalvageMagnetComponent> magnet,
+        MapId mapId,
+        Box2Rotated attachedBounds,
+        List<(Entity<MapGridComponent> Grid, Box2 Bounds)> ruins,
+        Angle worldAngle,
+        out List<(MapCoordinates Position, Angle Rotation)> placements)
+    {
+        placements = new List<(MapCoordinates, Angle)>();
+
+        if (ruins.Count == 0)
+            return false;
+
+        var attachedAABB = attachedBounds.CalcBoundingBox();
+        var magnetPos = _transform.GetWorldPosition(magnet) + worldAngle.ToVec() * 32f; // Initial offset
+        var origin = attachedAABB.ClosestPoint(magnetPos);
+        var fraction = 0.50f;
+
+        var placedBounds = new List<Box2Rotated>();
+        var clusterCenter = Vector2.Zero;
+
+        for (var i = 0; i < ruins.Count; i++)
+        {
+            var (_, ruinBounds) = ruins[i];
+            var ruinSize = ruinBounds.Size;
+            var maxDimension = Math.Max(ruinSize.X, ruinSize.Y);
+
+            Angle rotation = Angle.Zero;
+            MapCoordinates position = MapCoordinates.Nullspace;
+            bool found = false;
+
+            if (i == 0)
+            {
+                // First ruin: place at standard distance
+                for (var attempt = 0; attempt < 20; attempt++)
+                {
+                    var randomPos = origin +
+                                    worldAngle.ToVec() * (magnet.Comp.MagnetSpawnDistance * fraction) +
+                                    (worldAngle + Math.PI / 2).ToVec() * _random.NextFloat(-magnet.Comp.LateralOffset, magnet.Comp.LateralOffset);
+                    position = new MapCoordinates(randomPos, mapId);
+
+                    rotation = _random.NextAngle();
+                    var box2 = Box2.CenteredAround(position.Position, ruinSize);
+                    var box2Rot = new Box2Rotated(box2, rotation, position.Position);
+
+                    if (!_mapManager.FindGridsIntersecting(mapId, box2Rot).Any())
+                    {
+                        found = true;
+                        clusterCenter = randomPos;
+                        placedBounds.Add(box2Rot);
+                        break;
+                    }
+
+                    fraction += 0.1f;
+                }
+            }
+            else
+            {
+                // Subsequent ruins: place in expanding spiral around cluster center
+                var spiralRadius = maxDimension * 1.5f;
+                var spiralAngle = 0f;
+                var spiralStep = MathF.PI / 4f; // 8 positions per ring
+
+                for (var ring = 1; ring <= 10 && !found; ring++)
+                {
+                    spiralRadius = maxDimension * (1.5f + ring * 0.5f);
+
+                    for (var step = 0; step < 8 * ring && !found; step++)
+                    {
+                        var offset = new Vector2(
+                            MathF.Cos(spiralAngle) * spiralRadius,
+                            MathF.Sin(spiralAngle) * spiralRadius
+                        );
+
+                        position = new MapCoordinates(clusterCenter + offset, mapId);
+                        rotation = _random.NextAngle();
+
+                        var box2 = Box2.CenteredAround(position.Position, ruinSize);
+                        var box2Rot = new Box2Rotated(box2, rotation, position.Position);
+
+                        // Check intersection with existing ruins using bounding boxes
+                        var intersects = false;
+                        var box2RotAABB = box2Rot.CalcBoundingBox();
+                        foreach (var existing in placedBounds)
+                        {
+                            var existingAABB = existing.CalcBoundingBox();
+                            var intersection = box2RotAABB.Intersect(existingAABB);
+                            if (intersection.Width > 0 && intersection.Height > 0)
+                            {
+                                intersects = true;
+                                break;
+                            }
+                        }
+
+                        // Check intersection with other grids
+                        if (!intersects && !_mapManager.FindGridsIntersecting(mapId, box2Rot).Any())
+                        {
+                            found = true;
+                            placedBounds.Add(box2Rot);
+                            break;
+                        }
+
+                        spiralAngle += spiralStep;
+                    }
+                }
+            }
+
+            if (!found)
+            {
+                // Failed to place this ruin, but continue with others
+                continue;
+            }
+
+            // Only add if position was successfully found
+            if (position != MapCoordinates.Nullspace)
+            {
+                placements.Add((position, rotation));
+            }
+        }
+
+        return placements.Count > 0;
     }
 
     private bool TryGetSalvagePlacementLocation(Entity<SalvageMagnetComponent> magnet, MapId mapId, Box2Rotated attachedBounds, Box2 bounds, Angle worldAngle, out MapCoordinates coords, out Angle angle)

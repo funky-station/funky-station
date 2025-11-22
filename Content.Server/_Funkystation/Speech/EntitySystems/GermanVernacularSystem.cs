@@ -4,6 +4,8 @@
 //
 // SPDX-License-Identifier: MIT
 
+// Copying the GermanAccentSystem REUSE header since this is just code from there split from the original file
+
 using System.Text;
 using Content.Server.Speech.Components;
 using Robust.Shared.Random;
@@ -11,25 +13,33 @@ using System.Text.RegularExpressions;
 
 namespace Content.Server.Speech.EntitySystems;
 
-public sealed class GermanAccentSystem : EntitySystem
+public sealed class GermanVernacularSystem : EntitySystem
 {
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly ReplacementAccentSystem _replacement = default!;
 
-    private static readonly Regex RegexTh = new(@"(?<=\s|^)th", RegexOptions.IgnoreCase);
+    private static readonly Regex RegexThe = new(@"(?<=\s|^)the(?=\s|$)", RegexOptions.IgnoreCase);
+    private static readonly Regex RegexAUmlautUpper = new(@"Ä");
+    private static readonly Regex RegexAUmlautLower = new(@"ä");
+    private static readonly Regex RegexOUmlautUpper = new(@"Ö");
+    private static readonly Regex RegexOUmlautLower = new(@"ö");
+    private static readonly Regex RegexUUmlautUpper = new(@"Ü");
+    private static readonly Regex RegexUUmlautLower = new(@"ü");
 
     public override void Initialize()
     {
-        SubscribeLocalEvent<GermanAccentComponent, AccentGetEvent>(OnAccent);
+        SubscribeLocalEvent<GermanVernacularComponent, AccentGetEvent>(OnAccent);
     }
 
     public string Accentuate(string message)
     {
         var msg = message;
 
-        // rarely, "the" should become "das" instead of "ze"
-        // TODO: The ReplacementAccentSystem should have random replacements this built-in.
-        /*foreach (Match match in RegexThe.Matches(msg))
+        // The "the" -> "das" system below this requires a three-letter word.
+        // So we undo the "ze" -> "the" system! This sucks so much.
+        msg = _replacement.ApplyReplacements(msg, "germanthe");
+
+        foreach (Match match in RegexThe.Matches(msg))
         {
             if (_random.Prob(0.3f))
             {
@@ -40,20 +50,21 @@ public sealed class GermanAccentSystem : EntitySystem
                       (char)(msg[match.Index + 2] + 14) +
                       msg.Substring(match.Index + 3);
             }
-        }*/
-
-        // now, apply word replacements
-        msg = _replacement.ApplyReplacements(msg, "germanaccent");
-
-        // replace th with zh (for zhis, zhat, etc. the => ze is handled by replacements already)
-        var msgBuilder = new StringBuilder(msg);
-        foreach (Match match in RegexTh.Matches(msg))
-        {
-            // just shift the T over to a Z to preserve capitalization
-            msgBuilder[match.Index] = (char) (msgBuilder[match.Index] + 6);
         }
 
-        // Random Umlaut Time! (The joke outweighs the emotional damage this inflicts on actual Germans)
+        // Also we're undoing all the umlauts because they mess with word replacement.
+        msg = RegexAUmlautUpper.Replace(message, "A");
+        msg = RegexAUmlautLower.Replace(message, "a");
+        msg = RegexOUmlautUpper.Replace(message, "O");
+        msg = RegexOUmlautLower.Replace(message, "o");
+        msg = RegexUUmlautUpper.Replace(message, "U");
+        msg = RegexUUmlautLower.Replace(message, "u");
+
+        msg = _replacement.ApplyReplacements(msg, "german");
+
+        // Time to put them back!
+        var msgBuilder = new StringBuilder(msg);
+
         var umlautCooldown = 0;
         for (var i = 0; i < msgBuilder.Length; i++)
         {
@@ -80,10 +91,11 @@ public sealed class GermanAccentSystem : EntitySystem
             }
         }
 
-        return msgBuilder.ToString();
+        // Now everything should be back to normal!
+        return msg;
     }
 
-    private void OnAccent(Entity<GermanAccentComponent> ent, ref AccentGetEvent args)
+    private void OnAccent(Entity<GermanVernacularComponent> ent, ref AccentGetEvent args)
     {
         args.Message = Accentuate(args.Message);
     }

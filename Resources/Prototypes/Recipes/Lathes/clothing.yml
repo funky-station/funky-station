@@ -32,7 +32,10 @@
 # SPDX-FileCopyrightText: 2024 hiucko <86206040+Hiucko@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 icekot8 <93311212+icekot8@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Fr0goo <153249069+Fr0goo@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Fr0goo <frogoofrog@outlook.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 ThatOneMoon <91613003+ThatOneMoon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
 # SPDX-FileCopyrightText: 2025 salpphie <53307242+salpphie@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 salpphie <alyssa.thomas51@gmail.com>
@@ -411,6 +414,21 @@
   parent: BaseJumpsuitRecipe
   id: ClothingUniformJumpskirtJanitor
   result: ClothingUniformJumpskirtJanitor
+
+- type: latheRecipe
+  parent: BaseJumpsuitRecipe
+  id: ClothingUniformJaniCoveralls
+  result: ClothingUniformJaniCoveralls
+
+- type: latheRecipe
+  parent: BaseJumpsuitRecipe
+  id: ClothingUniformOverallsJanitor
+  result: ClothingUniformOverallsJanitor
+
+- type: latheRecipe
+  parent: BaseJumpsuitRecipe
+  id: ClothingUniformCarpExterminator
+  result: ClothingUniformCarpExterminator
 
 ## Lawyer
 

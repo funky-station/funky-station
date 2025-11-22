@@ -37,7 +37,10 @@
 # SPDX-FileCopyrightText: 2025 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 AtlasHD <99688062+AtlasHDD@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Cthyga <41489382+Cthyga@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Dani <57107055+wgreen84@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 FeelFlows <1493889+FeelFlows@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Fr0goo <153249069+Fr0goo@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Fr0goo <frogoofrog@outlook.com>
 # SPDX-FileCopyrightText: 2025 Icepick <122653407+Icepicked@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 IronDragoon <8961391+IronDragoon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Lyndomen <49795619+lyndomen@users.noreply.github.com>
@@ -50,6 +53,7 @@
 # SPDX-FileCopyrightText: 2025 Mora <46364955+TrixxedHeart@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Neoncamouflage <neoncamouflage@yahoo.com>
 # SPDX-FileCopyrightText: 2025 PoquitoDondito <danielchristianstone@gmail.com>
+# SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+Princess-Cheeseballs@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 RadsammyT <32146976+RadsammyT@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 SigmaTheDragon <162711378+SigmaTheDragon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
@@ -552,6 +556,9 @@
   minLimit: 0
   loadouts:
   - JanitorHead
+  - YellowJanitorHead
+  - OrangeJanitorHead
+  - RainHat
 
 - type: loadoutGroup
   id: JanitorJumpsuit
@@ -559,6 +566,9 @@
   loadouts:
   - JanitorJumpsuit
   - JanitorJumpskirt
+  - JanitorCoveralls
+  - JanitorOveralls
+  - CarpExterminator
   - JanitorialMaidOutfit
   - JanitorialMaidOutfitmini
 
@@ -568,6 +578,9 @@
   minLimit: 0
   loadouts:
   - JanitorRubberGloves
+  - JanitorBlueRubberGloves
+  - JanitorOrangeRubberGloves
+  - JanitorPurpleRubberGloves
   - OrangeGloves
   - PurpleGloves
 
@@ -577,6 +590,16 @@
   minLimit: 0
   loadouts:
   - JanitorWintercoat
+  - RainCoat
+
+- type: loadoutGroup
+  id: JanitorShoes
+  name: loadout-group-janitor-shoes
+  loadouts:
+  - Galoshes
+  - BlueGaloshes
+  - OrangeGaloshes
+  - PurpleGaloshes
 
 - type: loadoutGroup
   id: JanitorPlunger

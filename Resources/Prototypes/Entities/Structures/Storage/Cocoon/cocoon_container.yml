@@ -7,12 +7,29 @@
     sprite: Mobs/Effects/cocooned.rsi
     state: cocooned
   - type: Transform
-  - type: EntityStorage
-    capacity: 1
-    open: false
+  - type: Physics
+    bodyType: Dynamic
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 50
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
   - type: ContainerContainer
     containers:
-      entity_storage: !type:Container
+      cocoon_victim: !type:Container
   - type: CocoonContainer
     maxDamage: 10
     absorbPercentage: 0.3
+  - type: Appearance
+  - type: RotationVisuals
+    horizontalRotation: 90
+  - type: StandingState
+  - type: Clickable
+  - type: Pullable
+  - type: InteractionOutline

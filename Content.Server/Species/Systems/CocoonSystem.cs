@@ -18,11 +18,13 @@ using Content.Shared.Species.Arachnid;
 using Content.Shared.Standing;
 using Content.Shared.Storage.Components;
 using Content.Shared.Storage.EntitySystems;
+using Content.Shared.Rotation;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Player;
 using Robust.Shared.Utility;
+using Robust.Shared.Map;
 
 namespace Content.Server.Species.Arachnid;
 
@@ -37,9 +39,11 @@ public sealed class CocoonSystem : SharedCocoonSystem
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly SharedHandsSystem _hands = default!;
-    [Dependency] private readonly SharedEntityStorageSystem _entityStorage = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly DamageableSystem _damageable = default!;
+    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
+
+    private const string CocoonContainerId = "cocoon_victim";
 
     public override void Initialize()
     {
@@ -227,8 +231,8 @@ public sealed class CocoonSystem : SharedCocoonSystem
             return;
 
         // Check if target is already in a cocoon container
-        if (_container.TryGetContainingContainer(target, out var container) &&
-            HasComp<CocoonContainerComponent>(container.Owner))
+        if (_container.TryGetContainingContainer(target, out var existingContainer) &&
+            HasComp<CocoonContainerComponent>(existingContainer.Owner))
         {
             _popups.PopupEntity(Loc.GetString("arachnid-wrap-already"), performer, performer);
             return;
@@ -258,6 +262,34 @@ public sealed class CocoonSystem : SharedCocoonSystem
         cocoonComp.Victim = target;
         Dirty(cocoonContainer, cocoonComp);
 
+        // Check if the victim was standing - if so, animate the cocoon to fall horizontally
+        // If the victim was already prone, set cocoon to prone immediately without animation
+        var victimWasStanding = !_standing.IsDown(target);
+        if (victimWasStanding)
+        {
+            // Make the cocoon container go prone (fall to ground horizontally) - this will animate
+            _standing.Down(cocoonContainer, playSound: false, dropHeldItems: false, force: true);
+        }
+        else
+        {
+            // Victim was already prone - set cocoon to prone immediately without animation
+            if (TryComp<StandingStateComponent>(cocoonContainer, out var standingState))
+            {
+                standingState.CurrentState = StandingState.Lying;
+                Dirty(cocoonContainer, standingState);
+            }
+            
+            // Set rotation state directly to horizontal (this skips the animation)
+            _appearance.SetData(cocoonContainer, RotationVisuals.RotationState, RotationState.Horizontal);
+        }
+
+        // Sync the cocoon container's rotation to match the victim's rotation
+        if (TryComp<TransformComponent>(target, out var victimXform) &&
+            TryComp<TransformComponent>(cocoonContainer, out var cocoonXform))
+        {
+            _transform.SetLocalRotation(cocoonContainer, victimXform.LocalRotation, cocoonXform);
+        }
+
         // Drop all items from victim's hands before inserting
         if (TryComp<HandsComponent>(target, out var hands))
         {
@@ -270,8 +302,11 @@ public sealed class CocoonSystem : SharedCocoonSystem
             }
         }
 
+        // Ensure the container exists (it should already be created by the prototype, but create it if missing)
+        var victimContainer = _container.EnsureContainer<Container>(cocoonContainer, CocoonContainerId);
+
         // Insert victim into container
-        if (!_entityStorage.Insert(target, cocoonContainer))
+        if (!_container.Insert(target, victimContainer))
         {
             Log.Error($"Failed to insert {target} into cocoon container {cocoonContainer}");
             Del(cocoonContainer);
@@ -303,7 +338,10 @@ public sealed class CocoonSystem : SharedCocoonSystem
         // Remove victim from container
         if (component.Victim != null && Exists(component.Victim.Value))
         {
-            _entityStorage.Remove(component.Victim.Value, uid);
+            if (_container.TryGetContainer(uid, CocoonContainerId, out var container))
+            {
+                _container.Remove(component.Victim.Value, container);
+            }
         }
 
         // Delete the container
@@ -383,7 +421,10 @@ public sealed class CocoonSystem : SharedCocoonSystem
         // Remove victim from container before deleting
         if (cocoon.Comp.Victim != null && Exists(cocoon.Comp.Victim.Value))
         {
-            _entityStorage.Remove(cocoon.Comp.Victim.Value, cocoon);
+            if (_container.TryGetContainer(cocoon, CocoonContainerId, out var container))
+            {
+                _container.Remove(cocoon.Comp.Victim.Value, container);
+            }
             _popups.PopupEntity(Loc.GetString("arachnid-cocoon-broken"), cocoon.Comp.Victim.Value, cocoon.Comp.Victim.Value, PopupType.LargeCaution);
         }
 

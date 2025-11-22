@@ -177,3 +177,11 @@
       machine_parts: !type:Container
       entity_storage: !type:Container
       output_container: !type:Container
+      hidden_slot: !type:ContainerSlot
+  - type: ItemSlots
+    slots:
+      hidden_slot:
+        name: computer_slot_accessory
+        whitelist:
+          tags:
+          - ListeningBug

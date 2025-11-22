@@ -56,6 +56,14 @@
         showEnts: False
         occludes: True
         ents: []
+      hidden_slot: !type:ContainerSlot
+  - type: ItemSlots
+    slots:
+      hidden_slot:
+        name: computer_slot_accessory
+        whitelist:
+          tags:
+          - ListeningBug
   - type: ApcPowerReceiver
     powerLoad: 10000
   - type: DeviceList

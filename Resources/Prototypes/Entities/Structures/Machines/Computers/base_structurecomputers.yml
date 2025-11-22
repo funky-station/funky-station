@@ -97,6 +97,7 @@
       - NoConsoleSound
   - type: ContainerContainer
     containers:
+      board: !type:Container
       hidden_slot: !type:ContainerSlot
   - type: ItemSlots
     slots:

@@ -16,11 +16,11 @@ marking-ThavenEars3 = Long Ears
 marking-ThavenEars4-ears4 = Droopy Ears
 marking-ThavenEars4 = Droopy Ears
 
-marking-ThavenPiercings-piercings = Helix Piercing
-marking-ThavenPiercings =  Helix Piercing
+marking-ThavenPiercings-piercings = Hoop Piercing
+marking-ThavenPiercings =  Hoop Piercing
 
-marking-ThavenPiercings2-piercings2 = Hoop Piercing
-marking-ThavenPiercings2 = Hoop Piercing
+marking-ThavenPiercings2-piercings2 = Helix Piercing
+marking-ThavenPiercings2 = Helix Piercing
 
 marking-ThavenChestTattoo1-chesttat1 = Back Tattoo
 marking-ThavenChestTattoo1 = Back Tattoo

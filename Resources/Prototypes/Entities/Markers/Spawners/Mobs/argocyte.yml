@@ -1,0 +1,175 @@
+# SPDX-FileCopyrightText: 2025 8tv <eightev@gmail.com>
+# SPDX-FileCopyrightText: 2025 Errant <35878406+Errant-4@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Southbridge <7013162+southbridge-fur@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 salpphie <alyssa.thomas51@gmail.com>
+#
+# SPDX-License-Identifier: MIT
+
+- type: entity
+  parent: MarkerBase
+  id: SpawnArgocyteBarrier
+  name: Barrier Spawner
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - state: barrier
+      sprite: Mobs/Aliens/Argocyte/argocyte_common.rsi
+    state: barrier
+  - type: ConditionalSpawner
+    prototypes:
+    - MobArgocyteBarrier
+
+- type: entity
+  parent: MarkerBase
+  id: SpawnArgocyteCrawler
+  name: Crawler Spawner
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - state: crawler
+      sprite: Mobs/Aliens/Argocyte/argocyte_common.rsi
+  - type: ConditionalSpawner
+    prototypes:
+    - MobArgocyteCrawler
+
+- type: entity
+  parent: MarkerBase
+  id: SpawnArgocyteEnforcer
+  name: Enforcer Spawner
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - state: enforcer
+      sprite: Mobs/Aliens/Argocyte/argocyte_common.rsi
+  - type: ConditionalSpawner
+    prototypes:
+    - MobArgocyteEnforcer
+
+- type: entity
+  parent: MarkerBase
+  id: SpawnArgocyteFounder
+  name: Founder Spawner
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - state: founder
+      sprite: Mobs/Aliens/Argocyte/argocyte_large.rsi
+  - type: ConditionalSpawner
+    prototypes:
+    - MobArgocyteFounder
+
+- type: entity
+  parent: MarkerBase
+  id: SpawnArgocyteGlider
+  name: Glider Spawner
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - state: glider
+      sprite: Mobs/Aliens/Argocyte/argocyte_common.rsi
+  - type: ConditionalSpawner
+    prototypes:
+    - MobArgocyteGlider
+
+- type: entity
+  parent: MarkerBase
+  id: SpawnArgocyteHarvester
+  name: Harvester Spawner
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - state: harvester
+      sprite: Mobs/Aliens/Argocyte/argocyte_common.rsi
+  - type: ConditionalSpawner
+    prototypes:
+    - MobArgocyteHarvester
+
+- type: entity
+  parent: MarkerBase
+  id: SpawnArgocyteLeviathing
+  name: Leviathing Spawner
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - state: leviathing
+      sprite: Mobs/Aliens/Argocyte/argocyte_large.rsi
+  - type: ConditionalSpawner
+    prototypes:
+    - MobArgocyteLeviathing
+
+- type: entity
+  parent: MarkerBase
+  id: SpawnArgocyteMolder
+  name: Molder Spawner
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - state: molder
+      sprite: Mobs/Aliens/Argocyte/argocyte_common.rsi
+  - type: ConditionalSpawner
+    prototypes:
+    - MobArgocyteMolder
+
+- type: entity
+  parent: MarkerBase
+  id: SpawnArgocytePouncer
+  name: Pouncer Spawner
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - state: pouncer
+      sprite: Mobs/Aliens/Argocyte/argocyte_common.rsi
+  - type: ConditionalSpawner
+    prototypes:
+    - MobArgocytePouncer
+
+- type: entity
+  parent: MarkerBase
+  id: SpawnArgocyteSkitter
+  name: Skitter Spawner
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - state: skitter
+      sprite: Mobs/Aliens/Argocyte/argocyte_common.rsi
+  - type: ConditionalSpawner
+    prototypes:
+    - MobArgocyteSkitter
+
+- type: entity
+  parent: MarkerBase
+  id: SpawnArgocyteSlurva
+  name: Slurva Spawner
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - state: slurva
+      sprite: Mobs/Aliens/Argocyte/argocyte_common.rsi
+  - type: ConditionalSpawner
+    prototypes:
+    - MobArgocyteSlurva
+
+- type: entity
+  parent: MarkerBase
+  id: SpawnArgocyteSwiper
+  name: Swiper Spawner
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - state: swiper
+      sprite: Mobs/Aliens/Argocyte/argocyte_common.rsi
+  - type: ConditionalSpawner
+    prototypes:
+    - MobArgocyteSwiper

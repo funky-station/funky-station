@@ -2,6 +2,7 @@
 # SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
 # SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 Mish <bluscout78@yahoo.com>
+# SPDX-FileCopyrightText: 2025 Xcybitt <197952719+Xcybitt@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Xcybitt <lenazheng88@gmail.com>
 # SPDX-FileCopyrightText: 2025 Xcybitt <xcybitt@gmail.com>
 # SPDX-FileCopyrightText: 2025 mkanke-real <mikekanke@gmail.com>
@@ -123,6 +124,27 @@
     MailSyndieToolbox: 0.1
     MailBloodredPhone: 0.1
     MailInsulsGambling: 0.6
+    MailMedibot: 0.1
+    MailFireBot: 0.1
+    MailCleanBot: 0.1
+    MailMimeBot: 0.1
+    MailSupplyBot: 0.1
+    MailAgentDecoy: 0.1
+    MailCommanderDecoy: 0.1
+    MailEliteDecoy: 0.1
+    MailJuggernautDecoy: 0.1
+    MailOperativeDecoy: 0.1
+    MailLandMine: 0.1
+    MailLightImplant: 0.1
+    MailSadTromboneImplant: 0.1
+    MailBikeHornImplant: 0.1
+    MailSyndicateBusinessCard: 0.3
+    MailBloodRedBrewPair: 0.4
+    MailChangelingStingPair: 0.4
+    MailClownFood: 0.4
+    MailBloodRedBrewPack: 0.2
+    MailChangelingStingPack: 0.2
+    MailCarpBundle: 0.3
   # Tools
     MailSignallerKit: 0.5
     MailFlashlight: 0.8
@@ -136,6 +158,7 @@
     MailSword: 0.2
     MailSwitchblade: 0.05
     MailBrassKnuckles: 0.1
+    MailBowKit: 0.1
   # Departments
   departments:
     Cargo:

@@ -113,16 +113,6 @@
     - WallMount
   - type: Physics
     bodyType: Static
-  - type: ContainerContainer
-    containers:
-      hidden_slot: !type:ContainerSlot
-  - type: ItemSlots
-    slots:
-      hidden_slot:
-        name: table_slot_hidden
-        whitelist:
-          tags:
-          - ListeningBug
   - type: Fixtures
     fixtures:
       fix1:

@@ -973,6 +973,14 @@
   - type: ContainerContainer
     containers:
       storagebase: !type:Container
+      hidden_slot: !type:ContainerSlot
+  - type: ItemSlots
+    slots:
+      hidden_slot:
+        name: table_slot_hidden
+        whitelist:
+          tags:
+          - ListeningBug
   - type: Tag
 
 - type: entity

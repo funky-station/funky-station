@@ -22,6 +22,7 @@
   id: MoodPets
   values:
   - Pun Pun the Monkey
+  - Yip-Yap the Kobold
   - Hamlet the Hamster
   - Shiva the Spider
   - Ian the Corgi
@@ -107,7 +108,7 @@
   - Mothroachburger
   - Amanita Jelly
   - Spicy Rock Pizza
-  
+
 - type: dataset
   id: MoodDrinkables
   values:
@@ -123,7 +124,7 @@
   - Hippie's Delight
   - Tayquila
   - Three Mile Island Iced Tea
-  
+
 - type: dataset
   id: MoodHolidays
   values:

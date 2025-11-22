@@ -162,6 +162,17 @@
     jumpsuit: ClothingUniformJumpsuitJacketMonkey
     id: PunPunIDCard
 
+#Funkystation start
+- type: startingGear
+  id: MobKoboldGear
+  equipment:
+    head: ClothingHeadHatChef
+    ears: ClothingHeadsetService
+    jumpsuit: ClothingUniformJumpsuitChef
+    belt: ClothingBeltChef
+    id: YipYapIDCard
+#Funkystation end
+
 - type: startingGear
   id: MobPollyGear
   equipment:

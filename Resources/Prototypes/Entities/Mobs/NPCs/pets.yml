@@ -926,6 +926,45 @@
       proper: true
       gender: male
 
+# Funkystation baybee - This was copied directly from Pun Pun, as Yip-Yap is basically just the kobold version of Pun Pun for the Chef.
+- type: entity
+  name: Yip-Yap
+  parent: MobKobold
+  id: MobKoboldYipYap
+  description: A mischevious little kobold, who loves to cook food just as much as he loves eating it. 
+  components:
+    - type: GhostRole
+      prob: 1
+      makeSentient: true
+      allowSpeech: true
+      allowMovement: true
+      name: ghost-role-information-yipyap-name
+      description: ghost-role-information-yipyap-description
+      rules: ghost-role-information-nonantagonist-rules
+    - type: GhostTakeoverAvailable
+    - type: Butcherable
+      butcheringType: Spike
+      spawned:
+        - id: FoodMeat
+          amount: 3
+        - id: FoodShakerSalt
+          amount: 1
+        - id: FoodShakerPepper
+          amount: 1
+    - type: Tag
+      tags:
+        - CannotSuicide
+        - DoorBumpOpener
+        - VimPilot
+        - AnomalyHost
+    - type: Loadout
+      prototypes: [ MobKoboldGear ]
+    - type: Grammar
+      attributes:
+        proper: true
+        gender: male
+# End of Funky edits
+
 - type: entity
   name: Tropico
   parent: MobCrab

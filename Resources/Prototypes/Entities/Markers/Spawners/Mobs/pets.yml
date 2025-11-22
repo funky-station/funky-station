@@ -224,6 +224,23 @@
   - type: ConditionalSpawner
     prototypes:
     - MobMonkeyPunpun
+      
+#Funkystation start
+- type: entity
+  parent: MarkerBase
+  id: SpawnMobKoboldYipYap
+  name: Yip-Yap Spawner
+  suffix: Chef Pet
+  components:
+    - type: Sprite
+      layers:
+        - state: green
+        - state: kobold 
+          sprite: Mobs/Animals/kobold.rsi
+    - type: ConditionalSpawner
+      prototypes:
+        - MobKoboldYipYap
+#Funkystation end
 
 - type: entity
   parent: MarkerBase

@@ -83,6 +83,14 @@
       key_slots: !type:Container
       machine_board: !type:Container
       machine_parts: !type:Container
+      hidden_slot: !type:ContainerSlot
+  - type: ItemSlots
+    slots:
+      hidden_slot:
+        name: computer_slot_accessory
+        whitelist:
+          tags:
+          - ListeningBug
 
 - type: entity
   parent: TelecomServer

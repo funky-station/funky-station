@@ -105,11 +105,18 @@
         - FitsInDispenser
       priority: 9
   - type: ItemSlots
+    slots:
+      hidden_slot:
+        name: computer_slot_accessory
+        whitelist:
+          tags:
+          - ListeningBug
   - type: ContainerContainer
     containers:
       machine_board: !type:Container
       machine_parts: !type:Container
       beakerSlot: !type:ContainerSlot
+      hidden_slot: !type:ContainerSlot
   - type: StaticPrice
     price: 1000
   - type: WiresPanel

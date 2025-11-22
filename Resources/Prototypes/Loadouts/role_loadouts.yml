@@ -306,6 +306,7 @@
   - StationEngineerBackpack
   - ChiefEngineerNeck
   - ChiefEngineerOuterClothing
+  - ChiefEngineerBelt
   - ChiefEngineerShoes
   - SurvivalExtended
   - Trinkets
@@ -329,6 +330,7 @@
   - StationEngineerJumpsuit
   - StationEngineerBackpack
   - StationEngineerOuterClothing
+  - StationEngineerBelt
   - StationEngineerShoes
   - StationEngineerID
   - SurvivalExtended
@@ -344,6 +346,7 @@
   - AtmosphericTechnicianJumpsuit
   - AtmosphericTechnicianBackpack
   - AtmosphericTechnicianOuterClothing
+  - AtmosphericTechnicianBelt
   - AtmosphericTechnicianShoes
   - SurvivalExtended
   - Trinkets

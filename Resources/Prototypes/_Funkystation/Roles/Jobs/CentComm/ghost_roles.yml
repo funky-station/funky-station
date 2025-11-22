@@ -8,7 +8,7 @@
   id: CentralCommandIntern
   name: Central Command Intern
   description: ghost-role-information-centcom-intern-description
-  playTimeTracker: CentralCommandIntern
+  playTimeTracker: JobCentralCommandIntern
   setPreference: false
   requirements:
   - !type:OverallPlaytimeRequirement

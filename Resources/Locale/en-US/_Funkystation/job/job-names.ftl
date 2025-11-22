@@ -11,4 +11,5 @@ job-name-space-cowboy = Space Cowboy
 
 # Role timers - Make these alphabetical or I eat you
 
-CentralCommandIntern = Central Command Intern
+JobCentralCommandIntern = Central Command Intern
+JobSpaceCowboy = Space Cowboy

@@ -14,7 +14,7 @@
   id: JobMagistrate
 
 - type: playTimeTracker
-  id: CentralCommandIntern
+  id: JobCentralCommandIntern
 
 - type: playTimeTracker
-  id: SpaceCowboyTime
+  id: JobSpaceCowboy

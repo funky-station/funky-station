@@ -9,51 +9,51 @@ SPDX-License-Identifier: MIT
 <Document>
   # Quartermaster
 
-  [bold]1.[/bold] The Quartermaster must ensure that every approved order is delivered within 15 minutes of having been placed and approved;
+  [bold]U1.01.[/bold] The Quartermaster must ensure that every approved order is delivered within 15 minutes of having been placed and approved;
 
-  [bold]2.[/bold] In the event of a major crisis, such as Nuclear Operatives or a Blob Organism, expediency is to be favored over paperwork, as excessive bureaucracy may be detrimental to the well-being of the station;
+  [bold]U1.02.[/bold] In the event of a major crisis, such as Nuclear Operatives or a Blob Organism, expediency is to be favored over paperwork, as excessive bureaucracy may be detrimental to the well-being of the station;
 
-  [bold]3.[/bold] The Quartermaster is not permitted to authorize the ordering of Security equipment and/or gear without express permission from the Head of Security and/or Captain. An exception is made during extreme emergencies, such as Nuclear Operatives or a Blob Organism, where said equipment is to be delivered to Security, post-haste;
+  [bold]U1.03.[/bold] The Quartermaster is not permitted to authorize the ordering of Security equipment and/or gear without express permission from the Head of Security and/or Captain. An exception is made during extreme emergencies, such as Nuclear Operatives or a Blob Organism, where said equipment is to be delivered to Security, post-haste;
 
-  [bold]4.[/bold] The Quartermaster is permitted to authorize non-departmental orders (such as a Medical Doctor asking for Insulated Gloves) without express permission from the respective Head of Staff (in this example, the Chief Engineer), utilizing their best judgement, although they may still request a stamped form. However, any breach of Standard Operating Procedure and/or Space Law that results from said order will also implicate the Quartermaster;
+  [bold]U1.04.[/bold] The Quartermaster is permitted to authorize non-departmental orders (such as a Medical Doctor asking for Insulated Gloves) without express permission from the respective Head of Staff (in this example, the Chief Engineer), utilizing their best judgement, although they may still request a stamped form. However, any breach of Standard Operating Procedure and/or Space Law that results from said order will also implicate the Quartermaster;
 
-  [bold]5.[/bold] The Quartermaster is not permitted to authorize the purchase of an HFR Crate without express permission from the Chief Engineer;
+  [bold]U1.05.[/bold] The Quartermaster is not permitted to authorize the purchase of an HFR Crate without express permission from the Chief Engineer;
 
-  [bold]6.[/bold] The Quartermaster is required to follow the guidelines put in place for Cargo Technicians;
+  [bold]U1.06.[/bold] The Quartermaster is required to follow the guidelines put in place for Cargo Technicians;
 
   # Cargo Technician
 
-  [bold]1.[/bold] Cargo Technicians must ensure that every approved order is delivered within 15 minutes of having been placed and approved;
+  [bold]U2.01.[/bold] Cargo Technicians must ensure that every approved order is delivered within 15 minutes of having been placed and approved;
 
-  [bold]2.[/bold] Cargo Technicians are bound to the same rules as the Quartermaster regarding restricted crates (see above);
+  [bold]U2.02.[/bold] Cargo Technicians are bound to the same rules as the Quartermaster regarding restricted crates (see above);
 
-  [bold]3.[/bold] Cargo Technicians are not permitted to order items for sole personal use with the supply department account without express consent from the Quartermaster. Exception is made if there are more than 2500 spesos available and no outstanding orders. Cargo Technicians may not deplete the entire department account balance for this;
+  [bold]U2.03.[/bold] Cargo Technicians are not permitted to order items for sole personal use with the supply department account without express consent from the Quartermaster. Exception is made if there are more than 2500 spesos available and no outstanding orders. Cargo Technicians may not deplete the entire department account balance for this;
 
-  [bold]4.[/bold] Cargo Technicians are not permitted to order non-essential items using the supply account (such as cats, or clothing) without express consent from the Quartermaster;
+  [bold]U2.04.[/bold] Cargo Technicians are not permitted to order non-essential items using the supply account (such as cats, or clothing) without express consent from the Quartermaster;
 
-  [bold]5.[/bold] Cargo Technicians are not permitted to force and/or break open locked crates. The same applies to the Quartermaster. Exception is made for Abandoned Crates found by Mining;
+  [bold]U2.05.[/bold] Cargo Technicians are not permitted to force and/or break open locked crates. The same applies to the Quartermaster. Exception is made for Abandoned Crates found by Mining;
 
-  [bold]6.[/bold] Cargo Technicians are not permitted to authorize non-departmental orders (such as a Medical Doctor asking for Insulated Gloves) without express permission from the Quartermaster;
+  [bold]U2.06.[/bold] Cargo Technicians are not permitted to authorize non-departmental orders (such as a Medical Doctor asking for Insulated Gloves) without express permission from the Quartermaster;
 
-  [bold]7.[/bold] Cargo Technicians must ensure at least one copy of every Order Form (ie, the forms produced by the Requests Console) is kept inside Cargo.
+  [bold]U2.07.[/bold] Cargo Technicians must ensure at least one copy of every Order Form (ie, the forms produced by the Requests Console) is kept inside Cargo.
 
-  [bold]8.[/bold] Cargo Technicians must send back all crates that have been ordered, with accompanying stamped manifest inside the crate;
+  [bold]U2.08.[/bold] Cargo Technicians must send back all crates that have been ordered, with accompanying stamped manifest inside the crate;
 
-  [bold]9.[/bold] Cargo Technicians should ensure that a single Department does not fully drain the Ore Processor, as it can be utilized by multiple Departments;
+  [bold]U2.09.[/bold] Cargo Technicians should ensure that a single Department does not fully drain the Ore Processor, as it can be utilized by multiple Departments;
 
-  [bold]10.[/bold] Cargo Technicians are not permitted to ask for space credits in exchange for legal cargo crate orders or autolathe requests from crew members;
+  [bold]U2.10.[/bold] Cargo Technicians are not permitted to ask for space credits in exchange for legal cargo crate orders or autolathe requests from crew members;
 
-  [bold]11.[/bold] Cargo Technicians are not permitted to trade items and/or favors in exchange for items with regular personnel without express consent from the Quartermaster;
+  [bold]U2.11.[/bold] Cargo Technicians are not permitted to trade items and/or favors in exchange for items with regular personnel without express consent from the Quartermaster;
 
-  [bold]12.[/bold] Cargo Technicians should ensure that at least one person is handling mail delivery, should the mail teleporter be turned on and functioning.
+  [bold]U2.12.[/bold] Cargo Technicians should ensure that at least one person is handling mail delivery, should the mail teleporter be turned on and functioning.
 
   # Salvage Specialist
 
-  [bold]1.[/bold] Salvage Specialists are not permitted to hoard materials. All mined materials are to be left in the Ore Processor;
+  [bold]U3.01.[/bold] Salvage Specialists are not permitted to hoard materials. All mined materials are to be left in the Ore Processor;
 
-  [bold]2.[/bold] Salvage Specialists are not permitted to throw people into manufactured wormholes, nor are they permitted to trick people into using Bluespace Crystals, or throwing Bluespace Crystals at anyone;
+  [bold]U3.02.[/bold] Salvage Specialists are not permitted to throw people into manufactured wormholes, nor are they permitted to trick people into using Bluespace Crystals, or throwing Bluespace Crystals at anyone;
 
-  [bold]3.[/bold] Salvage Specialists are not permitted to give expedition acquired items to station crew, unless the Quartermaster approves;
+  [bold]U3.03.[/bold] Salvage Specialists are not permitted to give expedition acquired items to station crew, unless the Quartermaster approves;
 
-  [bold]4.[/bold] Salvage Specialists are bound by guidelines set for Cargo Technicians when inside the Cargo Office or Bay;
+  [bold]U3.04.[/bold] Salvage Specialists are bound by guidelines set for Cargo Technicians when inside the Cargo Office or Bay;
 </Document>

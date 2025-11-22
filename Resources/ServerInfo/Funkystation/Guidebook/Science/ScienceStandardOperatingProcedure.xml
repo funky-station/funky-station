@@ -12,88 +12,88 @@ SPDX-License-Identifier: MIT
 
   ## Code Green
 
-  [bold]1.[/bold] The Research Director must make sure Research is being done. Research must be completed by the end of the shift, assuming Science is provided the materials for it by Cargo;
+  [bold]N1.01.[/bold] The Research Director must make sure Research is being done. Research must be completed by the end of the shift, assuming Science is provided the materials for it by Cargo;
 
-  [bold]2.[/bold] The Research Director is permitted to carry a flash and their Handheld Teleporter;
+  [bold]N1.02.[/bold] The Research Director is permitted to carry a flash and their Handheld Teleporter;
 
-  [bold]3.[/bold] The Research Director is not permitted to bring harmful artifacts outside of Science if they are not stored within an artifact container;
+  [bold]N1.03.[/bold] The Research Director is not permitted to bring harmful artifacts outside of Science if they are not stored within an artifact container;
 
-  [bold]4.[/bold] The Research Director is not permitted to decommission a Station AI without the Captain's approval. The AI unit, if decommissioned must be secured on an Intellicard to be inspected in Central Command;
+  [bold]N1.04.[/bold] The Research Director is not permitted to decommission a Station AI without the Captain's approval. The AI unit, if decommissioned must be secured on an Intellicard to be inspected in Central Command;
 
-  [bold]5.[/bold] The Research Director is permitted to change the Station AIs laws, provided they receive approval from the Captain;
+  [bold]N1.05.[/bold] The Research Director is permitted to change the Station AIs laws, provided they receive approval from the Captain;
 
-  [bold]6.[/bold] The Research Director must keep a log of all anomalies and eliminate any anomalies that may pose an immediate danger to crewmembers;
+  [bold]N1.06.[/bold] The Research Director must keep a log of all anomalies and eliminate any anomalies that may pose an immediate danger to crewmembers;
 
-  [bold]7.[/bold] The Research Director must ensure telecommunications is properly maintained.
+  [bold]N1.07.[/bold] The Research Director must ensure telecommunications is properly maintained.
 
   ## Code Blue
 
-  [bold]1.[/bold] All guidelines carry over from Code Green.
+  [bold]N1.01B.[/bold] All guidelines carry over from Code Green.
 
   ## Code Red
 
-  [bold]1.[/bold] All guidelines carry over from Code Blue;
+  [bold]N1.01R.[/bold] All guidelines carry over from Code Blue;
 
-  [bold]2.[/bold] In addition to a flash, the Research Director is permitted to carry a single weapon created in the Protolathe, provided they recieve authorization from the Head of Security. An exception is made during extreme emergencies;
+  [bold]N1.02R.[/bold] In addition to a flash, the Research Director is permitted to carry a single weapon created in the Protolathe, provided they recieve authorization from the Head of Security. An exception is made during extreme emergencies;
 
   # Scientist / Research Assistant SOP
 
   ## Code Green
 
-  [bold]1.[/bold] Scientists are not permitted to bring artifacts outside of Science without the use of an artifact container;
+  [bold]N2.01.[/bold] Scientists are not permitted to bring artifacts outside of Science without the use of an artifact container;
 
-  [bold]2.[/bold] Scientists are not permitted to generate anomalies without approval from the Research Director;
+  [bold]N2.02.[/bold] Scientists are not permitted to generate anomalies without approval from the Research Director;
 
-  [bold]3.[/bold] While not mandatory, it is highly recommended that Scientists give a prior warning before generating an anomaly, preferably done in-conjuction with the Research Director declaring that an anomaly is generated with the appropriate Communications Console;
+  [bold]N2.03.[/bold] While not mandatory, it is highly recommended that Scientists give a prior warning before generating an anomaly, preferably done in-conjuction with the Research Director declaring that an anomaly is generated with the appropriate Communications Console;
 
-  [bold]4.[/bold] Scientists are to deliver any animals used for testing to the Chef after testing has concluded;
+  [bold]N2.04.[/bold] Scientists are to deliver any animals used for testing to the Chef after testing has concluded;
 
-  [bold]5.[/bold] Scientists are not permitted to carry any weapons generated from the protolathe;
+  [bold]N2.05.[/bold] Scientists are not permitted to carry any weapons generated from the protolathe;
 
-  [bold]6.[/bold] Scientists are not permitted to distribute any weapons generated from the protolathe, unless the weapon in question (for example, Proto-Kinetic Accelerators) is delivered to the appropriate department;
+  [bold]N2.06.[/bold] Scientists are not permitted to distribute any weapons generated from the protolathe, unless the weapon in question (for example, Proto-Kinetic Accelerators) is delivered to the appropriate department;
 
-  [bold]7.[/bold] Scientists are not to activate Station-wide Destruction artifacts, and must destroy or eliminate them as soon as possible;
+  [bold]N2.07.[/bold] Scientists are not to activate Station-wide Destruction artifacts, and must destroy or eliminate them as soon as possible;
 
-  [bold]8.[/bold] At least one scientist should be available to take orders from crewmembers at the Science front desk, if there is one.
+  [bold]N2.08.[/bold] At least one scientist should be available to take orders from crewmembers at the Science front desk, if there is one.
 
   ## Code Blue
 
-  [bold]1.[/bold] All guidelines carry over from Code Green;
+  [bold]N2.01B.[/bold] All guidelines carry over from Code Green;
 
-  [bold]2.[/bold] Scientists are permitted to produce weapons and grenades from the protolathe provided they get delivered to Security.
+  [bold]N2.02B.[/bold] Scientists are permitted to produce weapons and grenades from the protolathe provided they get delivered to Security.
 
   ## Code Red
 
-  [bold]1.[/bold] All guidelines carry over from Code Blue;
+  [bold]N2.01R.[/bold] All guidelines carry over from Code Blue;
 
-  [bold]2.[/bold] In regard to Guideline 2 on Code Blue, scientists may arm themselves with a single weapon if the threat is deemed to be station ending.
+  [bold]N2.02R.[/bold] In regard to Guideline 2 on Code Blue, scientists may arm themselves with a single weapon if the threat is deemed to be station ending.
 
   # Roboticist SOP
 
   ## Code Green
 
-  [bold]1.[/bold] Roboticists are not permitted to construct Combat Mechs without explicit permission from the Captain and/or the Head of Security. An example of a Combat Mech is the Gygax;
+  [bold]N3.01.[/bold] Roboticists are not permitted to construct Combat Mechs without explicit permission from the Captain and/or the Head of Security. An example of a Combat Mech is the Gygax;
 
-  [bold]2.[/bold] Roboticists are freely permitted to construct Utility Mechs, along with any assorted Utility Equipment;
+  [bold]N3.02.[/bold] Roboticists are freely permitted to construct Utility Mechs, along with any assorted Utility Equipment;
 
-  [bold]3.[/bold] Roboticists are freely permitted to construct Cyborgs and all assorted equipment;
+  [bold]N3.03.[/bold] Roboticists are freely permitted to construct Cyborgs and all assorted equipment;
 
-  [bold]4.[/bold] Roboticists are to respect all Do-Not-Borg orders, and copies of orders are to be kept safe if possible. If no copy exists, an MMI Unit may refuse to be a Cyborg, and that wish must be respected;
+  [bold]N3.04.[/bold] Roboticists are to respect all Do-Not-Borg orders, and copies of orders are to be kept safe if possible. If no copy exists, an MMI Unit may refuse to be a Cyborg, and that wish must be respected;
 
-  [bold]5.[/bold] Roboticists must ensure that all Cyborgs are adhering to their laws and not malfunctioning. If a Cyborg is found to be breaking their laws, their MMI Unit or Positronic Brain must be preserved and placed into a new Cyborg chassis;
+  [bold]N3.05.[/bold] Roboticists must ensure that all Cyborgs are adhering to their laws and not malfunctioning. If a Cyborg is found to be breaking their laws, their MMI Unit or Positronic Brain must be preserved and placed into a new Cyborg chassis;
 
-  [bold]6.[/bold] Roboticists must keep at least one Positronic Brain activated if possible;
+  [bold]N3.06.[/bold] Roboticists must keep at least one Positronic Brain activated if possible;
 
-  [bold]7.[/bold] Roboticists must adhere to all Scientist SOP guidelines.
+  [bold]N3.07.[/bold] Roboticists must adhere to all Scientist SOP guidelines.
 
 
   ## Code Blue
 
-  [bold]1.[/bold] All guidelines carry over from Code Green;
+  [bold]N3.01B.[/bold] All guidelines carry over from Code Green;
 
-  [bold]2.[/bold] In regard to Guideline 1 on Code Green, Roboticists are permitted to construct Combat Mechs without prior consent, but must be delivered to the Armory. Failure to comply will result in the Combat Mech being destroyed. An exception is made for station-wide threats, but even after these threats are dealt with, the Mech must be delivered to the Armory.
+  [bold]N3.02B.[/bold] In regard to Guideline 1 on Code Green, Roboticists are permitted to construct Combat Mechs without prior consent, but must be delivered to the Armory. Failure to comply will result in the Combat Mech being destroyed. An exception is made for station-wide threats, but even after these threats are dealt with, the Mech must be delivered to the Armory.
 
   ## Code Red
 
-  [bold]1.[/bold] All guidelines carry over from Code Blue.
+  [bold]N3.01R.[/bold] All guidelines carry over from Code Blue.
 </Document>

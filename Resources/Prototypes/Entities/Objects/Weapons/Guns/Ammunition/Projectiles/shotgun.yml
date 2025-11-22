@@ -33,6 +33,7 @@
 # SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
 # SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 SigmaTheDragon <162711378+SigmaTheDragon@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Xcybitt <197952719+Xcybitt@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
@@ -50,6 +51,7 @@
     damage:
       types:
         Piercing: 40 # Goobstation - Don't really have to cycle them here, so a moderate nerf over 13 makes sense... not 28 damage what the actual fuck was that?
+        Structural: 45 #hoping this isn't too strong, feel it's interesting to have a ranged breach tool, breaches a door in a whole bulldog mag, but other structures like windows might be an issue #funk
 
 - type: entity
   id: PelletShotgunBeanbag
@@ -80,6 +82,7 @@
     damage:
       types:
         Piercing: 10
+        Structural: 15 #taking the amount from wizden, don't exactly see any mald prs killing it so #funk
 
 - type: entity
   id: PelletShotgunSpread

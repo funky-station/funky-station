@@ -17,25 +17,37 @@ SPDX-License-Identifier: MIT
 
   ## Diet
 
-  - Can eat raw meat.
-  - Will get poisoned by Theobromine (Chocolate, Tea, Coffee) and Allicin (Onion, Garlic).
+  Rodentia share evolutionary roots with rodents, and so they cannot metabolize Theobromine or Allicin. Be careful
+  when eating chocolate, onions, or garlic, and avoid coffee and tea! Despite their dietary restrictions, they get
+  hungry 33% faster than other species.
 
-  ## Benefits
+  ## Claws
 
-  - Uses their claws to do some Slashing and Blunt damage.
-  - Smaller than humans.
-  - Can fit in duffelbags.
+  Rodentia have dull claws, which do a mixture of [color=orange]Blunt[/color] and [color=orange]Slashing[/color] damage.
 
-  ## Special
+  ## Sticky Fingers
 
-  - Can Rummage in disposal chutes, which can sometimes dig up food.
-  - Can store small items in their cheeks. Having items in their mouth makes their speech unintelligible, and they will drop all items in their mouth if attacked, stunned, or shoved.
-  - Can "sneak" underneath tables, but not doors.
+  Rodentia can rummage in disposal units, potentially finding food and other useful trinkets! Unfortunately, their
+  feet also have a tendency to get painfully caught in mousetraps, even if they're wearing shoes.
 
-  ## Drawbacks
+  ## Cheek Storage
 
-  - Takes 30% more Blunt damage, and 15% more Slash and Piercing damage.
-  - Always triggers mousetraps, regardless of whether or not they are wearing shoes.
-  - Gets hungry 33% faster.
+  Rodentia can store small items in their cheeks. Having items in their mouth makes their speech unintelligible, and
+  they will drop all items in their mouth if attacked, stunned, or shoved.
+
+  ## Damage
+
+  Due to being smaller and more fragile than other species, Rodentia take 30% more [color=orange]Blunt[/color] damage, and
+  15% more [color=orange]Slashing[/color] and [color=orange]Piercing[/color] damage.
+
+  ## Rodentia Naming Conventions
+
+  Rodentia typically have names structured by a descriptor followed by a pet sounding first name.
+
+  [bullet] Short-legged Noodle
+
+  [bullet] Long-tail Chitters
+
+  [bullet] Squeaky Cheesetail
 
 </Document>

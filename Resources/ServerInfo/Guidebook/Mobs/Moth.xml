@@ -12,11 +12,31 @@ SPDX-License-Identifier: MIT
     <GuideEntityEmbed Entity="MobMoth" Caption=""/>
   </Box>
 
-  They can eat cotton, fabrics and clothing, but virtually none of the food that others would consider "edible". They prefer a somewhat lower temperature range than humans.
-  Their Insect Blood can't be metabolised from Iron like normal blood.
+  Moth People are fuzzy, bewinged insect-humanoid aliens that share ancestry with the common moth.
 
-  Their wings give them better acceleration if there is no gravity on the station, but they still can't move without equipment when floating out in space.
+  ## Diet
 
-  They take [color=#1e90ff]30% less Cold damage[/color] but [color=#ffa500]30% more Heat damage, and catch on fire more easily[/color].
+  Moth People can eat cotton, fabrics and clothing, but virtually none of the food that others would consider "edible".
+
+  ## Insectoid Physiology
+
+  Covered in hair-like fuzz, Moth People tend to prefer a lower temperature range than humans. Furthermore, their blood
+  cannot be metabolized from Iron. Their wings give them better acceleration if there is no gravity on the station, but
+  they still can't move without equipment when floating out in space.
+
+  ## Damage
+
+  Moth People take 30% less [color=cornflowerblue]Cold[/color] damage but 20% more [color=red]Heat[/color] damage, and catch
+  on fire more easily.
+
+  ## Moth Person Naming Conventions
+
+  Moth People typically have latin and light related names.
+
+  [bullet] Silkie Gossamer
+
+  [bullet] Shelly Nightwatch
+
+  [bullet] Allie Lightweaver
 
 </Document>

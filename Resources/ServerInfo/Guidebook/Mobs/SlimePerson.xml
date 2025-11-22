@@ -18,19 +18,49 @@ SPDX-License-Identifier: MIT
     <GuideEntityEmbed Entity="MobSlimePerson" Caption=""/>
   </Box>
 
-  They breathe nitrogen instead of oxygen, which is abundant in the station air, but harder to find compressed into gas tanks. They take significant damage if they are sprayed or splashed with water, but can
-  (and like other species, need to) drink it safely to stay hydrated.
-  They exhale nitrous oxide and are unaffected by it.
-  Their body can process 6 reagents at the same time instead of just 2.
+  Slime People are sentient blobs of non-newtonian fluid and organs who breathe nitrogen.
 
-  Slimepeople have an [bold]internal 2x3 storage inventory[/bold] inside of their slime membrane. Anyone can see what's inside and take it out of you without asking,
-  so be careful.
+  ## Slime Core
+  <Box>
+    <GuideEntityEmbed Entity="SentientSlimeCore" Caption=""/>
+  </Box>
+  Among many other physiological differences, Slime People's organs are compressed into a single "core" located in
+  their stomach region, acting as the brain, heart, eyes, stomach, kidneys, and liver. This core can process up to six
+  reagents instead of the usual three.
 
-  Slimepeople have slight accelerated regeneration compared to other humanoids. They're also capable of hardening their fists, and as such have stronger punches,
-  although they punch a little slower.
+  ## Breathing
 
-  Their slime "blood" can not be regenerated from Iron. Slime Blood is technically a source of
-  moderately filling food for other species, although drinking the blood of your coworkers is usually frowned upon.
-  They suffocate 80% slower, but take pressure damage 9% faster. This makes them by far the species most capable to survive in hard vacuum. For a while.
+  Slime People breathe nitrogen instead of oxygen, which is abundant in the station air, but harder to find compressed
+  into gas tanks. They exhale nitrous oxide and are unaffected by it.
+  Furthermore, Slime People asphyxiate five times slower than humans, making the rarity of nitrogen tanks less of a
+  severe threat to their survivability in an emergency.
+
+  ## Slime Storage
+
+  Slime People have an [bold]internal 2x3 storage inventory[/bold] inside of their slime membrane. Anyone can see
+  what's inside and take it out of them without asking, and thrown items can sometimes get stuck inside, so be careful.
+
+  ## Slime Healing
+
+  Slime People have a very slight accelerated regeneration compared to other humanoids, their slime coagulating at
+  twice the rate of other species' and below 65 damage. This healing factor coincidentally also makes their slime a
+  debatably nutritious source of food for other species.
+
+  ## Damage
+
+  Due to their non-newtonian biology, Slime People take 40% reduced [color=orange]Blunt[/color] damage and 20% reduced [color=green]Poison[/color],
+  as well as 80% reduced [color=mediumpurple]Cellular[/color]. However, they also take 50% more [color=cornflowerblue]Cold[/color] damage,
+  20% more [color=orange]Piercing[/color] damage, and 20% more [color=orange]Slashing[/color] damage. They suffer from barotrauma
+  9% faster than other species, and they also become injured when splashed with water, as some of their slime is washed away.
+
+  ## Slime Naming Conventions
+
+  Slimes typically have names that are onomatopoeic, "liquidy", or references their slime.
+
+  [bullet] Glub Green
+
+  [bullet] Blorb
+
+  [bullet] Glort Jones
 
 </Document>

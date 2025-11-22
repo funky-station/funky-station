@@ -9,6 +9,8 @@
 # SPDX-FileCopyrightText: 2023 Whisper <121047731+QuietlyWhisper@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2023 lzk <124214523+lzk228@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 ArionGekkota <jabefont@gmail.com>
+# SPDX-FileCopyrightText: 2025 Mixelz <32188067+Mixelz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
 # SPDX-License-Identifier: MIT
@@ -36,9 +38,45 @@
     graph: BoxCardboard
     node: boxcardboard
     containers:
-      - entity_storage
+      - storagebase
   - type: PhysicalComposition
     materialComposition:
       Cardboard: 100
   - type: StaticPrice
     price: 10
+
+- type: entity
+  name: circuit tote
+  id: ToteBase
+  parent: BoxBase
+  description: A large tote for carrying circuit boards.
+  components:
+  - type: Sprite
+    layers:
+      - state: tote-0
+        map: ["enum.StorageFillLayers.Fill"]
+      - state: circuit
+  - type: Appearance
+  - type: StorageFillVisualizer
+    maxFillLevels: 3
+    fillBaseName: tote
+  - type: Storage
+    maxItemSize: Small
+    grid:
+    - 0,0,5,2
+    whitelist:
+      components:
+      - MachineBoard
+      - CircuitBoard
+  - type: Construction
+    graph: ToteBase
+    node: totebase
+  - type: PhysicalComposition
+    materialComposition:
+      Cardboard: 75
+      Cloth: 25
+  - type: StaticPrice
+    price: 15
+  - type: Tag
+    tags:
+    - ToteBase

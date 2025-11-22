@@ -137,6 +137,7 @@
 # SPDX-FileCopyrightText: 2025 Lary <89530982+LaryNevesPR@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 McBosserson <148172569+McBosserson@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Milon <milonpl.git@proton.me>
+# SPDX-FileCopyrightText: 2025 Mixelz <32188067+Mixelz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 RedBookcase <Usualmoves@gmail.com>
 # SPDX-FileCopyrightText: 2025 RedBookcase <crazykid1590@gmail.com>
 # SPDX-FileCopyrightText: 2025 Schuyler Duryee <skywd7766@gmail.com>
@@ -1606,6 +1607,9 @@
 
 - type: Tag
   id: Torch
+
+- type: Tag
+  id: ToteBase
 
 - type: Tag
   id: Tourniquet

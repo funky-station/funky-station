@@ -26,6 +26,7 @@
 # SPDX-FileCopyrightText: 2025 Icepick <122653407+Icepicked@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Icepick <icepickedcyanide@gmail.com>
 # SPDX-FileCopyrightText: 2025 Sanderk35 <sanderkamphuis719@gmail.com>
+# SPDX-FileCopyrightText: 2025 TheHolyAegis <76066612+TheHolyAegis@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 TheHolyAegis <sanderkamphuis719@gmail.com>
 # SPDX-FileCopyrightText: 2025 kbarkevich <24629810+kbarkevich@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 salpphie <53307242+salpphie@users.noreply.github.com>
@@ -38,7 +39,7 @@
   id: Fland
   mapName: 'Fland Installation'
   mapPath: /Maps/_Funkystation/fland.yml # Funkystation - Robotics (Based on Goob Version)
-  minPlayers: 40 # Goobstation return minPlayers requirement for maps
+  minPlayers: 55 # Goobstation return minPlayers requirement for maps
   maxPlayers: 85 # Goobstation - Limit mappool to highpop versions of maps only
   stations:
     Fland:

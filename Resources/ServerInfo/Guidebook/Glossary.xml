@@ -60,7 +60,7 @@ An administrative agency which oversees the Nanotrasen space station you inhabit
 Short for Chief Medical Officer, the head of the Medical Department.
 
 ## Crit/Critical
-Refers to the health state at which you fall unconscious and unable to move. While in critical, your health slowly decays until you die, unless you happen to get outside assistance.
+Refers to the health state at which you will fall unconscious and no longer be able to move. While in a critical state, your health slowly decays until you die, unless you happen to receive outside assistance.
 
 ## Emag
   Refers to the Syndicate cryptographic sequencer. "Emagged" usually refers to airlocks or lockers that are bolted open, but also any other device hacked into by an Emag.
@@ -87,13 +87,13 @@ Short for Head of Personnel, head of the Service Department. Can also refer to t
 Short for Head of Security, head of the Security Department.
 
 ## Insuls
-Short for Insulated Gloves. These are the yellow gloves most often worn by Engineers. They are offer complete protection from getting electrocuted from shocked things. Vastily more effective than their budget variety.
+Short for Insulated Gloves. These are the yellow gloves most often worn by Engineers. They are offer complete protection from electrocution, which is most commonly caused via shocked doors. Vastly more effective than their budget variety.
 
 ## Jani
 Short for Janitor.
 
 ## KOS
-Kill on sight. Someone has commited such a serious crime that they are deemed not even worth arresting.
+Kill on sight. Someone has committed such a serious crime that they are deemed to be too much of a threat for standard arrest procedures.
 
 ## Mats
 Materials. Usually steel, plastic, plasteel, glass, silver and gold.
@@ -108,7 +108,7 @@ A portmanteau of "New" and "Nukie" used to refer to an inexperienced player in t
 A slang/shorthand term of a Nuclear Operative. May sometimes also appear as "Nuke Op".
 
 ## Perma
-Short for Permanent Brig. This is for the most serious crime and means that a prisoner will never be released. Most stations have a dedicated, separate area of security for the permanent brig.
+Short for Permanent Brig. This is for the most serious crimes and means that a prisoner will never be released. Most stations have a dedicated, separate area of security for the permanent brig.
 
 ## QM
 Short for Quartermaster, the head of the Cargo department.
@@ -135,10 +135,10 @@ Short for Security Officer.
 In-Character way to refer to rounds.
 
 ## Singulo
-A shortening of the Singularity Engine. A Singulo can create infinite power for the station but is very dangerous.
+A shortening of the Singularity Engine. A Singulo can generate infinite power for the station but is very dangerous.
 
 ## Singuloose
-A Singularity that has grownth too much and breached it's containment. It will rip through the station causing massive damage.
+A Singularity that has breached its containment, whether through an accident, negligence, or sabotage. It will rip through the station, causing massive damage.
 
 ## Spacing
 An event which causes an area to lose air pressure, i.e. a hull breach.
@@ -154,6 +154,9 @@ A catch-all reference to anyone employed by the Syndicate. This ranges from (sus
 
 ## TC
 A telecrystal, which is a currency used by Syndicate Agents to purchase restricted contraband such as weapons and other illegal equipment.
+
+## Tesloose
+A variant of the term Singuloose, but for the tesla. Rips through the station, targetting electronics of all kinds.
 
 ## Wardenloose
 A joke term referencing a Singuloose. A wardenloose is when the Warden is seen outside of the brig.
@@ -172,7 +175,10 @@ An event hosted or caused by an admin.
 A relay used to report rulebreaking behavior or other issues to administrators.
 
 ## Antag
-Short for Antagonists, which are specifically picked individuals designed to drive the round into chaos.
+Short for Antagonists, which are various villain-themed roles that are designed to drive the round into chaos. Their presence is usually quiet at first, but the actions they take will often end up defining the flow of a round.
+
+## Antag Rolling
+A term describing behavior where a player is only interested in playing as an antagonist. People rolling for antagonist will frequently cryo, go permanently SSD, or kill themselves early into a round if they did not receive an antagonist role. This behavior is against the rules and will incur a punishment if you are caught.
 
 ## Bwoink
 The noise made when an admin-help is received. Pray this isn't a ban.
@@ -181,7 +187,7 @@ The noise made when an admin-help is received. Pray this isn't a ban.
 A phrase usually shouted in OOC when somebody reveals IC current round information, or "in-character, out-of-character".
 
 ## LOOC/OOC
-Local out-of-character and (global) out-of-character respectively. They are text channels that allow players to talk to other players outside of roleplay. LOOC is enabled during rounds, while OOC is typically only on after the round ends.
+Local out-of-character and (global) out-of-character respectively. They are text channels that allow players to talk to other players outside of roleplay. LOOC is enabled during rounds, while OOC is typically only enabled after the round ends and before the next round begins.
 
 ## LRP
 Low Roleplay. Servers marked LRP typically have relaxed roleplaying rules.

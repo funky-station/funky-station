@@ -46,6 +46,8 @@
 # SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Spanky <180730777+spanky-spanky@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 Toastermeister <215405651+Toastermeister@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 mkanke-real <mikekanke@gmail.com>
 # SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
@@ -155,6 +157,14 @@
       microwave_entity_container: !type:Container
       machine_board: !type:Container
       machine_parts: !type:Container
+      hidden_slot: !type:ContainerSlot
+  - type: ItemSlots
+    slots:
+      hidden_slot:
+        name: computer_slot_accessory
+        whitelist:
+          tags:
+          - ListeningBug
   - type: EmptyOnMachineDeconstruct
     containers:
     - microwave_entity_container

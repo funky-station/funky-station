@@ -83,12 +83,15 @@
 
 - type: Tag
   id: CardboardboxLargeFlat
-  
+
 - type: Tag
   id: CartridgePistolLarge
 
 - type: Tag
   id: MagazinePistolLarge
-  
+
 - type: Tag
   id: RevolverSalamander
+
+- type: Tag
+  id: ListeningBug

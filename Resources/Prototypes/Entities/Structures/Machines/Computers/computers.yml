@@ -95,8 +95,10 @@
 # SPDX-FileCopyrightText: 2025 Minerva <218184747+mnva0@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Mish <bluscout78@yahoo.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 Xcybitt <197952719+Xcybitt@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 jackel234 <52829582+jackel234@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 mkanke-real <mikekanke@gmail.com>
 # SPDX-FileCopyrightText: 2025 mnva <218184747+mnva0@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
 # SPDX-FileCopyrightText: 2025 pathetic meowmeow <uhhadd@gmail.com>
@@ -778,11 +780,18 @@
     tags:
     - AccessBreakerImmune
   - type: ItemSlots
+    slots:
+      hidden_slot:
+        name: computer_slot_accessory
+        whitelist:
+          tags:
+          - ListeningBug
   - type: ContainerContainer
     containers:
       board: !type:Container
       IdCardConsole-privilegedId: !type:ContainerSlot
       IdCardConsole-targetId: !type:ContainerSlot
+      hidden_slot: !type:ContainerSlot
 
 - type: entity
   parent: BaseComputerAiAccess

@@ -123,6 +123,16 @@
   components:
   - type: Anchorable
   - type: Rotatable
+  - type: ContainerContainer
+    containers:
+      hidden_slot: !type:ContainerSlot
+  - type: ItemSlots
+    slots:
+      hidden_slot:
+        name: table_slot_hidden
+        whitelist:
+          tags:
+          - ListeningBug
 
 #Start anchored, cannot be rotated while anchored
 - type: entity

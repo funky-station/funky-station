@@ -89,11 +89,11 @@
   - type: Pullable
   - type: ContainerContainer
     containers:
-      board: !type:Container
+      hidden_slot: !type:ContainerSlot
         ents: [ ]
   - type: ItemSlots
     slots:
-      mop_slot:
+      hidden_slot:
         name: table_slot_hidden
         whitelist:
           tags:

@@ -203,11 +203,11 @@
   - type: WiresVisuals
   - type: ContainerContainer
     containers:
-      board: !type:Container
+      hidden_slot: !type:ContainerSlot
         ents: [ ]
   - type: ItemSlots
     slots:
-      mop_slot:
+      hidden_slot:
         name: computer_slot_accessory
         whitelist:
           tags:

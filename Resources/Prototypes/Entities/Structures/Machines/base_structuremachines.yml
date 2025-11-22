@@ -96,9 +96,11 @@
     containers:
       machine_board: !type:Container
       machine_parts: !type:Container
+      hidden_slot: !type:ContainerSlot
+        ents: [ ]
   - type: ItemSlots
     slots:
-      mop_slot:
+      hidden_slot:
         name: computer_slot_accessory
         whitelist:
           tags:

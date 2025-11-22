@@ -60,7 +60,6 @@
   components:
   - type: ContainerContainer
     containers:
-      board: !type:Container
       hidden_slot: !type:ContainerSlot
   - type: ItemSlots
     slots:
@@ -77,7 +76,7 @@
   components:
   - type: ContainerContainer
     containers:
-      board: !type:Container
+      cell_slot: !type:ContainerSlot
       hidden_slot: !type:ContainerSlot
   - type: ItemSlots
     slots:

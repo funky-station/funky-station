@@ -98,7 +98,7 @@
     sprite: Objects/Specific/Service/vending_machine_restock.rsi
     state: base
   product: CrateVendingMachineRestockDinnerwareFilled
-  cost: 1500 #Funky station, reduced from 2000 
+  cost: 1500 #Funky station, reduced from 2000
   category: cargoproduct-category-name-service
   group: market
 
@@ -199,7 +199,7 @@
     state: base
   product: CrateVendingMachineRestockSalvageEquipmentFilled
   cost: 1500
-  category: cargoproduct-category-name-cargo 
+  category: cargoproduct-category-name-cargo
   group: market
 
 - type: cargoProduct
@@ -218,7 +218,7 @@
     sprite: Objects/Specific/Service/vending_machine_restock.rsi
     state: base
   product: CrateVendingMachineRestockSeedsFilled
-  cost: 1600 # Funky station, reduced from 3600 
+  cost: 1600 # Funky station, reduced from 3600
   category: cargoproduct-category-name-hydroponics
   group: market
 

@@ -1,4 +1,6 @@
 # SPDX-FileCopyrightText: 2025 Tadeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
+# SPDX-FileCopyrightText: 2025 sleepyyapril <123355664+sleepyyapril@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
@@ -7,3 +9,100 @@
   id: RevCoin
   displayName: store-currency-display-revcoin
   canWithdraw: false
+
+# Salvage Reward Tickets 
+
+- type: currency
+  id: SalvageTicket
+  cash:
+    1: SalvageTicket  
+  displayName: store-currency-display-salvageticket
+  canWithdraw: true
+
+- type: entity
+  name: salvage exchange ticket
+  parent: BaseItem
+  id: SalvageTicket
+  suffix: 1 
+  description: Exchange your tickets for equipment!
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Specific/Cargo/salvage_reward_ticket.rsi
+    state: icon
+  - type: Item
+    sprite: _Funkystation/Objects/Specific/Cargo/salvage_reward_ticket.rsi
+    shape:
+    - 0,0,1,1
+  - type: Stack
+    count: 1
+    stackType: SalvageRewardTicket
+  # Goobstation - Custom stack splitting dialog
+  - type: UserInterface
+    interfaces:
+      enum.StackCustomSplitUiKey.Key:
+        type: StackCustomSplitBoundUserInterface
+  - type: StaticPrice
+    price: 0
+  - type: StackPrice
+    price: 0
+  - type: Currency
+    price:
+      SalvageTicket: 1 
+  - type: Material
+  - type: PhysicalComposition
+    materialComposition:
+      RewardTicket: 100
+
+- type: entity
+  parent: SalvageTicket
+  id: SalvageTicket2
+  suffix: 2
+  components:
+  - type: Stack
+    count: 2
+
+- type: entity
+  parent: SalvageTicket
+  id: SalvageTicket3
+  suffix: 3
+  components:
+  - type: Stack
+    count: 3
+
+- type: entity
+  parent: SalvageTicket
+  id: SalvageTicket5
+  suffix: 5
+  components:
+  - type: Stack
+    count: 5
+
+- type: entity
+  parent: SalvageTicket
+  id: SalvageTicket75
+  suffix: 75
+  components:
+  - type: Stack
+    count: 75
+
+- type: entity
+  parent: SalvageTicket
+  id: SalvageTicket100
+  suffix: 100
+  components:
+  - type: Stack
+    count: 100
+
+- type: material
+  id: RewardTicket
+  stackEntity: SalvageTicket
+  name: salvage-reward-ticket
+  unit: materials-unit-piece
+  icon: { sprite: _Funkystation/Objects/Specific/Cargo/salvage_reward_ticket.rsi, state: icon }
+  price: 0.01   
+
+- type: stack
+  id: SalvageRewardTicket
+  name: salvageticket
+  icon: { sprite: _Funkystation/Objects/Specific/Cargo/salvage_reward_ticket.rsi, state: icon }
+  spawn: SalvageTicket

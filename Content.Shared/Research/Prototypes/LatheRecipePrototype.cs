@@ -16,6 +16,7 @@
 // SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
 // SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
 // SPDX-License-Identifier: MIT
@@ -64,6 +65,14 @@ namespace Content.Shared.Research.Prototypes
         /// </summary>
         [DataField]
         public EntProtoId? Result;
+
+        //Start Funky change, Salvage Ticket System
+        [DataField]
+        public bool PrintTicket = false;
+
+        [DataField]
+        public EntProtoId TicketProtoId = "SalvageTicket";
+        // End Funky change
 
         [DataField]
         public Dictionary<ProtoId<ReagentPrototype>, FixedPoint2>? ResultReagents;

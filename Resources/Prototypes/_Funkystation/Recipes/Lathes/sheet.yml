@@ -1,3 +1,4 @@
+# SPDX-FileCopyrightText: 2025 ThatOneMoon <91613003+ThatOneMoon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -9,6 +10,7 @@
   materials:
     RawIron: 100
     Coal: 25
+  printTicket: true
 
 - type: latheRecipe
   id: SheetGlassIndustrial
@@ -17,6 +19,7 @@
   materials:
     RawQuartz: 100
     Coal: 25
+  printTicket: true
 
 - type: latheRecipe
   id: SheetPlasmaIndustrial
@@ -25,6 +28,7 @@
   materials:
     RawPlasma: 100
     Coal: 35
+  printTicket: true
 
 - type: latheRecipe
   id: IngotGoldIndustrial
@@ -33,6 +37,8 @@
   materials:
     RawGold: 100
     Coal: 55
+  printTicket: true
+  ticketProtoId: SalvageTicket2
 
 - type: latheRecipe
   id: IngotSilverIndustrial
@@ -41,6 +47,8 @@
   materials:
     RawSilver: 100
     Coal: 45
+  printTicket: true
+  ticketProtoId: SalvageTicket2
 
 - type: latheRecipe
   id: SheetUraniumIndustrial
@@ -49,6 +57,8 @@
   materials:
     RawUranium: 100
     Coal: 60
+  printTicket: true
+  ticketProtoId: SalvageTicket3
 
 - type: latheRecipe
   id: MaterialBananiumIndustrial
@@ -56,11 +66,15 @@
   completetime: 0
   materials:
     RawBananium: 100
-    Coal: 100 
+    Coal: 100
+  printTicket: true
+  ticketProtoId: SalvageTicket5
 
 - type: latheRecipe
   id: MaterialDiamondIndustrial
   result: MaterialDiamond1
   completetime: 0
   materials:
-    Coal: 8000   
+    Coal: 8000
+  printTicket: true
+  ticketProtoId: SalvageTicket75

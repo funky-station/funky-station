@@ -434,6 +434,9 @@
     contents:
     - id: FoodDonkpocketSpicy
       amount: 6
+    - id: DonkcoLighter
+      amount: 1
+      prob: 0.10
 
 - type: entity
   parent: FoodBoxDonkpocket
@@ -448,6 +451,9 @@
     contents:
     - id: FoodDonkpocketTeriyaki
       amount: 6
+    - id: DonkcoLighter
+      amount: 1
+      prob: 0.10
 
 - type: entity
   parent: FoodBoxDonkpocket
@@ -462,6 +468,9 @@
     contents:
     - id: FoodDonkpocketPizza
       amount: 6
+    - id: DonkcoLighter
+      amount: 1
+      prob: 0.10
 
 - type: entity
   parent: FoodBoxDonkpocket
@@ -476,6 +485,9 @@
     contents:
     - id: FoodDonkpocketStonk
       amount: 6
+    - id: DonkcoLighter
+      amount: 1
+      prob: 0.10
 
 - type: entity
   parent: FoodBoxDonkpocket
@@ -488,6 +500,9 @@
     contents:
     - id: FoodDonkpocketCarp
       amount: 6
+    - id: DonkcoLighter
+      amount: 1
+      prob: 0.10
 
 - type: entity
   parent: FoodBoxDonkpocket
@@ -502,6 +517,9 @@
     contents:
     - id: FoodDonkpocketBerry
       amount: 6
+    - id: DonkcoLighter
+      amount: 1
+      prob: 0.10
 
 - type: entity
   parent: FoodBoxDonkpocket
@@ -516,6 +534,9 @@
     contents:
     - id: FoodDonkpocketHonk
       amount: 6
+    - id: DonkcoLighter
+      amount: 1
+      prob: 0.10
 
 - type: entity
   parent: FoodBoxDonkpocket
@@ -531,6 +552,9 @@
     contents:
     - id: FoodDonkpocketDink
       amount: 6
+    - id: DonkcoLighter
+      amount: 1
+      prob: 0.10
 
 - type: entity
   parent: FoodBoxDonkpocket
@@ -545,6 +569,9 @@
     contents:
     - id: FoodDonkpocketMoth
       amount: 6
+    - id: DonkcoLighter
+      amount: 1
+      prob: 0.10
 
 - type: entity
   id: HappyHonk

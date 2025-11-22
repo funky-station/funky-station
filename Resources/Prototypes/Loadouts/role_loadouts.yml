@@ -273,6 +273,7 @@
   id: JobCargoTechnician
   groups:
   - CargoTechnicianHead
+  - CargoTechnicianNeck
   - CargoTechnicianJumpsuit
   - CargoTechnicianBackpack
   - CargoTechnicianOuterClothing
@@ -287,9 +288,12 @@
 - type: roleLoadout
   id: JobSalvageSpecialist
   groups:
+  - SalvageSpecialistHead
+  - SalvageSpecialistJumpsuit
   - SalvageSpecialistBackpack
   - SalvageSpecialistOuterClothing
   - SalvageSpecialistShoes
+  - CargoPDA
   - Glasses
   - Survival
   - Trinkets

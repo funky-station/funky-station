@@ -1,7 +1,9 @@
+# SPDX-FileCopyrightText: 2025 MaiaArai <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
+# Magistrate's Coat
 - type: entity
   parent: [ClothingOuterStorageBase, BaseCentcommContraband]
   id: ClothingOuterMagistrateCoat
@@ -14,3 +16,110 @@
     sprite: _Funkystation/Clothing/OuterClothing/Coats/magi_coat.rsi
   - type: Item
     size: Normal
+
+# Cargo Windbreaker
+- type: entity
+  parent: [ClothingOuterStorageFoldableBase]
+  id: ClothingOuterCargoWindbreaker
+  name: cargo tech windbreaker
+  description: We work, to earn the right to work.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/OuterClothing/Coats/cargo_windbreaker.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/OuterClothing/Coats/cargo_windbreaker.rsi
+  - type: Item
+    size: Normal
+  - type: TemperatureProtection
+    heatingCoefficient: 1.1
+    coolingCoefficient: 0.1
+  - type: Armor
+    modifiers:
+      coefficients:
+        Slash: 0.95
+        Heat: 0.90
+
+# Cargo Windbreaker
+- type: entity
+  parent: [ClothingOuterStorageFoldableBase]
+  id: ClothingOuterSalvageWindbreaker
+  name: salvage specialist windbreaker
+  description: In surprisingly good condition. Probably never worn. Won't fit over your hardsuit.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/OuterClothing/Coats/salvage_windbreaker.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/OuterClothing/Coats/salvage_windbreaker.rsi
+  - type: Item
+    size: Normal
+  - type: TemperatureProtection
+    heatingCoefficient: 1.1
+    coolingCoefficient: 0.1
+  - type: Armor
+    modifiers:
+      coefficients:
+        Slash: 0.95
+        Heat: 0.90
+
+- type: entity
+  parent: [ClothingOuterStorageFoldableBase]
+  id: ClothingOuterCargoCourierWindbreaker
+  name: mail carrier windbreaker
+  description: Here at Nanotrasen Interstellar, we make sure all our workers are properly equipped to do their jobs regardless of atmospheric conditions!
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/OuterClothing/Coats/courier_windbreaker.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/OuterClothing/Coats/courier_windbreaker.rsi
+  - type: Item
+    size: Normal
+  - type: TemperatureProtection
+    heatingCoefficient: 1.1
+    coolingCoefficient: 0.1
+  - type: Armor
+    modifiers:
+      coefficients:
+        Slash: 0.95
+        Heat: 0.90
+
+- type: entity
+  parent: [ClothingOuterStorageFoldableBase]
+  id: ClothingOuterCargoSeniorWindbreaker
+  name: senior cargo tech windbreaker
+  description: Looks a little dull and faded, but is incomparably comfy. Smells like money.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/OuterClothing/Coats/senior_cargo_windbreaker.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/OuterClothing/Coats/senior_cargo_windbreaker.rsi
+  - type: Item
+    size: Normal
+  - type: TemperatureProtection
+    heatingCoefficient: 1.1
+    coolingCoefficient: 0.1
+  - type: Armor
+    modifiers:
+      coefficients:
+        Slash: 0.95
+        Heat: 0.90
+
+- type: entity
+  parent: [ClothingOuterStorageFoldableBase]
+  id: ClothingOuterQMWindbreaker
+  name: quartermaster's windbreaker
+  description: For increasing quarterly productivity by 0.3%, Nanotrasen has awarded you this distinguished windbreaker to set you apart from the common drones. You're a Quartermaster, after all.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/OuterClothing/Coats/qm_windbreaker.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/OuterClothing/Coats/qm_windbreaker.rsi
+  - type: Item
+    size: Normal
+  - type: TemperatureProtection
+    heatingCoefficient: 1.1
+    coolingCoefficient: 0.1
+  - type: Armor
+    modifiers:
+      coefficients:
+        Slash: 0.95
+        Heat: 0.90

@@ -1,6 +1,8 @@
 # SPDX-FileCopyrightText: 2024 heree <79546981+hereelabs@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 hereelabs <hahmorm@gmail.com>
+# SPDX-FileCopyrightText: 2025 ThatOneMoon <91613003+ThatOneMoon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
+# SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 mkanke-real <mikekanke@gmail.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
@@ -56,3 +58,19 @@
       head:
       - state: equipped-HELMET
         offset: "0, 0.16"
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatCargoSeniorBeret
+  name: senior cargo beret
+  description: A distinctive beret for those who move freight.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Head/Hats/senior_cargo_beret.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Head/Hats/senior_cargo_beret.rsi
+  - type: Tag
+    tags:
+    - ClothMade
+    - HamsterWearable
+    - WhitelistChameleon

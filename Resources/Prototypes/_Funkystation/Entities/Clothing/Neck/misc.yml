@@ -1,0 +1,14 @@
+# SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+# Cargo Liftbelt
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckCargoLiftBelt
+  name: lift belt
+  description: An industrial grade lift belt designed for handling heavy cargo.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Neck/Misc/liftbelt.rsi

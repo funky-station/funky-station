@@ -41,6 +41,7 @@
 # SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 nao fujiwara <awkwarddryad@gmail.com>
 # SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 MaiaArai <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 ThatOneMoon <91613003+ThatOneMoon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
@@ -80,9 +81,9 @@
   description: A sturdy jumpskirt, issued to members of the Cargo department.
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpskirt/cargotech.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/cargotech.rsi
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpskirt/cargotech.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/cargotech.rsi
 
 - type: entity
   parent: [ClothingUniformSkirtBase, BaseCommandContraband]
@@ -387,9 +388,9 @@
   description: 'What can brown do for you?'
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpskirt/qm.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/qm.rsi
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpskirt/qm.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/qm.rsi
 
 - type: entity
   parent: [ClothingUniformSkirtBase, BaseCommandContraband]
@@ -398,9 +399,9 @@
   description: A sharp turtleneck made for the hardy work environment of supply.
   components:
     - type: Sprite
-      sprite: Clothing/Uniforms/Jumpskirt/qmturtleskirt.rsi
+      sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/qmturtleskirt.rsi
     - type: Clothing
-      sprite: Clothing/Uniforms/Jumpskirt/qmturtleskirt.rsi
+      sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/qmturtleskirt.rsi
 
 - type: entity
   parent: [ClothingUniformSkirtBase, BaseCommandContraband]

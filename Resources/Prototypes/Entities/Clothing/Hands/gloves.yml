@@ -87,6 +87,10 @@
     tags:
     - Kangaroo
     - WhitelistChameleon
+  - type: ClothingGrantComponent # funky - tie surgery speed to gloves
+    component:
+    - type: SurgerySpeedModifier
+      speedModifier: 0.5
 
 - type: entity
   parent: ClothingHandsGlovesBoxingRed
@@ -166,6 +170,10 @@
     fiberMaterial: fibers-durathread
     fiberColor: fibers-regal-blue
   - type: FingerprintMask
+  - type: ClothingGrantComponent # funky - tie surgery speed to gloves
+    component:
+    - type: SurgerySpeedModifier
+      speedModifier: 1.1
 
 - type: entity
   parent: ClothingHandsBase
@@ -185,6 +193,10 @@
       coefficients:
         Slash: 0.95
   - type: FingerprintMask
+  - type: ClothingGrantComponent # funky - tie surgery speed to gloves
+    component:
+    - type: SurgerySpeedModifier
+      speedModifier: 0.5
 
 #### Medical
 - type: entity
@@ -244,6 +256,10 @@
       flatReductions:
         Heat: 10
         Caustic: 5
+  - type: ClothingGrantComponent # funky - tie surgery speed to gloves
+    component:
+    - type: SurgerySpeedModifier
+      speedModifier: 0.5
 
 - type: entity
   parent: ClothingHandsBase
@@ -258,6 +274,10 @@
   - type: Fiber
     fiberMaterial: fibers-nanomachines
   - type: FingerprintMask
+  - type: ClothingGrantComponent # funky - tie surgery speed to gloves
+    component:
+    - type: SurgerySpeedModifier
+      speedModifier: 0.5
 
 - type: entity
   parent: ClothingHandsButcherable
@@ -273,6 +293,10 @@
     fiberMaterial: fibers-leather
     fiberColor: fibers-black
   - type: FingerprintMask
+  - type: ClothingGrantComponent # funky - tie surgery speed to gloves
+    component:
+    - type: SurgerySpeedModifier
+      speedModifier: 0.5
 
 - type: entity
   parent: [ClothingHandsBase, BaseToggleClothing, BaseMajorContraband]
@@ -327,6 +351,10 @@
     - objective: MassArrestObjective
       components:
       - type: CriminalRecordsHacker
+  - type: ClothingGrantComponent # funky - tie surgery speed to gloves
+    component:
+    - type: SurgerySpeedModifier
+      speedModifier: 1.1
 
 - type: entity
   parent: [ ClothingHandsGlovesColorBlack, BaseSecurityEngineeringContraband ]
@@ -341,6 +369,10 @@
   - type: Insulated
   - type: Fiber
     fiberMaterial: fibers-insulative
+  - type: ClothingGrantComponent # funky - tie surgery speed to gloves
+    component:
+    - type: SurgerySpeedModifier
+      speedModifier: 1.1
 
 # can't parent combat gloves since they are butcherable
 - type: entity
@@ -356,6 +388,10 @@
   - type: Insulated
   - type: Fiber
     fiberColor: fibers-black
+  - type: ClothingGrantComponent # funky - tie surgery speed to gloves
+    component:
+    - type: SurgerySpeedModifier
+      speedModifier: 1.1
 
 - type: entity
   parent: [ BaseSecurityCargoContraband, ClothingHandsGlovesCombat ]
@@ -374,6 +410,10 @@
   - type: Fiber
     fiberMaterial: fibers-insulative
     fiberColor: fibers-olive
+  - type: ClothingGrantComponent # funky - tie surgery speed to gloves
+    component:
+    - type: SurgerySpeedModifier
+      speedModifier: 1.1
 
 - type: entity
   parent: ClothingHandsButcherable
@@ -392,6 +432,10 @@
     damageProtection:
       flatReductions:
         Heat: 0 # no protection
+  - type: ClothingGrantComponent # funky - tie surgery speed to gloves
+    component:
+    - type: SurgerySpeedModifier
+      speedModifier: 0.2
 
 - type: entity
   parent: ClothingHandsBase
@@ -410,6 +454,10 @@
     damageProtection:
       flatReductions:
         Heat: 0 # no protection
+  - type: ClothingGrantComponent # funky - tie surgery speed to gloves
+    component:
+    - type: SurgerySpeedModifier
+      speedModifier: 0.2
 
 - type: entity
   parent: ClothingHandsButcherable
@@ -428,6 +476,10 @@
     damageProtection:
       flatReductions:
         Heat: 0 # no protection
+  - type: ClothingGrantComponent # funky - tie surgery speed to gloves
+    component:
+    - type: SurgerySpeedModifier
+      speedModifier: 0.2
 
 - type: entity
   # Intentionally named after regular gloves, they're meant to be sneaky.
@@ -486,6 +538,10 @@
         type: MeleeSpeechBoundUserInterface
   - type: StaticPrice
     price: 0
+  - type: ClothingGrantComponent # funky - tie surgery speed to gloves
+    component:
+    - type: SurgerySpeedModifier
+      speedModifier: 0.5
 
 - type: entity
   parent: [ClothingHandsBase, BaseSecurityContraband]
@@ -501,6 +557,10 @@
   - type: GuideHelp
     guides:
     - Forensics
+  - type: ClothingGrantComponent # funky - tie surgery speed to gloves
+    component:
+    - type: SurgerySpeedModifier
+      speedModifier: 1.1
 
 # TODO Make lubed items not slip in hands
 - type: entity
@@ -517,6 +577,10 @@
     fiberMaterial: fibers-rubber
     fiberColor: fibers-yellow
   - type: FingerprintMask
+  - type: ClothingGrantComponent # funky - tie surgery speed to gloves
+    component:
+    - type: SurgerySpeedModifier
+      speedModifier: 1.1
 
 #Knuckledusters
 - type: entity
@@ -544,6 +608,10 @@
   - type: Tag
     tags:
     - WhitelistChameleon
+  - type: ClothingGrantComponent # funky - tie surgery speed to gloves
+    component:
+    - type: SurgerySpeedModifier
+      speedModifier: 0.2
 
 - type: entity
   parent: [ClothingHandsKnuckleDusters, BaseMinorContraband] #Craftable version of base knuckledusters
@@ -562,6 +630,10 @@
   - type: Tag
     tags:
     - WhitelistChameleon
+  - type: ClothingGrantComponent # funky - tie surgery speed to gloves
+    component:
+    - type: SurgerySpeedModifier
+      speedModifier: 0.2
 
 - type: entity
   parent: [ClothingHandsBase, BaseGrandTheftContraband]
@@ -590,6 +662,10 @@
     - WhitelistChameleon
   - type: StealTarget
     stealGroup: ClothingHandsKnuckleDustersQM
+  - type: ClothingGrantComponent # funky - tie surgery speed to gloves
+    component:
+    - type: SurgerySpeedModifier
+      speedModifier: 0.2
 
 - type: entity
   parent: [ClothingHandsBase, BaseSyndicateContraband]
@@ -615,6 +691,10 @@
   - type: Tag
     tags:
     - WhitelistChameleon
+  - type: ClothingGrantComponent # funky - tie surgery speed to gloves
+    component:
+    - type: SurgerySpeedModifier
+      speedModifier: 0.2
 
 - type: entity
   name: stun knuckle dusters
@@ -683,6 +763,10 @@
     guides:
     - Security
     - Antagonists
+  - type: ClothingGrantComponent # funky - tie surgery speed to gloves
+    component:
+    - type: SurgerySpeedModifier
+      speedModifier: 0.2
 
 - type: entity #Admeme
   parent: ClothingHandsKnuckleDusters
@@ -707,6 +791,10 @@
     animation: WeaponArcFist
   - type: Tag
     tags: [] # ignore "WhitelistChameleon" tag
+  - type: ClothingGrantComponent # funky - tie surgery speed to gloves
+    component:
+    - type: SurgerySpeedModifier
+      speedModifier: 0.2
 
 - type: entity
   parent: [ClothingHandsBase, BaseSecurityContraband]

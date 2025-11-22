@@ -1,0 +1,10 @@
+- type: printerDocumentTemplate
+  id: basicWarrant
+  templateName: Warrant
+  paperType: Paper
+  text: document-template-warrant
+  fields:
+    requestingOfficer: "Requesting Officer"
+    warrantTarget: "Warrant Target"
+    warrantReason: "Warrant Reason"
+    spesosFine: "Fine for Warrant Abuse"

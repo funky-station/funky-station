@@ -1,3 +1,5 @@
+# SPDX-FileCopyrightText: 2025 Adam <94567502+CallMeBEEF@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 CallMeBEEF <94567502+CallMeBEEF@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 IronDragoon <8961391+IronDragoon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 IronDragoon <you@example.com>
 # SPDX-FileCopyrightText: 2025 Mish <bluscout78@yahoo.com>
@@ -123,6 +125,17 @@
     Telecrystal: 10
   categories:
   - UplinkChemicals
+
+- type: listing
+  id: UplinkMoonshine
+  name: uplink-moonshine-name
+  description: uplink-moonshine-desc
+  productEntity: DrinkHammeredBottleFull
+  cost:
+    Telecrystal: 20
+  categories:
+  - UplinkChemicals
+  saleLimit: 1
 
 - type: listing
   id: UplinkAutoInjectorBundle

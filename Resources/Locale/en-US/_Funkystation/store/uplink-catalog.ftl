@@ -11,3 +11,7 @@ uplink-pistol-magazine-large-uranium-desc = .50 AE magazine compatible with the 
 
 uplink-pistol-magazine-large-incendiary-name = pistol magazine (.50 AE Incendiary)
 uplink-pistol-magazine-large-incendiary-desc = .50 AE magazine compatible with the wyvern. For when you want to spice it up.
+
+# Chemicals
+uplink-moonshine-name = Donk. Co HammerShine
+uplink-moonshine-desc = For the robust bartender. Utilizing bluespace distillation processes, this moonshine boasts a whopping 150 units of 500 proof mooonshine! Drink (ir)responsibly!

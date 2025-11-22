@@ -1,3 +1,5 @@
+# SPDX-FileCopyrightText: 2025 Adam <94567502+CallMeBEEF@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 CallMeBEEF <94567502+CallMeBEEF@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Mish <bluscout78@yahoo.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
@@ -79,6 +81,29 @@
       - !type:AdjustReagent
         reagent: Ethanol
         amount: 0.07
+
+- type: reagent
+  id: MoonshineSyndicate
+  name: reagent-name-moonshine
+  parent: BaseAlcohol
+  desc: reagent-desc-moonshine
+  physicalDesc: reagent-physical-desc-pungent
+  flavor: moonshine
+  color: "#d1d7d155"
+  metamorphicSprite:
+    sprite: Objects/Consumable/Drinks/moonshineglass.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 6
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 2
+      - !type:AdjustReagent
+        reagent: Ethanol
+        amount: 1.25 # Yes, this decays into more ethanol then what would go in, but haha drunk man fall over (and dies)
 
 - type: reagent
   id: PineappleMargherita

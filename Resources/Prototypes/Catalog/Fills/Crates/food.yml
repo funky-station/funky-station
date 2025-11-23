@@ -123,10 +123,7 @@
           amount: 4
         - id: FoodPlateTin
           amount: 4
-        - id: Fork
-          amount: 2
-        - id: Spoon
-          amount: 2
+        - id: BoxUtensil
 
 - type: entity
   id: CrateFoodBarSupply

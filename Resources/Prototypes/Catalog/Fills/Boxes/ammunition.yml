@@ -92,10 +92,11 @@
   id: BoxMagazineLightRifleSilver
   description: A box full of .30 rifle (silver) magazines.
   components:
-  - type: StorageFill
-    contents:
-    - id: MagazineLightRifleSilver
-      amount: 4
+  - type: EntityTableContainerFill
+    containers:
+      storagebase:
+        id: MagazineLightRifleSilver
+        amount: 4
 
 - type: entity
   name: box of SMG .45 magnum magazines
@@ -103,9 +104,10 @@
   id: BoxMagazineMagnumSubMachineGun
   description: A box full of SMG .45 magnum magazines.
   components:
-  - type: StorageFill
-    contents:
-      - id: MagazineMagnumSubMachineGun
+  - type: EntityTableContainerFill
+    containers:
+      storagebase:
+        id: MagazineMagnumSubMachineGun
         amount: 3
 
 - type: entity
@@ -114,9 +116,10 @@
   id: BoxMagazineMagnumSubMachineGunPractice
   description: A box full of SMG .45 magnum (practice) magazines.
   components:
-  - type: StorageFill
-    contents:
-      - id: MagazineMagnumSubMachineGunPractice
+  - type: EntityTableContainerFill
+    containers:
+      storagebase:
+        id: MagazineMagnumSubMachineGunPractice
         amount: 3
 
 # Pistol
@@ -260,9 +263,10 @@
   id: BoxMagazinePistolLarge
   description: A box full of (.50 AE) magazines.
   components:
-  - type: StorageFill
-    contents:
-      - id: MagazinePistolLarge
+  - type: EntityTableContainerFill
+    containers:
+      storagebase:
+        id: MagazineShotgun
         amount: 4
 
 - type: entity
@@ -271,9 +275,10 @@
   id: BoxMagazinePistolLargePractice
   description: A box full of (.50 AE Practice) magazines.
   components:
-  - type: StorageFill
-    contents:
-      - id: MagazinePistolLargePractice
+  - type: EntityTableContainerFill
+    containers:
+      storagebase:
+        id: MagazineShotgunBeanbag
         amount: 4
 
 - type: entity
@@ -282,9 +287,10 @@
   id: BoxMagazinePistolLargeIncendiary
   description: A box full of (.50 AE Incendiary) magazines.
   components:
-  - type: StorageFill
-    contents:
-      - id: MagazinePistolLargeIncendiary
+  - type: EntityTableContainerFill
+    containers:
+      storagebase:
+        id: MagazineShotgunSlug
         amount: 4
 
 - type: entity
@@ -293,9 +299,10 @@
   id: BoxMagazinePistolLargeUranium
   description: A box full of (.50 AE Uranium) magazines.
   components:
-  - type: StorageFill
-    contents:
-      - id: MagazinePistolLargeUranium
+  - type: EntityTableContainerFill
+    containers:
+      storagebase:
+        id: MagazineShotgunIncendiary
         amount: 4
 
 # Rifle

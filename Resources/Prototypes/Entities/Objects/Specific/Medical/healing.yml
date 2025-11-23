@@ -82,6 +82,7 @@
     state: ointment
   - type: Item
     heldPrefix: ointment
+    storedRotation: 45
   - type: Healing
     damageContainers:
       - Biological
@@ -94,8 +95,14 @@
         Caustic: -2.5
     healingBeginSound:
       path: "/Audio/Items/Medical/ointment_begin.ogg"
+      params:
+        volume: 1.0
+        variation: 0.125
     healingEndSound:
       path: "/Audio/Items/Medical/ointment_end.ogg"
+      params:
+        volume: 1.0
+        variation: 0.125
   - type: Stack
     stackType: Ointment
     count: 10
@@ -142,8 +149,14 @@
         Caustic: -15
     healingBeginSound:
       path: "/Audio/Items/Medical/ointment_begin.ogg"
+      params:
+        volume: 1.0
+        variation: 0.125
     healingEndSound:
       path: "/Audio/Items/Medical/ointment_end.ogg"
+      params:
+        volume: 1.0
+        variation: 0.125
   - type: Stack
     stackType: RegenerativeMesh
     count: 10
@@ -187,8 +200,14 @@
         Brute: -22.5 # 7.5 for each type in the group
     healingBeginSound:
       path: "/Audio/Items/Medical/brutepack_begin.ogg"
+      params:
+        volume: 1.0
+        variation: 0.125
     healingEndSound:
       path: "/Audio/Items/Medical/brutepack_end.ogg"
+      params:
+        volume: 1.0
+        variation: 0.125
   - type: Stack
     stackType: Brutepack
     count: 10
@@ -234,8 +253,14 @@
     bloodlossModifier: -10 # a suture should stop ongoing bleeding
     healingBeginSound:
       path: "/Audio/Items/Medical/brutepack_begin.ogg"
+      params:
+        volume: 1.0
+        variation: 0.125
     healingEndSound:
       path: "/Audio/Items/Medical/brutepack_end.ogg"
+      params:
+        volume: 1.0
+        variation: 0.125
   - type: Stack
     stackType: MedicatedSuture
     count: 10
@@ -280,8 +305,14 @@
     modifyBloodLevel: 15 #restores about 5% blood per use on standard humanoids.
     healingBeginSound:
       path: "/Audio/Items/Medical/brutepack_begin.ogg"
+      params:
+        volume: 1.0
+        variation: 0.125
     healingEndSound:
       path: "/Audio/Items/Medical/brutepack_end.ogg"
+      params:
+        volume: 1.0
+        variation: 0.125
   - type: Stack
     stackType: Bloodpack
     count: 10
@@ -328,8 +359,14 @@
       delay: 0.5
       healingBeginSound:
         path: "/Audio/Items/Medical/brutepack_begin.ogg"
+        params:
+          volume: 1.0
+          variation: 0.125
       healingEndSound:
         path: "/Audio/Items/Medical/brutepack_end.ogg"
+        params:
+          volume: 1.0
+          variation: 0.125
 
 - type: entity
   name: roll of gauze
@@ -345,6 +382,7 @@
     state: gauze
   - type: Item
     heldPrefix: gauze
+    storedRotation: -90
   - type: Construction
     graph: Gauze
     node: gauze
@@ -359,8 +397,14 @@
     bloodlossModifier: -10
     healingBeginSound:
       path: "/Audio/Items/Medical/brutepack_begin.ogg"
+      params:
+        volume: 1.0
+        variation: 0.125
     healingEndSound:
       path: "/Audio/Items/Medical/brutepack_end.ogg"
+      params:
+        volume: 1.0
+        variation: 0.125
   - type: Stack
     stackType: Gauze
     count: 10
@@ -417,8 +461,14 @@
     selfHealPenaltyMultiplier: 0
     healingBeginSound:
       path: "/Audio/Items/Medical/ointment_begin.ogg"
+      params:
+        volume: 1.0
+        variation: 0.125
     healingEndSound:
       path: "/Audio/Items/Medical/ointment_end.ogg"
+      params:
+        volume: 1.0
+        variation: 0.125
 
 # Pills - funkychem does major changes to pretty much all of these
 - type: entity
@@ -449,10 +499,11 @@
   components:
   - type: Label
     currentLabel: dexalin 15u
-  - type: StorageFill
-    contents:
-    - id: PillDexalin
-      amount: 8
+  - type: EntityTableContainerFill
+    containers:
+      storagebase:
+        id: PillDexalin
+        amount: 8
 
 - type: entity
   name: pill
@@ -482,10 +533,11 @@
   components:
   - type: Label
     currentLabel: multiver 15u
-  - type: StorageFill
-    contents:
-    - id: PillMultiver
-      amount: 8
+  - type: EntityTableContainerFill
+    containers:
+      storagebase:
+        id: PillMultiver
+        amount: 8
 
 - type: entity
   name: pill
@@ -515,10 +567,11 @@
   components:
   - type: Label
     currentLabel: hyronalin 10u
-  - type: StorageFill
-    contents:
-    - id: PillHyronalin
-      amount: 8
+  - type: EntityTableContainerFill
+    containers:
+      storagebase:
+        id: PillHyronalin
+        amount: 8
 
 - type: entity
   name: pill
@@ -548,10 +601,11 @@
   components:
   - type: Label
     currentLabel: potassium iodide 12u
-  - type: StorageFill
-    contents:
-    - id: PillPotassiumIodide
-      amount: 8
+  - type: EntityTableContainerFill
+    containers:
+      storagebase:
+        id: PillPotassiumIodide
+        amount: 8
 
 - type: entity
   name: pill
@@ -601,10 +655,11 @@
   components:
   - type: Label
     currentLabel: iron 10u
-  - type: StorageFill
-    contents:
-    - id: PillIron
-      amount: 8
+  - type: EntityTableContainerFill
+    containers:
+      storagebase:
+        id: PillIron
+        amount: 8
 
 - type: entity
   name: pill canister
@@ -614,10 +669,11 @@
   components:
   - type: Label
     currentLabel: copper 10u
-  - type: StorageFill
-    contents:
-    - id: PillCopper
-      amount: 8
+  - type: EntityTableContainerFill
+    containers:
+      storagebase:
+        id: PillCopper
+        amount: 8
 
 - type: entity
   name: pill
@@ -647,10 +703,11 @@
   components:
   - type: Label
     currentLabel: aiuri 15u
-  - type: StorageFill
-    contents:
-    - id: PillAiuri
-      amount: 8
+  - type: EntityTableContainerFill
+    containers:
+      storagebase:
+        id: PillAiuri
+        amount: 8
 
 - type: entity
   name: pill
@@ -680,10 +737,11 @@
   components:
   - type: Label
     currentLabel: lenturi 15u
-  - type: StorageFill
-    contents:
-    - id: PillLenturi
-      amount: 8
+  - type: EntityTableContainerFill
+    containers:
+      storagebase:
+        id: PillLenturi
+        amount: 8
 
 - type: entity
   name: space mirage
@@ -745,11 +803,12 @@
   suffix: Tricordrazine 15u
   components:
   - type: Label
-    currentLabel: tricordrazine 15u
-  - type: StorageFill
-    contents:
-    - id: PillTricordrazine
-      amount: 8
+    currentLabel: tricordrazine 10u
+  - type: EntityTableContainerFill
+    containers:
+      storagebase:
+        id: PillTricordrazine
+        amount: 8
 
 - type: entity
   name: pill canister
@@ -825,10 +884,11 @@
   components:
   - type: Label
     currentLabel: probital 15u
-  - type: StorageFill
-    contents:
-    - id: PillProbital
-      amount: 5
+  - type: EntityTableContainerFill
+    containers:
+      storagebase:
+        id: PillProbital
+        amount: 5
 
 - type: entity
   name: pill
@@ -858,10 +918,11 @@
   components:
   - type: Label
     currentLabel: charcoal 10u
-  - type: StorageFill
-    contents:
-    - id: PillCharcoal
-      amount: 8
+  - type: EntityTableContainerFill
+    containers:
+      storagebase:
+        id: PillCharcoal
+        amount: 8
 
 - type: entity
   name: romerol pill
@@ -911,72 +972,47 @@
   id: PillCanisterRandom
   suffix: Random
   components:
-  - type: StorageFill
-    contents:
-    - id: PillDexalin
-      prob: 0.10
-      maxAmount: 7
-      orGroup: RandomPill
-    - id: PillMultiver
-      prob: 0.10
-      maxAmount: 7
-      orGroup: RandomPill
-    - id: PillHyronalin
-      prob: 0.10
-      maxAmount: 7
-      orGroup: RandomPill
-    - id: PillPotassiumIodide
-      prob: 0.10
-      maxAmount: 7
-      orGroup: RandomPill
-    - id: PillIron
-      prob: 0.10
-      maxAmount: 7
-      orGroup: RandomPill
-    - id: PillCopper
-      prob: 0.10
-      maxAmount: 7
-      orGroup: RandomPill
-    - id: PillAiuri
-      prob: 0.10
-      maxAmount: 7
-      orGroup: RandomPill
-    - id: PillLenturi
-      prob: 0.10
-      maxAmount: 7
-      orGroup: RandomPill
-    - id: PillTricordrazine
-      prob: 0.10
-      maxAmount: 7
-      orGroup: RandomPill
-    - id: PillLibital
-      prob: 0.10
-      maxAmount: 7
-      orGroup: RandomPill
-    - id: PillProbital
-      prob: 0.10
-      maxAmount: 7
-      orGroup: RandomPill
-    - id: PillCharcoal
-      prob: 0.10
-      maxAmount: 7
-      orGroup: RandomPill
-    - id: PillAmbuzol
-      prob: 0.075
-      maxAmount: 7
-      orGroup: RandomPill
-    - id: PillAmbuzolPlus
-      prob: 0.075
-      maxAmount: 7
-      orGroup: RandomPill
-    - id: PillSpaceDrugs
-      prob: 0.075
-      maxAmount: 7
-      orGroup: RandomPill
-    - id: StrangePill
-      prob: 0.075
-      maxAmount: 7
-      orGroup: RandomPill
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:GroupSelector
+        children:
+        - id: PillDexalin
+          amount: &Range1to6 !type:RangeNumberSelector
+            range: 1, 6
+        - id: PillMultiver
+          amount: *Range1to6
+        - id: PillHyronalin
+          amount: *Range1to6
+        - id: PillPotassiumIodide
+          amount: *Range1to6
+        - id: PillIron
+          amount: *Range1to6
+        - id: PillCopper
+          amount: *Range1to6
+        - id: PillAiuri
+          amount: *Range1to6
+        - id: PillLenturi
+          amount: *Range1to6
+        - id: PillTricordrazine
+          amount: *Range1to6
+        - id: PillLibital
+          amount: *Range1to6
+        - id: PillProbital
+          amount: *Range1to6
+        - id: PillCharcoal
+          amount: *Range1to6
+        - id: PillAmbuzol
+          weight: 0.75
+          amount: *Range1to6
+        - id: PillAmbuzolPlus
+          weight: 0.75
+          amount: *Range1to6
+        - id: PillSpaceDrugs
+          weight: 0.75
+          amount: *Range1to6
+        - id: StrangePill
+          weight: 0.75
+          amount: *Range1to6
 
 # Syringes - Funkychem Adds Convermol and Revivopine, many changes as well.
 - type: entity
@@ -1030,13 +1066,28 @@
   id: SyringeAiuri
   components:
   - type: Label
-    currentLabel: aiuri
+    currentLabel: reagent-name-aiuri
   - type: SolutionContainerManager
     solutions:
       injector:
         maxVol: 15
         reagents:
         - ReagentId: Aiuri
+          Quantity: 15
+
+- type: entity
+  suffix: lenturi
+  parent: PrefilledSyringe
+  id: SyringeLenturi
+  components:
+  - type: Label
+    currentLabel: reagent-name-lenturi
+  - type: SolutionContainerManager
+    solutions:
+      injector:
+        maxVol: 15
+        reagents:
+        - ReagentId: Lenturi
           Quantity: 15
 
 - type: entity
@@ -1219,3 +1270,37 @@
         reagents:
         - ReagentId: Stimulants
           Quantity: 15
+
+# Entity Tables
+- type: entityTable
+  id: RandomSafePillTable
+  table: !type:GroupSelector
+    children:
+    - id: PillProbital
+    - id: PillCharcoal
+    - id: PillCopper
+    - id: PillAiuri
+    - id: PillDexalin
+    - id: PillMultiver
+    - id: PillHyronalin
+    - id: PillIron
+    - id: PillLenturi
+    - id: PillPotassiumIodide
+    - id: PillTricordrazine
+    - id: StrangePill
+
+- type: entityTable
+  id: RandomSafeSyringeTable
+  table: !type:GroupSelector
+    children:
+    - id: SyringeProbital
+    - id: SyringeAiuri
+    - id: SyringeEphedrine
+    - id: SyringeEthylredoxrazine
+    - id: SyringeHyronalin
+    - id: SyringeInaprovaline
+    - id: SyringeIpecac
+    - id: SyringePhalanximine
+    - id: SyringeSaline
+    - id: SyringeSigynate
+    - id: SyringeTranexamicAcid

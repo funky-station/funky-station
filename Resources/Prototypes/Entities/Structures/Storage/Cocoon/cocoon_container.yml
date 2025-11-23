@@ -37,3 +37,6 @@
   - type: Clickable
   - type: Pullable
   - type: InteractionOutline
+  - type: AntiRottingContainer
+  - type: BloodstreamProxyContainer
+    containerId: cocoon_victim

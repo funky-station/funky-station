@@ -48,3 +48,32 @@
   result: SteelReactorHeatExchanger
   materials:
     Steel: 3000
+
+# Universal recipes
+- type: latheRecipe
+  parent: BaseReactorPartRecipe
+  id: UniversalFuelRod
+  result: UniversalReactorFuelRod
+  materials:
+    Steel: 500
+
+- type: latheRecipe
+  parent: BaseReactorPartRecipe
+  id: UniversalControlRod
+  result: UniversalReactorControlRod
+  materials:
+    Steel: 500
+
+- type: latheRecipe
+  parent: BaseReactorPartRecipe
+  id: UniversalGasChannel
+  result: UniversalReactorGasChannel
+  materials:
+    Steel: 500
+
+- type: latheRecipe
+  parent: BaseReactorPartRecipe
+  id: UniversalHeatExchanger
+  result: UniversalReactorHeatExchanger
+  materials:
+    Steel: 500

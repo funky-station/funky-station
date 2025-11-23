@@ -1,0 +1,13 @@
+﻿- type: entity
+  id: NuclearFabricatorMachineCircuitboard
+  parent: BaseMachineCircuitboard
+  name: nuclear fabricator machine board
+  description: A machine printed circuit board for a nuclear fabricator.
+  components:
+  - type: Sprite
+    state: engineering
+  - type: MachineBoard
+    prototype: NuclearFabricator
+    stackRequirements:
+      Manipulator: 5
+      Glass: 3

@@ -6,3 +6,11 @@
   - ReactorControlRod
   - ReactorGasChannel
   - ReactorHeatExchanger
+
+- type: latheRecipePack
+  id: ReactorPartsUniversal
+  recipes:
+  - UniversalFuelRod
+  - UniversalControlRod
+  - UniversalGasChannel
+  - UniversalHeatExchanger

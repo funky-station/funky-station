@@ -2,8 +2,8 @@ using Robust.Shared.Serialization;
 
 namespace Content.Shared._FarHorizons.Lathe;
 
-[Serializable, NetSerializable]
-public enum NuclearFabricatorUiKey : byte
+[NetSerializable, Serializable]
+public enum NuclearFabricatorUiKey
 {
     Key,
 }

@@ -2,20 +2,8 @@
   id: NuclearFabricator
   parent: [ BaseMachinePowered, ConstructibleMachine ]
   name: nuclear fabricator
+  description: It makes nuclear parts
   components:
-  - type: Sprite
-    sprite: Structures/Machines/autolathe.rsi
-    snapCardinals: true
-    layers:
-    - state: icon
-      map: ["enum.LatheVisualLayers.IsRunning"]
-    - state: unlit
-      shader: unshaded
-      map: ["enum.PowerDeviceVisualLayers.Powered"]
-    - state: inserting
-      map: ["enum.MaterialStorageVisualLayers.Inserting"]
-    - state: panel
-      map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: Appearance
   - type: WiresVisuals
   - type: Fixtures
@@ -29,8 +17,24 @@
         - MachineMask
         layer:
           - MachineLayer
-  - type: NuclearFabricator
+  - type: Lathe
+    idleState: icon
+    runningState: building
+    unlitIdleState: unlit
+    unlitRunningState: unlit-building
+    staticPacks:
+    - ReactorPartsUniversal
+  - type: EmagLatheRecipes # Starlight start
+    emagStaticPacks:
+    - StarlightSecurityEmagWeaponsStatic
+    - StarlightSecurityAmmoStatic
+    - StarlightSecurityAmmoEmagStatic # Starlight end
   - type: MaterialStorage
+    whitelist:
+      tags:
+        - Sheet
+        - RawMaterial
+        - Ingot
   - type: Destructible
     thresholds:
     - trigger:
@@ -46,14 +50,106 @@
         acts: ["Destruction"]
   - type: WiresPanel
   - type: ActivatableUI
-    key: enum.NuclearFabricatorUiKey.Key
+    key: enum.LatheUiKey.Key
   - type: ActivatableUIRequiresPower
   - type: UserInterface
     interfaces:
-      enum.NuclearFabricatorUiKey.Key:
+      enum.LatheUiKey.Key:
         type: NuclearFabricatorBoundUserInterface
   - type: Transform
     anchored: true
   - type: Pullable
   - type: StaticPrice
     price: 800
+  - type: ReagentSpeed
+    solution: lube
+    modifiers:
+      SpaceLube: 0.25
+      SpaceGlue: 5
+  - type: SolutionContainerManager
+    solutions:
+      lube:
+        maxVol: 250
+  - type: Spillable
+    solution: lube
+  - type: RefillableSolution
+    solution: lube
+  - type: ExaminableSolution
+    solution: lube
+  - type: Sprite
+    sprite: Structures/Machines/autolathe.rsi
+    snapCardinals: true
+    layers:
+    - state: icon
+      map: ["enum.LatheVisualLayers.IsRunning"]
+    - state: unlit
+      shader: unshaded
+      map: ["enum.PowerDeviceVisualLayers.Powered"]
+    - state: inserting
+      map: ["enum.MaterialStorageVisualLayers.Inserting"]
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: Machine
+    board: NuclearFabricatorMachineCircuitboard
+  - type: OreSiloClient
+  - type: BlueprintReceiver
+    whitelist:
+      tags:
+      - BlueprintAutolathe
+  - type: ContainerContainer
+    containers:
+      machine_board: !type:Container
+      machine_parts: !type:Container
+      blueprint: !type:Container
+  - type: EmptyOnMachineDeconstruct
+    containers:
+    - blueprint
+
+  # - type: Sprite
+  #   sprite: Structures/Machines/autolathe.rsi
+  #   snapCardinals: true
+  #   layers:
+  #   - state: icon
+  #     map: ["enum.LatheVisualLayers.IsRunning"]
+  #   - state: unlit
+  #     shader: unshaded
+  #     map: ["enum.PowerDeviceVisualLayers.Powered"]
+  #   - state: inserting
+  #     map: ["enum.MaterialStorageVisualLayers.Inserting"]
+  #   - state: panel
+  #     map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  # # - type: Machine
+  # #   board: AutolatheMachineCircuitboard
+  # - type: MaterialStorage
+  #   whitelist:
+  #     tags:
+  #       - Sheet
+  #       - RawMaterial
+  #       - Ingot
+  # - type: OreSiloClient
+  # - type: Lathe
+  #   idleState: icon
+  #   runningState: building
+  #   unlitIdleState: unlit
+  #   unlitRunningState: unlit-building
+  #   staticPacks:
+  #   - ReactorPartsUniversal
+  # # - type: EmagLatheRecipes # Starlight start
+  # #   emagStaticPacks:
+  # #   - StarlightSecurityEmagWeaponsStatic
+  # #   - StarlightSecurityAmmoStatic
+  # #   - StarlightSecurityAmmoEmagStatic # Starlight end
+  # - type: ContainerContainer
+  #   containers:
+  #     machine_board: !type:Container
+  #     machine_parts: !type:Container
+  #     blueprint: !type:Container
+  # - type: EmptyOnMachineDeconstruct
+  #   containers:
+  #   - blueprint
+  # - type: ActivatableUI
+  #   key: enum.NuclearFabricatorUiKey.Key
+  # - type: UserInterface
+  #   interfaces:
+  #     enum.NuclearFabricatorUiKey.Key:
+  #       type: NuclearFabricatorBoundUserInterface

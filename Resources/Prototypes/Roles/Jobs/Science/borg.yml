@@ -19,7 +19,7 @@
   requirements:
   - !type:RoleTimeRequirement
     role: JobBorg
-    time: 72000 #20 hrs
+    time: 36000 #10 hrs
   - !type:OverallPlaytimeRequirement
     time: 90000 #25 hrs
   canBeAntag: false

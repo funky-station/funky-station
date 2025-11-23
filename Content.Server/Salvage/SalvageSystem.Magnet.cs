@@ -7,8 +7,9 @@
 // SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
 // SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 terkala <appleorange64@gmail.com>
 //
-// SPDX-License-Identifier: MIT
+// SPDX-License-Identifier: AGPL-3.0-or-later or MIT
 
 using System.Linq;
 using System.Numerics;
@@ -45,12 +46,11 @@ public sealed partial class SalvageSystem
 
         // Create ruin generator with dependencies
         _ruinGenerator = new SalvageRuinGenerator(
-            _mapManager,
             _prototypeManager,
             _random,
-            _mapSystem,
             _tileDefinitionManager,
-            _loader);
+            _loader,
+            _logManager);
 
         SubscribeLocalEvent<SalvageMagnetDataComponent, MapInitEvent>(OnMagnetDataMapInit);
 
@@ -349,13 +349,31 @@ public sealed partial class SalvageSystem
                     return;
                 }
 
-                // Create grids for each ruin
+                // Batch create all grids first (fast operation)
                 var ruinGrids = new List<(Entity<MapGridComponent> Grid, Box2 Bounds)>();
                 foreach (var ruinResult in ruinResults)
                 {
                     var ruinGrid = _mapManager.CreateGridEntity(salvMap);
-                    _mapSystem.SetTiles(ruinGrid.Owner, ruinGrid.Comp, ruinResult.FloorTiles);
                     ruinGrids.Add((ruinGrid, ruinResult.Bounds));
+                }
+
+                // Batch set all tiles and spawn all walls on all grids
+                // This combines operations per grid for better locality
+                for (var i = 0; i < ruinResults.Count && i < ruinGrids.Count; i++)
+                {
+                    var ruinResult = ruinResults[i];
+                    var (ruinGrid, _) = ruinGrids[i];
+                    
+                    // Set tiles (already batched internally by SetTiles)
+                    _mapSystem.SetTiles(ruinGrid.Owner, ruinGrid.Comp, ruinResult.FloorTiles);
+                    
+                    // Spawn wall entities immediately after tiles for this grid
+                    // This ensures walls are placed on the grid as part of its setup
+                    foreach (var (wallPos, wallProto) in ruinResult.WallEntities)
+                    {
+                        var wallCoords = new EntityCoordinates(ruinGrid.Owner, wallPos);
+                        SpawnAtPosition(wallProto, wallCoords);
+                    }
                 }
 
                 break;
@@ -545,9 +563,12 @@ public sealed partial class SalvageSystem
             return false;
 
         var attachedAABB = attachedBounds.CalcBoundingBox();
-        var magnetPos = _transform.GetWorldPosition(magnet) + worldAngle.ToVec() * 32f; // Initial offset
+        var magnetPos = _transform.GetWorldPosition(magnet);
         var origin = attachedAABB.ClosestPoint(magnetPos);
-        var fraction = 0.50f;
+        
+        // Place ruins 64 tiles away in the direction the magnet is facing
+        const float ruinSpawnDistance = 64f;
+        var fraction = 1.0f;
 
         var placedBounds = new List<Box2Rotated>();
         var clusterCenter = Vector2.Zero;
@@ -564,11 +585,11 @@ public sealed partial class SalvageSystem
 
             if (i == 0)
             {
-                // First ruin: place at standard distance
+                // First ruin: place at 64 tiles distance with lateral offset
                 for (var attempt = 0; attempt < 20; attempt++)
                 {
                     var randomPos = origin +
-                                    worldAngle.ToVec() * (magnet.Comp.MagnetSpawnDistance * fraction) +
+                                    worldAngle.ToVec() * (ruinSpawnDistance * fraction) +
                                     (worldAngle + Math.PI / 2).ToVec() * _random.NextFloat(-magnet.Comp.LateralOffset, magnet.Comp.LateralOffset);
                     position = new MapCoordinates(randomPos, mapId);
 
@@ -590,15 +611,16 @@ public sealed partial class SalvageSystem
             else
             {
                 // Subsequent ruins: place in expanding spiral around cluster center
-                var spiralRadius = maxDimension * 1.5f;
-                var spiralAngle = 0f;
-                var spiralStep = MathF.PI / 4f; // 8 positions per ring
+                // Start close to cluster center and expand outward
+                var spiralRadius = maxDimension * 1.2f;
+                var spiralAngle = _random.NextFloat(0, MathF.PI * 2); // Random starting angle
+                var spiralStep = MathF.PI / 3f; // 6 positions per ring
 
-                for (var ring = 1; ring <= 10 && !found; ring++)
+                for (var ring = 1; ring <= 8 && !found; ring++)
                 {
-                    spiralRadius = maxDimension * (1.5f + ring * 0.5f);
+                    spiralRadius = maxDimension * (1.2f + ring * 0.4f);
 
-                    for (var step = 0; step < 8 * ring && !found; step++)
+                    for (var step = 0; step < 6 * ring && !found; step++)
                     {
                         var offset = new Vector2(
                             MathF.Cos(spiralAngle) * spiralRadius,

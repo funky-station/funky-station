@@ -73,13 +73,11 @@
   id: 24voltenergy
   flavorType: Complex
   description: flavor-complex-24-volt-energy
-- type: flavor
 
 - type: flavor
   id: voltaicyellowwine
   flavorType: Complex
   description: flavor-complex-voltaic-yellow-wine
-- type: flavor
 
 - type: flavor
   id: eggnog

@@ -18,6 +18,7 @@ using Content.Shared.Verbs;
 using Content.Shared.Interaction.Components;
 using Content.Shared.Nutrition.EntitySystems;
 using Content.Shared.Popups;
+using Content.Shared.Rotation;
 using Content.Shared.Species.Arachnid;
 using Content.Shared.Standing;
 using Robust.Shared.Audio;
@@ -39,6 +40,7 @@ public sealed class CocoonSystem : SharedCocoonSystem
     [Dependency] private readonly SharedHandsSystem _hands = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly DamageableSystem _damageable = default!;
+    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
 
     private const string CocoonContainerId = "cocoon_victim";
 
@@ -293,7 +295,11 @@ public sealed class CocoonSystem : SharedCocoonSystem
         // Apply effects to victim after insertion (ComponentStartup may have fired before victim was set)
         SetupVictimEffects(target);
 
-        // Send networked event to client to trigger rotation animation
+        // Set rotation state on server so it replicates to all clients via AppearanceComponent
+        // If victim was standing, set to horizontal (will animate). If already down, set to horizontal immediately.
+        _appearance.SetData(cocoonContainer, RotationVisuals.RotationState, RotationState.Horizontal);
+
+        // Send networked event to client for additional client-side visual handling (scale adjustment, etc.)
         RaiseNetworkEvent(new CocoonRotationAnimationEvent(GetNetEntity(cocoonContainer), victimWasStanding));
 
         var filter = Filter.Empty().AddInRange(targetCoords, 10f);

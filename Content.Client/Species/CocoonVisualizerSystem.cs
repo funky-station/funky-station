@@ -3,8 +3,6 @@
 // SPDX-License-Identifier: MIT
 
 using System.Numerics;
-using Content.Shared.Humanoid;
-using Content.Shared.Rotation;
 using Content.Shared.Species.Arachnid;
 using Robust.Client.Animations;
 using Robust.Client.GameObjects;
@@ -17,7 +15,6 @@ namespace Content.Client.Species;
 public sealed class CocoonVisualizerSystem : EntitySystem
 {
     [Dependency] private readonly AnimationPlayerSystem _animation = default!;
-    [Dependency] private readonly AppearanceSystem _appearance = default!;
     [Dependency] private readonly SpriteSystem _sprite = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
 
@@ -61,7 +58,9 @@ public sealed class CocoonVisualizerSystem : EntitySystem
     }
 
     /// <summary>
-    /// Handle the rotation animation when a cocoon is spawned.
+    /// Handle the cocoon spawn visual setup (scale adjustment and rotation).
+    /// Rotation state is set server-side and replicated to all clients.
+    /// If victim was already down, we play instant rotation to prevent smooth animation.
     /// </summary>
     public void HandleCocoonSpawnAnimation(EntityUid uid, bool victimWasStanding)
     {
@@ -71,14 +70,10 @@ public sealed class CocoonVisualizerSystem : EntitySystem
         // Apply species-based scale to the cocoon sprite
         ApplySpeciesBasedScale(uid, sprite);
 
-        if (victimWasStanding)
+        // Rotation state is set server-side via AppearanceComponent and replicated to all clients
+        // If victim was already down, play instant rotation to prevent smooth animation
+        if (!victimWasStanding)
         {
-            // If victim was standing, use appearance system for smooth animation
-            _appearance.SetData(uid, RotationVisuals.RotationState, RotationState.Horizontal);
-        }
-        else
-        {
-            // If victim was already down, play instant 90 degree rotation animation
             PlayInstantRotationAnimation(uid, sprite, Angle.FromDegrees(90));
         }
     }

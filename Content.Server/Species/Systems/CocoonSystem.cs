@@ -1,6 +1,4 @@
 using System.Linq;
-using Content.Server.Body.Components;
-using Content.Server.Body.Systems;
 using Content.Server.Popups;
 using Content.Server.Speech.Components;
 using Content.Shared.ActionBlocker;
@@ -43,8 +41,6 @@ public sealed class CocoonSystem : SharedCocoonSystem
     [Dependency] private readonly SharedHandsSystem _hands = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly DamageableSystem _damageable = default!;
-    [Dependency] private readonly BloodstreamSystem _bloodstream = default!;
-    [Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
 
     private const string CocoonContainerId = "cocoon_victim";
 
@@ -145,17 +141,6 @@ public sealed class CocoonSystem : SharedCocoonSystem
         EnsureComp<TemporaryBlindnessComponent>(victim);
     }
 
-    /// <summary>
-    /// Sets up a BloodstreamComponent on the cocoon that proxies to the victim's bloodstream.
-    /// This allows injectors to target the cocoon and inject into the victim.
-    /// Note: This is no longer needed since InjectorSystem now checks for BloodstreamProxyContainerComponent
-    /// and redirects injections to the victim automatically.
-    /// </summary>
-    private void SetupCocoonBloodstreamProxy(EntityUid cocoon, EntityUid victim)
-    {
-        // No longer needed - InjectorSystem handles this via BloodstreamProxyContainerComponent
-        // Keeping this method for now in case it's called elsewhere, but it does nothing
-    }
 
     private void OnCocoonContainerShutdown(EntityUid uid, CocoonContainerComponent component, ComponentShutdown args)
     {
@@ -176,12 +161,6 @@ public sealed class CocoonSystem : SharedCocoonSystem
         if (HasComp<TemporaryBlindnessComponent>(victim))
         {
             RemComp<TemporaryBlindnessComponent>(victim);
-        }
-
-        // Remove BloodstreamComponent from cocoon
-        if (HasComp<BloodstreamComponent>(uid))
-        {
-            RemComp<BloodstreamComponent>(uid);
         }
     }
 

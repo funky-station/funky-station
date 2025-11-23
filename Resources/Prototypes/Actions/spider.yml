@@ -39,6 +39,6 @@
     canTargetSelf: false
     interactOnMiss: false
     itemIconStyle: NoItem
-    icon: Interface/Actions/web.png
-    iconOn: Interface/Actions/web.png
+    icon: Interface/Actions/cocoon.png
+    iconOn: Interface/Actions/cocoon.png
     event: !type:WrapActionEvent {}

@@ -1,7 +1,7 @@
 - type: entity
   id: CocoonContainer
   name: cocoon
-  description: A web cocoon containing a victim.
+  description: A helpless victim is tightly wrapped within.
   components:
   - type: Sprite
     sprite: Mobs/Effects/cocooned.rsi

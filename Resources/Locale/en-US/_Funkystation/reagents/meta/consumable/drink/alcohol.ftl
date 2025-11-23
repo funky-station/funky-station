@@ -17,3 +17,36 @@ reagent-desc-margherita-drink = Made explicitly without pineapple juice.
 
 reagent-name-pineapple-margherita = pineapple margherita
 reagent-desc-pineapple-margherita = Outlawed in Space Italy.
+
+reagent-name-amaretto = amaretto
+reagent-desc-amaretto = A gentle and syrup like drink, tastes of almonds and apricots.
+
+reagent-name-applejack = applejack
+reagent-desc-applejack = The perfect beverage for when you feel the need to horse around.
+
+reagent-name-bitters = bitters
+reagent-desc-bitters = A bartender's best friend.
+
+reagent-name-creme-de-cacao = creme de cacao
+reagent-desc-creme-de-cacao = A chocolatey liqueur excellent for adding dessert notes to beverages and bribing sororities.
+
+reagent-name-creme-de-menthe = creme de menthe
+reagent-desc-creme-de-menthe = A minty liqueur excellent for refreshing, cool drinks.
+
+reagent-name-fernet = fernet
+reagent-desc-fernet = Pure Fernet. Only an absolute madman would drink this pure.
+
+reagent-name-navy-rum = navy rum
+reagent-desc-navy-rum = Splice the mainbrace, and God save the King. It's white rum.
+
+reagent-name-rice-beer = rice beer
+reagent-desc-rice-beer = A light, rice-based lagered beer popular on Mars. Considered a hate crime against Bavarians under the Reinheitsgebot Act of 1516.
+
+reagent-name-shochu = shochu
+reagent-desc-shochu = 	Also known as soju or baijiu, this drink is made from fermented rice, much like sake, but at a generally higher proof making it more similar to a true spirit.
+
+reagent-name-triple-sec = triple sec
+reagent-desc-triple-sec = A sweet and vibrant orange liqueur.
+
+reagent-name-voltaic-yellow-wine = voltaic yellow wine
+reagent-desc-voltaic-yellow-wine = Electrically charged wine.

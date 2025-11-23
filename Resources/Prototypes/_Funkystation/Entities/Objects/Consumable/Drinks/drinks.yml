@@ -1,4 +1,5 @@
 # SPDX-FileCopyrightText: 2025 Mish <bluscout78@yahoo.com>
+# SPDX-FileCopyrightText: 2025 SharkSnake98 <sharksnake87@gmail.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
@@ -95,5 +96,187 @@
         maxVol: 30
         reagents:
         - ReagentId: PineappleMargherita
+          Quantity: 30
+
+- type: entity
+  parent: DrinkGlass
+  id: Amaretto
+  suffix: amaretto
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Amaretto
+          Quantity: 30
+
+- type: entity
+  parent: DrinkGlass
+  id: Applejack
+  suffix: applejack
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Applejack
+          Quantity: 30
+
+- type: entity
+  parent: DrinkGlass
+  id: Bitters
+  suffix: bitters
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Bitters
+          Quantity: 30
+
+- type: entity
+  parent: DrinkGlass
+  id: CremeDeCacao
+  suffix: creme de cacao
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: CremeDeCacao
+          Quantity: 30
+
+- type: entity
+  parent: DrinkGlass
+  id: CremeDeMenthe
+  suffix: creme de menthe
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: CremeDeMenthe
+          Quantity: 30
+
+- type: entity
+  parent: DrinkGlass
+  id: Fernet
+  suffix: fernet
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Fernet
+          Quantity: 30
+
+- type: entity
+  parent: DrinkGlass
+  id: HakkaMate
+  suffix: hakka mate
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: HakkaMate
+          Quantity: 30
+
+- type: entity
+  parent: DrinkGlass
+  id: MelonSoda
+  suffix: melon soda
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: MelonSoda
+          Quantity: 30
+
+- type: entity
+  parent: DrinkGlass
+  id: NavyRum
+  suffix: navy rum
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: NavyRum
+          Quantity: 30
+
+- type: entity
+  parent: DrinkGlass
+  id: RiceBeer
+  suffix: rice beer
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: RiceBeer
+          Quantity: 30
+
+- type: entity
+  parent: DrinkGlass
+  id: Shochu
+  suffix: shochu
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Shochu
+          Quantity: 30
+
+- type: entity
+  parent: DrinkGlass
+  id: TripleSec
+  suffix: triple sec
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: TripleSec
+          Quantity: 30
+
+- type: entity
+  parent: DrinkGlass
+  id: 24VoltEnergy
+  suffix: 24 volt energy
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: 24VoltEnergy
+          Quantity: 30
+
+- type: entity
+  parent: DrinkGlass
+  id: VoltaicYellowWine
+  suffix: voltaic yellow wine
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: VoltaicYellowWine
           Quantity: 30
 # pignog

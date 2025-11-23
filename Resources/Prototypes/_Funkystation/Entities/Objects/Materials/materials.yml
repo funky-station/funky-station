@@ -44,7 +44,7 @@
   parent: MaterialBase
   id: MaterialHivelordTendril
   name: hivelord tendril
-  description: It almost seems too still be moving... 
+  description: It almost seems to still be moving... 
   suffix: Full
   components:
   - type: Sprite

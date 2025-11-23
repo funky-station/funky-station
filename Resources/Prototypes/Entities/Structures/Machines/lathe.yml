@@ -498,6 +498,9 @@
     # End Delta-V additions
     - SurveillanceWirelessCameraBodyEntertainment #funk
     - UtilityKnife #funk
+    - CandyBowl #pill(pill that pills you) #funk
+    - DeskBell #ringringring #funk
+    - BaseHandheldTelevision #watch my channels #funk
     dynamicRecipes:
     - BoomboxRed
     - BoomboxGreen
@@ -1418,6 +1421,8 @@
     - MedHUD # Funky
     - Vial # Funky
     - UtilityKnife #if you don't have scalpels ig #funk
+    - CandyBowl #pill(pill that pills you) #funk
+    - DeskBell #ringringring #funk
     dynamicRecipes:
     - ChemicalPayload
     - CryostasisBeaker

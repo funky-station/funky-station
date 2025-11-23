@@ -105,6 +105,10 @@
         key: Drowsiness
         time: 10
         type: Remove
+      - !type:GenericStatusEffect # goob edit
+        key: Adrenaline
+        component: IgnoreSlowOnDamage
+        time: 5
 
 - type: reagent
   id: Revivopine
@@ -114,19 +118,20 @@
   physicalDesc: reagent-physical-desc-exhilarating
   flavor: medicine
   color: "#04ea9a"
+  worksOnTheDead: true
   metabolisms:
     Medicine:
       metabolismRate: 2.0
       effects:
-      - !type:HealthChange
+      - !type:EvenHealthChange
         conditions:
         - !type:TotalDamage
           min: 95 # Heals a bit above crit
         damage:
-          groups: # 5 Damage every type except rad/pois
+          groups: # 5 Damage every type except rad/pois #it's now even heal, 5u= max heal 75(realistically 50 actual damage(brute and burn))
             Airloss: -10
-            Brute: -15
-            Burn: -20
+            Brute: -10
+            Burn: -10
 
 - type: reagent
   id: Corgium

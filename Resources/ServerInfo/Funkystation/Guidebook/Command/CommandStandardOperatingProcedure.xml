@@ -25,7 +25,7 @@ SPDX-License-Identifier: MIT
   [bold]6.[/bold] Command members must must follow the direction of Central Command staff in respect to decisions regarding the revelation of corporate secrets to general crew. In the event of emergency, or no such staff on station, command may reveal certain secrets pertaining to specific confirmed threats if they deem it necessary;
 
   [bold]7.[/bold] Command members must accept and assist in carrying out any penalties for breaches of conduct imposed by Central Command staff.
-  
+
   [bold]8.[/bold] Command is not to alter the length of a shift through early evacuation or shift extension except in the circumstances outlined below;
 
   ### Circumstances Warrenting Shift length alteration
@@ -51,8 +51,8 @@ SPDX-License-Identifier: MIT
 
   # Captain SOP
 
-  [bold]1.[/bold] The Captain is not permitted to perform regular Security Duty. However, they may still assist Security if they are understaffed, or if they see a crime being committed. 
-  
+  [bold]1.[/bold] The Captain is not permitted to perform regular Security Duty. However, they may still assist Security if they are understaffed, or if they see a crime being committed.
+
   [bold]2.[/bold] The Captain is not permitted to take items from the Armory under normal circumstances, unless authorized by the Head of Security. In addition, the Captain may not requisition weaponry for themselves from Cargo and/or Science, unless there's an immediate threat to station and/or crew;
 
   [bold]3.[/bold] If a Department lacks a Head of Staff, the Captain should make reasonable efforts to appoint an Acting Head of Staff, if there are available personnel to fill the position. The Acting Head of Staff must be a member of the Department vetted prior to shift start by central command, not a promoted member from another department;
@@ -128,13 +128,13 @@ SPDX-License-Identifier: MIT
 
   [bold]4.[/bold] The NanoTrasen Representative may administer class 1 and 2 penalties for misconduct concerning Standard Operating Procedure. They may only administer penalties for misconduct concerning misinterpretation of space law in the absense of a Magistrate, and may never administer class 3 penalties even when there is no acting Magistrate;
 
-  [bold]6.[/bold] The NanoTrasen Representative must follow the directions of the Magistrate and defer to their judgement in matters not concerning standard operating procedure, but should advocate their stance firmly in the case of disagreements, and escalate to Central Command directly if they feel there has been wrongdoing;
+  [bold]5.[/bold] The NanoTrasen Representative must follow the directions of the Magistrate and defer to their judgement in matters not concerning standard operating procedure, but should advocate their stance firmly in the case of disagreements, and escalate to Central Command directly if they feel there has been wrongdoing;
 
-  [bold]7.[/bold] The NanoTrasen Representative is permitted to carry their flash and a blade-cane, or a stun baton if the blade-cane is lost;
+  [bold]6.[/bold] The NanoTrasen Representative is permitted to carry their flash and a blade-cane, or a stun baton if the blade-cane is lost;
 
   ## Nanotrasen Representative OOC Rules
 
-  [bold]1.[/bold] You are not a Mega Captain. You are really only on station as an advisor, and should generally only exersize your authority in regard to matters other than SOP in extreme circumstances, or obvious cases of wrongdoing. 
+  [bold]1.[/bold] You are not a Mega Captain. You are really only on station as an advisor, and should generally only exersize your authority in regard to matters other than SOP in extreme circumstances, or obvious cases of wrongdoing.
 
   [bold]2.[/bold] You are a non combatant advisor, and should not be participating in combat except in the case of self defense.
 
@@ -183,9 +183,14 @@ SPDX-License-Identifier: MIT
 
   # I don't see my job listed here
 
-  It may be because this is a living document, and SOP is not yet finalized. The following SOP documents are completed for other Head's of Staff;
+  Other command members have their own SOP listed with their departments. See below for links to each department's SOP.
 
-  -[textlink="Head of Security SOP" link="SecuritySOP"]
+  -[textlink="Security SOP" link="SecuritySOP"]
+  -[textlink="Engineering SOP" link="EngineeringSOP"]
+  -[textlink="Medical SOP" link="MedicalSOP"]
+  -[textlink="Science SOP" link="ScienceSOP"]
+  -[textlink="Service SOP" link="ServiceSOP"]
+  -[textlink="Legal SOP" link="LegalSOP"]
 
   Glory to NanoTrasen!
 </Document>

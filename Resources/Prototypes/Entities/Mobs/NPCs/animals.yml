@@ -2677,7 +2677,7 @@
   - type: Cocooner
     wrapAction: ActionWrap
     wrapDuration: 10
-    hungerCost: 10
+    hungerCost: 30
   - type: IgnoreSpiderWeb
   - type: Bloodstream
     bloodMaxVolume: 150

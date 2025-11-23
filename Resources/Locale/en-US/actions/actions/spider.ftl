@@ -13,6 +13,7 @@ spider-web-action-fail = You can't place webs here! All cardinal directions alre
 
 sericulture-failure-hunger = Your stomach is too empty to make any more webs!
 
+arachnid-wrap-failure-hunger = Your stomach is too empty for that!
 arachnid-wrap-invalid-target = You can only cocoon humanoid prey.
 arachnid-wrap-already = They're already wrapped up!
 arachnid-wrap-start-user = You begin wrapping {$target} in sticky silk.

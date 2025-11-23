@@ -53,7 +53,7 @@
   - type: Cocooner
     wrapAction: ActionWrap
     wrapDuration: 10
-    hungerCost: 10
+    hungerCost: 30
   - type: Tag
     tags:
     - CanPilot

@@ -196,6 +196,17 @@ public sealed class CocoonSystem : SharedCocoonSystem
         if (!_blocker.CanInteract(user, target))
             return;
 
+        // Check if entity has enough hunger to perform the action
+        if (TryComp<Content.Shared.Nutrition.Components.HungerComponent>(user, out var hungerComp))
+        {
+            var currentHunger = _hunger.GetHunger(hungerComp);
+            if (currentHunger < component.HungerCost)
+            {
+                _popups.PopupEntity(Loc.GetString("arachnid-wrap-failure-hunger"), user, user);
+                return;
+            }
+        }
+
         // Only require hands if the entity has hands (spiders don't have hands)
         var needHand = HasComp<HandsComponent>(user);
 

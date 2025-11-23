@@ -2674,10 +2674,6 @@
       path: /Audio/Animals/snake_hiss.ogg
   - type: NoSlip
   - type: Spider
-  - type: Cocooner
-    wrapAction: ActionWrap
-    wrapDuration: 10
-    hungerCost: 30
   - type: IgnoreSpiderWeb
   - type: Bloodstream
     bloodMaxVolume: 150
@@ -2797,6 +2793,12 @@
     damage:
       types:
         Piercing: 6
+  - type: Puller
+    needsHands: false
+  - type: Cocooner
+    wrapAction: ActionWrap
+    wrapDuration: 10
+    hungerCost: 30
 
 - type: entity
   parent:

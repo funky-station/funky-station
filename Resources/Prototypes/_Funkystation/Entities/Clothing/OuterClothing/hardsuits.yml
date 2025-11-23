@@ -130,7 +130,7 @@
   parent: [ClothingOuterHardsuitBase, AllowBackStorageClothingCombat, BaseCargoContraband]
   id: ClothingOuterHardsuitHivelord
   name: hivelord hardsuit
-  description: A eerie hardsuit made from the remaining pieces of a Hivelord, grants a small fraction of their regenerative abilities while worn.
+  description: An eerie hardsuit made from the remaining pieces of a Hivelord, grants a small fraction of their regenerative abilities while worn.
   components:
   - type: Sprite
     sprite: _Funkystation/Clothing/OuterClothing/Hardsuits/hivelord.rsi

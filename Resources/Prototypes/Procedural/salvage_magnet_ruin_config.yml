@@ -1,0 +1,24 @@
+# SPDX-FileCopyrightText: 2025 terkala <appleorange64@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later or MIT
+
+# Configuration for salvage magnet ruin generation.
+# This controls flood-fill parameters and damage simulation.
+
+- type: salvageMagnetRuinConfig
+  id: Default
+  floodFillPoints: 15
+  wallDestroyChance: 0.05
+  windowDamageChance: 0.05
+  floorToLatticeChance: 0.05
+  # Path costs for flood-fill algorithm (higher = more expensive to traverse)
+  wallCost: 6
+  directionalWindowCost: 2
+  reinforcedWindowCost: 4
+  regularWindowCost: 2
+  directionalGlassCost: 2
+  reinforcedGlassCost: 4
+  regularGlassCost: 4
+  grilleCost: 2
+  defaultTileCost: 1
+

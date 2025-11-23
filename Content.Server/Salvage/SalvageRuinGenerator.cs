@@ -8,7 +8,9 @@ using System.IO;
 using System.Linq;
 using System.Numerics;
 using Content.Shared.Maps;
+using Content.Shared.Salvage;
 using Robust.Shared.EntitySerialization.Systems;
+using Robust.Shared.GameObjects;
 using Robust.Shared.Log;
 using Robust.Shared.Map;
 using Robust.Shared.Maths;
@@ -24,58 +26,131 @@ namespace Content.Server.Salvage;
 
 /// <summary>
 /// Generates ruins from station maps using cost-based flood-fill.
+/// Pre-builds cost maps at server startup for performance.
 /// </summary>
-public sealed class SalvageRuinGenerator
+public sealed class SalvageRuinGeneratorSystem : EntitySystem
 {
-    private readonly IPrototypeManager _prototypeManager;
-    private readonly IRobustRandom _random;
-    private readonly ITileDefinitionManager _tileDefinitionManager;
-    private readonly MapLoaderSystem _mapLoader;
-    private readonly ISawmill _sawmill;
+    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly ITileDefinitionManager _tileDefinitionManager = default!;
+    [Dependency] private readonly MapLoaderSystem _mapLoader = default!;
+    [Dependency] private readonly ILogManager _logManager = default!;
 
-    public SalvageRuinGenerator(
-        IPrototypeManager prototypeManager,
-        IRobustRandom random,
-        ITileDefinitionManager tileDefinitionManager,
-        MapLoaderSystem mapLoader,
-        ILogManager logManager)
+    private ISawmill _sawmill = default!;
+
+    /// <summary>
+    /// Cached map data for each ruin map. Built at server startup.
+    /// </summary>
+    private readonly Dictionary<ResPath, CachedMapData> _cachedMapData = new();
+
+    /// <summary>
+    /// Cached data for a map, including cost map, coordinate map, wall entities, and window entities.
+    /// </summary>
+    private sealed class CachedMapData
     {
-        _prototypeManager = prototypeManager;
-        _random = random;
-        _tileDefinitionManager = tileDefinitionManager;
-        _mapLoader = mapLoader;
-        _sawmill = logManager.GetSawmill("system.salvage");
+        public Dictionary<Vector2i, int> CostMap = new();
+        public Dictionary<Vector2i, string> CoordinateMap = new();
+        public List<(Vector2i Position, string PrototypeId)> WallEntities = new();
+        public List<(Vector2i Position, string PrototypeId, Angle Rotation)> WindowEntities = new();
     }
 
     /// <summary>
-    /// Result of ruin generation containing floor tiles to place and wall entities to spawn.
+    /// Result of ruin generation containing floor tiles to place, wall entities, and window entities to spawn.
     /// </summary>
     public sealed class RuinResult
     {
         public List<(Vector2i Position, Tile Tile)> FloorTiles = new();
         public List<(Vector2i Position, string PrototypeId)> WallEntities = new();
+        public List<(Vector2i Position, string PrototypeId, Angle Rotation)> WindowEntities = new();
         public Box2 Bounds;
+        
+        // Configuration used for this ruin (needed for damage simulation when spawning)
+        public SalvageMagnetRuinConfigPrototype? Config;
+    }
+
+    public override void Initialize()
+    {
+        base.Initialize();
+        _sawmill = _logManager.GetSawmill("system.salvage");
+        
+        // Subscribe to prototype reload events
+        SubscribeLocalEvent<PrototypesReloadedEventArgs>(OnPrototypesReloaded);
+        
+        // Try to pre-build cost maps (may be called before prototypes are loaded, which is fine)
+        // If prototypes aren't loaded yet, on-demand building will handle it
+        PrebuildCostMaps();
+    }
+
+    private void OnPrototypesReloaded(PrototypesReloadedEventArgs args)
+    {
+        // If this is the first time prototypes are loaded, or if RuinMapPrototype was modified, rebuild cost maps
+        if (_cachedMapData.Count == 0 || args.WasModified<RuinMapPrototype>())
+        {
+            if (_cachedMapData.Count == 0)
+            {
+                _sawmill.Info("[SalvageRuinGenerator] Prototypes loaded, building cost maps for ruin maps...");
+            }
+            else
+            {
+                _sawmill.Info("[SalvageRuinGenerator] RuinMapPrototype prototypes were reloaded, rebuilding cost maps...");
+                _cachedMapData.Clear();
+            }
+            PrebuildCostMaps();
+        }
     }
 
     /// <summary>
-    /// Generates a ruin from the specified map using flood-fill.
-    /// Parses YAML directly without loading any entities.
+    /// Pre-builds cost maps for all configured ruin maps at server startup.
     /// </summary>
-    public RuinResult? GenerateRuin(ResPath mapPath, int seed, int floodFillPoints = 50)
+    private void PrebuildCostMaps()
+    {
+        _sawmill.Info("[SalvageRuinGenerator] Pre-building cost maps for ruin maps...");
+        
+        var ruinMaps = _prototypeManager.EnumeratePrototypes<RuinMapPrototype>().ToList();
+        
+        // If no prototypes are loaded yet, skip pre-building (will build on-demand)
+        if (ruinMaps.Count == 0)
+        {
+            _sawmill.Debug("[SalvageRuinGenerator] No RuinMapPrototype prototypes found yet, will build cost maps on-demand");
+            return;
+        }
+        
+        var successCount = 0;
+        var failCount = 0;
+
+        foreach (var ruinMap in ruinMaps)
+        {
+            if (BuildCostMapForMap(ruinMap.MapPath))
+            {
+                successCount++;
+            }
+            else
+            {
+                failCount++;
+            }
+        }
+
+        _sawmill.Info($"[SalvageRuinGenerator] Pre-built cost maps: {successCount} succeeded, {failCount} failed");
+    }
+
+    /// <summary>
+    /// Builds and caches cost map data for a specific map path.
+    /// </summary>
+    private bool BuildCostMapForMap(ResPath mapPath)
     {
         // Read YAML file directly without loading entities
         if (!_mapLoader.TryReadFile(mapPath, out var mapData))
         {
             _sawmill.Error($"[SalvageRuinGenerator] Failed to read map file: {mapPath}");
-            return null;
+            return false;
         }
 
-        // Parse tilemap section (maps YAML tile IDs to tile definition names)
+        // Parse tilemap section
         var tileMap = new Dictionary<int, string>();
         if (!mapData.TryGet("tilemap", out MappingDataNode? tilemapNode))
         {
             _sawmill.Error($"[SalvageRuinGenerator] Map file {mapPath} missing tilemap section");
-            return null;
+            return false;
         }
 
         foreach (var (key, valueNode) in tilemapNode.Children)
@@ -93,34 +168,31 @@ public sealed class SalvageRuinGenerator
         if (tileMap.Count == 0)
         {
             _sawmill.Error($"[SalvageRuinGenerator] Map file {mapPath} has empty tilemap");
-            return null;
+            return false;
         }
 
-        _sawmill.Debug($"[SalvageRuinGenerator] Parsed {tileMap.Count} tile mappings from {mapPath}");
-
-        // Parse grids section - contains entity UIDs, not grid data
+        // Parse grids section
         if (!mapData.TryGet("grids", out SequenceDataNode? gridsNode) || gridsNode.Sequence.Count == 0)
         {
             _sawmill.Error($"[SalvageRuinGenerator] Map file {mapPath} missing or empty grids section");
-            return null;
+            return false;
         }
 
-        // Get the first grid UID
         var firstGridUidNode = gridsNode.Sequence[0] as ValueDataNode;
         if (firstGridUidNode == null || !int.TryParse(firstGridUidNode.Value, out var firstGridUid))
         {
             _sawmill.Error($"[SalvageRuinGenerator] Map file {mapPath} first grid UID is invalid");
-            return null;
+            return false;
         }
 
-        // Parse entities section to find the grid entity
+        // Parse entities section
         if (!mapData.TryGet("entities", out SequenceDataNode? entitiesNode))
         {
             _sawmill.Error($"[SalvageRuinGenerator] Map file {mapPath} missing entities section");
-            return null;
+            return false;
         }
 
-        // Find the grid entity by UID
+        // Find the grid entity
         MappingDataNode? gridEntityNode = null;
         foreach (var protoGroupNode in entitiesNode.Sequence.Cast<MappingDataNode>())
         {
@@ -145,15 +217,15 @@ public sealed class SalvageRuinGenerator
 
         if (gridEntityNode == null)
         {
-            _sawmill.Error($"[SalvageRuinGenerator] Map file {mapPath} grid entity with UID {firstGridUid} not found in entities section");
-            return null;
+            _sawmill.Error($"[SalvageRuinGenerator] Map file {mapPath} grid entity with UID {firstGridUid} not found");
+            return false;
         }
 
-        // Get MapGridComponent from the entity
+        // Get MapGridComponent
         if (!gridEntityNode.TryGet("components", out SequenceDataNode? componentsNode))
         {
             _sawmill.Error($"[SalvageRuinGenerator] Map file {mapPath} grid entity missing components section");
-            return null;
+            return false;
         }
 
         MappingDataNode? mapGridComponent = null;
@@ -172,17 +244,17 @@ public sealed class SalvageRuinGenerator
         if (mapGridComponent == null)
         {
             _sawmill.Error($"[SalvageRuinGenerator] Map file {mapPath} grid entity missing MapGrid component");
-            return null;
+            return false;
         }
 
-        // Get chunks from the MapGrid component (chunks are stored as a mapping, not a sequence)
+        // Get chunks
         if (!mapGridComponent.TryGet("chunks", out MappingDataNode? chunksNode))
         {
             _sawmill.Error($"[SalvageRuinGenerator] Map file {mapPath} MapGrid component missing chunks section");
-            return null;
+            return false;
         }
 
-        // Get chunk size (default 16)
+        // Get chunk size
         ushort chunkSize = 16;
         if (mapGridComponent.TryGet("chunksize", out ValueDataNode? chunkSizeNode))
         {
@@ -190,149 +262,288 @@ public sealed class SalvageRuinGenerator
                 chunkSize = parsedChunkSize;
         }
 
-        _sawmill.Debug($"[SalvageRuinGenerator] Parsing {chunksNode.Children.Count} chunks with chunk size {chunkSize}");
-
         // Build coordinate map from parsed chunks
         var coordinateMap = ParseChunks(chunksNode, tileMap, chunkSize);
 
         if (coordinateMap.Count == 0)
         {
-            _sawmill.Error($"[SalvageRuinGenerator] Map file {mapPath} produced empty coordinate map after parsing chunks");
+            _sawmill.Error($"[SalvageRuinGenerator] Map file {mapPath} produced empty coordinate map");
+            return false;
+        }
+
+        // Parse wall entities
+        var wallEntities = ParseWallEntities(entitiesNode, firstGridUid);
+
+        // Parse window entities
+        var windowEntities = ParseWindowEntities(entitiesNode, firstGridUid);
+
+        // Get default config for cost map building (use "Default" if available, otherwise null for defaults)
+        SalvageMagnetRuinConfigPrototype? defaultConfig = null;
+        _prototypeManager.TryIndex<SalvageMagnetRuinConfigPrototype>("Default", out defaultConfig);
+
+        // Build cost map (includes windows and walls in cost calculation)
+        var costMap = BuildCostMap(coordinateMap, windowEntities, wallEntities, defaultConfig);
+
+        // Cache the data
+        _cachedMapData[mapPath] = new CachedMapData
+        {
+            CostMap = costMap,
+            CoordinateMap = coordinateMap,
+            WallEntities = wallEntities,
+            WindowEntities = windowEntities
+        };
+
+        _sawmill.Debug($"[SalvageRuinGenerator] Cached cost map for {mapPath}: {costMap.Count} tiles, {wallEntities.Count} walls, {windowEntities.Count} windows");
+        return true;
+    }
+
+    /// <summary>
+    /// Generates a ruin from the specified map using flood-fill.
+    /// Uses pre-built cost maps for performance.
+    /// </summary>
+    public RuinResult? GenerateRuin(ResPath mapPath, int seed, SalvageMagnetRuinConfigPrototype? config = null)
+    {
+        // Get cached map data
+        if (!_cachedMapData.TryGetValue(mapPath, out var cachedData))
+        {
+            _sawmill.Error($"[SalvageRuinGenerator] No cached cost map found for {mapPath}. Attempting to build it now...");
+            // Try to build it on-demand (shouldn't happen, but handle gracefully)
+            if (!BuildCostMapForMap(mapPath) || !_cachedMapData.TryGetValue(mapPath, out cachedData))
+            {
+                _sawmill.Error($"[SalvageRuinGenerator] Failed to build cost map for {mapPath}");
+                return null;
+            }
+        }
+
+        var costMap = cachedData.CostMap;
+        var coordinateMap = cachedData.CoordinateMap;
+        var wallEntities = cachedData.WallEntities;
+        var windowEntities = cachedData.WindowEntities;
+
+        // Find valid start location (retry up to 10 times)
+        var rand = new System.Random(seed);
+        var startPos = FindValidStartLocation(costMap, rand, maxRetries: 10);
+        if (!startPos.HasValue)
+        {
+            _sawmill.Error($"[SalvageRuinGenerator] Failed to find valid start location for map {mapPath} with seed {seed}");
             return null;
         }
 
-        _sawmill.Debug($"[SalvageRuinGenerator] Parsed {coordinateMap.Count} tiles from map {mapPath}");
+        // Get configuration values (defaults if not provided)
+        var floodFillPoints = config?.FloodFillPoints ?? 50;
+        var wallDestroyChance = config?.WallDestroyChance ?? 0.0f;
+        var windowDamageChance = config?.WindowDamageChance ?? 0.0f;
+        var floorToLatticeChance = config?.FloorToLatticeChance ?? 0.0f;
 
-            // Build cost map
-            var costMap = BuildCostMap(coordinateMap);
+        _sawmill.Debug($"[SalvageRuinGenerator] Starting flood-fill at {startPos.Value} with budget {floodFillPoints}");
 
-            // Find valid start location (retry up to 10 times)
-            var rand = new System.Random(seed);
-            var startPos = FindValidStartLocation(costMap, rand, maxRetries: 10);
-            if (!startPos.HasValue)
+        // Create sets of wall and window positions for fast lookup
+        var wallPositions = new HashSet<Vector2i>(wallEntities.Select(w => w.Position));
+        var windowPositions = new HashSet<Vector2i>(windowEntities.Select(w => w.Position));
+        var allBlockingPositions = new HashSet<Vector2i>(wallPositions);
+        allBlockingPositions.UnionWith(windowPositions);
+
+        // Perform flood-fill
+        var region = FloodFillWithCost(costMap, startPos.Value, floodFillPoints, allBlockingPositions);
+        if (region.Count == 0)
+        {
+            _sawmill.Error($"[SalvageRuinGenerator] Flood-fill returned empty region for map {mapPath} with seed {seed}");
+            return null;
+        }
+
+        _sawmill.Debug($"[SalvageRuinGenerator] Flood-fill collected {region.Count} tiles");
+
+        // Extract floor tiles from region, and walls adjacent to the region
+        var result = new RuinResult();
+        var tilesToPlace = new Dictionary<Vector2i, Tile>();
+        var minX = int.MaxValue;
+        var minY = int.MaxValue;
+        var maxX = int.MinValue;
+        var maxY = int.MinValue;
+
+        // First, find the bounds of the flood-filled region
+        foreach (var pos in region)
+        {
+            minX = Math.Min(minX, pos.X);
+            minY = Math.Min(minY, pos.Y);
+            maxX = Math.Max(maxX, pos.X);
+            maxY = Math.Max(maxY, pos.Y);
+        }
+
+        // Find wall entities adjacent to the flood-filled region
+        var adjacentWallEntities = new List<(Vector2i Position, string PrototypeId)>();
+        var regionSet = new HashSet<Vector2i>(region);
+        
+        foreach (var (wallPos, wallProto) in wallEntities)
+        {
+            // Check if this wall is adjacent to any tile in the region
+            var neighbors = new[]
             {
-                _sawmill.Error($"[SalvageRuinGenerator] Failed to find valid start location for map {mapPath} with seed {seed}");
-                return null;
+                new Vector2i(wallPos.X + 1, wallPos.Y),
+                new Vector2i(wallPos.X - 1, wallPos.Y),
+                new Vector2i(wallPos.X, wallPos.Y + 1),
+                new Vector2i(wallPos.X, wallPos.Y - 1)
+            };
+
+            foreach (var neighbor in neighbors)
+            {
+                if (regionSet.Contains(neighbor))
+                {
+                    adjacentWallEntities.Add((wallPos, wallProto));
+                    // Update bounds to include walls
+                    minX = Math.Min(minX, wallPos.X);
+                    minY = Math.Min(minY, wallPos.Y);
+                    maxX = Math.Max(maxX, wallPos.X);
+                    maxY = Math.Max(maxY, wallPos.Y);
+                    break; // Only add once
+                }
             }
+        }
 
-            _sawmill.Debug($"[SalvageRuinGenerator] Starting flood-fill at {startPos.Value} with budget {floodFillPoints}");
+        _sawmill.Debug($"[SalvageRuinGenerator] Found {adjacentWallEntities.Count} adjacent wall entities");
 
-            // Perform flood-fill
-            var region = FloodFillWithCost(costMap, startPos.Value, floodFillPoints);
-            if (region.Count == 0)
+        // Find window entities within or adjacent to the flood-filled region
+        var windowEntitiesInRegion = new List<(Vector2i Position, string PrototypeId, Angle Rotation)>();
+        
+        foreach (var (windowPos, windowProto, windowRotation) in windowEntities)
+        {
+            // Check if window is within the region or adjacent to it
+            if (regionSet.Contains(windowPos))
             {
-                _sawmill.Error($"[SalvageRuinGenerator] Flood-fill returned empty region for map {mapPath} with seed {seed}");
-                return null;
+                // Window is within the flood-filled region
+                windowEntitiesInRegion.Add((windowPos, windowProto, windowRotation));
+                // Update bounds to include windows
+                minX = Math.Min(minX, windowPos.X);
+                minY = Math.Min(minY, windowPos.Y);
+                maxX = Math.Max(maxX, windowPos.X);
+                maxY = Math.Max(maxY, windowPos.Y);
             }
-
-            _sawmill.Debug($"[SalvageRuinGenerator] Flood-fill collected {region.Count} tiles");
-
-            // Parse wall entities from the map
-            var wallEntities = ParseWallEntities(entitiesNode, firstGridUid);
-
-            // Extract floor tiles from region, and walls adjacent to the region
-            var result = new RuinResult();
-            var tilesToPlace = new Dictionary<Vector2i, Tile>();
-            var minX = int.MaxValue;
-            var minY = int.MaxValue;
-            var maxX = int.MinValue;
-            var maxY = int.MinValue;
-
-            // First, find the bounds of the flood-filled region
-            foreach (var pos in region)
+            else
             {
-                minX = Math.Min(minX, pos.X);
-                minY = Math.Min(minY, pos.Y);
-                maxX = Math.Max(maxX, pos.X);
-                maxY = Math.Max(maxY, pos.Y);
-            }
-
-            // Find wall entities adjacent to the flood-filled region
-            var adjacentWallEntities = new List<(Vector2i Position, string PrototypeId)>();
-            var regionSet = new HashSet<Vector2i>(region);
-            
-            foreach (var (wallPos, wallProto) in wallEntities)
-            {
-                // Check if this wall is adjacent to any tile in the region
+                // Check if window is adjacent to the region
                 var neighbors = new[]
                 {
-                    new Vector2i(wallPos.X + 1, wallPos.Y),
-                    new Vector2i(wallPos.X - 1, wallPos.Y),
-                    new Vector2i(wallPos.X, wallPos.Y + 1),
-                    new Vector2i(wallPos.X, wallPos.Y - 1)
+                    new Vector2i(windowPos.X + 1, windowPos.Y),
+                    new Vector2i(windowPos.X - 1, windowPos.Y),
+                    new Vector2i(windowPos.X, windowPos.Y + 1),
+                    new Vector2i(windowPos.X, windowPos.Y - 1)
                 };
 
                 foreach (var neighbor in neighbors)
                 {
                     if (regionSet.Contains(neighbor))
                     {
-                        adjacentWallEntities.Add((wallPos, wallProto));
-                        // Update bounds to include walls
-                        minX = Math.Min(minX, wallPos.X);
-                        minY = Math.Min(minY, wallPos.Y);
-                        maxX = Math.Max(maxX, wallPos.X);
-                        maxY = Math.Max(maxY, wallPos.Y);
+                        windowEntitiesInRegion.Add((windowPos, windowProto, windowRotation));
+                        // Update bounds to include windows
+                        minX = Math.Min(minX, windowPos.X);
+                        minY = Math.Min(minY, windowPos.Y);
+                        maxX = Math.Max(maxX, windowPos.X);
+                        maxY = Math.Max(maxY, windowPos.Y);
                         break; // Only add once
                     }
                 }
             }
+        }
 
-            _sawmill.Debug($"[SalvageRuinGenerator] Found {adjacentWallEntities.Count} adjacent wall entities");
+        _sawmill.Debug($"[SalvageRuinGenerator] Found {windowEntitiesInRegion.Count} window entities in or adjacent to region");
 
-            // Now normalize all coordinates to start from (0,0) relative to the ruin's origin
-            var originX = minX;
-            var originY = minY;
+        // Now normalize all coordinates to start from (0,0) relative to the ruin's origin
+        var originX = minX;
+        var originY = minY;
 
-            // Add all tiles from the flood-filled region (floors) with normalized coordinates
-            foreach (var pos in region)
+        // Create random instance for damage simulation
+        var damageRand = new System.Random(seed);
+
+        // Add all tiles from the flood-filled region (floors) with normalized coordinates
+        // Apply floor-to-lattice damage simulation IN MEMORY before spawning
+        foreach (var pos in region)
+        {
+            if (!coordinateMap.TryGetValue(pos, out var tileId))
+                continue;
+
+            // Get tile definition
+            if (!_prototypeManager.TryIndex<ContentTileDefinition>(tileId, out var tileDef))
+                continue;
+
+            // Check if this tile is already lattice (never damage lattice further)
+            var isLattice = tileDef.ID.Equals("Lattice", StringComparison.OrdinalIgnoreCase);
+
+            Tile tile;
+            if (!isLattice && floorToLatticeChance > 0.0f && damageRand.NextSingle() < floorToLatticeChance)
             {
-                if (!coordinateMap.TryGetValue(pos, out var tileId))
-                    continue;
-
-                // Get tile definition
-                if (!_prototypeManager.TryIndex<ContentTileDefinition>(tileId, out var tileDef))
-                    continue;
-
-                // Convert to Tile
-                var tile = new Tile(tileDef.TileId);
-                // Normalize coordinates relative to ruin origin
-                var normalizedPos = new Vector2i(pos.X - originX, pos.Y - originY);
-                tilesToPlace[normalizedPos] = tile;
+                // Replace floor tile with lattice
+                if (!_tileDefinitionManager.TryGetDefinition("Lattice", out var latticeDef))
+                {
+                    // Fallback to original tile if lattice not found
+                    tile = new Tile(tileDef.TileId);
+                }
+                else
+                {
+                    tile = new Tile(latticeDef.TileId);
+                }
+            }
+            else
+            {
+                // Keep original tile
+                tile = new Tile(tileDef.TileId);
             }
 
-            // Add adjacent wall entities with normalized coordinates
-            foreach (var (wallPos, wallProto) in adjacentWallEntities)
+            // Normalize coordinates relative to ruin origin
+            var normalizedPos = new Vector2i(pos.X - originX, pos.Y - originY);
+            tilesToPlace[normalizedPos] = tile;
+        }
+
+        // Add adjacent wall entities with normalized coordinates
+        // Apply wall destruction simulation IN MEMORY before spawning
+        foreach (var (wallPos, wallProto) in adjacentWallEntities)
+        {
+            // Check if wall should be destroyed
+            if (wallDestroyChance > 0.0f && damageRand.NextSingle() < wallDestroyChance)
             {
-                var normalizedWallPos = new Vector2i(wallPos.X - originX, wallPos.Y - originY);
-                result.WallEntities.Add((normalizedWallPos, wallProto));
+                // Wall is destroyed, skip it (don't add to result)
+                continue;
             }
 
-            if (tilesToPlace.Count == 0)
-            {
-                _sawmill.Error($"[SalvageRuinGenerator] No tiles to place after processing region for map {mapPath}");
-                return null;
-            }
+            var normalizedWallPos = new Vector2i(wallPos.X - originX, wallPos.Y - originY);
+            result.WallEntities.Add((normalizedWallPos, wallProto));
+        }
 
-            // Calculate normalized bounds (should start from 0,0)
-            var normalizedMinX = 0;
-            var normalizedMinY = 0;
-            var normalizedMaxX = maxX - originX;
-            var normalizedMaxY = maxY - originY;
+        // Add window entities with normalized coordinates and preserved rotation
+        // Window damage will be applied when spawning, but we track which ones should be damaged
+        foreach (var (windowPos, windowProto, windowRotation) in windowEntitiesInRegion)
+        {
+            var normalizedWindowPos = new Vector2i(windowPos.X - originX, windowPos.Y - originY);
+            result.WindowEntities.Add((normalizedWindowPos, windowProto, windowRotation));
+        }
 
-            _sawmill.Debug($"[SalvageRuinGenerator] Generated ruin with {tilesToPlace.Count} tiles ({region.Count} floors) and {adjacentWallEntities.Count} wall entities");
+        if (tilesToPlace.Count == 0)
+        {
+            _sawmill.Error($"[SalvageRuinGenerator] No tiles to place after processing region for map {mapPath}");
+            return null;
+        }
 
-            // Convert to list
-            result.FloorTiles = tilesToPlace.Select(kvp => (kvp.Key, kvp.Value)).ToList();
+        // Calculate normalized bounds (should start from 0,0)
+        var normalizedMinX = 0;
+        var normalizedMinY = 0;
+        var normalizedMaxX = maxX - originX;
+        var normalizedMaxY = maxY - originY;
 
-            // Calculate bounds (add 1 for inclusive bounds)
-            result.Bounds = new Box2(normalizedMinX, normalizedMinY, normalizedMaxX + 1, normalizedMaxY + 1);
+        _sawmill.Debug($"[SalvageRuinGenerator] Generated ruin with {tilesToPlace.Count} tiles ({region.Count} floors), {result.WallEntities.Count} wall entities (after destruction), and {windowEntitiesInRegion.Count} window entities");
 
-            return result;
+        // Convert to list
+        result.FloorTiles = tilesToPlace.Select(kvp => (kvp.Key, kvp.Value)).ToList();
+
+        // Calculate bounds (add 1 for inclusive bounds)
+        result.Bounds = new Box2(normalizedMinX, normalizedMinY, normalizedMaxX + 1, normalizedMaxY + 1);
+
+        // Store config for damage simulation when spawning
+        result.Config = config;
+
+        return result;
     }
 
     /// <summary>
     /// Parses chunks from YAML data and builds a coordinate map of tile positions to tile IDs.
-    /// Chunks are stored as a mapping where keys are chunk index strings like "0,-1".
     /// </summary>
     private Dictionary<Vector2i, string> ParseChunks(MappingDataNode chunksNode, Dictionary<int, string> tileMap, ushort chunkSize)
     {
@@ -340,7 +551,6 @@ public sealed class SalvageRuinGenerator
 
         foreach (var (chunkIndexKey, chunkValueNode) in chunksNode.Children)
         {
-            // The key is the chunk index string (e.g., "0,-1")
             var chunkIndexStr = chunkIndexKey;
             var chunkIndexParts = chunkIndexStr.Split(',');
             if (chunkIndexParts.Length != 2 ||
@@ -351,23 +561,19 @@ public sealed class SalvageRuinGenerator
                 continue;
             }
 
-            // The value is a mapping containing "ind", "tiles", and "version"
             if (chunkValueNode is not MappingDataNode chunkNode)
             {
                 _sawmill.Warning($"[SalvageRuinGenerator] Chunk value is not a mapping node for chunk {chunkIndexStr}");
                 continue;
             }
 
-            // Get tile data (base64 encoded)
             if (!chunkNode.TryGet("tiles", out ValueDataNode? tilesNode))
                 continue;
 
-            // Get version (default 7 for newer maps)
             int version = 7;
             if (chunkNode.TryGet("version", out ValueDataNode? versionNode))
                 int.TryParse(versionNode.Value, out version);
 
-            // Decode base64 tile data
             byte[] tileBytes;
             try
             {
@@ -381,7 +587,6 @@ public sealed class SalvageRuinGenerator
             using var stream = new MemoryStream(tileBytes);
             using var reader = new BinaryReader(stream);
 
-            // Read tiles from the chunk
             for (ushort y = 0; y < chunkSize; y++)
             {
                 for (ushort x = 0; x < chunkSize; x++)
@@ -405,21 +610,17 @@ public sealed class SalvageRuinGenerator
                         variant = reader.ReadByte();
                     }
 
-                    // Map YAML tile ID to tile definition name
                     if (!tileMap.TryGetValue(yamlTileId, out var tileDefName))
                         continue;
 
-                    // Convert to runtime tile ID
                     if (!_tileDefinitionManager.TryGetDefinition(tileDefName, out var tileDef))
                         continue;
 
-                    // Calculate world position
                     var worldX = chunkX * chunkSize + x;
                     var worldY = chunkY * chunkSize + y;
                     var worldPos = new Vector2i(worldX, worldY);
 
-                    // Store in coordinate map (only non-empty tiles)
-                    if (tileDef.TileId != 0) // 0 is empty/space
+                    if (tileDef.TileId != 0)
                     {
                         coordinateMap[worldPos] = tileDef.ID;
                     }
@@ -437,7 +638,6 @@ public sealed class SalvageRuinGenerator
     {
         var wallEntities = new List<(Vector2i, string)>();
 
-        // Wall prototype IDs to look for
         var wallPrototypes = new HashSet<string>(StringComparer.OrdinalIgnoreCase)
         {
             "WallSolid",
@@ -448,13 +648,11 @@ public sealed class SalvageRuinGenerator
 
         foreach (var protoGroupNode in entitiesNode.Sequence.Cast<MappingDataNode>())
         {
-            // Get the prototype ID for this group
             if (!protoGroupNode.TryGet("proto", out ValueDataNode? protoNode))
                 continue;
 
             var protoId = protoNode.Value;
             
-            // Skip if not a wall prototype
             if (!wallPrototypes.Contains(protoId))
                 continue;
 
@@ -463,13 +661,11 @@ public sealed class SalvageRuinGenerator
 
             foreach (var entityNode in entitiesInGroup.Sequence.Cast<MappingDataNode>())
             {
-                // Skip the grid entity itself
                 if (entityNode.TryGet("uid", out ValueDataNode? uidNode) &&
                     int.TryParse(uidNode.Value, out var entityUid) &&
                     entityUid == gridUid)
                     continue;
 
-                // Get Transform component to find position
                 if (!entityNode.TryGet("components", out SequenceDataNode? componentsNode))
                     continue;
 
@@ -483,7 +679,6 @@ public sealed class SalvageRuinGenerator
 
                     if (typeNode.Value == "Transform")
                     {
-                        // Get position
                         if (componentNode.TryGet("pos", out ValueDataNode? posNode))
                         {
                             var posParts = posNode.Value.Split(',');
@@ -491,12 +686,10 @@ public sealed class SalvageRuinGenerator
                                 float.TryParse(posParts[0], out var x) &&
                                 float.TryParse(posParts[1], out var y))
                             {
-                                // Convert to tile coordinates (assuming 1 tile = 1 unit)
                                 entityPos = new Vector2i((int)Math.Floor(x), (int)Math.Floor(y));
                             }
                         }
 
-                        // Get parent (should be the grid)
                         if (componentNode.TryGet("parent", out ValueDataNode? parentNode) &&
                             int.TryParse(parentNode.Value, out var parent))
                         {
@@ -505,7 +698,6 @@ public sealed class SalvageRuinGenerator
                     }
                 }
 
-                // Only include entities that are children of the grid
                 if (entityPos.HasValue && parentUid == gridUid)
                 {
                     wallEntities.Add((entityPos.Value, protoId));
@@ -517,19 +709,192 @@ public sealed class SalvageRuinGenerator
     }
 
     /// <summary>
-    /// Builds a cost map from coordinate map. Space tiles (missing from map) get cost 99.
+    /// Parses window entities from the map file and returns their positions, prototype IDs, and rotations.
     /// </summary>
-    private Dictionary<Vector2i, int> BuildCostMap(Dictionary<Vector2i, string> coordinateMap)
+    private List<(Vector2i Position, string PrototypeId, Angle Rotation)> ParseWindowEntities(SequenceDataNode entitiesNode, int gridUid)
+    {
+        var windowEntities = new List<(Vector2i, string, Angle)>();
+
+        foreach (var protoGroupNode in entitiesNode.Sequence.Cast<MappingDataNode>())
+        {
+            if (!protoGroupNode.TryGet("proto", out ValueDataNode? protoNode))
+                continue;
+
+            var protoId = protoNode.Value;
+            
+            // Check if this is a window entity (contains "Window" in the ID)
+            if (!IsWindowEntity(protoId))
+                continue;
+
+            if (!protoGroupNode.TryGet("entities", out SequenceDataNode? entitiesInGroup))
+                continue;
+
+            foreach (var entityNode in entitiesInGroup.Sequence.Cast<MappingDataNode>())
+            {
+                if (entityNode.TryGet("uid", out ValueDataNode? uidNode) &&
+                    int.TryParse(uidNode.Value, out var entityUid) &&
+                    entityUid == gridUid)
+                    continue;
+
+                if (!entityNode.TryGet("components", out SequenceDataNode? componentsNode))
+                    continue;
+
+                Vector2i? entityPos = null;
+                int? parentUid = null;
+                Angle rotation = Angle.Zero;
+
+                foreach (var componentNode in componentsNode.Sequence.Cast<MappingDataNode>())
+                {
+                    if (!componentNode.TryGet("type", out ValueDataNode? typeNode))
+                        continue;
+
+                    if (typeNode.Value == "Transform")
+                    {
+                        if (componentNode.TryGet("pos", out ValueDataNode? posNode))
+                        {
+                            var posParts = posNode.Value.Split(',');
+                            if (posParts.Length == 2 &&
+                                float.TryParse(posParts[0], out var x) &&
+                                float.TryParse(posParts[1], out var y))
+                            {
+                                entityPos = new Vector2i((int)Math.Floor(x), (int)Math.Floor(y));
+                            }
+                        }
+
+                        if (componentNode.TryGet("parent", out ValueDataNode? parentNode) &&
+                            int.TryParse(parentNode.Value, out var parent))
+                        {
+                            parentUid = parent;
+                        }
+
+                        // Parse rotation from "rot" field (stored as "X rad" or just "X")
+                        if (componentNode.TryGet("rot", out ValueDataNode? rotNode))
+                        {
+                            var rotStr = rotNode.Value.Trim();
+                            // Remove "rad" suffix if present
+                            if (rotStr.EndsWith("rad", StringComparison.OrdinalIgnoreCase))
+                            {
+                                rotStr = rotStr.Substring(0, rotStr.Length - 3).Trim();
+                            }
+                            
+                            if (float.TryParse(rotStr, out var rotValue))
+                            {
+                                rotation = new Angle(rotValue);
+                            }
+                        }
+                    }
+                }
+
+                if (entityPos.HasValue && parentUid == gridUid)
+                {
+                    windowEntities.Add((entityPos.Value, protoId, rotation));
+                }
+            }
+        }
+
+        return windowEntities;
+    }
+
+    /// <summary>
+    /// Checks if a prototype ID represents a window entity.
+    /// </summary>
+    private bool IsWindowEntity(string prototypeId)
+    {
+        // Check for common window patterns
+        var id = prototypeId.ToLowerInvariant();
+        return id.Contains("window", StringComparison.OrdinalIgnoreCase) &&
+               !id.Contains("windoor", StringComparison.OrdinalIgnoreCase); // Exclude windoors
+    }
+
+    /// <summary>
+    /// Builds a cost map from coordinate map. Space tiles (missing from map) get cost 99.
+    /// Window and wall entities at positions get appropriate cost based on type.
+    /// </summary>
+    private Dictionary<Vector2i, int> BuildCostMap(Dictionary<Vector2i, string> coordinateMap, List<(Vector2i Position, string PrototypeId, Angle Rotation)> windowEntities, List<(Vector2i Position, string PrototypeId)> wallEntities, SalvageMagnetRuinConfigPrototype? config = null)
     {
         var costMap = new Dictionary<Vector2i, int>();
+        
+        // Create sets of window and wall positions for fast lookup
+        var windowPositions = new HashSet<Vector2i>(windowEntities.Select(w => w.Position));
+        var wallPositions = new HashSet<Vector2i>(wallEntities.Select(w => w.Position));
+
+        // Get wall cost from config
+        var wallCost = config?.WallCost ?? 6;
 
         foreach (var (pos, tileId) in coordinateMap)
         {
-            var cost = GetTileCost(tileId);
-            costMap[pos] = cost;
+            // Priority: walls > windows > tiles
+            // If there's a wall entity at this position, use wall cost
+            if (wallPositions.Contains(pos))
+            {
+                costMap[pos] = wallCost;
+            }
+            // If there's a window entity at this position, use window cost
+            else if (windowPositions.Contains(pos))
+            {
+                var windowEntity = windowEntities.FirstOrDefault(w => w.Position == pos);
+                if (windowEntity.PrototypeId != null)
+                {
+                    var cost = GetWindowCost(windowEntity.PrototypeId, config);
+                    costMap[pos] = cost;
+                }
+                else
+                {
+                    // Fallback to tile cost if window not found
+                    var cost = GetTileCost(tileId, config);
+                    costMap[pos] = cost;
+                }
+            }
+            else
+            {
+                var cost = GetTileCost(tileId, config);
+                costMap[pos] = cost;
+            }
+        }
+
+        // Also add wall positions that might not have floor tiles underneath
+        foreach (var (wallPos, _) in wallEntities)
+        {
+            if (!costMap.ContainsKey(wallPos))
+            {
+                costMap[wallPos] = wallCost;
+            }
+        }
+
+        // Also add window positions that might not have floor tiles underneath
+        foreach (var (windowPos, windowProto, _) in windowEntities)
+        {
+            if (!costMap.ContainsKey(windowPos))
+            {
+                var cost = GetWindowCost(windowProto, config);
+                costMap[windowPos] = cost;
+            }
         }
 
         return costMap;
+    }
+
+    /// <summary>
+    /// Gets the cost for a window entity based on its prototype ID.
+    /// </summary>
+    private int GetWindowCost(string prototypeId, SalvageMagnetRuinConfigPrototype? config = null)
+    {
+        var id = prototypeId.ToLowerInvariant();
+        
+        // Directional windows
+        if (id.Contains("directional", StringComparison.OrdinalIgnoreCase))
+        {
+            return config?.DirectionalWindowCost ?? 2;
+        }
+        
+        // Reinforced windows
+        if (id.Contains("reinforced", StringComparison.OrdinalIgnoreCase))
+        {
+            return config?.ReinforcedWindowCost ?? 4;
+        }
+        
+        // Regular windows
+        return config?.RegularWindowCost ?? 2;
     }
 
     /// <summary>
@@ -546,36 +911,25 @@ public sealed class SalvageRuinGenerator
     /// <summary>
     /// Gets the cost for a tile based on its prototype ID.
     /// </summary>
-    private int GetTileCost(string tileId)
+    private int GetTileCost(string tileId, SalvageMagnetRuinConfigPrototype? config = null)
     {
-        // Walls: cost 6
         if (IsWallTile(tileId))
-        {
-            return 6;
-        }
+            return config?.WallCost ?? 6;
 
-        // Directional Glass: cost 2
         if (tileId.Contains("DirectionalGlass", StringComparison.OrdinalIgnoreCase))
-        {
-            return 2;
-        }
+            return config?.DirectionalGlassCost ?? 2;
 
-        // Reinforced Glass or Glass (excluding Directional): cost 4
-        if (tileId.Contains("ReinforcedGlass", StringComparison.OrdinalIgnoreCase) ||
-            (tileId.Contains("Glass", StringComparison.OrdinalIgnoreCase) &&
-             !tileId.Contains("Directional", StringComparison.OrdinalIgnoreCase)))
-        {
-            return 4;
-        }
+        if (tileId.Contains("ReinforcedGlass", StringComparison.OrdinalIgnoreCase))
+            return config?.ReinforcedGlassCost ?? 4;
 
-        // Grilles: cost 2
+        if (tileId.Contains("Glass", StringComparison.OrdinalIgnoreCase) &&
+            !tileId.Contains("Directional", StringComparison.OrdinalIgnoreCase))
+            return config?.RegularGlassCost ?? 4;
+
         if (tileId.Contains("Grille", StringComparison.OrdinalIgnoreCase))
-        {
-            return 2;
-        }
+            return config?.GrilleCost ?? 2;
 
-        // All others: cost 1
-        return 1;
+        return config?.DefaultTileCost ?? 1;
     }
 
     /// <summary>
@@ -593,12 +947,10 @@ public sealed class SalvageRuinGenerator
             var pos = positions[rand.Next(positions.Count)];
             var cost = costMap[pos];
 
-            // Space has cost 99, so any tile with cost < 99 is valid
             if (cost < 99)
                 return pos;
         }
 
-        // If we couldn't find a non-space tile after retries, just return first non-space if any
         foreach (var (pos, cost) in costMap)
         {
             if (cost < 99)
@@ -609,21 +961,24 @@ public sealed class SalvageRuinGenerator
     }
 
     /// <summary>
-    /// Performs cost-based flood-fill from start position, collecting up to budget points.
+    /// Performs cost-based flood-fill from start position, collecting tiles until budget cost is exhausted.
+    /// Uses accumulated cost to determine when to stop, not tile count.
+    /// When budget is exhausted, extends the result to include adjacent tiles with walls.
     /// </summary>
-    private HashSet<Vector2i> FloodFillWithCost(Dictionary<Vector2i, int> costMap, Vector2i start, int budget)
+    private HashSet<Vector2i> FloodFillWithCost(Dictionary<Vector2i, int> costMap, Vector2i start, int budget, HashSet<Vector2i> wallPositions)
     {
         var result = new HashSet<Vector2i>();
         var visited = new HashSet<Vector2i>();
         var queue = new List<(Vector2i Pos, int AccumulatedCost)>();
         var accumulatedCosts = new Dictionary<Vector2i, int>();
+        var totalCostSpent = 0; // Track total cost spent, not tile count
 
         queue.Add((start, 0));
         accumulatedCosts[start] = 0;
 
-        while (queue.Count > 0 && result.Count < budget)
+        // CRITICAL FIX: Stop when accumulated cost exceeds budget, not when tile count exceeds budget
+        while (queue.Count > 0)
         {
-            // Sort by accumulated cost (min-heap simulation)
             queue.Sort((a, b) => a.AccumulatedCost.CompareTo(b.AccumulatedCost));
             var (current, accumulatedCost) = queue[0];
             queue.RemoveAt(0);
@@ -633,17 +988,24 @@ public sealed class SalvageRuinGenerator
 
             visited.Add(current);
 
-            // Check if this tile exists in cost map (not space)
             if (!costMap.TryGetValue(current, out var tileCost))
-            {
-                // Space tile, skip
                 continue;
+
+            // Check if adding this tile would exceed the budget
+            // accumulatedCost is the cost to reach this tile (path cost), 
+            // but we need to pay the tile's cost to add it to the result
+            // So total cost = accumulatedCost (path) + tileCost (tile itself)
+            var totalCostIfAdded = accumulatedCost + tileCost;
+            if (totalCostIfAdded > budget)
+            {
+                // Can't afford this tile, stop the flood-fill
+                break;
             }
 
-            // Add to result
+            // Add the tile to result and update total cost spent
             result.Add(current);
+            totalCostSpent = totalCostIfAdded;
 
-            // Explore neighbors (4-directional)
             var neighbors = new[]
             {
                 current + Vector2i.Up,
@@ -657,16 +1019,15 @@ public sealed class SalvageRuinGenerator
                 if (visited.Contains(neighbor))
                     continue;
 
-                // Check if neighbor exists in cost map
                 if (!costMap.TryGetValue(neighbor, out var neighborCost))
-                {
-                    // Space tile, skip
                     continue;
-                }
 
                 var newAccumulatedCost = accumulatedCost + neighborCost;
 
-                // Only add if we haven't seen it or if this path is cheaper
+                // Only consider neighbors we can afford
+                if (newAccumulatedCost > budget)
+                    continue;
+
                 if (!accumulatedCosts.TryGetValue(neighbor, out var existingCost) ||
                     newAccumulatedCost < existingCost)
                 {
@@ -676,7 +1037,49 @@ public sealed class SalvageRuinGenerator
             }
         }
 
+        // If we stopped due to budget exhaustion, check adjacent tiles for walls
+        // and add them to ensure the ruin has proper boundaries
+        if (result.Count >= budget)
+        {
+            var adjacentWithWalls = new HashSet<Vector2i>();
+            
+            // Find all tiles adjacent to the flood-filled region
+            foreach (var pos in result)
+            {
+                var neighbors = new[]
+                {
+                    pos + Vector2i.Up,
+                    pos + Vector2i.Down,
+                    pos + Vector2i.Left,
+                    pos + Vector2i.Right
+                };
+
+                foreach (var neighbor in neighbors)
+                {
+                    // Skip if already in result
+                    if (result.Contains(neighbor))
+                        continue;
+
+                    // Check if this adjacent tile has a wall entity
+                    if (wallPositions.Contains(neighbor))
+                    {
+                        adjacentWithWalls.Add(neighbor);
+                    }
+                }
+            }
+
+            // Add all adjacent wall tiles to the result
+            foreach (var wallPos in adjacentWithWalls)
+            {
+                result.Add(wallPos);
+            }
+
+            if (adjacentWithWalls.Count > 0)
+            {
+                _sawmill.Debug($"[SalvageRuinGenerator] Extended flood-fill to include {adjacentWithWalls.Count} adjacent wall tiles");
+            }
+        }
+
         return result;
     }
 }
-

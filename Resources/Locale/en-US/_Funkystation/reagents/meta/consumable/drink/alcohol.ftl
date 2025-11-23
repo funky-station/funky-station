@@ -47,3 +47,6 @@ reagent-desc-shochu = 	Also known as soju or baijiu, this drink is made from fer
 
 reagent-name-triple-sec = triple sec
 reagent-desc-triple-sec = A sweet and vibrant orange liqueur.
+
+reagent-name-voltaic-yellow-wine = voltaic yellow wine
+reagent-desc-voltaic-yellow-wine = Electrically charged wine.

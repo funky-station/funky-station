@@ -266,4 +266,17 @@
         reagents:
         - ReagentId: 24VoltEnergy
           Quantity: 30
+
+- type: entity
+  parent: DrinkGlass
+  id: VoltaicYellowWine
+  suffix: voltaic yellow wine
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: VoltaicYellowWine
+          Quantity: 30
 # pignog

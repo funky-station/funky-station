@@ -28,6 +28,7 @@ flavor-complex-rice-beer = like mild carbonated malt
 flavor-complex-shochu = like stiff rice wine
 flavor-complex-triple-sec = warm and flowery with an orange taste which recalls the ocean air and summer wind of the caribbean
 flavor-complex-24-volt-energy = like sour pear-flavoured battery acid
+flavor-complex-voltaic-yellow-wine = static, with a hint of sweetness
 
 ## base
 flavor-base-fresh = fresh

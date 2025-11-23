@@ -513,6 +513,27 @@
     fillBaseName: fill-
 
 - type: entity
+  parent: [DrinkBottleVisualsAll, DrinkBottleGlassBaseFull]
+  id: DrinkVoltaicYellowWineBottleFull
+  name: "Arc-Flash voltaic yellow wine"
+  description: Arc-Flash yellow wine, to put a zap in your step. Is it you, or does the air feel statically charged?
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        reagents:
+        - ReagentId: VoltaicYellowWine
+          Quantity: 100
+  - type: Label
+    currentLabel: reagent-name-voltaic-yellow-wine
+  - type: Sprite
+    sprite: Objects/Consumable/Drinks/voltaicyellowwinebottle.rsi
+  - type: Sealable
+  - type: SolutionContainerVisuals
+    maxFillLevels: 4
+    fillBaseName: fill-
+
+- type: entity
   parent: [DrinkBottleVisualsAll, DrinkBottlePlasticBaseFull]
   id: DrinkColaBottleFull
   name: Space Cola bottle

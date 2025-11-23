@@ -480,6 +480,32 @@
         amount: 0.2
 
 - type: reagent
+  id: VoltaicYellowWine
+  name: reagent-name-voltaic-yellow-wine
+  parent: BaseAlcohol
+  desc: reagent-desc-voltaic-yellow-wine
+  physicalDesc: reagent-physical-desc-electric
+  flavor: voltaicyellowwine
+  color: "#e6e55d"
+  metamorphicSprite:
+    sprite: Objects/Consumable/Drinks/voltaicyellowwineglass.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 4
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 2
+      - !type:AdjustReagent
+        reagent: Ethanol
+        amount: 0.2
+  components:
+  - type: BatteryDrinkerSource # EE IPCs
+    maxAmount: 50
+
+- type: reagent
   id: Gin
   name: reagent-name-gin
   parent: BaseAlcohol

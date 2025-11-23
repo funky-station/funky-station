@@ -363,3 +363,6 @@
   metamorphicMaxFillLevels: 3
   metamorphicFillBaseName: fill
   metamorphicChangeColor: true
+  components:
+  - type: BatteryDrinkerSource # EE IPCs
+    maxAmount: 50

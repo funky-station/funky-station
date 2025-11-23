@@ -794,34 +794,6 @@
 
 - type: entity
   parent: DrinkCanBaseFull
-  id: DrinkWineCan
-  name: wine can
-  description: Your way to forgetting all worries and having fun!
-  components:
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        maxVol: 30
-        reagents:
-        - ReagentId: Wine
-          Quantity: 30
-      grindable:
-        reagents:
-        - ReagentId: Aluminium
-          Quantity: 4
-        - ReagentId: Iron
-          Quantity: 1
-  - type: Drink
-  - type: Sprite
-    sprite: Objects/Consumable/Drinks/wine_can.rsi
-  - type: Item
-    sprite: Objects/Consumable/Drinks/wine_can.rsi
-  - type: Tag
-    tags:
-    - Wine
-
-- type: entity
-  parent: DrinkCanBaseFull
   id: DrinkHakkaMateCan
   name: hakka mate can
   description: A bright orange can of hakka mate, a form of yerba-mate soda popular on mars!

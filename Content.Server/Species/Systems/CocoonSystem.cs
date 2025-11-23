@@ -6,7 +6,6 @@ using System.Linq;
 using Content.Server.Popups;
 using Content.Server.Speech.Components;
 using Content.Shared.ActionBlocker;
-using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.Damage.Systems;
@@ -21,14 +20,10 @@ using Content.Shared.Nutrition.EntitySystems;
 using Content.Shared.Popups;
 using Content.Shared.Species.Arachnid;
 using Content.Shared.Standing;
-using Content.Shared.Storage.Components;
-using Content.Shared.Storage.EntitySystems;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Player;
-using Robust.Shared.Utility;
-using Robust.Shared.Map;
 
 namespace Content.Server.Species.Arachnid;
 
@@ -38,7 +33,6 @@ public sealed class CocoonSystem : SharedCocoonSystem
     [Dependency] private readonly HungerSystem _hunger = default!;
     [Dependency] private readonly PopupSystem _popups = default!;
     [Dependency] private readonly ActionBlockerSystem _blocker = default!;
-    [Dependency] private readonly IComponentFactory _componentFactory = default!;
     [Dependency] private readonly StandingStateSystem _standing = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
@@ -55,8 +49,6 @@ public sealed class CocoonSystem : SharedCocoonSystem
         SubscribeLocalEvent<CocoonerComponent, WrapActionEvent>(OnWrapAction);
         SubscribeLocalEvent<CocoonerComponent, WrapDoAfterEvent>(OnWrapDoAfter);
 
-        // Container-based cocoon system
-        SubscribeLocalEvent<CocoonContainerComponent, ComponentStartup>(OnCocoonContainerStartup);
         SubscribeLocalEvent<CocoonContainerComponent, ComponentShutdown>(OnCocoonContainerShutdown);
         SubscribeLocalEvent<CocoonContainerComponent, DamageModifyEvent>(OnCocoonContainerDamage);
         SubscribeLocalEvent<CocoonContainerComponent, GetVerbsEvent<InteractionVerb>>(OnGetUnwrapVerb);
@@ -117,12 +109,6 @@ public sealed class CocoonSystem : SharedCocoonSystem
         var filter = Filter.Empty().AddInRange(mapCoords, 10f);
         var entityCoords = _transform.ToCoordinates(mapCoords);
         _audio.PlayStatic(new SoundPathSpecifier("/Audio/Items/Handcuffs/rope_breakout.ogg"), filter, entityCoords, true);
-    }
-
-    private void OnCocoonContainerStartup(EntityUid uid, CocoonContainerComponent component, ComponentStartup args)
-    {
-        // Victim setup is handled after insertion in OnWrapDoAfter
-        // This is because ComponentStartup may fire before the victim is set
     }
 
     /// <summary>
@@ -215,7 +201,7 @@ public sealed class CocoonSystem : SharedCocoonSystem
             BreakOnMove = true,
             BreakOnDamage = true,
             NeedHand = needHand,
-            DistanceThreshold = 1.5f,
+            DistanceThreshold = component.WrapRange,
             CancelDuplicate = true,
             BlockDuplicate = true,
         };
@@ -306,8 +292,6 @@ public sealed class CocoonSystem : SharedCocoonSystem
 
         // Apply effects to victim after insertion (ComponentStartup may have fired before victim was set)
         SetupVictimEffects(target);
-
-        // No longer need to setup bloodstream proxy - InjectorSystem handles this via BloodstreamProxyContainerComponent
 
         // Send networked event to client to trigger rotation animation
         RaiseNetworkEvent(new CocoonRotationAnimationEvent(GetNetEntity(cocoonContainer), victimWasStanding));

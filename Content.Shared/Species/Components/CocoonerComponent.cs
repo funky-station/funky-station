@@ -23,4 +23,7 @@ public sealed partial class CocoonerComponent : Component
 
     [DataField("hungerCost"), AutoNetworkedField]
     public float HungerCost = 10f;
+
+    [DataField("wrapRange"), AutoNetworkedField]
+    public float WrapRange = 0.5f;
 }

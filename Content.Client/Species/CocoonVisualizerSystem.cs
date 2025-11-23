@@ -25,12 +25,9 @@ public sealed class CocoonVisualizerSystem : EntitySystem
 
     /// <summary>
     /// Dictionary mapping entity prototype IDs to Vector2 scale values for cocoon sprites.
-    /// Fill this with appropriate scale values for each species entity prototype.
     /// </summary>
     private static readonly Dictionary<string, Vector2> SpeciesCocoonScales = new()
     {
-        // Default scale (1.0, 1.0) - used as fallback
-        // Add species-specific scales below using entity prototype IDs:
         { "MobHuman", new Vector2(1.0f, 1.0f) },
         { "MobReptilian", new Vector2(1.0f, 1.0f) },
         { "MobMoth", new Vector2(1.0f, 1.0f) },
@@ -64,8 +61,7 @@ public sealed class CocoonVisualizerSystem : EntitySystem
     }
 
     /// <summary>
-    /// Custom function to handle the rotation animation when a cocoon is spawned.
-    /// Called from server via networked event.
+    /// Handle the rotation animation when a cocoon is spawned.
     /// </summary>
     public void HandleCocoonSpawnAnimation(EntityUid uid, bool victimWasStanding)
     {

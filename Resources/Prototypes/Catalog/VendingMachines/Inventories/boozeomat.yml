@@ -83,10 +83,24 @@
     DrinkWineBottleFull: 5
     DrinkChampagneBottleFull: 2 #because the premium drink
     DrinkSakeBottleFull: 3
+    DrinkAmarettoBottleFull: 3
+    DrinkApplejackBottleFull: 3
+    DrinkBittersBottleFull: 3
+    DrinkCreamOfCoconutBottleFull: 3
+    DrinkCremeDeCacaoBottleFull: 3
+    DrinkCremeDeMentheBottleFull: 3
+    DrinkNavyRumBottleFull: 3
+    DrinkRiceBeerBottleFull: 3
+    DrinkShochuBottleFull: 3
+    DrinkTripleSecBottleFull: 3
+    DrinkVoltaicYellowWineBottleFull: 3
+    DrinkHakkaMateCan: 5
+    DrinkMelonSodaCan: 5
     DrinkBeerCan: 5
     DrinkWineCan: 5
   contrabandInventory:
     EthanolChemistryBottle: 3
     DrinkBottleOfNothingFull: 1
+    DrinkFernetBottleFull: 3
   emaggedInventory:
     DrinkPoisonWinebottleFull: 2

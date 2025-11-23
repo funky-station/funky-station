@@ -366,3 +366,6 @@
   components:
   - type: BatteryDrinkerSource # EE IPCs
     maxAmount: 50
+  - type: Battery
+    maxCharge: 100
+    startingCharge: 100

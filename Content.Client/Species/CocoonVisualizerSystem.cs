@@ -1,8 +1,11 @@
+using System.Numerics;
+using Content.Shared.Humanoid;
 using Content.Shared.Rotation;
 using Content.Shared.Species.Arachnid;
 using Robust.Client.Animations;
 using Robust.Client.GameObjects;
 using Robust.Shared.Animations;
+using Robust.Shared.Containers;
 using Robust.Shared.Maths;
 
 namespace Content.Client.Species;
@@ -11,6 +14,37 @@ public sealed class CocoonVisualizerSystem : EntitySystem
 {
     [Dependency] private readonly AnimationPlayerSystem _animation = default!;
     [Dependency] private readonly AppearanceSystem _appearance = default!;
+    [Dependency] private readonly SpriteSystem _sprite = default!;
+    [Dependency] private readonly SharedContainerSystem _container = default!;
+
+    private const string CocoonContainerId = "cocoon_victim";
+
+    /// <summary>
+    /// Dictionary mapping entity prototype IDs to Vector2 scale values for cocoon sprites.
+    /// Fill this with appropriate scale values for each species entity prototype.
+    /// </summary>
+    private static readonly Dictionary<string, Vector2> SpeciesCocoonScales = new()
+    {
+        // Default scale (1.0, 1.0) - used as fallback
+        // Add species-specific scales below using entity prototype IDs:
+        { "MobHuman", new Vector2(1.0f, 1.0f) },
+        { "MobReptilian", new Vector2(1.0f, 1.0f) },
+        { "MobMoth", new Vector2(1.0f, 1.0f) },
+        { "MobDwarf", new Vector2(1.0f, 0.8f) },
+        { "MobSlime", new Vector2(1.0f, 1.0f) },
+        { "MobVox", new Vector2(1.1f, 1.1f) },
+        { "MobSkeleton", new Vector2(1.0f, 1.0f) },
+        { "MobDiona", new Vector2(1.0f, 1.0f) },
+        { "MobFelinid", new Vector2(1.0f, 1.0f) },
+        { "MobArachnid", new Vector2(1.1f, 1.0f) },
+        { "MobGingerbread", new Vector2(1.0f, 1.0f) },
+        { "MobThaven", new Vector2(1.0f, 1.2f) },
+    };
+
+    /// <summary>
+    /// Default scale to use when species is not found in the dictionary.
+    /// </summary>
+    private static readonly Vector2 DefaultCocoonScale = new Vector2(1.0f, 1.0f);
 
     public override void Initialize()
     {
@@ -34,6 +68,9 @@ public sealed class CocoonVisualizerSystem : EntitySystem
         if (!TryComp<SpriteComponent>(uid, out var sprite))
             return;
 
+        // Apply species-based scale to the cocoon sprite
+        ApplySpeciesBasedScale(uid, sprite);
+
         if (victimWasStanding)
         {
             // If victim was standing, use appearance system for smooth animation
@@ -44,6 +81,34 @@ public sealed class CocoonVisualizerSystem : EntitySystem
             // If victim was already down, play instant 90 degree rotation animation
             PlayInstantRotationAnimation(uid, sprite, Angle.FromDegrees(90));
         }
+    }
+
+    /// <summary>
+    /// Applies scale to the cocoon sprite based on the victim's species.
+    /// </summary>
+    private void ApplySpeciesBasedScale(EntityUid cocoonUid, SpriteComponent sprite)
+    {
+        if (!_container.TryGetContainer(cocoonUid, CocoonContainerId, out var container) 
+            || container.ContainedEntities.Count == 0)
+            return;
+
+        var victim = container.ContainedEntities[0];
+        if (!Exists(victim) || !TryComp<MetaDataComponent>(victim, out var metaData) 
+            || metaData.EntityPrototype == null)
+            return;
+
+        sprite.Scale = GetScaleForSpecies(metaData.EntityPrototype.ID);
+    }
+
+    /// <summary>
+    /// Gets the Vector2 scale for a given entity prototype ID.
+    /// Returns the default scale if the prototype ID is not found in the dictionary.
+    /// </summary>
+    private static Vector2 GetScaleForSpecies(string entityProtoId)
+    {
+        return SpeciesCocoonScales.TryGetValue(entityProtoId, out var scale) 
+            ? scale 
+            : DefaultCocoonScale;
     }
 
     private void PlayInstantRotationAnimation(EntityUid uid, SpriteComponent spriteComp, Angle rotation)
@@ -82,4 +147,3 @@ public sealed class CocoonVisualizerSystem : EntitySystem
         _animation.Play((uid, animationComp), animation, animationKey);
     }
 }
-

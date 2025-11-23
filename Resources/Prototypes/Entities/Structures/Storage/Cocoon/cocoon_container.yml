@@ -27,6 +27,8 @@
   - type: CocoonContainer
     maxDamage: 10
     absorbPercentage: 0.3
+  - type: Damageable
+    damageContainer: Biological
   - type: Appearance
   - type: RotationVisuals
     defaultRotation: 0

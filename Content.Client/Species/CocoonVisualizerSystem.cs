@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 Drywink <hugogrethen@gmail.com>
+//
+// SPDX-License-Identifier: MIT
+
 using System.Numerics;
 using Content.Shared.Humanoid;
 using Content.Shared.Rotation;
@@ -88,12 +92,12 @@ public sealed class CocoonVisualizerSystem : EntitySystem
     /// </summary>
     private void ApplySpeciesBasedScale(EntityUid cocoonUid, SpriteComponent sprite)
     {
-        if (!_container.TryGetContainer(cocoonUid, CocoonContainerId, out var container) 
+        if (!_container.TryGetContainer(cocoonUid, CocoonContainerId, out var container)
             || container.ContainedEntities.Count == 0)
             return;
 
         var victim = container.ContainedEntities[0];
-        if (!Exists(victim) || !TryComp<MetaDataComponent>(victim, out var metaData) 
+        if (!Exists(victim) || !TryComp<MetaDataComponent>(victim, out var metaData)
             || metaData.EntityPrototype == null)
             return;
 
@@ -106,8 +110,8 @@ public sealed class CocoonVisualizerSystem : EntitySystem
     /// </summary>
     private static Vector2 GetScaleForSpecies(string entityProtoId)
     {
-        return SpeciesCocoonScales.TryGetValue(entityProtoId, out var scale) 
-            ? scale 
+        return SpeciesCocoonScales.TryGetValue(entityProtoId, out var scale)
+            ? scale
             : DefaultCocoonScale;
     }
 

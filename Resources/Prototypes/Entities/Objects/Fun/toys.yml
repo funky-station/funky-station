@@ -639,6 +639,11 @@
       head:
       - state: spacelizard-equipped-HELMET
         offset: "0, 0.03"
+  - type: Tag
+    tags:
+    - ClothMade
+    - Payload
+    - PlushieLizard
 
 - type: entity
   parent: PlushieLizard

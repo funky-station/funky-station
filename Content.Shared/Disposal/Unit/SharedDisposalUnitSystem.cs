@@ -449,7 +449,7 @@ public abstract class SharedDisposalUnitSystem : EntitySystem
         if (!storable && !HasComp<BodyComponent>(entity))
             return false;
 
-        if (_whitelistSystem.IsBlacklistPass(component.Blacklist, entity) ||
+        if (_whitelistSystem.IsWhitelistPass(component.Blacklist, entity) ||
             _whitelistSystem.IsWhitelistFail(component.Whitelist, entity))
             return false;
 

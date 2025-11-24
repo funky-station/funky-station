@@ -40,9 +40,9 @@
     - type: Execution
       doAfterDuration: 4.0
   - type: ItemToggleHot
+  - type: ItemTogglePointLight
   - type: ItemToggleSize
     activatedSize: Ginormous
-  - type: ItemTogglePointLight
   - type: ItemToggleMeleeWeapon
     activatedSoundOnHit:
       path: /Audio/Weapons/eblade1.ogg
@@ -59,8 +59,8 @@
         variation: 0.125
     activatedDamage:
       types:
-        Slash: 10
-        Heat: 12
+        Slash: 7
+        Heat: 11
         Structural: 5
   - type: MeleeWeapon
     wideAnimationRotation: -135

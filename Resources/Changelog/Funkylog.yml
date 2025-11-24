@@ -5852,3 +5852,19 @@ Entries:
       message: removed deathsquad
   id: 693
   time: '2025-11-24T03:33:19.0000000+00:00'
+- author: AraiMaia
+  changes:
+    - type: Add
+      message: >-
+        New cosmetic alternative to the utility belt for engineers, the
+        Engineering Harness
+    - type: Tweak
+      message: >-
+        Atmos, engineers and the CE can now choose either the belt or harness in
+        their loadouts.
+    - type: Fix
+      message: >-
+        Atmos no longer spawns with a redudant pair of boots, and are now able
+        to select workboots as part of their loadout.
+  id: 694
+  time: '2025-11-24T03:48:01.0000000+00:00'

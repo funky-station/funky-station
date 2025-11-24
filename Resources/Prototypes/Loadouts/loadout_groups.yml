@@ -1061,6 +1061,14 @@
   - ChiefEngineerWintercoat
 
 - type: loadoutGroup
+  id: ChiefEngineerBelt
+  name: loadout-group-chief-engineer-belt
+  minLimit: 1
+  loadouts:
+  - ChiefEngineerUtilityBelt
+  - ChiefEngineerHarness
+
+- type: loadoutGroup
   id: ChiefEngineerShoes
   name: loadout-group-chief-engineer-shoes
   loadouts:
@@ -1126,6 +1134,14 @@
   - StationEngineerWintercoat
 
 - type: loadoutGroup
+  id: StationEngineerBelt
+  name: loadout-group-station-engineer-belt
+  minLimit: 1
+  loadouts:
+  - EngineerUtilityBelt
+  - EngineerHarness
+
+- type: loadoutGroup
   id: StationEngineerShoes
   name: loadout-group-station-engineer-shoes
   loadouts:
@@ -1171,6 +1187,14 @@
   - AtmosphericTechnicianWintercoat
 
 - type: loadoutGroup
+  id: AtmosphericTechnicianBelt
+  name: loadout-group-atmospheric-technician-belt
+  minLimit: 1
+  loadouts:
+  - AtmosphericTechnicianUtilityBelt
+  - AtmosphericTechnicianHarness
+
+- type: loadoutGroup
   id: AtmosphericTechnicianBackpack
   name: loadout-group-atmospheric-technician-backpack
   loadouts:
@@ -1183,6 +1207,7 @@
   name: loadout-group-atmospheric-technician-shoes
   loadouts:
   - WhiteShoes
+  - WorkBoots
   - EngineeringWinterBoots
 
 - type: loadoutGroup #WizDen Weh Job Plush

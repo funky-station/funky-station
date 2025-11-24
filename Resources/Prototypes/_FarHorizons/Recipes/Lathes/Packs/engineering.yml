@@ -1,16 +1,61 @@
 - type: latheRecipePack
   id: ReactorPartsBasic
   recipes:
-  - CerenkiteFuelRod
-  - UraniumFuelRod
-  - ReactorControlRod
-  - ReactorGasChannel
-  - ReactorHeatExchanger
+  - CerenkiteReactorFuelRod
+  - BohrumReactorControlRod
+  - SteelReactorControlRod
+  - BrassReactorControlRod
+  - GlassReactorControlRod
+  - SteelReactorGasChannel
+  - BrassReactorGasChannel
+  - GlassReactorGasChannel
+  - SteelReactorHeatExchanger
+  - BrassReactorHeatExchanger
+  - GlassReactorHeatExchanger
 
 - type: latheRecipePack
-  id: ReactorPartsUniversal
+  id: ReactorFuelRods
   recipes:
-  - UniversalFuelRod
-  - UniversalControlRod
-  - UniversalGasChannel
-  - UniversalHeatExchanger
+  - CerenkiteReactorFuelRod
+  - UraniumReactorFuelRod
+  - PlutoniumReactorFuelRod
+  - BananiumReactorFuelRod
+  - PlasmaReactorFuelRod
+  - UraniumGlassReactorFuelRod
+
+- type: latheRecipePack
+  id: ReactorControlRods
+  recipes:
+  - BohrumReactorControlRod
+  - SteelReactorControlRod
+  - GoldReactorControlRod
+  - SilverReactorControlRod
+  - BrassReactorControlRod
+  - PlasteelReactorControlRod
+  - GlassReactorControlRod
+  - PlasmaGlassReactorControlRod
+  - DiamondReactorControlRod
+
+- type: latheRecipePack
+  id: ReactorGasChannels
+  recipes:
+  - SteelReactorGasChannel
+  - GoldReactorGasChannel
+  - SilverReactorGasChannel
+  - BrassReactorGasChannel
+  - PlasteelReactorGasChannel
+  - GlassReactorGasChannel
+  - PlasmaGlassReactorGasChannel
+  - DiamondReactorGasChannel
+
+- type: latheRecipePack
+  id: ReactorHeatExchangers
+  recipes:
+  - SteelReactorHeatExchanger
+  - GoldReactorHeatExchanger
+  - SilverReactorHeatExchanger
+  - BrassReactorHeatExchanger
+  - PlasteelReactorHeatExchanger
+  - GlassReactorHeatExchanger
+  - PlasmaGlassReactorHeatExchanger
+  - DiamondReactorHeatExchanger

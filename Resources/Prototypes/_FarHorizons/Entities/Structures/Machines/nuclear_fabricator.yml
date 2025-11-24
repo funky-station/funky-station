@@ -1,83 +1,11 @@
 - type: entity
   id: NuclearFabricator
-  parent: [ BaseMachinePowered, ConstructibleMachine ]
+  parent: BaseLatheLube
   name: nuclear fabricator
-  description: It makes nuclear parts
+  description: It makes nuclear parts.
   components:
-  - type: Appearance
-  - type: WiresVisuals
-  - type: Fixtures
-    fixtures:
-      fix1:
-        shape:
-          !type:PhysShapeAabb
-          bounds: "-0.4,-0.4,0.4,0.4"
-        density: 190
-        mask:
-        - MachineMask
-        layer:
-          - MachineLayer
-  - type: Lathe
-    idleState: icon
-    runningState: building
-    unlitIdleState: unlit
-    unlitRunningState: unlit-building
-    staticPacks:
-    - ReactorPartsUniversal
-  - type: EmagLatheRecipes # Starlight start
-    emagStaticPacks:
-    - StarlightSecurityEmagWeaponsStatic
-    - StarlightSecurityAmmoStatic
-    - StarlightSecurityAmmoEmagStatic # Starlight end
-  - type: MaterialStorage
-    whitelist:
-      tags:
-        - Sheet
-        - RawMaterial
-        - Ingot
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 100
-      behaviors:
-      - !type:PlaySoundBehavior
-        sound:
-          collection: MetalBreak
-      - !type:ChangeConstructionNodeBehavior
-        node: machineFrame
-      - !type:DoActsBehavior
-        acts: ["Destruction"]
-  - type: WiresPanel
-  - type: ActivatableUI
-    key: enum.LatheUiKey.Key
-  - type: ActivatableUIRequiresPower
-  - type: UserInterface
-    interfaces:
-      enum.LatheUiKey.Key:
-        type: NuclearFabricatorBoundUserInterface
-  - type: Transform
-    anchored: true
-  - type: Pullable
-  - type: StaticPrice
-    price: 800
-  - type: ReagentSpeed
-    solution: lube
-    modifiers:
-      SpaceLube: 0.25
-      SpaceGlue: 5
-  - type: SolutionContainerManager
-    solutions:
-      lube:
-        maxVol: 250
-  - type: Spillable
-    solution: lube
-  - type: RefillableSolution
-    solution: lube
-  - type: ExaminableSolution
-    solution: lube
   - type: Sprite
-    sprite: Structures/Machines/autolathe.rsi
+    sprite: Structures/Machines/protolathe.rsi
     snapCardinals: true
     layers:
     - state: icon
@@ -91,11 +19,30 @@
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: Machine
     board: NuclearFabricatorMachineCircuitboard
-  - type: OreSiloClient
-  - type: BlueprintReceiver
+  - type: MaterialStorage
     whitelist:
       tags:
-      - BlueprintAutolathe
+        - Sheet
+        - RawMaterial
+        - Ingot
+  - type: OreSiloClient
+  - type: Lathe
+    idleState: icon
+    runningState: building
+    unlitIdleState: unlit
+    unlitRunningState: unlit-building
+    staticPacks:
+    - ReactorPartsBasic
+    dynamicPacks:
+    - ReactorFuelRods
+    - ReactorControlRods
+    - ReactorGasChannels
+    - ReactorHeatExchangers
+  # - type: EmagLatheRecipes
+  #   emagStaticPacks:
+  #   - StarlightSecurityEmagWeaponsStatic
+  #   - StarlightSecurityAmmoStatic
+  #   - StarlightSecurityAmmoEmagStatic
   - type: ContainerContainer
     containers:
       machine_board: !type:Container

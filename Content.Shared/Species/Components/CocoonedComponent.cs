@@ -2,7 +2,9 @@
 //
 // SPDX-License-Identifier: MIT
 
+using Content.Shared.Alert;
 using Robust.Shared.GameStates;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 using Robust.Shared.Utility;
 
@@ -31,7 +33,12 @@ public sealed partial class CocoonedComponent : Component
     /// </summary>
     [DataField]
     public float AbsorbPercentage = 0.3f;
+
+    [DataField]
+    public ProtoId<AlertPrototype> CocoonedAlert = "Cocooned";
 }
+
+public sealed partial class RemoveCocoonAlertEvent : BaseAlertEvent;
 
 [Serializable, NetSerializable]
 public enum CocoonedKey

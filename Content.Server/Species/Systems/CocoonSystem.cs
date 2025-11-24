@@ -11,11 +11,13 @@ using Content.Shared.Damage.Prototypes;
 using Content.Shared.Damage.Systems;
 using Content.Shared.DoAfter;
 using Content.Shared.Eye.Blinding.Components;
+using Content.Shared.Alert;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Humanoid;
 using Content.Shared.Verbs;
 using Content.Shared.Interaction.Components;
+using Content.Shared.Inventory.VirtualItem;
 using Content.Shared.Nutrition.EntitySystems;
 using Content.Shared.Popups;
 using Content.Shared.Rotation;
@@ -41,6 +43,8 @@ public sealed class CocoonSystem : SharedCocoonSystem
     [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly DamageableSystem _damageable = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
+    [Dependency] private readonly SharedVirtualItemSystem _virtualItem = default!;
+    [Dependency] private readonly AlertsSystem _alerts = default!;
 
     private const string CocoonContainerId = "cocoon_victim";
 
@@ -55,6 +59,8 @@ public sealed class CocoonSystem : SharedCocoonSystem
         SubscribeLocalEvent<CocoonContainerComponent, DamageModifyEvent>(OnCocoonContainerDamage);
         SubscribeLocalEvent<CocoonContainerComponent, GetVerbsEvent<InteractionVerb>>(OnGetUnwrapVerb);
         SubscribeLocalEvent<CocoonContainerComponent, UnwrapDoAfterEvent>(OnUnwrapDoAfter);
+
+        SubscribeLocalEvent<CocoonedComponent, RemoveCocoonAlertEvent>(OnRemoveCocoonAlert);
     }
 
     private void OnCocoonContainerDamage(Entity<CocoonContainerComponent> ent, ref DamageModifyEvent args)
@@ -140,6 +146,16 @@ public sealed class CocoonSystem : SharedCocoonSystem
             return;
 
         var victim = component.Victim.Value;
+
+        // Remove virtual items from victim's hands
+        _virtualItem.DeleteInHandsMatching(victim, uid);
+
+        // Remove CocoonedComponent and clear alert
+        if (TryComp<CocoonedComponent>(victim, out var cocoonedComp))
+        {
+            _alerts.ClearAlert(victim, cocoonedComp.CocoonedAlert);
+            RemComp<CocoonedComponent>(victim);
+        }
 
         // Remove effects from victim
         if (HasComp<BlockMovementComponent>(victim))
@@ -295,6 +311,27 @@ public sealed class CocoonSystem : SharedCocoonSystem
         // Apply effects to victim after insertion (ComponentStartup may have fired before victim was set)
         SetupVictimEffects(target);
 
+        // Add CocoonedComponent to victim and show alert
+        var cocoonedComp = EnsureComp<CocoonedComponent>(target);
+        _alerts.ShowAlert(target, cocoonedComp.CocoonedAlert);
+
+        // Prevent victim from grabbing anything by spawning virtual items in both hands
+        // Unlike cuffs which require both hands to be free, we apply even if one hand is occupied or missing
+        if (TryComp<HandsComponent>(target, out var victimHands))
+        {
+            // Try to spawn virtual item in first available hand
+            if (_virtualItem.TrySpawnVirtualItemInHand(cocoonContainer, target, out var virtItem1))
+            {
+                EnsureComp<UnremoveableComponent>(virtItem1.Value);
+            }
+
+            // Try to spawn virtual item in second available hand
+            if (_virtualItem.TrySpawnVirtualItemInHand(cocoonContainer, target, out var virtItem2))
+            {
+                EnsureComp<UnremoveableComponent>(virtItem2.Value);
+            }
+        }
+
         // Set rotation state on server so it replicates to all clients via AppearanceComponent
         // If victim was standing, set to horizontal (will animate). If already down, set to horizontal immediately.
         _appearance.SetData(cocoonContainer, RotationVisuals.RotationState, RotationState.Horizontal);
@@ -320,12 +357,22 @@ public sealed class CocoonSystem : SharedCocoonSystem
         // Play cocoon removal sound for everyone within 10 meters
         PlayCocoonRemovalSound(uid);
 
-        // Remove victim from container
+        // Remove virtual items from victim's hands before removing from container
         if (component.Victim != null && Exists(component.Victim.Value))
         {
+            var victim = component.Victim.Value;
+            _virtualItem.DeleteInHandsMatching(victim, uid);
+
+            // Remove CocoonedComponent and clear alert
+            if (TryComp<CocoonedComponent>(victim, out var cocoonedComp))
+            {
+                _alerts.ClearAlert(victim, cocoonedComp.CocoonedAlert);
+                RemComp<CocoonedComponent>(victim);
+            }
+
             if (_container.TryGetContainer(uid, CocoonContainerId, out var container))
             {
-                _container.Remove(component.Victim.Value, container);
+                _container.Remove(victim, container);
             }
         }
 
@@ -406,15 +453,36 @@ public sealed class CocoonSystem : SharedCocoonSystem
         // Remove victim from container before deleting
         if (cocoon.Comp.Victim != null && Exists(cocoon.Comp.Victim.Value))
         {
+            var victim = cocoon.Comp.Victim.Value;
+            // Remove virtual items from victim's hands
+            _virtualItem.DeleteInHandsMatching(victim, cocoon);
+
+            // Remove CocoonedComponent and clear alert
+            if (TryComp<CocoonedComponent>(victim, out var cocoonedComp))
+            {
+                _alerts.ClearAlert(victim, cocoonedComp.CocoonedAlert);
+                RemComp<CocoonedComponent>(victim);
+            }
+
             if (_container.TryGetContainer(cocoon, CocoonContainerId, out var container))
             {
-                _container.Remove(cocoon.Comp.Victim.Value, container);
+                _container.Remove(victim, container);
             }
-            _popups.PopupEntity(Loc.GetString("arachnid-cocoon-broken"), cocoon.Comp.Victim.Value, cocoon.Comp.Victim.Value, PopupType.LargeCaution);
+            _popups.PopupEntity(Loc.GetString("arachnid-cocoon-broken"), victim, victim, PopupType.LargeCaution);
         }
 
         // Delete the container
         Del(cocoon);
+    }
+
+    private void OnRemoveCocoonAlert(Entity<CocoonedComponent> ent, ref RemoveCocoonAlertEvent args)
+    {
+        if (args.Handled)
+            return;
+
+        // Show the popup message that they can't free themselves
+        _popups.PopupEntity(Loc.GetString("arachnid-unwrap-self"), ent.Owner, ent.Owner);
+        args.Handled = true;
     }
 
 }

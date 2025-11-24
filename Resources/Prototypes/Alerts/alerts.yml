@@ -33,6 +33,7 @@
 # SPDX-FileCopyrightText: 2025 Tadeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 Drywink <hugogrethen@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -192,6 +193,15 @@
   icons: [ /Textures/Interface/Alerts/Handcuffed/Handcuffed.png ]
   name: alerts-handcuffed-name
   description: alerts-handcuffed-desc
+
+- type: alert
+  id: Cocooned
+  clickEvent: !type:RemoveCocoonAlertEvent
+  icons:
+  - sprite: /Textures/Mobs/Effects/cocooned.rsi
+    state: cocooned
+  name: alerts-cocooned-name
+  description: alerts-cocooned-desc
 
 - type: alert
   id: Ensnared

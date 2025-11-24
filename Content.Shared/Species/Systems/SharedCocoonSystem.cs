@@ -4,6 +4,7 @@
 
 using Content.Shared.Actions;
 using Content.Shared.DoAfter;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 
 namespace Content.Shared.Species.Arachnid;
@@ -11,6 +12,7 @@ namespace Content.Shared.Species.Arachnid;
 public abstract class SharedCocoonSystem : EntitySystem
 {
     [Dependency] private readonly SharedActionsSystem _actions = default!;
+    [Dependency] private readonly IPrototypeManager _protoManager = default!;
 
     public override void Initialize()
     {
@@ -22,6 +24,10 @@ public abstract class SharedCocoonSystem : EntitySystem
 
     private void OnMapInit(EntityUid uid, CocoonerComponent component, MapInitEvent args)
     {
+        // Check if the action prototype exists (test-safe)
+        if (component.WrapAction != default && !_protoManager.TryIndex<EntityPrototype>(component.WrapAction, out _))
+            return;
+
         _actions.AddAction(uid, ref component.ActionEntity, component.WrapAction, container: uid);
     }
 

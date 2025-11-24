@@ -9,7 +9,7 @@ SPDX-License-Identifier: MIT
 
 <Document>
   # Criminal Records
-  The criminal records console is accessible in every station's security department, it serves the purpose of tracking and managing the criminal history and status of anybody part of the crew manifest.
+  The criminal records console is accessible in every station's security department. It serves the purpose of tracking and managing the criminal history and status of anyone who is listed on the crew manifest.
 
   <Box>
   <GuideEntityEmbed Entity="ComputerCriminalRecords"/>
@@ -17,12 +17,12 @@ SPDX-License-Identifier: MIT
 
   Anyone can open the console's UI, but only those with Security access can modify anything.
 
-  The UI is composed by the following elements:
+  The UI is composed of the following elements:
   - A search bar that has a filter next to it that lets you filter the crewmembers by their names, fingerprints or DNA.
 
   - A list of all the crewmembers in the manifest, selecting one of the entries will make the criminal records of a crewmember appear. The list is filtered by the search bar so make sure it's empty if you want an overall overview!
 
-  - The criminal records themselves
+  - The criminal records themselves.
 
   - The filter button below the crew list can be used to show only wanted, detained, or paroled crew.
   In the record section you can:

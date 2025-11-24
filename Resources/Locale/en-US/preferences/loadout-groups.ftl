@@ -34,6 +34,7 @@ loadout-group-species-restriction = This item is not available for your current 
 
 # Miscellaneous
 loadout-group-trinkets = Trinkets
+loadout-group-jobtrinkets = Job trinkets
 loadout-group-glasses = Glasses
 loadout-group-backpack = Backpack
 loadout-group-instruments = Instruments
@@ -96,6 +97,7 @@ loadout-group-janitor-head = Janitor head
 loadout-group-janitor-jumpsuit = Janitor jumpsuit
 loadout-group-janitor-gloves = Janitor gloves
 loadout-group-janitor-outerclothing = Janitor outer clothing
+loadout-group-janitor-shoes = Janitor galoshes
 loadout-group-janitor-plunger = Janitor plunger
 
 loadout-group-botanist-head = Botanist head
@@ -128,12 +130,15 @@ loadout-group-quartermaster-outerclothing = Quartermaster outer clothing
 loadout-group-quartermaster-shoes = Quartermaster shoes
 
 loadout-group-cargo-technician-head = Cargo Technician head
+loadout-group-cargo-technician-neck = Cargo Technician neck
 loadout-group-cargo-technician-jumpsuit = Cargo Technician jumpsuit
 loadout-group-cargo-technician-backpack = Cargo Technician backpack
 loadout-group-cargo-technician-outerclothing = Cargo Technician outer clothing
 loadout-group-cargo-technician-shoes = Cargo Technician shoes
 loadout-group-cargo-technician-id = Cargo Technician ID
 
+loadout-group-salvage-specialist-head = Salvage Specialist head
+loadout-group-salvage-specialist-jumpsuit = Salvage Specialist jumpsuit
 loadout-group-salvage-specialist-backpack = Salvage Specialist backpack
 loadout-group-salvage-specialist-outerclothing = Salvage Specialist outer clothing
 loadout-group-salvage-specialist-shoes = Salvage Specialist shoes
@@ -241,6 +246,7 @@ loadout-group-chemist-jumpsuit = Chemist jumpsuit
 loadout-group-chemist-outerclothing = Chemist outer clothing
 loadout-group-chemist-backpack = Chemist backpack
 loadout-group-medical-chemist-glasses = Chemist glasses
+loadout-group-medical-chemist-head = Chemist head
 
 loadout-group-paramedic-head = Paramedic head
 loadout-group-paramedic-jumpsuit = Paramedic jumpsuit

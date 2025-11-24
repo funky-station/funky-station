@@ -138,14 +138,14 @@ cult-central-rift-warning = Attention! A rift in reality has been opened in { $l
 
 cult-status-cultdata = Current cult members: {$cultMembers} cultists and {$constructCount} constructs
 
-cult-blood-progress = [italic]Blood Collected: {$bloodCollected}u / {$totalRequired}u. {$bloodNeeded}u more needed for {$nextPhase}.[/italic]
-cult-blood-progress-stage-complete = [italic]Blood Collected: {$bloodCollected}u / {$totalRequired}u (Stage complete)[/italic]
-cult-blood-progress-tear-veil = [italic]Next objective: Perform the Tear Veil ritual at {$location1}, {$location2}, or {$location3}.[/italic]
+cult-blood-progress = [italic]Blood Spilled: {$bloodCollected}u / {$totalRequired}u. {$bloodNeeded}u more needed for {$nextPhase}. Convert non-believers or spill their blood with your cult dagger.[/italic]
+cult-blood-progress-stage-complete = [italic]Blood Spilled: {$bloodCollected}u / {$totalRequired}u (Stage complete)[/italic]
+cult-blood-progress-tear-veil = [italic]Next objective: Perform the Tear Veil ritual at {$location1}, {$location2}, or {$location3} with {$required} cultists.[/italic]
 cult-blood-progress-final-summon = [italic]Next objective: Find the reality rift and perform the final summoning ritual with 9 cultists.[/italic]
 cult-blood-progress-final-summon-pending = [italic]Next objective: Await the manifestation of the blood rift.[/italic]
 cult-blood-progress-final-summon-ready = [italic]Next objective: Chant the final summoning ritual to bring Nar'Sie into this reality![/italic]
 cult-blood-progress-final-summon-location = [italic]Final summoning site: {$location}.[/italic]
-cult-blood-progress-complete = [italic]Blood Collected: {$bloodCollected}u. All blood thresholds have been met![/italic]
+cult-blood-progress-complete = [italic]Blood Spilled: {$bloodCollected}u. All blood thresholds have been met![/italic]
 
 cult-narsie-sacrifice-accept = "I accept your sacrifice."
 cult-narsie-target-down = "Yes! This is the one I desire! You have done well."
@@ -182,3 +182,14 @@ cult-roundend-sacrifices = The blood cult rendered {$sacrifices} souls up to the
 cult-soulstone-role-name = Trapped Soul
 cult-soulstone-role-description = You are trapped in a soulstone. You can speak and will be released as a shade when a cultist uses the stone.
 cult-soulstone-role-rules = You are serving the blood cult. Follow the orders of the cultist who holds your soulstone and help them achieve their goals.
+
+cult-summoning-juggernaut-shell = The rune pulses with dark energy as a juggernaut shell materializes!
+cult-summoning-pylon = The rune glows crimson as a pylon anchors itself to reality!
+cult-summoning-no-materials = Place Runed Metal or Runed Glass on the summoning rune. 30 runed metal summons a juggernaut shell; 10 runed glass summons a pylon.
+cult-summoning-insufficient-materials = Not enough materials! You need 30 runed metal for a juggernaut shell or 10 runed glass for a pylon.
+cult-summoning-need-more-metal = Not enough runed metal! You have {$have}, but need {$needed} for a juggernaut shell.
+cult-summoning-need-more-glass = Not enough runed glass! You have {$have}, but need {$needed} for a pylon.
+cult-summoning-pylon-location-blocked = The pylon cannot be summoned here - the location is blocked!
+cult-summoning-pylon-no-grid = The pylon cannot be summoned here.
+cult-summoning-pylon-anchor-failed = The pylon failed to anchor properly!
+cult-summoning-pylon-failed = The pylon summoning failed! Your materials have been refunded.

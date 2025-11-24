@@ -100,7 +100,7 @@
 
 - type: entity
   parent: DrinkGlass
-  id: Amaretto
+  id: DrinkGlassAmaretto
   suffix: amaretto
   components:
   - type: SolutionContainerManager
@@ -113,7 +113,7 @@
 
 - type: entity
   parent: DrinkGlass
-  id: Applejack
+  id: DrinkGlassApplejack
   suffix: applejack
   components:
   - type: SolutionContainerManager
@@ -126,7 +126,7 @@
 
 - type: entity
   parent: DrinkGlass
-  id: Bitters
+  id: DrinkGlassBitters
   suffix: bitters
   components:
   - type: SolutionContainerManager
@@ -139,7 +139,7 @@
 
 - type: entity
   parent: DrinkGlass
-  id: CremeDeCacao
+  id: DrinkGlassCremeDeCacao
   suffix: creme de cacao
   components:
   - type: SolutionContainerManager
@@ -152,7 +152,7 @@
 
 - type: entity
   parent: DrinkGlass
-  id: CremeDeMenthe
+  id: DrinkGlassCremeDeMenthe
   suffix: creme de menthe
   components:
   - type: SolutionContainerManager
@@ -165,7 +165,7 @@
 
 - type: entity
   parent: DrinkGlass
-  id: Fernet
+  id: DrinkGlassFernet
   suffix: fernet
   components:
   - type: SolutionContainerManager
@@ -178,7 +178,7 @@
 
 - type: entity
   parent: DrinkGlass
-  id: HakkaMate
+  id: DrinkGlassHakkaMate
   suffix: hakka mate
   components:
   - type: SolutionContainerManager
@@ -191,7 +191,7 @@
 
 - type: entity
   parent: DrinkGlass
-  id: MelonSoda
+  id: DrinkGlassMelonSoda
   suffix: melon soda
   components:
   - type: SolutionContainerManager
@@ -204,7 +204,7 @@
 
 - type: entity
   parent: DrinkGlass
-  id: NavyRum
+  id: DrinkGlassNavyRum
   suffix: navy rum
   components:
   - type: SolutionContainerManager
@@ -217,7 +217,7 @@
 
 - type: entity
   parent: DrinkGlass
-  id: RiceBeer
+  id: DrinkGlassRiceBeer
   suffix: rice beer
   components:
   - type: SolutionContainerManager
@@ -230,7 +230,7 @@
 
 - type: entity
   parent: DrinkGlass
-  id: Shochu
+  id: DrinkGlassShochu
   suffix: shochu
   components:
   - type: SolutionContainerManager
@@ -243,7 +243,7 @@
 
 - type: entity
   parent: DrinkGlass
-  id: TripleSec
+  id: DrinkGlassTripleSec
   suffix: triple sec
   components:
   - type: SolutionContainerManager
@@ -256,7 +256,7 @@
 
 - type: entity
   parent: DrinkGlass
-  id: 24VoltEnergy
+  id: DrinkGlass24VoltEnergy
   suffix: 24 volt energy
   components:
   - type: SolutionContainerManager
@@ -269,7 +269,7 @@
 
 - type: entity
   parent: DrinkGlass
-  id: VoltaicYellowWine
+  id: DrinkGlassVoltaicYellowWine
   suffix: voltaic yellow wine
   components:
   - type: SolutionContainerManager

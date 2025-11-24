@@ -48,6 +48,19 @@
       - DrinkAleBottleFull
       - DrinkAleBottleFullGrowler
       - DrinkChampagneBottleFull
+      - DrinkAmarettoBottleFull
+      - DrinkApplejackBottleFull
+      - DrinkBittersBottleFull
+      - DrinkCreamOfCoconutBottleFull
+      - DrinkCremeDeCacaoBottleFull
+      - DrinkCremeDeMentheBottleFull
+      - DrinkNavyRumBottleFull
+      - DrinkRiceBeerBottleFull
+      - DrinkShochuBottleFull
+      - DrinkTripleSecBottleFull
+      - DrinkVoltaicYellowWineBottleFull
+      - DrinkHakkaMateCan
+      - DrinkMelonSodaCan
     chance: 0.8
     offset: 0.0
     #rare

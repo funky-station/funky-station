@@ -139,6 +139,20 @@
       - DrinkShakeWhite
       - DrinkTheMartinez
       - DrinkMoonshineGlass
+      - DrinkGlassAmaretto
+      - DrinkGlassApplejack
+      - DrinkGlassBitters
+      - DrinkGlassCremeDeCacao
+      - DrinkGlassCremeDeMenthe
+      - DrinkGlassFernet
+      - DrinkGlassHakkaMate
+      - DrinkGlassMelonSoda
+      - DrinkGlassNavyRum
+      - DrinkGlassRiceBeer
+      - DrinkGlassShochu
+      - DrinkGlassTripleSec
+      - DrinkGlass24VoltEnergy
+      - DrinkGlassVoltaicYellowWine
     chance: 0.8
     offset: 0.0
     #rare

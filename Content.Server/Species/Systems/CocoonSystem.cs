@@ -11,7 +11,9 @@ using Content.Shared.Damage.Prototypes;
 using Content.Shared.Damage.Systems;
 using Content.Shared.DoAfter;
 using Content.Shared.Eye.Blinding.Components;
+using Content.Shared.Administration.Logs;
 using Content.Shared.Alert;
+using Content.Shared.Database;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Humanoid;
@@ -45,6 +47,7 @@ public sealed class CocoonSystem : SharedCocoonSystem
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly SharedVirtualItemSystem _virtualItem = default!;
     [Dependency] private readonly AlertsSystem _alerts = default!;
+    [Dependency] private readonly ISharedAdminLogManager _adminLog = default!;
 
     private const string CocoonContainerId = "cocoon_victim";
 
@@ -227,6 +230,9 @@ public sealed class CocoonSystem : SharedCocoonSystem
         if (!_doAfter.TryStartDoAfter(doAfter))
             return;
 
+        _adminLog.Add(LogType.Action, LogImpact.High,
+            $"{ToPrettyString(user):player} is trying to cocoon {ToPrettyString(target):player}");
+
         var mapCoords = _transform.GetMapCoordinates(target);
         var filter = Filter.Empty().AddInRange(mapCoords, 10f);
         var entityCoords = _transform.ToCoordinates(mapCoords);
@@ -346,6 +352,9 @@ public sealed class CocoonSystem : SharedCocoonSystem
         _popups.PopupEntity(Loc.GetString("arachnid-wrap-complete-user", ("target", target)), performer, performer);
         _popups.PopupEntity(Loc.GetString("arachnid-wrap-complete-target"), target, target, PopupType.LargeCaution);
 
+        _adminLog.Add(LogType.Action, LogImpact.High,
+            $"{ToPrettyString(performer):player} has cocooned {ToPrettyString(target):player}");
+
         args.Handled = true;
     }
 
@@ -381,8 +390,9 @@ public sealed class CocoonSystem : SharedCocoonSystem
 
         if (component.Victim != null && Exists(component.Victim.Value))
         {
-            _popups.PopupEntity(Loc.GetString("arachnid-unwrap-user", ("target", component.Victim.Value)), args.User, args.User);
-            _popups.PopupEntity(Loc.GetString("arachnid-unwrap-target", ("user", args.User)), component.Victim.Value, component.Victim.Value);
+            var victim = component.Victim.Value;
+            _popups.PopupEntity(Loc.GetString("arachnid-unwrap-user", ("target", victim)), args.User, args.User);
+            _popups.PopupEntity(Loc.GetString("arachnid-unwrap-target", ("user", args.User)), victim, victim);
         }
     }
 

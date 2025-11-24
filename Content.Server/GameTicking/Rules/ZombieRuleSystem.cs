@@ -166,8 +166,9 @@ public sealed class ZombieRuleSystem : GameRuleSystem<ZombieRuleComponent>
                     announcementSound: new SoundPathSpecifier("/Audio/Announcements/outbreak7.ogg"));
         }
 
-        if (GetInfectedFraction(false) > zombieRuleComponent.ZombieShuttleCallPercentage && !_roundEnd.IsRoundEndRequested())
+        if (GetInfectedFraction(false) > zombieRuleComponent.ZombieShuttleCallPercentage && !_roundEnd.IsRoundEndRequested() && !zombieRuleComponent.RoundEndCalled)
         {
+            zombieRuleComponent.RoundEndCalled = true;
             foreach (var station in _station.GetStations())
             {
                 _chat.DispatchStationAnnouncement(station, Loc.GetString("zombie-shuttle-call"), colorOverride: Color.Crimson);

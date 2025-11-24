@@ -12,6 +12,7 @@
 // SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 // SPDX-FileCopyrightText: 2025 TheSecondLord <88201625+TheSecondLord@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 V <97265903+formlessnameless@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 ferynn <117872973+ferynn@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 ferynn <witchy.girl.me@gmail.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //

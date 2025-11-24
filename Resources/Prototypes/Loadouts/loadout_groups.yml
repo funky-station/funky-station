@@ -73,6 +73,7 @@
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 tea <xerithin@gmail.com>
+# SPDX-FileCopyrightText: 2025 vectorassembly <vectorassembly@icloud.com>
 # SPDX-FileCopyrightText: 2025 w.xyz() <84605679+pirakaplant@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
@@ -891,6 +892,7 @@
   name: loadout-group-quartermaster-outerclothing
   minLimit: 0
   loadouts:
+  - QuartermasterWindbreaker
   - QuartermasterWintercoat
 
 - type: loadoutGroup
@@ -898,6 +900,9 @@
   name: loadout-group-quartermaster-shoes
   loadouts:
   - BrownShoes
+  - NanotrasenRepresentativeBoots #These are just laceup shoes.
+  - WorkBoots
+  - SalvageBoots
   - CargoWinterBoots
 
 - type: loadoutGroup #WizDen Weh Job Plush
@@ -914,6 +919,14 @@
   loadouts:
   - CargoTechnicianHead
   - CargoTechnicianHeadMail # Goob/DeltaV - Mail
+  - SeniorCargoTechnicianBeret #Funky!
+
+- type: loadoutGroup
+  id: CargoTechnicianNeck
+  name: loadout-group-cargo-technician-neck
+  minLimit: 0
+  loadouts:
+  - CargoTechnicianLiftBelt
 
 - type: loadoutGroup
   id: CargoTechnicianJumpsuit
@@ -923,8 +936,11 @@
   - CargoTechnicianJumpskirt
   - SeniorCargoTechnicianJumpsuit #Funky!
   - SeniorCargoTechnicianJumpskirt #Funky!
+  - CargoTechnicianOfficeShirt #Funky!
+  - CargoTechnicianTop #Funky!
   - CargoTechnicianJumpsuitMail # Goob/DeltaV - Mail
   - CargoTechnicianJumpskirtMail # Goob/DeltaV - Mail
+  - CargoTechnicianMailJumpsuit # Funky!
 
 - type: loadoutGroup #Funky!
   id: CargoPDA
@@ -946,8 +962,8 @@
   name: loadout-group-cargo-technician-outerclothing
   minLimit: 0
   loadouts:
-  - CargoTechnicianWintercoat
-  - SeniorCargoTechnicianWinterCoat #Funky!
+  - CargoTechnicianWindbreaker #Funky!
+  - SeniorCargoTechnicianWindbreaker #Funky!
   - CargoTechnicianWintercoatMail # Goob/DeltaV - Mail
 
 - type: loadoutGroup
@@ -955,6 +971,9 @@
   name: loadout-group-cargo-technician-shoes
   loadouts:
   - BlackShoes
+  - NanotrasenRepresentativeBoots #These are just laceup shoes.
+  - SalvageBoots
+  - WorkBoots
   - CargoWinterBoots
 
 - type: loadoutGroup #WizDen Weh Job Plush
@@ -963,6 +982,21 @@
   minLimit: 0
   loadouts:
   - LizardPlushieCargoTechnician
+
+- type: loadoutGroup
+  id: SalvageSpecialistHead
+  name: loadout-group-salvage-specialist-head
+  minLimit: 0
+  loadouts:
+  - CargoTechnicianHead
+  - SeniorCargoTechnicianBeret #Funky!
+
+- type: loadoutGroup
+  id: SalvageSpecialistJumpsuit
+  name: loadout-group-salvage-specialist-jumpsuit
+  loadouts:
+  - SalvageSpecialistJumpsuit
+  - SeniorSalvageSpecialistJumpsuit
 
 - type: loadoutGroup
   id: SalvageSpecialistBackpack
@@ -977,7 +1011,7 @@
   name: loadout-group-salvage-specialist-outerclothing
   minLimit: 0
   loadouts:
-  - SalvageSpecialistWintercoat
+  - SalvageSpecialistWindbreaker
 
 - type: loadoutGroup
   id: SalvageSpecialistShoes

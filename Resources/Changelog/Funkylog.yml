@@ -5824,3 +5824,31 @@ Entries:
         clothing options
   id: 692
   time: '2025-11-24T03:15:07.0000000+00:00'
+- author: JoulesBerg
+  changes:
+    - type: Fix
+      message: removed the decal from bar area. You know.
+    - type: Add
+      message: added pride o mat
+    - type: Fix
+      message: that one scrubber in the SM area
+    - type: Fix
+      message: access to silos is now restricted to departments correctly.
+    - type: Fix
+      message: access to magi office
+    - type: Tweak
+      message: moved armory EVA to its own room so the armory can have more space
+    - type: Add
+      message: Added insuls to atmos
+    - type: Add
+      message: Added a real mail room
+    - type: Fix
+      message: IAA offices now have CC doors
+    - type: Fix
+      message: genpop now has a cryo sleep pod
+    - type: Tweak
+      message: made abandoned cargo maints a little more maze like.
+    - type: Remove
+      message: removed deathsquad
+  id: 693
+  time: '2025-11-24T03:33:19.0000000+00:00'

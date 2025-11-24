@@ -11,3 +11,12 @@
   - /Audio/_Funkystation/Effects/Footsteps/bootstep3.ogg
   - /Audio/_Funkystation/Effects/Footsteps/bootstep4.ogg
   - /Audio/_Funkystation/Effects/Footsteps/bootstep5.ogg
+
+- type: soundCollection
+  id: FootstepLizardSlippers
+  files:
+  - /Audio/_Funkystation/Effects/Footsteps/wehstep1.ogg
+  - /Audio/_Funkystation/Effects/Footsteps/wehstep2.ogg
+  - /Audio/_Funkystation/Effects/Footsteps/wehstep3.ogg
+  - /Audio/_Funkystation/Effects/Footsteps/wehstep4.ogg
+  - /Audio/_Funkystation/Effects/Footsteps/wehstep5.ogg

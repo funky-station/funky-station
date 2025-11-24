@@ -83,7 +83,8 @@
     footstepSoundCollection:
       collection: FootstepLizardSlippers
       params:
-        variation: 0.02
+        volume: -5
+        variation: 0.07
   - type: Construction
     graph: ClothingShoeSlippersLizard
     node: shoes

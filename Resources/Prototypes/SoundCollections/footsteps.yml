@@ -104,10 +104,11 @@
   files:
   - /Audio/Items/Toys/quack.ogg
 
-- type: soundCollection
-  id: FootstepLizardSlippers
-  files:
-  - /Audio/Items/Toys/weh.ogg
+# Funky Edit: uses wehstep in _Funkystation/Effects/Footsteps
+# - type: soundCollection
+#  id: FootstepLizardSlippers
+#  files:
+#  - /Audio/Items/Toys/weh.ogg
 
 - type: soundCollection
   id: FootstepHeavy

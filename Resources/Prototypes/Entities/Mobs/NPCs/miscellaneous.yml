@@ -64,6 +64,21 @@
     - type: Tag
       tags:
         - FootstepSound
+    - type: BatteryAmmoProvider
+      proto: RedLightLaser
+      fireCost: 50
+    - type: PredictedBatterySelfRecharger
+      autoRechargeRate: 50
+    - type: PredictedBattery
+      maxCharge: 1000
+      startingCharge: 1000
+    - type: Gun
+      fireRate: 1
+      useKey: false
+      selectedMode: SemiAuto
+      availableModes:
+        - SemiAuto
+      soundGunshot: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
     - type: CombatMode
     - type: InteractionPopup
       successChance: 0.3
@@ -208,9 +223,7 @@
     group: GenericNumber
   - type: FootstepModifier
     footstepSoundCollection:
-      path: /Audio/Effects/Footsteps/slime1.ogg
-      params:
-        volume: 3
+      collection: FootstepSlime
   - type: Tag
     tags:
       - FootstepSound

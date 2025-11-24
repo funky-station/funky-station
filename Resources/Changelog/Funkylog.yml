@@ -5868,3 +5868,11 @@ Entries:
         to select workboots as part of their loadout.
   id: 694
   time: '2025-11-24T03:48:01.0000000+00:00'
+- author: zergologist
+  changes:
+    - type: Add
+      message: >-
+        New-new sprites for atmos hardsuits. Inspired by the resprites AraiMaia
+        was doing for engineering hardsuits
+  id: 695
+  time: '2025-11-24T04:06:40.0000000+00:00'

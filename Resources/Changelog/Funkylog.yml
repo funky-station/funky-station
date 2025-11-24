@@ -5743,3 +5743,84 @@ Entries:
       message: The SM should no longer ash any blob observer!
   id: 684
   time: '2025-11-20T00:49:58.0000000+00:00'
+- author: KittyCat432
+  changes:
+    - type: Tweak
+      message: Changeling entering stasis now confirms if you want to do that.
+  id: 685
+  time: '2025-11-21T03:56:33.0000000+00:00'
+- author: wgreen84
+  changes:
+    - type: Add
+      message: Weh plushies that represent all the standard SS14 jobs!
+  id: 686
+  time: '2025-11-21T03:57:28.0000000+00:00'
+- author: Xcybitt
+  changes:
+    - type: Add
+      message: >-
+        Added security knuckles and truncheon knuckles into the sec techfab, and
+        emagged lathes and protolathes.
+    - type: Tweak
+      message: Added security truncheon knuckles into the riot control research.
+  id: 687
+  time: '2025-11-21T03:58:20.0000000+00:00'
+- author: Xcybitt
+  changes:
+    - type: Add
+      message: Added bodycams and nopros into the secfab and lathe respectively.
+  id: 688
+  time: '2025-11-21T19:28:24.0000000+00:00'
+- author: pirakaplant
+  changes:
+    - type: Tweak
+      message: >-
+        The French, German, and Russian accents are now split into "accents" and
+        "vernaculars", so you can choose to have an accent without the foreign
+        vocabulary.
+    - type: Tweak
+      message: >-
+        The Cowboy vernacular (formerly the Cowboy accent) now costs 0 points
+        and requires the Southern accent.
+    - type: Remove
+      message: >-
+        The French accent no longer has a chance to prefix single words with
+        "le".
+    - type: Fix
+      message: Funky and Scandinavian clones now have their accents.
+  id: 689
+  time: '2025-11-22T08:28:35.0000000+00:00'
+- author: Xcybitt
+  changes:
+    - type: Add
+      message: >-
+        Candy bowls, bells and handheld television can be fabbed at lathes and
+        the medical techfab.
+  id: 690
+  time: '2025-11-22T21:39:43.0000000+00:00'
+- author: taydeo
+  changes:
+    - type: Add
+      message: New lobby art by nikitavix!
+  id: 691
+  time: '2025-11-24T03:01:18.0000000+00:00'
+- author: AraiMaia
+  changes:
+    - type: Add
+      message: New sprites for almost every bit of cargo clothes.
+    - type: Add
+      message: Two new uniforms for cargo techs.
+    - type: Add
+      message: Salvage senior gear.
+    - type: Add
+      message: A new shuttle pilot helmet and jumpsuit, available in the CargoDrobe.
+    - type: Add
+      message: A liftbelt for cargo, to avoid back injuries.
+    - type: Add
+      message: New windbreakers for QM, Salvage, Cargo and Mail Carriers.
+    - type: Tweak
+      message: >-
+        Loadout adjustments for cargo techs, salvagers and QM to allow for more
+        clothing options
+  id: 692
+  time: '2025-11-24T03:15:07.0000000+00:00'

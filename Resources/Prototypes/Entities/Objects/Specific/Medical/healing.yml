@@ -249,7 +249,7 @@
     damage:
       groups:
         Brute: -45 # 15 for each type in the group
-    bloodlossModifier: -10 # a suture should stop ongoing bleeding
+    bloodlossModifier: -5 # a suture should stop ongoing bleeding
     healingBeginSound:
       path: "/Audio/Items/Medical/brutepack_begin.ogg"
     healingEndSound:
@@ -373,7 +373,7 @@
       types:
         Slash: -7.5
         Piercing: -15
-    bloodlossModifier: -10
+    bloodlossModifier: -3
     healingBeginSound:
       path: "/Audio/Items/Medical/brutepack_begin.ogg"
     healingEndSound:

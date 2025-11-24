@@ -37,7 +37,6 @@
   - type: RotationVisuals
     defaultRotation: 0
     horizontalRotation: 90
-    AnimationTime: 0
   - type: Clickable
   - type: Pullable
   - type: InteractionOutline

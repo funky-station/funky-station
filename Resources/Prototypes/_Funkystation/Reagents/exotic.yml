@@ -119,20 +119,19 @@
   physicalDesc: reagent-physical-desc-exhilarating
   flavor: medicine
   color: "#04ea9a"
-  worksOnTheDead: true
   metabolisms:
     Medicine:
       metabolismRate: 2.0
       effects:
-      - !type:EvenHealthChange
+      - !type:HealthChange
         conditions:
         - !type:TotalDamage
           min: 95 # Heals a bit above crit
         damage:
-          groups: # 5 Damage every type except rad/pois #it's now even heal, 5u= max heal 75(realistically 50 actual damage(brute and burn))
+          groups: # 5 Damage every type except rad/pois
             Airloss: -10
-            Brute: -10
-            Burn: -10
+            Brute: -15
+            Burn: -20
 
 - type: reagent
   id: Corgium

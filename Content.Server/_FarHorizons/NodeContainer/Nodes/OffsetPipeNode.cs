@@ -3,6 +3,7 @@ using Content.Shared.Atmos;
 using Content.Shared.NodeContainer;
 using Robust.Shared.Map.Components;
 using Robust.Server.GameObjects;
+using Content.Server.NodeContainer;
 
 namespace Content.Server._FarHorizons.NodeContainer.Nodes;
 

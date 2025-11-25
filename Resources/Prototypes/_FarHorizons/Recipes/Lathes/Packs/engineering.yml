@@ -1,4 +1,4 @@
-- type: latheRecipePack
+- type: latheRecipe
   id: ReactorPartsBasic
   recipes:
   - CerenkiteFuelRod

@@ -8,10 +8,10 @@
     },
     "states": [
         {
-            "name": "centrifugeoff"
+            "name": "centrifuge"
         },
         {
-            "name": "centrifugeon"
+            "name": "centrifuge_onlight"
         },
         {
             "name": "centrifuge_process",

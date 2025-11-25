@@ -8,6 +8,7 @@
   tier: 1
   cost: 7500
   recipeUnlocks:
+  - NuclearFabricatorMachineCircuitboard
   - UraniumReactorFuelRod
   - PlasmaReactorFuelRod
   - UraniumGlassReactorFuelRod
@@ -35,6 +36,7 @@
   tier: 2
   cost: 12500
   recipeUnlocks:
+  - NuclearCentrifugeMachineCircuitboard
   - PlutoniumReactorFuelRod
   - BananiumReactorFuelRod
   - GoldReactorControlRod

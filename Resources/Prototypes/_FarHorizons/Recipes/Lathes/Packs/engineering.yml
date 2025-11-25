@@ -1,4 +1,10 @@
 - type: latheRecipePack
+  id: ReactorCircuitboards
+  recipes:
+  - NuclearFabricatorMachineCircuitboard
+  - NuclearCentrifugeMachineCircuitboard
+
+- type: latheRecipePack
   id: ReactorPartsBasic
   recipes:
   - CerenkiteReactorFuelRod

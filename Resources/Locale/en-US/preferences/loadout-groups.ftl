@@ -97,6 +97,7 @@ loadout-group-janitor-head = Janitor head
 loadout-group-janitor-jumpsuit = Janitor jumpsuit
 loadout-group-janitor-gloves = Janitor gloves
 loadout-group-janitor-outerclothing = Janitor outer clothing
+loadout-group-janitor-shoes = Janitor galoshes
 loadout-group-janitor-plunger = Janitor plunger
 
 loadout-group-botanist-head = Botanist head
@@ -129,12 +130,15 @@ loadout-group-quartermaster-outerclothing = Quartermaster outer clothing
 loadout-group-quartermaster-shoes = Quartermaster shoes
 
 loadout-group-cargo-technician-head = Cargo Technician head
+loadout-group-cargo-technician-neck = Cargo Technician neck
 loadout-group-cargo-technician-jumpsuit = Cargo Technician jumpsuit
 loadout-group-cargo-technician-backpack = Cargo Technician backpack
 loadout-group-cargo-technician-outerclothing = Cargo Technician outer clothing
 loadout-group-cargo-technician-shoes = Cargo Technician shoes
 loadout-group-cargo-technician-id = Cargo Technician ID
 
+loadout-group-salvage-specialist-head = Salvage Specialist head
+loadout-group-salvage-specialist-jumpsuit = Salvage Specialist jumpsuit
 loadout-group-salvage-specialist-backpack = Salvage Specialist backpack
 loadout-group-salvage-specialist-outerclothing = Salvage Specialist outer clothing
 loadout-group-salvage-specialist-shoes = Salvage Specialist shoes
@@ -143,6 +147,7 @@ loadout-group-salvage-specialist-shoes = Salvage Specialist shoes
 loadout-group-chief-engineer-head = Chief Engineer head
 loadout-group-chief-engineer-jumpsuit = Chief Engineer jumpsuit
 loadout-group-chief-engineer-outerclothing = Chief Engineer outer clothing
+loadout-group-chief-engineer-belt = Chief Engineer belt
 loadout-group-chief-engineer-neck = Chief Engineer neck
 loadout-group-chief-engineer-shoes = Chief Engineer shoes
 loadout-group-engineering-goggles = Engineering goggles
@@ -153,6 +158,7 @@ loadout-group-station-engineer-head = Station Engineer head
 loadout-group-station-engineer-jumpsuit = Station Engineer jumpsuit
 loadout-group-station-engineer-backpack = Station Engineer backpack
 loadout-group-station-engineer-outerclothing = Station Engineer outer clothing
+loadout-group-station-engineer-belt = Station Engineer belt
 loadout-group-station-engineer-shoes = Station Engineer shoes
 loadout-group-station-engineer-id = Station Engineer ID
 
@@ -160,6 +166,7 @@ loadout-group-atmospheric-technician-head = Atmospheric Technician head
 loadout-group-atmospheric-technician-jumpsuit = Atmospheric Technician jumpsuit
 loadout-group-atmospheric-technician-backpack = Atmospheric Technician backpack
 loadout-group-atmospheric-technician-outerclothing = Atmospheric Technician outer clothing
+loadout-group-atmospheric-technician-belt = Atmospheric Technician belt
 loadout-group-atmospheric-technician-shoes = Atmospheric Technician shoes
 
 # Science

@@ -14,6 +14,7 @@
 // SPDX-FileCopyrightText: 2025 ferynn <witchy.girl.me@gmail.com>
 // SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 Drywink <hugogrethen@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -33,6 +34,7 @@ using Content.Server.Objectives.Components;
 using Content.Server.Polymorph.Components;
 using Content.Server.Polymorph.Systems;
 using Content.Server.Popups;
+using Content.Server.Species.Arachnid;
 using Content.Server.Store.Systems;
 using Content.Server.Stunnable;
 using Content.Server.Zombies;
@@ -72,8 +74,10 @@ using Content.Shared.Nutrition.Components;
 using Content.Shared.Polymorph;
 using Content.Shared.Popups;
 using Content.Shared.Revolutionary.Components;
+using Content.Shared.Species.Arachnid;
 using Content.Shared.StatusEffect;
 using Content.Shared.Store.Components;
+using Robust.Shared.Containers;
 using Robust.Server.Audio;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
@@ -126,6 +130,8 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
     [Dependency] private readonly SharedCuffableSystem _cuffs = default!;
     [Dependency] private readonly SharedPuddleSystem _puddle = default!;
     [Dependency] private readonly StunSystem _stun = default!;
+    [Dependency] private readonly CocoonSystem _cocoon = default!;
+    [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly SharedJitteringSystem _jitter = default!;
     [Dependency] private readonly ExplosionSystem _explosionSystem = default!;
     [Dependency] private readonly BodySystem _bodySystem = default!;

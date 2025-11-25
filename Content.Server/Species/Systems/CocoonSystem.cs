@@ -456,7 +456,7 @@ public sealed class CocoonSystem : SharedCocoonSystem
     /// <summary>
     /// Breaks the cocoon container and releases the victim.
     /// </summary>
-    private void BreakCocoon(Entity<CocoonContainerComponent> cocoon)
+    public void BreakCocoon(Entity<CocoonContainerComponent> cocoon)
     {
         PlayCocoonRemovalSound(cocoon);
 

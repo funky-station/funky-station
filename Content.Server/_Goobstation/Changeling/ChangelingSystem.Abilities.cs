@@ -5,7 +5,6 @@
 // SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
 // SPDX-FileCopyrightText: 2024 yglop <95057024+yglop@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Drywink <43855731+Drywink@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Eris <eris@erisws.com>
 // SPDX-FileCopyrightText: 2025 Eris <erisfiregamer1@gmail.com>
 // SPDX-FileCopyrightText: 2025 Skye <57879983+Rainbeon@users.noreply.github.com>

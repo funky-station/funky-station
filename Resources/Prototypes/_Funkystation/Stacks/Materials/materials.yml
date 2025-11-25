@@ -10,3 +10,10 @@
   icon: { sprite: _Funkystation/Objects/Materials/Mob/carpscale.rsi, state: scale}
   spawn: MaterialCarpScale1
   maxCount: 30
+
+- type: stack
+  id: ChangelingResin
+  name: resin
+  icon: { sprite: Resources\Textures\Objects\Consumable\Food\meat.rsi, state: clump} #placeholder
+  spawn: ChangelingResin1
+  maxCount: 30

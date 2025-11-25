@@ -62,3 +62,16 @@
     price: 300
   - type: RadiationBlocker
     resistance: 25
+
+- type: entity
+  parent: BaseWall
+  id: WallChangelingReinforced
+  name: reinforced resin wall
+  description: A strange, sickly looking reinforced wall coated in some thick goopy substance.
+  components:
+  - type: sprite
+    sprite: Resources\Textures\Structures\Walls\meat.rsi #placeholder
+  - type: icon
+    sprite: Resources\Textures\Structures\Walls\meat.rsi #placeholder
+    state: full
+

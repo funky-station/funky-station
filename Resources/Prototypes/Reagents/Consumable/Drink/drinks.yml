@@ -71,6 +71,9 @@
         reagent: Theobromine
         amount: 0.05
       - !type:AdjustTemperature
+        conditions:
+        - !type:Temperature
+          max: 343.15
         amount: 5000 # thermal energy, not temperature!
   reactiveEffects:
     Acidic:
@@ -143,6 +146,9 @@
         reagent: Theobromine
         amount: 0.05
       - !type:AdjustTemperature
+        conditions:
+        - !type:Temperature
+          max: 343.15
         amount: 5000 # thermal energy, not temperature!
   reactiveEffects:
     Acidic:
@@ -226,6 +232,9 @@
         time: 2.0
         type: Remove
       - !type:AdjustTemperature
+        conditions:
+        - !type:Temperature
+          max: 343.15
         amount: 5000 # thermal energy, not temperature!
   reactiveEffects:
     Acidic:
@@ -263,6 +272,9 @@
       - !type:SatiateThirst
         factor: 2
       - !type:AdjustTemperature
+        conditions:
+        - !type:Temperature
+          max: 343.15
         amount: 5000 # thermal energy, not temperature!
       - !type:GenericStatusEffect
         key: Drowsiness
@@ -592,6 +604,11 @@
         key: Drowsiness
         time: 2.0
         type: Remove
+      - !type:AdjustTemperature
+        conditions:
+        - !type:Temperature
+          max: 343.15
+        amount: 5000 # thermal energy, not temperature!
 
 - type: reagent
   id: Tea
@@ -611,6 +628,9 @@
         reagent: Theobromine
         amount: 0.05
       - !type:AdjustTemperature
+        conditions:
+        - !type:Temperature
+          max: 343.15
         amount: 5000 # thermal energy, not temperature!
       - !type:GenericStatusEffect
         key: Drowsiness

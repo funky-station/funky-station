@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2025 jhrushbe <capnmerry@gmail.com>
+// SPDX-FileCopyrightText: 2025 mogaiskii <sani.mog@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Shared.Atmos;
 using Content.Shared.Damage.Components;
 using Content.Shared.Examine;

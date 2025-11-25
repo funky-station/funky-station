@@ -1,3 +1,9 @@
+// SPDX-FileCopyrightText: 2025 jhrushbe <capnmerry@gmail.com>
+// SPDX-FileCopyrightText: 2025 mogaiskii <sani.mog@gmail.com>
+// SPDX-FileCopyrightText: 2025 rottenheadphones <juaelwe@outlook.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Server._FarHorizons.NodeContainer.Nodes;
 using Content.Server.Administration.Logs;
 using Content.Server.AlertLevel;

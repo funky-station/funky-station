@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2025 mogaiskii <sani.mog@gmail.com>
+// SPDX-FileCopyrightText: 2025 rottenheadphones <juaelwe@outlook.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Server.NodeContainer.Nodes;
 using Content.Shared.Atmos;
 using Content.Shared.NodeContainer;

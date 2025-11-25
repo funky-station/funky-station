@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 mogaiskii <sani.mog@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Robust.Client.UserInterface;
 using JetBrains.Annotations;
 using Content.Shared._FarHorizons.Power.Generation.FissionGenerator;

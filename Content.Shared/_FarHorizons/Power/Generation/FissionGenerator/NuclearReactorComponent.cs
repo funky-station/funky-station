@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 mogaiskii <sani.mog@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Robust.Shared.GameStates;
 using Robust.Shared.Audio;
 using Content.Shared.Containers.ItemSlots;

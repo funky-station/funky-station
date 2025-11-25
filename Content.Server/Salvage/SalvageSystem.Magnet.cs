@@ -18,6 +18,7 @@ using Content.Server.Salvage.Magnet;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Mobs.Components;
+using Content.Shared.Parallax.Biomes;
 using Content.Shared.Procedural;
 using Content.Shared.Radio;
 using Content.Shared.Salvage;
@@ -25,6 +26,7 @@ using Content.Shared.Salvage.Magnet;
 using Robust.Shared.Exceptions;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server.Salvage;
 
@@ -439,7 +441,13 @@ public sealed partial class SalvageSystem
                         }
                     }
                     
-                    // Grid is now complete with all tiles, walls, and windows properly placed
+                    // Apply biome template for loot spawning (same as debris)
+                    var biome = EnsureComp<BiomeComponent>(ruinGrid.Owner);
+                    var ruinSeed = seed + i; // Use the same seed pattern as ruin generation
+                    _biome.SetSeed(ruinGrid.Owner, biome, ruinSeed);
+                    _biome.SetTemplate(ruinGrid.Owner, biome, _prototypeManager.Index<BiomeTemplatePrototype>("SpaceDebris"));
+                    
+                    // Grid is now complete with all tiles, walls, windows, and loot spawners properly placed
                     ruinGrids.Add((ruinGrid, ruinResult.Bounds));
                 }
 

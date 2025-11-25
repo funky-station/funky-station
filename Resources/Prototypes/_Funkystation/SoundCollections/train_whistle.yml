@@ -1,0 +1,9 @@
+- type: soundCollection
+  id: TrainWhistle
+  files:
+  - /Audio/_Funkystation/Items/Train_Whistle/train_whistle_1.ogg
+  - /Audio/_Funkystation/Items/Train_Whistle/train_whistle_2.ogg
+  - /Audio/_Funkystation/Items/Train_Whistle/train_whistle_3.ogg
+  - /Audio/_Funkystation/Items/Train_Whistle/train_whistle_4.ogg
+  - /Audio/_Funkystation/Items/Train_Whistle/train_whistle_5.ogg
+  - /Audio/_Funkystation/Items/Train_Whistle/train_whistle_6.ogg

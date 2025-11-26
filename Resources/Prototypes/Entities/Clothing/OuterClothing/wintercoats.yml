@@ -32,9 +32,12 @@
 # SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 strO0pwafel <153459934+strO0pwafel@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 MaiaArai <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 Xcybitt <xcybitt@gmail.com>
+# SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 vectorassembly <vectorassembly@icloud.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -235,20 +238,9 @@
   description: A coat specifically designed for work inside cold storage, sorely needed by cold-blooded lizard chefs.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
-    layers:
-    - state: CHEF-icon
-  - type: Item
-    inhandVisuals:
-      left:
-      - state: CHEF-inhand-left
-      right:
-      - state: CHEF-inhand-right
+    sprite: _Funkystation/Clothing/OuterClothing/Coats/chef_freezer_coat.rsi
   - type: Clothing
-    sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
-    clothingVisuals:
-      outerClothing:
-      - state: CHEF-equipped-OUTERCLOTHING
+    sprite: _Funkystation/Clothing/OuterClothing/Coats/chef_freezer_coat.rsi
 
 - type: entity
   parent: ClothingOuterWinterCoatToggleable
@@ -601,20 +593,10 @@
   name: quartermaster's winter coat
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
-    layers:
-    - state: QM-icon
+    sprite: _Funkystation/Clothing/OuterClothing/WinterCoats/qm_winter_coat.rsi
   - type: Item
-    inhandVisuals:
-      left:
-      - state: QM-inhand-left
-      right:
-      - state: QM-inhand-right
   - type: Clothing
-    sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
-    clothingVisuals:
-      outerClothing:
-      - state: QM-equipped-OUTERCLOTHING
+    sprite: _Funkystation/Clothing/OuterClothing/WinterCoats/qm_winter_coat.rsi
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodWinterQM
 

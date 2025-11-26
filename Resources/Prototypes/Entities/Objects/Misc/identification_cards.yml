@@ -70,6 +70,7 @@
 # SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 empty0set <16693552+empty0set@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 empty0set <empty0set@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 jackel234 <jackel234@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
@@ -499,6 +500,27 @@
       state: Chef
   - type: PresetIdCard
     job: Chef
+    
+#Funkystation start
+- type: entity
+  parent: IDCardStandard
+  id: YipYapIDCard
+  name: yip-yap ID card
+  components:
+    - type: Sprite
+      layers:
+        - state: default #base
+        - state: decal-stripe-service #decal
+        - sprite: Interface/Misc/job_icons.rsi #icon
+          offset: "-0.125, 0.09375"
+          state: Chef
+    - type: PresetIdCard
+      job: Chef
+      name: Yip-Yap
+    - type: Tag #  Ignore Chameleon tags
+      tags:
+        - DoorBumpOpener
+#Funkystation end
 
 - type: entity
   parent: IDCardStandard
@@ -1243,7 +1265,7 @@
   - type: Sprite
     layers:
     - state: default #base
-    - state: decal-stripe-cc #decal
+    - state: decal-stripe-command #decal
     - sprite: Interface/Misc/job_icons.rsi #icon
       offset: "-0.125, 0.09375"
       state: CommandMaid

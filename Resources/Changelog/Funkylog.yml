@@ -5363,3 +5363,522 @@ Entries:
       message: Added offset canes. They can be crafted in the medical lathe.
   id: 642
   time: '2025-11-04T22:30:45.0000000+00:00'
+- author: TheHolyAegis
+  changes:
+    - type: Tweak
+      message: >-
+        Changed the library doors to have the new library access (the ones that
+        go to their room)
+    - type: Add
+      message: >-
+        Added an captain's ID outside of the locker, preparing for the day that
+        it will be removed from the locker
+    - type: Add
+      message: >-
+        Added an AutoDrobe to the bar, next to the theatre, so people can get
+        their costumes
+    - type: Add
+      message: Added a cargo techfab to their department
+    - type: Fix
+      message: Powered the dock airlock for the salvage shuttle
+    - type: Add
+      message: Added a salvage shuttle console to their room
+    - type: Fix
+      message: Fixed the mime room being displayed as spaced, when in reality it wasn't
+    - type: Add
+      message: >-
+        Added a intercom near the engineering so people can contact engineering
+        despite the lack of front desk
+    - type: Tweak
+      message: Changed some minor things (i.e. moved some lights)
+  id: 643
+  time: '2025-11-05T01:51:55.0000000+00:00'
+- author: TheHolyAegis
+  changes:
+    - type: Add
+      message: >-
+        Added Central Command access to the Internal Affairs Agent, since they
+        are Central Command staff.
+  id: 644
+  time: '2025-11-05T06:35:17.0000000+00:00'
+- author: mkanke-real
+  changes:
+    - type: Remove
+      message: Removed drunken resilience
+  id: 645
+  time: '2025-11-05T06:36:11.0000000+00:00'
+- author: mkanke-real
+  changes:
+    - type: Add
+      message: Adds the OOC Author of books to the examine window
+  id: 646
+  time: '2025-11-05T06:39:30.0000000+00:00'
+- author: TheHolyAegis
+  changes:
+    - type: Tweak
+      message: Changed dead chat to ghost chat, since that's more fitting
+  id: 647
+  time: '2025-11-05T18:33:11.0000000+00:00'
+- author: TheHolyAegis
+  changes:
+    - type: Remove
+      message: >-
+        Removed the security glasses loadout group from the Internal Affairs
+        Agent.
+    - type: Add
+      message: Instead, added administrative glasses to their default loadout
+  id: 648
+  time: '2025-11-05T18:33:50.0000000+00:00'
+- author: Mariiibo
+  changes:
+    - type: Add
+      message: An entry in Cargo SOP regarding mail.
+    - type: Tweak
+      message: Minor fixes to various guidebook entries.
+  id: 649
+  time: '2025-11-05T23:29:58.0000000+00:00'
+- author: TheHolyAegis
+  changes:
+    - type: Fix
+      message: >-
+        The airlocks in Fland are finally receiving power, you know which ones I
+        am talking about
+  id: 650
+  time: '2025-11-05T23:31:20.0000000+00:00'
+- author: Teasq
+  changes:
+    - type: Add
+      message: New botany sprites! More to come
+    - type: Remove
+      message: Botany bandana
+  id: 651
+  time: '2025-11-06T06:15:24.0000000+00:00'
+- author: Dusty-Plant
+  changes:
+    - type: Tweak
+      message: updated Court station for the third playtest
+  id: 652
+  time: '2025-11-07T22:22:04.0000000+00:00'
+- author: ilyamikcoder
+  changes:
+    - type: Add
+      message: Cleanbot and Medibot ghostroles.
+    - type: Tweak
+      message: Sentient bots can now use cyborg emotions.
+    - type: Tweak
+      message: Sentient bots can now see their health.
+    - type: Tweak
+      message: Sentient bots will now have glitchy speech when damaged.
+    - type: Tweak
+      message: >-
+        Some sentient bots that have proper rotational sprites (cleanbot,
+        supplybot, mimebot) can now use Combat Mode to spin efficiently.
+    - type: Tweak
+      message: >-
+        Bots are no longer destroyed immediately upon death; rather, they now
+        have a critical state similar to cyborgs.
+    - type: Fix
+      message: Supplybots can now see the Pull indicator properly.
+  id: 653
+  time: '2025-11-08T00:34:33.0000000+00:00'
+- author: carccborg
+  changes:
+    - type: Add
+      message: IPCs now have a tank slot.
+  id: 654
+  time: '2025-11-08T00:36:56.0000000+00:00'
+- author: Teasq
+  changes:
+    - type: Tweak
+      message: chemical jamjar glasses are now jamgoggles. Whoa.
+  id: 655
+  time: '2025-11-08T18:23:29.0000000+00:00'
+- author: NoElkaTheGod
+  changes:
+    - type: Fix
+      message: IPC cosmic cultists can be properly deconverted now.
+  id: 656
+  time: '2025-11-08T18:49:10.0000000+00:00'
+- author: lolmatdi
+  changes:
+    - type: Add
+      message: Added everyone's favorite alien kids song to the jukebox
+  id: 657
+  time: '2025-11-08T22:37:01.0000000+00:00'
+- author: lolmatdi
+  changes:
+    - type: Add
+      message: >-
+        The Chemist can now select the Senior Physician clothing in their
+        loadout!
+  id: 658
+  time: '2025-11-09T05:54:03.0000000+00:00'
+- author: Catazeus
+  changes:
+    - type: Tweak
+      message: Duster icon for Command Maid.
+    - type: Fix
+      message: Command Maid ID color.
+  id: 659
+  time: '2025-11-10T03:00:29.0000000+00:00'
+- author: AraiMaia
+  changes:
+    - type: Add
+      message: >-
+        Central Command VIPs like the Magistrate and Representative now start
+        with a Bluespace Lifeline implanter in their inventory.
+  id: 660
+  time: '2025-11-11T03:14:46.0000000+00:00'
+- author: ilyamikcoder
+  changes:
+    - type: Fix
+      message: Medibot ghostrole now actually works.
+  id: 661
+  time: '2025-11-11T06:44:44.0000000+00:00'
+- author: kosticia, ported to Funky by zergologist
+  changes:
+    - type: Tweak
+      message: Kira special drink has been renamed to the citrus bikeshed.
+  id: 662
+  time: '2025-11-11T22:46:55.0000000+00:00'
+- author: wgreen84
+  changes:
+    - type: Tweak
+      message: Bleach now cleans!
+  id: 663
+  time: '2025-11-11T23:01:38.0000000+00:00'
+- author: Mariiibo
+  changes:
+    - type: Tweak
+      message: >-
+        Tweaked multiple Antagonist guidebook entries, fixing outdated info and
+        attempting to improve readability.
+  id: 664
+  time: '2025-11-11T23:07:13.0000000+00:00'
+- author: Komonighub
+  changes:
+    - type: Tweak
+      message: Readded CutWireVariationPass to roundstart variation
+  id: 665
+  time: '2025-11-13T03:25:45.0000000+00:00'
+- author: zergologist
+  changes:
+    - type: Add
+      message: >-
+        Glowing blush, now you can have radiant cheeks (or even a second set of
+        glowing eyes)
+    - type: Tweak
+      message: >-
+        Changed the number of thaven head slot customization options from four
+        to five
+  id: 666
+  time: '2025-11-13T03:26:42.0000000+00:00'
+- author: Komonighub
+  changes:
+    - type: Tweak
+      message: You can now wear black/blue jetpacks on your tank slot again!
+  id: 667
+  time: '2025-11-15T04:40:31.0000000+00:00'
+- author: Komonighub
+  changes:
+    - type: Tweak
+      message: Changed felinid stamcrit from 75 to 25
+  id: 668
+  time: '2025-11-15T04:42:31.0000000+00:00'
+- author: Xcybitt
+  changes:
+    - type: Tweak
+      message: Made more security related masks have filters!
+    - type: Tweak
+      message: Made tear gas give slowdown!
+  id: 669
+  time: '2025-11-15T07:05:10.0000000+00:00'
+- author: Xcybitt
+  changes:
+    - type: Tweak
+      message: Buffed the syndicate cartridge autoinjector cooldown!
+    - type: Tweak
+      message: Halved the price of the soft cartridge autoinjector bundle!
+  id: 670
+  time: '2025-11-15T07:09:53.0000000+00:00'
+- author: wgreen84
+  changes:
+    - type: Tweak
+      message: Carp and Dragon care less about fire damage now.
+  id: 671
+  time: '2025-11-15T07:41:51.0000000+00:00'
+- author: AraiMaia
+  changes:
+    - type: Add
+      message: New sprites for every closet.
+    - type: Add
+      message: New sprites for the suit storage lockers.
+    - type: Add
+      message: Departmental suit storage lockers now have unique sprites.
+  id: 672
+  time: '2025-11-15T08:08:37.0000000+00:00'
+- author: mkanke-real
+  changes:
+    - type: Add
+      message: Added Psych to Bagel
+    - type: Add
+      message: Added navigational floor decals to Bagel
+    - type: Fix
+      message: Fixed Bagel grav generator power and vox box atmos
+    - type: Fix
+      message: Fixed AI turrets not being linked
+    - type: Tweak
+      message: Moved IAA office on Bagel to next to NTR rep office
+    - type: Tweak
+      message: Librarian and Reporter now have doors locked to their jobs on Bagel
+  id: 673
+  time: '2025-11-15T22:48:02.0000000+00:00'
+- author: Teasq
+  changes:
+    - type: Tweak
+      message: resprited the spationaut hardsuit
+  id: 674
+  time: '2025-11-15T23:28:20.0000000+00:00'
+- author: Toastermeister
+  changes:
+    - type: Fix
+      message: Fixed visuals for energy projectiles, they no longer collide wrong.
+  id: 675
+  time: '2025-11-15T23:31:53.0000000+00:00'
+- author: mycobiota
+  changes:
+    - type: Add
+      message: >-
+        A strange "commemorative" flippo lighter can now be found very rarely as
+        maintenance loot.
+  id: 676
+  time: '2025-11-16T00:49:28.0000000+00:00'
+- author: ThatOneMoon
+  changes:
+    - type: Add
+      message: >-
+        Added in a new Premium M.R.E, contains much more and a variety of food
+        compared to standard M.R.Es, currently only found as rare salvage loot
+    - type: Tweak
+      message: >-
+        Mercenary Web Vest and Helmets have had their armor values tweaked,
+        Focusing now on Blunt/Slash protection with aditional Caustic
+        protection.
+    - type: Tweak
+      message: >-
+        Mercenary Backpacks have had their inventory increased, now standing
+        inbetween a Satchel and Dufflebag
+  id: 677
+  time: '2025-11-16T21:04:02.0000000+00:00'
+- author: ferynn
+  changes:
+    - type: Tweak
+      message: The NTR and Magistrate PDA's now have the Centcomm pen inside.
+  id: 678
+  time: '2025-11-16T21:22:20.0000000+00:00'
+- author: ferynn
+  changes:
+    - type: Tweak
+      message: >-
+        Buffs to Changeling Armblade, Chitinous Armor. Minor tweak to Chameleon
+        Skin. More abilities usable while restrained.
+  id: 679
+  time: '2025-11-16T21:26:10.0000000+00:00'
+- author: lolmatdi
+  changes:
+    - type: Fix
+      message: You can now spawn as a chemist without a hat
+  id: 680
+  time: '2025-11-20T00:12:20.0000000+00:00'
+- author: 88tv
+  changes:
+    - type: Add
+      message: Added 35 new tips.
+  id: 681
+  time: '2025-11-20T00:14:34.0000000+00:00'
+- author: Dusty-Plant
+  changes:
+    - type: Tweak
+      message: Updated Court station for the fifth round of playtests
+  id: 682
+  time: '2025-11-20T00:17:03.0000000+00:00'
+- author: ThatOneMoon
+  changes:
+    - type: Add
+      message: >-
+        Security, Medical, Bar and Makeshift Weapon cargo bounties have been
+        vastly exanded with all of them now asking for a greater variety of
+        things.
+    - type: Add
+      message: >-
+        Departmental lockboxes have been added to the crafting menu, made the
+        same way as other crates. 
+    - type: Remove
+      message: Clown, Library and Instrument bounties have been removed from the pool.
+    - type: Tweak
+      message: >-
+        Autoinjectors and their cartriges have been made less expensive to
+        print.
+    - type: Tweak
+      message: >-
+        Svalinns have been made less expensive to print, and can now be made in
+        the cargo techfab.
+    - type: Tweak
+      message: 'Cybernetics can be made in the medical techfab when researched. '
+    - type: Tweak
+      message: >-
+        Compact Defibrdilators have been made obtainable, unlocked from Advanced
+        Treatment reseach and printed at the Medical Techfab.
+    - type: Tweak
+      message: Vials have been made printable at the medical techfab.
+    - type: Tweak
+      message: Aprons are now printable at the uniform printer
+    - type: Tweak
+      message: The inventory grid of Large Cardboard Boxes has been slightly increased.
+  id: 683
+  time: '2025-11-20T00:23:18.0000000+00:00'
+- author: Drywink
+  changes:
+    - type: Fix
+      message: The SM should no longer ash any blob observer!
+  id: 684
+  time: '2025-11-20T00:49:58.0000000+00:00'
+- author: KittyCat432
+  changes:
+    - type: Tweak
+      message: Changeling entering stasis now confirms if you want to do that.
+  id: 685
+  time: '2025-11-21T03:56:33.0000000+00:00'
+- author: wgreen84
+  changes:
+    - type: Add
+      message: Weh plushies that represent all the standard SS14 jobs!
+  id: 686
+  time: '2025-11-21T03:57:28.0000000+00:00'
+- author: Xcybitt
+  changes:
+    - type: Add
+      message: >-
+        Added security knuckles and truncheon knuckles into the sec techfab, and
+        emagged lathes and protolathes.
+    - type: Tweak
+      message: Added security truncheon knuckles into the riot control research.
+  id: 687
+  time: '2025-11-21T03:58:20.0000000+00:00'
+- author: Xcybitt
+  changes:
+    - type: Add
+      message: Added bodycams and nopros into the secfab and lathe respectively.
+  id: 688
+  time: '2025-11-21T19:28:24.0000000+00:00'
+- author: pirakaplant
+  changes:
+    - type: Tweak
+      message: >-
+        The French, German, and Russian accents are now split into "accents" and
+        "vernaculars", so you can choose to have an accent without the foreign
+        vocabulary.
+    - type: Tweak
+      message: >-
+        The Cowboy vernacular (formerly the Cowboy accent) now costs 0 points
+        and requires the Southern accent.
+    - type: Remove
+      message: >-
+        The French accent no longer has a chance to prefix single words with
+        "le".
+    - type: Fix
+      message: Funky and Scandinavian clones now have their accents.
+  id: 689
+  time: '2025-11-22T08:28:35.0000000+00:00'
+- author: Xcybitt
+  changes:
+    - type: Add
+      message: >-
+        Candy bowls, bells and handheld television can be fabbed at lathes and
+        the medical techfab.
+  id: 690
+  time: '2025-11-22T21:39:43.0000000+00:00'
+- author: taydeo
+  changes:
+    - type: Add
+      message: New lobby art by nikitavix!
+  id: 691
+  time: '2025-11-24T03:01:18.0000000+00:00'
+- author: AraiMaia
+  changes:
+    - type: Add
+      message: New sprites for almost every bit of cargo clothes.
+    - type: Add
+      message: Two new uniforms for cargo techs.
+    - type: Add
+      message: Salvage senior gear.
+    - type: Add
+      message: A new shuttle pilot helmet and jumpsuit, available in the CargoDrobe.
+    - type: Add
+      message: A liftbelt for cargo, to avoid back injuries.
+    - type: Add
+      message: New windbreakers for QM, Salvage, Cargo and Mail Carriers.
+    - type: Tweak
+      message: >-
+        Loadout adjustments for cargo techs, salvagers and QM to allow for more
+        clothing options
+  id: 692
+  time: '2025-11-24T03:15:07.0000000+00:00'
+- author: JoulesBerg
+  changes:
+    - type: Fix
+      message: removed the decal from bar area. You know.
+    - type: Add
+      message: added pride o mat
+    - type: Fix
+      message: that one scrubber in the SM area
+    - type: Fix
+      message: access to silos is now restricted to departments correctly.
+    - type: Fix
+      message: access to magi office
+    - type: Tweak
+      message: moved armory EVA to its own room so the armory can have more space
+    - type: Add
+      message: Added insuls to atmos
+    - type: Add
+      message: Added a real mail room
+    - type: Fix
+      message: IAA offices now have CC doors
+    - type: Fix
+      message: genpop now has a cryo sleep pod
+    - type: Tweak
+      message: made abandoned cargo maints a little more maze like.
+    - type: Remove
+      message: removed deathsquad
+  id: 693
+  time: '2025-11-24T03:33:19.0000000+00:00'
+- author: AraiMaia
+  changes:
+    - type: Add
+      message: >-
+        New cosmetic alternative to the utility belt for engineers, the
+        Engineering Harness
+    - type: Tweak
+      message: >-
+        Atmos, engineers and the CE can now choose either the belt or harness in
+        their loadouts.
+    - type: Fix
+      message: >-
+        Atmos no longer spawns with a redudant pair of boots, and are now able
+        to select workboots as part of their loadout.
+  id: 694
+  time: '2025-11-24T03:48:01.0000000+00:00'
+- author: zergologist
+  changes:
+    - type: Add
+      message: >-
+        New-new sprites for atmos hardsuits. Inspired by the resprites AraiMaia
+        was doing for engineering hardsuits
+  id: 695
+  time: '2025-11-24T04:06:40.0000000+00:00'
+- author: willowzeta
+  changes:
+    - type: Add
+      message: Ported stencil decals from WizDen
+  id: 696
+  time: '2025-11-25T23:34:36.0000000+00:00'

@@ -1,10 +1,12 @@
 // SPDX-FileCopyrightText: 2025 Skye <57879983+Rainbeon@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Terkala <appleorange64@gmail.com>
 // SPDX-FileCopyrightText: 2025 kbarkevich <24629810+kbarkevich@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
-// SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+// SPDX-License-Identifier: AGPL-3.0-or-later OR MIT
 
 using System.Numerics;
+using Robust.Shared.Audio;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Prototypes;
@@ -127,17 +129,17 @@ namespace Content.Server.BloodCult.EntitySystems
 			}
 			var targetTile = _mapSystem.GetTileRef(gridUid.Value, grid, inLocation);
 
-			var barrier = Spawn("ForceBarrier", inLocation);
+		var barrier = Spawn("ForceBarrier", inLocation);
 
-			if (gridUid != null && TryComp<TransformComponent>(barrier, out var barrierTransform))
-			{
-				_transform.AnchorEntity((barrier, barrierTransform), ((EntityUid)gridUid, grid), targetTile.GridIndices);
-				_audioSystem.PlayPvs("/Audio/Effects/inneranomaly.ogg", inLocation);
-			}
-			else
-			{
-				QueueDel(barrier);
-			}
+		if (gridUid != null && TryComp<TransformComponent>(barrier, out var barrierTransform))
+		{
+			_transform.AnchorEntity((barrier, barrierTransform), ((EntityUid)gridUid, grid), targetTile.GridIndices);
+			_audioSystem.PlayPvs(new SoundPathSpecifier("/Audio/Effects/inneranomaly.ogg"), inLocation);
+		}
+		else
+		{
+			QueueDel(barrier);
+		}
 		}
 
 		private bool CanPlaceBarrierAt(EntityCoordinates clickedAt, out EntityCoordinates location)

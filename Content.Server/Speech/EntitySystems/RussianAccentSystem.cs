@@ -3,6 +3,7 @@
 // SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
 // SPDX-FileCopyrightText: 2024 Psychpsyo <60073468+Psychpsyo@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 W.xyz() <tptechteam@gmail.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
 // SPDX-License-Identifier: MIT
@@ -22,7 +23,7 @@ public sealed class RussianAccentSystem : EntitySystem
 
     public string Accentuate(string message)
     {
-        var accentedMessage = new StringBuilder(_replacement.ApplyReplacements(message, "russian"));
+        var accentedMessage = new StringBuilder(message);
 
         for (var i = 0; i < accentedMessage.Length; i++)
         {

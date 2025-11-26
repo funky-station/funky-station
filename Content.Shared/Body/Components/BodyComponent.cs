@@ -53,11 +53,4 @@ public sealed partial class BodyComponent : Component
     [ViewVariables]
     [DataField, AutoNetworkedField]
     public HashSet<EntityUid> LegEntities = new();
-
-    // EE edit
-    /// <summary>
-    /// Determines if the entity will show up on thermal scanners for thermal vision.
-    /// </summary>
-    [DataField, AutoNetworkedField]
-    public bool ThermalVisibility = true;
 }

@@ -5,3 +5,6 @@
 
 - type: reactiveGroup
   id: Medication
+
+- type: reactiveGroup
+  id: CultistPurge

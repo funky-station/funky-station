@@ -1,7 +1,9 @@
 # SPDX-FileCopyrightText: 2024 DevilishMilk <bluscout78@yahoo.com>
 # SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 Colin Moore <funkycmm>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 ferynn <witchy.girl.me@gmail.com>
 # SPDX-FileCopyrightText: 2025 kbarkevich <24629810+kbarkevich@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
@@ -28,6 +30,12 @@
   text: "/ServerInfo/Funkystation/Guidebook/Command/CommandStandardOperatingProcedure.xml"
   children:
   - CommandTrainingManual
+  - OrderOfSuccession
+
+- type: guideEntry
+  id: OrderOfSuccession
+  name: guide-entry-order-of-succession
+  text: "/ServerInfo/Funkystation/Guidebook/Command/OrderOfSuccession.xml"
 
 - type: guideEntry
   id: AlertLevelsSOP
@@ -39,8 +47,8 @@
   - BlueAlertSOP
   - RedAlertSOP
   - VioletAlertSOP
-  - DeltaAlertSOP
   - GammaAlertSOP
+  - DeltaAlertSOP
   - OctarineAlertSOP
 
 - type: guideEntry

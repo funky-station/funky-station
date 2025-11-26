@@ -151,6 +151,7 @@
 # SPDX-FileCopyrightText: 2025 IronDragoon <you@example.com>
 # SPDX-FileCopyrightText: 2025 Komoni <131829655+Komonighub@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Liamofthesky <157073227+Liamofthesky@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Lillian Industries <47704287+luegamer@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Lyndomen <49795619+lyndomen@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 McBosserson <148172569+McBosserson@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 McBosserson <mcbosserson@hotmail.com>
@@ -170,12 +171,15 @@
 # SPDX-FileCopyrightText: 2025 ThatOneMoon <91613003+ThatOneMoon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
 # SPDX-FileCopyrightText: 2025 TheSecondLord <88201625+TheSecondLord@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Toaster <mrtoastymyroasty@gmail.com>
+# SPDX-FileCopyrightText: 2025 Toastermeister <215405651+Toastermeister@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 TrixxedHeart <46364955+TrixxedBit@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 V <97265903+formlessnameless@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Xcybitt <197952719+Xcybitt@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Xcybitt <xcybitt@gmail.com>
 # SPDX-FileCopyrightText: 2025 aa5g21 <aa5g21@soton.ac.uk>
 # SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 delorphin <delorphin@gmail.com>
 # SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 ferynn <117872973+ferynn@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 marc-pelletier <113944176+marc-pelletier@users.noreply.github.com>
@@ -353,6 +357,8 @@
     - DrinkGlass
     - DrinkShotGlass
     - DrinkGlassCoupeShaped
+    - DrinkGlassCollinsShaped
+    - DrinkGlassLowballShaped
     - CustomDrinkJug
     - FoodPlate
     - FoodPlateSmall
@@ -440,6 +446,8 @@
     - DrinkGlass
     - DrinkShotGlass
     - DrinkGlassCoupeShaped
+    - DrinkGlassCollinsShaped
+    - DrinkGlassLowballShaped
     - CustomDrinkJug
     - FoodPlate
     - FoodPlateSmall
@@ -488,7 +496,11 @@
     - CassetteTape
     - TapeRecorder
     # End Delta-V additions
+    - SurveillanceWirelessCameraBodyEntertainment #funk
     - UtilityKnife #funk
+    - CandyBowl #pill(pill that pills you) #funk
+    - DeskBell #ringringring #funk
+    - BaseHandheldTelevision #watch my channels #funk
     dynamicRecipes:
     - BoomboxRed
     - BoomboxGreen
@@ -541,6 +553,7 @@
     - CartridgePoison
     - SecHypo # Goobstation
     - ParamedHypo # Goobstation - ParamedHypo
+    - ClothingHandsSecurityKnuckleDusters #funk
   - type: BlueprintReceiver
     whitelist:
       tags:
@@ -725,6 +738,7 @@
     - MagazinePistolLargeIncendiary # Funkystation
     - MagazineBoxPistolLargeUranium # Funkystation
     - MagazineBoxPistolLargeIncendiary # Funkystation
+    - ClothingHandsTruncheonKnuckleDusters # funk
 
 - type: entity
   id: ProtolatheHyperConvection
@@ -781,6 +795,7 @@
     - ElectricGrillMachineCircuitboard
     - BoozeDispenserMachineCircuitboard
     - SodaDispenserMachineCircuitboard
+    - SmartFridgeMachineCircuitboard
     - SpaceHeaterMachineCircuitBoard
     - CutterMachineCircuitboard
     - SalvageMagnetMachineCircuitboard
@@ -1168,6 +1183,8 @@
     - SecHypo # Goobstation
     - autoInjectorCartridgeCase
     - autoInjectorCartridgeCaseSoft
+    - SurveillanceWirelessCameraBodySecurity #funk
+    - ClothingHandsSecurityKnuckleDusters #funk
     dynamicRecipes:
     - BoxBeanbag
     - BoxShotgunIncendiary
@@ -1239,6 +1256,7 @@
     - WeaponMechCombatFlashbangLauncher
     - WeaponMechCombatMissileRack8
     - ClothingEyesNightVisionSecurityGoggles # Funky - EE nightvision
+    - ClothingHandsTruncheonKnuckleDusters # funk
   - type: EmagLatheRecipes # Goobstation
     emagStaticRecipes:
     - GrenadeShrapnel #funky
@@ -1396,7 +1414,11 @@
     - ParamedHypo # Goobstation - ParamedHypo
     - autoInjectorCartridgeCase
     - autoInjectorCartridgeCaseSoft
+    - MedHUD # Funky
+    - Vial # Funky
     - UtilityKnife #if you don't have scalpels ig #funk
+    - CandyBowl #pill(pill that pills you) #funk
+    - DeskBell #ringringring #funk
     dynamicRecipes:
     - ChemicalPayload
     - CryostasisBeaker
@@ -1410,6 +1432,12 @@
     - OmnimedTool
     - MedicalCyberneticEyes
     - ClothingEyesNightVisionMedicalGoggles # Funky - EE nightvision
+    - CompactDefib # Funky Change
+    - JawsOfLifeLeftArm # Funky Change
+    - JawsOfLifeRightArm # Funky Change
+    - SpeedLeftLeg # Funky Change
+    - SpeedRightLeg # Funky Change
+    - BasicCyberneticEyes # Funky Change
   - type: Machine
     board: MedicalTechFabCircuitboard
   - type: StealTarget
@@ -1441,6 +1469,7 @@
     - ClothingUniformJumpskirtColorGrey
     - ClothingUniformJumpsuitBartender
     - ClothingUniformJumpskirtBartender
+    - ApronBartender # Funky Change
     - ClothingHeadHatCapcap
     - ClothingHeadHatCaptain
     - ClothingUniformJumpsuitCaptain
@@ -1465,6 +1494,7 @@
     - ClothingUniformJumpskirtChaplain
     - ClothingUniformJumpsuitChef
     - ClothingUniformJumpskirtChef
+    - ApronChef # Funky Change
     - ClothingUniformJumpsuitChemistry
     - ClothingUniformJumpskirtChemistry
     - ClothingUniformJumpsuitClown
@@ -1497,6 +1527,7 @@
     - ClothingUniformJumpskirtHoSParadeMale
     - ClothingUniformJumpsuitHydroponics
     - ClothingUniformJumpskirtHydroponics
+    - ApronHydroponics # Funky Change
     - ClothingUniformJumpsuitJanitor
     - ClothingUniformJumpskirtJanitor
     - ClothingUniformJumpsuitLawyerBlack

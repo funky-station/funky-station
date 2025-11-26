@@ -1,3 +1,4 @@
+# SPDX-FileCopyrightText: 2025 willow <willowzeta632146@proton.me>
 # SPDX-FileCopyrightText: 2025 wilowzeta <willowzeta632146@proton.me>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -19,6 +20,12 @@
   sprite:
     sprite: Decals/directional_tiles.rsi
     state: anchor
+
+- type: decal
+  id: DirFloorTileAnomalyLab
+  sprite:
+    sprite: Decals/directional_tiles.rsi
+    state: anomlab
 
 - type: decal
   id: DirFloorTileArmory
@@ -183,10 +190,22 @@
     state: med
 
 - type: decal
+  id: DirFloorTileMorgue
+  sprite:
+    sprite: Decals/directional_tiles.rsi
+    state: morgue
+
+- type: decal
   id: DirFloorTileNewsroom
   sprite:
     sprite: Decals/directional_tiles.rsi
     state: news
+
+- type: decal
+  id: DirFloorTileOrdnanceLab
+  sprite:
+    sprite: Decals/directional_tiles.rsi
+    state: ordnance
 
 - type: decal
   id: DirFloorTilePointerDown
@@ -213,6 +232,12 @@
     state: pointer_up
 
 - type: decal
+  id: DirFloorTilePower
+  sprite:
+    sprite: Decals/directional_tiles.rsi
+    state: power
+
+- type: decal
   id: DirFloorTilePsych
   sprite:
     sprite: Decals/directional_tiles.rsi
@@ -231,6 +256,12 @@
     state: salvage
 
 - type: decal
+  id: DirFloorTileSatelliteArray
+  sprite:
+    sprite: Decals/directional_tiles.rsi
+    state: satellite
+
+- type: decal
   id: DirFloorTileScience
   sprite:
     sprite: Decals/directional_tiles.rsi
@@ -241,6 +272,36 @@
   sprite:
     sprite: Decals/directional_tiles.rsi
     state: security
+
+- type: decal
+  id: DirFloorTileSingularity
+  sprite:
+    sprite: Decals/directional_tiles.rsi
+    state: singularity
+
+- type: decal
+  id: DirFloorTileSolars
+  sprite:
+    sprite: Decals/directional_tiles.rsi
+    state: solars
+
+- type: decal
+  id: DirFloorTileSupermatter
+  sprite:
+    sprite: Decals/directional_tiles.rsi
+    state: spicyrock
+
+- type: decal
+  id: DirFloorTileTelescience
+  sprite:
+    sprite: Decals/directional_tiles.rsi
+    state: telesci
+
+- type: decal
+  id: DirFloorTileTesla
+  sprite:
+    sprite: Decals/directional_tiles.rsi
+    state: tesla
 
 - type: decal
   id: DirFloorTileTheater
@@ -265,6 +326,18 @@
   sprite:
     sprite: Decals/directional_tiles.rsi
     state: viro
+
+- type: decal
+  id: DirFloorTileXenoarch
+  sprite:
+    sprite: Decals/directional_tiles.rsi
+    state: xenoarch
+
+- type: decal
+  id: DirFloorTileXenobio
+  sprite:
+    sprite: Decals/directional_tiles.rsi
+    state: xenobio
 
 - type: decal
   id: DirFloorTileZoo

@@ -5882,3 +5882,11 @@ Entries:
       message: Ported stencil decals from WizDen
   id: 696
   time: '2025-11-25T23:34:36.0000000+00:00'
+- author: mkanke-real
+  changes:
+    - type: Add
+      message: Added Yip-Yap and more floor decals to Roid
+    - type: Fix
+      message: Various minor Roid fixes
+  id: 697
+  time: '2025-11-26T14:54:14.0000000+00:00'

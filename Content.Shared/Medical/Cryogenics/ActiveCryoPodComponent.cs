@@ -4,7 +4,6 @@
 //
 // SPDX-License-Identifier: MIT
 
-namespace Content.Server.Medical.Components;
 using Robust.Shared.GameStates;
 
 namespace Content.Shared.Medical.Cryogenics;

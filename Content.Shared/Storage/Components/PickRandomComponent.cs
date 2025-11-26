@@ -5,7 +5,6 @@
 //
 // SPDX-License-Identifier: MIT
 
-using Content.Server.Storage.EntitySystems;
 using Content.Shared.Storage.EntitySystems;
 using Content.Shared.Whitelist;
 using Robust.Shared.GameStates;

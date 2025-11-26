@@ -115,3 +115,13 @@
   - type: StorageFill
     contents:
     - id: CrayonBox
+
+- type: entity
+  parent: BasePlushieLizardJob
+  id: PlushieLizardJobRoboticist
+  name: roboticist lizard plushie
+  description: An adorable stuffed toy that resembles a lizardperson as a roboticist. Smells of oil and emits faint chirps of servomotors.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Fun/toys.rsi
+    state: roboticist_lizard

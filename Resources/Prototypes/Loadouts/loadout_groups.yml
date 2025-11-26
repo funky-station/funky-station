@@ -1374,6 +1374,13 @@
   - WhiteJumpsuit
   - WhiteJumpskirt
 
+- type: loadoutGroup #Funky Weh Plish
+  id: RoboticistJobTrinkets
+  name: loadout-group-jobtrinkets
+  minLimit: 0
+  loadouts:
+  - LizardPlushieRoboticist
+
 # Security
 - type: loadoutGroup
   id: HeadofSecurityHead

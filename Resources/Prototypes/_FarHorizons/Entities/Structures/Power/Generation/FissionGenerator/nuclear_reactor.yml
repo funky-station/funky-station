@@ -113,6 +113,15 @@
           components:
             - ReactorPart
   - type: NuclearReactor
+  - type: DeviceNetwork
+    deviceNetId: Wireless
+    receiveFrequencyId: BasicDevice
+  - type: WirelessNetworkConnection
+    range: 200
+  - type: DeviceLinkSink
+    ports:
+      - InsertControlRods
+      - RetractControlRods
   - type: ActivatableUI
     key: enum.NuclearReactorUiKey.Key
   - type: ActivatableUIRequiresAnchor

@@ -1,3 +1,4 @@
+
 using Content.Server.Administration.Logs;
 using Content.Server.AlertLevel;
 using Content.Server.Atmos.EntitySystems;
@@ -138,19 +139,7 @@ public sealed class NuclearReactorSystem : SharedNuclearReactorSystem
 
     private void OnPartChanged(EntityUid uid, NuclearReactorComponent component, ContainerModifiedMessage args) => ReactorTryGetSlot(uid, "part_slot", out component.PartSlot!);
 
-    private void OnShutdown(Entity<NuclearReactorComponent> ent, ref ComponentShutdown args)
-    {
-        var comp = ent.Comp;
-        for (var x = 0; x < _gridWidth; x++)
-        {
-            for (var y = 0; y < _gridHeight; y++)
-            {
-                QueueDel(_entityManager.GetEntity(comp.VisualGrid[x, y]));
-            }
-        }
-        QueueDel(comp.InletEnt);
-        QueueDel(comp.OutletEnt);
-    }
+    private void OnShutdown(Entity<NuclearReactorComponent> ent, ref ComponentShutdown args) => CleanUp(ent.Comp);
 
     #region Main Loop
     private void OnUpdate(Entity<NuclearReactorComponent> ent, ref AtmosDeviceUpdateEvent args)
@@ -165,10 +154,13 @@ public sealed class NuclearReactorSystem : SharedNuclearReactorSystem
         if (comp.Melted)
             return;
 
+        // I wish I could do a lot of this stuff on init, but it gets mad if I try
         if (!comp.InletEnt.HasValue || EntityManager.Deleted(comp.InletEnt.Value))
-            comp.InletEnt = SpawnAttachedTo("ReactorGasPipe", new(ent.Owner, -2, -1), rotation: Angle.FromDegrees(-90));
+            comp.InletEnt = SpawnAttachedTo("ReactorGasPipe", new(uid, -2, -1), rotation: Angle.FromDegrees(-90));
         if (!comp.OutletEnt.HasValue || EntityManager.Deleted(comp.OutletEnt.Value))
-            comp.OutletEnt = SpawnAttachedTo("ReactorGasPipe", new(ent.Owner, 2, 1), rotation: Angle.FromDegrees(90));
+            comp.OutletEnt = SpawnAttachedTo("ReactorGasPipe", new(uid, 2, 1), rotation: Angle.FromDegrees(90));
+
+        CheckAnchoredPipes(uid, comp);
 
         if (!_nodeContainer.TryGetNode(comp.InletEnt.Value, comp.PipeName, out PipeNode? inlet))
             return;
@@ -218,10 +210,9 @@ public sealed class NuclearReactorSystem : SharedNuclearReactorSystem
         // to ensure the processes do not interfere with each other
 
         // Rod interactions
-
-    {
-        
-                for (var y = 0; y < _gridHeight; y++)
+        for (var x = 0; x < _gridWidth; x++)
+        {
+            for (var y = 0; y < _gridHeight; y++)
             {
                 if (comp.ComponentGrid![x, y] != null)
                 {

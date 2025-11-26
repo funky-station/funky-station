@@ -143,6 +143,13 @@
     - NuclearReactor
     - Power
 
+- type: entity
+  id: NuclearReactorEmpty
+  parent: BaseNuclearReactor
+  components:
+  - type: NuclearReactor
+    prefab: empty
+
 # Visual parts on the reactor
 - type: entity
   id: ReactorComponent

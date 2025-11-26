@@ -1,23 +1,16 @@
-﻿using Content.Server.Atmos.EntitySystems;
-using Content.Shared.Atmos.Components;
-using Content.Shared.EntityEffects;
-using Content.Shared.EntityEffects.Effects.Atmos;
+﻿using Content.Shared.Database;
+using Robust.Shared.Prototypes;
 
-namespace Content.Server.EntityEffects.Effects.Atmos;
+namespace Content.Shared.EntityEffects.Effects.Atmos;
 
 /// <summary>
-/// Sets this entity on fire.
+/// See serverside system
 /// </summary>
-/// <inheritdoc cref="EntityEffectSystem{T,TEffect}"/>
-public sealed partial class IngiteEntityEffectSystem : EntityEffectSystem<FlammableComponent, Ignite>
+/// <inheritdoc cref="EntityEffect"/>
+public sealed partial class Ignite : EntityEffectBase<Ignite>
 {
-    [Dependency] private readonly FlammableSystem _flammable = default!;
+    public override string EntityEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys) =>
+        Loc.GetString("entity-effect-guidebook-ignite", ("chance", Probability));
 
-    protected override void Effect(Entity<FlammableComponent> entity, ref EntityEffectEvent<Ignite> args)
-    {
-        // TODO: Proper BodySystem Metabolism Effect relay...
-        // TODO: If this fucks over downstream shitmed, I give you full approval to use whatever shitcode method you need to fix it. Metabolism is awful.
-        _flammable.Ignite(entity, entity, flammable: entity.Comp);
-    }
+    public override LogImpact? Impact => LogImpact.Medium;
 }
-

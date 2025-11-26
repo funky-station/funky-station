@@ -20,4 +20,3 @@ public sealed partial class IngiteEntityEffectSystem : EntityEffectSystem<Flamma
         _flammable.Ignite(entity, entity, flammable: entity.Comp);
     }
 }
-

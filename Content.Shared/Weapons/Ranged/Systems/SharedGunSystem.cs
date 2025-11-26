@@ -1084,3 +1084,7 @@ public enum AmmoVisuals : byte
     MagLoaded,
     BoltClosed,
 }
+public record struct ShooterImpulseEvent()
+{
+    public bool Push;
+};

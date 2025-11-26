@@ -14,16 +14,17 @@
 //
 // SPDX-License-Identifier: MIT
 
-using Content.Server.Body.Systems;
-using Content.Server.Nutrition.EntitySystems;
+using Content.Shared.Body.Systems;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Reagent;
+using Content.Shared.Nutrition.EntitySystems;
 using Content.Shared.Whitelist;
+using Robust.Shared.GameStates;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
-namespace Content.Server.Body.Components
+namespace Content.Shared.Body.Components
 {
-    [RegisterComponent, Access(typeof(StomachSystem), typeof(FoodSystem))]
+    [RegisterComponent, NetworkedComponent, Access(typeof(StomachSystem))]
     public sealed partial class StomachComponent : Component
     {
         /// <summary>
@@ -60,7 +61,7 @@ namespace Content.Server.Body.Components
         ///     What solution should this stomach push reagents into, on the body?
         /// </summary>
         [DataField]
-        public string BodySolutionName = BloodstreamComponent.DefaultChemicalsSolutionName;
+        public string BodySolutionName = "chemicals";
 
         /// <summary>
         ///     Time between reagents being ingested and them being
@@ -74,6 +75,12 @@ namespace Content.Server.Body.Components
         /// </summary>
         [DataField]
         public EntityWhitelist? SpecialDigestible = null;
+
+        /// <summary>
+        /// Controls whitelist behavior. If true, this stomach can digest <i>only</i> food that passes the whitelist. If false, it can digest normal food <i>and</i> any food that passes the whitelist.
+        /// </summary>
+        [DataField]
+        public bool IsSpecialDigestibleExclusive = true;
 
         /// <summary>
         ///     Used to track how long each reagent has been in the stomach

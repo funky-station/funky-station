@@ -146,9 +146,18 @@
 - type: entity
   id: NuclearReactorEmpty
   parent: BaseNuclearReactor
+  suffix: Empty
   components:
   - type: NuclearReactor
     prefab: empty
+
+- type: entity
+  id: NuclearReactorMeltdown
+  parent: BaseNuclearReactor
+  suffix: Meltdown
+  components:
+  - type: NuclearReactor
+    prefab: meltdown
 
 # Visual parts on the reactor
 - type: entity

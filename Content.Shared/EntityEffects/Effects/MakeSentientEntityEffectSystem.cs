@@ -1,42 +1,22 @@
-﻿using Content.Server.Ghost.Roles.Components;
-using Content.Server.Speech.Components;
-using Content.Shared.EntityEffects;
-using Content.Shared.EntityEffects.Effects;
-using Content.Shared.Mind.Components;
+﻿using Robust.Shared.Prototypes;
 
-namespace Content.Server.EntityEffects.Effects;
+namespace Content.Shared.EntityEffects.Effects;
 
-/// <summary>
-/// Makes this entity sentient. Allows ghost to take it over if it's not already occupied.
-/// Optionally also allows this entity to speak.
-/// </summary>
-/// <inheritdoc cref="EntityEffectSystem{T,TEffect}"/>
-public sealed partial class MakeSentientEntityEffectSystem : EntityEffectSystem<MetaDataComponent, MakeSentient>
+/// <inheritdoc cref="EntityEffect"/>
+public sealed partial class MakeSentient : EntityEffectBase<MakeSentient>
 {
-    protected override void Effect(Entity<MetaDataComponent> entity, ref EntityEffectEvent<MakeSentient> args)
-    {
-        // Let affected entities speak normally to make this effect different from, say, the "random sentience" event
-        // This also works on entities that already have a mind
-        // We call this before the mind check to allow things like player-controlled mice to be able to benefit from the effect
-        if (args.Effect.AllowSpeech)
-        {
-            RemComp<ReplacementAccentComponent>(entity);
-            // TODO: Make MonkeyAccent a replacement accent and remove MonkeyAccent code-smell.
-            RemComp<MonkeyAccentComponent>(entity);
-        }
+    /// <summary>
+    /// Description for the ghost role created by this effect.
+    /// </summary>
+    [DataField]
+    public LocId RoleDescription = "ghost-role-information-cognizine-description";
 
-        // Stops from adding a ghost role to things like people who already have a mind
-        if (TryComp<MindContainerComponent>(entity, out var mindContainer) && mindContainer.HasMind)
-            return;
+    /// <summary>
+    /// Whether we give the target the ability to speak coherently.
+    /// </summary>
+    [DataField]
+    public bool AllowSpeech = true;
 
-        // Don't add a ghost role to things that already have ghost roles
-        if (TryComp(entity, out GhostRoleComponent? ghostRole))
-            return;
-
-        ghostRole = AddComp<GhostRoleComponent>(entity);
-        EnsureComp<GhostTakeoverAvailableComponent>(entity);
-
-        ghostRole.RoleName = entity.Comp.EntityName;
-        ghostRole.RoleDescription = Loc.GetString("ghost-role-information-cognizine-description");
-    }
+    public override string EntityEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
+        => Loc.GetString("entity-effect-guidebook-make-sentient", ("chance", Probability));
 }

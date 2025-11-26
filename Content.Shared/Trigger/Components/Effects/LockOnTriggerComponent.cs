@@ -15,13 +15,13 @@ public sealed partial class LockOnTriggerComponent : BaseXOnTriggerComponent
     /// If the trigger will lock, unlock or toggle the lock.
     /// </summary>
     [DataField, AutoNetworkedField]
-    public LockAction LockOnTrigger = LockAction.Toggle;
+    public LockAction LockMode = LockAction.Toggle;
 }
 
 [Serializable, NetSerializable]
 public enum LockAction
 {
-    Lock   = 0,
+    Lock = 0,
     Unlock = 1,
     Toggle = 2,
 }

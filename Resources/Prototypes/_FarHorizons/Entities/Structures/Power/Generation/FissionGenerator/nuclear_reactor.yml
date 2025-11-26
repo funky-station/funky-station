@@ -1,3 +1,4 @@
+
 - type: entity
   id: BaseNuclearReactor
   parent: BaseStructure
@@ -22,12 +23,12 @@
     - state: reactor_lights_warning
       visible: false
       map: [ "enum.ReactorVisualLayers.Lights" ]
-    # - state: reactor_fire
-    #   visible: false
-    #   map: [ "enum.ReactorVisualLayers.Sprite" ]
-    # - state: reactor_smoke
-    #   visible: false
-    #   map: [ "enum.ReactorVisualLayers.Sprite" ]
+    - state: reactor_fire
+      visible: false
+      map: [ "enum.ReactorVisualLayers.Smoke" ]
+    - state: reactor_smoke
+      visible: false
+      map: [ "enum.ReactorVisualLayers.Fire" ]
   - type: GenericVisualizer
     visuals:
       enum.ReactorVisuals.Sprite:
@@ -54,14 +55,14 @@
           LightsOff: { visible: false }
           LightsWarning: { state: reactor_lights_warning, visible: true }
           LightsMeltdown: { state: reactor_lights_meltdown, visible: true }
-      # enum.ReactorVisuals.Smoke:
-      #   enum.ReactorVisualLayers.Smoke:
-      #     True: {visible: true}
-      #     False: {visible: false}
-      # enum.ReactorVisuals.Effects:
-      #   enum.ReactorVisualLayers.Fire:
-      #     True: {visible: true}
-      #     False: {visible: false}
+      enum.ReactorVisuals.Smoke:
+        enum.ReactorVisualLayers.Smoke:
+          True: { visible: true }
+          False: { visible: false }
+      enum.ReactorVisuals.Fire:
+        enum.ReactorVisualLayers.Fire:
+          True: { visible: true }
+          False: { visible: false }
   - type: Appearance
   - type: Physics
     bodyType: Static
@@ -73,7 +74,7 @@
       fix1:
         shape:
           !type:PhysShapeAabb
-          bounds: "-2.5,-2.5,2.5,2.5"
+          bounds: "-2.5,-2.5,2.5,2"
         density: 190
         mask:
         - MachineMask
@@ -81,26 +82,9 @@
         - MachineLayer
         - HighImpassable
   - type: Anchorable
-    flags: 
-    - Anchorable
-  # - type: NodeContainer
-  #   examinable: true
-  #   nodes:
-  #     inlet:
-  #       !type:OffsetPipeNode
-  #       nodeGroupID: Pipe
-  #       pipeDirection: West
-  #       volume: 1000
-  #       offsetEast: -3
-  #       offsetNorth: -1
-  #     outlet:
-  #       !type:OffsetPipeNode
-  #       nodeGroupID: Pipe
-  #       pipeDirection: East
-  #       volume: 1000
-  #       offsetEast: 3
-  #       offsetNorth: 1
   - type: AtmosDevice
+  - type: AtmosMonitoringConsoleDevice # TODO: this doesn't work?
+    navMapBlip: Thermoregulator
   - type: RadiationSource
     intensity: 0
   - type: ContainerContainer
@@ -205,9 +189,9 @@
     tags:
     - HideContextMenu
 
-# Nuclear waste resultant from a meltdown
+# Nuclear debris resultant from a meltdown
 - type: entity
-  id: NuclearWasteChunk
+  id: NuclearDebrisChunk
   parent: BaseItem
   name: nuclear debris
   categories: [ HideSpawnMenu ]

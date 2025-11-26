@@ -28,3 +28,61 @@
      amount: 2
   products:
     Peggnog: 3
+
+- type: reaction
+  id: Alexander
+  requiredMixerCategories:
+  - Shake
+  reactants:
+   Cognac:
+     amount: 1
+   CremeDeCacao:
+     amount: 1
+   Cream:
+     amount: 1
+  products:
+    Alexander: 3
+
+- type: reaction
+  id: AmarettoAlexander
+  requiredMixerCategories:
+  - Shake
+  reactants:
+   Amaretto:
+     amount: 1
+   CremeDeCacao:
+     amount: 1
+   Cream:
+     amount: 1
+  products:
+    AmarettoAlexander: 3
+
+- type: reaction
+  id: AmarettoSour
+  requiredMixerCategories:
+  - Stir
+  reactants:
+   Amaretto:
+     amount: 2
+   Egg:
+     amount: 6
+   JuiceLemon:
+     amount: 2
+  products:
+    AmarettoSour: 10
+
+- type: reaction
+  id: Amaterasu
+  reactants:
+   Shochu:
+     amount: 1
+   JuiceBerry:
+     amount: 2
+   Vodka:
+     amount: 1
+   Grenadine:
+     amount: 1
+   SodaWater:
+     amount: 5
+  products:
+    Amaterasu: 10

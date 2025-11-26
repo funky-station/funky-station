@@ -29,6 +29,10 @@ flavor-complex-shochu = like stiff rice wine
 flavor-complex-triple-sec = warm and flowery with an orange taste which recalls the ocean air and summer wind of the caribbean
 flavor-complex-24-volt-energy = like sour pear-flavoured battery acid
 flavor-complex-voltaic-yellow-wine = like static, with a hint of sweetness
+flavor-complex-alexander = like bitter, creamy cacao
+flavor-complex-amaretto-alexander = like sweet, creamy cacao
+flavor-complex-amaretto-sour = like lemony, almond-flavoured foamy eggs
+flavor-complex-amaterasu = like godly sunlight
 
 ## base
 flavor-base-fresh = fresh

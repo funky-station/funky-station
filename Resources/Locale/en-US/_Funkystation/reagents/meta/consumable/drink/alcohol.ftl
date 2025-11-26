@@ -50,3 +50,15 @@ reagent-desc-triple-sec = A sweet and vibrant orange liqueur.
 
 reagent-name-voltaic-yellow-wine = voltaic yellow wine
 reagent-desc-voltaic-yellow-wine = Electrically charged wine.
+
+reagent-name-alexander = alexander
+reagent-desc-alexander = A creamy, indulgent delight that is stronger than it seems. Has no relation to the pig.
+
+reagent-name-amaretto-alexander = amaretto alexander
+reagent-desc-amaretto-alexander = A creamy, indulgent delight that is in fact as gentle as it seems.
+
+reagent-name-amaretto-sour = amaretto sour
+reagent-desc-amaretto-sour = This sweet play on the sour formula has gained popularity among reptilian audiences due to it's nutty-eggy nature. It's still perfectly suited to most anyone's palette, as long as they're not vegan.
+
+reagent-name-amaterasu = Amaterasu
+reagent-desc-amaterasu = Named for Amaterasu, the Shinto Goddess of the Sun, this cocktail embodies radiance, light, and purity. You might want to close your eyes before looking directly at it.

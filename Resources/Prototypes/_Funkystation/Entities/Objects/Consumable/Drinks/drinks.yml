@@ -279,4 +279,56 @@
         reagents:
         - ReagentId: VoltaicYellowWine
           Quantity: 30
+
+- type: entity
+  parent: DrinkGlass
+  id: DrinkGlassAlexander
+  suffix: alexander
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Alexander
+          Quantity: 30
+
+- type: entity
+  parent: DrinkGlass
+  id: DrinkGlassAmarettoAlexander
+  suffix: amaretto alexander
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: AmarettoAlexander
+          Quantity: 30
+
+- type: entity
+  parent: DrinkGlass
+  id: DrinkGlassAmarettoSour
+  suffix: amaretto sour
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: AmarettoSour
+          Quantity: 30
+
+- type: entity
+  parent: DrinkGlass
+  id: DrinkGlassAmaterasu
+  suffix: amaterasu
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Amaterasu
+          Quantity: 30
 # pignog

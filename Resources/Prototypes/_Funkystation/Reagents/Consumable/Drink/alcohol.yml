@@ -96,3 +96,63 @@
       - !type:AdjustReagent
         reagent: Ethanol
         amount: 0.07
+
+- type: reagent
+  id: Alexander
+  name: reagent-name-alexander
+  parent: BaseAlcohol
+  desc: reagent-desc-alexander
+  physicalDesc: reagent-physical-desc-creamy
+  flavor: alexander
+  color: "#e2e2c0"
+  metamorphicSprite:
+    sprite: _Funkystation/Objects/Consumable/Drinks/alexander.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 4
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
+
+- type: reagent
+  id: AmarettoAlexander
+  name: reagent-name-amaretto-alexander
+  parent: BaseAlcohol
+  desc: reagent-desc-amaretto-alexander
+  physicalDesc: reagent-physical-desc-creamy
+  flavor: amarettoalexander
+  color: "#E2CEC0"
+  metamorphicSprite:
+    sprite: _Funkystation/Objects/Consumable/Drinks/amarettoalexander.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 4
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
+
+- type: reagent
+  id: AmarettoSour
+  name: reagent-name-amaretto-sour
+  parent: BaseAlcohol
+  desc: reagent-desc-amaretto-sour
+  physicalDesc: reagent-physical-desc-tangy
+  flavor: amarettosour
+  color: "#edcd3d"
+  metamorphicSprite:
+    sprite: _Funkystation/Objects/Consumable/Drinks/amarettosour.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 4
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
+
+- type: reagent
+  id: Amaterasu
+  name: reagent-name-amaterasu
+  parent: BaseAlcohol
+  desc: reagent-desc-amaterasu
+  physicalDesc: reagent-physical-desc-blazing
+  flavor: amaterasu
+  color: "#e42d2d"
+  metamorphicSprite:
+    sprite: _Funkystation/Objects/Consumable/Drinks/amaterasu.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 4
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false

@@ -80,6 +80,26 @@
   description: flavor-complex-voltaic-yellow-wine
 
 - type: flavor
+  id: alexander
+  flavorType: Complex
+  description: flavor-complex-alexander
+
+- type: flavor
+  id: amarettoalexander
+  flavorType: Complex
+  description: flavor-complex-amaretto-alexander
+
+- type: flavor
+  id: amarettosour
+  flavorType: Complex
+  description: flavor-complex-amaretto-sour
+
+- type: flavor
+  id: amaterasu
+  flavorType: Complex
+  description: flavor-complex-amaterasu
+
+- type: flavor
   id: eggnog
   flavorType: Complex
   description: flavor-complex-eggnog

@@ -1128,6 +1128,7 @@
       settings: short
   - type: GhostTakeoverAvailable
   - type: OwOAccent
+  - type: CakAccent
   - type: Speech
     speechSounds: Cat
     speechVerb: SmallMob

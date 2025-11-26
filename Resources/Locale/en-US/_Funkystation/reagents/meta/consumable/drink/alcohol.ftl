@@ -62,3 +62,15 @@ reagent-desc-amaretto-sour = This sweet play on the sour formula has gained popu
 
 reagent-name-amaterasu = Amaterasu
 reagent-desc-amaterasu = Named for Amaterasu, the Shinto Goddess of the Sun, this cocktail embodies radiance, light, and purity. You might want to close your eyes before looking directly at it.
+
+reagent-name-triple-citrus = triple citrus
+reagent-desc-triple-citrus = Triple the citrus, triple the fun.
+
+reagent-name-banzai-ti = banzai-tī
+reagent-desc-banzai-ti = A variation on the Long Island Iced Tea, made with melon liqueur for an alternative flavour that's hard to place.
+
+reagent-name-root-mint-brew = root-mint brew
+reagent-desc-root-mint-brew = A soothing herbal mix which tastes of berries, citrus, and mint. Originating from rodentia culture, this drink can be served hot or cold, and is known for its mild regenerative effects.
+
+reagent-name-between-the-sheets = between the sheets
+reagent-desc-between-the-sheets = A classic cocktail. Despite what the name suggests, it is incredibly inadvisable to bring this drink with you when going to bed; NT laundry attendants have enough to deal with.

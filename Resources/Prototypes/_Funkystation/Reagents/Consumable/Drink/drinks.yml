@@ -32,3 +32,18 @@
       effects:
       - !type:SatiateThirst
         factor: 1
+
+- type: reagent
+  id: TripleCitrus
+  name: reagent-name-triple-citrus
+  parent: BaseDrink
+  desc: reagent-desc-triple-citrus
+  physicalDesc: reagent-physical-desc-citric
+  flavor: triplecitrus
+  color: "#c2c91c"
+  metamorphicSprite:
+    sprite: _Funkystation/Objects/Consumable/Drinks/triplecitrus.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 5
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false

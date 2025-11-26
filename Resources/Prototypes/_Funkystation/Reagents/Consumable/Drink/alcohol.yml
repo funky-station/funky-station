@@ -156,3 +156,64 @@
   metamorphicMaxFillLevels: 4
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
+
+- type: reagent
+  id: BanzaiTi
+  name: reagent-name-banzai-ti
+  parent: BaseAlcohol
+  desc: reagent-desc-banzai-ti
+  physicalDesc: reagent-physical-desc-fizzy
+  flavor: banzaiti
+  color: "#e63b3b"
+  metamorphicSprite:
+    sprite: _Funkystation/Objects/Consumable/Drinks/banzaiti.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 5
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
+
+- type: reagent
+  id: RootMintBrew
+  name: reagent-name-root-mint-brew
+  parent: BaseAlcohol
+  desc: reagent-desc-root-mint-brew
+  physicalDesc: reagent-physical-desc-refreshing
+  flavor: rootmintbrew
+  color: "#59798a"
+  metamorphicSprite:
+    sprite: _Funkystation/Objects/Consumable/Drinks/rootmintbrew.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 4
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateHunger
+        factor: 1
+      - !type:AdjustReagent
+        reagent: Ethanol
+        amount: 0.03
+      - !type:HealthChange
+        damage:
+          types:
+            Blunt: -0.2
+            Poison: -0.2
+            Heat: -0.2
+            Shock: -0.2
+            Cold: -0.2
+
+- type: reagent
+  id: BetweenTheSheets
+  name: reagent-name-between-the-sheets
+  parent: BaseAlcohol
+  desc: reagent-desc-between-the-sheets
+  physicalDesc: reagent-physical-desc-strong-smelling
+  flavor: betweenthesheets
+  color: "#d9a74e"
+  metamorphicSprite:
+    sprite: _Funkystation/Objects/Consumable/Drinks/betweenthesheets.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 5
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false

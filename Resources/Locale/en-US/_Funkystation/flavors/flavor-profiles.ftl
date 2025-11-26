@@ -33,6 +33,10 @@ flavor-complex-alexander = like bitter, creamy cacao
 flavor-complex-amaretto-alexander = like sweet, creamy cacao
 flavor-complex-amaretto-sour = like lemony, almond-flavoured foamy eggs
 flavor-complex-amaterasu = like godly sunlight
+flavor-complex-triple-citrus = like extreme sourness
+flavor-complex-banzai-ti = like an asian twist on a liquor cabinet
+flavor-complex-root-mint-brew = like a walk in a verdant, mystical forest
+flavor-complex-between-the-sheets = like a damn good nap
 
 ## base
 flavor-base-fresh = fresh

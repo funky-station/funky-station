@@ -86,3 +86,71 @@
      amount: 5
   products:
     Amaterasu: 10
+
+- type: reaction
+  id: TripleCitrus
+  requiredMixerCategories:
+  - Shake
+  reactants:
+   JuiceLemon:
+     amount: 1
+   JuiceOrange:
+     amount: 1
+   JuiceLime:
+     amount: 1
+  products:
+    TripleCitrus: 3
+
+- type: reaction
+  id: BanzaiTi
+  requiredMixerCategories:
+  - Stir
+  reactants:
+   MelonLiquor:
+     amount: 1
+   TripleSec:
+     amount: 1
+   Gin:
+     amount: 1
+   Rum:
+     amount: 1
+   Tequila:
+     amount: 1
+   TripleCitrus:
+     amount: 1
+   SodaWater:
+     amount: 2
+  products:
+    BanzaiTi: 8
+
+- type: reaction
+  id: RootMintBrew
+  requiredMixerCategories:
+  - Shake
+  reactants:
+   Tea:
+     amount: 1
+   JuiceBerry:
+     amount: 1
+   TripleCitrus:
+     amount: 1
+   CremeDeMenthe:
+     amount: 1
+  products:
+    RootMintBrew: 4
+
+- type: reaction
+  id: BetweenTheSheets
+  requiredMixerCategories:
+  - Shake
+  reactants:
+   Rum:
+     amount: 1
+   Cognac:
+     amount: 2
+   TripleSec:
+     amount: 1
+   JuiceLemon:
+     amount: 1
+  products:
+    BetweenTheSheets: 5

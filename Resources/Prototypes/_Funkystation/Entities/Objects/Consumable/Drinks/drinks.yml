@@ -331,4 +331,56 @@
         reagents:
         - ReagentId: Amaterasu
           Quantity: 30
+
+- type: entity
+  parent: DrinkGlass
+  id: DrinkGlassBanzaiTi
+  suffix: banzai-tī
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: BanzaiTi
+          Quantity: 30
+
+- type: entity
+  parent: DrinkGlass
+  id: DrinkGlassTripleCitrus
+  suffix: triple citrus
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: TripleCitrus
+          Quantity: 30
+
+- type: entity
+  parent: DrinkGlass
+  id: DrinkGlassRootMintBrew
+  suffix: root mint brew
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: RootMintBrew
+          Quantity: 30
+
+- type: entity
+  parent: DrinkGlass
+  id: DrinkGlassBetweenTheSheets
+  suffix: between the sheets
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: BetweenTheSheets
+          Quantity: 30
 # pignog

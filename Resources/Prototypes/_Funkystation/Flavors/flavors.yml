@@ -100,6 +100,26 @@
   description: flavor-complex-amaterasu
 
 - type: flavor
+  id: triplecitrus
+  flavorType: Complex
+  description: flavor-complex-triple-citrus
+
+- type: flavor
+  id: banzaiti
+  flavorType: Complex
+  description: flavor-complex-banzai-ti
+
+- type: flavor
+  id: rootmintbrew
+  flavorType: Complex
+  description: flavor-complex-root-mint-brew
+
+- type: flavor
+  id: betweenthesheets
+  flavorType: Complex
+  description: flavor-complex-between-the-sheets
+
+- type: flavor
   id: eggnog
   flavorType: Complex
   description: flavor-complex-eggnog

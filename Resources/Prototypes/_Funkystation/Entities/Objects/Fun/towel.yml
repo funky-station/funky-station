@@ -1,0 +1,174 @@
+- type: entity
+  id: FunkyBaseTowel
+  name: base towel
+  abstract: true
+  description: If you want to survive out here, you gotta know where your towel is. 
+  parent: [ UnsensoredClothingUniformBase, ClothingHeadBase, ClothingBeltBase, BaseDeployFoldable ]
+  components:
+  - type: Sprite
+    layers:
+    - state: towel
+      map: ["unfoldedLayer"]
+    - state: towel_folded
+      map: ["foldedLayer"]
+      visible: false
+  - type: Clothing
+    slots: 
+    - BELT
+    - INNERCLOTHING
+    - HEAD
+    femaleMask: UniformTop
+    equipSound: 
+    unequipSound: 
+  - type: MeleeWeapon
+    attackRate: 0.7
+    soundHit:
+      collection: TowelWhip
+    angle: 0
+    animation: WeaponArcTowel
+    damage:
+      types:
+        Blunt: 1
+    bluntStaminaDamageFactor: 6
+  - type: Wieldable
+  - type: IncreaseDamageOnWield
+    damage:
+      types:
+        Blunt: 2
+  - type: Spillable
+    solution: absorbed
+    spillWhenThrown: false
+  - type: DrainableSolution
+    solution: absorbed
+  - type: Absorbent
+    pickupAmount: 15
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 30
+        reagents:
+        - ReagentId: Fiber
+          Quantity: 30
+      absorbed:
+        maxVol: 30
+  - type: UseDelay
+    delay: 1
+  - type: Fiber
+    fiberColor: fibers-white
+  - type: DnaSubstanceTrace
+  - type: Item
+    size: Small
+  - type: Appearance
+
+- type: entity
+  id: FunkyWhiteTowel
+  name: white towel
+  parent: FunkyBaseTowel
+  description: A cheaply-made white towel often distributed to Nanotrasen's employees.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Fun/Towels/white.rsi
+  - type: Clothing
+    sprite: _Funkystation/Objects/Fun/Towels/white.rsi
+  - type: Fiber
+    fiberColor: fibers-white
+
+- type: entity
+  id: FunkyWhiteTowelFolded
+  name: white towel
+  parent: FunkyWhiteTowel
+  suffix: folded
+  components:
+  - type: Foldable
+    folded: true
+
+- type: entity
+  id: FunkyGrayTowel
+  name: gray towel
+  parent: FunkyBaseTowel
+  description: A warm grey towel often given to those who dedicate their lives to community service. Seems strained.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Fun/Towels/gray.rsi
+  - type: Clothing
+    sprite: _Funkystation/Objects/Fun/Towels/gray.rsi
+  - type: Fiber
+    fiberColor: fibers-white
+
+- type: entity
+  id: FunkyGrayTowelFolded
+  name: gray towel
+  parent: FunkyGrayTowel
+  suffix: folded
+  components:
+  - type: Foldable
+    folded: true
+
+# - type: entity
+#   id: DebugFoldingTowel
+#   parent: [BaseItem, BaseDeployFoldable]
+#   name: debug towel
+#   description: GODS DAMNIT.
+#   components:
+#     - type: Transform
+#     - type: Item
+#       size: Normal
+#     - type: Sprite
+#       sprite: _Funkystation/Objects/Fun/Towels/white.rsi
+#       layers:
+#       - state: towel
+#         map: ["unfoldedLayer"]
+#       - state: towel_folded
+#         map: ["foldedLayer"]
+#         visible: false
+#     - type: Appearance
+
+# - type: entity
+#   parent: DebugFoldingTowel
+#   id: DebugFoldingTowelFolded
+#   suffix: folded
+#   components:
+#   - type: Foldable
+#     folded: true
+
+# - type: entity
+#   id: DebugTowel
+#   name: debug nonfolding towel
+#   description: You must know the pain I am going through.
+#   parent: [ UnsensoredClothingUniformBase, ClothingHeadBase, ClothingBeltBase ]
+#   components:
+#   - type: Sprite
+#     sprite: _Funkystation/Objects/Fun/Towels/white.rsi
+#     state: towel_folded
+#   - type: Clothing
+#     sprite: _Funkystation/Objects/Fun/Towels/white.rsi
+#     slots: 
+#     - BELT
+#     - INNERCLOTHING
+#     - HEAD
+#     femaleMask: UniformTop
+#     equipSound: 
+#     unequipSound: 
+#   - type: Spillable
+#     solution: absorbed
+#     spillWhenThrown: false
+#   - type: DrainableSolution
+#     solution: absorbed
+#   - type: Absorbent
+#     pickupAmount: 15
+#   - type: SolutionContainerManager
+#     solutions:
+#       food:
+#         maxVol: 30
+#         reagents:
+#         - ReagentId: Fiber
+#           Quantity: 30
+#       absorbed:
+#         maxVol: 30
+#   - type: UseDelay
+#     delay: 1
+#   - type: Fiber
+#     fiberColor: fibers-white
+#   - type: DnaSubstanceTrace
+#   - type: Item
+#     size: Small

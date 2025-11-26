@@ -1,0 +1,8 @@
+- type: entity
+  id: WeaponArcTowel
+  parent: WeaponArcStatic
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: Sprite
+      sprite: _Funkystation/Effects/arcs.rsi
+      state: towelsnap

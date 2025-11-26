@@ -1,19 +1,19 @@
-﻿using Content.Server.Polymorph.Components;
-using Content.Server.Polymorph.Systems;
-using Content.Shared.EntityEffects;
+﻿using Content.Shared.Polymorph;
+using Robust.Shared.Prototypes;
 
-namespace Content.Server.EntityEffects.Effects;
+namespace Content.Shared.EntityEffects.Effects;
 
-/// <summary>
-/// Polymorphs this entity into another entity.
-/// </summary>
-/// <inheritdoc cref="EntityEffectSystem{T,TEffect}"/>
-public sealed partial class PolymorphEntityEffectSystem : EntityEffectSystem<PolymorphableComponent, Shared.EntityEffects.Effects.Polymorph>
+/// <inheritdoc cref="EntityEffect"/>
+public sealed partial class Polymorph : EntityEffectBase<Polymorph>
 {
-    [Dependency] private readonly PolymorphSystem _polymorph = default!;
+    /// <summary>
+    ///     What polymorph prototype is used on effect
+    /// </summary>
+    [DataField(required: true)]
+    public ProtoId<PolymorphPrototype> Prototype;
 
-    protected override void Effect(Entity<PolymorphableComponent> entity, ref EntityEffectEvent<Shared.EntityEffects.Effects.Polymorph> args)
-    {
-        _polymorph.PolymorphEntity(entity, args.Effect.Prototype);
-    }
+    public override string EntityEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
+        => Loc.GetString("entity-effect-guidebook-make-polymorph",
+            ("chance", Probability),
+            ("entityname", prototype.Index<EntityPrototype>(prototype.Index(Prototype).Configuration.Entity).Name));
 }

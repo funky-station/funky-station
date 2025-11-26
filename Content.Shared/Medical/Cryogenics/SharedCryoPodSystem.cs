@@ -14,7 +14,6 @@
 //
 // SPDX-License-Identifier: MIT
 
-using Content.Server.Medical.Components;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Body.Components;
 using Content.Shared.Body.Systems;

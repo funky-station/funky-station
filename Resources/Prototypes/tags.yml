@@ -789,7 +789,7 @@
   id: FlashPayload
 
 - type: Tag
-  id: Gyros
+  id: Gyro
 
 - type: Tag
   id: Galaxythistle

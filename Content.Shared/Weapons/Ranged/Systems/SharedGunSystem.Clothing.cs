@@ -36,13 +36,15 @@ public partial class SharedGunSystem
     {
         var getConnectedContainerEvent = new GetConnectedContainerEvent();
         RaiseLocalEvent(uid, ref getConnectedContainerEvent);
-        if(!getConnectedContainerEvent.ContainerEntity.HasValue)
+        if (!getConnectedContainerEvent.ContainerEntity.HasValue)
             return;
 
         RaiseLocalEvent(getConnectedContainerEvent.ContainerEntity.Value, args);
     }
 
-    private void OnClothingAmmoCount(EntityUid uid, ClothingSlotAmmoProviderComponent component, ref GetAmmoCountEvent args)
+    private void OnClothingAmmoCount(EntityUid uid,
+        ClothingSlotAmmoProviderComponent component,
+        ref GetAmmoCountEvent args)
     {
         var getConnectedContainerEvent = new GetConnectedContainerEvent();
         RaiseLocalEvent(uid, ref getConnectedContainerEvent);
@@ -51,7 +53,10 @@ public partial class SharedGunSystem
 
         RaiseLocalEvent(getConnectedContainerEvent.ContainerEntity.Value, ref args);
     }
-    private bool TryGetClothingSlotEntity(EntityUid uid, ClothingSlotAmmoProviderComponent component, [NotNullWhen(true)] out EntityUid? slotEntity)
+
+    private bool TryGetClothingSlotEntity(EntityUid uid,
+        ClothingSlotAmmoProviderComponent component,
+        [NotNullWhen(true)] out EntityUid? slotEntity)
     {
         slotEntity = null;
 
@@ -62,7 +67,7 @@ public partial class SharedGunSystem
         // Assmos extinguisher nozzle changes start here
         if (component.CheckHands)
         {
-            foreach (var item in _handsSystem.EnumerateHeld(user))
+            foreach (var item in _handsSystem.EnumerateHeld((user, null)))
             {
                 if (item == uid)
                     continue;

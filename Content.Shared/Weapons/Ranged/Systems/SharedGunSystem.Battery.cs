@@ -7,6 +7,8 @@
 //
 // SPDX-License-Identifier: MIT
 
+using Content.Shared.Damage;
+using Content.Shared.Damage.Events;
 using Content.Shared.Examine;
 using Content.Shared.Projectiles;
 using Content.Shared.Power;

@@ -512,4 +512,7 @@ public abstract class SharedEntityStorageSystem : EntitySystem
     {
 
     }
+
+    [ByRefEvent]
+    public record struct StoreMobInItemContainerAttemptEvent(bool Handled, bool Cancelled = false);
 }

@@ -74,3 +74,22 @@ reagent-desc-root-mint-brew = A soothing herbal mix which tastes of berries, cit
 
 reagent-name-between-the-sheets = between the sheets
 reagent-desc-between-the-sheets = A classic cocktail. Despite what the name suggests, it is incredibly inadvisable to bring this drink with you when going to bed; NT laundry attendants have enough to deal with.
+
+reagent-name-bitters-and-soda = bitters and soda
+reagent-desc-bitters-and-soda = A milder, dryer alternative to ginger beer for the task of settling rumbling tummies. Technically contains alcohol, but in low enough concentrations that children or the pregnant can enjoy without worrying.
+
+reagent-name-blank-paper = blank paper
+reagent-desc-blank-paper = A fizzy cocktail for those looking to start fresh.
+
+reagent-name-blue-blazer = blue blazer
+reagent-desc-blue-blazer = A visually stunning drink created by one of the fathers of cocktail bartending, made by tossing flaming whiskey between two glasses. Not to be served if it's above fifty degrees farenheit outside, although that's not much of a concern on a space station.
+
+reagent-name-bosozoku = bōsōzoku
+reagent-desc-bosozoku = A simple summer drink from Mars, made from a 1:1 mix of rice beer and lemonade, making it akin to a japanese take on the Radler. Named after a historical group of reckless motorcycle youths.
+
+reagent-name-branca-menta = branca menta
+reagent-desc-branca-menta = A refreshing mixture of bitter Fernet with mint creme liquour. The closest you'll ever get to the original.
+
+reagent-name-bug-spray = bug spray
+reagent-desc-bug-spray = A harsh, acrid, bitter drink, for those who need something to brace themselves. So powerful that you might mistake it for actual bugspray in terms of taste.
+

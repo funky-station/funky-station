@@ -120,6 +120,36 @@
   description: flavor-complex-between-the-sheets
 
 - type: flavor
+  id: bittersandsoda
+  flavorType: Complex
+  description: flavor-complex-bitters-and-soda
+
+- type: flavor
+  id: blankpaper
+  flavorType: Complex
+  description: flavor-complex-blank-paper
+
+- type: flavor
+  id: blueblazer
+  flavorType: Complex
+  description: flavor-complex-blue-blazer
+
+- type: flavor
+  id: bosozoku
+  flavorType: Complex
+  description: flavor-complex-bosozoku
+
+- type: flavor
+  id: brancamenta
+  flavorType: Complex
+  description: flavor-complex-branca-menta
+
+- type: flavor
+  id: bugspray
+  flavorType: Complex
+  description: flavor-complex-bug-spray
+
+- type: flavor
   id: eggnog
   flavorType: Complex
   description: flavor-complex-eggnog

@@ -383,4 +383,82 @@
         reagents:
         - ReagentId: BetweenTheSheets
           Quantity: 30
+
+- type: entity
+  parent: DrinkGlass
+  id: DrinkGlassBittersAndSoda
+  suffix: bitters and soda
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: BittersAndSoda
+          Quantity: 30
+
+- type: entity
+  parent: DrinkGlass
+  id: DrinkGlassBlankPaper
+  suffix: blank paper
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: BlankPaper
+          Quantity: 30
+
+- type: entity
+  parent: DrinkGlass
+  id: DrinkGlassBlueBlazer
+  suffix: blue blazer
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: BlueBlazer
+          Quantity: 30
+
+- type: entity
+  parent: DrinkGlass
+  id: DrinkGlassBosozoku
+  suffix: bōsōzoku
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Bosozoku
+          Quantity: 30
+
+- type: entity
+  parent: DrinkGlass
+  id: DrinkGlassBrancaMenta
+  suffix: branca menta
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: BrancaMenta
+          Quantity: 30
+
+- type: entity
+  parent: DrinkGlass
+  id: DrinkGlassBugSpray
+  suffix: bug spray
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: BugSpray
+          Quantity: 30
 # pignog

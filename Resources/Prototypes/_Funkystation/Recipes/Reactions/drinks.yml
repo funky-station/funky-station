@@ -155,3 +155,79 @@
      amount: 1
   products:
     BetweenTheSheets: 5
+
+- type: reaction
+  id: BittersAndSoda
+  requiredMixerCategories:
+  - Shake
+  reactants:
+   SodaWater:
+     amount: 5
+   Ice:
+     amount: 3
+   Bitters:
+     amount: 2
+  products:
+    BittersAndSoda: 10
+
+- type: reaction
+  id: BlankPaper
+  requiredMixerCategories:
+  - Shake
+  reactants:
+   Silencer:
+     amount: 1
+   Nothing:
+     amount: 1
+   NuclearCola:
+     amount: 1
+  products:
+    BlankPaper: 3
+
+- type: reaction
+  id: BlueBlazer
+  reactants:
+   Whiskey:
+     amount: 4
+   Water:
+     amount: 4
+   Sugar:
+     amount: 1
+  products:
+    BlueBlazer: 9
+
+- type: reaction
+  id: Bosozoku
+  reactants:
+   Lemonade:
+     amount: 1
+   RiceBeer:
+     amount: 1
+  products:
+    Bosozoku: 2
+
+- type: reaction
+  id: BrancaMenta
+  reactants:
+   CremeDeMenthe:
+     amount: 1
+   Fernet:
+     amount: 1
+   Ice:
+     amount: 1
+  products:
+    BrancaMenta: 3
+
+- type: reaction
+  id: BugSpray
+  reactants:
+   Rum:
+     amount: 2
+   TripleSec:
+     amount: 2
+   Vodka:
+     amount: 1
+   LemonLime:
+     amount: 1
+  products:
+    BugSpray: 6

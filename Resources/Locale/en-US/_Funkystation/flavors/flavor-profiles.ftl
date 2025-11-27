@@ -37,6 +37,12 @@ flavor-complex-triple-citrus = like extreme sourness
 flavor-complex-banzai-ti = like an asian twist on a liquor cabinet
 flavor-complex-root-mint-brew = like a walk in a verdant, mystical forest
 flavor-complex-between-the-sheets = like a damn good nap
+flavor-complex-bitters-and-soda = like mild aromatics
+flavor-complex-blank-paper = like bubbling possibility
+flavor-complex-blue-blazer = like scorching hot sweet whiskey, with hints of fire
+flavor-complex-bosozoku = like going 100 kilometres down Japan National Route 4 on a modified motorcycle
+flavor-complex-branca-menta = like the most bitter mint you've ever tasted
+flavor-complex-bug-spray = like the pain of ten thousand slain mosquitos
 
 ## base
 flavor-base-fresh = fresh

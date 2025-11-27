@@ -396,7 +396,7 @@
 - type: loadoutGroup
   id: ServiceJumpsuit
   name: loadout-group-service_jumpsuit
-  minlimit: 1
+  minLimit: 1
   loadouts:
   - ServiceJumpsuitDressWhite
   - ServiceJumpsuitDressBlue
@@ -409,7 +409,7 @@
 - type: loadoutGroup
   id: GenericShoes
   name: loadout-group-generic-shoes
-  minlimit: 1
+  minLimit: 1
   loadouts:
   - BlackShoes
   - WhiteShoes

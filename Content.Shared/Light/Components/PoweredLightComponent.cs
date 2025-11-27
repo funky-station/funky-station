@@ -48,8 +48,6 @@
 //
 // SPDX-License-Identifier: MIT
 
-using Content.Server.Light.EntitySystems;
-using Content.Shared.Damage;
 using Content.Shared.DeviceLinking;
 using Content.Shared.Light.EntitySystems;
 using Robust.Shared.Audio;

@@ -9,7 +9,6 @@
 //
 // SPDX-License-Identifier: MIT
 
-using Content.Server.Nutrition.Components;
 using System.Linq;
 using Content.Shared.CCVar;
 using Content.Shared.Chemistry.Components;

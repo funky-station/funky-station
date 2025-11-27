@@ -30,6 +30,8 @@ using Robust.Shared.Timing;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using Content.Shared.Damage.Components;
+using Content.Shared.Damage.Systems;
 using Content.Shared.Inventory;
 
 // Namespace has set accessors, leaving it on the default.
@@ -289,7 +291,7 @@ public partial class SharedBodySystem
 
         return TargetBodyPart.Torso; // Default to torso if something goes wrong
     }
-    
+
     /// <summary>
     /// funky station: get a random body part with an optional blacklist!
     /// useful for not wanting to get torso, or head.
@@ -312,7 +314,7 @@ public partial class SharedBodySystem
             {
                 if (blacklist!.Contains(part))
                     continue;
-                
+
                 return part;
             }
 

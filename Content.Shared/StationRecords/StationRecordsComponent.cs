@@ -7,7 +7,6 @@
 //
 // SPDX-License-Identifier: MIT
 
-using Content.Server.StationRecords.Systems;
 namespace Content.Shared.StationRecords;
 
 [Access(typeof(SharedStationRecordsSystem))]

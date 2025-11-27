@@ -11,7 +11,6 @@
 //
 // SPDX-License-Identifier: MIT
 
-using Content.Server.Storage.Components;
 using Content.Shared.Inventory;
 using Content.Shared.Storage.Components;
 using Content.Shared.Whitelist;

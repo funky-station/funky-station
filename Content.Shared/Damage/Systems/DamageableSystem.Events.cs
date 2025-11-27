@@ -1,3 +1,4 @@
+using Content.Shared._Shitmed.Targeting;
 using Content.Shared.CCVar;
 using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Prototypes;
@@ -207,7 +208,7 @@ public sealed partial class DamageableSystem
 ///     Raised before damage is done, so stuff can cancel it if necessary.
 /// </summary>
 [ByRefEvent]
-public record struct BeforeDamageChangedEvent(DamageSpecifier Damage, EntityUid? Origin = null, bool Cancelled = false);
+public record struct BeforeDamageChangedEvent(DamageSpecifier Damage, EntityUid? Origin = null, TargetBodyPart? TargetPart = null, bool Cancelled = false);
 
 /// <summary>
 ///     Raised on an entity when damage is about to be dealt,
@@ -216,7 +217,22 @@ public record struct BeforeDamageChangedEvent(DamageSpecifier Damage, EntityUid?
 ///
 ///     For example, armor.
 /// </summary>
-public sealed class DamageModifyEvent(DamageSpecifier damage, EntityUid? origin = null)
+
+/// <summary>
+///     Shitmed Change: Raised on parts before damage is done so we can cancel the damage if they evade.
+/// </summary>
+[ByRefEvent]
+public record struct TryChangePartDamageEvent(
+    DamageSpecifier Damage,
+    EntityUid? Origin = null,
+    TargetBodyPart? TargetPart = null,
+    bool IgnoreResistances = false,
+    bool CanSever = true,
+    bool CanEvade = false,
+    float PartMultiplier = 1.00f,
+    bool Evaded = false,
+    bool Cancelled = false);
+public sealed class DamageModifyEvent(DamageSpecifier damage, EntityUid? origin = null, TargetBodyPart? targetPart = null)
     : EntityEventArgs, IInventoryRelayEvent
 {
     // Whenever locational damage is a thing, this should just check only that bit of armour.
@@ -224,6 +240,7 @@ public sealed class DamageModifyEvent(DamageSpecifier damage, EntityUid? origin 
 
     public readonly DamageSpecifier OriginalDamage = damage;
     public DamageSpecifier Damage = damage;
+    public readonly TargetBodyPart? TargetPart; // Shitmed Change
 }
 
 public sealed class DamageChangedEvent : EntityEventArgs
@@ -261,11 +278,17 @@ public sealed class DamageChangedEvent : EntityEventArgs
     /// </summary>
     public readonly EntityUid? Origin;
 
+    /// <summary>
+    ///     Shitmed Change: Can this damage event sever parts?
+    /// </summary>
+    public readonly bool CanSever;
+
     public DamageChangedEvent(
         DamageableComponent damageable,
         DamageSpecifier? damageDelta,
         bool interruptsDoAfters,
-        EntityUid? origin
+        EntityUid? origin,
+        bool canSever = true
     )
     {
         Damageable = damageable;

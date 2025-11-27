@@ -145,7 +145,7 @@
   suffix: Supermatter
   components:
   - type: NavMapBeacon
-    defaultText: station-beacon-ce
+    defaultText: station-beacon-supermatter
 
 - type: entity
   parent: DefaultStationBeaconEngineering

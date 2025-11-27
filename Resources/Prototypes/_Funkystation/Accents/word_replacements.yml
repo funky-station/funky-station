@@ -149,6 +149,7 @@
     accent-cak-words-1: accent-cak-words-replace
     accent-cak-words-1-2: accent-cak-words-replace
     accent-cak-words-1-3: accent-cak-words-replace
+    accent-cak-words-1-4: accent-cak-words-replace
 
 - type: accent
   id: cak1space
@@ -156,6 +157,7 @@
     accent-cak-words-2: accent-cak-words-replace
     accent-cak-words-2-2: accent-cak-words-replace
     accent-cak-words-2-3: accent-cak-words-replace
+    accent-cak-words-2-4: accent-cak-words-replace
 
 - type: accent
   id: cak2spaces

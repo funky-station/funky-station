@@ -6,7 +6,7 @@ accent-cak-words-1-4 = farewell
 accent-cak-words-2 = bye bye
 accent-cak-words-2-2 = see you
 accent-cak-words-2-3 = see ya
-accent-cak-words-2-3 = so long
+accent-cak-words-2-4 = so long
 
 accent-cak-words-3 = see you later
 accent-cak-words-3-2 = see ya later

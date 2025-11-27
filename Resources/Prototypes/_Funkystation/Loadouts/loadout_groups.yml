@@ -57,6 +57,7 @@
 - type: loadoutGroup
   id: InternalAffairsJobTrinkets
   name: loadout-group-jobtrinkets
+  minLimit: 0
   loadouts:
   - CommandLighter
 
@@ -143,10 +144,12 @@
 - type: loadoutGroup
   id: MagistrateJobTrinkets
   name: loadout-group-jobtrinkets
+  minLimit: 0
+  maxLimit: 2
   loadouts:
   - CommandLighter
   - CentralCommandLighter
-  
+
 - type: loadoutGroup
   id: ScienceRoboticistGlasses
   name: loadout-group-roboticist-glasses

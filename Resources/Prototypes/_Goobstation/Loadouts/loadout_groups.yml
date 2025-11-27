@@ -79,8 +79,10 @@
   - NanotrasenRepresentativeHeels
 
 - type: loadoutGroup
-  id: NanotrasenRepresentativeJobTrinkets # Funky 
+  id: NanotrasenRepresentativeJobTrinkets # Funky
   name: loadout-group-jobtrinkets
+  minLimit: 0
+  maxLimit: 2
   loadouts:
   - CommandLighter
   - CentralCommandLighter

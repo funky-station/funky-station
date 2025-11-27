@@ -32,6 +32,7 @@ using Content.Shared.Damage;
 using Content.Shared._Shitmed.BodyEffects;
 using Content.Shared._Shitmed.Body.Events;
 using Content.Shared._Shitmed.Body.Organ;
+using Content.Shared.Damage.Components;
 
 namespace Content.Shared.Body.Systems;
 
@@ -64,7 +65,7 @@ public partial class SharedBodySystem
 
         if (organEnt.Comp.Body is not null)
         {
-        // Shitmed Change Start
+            // Shitmed Change Start
             var addedInBodyEv = new OrganAddedToBodyEvent(bodyUid, parentPartUid);
             RaiseLocalEvent(organEnt, ref addedInBodyEv);
             var organEnabledEv = new OrganEnableChangedEvent(true);

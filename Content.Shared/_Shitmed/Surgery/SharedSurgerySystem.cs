@@ -285,18 +285,37 @@ public abstract partial class SharedSurgerySystem : EntitySystem
 
     private void OnPartRemovedConditionValid(Entity<SurgeryPartRemovedConditionComponent> ent, ref SurgeryValidEvent args)
     {
+        // Check if the parent part can accept the connection
         if (!_body.CanAttachToSlot(args.Part, ent.Comp.Connection))
         {
             args.Cancelled = true;
             return;
         }
 
-        var results = _body.GetBodyChildrenOfType(args.Body, ent.Comp.Part, symmetry: ent.Comp.Symmetry).ToList();
-        if (results is not { } || !results.Any())
-            return;
+        // Get all body parts of the specified type
+        var allParts = _body.GetBodyChildrenOfType(args.Body, ent.Comp.Part).ToList();
 
-        if (!results.Any(part => HasComp<BodyPartReattachedComponent>(part.Id)))
+        // Filter by symmetry if specified
+        IEnumerable<(EntityUid Id, BodyPartComponent Component)> results = allParts;
+        if (ent.Comp.Symmetry != null)
+        {
+            results = allParts.Where(part => part.Component.Symmetry == ent.Comp.Symmetry);
+        }
+
+        var resultsList = results.ToList();
+
+        // If no matching parts found, the condition should fail
+        if (!resultsList.Any())
+        {
             args.Cancelled = true;
+            return;
+        }
+
+        // Check if at least one of the matching parts has been reattached
+        if (!resultsList.Any(part => HasComp<BodyPartReattachedComponent>(part.Id)))
+        {
+            args.Cancelled = true;
+        }
     }
 
     private void OnPartPresentConditionValid(Entity<SurgeryPartPresentConditionComponent> ent, ref SurgeryValidEvent args)

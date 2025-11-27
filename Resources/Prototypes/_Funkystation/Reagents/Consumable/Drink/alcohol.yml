@@ -1,4 +1,5 @@
 # SPDX-FileCopyrightText: 2025 Mish <bluscout78@yahoo.com>
+# SPDX-FileCopyrightText: 2025 SharkSnake98 <sharksnake87@gmail.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
@@ -96,3 +97,222 @@
       - !type:AdjustReagent
         reagent: Ethanol
         amount: 0.07
+
+- type: reagent
+  id: Alexander
+  name: reagent-name-alexander
+  parent: BaseAlcohol
+  desc: reagent-desc-alexander
+  physicalDesc: reagent-physical-desc-creamy
+  flavor: alexander
+  color: "#e2e2c0"
+  metamorphicSprite:
+    sprite: _Funkystation/Objects/Consumable/Drinks/alexander.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 4
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
+
+- type: reagent
+  id: AmarettoAlexander
+  name: reagent-name-amaretto-alexander
+  parent: BaseAlcohol
+  desc: reagent-desc-amaretto-alexander
+  physicalDesc: reagent-physical-desc-creamy
+  flavor: amarettoalexander
+  color: "#E2CEC0"
+  metamorphicSprite:
+    sprite: _Funkystation/Objects/Consumable/Drinks/amarettoalexander.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 4
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
+
+- type: reagent
+  id: AmarettoSour
+  name: reagent-name-amaretto-sour
+  parent: BaseAlcohol
+  desc: reagent-desc-amaretto-sour
+  physicalDesc: reagent-physical-desc-tangy
+  flavor: amarettosour
+  color: "#edcd3d"
+  metamorphicSprite:
+    sprite: _Funkystation/Objects/Consumable/Drinks/amarettosour.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 4
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
+
+- type: reagent
+  id: Amaterasu
+  name: reagent-name-amaterasu
+  parent: BaseAlcohol
+  desc: reagent-desc-amaterasu
+  physicalDesc: reagent-physical-desc-blazing
+  flavor: amaterasu
+  color: "#e42d2d"
+  metamorphicSprite:
+    sprite: _Funkystation/Objects/Consumable/Drinks/amaterasu.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 4
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
+
+- type: reagent
+  id: BanzaiTi
+  name: reagent-name-banzai-ti
+  parent: BaseAlcohol
+  desc: reagent-desc-banzai-ti
+  physicalDesc: reagent-physical-desc-fizzy
+  flavor: banzaiti
+  color: "#e63b3b"
+  metamorphicSprite:
+    sprite: _Funkystation/Objects/Consumable/Drinks/banzaiti.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 5
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
+
+- type: reagent
+  id: RootMintBrew
+  name: reagent-name-root-mint-brew
+  parent: BaseAlcohol
+  desc: reagent-desc-root-mint-brew
+  physicalDesc: reagent-physical-desc-refreshing
+  flavor: rootmintbrew
+  color: "#59798a"
+  metamorphicSprite:
+    sprite: _Funkystation/Objects/Consumable/Drinks/rootmintbrew.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 4
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateHunger
+        factor: 1
+      - !type:AdjustReagent
+        reagent: Ethanol
+        amount: 0.03
+      - !type:HealthChange
+        damage:
+          types:
+            Blunt: -0.2
+            Poison: -0.2
+            Heat: -0.2
+            Shock: -0.2
+            Cold: -0.2
+
+- type: reagent
+  id: BetweenTheSheets
+  name: reagent-name-between-the-sheets
+  parent: BaseAlcohol
+  desc: reagent-desc-between-the-sheets
+  physicalDesc: reagent-physical-desc-strong-smelling
+  flavor: betweenthesheets
+  color: "#d9a74e"
+  metamorphicSprite:
+    sprite: _Funkystation/Objects/Consumable/Drinks/betweenthesheets.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 5
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
+
+- type: reagent
+  id: BittersAndSoda
+  name: reagent-name-bitters-and-soda
+  parent: BaseAlcohol
+  desc: reagent-desc-bitters-and-soda
+  physicalDesc: reagent-physical-desc-fizzy
+  flavor: bittersandsoda
+  color: "#e0b898"
+  metamorphicSprite:
+    sprite: _Funkystation/Objects/Consumable/Drinks/bittersandsoda.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 5
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateHunger
+        factor: 2
+      - !type:AdjustReagent
+        reagent: Ethanol
+        amount: 0.03
+
+- type: reagent
+  id: BlankPaper
+  name: reagent-name-blank-paper
+  parent: BaseAlcohol
+  desc: reagent-desc-blank-paper
+  physicalDesc: reagent-physical-desc-pulpy
+  flavor: blankpaper
+  color: "#d9d7bd"
+  metamorphicSprite:
+    sprite: _Funkystation/Objects/Consumable/Drinks/blankpaper.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 5
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
+
+- type: reagent
+  id: BlueBlazer
+  name: reagent-name-blue-blazer
+  parent: BaseAlcohol
+  desc: reagent-desc-blue-blazer
+  physicalDesc: reagent-physical-desc-burning
+  flavor: blueblazer
+  color: "#554fff"
+  metamorphicSprite:
+    sprite: _Funkystation/Objects/Consumable/Drinks/blueblazer.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 5
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
+
+- type: reagent
+  id: Bosozoku
+  name: reagent-name-bosozoku
+  parent: BaseAlcohol
+  desc: reagent-desc-bosozoku
+  physicalDesc: reagent-physical-desc-citric
+  flavor: bosozoku
+  color: "#d5e65e"
+  metamorphicSprite:
+    sprite: _Funkystation/Objects/Consumable/Drinks/bosozoku.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 4
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
+
+- type: reagent
+  id: BrancaMenta
+  name: reagent-name-branca-menta
+  parent: BaseAlcohol
+  desc: reagent-desc-branca-menta
+  physicalDesc: reagent-physical-desc-minty
+  flavor: brancamenta
+  color: "#314d37"
+  metamorphicSprite:
+    sprite: _Funkystation/Objects/Consumable/Drinks/brancamenta.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 5
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
+
+- type: reagent
+  id: BugSpray
+  name: reagent-name-bug-spray
+  parent: BaseAlcohol
+  desc: reagent-desc-bug-spray
+  physicalDesc: reagent-physical-desc-acrid
+  flavor: bugspray
+  color: "#80a840"
+  metamorphicSprite:
+    sprite: _Funkystation/Objects/Consumable/Drinks/bugspray.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 6
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false

@@ -44,6 +44,8 @@
 # SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 ninruB <38016303+asperger-sind@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 88tv <131759102+88tv@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Fr0goo <153249069+Fr0goo@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Fr0goo <frogoofrog@outlook.com>
 # SPDX-FileCopyrightText: 2025 MaiaArai <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 Unkn0wn_Gh0st <shadowstalkermll@gmail.com>
@@ -517,6 +519,52 @@
     fiberMaterial: fibers-rubber
     fiberColor: fibers-yellow
   - type: FingerprintMask
+
+- type: entity
+  parent: ClothingHandsBase
+  id: ClothingHandsBlueGlovesJanitor
+  name: blue rubber gloves
+  description: High-quality rubber gloves, squeaky to do some cleaning!
+  components:
+  - type: Sprite
+    sprite: Clothing/Hands/Gloves/janitorblue.rsi
+  - type: Clothing
+    sprite: Clothing/Hands/Gloves/janitorblue.rsi
+  - type: Fiber
+    fiberMaterial: fibers-rubber
+    fiberColor: fibers-blue
+  - type: FingerprintMask
+
+- type: entity
+  parent: ClothingHandsBase
+  id: ClothingHandsOrangeGlovesJanitor
+  name: orange rubber gloves
+  description: High-quality rubber gloves, squeaky to do some cleaning!
+  components:
+  - type: Sprite
+    sprite: Clothing/Hands/Gloves/janitororange.rsi
+  - type: Clothing
+    sprite: Clothing/Hands/Gloves/janitororange.rsi
+  - type: Fiber
+    fiberMaterial: fibers-rubber
+    fiberColor: fibers-orange
+  - type: FingerprintMask
+
+- type: entity
+  parent: ClothingHandsBase
+  id: ClothingHandsPurpleGlovesJanitor
+  name: purple rubber gloves
+  description: High-quality rubber gloves, squeaky to do some cleaning!
+  components:
+  - type: Sprite
+    sprite: Clothing/Hands/Gloves/janitorpurple.rsi
+  - type: Clothing
+    sprite: Clothing/Hands/Gloves/janitorpurple.rsi
+  - type: Fiber
+    fiberMaterial: fibers-rubber
+    fiberColor: fibers-purple
+  - type: FingerprintMask
+
 
 #Knuckledusters
 - type: entity

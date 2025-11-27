@@ -60,8 +60,8 @@ meta:
   engineVersion: 266.0.0
   forkId: ""
   forkVersion: ""
-  time: 11/20/2025 22:46:57
-  entityCount: 24389
+  time: 11/25/2025 23:54:35
+  entityCount: 24390
 maps:
 - 1
 grids:
@@ -11491,7 +11491,7 @@ entities:
       pos: -55.5,-9.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -227846.77
+      secondsUntilStateChange: -227929.64
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -12050,7 +12050,7 @@ entities:
       pos: 29.5,-41.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -209279.08
+      secondsUntilStateChange: -209361.95
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -13264,7 +13264,7 @@ entities:
       pos: 5.5,17.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -3276065.2
+      secondsUntilStateChange: -3276148
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -74824,7 +74824,7 @@ entities:
   - uid: 7766
     components:
     - type: Transform
-      pos: -42.5,37.5
+      pos: -41.5,37.5
       parent: 2
   - uid: 14186
     components:
@@ -110702,11 +110702,6 @@ entities:
     - type: Transform
       pos: -28.5,1.5
       parent: 2
-  - uid: 2649
-    components:
-    - type: Transform
-      pos: -41.5,37.5
-      parent: 2
   - uid: 3547
     components:
     - type: Transform
@@ -125343,6 +125338,13 @@ entities:
     - type: Transform
       pos: 25.5,7.5
       parent: 2
+- proto: SpawnMobKoboldYipYap
+  entities:
+  - uid: 24390
+    components:
+    - type: Transform
+      pos: -6.5,-2.5
+      parent: 2
 - proto: SpawnMobLizard
   entities:
   - uid: 10575
@@ -132558,6 +132560,13 @@ entities:
     components:
     - type: Transform
       pos: -31.5,-10.5
+      parent: 2
+- proto: VendingMachineDetDrobe
+  entities:
+  - uid: 2649
+    components:
+    - type: Transform
+      pos: -42.5,37.5
       parent: 2
 - proto: VendingMachineDinnerware
   entities:
@@ -153755,7 +153764,7 @@ entities:
       pos: 28.5,-9.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -1819269.9
+      secondsUntilStateChange: -1819352.8
       state: Opening
   - uid: 10484
     components:

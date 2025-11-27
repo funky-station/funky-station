@@ -238,6 +238,7 @@
   minLimit: 0
   loadouts:
   - LizardPlushieCaptain
+  - CommandLighter
 
 - type: loadoutGroup
   id: HoPHead
@@ -283,7 +284,8 @@
   minLimit: 0
   loadouts:
   - LizardPlushieHeadOfPersonnel
-
+  - CommandLighter # Funky Change 
+  
 # Civilian
 - type: loadoutGroup
   id: PassengerJumpsuit
@@ -710,6 +712,7 @@
   minLimit: 0
   loadouts:
   - LizardPlushieClown
+  - ClownLighter
 
 - type: loadoutGroup
   id: MimeHead
@@ -883,6 +886,7 @@
   minLimit: 0
   loadouts:
   - LizardPlushieQuartermaster
+  - CommandLighter # Funky Change 
 
 - type: loadoutGroup
   id: CargoTechnicianHead
@@ -1016,6 +1020,7 @@
   minLimit: 0
   loadouts:
   - LizardPlushieChiefEngineer
+  - CommandLighter # Funky Change 
 
 - type: loadoutGroup
   id: TechnicalAssistantJumpsuit
@@ -1190,6 +1195,7 @@
   minLimit: 0
   loadouts:
   - LizardPlushieResearchDirector
+  - CommandLighter # Funky Change 
 
 - type: loadoutGroup
   id: ScientistHead
@@ -1334,6 +1340,7 @@
   minLimit: 0
   loadouts:
   - LizardPlushieHeadofSecurity
+  - CommandLighter # Funky Change 
 
 - type: loadoutGroup
   id: WardenHead
@@ -1596,6 +1603,7 @@
   minLimit: 0
   loadouts:
   - LizardPlushieChiefMedicalOfficer
+  - CommandLighter # Funky Change 
 
 - type: loadoutGroup
   id: MedicalDoctorHead

@@ -178,7 +178,7 @@
     - id: ClothingBeltMilitaryWebbing
     - id: ClothingShoesBootsCombatFilled
     - id: ToolboxSyndicateFilled
-    - id: BalloonSyn
+    - id: UplinkLighterBox # Funky change
     - id: WeaponSniperMosin
     - id: ClothingEyesNightVisionGogglesSyndie
     - id: ClothingEyesThermalVisionGogglesSyndie

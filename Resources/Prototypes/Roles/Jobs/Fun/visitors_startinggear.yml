@@ -27,6 +27,7 @@
     ears: ClothingHeadsetAltCommand
     outerClothing: ClothingOuterArmorCaptainCarapace
     pocket1: WeaponDisabler
+    pocket2: NanotrasenFlippo #Funky
 
 - type: startingGear
   id: VisitorCaptainAlt
@@ -43,6 +44,7 @@
     ears: ClothingHeadsetAltCommand
     outerClothing: ClothingOuterArmorCaptainCarapace
     pocket1: WeaponDisabler
+    pocket2: NanotrasenFlippo #Funky
 
 - type: startingGear
   id: VisitorCE
@@ -57,6 +59,7 @@
     ears: ClothingHeadsetAltEngineering # Goobstation
     outerClothing: ClothingOuterVestHazard
     pocket1: WeaponDisabler
+    pocket2: NanotrasenFlippo #Funky
 
 - type: startingGear
   id: VisitorCEAlt
@@ -71,6 +74,7 @@
     ears: ClothingHeadsetAltEngineering # Goobstation
     outerClothing: ClothingOuterWinterCE
     pocket1: WeaponDisabler
+    pocket2: NanotrasenFlippo #Funky
 
 - type: startingGear
   id: VisitorCMO
@@ -86,6 +90,7 @@
     belt: ClothingBeltMedicalFilled
     outerClothing: ClothingOuterCoatLabCmo
     pocket1: WeaponDisabler
+    pocket2: NanotrasenFlippo #Funky
 
 - type: startingGear
   id: VisitorCMOAlt
@@ -101,6 +106,7 @@
     belt: ClothingBeltMedicalFilled
     outerClothing: ClothingOuterCoatLabCmo
     pocket1: WeaponDisabler
+    pocket2: NanotrasenFlippo #Funky
 
 - type: startingGear
   id: VisitorHOP
@@ -115,6 +121,7 @@
     ears: ClothingHeadsetAltCommand
     outerClothing: ClothingOuterWinterHoP
     pocket1: WeaponDisabler
+    pocket2: NanotrasenFlippo #Funky
 
 - type: startingGear
   id: VisitorHOPAlt
@@ -129,6 +136,7 @@
     ears: ClothingHeadsetAltCommand
     outerClothing: ClothingOuterWinterHoP
     pocket1: WeaponDisabler
+    pocket2: NanotrasenFlippo #Funky
 
 - type: startingGear
   id: VisitorHOS
@@ -148,6 +156,9 @@
     pocket2: MagazinePistolSubMachineGunTopMounted
   inhand:
   - WeaponSubMachineGunWt550
+  storage:
+    back:
+    - NanotrasenFlippo #Funky
 
 - type: startingGear
   id: VisitorHOSAlt
@@ -166,6 +177,9 @@
     pocket2: MagazinePistolSubMachineGunTopMounted
   inhand:
   - WeaponSubMachineGunWt550
+  storage:
+    back:
+    - NanotrasenFlippo #Funky
 
 - type: startingGear
   id: VisitorRD
@@ -180,6 +194,7 @@
     ears: ClothingHeadsetAltScience # Goobstation
     outerClothing: ClothingOuterCoatRD
     pocket1: WeaponDisabler
+    pocket2: NanotrasenFlippo #Funky
 
 - type: startingGear
   id: VisitorRDAlt
@@ -194,6 +209,7 @@
     ears: ClothingHeadsetAltScience # Goobstation
     outerClothing: ClothingOuterCoatRD
     pocket1: WeaponDisabler
+    pocket2: NanotrasenFlippo #Funky
 
 - type: startingGear
   id: VisitorQM
@@ -207,7 +223,9 @@
     ears: ClothingHeadsetAltCargo # Goobstation
     outerClothing: ClothingOuterWinterQM
     pocket1: WeaponDisabler
-    pocket2: AppraisalTool
+    pocket2: NanotrasenFlippo #Funky
+  inhand:
+  - AppraisalTool
 
 - type: startingGear
   id: VisitorQMAlt
@@ -221,7 +239,9 @@
     ears: ClothingHeadsetAltCargo # Goobstation
     outerClothing: ClothingOuterWinterQM
     pocket1: WeaponDisabler
-    pocket2: AppraisalTool
+    pocket2: NanotrasenFlippo #Funky
+  inhand:
+  - AppraisalTool
 
 # Security
 

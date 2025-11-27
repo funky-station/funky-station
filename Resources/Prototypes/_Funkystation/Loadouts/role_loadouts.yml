@@ -38,6 +38,7 @@
   - InternalAffairsAgentBelt
   - Survival
   - Trinkets
+  - InternalAffairsJobTrinkets  
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -52,4 +53,5 @@
   - MagistrateFlavor
   - Survival
   - Trinkets
+  - MagistrateJobTrinkets
   - GroupSpeciesBreathTool

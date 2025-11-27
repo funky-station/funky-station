@@ -87,6 +87,7 @@
       - id: ClothingHandsGlovesCombat
       - id: ClothingMaskNeckGaiter
       - id: SyndieHandyFlag
+      - id: CybersunFlippo
 
 - type: entity
   id: BriefcaseThiefBribingBundleFilled

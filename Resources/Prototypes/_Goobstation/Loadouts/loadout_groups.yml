@@ -78,6 +78,13 @@
   - NanotrasenRepresentativeShoes
   - NanotrasenRepresentativeHeels
 
+- type: loadoutGroup
+  id: NanotrasenRepresentativeJobTrinkets # Funky 
+  name: loadout-group-jobtrinkets
+  loadouts:
+  - CommandLighter
+  - CentralCommandLighter
+
 # BSO
 - type: loadoutGroup
   id: BlueshieldOfficerHead

@@ -29,7 +29,10 @@
     id: PassengerPDA
     ears: ClothingHeadsetGrey
     pocket1: PenRecruiter
-    pocket2: RubberStampSyndicate
+    pocket2: CybersunFlippo # Funky change 
     belt: ClothingBeltSyndicateUtility
   inhand:
   - CybersunBriefcase
+  storage:
+    back:
+    - RubberStampSyndicate

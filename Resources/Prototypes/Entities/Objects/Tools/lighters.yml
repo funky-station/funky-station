@@ -307,6 +307,83 @@
           Quantity: 9
         maxVol: 11
 
+
+# Funky Changes, the BaseBrandedLighter was removed and all the branded flippos were instead parented off the regular flipo lighter 
+#- type: entity
+#  abstract: true
+#  parent: BaseItem
+#  id: BaseBrandedLighter
+#  components:
+#  - type: ItemToggle
+#    predictable: false
+#    soundActivate:
+#      path: /Audio/Items/Lighters/zippo_open.ogg
+#      params:
+#        volume: -5
+#   soundDeactivate:
+#      path: /Audio/Items/Lighters/zippo_close.ogg
+#      params:
+#        volume: -5
+#  - type: ItemToggleMeleeWeapon
+#    activatedDamage:
+#        types:
+#            Heat: 1
+#  - type: ItemToggleSize
+#    activatedSize: Small
+#  - type: ItemToggleHot
+#  - type: Item
+#    size: Tiny
+#  - type: Appearance
+#  - type: SolutionContainerManager
+#    solutions:
+#      Welder:
+#       reagents:
+#        - ReagentId: WeldingFuel
+#          Quantity: 12
+#        maxVol: 12
+#  - type: Sprite
+#    layers:
+#    - state: icon
+#      map: [ "base" ]
+#    - state: top
+#      map: [ "top" ]
+#      visible: false
+#    - state: open
+#      map: [ "open" ]
+#      visible: false
+#    - state: flame
+#      map: [ "flame" ]
+#      visible: false
+#      shader: unshaded
+#  - type: GenericVisualizer
+#    visuals:
+#      enum.ToggleableVisuals.Enabled:
+#        flame:
+#         True: { visible: true }
+#          False: { visible: false }
+#        open:
+#          True: { visible: true }
+#          False: { visible: false }
+#        top:
+#          True: { visible: true }
+#          False: { visible: false }
+#        base:
+#          True: { visible: false }
+#          False: { visible: true }
+#  - type: ToggleableVisuals
+#    spriteLayer: lighter_flame
+#    inhandVisuals:
+#      left:
+#      - state: inhand-left-lit
+#       shader: unshaded
+#      right:
+#      - state: inhand-right-lit
+#        shader: unshaded
+#  - type: ItemTogglePointLight
+#  - type: UseDelay
+#  - type: IgnitionSource
+#    ignited: false
+
 - type: entity
   parent: [FlippoLighter, BaseMinorContraband]
   id: SyndicateFlippo
@@ -328,6 +405,23 @@
       map: ["flame"]
       visible: false
       shader: unshaded
+  - type: Item
+    sprite: Objects/Tools/Lighters/syndielighter.rsi  
+    inhandVisuals:
+      left:
+      - state: inhand-left
+      right:
+      - state: inhand-right
+  - type: ToggleableLightVisuals
+    sprite: Objects/Tools/Lighters/syndielighter.rsi    
+    spriteLayer: lighter_flame
+    inhandVisuals:
+      left:
+      - state: inhand-left-lit
+        shader: unshaded
+      right:
+      - state: inhand-right-lit
+        shader: unshaded    
   - type: Welder
     fuelConsumption: 0.005
     fuelLitCost: 0.01
@@ -359,6 +453,23 @@
       map: ["flame"]
       visible: false
       shader: unshaded
+  - type: Item
+    sprite: Objects/Tools/Lighters/cybersun.rsi
+    inhandVisuals:
+      left:
+      - state: inhand-left
+      right:
+      - state: inhand-right
+  - type: ToggleableLightVisuals
+    sprite: Objects/Tools/Lighters/cybersun.rsi
+    spriteLayer: lighter_flame
+    inhandVisuals:
+      left:
+      - state: inhand-left-lit
+        shader: unshaded
+      right:
+      - state: inhand-right-lit
+        shader: unshaded          
   - type: Welder #
     fuelConsumption: 0.005
     fuelLitCost: 0.01
@@ -390,6 +501,23 @@
       map: ["flame"]
       visible: false
       shader: unshaded
+  - type: Item
+    sprite: Objects/Tools/Lighters/interdyne.rsi
+    inhandVisuals:
+      left:
+      - state: inhand-left
+      right:
+      - state: inhand-right
+  - type: ToggleableLightVisuals
+    sprite: Objects/Tools/Lighters/interdyne.rsi
+    spriteLayer: lighter_flame
+    inhandVisuals:
+      left:
+      - state: inhand-left-lit
+        shader: unshaded
+      right:
+      - state: inhand-right-lit
+        shader: unshaded           
   - type: Welder #
     fuelConsumption: 0.005
     fuelLitCost: 0.01
@@ -425,6 +553,23 @@
       map: ["flame"]
       visible: false
       shader: unshaded
+  - type: Item
+    sprite: Objects/Tools/Lighters/nanotrasen.rsi
+    inhandVisuals:
+      left:
+      - state: inhand-left
+      right:
+      - state: inhand-right
+  - type: ToggleableLightVisuals
+    sprite: Objects/Tools/Lighters/nanotrasen.rsi
+    spriteLayer: lighter_flame
+    inhandVisuals:
+      left:
+      - state: inhand-left-lit
+        shader: unshaded
+      right:
+      - state: inhand-right-lit
+        shader: unshaded         
   - type: Welder #
     fuelConsumption: 0.005
     fuelLitCost: 0.01
@@ -450,7 +595,7 @@
   id: CentCommFlippo
   name: Gilded CentComm Flippo
   description: "An Ornate, jade embossed and gilded flippo frame containing a bluespace powered jet. The latch is secured by a miniature access reader that only responds to CentComm officials. The nicest lighter known to man."
-  suffix: DO NOT MAP
+#  suffix: DO NOT MAP
   components:
   - type: Sprite
     sprite: Objects/Tools/Lighters/centcomm.rsi
@@ -467,6 +612,23 @@
       map: ["flame"]
       visible: false
       shader: unshaded
+  - type: Item
+    sprite: Objects/Tools/Lighters/centcomm.rsi
+    inhandVisuals:
+      left:
+      - state: inhand-left
+      right:
+      - state: inhand-right
+  - type: ToggleableLightVisuals
+    sprite: Objects/Tools/Lighters/centcomm.rsi
+    spriteLayer: lighter_flame
+    inhandVisuals:
+      left:
+      - state: inhand-left-lit
+        shader: unshaded
+      right:
+      - state: inhand-right-lit
+        shader: unshaded           
   - type: ItemToggleRequiresLock
     requireLocked: false
   - type: Welder #
@@ -507,6 +669,23 @@
       map: ["flame"]
       visible: false
       shader: unshaded
+  - type: Item
+    sprite: Objects/Tools/Lighters/spiderclan.rsi
+    inhandVisuals:
+      left:
+      - state: inhand-left
+      right:
+      - state: inhand-right
+  - type: ToggleableLightVisuals
+    sprite: Objects/Tools/Lighters/spiderclan.rsi
+    spriteLayer: lighter_flame
+    inhandVisuals:
+      left:
+      - state: inhand-left-lit
+        shader: unshaded
+      right:
+      - state: inhand-right-lit
+        shader: unshaded           
   - type: Welder #
     fuelConsumption: 0
     fuelLitCost: 0
@@ -538,6 +717,23 @@
       map: ["flame"]
       visible: false
       shader: unshaded
+  - type: Item
+    sprite: Objects/Tools/Lighters/honkco.rsi
+    inhandVisuals:
+      left:
+      - state: inhand-left
+      right:
+      - state: inhand-right
+  - type: ToggleableLightVisuals
+    sprite: Objects/Tools/Lighters/honkco.rsi
+    spriteLayer: lighter_flame
+    inhandVisuals:
+      left:
+      - state: inhand-left-lit
+        shader: unshaded
+      right:
+      - state: inhand-right-lit
+        shader: unshaded         
   - type: ComponentToggler
     components:
     - type: Slippery
@@ -594,6 +790,23 @@
       map: ["flame"]
       visible: false
       shader: unshaded
+  - type: Item
+    sprite: Objects/Tools/Lighters/waffleco.rsi
+    inhandVisuals:
+      left:
+      - state: inhand-left
+      right:
+      - state: inhand-right
+  - type: ToggleableLightVisuals
+    sprite: Objects/Tools/Lighters/waffleco.rsi
+    spriteLayer: lighter_flame
+    inhandVisuals:
+      left:
+      - state: inhand-left-lit
+        shader: unshaded
+      right:
+      - state: inhand-right-lit
+        shader: unshaded         
   - type: Welder #
     fuelConsumption: 0.005
     fuelLitCost: 0.05
@@ -625,6 +838,23 @@
       map: ["flame"]
       visible: false
       shader: unshaded
+  - type: Item
+    sprite: Objects/Tools/Lighters/donkco.rsi
+    inhandVisuals:
+      left:
+      - state: inhand-left
+      right:
+      - state: inhand-right
+  - type: ToggleableLightVisuals
+    sprite: Objects/Tools/Lighters/donkco.rsi
+    spriteLayer: lighter_flame
+    inhandVisuals:
+      left:
+      - state: inhand-left-lit
+        shader: unshaded
+      right:
+      - state: inhand-right-lit
+        shader: unshaded        
   - type: Welder #
     fuelConsumption: 0.02
     fuelLitCost: 0.1

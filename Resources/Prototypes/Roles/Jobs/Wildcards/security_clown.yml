@@ -62,6 +62,7 @@
     id: SecurityClownPDA
     ears: ClothingHeadsetSecurity
     belt: BikeHorn
+    pocket1: HonkCoFlippo #Funky
   storage:
     back:
     - Flash

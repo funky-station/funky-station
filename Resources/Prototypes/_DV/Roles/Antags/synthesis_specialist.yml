@@ -23,10 +23,12 @@
     back: ClothingBackpackChemistry
     belt: ChemBag
     eyes: ClothingEyesGlassesChemical
+    gloves: ClothingHandsGlovesNitrile 
     outerClothing: ClothingOuterCoatLabChem
+    shoes: ClothingShoesBootsWinterSyndicate    
     id: SyndiPDA
     ears: ClothingHeadsetAltSyndicate
-    pocket1: HandLabeler
+    pocket1: InterdyneFlippo # Funky change 
     pocket2: RubberStampSyndicate
     mask: ClothingMaskNeckGaiter
     head: ClothingHeadHatSyndie

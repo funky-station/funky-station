@@ -574,3 +574,21 @@
     - id: ClothingHandsGlovesConducting
       amount: 7
     - id: ClothingHandsGlovesColorYellow
+
+- type: entity
+  parent: BaseMail
+  id: MailMysteryLighterBox
+  suffix: Ligher Mystery Box 
+  components:
+  - type: Mail
+    contents:
+    - id: MysteryLighterBox
+
+- type: entity
+  parent: BaseMail
+  id: MailUplinkLighterBox
+  suffix: Uplink Ligher Mystery Box 
+  components:
+  - type: Mail
+    contents:
+    - id: UplinkLighterBox

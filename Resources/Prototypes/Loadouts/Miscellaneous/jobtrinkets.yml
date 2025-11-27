@@ -460,3 +460,40 @@
   storage:
     back:
     - PlushieLizardJobZookeeper
+
+- type: loadout
+  id: CommandLighter
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:DepartmentTimeRequirement
+      department: Command
+      time: 180000 #50 hrs
+  storage:
+    back:
+    - NanotrasenFlippo
+
+- type: loadout
+  id: CentralCommandLighter
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:DepartmentTimeRequirement
+      department: CentralCommand
+      time: 180000 #50 hrs      
+  storage:
+    back:
+    - CentCommFlippo      
+
+- type: loadout
+  id: ClownLighter
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobClown
+      time: 180000 #50 hrs      
+  storage:
+    back:
+    - HonkCoFlippo
+

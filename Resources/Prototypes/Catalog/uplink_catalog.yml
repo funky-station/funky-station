@@ -2504,7 +2504,7 @@
   icon: { sprite:  Objects/Tools/Lighters/syndielighter.rsi, state: icon}
   productEntity: UplinkLighterBox
   cost:
-    Telecrystal: 1
+    Telecrystal: 2 # Funky 
   categories:
   - UplinkPointless
 

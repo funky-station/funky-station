@@ -55,6 +55,12 @@
   - InternalAffairsAgentWaistbag
 
 - type: loadoutGroup
+  id: InternalAffairsJobTrinkets
+  name: loadout-group-jobtrinkets
+  loadouts:
+  - CommandLighter
+
+- type: loadoutGroup
   id: ChaplainBible
   name: loadout-group-bible
   minLimit: 1
@@ -134,6 +140,13 @@
     - MagistrateGavel
     - MagistratePwig
 
+- type: loadoutGroup
+  id: MagistrateJobTrinkets
+  name: loadout-group-jobtrinkets
+  loadouts:
+  - CommandLighter
+  - CentralCommandLighter
+  
 - type: loadoutGroup
   id: ScienceRoboticistGlasses
   name: loadout-group-roboticist-glasses

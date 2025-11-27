@@ -60,8 +60,8 @@ meta:
   engineVersion: 266.0.0
   forkId: ""
   forkVersion: ""
-  time: 11/15/2025 03:18:45
-  entityCount: 24389
+  time: 11/25/2025 23:54:35
+  entityCount: 24390
 maps:
 - 1
 grids:
@@ -3955,6 +3955,8 @@ entities:
             7904: 12,-15
             7912: 4,-28
             7913: 3,-29
+            7961: -3,-15
+            7962: 2,-15
         - node:
             color: '#FFFFFFFF'
             id: DirtHeavyMonotile
@@ -4234,6 +4236,7 @@ entities:
             7942: 3,-13
             7943: -3,-13
             7944: -2,-13
+            7965: 3,-15
         - node:
             color: '#FFFFFFFF'
             id: DirtLight
@@ -4249,8 +4252,6 @@ entities:
             6460: -25,-15
             6461: -23,-14
             6466: -15,-14
-            6470: 0,-15
-            6471: 1,-15
             6500: -9,-39
             6501: -8,-43
             6502: -10,-46
@@ -4625,7 +4626,6 @@ entities:
             6463: -13,-14
             6464: -9,-15
             6465: -7,-14
-            6472: -1,-15
             6476: 4,-20
             6477: 3,-18
             6483: -3,-23
@@ -5004,12 +5004,49 @@ entities:
             7927: 25,-47
             7928: 37,-45
             7929: 36,-47
+            7963: 0,-15
+            7964: -1,-15
         - node:
             cleanable: True
             color: '#639137FF'
             id: Donk
           decals:
             5755: -40,-41
+        - node:
+            color: '#FFFFFFFF'
+            id: FNKYSign1Alt
+          decals:
+            7954: -3,-15
+        - node:
+            color: '#FFFFFFFF'
+            id: FNKYSign2Alt
+          decals:
+            7955: -2,-15
+        - node:
+            color: '#FFFFFFFF'
+            id: FNKYSign3Alt
+          decals:
+            7956: -1,-15
+        - node:
+            color: '#FFFFFFFF'
+            id: FNKYSign4Alt
+          decals:
+            7957: 0,-15
+        - node:
+            color: '#FFFFFFFF'
+            id: FNKYSign5Alt
+          decals:
+            7958: 1,-15
+        - node:
+            color: '#FFFFFFFF'
+            id: FNKYSign6alt
+          decals:
+            7959: 2,-15
+        - node:
+            color: '#FFFFFFFF'
+            id: FNKYSign7Alt
+          decals:
+            7960: 3,-15
         - node:
             color: '#FFFFFFFF'
             id: FlowersBROne
@@ -5983,41 +6020,6 @@ entities:
             id: Sirius
           decals:
             5176: -66,-24
-        - node:
-            color: '#FFFFFFFF'
-            id: SpaceStationSign1
-          decals:
-            5180: -3,-15
-        - node:
-            color: '#FFFFFFFF'
-            id: SpaceStationSign2
-          decals:
-            5181: -2,-15
-        - node:
-            color: '#FFFFFFFF'
-            id: SpaceStationSign3
-          decals:
-            5182: -1,-15
-        - node:
-            color: '#FFFFFFFF'
-            id: SpaceStationSign4
-          decals:
-            5183: 0,-15
-        - node:
-            color: '#FFFFFFFF'
-            id: SpaceStationSign5
-          decals:
-            5184: 1,-15
-        - node:
-            color: '#FFFFFFFF'
-            id: SpaceStationSign6
-          decals:
-            5185: 2,-15
-        - node:
-            color: '#FFFFFFFF'
-            id: SpaceStationSign7
-          decals:
-            5186: 3,-15
         - node:
             color: '#FFFFFFFF'
             id: StandClear
@@ -11489,7 +11491,7 @@ entities:
       pos: -55.5,-9.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -227258.23
+      secondsUntilStateChange: -227929.64
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -12048,7 +12050,7 @@ entities:
       pos: 29.5,-41.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -208690.55
+      secondsUntilStateChange: -209361.95
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -13262,7 +13264,7 @@ entities:
       pos: 5.5,17.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -3275476.8
+      secondsUntilStateChange: -3276148
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -74822,7 +74824,7 @@ entities:
   - uid: 7766
     components:
     - type: Transform
-      pos: -42.5,37.5
+      pos: -41.5,37.5
       parent: 2
   - uid: 14186
     components:
@@ -106256,6 +106258,14 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -16.5,32.5
       parent: 2
+    - type: DeviceLinkSource
+      linkedPorts:
+        6097:
+        - - Pressed
+          - Toggle
+        6098:
+        - - Pressed
+          - Toggle
 - proto: LockableButtonChiefMedicalOfficer
   entities:
   - uid: 11810
@@ -108205,11 +108215,10 @@ entities:
     paused: true
     components:
     - type: Transform
-      pos: -6.5714483,41.700333
+      pos: -6.6125326,41.662567
       parent: 2
     - type: NetworkConfigurator
       lastUseAttempt: 39082.1519216
-      linkModeActive: False
     - type: EmitSoundOnCollide
       nextSound: -13.542316
     - type: Physics
@@ -108273,10 +108282,8 @@ entities:
   - uid: 20649
     components:
     - type: Transform
-      pos: -6.377333,41.58618
+      pos: -6.4400167,41.616432
       parent: 2
-    - type: NetworkConfigurator
-      linkModeActive: False
     - type: Physics
       angularDamping: 0
       linearDamping: 0
@@ -110694,11 +110701,6 @@ entities:
     components:
     - type: Transform
       pos: -28.5,1.5
-      parent: 2
-  - uid: 2649
-    components:
-    - type: Transform
-      pos: -41.5,37.5
       parent: 2
   - uid: 3547
     components:
@@ -122367,6 +122369,14 @@ entities:
       rot: 3.141592653589793 rad
       pos: -16.5,21.5
       parent: 2
+    - type: DeviceLinkSource
+      linkedPorts:
+        6096:
+        - - Pressed
+          - Toggle
+        6095:
+        - - Pressed
+          - Toggle
   - uid: 6213
     components:
     - type: MetaData
@@ -125327,6 +125337,13 @@ entities:
     components:
     - type: Transform
       pos: 25.5,7.5
+      parent: 2
+- proto: SpawnMobKoboldYipYap
+  entities:
+  - uid: 24390
+    components:
+    - type: Transform
+      pos: -6.5,-2.5
       parent: 2
 - proto: SpawnMobLizard
   entities:
@@ -132543,6 +132560,13 @@ entities:
     components:
     - type: Transform
       pos: -31.5,-10.5
+      parent: 2
+- proto: VendingMachineDetDrobe
+  entities:
+  - uid: 2649
+    components:
+    - type: Transform
+      pos: -42.5,37.5
       parent: 2
 - proto: VendingMachineDinnerware
   entities:
@@ -153740,7 +153764,7 @@ entities:
       pos: 28.5,-9.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -1818681.4
+      secondsUntilStateChange: -1819352.8
       state: Opening
   - uid: 10484
     components:

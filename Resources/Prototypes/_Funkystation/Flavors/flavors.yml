@@ -2,10 +2,82 @@
 # SPDX-FileCopyrightText: 2025 McBosserson <mcbosserson@hotmail.com>
 # SPDX-FileCopyrightText: 2025 Milon <milonpl.git@proton.me>
 # SPDX-FileCopyrightText: 2025 Mish <bluscout78@yahoo.com>
+# SPDX-FileCopyrightText: 2025 SharkSnake98 <sharksnake87@gmail.com>
+# SPDX-FileCopyrightText: 2025 Terkala <appleorange64@gmail.com>
 # SPDX-FileCopyrightText: 2025 Zergologist <114537969+Chedd-Error@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
+- type: flavor
+  id: amaretto
+  flavorType: Complex
+  description: flavor-complex-amaretto
+
+- type: flavor
+  id: applejack
+  flavorType: Complex
+  description: flavor-complex-applejack
+
+- type: flavor
+  id: bitters
+  flavorType: Complex
+  description: flavor-complex-bitters
+
+- type: flavor
+  id: cremedecacao
+  flavorType: Complex
+  description: flavor-complex-creme-de-cacao
+
+- type: flavor
+  id: cremedementhe
+  flavorType: Complex
+  description: flavor-complex-creme-de-menthe
+
+- type: flavor
+  id: fernet
+  flavorType: Complex
+  description: flavor-complex-fernet
+
+- type: flavor
+  id: hakkamate
+  flavorType: Complex
+  description: flavor-complex-hakka-mate
+
+- type: flavor
+  id: melonsoda
+  flavorType: Complex
+  description: flavor-complex-melon-soda
+
+- type: flavor
+  id: navyrum
+  flavorType: Complex
+  description: flavor-complex-navy-rum
+
+- type: flavor
+  id: ricebeer
+  flavorType: Complex
+  description: flavor-complex-rice-beer
+
+- type: flavor
+  id: shochu
+  flavorType: Complex
+  description: flavor-complex-shochu
+
+- type: flavor
+  id: triplesec
+  flavorType: Complex
+  description: flavor-complex-triple-sec
+
+- type: flavor
+  id: 24voltenergy
+  flavorType: Complex
+  description: flavor-complex-24-volt-energy
+
+- type: flavor
+  id: voltaicyellowwine
+  flavorType: Complex
+  description: flavor-complex-voltaic-yellow-wine
 
 - type: flavor
   id: eggnog
@@ -41,7 +113,7 @@
   id: pineapple-margherita
   flavorType: Complex
   description: flavor-complex-pineapple-margherita
-  
+
 - type: flavor
   id: shrimp
   flavorType: Complex

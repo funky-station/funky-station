@@ -64,7 +64,7 @@
   id: FunkyWhiteTowel
   name: white towel
   parent: FunkyBaseTowel
-  description: A cheaply-made white towel often distributed to Nanotrasen's employees.
+  description: A cheaply-made and highly versatile white towel. If you want to survive out here, you gotta know where your towel is.
   components:
   - type: Sprite
     sprite: _Funkystation/Objects/Fun/Towels/white.rsi
@@ -86,14 +86,14 @@
   id: FunkyGrayTowel
   name: gray towel
   parent: FunkyBaseTowel
-  description: A warm grey towel often given to those who dedicate their lives to community service. Seems strained.
+  description: A highly versatile warm grey towel. Perfect for sitting on the beach just out of tide's reach.
   components:
   - type: Sprite
     sprite: _Funkystation/Objects/Fun/Towels/gray.rsi
   - type: Clothing
     sprite: _Funkystation/Objects/Fun/Towels/gray.rsi
   - type: Fiber
-    fiberColor: fibers-white
+    fiberColor: fibers-grey
 
 - type: entity
   id: FunkyGrayTowelFolded
@@ -104,71 +104,46 @@
   - type: Foldable
     folded: true
 
-# - type: entity
-#   id: DebugFoldingTowel
-#   parent: [BaseItem, BaseDeployFoldable]
-#   name: debug towel
-#   description: GODS DAMNIT.
-#   components:
-#     - type: Transform
-#     - type: Item
-#       size: Normal
-#     - type: Sprite
-#       sprite: _Funkystation/Objects/Fun/Towels/white.rsi
-#       layers:
-#       - state: towel
-#         map: ["unfoldedLayer"]
-#       - state: towel_folded
-#         map: ["foldedLayer"]
-#         visible: false
-#     - type: Appearance
+- type: entity
+  id: FunkyRedTowel
+  name: red towel
+  parent: FunkyBaseTowel
+  description: A highly versatile red towel. Perfect for cleaning up any would-be bloodshed!
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Fun/Towels/red.rsi
+  - type: Clothing
+    sprite: _Funkystation/Objects/Fun/Towels/red.rsi
+  - type: Fiber
+    fiberColor: fibers-maroon
 
-# - type: entity
-#   parent: DebugFoldingTowel
-#   id: DebugFoldingTowelFolded
-#   suffix: folded
-#   components:
-#   - type: Foldable
-#     folded: true
+- type: entity
+  id: FunkyRedTowelFolded
+  name: red towel
+  parent: FunkyRedTowel
+  suffix: folded
+  components:
+  - type: Foldable
+    folded: true
 
-# - type: entity
-#   id: DebugTowel
-#   name: debug nonfolding towel
-#   description: You must know the pain I am going through.
-#   parent: [ UnsensoredClothingUniformBase, ClothingHeadBase, ClothingBeltBase ]
-#   components:
-#   - type: Sprite
-#     sprite: _Funkystation/Objects/Fun/Towels/white.rsi
-#     state: towel_folded
-#   - type: Clothing
-#     sprite: _Funkystation/Objects/Fun/Towels/white.rsi
-#     slots: 
-#     - BELT
-#     - INNERCLOTHING
-#     - HEAD
-#     femaleMask: UniformTop
-#     equipSound: 
-#     unequipSound: 
-#   - type: Spillable
-#     solution: absorbed
-#     spillWhenThrown: false
-#   - type: DrainableSolution
-#     solution: absorbed
-#   - type: Absorbent
-#     pickupAmount: 15
-#   - type: SolutionContainerManager
-#     solutions:
-#       food:
-#         maxVol: 30
-#         reagents:
-#         - ReagentId: Fiber
-#           Quantity: 30
-#       absorbed:
-#         maxVol: 30
-#   - type: UseDelay
-#     delay: 1
-#   - type: Fiber
-#     fiberColor: fibers-white
-#   - type: DnaSubstanceTrace
-#   - type: Item
-#     size: Small
+- type: entity
+  id: FunkyMaroonTowel
+  name: maroon towel
+  parent: FunkyBaseTowel
+  description: A highly versatile, luxurious maroon towel. IT'S SO FLUFFY!
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Fun/Towels/maroon.rsi
+  - type: Clothing
+    sprite: _Funkystation/Objects/Fun/Towels/maroon.rsi
+  - type: Fiber
+    fiberColor: fibers-maroon
+
+- type: entity
+  id: FunkyMaroonTowelFolded
+  name: maroon towel
+  parent: FunkyMaroonTowel
+  suffix: folded
+  components:
+  - type: Foldable
+    folded: true

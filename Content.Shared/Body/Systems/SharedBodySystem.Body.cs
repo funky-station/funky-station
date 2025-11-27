@@ -410,7 +410,7 @@ public partial class SharedBodySystem
             if (IsPartRoot(bodyEnt, partId, part: part) || !part.CanSever)
                 return gibs;
 
-            DropSlotContents((partId, part));
+            _inventory.DropSlotContents(partId, "slotName");
             RemovePartChildren((partId, part), bodyEnt);
             foreach (var organ in GetPartOrgans(partId, part))
             {
@@ -452,7 +452,7 @@ public partial class SharedBodySystem
 
             var gibs = new HashSet<EntityUid>();
             // Todo: Kill this in favor of husking.
-            DropSlotContents((partId, part));
+            _inventory.DropSlotContents(partId, "slotName");
             RemovePartChildren((partId, part), bodyEnt);
             foreach (var organ in GetPartOrgans(partId, part))
                 _gibbingSystem.TryGibEntityWithRef(bodyEnt, organ.Id, GibType.Drop, GibContentsOption.Skip,

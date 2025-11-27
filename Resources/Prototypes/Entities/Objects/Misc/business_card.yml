@@ -33,3 +33,6 @@
       damage:
         types:
           Slash: 10
+    - type: Utensil # Funky - for eating mystery scran
+      types:
+      - Fork

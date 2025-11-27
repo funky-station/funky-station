@@ -41,7 +41,7 @@
   id: pineapple-margherita
   flavorType: Complex
   description: flavor-complex-pineapple-margherita
-  
+
 - type: flavor
   id: shrimp
   flavorType: Complex
@@ -56,3 +56,8 @@
   id: forbidden
   flavorType: Complex
   description: flavor-complex-forbidden
+
+- type: flavor
+  id: leeds
+  flavorType: Complex
+  description: flavor-complex-leeds

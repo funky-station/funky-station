@@ -355,6 +355,7 @@
       - id: ModularReceiver
       - id: WeaponFlareGun
       - id: BarberScissors
+      - id: FoodMysteryScran
       - !type:GroupSelector
         children:
         - id: DrinkSpaceGlue

@@ -1,0 +1,21 @@
+- type: entity
+  name: mystery scran
+  parent: FoodInjectableBase
+  id: FoodMysteryScran
+  description: The pinnacle of British cuisine. Best eaten with an ID card.
+  components:
+  - type: FlavorProfile
+    flavors:
+    - leeds
+  - type: Sprite
+    sprite: _Funkystation/Objects/Consumable/Food/mystery_scran.rsi
+    state: mysteryscran
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents: # Same as a meat pie, which it probably is.
+        - ReagentId: Nutriment
+          Quantity: 11
+        - ReagentId: Vitamin
+          Quantity: 5

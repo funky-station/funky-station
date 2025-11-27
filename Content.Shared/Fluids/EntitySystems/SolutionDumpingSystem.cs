@@ -38,7 +38,6 @@ public sealed class SolutionDumpingSystem : EntitySystem
         SubscribeLocalEvent<DrainableSolutionComponent, CanDropDraggedEvent>(OnDrainableCanDragDropped);
         SubscribeLocalEvent<DrainableSolutionComponent, DragDropDraggedEvent>(OnDrainableDragged);
 
-        SubscribeLocalEvent<RefillableSolutionComponent, DrainedTargetEvent>(OnDrainedToRefillableDragged);
         SubscribeLocalEvent<DumpableSolutionComponent, DrainedTargetEvent>(OnDrainedToDumpableDragged);
 
         // We use queries for these since CanDropDraggedEvent gets called pretty rapidly
@@ -53,7 +52,7 @@ public sealed class SolutionDumpingSystem : EntitySystem
     private void OnDrainableCanDragDropped(Entity<DrainableSolutionComponent> ent, ref CanDropDraggedEvent args)
     {
         // Easily drawn-from thing can be dragged onto easily refillable thing.
-        if (!_refillableQuery.HasComp(args.Target) && !_dumpQuery.HasComp(args.Target))
+        if (!_dumpQuery.HasComp(args.Target))
             return;
 
         args.CanDrop = true;
@@ -108,28 +107,6 @@ public sealed class SolutionDumpingSystem : EntitySystem
             _solContainer.TryAddSolution(targetSolEnt.Value,
                 _solContainer.SplitSolution(sourceEnt.Value, targetSol.AvailableVolume));
         }
-
-        _audio.PlayPredicted(AbsorbentComponent.DefaultTransferSound, ent, args.User);
-    }
-
-    private void OnDrainedToRefillableDragged(Entity<RefillableSolutionComponent> ent, ref DrainedTargetEvent args)
-    {
-        if (!_solContainer.TryGetRefillableSolution((ent, ent.Comp),
-                out var targetSolEnt,
-                out var targetSol))
-            return;
-
-        // Check openness, hands, source being empty, and target being full.
-        if (!DragInteractionChecks(args.User,
-                args.Source,
-                ent.Owner,
-                args.SourceSolution,
-                targetSol,
-                out var sourceEnt))
-            return;
-
-        _solContainer.TryAddSolution(targetSolEnt.Value,
-            _solContainer.SplitSolution(sourceEnt.Value, targetSol.AvailableVolume));
 
         _audio.PlayPredicted(AbsorbentComponent.DefaultTransferSound, ent, args.User);
     }

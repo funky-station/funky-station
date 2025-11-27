@@ -1,4 +1,8 @@
-﻿using System.Collections.Generic;
+// SPDX-FileCopyrightText: 2025 Hannah Giovanna Dawson <karakkaraz@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using BenchmarkDotNet.Attributes;
 using Content.IntegrationTests;

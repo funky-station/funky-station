@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Shared.Changeling.Components;
 using Content.Shared.Changeling.Systems;
 using Robust.Client.GameObjects;

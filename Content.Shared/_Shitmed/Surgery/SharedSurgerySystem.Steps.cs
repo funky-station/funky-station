@@ -867,17 +867,6 @@ public abstract partial class SharedSurgerySystem
         return false;
     }
 
-    public bool CanPerformStep(EntityUid user, EntityUid body, EntityUid part, EntityUid step, EntityUid tool, bool doPopup)
-    {
-        return CanPerformStep(user, body, part, step, tool, doPopup, out _, out _, out _);
-    }
-
-    public bool CanPerformStepWithHeld(EntityUid user, EntityUid body, EntityUid part, EntityUid step, bool doPopup, out string? popup)
-    {
-        var tool = _hands.GetActiveItemOrSelf(user);
-        return CanPerformStep(user, body, part, step, tool, doPopup, out popup, out _, out _);
-    }
-
     public bool IsStepComplete(EntityUid body, EntityUid part, EntProtoId step, EntityUid surgery)
     {
         if (GetSingleton(step) is not { } stepEnt)

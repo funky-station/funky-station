@@ -31,6 +31,7 @@ using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.DoAfter;
 using Content.Shared.IdentityManagement;
+using Content.Shared._Shitmed.Surgery;
 using Content.Shared._Shitmed.Medical.Surgery.Conditions;
 using Content.Shared._Shitmed.Medical.Surgery.Effects.Step;
 using Content.Shared._Shitmed.Medical.Surgery.Steps;
@@ -45,6 +46,7 @@ using Content.Shared.Popups;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 using System.Linq;
+using Content.Shared.Damage.Components;
 
 namespace Content.Shared._Shitmed.Medical.Surgery;
 
@@ -259,8 +261,6 @@ public abstract partial class SharedSurgerySystem
 
         if (targetPart != default)
         {
-            // We reward players for properly affixing the parts by healing a little bit of damage, and enabling the part temporarily.
-            _wounds.TryHealWoundsOnWoundable(targetPart.Id, 12f, out _, damageGroup: _prototypes.Index<DamageGroupPrototype>("Brute"));
             RemComp<BodyPartReattachedComponent>(targetPart.Id);
         }
     }
@@ -292,7 +292,6 @@ public abstract partial class SharedSurgerySystem
         if (!_body.TryGetParentBodyPart(args.Part, out var parentPart, out _))
             return;
 
-        _wounds.AmputateWoundableSafely(parentPart.Value, args.Part, amputateChildrenSafely: true);
         _hands.TryPickupAnyHand(args.User, args.Part);
     }
 
@@ -477,149 +476,6 @@ public abstract partial class SharedSurgerySystem
     {
 
     }
-
-    private void OnTraumaTreatmentStep(Entity<SurgeryTraumaTreatmentStepComponent> ent, ref SurgeryStepEvent args)
-    {
-        var healAmount = ent.Comp.Amount;
-        switch (ent.Comp.TraumaType)
-        {
-            case TraumaType.OrganDamage:
-                foreach (var organ in _body.GetBodyOrgans(args.Body))
-                {
-                    foreach (var modifier in organ.Component.IntegrityModifiers)
-                    {
-                        var delta = healAmount - modifier.Value;
-                        if (delta > 0)
-                        {
-                            healAmount -= modifier.Value;
-                            _trauma.TryRemoveOrganDamageModifier(
-                                organ.Id,
-                                modifier.Key.Item2,
-                                modifier.Key.Item1,
-                                organ.Component);
-                        }
-                        else
-                        {
-                            _trauma.TryChangeOrganDamageModifier(
-                                organ.Id,
-                                -healAmount,
-                                modifier.Key.Item2,
-                                modifier.Key.Item1,
-                                organ.Component);
-                            break;
-                        }
-                    }
-                }
-
-                break;
-
-            case TraumaType.BoneDamage:
-                if (!TryComp<WoundableComponent>(args.Part, out var woundable))
-                    return;
-
-                var bone = woundable.Bone.ContainedEntities.FirstOrNull();
-                if (bone == null || !TryComp<BoneComponent>(bone, out var boneComp))
-                    return;
-
-                _trauma.ApplyDamageToBone(bone.Value, -healAmount, boneComp);
-                break;
-
-            case TraumaType.Dismemberment:
-                if (_trauma.TryGetWoundableTrauma(args.Part, out var traumas, TraumaType.Dismemberment))
-                    foreach (var trauma in traumas)
-                        _trauma.RemoveTrauma(trauma);
-
-                break;
-        }
-    }
-
-    private void OnTraumaTreatmentCheck(Entity<SurgeryTraumaTreatmentStepComponent> ent, ref SurgeryStepCompleteCheckEvent args)
-    {
-        if (_trauma.HasWoundableTrauma(args.Part, ent.Comp.TraumaType))
-            args.Cancelled = true;
-    }
-
-    private void OnBleedsTreatmentStep(Entity<SurgeryBleedsTreatmentStepComponent> ent, ref SurgeryStepEvent args)
-    {
-        var healAmount = ent.Comp.Amount;
-        foreach (var woundEnt in _wounds.GetWoundableWounds(args.Part))
-        {
-            if (!TryComp<BleedInflicterComponent>(woundEnt, out var bleeds))
-                continue;
-
-            if (bleeds.Scaling > healAmount)
-            {
-                bleeds.Scaling -= healAmount;
-            }
-            else
-            {
-                bleeds.BleedingAmountRaw = 0;
-                bleeds.Scaling = 0;
-
-                bleeds.IsBleeding = false; // Won't bleed as long as it's not reopened
-
-                healAmount -= bleeds.Scaling;
-            }
-
-            Dirty(woundEnt, bleeds);
-        }
-    }
-
-    private void OnBleedsTreatmentCheck(Entity<SurgeryBleedsTreatmentStepComponent> ent, ref SurgeryStepCompleteCheckEvent args)
-    {
-        foreach (var woundEnt in _wounds.GetWoundableWounds(args.Part))
-        {
-            if (!TryComp<BleedInflicterComponent>(woundEnt, out var bleedsInflicter)
-                || !bleedsInflicter.IsBleeding)
-                continue;
-
-            args.Cancelled = true;
-            break;
-        }
-    }
-
-    private void OnPainInflicterStep(Entity<SurgeryStepPainInflicterComponent> ent, ref SurgeryStepEvent args)
-    {
-        var ev = new SurgeryPainEvent();
-        RaiseLocalEvent(args.Body, ev);
-        if (ev.Cancelled)
-            return;
-
-        if (!_consciousness.TryGetNerveSystem(args.Body, out var nerveSys))
-            return;
-
-        var painToInflict = ent.Comp.Amount;
-        if (Status.HasEffectComp<ForcedSleepingStatusEffectComponent>(args.Body))
-            painToInflict *= ent.Comp.SleepModifier;
-
-        if (!_pain.TryChangePainModifier(
-                nerveSys.Value.Owner,
-                args.Part,
-                "SurgeryPain",
-                painToInflict,
-                nerveSys,
-                ent.Comp.PainDuration,
-                ent.Comp.PainType))
-        {
-           _pain.TryAddPainModifier(nerveSys.Value.Owner,
-               args.Part,
-               "SurgeryPain",
-               painToInflict,
-               ent.Comp.PainType,
-               nerveSys,
-               ent.Comp.PainDuration);
-        }
-    }
-
-    private void OnPainInflicterCheck(Entity<SurgeryStepPainInflicterComponent> ent, ref SurgeryStepCompleteCheckEvent args)
-    {
-        if (!_consciousness.TryGetNerveSystem(args.Part, out var nerveSys))
-            return;
-
-        if (!_pain.TryGetPainModifier(nerveSys.Value.Owner, args.Part, "SurgeryPain", out _, nerveSys))
-            args.Cancelled = true;
-    }
-
 
     private void OnSurgeryTargetStepChosen(Entity<SurgeryTargetComponent> ent, ref SurgeryStepChosenBuiMsg args)
     {

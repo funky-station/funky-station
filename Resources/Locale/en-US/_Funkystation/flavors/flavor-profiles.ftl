@@ -5,7 +5,7 @@
 
 ## Foodstuff
 flavor-complex-shrimp = like shrimp
-flavor-complex-leeds = like Leeds United
+flavor-complex-barratry = like Barratry United
 
 ## non-alcoholic drinks
 flavor-complex-eggnog = like egg and nog

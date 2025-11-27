@@ -15,7 +15,7 @@
   components:
   - type: FlavorProfile
     flavors:
-    - leeds
+    - barratry
   - type: Sprite
     sprite: _Funkystation/Objects/Consumable/Food/mystery_scran.rsi
     state: mysteryscran

@@ -60,6 +60,6 @@
   description: flavor-complex-forbidden
 
 - type: flavor
-  id: leeds
+  id: barratry
   flavorType: Complex
-  description: flavor-complex-leeds
+  description: flavor-complex-barratry

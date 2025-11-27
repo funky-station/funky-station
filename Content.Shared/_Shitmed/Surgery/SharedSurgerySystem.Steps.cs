@@ -34,6 +34,7 @@ using Content.Shared.Popups;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Toolshed.TypeParsers;
 using System.Linq;
+using Content.Shared.Damage.Components;
 
 namespace Content.Shared._Shitmed.Medical.Surgery;
 

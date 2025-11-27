@@ -41,18 +41,13 @@
 //
 // SPDX-License-Identifier: MIT
 
-using System;
 using System.Linq;
-using System.Reflection;
 using System.Text.RegularExpressions;
 using Content.Shared.CCVar;
-using Content.Shared.Dataset;
 using Content.Shared.GameTicking;
 using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Prototypes;
 using Content.Shared.Preferences.Loadouts;
-using Content.Shared.Random;
-using Content.Shared.Random.Helpers;
 using Content.Shared.Roles;
 using Content.Shared.Traits;
 using Robust.Shared.Collections;
@@ -63,7 +58,6 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Serialization;
 using Robust.Shared.Utility;
-using Content.Shared._Funkystation.Records; // CD - Character Records
 
 namespace Content.Shared.Preferences
 {
@@ -77,15 +71,16 @@ namespace Content.Shared.Preferences
         private static readonly Regex RestrictedNameRegex = new(@"[^A-Za-z0-9 '\-]");
         private static readonly Regex ICNameCaseRegex = new(@"^(?<word>\w)|\b(?<word>\w)(?=\w*$)");
 
-        public const int MaxNameLength = 32;
-        public const int MaxLoadoutNameLength = 32;
-        public const int MaxDescLength = 512;
-
         /// <summary>
         /// Job preferences for initial spawn.
         /// </summary>
         [DataField]
-        private HashSet<ProtoId<JobPrototype>> _jobPreferences = new() { SharedGameTicker.FallbackOverflowJob };
+        private Dictionary<ProtoId<JobPrototype>, JobPriority> _jobPriorities = new()
+        {
+            {
+                SharedGameTicker.FallbackOverflowJob, JobPriority.High
+            }
+        };
 
         /// <summary>
         /// Antags we have opted in to.
@@ -98,12 +93,6 @@ namespace Content.Shared.Preferences
         /// </summary>
         [DataField]
         private HashSet<ProtoId<TraitPrototype>> _traitPreferences = new();
-
-        /// <summary>
-        /// Is this character enabled? (Should it be considered for round start selection?)
-        /// </summary>
-        [DataField]
-        public bool Enabled;
 
         /// <summary>
         /// <see cref="_loadouts"/>
@@ -131,11 +120,6 @@ namespace Content.Shared.Preferences
         [DataField]
         public int Age { get; set; } = 18;
 
-        // #Goobstation - Prefered Borg Name Stuff
-
-        [DataField]
-        public string BorgName { get; set; } = "Genero-Bot";
-
         [DataField]
         public Sex Sex { get; private set; } = Sex.Male;
 
@@ -160,9 +144,9 @@ namespace Content.Shared.Preferences
         public SpawnPriorityPreference SpawnPriority { get; private set; } = SpawnPriorityPreference.None;
 
         /// <summary>
-        /// <see cref="_jobPreferences"/>
+        /// <see cref="_jobPriorities"/>
         /// </summary>
-        public IReadOnlySet<ProtoId<JobPrototype>> JobPreferences => _jobPreferences;
+        public IReadOnlyDictionary<ProtoId<JobPrototype>, JobPriority> JobPriorities => _jobPriorities;
 
         /// <summary>
         /// <see cref="_antagPreferences"/>
@@ -174,50 +158,55 @@ namespace Content.Shared.Preferences
         /// </summary>
         public IReadOnlySet<ProtoId<TraitPrototype>> TraitPreferences => _traitPreferences;
 
-        // Begin CD - Character records
-        [DataField("cosmaticDriftCharacterRecords")]
-        public PlayerProvidedCharacterRecords? CDCharacterRecords;
-        // End CD - Character records
+        /// <summary>
+        /// If we're unable to get one of our preferred jobs do we spawn as a fallback job or do we stay in lobby.
+        /// </summary>
+        [DataField]
+        public PreferenceUnavailableMode PreferenceUnavailable { get; private set; } =
+            PreferenceUnavailableMode.SpawnAsOverflow;
 
         public HumanoidCharacterProfile(
             string name,
             string flavortext,
             string species,
-            string borgname,
             int age,
             Sex sex,
             Gender gender,
             HumanoidCharacterAppearance appearance,
             SpawnPriorityPreference spawnPriority,
-            HashSet<ProtoId<JobPrototype>> jobPreferences,
+            Dictionary<ProtoId<JobPrototype>, JobPriority> jobPriorities,
+            PreferenceUnavailableMode preferenceUnavailable,
             HashSet<ProtoId<AntagPrototype>> antagPreferences,
             HashSet<ProtoId<TraitPrototype>> traitPreferences,
-            Dictionary<string, RoleLoadout> loadouts,
-            bool enabled,
-            // Begin CD - Character Records
-            PlayerProvidedCharacterRecords? cdCharacterRecords
-            // End CD - Character Records
-            )
-
-
+            Dictionary<string, RoleLoadout> loadouts)
         {
             Name = name;
             FlavorText = flavortext;
             Species = species;
-            BorgName = borgname;
             Age = age;
             Sex = sex;
             Gender = gender;
             Appearance = appearance;
             SpawnPriority = spawnPriority;
-            _jobPreferences = jobPreferences;
+            _jobPriorities = jobPriorities;
+            PreferenceUnavailable = preferenceUnavailable;
             _antagPreferences = antagPreferences;
             _traitPreferences = traitPreferences;
             _loadouts = loadouts;
-            Enabled = enabled;
-            // Begin CD - Character Records
-            CDCharacterRecords = cdCharacterRecords;
-            // End CD - Character Records
+
+            var hasHighPrority = false;
+            foreach (var (key, value) in _jobPriorities)
+            {
+                if (value == JobPriority.Never)
+                    _jobPriorities.Remove(key);
+                else if (value != JobPriority.High)
+                    continue;
+
+                if (hasHighPrority)
+                    _jobPriorities[key] = JobPriority.Medium;
+
+                hasHighPrority = true;
+            }
         }
 
         /// <summary>Copy constructor</summary>
@@ -225,19 +214,16 @@ namespace Content.Shared.Preferences
             : this(other.Name,
                 other.FlavorText,
                 other.Species,
-                // #Goobstation - Borg Preferred Name
-                other.BorgName,
                 other.Age,
                 other.Sex,
                 other.Gender,
                 other.Appearance.Clone(),
                 other.SpawnPriority,
-                new HashSet<ProtoId<JobPrototype>>(other.JobPreferences),
+                new Dictionary<ProtoId<JobPrototype>, JobPriority>(other.JobPriorities),
+                other.PreferenceUnavailable,
                 new HashSet<ProtoId<AntagPrototype>>(other.AntagPreferences),
                 new HashSet<ProtoId<TraitPrototype>>(other.TraitPreferences),
-                new Dictionary<string, RoleLoadout>(other.Loadouts),
-                other.Enabled,
-                other.CDCharacterRecords) // CD - Character Records
+                new Dictionary<string, RoleLoadout>(other.Loadouts))
         {
         }
 
@@ -255,8 +241,10 @@ namespace Content.Shared.Preferences
         /// </summary>
         /// <param name="species">The species to use in this default profile. The default species is <see cref="SharedHumanoidAppearanceSystem.DefaultSpecies"/>.</param>
         /// <returns>Humanoid character profile with default settings.</returns>
-        public static HumanoidCharacterProfile DefaultWithSpecies(string species = SharedHumanoidAppearanceSystem.DefaultSpecies)
+        public static HumanoidCharacterProfile DefaultWithSpecies(string? species = null)
         {
+            species ??= SharedHumanoidAppearanceSystem.DefaultSpecies;
+
             return new()
             {
                 Species = species,
@@ -279,8 +267,10 @@ namespace Content.Shared.Preferences
             return RandomWithSpecies(species);
         }
 
-        public static HumanoidCharacterProfile RandomWithSpecies(string species = SharedHumanoidAppearanceSystem.DefaultSpecies)
+        public static HumanoidCharacterProfile RandomWithSpecies(string? species = null)
         {
+            species ??= SharedHumanoidAppearanceSystem.DefaultSpecies;
+
             var prototypeManager = IoCManager.Resolve<IPrototypeManager>();
             var random = IoCManager.Resolve<IRobustRandom>();
 
@@ -306,13 +296,9 @@ namespace Content.Shared.Preferences
 
             var name = GetName(species, gender);
 
-            // #Goobstation - Borg Preferred Name
-            var borgname = GetBorgName();
-
             return new HumanoidCharacterProfile()
             {
                 Name = name,
-                BorgName = borgname,
                 Sex = sex,
                 Age = age,
                 Gender = gender,
@@ -334,13 +320,6 @@ namespace Content.Shared.Preferences
         public HumanoidCharacterProfile WithAge(int age)
         {
             return new(this) { Age = age };
-        }
-
-        // #Goobstation - Borg Stuff (see above for more borgname things
-
-        public HumanoidCharacterProfile WithBorgName(string borgname)
-        {
-            return new(this) { BorgName = borgname };
         }
 
         public HumanoidCharacterProfile WithSex(Sex sex)
@@ -369,49 +348,69 @@ namespace Content.Shared.Preferences
             return new(this) { SpawnPriority = spawnPriority };
         }
 
-        // Begin CD - Character Records
-        public HumanoidCharacterProfile WithCDCharacterRecords(PlayerProvidedCharacterRecords records)
+        public HumanoidCharacterProfile WithJobPriorities(IEnumerable<KeyValuePair<ProtoId<JobPrototype>, JobPriority>> jobPriorities)
         {
-            return new HumanoidCharacterProfile(this) { CDCharacterRecords = records };
-        }
-        // End CD - Character Records
+            var dictionary = new Dictionary<ProtoId<JobPrototype>, JobPriority>(jobPriorities);
+            var hasHighPrority = false;
 
-        public HumanoidCharacterProfile WithJobPreferences(IEnumerable<ProtoId<JobPrototype>> jobPreferences)
-        {
+            foreach (var (key, value) in dictionary)
+            {
+                if (value == JobPriority.Never)
+                    dictionary.Remove(key);
+                else if (value != JobPriority.High)
+                    continue;
+
+                if (hasHighPrority)
+                    dictionary[key] = JobPriority.Medium;
+
+                hasHighPrority = true;
+            }
+
             return new(this)
             {
-                _jobPreferences = new HashSet<ProtoId<JobPrototype>>(jobPreferences),
+                _jobPriorities = dictionary
             };
         }
 
-        public HumanoidCharacterProfile WithJob(ProtoId<JobPrototype> jobId, bool include = true)
+        public HumanoidCharacterProfile WithJobPriority(ProtoId<JobPrototype> jobId, JobPriority priority)
         {
-            var jobPreferences = new HashSet<ProtoId<JobPrototype>>(_jobPreferences);
-            if (include)
+            var dictionary = new Dictionary<ProtoId<JobPrototype>, JobPriority>(_jobPriorities);
+            if (priority == JobPriority.Never)
             {
-                jobPreferences.Add(jobId);
+                dictionary.Remove(jobId);
+            }
+            else if (priority == JobPriority.High)
+            {
+                // There can only ever be one high priority job.
+                foreach (var (job, value) in dictionary)
+                {
+                    if (value == JobPriority.High)
+                        dictionary[job] = JobPriority.Medium;
+                }
+
+                dictionary[jobId] = priority;
             }
             else
             {
-                jobPreferences.Remove(jobId);
+                dictionary[jobId] = priority;
             }
 
             return new(this)
             {
-                _jobPreferences = jobPreferences,
+                _jobPriorities = dictionary,
             };
         }
 
-        public HumanoidCharacterProfile WithoutJob(ProtoId<JobPrototype> jobId)
+        public HumanoidCharacterProfile WithPreferenceUnavailable(PreferenceUnavailableMode mode)
         {
-            return WithJob(jobId, false);
+            return new(this) { PreferenceUnavailable = mode };
         }
 
         public HumanoidCharacterProfile WithAntagPreferences(IEnumerable<ProtoId<AntagPrototype>> antagPreferences)
         {
             return new(this)
             {
-                _antagPreferences = new(antagPreferences),
+                _antagPreferences = new (antagPreferences),
             };
         }
 
@@ -444,7 +443,7 @@ namespace Content.Shared.Preferences
             // Category not found so dump it.
             TraitCategoryPrototype? traitCategory = null;
 
-            if (category != null && !protoManager.TryIndex(category, out traitCategory))
+            if (category != null && !protoManager.Resolve(category, out traitCategory))
                 return new(this);
 
             var list = new HashSet<ProtoId<TraitPrototype>>(_traitPreferences) { traitId };
@@ -492,11 +491,6 @@ namespace Content.Shared.Preferences
             };
         }
 
-        public HumanoidCharacterProfile AsEnabled(bool enabled = true)
-        {
-            return new(this) { Enabled = enabled };
-        }
-
         public string Summary =>
             Loc.GetString(
                 "humanoid-character-profile-summary",
@@ -510,20 +504,16 @@ namespace Content.Shared.Preferences
             if (maybeOther is not HumanoidCharacterProfile other) return false;
             if (Name != other.Name) return false;
             if (Age != other.Age) return false;
-            // #Goobstation - Borg Preferred Name
-            if (BorgName != other.BorgName) return false;
             if (Sex != other.Sex) return false;
             if (Gender != other.Gender) return false;
             if (Species != other.Species) return false;
+            if (PreferenceUnavailable != other.PreferenceUnavailable) return false;
             if (SpawnPriority != other.SpawnPriority) return false;
-            if (!_jobPreferences.SequenceEqual(other._jobPreferences)) return false;
+            if (!_jobPriorities.SequenceEqual(other._jobPriorities)) return false;
             if (!_antagPreferences.SequenceEqual(other._antagPreferences)) return false;
             if (!_traitPreferences.SequenceEqual(other._traitPreferences)) return false;
             if (!Loadouts.SequenceEqual(other.Loadouts)) return false;
             if (FlavorText != other.FlavorText) return false;
-            if (Enabled != other.Enabled) return false;
-            if (CDCharacterRecords != null && other.CDCharacterRecords != null && // CD
-               !CDCharacterRecords.MemberwiseEquals(other.CDCharacterRecords)) return false; // CD
             return Appearance.MemberwiseEquals(other.Appearance);
         }
 
@@ -562,13 +552,14 @@ namespace Content.Shared.Preferences
             };
 
             string name;
+            var maxNameLength = configManager.GetCVar(CCVars.MaxNameLength);
             if (string.IsNullOrEmpty(Name))
             {
                 name = GetName(Species, gender);
             }
-            else if (Name.Length > MaxNameLength)
+            else if (Name.Length > maxNameLength)
             {
-                name = Name[..MaxNameLength];
+                name = Name[..maxNameLength];
             }
             else
             {
@@ -576,7 +567,6 @@ namespace Content.Shared.Preferences
             }
 
             name = name.Trim();
-
 
             if (configManager.GetCVar(CCVars.RestrictedNames))
             {
@@ -594,39 +584,25 @@ namespace Content.Shared.Preferences
                 name = GetName(Species, gender);
             }
 
-
             string flavortext;
-            if (FlavorText.Length > MaxDescLength)
+            var maxFlavorTextLength = configManager.GetCVar(CCVars.MaxFlavorTextLength);
+            if (FlavorText.Length > maxFlavorTextLength)
             {
-                flavortext = FormattedMessage.RemoveMarkupOrThrow(FlavorText)[..MaxDescLength];
+                flavortext = FormattedMessage.RemoveMarkupOrThrow(FlavorText)[..maxFlavorTextLength];
             }
             else
             {
                 flavortext = FormattedMessage.RemoveMarkupOrThrow(FlavorText);
             }
-            // #Goobstation - Borg Preferred Name
-            string borgname;
-            if (string.IsNullOrEmpty(BorgName))
-            {
-                borgname = GetBorgName();
-            }
-            else if (BorgName.Length > MaxNameLength)
-            {
-                borgname = BorgName[..MaxNameLength];
-            }
-            else
-            {
-                borgname = BorgName;
-            }
-
-            borgname = borgname.Trim();
-
-            if (string.IsNullOrEmpty(borgname))
-            {
-                borgname = GetBorgName();
-            }
 
             var appearance = HumanoidCharacterAppearance.EnsureValid(Appearance, Species, Sex);
+
+            var prefsUnavailableMode = PreferenceUnavailable switch
+            {
+                PreferenceUnavailableMode.StayInLobby => PreferenceUnavailableMode.StayInLobby,
+                PreferenceUnavailableMode.SpawnAsOverflow => PreferenceUnavailableMode.SpawnAsOverflow,
+                _ => PreferenceUnavailableMode.StayInLobby // Invalid enum values.
+            };
 
             var spawnPriority = SpawnPriority switch
             {
@@ -636,8 +612,26 @@ namespace Content.Shared.Preferences
                 _ => SpawnPriorityPreference.None // Invalid enum values.
             };
 
-            var jobs = new HashSet<ProtoId<JobPrototype>>(JobPreferences
-                .Where(p => prototypeManager.TryIndex(p, out var job) && job.SetPreference));
+            var priorities = new Dictionary<ProtoId<JobPrototype>, JobPriority>(JobPriorities
+                .Where(p => prototypeManager.TryIndex<JobPrototype>(p.Key, out var job) && job.SetPreference && p.Value switch
+                {
+                    JobPriority.Never => false, // Drop never since that's assumed default.
+                    JobPriority.Low => true,
+                    JobPriority.Medium => true,
+                    JobPriority.High => true,
+                    _ => false
+                }));
+
+            var hasHighPrio = false;
+            foreach (var (key, value) in priorities)
+            {
+                if (value != JobPriority.High)
+                    continue;
+
+                if (hasHighPrio)
+                    priorities[key] = JobPriority.Medium;
+                hasHighPrio = true;
+            }
 
             var antags = AntagPreferences
                 .Where(id => prototypeManager.TryIndex(id, out var antag) && antag.SetPreference)
@@ -649,32 +643,26 @@ namespace Content.Shared.Preferences
 
             Name = name;
             FlavorText = flavortext;
-            // #Goobstation - Borg Preferred Name
-            BorgName = borgname;
             Age = age;
             Sex = sex;
             Gender = gender;
             Appearance = appearance;
             SpawnPriority = spawnPriority;
 
-            _jobPreferences = new HashSet<ProtoId<JobPrototype>>(jobs);
+            _jobPriorities.Clear();
+
+            foreach (var (job, priority) in priorities)
+            {
+                _jobPriorities.Add(job, priority);
+            }
+
+            PreferenceUnavailable = prefsUnavailableMode;
 
             _antagPreferences.Clear();
             _antagPreferences.UnionWith(antags);
 
             _traitPreferences.Clear();
             _traitPreferences.UnionWith(GetValidTraits(traits, prototypeManager));
-
-            // Begin CD - Character Records
-            if (CDCharacterRecords == null)
-            {
-                CDCharacterRecords = PlayerProvidedCharacterRecords.DefaultRecords();
-            }
-            else
-            {
-                CDCharacterRecords!.EnsureValid();
-            }
-            // End CD - Character Records
 
             // Checks prototypes exist for all loadouts and dump / set to default if not.
             var toRemove = new ValueList<string>();
@@ -687,6 +675,9 @@ namespace Content.Shared.Preferences
                     continue;
                 }
 
+                // This happens after we verify the prototype exists
+                // These values are set equal in the database and we need to make sure they're equal here too!
+                loadouts.Role = roleName;
                 loadouts.EnsureValid(this, session, collection);
             }
 
@@ -718,7 +709,7 @@ namespace Content.Shared.Preferences
                 }
 
                 // No category so dump it.
-                if (!protoManager.TryIndex(traitProto.Category, out var category))
+                if (!protoManager.Resolve(traitProto.Category, out var category))
                     continue;
 
                 var existing = groups.GetOrNew(category.ID);
@@ -749,39 +740,35 @@ namespace Content.Shared.Preferences
             var namingSystem = IoCManager.Resolve<IEntitySystemManager>().GetEntitySystem<NamingSystem>();
             return namingSystem.GetName(species, gender);
         }
-        // #Goobstation - Borg Preferred Name
-        public static string GetBorgName()
+        public bool Equals(HumanoidCharacterProfile? other)
         {
-            var random = IoCManager.Resolve<IRobustRandom>();
-            var prototypeSystem = IoCManager.Resolve<IPrototypeManager>();
-            var prototype = prototypeSystem.Index<LocalizedDatasetPrototype>("NamesBorg");
-            return random.Pick(prototype);
+            if (other is null)
+                return false;
 
+            return ReferenceEquals(this, other) || MemberwiseEquals(other);
         }
 
         public override bool Equals(object? obj)
         {
-            return ReferenceEquals(this, obj) || obj is HumanoidCharacterProfile other && Equals(other);
+            return obj is HumanoidCharacterProfile other && Equals(other);
         }
 
         public override int GetHashCode()
         {
             var hashCode = new HashCode();
-            hashCode.Add(_jobPreferences);
+            hashCode.Add(_jobPriorities);
             hashCode.Add(_antagPreferences);
             hashCode.Add(_traitPreferences);
             hashCode.Add(_loadouts);
             hashCode.Add(Name);
             hashCode.Add(FlavorText);
-            // #Goobstation - Borg Preferred Name
-            hashCode.Add(BorgName);
             hashCode.Add(Species);
             hashCode.Add(Age);
-            hashCode.Add((int) Sex);
-            hashCode.Add((int) Gender);
+            hashCode.Add((int)Sex);
+            hashCode.Add((int)Gender);
             hashCode.Add(Appearance);
             hashCode.Add((int)SpawnPriority);
-            hashCode.Add(Enabled);
+            hashCode.Add((int)PreferenceUnavailable);
             return hashCode.ToHashCode();
         }
 

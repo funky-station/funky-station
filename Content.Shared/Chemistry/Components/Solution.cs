@@ -1,51 +1,12 @@
-// SPDX-FileCopyrightText: 2019 ZelteHonor <gabrieldionbouchard@gmail.com>
-// SPDX-FileCopyrightText: 2020 PrPleGoo <PrPleGoo@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2020 PrPleGoo <felix.leeuwen@gmail.com>
-// SPDX-FileCopyrightText: 2020 Tyler Young <tyler.young@impromptu.ninja>
-// SPDX-FileCopyrightText: 2020 Víctor Aguilera Puerto <zddm@outlook.es>
-// SPDX-FileCopyrightText: 2020 moneyl <8206401+Moneyl@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2020 nuke <47336974+nuke-makes-games@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Acruid <shatter66@gmail.com>
-// SPDX-FileCopyrightText: 2021 Paul <ritter.paul1+git@googlemail.com>
-// SPDX-FileCopyrightText: 2021 Paul Ritter <ritter.paul1@googlemail.com>
-// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <gradientvera@outlook.com>
-// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <zddm@outlook.es>
-// SPDX-FileCopyrightText: 2021 Ygg01 <y.laughing.man.y@gmail.com>
-// SPDX-FileCopyrightText: 2021 plinyvic <plinyvicgames@gmail.com>
-// SPDX-FileCopyrightText: 2021 py01 <60152240+collinlunn@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Arimah <arimah42@gmail.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Emisse <99158783+Emisse@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 EnDecc <33369477+Endecc@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Psychpsyo <60073468+Psychpsyo@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
-// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
-// SPDX-FileCopyrightText: 2024 Skye <57879983+Rainbeon@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
-// SPDX-FileCopyrightText: 2024 Verm <32827189+Vermidia@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 blueDev2 <89804215+blueDev2@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
-//
-// SPDX-License-Identifier: MIT
-
+using System.Collections;
+using System.Linq;
+using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.FixedPoint;
 using JetBrains.Annotations;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 using Robust.Shared.Utility;
-using System.Collections;
-using System.Linq;
-using Content.Shared.Chemistry.Components.SolutionManager;
 
 namespace Content.Shared.Chemistry.Components
 {
@@ -54,7 +15,7 @@ namespace Content.Shared.Chemistry.Components
     /// </summary>
     [Serializable, NetSerializable]
     [DataDefinition]
-    public sealed partial class Solution : IEnumerable<ReagentQuantity>, ISerializationHooks
+    public sealed partial class Solution : IEnumerable<ReagentQuantity>, ISerializationHooks, IRobustCloneable<Solution>
     {
         // This is a list because it is actually faster to add and remove reagents from
         // a list than a dictionary, though contains-reagent checks are slightly slower,
@@ -76,7 +37,6 @@ namespace Content.Shared.Chemistry.Components
         ///     systems use this.
         /// </remarks>
         [DataField("maxVol")]
-        [ViewVariables(VVAccess.ReadWrite)]
         public FixedPoint2 MaxVolume { get; set; } = FixedPoint2.Zero;
 
         public float FillFraction => MaxVolume == 0 ? 1 : Volume.Float() / MaxVolume.Float();
@@ -84,8 +44,7 @@ namespace Content.Shared.Chemistry.Components
         /// <summary>
         ///     If reactions will be checked for when adding reagents to the container.
         /// </summary>
-        [ViewVariables(VVAccess.ReadWrite)]
-        [DataField("canReact")]
+        [DataField]
         public bool CanReact { get; set; } = true;
 
         /// <summary>
@@ -97,8 +56,7 @@ namespace Content.Shared.Chemistry.Components
         /// <summary>
         ///     The temperature of the reagents in the solution.
         /// </summary>
-        [ViewVariables(VVAccess.ReadWrite)]
-        [DataField("temperature")]
+        [DataField]
         public float Temperature { get; set; } = 293.15f;
 
         /// <summary>
@@ -139,7 +97,7 @@ namespace Content.Shared.Chemistry.Components
             _heatCapacity = 0;
             foreach (var (reagent, quantity) in Contents)
             {
-                _heatCapacity += (float) quantity *
+                _heatCapacity += (float)quantity *
                                     protoMan.Index<ReagentPrototype>(reagent.Prototype).SpecificHeat;
             }
 
@@ -187,7 +145,7 @@ namespace Content.Shared.Chemistry.Components
         /// </summary>
         /// <param name="prototype">The prototype ID of the reagent to add.</param>
         /// <param name="quantity">The quantity in milli-units.</param>
-        public Solution(string prototype, FixedPoint2 quantity, List<ReagentData>? data = null) : this()
+        public Solution([ForbidLiteral] string prototype, FixedPoint2 quantity, List<ReagentData>? data = null) : this()
         {
             AddReagent(new ReagentId(prototype, data), quantity);
         }
@@ -213,6 +171,7 @@ namespace Content.Shared.Chemistry.Components
             Volume = solution.Volume;
             MaxVolume = solution.MaxVolume;
             Temperature = solution.Temperature;
+            CanReact = solution.CanReact;
             _heatCapacity = solution._heatCapacity;
             _heatCapacityDirty = solution._heatCapacityDirty;
             _heatCapacityUpdateCounter = solution._heatCapacityUpdateCounter;
@@ -228,7 +187,7 @@ namespace Content.Shared.Chemistry.Components
         public void ValidateSolution()
         {
             // sandbox forbids: [Conditional("DEBUG")]
-    #if DEBUG
+#if DEBUG
             // Correct volume
             DebugTools.Assert(Contents.Select(x => x.Quantity).Sum() == Volume);
 
@@ -246,7 +205,7 @@ namespace Content.Shared.Chemistry.Components
                 UpdateHeatCapacity(null);
                 DebugTools.Assert(MathHelper.CloseTo(_heatCapacity, cur, tolerance: 0.01));
             }
-    #endif
+#endif
         }
 
         void ISerializationHooks.AfterDeserialization()
@@ -261,7 +220,7 @@ namespace Content.Shared.Chemistry.Components
                 MaxVolume = Volume;
         }
 
-        public bool ContainsPrototype(string prototype)
+        public bool ContainsPrototype([ForbidLiteral] string prototype)
         {
             foreach (var (reagent, _) in Contents)
             {
@@ -283,7 +242,7 @@ namespace Content.Shared.Chemistry.Components
             return false;
         }
 
-        public bool ContainsReagent(string reagentId, List<ReagentData>? data)
+        public bool ContainsReagent([ForbidLiteral] string reagentId, List<ReagentData>? data)
             => ContainsReagent(new(reagentId, data));
 
         public bool TryGetReagent(ReagentId id, out ReagentQuantity quantity)
@@ -390,7 +349,7 @@ namespace Content.Shared.Chemistry.Components
         /// </summary>
         /// <param name="prototype">The prototype ID of the reagent to add.</param>
         /// <param name="quantity">The quantity in milli-units.</param>
-        public void AddReagent(string prototype, FixedPoint2 quantity, bool dirtyHeatCap = true)
+        public void AddReagent([ForbidLiteral] string prototype, FixedPoint2 quantity, bool dirtyHeatCap = true)
             => AddReagent(new ReagentId(prototype, null), quantity, dirtyHeatCap);
 
         /// <summary>
@@ -621,7 +580,40 @@ namespace Content.Shared.Chemistry.Components
         /// <summary>
         /// Splits a solution without the specified reagent prototypes.
         /// </summary>
+        [Obsolete("Use SplitSolutionWithout with params ProtoId<ReagentPrototype>")]
         public Solution SplitSolutionWithout(FixedPoint2 toTake, params string[] excludedPrototypes)
+        {
+            // First remove the blacklisted prototypes
+            List<ReagentQuantity> excluded = new();
+            foreach (var id in excludedPrototypes)
+            {
+                foreach (var tuple in Contents)
+                {
+                    if (tuple.Reagent.Prototype != id)
+                        continue;
+
+                    excluded.Add(tuple);
+                    RemoveReagent(tuple);
+                    break;
+                }
+            }
+
+            // Then split the solution
+            var sol = SplitSolution(toTake);
+
+            // Then re-add the excluded reagents to the original solution.
+            foreach (var reagent in excluded)
+            {
+                AddReagent(reagent);
+            }
+
+            return sol;
+        }
+
+        /// <summary>
+        /// Splits a solution without the specified reagent prototypes.
+        /// </summary>
+        public Solution SplitSolutionWithout(FixedPoint2 toTake, params ProtoId<ReagentPrototype>[] excludedPrototypes)
         {
             // First remove the blacklisted prototypes
             List<ReagentQuantity> excluded = new();
@@ -678,6 +670,12 @@ namespace Content.Shared.Chemistry.Components
             return sol;
         }
 
+        /// <summary>
+        /// Splits a solution into two by moving reagents from the given solution into a new one.
+        /// This modifies the original solution.
+        /// </summary>
+        /// <param name="toTake">The quantity of this solution to remove.</param>
+        /// <returns>A new solution containing the removed reagents.</returns>
         public Solution SplitSolution(FixedPoint2 toTake)
         {
             if (toTake <= FixedPoint2.Zero)
@@ -695,7 +693,7 @@ namespace Content.Shared.Chemistry.Components
             var origVol = Volume;
             var effVol = Volume.Value;
             newSolution = new Solution(Contents.Count) { Temperature = Temperature };
-            var remaining = (long) toTake.Value;
+            var remaining = (long)toTake.Value;
 
             for (var i = Contents.Count - 1; i >= 0; i--) // iterate backwards because of remove swap.
             {
@@ -711,7 +709,7 @@ namespace Content.Shared.Chemistry.Components
                     continue;
                 }
 
-                var splitQuantity = FixedPoint2.FromCents((int) split);
+                var splitQuantity = FixedPoint2.FromCents((int)split);
                 var newQuantity = quantity - splitQuantity;
 
                 DebugTools.Assert(newQuantity >= 0);
@@ -758,7 +756,7 @@ namespace Content.Shared.Chemistry.Components
 
             var effVol = Volume.Value;
             Volume -= toTake;
-            var remaining = (long) toTake.Value;
+            var remaining = (long)toTake.Value;
             for (var i = Contents.Count - 1; i >= 0; i--)// iterate backwards because of remove swap.
             {
                 var (reagent, quantity) = Contents[i];
@@ -773,7 +771,7 @@ namespace Content.Shared.Chemistry.Components
                     continue;
                 }
 
-                var splitQuantity = FixedPoint2.FromCents((int) split);
+                var splitQuantity = FixedPoint2.FromCents((int)split);
                 var newQuantity = quantity - splitQuantity;
 
                 if (newQuantity > FixedPoint2.Zero)

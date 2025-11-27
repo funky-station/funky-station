@@ -307,6 +307,10 @@
       flatReductions:
         Heat: 10 # capable of touching light bulbs and stoves without feeling pain!
   - type: IntercomOnlyBypass
+  - type: SlowOnDamage # funky - this is the same as BaseMobSpecies
+    speedModifierThresholds:
+      60: 0.8
+      80: 0.6
 
 - type: entity
   abstract: true

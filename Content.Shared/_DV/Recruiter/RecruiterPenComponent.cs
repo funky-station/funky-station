@@ -4,10 +4,10 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
-using Content.Shared.FixedPoint;
+using Content.Shared.NPC.Prototypes;
 using Content.Shared.Whitelist;
 using Robust.Shared.GameStates;
-using Robust.Shared.Serialization;
+using Robust.Shared.Prototypes;
 
 namespace Content.Shared._DV.Recruiter;
 
@@ -51,8 +51,14 @@ public sealed partial class RecruiterPenComponent : Component
     public EntityWhitelist? Blacklist;
 
     /// <summary>
-    /// If the user's mind matches this blacklist they can't use this pen.
+    /// If the user is in any of these factions they can't use this pen.
     /// </summary>
     [DataField]
-    public EntityWhitelist? MindBlacklist;
+    public List<ProtoId<NpcFactionPrototype>> FactionBlacklist = new();
+
+    /// <summary>
+    /// Payout on successful sign.
+    /// </summary>
+    [DataField(required: true)]
+    public EntProtoId Currency;
 }

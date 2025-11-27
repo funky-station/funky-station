@@ -64,16 +64,14 @@ public sealed class RoleSystem : SharedRoleSystem
 
     public void RoleUpdateMessage(MindComponent mind)
     {
-        if (mind.Session is null)
+        if (!Player.TryGetSessionById(mind.UserId, out var session))
             return;
 
-        if (!_proto.TryIndex(mind.RoleType, out var proto))
+        if (!_proto.Resolve(mind.RoleType, out var proto))
             return;
 
         var roleText = Loc.GetString(proto.Name);
         var color = proto.Color;
-
-        var session = mind.Session;
 
         //TODO add audio? Would need to be optional so it does not play on role changes that already come with their own audio
         // _audio.PlayGlobal(Sound, session);

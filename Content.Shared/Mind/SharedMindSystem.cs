@@ -604,12 +604,6 @@ public abstract partial class SharedMindSystem : EntitySystem
         return false;
     }
 
-    public bool TryGetSession(EntityUid? mindId, [NotNullWhen(true)] out ICommonSession? session)
-    {
-        session = null;
-        return TryComp(mindId, out MindComponent? mind) && (session = mind.Session) != null;
-    }
-
     /// <summary>
     /// Gets a mind from uid and/or MindContainerComponent. Used for null checks.
     /// </summary>

@@ -12,11 +12,11 @@ using Content.Shared.Hands;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Mind;
 using Content.Shared.Mindshield.Components;
+using Content.Shared.NPC.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Roles;
 using Content.Shared.Whitelist;
 using Robust.Shared.Timing;
-
 
 namespace Content.Shared._DV.Recruiter;
 
@@ -26,8 +26,11 @@ namespace Content.Shared._DV.Recruiter;
 public abstract class SharedRecruiterPenSystem : EntitySystem
 {
     [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly NpcFactionSystem _faction = default!;
     [Dependency] protected readonly SharedMindSystem Mind = default!;
     [Dependency] protected readonly SharedPopupSystem Popup = default!;
+    [Dependency] private readonly SharedRoleSystem _role = default!;
     [Dependency] private readonly SharedSolutionContainerSystem _solution = default!;
 
     private EntityQuery<MindShieldComponent> _shieldQuery;
@@ -40,7 +43,7 @@ public abstract class SharedRecruiterPenSystem : EntitySystem
 
         SubscribeLocalEvent<RecruiterPenComponent, HandSelectedEvent>(OnHandSelected);
         SubscribeLocalEvent<RecruiterPenComponent, UseInHandEvent>(OnPrick);
-        SubscribeLocalEvent<RecruiterPenComponent, SignAttemptEvent>(OnSignAttempt, before: [typeof(SharedSignatureSystem)]);
+        SubscribeLocalEvent<RecruiterPenComponent, SignAttemptEvent>(OnSignAttempt);
     }
 
     private void OnHandSelected(Entity<RecruiterPenComponent> ent, ref HandSelectedEvent args)
@@ -51,20 +54,17 @@ public abstract class SharedRecruiterPenSystem : EntitySystem
 
         // mind isnt networked properly so the popup is only done on server
         var user = args.User;
-        if (!Mind.TryGetMind(user, out var mindId, out var mind))
+        if (!Mind.TryGetMind(user, out var mind, out _))
             return;
 
-        foreach (var entry in mind.MindRoles)
-        {
-            if (HasComp<RecruiterRoleComponent>(entry))
-            {
-                Popup.PopupEntity(Loc.GetString("recruiter-pen-bound", ("pen", uid)), user, user);
+        if (!_role.MindHasRole<RecruiterRoleComponent>(mind))
+            return;
 
-                comp.RecruiterMind = mindId;
-                comp.Bound = true;
-                Dirty(uid, comp);
-            }
-        }
+        Popup.PopupEntity(Loc.GetString("recruiter-pen-bound", ("pen", uid)), user, user);
+
+        comp.RecruiterMind = mind;
+        comp.Bound = true;
+        Dirty(uid, comp);
     }
 
     private void OnPrick(Entity<RecruiterPenComponent> ent, ref UseInHandEvent args)
@@ -89,7 +89,7 @@ public abstract class SharedRecruiterPenSystem : EntitySystem
     private void OnSignAttempt(Entity<RecruiterPenComponent> ent, ref SignAttemptEvent args)
     {
         var (uid, comp) = ent;
-        if (args.Cancelled)
+        if (args.Cancelled || !_timing.IsFirstTimePredicted)
             return;
 
         args.Cancelled = true;
@@ -100,7 +100,7 @@ public abstract class SharedRecruiterPenSystem : EntitySystem
         var user = args.User;
         if (!comp.Bound)
         {
-            Popup.PopupEntity(Loc.GetString("recruiter-pen-locked", ("pen", uid)), user, user);
+            Popup.PopupClient(Loc.GetString("recruiter-pen-locked", ("pen", uid)), user, user);
             return;
         }
 
@@ -109,7 +109,7 @@ public abstract class SharedRecruiterPenSystem : EntitySystem
 
         if (blood.Value.Comp.Solution.AvailableVolume > 0)
         {
-            Popup.PopupEntity(Loc.GetString("recruiter-pen-empty", ("pen", uid)), user, user);
+            Popup.PopupClient(Loc.GetString("recruiter-pen-empty", ("pen", uid)), user, user);
             return;
         }
 
@@ -122,11 +122,8 @@ public abstract class SharedRecruiterPenSystem : EntitySystem
 
     private bool CheckBlacklist(Entity<RecruiterPenComponent> ent, EntityUid user, string action)
     {
-        if (!Mind.TryGetMind(user, out var mind, out _))
-            return false; // mindless nt drone...
-
         var (uid, comp) = ent;
-        if (_whitelist.IsBlacklistPass(comp.Blacklist, user) || _whitelist.IsBlacklistPass(comp.MindBlacklist, mind))
+        if (_whitelist.IsBlacklistPass(comp.Blacklist, user) || _faction.IsMemberOfAny(user, ent.Comp.FactionBlacklist))
         {
             Popup.PopupPredicted(Loc.GetString($"recruiter-pen-{action}-forbidden", ("pen", uid)), user, user);
             return true;

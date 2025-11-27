@@ -32,7 +32,6 @@ public abstract class SharedMouthStorageSystem : EntitySystem
 
         SubscribeLocalEvent<MouthStorageComponent, MapInitEvent>(OnMouthStorageInit);
         SubscribeLocalEvent<MouthStorageComponent, DownedEvent>(DropAllContents);
-        SubscribeLocalEvent<MouthStorageComponent, DisarmedEvent>(DropAllContents);
         SubscribeLocalEvent<MouthStorageComponent, DamageChangedEvent>(OnDamageModified);
         SubscribeLocalEvent<MouthStorageComponent, ExaminedEvent>(OnExamined);
     }

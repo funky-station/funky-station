@@ -334,9 +334,9 @@
   description: "It's a hat used by chefs to keep hair out of your food. Judging by the food in the mess, they don't work."
   components:
   - type: Sprite
-    sprite: Clothing/Head/Hats/chefhat.rsi
+    sprite: _Funkystation/Clothing/Head/Hats/chefhat.rsi
   - type: Clothing
-    sprite: Clothing/Head/Hats/chefhat.rsi
+    sprite: _Funkystation/Clothing/Head/Hats/chefhat.rsi
   - type: Storage
     grid:
     - 0,0,0,0

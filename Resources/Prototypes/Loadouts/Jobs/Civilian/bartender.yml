@@ -35,6 +35,66 @@
   id: BartenderJumpsuitPurple
   equipment:
     jumpsuit: ClothingUniformJumpsuitBartenderPurple
+  groupBy: "jumpsuit"
+
+- type: loadout
+  id: BartenderJumpskirtPurple
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtBartenderPurple
+  groupBy: "jumpskirt"
+
+- type: loadout
+  id: BartenderJumpsuitStingray
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitStingray
+  groupBy: "jumpsuit"
+
+- type: loadout
+  id: BartenderJumpskirtStingray
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtStingray
+  groupBy: "jumpskirt"
+
+- type: loadout
+  id: ServiceJumpsuitDressWhite
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitDressShirtWhite
+  groupBy: "jumpsuit"
+
+- type: loadout
+  id: ServiceJumpsuitDressBlue
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitDressShirtBlue
+  groupBy: "jumpsuit"
+
+- type: loadout
+  id: ServiceJumpsuitDressTied
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitDressShirtTied
+  groupBy: "jumpsuit"
+
+- type: loadout
+  id: ServiceJumpsuitServiceCoat
+  equipment:
+    jumpsuit:  ClothingUniformJumpsuitServiceCoat
+  groupBy: "jumpsuit"
+
+- type: loadout
+  id: ServiceJumpskirtDressWhite
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtDressShirtWhite
+  groupBy: "jumpskirt"
+
+- type: loadout
+  id: ServiceJumpskirtDressBlue
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtDressShirtBlue
+  groupBy: "jumpskirt"
+
+- type: loadout
+  id: ServiceJumpskirtDressTied
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtDressShirtTied
   groupBy: "jumpskirt"
 
 # Outer clothing

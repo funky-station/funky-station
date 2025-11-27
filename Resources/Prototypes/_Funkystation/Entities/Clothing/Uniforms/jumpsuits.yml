@@ -356,3 +356,97 @@
     sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/jani_coveralls.rsi
   - type: Clothing
     sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/jani_coveralls.rsi
+
+# generic shirt and pants (By AraiMaia)
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitDressShirtWhite
+  name: white dress shirt
+  description: A white dress shirt with a matching pair of black pants. Perfectly non-descript.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/dress_shirt_white.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/dress_shirt_white.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitDressShirtBlue
+  name: blue dress shirt
+  description: A blue dress shirt with a matching pair of black pants. How bold.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/dress_shirt_blue.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/dress_shirt_blue.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitDressShirtTied
+  name: tied dress shirt
+  description: A white dress shirt unprofessionally tied around a pair of black pants. Don't let the IAAs see you like this.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/dress_shirt_tied.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/dress_shirt_tied.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitServiceCoat
+  name: black dress coat
+  description: A black dress coat thrown over a white office shirt. Friday night?
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/service_coat.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/service_coat.rsi
+
+# Stingray outfit (By AraiMaia)
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitStingray
+  name: cyber bartender suit
+  description: It's time to mix drinks and change lives.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/stingray.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/stingray.rsi
+
+# hop clothes (By AraiMaia)
+
+- type: entity
+  parent: [ClothingUniformBase, BaseCommandContraband]
+  id: ClothingUniformJumpsuitHoPCoat
+  name: head of personnel's coat
+  description: "HOP SOP, C3.08: The Head of Personnel is not permitted to perform Security duty."
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/hopcoat.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/hopcoat.rsi
+
+- type: entity
+  parent: [ClothingUniformBase, BaseCommandContraband]
+  id: ClothingUniformJumpsuitHoPShirt
+  name: head of personnel's shirt
+  description: Ian left fur all over your other uniform. Can't wear it now, it'd be embarassing.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/hopshirt.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/hopshirt.rsi
+
+- type: entity
+  parent: [ClothingUniformBase, BaseCommandContraband]
+  id: ClothingUniformJumpsuitHoPSweater
+  name: head of personnel's sweater
+  description: Who has Nanotrasen's coziest office? You do!
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/hopsweater.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/hopsweater.rsi

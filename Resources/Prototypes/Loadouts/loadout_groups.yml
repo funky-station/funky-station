@@ -257,6 +257,12 @@
   loadouts:
   - HoPJumpsuit
   - HoPJumpskirt
+  - HoPJumpsuitCoat
+  - HoPJumpskirtCoat
+  - HoPJumpsuitShirt
+  - HoPJumpskirtShirt
+  - HoPJumpsuitSweater
+  - HoPJumpskirtSweater
 
 - type: loadoutGroup
   id: HoPNeck
@@ -364,10 +370,20 @@
   - BartenderJumpsuit
   - BartenderJumpskirt
   - BartenderJumpsuitPurple
+  - BartenderJumpskirtPurple # funky
   - ClothingUniformNightclubSuit #imp
   - ClothingUniformNightclubSuitSkirt #imp
   - ClothingUniformSeniorBartender #imp
   - ClothingUniformSeniorBartenderSkirt #imp
+  - BartenderJumpsuitStingray # funky
+  - BartenderJumpskirtStingray # funky
+  - ServiceJumpsuitDressWhite
+  - ServiceJumpsuitDressBlue
+  - ServiceJumpsuitDressTied
+  - ServiceJumpsuitServiceCoat
+  - ServiceJumpskirtDressWhite
+  - ServiceJumpskirtDressBlue
+  - ServiceJumpskirtDressTied
 
 - type: loadoutGroup
   id: BartenderOuterClothing
@@ -376,6 +392,29 @@
   loadouts:
   - BartenderApron
   - BartenderWintercoat
+
+- type: loadoutGroup
+  id: ServiceJumpsuit
+  name: loadout-group-service_jumpsuit
+  minlimit: 1
+  loadouts:
+  - ServiceJumpsuitDressWhite
+  - ServiceJumpsuitDressBlue
+  - ServiceJumpsuitDressTied
+  - ServiceJumpsuitServiceCoat
+  - ServiceJumpskirtDressWhite
+  - ServiceJumpskirtDressBlue
+  - ServiceJumpskirtDressTied
+
+- type: loadoutGroup
+  id: GenericShoes
+  name: loadout-group-generic-shoes
+  minlimit: 1
+  loadouts:
+  - BlackShoes
+  - WhiteShoes
+  - BrownShoes
+  - NanotrasenRepresentativeBoots #These are just laceup shoes.
 
 - type: loadoutGroup #WizDen Weh Job Plush
   id: BartenderJobTrinkets
@@ -411,6 +450,13 @@
   loadouts:
   - ChefJumpsuit
   - ChefJumpskirt
+  - ServiceJumpsuitDressWhite
+  - ServiceJumpsuitDressBlue
+  - ServiceJumpsuitDressTied
+  - ServiceJumpsuitServiceCoat
+  - ServiceJumpskirtDressWhite
+  - ServiceJumpskirtDressBlue
+  - ServiceJumpskirtDressTied
 
 - type: loadoutGroup
   id: ChefOuterClothing
@@ -438,6 +484,13 @@
   - CuratorJumpskirt
   - ClothingUniformBrownSuit #imp
   - ClothingUniformBrownSuitSkirt #imp
+  - ServiceJumpsuitDressWhite
+  - ServiceJumpsuitDressBlue
+  - ServiceJumpsuitDressTied
+  - ServiceJumpsuitServiceCoat
+  - ServiceJumpskirtDressWhite
+  - ServiceJumpskirtDressBlue
+  - ServiceJumpskirtDressTied
 
 - type: loadoutGroup #WizDen Weh Job Plush
   id: LibrarianJobTrinkets
@@ -462,6 +515,13 @@
   - LawyerJumpskirtGood
   - ClothingUniformCreamSuit #imp
   - ClothingUniformCreamSuitSkirt #imp
+  - ServiceJumpsuitDressWhite
+  - ServiceJumpsuitDressBlue
+  - ServiceJumpsuitDressTied
+  - ServiceJumpsuitServiceCoat
+  - ServiceJumpskirtDressWhite
+  - ServiceJumpskirtDressBlue
+  - ServiceJumpskirtDressTied
 
 - type: loadoutGroup
   id: LawyerNeck
@@ -518,6 +578,13 @@
   - ChaplainUniformTech # imp
   - ClothingUniformFuneralSuit #imp
   - ClothingUniformFuneralSuitSkirt #imp
+  - ServiceJumpsuitDressWhite
+  - ServiceJumpsuitDressBlue
+  - ServiceJumpsuitDressTied
+  - ServiceJumpsuitServiceCoat
+  - ServiceJumpskirtDressWhite
+  - ServiceJumpskirtDressBlue
+  - ServiceJumpskirtDressTied
 
 - type: loadoutGroup
   id: ChaplainOuterClothing
@@ -807,6 +874,13 @@
   - MusicianJumpskirt
   - ClothingUniformMrSpaceWide #imp
   - ClothingUniformMrSpaceWideSkirt #imp
+  - ServiceJumpsuitDressWhite
+  - ServiceJumpsuitDressBlue
+  - ServiceJumpsuitDressTied
+  - ServiceJumpsuitServiceCoat
+  - ServiceJumpskirtDressWhite
+  - ServiceJumpskirtDressBlue
+  - ServiceJumpskirtDressTied
 
 - type: loadoutGroup
   id: MusicianOuterClothing
@@ -1883,8 +1957,17 @@
   loadouts:
   - ReporterJumpsuit
   - JournalistJumpsuit
+  - ReporterJumpskirt
+  - JournalistJumpskirt
   - ClothingUniformBrosBlazer #imp
   - ClothingUniformBrosBlazerSkirt #imp
+  - ServiceJumpsuitDressWhite
+  - ServiceJumpsuitDressBlue
+  - ServiceJumpsuitDressTied
+  - ServiceJumpsuitServiceCoat
+  - ServiceJumpskirtDressWhite
+  - ServiceJumpskirtDressBlue
+  - ServiceJumpskirtDressTied
 
 - type: loadoutGroup #WizDen Weh Job Plush
   id: ReporterJobTrinkets

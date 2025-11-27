@@ -112,9 +112,9 @@
   description: A neat bartender vest, reinforced with kevlar.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Vests/vest.rsi
+    sprite: _Funkystation/Clothing/OuterClothing/Vests/vest.rsi
   - type: Clothing
-    sprite: Clothing/OuterClothing/Vests/vest.rsi
+    sprite: _Funkystation/Clothing/OuterClothing/Vests/vest.rsi
   - type: Storage
     maxItemSize: Normal
     grid:

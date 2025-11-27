@@ -41,3 +41,16 @@
     sprite: _Funkystation/Clothing/OuterClothing/WinterCoats/magi_winter_coat.rsi
   - type: Item
     size: Normal
+
+- type: entity
+  parent: ClothingOuterWinterCoat
+  id: ClothingOuterWinterStingray
+  name: cyber bartender winter coat
+  description: At one point I cried with the book and realized... I was crying over fake things. A story and its characters. I didn't care less for them because they were fake. Why not think "of reality" like that too?
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/OuterClothing/WinterCoats/stingray_coat.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/OuterClothing/WinterCoats/stingray_coat.rsi
+  - type: Item
+    size: Normal

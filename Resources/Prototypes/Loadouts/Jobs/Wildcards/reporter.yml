@@ -10,9 +10,23 @@
   id: ReporterJumpsuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitReporter
+  groupBy: "jumpsuit"
 
 - type: loadout
   id: JournalistJumpsuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitJournalist
+  groupBy: "jumpsuit"
 
+# Jumpskirts, FUNKY!
+- type: loadout
+  id: ReporterJumpskirt
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtReporter
+  groupBy: "jumpskirt"
+
+- type: loadout
+  id: JournalistJumpskirt
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtJournalist
+  groupBy: "jumpskirt"

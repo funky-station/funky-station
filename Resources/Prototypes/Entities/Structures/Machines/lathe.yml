@@ -1469,6 +1469,22 @@
     - ClothingUniformJumpskirtColorGrey
     - ClothingUniformJumpsuitBartender
     - ClothingUniformJumpskirtBartender
+    - ClothingUniformJumpsuitStingray # Funky!
+    - ClothingUniformJumpskirtStingray # Funky!
+    - ClothingUniformJumpsuitDressShirtWhite # Funky!
+    - ClothingUniformJumpskirtDressShirtWhite # Funky!
+    - ClothingUniformJumpsuitDressShirtBlue # Funky!
+    - ClothingUniformJumpskirtDressShirtBlue # Funky!
+    - ClothingUniformJumpsuitDressShirtTied # Funky!
+    - ClothingUniformJumpskirtDressShirtTied # Funky!
+    - ClothingUniformJumpsuitServiceCoat # Funky!
+    - ClothingUniformJumpsuitReporter # Funky!
+    - ClothingUniformJumpskirtReporter # Funky!
+    - ClothingUniformJumpsuitJournalist # Funky!
+    - ClothingUniformJumpskirtJournalist # Funky!
+    - ClothingUniformJumpsuitBartenderPurple # Funky!
+    - ClothingUniformJumpskirtBartenderPurple # Funky!
+    - ClothingOuterWinterStingray # Funky!
     - ApronBartender # Funky Change
     - ClothingHeadHatCapcap
     - ClothingHeadHatCaptain
@@ -1484,6 +1500,11 @@
     - ClothingUniformJumpsuitMailCarrier # Funky!
     - ClothingHeadHatCargoCap # Funky!
     - ClothingHeadHatMailCarrier # Funky!
+    - ClothingUniformJumpsuitCargoPilot # Funky!
+    - ClothingUniformJumpsuitSeniorSalvage # Funky!
+    - ClothingUniformJumpsuitCargoMailJumpSuit # Funky!
+    - ClothingUniformJumpsuitCargoTop # Funky!
+    - ClothingUniformJumpsuitCargoShirt # Funky!
     - ClothingUniformJumpsuitSalvageSpecialist
     - ClothingHeadHatBeretEngineering
     - ClothingUniformJumpsuitChiefEngineer
@@ -1513,6 +1534,12 @@
     - ClothingHeadHatHopcap
     - ClothingUniformJumpsuitHoP
     - ClothingUniformJumpskirtHoP
+    - ClothingUniformJumpsuitHoPCoat
+    - ClothingUniformJumpskirtHoPCoat
+    - ClothingUniformJumpsuitHoPShirt
+    - ClothingUniformJumpskirtHoPShirt
+    - ClothingUniformJumpsuitHoPSweater
+    - ClothingUniformJumpskirtHoPSweater
     - ClothingHeadHatBeretHoS
     - ClothingHeadHatHoshat
     - ClothingUniformJumpsuitHoS

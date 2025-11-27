@@ -77,9 +77,9 @@
   description: A basic, universal hardsuit that protects the wearer against the horrors of life in space. Beats not having a hardsuit, at least.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Hardsuits/basic.rsi
+    sprite: _Funkystation/Clothing/OuterClothing/Hardsuits/basic.rsi
   - type: Clothing
-    sprite: Clothing/OuterClothing/Hardsuits/basic.rsi
+    sprite: _Funkystation/Clothing/OuterClothing/Hardsuits/basic.rsi
   - type: Armor
     modifiers:
       coefficients:

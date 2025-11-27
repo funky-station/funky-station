@@ -117,27 +117,16 @@
     clothingPrototype: ClothingHeadHatHoodWinterEngineer
 
 - type: entity
-  parent: ClothingOuterWinterCoatToggleable
+  parent: ClothingOuterWinterCoat
   id: ClothingOuterWinterBar
   name: bartender winter coat
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
-    layers:
-    - state: BAR-icon
-  - type: Item
-    inhandVisuals:
-      left:
-      - state: BAR-inhand-left
-      right:
-      - state: BAR-inhand-right
+    sprite: _Funkystation/Clothing/OuterClothing/WinterCoats/bar_coat.rsi
   - type: Clothing
-    sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
-    clothingVisuals:
-      outerClothing:
-      - state: BAR-equipped-OUTERCLOTHING
-  - type: ToggleableClothing
-    clothingPrototype: ClothingHeadHatHoodWinterBartender
+    sprite: _Funkystation/Clothing/OuterClothing/WinterCoats/bar_coat.rsi
+  - type: Item
+    size: Normal
 
 - type: entity
   parent: [ClothingOuterWinterCoatToggleable, BaseCommandContraband]
@@ -366,28 +355,16 @@
     clothingPrototype: ClothingHeadHatHoodWinterSci
 
 - type: entity
-  parent: [ClothingOuterWinterCoatToggleable, BaseCommandContraband]
+  parent: [ClothingOuterWinterCoat, BaseCommandContraband]
   id: ClothingOuterWinterHoP
   name: head of personnel's winter coat
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
-    layers:
-    - state: HOP-icon
-  - type: Item
-    inhandVisuals:
-      left:
-      - state: HOP-inhand-left
-      right:
-      - state: HOP-inhand-right
+    sprite: _Funkystation/Clothing/OuterClothing/WinterCoats/hop_coat.rsi
   - type: Clothing
-    sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
-    clothingVisuals:
-      outerClothing:
-      - state: HOP-equipped-OUTERCLOTHING
-  - type: ToggleableClothing
-    clothingPrototype: ClothingHeadHatHoodWinterHOP
-
+    sprite: _Funkystation/Clothing/OuterClothing/WinterCoats/hop_coat.rsi
+  - type: Item
+    size: Normal
 
 ##########################################################
 - type: entity

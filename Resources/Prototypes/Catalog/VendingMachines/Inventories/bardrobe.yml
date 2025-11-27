@@ -37,6 +37,8 @@
     ClothingOuterWinterBar: 2
     ClothingUniformJumpsuitBartender: 2
     ClothingUniformJumpskirtBartender: 2
+    ClothingUniformJumpsuitStingray: 2 #Funky!
+    ClothingUniformJumpskirtStingray: 2 #Funky!
     ClothingUniformNightclubSuit: 2 #imp
     ClothingUniformNightclubSuitSkirt: 2 #imp
     ClothingUniformJumpsuitBartenderPurple: 2
@@ -47,5 +49,6 @@
     ClothingEyesGlassesSunglasses: 2
   emaggedInventory:
     ClothingUniformJumpsuitBartenderSyndicate: 2
+    ClothingOuterWinterStingray: 1
   contrabandInventory:
     ToyFigurineBartender: 1

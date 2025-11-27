@@ -52,9 +52,128 @@
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitCargoTop
   name: cargo tech top
-  description: A black tanktop over a pair of cargo pants, with an office shirt tied around the waist. Gets toasty moving that freight.
+  description: A brown tanktop over a pair of cargo pants, with an office shirt tied around the waist. Gets toasty moving that freight.
   components:
   - type: Sprite
     sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/cargoshirt.rsi
   - type: Clothing
     sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/cargoshirt.rsi
+
+# generic shirt and pants (By AraiMaia)
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpskirtDressShirtWhite
+  name: white dress skirt
+  description: A white dress shirt with a matching black skirt. Perfectly non-descript.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/dress_skirt_white.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/dress_skirt_white.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpskirtDressShirtBlue
+  name: blue dress skirt
+  description: A blue dress shirt with a matching black skirt. How bold.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/dress_skirt_blue.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/dress_skirt_blue.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpskirtDressShirtTied
+  name: tied dress skirt
+  description: A white dress shirt unprofessionally tied around a black skirt. Don't let the IAAs see you like this.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/dress_skirt_tied.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/dress_skirt_tied.rsi
+
+# Stingray outfit (By AraiMaia)
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpskirtStingray
+  name: cyber bartender skirt
+  description: It's time to mix drinks and change lives.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/stingray.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/stingray.rsi
+
+# Purple Bartender (By AraiMaia)
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpskirtBartenderPurple
+  name: purple bartender's uniform
+  description: A special purple outfit to serve drinks.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/bartender_purple.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/bartender_purple.rsi
+
+# Reporter and Journalist Jumpskirts
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpskirtReporter
+  name: reporter suitskirt
+  description: A good reporter remains a skeptic all their life.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/reporter.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/reporter.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpskirtJournalist
+  name: journalist suitskirt
+  description: If journalism is good, it is controversial, by nature.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/journalist.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/journalist.rsi
+
+# hop clothes (By AraiMaia)
+
+- type: entity
+  parent: [ClothingUniformBase, BaseCommandContraband]
+  id: ClothingUniformJumpskirtHoPCoat
+  name: head of personnel's coat
+  description: "HOP SOP, C3.08: The Head of Personnel is not permitted to perform Security duty."
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/hopcoat.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/hopcoat.rsi
+
+- type: entity
+  parent: [ClothingUniformBase, BaseCommandContraband]
+  id: ClothingUniformJumpskirtHoPShirt
+  name: head of personnel's shirt
+  description: Ian left fur all over your other uniform. Can't wear it now, it'd be embarassing.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/hopshirt.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/hopshirt.rsi
+
+- type: entity
+  parent: [ClothingUniformBase, BaseCommandContraband]
+  id: ClothingUniformJumpskirtHoPSweater
+  name: head of personnel's sweater
+  description: Who has Nanotrasen's coziest office? You do!
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/hopsweater.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/hopsweater.rsi

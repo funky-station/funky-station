@@ -104,6 +104,7 @@
         - id: ClothingMaskBat
       - id: ClothingBeltSuspendersRed
       - id: ClothingBeltSuspendersBlack
+      - id: ClothingOuterWinterStingray #Funky!
       - id: ClothingEyesEyepatch
       - id: ClothingEyesGlasses
       - id: ClothingHandsGlovesLatex

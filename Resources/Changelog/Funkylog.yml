@@ -5890,3 +5890,19 @@ Entries:
       message: Various minor Roid fixes
   id: 697
   time: '2025-11-26T14:54:14.0000000+00:00'
+- author: willowzeta
+  changes:
+    - type: Tweak
+      message: 'Map rotation updates: Add Olympus (on a trial period), remove Elkridge'
+  id: 698
+  time: '2025-11-27T18:19:55.0000000+00:00'
+- author: pirakaplant
+  changes:
+    - type: Add
+      message: Added mystery scran, which can be found in maints.
+    - type: Tweak
+      message: >-
+        ID cards, HOPfruit, and syndicate business cards can now be used as
+        utensils.
+  id: 699
+  time: '2025-11-27T18:40:48.0000000+00:00'

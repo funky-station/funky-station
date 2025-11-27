@@ -9,6 +9,7 @@
 //
 // SPDX-License-Identifier: MIT
 
+using Content.Shared.Actions.Events;
 using Content.Shared.Charges.Components;
 using Content.Shared.Examine;
 using Content.Shared.Rejuvenate;

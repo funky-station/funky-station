@@ -72,8 +72,6 @@
       - id: ClothingNeckCloakHop
       - id: ClothingUniformJumpskirtHoP
       - id: ClothingUniformJumpsuitHoP
-      - id: ClothingUniformJumpskirtHoPShirt
-      - id: ClothingUniformJumpsuitHoPSweater
 
 - type: entity
   id: DresserHeadOfSecurityFilled

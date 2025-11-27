@@ -382,6 +382,12 @@
   id: CableCoil
 
 - type: Tag
+  id: CubanNachos
+
+- type: Tag
+  id: ChowMein
+
+- type: Tag
   id: Candle
 
 - type: Tag
@@ -690,6 +696,9 @@
   id: Ectoplasm
 
 - type: Tag
+  id: Enchiladas
+
+- type: Tag
   id: Egg
 
 - type: Tag
@@ -706,6 +715,9 @@
 
 - type: Tag # goob edit
   id: Eyes
+
+- type: Tag
+  id: FruitSalad
 
 - type: Tag
   id: Figurine
@@ -773,6 +785,8 @@
 - type: Tag
   id: FlashPayload
 
+- type: Tag
+  id: Gyros
 
 - type: Tag
   id: Galaxythistle
@@ -1389,6 +1403,18 @@
   id: RollingPin
 
 - type: Tag
+  id: SuperBiteBurger
+
+- type: Tag
+  id: SloppyJoe
+
+- type: Tag
+  id: SlopBowl
+
+- type: Tag
+  id: Stew
+
+- type: Tag
   id: SaltShaker
 
 - type: Tag
@@ -1650,6 +1676,9 @@
   id: Vegetable
 
 - type: Tag
+  id: ValidSalad
+
+- type: Tag
   id: VGRoidInterior
 
 - type: Tag
@@ -1663,6 +1692,9 @@
 
 - type: Tag
   id: Wall
+
+- type: Tag
+  id: Waffle
 
 - type: Tag
   id: WallmountGeneratorAPUElectronics

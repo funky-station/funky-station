@@ -248,7 +248,7 @@
     - EmergencyMedipen
 
 - type: entity # Funkychem
-  name: poison auto-injector
+  name: poison medipen
   parent: ChemicalMedipen
   id: AntiPoisonMedipen
   description: A rapid dose of anti-poison. Contains ultravasculine and epinephrine.
@@ -287,7 +287,7 @@
     tags: []
 
 - type: entity # Funkychem
-  name: brute auto-injector
+  name: brute medipen
   parent: ChemicalMedipen
   id: BruteAutoInjector
   description: A rapid dose of libital, salicylic acid and tranexamic acid, intended for combat applications.
@@ -333,7 +333,7 @@
     tags: []
 
 - type: entity # Funkychem
-  name: burn auto-injector
+  name: burn medipen
   parent: ChemicalMedipen
   id: BurnAutoInjector
   description: A rapid dose of aiuri, oxandrolone and lenturi, intended for combat applications.
@@ -379,7 +379,7 @@
     tags: []
 
 - type: entity # Funkychem
-  name: rad auto-injector
+  name: rad medipen
   parent: ChemicalMedipen
   id: RadAutoInjector
   description: A rapid dose of anti-radiation. Contains arithrazine and libital.
@@ -423,7 +423,7 @@
     tags: []
 
 - type: entity
-  name: puncturase auto-injector
+  name: puncturase medipen
   parent: ChemicalMedipen
   id: PunctAutoInjector
   description: A rapid dose of puncturase and tranexamic acid, intended for combat applications.
@@ -467,7 +467,7 @@
     tags: []
 
 - type: entity # Funkychem
-  name: pyrazine auto-injector
+  name: pyrazine medipen
   parent: ChemicalMedipen
   id: PyraAutoInjector
   description: A rapid dose of pyrazine and aiuri, intended for combat applications.
@@ -511,7 +511,7 @@
     tags: []
 
 - type: entity # Funkychem
-  name: airloss auto-injector
+  name: airloss medipen
   parent: ChemicalMedipen
   id: AirlossAutoInjector
   description: A rapid dose of saline and salbutamol, intended to get someone up quickly.
@@ -776,7 +776,7 @@
       path: /Audio/Effects/unwrap.ogg
 
 - type: entity
-  name: weh auto-injector
+  name: weh medipen
   parent: ChemicalMedipen
   id: WehMedipen
   description: A rapid dose of Weh. Contains juice that makes you Weh.

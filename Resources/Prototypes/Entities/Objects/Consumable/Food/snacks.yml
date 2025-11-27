@@ -381,7 +381,7 @@
           Quantity: 5
 
 - type: entity
-  name: chow mein
+  name: chow min
   parent: FoodSnackBase
   id: FoodSnackChowMein
   description: A salty fried noodle snack. Looks like they forgot the vegetables.

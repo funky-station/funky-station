@@ -29,6 +29,7 @@
 # NOTE: Bounties seem to work weird with stackable items currently, if you have a bounty for 6 artifact fragments, you need to split them into 6 diffrent stacks for it to count properly,
 #       So for the time being stackable items should be avoided as bounty targets.
 
+# Botany 
 - type: cargoBountyCategory
   id: botanyCategory
   name: bounty-category-botany
@@ -144,6 +145,7 @@
       tags:
       - MonkeyCube
 
+# Science
 - type: cargoBountyCategory
   id: scienceCategory
   name: bounty-category-science
@@ -202,6 +204,7 @@
     requiredResearch:
       - BiochemicalStasis
 
+# Misc. 
 - type: cargoBountyCategory
   id: miscCategory
   name: bounty-category-misc
@@ -266,6 +269,7 @@
 #      tags:
 #      - BoxCardboard
 
+# Medical 
 - type: cargoBountyCategory
   id: medicalCategory
   name: bounty-category-medical
@@ -318,7 +322,7 @@
     rewardPer: 450
     whitelist:
      tags:
-      - HealthAnalyzer
+      - DiscreteHealthAnalyzer
   - name: bounty-item-cybernetic-medical-eyes
     minAmount: 1
     maxAmount: 3
@@ -341,7 +345,7 @@
     rewardPer: 950
     whitelist:
       tags:
-      - MedicalHud
+      - HudMedical
   - name: bounty-item-medsec-hud
     minAmount: 2
     maxAmount: 5
@@ -359,21 +363,57 @@
     requiredResearch:
       - AdvancedTreatment
 
+# Kitchen 
 - type: cargoBountyCategory
   id: kitchenCategory
   name: bounty-category-kitchen
   entries:
-  - name: bounty-item-cuban-carp
+  - name: bounty-item-super-bite-burger
     minAmount: 1
     maxAmount: 1
     rewardPer: 16000
     whitelist:
       tags:
-      - CubanCarp
+      - SuperBiteBurger
+  - name: bounty-item-sloppy-joe
+    minAmount: 2
+    maxAmount: 6
+    rewardPer: 2000
+    whitelist:
+      tags:
+      - SloppyJoe
+  - name: bounty-item-slop-bowl
+    minAmount: 2
+    maxAmount: 6
+    rewardPer: 2000
+    whitelist:
+      tags:
+      - SlopBowl
+  - name: bounty-item-waffles
+    minAmount: 2
+    maxAmount: 6
+    rewardPer: 2000
+    whitelist:
+      tags:
+      - Waffle
+  - name: bounty-item-cuban-nachos
+    minAmount: 2
+    maxAmount: 6
+    rewardPer: 2000
+    whitelist:
+      tags:
+      - CubanNachos
+  - name: bounty-item-valid-salad
+    minAmount: 2
+    maxAmount: 4
+    rewardPer: 3000
+    whitelist:
+      tags:
+      - ValidSalad                  
   - name: bounty-item-bread
     minAmount: 1
-    maxAmount: 3
-    rewardPer: 2500
+    maxAmount: 6
+    rewardPer: 1500
     whitelist:
       tags:
       - Bread
@@ -383,27 +423,24 @@
   - name: bounty-item-carrot-fries
     minAmount: 1
     maxAmount: 6
-    rewardPer: 2500
-    whitelist:
-      tags:
-      - CarrotFries
-  - name: bounty-item-knife
-    minAmount: 5
-    maxAmount: 10
-    rewardPer: 1000
-    whitelist:
-      components:
-      - Sharp
-    blacklist:
-      tags:
-      - Shiv
-  - name: bounty-item-pancake
-    minAmount: 2
-    maxAmount: 5
     rewardPer: 1500
     whitelist:
       tags:
-      - Pancake
+      - CarrotFries
+  - name: bounty-item-enchiladas
+    minAmount: 2
+    maxAmount: 6
+    rewardPer: 2500
+    whitelist:
+      tags:
+      - Enchiladas
+  - name: bounty-item-fruit-salad
+    minAmount: 2
+    maxAmount: 4
+    rewardPer: 2750
+    whitelist:
+      tags:
+      - FruitSalad
   - name: bounty-item-pie
     minAmount: 1
     maxAmount: 3
@@ -445,13 +482,13 @@
     whitelist:
       tags:
       - Cake
-#  - name: bounty-item-cleaver
-#    minAmount: 1
-#    maxAmount: 2
-#    rewardPer: 1500
-#    whitelist:
-#      tags:
-#      - Cleaver
+  - name: bounty-item-chow-mein
+    minAmount: 1
+    maxAmount: 2
+    rewardPer: 1500
+    whitelist:
+      tags:
+      - ChowMein
   - name: bounty-item-cloth-made
     minAmount: 2
     maxAmount: 3
@@ -462,13 +499,20 @@
     blacklist:
       tags:
       - Slice
-#  - name: bounty-item-kitchen-knife
-#    minAmount: 1
-#    maxAmount: 2
-#    rewardPer: 1500
-#    whitelist:
-#      tags:
-#      - KitchenKnife
+  - name: bounty-item-gyros
+    minAmount: 1
+    maxAmount: 3
+    rewardPer: 3500
+    whitelist:
+      tags:
+      - Gyro
+  - name: bounty-item-stew
+    minAmount: 1
+    maxAmount: 3
+    rewardPer: 3500
+    whitelist:
+      tags:
+      - Stew      
   - name: bounty-item-reptilian-food
     minAmount: 1
     maxAmount: 2
@@ -560,6 +604,7 @@
 #      tags:
 #      - ToySidearm
 
+# Security
 - type: cargoBountyCategory
   id: securityCategory
   name: bounty-category-security
@@ -654,6 +699,7 @@
       tags:
       - Stunbaton
 
+# Makeshift Weapons 
 - type: cargoBountyCategory
   id: weaponCategory
   name: bounty-category-weaponry
@@ -777,6 +823,7 @@
     requiredResearch:
       - ExperimentalBatteryAmmo
 
+# Clothing (TODO: replace with something else)
 - type: cargoBountyCategory
   id: clothingCategory
   name: bounty-category-clothing
@@ -841,6 +888,7 @@
 #      tags:
 #      - Pen
 
+# Robotics
 - type: cargoBountyCategory
   id: roboticsCategory
   name: bounty-category-robotics
@@ -1001,6 +1049,7 @@
 #    requiredResearch:
 #      - Instruments
 
+# Bar 
 - type: cargoBountyCategory
   id: barCategory
   name: bounty-category-bar
@@ -1096,6 +1145,7 @@
     rewardPer: 100
     reagent: GargleBlaster
 
+# Engineering
 - type: cargoBountyCategory
   id: EngineeringCategory
   name: bounty-category-engineering

@@ -75,7 +75,6 @@
     tags:
     - Defibrillator
 
-
 - type: entity
   id: DefibrillatorEmpty
   parent: Defibrillator
@@ -85,6 +84,9 @@
     slots:
       cell_slot:
         name: power-cell-slot-component-slot-name-default
+  - type: Tag
+    tags:
+    - Defibrillator
 
 - type: entity
   id: DefibrillatorOneHandedUnpowered
@@ -92,7 +94,7 @@
   suffix: One-Handed, Unpowered
 
 - type: entity
-  id: DefibrillatorCompact # This should be a research item at some point
+  id: DefibrillatorCompact 
   parent: [ BaseDefibrillator, PowerCellSlotMediumItem ]
   name: compact defibrillator
   description: Now in fun size!
@@ -120,6 +122,9 @@
     doAfterDuration: 6
   - type: DoAfter
   - type: UseDelay
+  - type: Tag
+    tags:
+    - Defibrillator
 
 - type: entity
   id: DefibrillatorCompactEmpty
@@ -130,7 +135,9 @@
     slots:
       cell_slot:
         name: power-cell-slot-component-slot-name-default
-
+  - type: Tag
+    tags:
+    - Defibrillator
 
 - type: entity
   id: DefibrillatorSyndicate

@@ -44,6 +44,7 @@
   - type: Tag
     tags:
     - Meat
+    - Gyro
   - type: Item
     inhandVisuals:
       left:
@@ -64,6 +65,7 @@
   - type: Tag
     tags:
     - Meat
+    - Gyro
   - type: Item
     inhandVisuals:
       left:
@@ -89,6 +91,9 @@
       - tomato
   - type: Sprite
     state: tofu
+  - type: Tag
+    tags:
+    - Gyro
   - type: Item
     inhandVisuals:
       left:

@@ -1201,18 +1201,19 @@
         maxVol: 90
         reagents:
         - ReagentId: Nutriment
-          Quantity: 44
+          Quantity: 25
         - ReagentId: Vitamin
-          Quantity: 24
+          Quantity: 25
+        - ReagentId: Protein
+          Quantity: 25
         - ReagentId: TableSalt
-          Quantity: 5
-        - ReagentId: Blackpepper
           Quantity: 5
   - type: Sprite
     state: superbite
   - type: Tag
     tags:
     - Meat
+    - SuperBiteBurger
   - type: Item
     inhandVisuals:
       left:

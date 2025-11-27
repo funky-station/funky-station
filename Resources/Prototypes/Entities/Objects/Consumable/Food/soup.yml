@@ -46,7 +46,7 @@
   - type: Item
     storedRotation: -90
   - type: Food
-    trash: 
+    trash:
     - FoodBowlBig
     utensil: Spoon
   - type: SolutionContainerManager
@@ -220,6 +220,7 @@
     - Meat
     - Fruit
     - Soup
+    - ValidSalad
 
 - type: entity
   name: coleslaw
@@ -327,6 +328,7 @@
     tags:
     - Fruit
     - Soup
+    - FruitSalad
 
 - type: entity
   name: jungle salad
@@ -1013,7 +1015,7 @@
     flavors:
       - miso
   - type: Food
-    trash: 
+    trash:
     - FoodBowlFancy
   - type: Sprite
     layers:
@@ -1138,6 +1140,7 @@
     - Meat
     - Fruit
     - Soup
+    - Stew
 
 - type: entity
   name: sweet potato soup

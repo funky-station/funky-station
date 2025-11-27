@@ -5,7 +5,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
 - type: entity
-  parent: BaseBallBat
+  parent: [BaseItem, BaseMajorContraband]
   id: BaseBallBatHomeRun
   name: home run bat
   description: Heavy metal bat with an extra kick.
@@ -14,6 +14,7 @@
     sprite: _DV/Objects/Weapons/Melee/home_run_bat.rsi
     state: icon
   - type: MeleeWeapon
+    wideAnimationRotation: -135
     damage:
       types:
         Blunt: 22 # Get to WHACKIN!  Funky change - 25 > 22, since this inherits from a baseball bat it gains 5 more damage while wielded,
@@ -21,16 +22,37 @@
         Structural: 30 # Funky - it also gains 10 more structural, but that hasn't proved to be an issue yet so it's unchanged.
     soundHit:
       collection: ExplosionSmall
-    attackRate: 0.40 # Funky change - Swing speed reduced significantly to prevent stunlocking with the knockdown
+    attackRate: 0.40 # Funky change - Swing speed reduced significantly to prevent stunlockin
+  - type: Wieldable
   - type: MeleeRequiresWield # You can't hit a home run with one hand, jimbo.
   - type: MeleeThrowOnHit
     stunTime: .1 # I get knocked DOWN
     speed: 20 # Funky change - 30 -> 20 since 30 is incredibly fast, fast enough to frequently clip people through walls
     distance: 50
+  - type: IncreaseDamageOnWield
+    damage:
+      types:
+        Blunt: 5
+        Structural: 10
   - type: Item
     size: Large
+    storedSprite:
+      state: storage
+      sprite: Objects/Weapons/Melee/baseball_bat_storage_64x.rsi #Done in 64x64 because it looks way too puny in 32x32
+    shape:
+    - 0,0,0,3
   - type: Tool
+    qualities:
+    - Rolling
     speedModifier: 0.5 # it's very heavy, it rolls slower than a wooden bat
+  - type: Clothing
+    quickEquip: false
+    slots:
+    - back
+    - backStorage
+  - type: Construction
+    graph: WoodenBat
+    node: bat
   - type: UseDelay
     delay: 2 # Funky - In theory, since the bat requires wielding this should stop you from swinging the bat until the wield delay is over...
              # ...however that's not the case. You aren't able to knock people back during the delay but you're still able to swing for full damage instantly.
@@ -38,3 +60,6 @@
   - type: PhysicalComposition
     materialComposition:
       Steel: 350 # it's not made of wood
+  - type: Tag
+    tags:
+    - BaseballBat

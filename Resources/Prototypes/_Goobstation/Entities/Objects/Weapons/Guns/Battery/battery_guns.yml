@@ -16,7 +16,7 @@
 
 - type: entity
   name: Miniature Energy Crossbow
-  parent: BaseWeaponBatterySmall
+  parent: [BaseWeaponBatterySmall, BaseSyndicateContraband]
   id: MiniatureEnergyCrossbow
   description: The syndicate's energy crossbow, small, silent and deadly.
   components:

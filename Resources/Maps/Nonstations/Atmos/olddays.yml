@@ -4,8 +4,8 @@ meta:
   engineVersion: 266.0.0
   forkId: ""
   forkVersion: ""
-  time: 11/27/2025 02:06:57
-  entityCount: 6742
+  time: 11/28/2025 22:41:31
+  entityCount: 6842
 maps:
 - 1
 grids:
@@ -2118,6 +2118,260 @@ entities:
     - type: Transform
       pos: 7.5,-2.5
       parent: 6505
+- proto: AirAlarm
+  entities:
+  - uid: 717
+    components:
+    - type: Transform
+      pos: 0.5,11.5
+      parent: 2
+  - uid: 1757
+    components:
+    - type: Transform
+      pos: 0.5,11.5
+      parent: 263
+  - uid: 2797
+    components:
+    - type: Transform
+      pos: 0.5,11.5
+      parent: 523
+  - uid: 3837
+    components:
+    - type: Transform
+      pos: 0.5,11.5
+      parent: 783
+  - uid: 4877
+    components:
+    - type: Transform
+      pos: 0.5,11.5
+      parent: 1043
+  - uid: 6177
+    components:
+    - type: Transform
+      pos: 0.5,11.5
+      parent: 1303
+  - uid: 6767
+    components:
+    - type: Transform
+      pos: 0.5,11.5
+      parent: 1563
+  - uid: 6772
+    components:
+    - type: Transform
+      pos: 0.5,11.5
+      parent: 1823
+  - uid: 6776
+    components:
+    - type: Transform
+      pos: 0.5,11.5
+      parent: 2083
+  - uid: 6780
+    components:
+    - type: Transform
+      pos: 0.5,11.5
+      parent: 2343
+  - uid: 6783
+    components:
+    - type: Transform
+      pos: 0.5,11.5
+      parent: 2603
+  - uid: 6787
+    components:
+    - type: Transform
+      pos: 0.5,11.5
+      parent: 2863
+  - uid: 6792
+    components:
+    - type: Transform
+      pos: 0.5,11.5
+      parent: 3123
+  - uid: 6796
+    components:
+    - type: Transform
+      pos: 0.5,11.5
+      parent: 3383
+  - uid: 6799
+    components:
+    - type: Transform
+      pos: 0.5,11.5
+      parent: 3643
+  - uid: 6803
+    components:
+    - type: Transform
+      pos: 0.5,11.5
+      parent: 3903
+  - uid: 6807
+    components:
+    - type: Transform
+      pos: 0.5,11.5
+      parent: 4163
+  - uid: 6811
+    components:
+    - type: Transform
+      pos: 0.5,11.5
+      parent: 4423
+  - uid: 6815
+    components:
+    - type: Transform
+      pos: 0.5,11.5
+      parent: 4683
+  - uid: 6819
+    components:
+    - type: Transform
+      pos: 0.5,11.5
+      parent: 4943
+  - uid: 6823
+    components:
+    - type: Transform
+      pos: 0.5,11.5
+      parent: 5203
+  - uid: 6827
+    components:
+    - type: Transform
+      pos: 0.5,11.5
+      parent: 5463
+  - uid: 6831
+    components:
+    - type: Transform
+      pos: 0.5,11.5
+      parent: 5723
+  - uid: 6835
+    components:
+    - type: Transform
+      pos: 0.5,11.5
+      parent: 5983
+  - uid: 6839
+    components:
+    - type: Transform
+      pos: 0.5,11.5
+      parent: 6243
+- proto: AirAlarmElectronics
+  entities:
+  - uid: 977
+    components:
+    - type: Transform
+      pos: 2.287949,0.22498035
+      parent: 2
+  - uid: 2017
+    components:
+    - type: Transform
+      pos: 2.267006,0.17810535
+      parent: 263
+  - uid: 3057
+    components:
+    - type: Transform
+      pos: 2.339203,0.29529285
+      parent: 523
+  - uid: 4097
+    components:
+    - type: Transform
+      pos: 2.2688828,0.38904285
+      parent: 783
+  - uid: 5137
+    components:
+    - type: Transform
+      pos: 2.2615738,0.29529285
+      parent: 1043
+  - uid: 5917
+    components:
+    - type: Transform
+      pos: 2.3087387,0.36560535
+      parent: 1303
+  - uid: 6768
+    components:
+    - type: Transform
+      pos: 2.2426224,0.34216785
+      parent: 1563
+  - uid: 6771
+    components:
+    - type: Transform
+      pos: 2.187625,0.20643234
+      parent: 1823
+  - uid: 6775
+    components:
+    - type: Transform
+      pos: 2.2403202,0.27674484
+      parent: 2083
+  - uid: 6781
+    components:
+    - type: Transform
+      pos: 2.2293777,0.25330734
+      parent: 2343
+  - uid: 6784
+    components:
+    - type: Transform
+      pos: 2.2150955,0.30018234
+      parent: 2603
+  - uid: 6788
+    components:
+    - type: Transform
+      pos: 2.2612038,0.20643234
+      parent: 2863
+  - uid: 6793
+    components:
+    - type: Transform
+      pos: 2.334961,0.32361984
+      parent: 3123
+  - uid: 6795
+    components:
+    - type: Transform
+      pos: 2.1957474,0.30018234
+      parent: 3383
+  - uid: 6800
+    components:
+    - type: Transform
+      pos: 2.1969967,0.21876526
+      parent: 3643
+  - uid: 6804
+    components:
+    - type: Transform
+      pos: 2.1309242,0.31251526
+      parent: 3903
+  - uid: 6808
+    components:
+    - type: Transform
+      pos: 2.2122993,0.26564026
+      parent: 4163
+  - uid: 6812
+    components:
+    - type: Transform
+      pos: 2.2933884,0.28684235
+      parent: 4423
+  - uid: 6816
+    components:
+    - type: Transform
+      pos: 2.3845654,0.40402985
+      parent: 4683
+  - uid: 6820
+    components:
+    - type: Transform
+      pos: 2.3495636,0.33371735
+      parent: 4943
+  - uid: 6824
+    components:
+    - type: Transform
+      pos: 2.3493805,0.38059235
+      parent: 5203
+  - uid: 6828
+    components:
+    - type: Transform
+      pos: 2.4071846,0.35715485
+      parent: 5463
+  - uid: 6832
+    components:
+    - type: Transform
+      pos: 2.280754,0.31027985
+      parent: 5723
+  - uid: 6836
+    components:
+    - type: Transform
+      pos: 2.1638489,0.28684235
+      parent: 5983
+  - uid: 6840
+    components:
+    - type: Transform
+      pos: 2.3116276,0.2947731
+      parent: 6243
 - proto: AirlockExternalGlass
   entities:
   - uid: 6587
@@ -16530,6 +16784,133 @@ entities:
     - type: Transform
       pos: 4.5,-2.5
       parent: 6505
+- proto: CableApcStack
+  entities:
+  - uid: 1237
+    components:
+    - type: Transform
+      pos: 2.1614473,0.38079596
+      parent: 2
+  - uid: 2277
+    components:
+    - type: Transform
+      pos: 2.3144093,0.33392096
+      parent: 263
+  - uid: 3317
+    components:
+    - type: Transform
+      pos: 2.285469,0.38079596
+      parent: 523
+  - uid: 4357
+    components:
+    - type: Transform
+      pos: 2.2015,0.33392096
+      parent: 783
+  - uid: 5397
+    components:
+    - type: Transform
+      pos: 2.2962456,0.31048346
+      parent: 1043
+  - uid: 6437
+    components:
+    - type: Transform
+      pos: 2.172779,0.35735846
+      parent: 1303
+  - uid: 6769
+    components:
+    - type: Transform
+      pos: 2.2000427,0.47454596
+      parent: 1563
+  - uid: 6773
+    components:
+    - type: Transform
+      pos: 2.151826,0.30399895
+      parent: 1823
+  - uid: 6777
+    components:
+    - type: Transform
+      pos: 2.1788902,0.35087395
+      parent: 2083
+  - uid: 6779
+    components:
+    - type: Transform
+      pos: 2.0283737,0.32743645
+      parent: 2343
+  - uid: 6785
+    components:
+    - type: Transform
+      pos: 2.099144,0.35087395
+      parent: 2603
+  - uid: 6789
+    components:
+    - type: Transform
+      pos: 2.292715,0.21024895
+      parent: 2863
+  - uid: 6791
+    components:
+    - type: Transform
+      pos: 2.3341675,0.32743645
+      parent: 3123
+  - uid: 6797
+    components:
+    - type: Transform
+      pos: 2.1766052,0.25712395
+      parent: 3383
+  - uid: 6801
+    components:
+    - type: Transform
+      pos: 2.0621648,0.17556763
+      parent: 3643
+  - uid: 6805
+    components:
+    - type: Transform
+      pos: 2.0739136,0.24588013
+      parent: 3903
+  - uid: 6809
+    components:
+    - type: Transform
+      pos: 2.2343311,0.24588013
+      parent: 4163
+  - uid: 6813
+    components:
+    - type: Transform
+      pos: 2.066297,0.1056118
+      parent: 4423
+  - uid: 6817
+    components:
+    - type: Transform
+      pos: 2.3878555,0.3634243
+      parent: 4683
+  - uid: 6821
+    components:
+    - type: Transform
+      pos: 2.3270683,0.3399868
+      parent: 4943
+  - uid: 6825
+    components:
+    - type: Transform
+      pos: 2.2998505,0.2931118
+      parent: 5203
+  - uid: 6829
+    components:
+    - type: Transform
+      pos: 2.2584724,0.1993618
+      parent: 5463
+  - uid: 6833
+    components:
+    - type: Transform
+      pos: 1.986618,0.1759243
+      parent: 5723
+  - uid: 6837
+    components:
+    - type: Transform
+      pos: 2.071106,0.2931118
+      parent: 5983
+  - uid: 6841
+    components:
+    - type: Transform
+      pos: 2.2926733,0.19192886
+      parent: 6243
 - proto: CableHV
   entities:
   - uid: 40
@@ -29096,6 +29477,133 @@ entities:
       rot: 3.141592653589793 rad
       pos: 0.5,-1.5
       parent: 6505
+- proto: SheetGlass10
+  entities:
+  - uid: 1497
+    components:
+    - type: Transform
+      pos: 3.271341,2.416595
+      parent: 2
+  - uid: 2537
+    components:
+    - type: Transform
+      pos: 3.191267,2.4400325
+      parent: 263
+  - uid: 3577
+    components:
+    - type: Transform
+      pos: 3.3103333,2.2994075
+      parent: 523
+  - uid: 4617
+    components:
+    - type: Transform
+      pos: 3.29467,2.36972
+      parent: 783
+  - uid: 5657
+    components:
+    - type: Transform
+      pos: 3.3824768,2.46347
+      parent: 1043
+  - uid: 6766
+    components:
+    - type: Transform
+      pos: 3.3966522,2.4400325
+      parent: 1303
+  - uid: 6770
+    components:
+    - type: Transform
+      pos: 3.2541428,2.322845
+      parent: 1563
+  - uid: 6774
+    components:
+    - type: Transform
+      pos: 3.292076,2.3356705
+      parent: 1823
+  - uid: 6778
+    components:
+    - type: Transform
+      pos: 3.2750797,2.2887955
+      parent: 2083
+  - uid: 6782
+    components:
+    - type: Transform
+      pos: 3.2686615,2.3356705
+      parent: 2343
+  - uid: 6786
+    components:
+    - type: Transform
+      pos: 3.293663,2.359108
+      parent: 2603
+  - uid: 6790
+    components:
+    - type: Transform
+      pos: 3.2173977,2.3825455
+      parent: 2863
+  - uid: 6794
+    components:
+    - type: Transform
+      pos: 3.252636,2.3356705
+      parent: 3123
+  - uid: 6798
+    components:
+    - type: Transform
+      pos: 3.359848,2.3825455
+      parent: 3383
+  - uid: 6802
+    components:
+    - type: Transform
+      pos: 3.2637405,2.257389
+      parent: 3643
+  - uid: 6806
+    components:
+    - type: Transform
+      pos: 3.172697,2.398014
+      parent: 3903
+  - uid: 6810
+    components:
+    - type: Transform
+      pos: 3.2252235,2.210514
+      parent: 4163
+  - uid: 6814
+    components:
+    - type: Transform
+      pos: 3.282547,2.4361115
+      parent: 4423
+  - uid: 6818
+    components:
+    - type: Transform
+      pos: 3.238657,2.412674
+      parent: 4683
+  - uid: 6822
+    components:
+    - type: Transform
+      pos: 3.216999,2.3892365
+      parent: 4943
+  - uid: 6826
+    components:
+    - type: Transform
+      pos: 3.2584534,2.318924
+      parent: 5203
+  - uid: 6830
+    components:
+    - type: Transform
+      pos: 3.3241882,2.4829865
+      parent: 5463
+  - uid: 6834
+    components:
+    - type: Transform
+      pos: 3.412407,2.365799
+      parent: 5723
+  - uid: 6838
+    components:
+    - type: Transform
+      pos: 3.3553467,2.553299
+      parent: 5983
+  - uid: 6842
+    components:
+    - type: Transform
+      pos: 3.3475547,2.391861
+      parent: 6243
 - proto: SheetRGlass
   entities:
   - uid: 67

@@ -62,10 +62,13 @@
       points: 5 # 4 < 5, Funky, makes it so that you can have even more customization options on your thaven, sickeningly many even
       required: false
     Chest:
-      points: 4
+      points: 5 # 4 < 5, Funky, makes it so that you can have even more customization options on your thaven, sickeningly many even
       required: false
     Arms:
-      points: 4
+      points: 6 # 4 < 6, Funky, makes it so that you can have even more customization options on your thaven, sickeningly many even
+      required: false
+    Legs:
+      points: 6 # 4 < 6, Funky, makes it so that you can have even more customization options on your thaven, sickeningly many even
       required: false
     Tail:
       points: 1

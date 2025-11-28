@@ -205,3 +205,96 @@
     state: tailstub1
   - sprite: _Impstation/Mobs/Customization/thaven/thaven.rsi
     state: tailstub2
+
+# Funky below!
+
+- type: marking
+  id: ThavenArmFinsSmallRight
+  bodyPart: RArm
+  markingCategory: Arms
+  speciesRestriction: [ Thaven ]
+  forcedColoring: false
+  followSkinColor: true
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/thaven/thaven.rsi
+    state: rarmfins1
+  - sprite: _Impstation/Mobs/Customization/thaven/thaven.rsi
+    state: rarmfins1
+
+- type: marking
+  id: ThavenArmFinsSmallLeft
+  bodyPart: LArm
+  markingCategory: Arms
+  speciesRestriction: [ Thaven ]
+  forcedColoring: false
+  followSkinColor: true
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/thaven/thaven.rsi
+    state: larmfins1
+  - sprite: _Impstation/Mobs/Customization/thaven/thaven.rsi
+    state: larmfins1
+
+- type: marking
+  id: ThavenArmFinsBigRight
+  bodyPart: RArm
+  markingCategory: Arms
+  speciesRestriction: [ Thaven ]
+  forcedColoring: false
+  followSkinColor: true
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/thaven/thaven.rsi
+    state: rarmfins2
+  - sprite: _Impstation/Mobs/Customization/thaven/thaven.rsi
+    state: rarmfins2
+
+- type: marking
+  id: ThavenArmFinsBigLeft
+  bodyPart: LArm
+  markingCategory: Arms
+  speciesRestriction: [ Thaven ]
+  forcedColoring: false
+  followSkinColor: true
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/thaven/thaven.rsi
+    state: larmfins2
+  - sprite: _Impstation/Mobs/Customization/thaven/thaven.rsi
+    state: larmfins2
+
+- type: marking
+  id: ThavenLegFinsSmallRight
+  bodyPart: LLeg
+  markingCategory: Legs
+  speciesRestriction: [ Thaven ]
+  forcedColoring: false
+  followSkinColor: true
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/thaven/thaven.rsi
+    state: llegfins1
+  - sprite: _Impstation/Mobs/Customization/thaven/thaven.rsi
+    state: llegfins1
+
+- type: marking
+  id: ThavenLegFinsSmallLeft
+  bodyPart: RLeg
+  markingCategory: Legs
+  speciesRestriction: [ Thaven ]
+  forcedColoring: false
+  followSkinColor: true
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/thaven/thaven.rsi
+    state: rlegfins1
+  - sprite: _Impstation/Mobs/Customization/thaven/thaven.rsi
+    state: rlegfins1
+
+- type: marking
+  id: ThavenBackFin
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [ Thaven ]
+  forcedColoring: false
+  followSkinColor: true
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/thaven/thaven.rsi
+    state: backfin
+  - sprite: _Impstation/Mobs/Customization/thaven/thaven.rsi
+    state: backfin

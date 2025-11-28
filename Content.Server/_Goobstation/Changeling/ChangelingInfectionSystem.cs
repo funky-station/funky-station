@@ -27,6 +27,7 @@ using Content.Server.Medical;
 using Content.Shared.Tag;
 using Content.Shared.Implants;
 using Content.Shared.Implants.Components;
+using Content.Shared.Medical;
 
 namespace Content.Server.Changeling;
 

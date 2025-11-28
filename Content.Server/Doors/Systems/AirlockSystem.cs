@@ -37,6 +37,7 @@ using Content.Server.Wires;
 using Content.Shared.DeviceLinking.Events;
 using Content.Shared.Doors.Components;
 using Content.Shared.Doors.Systems;
+using Content.Shared.Emp;
 using Content.Shared.Interaction;
 using Content.Shared.Power;
 using Content.Shared.Wires;

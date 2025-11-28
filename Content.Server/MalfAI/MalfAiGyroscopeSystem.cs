@@ -9,6 +9,7 @@ using Content.Shared.Damage;
 using Content.Shared.FixedPoint;
 using Content.Shared.MalfAI;
 using Content.Server.Damage.Systems;
+using Content.Shared.Damage.Systems;
 using Content.Shared.Silicons.StationAi;
 using Content.Shared.Popups;
 using Content.Shared.Interaction;
@@ -30,7 +31,7 @@ public sealed class MalfAiGyroscopeSystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedInteractionSystem _interaction = default!;
     [Dependency] private readonly SharedActionsSystem _actions = default!;
-    [Dependency] private readonly Content.Server.Silicons.StationAi.StationAiSystem _stationAi = default!;
+    [Dependency] private readonly Silicons.StationAi.StationAiSystem _stationAi = default!;
 
     public override void Initialize()
     {

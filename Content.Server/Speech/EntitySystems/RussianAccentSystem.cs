@@ -18,7 +18,7 @@ public sealed class RussianAccentSystem : EntitySystem
     [Dependency] private readonly ReplacementAccentSystem _replacement = default!;
     public override void Initialize()
     {
-        SubscribeLocalEvent<RussianAccentComponent, AccentGetEvent>(OnAccent);
+        SubscribeLocalEvent<RussianAccentComponent, AccentGetEvent>(OnAccent, after: new[] {typeof(ReplacementAccentSystem)});
     }
 
     public string Accentuate(string message)

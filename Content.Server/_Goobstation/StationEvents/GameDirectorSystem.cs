@@ -4,6 +4,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
 using System.Linq;
+using Content.Goobstation.Common.CCVar;
 using Content.Server._Goobstation.StationEvents.Components;
 using Content.Server._Goobstation.StationEvents.Metric;
 using Content.Server.Administration.Logs;

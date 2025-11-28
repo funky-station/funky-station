@@ -6,7 +6,6 @@
 //
 // SPDX-License-Identifier: MIT
 
-using Content.Server.Charges.Systems;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
 namespace Content.Server.Charges.Components;

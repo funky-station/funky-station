@@ -12,12 +12,12 @@ using Content.Server.Humanoid;
 using Content.Shared.Humanoid;
 using Content.Shared.StatusEffectNew;
 // Goobstation Start - Energycrit
-using Content.Goobstation.Shared.Sprinting;
 using Content.Server.Radio;
 using Content.Shared._EinsteinEngines.Silicon.Death;
 using Content.Shared.Actions;
 using Content.Shared.CombatMode;
 using Content.Shared.Interaction.Components;
+using Content.Shared.Power.Components;
 using Content.Shared.Standing;
 using Content.Shared.Stunnable;
 // Goobstation End - Energycrit
@@ -109,12 +109,6 @@ public sealed class SiliconDeathSystem : SharedSiliconDeathSystem
         _status.TryAddStatusEffectDuration(uid, "StatusEffectForcedSleeping", TimeSpan.FromDays(2));
         */
 
-        // Disable sprinting.
-        if (TryComp<SprinterComponent>(uid, out var sprint))
-        {
-            sprint.CanSprint = false;
-            Dirty(uid, sprint);
-        }
 
         // Disable combat mode
         if (TryComp<CombatModeComponent>(uid, out var combatMode))
@@ -154,13 +148,6 @@ public sealed class SiliconDeathSystem : SharedSiliconDeathSystem
         _status.TryRemoveStatusEffect(uid, "StatusEffectForcedSleeping");
         _sleep.TryWaking(uid, true);
         */
-
-        // Enable sprinting
-        if (TryComp<SprinterComponent>(uid, out var sprint))
-        {
-            sprint.CanSprint = true;
-            Dirty(uid, sprint);
-        }
 
         // Enable combat mode
         if (TryComp<CombatModeComponent>(uid, out var combatMode))

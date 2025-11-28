@@ -1,11 +1,10 @@
-// SPDX-FileCopyrightText: 2024 Fishbait <Fishbait@git.ml>
-// SPDX-FileCopyrightText: 2024 John Space <bigdumb421@gmail.com>
+// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
 // SPDX-FileCopyrightText: 2024 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Falcon <falcon@zigtag.dev>
-// SPDX-FileCopyrightText: 2025 pre-commit-ci[bot] <66853113+pre-commit-ci[bot]@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
+// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 //
-// SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+// SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Robust.Shared.Random;
 using Content.Shared._EinsteinEngines.Silicon.Components;
@@ -21,20 +20,17 @@ using Content.Shared.Movement.Systems;
 using Content.Server.Body.Components;
 using Content.Shared.Mind.Components;
 using System.Diagnostics.CodeAnalysis;
+using Content.Server.Power.EntitySystems; // Goobstation - Energycrit
 using Content.Server.PowerCell;
 using Robust.Shared.Timing;
 using Robust.Shared.Configuration;
 using Robust.Shared.Utility;
-using Content.Shared.CCVar;
 using Content.Shared.PowerCell.Components;
-using Content.Shared.Mind;
 using Content.Shared.Alert;
-using Content.Server._EinsteinEngines.Silicon.Death;
-using Content.Server._EinsteinEngines.Power.Components;
-// Begin TheDen - IPC Dynamic Power draw
-using Content.Shared.Movement.Components;
-using Robust.Shared.Physics.Components;
-// End TheDen
+using Content.Shared.Atmos.Components;
+using Content.Shared.Power.Components;
+using Content.Shared.PowerCell;
+using Content.Shared.Temperature.Components;
 
 namespace Content.Server._EinsteinEngines.Silicon.Charge;
 
@@ -49,7 +45,8 @@ public sealed class SiliconChargeSystem : EntitySystem
     [Dependency] private readonly IConfigurationManager _config = default!;
     [Dependency] private readonly PowerCellSystem _powerCell = default!;
     [Dependency] private readonly AlertsSystem _alerts = default!;
-    [Dependency] private readonly SharedJetpackSystem _jetpack = default!; // TheDen - IPC Dynamic Power draw
+    [Dependency] private readonly BatterySystem _battery = default!; // Goobstation - Energycrit
+
     public override void Initialize()
     {
         base.Initialize();
@@ -57,18 +54,32 @@ public sealed class SiliconChargeSystem : EntitySystem
         SubscribeLocalEvent<SiliconComponent, ComponentStartup>(OnSiliconStartup);
     }
 
-    public bool TryGetSiliconBattery(EntityUid silicon, [NotNullWhen(true)] out BatteryComponent? batteryComp)
+    // Goobstation - Energycrit: Added batteryEnt argument
+    public bool TryGetSiliconBattery(EntityUid silicon, [NotNullWhen(true)] out BatteryComponent? batteryComp, [NotNullWhen(true)] out EntityUid? batteryEnt)
     {
         batteryComp = null;
+        batteryEnt = null; // Goobstation - Energycrit
         if (!HasComp<SiliconComponent>(silicon))
             return false;
 
+        // Try to get battery on silicon
+        if (TryComp(silicon, out batteryComp))
+        {
+            batteryEnt = silicon;
+            return true;
+        }
 
+        // Try to get inserted battery
+        if (_powerCell.TryGetBatteryFromSlot(silicon, out batteryEnt, out batteryComp))
+            return true;
+
+        // Goobstation - Energycrit: Deshitcodified this
+        /*
         // try get a battery directly on the inserted entity
         if (TryComp(silicon, out batteryComp)
             || _powerCell.TryGetBatteryFromSlot(silicon, out batteryComp))
             return true;
-
+        */
 
         //DebugTools.Assert("SiliconComponent does not contain Battery");
         return false;
@@ -98,15 +109,16 @@ public sealed class SiliconChargeSystem : EntitySystem
             // Check if the Silicon is an NPC, and if so, follow the delay as specified in the CVAR.
             if (siliconComp.EntityType.Equals(SiliconType.Npc))
             {
-                var updateTime = _config.GetCVar(CCVars.SiliconNpcUpdateTime);
+                var updateTime = _config.GetCVar(GoobCVars.SiliconNpcUpdateTime);
                 if (_timing.CurTime - siliconComp.LastDrainTime < TimeSpan.FromSeconds(updateTime))
                     continue;
 
                 siliconComp.LastDrainTime = _timing.CurTime;
             }
 
+            // Goobstation - Added batteryEnt parameter
             // If you can't find a battery, set the indicator and skip it.
-            if (!TryGetSiliconBattery(silicon, out var batteryComp))
+            if (!TryGetSiliconBattery(silicon, out var batteryComp, out var batteryEnt))
             {
                 UpdateChargeState(silicon, 0, siliconComp);
                 if (_alerts.IsShowingAlert(silicon, siliconComp.BatteryAlert))
@@ -132,17 +144,14 @@ public sealed class SiliconChargeSystem : EntitySystem
             // Maybe use something similar to refreshmovespeedmodifiers, where it's stored in the component.
             // Maybe it doesn't matter, and stuff should just use static drain?
             if (!siliconComp.EntityType.Equals(SiliconType.Npc)) // Don't bother checking heat if it's an NPC. It's a waste of time, and it'd be delayed due to the update time.
-            {
                 drainRateFinalAddi += SiliconHeatEffects(silicon, siliconComp, frameTime) - 1; // This will need to be changed at some point if we allow external batteries, since the heat of the Silicon might not be applicable.
-                drainRateFinalAddi += SiliconMovementEffects(silicon, siliconComp); // TheDen - IPC Dynamic Power draw // Removes between 90% and 0% of the total power draw.
-            }
 
             // Ensures that the drain rate is at least 10% of normal,
             // and would allow at least 4 minutes of life with a max charge, to prevent cheese.
             drainRate += Math.Clamp(drainRateFinalAddi, drainRate * -0.9f, batteryComp.MaxCharge / 240);
 
             // Drain the battery.
-            _powerCell.TryUseCharge(silicon, frameTime * drainRate);
+            _battery.TryUseCharge(batteryEnt.Value, frameTime * drainRate); // Goobstation - Use BatterySystem instead of PowerCellSystem
 
             // Figure out the current state of the Silicon.
             var chargePercent = (short) MathF.Round(batteryComp.CurrentCharge / batteryComp.MaxCharge * 10f);
@@ -214,26 +223,5 @@ public sealed class SiliconChargeSystem : EntitySystem
             return 0.5f + temperComp.CurrentTemperature / thermalComp.NormalBodyTemperature * 0.5f;
 
         return 0;
-    }
-
-    // TheDen - IPC Dynamic Power draw
-    private float SiliconMovementEffects(EntityUid silicon, SiliconComponent siliconComp)
-    {
-        // Calculate dynamic power draw.
-        if (!TryComp(silicon, out MovementSpeedModifierComponent? movement) ||
-            !TryComp(silicon, out PhysicsComponent? physics) ||
-            !TryComp(silicon, out InputMoverComponent? input))
-            return 0;
-
-        if (input.HeldMoveButtons == MoveButtons.None || _jetpack.IsUserFlying(silicon) || movement.CurrentSprintSpeed==0) // If nothing is being held or jet packing
-        {
-            return siliconComp.DrainPerSecond * siliconComp.IdleDrainReduction * (-1); // Reduces draw by idle drain reduction
-        }
-
-        // LinearVelocity is relative to the parent
-        return Math.Clamp(
-            siliconComp.DrainPerSecond * ((physics.LinearVelocity.Length() / movement.CurrentSprintSpeed) - 1), // Power draw changes as a negative percentage of the movement
-            siliconComp.DrainPerSecond * siliconComp.IdleDrainReduction * (-1), // Should be a maximum of the idle drain reduction (negative)
-            0f); // Minimum reduction is no change to power draw
     }
 }

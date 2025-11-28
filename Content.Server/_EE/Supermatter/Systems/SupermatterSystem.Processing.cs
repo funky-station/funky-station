@@ -18,7 +18,6 @@ using System.Text;
 using Content.Server.Chat.Systems;
 using Content.Server.Explosion.EntitySystems;
 using Content.Server.Singularity.Components;
-using Content.Server.Sound.Components;
 using Content.Shared._EE.CCVars;
 using Content.Shared._EE.Supermatter.Components;
 using Content.Shared.Atmos;

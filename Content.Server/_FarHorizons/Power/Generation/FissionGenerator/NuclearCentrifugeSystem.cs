@@ -23,6 +23,7 @@ public sealed class NuclearCentrifugeSystem : EntitySystem
 
     private readonly float _threshold = 1f;
     private float _accumulator = 0f;
+    private readonly int _stackSize = 30;
 
     public override void Initialize()
     {
@@ -47,42 +48,42 @@ public sealed class NuclearCentrifugeSystem : EntitySystem
         var query = EntityQueryEnumerator<NuclearCentrifugeComponent>();
         while (query.MoveNext(out var uid, out var comp))
         {
-            if(comp.Processing)
+            if(!comp.Processing)
+                continue;
+            
+            if(comp.FuelToExtract>0)
             {
-                if(comp.FuelToExtract>0)
+                var delta = Math.Min(comp.FuelToExtract, 0.5f);
+                comp.ExtractedFuel += delta;
+                comp.FuelToExtract -= delta;
+            }
+            else
+            {
+                if(comp.ExtractedFuel > 1)
                 {
-                    var delta = Math.Min(comp.FuelToExtract, 0.5f);
-                    comp.ExtractedFuel += delta;
-                    comp.FuelToExtract -= delta;
+                    var amount = (int)Math.Floor(comp.ExtractedFuel);
+
+                    // If this while loop causes problems, blame whoever put 1.78e308 plutonium in the centrifuge
+                    while (amount > 1) 
+                    {
+                        var plutoniumStack = Spawn("IngotPlutonium1", Transform(uid).Coordinates);
+                        _stackSystem.SetCount(plutoniumStack, Math.Clamp(amount, 1, _stackSize));
+                        var delta = _stackSystem.GetCount(plutoniumStack);
+                        comp.ExtractedFuel -= delta;
+                        amount -= delta;
+                        _stackSystem.TryMergeToContacts(plutoniumStack);
+                    }
+                    _audio.PlayPvs(comp.SoundSucceed, uid);
                 }
                 else
                 {
-                    if(comp.ExtractedFuel > 1)
-                    {
-                        var amount = (int)Math.Floor(comp.ExtractedFuel);
-
-                        // If this while loop causes problems, blame whoever put 1.78e308 plutonium in the centrifuge
-                        while (amount > 1) 
-                        {
-                            var plutoniumStack = Spawn("IngotPlutonium1", Transform(uid).Coordinates);
-                            _stackSystem.SetCount(plutoniumStack, amount);
-                            _stackSystem.TryMergeToContacts(plutoniumStack);
-                            var delta = amount > 30 ? 30 : amount;
-                            comp.ExtractedFuel -= delta;
-                            amount -= delta;
-                        }
-                        _audio.PlayPvs(comp.SoundSucceed, uid);
-                    }
-                    else
-                    {
-                        _audio.PlayPvs(comp.SoundFail, uid, AudioParams.Default.WithVolume(-2));
-                    }
-
-                    _audio.Stop(comp.AudioProcess);
-
-                    comp.Processing = false;
-                    _appearance.SetData(uid, NuclearCentrifugeVisuals.Processing, false);
+                    _audio.PlayPvs(comp.SoundFail, uid, AudioParams.Default.WithVolume(-2));
                 }
+
+                _audio.Stop(comp.AudioProcess);
+
+                comp.Processing = false;
+                _appearance.SetData(uid, NuclearCentrifugeVisuals.Processing, false);
             }
         }
     }

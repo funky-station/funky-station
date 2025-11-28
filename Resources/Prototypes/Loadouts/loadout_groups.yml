@@ -450,6 +450,8 @@
   loadouts:
   - ChefJumpsuit
   - ChefJumpskirt
+  - ChefJumpsuitBlue
+  - ChefJumpskirtBlue
   - ServiceJumpsuitDressWhite
   - ServiceJumpsuitDressBlue
   - ServiceJumpsuitDressTied
@@ -466,6 +468,8 @@
   - ChefApron
   - ChefJacket
   - ChefWintercoat
+  - ChefJacketBlue
+  - ChefWintercoatBlue
 
 - type: loadoutGroup #WizDen Weh Job Plush
   id: ChefJobTrinkets

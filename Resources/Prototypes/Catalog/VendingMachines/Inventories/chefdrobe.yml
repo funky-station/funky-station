@@ -18,9 +18,13 @@
     ClothingOuterApronChef: 3
     ClothingOuterWinterChef: 2
     ClothingOuterJacketChef: 1
+    ClothingOuterWinterChefBlue: 2
+    ClothingOuterJacketChefBlue: 1
     ClothingUniformJumpsuitChef: 1
-    ClothingMaskItalianMoustache: 2
     ClothingUniformJumpskirtChef:  2
+    ClothingUniformJumpsuitChefBlue: 1
+    ClothingUniformJumpskirtChefBlue:  2
+    ClothingMaskItalianMoustache: 2
     ClothingHeadHatChef: 2
     ClothingShoesColorBlack: 2
     ClothingShoesChef: 2

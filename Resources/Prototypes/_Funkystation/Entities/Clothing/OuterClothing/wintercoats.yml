@@ -54,3 +54,16 @@
     sprite: _Funkystation/Clothing/OuterClothing/WinterCoats/stingray_coat.rsi
   - type: Item
     size: Normal
+
+# Chef, blue! (By AraiMaia)
+
+- type: entity
+  parent: ClothingOuterWinterCoat
+  id: ClothingOuterWinterChefBlue
+  name: blue chef's freezer coat
+  description: A coat specifically designed for the blue team, sorely needed by blue-blooded lizard chefs.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/OuterClothing/Coats/chef_freezer_coat_blue.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/OuterClothing/Coats/chef_freezer_coat_blue.rsi

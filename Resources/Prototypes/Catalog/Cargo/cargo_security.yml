@@ -28,7 +28,7 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
-#- type: cargoProduct #Funky Station, replaced by the standard armor crate 
+#- type: cargoProduct #Funky Station, replaced by the standard armor crate
 #  id: SecurityArmor
 #  icon:
 #    sprite: Clothing/OuterClothing/Armor/bulletproof.rsi
@@ -74,7 +74,7 @@
     sprite: Objects/Misc/handcuffs.rsi
     state: handcuff
   product: CrateRestraints
-  cost: 1000
+  cost: 1500
   category: cargoproduct-category-name-security
   group: market
 

@@ -28,6 +28,16 @@
   equipment:
     jumpsuit: ClothingUniformJumpskirtChef
 
+- type: loadout
+  id: ChefJumpsuitBlue
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitChefBlue
+
+- type: loadout
+  id: ChefJumpskirtBlue
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtChefBlue
+
 # Outer clothing
 - type: loadout
   id: ChefApron
@@ -43,3 +53,13 @@
   id: ChefWintercoat
   equipment:
     outerClothing: ClothingOuterWinterChef
+
+- type: loadout
+  id: ChefJacketBlue
+  equipment:
+    outerClothing: ClothingOuterJacketChefBlue
+
+- type: loadout
+  id: ChefWintercoatBlue
+  equipment:
+    outerClothing: ClothingOuterWinterChefBlue

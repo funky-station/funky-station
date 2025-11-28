@@ -450,3 +450,16 @@
     sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/hopsweater.rsi
   - type: Clothing
     sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/hopsweater.rsi
+
+# Chef, blue version! (By AraiMaia)
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitChefBlue
+  name: blue chef uniform
+  description: Blue team, drop the bouillabaisse.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/chefblue.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/chefblue.rsi

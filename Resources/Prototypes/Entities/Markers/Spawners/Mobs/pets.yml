@@ -118,12 +118,17 @@
     layers:
     - state: green
     - state: ai
-  - type: ConditionalSpawner
+  - type: RandomSpawner #funky - add MobCorgiMouse at a 0.1% chance
     prototypes:
     - MobCorgiIan
     - MobCorgiIanOld
     - MobCorgiLisa
     - MobCorgiIanPup
+    chance: 0.999
+    rarePrototypes:
+    - MobCorgiMouse # lisa?
+    rareChance: 0.001
+
 
 - type: entity
   parent: MarkerBase
@@ -226,7 +231,7 @@
   - type: ConditionalSpawner
     prototypes:
     - MobMonkeyPunpun
-      
+
 #Funkystation start
 - type: entity
   parent: MarkerBase
@@ -237,7 +242,7 @@
     - type: Sprite
       layers:
         - state: green
-        - state: kobold 
+        - state: kobold
           sprite: Mobs/Animals/kobold.rsi
     - type: ConditionalSpawner
       prototypes:

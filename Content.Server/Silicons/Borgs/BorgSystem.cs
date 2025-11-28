@@ -3,7 +3,6 @@ using System.Linq;
 using Content.Server.Actions;
 using Content.Server.Administration.Logs;
 using Content.Server.Administration.Managers;
-using Content.Shared.Body.Events;
 using Content.Server.DeviceNetwork.Systems;
 using Content.Server.Hands.Systems;
 using Content.Shared.Alert;
@@ -65,8 +64,7 @@ public sealed partial class BorgSystem : SharedBorgSystem
     [Dependency] private readonly ISharedPlayerManager _player = default!;
     [Dependency] private readonly PredictedBatterySystem _battery = default!;
 
-    [ValidatePrototypeId<JobPrototype>]
-    public const string BorgJobId = "Borg";
+    public static readonly ProtoId<JobPrototype> BorgJobId = "Borg";
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -82,8 +80,8 @@ public sealed partial class BorgSystem : SharedBorgSystem
         SubscribeLocalEvent<BorgChassisComponent, PowerCellChangedEvent>(OnPowerCellChanged);
         SubscribeLocalEvent<BorgChassisComponent, PredictedBatteryChargeChangedEvent>(OnBatteryChargeChanged);
         SubscribeLocalEvent<BorgChassisComponent, PowerCellSlotEmptyEvent>(OnPowerCellSlotEmpty);
-        SubscribeLocalEvent<BorgChassisComponent, GetCharactedDeadIcEvent>(OnGetDeadIC);
-        SubscribeLocalEvent<BorgChassisComponent, GetCharacterUnrevivableIcEvent>(OnGetUnrevivableIC);
+        SubscribeLocalEvent<BorgChassisComponent, SharedMindSystem.GetCharactedDeadIcEvent>(OnGetDeadIC);
+        SubscribeLocalEvent<BorgChassisComponent, SharedMindSystem.GetCharacterUnrevivableIcEvent>(OnGetUnrevivableIC);
         SubscribeLocalEvent<BorgChassisComponent, ItemToggledEvent>(OnToggled);
 
         SubscribeLocalEvent<BorgBrainComponent, MindAddedMessage>(OnBrainMindAdded);
@@ -230,12 +228,12 @@ public sealed partial class BorgSystem : SharedBorgSystem
         UpdateUI(uid, component);
     }
 
-    private void OnGetDeadIC(EntityUid uid, BorgChassisComponent component, ref GetCharactedDeadIcEvent args)
+    private void OnGetDeadIC(EntityUid uid, BorgChassisComponent component, ref SharedMindSystem.GetCharactedDeadIcEvent args)
     {
         args.Dead = true;
     }
 
-    private void OnGetUnrevivableIC(EntityUid uid, BorgChassisComponent component, ref GetCharacterUnrevivableIcEvent args)
+    private void OnGetUnrevivableIC(EntityUid uid, BorgChassisComponent component, ref SharedMindSystem.GetCharacterUnrevivableIcEvent args)
     {
         args.Unrevivable = true;
     }
@@ -329,7 +327,6 @@ public sealed partial class BorgSystem : SharedBorgSystem
 
     /// <summary>
     /// Checks that a player has fulfilled the requirements for the borg job.
-    /// If they don't have enough hours, they cannot be placed into a chassis.
     /// </summary>
     public bool CanPlayerBeBorged(ICommonSession session)
     {

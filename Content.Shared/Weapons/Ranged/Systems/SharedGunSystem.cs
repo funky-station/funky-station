@@ -54,12 +54,15 @@ using Content.Shared.Camera;
 using Content.Shared.CombatMode;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Systems;
+using Content.Shared.Database;
+using Content.Shared.Effects;
 using Content.Shared.Examine;
 using Content.Shared.Gravity;
 using Content.Shared.Hands;
-using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Hands.Components;
+using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Interaction;
 using Content.Shared.Interaction.Components;
 using Content.Shared.Mech.Components; // Goobstation
@@ -70,7 +73,6 @@ using Content.Shared.Tag;
 using Content.Shared.Throwing;
 using Content.Shared.Timing;
 using Content.Shared.Verbs;
-using Content.Shared.Weapons.Hitscan.Components;
 using Content.Shared.Weapons.Melee;
 using Content.Shared.Weapons.Melee.Events;
 using Content.Shared.Weapons.Ranged.Components;
@@ -93,8 +95,7 @@ using Robust.Shared.Serialization;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 using Content.Shared.Item;
-using Content.Shared.Weapons.Hitscan.Events;
-using Content.Shared.Weapons.Ranged;
+using Content.Shared.Weapons.Hitscan.Components;
 
 namespace Content.Shared.Weapons.Ranged.Systems;
 
@@ -128,7 +129,9 @@ public abstract partial class SharedGunSystem : EntitySystem
     [Dependency] private   readonly UseDelaySystem _useDelay = default!;
     [Dependency] private   readonly EntityWhitelistSystem _whitelistSystem = default!;
     [Dependency] private   readonly SharedInteractionSystem _interaction = default!;
+    [Dependency] private   readonly SharedStaminaSystem _stamina = default!;
     [Dependency] private   readonly SharedStunSystem _stun = default!;
+    [Dependency] private   readonly SharedColorFlashEffectSystem _color = default!;
     [Dependency] private   readonly SharedCameraRecoilSystem _recoil = default!;
     [Dependency] private   readonly IConfigurationManager _config = default!;
 
@@ -226,15 +229,6 @@ public abstract partial class SharedGunSystem : EntitySystem
         gunEntity = default;
         gunComp = null;
 
-        if (TryComp<MechComponent>(entity, out var mech) &&
-            mech.CurrentSelectedEquipment.HasValue &&
-            TryComp<GunComponent>(mech.CurrentSelectedEquipment.Value, out var mechGun))
-        {
-            gunEntity = mech.CurrentSelectedEquipment.Value;
-            gunComp = mechGun;
-            return true;
-        }
-
         if (_hands.GetActiveItem(entity) is { } held &&
             TryComp(held, out GunComponent? gun))
         {
@@ -268,13 +262,12 @@ public abstract partial class SharedGunSystem : EntitySystem
     /// <summary>
     /// Attempts to shoot at the target coordinates. Resets the shot counter after every shot.
     /// </summary>
-    public void AttemptShoot(EntityUid user, EntityUid gunUid, GunComponent gun, EntityCoordinates toCoordinates, EntityUid? target = null)
+    public void AttemptShoot(EntityUid user, EntityUid gunUid, GunComponent gun, EntityCoordinates toCoordinates)
     {
         gun.ShootCoordinates = toCoordinates;
         AttemptShoot(user, gunUid, gun);
         gun.ShotCounter = 0;
-        gun.Target = target;
-        DirtyField(gunUid, gun, nameof(GunComponent.ShotCounter));
+        EntityManager.DirtyField(gunUid, gun, nameof(GunComponent.ShotCounter));
     }
 
     // Goobstation - Crawling turret fix
@@ -412,7 +405,7 @@ public abstract partial class SharedGunSystem : EntitySystem
         if (ev.Ammo.Count <= 0)
         {
             // triggers effects on the gun if it's empty
-            var emptyGunShotEvent = new OnEmptyGunShotEvent(user);
+            var emptyGunShotEvent = new OnEmptyGunShotEvent();
             RaiseLocalEvent(gunUid, ref emptyGunShotEvent);
 
             gun.BurstActivated = false;
@@ -459,13 +452,15 @@ public abstract partial class SharedGunSystem : EntitySystem
         var shotEv = new GunShotEvent(user, ev.Ammo);
         RaiseLocalEvent(gunUid, ref shotEv);
 
-        if (userImpulse && TryComp<PhysicsComponent>(user, out var userPhysics))
-        {
-            if (_gravity.IsWeightless(user))
-                CauseImpulse(fromCoordinates, toCoordinates.Value, user, userPhysics);
-        }
+        if (!userImpulse || !TryComp<PhysicsComponent>(user, out var userPhysics))
+            return null;
 
-        Dirty(gunUid, gun);
+        var shooterEv = new ShooterImpulseEvent();
+        RaiseLocalEvent(user, ref shooterEv);
+
+        if (shooterEv.Push)
+            CauseImpulse(fromCoordinates, toCoordinates.Value, user, userPhysics);
+
         UpdateAmmoCount(gunUid); //GoobStation - Multishot
         return projectiles;
     }
@@ -636,27 +631,6 @@ public abstract partial class SharedGunSystem : EntitySystem
                             RemoveShootable(ent.Value);
                     }
                     break;
-
-                case HitscanAmmoComponent:
-                    if (ent == null)
-                        break;
-
-                    var hitscanEv = new HitscanTraceEvent
-                    {
-                        FromCoordinates = fromCoordinates,
-                        ShotDirection = mapDirection.Normalized(),
-                        Gun = gunUid,
-                        Shooter = user,
-                        Target = gun.Target,
-                    };
-                    RaiseLocalEvent(ent.Value, ref hitscanEv);
-                    Del(ent);
-
-                    Audio.PlayPredicted(gun.SoundGunshotModified, gunUid, user);
-                    Recoil(user, mapDirection, gun.CameraRecoilScalarModified);
-                    break;
-                default:
-                    throw new ArgumentOutOfRangeException();
             }
         }
 
@@ -1038,8 +1012,6 @@ public abstract partial class SharedGunSystem : EntitySystem
 
     protected abstract void CreateEffect(EntityUid gunUid, MuzzleFlashEvent message, EntityUid? user = null, EntityUid? player = null);
 
-    public abstract void PlayImpactSound(EntityUid otherEntity, DamageSpecifier? modifiedDamage, SoundSpecifier? weaponSound, bool forceWeaponSound);
-
     /// <summary>
     /// Used for animated effects on the client.
     /// </summary>
@@ -1047,31 +1019,6 @@ public abstract partial class SharedGunSystem : EntitySystem
     public sealed class HitscanEvent : EntityEventArgs
     {
         public List<(NetCoordinates coordinates, Angle angle, SpriteSpecifier Sprite, float Distance)> Sprites = new();
-    }
-
-    /// <summary>
-    /// Get the ammo count for a given EntityUid. Can be a firearm or magazine.
-    /// </summary>
-    public int GetAmmoCount(EntityUid uid)
-    {
-        var ammoEv = new GetAmmoCountEvent();
-        RaiseLocalEvent(uid, ref ammoEv);
-        return ammoEv.Count;
-    }
-
-    /// <summary>
-    /// Get the ammo capacity for a given EntityUid. Can be a firearm or magazine.
-    /// </summary>
-    public int GetAmmoCapacity(EntityUid uid)
-    {
-        var ammoEv = new GetAmmoCountEvent();
-        RaiseLocalEvent(uid, ref ammoEv);
-        return ammoEv.Capacity;
-    }
-
-    public override void Update(float frameTime)
-    {
-        UpdateBattery(frameTime);
     }
 }
 
@@ -1094,6 +1041,16 @@ public record struct AttemptShootEvent(EntityUid User, string? Message, bool Can
 [ByRefEvent]
 public record struct GunShotEvent(EntityUid User, List<(EntityUid? Uid, IShootable Shootable)> Ammo);
 
+/// <summary>
+/// Raised on an entity after firing a gun to see if any components or systems would allow this entity to be pushed
+/// by the gun they're firing. If true, GunSystem will create an impulse on our entity.
+/// </summary>
+[ByRefEvent]
+public record struct ShooterImpulseEvent()
+{
+    public bool Push;
+};
+
 public enum EffectLayers : byte
 {
     Unshaded,
@@ -1109,7 +1066,3 @@ public enum AmmoVisuals : byte
     MagLoaded,
     BoltClosed,
 }
-public record struct ShooterImpulseEvent()
-{
-    public bool Push;
-};

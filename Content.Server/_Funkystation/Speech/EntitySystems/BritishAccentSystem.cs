@@ -64,12 +64,12 @@ public sealed class BritishAccentSystem : EntitySystem
         int checkLength = Math.Min(3, msgNoSpace.Length);
         for(int i = 1; i < checkLength; i++)
             startShouldBeUpper = startShouldBeUpper && char.IsUpper(msgNoSpace[i]);
-        
         for(int i = msgNoSpace.Length - 1; i > msgNoSpace.Length - checkLength; i--)
             endShouldBeUpper = endShouldBeUpper && char.IsUpper(msgNoSpace[i]);
-
+        //limit to avoid infinite loops, i dont want to crash the server
+        var limit = 0;
         // Randomly add start
-        while (_random.Prob(0.20f))
+        while (_random.Prob(0.20f) && limit < 10)
         {
             var start = _random.Pick(_starts);
             //if the phrase has one of the start words already, don't add it again
@@ -83,13 +83,14 @@ public sealed class BritishAccentSystem : EntitySystem
                     var rest = msg.Substring(1);
                     msg = msg.Remove(0);
                     msg = first + rest;
-                }
-                    
+                }  
                 msg = start + msg;
             }
+            limit++;
         }
+        limit = 0;
         // Randomly add ending
-        while (_random.Prob(0.20f))
+        while (_random.Prob(0.20f) && limit < 10)
         {
             var ending = _random.Pick(_endings);
             //if the phrase has one of the end words already, don't add it again
@@ -114,9 +115,8 @@ public sealed class BritishAccentSystem : EntitySystem
                 }
                     
             }
-            
+            limit++;
         }
-
         var words = msg.Split(' ');
         for (int i = 0; i < words.Length; i++)
         {
@@ -124,7 +124,6 @@ public sealed class BritishAccentSystem : EntitySystem
                 words[i] = words[i] + "|";
         }
         msg = string.Join(' ', words);
-
         //whatever. go my regexes
         msg = RegexT.Replace(msg, "\'");
         msg = RegexEndT.Replace(msg, "\'");

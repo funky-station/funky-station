@@ -9,8 +9,6 @@
 //
 // SPDX-License-Identifier: MIT
 
-using System.Linq;
-using Content.Server.Chat.Managers;
 using Content.Server.Chat.Systems;
 using Content.Server.Construction;
 using Content.Server.Destructible;
@@ -36,8 +34,6 @@ using Content.Shared.Popups;
 using Content.Shared.Power;
 using Content.Shared.Power.Components;
 using Content.Shared.Rejuvenate;
-using Content.Shared.Chat;
-using Content.Shared.Mind;
 using Content.Shared.Roles;
 using Content.Shared.Silicons.StationAi;
 using Content.Shared.Speech.Components;
@@ -50,19 +46,11 @@ using Robust.Shared.Map.Components;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using static Content.Server.Chat.Systems.ChatSystem;
-using Robust.Shared.Timing;
-using Robust.Shared.Audio.Systems;
-using Content.Shared.Damage;
-using Content.Server.Power.Components;
-using Content.Shared.Mech.Components;
-using Content.Shared.Destructible;
-using Robust.Shared.Containers;
 
 namespace Content.Server.Silicons.StationAi;
 
 public sealed class StationAiSystem : SharedStationAiSystem
 {
-    [Dependency] private readonly IChatManager _chats = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly SharedTransformSystem _xforms = default!;
     [Dependency] private readonly ContainerSystem _container = default!;
@@ -80,12 +68,7 @@ public sealed class StationAiSystem : SharedStationAiSystem
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-    [Dependency] private readonly SharedMindSystem _mind = default!;
-    [Dependency] private readonly SharedRoleSystem _roles = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly SharedContainerSystem _containers = default!;
-    [Dependency] private readonly ChatSystem _chatSystem = default!;
+
     private readonly HashSet<Entity<StationAiCoreComponent>> _stationAiCores = new();
 
     private readonly ProtoId<ChatNotificationPrototype> _turretIsAttackingChatNotificationPrototype = "TurretIsAttacking";
@@ -98,11 +81,6 @@ public sealed class StationAiSystem : SharedStationAiSystem
 
     private readonly ProtoId<AlertPrototype> _batteryAlert = "BorgBattery";
     private readonly ProtoId<AlertPrototype> _damageAlert = "BorgHealth";
-
-    /// <summary>
-    /// Tracks the last time each AI core was alerted about being under attack to implement cooldown.
-    /// </summary>
-    private readonly Dictionary<EntityUid, TimeSpan> _attackAlertCooldowns = new();
 
     public override void Initialize()
     {
@@ -158,7 +136,7 @@ public sealed class StationAiSystem : SharedStationAiSystem
         // into an AI core that has a full battery and full integrity.
         if (TryComp<BatteryComponent>(ent, out var battery))
         {
-            _battery.SetCharge(ent, battery.MaxCharge);
+            _battery.SetCharge((ent, battery), battery.MaxCharge);
         }
 
         _damageable.ClearAllDamage(ent.Owner);
@@ -423,9 +401,7 @@ public sealed class StationAiSystem : SharedStationAiSystem
             return false;
 
         if (announce)
-        {
             AnnounceSnip(entity.Owner);
-        }
 
         return true;
     }
@@ -436,9 +412,7 @@ public sealed class StationAiSystem : SharedStationAiSystem
             return false;
 
         if (announce)
-        {
             AnnounceSnip(entity.Owner);
-        }
 
         return true;
     }
@@ -493,49 +467,7 @@ public sealed class StationAiSystem : SharedStationAiSystem
 
         return hashSet;
     }
-        public override void AnnounceIntellicardUsage(EntityUid uid, SoundSpecifier? cue = null)
-    {
-        if (!TryComp<ActorComponent>(uid, out var actor))
-            return;
-
-        var msg = Loc.GetString("ai-consciousness-download-warning");
-        var wrappedMessage = Loc.GetString("chat-manager-server-wrap-message", ("message", msg));
-        _chats.ChatMessageToOne(ChatChannel.Server, msg, wrappedMessage, default, false, actor.PlayerSession.Channel, colorOverride: Color.Red);
-
-        if (cue != null && _mind.TryGetMind(uid, out var mindId, out _))
-            _roles.MindPlaySound(mindId, cue);
-    }
-
-    private void AnnounceSnip(EntityUid entity)
-    {
-        var xform = Transform(entity);
-
-        if (!TryComp(xform.GridUid, out MapGridComponent? grid))
-            return;
-
-        _ais.Clear();
-        _lookup.GetChildEntities(xform.GridUid.Value, _ais);
-        var filter = Filter.Empty();
-
-        foreach (var ai in _ais)
-        {
-            // TODO: Filter API?
-            if (TryComp(ai.Owner, out ActorComponent? actorComp))
-            {
-                filter.AddPlayer(actorComp.PlayerSession);
-            }
-        }
-
-        // TEST
-        // filter = Filter.Broadcast();
-
-        // No easy way to do chat notif embeds atm.
-        var tile = Maps.LocalToTile(xform.GridUid.Value, grid, xform.Coordinates);
-        var msg = Loc.GetString("ai-wire-snipped", ("coords", tile));
-
-        _chats.ChatMessageToMany(ChatChannel.Notifications, msg, msg, entity, false, true, filter.Recipients.Select(o => o.Channel));
-        // Apparently there's no sound for this.
-    }
+}
 
     /// <summary>
     /// Funky edit, AI gets alert for damage

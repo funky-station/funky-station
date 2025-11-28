@@ -27,6 +27,7 @@
 using System.Numerics;
 using Content.Shared.Alert;
 using Content.Shared.FixedPoint;
+using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
@@ -110,6 +111,18 @@ public sealed partial class StaminaComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public float AfterCritDecayMultiplier = 5f;
+
+    /// <summary>
+    /// This is how much stamina damage a mob takes when it forces itself to stand up before modifiers
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public float ForceStandStamina = 10f;
+
+    /// <summary>
+    /// What sound should play when we successfully stand up
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public SoundSpecifier ForceStandSuccessSound = new SoundPathSpecifier("/Audio/Effects/thudswoosh.ogg");
 
     /// <summary>
     /// Thresholds that determine an entity's slowdown as a function of stamina damage.

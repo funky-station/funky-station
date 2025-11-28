@@ -315,7 +315,8 @@ public abstract partial class SharedStaminaSystem : EntitySystem
         float value,
         StaminaComponent? component = null,
         EntityUid? source = null,
-        EntityUid? with = null)
+        EntityUid? with = null,
+        bool visual = false)
     {
         // Something that has no Stamina component automatically passes stamina checks
         if (!Resolve(uid, ref component, false))

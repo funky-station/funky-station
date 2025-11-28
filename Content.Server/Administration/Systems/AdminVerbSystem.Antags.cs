@@ -61,6 +61,7 @@ public sealed partial class AdminVerbSystem
 {
     [Dependency] private readonly AntagSelectionSystem _antag = default!;
     [Dependency] private readonly ZombieSystem _zombie = default!;
+    [Dependency] private readonly ZombieTumorOrganSystem _zombieTumor = default!;
     [Dependency] private readonly GameTicker _gameTicker = default!;
 
     [ValidatePrototypeId<EntityPrototype>]
@@ -134,7 +135,9 @@ public sealed partial class AdminVerbSystem
             Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/Actions/zombie-turn.png")),
             Act = () =>
             {
-                _zombie.ZombifyEntity(args.Target);
+                // Give them a tumor infection instead of immediately zombifying
+                // The tumor will progress normally and eventually zombify them
+                _zombieTumor.InfectEntity(args.Target);
             },
             Impact = LogImpact.High,
             Message = Loc.GetString("admin-verb-make-zombie"),

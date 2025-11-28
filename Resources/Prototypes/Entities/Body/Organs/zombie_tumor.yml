@@ -12,9 +12,8 @@
   - type: ZombieTumorOrgan
     infectionRange: 5
     baseInfectionChance: 0.05
-    updateInterval: 00:00:02
+    updateInterval: 2
   - type: Sprite
-    sprite: Objects/Specific/Medical/zombie_tumor.rsi
-    state: icon
+    sprite: _Funkystation/Objects/Specific/Medical/zombietumor.rsi
+    state: zombietumor
   - type: Item
-  - type: Examinable

@@ -61,6 +61,7 @@ public sealed class ZombieTumorOrganSystem : SharedZombieTumorOrganSystem
         SubscribeLocalEvent<ZombieTumorInfectionComponent, MobStateChangedEvent>(OnInfectionMobStateChanged);
         SubscribeLocalEvent<ZombieTumorInfectionComponent, ComponentRemove>(OnInfectionRemoved);
         SubscribeLocalEvent<ZombieTumorOrganComponent, OrganRemovedFromBodyEvent>(OnTumorOrganRemoved);
+        SubscribeLocalEvent<ZombieTumorSpawnerComponent, ComponentInit>(OnTumorSpawnerInit);
     }
 
     public override void Update(float frameTime)
@@ -77,6 +78,9 @@ public sealed class ZombieTumorOrganSystem : SharedZombieTumorOrganSystem
 
         // Update organ infection spread
         UpdateOrganInfectionSpread(curTime);
+
+        // Update tumor spawners (retry failed organ insertions)
+        UpdateTumorSpawners(curTime);
     }
 
     private void UpdateInfectionProgression(TimeSpan curTime)
@@ -178,33 +182,75 @@ public sealed class ZombieTumorOrganSystem : SharedZombieTumorOrganSystem
         }
     }
 
-    private void SpawnTumorOrgan(EntityUid bodyUid)
+    /// <summary>
+    /// Spawns a zombie tumor organ in the entity's torso. Returns true if successful.
+    /// </summary>
+    public bool SpawnTumorOrgan(EntityUid bodyUid)
     {
         // Find torso body part
         if (!TryComp<BodyComponent>(bodyUid, out var body))
-            return;
+            return false;
 
         var torso = _bodySystem.GetBodyChildrenOfType(bodyUid, BodyPartType.Torso, body).FirstOrDefault();
         if (torso.Id == EntityUid.Invalid)
-            return;
+            return false;
 
-        // Spawn tumor organ
-        var tumorOrgan = Spawn("ZombieTumorOrgan", Transform(bodyUid).Coordinates);
-        
-        // Try to add to first valid slot
-        if (!_bodySystem.AddOrganToFirstValidSlot(torso.Id, tumorOrgan))
+        // Try to add to first valid slot first (in case slot already exists)
+        if (_bodySystem.CanInsertOrgan(torso.Id, "tumor", torso.Component))
         {
-            // If no slot available, try to create one
-            if (_bodySystem.TryCreateOrganSlot(torso.Id, "tumor", out var slot))
+            // Slot exists, spawn and insert directly
+            var tumorOrgan = Spawn("ZombieTumorOrgan", Transform(bodyUid).Coordinates);
+            if (_bodySystem.InsertOrgan(torso.Id, tumorOrgan, "tumor", torso.Component, null))
             {
-                _bodySystem.InsertOrgan(torso.Id, tumorOrgan, "tumor", torso.Component, null);
+                return true;
             }
-            else
-            {
-                Log.Warning($"Could not add zombie tumor organ to {ToPrettyString(bodyUid)}");
-                Del(tumorOrgan);
-            }
+            // Insert failed, delete and try creating slot
+            Del(tumorOrgan);
         }
+        
+        // If no slot available, try to create one
+        if (_bodySystem.TryCreateOrganSlot(torso.Id, "tumor", out var slot))
+        {
+            // Spawn tumor organ after slot is created
+            var tumorOrgan = Spawn("ZombieTumorOrgan", Transform(bodyUid).Coordinates);
+            
+            // Verify slot exists before inserting
+            if (!_bodySystem.CanInsertOrgan(torso.Id, "tumor", torso.Component))
+            {
+                Log.Warning($"Tumor slot was created but is not available for insertion in {ToPrettyString(bodyUid)}");
+                Del(tumorOrgan);
+                return false;
+            }
+            
+            // InsertOrgan returns false if it fails - check the result
+            if (!_bodySystem.InsertOrgan(torso.Id, tumorOrgan, "tumor", torso.Component, null))
+            {
+                Log.Warning($"Failed to insert zombie tumor organ into {ToPrettyString(bodyUid)} after creating slot");
+                Del(tumorOrgan);
+                return false;
+            }
+            
+            return true;
+        }
+        
+        // If we get here, we couldn't add the tumor organ
+        // Add the spawner component to retry later
+        Log.Warning($"Could not create tumor slot for zombie tumor organ in {ToPrettyString(bodyUid)}, adding spawner component to retry");
+        EnsureComp<ZombieTumorSpawnerComponent>(bodyUid);
+        return false;
+    }
+
+    /// <summary>
+    /// Checks if an entity already has a zombie tumor organ.
+    /// </summary>
+    public bool HasTumorOrgan(EntityUid bodyUid)
+    {
+        if (!TryComp<BodyComponent>(bodyUid, out var body))
+            return false;
+
+        var bodyEntity = (bodyUid, body);
+        var tumorOrgans = _bodySystem.GetBodyOrganEntityComps<ZombieTumorOrganComponent>(bodyEntity);
+        return tumorOrgans.Any();
     }
 
     private void UpdateOrganInfectionSpread(TimeSpan curTime)
@@ -277,7 +323,10 @@ public sealed class ZombieTumorOrganSystem : SharedZombieTumorOrganSystem
         }
     }
 
-    private void InfectEntity(EntityUid target)
+    /// <summary>
+    /// Infects an entity with the zombie tumor infection. This will progress through stages and eventually form a tumor organ.
+    /// </summary>
+    public void InfectEntity(EntityUid target)
     {
         if (HasComp<ZombieTumorInfectionComponent>(target))
             return;
@@ -330,6 +379,53 @@ public sealed class ZombieTumorOrganSystem : SharedZombieTumorOrganSystem
         {
             RemComp<ZombieTumorInfectionComponent>(args.OldBody);
             _popup.PopupEntity(Loc.GetString("zombie-tumor-removed"), args.OldBody, args.OldBody);
+        }
+    }
+
+    private void OnTumorSpawnerInit(Entity<ZombieTumorSpawnerComponent> ent, ref ComponentInit args)
+    {
+        // Check immediately on init - body might be ready now
+        if (HasTumorOrgan(ent.Owner))
+        {
+            RemComp<ZombieTumorSpawnerComponent>(ent.Owner);
+            return;
+        }
+
+        // Try to spawn immediately
+        if (SpawnTumorOrgan(ent.Owner))
+        {
+            RemComp<ZombieTumorSpawnerComponent>(ent.Owner);
+        }
+    }
+
+    private void UpdateTumorSpawners(TimeSpan curTime)
+    {
+        // Check every 2 seconds (same as organ update interval)
+        var spawnerQuery = EntityQueryEnumerator<ZombieTumorSpawnerComponent>();
+        while (spawnerQuery.MoveNext(out var uid, out var spawner))
+        {
+            // Check if it's time to attempt again
+            if (spawner.NextAttempt > curTime)
+                continue;
+
+            // Update next attempt time (retry every 2 seconds)
+            spawner.NextAttempt = curTime + TimeSpan.FromSeconds(2);
+            Dirty(uid, spawner);
+
+            // Check if tumor already exists (maybe it was added another way)
+            if (HasTumorOrgan(uid))
+            {
+                RemComp<ZombieTumorSpawnerComponent>(uid);
+                continue;
+            }
+
+            // Try to spawn the tumor organ
+            if (SpawnTumorOrgan(uid))
+            {
+                // Success! Remove the spawner component
+                RemComp<ZombieTumorSpawnerComponent>(uid);
+            }
+            // If it fails, keep the component and try again next update
         }
     }
 

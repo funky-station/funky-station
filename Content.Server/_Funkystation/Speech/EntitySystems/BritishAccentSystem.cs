@@ -41,7 +41,14 @@ public sealed class BritishAccentSystem : EntitySystem
 
     public override void Initialize()
     {
-        SubscribeLocalEvent<BritishAccentComponent, AccentGetEvent>(OnAccent);
+        //Note: SubscribeLocalEvent has this signature where you can make some accents go before others,
+        // for some reason i didn't see it before, so feel free to do that for any accent you create
+        //made to prevent accents break some british "features", such as when a lizard speaks
+        // "tuesday" -> "tuesssday" and it wouldn't become chewsday
+        SubscribeLocalEvent<BritishAccentComponent, AccentGetEvent>(OnAccent, before: new[] { typeof(LizardAccentSystem), typeof(StutteringSystem), 
+                                                                                              typeof(ScandinavianAccentSystem), typeof(RussianAccentSystem)}, 
+                                                                              after: new [] { typeof(NoContractionsAccentComponentAccentSystem) });
+
     }
 
     public string Accentuate(string message)

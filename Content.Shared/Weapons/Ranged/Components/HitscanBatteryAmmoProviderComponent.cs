@@ -16,7 +16,7 @@ using Robust.Shared.GameStates;
 
 namespace Content.Shared.Weapons.Ranged.Components;
 
-[RegisterComponent, NetworkedComponent]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class HitscanBatteryAmmoProviderComponent : BatteryAmmoProviderComponent
 {
     [ViewVariables(VVAccess.ReadWrite), DataField("proto", required: true, customTypeSerializer: typeof(SharedGunSystem.HitscanEvent))]

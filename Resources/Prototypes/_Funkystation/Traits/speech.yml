@@ -25,6 +25,15 @@
   - type: ScandinavianAccent
 
 - type: trait
+  id: BritishAccent
+  name: trait-british-name
+  description: trait-british-desc
+  category: SpeechTraits
+  cost: 1
+  components:
+  - type: BritishAccent
+
+- type: trait
   id: FrenchVernacular
   name: trait-french-vernacular-name
   description: trait-french-vernacular-desc

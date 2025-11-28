@@ -25,7 +25,7 @@ public sealed class BritishAccentSystem : EntitySystem
     // Fix H in beginning of string
     private static readonly Regex RegexNakedH = new(@"(?i)(?<=^|\s)h(?=\w+)");
     // kill all the | 
-    private static readonly Regex clearBlockedWords = new(@"\|");
+    private static readonly Regex ClearBlockedWords = new(@"\|");
     private readonly IReadOnlyList<string> _endings = new List<string>(){ ", innit?", ", mate", ", bruv"};
     private readonly IReadOnlyList<string> _starts = new List<string>(){ "Oi bruv ", "Oi ", "Mate ", "Oi mate "};
     // startwords and endowrds are words used to check for duplicates, they're keywords from the other lists.
@@ -34,10 +34,10 @@ public sealed class BritishAccentSystem : EntitySystem
     private readonly List<string> _endwords = new(){"innit", "mate", "bruv"};
 
     //words that shouldnt be affected by regex
-    private readonly List<string> blockedWords = new(){"that", "together", "tomato", "mate", "dont",
+    private readonly List<string> _blockedWords = new(){"that", "together", "tomato", "mate", "dont",
                                                         "cant", "shouldnt", "wouldnt", "couldnt", "mightnt",
                                                         "mustnt", "wont", "isnt", "arent", "werent", "hadnt",
-                                                        "doesnt", "didnt", "shant", "\'t", "after"};
+                                                        "doesnt", "didnt", "shant", "\'t", "after", "not"};
 
     public override void Initialize()
     {
@@ -116,7 +116,7 @@ public sealed class BritishAccentSystem : EntitySystem
         var words = msg.Split(' ');
         for (int i = 0; i < words.Length; i++)
         {
-            if (blockedWords.Any(word => words[i].ToLower().Contains(word)))
+            if (_blockedWords.Any(word => words[i].ToLower().Contains(word)))
                 words[i] = words[i] + "|";
         }
         msg = string.Join(' ', words);
@@ -125,7 +125,7 @@ public sealed class BritishAccentSystem : EntitySystem
         msg = RegexT.Replace(msg, "\'");
         msg = RegexEndT.Replace(msg, "\'");
         msg = RegexNakedH.Replace(msg, "\'");
-        msg = clearBlockedWords.Replace(msg, "");
+        msg = ClearBlockedWords.Replace(msg, "");
         return msg;
     }
 

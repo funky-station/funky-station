@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 phmnsx <lynnwastinghertime@gmail.com>
+//
+// SPDX-License-Identifier: MIT
+
 
 using System.Text;
 using Content.Server.Speech.Components;

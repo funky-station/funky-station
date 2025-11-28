@@ -5,7 +5,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
 using Content.Server.Botany.Components;
-using Content.Server.PowerCell;
 using Content.Shared.DoAfter;
 using Content.Shared.Interaction;
 using Content.Shared._NF.PlantAnalyzer;
@@ -17,6 +16,7 @@ using Robust.Shared.Prototypes;
 using System.Linq;
 using System.Text;
 using Content.Shared.Atmos;
+using Content.Shared.PowerCell;
 
 namespace Content.Server.Botany.Systems;
 

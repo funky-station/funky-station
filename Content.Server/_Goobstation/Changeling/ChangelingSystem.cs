@@ -22,8 +22,8 @@ using Content.Server.DoAfter;
 using Content.Server.Emp;
 using Content.Server.EntityEffects.EffectConditions;
 using Content.Server.Explosion.EntitySystems;
+using Content.Shared.Flash.Components;
 using Content.Server.Flash;
-using Content.Server.Flash.Components;
 using Content.Server.Forensics;
 using Content.Server.Gravity;
 using Content.Server.Humanoid;
@@ -83,6 +83,8 @@ using Robust.Shared.Serialization.Manager;
 using Robust.Shared.Timing;
 using System.Linq;
 using System.Numerics;
+using Content.Server.Damage.Systems;
+using Content.Shared.Flash.Components;
 
 namespace Content.Server.Changeling;
 
@@ -132,7 +134,7 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
 
     public EntProtoId ArmbladePrototype = "ArmBladeChangeling";
     public EntProtoId FakeArmbladePrototype = "FakeArmBladeChangeling";
-    
+
     public EntProtoId BoneShardPrototype = "ThrowingStarChangeling";
 
     public EntProtoId ArmorPrototype = "ChangelingClothingOuterArmor";
@@ -144,12 +146,12 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
     private readonly List<TargetBodyPart> _bodyPartBlacklist =
     [
         TargetBodyPart.Head,
-        TargetBodyPart.Torso,
+        TargetBodyPart.Chest,
         TargetBodyPart.Groin,
         TargetBodyPart.LeftFoot,
         TargetBodyPart.RightFoot,
         TargetBodyPart.RightHand,
-        TargetBodyPart.LeftHand
+        TargetBodyPart.LeftHand,
     ];
 
     private readonly Dictionary<string, float> _organWhitelist = new()
@@ -754,7 +756,7 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
         UpdateBiomass(uid, comp, 0);
         // make their blood unreal
         _blood.ChangeBloodReagent(uid, "BloodChangeling");
-        
+
         // funky - give changelings roundstart hivemind
         GrantHivemindAccess(uid);
     }

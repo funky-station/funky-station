@@ -9,6 +9,7 @@ using Content.Shared.Body.Organ;
 using Content.Shared._Shitmed.Body.Organ;
 using Content.Shared._Shitmed.Body.Events;
 using Content.Shared._Shitmed.Cybernetics;
+using Content.Shared.Emp;
 
 namespace Content.Server._Shitmed.Cybernetics;
 

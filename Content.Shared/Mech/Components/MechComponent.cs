@@ -5,11 +5,15 @@
 // SPDX-FileCopyrightText: 2023 brainfood1183 <113240905+brainfood1183@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 John Space <bigdumb421@gmail.com>
+// SPDX-FileCopyrightText: 2024 NULL882 <gost6865@yandex.ru>
+// SPDX-FileCopyrightText: 2024 ScyronX <166930367+ScyronX@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
+// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 //
-// SPDX-License-Identifier: MIT
+// SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared.FixedPoint;
 using Content.Shared.Whitelist;
@@ -112,6 +116,10 @@ public sealed partial class MechComponent : Component
     [DataField]
     public EntityWhitelist? PilotWhitelist;
 
+    [DataField]
+    public EntityWhitelist? PilotBlacklist; // Goobstation Change
+
+
     /// <summary>
     /// A container for storing the equipment entities.
     /// </summary>
@@ -161,6 +169,8 @@ public sealed partial class MechComponent : Component
     [DataField]
     public EntProtoId MechCycleAction = "ActionMechCycleEquipment";
     [DataField]
+    public EntProtoId ToggleAction = "ActionToggleLight"; //Goobstation Mech Lights toggle action
+    [DataField]
     public EntProtoId MechUiAction = "ActionMechOpenUI";
     [DataField]
     public EntProtoId MechEjectAction = "ActionMechEject";
@@ -178,4 +188,5 @@ public sealed partial class MechComponent : Component
     [DataField] public EntityUid? MechCycleActionEntity;
     [DataField] public EntityUid? MechUiActionEntity;
     [DataField] public EntityUid? MechEjectActionEntity;
+    [DataField, AutoNetworkedField] public EntityUid? ToggleActionEntity; //Goobstation Mech Lights toggle action
 }

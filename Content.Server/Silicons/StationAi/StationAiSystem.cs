@@ -9,6 +9,7 @@
 //
 // SPDX-License-Identifier: MIT
 
+using System.Linq;
 using Content.Server.Chat.Systems;
 using Content.Server.Construction;
 using Content.Server.Destructible;
@@ -45,6 +46,8 @@ using Robust.Shared.Containers;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Timing;
+using Robust.Shared.Audio;
 using static Content.Server.Chat.Systems.ChatSystem;
 
 namespace Content.Server.Silicons.StationAi;
@@ -68,8 +71,11 @@ public sealed class StationAiSystem : SharedStationAiSystem
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly ChatSystem _chatSystem = default!;
 
     private readonly HashSet<Entity<StationAiCoreComponent>> _stationAiCores = new();
+    private readonly Dictionary<EntityUid, TimeSpan> _attackAlertCooldowns = new();
 
     private readonly ProtoId<ChatNotificationPrototype> _turretIsAttackingChatNotificationPrototype = "TurretIsAttacking";
     private readonly ProtoId<ChatNotificationPrototype> _aiWireSnippedChatNotificationPrototype = "AiWireSnipped";
@@ -82,6 +88,11 @@ public sealed class StationAiSystem : SharedStationAiSystem
     private readonly ProtoId<AlertPrototype> _batteryAlert = "BorgBattery";
     private readonly ProtoId<AlertPrototype> _damageAlert = "BorgHealth";
 
+    /// <summary>
+    /// Funky edit, AI gets alert for damage
+    /// </summary>
+    private static readonly TimeSpan AttackAlertCooldown = TimeSpan.FromSeconds(10);
+
     public override void Initialize()
     {
         base.Initialize();
@@ -91,12 +102,16 @@ public sealed class StationAiSystem : SharedStationAiSystem
         SubscribeLocalEvent<StationAiCoreComponent, ApcPowerReceiverBatteryChangedEvent>(OnApcBatteryChanged);
         SubscribeLocalEvent<StationAiCoreComponent, ChargeChangedEvent>(OnChargeChanged);
         SubscribeLocalEvent<StationAiCoreComponent, DamageChangedEvent>(OnDamageChanged);
+        SubscribeLocalEvent<StationAiCoreComponent, DamageChangedEvent>(OnAiCoreDamaged);
         SubscribeLocalEvent<StationAiCoreComponent, DestructionEventArgs>(OnDestruction);
         SubscribeLocalEvent<StationAiCoreComponent, DoAfterAttemptEvent<IntellicardDoAfterEvent>>(OnDoAfterAttempt);
         SubscribeLocalEvent<StationAiCoreComponent, RejuvenateEvent>(OnRejuvenate);
 
         SubscribeLocalEvent<ExpandICChatRecipientsEvent>(OnExpandICChatRecipients);
         SubscribeLocalEvent<StationAiTurretComponent, AmmoShotEvent>(OnAmmoShot);
+
+        // Funky edit: APC shutdown event
+        SubscribeLocalEvent<ApcComponent, ComponentShutdown>(OnApcShutdown);
     }
 
     private void AfterConstructionChangeEntity(Entity<StationAiCoreComponent> ent, ref AfterConstructionChangeEntityEvent args)
@@ -229,6 +244,42 @@ public sealed class StationAiSystem : SharedStationAiSystem
     {
         UpdateCoreIntegrityAlert(entity);
         UpdateDamagedAccent(entity);
+    }
+
+    /// <summary>
+    /// Funky edit, AI gets alert for damage
+    /// </summary>
+    private void OnAiCoreDamaged(EntityUid uid, StationAiCoreComponent component, DamageChangedEvent args)
+    {
+        if (args.DamageDelta == null || args.DamageDelta.GetTotal() <= 0)
+            return;
+
+        var currentTime = _timing.CurTime;
+        if (_attackAlertCooldowns.TryGetValue(uid, out var lastAlertTime))
+        {
+            if (currentTime - lastAlertTime < AttackAlertCooldown)
+                return;
+        }
+
+        _attackAlertCooldowns[uid] = currentTime;
+
+        // Try to get the AI entity held in this core
+        var aiCore = new Entity<StationAiCoreComponent?>(uid, component);
+        if (!TryGetHeld(aiCore, out var aiEntity))
+            return;
+
+        // Send alert message to the AI player
+        var msg = Loc.GetString("ai-core-under-attack");
+
+        // Use popup system to send the alert
+        _popups.PopupEntity(msg, aiEntity.Value, aiEntity.Value, Shared.Popups.PopupType.LargeCaution);
+
+        // Play alert sound
+        if (_mind.TryGetMind(aiEntity.Value, out var mindId, out _))
+        {
+            var alertSound = new SoundPathSpecifier("/Audio/Misc/notice1.ogg");
+            _roles.MindPlaySound(mindId, alertSound);
+        }
     }
 
     private void UpdateDamagedAccent(Entity<StationAiCoreComponent> ent)
@@ -450,68 +501,11 @@ public sealed class StationAiSystem : SharedStationAiSystem
         return false;
     }
 
-    public HashSet<EntityUid> GetStationAIs(EntityUid gridUid)
-    {
-        _stationAiCores.Clear();
-        _lookup.GetChildEntities(gridUid, _stationAiCores);
-
-        var hashSet = new HashSet<EntityUid>();
-
-        foreach (var stationAiCore in _stationAiCores)
-        {
-            if (!TryGetHeld((stationAiCore, stationAiCore.Comp), out var insertedAi))
-                continue;
-
-            hashSet.Add(insertedAi.Value);
-        }
-
-        return hashSet;
-    }
-}
-
-    /// <summary>
-    /// Funky edit, AI gets alert for damage
-    /// </summary>
-    private static readonly TimeSpan AttackAlertCooldown = TimeSpan.FromSeconds(10);
-
-    private void OnAiCoreDamaged(EntityUid uid, StationAiCoreComponent component, DamageChangedEvent args)
-    {
-        if (args.DamageDelta == null || args.DamageDelta.GetTotal() <= 0)
-            return;
-
-        var currentTime = _timing.CurTime;
-        if (_attackAlertCooldowns.TryGetValue(uid, out var lastAlertTime))
-        {
-            if (currentTime - lastAlertTime < AttackAlertCooldown)
-                return;
-        }
-
-        _attackAlertCooldowns[uid] = currentTime;
-
-        // Try to get the AI entity held in this core
-        var aiCore = new Entity<StationAiCoreComponent?>(uid, component);
-        if (!TryGetHeld(aiCore, out var aiEntity) || !TryComp(aiEntity, out ActorComponent? actor))
-            return;
-
-        // Send alert message to the AI player
-        var msg = Loc.GetString("ai-core-under-attack");
-        var wrappedMessage = Loc.GetString("chat-manager-server-wrap-message", ("message", msg));
-        _chats.ChatMessageToOne(ChatChannel.Server, msg, wrappedMessage, default, false, actor.PlayerSession.Channel, colorOverride: Color.Red);
-
-        // Play alert sound, could probably make a unique sound for this but for now, default notice noise
-        if (_mind.TryGetMind(aiEntity, out var mindId, out _))
-        {
-            var alertSound = new SoundPathSpecifier("/Audio/Misc/notice1.ogg");
-            _roles.MindPlaySound(mindId, alertSound);
-        }
-    }
-
     // Funky edit, malf brain destroyed on APC destruction
     private void OnApcShutdown(EntityUid uid, ApcComponent component, ComponentShutdown args)
     {
         DestroyAiBrainInContainer(uid, StationAiHolderComponent.Container);
     }
-
 
     private void DestroyAiBrainInContainer(EntityUid parentEntity, BaseContainer? container)
     {
@@ -534,11 +528,28 @@ public sealed class StationAiSystem : SharedStationAiSystem
 
     private void DestroyAiBrainInContainer(EntityUid parentEntity, string containerName)
     {
-        if (!_containers.TryGetContainer(parentEntity, containerName, out var container))
+        if (!_container.TryGetContainer(parentEntity, containerName, out var container))
             return;
 
         DestroyAiBrainInContainer(parentEntity, container);
     }
     // End funky edit
-}
 
+    public HashSet<EntityUid> GetStationAIs(EntityUid gridUid)
+    {
+        _stationAiCores.Clear();
+        _lookup.GetChildEntities(gridUid, _stationAiCores);
+
+        var hashSet = new HashSet<EntityUid>();
+
+        foreach (var stationAiCore in _stationAiCores)
+        {
+            if (!TryGetHeld((stationAiCore, stationAiCore.Comp), out var insertedAi))
+                continue;
+
+            hashSet.Add(insertedAi.Value);
+        }
+
+        return hashSet;
+    }
+}

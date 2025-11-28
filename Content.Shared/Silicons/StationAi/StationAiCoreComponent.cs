@@ -41,12 +41,6 @@ public sealed partial class StationAiCoreComponent : Component
     public EntProtoId? RemoteEntityProto = "StationAiHolo";
 
     /// <summary>
-    /// Buffer for TTS words. Can be set negative.
-    /// </summary>
-    [DataField]
-    public int TtsBufferBetweenWordsMs = -50;
-
-    /// <summary>
     /// Prototype that represents the physical avatar of the AI
     /// </summary>
     [DataField(readOnly: true)]

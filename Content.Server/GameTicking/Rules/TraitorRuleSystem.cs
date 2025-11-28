@@ -25,7 +25,6 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
 {
     private static readonly Color TraitorCodewordColor = Color.FromHex("#cc3b3b");
 
-    [Dependency] private readonly IAdminLogManager _adminLogger = default!;
     [Dependency] private readonly AntagSelectionSystem _antag = default!;
     [Dependency] private readonly SharedJobSystem _jobs = default!;
     [Dependency] private readonly MindSystem _mindSystem = default!;
@@ -123,19 +122,19 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
         if (traitorRole is not null)
         {
             Log.Debug($"MakeTraitor {ToPrettyString(traitor)} - Add traitor briefing components");
-            AddComp<RoleBriefingComponent>(traitorRole.Value.Owner);
-            Comp<RoleBriefingComponent>(traitorRole.Value.Owner).Briefing = briefing;
+            EnsureComp<RoleBriefingComponent>(traitorRole.Value.Owner, out var briefingComp);
+            briefingComp.Briefing = briefing;
         }
         else
         {
             Log.Debug($"MakeTraitor {ToPrettyString(traitor)} - did not get traitor briefing");
         }
 
-        // Send codewords to only the traitor client
         var color = TraitorCodewordColor; // Fall back to a dark red Syndicate color if a prototype is not found
 
-        RoleCodewordComponent codewordComp = EnsureComp<RoleCodewordComponent>(mindId);
-        _roleCodewordSystem.SetRoleCodewords(codewordComp, "traitor", factionCodewords.ToList(), color);
+        // The mind entity is stored in nullspace with a PVS override for the owner, so only they can see the codewords.
+        var codewordComp = EnsureComp<RoleCodewordComponent>(mindId);
+        _roleCodewordSystem.SetRoleCodewords((mindId, codewordComp), "traitor", factionCodewords.ToList(), color);
 
         // Change the faction
         Log.Debug($"MakeTraitor {ToPrettyString(traitor)} - Change faction");
@@ -171,11 +170,17 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
                     Loc.GetString("traitor-role-uplink-code-short", ("code", string.Join("-", code).Replace("sharp", "#"))));
                 return (code, briefing);
             }
+
+            Log.Error($"MakeTraitor {ToPrettyString(traitor)} failed to generate an uplink code on {ToPrettyString(pda)}.");
         }
         else if (pda is null && uplinked)
         {
             Log.Debug($"MakeTraitor {ToPrettyString(traitor)} - Uplink is implant");
             briefing += "\n" + Loc.GetString("traitor-role-uplink-implant-short");
+        }
+        else
+        {
+            Log.Error($"MakeTraitor failed on {ToPrettyString(traitor)} - No uplink could be added");
         }
 
         return (null, briefing);

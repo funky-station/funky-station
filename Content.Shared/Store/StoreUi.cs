@@ -1,15 +1,3 @@
-// SPDX-FileCopyrightText: 2022 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 deltanedas <@deltanedas:kde.org>
-// SPDX-FileCopyrightText: 2024 Fildrance <fildrance@gmail.com>
-// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
-// SPDX-FileCopyrightText: 2024 keronshb <54602815+keronshb@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
-//
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.FixedPoint;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
@@ -25,7 +13,7 @@ public enum StoreUiKey : byte
 [Serializable, NetSerializable]
 public sealed class StoreUpdateState : BoundUserInterfaceState
 {
-    public readonly HashSet<ListingData> Listings;
+    public readonly HashSet<ListingDataWithCostModifiers> Listings;
 
     public readonly Dictionary<ProtoId<CurrencyPrototype>, FixedPoint2> Balance;
 
@@ -33,7 +21,7 @@ public sealed class StoreUpdateState : BoundUserInterfaceState
 
     public readonly bool AllowRefund;
 
-    public StoreUpdateState(HashSet<ListingData> listings, Dictionary<ProtoId<CurrencyPrototype>, FixedPoint2> balance, bool showFooter, bool allowRefund)
+    public StoreUpdateState(HashSet<ListingDataWithCostModifiers> listings, Dictionary<ProtoId<CurrencyPrototype>, FixedPoint2> balance, bool showFooter, bool allowRefund)
     {
         Listings = listings;
         Balance = balance;
@@ -49,14 +37,9 @@ public sealed class StoreRequestUpdateInterfaceMessage : BoundUserInterfaceMessa
 }
 
 [Serializable, NetSerializable]
-public sealed class StoreBuyListingMessage : BoundUserInterfaceMessage
+public sealed class StoreBuyListingMessage(ProtoId<ListingPrototype> listing) : BoundUserInterfaceMessage
 {
-    public ListingData Listing;
-
-    public StoreBuyListingMessage(ListingData listing)
-    {
-        Listing = listing;
-    }
+    public ProtoId<ListingPrototype> Listing = listing;
 }
 
 [Serializable, NetSerializable]

@@ -19,7 +19,7 @@ namespace Content.Shared.Weapons.Ranged.Components;
 /// </summary>
 [RegisterComponent, NetworkedComponent]
 [AutoGenerateComponentState(raiseAfterAutoHandleState: true), AutoGenerateComponentPause]
-public sealed partial class BatteryAmmoProviderComponent : AmmoProviderComponent
+public abstract partial class BatteryAmmoProviderComponent : AmmoProviderComponent
 {
     /// <summary>
     /// The projectile or hitscan entity to spawn when firing.

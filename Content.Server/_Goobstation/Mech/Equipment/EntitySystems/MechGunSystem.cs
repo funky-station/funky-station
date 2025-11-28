@@ -1,8 +1,11 @@
-// SPDX-FileCopyrightText: 2024 John Space <bigdumb421@gmail.com>
+// SPDX-FileCopyrightText: 2024 NULL882 <gost6865@yandex.ru>
+// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
 // SPDX-FileCopyrightText: 2024 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
+// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 //
-// SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+// SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Server.Mech.Systems;
 using Content.Server.Power.Components;
@@ -10,11 +13,10 @@ using Content.Server.Power.EntitySystems;
 using Content.Shared.Mech.Components;
 using Content.Shared.Mech.EntitySystems;
 using Content.Shared.Mech.Equipment.Components;
-using Content.Shared.Throwing;
+using Content.Shared.Power.Components;
 using Content.Shared.Weapons.Ranged.Components;
-using Robust.Shared.Random;
 
-namespace Content.Server.Mech.Equipment.EntitySystems;
+namespace Content.Goobstation.Server.Mech.Equipment.EntitySystems;
 public sealed class MechGunSystem : EntitySystem
 {
     [Dependency] private readonly MechSystem _mech = default!;
@@ -74,7 +76,7 @@ public sealed class MechGunSystem : EntitySystem
         if (!_mech.TryChangeEnergy(mechEquipment.EquipmentOwner.Value, -chargeDelta, mech))
             return;
 
-        _battery.SetCharge(uid, component.MaxCharge, component);
+        _battery.SetCharge(uid, component.MaxCharge);
     }
 }
 

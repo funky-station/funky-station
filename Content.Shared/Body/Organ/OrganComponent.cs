@@ -4,24 +4,37 @@
 // SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2023 metalgearsloth <comedian_vs_clown@hotmail.com>
 // SPDX-FileCopyrightText: 2024 0x6273 <0x40@keemail.me>
-// SPDX-FileCopyrightText: 2025 Tadeo <td12233a@gmail.com>
-// SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
-// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 AstroDogeDX <48888500+AstroDogeDX@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Kayzel <43700376+KayzelW@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
+// SPDX-FileCopyrightText: 2025 Spatison <137375981+Spatison@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Trest <144359854+trest100@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
+// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
+// SPDX-FileCopyrightText: 2025 kurokoTurbo <92106367+kurokoTurbo@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 //
-// SPDX-License-Identifier: MIT
+// SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared.Body.Systems;
-using Robust.Shared.Containers;
 using Robust.Shared.GameStates;
-using Robust.Shared.Prototypes; // Shitmed Change
-using Content.Shared._Shitmed.Medical.Surgery; // Shitmed Change
-using Content.Shared._Shitmed.Medical.Surgery.Tools; // Shitmed Change
+
+// Shitmed Change
+using Robust.Shared.Prototypes;
+using Content.Shared._Shitmed.Medical.Surgery.Tools;
+using Content.Shared.FixedPoint;
+using Robust.Shared.Audio;
 
 namespace Content.Shared.Body.Organ;
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
-[Access(typeof(SharedBodySystem), typeof(SharedSurgerySystem))] // Shitmed Change
+// [Access(typeof(SharedBodySystem))] // Shitmed Change - no explicit access
 public sealed partial class OrganComponent : Component, ISurgeryToolComponent // Shitmed Change
 {
     /// <summary>
@@ -30,6 +43,7 @@ public sealed partial class OrganComponent : Component, ISurgeryToolComponent //
     [DataField, AutoNetworkedField]
     public EntityUid? Body;
 
+    // Shitmed Change Start
     /// <summary>
     ///     Shitmed Change:Relevant body this organ originally belonged to.
     ///     FOR WHATEVER FUCKING REASON AUTONETWORKING THIS CRASHES GIBTEST AAAAAAAAAAAAAAA
@@ -37,14 +51,37 @@ public sealed partial class OrganComponent : Component, ISurgeryToolComponent //
     [DataField]
     public EntityUid? OriginalBody;
 
-    // Shitmed Change Start
+    /// <summary>
+    ///     Maximum organ integrity, do keep in mind that Organs are supposed to be VERY and VERY damage sensitive
+    /// </summary>
+    [DataField("intCap"), AutoNetworkedField]
+    public FixedPoint2 IntegrityCap = 15;
+
+    /// <summary>
+    ///     Current organ HP, or integrity, whatever you prefer to say
+    /// </summary>
+    [DataField("integrity"), AutoNetworkedField]
+    public FixedPoint2 OrganIntegrity = 15;
+
+
+    /// <summary>
+    ///     Sound played when this organ gets turned into a blood mush.
+    /// </summary>
+    [DataField]
+    public SoundSpecifier OrganDestroyedSound = new SoundCollectionSpecifier("OrganDestroyed");
+
+    /// <summary>
+    ///     All the modifiers that are currently modifying the OrganIntegrity
+    /// </summary>
+    public Dictionary<(string, EntityUid), FixedPoint2> IntegrityModifiers = new();
+
     /// <summary>
     ///     Shitmed Change: Shitcodey solution to not being able to know what name corresponds to each organ's slot ID
     ///     without referencing the prototype or hardcoding.
     /// </summary>
 
     [DataField]
-    public string SlotId = "";
+    public string SlotId = string.Empty;
 
     [DataField]
     public string ToolName { get; set; } = "An organ";
@@ -82,5 +119,11 @@ public sealed partial class OrganComponent : Component, ISurgeryToolComponent //
     /// </summary>
     [DataField]
     public bool CanEnable = true;
+
+    /// <summary>
+    ///     DeltaV - Can this organ be removed? Used to be able to make organs unremovable by setting it to false.
+    /// </summary>
+    [DataField]
+    public bool Removable = true;
     // Shitmed Change End
 }

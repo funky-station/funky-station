@@ -31,7 +31,6 @@ using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.DoAfter;
 using Content.Shared.IdentityManagement;
-using Content.Shared._Shitmed.Surgery;
 using Content.Shared._Shitmed.Medical.Surgery.Conditions;
 using Content.Shared._Shitmed.Medical.Surgery.Effects.Step;
 using Content.Shared._Shitmed.Medical.Surgery.Steps;
@@ -46,6 +45,7 @@ using Content.Shared.Popups;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 using System.Linq;
+using Content.Shared._Shitmed.Surgery;
 using Content.Shared.Damage.Components;
 
 namespace Content.Shared._Shitmed.Medical.Surgery;
@@ -261,6 +261,7 @@ public abstract partial class SharedSurgerySystem
 
         if (targetPart != default)
         {
+            // We reward players for properly affixing the parts by healing a little bit of damage, and enabling the part temporarily.
             RemComp<BodyPartReattachedComponent>(targetPart.Id);
         }
     }
@@ -865,6 +866,17 @@ public abstract partial class SharedSurgerySystem
             _popup.PopupClient(check.Popup, user, user, PopupType.SmallCaution);
 
         return false;
+    }
+
+    public bool CanPerformStep(EntityUid user, EntityUid body, EntityUid part, EntityUid step, EntityUid tool, bool doPopup)
+    {
+        return CanPerformStep(user, body, part, step, tool, doPopup, out _, out _, out _);
+    }
+
+    public bool CanPerformStepWithHeld(EntityUid user, EntityUid body, EntityUid part, EntityUid step, bool doPopup, out string? popup)
+    {
+        var tool = _hands.GetActiveItemOrSelf(user);
+        return CanPerformStep(user, body, part, step, tool, doPopup, out popup, out _, out _);
     }
 
     public bool IsStepComplete(EntityUid body, EntityUid part, EntProtoId step, EntityUid surgery)

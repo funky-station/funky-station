@@ -298,3 +298,42 @@
     state: backfin
   - sprite: _Impstation/Mobs/Customization/thaven/thaven.rsi
     state: backfin
+
+- type: marking
+  id: ThavenTailCarpish
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [ Thaven ]
+  forcedColoring: false
+  followSkinColor: true
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/thaven/thaven.rsi
+    state: carpish
+  - sprite: _Impstation/Mobs/Customization/thaven/thaven.rsi
+    state: carpish
+
+- type: marking
+  id: ThavenTailDraconicLong
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [ Thaven ]
+  forcedColoring: false
+  followSkinColor: true
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/thaven/thaven.rsi
+    state: draconiclong
+  - sprite: _Impstation/Mobs/Customization/thaven/thaven.rsi
+    state: draconiclong
+
+- type: marking
+  id: ThavenTailFish
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [ Thaven ]
+  forcedColoring: false
+  followSkinColor: true
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/thaven/thaven.rsi
+    state: fishtail
+  - sprite: _Impstation/Mobs/Customization/thaven/thaven.rsi
+    state: fishtail

@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "by Widgetbeck, eyeglow/sharkminnow/stub/nurse/eel made by Sha-Seng (github), arm and leg fins by AraiMaia",
+  "copyright": "by Widgetbeck, eyeglow/sharkminnow/stub/nurse/eel made by Sha-Seng (github), arm and leg fins by AraiMaia, carp, draconic and fish tails by trixxedheart (Discord)",
   "size": {
     "x": 32,
     "y": 32
@@ -139,6 +139,18 @@
     },
     {
       "name": "backfin",
+      "directions": 4
+    },
+    {
+      "name": "carpish",
+      "directions": 4
+    },
+    {
+      "name": "draconiclong",
+      "directions": 4
+    },
+    {
+      "name": "fishtail",
       "directions": 4
     }
   ]

@@ -7,16 +7,17 @@
 using Content.Server.Chat.Systems;
 using Content.Server.Lightning;
 using Content.Server.Popups;
-using Content.Server.PowerCell;
 using Content.Server._EinsteinEngines.Silicon.Charge;
 using Content.Server.Power.EntitySystems; // Goobstation - Energycrit
 using Content.Shared._EinsteinEngines.Silicon.DeadStartupButton;
 using Content.Shared.Audio;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Components;
 using Content.Shared.Electrocution;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
+using Content.Shared.PowerCell;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Random;
 

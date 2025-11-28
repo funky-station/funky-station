@@ -22,6 +22,7 @@ using Content.Shared.Stacks;
 using Content.Shared.BloodCult;
 using Content.Shared.BloodCult.Prototypes;
 using Content.Server.BloodCult.Components;
+using Content.Server.Damage.Systems;
 using Content.Shared.BloodCult.Components;
 using Content.Shared.DoAfter;
 using Content.Shared.Damage;
@@ -33,8 +34,9 @@ using Content.Shared.Speech.Muting;
 using Content.Shared.Stunnable;
 using Content.Shared.Emp;
 using Content.Server.Emp;
+using Content.Shared.Damage.Components;
 using Content.Shared.Popups;
-using Content.Server.PowerCell;
+using Content.Shared.Power.Components;
 using Content.Shared.PowerCell;
 using Content.Shared.PowerCell.Components;
 using Content.Shared.Silicons.Borgs.Components;
@@ -384,7 +386,7 @@ public sealed partial class CultistSpellSystem : EntitySystem
 		{
 			_stun.TryKnockdown(ent, TimeSpan.FromSeconds(advancedStunTime), true);
 			_stamina.TakeStaminaDamage(ent, advancedStaminaDamage, visual: false);
-			_stun.TryStun(ent, TimeSpan.FromSeconds(advancedStunTime), true);
+			_stun.TryAddStunDuration(ent, TimeSpan.FromSeconds(advancedStunTime));
 			_statusEffect.TryAddStatusEffect<MutedComponent>(ent, "Muted", TimeSpan.FromSeconds(advancedStunTime), false);
 			_entMan.RemoveComponent<CultMarkedComponent>(ent);
 			_audioSystem.PlayPvs(new SoundPathSpecifier("/Audio/Items/Defib/defib_zap.ogg"), ent, AudioParams.Default.WithVolume(-3f));

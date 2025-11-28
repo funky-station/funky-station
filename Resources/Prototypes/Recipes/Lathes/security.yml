@@ -883,8 +883,8 @@
     Cloth: 200
     Steel: 100
     Plastic: 100
-    
-- type: latheRecipe  
+
+- type: latheRecipe
   id: ClothingHandsSecurityKnuckleDusters
   result: ClothingHandsSecurityKnuckleDusters
   completetime: 3
@@ -898,3 +898,14 @@
   materials:
     Steel: 500
     Plastic: 500
+
+#Funky start
+- type: latheRecipe
+  id: BreachingCharge
+  result: BreachingCharge
+  completetime: 1
+  materials:
+    Plastic: 1000
+    Steel: 200
+    Silver: 100
+#Funky end

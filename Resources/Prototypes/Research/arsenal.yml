@@ -159,6 +159,7 @@
   - FlashPayload
   - ExplosivePayload
   - ChemicalPayload
+  - BreachingCharge #funkystation
 
 - type: technology
   id: SpecialMeans

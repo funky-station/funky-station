@@ -34,7 +34,7 @@ public sealed partial class ItemToggleComponent : Component
     /// <summary>
     /// Can the entity be activated in the world.
     /// </summary>
-    [DataField]
+    [DataField, AutoNetworkedField]
     public bool OnActivate = true;
 
     /// <summary>
@@ -55,13 +55,6 @@ public sealed partial class ItemToggleComponent : Component
     /// </summary>
     [DataField]
     public string VerbToggleOff = "item-toggle-deactivate";
-
-    /// <summary>
-    /// Goobstation
-    /// Don't toggle on wielding/unwielding if false
-    /// </summary>
-    [DataField]
-    public bool WieldToggle = true;
 
     /// <summary>
     ///     Whether the item's toggle can be predicted by the client.
@@ -109,13 +102,18 @@ public sealed partial class ItemToggleComponent : Component
 [ByRefEvent]
 public record struct ItemToggleActivateAttemptEvent(EntityUid? User)
 {
+    /// <summary>
+    /// Should we silently fail.
+    /// </summary>
+    public bool Silent = false;
+
     public bool Cancelled = false;
     public readonly EntityUid? User = User;
 
     /// <summary>
     /// Pop-up that gets shown to users explaining why the attempt was cancelled.
     /// </summary>
-    public string? Popup { get; set; }
+    public string? Popup;
 }
 
 /// <summary>
@@ -124,8 +122,18 @@ public record struct ItemToggleActivateAttemptEvent(EntityUid? User)
 [ByRefEvent]
 public record struct ItemToggleDeactivateAttemptEvent(EntityUid? User)
 {
+    /// <summary>
+    /// Should we silently fail.
+    /// </summary>
+    public bool Silent = false;
+
     public bool Cancelled = false;
     public readonly EntityUid? User = User;
+
+    /// <summary>
+    /// Pop-up that gets shown to users explaining why the attempt was cancelled.
+    /// </summary>
+    public string? Popup;
 }
 
 /// <summary>

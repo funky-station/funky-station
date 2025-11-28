@@ -20,3 +20,6 @@ zombie-role-desc =  A malevolent creature of the dead.
 zombie-role-rules = You are a [color={role-type-team-antagonist-color}][bold]{role-type-team-antagonist-name}[/bold][/color]. Search out the living and bite them in order to infect them and turn them into zombies. Work together with the other zombies and remaining initial infected to overtake the station.
 
 zombie-permadeath = This time, you're dead for real.
+
+zombie-tumor-infection-contracted = You feel a strange sensation spreading through your body...
+zombie-tumor-removed = The zombie tumor has been removed. You feel the infection receding.

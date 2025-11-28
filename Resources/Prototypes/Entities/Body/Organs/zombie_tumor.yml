@@ -1,0 +1,20 @@
+# SPDX-FileCopyrightText: 2025 Terkala <appleorange64@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-only or MIT
+
+- type: entity
+  id: ZombieTumorOrgan
+  name: zombie tumor
+  description: A grotesque tumor that spreads zombie infection to nearby entities.
+  components:
+  - type: Organ
+    slotId: "tumor"
+  - type: ZombieTumorOrgan
+    infectionRange: 5
+    baseInfectionChance: 0.05
+    updateInterval: 00:00:02
+  - type: Sprite
+    sprite: Objects/Specific/Medical/zombie_tumor.rsi
+    state: icon
+  - type: Item
+  - type: Examinable

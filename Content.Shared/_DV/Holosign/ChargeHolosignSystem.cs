@@ -1,5 +1,5 @@
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
-// SPDX-FileCopyrightText: 2025 Steve <marlumpy@gmail.com>
 // SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
@@ -136,7 +136,7 @@ public sealed class ChargeHolosignSystem : EntitySystem
                 break;
             }
 
-            _charges.AddCharges(ent.Owner, 1, charges);
+            _charges.AddCharges((ent, charges), 1);
             ent.Comp.Signs.Add(signUid.Value);
         }
 
@@ -167,7 +167,7 @@ public sealed class ChargeHolosignSystem : EntitySystem
             return false;
 
         // don't overfill
-        if (_charges.GetCurrentCharges(ent.Owner, ent.Comp2) >= ent.Comp2.MaxCharges)
+        if (_charges.GetCurrentCharges((ent, ent.Comp2)) >= ent.Comp2.MaxCharges)
         {
             _popup.PopupClient(Loc.GetString("charge-holoprojector-charges-full", ("item", ent)), sign, user);
             return false;
@@ -179,7 +179,7 @@ public sealed class ChargeHolosignSystem : EntitySystem
             return false;
         }
 
-        _charges.AddCharges(ent.Owner, 1, ent.Comp2);
+        _charges.AddCharges((ent, ent.Comp2), 1);
 
         var othersStr = showIdentity ? Loc.GetString("charge-holoprojector-reclaim-others", ("sign", sign), ("user", Identity.Name(user, EntityManager)))
                                      : Loc.GetString("charge-holoprojector-recall-others", ("sign", sign));

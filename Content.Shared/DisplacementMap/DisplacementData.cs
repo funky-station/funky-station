@@ -1,13 +1,11 @@
 // SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 //
-// SPDX-License-Identifier: MIT
-
-using Robust.Shared.Serialization;
+// SPDX-License-Identifier: AGPL-3.0-or-later
 
 namespace Content.Shared.DisplacementMap;
 
-[DataDefinition, Serializable, NetSerializable]
+[DataDefinition]
 public sealed partial class DisplacementData
 {
     /// <summary>

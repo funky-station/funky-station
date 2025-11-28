@@ -1,17 +1,10 @@
-// SPDX-FileCopyrightText: 2024 chromiumboy <50505512+chromiumboy@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
-// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
-//
-// SPDX-License-Identifier: MIT
-
-using Robust.Client.UserInterface;
-using Robust.Client.UserInterface.Controls;
-using Robust.Client.UserInterface.CustomControls;
 using System.Linq;
 using System.Numerics;
 using Content.Shared.Input;
 using Robust.Client.Graphics;
+using Robust.Client.UserInterface;
+using Robust.Client.UserInterface.Controls;
+using Robust.Client.UserInterface.CustomControls;
 using Robust.Shared.Input;
 
 namespace Content.Client.UserInterface.Controls;
@@ -150,11 +143,8 @@ public class RadialMenu : BaseWindow
         return children.First(x => x.Visible);
     }
 
-    public bool TryToMoveToNewLayer(string newLayer)
+    public bool TryToMoveToNewLayer(Control newLayer)
     {
-        if (newLayer == string.Empty)
-            return false;
-
         var currentLayer = GetCurrentActiveLayer();
 
         if (currentLayer == null)
@@ -168,7 +158,7 @@ public class RadialMenu : BaseWindow
                 continue;
 
             // Hide layers which are not of interest
-            if (result == true || child.Name != newLayer)
+            if (result == true || child != newLayer)
             {
                 child.Visible = false;
             }
@@ -191,6 +181,19 @@ public class RadialMenu : BaseWindow
             ContextualButton.SetOnlyStyleClass(BackButtonStyleClass);
 
         return result;
+    }
+
+    public bool TryToMoveToNewLayer(string targetLayerControlName)
+    {
+        foreach (var child in Children)
+        {
+            if (child.Name == targetLayerControlName && child is RadialContainer)
+            {
+                return TryToMoveToNewLayer(child);
+            }
+        }
+
+        return false;
     }
 
     public void ReturnToPreviousLayer()
@@ -321,9 +324,15 @@ public sealed class RadialMenuOuterAreaButton : RadialMenuButtonBase
 public class RadialMenuButton : RadialMenuButtonBase
 {
     /// <summary>
-    /// Upon clicking this button the radial menu will be moved to the named layer
+    /// Upon clicking this button the radial menu will be moved to the layer of this control.
     /// </summary>
-    public string TargetLayer { get; set; } = string.Empty;
+    public Control? TargetLayer { get; set; }
+
+    /// <summary>
+    /// Other way to set navigation to other container, as <see cref="TargetLayer"/>,
+    /// but using <see cref="Control.Name"/> property of target <see cref="RadialContainer"/>.
+    /// </summary>
+    public string? TargetLayerControlName { get; set; }
 
     /// <summary>
     /// A simple texture button that can move the user to a different layer within a radial menu
@@ -335,7 +344,7 @@ public class RadialMenuButton : RadialMenuButtonBase
 
     private void OnClicked(ButtonEventArgs args)
     {
-        if (TargetLayer == string.Empty)
+        if (TargetLayer == null && TargetLayerControlName == null)
             return;
 
         var parent = FindParentMultiLayerContainer(this);
@@ -343,7 +352,14 @@ public class RadialMenuButton : RadialMenuButtonBase
         if (parent == null)
             return;
 
-        parent.TryToMoveToNewLayer(TargetLayer);
+        if (TargetLayer != null)
+        {
+            parent.TryToMoveToNewLayer(TargetLayer);
+        }
+        else
+        {
+            parent.TryToMoveToNewLayer(TargetLayerControlName!);
+        }
     }
 
     private RadialMenu? FindParentMultiLayerContainer(Control control)
@@ -411,7 +427,7 @@ public class RadialMenuButtonWithSector : RadialMenuButton, IRadialMenuItemWithS
     private Color _hoverBorderColorSrgb = Color.ToSrgb(new Color(87, 91, 127, 128));
 
     /// <summary>
-    /// Marker, that control should render border of segment. Is false by default.
+    /// Marker, that controls if border of segment should be rendered. Is false by default.
     /// </summary>
     /// <remarks>
     /// By default color of border is same as color of background. Use <see cref="BorderColor"/>
@@ -423,13 +439,6 @@ public class RadialMenuButtonWithSector : RadialMenuButton, IRadialMenuItemWithS
     /// Marker, that control should render background of all sector. Is true by default.
     /// </summary>
     public bool DrawBackground { get; set; } = true;
-
-    /// <summary>
-    /// Marker, that control should render separator lines.
-    /// Separator lines are used to visually separate sector of radial menu items.
-    /// Is true by default
-    /// </summary>
-    public bool DrawSeparators { get; set; } = true;
 
     /// <summary>
     /// Color of background in non-hovered state. Accepts RGB color, works with sRGB for DrawPrimitive internally.
@@ -544,7 +553,7 @@ public class RadialMenuButtonWithSector : RadialMenuButton, IRadialMenuItemWithS
             DrawAnnulusSector(handle, containerCenter, _innerRadius * UIScale, _outerRadius * UIScale, angleFrom, angleTo, borderColor, false);
         }
 
-        if (!_isWholeCircle && DrawSeparators)
+        if (!_isWholeCircle && DrawBorder)
         {
             DrawSeparatorLines(handle, containerCenter, _innerRadius * UIScale, _outerRadius * UIScale, angleFrom, angleTo, SeparatorColor);
         }

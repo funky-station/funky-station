@@ -386,4 +386,3 @@ public sealed class SimpleRadialMenuSettings
     /// </summary>
     public bool NoBackground = false;
 }
-

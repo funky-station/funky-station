@@ -49,7 +49,7 @@
     DrinkJigger: 5
     DrinkIceBucket: 2
     BarSpoon: 3
-    CustomDrinkJug: 2 #to allow for custom drinks in the soda/booze dispensers
+    CustomDrinkJug: 6 #to allow for custom drinks in the soda/booze dispensers
     DrinkAbsintheBottleFull: 2
     DrinkAleBottleFull: 5
     DrinkBeerBottleFull: 5

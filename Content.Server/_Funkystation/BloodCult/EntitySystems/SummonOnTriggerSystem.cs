@@ -3,6 +3,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later OR MIT
 
 using System;
+using System.Numerics;
 using Content.Server.Stack;
 using Content.Server.Popups;
 using Content.Shared.Popups;
@@ -140,9 +141,9 @@ public sealed class SummonOnTriggerSystem : EntitySystem
 				return;
 			}
 
-			// Second check: Verify location is free of hard physics collision objects (players, mobs, etc)
-			// The rune itself will be replaced by the pylon, so we only need to check for blocking entities
-			if (!IsRuneLocationFree(runeCoords, uid))
+			// Second check: Verify location is free of anchored structures that would prevent anchoring
+			// We only check for anchored structures - dynamic entities (players, mobs) won't prevent anchoring
+			if (!IsRuneLocationFreeForAnchoring(runeCoords, uid))
 			{
 				_popupSystem.PopupEntity(
 					Loc.GetString("cult-summoning-pylon-location-blocked"),
@@ -208,11 +209,40 @@ public sealed class SummonOnTriggerSystem : EntitySystem
 				// Refresh transform to get latest state
 				if (!pylonXform.Anchored || !Exists(pylon.Value))
 				{
-					// Pylon didn't anchor or was deleted - clean up
+					// Pylon didn't anchor - try spawning unanchored nearby as fallback
 					if (Exists(pylon.Value))
 						QueueDel(pylon.Value);
+					
+					// Try to find a nearby location to spawn unanchored pylon
+					if (TryFindNearbyLocation(runeCoordsForPylon, out var nearbyLocation))
+					{
+						var unanchoredPylon = Spawn("CultPylon", nearbyLocation);
+						if (TryComp<TransformComponent>(unanchoredPylon, out var unanchoredXform))
+						{
+							// Ensure it's unanchored
+							_transform.Unanchor(unanchoredPylon, unanchoredXform);
+							unanchoredXform.LocalRotation = runeRotation;
+							
+							// Consume materials for unanchored pylon
+							if (TryConsumeMaterials(runedGlassStacks, PylonGlassRequired, user))
+							{
+								_popupSystem.PopupEntity(
+									Loc.GetString("cult-summoning-pylon"),
+									user, user, PopupType.Large
+								);
+								args.Handled = true;
+								return;
+							}
+							else
+							{
+								QueueDel(unanchoredPylon);
+							}
+						}
+					}
+					
+					// Fallback failed - show error
 					_popupSystem.PopupEntity(
-						Loc.GetString("cult-summoning-pylon-failed"),
+						Loc.GetString("cult-summoning-pylon-anchor-failed"),
 						user, user, PopupType.MediumCaution
 					);
 					args.Handled = true;
@@ -382,63 +412,105 @@ public sealed class SummonOnTriggerSystem : EntitySystem
 	}
 
 	/// <summary>
-	/// Checks if the rune location is free of hard physics collision objects (players, mobs, etc).
-	/// Since the rune will be replaced by the pylon, we only need to check for blocking dynamic entities.
+	/// Checks if the rune location is free of anchored structures that would prevent anchoring.
+	/// Only checks for anchored structures - dynamic entities (players, mobs) won't prevent anchoring.
 	/// </summary>
 	/// <param name="coordinates">The coordinates of the rune</param>
 	/// <param name="runeEntity">The rune entity to exclude from checks</param>
-	private bool IsRuneLocationFree(EntityCoordinates coordinates, EntityUid runeEntity)
+	private bool IsRuneLocationFreeForAnchoring(EntityCoordinates coordinates, EntityUid runeEntity)
 	{
 		// Check if coordinates are valid
 		if (!coordinates.IsValid(EntityManager))
 			return false;
 
-		// Get all entities intersecting the rune's location
-		// Use a small radius to check the tile
-		var intersectingEntities = _lookup.GetEntitiesInRange(coordinates, 0.5f, LookupFlags.Dynamic | LookupFlags.Static);
+		// Get the grid and tile indices
+		var gridUid = _transform.GetGrid(coordinates);
+		if (gridUid == null || !TryComp<MapGridComponent>(gridUid, out var grid))
+			return false;
 
-		foreach (var entity in intersectingEntities)
+		var tileIndices = _mapSystem.TileIndicesFor(gridUid.Value, grid, coordinates);
+
+		// Check for anchored entities on this tile that would block anchoring
+		foreach (var anchoredEntity in _mapSystem.GetAnchoredEntities(gridUid.Value, grid, tileIndices))
 		{
 			// Exclude the rune itself - it will be replaced
-			if (entity == runeEntity)
+			if (anchoredEntity == runeEntity)
 				continue;
 
 			// Allow puddles/liquids - they can exist under structures and don't block anchoring
-			// Check this FIRST before physics checks, as puddles might not have hard physics bodies
-			if (HasComp<PuddleComponent>(entity))
+			if (HasComp<PuddleComponent>(anchoredEntity))
 				continue;
 
 			// Allow subfloor items - they don't block (cables, pipes, etc.)
-			// Check this before physics checks
-			if (HasComp<SubFloorHideComponent>(entity))
+			if (HasComp<SubFloorHideComponent>(anchoredEntity))
 				continue;
 
 			// Check if entity has a physics component
-			if (!_physicsQuery.TryGetComponent(entity, out var body))
+			if (!_physicsQuery.TryGetComponent(anchoredEntity, out var body))
 				continue;
 
-			// Only block entities with hard, colliding physics bodies
-			// This will catch players, mobs, and other blocking structures
-			if (!body.CanCollide || !body.Hard)
-				continue;
-
-			// Check if it's a dynamic entity (player, mob) or an anchored structure
-			var transform = Transform(entity);
-			if (transform.Anchored)
+			// Only block anchored hard structures that would prevent anchoring
+			// Dynamic entities (players, mobs) are not anchored, so they won't block
+			if (body.CanCollide && body.Hard)
 			{
-				// Block anchored hard structures (walls, other pylons, etc.)
-				// Puddles and subfloor items already handled above
-				return false;
-			}
-			else
-			{
-				// Block dynamic hard entities (players, mobs, etc.)
+				// This anchored structure would block anchoring
 				return false;
 			}
 		}
 
-		// Location is free
+		// Location is free for anchoring
 		return true;
+	}
+
+	/// <summary>
+	/// Tries to find a nearby location to spawn an unanchored pylon.
+	/// Checks adjacent tiles in a spiral pattern.
+	/// </summary>
+	/// <param name="centerCoords">The center coordinates to search around</param>
+	/// <param name="nearbyLocation">The found nearby location, or invalid if none found</param>
+	/// <returns>True if a nearby location was found, false otherwise</returns>
+	private bool TryFindNearbyLocation(EntityCoordinates centerCoords, out EntityCoordinates nearbyLocation)
+	{
+		nearbyLocation = EntityCoordinates.Invalid;
+
+		// Check if center coordinates are valid
+		if (!centerCoords.IsValid(EntityManager))
+			return false;
+
+		// Get the grid
+		var gridUid = _transform.GetGrid(centerCoords);
+		if (gridUid == null || !TryComp<MapGridComponent>(gridUid, out var grid))
+			return false;
+
+		// Search in a spiral pattern around the center (up to 2 tiles away)
+		var offsets = new[]
+		{
+			new Vector2(0f, 1.2f),   // North
+			new Vector2(1.2f, 0f),   // East
+			new Vector2(0f, -1.2f),  // South
+			new Vector2(-1.2f, 0f),  // West
+			new Vector2(1.2f, 1.2f), // Northeast
+			new Vector2(1.2f, -1.2f), // Southeast
+			new Vector2(-1.2f, -1.2f), // Southwest
+			new Vector2(-1.2f, 1.2f),  // Northwest
+		};
+
+		foreach (var offset in offsets)
+		{
+			var candidateCoords = centerCoords.Offset(offset);
+			var candidateLocation = candidateCoords.AlignWithClosestGridTile(entityManager: EntityManager, mapManager: _mapManager);
+
+			// Check if this location is free (no anchored blocking structures)
+			// Use EntityUid.Invalid as the rune entity since we're checking a different location
+			if (IsRuneLocationFreeForAnchoring(candidateLocation, EntityUid.Invalid))
+			{
+				nearbyLocation = candidateLocation;
+				return true;
+			}
+		}
+
+		// No nearby location found
+		return false;
 	}
 }
 

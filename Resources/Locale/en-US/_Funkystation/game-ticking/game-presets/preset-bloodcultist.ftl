@@ -91,6 +91,9 @@ cult-spell-repelled = Holy magic protects your target!
 cult-spell-sleep-dream = You feel an overwhelming wave of drowsiness as nightmares of blood-soaked knives flood your mind!
 cult-spell-allied-cultist = You cannot target a fellow devotee of Nar'Sie!
 
+cult-empowering-rune-not-in-range = You are not within the rune's range of influence
+cult-empowering-rune-no-action = You do not have the ability to prepare spells!
+
 cult-shade-summoned = The stolen soul materializes as a servant Shade!
 cult-shade-recalled = You recapture the stolen soul, rejuvinating it!
 cult-shade-servant = You have been released from your prison, but you are still bound to {$name}'s will. Help them succeed in their goals at all costs.
@@ -191,5 +194,5 @@ cult-summoning-need-more-metal = Not enough runed metal! You have {$have}, but n
 cult-summoning-need-more-glass = Not enough runed glass! You have {$have}, but need {$needed} for a pylon.
 cult-summoning-pylon-location-blocked = The pylon cannot be summoned here - the location is blocked!
 cult-summoning-pylon-no-grid = The pylon cannot be summoned here.
-cult-summoning-pylon-anchor-failed = The pylon failed to anchor properly!
+cult-summoning-pylon-anchor-failed = The pylon could not anchor at the rune location, but was summoned nearby instead.
 cult-summoning-pylon-failed = The pylon summoning failed! Your materials have been refunded.

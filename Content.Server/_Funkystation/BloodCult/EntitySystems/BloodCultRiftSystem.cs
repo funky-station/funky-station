@@ -60,7 +60,7 @@ public sealed partial class BloodCultRiftSystem : EntitySystem
 	[Dependency] private readonly IPlayerManager _playerManager = default!;
 	[Dependency] private readonly IRobustRandom _random = default!;
 	//[Dependency] private readonly ExplosionSystem _explosionSystem = default!;
-	//[Dependency] private readonly BodySystem _bodySystem = default!;
+	[Dependency] private readonly BodySystem _bodySystem = default!;
 	//[Dependency] private readonly MindSystem _mindSystem = default!;
 	[Dependency] private readonly OfferOnTriggerSystem _offerSystem = default!;
 	[Dependency] private readonly IGameTiming _timing = default!;
@@ -229,6 +229,12 @@ public sealed partial class BloodCultRiftSystem : EntitySystem
 			component.ChantsCompletedInCycle = SacrificeChantDelays.Length;
 			component.TimeUntilNextChant = 1f;
 			return;
+		}
+
+		// Gib the body after the brain has been removed
+		if (Exists(victim))
+		{
+			_bodySystem.GibBody(victim, true);
 		}
 
 		//Increment the sacrifices, play an announcement, and reset the chant.

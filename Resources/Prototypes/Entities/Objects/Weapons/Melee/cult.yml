@@ -79,6 +79,18 @@
     reagent: EdgeEssentia
     refillRate: 0.5
     maxAmount: 15
+  - type: EmbeddableProjectile
+    sound: /Audio/Weapons/star_hit.ogg
+    offset: -0.15,0.0
+  - type: LandAtCursor
+  - type: DamageOtherOnHit
+    ignoreResistances: true
+    damage:
+      types:
+        Slash: 10
+        Piercing: 15
+  - type: ThrowingAngle
+    angle: 225
 
 - type: entity
   name: cult dagger

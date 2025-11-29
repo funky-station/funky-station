@@ -277,7 +277,6 @@
     - id: BoxEncryptionKeyEngineering
     - id: CigarCase
       prob: 0.15
-    - id: ClothingBeltChiefEngineerFilled
     - id: ClothingEyesGlassesMeson
     - id: ClothingHandsGlovesColorYellow
     - id: ClothingHeadsetAltEngineering

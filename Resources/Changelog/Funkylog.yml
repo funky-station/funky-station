@@ -5798,3 +5798,129 @@ Entries:
         the medical techfab.
   id: 690
   time: '2025-11-22T21:39:43.0000000+00:00'
+- author: taydeo
+  changes:
+    - type: Add
+      message: New lobby art by nikitavix!
+  id: 691
+  time: '2025-11-24T03:01:18.0000000+00:00'
+- author: AraiMaia
+  changes:
+    - type: Add
+      message: New sprites for almost every bit of cargo clothes.
+    - type: Add
+      message: Two new uniforms for cargo techs.
+    - type: Add
+      message: Salvage senior gear.
+    - type: Add
+      message: A new shuttle pilot helmet and jumpsuit, available in the CargoDrobe.
+    - type: Add
+      message: A liftbelt for cargo, to avoid back injuries.
+    - type: Add
+      message: New windbreakers for QM, Salvage, Cargo and Mail Carriers.
+    - type: Tweak
+      message: >-
+        Loadout adjustments for cargo techs, salvagers and QM to allow for more
+        clothing options
+  id: 692
+  time: '2025-11-24T03:15:07.0000000+00:00'
+- author: JoulesBerg
+  changes:
+    - type: Fix
+      message: removed the decal from bar area. You know.
+    - type: Add
+      message: added pride o mat
+    - type: Fix
+      message: that one scrubber in the SM area
+    - type: Fix
+      message: access to silos is now restricted to departments correctly.
+    - type: Fix
+      message: access to magi office
+    - type: Tweak
+      message: moved armory EVA to its own room so the armory can have more space
+    - type: Add
+      message: Added insuls to atmos
+    - type: Add
+      message: Added a real mail room
+    - type: Fix
+      message: IAA offices now have CC doors
+    - type: Fix
+      message: genpop now has a cryo sleep pod
+    - type: Tweak
+      message: made abandoned cargo maints a little more maze like.
+    - type: Remove
+      message: removed deathsquad
+  id: 693
+  time: '2025-11-24T03:33:19.0000000+00:00'
+- author: AraiMaia
+  changes:
+    - type: Add
+      message: >-
+        New cosmetic alternative to the utility belt for engineers, the
+        Engineering Harness
+    - type: Tweak
+      message: >-
+        Atmos, engineers and the CE can now choose either the belt or harness in
+        their loadouts.
+    - type: Fix
+      message: >-
+        Atmos no longer spawns with a redudant pair of boots, and are now able
+        to select workboots as part of their loadout.
+  id: 694
+  time: '2025-11-24T03:48:01.0000000+00:00'
+- author: zergologist
+  changes:
+    - type: Add
+      message: >-
+        New-new sprites for atmos hardsuits. Inspired by the resprites AraiMaia
+        was doing for engineering hardsuits
+  id: 695
+  time: '2025-11-24T04:06:40.0000000+00:00'
+- author: willowzeta
+  changes:
+    - type: Add
+      message: Ported stencil decals from WizDen
+  id: 696
+  time: '2025-11-25T23:34:36.0000000+00:00'
+- author: mkanke-real
+  changes:
+    - type: Add
+      message: Added Yip-Yap and more floor decals to Roid
+    - type: Fix
+      message: Various minor Roid fixes
+  id: 697
+  time: '2025-11-26T14:54:14.0000000+00:00'
+- author: willowzeta
+  changes:
+    - type: Tweak
+      message: 'Map rotation updates: Add Olympus (on a trial period), remove Elkridge'
+  id: 698
+  time: '2025-11-27T18:19:55.0000000+00:00'
+- author: pirakaplant
+  changes:
+    - type: Add
+      message: Added mystery scran, which can be found in maints.
+    - type: Tweak
+      message: >-
+        ID cards, HOPfruit, and syndicate business cards can now be used as
+        utensils.
+  id: 699
+  time: '2025-11-27T18:40:48.0000000+00:00'
+- author: willowzeta
+  changes:
+    - type: Tweak
+      message: More Olympus changes.
+  id: 700
+  time: '2025-11-27T20:59:03.0000000+00:00'
+- author: TheHolyAegis
+  changes:
+    - type: Tweak
+      message: Changed Fland Installation's minimum player requirement from 40 to 55
+  id: 701
+  time: '2025-11-28T01:58:47.0000000+00:00'
+- author: Dusty-Plant
+  changes:
+    - type: Tweak
+      message: Updated Court Station for the sixth week of playtests
+  id: 702
+  time: '2025-11-28T17:44:37.0000000+00:00'

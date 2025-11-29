@@ -1,3 +1,5 @@
+# SPDX-FileCopyrightText: 2025 Fr0goo <153249069+Fr0goo@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Fr0goo <frogoofrog@outlook.com>
 # SPDX-FileCopyrightText: 2025 MaiaArai <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 ThatOneMoon <91613003+ThatOneMoon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
@@ -6,6 +8,7 @@
 # SPDX-FileCopyrightText: 2025 heree <79546981+hereelabs@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 hereelabs <hahmorm@gmail.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 vectorassembly <vectorassembly@icloud.com>
 # SPDX-FileCopyrightText: 2025 willowzeta <willowzeta632146@proton.me>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
@@ -267,3 +270,89 @@
     sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/magistrateturtleneck.rsi
   - type: Clothing
     sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/magistrateturtleneck.rsi
+
+# cargo shirt! (by AraiMaia)
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitCargoShirt
+  name: cargo tech shirt
+  description: A worn office shirt over a pair of cargo pants. Formal-casual.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/cargoshirt.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/cargoshirt.rsi
+
+# bridges suit! (by AraiMaia)
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitCargoMailJumpSuit
+  name: mail carrier's jumpsuit
+  description: A jumpsuit that facilitates deliveries, be it cargo or babies. Keep on keeping on!
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/mailsuit.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/mailsuit.rsi
+
+# senior salvage uniform! (by AraiMaia)
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitSeniorSalvage
+  name: senior salvage specialist jumpsuit
+  description: Covered in dried blood and dust. Smells like carp.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/senior_salvage.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/senior_salvage.rsi
+
+# cargo pilot suit! (by AraiMaia)
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitCargoPilot
+  name: cargo shuttle pilot jumpsuit
+  description: Made of a fire-retardant textile and built to withstand rapid shifts in gravity. Too bad it can't handle the vacuum of space.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/pilot_jumpsuit.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/pilot_jumpsuit.rsi
+
+# Janitor clothes (by Frogoo)
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformOverallsJanitor
+  name: janitor overalls
+  description: All salvagers retire to janitor work eventully
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/janioveralls.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/janioveralls.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformCarpExterminator
+  name: carp exterminator overalls
+  description: a special pair of overalls made to keep you clean through a endless wave of carp
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/carp_exterminator.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/carp_exterminator.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJaniCoveralls
+  name: jani coveralls
+  description: a extremly old janitor coveralls. its completly covered in dust and stains.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/jani_coveralls.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/jani_coveralls.rsi

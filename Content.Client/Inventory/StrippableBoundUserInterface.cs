@@ -226,9 +226,10 @@ namespace Content.Client.Inventory
                     button.BlockedRect.MouseFilter = MouseFilterMode.Ignore;
             }
             //Goobstation: Cards are always hidden. NO CHEATING FOR U.
-            var isCard = EntMan.HasComponent<CardComponent>(hand.HeldEntity) ||
-                         EntMan.HasComponent<CardHandComponent>(hand.HeldEntity);
-            UpdateEntityIcon(button, heldEntity);
+            var isCard = EntMan.HasComponent<CardComponent>(heldEntity) ||
+                         EntMan.HasComponent<CardHandComponent>(heldEntity);
+            UpdateEntityIcon(button, isCard ? _virtualHiddenEntity : heldEntity);
+
             _strippingMenu!.HandsContainer.AddChild(button);
             LayoutContainer.SetPosition(button, new Vector2i(_handCount, 0) * (SlotControl.DefaultButtonSize + ButtonSeparation));
             _handCount++;

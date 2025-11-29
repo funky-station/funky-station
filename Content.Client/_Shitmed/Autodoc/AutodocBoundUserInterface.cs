@@ -1,12 +1,12 @@
-// SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
-// SPDX-FileCopyrightText: 2024 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 amatwiedle <amatwiedle@gmail.com>
-// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 deltanedas <@deltanedas:kde.org>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 JohnOakman <sremy2012@hotmail.fr>
 //
-// SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+// SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared._Shitmed.Autodoc;
-using Robust.Client.GameObjects;
 using Robust.Client.Player;
 
 namespace Content.Client._Shitmed.Autodoc;
@@ -30,9 +30,10 @@ public sealed class AutodocBoundUserInterface : BoundUserInterface
         _window.OnAddStep += (program, step, index) => SendMessage(new AutodocAddStepMessage(program, step, index));
         _window.OnRemoveStep += (program, stepIndex) => SendMessage(new AutodocRemoveStepMessage(program, stepIndex));
 
+        _window.OnImportProgram += (program) => SendMessage(new AutodocImportProgramMessage(program));
+
         _window.OnStart += program => SendMessage(new AutodocStartMessage(program));
         _window.OnStop += () => SendMessage(new AutodocStopMessage());
-        _window.OnSanitize += () => SendMessage(new AutodocSanitizeMessage());
 
         _window.OnClose += () => Close();
 

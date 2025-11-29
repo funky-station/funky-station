@@ -1,26 +1,3 @@
-// SPDX-FileCopyrightText: 2022 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2022 eoineoineoin <eoin.mcloughlin+gh@gmail.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Justin <justinly@usc.edu>
-// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Moony <moony@hellomouse.net>
-// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-FileCopyrightText: 2023 Thom <119594676+ItsMeThom@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 chromiumboy <50505512+chromiumboy@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
-// SPDX-FileCopyrightText: 2024 Cojoke <83733158+Cojoke-dot@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Crotalus <Crotalus@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 plykiya <plykiya@protonmail.com>
-// SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
-// SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
-// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
-//
-// SPDX-License-Identifier: MIT
-
 using System.Linq;
 using System.Text;
 using Content.Client.Materials;
@@ -34,6 +11,7 @@ using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.CustomControls;
 using Robust.Client.UserInterface.XAML;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Utility;
 
 namespace Content.Client.Lathe.UI;
 
@@ -119,7 +97,7 @@ public sealed partial class LatheMenu : DefaultWindow
         var recipesToShow = new List<LatheRecipePrototype>();
         foreach (var recipe in Recipes)
         {
-            if (!_prototypeManager.TryIndex(recipe, out var proto))
+            if (!_prototypeManager.Resolve(recipe, out var proto))
                 continue;
 
             // Category filtering
@@ -151,21 +129,50 @@ public sealed partial class LatheMenu : DefaultWindow
         RecipeCount.Text = Loc.GetString("lathe-menu-recipe-count", ("count", recipesToShow.Count));
 
         var sortedRecipesToShow = recipesToShow.OrderBy(_lathe.GetRecipeName);
-        RecipeList.Children.Clear();
+
+        // Get the existing list of queue controls
+        var oldChildCount = RecipeList.ChildCount;
         _entityManager.TryGetComponent(Entity, out LatheComponent? lathe);
 
+        int idx = 0;
         foreach (var prototype in sortedRecipesToShow)
         {
             var canProduce = _lathe.CanProduce(Entity, prototype, quantity, component: lathe);
+            var tooltipFunction = () => GenerateTooltipText(prototype);
 
-            var control = new RecipeControl(_lathe, prototype, () => GenerateTooltipText(prototype), canProduce, GetRecipeDisplayControl(prototype));
-            control.OnButtonPressed += s =>
+            if (idx >= oldChildCount)
             {
-                if (!int.TryParse(AmountLineEdit.Text, out var amount) || amount <= 0)
-                    amount = 1;
-                RecipeQueueAction?.Invoke(s, amount);
-            };
-            RecipeList.AddChild(control);
+                var control = new RecipeControl(_lathe, prototype, tooltipFunction, canProduce, GetRecipeDisplayControl(prototype));
+                control.OnButtonPressed += s =>
+                {
+                    if (!int.TryParse(AmountLineEdit.Text, out var amount) || amount <= 0)
+                        amount = 1;
+                    RecipeQueueAction?.Invoke(s, amount);
+                };
+                RecipeList.AddChild(control);
+            }
+            else
+            {
+                var child = RecipeList.GetChild(idx) as RecipeControl;
+
+                if (child == null)
+                {
+                    DebugTools.Assert($"Lathe menu recipe control at {idx} is not of type RecipeControl"); // Something's gone terribly wrong.
+                    continue;
+                }
+
+                child.SetRecipe(prototype);
+                child.SetTooltipSupplier(tooltipFunction);
+                child.SetCanProduce(canProduce);
+                child.SetDisplayControl(GetRecipeDisplayControl(prototype));
+            }
+            idx++;
+        }
+
+        // Shrink list if new list is shorter than old list.
+        for (var childIdx = oldChildCount - 1; idx <= childIdx; childIdx--)
+        {
+            RecipeList.RemoveChild(childIdx);
         }
     }
 
@@ -176,7 +183,7 @@ public sealed partial class LatheMenu : DefaultWindow
 
         foreach (var (id, amount) in prototype.Materials)
         {
-            if (!_prototypeManager.TryIndex(id, out var proto))
+            if (!_prototypeManager.Resolve(id, out var proto))
                 continue;
 
             var adjustedAmount = SharedLatheSystem.AdjustMaterial(amount, prototype.ApplyMaterialDiscount, multiplier);
@@ -261,9 +268,10 @@ public sealed partial class LatheMenu : DefaultWindow
     /// <param name="queue"></param>
     public void PopulateQueueList(IReadOnlyCollection<LatheRecipeBatch> queue)
     {
-        QueueList.DisposeAllChildren();
+        // Get the existing list of queue controls
+        var oldChildCount = QueueList.ChildCount;
 
-        var idx = 1;
+        var idx = 0;
         foreach (var batch in queue)
         {
             var recipe = _prototypeManager.Index(batch.Recipe);
@@ -271,17 +279,39 @@ public sealed partial class LatheMenu : DefaultWindow
             var itemName = _lathe.GetRecipeName(batch.Recipe);
             string displayText;
             if (batch.ItemsRequested > 1)
-                displayText = Loc.GetString("lathe-menu-item-batch", ("index", idx), ("name", itemName), ("printed", batch.ItemsPrinted), ("total", batch.ItemsRequested));
+                displayText = Loc.GetString("lathe-menu-item-batch", ("index", idx + 1), ("name", itemName), ("printed", batch.ItemsPrinted), ("total", batch.ItemsRequested));
             else
-                displayText = Loc.GetString("lathe-menu-item-single", ("index", idx), ("name", itemName));
+                displayText = Loc.GetString("lathe-menu-item-single", ("index", idx + 1), ("name", itemName));
 
-            var queuedRecipeBox = new QueuedRecipeControl(displayText, idx - 1, GetRecipeDisplayControl(recipe));
-            queuedRecipeBox.OnDeletePressed += s => QueueDeleteAction?.Invoke(s);
-            queuedRecipeBox.OnMoveUpPressed += s => QueueMoveUpAction?.Invoke(s);
-            queuedRecipeBox.OnMoveDownPressed += s => QueueMoveDownAction?.Invoke(s);
+            if (idx >= oldChildCount)
+            {
+                var queuedRecipeBox = new QueuedRecipeControl(displayText, idx, GetRecipeDisplayControl(recipe));
+                queuedRecipeBox.OnDeletePressed += s => QueueDeleteAction?.Invoke(s);
+                queuedRecipeBox.OnMoveUpPressed += s => QueueMoveUpAction?.Invoke(s);
+                queuedRecipeBox.OnMoveDownPressed += s => QueueMoveDownAction?.Invoke(s);
+                QueueList.AddChild(queuedRecipeBox);
+            }
+            else
+            {
+                var child = QueueList.GetChild(idx) as QueuedRecipeControl;
 
-            QueueList.AddChild(queuedRecipeBox);
+                if (child == null)
+                {
+                    DebugTools.Assert($"Lathe menu queued recipe control at {idx} is not of type QueuedRecipeControl"); // Something's gone terribly wrong.
+                    continue;
+                }
+
+                child.SetDisplayText(displayText);
+                child.SetIndex(idx);
+                child.SetDisplayControl(GetRecipeDisplayControl(recipe));
+            }
             idx++;
+        }
+
+        // Shrink list if new list is shorter than old list.
+        for (var childIdx = oldChildCount - 1; idx <= childIdx; childIdx--)
+        {
+            QueueList.RemoveChild(childIdx);
         }
     }
 

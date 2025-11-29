@@ -1,5 +1,5 @@
 <Control xmlns="https://spacestation14.io"
-    xmlns:system="clr-namespace:System;assembly=System.Runtime">
+         xmlns:system="clr-namespace:System;assembly=System.Runtime">
     <BoxContainer Orientation="Horizontal">
         <BoxContainer
             Name="RecipeDisplayContainer"
@@ -7,7 +7,7 @@
             HorizontalAlignment="Center"
             VerticalAlignment="Center"
             MinSize="32 32"
-            />
+        />
         <Label Name="RecipeName" HorizontalExpand="True" />
         <Button
             Name="MoveUp"

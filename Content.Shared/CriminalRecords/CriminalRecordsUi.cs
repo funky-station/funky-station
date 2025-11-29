@@ -1,15 +1,6 @@
-// SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Ilya Mikheev <me@ilyamikcoder.com>
-// SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
-// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
-//
-// SPDX-License-Identifier: MIT
-
-using Content.Shared._Funkystation.Security;
+using Content.Shared.Security;
 using Content.Shared.StationRecords;
 using Robust.Shared.Serialization;
-using Robust.Shared.Prototypes;
 
 namespace Content.Shared.CriminalRecords;
 
@@ -46,7 +37,7 @@ public sealed class CriminalRecordsConsoleState : BoundUserInterfaceState
     public uint? SelectedKey = null;
     public CriminalRecord? CriminalRecord = null;
     public GeneralStationRecord? StationRecord = null;
-    public ProtoId<SecurityStatusPrototype>? FilterStatus = null;
+    public SecurityStatus FilterStatus = SecurityStatus.None;
     public readonly Dictionary<uint, string>? RecordListing;
     public readonly StationRecordsFilter? Filter;
 
@@ -72,10 +63,10 @@ public sealed class CriminalRecordsConsoleState : BoundUserInterfaceState
 [Serializable, NetSerializable]
 public sealed class CriminalRecordChangeStatus : BoundUserInterfaceMessage
 {
-    public readonly ProtoId<SecurityStatusPrototype> Status;
+    public readonly SecurityStatus Status;
     public readonly string? Reason;
 
-    public CriminalRecordChangeStatus(ProtoId<SecurityStatusPrototype> status, string? reason)
+    public CriminalRecordChangeStatus(SecurityStatus status, string? reason)
     {
         Status = status;
         Reason = reason;
@@ -119,10 +110,9 @@ public sealed class CriminalRecordDeleteHistory : BoundUserInterfaceMessage
 
 public sealed class CriminalRecordSetStatusFilter : BoundUserInterfaceMessage
 {
-    public readonly ProtoId<SecurityStatusPrototype> FilterStatus;
-    public CriminalRecordSetStatusFilter(ProtoId<SecurityStatusPrototype> newFilterStatus)
+    public readonly SecurityStatus FilterStatus;
+    public CriminalRecordSetStatusFilter(SecurityStatus newFilterStatus)
     {
         FilterStatus = newFilterStatus;
     }
 }
-

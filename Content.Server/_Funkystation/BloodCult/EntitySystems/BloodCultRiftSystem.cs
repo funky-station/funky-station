@@ -59,9 +59,9 @@ public sealed partial class BloodCultRiftSystem : EntitySystem
 	[Dependency] private readonly SharedTransformSystem _transformSystem = default!;
 	[Dependency] private readonly IPlayerManager _playerManager = default!;
 	[Dependency] private readonly IRobustRandom _random = default!;
-	[Dependency] private readonly ExplosionSystem _explosionSystem = default!;
-	[Dependency] private readonly BodySystem _bodySystem = default!;
-	[Dependency] private readonly MindSystem _mindSystem = default!;
+	//[Dependency] private readonly ExplosionSystem _explosionSystem = default!;
+	//[Dependency] private readonly BodySystem _bodySystem = default!;
+	//[Dependency] private readonly MindSystem _mindSystem = default!;
 	[Dependency] private readonly OfferOnTriggerSystem _offerSystem = default!;
 	[Dependency] private readonly IGameTiming _timing = default!;
 	[Dependency] private readonly SharedAudioSystem _audio = default!;
@@ -205,7 +205,7 @@ public sealed partial class BloodCultRiftSystem : EntitySystem
 		}
 
 		// If the person who has the pending sacrifice flag doesn't exist, restart the chant.
-		if (!TryComp<TransformComponent>(component.PendingSacrifice.Value, out var victimXform))
+		if (!TryComp(component.PendingSacrifice.Value, out TransformComponent? victimXform))
 		{
 			component.ChantsCompletedInCycle = SacrificeChantDelays.Length;
 			component.TimeUntilNextChant = 1f;
@@ -493,7 +493,7 @@ public sealed partial class BloodCultRiftSystem : EntitySystem
 
 		foreach (var runeUid in riftComp.SummoningRunes)
 		{
-			if (!Exists(runeUid) || !TryComp<TransformComponent>(runeUid, out var runeXform))
+			if (!Exists(runeUid) || !TryComp(runeUid, out TransformComponent? runeXform))
 				continue;
 
 			// Look for cultists near this rune

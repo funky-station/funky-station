@@ -47,11 +47,21 @@
     sprite: _Goobstation/Clothing/Head/Helmets/helldiver.rsi
   - type: Clothing
     sprite: _Goobstation/Clothing/Head/Helmets/helldiver.rsi
-  - type: HideLayerClothing
-    slots:
-    - Hair
-    - HeadTop
-    - HeadSide
+  - type: PressureProtection
+    highPressureMultiplier: 0.525
+    lowPressureMultiplier: 1000
+  - type: PointLight
+    radius: 7
+    energy: 3
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.90
+        Slash: 0.90
+        Piercing: 0.90
+        Radiation: 0.55
+  - type: ExplosionResistance
+    damageCoefficient: 0.9
 
 # Carp Scale 
 
@@ -162,5 +172,3 @@
         Slash: 0.90
         Piercing: 0.90
         Radiation: 0.55
-  - type: ExplosionResistance
-    damageCoefficient: 0.9

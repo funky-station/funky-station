@@ -108,7 +108,7 @@
         Radiation: 0.40
         Caustic: 0.80
   - type: ExplosionResistance
-    damageCoefficient: 0.75
+    damageCoefficient: 0.65
   - type: ClothingSpeedModifier
     walkModifier: 0.9
     sprintModifier: 0.9

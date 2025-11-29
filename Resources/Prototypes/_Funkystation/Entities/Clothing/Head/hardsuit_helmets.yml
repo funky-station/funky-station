@@ -38,12 +38,11 @@
 
 # Helldivers, Funky
 - type: entity
-  parent: ClothingHeadHelmetBase
+  parent: [ ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase ]
   id: ClothingHeadHelmetHelldiver
-  name: salvage NT-01 tactical helmet
-  description: This armor is the NanoTrasen standard issue, made from the same titanium alloy as the Goliath hull.
+  name: diving hardsuit helmet
+  description: A unique variant of the classic mining hardsuit helmet, given to only the most dedicated of salvagers.
   components:
-  - type: BreathMask
   - type: Sprite
     sprite: _Goobstation/Clothing/Head/Helmets/helldiver.rsi
   - type: Clothing
@@ -159,3 +158,9 @@
       # Helps you stop bleeding to an extent.
       - !type:ModifyBleedAmount
         amount: -0.25  
+        Blunt: 0.90
+        Slash: 0.90
+        Piercing: 0.90
+        Radiation: 0.55
+  - type: ExplosionResistance
+    damageCoefficient: 0.9

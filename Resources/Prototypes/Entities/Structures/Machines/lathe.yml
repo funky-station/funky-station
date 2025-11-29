@@ -977,6 +977,12 @@
     - BorgModuleAdvancedCleaning
     - BorgModuleAdvancedTool
     - BorgModuleAtmos
+    - BorgModuleGPS
+    - BorgModuleArtifact
+    - BorgModuleAnomaly
+    - BorgModuleGardening
+    - BorgModuleHarvesting
+    - BorgModuleDefibrillator
     - BorgModuleAdvancedChemical
     - RipleyHarness
     - RipleyLArm

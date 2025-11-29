@@ -13,7 +13,6 @@ using Content.Server.GameTicking.Rules;
 using Content.Server.GameTicking.Rules.Components;
 using Content.Server.StationEvents;
 using Content.Server.StationEvents.Components;
-using Content.Shared._Goobstation.CCVar;
 using Content.Shared.CCVar;
 using Content.Shared.Database;
 using Content.Shared.EntityTable;

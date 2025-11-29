@@ -1,9 +1,4 @@
-// SPDX-FileCopyrightText: 2024 V <97265903+formlessnameless@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
-
+using Content.Client.UserInterface.Controls;
 using Content.Shared._EstacaoPirata.Cards.Hand;
 using Content.Shared.RCD;
 using JetBrains.Annotations;
@@ -19,7 +14,7 @@ public sealed class CardHandMenuBoundUserInterface : BoundUserInterface
     [Dependency] private readonly IClyde _displayManager = default!;
     [Dependency] private readonly IInputManager _inputManager = default!;
 
-    private CardHandMenu? _menu;
+    private SimpleRadialMenu? _menu;
 
     public CardHandMenuBoundUserInterface(EntityUid owner, Enum uiKey) : base(owner, uiKey)
     {
@@ -30,12 +25,13 @@ public sealed class CardHandMenuBoundUserInterface : BoundUserInterface
     {
         base.Open();
 
-        _menu = new(Owner, this);
+        // SimpleRadialMenu has a parameterless ctor and Track(...) to attach to an entity.
+        _menu = new SimpleRadialMenu();
+        _menu.Track(Owner);
         _menu.OnClose += Close;
 
-        // Open the menu, centered on the mouse
-        var vpSize = _displayManager.ScreenSize;
-        _menu.OpenCenteredAt(_inputManager.MouseScreenPosition.Position / vpSize);
+        // Open the menu centered on the mouse using the SimpleRadialMenu helper.
+        _menu.OpenOverMouseScreenPosition();
     }
 
     public void SendCardHandDrawMessage(NetEntity e)

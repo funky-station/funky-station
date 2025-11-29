@@ -463,3 +463,95 @@
     sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/chefblue.rsi
   - type: Clothing
     sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/chefblue.rsi
+
+# Engi stuff! (By AraiMaia)
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitEngineeringElectrician
+  name: electrician's jumpsuit
+  description: A comfortable suit with hi-viz markings and harnessing points for working in uncomfortable spots. Smells like budget insuls.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/engineerelectrician.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/engineerelectrician.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitBaggyAtmos
+  name: atmospheric technician's jumpsuit
+  description: A comfortable jumpsuit, breatheable but durable. Seems to have a few scorch marks.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/atmosbaggy.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/atmosbaggy.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitEngineeringTankTop
+  name: engineering tank top
+  description: A white tank top, over a pair of hardy engineering cargo pants. Nothing if not practical.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/engineertanktop.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/engineertanktop.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitEngineeringBaggyHazard
+  name: engineering hazard jumpsuit
+  description: A hi-viz jumpsuit, to ensure you don't become space-roadkill.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/hazardjumpsuit.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/hazardjumpsuit.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitEngineeringUndersuit
+  name: engineering undersuit
+  description: The lower layer of a hardsuit, comfortably worn with no gloves or boots. Unfortunately, not space-resistant.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/hardsuitundersuit.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/hardsuitundersuit.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitEngineeringJumpsuit
+  name: engineering jumpsuit
+  description: A comfortable jumpsuit, breatheable but durable. You have a feeling it isn't as durable as it looks.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/engineerjumpsuit.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/engineerjumpsuit.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitEngineeringSeniorArmored
+  name: senior engineering jumpsuit
+  description: A jumpsuit expertly modified to integrate some essential plating from an old hardsuit. Won't offer any protection, but it sure looks cool.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/seniorengineer.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/seniorengineer.rsi
+
+# Cargo Shorts! (By AraiMaia)
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitCargoShorts
+  name: cargo tech shorts
+  description: A comfy pair of shorts PERFECT for hustling around the Station. The socks are really good quality, too.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/cargoshorts.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/cargoshorts.rsi

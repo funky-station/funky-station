@@ -190,3 +190,38 @@
     sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/chefblue.rsi
   - type: Clothing
     sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/chefblue.rsi
+
+# Engi stuff! (By AraiMaia)
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitEngineeringJumpsuitTied
+  name: engineering tied up jumpsuit
+  description: A comfortable jumpsuit, unzipped and tied around the waist. You probably don't need the protection, right?
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/engineerjumpsuit.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/engineerjumpsuit.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpskirtBaggyAtmosTied
+  name: atmospheric technician's tied jumpsuit
+  description: A comfortable jumpsuit, unzipped and tied around the waist. Gets a bit muggy in the Atmos bay.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/atmosbaggy.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/atmosbaggy.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpskirtEngineeringElectricianTied
+  name: electrician's tied jumpsuit
+  description: A comfortable jumpsuit, unzipped and tied around the waist. I don't think the anti-static wristband is going to save you from getting fried.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/engineerelectrician.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/engineerelectrician.rsi

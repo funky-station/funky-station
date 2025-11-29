@@ -22,6 +22,13 @@
     ClothingBackpackDuffelAtmospherics: 2
     ClothingBackpackSatchelAtmospherics: 2
     ClothingBackpackAtmospherics: 2
+    ClothingUniformJumpsuitBaggyAtmos: 3
+    ClothingUniformJumpsuitBaggyAtmosTied: 3
+    ClothingUniformJumpsuitEngineeringElectrician: 3
+    ClothingUniformJumpskirtEngineeringElectricianTied: 3
+    ClothingUniformJumpsuitEngineeringTankTop: 3
+    ClothingUniformJumpsuitEngineeringBaggyHazard: 3
+    ClothingUniformJumpsuitEngineeringUndersuit: 3
     ClothingUniformJumpsuitAtmos: 3
     ClothingUniformJumpskirtAtmos: 3
     ClothingUniformJumpsuitAtmosCasual: 3

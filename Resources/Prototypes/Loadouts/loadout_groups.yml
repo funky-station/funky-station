@@ -1010,6 +1010,7 @@
   id: CargoTechnicianJumpsuit
   name: loadout-group-cargo-technician-jumpsuit
   loadouts:
+  - CargoTechnicianShorts
   - CargoTechnicianJumpsuit
   - CargoTechnicianJumpskirt
   - SeniorCargoTechnicianJumpsuit #Funky!
@@ -1151,6 +1152,8 @@
   name: loadout-group-chief-engineer-shoes
   loadouts:
   - BrownShoes
+  - NanotrasenRepresentativeBoots #These are just laceup shoes.
+  - WorkBoots
   - EngineeringWinterBoots
 
 - type: loadoutGroup #WizDen Weh Job Plush
@@ -1192,6 +1195,11 @@
   - StationEngineerJumpsuit
   - StationEngineerJumpskirt
   - StationEngineerHazardsuit
+  - StationEngineerJumpsuitElectrician
+  - StationEngineerJumpsuitElectricianTied
+  - StationEngineerJumpsuitTankTop
+  - StationEngineerJumpsuitUndersuit
+  - SeniorEngineerJumpsuitArmored
   - SeniorEngineerJumpsuit
   - SeniorEngineerJumpskirt
 
@@ -1254,6 +1262,11 @@
   - AtmosphericTechnicianJumpsuit
   - AtmosphericTechnicianJumpskirt
   - AtmosphericTechnicianJumpsuitCasual
+  - StationEngineerJumpsuitElectrician
+  - StationEngineerJumpsuitElectricianTied
+  - StationEngineerJumpsuitTankTop
+  - StationEngineerJumpsuitUndersuit
+  - SeniorEngineerJumpsuitArmored
   - SeniorEngineerJumpskirt  # Goobstation
   - SeniorEngineerJumpsuit   # Goobstation
 

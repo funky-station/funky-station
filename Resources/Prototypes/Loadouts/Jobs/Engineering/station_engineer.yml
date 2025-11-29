@@ -73,19 +73,52 @@
 - type: loadout
   id: StationEngineerJumpsuit
   equipment:
-    jumpsuit: ClothingUniformJumpsuitEngineering
+    jumpsuit: ClothingUniformJumpsuitEngineeringJumpsuit
   groupBy: "jumpsuit"
 
 - type: loadout
   id: StationEngineerJumpskirt
   equipment:
-    jumpsuit: ClothingUniformJumpskirtEngineering
+    jumpsuit: ClothingUniformJumpsuitEngineeringJumpsuitTied
   groupBy: "jumpskirt"
 
 - type: loadout
   id: StationEngineerHazardsuit
   equipment:
-    jumpsuit: ClothingUniformJumpsuitEngineeringHazard
+    jumpsuit: ClothingUniformJumpsuitEngineeringBaggyHazard
+  groupBy: "jumpsuit"
+
+- type: loadout
+  id: StationEngineerJumpsuitElectrician
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitEngineeringElectrician
+  groupBy: "jumpsuit"
+
+- type: loadout
+  id: StationEngineerJumpsuitElectricianTied
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtEngineeringElectricianTied
+  groupBy: "jumpskirt"
+
+- type: loadout
+  id: StationEngineerJumpsuitTankTop
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitEngineeringTankTop
+  groupBy: "jumpsuit"
+
+- type: loadout
+  id: StationEngineerJumpsuitUndersuit
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitEngineeringUndersuit
+  groupBy: "jumpsuit"
+
+- type: loadout
+  id: SeniorEngineerJumpsuitArmored
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SeniorEngineering
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitEngineeringSeniorArmored
   groupBy: "jumpsuit"
 
 - type: loadout

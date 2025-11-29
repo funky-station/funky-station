@@ -94,27 +94,17 @@
         ents: []
 
 - type: entity
-  parent: ClothingOuterWinterCoatToggleable
+  parent: ClothingOuterWinterCoat
   id: ClothingOuterWinterAtmos
-  name: atmospherics winter coat
+  name: insulated atmos coat
+  description: If you're cold, he's cold. Get Tropico out of the Atmospheric bay.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
-    layers:
-    - state: ATMOS-icon
-  - type: Item
-    inhandVisuals:
-      left:
-      - state: ATMOS-inhand-left
-      right:
-      - state: ATMOS-inhand-right
+    sprite: _Funkystation/Clothing/OuterClothing/WinterCoats/atmos_insulated_coat.rsi
   - type: Clothing
-    sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
-    clothingVisuals:
-      outerClothing:
-      - state: ATMOS-equipped-OUTERCLOTHING
-  - type: ToggleableClothing
-    clothingPrototype: ClothingHeadHatHoodWinterEngineer
+    sprite: _Funkystation/Clothing/OuterClothing/WinterCoats/atmos_insulated_coat.rsi
+  - type: Item
+    size: Normal
 
 - type: entity
   parent: ClothingOuterWinterCoat
@@ -175,27 +165,17 @@
     clothingPrototype: ClothingHeadHatHoodWinterCargo
 
 - type: entity
-  parent: [ClothingOuterWinterCoatToggleable, BaseCommandContraband]
+  parent: [ClothingOuterWinterCoat, BaseCommandContraband]
   id: ClothingOuterWinterCE
-  name: chief engineer's winter coat
+  name: insulated chief engineer's coat
+  description: Was your hardsuit stolen again?
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
-    layers:
-    - state: CE-icon
-  - type: Item
-    inhandVisuals:
-      left:
-      - state: CE-inhand-left
-      right:
-      - state: CE-inhand-right
+    sprite: _Funkystation/Clothing/OuterClothing/WinterCoats/CE_insulated_coat.rsi
   - type: Clothing
-    sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
-    clothingVisuals:
-      outerClothing:
-      - state: CE-equipped-OUTERCLOTHING
-  - type: ToggleableClothing
-    clothingPrototype: ClothingHeadHatHoodWinterCE
+    sprite: _Funkystation/Clothing/OuterClothing/WinterCoats/CE_insulated_coat.rsi
+  - type: Item
+    size: Normal
 
 - type: entity
   parent: [ ClothingOuterWinterCoatToggleable, BaseCentcommContraband ]
@@ -302,27 +282,17 @@
     sprite: Clothing/OuterClothing/WinterCoats/coatclown.rsi
 
 - type: entity
-  parent: ClothingOuterWinterCoatToggleable
+  parent: ClothingOuterWinterCoat
   id: ClothingOuterWinterEngi
-  name: engineering winter coat
+  name: insulated engineering coat
+  description: Atmos messed up and the air is at a cool 20 Kelvin? Better bundle up.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
-    layers:
-    - state: ENGI-icon
-  - type: Item
-    inhandVisuals:
-      left:
-      - state: ENGI-inhand-left
-      right:
-      - state: ENGI-inhand-right
+    sprite: _Funkystation/Clothing/OuterClothing/WinterCoats/engineer_insulated_coat.rsi
   - type: Clothing
-    sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
-    clothingVisuals:
-      outerClothing:
-      - state: ENGI-equipped-OUTERCLOTHING
-  - type: ToggleableClothing
-    clothingPrototype: ClothingHeadHatHoodWinterEngineer
+    sprite: _Funkystation/Clothing/OuterClothing/WinterCoats/engineer_insulated_coat.rsi
+  - type: Item
+    size: Normal
 
 - type: entity
   parent: ClothingOuterWinterCoatToggleable

@@ -16,6 +16,7 @@
     guides:
     - CommandSOP
     - CommandTrainingManual
+    - OrderOfSuccession
 
 - type: entity
   id: BookSOP

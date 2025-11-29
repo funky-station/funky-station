@@ -484,6 +484,8 @@
     - id: WantedListCartridge
     - id: DrinkHosFlask
     - id: RadioHandheldCommand #funkystation, no sec radio since they start with one
+    - id: BreachingCharge #funkystation knock knock, sec's here
+    - id: BreachingCharge #funkystation knock knock, sec's here
 
 # Hardsuit table, used for suit storage as well
 - type: entityTable

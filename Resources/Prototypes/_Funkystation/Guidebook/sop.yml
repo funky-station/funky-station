@@ -24,6 +24,71 @@
   - CargoSOP
   - AlertLevelsSOP
 
+# ALERT LEVELS
+
+- type: guideEntry
+  id: AlertLevelsSOP
+  name: guide-entry-alert-sop
+  text: "/ServerInfo/Funkystation/Guidebook/Command/AlertLevels.xml"
+  children:
+  - GreenAlertSOP
+  - YellowAlertSOP
+  - BlueAlertSOP
+  - RedAlertSOP
+  - VioletAlertSOP
+  - GammaAlertSOP
+  - DeltaAlertSOP
+  - OctarineAlertSOP
+
+- type: guideEntry
+  id: GreenAlertSOP
+  name: guide-entry-alertlevel-green
+  priority: 10
+  text: "/ServerInfo/Funkystation/Guidebook/AlertLevel/GreenAlert.xml"
+
+- type: guideEntry
+  id: YellowAlertSOP
+  name: guide-entry-alertlevel-yellow
+  priority: 20
+  text: "/ServerInfo/Funkystation/Guidebook/AlertLevel/YellowAlert.xml"
+
+- type: guideEntry
+  id: BlueAlertSOP
+  name: guide-entry-alertlevel-blue
+  priority: 30
+  text: "/ServerInfo/Funkystation/Guidebook/AlertLevel/BlueAlert.xml"
+
+- type: guideEntry
+  id: RedAlertSOP
+  name: guide-entry-alertlevel-red
+  priority: 40
+  text: "/ServerInfo/Funkystation/Guidebook/AlertLevel/RedAlert.xml"
+
+- type: guideEntry
+  id: VioletAlertSOP
+  name: guide-entry-alertlevel-violet
+  priority: 50
+  text: "/ServerInfo/Funkystation/Guidebook/AlertLevel/VioletAlert.xml"
+
+- type: guideEntry
+  id: GammaAlertSOP
+  name: guide-entry-alertlevel-gamma
+  priority: 60
+  text: "/ServerInfo/Funkystation/Guidebook/AlertLevel/GammaAlert.xml"
+
+- type: guideEntry
+  id: DeltaAlertSOP
+  name: guide-entry-alertlevel-delta
+  priority: 70
+  text: "/ServerInfo/Funkystation/Guidebook/AlertLevel/DeltaAlert.xml"
+
+# impstation cosmic cult
+- type: guideEntry
+  id: OctarineAlertSOP
+  name: alert-level-octarine
+  priority: 70
+  text: "/ServerInfo/Funkystation/Guidebook/AlertLevel/OctarineAlert.xml"
+
 # COMMAND
 
 - type: guideEntry

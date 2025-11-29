@@ -34,7 +34,7 @@ public sealed class TargetingSystem : SharedTargetingSystem
         .Bind(ContentKeyFunctions.TargetHead,
             InputCmdHandler.FromDelegate((session) => HandleTargetChange(session, TargetBodyPart.Head)))
         .Bind(ContentKeyFunctions.TargetTorso,
-            InputCmdHandler.FromDelegate((session) => HandleTargetChange(session, TargetBodyPart.Torso)))
+            InputCmdHandler.FromDelegate((session) => HandleTargetChange(session, TargetBodyPart.Chest)))
         .Bind(ContentKeyFunctions.TargetLeftArm,
             InputCmdHandler.FromDelegate((session) => HandleTargetChange(session, TargetBodyPart.LeftArm)))
         .Bind(ContentKeyFunctions.TargetLeftHand,

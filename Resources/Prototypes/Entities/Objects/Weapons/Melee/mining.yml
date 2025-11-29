@@ -85,7 +85,7 @@
     wideAnimationRotation: -90
     soundHit:
       path: "/Audio/Items/drill_hit.ogg"
-    attackRate: 3
+    attackRate: 3.5
     damage:
       groups:
         Brute: 3
@@ -169,7 +169,7 @@
     capacity: 1
     count: 1
   - type: MeleeWeapon
-    attackRate: 2
+    attackRate: 1.6
     wideAnimationRotation: -135
     damage:
       types:

@@ -32,7 +32,10 @@
 // SPDX-FileCopyrightText: 2024 Winkarst <74284083+Winkarst-cpu@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 dffdff2423 <dffdff2423@gmail.com>
 // SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 LaryNevesPR <LaryNevesPR@proton.me>
 // SPDX-FileCopyrightText: 2025 Lyndomen <49795619+Lyndomen@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Quantum-cross <7065792+Quantum-cross@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 // SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
@@ -54,6 +57,7 @@ using Content.Shared.Preferences.Loadouts;
 using Content.Shared.Random;
 using Content.Shared.Random.Helpers;
 using Content.Shared.Roles;
+using Content.Shared._Goobstation.Barks; // Goob Station - Barks
 using Content.Shared.Traits;
 using Robust.Shared.Collections;
 using Robust.Shared.Configuration;
@@ -128,6 +132,9 @@ namespace Content.Shared.Preferences
         [DataField]
         public ProtoId<SpeciesPrototype> Species { get; set; } = SharedHumanoidAppearanceSystem.DefaultSpecies;
 
+        [DataField] // Goob Station - Barks
+        public ProtoId<BarkPrototype> BarkVoice { get; set; } = SharedHumanoidAppearanceSystem.DefaultBarkVoice; // Goob Station - Barks
+
         [DataField]
         public int Age { get; set; } = 18;
 
@@ -195,11 +202,10 @@ namespace Content.Shared.Preferences
             Dictionary<string, RoleLoadout> loadouts,
             bool enabled,
             // Begin CD - Character Records
-            PlayerProvidedCharacterRecords? cdCharacterRecords
+            PlayerProvidedCharacterRecords? cdCharacterRecords,
             // End CD - Character Records
-            )
 
-
+            ProtoId<BarkPrototype> barkVoice) // Goob Station - Barks
         {
             Name = name;
             FlavorText = flavortext;
@@ -218,6 +224,7 @@ namespace Content.Shared.Preferences
             // Begin CD - Character Records
             CDCharacterRecords = cdCharacterRecords;
             // End CD - Character Records
+            BarkVoice = barkVoice; // Goob Station - Barks
         }
 
         /// <summary>Copy constructor</summary>
@@ -237,7 +244,9 @@ namespace Content.Shared.Preferences
                 new HashSet<ProtoId<TraitPrototype>>(other.TraitPreferences),
                 new Dictionary<string, RoleLoadout>(other.Loadouts),
                 other.Enabled,
-                other.CDCharacterRecords) // CD - Character Records
+                other.CDCharacterRecords, // CD - Character Records
+                other.BarkVoice // Goob Station - Barks
+                )
         {
         }
 
@@ -292,6 +301,14 @@ namespace Content.Shared.Preferences
                 age = random.Next(speciesPrototype.MinAge, speciesPrototype.OldAge); // people don't look and keep making 119 year old characters with zero rp, cap it at middle aged
             }
 
+            // Goob Station - Barks Start
+            var barkvoiceId = random.Pick(prototypeManager
+                .EnumeratePrototypes<BarkPrototype>()
+                .Where(o => o.RoundStart && (o.SpeciesWhitelist is null || o.SpeciesWhitelist.Contains(species)))
+                .ToArray()
+            );
+            //  Goob Station - Barks End
+
             var gender = Gender.Epicene;
 
             switch (sex)
@@ -318,6 +335,7 @@ namespace Content.Shared.Preferences
                 Gender = gender,
                 Species = species,
                 Appearance = HumanoidCharacterAppearance.Random(species, sex),
+                BarkVoice = barkvoiceId, // Goob Station - Barks
             };
         }
 
@@ -375,6 +393,13 @@ namespace Content.Shared.Preferences
             return new HumanoidCharacterProfile(this) { CDCharacterRecords = records };
         }
         // End CD - Character Records
+
+        // Goob Station - Barks Start
+        public HumanoidCharacterProfile WithBarkVoice(BarkPrototype barkVoice)
+        {
+            return new(this) { BarkVoice = barkVoice };
+        }
+        // Goob Station - Barks End
 
         public HumanoidCharacterProfile WithJobPreferences(IEnumerable<ProtoId<JobPrototype>> jobPreferences)
         {
@@ -515,6 +540,7 @@ namespace Content.Shared.Preferences
             if (Sex != other.Sex) return false;
             if (Gender != other.Gender) return false;
             if (Species != other.Species) return false;
+            if (BarkVoice != other.BarkVoice) return false; // Goob Station - Barks
             if (SpawnPriority != other.SpawnPriority) return false;
             if (!_jobPreferences.SequenceEqual(other._jobPreferences)) return false;
             if (!_antagPreferences.SequenceEqual(other._antagPreferences)) return false;
@@ -782,6 +808,7 @@ namespace Content.Shared.Preferences
             hashCode.Add(Appearance);
             hashCode.Add((int)SpawnPriority);
             hashCode.Add(Enabled);
+            hashCode.Add(BarkVoice); // Goob Station - Barks
             return hashCode.ToHashCode();
         }
 

@@ -537,6 +537,8 @@
     layerData:
     - sprite: Mobs/Silicon/holograms.rsi
       state: default
+  - type: SpeechSynthesis # Corvax-Frontier-Barks
+    voice: Borg
 
 # Hologram projection that the AI's eye tracks.
 - type: entity

@@ -1,17 +1,13 @@
+// SPDX-FileCopyrightText: 2025 Tyranex <bobthezombie4@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Server.Radio.Components;
 using Content.Shared.MalfAI;
 using Robust.Shared.GameObjects;
 using Robust.Shared.Serialization;
 
 namespace Content.Server.MalfAI;
-
-/// <summary>
-/// Event raised when the AI purchases syndicate keys
-/// </summary>
-[Serializable, DataDefinition]
-public sealed partial class MalfAiSyndicateKeysUnlockedEvent : EntityEventArgs
-{
-}
 
 /// <summary>
 /// System that handles granting syndicate radio communications to malfunction AI

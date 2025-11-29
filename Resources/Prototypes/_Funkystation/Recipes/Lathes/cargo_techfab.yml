@@ -1,4 +1,6 @@
+# SPDX-FileCopyrightText: 2025 ThatOneMoon <91613003+ThatOneMoon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
+# SPDX-FileCopyrightText: 2025 Xcybitt <xcybitt@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -120,3 +122,12 @@
   materials:
     Steel: 100               
     Plastic: 50           
+
+- type: latheRecipe
+  parent: BaseWeaponRecipe
+  id: WeaponFlareGun
+  result: WeaponFlareGun
+  completetime: 6
+  materials:
+    Plastic: 100
+    Steel: 400

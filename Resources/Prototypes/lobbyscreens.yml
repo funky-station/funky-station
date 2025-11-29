@@ -66,13 +66,13 @@
 #  id: TerminalStation
 #  background: /Textures/LobbyScreens/terminalstation.webp
 
-- type: lobbyBackground
-  id: JustAWeekAway
-  background: /Textures/LobbyScreens/justaweekaway.webp
+#- type: lobbyBackground
+#  id: JustAWeekAway
+#  background: /Textures/LobbyScreens/justaweekaway.webp
 
-- type: lobbyBackground
-  id: JaniShootout
-  background: /Textures/LobbyScreens/janishootout.webp
+#- type: lobbyBackground
+#  id: JaniShootout
+#  background: /Textures/LobbyScreens/janishootout.webp
 
 - type: lobbyBackground
   id: ReclaimerNuke
@@ -121,3 +121,11 @@
 - type: lobbyBackground
   id: usualsuspects
   background: /Textures/LobbyScreens/usualsuspects.webp
+
+- type: lobbyBackground
+  id: termina
+  background: /Textures/LobbyScreens/TERMINA.webp
+
+- type: lobbyBackground
+  id: ratburgers
+  background: /Textures/LobbyScreens/ratburgers.webp

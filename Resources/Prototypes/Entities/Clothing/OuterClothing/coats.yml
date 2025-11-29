@@ -43,8 +43,11 @@
 # SPDX-FileCopyrightText: 2024 Ubaser <134914314+UbaserB@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Fr0goo <153249069+Fr0goo@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Fr0goo <frogoofrog@outlook.com>
 # SPDX-FileCopyrightText: 2025 QueerCats <jansencheng3@gmail.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 Xcybitt <xcybitt@gmail.com>
 # SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
@@ -119,13 +122,15 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.7
-        Slash: 0.7
-        Piercing: 0.7
+        Blunt: 0.65
+        Slash: 0.65
+        Piercing: 0.6
         Heat: 0.7
         Caustic: 0.75 # not the full 90% from ss13 because of the head
   - type: ExplosionResistance
-    damageCoefficient: 0.9
+    damageCoefficient: 0.8
+  - type: StaminaResistance
+    damageCoefficient: 0.8
 
 - type: entity
   abstract: true
@@ -135,13 +140,14 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.7
-        Slash: 0.7
-        Piercing: 0.7
+        Blunt: 0.6
+        Slash: 0.6
+        Piercing: 0.65
         Heat: 0.7
   - type: ExplosionResistance
     damageCoefficient: 0.9
-
+  - type: StaminaResistance
+    damageCoefficient: 0.8
 - type: entity
   parent: [ClothingOuterArmorHoS, ClothingOuterStorageBase, BaseSecurityCommandContraband]
   id: ClothingOuterCoatHoSTrench
@@ -535,3 +541,19 @@
   parent: [ClothingOuterStorageFoldableBaseOpened, ClothingOuterCoatExpensive]
   id: ClothingOuterCoatExpensiveOpened
   name: expensive coat
+
+- type: entity
+  parent: ClothingOuterStorageFoldableBase
+  id: ClothingOuterCoatRain
+  name: rain coat
+  description: you never know when it might rain in space...
+  components:
+  - type: Sprite
+    sprite: Clothing/OuterClothing/Coats/rain_coat.rsi
+  - type: Clothing
+    sprite: Clothing/OuterClothing/Coats/rain_coat.rsi
+
+- type: entity
+  parent: [ClothingOuterStorageFoldableBaseOpened, ClothingOuterCoatRain]
+  id: ClothingOuterCoatRainOpened
+  name: rain coat

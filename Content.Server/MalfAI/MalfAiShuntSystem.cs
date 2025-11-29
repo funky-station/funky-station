@@ -64,6 +64,10 @@ public sealed class MalfAiShuntSystem : EntitySystem
         // Ensure the APC has a suitable slot/container to hold the AI brain.
         var destContainer = _containers.EnsureContainer<ContainerSlot>(target, StationAiHolderComponent.Container);
 
+        // Ensure APC can be interacted with via intellicard by adding a StationAiHolderComponent dynamically.
+        // This links the existing container to an ItemSlot so the standard intellicard transfer logic works.
+        EnsureComp<StationAiHolderComponent>(target);
+
         // Edge case popup for if there's another malf AI occupying. Which probably will never happen, but still.
         if (destContainer.ContainedEntities.Count != 0)
         {
@@ -169,11 +173,20 @@ public sealed class MalfAiShuntSystem : EntitySystem
         }
 
         // Move back into the core holder.
+        var previousHolder = currentContainer.Owner;
         _containers.Remove(ai.Owner, currentContainer);
         _containers.Insert(ai.Owner, coreContainer);
 
         // Keep the AI marked as held.
         EnsureComp<StationAiHeldComponent>(ai);
+
+        // If we had dynamically added a StationAiHolderComponent to an APC, clean it up when empty.
+        if (HasComp<ApcComponent>(previousHolder))
+        {
+            var prevContainer = _containers.EnsureContainer<ContainerSlot>(previousHolder, StationAiHolderComponent.Container);
+            if (prevContainer.ContainedEntities.Count == 0)
+                RemCompDeferred<StationAiHolderComponent>(previousHolder);
+        }
 
         // Close any open viewport UI on return as well (safety: this ensures a fresh open at core).
         if (TryComp<ActorComponent>(ai, out var actor) && actor.PlayerSession != null)

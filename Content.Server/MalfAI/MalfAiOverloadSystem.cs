@@ -54,7 +54,6 @@ public sealed class MalfAiOverloadSystem : EntitySystem
         if (mapCoords.MapId == MapId.Nullspace)
         {
             _popup.PopupEntity(Loc.GetString("malfai-overload-invalid-location"), popupTarget, ai);
-            args.Handled = true;
             return;
         }
 
@@ -75,7 +74,6 @@ public sealed class MalfAiOverloadSystem : EntitySystem
         if (targetMachine == null)
         {
             _popup.PopupEntity(Loc.GetString("malfai-overload-no-machine"), popupTarget, ai);
-            args.Handled = true;
             return;
         }
 
@@ -83,7 +81,6 @@ public sealed class MalfAiOverloadSystem : EntitySystem
         if (TryComp<ApcPowerReceiverComponent>(targetMachine.Value, out var powerReceiver) && !powerReceiver.Powered)
         {
             _popup.PopupEntity(Loc.GetString("malfai-overload-not-powered"), popupTarget, ai);
-            args.Handled = true;
             return;
         }
 

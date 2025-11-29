@@ -2,6 +2,8 @@
 # SPDX-FileCopyrightText: 2024 Mr. 27 <45323883+Dutch-VanDerLinde@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 MaiaArai <158123176+YaraaraY@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Mora <46364955+TrixxedHeart@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 TrixxedHeart <46364955+TrixxedBit@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
@@ -23,16 +25,51 @@
   equipment:
     head: ClothingHeadHatCargosoft
 
+- type: loadout
+  id: SeniorCargoTechnicianBeret
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SeniorCargo
+  equipment:
+    head: ClothingHeadHatCargoSeniorBeret
+  groupBy: "jumpsuit"
+
+# Neck
+- type: loadout
+  id: CargoTechnicianLiftBelt
+  equipment:
+    neck: ClothingNeckCargoLiftBelt
+
 # Jumpsuit
 - type: loadout
   id: CargoTechnicianJumpsuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitCargo
+  groupBy: "jumpsuit"
 
 - type: loadout
   id: CargoTechnicianJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtCargo
+  groupBy: "jumpskirt"
+
+- type: loadout
+  id: CargoTechnicianOfficeShirt
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitCargoShirt
+  groupBy: "jumpsuit"
+
+- type: loadout
+  id: CargoTechnicianTop
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitCargoTop
+  groupBy: "jumpskirt"
+
+- type: loadout
+  id: CargoTechnicianMailJumpsuit
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitCargoMailJumpSuit
+  groupBy: "jumpsuit"
 
 - type: loadout
   id: SeniorCargoTechnicianJumpskirt
@@ -41,6 +78,7 @@
     proto: SeniorCargo
   equipment:
     jumpsuit: ClothingUniformJumpskirtSeniorCargo
+  groupBy: "jumpskirt"
 
 - type: loadout
   id: SeniorCargoTechnicianJumpsuit
@@ -49,6 +87,7 @@
     proto: SeniorCargo
   equipment:
     jumpsuit: ClothingUniformJumpsuitSeniorCargo
+  groupBy: "jumpsuit"
 
 # Back
 - type: loadout
@@ -68,17 +107,19 @@
 
 # OuterClothing
 - type: loadout
-  id: CargoTechnicianWintercoat
+  id: CargoTechnicianWindbreaker
   equipment:
-    outerClothing: ClothingOuterWinterCargo
+    outerClothing: ClothingOuterCargoWindbreaker
+  groupBy: "coat"
 
 - type: loadout
-  id: SeniorCargoTechnicianWinterCoat
+  id: SeniorCargoTechnicianWindbreaker
   effects:
   - !type:GroupLoadoutEffect
     proto: SeniorCargo
   equipment:
-    jumpsuit: ClothingOuterWinterSeniorCargo
+    outerClothing: ClothingOuterCargoSeniorWindbreaker
+  groupBy: "coat"
 
 # Shoes
 - type: loadout

@@ -1,8 +1,11 @@
 # SPDX-FileCopyrightText: 2025 88tv <131759102+88tv@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 8tv <eightev@gmail.com>
+# SPDX-FileCopyrightText: 2025 Dusty-Plant <34702649+Dusty-Plant@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Errant <35878406+Errant-4@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Lary <89530982+LaryNevesPR@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Southbridge <7013162+southbridge-fur@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 brainfood1183 <113240905+brainfood1183@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -19,6 +22,20 @@
   - type: ConditionalSpawner
     prototypes:
     - MobClownSpider
+
+- type: entity
+  parent: MarkerBase
+  id: SpawnClownSpiderNoGhost # Funky Station - Court map
+  name: clown spider spawner (no ghostrole)
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - state: clown
+      sprite: Mobs/Animals/clownspider.rsi
+  - type: ConditionalSpawner
+    prototypes:
+    - MobClownSpiderNoGhost
 
 - type: entity
   parent: MarkerBase

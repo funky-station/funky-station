@@ -1,0 +1,14 @@
+# SPDX-FileCopyrightText: 2025 tea <xerithin@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadScaryMask
+  name: old mask
+  description: Used to be NanoTrasen's bestseller during Halloween until they lost a legal battle over its licensing. Scary.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Head/Misc/scarymask.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Head/Misc/scarymask.rsi

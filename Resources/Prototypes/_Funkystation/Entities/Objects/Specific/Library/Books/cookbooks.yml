@@ -23,16 +23,18 @@
       color: "#b12023"
     - state: detail_bookmark
       color: "#2c5491"
+  - type: OocAuthorship
+    oocAuthor: mkanke
   - type: Paper
     stampedBy:
-    - stampedColor: '#d0c5c7'
-      stampedName: ""
+    - stampedColor: '#134975'
+      stampedName: "NT APPROVED"
     content: |2
       [color=#1b67a5][head=1]Granny Pecons[/head]
       [head=2]Guide to Pies[/head][/color]
       A book by Gertrude Pecon
       ================================================
-      [italic]In loving memory of my late husband Jacob Pecon. Wthout his help as a taste tester I never could have reached this point.[/italic]
+      [italic]In loving memory of my late husband Jacob Pecon. Without his help as a taste tester I never could have reached this point.[/italic]
       ================================================
       Table of contents:
       - Unit conversion
@@ -155,6 +157,3 @@
       - one pie tin
 
         Bake in a microwave on high for 15 seconds.
-
-
-      [italic]OOC Author - mkanke[/italic]

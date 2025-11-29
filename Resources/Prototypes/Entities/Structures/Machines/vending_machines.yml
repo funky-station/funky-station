@@ -76,9 +76,13 @@
 # SPDX-FileCopyrightText: 2024 Velcroboy <107660393+IamVelcroboy@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 degradka <69397649+degradka@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 erohrs2 <157842463+erohrs2@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 strO0pwafel <153459934+strO0pwafel@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Dark <darkwindleaf@hotmail.co.uk>
+# SPDX-FileCopyrightText: 2025 Lyndomen <49795619+Lyndomen@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
+# SPDX-FileCopyrightText: 2025 Victoriafae <jhardtmadsen@gmail.com>
+# SPDX-FileCopyrightText: 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
@@ -1656,39 +1660,39 @@
     rotateWhileAnchored: false
     rotateWhilePulling: true
 
-- type: entity
-  parent: VendingMachine
-  id: VendingMachineSalvage
-  name: Salvage Vendor
-  description: A dwarf's best friend!
-  components:
-  - type: VendingMachine
-    pack: SalvageEquipmentInventory
-    offState: off
-    brokenState: broken
-    normalState: normal-unshaded
-    denyState: deny-unshaded
-  - type: Sprite
-    sprite: Structures/Machines/VendingMachines/mining.rsi
-    layers:
-    - state: "off"
-      map: ["enum.VendingMachineVisualLayers.Base"]
-    - state: "off"
-      map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
-      shader: unshaded
-    - state: panel
-      map: ["enum.WiresVisualLayers.MaintenancePanel"]
-  - type: PointLight
-    radius: 2
-    energy: 1.6
-    color: "#b89f25"
-    mask: /Textures/Effects/LightMasks/cone.png
-    autoRot: true
-  - type: AccessReader
-    access: [["Salvage"]]
-  - type: GuideHelp
-    guides:
-    - Salvage
+# - type: entity # Funky Station: The Salvage Vendor has been overhauled into the salvage ticket vendor, the prototype for this has been moved into funky station folders, as it no longer funtions like a regular vending machine
+#  parent: VendingMachine
+#  id: VendingMachineSalvage
+#  name: Salvage Vendor
+#  description: A dwarf's best friend!
+#  components:
+#  - type: VendingMachine
+#    pack: SalvageEquipmentInventory
+#   offState: off
+#    brokenState: broken
+#    normalState: normal-unshaded
+#    denyState: deny-unshaded
+#  - type: Sprite
+#    sprite: Structures/Machines/VendingMachines/mining.rsi
+#    layers:
+#    - state: "off"
+#      map: ["enum.VendingMachineVisualLayers.Base"]
+#   - state: "off"
+#      map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
+#      shader: unshaded
+#    - state: panel
+#      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+#  - type: PointLight
+#    radius: 2
+#    energy: 1.6
+#    color: "#b89f25"
+#    mask: /Textures/Effects/LightMasks/cone.png
+#    autoRot: true
+#  - type: AccessReader
+#   access: [["Salvage"]]
+#  - type: GuideHelp
+#    guides:
+#    - Salvage
 
 - type: entity
   parent: VendingMachine
@@ -2521,7 +2525,7 @@
   parent: VendingMachineChemicals
   id: VendingMachineChemicalsSyndicate
   name: SyndieJuice
-  description: Not made with freshly squeezed syndies I hope.
+  description: Not made with freshly squeezed syndies, I hope. Backwards compatible with standard ChemVend restocks. # DeltaV: Add chemvend part
   components:
   - type: VendingMachine
     pack: ChemVendInventorySyndicate

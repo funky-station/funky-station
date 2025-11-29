@@ -162,6 +162,10 @@ public sealed class MalfAiDoomsdaySystem : EntitySystem
 
         // Initial announcement.
         AnnounceRemaining(ai.Owner, comp.RemainingTime, initial: true);
+
+        // Raise event to notify systems that doomsday has started
+        RaiseLocalEvent(new MalfAiDoomsdayStartedEvent(station.Value, ai.Owner));
+
         args.Handled = true;
     }
 

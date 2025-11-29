@@ -1,6 +1,8 @@
 # SPDX-FileCopyrightText: 2025 ATDoop <bug@bug.bug>
+# SPDX-FileCopyrightText: 2025 Aurelai <81323207+ItsAurelai@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 ItsAurelai <81323207+ItsAurelai@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 emmawantsblahaj <coolbloxxie@yahoo.com.au>
 # SPDX-FileCopyrightText: 2025 ferynn <117872973+ferynn@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
@@ -18,7 +20,7 @@
   - DontSpeakToCommand
   - DisapproveOfDrugs
   - ExcessivelyDisorganized
-  - DetestSilicons
+  # - DetestSilicons # this mood has been causing some instances of speciesism recently
   - DinnerFloor
   - HugBad
   - Atheist

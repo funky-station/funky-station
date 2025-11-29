@@ -52,9 +52,13 @@
 # SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 MaiaArai <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 QueerCats <jansencheng3@gmail.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 ThatOneMoon <91613003+ThatOneMoon@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
 # SPDX-FileCopyrightText: 2025 VMSolidus <evilexecutive@gmail.com>
+# SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 ferynn <117872973+ferynn@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
@@ -102,9 +106,9 @@
   description: A special suit that protects against hazardous, low pressure environments. Has thermal shielding.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Hardsuits/atmospherics.rsi
+    sprite: _Funkystation/Clothing/OuterClothing/Hardsuits/atmospherics.rsi
   - type: Clothing
-    sprite: Clothing/OuterClothing/Hardsuits/atmospherics.rsi
+    sprite: _Funkystation/Clothing/OuterClothing/Hardsuits/atmospherics.rsi
   - type: PressureProtection
     highPressureMultiplier: 0.02
     lowPressureMultiplier: 1000
@@ -138,9 +142,9 @@
   description: A special suit that protects against hazardous, low pressure environments. Has radiation shielding.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Hardsuits/engineering.rsi
+    sprite: _Funkystation/Clothing/OuterClothing/Hardsuits/engineering.rsi
   - type: Clothing
-    sprite: Clothing/OuterClothing/Hardsuits/engineering.rsi
+    sprite: _Funkystation/Clothing/OuterClothing/Hardsuits/engineering.rsi
   - type: PressureProtection
     highPressureMultiplier: 0.04
     lowPressureMultiplier: 1000
@@ -184,6 +188,8 @@
         Piercing: 0.90
         Radiation: 0.40
         Caustic: 0.80
+  - type: ExplosionResistance
+    damageCoefficient: 0.8
   - type: ClothingSpeedModifier
     walkModifier: 0.90
     sprintModifier: 0.80
@@ -219,7 +225,7 @@
         Radiation: 0.3
         Caustic: 0.85
   - type: ExplosionResistance
-    damageCoefficient: 0.8
+    damageCoefficient: 0.7
   - type: ClothingSpeedModifier
     walkModifier: 0.85
     sprintModifier: 0.85
@@ -232,7 +238,7 @@
   parent: [ClothingOuterHardsuitBase, AllowBackStorageClothingCombat, BaseCargoContraband]
   id: ClothingOuterHardsuitGoliath
   name: goliath hardsuit
-  description: A lightweight hardsuit, adorned with a patchwork of thick, chitinous goliath hide.
+  description: A bulky hardsuit, adorned with a patchwork of thick, chitinous goliath hide.
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Hardsuits/goliath.rsi
@@ -251,7 +257,7 @@
         Caustic: 0.75
         Radiation: 0.4
   - type: ExplosionResistance
-    damageCoefficient: 0.75
+    damageCoefficient: 0.65
   - type: ClothingSpeedModifier
     walkModifier: 0.75
     sprintModifier: 0.75
@@ -438,9 +444,9 @@
   description: A special hardsuit that protects against hazardous, low pressure environments, made for the chief engineer of the station.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Hardsuits/engineering-white.rsi
+    sprite: _Funkystation/Clothing/OuterClothing/Hardsuits/engineering-white.rsi
   - type: Clothing
-    sprite: Clothing/OuterClothing/Hardsuits/engineering-white.rsi
+    sprite: _Funkystation/Clothing/OuterClothing/Hardsuits/engineering-white.rsi
   - type: PressureProtection
     highPressureMultiplier: 0.02
     lowPressureMultiplier: 1000
@@ -474,13 +480,13 @@
 - type: entity
   parent: [ClothingOuterHardsuitBase, BaseCommandContraband]
   id: ClothingOuterHardsuitMedical
-  name: chief medical officer's hardsuit
+  name: chief medical officer's voidsuit
   description: A special suit that protects against hazardous, low pressure environments. Built with lightweight materials for easier movement.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Hardsuits/medical.rsi
+    sprite: _Funkystation/Clothing/OuterClothing/Hardsuits/medical.rsi
   - type: Clothing
-    sprite: Clothing/OuterClothing/Hardsuits/medical.rsi
+    sprite: _Funkystation/Clothing/OuterClothing/Hardsuits/medical.rsi
   - type: PressureProtection
     highPressureMultiplier: 0.3
     lowPressureMultiplier: 1000
@@ -578,7 +584,7 @@
 - type: entity
   parent: [ClothingOuterHardsuitBase, AllowBackStorageClothingCombat, BaseCommandContraband]
   id: ClothingOuterHardsuitLuxury
-  name: quartermasters luxury hardsuit
+  name: quartermaster's luxury hardsuit
   description: A high quality custom ordered hardsuit, fashioned after the Quartermaster's colors.
   components:
   - type: Sprite
@@ -598,7 +604,7 @@
         Caustic: 0.8
         Heat: 0.8
   - type: ExplosionResistance
-    damageCoefficient: 0.75
+    damageCoefficient: 0.65
   - type: ClothingSpeedModifier
     walkModifier: 0.85
     sprintModifier: 0.85

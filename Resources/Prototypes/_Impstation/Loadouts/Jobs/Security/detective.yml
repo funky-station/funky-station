@@ -7,18 +7,22 @@
   id: ClothingUniformMiamiVice
   equipment:
     jumpsuit: ClothingUniformMiamiVice #imp
+  groupBy: "jumpsuit"
 
 - type: loadout
   id: ClothingUniformMiamiViceSkirt
   equipment:
     jumpsuit: ClothingUniformMiamiViceSkirt #imp
+  groupBy: "jumpskirt"
 
 - type: loadout
   id: ClothingUniformDetectiveSuit
   equipment:
     jumpsuit: ClothingUniformDetectiveSuit #imp
+  groupBy: "jumpsuit"
 
 - type: loadout
   id: ClothingUniformDetectiveSuitSkirt
   equipment:
     jumpsuit: ClothingUniformDetectiveSuitSkirt #imp
+  groupBy: "jumpskirt"

@@ -24,7 +24,7 @@ head-rev-role-greeting =
     You are tasked with removing all of Command from station via converting, death, exilement or imprisonment.
     The Syndicate has sponsored you with a flash that converts the crew to your side, which may be retrieved from your Uplink using code [color = lightgray]{$code}[/color].
     Beware, this won't work on those wearing flash-protection, or on Mindshielded crew such as Security or Command.
-    Viva la revolución!
+    Vivu la revolucio!
 
 head-rev-briefing =
     Use flashes to convert people to your cause.
@@ -42,11 +42,17 @@ roles-antag-rev-objective = Your objective is to ensure the safety and follow th
 
 rev-break-control = {$name} has remembered their true allegiance!
 
+rev-lieutenant-greeting =
+    You are a Revolutionary Lieutenant.
+    You are able to see your comrades, but are unable to convert anyone.
+    Lead your department and co-ordinate with your fellow revolutionaries and head revolutionaries.
+    Vivu la revolucio!
+
 rev-role-greeting =
     You are a Revolutionary.
     You are tasked with taking over the station and protecting the Head Revolutionaries.
-    Get rid of all of the Command staff.
-    Viva la revolución!
+    Get rid of all of the Command staff, and listen to your Lieutenants!
+    Vivu la revolucio!
 
 rev-briefing = Help your head revolutionaries convert or get rid of every head to take over the station.
 

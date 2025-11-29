@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2025 Terkala <appleorange64@gmail.com>
+// SPDX-FileCopyrightText: 2025 Tyranex <bobthezombie4@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 // SPDX-FileCopyrightText: 2025 Tyranex <bobthezombie4@gmail.com>
 
 // SPDX-License-Identifier: MIT
@@ -37,44 +42,20 @@ public sealed class MalfAiCameraMicrophonesSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
-        // Toggle action handling (only available to entities with StationAiHeldComponent; i.e., the AI).
-        SubscribeLocalEvent<StationAiHeldComponent, MalfAiToggleCameraMicrophonesActionEvent>(OnToggle);
-
         // Add recipients to IC chat when conditions are satisfied.
         SubscribeLocalEvent<ExpandICChatRecipientsEvent>(OnExpandRecipients);
+
+        // Grant-on-purchase event (from store): enable the camera microphones without an action toggle.
+        SubscribeLocalEvent<MalfAiMarkerComponent, MalfAiCameraMicrophonesUnlockedEvent>(OnCameraMicrophonesUnlocked);
     }
 
-    private void OnToggle(Entity<StationAiHeldComponent> ai, ref MalfAiToggleCameraMicrophonesActionEvent args)
+    private void OnCameraMicrophonesUnlocked(EntityUid uid, MalfAiMarkerComponent marker, MalfAiCameraMicrophonesUnlockedEvent ev)
     {
-        if (args.Handled)
-            return;
-
-        if (ai.Owner == EntityUid.Invalid)
-            return;
-
-        var comp = EnsureComp<MalfAiCameraMicrophonesComponent>(ai.Owner);
-
-        // Flip desired state
-        comp.EnabledDesired = !comp.EnabledDesired;
-
-        // Compute effective based on core status (we are in-core due to StationAiHeldComponent)
-        comp.EnabledEffective = comp.EnabledDesired;
-
-        Dirty(ai.Owner, comp);
-
-        // Show status message to player
-        var message = comp.EnabledEffective
-            ? Loc.GetString("malfai-camera-microphones-enabled")
-            : Loc.GetString("malfai-camera-microphones-disabled");
-
-        if (TryComp(ai.Owner, out ActorComponent? actor))
-        {
-            // Show popup above AI eye instead of core
-            var popupTarget = GetAiEyeForPopup(ai.Owner) ?? ai.Owner;
-            _popup.PopupEntity(message, popupTarget, actor.PlayerSession);
-        }
-
-        args.Handled = true;
+        // Ensure the per-AI microphones component exists and mark it enabled permanently.
+        var comp = EnsureComp<MalfAiCameraMicrophonesComponent>(uid);
+        comp.EnabledDesired = true;
+        comp.EnabledEffective = true;
+        Dirty(uid, comp);
     }
 
     /// <summary>
@@ -97,7 +78,8 @@ public sealed class MalfAiCameraMicrophonesSystem : EntitySystem
             return;
 
         var xformQuery = GetEntityQuery<TransformComponent>();
-        var sourceXform = Transform(ev.Source);
+        if (!TryComp<TransformComponent>(ev.Source, out var sourceXform))
+            return;
         var sourcePos = _xforms.GetWorldPosition(sourceXform, xformQuery);
 
 
@@ -113,7 +95,8 @@ public sealed class MalfAiCameraMicrophonesSystem : EntitySystem
                 continue;
 
             var eye = core.Comp.RemoteEntity.Value;
-            var eyeXform  = Transform(eye);
+            if (!TryComp<TransformComponent>(eye, out var eyeXform))
+                continue;
             var eyePos = _xforms.GetWorldPosition(eyeXform, xformQuery);
 
             // Find cameras where BOTH the speaker AND the AI eye are in range of the SAME camera.

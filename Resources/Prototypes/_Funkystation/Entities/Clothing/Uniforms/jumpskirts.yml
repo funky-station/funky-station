@@ -1,4 +1,7 @@
+# SPDX-FileCopyrightText: 2025 MaiaArai <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Middleson5 <Chance@thethiers.com>
+# SPDX-FileCopyrightText: 2025 ThatOneMoon <91613003+ThatOneMoon@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
 # SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
@@ -29,3 +32,29 @@
     sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/senior_cargo.rsi
   - type: Clothing
     sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/senior_cargo.rsi
+
+# quartermaster formal suit (by Frogoo)
+
+- type: entity
+  parent: [ClothingUniformBase, BaseCommandContraband]
+  id: ClothingUniformJumpskirtQMFormal
+  name: quartermaster's formal dress
+  description: With this dress you'll look like a million bucks! Just dont get it stained.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/qm_suit.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/qm_suit.rsi
+
+# cargo top! (by AraiMaia)
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitCargoTop
+  name: cargo tech top
+  description: A black tanktop over a pair of cargo pants, with an office shirt tied around the waist. Gets toasty moving that freight.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/cargoshirt.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/cargoshirt.rsi

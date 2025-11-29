@@ -3,6 +3,7 @@
 # SPDX-FileCopyrightText: 2023 PixelTK <85175107+PixelTheKermit@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2023 metalgearsloth <comedian_vs_clown@hotmail.com>
 # SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Drywink <hugogrethen@gmail.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
@@ -26,3 +27,19 @@
     icon: Interface/Actions/web.png
     event: !type:SericultureActionEvent
     useDelay: 1
+
+- type: entity
+  id: ActionWrap
+  name: Cocoon prey
+  description: Wrap a nearby humanoid in immobilizing silk.
+  components:
+  - type: EntityTargetAction
+    whitelist:
+      components:
+      - Body
+    canTargetSelf: false
+    interactOnMiss: false
+    itemIconStyle: NoItem
+    icon: _Funkystation/Interface/Actions/cocoon.png
+    iconOn: _Funkystation/Interface/Actions/cocoon.png
+    event: !type:WrapActionEvent {}

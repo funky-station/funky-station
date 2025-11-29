@@ -130,7 +130,7 @@
   id: CrateEmergencyInflatablewall
   parent: CratePlastic
   name: inflatable wall crate
-  description: A crate with a total of 15 inflatable walls and 5 inflatable doors. Just twist the valve and watch them expand into airtight structures!
+  description: A crate with a total of 15 inflatable walls and 5 inflatable doors. Just twist the ripvalve and watch them expand into airtight structures!
   components:
   - type: StorageFill
     contents:

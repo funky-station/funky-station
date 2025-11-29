@@ -5951,3 +5951,13 @@ Entries:
         instead replaced by a swarm of carp. 
   id: 703
   time: '2025-11-29T07:58:45.0000000+00:00'
+- author: salpphie
+  changes:
+    - type: Add
+      message: >-
+        Added Yip-Yap to kitchen, Added Detdrobe to Dectives room, Added the SM
+        to Engineering
+    - type: Tweak
+      message: Tweaked the layout of Engineering to fit the SM
+  id: 704
+  time: '2025-11-29T15:08:09.0000000+00:00'

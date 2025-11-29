@@ -40,6 +40,7 @@
       - id: BookSecurity
       - id: BookSpaceEncyclopedia
       - id: BookSpaceLaw
+      - id: BookSOP
       - id: BookTheBookOfControl
       - id: BookCookbookPie #Funky
     # Handwritten books

@@ -468,7 +468,6 @@
     - BorgFireExtinguisher
     - BorgHandheldGPSBasic
     - GasAnalyzer
-    - HolofanProjectorBorg
     - GeigerCounter
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: rcd-module }
@@ -486,6 +485,8 @@
     items:
     - RPDRecharging
     - HolofanProjectorRecharging
+    - BorgFirefighterTank
+    - FirefighterNozzle
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: atmos-module }
 

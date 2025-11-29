@@ -920,6 +920,7 @@
     - Cautery
     - SawElectric
     - BoneGel
+    - SoapNT
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: surgery-module }
 
@@ -938,5 +939,6 @@
     - EnergyCautery
     - AdvancedRetractor
     - BoneGel
+    - SoapOmega #Omega soap should be better at cleaning surgical tools but i dont know how to do that so it just gets omega soap for flavor right now
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: adv-surgery-module }

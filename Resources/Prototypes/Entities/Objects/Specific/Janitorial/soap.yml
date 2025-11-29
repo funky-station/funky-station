@@ -274,3 +274,4 @@
   - type: Residue
     residueAdjective: residue-slippery
     residueColor: residue-blue
+  #TODO: Make it so this cleans more dirt in the surgerycleansdirtcomponent

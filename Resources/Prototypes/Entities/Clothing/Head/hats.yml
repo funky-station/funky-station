@@ -70,9 +70,12 @@
 # SPDX-FileCopyrightText: 2024 ravage <142820619+ravage123321@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 strO0pwafel <153459934+strO0pwafel@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Fr0goo <153249069+Fr0goo@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Fr0goo <frogoofrog@outlook.com>
 # SPDX-FileCopyrightText: 2025 GumshoeWorm <thelunaman365@gmail.com>
 # SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 mkanke-real <mikekanke@gmail.com>
 # SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
@@ -345,6 +348,14 @@
   - type: ContainerContainer
     containers:
       storagebase: !type:Container
+      hidden_slot: !type:ContainerSlot
+  - type: ItemSlots
+    slots:
+      hidden_slot:
+        name: computer_slot_accessory
+        whitelist:
+          tags:
+          - ListeningBug
   - type: PilotedClothing
     pilotWhitelist:
       tags:
@@ -973,6 +984,14 @@
   - type: ContainerContainer
     containers:
       storagebase: !type:Container
+      hidden_slot: !type:ContainerSlot
+  - type: ItemSlots
+    slots:
+      hidden_slot:
+        name: table_slot_hidden
+        whitelist:
+          tags:
+          - ListeningBug
   - type: Tag
 
 - type: entity
@@ -1243,3 +1262,14 @@
   - type: Clothing
     equippedPrefix: on
     sprite: Clothing/Head/Hats/propellerhat.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadRainHat
+  name: rain hat
+  description: a hat to protect your head from rain! essential for any slime person to have just incase
+  components:
+  - type: Sprite
+    sprite: Clothing/Head/Hats/rain_hat.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Hats/rain_hat.rsi

@@ -500,6 +500,9 @@
     # End Delta-V additions
     - SurveillanceWirelessCameraBodyEntertainment #funk
     - UtilityKnife #funk
+    - CandyBowl #pill(pill that pills you) #funk
+    - DeskBell #ringringring #funk
+    - BaseHandheldTelevision #watch my channels #funk
     dynamicRecipes:
     - BoomboxRed
     - BoomboxGreen
@@ -562,6 +565,14 @@
       machine_board: !type:Container
       machine_parts: !type:Container
       blueprint: !type:Container
+      hidden_slot: !type:ContainerSlot
+  - type: ItemSlots
+    slots:
+      hidden_slot:
+        name: computer_slot_accessory
+        whitelist:
+          tags:
+          - ListeningBug
   - type: EmptyOnMachineDeconstruct
     containers:
     - blueprint
@@ -1194,6 +1205,7 @@
     - BoxShotgunIncendiary
     - BoxShotgunUranium
     - BoxShellTranquilizer
+    - BreachingCharge #funkystation
     - ClothingBackpackElectropack
     - ExplosivePayload
     - FlashPayload
@@ -1423,6 +1435,8 @@
     - MedHUD # Funky
     - Vial # Funky
     - UtilityKnife #if you don't have scalpels ig #funk
+    - CandyBowl #pill(pill that pills you) #funk
+    - DeskBell #ringringring #funk
     dynamicRecipes:
     - ChemicalPayload
     - CryostasisBeaker

@@ -125,15 +125,29 @@
       - id: DrinkShotGlass
         amount: 2
 
+# Funky inflatables
 - type: entity
   id: CrateEmergencyInflatablewall
   parent: CratePlastic
   name: inflatable wall crate
-  description: Three stacks of inflatable walls for when the stations metal walls don't want to hold atmosphere anymore.
+  description: A crate with a total of 15 inflatable walls and 5 inflatable doors. Just twist the valve and watch them expand into airtight structures!
   components:
   - type: StorageFill
     contents:
       - id: BoxInflatable
+        amount: 1
+
+- type: entity
+  id: CrateEmergencyInflatablefloor
+  parent: CratePlastic
+  name: inflatable floor crate
+  description: A full box of cheap and squeaky floor tiles to deploy in 'emergency' situations. Can only be placed over space.
+  components:
+  - type: StorageFill
+    contents:
+      - id: BoxInflatableFloor
+        amount: 1
+#end of funky inflatables
 
 - type: entity
   id: CrateGenericBiosuit

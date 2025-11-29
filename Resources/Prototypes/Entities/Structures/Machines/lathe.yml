@@ -501,6 +501,9 @@
     - CandyBowl #pill(pill that pills you) #funk
     - DeskBell #ringringring #funk
     - BaseHandheldTelevision #watch my channels #funk
+    - InflatableWall #funky inflatables
+    - InflatableDoor #funk
+    - InflatableFloor #funk
     dynamicRecipes:
     - BoomboxRed
     - BoomboxGreen

@@ -251,24 +251,6 @@
         amount: 3
 
 - type: entity
-  name: inflatable wall box
-  parent: BoxCardboard
-  id: BoxInflatable
-  description: Inflatable walls are not to be used as floatation devices.
-  components:
-  - type: StorageFill
-    contents:
-        - id: InflatableWallStack
-          amount: 2
-        - id: InflatableDoorStack
-          amount: 2
-  - type: Sprite
-    layers:
-      - state: box
-      - state: inflatable
-
-
-- type: entity
   name: hatsune miku day bag
   parent: ClothingBackpackDuffel
   id: BoxPerformer

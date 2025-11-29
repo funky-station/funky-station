@@ -20,12 +20,12 @@
 - type: entity
   id: InflatableWall
   name: inflatable barricade
-  description: An inflated membrane. Activate to deflate. Do not puncture.
+  description: An inflated membrane. Release valve to deflate. Do not puncture.
   components:
   - type: Clickable
   - type: InteractionOutline
   - type: Sprite
-    sprite: Objects/Misc/inflatable_wall.rsi
+    sprite: _Funkystation/Objects/Misc/inflatables.rsi
     state: inflatable_wall
   - type: Physics
     bodyType: Static
@@ -62,12 +62,12 @@
   id: InflatableDoor
   name: inflatable door
   parent: BaseMaterialDoor
-  description: An inflated membrane. Activate to deflate. Now with a door. Do not puncture.
+  description: An inflated, semi-traversable membrane. Otherwise known as a door. Release valve to deflate. Do not puncture.
   components:
   - type: Clickable
   - type: InteractionOutline
   - type: Sprite
-    sprite: Objects/Misc/inflatable_door.rsi
+    sprite: _Funkystation/Objects/Misc/inflatables.rsi
     state: closed
   - type: Physics
     bodyType: Static
@@ -102,3 +102,20 @@
     disassembleTime: 3
   - type: Occluder
     enabled: false
+
+- type: tile
+  id: InflatablePlating
+  name: tiles-inflatable-plating
+  sprite: /Textures/_Funkystation/Objects/Misc/inflatables.rsi/inflatable-floor.png
+  baseTurf: Space
+  isSubfloor: true
+  deconstructTools: [ Prying ]
+  footstepSounds:
+    collection: FootstepClown
+    params:
+      volume: -10
+      variation: 0.17
+  itemDrop: InflatableFloorStack1
+  friction: 1.5
+  heatCapacity: 10000
+  mass: 20

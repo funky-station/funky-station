@@ -1,0 +1,20 @@
+- type: latheRecipe
+  id: InflatableWall
+  result: InflatableWallStack1
+  completetime: 1
+  materials:
+    Durathread: 25
+
+- type: latheRecipe
+  id: InflatableDoor
+  result: InflatableDoorStack1
+  completetime: 1
+  materials:
+    Durathread: 50
+
+- type: latheRecipe
+  id: InflatableFloor
+  result: InflatableFloorStack1
+  completetime: 1
+  materials:
+    Durathread: 25

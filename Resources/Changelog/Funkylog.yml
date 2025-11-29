@@ -5961,3 +5961,9 @@ Entries:
       message: Tweaked the layout of Engineering to fit the SM
   id: 704
   time: '2025-11-29T15:08:09.0000000+00:00'
+- author: Xcybitt
+  changes:
+    - type: Tweak
+      message: Made Stabilized Stims give adrenaline.
+  id: 705
+  time: '2025-11-29T23:44:57.0000000+00:00'

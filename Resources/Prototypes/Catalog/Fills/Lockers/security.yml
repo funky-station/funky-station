@@ -86,6 +86,7 @@
         amount: 2
       - id: ClothingHeadsetWarden #funkystation
       - id: ClothingHeadHelmetRiot
+      - id: NetworkConfigurator # Funky
 
 - type: entity
   id: LockerWardenFilled
@@ -115,6 +116,7 @@
         amount: 2
       - id: Binoculars
       - id: ClothingHeadHelmetRiot
+      - id: NetworkConfigurator # Funky
 
 - type: entity
   id: LockerSecurityFilled

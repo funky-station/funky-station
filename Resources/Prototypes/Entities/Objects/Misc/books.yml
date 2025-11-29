@@ -282,7 +282,8 @@
   - type: GuideHelp
     guides:
     - Security
-    - Antagonists
+    # - Antagonists
+    - SecuritySOP
 
 - type: entity
   id: BookHowToKeepStationClean

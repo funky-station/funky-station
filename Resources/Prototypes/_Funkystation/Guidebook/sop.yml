@@ -102,13 +102,6 @@
   - CommandTrainingManual
   - OrderOfSuccession
   - CaptainSOP
-  - HoPSOP
-  - HoSSOP
-  - RDSOP
-  - CMOSOP
-  - CESOP
-  - QMSOP
-
 
 - type: guideEntry
   id: CaptainSOP

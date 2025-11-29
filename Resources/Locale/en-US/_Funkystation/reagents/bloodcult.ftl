@@ -6,10 +6,7 @@ reagent-name-edge-essentia = edge essentia
 reagent-desc-edge-essentia = A dark, cursed substance that corrupts the blood of wounded victims, turning their bleeding wounds into sources of sanguine perniculate.
 
 reagent-effect-guidebook-bleed-sanguine-perniculate =
-    { $chance ->
-        [1] Converts
-       *[other] Has a {NATURALPERCENT($chance, 2)} chance to convert
-    } bleeding blood into sanguine perniculate
+    convert bleeding blood into sanguine perniculate
 
 reagent-effect-condition-guidebook-is-blood-cultist = { $invert ->
     [true] the target is not a blood cultist

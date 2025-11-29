@@ -151,6 +151,18 @@ bounty-item-multiver = Multiver
 bounty-item-dexalin = Dexalin
 bounty-item-space-cleaner = Space Cleaner
 
+bounty-item-super-bite-burger = Super Bite Burger
+bounty-item-sloppy-joe = Sloppy Joe Burger
+bounty-item-slop-bowl = Slop Bowl
+bounty-item-waffles = Waffles
+bounty-item-cuban-nachos = Cuban Nachos
+bounty-item-valid-salad = Valid Salad
+bounty-item-enchiladas = Enchiladas
+bounty-item-fruit-salad = Fruit Salad
+bounty-item-chow-mein = Chow Mein
+bounty-item-gyros = Gyros
+bounty-item-stew = Stew 
+
 bounty-item-scrap-plate = Scrap Plate
 bounty-item-scrap-helmet = Scrap Helmet
 bounty-item-fire-bomb = Fire Bomb

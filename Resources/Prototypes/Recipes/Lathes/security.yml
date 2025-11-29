@@ -899,6 +899,8 @@
     Glass: 1000
     Gold: 150
     Silver: 150
+
+- type: latheRecipe
   id: SurveillanceWirelessCameraBodySecurity
   result: SurveillanceWirelessCameraBodySecurity
   completetime: 3

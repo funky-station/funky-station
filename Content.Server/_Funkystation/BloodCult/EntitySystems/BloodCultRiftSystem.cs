@@ -59,7 +59,7 @@ public sealed partial class BloodCultRiftSystem : EntitySystem
 	[Dependency] private readonly SharedTransformSystem _transformSystem = default!;
 	[Dependency] private readonly IPlayerManager _playerManager = default!;
 	[Dependency] private readonly IRobustRandom _random = default!;
-	//[Dependency] private readonly ExplosionSystem _explosionSystem = default!;
+	[Dependency] private readonly ExplosionSystem _explosionSystem = default!;
 	[Dependency] private readonly BodySystem _bodySystem = default!;
 	//[Dependency] private readonly MindSystem _mindSystem = default!;
 	[Dependency] private readonly OfferOnTriggerSystem _offerSystem = default!;
@@ -232,9 +232,14 @@ public sealed partial class BloodCultRiftSystem : EntitySystem
 		}
 
 		// Gib the body after the brain has been removed
+		// Use the explode smite approach: queue an explosion and gib without organs
+		// This prevents issues with organs that don't have ContainerManagerComponent
 		if (Exists(victim))
 		{
-			_bodySystem.GibBody(victim, true);
+			var coords = _transformSystem.GetMapCoordinates(victim);
+			_explosionSystem.QueueExplosion(coords, ExplosionSystem.DefaultExplosionPrototypeId,
+				4, 1, 2, victim, maxTileBreak: 0);
+			_bodySystem.GibBody(victim, gibOrgans: false);
 		}
 
 		//Increment the sacrifices, play an announcement, and reset the chant.

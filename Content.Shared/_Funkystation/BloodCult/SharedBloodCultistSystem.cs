@@ -5,10 +5,6 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later OR MIT
 
-using System.Linq;
-using Content.Shared.Body.Organ;
-using Content.Shared.Chemistry.Components.SolutionManager;
-using Robust.Shared.Containers;
 using Robust.Shared.GameStates;
 using Robust.Shared.Player;
 using Robust.Shared.Serialization;
@@ -19,7 +15,6 @@ namespace Content.Shared.BloodCult;
 
 public abstract class SharedBloodCultistSystem : EntitySystem
 {
-	[Dependency] protected readonly SharedContainerSystem Container = default!;
 
 	public override void Initialize()
     {
@@ -27,102 +22,11 @@ public abstract class SharedBloodCultistSystem : EntitySystem
 
 		SubscribeLocalEvent<BloodCultistComponent, ComponentGetStateAttemptEvent>(OnCultistCompGetStateAttempt);
 		SubscribeLocalEvent<BloodCultistComponent, ComponentStartup>(DirtyRevComps);
-		
-		// Subscribe to BeforeEntityFlush to ensure cleanup before shutdown flush (runs on both client and server)
-		EntityManager.BeforeEntityFlush += OnBeforeEntityFlush;
 	}
 	
 	public override void Shutdown()
 	{
-		EntityManager.BeforeEntityFlush -= OnBeforeEntityFlush;
 		base.Shutdown();
-	}
-	
-	/// <summary>
-	/// Handles cleanup before entity flush during shutdown.
-	/// This ensures all blood gland organs and their solution entities are deleted before the flush.
-	/// Runs on both client and server.
-	/// </summary>
-	private void OnBeforeEntityFlush()
-	{
-		// Find all blood gland organs (including those already terminating)
-		var query = EntityQueryEnumerator<OrganComponent>();
-		while (query.MoveNext(out var organUid, out var organ))
-		{
-			if (organ.SlotId != "blood_gland")
-				continue;
-				
-			// Try to get solution entities directly from containers
-			// Use TryGetContainer which should work even if the organ is terminating
-			if (Container.TryGetContainer(organUid, "solution@organ", out var organContainer) 
-				&& organContainer is ContainerSlot organSlot 
-				&& organSlot.ContainedEntity is { } organSolution)
-			{
-				// Force delete even if already terminating
-				if (Exists(organSolution))
-				{
-					try
-					{
-						EntityManager.DeleteEntity(organSolution);
-					}
-					catch
-					{
-						// Ignore errors during shutdown
-					}
-				}
-			}
-			
-			if (Container.TryGetContainer(organUid, "solution@food", out var foodContainer) 
-				&& foodContainer is ContainerSlot foodSlot 
-				&& foodSlot.ContainedEntity is { } foodSolution)
-			{
-				// Force delete even if already terminating
-				if (Exists(foodSolution))
-				{
-					try
-					{
-						EntityManager.DeleteEntity(foodSolution);
-					}
-					catch
-					{
-						// Ignore errors during shutdown
-					}
-				}
-			}
-			
-			// Also try to get all containers as a fallback
-			var allContainers = Container.GetAllContainers(organUid);
-			foreach (var container in allContainers)
-			{
-				foreach (var contained in container.ContainedEntities.ToArray())
-				{
-					if (Exists(contained))
-					{
-						try
-						{
-							EntityManager.DeleteEntity(contained);
-						}
-						catch
-						{
-							// Ignore errors during shutdown
-						}
-					}
-				}
-			}
-			
-			// Delete the organ itself (force delete even if already terminating)
-			if (Exists(organUid))
-			{
-				try
-				{
-					EntityManager.DeleteEntity(organUid);
-				}
-				catch
-				{
-					// Ignore errors during shutdown
-				}
-			}
-		}
 	}
 
 	/// <summary>
@@ -156,6 +60,7 @@ public abstract class SharedBloodCultistSystem : EntitySystem
             Dirty(uid, comp);
         }
     }
+
 }
 
 [Serializable, NetSerializable]

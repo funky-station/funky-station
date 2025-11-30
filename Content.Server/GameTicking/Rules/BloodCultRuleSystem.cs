@@ -325,11 +325,6 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 			_npcFaction.RemoveFaction(traitor, NanotrasenFactionId, false);
 			_npcFaction.AddFaction(traitor, BloodCultistFactionId);
 
-			// Ensure the blood gland organ is added (makes them bleed SanguinePerniculate)
-			// This is normally handled by BloodCultistMetabolismSystem.OnCultistInit, but for round-start
-			// cultists the body might not be ready when ComponentInit fires, so we ensure it here too
-			_EnsureBloodGlandOrgan(traitor);
-
 			return true;
 		}
 		return false;
@@ -353,49 +348,6 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
         return true;
 	}
 
-	/// <summary>
-	/// Ensures the blood gland organ is added to the cultist.
-	/// This organ makes them bleed SanguinePerniculate instead of normal blood.
-	/// </summary>
-	private void _EnsureBloodGlandOrgan(EntityUid uid)
-	{
-		if (!TryComp<BodyComponent>(uid, out var body))
-			return;
-		
-		// Check if they already have a blood gland
-		bool hasBloodGland = false;
-		foreach (var (organUid, organ) in _body.GetBodyOrgans(uid, body))
-		{
-			if (organ.SlotId == "blood_gland")
-			{
-				hasBloodGland = true;
-				break;
-			}
-		}
-		
-		if (hasBloodGland)
-			return;
-		
-		// Find the torso to add the blood gland
-		var parts = _body.GetBodyChildren(uid, body);
-		foreach (var (partUid, part) in parts)
-		{
-			if (part.PartType == BodyPartType.Torso)
-			{
-				// Create the blood_gland slot if it doesn't exist
-				if (!part.Organs.ContainsKey("blood_gland"))
-				{
-					_body.TryCreateOrganSlot(partUid, "blood_gland", out _, part);
-				}
-				
-				// Spawn and insert blood gland
-				var coords = Transform(uid).Coordinates;
-				var bloodGland = Spawn("OrganBloodGland", coords);
-				_body.InsertOrgan(partUid, bloodGland, "blood_gland", part);
-				break;
-			}
-		}
-	}
 
 	protected override void ActiveTick(EntityUid uid, BloodCultRuleComponent component, GameRuleComponent gameRule, float frameTime)
     {

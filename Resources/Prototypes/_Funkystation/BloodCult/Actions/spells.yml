@@ -103,7 +103,7 @@
 - type: entity
   id: ActionCultistSanguineDream
   name: Sanguine Dream
-  description: A sinister spell that plunges a target into a nightmare-filled sleep, where they dream of crimson-stained blades. EMPs Cyborgs.
+  description: A sinister spell that plunges a target into a nightmare-filled sleep. EMPs Cyborgs. Does not work on those with a mindshield.
   categories: [ HideSpawnMenu ]
   components:
   - type: Icon

@@ -1,6 +1,6 @@
 // SPDX-FileCopyrightText: 2025 Terkala <appleorange64@gmail.com>
 //
-// SPDX-License-Identifier:  MIT
+// SPDX-License-Identifier: MIT
 
 using Content.Shared.BloodCult;
 

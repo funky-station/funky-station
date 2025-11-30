@@ -20,6 +20,7 @@ using Content.Server.Mind.Commands;
 using Content.Server.Roles;
 using Content.Server.Temperature.Components;
 using Content.Server._Goobstation.Heretic.UI;
+using Content.Shared.Administration.Systems;
 using Content.Shared.Body.Systems;
 using Content.Shared.Examine;
 using Content.Shared.Ghost.Roles.Components;
@@ -34,6 +35,8 @@ using Content.Shared.Mobs.Systems;
 using Content.Shared.NPC.Systems;
 using Content.Shared.Nutrition.AnimalHusbandry;
 using Content.Shared.Nutrition.Components;
+using Content.Shared.Roles.Components;
+using Content.Shared.Temperature.Components;
 using Robust.Shared.Audio;
 
 namespace Content.Server.Heretic.EntitySystems;

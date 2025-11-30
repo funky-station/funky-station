@@ -19,6 +19,7 @@ using Content.Shared.Damage;
 using Robust.Shared.Audio;
 using Content.Shared.Damage.Prototypes;
 using Content.Server.Stunnable;
+using Content.Shared.Damage.Systems;
 
 namespace Content.Server._Impstation.Chaplain.Systems;
 

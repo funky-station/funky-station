@@ -12,6 +12,7 @@ using Content.Shared.Speech.Components;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using System.Text;
+using Content.Shared.Speech;
 
 namespace Content.Server.Speech.EntitySystems;
 

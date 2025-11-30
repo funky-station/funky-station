@@ -32,6 +32,8 @@ using Robust.Server.Player;
 using Robust.Shared.Timing;
 using Content.Server.Revolutionary.Components;
 using Content.Server.Station.Systems;
+using Content.Shared.Damage.Systems;
+using Content.Shared.Temperature.Components;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server.Heretic.EntitySystems;

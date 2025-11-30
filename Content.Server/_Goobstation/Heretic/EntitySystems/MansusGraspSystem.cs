@@ -13,13 +13,16 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
 using Content.Server.Chat.Systems;
+using Content.Server.Damage.Systems;
 using Content.Server.Heretic.Components;
 using Content.Server.Speech.EntitySystems;
 using Content.Server.Temperature.Components;
 using Content.Server.Temperature.Systems;
 using Content.Shared.Extensions;
 using Content.Shared.Actions;
+using Content.Shared.Chat;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Systems;
 using Content.Shared.DoAfter;
 using Content.Shared.Doors.Components;
@@ -34,6 +37,7 @@ using Content.Shared.Speech.Muting;
 using Content.Shared.StatusEffect;
 using Content.Shared.Stunnable;
 using Content.Shared.Tag;
+using Content.Shared.Temperature.Components;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 

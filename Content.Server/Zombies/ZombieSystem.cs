@@ -67,8 +67,8 @@ namespace Content.Server.Zombies
             SubscribeLocalEvent<ZombieComponent, MobStateChangedEvent>(OnMobState);
             SubscribeLocalEvent<ZombieComponent, CloningEvent>(OnZombieCloning);
             SubscribeLocalEvent<ZombieComponent, TryingToSleepEvent>(OnSleepAttempt);
-            SubscribeLocalEvent<ZombieComponent, GetCharactedDeadIcEvent>(OnGetCharacterDeadIC);
-            SubscribeLocalEvent<ZombieComponent, GetCharacterUnrevivableIcEvent>(OnGetCharacterUnrevivableIC);
+            SubscribeLocalEvent<ZombieComponent, SharedMindSystem.GetCharactedDeadIcEvent>(OnGetCharacterDeadIC);
+            SubscribeLocalEvent<ZombieComponent, SharedMindSystem.GetCharacterUnrevivableIcEvent>(OnGetCharacterUnrevivableIC);
             SubscribeLocalEvent<ZombieComponent, MindAddedMessage>(OnMindAdded);
             SubscribeLocalEvent<ZombieComponent, MindRemovedMessage>(OnMindRemoved);
 
@@ -167,12 +167,12 @@ namespace Content.Server.Zombies
             args.Cancelled = true;
         }
 
-        private void OnGetCharacterDeadIC(EntityUid uid, ZombieComponent component, ref GetCharactedDeadIcEvent args)
+        private void OnGetCharacterDeadIC(EntityUid uid, ZombieComponent component, ref SharedMindSystem.GetCharactedDeadIcEvent args)
         {
             args.Dead = true;
         }
 
-        private void OnGetCharacterUnrevivableIC(EntityUid uid, ZombieComponent component, ref GetCharacterUnrevivableIcEvent args)
+        private void OnGetCharacterUnrevivableIC(EntityUid uid, ZombieComponent component, ref SharedMindSystem.GetCharacterUnrevivableIcEvent args)
         {
             args.Unrevivable = true;
         }

@@ -22,6 +22,8 @@ using Robust.Shared.Physics;
 using Robust.Shared.Physics.Components;
 using System.Linq;
 using Content.Server.Temperature.Systems;
+using Content.Shared.Damage.Components;
+using Content.Shared.Damage.Systems;
 using Content.Shared.FixedPoint;
 using Content.Shared.Magic;
 using Content.Shared.Magic.Events;

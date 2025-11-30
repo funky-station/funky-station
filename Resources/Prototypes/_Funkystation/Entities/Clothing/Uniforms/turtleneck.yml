@@ -37,3 +37,36 @@
     sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/iaaturtleneckblue.rsi
   - type: Clothing
     sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/iaaturtleneckblue.rsi
+
+- type: entity
+  parent: [ClothingUniformBase, BaseCentcommContraband]
+  id: ClothingUniformJumpskirtIAATurtleneckBlack
+  name: black internal affairs agent turtleneck
+  description: An imposing turtleneck and suit worn only by the most loyal little agents. Now in an intimidating black.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/iaaturtleneckblack.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/iaaturtleneckblack.rsi
+
+- type: entity
+  parent: [ClothingUniformBase, BaseCentcommContraband]
+  id: ClothingUniformJumpskirtIAATurtleneckRed
+  name: red internal affairs agent turtleneck
+  description: An imposing turtleneck and suit worn only by the most loyal little agents. Now in a confusing red.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/iaaturtleneckred.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/iaaturtleneckred.rsi
+
+- type: entity
+  parent: [ClothingUniformBase, BaseCentcommContraband]
+  id: ClothingUniformJumpskirtIAATurtleneckBlue
+  name: blue internal affairs agent turtleneck
+  description: An imposing turtleneck and suit worn only by the most loyal little agents. Now in a reassuring blue.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/iaaturtleneckblue.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/iaaturtleneckblue.rsi

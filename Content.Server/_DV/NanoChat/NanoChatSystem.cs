@@ -16,6 +16,7 @@ using Robust.Shared.Containers;
 using Content.Shared.Database;
 using Content.Shared._DV.CartridgeLoader.Cartridges;
 using Content.Shared._DV.NanoChat;
+using Content.Shared.Kitchen;
 using Content.Shared.NameIdentifier;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;

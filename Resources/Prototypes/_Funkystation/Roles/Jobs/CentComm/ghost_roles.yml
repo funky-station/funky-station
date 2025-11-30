@@ -1,4 +1,6 @@
 # SPDX-FileCopyrightText: 2025 Josh Hilsberg <thejoulesberg@gmail.com>
+# SPDX-FileCopyrightText: 2025 JoulesBerg <104539820+JoulesBerg@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 TheHolyAegis <sanderkamphuis719@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -6,7 +8,8 @@
   id: CentralCommandIntern
   name: Central Command Intern
   description: ghost-role-information-centcom-intern-description
-  playTimeTracker: CentralCommandIntern
+  playTimeTracker: JobCentralCommandIntern
+  setPreference: false
   requirements:
   - !type:OverallPlaytimeRequirement
     time: 360000 #100 hrs

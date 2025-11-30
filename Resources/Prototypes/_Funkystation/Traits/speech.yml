@@ -1,7 +1,9 @@
 # SPDX-FileCopyrightText: 2025 W.xyz() <tptechteam@gmail.com>
 # SPDX-FileCopyrightText: 2025 empty0set <16693552+empty0set@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 empty0set <empty0set@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 phmnsx <lynnwastinghertime@gmail.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 w.xyz() <84605679+pirakaplant@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -15,6 +17,15 @@
   - type: FunkyAccent
 
 - type: trait
+  id : BritishAccent
+  name: trait-british-name
+  description: trait-british-desc
+  category: SpeechTraits
+  cost: 1
+  components:
+  - type: BritishAccent
+
+- type: trait
   id: ScandinavianAccent
   name: trait-scandinavian-name
   description: trait-scandinavian-desc
@@ -22,3 +33,35 @@
   cost: 1
   components:
   - type: ScandinavianAccent
+
+- type: trait
+  id: FrenchVernacular
+  name: trait-french-vernacular-name
+  description: trait-french-vernacular-desc
+  category: SpeechTraits
+  cost: 0
+  components:
+  - type: ReplacementAccent
+    accent: french
+  prerequisite: FrenchAccent
+
+- type: trait
+  id: GermanVernacular
+  name: trait-german-vernacular-name
+  description: trait-german-vernacular-desc
+  category: SpeechTraits
+  cost: 0
+  components:
+  - type: GermanVernacular
+  prerequisite: GermanAccent
+
+- type: trait
+  id: RussianVernacular
+  name: trait-russian-vernacular-name
+  description: trait-russian-vernacular-desc
+  category: SpeechTraits
+  cost: 0
+  components:
+  - type: ReplacementAccent
+    accent: russian
+  prerequisite: Russian

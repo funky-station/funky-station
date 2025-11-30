@@ -2,8 +2,9 @@
 SPDX-FileCopyrightText: 2025 Skye <57879983+Rainbeon@users.noreply.github.com>
 SPDX-FileCopyrightText: 2025 kbarkevich <24629810+kbarkevich@users.noreply.github.com>
 SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+SPDX-FileCopyrightText: 2025 Terkala <appleorange64@gmail.com>
 
-SPDX-License-Identifier: MIT
+SPDX-License-Identifier: AGPL-3.0-or-later OR MIT
 -->
 
 <Document>
@@ -34,7 +35,7 @@ You can become a blood cultist both at the beginning of the round and by being c
     <GuideEntityEmbed Entity="ActionCultistSpellsSelect" Caption="Prepare Spell"/>
   </Box>
 
-The [bold]Commune[/bold] ability allows a cultist to speak to their fellow acolytes over any distance. However, an incantation will be audibly whispered. Beware of alerting the crew to your cult's presence too early through unwise use of this ability.
+The [bold]Commune[/bold] ability allows a cultist to speak to their fellow acolytes over any distance. However, an incantation will be audibly whispered. Beware of alerting the crew to your cult's presence too early through unwise use of this ability. If the veil has been torn, this incantation is audible to those around you.
 
 The [bold]Study Veil[/bold] ability allows a cultist to hear [color=#ff3333]the Geometer[/color]'s voice. Recieve your instructions through the use of this ability.
 
@@ -59,10 +60,9 @@ The most important runes you have available are the [color=#ff6666]offering rune
     <GuideEntityEmbed Entity="OfferingRune" Caption="offering rune"/>
   </Box>
 
-The [bold][color=#ff6666]offering rune[/color][/bold] allows cultists to convert the weak-minded to their cause as well as sacrifice the dead, the mindshielded, and those whose souls the [color=#ff3333]Geometer[/color] desires.
-- [color=#99CC99]Sacrificing[/color] an unimportant dead person is a simple task, and can be performed by as few as a single acolyte. To accomplish this, merely drag the dead person's body, severed head, or brain onto an [color=#ff6666]offering rune[/color], then activate the rune by clicking it with an empty hand or by pressing E on it. Performing this ritual will trap the victim's soul in a soul stone, which may be found among the blood and offal atop the rune.
-- [color=#EEEE33]Converting[/color] a living, weak-minded individual to your cause -- an individual who is not mindshielded, not a Chaplain, and not the [color=#dd55aa]target[/color] designated by your [color=#ff3333]master[/color] -- is marginally more complex in its execution than sacrificing an insignificant crewmember. The victim must be dragged onto the [color=#ff6666]offering rune[/color] while still alive. At least [bold]two (2)[/bold] cultists must stand on the tiles adjacent to the [color=#ff6666]rune[/color] before activating it. A successful ritual will produce a new acolyte to the [color=#ff3333]Geometer[/color] and significantly replenish their health.
-- [color=#99CC99]Sacrificing[/color] your [color=#dd55aa]target[/color] -- a crewmember whose identity may be told to you by the [color=#ff3333]Geometer[/color] herself through the use of the [bold]Study Veil[/bold] ability -- is a similar process to [color=#99CC99]sacrificing[/color] an unimportant crewmember. However, as this [color=#dd55aa]individual[/color] possesses a soul of surpassing might, [bold]three (3)[/bold] cultists must be standing around the [color=#ff6666]rune[/color] to perform the ritual. If successful, the veil will be weakened, and you will be given a new [color=#dd55aa]assignment[/color].
+The [bold][color=#ff6666]offering rune[/color][/bold] allows cultists to convert the weak-minded to their cause. Once the [color=#ff3333]Geometer[/color] has risen, her power can destroy mental protections on those offered to her.
+- [color=#EEEE33]Converting[/color] a living, weak-minded individual to your cause -- an individual who is not mindshielded, not a Chaplain.
+- [color=#99CC99]Breaking[/color] the mindshield of their mental protections can only be done if the [color=#ff3333]Geometer[/color] has risen.
 
   <Box>
     <GuideEntityEmbed Entity="EmpoweringRune" Caption="empowering rune"/>
@@ -74,13 +74,22 @@ The [bold][color=#ff6666]empowering rune[/color][/bold] allows a cultist standin
     <GuideEntityEmbed Entity="ReviveRune" Caption="revive rune"/>
   </Box>
 
-The [bold][color=#ff6666]revive rune[/color][/bold] may be used by cultists to ask [color=#ff3333]Nar'Sie[/color] to restore the soul of a lost acolyte. A dead cultist may be dragged on top of this rune, and the rune subsequently activated, to make this request. However, [color=#ff3333]She[/color] may demand further sacrifices be made before deigning [color=#ff3333]herself[/color] to fetch this lost soul. A lesser-known function of the [color=#ff6666]revive rune[/color] is that it may be used to grant a new soul to an entirely catatonic acolyte -- one for whom no pre-existing soul still exists. Any random soul of the dead may inhabit this body.
+The [bold][color=#ff6666]revive rune[/color][/bold] may be used by cultists to ask [color=#ff3333]Nar'Sie[/color] to restore the soul of a lost acolyte. A dead cultist may be dragged on top of this rune, and the rune subsequently activated, to make this request. However, [color=#ff3333]She[/color] may demand further sacrifices be made before deigning [color=#ff3333]herself[/color] to fetch this lost soul. 
+- [color=#ff6666]revive rune[/color] can also revive non worshippers of [color=#ff3333]Nar'Sie[/color]. She demands a tithe of blood for this service, and will not heal them fully until their souls have been offered to her.
+
 
   <Box>
     <GuideEntityEmbed Entity="BarrierRune" Caption="barrier rune"/>
   </Box>
 
 The [bold][color=#ff6666]barrier rune[/color][/bold] allows the [color=#ff3333]Geometer[/color] to physically defend [color=#ff3333]Her[/color] followers through the use of magical barriers. When activated, an impenetrable forcefield will temporarily manifest above it, and any adjacent [color=#ff3333]barrier runes[/color] will be activated as well. There is no limit to the length of this chain, save for the fortitude of the invoker -- their blood will be drained for the ritual at a rate determined by the number of barriers produced.
+
+  <Box>
+    <GuideEntityEmbed Entity="SummoningRune" Caption="summoning rune"/>
+  </Box>
+
+The [bold][color=#ff6666]summoning rune[/color][/bold] allows the [color=#ff3333]Geometer[/color] to physically manifest [color=#ff3333]Her[/color] structures and servants from her realm into our own. When activated, a summoning rune will bring a [color=#ff3333]Juggernaut Shell[/color] or a [color=#ff3333]Pylon[/color] into reality, using runed metal or glass.
+
 
 ## Blood Spells
 
@@ -93,18 +102,18 @@ Blood spells are incantations that must be physically carved into the invoker's 
 The summon dagger spell allows a cultist to instantly grant themselves a weapon and a rune-carving tool. Useful for new devotees and those who have lost their old daggers.
 
   <Box>
-    <GuideEntityEmbed Entity="ActionCultistStun" Caption="Stun"/>
+    <GuideEntityEmbed Entity="ActionCultistSanguineDream" Caption="Sanguine Dream"/>
   </Box>
 
-The stun spell will temporarilly knock over, drain the stamina of, silence, and mark a victim. A marked victim may be struck once with a cult dagger to enhance the effects of a stun. This spell may also be used to EMP Cyborgs.
+The Sanguine Dream spell plunges a victim into a nightmare-filled sleep where they dream of blood-soaked knives. This also drains energy from cybernetic entities.
 
-This spell may permit you to silently and more efficiently kidnap those your cult requires, giving you ample time to strip them of their suit coordinates and communications headset prior to abduction. It is recommended that all cultists keep a stun spell prepared when roaming beyond their selected base of operations, [bold]just in case.[/bold]
+This spell may permit you to silently and more efficiently kidnap those your cult requires. It will not work on those whos minds are shielded. It is recommended that all cultists keep a Sanguine Dream spell prepared when roaming beyond their selected base of operations, [bold]just in case.[/bold]
 
   <Box>
     <GuideEntityEmbed Entity="ActionCultistTwistedConstruction" Caption="Twisted Construction"/>
   </Box>
 
-The twisted construction spell allows cultists to convert stacks of plasteel into [color=#bbbbbb]runed metal[/color].
+The twisted construction spell allows cultists to convert stacks of steel or glass into [color=#bbbbbb]runed metal[/color] or [color=#bbbbbb]runed glass[/color].
 
 ## Structures
 
@@ -128,32 +137,48 @@ Juggernaut shells are inert statues of [color=#bbbbbb]runed metal[/color]. They 
 
 Constructs are non-verbal, barely-sentient minions of the blood cult. Made from the twisted souls sacrificed to the [color=#ff3333]Geometer[/color], these entities count towards completing rituals with [color=#ff6666]runes[/color], and may be used in place of living cultists in a pinch.
 
-Shades are mostly-physical spirits produced by activating an inhabited soul stone in one's hand. Loyal to the one who freed them, Shades will stop at nothing to see their master's will enacted. What they lack in physical strength they make up for in speed and endurance -- a Shade may be re-captured in an empty soul stone to rejuvinate their health.
+Shades are mostly-physical spirits produced by activating an inhabited soul stone in one's hand. Loyal to the one who freed them, Shades will stop at nothing to see their master's will enacted. What they lack in physical strength they make up for in speed and endurance. A shade will return to their soulstone when banished.
 
 Juggernauts are hulking beasts made from juggernaut shells, awakened through the insertion of an inhabited soul stone. Slow and meticulous, these monstrosities are completely immune to weak attacks, and are capable of breaking down even the strongest of walls. An invaluable asset to a cult whose presence aboard the station is already known.
+- Juggernauts may be rejuvinated by dousing them with blood, and inactive shells may be repaired by inserting a soulstone and annointing the shell with blood.
 
-## The Final Ritual
+## The Dual Rituals of Nar'Sie
+
+### Tearing the Veil
 
 When the veil has been sufficiently weakened, and your cult has grown sufficiently expanded, it will be time to summon [color=#ff3333]your master.[/color]
 
 A new rune may be drawn at any of the three designated locations [color=#ff3333]She[/color] will tell you about. This rune will take a long time to prepare.
 
-Once the process begins, Nanotrasen sensors are likely to pick up the exact location of your summoning attempt, and the crew will be alerted. Once the final rune is drawn, have [bold]at least nine (9)[/bold] cultists stand on top of it, spread out to cover as much surface area as possible.
+Once the veil is torn, the cult will be known to the crew and will no longer be able to hide in any way.
 
-Activate the rune once your fellow acolytes are appropriately perched upon it, and the process will be complete.
+### Summoning Nar'Sie
+
+Once the veil is torn, the geometer will begin her journey to this plane of existence. She will find the weakest point in the fabric of space-time and tear it apart.
+
+This will manifest in our reality as a bloody tear. Find this tear and perform the final ritual breaking through the walls of reality.
+
+You will need several cultists to stand on the offering runes and perform the final ritual. If the runes have been wiped away, you can redraw them.
+
+This final ritual will incur a dark cost on the cultists performing it, but will end with her glorious return.
 
 ## Course of the Round
 
 As the cult expands, the situation aboard the station will pass through several stages.
 
-- 1. [color=#a4885c]Silent stage[/color] - The cult is still capable of existing in secrecy, and must sacrifice up to two [color=#dd55aa]targets[/color] designated by [color=#ff3333]Nar'Sie[/color].
-- 2. [color=#a4885c]Risen cult[/color] - Either the cult has expanded significantly in size, or the [color=#dd55aa]targets[/color] have all been sacrificed. The cultists can no longer hide their true nature.
-- 3. [color=#a4885c]Veil sunderance[/color] - The cult has chosen a location to perform [color=#dd55aa]the final ritual.[/color] Nanotrasen sensors have detected the veil's collapse and will alert the crew.
-- 4. [italic][color=#ff3333]she is here[/color][/italic] - [italic][color=#ff3333]despair[/color][italic]
+- 1. [color=#a4885c]Silent[/color] - The cult begins to expand, few have joined the cult. The veil is still strong.
+- 2. [color=#a4885c]Eyes[/color] - Her eyes are upon you. She is watching. She is waiting. Her power will leak through the veil and glow faintly from the eyes of the cultists.
+- 3. [color=#a4885c]Rise[/color] - She has fully awoken. Her power has grown and she can bring her full power to break feeble mental protections of those offered to her.
+- 4. [color=#a4885c]Veil[/color] - The veil has been weakened. The cult can begin to perform the final ritual once her rift is visible.
+- 5. [italic][color=#ff3333]She is here.[/color][/italic] - [italic][color=#ff3333]despair[/color][italic]
 
 ## Combatting the Cult
 
-The only known method of deconverting a blood cultist is through the forced imbibement of [color=#4466ff]holy water[/color] (at least 40u).
+Deconverting a blood cultist can happen in four ways
+1. Is through the forced imbibement of [color=#4466ff]holy water[/color] (at least 40u).
+2. Is by implanting a [color=#4466ff]mindshield[/color] into the cultist.
+3. Is by using a [color=#4466ff]censer[/color] on the cultist.
+4. Is by throwing a container of holy water onto the blood spilled by a cult. This will form a holy fog that will burn and purify cultists.
 
 Your Chaplain, a holy being, is largely immune to the more [italic]persuasive[/italic] aspects of the blood cult's methods, and is the only crewmember who may be trusted absolutely once the cult's presence is known. Chaplains are also resistant to blood magic and cult-manufactured weaponry, rendering the offensive abilities of most cultists useless against them -- unless the cultists resort to more traditional methods of attack.
 

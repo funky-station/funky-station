@@ -18,6 +18,7 @@
 # SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Kip <tfraser520@gmail.com>
 # SPDX-FileCopyrightText: 2025 Mish <bluscout78@yahoo.com>
+# SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
@@ -47,8 +48,6 @@
 - type: startingGear
   id: SalvageSpecialistGear
   equipment:
-    jumpsuit: ClothingUniformJumpsuitSalvageSpecialist
-    id: SalvagePDA
     ears: ClothingHeadsetCargo
   #storage:
     #back:

@@ -44,6 +44,7 @@
 # SPDX-FileCopyrightText: 2024 Winkarst <74284083+Winkarst-cpu@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 buntobaggins <113877683+buntobaggins@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 MaiaArai <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Nikovnik <116634167+nkokic@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 QueerCats <jansencheng3@gmail.com>
 # SPDX-FileCopyrightText: 2025 Sadie <147350443+Sadie-silly@users.noreply.github.com>
@@ -76,9 +77,9 @@
   description: A basic-looking hardsuit helmet that provides minor protection against most sources of damage.
   components:
   - type: Sprite
-    sprite: Clothing/Head/Hardsuits/basic.rsi
+    sprite: _Funkystation/Clothing/Head/Hardsuits/basic.rsi
   - type: Clothing
-    sprite: Clothing/Head/Hardsuits/basic.rsi
+    sprite: _Funkystation/Clothing/Head/Hardsuits/basic.rsi
   - type: HideLayerClothing
     slots:
     - Hair
@@ -186,6 +187,8 @@
         Slash: 0.90
         Piercing: 0.95
         Radiation: 0.60
+  - type: ExplosionResistance
+    damageCoefficient: 0.9
 
 #Salvage Hardsuit
 - type: entity
@@ -207,10 +210,10 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.85
-        Slash: 0.85
+        Blunt: 0.90
+        Slash: 0.90
         Piercing: 0.90
-        Radiation: 0.40
+        Radiation: 0.55
   - type: ExplosionResistance
     damageCoefficient: 0.9
 
@@ -265,13 +268,13 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.8
-        Slash: 0.8
+        Blunt: 0.9
+        Slash: 0.9
         Piercing: 0.9
         Heat: 0.9
-        Radiation: 0.7
+        Radiation: 0.6
   - type: ExplosionResistance
-    damageCoefficient: 0.85
+    damageCoefficient: 0.9
 
 - type: entity
   parent: ClothingHeadHardsuitBase
@@ -414,15 +417,15 @@
 - type: entity
   parent: [ ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase ]
   id: ClothingHeadHelmetHardsuitMedical
-  name: chief medical officer's hardsuit helmet
-  description: Lightweight medical hardsuit helmet that doesn't restrict your head movements.
+  name: chief medical officer's voidsuit helmet
+  description: Lightweight medical voidsuit helmet that doesn't restrict your head movements.
   components:
   - type: Sprite
-    sprite: Clothing/Head/Hardsuits/medical.rsi
+    sprite: _Funkystation/Clothing/Head/Hardsuits/medical.rsi
   - type: Clothing
-    sprite: Clothing/Head/Hardsuits/medical.rsi
+    sprite: _Funkystation/Clothing/Head/Hardsuits/medical.rsi
   - type: PointLight
-    color: "#adf1ff"
+    color: "#ffdbad"
   - type: PressureProtection
     highPressureMultiplier: 0.6
     lowPressureMultiplier: 1000
@@ -473,10 +476,9 @@
 #Luxury Mining Hardsuit
 - type: entity
   parent: [ ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase ]
-  id: ClothingHeadHelmetHardsuitLuxury #DO NOT MAP - https://github.com/space-wizards/space-station-14/pull/19738#issuecomment-1703486738
+  id: ClothingHeadHelmetHardsuitLuxury 
   name: quartermaster's luxury hardsuit helmet
-  description: A refurbished mining hardsuit helmet, fitted with satin cushioning and an extra (non-functioning) antenna, because you're that extra.
-  categories: [ DoNotMap ]
+  description: A custom ordered hardsuit helmet, fitted with satin cushioning and an extra (non-functioning) antenna, because you're that extra.
   components:
   - type: Sprite
     sprite: Clothing/Head/Hardsuits/luxury.rsi
@@ -488,6 +490,16 @@
   - type: PointLight
     radius: 7
     energy: 3
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.90
+        Slash: 0.90
+        Piercing: 0.90
+        Heat: 0.90 
+        Radiation: 0.55
+  - type: ExplosionResistance
+    damageCoefficient: 0.9
 
 #ANTAG HARDSUITS
 #Blood-red Hardsuit

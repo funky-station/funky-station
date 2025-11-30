@@ -9,6 +9,7 @@
 # SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2024 lapatison <100279397+lapatison@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Komoni <131829655+Komonighub@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
 # SPDX-FileCopyrightText: 2025 mkanke-real <mikekanke@gmail.com>
@@ -40,6 +41,7 @@
       - id: BookSecurity
       - id: BookSpaceEncyclopedia
       - id: BookSpaceLaw
+      - id: BookSOP
       - id: BookTheBookOfControl
       - id: BookCookbookPie #Funky
     # Handwritten books

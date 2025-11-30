@@ -42,6 +42,8 @@ using Robust.Server.GameObjects;
 using Robust.Server.Player;
 using Robust.Shared.Enums;
 using Content.Server.Body.Components;
+using Content.Shared.Body.Components;
+using Content.Shared.Body.Part;
 using Content.Shared.Roles.Jobs;
 using Content.Shared.Localizations;
 using Content.Shared.Pinpointer;
@@ -49,6 +51,7 @@ using Content.Shared.Ghost;
 using Content.Shared.Database;
 using Content.Server.Administration.Logs;
 using Content.Shared.Bed.Cryostorage;
+using Content.Shared.Bed.Sleep;
 
 using Content.Server.BloodCult.EntitySystems;
 using Content.Shared.BloodCult.Prototypes;
@@ -109,14 +112,14 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 			case BloodStage.Rise:
 			{
 				// Change this to make the phase require different amounts of blood
-				var required = totalRemaining / 6.0;
+				var required = totalRemaining / 10.0;
 				component.BloodRequiredForRise = required;
 				break;
 			}
 			case BloodStage.Veil:
 			{
 				// Change this to make the phase require different amounts of blood
-				var required = totalRemaining / 6.0;
+				var required = totalRemaining / 10.0;
 				component.BloodRequiredForVeil = required;
 				break;
 			}
@@ -164,8 +167,9 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 	[Dependency] private readonly NpcFactionSystem _npcFaction = default!;
 	[Dependency] private readonly IAdminLogManager _adminLogger = default!;
 	[Dependency] private readonly IConsoleHost _consoleHost = default!;
-	[Dependency] private readonly SharedTransformSystem _transformSystem = default!;
+	//[Dependency] private readonly SharedTransformSystem _transformSystem = default!;
 	[Dependency] private readonly BloodCultMindShieldSystem _mindShield = default!;
+	[Dependency] private readonly SleepingSystem _sleeping = default!;
 
 	public readonly string CultComponentId = "BloodCultist";
 
@@ -192,6 +196,7 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 
 		SubscribeLocalEvent<BloodCultistComponent, MindAddedMessage>(OnMindAdded);
 		SubscribeLocalEvent<BloodCultistComponent, MindRemovedMessage>(OnMindRemoved);
+		SubscribeLocalEvent<BloodCultistComponent, ComponentRemove>(OnCultistRemoved);
 
 		// Do we need a special "head" cultist? Don't think so
 		//SubscribeLocalEvent<HeadRevolutionaryComponent, AfterFlashedEvent>(OnPostFlash);
@@ -232,7 +237,7 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 	private void CalculateBloodRequirements(BloodCultRuleComponent component)
 	{
 		var readyCount = Math.Max(0, _gameTicker.ReadyPlayerCount());
-		var groups = Math.Max(1.0, Math.Ceiling(readyCount / 20.0));
+		var groups = Math.Max(1.0, Math.Ceiling(readyCount / 30.0));
 		component.BloodRequiredForEyes = groups * 100.0;
 		component.BloodRequiredForRise = 0.0; //Calculated later in the round
 		component.BloodRequiredForVeil = 0.0; //Calculated later in the round
@@ -342,6 +347,7 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 
         return true;
 	}
+
 
 	protected override void ActiveTick(EntityUid uid, BloodCultRuleComponent component, GameRuleComponent gameRule, float frameTime)
     {
@@ -820,6 +826,12 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 		_audio.PlayPvs(new SoundPathSpecifier("/Audio/_Funkystation/Ambience/Antag/creepyshriek.ogg"), uid);
 		MakeCultist(uid, component);
 		_rejuvenate.PerformRejuvenate(uid);
+		
+		// Wake up sleeping players 
+		if (TryComp<SleepingComponent>(uid, out var sleeping))
+		{
+			_sleeping.TryWaking((uid, sleeping), force: true);
+		}
 	}
 
 	private void OnMindAdded(EntityUid uid, BloodCultistComponent cultist, MindAddedMessage args)
@@ -830,6 +842,39 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 	private void OnMindRemoved(EntityUid uid, BloodCultistComponent cultist, MindRemovedMessage args)
 	{
 		_role.MindRemoveRole<BloodCultRoleComponent>(args.Mind.Owner);
+		CheckCultistCountAndCallEvac();
+	}
+
+	private void OnCultistRemoved(EntityUid uid, BloodCultistComponent cultist, ComponentRemove args)
+	{
+		CheckCultistCountAndCallEvac();
+	}
+
+	private void CheckCultistCountAndCallEvac()
+	{
+		// Only check if there's an active rule
+		if (!TryGetActiveRule(out var rule))
+			return;
+
+		// Don't call evac if it's already been called
+		if (_roundEnd.IsRoundEndRequested())
+			return;
+
+		// Get all cultists (excluding constructs)
+		var cultists = GetCultists(includeConstructs: false);
+		var cultistCount = cultists.Count;
+
+		// Call evac if cult drops to 0 or 1 members
+		if (cultistCount <= 1)
+		{
+			_roundEnd.RequestRoundEnd(
+				TimeSpan.FromMinutes(10),
+				null,
+				false,
+				"cult-evac-called-announcement",
+				"cult-evac-sender-announcement"
+			);
+		}
 	}
 
 	public void Speak(EntityUid? uid, string speech, bool forceLoud = false)
@@ -961,8 +1006,9 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 	private void SetMinimumCultistsForVeilRitual(BloodCultRuleComponent component)
 	{
 		var allAliveHumans = _mind.GetAliveHumans();
-		// 1/8th (12.5%) of players, minimum of 2
-		component.MinimumCultistsForVeilRitual = Math.Max(2, (int)Math.Ceiling((float)allAliveHumans.Count * 0.125f));
+		// 5% of players, minimum of 2, maximum of 4
+		// So at 20 players its 2, at 20-60 players its 3, at 60+ players its 4
+		component.MinimumCultistsForVeilRitual = Math.Max(2, Math.Min(4,(int)Math.Ceiling((float)allAliveHumans.Count * 0.05f)));
 	}
 
 	private int GetConversionsToEyes(BloodCultRuleComponent component, List<EntityUid> cultists)
@@ -1134,7 +1180,8 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 				message += "\n" + Loc.GetString("cult-blood-progress-tear-veil",
 					("location1", name1),
 					("location2", name2),
-					("location3", name3));
+					("location3", name3),
+					("required", component.MinimumCultistsForVeilRitual));
 			}
 			
 			return message;

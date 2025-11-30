@@ -37,7 +37,10 @@
 # SPDX-FileCopyrightText: 2025 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 AtlasHD <99688062+AtlasHDD@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Cthyga <41489382+Cthyga@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Dani <57107055+wgreen84@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 FeelFlows <1493889+FeelFlows@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Fr0goo <153249069+Fr0goo@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Fr0goo <frogoofrog@outlook.com>
 # SPDX-FileCopyrightText: 2025 Icepick <122653407+Icepicked@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 IronDragoon <8961391+IronDragoon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Lyndomen <49795619+lyndomen@users.noreply.github.com>
@@ -50,6 +53,7 @@
 # SPDX-FileCopyrightText: 2025 Mora <46364955+TrixxedHeart@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Neoncamouflage <neoncamouflage@yahoo.com>
 # SPDX-FileCopyrightText: 2025 PoquitoDondito <danielchristianstone@gmail.com>
+# SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+Princess-Cheeseballs@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 RadsammyT <32146976+RadsammyT@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 SigmaTheDragon <162711378+SigmaTheDragon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
@@ -69,6 +73,7 @@
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 tea <xerithin@gmail.com>
+# SPDX-FileCopyrightText: 2025 vectorassembly <vectorassembly@icloud.com>
 # SPDX-FileCopyrightText: 2025 w.xyz() <84605679+pirakaplant@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
@@ -252,6 +257,12 @@
   loadouts:
   - HoPJumpsuit
   - HoPJumpskirt
+  - HoPJumpsuitCoat
+  - HoPJumpskirtCoat
+  - HoPJumpsuitShirt
+  - HoPJumpskirtShirt
+  - HoPJumpsuitSweater
+  - HoPJumpskirtSweater
 
 - type: loadoutGroup
   id: HoPNeck
@@ -359,10 +370,20 @@
   - BartenderJumpsuit
   - BartenderJumpskirt
   - BartenderJumpsuitPurple
+  - BartenderJumpskirtPurple # funky
   - ClothingUniformNightclubSuit #imp
   - ClothingUniformNightclubSuitSkirt #imp
   - ClothingUniformSeniorBartender #imp
   - ClothingUniformSeniorBartenderSkirt #imp
+  - BartenderJumpsuitStingray # funky
+  - BartenderJumpskirtStingray # funky
+  - ServiceJumpsuitDressWhite
+  - ServiceJumpsuitDressBlue
+  - ServiceJumpsuitDressTied
+  - ServiceJumpsuitServiceCoat
+  - ServiceJumpskirtDressWhite
+  - ServiceJumpskirtDressBlue
+  - ServiceJumpskirtDressTied
 
 - type: loadoutGroup
   id: BartenderOuterClothing
@@ -371,6 +392,29 @@
   loadouts:
   - BartenderApron
   - BartenderWintercoat
+
+- type: loadoutGroup
+  id: ServiceJumpsuit
+  name: loadout-group-service_jumpsuit
+  minLimit: 1
+  loadouts:
+  - ServiceJumpsuitDressWhite
+  - ServiceJumpsuitDressBlue
+  - ServiceJumpsuitDressTied
+  - ServiceJumpsuitServiceCoat
+  - ServiceJumpskirtDressWhite
+  - ServiceJumpskirtDressBlue
+  - ServiceJumpskirtDressTied
+
+- type: loadoutGroup
+  id: GenericShoes
+  name: loadout-group-generic-shoes
+  minLimit: 1
+  loadouts:
+  - BlackShoes
+  - WhiteShoes
+  - BrownShoes
+  - NanotrasenRepresentativeBoots #These are just laceup shoes.
 
 - type: loadoutGroup #WizDen Weh Job Plush
   id: BartenderJobTrinkets
@@ -406,6 +450,15 @@
   loadouts:
   - ChefJumpsuit
   - ChefJumpskirt
+  - ChefJumpsuitBlue
+  - ChefJumpskirtBlue
+  - ServiceJumpsuitDressWhite
+  - ServiceJumpsuitDressBlue
+  - ServiceJumpsuitDressTied
+  - ServiceJumpsuitServiceCoat
+  - ServiceJumpskirtDressWhite
+  - ServiceJumpskirtDressBlue
+  - ServiceJumpskirtDressTied
 
 - type: loadoutGroup
   id: ChefOuterClothing
@@ -415,6 +468,8 @@
   - ChefApron
   - ChefJacket
   - ChefWintercoat
+  - ChefJacketBlue
+  - ChefWintercoatBlue
 
 - type: loadoutGroup #WizDen Weh Job Plush
   id: ChefJobTrinkets
@@ -433,6 +488,13 @@
   - CuratorJumpskirt
   - ClothingUniformBrownSuit #imp
   - ClothingUniformBrownSuitSkirt #imp
+  - ServiceJumpsuitDressWhite
+  - ServiceJumpsuitDressBlue
+  - ServiceJumpsuitDressTied
+  - ServiceJumpsuitServiceCoat
+  - ServiceJumpskirtDressWhite
+  - ServiceJumpskirtDressBlue
+  - ServiceJumpskirtDressTied
 
 - type: loadoutGroup #WizDen Weh Job Plush
   id: LibrarianJobTrinkets
@@ -457,6 +519,13 @@
   - LawyerJumpskirtGood
   - ClothingUniformCreamSuit #imp
   - ClothingUniformCreamSuitSkirt #imp
+  - ServiceJumpsuitDressWhite
+  - ServiceJumpsuitDressBlue
+  - ServiceJumpsuitDressTied
+  - ServiceJumpsuitServiceCoat
+  - ServiceJumpskirtDressWhite
+  - ServiceJumpskirtDressBlue
+  - ServiceJumpskirtDressTied
 
 - type: loadoutGroup
   id: LawyerNeck
@@ -513,6 +582,13 @@
   - ChaplainUniformTech # imp
   - ClothingUniformFuneralSuit #imp
   - ClothingUniformFuneralSuitSkirt #imp
+  - ServiceJumpsuitDressWhite
+  - ServiceJumpsuitDressBlue
+  - ServiceJumpsuitDressTied
+  - ServiceJumpsuitServiceCoat
+  - ServiceJumpskirtDressWhite
+  - ServiceJumpskirtDressBlue
+  - ServiceJumpskirtDressTied
 
 - type: loadoutGroup
   id: ChaplainOuterClothing
@@ -552,6 +628,9 @@
   minLimit: 0
   loadouts:
   - JanitorHead
+  - YellowJanitorHead
+  - OrangeJanitorHead
+  - RainHat
 
 - type: loadoutGroup
   id: JanitorJumpsuit
@@ -559,6 +638,9 @@
   loadouts:
   - JanitorJumpsuit
   - JanitorJumpskirt
+  - JanitorCoveralls
+  - JanitorOveralls
+  - CarpExterminator
   - JanitorialMaidOutfit
   - JanitorialMaidOutfitmini
 
@@ -568,6 +650,9 @@
   minLimit: 0
   loadouts:
   - JanitorRubberGloves
+  - JanitorBlueRubberGloves
+  - JanitorOrangeRubberGloves
+  - JanitorPurpleRubberGloves
   - OrangeGloves
   - PurpleGloves
 
@@ -577,6 +662,16 @@
   minLimit: 0
   loadouts:
   - JanitorWintercoat
+  - RainCoat
+
+- type: loadoutGroup
+  id: JanitorShoes
+  name: loadout-group-janitor-shoes
+  loadouts:
+  - Galoshes
+  - BlueGaloshes
+  - OrangeGaloshes
+  - PurpleGaloshes
 
 - type: loadoutGroup
   id: JanitorPlunger
@@ -783,6 +878,13 @@
   - MusicianJumpskirt
   - ClothingUniformMrSpaceWide #imp
   - ClothingUniformMrSpaceWideSkirt #imp
+  - ServiceJumpsuitDressWhite
+  - ServiceJumpsuitDressBlue
+  - ServiceJumpsuitDressTied
+  - ServiceJumpsuitServiceCoat
+  - ServiceJumpskirtDressWhite
+  - ServiceJumpskirtDressBlue
+  - ServiceJumpskirtDressTied
 
 - type: loadoutGroup
   id: MusicianOuterClothing
@@ -868,6 +970,7 @@
   name: loadout-group-quartermaster-outerclothing
   minLimit: 0
   loadouts:
+  - QuartermasterWindbreaker
   - QuartermasterWintercoat
 
 - type: loadoutGroup
@@ -875,6 +978,9 @@
   name: loadout-group-quartermaster-shoes
   loadouts:
   - BrownShoes
+  - NanotrasenRepresentativeBoots #These are just laceup shoes.
+  - WorkBoots
+  - SalvageBoots
   - CargoWinterBoots
 
 - type: loadoutGroup #WizDen Weh Job Plush
@@ -891,17 +997,29 @@
   loadouts:
   - CargoTechnicianHead
   - CargoTechnicianHeadMail # Goob/DeltaV - Mail
+  - SeniorCargoTechnicianBeret #Funky!
+
+- type: loadoutGroup
+  id: CargoTechnicianNeck
+  name: loadout-group-cargo-technician-neck
+  minLimit: 0
+  loadouts:
+  - CargoTechnicianLiftBelt
 
 - type: loadoutGroup
   id: CargoTechnicianJumpsuit
   name: loadout-group-cargo-technician-jumpsuit
   loadouts:
+  - CargoTechnicianShorts
   - CargoTechnicianJumpsuit
   - CargoTechnicianJumpskirt
   - SeniorCargoTechnicianJumpsuit #Funky!
   - SeniorCargoTechnicianJumpskirt #Funky!
+  - CargoTechnicianOfficeShirt #Funky!
+  - CargoTechnicianTop #Funky!
   - CargoTechnicianJumpsuitMail # Goob/DeltaV - Mail
   - CargoTechnicianJumpskirtMail # Goob/DeltaV - Mail
+  - CargoTechnicianMailJumpsuit # Funky!
 
 - type: loadoutGroup #Funky!
   id: CargoPDA
@@ -923,8 +1041,8 @@
   name: loadout-group-cargo-technician-outerclothing
   minLimit: 0
   loadouts:
-  - CargoTechnicianWintercoat
-  - SeniorCargoTechnicianWinterCoat #Funky!
+  - CargoTechnicianWindbreaker #Funky!
+  - SeniorCargoTechnicianWindbreaker #Funky!
   - CargoTechnicianWintercoatMail # Goob/DeltaV - Mail
 
 - type: loadoutGroup
@@ -932,6 +1050,9 @@
   name: loadout-group-cargo-technician-shoes
   loadouts:
   - BlackShoes
+  - NanotrasenRepresentativeBoots #These are just laceup shoes.
+  - SalvageBoots
+  - WorkBoots
   - CargoWinterBoots
 
 - type: loadoutGroup #WizDen Weh Job Plush
@@ -940,6 +1061,21 @@
   minLimit: 0
   loadouts:
   - LizardPlushieCargoTechnician
+
+- type: loadoutGroup
+  id: SalvageSpecialistHead
+  name: loadout-group-salvage-specialist-head
+  minLimit: 0
+  loadouts:
+  - CargoTechnicianHead
+  - SeniorCargoTechnicianBeret #Funky!
+
+- type: loadoutGroup
+  id: SalvageSpecialistJumpsuit
+  name: loadout-group-salvage-specialist-jumpsuit
+  loadouts:
+  - SalvageSpecialistJumpsuit
+  - SeniorSalvageSpecialistJumpsuit
 
 - type: loadoutGroup
   id: SalvageSpecialistBackpack
@@ -954,7 +1090,7 @@
   name: loadout-group-salvage-specialist-outerclothing
   minLimit: 0
   loadouts:
-  - SalvageSpecialistWintercoat
+  - SalvageSpecialistWindbreaker
 
 - type: loadoutGroup
   id: SalvageSpecialistShoes
@@ -1004,10 +1140,20 @@
   - ChiefEngineerWintercoat
 
 - type: loadoutGroup
+  id: ChiefEngineerBelt
+  name: loadout-group-chief-engineer-belt
+  minLimit: 1
+  loadouts:
+  - ChiefEngineerUtilityBelt
+  - ChiefEngineerHarness
+
+- type: loadoutGroup
   id: ChiefEngineerShoes
   name: loadout-group-chief-engineer-shoes
   loadouts:
   - BrownShoes
+  - NanotrasenRepresentativeBoots #These are just laceup shoes.
+  - WorkBoots
   - EngineeringWinterBoots
 
 - type: loadoutGroup #WizDen Weh Job Plush
@@ -1049,6 +1195,11 @@
   - StationEngineerJumpsuit
   - StationEngineerJumpskirt
   - StationEngineerHazardsuit
+  - StationEngineerJumpsuitElectrician
+  - StationEngineerJumpsuitElectricianTied
+  - StationEngineerJumpsuitTankTop
+  - StationEngineerJumpsuitUndersuit
+  - SeniorEngineerJumpsuitArmored
   - SeniorEngineerJumpsuit
   - SeniorEngineerJumpskirt
 
@@ -1067,6 +1218,14 @@
   loadouts:
   - StationEngineerOuterVest
   - StationEngineerWintercoat
+
+- type: loadoutGroup
+  id: StationEngineerBelt
+  name: loadout-group-station-engineer-belt
+  minLimit: 1
+  loadouts:
+  - EngineerUtilityBelt
+  - EngineerHarness
 
 - type: loadoutGroup
   id: StationEngineerShoes
@@ -1103,6 +1262,11 @@
   - AtmosphericTechnicianJumpsuit
   - AtmosphericTechnicianJumpskirt
   - AtmosphericTechnicianJumpsuitCasual
+  - StationEngineerJumpsuitElectrician
+  - StationEngineerJumpsuitElectricianTied
+  - StationEngineerJumpsuitTankTop
+  - StationEngineerJumpsuitUndersuit
+  - SeniorEngineerJumpsuitArmored
   - SeniorEngineerJumpskirt  # Goobstation
   - SeniorEngineerJumpsuit   # Goobstation
 
@@ -1112,6 +1276,14 @@
   minLimit: 0
   loadouts:
   - AtmosphericTechnicianWintercoat
+
+- type: loadoutGroup
+  id: AtmosphericTechnicianBelt
+  name: loadout-group-atmospheric-technician-belt
+  minLimit: 1
+  loadouts:
+  - AtmosphericTechnicianUtilityBelt
+  - AtmosphericTechnicianHarness
 
 - type: loadoutGroup
   id: AtmosphericTechnicianBackpack
@@ -1126,6 +1298,7 @@
   name: loadout-group-atmospheric-technician-shoes
   loadouts:
   - WhiteShoes
+  - WorkBoots
   - EngineeringWinterBoots
 
 - type: loadoutGroup #WizDen Weh Job Plush
@@ -1291,6 +1464,13 @@
   loadouts:
   - WhiteJumpsuit
   - WhiteJumpskirt
+
+- type: loadoutGroup #Funky Weh Plish
+  id: RoboticistJobTrinkets
+  name: loadout-group-jobtrinkets
+  minLimit: 0
+  loadouts:
+  - LizardPlushieRoboticist
 
 # Security
 - type: loadoutGroup
@@ -1801,8 +1981,17 @@
   loadouts:
   - ReporterJumpsuit
   - JournalistJumpsuit
+  - ReporterJumpskirt
+  - JournalistJumpskirt
   - ClothingUniformBrosBlazer #imp
   - ClothingUniformBrosBlazerSkirt #imp
+  - ServiceJumpsuitDressWhite
+  - ServiceJumpsuitDressBlue
+  - ServiceJumpsuitDressTied
+  - ServiceJumpsuitServiceCoat
+  - ServiceJumpskirtDressWhite
+  - ServiceJumpskirtDressBlue
+  - ServiceJumpskirtDressTied
 
 - type: loadoutGroup #WizDen Weh Job Plush
   id: ReporterJobTrinkets

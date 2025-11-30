@@ -22,10 +22,14 @@
 # SPDX-FileCopyrightText: 2025 88tv <131759102+88tv@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 8tv <eightev@gmail.com>
 # SPDX-FileCopyrightText: 2025 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Dani <57107055+wgreen84@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Dani Green <wgreen84gamergame@gmail.com>
+# SPDX-FileCopyrightText: 2025 Fr0goo <153249069+Fr0goo@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Fr0goo <frogoofrog@outlook.com>
 # SPDX-FileCopyrightText: 2025 Icepick <122653407+Icepicked@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 MaiaArai <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 PoquitoDondito <danielchristianstone@gmail.com>
+# SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+Princess-Cheeseballs@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 SaffronFennec <firefoxwolf2020@protonmail.com>
 # SPDX-FileCopyrightText: 2025 SigmaTheDragon <162711378+SigmaTheDragon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
@@ -42,6 +46,7 @@
 # SPDX-FileCopyrightText: 2025 puuupy <59433122+lolmatdi@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 vectorassembly <vectorassembly@icloud.com>
 # SPDX-FileCopyrightText: 2025 w.xyz() <84605679+pirakaplant@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
@@ -68,6 +73,7 @@
   - HoPJumpsuit
   - HoPBackpack
   - HoPOuterClothing
+  - GenericShoes
   - Glasses
   - Survival
   - Trinkets
@@ -109,6 +115,7 @@
   - BartenderJumpsuit
   - CommonBackpack
   - BartenderOuterClothing
+  - GenericShoes
   - Glasses
   - Survival
   - Trinkets
@@ -118,8 +125,9 @@
 - type: roleLoadout
   id: JobServiceWorker
   groups:
-  - BartenderJumpsuit
+  - ServiceJumpsuit
   - CommonBackpack
+  - GenericShoes
   - Glasses
   - Survival
   - Trinkets
@@ -134,6 +142,7 @@
   - ChefJumpsuit
   - CommonBackpack
   - ChefOuterClothing
+  - GenericShoes
   - Glasses
   - Survival
   - Trinkets
@@ -145,6 +154,7 @@
   groups:
   - LibrarianJumpsuit
   - CommonBackpack
+  - GenericShoes
   - Glasses
   - Survival
   - Trinkets
@@ -157,6 +167,7 @@
   - LawyerNeck
   - LawyerJumpsuit
   - CommonBackpack
+  - GenericShoes
   - Glasses
   - Survival
   - Trinkets
@@ -174,6 +185,7 @@
   - CommonBackpack
   - ChaplainOuterClothing
   - ChaplainBelt # imp
+  - GenericShoes # funky
   - Glasses
   - Survival
   - ChaplainBible # Funky
@@ -189,6 +201,7 @@
   - JanitorGloves
   - CommonBackpack
   - JanitorOuterClothing
+  - JanitorShoes
   - Glasses
   - Survival
   - Trinkets
@@ -246,6 +259,7 @@
   - MusicianJumpsuit
   - CommonBackpack
   - MusicianOuterClothing
+  - GenericShoes
   - Glasses
   - Survival
   - Trinkets
@@ -273,6 +287,7 @@
   id: JobCargoTechnician
   groups:
   - CargoTechnicianHead
+  - CargoTechnicianNeck
   - CargoTechnicianJumpsuit
   - CargoTechnicianBackpack
   - CargoTechnicianOuterClothing
@@ -287,9 +302,12 @@
 - type: roleLoadout
   id: JobSalvageSpecialist
   groups:
+  - SalvageSpecialistHead
+  - SalvageSpecialistJumpsuit
   - SalvageSpecialistBackpack
   - SalvageSpecialistOuterClothing
   - SalvageSpecialistShoes
+  - CargoPDA
   - Glasses
   - Survival
   - Trinkets
@@ -306,6 +324,7 @@
   - StationEngineerBackpack
   - ChiefEngineerNeck
   - ChiefEngineerOuterClothing
+  - ChiefEngineerBelt
   - ChiefEngineerShoes
   - SurvivalExtended
   - Trinkets
@@ -329,6 +348,7 @@
   - StationEngineerJumpsuit
   - StationEngineerBackpack
   - StationEngineerOuterClothing
+  - StationEngineerBelt
   - StationEngineerShoes
   - StationEngineerID
   - SurvivalExtended
@@ -344,6 +364,7 @@
   - AtmosphericTechnicianJumpsuit
   - AtmosphericTechnicianBackpack
   - AtmosphericTechnicianOuterClothing
+  - AtmosphericTechnicianBelt
   - AtmosphericTechnicianShoes
   - SurvivalExtended
   - Trinkets
@@ -580,6 +601,7 @@
   - ReporterJumpsuit
   - ReporterOuterClothing # Goobstation - Bodycams
   - CommonBackpack
+  - GenericShoes
   - Glasses
   - Survival
   - Trinkets

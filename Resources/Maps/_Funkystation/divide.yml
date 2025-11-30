@@ -9530,7 +9530,6 @@ entities:
       angularDamping: 0
       linearDamping: 0
 - proto: BorgModuleRescue
-  #this comment purely exists to be deleted in another commit
   entities:
   - uid: 26299
     components:

@@ -6,12 +6,14 @@
 // SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
 // SPDX-FileCopyrightText: 2024 yglop <95057024+yglop@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Drywink <43855731+Drywink@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Drywink <hugogrethen@gmail.com>
 // SPDX-FileCopyrightText: 2025 Eris <eris@erisws.com>
 // SPDX-FileCopyrightText: 2025 Eris <erisfiregamer1@gmail.com>
 // SPDX-FileCopyrightText: 2025 Skye <57879983+Rainbeon@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 // SPDX-FileCopyrightText: 2025 TheSecondLord <88201625+TheSecondLord@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 V <97265903+formlessnameless@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 ferynn <117872973+ferynn@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 ferynn <witchy.girl.me@gmail.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
@@ -41,6 +43,8 @@ using Content.Server.Radio.Components;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Random.Helpers;
 using Content.Shared._EE.Overlays.Switchable;
+using Content.Shared.Species.Arachnid;
+using Robust.Shared.Containers;
 
 namespace Content.Server.Changeling;
 
@@ -645,6 +649,13 @@ public sealed partial class ChangelingSystem
     {
         if (!TryUseAbility(uid, comp, args))
             return;
+
+        // Check if user is in a cocoon container and break it
+        if (_container.TryGetContainingContainer(uid, out var container) &&
+            TryComp<CocoonContainerComponent>(container.Owner, out var cocoonComp))
+        {
+            _cocoon.BreakCocoon((container.Owner, cocoonComp));
+        }
 
         if (TryComp<CuffableComponent>(uid, out var cuffs) && cuffs.Container.ContainedEntities.Count > 0)
         {

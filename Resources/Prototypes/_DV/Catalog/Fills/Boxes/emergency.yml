@@ -11,7 +11,7 @@
   components:
   - type: StorageFill
     contents:
-    - id: Flare
+    - id: GlowstickBase
     - id: Oilpack1
     - id: CableApcStack10
     - id: WelderMini

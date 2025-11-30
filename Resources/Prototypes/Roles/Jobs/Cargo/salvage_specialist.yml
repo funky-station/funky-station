@@ -49,6 +49,7 @@
   id: SalvageSpecialistGear
   equipment:
     ears: ClothingHeadsetCargo
+    id: SalvagePDA
   #storage:
     #back:
     #- Stuff

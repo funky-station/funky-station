@@ -84,6 +84,7 @@
           endValue: 1.5
     - type: Tag
       tags:
+      - Flare
       - Trash
 
 - type: entity

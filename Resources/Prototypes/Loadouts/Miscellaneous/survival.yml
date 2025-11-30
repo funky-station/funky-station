@@ -151,6 +151,26 @@
     back:
     - BoxSurvivalSlotsEngineeringNitrogen # Goobstation - Slots Based Survival Boxes
 
+# Salvage / Extended
+
+- type: loadout
+  id: EmergencyOxygenExtendedSalvage
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: OxygenBreather
+  storage:
+    back:
+    - BoxSurvivalSlotsSalvage # Goobstation - Slots Based Survival Boxes
+
+- type: loadout
+  id: EmergencyNitrogenExtendedSalvage
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: NitrogenBreather
+  storage:
+    back:
+    - BoxSurvivalSlotsSalvageNitrogen # Goobstation - Slots Based Survival Boxes
+
 # Medical
 - type: loadout
   id: EmergencyOxygenMedical

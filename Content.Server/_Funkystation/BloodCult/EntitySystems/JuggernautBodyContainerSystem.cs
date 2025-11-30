@@ -10,6 +10,8 @@ using Content.Shared.Mind.Components;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Physics;
+using Content.Shared.Speech;
+using Content.Shared.Emoting;
 using Robust.Shared.Containers;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Systems;
@@ -37,6 +39,13 @@ public sealed class JuggernautBodyContainerSystem : EntitySystem
         if (args.NewMobState == MobState.Critical || args.NewMobState == MobState.Dead)
         {
             EjectBody(uid, component);
+        }
+
+        // When the juggernaut dies, stop blocking projectiles and eject soulstone
+        if (args.NewMobState == MobState.Dead)
+        {
+            DisableProjectileCollision(uid);
+            EjectSoulstone(uid);
         }
     }
 
@@ -73,6 +82,62 @@ public sealed class JuggernautBodyContainerSystem : EntitySystem
             if (juggernautMindId != null && juggernautMindComp != null)
             {
                 _mind.TransferTo((EntityUid)juggernautMindId, contained, mind: juggernautMindComp);
+            }
+        }
+    }
+
+    private void DisableProjectileCollision(EntityUid uid)
+    {
+        // Disable collision so projectiles pass through dead juggernauts
+        if (TryComp<PhysicsComponent>(uid, out var physics))
+        {
+            _physics.SetCanCollide(uid, false, body: physics);
+        }
+    }
+
+    private void EjectSoulstone(EntityUid uid)
+    {
+        // Try to get the soulstone container
+        if (!_container.TryGetContainer(uid, "juggernaut_soulstone_container", out var soulstoneContainer))
+            return;
+
+        // Check if there's actually a soulstone in the container
+        if (soulstoneContainer.ContainedEntities.Count == 0)
+            return;
+
+        // Get the juggernaut's mind before ejecting
+        EntityUid? mindId = CompOrNull<MindContainerComponent>(uid)?.Mind;
+        if (mindId == null || !TryComp<MindComponent>(mindId, out var mindComp))
+            return;
+
+        var coordinates = Transform(uid).Coordinates;
+
+        // Eject all entities from the soulstone container (should just be the soulstone)
+        foreach (var contained in soulstoneContainer.ContainedEntities.ToArray())
+        {
+            var soulstone = contained;
+            
+            // Transfer the mind back to the soulstone
+            _mind.TransferTo((EntityUid)mindId, soulstone, mind: mindComp);
+            
+            // Ensure the soulstone can speak but not move
+            EnsureComp<SpeechComponent>(soulstone);
+            EnsureComp<EmotingComponent>(soulstone);
+            
+            // Remove the soulstone from the container
+            _container.Remove(soulstone, soulstoneContainer, destination: coordinates);
+            
+            // Give the soulstone a physics push for visual effect
+            if (TryComp<PhysicsComponent>(soulstone, out var physics))
+            {
+                // Wake the physics body so it responds to the impulse
+                _physics.SetAwake((soulstone, physics), true);
+                
+                // Generate a random direction and speed (8-15 units/sec for dramatic ejection)
+                var randomDirection = _random.NextVector2();
+                var speed = _random.NextFloat(8f, 15f);
+                var impulse = randomDirection * speed * physics.Mass;
+                _physics.ApplyLinearImpulse(soulstone, impulse, body: physics);
             }
         }
     }

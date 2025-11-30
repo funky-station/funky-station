@@ -83,15 +83,14 @@ public sealed class BloodCultRiftSetupSystem : EntitySystem
 			_random.Shuffle(cultists);
 			foreach (var cultist in cultists)
 			{
-				if (!TryComp<TransformComponent>(cultist, out var cultistXform))
-					continue;
+				var cultistXform = Transform(cultist);
 
 			if (TryFindValid3x3Space(cultistXform.Coordinates, out var centerCoords, out var gridUid, out var grid))
 				{
 					ReplaceFlooring(gridUid, grid, centerCoords);
 					rift = SpawnRiftAndRunes(centerCoords);
 					var meta = MetaData(cultist);
-				var riftCoords = TryComp<TransformComponent>(rift.Value, out var riftXform) ? riftXform.Coordinates : centerCoords;
+				var riftCoords = rift.HasValue ? Transform(rift.Value).Coordinates : centerCoords;
 				finalLocation = new WeakVeilLocation(meta.EntityName, cultist, meta.EntityPrototype?.ID ?? string.Empty, riftCoords, 3.0f);
 					break;
 				}
@@ -104,8 +103,7 @@ public sealed class BloodCultRiftSetupSystem : EntitySystem
 		var cultists = CollectCultists();
 			foreach (var cultist in cultists)
 			{
-				if (!TryComp<TransformComponent>(cultist, out var cultistXform))
-					continue;
+				var cultistXform = Transform(cultist);
 
 			var coords = cultistXform.Coordinates;
 			if (!TryResolveGrid(coords, out var gridUid, out var grid))
@@ -115,7 +113,7 @@ public sealed class BloodCultRiftSetupSystem : EntitySystem
 			ReplaceFlooring(gridUid, grid, coords);
 				rift = SpawnRiftAndRunes(coords);
 				var meta = MetaData(cultist);
-			var riftCoords = TryComp<TransformComponent>(rift.Value, out var riftXform) ? riftXform.Coordinates : coords;
+			var riftCoords = rift.HasValue ? Transform(rift.Value).Coordinates : coords;
 			finalLocation = new WeakVeilLocation(meta.EntityName, cultist, meta.EntityPrototype?.ID ?? string.Empty, riftCoords, 3.0f);
 				break;
 			}
@@ -134,7 +132,7 @@ public sealed class BloodCultRiftSetupSystem : EntitySystem
 			ReplaceFlooring(gridUid, grid, coords);
 				rift = SpawnRiftAndRunes(coords);
 				var meta = MetaData(beacon);
-			var riftCoords = TryComp<TransformComponent>(rift.Value, out var riftXform) ? riftXform.Coordinates : coords;
+			var riftCoords = rift.HasValue ? Transform(rift.Value).Coordinates : coords;
 			finalLocation = new WeakVeilLocation(meta.EntityName, beacon, meta.EntityPrototype?.ID ?? string.Empty, riftCoords, 3.0f);
 				break;
 			}
@@ -158,8 +156,7 @@ public sealed class BloodCultRiftSetupSystem : EntitySystem
 		var beaconCoords = Transform(beacon).Coordinates;
 		var offsetX = _random.NextFloat(-10f, 10f);
 		var offsetY = _random.NextFloat(-10f, 10f);
-		if (!TryComp<TransformComponent>(beacon, out var beaconTransform))
-			return false;
+		var beaconTransform = Transform(beacon);
 
 		var anchorGrid = beaconTransform.GridUid ?? beaconTransform.MapUid;
 		if (anchorGrid == null || !anchorGrid.Value.IsValid())
@@ -178,7 +175,7 @@ public sealed class BloodCultRiftSetupSystem : EntitySystem
 		var beaconMeta = MetaData(beacon);
 		var locationName = beaconMeta.EntityPrototype?.EditorSuffix ?? beaconMeta.EntityPrototype?.Name ?? beaconMeta.EntityName;
 		var protoId = beaconMeta.EntityPrototype?.ID ?? string.Empty;
-		coords = TryComp<TransformComponent>(rift.Value, out var riftXform) ? riftXform.Coordinates : centerCoords;
+		coords = rift.HasValue ? Transform(rift.Value).Coordinates : centerCoords;
 		location = new WeakVeilLocation(locationName, beacon, protoId, coords.Value, 3.0f);
 		return true;
 	}

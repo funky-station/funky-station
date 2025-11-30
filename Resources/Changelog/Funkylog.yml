@@ -6003,3 +6003,9 @@ Entries:
         and the Security book has Security SOP in place of the Antagonists list.
   id: 709
   time: '2025-11-30T04:01:29.0000000+00:00'
+- author: Terkala
+  changes:
+    - type: Fix
+      message: Second round of Bloodcult Bugfixes from playtesting.
+  id: 710
+  time: '2025-11-30T22:41:43.0000000+00:00'

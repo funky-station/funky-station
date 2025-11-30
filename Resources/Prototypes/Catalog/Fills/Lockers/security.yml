@@ -45,6 +45,7 @@
 # SPDX-FileCopyrightText: 2025 SigmaTheDragon <162711378+SigmaTheDragon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tadeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 W.xyz() <tptechteam@gmail.com>
 # SPDX-FileCopyrightText: 2025 Xcybitt <197952719+Xcybitt@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Xcybitt <lenazheng88@gmail.com>
 # SPDX-FileCopyrightText: 2025 Xcybitt <xcybitt@gmail.com>
@@ -88,6 +89,7 @@
       - id: ClothingHeadsetWarden #funkystation
       - id: ClothingHeadHelmetRiot
       - id: ClothingBeltBallandChain
+      - id: NetworkConfigurator # Funky
 
 - type: entity
   id: LockerWardenFilled
@@ -118,6 +120,7 @@
       - id: Binoculars
       - id: ClothingHeadHelmetRiot
       - id: ClothingBeltBallandChain
+      - id: NetworkConfigurator # Funky
 
 - type: entity
   id: LockerSecurityFilled

@@ -61,7 +61,6 @@
     - type: GuideHelp
       guides:
       - MedicalDoctor
-    - type: ToggleCellDraw
 
 - type: entity
   id: Defibrillator

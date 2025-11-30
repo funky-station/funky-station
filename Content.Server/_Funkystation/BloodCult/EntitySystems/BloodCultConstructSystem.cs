@@ -27,6 +27,9 @@ using Robust.Shared.Random;
 using Content.Shared.Speech;
 using Content.Shared.Emoting;
 using Robust.Shared.Map;
+using Content.Shared.NPC.Systems;
+using Content.Shared.NPC.Components;
+using Content.Server.GameTicking.Rules;
 
 namespace Content.Server.BloodCult.EntitySystems;
 
@@ -40,6 +43,7 @@ public sealed partial class BloodCultConstructSystem : EntitySystem
 	[Dependency] private readonly SharedPhysicsSystem _physics = default!;
 	[Dependency] private readonly IRobustRandom _random = default!;
 	[Dependency] private readonly SharedTransformSystem _transform = default!;
+	[Dependency] private readonly NpcFactionSystem _npcFaction = default!;
 
 	public override void Initialize()
 	{
@@ -87,16 +91,31 @@ public sealed partial class BloodCultConstructSystem : EntitySystem
 		
 		// Figure out the shell's location so we can spawn the completed juggernaut there
 		var shellTransform = Transform(shell);
-		var shellCoordinates = shellTransform.Coordinates;
+		var shellMapCoords = _transform.GetMapCoordinates(shellTransform);
 		var shellRotation = shellTransform.LocalRotation;
 		
-		// Play sacrifice audio
-		_audio.PlayPvs(new SoundPathSpecifier("/Audio/Magic/disintegrate.ogg"), shellCoordinates);
+		// Unanchor the shell first to prevent grid snapping issues
+		if (shellTransform.Anchored)
+		{
+			_transform.Unanchor(shell, shellTransform);
+		}
 		
-		// Delete the shell and spawn the juggernaut at the exact coords with rotation
-		QueueDel(shell);
-		var juggernaut = SpawnAtPosition("MobBloodCultJuggernaut", shellCoordinates);
-		_transform.SetLocalRotation(juggernaut, shellRotation);
+		// Play sacrifice audio
+		_audio.PlayPvs(new SoundPathSpecifier("/Audio/Magic/disintegrate.ogg"), shellTransform.Coordinates);
+		
+		// Delete the shell and spawn the juggernaut at the exact map coordinates with rotation
+		// Use DeleteEntity instead of QueueDel to ensure immediate deletion before spawning
+		EntityManager.DeleteEntity(shell);
+		
+		// Spawn the juggernaut at the exact map coordinates (not anchored, so it won't snap to grid)
+		var juggernaut = Spawn("MobBloodCultJuggernaut", shellMapCoords, rotation: shellRotation);
+		
+		// Ensure the juggernaut is not anchored (mobs shouldn't be anchored)
+		var juggernautTransform = Transform(juggernaut);
+		if (juggernautTransform.Anchored)
+		{
+			_transform.Unanchor(juggernaut, juggernautTransform);
+		}
 		
 		// Store the soulstone in the juggernaut's container. It'll be ejected if the juggernaut is crit
 		if (_container.TryGetContainer(juggernaut, "juggernaut_soulstone_container", out var soulstoneContainer))
@@ -114,8 +133,16 @@ public sealed partial class BloodCultConstructSystem : EntitySystem
 		// Transfer mind from soulstone to juggernaut
 		_mind.TransferTo((EntityUid)mindId, juggernaut, mind:mindComp);
 		
+		// Ensure juggernaut is in the BloodCultist faction (remove any crew alignment)
+		// Use ClearFactions and AddFaction to ensure proper faction alignment after mind transfer
+		if (TryComp<NpcFactionMemberComponent>(juggernaut, out var npcFaction))
+		{
+			_npcFaction.ClearFactions((juggernaut, npcFaction), false);
+		}
+		_npcFaction.AddFaction(juggernaut, BloodCultRuleSystem.BloodCultistFactionId);
+		
 		// Play transformation audio
-		_audio.PlayPvs(new SoundPathSpecifier("/Audio/Magic/blink.ogg"), shellCoordinates);
+		_audio.PlayPvs(new SoundPathSpecifier("/Audio/Magic/blink.ogg"), shellTransform.Coordinates);
 		
 		// Play a message
 		_popup.PopupEntity(Loc.GetString("cult-juggernaut-created"), user, user, PopupType.Large);
@@ -147,6 +174,14 @@ public sealed partial class BloodCultConstructSystem : EntitySystem
 
 		// Transfer mind from soulstone to juggernaut
 		_mind.TransferTo((EntityUid)mindId, juggernaut, mind: mindComp);
+		
+		// Ensure juggernaut is in the BloodCultist faction (remove any crew alignment)
+		// Use ClearFactions and AddFaction to ensure proper faction alignment after mind transfer
+		if (TryComp<NpcFactionMemberComponent>(juggernaut, out var npcFaction))
+		{
+			_npcFaction.ClearFactions((juggernaut, npcFaction), false);
+		}
+		_npcFaction.AddFaction(juggernaut, BloodCultRuleSystem.BloodCultistFactionId);
 
 		// Play transformation audio
 		var coordinates = Transform(juggernaut).Coordinates;
@@ -184,16 +219,31 @@ public sealed partial class BloodCultConstructSystem : EntitySystem
 		}
 
 		var shellTransform = Transform(uid);
-		var shellCoordinates = shellTransform.Coordinates;
+		var shellMapCoords = _transform.GetMapCoordinates(shellTransform);
 		var shellRotation = shellTransform.LocalRotation;
 		
-		// Play sacrifice audio
-		_audio.PlayPvs(new SoundPathSpecifier("/Audio/Magic/disintegrate.ogg"), shellCoordinates);
+		// Unanchor the shell first to prevent grid snapping issues
+		if (shellTransform.Anchored)
+		{
+			_transform.Unanchor(uid, shellTransform);
+		}
 		
-		// Delete the shell and spawn the juggernaut at the exact position with rotation
-		QueueDel(uid);
-		var juggernaut = SpawnAtPosition("MobBloodCultJuggernaut", shellCoordinates);
-		_transform.SetLocalRotation(juggernaut, shellRotation);
+		// Play sacrifice audio
+		_audio.PlayPvs(new SoundPathSpecifier("/Audio/Magic/disintegrate.ogg"), shellTransform.Coordinates);
+		
+		// Delete the shell and spawn the juggernaut at the exact map coordinates with rotation
+		// Use DeleteEntity instead of QueueDel to ensure immediate deletion before spawning
+		EntityManager.DeleteEntity(uid);
+		
+		// Spawn the juggernaut at the exact map coordinates (not anchored, so it won't snap to grid)
+		var juggernaut = Spawn("MobBloodCultJuggernaut", shellMapCoords, rotation: shellRotation);
+		
+		// Ensure the juggernaut is not anchored (mobs shouldn't be anchored)
+		var juggernautTransform = Transform(juggernaut);
+		if (juggernautTransform.Anchored)
+		{
+			_transform.Unanchor(juggernaut, juggernautTransform);
+		}
 		
 		// Get the juggernaut's body container
 		if (_container.TryGetContainer(juggernaut, "juggernaut_body_container", out var container))
@@ -205,8 +255,16 @@ public sealed partial class BloodCultConstructSystem : EntitySystem
 		// Transfer mind from victim to juggernaut
 		_mind.TransferTo((EntityUid)mindId, juggernaut, mind:mindComp);
 		
+		// Ensure juggernaut is in the BloodCultist faction (remove any crew alignment)
+		// Use ClearFactions and AddFaction to ensure proper faction alignment after mind transfer
+		if (TryComp<NpcFactionMemberComponent>(juggernaut, out var npcFaction))
+		{
+			_npcFaction.ClearFactions((juggernaut, npcFaction), false);
+		}
+		_npcFaction.AddFaction(juggernaut, BloodCultRuleSystem.BloodCultistFactionId);
+		
 		// Play transformation audio
-		_audio.PlayPvs(new SoundPathSpecifier("/Audio/Magic/blink.ogg"), shellCoordinates);
+		_audio.PlayPvs(new SoundPathSpecifier("/Audio/Magic/blink.ogg"), shellTransform.Coordinates);
 		
 		// Notify the user
 		_popup.PopupEntity(Loc.GetString("cult-juggernaut-created"), args.User, args.User, PopupType.Large);

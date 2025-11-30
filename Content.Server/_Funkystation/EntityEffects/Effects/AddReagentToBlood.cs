@@ -18,8 +18,6 @@ namespace Content.Server._Funkystation.EntityEffects.Effects;
 
 public sealed partial class AddReagentToBlood : EntityEffect
 {
-    private readonly SharedSolutionContainerSystem _solutionContainers;
-
     [DataField(customTypeSerializer: typeof(PrototypeIdSerializer<ReagentPrototype>))]
     public string? Reagent = null;
 

@@ -68,6 +68,10 @@
     transferAmount: 3
     solution: melee
     pierceArmor: true
+  - type: SolutionInjectOnProjectileHit
+    transferAmount: 3
+    solution: melee
+    pierceArmor: true
   - type: RefillableSolution
     solution: melee
   - type: InjectableSolution

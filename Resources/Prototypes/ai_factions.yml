@@ -32,6 +32,7 @@
     - Blob # Goobstation - Blob
     - AllHostile
     - Wizard
+    - BloodCultist # Blood cultists
 
 - type: npcFaction
   id: NanoTrasen
@@ -83,6 +84,7 @@
   - AllHostile
   - Wizard
   - Dragon
+  - BloodCultist # Blood cultists
 
 - type: npcFaction
   id: SimpleNeutral
@@ -116,6 +118,7 @@
   - Blob # Goobstation - Blob
   - Wizard
   - Dragon
+  - BloodCultist # Blood cultists
 
 - type: npcFaction
   id: Zombie

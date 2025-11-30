@@ -88,6 +88,8 @@ cult-spell-exceeded = You cannot carve another spell!
 cult-spell-havealready = You already have that spell!
 cult-spell-fail = You fail to cast the spell!
 cult-spell-repelled = Holy magic protects your target!
+cult-spell-repelled-mindshield = Foul technology prevents your spell from reaching your target!
+cult-spell-mindshield-buzzing = You feel a buzzing coming from your mindshield implant.
 cult-spell-sleep-dream = You feel an overwhelming wave of drowsiness as nightmares of blood-soaked knives flood your mind!
 cult-spell-allied-cultist = You cannot target a fellow devotee of Nar'Sie!
 
@@ -157,7 +159,10 @@ cult-ascend-1 = The veil weakens as your cult grows, and your eyes begin to glow
 cult-ascend-2 = The veil weakens as your cult grows, and you are unable to hide your true nature!
 
 cult-deconverted = You suddenly de-convert, and no longer consider yourself a cultist!
-cult-break-control = {$name} looks bewildered as Nar'Sie's influence is shattered!
+cult-break-control = You look bewildered as Nar'Sie's influence is shattered! You don't remember any of your time in the cult.
+
+cult-evac-called-announcement = Unusual dimensional disturbances have faded, evac called while centcom investigates this dimensional anomaly. ETA: {$time} {$units}
+cult-evac-sender-announcement = Central Command
 
 cult-commune-window = Commune
 cult-commune-info = Whisper into the veil and communicate with your fellow worshippers.

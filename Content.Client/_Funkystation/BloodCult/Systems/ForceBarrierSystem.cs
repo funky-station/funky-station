@@ -6,6 +6,7 @@
 
 using Content.Shared.BloodCult;
 
-namespace Content.Server.BloodCult.EntitySystems;
+namespace Content.Client._Funkystation.BloodCult.Systems;
 
 public sealed class ForceBarrierSystem : SharedForceBarrierSystem;
+

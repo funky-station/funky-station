@@ -30,7 +30,8 @@ public sealed class SummonOnTriggerSystem : EntitySystem
 	[Dependency] private readonly StackSystem _stackSystem = default!;
 	[Dependency] private readonly SharedTransformSystem _transform = default!;
 	[Dependency] private readonly MapSystem _mapSystem = default!;
-	[Dependency] private readonly IPrototypeManager _protoMan = default!;
+	//[Dependency] private readonly IPrototypeManager _protoMan = default!;
+	[Dependency] private readonly IMapManager _mapManager = default!;
 
 	private EntityQuery<PhysicsComponent> _physicsQuery = default!;
 
@@ -103,6 +104,14 @@ public sealed class SummonOnTriggerSystem : EntitySystem
 			if (TryConsumeMaterials(runedMetalStacks, JuggernautMetalRequired, user))
 			{
 				var juggernautShell = Spawn("CultJuggernautShell", runeCoords);
+				
+				// Ensure the shell is not anchored (it should be movable)
+				var shellTransform = Transform(juggernautShell);
+				if (shellTransform.Anchored)
+				{
+					_transform.Unanchor(juggernautShell, shellTransform);
+				}
+				
 				_popupSystem.PopupEntity(
 					Loc.GetString("cult-summoning-juggernaut-shell"),
 					user, user, PopupType.Large
@@ -190,10 +199,9 @@ public sealed class SummonOnTriggerSystem : EntitySystem
 					return;
 				}
 
-				// Verify pylon exists and has transform
-				if (!TryComp<TransformComponent>(pylon.Value, out var pylonXform))
+				// Verify pylon exists
+				if (!Exists(pylon.Value))
 				{
-					QueueDel(pylon.Value);
 					_popupSystem.PopupEntity(
 						Loc.GetString("cult-summoning-pylon-failed"),
 						user, user, PopupType.MediumCaution
@@ -202,7 +210,8 @@ public sealed class SummonOnTriggerSystem : EntitySystem
 					return;
 				}
 
-				// Set the rotation to match the rune
+				// Get transform and set the rotation to match the rune
+				var pylonXform = Transform(pylon.Value);
 				pylonXform.LocalRotation = runeRotation;
 
 				// Verify pylon is actually anchored (it should be since CultPylon has anchored: true)
@@ -217,8 +226,9 @@ public sealed class SummonOnTriggerSystem : EntitySystem
 					if (TryFindNearbyLocation(runeCoordsForPylon, out var nearbyLocation))
 					{
 						var unanchoredPylon = Spawn("CultPylon", nearbyLocation);
-						if (TryComp<TransformComponent>(unanchoredPylon, out var unanchoredXform))
+						if (Exists(unanchoredPylon))
 						{
+							var unanchoredXform = Transform(unanchoredPylon);
 							// Ensure it's unanchored
 							_transform.Unanchor(unanchoredPylon, unanchoredXform);
 							unanchoredXform.LocalRotation = runeRotation;
@@ -250,7 +260,18 @@ public sealed class SummonOnTriggerSystem : EntitySystem
 				}
 
 				// Double-check pylon still exists after a moment (in case something deleted it)
-				if (!Exists(pylon.Value) || !TryComp<TransformComponent>(pylon.Value, out var pylonXformCheck) || !pylonXformCheck.Anchored)
+				if (!Exists(pylon.Value))
+				{
+					_popupSystem.PopupEntity(
+						Loc.GetString("cult-summoning-pylon-failed"),
+						user, user, PopupType.MediumCaution
+					);
+					args.Handled = true;
+					return;
+				}
+				
+				var pylonXformCheck = Transform(pylon.Value);
+				if (!pylonXformCheck.Anchored)
 				{
 					if (Exists(pylon.Value))
 						QueueDel(pylon.Value);
@@ -283,7 +304,7 @@ public sealed class SummonOnTriggerSystem : EntitySystem
 				args.Handled = true;
 				return;
 			}
-			catch (Exception ex)
+			catch (Exception)
 			{
 				// Exception during pylon spawning - clean up
 				if (pylon != null && Exists(pylon.Value))

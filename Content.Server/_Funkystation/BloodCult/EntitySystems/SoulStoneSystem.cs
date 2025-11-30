@@ -104,9 +104,7 @@ public sealed class SoulStoneSystem : EntitySystem
 		if (!args.DamageIncreased)
 			return;
 
-		if (!TryComp<TransformComponent>(uid, out var xform))
-			return;
-
+		var xform = Transform(uid);
 		var filter = Filter.Pvs(xform.Coordinates, entityMan: EntityManager);
 		_color.RaiseEffect(Color.FromHex("#bf2cff"), new List<EntityUid> { uid }, filter);
 	}

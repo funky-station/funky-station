@@ -15,8 +15,6 @@
   - type: Construction
     graph: CultJuggernautShell
     node: juggernautShell
-  - type: Transform
-    anchored: true
   - type: Sprite
     sprite: _Funkystation/BloodCult/Mobs/constructs.rsi
     state: juggernaut
@@ -64,7 +62,9 @@
   parent: [ SimpleSpaceMobBase, BaseBloodCultContraband ]
   categories: [ HideSpawnMenu ]
   components:
-    #- type: Hands
+    - type: Hands
+      showInHands: false
+    - type: ComplexInteraction
     - type: ZombieImmune
     - type: Damageable
       damageContainer: BloodCultConstruct
@@ -78,22 +78,6 @@
       groups:
         Flammable: [ Touch ]
         Extinguish: [ Touch ]
-      reactions:
-      - reagents: [ Blood, Slime, Sap, InsectBlood, CopperBlood, AmmoniaBlood, ZombieBlood, BloodChangeling]
-        methods: [ Touch ]
-        effects:
-        - !type:HealthChange
-          scaleByQuantity: true
-          damage:
-            groups:
-              Brute: -2
-              Burn: -2
-        - !type:PopupMessage
-          type: Local
-          visualType: Medium
-          messages: [ "bloodcult-juggernaut-healed-by-blood" ]
-          probability: 0.5
-        - !type:JuggernautBloodCorruption
     - type: MindContainer
     - type: Juggernaut
     - type: JuggernautBodyContainer

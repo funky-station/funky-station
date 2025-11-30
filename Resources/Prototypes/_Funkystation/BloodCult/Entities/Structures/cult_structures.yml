@@ -70,14 +70,14 @@
     noRot: true
     snapCardinals: true
     layers:
-      - state: crystal
+      - state: pylon-on
         map: ["anchored"]
   - type: GenericVisualizer
     visuals:
       enum.CultStructureVisuals.Anchored:
         anchored:
-          True: { state: crystal }
-          False: { state: inactive }
+          True: { state: pylon-on }
+          False: { state: pylon-off }
   - type: Fixtures
     fixtures:
       fix1:

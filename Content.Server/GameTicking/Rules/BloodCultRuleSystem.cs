@@ -196,6 +196,7 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 
 		SubscribeLocalEvent<BloodCultistComponent, MindAddedMessage>(OnMindAdded);
 		SubscribeLocalEvent<BloodCultistComponent, MindRemovedMessage>(OnMindRemoved);
+		SubscribeLocalEvent<BloodCultistComponent, ComponentRemove>(OnCultistRemoved);
 
 		// Do we need a special "head" cultist? Don't think so
 		//SubscribeLocalEvent<HeadRevolutionaryComponent, AfterFlashedEvent>(OnPostFlash);
@@ -889,6 +890,39 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 	private void OnMindRemoved(EntityUid uid, BloodCultistComponent cultist, MindRemovedMessage args)
 	{
 		_role.MindRemoveRole<BloodCultRoleComponent>(args.Mind.Owner);
+		CheckCultistCountAndCallEvac();
+	}
+
+	private void OnCultistRemoved(EntityUid uid, BloodCultistComponent cultist, ComponentRemove args)
+	{
+		CheckCultistCountAndCallEvac();
+	}
+
+	private void CheckCultistCountAndCallEvac()
+	{
+		// Only check if there's an active rule
+		if (!TryGetActiveRule(out var rule))
+			return;
+
+		// Don't call evac if it's already been called
+		if (_roundEnd.IsRoundEndRequested())
+			return;
+
+		// Get all cultists (excluding constructs)
+		var cultists = GetCultists(includeConstructs: false);
+		var cultistCount = cultists.Count;
+
+		// Call evac if cult drops to 0 or 1 members
+		if (cultistCount <= 1)
+		{
+			_roundEnd.RequestRoundEnd(
+				TimeSpan.FromMinutes(10),
+				null,
+				false,
+				"cult-evac-called-announcement",
+				"cult-evac-sender-announcement"
+			);
+		}
 	}
 
 	public void Speak(EntityUid? uid, string speech, bool forceLoud = false)

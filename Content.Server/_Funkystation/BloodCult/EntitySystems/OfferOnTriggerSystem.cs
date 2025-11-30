@@ -63,6 +63,8 @@ namespace Content.Server.BloodCult.EntitySystems
 {
 	public sealed partial class OfferOnTriggerSystem : EntitySystem
 	{
+		private const string MindShieldTag = "MindShield";
+
 		[Dependency] private readonly PopupSystem _popupSystem = default!;
 		[Dependency] private readonly EntityLookupSystem _lookup = default!;
 		[Dependency] private readonly MobStateSystem _mobState = default!;
@@ -775,7 +777,7 @@ namespace Content.Server.BloodCult.EntitySystems
 		// Find the mindshield implant by checking both tag AND SubdermalImplantComponent
 		foreach (var implant in implantContainer.ContainedEntities)
 		{
-			if (_tag.HasTag(implant, "MindShield") && TryComp<SubdermalImplantComponent>(implant, out var _))
+			if (_tag.HasTag(implant, MindShieldTag) && TryComp<SubdermalImplantComponent>(implant, out var _))
 			{
 				mindshieldImplant = implant;
 				break;

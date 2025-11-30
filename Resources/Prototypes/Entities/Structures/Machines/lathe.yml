@@ -978,6 +978,7 @@
     - ProximitySensor
     - BorgModuleAdvancedCleaning
     - BorgModuleAdvancedTool
+    - BorgModuleAdvancedMining
     - BorgModuleAtmos
     #- BorgModuleGPS
     #- BorgModuleArtifact

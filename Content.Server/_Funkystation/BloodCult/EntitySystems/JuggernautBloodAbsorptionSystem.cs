@@ -1,6 +1,6 @@
 // SPDX-FileCopyrightText: 2025 Terkala <appleorange64@gmail.com>
 //
-// SPDX-License-Identifier: AGPL-3.0-or-later OR MIT
+// SPDX-License-Identifier: MIT
 
 using Content.Server.Fluids.EntitySystems;
 using Content.Shared.BloodCult;

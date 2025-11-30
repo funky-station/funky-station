@@ -505,7 +505,7 @@
 - type: loadout
   id: LizardPlushieRoboticist
   effects: 
- - !type:JobRequirementLoadoutEffect
+  - !type:JobRequirementLoadoutEffect
    requirement:
      !type:RoleTimeRequirement 
       role: JobRoboticist

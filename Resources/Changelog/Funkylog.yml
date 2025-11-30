@@ -5973,3 +5973,11 @@ Entries:
       message: Fire spreading when entities are colliding now works properly.
   id: 706
   time: '2025-11-30T00:03:58.0000000+00:00'
+- author: Joana
+  changes:
+    - type: Add
+      message: >-
+        Added the british accent, speak stereotypically like you came from space
+        england!
+  id: 707
+  time: '2025-11-30T01:54:25.0000000+00:00'

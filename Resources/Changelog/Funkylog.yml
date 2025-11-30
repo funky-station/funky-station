@@ -5961,3 +5961,33 @@ Entries:
       message: Tweaked the layout of Engineering to fit the SM
   id: 704
   time: '2025-11-29T15:08:09.0000000+00:00'
+- author: Xcybitt
+  changes:
+    - type: Tweak
+      message: Made Stabilized Stims give adrenaline.
+  id: 705
+  time: '2025-11-29T23:44:57.0000000+00:00'
+- author: Drywink
+  changes:
+    - type: Fix
+      message: Fire spreading when entities are colliding now works properly.
+  id: 706
+  time: '2025-11-30T00:03:58.0000000+00:00'
+- author: Joana
+  changes:
+    - type: Add
+      message: >-
+        Added the british accent, speak stereotypically like you came from space
+        england!
+  id: 707
+  time: '2025-11-30T01:54:25.0000000+00:00'
+- author: AraiMaia
+  changes:
+    - type: Add
+      message: New markings for Thaven! Arm, leg, and dorsal fins.
+    - type: Add
+      message: Three new tails for Thaven made by trixxedheart!
+    - type: Tweak
+      message: Increased the amount of slots for Thaven arm, leg and chest markings
+  id: 708
+  time: '2025-11-30T02:33:30.0000000+00:00'

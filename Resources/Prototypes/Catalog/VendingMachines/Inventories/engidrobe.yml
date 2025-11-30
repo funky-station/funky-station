@@ -11,6 +11,7 @@
 # SPDX-FileCopyrightText: 2024 hereelabs <hahmorm@gmail.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 V <97265903+formlessnameless@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
@@ -23,6 +24,13 @@
     ClothingBackpackDuffelEngineering: 3
     ClothingBackpackSatchelEngineering: 3
     ClothingBackpackEngineering: 3
+    ClothingUniformJumpsuitEngineeringJumpsuit: 3
+    ClothingUniformJumpsuitEngineeringJumpsuitTied: 3
+    ClothingUniformJumpsuitEngineeringElectrician: 3
+    ClothingUniformJumpskirtEngineeringElectricianTied: 3
+    ClothingUniformJumpsuitEngineeringTankTop: 3
+    ClothingUniformJumpsuitEngineeringBaggyHazard: 3
+    ClothingUniformJumpsuitEngineeringUndersuit: 3
     ClothingUniformJumpsuitEngineering: 3
     ClothingUniformJumpskirtEngineering: 3
     ClothingUniformJumpsuitEngineeringHazard: 3

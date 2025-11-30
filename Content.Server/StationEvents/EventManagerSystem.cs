@@ -66,23 +66,15 @@ public sealed class EventManagerSystem : EntitySystem
         GameTicker.AddGameRule(randomEvent);
     }
 
-    // Goobstation start
-    /// <summary>
-    /// Runs a specific named event.
-    /// </summary>
-    public void RunNamedEvent(string eventId)
-    {
-        var ent = GameTicker.AddGameRule(eventId);
-        Log.Info($"Running event {eventId} as entity {ent}");
-    }
-    // Goobstation end
-
     /// <summary>
     /// Randomly runs an event from provided EntityTableSelector.
     /// </summary>
     public void RunRandomEvent(EntityTableSelector limitedEventsTable)
     {
-        if (!TryBuildLimitedEvents(limitedEventsTable, out var limitedEvents))
+        var availableEvents = AvailableEvents(); // handles the player counts and individual event restrictions.
+                                                 // Putting this here only makes any sense in the context of the toolshed commands in BasicStationEventScheduler. Kill me.
+
+        if (!TryBuildLimitedEvents(limitedEventsTable, availableEvents, out var limitedEvents))
         {
             Log.Warning("Provided event table could not build dict!");
             return;
@@ -95,7 +87,7 @@ public sealed class EventManagerSystem : EntitySystem
             return;
         }
 
-        if (!_prototype.TryIndex(randomLimitedEvent, out _))
+        if (!_prototype.Resolve(randomLimitedEvent, out _))
         {
             Log.Warning("A requested event is not available!");
             return;
@@ -107,11 +99,13 @@ public sealed class EventManagerSystem : EntitySystem
     /// <summary>
     /// Returns true if the provided EntityTableSelector gives at least one prototype with a StationEvent comp.
     /// </summary>
-    public bool TryBuildLimitedEvents(EntityTableSelector limitedEventsTable, out Dictionary<EntityPrototype, StationEventComponent> limitedEvents)
+    public bool TryBuildLimitedEvents(
+        EntityTableSelector limitedEventsTable,
+        Dictionary<EntityPrototype, StationEventComponent> availableEvents,
+        out Dictionary<EntityPrototype, StationEventComponent> limitedEvents
+        )
     {
         limitedEvents = new Dictionary<EntityPrototype, StationEventComponent>();
-
-        var availableEvents = AvailableEvents(); // handles the player counts and individual event restrictions
 
         if (availableEvents.Count == 0)
         {
@@ -126,7 +120,7 @@ public sealed class EventManagerSystem : EntitySystem
 
         foreach (var eventid in selectedEvents)
         {
-            if (!_prototype.TryIndex(eventid, out var eventproto))
+            if (!_prototype.Resolve(eventid, out var eventproto))
             {
                 Log.Warning("An event ID has no prototype index!");
                 continue;
@@ -267,7 +261,7 @@ public sealed class EventManagerSystem : EntitySystem
         return TimeSpan.Zero;
     }
 
-    public bool CanRun(EntityPrototype prototype, StationEventComponent stationEvent, int playerCount, TimeSpan currentTime)
+    private bool CanRun(EntityPrototype prototype, StationEventComponent stationEvent, int playerCount, TimeSpan currentTime)
     {
         if (GameTicker.IsGameRuleActive(prototype.ID))
             return false;

@@ -142163,7 +142163,7 @@ entities:
     - type: Transform
       pos: 29.5,-4.5
       parent: 2
-- proto: InflatableWallStack5
+- proto: InflatableWallStack
   entities:
   - uid: 1466
     components:

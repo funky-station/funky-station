@@ -33,9 +33,6 @@ using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.CustomControls;
 using Robust.Client.UserInterface.XAML;
 using Robust.Shared.Prototypes;
-using Robust.Client.ResourceManagement;
-using Content.Client.MalfAI.Theme;
-using Content.Shared.Actions;
 
 namespace Content.Client.Store.Ui;
 
@@ -45,17 +42,10 @@ public sealed partial class StoreMenu : DefaultWindow
     [Dependency] private readonly IEntityManager _entityManager = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
 
-    [Dependency] private readonly IResourceCache _resCache = default!;
-
     private StoreWithdrawWindow? _withdrawWindow;
 
-    private Font? _malfFont;
-    private bool _malfThemeApplied;
-    private static readonly Color MalfGreen = MalfUiTheme.Accent;
-    private StyleBox? _malfButtonStyle;
-
     public event EventHandler<string>? SearchTextUpdated;
-    public event Action<BaseButton.ButtonEventArgs, ListingData>? OnListingButtonPressed;
+    public event Action<BaseButton.ButtonEventArgs, ListingDataWithCostModifiers>? OnListingButtonPressed;
     public event Action<BaseButton.ButtonEventArgs, string>? OnCategoryButtonPressed;
     public event Action<BaseButton.ButtonEventArgs, string, int>? OnWithdrawAttempt;
     public event Action<BaseButton.ButtonEventArgs>? OnRefundAttempt;
@@ -63,7 +53,7 @@ public sealed partial class StoreMenu : DefaultWindow
     public Dictionary<ProtoId<CurrencyPrototype>, FixedPoint2> Balance = new();
     public string CurrentCategory = string.Empty;
 
-    private List<ListingData> _cachedListings = new();
+    private List<ListingDataWithCostModifiers> _cachedListings = new();
 
     public StoreMenu()
     {
@@ -73,53 +63,6 @@ public sealed partial class StoreMenu : DefaultWindow
         WithdrawButton.OnButtonDown += OnWithdrawButtonDown;
         RefundButton.OnButtonDown += OnRefundButtonDown;
         SearchBar.OnTextChanged += _ => SearchTextUpdated?.Invoke(this, SearchBar.Text);
-    }
-
-    public void ApplyMalfTheme()
-    {
-        if (_malfThemeApplied)
-            return;
-
-        _malfThemeApplied = true;
-
-        // Load font
-        _malfFont ??= MalfUiTheme.GetFont(_resCache, 12);
-
-        // Backdrop goes black for Malf shop (no static - will be added as overlay)
-        RootBackdrop.PanelOverride = MalfUiTheme.CreateBackdropStyle();
-
-        // Add scrolling error backdrop behind all UI elements - insert at beginning so it appears behind
-        var errorBackdrop = MalfEffectOverlay.CreateErrorBackdrop();
-        RootBackdrop.AddChild(errorBackdrop);
-        errorBackdrop.SetPositionInParent(0);
-
-        // Add CRT static overlay using AI statics fog of war shader - this stays on top
-        var staticOverlay = MalfEffectOverlay.CreateStaticOverlay();
-        RootBackdrop.AddChild(staticOverlay);
-
-        // Apply green-outlined black panels
-        var borderMain = MalfUiTheme.CreateMainPanelStyle(MalfUiTheme.Accent);
-        MainPanel.PanelOverride = borderMain;
-
-        var borderCat = MalfUiTheme.CreateCategoryPanelStyle(MalfUiTheme.Accent);
-        CategoryPanel.PanelOverride = borderCat;
-
-        // Apply color to common controls
-        BalanceInfo.Modulate = MalfGreen;
-
-        // Apply Malf stylesheet
-        RootBackdrop.Stylesheet = MalfUiTheme.GetCachedStylesheet(_resCache, 12);
-
-        // Apply specific styling for the search bar
-        SearchBar.StyleBoxOverride = MalfUiTheme.CreateButtonStyle(MalfUiTheme.Accent);
-
-        // Create and apply green-bordered black style for buttons WITHOUT static (static comes from backdrop overlay)
-        _malfButtonStyle ??= MalfUiTheme.CreateButtonStyle(MalfUiTheme.Accent);
-
-        // Hide withdraw in the CPU/Malf store.
-        WithdrawButton.Visible = false;
-
-        RefundButton.StyleBoxOverride = _malfButtonStyle;
     }
 
     public void UpdateBalance(Dictionary<ProtoId<CurrencyPrototype>, FixedPoint2> balance)
@@ -151,15 +94,17 @@ public sealed partial class StoreMenu : DefaultWindow
         WithdrawButton.Disabled = disabled;
     }
 
-    public void UpdateListing(List<ListingData> listings)
+    public void UpdateListing(List<ListingDataWithCostModifiers> listings)
     {
         _cachedListings = listings;
+
         UpdateListing();
     }
 
     public void UpdateListing()
     {
-        var sorted = _cachedListings.OrderBy(l => l.Priority).ThenBy(l => l.Cost.Values.Sum());
+        var sorted = _cachedListings.OrderBy(l => l.Priority)
+                                    .ThenBy(l => l.Cost.Values.Sum());
 
         // should probably chunk these out instead. to-do if this clogs the internet tubes.
         // maybe read clients prototypes instead?
@@ -197,14 +142,12 @@ public sealed partial class StoreMenu : DefaultWindow
         OnRefundAttempt?.Invoke(args);
     }
 
-    private void AddListingGui(ListingData listing)
+    private void AddListingGui(ListingDataWithCostModifiers listing)
     {
-        // Apply category filtering for both Malf and normal shops.
         if (!listing.Categories.Contains(CurrentCategory))
             return;
 
-        var listingPrice = listing.Cost;
-        var hasBalance = HasListingPrice(Balance, listingPrice);
+        var hasBalance = listing.CanBuyWith(Balance);
 
         var spriteSys = _entityManager.EntitySysManager.GetEntitySystem<SpriteSystem>();
 
@@ -219,65 +162,25 @@ public sealed partial class StoreMenu : DefaultWindow
         }
         else if (listing.ProductAction != null)
         {
-            if (texture == null)
-            {
-                var actionId = _entityManager.Spawn(listing.ProductAction);
-                var action = _entityManager.System<SharedActionsSystem>().GetAction(actionId);
-                if (action != null && action.Value.Comp.Icon != null)
-                {
-                    texture = spriteSys.Frame0(action.Value.Comp.Icon);
-                }
-
-                // Don't forget to clean up the spawned action!
-                _entityManager.DeleteEntity(actionId);
-            }
+            var actionId = _entityManager.Spawn(listing.ProductAction);
+            if (_entityManager.System<ActionsSystem>().GetAction(actionId)?.Comp?.Icon is {} icon)
+                texture = spriteSys.Frame0(icon);
         }
 
+        var listingInStock = GetListingPriceString(listing);
+        var discount = GetDiscountString(listing);
 
-        if (_malfThemeApplied && _malfFont != null)
-        {
-            var malfListing = new MalfStoreListingControl(listing, GetListingPriceString(listing), hasBalance, texture, _malfFont, MalfGreen);
+        var newListing = new StoreListingControl(listing, listingInStock, discount, hasBalance, texture);
+        newListing.StoreItemBuyButton.OnButtonDown += args
+            => OnListingButtonPressed?.Invoke(args, listing);
 
-            // Apply sale-red first so theming can respect it.
-            if (listing.DiscountValue > 0) // WD EDIT
-                malfListing.StoreItemBuyButton.AddStyleClass("ButtonColorRed");
-
-            malfListing.StoreItemBuyButton.OnButtonDown += args
-                => OnListingButtonPressed?.Invoke(args, listing);
-
-            StoreListingsContainer.AddChild(malfListing);
-        }
-        else
-        {
-            var newListing = new StoreListingControl(listing, GetListingPriceString(listing), hasBalance, texture);
-
-            // Apply sale-red first so theming can respect it.
-            if (listing.DiscountValue > 0) // WD EDIT
-                newListing.StoreItemBuyButton.AddStyleClass("ButtonColorRed");
-
-            newListing.StoreItemBuyButton.OnButtonDown += args
-                => OnListingButtonPressed?.Invoke(args, listing);
-
-            StoreListingsContainer.AddChild(newListing);
-        }
+        StoreListingsContainer.AddChild(newListing);
     }
 
-    public bool HasListingPrice(Dictionary<ProtoId<CurrencyPrototype>, FixedPoint2> currency, Dictionary<ProtoId<CurrencyPrototype>, FixedPoint2> price)
-    {
-        foreach (var type in price)
-        {
-            if (!currency.ContainsKey(type.Key))
-                return false;
-
-            if (currency[type.Key] < type.Value)
-                return false;
-        }
-        return true;
-    }
-
-    public string GetListingPriceString(ListingData listing)
+    private string GetListingPriceString(ListingDataWithCostModifiers listing)
     {
         var text = string.Empty;
+
         if (listing.Cost.Count < 1)
             text = Loc.GetString("store-currency-free");
         else
@@ -285,12 +188,64 @@ public sealed partial class StoreMenu : DefaultWindow
             foreach (var (type, amount) in listing.Cost)
             {
                 var currency = _prototypeManager.Index(type);
-                text += Loc.GetString("store-ui-price-display", ("amount", amount),
-                    ("currency", Loc.GetString(currency.DisplayName, ("amount", amount))));
+
+                text += Loc.GetString(
+                    "store-ui-price-display",
+                    ("amount", amount),
+                    ("currency", Loc.GetString(currency.DisplayName, ("amount", amount)))
+                );
             }
         }
 
         return text.TrimEnd();
+    }
+
+    private string GetDiscountString(ListingDataWithCostModifiers listingDataWithCostModifiers)
+    {
+        string discountMessage;
+
+        if (!listingDataWithCostModifiers.IsCostModified)
+        {
+            return string.Empty;
+        }
+
+        var relativeModifiersSummary = listingDataWithCostModifiers.GetModifiersSummaryRelative();
+        if (relativeModifiersSummary.Count > 1)
+        {
+            var sb = new StringBuilder();
+            sb.Append('(');
+            foreach (var (currency, amount) in relativeModifiersSummary)
+            {
+                var currencyPrototype = _prototypeManager.Index(currency);
+                if (sb.Length != 0)
+                {
+                    sb.Append(", ");
+                }
+                var currentDiscountMessage = Loc.GetString(
+                    "store-ui-discount-display-with-currency",
+                    ("amount", amount.ToString("P0")),
+                    ("currency", Loc.GetString(currencyPrototype.DisplayName))
+                );
+                sb.Append(currentDiscountMessage);
+            }
+
+            sb.Append(')');
+            discountMessage = sb.ToString();
+        }
+        else
+        {
+            // if cost was modified - it should have diff relatively to original cost in 1 or more currency
+            // ReSharper disable once GenericEnumeratorNotDisposed Dictionary enumerator doesn't require dispose
+            var enumerator = relativeModifiersSummary.GetEnumerator();
+            enumerator.MoveNext();
+            var amount = enumerator.Current.Value;
+            discountMessage = Loc.GetString(
+                "store-ui-discount-display",
+                ("amount", (amount.ToString("P0")))
+            );
+        }
+
+        return discountMessage;
     }
 
     private void ClearListings()
@@ -298,52 +253,8 @@ public sealed partial class StoreMenu : DefaultWindow
         StoreListingsContainer.Children.Clear();
     }
 
-    public void PopulateStoreCategoryButtons(HashSet<ListingData> listings)
+    public void PopulateStoreCategoryButtons(HashSet<ListingDataWithCostModifiers> listings)
     {
-        // Malf shop: show only the requested categories.
-        if (_malfThemeApplied)
-        {
-            var malfCats = new[] { "Deception", "Factory", "Disruption" };
-
-            // Default selection for Malf shop
-            if (!malfCats.Contains(CurrentCategory))
-                CurrentCategory = "Deception";
-
-            CategoryListContainer.Children.Clear();
-
-            var group = new ButtonGroup();
-            foreach (var id in malfCats)
-            {
-                // Localize the visible label for each Malf category
-                var textKey = id switch
-                {
-                    "Deception" => "malf-store-category-deception",
-                    "Factory" => "malf-store-category-factory",
-                    "Disruption" => "malf-store-category-disruption",
-                    _ => "malf-store-category-deception"
-                };
-
-                var catButton = new StoreCategoryButton
-                {
-                    Text = Loc.GetString(textKey),
-                    Id = id,
-                    Pressed = id == CurrentCategory,
-                    Group = group,
-                    ToggleMode = true,
-                    StyleClasses = { "OpenBoth" }
-                };
-
-                if (_malfButtonStyle != null)
-                    catButton.StyleBoxOverride = _malfButtonStyle;
-
-                catButton.OnPressed += args => OnCategoryButtonPressed?.Invoke(args, catButton.Id);
-                CategoryListContainer.AddChild(catButton);
-            }
-
-            return;
-        }
-
-        // Normal shop: original behavior, collect categories from listings.
         var allCategories = new List<StoreCategoryPrototype>();
         foreach (var listing in listings)
         {
@@ -368,7 +279,7 @@ public sealed partial class StoreMenu : DefaultWindow
         if (allCategories.Count < 1)
             return;
 
-        var normalGroup = new ButtonGroup();
+        var group = new ButtonGroup();
         foreach (var proto in allCategories)
         {
             var catButton = new StoreCategoryButton
@@ -376,7 +287,7 @@ public sealed partial class StoreMenu : DefaultWindow
                 Text = Loc.GetString(proto.Name),
                 Id = proto.ID,
                 Pressed = proto.ID == CurrentCategory,
-                Group = normalGroup,
+                Group = group,
                 ToggleMode = true,
                 StyleClasses = { "OpenBoth" }
             };

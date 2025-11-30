@@ -17,7 +17,6 @@
 //
 // SPDX-License-Identifier: MIT
 
-using Content.Client.MalfAI;
 using Content.Shared.Store;
 using JetBrains.Annotations;
 using System.Linq;
@@ -39,9 +38,7 @@ public sealed class StoreBoundUserInterface : BoundUserInterface
     private string _search = string.Empty;
 
     [ViewVariables]
-    private HashSet<ListingData> _listings = new();
-
-    private static readonly ProtoId<CurrencyPrototype> CpuCurrencyId = "CPU";
+    private HashSet<ListingDataWithCostModifiers> _listings = new();
 
     public StoreBoundUserInterface(EntityUid owner, Enum uiKey) : base(owner, uiKey)
     {
@@ -51,26 +48,13 @@ public sealed class StoreBoundUserInterface : BoundUserInterface
     {
         base.Open();
 
-        if (EntMan.TryGetComponent<StoreComponent>(Owner, out var store))
-        {
-            if (store.CurrencyWhitelist.Contains(CpuCurrencyId))
-            {
-                // Removed call to open Malf AI store window here to prevent duplicate/empty window.
-                return;
-            }
-        }
-
         _menu = this.CreateWindow<StoreMenu>();
-        if (EntMan.TryGetComponent<StoreComponent>(Owner, out var store2))
-        {
-            _menu.Title = Loc.GetString(store2.Name);
-            if (store2.CurrencyWhitelist.Contains(CpuCurrencyId))
-                _menu.ApplyMalfTheme();
-        }
+        if (EntMan.TryGetComponent<StoreComponent>(Owner, out var store))
+            _menu.Title = Loc.GetString(store.Name);
 
         _menu.OnListingButtonPressed += (_, listing) =>
         {
-            SendMessage(new StoreBuyListingMessage(listing));
+            SendMessage(new StoreBuyListingMessage(listing.ID));
         };
 
         _menu.OnCategoryButtonPressed += (_, category) =>
@@ -105,11 +89,7 @@ public sealed class StoreBoundUserInterface : BoundUserInterface
                 _listings = msg.Listings;
 
                 _menu?.UpdateBalance(msg.Balance);
-                if (_menu != null)
-                {
-                    if (msg.Balance.ContainsKey(CpuCurrencyId))
-                        _menu.ApplyMalfTheme();
-                }
+
                 UpdateListingsWithSearchFilter();
                 _menu?.SetFooterVisibility(msg.ShowFooter);
                 _menu?.UpdateRefund(msg.AllowRefund);
@@ -122,7 +102,7 @@ public sealed class StoreBoundUserInterface : BoundUserInterface
         if (_menu == null)
             return;
 
-        var filteredListings = new HashSet<ListingData>(_listings);
+        var filteredListings = new HashSet<ListingDataWithCostModifiers>(_listings);
         if (!string.IsNullOrEmpty(_search))
         {
             filteredListings.RemoveWhere(listingData => !ListingLocalisationHelpers.GetLocalisedNameOrEntityName(listingData, _prototypeManager).Trim().ToLowerInvariant().Contains(_search) &&

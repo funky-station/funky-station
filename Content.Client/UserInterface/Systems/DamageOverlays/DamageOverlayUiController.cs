@@ -67,7 +67,6 @@ public sealed class DamageOverlayUiController : UIController
     {
         _overlay.DeadLevel = 0f;
         _overlay.CritLevel = 0f;
-        _overlay.PainLevel = 0f;
         _overlay.OxygenLevel = 0f;
     }
 
@@ -95,22 +94,13 @@ public sealed class DamageOverlayUiController : UIController
         {
             case MobState.Alive:
             {
-                FixedPoint2 painLevel = 0;
-                _overlay.PainLevel = 0;
-
                 if (!EntityManager.HasComponent<PainNumbnessComponent>(entity))
                 {
                     foreach (var painDamageType in damageable.PainDamageGroups)
                     {
                         damageable.DamagePerGroup.TryGetValue(painDamageType, out var painDamage);
-                        painLevel += painDamage;
                     }
-                    _overlay.PainLevel = FixedPoint2.Min(1f, painLevel / critThreshold).Float();
 
-                    if (_overlay.PainLevel < 0.05f) // Don't show damage overlay if they're near enough to max.
-                    {
-                        _overlay.PainLevel = 0;
-                    }
                 }
 
                 if (damageable.DamagePerGroup.TryGetValue("Airloss", out var oxyDamage))
@@ -129,13 +119,11 @@ public sealed class DamageOverlayUiController : UIController
                     return;
                 _overlay.CritLevel = critLevel.Value.Float();
 
-                _overlay.PainLevel = 0;
                 _overlay.DeadLevel = 0;
                 break;
             }
             case MobState.Dead:
             {
-                _overlay.PainLevel = 0;
                 _overlay.CritLevel = 0;
                 break;
             }

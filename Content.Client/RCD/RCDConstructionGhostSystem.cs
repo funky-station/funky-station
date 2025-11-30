@@ -6,19 +6,13 @@
 //
 // SPDX-License-Identifier: MIT
 
-using Content.Shared.Atmos.Components;
 using Content.Client.Hands.Systems;
-using Content.Shared.Hands.Components;
-using Content.Shared.Input;
 using Content.Shared.Interaction;
 using Content.Shared.RCD;
 using Content.Shared.RCD.Components;
-using Content.Shared.RCD.Systems;
 using Robust.Client.Placement;
 using Robust.Client.Player;
 using Robust.Shared.Enums;
-using Robust.Shared.Input;
-using Robust.Shared.Input.Binding;
 using Robust.Shared.Prototypes;
 
 namespace Content.Client.RCD;
@@ -31,60 +25,11 @@ public sealed class RCDConstructionGhostSystem : EntitySystem
     private const string PlacementMode = nameof(AlignRCDConstruction);
 
     [Dependency] private readonly IPlayerManager _playerManager = default!;
-    [Dependency] private readonly RCDSystem _rcdSystem = default!;
     [Dependency] private readonly IPlacementManager _placementManager = default!;
     [Dependency] private readonly IPrototypeManager _protoManager = default!;
     [Dependency] private readonly HandsSystem _hands = default!;
 
-    private string _placementMode = typeof(AlignRCDConstruction).Name;
-    private string _rpdPlacementMode = typeof(AlignRPDAtmosPipeLayers).Name;
     private Direction _placementDirection = default;
-    private bool _useMirrorPrototype = false;
-    public event EventHandler? FlipConstructionPrototype;
-
-    public override void Initialize()
-    {
-        base.Initialize();
-
-        // bind key
-        CommandBinds.Builder
-            .Bind(ContentKeyFunctions.EditorFlipObject,
-                new PointerInputCmdHandler(HandleFlip, outsidePrediction: true))
-            .Register<RCDConstructionGhostSystem>();
-    }
-
-    public override void Shutdown()
-    {
-        CommandBinds.Unregister<RCDConstructionGhostSystem>();
-        base.Shutdown();
-    }
-
-    private bool HandleFlip(in PointerInputCmdHandler.PointerInputCmdArgs args)
-    {
-        if (args.State == BoundKeyState.Down)
-        {
-            if (!_placementManager.IsActive || _placementManager.Eraser)
-                return false;
-
-            var placerEntity = _placementManager.CurrentPermission?.MobUid;
-
-            if(!TryComp<RCDComponent>(placerEntity, out var rcd) ||
-                string.IsNullOrEmpty(rcd.CachedPrototype.MirrorPrototype))
-                return false;
-
-            _useMirrorPrototype = !rcd.UseMirrorPrototype;
-
-            var useProto = _useMirrorPrototype ? rcd.CachedPrototype.MirrorPrototype : rcd.CachedPrototype.Prototype;
-            CreatePlacer(placerEntity.Value, rcd, useProto);
-
-            // tell the server
-
-            RaiseNetworkEvent(new RCDConstructionGhostFlipEvent(GetNetEntity(placerEntity.Value), _useMirrorPrototype));
-        }
-
-        return true;
-    }
-
 
     public override void Update(float frameTime)
     {
@@ -126,18 +71,6 @@ public sealed class RCDConstructionGhostSystem : EntitySystem
         if (heldEntity == placerEntity && prototype.Prototype == placerProto)
             return;
 
-        // Funky - Check if RPD and prototype supports layered placement
-        if (rcd.IsRpd && useProto != null && _protoManager.TryIndex<RCDPrototype>(rcd.CachedPrototype.ID, out var rcdProto) && !rcdProto.NoLayers)
-        {
-            _placementManager.Clear();
-            CreateLayeredPlacer(heldEntity.Value, rcd, useProto);
-        }
-        else if (heldEntity != placerEntity || useProto != placerProto)
-        {
-            _placementManager.Clear();
-            CreatePlacer(heldEntity.Value, rcd, useProto);
-        }
-
         // Create a new placer
         var newObjInfo = new PlacementInformation
         {
@@ -150,22 +83,6 @@ public sealed class RCDConstructionGhostSystem : EntitySystem
         };
 
         _placementManager.Clear();
-        _placementManager.BeginPlacing(newObjInfo);
-    }
-
-    private void CreateLayeredPlacer(EntityUid uid, RCDComponent component, string? prototype)
-    {
-        // Create a layer placer
-        var newObjInfo = new PlacementInformation
-        {
-            MobUid = uid,
-            PlacementOption = _rpdPlacementMode,
-            EntityType = prototype,
-            Range = (int) Math.Ceiling(SharedInteractionSystem.InteractionRange),
-            IsTile = (component.CachedPrototype.Mode == RcdMode.ConstructTile),
-            UseEditorContext = false,
-        };
-
         _placementManager.BeginPlacing(newObjInfo);
     }
 }

@@ -287,7 +287,7 @@
     sound:
       path: /Audio/SimpleStation14/Items/Handling/multitool_drop.ogg
       params:
-        volume: -4 
+        volume: -4
   - type: EmitSoundOnLand
     sound:
       path: /Audio/Items/multitool_drop.ogg
@@ -479,7 +479,12 @@
     sprite: Objects/Tools/rcd.rsi
     state: icon
   - type: Item
-    size: Normal
+    storedSprite:
+      state: storage
+      sprite: Objects/Tools/rcd_storage_64x.rsi #Done in 64x64 because it looks way too puny in 32x32
+    shape:
+    - 0,0,1,2
+    - 0,0,3,1
   - type: Clothing
     sprite: Objects/Tools/rcd.rsi
     quickEquip: false
@@ -491,6 +496,11 @@
       Plastic: 100
   - type: StaticPrice
     price: 110
+  - type: MultiHandedItem
+  - type: ClothingSpeedModifier
+    walkModifier: 0.8
+    sprintModifier: 0.8
+  - type: HeldSpeedModifier
   - type: UserInterface
     interfaces:
       enum.RcdUiKey.Key:
@@ -505,6 +515,13 @@
   name: RPD
   description: A device used to rapidly pipe things.
   components:
+  - type: Item
+    storedSprite:
+      state: storage
+      sprite: Objects/Tools/rpd_storage_64x.rsi #Done in 64x64 because it looks way too puny in 32x32
+    shape:
+    - 0,0,1,2
+    - 0,0,3,1
   - type: RCD
     isRpd: true
     availablePrototypes:
@@ -548,7 +565,6 @@
     inHandsOnly: true
     key: enum.RpdUiKey.Key
 
-
 - type: entity
   id: RCDEmpty
   parent: RCD
@@ -559,33 +575,128 @@
 
 - type: entity
   id: RCDRecharging
-  parent: RCD
+  parent: [ BaseItem, BaseEngineeringContraband ]
   name: experimental RCD
-  description: A bluespace-enhanced rapid construction device that passively generates its own compressed matter.
-  suffix: AutoRecharge
+  description: A bluespace-enhanced rapid construction device that passively generates its own compressed matter, and is much more portable.
   components:
+  - type: RCD
+    availablePrototypes:
+    - WallSolid
+    - FloorSteel
+    - Plating
+    - Catwalk
+    - Grille
+    - Window
+    - WindowDirectional
+    - WindowReinforcedDirectional
+    - ReinforcedWindow
+    - Airlock
+    - AirlockGlass
+    - Firelock
+    - TubeLight
+    - BulbLight
+    - LVCable
+    - MVCable
+    - HVCable
+    - CableTerminal
+    - Deconstruct
   - type: LimitedCharges
     maxCharges: 20
     charges: 20
   - type: AutoRecharge
     rechargeDuration: 10
+  - type: Sprite
+    sprite: Objects/Tools/rcd_experimental.rsi
+    state: icon
+  - type: Item
+    size: Normal
+  - type: Clothing
+    sprite: Objects/Tools/rcd_experimental.rsi
+    quickEquip: false
+    slots:
+    - Belt
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 600
+      Plastic: 100
+  - type: StaticPrice
+    price: 110
+  - type: UserInterface
+    interfaces:
+      enum.RcdUiKey.Key:
+        type: RCDMenuBoundUserInterface
+  - type: ActivatableUI
+    inHandsOnly: true
+    key: enum.RcdUiKey.Key
 
 - type: entity
   id: RPDRecharging
-  parent: RPD
+  parent: [ BaseItem, BaseEngineeringContraband ]
   name: experimental RPD
-  description: A bluespace-enhanced rapid piping device that passively generates its own compressed matter.
-  suffix: AutoRecharge
+  description: A bluespace-enhanced rapid piping device that passively generates its own compressed matter, and is much more portable.
   components:
+  - type: RCD
+    isRpd: true
+    availablePrototypes:
+    - PipeFourway
+    - PipeStraight
+    - PipeBend
+    - PipeTJunction
+    - PipeHalf
+    - OutletInjector
+    - ManualValve
+    - VolumetricPump
+    - PressurePump
+    - HeatPump
+    - VentScrubber
+    - PressureValve
+    - PressureRegulator
+    - DualPortVent
+    - VentGas
+    - VentPassive
+    - MixerGas
+    - Radiator
+    - RadiatorBend
+    - SignalValve
+    - CanisterPort
+    - FilterGas
+    - ManifoldGas
+    - Alarm
+    - Sensor
+    - SensorPipe
+    - Deconstruct
   - type: LimitedCharges
-    maxCharges: 20
-    charges: 20
+    maxCharges: 30
+    charges: 30
   - type: AutoRecharge
     rechargeDuration: 10
+  - type: Sprite
+    sprite: Objects/Tools/rpd_experimental.rsi
+    state: icon
+  - type: Item
+    size: Normal
+  - type: Clothing
+    sprite: Objects/Tools/rpd_experimental.rsi
+    quickEquip: false
+    slots:
+    - Belt
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 600
+      Plastic: 100
+  - type: StaticPrice
+    price: 110
+  - type: UserInterface
+    interfaces:
+      enum.RpdUiKey.Key:
+        type: RPDMenuBoundUserInterface
+  - type: ActivatableUI
+    inHandsOnly: true
+    key: enum.RpdUiKey.Key
 
 - type: entity
   id: RCDExperimental
-  parent: RCD
+  parent: RCDRecharging
   suffix: Admeme
   name: experimental RCD
   description: A bluespace-enhanced rapid construction device that passively generates its own compressed matter.

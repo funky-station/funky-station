@@ -283,11 +283,10 @@
     - id: ClothingHeadsetAltEngineering
     - id: DoorRemoteEngineering
     - id: CargoRequestEngineeringComputerCircuitboard
-    - id: RCD
-    - id: RCDAmmo
+    - id: RCDRecharging
     - id: RubberStampCE
     - id: BaseHandheldStationMapPowerCe
-    - id: RPD # RPD
+    - id: RPDRecharging
     - id: RadioHandheldEngineering #funkystation
     - id: RadioHandheldCommand #funkystation
 # Hardsuit table, used for suit storage as well

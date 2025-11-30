@@ -5924,3 +5924,82 @@ Entries:
       message: Updated Court Station for the sixth week of playtests
   id: 702
   time: '2025-11-28T17:44:37.0000000+00:00'
+- author: ThatOneMoon
+  changes:
+    - type: Add
+      message: >-
+        Salvage Reward Tickets and the Ticket exchange, tickets are earned from
+        resource gathering and redeemed inside of the ticket exchange machine
+        within cargo (ticket sprites made by Frogoo). 
+    - type: Tweak
+      message: >-
+        most salvage related hardsuit (Spatio,Mining,Luxury,Goliath) have been
+        given a minor rebalance, mostly to give all of them a small bit of extra
+        explosive resistnace. 
+    - type: Tweak
+      message: >-
+        The Salvage Vendor has been replaced/renamed by the Salvage ticket
+        exchange, and the machine can no longer be unanchored and moved. 
+    - type: Tweak
+      message: >-
+        The Chameleon kit bag from the Syndicate Dropship ruin has been replaced
+        by a syndicate snack box, the gun turrets have been replaced with broken
+        ones.
+    - type: Tweak
+      message: >-
+        The gun turrests from the Empty Flagship ruin have been removed and
+        instead replaced by a swarm of carp. 
+  id: 703
+  time: '2025-11-29T07:58:45.0000000+00:00'
+- author: salpphie
+  changes:
+    - type: Add
+      message: >-
+        Added Yip-Yap to kitchen, Added Detdrobe to Dectives room, Added the SM
+        to Engineering
+    - type: Tweak
+      message: Tweaked the layout of Engineering to fit the SM
+  id: 704
+  time: '2025-11-29T15:08:09.0000000+00:00'
+- author: Xcybitt
+  changes:
+    - type: Tweak
+      message: Made Stabilized Stims give adrenaline.
+  id: 705
+  time: '2025-11-29T23:44:57.0000000+00:00'
+- author: Drywink
+  changes:
+    - type: Fix
+      message: Fire spreading when entities are colliding now works properly.
+  id: 706
+  time: '2025-11-30T00:03:58.0000000+00:00'
+- author: Joana
+  changes:
+    - type: Add
+      message: >-
+        Added the british accent, speak stereotypically like you came from space
+        england!
+  id: 707
+  time: '2025-11-30T01:54:25.0000000+00:00'
+- author: AraiMaia
+  changes:
+    - type: Add
+      message: New markings for Thaven! Arm, leg, and dorsal fins.
+    - type: Add
+      message: Three new tails for Thaven made by trixxedheart!
+    - type: Tweak
+      message: Increased the amount of slots for Thaven arm, leg and chest markings
+  id: 708
+  time: '2025-11-30T02:33:30.0000000+00:00'
+- author: Komonighub
+  changes:
+    - type: Add
+      message: >-
+        Added SOP book ingame, can be found in the Library and your local IAA
+        will have one.
+    - type: Tweak
+      message: >-
+        Command training manual has Line of Succession and Command SOP added,
+        and the Security book has Security SOP in place of the Antagonists list.
+  id: 709
+  time: '2025-11-30T04:01:29.0000000+00:00'

@@ -153,6 +153,7 @@
 # SPDX-FileCopyrightText: 2025 Liamofthesky <157073227+Liamofthesky@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Lillian Industries <47704287+luegamer@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Lyndomen <49795619+lyndomen@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 MaiaArai <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 McBosserson <148172569+McBosserson@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 McBosserson <mcbosserson@hotmail.com>
 # SPDX-FileCopyrightText: 2025 Milon <milonpl.git@proton.me>
@@ -178,6 +179,7 @@
 # SPDX-FileCopyrightText: 2025 Xcybitt <197952719+Xcybitt@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Xcybitt <xcybitt@gmail.com>
 # SPDX-FileCopyrightText: 2025 Zergologist <114537969+Chedd-Error@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 aa5g21 <aa5g21@soton.ac.uk>
 # SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 delorphin <delorphin@gmail.com>
@@ -568,6 +570,14 @@
       machine_board: !type:Container
       machine_parts: !type:Container
       blueprint: !type:Container
+      hidden_slot: !type:ContainerSlot
+  - type: ItemSlots
+    slots:
+      hidden_slot:
+        name: computer_slot_accessory
+        whitelist:
+          tags:
+          - ListeningBug
   - type: EmptyOnMachineDeconstruct
     containers:
     - blueprint
@@ -1195,6 +1205,7 @@
     - BoxShotgunIncendiary
     - BoxShotgunUranium
     - BoxShellTranquilizer
+    - BreachingCharge #funkystation
     - ClothingBackpackElectropack
     - ExplosivePayload
     - FlashPayload
@@ -1474,6 +1485,22 @@
     - ClothingUniformJumpskirtColorGrey
     - ClothingUniformJumpsuitBartender
     - ClothingUniformJumpskirtBartender
+    - ClothingUniformJumpsuitStingray # Funky!
+    - ClothingUniformJumpskirtStingray # Funky!
+    - ClothingUniformJumpsuitDressShirtWhite # Funky!
+    - ClothingUniformJumpskirtDressShirtWhite # Funky!
+    - ClothingUniformJumpsuitDressShirtBlue # Funky!
+    - ClothingUniformJumpskirtDressShirtBlue # Funky!
+    - ClothingUniformJumpsuitDressShirtTied # Funky!
+    - ClothingUniformJumpskirtDressShirtTied # Funky!
+    - ClothingUniformJumpsuitServiceCoat # Funky!
+    - ClothingUniformJumpsuitReporter # Funky!
+    - ClothingUniformJumpskirtReporter # Funky!
+    - ClothingUniformJumpsuitJournalist # Funky!
+    - ClothingUniformJumpskirtJournalist # Funky!
+    - ClothingUniformJumpsuitBartenderPurple # Funky!
+    - ClothingUniformJumpskirtBartenderPurple # Funky!
+    - ClothingOuterWinterStingray # Funky!
     - ApronBartender # Funky Change
     - ClothingHeadHatCapcap
     - ClothingHeadHatCaptain
@@ -1489,6 +1516,11 @@
     - ClothingUniformJumpsuitMailCarrier # Funky!
     - ClothingHeadHatCargoCap # Funky!
     - ClothingHeadHatMailCarrier # Funky!
+    - ClothingUniformJumpsuitCargoPilot # Funky!
+    - ClothingUniformJumpsuitSeniorSalvage # Funky!
+    - ClothingUniformJumpsuitCargoMailJumpSuit # Funky!
+    - ClothingUniformJumpsuitCargoTop # Funky!
+    - ClothingUniformJumpsuitCargoShirt # Funky!
     - ClothingUniformJumpsuitSalvageSpecialist
     - ClothingHeadHatBeretEngineering
     - ClothingUniformJumpsuitChiefEngineer
@@ -1518,6 +1550,12 @@
     - ClothingHeadHatHopcap
     - ClothingUniformJumpsuitHoP
     - ClothingUniformJumpskirtHoP
+    - ClothingUniformJumpsuitHoPCoat
+    - ClothingUniformJumpskirtHoPCoat
+    - ClothingUniformJumpsuitHoPShirt
+    - ClothingUniformJumpskirtHoPShirt
+    - ClothingUniformJumpsuitHoPSweater
+    - ClothingUniformJumpskirtHoPSweater
     - ClothingHeadHatBeretHoS
     - ClothingHeadHatHoshat
     - ClothingUniformJumpsuitHoS

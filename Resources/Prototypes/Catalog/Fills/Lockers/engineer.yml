@@ -136,6 +136,7 @@
       - id: HolofanProjector
       - id: RPD #funkystation
       - id: DoorRemoteFirefight # Goobstation - re adding fire door remote
+      - id: HolotapeProjector #funky!
       - id: RCD
       - id: RCDAmmo
       - id: ClothingBackpackFirefighterTank
@@ -155,6 +156,7 @@
       - id: HolofanProjector
       - id: RPD #funkystation
       - id: DoorRemoteFirefight # Goobstation - re adding fire door remote
+      - id: HolotapeProjector #funky!
       - id: RCD
       - id: RCDAmmo
       - id: ClothingBackpackFirefighterTank
@@ -170,6 +172,7 @@
       - id: OxygenTankFilled
       - id: NitrogenTankFilled
       - id: ClothingHandsGlovesColorYellow
+      - id: HolotapeProjector #funky!
       - id: ClothingMaskGas
       - id: ClothingShoesBootsMag
       - id: RCD
@@ -183,6 +186,7 @@
   - type: StorageFill
     contents:
       - id: ClothingHandsGlovesColorYellow
+      - id: HolotapeProjector #funky!
       - id: ClothingMaskGas
       - id: trayScanner
       - id: RCD

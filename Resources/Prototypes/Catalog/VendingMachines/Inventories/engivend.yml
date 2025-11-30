@@ -26,6 +26,7 @@
   startingInventory:
     ClothingEyesGlassesMeson: 4
     ClothingHeadHatWelding: 6
+    HolotapeProjector: 6
     CrowbarYellow: 8
     Multitool: 4
     NetworkConfigurator: 5

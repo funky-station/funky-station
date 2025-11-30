@@ -147,6 +147,7 @@
   - type: Sprite
     scale: 1, 1
   - type: Inventory
+    templateId: thaven
     speciesId: thaven
     displacements:
       jumpsuit:

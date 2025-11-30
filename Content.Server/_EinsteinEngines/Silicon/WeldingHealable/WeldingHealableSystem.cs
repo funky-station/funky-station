@@ -18,6 +18,8 @@ using Content.Shared.Interaction;
 using Content.Shared.Popups;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Body.Systems;
+using Content.Shared.Damage.Components;
+using Content.Shared.Damage.Systems;
 using SharedToolSystem = Content.Shared.Tools.Systems.SharedToolSystem;
 
 namespace Content.Server._EinsteinEngines.Silicon.WeldingHealable;

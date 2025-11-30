@@ -27,6 +27,8 @@ using Content.Shared.Alert;
 using Content.Shared._Goobstation.Blob;
 using Content.Shared._Goobstation.Blob.Components;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Components;
+using Content.Shared.Damage.Systems;
 using Content.Shared.Destructible;
 using Content.Shared.Explosion.Components;
 using Content.Shared.FixedPoint;

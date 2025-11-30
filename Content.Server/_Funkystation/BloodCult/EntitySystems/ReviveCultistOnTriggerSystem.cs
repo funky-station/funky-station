@@ -20,6 +20,7 @@ using Content.Shared.BloodCult;
 using Content.Shared.BloodCult.Components;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
+using Content.Shared.Damage.Systems;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Mind;
 using Content.Shared.Mind.Components;

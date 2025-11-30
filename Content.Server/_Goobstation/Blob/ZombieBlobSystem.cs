@@ -32,6 +32,8 @@ using Content.Shared.NPC.Prototypes;
 using Content.Shared.NPC.Systems;
 using Content.Shared.Physics;
 using Content.Shared.Tag;
+using Content.Shared.Temperature.Components;
+using Content.Shared.Trigger.Systems;
 using Content.Shared.Weapons.Ranged.Events;
 using Content.Shared.Zombies;
 using Robust.Shared.Audio.Systems;

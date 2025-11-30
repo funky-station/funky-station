@@ -15,6 +15,7 @@ using Content.Shared._DV.CosmicCult;
 using Content.Shared._DV.CosmicCult.Components;
 using Content.Shared.Effects;
 using Content.Shared.Interaction;
+using Content.Shared.Light.Components;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Physics;
 using Robust.Shared.Audio.Systems;

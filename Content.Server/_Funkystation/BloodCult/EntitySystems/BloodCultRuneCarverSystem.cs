@@ -32,6 +32,8 @@ using Content.Shared.Popups;
 using Content.Server.Popups;
 using Content.Shared.BloodCult;
 using Content.Shared.BloodCult.Components;
+using Content.Shared.Damage.Components;
+using Content.Shared.Damage.Systems;
 
 namespace Content.Server.BloodCult.EntitySystems;
 

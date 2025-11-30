@@ -26,6 +26,8 @@ using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.FixedPoint;
 using Content.Server.Ghost.Roles.Components;
+using Content.Shared.Damage.Components;
+using Content.Shared.Damage.Systems;
 
 namespace Content.Server.BloodCult.EntitySystems;
 
@@ -107,13 +109,13 @@ public sealed class SoulStoneSystem : EntitySystem
 			var coordinates = Transform((EntityUid)args.User).Coordinates;
 			var construct = Spawn("MobBloodCultShade", coordinates);
 			_mind.TransferTo((EntityUid)mindContainer.Mind, construct, mind:mindComp);
-			
+
 			// Link the shade back to the soulstone so it can return on death
 			if (TryComp<ShadeComponent>(construct, out var shadeComp))
 			{
 				shadeComp.OriginSoulstone = ent;
 			}
-			
+
 		// Apply bloodloss damage to the user for summoning
 		if (TryComp<DamageableComponent>(args.User, out var damageable))
 		{
@@ -124,11 +126,11 @@ public sealed class SoulStoneSystem : EntitySystem
 				damageType = IonDamage;
 			else
 				damageType = SlashDamage;
-			
+
 			var bloodDamage = new DamageSpecifier(_protoMan.Index<DamageTypePrototype>(damageType), FixedPoint2.New(15));
 			_damageableSystem.TryChangeDamage(args.User, bloodDamage, true, origin: args.User);
 		}
-			
+
 			_audioSystem.PlayPvs("/Audio/Magic/blink.ogg", coordinates);
 			_popupSystem.PopupEntity(
 				Loc.GetString("cult-shade-summoned"),
@@ -153,7 +155,7 @@ public sealed class SoulStoneSystem : EntitySystem
 		if (!HasComp<GhostRoleComponent>(uid))
 		{
 			EnsureComp<GhostTakeoverAvailableComponent>(uid);
-			
+
 			var ghostRole = EnsureComp<GhostRoleComponent>(uid);
 			ghostRole.RoleName = Loc.GetString("cult-soulstone-role-name");
 			ghostRole.RoleDescription = Loc.GetString("cult-soulstone-role-description");
@@ -172,13 +174,13 @@ public sealed class SoulStoneSystem : EntitySystem
 			return;
 
 		// Transfer the mind back to the soulstone
-		if (TryComp<MindContainerComponent>(uid, out var mindContainer) && 
-			mindContainer.Mind != null && 
+		if (TryComp<MindContainerComponent>(uid, out var mindContainer) &&
+			mindContainer.Mind != null &&
 			TryComp<MindComponent>((EntityUid)mindContainer.Mind, out var mindComp))
 		{
 			var soulstone = (EntityUid)component.OriginSoulstone;
 			_mind.TransferTo((EntityUid)mindContainer.Mind, soulstone, mind: mindComp);
-			
+
 			_popupSystem.PopupEntity(
 				Loc.GetString("cult-shade-death-return"),
 				soulstone, PopupType.Medium

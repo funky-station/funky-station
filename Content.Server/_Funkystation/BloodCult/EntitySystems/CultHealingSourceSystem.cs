@@ -19,7 +19,9 @@ using Content.Shared.BloodCult.Components;
 using Content.Shared.BloodCult.Systems;
 using Content.Shared.Stacks;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Prototypes;
+using Content.Shared.Damage.Systems;
 using Content.Shared.Mobs.Systems;
 using Robust.Shared.Collections;
 using Robust.Shared.Containers;
@@ -339,7 +341,7 @@ public sealed partial class CultHealingSourceSystem : EntitySystem
 		if (TryComp<DamageableComponent>(uid, out var damageable))
 		{
 			var keys = new List<string>();
-			
+
 			foreach (var item in damageable.Damage.DamageDict)
 			{
 				if (item.Value > 0)
@@ -347,7 +349,7 @@ public sealed partial class CultHealingSourceSystem : EntitySystem
 			}
 			if (keys.Count == 0)
 				return;
-			
+
 			var ds = new DamageSpecifier();
 			foreach (var key in keys)
 			{

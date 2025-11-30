@@ -16,6 +16,7 @@ using Content.Shared._Goobstation.Blob.Components;
 using Content.Shared._Goobstation.Blob.NPC.BlobPod;
 using Content.Shared.CombatMode;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Systems;
 using Content.Shared.Destructible;
 using Content.Shared.DoAfter;
 using Content.Shared.Humanoid;
@@ -87,7 +88,7 @@ public sealed class BlobPodSystem : SharedBlobPodSystem
 
         if (component.Factory == null || !TryComp<BlobFactoryComponent>(component.Factory, out var factoryComp))
             return;
-        
+
         factoryComp.BlobPods.Remove(uid);
         factoryComp.SpawnedCount -= 1;
     }

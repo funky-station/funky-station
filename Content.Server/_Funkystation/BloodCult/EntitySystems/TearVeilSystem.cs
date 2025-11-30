@@ -23,6 +23,7 @@ using Content.Shared.Damage.Prototypes;
 using Content.Shared.Mobs.Systems;
 using Content.Server.GameTicking.Rules;
 using Content.Shared.BloodCult;
+using Content.Shared.Damage.Systems;
 
 namespace Content.Server.BloodCult.EntitySystems
 {

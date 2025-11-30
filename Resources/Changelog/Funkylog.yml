@@ -6009,3 +6009,9 @@ Entries:
       message: Second round of Bloodcult Bugfixes from playtesting.
   id: 710
   time: '2025-11-30T22:41:43.0000000+00:00'
+- author: BrightNibbleston
+  changes:
+    - type: Tweak
+      message: how long holo fans last!
+  id: 711
+  time: '2025-11-30T22:44:10.0000000+00:00'

@@ -13,6 +13,7 @@
 # SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 ThatOneMoon <91613003+ThatOneMoon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
 # SPDX-FileCopyrightText: 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
@@ -75,7 +76,6 @@
     tags:
     - Defibrillator
 
-
 - type: entity
   id: DefibrillatorEmpty
   parent: Defibrillator
@@ -85,6 +85,9 @@
     slots:
       cell_slot:
         name: power-cell-slot-component-slot-name-default
+  - type: Tag
+    tags:
+    - Defibrillator
 
 - type: entity
   id: DefibrillatorOneHandedUnpowered
@@ -92,7 +95,7 @@
   suffix: One-Handed, Unpowered
 
 - type: entity
-  id: DefibrillatorCompact # This should be a research item at some point
+  id: DefibrillatorCompact 
   parent: [ BaseDefibrillator, PowerCellSlotMediumItem ]
   name: compact defibrillator
   description: Now in fun size!
@@ -120,6 +123,9 @@
     doAfterDuration: 6
   - type: DoAfter
   - type: UseDelay
+  - type: Tag
+    tags:
+    - Defibrillator
 
 - type: entity
   id: DefibrillatorCompactEmpty
@@ -130,7 +136,9 @@
     slots:
       cell_slot:
         name: power-cell-slot-component-slot-name-default
-
+  - type: Tag
+    tags:
+    - Defibrillator
 
 - type: entity
   id: DefibrillatorSyndicate

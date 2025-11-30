@@ -49,7 +49,7 @@ public sealed class FrenchAccentSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<FrenchAccentComponent, AccentGetEvent>(OnAccentGet);
+        SubscribeLocalEvent<FrenchAccentComponent, AccentGetEvent>(OnAccentGet, after: new[] {typeof(ReplacementAccentSystem)});
     }
 
     public string Accentuate(string message, FrenchAccentComponent component)

@@ -267,3 +267,48 @@
     sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/magistrateturtleneck.rsi
   - type: Clothing
     sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/magistrateturtleneck.rsi
+
+# Engineering uniforms (by aCalicoDragon)
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitEngineeringOveralls
+  name: engineer's overalls
+  description: Comfortable for work, yet so stylish!
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/engineering_overalls.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/engineering_overalls.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitEngineeringCoveralls
+  name: engineer's coveralls
+  description: Nice and simple, still effective!
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/engineering_coveralls.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/engineering_coveralls.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitEngineeringRipley
+  name: engineer's coveralls with patch
+  description: You are my lucky star...
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/engineering_ripley.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/engineering_ripley.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitEngineeringShirt
+  name: engineer's shirt with pants
+  description: And we all lift, and we're all adrift, together...
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/engineering_shirt.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/engineering_shirt.rsi

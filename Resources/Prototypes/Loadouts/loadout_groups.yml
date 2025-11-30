@@ -912,8 +912,10 @@
   name: loadout-group-station-engineer-jumpsuit
   loadouts:
   - StationEngineerJumpsuit
-  - StationEngineerJumpskirt
-  - StationEngineerHazardsuit
+  - StationEngineerOveralls
+  - StationEngineerCoveralls
+  - StationEngineerRipley
+  - StationEngineerShirt
   - SeniorEngineerJumpsuit
   - SeniorEngineerJumpskirt
 

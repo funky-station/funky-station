@@ -76273,7 +76273,7 @@ entities:
     - type: Transform
       pos: 1.4697213,-22.60485
       parent: 8364
-- proto: ClothingUniformJumpsuitEngineeringHazard
+- proto: ClothingUniformJumpsuitEngineeringCoveralls
   entities:
   - uid: 1623
     components:

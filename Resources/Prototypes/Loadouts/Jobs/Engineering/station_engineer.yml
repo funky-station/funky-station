@@ -75,16 +75,28 @@
   groupBy: "jumpsuit"
 
 - type: loadout
-  id: StationEngineerJumpskirt
+  id: StationEngineerOveralls
   equipment:
-    jumpsuit: ClothingUniformJumpskirtEngineering
-  groupBy: "jumpskirt"
+    jumpsuit: ClothingUniformJumpsuitEngineeringOveralls
+  groupBy: "jumpsuit"
+  
+- type: loadout
+  id: StationEngineerCoveralls
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitEngineeringCoveralls
+  groupBy: "coveralls"
 
 - type: loadout
-  id: StationEngineerHazardsuit
+  id: StationEngineerRipley
   equipment:
-    jumpsuit: ClothingUniformJumpsuitEngineeringHazard
-  groupBy: "jumpsuit"
+    jumpsuit: ClothingUniformJumpsuitEngineeringRipley
+  groupBy: "coveralls"
+
+- type: loadout
+  id: StationEngineerShirt
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitEngineeringShirt
+  groupBy: "coveralls"
 
 - type: loadout
   id: SeniorEngineerJumpsuit
@@ -93,7 +105,7 @@
     proto: SeniorEngineering
   equipment:
     jumpsuit: ClothingUniformJumpsuitSeniorEngineer
-  groupBy: "jumpsuit"
+  groupBy: "senior"
 
 - type: loadout
   id: SeniorEngineerJumpskirt
@@ -102,7 +114,7 @@
     proto: SeniorEngineering
   equipment:
     jumpsuit: ClothingUniformJumpskirtSeniorEngineer
-  groupBy: "jumpskirt"
+  groupBy: "senior"
 
 # Back
 - type: loadout

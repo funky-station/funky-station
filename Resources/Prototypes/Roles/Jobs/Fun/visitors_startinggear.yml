@@ -490,7 +490,7 @@
 - type: startingGear
   id: VisitorTechnicalAssistantAlt
   equipment:
-    jumpsuit: ClothingUniformJumpsuitEngineeringHazard
+    jumpsuit: ClothingUniformJumpsuitEngineeringCoveralls
     shoes: ClothingShoesColorBlack
     gloves: ClothingHandsGlovesColorYellowBudget
     head: ClothingHeadHatCone

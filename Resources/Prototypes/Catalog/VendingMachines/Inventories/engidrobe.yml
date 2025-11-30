@@ -24,8 +24,10 @@
     ClothingBackpackSatchelEngineering: 3
     ClothingBackpackEngineering: 3
     ClothingUniformJumpsuitEngineering: 3
-    ClothingUniformJumpskirtEngineering: 3
-    ClothingUniformJumpsuitEngineeringHazard: 3
+    ClothingUniformJumpsuitEngineeringOveralls: 2
+    ClothingUniformJumpsuitEngineeringCoveralls: 2
+    ClothingUniformJumpsuitEngineeringRipley: 1
+    ClothingUniformJumpsuitEngineeringShirt: 2
     ClothingShoesColorBlack: 3
     ClothingOuterVestHazard: 3
     ClothingShoesBootsWork: 3

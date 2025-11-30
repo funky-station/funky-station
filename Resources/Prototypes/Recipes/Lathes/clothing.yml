@@ -304,8 +304,8 @@
 
 - type: latheRecipe
   parent: BaseJumpsuitRecipe
-  id: ClothingUniformJumpskirtEngineering
-  result: ClothingUniformJumpskirtEngineering
+  id: ClothingUniformJumpsuitEngineeringOveralls
+  result: ClothingUniformJumpsuitEngineeringOveralls
 
 - type: latheRecipe
   parent: BaseJumpsuitRecipe

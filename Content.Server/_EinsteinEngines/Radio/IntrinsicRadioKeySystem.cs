@@ -5,7 +5,6 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
-using Content.Server.Radio.Components;
 using Content.Shared.PAI;
 using Content.Shared.Radio;
 using Content.Shared.Radio.Components;

@@ -36,7 +36,6 @@ using Content.Shared.Eye.Blinding.Components;
 using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Stealth.Components;
 using Content.Shared.Damage.Components;
-using Content.Server.Radio.Components;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Random.Helpers;
 using Content.Shared._EE.Overlays.Switchable;

@@ -2,8 +2,8 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Server.Radio.Components;
 using Content.Shared.MalfAI;
+using Content.Shared.Radio.Components;
 using Robust.Shared.GameObjects;
 using Robust.Shared.Serialization;
 

@@ -23,7 +23,6 @@ using Content.Server.Ghost;
 using Content.Server.Light.Components;
 using Content.Server.Objectives.Components;
 using Content.Server.Popups;
-using Content.Server.Radio.Components;
 using Content.Server.Roles;
 using Content.Server.RoundEnd;
 using Content.Server.Shuttles.Systems;
@@ -66,6 +65,11 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using System.Linq;
+using Content.Shared.Damage.Components;
+using Content.Shared.Damage.Systems;
+using Content.Shared.Light.Components;
+using Content.Shared.Radio.Components;
+using Content.Shared.Roles.Components;
 
 namespace Content.Server._DV.CosmicCult;
 
@@ -641,10 +645,10 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
 
         var transmitter = EnsureComp<IntrinsicRadioTransmitterComponent>(uid);
         var radio = EnsureComp<ActiveRadioComponent>(uid);
-        radio.IntrinsicChannels.Add("CosmicRadio");
-        transmitter.IntrinsicChannels.Add("CosmicRadio");
+        radio.Channels.Add("CosmicRadio");
+        transmitter.Channels.Add("CosmicRadio");
 
-        if (_mind.TryGetSession(mindId, out var session))
+        if (_mind.TryGetMind(mindId, out var session))
         {
             _euiMan.OpenEui(new CosmicRoundStartEui(), session);
         }
@@ -749,14 +753,14 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
 
         var transmitter = EnsureComp<IntrinsicRadioTransmitterComponent>(uid);
         var radio = EnsureComp<ActiveRadioComponent>(uid);
-        radio.IntrinsicChannels.Add("CosmicRadio");
-        transmitter.IntrinsicChannels.Add("CosmicRadio");
+        radio.Channels.Add("CosmicRadio");
+        transmitter.Channels.Add("CosmicRadio");
 
         _mind.TryAddObjective(mindId, mind, "CosmicFinalityObjective");
         _mind.TryAddObjective(mindId, mind, "CosmicMonumentObjective");
         _mind.TryAddObjective(mindId, mind, "CosmicEntropyObjective");
 
-        if (_mind.TryGetSession(mindId, out var session))
+        if (_mind.TryGetMind(mindId, out var session))
         {
             _euiMan.OpenEui(new CosmicConvertedEui(), session);
         }
@@ -779,9 +783,9 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
         foreach (var actionEnt in uid.Comp.ActionEntities) _actions.RemoveAction(actionEnt);
 
         if (TryComp<IntrinsicRadioTransmitterComponent>(uid, out var transmitter))
-            transmitter.IntrinsicChannels.Remove("CosmicRadio");
+            transmitter.Channels.Remove("CosmicRadio");
         if (TryComp<ActiveRadioComponent>(uid, out var radio))
-            radio.IntrinsicChannels.Remove("CosmicRadio");
+            radio.Channels.Remove("CosmicRadio");
         RemComp<CosmicCultLeadComponent>(uid);
         RemComp<InfluenceVitalityComponent>(uid);
         RemComp<InfluenceStrideComponent>(uid);
@@ -798,7 +802,7 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
         _mind.ClearObjectives(mindId, mindComp);
         _role.MindRemoveRole<CosmicCultRoleComponent>(mindId);
         _role.MindRemoveRole<RoleBriefingComponent>(mindId);
-        if (_mind.TryGetSession(mindId, out var session))
+        if (_mind.TryGetMind(mindId, out var session))
         {
             _euiMan.OpenEui(new CosmicDeconvertedEui(), session);
         }

@@ -13,6 +13,7 @@
 
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Chat.Systems;
+using Content.Server.Damage.Systems;
 using Content.Server.DoAfter;
 using Content.Server.Flash;
 using Content.Server.Hands.Systems;
@@ -20,7 +21,6 @@ using Content.Server.Heretic.Components;
 using Content.Server.Magic;
 using Content.Server.Polymorph.Systems;
 using Content.Server.Popups;
-using Content.Server.Radio.Components;
 using Content.Server.Store.Systems;
 using Content.Shared.Actions;
 using Content.Shared.Damage;
@@ -42,11 +42,14 @@ using Robust.Shared.Map;
 using Content.Shared.StatusEffect;
 using Content.Shared.Throwing;
 using Content.Server.Station.Systems;
+using Content.Shared.Chat;
 using Content.Shared.Localizations;
 using Robust.Shared.Audio;
 using Content.Shared.Mobs.Components;
 using Robust.Shared.Prototypes;
 using Content.Shared.Eye.Blinding.Systems;
+using Content.Shared.Medical;
+using Content.Shared.Radio.Components;
 
 namespace Content.Server.Heretic.Abilities;
 

@@ -977,7 +977,7 @@
     - BorgModuleAdvancedCleaning
     - BorgModuleAdvancedTool
     - BorgModuleAtmos
-    #- BorgModuleGPSs
+    #- BorgModuleGPS
     #- BorgModuleArtifact
     #- BorgModuleAnomaly
     #- BorgModuleGardening

@@ -77,9 +77,9 @@
   description: A basic-looking hardsuit helmet that provides minor protection against most sources of damage.
   components:
   - type: Sprite
-    sprite: Clothing/Head/Hardsuits/basic.rsi
+    sprite: _Funkystation/Clothing/Head/Hardsuits/basic.rsi
   - type: Clothing
-    sprite: Clothing/Head/Hardsuits/basic.rsi
+    sprite: _Funkystation/Clothing/Head/Hardsuits/basic.rsi
   - type: HideLayerClothing
     slots:
     - Hair

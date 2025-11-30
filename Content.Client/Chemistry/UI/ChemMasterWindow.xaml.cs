@@ -177,15 +177,15 @@ namespace Content.Client.Chemistry.UI
 
             for (int i = 0; i < _amounts.Count; i++)
             {
-                var styleClass = StyleBase.ButtonOpenBoth;
+                var styleClass = StyleClass.ButtonOpenBoth;
                 var amount = _amounts[i];
                 var columns = AmountButtons.Columns;
 
                 if (i == 0 || i % columns == 0)
-                    styleClass = StyleBase.ButtonOpenRight;
+                    styleClass = StyleClass.ButtonOpenRight;
 
                 if ((i + 1) % columns == 0)
-                    styleClass = StyleBase.ButtonOpenLeft;
+                    styleClass = StyleClass.ButtonOpenLeft;
 
                 var button = new Button()
                 {
@@ -627,7 +627,7 @@ namespace Content.Client.Chemistry.UI
         public ReagentId Id { get; set; }
         public ReagentButton(string text, ReagentId id, bool isBuffer)
         {
-            AddStyleClass(StyleBase.ButtonOpenLeft);
+            AddStyleClass(StyleClass.ButtonOpenLeft);
             Text = text;
             Id = id;
             IsBuffer = isBuffer;

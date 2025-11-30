@@ -1,6 +1,7 @@
 # SPDX-FileCopyrightText: 2024 KingFroozy <froozy345@mail.ru>
 # SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 MaiaArai <158123176+YaraaraY@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 SigmaTheDragon <162711378+SigmaTheDragon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 Teasq <Xerithin@gmail.com>
 # SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
@@ -28,6 +29,7 @@
   - Glasses
   - Survival
   - Trinkets
+  - RoboticistJobTrinkets
   - GroupSpeciesBreathTool
 
 - type: roleLoadout

@@ -3,6 +3,7 @@
 # SPDX-FileCopyrightText: 2025 Dani Green <wgreen84gamergame@gmail.com>
 # SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+Princess-Cheeseballs@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
+# SPDX-FileCopyrightText: 2025 SigmaTheDragon <162711378+SigmaTheDragon@users.noreply.github.com>
 #
 # SPDX-License-Identifier: MIT
 
@@ -500,3 +501,14 @@
     back:
     - HonkCoFlippo
 
+- type: loadout
+  id: LizardPlushieRoboticist
+  effects: 
+ - !type:JobRequirementLoadoutEffect
+   requirement:
+     !type:RoleTimeRequirement 
+      role: JobRoboticist
+      time: 360000 # 100hr
+  storage:
+    back:
+    - PlushieLizardJobRoboticist

@@ -22,7 +22,7 @@ public sealed class FrenchAccentSystem : EntitySystem
 
     private static readonly Regex RegexThLower = new(@"th");
     private static readonly Regex RegexThUpper = new(@"T(?i)h");
-    private static readonly Regex RegexStartH = new(@"(?<!\w)h(?!m)(?!uh)", RegexOptions.IgnoreCase);
+    private static readonly Regex RegexStartH = new(@"(?<!\w)h(?!m)(?!uh\W)", RegexOptions.IgnoreCase);
     private static readonly Regex RegexSpacePunctuation = new(@"(?<=\w\w)[!?;:](?!\w)", RegexOptions.IgnoreCase);
     private static readonly Regex RegexEndErLower = new(@"(?<=\w)(?<!e)er(?!\w)");
     private static readonly Regex RegexEndErsLower = new(@"(?<=\w)(?<!e)ers(?!\w)");

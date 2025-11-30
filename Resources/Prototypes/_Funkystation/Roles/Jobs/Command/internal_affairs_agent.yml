@@ -51,9 +51,11 @@
     ears: ClothingHeadsetCentCom
     pocket1: BookSpaceLaw
     pocket2: RubberStampIAA
+    belt: ClothingBeltStorageWaistbag
   inhand:
   - BriefcaseBrownFilled
   storage:
     back:
     - Flash
     - BluespaceLifelineImplanter
+    - BoxFolderCentComClipboard

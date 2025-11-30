@@ -12,9 +12,10 @@
   startingInventory:
     ClothingUniformMailCarrier: 2
     ClothingUniformSkirtMailCarrier: 2
+    ClothingUniformJumpsuitCargoMailJumpSuit: 1
     ClothingHeadMailCarrier: 2
     ClothingHeadsetCargo: 2
-    ClothingOuterWinterCoatMail: 2
+    ClothingOuterCargoCourierWindbreaker: 2
     ClothingShoesColorBrown: 2
     ClothingEyesGlasses: 2
     ClothingHandsGlovesColorWhite: 2

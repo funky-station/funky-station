@@ -259,6 +259,12 @@
   loadouts:
   - HoPJumpsuit
   - HoPJumpskirt
+  - HoPJumpsuitCoat
+  - HoPJumpskirtCoat
+  - HoPJumpsuitShirt
+  - HoPJumpskirtShirt
+  - HoPJumpsuitSweater
+  - HoPJumpskirtSweater
 
 - type: loadoutGroup
   id: HoPNeck
@@ -368,10 +374,20 @@
   - BartenderJumpsuit
   - BartenderJumpskirt
   - BartenderJumpsuitPurple
+  - BartenderJumpskirtPurple # funky
   - ClothingUniformNightclubSuit #imp
   - ClothingUniformNightclubSuitSkirt #imp
   - ClothingUniformSeniorBartender #imp
   - ClothingUniformSeniorBartenderSkirt #imp
+  - BartenderJumpsuitStingray # funky
+  - BartenderJumpskirtStingray # funky
+  - ServiceJumpsuitDressWhite
+  - ServiceJumpsuitDressBlue
+  - ServiceJumpsuitDressTied
+  - ServiceJumpsuitServiceCoat
+  - ServiceJumpskirtDressWhite
+  - ServiceJumpskirtDressBlue
+  - ServiceJumpskirtDressTied
 
 - type: loadoutGroup
   id: BartenderOuterClothing
@@ -380,6 +396,29 @@
   loadouts:
   - BartenderApron
   - BartenderWintercoat
+
+- type: loadoutGroup
+  id: ServiceJumpsuit
+  name: loadout-group-service_jumpsuit
+  minLimit: 1
+  loadouts:
+  - ServiceJumpsuitDressWhite
+  - ServiceJumpsuitDressBlue
+  - ServiceJumpsuitDressTied
+  - ServiceJumpsuitServiceCoat
+  - ServiceJumpskirtDressWhite
+  - ServiceJumpskirtDressBlue
+  - ServiceJumpskirtDressTied
+
+- type: loadoutGroup
+  id: GenericShoes
+  name: loadout-group-generic-shoes
+  minLimit: 1
+  loadouts:
+  - BlackShoes
+  - WhiteShoes
+  - BrownShoes
+  - NanotrasenRepresentativeBoots #These are just laceup shoes.
 
 - type: loadoutGroup #WizDen Weh Job Plush
   id: BartenderJobTrinkets
@@ -415,6 +454,15 @@
   loadouts:
   - ChefJumpsuit
   - ChefJumpskirt
+  - ChefJumpsuitBlue
+  - ChefJumpskirtBlue
+  - ServiceJumpsuitDressWhite
+  - ServiceJumpsuitDressBlue
+  - ServiceJumpsuitDressTied
+  - ServiceJumpsuitServiceCoat
+  - ServiceJumpskirtDressWhite
+  - ServiceJumpskirtDressBlue
+  - ServiceJumpskirtDressTied
 
 - type: loadoutGroup
   id: ChefOuterClothing
@@ -424,6 +472,8 @@
   - ChefApron
   - ChefJacket
   - ChefWintercoat
+  - ChefJacketBlue
+  - ChefWintercoatBlue
 
 - type: loadoutGroup #WizDen Weh Job Plush
   id: ChefJobTrinkets
@@ -442,6 +492,13 @@
   - CuratorJumpskirt
   - ClothingUniformBrownSuit #imp
   - ClothingUniformBrownSuitSkirt #imp
+  - ServiceJumpsuitDressWhite
+  - ServiceJumpsuitDressBlue
+  - ServiceJumpsuitDressTied
+  - ServiceJumpsuitServiceCoat
+  - ServiceJumpskirtDressWhite
+  - ServiceJumpskirtDressBlue
+  - ServiceJumpskirtDressTied
 
 - type: loadoutGroup #WizDen Weh Job Plush
   id: LibrarianJobTrinkets
@@ -466,6 +523,13 @@
   - LawyerJumpskirtGood
   - ClothingUniformCreamSuit #imp
   - ClothingUniformCreamSuitSkirt #imp
+  - ServiceJumpsuitDressWhite
+  - ServiceJumpsuitDressBlue
+  - ServiceJumpsuitDressTied
+  - ServiceJumpsuitServiceCoat
+  - ServiceJumpskirtDressWhite
+  - ServiceJumpskirtDressBlue
+  - ServiceJumpskirtDressTied
 
 - type: loadoutGroup
   id: LawyerNeck
@@ -522,6 +586,13 @@
   - ChaplainUniformTech # imp
   - ClothingUniformFuneralSuit #imp
   - ClothingUniformFuneralSuitSkirt #imp
+  - ServiceJumpsuitDressWhite
+  - ServiceJumpsuitDressBlue
+  - ServiceJumpsuitDressTied
+  - ServiceJumpsuitServiceCoat
+  - ServiceJumpskirtDressWhite
+  - ServiceJumpskirtDressBlue
+  - ServiceJumpskirtDressTied
 
 - type: loadoutGroup
   id: ChaplainOuterClothing
@@ -813,6 +884,13 @@
   - MusicianJumpskirt
   - ClothingUniformMrSpaceWide #imp
   - ClothingUniformMrSpaceWideSkirt #imp
+  - ServiceJumpsuitDressWhite
+  - ServiceJumpsuitDressBlue
+  - ServiceJumpsuitDressTied
+  - ServiceJumpsuitServiceCoat
+  - ServiceJumpskirtDressWhite
+  - ServiceJumpskirtDressBlue
+  - ServiceJumpskirtDressTied
 
 - type: loadoutGroup
   id: MusicianOuterClothing
@@ -940,6 +1018,7 @@
   id: CargoTechnicianJumpsuit
   name: loadout-group-cargo-technician-jumpsuit
   loadouts:
+  - CargoTechnicianShorts
   - CargoTechnicianJumpsuit
   - CargoTechnicianJumpskirt
   - SeniorCargoTechnicianJumpsuit #Funky!
@@ -1081,6 +1160,8 @@
   name: loadout-group-chief-engineer-shoes
   loadouts:
   - BrownShoes
+  - NanotrasenRepresentativeBoots #These are just laceup shoes.
+  - WorkBoots
   - EngineeringWinterBoots
 
 - type: loadoutGroup #WizDen Weh Job Plush
@@ -1124,6 +1205,11 @@
   - StationEngineerJumpsuit
   - StationEngineerJumpskirt
   - StationEngineerHazardsuit
+  - StationEngineerJumpsuitElectrician
+  - StationEngineerJumpsuitElectricianTied
+  - StationEngineerJumpsuitTankTop
+  - StationEngineerJumpsuitUndersuit
+  - SeniorEngineerJumpsuitArmored
   - SeniorEngineerJumpsuit
   - SeniorEngineerJumpskirt
 
@@ -1186,6 +1272,11 @@
   - AtmosphericTechnicianJumpsuit
   - AtmosphericTechnicianJumpskirt
   - AtmosphericTechnicianJumpsuitCasual
+  - StationEngineerJumpsuitElectrician
+  - StationEngineerJumpsuitElectricianTied
+  - StationEngineerJumpsuitTankTop
+  - StationEngineerJumpsuitUndersuit
+  - SeniorEngineerJumpsuitArmored
   - SeniorEngineerJumpskirt  # Goobstation
   - SeniorEngineerJumpsuit   # Goobstation
 
@@ -1899,8 +1990,17 @@
   loadouts:
   - ReporterJumpsuit
   - JournalistJumpsuit
+  - ReporterJumpskirt
+  - JournalistJumpskirt
   - ClothingUniformBrosBlazer #imp
   - ClothingUniformBrosBlazerSkirt #imp
+  - ServiceJumpsuitDressWhite
+  - ServiceJumpsuitDressBlue
+  - ServiceJumpsuitDressTied
+  - ServiceJumpsuitServiceCoat
+  - ServiceJumpskirtDressWhite
+  - ServiceJumpskirtDressBlue
+  - ServiceJumpskirtDressTied
 
 - type: loadoutGroup #WizDen Weh Job Plush
   id: ReporterJobTrinkets

@@ -18,3 +18,23 @@
       amount: 3
     - id: UniformShortsRedWithTop
       amount: 3
+
+- type: entity
+  parent: BaseItem
+  id: TrainWhistle
+  name: train whistle
+  description: Choo Choo!
+  components:
+  - type: Item
+    sprite: _Funkystation/Objects/Fun/train_whistle.rsi
+    size: Tiny
+  - type: Sprite
+    sprite: _Funkystation/Objects/Fun/train_whistle.rsi
+    state: icon
+  - type: UseDelay
+    delay: 3
+  - type: EmitSoundOnUse
+    sound:
+      collection: TrainWhistle
+  - type: Whistle
+    distance: 3

@@ -109,8 +109,10 @@
 # SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
+# SPDX-FileCopyrightText: 2025 Jemtamird <krzysstepien7@gmail.com>
 # SPDX-FileCopyrightText: 2025 Skye <57879983+Rainbeon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 TrixxedHeart <46364955+TrixxedBit@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
 # SPDX-FileCopyrightText: 2025 jackel234 <52829582+jackel234@users.noreply.github.com>
@@ -168,6 +170,10 @@
     - map: [ "enum.HumanoidVisualLayers.Tail" ]
     - map: [ "enum.HumanoidVisualLayers.Wings" ] # For IPC wings porting from SimpleStation
     - map: [ "mask" ]
+    - map: [ "enum.PaperLabelVisuals.Layer" ] # Funky edit
+      sprite: "_DV/Objects/Misc/stickies.rsi"
+      state: "sticky_face"
+      visible: false
     - map: [ "head" ]
     - map: [ "pocket1" ]
     - map: [ "pocket2" ]
@@ -214,6 +220,10 @@
           culteyes:
             True: { visible: true }
             False: { visible: false }
+      enum.PaperLabelVisuals.HasLabel:
+        enum.PaperLabelVisuals.Layer:
+          True: { visible: true }
+          False: { visible: false }
   - type: StatusIcon
     bounds: -0.5,-0.5,0.5,0.5
   - type: RotationVisuals
@@ -221,6 +231,20 @@
     horizontalRotation: 90
   - type: HumanoidAppearance
     species: Human
+  - type: ContainerContainer
+    containers:
+      paper_label: !type:ContainerSlot
+  - type: ItemSlots
+  - type: PaperLabel
+    labelSlot:
+      insertVerbText: comp-paper-label-insert
+      ejectVerbText: comp-paper-label-eject
+      whitelist:
+        tags:
+        - StickyNoteYellow
+        - StickyNotePink
+        - StickyNoteGreen
+        - StickyNoteBlue
   - type: SlowOnDamage
     speedModifierThresholds:
       60: 0.8 # DV - Was 0.7

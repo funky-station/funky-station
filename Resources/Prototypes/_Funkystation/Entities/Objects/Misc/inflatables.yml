@@ -103,6 +103,57 @@
   - type: Occluder
     enabled: false
 
+- type: entity
+  parent: InflatableDoor
+  id: InflatableDock
+  name: inflatable external airlock
+  description: An inflated membrane with reinforced hardpoints, capable of docking. Release valve to deflate. Do not puncture.
+  suffix: Docking
+  components:
+  - type: Docking
+  - type: NavMapDoor
+  - type: Sprite
+    sprite: _Funkystation/Objects/Misc/inflatable_dock.rsi
+    state: closed
+  - type: Door
+    openSound:
+      path: /Audio/Misc/zip.ogg
+    closeSound:
+      path: /Audio/Misc/zip.ogg
+  - type: Anchorable
+  - type: Transform
+    anchored: true
+  - type: Rotatable
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.49,-0.49,0.49,0.49" # don't want this colliding with walls or they won't close
+        density: 100
+        mask:
+          - FullTileMask
+        layer:
+          - AirlockLayer
+      docking:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.2
+          position: "0,-0.5"
+        hard: false
+  - type: Airtight
+    noAirWhenFullyAirBlocked: false
+    airBlockedDirection:
+      - South
+  - type: Tag
+    tags:
+      - ForceNoFixRotations
+  - type: DisassembleOnAltVerb
+    prototypeToSpawn: InflatableDockStack1
+    disassembleTime: 3
+
 - type: tile
   id: InflatablePlating
   name: tiles-inflatable-plating

@@ -76,20 +76,9 @@
     sprite: _Funkystation/Objects/Misc/inflatables.rsi
     state: item_wall
   product: CrateEmergencyInflatablewall
-  cost: 250
+  cost: 550
   category: cargoproduct-category-name-emergency
   group: market
-
-- type: cargoProduct
-  id: EmergencyInflatablefloor
-  icon:
-    sprite: _Funkystation/Objects/Misc/inflatables.rsi
-    state: item_floor
-  product: CrateEmergencyInflatablefloor
-  cost: 300
-  category: cargoproduct-category-name-emergency
-  group: market
-#end of funky inflatables
 
 - type: cargoProduct
   id: EmergencyNitrogenTanks

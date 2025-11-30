@@ -21,6 +21,12 @@
   maxCount: 5
 
 - type: stack
+  id: InflatableDock
+  name: inflatable dock
+  spawn: InflatableDockStack1
+  maxCount: 5
+
+- type: stack
   id: InflatableFloor
   name: inflatable floor
   spawn: InflatableFloorStack1

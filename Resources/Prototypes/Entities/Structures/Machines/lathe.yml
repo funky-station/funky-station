@@ -504,6 +504,7 @@
     - BaseHandheldTelevision #watch my channels #funk
     - InflatableWall #funky inflatables
     - InflatableDoor #funk
+    - InflatableDock #funk
     - InflatableFloor #funk
     dynamicRecipes:
     - BoomboxRed

@@ -83,14 +83,14 @@
     - 0,0,1,1
   - type: StorageFill
     contents:
-        - id: InflatableWallStack
-          amount: 3
-        - id: InflatableDoorStack
-          amount: 1
+    - id: InflatableWallStack
+      amount: 3
+    - id: InflatableDoorStack
+      amount: 1
   - type: Sprite
     layers:
-      - state: box
-      - state: inflatablewall
+    - state: box
+    - state: inflatablewall
 
 - type: entity
   name: inflatable floor box
@@ -107,9 +107,9 @@
     - 0,0,1,1
   - type: StorageFill
     contents:
-        - id: InflatableFloorStack
-          amount: 4
+    - id: InflatableFloorStack
+      amount: 4
   - type: Sprite
     layers:
-      - state: box
-      - state: inflatablefloor
+    - state: box
+    - state: inflatablefloor

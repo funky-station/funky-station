@@ -9529,7 +9529,7 @@ entities:
     - type: Physics
       angularDamping: 0
       linearDamping: 0
-- proto: BorgModuleDefibrillator
+- proto: BorgModuleRescue
   entities:
   - uid: 26299
     components:

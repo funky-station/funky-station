@@ -79,3 +79,14 @@ marking-ThavenTigerLArm = Tiger (Left)
 
 marking-ThavenLLegScales = Scales (Left)
 marking-ThavenRLegScales = Scales (Right)
+
+marking-ThavenArmFinsBigLeft = Large Fin (Left)
+marking-ThavenArmFinsBigRight = Large Fin (Right)
+marking-ThavenArmFinsSmallLeft = Small Fin (Left)
+marking-ThavenArmFinsSmallRight = Small Fin (Right)
+marking-ThavenLegFinsSmallLeft = Leg Fin (Left)
+marking-ThavenLegFinsSmallRight = Leg Fin (Right)
+marking-ThavenBackFin = Dorsal Fin
+marking-ThavenTailCarpish = Carpish Tail
+marking-ThavenTailFish = Fishy Tail
+marking-ThavenTailDraconic = Draconic Tail

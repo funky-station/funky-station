@@ -15,21 +15,22 @@ SPDX-License-Identifier: MIT
     <GuideEntityEmbed Entity="MobDiona" Caption=""/>
   </Box>
 
-  They can't wear shoes, but are not slowed by Kudzu.
-  They get hungry and thirsty slower.
-  Their "blood" is tree sap and can't be metabolised from Iron.
-  Being plants, Weed Killer poisons them, while Robust Harvest heals them (but not without risk when overused!)
 
-  They take [color=#1e90ff]30% less Blunt damage and 20% less Slash damage[/color];
-  but [color=#ffa500]50% more Heat damage, 20% more Shock damage, and they can easily
-  catch on fire when receiving enough Heat damage from *any* source.[/color]
+  Diona are an alien species of sentient plants, with a wide and varied evolutionary history and countless ancestors in
+  common vegetation, trees, flowers, etc.
 
-  ## Make Like A Tree And Leave
+  ## Diona Physiology
   <Box>
     <GuideEntityEmbed Entity="FloraTree" Caption=""/>
   </Box>
-  Being exposed to too much Robust Harvest will cause a Diona to grow out of control, turning into an immobile tree (dropping all their equipment).
-  Cutting down the tree will "restore" the Diona to their mobile state.
+  Diona blood is a sort of sap excreted by their wooden flesh, and it can't be metabolized from Iron. Furthermore,
+  being plants, Weed Killer can poison a Diona, whereas Robust Harvest can heal them in moderation. Overdosing on
+  Robust Harvest will cause a Diona to grow out of control, turning into an immobile tree. Cutting down the tree will
+  restore the Diona to their usual state.
+
+  Having no real "feet", Diona cannot wear shoes. Fortunately, they are not slowed by Kudzu.
+
+  Diona also tend to get hungry and thirsty significantly slower than other species, and asphyxiate half as fast.
 
   ## Diona Nymphs
   <Box>
@@ -44,5 +45,18 @@ SPDX-License-Identifier: MIT
   After 10 minutes, a Nymph can reform into a whole Diona. This will be a new randomised body with a random name,
   and there will be little to no evidence beyond their word about who they were before.
 
+  ## Damage
+  Diona take 30% less [color=orange]Blunt[/color] damage and 20% less [color=orange]Slashing[/color] damage, but 50% more [color=red]Heat[/color] damage,
+  20% more [color=red]Shock[/color] damage, and they can easily catch on fire when receiving enough Heat damage.
+
+  ## Diona Naming Conventions
+
+  Diona typically have nature themed, Noun of Noun style names.
+
+  [bullet] The Blossom of Bravery
+
+  [bullet] The Elder of Nobility
+
+  [bullet] The Canyon of Balance
 
 </Document>

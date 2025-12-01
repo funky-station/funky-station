@@ -185,8 +185,9 @@ public sealed class NuclearReactorSystem : SharedNuclearReactorSystem
             UpdateGasVolume(comp);
         }
 
-        _appearance.SetData(uid, ReactorVisuals.Input, inlet.Air.Moles.Sum() > 20);
-        _appearance.SetData(uid, ReactorVisuals.Output, outlet.Air.Moles.Sum() > 20);
+        _appearance.SetData(uid, ReactorVisuals.Input, inlet.Air.TotalMoles > 20);
+        _appearance.SetData(uid, ReactorVisuals.Output, outlet.Air.TotalMoles > 20);
+
 
         var TempRads = 0;
         var ControlRods = 0;

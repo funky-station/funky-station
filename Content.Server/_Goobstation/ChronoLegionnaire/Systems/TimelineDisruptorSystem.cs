@@ -10,6 +10,7 @@ using Content.Shared.Containers.ItemSlots;
 using Content.Shared._Goobstation.ChronoLegionnaire;
 using Content.Shared._Goobstation.ChronoLegionnaire.Components;
 using Content.Shared.Interaction;
+using Content.Shared.Storage.Components;
 using Content.Shared.Verbs;
 using Robust.Server.Containers;
 using Robust.Server.GameObjects;

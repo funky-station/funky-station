@@ -20,6 +20,8 @@ using Content.Server.Temperature.Components;
 using Content.Shared.Temperature.Components;
 using Content.Server.Body.Components;
 using Content.Shared.Armor;
+using Content.Shared.Atmos.Components;
+using Content.Shared.Damage.Components;
 using Robust.Server.Audio;
 using Robust.Shared.Audio;
 

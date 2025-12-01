@@ -14,7 +14,7 @@ using Content.Server._Goobstation.Changeling.Objectives.Components;
 using Content.Server.Objectives.Systems;
 using Content.Shared.Objectives.Components;
 
-namespace Content.Server._Goobstation.Changeling.Objectives.Systems;
+namespace Content.Goobstation.Server.Changeling.Objectives.Systems;
 
 public sealed partial class ChangelingObjectiveSystem : EntitySystem
 {
@@ -25,8 +25,8 @@ public sealed partial class ChangelingObjectiveSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<AbsorbConditionComponent, ObjectiveGetProgressEvent>(OnAbsorbGetProgress);
-        SubscribeLocalEvent<ObjectiveGetProgressEvent>(OnStealDNAGetProgress);
-        SubscribeLocalEvent<ObjectiveGetProgressEvent>(OnAbsorbChangelingGetProgress);
+        SubscribeLocalEvent<StealDNAConditionComponent, ObjectiveGetProgressEvent>(OnStealDNAGetProgress);
+        SubscribeLocalEvent<AbsorbChangelingConditionComponent, ObjectiveGetProgressEvent>(OnAbsorbChangelingGetProgress);
     }
 
     private void OnAbsorbGetProgress(EntityUid uid, AbsorbConditionComponent comp, ref ObjectiveGetProgressEvent args)

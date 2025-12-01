@@ -145,11 +145,7 @@ public sealed partial class ChangelingSystem
             _popup.PopupEntity(Loc.GetString("changeling-absorb-fail-unabsorbable"), uid, uid);
             return;
         }
-        if (!IsIncapacitated(target) && !IsHardGrabbed(target))
-        {
-            _popup.PopupEntity(Loc.GetString("changeling-absorb-fail-nograb"), uid, uid);
-            return;
-        }
+
         if (CheckFireStatus(target)) // checks if the target is on fire
         {
             _popup.PopupEntity(Loc.GetString("changeling-absorb-fail-onfire"), uid, uid);
@@ -181,7 +177,7 @@ public sealed partial class ChangelingSystem
 
         var target = args.Args.Target.Value;
 
-        if (args.Cancelled || HasComp<AbsorbedComponent>(target) || (!IsIncapacitated(target) && !IsHardGrabbed(target)))
+        if (args.Cancelled || HasComp<AbsorbedComponent>(target) || (!IsIncapacitated(target) ))
             return;
 
         PlayMeatySound(args.User, comp);
@@ -535,8 +531,6 @@ public sealed partial class ChangelingSystem
             if (setProto)
                 continue;
 
-            _selectableAmmo.TrySetProto((dartgun.Value, ammoSelector), sting.DartGunAmmo.Value);
-            setProto = true;
         }
 
         if (ammoSelector.Prototypes.Count == 0)

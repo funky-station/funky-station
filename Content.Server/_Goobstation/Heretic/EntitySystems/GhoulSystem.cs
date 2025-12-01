@@ -68,7 +68,7 @@ public sealed partial class GhoulSystem : Shared.Heretic.EntitySystems.SharedGho
         {
             SendBriefing(ent, mindId, mind);
 
-            if (_mind.TryGetSession(mindId, out var session))
+            if (_mind.TryGetMind(mindId, out var session))
             {
                 _euiMan.OpenEui(new GhoulNotifEui(), session);
             }

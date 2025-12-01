@@ -10,6 +10,7 @@ using Robust.Shared.Random;
 using Content.Shared.Weapons.Ranged.Events;
 using Content.Server.Explosion.EntitySystems;
 using Content.Server.Power.Components;
+using Content.Shared.Power.Components;
 
 namespace Content.Server._Goobstation.WeaponRandomExplode
 {

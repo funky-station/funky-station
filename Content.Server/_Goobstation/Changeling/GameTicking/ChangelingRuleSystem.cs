@@ -13,6 +13,7 @@
 
 using System.Text;
 using Content.Goobstation.Common.Changeling;
+using Content.Goobstation.Shared.Changeling.Components;
 using Content.Server.Antag;
 using Content.Server.GameTicking.Rules;
 using Content.Server.Mind;

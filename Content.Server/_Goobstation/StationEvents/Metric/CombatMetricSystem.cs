@@ -7,6 +7,7 @@ using Content.Server.Station.Systems;
 using Content.Server._Goobstation.StationEvents.Metric;
 using Content.Server._Goobstation.StationEvents.Metric.Components;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Components;
 using Content.Shared.FixedPoint;
 using Content.Shared.Inventory;
 using Content.Shared.Mind.Components;

@@ -28,6 +28,8 @@ using Content.Shared.Inventory;
 using Robust.Server.GameObjects;
 using Content.Shared.Chat;
 using System.Linq;
+using Content.Shared.Damage.Components;
+using Content.Shared.Damage.Systems;
 using Robust.Shared.Physics;
 using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Movement.Pulling.Systems;
@@ -179,17 +181,20 @@ public partial class RitualSacrificeBehavior : RitualCustomBehavior
             var wrappedMessage = Loc.GetString("chat-manager-server-wrap-message", ("message", message));
 
             if (message is not null &&
-                sharedMindSystem.TryGetMind(uid, out _, out var mindComponent) &&
-                mindComponent.Session != null)
+                sharedMindSystem.TryGetMind(uid, out var mindId, out MindComponent? mindComponent) &&
+                mindComponent?.UserId != null)
             {
-                chatManager.ChatMessageToOne(ChatChannel.Server,
+                chatManager.ChatMessageToOne(
+                    ChatChannel.Server,
                     message,
                     wrappedMessage,
                     default,
                     false,
-                     mindComponent.Session.Channel,
-                     Color.FromSrgb(new Color(255, 100, 255)));
+                    client,
+                    Color.FromSrgb(new Color(255, 100, 255))
+                );
             }
+
 
             args.EntityManager.EnsureComponent<SacrificedComponent>(uid);
         }

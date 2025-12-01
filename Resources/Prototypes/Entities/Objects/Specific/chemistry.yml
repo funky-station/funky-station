@@ -81,6 +81,7 @@
 # SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Gansu <68031780+GansuLalan@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Nox <nebulousnox38@gmail.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
@@ -182,6 +183,64 @@
   - type: StaticPrice
     price: 30
   - type: DnaSubstanceTrace
+
+- type: entity
+  parent: BaseItem
+  id: BorgBeaker
+  name: integrated beaker
+  description: An internal compartment installed into a cyborg. Rated for 50 units of any liquid.
+  components:
+  # 3 morbillion components are to avoid inheriting breakable since borgs can't replace beakers.
+  - type: Tag
+    tags:
+    - GlassBeaker
+  - type: Sprite
+    sprite: Objects/Specific/Chemistry/beaker.rsi
+    layers:
+      - state: beaker
+      - state: beaker1
+        map: ["enum.SolutionContainerLayers.Fill"]
+        visible: false
+  - type: Item
+    sprite: Objects/Specific/Chemistry/beaker.rsi
+  - type: MeleeWeapon
+    soundNoDamage:
+      path: "/Audio/Effects/Fluids/splat.ogg"
+    damage:
+      types:
+        Blunt: 0
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 50
+  - type: MixableSolution
+    solution: beaker
+  - type: FitsInDispenser
+    solution: beaker
+  - type: RefillableSolution
+    solution: beaker
+  - type: DrainableSolution
+    solution: beaker
+  - type: ExaminableSolution
+    solution: beaker
+  - type: DrawableSolution
+    solution: beaker
+  - type: InjectableSolution
+    solution: beaker
+  - type: SolutionTransfer
+    canChangeTransferAmount: true
+  - type: SolutionItemStatus
+    solution: beaker
+  - type: UserInterface
+    interfaces:
+      enum.TransferAmountUiKey.Key:
+        type: TransferAmountBoundUserInterface
+  - type: Drink
+    solution: beaker
+  - type: Appearance
+  - type: SolutionContainerVisuals
+    maxFillLevels: 6
+    fillBaseName: beaker
 
 - type: entity
   parent: BaseItem
@@ -406,10 +465,10 @@
     - Dropper
 
 - type: entity
-  name: borgdropper
   parent: Dropper
-  description: Used to transfer small amounts of chemical solution between containers. Extended for use by medical borgs.
   id: BorgDropper
+  name: hydraulic pipette
+  description: State-of-the-art hydraulic dropper built for cyborgs. It features a higher capacity than hand-powered droppers, able to hold 15 units of liquid.
   components:
   - type: Sprite
     sprite: Objects/Specific/Chemistry/dropper.rsi
@@ -421,7 +480,7 @@
   - type: SolutionContainerManager
     solutions:
       injector:
-        maxVol: 10
+        maxVol: 15
   - type: Item
     sprite: Objects/Specific/Chemistry/dropper.rsi
 

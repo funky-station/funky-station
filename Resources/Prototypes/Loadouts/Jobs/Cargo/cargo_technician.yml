@@ -42,6 +42,12 @@
 
 # Jumpsuit
 - type: loadout
+  id: CargoTechnicianShorts
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitCargoShorts
+  groupBy: "jumpsuit"
+
+- type: loadout
   id: CargoTechnicianJumpsuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitCargo

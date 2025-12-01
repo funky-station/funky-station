@@ -1,14 +1,14 @@
 - type: latheRecipe
-  parent: [ BaseCircuitboardRecipe, BaseMedicalMachineRecipeCategory ]
+  parent: [ BaseCircuitboardRecipe ]
   id: VitalsMonitorMachineCircuitboard
   result: VitalsMonitorMachineCircuitboard
 
 - type: latheRecipe
-  parent: [ BaseCircuitboardRecipe, BaseEngineeringMachineRecipeCategory ]
+  parent: [ BaseCircuitboardRecipe ]
   id: NuclearFabricatorMachineCircuitboard
   result: NuclearFabricatorMachineCircuitboard
 
 - type: latheRecipe
-  parent: [ BaseCircuitboardRecipe, BaseEngineeringMachineRecipeCategory ]
+  parent: [ BaseCircuitboardRecipe ]
   id: NuclearCentrifugeMachineCircuitboard
   result: NuclearCentrifugeMachineCircuitboard

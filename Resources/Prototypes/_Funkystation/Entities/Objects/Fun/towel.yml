@@ -110,7 +110,7 @@
   id: TowelColorBlackUnfolded
   name: black towel
   parent: BaseTowelUnfolded
-  description: A highly versatile black towel. Would work great as a kneel sheet.
+  description: A highly versatile black towel. Many chaplains would put tassels on the ends of this towel to signify precepts of their faith.
   components:
   - type: Sprite
     sprite: _Funkystation/Objects/Fun/Towels/black.rsi
@@ -264,7 +264,7 @@
   id: TowelColorDarkGreenUnfolded
   name: dark green towel
   parent: BaseTowelUnfolded
-  description: A highly versatile dark green towel. Great for keeping books safe in.
+  description: A highly versatile dark green towel. Books and water do not mix. That's why you should always have this for emergencies.
   components:
   - type: Sprite
     sprite: _Funkystation/Objects/Fun/Towels/darkgreen.rsi
@@ -352,7 +352,7 @@
   id: TowelColorDarkBlueUnfolded
   name: dark blue towel
   parent: BaseTowelUnfolded
-  description: A highly versatile, exquisite dark blue towel. May the masses cower at the whip of this towel.
+  description: A highly versatile, exquisite dark blue towel. The hue! It's to die for!
   components:
   - type: Sprite
     sprite: _Funkystation/Objects/Fun/Towels/darkblue.rsi
@@ -467,7 +467,7 @@
   id: TowelColorCentcomUnfolded
   name: centcomm towel
   parent: BaseTowelUnfolded
-  description: A highly versatile, regal green towel. Central Command doesn't hand these out lightly.
+  description: A highly versatile, regal green towel. The color reminds you of the fat stacks of cash that's not going toward your paycheck.
   components:
   - type: Sprite
     sprite: _Funkystation/Objects/Fun/Towels/centcomm.rsi
@@ -511,7 +511,7 @@
   id: TowelColorGoldUnfolded
   name: gold towel
   parent: BaseTowelUnfolded
-  description: A highly versatile, heavy gold towel. FWPSHHH!
+  description: A highly versatile, heavy gold towel. You were promised paid vacation. You were given this instead.
   components:
   - type: Sprite
     sprite: _Funkystation/Objects/Fun/Towels/gold.rsi

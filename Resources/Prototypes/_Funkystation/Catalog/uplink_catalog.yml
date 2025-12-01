@@ -204,3 +204,16 @@
       tags:
       - NukeOpsUplink # I don't really wanna mess with nukie balancing
   saleLimit: 1
+
+# Pointless
+
+- type: listing
+  id: UplinkSyndicateTowel
+  name: uplink-towel-syndicate-name
+  description: uplink-towel-syndicate-desc
+  productEntity: TowelColorSyndicate
+  cost:
+    Telecrystal: 3 # gives a towel with a mean whip, three TC is probably a good cost for it
+  categories:
+  - UplinkPointless
+  saleBlacklist: true 

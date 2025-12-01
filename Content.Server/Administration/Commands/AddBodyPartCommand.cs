@@ -28,7 +28,7 @@ public sealed class AddBodyPartCommand : LocalizedEntityCommands
 
     public override void Execute(IConsoleShell shell, string argStr, string[] args)
     {
-        if (args.Length != 4)
+        if (args.Length < 4 || args.Length > 5)
         {
             shell.WriteError(Loc.GetString("shell-wrong-arguments-number"));
             return;
@@ -46,12 +46,26 @@ public sealed class AddBodyPartCommand : LocalizedEntityCommands
             return;
         }
 
-        if (Enum.TryParse<BodyPartType>(args[3], out var partType) &&
-            _bodySystem.TryCreatePartSlotAndAttach(parentId.Value, args[2], childId.Value, partType))
+        if (!Enum.TryParse<BodyPartType>(args[3], out var partType))
+        {
+            shell.WriteError($@"Invalid body part type: {args[3]}");
+            return;
+        }
+
+        var symmetry = BodyPartSymmetry.None; // Default value
+        if (args.Length == 5 && !Enum.TryParse<BodyPartSymmetry>(args[4], out symmetry))
+        {
+            shell.WriteError($@"Invalid body part symmetry: {args[4]}");
+            return;
+        }
+
+        if (_bodySystem.TryCreatePartSlotAndAttach(parentId.Value, args[2], childId.Value, partType, symmetry))
         {
             shell.WriteLine($@"Added {childId} to {parentId}.");
         }
         else
+        {
             shell.WriteError($@"Could not add {childId} to {parentId}.");
+        }
     }
 }

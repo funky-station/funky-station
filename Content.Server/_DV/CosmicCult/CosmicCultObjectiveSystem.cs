@@ -10,10 +10,10 @@
 using Content.Server._DV.CosmicCult.Components;
 using Content.Server.Objectives.Components;
 using Content.Server.Warps;
+using Content.Shared._DV.Roles;
 using Content.Shared.Objectives.Components;
 using Content.Shared.Roles;
 using Content.Shared.Whitelist;
-using Content.Stellar.Shared.CosmicCult.Roles;
 using Robust.Shared.Random;
 
 namespace Content.Server.Objectives.Systems;

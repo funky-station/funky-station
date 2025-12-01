@@ -1,73 +1,19 @@
-# SPDX-FileCopyrightText: 2023 Alex <129697969+Lomcastar@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Ed <96445749+TheShuEd@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 I.K <45953835+notquitehadouken@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Kara <lunarautomaton6@gmail.com>
-# SPDX-FileCopyrightText: 2023 notquitehadouken <1isthisameme>
-# SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
-# SPDX-FileCopyrightText: 2024 Nairod <110078045+Nairodian@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
-# SPDX-FileCopyrightText: 2024 Tonydatguy <154929293+Tonydatguy@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 TsjipTsjip <19798667+TsjipTsjip@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Verm <32827189+Vermidia@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Whisper <121047731+QuietlyWhisper@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 liltenhead <104418166+liltenhead@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 no <165581243+pissdemon@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Fenn <162015305+TooSillyFennec@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Firewars763 <35506916+Firewars763@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
-# SPDX-FileCopyrightText: 2025 TheSecondLord <88201625+TheSecondLord@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 V <97265903+formlessnameless@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 brainfood1183 <113240905+brainfood1183@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 misghast <51974455+misterghast@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
-
 - type: entity
   abstract: true
+  parent: [BaseMob, MobCombat]
   id: MobElementalBase
   components:
-  - type: LagCompensation
   - type: Reactive
     groups:
       Acidic: [Touch]
-  - type: Clickable
   - type: Damageable
     damageContainer: Inorganic
-  - type: InteractionOutline
-  - type: Fixtures
-    fixtures:
-      fix1:
-        shape:
-          !type:PhysShapeCircle
-          radius: 0.35
-        density: 50
-        mask:
-        - MobMask
-        layer:
-        - MobLayer
   - type: MovementSpeedModifier
     baseWalkSpeed : 2
     baseSprintSpeed : 3
-  - type: Sprite
-    noRot: true
-    drawdepth: Mobs
-  - type: NpcFactionMember
-    factions:
-    - SimpleNeutral
   - type: MovedByPressure
-  - type: Physics
-    bodyType: KinematicController # Same for all inheritors
   - type: StatusEffects
     allowed:
-    - Stun
-    - SlowedDown
-    - Stutter
     - Electrocution
   - type: Pullable
   - type: Tag
@@ -91,18 +37,9 @@
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
-  - type: Input
-    context: "human"
-  - type: InputMover
-  - type: MobMover
   - type: ZombieImmune
   - type: ProtectedFromStepTriggers
-  - type: NightVision # EE edit
-    isActive: true
-    toggleAction: null
-    color: "#50595C"
-    activateSound: null
-    deactivateSound: null
+  - type: StunVisuals
 
 - type: entity
   abstract: true
@@ -131,13 +68,12 @@
       - SimpleHostile
   - type: Damageable
     damageContainer: StructuralInorganic
-  - type: CombatPower # Goobstation
-    factor: 8 # / 2 = times more powerful than an unarmed crew-member
 
 - type: entity
   parent: MobOreCrab
   id: MobQuartzCrab
   description: An ore crab made from Quartz.
+  suffix: Quartz
   components:
   - type: Sprite
     state: quartz_crab
@@ -162,6 +98,7 @@
   parent: MobOreCrab
   id: MobIronCrab
   description: An ore crab made from iron.
+  suffix: Iron
   components:
   - type: Sprite
     state: iron_crab
@@ -193,6 +130,7 @@
   parent: MobOreCrab
   id: MobCoalCrab
   description: An ore crab made from coal.
+  suffix: Coal
   components:
   - type: Sprite
     state: coal_crab
@@ -224,6 +162,7 @@
   parent: MobOreCrab
   id: MobUraniumCrab
   description: An ore crab made from uranium.
+  suffix: Uranium
   components:
   - type: FactionException
   - type: NPCRetaliation
@@ -314,8 +253,8 @@
 - type: entity
   parent: MobOreCrab
   id: MobSilverCrab
-  name: ore crab
   description: An ore crab made from silver.
+  suffix: Silver
   components:
   - type: Sprite
     state: silver_crab
@@ -343,8 +282,8 @@
 - type: entity
   parent: MobOreCrab
   id: MobGoldCrab
-  name: ore crab
   description: An ore crab made from gold.
+  suffix: Gold
   components:
   - type: Sprite
     state: gold_crab
@@ -410,7 +349,10 @@
     speedModifierThresholds:
       50: 0.4
   - type: Bloodstream
-    bloodReagent: Water
+    bloodReagents:
+      reagents:
+      - ReagentId: Water
+        Quantity: 1
     chemicalMaxVolume: 100
   - type: StatusEffects
     allowed:
@@ -426,7 +368,6 @@
     solution: bloodstream
     transferAmount: 5
   - type: DamageStateVisuals
-    rotate: true
     states:
       Alive:
         Base: alive
@@ -446,14 +387,6 @@
     solution: bloodstream
   - type: DrainableSolution
     solution: bloodstream
-  - type: CombatPower # Goobstation
-    factor: 12 # / 2 = times more powerful than an unarmed crew-member
-  - type: NightVision # EE edit
-    isActive: true
-    toggleAction: null
-    color: "#50595C"
-    activateSound: null
-    deactivateSound: null
 
 - type: entity
   name: Reagent Slime Spawner
@@ -472,7 +405,7 @@
         - ReagentSlimePax
         - ReagentSlimeNocturine
         - ReagentSlimeTHC
-        - ReagentSlimeSalicylicAcid # Funkychem
+        - ReagentSlimeBicaridine
         - ReagentSlimeToxin
         - ReagentSlimeNapalm
         - ReagentSlimeOmnizine
@@ -488,7 +421,10 @@
   suffix: Beer
   components:
   - type: Bloodstream
-    bloodReagent: Beer
+    bloodReagents:
+      reagents:
+      - ReagentId: Beer
+        Quantity: 1
   - type: PointLight
     color: "#cfa85f"
   - type: Sprite
@@ -505,7 +441,10 @@
   suffix: Pax
   components:
   - type: Bloodstream
-    bloodReagent: Pax
+    bloodReagents:
+      reagents:
+      - ReagentId: Pax
+        Quantity: 1
   - type: PointLight
     color: "#AAAAAA"
   - type: Sprite
@@ -518,8 +457,6 @@
   - type: MeleeChemicalInjector
     solution: bloodstream
     transferAmount: 1
-  - type: CombatPower # Goobstation
-    factor: 16 # / 2 = times more powerful than an unarmed crew-member
 
 - type: entity
   id: ReagentSlimeNocturine
@@ -527,7 +464,10 @@
   suffix: Nocturine
   components:
   - type: Bloodstream
-    bloodReagent: Nocturine
+    bloodReagents:
+      reagents:
+      - ReagentId: Nocturine
+        Quantity: 1
   - type: PointLight
     color: "#128e80"
   - type: Sprite
@@ -540,8 +480,6 @@
   - type: MeleeChemicalInjector
     solution: bloodstream
     transferAmount: 3
-  - type: CombatPower # Goobstation
-    factor: 16 # / 2 = times more powerful than an unarmed crew-member
 
 - type: entity
   id: ReagentSlimeTHC
@@ -549,33 +487,39 @@
   suffix: THC
   components:
   - type: Bloodstream
-    bloodReagent: THC
+    bloodReagents:
+      reagents:
+      - ReagentId: THC
+        Quantity: 1
   - type: PointLight
-    color: "#50595C"
+    color: "#808080"
   - type: Sprite
     drawdepth: Mobs
     sprite: Mobs/Aliens/elemental.rsi
     layers:
       - map: [ "enum.DamageStateVisualLayers.Base" ]
         state: alive
-        color: "#50595C"
+        color: "#808080"
 
 - type: entity
-  id: ReagentSlimeSalicylicAcid
+  id: ReagentSlimeBicaridine
   parent: ReagentSlime
-  suffix: Salicylic Acid
+  suffix: Bicaridine
   components:
   - type: Bloodstream
-    bloodReagent: SalicylicAcid
+    bloodReagents:
+      reagents:
+      - ReagentId: Bicaridine
+        Quantity: 1
   - type: PointLight
-    color: "#f9e0e9"
+    color: "#ffaa00"
   - type: Sprite
     drawdepth: Mobs
     sprite: Mobs/Aliens/elemental.rsi
     layers:
       - map: [ "enum.DamageStateVisualLayers.Base" ]
         state: alive
-        color: "#f9e0e9"
+        color: "#ffaa00"
 
 - type: entity
   id: ReagentSlimeToxin
@@ -583,7 +527,10 @@
   suffix: Toxin
   components:
   - type: Bloodstream
-    bloodReagent: Toxin
+    bloodReagents:
+      reagents:
+      - ReagentId: Toxin
+        Quantity: 1
   - type: PointLight
     color: "#cf3600"
   - type: Sprite
@@ -600,7 +547,10 @@
   suffix: Napalm
   components:
   - type: Bloodstream
-    bloodReagent: Napalm
+    bloodReagents:
+      reagents:
+      - ReagentId: Napalm
+        Quantity: 1
   - type: PointLight
     color: "#FA00AF"
   - type: Sprite
@@ -617,7 +567,10 @@
   suffix: Omnizine
   components:
   - type: Bloodstream
-    bloodReagent: Omnizine
+    bloodReagents:
+      reagents:
+      - ReagentId: Omnizine
+        Quantity: 1
   - type: PointLight
     color: "#fcf7f9"
   - type: Sprite
@@ -634,7 +587,10 @@
   suffix: Mute Toxin
   components:
   - type: Bloodstream
-    bloodReagent: MuteToxin
+    bloodReagents:
+      reagents:
+      - ReagentId: MuteToxin
+        Quantity: 1
   - type: PointLight
     color: "#0f0f0f"
   - type: Sprite
@@ -651,7 +607,10 @@
   suffix: Norepinephric Acid
   components:
   - type: Bloodstream
-    bloodReagent: NorepinephricAcid
+    bloodReagents:
+      reagents:
+      - ReagentId: NorepinephricAcid
+        Quantity: 1
   - type: PointLight
     color: "#96a8b5"
   - type: Sprite
@@ -668,7 +627,10 @@
   suffix: Ephedrine
   components:
   - type: Bloodstream
-    bloodReagent: Ephedrine
+    bloodReagents:
+      reagents:
+      - ReagentId: Ephedrine
+        Quantity: 1
   - type: PointLight
     color: "#D2FFFA"
   - type: Sprite
@@ -685,7 +647,10 @@
   suffix: Robust Harvest
   components:
   - type: Bloodstream
-    bloodReagent: RobustHarvest
+    bloodReagents:
+      reagents:
+      - ReagentId: RobustHarvest
+        Quantity: 1
   - type: PointLight
     color: "#3e901c"
   - type: Sprite

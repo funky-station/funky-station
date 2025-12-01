@@ -1,4 +1,5 @@
 ﻿using System.Numerics;
+using Content.Goobstation.Shared.Changeling.Components;
 using Content.Shared.Changeling.Components;
 using Content.Shared.Cloning;
 using Content.Shared.Humanoid;

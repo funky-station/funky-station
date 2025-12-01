@@ -291,7 +291,9 @@
         maxVol: 35
         reagents:
         - ReagentId: Nutriment
-          Quantity: 20
+          Quantity: 16
+        - ReagentId: Cheesium
+          Quantity: 4
         - ReagentId: Vitamin
           Quantity: 5
 # Tastes like bread, cheese.
@@ -317,7 +319,9 @@
         maxVol: 10
         reagents:
         - ReagentId: Nutriment
-          Quantity: 4
+          Quantity: 3.2
+        - ReagentId: Cheesium
+          Quantity: 0.8
         - ReagentId: Vitamin
           Quantity: 1.2
 
@@ -343,7 +347,9 @@
         maxVol: 45
         reagents:
         - ReagentId: Nutriment
-          Quantity: 30
+          Quantity: 26
+        - ReagentId: Cheesium
+          Quantity: 4
         - ReagentId: Vitamin
           Quantity: 5
   - type: Tag
@@ -372,7 +378,9 @@
         maxVol: 10
         reagents:
         - ReagentId: Nutriment
-          Quantity: 6
+          Quantity: 5.2
+        - ReagentId: Cheesium
+          Quantity: 0.8
         - ReagentId: Vitamin
           Quantity: 1.2
   - type: Tag
@@ -549,7 +557,9 @@
         maxVol: 45
         reagents:
         - ReagentId: Nutriment
-          Quantity: 30
+          Quantity: 26
+        - ReagentId: Cheesium
+          Quantity: 4
         - ReagentId: Vitamin
           Quantity: 5
   - type: Tag
@@ -578,7 +588,9 @@
         maxVol: 12
         reagents:
         - ReagentId: Nutriment
-          Quantity: 6
+          Quantity: 5.2
+        - ReagentId: Cheesium
+          Quantity: 0.8
         - ReagentId: Vitamin
           Quantity: 1.2
   - type: Tag
@@ -660,7 +672,9 @@
         maxVol: 45
         reagents:
         - ReagentId: Nutriment
-          Quantity: 30
+          Quantity: 26
+        - ReagentId: Cheesium
+          Quantity: 4
         - ReagentId: Vitamin
           Quantity: 5
   - type: Tag
@@ -689,7 +703,9 @@
         maxVol: 10
         reagents:
         - ReagentId: Nutriment
-          Quantity: 6
+          Quantity: 5.2
+        - ReagentId: Cheesium
+          Quantity: 0.8
         - ReagentId: Vitamin
           Quantity: 1.2
   - type: Tag
@@ -741,7 +757,7 @@
         Blunt: 1 # bonk
   - type: Tag #Goobstation
     tags:
-    - BreadEmergency 
+    - BreadEmergency
 
 # Tastes like France.
 

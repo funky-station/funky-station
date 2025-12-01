@@ -111,6 +111,17 @@
       - cheesy
       - oily
       - bread
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 40
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 28
+        - ReagentId: Cheesium
+          Quantity: 2
+        - ReagentId: Vitamin
+          Quantity: 5
   - type: Sprite
     layers:
     - state: margherita
@@ -128,6 +139,18 @@
       - cheesy
       - oily
       - bread
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        # Note: Keep FoodPizzaMoldySlice & FoodPizzaSliceBase roughly in sync
+        maxVol: 6
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 4.5
+        - ReagentId: Cheesium
+          Quantity: 0.5
+        - ReagentId: Vitamin
+          Quantity: 0.8
   - type: Sprite
     layers:
     - state: margherita-slice
@@ -144,6 +167,17 @@
       - cheesy
       - oily
       - bread
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 40
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 28
+        - ReagentId: Cheesium
+          Quantity: 2
+        - ReagentId: Vitamin
+          Quantity: 5
   - type: Sprite
     layers:
     - state: meat
@@ -166,6 +200,17 @@
       - cheesy
       - oily
       - bread
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 40
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 28
+        - ReagentId: Cheesium
+          Quantity: 2
+        - ReagentId: Vitamin
+          Quantity: 5
   - type: Sprite
     layers:
     - state: meat-slice
@@ -292,7 +337,9 @@
         maxVol: 50
         reagents:
         - ReagentId: Nutriment
-          Quantity: 27
+          Quantity: 25
+        - ReagentId: Cheesium
+          Quantity: 2
         - ReagentId: Vitamin
           Quantity: 6
         - ReagentId: Omnizine
@@ -321,7 +368,9 @@
         maxVol: 10
         reagents:
         - ReagentId: Nutriment
-          Quantity: 4.5
+          Quantity: 4
+        - ReagentId: Cheesium
+          Quantity: 0.5
         - ReagentId: Vitamin
           Quantity: 1
         - ReagentId: Omnizine
@@ -356,7 +405,9 @@
         maxVol: 50
         reagents:
         - ReagentId: Nutriment
-          Quantity: 20
+          Quantity: 18
+        - ReagentId: Cheesium
+          Quantity: 2
         - ReagentId: THC
           Quantity: 30
 
@@ -381,7 +432,9 @@
         maxVol: 10
         reagents:
         - ReagentId: Nutriment
-          Quantity: 3.5
+          Quantity: 3
+        - ReagentId: Cheesium
+          Quantity: 0.5
         - ReagentId: THC
           Quantity: 5
 # Tastes like crust, tomato, cheese, meat, satisfaction.
@@ -501,7 +554,9 @@
         maxVol: 85
         reagents:
         - ReagentId: Nutriment
-          Quantity: 30
+          Quantity: 25
+        - ReagentId: Cheesium
+          Quantity: 5
         - ReagentId: Vitamin
           Quantity: 5
         - ReagentId: Iron
@@ -535,7 +590,9 @@
         maxVol: 15
         reagents:
         - ReagentId: Nutriment
-          Quantity: 5
+          Quantity: 4.2
+        - ReagentId: Cheesium
+          Quantity: 0.8
         - ReagentId: Vitamin
           Quantity: 0.8
         - ReagentId: Iron

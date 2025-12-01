@@ -339,6 +339,17 @@
     state: cheese
   - type: SliceableFood
     slice: FoodCakeCheeseSlice
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 30
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 16
+        - ReagentId: Cheesium
+          Quantity: 4
+        - ReagentId: Vitamin
+          Quantity: 5
   - type: Item
     inhandVisuals:
       left:
@@ -358,6 +369,17 @@
   components:
   - type: Sprite
     state: cheese-slice
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 10
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 3.2
+        - ReagentId: Cheesium
+          Quantity: 0.8
+        - ReagentId: Vitamin
+          Quantity: 1
   - type: Item
     inhandVisuals:
       left:

@@ -45,7 +45,7 @@
     nameGeneration: food-sequence-taco-gen
     contentSeparator: ", "
   - type: Appearance
-  
+
 # Old tacos
 
 - type: entity
@@ -84,6 +84,17 @@
   description: A very basic and run of the mill beef taco, now with cheese!
   components:
   - type: Food
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 15
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 4
+        - ReagentId: Cheesium
+          Quantity: 2
+        - ReagentId: Vitamin
+          Quantity: 4
   - type: Sprite
     state: beeftaco
 
@@ -94,6 +105,17 @@
   description: A very basic and run of the mill chicken taco, now with cheese!
   components:
   - type: Food
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 15
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 4
+        - ReagentId: Cheesium
+          Quantity: 2
+        - ReagentId: Vitamin
+          Quantity: 4
   - type: Sprite
     state: chickentaco
 
@@ -135,7 +157,9 @@
         maxVol: 15
         reagents:
         - ReagentId: Nutriment
-          Quantity: 6
+          Quantity: 4
+        - ReagentId: Cheesium
+          Quantity: 2
         - ReagentId: Vitamin
           Quantity: 4
 
@@ -154,7 +178,9 @@
         maxVol: 26
         reagents:
         - ReagentId: Nutriment
-          Quantity: 14
+          Quantity: 10
+        - ReagentId: Cheesium
+          Quantity: 4
         - ReagentId: Vitamin
           Quantity: 6
 
@@ -173,7 +199,9 @@
         maxVol: 26
         reagents:
         - ReagentId: Nutriment
-          Quantity: 14
+          Quantity: 10
+        - ReagentId: Cheesium
+          Quantity: 4
         - ReagentId: Vitamin
           Quantity: 6
 

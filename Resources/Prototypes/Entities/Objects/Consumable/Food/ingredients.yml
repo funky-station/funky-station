@@ -795,6 +795,8 @@
         reagents:
         - ReagentId: Nutriment
           Quantity: 3.75
+        - ReagentId: Cheesium
+          Quantity: 2
   - type: Tag
     tags:
     - Slice

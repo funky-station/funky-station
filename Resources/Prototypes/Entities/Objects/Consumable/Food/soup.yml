@@ -46,7 +46,7 @@
   - type: Item
     storedRotation: -90
   - type: Food
-    trash: 
+    trash:
     - FoodBowlBig
     utensil: Spoon
   - type: SolutionContainerManager
@@ -270,7 +270,9 @@
         maxVol: 15
         reagents:
         - ReagentId: Nutriment
-          Quantity: 8
+          Quantity: 6
+        - ReagentId: Cheesium
+          Quantity: 2
         - ReagentId: Vitamin
           Quantity: 6
 
@@ -1013,7 +1015,7 @@
     flavors:
       - miso
   - type: Food
-    trash: 
+    trash:
     - FoodBowlFancy
   - type: Sprite
     layers:
@@ -1181,8 +1183,8 @@
       food:
         maxVol: 15
         reagents:
-          - ReagentId: Nutriment
-            Quantity: 1
+          - ReagentId: Cheesium
+            Quantity: 2
           - ReagentId: Vitamin
             Quantity: 5
           - ReagentId: Allicin

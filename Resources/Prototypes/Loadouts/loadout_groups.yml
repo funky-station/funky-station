@@ -85,6 +85,7 @@
   - PlushieLizard
   - PlushieSpaceLizard
   - PlushieCirno
+  - ThreeCandles
   - Lighter
   - CigPackGreen
   - CigPackRed
@@ -92,18 +93,24 @@
   - CigPackBlack
   - CigarCase
   - CigarGold
+  - BoxFolderBaseThreePapers
+  - BoxFolderPlasticClipboardThreePapers
+  - BoxFolderClipboardThreePapers
   - ClothingNeckLGBTPin
   - ClothingNeckAllyPin
   - ClothingNeckAromanticPin
   - ClothingNeckAsexualPin
+  - ClothingNeckAroacePin
   - ClothingNeckBisexualPin
   - ClothingNeckGayPin
   - ClothingNeckIntersexPin
   - ClothingNeckLesbianPin
   - ClothingNeckNonBinaryPin
   - ClothingNeckPansexualPin
+  - ClothingNeckPluralPin
   - ClothingNeckOmnisexualPin
   - ClothingNeckGenderqueerPin
+  - ClothingNeckGenderfluidPin
   - ClothingNeckTransPin
   - ClothingNeckAutismPin
   - ClothingNeckGoldAutismPin
@@ -626,6 +633,14 @@
   - EmergencyOxygenClown
   - LoadoutSpeciesVoxNitrogen
   - EmergencyIPCBox # Funky
+
+- type: loadoutGroup
+  id: ClownJobTrinkets
+  name: loadout-group-jobtrinkets
+  minLimit: 0
+  loadouts:
+  - LizardPlushieClown
+  - FlowerWaterClown
 
 - type: loadoutGroup
   id: MimeHead

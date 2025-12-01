@@ -13,9 +13,12 @@ using Content.Shared.Administration.Logs;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Database;
 using Content.Shared.Examine;
+using Content.Shared.Fluids.Components;
 using Content.Shared.Interaction;
 using Content.Shared.Materials;
+using Content.Shared.Placeable;
 using Content.Shared.Popups;
+using Content.Shared.Storage.EntitySystems;
 using Content.Shared.Tools.Systems;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
@@ -41,9 +44,15 @@ public abstract class SharedFlatpackSystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedToolSystem _tool = default!;
 
+    private EntityQuery<PuddleComponent> _puddleQuery = default!;
+    private EntityQuery<PlaceableSurfaceComponent> _placeableSurfaceQuery = default!;
+
     /// <inheritdoc/>
     public override void Initialize()
     {
+        _puddleQuery = GetEntityQuery<PuddleComponent>();
+        _placeableSurfaceQuery = GetEntityQuery<PlaceableSurfaceComponent>();
+
         SubscribeLocalEvent<FlatpackComponent, InteractUsingEvent>(OnFlatpackInteractUsing);
         SubscribeLocalEvent<FlatpackComponent, ExaminedEvent>(OnFlatpackExamined);
 
@@ -89,12 +98,32 @@ public abstract class SharedFlatpackSystem : EntitySystem
         var buildPos = _map.TileIndicesFor(grid, gridComp, xform.Coordinates);
         var coords = _map.ToCenterCoordinates(grid, buildPos);
 
-        // TODO FLATPAK
-        // Make this logic smarter. This should eventually allow for shit like building microwaves on tables and such.
-        // Also: make it ignore ghosts
-        if (_entityLookup.AnyEntitiesIntersecting(coords, LookupFlags.Dynamic | LookupFlags.Static))
+        // TODO: make it ignore ghosts
+        var intersectingEntities = _entityLookup.GetEntitiesIntersecting(coords, LookupFlags.Dynamic | LookupFlags.Static);
+        foreach (var intersectingEntity in intersectingEntities)
         {
-            // this popup is on the server because the predicts on the intersection is crazy
+            // Exclude the flatpack itself
+            if (intersectingEntity == uid)
+                continue;
+
+            // Allow puddles/liquids
+            if (_puddleQuery.HasComponent(intersectingEntity))
+                continue;
+
+            // Exclude entities that can be opened/closed (crates, lockers, etc.)
+            // Check for the entity_storage container instead of the abstract component
+            if (_container.TryGetContainer(intersectingEntity, SharedEntityStorageSystem.ContainerName, out _))
+            {
+                if (_net.IsServer)
+                    _popup.PopupEntity(Loc.GetString("flatpack-unpack-no-room"), uid, args.User);
+                return;
+            }
+
+            // Allow tables and other placeable surfaces (that aren't openable containers)
+            if (_placeableSurfaceQuery.HasComponent(intersectingEntity))
+                continue;
+
+            // If we find any other blocking entity, block unpacking
             if (_net.IsServer)
                 _popup.PopupEntity(Loc.GetString("flatpack-unpack-no-room"), uid, args.User);
             return;

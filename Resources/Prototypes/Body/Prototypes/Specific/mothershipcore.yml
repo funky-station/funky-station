@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Samuka-C <47865393+Samuka-C@users.noreply.github.com>
+#
+# SPDX-License-Identifier: MIT
+
 - type: body
   id: MothershipCoreBody
   name: "core"

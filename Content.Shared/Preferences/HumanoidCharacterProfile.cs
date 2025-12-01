@@ -43,6 +43,7 @@
 
 using System.Linq;
 using System.Text.RegularExpressions;
+using Content.Shared._Funkystation.Records;
 using Content.Shared.CCVar;
 using Content.Shared.GameTicking;
 using Content.Shared.Humanoid;
@@ -152,6 +153,11 @@ namespace Content.Shared.Preferences
         /// <see cref="_antagPreferences"/>
         /// </summary>
         public IReadOnlySet<ProtoId<AntagPrototype>> AntagPreferences => _antagPreferences;
+
+        // Begin CD - Character records
+        [DataField("cosmaticDriftCharacterRecords")]
+        public PlayerProvidedCharacterRecords? CDCharacterRecords;
+        // End CD - Character records
 
         /// <summary>
         /// <see cref="_traitPreferences"/>

@@ -26,6 +26,14 @@
             <Label Name="JobTitleLabel" Text="{Loc 'id-card-console-window-job-title-label'}" />
             <LineEdit Name="JobTitleLineEdit" HorizontalExpand="True" />
             <Button Name="JobTitleSaveButton" Text="{Loc 'id-card-console-window-save-button'}" Disabled="True" />
+            <!-- begin Funkystation - job icon selection -->
+            <Label Name="JobIconLabel" Text="{Loc 'id-card-console-window-job-icon-label'}" />
+            <TextureRect Name="JobIconPreview"
+                         TextureScale="3 3"
+                         Margin="4 0"
+                         VerticalAlignment="Center" />
+            <Button Name="JobIconChangeButton" Text="{Loc 'id-card-console-window-job-icon-change-button'}"  Disabled="True" />
+            <!-- end Funkystation -->
         </GridContainer>
         <Control MinSize="0 8" />
         <!-- Job preset selection, grant/revoke all access buttons. -->

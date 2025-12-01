@@ -96,7 +96,7 @@ namespace Content.Client.Access.UI
             _window?.UpdateState(castState);
         }
 
-        public void SubmitData(string newFullName, string newJobTitle, List<ProtoId<AccessLevelPrototype>> newAccessList, string newJobPrototype)
+        public void SubmitData(string newFullName, string newJobTitle, string newJobIcon, List<ProtoId<AccessLevelPrototype>> newAccessList, string newJobPrototype)
         {
             if (newFullName.Length > _maxNameLength)
                 newFullName = newFullName[.._maxNameLength];

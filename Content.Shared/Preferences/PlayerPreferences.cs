@@ -9,6 +9,7 @@
 // SPDX-License-Identifier: MIT
 
 using Content.Shared.Construction.Prototypes;
+using Content.Shared.Roles;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 using Robust.Shared.Utility;
@@ -68,6 +69,45 @@ namespace Content.Shared.Preferences
         public bool TryIndexOfCharacter(ICharacterProfile profile, out int index)
         {
             return (index = IndexOfCharacter(profile)) != -1;
+        }
+        /// <summary>
+        /// Get job priorities, but filtered by the presence of enabled characters asking for that job
+        /// </summary>
+        public Dictionary<ProtoId<JobPrototype>, JobPriority> JobPrioritiesFiltered()
+        {
+            var allCharacterJobs = new HashSet<ProtoId<JobPrototype>>();
+            var allJobPriorities = new Dictionary<ProtoId<JobPrototype>, JobPriority>();
+
+            // Collect all jobs from all characters and aggregate their priorities
+            foreach (var profile in Characters.Values)
+            {
+                if (profile is not HumanoidCharacterProfile humanoid)
+                    continue;
+
+                // Add all jobs this character has preferences for
+                foreach (var (job, priority) in humanoid.JobPriorities)
+                {
+                    allCharacterJobs.Add(job);
+
+                    // Keep the highest priority for each job across all characters
+                    if (!allJobPriorities.ContainsKey(job) || priority > allJobPriorities[job])
+                    {
+                        allJobPriorities[job] = priority;
+                    }
+                }
+            }
+
+            // Filter to only return jobs that enabled characters have requested
+            var filteredPlayerJobs = new Dictionary<ProtoId<JobPrototype>, JobPriority>();
+            foreach (var (job, priority) in allJobPriorities)
+            {
+                if (allCharacterJobs.Contains(job))
+                {
+                    filteredPlayerJobs.Add(job, priority);
+                }
+            }
+
+            return filteredPlayerJobs;
         }
     }
 }

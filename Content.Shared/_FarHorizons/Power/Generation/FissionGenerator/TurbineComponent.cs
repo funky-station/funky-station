@@ -1,9 +1,16 @@
-using Content.Shared.Atmos;
-using Content.Shared.Tools;
-using Robust.Shared.GameStates;
+
 using Robust.Shared.Prototypes;
+using Robust.Shared.GameStates;
+using Content.Shared.Tools;
+using Content.Shared.Atmos;
+using Content.Shared.DeviceLinking;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 
 namespace Content.Shared._FarHorizons.Power.Generation.FissionGenerator;
+
+// Ported and modified from goonstation by Jhrushbe.
+// CC-BY-NC-SA-3.0
+// https://github.com/goonstation/goonstation/blob/ff86b044/code/obj/nuclearreactor/turbine.dm
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class TurbineComponent : Component
@@ -37,6 +44,12 @@ public sealed partial class TurbineComponent : Component
     /// </summary>
     [DataField]
     public float BestRPM = 600;
+
+    /// <summary>
+    /// RPM the animation is playing at
+    /// </summary>
+    [ViewVariables]
+    public float AnimRPM = 0;
 
     /// <summary>
     /// Volume of gas to process per tick for power generation
@@ -121,19 +134,21 @@ public sealed partial class TurbineComponent : Component
     [DataField]
     public float PowerMultiplier = 1;
 
-    [ViewVariables]
+    [ViewVariables, AutoNetworkedField]
     public EntityUid? AlarmAudioOvertemp;
-    [ViewVariables]
+    [ViewVariables, AutoNetworkedField]
     public EntityUid? AlarmAudioUnderspeed;
 
     /// <summary>
     /// Length of repair do-after, in seconds
     /// </summary>
+    [DataField]
     public float RepairDelay = 5;
 
     /// <summary>
     /// Amount of fuel consumed for repair
     /// </summary>
+    [DataField]
     public float RepairFuelCost = 15;
 
     /// <summary>
@@ -149,16 +164,24 @@ public sealed partial class TurbineComponent : Component
     [ViewVariables]
     public EntityUid? OutletEnt;
 
-    public bool IsSparking = false;
-    public bool IsSmoking = false;
+    [DataField("speedHighPort", customTypeSerializer: typeof(PrototypeIdSerializer<SourcePortPrototype>))]
+    public string SpeedHighPort = "TurbineSpeedHigh";
 
-    
-    //Debugging
+    [DataField("speedLowPort", customTypeSerializer: typeof(PrototypeIdSerializer<SourcePortPrototype>))]
+    public string SpeedLowPort = "TurbineSpeedLow";
+
+    [DataField("statorLoadIncreasePort", customTypeSerializer: typeof(PrototypeIdSerializer<SinkPortPrototype>))]
+    public string StatorLoadIncreasePort = "IncreaseStatorLoad";
+
+    [DataField("statorLoadDecreasePort", customTypeSerializer: typeof(PrototypeIdSerializer<SinkPortPrototype>))]
+    public string StatorLoadDecreasePort = "DecreaseStatorLoad";
+
+    #region Debug
     [ViewVariables(VVAccess.ReadOnly)]
     public bool HasPipes = false;
     [ViewVariables(VVAccess.ReadOnly)]
     public float SupplierMaxSupply = 0;
     [ViewVariables(VVAccess.ReadOnly)]
     public float LastVolumeTransfer = 0;
-
+    #endregion
 }

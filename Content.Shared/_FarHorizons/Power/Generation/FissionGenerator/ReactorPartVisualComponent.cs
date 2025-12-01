@@ -1,3 +1,4 @@
+
 using Robust.Shared.GameStates;
 
 namespace Content.Shared._FarHorizons.Power.Generation.FissionGenerator;

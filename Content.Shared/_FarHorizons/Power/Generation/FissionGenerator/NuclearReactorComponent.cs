@@ -1,8 +1,18 @@
+
+using Robust.Shared.GameStates;
+using Robust.Shared.Audio;
+using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Atmos;
 using Robust.Shared.Prototypes;
 using Content.Shared.Materials;
+using Content.Shared.DeviceLinking;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 
 namespace Content.Shared._FarHorizons.Power.Generation.FissionGenerator;
+
+// Ported and modified from goonstation by Jhrushbe.
+// CC-BY-NC-SA-3.0
+// https://github.com/goonstation/goonstation/blob/ff86b044/code/obj/nuclearreactor/nuclearreactor.dm
 
 [RegisterComponent, NetworkedComponent]
 public sealed partial class NuclearReactorComponent : Component
@@ -39,7 +49,7 @@ public sealed partial class NuclearReactorComponent : Component
     /// <summary>
     /// Reactor casing temperature
     /// </summary>
-    [ViewVariables]
+    [DataField]
     public float Temperature = Atmospherics.T20C;
 
     /// <summary>
@@ -71,22 +81,27 @@ public sealed partial class NuclearReactorComponent : Component
     /// </summary>
     [ViewVariables]
     public bool Melted = false;
-    [DataField]
-    public float Temperature = Atmospherics.T20C;
-    [DataField]
-    public float ThermalMass = 420 * 2000; // specific heat capacity of steel (420 J/KgK) * mass of reactor (Kg)
+
+    /// <summary>
+    /// The set insertion level of the control rods
+    /// </summary>
     [DataField]
     public float ControlRodInsertion = 2;
 
+    /// <summary>
+    /// The actual insertion level of the control rods
+    /// </summary>
     [ViewVariables(VVAccess.ReadOnly)]
     public float AvgInsertion = 0;
 
+    /// <summary>
+    /// Sound that plays globally on meltdown
+    /// </summary>
     public SoundSpecifier MeltdownSound = new SoundPathSpecifier("/Audio/_FarHorizons/Machines/meltdown_siren.ogg");
 
-    [DataField]
-    public bool IsSmoking = false;
-    [DataField]
-    public bool IsBurning = false;
+    /// <summary>
+    /// Radio channel to send alerts to
+    /// </summary>
     [DataField]
     public string EngineeringChannel = "Engineering";
 
@@ -102,9 +117,15 @@ public sealed partial class NuclearReactorComponent : Component
     [ViewVariables]
     public bool HasSentWarning = false;
 
+    /// <summary>
+    /// Alert level to set after meltdown
+    /// </summary>
     [DataField]
     public string MeltdownAlertLevel = "yellow";
 
+    /// <summary>
+    /// The estimated thermal power the reactor is making
+    /// </summary>
     [ViewVariables(VVAccess.ReadOnly)]
     public float ThermalPower = 0;
     public int ThermalPowerCount = 0;
@@ -120,26 +141,31 @@ public sealed partial class NuclearReactorComponent : Component
     [ViewVariables]
     public ItemSlot PartSlot = new();
 
-    // Making this a DataField causes the game to explode, neat
-    public ReactorPartComponent?[,] ComponentGrid = new ReactorPartComponent[ReactorGridWidth, ReactorGridHeight];
-
-    // Woe, 3 dimensions be upon ye
-    public List<ReactorNeutron>[,] FluxGrid = new List<ReactorNeutron>[ReactorGridWidth, ReactorGridHeight];
-
+    /// <summary>
+    /// Grid of temperature values
+    /// </summary>
     public double[,] TemperatureGrid = new double[ReactorGridWidth, ReactorGridHeight];
+
+    /// <summary>
+    /// Grid of neutron counts
+    /// </summary>
     public int[,] NeutronGrid = new int[ReactorGridWidth, ReactorGridHeight];
 
+    /// <summary>
+    /// Grid of entities that make up the visual reactor grid
+    /// </summary>
     public NetEntity[,] VisualGrid = new NetEntity[ReactorGridWidth, ReactorGridHeight];
 
-    public GasMixture? AirContents;
-
+    /// <summary>
+    /// The selected prefab
+    /// </summary>
     [DataField]
     public string Prefab = "normal";
 
     /// <summary>
     /// Flag indicating the reactor should apply the selected prefab
     /// </summary>
-    [ViewVariables]
+    [DataField]
     public bool ApplyPrefab = true;
 
     /// <summary>
@@ -154,6 +180,12 @@ public sealed partial class NuclearReactorComponent : Component
     public EntityUid? InletEnt;
     [ViewVariables]
     public EntityUid? OutletEnt;
+
+    [DataField("controlRodRetractPort", customTypeSerializer: typeof(PrototypeIdSerializer<SinkPortPrototype>))]
+    public string ControlRodRetractPort = "RetractControlRods";
+
+    [DataField("controlRodInsertPort", customTypeSerializer: typeof(PrototypeIdSerializer<SinkPortPrototype>))]
+    public string ControlRodInsertPort = "InsertControlRods";
 
     #region Debug
     [ViewVariables(VVAccess.ReadOnly)]

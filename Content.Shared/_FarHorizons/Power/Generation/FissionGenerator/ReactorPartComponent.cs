@@ -1,3 +1,4 @@
+
 using Content.Shared._FarHorizons.Materials;
 using Content.Shared.Atmos;
 using Content.Shared.Materials;
@@ -13,10 +14,10 @@ namespace Content.Shared._FarHorizons.Power.Generation.FissionGenerator;
 public sealed partial class ReactorPartComponent : Component
 {
     /// <summary>
-    /// Name of this component as it shows as an item.
+    /// The entity prototype name this component results from.
     /// </summary>
     [DataField]
-    public string Name = "ReactorPart";
+    public EntProtoId ProtoId = "BaseReactorPart";
 
     /// <summary>
     /// Icon of this component as it shows in the UIs.
@@ -30,14 +31,19 @@ public sealed partial class ReactorPartComponent : Component
     [DataField]
     public string IconStateCap = "rod_cap";
 
+    /// <summary>
+    /// Byte indicating what type of rod this reactor part is
+    /// </summary>
     [DataField]
-    public byte RodType = (byte)RodTypes.Generic;
+    public RodTypes RodType = RodTypes.Generic;
 
-    public enum RodTypes : byte
+    public enum RodTypes
     {
         Generic = 1 << 0,
-        Control = 1 << 1,
-        GasChannel = 1 << 2,
+        FuelRod = 1 << 1,
+        ControlRod = 1 << 2,
+        GasChannel = 1 << 3,
+        HeatExchanger = 1 << 4,
     }
 
     #region Variables
@@ -133,7 +139,7 @@ public sealed partial class ReactorPartComponent : Component
     /// <param name="source"></param>
     public ReactorPartComponent(ReactorPartComponent source)
     {
-        Name = source.Name;
+        ProtoId = source.ProtoId;
         IconStateInserted = source.IconStateInserted;
         IconStateCap = source.IconStateCap;
         RodType = source.RodType;
@@ -150,7 +156,7 @@ public sealed partial class ReactorPartComponent : Component
         ThermalMass = source.ThermalMass;
 
         Material = source.Material;
-        Properties = source.Properties;
+        Properties = source.Properties != null ? new MaterialProperties(source.Properties) : null;
 
         ConfiguredInsertionLevel = source.ConfiguredInsertionLevel;
         GasThermalCrossSection = source.GasThermalCrossSection;
@@ -173,8 +179,8 @@ public static class BaseReactorComponents
 {
     public static readonly ReactorPartComponent ControlRod = new()
     {
-        RodType = (byte)ReactorPartComponent.RodTypes.Control,
-        Name = "control rod",
+        RodType = ReactorPartComponent.RodTypes.ControlRod,
+        ProtoId = "BohrumReactorControlRod",
         IconStateInserted = "control",
         IconStateCap = "control_cap",
         IsControlRod = true,
@@ -185,7 +191,8 @@ public static class BaseReactorComponents
 
     public static readonly ReactorPartComponent FuelRod = new()
     {
-        Name = "cerenkite fuel rod",
+        RodType = ReactorPartComponent.RodTypes.FuelRod,
+        ProtoId = "CerenkiteReactorFuelRod",
         IconStateInserted = "fuel",
         IconStateCap = "fuel_cap",
         NeutronCrossSection = 1.0f,
@@ -196,8 +203,8 @@ public static class BaseReactorComponents
 
     public static readonly ReactorPartComponent GasChannel = new()
     {
-        RodType = (byte)ReactorPartComponent.RodTypes.GasChannel,
-        Name = "gas channel",
+        RodType = ReactorPartComponent.RodTypes.GasChannel,
+        ProtoId = "SteelReactorGasChannel",
         IconStateInserted = "gas",
         IconStateCap = "gas_cap",
         ThermalCrossSection = 15,
@@ -207,7 +214,8 @@ public static class BaseReactorComponents
 
     public static readonly ReactorPartComponent HeatExchanger = new()
     {
-        Name = "heat exchanger",
+        RodType = ReactorPartComponent.RodTypes.HeatExchanger,
+        ProtoId = "SteelReactorHeatExchanger",
         IconStateInserted = "heat",
         IconStateCap = "heat_cap",
         NeutronCrossSection = 0.1f,

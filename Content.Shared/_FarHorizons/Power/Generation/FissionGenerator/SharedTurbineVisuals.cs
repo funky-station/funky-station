@@ -1,7 +1,11 @@
+
 using Robust.Shared.Serialization;
 
 namespace Content.Shared._FarHorizons.Power.Generation.FissionGenerator;
 
+/// <summary>
+/// Appearance keys for the turbine.
+/// </summary>
 [Serializable, NetSerializable]
 public enum TurbineVisuals
 {
@@ -11,6 +15,9 @@ public enum TurbineVisuals
     TurbineSpeed,
 }
 
+/// <summary>
+/// Visual sprite layers for the turbine.
+/// </summary>
 [Serializable, NetSerializable]
 public enum TurbineVisualLayers
 {
@@ -18,14 +25,4 @@ public enum TurbineVisualLayers
     DamageSpark,
     DamageSmoke,
     TurbineSpeed,
-}
-
-[Serializable, NetSerializable]
-public enum TurbineSpeed
-{
-    SpeedStill,
-    SpeedSlow,
-    SpeedMid,
-    SpeedFast,
-    SpeedOverspeed,
 }

@@ -15,7 +15,6 @@ using Robust.Shared.Random;
 using Content.Shared.Administration.Logs;
 using Robust.Server.GameObjects;
 using Content.Server.Weapons.Ranged.Systems;
-using Content.Server._FarHorizons.NodeContainer.Nodes;
 using Content.Server.NodeContainer.Nodes;
 
 namespace Content.Server._FarHorizons.Power.Generation.FissionGenerator;

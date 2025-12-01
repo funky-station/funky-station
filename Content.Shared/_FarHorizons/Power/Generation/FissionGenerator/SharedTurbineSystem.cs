@@ -1,10 +1,10 @@
+
 using Content.Shared.Administration.Logs;
 using Content.Shared.Database;
 using Content.Shared.Examine;
 using Content.Shared.Interaction;
 using Content.Shared.Popups;
 using Content.Shared.Repairable;
-using Content.Shared.Tools.Components;
 using Content.Shared.Tools.Systems;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
@@ -13,15 +13,18 @@ namespace Content.Shared._FarHorizons.Power.Generation.FissionGenerator;
 
 // Ported and modified from goonstation by Jhrushbe.
 // CC-BY-NC-SA-3.0
-// https://github.com/goonstation/goonstation/blob/master/code/obj/nuclearreactor/turbine.dm
+// https://github.com/goonstation/goonstation/blob/ff86b044/code/obj/nuclearreactor/turbine.dm
 
 public abstract class SharedTurbineSystem : EntitySystem
 {
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
-    [Dependency] private readonly SharedToolSystem _toolSystem = default!;
+    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
+    [Dependency] protected readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly SharedToolSystem _toolSystem = default!;
+
+    private readonly float _threshold = 0.5f;
+    private float _accumulator = 0f;
 
     public override void Initialize()
     {
@@ -33,7 +36,7 @@ public abstract class SharedTurbineSystem : EntitySystem
         SubscribeLocalEvent<TurbineComponent, TurbineChangeStatorLoadMessage>(OnTurbineStatorLoadChanged);
 
         SubscribeLocalEvent<TurbineComponent, InteractUsingEvent>(RepairTurbine);
-        SubscribeLocalEvent<TurbineComponent, RepairFinishedEvent>(OnRepairTurbineFinished);
+        SubscribeLocalEvent<TurbineComponent, SharedRepairableSystem.RepairFinishedEvent>(OnRepairTurbineFinished);
     }
 
     private void OnExamined(Entity<TurbineComponent> ent, ref ExaminedEvent args)
@@ -91,6 +94,18 @@ public abstract class SharedTurbineSystem : EntitySystem
         }
     }
 
+    public override void Update(float frameTime)
+    {
+        _accumulator += frameTime;
+        if (_accumulator > _threshold)
+        {
+            AccUpdate();
+            _accumulator = 0;
+        }
+    }
+
+    protected virtual void AccUpdate() { }
+
     protected void UpdateAppearance(EntityUid uid, TurbineComponent? comp = null, AppearanceComponent? appearance = null)
     {
         if (!Resolve(uid, ref comp, ref appearance, false))
@@ -110,29 +125,29 @@ public abstract class SharedTurbineSystem : EntitySystem
             {
                 _appearance.SetData(uid, TurbineVisuals.TurbineRuined, false);
             }
-            switch (comp.RPM)
-            {
-                case float n when n is > 1 and <= 60:
-                    _appearance.SetData(uid, TurbineVisuals.TurbineSpeed, TurbineSpeed.SpeedSlow);
-                    break;
-                case float n when n > 60 && n <= comp.BestRPM * 0.5:
-                    _appearance.SetData(uid, TurbineVisuals.TurbineSpeed, TurbineSpeed.SpeedMid);
-                    break;
-                case float n when n > comp.BestRPM * 0.5 && n <= comp.BestRPM * 1.2:
-                    _appearance.SetData(uid, TurbineVisuals.TurbineSpeed, TurbineSpeed.SpeedFast);
-                    break;
-                case float n when n > comp.BestRPM * 1.2 && n <= float.PositiveInfinity:
-                    _appearance.SetData(uid, TurbineVisuals.TurbineSpeed, TurbineSpeed.SpeedOverspeed);
-                    break;
-                default:
-                    _appearance.SetData(uid, TurbineVisuals.TurbineSpeed, TurbineSpeed.SpeedStill);
-                    break;
-            }
+            _appearance.SetData(uid, TurbineVisuals.TurbineSpeed, comp.RPM > 1);
         }
 
         _appearance.SetData(uid, TurbineVisuals.DamageSpark, comp.IsSparking);
         _appearance.SetData(uid, TurbineVisuals.DamageSmoke, comp.IsSmoking);
     }
+
+    protected void PlayAudio(SoundSpecifier? sound, EntityUid uid, out EntityUid? audioStream, AudioParams? audioParams = null)
+    {
+        if (sound == null || audioParams == null)
+        {
+            audioStream = null;
+            return;
+        }
+
+        var loop = audioParams.Value.WithLoop(true);
+        var stream = false
+            ? _audio.PlayPredicted(sound, uid, uid, loop)
+            : _audio.PlayPvs(sound, uid, loop);
+        audioStream = stream?.Entity is { } entity ? entity : null;
+    }
+
+    protected static void AdjustStatorLoad(TurbineComponent turbine, float change) => turbine.StatorLoad = Math.Clamp(turbine.StatorLoad + change, 1000f, 500000f);
 
     #region User Interface
     private void OnTurbineFlowRateChanged(EntityUid uid, TurbineComponent turbine, TurbineChangeFlowRateMessage args)
@@ -141,7 +156,7 @@ public abstract class SharedTurbineSystem : EntitySystem
         Dirty(uid, turbine);
         UpdateUI(uid, turbine);
         _adminLogger.Add(LogType.AtmosVolumeChanged, LogImpact.Medium,
-            $"{ToPrettyString(args.Actor):player} set the transfer rate on {ToPrettyString(uid):device} to {args.FlowRate}");
+            $"{ToPrettyString(args.Actor):player} set the flow rate on {ToPrettyString(uid):device} to {args.FlowRate}");
     }
 
     private void OnTurbineStatorLoadChanged(EntityUid uid, TurbineComponent turbine, TurbineChangeStatorLoadMessage args)
@@ -165,11 +180,14 @@ public abstract class SharedTurbineSystem : EntitySystem
         if (comp.BladeHealth >= comp.BladeHealthMax && !comp.Ruined)
             return;
 
-        args.Handled = _toolSystem.UseTool(args.Used, args.User, uid, comp.RepairDelay, comp.RepairTool, new RepairFinishedEvent(), comp.RepairFuelCost);
+        args.Handled = _toolSystem.UseTool(args.Used, args.User, uid, comp.RepairDelay, comp.RepairTool, new SharedRepairableSystem.RepairFinishedEvent()
+, comp.RepairFuelCost);
     }
 
     //Gotta love server/client desync
-    protected virtual void OnRepairTurbineFinished(Entity<TurbineComponent> ent, ref RepairFinishedEvent args)
+    protected virtual void OnRepairTurbineFinished(
+    Entity<TurbineComponent> ent, 
+    ref SharedRepairableSystem.RepairFinishedEvent args)
     {
         if (args.Cancelled)
             return;

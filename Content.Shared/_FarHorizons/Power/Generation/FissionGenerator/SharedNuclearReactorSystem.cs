@@ -1,8 +1,6 @@
+
 using Content.Shared.Popups;
 using Content.Shared.Containers.ItemSlots;
-using Content.Shared.IdentityManagement;
-using Content.Shared.Popups;
-using Robust.Shared.Containers;
 using Content.Shared.Administration.Logs;
 using Robust.Shared.Prototypes;
 
@@ -10,13 +8,13 @@ namespace Content.Shared._FarHorizons.Power.Generation.FissionGenerator;
 
 // Ported and modified from goonstation by Jhrushbe.
 // CC-BY-NC-SA-3.0
-// https://github.com/goonstation/goonstation/blob/master/code/obj/nuclearreactor/nuclearreactor.dm
+// https://github.com/goonstation/goonstation/blob/ff86b044/code/obj/nuclearreactor/nuclearreactor.dm
 
 public abstract class SharedNuclearReactorSystem : EntitySystem
 {
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly EntityManager _entityManager = default!;
     [Dependency] private readonly ItemSlotsSystem _slotsSystem = default!;
+    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
 
@@ -24,8 +22,16 @@ public abstract class SharedNuclearReactorSystem : EntitySystem
     {
         base.Initialize();
 
-        // Bound UI subscriptions
+        // BUI event
         SubscribeLocalEvent<NuclearReactorComponent, ReactorEjectItemMessage>(OnEjectItemMessage);
+    }
+
+    private void OnEjectItemMessage(EntityUid uid, NuclearReactorComponent component, ReactorEjectItemMessage args)
+    {
+        if (component.PartSlot.Item == null)
+            return;
+
+        _slotsSystem.TryEjectToHands(uid, component.PartSlot, args.Actor);
     }
 
     protected bool ReactorTryGetSlot(EntityUid uid, string slotID, out ItemSlot? itemSlot) => _slotsSystem.TryGetSlot(uid, slotID, out itemSlot);
@@ -87,14 +93,6 @@ public abstract class SharedNuclearReactorSystem : EntitySystem
         _ => ReactorCaps.Base,
     };
 
-    private void OnEjectItemMessage(EntityUid uid, NuclearReactorComponent component, ReactorEjectItemMessage args)
-    {
-        if (component.PartSlot.Item == null)
-            return;
-
-        _slotsSystem.TryEjectToHands(uid, component.PartSlot, args.Actor);
-    }
-
     protected void UpdateTempIndicators(Entity<NuclearReactorComponent> ent)
     {
         var comp = ent.Comp;
@@ -131,6 +129,8 @@ public abstract class SharedNuclearReactorSystem : EntitySystem
             }
         }
     }
+
+    protected static void AdjustControlRods(NuclearReactorComponent comp, float change) => comp.ControlRodInsertion = Math.Clamp(comp.ControlRodInsertion + change, 0, 2);
 }
 
 public static class NuclearReactorPrefabs
@@ -262,6 +262,56 @@ public static class NuclearReactorPrefabs
         },
         {
             c, null, null, null, null, null, c
+        }
+    };
+
+    public static readonly ReactorPartComponent?[,] Arachne =
+    {
+        {
+            g, h, g, h, g, h, g
+        },
+        {
+            h, f, c, f, c, f, h
+        },
+        {
+            g, c, c, g, c, c, g
+        },
+        {
+            h, f, g, c, g, f, h
+        },
+        {
+            g, c, c, g, c, c, g
+        },
+        {
+            h, f, c, f, c, f, h
+        },
+        {
+            g, h, g, h, g, h, g
+        }
+    };
+
+    public static readonly ReactorPartComponent?[,] Lens =
+    {
+        {
+            g, h, g, h, g, h, g
+        },
+        {
+            h, f, c, g, c, f, h
+        },
+        {
+            g, c, c, h, c, c, g
+        },
+        {
+            h, g, h, f, h, g, h
+        },
+        {
+            g, c, c, h, c, c, g
+        },
+        {
+            h, f, c, g, c, f, h
+        },
+        {
+            g, h, g, h, g, h, g
         }
     };
 }

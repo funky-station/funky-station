@@ -21,6 +21,7 @@ using Robust.Shared.Map.Components;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 using System.Numerics;
+using Content.Shared.Hands.EntitySystems;
 using static Robust.Client.Placement.PlacementManager;
 
 namespace Content.Client.RCD;
@@ -144,15 +145,18 @@ public sealed class AlignRPDAtmosPipeLayers : PlacementMode
         if (_playerManager.LocalSession?.AttachedEntity is { } player &&
             _entityManager.TryGetComponent<TransformComponent>(player, out var xform) &&
             _transformSystem.InRange(xform.Coordinates, MouseCoords, SharedInteractionSystem.InteractionRange) &&
-            _entityManager.TryGetComponent<HandsComponent>(player, out var hands) &&
-            hands.ActiveHand?.HeldEntity is { } heldEntity &&
-            _entityManager.TryGetComponent<RCDComponent>(heldEntity, out var rcd))
+            _entityManager.TryGetComponent<HandsComponent>(player, out var hands))
         {
-            if (newLayer != _currentLayer)
+            var handsSystem = _entityManager.System<SharedHandsSystem>();
+            if (handsSystem.TryGetActiveItem((player, hands), out var heldEntity) &&
+                _entityManager.TryGetComponent<RCDComponent>(heldEntity, out var rcd))
             {
-                _currentLayer = newLayer;
+                if (newLayer != _currentLayer)
+                {
+                    _currentLayer = newLayer;
+                }
+                UpdateEyeRotation(heldEntity.Value, _eyeManager.CurrentEye.Rotation);
             }
-            UpdateEyeRotation(heldEntity, _eyeManager.CurrentEye.Rotation);
         }
 
         UpdatePlacer(_currentLayer);
@@ -229,14 +233,25 @@ public sealed class AlignRPDAtmosPipeLayers : PlacementMode
         if (!_entityManager.TryGetComponent<HandsComponent>(player, out var hands))
             return false;
 
-        var heldEntity = hands.ActiveHand?.HeldEntity;
+        // FIXED: Use TryGetActiveItem from SharedHandsSystem (document 2)
+        var handsSystem = _entityManager.System<SharedHandsSystem>();
+        if (!handsSystem.TryGetActiveItem((player.Value, hands), out var heldEntity))
+            return false;
 
         if (!_entityManager.TryGetComponent<RCDComponent>(heldEntity, out var rcd))
             return false;
 
-        // Retrieve the map grid data for the position
-        if (!_rcdSystem.TryGetMapGridData(position, out var mapGridData))
+        // FIXED: Use correct method to get map grid data
+        var gridId = _transformSystem.GetGrid(position);
+
+        if (!_entityManager.TryGetComponent<MapGridComponent>(gridId, out var mapGrid))
             return false;
+
+        var tile = _mapSystem.GetTileRef(gridId.Value, mapGrid, position);
+        var tilePosition = _mapSystem.TileIndicesFor(gridId.Value, mapGrid, position);
+
+        // Create mapGridData tuple
+        var mapGridData = (gridId.Value, mapGrid, tile, tilePosition);
 
         // Determine if the user is hovering over a target
         var currentState = _stateManager.CurrentState;
@@ -247,7 +262,7 @@ public sealed class AlignRPDAtmosPipeLayers : PlacementMode
         var target = screen.GetClickedEntity(_transformSystem.ToMapCoordinates(_mouseCoordsRaw));
 
         // Determine if the RCD operation is valid or not
-        if (!_rcdSystem.IsRCDOperationStillValid(heldEntity.Value, rcd, mapGridData.Value, target, player.Value, false))
+        if (!_rcdSystem.IsRCDOperationStillValid(heldEntity.Value, rcd, gridId.Value, mapGrid, tile, tilePosition, target, player.Value, false))
             return false;
 
         return true;

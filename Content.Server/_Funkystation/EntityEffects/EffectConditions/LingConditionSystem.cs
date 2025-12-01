@@ -6,14 +6,13 @@
 
 using Content.Shared.Changeling;
 using Content.Shared.EntityConditions;
-using Robust.Shared.Prototypes;
 
 namespace Content.Server._Funkystation.EntityEffects.EffectConditions;
 
-public sealed partial class LingCondition : EntityConditionBase<LingCondition>
+public sealed class LingConditionSystem : EntityConditionSystem<ChangelingComponent, LingCondition>
 {
-    public override string EntityConditionGuidebookText(IPrototypeManager prototype)
+    protected override void Condition(Entity<ChangelingComponent> entity, ref EntityConditionEvent<LingCondition> args)
     {
-        return Loc.GetString("reagent-effect-condition-guidebook-ling");
+        args.Result = true; // Entity has ChangelingComponent, so condition is met
     }
 }

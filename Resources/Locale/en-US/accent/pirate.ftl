@@ -173,8 +173,8 @@ accent-pirate-replacement-52 = son of a biscuit eater
 accent-pirate-replaced-53 = head of security
 accent-pirate-replacement-53 = admiral
 
-accent-pirate-replaced-54 = stopped
-accent-pirate-replacement-54 = becalmed
+accent-pirate-replaced-54 = shift
+accent-pirate-replacement-54 = voyage
 
 accent-pirate-replaced-55 = shotgun
 accent-pirate-replacement-55 = blunderbuss

@@ -24,6 +24,7 @@
 # SPDX-FileCopyrightText: 2024 liltenhead <104418166+liltenhead@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
@@ -163,6 +164,9 @@
   id: WoodenBuckler
   description: A small round wooden makeshift shield.
   components:
+    - type: Tag 
+      tags:
+      - WoodenBuckler    
     - type: Sprite
       state: buckler-icon
     - type: Item
@@ -212,12 +216,16 @@
     - type: StaticPrice
       price: 150
 
+
 - type: entity
   name: makeshift shield
   parent: BaseShield
   id: MakeshiftShield
   description: A rundown looking shield, not good for much.
   components:
+    - type: Tag 
+      tags:
+      - MakeshiftShield  
     - type: Sprite
       state: makeshift-icon
     - type: Item

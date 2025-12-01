@@ -85,6 +85,7 @@
 # SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
 # SPDX-FileCopyrightText: 2025 Tyranex <bobthezombie4@gmail.com>
 # SPDX-FileCopyrightText: 2025 Unkn0wn_Gh0st <shadowstalkermll@gmail.com>
+# SPDX-FileCopyrightText: 2025 Xcybitt <197952719+Xcybitt@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Xcybitt <xcybitt@gmail.com>
 # SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
@@ -255,6 +256,7 @@
     - id: PDA_cartridge_case
     - id: RadioHandheldService #funkystation
     - id: RadioHandheldCommand #funkystation
+    - id: ClothingOuterHardsuitBasic #funkystation
 
 - type: entity
   id: LockerHeadOfPersonnelFilled
@@ -482,6 +484,8 @@
     - id: WantedListCartridge
     - id: DrinkHosFlask
     - id: RadioHandheldCommand #funkystation, no sec radio since they start with one
+    - id: BreachingCharge #funkystation knock knock, sec's here
+    - id: BreachingCharge #funkystation knock knock, sec's here
 
 # Hardsuit table, used for suit storage as well
 - type: entityTable

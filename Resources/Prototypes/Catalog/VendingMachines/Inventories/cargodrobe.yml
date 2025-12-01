@@ -12,8 +12,11 @@
 # SPDX-FileCopyrightText: 2023 potato1234_x <79580518+potato1234x@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 heree <79546981+hereelabs@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 hereelabs <hahmorm@gmail.com>
+# SPDX-FileCopyrightText: 2025 MaiaArai <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 ThatOneMoon <91613003+ThatOneMoon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
+# SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
@@ -28,7 +31,12 @@
     ClothingBackpackDuffelCargo: 3
     ClothingUniformJumpsuitCargo: 3
     ClothingUniformJumpskirtCargo: 3
+    ClothingUniformJumpsuitCargoShorts: 3
     ClothingUniformJumpsuitSalvageSpecialist: 3
+    ClothingUniformJumpsuitCargoShirt: 3
+    ClothingUniformJumpsuitCargoTop: 3
+    ClothingUniformJumpsuitCargoPilot: 1 # Funky Station
+    ClothingHeadCargoPilotHelmet: 1 # Funky Station
     ClothingShoesColorBlack: 3
     ClothingShoesBootsSalvage: 3
     ClothingHandsGlovesFingerless: 3
@@ -36,9 +44,9 @@
     ClothingHeadBandBrown: 3
     ClothingHeadsetCargo: 3
     RadioHandheldCargo : 3  # Funky Station
-    ClothingOuterWinterCargo: 2
-    ClothingOuterWinterMiner: 2
-    ClothingNeckScarfStripedOrange: 3
+    ClothingOuterCargoWindbreaker: 2
+    ClothingOuterSalvageWindbreaker: 2
+    ClothingNeckScarfStripedBrown: 3
     ClothingNeckScarfStripedPurple: 3
     ClothingShoesBootsWinterCargo: 2
     MaterialBag: 3 # Funky Station

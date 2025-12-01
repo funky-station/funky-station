@@ -1,16 +1,19 @@
 ﻿using Content.Server.Hands.Systems;
 using Content.Server.Preferences.Managers;
+using Content.Shared._EinsteinEngines.Silicon.IPC;
 using Content.Shared.Access.Components;
 using Content.Shared.Clothing;
 using Content.Shared.Hands.Components;
 using Content.Shared.Humanoid;
-using Content.Shared.Interaction.Components;
 using Content.Shared.Inventory;
 using Content.Shared.PDA;
 using Content.Shared.Preferences;
 using Content.Shared.Preferences.Loadouts;
+using Content.Shared.Radio.Components;
 using Content.Shared.Roles;
 using Content.Shared.Station;
+using Content.Shared.Storage;
+using Content.Shared.Storage.EntitySystems;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 
@@ -23,8 +26,11 @@ public sealed class OutfitSystem : EntitySystem
     [Dependency] private readonly HandsSystem _handSystem = default!;
     [Dependency] private readonly InventorySystem _invSystem = default!;
     [Dependency] private readonly SharedStationSpawningSystem _spawningSystem = default!;
+    [Dependency] private readonly SharedStorageSystem _storageSystem = default!; // Goobstation
+    [Dependency] private readonly InternalEncryptionKeySpawner _encryptionSystem = default!; // Goobstation
 
-    public bool SetOutfit(EntityUid target, string gear, Action<EntityUid, EntityUid>? onEquipped = null, bool unremovable = false)
+
+    public bool SetOutfit(EntityUid target, string gear, Action<EntityUid, EntityUid>? onEquipped = null, bool doSpecial = false)
     {
         if (!EntityManager.TryGetComponent(target, out InventoryComponent? inventoryComponent))
             return false;
@@ -61,10 +67,28 @@ public sealed class OutfitSystem : EntitySystem
                 }
 
                 _invSystem.TryEquip(target, equipmentEntity, slot.Name, silent: true, force: true, inventory: inventoryComponent);
-                if (unremovable)
-                    EnsureComp<UnremoveableComponent>(equipmentEntity);
 
                 onEquipped?.Invoke(target, equipmentEntity);
+
+                // Goobstation - Start
+                if (startingGear.Storage.Count <= 0
+                    || slot.SlotFlags != SlotFlags.BACK
+                    || !TryComp<StorageComponent>(equipmentEntity, out var storage))
+                    continue;
+
+                foreach (var (_, entProtos) in startingGear.Storage)
+                {
+                    if (entProtos.Count == 0)
+                        continue;
+
+                    foreach (var entProto in entProtos)
+                    {
+                        var spawnedEntity = Spawn(entProto, Transform(target).Coordinates);
+                        _storageSystem.Insert(equipmentEntity, spawnedEntity, out _, storageComp: storage, playSound: false);
+                    }
+
+                }
+                // Goobstation - End
             }
         }
 
@@ -84,6 +108,12 @@ public sealed class OutfitSystem : EntitySystem
         {
             if (job.StartingGear != gear)
                 continue;
+
+            // Goobstation start - Implants for set-outfits
+            if (doSpecial)
+                foreach (var jobSpecial in job.Special)
+                    jobSpecial.AfterEquip(target);
+            // Goobstation end
 
             var jobProtoId = LoadoutSystem.GetJobPrototype(job.ID);
             if (!_prototypeManager.TryIndex<RoleLoadoutPrototype>(jobProtoId, out var jobProto))
@@ -106,6 +136,11 @@ public sealed class OutfitSystem : EntitySystem
             // Equip the target with the job loadout
             _spawningSystem.EquipRoleLoadout(target, roleLoadout, jobProto);
         }
+
+        // Goobstation edit start
+        if (HasComp<EncryptionKeyHolderComponent>(target))
+            _encryptionSystem.TryInsertEncryptionKey(target, startingGear);
+        // Goobstation edit end
 
         return true;
     }

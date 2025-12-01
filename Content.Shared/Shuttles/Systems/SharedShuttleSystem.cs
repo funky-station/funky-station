@@ -20,6 +20,7 @@ using Robust.Shared.Map.Components;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Collision.Shapes;
 using Robust.Shared.Physics.Components;
+using Robust.Shared.Physics.Systems;
 
 namespace Content.Shared.Shuttles.Systems;
 
@@ -27,12 +28,15 @@ public abstract partial class SharedShuttleSystem : EntitySystem
 {
     [Dependency] private readonly IMapManager _mapManager = default!;
     [Dependency] private readonly ItemSlotsSystem _itemSlots = default!;
+    [Dependency] protected readonly FixtureSystem Fixtures = default!;
     [Dependency] protected readonly SharedMapSystem Maps = default!;
+    [Dependency] protected readonly SharedPhysicsSystem Physics = default!;
     [Dependency] protected readonly SharedTransformSystem XformSystem = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
 
     public const float FTLRange = 256f;
     public const float FTLBufferRange = 8f;
+    public const float TileDensityMultiplier = 0.5f;
 
     private EntityQuery<MapGridComponent> _gridQuery;
     private EntityQuery<PhysicsComponent> _physicsQuery;
@@ -43,9 +47,21 @@ public abstract partial class SharedShuttleSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
+
+        SubscribeLocalEvent<FixturesComponent, GridFixtureChangeEvent>(OnGridFixtureChange);
+
         _gridQuery = GetEntityQuery<MapGridComponent>();
         _physicsQuery = GetEntityQuery<PhysicsComponent>();
         _xformQuery = GetEntityQuery<TransformComponent>();
+    }
+
+    private void OnGridFixtureChange(EntityUid uid, FixturesComponent manager, GridFixtureChangeEvent args)
+    {
+        foreach (var fixture in args.NewFixtures)
+        {
+            Physics.SetDensity(uid, fixture.Key, fixture.Value, TileDensityMultiplier, false, manager);
+            Fixtures.SetRestitution(uid, fixture.Key, fixture.Value, 0.1f, false, manager);
+        }
     }
 
     /// <summary>
@@ -53,7 +69,7 @@ public abstract partial class SharedShuttleSystem : EntitySystem
     /// </summary>
     public bool CanFTLTo(EntityUid shuttleUid, MapId targetMap, EntityUid consoleUid)
     {
-        var mapUid = _mapManager.GetMapEntityId(targetMap);
+        var mapUid = Maps.GetMapOrInvalid(targetMap);
         var shuttleMap = _xformQuery.GetComponent(shuttleUid).MapID;
 
         if (shuttleMap == targetMap)
@@ -193,7 +209,7 @@ public abstract partial class SharedShuttleSystem : EntitySystem
 
         // Just checks if any grids inside of a buffer range at the target position.
         _grids.Clear();
-        var mapCoordinates = coordinates.ToMap(EntityManager, XformSystem);
+        var mapCoordinates = XformSystem.ToMapCoordinates(coordinates);
 
         var ourPos = Maps.GetGridPosition((shuttleUid, shuttlePhysics, shuttleXform));
 
@@ -267,4 +283,3 @@ public enum FTLState : byte
     Arriving = 1 << 3,
     Cooldown = 1 << 4,
 }
-

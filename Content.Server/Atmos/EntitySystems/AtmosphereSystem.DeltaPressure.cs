@@ -46,7 +46,7 @@ public sealed partial class AtmosphereSystem
         for (var i = 0; i < Atmospherics.Directions; i++)
         {
             var direction = (AtmosDirection)(1 << i);
-            var offset = ent.Comp.CurrentPosition.Offset(direction);
+            var offset = currentPos.Offset(direction);
             tiles[i] = gridAtmosComp.Tiles.GetValueOrDefault(offset);
         }
 
@@ -248,9 +248,10 @@ public sealed partial class AtmosphereSystem
     private void PerformDamage(Entity<DeltaPressureComponent> ent, float pressure, float deltaPressure)
     {
         var maxPressure = Math.Max(pressure - ent.Comp.MinPressure, deltaPressure - ent.Comp.MinPressureDelta);
-        var appliedDamage = ScaleDamage(ent, ent.Comp.BaseDamage, maxPressure);
+        var maxPressureCapped = Math.Min(maxPressure, ent.Comp.MaxEffectivePressure);
+        var appliedDamage = ScaleDamage(ent, ent.Comp.BaseDamage, maxPressureCapped);
 
-        _damage.TryChangeDamage(ent, appliedDamage, ignoreResistances: true, interruptsDoAfters: false);
+        _damage.ChangeDamage(ent.Owner, appliedDamage, ignoreResistances: true, interruptsDoAfters: false);
         SetIsTakingDamageState(ent, true);
     }
 

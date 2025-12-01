@@ -66,7 +66,7 @@ public abstract class SharedChangelingBiomassSystem : EntitySystem
 
     private void OnRemoved(Entity<ChangelingBiomassComponent> ent, ref ComponentRemove args)
     {
-        _alerts.ClearAlert(ent, ent.Comp.AlertId);
+        _alerts.ClearAlert(ent.Owner, ent.Comp.AlertId);
 
         if (_lingQuery.TryComp(ent, out var ling))
             ling.ChemicalRegenMultiplier -= ent.Comp.ChemicalBoost;
@@ -146,7 +146,7 @@ public abstract class SharedChangelingBiomassSystem : EntitySystem
         var newBiomass = ent.Comp.Biomass -= ent.Comp.DrainAmount;
         ent.Comp.Biomass = Math.Clamp(newBiomass, 0, ent.Comp.MaxBiomass);
 
-        _alerts.ShowAlert(ent, ent.Comp.AlertId);
+        _alerts.ShowAlert(ent.Owner, ent.Comp.AlertId);
     }
 
     public readonly ProtoId<DamageTypePrototype> Genetic = "Cellular";

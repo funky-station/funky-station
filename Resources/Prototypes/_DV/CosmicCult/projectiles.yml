@@ -62,7 +62,7 @@
     - Energy
   - type: Sprite
     noRot: false
-    sprite: _ST/CosmicCult/Effects/weaponprojectiles.rsi
+    sprite: _DV/CosmicCult/Effects/weaponprojectiles.rsi
     layers:
       - state: razor
         shader: unshaded
@@ -72,7 +72,7 @@
       types:
         Cold: 12
     soundHit:
-      path: /Audio/_ST/CosmicCult/projectile_razor_hit.ogg
+      path: /Audio/_DV/CosmicCult/projectile_razor_hit.ogg
       params:
         variation: 0.08
   - type: Ammo

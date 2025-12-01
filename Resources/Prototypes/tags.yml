@@ -143,12 +143,15 @@
 # SPDX-FileCopyrightText: 2025 Sparlight <twiksparlight@gmail.com>
 # SPDX-FileCopyrightText: 2025 Steve <marlumpy@gmail.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 ThatOneMoon <91613003+ThatOneMoon@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
 # SPDX-FileCopyrightText: 2025 Tiniest Shark <head.rebel@yahoo.com>
 # SPDX-FileCopyrightText: 2025 Toaster <mrtoastymyroasty@gmail.com>
 # SPDX-FileCopyrightText: 2025 Toastermeister <215405651+Toastermeister@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tyranex <bobthezombie4@gmail.com>
 # SPDX-FileCopyrightText: 2025 V <97265903+formlessnameless@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 chromiumboy <50505512+chromiumboy@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 ilyamikcoder <me@ilyamikcoder.com>
 # SPDX-FileCopyrightText: 2025 marc-pelletier <113944176+marc-pelletier@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 mkanke-real <mikekanke@gmail.com>
 # SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
@@ -380,6 +383,12 @@
 
 - type: Tag
   id: CableCoil
+
+- type: Tag
+  id: CubanNachos
+
+- type: Tag
+  id: ChowMein
 
 - type: Tag
   id: Candle
@@ -690,6 +699,9 @@
   id: Ectoplasm
 
 - type: Tag
+  id: Enchiladas
+
+- type: Tag
   id: Egg
 
 - type: Tag
@@ -706,6 +718,9 @@
 
 - type: Tag # goob edit
   id: Eyes
+
+- type: Tag
+  id: FruitSalad
 
 - type: Tag
   id: Figurine
@@ -773,6 +788,8 @@
 - type: Tag
   id: FlashPayload
 
+- type: Tag
+  id: Gyro
 
 - type: Tag
   id: Galaxythistle
@@ -1389,6 +1406,18 @@
   id: RollingPin
 
 - type: Tag
+  id: SuperBiteBurger
+
+- type: Tag
+  id: SloppyJoe
+
+- type: Tag
+  id: SlopBowl
+
+- type: Tag
+  id: Stew
+
+- type: Tag
   id: SaltShaker
 
 - type: Tag
@@ -1650,6 +1679,9 @@
   id: Vegetable
 
 - type: Tag
+  id: ValidSalad
+
+- type: Tag
   id: VGRoidInterior
 
 - type: Tag
@@ -1663,6 +1695,9 @@
 
 - type: Tag
   id: Wall
+
+- type: Tag
+  id: Waffle
 
 - type: Tag
   id: WallmountGeneratorAPUElectronics

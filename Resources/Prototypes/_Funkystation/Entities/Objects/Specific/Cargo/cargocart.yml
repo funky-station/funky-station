@@ -18,28 +18,24 @@
   - type: ItemSlots
     slots:
       big_slot4:
-        name: cargocart-slot-component-slot-name-big
         whitelist:
           tags:
           - CardboardboxLarge
         insertOnInteract: true
         priority: 9
       big_slot3:
-        name: cargocart-slot-component-slot-name-big
         whitelist:
           tags:
           - CardboardboxLarge
         insertOnInteract: true
         priority: 8
       big_slot2:
-        name: cargocart-slot-component-slot-name-big
         whitelist:
           tags:
           - CardboardboxLarge
         insertOnInteract: true
         priority: 7
       big_slot1:
-        name: cargocart-slot-component-slot-name-big
         whitelist:
           tags:
           - CardboardboxLarge

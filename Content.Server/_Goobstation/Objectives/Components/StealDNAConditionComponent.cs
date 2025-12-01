@@ -5,6 +5,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
+using Content.Goobstation.Server.Changeling;
 using Content.Server.Changeling;
 using Content.Server.Objectives.Systems;
 

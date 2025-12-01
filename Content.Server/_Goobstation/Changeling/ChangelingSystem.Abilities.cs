@@ -32,20 +32,13 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
-using Content.Goobstation.Common.Atmos;
 using Content.Goobstation.Common.Changeling;
-using Content.Goobstation.Common.Temperature.Components;
 using Content.Goobstation.Server.Changeling.Objectives.Components;
-using Content.Goobstation.Shared.Body.Components;
 using Content.Goobstation.Shared.Changeling.Actions;
 using Content.Goobstation.Shared.Changeling.Components;
-using Content.Goobstation.Shared.SpecialPassives.BoostedImmunity.Components;
-using Content.Goobstation.Shared.SpecialPassives.Fleshmend.Components;
-using Content.Goobstation.Shared.SpecialPassives.SuperAdrenaline.Components;
 using Content.Server.Light.Components;
 using Content.Server.Nutrition.Components;
 using Content.Shared._Goobstation.Weapons.AmmoSelector;
-using Content.Shared._Starlight.CollectiveMind;
 using Content.Shared._Shitmed.Targeting; // Shitmed Change
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Components.SolutionManager;
@@ -73,6 +66,9 @@ using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Content.Shared.Actions.Components;
 using Content.Goobstation.Shared.Devour.Events;
+using Content.Goobstation.Shared.SpecialPassives.BoostedImmunity.Components;
+using Content.Goobstation.Shared.SpecialPassives.Fleshmend.Components;
+using Content.Goobstation.Shared.SpecialPassives.SuperAdrenaline.Components;
 using Content.Server._Goobstation.Changeling.Objectives.Components;
 using Content.Shared._Goobstation.Changeling.Components;
 using Content.Shared.FixedPoint;
@@ -121,7 +117,6 @@ public sealed partial class ChangelingSystem
         SubscribeLocalEvent<ChangelingIdentityComponent, ActionFleshmendEvent>(OnHealUltraSwag);
         SubscribeLocalEvent<ChangelingIdentityComponent, ActionLastResortEvent>(OnLastResort);
         SubscribeLocalEvent<ChangelingIdentityComponent, ActionLesserFormEvent>(OnLesserForm);
-        SubscribeLocalEvent<ChangelingIdentityComponent, ActionHivemindAccessEvent>(OnHivemindAccess);
         SubscribeLocalEvent<ChangelingIdentityComponent, AbsorbBiomatterEvent>(OnAbsorbBiomatter);
         SubscribeLocalEvent<ChangelingIdentityComponent, AbsorbBiomatterDoAfterEvent>(OnAbsorbBiomatterDoAfter);
     }
@@ -175,7 +170,6 @@ public sealed partial class ChangelingSystem
             BreakOnMove = true,
             BreakOnWeightlessMove = true,
             AttemptFrequency = AttemptFrequency.StartAndEnd,
-            MultiplyDelay = false,
         };
         _doAfter.TryStartDoAfter(dargs);
     }
@@ -602,7 +596,7 @@ public sealed partial class ChangelingSystem
 
         var pos = _transform.GetMapCoordinates(uid);
         var power = comp.ShriekPower;
-        _emp.EmpPulse(pos, power, 5000f, power * 2);
+        _emp.EmpPulse(pos, 10f, 5000f, TimeSpan.FromSeconds(power * 2f), comp.Owner);
     }
     private void OnShriekResonant(EntityUid uid, ChangelingIdentityComponent comp, ref ShriekResonantEvent args)
     {
@@ -768,10 +762,9 @@ public sealed partial class ChangelingSystem
 
         if (TryComp<CuffableComponent>(uid, out var cuffs) && cuffs.Container.ContainedEntities.Count > 0)
         {
-            var cuff = cuffs.LastAddedCuffs;
-
-            _cuffs.Uncuff(uid, cuffs.LastAddedCuffs, cuff);
-            QueueDel(cuff);
+            var cuffsToRemove = cuffs.Container.ContainedEntities[^1];
+            _cuffs.Uncuff(uid, null, cuffsToRemove);
+            QueueDel(cuffsToRemove);
         }
 
         if (TryComp<EnsnareableComponent>(uid, out var ensnareable) && ensnareable.Container.ContainedEntities.Count > 0)
@@ -791,7 +784,7 @@ public sealed partial class ChangelingSystem
             if (puller != null)
             {
                 _puddle.TrySplashSpillAt(puller.Value, Transform((EntityUid) puller).Coordinates, soln, out _);
-                _stun.KnockdownOrStun(puller.Value, TimeSpan.FromSeconds(1.5), true);
+                _stun.TryKnockdown(puller.Value, TimeSpan.FromSeconds(1.5));
 
                 if (!TryComp(puller.Value, out StatusEffectsComponent? status))
                     return;
@@ -921,25 +914,6 @@ public sealed partial class ChangelingSystem
         EnsureComp<Shared.Changeling.Components.AbsorbableComponent>((EntityUid) newUid); // allow other changelings to absorb them (monkeys dont have this by default)
 
         PlayMeatySound((EntityUid) newUid, comp);
-    }
-    public ProtoId<CollectiveMindPrototype> HivemindProto = "Lingmind";
-    public void OnHivemindAccess(EntityUid uid, ChangelingIdentityComponent comp, ref ActionHivemindAccessEvent args)
-    {
-        if (!TryUseAbility(uid, comp, args, fireAffected: false))
-            return;
-
-        if (HasComp<HivemindComponent>(uid))
-        {
-            _popup.PopupEntity(Loc.GetString("changeling-passive-active"), uid, uid);
-            return;
-        }
-
-        EnsureComp<HivemindComponent>(uid);
-        var mind = EnsureComp<CollectiveMindComponent>(uid);
-        mind.Channels.Add(HivemindProto);
-        mind.CanUseInCrit = true;
-
-        _popup.PopupEntity(Loc.GetString("changeling-hivemind-start"), uid, uid);
     }
 
     #endregion

@@ -32,18 +32,12 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Common.Actions;
 using Content.Goobstation.Common.Changeling;
-using Content.Goobstation.Common.MartialArts;
-using Content.Goobstation.Maths.FixedPoint;
 using Content.Goobstation.Server.Changeling.GameTicking.Rules;
 using Content.Goobstation.Server.Changeling.Objectives.Components;
 using Content.Goobstation.Shared.Changeling.Actions;
 using Content.Goobstation.Shared.Changeling.Components;
 using Content.Goobstation.Shared.Changeling.Systems;
-using Content.Goobstation.Shared.Flashbang;
-using Content.Goobstation.Shared.MartialArts.Components;
-using Content.Goobstation.Shared.Traits.Components;
 using Content.Server.Actions;
 using Content.Server.Administration.Systems;
 using Content.Server.Atmos.Components;
@@ -111,6 +105,12 @@ using Robust.Shared.Serialization.Manager;
 using Robust.Shared.Timing;
 using System.Linq;
 using System.Numerics;
+using Content.Server._Goobstation.Changeling.Objectives.Components;
+using Content.Shared._Goobstation.Changeling.Components;
+using Content.Shared._Goobstation.Flashbang;
+using Content.Shared.Administration.Systems;
+using Content.Shared.Atmos.Components;
+using Content.Shared.FixedPoint;
 
 namespace Content.Goobstation.Server.Changeling;
 
@@ -154,7 +154,6 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
     [Dependency] private readonly ExplosionSystem _explosionSystem = default!;
     [Dependency] private readonly IComponentFactory _compFactory = default!;
     [Dependency] private readonly RejuvenateSystem _rejuv = default!;
-    [Dependency] private readonly SelectableAmmoSystem _selectableAmmo = default!;
     [Dependency] private readonly TagSystem _tag = default!;
     [Dependency] private readonly ChangelingRuleSystem _changelingRuleSystem = default!;
 
@@ -206,12 +205,6 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
 
         TryInjectReagents(args.Target,
             configuration.Reagents.Select(x => (x.Key, x.Value / ent.Comp.ReagentDivisor)).ToDictionary());
-    }
-
-    protected override void UpdateFlashImmunity(EntityUid uid, bool active)
-    {
-        if (TryComp(uid, out FlashImmunityComponent? flashImmunity))
-            flashImmunity.Enabled = active;
     }
 
     private void OnAwakenedInstinctPurchased(Entity<ChangelingIdentityComponent> ent, ref AwakenedInstinctPurchasedEvent args)
@@ -382,12 +375,12 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
 
             if (soundEv.ProtectionRange < float.MaxValue)
             {
-                _stun.TryStun(player, TimeSpan.FromSeconds(stunTime / 2f), true);
+                _stun.TryAddStunDuration(player, TimeSpan.FromSeconds(stunTime / 2f));
                 _stun.TryKnockdown(player, TimeSpan.FromSeconds(knockdownTime / 2f), true);
                 continue;
             }
 
-            _stun.TryStun(player, TimeSpan.FromSeconds(stunTime), true);
+            _stun.TryAddStunDuration(player, TimeSpan.FromSeconds(stunTime));
             _stun.TryKnockdown(player, TimeSpan.FromSeconds(knockdownTime), true);
         }
     }
@@ -402,14 +395,6 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
             return true;
 
         return false;
-    }
-
-    /// <summary>
-    ///     Check if the target is hard-grabbed, for absorbing.
-    /// </summary>
-    public bool IsHardGrabbed(EntityUid uid)
-    {
-        return (TryComp<PullableComponent>(uid, out var pullable) && pullable.GrabStage > GrabStage.Soft);
     }
 
     public float? GetEquipmentChemCostOverride(ChangelingIdentityComponent comp, EntProtoId proto)
@@ -842,8 +827,6 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
         RemComp<HungerComponent>(uid);
         RemComp<ThirstComponent>(uid);
         RemComp<CanHostGuardianComponent>(uid);
-        RemComp<MartialArtsKnowledgeComponent>(uid);
-        RemComp<CanPerformComboComponent>(uid);
         EnsureComp<ZombieImmuneComponent>(uid);
 
         // add actions

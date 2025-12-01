@@ -9,6 +9,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Server.Changeling.Objectives.Components;
 using Content.Server._Goobstation.Changeling.Objectives.Components;
 using Content.Server.Objectives.Systems;
 using Content.Shared.Objectives.Components;

@@ -32,7 +32,7 @@ using Robust.Shared.Prototypes;
 namespace Content.Goobstation.Shared.Changeling.Components;
 
 [RegisterComponent, NetworkedComponent]
-[AutoGenerateComponentState]
+[AutoGenerateComponentState(raiseAfterAutoHandleState: true)]
 public sealed partial class ChangelingIdentityComponent : Component
 {
     #region Prototypes

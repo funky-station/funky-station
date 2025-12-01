@@ -1,5 +1,6 @@
 using Content.Client.Stylesheets;
 using Content.Client.UserInterface.Controls;
+using Content.Goobstation.Shared.Changeling.Components;
 using Content.Shared.Changeling.Components;
 using Content.Shared.Changeling.Systems;
 using JetBrains.Annotations;

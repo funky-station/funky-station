@@ -10,8 +10,13 @@
     weight: 4.5
     earliestStart: 30
     reoccurrenceDelay: 20
-    minimumPlayers: 25
+    minimumPlayers: 35
     duration: null
+    occursDuringRoundEnd: false
+    chaos:
+      Hostile: 100
+      Medical: 100
+      Death: 100
   - type: SpaceSpawnRule
   - type: AntagSpawner
     prototype: MobCosmicColossusLone

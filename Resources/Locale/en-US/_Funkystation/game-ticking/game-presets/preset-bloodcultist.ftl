@@ -88,8 +88,13 @@ cult-spell-exceeded = You cannot carve another spell!
 cult-spell-havealready = You already have that spell!
 cult-spell-fail = You fail to cast the spell!
 cult-spell-repelled = Holy magic protects your target!
+cult-spell-repelled-mindshield = Foul technology prevents your spell from reaching your target!
+cult-spell-mindshield-buzzing = You feel a buzzing coming from your mindshield implant.
 cult-spell-sleep-dream = You feel an overwhelming wave of drowsiness as nightmares of blood-soaked knives flood your mind!
 cult-spell-allied-cultist = You cannot target a fellow devotee of Nar'Sie!
+
+cult-empowering-rune-not-in-range = You are not within the rune's range of influence
+cult-empowering-rune-no-action = You do not have the ability to prepare spells!
 
 cult-shade-summoned = The stolen soul materializes as a servant Shade!
 cult-shade-recalled = You recapture the stolen soul, rejuvinating it!
@@ -154,7 +159,10 @@ cult-ascend-1 = The veil weakens as your cult grows, and your eyes begin to glow
 cult-ascend-2 = The veil weakens as your cult grows, and you are unable to hide your true nature!
 
 cult-deconverted = You suddenly de-convert, and no longer consider yourself a cultist!
-cult-break-control = {$name} looks bewildered as Nar'Sie's influence is shattered!
+cult-break-control = You look bewildered as Nar'Sie's influence is shattered! You don't remember any of your time in the cult.
+
+cult-evac-called-announcement = Unusual dimensional disturbances have faded, evac called while centcom investigates this dimensional anomaly. ETA: {$time} {$units}
+cult-evac-sender-announcement = Central Command
 
 cult-commune-window = Commune
 cult-commune-info = Whisper into the veil and communicate with your fellow worshippers.
@@ -191,5 +199,5 @@ cult-summoning-need-more-metal = Not enough runed metal! You have {$have}, but n
 cult-summoning-need-more-glass = Not enough runed glass! You have {$have}, but need {$needed} for a pylon.
 cult-summoning-pylon-location-blocked = The pylon cannot be summoned here - the location is blocked!
 cult-summoning-pylon-no-grid = The pylon cannot be summoned here.
-cult-summoning-pylon-anchor-failed = The pylon failed to anchor properly!
+cult-summoning-pylon-anchor-failed = The pylon could not anchor at the rune location, but was summoned nearby instead.
 cult-summoning-pylon-failed = The pylon summoning failed! Your materials have been refunded.

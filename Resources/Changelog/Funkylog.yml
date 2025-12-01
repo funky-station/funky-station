@@ -5991,3 +5991,27 @@ Entries:
       message: Increased the amount of slots for Thaven arm, leg and chest markings
   id: 708
   time: '2025-11-30T02:33:30.0000000+00:00'
+- author: Komonighub
+  changes:
+    - type: Add
+      message: >-
+        Added SOP book ingame, can be found in the Library and your local IAA
+        will have one.
+    - type: Tweak
+      message: >-
+        Command training manual has Line of Succession and Command SOP added,
+        and the Security book has Security SOP in place of the Antagonists list.
+  id: 709
+  time: '2025-11-30T04:01:29.0000000+00:00'
+- author: Terkala
+  changes:
+    - type: Fix
+      message: Second round of Bloodcult Bugfixes from playtesting.
+  id: 710
+  time: '2025-11-30T22:41:43.0000000+00:00'
+- author: BrightNibbleston
+  changes:
+    - type: Tweak
+      message: how long holo fans last!
+  id: 711
+  time: '2025-11-30T22:44:10.0000000+00:00'

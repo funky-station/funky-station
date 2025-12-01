@@ -1,10 +1,10 @@
-- type: latheRecipePack
+- type: latheRecipe
   id: ReactorCircuitboards
   recipes:
   - NuclearFabricatorMachineCircuitboard
   - NuclearCentrifugeMachineCircuitboard
 
-- type: latheRecipePack
+- type: latheRecipe
   id: ReactorPartsBasic
   recipes:
   - CerenkiteReactorFuelRod
@@ -19,7 +19,7 @@
   - BrassReactorHeatExchanger
   - GlassReactorHeatExchanger
 
-- type: latheRecipePack
+- type: latheRecipe
   id: ReactorFuelRods
   recipes:
   - UraniumReactorFuelRod
@@ -28,7 +28,7 @@
   - PlasmaReactorFuelRod
   - UraniumGlassReactorFuelRod
 
-- type: latheRecipePack
+- type: latheRecipe
   id: ReactorControlRods
   recipes:
   - GoldReactorControlRod
@@ -37,7 +37,7 @@
   - PlasmaGlassReactorControlRod
   - DiamondReactorControlRod
 
-- type: latheRecipePack
+- type: latheRecipe
   id: ReactorGasChannels
   recipes:
   - GoldReactorGasChannel
@@ -46,7 +46,7 @@
   - PlasmaGlassReactorGasChannel
   - DiamondReactorGasChannel
 
-- type: latheRecipePack
+- type: latheRecipe
   id: ReactorHeatExchangers
   recipes:
   - GoldReactorHeatExchanger

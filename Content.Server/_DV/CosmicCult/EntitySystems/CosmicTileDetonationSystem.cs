@@ -6,11 +6,11 @@
 
 using System.Linq;
 using System.Numerics;
-using Content.Stellar.Shared.CosmicCult.Components;
+using Content.Shared._DV.CosmicCult.Components;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Timing;
 
-namespace Content.Stellar.Server.CosmicCult.EntitySystems;
+namespace Content.Server._DV.CosmicCult.EntitySystems;
 
 public sealed class CosmicTileDetonationSystem : EntitySystem
 {

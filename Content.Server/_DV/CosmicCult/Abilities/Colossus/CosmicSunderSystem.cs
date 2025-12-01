@@ -6,7 +6,6 @@
 
 using Content.Shared._DV.CosmicCult;
 using Content.Shared._DV.CosmicCult.Components;
-using Content.Stellar.Shared.CosmicCult.Components;
 using Robust.Shared.Timing;
 
 namespace Content.Server._DV.CosmicCult.Abilities;

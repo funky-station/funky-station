@@ -43,6 +43,9 @@ namespace Content.Server.BloodCult.EntitySystems;
 
 public sealed partial class BloodCultRuneCarverSystem : EntitySystem
 {
+	private static readonly ProtoId<DamageTypePrototype> IonDamageType = "Ion";
+	private static readonly ProtoId<DamageTypePrototype> SlashDamageType = "Slash";
+
 	[Dependency] private readonly UserInterfaceSystem _uiSystem = default!;
 	[Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
 	[Dependency] private readonly SharedTransformSystem _transform = default!;
@@ -53,9 +56,9 @@ public sealed partial class BloodCultRuneCarverSystem : EntitySystem
 	[Dependency] private readonly SharedAudioSystem _audioSystem = default!;
 	[Dependency] private readonly PopupSystem _popupSystem = default!;
 	[Dependency] private readonly BloodstreamSystem _bloodstream = default!;
+	[Dependency] private readonly SharedInteractionSystem _interaction = default!;
 
 	private EntityQuery<BloodCultRuneComponent> _runeQuery;
-	private uint _nextEffectId = 1;
 
 	public override void Initialize()
 	{
@@ -136,10 +139,28 @@ public sealed partial class BloodCultRuneCarverSystem : EntitySystem
 
 		var target = (EntityUid) args.Target;
 
-		// Second, check to see if we are using the carver to delete a rune.
+		// Second, if clicking on a rune, trigger its normal interaction (same as clicking with open hand)
 		if (_runeQuery.HasComponent(target))
         {
-            QueueDel(target);
+            // Raise InteractHandEvent to simulate clicking with an open hand
+            var interactHandEvent = new InteractHandEvent(args.User, target);
+            RaiseLocalEvent(target, interactHandEvent, true);
+            
+            // If the hand interaction didn't handle it, also try activation (for TriggerOnActivate components)
+            if (!interactHandEvent.Handled)
+            {
+                _interaction.InteractionActivate(
+                    args.User,
+                    target,
+                    checkCanInteract: false,
+                    checkUseDelay: true,
+                    checkAccess: false,
+                    complexInteractions: true,
+                    checkDeletion: false
+                );
+            }
+            
+            args.Handled = true;
             return;
         }
 
@@ -191,17 +212,23 @@ public sealed partial class BloodCultRuneCarverSystem : EntitySystem
 			timeToCarve = 45.0f;
 		}
 
-		// Fourth, raise an effect event to place a rune here.
-		uint? effectId = null;
-		var duration = TimeSpan.FromSeconds(timeToCarve);
-		if (TryGetRuneEffectPrototype(ent.Comp.Rune, out var effectPrototype))
+		// Fourth, spawn the drawing rune directly
+		EntityUid? drawingRune = null;
+		if (TryGetRuneDrawingPrototype(ent.Comp.Rune, out var drawingPrototype))
 		{
-			effectId = _nextEffectId++;
-			RaiseEffectEvent(effectId.Value, effectPrototype, location, RuneEffectAction.Start, duration);
+			drawingRune = Spawn(drawingPrototype, location);
+			// Anchor the drawing rune if we're on a grid
+			var gridUid = _transform.GetGrid(location);
+			if (gridUid != null && TryComp<MapGridComponent>(gridUid, out var grid))
+			{
+				var targetTile = _mapSystem.GetTileRef(gridUid.Value, grid, location);
+				var drawingRuneTransform = Transform(drawingRune.Value);
+				_transform.AnchorEntity((drawingRune.Value, drawingRuneTransform), ((EntityUid)gridUid, grid), targetTile.GridIndices);
+			}
 		}
 
 		var dargs = new DoAfterArgs(EntityManager, args.User, timeToCarve, new DrawRuneDoAfterEvent(
-			ent, EntityUid.Invalid, location, ent.Comp.Rune, ent.Comp.BleedOnCarve, ent.Comp.CarveSound, effectId, duration), args.User
+			ent, drawingRune ?? EntityUid.Invalid, location, ent.Comp.Rune, ent.Comp.BleedOnCarve, ent.Comp.CarveSound, null, TimeSpan.Zero), args.User
 		)
         {
             BreakOnDamage = true,
@@ -266,8 +293,9 @@ public sealed partial class BloodCultRuneCarverSystem : EntitySystem
 
 	private void OnRuneDoAfter(Entity<DamageableComponent> ent, ref DrawRuneDoAfterEvent ev)
     {
-		// Delete the animation
-        QueueDel(ev.Rune);
+		// Delete the drawing rune
+		if (ev.Rune != EntityUid.Invalid && Exists(ev.Rune))
+			QueueDel(ev.Rune);
 
 		// Apply bloodloss damage + bleeding + slashing damage when drawing runes
 		DamageSpecifier appliedDamageSpecifier;
@@ -284,13 +312,10 @@ public sealed partial class BloodCultRuneCarverSystem : EntitySystem
 				_bloodstream.TryModifyBleedAmount(ent, ev.BleedOnCarve / 10f, bloodstream);
 			}
 		}
-		else if (ent.Comp.Damage.DamageDict.ContainsKey("Ion"))
-			appliedDamageSpecifier = new DamageSpecifier(_protoMan.Index<DamageTypePrototype>("Ion"), FixedPoint2.New(ev.BleedOnCarve));
+		else if (ent.Comp.Damage.DamageDict.ContainsKey(IonDamageType.Id))
+			appliedDamageSpecifier = new DamageSpecifier(_protoMan.Index(IonDamageType), FixedPoint2.New(ev.BleedOnCarve));
 		else
-			appliedDamageSpecifier = new DamageSpecifier(_protoMan.Index<DamageTypePrototype>("Slash"), FixedPoint2.New(ev.BleedOnCarve));
-
-        if (ev.EffectId.HasValue)
-            RaiseEffectEvent(ev.EffectId.Value, null, ev.Coords, RuneEffectAction.Stop, TimeSpan.Zero);
+			appliedDamageSpecifier = new DamageSpecifier(_protoMan.Index(SlashDamageType), FixedPoint2.New(ev.BleedOnCarve));
 
         if (!ev.Cancelled)
 		{
@@ -303,8 +328,9 @@ public sealed partial class BloodCultRuneCarverSystem : EntitySystem
 
 			var rune = Spawn(ev.EntityId, ev.Coords);  // Spawn the final rune
 
-			if (gridUid != null && TryComp<TransformComponent>(rune, out var runeTransform))
+			if (gridUid != null)
 			{
+				var runeTransform = Transform(rune);
 				_transform.AnchorEntity((rune, runeTransform), ((EntityUid)gridUid, grid), targetTile.GridIndices);
 				_damageableSystem.TryChangeDamage(ent, appliedDamageSpecifier, true, origin: ent);
 				_audioSystem.PlayPvs(ev.CarveSound, ent);
@@ -369,44 +395,32 @@ public sealed partial class BloodCultRuneCarverSystem : EntitySystem
 		return true;
 	}
 
-    private bool TryGetRuneEffectPrototype(string runePrototype, out string? effectPrototype)
+    private bool TryGetRuneDrawingPrototype(string runePrototype, out string? drawingPrototype)
     {
         switch (runePrototype)
         {
             case "BarrierRune":
-                effectPrototype = "FxBloodCultRuneBarrier";
+                drawingPrototype = "BarrierRune_drawing";
                 return true;
             case "EmpoweringRune":
-                effectPrototype = "FxBloodCultRuneEmpowering";
+                drawingPrototype = "EmpoweringRune_drawing";
                 return true;
             case "OfferingRune":
-                effectPrototype = "FxBloodCultRuneOffering";
+                drawingPrototype = "OfferingRune_drawing";
                 return true;
             case "ReviveRune":
-                effectPrototype = "FxBloodCultRuneRevive";
+                drawingPrototype = "ReviveRune_drawing";
                 return true;
 		case "TearVeilRune":
-				effectPrototype = "TearVeilRune_drawing";
+				drawingPrototype = "TearVeilRune_drawing";
                 return true;
 		case "SummoningRune":
-				effectPrototype = "SummoningRune_drawing";
+				drawingPrototype = "SummoningRune_drawing";
                 return true;
             default:
-                effectPrototype = null;
+                drawingPrototype = null;
                 return false;
         }
     }
 
-    private void RaiseEffectEvent(uint effectId, string? prototype, EntityCoordinates coords, RuneEffectAction action, TimeSpan duration)
-    {
-        var netCoords = GetNetCoordinates(coords);
-        var ev = new RuneDrawingEffectEvent(effectId, prototype, netCoords, action, duration);
-        RaiseNetworkEvent(ev, Filter.Pvs(coords, entityMan: EntityManager));
-    }
-
-    private NetCoordinates GetNetCoordinates(EntityCoordinates coords)
-    {
-        var netEntity = EntityManager.GetNetEntity(coords.EntityId);
-        return new NetCoordinates(netEntity, coords.Position);
-    }
 }

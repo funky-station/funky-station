@@ -5,22 +5,17 @@
 using Content.Server.Body.Components;
 using Content.Server.Body.Systems;
 using Content.Shared.BloodCult;
-using Content.Shared.Body.Components;
-using Content.Shared.Body.Organ;
-using Content.Shared.Body.Part;
-using Content.Shared.Body.Systems;
 using Robust.Shared.GameObjects;
 using Robust.Shared.IoC;
 
 namespace Content.Server.BloodCult.EntitySystems;
 
 /// <summary>
-/// Changes blood cultists' blood to Unholy Blood and grants them a Bloodsucker stomach
+/// Changes blood cultists' blood to Sanguine Perniculate
 /// </summary>
 public sealed class BloodCultistMetabolismSystem : EntitySystem
 {
     [Dependency] private readonly BloodstreamSystem _bloodstream = default!;
-    [Dependency] private readonly SharedBodySystem _body = default!;
 
     public override void Initialize()
     {
@@ -28,92 +23,152 @@ public sealed class BloodCultistMetabolismSystem : EntitySystem
         
         SubscribeLocalEvent<BloodCultistComponent, ComponentInit>(OnCultistInit);
         SubscribeLocalEvent<BloodCultistComponent, ComponentShutdown>(OnCultistShutdown);
+        // Note: ComponentRemove is handled by BloodCultRuleSystem, so we use ComponentShutdown and EntityTerminatingEvent instead
+        SubscribeLocalEvent<BloodCultistComponent, EntityTerminatingEvent>(OnCultistTerminating);
+        
+
+    }
+    
+    public override void Shutdown()
+    {
+        base.Shutdown();
     }
 
     private void OnCultistInit(EntityUid uid, BloodCultistComponent component, ComponentInit args)
     {
-        // Add a blood gland organ (separate from stomach, so we don't interfere with eating)
-        // Basically this is a Nar'Sie organ that ensures they always bleed sanguine perniculate
-        // There's probably a better way to implement this, so feel free to refactor it away if you figure it out
-        if (!TryComp<BodyComponent>(uid, out var body))
-            return;
-        
-        // Check if they already have a blood gland
-        bool hasBloodGland = false;
-        foreach (var (organUid, organ) in _body.GetBodyOrgans(uid, body))
+        // Store the original blood type and change it to Sanguine Perniculate
+        if (TryComp<BloodstreamComponent>(uid, out var bloodstream))
         {
-            if (organ.SlotId == "blood_gland")
+            // Store the original blood type if not already stored
+            if (string.IsNullOrEmpty(component.OriginalBloodReagent))
             {
-                hasBloodGland = true;
-                break;
+                string originalBlood = "Blood"; // Default fallback
+                
+                // Try to get from prototype first
+                if (TryGetPrototypeBloodReagent(uid, out var prototypeBlood) && !string.IsNullOrEmpty(prototypeBlood))
+                {
+                    originalBlood = prototypeBlood;
+                }
+                // Fallback to current blood reagent if available
+                else if (!string.IsNullOrEmpty(bloodstream.BloodReagent))
+                {
+                    originalBlood = bloodstream.BloodReagent;
+                }
+                // Otherwise use default "Blood"
+                
+                component.OriginalBloodReagent = originalBlood;
+            }
+            
+            // Change their blood type to Sanguine Perniculate so they bleed it
+            // Only if they have a valid bloodstream component
+            try
+            {
+                _bloodstream.ChangeBloodReagent(uid, "SanguinePerniculate", bloodstream);
+            }
+            catch (Exception ex)
+            {
+                Log.Error($"Failed to change blood type to SanguinePerniculate for {ToPrettyString(uid)}: {ex}");
             }
         }
-        
-        if (!hasBloodGland)
+    }
+
+    /// <summary>
+    /// Handles cleanup when a cultist entity is being terminated.
+    /// Also restores blood type if the component is still present (edge case where entity is deleted while still a cultist).
+    /// </summary>
+    private void OnCultistTerminating(EntityUid uid, BloodCultistComponent component, ref EntityTerminatingEvent args)
+    {
+        // Restore blood type if component is still present (edge case)
+        // Normally this would be handled by OnCultistShutdown, but if the entity is being deleted
+        // while still a cultist, we should restore the blood type here
+        if (TryComp<BloodstreamComponent>(uid, out var bloodstream))
         {
-            // Find the torso to add the blood gland
-            var parts = _body.GetBodyChildren(uid, body);
-            foreach (var (partUid, part) in parts)
+            string restoreReagent = "Blood"; // Default fallback
+            
+            // Try to use stored original blood reagent
+            if (!string.IsNullOrEmpty(component.OriginalBloodReagent))
             {
-                if (part.PartType == BodyPartType.Torso)
-                {
-                    // Create the blood_gland slot if it doesn't exist
-                    if (!part.Organs.ContainsKey("blood_gland"))
-                    {
-                        _body.TryCreateOrganSlot(partUid, "blood_gland", out _, part);
-                    }
-                    
-                    // Spawn and insert blood gland
-                    var coords = Transform(uid).Coordinates;
-                    var bloodGland = Spawn("OrganBloodGland", coords);
-                    _body.InsertOrgan(partUid, bloodGland, "blood_gland", part);
-                    break;
-                }
+                restoreReagent = component.OriginalBloodReagent;
+            }
+            // Fallback: try to get from prototype
+            else if (TryGetPrototypeBloodReagent(uid, out var prototypeReagent) && !string.IsNullOrEmpty(prototypeReagent))
+            {
+                restoreReagent = prototypeReagent;
+            }
+            // Otherwise use default "Blood"
+            
+            // Restore the blood type with error handling
+            try
+            {
+                _bloodstream.ChangeBloodReagent(uid, restoreReagent, bloodstream);
+            }
+            catch (Exception ex)
+            {
+                Log.Error($"Failed to restore blood type to {restoreReagent} for {ToPrettyString(uid)} during termination: {ex}");
             }
         }
     }
 
     private void OnCultistShutdown(EntityUid uid, BloodCultistComponent component, ComponentShutdown args)
     {
-        // Restore blood type to normal Blood
-		if (!TryGetPrototypeBloodReagent(uid, out var restoreReagent))
-			restoreReagent = string.Empty;
-
-		if (!string.IsNullOrEmpty(restoreReagent) && TryComp<BloodstreamComponent>(uid, out var bloodstream))
-		{
-			_bloodstream.ChangeBloodReagent(uid, restoreReagent, bloodstream);
-		}
-
-        // Remove the blood gland organ if it exists
-        if (!TryComp<BodyComponent>(uid, out var body))
-            return;
+        // Restore blood type to original blood reagent
+        if (!TryComp<BloodstreamComponent>(uid, out var bloodstream))
+            return; // No bloodstream, nothing to restore
         
-        // Find and remove the blood gland
-        foreach (var (organUid, organ) in _body.GetBodyOrgans(uid, body))
+        string restoreReagent = "Blood"; // Default fallback
+        
+        // Try to use stored original blood reagent
+        if (!string.IsNullOrEmpty(component.OriginalBloodReagent))
         {
-            if (organ.SlotId == "blood_gland")
-            {
-                // Remove the blood gland organ
-                _body.RemoveOrgan(organUid);
-                QueueDel(organUid);
-                break;
-            }
+            restoreReagent = component.OriginalBloodReagent;
+        }
+        // Fallback: try to get from prototype
+        else if (TryGetPrototypeBloodReagent(uid, out var prototypeReagent) && !string.IsNullOrEmpty(prototypeReagent))
+        {
+            restoreReagent = prototypeReagent;
+        }
+        // Otherwise use default "Blood"
+        
+        // Restore the blood type with error handling
+        try
+        {
+            _bloodstream.ChangeBloodReagent(uid, restoreReagent, bloodstream);
+        }
+        catch (Exception ex)
+        {
+            Log.Error($"Failed to restore blood type to {restoreReagent} for {ToPrettyString(uid)}: {ex}");
         }
     }
 
 	private bool TryGetPrototypeBloodReagent(EntityUid uid, out string bloodReagent)
 	{
-		bloodReagent = string.Empty;
+		bloodReagent = "Blood"; // Default fallback
 
-		if (!TryComp<MetaDataComponent>(uid, out var meta) || meta.EntityPrototype == null)
+		try
+		{
+			var meta = MetaData(uid);
+			if (meta.EntityPrototype == null)
+				return false;
+
+			var componentFactory = IoCManager.Resolve<IComponentFactory>();
+			if (!meta.EntityPrototype.TryGetComponent(componentFactory.GetComponentName<BloodstreamComponent>(), out BloodstreamComponent? prototypeBloodstream))
+				return false;
+
+			// Only return the prototype blood reagent if it's not null or empty
+			if (!string.IsNullOrEmpty(prototypeBloodstream.BloodReagent))
+			{
+				bloodReagent = prototypeBloodstream.BloodReagent;
+				return true;
+			}
+			
+			// If prototype has empty blood reagent, return false but keep default "Blood"
 			return false;
-
-		var componentFactory = IoCManager.Resolve<IComponentFactory>();
-		if (!meta.EntityPrototype.TryGetComponent(componentFactory.GetComponentName<BloodstreamComponent>(), out BloodstreamComponent? prototypeBloodstream))
+		}
+		catch (Exception ex)
+		{
+			Log.Warning($"Error getting prototype blood reagent for {ToPrettyString(uid)}: {ex}");
 			return false;
-
-		bloodReagent = prototypeBloodstream.BloodReagent;
-		return true;
+		}
 	}
 }
 

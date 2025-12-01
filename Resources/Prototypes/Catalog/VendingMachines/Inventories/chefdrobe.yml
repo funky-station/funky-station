@@ -6,6 +6,7 @@
 # SPDX-FileCopyrightText: 2023 Velcroboy <107660393+IamVelcroboy@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Jackal298 <129199891+Jackal298@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
@@ -18,9 +19,13 @@
     ClothingOuterApronChef: 3
     ClothingOuterWinterChef: 2
     ClothingOuterJacketChef: 1
+    ClothingOuterWinterChefBlue: 2
+    ClothingOuterJacketChefBlue: 1
     ClothingUniformJumpsuitChef: 1
-    ClothingMaskItalianMoustache: 2
     ClothingUniformJumpskirtChef:  2
+    ClothingUniformJumpsuitChefBlue: 1
+    ClothingUniformJumpskirtChefBlue:  2
+    ClothingMaskItalianMoustache: 2
     ClothingHeadHatChef: 2
     ClothingShoesColorBlack: 2
     ClothingShoesChef: 2

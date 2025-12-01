@@ -59,9 +59,9 @@
   description: A nice and tidy uniform. Shame about the bar though.
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpskirt/bartender.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/bartender.rsi
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpskirt/bartender.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/bartender.rsi
 
 - type: entity
   parent: [ClothingUniformSkirtBase, BaseCommandContraband]
@@ -125,9 +125,9 @@
   description: Can't cook without this.
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpskirt/chef.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/chef.rsi
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpskirt/chef.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/chef.rsi
 
 - type: entity
   parent: ClothingUniformSkirtBase
@@ -224,9 +224,9 @@
   description: Rather bland and inoffensive. Perfect for vanishing off the face of the universe.
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpskirt/hop.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/hop.rsi
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpskirt/hop.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/hop.rsi
 
 - type: entity
   parent: [ClothingUniformSkirtBase, BaseCommandContraband]
@@ -493,9 +493,9 @@
   description: A cosy green jumper fit for a curator of books.
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpskirt/librarian.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/librarian.rsi
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpskirt/librarian.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/librarian.rsi
 
 - type: entity
   parent: ClothingUniformSkirtBase
@@ -504,9 +504,9 @@
   description: It's sensible. Too sensible...
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpskirt/curator.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/curator.rsi
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpskirt/curator.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/curator.rsi
 
 - type: entity
   parent: ClothingUniformSkirtBase
@@ -618,9 +618,9 @@
   description: A flashy red suitskirt worn by lawyers and show-offs.
   components:
     - type: Sprite
-      sprite: Clothing/Uniforms/Jumpskirt/lawyerred.rsi
+      sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/lawyerred.rsi
     - type: Clothing
-      sprite: Clothing/Uniforms/Jumpskirt/lawyerred.rsi
+      sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/lawyerred.rsi
 
 - type: entity
   parent: ClothingUniformSkirtBase
@@ -629,9 +629,9 @@
   description: A flashy blue suitskirt worn by lawyers and show-offs.
   components:
     - type: Sprite
-      sprite: Clothing/Uniforms/Jumpskirt/lawyerblue.rsi
+      sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/lawyerblue.rsi
     - type: Clothing
-      sprite: Clothing/Uniforms/Jumpskirt/lawyerblue.rsi
+      sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/lawyerblue.rsi
 
 - type: entity
   parent: ClothingUniformSkirtBase
@@ -640,9 +640,9 @@
   description: A subtle black suitskirt worn by lawyers and gangsters.
   components:
     - type: Sprite
-      sprite: Clothing/Uniforms/Jumpskirt/lawyerblack.rsi
+      sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/lawyerblack.rsi
     - type: Clothing
-      sprite: Clothing/Uniforms/Jumpskirt/lawyerblack.rsi
+      sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/lawyerblack.rsi
 
 - type: entity
   parent: ClothingUniformSkirtBase
@@ -651,9 +651,9 @@
   description: A stylish purple piece worn by lawyers and show people.
   components:
     - type: Sprite
-      sprite: Clothing/Uniforms/Jumpskirt/lawyerpurple.rsi
+      sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/lawyerpurple.rsi
     - type: Clothing
-      sprite: Clothing/Uniforms/Jumpskirt/lawyerpurple.rsi
+      sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/lawyerpurple.rsi
 
 - type: entity
   parent: ClothingUniformSkirtBase
@@ -662,9 +662,9 @@
   description: A tacky suitskirt perfect for a CRIMINAL lawyer!
   components:
     - type: Sprite
-      sprite: Clothing/Uniforms/Jumpskirt/lawyergood.rsi
+      sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/lawyergood.rsi
     - type: Clothing
-      sprite: Clothing/Uniforms/Jumpskirt/lawyergood.rsi
+      sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/lawyergood.rsi
 
 - type: entity
   parent: ClothingUniformSkirtBase
@@ -923,9 +923,9 @@
   description: A fancy skirt for the musically inclined. Perfect for any lounge act!
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpskirt/musician.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/musician.rsi
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpskirt/musician.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/musician.rsi
 
 - type: entity
   parent: ClothingUniformSkirtBase

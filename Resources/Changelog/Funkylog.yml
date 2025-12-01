@@ -6052,3 +6052,11 @@ Entries:
       message: maintenance lockers can now have inflatable doors and floors as well
   id: 712
   time: '2025-12-01T04:02:58.0000000+00:00'
+- author: coolbloxxie
+  changes:
+    - type: Tweak
+      message: >-
+        Rewrote and adjusted all species guidebook entries to account for
+        inconsistencies, misinformation, and omitted information.
+  id: 713
+  time: '2025-12-01T06:37:28.0000000+00:00'

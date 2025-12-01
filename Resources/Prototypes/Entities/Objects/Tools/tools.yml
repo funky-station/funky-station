@@ -449,8 +449,14 @@
   id: RCD
   parent: [ BaseItem, BaseEngineeringContraband ]
   name: RCD
-  description: The rapid construction device can be used to quickly place and remove various station structures and fixtures. Requires compressed matter to function.
+  description: The heavy-duty rapid construction device can be used to quickly place and remove various station structures and fixtures. Requires compressed matter to function.
   components:
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 12
+    soundHit:
+      path: "/Audio/Weapons/smash.ogg"
   - type: RCD
     availablePrototypes:
     - WallSolid
@@ -483,8 +489,8 @@
       state: storage
       sprite: Objects/Tools/rcd_storage_64x.rsi #Done in 64x64 because it looks way too puny in 32x32
     shape:
-    - 0,0,1,2
-    - 0,0,3,1
+    - 0,0,3,2
+    - 0,3,1,3
   - type: Clothing
     sprite: Objects/Tools/rcd.rsi
     quickEquip: false
@@ -513,8 +519,14 @@
   id: RPD
   parent: RCD
   name: RPD
-  description: A device used to rapidly pipe things.
+  description: A heavy-duty industrial device used to rapidly lay atmospheric infrastructure.
   components:
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 12
+    soundHit:
+      path: "/Audio/Weapons/smash.ogg"
   - type: Item
     storedSprite:
       state: storage

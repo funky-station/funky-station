@@ -72,7 +72,7 @@
 
 - type: entity
   name: futuristic RCD
-  parent: RCD
+  parent: RCDRecharging
   id: RCDChrono
   description: A tool that can build a station from scratch in minutes.
   components:

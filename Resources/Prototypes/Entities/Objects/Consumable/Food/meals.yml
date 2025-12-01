@@ -75,6 +75,15 @@
     flavors:
       - cheesy
       - potatoes
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 26
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 18
+        - ReagentId: Cheesium
+          Quantity: 2
   - type: Sprite
     state: loadedbakedpotato
 # Tastes like potato.
@@ -104,6 +113,15 @@
       - potatoes
       - salty
       - cheesy
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 26
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 18
+        - ReagentId: Cheesium
+          Quantity: 2
   - type: Sprite
     state: fries-cheesy
 # Tastes like fries, cheese.
@@ -180,7 +198,9 @@
         maxVol: 15
         reagents:
         - ReagentId: Nutriment
-          Quantity: 6
+          Quantity: 4
+        - ReagentId: Cheesium
+          Quantity: 2
         - ReagentId: Vitamin
           Quantity: 3
         - ReagentId: TableSalt
@@ -299,7 +319,9 @@
         maxVol: 15
         reagents:
         - ReagentId: Nutriment
-          Quantity: 6
+          Quantity: 2
+        - ReagentId: Cheesium
+          Quantity: 4
         - ReagentId: CarpoToxin
           Quantity: 3
   - type: Tag
@@ -563,6 +585,15 @@
     - type: FlavorProfile
       flavors:
         - cheesy
+    - type: SolutionContainerManager
+      solutions:
+        food:
+          maxVol: 26
+          reagents:
+          - ReagentId: Nutriment
+            Quantity: 16
+          - ReagentId: Cheesium
+            Quantity: 4
     - type: Sprite
       state: queso
 # Its queso! Everyone loves queso... Right?.

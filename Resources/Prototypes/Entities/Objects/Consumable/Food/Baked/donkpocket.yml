@@ -210,7 +210,9 @@
       food:
         reagents:
         - ReagentId: Nutriment
-          Quantity: 10
+          Quantity: 9
+        - ReagentId: Cheesium
+          Quantity: 1
   - type: Sprite
     state: pizza
 
@@ -231,7 +233,9 @@
       food:
         reagents:
         - ReagentId: Nutriment
-          Quantity: 15
+          Quantity: 14
+        - ReagentId: Cheesium
+          Quantity: 1
         - ReagentId: Omnizine
           Quantity: 2
 

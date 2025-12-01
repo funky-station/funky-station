@@ -17,3 +17,31 @@
       - !type:AdjustReagent
         reagent: Sugar
         amount: 0.5
+
+- type: reagent
+  id: Cheesium
+  name: reagent-name-cheesium
+  group: Foods
+  desc: reagent-desc-cheesium
+  physicalDesc: reagent-physical-desc-cheesium
+  flavor: cheesy
+  color: "#FFA600"
+  metabolisms:
+    Food:
+      effects:
+      - !type:SatiateHunger
+        factor: 1.5
+      - !type:AdjustReagent
+        reagent: Protein
+        amount: 0.5
+        conditions:
+        - !type:OrganType
+          type: Rat
+          shouldHave: true
+      - !type:AdjustReagent
+        reagent: Vitamin
+        amount: 0.5
+        conditions:
+        - !type:OrganType
+          type: Rat
+          shouldHave: true

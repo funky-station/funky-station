@@ -990,7 +990,9 @@
         maxVol: 21
         reagents:
         - ReagentId: Nutriment
-          Quantity: 11
+          Quantity: 9
+        - ReagentId: Cheesium
+          Quantity: 2
         - ReagentId: Butter
           Quantity: 2
         - ReagentId: Vitamin
@@ -1021,7 +1023,9 @@
         maxVol: 21
         reagents:
         - ReagentId: Nutriment
-          Quantity: 6
+          Quantity: 4
+        - ReagentId: Cheesium
+          Quantity: 2
         - ReagentId: Fiber
           Quantity: 5
         - ReagentId: Butter

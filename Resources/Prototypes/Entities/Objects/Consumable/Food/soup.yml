@@ -274,7 +274,9 @@
         maxVol: 15
         reagents:
         - ReagentId: Nutriment
-          Quantity: 8
+          Quantity: 6
+        - ReagentId: Cheesium
+          Quantity: 2
         - ReagentId: Vitamin
           Quantity: 6
 
@@ -1187,8 +1189,8 @@
       food:
         maxVol: 15
         reagents:
-          - ReagentId: Nutriment
-            Quantity: 1
+          - ReagentId: Cheesium
+            Quantity: 2
           - ReagentId: Vitamin
             Quantity: 5
           - ReagentId: Allicin

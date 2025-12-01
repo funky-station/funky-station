@@ -1,0 +1,9 @@
+# SPDX-FileCopyrightText: 2025 AftrLite
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
+- type: nameIdentifierGroup
+  id: CosmicPositronicBrain
+  format: name-identifier-format-astral-mindsink
+  minValue: 0
+  maxValue: 10

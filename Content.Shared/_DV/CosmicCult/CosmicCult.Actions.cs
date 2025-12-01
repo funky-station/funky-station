@@ -1,6 +1,8 @@
 // SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 AftrLite
+// SPDX-FileCopyrightText: 2025 Janet Blackquill <uhhadd@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -22,3 +24,9 @@ public sealed partial class EventCosmicIngress : EntityTargetActionEvent;
 public sealed partial class EventCosmicImposition : InstantActionEvent;
 public sealed partial class EventCosmicNova : WorldTargetActionEvent;
 public sealed partial class EventCosmicFragmentation : EntityTargetActionEvent;
+
+// COLOSSUS ACTIONS
+public sealed partial class EventCosmicColossusSunder : WorldTargetActionEvent;
+public sealed partial class EventCosmicColossusIngress : EntityTargetActionEvent;
+public sealed partial class EventCosmicColossusHibernate : InstantActionEvent;
+public sealed partial class EventCosmicColossusEffigy : InstantActionEvent;

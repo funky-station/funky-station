@@ -4,6 +4,7 @@
 // SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
 // SPDX-FileCopyrightText: 2024 eoineoineoin <github@eoinrul.es>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 AftrLite
 //
 // SPDX-License-Identifier: MIT
 
@@ -22,6 +23,7 @@ public sealed class TurfSystem : EntitySystem
 {
     [Dependency] private readonly EntityLookupSystem _entityLookup = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private readonly ITileDefinitionManager _tileDefinitions = default!;
 
     /// <summary>
     ///     Returns true if a given tile is blocked by physics-enabled entities.
@@ -93,6 +95,34 @@ public sealed class TurfSystem : EntitySystem
         }
 
         return false;
+    }
+
+    /// <summary>
+    /// Returns whether a tile is considered to be space or directly exposed to space.
+    /// </summary>
+    /// <param name="tile">The tile in question.</param>
+    /// <returns>True if the tile is considered to be space, false otherwise.</returns>
+    public bool IsSpace(Tile tile)
+    {
+        return GetContentTileDefinition(tile).MapAtmosphere;
+    }
+
+    /// <summary>
+    /// Returns whether a tile is considered to be space or directly exposed to space.
+    /// </summary>
+    /// <param name="tile">The tile in question.</param>
+    /// <returns>True if the tile is considered to be space, false otherwise.</returns>
+    public bool IsSpace(TileRef tile)
+    {
+        return IsSpace(tile.Tile);
+    }
+
+    /// <summary>
+    ///     Returns the content tile definition for a tile.
+    /// </summary>
+    public ContentTileDefinition GetContentTileDefinition(Tile tile)
+    {
+        return (ContentTileDefinition)_tileDefinitions[tile.TypeId];
     }
 
     /// <summary>

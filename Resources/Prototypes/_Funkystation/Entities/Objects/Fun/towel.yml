@@ -1,5 +1,5 @@
 - type: entity
-  id: FunkyBaseTowel
+  id: BaseTowelUnfolded
   name: base towel
   abstract: true
   description: If you want to survive out here, you gotta know where your towel is. 
@@ -60,10 +60,12 @@
     size: Small
   - type: Appearance
 
+#Color Towels
+
 - type: entity
-  id: FunkyWhiteTowel
+  id: TowelColorWhiteUnfolded
   name: white towel
-  parent: FunkyBaseTowel
+  parent: BaseTowelUnfolded
   description: A cheaply-made and highly versatile white towel. If you want to survive out here, you gotta know where your towel is.
   components:
   - type: Sprite
@@ -74,18 +76,18 @@
     fiberColor: fibers-white
 
 - type: entity
-  id: FunkyWhiteTowelFolded
+  id: TowelColorWhite
   name: white towel
-  parent: FunkyWhiteTowel
+  parent: TowelColorWhiteUnfolded
   suffix: folded
   components:
   - type: Foldable
     folded: true
 
 - type: entity
-  id: FunkyGrayTowel
+  id: TowelColorGrayUnfolded
   name: gray towel
-  parent: FunkyBaseTowel
+  parent: BaseTowelUnfolded
   description: A highly versatile warm grey towel. Perfect for sitting on the beach just out of tide's reach.
   components:
   - type: Sprite
@@ -96,18 +98,40 @@
     fiberColor: fibers-grey
 
 - type: entity
-  id: FunkyGrayTowelFolded
+  id: TowelColorGray
   name: gray towel
-  parent: FunkyGrayTowel
+  parent: TowelColorGrayUnfolded
   suffix: folded
   components:
   - type: Foldable
     folded: true
 
 - type: entity
-  id: FunkyRedTowel
+  id: TowelColorBlackUnfolded
+  name: black towel
+  parent: BaseTowelUnfolded
+  description: A highly versatile black towel. Would work great as a kneel sheet.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Fun/Towels/black.rsi
+  - type: Clothing
+    sprite: _Funkystation/Objects/Fun/Towels/black.rsi
+  - type: Fiber
+    fiberColor: fibers-black
+
+- type: entity
+  id: TowelColorBlack
+  name: black towel
+  parent: TowelColorBlackUnfolded
+  suffix: folded
+  components:
+  - type: Foldable
+    folded: true
+
+- type: entity
+  id: TowelColorRedUnfolded
   name: red towel
-  parent: FunkyBaseTowel
+  parent: BaseTowelUnfolded
   description: A highly versatile red towel. Perfect for cleaning up any would-be bloodshed!
   components:
   - type: Sprite
@@ -115,21 +139,43 @@
   - type: Clothing
     sprite: _Funkystation/Objects/Fun/Towels/red.rsi
   - type: Fiber
-    fiberColor: fibers-maroon
+    fiberColor: fibers-red
 
 - type: entity
-  id: FunkyRedTowelFolded
+  id: TowelColorRed
   name: red towel
-  parent: FunkyRedTowel
+  parent: TowelColorRedUnfolded
   suffix: folded
   components:
   - type: Foldable
     folded: true
 
 - type: entity
-  id: FunkyMaroonTowel
+  id: TowelColorPinkUnfolded
+  name: pink towel
+  parent: BaseTowelUnfolded
+  description: A highly versatile, threadbare pink towel. It's seen many shifts in its faded tones, and is still surprisingly soft.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Fun/Towels/pink.rsi
+  - type: Clothing
+    sprite: _Funkystation/Objects/Fun/Towels/pink.rsi
+  - type: Fiber
+    fiberColor: fibers-pink
+
+- type: entity
+  id: TowelColorPink
+  name: pink towel
+  parent: TowelColorPinkUnfolded
+  suffix: folded
+  components:
+  - type: Foldable
+    folded: true
+
+- type: entity
+  id: TowelColorMaroonUnfolded
   name: maroon towel
-  parent: FunkyBaseTowel
+  parent: BaseTowelUnfolded
   description: A highly versatile, luxurious maroon towel. IT'S SO FLUFFY!
   components:
   - type: Sprite
@@ -140,9 +186,400 @@
     fiberColor: fibers-maroon
 
 - type: entity
-  id: FunkyMaroonTowelFolded
+  id: TowelColorMaroon
   name: maroon towel
-  parent: FunkyMaroonTowel
+  parent: TowelColorMaroonUnfolded
+  suffix: folded
+  components:
+  - type: Foldable
+    folded: true
+
+- type: entity
+  id: TowelColorOrangeUnfolded
+  name: orange towel
+  parent: BaseTowelUnfolded
+  description: A highly versatile orange towel. Despite its color, this towel is not high-voltage.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Fun/Towels/orange.rsi
+  - type: Clothing
+    sprite: _Funkystation/Objects/Fun/Towels/orange.rsi
+  - type: Fiber
+    fiberColor: fibers-orange
+
+- type: entity
+  id: TowelColorOrange
+  name: orange towel
+  parent: TowelColorOrangeUnfolded
+  suffix: folded
+  components:
+  - type: Foldable
+    folded: true
+
+- type: entity
+  id: TowelColorYellowUnfolded
+  name: yellow towel
+  parent: BaseTowelUnfolded
+  description: A highly versatile yellow towel. Feels a bit slippery.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Fun/Towels/yellow.rsi
+  - type: Clothing
+    sprite: _Funkystation/Objects/Fun/Towels/yellow.rsi
+  - type: Fiber
+    fiberColor: fibers-yellow
+
+- type: entity
+  id: TowelColorYellow
+  name: yellow towel
+  parent: TowelColorYellowUnfolded
+  suffix: folded
+  components:
+  - type: Foldable
+    folded: true
+
+- type: entity
+  id: TowelColorGreenUnfolded
+  name: green towel
+  parent: BaseTowelUnfolded
+  description: A highly versatile, durable green towel. Services its wielder well.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Fun/Towels/green.rsi
+  - type: Clothing
+    sprite: _Funkystation/Objects/Fun/Towels/green.rsi
+  - type: Fiber
+    fiberColor: fibers-green
+
+- type: entity
+  id: TowelColorGreen
+  name: green towel
+  parent: TowelColorGreenUnfolded
+  suffix: folded
+  components:
+  - type: Foldable
+    folded: true
+
+- type: entity
+  id: TowelColorDarkGreenUnfolded
+  name: dark green towel
+  parent: BaseTowelUnfolded
+  description: A highly versatile dark green towel. Great for keeping books safe in.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Fun/Towels/darkgreen.rsi
+  - type: Clothing
+    sprite: _Funkystation/Objects/Fun/Towels/darkgreen.rsi
+  - type: Fiber
+    fiberColor: fibers-green
+
+- type: entity
+  id: TowelColorDarkGreen
+  name: dark green towel
+  parent: TowelColorDarkGreenUnfolded
+  suffix: folded
+  components:
+  - type: Foldable
+    folded: true
+
+- type: entity
+  id: TowelColorTealUnfolded
+  name: teal towel
+  parent: BaseTowelUnfolded
+  description: A highly versatile teal towel. Or maybe it's aqua. Definitely a water-based color.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Fun/Towels/teal.rsi
+  - type: Clothing
+    sprite: _Funkystation/Objects/Fun/Towels/teal.rsi
+  - type: Fiber
+    fiberColor: fibers-teal
+
+- type: entity
+  id: TowelColorTeal
+  name: teal towel
+  parent: TowelColorTealUnfolded
+  suffix: folded
+  components:
+  - type: Foldable
+    folded: true
+
+- type: entity
+  id: TowelColorLightBlueUnfolded
+  name: light blue towel
+  parent: BaseTowelUnfolded
+  description: A highly versatile light blue towel. The patient needs towel whips to live.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Fun/Towels/lightblue.rsi
+  - type: Clothing
+    sprite: _Funkystation/Objects/Fun/Towels/lightblue.rsi
+  - type: Fiber
+    fiberColor: fibers-blue
+
+- type: entity
+  id: TowelColorLightBlue
+  name: light blue towel
+  parent: TowelColorLightBlueUnfolded
+  suffix: folded
+  components:
+  - type: Foldable
+    folded: true
+
+- type: entity
+  id: TowelColorBlueUnfolded
+  name: blue towel
+  parent: BaseTowelUnfolded
+  description: A highly versatile blue towel. Try not to get it lost in the water.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Fun/Towels/blue.rsi
+  - type: Clothing
+    sprite: _Funkystation/Objects/Fun/Towels/blue.rsi
+  - type: Fiber
+    fiberColor: fibers-blue
+
+- type: entity
+  id: TowelColorBlue
+  name: blue towel
+  parent: TowelColorBlueUnfolded
+  suffix: folded
+  components:
+  - type: Foldable
+    folded: true
+
+- type: entity
+  id: TowelColorDarkBlueUnfolded
+  name: dark blue towel
+  parent: BaseTowelUnfolded
+  description: A highly versatile, exquisite dark blue towel. May the masses cower at the whip of this towel.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Fun/Towels/darkblue.rsi
+  - type: Clothing
+    sprite: _Funkystation/Objects/Fun/Towels/darkblue.rsi
+  - type: Fiber
+    fiberColor: fibers-blue
+
+- type: entity
+  id: TowelColorDarkBlue
+  name: dark blue towel
+  parent: TowelColorDarkBlueUnfolded
+  suffix: folded
+  components:
+  - type: Foldable
+    folded: true
+
+- type: entity
+  id: TowelColorPurpleUnfolded
+  name: purple towel
+  parent: BaseTowelUnfolded
+  description: A highly versatile purple towel. A towel is a (usually) large piece of cloth that is used to absorb liquids, particularly water. It can be used to absorb the liquids from a spill, or to dry off a body that has recently been washed. Towels can come in a variety of colors and designs.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Fun/Towels/purple.rsi
+  - type: Clothing
+    sprite: _Funkystation/Objects/Fun/Towels/purple.rsi
+  - type: Fiber
+    fiberColor: fibers-purple
+
+- type: entity
+  id: TowelColorPurple
+  name: purple towel
+  parent: TowelColorPurpleUnfolded
+  suffix: folded
+  components:
+  - type: Foldable
+    folded: true
+
+- type: entity
+  id: TowelColorLightBrownUnfolded
+  name: light brown towel
+  parent: BaseTowelUnfolded
+  description: A highly versatile light brown towel. You are yet to investigate its value on the second-hand market.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Fun/Towels/lightbrown.rsi
+  - type: Clothing
+    sprite: _Funkystation/Objects/Fun/Towels/lightbrown.rsi
+  - type: Fiber
+    fiberColor: fibers-brown
+
+- type: entity
+  id: TowelColorLightBrown
+  name: light brown towel
+  parent: TowelColorLightBrownUnfolded
+  suffix: folded
+  components:
+  - type: Foldable
+    folded: true
+
+- type: entity
+  id: TowelColorBrownUnfolded
+  name: brown towel
+  parent: BaseTowelUnfolded
+  description: A highly versatile brown towel. Hides the dirt well.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Fun/Towels/brown.rsi
+  - type: Clothing
+    sprite: _Funkystation/Objects/Fun/Towels/brown.rsi
+  - type: Fiber
+    fiberColor: fibers-brown
+
+- type: entity
+  id: TowelColorBrown
+  name: brown towel
+  parent: TowelColorBrownUnfolded
+  suffix: folded
+  components:
+  - type: Foldable
+    folded: true
+
+# Special Towels
+
+- type: entity
+  id: TowelColorMimeUnfolded
+  name: silent towel
+  parent: BaseTowelUnfolded
+  description: A highly versatile white towel. Without its signature thwack, this towel isn't special.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Fun/Towels/silent.rsi
+  - type: Clothing
+    sprite: _Funkystation/Objects/Fun/Towels/silent.rsi
+  - type: MeleeWeapon
+    soundHit:
+      collection: WeakHit
+  - type: Fiber
+    fiberColor: fibers-white
+
+- type: entity
+  id: TowelColorMime
+  name: silent towel
+  parent: TowelColorMimeUnfolded
+  suffix: folded
+  components:
+  - type: Foldable
+    folded: true
+
+- type: entity
+  id: TowelColorCentcomUnfolded
+  name: centcomm towel
+  parent: BaseTowelUnfolded
+  description: A highly versatile, regal green towel. Central Command doesn't hand these out lightly.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Fun/Towels/centcomm.rsi
+  - type: Clothing
+    sprite: _Funkystation/Objects/Fun/Towels/centcomm.rsi
+  - type: Fiber
+    fiberColor: fibers-green
+
+- type: entity
+  id: TowelColorCentcom
+  name: centcomm towel
+  parent: TowelColorCentcomUnfolded
+  suffix: folded
+  components:
+  - type: Foldable
+    folded: true
+
+- type: entity
+  id: TowelColorSilverUnfolded
+  name: silver towel
+  parent: BaseTowelUnfolded
+  description: A highly versatile, plush silver towel. Woven with real silver and fake gold! Comfortable despite the metallic threads.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Fun/Towels/silver.rsi
+  - type: Clothing
+    sprite: _Funkystation/Objects/Fun/Towels/silver.rsi
+  - type: Fiber
+    fiberColor: fibers-silver
+
+- type: entity
+  id: TowelColorSilver
+  name: silver towel
+  parent: TowelColorSilverUnfolded
+  suffix: folded
+  components:
+  - type: Foldable
+    folded: true
+
+- type: entity
+  id: TowelColorGoldUnfolded
+  name: gold towel
+  parent: BaseTowelUnfolded
+  description: A highly versatile, heavy gold towel. FWPSHHH!
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Fun/Towels/gold.rsi
+  - type: Clothing
+    sprite: _Funkystation/Objects/Fun/Towels/gold.rsi
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 2
+    bluntStaminaDamageFactor: 4
+  - type: Wieldable
+  - type: IncreaseDamageOnWield
+    damage:
+      types:
+        Blunt: 4
+  - type: Fiber
+    fiberColor: fibers-gold
+
+- type: entity
+  id: TowelColorGold
+  name: gold towel
+  parent: TowelColorGoldUnfolded
+  suffix: folded
+  components:
+  - type: Foldable
+    folded: true
+
+# Silly branded towels
+
+- type: entity
+  id: TowelColorNTUnfolded
+  name: Nanotrasen branded towel
+  parent: TowelColorGoldUnfolded
+  description: A highly versatile, illustrious blue towel embroidered with a reflective N. For Nanotrasen's strongest shower warriors.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Fun/Towels/nanotrasen.rsi
+  - type: Clothing
+    sprite: _Funkystation/Objects/Fun/Towels/nanotrasen.rsi
+  - type: Fiber
+    fiberColor: fibers-regal-blue
+
+- type: entity
+  id: TowelColorNT
+  name: Nanotrasen branded towel
+  parent: TowelColorNTUnfolded
+  suffix: folded
+  components:
+  - type: Foldable
+    folded: true
+
+- type: entity
+  id: TowelColorSyndicateUnfolded
+  name: syndicate towel
+  parent: [ TowelColorGoldUnfolded, BaseMinorContraband ]
+  description: A highly versatile, malicious-looking black towel. For the Syndicates's strongest shower warriors.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Fun/Towels/syndi.rsi
+  - type: Clothing
+    sprite: _Funkystation/Objects/Fun/Towels/syndi.rsi
+  - type: Fiber
+    fiberColor: fibers-black
+
+- type: entity
+  id: TowelColorSyndicate
+  name: syndicate towel
+  parent: TowelColorSyndicateUnfolded
   suffix: folded
   components:
   - type: Foldable

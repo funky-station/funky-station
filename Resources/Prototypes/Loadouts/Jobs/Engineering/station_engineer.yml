@@ -74,7 +74,7 @@
 
 # Jumpsuit
 - type: loadout
-  id: StationEngineerJumpsuit
+  id: StationEngineerJumpsuitWhite
   equipment:
     jumpsuit: ClothingUniformJumpsuitEngineeringJumpsuit
   groupBy: "jumpsuit"
@@ -101,7 +101,7 @@
   id: StationEngineerJumpsuitElectricianTied
   equipment:
     jumpsuit: ClothingUniformJumpskirtEngineeringElectricianTied
-  groupBy: "jumpskirt"
+  groupBy: "jumpsuit"
 
 - type: loadout
   id: StationEngineerJumpsuitTankTop
@@ -125,10 +125,16 @@
   groupBy: "jumpsuit"
 
 - type: loadout
+  id: StationEngineerJumpsuit
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitEngineering
+  groupBy: "coveralls"
+
+- type: loadout
   id: StationEngineerOveralls
   equipment:
     jumpsuit: ClothingUniformJumpsuitEngineeringOveralls
-  groupBy: "jumpsuit"
+  groupBy: "coveralls"
 
 - type: loadout
   id: StationEngineerCoveralls

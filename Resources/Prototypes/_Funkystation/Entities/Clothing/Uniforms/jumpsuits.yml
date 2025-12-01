@@ -526,7 +526,7 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitEngineeringJumpsuit
-  name: engineering jumpsuit
+  name: white engineering jumpsuit
   description: A comfortable jumpsuit, breatheable but durable. You have a feeling it isn't as durable as it looks.
   components:
   - type: Sprite

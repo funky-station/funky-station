@@ -1196,11 +1196,12 @@
   name: loadout-group-station-engineer-jumpsuit
   loadouts:
   - StationEngineerJumpsuit
+  - StationEngineerJumpsuitWhite
   - StationEngineerOveralls
   - StationEngineerCoveralls
   - StationEngineerRipley
   - StationEngineerShirt
-    - StationEngineerJumpsuitElectrician
+  - StationEngineerJumpsuitElectrician
   - StationEngineerJumpsuitElectricianTied
   - StationEngineerJumpsuitTankTop
   - StationEngineerJumpsuitUndersuit

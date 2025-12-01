@@ -91,7 +91,7 @@ public sealed partial class ZombieTumorInfectionComponent : Component
     /// Amount of oil to drain per tick for IPCs.
     /// </summary>
     [DataField, AutoNetworkedField]
-    public float OilDrainAmount = 5f;
+    public float OilDrainAmount = 0.5f;
 
     /// <summary>
     /// Radiation damage per tick when IPC oil is empty.
@@ -101,7 +101,7 @@ public sealed partial class ZombieTumorInfectionComponent : Component
     {
         DamageDict = new()
         {
-            { "Radiation", 0.5 }
+            { "Radiation", 1.0 }
         }
     };
 }

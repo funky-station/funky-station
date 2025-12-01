@@ -8,7 +8,17 @@
     },
     "states": [
         {
-            "name": "zombietumor"
+            "name": "zombietumor",
+			"delays": [
+			[
+			  0.15,
+			  0.15,
+			  0.15,
+			  0.15,
+			  0.15,
+			  0.15
+			]
+		  ]
         },
         {
             "name": "zombietumor-inhand-right",
@@ -16,6 +26,25 @@
         },
         {
             "name": "zombietumor-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "zombierobotumor",
+			"delays": [
+			[
+			  0.15,
+			  0.15,
+			  0.15,
+			  0.15
+			]
+		  ]
+        },
+        {
+            "name": "zombierobotumor-inhand-right",
+            "directions": 4
+        },
+        {
+            "name": "zombierobotumor-inhand-left",
             "directions": 4
         }
     ]

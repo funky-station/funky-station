@@ -1,6 +1,6 @@
 // SPDX-FileCopyrightText: 2025 Terkala <appleorange64@gmail.com>
 //
-// SPDX-License-Identifier: AGPL-3.0-only or MIT
+// SPDX-License-Identifier: MIT
 
 using Content.Server.Body.Components;
 using Content.Server.Body.Systems;
@@ -81,6 +81,9 @@ public sealed class ZombieTumorOrganSystem : SharedZombieTumorOrganSystem
 
         // Update tumor spawners (retry failed organ insertions)
         UpdateTumorSpawners(curTime);
+
+        // Heal zombie IPCs with robot tumors
+        UpdateZombieIPChealing(curTime);
     }
 
     private void UpdateInfectionProgression(TimeSpan curTime)
@@ -93,6 +96,17 @@ public sealed class ZombieTumorOrganSystem : SharedZombieTumorOrganSystem
                 continue;
 
             infection.NextTick = curTime + TimeSpan.FromSeconds(1);
+
+            // Skip damage if entity is already a zombie (zombies don't take poison damage from tumors)
+            if (HasComp<ZombieComponent>(uid))
+            {
+                // Still check stage progression (though it shouldn't matter for zombies)
+                if (infection.NextStageAt <= curTime)
+                {
+                    ProgressInfectionStage(uid, infection);
+                }
+                continue;
+            }
 
             // Check if IPC
             if (TryComp<BloodstreamComponent>(uid, out var bloodstream) &&
@@ -187,19 +201,29 @@ public sealed class ZombieTumorOrganSystem : SharedZombieTumorOrganSystem
     /// </summary>
     public bool SpawnTumorOrgan(EntityUid bodyUid)
     {
-        // Find torso body part
+        // Check if entity has a body component
         if (!TryComp<BodyComponent>(bodyUid, out var body))
             return false;
 
+        // Check if body has a root part (if no root part, body has no body parts/organs)
+        if (body.RootContainer.ContainedEntity == null)
+            return false;
+
+        // Find torso body part
         var torso = _bodySystem.GetBodyChildrenOfType(bodyUid, BodyPartType.Torso, body).FirstOrDefault();
         if (torso.Id == EntityUid.Invalid)
             return false;
+
+        // Check if this is an IPC (has oil as blood reagent)
+        var isIPC = TryComp<BloodstreamComponent>(bodyUid, out var bloodstream) &&
+                    bloodstream.BloodReagent == "Oil";
+        var tumorPrototype = isIPC ? "ZombieRoboTumor" : "ZombieTumorOrgan";
 
         // Try to add to first valid slot first (in case slot already exists)
         if (_bodySystem.CanInsertOrgan(torso.Id, "tumor", torso.Component))
         {
             // Slot exists, spawn and insert directly
-            var tumorOrgan = Spawn("ZombieTumorOrgan", Transform(bodyUid).Coordinates);
+            var tumorOrgan = Spawn(tumorPrototype, Transform(bodyUid).Coordinates);
             if (_bodySystem.InsertOrgan(torso.Id, tumorOrgan, "tumor", torso.Component, null))
             {
                 return true;
@@ -212,7 +236,7 @@ public sealed class ZombieTumorOrganSystem : SharedZombieTumorOrganSystem
         if (_bodySystem.TryCreateOrganSlot(torso.Id, "tumor", out var slot))
         {
             // Spawn tumor organ after slot is created
-            var tumorOrgan = Spawn("ZombieTumorOrgan", Transform(bodyUid).Coordinates);
+            var tumorOrgan = Spawn(tumorPrototype, Transform(bodyUid).Coordinates);
             
             // Verify slot exists before inserting
             if (!_bodySystem.CanInsertOrgan(torso.Id, "tumor", torso.Component))
@@ -246,6 +270,10 @@ public sealed class ZombieTumorOrganSystem : SharedZombieTumorOrganSystem
     public bool HasTumorOrgan(EntityUid bodyUid)
     {
         if (!TryComp<BodyComponent>(bodyUid, out var body))
+            return false;
+
+        // Check if body has a root part (if no root part, body has no body parts/organs)
+        if (body.RootContainer.ContainedEntity == null)
             return false;
 
         var bodyEntity = (bodyUid, body);
@@ -331,6 +359,10 @@ public sealed class ZombieTumorOrganSystem : SharedZombieTumorOrganSystem
         if (HasComp<ZombieTumorInfectionComponent>(target))
             return;
 
+        // Only infect entities that have bodies with organs (tumor requires a body structure)
+        if (!TryComp<BodyComponent>(target, out var body) || body.RootContainer.ContainedEntity == null)
+            return;
+
         var infection = EnsureComp<ZombieTumorInfectionComponent>(target);
         infection.NextTick = _timing.CurTime + TimeSpan.FromSeconds(1);
         infection.NextStageAt = _timing.CurTime + infection.EarlyToTumorTime;
@@ -341,9 +373,14 @@ public sealed class ZombieTumorOrganSystem : SharedZombieTumorOrganSystem
 
     private void OnInfectionMobStateChanged(Entity<ZombieTumorInfectionComponent> ent, ref MobStateChangedEvent args)
     {
-        if (args.NewMobState == MobState.Dead)
+        // Check if this is an IPC (has oil as blood reagent)
+        var isIPC = TryComp<BloodstreamComponent>(ent.Owner, out var bloodstream) &&
+                    bloodstream.BloodReagent == "Oil";
+
+        // IPCs zombify when they become critical, others zombify on death
+        if ((isIPC && args.NewMobState == MobState.Critical) || (!isIPC && args.NewMobState == MobState.Dead))
         {
-            // Zombify on death - the tumor organ will remain and continue spreading infection
+            // Zombify - the tumor organ will remain and continue spreading infection
             _zombieSystem.ZombifyEntity(ent.Owner);
             
             // Remove infection component since zombification is complete
@@ -354,6 +391,10 @@ public sealed class ZombieTumorOrganSystem : SharedZombieTumorOrganSystem
 
     private void OnInfectionRemoved(Entity<ZombieTumorInfectionComponent> ent, ref ComponentRemove args)
     {
+        // Skip if entity is being deleted (prevents crashes during entity deletion)
+        if (TerminatingOrDeleted(ent.Owner))
+            return;
+
         // Only remove tumor organ if infection is being removed while still alive
         // (e.g., via surgery). If zombified, the organ should remain.
         if (HasComp<ZombieComponent>(ent.Owner))
@@ -363,10 +404,18 @@ public sealed class ZombieTumorOrganSystem : SharedZombieTumorOrganSystem
         if (!TryComp<BodyComponent>(ent, out var body))
             return;
 
+        // Check if body has a root part (if no root part, body has no body parts/organs)
+        if (body.RootContainer.ContainedEntity == null)
+            return;
+
         var bodyEntity = (ent.Owner, body);
         var tumorOrgans = _bodySystem.GetBodyOrganEntityComps<ZombieTumorOrganComponent>(bodyEntity);
         foreach (var (organUid, _, _) in tumorOrgans)
         {
+            // Skip if organ is already being deleted
+            if (TerminatingOrDeleted(organUid))
+                continue;
+
             _bodySystem.RemoveOrgan(organUid);
             Del(organUid);
         }
@@ -374,8 +423,12 @@ public sealed class ZombieTumorOrganSystem : SharedZombieTumorOrganSystem
 
     private void OnTumorOrganRemoved(Entity<ZombieTumorOrganComponent> ent, ref OrganRemovedFromBodyEvent args)
     {
+        // Skip if entities are being deleted (prevents client-side crashes during PVS departure)
+        if (TerminatingOrDeleted(ent.Owner) || args.OldBody == EntityUid.Invalid || TerminatingOrDeleted(args.OldBody))
+            return;
+
         // When tumor is removed, cure the infection
-        if (args.OldBody != EntityUid.Invalid && HasComp<ZombieTumorInfectionComponent>(args.OldBody))
+        if (HasComp<ZombieTumorInfectionComponent>(args.OldBody))
         {
             RemComp<ZombieTumorInfectionComponent>(args.OldBody);
             _popup.PopupEntity(Loc.GetString("zombie-tumor-removed"), args.OldBody, args.OldBody);
@@ -426,6 +479,57 @@ public sealed class ZombieTumorOrganSystem : SharedZombieTumorOrganSystem
                 RemComp<ZombieTumorSpawnerComponent>(uid);
             }
             // If it fails, keep the component and try again next update
+        }
+    }
+
+    private void UpdateZombieIPChealing(TimeSpan curTime)
+    {
+        // Heal zombie IPCs that have robot tumors at the same rate as normal zombies
+        var zombieQuery = EntityQueryEnumerator<ZombieComponent, DamageableComponent, MobStateComponent, BloodstreamComponent>();
+        while (zombieQuery.MoveNext(out var uid, out var zombie, out var damageable, out var mobState, out var bloodstream))
+        {
+            // Only heal IPCs (those with oil as blood reagent)
+            if (bloodstream.BloodReagent != "Oil")
+                continue;
+
+            // Check if they have a robot tumor organ
+            if (!TryComp<BodyComponent>(uid, out var body) || body.RootContainer.ContainedEntity == null)
+                continue;
+
+            var bodyEntity = (uid, body);
+            var tumorOrgans = _bodySystem.GetBodyOrganEntityComps<ZombieTumorOrganComponent>(bodyEntity);
+            
+            // Check if any tumor organ is a ZombieRoboTumor
+            bool hasRoboTumor = false;
+            foreach (var (organUid, _) in tumorOrgans)
+            {
+                if (MetaData(organUid).EntityPrototype?.ID == "ZombieRoboTumor")
+                {
+                    hasRoboTumor = true;
+                    break;
+                }
+            }
+
+            if (!hasRoboTumor)
+                continue;
+
+            // Process only once per second (same as normal zombie healing)
+            if (zombie.NextTick + TimeSpan.FromSeconds(1) > curTime)
+                continue;
+
+            zombie.NextTick = curTime;
+            Dirty(uid, zombie);
+
+            if (_mobState.IsDead(uid, mobState))
+                continue;
+
+            // Use the same healing as normal zombies
+            var multiplier = _mobState.IsCritical(uid, mobState)
+                ? zombie.PassiveHealingCritMultiplier
+                : 1f;
+
+            // Heal the zombie IPC at the same rate as normal zombies
+            _damageable.TryChangeDamage(uid, zombie.PassiveHealing * multiplier, true, false, damageable);
         }
     }
 

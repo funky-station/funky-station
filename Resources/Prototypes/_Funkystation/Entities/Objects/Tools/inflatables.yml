@@ -124,6 +124,16 @@
 
 # partial stacks
 
+- type: entity # because I was too sloppy in my implementation
+  parent: InflatableWallStack
+  id: InflatableWallStack5
+  suffix: Do not map
+  components:
+    - type: Sprite
+      state: item_wall
+    - type: Stack
+      count: 5
+
 - type: entity
   parent: InflatableWallStack
   id: InflatableWallStack1

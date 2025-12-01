@@ -1,6 +1,7 @@
+
 {
     "version": 1,
-    "license": "CC-BY-NC-SA-3.0",
+    "license": "CC-BY-SA-3.0",
     "copyright": "taken from goonstation https://github.com/goonstation/goonstation/blob/master/icons/misc/nuclearreactor.dmi",
     "size": {
         "x": 160,
@@ -131,6 +132,12 @@
                     0.2
                 ]
             ]
+        },
+        {
+            "name": "reactor_smoke"
+        },
+        {
+            "name": "reactor_fire"
         }
     ]
 }

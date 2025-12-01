@@ -5,9 +5,8 @@
   description: A flatpack used for constructing a nuclear reactor. Parts sold separately.
   components:
   - type: Sprite
-    sprite: Objects/Devices/flatpack.rsi
     layers:
-    - state: large
+    - state: ame-part
   - type: Flatpack
     entity: NuclearReactorEmpty
 
@@ -18,8 +17,7 @@
   description: A flatpack used for constructing a gas turbine.
   components:
   - type: Sprite
-    sprite: Objects/Devices/flatpack.rsi
     layers:
-    - state: large
+    - state: ame-part
   - type: Flatpack
     entity: Turbine

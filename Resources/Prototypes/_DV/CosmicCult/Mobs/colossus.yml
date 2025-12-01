@@ -107,7 +107,7 @@
   - type: MovementSpeedModifier
     baseWalkSpeed: 2
     baseSprintSpeed: 3
-    baseWeightlessModifier: 1
+    weightlessModifier: 1
     weightlessAcceleration: 1.5
     weightlessFriction: 1
   - type: AmbientSound

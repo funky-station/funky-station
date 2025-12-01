@@ -24,9 +24,8 @@
   components:
   - type: MindRole
     antagPrototype: CosmicAntagColossus
-    roleType: TeamAntagonist
-    subtype: role-subtype-colossus
     exclusiveAntag: true
+    roleType: TeamAntagonist
   - type: CosmicColossusRole
   - type: RoleBriefing
     briefing: ghost-role-colossus-charactermenu

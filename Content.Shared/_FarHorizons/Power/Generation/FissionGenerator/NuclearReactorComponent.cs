@@ -2,7 +2,7 @@ using Content.Shared.Atmos;
 using Content.Shared.Containers.ItemSlots;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
-using Content.Shared._FarHorizons.PhysicalMaterial;
+using Content.Shared._FarHorizons.Materials;
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared._FarHorizons.Power.Generation.FissionGenerator;

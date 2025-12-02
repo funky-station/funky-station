@@ -6113,3 +6113,9 @@ Entries:
         cells, and are timed.
   id: 716
   time: '2025-12-02T06:19:10.0000000+00:00'
+- author: TrixxedHeart
+  changes:
+    - type: Fix
+      message: IPCs can now also have sticky notes placed on them
+  id: 717
+  time: '2025-12-02T06:22:07.0000000+00:00'

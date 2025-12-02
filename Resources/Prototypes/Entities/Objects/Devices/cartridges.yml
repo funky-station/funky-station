@@ -221,3 +221,27 @@
     - type: Tag
       tags:
       - PDACart
+
+- type: entity
+  parent: BaseItem
+  id: WordleCartridge
+  name: Wordle cartridge
+  description: A program for playing Wordle, a word-guessing game.
+  components:
+    - type: Sprite
+      sprite: Objects/Devices/cartridge.rsi
+      state: cart-y
+    - type: Icon
+      sprite: Objects/Devices/cartridge.rsi
+      state: cart-y
+    - type: Cartridge
+      programName: wordle-program-name
+      icon:
+        sprite: Interface/CartridgeLoader/wordle_logo.rsi
+        state: wordle_logo
+    - type: WordleCartridge
+    - type: UIFragment
+      ui: !type:WordleUi
+    - type: Tag
+      tags:
+      - PDACart

@@ -192,6 +192,7 @@
       - NewsReaderCartridge
       - NanoChatCartridge # DeltaV
       - SOSCartridge # Imp
+      - WordleCartridge
     cartridgeSlot:
       priority: -1
       name: device-pda-slot-component-slot-name-cartridge
@@ -266,6 +267,7 @@
     - WantedListCartridge
     - NanoChatCartridge # DeltaV
     - SOSCartridge # Imp
+    - WordleCartridge
 
 - type: entity
   parent: BasePDA
@@ -282,6 +284,7 @@
       - MedTekCartridge
       - NanoChatCartridge # DeltaV
       - SOSCartridge # Imp
+      - WordleCartridge
 
 - type: entity
   parent: BasePDA
@@ -598,6 +601,7 @@
       - MailMetricsCartridge
       - NanoChatCartridge # DeltaV
       - SOSCartridge # Imp
+      - WordleCartridge
 
 - type: entity
   parent: BasePDA
@@ -623,6 +627,7 @@
     - NewsReaderCartridge
     - NanoChatCartridge # DeltaV
     - SOSCartridge # Imp
+    - WordleCartridge
 
 - type: entity
   parent: BasePDA
@@ -652,6 +657,7 @@
       - AstroNavCartridge
       - NanoChatCartridge # DeltaV
       - SOSCartridge # Imp
+      - WordleCartridge
 
 - type: entity
   parent: BasePDA
@@ -963,6 +969,7 @@
       - NewsReaderCartridge
       - NanoChatCartridge # DeltaV
       - SOSCartridge # Imp
+      - WordleCartridge
 
 - type: entity
   parent: BasePDA
@@ -1003,6 +1010,7 @@
       - NewsReaderCartridge
       - NanoChatCartridge # DeltaV
       - SOSCartridge # Imp
+      - WordleCartridge
 
 - type: entity
   parent: BaseSecurityPDA
@@ -1032,6 +1040,7 @@
     - LogProbeCartridge
     - NanoChatCartridge # DeltaV
     - SOSCartridge # Imp
+    - WordleCartridge
 
 - type: entity
   parent: BaseSecurityPDA
@@ -1136,6 +1145,7 @@
       - AstroNavCartridge
       - NanoChatCartridge # DeltaV
       - SOSCartridge # Imp
+      - WordleCartridge
 
 - type: entity
   parent: CentcomOfficialPDA
@@ -1165,6 +1175,7 @@
       - AstroNavCartridge
       - NanoChatCartridge # DeltaV
       - SOSCartridge # Imp
+      - WordleCartridge
   - type: Tag #  Ignore Chameleon tags
     tags:
     - DoorBumpOpener
@@ -1431,6 +1442,7 @@
     - NewsReaderCartridge
     - NanoChatCartridge # DeltaV
     - SOSCartridge # Imp
+    - WordleCartridge
 
 - type: entity
   parent: BasePDA
@@ -1496,6 +1508,7 @@
     - LogProbeCartridge
     - NanoChatCartridge # DeltaV
     - SOSCartridge # Imp
+    - WordleCartridge
 
 - type: entity
   parent: BaseMedicalPDA
@@ -1526,6 +1539,7 @@
     - MedTekCartridge
     - NanoChatCartridge # DeltaV
     - SOSCartridge # Imp
+    - WordleCartridge
 
 - type: entity
   parent: ClownPDA

@@ -1,22 +1,26 @@
-// SPDX-FileCopyrightText: 2024 John Space <bigdumb421@gmail.com>
+// SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2024 Fishbait <Fishbait@git.ml>
+// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
 // SPDX-FileCopyrightText: 2024 fishbait <gnesse@gmail.com>
-// SPDX-FileCopyrightText: 2025 Mish <bluscout78@yahoo.com>
-// SPDX-FileCopyrightText: 2025 Rainbow <ev0lvkitten@gmail.com>
-// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
+// SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
+// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 //
-// SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+// SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Shared._Goobstation.Blob;
+using Content.Shared._Goobstation.Blob.Components;
 using Content.Shared.Damage;
 using Content.Shared.Explosion;
 using Content.Shared.FixedPoint;
-using Content.Shared.Roles;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 
-namespace Content.Shared._Goobstation.Blob.Components;
+namespace Content.Goobstation.Shared.Blob.Components;
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class BlobCoreComponent : Component
@@ -46,7 +50,7 @@ public sealed partial class BlobCoreComponent : Component
     public FixedPoint2 CoreBlobTotalHealth = 400;
 
     [DataField]
-    public float InitialPoints = 300f;
+    public float StartingMoney = 250f; // enough for 2 resource nodes and a bit of defensive action
 
     [DataField]
     public float AttackRate = 0.3f;
@@ -91,7 +95,8 @@ public sealed partial class BlobCoreComponent : Component
             {
                 DamageDict = new Dictionary<string, FixedPoint2>
                 {
-                    { "Structural", 300 },
+                    { "Heat", 5 },
+                    { "Structural", 150 },
                 }
             }
         },
@@ -111,7 +116,6 @@ public sealed partial class BlobCoreComponent : Component
                 DamageDict = new Dictionary<string, FixedPoint2>
                 {
                     { "Structural", 150 },
-                    { "Blunt", 6 },
                     { "Poison", 15 },
                 }
             }
@@ -143,7 +147,7 @@ public sealed partial class BlobCoreComponent : Component
     public int ResourceBlobsTotal;
 
     [DataField]
-    public FixedPoint2 AttackCost = 2;
+    public FixedPoint2 AttackCost = 4;
 
     [DataField]
     public BlobTileCosts BlobTileCosts = new()
@@ -203,7 +207,7 @@ public sealed partial class BlobCoreComponent : Component
     };
 
     [DataField(required: true)]
-    public List<ProtoId<EntityPrototype>> ActionPrototypes = [];
+    public List<EntProtoId> ActionPrototypes = [];
 
     [DataField]
     public ProtoId<ExplosionPrototype> BlobExplosive = "Blob";

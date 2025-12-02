@@ -89,8 +89,8 @@ public abstract partial class SharedBorgSystem : EntitySystem
         SubscribeLocalEvent<BorgChassisComponent, ActivatableUIOpenAttemptEvent>(OnUIOpenAttempt);
         SubscribeLocalEvent<BorgChassisComponent, MobStateChangedEvent>(OnMobStateChanged);
         SubscribeLocalEvent<BorgChassisComponent, BeingGibbedEvent>(OnBeingGibbed);
-        SubscribeLocalEvent<BorgChassisComponent, GetCharactedDeadIcEvent>(OnGetDeadIC);
-        SubscribeLocalEvent<BorgChassisComponent, GetCharacterUnrevivableIcEvent>(OnGetUnrevivableIC);
+        SubscribeLocalEvent<BorgChassisComponent, SharedMindSystem.GetCharactedDeadIcEvent>(OnGetDeadIC);
+        SubscribeLocalEvent<BorgChassisComponent, SharedMindSystem.GetCharacterUnrevivableIcEvent>(OnGetUnrevivableIC);
         SubscribeLocalEvent<BorgChassisComponent, PowerCellSlotEmptyEvent>(OnPowerCellSlotEmpty);
         SubscribeLocalEvent<BorgChassisComponent, PowerCellChangedEvent>(OnPowerCellChanged);
 
@@ -306,12 +306,12 @@ public abstract partial class SharedBorgSystem : EntitySystem
         _container.EmptyContainer(chassis.Comp.ModuleContainer);
     }
 
-    private void OnGetDeadIC(Entity<BorgChassisComponent> chassis, ref GetCharactedDeadIcEvent args)
+    private void OnGetDeadIC(Entity<BorgChassisComponent> chassis, ref SharedMindSystem.GetCharactedDeadIcEvent args)
     {
         args.Dead = true;
     }
 
-    private void OnGetUnrevivableIC(Entity<BorgChassisComponent> chassis, ref GetCharacterUnrevivableIcEvent args)
+    private void OnGetUnrevivableIC(Entity<BorgChassisComponent> chassis, ref SharedMindSystem.GetCharacterUnrevivableIcEvent args)
     {
         args.Unrevivable = true;
     }

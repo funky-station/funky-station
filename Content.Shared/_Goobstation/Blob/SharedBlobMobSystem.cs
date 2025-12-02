@@ -5,6 +5,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
 using System.Numerics;
+using Content.Goobstation.Shared.Blob.Components;
 using Content.Shared._Goobstation.Blob.Components;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Popups;

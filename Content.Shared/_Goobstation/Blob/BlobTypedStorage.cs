@@ -6,6 +6,7 @@
 
 using System.Collections;
 using System.Diagnostics.Contracts;
+using Content.Goobstation.Shared.Blob.Components;
 using Content.Shared._Goobstation.Blob.Components;
 using Content.Shared.FixedPoint;
 using Robust.Shared.Prototypes;

@@ -1,31 +1,36 @@
-// SPDX-FileCopyrightText: 2024 John Space <bigdumb421@gmail.com>
+// SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2024 Fishbait <Fishbait@git.ml>
 // SPDX-FileCopyrightText: 2024 fishbait <gnesse@gmail.com>
-// SPDX-FileCopyrightText: 2025 QueerCats <jansencheng3@gmail.com>
-// SPDX-FileCopyrightText: 2025 Rainbow <ev0lvkitten@gmail.com>
-// SPDX-FileCopyrightText: 2025 Skye <57879983+Rainbeon@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
-// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 August Eymann <august.eymann@gmail.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
+// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 //
-// SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+// SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
 using System.Numerics;
 using System.Threading;
 using System.Threading.Tasks;
+using Content.Goobstation.Server.Blob.GameTicking;
+using Content.Goobstation.Server.Blob.Objectives;
+using Content.Goobstation.Shared.Blob.Components;
+using Content.Server._Goobstation.Blob;
+using Content.Server._Goobstation.Blob.Components;
 using Content.Server.Actions;
 using Content.Server.AlertLevel;
-using Content.Server._Goobstation.Blob.Components;
-using Content.Server.GameTicking.Rules.Components;
-using Content.Server.Objectives;
 using Content.Server.Explosion.EntitySystems;
 using Content.Server.GameTicking;
+using Content.Server.Objectives;
 using Content.Server.RoundEnd;
 using Content.Server.Station.Systems;
 using Content.Server.Store.Systems;
-using Content.Shared.Actions;
-using Content.Shared.Alert;
 using Content.Shared._Goobstation.Blob;
 using Content.Shared._Goobstation.Blob.Components;
+using Content.Shared.Actions;
+using Content.Shared.Alert;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Systems;
@@ -46,7 +51,7 @@ using Robust.Shared.Map.Components;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
 
-namespace Content.Server._Goobstation.Blob;
+namespace Content.Goobstation.Server.Blob;
 
 public sealed class BlobCoreSystem : EntitySystem
 {
@@ -141,7 +146,6 @@ public sealed class BlobCoreSystem : EntitySystem
 
         var store = EnsureComp<StoreComponent>(uid);
         store.CurrencyWhitelist.Add(BlobMoney);
-        ChangeBlobPoint((uid, component), component.InitialPoints, store);
 
         UpdateAllAlerts((uid, component));
         ChangeChem(uid, component.DefaultChem, component);
@@ -154,6 +158,8 @@ public sealed class BlobCoreSystem : EntitySystem
             if (actionUid != null)
                 component.Actions.Add(actionUid.Value);
         }
+
+        ChangeBlobPoint((uid, component), component.StartingMoney, store);
     }
 
     private void OnTerminating(EntityUid uid, BlobCoreComponent component, ref EntityTerminatingEvent args)
@@ -193,7 +199,7 @@ public sealed class BlobCoreSystem : EntitySystem
 
     #region Objective
 
-    private void OnBlobCaptureInfoAdd(Entity<BlobCaptureConditionComponent> ent, ref ObjectiveAssignedEvent args)
+    private void OnBlobCaptureInfoAdd(Entity<Objectives.BlobCaptureConditionComponent> ent, ref ObjectiveAssignedEvent args)
     {
         if (args.Mind.OwnedEntity == null)
         {
@@ -217,13 +223,13 @@ public sealed class BlobCoreSystem : EntitySystem
         ent.Comp.Target = CompOrNull<StationBlobConfigComponent>(station)?.StageTheEnd ?? StationBlobConfigComponent.DefaultStageEnd;
     }
 
-    private void OnBlobCaptureInfo(EntityUid uid, BlobCaptureConditionComponent component, ref ObjectiveAfterAssignEvent args)
+    private void OnBlobCaptureInfo(EntityUid uid, Objectives.BlobCaptureConditionComponent component, ref ObjectiveAfterAssignEvent args)
     {
         _metaDataSystem.SetEntityName(uid,Loc.GetString("objective-condition-blob-capture-title"));
         _metaDataSystem.SetEntityDescription(uid,Loc.GetString("objective-condition-blob-capture-description", ("count", component.Target)));
     }
 
-    private void OnBlobCaptureProgress(EntityUid uid, BlobCaptureConditionComponent component, ref ObjectiveGetProgressEvent args)
+    private void OnBlobCaptureProgress(EntityUid uid, Objectives.BlobCaptureConditionComponent component, ref ObjectiveGetProgressEvent args)
     {
         if (!TryComp<BlobObserverComponent>(args.Mind.OwnedEntity, out var blobObserverComponent)
             || !TryComp<BlobCoreComponent>(blobObserverComponent.Core, out var blobCoreComponent))
@@ -255,8 +261,7 @@ public sealed class BlobCoreSystem : EntitySystem
         // This one for points
         var pt = store.Balance.GetValueOrDefault(BlobMoney);
         var pointsSeverity = (short) Math.Clamp(Math.Round(pt.Float() / 10f), 0, 51);
-        string? pointsMessage = "Points: " + pt;
-        _alerts.ShowAlert(component.Observer.Value, BlobResource, pointsSeverity, dynamicMessage: pointsMessage);
+        _alerts.ShowAlert(component.Observer.Value, BlobResource, pointsSeverity);
 
         // And this one for health.
         if (!TryComp<DamageableComponent>(core.Owner, out var damageComp))
@@ -302,7 +307,7 @@ public sealed class BlobCoreSystem : EntitySystem
             blobTileComponent.Color = component.ChemСolors[newChem];
             Dirty(blobTile, blobTileComponent);
 
-            ChangeBlobEntChem(blobTile, newChem);
+            ChangeBlobEntChem(blobTile, newChem, blobTileComponent);
 
             if (!_factory.TryGetComponent(blobTile, out var blobFactoryComponent))
                 continue;
@@ -327,8 +332,11 @@ public sealed class BlobCoreSystem : EntitySystem
         }
     }
 
-    private void ChangeBlobEntChem(EntityUid uid, BlobChemType newChem)
+    private void ChangeBlobEntChem(EntityUid uid, BlobChemType newChem, BlobTileComponent? compo = null )
     {
+        // No change for reflective blobs! SPCR-2025
+        if(compo is not null && compo.BlobTileType == BlobTileType.Reflective)
+            return;
         switch (newChem)
         {
             case BlobChemType.ExplosiveLattice:
@@ -379,7 +387,7 @@ public sealed class BlobCoreSystem : EntitySystem
         }
 
         ConnectBlobTile((blobTileUid, blobTileComp), blobCore, nearNode);
-        ChangeBlobEntChem(blobTileUid, blobCoreComp.CurrentChem);
+        ChangeBlobEntChem(blobTileUid, blobCoreComp.CurrentChem, blobTileComp);
 
         Dirty(blobTileUid, blobTileComp);
 
@@ -470,7 +478,7 @@ public sealed class BlobCoreSystem : EntitySystem
         if (tile.Comp.Core == null ||
             tile.Comp.BlobTileType == newTile ||
             tile.Comp.BlobTileType == BlobTileType.Core ||
-            tile.Comp.BlobTileType != checkTile)
+            tile.Comp.BlobTileType != checkTile && checkTile != BlobTileType.Invalid)
         {
             _popup.PopupCoordinates(Loc.GetString("blob-target-normal-blob-invalid"), coords, performer, PopupType.Large);
             return false;

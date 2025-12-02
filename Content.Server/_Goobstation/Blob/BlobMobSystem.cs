@@ -5,6 +5,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
 using System.Numerics;
+using Content.Goobstation.Shared.Blob.Components;
 using Content.Server._Goobstation.Blob.Components;
 //using Content.Server.Language;
 //using Content.Server.Language.Events;

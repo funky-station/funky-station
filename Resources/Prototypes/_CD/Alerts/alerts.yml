@@ -2,7 +2,7 @@
   id: ToggleInteraction
   clickEvent: !type:ToggleInteractionEvent
   icons:
-  - sprite: _CD/Clothing/Hands/Gloves/etu_gauntlet.rsi
+  - sprite: /Textures/Clothing/Hands/Gloves/forensic.rsi
     state: icon
   - sprite: /Textures/Interface/Alerts/pacified.rsi
     state: icon

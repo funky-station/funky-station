@@ -152,6 +152,7 @@
   - type: Thieving
     stripTimeReduction: 9999
     stealthy: true
+  - type: InteractionToggleable # CD
   - type: Stripping
   - type: SolutionScanner
   - type: IgnoreUIRange
@@ -164,7 +165,7 @@
   - type: SupermatterImmune # Goobstation
   - type: ExplosionResistance
     damageCoefficient: 0
-  - type: InteractionToggleable # CD
+
 
 - type: entity
   id: ActionAGhostShowSolar

@@ -18,6 +18,7 @@ using Content.Shared.Damage;
 using Content.Shared.Destructible;
 using Content.Shared.Explosion.Components;
 using Content.Shared.FixedPoint;
+using Content.Shared.Trigger.Components.Effects;
 using Content.Shared.Weapons.Melee;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;

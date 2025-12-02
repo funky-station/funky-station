@@ -51,6 +51,7 @@ using System.Net.Sockets;
 using Robust.Shared.Network;
 using Content.Server.Explosion.EntitySystems;
 using Content.Server.Chat.Systems;
+using Content.Shared.Chat;
 
 namespace Content.Server.Shuttles.Systems;
 

@@ -31,6 +31,7 @@
 
 using System.Linq;
 using Content.Server.Actions;
+using Content.Server.Body.Components;
 using Content.Server.Body.Systems;
 using Content.Server.Chat;
 using Content.Server.Chat.Systems;
@@ -287,6 +288,15 @@ namespace Content.Server.Zombies
 
                 if (_mobState.IsIncapacitated(entity, mobState) && !HasComp<ZombieComponent>(entity) && !HasComp<ZombieImmuneComponent>(entity))
                 {
+                    // Check if this is a critical IPC (has oil as blood reagent and is in critical state)
+                    if (_mobState.IsCritical(entity, mobState) && 
+                        TryComp<BloodstreamComponent>(entity, out var bloodstream) &&
+                        bloodstream.BloodReagent == "Oil")
+                    {
+                        // Give IPC a robot tumor before zombifying
+                        _zombieTumor.SpawnTumorOrgan(entity);
+                    }
+                    
                     ZombifyEntity(entity);
                     args.BonusDamage = -args.BaseDamage;
                 }

@@ -501,7 +501,7 @@ public sealed class ZombieTumorOrganSystem : SharedZombieTumorOrganSystem
             
             // Check if any tumor organ is a ZombieRoboTumor
             bool hasRoboTumor = false;
-            foreach (var (organUid, _) in tumorOrgans)
+            foreach (var (organUid, _, _) in tumorOrgans)
             {
                 if (MetaData(organUid).EntityPrototype?.ID == "ZombieRoboTumor")
                 {

@@ -56,6 +56,7 @@
 # SPDX-FileCopyrightText: 2025 Unkn0wn_Gh0st <shadowstalkermll@gmail.com>
 # SPDX-FileCopyrightText: 2025 W.xyz() <tptechteam@gmail.com>
 # SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Zergologist <114537969+Chedd-Error@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 mkanke-real <mikekanke@gmail.com>
 # SPDX-FileCopyrightText: 2025 mycobiota <154991750+mycobiota@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
@@ -324,7 +325,9 @@
       - id: ClothingMaskBreath
       - id: DoorElectronics
       - id: APCElectronics
-      - id: InflatableWallStack5
+      - id: InflatableWallStack #funky
+      - id: InflatableDoorStack1 #funky
+      - id: InflatableFloorStack #funky
       - id: CableHVStack10
       - id: CableMVStack10
       - id: CableApcStack10

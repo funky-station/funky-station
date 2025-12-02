@@ -203,20 +203,6 @@
     flammable: 5
 
 - type: material
-  id: Cotton
-  name: materials-cotton
-  unit: materials-unit-boll
-  icon: { sprite: Objects/Materials/materials.rsi, state: cotton }
-  color: "#cccccc"
-  price: 0.01 #Who knew cotton was infinitely more valuable than silk
-  properties: # FH edit
-    electrical: 4
-    thermal: 4
-    hard: 1
-    density: 1
-    flammable: 4
-
-- type: material
   id: Bones
   name: materials-bones
   unit: materials-unit-piece

@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 dffdff2423 <dffdff2423@gmail.com>
+//
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Alert;
 using Content.Shared.Interaction.Events;
 

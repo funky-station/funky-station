@@ -2,7 +2,7 @@
   id: NuclearFabricator
   parent: BaseLatheLube
   name: nuclear fabricator
-  description: It makes nuclear parts.
+  description: It makes nuclear reactor parts.
   components:
   - type: Sprite
     sprite: Structures/Machines/protolathe.rsi
@@ -25,12 +25,46 @@
         - Sheet
         - RawMaterial
         - Ingot
-        
+  - type: MaterialSiloClient
   - type: Lathe
     idleState: icon
     runningState: building
     unlitIdleState: unlit
     unlitRunningState: unlit-building
+
+    staticRecipes:
+    - SteelReactorGasChannel
+    - SteelReactorHeatExchanger
+    - CerenkiteReactorFuelRod
+    - BohrumReactorControlRod
+    - BrassReactorControlRod
+    - BrassReactorGasChannel
+    - BrassReactorHeatExchanger
+    dynamicRecipes:
+    - UraniumReactorFuelRod
+    - UraniumGlassReactorFuelRod
+    - PlutoniumReactorFuelRod
+    - PlasmaReactorFuelRod
+    - BananiumReactorFuelRod
+    - DiamondReactorControlRod
+    - GlassReactorControlRod
+    - GoldReactorControlRod
+    - PlasmaGlassReactorControlRod
+    - PlasteelReactorControlRod
+    - SilverReactorControlRod
+    - DiamondReactorHeatExchanger
+    - GlassReactorHeatExchanger
+    - GoldReactorHeatExchanger
+    - PlasmaGlassReactorHeatExchanger
+    - PlasteelReactorHeatExchanger
+    - SilverReactorHeatExchanger
+    - DiamondReactorGasChannel
+    - GlassReactorGasChannel
+    - GoldReactorGasChannel
+    - PlasmaGlassReactorGasChannel
+    - PlasteelReactorGasChannel
+    - SilverReactorGasChannel
+
     staticPacks:
     - ReactorPartsBasic
     dynamicPacks:
@@ -38,12 +72,3 @@
     - ReactorControlRods
     - ReactorGasChannels
     - ReactorHeatExchangers
- 
-  - type: ContainerContainer
-    containers:
-      machine_board: !type:Container
-      machine_parts: !type:Container
-      blueprint: !type:Container
-  - type: EmptyOnMachineDeconstruct
-    containers:
-    - blueprint

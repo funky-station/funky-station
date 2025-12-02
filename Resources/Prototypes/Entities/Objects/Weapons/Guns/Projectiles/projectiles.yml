@@ -1173,6 +1173,10 @@
     deleteOnCollide: false
     soundHit:
       path: /Audio/Weapons/Guns/Hits/bullet_hit.ogg
+    damage:
+      types:
+        Ion: 50
+        Shock: 20
   - type: LightningArcShooter
     arcDepth: 1
     maxLightningArc: 3

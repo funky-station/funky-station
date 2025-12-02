@@ -755,6 +755,8 @@
     - MagazinePistolLargeIncendiary # Funkystation
     - MagazineBoxPistolLargeUranium # Funkystation
     - MagazineBoxPistolLargeIncendiary # Funkystation
+    - WeaponEnergyGunEnergyPistol # Funkystation
+    - WeaponTeslaGun # Funkystation 
     - ClothingHandsTruncheonKnuckleDusters # funk
 
 - type: entity
@@ -1238,6 +1240,8 @@
     - MagazinePistolLargeIncendiary # Funkystation
     - MagazineBoxPistolLargeUranium # Funkystation
     - MagazineBoxPistolLargeIncendiary # Funkystation
+    - WeaponEnergyGunEnergyPistol # Funkystation
+    - WeaponTeslaGun # Funkystation 
     - PortableRecharger
     - PowerCageHigh
     - PowerCageMedium

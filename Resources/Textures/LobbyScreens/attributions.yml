@@ -26,6 +26,7 @@
 # SPDX-FileCopyrightText: 2025 ashley <vectorassembly@icloud.com>
 # SPDX-FileCopyrightText: 2025 mkanke-real <mikekanke@gmail.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 vectorassembly <vectorassembly@icloud.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -192,4 +193,9 @@
 - files: ["TERMINA.webp"]
   license: "CC-BY-NC-3.0"
   copyright: "frogoo"
+  source: "https://funkystation.org"
+
+- files: ["ratburgers.webp"]
+  license: "CC-BY-NC-3.0"
+  copyright: "nikitavix on Discord"
   source: "https://funkystation.org"

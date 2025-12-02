@@ -1,5 +1,6 @@
 # SPDX-FileCopyrightText: 2025 IronDragoon <8961391+IronDragoon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 IronDragoon <you@example.com>
+# SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
@@ -12,20 +13,20 @@
     Steel: 1500
     Plastic: 1000
     Glass: 500
-    Gold: 500
+    Plasma: 500
 
 - type: latheRecipe
   id: autoInjectorCartridgeCase
   result: autoInjectorCartridgeCase
   completetime: 6
   materials:
-    Steel: 1000
-    Plastic: 500
+    Steel: 300
+    Plastic: 300
 
 - type: latheRecipe
   id: autoInjectorCartridgeCaseSoft
   result: autoInjectorCartridgeCaseSoft
   completetime: 6
   materials:
-    Plastic: 500
-    Cloth: 500
+    Plastic: 200
+    Cloth: 200

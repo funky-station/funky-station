@@ -17,7 +17,7 @@
     size: Normal
 
 - type: entity
-  parent: ClothingOuterWinterCoat
+  parent: [ClothingOuterWinterCoat, BaseCentcommContraband]
   id: ClothingOuterWinterIAA
   name: internal affair agent's winter coat
   description: No blizzard or storm can hide SOP violations from the wearer of this warm coat.
@@ -28,3 +28,42 @@
     sprite: _Funkystation/Clothing/OuterClothing/WinterCoats/iaa_winter_coat.rsi
   - type: Item
     size: Normal
+
+- type: entity
+  parent: [ClothingOuterWinterCoat, BaseCentcommContraband]
+  id: ClothingOuterWinterMagistrate
+  name: magistrate's winter coat
+  description: Bundle up, justice waits for no weather.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/OuterClothing/WinterCoats/magi_winter_coat.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/OuterClothing/WinterCoats/magi_winter_coat.rsi
+  - type: Item
+    size: Normal
+
+- type: entity
+  parent: ClothingOuterWinterCoat
+  id: ClothingOuterWinterStingray
+  name: cyber bartender winter coat
+  description: At one point I cried with the book and realized... I was crying over fake things. A story and its characters. I didn't care less for them because they were fake. Why not think "of reality" like that too?
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/OuterClothing/WinterCoats/stingray_coat.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/OuterClothing/WinterCoats/stingray_coat.rsi
+  - type: Item
+    size: Normal
+
+# Chef, blue! (By AraiMaia)
+
+- type: entity
+  parent: ClothingOuterWinterCoat
+  id: ClothingOuterWinterChefBlue
+  name: blue chef's freezer coat
+  description: A coat specifically designed for the blue team, sorely needed by blue-blooded lizard chefs.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/OuterClothing/Coats/chef_freezer_coat_blue.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/OuterClothing/Coats/chef_freezer_coat_blue.rsi

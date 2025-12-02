@@ -2,7 +2,9 @@
 # SPDX-FileCopyrightText: 2025 8tv <eightev@gmail.com>
 # SPDX-FileCopyrightText: 2025 Josh Hilsberg <thejoulesberg@gmail.com>
 # SPDX-FileCopyrightText: 2025 JoulesBerg <104539820+JoulesBerg@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 MaiaArai <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
@@ -53,13 +55,15 @@
   id: MagistrateGear
   equipment:
     id: MagistratePDA
-    shoes: ClothingShoesBootsLaceup
     eyes: ClothingEyesGlassesSecurity
-    ears: ClothingHeadsetCentCom
+    ears: ClothingHeadsetAltCentCom
     pocket2: RubberStampMagistrate
+    belt: ClothingBeltStorageWaistbag
   inhand:
   - BriefcaseBrownFilled
   storage:
     back:
     - Flash
     - BookSpaceLaw
+    - BluespaceLifelineImplanter
+    - BoxFolderCentComClipboard

@@ -31,16 +31,22 @@
 # SPDX-FileCopyrightText: 2024 deltanedas <@deltanedas:kde.org>
 # SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 pigeonpeas <147350443+pigeonpeas@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 2DSiggy <siggymaxwell@gmail.com>
+# SPDX-FileCopyrightText: 2025 Dani <57107055+wgreen84@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Dani Green <wgreen84gamergame@gmail.com>
+# SPDX-FileCopyrightText: 2025 Nox <nebulousnox38@gmail.com>
 # SPDX-FileCopyrightText: 2025 SpaceCat~Chan <49094338+SpaceCat-Chan@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 W.xyz() <tptechteam@gmail.com>
 # SPDX-FileCopyrightText: 2025 beef42 <bjarketp@gmail.com>
 # SPDX-FileCopyrightText: 2025 empty0set <16693552+empty0set@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 empty0set <empty0set@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 w.xyz() <84605679+pirakaplant@users.noreply.github.com>
 #
-# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+# SPDX-License-Identifier: MIT
 
 - type: entity
   id: BaseBorgModule
@@ -322,6 +328,7 @@
   id: BorgModuleCable
   parent: [ BaseBorgModule, BaseProviderBorgModule ]
   name: cable cyborg module
+  description: A universal cyborg module which allows the unit to install and manipulate electrical systems.
   components:
   - type: Sprite
     layers:
@@ -333,6 +340,7 @@
     - CableMVStackLingering10
     - CableHVStackLingering10
     - Wirecutter
+    - Crowbar
     - trayScanner
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: wire-module }
@@ -340,7 +348,8 @@
 - type: entity
   id: BorgModuleFireExtinguisher
   parent: [ BaseBorgModule, BaseProviderBorgModule ]
-  name: fire extinguisher cyborg module
+  name: thruster cyborg module
+  description: NT assigned a team to design a jetpack for cyborg units, but they ran out of funding and just made a bigger fire extinguisher. It comes with a integrated GPS and mass scanner though!
   components:
   - type: Sprite
     layers:
@@ -348,41 +357,11 @@
     - state: icon-fire-extinguisher
   - type: ItemBorgModule
     items:
-    - FireExtinguisher
+    - BorgFireExtinguisher
+    - BorgHandheldGPSBasic
+    - HandHeldMassScannerBorg
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: extinguisher-module }
-
-- type: entity
-  id: BorgModuleGPS
-  parent: [ BaseBorgModule, BaseProviderBorgModule ]
-  name: GPS cyborg module
-  components:
-  - type: Sprite
-    layers:
-    - state: generic
-    - state: icon-gps
-  - type: ItemBorgModule
-    items:
-    - HandheldGPSBasic
-    - HandHeldMassScannerBorg
-    - HandheldStationMapUnpowered
-  - type: BorgModuleIcon
-    icon: { sprite: Interface/Actions/actions_borg.rsi, state: gps-module }
-
-- type: entity
-  id: BorgModuleRadiationDetection
-  parent: [ BaseBorgModule, BaseProviderBorgModule ]
-  name: radiation detection cyborg module
-  components:
-  - type: Sprite
-    layers:
-    - state: generic
-    - state: icon-radiation
-  - type: ItemBorgModule
-    items:
-    - GeigerCounter
-  - type: BorgModuleIcon
-    icon: { sprite: Interface/Actions/actions_borg.rsi, state: geiger-module }
 
 - type: entity
   id: BorgModuleTool
@@ -399,8 +378,8 @@
     - Wrench
     - Screwdriver
     - Wirecutter
-    - Multitool
     - WelderIndustrial
+    - Multitool
     - GasAnalyzer
     - RubberStampCyborg # Funkystation
   - type: BorgModuleIcon
@@ -419,6 +398,11 @@
   - type: ItemBorgModule
     items:
     - AppraisalTool
+    - Pen
+    - HandLabeler
+    - RubberStampApproved
+    - RubberStampDenied
+    - RadioHandheld
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: appraisal-module }
 
@@ -436,16 +420,33 @@
     - MiningDrill
     - Shovel
     - MineralScannerUnpowered
-    - OreBag
-    - Crowbar
-    - RadioHandheld
+    - BorgOreBag
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: mining-module }
 
 - type: entity
-  id: BorgModuleGrapplingGun
+  id: BorgModuleAdvancedMining
   parent: [ BaseBorgModuleCargo, BaseProviderBorgModule ]
-  name: grappling gun cyborg module
+  name: advanced mining cyborg module
+  description: Advanced cargo module containing advanced mining equipment. Studies show it advances productivity of a cyborg by 150%.
+  components:
+  - type: Sprite
+    layers:
+    - state: cargo
+    - state: icon-mining-adv
+  - type: ItemBorgModule
+    items:
+    - MiningDrillDiamond
+    - Shovel
+    - AdvancedMineralScannerUnpowered
+    - OreBagOfHolding
+  - type: BorgModuleIcon
+    icon: { sprite: Interface/Actions/actions_borg.rsi, state: adv-mining-module }
+
+- type: entity
+  id: BorgModuleTraversal
+  parent: [ BaseBorgModuleCargo, BaseProviderBorgModule ]
+  name: traversal cyborg module
   components:
   - type: Sprite
     layers:
@@ -454,7 +455,9 @@
   - type: ItemBorgModule
     items:
     - WeaponGrapplingGun
-    - HandheldGPSBasic
+    - BorgFireExtinguisher
+    - BorgHandheldGPSBasic
+    - HandHeldMassScannerBorg
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: grappling-module }
 
@@ -463,6 +466,7 @@
   id: BorgModuleAdvancedTool
   parent: [ BaseBorgModuleEngineering, BaseProviderBorgModule ]
   name: advanced tool cyborg module
+  description: Advanced engineering module containing cutting-edge tools.
   components:
   - type: Sprite
     layers:
@@ -472,11 +476,9 @@
     items:
     - JawsOfLife
     - PowerDrill
-    - Multitool
     - WelderExperimental
-    - RemoteSignaller
-    - GasAnalyzer
-    - GeigerCounter
+    - Multitool
+    - RemoteSignallerAdvanced
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: adv-tools-module }
 
@@ -493,15 +495,20 @@
     items:
     - SheetSteelLingering0
     - SheetGlassLingering0
+    - SheetRGlassLingering0
+    - SheetRPGlassLingering0
+    - SheetPlasteelLingering0
     - PartRodMetalLingering0
     - FloorTileItemSteelLingering0
+    - FloorTileItemWhiteLingering0
+    - FloorTileItemDarkLingering0
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: construction-module }
 
 - type: entity
   id: BorgModuleRCD
   parent: [ BaseBorgModuleEngineering, BaseProviderBorgModule ]
-  name: RCD cyborg module
+  name: engineering cyborg module
   components:
   - type: Sprite
     layers:
@@ -510,6 +517,10 @@
   - type: ItemBorgModule
     items:
     - RCDRecharging
+    - BorgFireExtinguisher
+    - BorgHandheldGPSBasic
+    - GasAnalyzer
+    - GeigerCounter
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: rcd-module }
 
@@ -526,14 +537,16 @@
     items:
     - RPDRecharging
     - HolofanProjectorRecharging
+    - BorgFirefighterTank
+    - FirefighterNozzle
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: atmos-module }
 
 # janitorial modules (this gets its own unique things because janis are epic)
 - type: entity
-  id: BorgModuleLightReplacer
+  id: BorgModuleCustodial
   parent: [ BaseBorgModuleJanitor, BaseProviderBorgModule ]
-  name: light replacer cyborg module
+  name: custodial cyborg module
   components:
   - type: Sprite
     layers:
@@ -542,8 +555,9 @@
   - type: ItemBorgModule
     items:
     - LightReplacer
-    - Crowbar
-    - Screwdriver
+    - BorgTrashBag
+    - Plunger
+    - SoapNT
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: light-replacer-module }
 
@@ -559,8 +573,9 @@
   - type: ItemBorgModule
     items:
     - MopItem
-    - Bucket
-    - TrashBag
+    - BorgBucket
+    - BorgSprayBottle
+    - HoloprojectorBorg
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: cleaning-module }
 
@@ -568,6 +583,7 @@
   id: BorgModuleAdvancedCleaning
   parent: [ BaseBorgModuleJanitor, BaseProviderBorgModule ]
   name: advanced cleaning cyborg module
+  description: Advanced janitorial module containing, well... advanced janitor equipment. What were you expecting?
   components:
   - type: Sprite
     layers:
@@ -576,10 +592,10 @@
   - type: ItemBorgModule
     items:
     - AdvMopItem
+    - BorgMegaSprayBottle
     - HoloprojectorBorg
-    - SprayBottleSpaceCleaner
-    - Dropper
-    - TrashBag
+    - BorgDropper
+    - BorgBeaker
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: adv-cleaning-module }
 
@@ -601,9 +617,9 @@
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: diagnosis-module }
 
 - type: entity
-  id: BorgModuleTreatment
+  id: BorgModuleTopicals
   parent: [ BaseBorgModuleMedical, BaseProviderBorgModule ]
-  name: treatment cyborg module
+  name: topicals cyborg module
   components:
   - type: Sprite
     layers:
@@ -612,18 +628,19 @@
   - type: ItemBorgModule
     items:
     - HandheldHealthAnalyzerUnpowered
+    - Gauze10Lingering
     - Brutepack10Lingering
     - Ointment10Lingering
-    - Gauze10Lingering
     - Bloodpack10Lingering
-    - Syringe
+    - RegenerativeMeshLingering0
+    - MedicatedSutureLingering0
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: treatment-module }
 
 - type: entity
-  id: BorgModuleDefibrillator
+  id: BorgModuleRescue
   parent: [ BaseBorgModuleMedical, BaseProviderBorgModule ]
-  name: defibrillator cyborg module
+  name: rescue cyborg module
   components:
   - type: Sprite
     layers:
@@ -631,14 +648,39 @@
     - state: icon-defib
   - type: ItemBorgModule
     items:
+    - HandheldHealthAnalyzerUnpowered
     - DefibrillatorOneHandedUnpowered
+    - BorgFireExtinguisher
+    - BorgHandheldGPSBasic
+    - HandLabeler
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: defib-module }
 
 - type: entity
-  id: BorgModuleAdvancedTreatment
+  id: BorgModuleChemical
   parent: [ BaseBorgModuleMedical, BaseProviderBorgModule ]
-  name: advanced treatment cyborg module
+  name: chemical cyborg module
+  components:
+  - type: Sprite
+    layers:
+    - state: medical
+    - state: icon-chem
+  - type: ItemBorgModule
+    items:
+    - HandheldHealthAnalyzerUnpowered
+    - Syringe
+    - BorgDropper
+    - BorgVial
+    - BorgVial
+    - BorgVial
+  - type: BorgModuleIcon
+    icon: { sprite: Interface/Actions/actions_borg.rsi, state: chem-module }
+
+- type: entity
+  id: BorgModuleAdvancedChemical
+  parent: [ BaseBorgModuleMedical, BaseProviderBorgModule ]
+  name: advanced chemical cyborg module
+  description: Advanced medical module containing the cyborg adaptation of the highly coveted hypospray. Now your cyborgs can inject crew-harmers with chloral hydrate even faster!
   components:
   - type: Sprite
     layers:
@@ -647,12 +689,13 @@
   - type: ItemBorgModule
     items:
     - HandheldHealthAnalyzerUnpowered
-    - Beaker
-    - Beaker
-    - BorgDropper
     - BorgHypo
+    - Syringe
+    - BorgDropper
+    - BorgBeaker
+    - BorgBeaker
   - type: BorgModuleIcon
-    icon: { sprite: Interface/Actions/actions_borg.rsi, state: adv-diagnosis-module }
+    icon: { sprite: Interface/Actions/actions_borg.rsi, state: adv-chem-module }
 
 # science modules
 # todo: if science ever gets their own custom robot, add more "sci" modules.
@@ -668,6 +711,11 @@
   - type: ItemBorgModule
     items:
     - NodeScanner
+    - SprayBottle
+    - GasAnalyzer
+    - BorgDropper
+    - BorgVial
+    - GeigerCounter
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: node-scanner-module }
 
@@ -685,8 +733,9 @@
     - AnomalyScanner
     - AnomalyLocatorUnpowered
     - AnomalyLocatorWideUnpowered
-    - RemoteSignaller
-    - Multitool
+    - HandLabeler
+    - SheetRGlassLingering0
+    - SheetRPGlassLingering0
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: anomaly-module }
 
@@ -703,11 +752,12 @@
   - type: ItemBorgModule
     items:
     - Pen
-    - BooksBag
+    #- BooksBag (Add back when hand whitelisting exists, at the moment they can only use it like an orebag.)
     - HandLabeler
-    - Lighter
-    - DrinkShaker
+    - RubberStampApproved
+    - RubberStampDenied
     - BorgDropper
+    - BorgVial
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: service-module }
 
@@ -817,7 +867,7 @@
 
 - type: entity
   id: BorgModuleOperative
-  parent: [ BaseBorgModuleSyndicate, BaseProviderBorgModule ]
+  parent: [ BaseBorgModuleSyndicate, BaseProviderBorgModule, BaseSyndicateContraband ]
   name: operative cyborg module
   description: A module that comes with a crowbar, an Emag, an Access Breaker and a syndicate pinpointer.
   components:
@@ -836,7 +886,7 @@
 
 - type: entity
   id: BorgModuleEsword
-  parent: [ BaseBorgModuleSyndicate, BaseProviderBorgModule ]
+  parent: [ BaseBorgModuleSyndicate, BaseProviderBorgModule, BaseSyndicateContraband ]
   name: energy sword cyborg module
   description: A module that comes with a double energy sword.
   components:
@@ -853,7 +903,7 @@
 
 - type: entity
   id: BorgModuleL6C
-  parent: [ BaseBorgModuleSyndicateAssault, BaseProviderBorgModule ]
+  parent: [ BaseBorgModuleSyndicateAssault, BaseProviderBorgModule, BaseSyndicateContraband ]
   name: L6C ROW cyborg module
   description: A module that comes with a L6C.
   components:
@@ -922,6 +972,7 @@
     - Cautery
     - SawElectric
     - BoneGel
+    - SoapNT
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: surgery-module }
 
@@ -940,5 +991,6 @@
     - EnergyCautery
     - AdvancedRetractor
     - BoneGel
+    - SoapOmega #Omega soap should be better at cleaning surgical tools but i dont know how to do that so it just gets omega soap for flavor right now
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: adv-surgery-module }

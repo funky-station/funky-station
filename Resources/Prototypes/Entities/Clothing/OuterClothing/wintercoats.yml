@@ -32,9 +32,13 @@
 # SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 strO0pwafel <153459934+strO0pwafel@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 MaiaArai <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 Xcybitt <197952719+Xcybitt@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Xcybitt <xcybitt@gmail.com>
+# SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 vectorassembly <vectorassembly@icloud.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -50,7 +54,7 @@
     sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
   - type: TemperatureProtection
     heatingCoefficient: 1.1
-    coolingCoefficient: 0.1
+    coolingCoefficient: 0.4
   - type: Item
     size: Normal
   - type: Armor
@@ -91,50 +95,29 @@
         ents: []
 
 - type: entity
-  parent: ClothingOuterWinterCoatToggleable
+  parent: ClothingOuterWinterCoat
   id: ClothingOuterWinterAtmos
-  name: atmospherics winter coat
+  name: insulated atmos coat
+  description: If you're cold, he's cold. Get Tropico out of the Atmospheric bay.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
-    layers:
-    - state: ATMOS-icon
-  - type: Item
-    inhandVisuals:
-      left:
-      - state: ATMOS-inhand-left
-      right:
-      - state: ATMOS-inhand-right
+    sprite: _Funkystation/Clothing/OuterClothing/WinterCoats/atmos_insulated_coat.rsi
   - type: Clothing
-    sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
-    clothingVisuals:
-      outerClothing:
-      - state: ATMOS-equipped-OUTERCLOTHING
-  - type: ToggleableClothing
-    clothingPrototype: ClothingHeadHatHoodWinterEngineer
+    sprite: _Funkystation/Clothing/OuterClothing/WinterCoats/atmos_insulated_coat.rsi
+  - type: Item
+    size: Normal
 
 - type: entity
-  parent: ClothingOuterWinterCoatToggleable
+  parent: ClothingOuterWinterCoat
   id: ClothingOuterWinterBar
   name: bartender winter coat
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
-    layers:
-    - state: BAR-icon
-  - type: Item
-    inhandVisuals:
-      left:
-      - state: BAR-inhand-left
-      right:
-      - state: BAR-inhand-right
+    sprite: _Funkystation/Clothing/OuterClothing/WinterCoats/bar_coat.rsi
   - type: Clothing
-    sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
-    clothingVisuals:
-      outerClothing:
-      - state: BAR-equipped-OUTERCLOTHING
-  - type: ToggleableClothing
-    clothingPrototype: ClothingHeadHatHoodWinterBartender
+    sprite: _Funkystation/Clothing/OuterClothing/WinterCoats/bar_coat.rsi
+  - type: Item
+    size: Normal
 
 - type: entity
   parent: [ClothingOuterWinterCoatToggleable, BaseCommandContraband]
@@ -183,27 +166,17 @@
     clothingPrototype: ClothingHeadHatHoodWinterCargo
 
 - type: entity
-  parent: [ClothingOuterWinterCoatToggleable, BaseCommandContraband]
+  parent: [ClothingOuterWinterCoat, BaseCommandContraband]
   id: ClothingOuterWinterCE
-  name: chief engineer's winter coat
+  name: insulated chief engineer's coat
+  description: Was your hardsuit stolen again?
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
-    layers:
-    - state: CE-icon
-  - type: Item
-    inhandVisuals:
-      left:
-      - state: CE-inhand-left
-      right:
-      - state: CE-inhand-right
+    sprite: _Funkystation/Clothing/OuterClothing/WinterCoats/CE_insulated_coat.rsi
   - type: Clothing
-    sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
-    clothingVisuals:
-      outerClothing:
-      - state: CE-equipped-OUTERCLOTHING
-  - type: ToggleableClothing
-    clothingPrototype: ClothingHeadHatHoodWinterCE
+    sprite: _Funkystation/Clothing/OuterClothing/WinterCoats/CE_insulated_coat.rsi
+  - type: Item
+    size: Normal
 
 - type: entity
   parent: [ ClothingOuterWinterCoatToggleable, BaseCentcommContraband ]
@@ -235,20 +208,9 @@
   description: A coat specifically designed for work inside cold storage, sorely needed by cold-blooded lizard chefs.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
-    layers:
-    - state: CHEF-icon
-  - type: Item
-    inhandVisuals:
-      left:
-      - state: CHEF-inhand-left
-      right:
-      - state: CHEF-inhand-right
+    sprite: _Funkystation/Clothing/OuterClothing/Coats/chef_freezer_coat.rsi
   - type: Clothing
-    sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
-    clothingVisuals:
-      outerClothing:
-      - state: CHEF-equipped-OUTERCLOTHING
+    sprite: _Funkystation/Clothing/OuterClothing/Coats/chef_freezer_coat.rsi
 
 - type: entity
   parent: ClothingOuterWinterCoatToggleable
@@ -321,27 +283,17 @@
     sprite: Clothing/OuterClothing/WinterCoats/coatclown.rsi
 
 - type: entity
-  parent: ClothingOuterWinterCoatToggleable
+  parent: ClothingOuterWinterCoat
   id: ClothingOuterWinterEngi
-  name: engineering winter coat
+  name: insulated engineering coat
+  description: Atmos messed up and the air is at a cool 20 Kelvin? Better bundle up.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
-    layers:
-    - state: ENGI-icon
-  - type: Item
-    inhandVisuals:
-      left:
-      - state: ENGI-inhand-left
-      right:
-      - state: ENGI-inhand-right
+    sprite: _Funkystation/Clothing/OuterClothing/WinterCoats/engineer_insulated_coat.rsi
   - type: Clothing
-    sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
-    clothingVisuals:
-      outerClothing:
-      - state: ENGI-equipped-OUTERCLOTHING
-  - type: ToggleableClothing
-    clothingPrototype: ClothingHeadHatHoodWinterEngineer
+    sprite: _Funkystation/Clothing/OuterClothing/WinterCoats/engineer_insulated_coat.rsi
+  - type: Item
+    size: Normal
 
 - type: entity
   parent: ClothingOuterWinterCoatToggleable
@@ -374,28 +326,16 @@
     clothingPrototype: ClothingHeadHatHoodWinterSci
 
 - type: entity
-  parent: [ClothingOuterWinterCoatToggleable, BaseCommandContraband]
+  parent: [ClothingOuterWinterCoat, BaseCommandContraband]
   id: ClothingOuterWinterHoP
   name: head of personnel's winter coat
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
-    layers:
-    - state: HOP-icon
-  - type: Item
-    inhandVisuals:
-      left:
-      - state: HOP-inhand-left
-      right:
-      - state: HOP-inhand-right
+    sprite: _Funkystation/Clothing/OuterClothing/WinterCoats/hop_coat.rsi
   - type: Clothing
-    sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
-    clothingVisuals:
-      outerClothing:
-      - state: HOP-equipped-OUTERCLOTHING
-  - type: ToggleableClothing
-    clothingPrototype: ClothingHeadHatHoodWinterHOP
-
+    sprite: _Funkystation/Clothing/OuterClothing/WinterCoats/hop_coat.rsi
+  - type: Item
+    size: Normal
 
 ##########################################################
 - type: entity
@@ -601,20 +541,10 @@
   name: quartermaster's winter coat
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
-    layers:
-    - state: QM-icon
+    sprite: _Funkystation/Clothing/OuterClothing/WinterCoats/qm_winter_coat.rsi
   - type: Item
-    inhandVisuals:
-      left:
-      - state: QM-inhand-left
-      right:
-      - state: QM-inhand-right
   - type: Clothing
-    sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
-    clothingVisuals:
-      outerClothing:
-      - state: QM-equipped-OUTERCLOTHING
+    sprite: _Funkystation/Clothing/OuterClothing/WinterCoats/qm_winter_coat.rsi
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodWinterQM
 

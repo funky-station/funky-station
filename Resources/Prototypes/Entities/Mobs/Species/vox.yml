@@ -66,7 +66,7 @@
   - type: Speech
     speechVerb: Vox
     speechSounds: Vox
-    allowedEmotes: ['Chitter', 'Coo', 'Hiss', 'Caw']
+    allowedEmotes: ['Chitter', 'Coo', 'Hiss', 'Caw', 'Click']
   - type: TypingIndicator
     proto: vox
   - type: Vocal
@@ -274,6 +274,10 @@
     - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
     - map: [ "enum.HumanoidVisualLayers.Tail" ]
     - map: [ "mask" ]
+    - map: [ "enum.PaperLabelVisuals.Layer" ] # Funky edit
+      sprite: "_DV/Objects/Misc/stickies.rsi"
+      state: "sticky_face-VOX"
+      visible: false
     - map: [ "head" ]
     - map: [ "pocket1" ]
     - map: [ "pocket2" ]

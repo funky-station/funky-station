@@ -10,14 +10,15 @@
 // SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Fildrance <fildrance@gmail.com>
 // SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2024 ScarKy0 <scarky0@onet.eu>
 // SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
-// SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
-// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 pa.pecherskij <pa.pecherskij@interfax.ru>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 RichardBlonski <48651647+RichardBlonski@users.noreply.github.com>
 //
-// SPDX-License-Identifier: MIT
+// SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Robust.Shared.GameStates;
 using Robust.Shared.Audio;
@@ -149,4 +150,33 @@ public sealed partial class ElectrifiedComponent : Component
 
     [DataField, AutoNetworkedField]
     public bool IsWireCut = false;
+
+    #region Goobstation
+    /// <summary>
+    /// Goobstation
+    /// Whether this will ignore target insulation
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public bool IgnoreInsulation;
+
+    /// <summary>
+    /// Goobstation
+    /// Don't shock this entity
+    /// </summary>
+    [ViewVariables(VVAccess.ReadOnly), AutoNetworkedField]
+    public EntityUid? IgnoredEntity;
+
+    /// <summary>
+    /// Cooldown between shocks
+    /// </summary>
+    [DataField]
+    public TimeSpan ShockCooldown { get; set; } = TimeSpan.FromSeconds(0.3f);
+
+    /// <summary>
+    /// Last time this entity was shocked
+    /// </summary>
+    [DataField]
+    public TimeSpan LastShockTime { get; set; } = TimeSpan.Zero;
+
+    #endregion
 }

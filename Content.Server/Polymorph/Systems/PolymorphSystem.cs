@@ -421,3 +421,6 @@ public sealed partial class PolymorphSystem : EntitySystem
             _actions.RemoveAction(target.Owner, action);
     }
 }
+
+// goob edit
+public sealed partial class PolymorphRevertEvent : EntityEventArgs { }

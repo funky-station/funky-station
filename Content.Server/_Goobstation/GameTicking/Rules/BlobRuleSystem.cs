@@ -1,22 +1,25 @@
-// SPDX-FileCopyrightText: 2024 John Space <bigdumb421@gmail.com>
+// SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2024 Fishbait <Fishbait@git.ml>
 // SPDX-FileCopyrightText: 2024 fishbait <gnesse@gmail.com>
-// SPDX-FileCopyrightText: 2025 QueerCats <jansencheng3@gmail.com>
-// SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
-// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
+// SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 //
-// SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+// SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
-using Content.Server.AlertLevel;
-using Content.Server.Antag;
 using Content.Server._Goobstation.Blob;
 using Content.Server._Goobstation.Blob.Components;
-using Content.Server.GameTicking.Rules.Components;
+using Content.Server.AlertLevel;
+using Content.Server.Antag;
 using Content.Server.Chat.Managers;
 using Content.Server.Chat.Systems;
 using Content.Server.GameTicking;
 using Content.Server.GameTicking.Rules;
+using Content.Server.GameTicking.Rules.Components;
 using Content.Server.Mind;
 using Content.Server.Nuke;
 using Content.Server.Objectives;
@@ -26,10 +29,10 @@ using Content.Server.Station.Systems;
 using Content.Shared._Goobstation.Blob.Components;
 using Content.Shared.GameTicking.Components;
 using Content.Shared.Objectives.Components;
-using Robust.Shared.Audio;
+using Robust.Server.Player;
 using Robust.Shared.Player;
 
-namespace Content.Server.GameTicking.Rules;
+namespace Content.Goobstation.Server.Blob.GameTicking;
 
 public sealed class BlobRuleSystem : GameRuleSystem<BlobRuleComponent>
 {
@@ -41,8 +44,8 @@ public sealed class BlobRuleSystem : GameRuleSystem<BlobRuleComponent>
     [Dependency] private readonly ObjectivesSystem _objectivesSystem = default!;
     [Dependency] private readonly AlertLevelSystem _alertLevelSystem = default!;
     [Dependency] private readonly IChatManager _chatManager = default!;
+    [Dependency] private readonly IPlayerManager _player = default!;
 
-    private static readonly SoundPathSpecifier BlobDetectAudio = new ("/Audio/Announcements/outbreak5.ogg");
     public override void Initialize()
     {
         base.Initialize();
@@ -59,7 +62,7 @@ public sealed class BlobRuleSystem : GameRuleSystem<BlobRuleComponent>
                 continue;
 
             GameTicker.EndGameRule(uid, gameRule);
-            Log.Error("blob is active!!! remove!");
+            Log.Warning("blob is active!!! remove!");
             break;
         }
     }
@@ -121,6 +124,18 @@ public sealed class BlobRuleSystem : GameRuleSystem<BlobRuleComponent>
 
         var stationName = Name(stationUid);
 
+        if (blobTilesCount >= (stationUid.Comp?.StageBegin ?? StationBlobConfigComponent.DefaultStageBegin)
+            && _roundEndSystem.ExpectedCountdownEnd != null)
+        {
+            _roundEndSystem.CancelRoundEndCountdown(checkCooldown: false);
+            _chatSystem.DispatchStationAnnouncement(stationUid,
+                Loc.GetString("blob-alert-recall-shuttle"),
+                Loc.GetString("Station"),
+                false,
+                null,
+                Color.Red);
+        }
+
         switch (blobRuleComp.Stage)
         {
             case BlobStage.Default when blobTilesCount >= (stationUid.Comp?.StageBegin ?? StationBlobConfigComponent.DefaultStageBegin):
@@ -130,7 +145,7 @@ public sealed class BlobRuleSystem : GameRuleSystem<BlobRuleComponent>
                     Loc.GetString("blob-alert-detect"),
                     stationName,
                     true,
-                    BlobDetectAudio,
+                    blobRuleComp.DetectedAudio,
                     Color.Red);
 
                 _alertLevelSystem.SetLevel(stationUid, StationAlertDetected, true, true, true, true);
@@ -152,7 +167,7 @@ public sealed class BlobRuleSystem : GameRuleSystem<BlobRuleComponent>
                     Loc.GetString("blob-alert-critical"),
                     stationName,
                     true,
-                    blobRuleComp.AlertAudio,
+                    blobRuleComp.CriticalAudio,
                     Color.Red);
                 }
                 else
@@ -162,7 +177,7 @@ public sealed class BlobRuleSystem : GameRuleSystem<BlobRuleComponent>
                     Loc.GetString("blob-alert-critical-NoNukeCode"),
                     stationName,
                     true,
-                    blobRuleComp.AlertAudio,
+                    blobRuleComp.CriticalAudio,
                     Color.Red);
                 }
 
@@ -209,7 +224,7 @@ public sealed class BlobRuleSystem : GameRuleSystem<BlobRuleComponent>
         foreach (var (mindId, mind) in blob.Blobs)
         {
             var name = mind.CharacterName;
-            _mindSystem.TryGetSession(mindId, out var session);
+            _player.TryGetSessionByEntity(mindId, out var session);
             var username = session?.Name;
 
             var objectives = mind.Objectives.ToArray();

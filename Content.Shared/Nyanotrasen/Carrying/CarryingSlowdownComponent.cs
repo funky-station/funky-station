@@ -1,33 +1,22 @@
-// SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
-// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
 //
-// SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+// SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Robust.Shared.GameStates;
-using Robust.Shared.Serialization;
 
-namespace Content.Shared.Carrying
+namespace Content.Shared._DV.Carrying;
+
+[RegisterComponent, NetworkedComponent, Access(typeof(CarryingSlowdownSystem))]
+[AutoGenerateComponentState]
+public sealed partial class CarryingSlowdownComponent : Component
 {
-    [RegisterComponent, NetworkedComponent, Access(typeof(CarryingSlowdownSystem))]
-
-    public sealed partial class CarryingSlowdownComponent : Component
-    {
-        [DataField("walkModifier", required: true)] [ViewVariables(VVAccess.ReadWrite)]
-        public float WalkModifier = 1.0f;
-
-        [DataField("sprintModifier", required: true)] [ViewVariables(VVAccess.ReadWrite)]
-        public float SprintModifier = 1.0f;
-    }
-
-    [Serializable, NetSerializable]
-    public sealed class CarryingSlowdownComponentState : ComponentState
-    {
-        public float WalkModifier;
-        public float SprintModifier;
-        public CarryingSlowdownComponentState(float walkModifier, float sprintModifier)
-        {
-            WalkModifier = walkModifier;
-            SprintModifier = sprintModifier;
-        }
-    }
+    /// <summary>
+    /// Modifier for both walk and sprint speed.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public float Modifier = 1.0f;
 }

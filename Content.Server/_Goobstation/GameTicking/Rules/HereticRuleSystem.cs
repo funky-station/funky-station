@@ -25,6 +25,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using System.Linq;
 using System.Text;
+using Content.Shared.Roles.Components;
 
 namespace Content.Server.GameTicking.Rules;
 

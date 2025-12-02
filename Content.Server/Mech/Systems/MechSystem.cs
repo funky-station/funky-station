@@ -57,6 +57,7 @@ using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Content.Shared.Whitelist;
 using Content.Server.Chat.Systems;
+using Content.Shared.Chat;
 using Content.Shared.Silicons.StationAi;
 
 namespace Content.Server.Mech.Systems;
@@ -74,6 +75,7 @@ public sealed partial class MechSystem : SharedMechSystem
     [Dependency] private readonly UserInterfaceSystem _ui = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
     [Dependency] private readonly SharedToolSystem _toolSystem = default!;
+    [Dependency] private readonly SharedChatSystem _chatSystem = default!;
 
     private static readonly ProtoId<ToolQualityPrototype> PryingQuality = "Prying";
 

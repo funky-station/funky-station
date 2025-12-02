@@ -6068,3 +6068,40 @@ Entries:
       message: Fixed Draconic Tail's localization
   id: 714
   time: '2025-12-02T01:12:07.0000000+00:00'
+- author: zergologist
+  changes:
+    - type: Tweak
+      message: >-
+        Inflatable barricades and doors have new sprites and are quicker to
+        deploy
+    - type: Tweak
+      message: >-
+        Inflatable barricades and doors are now tiny items in the inventory that
+        stack up to five
+    - type: Tweak
+      message: >-
+        Inflatable walls box is now a 2x2, holds 15 inflatable walls and 5
+        inflatable doors. Emergency inflatable walls crate renamed inflatables
+        crate, holds a box of walls and inflatable floors; now 550 spesos
+        instead of 500
+    - type: Add
+      message: >-
+        Inflatable docks, currently only latheable at a normal lathe for 1
+        durathread and 0.5 silver. They act like inflatable doors that can be
+        docked to.
+    - type: Add
+      message: >-
+        Inflatable floors, tiny items that stack up to 8, must be placed on
+        empty space, and can be pryed up.
+    - type: Add
+      message: Two boxes of inflatable floors to the engivend
+    - type: Tweak
+      message: Station engineer lockers now have a box of inflatable walls roundstart
+    - type: Tweak
+      message: Engivend has 4 boxes of inflatable walls instead of 2
+    - type: Add
+      message: recipes for all inflatables in the normal lathe
+    - type: Tweak
+      message: maintenance lockers can now have inflatable doors and floors as well
+  id: 715
+  time: '2025-12-02T01:16:22.0000000+00:00'

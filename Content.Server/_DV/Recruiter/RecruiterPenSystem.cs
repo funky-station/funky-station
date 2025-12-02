@@ -11,6 +11,7 @@ using Content.Shared._DV.Recruiter;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared._DV.Paper;
+using Content.Shared.Body.Components;
 using Content.Shared.Popups;
 using Robust.Shared.Prototypes;
 

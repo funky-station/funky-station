@@ -20,7 +20,8 @@ using Content.Shared.Movement.Systems;
 using Content.Server.Body.Components;
 using Content.Shared.Mind.Components;
 using System.Diagnostics.CodeAnalysis;
-using Content.Server.Power.EntitySystems;
+using Content.Goobstation.Common.CCVar;
+using Content.Server.Power.EntitySystems; // Goobstation - Energycrit
 using Robust.Shared.Timing;
 using Robust.Shared.Configuration;
 using Robust.Shared.Utility;
@@ -69,7 +70,8 @@ public sealed class SiliconChargeSystem : EntitySystem
         }
 
         // Try to get inserted battery
-        if (_powerCell.TryGetBatteryFromSlot(silicon, out batteryEnt, out batteryComp))
+        if (TryComp(silicon, out batteryComp)
+            || _powerCell.TryGetBatteryFromSlot(silicon, out batteryComp))
             return true;
 
         // Goobstation - Energycrit: Deshitcodified this
@@ -104,6 +106,16 @@ public sealed class SiliconChargeSystem : EntitySystem
             if (_mobState.IsDead(silicon)
                 || !siliconComp.BatteryPowered)
                 continue;
+
+            // Check if the Silicon is an NPC, and if so, follow the delay as specified in the CVAR.
+            if (siliconComp.EntityType.Equals(SiliconType.Npc))
+            {
+                var updateTime = _config.GetCVar(GoobCVars.SiliconNpcUpdateTime);
+                if (_timing.CurTime - siliconComp.LastDrainTime < TimeSpan.FromSeconds(updateTime))
+                    continue;
+
+                siliconComp.LastDrainTime = _timing.CurTime;
+            }
 
             // Goobstation - Added batteryEnt parameter
             // If you can't find a battery, set the indicator and skip it.

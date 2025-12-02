@@ -1,18 +1,16 @@
-// SPDX-FileCopyrightText: 2025 beck-thompson <107373427+beck-thompson@users.noreply.github.com>
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using Content.Server.Administration.Logs;
 using Content.Shared._DV.CustomObjectiveSummary;
 using Content.Shared.Database;
 using Content.Shared.Mind;
 using Robust.Shared.Network;
+using Robust.Shared.Player;
 
 namespace Content.Server._DV.CustomObjectiveSummary;
 
 public sealed class CustomObjectiveSummarySystem : EntitySystem
 {
     [Dependency] private readonly IServerNetManager _net = default!;
+    [Dependency] private readonly ISharedPlayerManager _player = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly IAdminLogManager _adminLog = default!;
 
@@ -43,14 +41,13 @@ public sealed class CustomObjectiveSummarySystem : EntitySystem
     {
         var allMinds = _mind.GetAliveHumans();
 
-        // Assumes the assistant is still there at the end of the round.
         foreach (var mind in allMinds)
         {
             // Only send the popup to people with objectives.
             if (mind.Comp.Objectives.Count == 0)
                 continue;
 
-            if (!_mind.TryGetSession(mind, out var session))
+            if (!_player.TryGetSessionById(mind.Comp.UserId, out var session))
                 continue;
 
             RaiseNetworkEvent(new CustomObjectiveSummaryOpenMessage(), session);

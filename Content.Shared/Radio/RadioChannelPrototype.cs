@@ -1,16 +1,3 @@
-// SPDX-FileCopyrightText: 2022 Morber <14136326+Morb0@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Slava0135 <40753025+Slava0135@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 chavonadelal <156101927+chavonadelal@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Ecramox <65426878+Ecramox@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
-// SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
-// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
-//
-// SPDX-License-Identifier: MIT
-
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared.Radio;
@@ -48,11 +35,4 @@ public sealed partial class RadioChannelPrototype : IPrototype
     /// </summary>
     [DataField("longRange"), ViewVariables]
     public bool LongRange = false;
-
-    /// <summary>
-    /// ImpStation original. If a channel is readOnly, then headsets cannot send messages through it.
-    /// Intercomms still can.
-    /// </summary>
-    [DataField("intercomOnly")]
-    public bool IntercomOnly = false;
 }

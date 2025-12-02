@@ -36,12 +36,12 @@ namespace Content.Server._Funkystation.EmpWeapon
                 if (comp.RequiresCharges)
                 {
                     if (!TryComp<LimitedChargesComponent>(uid, out var charge) ||
-                        _charges.IsEmpty(uid, charge))
+                        _charges.IsEmpty(uid))
                         return;
-                    _charges.UseCharge(uid, charge);
+                    _charges.TryUseCharge(uid);
                 }
                 var xform = Transform(args.HitEntities.FirstOrDefault());
-                _empSystem.EmpPulse(_transform.GetMapCoordinates(xform), comp.EmpRange, comp.EmpConsumption, comp.EmpDuration);
+                _empSystem.EmpPulse(_transform.GetMapCoordinates(xform), comp.EmpRange, comp.EmpConsumption, TimeSpan.FromSeconds(comp.EmpDuration));
             }
         }
     }

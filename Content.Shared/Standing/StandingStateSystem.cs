@@ -1,4 +1,6 @@
+using Content.Shared.Climbing.Events;
 using Content.Shared.Hands.Components;
+using Content.Shared.Inventory;
 using Content.Shared.Movement.Events;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Physics;
@@ -8,7 +10,6 @@ using Robust.Shared.Physics;
 using Robust.Shared.Physics.Systems;
 
 namespace Content.Shared.Standing;
-
 public sealed class StandingStateSystem : EntitySystem
 {
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
@@ -25,6 +26,7 @@ public sealed class StandingStateSystem : EntitySystem
         SubscribeLocalEvent<StandingStateComponent, AttemptMobTargetCollideEvent>(OnMobTargetCollide);
         SubscribeLocalEvent<StandingStateComponent, RefreshFrictionModifiersEvent>(OnRefreshFrictionModifiers);
         SubscribeLocalEvent<StandingStateComponent, TileFrictionEvent>(OnTileFriction);
+        SubscribeLocalEvent<StandingStateComponent, EndClimbEvent>(OnEndClimb);
     }
 
     private void OnMobTargetCollide(Entity<StandingStateComponent> ent, ref AttemptMobTargetCollideEvent args)
@@ -58,18 +60,29 @@ public sealed class StandingStateSystem : EntitySystem
             args.Modifier *= entity.Comp.DownFrictionMod;
     }
 
-    public bool IsDown(EntityUid uid, StandingStateComponent? standingState = null)
+    private void OnEndClimb(Entity<StandingStateComponent> entity, ref EndClimbEvent args)
     {
-        if (!Resolve(uid, ref standingState, false))
-            return false;
+        if (entity.Comp.Standing)
+            return;
 
-        return !standingState.Standing;
+        // Currently only Climbing also edits fixtures layers like this so this is fine for now.
+        ChangeLayers(entity);
     }
 
-    public bool Down(EntityUid uid,
-        bool playSound = true,
-        bool dropHeldItems = true,
-        bool force = false,
+    public bool IsMatchingState(Entity<StandingStateComponent?> entity, bool standing)
+    {
+        return standing != IsDown(entity);
+    }
+
+    public bool IsDown(Entity<StandingStateComponent?> entity)
+    {
+        if (!Resolve(entity, ref entity.Comp, false))
+            return false;
+
+        return !entity.Comp.Standing;
+    }
+
+    public bool Down(EntityUid uid, bool playSound = true, bool dropHeldItems = true,
         StandingStateComponent? standingState = null,
         AppearanceComponent? appearance = null,
         HandsComponent? hands = null)
@@ -77,7 +90,6 @@ public sealed class StandingStateSystem : EntitySystem
         // TODO: This should actually log missing comps...
         if (!Resolve(uid, ref standingState, false))
             return false;
-
         // Optional component.
         Resolve(uid, ref appearance, ref hands, false);
 
@@ -94,14 +106,15 @@ public sealed class StandingStateSystem : EntitySystem
             RaiseLocalEvent(uid, ref ev, false);
         }
 
-        if (!force)
-        {
-            var msg = new DownAttemptEvent();
-            RaiseLocalEvent(uid, msg, false);
+        // DeltaV - Unsure if this is needed after ripping out the old laying down system. Left it in in case.
+        //if (TryComp(uid, out BuckleComponent? buckle) && buckle.Buckled && !_buckle.TryUnbuckle(uid, uid, buckleComp: buckle))
+        //    return false;
 
-            if (msg.Cancelled)
-                return false;
-        }
+        var msg = new DownAttemptEvent();
+        RaiseLocalEvent(uid, msg, false);
+
+        if (msg.Cancelled)
+            return false;
 
         standingState.Standing = false;
         Dirty(uid, standingState);
@@ -109,19 +122,8 @@ public sealed class StandingStateSystem : EntitySystem
 
         // Seemed like the best place to put it
         _appearance.SetData(uid, RotationVisuals.RotationState, RotationState.Horizontal, appearance);
-
         // Change collision masks to allow going under certain entities like flaps and tables
-        if (TryComp(uid, out FixturesComponent? fixtureComponent))
-        {
-            foreach (var (key, fixture) in fixtureComponent.Fixtures)
-            {
-                if ((fixture.CollisionMask & StandingCollisionLayer) == 0)
-                    continue;
-
-                standingState.ChangedFixtures.Add(key);
-                _physics.SetCollisionMask(uid, key, fixture, fixture.CollisionMask & ~StandingCollisionLayer, manager: fixtureComponent);
-            }
-        }
+        ChangeLayers((uid, standingState));
 
         // check if component was just added or streamed to client
         // if true, no need to play sound - mob was down before player could seen that
@@ -130,7 +132,7 @@ public sealed class StandingStateSystem : EntitySystem
 
         if (playSound)
         {
-            _audio.PlayPredicted(standingState.DownSound, uid, uid);
+            _audio.PlayPredicted(standingState.DownSound, uid, null);
         }
 
         return true;
@@ -144,18 +146,20 @@ public sealed class StandingStateSystem : EntitySystem
         // TODO: This should actually log missing comps...
         if (!Resolve(uid, ref standingState, false))
             return false;
-
         // Optional component.
         Resolve(uid, ref appearance, false);
 
         if (standingState.Standing)
             return true;
 
+        // DeltaV - Unsure if this is needed after ripping out the old laying down system. Left it in in case.
+        //if (TryComp(uid, out BuckleComponent? buckle) && buckle.Buckled && !_buckle.TryUnbuckle(uid, uid, buckleComp: buckle))
+        //    return false;
+
         if (!force)
         {
             var msg = new StandAttemptEvent();
             RaiseLocalEvent(uid, msg, false);
-
             if (msg.Cancelled)
                 return false;
         }
@@ -166,68 +170,79 @@ public sealed class StandingStateSystem : EntitySystem
 
         _appearance.SetData(uid, RotationVisuals.RotationState, RotationState.Vertical, appearance);
 
-        if (TryComp(uid, out FixturesComponent? fixtureComponent))
-        {
-            foreach (var key in standingState.ChangedFixtures)
-            {
-                if (fixtureComponent.Fixtures.TryGetValue(key, out var fixture))
-                    _physics.SetCollisionMask(uid, key, fixture, fixture.CollisionMask | StandingCollisionLayer, fixtureComponent);
-            }
-        }
-        standingState.ChangedFixtures.Clear();
+        RevertLayers((uid, standingState));
 
         return true;
+    }
+
+    // TODO: This should be moved to a PhysicsModifierSystem which raises events so multiple systems can modify fixtures at once
+    private void ChangeLayers(Entity<StandingStateComponent, FixturesComponent?> entity)
+    {
+        if (!Resolve(entity, ref entity.Comp2, false))
+            return;
+
+        foreach (var (key, fixture) in entity.Comp2.Fixtures)
+        {
+            if ((fixture.CollisionMask & StandingCollisionLayer) == 0 || !fixture.Hard)
+                continue;
+
+            entity.Comp1.ChangedFixtures.Add(key);
+            _physics.SetCollisionMask(entity, key, fixture, fixture.CollisionMask & ~StandingCollisionLayer, manager: entity.Comp2);
+        }
+    }
+
+    // TODO: This should be moved to a PhysicsModifierSystem which raises events so multiple systems can modify fixtures at once
+    private void RevertLayers(Entity<StandingStateComponent, FixturesComponent?> entity)
+    {
+        if (!Resolve(entity, ref entity.Comp2, false))
+        {
+            entity.Comp1.ChangedFixtures.Clear();
+            return;
+        }
+
+        foreach (var key in entity.Comp1.ChangedFixtures)
+        {
+            if (entity.Comp2.Fixtures.TryGetValue(key, out var fixture) && fixture.Hard)
+                _physics.SetCollisionMask(entity, key, fixture, fixture.CollisionMask | StandingCollisionLayer, entity.Comp2);
+        }
+
+        entity.Comp1.ChangedFixtures.Clear();
     }
 }
 
 [ByRefEvent]
-public record struct DropHandItemsEvent(bool Handled = false); // Goob edit
+public record struct DropHandItemsEvent();
 
 /// <summary>
 /// Subscribe if you can potentially block a down attempt.
 /// </summary>
-public sealed class DownAttemptEvent : CancellableEntityEventArgs
-{
-}
+public sealed class DownAttemptEvent : CancellableEntityEventArgs;
 
 /// <summary>
 /// Subscribe if you can potentially block a stand attempt.
 /// </summary>
-public sealed class StandAttemptEvent : CancellableEntityEventArgs
-{
-}
+public sealed class StandAttemptEvent : CancellableEntityEventArgs;
 
 /// <summary>
 /// Raised when an entity becomes standing
 /// </summary>
-public sealed class StoodEvent : EntityEventArgs
+public sealed class StoodEvent : EntityEventArgs, IInventoryRelayEvent
 {
-}
+    public SlotFlags TargetSlots { get; } = SlotFlags.FEET;
+};
 
 /// <summary>
 /// Raised when an entity is not standing
 /// </summary>
-public sealed class DownedEvent : EntityEventArgs
+public sealed class DownedEvent : EntityEventArgs, IInventoryRelayEvent
 {
+    public SlotFlags TargetSlots { get; } = SlotFlags.FEET;
 }
 
-/// <summary>
-/// Raised after an entity falls down.
-/// </summary>
-public sealed class FellDownEvent : EntityEventArgs
-{
-    public EntityUid Uid { get; }
-
-    public FellDownEvent(EntityUid uid)
-    {
-        Uid = uid;
-    }
-}
 
 /// <summary>
-/// Raised on the entity being thrown due to the holder falling down.
+/// Raised on an inhand entity being held by an entity who is dropping items as part of an attempted state change to down.
+/// If cancelled the inhand entity will not be dropped.
 /// </summary>
 [ByRefEvent]
 public record struct FellDownThrowAttemptEvent(EntityUid Thrower, bool Cancelled = false);
-
-

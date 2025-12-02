@@ -1,10 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
-// SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
-// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
-//
-// SPDX-License-Identifier: MIT
-
-using Content.Server.Power.Components;
 using Content.Server.Power.EntitySystems;
 using Content.Server.Xenoarchaeology.Artifact.XAE.Components;
 using Content.Shared.Power.Components;
@@ -36,7 +29,7 @@ public sealed class XAEChargeBatterySystem : BaseXAESystem<XAEChargeBatteryCompo
         _lookup.GetEntitiesInRange(args.Coordinates, ent.Comp.Radius, _batteryEntities);
         foreach (var battery in _batteryEntities)
         {
-            _battery.SetCharge(battery, battery.Comp.MaxCharge, battery);
+            _battery.SetCharge(battery.AsNullable(), battery.Comp.MaxCharge);
         }
 
         _lookup.GetEntitiesInRange(args.Coordinates, ent.Comp.Radius, _pBatteryEntities);

@@ -70,7 +70,7 @@ public sealed class CosmicConversionSystem : EntitySystem
             }
             else
             {
-                _stun.TryStun(target, TimeSpan.FromSeconds(4f), false);
+                _stun.TryAddStunDuration(target, TimeSpan.FromSeconds(4f));
                 _damageable.TryChangeDamage(target, uid.Comp.ConversionHeal * -1);
                 _cultRule.CosmicConversion(uid, target);
                 var finaleQuery = EntityQueryEnumerator<CosmicFinaleComponent>(); // Enumerator for The Monument's Finale

@@ -1,11 +1,9 @@
-// SPDX-FileCopyrightText: 2024 Fishbait <Fishbait@git.ml>
-// SPDX-FileCopyrightText: 2024 John Space <bigdumb421@gmail.com>
-// SPDX-FileCopyrightText: 2025 Currot <carpecarrot@gmail.com>
-// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2024 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 //
-// SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+// SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Shared.PAI;
+
 using Content.Shared.Radio;
 using Content.Shared.Radio.Components;
 
@@ -17,17 +15,16 @@ public sealed class IntrinsicRadioKeySystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<IntrinsicRadioTransmitterComponent, EncryptionChannelsChangedEvent>(OnTransmitterChannelsChanged);
-        SubscribeLocalEvent<ActiveRadioComponent, EncryptionChannelsChangedEvent>(OnReceiverChannelsChanged);
+        SubscribeLocalEvent<Server.Radio.Components.IntrinsicRadioTransmitterComponent, EncryptionChannelsChangedEvent>(OnTransmitterChannelsChanged);
+        SubscribeLocalEvent<Server.Radio.Components.ActiveRadioComponent, EncryptionChannelsChangedEvent>(OnReceiverChannelsChanged);
     }
 
-    private void OnTransmitterChannelsChanged(EntityUid uid, IntrinsicRadioTransmitterComponent component, EncryptionChannelsChangedEvent args)
+    private void OnTransmitterChannelsChanged(EntityUid uid, Server.Radio.Components.IntrinsicRadioTransmitterComponent component, EncryptionChannelsChangedEvent args)
     {
-        if (!HasComp<PAIComponent>(uid)) //We don't want to update what channels a pAI can talk to
-            UpdateChannels(uid, args.Component, ref component.Channels);
+        UpdateChannels(uid, args.Component, ref component.Channels);
     }
 
-    private void OnReceiverChannelsChanged(EntityUid uid, ActiveRadioComponent component, EncryptionChannelsChangedEvent args)
+    private void OnReceiverChannelsChanged(EntityUid uid, Server.Radio.Components.ActiveRadioComponent component, EncryptionChannelsChangedEvent args)
     {
         UpdateChannels(uid, args.Component, ref component.Channels);
     }

@@ -1,24 +1,3 @@
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <drsmugleaf@gmail.com>
-// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Pieter-Jan Briers <pieterjan.briers@gmail.com>
-// SPDX-FileCopyrightText: 2023 Slava0135 <40753025+Slava0135@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 deltanedas <@deltanedas:kde.org>
-// SPDX-FileCopyrightText: 2023 keronshb <54602815+keronshb@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Fishbait <Fishbait@git.ml>
-// SPDX-FileCopyrightText: 2024 John Space <bigdumb421@gmail.com>
-// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Verm <32827189+Vermidia@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 chavonadelal <156101927+chavonadelal@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
-// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
-//
-// SPDX-License-Identifier: MIT
-
 using System.Linq;
 using Content.Shared.Chat;
 using Content.Shared.DoAfter;
@@ -45,8 +24,6 @@ namespace Content.Shared.Radio.EntitySystems;
 public sealed partial class EncryptionKeySystem : EntitySystem
 {
     [Dependency] private readonly IPrototypeManager _protoManager = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly SharedToolSystem _tool = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
@@ -79,13 +56,7 @@ public sealed partial class EncryptionKeySystem : EntitySystem
             _hands.PickupOrDrop(args.User, ent, dropNear: true);
         }
 
-        if (!_timing.IsFirstTimePredicted)
-            return;
-
-        // TODO add predicted pop-up overrides.
-        if (_net.IsServer)
-            _popup.PopupEntity(Loc.GetString("encryption-keys-all-extracted"), uid, args.User);
-
+        _popup.PopupPredicted(Loc.GetString("encryption-keys-all-extracted"), uid, args.User);
         _audio.PlayPredicted(component.KeyExtractionSound, uid, args.User);
     }
 
@@ -195,9 +166,7 @@ public sealed partial class EncryptionKeySystem : EntitySystem
 
     private void OnHolderExamined(EntityUid uid, EncryptionKeyHolderComponent component, ExaminedEvent args)
     {
-        if (!args.IsInDetailsRange
-            || !component.ExamineWhileLocked && !component.KeysUnlocked // Goobstation
-            || !component.ExamineWhileLocked && TryComp<WiresPanelComponent>(uid, out var panel) && !panel.Open) // Goobstation
+        if (!args.IsInDetailsRange)
             return;
 
         if (component.KeyContainer.ContainedEntities.Count == 0)

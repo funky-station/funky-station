@@ -1,9 +1,3 @@
-// SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
-// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
-
 using Content.Server.Power.EntitySystems;
 using Content.Shared._DV.Autoclave;
 using Content.Shared._DV.Surgery;
@@ -52,7 +46,7 @@ public sealed class AutoclaveSystem : EntitySystem
             if (!(isPowered && isClosed))
                 continue;
 
-            SharedEntityStorageComponent? storageComponent = null;
+            EntityStorageComponent? storageComponent = null;
             if (!_entityStorage.ResolveStorage(uid, ref storageComponent))
                 continue;
 
@@ -67,7 +61,7 @@ public sealed class AutoclaveSystem : EntitySystem
 
     private void UpdateVisuals(EntityUid ent, bool isPowered, bool isClosed)
     {
-        SharedEntityStorageComponent? storageComponent = null;
+        EntityStorageComponent? storageComponent = null;
         bool hasDirtyContents =
             _entityStorage.ResolveStorage(ent, ref storageComponent)
                 && storageComponent.Contents.ContainedEntities.Any(contained => _surgeryClean.RequiresCleaning(contained));

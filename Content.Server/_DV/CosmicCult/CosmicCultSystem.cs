@@ -130,7 +130,7 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
             uid.Comp.ActionEntities.Add(actionEnt);
         }
         _eye.RefreshVisibilityMask(uid.Owner);
-        _alerts.ShowAlert(uid, uid.Comp.EntropyAlert);
+        _alerts.ShowAlert(uid.Owner, uid.Comp.EntropyAlert);
     }
 
     /// <summary>

@@ -40,6 +40,9 @@
     - BrassReactorControlRod
     - BrassReactorGasChannel
     - BrassReactorHeatExchanger
+    - GlassReactorControlRod
+    - GlassReactorGasChannel
+    - GlassReactorHeatExchanger
     dynamicRecipes:
     - UraniumReactorFuelRod
     - UraniumGlassReactorFuelRod
@@ -47,19 +50,16 @@
     - PlasmaReactorFuelRod
     - BananiumReactorFuelRod
     - DiamondReactorControlRod
-    - GlassReactorControlRod
     - GoldReactorControlRod
     - PlasmaGlassReactorControlRod
     - PlasteelReactorControlRod
     - SilverReactorControlRod
     - DiamondReactorHeatExchanger
-    - GlassReactorHeatExchanger
     - GoldReactorHeatExchanger
     - PlasmaGlassReactorHeatExchanger
     - PlasteelReactorHeatExchanger
     - SilverReactorHeatExchanger
     - DiamondReactorGasChannel
-    - GlassReactorGasChannel
     - GoldReactorGasChannel
     - PlasmaGlassReactorGasChannel
     - PlasteelReactorGasChannel

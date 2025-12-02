@@ -20,15 +20,20 @@ SPDX-License-Identifier: MIT
   - Prisoners must be granted adequate medical care. They should also be provided psychiatric and spiritual counselling if requested.
   - Prisoners must be allowed access to communications equipment (Radios) so long as they are not abused.
   - Prisoners must be granted clothing, food, water, shelter and safety. If the brig is no longer safe, confinement must be established in another location.
-  - Prisoners must be given access to legal counsel during an interrogation if requested and available.
+  - Prisoners must not be sentenced prior to a formal interrogation and presentation of evidence unless they have confessed to the crimes they are accused of.
+  - Prisoners must be given access to legal counsel [bold]before[/bold] and during an interrogation if requested and available.
+  - Prisoners must be interrogated in a timely manner, but interrogation need not occur in a private interrogation room. 'Interrogation' need only consist of declaring to the individual what crimes they are accused of, and asking for a plea. After a prisoner has pled guilty or not guilty, their sentence may begin.
   - Prisoners must be given their shift mandated PDA after confinement has finished. Unless there is solid proof of PDA tampering, in which case the PDA is to be secured and replaced with a fresh one.
-  - Prisoners must be granted freedom of movement, and should not be restrained with handcuffs or other devices after incarceration unless there is an undue risk to life and limb. Similarly, any prisoners held for extended or permanent confinement should be held in the communal brig, and should not be confined to a solitary cell unless they pose a risk to life and limb.
+  - Prisoners must be granted freedom of movement, and should not be restrained with handcuffs or other devices after incarceration unless there is an undue risk to life and limb.
+
+  ## Reasonable Suspicion
+  [italic]Reasonable suspicion of an individual is defined as suspicion based upon an officer directly witnessing suspicious behavior, or reports of suspicious behavior by the individual (not a vague description of the individual) from a credible source, or suspicion based upon evidence gathered and reported by the station detective.[/italic]
 
   ## Searches
 
   A personnel search is a seizure of the objects in a person's backpack, hands, coat, belt, pockets, and hat. If any contraband is found during a search the officer may choose to further the search into a detainment or simply confiscate the restricted items. After the search is conducted all legal items are to be returned to the person.
 
-  A crewmate may legally decline any search conducted without a warrant while the alert level is green. Should be noted that if the alert level is blue or above all personnel searches are legal and no longer require a warrant.
+  A crewmate may legally decline any search conducted without reasonable suspicion while the alert level is green. Should be noted that if the alert level is blue or above all personnel searches are legal and no longer require a warrant.
 
   ## Implantation
 
@@ -42,12 +47,12 @@ SPDX-License-Identifier: MIT
 
   # Removal
 
-  A suspect can be forced to receive implant removal if there is strong reasonable proof that they have been implanted, such as an officer witnessing them use an implantation device or their biological information being found on a discarded injector. Unlike the implantation procedure a prisoner can have their sentence entirely delayed or extended until they comply with the procedure, as long as security are actively making attempts to preform it. Akin to implanting, if an inmate gives their clear permission, implant removal can proceed without proof.
+  A suspect can be forced to receive implant removal if there is strong reasonable proof that they have been implanted, such as an officer witnessing them use an implantation device or their biological information being found on a discarded injector. Unlike the implantation procedure a prisoner can have their sentence entirely delayed or extended until they comply with the procedure, as long as security are actively making attempts to perform it. Akin to implanting, if an inmate gives their clear permission, implant removal can proceed without proof.
 
   ## Sentencing
   All sentencing is to primarily be handled by the Warden, if no Warden is available the HoS is to take over that duty, if there's no HoS it falls onto the highest ranking member of Security.
 
-  Use common sense and humanity when issuing punishments. You should not always seek out the highest punishment you can, you don't have to always give the maximum time or always look to demote someone. Always take in account the severity and only charge for what is needed for someone to learn their lesson.
+  Use common sense and humanity when issuing punishments. You should not always seek out the highest punishment you can, you don't have to always give the maximum time. Always take in account the severity and only charge for what is needed for someone to learn their lesson.
 
   [bold]Accessory, Attempting, And Intention:[/bold] If someone intentionally, knowingly and substantially assists someone in enacting a crime they can be charged with the relevant crimes, such as an engineer giving someone tools, who says they are going to break into an area. Same goes for a clear and solid attempt at a crime, or a person who shows clear intent to act out a crime, such as a syndicate nuclear operative arming a nuke but getting arrested before it goes off, they can still be charged with terrorism. Does not apply to crimes that have an attempted listing already, like attempted murder.
 
@@ -55,9 +60,8 @@ SPDX-License-Identifier: MIT
 
   [bold]External Influences:[/bold] Crimes committed while under the mental control of another individual or entity are to be pardoned once a clear and successful deconversion occurs.
 
-  [bold]Executions:[/bold] Executions may be authorized by the Captain / acting Captain after a trial has been conducted. Executions may also be approved by CentComm, following formal contact.
+  [bold]Executions:[/bold] Executions may be authorized by the presiding judge after a trial has been conducted. Executions may also be approved by Central Command, following formal contact.
 
-  
   # Repeat Offenses 
   Offenses repeated again after having been detained for the same crime can have more time added to the recommended maximum sentencing. The general guideline is as follows: 
 
@@ -68,11 +72,11 @@ SPDX-License-Identifier: MIT
   [bold]Recommended Increase:[/bold] Recommended to increase sentencing time by 2.5x for the same crime only.
 
   ## Further Repeat Offenders
-  If the detainee as committed the same crime more than three times in separate occasions, it will be up to the Warden's, or in absence of a Warden, the highest ranking Security Member's discretion on whether they should be put into the Permanent Brig.
+  [bold]Recommended Increase:[/bold] Recommended to cummulatively increase sentencing time by 2x for the same crime only. This means on the third offense, the cummulative increase should be 5x, then 10x for a fourth offense, etc.
 
-  [bold]If brigtime goes above 20 minutes, perma is highly recommended.[/bold]
+  [bold]If sentence length goes above 20 minutes, permanent confinement is highly recommended.[/bold]
 
-  
+
   # Crimes
 
   # I Degree
@@ -83,6 +87,7 @@ SPDX-License-Identifier: MIT
 
   [bold]Description[/bold]: To cause a public disturbance.
 
+  [bold]Recommended Minimum Punishment:[/bold] Warning
   [bold]Recommended Maximum Punishment:[/bold] 2:00
 
   [bold]Notes:[/bold] Sometimes referred to as hooliganism. The catch-all for obnoxious crewmates. Covers things such as public nudity, needless insults, obstructing authorities, and inciting crime or violence.
@@ -91,6 +96,7 @@ SPDX-License-Identifier: MIT
 
   [bold]Description[/bold]: To take non-vital or inexpensive property of another individual, organization, or common property, without consent.
 
+  [bold]Recommended Minimum Punishment:[/bold] 1:00
   [bold]Recommended Maximum Punishment:[/bold] 3:00
 
   [bold]Notes:[/bold] The difference between petty theft and grand theft is based on how crucial the stolen item is, things like instruments, clothing and tools fall under petty theft. In most cases all you need to do is detain the thief, return the stolen item and let them go with a warning.
@@ -99,6 +105,7 @@ SPDX-License-Identifier: MIT
 
   [bold]Description[/bold]: To make, hold, or abuse restricted drugs or chemicals.
 
+  [bold]Recommended Minimum Punishment:[/bold] Warning
   [bold]Recommended Maximum Punishment:[/bold] 3:00
 
   [bold]Notes: This is to be followed in accordance with Standard Operating Procedure. If anything questionable is not brought up in SOP the captain or highest standing command staff may publicly restrict it.[/bold]
@@ -107,18 +114,19 @@ SPDX-License-Identifier: MIT
 
   [bold]Description[/bold]: To enter a non-secured area without permission.
 
+  [bold]Recommended Minimum Punishment:[/bold] Warning
   [bold]Recommended Maximum Punishment:[/bold] 2:00
 
   [bold]Notes:[/bold] It may be better to simply remove them from the area instead of detaining them.
 
   ## Vandalism
 
-  [bold]Description[/bold]: To intentionally deface or superficially damage public or private property.
+  [bold]Description[/bold]: To intentionally deface or illegally alter public or private property.
 
+  [bold]Recommended Minimum Punishment:[/bold] Warning
   [bold]Recommended Maximum Punishment:[/bold] 2:00
 
-  [bold]Notes:[/bold] Painting graffiti, smashing bar glasses, and cracking internal windows is vandalism, breaking a window into space or secure areas is not.
-
+  [bold]Notes:[/bold] Painting graffiti and remodeling the station without a permit from engineering are examples of vandalism.
 
 
   # II Degree
@@ -127,22 +135,25 @@ SPDX-License-Identifier: MIT
 
   [bold]Description[/bold]: To inflict unnecessary suffering or harm on a non-sapient being with malicious intent.
 
+  [bold]Recommended Minimum Punishment:[/bold] 2:00
   [bold]Recommended Maximum Punishment:[/bold] 5:00
 
   [bold]Notes:[/bold] This doesn't include legitimate and authorized animal testing and usually doesn't extend to vermin or creatures that could pose a threat to the station.
 
   ## Damage/Destruction of Property
 
-  [bold]Description[/bold]: To maliciously damage or deface public or private property or equipment.
+  [bold]Description[/bold]: To intentionally damage or destroy public or private property or equipment.
 
+  [bold]Recommended Minimum Punishment:[/bold] 2:00
   [bold]Recommended Maximum Punishment:[/bold] 4:00
 
-  [bold]Notes:[/bold] Step up from vandalism but a step down from mass destruction.
+  [bold]Notes:[/bold] Intentionally breaking / cracking windows, bar glasses, or other public or private property with no intent to fix it (IE, in the case of an unlicensed remodel) is damage / destruction of property.
 
   ## Endangerment
 
-  [bold]Description[/bold]: To recklessly put yourself or others in danger, either through direct action, or failure to act.
+  [bold]Description[/bold]: To recklessly put yourself or others in danger through direct intentional or negligent actions.
 
+  [bold]Recommended Minimum Punishment:[/bold] 2:00
   [bold]Recommended Maximum Punishment:[/bold] 4:00
 
   [bold]Notes:[/bold] Covers industrial accidents, industrial negligence, self-experimentation, or even medical malpractice.
@@ -151,14 +162,16 @@ SPDX-License-Identifier: MIT
 
   [bold]Description[/bold]: To resist reasonable orders given by an authority. This extends to warrants and authorized searches.
 
+  [bold]Recommended Minimum Punishment:[/bold] Warning
   [bold]Recommended Maximum Punishment:[/bold] 2:00
 
-  [bold]Notes:[/bold] The order has to be reasonable and the person has to receive a good amount of warning before the arrest is issued.
+  [bold]Notes:[/bold] The order has to be reasonable and legal, and the person has to receive a good amount of warning before the arrest is issued.
 
   ## Possession of Restricted Gear
 
   [bold]Description[/bold]: To hold or use non-lethal items or objects that are restricted or illegal.
 
+  [bold]Recommended Minimum Punishment:[/bold] Warning
   [bold]Recommended Maximum Punishment:[/bold] 5:00
 
   [bold]Notes:[/bold] This is mostly for syndicate contraband; EMAGs, syndicate gas masks, bloodred hardsuits, hijacked PDAs, or implants, however can sometimes extend to things the individual shouldn't possess like kevlar vests and security gear.
@@ -167,26 +180,36 @@ SPDX-License-Identifier: MIT
 
   [bold]Description[/bold]: To take part in a large group of personnel creating an unlawful public disturbance.
 
+  [bold]Recommended Minimum Punishment:[/bold] 2:00
   [bold]Recommended Maximum Punishment:[/bold] 4:00
 
   [bold]Notes:[/bold] Crimes like damage of property or battery are expected to be thrown on top of this charge. Leaders of a riot can be charged with all crimes that happen under their lead.
 
 
-
   # III Degree
 
-  ## Assault/Battery
+  ## Assault
 
-  [bold]Description[/bold]: To threaten to or to use physical force against someone without the intent to kill.
+  [bold]Description[/bold]: To threaten to or attempt to use physical force against someone with the intent to cause fear of harm.
 
-  [bold]Recommended Maximum Punishment:[/bold] 6:00
+  [bold]Recommended Minimum Punishment:[/bold] Warning
+  [bold]Recommended Maximum Punishment:[/bold] 3:00
 
-  [bold]Notes:[/bold] Attempted murder and battery are different, make sure you've got it right.
+  [bold]Notes:[/bold] Assault is only a threat, not an act of violence. This charge may be stacked with multiple victims.
+
+  ## Battery
+  [bold]Description[/bold]: The actual act of physical force used against someone without consent.
+  
+  [bold]Recommended Minimum Punishment:[/bold] 1:00
+  [bold]Recommended Maximum Punishment:[/bold] 3:00
+
+  [bold]Notes:[/bold] Battery is the actual act of physical violence. This charge may be stacked with other violent crimes, and with multiple victims.
 
   ## Breach of Arrest
 
-  [bold]Description[/bold]: To intentionally resist and flee arrest or detainment by an authorized staff.
+  [bold]Description[/bold]: To intentionally resist and flee arrest or detainment by an authorized authority.
 
+  [bold]Recommended Minimum Punishment:[/bold] 2:00
   [bold]Recommended Maximum Punishment:[/bold] 4:00
 
   [bold]Notes:[/bold] This only applies if the person is actively being physically arrested. Includes people uncuffing or assisting others out of an arrest. Breach of custody is a separate crime.
@@ -195,6 +218,7 @@ SPDX-License-Identifier: MIT
 
   [bold]Description[/bold]: To take critical or unreplaceable property of another individual or organization without consent.
 
+  [bold]Recommended Minimum Punishment:[/bold] 3:00
   [bold]Recommended Maximum Punishment:[/bold] 6:00
 
   [bold]Notes:[/bold] The difference between petty theft and grand theft is based on how crucial the stolen item is, this mostly is used for the theft of command staff items, things like door remotes, hardsuits, jetpacks, and unreplaceable machine parts.
@@ -203,6 +227,7 @@ SPDX-License-Identifier: MIT
 
   [bold]Description[/bold]: To incidentally kill a sapient being without intent.
 
+  [bold]Recommended Minimum Punishment:[/bold] 4:00
   [bold]Recommended Maximum Punishment:[/bold] 10:00
 
   [bold]Notes:[/bold] Includes manslaughter in self-defense and negligent manslaughter.
@@ -211,6 +236,7 @@ SPDX-License-Identifier: MIT
 
   [bold]Description[/bold]: To cause massive damage to an area or major station system.
 
+  [bold]Recommended Minimum Punishment:[/bold] 10:00
   [bold]Recommended Maximum Punishment:[/bold] 15:00
 
   [bold]Notes:[/bold] This is mostly used for deadly bombings or sabotage of major station systems such as power production, cloning, substations, or atmos.
@@ -219,6 +245,7 @@ SPDX-License-Identifier: MIT
 
   [bold]Description[/bold]: To hold or use a weapon that is unlawful or contraband.
 
+  [bold]Recommended Minimum Punishment:[/bold] 3:00
   [bold]Recommended Maximum Punishment:[/bold] 6:00
 
   [bold]Notes:[/bold] Everything from guns without a permit, deadly blades, explosives, syndicate firearms to explosive implants.
@@ -227,6 +254,7 @@ SPDX-License-Identifier: MIT
 
   [bold]Description[/bold]: To enter a secured area without permission.
 
+  [bold]Recommended Minimum Punishment:[/bold] 3:00
   [bold]Recommended Maximum Punishment:[/bold] 8:00
 
   [bold]Notes:[/bold] This covers places like telecoms, head offices, security zones, command areas, the vault and armory.
@@ -235,6 +263,7 @@ SPDX-License-Identifier: MIT
 
   [bold]Description[/bold]: To break out of a cell or custody with the intention of escaping.
 
+  [bold]Recommended Minimum Punishment:[/bold] 2:00
   [bold]Recommended Maximum Punishment:[/bold] 5:00
 
   [bold]Notes:[/bold] This time should be added on top of a prisoners current brig time. While rare, this charge can be bumped to permanent brig if the suspect has attempted to escape from or assist another in escaping from the brig multiple times.
@@ -247,6 +276,7 @@ SPDX-License-Identifier: MIT
 
   [bold]Description[/bold]: To unlawfully restrain, transport, control or confine a sapient being against that individual's will.
 
+  [bold]Recommended Minimum Punishment:[/bold] 4:00
   [bold]Recommended Maximum Punishment:[/bold] 10:00
 
   [bold]Notes:[/bold] A large range of things, used mostly as a catch all when dealing with unlawful control of another being.
@@ -255,6 +285,7 @@ SPDX-License-Identifier: MIT
 
   [bold]Description[/bold]: To kill a sapient being with malicious intent.
 
+  [bold]Recommended Minimum Punishment:[/bold] 4:00
   [bold]Recommended Maximum Punishment:[/bold] 10:00
 
   [bold]Notes:[/bold] This only changes from attempted to full on murder if the victim enters a state of being deceased, having to be resurrected.
@@ -267,15 +298,17 @@ SPDX-License-Identifier: MIT
 
   [bold]Description[/bold]: To kill three or more sapient beings with malicious intent.
 
+  [bold]Recommended Minimum Punishment:[/bold] Permanent
   [bold]Recommended Maximum Punishment:[/bold] Permanent
 
   [bold]Notes:[/bold] Only applies when there have been multiple killings with intention.
 
   ## Capital Negligence
 
-  [bold]Description[/bold]: To recklessly put yourself or others in danger, either through direct action, or failure to act as a command member.
+  [bold]Description[/bold]: To recklessly put yourself or others in mortal danger, either through direct action, or failure to act as a command member.
 
-  [bold]Recommended Maximum Punishment:[/bold] Permanent / Demotion
+  [bold]Recommended Minimum Punishment:[/bold] Demotion
+  [bold]Recommended Maximum Punishment:[/bold] Permanent
 
   [bold]Notes:[/bold] This covers causing the death of one or more crewmates, failing to repair / mitigate severe station damage, or causing severe station damage. This charge is meant to be handed to Command members, and may be added to their permanent record.
 
@@ -283,6 +316,7 @@ SPDX-License-Identifier: MIT
 
   [bold]Description[/bold]: To render a body unresurrectable.
 
+  [bold]Recommended Minimum Punishment:[/bold] 15:00
   [bold]Recommended Maximum Punishment:[/bold] Permanent
 
   [bold]Notes:[/bold] This covers gibbing, spacing, intentionally hiding a body leading to it rotting, or other ways of preventing a body with a soul from being resurrected.
@@ -291,6 +325,7 @@ SPDX-License-Identifier: MIT
 
   [bold]Description[/bold]: To refuse to comply with a reasonable Mind Shielding procedure.
 
+  [bold]Recommended Minimum Punishment:[/bold] Permanent, pending acceptance of shielding
   [bold]Recommended Maximum Punishment:[/bold] Permanent
 
   [bold]Notes:[/bold] Applies if the suspect is excessively uncooperative or the implant fails to function due to the mental state of the prisoner already being too far gone. If the implant fails the Recommended Maximum Punishment is upped to Expedited Execution.
@@ -299,6 +334,7 @@ SPDX-License-Identifier: MIT
 
   [bold]Description[/bold]: To engage in maliciously destructive actions which threaten to destroy, or successfully destroy a vessel or habitat.
 
+  [bold]Recommended Minimum Punishment:[/bold] Permanent
   [bold]Recommended Maximum Punishment:[/bold] Execution
 
   [bold]Notes:[/bold] Summed up; extreme sabotage of station systems or setting off self-destruction systems.

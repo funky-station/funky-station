@@ -270,6 +270,8 @@ entities:
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
+    - type: BecomesStation
+      id: thermalexchangegenerator
   - uid: 435
     components:
     - type: MetaData
@@ -484,6 +486,8 @@ entities:
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
+    - type: BecomesStation
+      id: thermalexchangegenerator
   - uid: 868
     components:
     - type: MetaData
@@ -693,6 +697,8 @@ entities:
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
+    - type: BecomesStation
+      id: thermalexchangegenerator
   - uid: 1301
     components:
     - type: MetaData
@@ -902,6 +908,8 @@ entities:
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
+    - type: BecomesStation
+      id: thermalexchangegenerator
   - uid: 1734
     components:
     - type: MetaData
@@ -1116,6 +1124,8 @@ entities:
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
+    - type: BecomesStation
+      id: thermalexchangegenerator
   - uid: 2167
     components:
     - type: MetaData
@@ -1325,6 +1335,8 @@ entities:
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
+    - type: BecomesStation
+      id: thermalexchangegenerator
   - uid: 2600
     components:
     - type: MetaData
@@ -1534,6 +1546,8 @@ entities:
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
+    - type: BecomesStation
+      id: thermalexchangegenerator
   - uid: 3033
     components:
     - type: MetaData
@@ -1748,6 +1762,8 @@ entities:
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
+    - type: BecomesStation
+      id: thermalexchangegenerator
   - uid: 3466
     components:
     - type: MetaData
@@ -2545,6 +2561,8 @@ entities:
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
+    - type: BecomesStation
+      id: thermalexchangegenerator
   - uid: 3900
     components:
     - type: MetaData
@@ -2755,6 +2773,8 @@ entities:
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
+    - type: BecomesStation
+      id: thermalexchangegenerator
   - uid: 4333
     components:
     - type: MetaData
@@ -2964,6 +2984,8 @@ entities:
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
+    - type: BecomesStation
+      id: thermalexchangegenerator
   - uid: 4766
     components:
     - type: MetaData
@@ -3173,6 +3195,8 @@ entities:
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
+    - type: BecomesStation
+      id: thermalexchangegenerator
   - uid: 5199
     components:
     - type: MetaData
@@ -3387,6 +3411,8 @@ entities:
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
+    - type: BecomesStation
+      id: thermalexchangegenerator
   - uid: 5632
     components:
     - type: MetaData
@@ -3596,6 +3622,8 @@ entities:
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
+    - type: BecomesStation
+      id: thermalexchangegenerator
   - uid: 6065
     components:
     - type: MetaData
@@ -3805,6 +3833,8 @@ entities:
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
+    - type: BecomesStation
+      id: thermalexchangegenerator
   - uid: 6498
     components:
     - type: MetaData
@@ -4019,6 +4049,8 @@ entities:
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
+    - type: BecomesStation
+      id: thermalexchangegenerator
   - uid: 6931
     components:
     - type: MetaData
@@ -4233,6 +4265,8 @@ entities:
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
+    - type: BecomesStation
+      id: thermalexchangegenerator
   - uid: 7364
     components:
     - type: MetaData
@@ -4447,6 +4481,8 @@ entities:
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
+    - type: BecomesStation
+      id: thermalexchangegenerator
   - uid: 7797
     components:
     - type: MetaData
@@ -4661,6 +4697,8 @@ entities:
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
+    - type: BecomesStation
+      id: thermalexchangegenerator
   - uid: 8230
     components:
     - type: MetaData
@@ -4871,6 +4909,8 @@ entities:
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
+    - type: BecomesStation
+      id: thermalexchangegenerator
   - uid: 8663
     components:
     - type: MetaData
@@ -5085,6 +5125,8 @@ entities:
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
+    - type: BecomesStation
+      id: thermalexchangegenerator
   - uid: 9096
     components:
     - type: MetaData
@@ -5299,6 +5341,8 @@ entities:
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
+    - type: BecomesStation
+      id: thermalexchangegenerator
   - uid: 9529
     components:
     - type: MetaData
@@ -5513,6 +5557,8 @@ entities:
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
+    - type: BecomesStation
+      id: thermalexchangegenerator
   - uid: 9962
     components:
     - type: MetaData
@@ -5722,6 +5768,8 @@ entities:
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
+    - type: BecomesStation
+      id: thermalexchangegenerator
   - uid: 10395
     components:
     - type: MetaData
@@ -5936,6 +5984,8 @@ entities:
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
+    - type: BecomesStation
+      id: thermalexchangegenerator
   - uid: 10864
     components:
     - type: MetaData
@@ -6016,6 +6066,8 @@ entities:
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
+    - type: BecomesStation
+      id: thermalexchangegenerator
 - proto: AdvMopItem
   entities:
   - uid: 10865

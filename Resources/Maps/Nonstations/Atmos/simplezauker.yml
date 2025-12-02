@@ -254,6 +254,8 @@ entities:
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
+    - type: BecomesStation
+      id: simplezauker
   - uid: 284
     components:
     - type: MetaData
@@ -447,6 +449,8 @@ entities:
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
+    - type: BecomesStation
+      id: simplezauker
   - uid: 566
     components:
     - type: MetaData
@@ -645,6 +649,8 @@ entities:
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
+    - type: BecomesStation
+      id: simplezauker
   - uid: 848
     components:
     - type: MetaData
@@ -838,6 +844,8 @@ entities:
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
+    - type: BecomesStation
+      id: simplezauker
   - uid: 1130
     components:
     - type: MetaData
@@ -1031,6 +1039,8 @@ entities:
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
+    - type: BecomesStation
+      id: simplezauker
   - uid: 1412
     components:
     - type: MetaData
@@ -1225,6 +1235,8 @@ entities:
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
+    - type: BecomesStation
+      id: simplezauker
   - uid: 1694
     components:
     - type: MetaData
@@ -1423,6 +1435,8 @@ entities:
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
+    - type: BecomesStation
+      id: simplezauker
   - uid: 1976
     components:
     - type: MetaData
@@ -1621,6 +1635,8 @@ entities:
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
+    - type: BecomesStation
+      id: simplezauker
   - uid: 2258
     components:
     - type: MetaData
@@ -1819,6 +1835,8 @@ entities:
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
+    - type: BecomesStation
+      id: simplezauker
   - uid: 2540
     components:
     - type: MetaData
@@ -2012,6 +2030,8 @@ entities:
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
+    - type: BecomesStation
+      id: simplezauker
   - uid: 2822
     components:
     - type: MetaData
@@ -2205,6 +2225,8 @@ entities:
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
+    - type: BecomesStation
+      id: simplezauker
   - uid: 3104
     components:
     - type: MetaData
@@ -2764,6 +2786,8 @@ entities:
       data:
         chunkSize: 4
     - type: GasTileOverlay
+    - type: BecomesStation
+      id: simplezauker
   - uid: 3105
     components:
     - type: MetaData
@@ -2962,6 +2986,8 @@ entities:
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
+    - type: BecomesStation
+      id: simplezauker
   - uid: 3387
     components:
     - type: MetaData
@@ -3160,6 +3186,8 @@ entities:
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
+    - type: BecomesStation
+      id: simplezauker
   - uid: 3669
     components:
     - type: MetaData
@@ -3358,6 +3386,8 @@ entities:
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
+    - type: BecomesStation
+      id: simplezauker
   - uid: 3951
     components:
     - type: MetaData
@@ -3556,6 +3586,8 @@ entities:
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
+    - type: BecomesStation
+      id: simplezauker
   - uid: 4233
     components:
     - type: MetaData
@@ -3754,6 +3786,8 @@ entities:
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
+    - type: BecomesStation
+      id: simplezauker
   - uid: 4515
     components:
     - type: MetaData
@@ -3952,6 +3986,8 @@ entities:
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
+    - type: BecomesStation
+      id: simplezauker
   - uid: 4797
     components:
     - type: MetaData
@@ -4145,6 +4181,8 @@ entities:
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
+    - type: BecomesStation
+      id: simplezauker
   - uid: 5079
     components:
     - type: MetaData
@@ -4338,6 +4376,8 @@ entities:
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
+    - type: BecomesStation
+      id: simplezauker
   - uid: 5363
     components:
     - type: MetaData
@@ -4536,6 +4576,8 @@ entities:
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
+    - type: BecomesStation
+      id: simplezauker
   - uid: 5645
     components:
     - type: MetaData
@@ -4730,6 +4772,8 @@ entities:
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
+    - type: BecomesStation
+      id: simplezauker
   - uid: 5927
     components:
     - type: MetaData
@@ -4928,6 +4972,8 @@ entities:
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
+    - type: BecomesStation
+      id: simplezauker
   - uid: 6209
     components:
     - type: MetaData
@@ -5126,6 +5172,8 @@ entities:
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
+    - type: BecomesStation
+      id: simplezauker
   - uid: 6491
     components:
     - type: MetaData
@@ -5319,6 +5367,8 @@ entities:
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
+    - type: BecomesStation
+      id: simplezauker
   - uid: 6773
     components:
     - type: MetaData
@@ -5512,6 +5562,8 @@ entities:
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
+    - type: BecomesStation
+      id: simplezauker
   - uid: 7057
     components:
     - type: MetaData
@@ -5592,6 +5644,8 @@ entities:
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
+    - type: BecomesStation
+      id: simplezauker
 - proto: AdvMopItem
   entities:
   - uid: 7058

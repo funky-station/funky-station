@@ -117,6 +117,8 @@ entities:
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
+    - type: BecomesStation
+      id: olddays
   - uid: 262
     components:
     - type: MetaData
@@ -620,6 +622,8 @@ entities:
       data:
         chunkSize: 4
     - type: GasTileOverlay
+    - type: BecomesStation
+      id: olddays
   - uid: 263
     components:
     - type: MetaData
@@ -681,6 +685,8 @@ entities:
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
+    - type: BecomesStation
+      id: olddays
   - uid: 523
     components:
     - type: MetaData
@@ -742,6 +748,8 @@ entities:
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
+    - type: BecomesStation
+      id: olddays
   - uid: 783
     components:
     - type: MetaData
@@ -803,6 +811,8 @@ entities:
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
+    - type: BecomesStation
+      id: olddays
   - uid: 1043
     components:
     - type: MetaData
@@ -864,6 +874,8 @@ entities:
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
+    - type: BecomesStation
+      id: olddays
   - uid: 1303
     components:
     - type: MetaData
@@ -925,6 +937,8 @@ entities:
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
+    - type: BecomesStation
+      id: olddays
   - uid: 1563
     components:
     - type: MetaData
@@ -982,6 +996,8 @@ entities:
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
+    - type: BecomesStation
+      id: olddays
   - uid: 1823
     components:
     - type: MetaData
@@ -1038,6 +1054,8 @@ entities:
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
+    - type: BecomesStation
+      id: olddays
   - uid: 2083
     components:
     - type: MetaData
@@ -1094,6 +1112,8 @@ entities:
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
+    - type: BecomesStation
+      id: olddays
   - uid: 2343
     components:
     - type: MetaData
@@ -1150,6 +1170,8 @@ entities:
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
+    - type: BecomesStation
+      id: olddays
   - uid: 2603
     components:
     - type: MetaData
@@ -1211,6 +1233,8 @@ entities:
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
+    - type: BecomesStation
+      id: olddays
   - uid: 2863
     components:
     - type: MetaData
@@ -1267,6 +1291,8 @@ entities:
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
+    - type: BecomesStation
+      id: olddays
   - uid: 3123
     components:
     - type: MetaData
@@ -1323,6 +1349,8 @@ entities:
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
+    - type: BecomesStation
+      id: olddays
   - uid: 3383
     components:
     - type: MetaData
@@ -1379,6 +1407,8 @@ entities:
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
+    - type: BecomesStation
+      id: olddays
   - uid: 3643
     components:
     - type: MetaData
@@ -1435,6 +1465,8 @@ entities:
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
+    - type: BecomesStation
+      id: olddays
   - uid: 3903
     components:
     - type: MetaData
@@ -1491,6 +1523,8 @@ entities:
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
+    - type: BecomesStation
+      id: olddays
   - uid: 4163
     components:
     - type: MetaData
@@ -1547,6 +1581,8 @@ entities:
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
+    - type: BecomesStation
+      id: olddays
   - uid: 4423
     components:
     - type: MetaData
@@ -1608,6 +1644,8 @@ entities:
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
+    - type: BecomesStation
+      id: olddays
   - uid: 4683
     components:
     - type: MetaData
@@ -1665,6 +1703,8 @@ entities:
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
+    - type: BecomesStation
+      id: olddays
   - uid: 4943
     components:
     - type: MetaData
@@ -1726,6 +1766,8 @@ entities:
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
+    - type: BecomesStation
+      id: olddays
   - uid: 5203
     components:
     - type: MetaData
@@ -1848,6 +1890,8 @@ entities:
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
+    - type: BecomesStation
+      id: olddays
   - uid: 5723
     components:
     - type: MetaData
@@ -1909,6 +1953,8 @@ entities:
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
+    - type: BecomesStation
+      id: olddays
   - uid: 5983
     components:
     - type: MetaData
@@ -1970,6 +2016,8 @@ entities:
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
+    - type: BecomesStation
+      id: olddays
   - uid: 6243
     components:
     - type: MetaData
@@ -2031,6 +2079,8 @@ entities:
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
+    - type: BecomesStation
+      id: olddays
   - uid: 6505
     components:
     - type: MetaData
@@ -2111,6 +2161,8 @@ entities:
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
+    - type: BecomesStation
+      id: olddays
 - proto: AdvMopItem
   entities:
   - uid: 6506

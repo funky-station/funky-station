@@ -296,6 +296,8 @@ entities:
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
+    - type: BecomesStation
+      id: canisterhell
   - uid: 15
     components:
     - type: MetaData
@@ -535,6 +537,8 @@ entities:
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
+    - type: BecomesStation
+      id: canisterhell
   - uid: 455
     components:
     - type: MetaData
@@ -2434,6 +2438,8 @@ entities:
           - 0
         chunkSize: 4
     - type: GasTileOverlay
+    - type: BecomesStation
+      id: canisterhell
   - uid: 979
     components:
     - type: MetaData
@@ -2673,6 +2679,8 @@ entities:
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
+    - type: BecomesStation
+      id: canisterhell
   - uid: 1467
     components:
     - type: MetaData
@@ -2912,6 +2920,8 @@ entities:
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
+    - type: BecomesStation
+      id: canisterhell
   - uid: 1955
     components:
     - type: MetaData
@@ -3151,6 +3161,8 @@ entities:
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
+    - type: BecomesStation
+      id: canisterhell
   - uid: 2443
     components:
     - type: MetaData
@@ -3390,6 +3402,8 @@ entities:
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
+    - type: BecomesStation
+      id: canisterhell
   - uid: 2931
     components:
     - type: MetaData
@@ -3629,6 +3643,8 @@ entities:
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
+    - type: BecomesStation
+      id: canisterhell
   - uid: 3419
     components:
     - type: MetaData
@@ -3864,6 +3880,8 @@ entities:
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
+    - type: BecomesStation
+      id: canisterhell
   - uid: 3907
     components:
     - type: MetaData
@@ -4098,6 +4116,8 @@ entities:
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
+    - type: BecomesStation
+      id: canisterhell
   - uid: 4395
     components:
     - type: MetaData
@@ -4332,6 +4352,8 @@ entities:
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
+    - type: BecomesStation
+      id: canisterhell
   - uid: 4883
     components:
     - type: MetaData
@@ -4566,6 +4588,8 @@ entities:
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
+    - type: BecomesStation
+      id: canisterhell
   - uid: 5371
     components:
     - type: MetaData
@@ -4805,6 +4829,8 @@ entities:
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
+    - type: BecomesStation
+      id: canisterhell
   - uid: 5859
     components:
     - type: MetaData
@@ -5039,6 +5065,8 @@ entities:
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
+    - type: BecomesStation
+      id: canisterhell
   - uid: 6347
     components:
     - type: MetaData
@@ -5273,6 +5301,8 @@ entities:
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
+    - type: BecomesStation
+      id: canisterhell
   - uid: 6835
     components:
     - type: MetaData
@@ -5507,6 +5537,8 @@ entities:
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
+    - type: BecomesStation
+      id: canisterhell
   - uid: 7323
     components:
     - type: MetaData
@@ -5741,6 +5773,8 @@ entities:
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
+    - type: BecomesStation
+      id: canisterhell
   - uid: 7811
     components:
     - type: MetaData
@@ -5975,6 +6009,8 @@ entities:
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
+    - type: BecomesStation
+      id: canisterhell
   - uid: 8299
     components:
     - type: MetaData
@@ -6209,6 +6245,8 @@ entities:
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
+    - type: BecomesStation
+      id: canisterhell
   - uid: 8787
     components:
     - type: MetaData
@@ -6444,6 +6482,8 @@ entities:
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
+    - type: BecomesStation
+      id: canisterhell
   - uid: 9275
     components:
     - type: MetaData
@@ -6683,6 +6723,8 @@ entities:
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
+    - type: BecomesStation
+      id: canisterhell
   - uid: 9763
     components:
     - type: MetaData
@@ -6922,6 +6964,8 @@ entities:
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
+    - type: BecomesStation
+      id: canisterhell
   - uid: 10251
     components:
     - type: MetaData
@@ -7161,6 +7205,8 @@ entities:
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
+    - type: BecomesStation
+      id: canisterhell
   - uid: 10739
     components:
     - type: MetaData
@@ -7400,6 +7446,8 @@ entities:
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
+    - type: BecomesStation
+      id: canisterhell
   - uid: 11227
     components:
     - type: MetaData
@@ -7639,6 +7687,8 @@ entities:
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
+    - type: BecomesStation
+      id: canisterhell
   - uid: 11715
     components:
     - type: MetaData
@@ -7878,6 +7928,8 @@ entities:
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
+    - type: BecomesStation
+      id: canisterhell
   - uid: 12232
     components:
     - type: MetaData
@@ -7958,6 +8010,8 @@ entities:
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
+    - type: BecomesStation
+      id: canisterhell
   - uid: 12435
     components:
     - type: MetaData
@@ -7991,6 +8045,8 @@ entities:
       chunkCollection:
         version: 2
         nodes: []
+    - type: BecomesStation
+      id: canisterhell
 - proto: AdvMopItem
   entities:
   - uid: 12442

@@ -915,6 +915,8 @@ entities:
       data:
         chunkSize: 4
     - type: GasTileOverlay
+    - type: BecomesStation
+      id: crystalbasic
   - uid: 3
     components:
     - type: MetaData
@@ -1232,6 +1234,8 @@ entities:
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
+    - type: BecomesStation
+      id: crystalbasic
   - uid: 999
     components:
     - type: MetaData
@@ -1553,6 +1557,8 @@ entities:
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
+    - type: BecomesStation
+      id: crystalbasic
   - uid: 1977
     components:
     - type: MetaData
@@ -1874,6 +1880,8 @@ entities:
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
+    - type: BecomesStation
+      id: crystalbasic
   - uid: 2955
     components:
     - type: MetaData
@@ -2195,6 +2203,8 @@ entities:
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
+    - type: BecomesStation
+      id: crystalbasic
   - uid: 3933
     components:
     - type: MetaData
@@ -2516,6 +2526,8 @@ entities:
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
+    - type: BecomesStation
+      id: crystalbasic
   - uid: 4911
     components:
     - type: MetaData
@@ -2837,6 +2849,8 @@ entities:
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
+    - type: BecomesStation
+      id: crystalbasic
   - uid: 5889
     components:
     - type: MetaData
@@ -3158,6 +3172,8 @@ entities:
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
+    - type: BecomesStation
+      id: crystalbasic
   - uid: 6867
     components:
     - type: MetaData
@@ -3474,6 +3490,8 @@ entities:
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
+    - type: BecomesStation
+      id: crystalbasic
   - uid: 7845
     components:
     - type: MetaData
@@ -3790,6 +3808,8 @@ entities:
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
+    - type: BecomesStation
+      id: crystalbasic
   - uid: 8823
     components:
     - type: MetaData
@@ -4106,6 +4126,8 @@ entities:
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
+    - type: BecomesStation
+      id: crystalbasic
   - uid: 9801
     components:
     - type: MetaData
@@ -4422,6 +4444,8 @@ entities:
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
+    - type: BecomesStation
+      id: crystalbasic
   - uid: 10779
     components:
     - type: MetaData
@@ -4738,6 +4762,8 @@ entities:
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
+    - type: BecomesStation
+      id: crystalbasic
   - uid: 11757
     components:
     - type: MetaData
@@ -5054,6 +5080,8 @@ entities:
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
+    - type: BecomesStation
+      id: crystalbasic
   - uid: 12735
     components:
     - type: MetaData
@@ -5370,6 +5398,8 @@ entities:
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
+    - type: BecomesStation
+      id: crystalbasic
   - uid: 13713
     components:
     - type: MetaData
@@ -5686,6 +5716,8 @@ entities:
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
+    - type: BecomesStation
+      id: crystalbasic
   - uid: 14691
     components:
     - type: MetaData
@@ -6002,6 +6034,8 @@ entities:
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
+    - type: BecomesStation
+      id: crystalbasic
   - uid: 15669
     components:
     - type: MetaData
@@ -6323,6 +6357,8 @@ entities:
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
+    - type: BecomesStation
+      id: crystalbasic
   - uid: 16647
     components:
     - type: MetaData
@@ -6640,6 +6676,8 @@ entities:
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
+    - type: BecomesStation
+      id: crystalbasic
   - uid: 17625
     components:
     - type: MetaData
@@ -6961,6 +6999,8 @@ entities:
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
+    - type: BecomesStation
+      id: crystalbasic
   - uid: 18603
     components:
     - type: MetaData
@@ -7282,6 +7322,8 @@ entities:
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
+    - type: BecomesStation
+      id: crystalbasic
   - uid: 19580
     components:
     - type: MetaData
@@ -7603,6 +7645,8 @@ entities:
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
+    - type: BecomesStation
+      id: crystalbasic
   - uid: 20558
     components:
     - type: MetaData
@@ -7924,6 +7968,8 @@ entities:
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
+    - type: BecomesStation
+      id: crystalbasic
   - uid: 21536
     components:
     - type: MetaData
@@ -8245,6 +8291,8 @@ entities:
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
+    - type: BecomesStation
+      id: crystalbasic
   - uid: 22514
     components:
     - type: MetaData
@@ -8566,6 +8614,8 @@ entities:
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
+    - type: BecomesStation
+      id: crystalbasic
   - uid: 23492
     components:
     - type: MetaData
@@ -8887,6 +8937,8 @@ entities:
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
+    - type: BecomesStation
+      id: crystalbasic
   - uid: 24470
     components:
     - type: MetaData
@@ -8967,6 +9019,8 @@ entities:
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
+    - type: BecomesStation
+      id: crystalbasic
 - proto: AdvMopItem
   entities:
   - uid: 24471

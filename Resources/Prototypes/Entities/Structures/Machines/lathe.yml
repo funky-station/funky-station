@@ -145,6 +145,8 @@
 # SPDX-FileCopyrightText: 2024 takemysoult <143123247+takemysoult@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 to4no_fix <156101927+chavonadelal@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 yglop <95057024+yglop@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 A-Loose-Goose <237446272+A-Loose-Goose@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 ALooseGoose <ALooseGoosey@gmail.com>
 # SPDX-FileCopyrightText: 2025 2DSiggy <siggymaxwell@gmail.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Gansu <68031780+GansuLalan@users.noreply.github.com>
@@ -194,6 +196,7 @@
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 starch <starchpersonal@gmail.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 vectorassembly <vectorassembly@icloud.com>
 # SPDX-FileCopyrightText: 2025 willow <willowzeta632146@proton.me>
 # SPDX-FileCopyrightText: 2025 wilowzeta <willowzeta632146@proton.me>
 #
@@ -376,6 +379,7 @@
     - SprayBottle
     - MopItem
     - Holoprojector
+    - HolotapeProjector # Funky!
     - Mousetrap
     - LightReplacer
     - TrashBag
@@ -709,6 +713,9 @@
     - ClothingEyesNightVisionGoggles # Funky - EE nightvision
     - ClothingEyesNightVisionDiagnosticGoggles # Funky - EE nightvision
     - ClothingEyesThermalVisionGoggles # Funky - EE nightvision
+    - SadTromboneImplanter
+    - LightImplanter
+    - BikeHornImplanter
   - type: EmagLatheRecipes
     emagDynamicRecipes:
     - BoxBeanbag
@@ -755,6 +762,8 @@
     - MagazinePistolLargeIncendiary # Funkystation
     - MagazineBoxPistolLargeUranium # Funkystation
     - MagazineBoxPistolLargeIncendiary # Funkystation
+    - MindShieldImplanter
+    - TrackingImplanter
     - ClothingHandsTruncheonKnuckleDusters # funk
 
 - type: entity
@@ -1274,6 +1283,8 @@
     - WeaponMechCombatFlashbangLauncher
     - WeaponMechCombatMissileRack8
     - ClothingEyesNightVisionSecurityGoggles # Funky - EE nightvision
+    - MindShieldImplanter
+    - TrackingImplanter
     - ClothingHandsTruncheonKnuckleDusters # funk
   - type: EmagLatheRecipes # Goobstation
     emagStaticRecipes:
@@ -1443,6 +1454,9 @@
     - BluespaceBeaker
     - SyringeBluespace
     - SyringeCryostasis
+    - SadTromboneImplanter
+    - LightImplanter
+    - BikeHornImplanter
     # Shitmed Change
     - EnergyScalpel
     - EnergyCautery

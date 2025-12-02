@@ -1,24 +1,25 @@
-// SPDX-FileCopyrightText: 2024 John Space <bigdumb421@gmail.com>
+// SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2024 Fishbait <Fishbait@git.ml>
+// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
 // SPDX-FileCopyrightText: 2024 fishbait <gnesse@gmail.com>
-// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
+// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 //
-// SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+// SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
-using System.Numerics;
-using Content.Server.Actions;
+using Content.Server._Goobstation.Blob;
 using Content.Server._Goobstation.Blob.Components;
-using Content.Server._Goobstation.Blob.Roles;
-using Content.Server.GameTicking.Rules.Components;
+using Content.Server.Actions;
 using Content.Server.Chat.Managers;
 using Content.Server.Hands.Systems;
 using Content.Server.Mind;
 using Content.Server.Roles;
-using Content.Shared.ActionBlocker;
-using Content.Shared.Actions;
-using Content.Shared.Alert;
 using Content.Shared._Goobstation.Blob;
 using Content.Shared._Goobstation.Blob.Components;
+using Content.Shared.ActionBlocker;
+using Content.Shared.Alert;
 using Content.Shared.Coordinates.Helpers;
 using Content.Shared.Hands.Components;
 using Content.Shared.Mind;
@@ -31,7 +32,7 @@ using Robust.Shared.Map.Components;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 
-namespace Content.Server._Goobstation.Blob;
+namespace Content.Goobstation.Server.Blob;
 
 public sealed class BlobObserverSystem : SharedBlobObserverSystem
 {
@@ -90,7 +91,7 @@ public sealed class BlobObserverSystem : SharedBlobObserverSystem
 
     private void OnStartup(Entity<BlobObserverComponent> ent, ref ComponentStartup args)
     {
-        _hands.AddHand(ent,"BlobHand",HandLocation.Middle);
+        _hands.AddHand(ent.Owner,"BlobHand",HandLocation.Middle);
 
         ent.Comp.VirtualItem = Spawn(MobObserverBlobController, Transform(ent).Coordinates);
         var comp = EnsureComp<BlobObserverControllerComponent>(ent.Comp.VirtualItem);
@@ -105,7 +106,7 @@ public sealed class BlobObserverSystem : SharedBlobObserverSystem
 
     private void SendBlobBriefing(EntityUid mind)
     {
-        if (_mindSystem.TryGetSession(mind, out var session))
+        if (_playerManager.TryGetSessionByEntity(mind, out var session))
         {
             _chatManager.DispatchServerMessage(session, Loc.GetString("blob-role-greeting"));
         }
@@ -143,7 +144,11 @@ public sealed class BlobObserverSystem : SharedBlobObserverSystem
 
         if (!isNewMind)
         {
-            var name = mind.Session?.Name ?? "???";
+            String name;
+            if (_playerManager.TryGetSessionById(mind.UserId, out var session1))
+                name = session1.Name;
+            else
+                name = "???";
             _mindSystem.WipeMind(mindId, mind);
             mindId = _mindSystem.CreateMind(args.UserId, $"Blob Player ({name})");
             mind = Comp<MindComponent>(mindId);
@@ -152,7 +157,7 @@ public sealed class BlobObserverSystem : SharedBlobObserverSystem
         _roleSystem.MindAddRole(mindId, core.MindRoleBlobPrototypeId.Id);
         SendBlobBriefing(mindId);
 
-        var blobRule = EntityQuery<BlobRuleComponent>().FirstOrDefault();
+        var blobRule = EntityQuery<GameTicking.BlobRuleComponent>().FirstOrDefault();
         blobRule?.Blobs.Add((mindId,mind));
 
         _mindSystem.TransferTo(mindId, observer, true, mind: mind);
@@ -180,7 +185,7 @@ public sealed class BlobObserverSystem : SharedBlobObserverSystem
         }
 
         _action.GrantActions(uid, component.Core.Value.Comp.Actions, component.Core.Value.Owner);
-        _viewSubscriberSystem.AddViewSubscriber(component.Core.Value, playerSession);
+        _viewSubscriberSystem.AddViewSubscriber(component.Core.Value, playerSession); // GrantActions require keep in pvs
     }
 
     private void OnPlayerAttached(EntityUid uid, BlobObserverComponent component, PlayerAttachedEvent args)
@@ -337,7 +342,7 @@ public sealed class BlobObserverSystem : SharedBlobObserverSystem
         var newCore = Spawn(blobCoreComponent.TilePrototypes[BlobTileType.Core], args.Target);
 
         blobCoreComponent.CanSplit = false;
-        _action.RemoveAction(args.Performer, args.Action.Owner);
+        _action.RemoveAction(args.Action.Owner);
 
         if (TryComp<BlobCoreComponent>(newCore, out var newBlobCoreComponent))
         {

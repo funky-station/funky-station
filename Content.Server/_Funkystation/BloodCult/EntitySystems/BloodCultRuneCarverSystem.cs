@@ -240,7 +240,7 @@ public sealed partial class BloodCultRuneCarverSystem : EntitySystem
 		{
 			var runeTransform = Transform(rune);
 			_transform.AnchorEntity((rune, runeTransform), ((EntityUid)gridUid, grid), targetTile.GridIndices);
-			_damageableSystem.TryChangeDamage(ent, appliedDamageSpecifier, true, origin: ent);
+			_damageableSystem.TryChangeDamage(ent.Owner, appliedDamageSpecifier, true, origin: ent);
 			_audioSystem.PlayPvs(ev.CarveSound, ent);
 		}
 		else

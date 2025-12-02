@@ -1,7 +1,5 @@
-// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
-//
-// SPDX-License-Identifier: MIT
+using Content.Shared.Maps;
+using Robust.Shared.Prototypes;
 
 namespace Content.Shared.Procedural.PostGeneration;
 
@@ -10,6 +8,12 @@ namespace Content.Shared.Procedural.PostGeneration;
 /// </summary>
 public sealed partial class SplineDungeonConnectorDunGen : IDunGenLayer
 {
+    [DataField(required: true)]
+    public ProtoId<ContentTileDefinition> Tile;
+
+    [DataField]
+    public ProtoId<ContentTileDefinition>? WidenTile;
+
     /// <summary>
     /// Will divide the distance between the start and end points so that no subdivision is more than these metres away.
     /// </summary>

@@ -13,6 +13,7 @@ using Content.Shared.Verbs;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 using System.Linq;
+using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Prototypes;
 
 namespace Content.Server.Traits;

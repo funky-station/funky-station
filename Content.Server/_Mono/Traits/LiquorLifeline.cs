@@ -37,10 +37,9 @@ public sealed class LiquorLifelineSystem : EntitySystem
         if (root == null)
             return;
 
-        // Find all organs in the torso.
-        foreach (var organ in _bodySystem.GetPartOrgans(uid, "groin"))
+        // Iterate organs in the root part
+        foreach (var organ in _bodySystem.GetPartOrgans(root.Value, null))
         {
-            // If we find a liver, remove it and replace it with a dwarf liver.
             if (organ.Component.SlotId == "liver")
             {
                 _bodySystem.RemoveOrgan(organ.Id);
@@ -52,3 +51,4 @@ public sealed class LiquorLifelineSystem : EntitySystem
         }
     }
 }
+

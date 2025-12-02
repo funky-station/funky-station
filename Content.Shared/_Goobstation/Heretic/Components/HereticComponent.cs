@@ -1,92 +1,170 @@
-// SPDX-FileCopyrightText: 2024 PJBot <pieterjan.briers+bot@gmail.com>
-// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
-// SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
 // SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
-// SPDX-FileCopyrightText: 2025 Kandiyaki <106633914+Kandiyaki@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
+// SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+// SPDX-FileCopyrightText: 2025 yglop <95057024+yglop@users.noreply.github.com>
 //
-// SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+// SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Shared.Dataset;
 using Content.Shared.Heretic.Prototypes;
+using Content.Shared.Objectives.Components;
+using Content.Shared.Preferences;
+using Content.Shared.Roles;
+using Content.Shared.Tag;
+using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization;
 
 namespace Content.Shared.Heretic;
 
-[RegisterComponent, NetworkedComponent, AutoGenerateComponentState, AutoGenerateComponentPause]
+// TODO: Move all of this to mind components, heretics should be safely polymorphable
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class HereticComponent : Component
 {
-    #region Prototypes
-
-    [DataField] public List<ProtoId<HereticKnowledgePrototype>> BaseKnowledge = new()
+    [DataField]
+    public List<ProtoId<HereticKnowledgePrototype>> BaseKnowledge = new()
     {
         "BreakOfDawn",
         "HeartbeatOfMansus",
         "AmberFocus",
         "LivingHeart",
         "CodexCicatrix",
+        "CloakOfShadow",
+        "Reminiscence",
+        "FeastOfOwls",
     };
 
-    #endregion
+    [DataField]
+    public List<EntityUid> ProvidedActions = new();
 
-    [DataField, AutoNetworkedField] public List<ProtoId<HereticRitualPrototype>> KnownRituals = new();
-    [DataField] public ProtoId<HereticRitualPrototype>? ChosenRitual;
+    [DataField, AutoNetworkedField]
+    public List<ProtoId<HereticRitualPrototype>> KnownRituals = new();
+
+    [DataField]
+    public ProtoId<HereticRitualPrototype>? ChosenRitual;
 
     /// <summary>
     ///     Contains the list of targets that are eligible for sacrifice.
     /// </summary>
-    [DataField, AutoNetworkedField] public List<NetEntity?> SacrificeTargets = new();
+    [DataField, AutoNetworkedField]
+    public List<SacrificeTargetData> SacrificeTargets = new();
 
     /// <summary>
     ///     How much targets can a heretic have?
     /// </summary>
-    [DataField, AutoNetworkedField] public int MaxTargets = 5;
+    [DataField, AutoNetworkedField]
+    public int MaxTargets = 6;
 
     // hardcoded paths because i hate it
     // "Ash", "Lock", "Flesh", "Void", "Blade", "Rust"
     /// <summary>
     ///     Indicates a path the heretic is on.
     /// </summary>
-    [DataField, AutoNetworkedField] public string? CurrentPath = null;
+    [DataField, AutoNetworkedField]
+    public string? CurrentPath;
 
     /// <summary>
     ///     Indicates a stage of a path the heretic is on. 0 is no path, 10 is ascension
     /// </summary>
-    [DataField, AutoNetworkedField] public int PathStage = 0;
+    [DataField, AutoNetworkedField]
+    public int PathStage;
 
-    [DataField, AutoNetworkedField] public bool Ascended = false;
+    [DataField, AutoNetworkedField]
+    public bool Ascended;
+
+    [DataField, AutoNetworkedField]
+    public bool CanAscend = true;
+
+    [DataField]
+    public ProtoId<DatasetPrototype> KnowledgeDataset = "EligibleTags";
+
+    /// <summary>
+    ///     Required tags for ritual of knowledge
+    /// </summary>
+    [DataField(serverOnly: true), NonSerialized]
+    public HashSet<ProtoId<TagPrototype>> KnowledgeRequiredTags = new();
 
     /// <summary>
     ///     Used to prevent double casting mansus grasp.
     /// </summary>
-    [ViewVariables(VVAccess.ReadOnly)] public bool MansusGraspActive = false;
+    [ViewVariables(VVAccess.ReadOnly)]
+    public EntityUid MansusGrasp = EntityUid.Invalid;
 
-    /// <summary>
-    ///     Indicates if a heretic is able to cast advanced spells.
-    ///     Requires wearing focus, codex cicatrix, hood or anything else that allows him to do so.
-    /// </summary>
-    [ViewVariables(VVAccess.ReadWrite)] public bool CanCastSpells = false;
+    [DataField]
+    public Dictionary<ProtoId<HereticRitualPrototype>, List<EntityUid>> LimitedTransmutations = new();
 
-    /// <summary>
-    ///     dunno how to word this
-    ///     its for making sure the next point update is 20 minutes in
-    /// </summary>
-    [DataField, AutoNetworkedField] public TimeSpan NextPointUpdate;
+    // Required for reminiscence, Path -> Blade ritual id
+    [DataField]
+    public Dictionary<string, ProtoId<HereticRitualPrototype>> Blades = new()
+    {
+        {"Ash", "BladeAsh"},
+        {"Blade", "BladeBlade"},
+        {"Flesh", "BladeFlesh"},
+        {"Void", "BladeVoid"},
+        {"Rust", "BladeRust"},
+        {"Cosmos", "BladeCosmos"},
+    };
 
-    /// <summary>
-    ///     dunno how to word this
-    ///     its for making sure the next point update is 20 minutes in
-    /// </summary>
-    [DataField, AutoNetworkedField] public TimeSpan PointCooldown = TimeSpan.FromMinutes(20);
+    [DataField]
+    public SoundSpecifier? InfluenceGainSound = new SoundCollectionSpecifier("bloodCrawl");
 
-    /// <summary>
-    ///     when the time delta alert happens
-    /// </summary>
-    [DataField, AutoNetworkedField] public TimeSpan AlertTime;
+    [DataField]
+    public LocId InfluenceGainBaseMessage = "influence-base-message";
 
-    /// <summary>
-    ///     how long 2 wait
-    /// </summary>
-    [DataField, AutoNetworkedField] public TimeSpan AlertWaitTime = TimeSpan.FromSeconds(10);
+    [DataField]
+    public int InfluenceGainTextFontSize = 22;
+
+    [DataField]
+    public List<LocId> InfluenceGainMessages = new()
+    {
+        "influence-gain-message-1",
+        "influence-gain-message-2",
+        "influence-gain-message-3",
+        "influence-gain-message-4",
+        "influence-gain-message-5",
+        "influence-gain-message-6",
+        "influence-gain-message-7",
+        "influence-gain-message-7",
+        "influence-gain-message-8",
+        "influence-gain-message-9",
+        "influence-gain-message-10",
+        "influence-gain-message-11",
+        "influence-gain-message-12",
+        "influence-gain-message-13",
+        "influence-gain-message-14",
+        "influence-gain-message-15",
+        "influence-gain-message-16",
+    };
+
+    [DataField]
+    public List<EntProtoId<ObjectiveComponent>> AllObjectives = new()
+    {
+        "HereticKnowledgeObjective",
+        "HereticSacrificeObjective",
+        "HereticSacrificeHeadObjective",
+    };
+}
+
+[DataDefinition, Serializable, NetSerializable]
+public sealed partial class SacrificeTargetData
+{
+    [DataField]
+    public NetEntity Entity;
+
+    [DataField]
+    public HumanoidCharacterProfile Profile;
+
+    [DataField]
+    public ProtoId<JobPrototype> Job;
+}
+
+[Serializable, NetSerializable]
+public enum InfusedBladeVisuals
+{
+    Infused,
 }

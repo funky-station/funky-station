@@ -1,50 +1,48 @@
 // SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
-// SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
 // SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 mqole <113324899+mqole@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
+// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 //
-// SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+// SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Server.Heretic.EntitySystems;
 using Content.Shared.Heretic;
-using Content.Shared.Heretic.Prototypes;
 using Content.Shared.Mind;
 using Content.Shared.Store;
-using Robust.Shared.Prototypes;
 
 namespace Content.Server.Store.Conditions;
 
 public sealed partial class HereticPathCondition : ListingCondition
 {
-    [Dependency] private readonly IPrototypeManager _proto = default!;
+    [DataField]
+    public HashSet<string>? Whitelist;
 
-    public int AlternatePathPenalty = 1; //you can only buy alternate paths' abilities if they are this amount under your initial path's top ability level.
-    [DataField] public HashSet<string>? Whitelist;
-    [DataField] public HashSet<string>? Blacklist;
-    [DataField] public int Stage = 0;
+    [DataField]
+    public HashSet<string>? Blacklist;
+
+    [DataField]
+    public int Stage;
+
+    [DataField]
+    public bool RequiresCanAscend;
 
     public override bool Condition(ListingConditionArgs args)
     {
         var ent = args.EntityManager;
         var minds = ent.System<SharedMindSystem>();
-        var knowledgeSys = ent.System<HereticKnowledgeSystem>();
 
-
-
-        if (!ent.TryGetComponent<MindComponent>(args.Buyer, out var mind))
+        if (!minds.TryGetMind(args.Buyer, out var mindId, out var mind))
             return false;
 
-        if (!ent.TryGetComponent<HereticComponent>(mind.OwnedEntity, out var hereticComp))
+        if (!ent.TryGetComponent<HereticComponent>(args.Buyer, out var hereticComp))
             return false;
 
-        //Stage is the level of the knowledge we're looking at
-        //always check for level
+        if (RequiresCanAscend && !hereticComp.CanAscend)
+            return false;
+
         if (Stage > hereticComp.PathStage)
-        {
             return false;
-        }
 
         if (Whitelist != null)
         {
@@ -62,30 +60,6 @@ public sealed partial class HereticPathCondition : ListingCondition
             return true;
         }
 
-
-        //if you have chosen a path
-        if ((hereticComp.CurrentPath != null) && (args.Listing.ProductHereticKnowledge != null))
-        {
-            ProtoId<HereticKnowledgePrototype> knowledgeProtoId = new ProtoId<HereticKnowledgePrototype>((ProtoId<HereticKnowledgePrototype>)args.Listing.ProductHereticKnowledge);
-            var knowledge = knowledgeSys.GetKnowledge(knowledgeProtoId);
-            HashSet<string> myPaths = new HashSet<string>();
-            myPaths.Add(hereticComp.CurrentPath);
-            myPaths.Add("Side");
-
-            //and the knowledge you're looking at is not from your current path or side knowledge
-            if (knowledge.Path != null && !(myPaths.Contains(knowledge.Path)))
-            {
-                //then, there should be a penalty.
-                //so, if the level of the knowledge is greater than your current path's level minus the penalty
-                if (Stage > hereticComp.PathStage - AlternatePathPenalty)
-                {
-                    //then you can't have it.
-                    return false;
-                    //this took me two days.
-                }
-
-            }
-        }
         return true;
     }
 }

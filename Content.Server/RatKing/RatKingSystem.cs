@@ -27,6 +27,7 @@ using Content.Shared.Nutrition.EntitySystems;
 using Content.Shared.Pointing;
 using Content.Shared.RatKing;
 using Robust.Shared.Map;
+using Robust.Shared.Random;
 
 namespace Content.Server.RatKing
 {

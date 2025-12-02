@@ -1,9 +1,3 @@
-// SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
-// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
-//
-// SPDX-License-Identifier: MIT
-
 using System.Linq;
 using System.Threading.Tasks;
 using Content.Server.Ghost.Roles.Components;
@@ -20,23 +14,32 @@ public sealed partial class DungeonJob
 {
     private async Task PostGen(
         EntityTableDunGen gen,
-        Dungeon dungeon,
+        List<Dungeon> dungeons,
+        HashSet<Vector2i> reservedTiles,
         Random random)
     {
-        var availableRooms = new ValueList<DungeonRoom>();
-        availableRooms.AddRange(dungeon.Rooms);
-        var availableTiles = new ValueList<Vector2i>(dungeon.AllTiles);
-
         var count = random.Next(gen.MinCount, gen.MaxCount + 1);
         var npcs = _entManager.System<NPCSystem>();
 
-        for (var i = 0; i < count; i++)
+        foreach (var dungeon in dungeons)
         {
-            while (availableTiles.Count > 0)
+            var availableRooms = new ValueList<DungeonRoom>();
+            availableRooms.AddRange(dungeon.Rooms);
+            var availableTiles = new ValueList<Vector2i>(dungeon.AllTiles);
+
+            while (availableTiles.Count > 0 && count > 0)
             {
                 var tile = availableTiles.RemoveSwap(random.Next(availableTiles.Count));
 
-                if (!_anchorable.TileFree(_grid,
+                await SuspendDungeon();
+
+                if (!ValidateResume())
+                    return;
+
+                if (reservedTiles.Contains(tile))
+                    continue;
+
+                if (!_anchorable.TileFree((_gridUid, _grid),
                         tile,
                         (int) CollisionGroup.MachineLayer,
                         (int) CollisionGroup.MachineLayer))
@@ -53,13 +56,18 @@ public sealed partial class DungeonJob
                     npcs.SleepNPC(uid);
                 }
 
-                break;
+                count--;
             }
 
-            await SuspendDungeon();
-
-            if (!ValidateResume())
+            if (gen.PerDungeon)
+            {
+                count = random.Next(gen.MinCount, gen.MaxCount + 1);
+            }
+            // Stop if count is 0, otherwise go to next dungeon.
+            else if (count == 0)
+            {
                 return;
+            }
         }
     }
 }

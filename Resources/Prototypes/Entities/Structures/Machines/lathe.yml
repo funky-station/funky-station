@@ -621,6 +621,7 @@
     runningState: building
     unlitIdleState: unlit
     unlitRunningState: unlit-building
+
     staticRecipes:
     - LargeBeaker
     - Dropper
@@ -702,6 +703,9 @@
     - ClothingEyesNightVisionGoggles # Funky - EE nightvision
     - ClothingEyesNightVisionDiagnosticGoggles # Funky - EE nightvision
     - ClothingEyesThermalVisionGoggles # Funky - EE nightvision
+
+ 
+
   - type: EmagLatheRecipes
     emagDynamicRecipes:
     - BoxBeanbag
@@ -895,6 +899,9 @@
     - ThermomachineAdvancedFreezerMachineCircuitBoard # Assmos
     - MusicTechFabCircuitboard # Funky Station
     - ElectrolyzerMachineCircuitboard # Assmos - /tg/ gases
+    - NuclearFabricatorMachineCircuitboard
+    - NuclearCentrifugeMachineCircuitboard
+
   - type: EmagLatheRecipes
     emagDynamicRecipes:
     - ShuttleGunDusterCircuitboard

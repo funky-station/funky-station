@@ -704,23 +704,7 @@
     - ClothingEyesNightVisionDiagnosticGoggles # Funky - EE nightvision
     - ClothingEyesThermalVisionGoggles # Funky - EE nightvision
 
-    staticPacks:
-    - ChemistryStatic
-    dynamicPacks:
-    - AdvancedTools
-    - ScienceEquipment
-    - ScienceExplosives
-    - ScienceClothing
-    - PowerCells
-    - ScienceWeapons
-    - Mining
-    - AtmosTools
-    - EngineeringWeapons
-    - Chemistry
-    - Janitor
-    - Instruments
-    - Equipment
-    - FauxTiles
+ 
 
   - type: EmagLatheRecipes
     emagDynamicRecipes:

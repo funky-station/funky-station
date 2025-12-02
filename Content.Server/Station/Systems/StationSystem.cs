@@ -316,10 +316,28 @@ public sealed partial class StationSystem : SharedStationSystem
                 filter.AddPlayer(session);
                 break;
             }
+
         }
 
         return filter;
     }
+
+    // Goobstation start
+    public HashSet<EntityUid> GetAllStationGrids()
+    {
+        // Collect all grids owned by stations
+        var grids = new HashSet<EntityUid>();
+
+        var query = EntityQueryEnumerator<StationDataComponent>();
+        while (query.MoveNext(out var uid, out var data))
+        {
+            // Add to the list of grids
+            grids.UnionWith(data.Grids);
+        }
+
+        return grids;
+    }
+    // Goobstation end
 
     /// <summary>
     /// Initializes a new station with the given information.

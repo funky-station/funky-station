@@ -84,6 +84,6 @@ public sealed class FlashbangSystem : EntitySystem
 
         var stunTime = float.Lerp(comp.StunTime, 0f, ratio);
         if (stunTime > 0f)
-            _stun.TryStun(args.Target, TimeSpan.FromSeconds(stunTime), true);
+            _stun.TryAddStunDuration(args.Target, TimeSpan.FromSeconds(stunTime));
     }
 }

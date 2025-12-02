@@ -33,8 +33,11 @@ using Content.Shared.Damage.Systems;
 using Robust.Shared.Physics;
 using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Movement.Pulling.Systems;
+using Robust.Server.Player;
+
 
 namespace Content.Server.Heretic.Ritual;
+
 
 /// <summary>
 ///     Checks for a nearest dead body,
@@ -179,10 +182,12 @@ public partial class RitualSacrificeBehavior : RitualCustomBehavior
             // tell them they've been sacrificed -space
             var message = Loc.GetString("sacrificed-description");
             var wrappedMessage = Loc.GetString("chat-manager-server-wrap-message", ("message", message));
+            var playerManager = IoCManager.Resolve<IPlayerManager>();
 
             if (message is not null &&
                 sharedMindSystem.TryGetMind(uid, out var mindId, out MindComponent? mindComponent) &&
-                mindComponent?.UserId != null)
+                mindComponent?.UserId != null &&
+                playerManager.TryGetSessionById(mindComponent.UserId.Value, out var session))
             {
                 chatManager.ChatMessageToOne(
                     ChatChannel.Server,
@@ -190,7 +195,7 @@ public partial class RitualSacrificeBehavior : RitualCustomBehavior
                     wrappedMessage,
                     default,
                     false,
-                    client,
+                    client: session.Channel,
                     Color.FromSrgb(new Color(255, 100, 255))
                 );
             }

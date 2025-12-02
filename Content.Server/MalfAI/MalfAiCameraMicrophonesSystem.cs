@@ -16,6 +16,8 @@ using Content.Shared.MalfAI;
 using Content.Shared.MalfAI.Actions;
 using Content.Shared.Popups;
 using Content.Shared.Silicons.StationAi;
+using Content.Shared.Speech.Components;
+using Content.Shared.SurveillanceCamera.Components;
 using Robust.Shared.GameObjects;
 using Robust.Shared.Localization;
 using Robust.Shared.Player;

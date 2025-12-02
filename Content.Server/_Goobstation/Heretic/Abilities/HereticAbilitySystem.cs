@@ -165,11 +165,12 @@ public sealed partial class HereticAbilitySystem : EntitySystem
 
         if (ent.Comp.MansusGraspActive)
         {
-            foreach (var hand in _hands.EnumerateHands(ent))
+            foreach (var hand in _hands.EnumerateHands(ent.Owner))
             {
-                if (TryComp<MansusGraspComponent>(hand.HeldEntity, out var graspComp))
+                if (_hands.TryGetHeldItem(ent.Owner, hand, out var heldEntity) &&
+                    TryComp<MansusGraspComponent>(heldEntity, out var graspComp))
                 {
-                    QueueDel(hand.HeldEntity);
+                    QueueDel(heldEntity.Value);
                     ent.Comp.MansusGraspActive = false;
                 }
             }
@@ -284,6 +285,6 @@ public sealed partial class HereticAbilitySystem : EntitySystem
         transmitter.Channels = new() { "Mansus" };
 
         // this "* 1000f" (divided by 1000 in FlashSystem) is gonna age like fine wine :clueless:
-        _flash.Flash(args.Target, null, null, 2f * 1000f, 0f, false, true, stunDuration: TimeSpan.FromSeconds(1f));
+        _flash.Flash(args.Target, null, null, TimeSpan.FromSeconds(2f), 0f, false, true, stunDuration: TimeSpan.FromSeconds(1f));
     }
 }

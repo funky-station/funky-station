@@ -1,28 +1,3 @@
-// SPDX-FileCopyrightText: 2022 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 ike709 <ike709@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Tomás Alves <tomasalves35@gmail.com>
-// SPDX-FileCopyrightText: 2023 faint <46868845+ficcialfaint@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 themias <89101928+themias@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
-// SPDX-FileCopyrightText: 2024 Cojoke <83733158+Cojoke-dot@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 MisterMecky <mrmecky@hotmail.com>
-// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
-// SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
-// SPDX-FileCopyrightText: 2024 beck-thompson <107373427+beck-thompson@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 dragonryan06 <71857681+dragonryan06@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
-// SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
-// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
-//
-// SPDX-License-Identifier: MIT
-
-using Content.Server.Body.Components;
 using Content.Server.Body.Systems;
 using Content.Server.DoAfter;
 using Content.Server.Fluids.EntitySystems;
@@ -45,6 +20,7 @@ using Content.Shared.Weapons.Melee.Events;
 using Robust.Shared.Random;
 using Content.Shared.Verbs;
 using Robust.Shared.Utility;
+using Content.Shared.Hands.Components;
 
 namespace Content.Server.Forensics
 {
@@ -86,7 +62,7 @@ namespace Content.Server.Forensics
             }
         }
 
-        private void OnInteract(EntityUid uid, FingerprintComponent component, ContactInteractionEvent args)
+        private void OnInteract(EntityUid uid, HandsComponent component, ContactInteractionEvent args)
         {
             ApplyEvidence(uid, args.Other);
         }
@@ -99,7 +75,6 @@ namespace Content.Server.Forensics
 
         private void OnDNAInit(Entity<DnaComponent> ent, ref MapInitEvent args)
         {
-            Log.Debug($"Init DNA {Name(ent.Owner)} {ent.Comp.DNA}");
             if (ent.Comp.DNA == null)
                 RandomizeDNA((ent.Owner, ent.Comp));
             else
@@ -326,11 +301,9 @@ namespace Content.Server.Forensics
             {
                 if (TryComp<FiberComponent>(gloves, out var fiber) && !string.IsNullOrEmpty(fiber.FiberMaterial))
                     component.Fibers.Add(string.IsNullOrEmpty(fiber.FiberColor) ? Loc.GetString("forensic-fibers", ("material", fiber.FiberMaterial)) : Loc.GetString("forensic-fibers-colored", ("color", fiber.FiberColor), ("material", fiber.FiberMaterial)));
-
-                if (HasComp<FingerprintMaskComponent>(gloves))
-                    return;
             }
-            if (TryComp<FingerprintComponent>(user, out var fingerprint))
+
+            if (TryComp<FingerprintComponent>(user, out var fingerprint) && CanAccessFingerprint(user, out _))
                 component.Fingerprints.Add(fingerprint.Fingerprint ?? "");
         }
 
@@ -355,7 +328,6 @@ namespace Content.Server.Forensics
             ent.Comp.DNA = GenerateDNA();
             Dirty(ent);
 
-            Log.Debug($"Randomize DNA {Name(ent.Owner)} {ent.Comp.DNA}");
             var ev = new GenerateDnaEvent { Owner = ent.Owner, DNA = ent.Comp.DNA };
             RaiseLocalEvent(ent.Owner, ref ev);
         }
@@ -377,6 +349,23 @@ namespace Content.Server.Forensics
                 recipientComp.DNAs.Add(donorComp.DNA);
                 recipientComp.CanDnaBeCleaned = canDnaBeCleaned;
             }
+        }
+
+        /// <summary>
+        /// Checks if there's a way to access the fingerprint of the target entity.
+        /// </summary>
+        /// <param name="target">The entity with the fingerprint</param>
+        /// <param name="blocker">The entity that blocked accessing the fingerprint</param>
+        public bool CanAccessFingerprint(EntityUid target, out EntityUid? blocker)
+        {
+            var ev = new TryAccessFingerprintEvent();
+
+            RaiseLocalEvent(target, ev);
+            if (!ev.Cancelled && TryComp<InventoryComponent>(target, out var inv))
+                _inventory.RelayEvent((target, inv), ev);
+
+            blocker = ev.Blocker;
+            return !ev.Cancelled;
         }
 
         #endregion

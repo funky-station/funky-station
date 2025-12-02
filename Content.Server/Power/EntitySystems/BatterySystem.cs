@@ -117,7 +117,7 @@ public sealed partial class BatterySystem : SharedBatterySystem
 
     public override void Update(float frameTime)
     {
-        var query = EntityQueryEnumerator<BatterySelfRechargerComponent, BatteryComponent>();
+        var query = EntityQueryEnumerator<Shared.Power.Components.BatterySelfRechargerComponent, BatteryComponent>();
         var curTime = _timing.CurTime;
         while (query.MoveNext(out var uid, out var comp, out var bat))
         {

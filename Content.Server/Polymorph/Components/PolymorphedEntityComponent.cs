@@ -1,13 +1,3 @@
-// SPDX-FileCopyrightText: 2022 EmoGarbage404 <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
-//
-// SPDX-License-Identifier: MIT
-
 using Content.Server.Polymorph.Systems;
 using Content.Shared.Polymorph;
 
@@ -28,7 +18,13 @@ public sealed partial class PolymorphedEntityComponent : Component
     /// The original entity that the player will revert back into
     /// </summary>
     [DataField(required: true)]
-    public EntityUid Parent;
+    public EntityUid? Parent;
+
+    /// <summary>
+    /// Whether this polymorph has been reverted.
+    /// </summary>
+    [DataField]
+    public bool Reverted;
 
     /// <summary>
     /// The amount of time that has passed since the entity was created

@@ -41,6 +41,7 @@
 using Content.Server._DV.CosmicCult.Components;
 using Content.Server.Administration.Commands;
 using Content.Server.Antag;
+using Content.Server.Clothing.Systems;
 using Content.Server.GameTicking;
 using Content.Server.GameTicking.Rules.Components;
 using Content.Server.Zombies;
@@ -164,7 +165,7 @@ public sealed partial class AdminVerbSystem
             Act = () =>
             {
                 // pirates just get an outfit because they don't really have logic associated with them
-                SetOutfitCommand.SetOutfit(args.Target, PirateGearId, EntityManager);
+                _outfit.SetOutfit(args.Target, PirateGearId);
             },
             Impact = LogImpact.High,
             Message = Loc.GetString("admin-verb-make-pirate"),

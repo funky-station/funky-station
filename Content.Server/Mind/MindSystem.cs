@@ -1,38 +1,3 @@
-// SPDX-FileCopyrightText: 2022 Acruid <shatter66@gmail.com>
-// SPDX-FileCopyrightText: 2022 Jezithyr <Jezithyr.@gmail.com>
-// SPDX-FileCopyrightText: 2022 Jezithyr <Jezithyr@gmail.com>
-// SPDX-FileCopyrightText: 2022 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Vera Aguilera Puerto <gradientvera@outlook.com>
-// SPDX-FileCopyrightText: 2022 metalgearsloth <comedian_vs_clown@hotmail.com>
-// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2022 themias <89101928+themias@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Chief-Engineer <119664036+Chief-Engineer@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Jezithyr <jezithyr@gmail.com>
-// SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Pieter-Jan Briers <pieterjan.briers@gmail.com>
-// SPDX-FileCopyrightText: 2023 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Tom Leys <tom@crump-leys.com>
-// SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 crazybrain23 <44417085+crazybrain23@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 deltanedas <@deltanedas:kde.org>
-// SPDX-FileCopyrightText: 2023 vanx <#vanxxxx>
-// SPDX-FileCopyrightText: 2023 vanx <61917534+Vaaankas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
-// SPDX-FileCopyrightText: 2024 ShadowCommander <shadowjjt@gmail.com>
-// SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
-// SPDX-FileCopyrightText: 2024 Winkarst <74284083+Winkarst-cpu@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
-// SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
-// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
-//
-// SPDX-License-Identifier: MIT
-
 using Content.Server.Administration.Logs;
 using Content.Server.GameTicking;
 using Content.Server.Ghost;
@@ -103,7 +68,7 @@ public sealed class MindSystem : SharedMindSystem
         TransferTo(mindId, null, createGhost: false, mind: mind);
         DebugTools.AssertNull(mind.OwnedEntity);
 
-        if (!component.GhostOnShutdown || mind.Session == null || _gameTicker.RunLevel == GameRunLevel.PreRoundLobby)
+        if (!component.GhostOnShutdown || _gameTicker.RunLevel == GameRunLevel.PreRoundLobby)
             return;
 
         var ghost = _ghosts.SpawnGhost((mindId, mind), uid);
@@ -125,16 +90,6 @@ public sealed class MindSystem : SharedMindSystem
 
         DebugTools.Assert(!_players.TryGetPlayerData(user, out var pData) || pData.ContentData()?.Mind == null);
         return false;
-    }
-
-    public ICommonSession? GetSession(MindComponent mind)
-    {
-        return mind.Session;
-    }
-
-    public bool TryGetSession(MindComponent mind, [NotNullWhen(true)] out ICommonSession? session)
-    {
-        return (session = GetSession(mind)) != null;
     }
 
     public override void WipeAllMinds()
@@ -178,10 +133,10 @@ public sealed class MindSystem : SharedMindSystem
 
         // Do this AFTER the entity changes above as this will fire off a player-detached event
         // which will run ghosting twice.
-        if (GetSession(mind) is { } session)
+        if (_players.TryGetSessionById(mind.UserId, out var session))
             _players.SetAttachedEntity(session, entity);
 
-        Log.Info($"Session {mind.Session?.Name} visiting entity {entity}.");
+        Log.Info($"Session {session?.Name} visiting entity {entity}.");
     }
 
     public override void UnVisit(EntityUid mindId, MindComponent? mind = null)
@@ -196,17 +151,19 @@ public sealed class MindSystem : SharedMindSystem
 
         RemoveVisitingEntity(mindId, mind);
 
-        if (mind.Session == null || mind.Session.AttachedEntity == mind.VisitingEntity)
+        if (mind.UserId == null || !_players.TryGetSessionById(mind.UserId.Value, out var session))
+            return;
+
+        if (session.AttachedEntity == mind.VisitingEntity)
             return;
 
         var owned = mind.OwnedEntity;
-        if (GetSession(mind) is { } session)
-            _players.SetAttachedEntity(session, owned);
+        _players.SetAttachedEntity(session, owned);
 
         if (owned.HasValue)
         {
             _adminLogger.Add(LogType.Mind, LogImpact.Low,
-                $"{mind.Session.Name} returned to {ToPrettyString(owned.Value)}");
+                $"{session.Name} returned to {ToPrettyString(owned.Value)}");
         }
     }
 
@@ -233,7 +190,8 @@ public sealed class MindSystem : SharedMindSystem
             if (TryComp<ActorComponent>(entity.Value, out var actor))
             {
                 // Happens when transferring to your currently visited entity.
-                if (actor.PlayerSession != mind.Session)
+                if (!_players.TryGetSessionByEntity(entity.Value, out var session) ||
+                    mind.UserId == null || actor.PlayerSession != session )
                 {
                     throw new ArgumentException("Visit target already has a session.", nameof(entity));
                 }
@@ -249,7 +207,7 @@ public sealed class MindSystem : SharedMindSystem
             // not implicitly via optional arguments.
 
             var position = Deleted(mind.OwnedEntity)
-                ? _gameTicker.GetObserverSpawnPoint().ToMap(EntityManager, _transform)
+                ? _transform.ToMapCoordinates(_gameTicker.GetObserverSpawnPoint())
                 : _transform.GetMapCoordinates(mind.OwnedEntity.Value);
 
             entity = Spawn(GameTicker.ObserverPrototypeName, position);
@@ -287,12 +245,12 @@ public sealed class MindSystem : SharedMindSystem
         }
 
         // Player is CURRENTLY connected.
-        var session = GetSession(mind);
-        if (session != null && !alreadyAttached && mind.VisitingEntity == null)
+        if (mind.UserId != null && _players.TryGetSessionById(mind.UserId.Value, out var userSession)
+                                && !alreadyAttached && mind.VisitingEntity == null)
         {
-            _players.SetAttachedEntity(session, entity, true);
-            DebugTools.Assert(session.AttachedEntity == entity, $"Failed to attach entity.");
-            Log.Info($"Session {session.Name} transferred to entity {entity}.");
+            _players.SetAttachedEntity(userSession, entity, true);
+            DebugTools.Assert(userSession.AttachedEntity == entity, "Failed to attach entity.");
+            Log.Info($"Session {userSession.Name} transferred to entity {entity}.");
         }
 
         if (entity != null)
@@ -322,18 +280,18 @@ public sealed class MindSystem : SharedMindSystem
             return;
 
         Dirty(mindId, mind);
-        var netMind = GetNetEntity(mindId);
-        _pvsOverride.ClearOverride(netMind);
+
         if (userId != null && !_players.TryGetPlayerData(userId.Value, out _))
         {
             Log.Error($"Attempted to set mind user to invalid value {userId}");
             return;
         }
 
-        if (mind.Session != null)
+        // Clear any existing entity attachment
+        if (_players.TryGetSessionById(mind.UserId, out var oldSession))
         {
-            _players.SetAttachedEntity(GetSession(mind), null);
-            mind.Session = null;
+            _players.SetAttachedEntity(oldSession, null);
+            _pvsOverride.RemoveSessionOverride(mindId, oldSession);
         }
 
         if (mind.UserId != null)
@@ -345,10 +303,7 @@ public sealed class MindSystem : SharedMindSystem
         }
 
         if (userId == null)
-        {
-            DebugTools.AssertNull(mind.Session);
             return;
-        }
 
         if (UserMinds.TryGetValue(userId.Value, out var oldMindId) &&
             TryComp(oldMindId, out MindComponent? oldMind))
@@ -367,11 +322,10 @@ public sealed class MindSystem : SharedMindSystem
         if (_players.GetPlayerData(userId.Value).ContentData() is { } data)
             data.Mind = mindId;
 
-        if (_players.TryGetSessionById(userId.Value, out var ret))
+        if (_players.TryGetSessionById(userId.Value, out var session))
         {
-            mind.Session = ret;
-            _pvsOverride.AddSessionOverride(netMind, ret);
-            _players.SetAttachedEntity(ret, mind.CurrentEntity);
+            _pvsOverride.AddSessionOverride(mindId, session);
+            _players.SetAttachedEntity(session, mind.CurrentEntity);
         }
     }
 

@@ -1,14 +1,16 @@
-// SPDX-FileCopyrightText: 2025 misghast <51974455+misterghast@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
+// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 //
-// SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+// SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Server._Goobstation.StationEvents.Metric;
-using Content.Shared.EntityTable.EntitySelectors;
+using Content.Shared.Random;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
-namespace Content.Server._Goobstation.StationEvents.Components;
+namespace Content.Goobstation.Server.StationEvents.Components;
 
 [RegisterComponent, Access(typeof(GameDirectorSystem))]
 public sealed partial class GameDirectorComponent : Component
@@ -48,22 +50,16 @@ public sealed partial class GameDirectorComponent : Component
     public List<ProtoId<StoryBeatPrototype>> RemainingBeats = new();
 
     /// <summary>
-    /// Does this round start with calm antags or regular roundstart antags?
+    /// Does this round start with multiple antags.
     /// </summary>
     [DataField]
-    public bool CalmAntags;
+    public bool DualAntags;
 
     /// <summary>
-    /// How many antags does this round start with?
+    /// Does this round start with antags at all?.
     /// </summary>
     [DataField]
-    public int NormalAntagAmount;
-
-    [DataField]
-    public int ExtremeAntagAmount;
-
-    [DataField]
-    public int CalmAntagAmount;
+    public bool NoRoundstartAntags;
 
     /// <summary>
     ///   Which stories the director can choose from (so we can change flavor of director by loading different stories)
@@ -84,6 +80,11 @@ public sealed partial class GameDirectorComponent : Component
     [DataField]
     public List<PossibleEvent> PossibleEvents = new();
     // Could have Chaos multipliers here, or multipliers per player (so stories are harder with more players).
+
+    /// <summary>
+    /// All the possible roundstart antags.
+    /// </summary>
+    public ProtoId<WeightedRandomPrototype> RoundStartAntagsWeightTable = "GameDirector";
 }
 
 /// <summary>

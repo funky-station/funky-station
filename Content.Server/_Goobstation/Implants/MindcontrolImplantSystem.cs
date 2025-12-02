@@ -5,11 +5,11 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
+using Content.Goobstation.Server.Mindcontrol;
+using Content.Goobstation.Shared.Mindcontrol;
 using Content.Server.Implants.Components;
 using Content.Shared.Implants;
 using Robust.Shared.Containers;
-using Content.Shared.Mindcontrol;
-using Content.Server.Mindcontrol;
 using Content.Shared.Implants.Components;
 
 namespace Content.Server.Implants;
@@ -30,16 +30,16 @@ public sealed class MindcontrolImplantSystem : EntitySystem
             component.HolderUid = Transform(component.ImplanterUid.Value).ParentUid;
             RemComp<PreventSelfImplantComponent>(component.ImplanterUid.Value);
         }
-        if (args.Implanted != null)
-            EnsureComp<MindcontrolledComponent>(args.Implanted.Value);
+
+        EnsureComp<MindcontrolledComponent>(args.Implanted);
 
         component.ImplanterUid = null;
-        if (args.Implanted == null)
+
+        if (!TryComp<MindcontrolledComponent>(args.Implanted, out var implanted))
             return;
-        if (!TryComp<MindcontrolledComponent>(args.Implanted.Value, out var implanted))
-            return;
+
         implanted.Master = component.HolderUid;
-        _mindcontrol.Start(args.Implanted.Value, implanted);
+        _mindcontrol.Start(args.Implanted, implanted);
     }
     private void OnInsert(EntityUid uid, MindcontrolImplantComponent component, EntGotInsertedIntoContainerMessage args)
     {

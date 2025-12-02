@@ -35,9 +35,7 @@ public sealed partial class DeliverySystem
 
         var coords = Transform(ent).Coordinates;
 
-        _audio.PlayPvs(ent.Comp.SpawnSound, ent.Owner);
-
-        for (int i = 0; i < amount; i++)
+        for (int i = 0; i < ent.Comp.ContainedDeliveryAmount; i++)
         {
             var spawns = _entityTable.GetSpawns(ent.Comp.Table);
 

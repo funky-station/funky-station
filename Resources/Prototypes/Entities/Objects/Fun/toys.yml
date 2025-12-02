@@ -100,6 +100,7 @@
 # SPDX-FileCopyrightText: 2025 EmoGarbage404 <retron404@gmail.com>
 # SPDX-FileCopyrightText: 2025 Fr0goo <153249069+Fr0goo@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Komoni <131829655+Komonighub@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Lukas <lukadosa02@gmail.com>
 # SPDX-FileCopyrightText: 2025 McBosserson <148172569+McBosserson@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Milon <milonpl.git@proton.me>
 # SPDX-FileCopyrightText: 2025 Mish <bluscout78@yahoo.com>
@@ -1363,6 +1364,12 @@
     size: Normal
     sprite: Objects/Fun/toys.rsi
     heldPrefix: foamcrossbow
+  - type: Clothing
+    sprite: Objects/Weapons/Guns/Battery/taser.rsi
+    quickEquip: false
+    slots:
+    - Belt
+    - backStorage
   - type: Gun
     fireRate: 0.5
     selectedMode: SemiAuto
@@ -1405,6 +1412,12 @@
   - type: Item
     sprite: Objects/Fun/toys.rsi
     heldPrefix: capgun
+  - type: Clothing
+    sprite: Objects/Weapons/Guns/Revolvers/deckard.rsi
+    quickEquip: false
+    slots:
+    - backStorage
+    - Belt
   - type: Tag
     tags:
     - Sidearm

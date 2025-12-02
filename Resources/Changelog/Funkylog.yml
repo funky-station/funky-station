@@ -6060,3 +6060,11 @@ Entries:
         inconsistencies, misinformation, and omitted information.
   id: 713
   time: '2025-12-01T06:37:28.0000000+00:00'
+- author: AraiMaia
+  changes:
+    - type: Fix
+      message: Fixed new Thaven tails clipping into body
+    - type: Fix
+      message: Fixed Draconic Tail's localization
+  id: 714
+  time: '2025-12-02T01:12:07.0000000+00:00'

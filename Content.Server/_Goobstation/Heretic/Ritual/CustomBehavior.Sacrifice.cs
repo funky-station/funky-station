@@ -33,6 +33,7 @@ using Content.Shared.Damage.Systems;
 using Robust.Shared.Physics;
 using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Movement.Pulling.Systems;
+using Content.Shared.Silicons.Borgs.Components;
 using Robust.Server.Player;
 
 
@@ -66,6 +67,12 @@ public partial class RitualSacrificeBehavior : RitualCustomBehavior
     [DataField]
     public bool OnlyTargets = false;
 
+    /// <summary>
+    ///     Should we count only humanoids?
+    /// </summary>
+    [DataField]
+    public bool OnlyHumanoid = true;
+
     protected List<EntityUid> uids = new();
 
     public override bool Execute(RitualData args, out string? outstr)
@@ -86,15 +93,18 @@ public partial class RitualSacrificeBehavior : RitualCustomBehavior
         }
 
         // get all the dead ones
-        foreach (var found in res)
+        foreach (var look in res)
         {
-            if (!args.EntityManager.TryGetComponent<MobStateComponent>(found, out var mobstate) // only mobs
-            || !args.EntityManager.HasComponent<HumanoidAppearanceComponent>(found) // only humans
-            || OnlyTargets && !hereticComp.SacrificeTargets.Contains(args.EntityManager.GetNetEntity(found))) // only targets
+            if (!args.EntityManager.TryGetComponent<MobStateComponent>(look, out var mobstate) // only mobs
+                || OnlyHumanoid && !args.EntityManager.HasComponent<HumanoidAppearanceComponent>(look) // only humans
+                || args.EntityManager.HasComponent<BorgChassisComponent>(look) // no borgs
+                || OnlyTargets
+                && hereticComp.SacrificeTargets.All(x => x.Entity != args.EntityManager.GetNetEntity(look)) // only targets
+                && !args.EntityManager.HasComponent<HereticComponent>(look)) // or other heretics
                 continue;
 
             if (mobstate.CurrentState == MobState.Dead)
-                uids.Add(found);
+                uids.Add(look);
         }
 
         if (uids.Count < Min)

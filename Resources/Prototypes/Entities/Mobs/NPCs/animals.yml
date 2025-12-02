@@ -1669,6 +1669,13 @@
         Burn: 3
     clumsySound:
       path: /Audio/Animals/monkey_scream.ogg
+  - type: Inventory
+    displacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: Mobs/Animals/displacements.rsi
+            state: jumpsuit-monkey
 
 
 - type: entity
@@ -1798,6 +1805,13 @@
     name: ghost-role-information-kobold-name
     description: ghost-role-information-kobold-description
     rules: ghost-role-information-nonantagonist-rules
+  - type: Inventory
+    displacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: Mobs/Animals/displacements.rsi
+            state: jumpsuit-kobold
 
 - type: entity
   name: kobold

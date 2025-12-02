@@ -138,7 +138,7 @@ public sealed partial class CultHealingSourceSystem : EntitySystem
 			{
 				// For all cult healers...
 				stackQuery.TryGetComponent(uid, out var stack);
-				var intensity = source.Intensity * _stack.GetCount(uid, stack);
+				var intensity = source.Intensity * _stack.GetCount(uid);
 
 				// send ray towards destination entity
 				var ray = CultHeal(uid, sourceTrs, sourceWorld, destUid,
@@ -177,7 +177,7 @@ public sealed partial class CultHealingSourceSystem : EntitySystem
 			{
 				// For all cult healers...
 				stackQuery.TryGetComponent(uid, out var stack);
-				var intensity = source.Intensity * _stack.GetCount(uid, stack);
+				var intensity = source.Intensity * _stack.GetCount(uid);
 
 				// send ray towards destination entity
 				var ray = CultHeal(uid, sourceTrs, sourceWorld, destUid,

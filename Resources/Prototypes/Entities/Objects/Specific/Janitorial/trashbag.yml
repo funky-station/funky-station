@@ -15,6 +15,7 @@
 # SPDX-FileCopyrightText: 2024 Jessica M <jessica@jessicamaybe.com>
 # SPDX-FileCopyrightText: 2024 Pancake <Pangogie@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Nox <nebulousnox38@gmail.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
 # SPDX-License-Identifier: MIT
@@ -85,3 +86,14 @@
     quickInsert: true
     areaInsert: true
     areaInsertRadius: 5
+
+- type: entity
+  parent: TrashBag
+  id: BorgTrashBag
+  name: internal trash bag
+  description: An upgraded trash bag with a larger internal volume, installed directly into a custodial cyborg.
+  components:
+  - type: Storage
+    maxItemSize: Huge
+    grid:
+    - 0,0,7,6

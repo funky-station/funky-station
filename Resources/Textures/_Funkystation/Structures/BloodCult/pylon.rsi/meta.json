@@ -1,7 +1,7 @@
 {
-  "version": 1,
+  "version": 2,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Taken from Paradise Station.",
+  "copyright": "Crystal taken from Paradise Station. Pylon sprited by zergologist (discord) for Funky",
   "size": {
     "x": 32,
     "y": 32
@@ -28,6 +28,22 @@
     },
 	{
       "name": "inactive"
+	},
+	{
+      "name": "pylon-on",
+      "delays": [
+        [
+          0.15,
+          0.15,
+		  0.15,
+		  0.15,
+		  0.15,
+		  0.15
+        ]
+      ]
+    },
+	{
+      "name": "pylon-off"
 	}
   ]
 }

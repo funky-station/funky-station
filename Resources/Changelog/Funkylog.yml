@@ -5924,3 +5924,184 @@ Entries:
       message: Updated Court Station for the sixth week of playtests
   id: 702
   time: '2025-11-28T17:44:37.0000000+00:00'
+- author: ThatOneMoon
+  changes:
+    - type: Add
+      message: >-
+        Salvage Reward Tickets and the Ticket exchange, tickets are earned from
+        resource gathering and redeemed inside of the ticket exchange machine
+        within cargo (ticket sprites made by Frogoo). 
+    - type: Tweak
+      message: >-
+        most salvage related hardsuit (Spatio,Mining,Luxury,Goliath) have been
+        given a minor rebalance, mostly to give all of them a small bit of extra
+        explosive resistnace. 
+    - type: Tweak
+      message: >-
+        The Salvage Vendor has been replaced/renamed by the Salvage ticket
+        exchange, and the machine can no longer be unanchored and moved. 
+    - type: Tweak
+      message: >-
+        The Chameleon kit bag from the Syndicate Dropship ruin has been replaced
+        by a syndicate snack box, the gun turrets have been replaced with broken
+        ones.
+    - type: Tweak
+      message: >-
+        The gun turrests from the Empty Flagship ruin have been removed and
+        instead replaced by a swarm of carp. 
+  id: 703
+  time: '2025-11-29T07:58:45.0000000+00:00'
+- author: salpphie
+  changes:
+    - type: Add
+      message: >-
+        Added Yip-Yap to kitchen, Added Detdrobe to Dectives room, Added the SM
+        to Engineering
+    - type: Tweak
+      message: Tweaked the layout of Engineering to fit the SM
+  id: 704
+  time: '2025-11-29T15:08:09.0000000+00:00'
+- author: Xcybitt
+  changes:
+    - type: Tweak
+      message: Made Stabilized Stims give adrenaline.
+  id: 705
+  time: '2025-11-29T23:44:57.0000000+00:00'
+- author: Drywink
+  changes:
+    - type: Fix
+      message: Fire spreading when entities are colliding now works properly.
+  id: 706
+  time: '2025-11-30T00:03:58.0000000+00:00'
+- author: Joana
+  changes:
+    - type: Add
+      message: >-
+        Added the british accent, speak stereotypically like you came from space
+        england!
+  id: 707
+  time: '2025-11-30T01:54:25.0000000+00:00'
+- author: AraiMaia
+  changes:
+    - type: Add
+      message: New markings for Thaven! Arm, leg, and dorsal fins.
+    - type: Add
+      message: Three new tails for Thaven made by trixxedheart!
+    - type: Tweak
+      message: Increased the amount of slots for Thaven arm, leg and chest markings
+  id: 708
+  time: '2025-11-30T02:33:30.0000000+00:00'
+- author: Komonighub
+  changes:
+    - type: Add
+      message: >-
+        Added SOP book ingame, can be found in the Library and your local IAA
+        will have one.
+    - type: Tweak
+      message: >-
+        Command training manual has Line of Succession and Command SOP added,
+        and the Security book has Security SOP in place of the Antagonists list.
+  id: 709
+  time: '2025-11-30T04:01:29.0000000+00:00'
+- author: Terkala
+  changes:
+    - type: Fix
+      message: Second round of Bloodcult Bugfixes from playtesting.
+  id: 710
+  time: '2025-11-30T22:41:43.0000000+00:00'
+- author: BrightNibbleston
+  changes:
+    - type: Tweak
+      message: how long holo fans last!
+  id: 711
+  time: '2025-11-30T22:44:10.0000000+00:00'
+- author: zergologist
+  changes:
+    - type: Tweak
+      message: >-
+        Inflatable barricades and doors have new sprites and are quicker to
+        deploy
+    - type: Tweak
+      message: >-
+        Inflatable barricades and doors are now tiny items in the inventory that
+        stack up to five
+    - type: Tweak
+      message: >-
+        Inflatable walls box is now a 2x2, holds 15 inflatable walls and 5
+        inflatable doors. Emergency inflatable walls crate renamed inflatables
+        crate, holds a box of walls and inflatable floors; now 550 spesos
+        instead of 500
+    - type: Add
+      message: >-
+        Inflatable docks, currently only latheable at a normal lathe for 1
+        durathread and 0.5 silver. They act like inflatable doors that can be
+        docked to.
+    - type: Add
+      message: >-
+        Inflatable floors, tiny items that stack up to 8, must be placed on
+        empty space, and can be pryed up.
+    - type: Add
+      message: Two boxes of inflatable floors to the engivend
+    - type: Tweak
+      message: Station engineer lockers now have a box of inflatable walls roundstart
+    - type: Tweak
+      message: Engivend has 4 boxes of inflatable walls instead of 2
+    - type: Add
+      message: recipes for all inflatables in the normal lathe
+    - type: Tweak
+      message: maintenance lockers can now have inflatable doors and floors as well
+  id: 712
+  time: '2025-12-01T04:02:58.0000000+00:00'
+- author: coolbloxxie
+  changes:
+    - type: Tweak
+      message: >-
+        Rewrote and adjusted all species guidebook entries to account for
+        inconsistencies, misinformation, and omitted information.
+  id: 713
+  time: '2025-12-01T06:37:28.0000000+00:00'
+- author: AraiMaia
+  changes:
+    - type: Fix
+      message: Fixed new Thaven tails clipping into body
+    - type: Fix
+      message: Fixed Draconic Tail's localization
+  id: 714
+  time: '2025-12-02T01:12:07.0000000+00:00'
+- author: zergologist
+  changes:
+    - type: Tweak
+      message: >-
+        Inflatable barricades and doors have new sprites and are quicker to
+        deploy
+    - type: Tweak
+      message: >-
+        Inflatable barricades and doors are now tiny items in the inventory that
+        stack up to five
+    - type: Tweak
+      message: >-
+        Inflatable walls box is now a 2x2, holds 15 inflatable walls and 5
+        inflatable doors. Emergency inflatable walls crate renamed inflatables
+        crate, holds a box of walls and inflatable floors; now 550 spesos
+        instead of 500
+    - type: Add
+      message: >-
+        Inflatable docks, currently only latheable at a normal lathe for 1
+        durathread and 0.5 silver. They act like inflatable doors that can be
+        docked to.
+    - type: Add
+      message: >-
+        Inflatable floors, tiny items that stack up to 8, must be placed on
+        empty space, and can be pryed up.
+    - type: Add
+      message: Two boxes of inflatable floors to the engivend
+    - type: Tweak
+      message: Station engineer lockers now have a box of inflatable walls roundstart
+    - type: Tweak
+      message: Engivend has 4 boxes of inflatable walls instead of 2
+    - type: Add
+      message: recipes for all inflatables in the normal lathe
+    - type: Tweak
+      message: maintenance lockers can now have inflatable doors and floors as well
+  id: 715
+  time: '2025-12-02T01:16:22.0000000+00:00'

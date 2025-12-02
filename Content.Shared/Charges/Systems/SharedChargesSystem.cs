@@ -4,7 +4,6 @@
 // SPDX-FileCopyrightText: 2024 chromiumboy <50505512+chromiumboy@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 marc-pelletier <113944176+marc-pelletier@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Steve <marlumpy@gmail.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
 // SPDX-License-Identifier: MIT
@@ -111,12 +110,5 @@ public abstract class SharedChargesSystem : EntitySystem
     public virtual void UseCharges(EntityUid uid, FixedPoint2 chargesUsed, LimitedChargesComponent? comp = null)
     {
         AddCharges(uid, -chargesUsed, comp);
-    }
-
-    public FixedPoint2 GetCurrentCharges(EntityUid uid, LimitedChargesComponent? comp = null)
-    {
-        if (!Query.Resolve(uid, ref comp, false))
-            return FixedPoint2.Zero;
-        return comp.Charges;
     }
 }

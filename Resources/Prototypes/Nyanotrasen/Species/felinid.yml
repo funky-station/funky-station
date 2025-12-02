@@ -15,7 +15,7 @@
   sprites: MobHumanSprites
   markingLimits: MobFelinidMarkingLimits
   dollPrototype: MobFelinidDummy
-  skinColoration: HumanToned
+  skinColoration: Hues
 
 - type: markingPoints
   id: MobFelinidMarkingLimits

@@ -6105,3 +6105,11 @@ Entries:
       message: maintenance lockers can now have inflatable doors and floors as well
   id: 715
   time: '2025-12-02T01:16:22.0000000+00:00'
+- author: amethystowo
+  changes:
+    - type: Tweak
+      message: >-
+        The holofans have been reverted to the old system. They now use power
+        cells, and are timed.
+  id: 716
+  time: '2025-12-02T06:19:10.0000000+00:00'

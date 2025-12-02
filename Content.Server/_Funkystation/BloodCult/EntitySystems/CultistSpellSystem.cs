@@ -360,13 +360,15 @@ public sealed partial class CultistSpellSystem : EntitySystem
 					ent, ent, PopupType.MediumCaution
 				);
 			_audioSystem.PlayPvs("/Audio/Effects/holy.ogg", Transform(ent).Coordinates);
-			_stun.TryKnockdown(ent, TimeSpan.FromSeconds(selfStunTime), true);
+			_stun.TryKnockdown(ent.Owner, TimeSpan.FromSeconds(selfStunTime), true);
 		}
 		else if (HasComp<BorgChassisComponent>(target) &&
-			_powerCell.TryGetBatteryFromSlot(target, out EntityUid? batteryUid, out BatteryComponent? _) &&
-			batteryUid != null)
+                 TryComp<PowerCellSlotComponent>(target, out var slotComp) &&
+                 _powerCell.TryGetBatteryFromSlot((Entity<PowerCellSlotComponent?>)(target, slotComp), out var predictedBattery) &&
+                 predictedBattery != null)
 		{
-			_emp.DoEmpEffects((EntityUid)batteryUid, empDamage, stunTime);
+            var batteryUid = predictedBattery.Value.Owner;
+			_emp.DoEmpEffects((EntityUid)batteryUid, empDamage, TimeSpan.FromSeconds(stunTime));
 			_statusEffect.TryAddStatusEffect<MutedComponent>(target, "Muted", TimeSpan.FromSeconds(stunTime), false);
 		}
 		else
@@ -384,7 +386,7 @@ public sealed partial class CultistSpellSystem : EntitySystem
 		var advancedStunTime = 15;
 		if (HasComp<BloodCultRuneCarverComponent>(args.Used))
 		{
-			_stun.TryKnockdown(ent, TimeSpan.FromSeconds(advancedStunTime), true);
+			_stun.TryKnockdown(ent.Owner, TimeSpan.FromSeconds(advancedStunTime), true);
 			_stamina.TakeStaminaDamage(ent, advancedStaminaDamage, visual: false);
 			_stun.TryAddStunDuration(ent, TimeSpan.FromSeconds(advancedStunTime));
 			_statusEffect.TryAddStatusEffect<MutedComponent>(ent, "Muted", TimeSpan.FromSeconds(advancedStunTime), false);

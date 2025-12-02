@@ -144,4 +144,10 @@ public static class RoboticsConsoleConstants
     // sent by robotics console to cyborgs on Cyborg Control frequency
     public const string NET_DISABLE_COMMAND = "cyborg-disable";
     public const string NET_DESTROY_COMMAND = "cyborg-destroy";
+
+    // Malf AI: instruct cyborg to add Law 0 (obey AI).
+    public const string NET_IMPOSE_LAW0_COMMAND = "cyborg-law0";
+
+    // Additional payload key: the AI entity that imposed Law 0
+    public const string NET_IMPOSED_BY = "cyborg-law0-by";
 }

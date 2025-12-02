@@ -45,5 +45,3 @@
   - DiamondReactorHeatExchanger
   technologyPrerequisites:
   - NuclearPowerGeneration
-  radioChannels:
-  - Engineering

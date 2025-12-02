@@ -899,24 +899,9 @@
     - ThermomachineAdvancedFreezerMachineCircuitBoard # Assmos
     - MusicTechFabCircuitboard # Funky Station
     - ElectrolyzerMachineCircuitboard # Assmos - /tg/ gases
-    staticPacks:
-    - ScienceBoardsStatic
-    - ServiceBoardsStatic
-    - CargoBoardsStatic
-    - MedicalBoardsStatic
-    - EngineeringBoardsStatic
-    dynamicPacks:
-    - EngineeringBoards
-    - CargoBoards
-    - MedicalBoards
-    - ServiceBoards
-    - ScienceBoards
-    - CameraBoards
-    - MechBoards
-    - ShuttleBoards
-    - StarlightMechBoards
-    - StarlightLawboards
-    - ReactorCircuitboards # FH edit
+    - NuclearFabricatorMachineCircuitboard
+    - NuclearCentrifugeMachineCircuitboard
+
   - type: EmagLatheRecipes
     emagDynamicRecipes:
     - ShuttleGunDusterCircuitboard

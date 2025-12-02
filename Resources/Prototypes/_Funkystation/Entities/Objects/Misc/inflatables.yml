@@ -20,12 +20,12 @@
 - type: entity
   id: InflatableWall
   name: inflatable barricade
-  description: An inflated membrane. Activate to deflate. Do not puncture.
+  description: An inflated membrane. Release valve to deflate. Do not puncture.
   components:
   - type: Clickable
   - type: InteractionOutline
   - type: Sprite
-    sprite: Objects/Misc/inflatable_wall.rsi
+    sprite: _Funkystation/Objects/Misc/inflatables.rsi
     state: inflatable_wall
   - type: Physics
     bodyType: Static
@@ -62,12 +62,12 @@
   id: InflatableDoor
   name: inflatable door
   parent: BaseMaterialDoor
-  description: An inflated membrane. Activate to deflate. Now with a door. Do not puncture.
+  description: An inflated, semi-traversable membrane. Otherwise known as a door. Release valve to deflate. Do not puncture.
   components:
   - type: Clickable
   - type: InteractionOutline
   - type: Sprite
-    sprite: Objects/Misc/inflatable_door.rsi
+    sprite: _Funkystation/Objects/Misc/inflatables.rsi
     state: closed
   - type: Physics
     bodyType: Static
@@ -102,3 +102,71 @@
     disassembleTime: 3
   - type: Occluder
     enabled: false
+
+- type: entity
+  parent: InflatableDoor
+  id: InflatableDock
+  name: inflatable external airlock
+  description: An inflated membrane with reinforced hardpoints, capable of docking. Release valve to deflate. Do not puncture.
+  suffix: Docking
+  components:
+  - type: Docking
+  - type: NavMapDoor
+  - type: Sprite
+    sprite: _Funkystation/Objects/Misc/inflatable_dock.rsi
+    state: closed
+  - type: Door
+    openSound:
+      path: /Audio/Misc/zip.ogg
+    closeSound:
+      path: /Audio/Misc/zip.ogg
+  - type: Anchorable
+  - type: Transform
+    anchored: true
+  - type: Rotatable
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.49,-0.49,0.49,0.49" # don't want this colliding with walls or they won't close
+        density: 100
+        mask:
+          - FullTileMask
+        layer:
+          - AirlockLayer
+      docking:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.2
+          position: "0,-0.5"
+        hard: false
+  - type: Airtight
+    noAirWhenFullyAirBlocked: false
+    airBlockedDirection:
+      - South
+  - type: Tag
+    tags:
+      - ForceNoFixRotations
+  - type: DisassembleOnAltVerb
+    prototypeToSpawn: InflatableDockStack1
+    disassembleTime: 3
+
+- type: tile
+  id: InflatablePlating
+  name: tiles-inflatable-plating
+  sprite: /Textures/_Funkystation/Objects/Misc/inflatables.rsi/inflatable-floor.png
+  baseTurf: Space
+  isSubfloor: true
+  deconstructTools: [ Prying ]
+  footstepSounds:
+    collection: FootstepClown
+    params:
+      volume: -10
+      variation: 0.17
+  itemDrop: InflatableFloorStack1
+  friction: 1.5
+  heatCapacity: 10000
+  mass: 20

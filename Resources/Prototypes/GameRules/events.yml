@@ -115,6 +115,7 @@
     - id: FalseAlarm
     - id: DerelictCyborgSpawn
     - id: WizardSpawn
+    - id: ColossusSpawn # Funky
 
 - type: entity
   id: BaseStationEvent

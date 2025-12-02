@@ -89,4 +89,4 @@ marking-ThavenLegFinsSmallRight = Leg Fin (Right)
 marking-ThavenBackFin = Dorsal Fin
 marking-ThavenTailCarpish = Carpish Tail
 marking-ThavenTailFish = Fishy Tail
-marking-ThavenTailDraconic = Draconic Tail
+marking-ThavenTailDraconicLong = Draconic Tail

@@ -6133,3 +6133,9 @@ Entries:
       message: Now supports two IAA on Amber
   id: 718
   time: '2025-12-02T19:03:40.0000000+00:00'
+- author: AraiMaia
+  changes:
+    - type: Fix
+      message: Re-added some Holofan related code.
+  id: 719
+  time: '2025-12-02T21:15:05.0000000+00:00'

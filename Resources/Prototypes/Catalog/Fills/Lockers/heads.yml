@@ -75,6 +75,7 @@
 # SPDX-FileCopyrightText: 2025 Cthyga <41489382+Cthyga@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Cymric22 <seanadams305@gmail.com>
 # SPDX-FileCopyrightText: 2025 DevilishMilk <michaellapjr@gmail.com>
+# SPDX-FileCopyrightText: 2025 MaiaArai <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Mish <bluscout78@yahoo.com>
 # SPDX-FileCopyrightText: 2025 PurpleTranStar <tehevilduckiscoming@gmail.com>
 # SPDX-FileCopyrightText: 2025 Rainbow <ev0lvkitten@gmail.com>
@@ -279,6 +280,7 @@
     - id: CigarCase
       prob: 0.15
     - id: ClothingBeltChiefEngineerFilled
+    - id: HolotapeProjector #funky!
     - id: ClothingEyesGlassesMeson
     - id: ClothingHandsGlovesColorYellow
     - id: ClothingHeadsetAltEngineering

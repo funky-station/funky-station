@@ -1,14 +1,3 @@
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
-//
-// SPDX-License-Identifier: MIT
-
 using System.Linq;
 using Content.IntegrationTests.Pair;
 using Content.Server.GameTicking;
@@ -141,14 +130,14 @@ public sealed partial class MindTests
         ActorComponent actor = default!;
         Assert.Multiple(() =>
         {
-            Assert.That(player, Is.EqualTo(mind.Session), "Player session does not match mind session");
+            Assert.That(player.UserId, Is.EqualTo(mind.UserId), "Player UserId does not match mind UserId");
             Assert.That(entMan.System<MindSystem>().GetMind(player.UserId), Is.EqualTo(mindId));
             Assert.That(player.AttachedEntity, Is.EqualTo(mind.CurrentEntity), "Player is not attached to the mind's current entity.");
             Assert.That(entMan.EntityExists(mind.OwnedEntity), "The mind's current entity does not exist");
             Assert.That(mind.VisitingEntity == null || entMan.EntityExists(mind.VisitingEntity), "The minds visited entity does not exist.");
             Assert.That(entMan.TryGetComponent(mind.CurrentEntity, out actor));
         });
-        Assert.That(actor.PlayerSession, Is.EqualTo(mind.Session));
+        Assert.That(actor.PlayerSession.UserId, Is.EqualTo(mind.UserId));
 
         return (mindId, mind);
     }
@@ -172,7 +161,6 @@ public sealed partial class MindTests
         {
             Assert.That(player.Status, Is.EqualTo(SessionStatus.Disconnected));
             Assert.That(mind.UserId, Is.Not.Null);
-            Assert.That(mind.Session, Is.Null);
         });
     }
 

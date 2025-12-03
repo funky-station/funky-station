@@ -15,3 +15,9 @@
   - !type:OverallPlaytimeRequirement
     time: 86400 # 24h
   guides: [ CosmicCult ]
+
+- type: antag
+  id: CosmicAntagColossus
+  name: ghost-role-information-colossus-name
+  antagonist: true
+  objective: ghost-role-colossus-objective

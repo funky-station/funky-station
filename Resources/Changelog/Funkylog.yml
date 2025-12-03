@@ -6105,3 +6105,37 @@ Entries:
       message: maintenance lockers can now have inflatable doors and floors as well
   id: 715
   time: '2025-12-02T01:16:22.0000000+00:00'
+- author: amethystowo
+  changes:
+    - type: Tweak
+      message: >-
+        The holofans have been reverted to the old system. They now use power
+        cells, and are timed.
+  id: 716
+  time: '2025-12-02T06:19:10.0000000+00:00'
+- author: TrixxedHeart
+  changes:
+    - type: Fix
+      message: IPCs can now also have sticky notes placed on them
+  id: 717
+  time: '2025-12-02T06:22:07.0000000+00:00'
+- author: Huhm-1
+  changes:
+    - type: Add
+      message: Added CargoTechfab and other crew pets on Amber
+    - type: Remove
+      message: Removed Box from rotation
+    - type: Remove
+      message: Removed most Christmas Decorations from Amber but the food stays
+    - type: Fix
+      message: Fixed power issues within Amber
+    - type: Tweak
+      message: Now supports two IAA on Amber
+  id: 718
+  time: '2025-12-02T19:03:40.0000000+00:00'
+- author: AraiMaia
+  changes:
+    - type: Fix
+      message: Re-added some Holofan related code.
+  id: 719
+  time: '2025-12-02T21:15:05.0000000+00:00'

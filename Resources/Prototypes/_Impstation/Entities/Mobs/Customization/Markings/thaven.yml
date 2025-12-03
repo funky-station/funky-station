@@ -1,4 +1,6 @@
 # SPDX-FileCopyrightText: 2025 ATDoop <bug@bug.bug>
+# SPDX-FileCopyrightText: 2025 MaiaArai <158123176+YaraaraY@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 TrixxedHeart <46364955+TrixxedBit@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
@@ -219,8 +221,6 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/thaven/thaven.rsi
     state: rarmfins1
-  - sprite: _Impstation/Mobs/Customization/thaven/thaven.rsi
-    state: rarmfins1
 
 - type: marking
   id: ThavenArmFinsSmallLeft
@@ -230,8 +230,6 @@
   forcedColoring: false
   followSkinColor: true
   sprites:
-  - sprite: _Impstation/Mobs/Customization/thaven/thaven.rsi
-    state: larmfins1
   - sprite: _Impstation/Mobs/Customization/thaven/thaven.rsi
     state: larmfins1
 
@@ -245,8 +243,6 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/thaven/thaven.rsi
     state: rarmfins2
-  - sprite: _Impstation/Mobs/Customization/thaven/thaven.rsi
-    state: rarmfins2
 
 - type: marking
   id: ThavenArmFinsBigLeft
@@ -256,8 +252,6 @@
   forcedColoring: false
   followSkinColor: true
   sprites:
-  - sprite: _Impstation/Mobs/Customization/thaven/thaven.rsi
-    state: larmfins2
   - sprite: _Impstation/Mobs/Customization/thaven/thaven.rsi
     state: larmfins2
 
@@ -271,8 +265,6 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/thaven/thaven.rsi
     state: llegfins1
-  - sprite: _Impstation/Mobs/Customization/thaven/thaven.rsi
-    state: llegfins1
 
 - type: marking
   id: ThavenLegFinsSmallLeft
@@ -282,8 +274,6 @@
   forcedColoring: false
   followSkinColor: true
   sprites:
-  - sprite: _Impstation/Mobs/Customization/thaven/thaven.rsi
-    state: rlegfins1
   - sprite: _Impstation/Mobs/Customization/thaven/thaven.rsi
     state: rlegfins1
 
@@ -297,8 +287,6 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/thaven/thaven.rsi
     state: backfin
-  - sprite: _Impstation/Mobs/Customization/thaven/thaven.rsi
-    state: backfin
 
 - type: marking
   id: ThavenTailCarpish
@@ -308,8 +296,6 @@
   forcedColoring: false
   followSkinColor: true
   sprites:
-  - sprite: _Impstation/Mobs/Customization/thaven/thaven.rsi
-    state: carpish
   - sprite: _Impstation/Mobs/Customization/thaven/thaven.rsi
     state: carpish
 
@@ -323,8 +309,6 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/thaven/thaven.rsi
     state: draconiclong
-  - sprite: _Impstation/Mobs/Customization/thaven/thaven.rsi
-    state: draconiclong
 
 - type: marking
   id: ThavenTailFish
@@ -336,5 +320,37 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/thaven/thaven.rsi
     state: fishtail
+    
+- type: marking
+  id: ThavenHeadFinsFairy
+  bodyPart: HeadSide
+  markingCategory: HeadSide
+  speciesRestriction: [ Thaven ]
+  forcedColoring: false
+  followSkinColor: true
+  sprites:
   - sprite: _Impstation/Mobs/Customization/thaven/thaven.rsi
-    state: fishtail
+    state: fairyfins
+
+- type: marking
+  id: ThavenHeadAnglerStem
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [ Thaven ]
+  forcedColoring: false
+  followSkinColor: true
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/thaven/thaven.rsi
+    state: angler-stem
+
+- type: marking
+  id: ThavenHeadAnglerBulb
+  bodyPart: HeadTop
+  markingCategory: Overlay
+  speciesRestriction: [ Thaven ]
+  forcedColoring: false
+  followSkinColor: true
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/thaven/thaven.rsi
+    state: angler-bulb
+  shader: unshaded

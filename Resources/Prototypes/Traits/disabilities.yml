@@ -29,6 +29,16 @@
 # If you add a new trait, make sure to add the corresponding component to the whitelist in \Resources\Prototypes\Entities\Mobs\Player\clone.yml so it gets copied to clones correctly!
 
 - type: trait
+  id: PainNumbness
+  name: trait-painnumbness-name
+  description: trait-painnumbness-desc
+  category: Disabilities
+  specials:
+  - !type:ApplyStatusEffectSpecial
+    statusEffects:
+    - PainNumbnessTraitStatusEffect
+
+- type: trait
   id: Hemophilia
   name: trait-hemophilia-name
   description: trait-hemophilia-desc

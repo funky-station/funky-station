@@ -910,3 +910,19 @@
     Steel: 200
     Silver: 100
 #Funky end
+
+- type: latheRecipe
+  parent: BaseWeaponRecipe
+  id: SecurityKatana
+  result: SecurityKatana
+  materials:
+    Steel: 500
+    Plastic: 100
+
+- type: latheRecipe
+  parent: BaseWeaponRecipe   #emag recipe
+  id: Katana
+  result: Katana
+  materials:
+    Plasteel: 500
+    Plastic: 100

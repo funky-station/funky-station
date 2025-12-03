@@ -23,6 +23,10 @@
       "directions": 4
     },
     {
+      "name": "equipped-BACKSTORAGE",
+      "directions": 4
+    },
+    {
       "name": "equipped-BELT",
       "directions": 4
     }

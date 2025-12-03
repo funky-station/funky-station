@@ -1166,9 +1166,6 @@
     - MagazinePistolSubMachineGunTopMountedEmpty
     - MagazineRifle
     - MagazineRifleEmpty
-    - MagazineShotgun
-    - MagazineShotgunEmpty
-    - MagazineShotgunSlug
     - MagazinePistolLargeEmpty # Funkystation
     - MagazinePistolLarge # Funkystation
     - MagazineBoxPistolLarge # Funkystation
@@ -1197,6 +1194,7 @@
     - autoInjectorCartridgeCaseSoft
     - SurveillanceWirelessCameraBodySecurity #funk
     - ClothingHandsSecurityKnuckleDusters #funk
+    - SecurityKatana #funk
     dynamicRecipes:
     - BoxBeanbag
     - BoxShotgunIncendiary
@@ -1272,6 +1270,10 @@
     - ClothingHandsTruncheonKnuckleDusters # funk
   - type: EmagLatheRecipes # Goobstation
     emagStaticRecipes:
+    - MagazineShotgun #why were these just. there
+    - MagazineShotgunEmpty
+    - MagazineShotgunSlug
+    - Katana
     - GrenadeShrapnel #funky
     - MagazinePistolCaselessRifle # Goobstation
     - MagazineBoxCaselessRifle # Goobstation

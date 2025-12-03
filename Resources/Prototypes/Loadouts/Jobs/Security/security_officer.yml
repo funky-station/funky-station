@@ -143,6 +143,12 @@
     back:
     - WeaponPistolMk59S
 
+- type: loadout
+  id: SecurityKatana
+  storage:
+    back:
+    - SecurityKatana
+
 # Back
 - type: loadout
   id: SecurityBackpack

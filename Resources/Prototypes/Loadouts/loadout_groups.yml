@@ -1739,6 +1739,7 @@
   loadouts:
     - SecurityPistol
     - SecuritySilencedPistol
+    - SecurityKatana
 
 # Medical
 - type: loadoutGroup

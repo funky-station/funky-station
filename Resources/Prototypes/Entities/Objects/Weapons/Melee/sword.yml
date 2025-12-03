@@ -269,3 +269,36 @@
     - type: Grammar
       attributes:
         proper: true
+
+- type: entity
+  name: security katana
+  parent: [ BaseSword, BaseSecurityContraband ]
+  id: SecurityKatana
+  description: Mass-produced craftwork made with not so ancient steel.
+  components:
+  - type: Tag
+    tags:
+    - Katana
+  - type: Sprite
+    sprite: Objects/Weapons/Melee/katana.rsi
+  - type: MeleeWeapon
+    attackRate: 1.5 # Funky - Buffing katana to swing a lot faster, still worse than an esword #sec gets a better combat knife lmao
+    damage:
+      types:
+        Slash: 15
+    soundHit:
+        path: /Audio/Weapons/bladeslice.ogg
+  - type: Item
+    storedSprite:
+      state: storage
+      sprite: Objects/Weapons/Melee/katana_storage_64x.rsi #Done in 64x64 because it looks way too puny in 32x32
+    shape:
+    - 0,0,0,3
+  - type: DisarmMalus
+  # Funky - Let the base katana be worn too
+  - type: Clothing
+    sprite: Objects/Weapons/Melee/katana.rsi
+    slots:
+    - Back
+    - Belt
+    - backStorage

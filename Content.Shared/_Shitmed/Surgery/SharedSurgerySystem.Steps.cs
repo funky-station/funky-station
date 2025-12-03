@@ -604,13 +604,34 @@ public abstract partial class SharedSurgerySystem
             || organComp.Organ == null)
             return;
 
+        // Check if there's a prototype condition to filter by specific organ prototype
+        TryComp<SurgeryOrganPrototypeConditionComponent>(args.Surgery, out var prototypeComp);
+
         foreach (var reg in organComp.Organ.Values)
         {
             _body.TryGetBodyPartOrgans(args.Part, reg.Component.GetType(), out var organs);
             if (organs != null && organs.Count > 0)
             {
-                _body.RemoveOrgan(organs[0].Id, organs[0].Organ);
-                _hands.TryPickupAnyHand(args.User, organs[0].Id);
+                // If prototype condition exists, filter organs by prototype ID
+                if (prototypeComp?.PrototypeId != null)
+                {
+                    foreach (var (organUid, organ) in organs)
+                    {
+                        var meta = MetaData(organUid);
+                        if (meta.EntityPrototype?.ID == prototypeComp.PrototypeId)
+                        {
+                            _body.RemoveOrgan(organUid, organ);
+                            _hands.TryPickupAnyHand(args.User, organUid);
+                            break;
+                        }
+                    }
+                }
+                else
+                {
+                    // No prototype filter, remove first matching organ
+                    _body.RemoveOrgan(organs[0].Id, organs[0].Organ);
+                    _hands.TryPickupAnyHand(args.User, organs[0].Id);
+                }
             }
         }
     }

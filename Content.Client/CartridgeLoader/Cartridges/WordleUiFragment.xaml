@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<cartridges:WordleUiFragment xmlns:cartridges="clr-namespace:Content.Client.CartridgeLoader.Cartridges"
+                              xmlns="https://spacestation14.io" Margin="0">
+    <PanelContainer StyleClasses="BackgroundDark" HorizontalExpand="True" VerticalExpand="True">
+        <BoxContainer Orientation="Vertical" HorizontalExpand="True" VerticalExpand="True" Margin="4">
+            <!-- Title -->
+            <Label Text="WORDLE" HorizontalAlignment="Center" Margin="0 0 0 2" MinHeight="20"/>
+
+            <!-- Game Board - Scrollable -->
+            <ScrollContainer HorizontalExpand="True" VerticalExpand="True" MinHeight="80">
+                <BoxContainer Orientation="Vertical" HorizontalExpand="True" VerticalExpand="False" Margin="0 0 0 2" Name="GameBoardContainer"/>
+            </ScrollContainer>
+
+            <!-- Current Guess Display -->
+            <Label Name="CurrentGuessLabel" Text="Current: _ _ _ _ _" HorizontalAlignment="Center" Margin="0 2 0 0"/>
+
+            <!-- Game Status -->
+            <Label Name="StatusLabel" Text="Attempts: 6" HorizontalAlignment="Center" Margin="0 0 0 2"/>
+
+            <!-- Keyboard - Fixed size -->
+            <BoxContainer Orientation="Vertical" Name="KeyboardContainer" HorizontalExpand="True" VerticalExpand="False" Margin="0 0 0 2"/>
+
+            <!-- Input Row with Backspace and Submit -->
+            <BoxContainer Orientation="Horizontal" HorizontalExpand="True" VerticalExpand="False" Margin="0 0 0 1">
+                <Button Name="BackspaceButton" Text="← Back" HorizontalExpand="True" MinHeight="20"/>
+                <Button Name="SubmitButton" Text="Submit" HorizontalExpand="True" MinHeight="20"/>
+            </BoxContainer>
+
+            <!-- New Game Button -->
+            <Button Name="NewGameButton" Text="New Game" HorizontalExpand="True" MinHeight="20"/>
+        </BoxContainer>
+    </PanelContainer>
+</cartridges:WordleUiFragment>

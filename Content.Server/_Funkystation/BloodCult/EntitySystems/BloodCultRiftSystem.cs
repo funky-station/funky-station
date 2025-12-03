@@ -61,7 +61,7 @@ public sealed partial class BloodCultRiftSystem : EntitySystem
 	[Dependency] private readonly IRobustRandom _random = default!;
 	[Dependency] private readonly ExplosionSystem _explosionSystem = default!;
 	[Dependency] private readonly BodySystem _bodySystem = default!;
-	[Dependency] private readonly MindSystem _mindSystem = default!;
+	//[Dependency] private readonly MindSystem _mindSystem = default!;
 	[Dependency] private readonly OfferOnTriggerSystem _offerSystem = default!;
 	[Dependency] private readonly IGameTiming _timing = default!;
 	[Dependency] private readonly SharedAudioSystem _audio = default!;
@@ -205,7 +205,7 @@ public sealed partial class BloodCultRiftSystem : EntitySystem
 		}
 
 		// If the person who has the pending sacrifice flag doesn't exist, restart the chant.
-		if (!TryComp<TransformComponent>(component.PendingSacrifice.Value, out var victimXform))
+		if (!TryComp(component.PendingSacrifice.Value, out TransformComponent? victimXform))
 		{
 			component.ChantsCompletedInCycle = SacrificeChantDelays.Length;
 			component.TimeUntilNextChant = 1f;
@@ -229,6 +229,17 @@ public sealed partial class BloodCultRiftSystem : EntitySystem
 			component.ChantsCompletedInCycle = SacrificeChantDelays.Length;
 			component.TimeUntilNextChant = 1f;
 			return;
+		}
+
+		// Gib the body after the brain has been removed
+		// Use the explode smite approach: queue an explosion and gib without organs
+		// This prevents issues with organs that don't have ContainerManagerComponent
+		if (Exists(victim))
+		{
+			var coords = _transformSystem.GetMapCoordinates(victim);
+			_explosionSystem.QueueExplosion(coords, ExplosionSystem.DefaultExplosionPrototypeId,
+				4, 1, 2, victim, maxTileBreak: 0);
+			_bodySystem.GibBody(victim, gibOrgans: false);
 		}
 
 		//Increment the sacrifices, play an announcement, and reset the chant.
@@ -493,7 +504,7 @@ public sealed partial class BloodCultRiftSystem : EntitySystem
 
 		foreach (var runeUid in riftComp.SummoningRunes)
 		{
-			if (!Exists(runeUid) || !TryComp<TransformComponent>(runeUid, out var runeXform))
+			if (!Exists(runeUid) || !TryComp(runeUid, out TransformComponent? runeXform))
 				continue;
 
 			// Look for cultists near this rune

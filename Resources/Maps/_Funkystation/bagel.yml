@@ -67,8 +67,8 @@ meta:
   engineVersion: 266.0.0
   forkId: ""
   forkVersion: ""
-  time: 11/15/2025 20:33:17
-  entityCount: 28145
+  time: 11/26/2025 03:55:29
+  entityCount: 28146
 maps:
 - 3201
 grids:
@@ -2242,6 +2242,11 @@ entities:
             2011: -56,14
             2012: -57,14
         - node:
+            color: '#E4C42187'
+            id: BrickTileWhiteLineS
+          decals:
+            6644: -6,27
+        - node:
             color: '#EFCC4196'
             id: BrickTileWhiteLineS
           decals:
@@ -2255,7 +2260,6 @@ entities:
             2151: -9,27
             2152: -8,27
             2153: -7,27
-            2154: -6,27
             2256: 1,27
             2257: 0,27
             2258: -1,27
@@ -2577,7 +2581,6 @@ entities:
             1291: 24,-34
             1292: 23,-34
             1293: 25,-34
-            1294: 26,-33
             1295: 25,-33
             1296: 24,-33
             1297: 23,-33
@@ -3141,6 +3144,11 @@ entities:
             6598: 17.499928,-24.499897
             6624: 15.999376,6.501501
         - node:
+            color: '#FFFFFF7F'
+            id: DirFloorTileMorgue
+          decals:
+            6642: 43.998314,-17.497044
+        - node:
             color: '#FFFFFFFF'
             id: DirFloorTileNewsroom
           decals:
@@ -3154,6 +3162,8 @@ entities:
             6538: -0.99968517,-23.002558
             6572: -17.500051,9.0038595
             6573: -17.500051,6.5018463
+            6646: -5.5012345,27.999502
+            6647: -5.5012345,27.002487
         - node:
             color: '#FFFFFFFF'
             id: DirFloorTilePointerRight
@@ -3164,6 +3174,14 @@ entities:
             6575: -14.0004015,8.998661
             6603: 17.500767,-23.499681
             6604: 17.499779,-25.49772
+            6636: -1.9989461,27.999187
+            6637: -1.9989461,26.997704
+            6639: 1.4974681,-42.49889
+        - node:
+            color: '#FFFFFF2F'
+            id: DirFloorTilePointerUp
+          decals:
+            6643: 44.493492,-17.5022
         - node:
             color: '#FFFFFFFF'
             id: DirFloorTilePointerUp
@@ -3172,6 +3190,9 @@ entities:
             6566: -15.504117,9.003963
             6599: 14.999266,-22.498928
             6600: 17.501501,-22.502478
+            6629: -21.501894,31.50404
+            6631: -11.498704,31.500797
+            6641: -52.500256,-24.005714
         - node:
             color: '#FFFFFFFF'
             id: DirFloorTileScience
@@ -3186,6 +3207,24 @@ entities:
             6532: -1.0023804,-25.004728
             6568: -17.498768,6.998798
             6625: 15.502451,6.505051
+        - node:
+            color: '#FFFFFFFF'
+            id: DirFloorTileSingularity
+          decals:
+            6635: -1.9989461,27.500679
+        - node:
+            color: '#FFFFFFFF'
+            id: DirFloorTileSolars
+          decals:
+            6638: 1.4974681,-42.000942
+            6640: -52.998596,-24.005714
+        - node:
+            color: '#FFFFFFFF'
+            id: DirFloorTileSupermatter
+          decals:
+            6628: -22.000233,31.50053
+            6630: -12.000553,31.500797
+            6645: -5.5012345,27.500994
         - node:
             color: '#FFFFFFFF'
             id: DirFloorTileTheater
@@ -3700,7 +3739,6 @@ entities:
             84: 15,16
             85: 11,11
             89: 11,15
-            91: 1,-42
             92: 1,-35
             93: 15,-17
             94: 13,-17
@@ -13225,7 +13263,7 @@ entities:
       pos: -29.5,37.5
       parent: 60
     - type: Door
-      secondsUntilStateChange: -171785.75
+      secondsUntilStateChange: -177662.1
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -15320,7 +15358,7 @@ entities:
       pos: -17.5,4.5
       parent: 60
     - type: Door
-      secondsUntilStateChange: -9804.574
+      secondsUntilStateChange: -15680.924
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -150442,6 +150480,13 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 25.5,-28.5
+      parent: 60
+- proto: SpawnMobKoboldYipYap
+  entities:
+  - uid: 28146
+    components:
+    - type: Transform
+      pos: 26.5,-31.5
       parent: 60
 - proto: SpawnMobMcGriff
   entities:

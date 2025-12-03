@@ -4,12 +4,11 @@
 // SPDX-FileCopyrightText: 2024 brainfood1183 <113240905+brainfood1183@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 W.xyz() <tptechteam@gmail.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 w.xyz() <84605679+pirakaplant@users.noreply.github.com>
 //
 // SPDX-License-Identifier: MIT
 
 using Content.Server.Speech.Components;
-using Robust.Shared.Random;
-using System.Linq;
 using System.Text.RegularExpressions;
 
 namespace Content.Server.Speech.EntitySystems;
@@ -19,7 +18,6 @@ namespace Content.Server.Speech.EntitySystems;
 /// </summary>
 public sealed class FrenchAccentSystem : EntitySystem
 {
-    [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly ReplacementAccentSystem _replacement = default!;
 
     private static readonly Regex RegexThLower = new(@"th");
@@ -51,14 +49,12 @@ public sealed class FrenchAccentSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<FrenchAccentComponent, AccentGetEvent>(OnAccentGet);
+        SubscribeLocalEvent<FrenchAccentComponent, AccentGetEvent>(OnAccentGet, after: new[] {typeof(ReplacementAccentSystem)});
     }
 
     public string Accentuate(string message, FrenchAccentComponent component)
     {
         var msg = message;
-
-        msg = _replacement.ApplyReplacements(msg, "french");
 
         // replaces th with z
         msg = RegexThLower.Replace(msg, "'z");
@@ -95,32 +91,6 @@ public sealed class FrenchAccentSystem : EntitySystem
         msg = RegexEndIcsLower.Replace(msg, "iques");
         msg = RegexEndIcUpper.Replace(msg, "IQUE");
         msg = RegexEndIcsUpper.Replace(msg, "IQUES");
-
-        // 30% chance to prefix any single-word message with "le" or "l'".
-        // This does not work properly with diacritics!
-        // I tried but I couldn't get a one-size-fits-all solution to work.
-        if (!msg.Any(Char.IsWhiteSpace) && _random.Prob(0.3f))
-        {
-            if (msg.Any(char.IsLower))
-            {
-                msg = msg.ToLower();
-                msg = msg[0] switch
-                {
-                    'a' or 'e' or 'i' or 'o' or 'u' => "L'",
-                    '\'' => "L",
-                    _ => "Le "
-                } + msg;
-            }
-            else
-            {
-                msg = msg[0] switch
-                {
-                    'a' or 'e' or 'i' or 'o' or 'u' => "L'",
-                    '\'' => "L",
-                    _ => "LE "
-                } + msg;
-            }
-        }
 
         return msg;
     }

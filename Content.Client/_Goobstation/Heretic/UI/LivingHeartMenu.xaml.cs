@@ -18,7 +18,7 @@ using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.XAML;
 using Robust.Shared.Prototypes;
 
-namespace Content.Client._Shitcode.Heretic.UI;
+namespace Content.Client._Goobstation.Heretic.UI;
 
 public sealed class LivingHeartMenu : RadialMenu
 {
@@ -94,7 +94,7 @@ public sealed class LivingHeartMenu : RadialMenu
             if (castChild == null)
                 continue;
 
-            castChild.OnMouseExited += _ =>
+            castChild.OnKeyBindUp += _ =>
             {
                 SendActivateMessageAction?.Invoke(castChild.NetEntity);
                 Close();

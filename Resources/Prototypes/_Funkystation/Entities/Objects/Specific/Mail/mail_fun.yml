@@ -99,3 +99,12 @@
       amount: 1
       orGroup: Masks
 
+- type: entity
+  parent: BaseMailSmall
+  id: MailConductorKit
+  suffix: Conductor Kit Mail
+  components:
+  - type: Mail
+    contents:
+    - id: TrainWhistle
+    - id: ClothingHeadHatConductor

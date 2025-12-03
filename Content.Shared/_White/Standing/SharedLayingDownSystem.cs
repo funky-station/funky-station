@@ -2,6 +2,7 @@
 // SPDX-FileCopyrightText: 2024 PJBot <pieterjan.briers+bot@gmail.com>
 // SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
 // SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
+// SPDX-FileCopyrightText: 2025 Drywink <hugogrethen@gmail.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
@@ -11,6 +12,7 @@ using Content.Shared.Body.Components; // Shitmed Change
 using Content.Shared.DoAfter;
 using Content.Shared.Gravity;
 using Content.Shared.Input;
+using Content.Shared.Interaction.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Standing;
@@ -79,7 +81,7 @@ public abstract class SharedLayingDownSystem : EntitySystem
 
         RaiseNetworkEvent(new CheckAutoGetUpEvent(GetNetEntity(uid)));
 
-        if (HasComp<KnockedDownComponent>(uid) || !_mobState.IsAlive(uid))
+        if (HasComp<KnockedDownComponent>(uid) || !_mobState.IsAlive(uid) || HasComp<BlockMovementComponent>(uid))
             return;
 
         if (_standing.IsDown(uid, standing))

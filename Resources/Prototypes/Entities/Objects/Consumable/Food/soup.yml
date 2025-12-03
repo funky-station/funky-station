@@ -30,6 +30,9 @@
 # SPDX-FileCopyrightText: 2024 wafehling <wafehling@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Helm <158806576+Helm4142@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Helm4142 <Helm4142@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 McBosserson <148172569+McBosserson@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Milon <milonpl.git@proton.me>
+# SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
 # SPDX-FileCopyrightText: 2025 funnyfurby <furbyb772@gmail.com>
 # SPDX-FileCopyrightText: 2025 funnyfurby <furbyfunny44@gmail.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
@@ -46,7 +49,7 @@
   - type: Item
     storedRotation: -90
   - type: Food
-    trash: 
+    trash:
     - FoodBowlBig
     utensil: Spoon
   - type: SolutionContainerManager
@@ -220,6 +223,7 @@
     - Meat
     - Fruit
     - Soup
+    - ValidSalad
 
 - type: entity
   name: coleslaw
@@ -327,6 +331,7 @@
     tags:
     - Fruit
     - Soup
+    - FruitSalad
 
 - type: entity
   name: jungle salad
@@ -1013,7 +1018,7 @@
     flavors:
       - miso
   - type: Food
-    trash: 
+    trash:
     - FoodBowlFancy
   - type: Sprite
     layers:
@@ -1138,6 +1143,7 @@
     - Meat
     - Fruit
     - Soup
+    - Stew
 
 - type: entity
   name: sweet potato soup

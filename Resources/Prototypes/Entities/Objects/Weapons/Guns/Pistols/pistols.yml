@@ -254,6 +254,10 @@
   - type: Clothing
     sprite: Objects/Weapons/Guns/Pistols/mk58.rsi
   - type: Gun
+    minAngle: 1
+    maxAngle: 12
+    angleIncrease: 3
+    angleDecay: 4  
     fireRate: 5
     availableModes:
     - SemiAuto
@@ -325,6 +329,10 @@
   - type: ChamberMagazineAmmoProvider
     boltClosed: null
   - type: Gun
+    minAngle: 1
+    maxAngle: 6
+    angleIncrease: 2
+    angleDecay: 3  
     fireRate: 3
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/silenced.ogg

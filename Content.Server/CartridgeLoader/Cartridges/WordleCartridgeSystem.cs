@@ -3,13 +3,17 @@ using Content.Shared.CartridgeLoader;
 using Content.Shared.CartridgeLoader.Cartridges;
 using Content.Shared.Database;
 using System.Linq;
+using Robust.Shared.Log;
 
 namespace Content.Server.CartridgeLoader.Cartridges;
 
 public sealed class WordleCartridgeSystem : EntitySystem
 {
+    private static readonly ISawmill Logger = IoCManager.Resolve<ILogManager>().GetSawmill("wordle");
     [Dependency] private readonly CartridgeLoaderSystem? _cartridgeLoaderSystem = default!;
     [Dependency] private readonly IAdminLogManager _adminLogger = default!;
+
+    private Dictionary<EntityUid, DateTime> _errorDisplayTimes = new();
 
     public override void Initialize()
     {
@@ -24,7 +28,7 @@ public sealed class WordleCartridgeSystem : EntitySystem
     private void OnUiReady(EntityUid uid, WordleCartridgeComponent component, CartridgeUiReadyEvent args)
     {
         // Initialize a new game if not already started
-        if (component.SecretWord == "WORDLE")
+        if (string.IsNullOrEmpty(component.SecretWord))
         {
             component.SecretWord = WordleCartridgeComponent.GetRandomWord();
             component.CurrentGuess = "";
@@ -74,6 +78,7 @@ public sealed class WordleCartridgeSystem : EntitySystem
                     component.CurrentGuess += char.ToUpper(message.Letter);
                     _adminLogger.Add(LogType.PdaInteract, LogImpact.Low,
                         $"{ToPrettyString(args.Actor)} typed '{message.Letter}' in Wordle on: {ToPrettyString(uid)}");
+                    UpdateUiState(uid, GetEntity(args.LoaderUid), component);
                 }
                 break;
 
@@ -81,13 +86,25 @@ public sealed class WordleCartridgeSystem : EntitySystem
                 if (component.CurrentGuess.Length > 0)
                 {
                     component.CurrentGuess = component.CurrentGuess.Substring(0, component.CurrentGuess.Length - 1);
+                    UpdateUiState(uid, GetEntity(args.LoaderUid), component);
                 }
                 break;
 
             case WordleUiAction.SubmitGuess:
                 if (component.CurrentGuess.Length == 5)
                 {
-                    ProcessGuess(uid, component, args.Actor);
+                    var isValid = WordleCartridgeComponent.IsValidWord(component.CurrentGuess);
+                    if (isValid)
+                    {
+                        ProcessGuess(uid, component, args.Actor);
+                        UpdateUiState(uid, GetEntity(args.LoaderUid), component);
+                    }
+                    else
+                    {
+                        _errorDisplayTimes[uid] = DateTime.UtcNow;
+                        component.CurrentGuess = "";
+                        UpdateUiState(uid, GetEntity(args.LoaderUid), component);
+                    }
                 }
                 break;
 
@@ -101,10 +118,9 @@ public sealed class WordleCartridgeSystem : EntitySystem
                 component.GameLost = false;
                 _adminLogger.Add(LogType.PdaInteract, LogImpact.Low,
                     $"{ToPrettyString(args.Actor)} started a new Wordle game on: {ToPrettyString(uid)}");
+                UpdateUiState(uid, GetEntity(args.LoaderUid), component);
                 break;
         }
-
-        UpdateUiState(uid, GetEntity(args.LoaderUid), component);
     }
 
     private void ProcessGuess(EntityUid uid, WordleCartridgeComponent component, EntityUid actor)
@@ -155,6 +171,20 @@ public sealed class WordleCartridgeSystem : EntitySystem
         if (!Resolve(uid, ref component))
             return;
 
+        // Check if we should show the error message (2 seconds timeout)
+        bool showError = false;
+        if (_errorDisplayTimes.TryGetValue(uid, out var errorTime))
+        {
+            if ((DateTime.UtcNow - errorTime).TotalSeconds < 2)
+            {
+                showError = true;
+            }
+            else
+            {
+                _errorDisplayTimes.Remove(uid);
+            }
+        }
+
         var state = new WordleUiState(
             component.CurrentGuess,
             component.PreviousGuesses,
@@ -162,7 +192,8 @@ public sealed class WordleCartridgeSystem : EntitySystem
             component.AttemptsRemaining,
             component.GameWon,
             component.GameLost,
-            component.GameLost ? component.SecretWord : null // Only reveal word if lost
+            component.GameLost ? component.SecretWord : null, // Only reveal word if lost
+            showError
         );
         _cartridgeLoaderSystem?.UpdateCartridgeUiState(loaderUid, state);
     }

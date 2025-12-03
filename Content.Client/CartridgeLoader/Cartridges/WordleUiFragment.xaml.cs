@@ -4,12 +4,15 @@ using Robust.Client.UserInterface.XAML;
 using Robust.Client.UserInterface.Controls;
 using Content.Shared.CartridgeLoader.Cartridges;
 using Robust.Client.Graphics;
+using Robust.Shared.Log;
 
 namespace Content.Client.CartridgeLoader.Cartridges;
 
 [GenerateTypedNameReferences]
 public sealed partial class WordleUiFragment : BoxContainer
 {
+    private static readonly ISawmill Logger = IoCManager.Resolve<ILogManager>().GetSawmill("wordle");
+
     public event Action<char>? OnLetterPressed;
     public event Action? OnBackspacePressed;
     public event Action? OnSubmitPressed;
@@ -25,6 +28,8 @@ public sealed partial class WordleUiFragment : BoxContainer
 
     private readonly List<List<PanelContainer>> _guessTiles = new();
     private readonly Dictionary<char, Button> _keyboardButtons = new();
+    
+    private DateTime _errorClearTime = DateTime.MinValue;
 
     // Wordle colors
     private const string CorrectColor = "#6aaa64"; // Green
@@ -171,16 +176,29 @@ public sealed partial class WordleUiFragment : BoxContainer
         }
 
         // Clear all tiles first
-        for (int i = 0; i < _guessTiles.Count; i++)
+        for (int row = 0; row < _guessTiles.Count; row++)
         {
-            for (int j = 0; j < _guessTiles[i].Count; j++)
+            for (int col = 0; col < _guessTiles[row].Count; col++)
             {
-                var tilePanel = _guessTiles[i][j];
-                if (tilePanel.Children.Count() > 0 && tilePanel.Children.FirstOrDefault() is Label label)
+                var tilePanel = _guessTiles[row][col];
+                
+                // Get the label child
+                Label? label = null;
+                foreach (var child in tilePanel.Children)
+                {
+                    if (child is Label l)
+                    {
+                        label = l;
+                        break;
+                    }
+                }
+
+                if (label != null)
                 {
                     label.Text = "";
                     label.FontColorOverride = Color.White;
                 }
+
                 tilePanel.PanelOverride = new StyleBoxFlat
                 {
                     BackgroundColor = Color.FromHex(DefaultColor),
@@ -194,7 +212,7 @@ public sealed partial class WordleUiFragment : BoxContainer
         foreach (var button in _keyboardButtons.Values)
         {
             button.Disabled = false;
-            button.Modulate = Color.White; // Reset color modulation
+            button.Modulate = Color.White;
         }
 
         // Track best state for each letter (green > yellow > gray)
@@ -204,13 +222,38 @@ public sealed partial class WordleUiFragment : BoxContainer
         for (int guessIdx = 0; guessIdx < state.PreviousGuesses.Count && guessIdx < _guessTiles.Count; guessIdx++)
         {
             var guess = state.PreviousGuesses[guessIdx];
-            var letterStates = state.LetterStates[guessIdx];
+            
+            // Safety check: ensure LetterStates has data for this guess
+            if (guessIdx >= state.LetterStates.Count)
+            {
+                continue;
+            }
 
-            for (int letterIdx = 0; letterIdx < 5 && letterIdx < guess.Length; letterIdx++)
+            var letterStates = state.LetterStates[guessIdx];
+            
+            // Safety check: ensure letterStates has 5 entries
+            if (letterStates.Count != 5)
+            {
+                continue;
+            }
+
+            for (int letterIdx = 0; letterIdx < 5 && letterIdx < guess.Length && letterIdx < letterStates.Count; letterIdx++)
             {
                 var letter = char.ToUpper(guess[letterIdx]);
                 var tilePanel = _guessTiles[guessIdx][letterIdx];
-                if (tilePanel.Children.Count() > 0 && tilePanel.Children.FirstOrDefault() is Label label)
+
+                // Get the label child
+                Label? label = null;
+                foreach (var child in tilePanel.Children)
+                {
+                    if (child is Label l)
+                    {
+                        label = l;
+                        break;
+                    }
+                }
+
+                if (label != null)
                 {
                     label.Text = letter.ToString();
                 }
@@ -271,7 +314,6 @@ public sealed partial class WordleUiFragment : BoxContainer
                         break;
                 }
 
-                // Apply color via modulation for visible feedback
                 button.Modulate = Color.FromHex(buttonColor);
             }
         }
@@ -279,12 +321,27 @@ public sealed partial class WordleUiFragment : BoxContainer
         // Update status
         if (_statusLabel != null)
         {
-            if (state.GameWon)
-                _statusLabel.Text = "🎉 You Won!";
-            else if (state.GameLost)
-                _statusLabel.Text = $"Game Over! Word: {state.SecretWord}";
+            // Set error display timer when error occurs
+            if (state.InvalidWordError && DateTime.UtcNow > _errorClearTime)
+            {
+                _errorClearTime = DateTime.UtcNow.AddSeconds(2);
+            }
+
+            // Check if we're still in error display window
+            if (DateTime.UtcNow <= _errorClearTime)
+            {
+                _statusLabel.Text = "❌ Not in word list!";
+            }
             else
-                _statusLabel.Text = $"Attempts: {state.AttemptsRemaining}";
+            {
+                // Normal status display
+                if (state.GameWon)
+                    _statusLabel.Text = "🎉 You Won!";
+                else if (state.GameLost)
+                    _statusLabel.Text = $"Game Over! Word: {state.SecretWord}";
+                else
+                    _statusLabel.Text = $"Attempts: {state.AttemptsRemaining}";
+            }
         }
 
         // Disable/enable buttons based on game state

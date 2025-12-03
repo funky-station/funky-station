@@ -3,11 +3,13 @@ using Content.Shared.CartridgeLoader;
 using Content.Shared.CartridgeLoader.Cartridges;
 using Robust.Client.GameObjects;
 using Robust.Client.UserInterface;
+using Robust.Shared.Log;
 
 namespace Content.Client.CartridgeLoader.Cartridges;
 
 public sealed partial class WordleUi : UIFragment
 {
+    private static readonly ISawmill Logger = IoCManager.Resolve<ILogManager>().GetSawmill("wordle");
     private WordleUiFragment? _fragment;
 
     public override Control GetUIFragmentRoot()
@@ -27,8 +29,12 @@ public sealed partial class WordleUi : UIFragment
     public override void UpdateState(BoundUserInterfaceState state)
     {
         if (state is not WordleUiState wordleState)
+        {
+            Logger.Info($"[WORDLE CLIENT] Received non-WordleUiState: {state?.GetType().Name ?? "null"}");
             return;
+        }
 
+        Logger.Info($"[WORDLE CLIENT] UpdateState called - Guesses: {wordleState.PreviousGuesses.Count}, Current: '{wordleState.CurrentGuess}', Attempts: {wordleState.AttemptsRemaining}");
         _fragment?.UpdateState(wordleState);
     }
 

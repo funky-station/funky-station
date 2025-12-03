@@ -1,118 +1,313 @@
 // SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
-// SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
 // SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
-// SPDX-FileCopyrightText: 2025 mqole <113324899+mqole@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
+// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 //
-// SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+// SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Shared.Clothing.Components;
 using Content.Server.Body.Components;
+using Content.Server.Body.Systems;
+using Content.Server.Ghost.Roles.Components;
+using Content.Shared._Shitcode.Heretic.Components;
 using Content.Shared.Body.Components;
+using Content.Shared.Body.Organ;
 using Content.Shared.Body.Part;
+using Content.Shared.Body.Systems;
+using Content.Shared.Chemistry.Components.SolutionManager;
+using Content.Shared.Cloning;
+using Content.Shared.Coordinates;
 using Content.Shared.Damage;
-using Content.Shared.Damage.Components;
-using Content.Shared.DoAfter;
-using Content.Shared.Eye.Blinding.Components;
+using Content.Shared.Damage.Systems;
+using Content.Shared.FixedPoint;
+using Content.Shared.Ghost;
+using Content.Shared.Hands.Components;
 using Content.Shared.Heretic;
-using Content.Shared.Popups;
-using Content.Shared.Speech.Muting;
+using Content.Shared.Interaction.Components;
+using Content.Shared.Mobs.Components;
+using Content.Shared.NPC.Components;
+using Content.Shared.Silicons.Borgs.Components;
+using Content.Shared.Weapons.Melee;
+using Content.Shared.Weapons.Ranged.Components;
 using Robust.Shared.Audio;
-using Robust.Shared.Player;
+using Robust.Shared.Containers;
+using Robust.Shared.Prototypes;
 
-namespace Content.Server.Heretic.Abilities;
+namespace Content.Server._Goobstation.Heretic.Abilities;
 
-public sealed partial class HereticAbilitySystem : EntitySystem
+public sealed partial class HereticAbilitySystem
 {
-    private void SubscribeFlesh()
+    private static readonly ProtoId<CloningSettingsPrototype> Settings = "FleshMimic";
+    private static readonly SoundSpecifier MimicSpawnSound = new SoundCollectionSpecifier("gib");
+
+    protected override void SubscribeFlesh()
     {
-        SubscribeLocalEvent<HereticComponent, EventHereticFleshSurgery>(OnFleshSurgery);
-        SubscribeLocalEvent<HereticComponent, EventHereticFleshSurgeryDoAfter>(OnFleshSurgeryDoAfter);
-        SubscribeLocalEvent<HereticComponent, EventHereticFleshAscend>(OnFleshAscendPolymorph);
+        base.SubscribeFlesh();
+
+        SubscribeLocalEvent<FleshPassiveComponent, DamageChangedEvent>(OnDamageChanged);
+        SubscribeLocalEvent<FleshPassiveComponent, MapInitEvent>(OnMapInit);
+        SubscribeLocalEvent<FleshPassiveComponent, GetBodyOrganOverrideEvent<StomachComponent>>(OnGetStomach);
+        SubscribeLocalEvent<FleshPassiveComponent, ConsumingFoodEvent>(OnConsumingFood);
+        SubscribeLocalEvent<FleshPassiveComponent, ExcludeMetabolismGroupsEvent>(OnExclude);
     }
 
-    private void OnFleshSurgery(Entity<HereticComponent> ent, ref EventHereticFleshSurgery args)
+    private void OnExclude(Entity<FleshPassiveComponent> ent, ref ExcludeMetabolismGroupsEvent args)
     {
-        if (!TryUseAbility(ent, args))
+        var stomach = ResolveStomach(ent);
+        ent.Comp.FleshStomach = stomach;
+        if (args.Metabolizer == stomach.Owner)
             return;
 
-        if (HasComp<GhoulComponent>(args.Target)
-        || (TryComp<HereticComponent>(args.Target, out var th) && th.CurrentPath == ent.Comp.CurrentPath))
+        args.Groups ??= [];
+        args.Groups.Add("Food");
+        args.Groups.Add("Drink");
+    }
+
+    private void OnConsumingFood(Entity<FleshPassiveComponent> ent, ref ConsumingFoodEvent args)
+    {
+        if (args.Volume <= FixedPoint2.Zero)
+            return;
+
+        if (!TryComp(ent, out HereticComponent? heretic) || heretic.PathStage <= 0)
+            return;
+
+        var multiplier = GetMultiplier((ent.Owner, ent.Comp, heretic), ref args, out var stage, out var multipliersApplied);
+        if (!multipliersApplied)
+            return;
+
+        var time = TimeSpan.FromMinutes(1) * stage;
+        if (heretic.Ascended)
+            time += TimeSpan.FromMinutes(1);
+
+        _modifier.RefreshMovementSpeedModifiers(ent.Owner);
+    }
+
+    private float GetMultiplier(Entity<FleshPassiveComponent, HereticComponent> ent,
+        ref ConsumingFoodEvent args,
+        out float stage,
+        out bool multipliersApplied)
+    {
+        stage = MathF.Pow(ent.Comp2.PathStage, 0.3f);
+        var multiplier = args.Volume.Float() * stage;
+        var oldMult = multiplier;
+
+        if (HasComp<MobStateComponent>(args.Food))
+            multiplier *= ent.Comp1.MobMultiplier;
+        if (HasComp<BrainComponent>(args.Food))
+            multiplier *= ent.Comp1.BrainMultiplier;
+        if (HasComp<BodyPartComponent>(args.Food))
+            multiplier *= ent.Comp1.BodyPartMultiplier;
+        if (HasComp<OrganComponent>(args.Food))
+            multiplier *= ent.Comp1.OrganMultiplier;
+        if (_tag.HasTag(args.Food, ent.Comp1.MeatTag))
+            multiplier *= ent.Comp1.MeatMultiplier;
+        if (ent.Comp2.Ascended)
+            multiplier *= ent.Comp1.AscensionMultiplier;
+
+        multipliersApplied = oldMult < multiplier;
+        return multiplier;
+    }
+    private void OnGetStomach(Entity<FleshPassiveComponent> ent, ref GetBodyOrganOverrideEvent<StomachComponent> args)
+    {
+        var stomach = ResolveStomach(ent);
+        ent.Comp.FleshStomach = stomach;
+        args.Organ = stomach;
+    }
+
+    private void OnMapInit(Entity<FleshPassiveComponent> ent, ref MapInitEvent args)
+    {
+        ent.Comp.FleshStomach = ResolveStomach(ent);
+    }
+
+    private Entity<StomachComponent, OrganComponent> ResolveStomach(Entity<FleshPassiveComponent> ent)
+    {
+        if (Exists(ent.Comp.FleshStomach) && TryComp(ent.Comp.FleshStomach.Value, out StomachComponent? stomach) &&
+            TryComp(ent.Comp.FleshStomach.Value, out OrganComponent? organ))
+            return (ent.Comp.FleshStomach.Value, stomach, organ);
+
+        QueueDel(ent.Comp.FleshStomach);
+
+        var solName = StomachSystem.DefaultSolutionName;
+
+        var fleshStomach = SpawnAttachedTo(null, ent.Owner.ToCoordinates());
+        var solutionContainer = EnsureComp<SolutionContainerManagerComponent>(fleshStomach);
+        _solution.EnsureSolutionPrototype((fleshStomach, solutionContainer), solName, 1984, null, out _);
+        _solution.EnsureAllSolutions((fleshStomach, solutionContainer));
+        stomach = EnsureComp<StomachComponent>(fleshStomach);
+        stomach.DigestionDelay = TimeSpan.FromSeconds(5);
+        organ = EnsureComp<OrganComponent>(fleshStomach);
+        organ.IntegrityCap = 1984;
+        organ.OrganIntegrity = 1984;
+        organ.Body = ent;
+        Dirty(fleshStomach, organ);
+        var metabolizer = EnsureComp<MetabolizerComponent>(fleshStomach);
+        metabolizer.UpdateInterval = TimeSpan.FromMilliseconds(100);
+        metabolizer.MaxPoisonsProcessable = 10;
+        metabolizer.MetabolismGroups = new() { new() { Id = "Food" }, new() { Id = "Drink" } };
+        metabolizer.MetabolizerTypes = new() { "Vox" };
+        metabolizer.SolutionOnBody = false;
+        metabolizer.RemoveEmpty = true;
+        metabolizer.SolutionName = solName;
+        return (fleshStomach, stomach, organ);
+    }
+
+    private void OnDamageChanged(Entity<FleshPassiveComponent> ent, ref DamageChangedEvent args)
+    {
+        if (!args.DamageIncreased || args.DamageDelta == null)
+            return;
+
+        if (_mobstate.IsDead(ent))
+            return;
+
+        var damage = args.DamageDelta.GetTotal();
+
+        if (damage <= 0)
+            return;
+
+        if (!TryComp(ent, out HereticComponent? heretic) || !heretic.Ascended)
+            return;
+
+        ent.Comp.TrackedDamage += damage;
+
+        ent.Comp.FleshMimics.RemoveAll(x => !Exists(x));
+
+        if (ent.Comp.MaxMimics <= ent.Comp.FleshMimics.Count)
         {
-            var dargs = new DoAfterArgs(EntityManager, ent, 10f, new EventHereticFleshSurgeryDoAfter(args.Target), ent, args.Target)
+            var toHeal = -ent.Comp.TrackedDamage / ent.Comp.FleshMimics.Count * ent.Comp.MimicHealMultiplier;
+            ent.Comp.TrackedDamage = FixedPoint2.Zero;
+            foreach (var mimic in ent.Comp.FleshMimics)
             {
-                BreakOnDamage = true,
-                BreakOnMove = true,
-                BreakOnHandChange = false,
-                BreakOnDropItem = false,
-            };
-            _doafter.TryStartDoAfter(dargs);
-            args.Handled = true;
+                IHateWoundMed(mimic, AllDamage * toHeal, null, null);
+            }
+
             return;
         }
 
-        // temporarily disable a random organ
-        // the fucking goob coders were literally just deleting organ components. who thought that was okay
-        // TODO: change this to actually remove/disable organs once newmed comes out next week
-        if (TryComp<BodyComponent>(args.Target, out var body))
+        var maxToSpawn = ent.Comp.MaxMimics - ent.Comp.FleshMimics.Count;
+        var toSpawn = (int) (ent.Comp.TrackedDamage / ent.Comp.MimicDamage);
+        toSpawn = Math.Clamp(toSpawn, 0, maxToSpawn);
+
+        if (toSpawn == 0)
+            return;
+
+        for (var i = 0; i < toSpawn; i++)
         {
-            //i should really make these their own methods. but i dont want to
-            switch (_random.Next(0, 3))
+            if (CreateFleshMimic(ent, ent, true, true, 50, args.Origin) is { } clone)
+                ent.Comp.FleshMimics.Add(clone);
+        }
+
+        ent.Comp.TrackedDamage -= toSpawn * ent.Comp.MimicDamage;
+    }
+
+    public EntityUid? CreateFleshMimic(EntityUid uid,
+        EntityUid user,
+        bool giveBlade,
+        bool makeGhostRole,
+        FixedPoint2 hp,
+        EntityUid? hostile)
+    {
+        if (_mobstate.IsDead(uid) || HasComp<GhoulComponent>(uid) || HasComp<BorgChassisComponent>(uid))
+            return null;
+
+        var xform = Transform(uid);
+        if (!_cloning.TryCloning(uid, _xform.GetMapCoordinates(xform), Settings, out var clone))
+            return null;
+
+        _aud.PlayPvs(MimicSpawnSound, xform.Coordinates);
+
+        EntityUid? weapon = null;
+        if (!giveBlade && TryComp(uid, out HandsComponent? hands))
+        {
+            foreach (var held in _hands.EnumerateHeld((uid, hands)))
             {
-                // case 0: barf
-                case 0:
-                    _popup.PopupEntity(Loc.GetString("heretic-fleshsurgery-barf"), args.Target, args.Target, PopupType.LargeCaution);
-                    _vomit.Vomit(args.Target, -1000, -1000); // i frew up
+                if (HasComp<GunComponent>(held))
+                {
+                    weapon = held;
                     break;
+                }
 
-                // case 1: blind (fixable!)
-                case 1:
-                    if (!TryComp<BlindableComponent>(args.Target, out var blindable) || blindable.IsBlind)
-                        return;
-
-                    _popup.PopupEntity(Loc.GetString("heretic-fleshsurgery-eyes"), args.Target, args.Target, PopupType.LargeCaution);
-                    _blindable.AdjustEyeDamage((args.Target, blindable), 7); //same as rawdogging a welder 7 times. fixable but definitely a pain
-                    break;
-
-                // case 2: mute for 2.5 minutes
-                case 2:
-                    _popup.PopupEntity(Loc.GetString("heretic-fleshsurgery-mute"), args.Target, args.Target, PopupType.LargeCaution);
-                    _statusEffect.TryAddStatusEffect<MutedComponent>(args.Target, "Muted", TimeSpan.FromSeconds(150), false);
-                    break;
-
-                default:
-                    break;
+                if (HasComp<MeleeWeaponComponent>(held) && weapon == null)
+                    weapon = held;
             }
         }
 
-        args.Handled = true;
-    }
-    private void OnFleshSurgeryDoAfter(Entity<HereticComponent> ent, ref EventHereticFleshSurgeryDoAfter args)
-    {
-        if (args.Cancelled)
-            return;
+        var ghoul = _compFactory.GetComponent<GhoulComponent>();
+        ghoul.GiveBlade = giveBlade;
+        ghoul.TotalHealth = hp;
+        ghoul.BoundHeretic = user;
+        ghoul.DropOrgansOnDeath = false;
+        ghoul.GhostRoleName = "ghostrole-flesh-mimic-name";
+        ghoul.GhostRoleDesc = "ghostrole-flesh-mimic-desc";
+        if (weapon != null && _cloning.CopyItem(weapon.Value, xform.Coordinates) is { } weaponClone)
+        {
+            if (!_hands.TryPickup(clone.Value, weaponClone, null, false, false, false))
+                QueueDel(weaponClone);
+            else
+            {
+                EnsureComp<GhoulWeaponComponent>(weaponClone);
+                ghoul.BoundWeapon = weaponClone;
+                var cartridgeQuery = GetEntityQuery<CartridgeAmmoComponent>();
+                if (TryComp(weaponClone, out ContainerManagerComponent? containerManager))
+                {
+                    foreach (var container in containerManager.Containers.Values)
+                    {
+                        foreach (var contained in container.ContainedEntities)
+                        {
+                            if (!cartridgeQuery.HasComp(contained))
+                                EnsureComp<UnremoveableComponent>(contained);
+                        }
+                    }
+                }
+            }
+        }
 
-        if (args.Target == null) // shouldn't really happen. just in case
-            return;
+        AddComp(clone.Value, ghoul);
 
-        if (!TryComp<DamageableComponent>(args.Target, out var dmg))
-            return;
+        if (_statusEffect.TryGetTime(uid, "KnockedDown", out var knockdownStartEnd))
+        {
+            var time = knockdownStartEnd.Value.Item2 - Timing.CurTime;
+            if (time > TimeSpan.Zero)
+                _stun.TryKnockdown(clone.Value, time, true, true, true);
+        }
 
-        // heal teammates, mostly ghouls
-        _dmg.SetAllDamage((EntityUid) args.Target, dmg, 0);
-        args.Handled = true;
-    }
-    private void OnFleshAscendPolymorph(Entity<HereticComponent> ent, ref EventHereticFleshAscend args)
-    {
-        if (!TryUseAbility(ent, args))
-            return;
+        var damage = EnsureComp<DamageOverTimeComponent>(clone.Value);
+        damage.Damage = new DamageSpecifier
+        {
+            DamageDict =
+            {
+                { "Blunt", 0.3 },
+                { "Slash", 0.3 },
+                { "Piercing", 0.3 },
+            }
+        };
+        damage.MultiplierIncrease = 0.02f;
+        damage.IgnoreResistances = true;
+        Dirty(clone.Value, damage);
 
-        var urist = _poly.PolymorphEntity(ent, "EldritchHorror");
-        if (urist == null)
-            return;
+        if (!makeGhostRole)
+            RemCompDeferred<GhostTakeoverAvailableComponent>(clone.Value);
+        else if (TryComp(clone.Value, out GhostRoleComponent? ghostRole))
+            ghostRole.RaffleConfig = null;
 
-        _aud.PlayPvs(new SoundPathSpecifier("/Audio/Animals/space_dragon_roar.ogg"), (EntityUid) urist, AudioParams.Default.AddVolume(2f));
+        var exception = EnsureComp<FactionExceptionComponent>(clone.Value);
+        _npcFaction.IgnoreEntity((clone.Value, exception), user);
+        if (user != uid)
+        {
+            _npcFaction.AggroEntity((clone.Value, exception), uid);
+            EnsureComp<FleshMimickedComponent>(uid).FleshMimics.Add(clone.Value);
+        }
+        if (hostile != null && hostile.Value != user)
+        {
+            _npcFaction.AggroEntity((clone.Value, exception), hostile.Value);
+            EnsureComp<FleshMimickedComponent>(hostile.Value).FleshMimics.Add(clone.Value);
+        }
 
-        args.Handled = true;
+        return clone.Value;
     }
 }

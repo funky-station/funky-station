@@ -161,6 +161,7 @@ public sealed partial class EventHereticNightwatcherRebirth : InstantActionEvent
 }
 public sealed partial class EventHereticFlames : InstantActionEvent { }
 public sealed partial class EventHereticCascade : InstantActionEvent { }
+public sealed partial class EventHereticBlazingDash : InstantActionEvent { }
 
 // flesh
 public sealed partial class EventHereticFleshSurgery : InstantActionEvent, ITouchSpellEvent

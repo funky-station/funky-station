@@ -956,14 +956,16 @@ namespace Content.Server._Funkystation.Atmos.HFR.Systems
             if (emPulse)
             {
                 var empCoords = _transformSystem.GetMapCoordinates(coreUid);
-                var empRange = critical ? empLightSize * 4 : empLightSize;
+                var empRangeInt = critical ? empLightSize * 4 : empLightSize;
+                var empRangeFloat = Convert.ToSingle(empRangeInt);
                 var energyConsumption = empHeavySize * 1000f;
                 var duration = 30f;
                 _empSystem.EmpPulse(
                     empCoords,
-                    range: empRange,
+                    range: empRangeFloat,
                     energyConsumption: energyConsumption,
-                    duration: duration
+                    duration: TimeSpan.FromSeconds(duration),
+                    coreUid
                 );
             }
 

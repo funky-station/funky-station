@@ -3,19 +3,10 @@ using Content.Shared.BloodCult;
 
 namespace Content.Server.EntityEffects.Effects;
 
-public sealed class DeCultifySystem : EntitySystem
+public sealed class DeCultifySystem : EntityEffectSystem<BloodCultistComponent, DeCultify>
 {
-    public override void Initialize()
+    protected override void Effect(Entity<BloodCultistComponent> entity, ref EntityEffectEvent<DeCultify> args)
     {
-        base.Initialize();
-        SubscribeLocalEvent<DeCultify>(OnDeCultify);
-    }
-
-    private void OnDeCultify(EntityUid uid, EntityEffectEvent<DeCultify> args)
-    {
-        if (!TryComp<BloodCultistComponent>(uid, out var bloodCultist))
-            return;
-
-        bloodCultist.DeCultification += args.Effect.Amount * args.Scale;
+        entity.Comp.DeCultification += args.Effect.Amount * args.Scale;
     }
 }

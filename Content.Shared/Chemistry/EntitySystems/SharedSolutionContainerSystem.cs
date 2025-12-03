@@ -1212,7 +1212,7 @@ public abstract partial class SharedSolutionContainerSystem : EntitySystem
         return true;
     }
 
-    private Solution EnsureSolutionPrototype(Entity<SolutionContainerManagerComponent?> entity, string name, FixedPoint2 maxVol, Solution? prototype, out bool existed)
+    public Solution EnsureSolutionPrototype(Entity<SolutionContainerManagerComponent?> entity, string name, FixedPoint2 maxVol, Solution? prototype, out bool existed)
     {
         existed = true;
 

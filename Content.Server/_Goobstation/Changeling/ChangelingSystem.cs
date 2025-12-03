@@ -110,6 +110,7 @@ using Content.Shared._Goobstation.Changeling.Components;
 using Content.Shared._Goobstation.Flashbang;
 using Content.Shared.Administration.Systems;
 using Content.Shared.Atmos.Components;
+using Content.Shared.Changeling;
 using Content.Shared.FixedPoint;
 
 namespace Content.Goobstation.Server.Changeling;
@@ -594,7 +595,7 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
             }
         }
 
-        var data = new TransformData
+        var data = new Shared.Changeling.Components.TransformData
         {
             Name = metadata.EntityName,
             DNA = dna.DNA ?? Loc.GetString("forensics-dna-unknown"),
@@ -659,7 +660,7 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
     }
     private EntityUid? TransformEntity(
         EntityUid uid,
-        TransformData? data = null,
+        Shared.Changeling.Components.TransformData? data = null,
         EntProtoId? protoId = null,
         ChangelingIdentityComponent? comp = null,
         bool dropInventory = false,

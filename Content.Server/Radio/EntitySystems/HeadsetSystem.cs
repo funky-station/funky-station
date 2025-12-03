@@ -1,4 +1,5 @@
 using Content.Shared.Chat;
+using Content.Shared.Emp;
 using Content.Shared.Inventory.Events;
 using Content.Shared.Radio;
 using Content.Shared.Radio.Components;
@@ -111,5 +112,13 @@ public sealed class HeadsetSystem : SharedHeadsetSystem
 
         if (TryComp(parent, out ActorComponent? actor))
             _netMan.ServerSendMessage(args.ChatMsg, actor.PlayerSession.Channel);
+    }
+    private void OnEmpPulse(EntityUid uid, HeadsetComponent component, ref EmpPulseEvent args)
+    {
+        if (component.Enabled)
+        {
+            args.Affected = true;
+            args.Disabled = true;
+        }
     }
 }

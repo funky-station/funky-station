@@ -19,6 +19,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Server._Goobstation.Heretic.Abilities;
 using Content.Server.Chat.Systems;
 using Content.Server.Explosion.EntitySystems;
 using Content.Server.Heretic.Abilities;

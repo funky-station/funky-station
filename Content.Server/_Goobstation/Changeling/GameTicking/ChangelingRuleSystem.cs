@@ -20,6 +20,7 @@ using Content.Server.Mind;
 using Content.Server.Objectives;
 using Content.Shared._EinsteinEngines.Silicon.Components;
 using Content.Shared._Goobstation.Changeling.Components;
+using Content.Shared.Changeling;
 using Content.Shared.Changeling.Components;
 using Content.Shared.NPC.Prototypes;
 using Content.Shared.NPC.Systems;

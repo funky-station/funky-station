@@ -3,9 +3,8 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-
-using Content.Shared.Radio;
-using Content.Shared.Radio.Components;
+using Content.Shared._Goobstation.Radio;
+using Content.Shared._Goobstation.Radio.Components;
 
 namespace Content.Server._EinsteinEngines.Radio;
 
@@ -15,21 +14,21 @@ public sealed class IntrinsicRadioKeySystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<Server.Radio.Components.IntrinsicRadioTransmitterComponent, EncryptionChannelsChangedEvent>(OnTransmitterChannelsChanged);
-        SubscribeLocalEvent<Server.Radio.Components.ActiveRadioComponent, EncryptionChannelsChangedEvent>(OnReceiverChannelsChanged);
+        SubscribeLocalEvent<IntrinsicRadioTransmitterComponent, EncryptionChannelsChangedEvent>(OnTransmitterChannelsChanged);
+        SubscribeLocalEvent<ActiveRadioComponent, EncryptionChannelsChangedEvent>(OnReceiverChannelsChanged);
     }
 
-    private void OnTransmitterChannelsChanged(EntityUid uid, Server.Radio.Components.IntrinsicRadioTransmitterComponent component, EncryptionChannelsChangedEvent args)
+    private void OnTransmitterChannelsChanged(EntityUid uid, Shared._Goobstation.Radio.Components.IntrinsicRadioTransmitterComponent component, Shared._Goobstation.Radio.EncryptionChannelsChangedEvent args)
     {
         UpdateChannels(uid, args.Component, ref component.Channels);
     }
 
-    private void OnReceiverChannelsChanged(EntityUid uid, Server.Radio.Components.ActiveRadioComponent component, EncryptionChannelsChangedEvent args)
+    private void OnReceiverChannelsChanged(EntityUid uid, Shared._Goobstation.Radio.Components.ActiveRadioComponent component, Shared._Goobstation.Radio.EncryptionChannelsChangedEvent args)
     {
         UpdateChannels(uid, args.Component, ref component.Channels);
     }
 
-    private void UpdateChannels(EntityUid _, EncryptionKeyHolderComponent keyHolderComp, ref HashSet<string> channels)
+    private void UpdateChannels(EntityUid _, Shared._Goobstation.Radio.Components.EncryptionKeyHolderComponent keyHolderComp, ref HashSet<string> channels)
     {
         channels.Clear();
         channels.UnionWith(keyHolderComp.Channels);

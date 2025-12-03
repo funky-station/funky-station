@@ -6,10 +6,10 @@
 //
 // SPDX-License-Identifier: MIT
 
-using Content.Shared._Goobstation.Radio;
+using Content.Shared.Radio;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.Set;
 
-namespace Content.Server.Radio.Components;
+namespace Content.Shared._Goobstation.Radio.Components;
 
 /// <summary>
 ///     This component is required to receive radio message events.

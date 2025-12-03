@@ -74,9 +74,11 @@ using Content.Shared.Movement.Systems;
 using Content.Shared.Standing;
 using Content.Shared.Body.Components;
 using Content.Shared.Examine;
+using Content.Shared.FixedPoint;
 using Content.Shared.Hands.Components;
 using Content.Shared.Heretic.Prototypes;
 using Content.Shared.Tag;
+using Content.Shared.Temperature.Components;
 using Robust.Server.Containers;
 
 namespace Content.Server._Goobstation.Heretic.Abilities;
@@ -140,9 +142,6 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
 
         SubscribeLocalEvent<HereticComponent, HereticVoidVisionEvent>(OnVoidVision);
 
-        SubscribeLocalEvent<GhoulComponent, EventHereticMansusLink>(OnMansusLink);
-        SubscribeLocalEvent<GhoulComponent, HereticMansusLinkDoAfter>(OnMansusLinkDoafter);
-
         SubscribeVoid();
     }
 
@@ -172,6 +171,7 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
 
         _store.ToggleUi(ent, ent, store);
     }
+
     private void OnMansusGrasp(Entity<HereticComponent> ent, ref EventHereticMansusGrasp args)
     {
         if (!TryUseAbility(ent, args))
@@ -187,6 +187,7 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
                 if (HasComp<MansusGraspComponent>(item))
                     QueueDel(item);
             }
+
             ent.Comp.MansusGrasp = EntityUid.Invalid;
             return;
         }
@@ -239,19 +240,12 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
                 if (!_tag.HasTag(blade, "HereticBladeBlade"))
                     continue;
 
-                if (TryComp(blade, out MansusInfusedComponent? infused) &&
-                    infused.AvailableCharges >= infused.MaxCharges)
-                    continue;
 
                 if (!_container.TryGetOuterContainer(blade, xformQuery.Comp(blade), out var bladeContainer, xformQuery))
                     continue;
 
                 if (bladeContainer.Owner != containerEnt)
                     continue;
-
-                var newInfused = EnsureComp<MansusInfusedComponent>(blade);
-                newInfused.AvailableCharges = newInfused.MaxCharges;
-                success = true;
             }
 
             return success;
@@ -284,6 +278,7 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
         _ui.OpenUi((ent, uic), HereticLivingHeartKey.Key, ent);
         args.Handled = true;
     }
+
     private void OnLivingHeartActivate(Entity<HereticComponent> ent, ref EventHereticLivingHeartActivate args)
     {
         var loc = string.Empty;
@@ -326,48 +321,9 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
         }
 
         Popup.PopupEntity(loc, ent, ent, PopupType.Medium);
-        _aud.PlayPvs(new SoundPathSpecifier("/Audio/_Goobstation/Heretic/heartbeat.ogg"), ent, AudioParams.Default.WithVolume(-3f));
-    }
-
-    public static ProtoId<CollectiveMindPrototype> MansusLinkMind = "MansusLink";
-    private void OnMansusLink(Entity<GhoulComponent> ent, ref EventHereticMansusLink args)
-    {
-        if (!TryUseAbility(ent, args))
-            return;
-
-        if (!HasComp<MindContainerComponent>(args.Target))
-        {
-            Popup.PopupEntity(Loc.GetString("heretic-manselink-fail-nomind"), ent, ent);
-            return;
-        }
-
-        if (TryComp<CollectiveMindComponent>(args.Target, out var mind) && mind.Channels.Contains(MansusLinkMind))
-        {
-            Popup.PopupEntity(Loc.GetString("heretic-manselink-fail-exists"), ent, ent);
-            return;
-        }
-
-        var dargs = new DoAfterArgs(EntityManager, ent, 5f, new HereticMansusLinkDoAfter(args.Target), ent, args.Target)
-        {
-            BreakOnDamage = true,
-            BreakOnMove = true,
-            BreakOnWeightlessMove = true,
-            MultiplyDelay = false
-        };
-        Popup.PopupEntity(Loc.GetString("heretic-manselink-start"), ent, ent);
-        Popup.PopupEntity(Loc.GetString("heretic-manselink-start-target"), args.Target, args.Target, PopupType.MediumCaution);
-        DoAfter.TryStartDoAfter(dargs);
-    }
-    private void OnMansusLinkDoafter(Entity<GhoulComponent> ent, ref HereticMansusLinkDoAfter args)
-    {
-        if (args.Cancelled)
-            return;
-
-        EnsureComp<CollectiveMindComponent>(args.Target).Channels.Add(MansusLinkMind);
-
-        // this "* 1000f" (divided by 1000 in FlashSystem) is gonna age like fine wine :clueless:
-        // updated: get upstream'ed you clanker
-        _flash.Flash(args.Target, null, null, TimeSpan.FromSeconds(2f), 0f, false, true, stunDuration: TimeSpan.FromSeconds(1f));
+        _aud.PlayPvs(new SoundPathSpecifier("/Audio/_Goobstation/Heretic/heartbeat.ogg"),
+            ent,
+            AudioParams.Default.WithVolume(-3f));
     }
 
     private void OnVoidVision(Entity<HereticComponent> ent, ref HereticVoidVisionEvent args)
@@ -379,193 +335,11 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
         thermalVision.ActivateSound = null;
         thermalVision.DeactivateSound = null;
         thermalVision.ToggleAction = null;
-        thermalVision.ThermalShader = null;
 
         AddComp(ent, thermalVision);
 
         var toggleEvent = new ToggleThermalVisionEvent();
         RaiseLocalEvent(ent, toggleEvent);
     }
-
-    private float GetFleshHealMultiplier(Entity<MartialArtModifiersComponent> ent)
-    {
-        var mult = 1f;
-        const MartialArtModifierType type = MartialArtModifierType.Healing;
-        foreach (var data in ent.Comp.Data.Where(x => (x.Type & type) != 0))
-        {
-            mult *= data.Multiplier;
-        }
-
-        foreach (var (_, limit) in ent.Comp.MinMaxModifiersMultipliers.Where(x => (x.Key & type) != 0))
-        {
-            mult = Math.Clamp(mult, limit.X, limit.Y);
-        }
-
-        return mult;
-    }
-
-    public override void Update(float frameTime)
-    {
-        base.Update(frameTime);
-
-        var bloodQuery = GetEntityQuery<BloodstreamComponent>();
-
-        var fleshQuery = EntityQueryEnumerator<FleshPassiveComponent, MartialArtModifiersComponent, DamageableComponent>();
-        while (fleshQuery.MoveNext(out var uid, out var flesh, out var modifiers, out var dmg))
-        {
-            flesh.Accumulator += frameTime;
-
-            if (flesh.Accumulator < flesh.HealInterval)
-                continue;
-
-            flesh.Accumulator = 0f;
-
-            var mult = GetFleshHealMultiplier((uid, modifiers));
-
-            var realMult = mult - 1;
-
-            if (realMult <= 0f)
-                continue;
-
-            var toHeal = -realMult * AllDamage;
-            var boneHeal = -realMult * flesh.BoneHealMultiplier;
-            var painHeal = -realMult * flesh.PainHealMultiplier;
-            var woundHeal = -realMult * flesh.WoundHealMultiplier;
-            var bloodHeal = realMult * flesh.BloodHealMultiplier;
-            var bleedHeal = -realMult * flesh.BleedReductionMultiplier;
-
-            IHateWoundMed((uid, dmg, null, null), toHeal, boneHeal, painHeal, woundHeal, bloodHeal, bleedHeal);
-        }
-
-        var rustChargeQuery = EntityQueryEnumerator<RustObjectsInRadiusComponent, TransformComponent>();
-        while (rustChargeQuery.MoveNext(out var uid, out var rust, out var xform))
-        {
-            if (rust.NextRustTime > Timing.CurTime)
-                continue;
-
-            rust.NextRustTime = Timing.CurTime + rust.RustPeriod;
-            RustObjectsInRadius(_transform.GetMapCoordinates(uid, xform),
-                rust.RustRadius,
-                rust.TileRune,
-                rust.LookupRange,
-                rust.RustStrength);
-        }
-
-        var rustBringerQuery = EntityQueryEnumerator<RustbringerComponent, TransformComponent>();
-        while (rustBringerQuery.MoveNext(out var rustBringer, out var xform))
-        {
-            rustBringer.Accumulator += frameTime;
-
-            if (rustBringer.Accumulator < rustBringer.Delay)
-                continue;
-
-            rustBringer.Accumulator = 0f;
-
-            if (!IsTileRust(xform.Coordinates, out _))
-                continue;
-
-            Spawn(rustBringer.Effect, xform.Coordinates);
-        }
-
-        _accumulator += frameTime;
-
-        if (_accumulator < LeechingWalkUpdateInterval)
-            return;
-
-        _accumulator = 0f;
-
-        var damageableQuery = GetEntityQuery<DamageableComponent>();
-        var temperatureQuery = GetEntityQuery<TemperatureComponent>();
-        var staminaQuery = GetEntityQuery<StaminaComponent>();
-        var statusQuery = GetEntityQuery<StatusEffectsComponent>();
-        var resiratorQuery = GetEntityQuery<RespiratorComponent>();
-        var hereticQuery = GetEntityQuery<HereticComponent>();
-        var ghoulQuery = GetEntityQuery<GhoulComponent>();
-
-        var leechQuery = EntityQueryEnumerator<LeechingWalkComponent, TransformComponent>();
-        while (leechQuery.MoveNext(out var uid, out var leech, out var xform))
-        {
-            if (!IsTileRust(xform.Coordinates, out _))
-                continue;
-
-            damageableQuery.TryComp(uid, out var damageable);
-
-            var multiplier = 2f;
-            var boneHeal = FixedPoint2.Zero;
-            var shouldHeal = true;
-            if (hereticQuery.TryComp(uid, out var heretic))
-            {
-                if (heretic.PathStage >= 7)
-                {
-                    if (heretic.Ascended)
-                    {
-                        multiplier = 5f;
-                        if (resiratorQuery.TryComp(uid, out var respirator))
-                        {
-                            _respirator.UpdateSaturation(uid,
-                                respirator.MaxSaturation - respirator.MinSaturation,
-                                respirator);
-                        }
-
-                        if (damageable != null && damageable.TotalDamage < FixedPoint2.Epsilon)
-                        {
-                            _body.RestoreBody(uid);
-                            shouldHeal = false;
-                        }
-                    }
-                    else
-                        multiplier = 3f;
-
-                    boneHeal = leech.BoneHeal * multiplier;
-                }
-            }
-            else if (ghoulQuery.HasComp(uid))
-                multiplier = 3f;
-
-            var otherHeal = boneHeal;
-
-            RemCompDeferred<DelayedKnockdownComponent>(uid);
-
-            var toHeal = leech.ToHeal * multiplier;
-
-            if (shouldHeal && damageable != null)
-            {
-                IHateWoundMed((uid, damageable, null, null),
-                    toHeal,
-                    boneHeal,
-                    otherHeal,
-                    otherHeal,
-                    leech.BloodHeal * multiplier,
-                    null);
-            }
-
-            if (bloodQuery.TryComp(uid, out var blood))
-                _blood.FlushChemicals((uid, blood), leech.ExcludedReagent, leech.ChemPurgeRate * multiplier);
-
-            if (temperatureQuery.TryComp(uid, out var temperature))
-                _temperature.ForceChangeTemperature(uid, leech.TargetTemperature, temperature);
-
-            if (staminaQuery.TryComp(uid, out var stamina) && stamina.StaminaDamage > 0)
-            {
-                _stam.TakeStaminaDamage(uid,
-                    -float.Min(leech.StaminaHeal * multiplier, stamina.StaminaDamage),
-                    stamina,
-                    visual: false);
-            }
-
-            if (statusQuery.TryComp(uid, out var status))
-            {
-                var reduction = leech.StunReduction * multiplier;
-                _statusEffect.TryRemoveTime(uid, "Stun", reduction, status);
-                _statusEffect.TryRemoveTime(uid, "KnockedDown", reduction, status);
-
-                _statusEffect.TryRemoveStatusEffect(uid, "Pacified", status);
-                _statusEffect.TryRemoveStatusEffect(uid, "ForcedSleep", status);
-                _statusEffect.TryRemoveStatusEffect(uid, "SlowedDown", status);
-                _statusEffect.TryRemoveStatusEffect(uid, "BlurryVision", status);
-                _statusEffect.TryRemoveStatusEffect(uid, "TemporaryBlindness", status);
-                _statusEffect.TryRemoveStatusEffect(uid, "SeeingRainbows", status);
-            }
-        }
-    }
 }
+

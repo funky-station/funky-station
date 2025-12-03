@@ -2,6 +2,7 @@ using Content.Shared.Radio.EntitySystems;
 using Content.Shared.Chat;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 
 namespace Content.Shared.Radio.Components;
 
@@ -12,29 +13,31 @@ namespace Content.Shared.Radio.Components;
 [Access(typeof(SharedRadioDeviceSystem))]
 public sealed partial class RadioMicrophoneComponent : Component
 {
-    [DataField]
-    public ProtoId<RadioChannelPrototype> BroadcastChannel = SharedChatSystem.CommonChannel;
+    [ViewVariables(VVAccess.ReadWrite)]
+    [DataField("broadcastChannel", customTypeSerializer: typeof(PrototypeIdSerializer<RadioChannelPrototype>))]
+    public string BroadcastChannel = SharedChatSystem.CommonChannel;
 
-    [DataField]
-    public int ListenRange = 4;
+    [ViewVariables(VVAccess.ReadWrite)]
+    [DataField("listenRange")]
+    public int ListenRange  = 4;
 
-    [DataField]
+    [DataField("enabled")]
     public bool Enabled = false;
 
-    [DataField]
+    [DataField("powerRequired")]
     public bool PowerRequired = false;
 
     /// <summary>
     /// Whether or not interacting with this entity
     /// toggles it on or off.
     /// </summary>
-    [DataField]
+    [DataField("toggleOnInteract")]
     public bool ToggleOnInteract = true;
 
     /// <summary>
     /// Whether or not the speaker must have an
     /// unobstructed path to the radio to speak
     /// </summary>
-    [DataField]
+    [DataField("unobstructedRequired")]
     public bool UnobstructedRequired = false;
 }

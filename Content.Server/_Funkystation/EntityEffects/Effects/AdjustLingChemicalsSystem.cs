@@ -5,6 +5,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
 using Content.Goobstation.Common.Changeling;
+using Content.Shared.Changeling;
 using Content.Shared.EntityEffects;
 
 namespace Content.Server._Funkystation.EntityEffects.Effects;

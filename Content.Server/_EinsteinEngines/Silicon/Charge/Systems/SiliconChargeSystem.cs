@@ -70,9 +70,20 @@ public sealed class SiliconChargeSystem : EntitySystem
         }
 
         // Try to get inserted battery
-        if (TryComp(silicon, out batteryComp)
-            || _powerCell.TryGetBatteryFromSlot(silicon, out batteryComp))
+        if (TryComp(silicon, out batteryComp))
+        {
+            batteryEnt = silicon;
             return true;
+        }
+
+        if (_powerCell.TryGetBatteryFromSlot(silicon, out var battery))
+        {
+            batteryEnt = battery.Value.Owner;
+            if (TryComp(batteryEnt.Value, out batteryComp))
+                return true;
+        }
+
+        return false;
 
         // Goobstation - Energycrit: Deshitcodified this
         /*

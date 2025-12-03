@@ -16,7 +16,7 @@
 using Content.Shared.Whitelist;
 using Robust.Shared.Prototypes;
 
-namespace Content.Shared.Radio;
+namespace Content.Shared._Goobstation.Radio;
 
 [Prototype]
 public sealed partial class RadioChannelPrototype : IPrototype
@@ -60,11 +60,4 @@ public sealed partial class RadioChannelPrototype : IPrototype
 
     [DataField]
     public EntityWhitelist? ReceiveWhitelist = null;
-
-    /// <summary>
-    /// ImpStation original. If a channel is readOnly, then headsets cannot send messages through it.
-    /// Intercomms still can.
-    /// </summary>
-    [DataField("intercomOnly")]
-    public bool IntercomOnly = false;
 }

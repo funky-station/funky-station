@@ -23,6 +23,9 @@ using Content.Shared.Slippery;
 using Robust.Shared.Audio;
 using Robust.Shared.Physics.Components;
 using System.Linq;
+using Content.Goobstation.Common.Atmos;
+using Content.Goobstation.Common.Temperature.Components;
+using Content.Goobstation.Shared.Body.Components;
 using Content.Server.Heretic.Components;
 using Content.Shared.Atmos.Components;
 using Content.Shared.Interaction;
@@ -37,7 +40,6 @@ public sealed partial class HereticAbilitySystem
         SubscribeLocalEvent<HereticComponent, HereticAscensionVoidEvent>(OnAscensionVoid);
 
         SubscribeLocalEvent<HereticComponent, HereticVoidBlastEvent>(OnVoidBlast);
-        SubscribeLocalEvent<HereticComponent, HereticVoidBlinkEvent>(OnVoidBlink);
         SubscribeLocalEvent<HereticComponent, HereticVoidPullEvent>(OnVoidPull);
     }
 
@@ -90,49 +92,6 @@ public sealed partial class HereticAbilitySystem
         args.Handled = true;
     }
 
-    private void OnVoidBlink(Entity<HereticComponent> ent, ref HereticVoidBlinkEvent args)
-    {
-        var ev = new TeleportAttemptEvent(false);
-        RaiseLocalEvent(ent, ref ev);
-        if (ev.Cancelled)
-            return;
-
-        if (!TryUseAbility(ent, args))
-            return;
-
-        var target = _transform.ToMapCoordinates(args.Target);
-        if (!_examine.InRangeUnOccluded(ent, target, SharedInteractionSystem.MaxRaycastRange))
-        {
-            // can only dash if the destination is visible on screen
-            Popup.PopupEntity(Loc.GetString("dash-ability-cant-see"), ent, ent);
-            return;
-        }
-
-        var people = GetNearbyPeople(ent, args.Radius, ent.Comp.CurrentPath);
-        var xform = Transform(ent);
-
-        Spawn(args.InEffect, xform.Coordinates);
-        _transform.SetCoordinates(ent, xform, args.Target);
-        Spawn(args.OutEffect, args.Target);
-
-        var condition = ent.Comp.CurrentPath == "Void";
-
-        people.AddRange(GetNearbyPeople(ent, args.Radius, ent.Comp.CurrentPath));
-        foreach (var pookie in people.ToHashSet())
-        {
-            if (condition)
-                _voidcurse.DoCurse(pookie);
-            _dmg.TryChangeDamage(pookie,
-                args.Damage,
-                true,
-                origin: ent,
-                targetPart: TargetBodyPart.All,
-                canMiss: false);
-        }
-
-        args.Handled = true;
-    }
-
     private void OnVoidPull(Entity<HereticComponent> ent, ref HereticVoidPullEvent args)
     {
         if (!TryUseAbility(ent, args))
@@ -151,20 +110,13 @@ public sealed partial class HereticAbilitySystem
                 args.Damage,
                 true,
                 origin: ent,
-                targetPart: TargetBodyPart.All,
-                canMiss: false);
+                targetPart: TargetBodyPart.All);
         }
-
-        var condition = ent.Comp.CurrentPath == "Void";
 
         // stun close-mid range
         foreach (var pookie in midPriority)
         {
             _stun.TryAddStunDuration(pookie, args.StunTime);
-            _stun.TryKnockdown(pookie, args.KnockDownTime, true);
-
-            if (condition)
-                _voidcurse.DoCurse(pookie);
         }
 
         var coords = Transform(ent).Coordinates;

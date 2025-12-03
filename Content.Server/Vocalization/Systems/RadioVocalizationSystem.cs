@@ -1,8 +1,3 @@
-// SPDX-FileCopyrightText: 2025 8tv <eightev@gmail.com>
-// SPDX-FileCopyrightText: 2025 Crude Oil <124208219+CroilBird@users.noreply.github.com>
-//
-// SPDX-License-Identifier: MIT
-
 using Content.Server.Chat.Systems;
 using Content.Server.Vocalization.Components;
 using Content.Shared.Chat;

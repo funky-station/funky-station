@@ -355,7 +355,7 @@ def parse_existing_header(content, comment_style):
 
     return authors, license_id, header_lines
 
-def create_header(authors, license_id, comment_style):
+def create_header(authors, license_id, comment_style, explicit_author=None, explicit_license=None):
     """
     Creates a REUSE header with the given authors and license.
     Returns: header string
@@ -367,6 +367,11 @@ def create_header(authors, license_id, comment_style):
     if suffix is None:
         # Single-line comment style (e.g., //, #)
         # Add copyright lines
+        if explicit_author is not None:
+            lines.append(f"{prefix} SPDX-FileCopyrightText: {datetime.now().year} {explicit_author}")
+            lines.append(f"{prefix}")
+            lines.append(f"{prefix} SPDX-License-Identifier: {explicit_license}")
+            lines.append(f"{prefix}")
         if authors:
             for author, (_, year) in sorted(authors.items(), key=lambda x: (x[1][1], x[0])):
                 if not author.startswith("Unknown <"):
@@ -385,6 +390,11 @@ def create_header(authors, license_id, comment_style):
         lines.append(f"{prefix}")
 
         # Add copyright lines
+        if explicit_author is not None:
+            lines.append(f"SPDX-FileCopyrightText: {datetime.now().year} {explicit_author}")
+            lines.append(f"")
+            lines.append(f"SPDX-License-Identifier: {explicit_license}")
+            lines.append(f"")
         if authors:
             for author, (_, year) in sorted(authors.items(), key=lambda x: (x[1][1], x[0])):
                 if not author.startswith("Unknown <"):
@@ -403,7 +413,7 @@ def create_header(authors, license_id, comment_style):
 
     return "\n".join(lines)
 
-def process_file(file_path, default_license_id, pr_base_sha=None, pr_head_sha=None):
+def process_file(file_path, default_license_id, pr_base_sha=None, pr_head_sha=None, explicit_author=None):
     """
     Processes a file to add or update REUSE headers.
     Returns: True if file was modified, False otherwise
@@ -473,7 +483,7 @@ def process_file(file_path, default_license_id, pr_base_sha=None, pr_head_sha=No
                 print(f"  Adding new author: {author}")
 
         # Create new header with existing license
-        new_header = create_header(combined_authors, existing_license, comment_style)
+        new_header = create_header(combined_authors, existing_license, comment_style, explicit_author, default_license_id)
 
         # Replace old header with new header
         if header_lines:
@@ -486,7 +496,7 @@ def process_file(file_path, default_license_id, pr_base_sha=None, pr_head_sha=No
         print(f"Adding new header to {file_path} (License: {default_license_id})")
 
         # Create new header with default license
-        new_header = create_header(git_authors, default_license_id, comment_style)
+        new_header = create_header(git_authors, default_license_id, comment_style, explicit_author, default_license_id)
 
         # Add header to file
         if content.strip():
@@ -522,11 +532,16 @@ def main():
     parser.add_argument("--pr-license", default=DEFAULT_LICENSE_LABEL, help="License to use for new files")
     parser.add_argument("--pr-base-sha", help="Base SHA of the PR")
     parser.add_argument("--pr-head-sha", help="Head SHA of the PR")
+    parser.add_argument("--pr-explicit-authorship-attribution", default=None, help="For when an author must be attributed, but has no git history.")
+    parser.add_argument("--pr-explicit-attribution-files", nargs="*", default=[], help="Which files to apply authorship to. Empty list means all files in the PR")
 
     args = parser.parse_args()
 
     # Validate license
     license_label = args.pr_license.lower()
+
+    explicit_author = args.pr_explicit_authorship_attribution
+    explicitly_authored_files = args.pr_explicit_attribution_files
 
     # TODO: support any amount of licenses
     for license in list(LICENSE_CONFIG):
@@ -558,13 +573,13 @@ def main():
     print("\n--- Processing Added Files ---")
     for file in args.files_added:
         print(f"\nProcessing added file: {file}")
-        if process_file(file, license_id, args.pr_base_sha, args.pr_head_sha):
+        if process_file(file, license_id, args.pr_base_sha, args.pr_head_sha, explicit_author if len(explicitly_authored_files) == 0 or file in explicitly_authored_files else None):
             files_changed = True
 
     print("\n--- Processing Modified Files ---")
     for file in args.files_modified:
         print(f"\nProcessing modified file: {file}")
-        if process_file(file, license_id, args.pr_base_sha, args.pr_head_sha):
+        if process_file(file, license_id, args.pr_base_sha, args.pr_head_sha, explicit_author if len(explicitly_authored_files) == 0 or file in explicitly_authored_files else None):
             files_changed = True
 
     print("\n--- Summary ---")

@@ -3,7 +3,7 @@
 - type: gameMap
   id: frezonconfined
   mapName: Test 1 - Confined Frezon
-  mapPath: /Maps/Nonstations/Atmos/frezonconfined.yml
+  mapPath: /Maps/_Funkystation/Atmos/frezonconfined.yml
   minPlayers: 0
   stations:
     frezonconfined:
@@ -18,7 +18,7 @@
 - type: gameMap
   id: canisterhell
   mapName: Test 2 - Canister Hell
-  mapPath: /Maps/Nonstations/Atmos/canisterhell.yml
+  mapPath: /Maps/_Funkystation/Atmos/canisterhell.yml
   minPlayers: 0
   stations:
     canisterhell:
@@ -33,7 +33,7 @@
 - type: gameMap
   id: thermalexchangegenerator
   mapName: Test 3 - Thermal Exchange Generator
-  mapPath: /Maps/Nonstations/Atmos/thermalexchangegenerator.yml
+  mapPath: /Maps/_Funkystation/Atmos/thermalexchangegenerator.yml
   minPlayers: 0
   stations:
     thermalexchangegenerator:
@@ -48,7 +48,7 @@
 - type: gameMap
   id: hhhhhh
   mapName: Test 4 - H.H.H.H.H.(H)
-  mapPath: /Maps/Nonstations/Atmos/hhhhhh.yml
+  mapPath: /Maps/_Funkystation/Atmos/hhhhhh.yml
   minPlayers: 0
   stations:
     hhhhhh:
@@ -63,7 +63,7 @@
 - type: gameMap
   id: smmadness
   mapName: Test 5 - Supermatter Madness
-  mapPath: /Maps/Nonstations/Atmos/smmadness.yml
+  mapPath: /Maps/_Funkystation/Atmos/smmadness.yml
   minPlayers: 0
   stations:
     smmadness:
@@ -78,7 +78,7 @@
 - type: gameMap
   id: smmadnesstwo
   mapName: Test 6 - Supermatter Madness 2
-  mapPath: /Maps/Nonstations/Atmos/smmadnesstwo.yml
+  mapPath: /Maps/_Funkystation/Atmos/smmadnesstwo.yml
   minPlayers: 0
   stations:
     smmadnesstwo:
@@ -93,7 +93,7 @@
 - type: gameMap
   id: crystalbasics
   mapName: Test 7 - Crystalizer Basics
-  mapPath: /Maps/Nonstations/Atmos/crystalbasic.yml
+  mapPath: /Maps/_Funkystation/Atmos/crystalbasic.yml
   minPlayers: 0
   stations:
     crystalbasics:
@@ -108,7 +108,7 @@
 - type: gameMap
   id: simplezauker
   mapName: Test 8 - Simple Zauker
-  mapPath: /Maps/Nonstations/Atmos/simplezauker.yml
+  mapPath: /Maps/_Funkystation/Atmos/simplezauker.yml
   minPlayers: 0
   stations:
     simplezauker:
@@ -123,7 +123,7 @@
 - type: gameMap
   id: crystaladvanced
   mapName: Test 9 - Crystalizer Advanced
-  mapPath: /Maps/Nonstations/Atmos/crystaladvanced.yml
+  mapPath: /Maps/_Funkystation/Atmos/crystaladvanced.yml
   minPlayers: 0
   stations:
     crystaladvanced:
@@ -138,7 +138,7 @@
 - type: gameMap
   id: olddays
   mapName: Test 10-11 - Olden Days
-  mapPath: /Maps/Nonstations/Atmos/olddays.yml
+  mapPath: /Maps/_Funkystation/Atmos/olddays.yml
   minPlayers: 0
   stations:
     olddays:
@@ -153,7 +153,7 @@
 - type: gameMap
   id: heliosglory
   mapName: Test 12 - The Glory of Helios
-  mapPath: /Maps/Nonstations/Atmos/heliosglory.yml
+  mapPath: /Maps/_Funkystation/Atmos/heliosglory.yml
   minPlayers: 0
   stations:
     heliosglory:
@@ -168,7 +168,7 @@
 - type: gameMap
   id: extractantinob
   mapName: Test 13 - Antinob Extraction
-  mapPath: /Maps/Nonstations/Atmos/extractantinob.yml
+  mapPath: /Maps/_Funkystation/Atmos/extractantinob.yml
   minPlayers: 0
   stations:
     extractantinob:

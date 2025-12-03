@@ -5,11 +5,11 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
-using Content.Shared.Mindcontrol;
+using Content.Goobstation.Shared.Mindcontrol;
 using Content.Shared.StatusIcon.Components;
 using Robust.Shared.Prototypes;
 
-namespace Content.Client.Mindcontrol;
+namespace Content.Client._Goobstation.Mindcontrol;
 
 public sealed class MindcontrolSystem : EntitySystem
 {

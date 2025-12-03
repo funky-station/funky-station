@@ -10,6 +10,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Shared.Blob.Components;
 using Content.Shared._Goobstation.Blob;
 using Content.Shared._Goobstation.Blob.Components;
 using Content.Shared.Damage;
@@ -20,7 +21,7 @@ using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 
-namespace Content.Goobstation.Shared.Blob.Components;
+namespace Content.Shared._Goobstation.Blob.Components;
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class BlobCoreComponent : Component

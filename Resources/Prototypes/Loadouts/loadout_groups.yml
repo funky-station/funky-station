@@ -1732,6 +1732,14 @@
     - DetectiveEnergyRevolver
     - DetectiveRevolver
 
+- type: loadoutGroup
+  id: LoadoutSecurityWeapon
+  name: loadout-group-security-weapon
+  minLimit: 1
+  loadouts:
+    - SecurityPistol
+    - SecuritySilencedPistol
+
 # Medical
 - type: loadoutGroup
   id: ChiefMedicalOfficerHead

@@ -130,6 +130,19 @@
     jumpsuit: ClothingUniformJumpskirtSeniorOfficer
   groupBy: "jumpskirt"
 
+# Service Weapon
+- type: loadout
+  id: SecurityPistol
+  storage:
+    back:
+    - WeaponPistolMk58
+
+- type: loadout
+  id: SecuritySilencedPistol
+  storage:
+    back:
+    - WeaponPistolMk59S
+
 # Back
 - type: loadout
   id: SecurityBackpack

@@ -305,3 +305,53 @@
             - CartridgeMagnum
   - type: Multishot # Goobstation
     spreadMultiplier: 1.25
+
+- type: entity
+  name: mk 59S
+  parent: [ BaseWeaponPistol, BaseSecurityContraband ]
+  id: WeaponPistolMk59S
+  description: A sidearm fitted with an integral supressor and a full auto reciever. Favored by any officer who likes to keep things quiet but leave bullet casings in their wake.  Uses .35 auto ammo.
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Pistols/cobra.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Clothing
+    sprite: Objects/Weapons/Guns/Pistols/cobra.rsi
+  - type: ChamberMagazineAmmoProvider
+    boltClosed: null
+  - type: Gun
+    fireRate: 4
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/silenced.ogg
+      params:
+        volume: -14
+    availableModes:
+    - SemiAuto
+    - FullAuto
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MagazinePistol
+        insertSound: /Audio/Weapons/Guns/MagIn/pistol_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/pistol_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+            - MagazinePistol
+        whitelistFailPopup: gun-magazine-whitelist-fail
+      gun_chamber:
+        name: Chamber
+        startingItem: CartridgePistol
+        priority: 1
+        whitelist:
+          tags:
+            - CartridgePistol
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot

@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 rottenheadphones <juaelwe@outlook.com>
+//
+// SPDX-License-Identifier: CC-BY-NC-SA-3.0
+
 using Robust.Shared.Audio;
 
 namespace Content.Server._FarHorizons.Power.Generation.FissionGenerator;

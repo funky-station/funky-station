@@ -19,6 +19,7 @@ using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Humanoid;
 using Content.Shared.Verbs;
 using Content.Shared.Interaction.Components;
+using Content.Shared.Interaction.Events;
 using Content.Shared.Inventory.VirtualItem;
 using Content.Shared.Nutrition.EntitySystems;
 using Content.Shared.Popups;
@@ -64,6 +65,7 @@ public sealed class CocoonSystem : SharedCocoonSystem
         SubscribeLocalEvent<CocoonContainerComponent, UnwrapDoAfterEvent>(OnUnwrapDoAfter);
 
         SubscribeLocalEvent<CocoonedComponent, RemoveCocoonAlertEvent>(OnRemoveCocoonAlert);
+        SubscribeLocalEvent<CocoonedComponent, AttackAttemptEvent>(OnCocoonedAttackAttempt);
     }
 
     private void OnCocoonContainerDamage(Entity<CocoonContainerComponent> ent, ref DamageModifyEvent args)
@@ -493,6 +495,12 @@ public sealed class CocoonSystem : SharedCocoonSystem
         // Show the popup message that they can't free themselves
         _popups.PopupEntity(Loc.GetString("arachnid-unwrap-self"), ent.Owner, ent.Owner);
         args.Handled = true;
+    }
+
+    private void OnCocoonedAttackAttempt(Entity<CocoonedComponent> ent, ref AttackAttemptEvent args)
+    {
+        // Prevent cocooned victims from attacking at all (similar to handcuffs)
+        args.Cancel();
     }
 
 }

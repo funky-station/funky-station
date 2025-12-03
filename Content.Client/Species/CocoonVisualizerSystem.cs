@@ -3,6 +3,7 @@
 // SPDX-License-Identifier: MIT
 
 using System.Numerics;
+using Content.Shared.Interaction.Events;
 using Content.Shared.Species.Arachnid;
 using Robust.Client.Animations;
 using Robust.Client.GameObjects;
@@ -49,6 +50,7 @@ public sealed class CocoonVisualizerSystem : EntitySystem
         base.Initialize();
 
         SubscribeNetworkEvent<CocoonRotationAnimationEvent>(OnCocoonRotationAnimation);
+        SubscribeLocalEvent<CocoonedComponent, AttackAttemptEvent>(OnCocoonedAttackAttempt);
     }
 
     private void OnCocoonRotationAnimation(CocoonRotationAnimationEvent args)
@@ -140,5 +142,11 @@ public sealed class CocoonVisualizerSystem : EntitySystem
         };
 
         _animation.Play((uid, animationComp), animation, animationKey);
+    }
+
+    private void OnCocoonedAttackAttempt(Entity<CocoonedComponent> ent, ref AttackAttemptEvent args)
+    {
+        // This prevents the client-side attack animation from playing
+        args.Cancel();
     }
 }

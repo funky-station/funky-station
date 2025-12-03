@@ -305,3 +305,51 @@
             - CartridgeMagnum
   - type: Multishot # Goobstation
     spreadMultiplier: 1.25
+
+- type: entity
+  name: N1985
+  parent: [BaseWeaponPistol, BaseSecurityContraband]
+  id: WeaponPistolN1985
+  description: An exceptionally powerful ‘hand cannon’ designed as part of Nanotrasen's BFG initiative. Chambered in .45, the lord’s caliber, it is generally considered too unwieldy for standard use but has become something of a status symbol among Nanotrasen officials. Feeds from .45 pistol magazines. This particular one seems to have been modified with a heavy slide and automatic reciever, for reliability and ease of use. Don't expect your hands to not hurt after shooting this thing.
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Pistols/N1984.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Clothing
+    sprite: Objects/Weapons/Guns/Pistols/N1984.rsi
+  - type: Gun
+    minAngle: 1
+    maxAngle: 20
+    angleIncrease: 8
+    angleDecay: 9
+    fireRate: 2
+    availableModes:
+    - SemiAuto
+    - FullAuto   #look i think fully auto pistols are neat alright? and the HoS probably loves guns and swapped the gun to be able to do their duty more reliably with the thing
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/mk58.ogg
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MagazineMagnum
+        insertSound: /Audio/Weapons/Guns/MagIn/pistol_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/pistol_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+            - MagazineMagnum
+        whitelistFailPopup: gun-magazine-whitelist-fail
+      gun_chamber:
+        name: Chamber
+        startingItem: CartridgeMagnum
+        priority: 1
+        whitelist:
+          tags:
+            - CartridgeMagnum
+  - type: Multishot # Goobstation
+    spreadMultiplier: 1.25

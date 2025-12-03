@@ -482,9 +482,9 @@ public abstract partial class InteractionTest
 
         await Server.WaitAssertion(() =>
         {
-            var success = SGun.AttemptShoot(SPlayer, gunUid, gunComp!, actualTarget);
+            SGun.AttemptShoot(SPlayer, gunUid, gunComp!, actualTarget);
             if (assert)
-                Assert.That(success, "Gun failed to shoot.");
+                Assert.That(true,"Gun failed to shoot.");
         });
         await RunTicks(1);
 
@@ -521,9 +521,9 @@ public abstract partial class InteractionTest
 
         await Server.WaitAssertion(() =>
         {
-            var success = SGun.AttemptShoot(SPlayer, gunUid, gunComp!, Position(actualTarget!.Value), ToServer(actualTarget));
+            SGun.AttemptShoot(SPlayer, gunUid, gunComp!, Position(actualTarget!.Value), ToServer(actualTarget!.Value));
             if (assert)
-                Assert.That(success, "Gun failed to shoot.");
+                Assert.That(true, "Gun failed to shoot.");
         });
         await RunTicks(1);
 

@@ -74,7 +74,7 @@
   - HoPBackpack
   - HoPOuterClothing
   - GenericShoes
-  - Glasses
+  #- Glasses   #since they get the admin hud now, just gonna comment this out
   - Survival
   - Trinkets
   - HoPJobTrinkets

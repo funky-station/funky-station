@@ -121,6 +121,7 @@
   id: HoPGear
   equipment:
     id: HoPPDA
+    eyes: ClothingEyesHudCommand
     gloves: ClothingHandsGlovesHop
     ears: ClothingHeadsetAltCommand
     belt: ClothingBeltStorageWaistbag

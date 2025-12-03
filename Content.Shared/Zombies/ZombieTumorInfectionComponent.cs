@@ -34,31 +34,31 @@ public sealed partial class ZombieTumorInfectionComponent : Component
     public TimeSpan NextTick;
 
     /// <summary>
-    /// Next time to show a random sickness message (during TumorFormed stage).
+    /// Next time to show a random sickness message
     /// </summary>
     [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoNetworkedField, AutoPausedField]
     public TimeSpan NextSicknessMessage;
 
     /// <summary>
-    /// Next time to cough (during TumorFormed stage).
+    /// Next time to cough
     /// </summary>
     [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoNetworkedField, AutoPausedField]
     public TimeSpan NextCough;
 
     /// <summary>
-    /// Time when the entity should receive the zombify self ability (5 minutes after Advanced stage).
+    /// Time when the entity should receive the zombify self ability
     /// </summary>
     [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoNetworkedField, AutoPausedField]
     public TimeSpan? ZombifySelfAbilityTime;
 
     /// <summary>
-    /// Time when the entity should be auto-zombified (5 minutes after receiving ability).
+    /// Time when the entity should be auto-zombified
     /// </summary>
     [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoNetworkedField, AutoPausedField]
     public TimeSpan? AutoZombifyTime;
 
     /// <summary>
-    /// Damage dealt per tick in early stage (tumor forms immediately at this stage).
+    /// Damage dealt per tick in early stage before tumor formation
     /// </summary>
     [DataField, AutoNetworkedField]
     public DamageSpecifier EarlyDamage = new()
@@ -77,19 +77,19 @@ public sealed partial class ZombieTumorInfectionComponent : Component
     {
         DamageDict = new()
         {
-            { "Poison", 0.5 }
+            { "Poison", 0.2 }
         }
     };
 
     /// <summary>
-    /// Damage dealt per tick in advanced stage (double the early damage).
+    /// Damage dealt per tick in advanced stage
     /// </summary>
     [DataField, AutoNetworkedField]
     public DamageSpecifier AdvancedDamage = new()
     {
         DamageDict = new()
         {
-            { "Poison", 0.2 }
+            { "Poison", 0.5 }
         }
     };
 
@@ -120,10 +120,22 @@ public sealed partial class ZombieTumorInfectionComponent : Component
     public TimeSpan TumorToAdvancedTime = TimeSpan.FromSeconds(60);
 
     /// <summary>
-    /// Amount of oil to drain per tick for IPCs.
+    /// Amount of oil to drain per tick for IPCs in Early stage.
     /// </summary>
     [DataField, AutoNetworkedField]
-    public float OilDrainAmount = 0.5f;
+    public float EarlyOilDrain = 0.1f;
+
+    /// <summary>
+    /// Amount of oil to drain per tick for IPCs in TumorFormed stage.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public float TumorOilDrain = 0.2f;
+
+    /// <summary>
+    /// Amount of oil to drain per tick for IPCs in Advanced stage.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public float AdvancedOilDrain = 0.5f;
 
     /// <summary>
     /// Radiation damage per tick when IPC oil is empty.

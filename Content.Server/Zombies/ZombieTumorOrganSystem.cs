@@ -119,7 +119,7 @@ public sealed class ZombieTumorOrganSystem : SharedZombieTumorOrganSystem
 
             // Check if IPC
             if (TryComp<BloodstreamComponent>(uid, out var bloodstream) &&
-                bloodstream.BloodReagent == "Oil")
+                bloodstream.BloodReagent == "MachineOil")
             {
                 HandleIPCDamage(uid, infection, damageable, bloodstream);
             }
@@ -172,6 +172,23 @@ public sealed class ZombieTumorOrganSystem : SharedZombieTumorOrganSystem
         if (infection.Stage == ZombieTumorInfectionStage.Incubation)
             return;
 
+        // Determine oil drain amount based on infection stage
+        float drainPerTick;
+        switch (infection.Stage)
+        {
+            case ZombieTumorInfectionStage.Early:
+                drainPerTick = infection.EarlyOilDrain;
+                break;
+            case ZombieTumorInfectionStage.TumorFormed:
+                drainPerTick = infection.TumorOilDrain;
+                break;
+            case ZombieTumorInfectionStage.Advanced:
+                drainPerTick = infection.AdvancedOilDrain;
+                break;
+            default:
+                return;
+        }
+
         // Try to drain oil
         if (_solutionContainer.ResolveSolution(uid, bloodstream.BloodSolutionName, ref bloodstream.BloodSolution, out var bloodSolution))
         {
@@ -179,8 +196,8 @@ public sealed class ZombieTumorOrganSystem : SharedZombieTumorOrganSystem
             
             if (oilAmount > 0)
             {
-                // Drain oil
-                var drainAmount = FixedPoint2.Min(FixedPoint2.New(infection.OilDrainAmount), oilAmount);
+                // Drain oil progressively based on stage
+                var drainAmount = FixedPoint2.Min(FixedPoint2.New(drainPerTick), oilAmount);
                 _solutionContainer.RemoveReagent(bloodstream.BloodSolution.Value, new ReagentId("Oil", null), drainAmount);
             }
             else
@@ -220,6 +237,9 @@ public sealed class ZombieTumorOrganSystem : SharedZombieTumorOrganSystem
 
     private void HandleSicknessEffects(EntityUid uid, ZombieTumorInfectionComponent infection, TimeSpan curTime)
     {
+        // Check if this entity has a RoboTumor (is an IPC)
+        var hasRoboTumor = HasRoboTumor(uid);
+        
         // Handle random messages based on stage
         if (infection.NextSicknessMessage <= curTime)
         {
@@ -229,8 +249,12 @@ public sealed class ZombieTumorOrganSystem : SharedZombieTumorOrganSystem
             string message;
             if (infection.Stage == ZombieTumorInfectionStage.Advanced)
             {
-                // Advanced stage: paranoid/angry messages
-                var advancedMessages = new[]
+                // Advanced stage: paranoid/angry messages (or IPC error messages)
+                var advancedMessages = hasRoboTumor ? new[]
+                {
+                    "zombie-robotumor-advanced-1",
+                    "zombie-robotumor-advanced-2"
+                } : new[]
                 {
                     "zombie-tumor-advanced-1",
                     "zombie-tumor-advanced-2"
@@ -239,8 +263,15 @@ public sealed class ZombieTumorOrganSystem : SharedZombieTumorOrganSystem
             }
             else
             {
-                // TumorFormed stage: sickness messages
-                var sicknessMessages = new[]
+                // TumorFormed stage: sickness messages (or IPC malfunction messages)
+                var sicknessMessages = hasRoboTumor ? new[]
+                {
+                    "zombie-robotumor-sickness-1",
+                    "zombie-robotumor-sickness-2",
+                    "zombie-robotumor-sickness-3",
+                    "zombie-robotumor-sickness-4",
+                    "zombie-robotumor-sickness-5"
+                } : new[]
                 {
                     "zombie-tumor-sickness-1",
                     "zombie-tumor-sickness-2",
@@ -254,14 +285,21 @@ public sealed class ZombieTumorOrganSystem : SharedZombieTumorOrganSystem
             _popup.PopupEntity(Loc.GetString(message), uid, uid);
         }
 
-        // Handle random coughing (only during TumorFormed stage)
+        // Handle random coughing/beeping (only during TumorFormed stage)
         if (infection.Stage == ZombieTumorInfectionStage.TumorFormed && infection.NextCough <= curTime)
         {
-            // Schedule next cough at a random interval between 15-45 seconds
+            // Schedule next cough/beep at a random interval between 15-45 seconds
             infection.NextCough = curTime + TimeSpan.FromSeconds(_random.Next(15, 46));
             
-            // Make the entity cough
-            _chat.TryEmoteWithChat(uid, "Cough", ChatTransmitRange.Normal, ignoreActionBlocker: true);
+            // Make the entity cough (organics) or beep (IPCs)
+            if (hasRoboTumor)
+            {
+                _chat.TryEmoteWithChat(uid, "Beep", ChatTransmitRange.Normal, ignoreActionBlocker: true);
+            }
+            else
+            {
+                _chat.TryEmoteWithChat(uid, "Cough", ChatTransmitRange.Normal, ignoreActionBlocker: true);
+            }
         }
     }
 
@@ -275,7 +313,10 @@ public sealed class ZombieTumorOrganSystem : SharedZombieTumorOrganSystem
                 infection.NextStageAt = _timing.CurTime + infection.EarlyToTumorTime;
                 SpawnTumorOrgan(uid);
                 Dirty(uid, infection);
-                _popup.PopupEntity(Loc.GetString("zombie-tumor-infection-symptoms-start"), uid, uid);
+                
+                // Use IPC-specific message if this entity has a RoboTumor
+                var symptomsMessage = HasRoboTumor(uid) ? "zombie-robotumor-infection-symptoms-start" : "zombie-tumor-infection-symptoms-start";
+                _popup.PopupEntity(Loc.GetString(symptomsMessage), uid, uid);
                 break;
 
             case ZombieTumorInfectionStage.Early:
@@ -302,10 +343,14 @@ public sealed class ZombieTumorOrganSystem : SharedZombieTumorOrganSystem
                 
                 Dirty(uid, infection);
                 
-                // Start converting blood to zombie blood
+                // Start converting blood to zombie blood (but not for IPCs - they keep their Oil)
                 if (TryComp<BloodstreamComponent>(uid, out var bloodstream))
                 {
-                    _bloodstream.ChangeBloodReagent(uid, "ZombieBlood", bloodstream);
+                    // Only convert blood if it's not Oil (IPCs keep their Oil)
+                    if (bloodstream.BloodReagent != "MachineOil")
+                    {
+                        _bloodstream.ChangeBloodReagent(uid, "ZombieBlood", bloodstream);
+                    }
                 }
                 break;
 
@@ -335,8 +380,18 @@ public sealed class ZombieTumorOrganSystem : SharedZombieTumorOrganSystem
 
         // Check if this is an IPC (has oil as blood reagent)
         var isIPC = TryComp<BloodstreamComponent>(bodyUid, out var bloodstream) &&
-                    bloodstream.BloodReagent == "Oil";
+                    bloodstream.BloodReagent == "MachineOil";
         var tumorPrototype = isIPC ? "ZombieRoboTumor" : "ZombieTumorOrgan";
+        
+        // Debug logging
+        if (bloodstream != null)
+        {
+            Log.Debug($"SpawnTumorOrgan: Entity {ToPrettyString(bodyUid)} has blood type {bloodstream.BloodReagent}, spawning {tumorPrototype}");
+        }
+        else
+        {
+            Log.Debug($"SpawnTumorOrgan: Entity {ToPrettyString(bodyUid)} has no bloodstream, spawning {tumorPrototype}");
+        }
 
         // Try to add to first valid slot first (in case slot already exists)
         if (_bodySystem.CanInsertOrgan(torso.Id, "tumor", torso.Component))
@@ -398,6 +453,28 @@ public sealed class ZombieTumorOrganSystem : SharedZombieTumorOrganSystem
         var bodyEntity = (bodyUid, body);
         var tumorOrgans = _bodySystem.GetBodyOrganEntityComps<ZombieTumorOrganComponent>(bodyEntity);
         return tumorOrgans.Any();
+    }
+
+    private bool HasRoboTumor(EntityUid bodyUid)
+    {
+        if (!TryComp<BodyComponent>(bodyUid, out var body))
+            return false;
+
+        // Check if body has a root part (if no root part, body has no body parts/organs)
+        if (body.RootContainer.ContainedEntity == null)
+            return false;
+
+        var bodyEntity = (bodyUid, body);
+        var tumorOrgans = _bodySystem.GetBodyOrganEntityComps<ZombieTumorOrganComponent>(bodyEntity);
+        
+        // Check if any of the tumor organs is a ZombieRoboTumor prototype
+        foreach (var (organUid, _, _) in tumorOrgans)
+        {
+            if (MetaData(organUid).EntityPrototype?.ID == "ZombieRoboTumor")
+                return true;
+        }
+        
+        return false;
     }
 
     private void UpdateOrganInfectionSpread(TimeSpan curTime)
@@ -637,18 +714,40 @@ public sealed class ZombieTumorOrganSystem : SharedZombieTumorOrganSystem
         infection.NextStageAt = _timing.CurTime + infection.IncubationToEarlyTime;
         Dirty(target, infection);
 
-        _popup.PopupEntity(Loc.GetString("zombie-tumor-infection-contracted"), target, target);
+        // Use IPC-specific message if this is an IPC
+        var isIPC = TryComp<BloodstreamComponent>(target, out var bloodstream) &&
+                    bloodstream.BloodReagent == "MachineOil";
+        
+        // Debug logging
+        if (bloodstream != null)
+        {
+            Log.Info($"InfectEntity: Entity {ToPrettyString(target)} has blood type '{bloodstream.BloodReagent}', isIPC={isIPC}");
+        }
+        else
+        {
+            Log.Info($"InfectEntity: Entity {ToPrettyString(target)} has NO bloodstream component");
+        }
+        
+        var message = isIPC ? "zombie-robotumor-infection-contracted" : "zombie-tumor-infection-contracted";
+        _popup.PopupEntity(Loc.GetString(message), target, target);
     }
 
     private void OnInfectionMobStateChanged(Entity<ZombieTumorInfectionComponent> ent, ref MobStateChangedEvent args)
     {
         // Check if this is an IPC (has oil as blood reagent)
         var isIPC = TryComp<BloodstreamComponent>(ent.Owner, out var bloodstream) &&
-                    bloodstream.BloodReagent == "Oil";
+                    bloodstream.BloodReagent == "MachineOil";
 
         // IPCs zombify when they become critical, others zombify on death
         if ((isIPC && args.NewMobState == MobState.Critical) || (!isIPC && args.NewMobState == MobState.Dead))
         {
+            // Ensure tumor is spawned before zombifying (important for IPCs so they get the correct RoboTumor type)
+            // This checks blood type, so must happen before ZombifyEntity changes it
+            if (!HasTumorOrgan(ent.Owner))
+            {
+                SpawnTumorOrgan(ent.Owner);
+            }
+            
             // Zombify - the tumor organ will remain and continue spreading infection
             _zombieSystem.ZombifyEntity(ent.Owner);
             
@@ -736,8 +835,12 @@ public sealed class ZombieTumorOrganSystem : SharedZombieTumorOrganSystem
         // When tumor is removed, cure the infection
         if (HasComp<ZombieTumorInfectionComponent>(args.OldBody))
         {
+            // Check if removed tumor was a RoboTumor
+            var wasRoboTumor = MetaData(ent.Owner).EntityPrototype?.ID == "ZombieRoboTumor";
+            var removalMessage = wasRoboTumor ? "zombie-robotumor-removed" : "zombie-tumor-removed";
+            
             RemComp<ZombieTumorInfectionComponent>(args.OldBody);
-            _popup.PopupEntity(Loc.GetString("zombie-tumor-removed"), args.OldBody, args.OldBody);
+            _popup.PopupEntity(Loc.GetString(removalMessage), args.OldBody, args.OldBody);
         }
     }
 
@@ -795,7 +898,7 @@ public sealed class ZombieTumorOrganSystem : SharedZombieTumorOrganSystem
         while (zombieQuery.MoveNext(out var uid, out var zombie, out var damageable, out var mobState, out var bloodstream))
         {
             // Only heal IPCs (those with oil as blood reagent)
-            if (bloodstream.BloodReagent != "Oil")
+            if (bloodstream.BloodReagent != "MachineOil")
                 continue;
 
             // Check if they have a robot tumor organ

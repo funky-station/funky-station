@@ -534,9 +534,8 @@
     - SurgeryStepSealOrganWound
   - type: SurgeryPartCondition
     part: Torso
-  - type: SurgeryOrganCondition
-    organ:
-    - type: ZombieTumorOrgan
+  - type: SurgeryOrganPrototypeCondition
+    prototypeId: ZombieTumorOrgan
 
 - type: entity
   parent: SurgeryBase

@@ -298,7 +298,7 @@ namespace Content.Server.Zombies
                     // Check if this is a critical IPC (has oil as blood reagent and is in critical state)
                     if (_mobState.IsCritical(entity, mobState) && 
                         TryComp<BloodstreamComponent>(entity, out var bloodstream) &&
-                        bloodstream.BloodReagent == "Oil")
+                        bloodstream.BloodReagent == "MachineOil")
                     {
                         // Give IPC a robot tumor before zombifying
                         _zombieTumor.SpawnTumorOrgan(entity);

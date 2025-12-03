@@ -242,8 +242,11 @@ public sealed partial class ZombieSystem
         //This makes it so the zombie doesn't take bloodloss damage.
         //NOTE: they are supposed to bleed, just not take damage
         _bloodstream.SetBloodLossThreshold(target, 0f);
-        //Give them zombie blood
-        _bloodstream.ChangeBloodReagent(target, zombiecomp.NewBloodReagent);
+        //Give them zombie blood (but IPCs keep their Oil)
+        if (TryComp<BloodstreamComponent>(target, out var bloodstreamComp) && bloodstreamComp.BloodReagent != "MachineOil")
+        {
+            _bloodstream.ChangeBloodReagent(target, zombiecomp.NewBloodReagent);
+        }
 
         //This is specifically here to combat insuls, because frying zombies on grilles is funny as shit.
         _inventory.TryUnequip(target, "gloves", true, true);

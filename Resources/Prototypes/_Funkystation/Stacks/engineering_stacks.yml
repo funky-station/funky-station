@@ -12,10 +12,22 @@
   id: InflatableWall
   name: inflatable wall
   spawn: InflatableWallStack1
-  maxCount: 10
+  maxCount: 5
 
 - type: stack
   id: InflatableDoor
   name: inflatable door
   spawn: InflatableDoorStack1
-  maxCount: 4
+  maxCount: 5
+
+- type: stack
+  id: InflatableDock
+  name: inflatable dock
+  spawn: InflatableDockStack1
+  maxCount: 5
+
+- type: stack
+  id: InflatableFloor
+  name: inflatable floor
+  spawn: InflatableFloorStack1
+  maxCount: 8

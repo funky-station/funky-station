@@ -19,6 +19,7 @@
   children:
   - CommandSOP
   - CentralCommandSOP
+  - LegalSOP
   - ServiceSOP
   - SecuritySOP
   - ScienceSOP
@@ -26,6 +27,11 @@
   - EngineeringSOP
   - CargoSOP
   - AlertLevelsSOP
+
+- type: guideEntry
+  id: LegalSOP
+  name: LegalSOP
+  text: "/ServerInfo/Funkystation/Guidebook/Legal/LegalSOP.xml"
 
 # ALERT LEVELS
 

@@ -86,7 +86,7 @@ public sealed class ChangelingRuleSystem : GameRuleSystem<Content.Server._Goobst
 
             _antag.SendBriefing(target, briefing, Color.Yellow, BriefingSound);
 
-            if (_role.MindHasRole<Content.Server.Roles.ChangelingRoleComponent>(mindId, out var mr))
+            if (_role.MindHasRole<ChangelingRoleComponent>(mindId, out var mr))
                 AddComp(mr.Value, new RoleBriefingComponent { Briefing = briefingShort }, overwrite: true);
         }
         // hivemind stuff

@@ -112,6 +112,7 @@ using Content.Shared.Administration.Systems;
 using Content.Shared.Atmos.Components;
 using Content.Shared.Changeling;
 using Content.Shared.FixedPoint;
+using Content.Shared.Zombies;
 
 namespace Content.Goobstation.Server.Changeling;
 

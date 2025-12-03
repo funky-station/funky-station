@@ -12,7 +12,7 @@ using Robust.Shared.Prototypes;
 namespace Content.Server.GameTicking.Rules.Components;
 
 [RegisterComponent]
-public sealed partial class DynamicRuleComponent : Component
+public sealed partial class GoobDynamicRuleComponent : Component
 {
     #region Budgets
 

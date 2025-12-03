@@ -14,23 +14,23 @@ public sealed class IntrinsicRadioKeySystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<IntrinsicRadioTransmitterComponent, EncryptionChannelsChangedEvent>(OnTransmitterChannelsChanged);
-        SubscribeLocalEvent<ActiveRadioComponent, EncryptionChannelsChangedEvent>(OnReceiverChannelsChanged);
+        SubscribeLocalEvent<IntrinsicRadioTransmitterIPCComponent, EncryptionChannelsChangedIPCEvent>(OnTransmitterChannelsChanged);
+        SubscribeLocalEvent<ActiveRadioIPCComponent, EncryptionChannelsChangedIPCEvent>(OnReceiverChannelsChanged);
     }
 
-    private void OnTransmitterChannelsChanged(EntityUid uid, Shared._Goobstation.Radio.Components.IntrinsicRadioTransmitterComponent component, Shared._Goobstation.Radio.EncryptionChannelsChangedEvent args)
+    private void OnTransmitterChannelsChanged(EntityUid uid, Shared._Goobstation.Radio.Components.IntrinsicRadioTransmitterIPCComponent ipcComponent, Shared._Goobstation.Radio.EncryptionChannelsChangedIPCEvent args)
     {
-        UpdateChannels(uid, args.Component, ref component.Channels);
+        UpdateChannels(uid, args.IpcComponent, ref ipcComponent.Channels);
     }
 
-    private void OnReceiverChannelsChanged(EntityUid uid, Shared._Goobstation.Radio.Components.ActiveRadioComponent component, Shared._Goobstation.Radio.EncryptionChannelsChangedEvent args)
+    private void OnReceiverChannelsChanged(EntityUid uid, Shared._Goobstation.Radio.Components.ActiveRadioIPCComponent ipcComponent, Shared._Goobstation.Radio.EncryptionChannelsChangedIPCEvent args)
     {
-        UpdateChannels(uid, args.Component, ref component.Channels);
+        UpdateChannels(uid, args.IpcComponent, ref ipcComponent.Channels);
     }
 
-    private void UpdateChannels(EntityUid _, Shared._Goobstation.Radio.Components.EncryptionKeyHolderComponent keyHolderComp, ref HashSet<string> channels)
+    private void UpdateChannels(EntityUid _, Shared._Goobstation.Radio.Components.EncryptionKeyHolderIPCComponent keyHolderIpcComp, ref HashSet<string> channels)
     {
         channels.Clear();
-        channels.UnionWith(keyHolderComp.Channels);
+        channels.UnionWith(keyHolderIpcComp.Channels);
     }
 }

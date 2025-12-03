@@ -7,12 +7,12 @@ using Content.Shared._Goobstation.Radio.Components;
 
 namespace Content.Shared._Goobstation.Radio;
 
-public sealed class EncryptionChannelsChangedEvent : EntityEventArgs
+public sealed class EncryptionChannelsChangedIPCEvent : EntityEventArgs
 {
-    public readonly EncryptionKeyHolderComponent Component;
+    public readonly EncryptionKeyHolderIPCComponent IpcComponent;
 
-    public EncryptionChannelsChangedEvent(EncryptionKeyHolderComponent component)
+    public EncryptionChannelsChangedIPCEvent(EncryptionKeyHolderIPCComponent ipcComponent)
     {
-        Component = component;
+        IpcComponent = ipcComponent;
     }
 }

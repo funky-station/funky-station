@@ -19,7 +19,7 @@ namespace Content.Shared._Goobstation.Radio.Components;
 ///     This component is by entities that can contain encryption keys
 /// </summary>
 [RegisterComponent]
-public sealed partial class EncryptionKeyHolderComponent : Component
+public sealed partial class EncryptionKeyHolderIPCComponent : Component
 {
     /// <summary>
     ///     Whether or not encryption keys can be removed from the headset.

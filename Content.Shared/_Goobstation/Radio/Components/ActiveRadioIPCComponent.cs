@@ -15,12 +15,12 @@ namespace Content.Shared._Goobstation.Radio.Components;
 ///     This component is required to receive radio message events.
 /// </summary>
 [RegisterComponent]
-public sealed partial class ActiveRadioComponent : Component
+public sealed partial class ActiveRadioIPCComponent : Component
 {
     /// <summary>
     ///     The channels that this radio is listening on.
     /// </summary>
-    [DataField("channels", customTypeSerializer: typeof(PrototypeIdHashSetSerializer<RadioChannelPrototype>))]
+    [DataField("channels", customTypeSerializer: typeof(PrototypeIdHashSetSerializer<RadioChannelIPCPrototype>))]
     public HashSet<string> Channels = new();
 
     /// <summary>

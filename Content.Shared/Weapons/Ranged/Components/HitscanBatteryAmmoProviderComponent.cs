@@ -11,14 +11,14 @@
 //
 // SPDX-License-Identifier: MIT
 
-using Content.Shared.Weapons.Ranged.Systems;
 using Robust.Shared.GameStates;
+using Robust.Shared.Prototypes;
 
 namespace Content.Shared.Weapons.Ranged.Components;
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class HitscanBatteryAmmoProviderComponent : BatteryAmmoProviderComponent
 {
-    [ViewVariables(VVAccess.ReadWrite), DataField("proto", required: true, customTypeSerializer: typeof(SharedGunSystem.HitscanEvent))]
-    public string Prototype = default!;
 }
+
+

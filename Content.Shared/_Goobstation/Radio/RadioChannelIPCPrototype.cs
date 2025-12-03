@@ -19,7 +19,7 @@ using Robust.Shared.Prototypes;
 namespace Content.Shared._Goobstation.Radio;
 
 [Prototype]
-public sealed partial class RadioChannelPrototype : IPrototype
+public sealed partial class RadioChannelIPCPrototype : IPrototype
 {
     /// <summary>
     /// Human-readable name for the channel.

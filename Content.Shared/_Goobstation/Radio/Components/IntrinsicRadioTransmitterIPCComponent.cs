@@ -15,8 +15,8 @@ namespace Content.Shared._Goobstation.Radio.Components;
 ///     radio headset).
 /// </summary>
 [RegisterComponent]
-public sealed partial class IntrinsicRadioTransmitterComponent : Component
+public sealed partial class IntrinsicRadioTransmitterIPCComponent : Component
 {
-    [DataField("channels", customTypeSerializer: typeof(PrototypeIdHashSetSerializer<RadioChannelPrototype>))]
+    [DataField("channels", customTypeSerializer: typeof(PrototypeIdHashSetSerializer<RadioChannelIPCPrototype>))]
     public HashSet<string> Channels = new() { SharedChatSystem.CommonChannel };
 }

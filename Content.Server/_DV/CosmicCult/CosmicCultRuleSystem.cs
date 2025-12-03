@@ -655,8 +655,8 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
         _antag.SendBriefing(uid, Loc.GetString("cosmiccult-role-roundstart-fluff"), Color.FromHex("#4cabb3"), _briefingSound);
         _antag.SendBriefing(uid, Loc.GetString("cosmiccult-role-short-briefing"), Color.FromHex("#cae8e8"), null);
 
-        var transmitter = EnsureComp<Server.Radio.Components.IntrinsicRadioTransmitterComponent>(uid);
-        var radio = EnsureComp<Server.Radio.Components.ActiveRadioComponent>(uid);
+        var transmitter = EnsureComp<IntrinsicRadioTransmitterComponent>(uid);
+        var radio = EnsureComp<ActiveRadioComponent>(uid);
         radio.Channels.Add("CosmicRadio");
         transmitter.Channels.Add("CosmicRadio");
 
@@ -758,8 +758,8 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
 
         Dirty(uid, cultComp);
 
-        var transmitter = EnsureComp<Server.Radio.Components.IntrinsicRadioTransmitterComponent>(uid);
-        var radio = EnsureComp<Server.Radio.Components.ActiveRadioComponent>(uid);
+        var transmitter = EnsureComp<IntrinsicRadioTransmitterComponent>(uid);
+        var radio = EnsureComp<ActiveRadioComponent>(uid);
         radio.Channels = ["CosmicRadio"];
         transmitter.Channels = ["CosmicRadio"];
 
@@ -792,9 +792,9 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
 
         foreach (var actionEnt in uid.Comp.ActionEntities) _actions.RemoveAction(actionEnt);
 
-        if (TryComp<Server.Radio.Components.IntrinsicRadioTransmitterComponent>(uid, out var transmitter))
+        if (TryComp<IntrinsicRadioTransmitterComponent>(uid, out var transmitter))
             transmitter.Channels.Remove("CosmicRadio");
-        if (TryComp<Server.Radio.Components.ActiveRadioComponent>(uid, out var radio))
+        if (TryComp<ActiveRadioComponent>(uid, out var radio))
             radio.Channels.Remove("CosmicRadio");
         RemComp<CosmicCultLeadComponent>(uid);
         RemComp<InfluenceVitalityComponent>(uid);

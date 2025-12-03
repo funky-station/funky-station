@@ -63,7 +63,9 @@
     id: NanotrasenRepresentativePDA
     ears: ClothingHeadsetAltCentCom
     pocket1: UniqueNanorepLockerTeleporter
+    belt: ClothingBeltStorageWaistbag
   storage:
     back:
     - Flash
     - BluespaceLifelineImplanter
+    - BoxFolderCentComClipboard

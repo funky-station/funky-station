@@ -79,6 +79,9 @@ using Robust.Shared.Audio.Systems;
 using Content.Shared.Ghost.Roles.Components;
 using Content.Shared.NPC.Components;
 using Content.Shared.Tag;
+using Content.Shared.Standing;
+using Content.Shared.Bed.Sleep;
+using Content.Shared.Stunnable;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server.Zombies;
@@ -103,6 +106,7 @@ public sealed partial class ZombieSystem
     [Dependency] private readonly MovementSpeedModifierSystem _movementSpeedModifier = default!;
     [Dependency] private readonly NPCSystem _npc = default!;
     [Dependency] private readonly SharedRoleSystem _roles = default!;
+    [Dependency] private readonly StandingStateSystem _standing = default!;
     [Dependency] private readonly TagSystem _tag = default!;
     [Dependency] private readonly ZombieTumorOrganSystem _zombieTumor = default!;
 
@@ -267,6 +271,12 @@ public sealed partial class ZombieSystem
         if (TryComp<DamageableComponent>(target, out var damageablecomp))
             _damageable.SetAllDamage(target, damageablecomp, 0);
         _mobState.ChangeMobState(target, MobState.Alive);
+
+        // Force zombie to wake up and stand - remove sleep/knockdown status
+        RemComp<SleepingComponent>(target);
+        RemComp<ForcedSleepingComponent>(target);
+        RemComp<KnockedDownComponent>(target);
+        _standing.Stand(target, force: true);
 
         _faction.ClearFactions(target, dirty: false);
         _faction.AddFaction(target, "Zombie");

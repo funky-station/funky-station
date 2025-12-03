@@ -27,6 +27,7 @@ using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Zombies;
+using Content.Shared._Shitmed.Targeting;
 using Robust.Shared.Collections;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Network;
@@ -202,10 +203,10 @@ public sealed class ZombieTumorOrganSystem : SharedZombieTumorOrganSystem
             }
             else
             {
-                // Oil is empty, apply radiation damage
+                // Oil is empty, apply radiation damage to torso only
                 var multiplier = _mobState.IsCritical(uid) ? infection.CritDamageMultiplier : 1f;
                 var damage = infection.RadiationDamage * multiplier;
-                _damageable.TryChangeDamage(uid, damage, true, false, damageable);
+                _damageable.TryChangeDamage(uid, damage, true, false, damageable, targetPart: TargetBodyPart.Torso);
             }
         }
     }
@@ -232,7 +233,7 @@ public sealed class ZombieTumorOrganSystem : SharedZombieTumorOrganSystem
         }
 
         var multiplier = _mobState.IsCritical(uid, mobState) ? infection.CritDamageMultiplier : 1f;
-        _damageable.TryChangeDamage(uid, damage * multiplier, true, false, damageable);
+        _damageable.TryChangeDamage(uid, damage * multiplier, true, false, damageable, targetPart: TargetBodyPart.Torso);
     }
 
     private void HandleSicknessEffects(EntityUid uid, ZombieTumorInfectionComponent infection, TimeSpan curTime)

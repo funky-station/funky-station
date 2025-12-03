@@ -25,6 +25,17 @@
     size: Small
     shape:
     - 0,0,2,2
+  - type: Extractable
+    grindableSolutionName: tumor
+  - type: SolutionContainerManager
+    solutions:
+      tumor:
+        maxVol: 15
+        reagents:
+        - ReagentId: Romerol
+          Quantity: 5
+        - ReagentId: ZombieBlood
+          Quantity: 10
 
 - type: entity
   id: ZombieRoboTumor
@@ -49,3 +60,14 @@
     size: Small
     shape:
     - 0,0,2,2
+  - type: Extractable
+    grindableSolutionName: tumor
+  - type: SolutionContainerManager
+    solutions:
+      tumor:
+        maxVol: 15
+        reagents:
+        - ReagentId: Romerol
+          Quantity: 5
+        - ReagentId: ZombieBlood
+          Quantity: 10

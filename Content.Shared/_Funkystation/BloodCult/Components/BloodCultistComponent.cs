@@ -1,7 +1,7 @@
 // SPDX-FileCopyrightText: 2025 Skye <57879983+Rainbeon@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Terkala <appleorange64@gmail.com>
 // SPDX-FileCopyrightText: 2025 kbarkevich <24629810+kbarkevich@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
-// SPDX-FileCopyrightText: 2025 Terkala <appleorange64@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later OR MIT
 
@@ -81,6 +81,12 @@ public sealed partial class BloodCultistComponent : Component
 	/// The Uid of the person trying to revive the cultist.
 	/// </summary>
 	[DataField] public EntityUid? ReviverUid = null;
+
+	/// <summary>
+	/// The original blood reagent before becoming a cultist.
+	/// Used to restore the blood type when deconverted.
+	/// </summary>
+	[DataField] public string OriginalBloodReagent = "Blood";
 
 	[DataField] public SacrificingData? Sacrifice = null;
 	[DataField] public ConvertingData? Convert = null;

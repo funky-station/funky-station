@@ -70,7 +70,7 @@
     id: ParamedicPDA
     ears: ClothingHeadsetParamedic #funkystation
     belt: ClothingBeltMedicalEMTFilled
-    pocket2: autoInjectorCartridgeCaseSoft
+    pocket2: autoInjectorCartridgeCaseSoftFilled
   storage:
     back:
     - EmergencyRollerBedSpawnFolded

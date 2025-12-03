@@ -449,6 +449,7 @@
   - WardenJobTrinkets
   - SecurityStar
   - GroupSpeciesBreathToolSecurity
+  - LoadoutSecurityWeapon #funky
 
 - type: roleLoadout
   id: JobSecurityOfficer

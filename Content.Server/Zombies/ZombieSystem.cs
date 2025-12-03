@@ -26,6 +26,7 @@
 // SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 // SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 Terkala <appleorange64@gmail.com>
 //
 // SPDX-License-Identifier: MIT
 
@@ -225,6 +226,12 @@ namespace Content.Server.Zombies
 
                 // Stop random groaning
                 _autoEmote.RemoveEmote(uid, "ZombieGroan");
+
+                // Handle death infection spread
+                if (args.NewMobState == MobState.Dead)
+                {
+                    _zombieTumor.HandleZombieDeathInfection(uid);
+                }
             }
         }
 

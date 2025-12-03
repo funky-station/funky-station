@@ -2,11 +2,16 @@
 //
 // SPDX-License-Identifier: MIT
 
+using Content.Server.Atmos.EntitySystems;
 using Content.Server.Body.Components;
 using Content.Server.Body.Systems;
+using Content.Server.Chat.Systems;
+using Content.Shared.Actions;
+using Content.Shared.Atmos;
 using Content.Shared.Body.Components;
 using Content.Shared.Body.Events;
 using Content.Shared.Body.Organ;
+using Content.Shared.Chat;
 using Content.Shared.Body.Part;
 using Content.Shared.Body.Systems;
 using Content.Shared.Chemistry.Components;
@@ -15,12 +20,15 @@ using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.FixedPoint;
+using Content.Shared.Inventory;
+using Content.Shared.Maps;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Zombies;
 using Robust.Shared.Collections;
+using Robust.Shared.Map.Components;
 using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
@@ -37,8 +45,6 @@ public sealed class ZombieTumorOrganSystem : SharedZombieTumorOrganSystem
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly IPrototypeManager _prototypes = default!;
-    [Dependency] private readonly IParallelManager _parallel = default!;
     [Dependency] private readonly EntityLookupSystem _entityLookup = default!;
     [Dependency] private readonly SharedBodySystem _bodySystem = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
@@ -48,15 +54,18 @@ public sealed class ZombieTumorOrganSystem : SharedZombieTumorOrganSystem
     [Dependency] private readonly BloodstreamSystem _bloodstream = default!;
     [Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
     [Dependency] private readonly ZombieSystem _zombieSystem = default!;
+    [Dependency] private readonly AtmosphereSystem _atmosphereSystem = default!;
+    [Dependency] private readonly SharedMapSystem _mapSystem = default!;
+    [Dependency] private readonly InventorySystem _inventorySystem = default!;
+    [Dependency] private readonly InternalsSystem _internalsSystem = default!;
+    [Dependency] private readonly ChatSystem _chat = default!;
+    [Dependency] private readonly SharedActionsSystem _actions = default!;
 
-    private readonly TimeSpan _updateInterval = TimeSpan.FromSeconds(2);
-    private TumorOrganJob _tumorJob;
+    private readonly TimeSpan _updateInterval = TimeSpan.FromSeconds(1); // Check every second for distance-based infection
 
     public override void Initialize()
     {
         base.Initialize();
-
-        _tumorJob = new TumorOrganJob(_entityLookup, _transform);
 
         SubscribeLocalEvent<ZombieTumorInfectionComponent, MobStateChangedEvent>(OnInfectionMobStateChanged);
         SubscribeLocalEvent<ZombieTumorInfectionComponent, ComponentRemove>(OnInfectionRemoved);
@@ -119,6 +128,36 @@ public sealed class ZombieTumorOrganSystem : SharedZombieTumorOrganSystem
                 HandleNormalDamage(uid, infection, damageable, mobState);
             }
 
+            // Handle sickness effects during TumorFormed and Advanced stages
+            if (infection.Stage == ZombieTumorInfectionStage.TumorFormed || infection.Stage == ZombieTumorInfectionStage.Advanced)
+            {
+                HandleSicknessEffects(uid, infection, curTime);
+            }
+
+            // Handle Advanced stage ability and auto-zombify timers
+            if (infection.Stage == ZombieTumorInfectionStage.Advanced)
+            {
+                // Give zombify self ability after 5 minutes in Advanced stage
+                if (infection.ZombifySelfAbilityTime != null && infection.ZombifySelfAbilityTime <= curTime && !HasComp<IncurableZombieComponent>(uid))
+                {
+                    var incurable = EnsureComp<IncurableZombieComponent>(uid);
+                    _actions.AddAction(uid, ref incurable.Action, incurable.ZombifySelfActionPrototype);
+                    _popup.PopupEntity(Loc.GetString("zombie-tumor-ability-gained"), uid, uid);
+                    
+                    // Set auto-zombify timer for 5 minutes from now
+                    infection.AutoZombifyTime = curTime + TimeSpan.FromMinutes(5);
+                    Dirty(uid, infection);
+                }
+
+                // Auto-zombify after 5 minutes if they haven't used the ability
+                if (infection.AutoZombifyTime != null && infection.AutoZombifyTime <= curTime)
+                {
+                    _zombieSystem.ZombifyEntity(uid);
+                    RemComp<ZombieTumorInfectionComponent>(uid);
+                    return;
+                }
+            }
+
             // Check stage progression
             if (infection.NextStageAt <= curTime)
             {
@@ -129,6 +168,10 @@ public sealed class ZombieTumorOrganSystem : SharedZombieTumorOrganSystem
 
     private void HandleIPCDamage(EntityUid uid, ZombieTumorInfectionComponent infection, DamageableComponent damageable, BloodstreamComponent bloodstream)
     {
+        // No damage during incubation period
+        if (infection.Stage == ZombieTumorInfectionStage.Incubation)
+            return;
+
         // Try to drain oil
         if (_solutionContainer.ResolveSolution(uid, bloodstream.BloodSolutionName, ref bloodstream.BloodSolution, out var bloodSolution))
         {
@@ -155,6 +198,9 @@ public sealed class ZombieTumorOrganSystem : SharedZombieTumorOrganSystem
         DamageSpecifier damage;
         switch (infection.Stage)
         {
+            case ZombieTumorInfectionStage.Incubation:
+                // No damage during incubation period
+                return;
             case ZombieTumorInfectionStage.Early:
                 damage = infection.EarlyDamage;
                 break;
@@ -172,22 +218,95 @@ public sealed class ZombieTumorOrganSystem : SharedZombieTumorOrganSystem
         _damageable.TryChangeDamage(uid, damage * multiplier, true, false, damageable);
     }
 
+    private void HandleSicknessEffects(EntityUid uid, ZombieTumorInfectionComponent infection, TimeSpan curTime)
+    {
+        // Handle random messages based on stage
+        if (infection.NextSicknessMessage <= curTime)
+        {
+            // Schedule next message at a random interval between 30-90 seconds
+            infection.NextSicknessMessage = curTime + TimeSpan.FromSeconds(_random.Next(30, 91));
+            
+            string message;
+            if (infection.Stage == ZombieTumorInfectionStage.Advanced)
+            {
+                // Advanced stage: paranoid/angry messages
+                var advancedMessages = new[]
+                {
+                    "zombie-tumor-advanced-1",
+                    "zombie-tumor-advanced-2"
+                };
+                message = _random.Pick(advancedMessages);
+            }
+            else
+            {
+                // TumorFormed stage: sickness messages
+                var sicknessMessages = new[]
+                {
+                    "zombie-tumor-sickness-1",
+                    "zombie-tumor-sickness-2",
+                    "zombie-tumor-sickness-3",
+                    "zombie-tumor-sickness-4",
+                    "zombie-tumor-sickness-5"
+                };
+                message = _random.Pick(sicknessMessages);
+            }
+            
+            _popup.PopupEntity(Loc.GetString(message), uid, uid);
+        }
+
+        // Handle random coughing (only during TumorFormed stage)
+        if (infection.Stage == ZombieTumorInfectionStage.TumorFormed && infection.NextCough <= curTime)
+        {
+            // Schedule next cough at a random interval between 15-45 seconds
+            infection.NextCough = curTime + TimeSpan.FromSeconds(_random.Next(15, 46));
+            
+            // Make the entity cough
+            _chat.TryEmoteWithChat(uid, "Cough", ChatTransmitRange.Normal, ignoreActionBlocker: true);
+        }
+    }
+
     private void ProgressInfectionStage(EntityUid uid, ZombieTumorInfectionComponent infection)
     {
         switch (infection.Stage)
         {
+            case ZombieTumorInfectionStage.Incubation:
+                // Progress to early stage - symptoms begin and tumor forms immediately
+                infection.Stage = ZombieTumorInfectionStage.Early;
+                infection.NextStageAt = _timing.CurTime + infection.EarlyToTumorTime;
+                SpawnTumorOrgan(uid);
+                Dirty(uid, infection);
+                _popup.PopupEntity(Loc.GetString("zombie-tumor-infection-symptoms-start"), uid, uid);
+                break;
+
             case ZombieTumorInfectionStage.Early:
-                // Form tumor
+                // Progress to tumor formed stage (tumor already exists)
                 infection.Stage = ZombieTumorInfectionStage.TumorFormed;
                 infection.NextStageAt = _timing.CurTime + infection.TumorToAdvancedTime;
-                SpawnTumorOrgan(uid);
+                
+                // Initialize random timers for sickness effects
+                infection.NextSicknessMessage = _timing.CurTime + TimeSpan.FromSeconds(_random.Next(30, 91));
+                infection.NextCough = _timing.CurTime + TimeSpan.FromSeconds(_random.Next(15, 46));
+                
                 Dirty(uid, infection);
                 break;
 
             case ZombieTumorInfectionStage.TumorFormed:
-                // Advance to advanced stage
+                // Advance to advanced stage - start converting blood to zombie blood
                 infection.Stage = ZombieTumorInfectionStage.Advanced;
+                
+                // Initialize timer for paranoid/angry messages
+                infection.NextSicknessMessage = _timing.CurTime + TimeSpan.FromSeconds(_random.Next(30, 91));
+                
+                // Set timer to give zombify self ability after 5 minutes
+                infection.ZombifySelfAbilityTime = _timing.CurTime + TimeSpan.FromMinutes(5);
+                
                 Dirty(uid, infection);
+                
+                // Start converting blood to zombie blood
+                if (TryComp<BloodstreamComponent>(uid, out var bloodstream))
+                {
+                    _bloodstream.ChangeBloodReagent(uid, "ZombieBlood", bloodstream);
+                }
                 break;
 
             case ZombieTumorInfectionStage.Advanced:
@@ -283,8 +402,8 @@ public sealed class ZombieTumorOrganSystem : SharedZombieTumorOrganSystem
 
     private void UpdateOrganInfectionSpread(TimeSpan curTime)
     {
-        _tumorJob.Organs.Clear();
-        _tumorJob.Receivers.Clear();
+        // Track cumulative infection chance for each target from all tumors
+        var targetInfectionChances = new Dictionary<EntityUid, float>();
 
         var organQuery = EntityQueryEnumerator<ZombieTumorOrganComponent, OrganComponent, TransformComponent>();
         while (organQuery.MoveNext(out var uid, out var organ, out var organComp, out var xform))
@@ -293,62 +412,211 @@ public sealed class ZombieTumorOrganSystem : SharedZombieTumorOrganSystem
             if (organComp.Body == null)
                 continue;
 
-            // Check if it's time to update
+            // Check if it's time to update (now every 1 second)
             if (organ.NextUpdate > curTime)
                 continue;
 
             organ.NextUpdate = curTime + organ.UpdateInterval;
             Dirty(uid, organ);
 
-            _tumorJob.Organs.Add((uid, organ, xform));
-            _tumorJob.Receivers.Add(new HashSet<Entity<MobStateComponent>>());
-        }
+            // Get the body's transform (the zombie carrying the tumor)
+            if (!TryComp(organComp.Body.Value, out TransformComponent? bodyXform))
+                continue;
 
-        if (_tumorJob.Organs.Count == 0)
-            return;
+            // Use tile-based flood fill to find infectible entities in the same room with distances
+            var infectableEntities = GetInfectableEntitiesInRoomWithDistances(organComp.Body.Value, bodyXform, organ.InfectionRange);
 
-        // Process in parallel
-        _parallel.ProcessNow(_tumorJob, _tumorJob.Organs.Count);
-
-        // Collect all potential targets and count organs in range for each
-        var targetOrganCounts = new Dictionary<EntityUid, int>();
-        
-        for (var i = 0; i < _tumorJob.Organs.Count; i++)
-        {
-            var receivers = _tumorJob.Receivers[i];
-            
-            foreach (var receiver in receivers)
+            // Calculate infection chance from this specific tumor based on its distance to each target
+            foreach (var (target, distance) in infectableEntities)
             {
-                if (Deleted(receiver) || _mobState.IsDead(receiver))
-                    continue;
+                // Calculate base infection chance based on THIS tumor's distance to the target
+                float baseChance;
+                if (distance <= 1f)
+                    baseChance = 0.0035f; // 0.35% at 1 tile. 10% chance to infect at 1 tile in 30 sec.
+                else if (distance <= 2f)
+                    baseChance = 0.0017f; // 0.17% at 2 tiles. 5% chance to infect at 2 tiles in 30 sec.
+                else if (distance <= 3f)
+                    baseChance = 0.00067f; // 0.067% at 3 tiles. 2% chance to infect at 3 tiles in 30 sec.
+                else
+                    continue; // Beyond 3 tiles, no infection from this tumor
 
-                if (HasComp<ZombieImmuneComponent>(receiver.Owner) || HasComp<ZombieTumorInfectionComponent>(receiver.Owner))
-                    continue;
-
-                // Count organs for this target
-                if (!targetOrganCounts.ContainsKey(receiver.Owner))
-                {
-                    targetOrganCounts[receiver.Owner] = 0;
-                }
-                targetOrganCounts[receiver.Owner]++;
+                // Add this tumor's infection chance to the target's cumulative chance
+                if (!targetInfectionChances.ContainsKey(target))
+                    targetInfectionChances[target] = 0f;
+                
+                targetInfectionChances[target] += baseChance;
             }
         }
 
-        // Apply infection chances based on organ count
-        foreach (var (targetUid, count) in targetOrganCounts)
+        // Apply infection chances with protection modifiers
+        foreach (var (targetUid, cumulativeChance) in targetInfectionChances)
         {
-            // Get base chance from first organ (they should all have the same chance)
-            if (_tumorJob.Organs.Count == 0)
-                continue;
+            // Apply protection modifiers
+            var protectionMultiplier = GetProtectionMultiplier(targetUid);
+            var finalChance = cumulativeChance * protectionMultiplier;
 
-            var (_, organ, _) = _tumorJob.Organs[0];
-            var chance = organ.BaseInfectionChance * count;
-            
-            if (_random.Prob(chance))
+            // Roll for infection
+            if (_random.Prob(finalChance))
             {
                 InfectEntity(targetUid);
             }
         }
+    }
+
+    /// <summary>
+    /// Calculates the protection multiplier based on mask and internals status.
+    /// Returns 0.0 if internals are active (100% protection),
+    /// 0.1 if wearing a mask (90% reduction),
+    /// or 1.0 if no protection.
+    /// </summary>
+    private float GetProtectionMultiplier(EntityUid target)
+    {
+        // Check if internals are active - provides 100% protection
+        if (_internalsSystem.AreInternalsWorking(target))
+            return 0f;
+
+        // Check if wearing a mask in the mask slot - provides 90% reduction
+        if (_inventorySystem.TryGetSlotEntity(target, "mask", out var _))
+            return 0.1f;
+
+        // No protection
+        return 1f;
+    }
+
+    /// <summary>
+    /// Uses a tile-based flood fill to find all infectible entities in the same room as the source with their distances.
+    /// This respects walls and closed doors, preventing infection through solid barriers.
+    /// </summary>
+    private Dictionary<EntityUid, float> GetInfectableEntitiesInRoomWithDistances(EntityUid sourceUid, TransformComponent sourceXform, float range)
+    {
+        var infectableEntities = new Dictionary<EntityUid, float>();
+        var sourceMapPos = _transform.GetMapCoordinates(sourceUid);
+
+        // Must be on a grid to use tile-based pathfinding
+        if (!TryComp<MapGridComponent>(sourceXform.GridUid, out var grid))
+        {
+            // Fallback to simple range check if not on a grid (e.g., in space)
+            var fallbackEntities = new HashSet<Entity<MobStateComponent>>();
+            _entityLookup.GetEntitiesInRange(sourceXform.Coordinates, range, fallbackEntities);
+            
+            foreach (var entity in fallbackEntities)
+            {
+                if (entity.Owner == sourceUid)
+                    continue;
+                    
+                if (_mobState.IsDead(entity))
+                    continue;
+
+                if (HasComp<ZombieImmuneComponent>(entity.Owner) || HasComp<ZombieTumorInfectionComponent>(entity.Owner))
+                    continue;
+
+                // Calculate actual distance
+                var targetMapPos = _transform.GetMapCoordinates(entity.Owner);
+                var distance = (targetMapPos.Position - sourceMapPos.Position).Length();
+                infectableEntities[entity.Owner] = distance;
+            }
+            
+            return infectableEntities;
+        }
+
+        var startTile = _mapSystem.TileIndicesFor(sourceXform.GridUid.Value, grid, sourceXform.Coordinates);
+        var visited = new HashSet<Vector2i>();
+        var queue = new Queue<Vector2i>();
+        
+        queue.Enqueue(startTile);
+        visited.Add(startTile);
+
+        var directions = new[] { AtmosDirection.North, AtmosDirection.South, AtmosDirection.East, AtmosDirection.West };
+        var offsets = new[] { new Vector2i(0, 1), new Vector2i(0, -1), new Vector2i(1, 0), new Vector2i(-1, 0) };
+
+        // Breadth-first search through tiles
+        while (queue.Count > 0)
+        {
+            var currentTile = queue.Dequeue();
+
+            // Calculate distance from start tile
+            var tileDistance = (currentTile - startTile).Length;
+
+            // Get all entities on this tile
+            var tileEntities = _mapSystem.GetAnchoredEntitiesEnumerator(sourceXform.GridUid.Value, grid, currentTile);
+            while (tileEntities.MoveNext(out var ent))
+            {
+                if (ent == sourceUid)
+                    continue;
+
+                // Check if this entity is a valid infection target
+                if (!TryComp<MobStateComponent>(ent, out var mobState))
+                    continue;
+
+                if (_mobState.IsDead(ent.Value, mobState))
+                    continue;
+
+                if (HasComp<ZombieImmuneComponent>(ent) || HasComp<ZombieTumorInfectionComponent>(ent))
+                    continue;
+
+                // Calculate actual world distance
+                var targetMapPos = _transform.GetMapCoordinates(ent.Value);
+                var actualDistance = (targetMapPos.Position - sourceMapPos.Position).Length();
+                
+                // Use the closest distance if entity already found
+                if (!infectableEntities.ContainsKey(ent.Value))
+                    infectableEntities[ent.Value] = actualDistance;
+                else
+                    infectableEntities[ent.Value] = Math.Min(infectableEntities[ent.Value], actualDistance);
+            }
+
+            // Also check non-anchored entities on this tile
+            var worldPos = _mapSystem.GridTileToWorld(sourceXform.GridUid.Value, grid, currentTile);
+            var nonAnchoredEntities = new HashSet<Entity<MobStateComponent>>();
+            _entityLookup.GetEntitiesInRange(worldPos, 0.5f, nonAnchoredEntities); // Half tile radius
+            
+            foreach (var entity in nonAnchoredEntities)
+            {
+                if (entity.Owner == sourceUid)
+                    continue;
+
+                if (_mobState.IsDead(entity))
+                    continue;
+
+                if (HasComp<ZombieImmuneComponent>(entity.Owner) || HasComp<ZombieTumorInfectionComponent>(entity.Owner))
+                    continue;
+
+                // Calculate actual world distance
+                var targetMapPos = _transform.GetMapCoordinates(entity.Owner);
+                var actualDistance = (targetMapPos.Position - sourceMapPos.Position).Length();
+                
+                // Use the closest distance if entity already found
+                if (!infectableEntities.ContainsKey(entity.Owner))
+                    infectableEntities[entity.Owner] = actualDistance;
+                else
+                    infectableEntities[entity.Owner] = Math.Min(infectableEntities[entity.Owner], actualDistance);
+            }
+
+            // Check adjacent tiles
+            for (int i = 0; i < directions.Length; i++)
+            {
+                var direction = directions[i];
+                var offset = offsets[i];
+                var neighborTile = currentTile + offset;
+
+                if (visited.Contains(neighborTile))
+                    continue;
+
+                // Check if blocked by walls/closed doors using atmos system
+                if (_atmosphereSystem.IsTileAirBlocked(sourceXform.GridUid.Value, currentTile, direction, grid))
+                    continue;
+
+                // Check distance from start
+                var neighborDistance = (neighborTile - startTile).Length;
+                if (neighborDistance > range)
+                    continue;
+
+                queue.Enqueue(neighborTile);
+                visited.Add(neighborTile);
+            }
+        }
+
+        return infectableEntities;
     }
 
     /// <summary>
@@ -364,8 +632,9 @@ public sealed class ZombieTumorOrganSystem : SharedZombieTumorOrganSystem
             return;
 
         var infection = EnsureComp<ZombieTumorInfectionComponent>(target);
+        infection.Stage = ZombieTumorInfectionStage.Incubation;
         infection.NextTick = _timing.CurTime + TimeSpan.FromSeconds(1);
-        infection.NextStageAt = _timing.CurTime + infection.EarlyToTumorTime;
+        infection.NextStageAt = _timing.CurTime + infection.IncubationToEarlyTime;
         Dirty(target, infection);
 
         _popup.PopupEntity(Loc.GetString("zombie-tumor-infection-contracted"), target, target);
@@ -386,6 +655,43 @@ public sealed class ZombieTumorOrganSystem : SharedZombieTumorOrganSystem
             // Remove infection component since zombification is complete
             // The tumor organ itself remains and continues to spread infection
             RemComp<ZombieTumorInfectionComponent>(ent.Owner);
+        }
+    }
+
+    /// <summary>
+    /// Public method to handle zombie death infection spread. Called by ZombieSystem.
+    /// </summary>
+    public void HandleZombieDeathInfection(EntityUid zombieUid)
+    {
+        // Perform a one-time infection spread with higher chances
+        if (!TryComp(zombieUid, out TransformComponent? xform))
+            return;
+
+        // Get all infectible entities in the same room with distances
+        var infectableEntities = GetInfectableEntitiesInRoomWithDistances(zombieUid, xform, 3f);
+
+        // Apply death infection chances based on distance
+        foreach (var (targetUid, distance) in infectableEntities)
+        {
+            float infectionChance;
+            if (distance <= 1f)
+                infectionChance = 0.5f; // 50% at 1 tile
+            else if (distance <= 2f)
+                infectionChance = 0.25f; // 25% at 2 tiles
+            else if (distance <= 3f)
+                infectionChance = 0.1f; // 10% at 3 tiles
+            else
+                continue; // Beyond 3 tiles, no infection
+
+            // Apply protection modifiers (mask/internals still work)
+            var protectionMultiplier = GetProtectionMultiplier(targetUid);
+            infectionChance *= protectionMultiplier;
+
+            // Roll for infection
+            if (_random.Prob(infectionChance))
+            {
+                InfectEntity(targetUid);
+            }
         }
     }
 
@@ -530,23 +836,6 @@ public sealed class ZombieTumorOrganSystem : SharedZombieTumorOrganSystem
 
             // Heal the zombie IPC at the same rate as normal zombies
             _damageable.TryChangeDamage(uid, zombie.PassiveHealing * multiplier, true, false, damageable);
-        }
-    }
-
-    private record struct TumorOrganJob(EntityLookupSystem Lookup, SharedTransformSystem Transform) : IParallelRobustJob
-    {
-        public int BatchSize => 8;
-
-        public ValueList<(EntityUid Uid, ZombieTumorOrganComponent Organ, TransformComponent Xform)> Organs = new();
-        public ValueList<HashSet<Entity<MobStateComponent>>> Receivers = new();
-
-        public void Execute(int index)
-        {
-            var (_, organ, xform) = Organs[index];
-            var receivers = Receivers[index];
-            receivers.Clear();
-
-            Lookup.GetEntitiesInRange(xform.Coordinates, organ.InfectionRange, receivers);
         }
     }
 }

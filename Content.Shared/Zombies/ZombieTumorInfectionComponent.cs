@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 Terkala <appleorange64@gmail.com>
 //
 // SPDX-License-Identifier: MIT
 
@@ -19,7 +19,7 @@ public sealed partial class ZombieTumorInfectionComponent : Component
     /// Current stage of the infection.
     /// </summary>
     [DataField, AutoNetworkedField]
-    public ZombieTumorInfectionStage Stage = ZombieTumorInfectionStage.Early;
+    public ZombieTumorInfectionStage Stage = ZombieTumorInfectionStage.Incubation;
 
     /// <summary>
     /// Time when the infection will progress to the next stage.
@@ -34,14 +34,38 @@ public sealed partial class ZombieTumorInfectionComponent : Component
     public TimeSpan NextTick;
 
     /// <summary>
-    /// Damage dealt per tick in early stage.
+    /// Next time to show a random sickness message (during TumorFormed stage).
+    /// </summary>
+    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoNetworkedField, AutoPausedField]
+    public TimeSpan NextSicknessMessage;
+
+    /// <summary>
+    /// Next time to cough (during TumorFormed stage).
+    /// </summary>
+    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoNetworkedField, AutoPausedField]
+    public TimeSpan NextCough;
+
+    /// <summary>
+    /// Time when the entity should receive the zombify self ability (5 minutes after Advanced stage).
+    /// </summary>
+    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoNetworkedField, AutoPausedField]
+    public TimeSpan? ZombifySelfAbilityTime;
+
+    /// <summary>
+    /// Time when the entity should be auto-zombified (5 minutes after receiving ability).
+    /// </summary>
+    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoNetworkedField, AutoPausedField]
+    public TimeSpan? AutoZombifyTime;
+
+    /// <summary>
+    /// Damage dealt per tick in early stage (tumor forms immediately at this stage).
     /// </summary>
     [DataField, AutoNetworkedField]
     public DamageSpecifier EarlyDamage = new()
     {
         DamageDict = new()
         {
-            { "Poison", 0.2 }
+            { "Poison", 0.1 }
         }
     };
 
@@ -58,14 +82,14 @@ public sealed partial class ZombieTumorInfectionComponent : Component
     };
 
     /// <summary>
-    /// Damage dealt per tick in advanced stage.
+    /// Damage dealt per tick in advanced stage (double the early damage).
     /// </summary>
     [DataField, AutoNetworkedField]
     public DamageSpecifier AdvancedDamage = new()
     {
         DamageDict = new()
         {
-            { "Poison", 1.0 }
+            { "Poison", 0.2 }
         }
     };
 
@@ -76,10 +100,18 @@ public sealed partial class ZombieTumorInfectionComponent : Component
     public float CritDamageMultiplier = 10f;
 
     /// <summary>
+    /// Time to progress from incubation to early stage (when symptoms begin).
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    //public TimeSpan IncubationToEarlyTime = TimeSpan.FromMinutes(10); //final version
+    public TimeSpan IncubationToEarlyTime = TimeSpan.FromSeconds(5); //test version
+
+    /// <summary>
     /// Time to progress from early to tumor formation stage.
     /// </summary>
     [DataField, AutoNetworkedField]
-    public TimeSpan EarlyToTumorTime = TimeSpan.FromSeconds(30);
+    //public TimeSpan EarlyToTumorTime = TimeSpan.FromMinutes(10); //final version
+    public TimeSpan EarlyToTumorTime = TimeSpan.FromSeconds(10); //test version
 
     /// <summary>
     /// Time to progress from tumor to advanced stage.
@@ -112,17 +144,22 @@ public sealed partial class ZombieTumorInfectionComponent : Component
 public enum ZombieTumorInfectionStage : byte
 {
     /// <summary>
-    /// Early infection - just poison damage.
+    /// Incubation period - no symptoms or damage, body is unchanged.
     /// </summary>
-    Early = 0,
+    Incubation = 0,
+
+    /// <summary>
+    /// Early infection - symptoms begin, poison damage starts.
+    /// </summary>
+    Early = 1,
 
     /// <summary>
     /// Tumor has formed inside the body.
     /// </summary>
-    TumorFormed = 1,
+    TumorFormed = 2,
 
     /// <summary>
     /// Advanced infection - increased damage.
     /// </summary>
-    Advanced = 2
+    Advanced = 3
 }

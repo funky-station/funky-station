@@ -11,7 +11,8 @@
 //
 // SPDX-License-Identifier: MIT
 
-using Content.Server.Silicons.Laws;
+// using Content.Server.Silicons.Laws; imp remove
+using Content.Server._CD.Traits; // imp
 using Content.Server.StationEvents.Components;
 using Content.Shared.GameTicking.Components;
 using Content.Shared.Silicons.Laws.Components;
@@ -60,14 +61,17 @@ public sealed class IonStormRule : StationEventSystem<IonStormRuleComponent>
         var query = EntityQueryEnumerator<IonStormTargetComponent, TransformComponent>();
         while (query.MoveNext(out var ent, out var target, out var xform))
         // end imp edit
-        var query = EntityQueryEnumerator<SiliconLawBoundComponent, TransformComponent, IonStormTargetComponent>();
-        while (query.MoveNext(out var ent, out var lawBound, out var xform, out var target))
         {
-            // only affect law holders on the station
-            if (CompOrNull<StationMemberComponent>(xform.GridUid)?.Station != chosenStation)
+            // only affect law holders on the station, and check random chance (imp edit)
+            if (CompOrNull<StationMemberComponent>(xform.GridUid)?.Station != chosenStation ||
+                !_random.Prob(target.Chance)) // imp
                 continue;
-
-            _ionStorm.IonStormTarget((ent, lawBound, target));
+            // begin imp edit again
+            var ev = new IonStormEvent();
+            RaiseLocalEvent(ent, ref ev);
+            //     _ionStorm.IonStormTarget((ent, lawBound, target));
         }
     }
 }
+[ByRefEvent]
+public record struct IonStormEvent(bool Adminlog = true);

@@ -18,7 +18,7 @@
       amount: 1
   products:
     FeverDream: 6
-    FeverDream: 5
+
 
 - type: reaction
   id: BatteryAcid

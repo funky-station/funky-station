@@ -25,8 +25,7 @@
 
 
 - type: reaction
-  id: BatteryAcid
-  preserveDNA: true
+  id: BatteryAcid  
   requiredMixerCategories:
     - Stir
   reactants:
@@ -43,7 +42,6 @@
 
 - type: reaction
   id: AngelsKiss
-  preserveDNA: true
   requiredMixerCategories:
   - Stir
   reactants:

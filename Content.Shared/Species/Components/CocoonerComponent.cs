@@ -21,8 +21,8 @@ public sealed partial class CocoonerComponent : Component
     [DataField("wrapDuration"), AutoNetworkedField]
     public float WrapDuration = 10f;
 
-    [DataField("wrapDurationStunnedOrAsleep"), AutoNetworkedField]
-    public float WrapDurationStunnedOrAsleep = 3f;
+    [DataField("wrapDuration_Short"), AutoNetworkedField]
+    public float WrapDuration_Short = 3f;
 
     [DataField("hungerCost"), AutoNetworkedField]
     public float HungerCost = 10f;

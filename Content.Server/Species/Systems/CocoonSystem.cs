@@ -27,6 +27,7 @@ using Content.Shared.Species.Arachnid;
 using Content.Shared.Standing;
 using Content.Shared.Stunnable;
 using Content.Shared.Bed.Sleep;
+using Content.Shared.Mobs.Systems;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
@@ -50,6 +51,7 @@ public sealed class CocoonSystem : SharedCocoonSystem
     [Dependency] private readonly SharedVirtualItemSystem _virtualItem = default!;
     [Dependency] private readonly AlertsSystem _alerts = default!;
     [Dependency] private readonly ISharedAdminLogManager _adminLog = default!;
+    [Dependency] private readonly MobStateSystem _mobState = default!;
 
     private const string CocoonContainerId = "cocoon_victim";
 
@@ -220,9 +222,9 @@ public sealed class CocoonSystem : SharedCocoonSystem
         var needHand = HasComp<HandsComponent>(user);
 
         var wrapTime = component.WrapDuration;
-        // Reduce DoAfter time if target is stunned or asleep
-        if (HasComp<StunnedComponent>(target) || HasComp<SleepingComponent>(target))
-            wrapTime = component.WrapDurationStunnedOrAsleep;
+        // Reduce DoAfter time if target is stunned, asleep, critical, or dead
+        if (HasComp<StunnedComponent>(target) || HasComp<SleepingComponent>(target) || _mobState.IsCritical(target) || _mobState.IsDead(target))
+            wrapTime = component.WrapDuration_Short;
 
         var doAfter = new DoAfterArgs(EntityManager, user, TimeSpan.FromSeconds(wrapTime), new WrapDoAfterEvent(), user, target)
         {

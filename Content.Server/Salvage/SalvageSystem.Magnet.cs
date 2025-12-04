@@ -33,7 +33,6 @@ namespace Content.Server.Salvage;
 
 public sealed partial class SalvageSystem
 {
-    [Dependency] private readonly IRuntimeLog _runtimeLog = default!;
 
     private static readonly ProtoId<RadioChannelPrototype> MagnetChannel = "Supply";
 
@@ -69,7 +68,10 @@ public sealed partial class SalvageSystem
             return;
         }
 
-        TakeMagnetOffer((station.Value, dataComp), args.Index, (uid, component));
+        var index = args.Index;
+        // Fire-and-forget async call - this is intentional for event handlers
+        // The async work needs to run on the main thread with entity context
+        _ = TakeMagnetOffer((station.Value, dataComp), index, (uid, component));
     }
 
     private void OnMagnetStartup(EntityUid uid, SalvageMagnetComponent component, ComponentStartup args)
@@ -327,141 +329,126 @@ public sealed partial class SalvageSystem
                 break;
             case RuinOffering ruin:
                 // Get ruin configuration (default to "Default" if not specified)
+                var ruinConfigId = new ProtoId<SalvageMagnetRuinConfigPrototype>("Default");
                 SalvageMagnetRuinConfigPrototype? ruinConfig = null;
-                if (!_prototypeManager.TryIndex<SalvageMagnetRuinConfigPrototype>("Default", out ruinConfig))
+                if (!_prototypeManager.TryIndex(ruinConfigId, out ruinConfig))
                 {
                     // Try to get first available config as fallback
                     ruinConfig = _prototypeManager.EnumeratePrototypes<SalvageMagnetRuinConfigPrototype>().FirstOrDefault();
                 }
 
-                // Generate 5 ruins
-                const int ruinCount = 5;
-                var ruinResults = new List<SalvageRuinGeneratorSystem.RuinResult>();
-
-                for (var i = 0; i < ruinCount; i++)
-                {
-                    var ruinSeed = seed + i;
-                    var ruinResult = _ruinGenerator.GenerateRuin(ruin.RuinMap.MapPath, ruinSeed, ruinConfig);
-                    if (ruinResult != null)
-                    {
-                        ruinResults.Add(ruinResult);
-                    }
-                }
-
-                if (ruinResults.Count == 0)
+                // Generate single large ruin using multi-stage flood-fill
+                var ruinResult = _ruinGenerator.GenerateRuin(ruin.RuinMap.MapPath, seed, ruinConfig);
+                if (ruinResult == null)
                 {
                     Report(magnet, MagnetChannel, "salvage-system-announcement-spawn-no-debris-available");
                     _mapSystem.DeleteMap(salvMapXform.MapID);
                     return;
                 }
 
-                // Build complete grids in memory before using them
+                // Build complete grid in memory before using it
                 // This ensures all tiles, walls, and windows are properly placed and anchored
-                var ruinGrids = new List<(Entity<MapGridComponent> Grid, Box2 Bounds)>();
+                var ruinGrid = _mapManager.CreateGridEntity(salvMap);
                 
-                for (var i = 0; i < ruinResults.Count; i++)
+                // STEP 1: Set all floor tiles (damage simulation already applied in GenerateRuin)
+                _mapSystem.SetTiles(ruinGrid.Owner, ruinGrid.Comp, ruinResult.FloorTiles);
+                
+                // STEP 2: Spawn all wall entities (destruction already filtered in GenerateRuin)
+                // Walls auto-anchor when spawned on a grid
+                foreach (var (wallPos, wallProto) in ruinResult.WallEntities)
                 {
-                    var ruinResult = ruinResults[i];
-                    
-                    // Create grid on the target map
-                    var ruinGrid = _mapManager.CreateGridEntity(salvMap);
-                    
-                    // STEP 1: Set all floor tiles (damage simulation already applied in GenerateRuin)
-                    _mapSystem.SetTiles(ruinGrid.Owner, ruinGrid.Comp, ruinResult.FloorTiles);
-                    
-                    // STEP 2: Spawn all wall entities (destruction already filtered in GenerateRuin)
-                    // Walls auto-anchor when spawned on a grid
-                    foreach (var (wallPos, wallProto) in ruinResult.WallEntities)
-                    {
-                        var wallCoords = new EntityCoordinates(ruinGrid.Owner, wallPos);
-                        SpawnAtPosition(wallProto, wallCoords);
-                    }
-                    
-                    // STEP 3: Spawn all window entities with preserved rotation
-                    // Always explicitly anchor windows to ensure they're properly anchored
-                    var windowDamageChance = ruinResult.Config?.WindowDamageChance ?? 0.0f;
-                    var windowRand = new System.Random(seed + i);
-                    
-                    foreach (var (windowPos, windowProto, windowRotation) in ruinResult.WindowEntities)
-                    {
-                        // Check if tile exists at window position before spawning
-                        // Windows can only anchor to non-empty tiles
-                        var tileRef = _mapSystem.GetTileRef(ruinGrid.Owner, ruinGrid.Comp, windowPos);
-                        if (tileRef.Tile.IsEmpty)
-                        {
-                            Log.Warning($"[SalvageSystem] Skipping window {windowProto} at {windowPos} - tile is empty");
-                            continue;
-                        }
-                        
-                        var windowCoords = new EntityCoordinates(ruinGrid.Owner, windowPos);
-                        // Use SpawnAttachedTo to preserve rotation for directional windows
-                        var windowEntity = SpawnAttachedTo(windowProto, windowCoords, rotation: windowRotation);
-                        
-                        // CRITICAL: Ensure windows are properly anchored immediately after spawning
-                        // This ensures they are anchored before the grid is used
-                        bool isAnchored = false;
-                        if (TryComp<TransformComponent>(windowEntity, out var windowXform))
-                        {
-                            // Only anchor if not already anchored to avoid assertion failures
-                            // SpawnAttachedTo may already anchor some entities
-                            if (!windowXform.Anchored)
-                            {
-                                var anchored = _transform.AnchorEntity((windowEntity, windowXform), (ruinGrid.Owner, ruinGrid.Comp), windowPos);
-                                isAnchored = anchored && windowXform.Anchored;
-                            }
-                            else
-                            {
-                                // Entity is already anchored, verify it's on the correct grid
-                                isAnchored = windowXform.GridUid == ruinGrid.Owner;
-                                if (!isAnchored)
-                                {
-                                    Log.Warning($"[SalvageSystem] Window {windowProto} at {windowPos} is anchored to wrong grid {windowXform.GridUid}, expected {ruinGrid.Owner}");
-                                }
-                            }
-                        }
-                        
-                        // If window couldn't be anchored, delete it to prevent stray unanchored windows
-                        if (!isAnchored)
-                        {
-                            Log.Warning($"[SalvageSystem] Failed to anchor window {windowProto} at {windowPos} on grid {ruinGrid.Owner}, deleting it");
-                            Del(windowEntity);
-                            continue;
-                        }
-                        
-                        // STEP 4: Apply damage to windows (damage simulation applied after spawning)
-                        if (windowDamageChance > 0.0f && windowRand.NextSingle() < windowDamageChance)
-                        {
-                            // Apply moderate damage to window (enough to show damage but not destroy it)
-                            if (TryComp<DamageableComponent>(windowEntity, out var damageable))
-                            {
-                                var damage = new DamageSpecifier();
-                                damage.DamageDict["Structural"] = 25; // Moderate structural damage
-                                _damageableSystem.TryChangeDamage(windowEntity, damage, damageable: damageable);
-                            }
-                        }
-                    }
-                    
-                    // Apply biome template for loot spawning (same as debris)
-                    var biome = EnsureComp<BiomeComponent>(ruinGrid.Owner);
-                    var ruinSeed = seed + i; // Use the same seed pattern as ruin generation
-                    _biome.SetSeed(ruinGrid.Owner, biome, ruinSeed);
-                    _biome.SetTemplate(ruinGrid.Owner, biome, _prototypeManager.Index<BiomeTemplatePrototype>("SpaceDebris"));
-                    
-                    // Mark tiles with walls and windows as modified so biome doesn't spawn on them
-                    MarkWallAndWindowTilesAsModified(ruinGrid.Owner, biome, ruinResult);
-                    
-                    // CRITICAL: Force-load all biome chunks immediately to spawn mobs and loot
-                    // Biome system normally loads chunks lazily when players are nearby, but ruins are
-                    // pre-built before players arrive, so we need to force loading
-                    _biome.ForceLoadAllChunks(ruinGrid.Owner, biome, ruinGrid.Comp);
-                    
-                    // Manually spawn additional debris on empty floor tiles
-                    // The biome system only spawns on completely empty tiles, so we add more variety
-                    SpawnRuinDebris(ruinGrid, ruinResult, ruinSeed);
-                    
-                    // Grid is now complete with all tiles, walls, windows, and loot spawners properly placed
-                    ruinGrids.Add((ruinGrid, ruinResult.Bounds));
+                    var wallCoords = new EntityCoordinates(ruinGrid.Owner, wallPos);
+                    SpawnAtPosition(wallProto, wallCoords);
                 }
+                
+                // STEP 3: Spawn all window entities with preserved rotation
+                // Always explicitly anchor windows to ensure they're properly anchored
+                var windowDamageChance = ruinResult.Config?.WindowDamageChance ?? 0.0f;
+                var windowRand = new System.Random(seed);
+                
+                foreach (var (windowPos, windowProto, windowRotation) in ruinResult.WindowEntities)
+                {
+                    // Check if tile exists at window position before spawning
+                    // Windows can only anchor to non-empty tiles
+                    var tileRef = _mapSystem.GetTileRef(ruinGrid.Owner, ruinGrid.Comp, windowPos);
+                    if (tileRef.Tile.IsEmpty)
+                    {
+                        Log.Warning($"[SalvageSystem] Skipping window {windowProto} at {windowPos} - tile is empty");
+                        continue;
+                    }
+                    
+                    var windowCoords = new EntityCoordinates(ruinGrid.Owner, windowPos);
+                    // Use SpawnAttachedTo to preserve rotation for directional windows
+                    var windowEntity = SpawnAttachedTo(windowProto, windowCoords, rotation: windowRotation);
+                    
+                    // CRITICAL: Ensure windows are properly anchored immediately after spawning
+                    // This ensures they are anchored before the grid is used
+                    bool isAnchored = false;
+                    var windowXform = Transform(windowEntity);
+                    if (windowXform != null)
+                    {
+                        // Only anchor if not already anchored to avoid assertion failures
+                        // SpawnAttachedTo may already anchor some entities
+                        if (!windowXform.Anchored)
+                        {
+                            var anchored = _transform.AnchorEntity((windowEntity, windowXform), (ruinGrid.Owner, ruinGrid.Comp), windowPos);
+                            isAnchored = anchored && windowXform.Anchored;
+                        }
+                        else
+                        {
+                            // Entity is already anchored, verify it's on the correct grid
+                            isAnchored = windowXform.GridUid == ruinGrid.Owner;
+                            if (!isAnchored)
+                            {
+                                Log.Warning($"[SalvageSystem] Window {windowProto} at {windowPos} is anchored to wrong grid {windowXform.GridUid}, expected {ruinGrid.Owner}");
+                            }
+                        }
+                    }
+                    
+                    // If window couldn't be anchored, delete it to prevent stray unanchored windows
+                    if (!isAnchored)
+                    {
+                        Log.Warning($"[SalvageSystem] Failed to anchor window {windowProto} at {windowPos} on grid {ruinGrid.Owner}, deleting it");
+                        Del(windowEntity);
+                        continue;
+                    }
+                    
+                    // STEP 4: Apply damage to windows (damage simulation applied after spawning)
+                    if (windowDamageChance > 0.0f && windowRand.NextSingle() < windowDamageChance)
+                    {
+                        // Apply moderate damage to window (enough to show damage but not destroy it)
+                        if (TryComp<DamageableComponent>(windowEntity, out var damageable))
+                        {
+                            var damage = new DamageSpecifier();
+                            damage.DamageDict["Structural"] = 25; // Moderate structural damage
+                            _damageableSystem.TryChangeDamage(windowEntity, damage, damageable: damageable);
+                        }
+                    }
+                }
+                
+                // Apply biome template for loot spawning (same as debris)
+                var biome = EnsureComp<BiomeComponent>(ruinGrid.Owner);
+                var biomeTemplateId = new ProtoId<BiomeTemplatePrototype>("SpaceDebris");
+                _biome.SetSeed(ruinGrid.Owner, biome, seed);
+                _biome.SetTemplate(ruinGrid.Owner, biome, _prototypeManager.Index(biomeTemplateId));
+                
+                // Mark tiles with walls and windows as modified so biome doesn't spawn on them
+                MarkWallAndWindowTilesAsModified(ruinGrid.Owner, biome, ruinResult);
+                
+                // CRITICAL: Force-load all biome chunks immediately to spawn mobs and loot
+                // Biome system normally loads chunks lazily when players are nearby, but ruins are
+                // pre-built before players arrive, so we need to force loading
+                _biome.ForceLoadAllChunks(ruinGrid.Owner, biome, ruinGrid.Comp);
+                
+                // Manually spawn additional debris on empty floor tiles
+                // The biome system only spawns on completely empty tiles, so we add more variety
+                SpawnRuinDebris(ruinGrid, ruinResult, seed);
+                
+                // Grid is now complete with all tiles, walls, windows, and loot spawners properly placed
+                var ruinGrids = new List<(Entity<MapGridComponent> Grid, Box2 Bounds)>
+                {
+                    (ruinGrid, ruinResult.Bounds)
+                };
 
                 break;
             default:
@@ -851,8 +838,9 @@ public sealed partial class SalvageSystem
         
         // Load debris configuration from prototype
         var debrisEntities = new List<(string Proto, float Chance)>();
+        var debrisProtoId = new ProtoId<SalvageRuinDebrisPrototype>("Default");
         
-        if (_prototypeManager.TryIndex<SalvageRuinDebrisPrototype>("Default", out var debrisProto))
+        if (_prototypeManager.TryIndex(debrisProtoId, out var debrisProto))
         {
             foreach (var entry in debrisProto.Entries)
             {
@@ -925,7 +913,8 @@ public sealed partial class SalvageSystem
                     var debris = SpawnAtPosition(proto, coords);
                     
                     // Try to anchor it
-                    if (TryComp<TransformComponent>(debris, out var xform) && !xform.Anchored)
+                    var xform = Transform(debris);
+                    if (xform != null && !xform.Anchored)
                     {
                         _transform.AnchorEntity((debris, xform), (grid.Owner, grid.Comp), tilePos);
                     }

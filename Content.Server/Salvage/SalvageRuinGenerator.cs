@@ -31,7 +31,6 @@ namespace Content.Server.Salvage;
 public sealed class SalvageRuinGeneratorSystem : EntitySystem
 {
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly ITileDefinitionManager _tileDefinitionManager = default!;
     [Dependency] private readonly MapLoaderSystem _mapLoader = default!;
     [Dependency] private readonly ILogManager _logManager = default!;
@@ -278,8 +277,9 @@ public sealed class SalvageRuinGeneratorSystem : EntitySystem
         var windowEntities = ParseWindowEntities(entitiesNode, firstGridUid);
 
         // Get default config for cost map building (use "Default" if available, otherwise null for defaults)
+        var defaultConfigId = new ProtoId<SalvageMagnetRuinConfigPrototype>("Default");
         SalvageMagnetRuinConfigPrototype? defaultConfig = null;
-        _prototypeManager.TryIndex<SalvageMagnetRuinConfigPrototype>("Default", out defaultConfig);
+        _prototypeManager.TryIndex(defaultConfigId, out defaultConfig);
 
         // Build cost map (includes windows and walls in cost calculation)
         var costMap = BuildCostMap(coordinateMap, windowEntities, wallEntities, defaultConfig);
@@ -322,6 +322,7 @@ public sealed class SalvageRuinGeneratorSystem : EntitySystem
 
         // Get configuration values (defaults if not provided)
         var floodFillPoints = config?.FloodFillPoints ?? 50;
+        var floodFillStages = config?.FloodFillStages ?? 5;
         var wallDestroyChance = config?.WallDestroyChance ?? 0.0f;
         var windowDamageChance = config?.WindowDamageChance ?? 0.0f;
         var floorToLatticeChance = config?.FloorToLatticeChance ?? 0.0f;
@@ -336,7 +337,7 @@ public sealed class SalvageRuinGeneratorSystem : EntitySystem
             return null;
         }
 
-        _sawmill.Debug($"[SalvageRuinGenerator] Starting flood-fill at {startPos.Value} with budget {floodFillPoints}");
+        _sawmill.Debug($"[SalvageRuinGenerator] Starting multi-stage flood-fill at {startPos.Value} with {floodFillStages} stages, {floodFillPoints} budget per stage");
 
         // Create sets of wall and window positions for fast lookup
         var wallPositions = new HashSet<Vector2i>(wallEntities.Select(w => w.Position));
@@ -344,8 +345,8 @@ public sealed class SalvageRuinGeneratorSystem : EntitySystem
         var allBlockingPositions = new HashSet<Vector2i>(wallPositions);
         allBlockingPositions.UnionWith(windowPositions);
 
-        // Perform flood-fill
-        var region = FloodFillWithCost(costMap, startPos.Value, floodFillPoints, allBlockingPositions);
+        // Perform multi-stage flood-fill
+        var region = FloodFillMultiStage(costMap, startPos.Value, floodFillStages, floodFillPoints, allBlockingPositions, rand, spaceCost);
         if (region.Count == 0)
         {
             _sawmill.Error($"[SalvageRuinGenerator] Flood-fill returned empty region for map {mapPath} with seed {seed}");
@@ -1122,6 +1123,169 @@ public sealed class SalvageRuinGeneratorSystem : EntitySystem
             if (adjacentWithWalls.Count > 0)
             {
                 _sawmill.Debug($"[SalvageRuinGenerator] Extended flood-fill to include {adjacentWithWalls.Count} adjacent wall tiles");
+            }
+        }
+
+        return result;
+    }
+
+    /// <summary>
+    /// Performs multi-stage cost-based flood-fill, creating irregular branching shapes.
+    /// Each stage starts from a random tile adjacent to the previous stages' results,
+    /// ensuring connectivity while creating organic, branching ruin structures.
+    /// </summary>
+    private HashSet<Vector2i> FloodFillMultiStage(Dictionary<Vector2i, int> costMap, Vector2i start, int stagesCount, int budgetPerStage, HashSet<Vector2i> wallPositions, System.Random rand, int spaceCost)
+    {
+        var result = new HashSet<Vector2i>();
+        var visited = new HashSet<Vector2i>();
+        var currentStart = start;
+
+        for (var stage = 0; stage < stagesCount; stage++)
+        {
+            var stageResult = new HashSet<Vector2i>();
+            var stageVisited = new HashSet<Vector2i>();
+            var queue = new List<(Vector2i Pos, int AccumulatedCost)>();
+            var accumulatedCosts = new Dictionary<Vector2i, int>();
+
+            queue.Add((currentStart, 0));
+            accumulatedCosts[currentStart] = 0;
+
+            // Perform flood-fill for this stage
+            while (queue.Count > 0)
+            {
+                queue.Sort((a, b) => a.AccumulatedCost.CompareTo(b.AccumulatedCost));
+                var (current, accumulatedCost) = queue[0];
+                queue.RemoveAt(0);
+
+                if (stageVisited.Contains(current))
+                    continue;
+
+                stageVisited.Add(current);
+
+                if (!costMap.TryGetValue(current, out var tileCost))
+                    continue;
+
+                // Check if adding this tile would exceed the budget
+                var totalCostIfAdded = accumulatedCost + tileCost;
+                if (totalCostIfAdded > budgetPerStage)
+                {
+                    // Can't afford this tile, skip it
+                    continue;
+                }
+
+                // Add the tile to stage result
+                stageResult.Add(current);
+                result.Add(current);
+                visited.Add(current);
+
+                var neighbors = new[]
+                {
+                    current + Vector2i.Up,
+                    current + Vector2i.Down,
+                    current + Vector2i.Left,
+                    current + Vector2i.Right
+                };
+
+                foreach (var neighbor in neighbors)
+                {
+                    if (stageVisited.Contains(neighbor) || visited.Contains(neighbor))
+                        continue;
+
+                    if (!costMap.TryGetValue(neighbor, out var neighborCost))
+                        continue;
+
+                    var newAccumulatedCost = accumulatedCost + neighborCost;
+
+                    // Only consider neighbors we can afford
+                    if (newAccumulatedCost > budgetPerStage)
+                        continue;
+
+                    if (!accumulatedCosts.TryGetValue(neighbor, out var existingCost) ||
+                        newAccumulatedCost < existingCost)
+                    {
+                        accumulatedCosts[neighbor] = newAccumulatedCost;
+                        queue.Add((neighbor, newAccumulatedCost));
+                    }
+                }
+            }
+
+            // Extend stage result to include adjacent wall tiles (same as single-stage)
+            var adjacentWithWalls = new HashSet<Vector2i>();
+            foreach (var pos in stageResult)
+            {
+                var neighbors = new[]
+                {
+                    pos + Vector2i.Up,
+                    pos + Vector2i.Down,
+                    pos + Vector2i.Left,
+                    pos + Vector2i.Right
+                };
+
+                foreach (var neighbor in neighbors)
+                {
+                    if (result.Contains(neighbor))
+                        continue;
+
+                    if (wallPositions.Contains(neighbor))
+                    {
+                        adjacentWithWalls.Add(neighbor);
+                    }
+                }
+            }
+
+            foreach (var wallPos in adjacentWithWalls)
+            {
+                result.Add(wallPos);
+                visited.Add(wallPos);
+            }
+
+            _sawmill.Debug($"[SalvageRuinGenerator] Stage {stage + 1}/{stagesCount}: Added {stageResult.Count} tiles, {adjacentWithWalls.Count} adjacent walls");
+
+            // Pick next start position from tiles directly adjacent to current result
+            if (stage < stagesCount - 1)
+            {
+                // Build list of valid tiles adjacent to the current result
+                var adjacentUnvisited = new List<Vector2i>();
+                
+                foreach (var pos in result)
+                {
+                    var neighbors = new[]
+                    {
+                        pos + Vector2i.Up,
+                        pos + Vector2i.Down,
+                        pos + Vector2i.Left,
+                        pos + Vector2i.Right
+                    };
+
+                    foreach (var neighbor in neighbors)
+                    {
+                        // Skip if already visited or in result
+                        if (visited.Contains(neighbor) || result.Contains(neighbor))
+                            continue;
+
+                        // Check if this is a valid tile (not space)
+                        if (!costMap.TryGetValue(neighbor, out var neighborCost))
+                            continue;
+
+                        if (neighborCost < spaceCost && !adjacentUnvisited.Contains(neighbor))
+                        {
+                            adjacentUnvisited.Add(neighbor);
+                        }
+                    }
+                }
+
+                if (adjacentUnvisited.Count > 0)
+                {
+                    // Pick random adjacent unvisited tile
+                    currentStart = adjacentUnvisited[rand.Next(adjacentUnvisited.Count)];
+                    _sawmill.Debug($"[SalvageRuinGenerator] Stage {stage + 1} complete, starting stage {stage + 2} from adjacent tile {currentStart} ({adjacentUnvisited.Count} candidates)");
+                }
+                else
+                {
+                    // No adjacent tiles available, stop early
+                    _sawmill.Debug($"[SalvageRuinGenerator] Stage {stage + 1} complete, no adjacent unvisited tiles available, stopping early");
+                    break;
+                }
             }
         }
 

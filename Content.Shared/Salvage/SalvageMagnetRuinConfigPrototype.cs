@@ -102,5 +102,12 @@ public sealed partial class SalvageMagnetRuinConfigPrototype : IPrototype
     /// </summary>
     [DataField]
     public int SpaceCost = 9999;
+
+    /// <summary>
+    /// Number of flood-fill stages to perform. Each stage starts from the previous stage's frontier
+    /// (tiles that were almost added but exceeded budget), creating irregular branching shapes.
+    /// </summary>
+    [DataField]
+    public int FloodFillStages = 5;
 }
 

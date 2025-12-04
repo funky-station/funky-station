@@ -24,7 +24,7 @@
     - FloorSteel
     entities:
     - WallSolid
-    - AirlockMaintLocked
+    - Girder
     - Girder
     - Girder
     - WallReinforced

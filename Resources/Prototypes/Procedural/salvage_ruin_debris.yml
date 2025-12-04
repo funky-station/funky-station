@@ -13,39 +13,39 @@
   - proto: Grille
     chance: 0.10
   - proto: GrilleBroken
-    chance: 0.12
+    chance: 0.15
   
   # Furniture and storage
   - proto: Table
     chance: 0.10
   - proto: Rack
-    chance: 0.12
+    chance: 0.15
   - proto: ClosetMaintenanceFilledRandom
-    chance: 0.06
+    chance: 0.10
   
   # Equipment and containers
   - proto: WeldingFuelTankFull
     chance: 0.08
   - proto: SalvageCanisterSpawner
-    chance: 0.05
+    chance: 0.10
   
   # Spawners for dynamic content
   - proto: SalvageSpawnerMobMagnet75
-    chance: 0.08 # 75% chance to spawn mobs
+    chance: 0.12 # 75% chance to spawn mobs
   - proto: SalvageSpawnerScrapCommon
-    chance: 0.12 # Metal, glass, plastic scrap
+    chance: 0.24 # Metal, glass, plastic scrap
   - proto: SalvageSpawnerScrapValuable
     chance: 0.08 # Steel, plasma, plasteel scrap
   
   # Destroyed/damaged generators
   - proto: ScrapGeneratorUraniumLeaking
-    chance: 0.03 # Leaking S.U.P.E.R.P.A.C.M.A.N. (radioactive!)
+    chance: 0.05 # Leaking S.U.P.E.R.P.A.C.M.A.N. (radioactive!)
   - proto: ScrapGeneratorUranium
-    chance: 0.03 # Destroyed S.U.P.E.R.P.A.C.M.A.N.
+    chance: 0.05 # Destroyed S.U.P.E.R.P.A.C.M.A.N.
   - proto: ScrapGeneratorPlasmaLeaking
-    chance: 0.03 # Leaking P.A.C.M.A.N.
+    chance: 0.05 # Leaking P.A.C.M.A.N.
   - proto: ScrapGeneratorPlasma
-    chance: 0.03 # Old P.A.C.M.A.N.
+    chance: 0.05 # Old P.A.C.M.A.N.
   - proto: ScrapGeneratorFrame
-    chance: 0.03 # Generator frame (stripped)
+    chance: 0.05 # Generator frame (stripped)
 

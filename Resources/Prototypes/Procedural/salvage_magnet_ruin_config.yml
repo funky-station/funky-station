@@ -22,4 +22,5 @@
   grilleCost: 4
   defaultTileCost: 1
   spaceCost: 9999  # Space tiles (not in map) - very high cost makes them impassable
+  floodFillStages: 5  # Number of flood-fill stages to create irregular branching shapes
 

@@ -17,62 +17,117 @@
   id: InflatableWallStack
   parent: BaseItem
   name: inflatable barricade
-  description: A folded membrane which rapidly expands into a large cubical shape on activation.
+  description: A folded membrane which rapidly expands into an airtight barricade on activation.
   suffix: Full
   components:
     - type: Stack
       stackType: InflatableWall
-      count: 10
+      count: 5
   # Goobstation - Custom stack splitting dialog
     - type: UserInterface
       interfaces:
         enum.StackCustomSplitUiKey.Key:
           type: StackCustomSplitBoundUserInterface
     - type: Sprite
-      sprite: Objects/Misc/inflatable_wall.rsi
+      sprite: _Funkystation/Objects/Misc/inflatables.rsi
       state: item_wall
     - type: Item
-      sprite: Objects/Misc/inflatable_wall.rsi
-      size: Small
+      sprite: _Funkystation/Objects/Misc/inflatables.rsi
+      size: Tiny
     - type: SpawnAfterInteract
       prototype: InflatableWall
-      doAfter: 1
+      doAfter: 0.5
       removeOnInteract: true
     - type: Clickable
-# TODO: Add stack sprites + visuals.
 
 - type: entity
   id: InflatableDoorStack
   parent: BaseItem
   name: inflatable door
-  description: A folded membrane which rapidly expands into a large cubical shape on activation.
+  description: A folded membrane which rapidly expands into an airtight door upon activation.
   suffix: Full
   components:
     - type: Stack
       stackType: InflatableDoor
-      count: 4
+      count: 5
   # Goobstation - Custom stack splitting dialog
     - type: UserInterface
       interfaces:
         enum.StackCustomSplitUiKey.Key:
           type: StackCustomSplitBoundUserInterface
     - type: Sprite
-      sprite: Objects/Misc/inflatable_door.rsi
+      sprite: _Funkystation/Objects/Misc/inflatables.rsi
       state: item_door
     - type: Item
-      sprite: Objects/Misc/inflatable_door.rsi
-      size: Small
+      sprite: _Funkystation/Objects/Misc/inflatables.rsi
+      size: Tiny
     - type: SpawnAfterInteract
       prototype: InflatableDoor
-      doAfter: 1
+      doAfter: 0.5
       removeOnInteract: true
     - type: Clickable
-# TODO: Add stack sprites + visuals.
 
 - type: entity
+  id: InflatableDockStack
+  parent: BaseItem
+  name: inflatable dock
+  description: A folded membrane which rapidly expands into an airtight dock upon activation.
+  suffix: Full
+  components:
+    - type: Stack
+      stackType: InflatableDock
+      count: 5
+  # Goobstation - Custom stack splitting dialog
+    - type: UserInterface
+      interfaces:
+        enum.StackCustomSplitUiKey.Key:
+          type: StackCustomSplitBoundUserInterface
+    - type: Sprite
+      sprite: _Funkystation/Objects/Misc/inflatable_dock.rsi
+      state: item_dock
+    - type: Item
+      sprite: _Funkystation/Objects/Misc/inflatable_dock.rsi
+      size: Tiny
+    - type: SpawnAfterInteract
+      prototype: InflatableDock
+      doAfter: 0.5
+      removeOnInteract: true
+    - type: Clickable
+
+- type: entity
+  name: inflatable floor
+  id: InflatableFloorStack
+  parent: BaseItem
+  description: A folded membrane that rapidly expands into airtight plating upon activation. Must be deployed on space directly. Can be pryed up.
+  suffix: Full
+  components:
+  - type: Stack
+    stackType: InflatableFloor
+    count: 8
+  # Goobstation - Custom stack splitting dialog
+  - type: UserInterface
+    interfaces:
+      enum.StackCustomSplitUiKey.Key:
+        type: StackCustomSplitBoundUserInterface
+  - type: Sprite
+    sprite: _Funkystation/Objects/Misc/inflatables.rsi
+    state: item_floor
+  - type: Item
+    sprite: _Funkystation/Objects/Misc/inflatables.rsi
+    size: Tiny
+  - type: FloorTile
+    outputs:
+      - InflatablePlating
+  - type: GuideHelp
+    guides:
+    - ExpandingRepairingStation
+
+# partial stacks
+
+- type: entity # because I was too sloppy in my implementation
   parent: InflatableWallStack
   id: InflatableWallStack5
-  suffix: 5
+  suffix: Do not map
   components:
     - type: Sprite
       state: item_wall
@@ -96,5 +151,25 @@
   components:
     - type: Sprite
       state: item_door
+    - type: Stack
+      count: 1
+
+- type: entity
+  parent: InflatableDockStack
+  id: InflatableDockStack1
+  suffix: 1
+  components:
+    - type: Sprite
+      state: item_dock
+    - type: Stack
+      count: 1
+
+- type: entity
+  parent: InflatableFloorStack
+  id: InflatableFloorStack1
+  suffix: 1
+  components:
+    - type: Sprite
+      state: item_floor
     - type: Stack
       count: 1

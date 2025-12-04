@@ -6060,3 +6060,82 @@ Entries:
         inconsistencies, misinformation, and omitted information.
   id: 713
   time: '2025-12-01T06:37:28.0000000+00:00'
+- author: AraiMaia
+  changes:
+    - type: Fix
+      message: Fixed new Thaven tails clipping into body
+    - type: Fix
+      message: Fixed Draconic Tail's localization
+  id: 714
+  time: '2025-12-02T01:12:07.0000000+00:00'
+- author: zergologist
+  changes:
+    - type: Tweak
+      message: >-
+        Inflatable barricades and doors have new sprites and are quicker to
+        deploy
+    - type: Tweak
+      message: >-
+        Inflatable barricades and doors are now tiny items in the inventory that
+        stack up to five
+    - type: Tweak
+      message: >-
+        Inflatable walls box is now a 2x2, holds 15 inflatable walls and 5
+        inflatable doors. Emergency inflatable walls crate renamed inflatables
+        crate, holds a box of walls and inflatable floors; now 550 spesos
+        instead of 500
+    - type: Add
+      message: >-
+        Inflatable docks, currently only latheable at a normal lathe for 1
+        durathread and 0.5 silver. They act like inflatable doors that can be
+        docked to.
+    - type: Add
+      message: >-
+        Inflatable floors, tiny items that stack up to 8, must be placed on
+        empty space, and can be pryed up.
+    - type: Add
+      message: Two boxes of inflatable floors to the engivend
+    - type: Tweak
+      message: Station engineer lockers now have a box of inflatable walls roundstart
+    - type: Tweak
+      message: Engivend has 4 boxes of inflatable walls instead of 2
+    - type: Add
+      message: recipes for all inflatables in the normal lathe
+    - type: Tweak
+      message: maintenance lockers can now have inflatable doors and floors as well
+  id: 715
+  time: '2025-12-02T01:16:22.0000000+00:00'
+- author: amethystowo
+  changes:
+    - type: Tweak
+      message: >-
+        The holofans have been reverted to the old system. They now use power
+        cells, and are timed.
+  id: 716
+  time: '2025-12-02T06:19:10.0000000+00:00'
+- author: TrixxedHeart
+  changes:
+    - type: Fix
+      message: IPCs can now also have sticky notes placed on them
+  id: 717
+  time: '2025-12-02T06:22:07.0000000+00:00'
+- author: Huhm-1
+  changes:
+    - type: Add
+      message: Added CargoTechfab and other crew pets on Amber
+    - type: Remove
+      message: Removed Box from rotation
+    - type: Remove
+      message: Removed most Christmas Decorations from Amber but the food stays
+    - type: Fix
+      message: Fixed power issues within Amber
+    - type: Tweak
+      message: Now supports two IAA on Amber
+  id: 718
+  time: '2025-12-02T19:03:40.0000000+00:00'
+- author: AraiMaia
+  changes:
+    - type: Fix
+      message: Re-added some Holofan related code.
+  id: 719
+  time: '2025-12-02T21:15:05.0000000+00:00'

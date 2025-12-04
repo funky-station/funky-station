@@ -40,9 +40,23 @@ public sealed partial class CureZombieInfection : EntityEffect
         entityManager.RemoveComponent<ZombifyOnDeathComponent>(args.TargetEntity);
         entityManager.RemoveComponent<PendingZombieComponent>(args.TargetEntity);
 
+        // Cure tumor infection if in early stages (before tumor fully forms)
+        if (entityManager.TryGetComponent<ZombieTumorInfectionComponent>(args.TargetEntity, out var infection))
+        {
+            // Only cure if no tumor has formed yet (Incubation or Early stage)
+            // Once the tumor is formed (TumorFormed or Advanced), it requires surgery
+            if (infection.Stage == ZombieTumorInfectionStage.Incubation || 
+                infection.Stage == ZombieTumorInfectionStage.Early)
+            {
+                entityManager.RemoveComponent<ZombieTumorInfectionComponent>(args.TargetEntity);
+            }
+        }
+
         if (Innoculate)
         {
             entityManager.EnsureComponent<ZombieImmuneComponent>(args.TargetEntity);
+            // Also make immune to tumor infections
+            entityManager.EnsureComponent<ZombieTumorImmuneComponent>(args.TargetEntity);
         }
     }
 }

@@ -53,6 +53,7 @@ using Content.Shared.NameModifier.EntitySystems;
 using Content.Shared.Popups;
 using Content.Shared.Weapons.Melee.Events;
 using Content.Shared.Zombies;
+using Content.Shared._EinsteinEngines.Silicon.Components;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
@@ -295,10 +296,10 @@ namespace Content.Server.Zombies
 
                 if (_mobState.IsIncapacitated(entity, mobState) && !HasComp<ZombieComponent>(entity) && !HasComp<ZombieImmuneComponent>(entity))
                 {
-                    // Check if this is a critical IPC (has oil as blood reagent and is in critical state)
+                    // Check if this is a critical IPC (has Silicon component AND Bloodstream, is in critical state)
                     if (_mobState.IsCritical(entity, mobState) && 
-                        TryComp<BloodstreamComponent>(entity, out var bloodstream) &&
-                        bloodstream.BloodReagent == "MachineOil")
+                        HasComp<SiliconComponent>(entity) &&
+                        HasComp<BloodstreamComponent>(entity))
                     {
                         // Give IPC a robot tumor before zombifying
                         _zombieTumor.SpawnTumorOrgan(entity);

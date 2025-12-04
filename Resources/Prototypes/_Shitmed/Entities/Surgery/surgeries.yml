@@ -547,11 +547,13 @@
     requirement: SurgeryOpenRibcage
     steps:
     - SurgeryStepSawBones
-    - SurgeryStepClampInternalBleeders
     - SurgeryStepRemoveOrgan
     - SurgeryStepSealOrganWound
   - type: SurgeryPartCondition
     part: Torso
+  - type: SurgeryOrganCondition
+    organ:
+    - type: ZombieTumorOrgan
   - type: SurgeryOrganPrototypeCondition
     prototypeId: ZombieRoboTumor
 

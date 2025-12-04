@@ -37,6 +37,7 @@
 // SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 // SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 tetkala <appleorange64@gmail.com>
 //
 // SPDX-License-Identifier: MIT
 
@@ -82,6 +83,7 @@ using Content.Shared.Tag;
 using Content.Shared.Standing;
 using Content.Shared.Bed.Sleep;
 using Content.Shared.Stunnable;
+using Content.Shared._EinsteinEngines.Silicon.Components;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server.Zombies;
@@ -247,7 +249,8 @@ public sealed partial class ZombieSystem
         //NOTE: they are supposed to bleed, just not take damage
         _bloodstream.SetBloodLossThreshold(target, 0f);
         //Give them zombie blood (but IPCs keep their Oil)
-        if (TryComp<BloodstreamComponent>(target, out var bloodstreamComp) && bloodstreamComp.BloodReagent != "MachineOil")
+        // Only change blood if NOT an IPC (doesn't have Silicon component)
+        if (!HasComp<SiliconComponent>(target) && TryComp<BloodstreamComponent>(target, out var bloodstreamComp))
         {
             _bloodstream.ChangeBloodReagent(target, zombiecomp.NewBloodReagent);
         }

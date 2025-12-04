@@ -30,11 +30,11 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
 - type: entity
+  parent: CratePrivateSecure
   id: CrateSalvageEquipment
   name: "salvage equipment crate"
-  description: For the daring. Contains a Spationaugh Hardsuit, air tanks, magboots, tool belt, PKA, GPS and Radio. # Funky Station
   suffix: Filled
-  parent: CratePrivateSecure
+  description: For the daring. Contains a Spationaugh Hardsuit, air tanks, magboots, tool belt, PKA, GPS and Radio. # Funky Station
   components:
   - type: EntityTableContainerFill
     containers:
@@ -54,10 +54,10 @@
         - id: RadioHandheld
 
 - type: entity
-  id: CrateSalvageAssortedGoodies
-  suffix: Filled, Salvage Random
-  categories: [ HideSpawnMenu ] # You should use SalvageMaterialCrateSpawner instead
   parent: CrateGenericSteel
+  id: CrateSalvageAssortedGoodies
+  categories: [ HideSpawnMenu ] # You should use SalvageMaterialCrateSpawner instead
+  suffix: Filled, Salvage Random
   components:
   - type: EntityTableContainerFill
     containers:

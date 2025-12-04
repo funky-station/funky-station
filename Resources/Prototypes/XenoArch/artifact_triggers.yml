@@ -281,9 +281,6 @@
     - AmmoniaBlood
     - ZombieBlood
     # imp below
-    - ShimmeringBlood
-    - BloodKodepiia
-    - GrayBlood
     - SynthBlood
 
 - type: xenoArchTrigger

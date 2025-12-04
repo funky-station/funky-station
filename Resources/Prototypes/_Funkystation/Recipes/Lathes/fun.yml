@@ -1,0 +1,6 @@
+- type: latheRecipe
+  id: TowelColorWhite
+  result: TowelColorWhite
+  completetime: 3
+  materials:
+    Cloth: 300

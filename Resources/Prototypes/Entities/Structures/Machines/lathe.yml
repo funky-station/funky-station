@@ -1710,6 +1710,8 @@
     - BedsheetNT
     - BedsheetRainbow
     - BedsheetBrigmedic
+    # Funky Towel
+    - TowelColorWhite
   - type: EmagLatheRecipes
     emagStaticRecipes:
     # Clothing

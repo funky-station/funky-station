@@ -514,6 +514,7 @@
     - InflatableDoor #funk
     - InflatableDock #funk
     - InflatableFloor #funk
+    - TowelColorWhite #funk towel
     dynamicRecipes:
     - BoomboxRed
     - BoomboxGreen
@@ -567,6 +568,7 @@
     - SecHypo # Goobstation
     - ParamedHypo # Goobstation - ParamedHypo
     - ClothingHandsSecurityKnuckleDusters #funk
+    - TowelColorSyndicate #funk
   - type: BlueprintReceiver
     whitelist:
       tags:
@@ -1710,7 +1712,7 @@
     - BedsheetNT
     - BedsheetRainbow
     - BedsheetBrigmedic
-    # Funky Towel
+    # Funky Towels
     - TowelColorWhite
   - type: EmagLatheRecipes
     emagStaticRecipes:
@@ -1758,6 +1760,7 @@
     - ClothingOuterVestWebDurathread # Goobstation - adding durathread armoured clothing
     - ClothingOuterArmourDurathread # Goobstation - adding durathread armoured clothing
     - ClothingUniformJumpsuitDurathread # Goobstation - adding durathread armoured clothing
+    - TowelColorSyndicate # Funky
   - type: MaterialStorage
     whitelist:
       tags:

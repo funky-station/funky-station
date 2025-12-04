@@ -6139,3 +6139,11 @@ Entries:
       message: Re-added some Holofan related code.
   id: 719
   time: '2025-12-02T21:15:05.0000000+00:00'
+- author: Drywink
+  changes:
+    - type: Add
+      message: New bite ability for arachnids and giant spiders.
+    - type: Tweak
+      message: Reduce cocoon doafter time on incapacitated target.
+  id: 720
+  time: '2025-12-04T19:32:57.0000000+00:00'

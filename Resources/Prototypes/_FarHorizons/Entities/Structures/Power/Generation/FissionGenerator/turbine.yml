@@ -38,8 +38,7 @@
   - type: Physics
     bodyType: Static
   - type: InteractionOutline
-  - type: Transform
-    noRot: true
+  - type: Rotatable
   - type: Fixtures
     fixtures:
       fix1:

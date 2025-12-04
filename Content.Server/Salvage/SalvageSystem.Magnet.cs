@@ -23,6 +23,7 @@ using Content.Shared.Procedural;
 using Content.Shared.Radio;
 using Content.Shared.Salvage;
 using Content.Shared.Salvage.Magnet;
+using Robust.Shared.Collections;
 using Robust.Shared.Exceptions;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
@@ -34,8 +35,7 @@ public sealed partial class SalvageSystem
 {
     [Dependency] private readonly IRuntimeLog _runtimeLog = default!;
 
-    [ValidatePrototypeId<RadioChannelPrototype>]
-    private const string MagnetChannel = "Supply";
+    private static readonly ProtoId<RadioChannelPrototype> MagnetChannel = "Supply";
 
     [Dependency] private readonly SalvageRuinGeneratorSystem _ruinGenerator = default!;
     [Dependency] private readonly DamageableSystem _damageableSystem = default!;
@@ -447,6 +447,18 @@ public sealed partial class SalvageSystem
                     _biome.SetSeed(ruinGrid.Owner, biome, ruinSeed);
                     _biome.SetTemplate(ruinGrid.Owner, biome, _prototypeManager.Index<BiomeTemplatePrototype>("SpaceDebris"));
                     
+                    // Mark tiles with walls and windows as modified so biome doesn't spawn on them
+                    MarkWallAndWindowTilesAsModified(ruinGrid.Owner, biome, ruinResult);
+                    
+                    // CRITICAL: Force-load all biome chunks immediately to spawn mobs and loot
+                    // Biome system normally loads chunks lazily when players are nearby, but ruins are
+                    // pre-built before players arrive, so we need to force loading
+                    _biome.ForceLoadAllChunks(ruinGrid.Owner, biome, ruinGrid.Comp);
+                    
+                    // Manually spawn additional debris on empty floor tiles
+                    // The biome system only spawns on completely empty tiles, so we add more variety
+                    SpawnRuinDebris(ruinGrid, ruinResult, ruinSeed);
+                    
                     // Grid is now complete with all tiles, walls, windows, and loot spawners properly placed
                     ruinGrids.Add((ruinGrid, ruinResult.Bounds));
                 }
@@ -672,7 +684,12 @@ public sealed partial class SalvageSystem
                     var box2 = Box2.CenteredAround(position.Position, ruinSize);
                     var box2Rot = new Box2Rotated(box2, rotation, position.Position);
 
-                    if (!_mapManager.FindGridsIntersecting(mapId, box2Rot).Any())
+                    // Check if any grids intersect this position
+                    var intersectingGrids = new List<Entity<MapGridComponent>>();
+                    if (_mapSystem.TryGetMap(mapId, out var mapEnt))
+                        _mapManager.FindGridsIntersecting(mapEnt.Value, box2Rot, ref intersectingGrids);
+                    
+                    if (intersectingGrids.Count == 0)
                     {
                         found = true;
                         clusterCenter = randomPos;
@@ -723,11 +740,18 @@ public sealed partial class SalvageSystem
                         }
 
                         // Check intersection with other grids
-                        if (!intersects && !_mapManager.FindGridsIntersecting(mapId, box2Rot).Any())
+                        if (!intersects)
                         {
-                            found = true;
-                            placedBounds.Add(box2Rot);
-                            break;
+                            var checkGrids = new List<Entity<MapGridComponent>>();
+                            if (_mapSystem.TryGetMap(mapId, out var checkMapEnt))
+                                _mapManager.FindGridsIntersecting(checkMapEnt.Value, box2Rot, ref checkGrids);
+                            
+                            if (checkGrids.Count == 0)
+                            {
+                                found = true;
+                                placedBounds.Add(box2Rot);
+                                break;
+                            }
                         }
 
                         spiralAngle += spiralStep;
@@ -772,7 +796,11 @@ public sealed partial class SalvageSystem
 
             // This doesn't stop it from spawning on top of random things in space
             // Might be better like this, ghosts could stop it before
-            if (_mapManager.FindGridsIntersecting(finalCoords.MapId, box2Rot).Any())
+            var checkIntersectingGrids = new List<Entity<MapGridComponent>>();
+            if (_mapSystem.TryGetMap(finalCoords.MapId, out var checkMapEnt))
+                _mapManager.FindGridsIntersecting(checkMapEnt.Value, box2Rot, ref checkIntersectingGrids);
+            
+            if (checkIntersectingGrids.Count > 0)
             {
                 // Bump it further and further just in case.
                 fraction += 0.1f;
@@ -786,6 +814,126 @@ public sealed partial class SalvageSystem
         angle = Angle.Zero;
         coords = MapCoordinates.Nullspace;
         return false;
+    }
+
+    /// <summary>
+    /// Marks tiles that have walls or windows as modified in the biome component.
+    /// This prevents the biome system from spawning loot on these tiles.
+    /// </summary>
+    private void MarkWallAndWindowTilesAsModified(EntityUid gridUid, BiomeComponent biome, SalvageRuinGeneratorSystem.RuinResult ruinResult)
+    {
+        // Collect all tiles that should be marked as modified
+        var tilesToMark = new List<Vector2i>();
+        
+        // Add all wall positions
+        foreach (var (wallPos, _) in ruinResult.WallEntities)
+        {
+            tilesToMark.Add(wallPos);
+        }
+        
+        // Add all window positions
+        foreach (var (windowPos, _, _) in ruinResult.WindowEntities)
+        {
+            tilesToMark.Add(windowPos);
+        }
+        
+        // Use BiomeSystem's public method to mark tiles
+        _biome.MarkTilesAsModified(gridUid, biome, tilesToMark);
+    }
+
+    /// <summary>
+    /// Spawns additional debris entities on empty floor tiles in a ruin.
+    /// This supplements the biome system which only spawns on completely empty tiles.
+    /// </summary>
+    private void SpawnRuinDebris(Entity<MapGridComponent> grid, SalvageRuinGeneratorSystem.RuinResult ruinResult, int seed)
+    {
+        var debrisRandom = new System.Random(seed);
+        
+        // Load debris configuration from prototype
+        var debrisEntities = new List<(string Proto, float Chance)>();
+        
+        if (_prototypeManager.TryIndex<SalvageRuinDebrisPrototype>("Default", out var debrisProto))
+        {
+            foreach (var entry in debrisProto.Entries)
+            {
+                debrisEntities.Add((entry.Proto, entry.Chance));
+            }
+        }
+        else
+        {
+            // Fallback to hardcoded list if prototype is missing
+            Log.Warning("[SalvageSystem] Failed to load SalvageRuinDebris prototype 'Default', using fallback configuration");
+            debrisEntities = new List<(string Proto, float Chance)>
+            {
+                ("Girder", 0.15f),
+                ("Grille", 0.10f),
+                ("Table", 0.10f),
+                ("Rack", 0.12f),
+            };
+        }
+        
+        if (debrisEntities.Count == 0)
+        {
+            Log.Warning("[SalvageSystem] No debris entities configured for ruins");
+            return;
+        }
+        
+        // Build hashsets for quick position lookups
+        var wallPositions = new HashSet<Vector2i>();
+        foreach (var (wallPos, _) in ruinResult.WallEntities)
+        {
+            wallPositions.Add(wallPos);
+        }
+        
+        var windowPositions = new HashSet<Vector2i>();
+        foreach (var (windowPos, _, _) in ruinResult.WindowEntities)
+        {
+            windowPositions.Add(windowPos);
+        }
+        
+        // Check each floor tile in the ruin
+        foreach (var (tilePos, tile) in ruinResult.FloorTiles)
+        {
+            // Skip lattice tiles (they're space, don't put stuff there)
+            if (tile.TypeId == _tileDefinitionManager["Lattice"].TileId)
+                continue;
+            
+            // Skip tiles designated for walls or windows
+            if (wallPositions.Contains(tilePos) || windowPositions.Contains(tilePos))
+                continue;
+            
+            // Check if this tile already has an anchored entity
+            var anchored = _mapSystem.GetAnchoredEntitiesEnumerator(grid.Owner, grid.Comp, tilePos);
+            if (anchored.MoveNext(out _))
+                continue; // Tile already has something, skip
+            
+            // Randomly decide if we should spawn debris here
+            if (debrisRandom.NextDouble() > 0.25f) // 25% chance to spawn something
+                continue;
+            
+            // Pick a random debris entity
+            var roll = debrisRandom.NextSingle();
+            var cumulativeChance = 0f;
+            
+            foreach (var (proto, chance) in debrisEntities)
+            {
+                cumulativeChance += chance;
+                if (roll <= cumulativeChance)
+                {
+                    // Spawn the debris
+                    var coords = new EntityCoordinates(grid.Owner, tilePos);
+                    var debris = SpawnAtPosition(proto, coords);
+                    
+                    // Try to anchor it
+                    if (TryComp<TransformComponent>(debris, out var xform) && !xform.Anchored)
+                    {
+                        _transform.AnchorEntity((debris, xform), (grid.Owner, grid.Comp), tilePos);
+                    }
+                    
+                    break;
+                }
+            }
+        }
     }
 }
 

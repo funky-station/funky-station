@@ -7,18 +7,19 @@
 
 - type: salvageMagnetRuinConfig
   id: Default
-  floodFillPoints: 15
-  wallDestroyChance: 0.05
+  floodFillPoints: 25
+  wallDestroyChance: 0.15
   windowDamageChance: 0.05
   floorToLatticeChance: 0.05
   # Path costs for flood-fill algorithm (higher = more expensive to traverse)
-  wallCost: 6
-  directionalWindowCost: 2
-  reinforcedWindowCost: 4
-  regularWindowCost: 2
-  directionalGlassCost: 2
-  reinforcedGlassCost: 4
-  regularGlassCost: 4
-  grilleCost: 2
+  wallCost: 20
+  directionalWindowCost: 10
+  reinforcedWindowCost: 10
+  regularWindowCost: 4
+  directionalGlassCost: 8
+  reinforcedGlassCost: 12
+  regularGlassCost: 8
+  grilleCost: 4
   defaultTileCost: 1
+  spaceCost: 9999  # Space tiles (not in map) - very high cost makes them impassable
 

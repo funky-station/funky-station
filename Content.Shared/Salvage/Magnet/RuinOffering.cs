@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 terkala <appleorange64@gmail.com>
 //
 // SPDX-License-Identifier: MIT
 
@@ -10,5 +10,16 @@ namespace Content.Shared.Salvage.Magnet;
 public record struct RuinOffering : ISalvageMagnetOffering
 {
     public RuinMapPrototype RuinMap;
+    
+    /// <summary>
+    /// Generated name for the ruined station
+    /// </summary>
+    public string StationName;
+
+    public RuinOffering()
+    {
+        RuinMap = null!;
+        StationName = string.Empty;
+    }
 }
 

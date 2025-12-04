@@ -320,20 +320,21 @@ public sealed class SalvageRuinGeneratorSystem : EntitySystem
         var wallEntities = cachedData.WallEntities;
         var windowEntities = cachedData.WindowEntities;
 
-        // Find valid start location (retry up to 10 times)
-        var rand = new System.Random(seed);
-        var startPos = FindValidStartLocation(costMap, rand, maxRetries: 10);
-        if (!startPos.HasValue)
-        {
-            _sawmill.Error($"[SalvageRuinGenerator] Failed to find valid start location for map {mapPath} with seed {seed}");
-            return null;
-        }
-
         // Get configuration values (defaults if not provided)
         var floodFillPoints = config?.FloodFillPoints ?? 50;
         var wallDestroyChance = config?.WallDestroyChance ?? 0.0f;
         var windowDamageChance = config?.WindowDamageChance ?? 0.0f;
         var floorToLatticeChance = config?.FloorToLatticeChance ?? 0.0f;
+        var spaceCost = config?.SpaceCost ?? 99;
+
+        // Find valid start location (retry up to 10 times)
+        var rand = new System.Random(seed);
+        var startPos = FindValidStartLocation(costMap, rand, maxRetries: 10, spaceCost);
+        if (!startPos.HasValue)
+        {
+            _sawmill.Error($"[SalvageRuinGenerator] Failed to find valid start location for map {mapPath} with seed {seed}");
+            return null;
+        }
 
         _sawmill.Debug($"[SalvageRuinGenerator] Starting flood-fill at {startPos.Value} with budget {floodFillPoints}");
 
@@ -643,7 +644,13 @@ public sealed class SalvageRuinGeneratorSystem : EntitySystem
             "WallSolid",
             "WallReinforced",
             "WallReinforcedRust",
-            "WallSolidRust"
+            "WallSolidRust",
+            // Diagonal walls
+            "WallSolidDiagonal",
+            "WallReinforcedDiagonal",
+            "WallShuttleDiagonal",
+            "WallPlastitaniumDiagonal",
+            "WallMiningDiagonal",
         };
 
         foreach (var protoGroupNode in entitiesNode.Sequence.Cast<MappingDataNode>())
@@ -802,12 +809,17 @@ public sealed class SalvageRuinGeneratorSystem : EntitySystem
     {
         // Check for common window patterns
         var id = prototypeId.ToLowerInvariant();
-        return id.Contains("window", StringComparison.OrdinalIgnoreCase) &&
-               !id.Contains("windoor", StringComparison.OrdinalIgnoreCase); // Exclude windoors
+        
+        // Include windows, windoors, and firelocks
+        return (id.Contains("window", StringComparison.OrdinalIgnoreCase) ||
+                id.Contains("windoor", StringComparison.OrdinalIgnoreCase) ||
+                id.Contains("firelock", StringComparison.OrdinalIgnoreCase)) &&
+               !id.Contains("frame", StringComparison.OrdinalIgnoreCase) && // Exclude frames/assemblies
+               !id.Contains("assembly", StringComparison.OrdinalIgnoreCase);
     }
 
     /// <summary>
-    /// Builds a cost map from coordinate map. Space tiles (missing from map) get cost 99.
+    /// Builds a cost map from coordinate map. Space tiles (missing from map) get cost from config (default 99).
     /// Window and wall entities at positions get appropriate cost based on type.
     /// </summary>
     private Dictionary<Vector2i, int> BuildCostMap(Dictionary<Vector2i, string> coordinateMap, List<(Vector2i Position, string PrototypeId, Angle Rotation)> windowEntities, List<(Vector2i Position, string PrototypeId)> wallEntities, SalvageMagnetRuinConfigPrototype? config = null)
@@ -881,13 +893,44 @@ public sealed class SalvageRuinGeneratorSystem : EntitySystem
     {
         var id = prototypeId.ToLowerInvariant();
         
-        // Directional windows
+        // Firelocks (treated as reinforced barriers)
+        if (id.Contains("firelock", StringComparison.OrdinalIgnoreCase))
+        {
+            return config?.ReinforcedWindowCost ?? 4;
+        }
+        
+        // Windoors (secure windoors are reinforced, regular windoors are not)
+        if (id.Contains("windoor", StringComparison.OrdinalIgnoreCase))
+        {
+            if (id.Contains("secure", StringComparison.OrdinalIgnoreCase))
+                return config?.ReinforcedWindowCost ?? 4;
+            else
+                return config?.RegularWindowCost ?? 2;
+        }
+        
+        // Directional Reinforced windows (most expensive)
+        if (id.Contains("directional", StringComparison.OrdinalIgnoreCase) && 
+            id.Contains("reinforced", StringComparison.OrdinalIgnoreCase))
+        {
+            return config?.ReinforcedWindowCost ?? 4;
+        }
+        
+        // Directional windows (regular)
         if (id.Contains("directional", StringComparison.OrdinalIgnoreCase))
         {
             return config?.DirectionalWindowCost ?? 2;
         }
         
-        // Reinforced windows
+        // Diagonal windows (treated similar to directional)
+        if (id.Contains("diagonal", StringComparison.OrdinalIgnoreCase))
+        {
+            if (id.Contains("reinforced", StringComparison.OrdinalIgnoreCase))
+                return config?.ReinforcedWindowCost ?? 4;
+            else
+                return config?.DirectionalWindowCost ?? 2;
+        }
+        
+        // Reinforced windows (non-directional)
         if (id.Contains("reinforced", StringComparison.OrdinalIgnoreCase))
         {
             return config?.ReinforcedWindowCost ?? 4;
@@ -905,7 +948,9 @@ public sealed class SalvageRuinGeneratorSystem : EntitySystem
         return tileId.Equals("WallSolid", StringComparison.OrdinalIgnoreCase) ||
                tileId.Equals("WallReinforced", StringComparison.OrdinalIgnoreCase) ||
                tileId.Equals("WallReinforcedRust", StringComparison.OrdinalIgnoreCase) ||
-               tileId.Equals("WallSolidRust", StringComparison.OrdinalIgnoreCase);
+               tileId.Equals("WallSolidRust", StringComparison.OrdinalIgnoreCase) ||
+               tileId.Equals("WallSolidDiagonal", StringComparison.OrdinalIgnoreCase) ||
+               tileId.Equals("WallReinforcedDiagonal", StringComparison.OrdinalIgnoreCase);
     }
 
     /// <summary>
@@ -935,7 +980,7 @@ public sealed class SalvageRuinGeneratorSystem : EntitySystem
     /// <summary>
     /// Finds a valid start location (non-space tile) with retries.
     /// </summary>
-    private Vector2i? FindValidStartLocation(Dictionary<Vector2i, int> costMap, System.Random rand, int maxRetries)
+    private Vector2i? FindValidStartLocation(Dictionary<Vector2i, int> costMap, System.Random rand, int maxRetries, int spaceCost = 99)
     {
         if (costMap.Count == 0)
             return null;
@@ -947,13 +992,13 @@ public sealed class SalvageRuinGeneratorSystem : EntitySystem
             var pos = positions[rand.Next(positions.Count)];
             var cost = costMap[pos];
 
-            if (cost < 99)
+            if (cost < spaceCost)
                 return pos;
         }
 
         foreach (var (pos, cost) in costMap)
         {
-            if (cost < 99)
+            if (cost < spaceCost)
                 return pos;
         }
 

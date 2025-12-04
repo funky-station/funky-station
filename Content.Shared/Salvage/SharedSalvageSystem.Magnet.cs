@@ -49,6 +49,26 @@ public abstract partial class SharedSalvageSystem
         "ChunkDebris"
     };
 
+    /// <summary>
+    /// Generates a Nanotrasen-style station name for a ruin map.
+    /// Format: NT[MapCode]-[SuffixCode]-[Number]
+    /// Example: NTVG-LV-427
+    /// </summary>
+    private string GenerateRuinStationName(RuinMapPrototype ruinMap, System.Random rand)
+    {
+        // Extract a 2-letter code from the map name/ID
+        var mapCode = ruinMap.ID.Length >= 2 ? ruinMap.ID.Substring(0, 2).ToUpperInvariant() : "XX";
+        
+        // Nanotrasen suffix codes (same as NanotrasenNameGenerator)
+        var suffixCodes = new[] { "LV", "NX", "EV", "QT", "PR" };
+        var suffix = suffixCodes[rand.Next(suffixCodes.Length)];
+        
+        // Generate a random 3-digit number
+        var number = rand.Next(0, 999);
+        
+        return $"NT{mapCode}-{suffix}-{number:D3}";
+    }
+
     public ISalvageMagnetOffering GetSalvageOffering(int seed)
     {
         var rand = new System.Random(seed);
@@ -123,10 +143,14 @@ public abstract partial class SharedSalvageSystem
                 }
                 var ruinMapIndex = rand.Next(_ruinMaps.Count);
                 var ruinMap = _ruinMaps[ruinMapIndex];
+                
+                // Generate a station name for the ruin
+                var stationName = GenerateRuinStationName(ruinMap, rand);
 
                 return new RuinOffering
                 {
                     RuinMap = ruinMap,
+                    StationName = stationName,
                 };
             default:
                 throw new NotImplementedException($"Salvage type {type} not implemented!");

@@ -138,7 +138,8 @@ public sealed class SalvageMagnetBoundUserInterface : BoundUserInterface
                     option.AddContent(salvContainer);
                     break;
                 case RuinOffering ruin:
-                    option.Title = Loc.GetString("salvage-magnet-ruin");
+                    // Display as "The ruins of station [Name]"
+                    option.Title = Loc.GetString("salvage-magnet-ruin", ("stationName", ruin.StationName));
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();

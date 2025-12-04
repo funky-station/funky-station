@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 terkala <appleorange64@gmail.com>
 //
 // SPDX-License-Identifier: MIT
 
@@ -8,6 +8,7 @@ namespace Content.Shared.Salvage;
 
 /// <summary>
 /// Configuration for salvage magnet ruin generation, including damage simulation parameters.
+/// These are all overwritten by salvage_magnet_ruin_config.yml in the Resources/Prototypes/Procedural folder.
 /// </summary>
 [Prototype("salvageMagnetRuinConfig")]
 public sealed partial class SalvageMagnetRuinConfigPrototype : IPrototype
@@ -93,5 +94,13 @@ public sealed partial class SalvageMagnetRuinConfigPrototype : IPrototype
     /// </summary>
     [DataField]
     public int DefaultTileCost = 1;
+
+    /// <summary>
+    /// Path cost for space tiles (tiles not in the map).
+    /// Set to a very high value (99) to make flood-fill treat them as impassable.
+    /// Lower values would allow flood-fill to cross small gaps of space.
+    /// </summary>
+    [DataField]
+    public int SpaceCost = 9999;
 }
 

@@ -771,6 +771,7 @@
     radius: 2
     color: yellow
 
+
 - type: entity
   parent: [FlippoLighter, BaseMinorContraband]
   id: WaffleCoFlippo

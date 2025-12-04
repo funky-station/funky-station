@@ -13,5 +13,5 @@ uplink-pistol-magazine-large-incendiary-name = pistol magazine (.50 AE Incendiar
 uplink-pistol-magazine-large-incendiary-desc = .50 AE magazine compatible with the wyvern. For when you want to spice it up.
 
 # Pointless
-uplink-towel-syndicate-name = syndicate towel
+uplink-towel-syndicate-name = Syndicate Towel
 uplink-towel-syndicate-desc = A highly versatile, malicious-looking black towel. Has a meaner whip than most other towels. For the Syndicates's strongest shower warriors.

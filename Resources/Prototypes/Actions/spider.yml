@@ -3,6 +3,7 @@
 # SPDX-FileCopyrightText: 2023 PixelTK <85175107+PixelTheKermit@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2023 metalgearsloth <comedian_vs_clown@hotmail.com>
 # SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Drywink <43855731+Drywink@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Drywink <hugogrethen@gmail.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
@@ -43,3 +44,19 @@
     icon: _Funkystation/Interface/Actions/cocoon.png
     iconOn: _Funkystation/Interface/Actions/cocoon.png
     event: !type:WrapActionEvent {}
+
+- type: entity
+  id: ActionBite
+  name: Bite
+  description: Bite a target and inject them with a solution.
+  components:
+  - type: EntityTargetAction
+    whitelist:
+      components:
+      - Body
+    canTargetSelf: false
+    interactOnMiss: false
+    itemIconStyle: NoItem
+    icon: _Funkystation/Interface/Actions/bite.png
+    iconOn: _Funkystation/Interface/Actions/bite.png
+    event: !type:BiteActionEvent {}

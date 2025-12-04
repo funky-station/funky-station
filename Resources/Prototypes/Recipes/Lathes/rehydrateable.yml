@@ -130,6 +130,13 @@
     Biomass: 4
 
 - type: latheRecipe
+  id: SynthKidneys
+  result: BioSynthKidneys
+  completetime: 10
+  materials:
+    Biomass: 4
+
+- type: latheRecipe
   id: SynthLeftArm
   result: BioSynthLeftArm
   completetime: 10

@@ -25,6 +25,8 @@ using Content.Shared.Popups;
 using Content.Shared.Rotation;
 using Content.Shared.Species.Arachnid;
 using Content.Shared.Standing;
+using Content.Shared.Stunnable;
+using Content.Shared.Bed.Sleep;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
@@ -217,7 +219,12 @@ public sealed class CocoonSystem : SharedCocoonSystem
         // Only require hands if the entity has hands (spiders don't have hands)
         var needHand = HasComp<HandsComponent>(user);
 
-        var doAfter = new DoAfterArgs(EntityManager, user, TimeSpan.FromSeconds(component.WrapDuration), new WrapDoAfterEvent(), user, target)
+        var wrapTime = component.WrapDuration;
+        // Reduce DoAfter time if target is stunned or asleep
+        if (HasComp<StunnedComponent>(target) || HasComp<SleepingComponent>(target))
+            wrapTime = component.WrapDurationStunnedOrAsleep;
+
+        var doAfter = new DoAfterArgs(EntityManager, user, TimeSpan.FromSeconds(wrapTime), new WrapDoAfterEvent(), user, target)
         {
             BreakOnMove = true,
             BreakOnDamage = true,

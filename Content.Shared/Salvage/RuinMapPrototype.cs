@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 terkala <appleorange64@gmail.com>
 //
 // SPDX-License-Identifier: MIT
 
@@ -13,7 +13,7 @@ public sealed partial class RuinMapPrototype : IPrototype
     [ViewVariables] [IdDataField] public string ID { get; private set; } = default!;
 
     /// <summary>
-    /// Relative directory path to the given map, i.e. `/Maps/bagel.yml`
+    /// Relative directory path to the given map
     /// </summary>
     [DataField(required: true)] public ResPath MapPath;
 }

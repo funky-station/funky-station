@@ -146,6 +146,7 @@
 # SPDX-FileCopyrightText: 2024 youtissoum <51883137+youtissoum@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 88tv <131759102+88tv@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Crude Oil <124208219+CroilBird@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Drywink <43855731+Drywink@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Drywink <hugogrethen@gmail.com>
 # SPDX-FileCopyrightText: 2025 Dusty-Plant <34702649+Dusty-Plant@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Dusty_Plant <34702649+Dusty-Plant@users.noreply.github.com>
@@ -2800,6 +2801,12 @@
     wrapAction: ActionWrap
     wrapDuration: 10
     hungerCost: 30
+  - type: Bite
+    biteAction: ActionBite
+    cooldown: 90
+    actionDescription: bite-action-description-sleep
+    injectedReagents:
+      ChloralHydrate: 10
 
 - type: entity
   parent:

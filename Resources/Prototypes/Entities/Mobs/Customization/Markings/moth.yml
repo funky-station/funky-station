@@ -1277,7 +1277,7 @@
   - sprite: Mobs/Customization/Moth/moth_parts.rsi
     state: witchwing_r_arm
 
-# Plated
+# Plated - Delta-V
 - type: marking
   id: ChitinidChestPlated
   bodyPart: Chest
@@ -1305,7 +1305,7 @@
   - sprite: _DV/Mobs/Customization/Chitinid/chitinid_parts.rsi
     state: plated_r_arm
 
-# Stripes
+# Stripes - Delta-V
 - type: marking
   id: ChitinidChestStripes
   bodyPart: Chest
@@ -1360,7 +1360,7 @@
   - sprite: _DV/Mobs/Customization/Chitinid/chitinid_parts.rsi
     state: stripes_r_arm
 
-# Radiant
+# Radiant - Delta-V
 - type: marking
   id: ChitinidChestRadiant
   bodyPart: Chest
@@ -1415,7 +1415,7 @@
   - sprite: _DV/Mobs/Customization/Chitinid/chitinid_parts.rsi
     state: radiant_r_arm
 
-# Toxic
+# Toxic - Delta-V
 - type: marking
   id: ChitinidChestToxic
   bodyPart: Chest
@@ -1470,7 +1470,7 @@
   - sprite: _DV/Mobs/Customization/Chitinid/chitinid_parts.rsi
     state: toxic_r_arm
 
-# Spotted
+# Spotted - Delta-V
 - type: marking
   id: ChitinidChestSpotted
   bodyPart: Chest

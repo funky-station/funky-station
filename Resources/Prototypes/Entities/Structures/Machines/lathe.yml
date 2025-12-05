@@ -168,6 +168,7 @@
 # SPDX-FileCopyrightText: 2025 QueerCats <jansencheng3@gmail.com>
 # SPDX-FileCopyrightText: 2025 ScarKy0 <scarky0@onet.eu>
 # SPDX-FileCopyrightText: 2025 SigmaTheDragon <162711378+SigmaTheDragon@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Sofia Gilsanz <softie.gd@gmail.com>
 # SPDX-FileCopyrightText: 2025 SpaceCat~Chan <49094338+SpaceCat-Chan@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Speebro <speebro@notreal.com>
 # SPDX-FileCopyrightText: 2025 Steve <marlumpy@gmail.com>
@@ -1563,7 +1564,7 @@
     - ClothingUniformJumpsuitDetective
     - ClothingUniformJumpskirtDetective
     - ClothingUniformJumpsuitEngineering
-    - ClothingUniformJumpskirtEngineering
+    - ClothingUniformJumpsuitEngineeringOveralls
     - ClothingUniformJumpsuitSeniorEngineer
     - ClothingUniformJumpskirtSeniorEngineer
     - ClothingOuterVestHazard

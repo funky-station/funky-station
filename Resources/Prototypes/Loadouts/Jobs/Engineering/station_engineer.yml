@@ -5,6 +5,7 @@
 # SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 MaiaArai <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Mora <46364955+TrixxedHeart@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Sofia Gilsanz <softie.gd@gmail.com>
 # SPDX-FileCopyrightText: 2025 Teasq <Xerithin@gmail.com>
 # SPDX-FileCopyrightText: 2025 TrixxedHeart <46364955+TrixxedBit@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
@@ -72,7 +73,7 @@
 
 # Jumpsuit
 - type: loadout
-  id: StationEngineerJumpsuit
+  id: StationEngineerJumpsuitWhite
   equipment:
     jumpsuit: ClothingUniformJumpsuitEngineeringJumpsuit
   groupBy: "jumpsuit"
@@ -80,13 +81,13 @@
 - type: loadout
   id: StationEngineerJumpskirt
   equipment:
-    jumpsuit: ClothingUniformJumpsuitEngineeringJumpsuitTied
+    jumpsuit: ClothingUniformJumpskirtEngineering
   groupBy: "jumpskirt"
 
 - type: loadout
   id: StationEngineerHazardsuit
   equipment:
-    jumpsuit: ClothingUniformJumpsuitEngineeringBaggyHazard
+      jumpsuit: ClothingUniformJumpsuitEngineeringBaggyHazard
   groupBy: "jumpsuit"
 
 - type: loadout
@@ -99,7 +100,7 @@
   id: StationEngineerJumpsuitElectricianTied
   equipment:
     jumpsuit: ClothingUniformJumpskirtEngineeringElectricianTied
-  groupBy: "jumpskirt"
+  groupBy: "jumpsuit"
 
 - type: loadout
   id: StationEngineerJumpsuitTankTop
@@ -123,13 +124,43 @@
   groupBy: "jumpsuit"
 
 - type: loadout
+  id: StationEngineerJumpsuit
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitEngineering
+  groupBy: "coveralls"
+
+- type: loadout
+  id: StationEngineerOveralls
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitEngineeringOveralls
+  groupBy: "coveralls"
+
+- type: loadout
+  id: StationEngineerCoveralls
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitEngineeringCoveralls
+  groupBy: "coveralls"
+
+- type: loadout
+  id: StationEngineerRipley
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitEngineeringRipley
+  groupBy: "coveralls"
+
+- type: loadout
+  id: StationEngineerShirt
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitEngineeringShirt
+  groupBy: "coveralls"
+
+- type: loadout
   id: SeniorEngineerJumpsuit
   effects:
   - !type:GroupLoadoutEffect
     proto: SeniorEngineering
   equipment:
     jumpsuit: ClothingUniformJumpsuitSeniorEngineer
-  groupBy: "jumpsuit"
+  groupBy: "senior"
 
 - type: loadout
   id: SeniorEngineerJumpskirt
@@ -138,7 +169,7 @@
     proto: SeniorEngineering
   equipment:
     jumpsuit: ClothingUniformJumpskirtSeniorEngineer
-  groupBy: "jumpskirt"
+  groupBy: "senior"
 
 # Back
 - type: loadout

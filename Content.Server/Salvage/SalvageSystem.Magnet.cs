@@ -305,6 +305,18 @@ public sealed partial class SalvageSystem
         data.Comp.NextOffer = data.Comp.EndTime.Value;
         UpdateMagnetUIs(data);
 
+        // Get ruin configuration if this is a ruin offering (needed for placement later)
+        SalvageMagnetRuinConfigPrototype? ruinConfig = null;
+        if (offering is RuinOffering)
+        {
+            var ruinConfigId = new ProtoId<SalvageMagnetRuinConfigPrototype>("Default");
+            if (!_prototypeManager.TryIndex(ruinConfigId, out ruinConfig))
+            {
+                // Try to get first available config as fallback
+                ruinConfig = _prototypeManager.EnumeratePrototypes<SalvageMagnetRuinConfigPrototype>().FirstOrDefault();
+            }
+        }
+
         switch (offering)
         {
             case AsteroidOffering asteroid:
@@ -328,15 +340,6 @@ public sealed partial class SalvageSystem
 
                 break;
             case RuinOffering ruin:
-                // Get ruin configuration (default to "Default" if not specified)
-                var ruinConfigId = new ProtoId<SalvageMagnetRuinConfigPrototype>("Default");
-                SalvageMagnetRuinConfigPrototype? ruinConfig = null;
-                if (!_prototypeManager.TryIndex(ruinConfigId, out ruinConfig))
-                {
-                    // Try to get first available config as fallback
-                    ruinConfig = _prototypeManager.EnumeratePrototypes<SalvageMagnetRuinConfigPrototype>().FirstOrDefault();
-                }
-
                 // Generate single large ruin using multi-stage flood-fill
                 var ruinResult = _ruinGenerator.GenerateRuin(ruin.RuinMap.MapPath, seed, ruinConfig);
                 if (ruinResult == null)
@@ -527,7 +530,7 @@ public sealed partial class SalvageSystem
             }
 
             // Plan clustered placements
-            if (!PlanRuinPlacements(magnet, mapId, attachedBounds, ruinGridList, worldAngle, out var placements))
+            if (!PlanRuinPlacements(magnet, mapId, attachedBounds, ruinGridList, worldAngle, ruinConfig, out var placements))
             {
                 Report(magnet.Owner, MagnetChannel, "salvage-system-announcement-spawn-no-debris-available");
                 _mapSystem.DeleteMap(salvMapXform.MapID);
@@ -629,6 +632,7 @@ public sealed partial class SalvageSystem
         Box2Rotated attachedBounds,
         List<(Entity<MapGridComponent> Grid, Box2 Bounds)> ruins,
         Angle worldAngle,
+        SalvageMagnetRuinConfigPrototype? config,
         out List<(MapCoordinates Position, Angle Rotation)> placements)
     {
         placements = new List<(MapCoordinates, Angle)>();
@@ -640,8 +644,8 @@ public sealed partial class SalvageSystem
         var magnetPos = _transform.GetWorldPosition(magnet);
         var origin = attachedAABB.ClosestPoint(magnetPos);
         
-        // Place ruins 64 tiles away in the direction the magnet is facing
-        const float ruinSpawnDistance = 64f;
+        // Place ruins at configured distance away in the direction the magnet is facing
+        var ruinSpawnDistance = config?.RuinSpawnDistance ?? 64f;
         var fraction = 1.0f;
 
         var placedBounds = new List<Box2Rotated>();
@@ -882,10 +886,6 @@ public sealed partial class SalvageSystem
         // Check each floor tile in the ruin
         foreach (var (tilePos, tile) in ruinResult.FloorTiles)
         {
-            // Skip lattice tiles (they're space, don't put stuff there)
-            if (tile.TypeId == _tileDefinitionManager["Lattice"].TileId)
-                continue;
-            
             // Skip tiles designated for walls or windows
             if (wallPositions.Contains(tilePos) || windowPositions.Contains(tilePos))
                 continue;

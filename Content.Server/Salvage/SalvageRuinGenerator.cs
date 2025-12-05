@@ -1,6 +1,6 @@
 // SPDX-FileCopyrightText: 2025 terkala <appleorange64@gmail.com>
 //
-// SPDX-License-Identifier: AGPL-3.0-or-later or MIT
+// SPDX-License-Identifier: MIT
 
 using System;
 using System.Collections.Generic;
@@ -36,6 +36,7 @@ public sealed class SalvageRuinGeneratorSystem : EntitySystem
     [Dependency] private readonly ILogManager _logManager = default!;
 
     private ISawmill _sawmill = default!;
+    private bool _attemptedPrebuild = false;
 
     /// <summary>
     /// Cached map data for each ruin map. Built at server startup.
@@ -72,22 +73,39 @@ public sealed class SalvageRuinGeneratorSystem : EntitySystem
         base.Initialize();
         _sawmill = _logManager.GetSawmill("system.salvage");
         
-        // Subscribe to prototype reload events
+        // Subscribe to prototype reload events for hot reloading
         SubscribeLocalEvent<PrototypesReloadedEventArgs>(OnPrototypesReloaded);
+    }
+
+    public override void Update(float frameTime)
+    {
+        base.Update(frameTime);
         
-        // Try to pre-build cost maps (may be called before prototypes are loaded, which is fine)
-        // If prototypes aren't loaded yet, on-demand building will handle it
-        PrebuildCostMaps();
+        // Try to prebuild cost maps on first tick when all systems are guaranteed ready
+        if (!_attemptedPrebuild)
+        {
+            _attemptedPrebuild = true;
+            
+            var ruinMaps = _prototypeManager.EnumeratePrototypes<RuinMapPrototype>().ToList();
+            if (ruinMaps.Count > 0)
+            {
+                _sawmill.Info("[SalvageRuinGenerator] Building cost maps for ruin maps on first tick...");
+                PrebuildCostMaps();
+            }
+        }
     }
 
     private void OnPrototypesReloaded(PrototypesReloadedEventArgs args)
     {
-        // If this is the first time prototypes are loaded, or if RuinMapPrototype was modified, rebuild cost maps
-        if (_cachedMapData.Count == 0 || args.WasModified<RuinMapPrototype>())
+        // Build cost maps when prototypes are first loaded, or rebuild if RuinMapPrototype was modified
+        var isFirstLoad = _cachedMapData.Count == 0;
+        var wasModified = args.WasModified<RuinMapPrototype>();
+        
+        if (isFirstLoad || wasModified)
         {
-            if (_cachedMapData.Count == 0)
+            if (isFirstLoad)
             {
-                _sawmill.Info("[SalvageRuinGenerator] Prototypes loaded, building cost maps for ruin maps...");
+                _sawmill.Info("[SalvageRuinGenerator] Prototypes loaded for first time, building cost maps for ruin maps...");
             }
             else
             {
@@ -306,13 +324,14 @@ public sealed class SalvageRuinGeneratorSystem : EntitySystem
         // Get cached map data
         if (!_cachedMapData.TryGetValue(mapPath, out var cachedData))
         {
-            _sawmill.Error($"[SalvageRuinGenerator] No cached cost map found for {mapPath}. Attempting to build it now...");
-            // Try to build it on-demand (shouldn't happen, but handle gracefully)
+            _sawmill.Info($"[SalvageRuinGenerator] Building cost map for {mapPath} on-demand...");
+            // Build it on-demand (this is normal on first use if cache wasn't built at startup)
             if (!BuildCostMapForMap(mapPath) || !_cachedMapData.TryGetValue(mapPath, out cachedData))
             {
                 _sawmill.Error($"[SalvageRuinGenerator] Failed to build cost map for {mapPath}");
                 return null;
             }
+            _sawmill.Info($"[SalvageRuinGenerator] Successfully built cost map for {mapPath} on-demand");
         }
 
         var costMap = cachedData.CostMap;
@@ -327,6 +346,7 @@ public sealed class SalvageRuinGeneratorSystem : EntitySystem
         var windowDamageChance = config?.WindowDamageChance ?? 0.0f;
         var floorToLatticeChance = config?.FloorToLatticeChance ?? 0.0f;
         var spaceCost = config?.SpaceCost ?? 99;
+        var defaultTileCost = config?.DefaultTileCost ?? 1;
 
         // Find valid start location (retry up to 10 times)
         var rand = new System.Random(seed);
@@ -346,7 +366,7 @@ public sealed class SalvageRuinGeneratorSystem : EntitySystem
         allBlockingPositions.UnionWith(windowPositions);
 
         // Perform multi-stage flood-fill
-        var region = FloodFillMultiStage(costMap, startPos.Value, floodFillStages, floodFillPoints, allBlockingPositions, rand, spaceCost);
+        var region = FloodFillMultiStage(costMap, startPos.Value, floodFillStages, floodFillPoints, allBlockingPositions, rand, spaceCost, defaultTileCost);
         if (region.Count == 0)
         {
             _sawmill.Error($"[SalvageRuinGenerator] Flood-fill returned empty region for map {mapPath} with seed {seed}");
@@ -551,6 +571,8 @@ public sealed class SalvageRuinGeneratorSystem : EntitySystem
     {
         var coordinateMap = new Dictionary<Vector2i, string>();
 
+        _sawmill.Debug($"[SalvageRuinGenerator] ParseChunks: Processing {chunksNode.Children.Count} chunks with chunk size {chunkSize}");
+
         foreach (var (chunkIndexKey, chunkValueNode) in chunksNode.Children)
         {
             var chunkIndexStr = chunkIndexKey;
@@ -570,7 +592,10 @@ public sealed class SalvageRuinGeneratorSystem : EntitySystem
             }
 
             if (!chunkNode.TryGet("tiles", out ValueDataNode? tilesNode))
+            {
+                _sawmill.Warning($"[SalvageRuinGenerator] Chunk {chunkIndexStr} missing 'tiles' data");
                 continue;
+            }
 
             int version = 7;
             if (chunkNode.TryGet("version", out ValueDataNode? versionNode))
@@ -589,6 +614,7 @@ public sealed class SalvageRuinGeneratorSystem : EntitySystem
             using var stream = new MemoryStream(tileBytes);
             using var reader = new BinaryReader(stream);
 
+            var tilesAddedInChunk = 0;
             for (ushort y = 0; y < chunkSize; y++)
             {
                 for (ushort x = 0; x < chunkSize; x++)
@@ -625,11 +651,16 @@ public sealed class SalvageRuinGeneratorSystem : EntitySystem
                     if (tileDef.TileId != 0)
                     {
                         coordinateMap[worldPos] = tileDef.ID;
+                        tilesAddedInChunk++;
                     }
                 }
             }
+            
+            if (tilesAddedInChunk == 0)
+                _sawmill.Warning($"[SalvageRuinGenerator] Chunk {chunkX},{chunkY} produced no valid tiles");
         }
 
+        _sawmill.Debug($"[SalvageRuinGenerator] ParseChunks: Produced {coordinateMap.Count} tiles total");
         return coordinateMap;
     }
 
@@ -1133,8 +1164,9 @@ public sealed class SalvageRuinGeneratorSystem : EntitySystem
     /// Performs multi-stage cost-based flood-fill, creating irregular branching shapes.
     /// Each stage starts from a random tile adjacent to the previous stages' results,
     /// ensuring connectivity while creating organic, branching ruin structures.
+    /// Prioritizes low-cost tiles (floors) for stage starting positions.
     /// </summary>
-    private HashSet<Vector2i> FloodFillMultiStage(Dictionary<Vector2i, int> costMap, Vector2i start, int stagesCount, int budgetPerStage, HashSet<Vector2i> wallPositions, System.Random rand, int spaceCost)
+    private HashSet<Vector2i> FloodFillMultiStage(Dictionary<Vector2i, int> costMap, Vector2i start, int stagesCount, int budgetPerStage, HashSet<Vector2i> wallPositions, System.Random rand, int spaceCost, int defaultTileCost)
     {
         var result = new HashSet<Vector2i>();
         var visited = new HashSet<Vector2i>();
@@ -1242,10 +1274,14 @@ public sealed class SalvageRuinGeneratorSystem : EntitySystem
             _sawmill.Debug($"[SalvageRuinGenerator] Stage {stage + 1}/{stagesCount}: Added {stageResult.Count} tiles, {adjacentWithWalls.Count} adjacent walls");
 
             // Pick next start position from tiles directly adjacent to current result
+            // Prioritize low-cost tiles (floors) over high-cost tiles (walls/windows) for better expansion
             if (stage < stagesCount - 1)
             {
-                // Build list of valid tiles adjacent to the current result
-                var adjacentUnvisited = new List<Vector2i>();
+                
+                // Build lists of adjacent unvisited tiles, grouped by cost priority
+                var lowCostTiles = new List<Vector2i>();      // defaultTileCost tiles (floors)
+                var mediumCostTiles = new List<Vector2i>();   // Medium cost tiles (windows, grilles)
+                var highCostTiles = new List<Vector2i>();     // High cost tiles (walls)
                 
                 foreach (var pos in result)
                 {
@@ -1267,23 +1303,48 @@ public sealed class SalvageRuinGeneratorSystem : EntitySystem
                         if (!costMap.TryGetValue(neighbor, out var neighborCost))
                             continue;
 
-                        if (neighborCost < spaceCost && !adjacentUnvisited.Contains(neighbor))
+                        if (neighborCost >= spaceCost)
+                            continue;
+
+                        // Group by cost priority
+                        if (neighborCost <= defaultTileCost)
                         {
-                            adjacentUnvisited.Add(neighbor);
+                            if (!lowCostTiles.Contains(neighbor))
+                                lowCostTiles.Add(neighbor);
+                        }
+                        else if (neighborCost <= 5)
+                        {
+                            if (!mediumCostTiles.Contains(neighbor))
+                                mediumCostTiles.Add(neighbor);
+                        }
+                        else
+                        {
+                            if (!highCostTiles.Contains(neighbor))
+                                highCostTiles.Add(neighbor);
                         }
                     }
                 }
 
-                if (adjacentUnvisited.Count > 0)
+                // Select from priority groups: low cost first, then medium, then high
+                if (lowCostTiles.Count > 0)
                 {
-                    // Pick random adjacent unvisited tile
-                    currentStart = adjacentUnvisited[rand.Next(adjacentUnvisited.Count)];
-                    _sawmill.Debug($"[SalvageRuinGenerator] Stage {stage + 1} complete, starting stage {stage + 2} from adjacent tile {currentStart} ({adjacentUnvisited.Count} candidates)");
+                    currentStart = lowCostTiles[rand.Next(lowCostTiles.Count)];
+                    _sawmill.Debug($"[SalvageRuinGenerator] Stage {stage + 1} complete, starting stage {stage + 2} from low-cost tile {currentStart} ({lowCostTiles.Count} low-cost candidates)");
+                }
+                else if (mediumCostTiles.Count > 0)
+                {
+                    currentStart = mediumCostTiles[rand.Next(mediumCostTiles.Count)];
+                    _sawmill.Debug($"[SalvageRuinGenerator] Stage {stage + 1} complete, starting stage {stage + 2} from medium-cost tile {currentStart} ({mediumCostTiles.Count} medium-cost candidates)");
+                }
+                else if (highCostTiles.Count > 0)
+                {
+                    currentStart = highCostTiles[rand.Next(highCostTiles.Count)];
+                    _sawmill.Debug($"[SalvageRuinGenerator] Stage {stage + 1} complete, starting stage {stage + 2} from high-cost tile {currentStart} ({highCostTiles.Count} high-cost candidates)");
                 }
                 else
                 {
-                    // No adjacent tiles available, stop early
-                    _sawmill.Debug($"[SalvageRuinGenerator] Stage {stage + 1} complete, no adjacent unvisited tiles available, stopping early");
+                    // No adjacent tiles available, stop early (map exhausted)
+                    _sawmill.Debug($"[SalvageRuinGenerator] Stage {stage + 1} complete, no adjacent unvisited tiles available (map exhausted), stopping early after {stage + 1} stages");
                     break;
                 }
             }

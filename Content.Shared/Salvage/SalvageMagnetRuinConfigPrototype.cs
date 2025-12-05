@@ -109,5 +109,12 @@ public sealed partial class SalvageMagnetRuinConfigPrototype : IPrototype
     /// </summary>
     [DataField]
     public int FloodFillStages = 5;
+
+    /// <summary>
+    /// Distance (in tiles) at which ruins spawn from the salvage magnet.
+    /// Ruins spawn this distance away in the direction the magnet is facing.
+    /// </summary>
+    [DataField]
+    public float RuinSpawnDistance = 64f;
 }
 

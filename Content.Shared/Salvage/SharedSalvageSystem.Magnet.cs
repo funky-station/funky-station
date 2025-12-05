@@ -3,6 +3,7 @@
 // SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
 // SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 terkala <appleorange64@gmail.com>
 //
 // SPDX-License-Identifier: MIT
 
@@ -25,11 +26,10 @@ public abstract partial class SharedSalvageSystem
 
     private readonly Dictionary<ISalvageMagnetOffering, float> _offeringWeights = new()
     {
-        //Only disabled for testing purposes
-        //{ new AsteroidOffering(), 4.5f },
-        //{ new DebrisOffering(), 3.5f },
-        //{ new SalvageOffering(), 2.0f },
-        { new RuinOffering(), 2.0f }
+        { new AsteroidOffering(), 4.5f },
+        { new RuinOffering(), 3.5f },
+        { new SalvageOffering(), 2.0f }
+        //{ new DebrisOffering(), 3.5f } // disabled due to ruins replacing debris
     };
 
     private readonly List<ProtoId<DungeonConfigPrototype>> _asteroidConfigs = new()

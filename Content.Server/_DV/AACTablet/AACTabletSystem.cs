@@ -4,6 +4,8 @@ using Content.Shared._DV.AACTablet;
 using Content.Shared.IdentityManagement;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
+using Content.Server.Popups; // imp
+using Content.Shared.Abilities.Mime; // imp
 
 namespace Content.Server._DV.AACTablet;
 
@@ -12,6 +14,7 @@ public sealed class AACTabletSystem : EntitySystem
     [Dependency] private readonly ChatSystem _chat = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IPrototypeManager _prototype = default!;
+    [Dependency] private readonly PopupSystem _popupSystem = default!; // imp
 
     private readonly List<string> _localisedPhrases = [];
 
@@ -28,6 +31,13 @@ public sealed class AACTabletSystem : EntitySystem
         if (ent.Comp.NextPhrase > _timing.CurTime || message.PhraseIds.Count > MaxPhrases)
             return;
 
+        // imp start
+        if (TryComp<MimePowersComponent>(message.Actor, out var comp) && comp.Enabled)
+        {
+            _popupSystem.PopupEntity(Loc.GetString("mime-cant-use-AAC-tablet"), message.Actor, message.Actor);
+            return;
+        }
+        // imp end
         var senderName = Identity.Entity(message.Actor, EntityManager);
         var speakerName = Loc.GetString("speech-name-relay",
             ("speaker", Name(ent)),

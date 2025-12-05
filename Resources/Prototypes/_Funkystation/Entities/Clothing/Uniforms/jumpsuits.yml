@@ -1,6 +1,7 @@
 # SPDX-FileCopyrightText: 2025 Fr0goo <153249069+Fr0goo@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Fr0goo <frogoofrog@outlook.com>
 # SPDX-FileCopyrightText: 2025 MaiaArai <158123176+YaraaraY@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Sofia Gilsanz <softie.gd@gmail.com>
 # SPDX-FileCopyrightText: 2025 ThatOneMoon <91613003+ThatOneMoon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
 # SPDX-FileCopyrightText: 2025 Xcybitt <xcybitt@gmail.com>
@@ -270,6 +271,7 @@
     sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/magistrateturtleneck.rsi
   - type: Clothing
     sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/magistrateturtleneck.rsi
+    
 
 # cargo shirt! (by AraiMaia)
 
@@ -524,7 +526,7 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitEngineeringJumpsuit
-  name: engineering jumpsuit
+  name: white engineering jumpsuit
   description: A comfortable jumpsuit, breatheable but durable. You have a feeling it isn't as durable as it looks.
   components:
   - type: Sprite
@@ -555,3 +557,48 @@
     sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/cargoshorts.rsi
   - type: Clothing
     sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/cargoshorts.rsi
+
+# Engineering uniforms (by aCalicoDragon)
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitEngineeringOveralls
+  name: engineer's overalls
+  description: Comfortable for work, yet so stylish!
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/engineering_overalls.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/engineering_overalls.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitEngineeringCoveralls
+  name: engineer's coveralls
+  description: Nice and simple, still effective!
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/engineering_coveralls.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/engineering_coveralls.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitEngineeringRipley
+  name: engineer's coveralls with patch
+  description: You are my lucky star...
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/engineering_ripley.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/engineering_ripley.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitEngineeringShirt
+  name: engineer's shirt with pants
+  description: And we all lift, and we're all adrift, together...
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/engineering_shirt.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/engineering_shirt.rsi

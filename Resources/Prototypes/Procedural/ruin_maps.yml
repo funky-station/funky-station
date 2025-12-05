@@ -7,20 +7,20 @@
 
 - type: ruinMap
   id: Bagel
-  mapPath: /Maps/_funkystation/bagel.yml
+  mapPath: /Maps/_Funkystation/bagel.yml
 
 - type: ruinMap
   id: Box
-  mapPath: /Maps/_funkystation/box.yml
+  mapPath: /Maps/_Funkystation/box.yml
 
 - type: ruinMap
   id: Core
-  mapPath: /Maps/_funkystation/core.yml
+  mapPath: /Maps/_Funkystation/core.yml
 
 - type: ruinMap
   id: Court
-  mapPath: /Maps/_funkystation/court.yml
+  mapPath: /Maps/_Funkystation/court.yml
 
 - type: ruinMap
   id: Fland
-  mapPath: /Maps/_funkystation/fland.yml
+  mapPath: /Maps/_Funkystation/fland.yml

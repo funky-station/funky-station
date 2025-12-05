@@ -25,9 +25,9 @@
   description: Heavy-duty PPE worn by Chemists. For when some intern spills your entire jug of diphenhydramine.
   components:
   - type: Sprite
-    sprite: _FunkyStation/Clothing/Shoes/Misc/chemistry.rsi
+    sprite: _Funkystation/Clothing/Shoes/Misc/chemistry.rsi
   - type: Clothing
-    sprite: _FunkyStation/Clothing/Shoes/Misc/chemistry.rsi
+    sprite: _Funkystation/Clothing/Shoes/Misc/chemistry.rsi
   - type: NoSlip
   - type: SlowedOverSlippery
     slowdownModifier: 0.7

@@ -16,9 +16,10 @@ public sealed class WordleUiState : BoundUserInterfaceState
     public bool GameWon;
     public bool GameLost;
     public string? SecretWord;
+    public bool InvalidWordError;
 
     public WordleUiState(string currentGuess, List<string> previousGuesses, List<List<int>> letterStates,
-        int attemptsRemaining, bool gameWon, bool gameLost, string? secretWord = null)
+        int attemptsRemaining, bool gameWon, bool gameLost, string? secretWord = null, bool invalidWordError = false)
     {
         CurrentGuess = currentGuess;
         PreviousGuesses = previousGuesses;
@@ -27,5 +28,6 @@ public sealed class WordleUiState : BoundUserInterfaceState
         GameWon = gameWon;
         GameLost = gameLost;
         SecretWord = secretWord;
+        InvalidWordError = invalidWordError;
     }
 }

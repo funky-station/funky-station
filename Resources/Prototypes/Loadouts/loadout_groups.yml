@@ -57,6 +57,7 @@
 # SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+Princess-Cheeseballs@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 RadsammyT <32146976+RadsammyT@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 SigmaTheDragon <162711378+SigmaTheDragon@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Sofia Gilsanz <softie.gd@gmail.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 Teasq <Xerithin@gmail.com>
 # SPDX-FileCopyrightText: 2025 ThatOneMoon <91613003+ThatOneMoon@users.noreply.github.com>
@@ -1205,8 +1206,11 @@
   name: loadout-group-station-engineer-jumpsuit
   loadouts:
   - StationEngineerJumpsuit
-  - StationEngineerJumpskirt
-  - StationEngineerHazardsuit
+  - StationEngineerJumpsuitWhite
+  - StationEngineerOveralls
+  - StationEngineerCoveralls
+  - StationEngineerRipley
+  - StationEngineerShirt
   - StationEngineerJumpsuitElectrician
   - StationEngineerJumpsuitElectricianTied
   - StationEngineerJumpsuitTankTop

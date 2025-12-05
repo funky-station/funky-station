@@ -36,3 +36,24 @@
   - type: Clothing
     sprite: _Funkystation/Clothing/Mask/juggleclown.rsi
 
+- type: entity
+  parent: ClothingMaskMime
+  id: ClothingMaskOddMime
+  name: odd mime mask
+  description: Something about this mask just feels... odd. You can't quite place why.
+  components:
+  - type: Sprite
+    sprite: Clothing/Mask/oddmime.rsi
+  - type: Clothing
+    sprite: Clothing/Mask/oddmime.rsi
+
+- type: entity
+  parent: ClothingMaskMime
+  id: ClothingMaskSecurityMime
+  name: security mime mask
+  description: The silent treatment is now an official security protocol.
+  components:
+  - type: Sprite
+    sprite: Clothing/Mask/securitymime.rsi
+  - type: Clothing
+    sprite: Clothing/Mask/securitymime.rsi

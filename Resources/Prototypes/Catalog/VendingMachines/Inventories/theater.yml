@@ -95,6 +95,7 @@
     ClothingOuterDameDane: 2
     ClothingOuterClownPriest: 1
     ClothingMaskMime: 1 # Funky
+    ClothingMaskOddMime: 1 # Funky
     ClothingMaskClown: 1 # Funky
     ClothingMaskSadMime: 1
     ClothingMaskClownDevil: 1

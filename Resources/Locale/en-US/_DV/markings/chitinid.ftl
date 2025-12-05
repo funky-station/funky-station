@@ -46,31 +46,11 @@ marking-ChitinidWingsStubby = Tail (Stubby)
 
 marking-ChitinidWingsBee-bee_primary = Primary
 marking-ChitinidWingsBee-bee_secondary = Secondary
-marking-ChitinidWingsBee = Tail (Bee)
+marking-ChitinidWingsBee = Tail (Honeybee)
 
 marking-ChitinidWingsFirefly-firefly_primary = Primary
 marking-ChitinidWingsFirefly-firefly_secondary = Secondary
 marking-ChitinidWingsFirefly = Tail (Firefly)
-
-
-
-marking-ChitinidChestCharred-charred_chest = Chest
-marking-ChitinidChestCharred = Chitinid Chest (Charred)
-
-marking-ChitinidHeadCharred-charred_head = Head
-marking-ChitinidHeadCharred = Chitinid Head (Charred)
-
-marking-ChitinidLLegCharred-charred_l_leg =  Left Leg
-marking-ChitinidLLegCharred = Chitinid Left Leg (Charred)
-
-marking-ChitinidRLegCharred-charred_r_leg = Right Leg
-marking-ChitinidRLegCharred = Chitinid Right Leg (Charred)
-
-marking-ChitinidLArmCharred-charred_l_arm = Left Arm
-marking-ChitinidLArmCharred = Chitinid Left Arm (Charred)
-
-marking-ChitinidRArmCharred-charred_r_arm = Right Arm
-marking-ChitinidRArmCharred = Chitinid Right Arm (Charred)
 
 
 
@@ -128,7 +108,7 @@ marking-ChitinidRArmRadiant = Chitinid Right Arm (Radiant)
 marking-ChitinidChestToxic-toxic_chest = Chest
 marking-ChitinidChestToxic = Chitinid Chest (Toxic)
 
-marking-ChitinidHeadToxic-toxic_head = Head 
+marking-ChitinidHeadToxic-toxic_head = Head
 marking-ChitinidHeadToxic = Chitinid Head (Toxic)
 
 marking-ChitinidLLegToxic-toxic_l_leg = Left Leg

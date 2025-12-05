@@ -32,30 +32,6 @@
             "directions": 4
         },
         {
-            "name": "charred_head",
-            "directions": 4
-        },
-        {
-            "name": "charred_chest",
-            "directions": 4
-        },
-        {
-            "name": "charred_r_arm",
-            "directions": 4
-        },
-        {
-            "name": "charred_l_arm",
-            "directions": 4
-        },
-        {
-            "name": "charred_r_leg",
-            "directions": 4
-        },
-        {
-          "name": "charred_l_leg",
-          "directions": 4
-        },
-        {
             "name": "radiant_head",
             "directions": 4
         },

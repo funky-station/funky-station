@@ -12,3 +12,15 @@
     sprite: _Funkystation/Clothing/Head/Misc/scarymask.rsi
   - type: Clothing
     sprite: _Funkystation/Clothing/Head/Misc/scarymask.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadFaceshield
+  name: face shield
+  description: A medical face shield meant to further impede infection vectors. Holding this makes you feel uneasy.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Head/Misc/faceshield.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Head/Misc/faceshield.rsi
+  - type: IngestionBlocker

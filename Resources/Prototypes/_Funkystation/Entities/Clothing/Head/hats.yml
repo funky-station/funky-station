@@ -91,3 +91,16 @@
   - type: Tag
     tags:
     - WhitelistChameleon
+
+# Surgery cap
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatSurgcapBlack
+  name: coroner cap
+  description: A black cap worn by coroners. Makes you look as dreary as your workplace.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Head/Hats/surgcap_black.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Head/Hats/surgcap_black.rsi

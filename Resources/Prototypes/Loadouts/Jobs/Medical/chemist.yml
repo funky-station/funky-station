@@ -45,6 +45,23 @@
   equipment:
     outerClothing: ClothingOuterWinterChem
 
+- type: loadout
+  id: ChemistApron
+  equipment:
+    outerClothing: ClothingOuterApronBar
+
+# Gloves
+- type: loadout
+  id: ChemistGloves
+  equipment:
+    gloves: ClothingHandsGlovesChemist
+
+# Shoes
+- type: loadout
+  id: ChemistBoots
+  equipment:
+    shoes: ClothingShoesChemistryBoots
+
 #Eyes - Funky
 - type: loadout
   id: MedicalChemistNormGlasses

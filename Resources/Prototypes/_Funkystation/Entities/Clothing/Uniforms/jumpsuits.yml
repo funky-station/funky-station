@@ -271,7 +271,7 @@
     sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/magistrateturtleneck.rsi
   - type: Clothing
     sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/magistrateturtleneck.rsi
-    
+
 
 # cargo shirt! (by AraiMaia)
 
@@ -602,3 +602,15 @@
     sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/engineering_shirt.rsi
   - type: Clothing
     sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/engineering_shirt.rsi
+
+# Medical Custodian (By AraiMaia)
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitMedicalCustodian
+  name: medical custodian jumpsuit
+  description: A cute jumpsuit worn by medical custodians. It's perfect for running from one end of the Medbay to the other, over and over.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/medicalcustodian.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/medicalcustodian.rsi

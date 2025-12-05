@@ -15,3 +15,22 @@
     sprite: _Funkystation/Clothing/Shoes/Boots/redperformer.rsi
   - type: Clothing
     sprite: _Funkystation/Clothing/Shoes/Boots/redperformer.rsi
+
+# Chem Boots!
+
+- type: entity
+  parent: [ ClothingShoesBase, BaseMedicalContraband ]
+  id: ClothingShoesChemistryBoots
+  name: heavy-duty chemistry boots
+  description: Heavy-duty PPE worn by Chemists. For when some intern spills your entire jug of diphenhydramine.
+  components:
+  - type: Sprite
+    sprite: _FunkyStation/Clothing/Shoes/Misc/chemistry.rsi
+  - type: Clothing
+    sprite: _FunkyStation/Clothing/Shoes/Misc/chemistry.rsi
+  - type: NoSlip
+  - type: SlowedOverSlippery
+    slowdownModifier: 0.7
+  - type: SpeedModifierContactCapClothing
+    maxContactSprintSlowdown: 0.7
+    maxContactWalkSlowdown: 0.7

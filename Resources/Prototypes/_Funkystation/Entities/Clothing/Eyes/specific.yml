@@ -26,3 +26,16 @@
     - type: ShowJobIcons
     - type: FlashImmunity
 
+- type: entity
+  parent: [ClothingEyesBase, ShowMedicalIcons]
+  id: ClothingEyesHudMedicalMonocle
+  name: head-mounted surgical microscope
+  description: A magnifying monocle mounted to the head, designed for the microscopic precision required in surgery.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Eyes/Hud/medmonocle.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Eyes/Hud/medmonocle.rsi
+  - type: Tag
+    tags:
+    - HudMedical

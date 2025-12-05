@@ -29,5 +29,7 @@
       - material: CableHV
         amount: 2
         doAfter: 1
+      - material: Plasteel
+        amount: 2
   - node: tsword
     entity: ImprovisedEnergySword

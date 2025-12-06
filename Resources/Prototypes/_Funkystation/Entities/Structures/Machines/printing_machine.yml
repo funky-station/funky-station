@@ -1,0 +1,54 @@
+- type: entity
+  parent: BaseMachinePowered
+  id: PrintingMachineBase
+  name: printing machine
+  description: Bureaucracy just got an upgrade.
+  components:
+    - type: Sprite
+      sprite: Structures/Machines/fax_machine.rsi
+      drawdepth: SmallObjects
+      layers:
+        - state: icon
+          map: [ "enum.FaxMachineVisuals.VisualState" ]
+    - type: Icon
+      sprite: Structures/Machines/fax_machine.rsi
+      state: icon
+    - type: Appearance
+    - type: Physics
+      bodyType: Static
+    - type: Fixtures
+      fixtures:
+        fix1:
+          shape:
+            !type:PhysShapeAabb
+            bounds: "-0.25,-0.25,0.25,0.25"
+          density: 25
+          mask:
+            - TabletopMachineMask
+          layer:
+            - TabletopMachineLayer
+    - type: ActivatableUI
+      key: enum.PrintingDeviceUiKey.Key
+    - type: ActivatableUIRequiresPower
+    - type: UserInterface
+      interfaces:
+        enum.PrintingDeviceUiKey.Key:
+          type: PrintingDeviceBoundUi
+    - type: StationAiWhitelist
+    - type: ApcPowerReceiver
+      powerLoad: 250
+    - type: Faxecute
+      damage:
+        types:
+          Blunt: 100
+    - type: PrintingDevice
+    - type: GenericVisualizer
+      visuals:
+        enum.PowerDeviceVisuals.Powered:
+          enum.FaxMachineVisuals.VisualState:
+            True: { state: idle }
+            False: { state: icon }
+    - type: ContainerContainer
+      containers:
+        Paper: !type:ContainerSlot
+    - type: RequireProjectileTarget

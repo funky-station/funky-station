@@ -132,7 +132,17 @@
     accent-french-words-83: accent-french-words-replace-83
     accent-french-words-84: accent-french-words-replace-84
     accent-french-words-85: accent-french-words-replace-85
-    accent-french-words-85-1: accent-french-words-replace-85
+    accent-french-words-85-2: accent-french-words-replace-85
+    accent-french-words-86: accent-french-words-replace-86
+    accent-french-words-86-2: accent-french-words-replace-86
+    accent-french-words-87: accent-french-words-replace-87
+    accent-french-words-87-2: accent-french-words-replace-87
+    accent-french-words-88: accent-french-words-replace-88
+    accent-french-words-88-2: accent-french-words-replace-88
+    accent-french-words-88-3: accent-french-words-replace-88
+    accent-french-words-89: accent-french-words-replace-89
+    accent-french-words-89-2: accent-french-words-replace-89
+    accent-french-words-90: accent-french-words-replace-90
 
 - type: accent # This is just for "ze" and "wat".
   id: germanaccent
@@ -322,7 +332,7 @@
     accent-british-words-99: accent-british-replacement-99
     accent-british-words-100-1: accent-british-replacement-99
     accent-british-words-100-2: accent-british-replacement-100
-    
+
 - type: accent
   id: cak0spaces
   wordReplacements:

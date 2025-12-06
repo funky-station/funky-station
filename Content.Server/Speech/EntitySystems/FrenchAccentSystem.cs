@@ -22,16 +22,16 @@ public sealed class FrenchAccentSystem : EntitySystem
 
     private static readonly Regex RegexThLower = new(@"th");
     private static readonly Regex RegexThUpper = new(@"T(?i)h");
-    private static readonly Regex RegexStartH = new(@"(?<!\w)h", RegexOptions.IgnoreCase);
+    private static readonly Regex RegexStartH = new(@"(?<!\w)h(?!m)(?!uh\W)", RegexOptions.IgnoreCase);
     private static readonly Regex RegexSpacePunctuation = new(@"(?<=\w\w)[!?;:](?!\w)", RegexOptions.IgnoreCase);
-    private static readonly Regex RegexEndErLower = new(@"(?<=\w)er(?!\w)");
-    private static readonly Regex RegexEndErsLower = new(@"(?<=\w)ers(?!\w)");
-    private static readonly Regex RegexEndErUpper = new(@"(?<=\w)ER(?!\w)");
-    private static readonly Regex RegexEndErsUpper = new(@"(?<=\w)ERS(?!\w)");
-    private static readonly Regex RegexEndOrLower = new(@"(?<=\w)or(?!\w)");
-    private static readonly Regex RegexEndOrsLower = new(@"(?<=\w)ors(?!\w)");
-    private static readonly Regex RegexEndOrUpper = new(@"(?<=\w)OR(?!\w)");
-    private static readonly Regex RegexEndOrsUpper = new(@"(?<=\w)ORS(?!\w)");
+    private static readonly Regex RegexEndErLower = new(@"(?<=\w)(?<!e)er(?!\w)");
+    private static readonly Regex RegexEndErsLower = new(@"(?<=\w)(?<!e)ers(?!\w)");
+    private static readonly Regex RegexEndErUpper = new(@"(?<=\w)(?<!E)ER(?!\w)");
+    private static readonly Regex RegexEndErsUpper = new(@"(?<=\w)(?<!E)ERS(?!\w)");
+    private static readonly Regex RegexEndOrLower = new(@"(?<=\w)(?<!o)or(?!\w)");
+    private static readonly Regex RegexEndOrsLower = new(@"(?<=\w)(?<!o)ors(?!\w)");
+    private static readonly Regex RegexEndOrUpper = new(@"(?<=\w)(?<!O)OR(?!\w)");
+    private static readonly Regex RegexEndOrsUpper = new(@"(?<=\w)(?<!O)ORS(?!\w)");
     private static readonly Regex RegexEndVLower = new(@"(?<=\w)v(?!\w)");
     private static readonly Regex RegexEndVsLower = new(@"(?<=\w)vs(?!\w)");
     private static readonly Regex RegexEndVUpper = new(@"(?<=\w)V(?!\w)");
@@ -44,6 +44,8 @@ public sealed class FrenchAccentSystem : EntitySystem
     private static readonly Regex RegexEndIcsLower = new(@"(?<=\w)ics(?!\w)");
     private static readonly Regex RegexEndIcUpper = new(@"(?<=\w)IC(?!\w)");
     private static readonly Regex RegexEndIcsUpper = new(@"(?<=\w)ICS(?!\w)");
+    private static readonly Regex RegexOpeningDoubleQuote = new(@"(?<!\w)""(?=\w)");
+    private static readonly Regex RegexClosingDoubleQuote = new(@"(?<=\w)""(?!\w)");
 
     public override void Initialize()
     {
@@ -60,7 +62,7 @@ public sealed class FrenchAccentSystem : EntitySystem
         msg = RegexThLower.Replace(msg, "'z");
         msg = RegexThUpper.Replace(msg, "'Z");
 
-        // replaces h with ' at the start of words.
+        // replaces h with ' at the start of words, unless they're going "hm" or "huh".
         msg = RegexStartH.Replace(msg, "'");
 
         // spaces out ! ? : and ;.
@@ -91,6 +93,10 @@ public sealed class FrenchAccentSystem : EntitySystem
         msg = RegexEndIcsLower.Replace(msg, "iques");
         msg = RegexEndIcUpper.Replace(msg, "IQUE");
         msg = RegexEndIcsUpper.Replace(msg, "IQUES");
+
+        // replace "quotation marks" with « spaced guillemets »
+        msg = RegexOpeningDoubleQuote.Replace(msg, "« ");
+        msg = RegexClosingDoubleQuote.Replace(msg, " »");
 
         return msg;
     }

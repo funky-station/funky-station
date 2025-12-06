@@ -293,3 +293,23 @@ accent-french-words-replace-84 = charismeurs
 accent-french-words-85 = yea
 accent-french-words-85-2 = yeah
 accent-french-words-replace-85 = ouais
+
+accent-french-words-86 = emergency response team
+accent-french-words-86-2 = ert
+accent-french-words-replace-86 = gendarmerie
+
+accent-french-words-87 = emergency response teams
+accent-french-words-87-2 = erts
+accent-french-words-replace-87 = gendarmeries
+
+accent-french-words-88 = I'm sorry
+accent-french-words-88-2 = im sorry
+accent-french-words-88-3 = sorry
+accent-french-words-replace-88 = désolé
+
+accent-french-words-89 = you're welcome
+accent-french-words-89-2 = youre welcome
+accent-french-words-replace-89 = de rien
+
+accent-french-words-90 = perfect
+accent-french-words-replace-90 = parfait

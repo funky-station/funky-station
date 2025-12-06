@@ -508,11 +508,11 @@
   - MedicalMask
   - MedicalDoctorGlasses #Funky
   - ChiefMedicalOfficerJumpsuit
-  - MedicalGloves
+  - ChemistGloves
   - MedicalBackpack
   - ChiefMedicalOfficerOuterClothing
   - ChiefMedicalOfficerNeck
-  - ChiefMedicalOfficerShoes
+  - ChemistShoes
   - Glasses
   - SurvivalMedical
   - Trinkets
@@ -555,12 +555,12 @@
   - MedicalChemistHead
   - MedicalMask
   - MedicalChemistGlasses #Funky
-  - ChemistJumpsuit
-  - MedicalGloves
-  - ChemistBackpack
   - MedicalNeck
+  - ChemistJumpsuit
+  - ChemistGloves
+  - ChemistBackpack
   - ChemistOuterClothing
-  - MedicalShoes
+  - ChemistShoes
   - SurvivalMedical
   - Trinkets
   - ChemistJobTrinkets

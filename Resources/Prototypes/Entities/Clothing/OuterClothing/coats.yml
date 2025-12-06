@@ -48,6 +48,7 @@
 # SPDX-FileCopyrightText: 2025 QueerCats <jansencheng3@gmail.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 Xcybitt <xcybitt@gmail.com>
+# SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
@@ -202,13 +203,13 @@
 - type: entity
   parent: ClothingOuterStorageFoldableBase
   id: ClothingOuterCoatLab
-  name: lab coat
-  description: A suit that protects against minor chemical spills.
+  name: medical lab coat
+  description: A medical-grade labcoat that protects against minor chemical spills. Makes you about 15% more trustworthy.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Coats/labcoat.rsi
+    sprite: _Funkystation/Clothing/OuterClothing/Coats/medical_labcoat.rsi
   - type: Clothing
-    sprite: Clothing/OuterClothing/Coats/labcoat.rsi
+    sprite: _Funkystation/Clothing/OuterClothing/Coats/medical_labcoat.rsi
   - type: Armor
     modifiers:
       coefficients:
@@ -217,18 +218,18 @@
 - type: entity
   parent: [ClothingOuterStorageFoldableBaseOpened, ClothingOuterCoatLab]
   id: ClothingOuterCoatLabOpened
-  name: lab coat
+  name: medical lab coat
 
 - type: entity
   parent: ClothingOuterStorageFoldableBase
   id: ClothingOuterCoatLabChem
   name: chemist lab coat
-  description: A suit that protects against minor chemical spills. Has an orange stripe on the shoulder.
+  description: A labcoat made of an acid-resistant blend of three types of synthetic fiber. Won't protect you from an explosion, though.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Coats/labcoat_chem.rsi
+    sprite: _Funkystation/Clothing/OuterClothing/Coats/labcoat_chem.rsi
   - type: Clothing
-    sprite: Clothing/OuterClothing/Coats/labcoat_chem.rsi
+    sprite: _Funkystation/Clothing/OuterClothing/Coats/labcoat_chem.rsi
   - type: Armor
     modifiers:
       coefficients:
@@ -246,9 +247,9 @@
   description: A suit that protects against bacteria and viruses. Has an green stripe on the shoulder.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Coats/labcoat_viro.rsi
+    sprite: _Funkystation/Clothing/OuterClothing/Coats/labcoat_viro.rsi
   - type: Clothing
-    sprite: Clothing/OuterClothing/Coats/labcoat_viro.rsi
+    sprite: _Funkystation/Clothing/OuterClothing/Coats/labcoat_viro.rsi
   - type: Armor
     modifiers:
       coefficients:
@@ -266,9 +267,9 @@
   description: A suit that protects against minor chemical spills. Has an blue stripe on the shoulder.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Coats/labcoat_gene.rsi
+    sprite: _Funkystation/Clothing/OuterClothing/Coats/labcoat_gene.rsi
   - type: Clothing
-    sprite: Clothing/OuterClothing/Coats/labcoat_gene.rsi
+    sprite: _Funkystation/Clothing/OuterClothing/Coats/labcoat_gene.rsi
   - type: Armor
     modifiers:
       coefficients:
@@ -283,12 +284,12 @@
   parent: ClothingOuterStorageFoldableBase
   id: ClothingOuterCoatLabCmo
   name: chief medical officer's lab coat
-  description: Custom made blue lab coat for the Chief Medical Officer, offers improved protection against chemical spills and minor cuts.
+  description: Custom made lab coat for the Chief Medical Officer, offers improved protection against chemical spills and minor cuts.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Coats/labcoat_cmo.rsi
+    sprite: _Funkystation/Clothing/OuterClothing/Coats/labcoat_cmo.rsi
   - type: Clothing
-    sprite: Clothing/OuterClothing/Coats/labcoat_cmo.rsi
+    sprite: _Funkystation/Clothing/OuterClothing/Coats/labcoat_cmo.rsi
   - type: Armor
     modifiers:
       coefficients:

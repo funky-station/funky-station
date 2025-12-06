@@ -10,6 +10,7 @@
 // SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 Terkala <appleorange64@gmail.com>
 // SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
@@ -1096,5 +1097,67 @@ public sealed partial class BiomeSystem : SharedBiomeSystem
         }
 
         _mapSystem.SetTiles(mapUid, mapGrid, tiles);
+    }
+
+    /// <summary>
+    /// Marks specific tiles as modified in the biome component.
+    /// This prevents the biome system from spawning entities on these tiles.
+    /// </summary>
+    public void MarkTilesAsModified(EntityUid gridUid, BiomeComponent biome, IEnumerable<Vector2i> tiles)
+    {
+        foreach (var tile in tiles)
+        {
+            var chunkOrigin = SharedMapSystem.GetChunkIndices(tile, ChunkSize) * ChunkSize;
+            var modifiedTiles = biome.ModifiedTiles.GetOrNew(chunkOrigin);
+            modifiedTiles.Add(tile);
+        }
+    }
+
+    /// <summary>
+    /// Forces immediate loading of all biome chunks for a grid.
+    /// This should be called when a biome is applied to a pre-built grid and needs to spawn entities immediately.
+    /// </summary>
+    public void ForceLoadAllChunks(EntityUid gridUid, BiomeComponent? biome = null, MapGridComponent? grid = null)
+    {
+        if (!Resolve(gridUid, ref biome, ref grid, false))
+            return;
+
+        if (!biome.Enabled)
+            return;
+
+        var seed = biome.Seed;
+        var chunks = new HashSet<Vector2i>();
+
+        // Get all chunks in the grid's bounds
+        var bounds = grid.LocalAABB;
+        var enumerator = new ChunkIndicesEnumerator(bounds, ChunkSize);
+
+        while (enumerator.MoveNext(out var chunkOrigin))
+        {
+            chunks.Add(chunkOrigin.Value * ChunkSize);
+        }
+
+        // Temporarily set active chunks for this biome
+        _activeChunks[biome] = chunks;
+        _markerChunks.GetOrNew(biome);
+
+        // Add marker chunks if the biome has marker layers
+        foreach (var layer in biome.MarkerLayers)
+        {
+            var layerProto = ProtoManager.Index(layer);
+            var markerEnumerator = new ChunkIndicesEnumerator(bounds, layerProto.Size);
+            var markerChunks = _markerChunks[biome].GetOrNew(layer);
+
+            while (markerEnumerator.MoveNext(out var markerChunk))
+            {
+                markerChunks.Add(markerChunk.Value * layerProto.Size);
+            }
+        }
+
+        // Load all chunks immediately
+        LoadChunks(biome, gridUid, grid, seed);
+
+        // Clear temporary active chunks
+        _activeChunks.Remove(biome);
     }
 }

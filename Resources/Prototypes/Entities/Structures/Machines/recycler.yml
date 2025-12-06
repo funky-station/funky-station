@@ -116,8 +116,8 @@
     cutOffSound: false
     damage: # Harmony
       types:
-        Slash: 25
-        Piercing: 25
+        Slash: 50
+        Piercing: 50
   - type: MaterialStorage
     insertOnInteract: false
   - type: Conveyor

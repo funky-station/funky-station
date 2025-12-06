@@ -1,0 +1,77 @@
+# SPDX-FileCopyrightText: 2025 Zergologist <114537969+Chedd-Error@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  name: towel Spawner
+  id: SpawnTowel
+  suffix: Folded, random color
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - sprite: _Funkystation/Objects/Fun/Towels/white.rsi
+      state: towel_folded
+  - type: RandomSpawner
+    prototypes:
+      - TowelColorBlack
+      - TowelColorBlue
+      - TowelColorBrown
+      - TowelColorCentcom
+      - TowelColorDarkBlue
+      - TowelColorDarkGreen
+      - TowelColorGold
+      - TowelColorGray
+      - TowelColorGreen
+      - TowelColorLightBlue
+      - TowelColorLightBrown
+      - TowelColorMaroon
+      - TowelColorMime
+      - TowelColorNT
+      - TowelColorOrange
+      - TowelColorPink
+      - TowelColorPurple
+      - TowelColorRed
+      - TowelColorSilver
+      - TowelColorSyndicate
+      - TowelColorTeal
+      - TowelColorWhite
+      - TowelColorYellow
+
+- type: entity
+  name: towel Spawner
+  id: SpawnTowelUnfolded
+  suffix: Unfolded, random color
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - sprite: _Funkystation/Objects/Fun/Towels/white.rsi
+      state: towel
+  - type: RandomSpawner
+    prototypes:
+      - TowelColorBlackUnfolded
+      - TowelColorBlueUnfolded
+      - TowelColorBrownUnfolded
+      - TowelColorCentcomUnfolded
+      - TowelColorDarkBlueUnfolded
+      - TowelColorDarkGreenUnfolded
+      - TowelColorGoldUnfolded
+      - TowelColorGrayUnfolded
+      - TowelColorGreenUnfolded
+      - TowelColorLightBlueUnfolded
+      - TowelColorLightBrownUnfolded
+      - TowelColorMaroonUnfolded
+      - TowelColorMimeUnfolded
+      - TowelColorNTUnfolded
+      - TowelColorOrangeUnfolded
+      - TowelColorPinkUnfolded
+      - TowelColorPurpleUnfolded
+      - TowelColorRedUnfolded
+      - TowelColorSilverUnfolded
+      - TowelColorSyndicateUnfolded
+      - TowelColorTealUnfolded
+      - TowelColorWhiteUnfolded
+      - TowelColorYellowUnfolded

@@ -316,3 +316,13 @@
   metamorphicMaxFillLevels: 6
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
+  Poison:
+    effects:
+      - !type:HealthChange
+        conditions:
+        - !type:OrganType
+          type: Moth
+          shouldHave: true
+        damage:
+          types:
+            Poison: 1

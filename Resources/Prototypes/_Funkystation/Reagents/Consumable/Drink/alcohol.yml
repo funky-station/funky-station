@@ -325,4 +325,4 @@
           shouldHave: true
         damage:
           types:
-            Poison: 1
+            Poison: 0.4

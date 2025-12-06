@@ -91,5 +91,5 @@ reagent-name-branca-menta = branca menta
 reagent-desc-branca-menta = A refreshing mixture of bitter Fernet with mint creme liquour. The closest you'll ever get to the original.
 
 reagent-name-bug-spray = bug spray
-reagent-desc-bug-spray = A harsh, acrid, bitter drink, for those who need something to brace themselves. So powerful that you might mistake it for actual bugspray in terms of taste.
+reagent-desc-bug-spray = A harsh, acrid, bitter drink, for those who need something to brace themselves. So powerful that you might mistake it for actual bugspray in terms of taste. Unhealthy for Mothpeople.
 

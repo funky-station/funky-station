@@ -28,6 +28,7 @@ public abstract class SharedBloodCultistSystem : EntitySystem
 		SubscribeLocalEvent<BloodCultistComponent, ComponentGetStateAttemptEvent>(OnCultistCompGetStateAttempt);
 		SubscribeLocalEvent<BloodCultistComponent, ComponentStartup>(DirtyRevComps);
 		SubscribeLocalEvent<BloodCultConstructShellComponent, CanDropTargetEvent>(OnJuggernautShellCanDropTarget);
+		SubscribeLocalEvent<BloodCultConstructShellComponent, GettingInteractedWithAttemptEvent>(OnJuggernautShellGettingInteractedWith);
 		SubscribeLocalEvent<JuggernautComponent, CanDropTargetEvent>(OnJuggernautCanDropTarget);
 		SubscribeLocalEvent<JuggernautComponent, GettingInteractedWithAttemptEvent>(OnJuggernautGettingInteractedWith);
 	}
@@ -38,6 +39,13 @@ public abstract class SharedBloodCultistSystem : EntitySystem
 		args.CanDrop = _mobState.IsDead(args.Dragged) && 
 		               CompOrNull<MindContainerComponent>(args.Dragged)?.Mind != null;
 		args.Handled = true;
+	}
+	
+	private void OnJuggernautShellGettingInteractedWith(EntityUid uid, BloodCultConstructShellComponent component, ref GettingInteractedWithAttemptEvent args)
+	{
+		// Allow interactions on juggernaut shells for drag-drop operations
+		// This ensures shells can be targeted for dragging dead bodies onto them
+		args.Cancelled = false;
 	}
 	
 	private void OnJuggernautCanDropTarget(EntityUid uid, JuggernautComponent component, ref CanDropTargetEvent args)

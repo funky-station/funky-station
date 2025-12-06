@@ -698,6 +698,11 @@
   meltingPoint: 0.0
   boilingPoint: 100.0
   friction: 0.05 #Copied from Ice Crust
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 3 # ice is no longer useless; rejoice
   plantMetabolism:
   - !type:PlantAdjustWater
     amount: 1

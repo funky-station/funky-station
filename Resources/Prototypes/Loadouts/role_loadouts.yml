@@ -278,7 +278,7 @@
   - QuartermasterOuterClothing
   - QuartermasterShoes
   - Glasses
-  - Survival
+  - SurvivalSalvageExtended
   - Trinkets
   - QuartermasterJobTrinkets
   - GroupSpeciesBreathTool
@@ -307,9 +307,8 @@
   - SalvageSpecialistBackpack
   - SalvageSpecialistOuterClothing
   - SalvageSpecialistShoes
-  - CargoPDA
   - Glasses
-  - Survival
+  - SurvivalSalvageExtended
   - Trinkets
   - SalvageSpecialistJobTrinkets
   - GroupSpeciesBreathTool

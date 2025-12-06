@@ -40,6 +40,7 @@ loadout-group-backpack = Backpack
 loadout-group-instruments = Instruments
 loadout-group-survival-basic = Survival Box
 loadout-group-survival-extended = Extended Survival Box
+loadout-group-survival-salvage-extended = Extended Survival Box
 loadout-group-survival-clown = Clown Survival Box
 loadout-group-survival-medical = Medical Survival Box
 loadout-group-survival-security = Security Survival Box

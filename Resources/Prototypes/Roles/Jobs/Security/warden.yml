@@ -97,6 +97,6 @@
   storage:
     back:
     - Flash
-    #- MagazinePistol   #in the mk58 choice now
+    - MagazinePistol
     - SecHypo # Goobstation
     - autoInjectorCartridgeCaseSoftFilled

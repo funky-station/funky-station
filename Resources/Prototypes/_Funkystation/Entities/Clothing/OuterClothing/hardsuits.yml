@@ -1,6 +1,8 @@
 # SPDX-FileCopyrightText: 2024 UtopiOne <110351290+UtopiOne@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 QueerCats <jansencheng3@gmail.com>
+# SPDX-FileCopyrightText: 2025 ThatOneMoon <91613003+ThatOneMoon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
+# SPDX-FileCopyrightText: 2025 TheSecondLord <88201625+TheSecondLord@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
@@ -80,3 +82,86 @@
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHelldiver
+
+# Carp Scale Hardsuit 
+- type: entity
+  parent: [ClothingOuterHardsuitBase,BaseJetpack, BaseCargoContraband]
+  id: ClothingOuterHardsuitCarpScale
+  name: Carp Scale Hardsuit 
+  description: A hardsuit adorned with flexible and durable scales, has a jetpack built into it. Carp will not like you any more for wearing it.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/OuterClothing/Hardsuits/carp_scale.rsi
+    state: icon    
+  - type: Clothing
+    sprite: _Funkystation/Clothing/OuterClothing/Hardsuits/carp_scale.rsi
+  - type: Item
+    sprite: _Funkystation/Clothing/OuterClothing/Hardsuits/carp_scale.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.90
+        Slash: 0.90
+        Piercing: 0.90
+        Heat: 0.65 
+        Radiation: 0.40
+        Caustic: 0.80
+  - type: ExplosionResistance
+    damageCoefficient: 0.65
+  - type: ClothingSpeedModifier
+    walkModifier: 0.9
+    sprintModifier: 0.9
+  - type: HeldSpeedModifier
+  - type: GasTank
+    outputPressure: 42.6
+    air:
+      # 4 minutes of thrust
+      volume: 1.5
+      temperature: 293.15
+      moles:
+        - 0.307706858 # oxygen
+        - 0.307706858 # nitrogen
+  - type: Magboots        
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitCarpScale  
+  - type: Tag
+    tags:
+    - Hardsuit    
+  - type: Construction
+    graph: HardsuitCarpScale
+    node: hardsuitCarpScale
+
+
+- type: entity
+  parent: [ClothingOuterHardsuitBase, AllowBackStorageClothingCombat, BaseCargoContraband]
+  id: ClothingOuterHardsuitHivelord
+  name: hivelord hardsuit
+  description: An eerie hardsuit made from the remaining pieces of a Hivelord, grants a small fraction of their regenerative abilities while worn.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/OuterClothing/Hardsuits/hivelord.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/OuterClothing/Hardsuits/hivelord.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.7
+    lowPressureMultiplier: 1000
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.85
+        Slash: 0.85
+        Piercing: 0.90
+        Radiation: 0.40
+        Caustic: 0.80
+  - type: ClothingSpeedModifier
+    walkModifier: 0.90
+    sprintModifier: 0.80
+  - type: HeldSpeedModifier
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitHivelord
+  - type: Tag
+    tags:
+    - Hardsuit    
+  - type: Construction
+    graph: HardsuitHivelord
+    node: hardsuitHivelord 

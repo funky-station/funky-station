@@ -790,20 +790,22 @@ public sealed class NuclearReactorSystem : SharedNuclearReactorSystem
 
     private void OnControlRodMessage(Entity<NuclearReactorComponent> ent, ref ReactorControlRodModifyMessage args)
     {
-        AdjustControlRods(ent.Comp, args.Change);
-        _adminLog.Add(LogType.Action, $"{ToPrettyString(args.Actor):actor} set control rod insertion of {ToPrettyString(ent):target} to {ent.Comp.ControlRodInsertion}");
+        if(AdjustControlRods(ent.Comp, args.Change))
+            _adminLog.Add(LogType.Action, $"{ToPrettyString(args.Actor):actor} set control rod insertion of {ToPrettyString(ent):target} to {ent.Comp.ControlRodInsertion}");
         UpdateUI(ent.Owner, ent.Comp);
     }
     #endregion
 
     private void OnSignalReceived(EntityUid uid, NuclearReactorComponent comp, ref SignalReceivedEvent args)
     {
+        var change = 0f;
         if (args.Port == comp.ControlRodInsertPort)
-            AdjustControlRods(comp, 0.1f);
+            change = 0.1f;
         else if (args.Port == comp.ControlRodRetractPort)
-            AdjustControlRods(comp, -0.1f);
+            change = -0.1f;
 
-        _adminLog.Add(LogType.Action, $"{ToPrettyString(args.Trigger):trigger} set control rod insertion of {ToPrettyString(uid):target} to {comp.ControlRodInsertion}");
+        if (AdjustControlRods(comp, change))
+            _adminLog.Add(LogType.Action, $"{ToPrettyString(args.Trigger):trigger} set control rod insertion of {ToPrettyString(uid):target} to {comp.ControlRodInsertion}");
     }
 
     private void OnAnchorChanged(EntityUid uid, NuclearReactorComponent comp, ref AnchorStateChangedEvent args)

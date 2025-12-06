@@ -46,6 +46,8 @@ surgery-popup-procedure-SurgeryRemoveBrain-step-SurgeryStepRemoveOrgan = {$user}
 surgery-popup-procedure-SurgeryRemoveHeart-step-SurgeryStepRemoveOrgan = {$user} is removing the heart from {$target}'s {$part}!
 surgery-popup-procedure-SurgeryRemoveLiver-step-SurgeryStepRemoveOrgan = {$user} is removing the liver from {$target}'s {$part}!
 surgery-popup-procedure-SurgeryRemoveLungs-step-SurgeryStepRemoveOrgan = {$user} is removing the lungs from {$target}'s {$part}!
+surgery-popup-procedure-SurgeryRemoveZombieTumor-step-SurgeryStepRemoveOrgan = {$user} is removing the zombie tumor from {$target}'s {$part}!
+surgery-popup-procedure-SurgeryRemoveZombieRoboTumor-step-SurgeryStepRemoveOrgan = {$user} is removing the zombie robot tumor from {$target}'s {$part}!
 surgery-popup-procedure-SurgeryRemoveEyes-step-SurgeryStepRemoveOrgan = {$user} is removing the eyes from {$target}'s {$part}!
 surgery-popup-procedure-SurgeryRemoveStomach-step-SurgeryStepRemoveOrgan = {$user} is removing the stomach from {$target}'s {$part}!
 

@@ -35,8 +35,10 @@
 // SPDX-FileCopyrightText: 2024 Łukasz Mędrek <lukasz@lukaszm.xyz>
 // SPDX-FileCopyrightText: 2025 Mish <bluscout78@yahoo.com>
 // SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 Terkala <appleorange64@gmail.com>
 // SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 tetkala <appleorange64@gmail.com>
 //
 // SPDX-License-Identifier: MIT
 
@@ -79,6 +81,10 @@ using Robust.Shared.Audio.Systems;
 using Content.Shared.Ghost.Roles.Components;
 using Content.Shared.NPC.Components;
 using Content.Shared.Tag;
+using Content.Shared.Standing;
+using Content.Shared.Bed.Sleep;
+using Content.Shared.Stunnable;
+using Content.Shared._EinsteinEngines.Silicon.Components;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server.Zombies;
@@ -103,7 +109,9 @@ public sealed partial class ZombieSystem
     [Dependency] private readonly MovementSpeedModifierSystem _movementSpeedModifier = default!;
     [Dependency] private readonly NPCSystem _npc = default!;
     [Dependency] private readonly SharedRoleSystem _roles = default!;
+    [Dependency] private readonly StandingStateSystem _standing = default!;
     [Dependency] private readonly TagSystem _tag = default!;
+    [Dependency] private readonly ZombieTumorOrganSystem _zombieTumor = default!;
 
     private static readonly ProtoId<TagPrototype> InvalidForGlobalSpawnSpellTag = "InvalidForGlobalSpawnSpell";
     private static readonly ProtoId<TagPrototype> CannotSuicideTag = "CannotSuicide";
@@ -241,8 +249,12 @@ public sealed partial class ZombieSystem
         //This makes it so the zombie doesn't take bloodloss damage.
         //NOTE: they are supposed to bleed, just not take damage
         _bloodstream.SetBloodLossThreshold(target, 0f);
-        //Give them zombie blood
-        _bloodstream.ChangeBloodReagent(target, zombiecomp.NewBloodReagent);
+        //Give them zombie blood (but IPCs keep their Oil)
+        // Only change blood if NOT an IPC (doesn't have Silicon component)
+        if (!HasComp<SiliconComponent>(target) && TryComp<BloodstreamComponent>(target, out var bloodstreamComp))
+        {
+            _bloodstream.ChangeBloodReagent(target, zombiecomp.NewBloodReagent);
+        }
 
         //This is specifically here to combat insuls, because frying zombies on grilles is funny as shit.
         _inventory.TryUnequip(target, "gloves", true, true);
@@ -263,6 +275,12 @@ public sealed partial class ZombieSystem
         if (TryComp<DamageableComponent>(target, out var damageablecomp))
             _damageable.SetAllDamage(target, damageablecomp, 0);
         _mobState.ChangeMobState(target, MobState.Alive);
+
+        // Force zombie to wake up and stand - remove sleep/knockdown status
+        RemComp<SleepingComponent>(target);
+        RemComp<ForcedSleepingComponent>(target);
+        RemComp<KnockedDownComponent>(target);
+        _standing.Stand(target, force: true);
 
         _faction.ClearFactions(target, dirty: false);
         _faction.AddFaction(target, "Zombie");
@@ -324,6 +342,13 @@ public sealed partial class ZombieSystem
         RaiseLocalEvent(target, ref ev, true);
         //zombies get slowdown once they convert
         _movementSpeedModifier.RefreshMovementSpeedModifiers(target);
+
+        // If this zombie doesn't already have a tumor organ (e.g., from romerol infection),
+        // spawn one immediately so they can spread the infection
+        if (!_zombieTumor.HasTumorOrgan(target))
+        {
+            _zombieTumor.SpawnTumorOrgan(target);
+        }
 
         //Need to prevent them from getting an item, they have no hands.
         // Also prevents them from becoming a Survivor. They're undead.

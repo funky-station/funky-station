@@ -1,0 +1,51 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Zombie Tumor for Funkystation by Sigma Draconis (.sigma_draconis.)",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "zombietumor",
+            "delays": [
+                [
+                    0.15,
+                    0.15,
+                    0.15,
+                    0.15,
+                    0.15,
+                    0.15
+                ]
+            ]
+        },
+        {
+            "name": "zombietumor-inhand-right",
+            "directions": 4
+        },
+        {
+            "name": "zombietumor-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "zombierobotumor",
+            "delays": [
+                [
+                    0.15,
+                    0.15,
+                    0.15,
+                    0.15
+                ]
+            ]
+        },
+        {
+            "name": "zombierobotumor-inhand-right",
+            "directions": 4
+        },
+        {
+            "name": "zombierobotumor-inhand-left",
+            "directions": 4
+        }
+    ]
+}

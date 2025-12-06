@@ -1,8 +1,9 @@
 # SPDX-FileCopyrightText: 2024 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tadeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 Terkala <appleorange64@gmail.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
-# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+# SPDX-License-Identifier: AGPL-3.0-or-later or MIT
 
 - type: entity
   id: SurgeryBase
@@ -517,6 +518,44 @@
     - type: Lung
     inverse: true
     reattaching: true
+
+- type: entity
+  parent: SurgeryBase
+  id: SurgeryRemoveZombieTumor
+  name: Remove Zombie Tumor
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Surgery
+    requirement: SurgeryOpenRibcage
+    steps:
+    - SurgeryStepSawBones
+    - SurgeryStepClampInternalBleeders
+    - SurgeryStepRemoveOrgan
+    - SurgeryStepSealOrganWound
+  - type: SurgeryPartCondition
+    part: Torso
+  - type: SurgeryOrganPrototypeCondition
+    prototypeId: ZombieTumorOrgan
+
+- type: entity
+  parent: SurgeryBase
+  id: SurgeryRemoveZombieRoboTumor
+  name: Remove Zombie Robot Tumor
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Surgery
+    requirement: SurgeryOpenRibcage
+    steps:
+    - SurgeryStepSawBones
+    - SurgeryStepRemoveOrgan
+    - SurgeryStepSealOrganWound
+  - type: SurgeryPartCondition
+    part: Torso
+  - type: SurgeryOrganCondition
+    organ:
+    - type: ZombieTumorOrgan
+  - type: SurgeryOrganPrototypeCondition
+    prototypeId: ZombieRoboTumor
 
 - type: entity
   parent: SurgeryBase

@@ -6,6 +6,7 @@
 // SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
 // SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2024 Jajsha <101492056+Zap527@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
 // SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
@@ -14,6 +15,7 @@
 // SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 // SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 willow <willowzeta632146@proton.me>
 // SPDX-FileCopyrightText: 2025 wilowzeta <willowzeta632146@proton.me>
 //
 // SPDX-License-Identifier: MIT
@@ -115,7 +117,7 @@ public abstract class SharedMaterialReclaimerSystem : EntitySystem
         if (!CanStart(uid, component))
             return false;
 
-        if (HasComp<MobStateComponent>(item) && !CanGib(uid, item, component)) // whitelist? We be gibbing, boy!
+        if (HasComp<MobStateComponent>(item) && !CanRecycleMob(uid, item, component)) // whitelist? We be gibbing, boy!
             return false;
 
         if (_whitelistSystem.IsWhitelistFail(component.Whitelist, item) ||
@@ -176,7 +178,7 @@ public abstract class SharedMaterialReclaimerSystem : EntitySystem
 
     /// <summary>
     /// Spawns the materials and chemicals associated
-    /// with an entity. Also deletes the item.
+    /// with an entity. Also deletes the item if it is not a mob.
     /// </summary>
     public virtual void Reclaim(EntityUid uid,
         EntityUid item,
@@ -227,9 +229,10 @@ public abstract class SharedMaterialReclaimerSystem : EntitySystem
 
     /// <summary>
     /// Whether or not the reclaimer satisfies the conditions
-    /// allowing it to gib/reclaim a living creature.
+    /// allowing it to reclaim a living creature.
+    /// Harmony - The recycler can no longer gib living creatures, instead dealing significant brute damage.
     /// </summary>
-    public bool CanGib(EntityUid uid, EntityUid victim, MaterialReclaimerComponent component)
+    public bool CanRecycleMob(EntityUid uid, EntityUid victim, MaterialReclaimerComponent component)
     {
         return component.Powered &&
                component.Enabled &&

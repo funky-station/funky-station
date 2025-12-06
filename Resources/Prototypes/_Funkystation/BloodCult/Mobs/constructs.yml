@@ -11,7 +11,7 @@
   name: juggernaut shell
   id: CultJuggernautShell
   parent: BaseBloodCultContraband
-  description: A large, inert monstrosity made from runed metal. Can be completed by dragging a dead body onto it or using a filled soulstone on it.
+  description: A large, inert monstrosity made from runed steel. Can be completed by dragging a dead body onto it or using a filled soulstone on it.
   components:
   - type: BloodCultConstructShell
   - type: Construction
@@ -53,7 +53,7 @@
               collection: MetalBreak
           - !type:SpawnEntitiesBehavior
             spawn:
-              SheetRunedMetal1:
+              SheetRunedSteel1:
                 min: 2
                 max: 4
 
@@ -115,6 +115,7 @@
         - Dead
     - type: MeleeWeapon
       hidden: true
+      canWideSwing: true
       soundHit:
         path: /Audio/Effects/wood_destroy2.ogg
       angle: 60
@@ -147,7 +148,7 @@
     - type: MobThresholds
       thresholds:
         0: Alive
-        140: Critical
+        180: Critical
         280: Dead
     - type: MovementSpeedModifier
       baseWalkSpeed: 2.0
@@ -167,6 +168,10 @@
       color: "#50595C"
       activateSound: null
       deactivateSound: null
+    - type: IntrinsicUI
+      uis:
+        enum.BloodCultistCommuneUIKey.Key:
+          toggleAction: null
     - type: GuideHelp
       guides:
       - Blob
@@ -211,14 +216,16 @@
         - Dead
     - type: MeleeWeapon
       hidden: true
+      canWideSwing: true
       soundHit:
         path: /Audio/Effects/guardian_warn.ogg
-      angle: 0
+      angle: 60
       animation: WeaponArcSmash
+      wideAnimation: WeaponArcSmash
       damage:
         types:
-          Blunt: 7
-          Structural: 7
+          Blunt: 8
+          Structural: 8
     - type: DamageStateVisuals
       states:
         Alive:
@@ -239,7 +246,7 @@
     - type: MobThresholds
       thresholds:
         0: Alive
-        75: Dead
+        100: Dead
     - type: MovementSpeedModifier
       baseWalkSpeed: 3.5
       baseSprintSpeed: 4

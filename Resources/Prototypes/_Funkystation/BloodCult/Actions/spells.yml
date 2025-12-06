@@ -152,7 +152,7 @@
 - type: entity
   id: ActionCultistTwistedConstruction
   name: Twisted Construction
-  description: A sinister spell used to convert steel or glass into runed metal or runed glass.
+  description: A sinister spell used to convert steel or glass into runed steel or runed glass.
   categories: [ HideSpawnMenu ]
   components:
   - type: Icon

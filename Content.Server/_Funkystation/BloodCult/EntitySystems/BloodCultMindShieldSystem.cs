@@ -79,6 +79,9 @@ public sealed class BloodCultMindShieldSystem : EntitySystem
         if (popupLocId != null && name != null)
             _popupSystem.PopupEntity(Loc.GetString(popupLocId, ("name", name!)), uid);
 
+        // Notify the player about memory loss
+        _popupSystem.PopupEntity(Loc.GetString("cult-deconverted-memory-loss"), uid, uid, PopupType.Medium);
+
         return true;
     }
 

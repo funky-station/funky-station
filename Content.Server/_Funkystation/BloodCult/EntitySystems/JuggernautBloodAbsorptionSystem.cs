@@ -29,13 +29,12 @@ namespace Content.Server.BloodCult.EntitySystems;
 public sealed class JuggernautBloodAbsorptionSystem : EntitySystem
 {
 	[Dependency] private readonly DamageableSystem _damageable = default!;
-	[Dependency] private readonly SharedContainerSystem _container = default!;
 	[Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
 	[Dependency] private readonly SharedTransformSystem _transform = default!;
 	[Dependency] private readonly EntityLookupSystem _lookup = default!;
 	[Dependency] private readonly IGameTiming _timing = default!;
 	// Use these controls to adjust the rate that a juggernaut can self heal.
-	private const float AbsorptionRate = 1.0f; // Units per second
+	private const float AbsorptionRate = 2.0f; // Units per second
 	private const float UpdateInterval = 0.5f; // Check every 0.5 seconds
 	private const float MinDamageThreshold = 5.0f; // Must have more than 5 damage to absorb. Heals up most of the way without over-healing.
 
@@ -69,12 +68,18 @@ public sealed class JuggernautBloodAbsorptionSystem : EntitySystem
 			if (totalDamage <= MinDamageThreshold)
 				continue;
 
-			// Check if juggernaut has a soulstone. No soulstone, no healing.
-			if (!_container.TryGetContainer(uid, "juggernaut_soulstone_container", out var soulstoneContainer))
-				continue;
-
-			if (soulstoneContainer.ContainedEntities.Count == 0)
-				continue;
+		// Check if juggernaut contains a soulstone or dead body (player inside).
+		// Only heal if there's a player entity in the juggernaut.
+		// Check the component fields directly - these are set to null when ejected, so they're reliable.
+		bool hasPlayer = false;
+		if (juggernaut.SourceSoulstone != null && Exists(juggernaut.SourceSoulstone.Value))
+			hasPlayer = true;
+		else if (juggernaut.SourceBody != null && Exists(juggernaut.SourceBody.Value))
+			hasPlayer = true;
+		
+		// Skip healing if no player entity is present
+		if (!hasPlayer)
+			continue;
 
 			// Get the puddle at the juggernaut's position
 			// Use a small range to find puddles near the juggernaut (0.5 units should cover the tile)

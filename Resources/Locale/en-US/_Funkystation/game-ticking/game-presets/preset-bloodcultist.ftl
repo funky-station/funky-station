@@ -160,6 +160,7 @@ cult-ascend-2 = The veil weakens as your cult grows, and you are unable to hide 
 
 cult-deconverted = You suddenly de-convert, and no longer consider yourself a cultist!
 cult-break-control = You look bewildered as Nar'Sie's influence is shattered! You don't remember any of your time in the cult.
+cult-deconverted-memory-loss = You lose the last several hours of your memories.
 
 cult-evac-called-announcement = Unusual dimensional disturbances have faded, evac called while centcom investigates this dimensional anomaly. ETA: {$time} {$units}
 cult-evac-sender-announcement = Central Command
@@ -193,10 +194,16 @@ cult-soulstone-role-rules = You are serving the blood cult. Follow the orders of
 
 cult-summoning-juggernaut-shell = The rune pulses with dark energy as a juggernaut shell materializes!
 cult-summoning-pylon = The rune glows crimson as a pylon anchors itself to reality!
-cult-summoning-no-materials = Place Runed Metal or Runed Glass on the summoning rune. 30 runed metal summons a juggernaut shell; 10 runed glass summons a pylon.
-cult-summoning-insufficient-materials = Not enough materials! You need 30 runed metal for a juggernaut shell or 10 runed glass for a pylon.
-cult-summoning-need-more-metal = Not enough runed metal! You have {$have}, but need {$needed} for a juggernaut shell.
+cult-summoning-forsaken-boots = The rune shudders as cursed boots materialize from the void!
+cult-summoning-acolyte-armor = The rune glows with unholy light as acolyte armor and a cult helmet materialize!
+cult-summoning-no-materials = Place Runed Steel, Runed Glass, Runed Plasteel, Plastic, Cloth, or Durathread on the summoning rune.
+cult-summoning-insufficient-materials = Not enough materials! You need 30 runed steel for a juggernaut shell, 10 runed glass for a pylon, 10 runed plasteel and an outerwear item for acolyte armor, or 5 plastic and 5 cloth (or 5 durathread) for forsaken boots.
+cult-summoning-need-more-steel = Not enough runed steel! You have {$have}, but need {$needed} for a juggernaut shell.
 cult-summoning-need-more-glass = Not enough runed glass! You have {$have}, but need {$needed} for a pylon.
+cult-summoning-need-more-plastic = Not enough plastic! You have {$have}, but need {$needed} for forsaken boots.
+cult-summoning-need-more-cloth = Not enough cloth! You have {$have}, but need {$needed} for forsaken boots.
+cult-summoning-need-more-plasteel = Not enough runed plasteel! You have {$have}, but need {$needed} and outerwear clothing for acolyte armor.
+cult-summoning-need-outerwear = You need to place an outerwear item on the summoning rune along with the runed plasteel to create acolyte armor.
 cult-summoning-pylon-location-blocked = The pylon cannot be summoned here - the location is blocked!
 cult-summoning-pylon-no-grid = The pylon cannot be summoned here.
 cult-summoning-pylon-anchor-failed = The pylon could not anchor at the rune location, but was summoned nearby instead.

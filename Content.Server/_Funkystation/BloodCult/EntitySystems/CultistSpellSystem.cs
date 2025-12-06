@@ -56,8 +56,9 @@ namespace Content.Server.BloodCult.EntitySystems;
 
 public sealed partial class CultistSpellSystem : EntitySystem
 {
-	private static readonly ProtoId<StackPrototype> RunedMetalStack = "RunedMetal";
+	private static readonly ProtoId<StackPrototype> RunedSteelStack = "RunedSteel";
 	private static readonly ProtoId<StackPrototype> RunedGlassStack = "RunedGlass";
+	private static readonly ProtoId<StackPrototype> RunedPlasteelStack = "RunedPlasteel";
 
 	[Dependency] private readonly IRobustRandom _random = default!;
 	[Dependency] private readonly IPrototypeManager _proto = default!;
@@ -101,6 +102,7 @@ public sealed partial class CultistSpellSystem : EntitySystem
 
 		SubscribeLocalEvent<BloodCultistComponent, EventCultistStudyVeil>(OnStudyVeil);
 		SubscribeLocalEvent<BloodCultistComponent, BloodCultCommuneSendMessage>(OnCommune);
+		SubscribeLocalEvent<JuggernautComponent, BloodCultCommuneSendMessage>(OnJuggernautCommune);
 		SubscribeLocalEvent<BloodCultistComponent, EventCultistSanguineDream>(OnSanguineDream);
 		//SubscribeLocalEvent<CultMarkedComponent, AttackedEvent>(OnMarkedAttacked);
 
@@ -316,6 +318,11 @@ public sealed partial class CultistSpellSystem : EntitySystem
 		ent.Comp.CommuningMessage = args.Message;
 	}
 
+	private void OnJuggernautCommune(Entity<JuggernautComponent> ent, ref BloodCultCommuneSendMessage args)
+	{
+		ent.Comp.CommuningMessage = args.Message;
+	}
+
 	private void OnSpellSelectedMessage(Entity<BloodCultistComponent> ent, ref SpellsMessage args)
 	{
 		if (!CultistSpellComponent.ValidSpells.Contains(args.ProtoId) || ent.Comp.KnownSpells.Contains(args.ProtoId))
@@ -490,8 +497,8 @@ public sealed partial class CultistSpellSystem : EntitySystem
 			var targetCoords = Transform(args.Target).Coordinates;
 
 			// Use StackSystem.SpawnMultiple to properly split stacks respecting max count (30)
-			var runedMetalProto = _proto.Index(RunedMetalStack);
-			_stackSystem.SpawnMultiple(runedMetalProto.Spawn.ToString(), count, targetCoords);
+			var runedSteelProto = _proto.Index(RunedSteelStack);
+			_stackSystem.SpawnMultiple(runedSteelProto.Spawn.ToString(), count, targetCoords);
 
 			QueueDel(args.Target);
 			args.Handled = true;
@@ -528,6 +535,24 @@ public sealed partial class CultistSpellSystem : EntitySystem
 			// Use StackSystem.SpawnMultiple to properly split stacks respecting max count (30)
 			var runedGlassProto = _proto.Index(RunedGlassStack);
 			_stackSystem.SpawnMultiple(runedGlassProto.Spawn.ToString(), count, targetCoords);
+
+			QueueDel(args.Target);
+			args.Handled = true;
+			return;
+		}
+
+		// Check if target is a plasteel stack
+		if (TryComp<StackComponent>(args.Target, out var plasteelStack) && plasteelStack.StackTypeId == "Plasteel")
+		{
+			if (!TryUseAbility(ent, args))
+				return;
+
+			var count = plasteelStack.Count;
+			var targetCoords = Transform(args.Target).Coordinates;
+
+			// Use StackSystem.SpawnMultiple to properly split stacks respecting max count (30)
+			var runedPlasteelProto = _proto.Index(RunedPlasteelStack);
+			_stackSystem.SpawnMultiple(runedPlasteelProto.Spawn.ToString(), count, targetCoords);
 
 			QueueDel(args.Target);
 			args.Handled = true;

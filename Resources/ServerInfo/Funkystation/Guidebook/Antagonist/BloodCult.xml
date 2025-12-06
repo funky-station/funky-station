@@ -88,7 +88,7 @@ The [bold][color=#ff6666]barrier rune[/color][/bold] allows the [color=#ff3333]G
     <GuideEntityEmbed Entity="SummoningRune" Caption="summoning rune"/>
   </Box>
 
-The [bold][color=#ff6666]summoning rune[/color][/bold] allows the [color=#ff3333]Geometer[/color] to physically manifest [color=#ff3333]Her[/color] structures and servants from her realm into our own. When activated, a summoning rune will bring a [color=#ff3333]Juggernaut Shell[/color] or a [color=#ff3333]Pylon[/color] into reality, using runed metal or glass.
+The [bold][color=#ff6666]summoning rune[/color][/bold] allows the [color=#ff3333]Geometer[/color] to physically manifest [color=#ff3333]Her[/color] structures and servants from her realm into our own. When activated, a summoning rune will bring a [color=#ff3333]Juggernaut Shell[/color] or a [color=#ff3333]Pylon[/color] into reality, using runed steel or glass.
 
 
 ## Blood Spells
@@ -113,7 +113,7 @@ This spell may permit you to silently and more efficiently kidnap those your cul
     <GuideEntityEmbed Entity="ActionCultistTwistedConstruction" Caption="Twisted Construction"/>
   </Box>
 
-The twisted construction spell allows cultists to convert stacks of steel or glass into [color=#bbbbbb]runed metal[/color] or [color=#bbbbbb]runed glass[/color].
+The twisted construction spell allows cultists to convert stacks of steel or glass or plasteel into [color=#bbbbbb]runed steel[/color] or [color=#bbbbbb]runed glass[/color] or [color=#bbbbbb]runed plasteel[/color].
 
 ## Structures
 
@@ -122,11 +122,11 @@ The twisted construction spell allows cultists to convert stacks of steel or gla
 	<GuideEntityEmbed Entity="CultJuggernautShell" Caption="Juggernaut Shell"/>
   </Box>
 
-Structures are worldly objects that possess a mere drop of [color=#ff3333]Her[/color] being. Constructable using [color=#bbbbbb]runed metal[/color] via the crafting menu (the "G" key), these objects are a great boon to a developed cult.
+Structures are worldly objects that possess a mere drop of [color=#ff3333]Her[/color] being. Constructable using [color=#bbbbbb]runed steel[/color] via a summining rune. Place the materials upon the rune to summon them. These objects are a great boon to a developed cult.
 
 Pylons will gradually heal those devoted to [color=#ff3333]Nar'Sie[/color], including inhabited constructs. By merely existing near them, living devotees will continuously receive [color=#ff3333]Her[/color] blessing, knitting bone and sinew and undoing any half-baked attempts at deconversion.
 
-Juggernaut shells are inert statues of [color=#bbbbbb]runed metal[/color]. They are completely useless... until an inhabited soul stone is inserted, at least.
+Juggernaut shells are inert statues of [color=#bbbbbb]runed steel[/color]. They are completely useless... until an inhabited soul stone or dead body is inserted, at least.
 
 ## Constructs
 
@@ -139,8 +139,26 @@ Constructs are non-verbal, barely-sentient minions of the blood cult. Made from 
 
 Shades are mostly-physical spirits produced by activating an inhabited soul stone in one's hand. Loyal to the one who freed them, Shades will stop at nothing to see their master's will enacted. What they lack in physical strength they make up for in speed and endurance. A shade will return to their soulstone when banished.
 
-Juggernauts are hulking beasts made from juggernaut shells, awakened through the insertion of an inhabited soul stone. Slow and meticulous, these monstrosities are completely immune to weak attacks, and are capable of breaking down even the strongest of walls. An invaluable asset to a cult whose presence aboard the station is already known.
-- Juggernauts may be rejuvinated by dousing them with blood, and inactive shells may be repaired by inserting a soulstone and annointing the shell with blood.
+Juggernauts are hulking beasts made from juggernaut shells, awakened through the insertion of an inhabited soul stone or dead body. Slow and meticulous, these monstrosities are completely immune to weak attacks, and are capable of breaking down even the strongest of walls. An invaluable asset to a cult whose presence aboard the station is already known.
+- Juggernauts may be rejuvinated by letting them absorb blood from puddles beneath them and inactive shells may be repaired by inserting a soulstone or body and also letting them absorb blood from puddles beneath them.
+
+## Items
+
+  <Box>
+  <GuideEntityEmbed Entity="CultDaggerCurved" Caption="Cult Dagger"/>
+	<GuideEntityEmbed Entity="ClothingOuterArmorCult" Caption="Acolyte Armor"/>
+	<GuideEntityEmbed Entity="ClothingHeadHelmetCult" Caption="Cult Helmet"/>
+	<GuideEntityEmbed Entity="ClothingShoesBootsForsaken" Caption="Forsaken Boots"/>
+  </Box>
+
+A cult is incomplete without their tools. Most important of which is your Cult Dagger. You can summon daggers via your spell selection ability.
+The cult dagger is a decent melee weapon that can be used to attack enemies and carve runes. It is incapable of harming fellow cult members, so you can swing freely without risk of harming your allies.
+
+The following items are all constructed via a summoning rune. Place the materials upon the rune to summon them.
+
+Acolyte Armor is a set of armor that will protect you from most attacks. It is made from runed plasteel and outerwear clothing to hold the armor plates. Your Twisted Construction spell allows you to convert plasteel into runed plasteel.
+Cult Helmet is much as you would expect, and is constructed at the same time as the Acolyte Armor.
+Forsaken Boots are very important for a cultist to have. They allow your boots to grip the ground with unnatural force, and prevent you from slipping. They can be made from 5 plastic and 5 cloth, or simply from 5 durathread.
 
 ## The Dual Rituals of Nar'Sie
 

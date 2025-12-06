@@ -254,6 +254,11 @@ public sealed class SoulStoneSystem : EntitySystem
 		// Get the mind from the soulstone
 		EntityUid? mindId = CompOrNull<MindContainerComponent>(soulstone)?.Mind;
 
+		// Clear BloodCult antag role if present (e.g., from juggernauts)
+		if (mindId != null && _role.MindHasRole<BloodCultRoleComponent>(mindId.Value))
+		{
+			_role.MindTryRemoveRole<BloodCultRoleComponent>(mindId.Value);
+		}
 
 		// Figure out what the original entity was, probably a positronic brain or IPC brain
 		if (soulstone.Comp.OriginalEntityPrototype != null)

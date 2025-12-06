@@ -8,6 +8,7 @@
 using Robust.Shared.GameObjects;
 using Content.Server.Mind;
 using Content.Shared.Interaction;
+using Content.Shared.Interaction.Events;
 using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
 using Content.Shared.BloodCult;
@@ -30,6 +31,7 @@ using Robust.Shared.Map;
 using Content.Shared.NPC.Systems;
 using Content.Shared.NPC.Components;
 using Content.Server.GameTicking.Rules;
+using Content.Shared.Actions;
 
 namespace Content.Server.BloodCult.EntitySystems;
 
@@ -44,14 +46,31 @@ public sealed partial class BloodCultConstructSystem : EntitySystem
 	[Dependency] private readonly IRobustRandom _random = default!;
 	[Dependency] private readonly SharedTransformSystem _transform = default!;
 	[Dependency] private readonly NpcFactionSystem _npcFaction = default!;
+	[Dependency] private readonly SharedActionsSystem _actions = default!;
+
+	/// <summary>
+	/// Grants the Commune action to a juggernaut
+	/// </summary>
+	private void GrantCommuneAction(EntityUid juggernaut)
+	{
+		EntityUid? communeAction = null;
+		BaseActionComponent? actionComp = null;
+		if (_actions.AddAction(juggernaut, ref communeAction, out actionComp, "ActionCultistCommune") && communeAction != null && actionComp != null)
+		{
+			// Ensure the event is raised on the juggernaut so it can be handled
+			actionComp.RaiseOnUser = true;
+			Dirty(communeAction.Value, actionComp);
+		}
+	}
 
 	public override void Initialize()
 	{
 		base.Initialize();
 		
-		SubscribeLocalEvent<BloodCultConstructShellComponent, CanDropTargetEvent>(OnCanDropTarget);
+		// CanDropTargetEvent is handled in SharedBloodCultistSystem for both client and server
 		SubscribeLocalEvent<BloodCultConstructShellComponent, DragDropTargetEvent>(OnDragDropTarget);
 		SubscribeLocalEvent<JuggernautComponent, MobStateChangedEvent>(OnJuggernautStateChanged);
+		SubscribeLocalEvent<JuggernautComponent, DragDropTargetEvent>(OnJuggernautDragDropTarget);
 	}
 
 	public void TryApplySoulStone(Entity<SoulStoneComponent> ent, ref AfterInteractEvent args)
@@ -141,6 +160,9 @@ public sealed partial class BloodCultConstructSystem : EntitySystem
 		}
 		_npcFaction.AddFaction(juggernaut, BloodCultRuleSystem.BloodCultistFactionId);
 		
+		// Grant Commune ability to juggernaut
+		GrantCommuneAction(juggernaut);
+		
 		// Play transformation audio
 		_audio.PlayPvs(new SoundPathSpecifier("/Audio/Magic/blink.ogg"), shellTransform.Coordinates);
 		
@@ -170,6 +192,9 @@ public sealed partial class BloodCultConstructSystem : EntitySystem
 		juggComp.SourceSoulstone = soulstone;
 		juggComp.IsInactive = false;
 
+		// Grant Commune ability to juggernaut if not already granted
+		GrantCommuneAction(juggernaut);
+
 		// DON'T heal the juggernaut - it stays in critical state until healed with blood
 
 		// Transfer mind from soulstone to juggernaut
@@ -191,17 +216,12 @@ public sealed partial class BloodCultConstructSystem : EntitySystem
 		_popup.PopupEntity(Loc.GetString("cult-juggernaut-reactivated"), user, user, PopupType.Large);
 	}
 
-	private void OnCanDropTarget(EntityUid uid, BloodCultConstructShellComponent component, ref CanDropTargetEvent args)
-	{
-		// Check if the dragged entity is a dead body with a mind
-		args.CanDrop = _mobState.IsDead(args.Dragged) && 
-		               CompOrNull<MindContainerComponent>(args.Dragged)?.Mind != null;
-		args.Handled = true;
-	}
-
-	//This is for the use case where we were exploring letting people drag bodies into the juggernaut shell. It's technically unused.
+	// Handle dragging dead bodies onto the juggernaut shell to create a juggernaut
 	private void OnDragDropTarget(EntityUid uid, BloodCultConstructShellComponent component, ref DragDropTargetEvent args)
 	{
+		// Mark as handled immediately to prevent other systems from processing this
+		args.Handled = true;
+		
 		// Verify the dragged entity is a dead body with a mind
 		if (!_mobState.IsDead(args.Dragged))
 		{
@@ -228,14 +248,8 @@ public sealed partial class BloodCultConstructSystem : EntitySystem
 			_transform.Unanchor(uid, shellTransform);
 		}
 		
-		// Play sacrifice audio
-		_audio.PlayPvs(new SoundPathSpecifier("/Audio/Magic/disintegrate.ogg"), shellTransform.Coordinates);
-		
-		// Delete the shell and spawn the juggernaut at the exact map coordinates with rotation
-		// Use DeleteEntity instead of QueueDel to ensure immediate deletion before spawning
-		EntityManager.DeleteEntity(uid);
-		
-		// Spawn the juggernaut at the exact map coordinates (not anchored, so it won't snap to grid)
+		// Spawn the juggernaut BEFORE deleting the shell to ensure proper setup
+		// Spawn at the exact map coordinates (not anchored, so it won't snap to grid)
 		var juggernaut = Spawn("MobBloodCultJuggernaut", shellMapCoords, rotation: shellRotation);
 		
 		// Ensure the juggernaut is not anchored (mobs shouldn't be anchored)
@@ -245,11 +259,26 @@ public sealed partial class BloodCultConstructSystem : EntitySystem
 			_transform.Unanchor(juggernaut, juggernautTransform);
 		}
 		
-		// Get the juggernaut's body container
+		// Get the juggernaut's body container and insert the body BEFORE deleting the shell
+		// This prevents the body from being detected by offering runes underneath
 		if (_container.TryGetContainer(juggernaut, "juggernaut_body_container", out var container))
 		{
 			// Insert the victim's body into the juggernaut
 			_container.Insert(args.Dragged, container);
+		}
+		
+		// Play sacrifice audio
+		_audio.PlayPvs(new SoundPathSpecifier("/Audio/Magic/disintegrate.ogg"), shellTransform.Coordinates);
+		
+		// Delete the shell AFTER the body is safely in the container
+		// Use DeleteEntity instead of QueueDel to ensure immediate deletion
+		EntityManager.DeleteEntity(uid);
+		
+		// Store reference to body in the juggernaut component
+		if (TryComp<JuggernautComponent>(juggernaut, out var juggComp))
+		{
+			juggComp.SourceBody = args.Dragged;
+			juggComp.IsInactive = false;
 		}
 		
 		// Transfer mind from victim to juggernaut
@@ -263,6 +292,9 @@ public sealed partial class BloodCultConstructSystem : EntitySystem
 		}
 		_npcFaction.AddFaction(juggernaut, BloodCultRuleSystem.BloodCultistFactionId);
 		
+		// Grant Commune ability to juggernaut
+		GrantCommuneAction(juggernaut);
+		
 		// Play transformation audio
 		_audio.PlayPvs(new SoundPathSpecifier("/Audio/Magic/blink.ogg"), shellTransform.Coordinates);
 		
@@ -275,22 +307,12 @@ public sealed partial class BloodCultConstructSystem : EntitySystem
 
 	private void OnJuggernautStateChanged(Entity<JuggernautComponent> juggernaut, ref MobStateChangedEvent args)
 	{
-		// Only handle transition to critical state
-		if (args.NewMobState != MobState.Critical)
+		// Handle transition to critical state or death
+		if (args.NewMobState != MobState.Critical && args.NewMobState != MobState.Dead)
 			return;
 
-		// Don't eject soulstone if already inactive
+		// Don't eject if already inactive
 		if (juggernaut.Comp.IsInactive)
-			return;
-
-		// Check if the juggernaut has a soulstone
-		if (juggernaut.Comp.SourceSoulstone == null)
-			return;
-
-		var soulstone = juggernaut.Comp.SourceSoulstone.Value;
-
-		// Verify the soulstone still exists
-		if (!Exists(soulstone))
 			return;
 
 		// Get the juggernaut's mind
@@ -298,44 +320,170 @@ public sealed partial class BloodCultConstructSystem : EntitySystem
 		if (mindId == null || !TryComp<MindComponent>(mindId, out var mindComp))
 			return;
 
-		// Transfer the mind back to the soulstone
-		_mind.TransferTo((EntityUid)mindId, soulstone, mind: mindComp);
-		
-		// Ensure the soulstone can speak but not move
-		EnsureComp<SpeechComponent>(soulstone);
-		EnsureComp<EmotingComponent>(soulstone);
+		bool ejectedSomething = false;
 
-		// Remove the soulstone from the container and spawn it at the juggernaut's location
-		if (_container.TryGetContainer(juggernaut, "juggernaut_soulstone_container", out var container))
+		// Handle soulstone ejection
+		if (juggernaut.Comp.SourceSoulstone != null)
 		{
-			_container.Remove(soulstone, container);
+			var soulstone = juggernaut.Comp.SourceSoulstone.Value;
+
+			// Verify the soulstone still exists
+			if (Exists(soulstone))
+			{
+				// Transfer the mind back to the soulstone
+				_mind.TransferTo((EntityUid)mindId, soulstone, mind: mindComp);
+				
+				// Ensure the soulstone can speak but not move
+				EnsureComp<SpeechComponent>(soulstone);
+				EnsureComp<EmotingComponent>(soulstone);
+
+				// Remove the soulstone from the container
+				if (_container.TryGetContainer(juggernaut, "juggernaut_soulstone_container", out var soulstoneContainer))
+				{
+					_container.Remove(soulstone, soulstoneContainer);
+				}
+
+				// Give the soulstone a physics push for visual effect
+				if (TryComp<PhysicsComponent>(soulstone, out var soulstonePhysics))
+				{
+					_physics.SetAwake((soulstone, soulstonePhysics), true);
+					var randomDirection = _random.NextVector2();
+					var speed = _random.NextFloat(8f, 15f);
+					var impulse = randomDirection * speed * soulstonePhysics.Mass;
+					_physics.ApplyLinearImpulse(soulstone, impulse, body: soulstonePhysics);
+				}
+
+				// Show popup
+				_popup.PopupEntity(
+					Loc.GetString("cult-juggernaut-critical-soulstone-ejected"),
+					juggernaut, PopupType.LargeCaution
+				);
+
+				juggernaut.Comp.SourceSoulstone = null;
+				ejectedSomething = true;
+			}
 		}
 
-	// Give the soulstone a physics push for visual effect
-	if (TryComp<PhysicsComponent>(soulstone, out var physics))
-	{
-		// Wake the physics body so it responds to the impulse
-		_physics.SetAwake((soulstone, physics), true);
-		
-		// Generate a random direction and speed (8-15 units/sec for dramatic ejection)
-		var randomDirection = _random.NextVector2();
-		var speed = _random.NextFloat(8f, 15f);
-		var impulse = randomDirection * speed * physics.Mass;
-		_physics.ApplyLinearImpulse(soulstone, impulse, body: physics);
+		// Handle body ejection
+		if (juggernaut.Comp.SourceBody != null)
+		{
+			var body = juggernaut.Comp.SourceBody.Value;
+
+			// Verify the body still exists
+			if (Exists(body))
+			{
+				// Transfer the mind back to the body
+				_mind.TransferTo((EntityUid)mindId, body, mind: mindComp);
+
+				// Remove the body from the container
+				if (_container.TryGetContainer(juggernaut, "juggernaut_body_container", out var bodyContainer))
+				{
+					_container.Remove(body, bodyContainer);
+				}
+
+				// Give the body a physics push for visual effect
+				if (TryComp<PhysicsComponent>(body, out var bodyPhysics))
+				{
+					_physics.SetAwake((body, bodyPhysics), true);
+					var randomDirection = _random.NextVector2();
+					var speed = _random.NextFloat(8f, 15f);
+					var impulse = randomDirection * speed * bodyPhysics.Mass;
+					_physics.ApplyLinearImpulse(body, impulse, body: bodyPhysics);
+				}
+
+				// Show popup
+				_popup.PopupEntity(
+					Loc.GetString("cult-juggernaut-critical-soulstone-ejected"), // Reuse existing string for now
+					juggernaut, PopupType.LargeCaution
+				);
+
+				juggernaut.Comp.SourceBody = null;
+				ejectedSomething = true;
+			}
+		}
+
+		// Play audio effect and mark inactive if we ejected something
+		if (ejectedSomething)
+		{
+			var coordinates = Transform(juggernaut).Coordinates;
+			_audio.PlayPvs(new SoundPathSpecifier("/Audio/Magic/blink.ogg"), coordinates);
+			juggernaut.Comp.IsInactive = true;
+		}
 	}
 
-		// Play audio effect
+	private void OnJuggernautDragDropTarget(EntityUid uid, JuggernautComponent component, ref DragDropTargetEvent args)
+	{
+		// Only allow reactivating inactive juggernauts
+		if (!component.IsInactive)
+		{
+			args.Handled = true;
+			return;
+		}
+
+		// Verify the dragged entity is a dead body with a mind
+		if (!_mobState.IsDead(args.Dragged))
+		{
+			_popup.PopupEntity(Loc.GetString("cult-juggernaut-shell-needs-dead"), args.User, args.User, PopupType.Medium);
+			args.Handled = true;
+			return;
+		}
+
+		EntityUid? mindId = CompOrNull<MindContainerComponent>(args.Dragged)?.Mind;
+		MindComponent? mindComp = CompOrNull<MindComponent>(mindId);
+		
+		if (mindId == null || mindComp == null)
+		{
+			_popup.PopupEntity(Loc.GetString("cult-invocation-fail-nosoul"), args.User, args.User, PopupType.Medium);
+			args.Handled = true;
+			return;
+		}
+
+		_ReactivateJuggernautWithBody(args.Dragged, args.User, uid, component);
+		args.Handled = true;
+	}
+
+	private void _ReactivateJuggernautWithBody(EntityUid body, EntityUid user, EntityUid juggernaut, JuggernautComponent juggComp)
+	{
+		// Get the mind from the body
+		EntityUid? mindId = CompOrNull<MindContainerComponent>(body)?.Mind;
+		MindComponent? mindComp = CompOrNull<MindComponent>(mindId);
+		
+		if (mindId == null || mindComp == null)
+		{
+			_popup.PopupEntity(Loc.GetString("cult-invocation-fail-nosoul"), user, user, PopupType.Medium);
+			return;
+		}
+
+		// Store the body in the juggernaut's container
+		if (_container.TryGetContainer(juggernaut, "juggernaut_body_container", out var bodyContainer))
+		{
+			_container.Insert(body, bodyContainer);
+		}
+
+		// Store reference to body and reactivate the juggernaut
+		juggComp.SourceBody = body;
+		juggComp.IsInactive = false;
+
+		// Grant Commune ability to juggernaut if not already granted
+		GrantCommuneAction(juggernaut);
+
+		// DON'T heal the juggernaut - it stays in critical state until healed with blood
+
+		// Transfer mind from body to juggernaut
+		_mind.TransferTo((EntityUid)mindId, juggernaut, mind: mindComp);
+		
+		// Ensure juggernaut is in the BloodCultist faction (remove any crew alignment)
+		if (TryComp<NpcFactionMemberComponent>(juggernaut, out var npcFaction))
+		{
+			_npcFaction.ClearFactions((juggernaut, npcFaction), false);
+		}
+		_npcFaction.AddFaction(juggernaut, BloodCultRuleSystem.BloodCultistFactionId);
+
+		// Play transformation audio
 		var coordinates = Transform(juggernaut).Coordinates;
 		_audio.PlayPvs(new SoundPathSpecifier("/Audio/Magic/blink.ogg"), coordinates);
 
-		// Show popup
-		_popup.PopupEntity(
-			Loc.GetString("cult-juggernaut-critical-soulstone-ejected"),
-			juggernaut, PopupType.LargeCaution
-		);
-
-		// Mark the juggernaut as inactive and clear the reference
-		juggernaut.Comp.IsInactive = true;
-		juggernaut.Comp.SourceSoulstone = null;
+		// Notify the user
+		_popup.PopupEntity(Loc.GetString("cult-juggernaut-reactivated"), user, user, PopupType.Large);
 	}
 }

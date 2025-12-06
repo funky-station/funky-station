@@ -1,8 +1,10 @@
 # SPDX-FileCopyrightText: 2024 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
 # SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 MaiaArai <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 ThatOneMoon <91613003+ThatOneGuy227@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Xcybitt <197952719+Xcybitt@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 lolmatdi <59433122+lolmatdi@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
@@ -20,6 +22,7 @@
     ClothingEyesGlasses: 2
     ClothingHandsGlovesColorWhite: 2
     MailBag: 2
+    HoloBellProjector: 3 #Imp
     WeaponMailLake: 1 # Frontier
     BoxMailCapsulePrimed: 2 # Frontier
     BoxEnvelope: 2 #funk

@@ -146,7 +146,10 @@
 # SPDX-FileCopyrightText: 2024 to4no_fix <156101927+chavonadelal@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 yglop <95057024+yglop@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 2DSiggy <siggymaxwell@gmail.com>
+# SPDX-FileCopyrightText: 2025 A-Loose-Goose <237446272+A-Loose-Goose@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 ALooseGoose <ALooseGoosey@gmail.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 CalicoDragon <110030310+CalicoDragon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Gansu <68031780+GansuLalan@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 IronDragoon <8961391+IronDragoon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 IronDragoon <you@example.com>
@@ -166,6 +169,7 @@
 # SPDX-FileCopyrightText: 2025 QueerCats <jansencheng3@gmail.com>
 # SPDX-FileCopyrightText: 2025 ScarKy0 <scarky0@onet.eu>
 # SPDX-FileCopyrightText: 2025 SigmaTheDragon <162711378+SigmaTheDragon@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Sofia Gilsanz <softie.gd@gmail.com>
 # SPDX-FileCopyrightText: 2025 SpaceCat~Chan <49094338+SpaceCat-Chan@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Speebro <speebro@notreal.com>
 # SPDX-FileCopyrightText: 2025 Steve <marlumpy@gmail.com>
@@ -181,6 +185,7 @@
 # SPDX-FileCopyrightText: 2025 Xcybitt <197952719+Xcybitt@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Xcybitt <xcybitt@gmail.com>
 # SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Zergologist <114537969+Chedd-Error@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 aa5g21 <aa5g21@soton.ac.uk>
 # SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 delorphin <delorphin@gmail.com>
@@ -193,6 +198,7 @@
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 starch <starchpersonal@gmail.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 vectorassembly <vectorassembly@icloud.com>
 # SPDX-FileCopyrightText: 2025 willow <willowzeta632146@proton.me>
 # SPDX-FileCopyrightText: 2025 wilowzeta <willowzeta632146@proton.me>
 #
@@ -375,6 +381,7 @@
     - SprayBottle
     - MopItem
     - Holoprojector
+    - HolotapeProjector # Funky!
     - Mousetrap
     - LightReplacer
     - TrashBag
@@ -505,6 +512,10 @@
     - CandyBowl #pill(pill that pills you) #funk
     - DeskBell #ringringring #funk
     - BaseHandheldTelevision #watch my channels #funk
+    - InflatableWall #funky inflatables
+    - InflatableDoor #funk
+    - InflatableDock #funk
+    - InflatableFloor #funk
     dynamicRecipes:
     - BoomboxRed
     - BoomboxGreen
@@ -704,6 +715,9 @@
     - ClothingEyesNightVisionGoggles # Funky - EE nightvision
     - ClothingEyesNightVisionDiagnosticGoggles # Funky - EE nightvision
     - ClothingEyesThermalVisionGoggles # Funky - EE nightvision
+    - SadTromboneImplanter
+    - LightImplanter
+    - BikeHornImplanter
   - type: EmagLatheRecipes
     emagDynamicRecipes:
     - BoxBeanbag
@@ -750,6 +764,8 @@
     - MagazinePistolLargeIncendiary # Funkystation
     - MagazineBoxPistolLargeUranium # Funkystation
     - MagazineBoxPistolLargeIncendiary # Funkystation
+    - MindShieldImplanter
+    - TrackingImplanter
     - ClothingHandsTruncheonKnuckleDusters # funk
 
 - type: entity
@@ -1267,6 +1283,8 @@
     - WeaponMechCombatFlashbangLauncher
     - WeaponMechCombatMissileRack8
     - ClothingEyesNightVisionSecurityGoggles # Funky - EE nightvision
+    - MindShieldImplanter
+    - TrackingImplanter
     - ClothingHandsTruncheonKnuckleDusters # funk
   - type: EmagLatheRecipes # Goobstation
     emagStaticRecipes:
@@ -1440,6 +1458,9 @@
     - BluespaceBeaker
     - SyringeBluespace
     - SyringeCryostasis
+    - SadTromboneImplanter
+    - LightImplanter
+    - BikeHornImplanter
     # Shitmed Change
     - EnergyScalpel
     - EnergyCautery
@@ -1542,7 +1563,7 @@
     - ClothingUniformJumpsuitDetective
     - ClothingUniformJumpskirtDetective
     - ClothingUniformJumpsuitEngineering
-    - ClothingUniformJumpskirtEngineering
+    - ClothingUniformJumpsuitEngineeringOveralls
     - ClothingUniformJumpsuitSeniorEngineer
     - ClothingUniformJumpskirtSeniorEngineer
     - ClothingOuterVestHazard

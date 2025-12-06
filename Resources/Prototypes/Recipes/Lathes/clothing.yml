@@ -34,6 +34,8 @@
 # SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Fr0goo <153249069+Fr0goo@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Fr0goo <frogoofrog@outlook.com>
+# SPDX-FileCopyrightText: 2025 MaiaArai <158123176+YaraaraY@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Sofia Gilsanz <softie.gd@gmail.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 ThatOneMoon <91613003+ThatOneMoon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
@@ -308,8 +310,8 @@
 
 - type: latheRecipe
   parent: BaseJumpsuitRecipe
-  id: ClothingUniformJumpskirtEngineering
-  result: ClothingUniformJumpskirtEngineering
+  id: ClothingUniformJumpsuitEngineeringOveralls
+  result: ClothingUniformJumpsuitEngineeringOveralls
 
 - type: latheRecipe
   parent: BaseJumpsuitRecipe

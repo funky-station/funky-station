@@ -9,6 +9,8 @@
 # SPDX-FileCopyrightText: 2023 OctoRocket <88291550+OctoRocket@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 heree <79546981+hereelabs@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 hereelabs <hahmorm@gmail.com>
+# SPDX-FileCopyrightText: 2025 MaiaArai <158123176+YaraaraY@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Sofia Gilsanz <softie.gd@gmail.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 V <97265903+formlessnameless@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
@@ -32,8 +34,10 @@
     ClothingUniformJumpsuitEngineeringBaggyHazard: 3
     ClothingUniformJumpsuitEngineeringUndersuit: 3
     ClothingUniformJumpsuitEngineering: 3
-    ClothingUniformJumpskirtEngineering: 3
-    ClothingUniformJumpsuitEngineeringHazard: 3
+    ClothingUniformJumpsuitEngineeringOveralls: 2
+    ClothingUniformJumpsuitEngineeringCoveralls: 2
+    ClothingUniformJumpsuitEngineeringRipley: 1
+    ClothingUniformJumpsuitEngineeringShirt: 2
     ClothingShoesColorBlack: 3
     ClothingOuterVestHazard: 3
     ClothingShoesBootsWork: 3

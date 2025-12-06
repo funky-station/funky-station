@@ -44,6 +44,8 @@
 # SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 takemysoult <143123247+takemysoult@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 to4no_fix <156101927+chavonadelal@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 A-Loose-Goose <237446272+A-Loose-Goose@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 ALooseGoose <ALooseGoosey@gmail.com>
 # SPDX-FileCopyrightText: 2025 Mish <bluscout78@yahoo.com>
 # SPDX-FileCopyrightText: 2025 SigmaTheDragon <162711378+SigmaTheDragon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
@@ -875,6 +877,28 @@
   materials:
     Steel: 400
     Plastic: 200
+
+- type: latheRecipe
+  id: MindShieldImplanter
+  result: MindShieldImplanter
+  completetime: 3
+  materials:
+    Steel: 1000
+    Glass: 1000
+    Plasma: 1500
+    Uranium: 1500
+    Gold: 500
+    Silver: 500
+
+- type: latheRecipe
+  id: TrackingImplanter
+  result: TrackingImplanter
+  completetime: 3
+  materials:
+    Steel: 1000
+    Glass: 1000
+    Gold: 150
+    Silver: 150
 
 - type: latheRecipe
   id: SurveillanceWirelessCameraBodySecurity

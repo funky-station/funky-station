@@ -46,6 +46,8 @@
 # SPDX-FileCopyrightText: 2024 Verm <32827189+Vermidia@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 rottenheadphones <juaelwe@outlook.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 Teasq <Xerithin@gmail.com>
+# SPDX-FileCopyrightText: 2025 Zergologist <114537969+Chedd-Error@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
@@ -103585,7 +103587,7 @@ entities:
     - type: Transform
       pos: 29.5,-4.5
       parent: 2
-- proto: InflatableWallStack5
+- proto: InflatableWallStack
   entities:
   - uid: 1466
     components:

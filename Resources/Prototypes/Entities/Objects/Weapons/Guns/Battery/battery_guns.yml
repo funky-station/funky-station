@@ -420,7 +420,6 @@
     maxCharge: 5000
     startingCharge: 5000
 
-
 - type: entity
   name: pulse rifle
   parent: [BaseWeaponBattery, BaseGunWieldable]
@@ -995,3 +994,15 @@
   - type: StaticPrice
     price: 750
 
+- type: entity
+  name: xenoborg laser gun
+  parent: [ WeaponAdvancedLaser, BaseXenoborgContraband ]
+  id: XenoborgLaserGun
+
+- type: entity
+  name: xenoborg heavy laser gun
+  parent: [ WeaponAdvancedLaser, BaseXenoborgContraband ]
+  id: XenoborgHeavyLaserGun
+  components:
+  - type: HitscanBatteryAmmoProvider
+    proto: RedHeavyLaser

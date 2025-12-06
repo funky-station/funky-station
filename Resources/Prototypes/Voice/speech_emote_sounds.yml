@@ -538,6 +538,28 @@
     Scream:
       collection: CyborgScream # TODO: May be good to create a separate collection and assets for Syndicate
 
+- type: emoteSounds
+  id: UnisexSiliconXenoborg
+  params:
+    variation: 0.05
+  sounds:
+    Scream:
+      collection: XenoborgScream
+    Laugh:
+      collection: XenoborgLaugh
+    Beep:
+      collection: XenoborgBeep
+    Chime:
+      collection: XenoborgChime
+    Buzz:
+      collection: XenoborgBuzz
+    Buzz-Two:
+      collection: XenoborgBuzzTwo
+    Honk:
+      collection: XenoborgBikeHorn
+    Ping:
+      collection: XenoborgPing
+
 # body emotes
 - type: emoteSounds
   id: GeneralBodyEmotes

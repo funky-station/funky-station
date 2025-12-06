@@ -1,0 +1,24 @@
+# SPDX-FileCopyrightText: 2025 Samuka-C <47865393+Samuka-C@users.noreply.github.com>
+#
+# SPDX-License-Identifier: MIT
+
+- type: body
+  id: MothershipCoreBody
+  name: "core"
+  root: torso
+  slots:
+    torso:
+      part: TorsoBorg
+      connections:
+      - right2hand
+      - right1hand
+      - left1hand
+      - left2hand
+    left1hand:
+      part: LeftArmBorg
+    left2hand:
+      part: LeftArmBorg
+    right1hand:
+      part: RightArmBorg
+    right2hand:
+      part: RightArmBorg

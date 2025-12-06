@@ -1,0 +1,14 @@
+# SPDX-FileCopyrightText: 2025 ALooseGoose <ALooseGoosey@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: dataset
+  id: ChangelingFlavor
+  values:
+  - "hiveless"
+  - "pale-choir"
+  - "swarm-of-ichor"
+  - "solstice-shroud"
+  - "red-garden"
+  - "crownless-knights"
+  - "false-light"

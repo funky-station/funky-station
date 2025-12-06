@@ -6183,3 +6183,9 @@ Entries:
       message: Tweak MedDrobe to dispense even more types of clothes
   id: 724
   time: '2025-12-05T21:55:38.0000000+00:00'
+- author: Teasq
+  changes:
+    - type: Tweak
+      message: Resprited the mining hardsuit
+  id: 725
+  time: '2025-12-06T08:57:29.0000000+00:00'

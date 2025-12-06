@@ -245,8 +245,10 @@
   id: CaptainJobTrinkets
   name: loadout-group-jobtrinkets
   minLimit: 0
+  maxLimit: 2
   loadouts:
   - LizardPlushieCaptain
+  - CommandLighter # Funky Change
 
 - type: loadoutGroup
   id: HoPHead
@@ -296,8 +298,10 @@
   id: HoPJobTrinkets
   name: loadout-group-jobtrinkets
   minLimit: 0
+  maxLimit: 2
   loadouts:
   - LizardPlushieHeadOfPersonnel
+  - CommandLighter # Funky Change
 
 # Civilian
 - type: loadoutGroup
@@ -807,8 +811,10 @@
   id: ClownJobTrinkets
   name: loadout-group-jobtrinkets
   minLimit: 0
+  maxLimit: 2
   loadouts:
   - LizardPlushieClown
+  - ClownLighter # Funky Change
 
 - type: loadoutGroup
   id: MimeHead
@@ -991,8 +997,10 @@
   id: QuartermasterJobTrinkets
   name: loadout-group-jobtrinkets
   minLimit: 0
+  maxLimit: 2
   loadouts:
   - LizardPlushieQuartermaster
+  - CommandLighter # Funky Change
 
 - type: loadoutGroup
   id: CargoTechnicianHead
@@ -1164,8 +1172,10 @@
   id: ChiefEngineerJobTrinkets
   name: loadout-group-jobtrinkets
   minLimit: 0
+  maxLimit: 2
   loadouts:
   - LizardPlushieChiefEngineer
+  - CommandLighter # Funky Change
 
 - type: loadoutGroup
   id: TechnicalAssistantJumpsuit
@@ -1368,8 +1378,10 @@
   id: ResearchDirectorJobTrinkets
   name: loadout-group-jobtrinkets
   minLimit: 0
+  maxLimit: 2
   loadouts:
   - LizardPlushieResearchDirector
+  - CommandLighter # Funky Change
 
 - type: loadoutGroup
   id: ScientistHead
@@ -1521,8 +1533,10 @@
   id: HeadofSecurityJobTrinkets
   name: loadout-group-jobtrinkets
   minLimit: 0
+  maxLimit: 2
   loadouts:
   - LizardPlushieHeadofSecurity
+  - CommandLighter # Funky Change
 
 - type: loadoutGroup
   id: WardenHead
@@ -1786,8 +1800,10 @@
   id: ChiefMedicalOfficerJobTrinkets
   name: loadout-group-jobtrinkets
   minLimit: 0
+  maxLimit: 2
   loadouts:
   - LizardPlushieChiefMedicalOfficer
+  - CommandLighter # Funky Change
 
 - type: loadoutGroup
   id: MedicalDoctorHead

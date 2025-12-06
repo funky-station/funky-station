@@ -1,3 +1,4 @@
+# SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
 # SPDX-FileCopyrightText: 2025 TheHolyAegis <76066612+TheHolyAegis@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 TheHolyAegis <sanderkamphuis719@gmail.com>
 # SPDX-FileCopyrightText: 2025 empty0set <16693552+empty0set@users.noreply.github.com>
@@ -40,3 +41,4 @@
     ears: ClothingHeadsetCommandService
     belt: ClothingBeltJanitorFilled
     shoes: ClothingShoesGaloshes
+    pocket1: NanotrasenFlippo #Funky

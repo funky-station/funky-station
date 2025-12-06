@@ -1,3 +1,4 @@
+# SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
 # SPDX-FileCopyrightText: 2025 Xcybitt <lenazheng88@gmail.com>
 # SPDX-FileCopyrightText: 2025 Xcybitt <xcybitt@gmail.com>
 # SPDX-FileCopyrightText: 2025 mkanke-real <mikekanke@gmail.com>
@@ -574,3 +575,21 @@
     - id: ClothingHandsGlovesConducting
       amount: 7
     - id: ClothingHandsGlovesColorYellow
+
+- type: entity
+  parent: BaseMail
+  id: MailMysteryLighterBox
+  suffix: Ligher Mystery Box 
+  components:
+  - type: Mail
+    contents:
+    - id: MysteryLighterBox
+
+- type: entity
+  parent: BaseMail
+  id: MailUplinkLighterBox
+  suffix: Uplink Ligher Mystery Box 
+  components:
+  - type: Mail
+    contents:
+    - id: UplinkLighterBox

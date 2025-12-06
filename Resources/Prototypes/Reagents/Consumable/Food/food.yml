@@ -11,6 +11,7 @@
 # SPDX-FileCopyrightText: 2023 OctoRocket <88291550+OctoRocket@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2023 Rane <60792108+Elijahrane@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 RumiTiger <154005209+RumiTiger@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
@@ -28,6 +29,7 @@
     Food:
       effects:
       - !type:SatiateHunger
+        factor: 1.5
   plantMetabolism:
   - !type:PlantAdjustNutrition
     amount: 1.5

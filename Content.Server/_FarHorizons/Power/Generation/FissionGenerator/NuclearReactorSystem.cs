@@ -535,11 +535,8 @@ public sealed class NuclearReactorSystem : SharedNuclearReactorSystem
             case float n when n > comp.ReactorOverheatTemp && n <= comp.ReactorFireTemp:
                 _appearance.SetData(uid, ReactorVisuals.Status, ReactorStatusLights.Overheat);
                 break;
-            case float n when n > comp.ReactorFireTemp && n <= comp.ReactorMeltdownTemp:
+            case float n when n > comp.ReactorFireTemp && n <= float.PositiveInfinity:
                 _appearance.SetData(uid, ReactorVisuals.Status, ReactorStatusLights.Meltdown);
-                break;
-            case float n when n > comp.ReactorMeltdownTemp && n <= float.PositiveInfinity:
-                _appearance.SetData(uid, ReactorVisuals.Status, ReactorStatusLights.Boom);
                 break;
             default:
                 _appearance.SetData(uid, ReactorVisuals.Status, ReactorStatusLights.Off);

@@ -12,15 +12,19 @@
       visible: true
       map: [ "enum.ReactorVisualLayers.Sprite" ]
     - state: reactor_status_active
+      shader: unshaded
       visible: false
       map: [ "enum.ReactorVisualLayers.Status" ]
     - state: reactor_gas_input_lights
+      shader: unshaded
       visible: false
       map: [ "enum.ReactorVisualLayers.Input" ]
     - state: reactor_gas_output_lights
+      shader: unshaded
       visible: false
       map: [ "enum.ReactorVisualLayers.Output" ]
     - state: reactor_lights_warning
+      shader: unshaded
       visible: false
       map: [ "enum.ReactorVisualLayers.Lights" ]
     - state: reactor_fire
@@ -41,7 +45,6 @@
           Active: { state: reactor_status_active, visible: true }
           Overheat: { state: reactor_status_overheat, visible: true }
           Meltdown: { state: reactor_status_meltdown, visible: true }
-          Boom: { state: reactor_status_boom, visible: true }
       enum.ReactorVisuals.Input:
         enum.ReactorVisualLayers.Input:
           True: { visible: true }

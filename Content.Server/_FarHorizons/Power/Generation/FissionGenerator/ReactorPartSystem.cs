@@ -117,14 +117,11 @@ public sealed class ReactorPartSystem : SharedReactorPartSystem
         return neutrons;
     }
 
-<<<<<<< HEAD
-=======
     /// <summary>
     /// Determines the number of additional neutrons the gas makes.
     /// </summary>
     /// <param name="reactorPart"></param>
     /// <returns>Change in number of neutrons</returns>
->>>>>>> 305f489665 (Fix gas channels)
     private int GasNeutronInteract(ReactorPartComponent reactorPart)
     {
         if (reactorPart.AirContents == null)

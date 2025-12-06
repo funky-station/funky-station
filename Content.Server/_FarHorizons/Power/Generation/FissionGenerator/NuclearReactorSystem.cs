@@ -65,9 +65,6 @@ public sealed class NuclearReactorSystem : SharedNuclearReactorSystem
     [Dependency] private readonly PopupSystem _popupSystem = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
 
-    private static readonly int _gridWidth = NuclearReactorComponent.ReactorGridWidth;
-    private static readonly int _gridHeight = NuclearReactorComponent.ReactorGridHeight;
-
     private readonly float _threshold = 0.5f;
     private float _accumulator = 0f;
 
@@ -104,6 +101,15 @@ public sealed class NuclearReactorSystem : SharedNuclearReactorSystem
     private void OnInit(EntityUid uid, NuclearReactorComponent comp, ref ComponentInit args)
     {
         _signal.EnsureSinkPorts(uid, comp.ControlRodInsertPort, comp.ControlRodRetractPort);
+
+        var prefab = SelectPrefab(comp.Prefab);
+        for (var x = 0; x < _gridWidth; x++)
+            for (var y = 0; y < _gridHeight; y++)
+                comp.ComponentGrid[x, y] = prefab[x, y] != null ? new ReactorPartComponent(prefab[x, y]!) : null;
+
+        comp.ApplyPrefab = false;
+        UpdateGridVisual((uid, comp));
+        UpdateGasVolume(comp);
     }
 
     private void OnEnable(Entity<NuclearReactorComponent> ent, ref AtmosDeviceEnabledEvent args)
@@ -172,9 +178,6 @@ public sealed class NuclearReactorSystem : SharedNuclearReactorSystem
         if (!_nodeContainer.TryGetNode(comp.OutletEnt.Value, comp.PipeName, out PipeNode? outlet))
             return;
 
-        if (comp.VisualGrid[0, 0].Id == 0)
-        { InitGrid(ent); comp.ApplyPrefab = true; }
-
         if (comp.ApplyPrefab)
         {
             var prefab = SelectPrefab(comp.Prefab);
@@ -187,7 +190,7 @@ public sealed class NuclearReactorSystem : SharedNuclearReactorSystem
             }
 
             comp.ApplyPrefab = false;
-            UpdateGridVisual(comp);
+            UpdateGridVisual(ent);
             UpdateGasVolume(comp);
         }
 
@@ -337,34 +340,6 @@ public sealed class NuclearReactorSystem : SharedNuclearReactorSystem
         comp.Intensity = Math.Max(ent.Comp.RadiationLevel, ent.Comp.Melted ? 10 : 0);
         ent.Comp.RadiationLevel /= 2;
     }
-
-    private void InitGrid(Entity<NuclearReactorComponent> ent)
-    {
-        var xspace = 18f / 32f;
-        var yspace = 15f / 32f;
-
-        var yoff = 5f / 32f;
-
-        for (var x = 0; x < _gridWidth; x++)
-        {
-            for (var y = 0; y < _gridHeight; y++)
-            {
-                // ...48 entities stuck on the grid, spawn one more, pass it around, 49 entities stuck on the grid...
-                ent.Comp.VisualGrid[x, y] = _entityManager.GetNetEntity(SpawnAttachedTo("ReactorComponent", new(ent.Owner, xspace * (y - 3), (-yspace * (x - 3)) - yoff)));
-            }
-        }
-    }
-
-    private static ReactorPartComponent?[,] SelectPrefab(string select) => select switch
-    {
-        "normal" => NuclearReactorPrefabs.Normal,
-        "debug" => NuclearReactorPrefabs.Debug,
-        "meltdown" => NuclearReactorPrefabs.Meltdown,
-        "alignment" => NuclearReactorPrefabs.Alignment,
-        "arachne" => NuclearReactorPrefabs.Arachne,
-        "lens" => NuclearReactorPrefabs.Lens,
-        _ => NuclearReactorPrefabs.Empty,
-    };
 
     private static List<ReactorPartComponent?> GetGridNeighbors(NuclearReactorComponent reactor, int x, int y)
     {
@@ -524,7 +499,7 @@ public sealed class NuclearReactorSystem : SharedNuclearReactorSystem
         Array.Clear(comp.TemperatureGrid);
         Array.Clear(comp.FluxGrid);
 
-        UpdateGridVisual(comp);
+        UpdateGridVisual(ent);
     }
 
     private void UpdateVisuals(Entity<NuclearReactorComponent> ent)
@@ -808,7 +783,7 @@ public sealed class NuclearReactorSystem : SharedNuclearReactorSystem
             _entityManager.DeleteEntity(comp.PartSlot.Item);
         }
 
-        UpdateGridVisual(comp);
+        UpdateGridVisual(ent);
         UpdateGasVolume(comp);
         UpdateUI(ent.Owner, comp);
     }
@@ -870,10 +845,6 @@ public sealed class NuclearReactorSystem : SharedNuclearReactorSystem
 
     private void CleanUp(NuclearReactorComponent comp)
     {
-        for (var x = 0; x < _gridWidth; x++)
-            for (var y = 0; y < _gridHeight; y++)
-                QueueDel(_entityManager.GetEntity(comp.VisualGrid[x, y]));
-
         QueueDel(comp.InletEnt);
         QueueDel(comp.OutletEnt);
     }

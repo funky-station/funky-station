@@ -219,7 +219,7 @@
   name: retro laser blaster
   parent: [ BaseWeaponBatterySmall, BaseSecurityContraband ]
   id: WeaponLaserGun
-  description: A weapon using light amplified by the stimulated emission of radiation.
+  description: An older model of the now defunct line of the sectech laser blaster. rumors say it went defunct after a controversy of a sec cadet misfiring and melting a centcomm offical's brain.
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Battery/laser_retro.rsi
@@ -232,6 +232,8 @@
   - type: HitscanBatteryAmmoProvider
     proto: RedMediumLaser
     fireCost: 62.5
+  - type: StaticPrice
+    price: 250
   - type: MagazineVisuals
     magState: mag
     steps: 5

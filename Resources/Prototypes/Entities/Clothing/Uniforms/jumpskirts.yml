@@ -132,13 +132,13 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtChemistry
-  name: chemistry jumpskirt
-  description: There's some odd stains on this jumpskirt. Hm.
+  name: chemistry coverskirt
+  description: Basic PPE for any Che- Why are you wearing A SKIRT?! THAT'S NOT SAFE AT ALL!
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpskirt/chemistry.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/chemistry.rsi
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpskirt/chemistry.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/chemistry.rsi
 
 - type: entity
   parent: ClothingUniformSkirtBase
@@ -165,24 +165,24 @@
 - type: entity
   parent: [ClothingUniformSkirtBase, BaseCommandContraband]
   id: ClothingUniformJumpskirtCMO
-  name: chief medical officer's jumpskirt
-  description: It's a jumpskirt worn by those with the experience to be Chief Medical Officer. It provides minor biological protection.
+  name: chief medical officer's coverskirt
+  description: Sterile coveralls with markings belonging to a CMO. For when the Medbay is particularly messy - or was, before you decided to wear it with a skirt.
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpskirt/cmo.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/cmo.rsi
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpskirt/cmo.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/cmo.rsi
 
 - type: entity
   parent: [ClothingUniformSkirtBase, BaseCommandContraband]
   id: ClothingUniformJumpskirtCMOTurtle
-  name: chief medical officer's turtleneck jumpskirt
+  name: chief medical officer's turtleskirt
   description: It's a turtleneck worn by those with the experience to be Chief Medical Officer. It provides minor biological protection.
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpskirt/cmo_turtle.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/cmo_turtle.rsi
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpskirt/cmo_turtle.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/cmo_turtle.rsi
 
 - type: entity
   parent: ClothingUniformSkirtBase
@@ -300,13 +300,13 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtMedicalDoctor
-  name: medical doctor jumpskirt
-  description: It's made of a special fiber that provides minor protection against biohazards. It has a cross on the chest denoting that the wearer is trained medical personnel.
+  name: medical sterile coverskirt
+  description: Sterile coveralls meant for work in a Medbay. This pair seems to have.. a skirt? That doesn't seem very sterile...
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpskirt/medical.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/medical.rsi
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpskirt/medical.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/medical.rsi
 
 - type: entity
   parent: ClothingUniformSkirtBase

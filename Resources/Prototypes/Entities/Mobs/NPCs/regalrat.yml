@@ -161,7 +161,7 @@
       settings: default
   - type: GhostTakeoverAvailable
   - type: Tag
-    tags:
+    tags: !type:IgnoreInheritance
       - CannotSuicide
       - FootstepSound
   - type: NoSlip
@@ -169,7 +169,6 @@
   - type: RatKing
     hungerPerArmyUse: 25
     hungerPerDomainUse: 50
-  - type: Rummager # DeltaV: Make rummaging a generic component
   - type: MobsterAccent
   - type: Speech
     speechVerb: SmallMob

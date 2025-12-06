@@ -7,7 +7,7 @@
 
 - type: entity
   name: futuristic pen
-  parent: PenCentcom
+  parent: PenEmbeddable
   id: PenFuture
   description: Some theories claim that the apocalypse of 3024 happened because of the pens
   components:

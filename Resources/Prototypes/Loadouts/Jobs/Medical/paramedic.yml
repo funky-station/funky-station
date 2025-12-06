@@ -14,16 +14,51 @@
   equipment:
     head: ClothingHeadHatParamedicsoft
 
+# Eyes - Funkystation
+- type: loadout
+  id: ParamedicHud
+  equipment:
+    eyes: ClothingEyesHudParamedic
+
+- type: loadout
+  id: ParamedicEyepatch
+  equipment:
+    eyes: ClothingEyesEyepatchHudParamedic
+
+- type: loadout
+  id: ParamedicGlasses
+  equipment:
+    eyes: ClothingEyesGlassesParamedic
+
+- type: loadout
+  id: ParamedicJamjars
+  equipment:
+    eyes: ClothingEyesGlassesParamedicJar
+
 # Jumpsuit
 - type: loadout
   id: ParamedicJumpsuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitParamedic
+  groupBy: "jumpsuit"
 
 - type: loadout
   id: ParamedicJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtParamedic
+  groupBy: "jumpskirt"
+
+- type: loadout #funky
+  id: ParamedicSpeedsuit
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitParamedicSpeedsuit
+  groupBy: "jumpsuit"
+
+- type: loadout #funky
+  id: ParamedicSpeedskirt
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtParamedicSpeedskirt
+  groupBy: "jumpskirt"
 
 # Outer clothing
 - type: loadout
@@ -41,3 +76,8 @@
   id: BlueShoes
   equipment:
     shoes: ClothingShoesColorBlue
+
+- type: loadout # funky
+  id: LaceupShoes
+  equipment:
+    shoes: ClothingShoesBootsLaceup

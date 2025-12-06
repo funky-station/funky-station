@@ -225,3 +225,16 @@
     sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/engineerelectrician.rsi
   - type: Clothing
     sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/engineerelectrician.rsi
+
+# paramedic speedskirt (arai + rosy)
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpskirtParamedicSpeedskirt
+  name: paramedic speedskirt
+  description: Why do you think these things are like 98% polyester? You can clean off blood and vomit with a wet wipe!
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/paramedic_speedskirt.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/paramedic_speedskirt.rsi

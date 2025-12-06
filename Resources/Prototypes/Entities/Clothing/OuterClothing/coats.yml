@@ -424,7 +424,7 @@
         Piercing: 0.85
 
 - type: entity
-  parent: ClothingOuterStorageBase
+  parent: ClothingOuterStorageFoldableBase
   id: ClothingOuterCoatParamedicWB
   name: paramedic windbreaker
   description: A paramedic's trusty windbreaker, for all the space wind.
@@ -433,6 +433,11 @@
     sprite: Clothing/OuterClothing/Coats/windbreaker_paramedic.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Coats/windbreaker_paramedic.rsi
+
+- type: entity # funky
+  parent: [ClothingOuterStorageFoldableBaseOpened, ClothingOuterCoatParamedicWB]
+  id: ClothingOuterCoatParamedicWBOpened
+  name: paramedic windbreaker
 
 - type: entity
   parent: [ClothingOuterStorageBase, BaseSyndicateContraband]

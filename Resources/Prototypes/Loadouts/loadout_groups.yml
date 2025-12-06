@@ -1845,6 +1845,7 @@
   loadouts:
   - WhiteShoes
   - MedicalWinterBoots
+  - LaceupShoes # funky
 
 - type: loadoutGroup
   id: MedicalDoctorPDA
@@ -1937,12 +1938,24 @@
   loadouts:
   - ParamedicHead
 
+- type: loadoutGroup #Funky
+  id: MedicalParamedicGlasses
+  name: loadout-group-paramedic-glasses
+  minLimit: 1
+  loadouts:
+    - ParamedicHud
+    - ParamedicEyepatch
+    - ParamedicGlasses
+    - ParamedicJamjars
+
 - type: loadoutGroup
   id: ParamedicJumpsuit
   name: loadout-group-paramedic-jumpsuit
   loadouts:
   - ParamedicJumpsuit
   - ParamedicJumpskirt
+  - ParamedicSpeedsuit # funky
+  - ParamedicSpeedskirt # funky
 
 - type: loadoutGroup
   id: ParamedicOuterClothing
@@ -1959,6 +1972,7 @@
   - BlueShoes
   - WhiteShoes
   - MedicalWinterBoots
+  - LaceupShoes # funky 
 
 - type: loadoutGroup #WizDen Weh Job Plush
   id: ParamedicJobTrinkets

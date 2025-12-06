@@ -555,3 +555,16 @@
     sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/cargoshorts.rsi
   - type: Clothing
     sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/cargoshorts.rsi
+
+# paramedic speedsuit (originally the resprited jumpsuit by Arai, i just made it its own item)
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitParamedicSpeedsuit
+  name: paramedic speedsuit
+  description: Why do you think these things are like 98% polyester? You can clean off blood and vomit with a wet wipe!
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/paramedic_speedsuit.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/paramedic_speedsuit.rsi

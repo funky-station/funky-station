@@ -216,3 +216,67 @@
     - WhitelistChameleon
     - HudMedical
     - HamsterWearable
+
+- type: entity
+  parent: [ClothingEyesBase, ShowMedicalIcons]
+  id: ClothingEyesHudParamedic
+  name: paramedic hud
+  description: A heads-up display in paramedic styling that scans the humanoids in view and provides accurate data about their health status.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Eyes/Huds/paramedichud.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Eyes/Huds/paramedichud.rsi
+  - type: Tag
+    tags:
+    - HudMedical
+
+- type: entity
+  parent: [ClothingEyesHudMedical, ClothingHeadEyeBaseFlippable]
+  id: ClothingEyesEyepatchHudParamedic
+  name: paramedic hud eyepatch
+  description: A heads-up display in paramedic styling that scans the humanoids in view and provides accurate data about their health status. For true patriots.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Eyes/Huds/paramedicpatch.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Eyes/Huds/paramedicpatch.rsi
+
+- type: entity
+  parent: [ ClothingEyesGlassesJamjar, ShowMedicalIcons ]
+  id: ClothingEyesGlassesParamedicJar
+  name: paramedic-issue jamjar glasses
+  description: These retro glasses remind you of the last mass-casualty.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Eyes/Jamjars/paramedicjar.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Eyes/Jamjars/paramedicjar.rsi
+  - type: VisionCorrection
+  - type: Construction
+    graph: jamjarGlassesMed
+    node: medjarGlasses
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+    - HudMedical
+
+- type: entity
+  parent: [ ClothingEyesGlasses, ShowMedicalIcons ]
+  id: ClothingEyesGlassesParamedic
+  name: paramedic-issue glasses
+  description: Upgraded glasses that provide a medical HUD, in paramedic styling.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Eyes/Glasses/paramedicglasses.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Eyes/Glasses/paramedicglasses.rsi
+  - type: VisionCorrection
+  - type: Construction
+    graph: GlassesMed
+    node: medGlasses
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+    - HudMedical
+    - HamsterWearable

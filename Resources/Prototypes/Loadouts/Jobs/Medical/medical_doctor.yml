@@ -4,9 +4,11 @@
 # SPDX-FileCopyrightText: 2024 Verm <32827189+Vermidia@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 AtlasHD <99688062+AtlasHDD@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Mora <46364955+TrixxedHeart@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 PoquitoDondito <danielchristianstone@gmail.com>
 # SPDX-FileCopyrightText: 2025 Teasq <Xerithin@gmail.com>
 # SPDX-FileCopyrightText: 2025 TrixxedHeart <46364955+TrixxedBit@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
@@ -62,6 +64,11 @@
     head: ClothingHeadMirror
 
 - type: loadout
+  id: MedicalFaceshield
+  equipment:
+    head: ClothingHeadFaceshield
+
+- type: loadout
   id: MedicalBeret
   equipment:
     head: ClothingHeadHatBeretMedic
@@ -86,6 +93,12 @@
   groupBy: "cap"
 
 - type: loadout
+  id: BlackSurgeryCap
+  equipment:
+    head: ClothingHeadHatSurgcapBlack
+  groupBy: "cap"
+
+- type: loadout
   id: NurseHat
   equipment:
     head: ClothingHeadNurseHat
@@ -103,6 +116,13 @@
   id: MedicalGlasses
   equipment:
     eyes: ClothingEyesGlassesMed
+- type: loadout
+  id: MedicalMonocle
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SeniorPhysician
+  equipment:
+    eyes: ClothingEyesHudMedicalMonocle
 
 # Jumpsuit
 - type: loadout
@@ -116,6 +136,12 @@
   equipment:
     jumpsuit: ClothingUniformJumpskirtMedicalDoctor
   groupBy: "jumpskirt"
+
+- type: loadout
+  id: MedicalDoctorCustodianJumpsuit
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitMedicalCustodian
+  groupBy: "jumpsuit"
 
 - type: loadout
   id: SeniorPhysicianJumpsuit
@@ -136,6 +162,24 @@
   groupBy: "jumpskirt"
 
 - type: loadout
+  id: SeniorPhysicianTurtleneck
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SeniorPhysician
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitPhysicianTurtleneck
+  groupBy: "jumpsuit"
+
+- type: loadout
+  id: SeniorPhysicianTurtleskirt
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SeniorPhysician
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtPhysicianTurtleneck
+  groupBy: "jumpskirt"
+
+- type: loadout
   id: MedicalBlueScrubs
   equipment:
     jumpsuit: UniformScrubsColorBlue
@@ -151,6 +195,36 @@
   id: MedicalPurpleScrubs
   equipment:
     jumpsuit: UniformScrubsColorPurple
+  groupBy: "scrubs"
+
+- type: loadout
+  id: MedicalBlackScrubs
+  equipment:
+    jumpsuit: UniformScrubsColorBlack
+  groupBy: "scrubs"
+
+- type: loadout
+  id: MedicalBlueScrubsSleeveless
+  equipment:
+    jumpsuit: UniformScrubsColorBlueSleeveless
+  groupBy: "scrubs"
+
+- type: loadout
+  id: MedicalGreenScrubsSleeveless
+  equipment:
+    jumpsuit: UniformScrubsColorGreenSleeveless
+  groupBy: "scrubs"
+
+- type: loadout
+  id: MedicalPurpleScrubsSleeveless
+  equipment:
+    jumpsuit: UniformScrubsColorPurpleSleeveless
+  groupBy: "scrubs"
+
+- type: loadout
+  id: MedicalBlackScrubsSleeveless
+  equipment:
+    jumpsuit: UniformScrubsColorBlackSleeveless
   groupBy: "scrubs"
 
 # Back
@@ -188,6 +262,14 @@
     proto: SeniorPhysician
   equipment:
     outerClothing: ClothingOuterCoatLabSeniorPhysician
+
+- type: loadout
+  id: SeniorPhysicianWinterLabCoat
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SeniorPhysician
+  equipment:
+    outerClothing: ClothingOuterWinterMedSenior
 
 # Shoes
 - type: loadout

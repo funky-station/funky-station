@@ -213,6 +213,7 @@ loadout-group-security-outerclothing = Security outer clothing
 loadout-group-security-gloves = Security gloves
 loadout-group-security-shoes = Security shoes
 loadout-group-security-id = Security ID
+loadout-group-security-weapon = Security weapon
 
 loadout-group-detective-head = Detective head
 loadout-group-detective-neck = Detective neck

@@ -113,7 +113,6 @@
     tags:
     - Write
     - WriteIgnoreStamps
-    - Pickaxe
     - Pen
   - type: MeleeWeapon
     wideAnimationRotation: -45
@@ -209,7 +208,7 @@
 
 - type: entity
   name: holoflare pen
-  parent: Pen
+  parent: PenEmbeddable
   id: HoloflarePen
   description: Pen with robust casing. Contains microscopic holoflare launcher.
   components:

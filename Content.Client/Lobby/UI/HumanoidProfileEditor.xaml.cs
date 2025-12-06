@@ -63,9 +63,11 @@
 // SPDX-FileCopyrightText: 2025 Tobias Berger <toby@tobot.dev>
 // SPDX-FileCopyrightText: 2025 W.xyz() <tptechteam@gmail.com>
 // SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 maelines <genovedd.almn@gmail.com>
 // SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
 // SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 w.xyz() <84605679+pirakaplant@users.noreply.github.com>
 //
 // SPDX-License-Identifier: MIT
 
@@ -306,6 +308,7 @@ namespace Content.Client.Lobby.UI
             {
                 SpeciesButton.SelectId(args.Id);
                 SetSpecies(_species[args.Id].ID);
+                RefreshTraits(); // DeltaV - Allows for hiding traits
                 UpdateHairPickers();
                 OnSkinColorOnValueChanged();
             };
@@ -588,6 +591,14 @@ namespace Content.Client.Lobby.UI
 
             foreach (var trait in traits)
             {
+                // Begin DeltaV Additions - Species trait exlusion
+                if (Profile?.Species is { } selectedSpecies && trait.ExcludedSpecies.Contains(selectedSpecies))
+                {
+                    Profile = Profile?.WithoutTraitPreference(trait.ID, _prototypeManager);
+                    continue;
+                }
+                // End DeltaV Additions
+
                 if (trait.Category == null)
                 {
                     defaultTraits.Add(trait.ID);

@@ -4,8 +4,11 @@
 # SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
 # SPDX-FileCopyrightText: 2025 ATDoop <bug@bug.bug>
+# SPDX-FileCopyrightText: 2025 Amethyst <52829582+jackel234@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Drywink <43855731+Drywink@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 V <97265903+formlessnameless@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 maelines <genovedd.almn@gmail.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
@@ -127,6 +130,7 @@
     - AmmoniaBlood
     - ZombieBlood
     - ShimmeringBlood #imp
+    - SynthBlood # imp
   requiredTags:
     Knife: 1
   output:
@@ -162,6 +166,7 @@
     - AmmoniaBlood
     - ZombieBlood
     - ShimmeringBlood #imp
+    - SynthBlood # imp
   requiredTags:
     Eyes: 1
     Stomach: 1
@@ -186,6 +191,7 @@
     - AmmoniaBlood
     - ZombieBlood
     - ShimmeringBlood #imp
+    - SynthBlood # imp
   requiredTags:
     Pen: 1
     Heart: 1

@@ -1,6 +1,8 @@
 # SPDX-FileCopyrightText: 2024 PJBot <pieterjan.briers+bot@gmail.com>
 # SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 Toaster <mrtoastymyroasty@gmail.com>
+# SPDX-FileCopyrightText: 2025 jackel234 <jackel234@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 maelines <genovedd.almn@gmail.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
@@ -77,7 +79,7 @@
   id: MobHereticFleshAscend
   name: eldritch horror
   description: An incomprehensible mess of limbs and eyes. You can feel it's stare into your soul.
-  suffix: DO NOT MAP
+  suffix: DO NOT MAP 
   components:
   - type: NpcFactionMember
     factions:
@@ -87,7 +89,7 @@
     baseWalkSpeed: 5
     baseSprintSpeed: 7.5
     weightlessModifier: 1.5
-  - type: Sprite
+  - type: Sprite # contains imp changes
     drawdepth: Mobs
     sprite: _Goobstation/Heretic/eldritch_horror.rsi
     noRot: true

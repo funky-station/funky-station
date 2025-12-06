@@ -1,0 +1,12 @@
+# SPDX-FileCopyrightText: 2025 maelines <genovedd.almn@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: trait
+  category: Quirks
+  id: Synthetic
+  name: trait-synth-name
+  description: trait-synth-desc
+  # Imp - removed IPCs from excludedSpecies as they are not real here
+  components:
+    - type: Synth

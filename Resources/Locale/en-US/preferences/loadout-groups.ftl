@@ -247,6 +247,8 @@ loadout-group-medical-intern-jumpsuit = Medical intern jumpsuit
 
 loadout-group-chemist-jumpsuit = Chemist jumpsuit
 loadout-group-chemist-outerclothing = Chemist outer clothing
+loadout-group-chemist-gloves = Chemist gloves
+loadout-group-chemist-shoes = Chemist shoes
 loadout-group-chemist-backpack = Chemist backpack
 loadout-group-medical-chemist-glasses = Chemist glasses
 loadout-group-medical-chemist-head = Chemist head

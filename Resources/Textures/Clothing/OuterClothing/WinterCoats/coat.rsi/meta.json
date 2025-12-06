@@ -117,11 +117,15 @@
       "name": "BAR-inhand-right",
       "directions": 4
     },
-	{
+	  {
       "name": "PARA-icon"
     },
     {
       "name": "PARA-equipped-OUTERCLOTHING",
+      "directions": 4
+    },
+    {
+      "name": "PARA-equipped-OUTERCLOTHING-vox",
       "directions": 4
     },
     {

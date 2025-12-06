@@ -5,8 +5,8 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
 - type: material
-  id: RunedMetal
-  stackEntity: SheetRunedMetal1
-  name: runed metal
+  id: RunedSteel
+  stackEntity: SheetRunedSteel1
+  name: runed steel
   icon: { sprite: _Funkystation/BloodCult/Sheets/metal.rsi, state: runedmetal }
   price: 0.0

@@ -5,8 +5,8 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
 - type: stack
-  id: RunedMetal
-  name: runed metal
+  id: RunedSteel
+  name: runed steel
   icon: { sprite: /Textures/Objects/Materials/Sheets/metal.rsi, state: steel }
-  spawn: SheetRunedMetal1
+  spawn: SheetRunedSteel1
   maxCount: 30

@@ -16,7 +16,7 @@
             - !type:SnapToGrid
               southRotation: false
           steps:
-            - material: RunedMetal
+            - material: RunedSteel
               amount: 30
               doAfter: 20
 

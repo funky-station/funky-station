@@ -35,7 +35,7 @@ public sealed class JuggernautBloodAbsorptionSystem : EntitySystem
 	[Dependency] private readonly EntityLookupSystem _lookup = default!;
 	[Dependency] private readonly IGameTiming _timing = default!;
 	// Use these controls to adjust the rate that a juggernaut can self heal.
-	private const float AbsorptionRate = 1.0f; // Units per second
+	private const float AbsorptionRate = 2.0f; // Units per second
 	private const float UpdateInterval = 0.5f; // Check every 0.5 seconds
 	private const float MinDamageThreshold = 5.0f; // Must have more than 5 damage to absorb. Heals up most of the way without over-healing.
 
@@ -69,11 +69,26 @@ public sealed class JuggernautBloodAbsorptionSystem : EntitySystem
 			if (totalDamage <= MinDamageThreshold)
 				continue;
 
-			// Check if juggernaut has a soulstone. No soulstone, no healing.
-			if (!_container.TryGetContainer(uid, "juggernaut_soulstone_container", out var soulstoneContainer))
-				continue;
-
-			if (soulstoneContainer.ContainedEntities.Count == 0)
+			// Check if juggernaut contains a soulstone or dead body (player inside).
+			// Only heal if there's something in one of the containers.
+			bool hasPlayer = false;
+			
+			// Check soulstone container
+			if (_container.TryGetContainer(uid, "juggernaut_soulstone_container", out var soulstoneContainer))
+			{
+				if (soulstoneContainer.ContainedEntities.Count > 0)
+					hasPlayer = true;
+			}
+			
+			// Check body container
+			if (!hasPlayer && _container.TryGetContainer(uid, "juggernaut_body_container", out var bodyContainer))
+			{
+				if (bodyContainer.ContainedEntities.Count > 0)
+					hasPlayer = true;
+			}
+			
+			// Skip healing if no player is contained
+			if (!hasPlayer)
 				continue;
 
 			// Get the puddle at the juggernaut's position

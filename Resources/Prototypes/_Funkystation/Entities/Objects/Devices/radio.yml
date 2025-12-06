@@ -9,7 +9,7 @@
 
 - type: entity
   name: syndicate radio
-  description: A tiny listening device which relays what it hears to the syndicate radio channel. It does not have a speaker.
+  description: A tiny listening device which relays what it hears to the syndicate radio channel. It does not have a speaker. The device seems to have an adhesive back.
   parent: [ BaseItem, BaseSyndicateContraband ]
   id: RadioHandheldSyndicate
   components:
@@ -260,7 +260,7 @@
 
 - type: entity
   name: security listening radio
-  description: A handy security radio. The speaker seems to have been modified to not work.
+  description: A handy security radio. The speaker seems to have been modified to not work, and there seems to be an adhesive attached to the back of the radio.
   parent: [ RadioHandheld, BaseSecurityContraband ]
   id: RadioHandheldSecurityListening
   components:
@@ -284,3 +284,19 @@
   - type: Item
     sprite: Objects/Devices/securityhandy.rsi
     heldPrefix: walkietalkie
+  - type: Appearance
+  - type: SubFloorHide
+  - type: Anchorable
+  - type: CollideOnAnchor
+  - type: Transform
+    anchored: false
+  - type: BlockAnchorOn
+    blacklist:
+      components:
+      - AnchoredStorageFilter
+  - type: Visibility
+    layer: 1
+  - type: Tag
+    tags:
+    - Radio
+    - ListeningBug

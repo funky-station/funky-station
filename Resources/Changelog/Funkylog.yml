@@ -6147,3 +6147,45 @@ Entries:
       message: Reduce cocoon doafter time on incapacitated target.
   id: 720
   time: '2025-12-04T19:32:57.0000000+00:00'
+- author: Teasq
+  changes:
+    - type: Tweak
+      message: Resprited the luxury mining hardsuit
+  id: 721
+  time: '2025-12-05T12:45:36.0000000+00:00'
+- author: CalicoDragon
+  changes:
+    - type: Add
+      message: new engineering jumpsuits
+    - type: Remove
+      message: engineering jumpskirt and hazard suit
+    - type: Tweak
+      message: resprited wrench, flashlights, and other tools
+  id: 722
+  time: '2025-12-05T12:46:17.0000000+00:00'
+- author: mkanke-real
+  changes:
+    - type: Tweak
+      message: HoHoHo Roid has preped for Santas apperance
+  id: 723
+  time: '2025-12-05T17:08:29.0000000+00:00'
+- author: AraiMaia
+  changes:
+    - type: Add
+      message: New sprites for almost EVERY Medical clothing item
+    - type: Add
+      message: >-
+        A few new outfits and accessories for Medical, like sleeveless scrubs, a
+        faceshield, and a magnifying monocle
+    - type: Tweak
+      message: Tweaked medical loadouts to allow access to a wider variety of clothing
+    - type: Tweak
+      message: Tweak MedDrobe to dispense even more types of clothes
+  id: 724
+  time: '2025-12-05T21:55:38.0000000+00:00'
+- author: Teasq
+  changes:
+    - type: Tweak
+      message: Resprited the mining hardsuit
+  id: 725
+  time: '2025-12-06T08:57:29.0000000+00:00'

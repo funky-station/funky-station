@@ -171,9 +171,7 @@
     - type: IntrinsicUI
       uis:
         enum.BloodCultistCommuneUIKey.Key:
-          type: BloodCultCommuneBoundUserInterface
           toggleAction: null
-          requireInputValidation: false
     - type: GuideHelp
       guides:
       - Blob

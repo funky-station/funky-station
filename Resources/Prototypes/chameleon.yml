@@ -1,12 +1,12 @@
 # for clothing that can be toggled, like magboots
 - type: entity
-  parent: VoiceLock
+  parent: SelectableLock
   abstract: true
   id: BaseChameleon
   components:
   - type: UIRequiresLock
     userInterfaceKeys:
-      - enum.ChameleonUiKey.Key
+    - enum.ChameleonUiKey.Key
     accessDeniedSound: null
     popup: null
   - type: UserInterface

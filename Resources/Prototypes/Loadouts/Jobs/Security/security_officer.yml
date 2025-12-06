@@ -134,16 +134,11 @@
 
 # Service Weapon
 - type: loadout
-  id: SecurityPistol
+  id: SecurityPistol  #is this better? yes. but, variety's the spice of life, so why not give seccies some spice
   storage:
     back:
     - WeaponPistolMk58
-
-- type: loadout
-  id: SecuritySilencedPistol
-  storage:
-    back:
-    - WeaponPistolMk59S
+    - MagazinePistol
 
 - type: loadout
   id: SecurityKatana

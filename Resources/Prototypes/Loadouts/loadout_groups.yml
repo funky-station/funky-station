@@ -1739,7 +1739,6 @@
   minLimit: 1
   loadouts:
     - SecurityPistol
-    - SecuritySilencedPistol
     - SecurityKatana
 
 # Medical

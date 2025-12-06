@@ -25,6 +25,7 @@ using Robust.Shared.Player;
 using Content.Shared.Antag;
 using Content.Shared.Strip.Components;
 using Content.Shared._DV.CosmicCult.Components;
+
 using Content.Shared._DV.Roles;
 
 namespace Content.Shared.Revolutionary;
@@ -47,7 +48,7 @@ public abstract class SharedRevolutionarySystem : EntitySystem
         SubscribeLocalEvent<HeadRevolutionaryComponent, ComponentStartup>(DirtyRevComps);
         SubscribeLocalEvent<RevolutionaryLieutenantComponent, ComponentStartup>(DirtyRevComps);
         SubscribeLocalEvent<ShowAntagIconsComponent, ComponentStartup>(DirtyRevComps);
-        
+
         SubscribeLocalEvent<HeadRevolutionaryComponent, AddImplantAttemptEvent>(OnHeadRevImplantAttempt);
         SubscribeLocalEvent<RevolutionaryComponent, AddImplantAttemptEvent>(OnRevImplantAttempt);
     }
@@ -69,6 +70,8 @@ public abstract class SharedRevolutionarySystem : EntitySystem
             var stunTime = TimeSpan.FromSeconds(4);
             var name = Identity.Entity(uid, EntityManager);
             RemComp<RevolutionaryComponent>(uid);
+            var ev = new RevDeconvertedEvent(uid);
+            RaiseLocalEvent(ref ev);
             _sharedStun.TryParalyze(uid, stunTime, true);
             _popupSystem.PopupEntity(Loc.GetString("rev-break-control", ("name", name)), uid);
         }
@@ -96,7 +99,7 @@ public abstract class SharedRevolutionarySystem : EntitySystem
     {
         args.Cancelled = !CanGetState(args.Player);
     }
-    
+
     /// <summary>
     /// Determines if a Lieutenant Rev component should be sent to the client.
     /// </summary>
@@ -199,5 +202,11 @@ public abstract class SharedRevolutionarySystem : EntitySystem
     public void ToggleConvertGivesVision(Entity<HeadRevolutionaryComponent> headRev, bool toggle = true)
     {
         headRev.Comp.ConvertGivesRevVision = toggle;
+    }
+
+    [ByRefEvent]
+    public record struct RevDeconvertedEvent(EntityUid Uid)
+    {
+        public EntityUid Uid = Uid;
     }
 }

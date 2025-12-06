@@ -1,3 +1,4 @@
+# SPDX-FileCopyrightText: 2025 Mori <salvanson10@gmail.com>
 # SPDX-FileCopyrightText: 2025 SigmaTheDragon <162711378+SigmaTheDragon@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -22,7 +23,7 @@
     maxAngle: 15
     angleIncrease: 5
     angleDecay: 5
-    fireRate: 1.5
+    fireRate: 2.4
     availableModes:
     - SemiAuto
     soundGunshot:
@@ -69,7 +70,7 @@
     maxAngle: 15
     angleIncrease: 5
     angleDecay: 5
-    fireRate: 1.5
+    fireRate: 2.4
     availableModes:
     - SemiAuto
     soundGunshot:

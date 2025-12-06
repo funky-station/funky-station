@@ -1,5 +1,6 @@
 // SPDX-FileCopyrightText: 2024 John Space <bigdumb421@gmail.com>
 // SPDX-FileCopyrightText: 2024 fishbait <gnesse@gmail.com>
+// SPDX-FileCopyrightText: 2025 ferynn <witchy.girl.me@gmail.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
@@ -25,6 +26,9 @@ public sealed partial class BlobRuleComponent : Component
 
     [ViewVariables]
     public float Accumulator = 0f;
+
+    [DataField,ViewVariables(VVAccess.ReadWrite)]
+    public int RecallCount = 0;
 }
 
 

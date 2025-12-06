@@ -145,10 +145,10 @@ Juggernauts are hulking beasts made from juggernaut shells, awakened through the
 ## Items
 
   <Box>
-  <GuideEntityEmbed Entity="CultDagger" Caption="Cult Dagger"/>
+  <GuideEntityEmbed Entity="CultDaggerCurved" Caption="Cult Dagger"/>
 	<GuideEntityEmbed Entity="ClothingOuterArmorCult" Caption="Acolyte Armor"/>
 	<GuideEntityEmbed Entity="ClothingHeadHelmetCult" Caption="Cult Helmet"/>
-	<GuideEntityEmbed Entity="ForsakenBoots" Caption="Forsaken Boots"/>
+	<GuideEntityEmbed Entity="ClothingShoesBootsForsaken" Caption="Forsaken Boots"/>
   </Box>
 
 A cult is incomplete without their tools. Most important of which is your Cult Dagger. You can summon daggers via your spell selection ability.

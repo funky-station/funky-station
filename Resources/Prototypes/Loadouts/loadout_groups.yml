@@ -1791,6 +1791,9 @@
   name: loadout-group-chief-medical-officer-shoes
   loadouts:
   - BrownShoes
+  - BlackShoes
+  - WhiteShoes
+  - NanotrasenRepresentativeBoots #These are just laceup shoes.
   - MedicalWinterBoots
 
 - type: loadoutGroup #WizDen Weh Job Plush
@@ -1810,9 +1813,11 @@
   - MedicalBeret
   - SeniorPhysicianBeret
   - MedicalHeadMirror
+  - MedicalFaceshield
   - BlueSurgeryCap
   - GreenSurgeryCap
   - PurpleSurgeryCap
+  - BlackSurgeryCap
   - NurseHat
 
 - type: loadoutGroup #Funky
@@ -1823,18 +1828,34 @@
     - MedicalNormGlasses
     - MedicalJamjarGlasses
     - MedicalGlasses
+    - MedicalMonocle
 
 - type: loadoutGroup
   id: MedicalDoctorJumpsuit
   name: loadout-group-medical-doctor-jumpsuit
   loadouts:
-  - MedicalDoctorJumpsuit
-  - MedicalDoctorJumpskirt
-  - SeniorPhysicianJumpsuit
-  - SeniorPhysicianJumpskirt
   - MedicalBlueScrubs
   - MedicalGreenScrubs
   - MedicalPurpleScrubs
+  - MedicalBlackScrubs
+  - MedicalBlueScrubsSleeveless
+  - MedicalGreenScrubsSleeveless
+  - MedicalPurpleScrubsSleeveless
+  - MedicalBlackScrubsSleeveless
+  - MedicalDoctorJumpsuit
+  - MedicalDoctorJumpskirt
+  - MedicalDoctorCustodianJumpsuit
+  - ServiceJumpsuitDressWhite
+  - ServiceJumpsuitDressBlue
+  - ServiceJumpsuitDressTied
+  - ServiceJumpsuitServiceCoat
+  - ServiceJumpskirtDressWhite
+  - ServiceJumpskirtDressBlue
+  - ServiceJumpskirtDressTied
+  - SeniorPhysicianJumpsuit
+  - SeniorPhysicianJumpskirt
+  - SeniorPhysicianTurtleneck
+  - SeniorPhysicianTurtleskirt
 
 - type: loadoutGroup
   id: MedicalNeck
@@ -1851,6 +1872,7 @@
   - RegularLabCoat
   - MedicalDoctorWintercoat
   - SeniorPhysicianLabCoat
+  - SeniorPhysicianWinterLabCoat
 
 - type: loadoutGroup
   id: MedicalBackpack
@@ -1865,6 +1887,9 @@
   name: loadout-group-medical-doctor-shoes
   loadouts:
   - WhiteShoes
+  - BlackShoes
+  - BrownShoes
+  - NanotrasenRepresentativeBoots #These are just laceup shoes.
   - MedicalWinterBoots
 
 - type: loadoutGroup
@@ -1900,8 +1925,11 @@
   id: MedicalInternJumpsuit
   name: loadout-group-medical-intern-jumpsuit
   loadouts:
+  - MedicalBlueScrubs
+  - MedicalBlueScrubsSleeveless
   - WhiteJumpsuit
   - WhiteJumpskirt
+
 - type: loadoutGroup
   id: MedicalChemistHead
   name: loadout-group-medical-chemist-head
@@ -1923,8 +1951,17 @@
   loadouts:
   - ChemistJumpsuit
   - ChemistJumpskirt
+  - ServiceJumpsuitDressWhite
+  - ServiceJumpsuitDressBlue
+  - ServiceJumpsuitDressTied
+  - ServiceJumpsuitServiceCoat
+  - ServiceJumpskirtDressWhite
+  - ServiceJumpskirtDressBlue
+  - ServiceJumpskirtDressTied
   - SeniorPhysicianJumpsuit
   - SeniorPhysicianJumpskirt
+  - SeniorPhysicianTurtleneck
+  - SeniorPhysicianTurtleskirt
 
 - type: loadoutGroup
   id: ChemistOuterClothing
@@ -1934,7 +1971,28 @@
   - RegularLabCoat
   - ChemistLabCoat
   - ChemistWintercoat
+  - ChemistApron
   - SeniorPhysicianLabCoat
+  - SeniorPhysicianWinterLabCoat
+
+- type: loadoutGroup
+  id: ChemistGloves
+  name: loadout-group-chemist-gloves
+  loadouts:
+  - ChemistGloves
+  - LatexGloves
+  - NitrileGloves
+
+- type: loadoutGroup
+  id: ChemistShoes
+  name: loadout-group-chemist-shoes
+  loadouts:
+  - ChemistBoots
+  - WhiteShoes
+  - BlackShoes
+  - BrownShoes
+  - NanotrasenRepresentativeBoots #These are just laceup shoes.
+  - MedicalWinterBoots
 
 - type: loadoutGroup
   id: ChemistBackpack

@@ -67,3 +67,22 @@
     sprite: _Funkystation/Clothing/OuterClothing/Coats/chef_freezer_coat_blue.rsi
   - type: Clothing
     sprite: _Funkystation/Clothing/OuterClothing/Coats/chef_freezer_coat_blue.rsi
+
+# Senior Physician
+- type: entity
+  parent: ClothingOuterWinterCoat
+  id: ClothingOuterWinterMedSenior
+  name: senior physician's insulated labcoat
+  description: A custom, medical-grade labcoat fitted with extra insulation. Smells... clean.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/OuterClothing/WinterCoats/seniormedicalcoat.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/OuterClothing/WinterCoats/seniormedicalcoat.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Slash: 0.95
+        Heat: 0.90
+        Caustic: 0.9
+    priceMultiplier: 0.15

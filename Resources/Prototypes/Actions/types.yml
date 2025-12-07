@@ -57,6 +57,14 @@
   components:
   - type: Action
 
+# base proto for an action that requires a DoAfter
+- type: entity
+  abstract: true
+  parent: BaseAction
+  id: BaseDoAfterAction
+  components:
+  - type: DoAfterArgs
+
 # an action that is done all in le head and cant be prevented by any means
 - type: entity
   abstract: true
@@ -375,6 +383,7 @@
   components:
   - type: Action
     icon: { sprite: Objects/Fun/bikehorn.rsi, state: icon }
+    useDelay: 1
 
 - type: entity
   parent: BaseAction
@@ -413,6 +422,7 @@
     iconOn: { sprite: Mobs/Customization/reptilian_parts.rsi, state: tail_smooth_behind }
     itemIconStyle: NoItem
     useDelay: 1 # emote spam
+    checkCanInteract: false
 
 - type: entity
   parent: BaseAction
@@ -496,13 +506,12 @@
     event: !type:ChameleonControllerOpenMenuEvent
 
 - type: entity
-  id: ActionChameleonController
-  name: Control clothing
-  description: Change your entire outfit fast!
+  parent: BaseMentalAction
+  id: ActionIntrinsicStore
+  name: Store
+  description: Opens the store
   components:
   - type: Action
-    priority: -20
-    icon: { sprite: Actions/Implants/implants.rsi, state: chameleon }
-    itemIconStyle: BigAction
+    icon: Interface/Actions/shop.png
   - type: InstantAction
-    event: !type:ChameleonControllerOpenMenuEvent
+    event: !type:IntrinsicStoreActionEvent

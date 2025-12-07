@@ -6195,3 +6195,11 @@ Entries:
       message: Fixed a number of bloodcult bugs found in the playtests.
   id: 726
   time: '2025-12-07T00:52:56.0000000+00:00'
+- author: Drywink
+  changes:
+    - type: Fix
+      message: Cocooned victim cannot attack.
+    - type: Fix
+      message: Hypospray can be used on cocoon.
+  id: 727
+  time: '2025-12-07T00:54:41.0000000+00:00'

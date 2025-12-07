@@ -6241,3 +6241,9 @@ Entries:
       message: 'The fire-ier axe now can axe up tiles. '
   id: 733
   time: '2025-12-07T04:56:53.0000000+00:00'
+- author: salpphie
+  changes:
+    - type: Add
+      message: Added Argocyte spawners
+  id: 734
+  time: '2025-12-07T05:00:27.0000000+00:00'

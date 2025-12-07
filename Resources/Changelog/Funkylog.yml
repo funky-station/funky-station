@@ -6357,3 +6357,9 @@ Entries:
         Art by Sigma Draconis, Code by Terkala
   id: 745
   time: '2025-12-07T22:39:33.0000000+00:00'
+- author: JoulesBerg
+  changes:
+    - type: Tweak
+      message: Core is christmas
+  id: 746
+  time: '2025-12-07T23:46:19.0000000+00:00'

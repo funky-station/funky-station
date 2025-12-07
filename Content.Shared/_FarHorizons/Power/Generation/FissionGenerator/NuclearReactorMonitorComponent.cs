@@ -11,5 +11,5 @@ public sealed partial class NuclearReactorMonitorComponent : Component
     public NetEntity? reactor;
 
     [DataField]
-    public ProtoId<SourcePortPrototype> LinkingPort = "NuclearReactorDataReceiver";
+    public ProtoId<SinkPortPrototype> LinkingPort = "NuclearReactorDataReceiver";
 }

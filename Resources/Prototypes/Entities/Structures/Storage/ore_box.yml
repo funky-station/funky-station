@@ -61,7 +61,7 @@
           False: { visible: true }
   - type: Storage
     grid:
-    - 0,0,9,5
+    - 0,0,11,7
     maxItemSize: Normal
     storageOpenSound: /Audio/Effects/closetopen.ogg
     storageCloseSound: /Audio/Effects/closetclose.ogg

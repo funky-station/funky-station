@@ -334,7 +334,7 @@
   name: vendor-salvage-brute-medkit-name
   description: vendor-salvage-brute-medkit-desc
   icon: { sprite: Objects/Specific/Medical/firstaidkits.rsi, state: brutekit}
-  productEntity: MedkitBrute
+  productEntity: MedkitBruteFilled
   cost:
     SalvageTicket: 300
   categories:
@@ -423,7 +423,7 @@
   - SalvageVendorStandard
   conditions:
   - !type:ListingLimitedStockCondition
-    stock: 2
+    stock: 3
 
 - type: listing
   id: SalvageVendorOreBag
@@ -435,7 +435,31 @@
   - SalvageVendorStandard
   conditions:
   - !type:ListingLimitedStockCondition
+    stock: 4
+
+- type: listing
+  id: SalvageVendorOreBox
+  name: vendor-salvage-ore-box-name
+  description: vendor-salvage-ore-box-desc
+  icon: { sprite:  Structures/Storage/orebox.rsi, state: orebox}
+  productEntity: OreBox
+  categories:
+  - SalvageVendorStandard
+  conditions:
+  - !type:ListingLimitedStockCondition
     stock: 2
+
+- type: listing
+  id: SalvageVendorFloodlight
+  name: vendor-salvage-floodlight-name
+  description: vendor-salvage-floodlight-desc
+  icon: { sprite:  Objects/Misc/Lights/lights.rsi, state: floodlight}
+  productEntity: Floodlight
+  categories:
+  - SalvageVendorStandard
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 4
 
 - type: listing
   id: SalvageVendorPKA

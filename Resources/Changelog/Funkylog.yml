@@ -6235,3 +6235,9 @@ Entries:
       message: 'Added Rule 14: Be Mindful of Other''s Roleplay'
   id: 732
   time: '2025-12-07T04:49:29.0000000+00:00'
+- author: Xcybitt
+  changes:
+    - type: Tweak
+      message: 'The fire-ier axe now can axe up tiles. '
+  id: 733
+  time: '2025-12-07T04:56:53.0000000+00:00'

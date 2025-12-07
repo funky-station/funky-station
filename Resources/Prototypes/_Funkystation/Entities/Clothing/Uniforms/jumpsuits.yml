@@ -615,3 +615,16 @@
     sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/medicalcustodian.rsi
   - type: Clothing
     sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/medicalcustodian.rsi
+
+# paramedic speedsuit (sprites by AraiMaia, im just putting it here)
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitParamedicSpeedsuit
+  name: paramedic speedsuit
+  description: Why do you think these things are like, 95% polyester? You can clean off blood and vomit with a wet nap!
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/paramedic_speedsuit.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/paramedic_speedsuit.rsi

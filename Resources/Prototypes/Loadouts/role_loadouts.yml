@@ -570,7 +570,7 @@
   groups:
   - ParamedicHead
   - MedicalMask
-  - MedicalDoctorGlasses #Funky
+  - ParamedicGlasses #Funky
   - ParamedicJumpsuit
   - MedicalGloves
   - MedicalBackpack

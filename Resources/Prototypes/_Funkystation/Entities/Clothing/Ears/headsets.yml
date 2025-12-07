@@ -12,13 +12,14 @@
   name: paramedic headset
   description: A headset for paramedics that receives emergency frequencies in addition to regular medical radio.
   components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Ears/Headsets/paramedic.rsi
   - type: ContainerFill
     containers:
       key_slots:
       - EncryptionKeyMedical
       - EncryptionKeyEmergency
       - EncryptionKeyCommon
-
 
 - type: entity
   parent: ClothingHeadsetAltSecurity

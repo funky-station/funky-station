@@ -2009,7 +2009,17 @@
   name: loadout-group-paramedic-head
   minLimit: 0
   loadouts:
-  - ParamedicHead
+  - ParamedicCap
+
+- type: loadoutGroup
+  id: ParamedicGlasses
+  name: loadout-group-paramedic-glasses
+  minLimit: 0
+  loadouts:
+  - ParamedicHud
+  - ParamedicEyepatch
+  - ParamedicGlasses
+  - ParamedicJamjars
 
 - type: loadoutGroup
   id: ParamedicJumpsuit
@@ -2017,6 +2027,8 @@
   loadouts:
   - ParamedicJumpsuit
   - ParamedicJumpskirt
+  - ParamedicSpeedsuit #funky x2
+  - ParamedicSpeedskirt
 
 - type: loadoutGroup
   id: ParamedicOuterClothing
@@ -2033,6 +2045,7 @@
   - BlueShoes
   - WhiteShoes
   - MedicalWinterBoots
+  - LaceupShoes
 
 - type: loadoutGroup #WizDen Weh Job Plush
   id: ParamedicJobTrinkets

@@ -178,9 +178,9 @@
       - id: ClothingOuterWinterPara
       - id: ClothingUniformJumpsuitParamedic
       - id: ClothingUniformJumpskirtParamedic
-      - id: ClothingEyesHudMedical
+      - id: ClothingEyesHudParamedic # funky
       - id: ClothingHandsGlovesLatex
-      - id: ClothingHeadsetMedical
+#      - id: ClothingHeadsetMedical - funky, why is this still here
       - id: ClothingMaskSterile
       - id: HandheldGPSBasic
       - id: MedkitFilled

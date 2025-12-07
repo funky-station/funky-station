@@ -6311,3 +6311,12 @@ Entries:
       message: Soap and analyzers to surgery and advanced surgery modules
   id: 742
   time: '2025-12-07T05:30:11.0000000+00:00'
+- author: TrixxedHeart
+  changes:
+    - type: Tweak
+      message: >-
+        The Russian accent has been tweaked to be more in line with other
+        similar accents, removing Cyrillic homoglyphs and making it
+        significantly more readable.
+  id: 743
+  time: '2025-12-07T21:33:08.0000000+00:00'

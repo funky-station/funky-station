@@ -6229,3 +6229,9 @@ Entries:
       message: Allowed more maps to roll at highpop
   id: 731
   time: '2025-12-07T01:48:20.0000000+00:00'
+- author: Sadie
+  changes:
+    - type: Add
+      message: 'Added Rule 14: Be Mindful of Other''s Roleplay'
+  id: 732
+  time: '2025-12-07T04:49:29.0000000+00:00'

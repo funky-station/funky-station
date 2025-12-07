@@ -213,25 +213,15 @@
     sprite: _Funkystation/Clothing/OuterClothing/Coats/chef_freezer_coat.rsi
 
 - type: entity
-  parent: ClothingOuterWinterCoatToggleable
+  parent: ClothingOuterWinterCoat
   id: ClothingOuterWinterChem
-  name: chemistry winter coat
+  name: chemistry insulated labcoat
+  description: A fluffy insulated labcoat tucked beneath a tough acid-resistant apron. Kind of makes you look like a bartender. Maybe serve some drinks.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
-    layers:
-    - state: CHEM-icon
-  - type: Item
-    inhandVisuals:
-      left:
-      - state: CHEM-inhand-left
-      right:
-      - state: CHEM-inhand-right
+    sprite: _Funkystation/Clothing/OuterClothing/WinterCoats/chemistrycoat.rsi
   - type: Clothing
-    sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
-    clothingVisuals:
-      outerClothing:
-      - state: CHEM-equipped-OUTERCLOTHING
+    sprite: _Funkystation/Clothing/OuterClothing/WinterCoats/chemistrycoat.rsi
   - type: Armor
     modifiers:
       coefficients:
@@ -239,29 +229,17 @@
         Heat: 0.90
         Caustic: 0.75
     priceMultiplier: 0.15
-  - type: ToggleableClothing
-    clothingPrototype: ClothingHeadHatHoodWinterChem
 
 - type: entity
-  parent: [ClothingOuterWinterCoatToggleable, BaseCommandContraband]
+  parent: [ClothingOuterWinterCoat, BaseCommandContraband]
   id: ClothingOuterWinterCMO
-  name: chief medical officer's winter coat
+  name: chief medical officer's insulated lab coat
+  description: A large and expensive labcoat fitted with extra insulation for particularly cold operating rooms.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
-    layers:
-    - state: CMO-icon
-  - type: Item
-    inhandVisuals:
-      left:
-      - state: CMO-inhand-left
-      right:
-      - state: CMO-inhand-right
+    sprite: _Funkystation/Clothing/OuterClothing/WinterCoats/cmocoat.rsi
   - type: Clothing
-    sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
-    clothingVisuals:
-      outerClothing:
-      - state: CMO-equipped-OUTERCLOTHING
+    sprite: _Funkystation/Clothing/OuterClothing/WinterCoats/cmocoat.rsi
   - type: Armor
     modifiers:
       coefficients:
@@ -269,8 +247,6 @@
         Heat: 0.90
         Caustic: 0.75
     priceMultiplier: 0.15
-  - type: ToggleableClothing
-    clothingPrototype: ClothingHeadHatHoodWinterCMO
 
 - type: entity
   parent: ClothingOuterWinterCoat
@@ -296,25 +272,15 @@
     size: Normal
 
 - type: entity
-  parent: ClothingOuterWinterCoatToggleable
+  parent: ClothingOuterWinterCoat
   id: ClothingOuterWinterGen
-  name: genetics winter coat
+  name: genetics insulated labcoat
+  description: An insulated labcoat meant to withstand the harsh chill of genome freezers.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
-    layers:
-    - state: GENE-icon
-  - type: Item
-    inhandVisuals:
-      left:
-      - state: GENE-inhand-left
-      right:
-      - state: GENE-inhand-right
+    sprite: _Funkystation/Clothing/OuterClothing/WinterCoats/geneticistcoat.rsi
   - type: Clothing
-    sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
-    clothingVisuals:
-      outerClothing:
-      - state: GENE-equipped-OUTERCLOTHING
+    sprite: _Funkystation/Clothing/OuterClothing/WinterCoats/geneticistcoat.rsi
   - type: Armor
     modifiers:
       coefficients:
@@ -322,13 +288,12 @@
         Heat: 0.90
         Caustic: 0.9
     priceMultiplier: 0.15
-  - type: ToggleableClothing
-    clothingPrototype: ClothingHeadHatHoodWinterSci
 
 - type: entity
   parent: [ClothingOuterWinterCoat, BaseCommandContraband]
   id: ClothingOuterWinterHoP
   name: head of personnel's winter coat
+  description: A warm and fuzzy coat, perfect for drafting your latest form, alongside a cup of hot cocoa.
   components:
   - type: Sprite
     sprite: _Funkystation/Clothing/OuterClothing/WinterCoats/hop_coat.rsi
@@ -430,25 +395,15 @@
     clothingPrototype: ClothingHeadHatHoodWinterJani
 
 - type: entity
-  parent: ClothingOuterWinterCoatToggleable
+  parent: ClothingOuterWinterCoat
   id: ClothingOuterWinterMed
-  name: medical winter coat
+  name: medical insulated labcoat
+  description: A medical-grade labcoat fitted with extra insulation. Still quite handy against caustic spills, while staying comfortably warm.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
-    layers:
-    - state: MED-icon
-  - type: Item
-    inhandVisuals:
-      left:
-      - state: MED-inhand-left
-      right:
-      - state: MED-inhand-right
+    sprite: _Funkystation/Clothing/OuterClothing/WinterCoats/medicalcoat.rsi
   - type: Clothing
-    sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
-    clothingVisuals:
-      outerClothing:
-      - state: MED-equipped-OUTERCLOTHING
+    sprite: _Funkystation/Clothing/OuterClothing/WinterCoats/medicalcoat.rsi
   - type: Armor
     modifiers:
       coefficients:
@@ -456,8 +411,6 @@
         Heat: 0.90
         Caustic: 0.9
     priceMultiplier: 0.15
-  - type: ToggleableClothing
-    clothingPrototype: ClothingHeadHatHoodWinterMed
 
 - type: entity
   parent: ClothingOuterWinterCoatToggleable
@@ -669,25 +622,15 @@
     clothingPrototype: ClothingHeadHatHoodWinterSec
 
 - type: entity
-  parent: ClothingOuterWinterCoatToggleable
+  parent: ClothingOuterWinterCoat
   id: ClothingOuterWinterViro
-  name: virology winter coat
+  name: virology insulated labcoat
+  description: A sterile, padded labcoat meant to protect from both types of cold.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
-    layers:
-    - state: VIRO-icon
-  - type: Item
-    inhandVisuals:
-      left:
-      - state: VIRO-inhand-left
-      right:
-      - state: VIRO-inhand-right
+    sprite: _Funkystation/Clothing/OuterClothing/WinterCoats/virologycoat.rsi
   - type: Clothing
-    sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
-    clothingVisuals:
-      outerClothing:
-      - state: VIRO-equipped-OUTERCLOTHING
+    sprite: _Funkystation/Clothing/OuterClothing/WinterCoats/virologycoat.rsi
   - type: Armor
     modifiers:
       coefficients:
@@ -695,8 +638,6 @@
         Heat: 0.90
         Caustic: 0.9
     priceMultiplier: 0.15
-  - type: ToggleableClothing
-    clothingPrototype: ClothingHeadHatHoodWinterSci
 
 ################################################################
 - type: entity

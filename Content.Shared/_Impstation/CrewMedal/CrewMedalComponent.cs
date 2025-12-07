@@ -5,7 +5,7 @@ namespace Content.Shared._Impstation.CrewMedal;
 /// <summary>
 ///    Makes a medal recipent show up on the round end screen.
 /// </summary>
-[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState(raiseAfterAutoHandleState: true)]
 public sealed partial class CrewMedalComponent : Component
 {
     /// <summary>

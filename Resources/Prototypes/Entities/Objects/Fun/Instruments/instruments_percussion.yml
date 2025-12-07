@@ -95,7 +95,10 @@
     inHandsOnly: false
   - type: Item
     size: Small
-    storedRotation: -45
+    storedSprite:
+      state: storage
+      sprite: Objects/Fun/Instruments/microphone.rsi
+
 
 - type: entity
   parent: BaseHandheldInstrument

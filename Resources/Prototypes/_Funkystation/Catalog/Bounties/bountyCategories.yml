@@ -222,7 +222,7 @@
       - ExperimentalVesselMachineBoard
     requiredResearch:
       - AdvancedAnomalyResearch        
-  - name: bounty-item-cryostasis-beaker
+  - name: bounty-item-cryobeaker
     minAmount: 1
     maxAmount: 8
     rewardPer: 750

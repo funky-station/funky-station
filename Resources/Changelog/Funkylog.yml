@@ -6253,3 +6253,9 @@ Entries:
       message: Zombie Blood poisons infected carriers more slowly.
   id: 735
   time: '2025-12-07T05:01:50.0000000+00:00'
+- author: delorphin
+  changes:
+    - type: Fix
+      message: Fixed file paths for night club suit
+  id: 736
+  time: '2025-12-07T05:12:28.0000000+00:00'

@@ -57,13 +57,13 @@ public sealed class RussianAccentSystem : EntitySystem
 
     public override void Initialize()
     {
-        SubscribeLocalEvent<RussianAccentComponent, AccentGetEvent>(OnAccent, after: new[] {typeof(ReplacementAccentSystem)});
+        SubscribeLocalEvent<RussianAccentComponent, AccentGetEvent>(OnAccent);
     }
 
     // Applies Russian accent to a message
     public string Accentuate(string message, RussianAccentComponent component)
     {
-        var accentedMessage = new StringBuilder(message);
+        var accentedMessage = _replacement.ApplyReplacements(message, "russian");
         accentedMessage = ApplyKomradeReplacement(accentedMessage, component);
         accentedMessage = ApplyGrammarRules(accentedMessage, component);
         accentedMessage = ApplySoundReplacements(accentedMessage);

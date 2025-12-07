@@ -145,9 +145,9 @@
 # SPDX-FileCopyrightText: 2024 takemysoult <143123247+takemysoult@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 to4no_fix <156101927+chavonadelal@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 yglop <95057024+yglop@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 2DSiggy <siggymaxwell@gmail.com>
 # SPDX-FileCopyrightText: 2025 A-Loose-Goose <237446272+A-Loose-Goose@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 ALooseGoose <ALooseGoosey@gmail.com>
-# SPDX-FileCopyrightText: 2025 2DSiggy <siggymaxwell@gmail.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Gansu <68031780+GansuLalan@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 IronDragoon <8961391+IronDragoon@users.noreply.github.com>
@@ -515,6 +515,7 @@
     - InflatableDoor #funk
     - InflatableDock #funk
     - InflatableFloor #funk
+    - TowelColorWhite #funk towel
     dynamicRecipes:
     - BoomboxRed
     - BoomboxGreen
@@ -568,6 +569,7 @@
     - SecHypo # Goobstation
     - ParamedHypo # Goobstation - ParamedHypo
     - ClothingHandsSecurityKnuckleDusters #funk
+    - TowelColorSyndicate #funk
   - type: BlueprintReceiver
     whitelist:
       tags:
@@ -1711,6 +1713,8 @@
     - BedsheetNT
     - BedsheetRainbow
     - BedsheetBrigmedic
+    # Funky Towels
+    - TowelColorWhite
   - type: EmagLatheRecipes
     emagStaticRecipes:
     # Clothing
@@ -1757,6 +1761,7 @@
     - ClothingOuterVestWebDurathread # Goobstation - adding durathread armoured clothing
     - ClothingOuterArmourDurathread # Goobstation - adding durathread armoured clothing
     - ClothingUniformJumpsuitDurathread # Goobstation - adding durathread armoured clothing
+    - TowelColorSyndicate # Funky
   - type: MaterialStorage
     whitelist:
       tags:

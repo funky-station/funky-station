@@ -62,6 +62,7 @@
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 tea <xerithin@gmail.com>
+# SPDX-FileCopyrightText: 2025 vectorassembly <vectorassembly@icloud.com>
 # SPDX-FileCopyrightText: 2025 w.xyz() <84605679+pirakaplant@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
@@ -226,6 +227,32 @@
         - id: ClothingNeckTransPin
         - id: ClothingNeckAutismPin
         - id: ClothingNeckGoldAutismPin
+      # Funky group, towels
+      - !type:GroupSelector
+        children:
+        - id: TowelColorBlack
+        - id: TowelColorBlue
+        - id: TowelColorBrown
+        - id: TowelColorCentcom
+        - id: TowelColorDarkBlue
+        - id: TowelColorDarkGreen
+        - id: TowelColorGold
+        - id: TowelColorGray
+        - id: TowelColorGreen
+        - id: TowelColorLightBlue
+        - id: TowelColorLightBrown
+        - id: TowelColorMaroon
+        - id: TowelColorMime
+        - id: TowelColorNT
+        - id: TowelColorOrange
+        - id: TowelColorPink
+        - id: TowelColorPurple
+        - id: TowelColorRed
+        - id: TowelColorSilver
+        - id: TowelColorSyndicate
+        - id: TowelColorTeal
+        - id: TowelColorWhite
+        - id: TowelColorYellow
     # Rare Group
     - !type:GroupSelector
       weight: 2

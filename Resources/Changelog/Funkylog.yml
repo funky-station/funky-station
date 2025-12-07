@@ -6211,3 +6211,9 @@ Entries:
         stupid sounding.
   id: 728
   time: '2025-12-07T00:57:31.0000000+00:00'
+- author: zergologist
+  changes:
+    - type: Tweak
+      message: Ice actually restores thirst now
+  id: 729
+  time: '2025-12-07T01:46:09.0000000+00:00'

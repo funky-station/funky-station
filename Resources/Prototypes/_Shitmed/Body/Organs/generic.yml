@@ -55,9 +55,3 @@
   id: BioSynthStomach
   name: bio-synthetic stomach
   description: This stomach can be transplanted into any living organism and it will adapt to its recipient.
-
-- type: entity
-  parent: OrganHumanKidneys
-  id: BioSynthKidneys
-  name: bio-synthetic kidneys
-  description: These kidneys can be transplanted into any living organism and it will adapt to its recipient.

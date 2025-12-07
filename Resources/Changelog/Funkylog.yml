@@ -6269,3 +6269,9 @@ Entries:
       message: Returned Salvage's AstroNav PDA instead of the Cargo Tech ones.
   id: 737
   time: '2025-12-07T05:14:39.0000000+00:00'
+- author: Xcybitt
+  changes:
+    - type: Tweak
+      message: 'Hot drinks are now not as hot. '
+  id: 738
+  time: '2025-12-07T05:18:31.0000000+00:00'

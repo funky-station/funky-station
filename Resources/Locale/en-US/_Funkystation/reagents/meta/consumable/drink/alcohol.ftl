@@ -93,3 +93,5 @@ reagent-desc-branca-menta = A refreshing mixture of bitter Fernet with mint crem
 reagent-name-bug-spray = bug spray
 reagent-desc-bug-spray = A harsh, acrid, bitter drink, for those who need something to brace themselves. So powerful that you might mistake it for actual bugspray in terms of taste. Unhealthy for Mothpeople.
 
+reagent-name-crevice-spike = crevice spike
+reagent-desc-crevice-sp8ike = Sour, bitter, and smashingly sobering. Any reports of headaches, ego-death, and seizure should be ignored.

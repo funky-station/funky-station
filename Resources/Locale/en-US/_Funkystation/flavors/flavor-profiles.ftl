@@ -43,6 +43,7 @@ flavor-complex-blue-blazer = like scorching hot sweet whiskey, with hints of fir
 flavor-complex-bosozoku = like going 100 kilometres down Japan National Route 4 on a modified motorcycle
 flavor-complex-branca-menta = like the most bitter mint you've ever tasted
 flavor-complex-bug-spray = like the pain of ten thousand slain mosquitos
+flavor-complex-crevice-spike = like a bitter MIND-SPIKE with a sour aftertaste
 
 ## base
 flavor-base-fresh = fresh

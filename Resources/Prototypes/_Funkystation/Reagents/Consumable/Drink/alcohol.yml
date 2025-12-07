@@ -303,26 +303,25 @@
   metamorphicChangeColor: false
 
 - type: reagent
-  id: BugSpray
-  name: reagent-name-bug-spray
+  id: CreviceSpike
+  name: reagent-name-crevice-spike
   parent: BaseAlcohol
-  desc: reagent-desc-bug-spray
-  physicalDesc: reagent-physical-desc-acrid
-  flavor: bugspray
-  color: "#80a840"
+  desc: reagent-desc-crevice-spike
+  physicalDesc: reagent-physical-desc-sour
+  flavor: crevicespike
+  color: "#9efd66"
   metamorphicSprite:
-    sprite: _Funkystation/Objects/Consumable/Drinks/bugspray.rsi
+    sprite: _Funkystation/Objects/Consumable/Drinks/crevicespike.rsi
     state: icon_empty
-  metamorphicMaxFillLevels: 6
+  metamorphicMaxFillLevels: 4
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
-  Poison:
-    effects:
-      - !type:HealthChange
-        conditions:
-        - !type:OrganType
-          type: Moth
-          shouldHave: true
-        damage:
-          types:
-            Poison: 0.4
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateHunger
+        factor: 1
+      - !type:AdjustReagent
+        reagent: Ethanol
+        amount: -0.15
+

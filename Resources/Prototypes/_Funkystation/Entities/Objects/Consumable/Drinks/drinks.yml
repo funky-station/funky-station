@@ -461,4 +461,17 @@
         reagents:
         - ReagentId: BugSpray
           Quantity: 30
+
+- type: entity
+  parent: DrinkGlass
+  id: DrinkGlassCreviceSpike
+  suffix: crevice spike
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: CreviceSpike
+          Quantity: 30
 # pignog

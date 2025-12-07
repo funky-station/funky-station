@@ -231,3 +231,13 @@
      amount: 1
   products:
     BugSpray: 6
+
+- type: reaction
+  id: CreviceSpike
+  reactants:
+   JuiceLime:
+     amount: 2
+   CapsaicinOil:
+     amount: 2
+  products:
+    CreviceSpike: 4

@@ -150,6 +150,11 @@
   description: flavor-complex-bug-spray
 
 - type: flavor
+  id: crevicespike
+  flavorType: Complex
+  description: flavor-complex-crevice-spike
+
+- type: flavor
   id: eggnog
   flavorType: Complex
   description: flavor-complex-eggnog

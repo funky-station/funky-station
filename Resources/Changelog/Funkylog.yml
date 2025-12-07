@@ -6275,3 +6275,11 @@ Entries:
       message: 'Hot drinks are now not as hot. '
   id: 738
   time: '2025-12-07T05:18:31.0000000+00:00'
+- author: mkanke-real
+  changes:
+    - type: Add
+      message: >-
+        Added improvised esword (Tider Esword) as a craftable item. Sprites made
+        by Tea!
+  id: 739
+  time: '2025-12-07T05:19:09.0000000+00:00'

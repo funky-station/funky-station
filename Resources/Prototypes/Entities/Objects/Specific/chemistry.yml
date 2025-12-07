@@ -375,7 +375,7 @@
 - type: entity
   name: cryostasis beaker
   parent: BaseBeakerMetallic
-  description: Used to contain chemicals or solutions without reactions.
+  description: Used to contain chemicals or solutions without reactions
   id: CryostasisBeaker
   components:
   - type: Spillable
@@ -389,7 +389,7 @@
   - type: SolutionContainerManager
     solutions:
       beaker:
-        maxVol: 60
+        maxVol: 120 # Funky Station, increased from 60u
         canReact: false
   - type: Tag # Funky Station
     tags:
@@ -629,6 +629,9 @@
   - type: Injector
     delay: 1 # Goobstation - buffing cryo syringe cause its currently pointless and buffing bluespace syringe to make it more useful.
     injectOnly: false
+    minTransferAmount: 5
+    maxTransferAmount: 20
+    transferAmount: 20
   - type: SolutionContainerVisuals
     maxFillLevels: 2
     fillBaseName: syringe
@@ -641,7 +644,7 @@
   id: SyringeCryostasis
   parent: BaseSyringe
   name: cryostasis syringe
-  description: An improved syringe used to contain chemicals or solutions without reactions. # Goobstation - buffing cryo syringe cause its currently pointless and buffing bluespace syringe to make it more useful.
+  description: An advanced syringe with a larger capacity alongside drawing and injecting faster, contain chemicals or solutions without reactions. # Goobstation - buffing cryo syringe cause its currently pointless and buffing bluespace syringe to make it more useful.
   components:
   - type: Sprite
     layers:
@@ -667,7 +670,7 @@
   - type: Tag
     tags:
     - Syringe
-    - Trash
+    - Cryosyringe
 
 
 - type: entity

@@ -365,6 +365,9 @@
     state: cpu_science
   - type: ComputerBoard
     prototype: ComputerTechnologyDiskTerminal
+  - type: Tag
+    tags:
+    - TechDiskTerminalCircuitBoard
 
 - type: entity
   parent: BaseComputerCircuitboard

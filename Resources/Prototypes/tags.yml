@@ -164,6 +164,12 @@
 # PUT YOUR TAGS IN ALPHABETICAL ORDER
 
 - type: Tag
+  id: AnomalySyncronizerCircuitBoard
+
+- type: Tag
+  id: AnomalyLocator
+
+- type: Tag
   id: AccessBreakerImmune
 
 - type: Tag
@@ -592,6 +598,12 @@
   id: Cryobeaker
 
 - type: Tag
+  id: Cryosyringe
+
+- type: Tag
+  id: ChimpHandcannon
+
+- type: Tag
   id: CrystalBlack
 
 - type: Tag
@@ -717,6 +729,9 @@
 - type: Tag
   id: ExplosivePassable
 
+- type: Tag
+  id: ExperimentalVesselMachineBoard
+
 - type: Tag # goob edit
   id: Eyes
 
@@ -734,6 +749,9 @@
 
 - type: Tag
   id: FireAxe
+
+- type: Tag
+  id: ForceFieldProjector
 
 - type: Tag
   id: FirelockElectronics
@@ -846,6 +864,9 @@
 
 - type: Tag
   id: GuideEmbeded
+
+- type: Tag
+  id: GorillaGauntlet
 
 - type: Tag
   id: Hamster
@@ -1199,6 +1220,9 @@
   id: NoBlockAnchoring
 
 - type: Tag
+  id: NightVisionGoggles
+
+- type: Tag
   id: NoConsoleSound
 
 - type: Tag
@@ -1245,6 +1269,9 @@
 
 - type: Tag
   id: Pancake
+
+- type: Tag
+  id: ParticleDecelerator
 
 - type: Tag
   id: Payload # for grenade/bomb crafting
@@ -1600,6 +1627,8 @@
 - type: Tag
   id: SecurityCyberneticEyes
 
+- type: Tag
+  id: TechDiskTerminalCircuitBoard
 
 - type: Tag # goob edit
   id: Table

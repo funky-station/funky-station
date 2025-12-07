@@ -15,6 +15,9 @@
     flashDurationMultiplier: 2
   - type: IdentityBlocker
     coverage: EYES
+  - type: Tag
+    tags:
+    - NightVisionGoggles
 
 - type: entity
   parent: [ClothingEyesNightVisionGoggles, ShowSecurityIcons]

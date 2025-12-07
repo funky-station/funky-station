@@ -6349,3 +6349,11 @@ Entries:
         Winkarst-cpu on Wizden
   id: 744
   time: '2025-12-07T21:43:09.0000000+00:00'
+- author: Terkala
+  changes:
+    - type: Tweak
+      message: >-
+        Reworked Zombies gamemode. Still in testing. Core design by oBerry, new
+        Art by Sigma Draconis, Code by Terkala
+  id: 745
+  time: '2025-12-07T22:39:33.0000000+00:00'

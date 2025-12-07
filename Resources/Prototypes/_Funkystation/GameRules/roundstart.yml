@@ -26,6 +26,9 @@
         text: cult-start-briefing
         color: CornflowerBlue
         sound: "/Audio/_Funkystation/Ambience/Antag/cultist_start.ogg"
+      blacklist:
+        components:
+        - BibleUser
       components:
       - type: BloodCultist
       mindRoles:

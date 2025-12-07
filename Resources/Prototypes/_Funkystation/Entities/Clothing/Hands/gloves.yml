@@ -1,3 +1,4 @@
+# SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 mkanke-real <mikekanke@gmail.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
@@ -15,3 +16,22 @@
     fiberMaterial: fibers-rubber
     fiberColor: fibers-yellow
   - type: FingerprintMask
+
+- type: entity
+  parent: ClothingHandsButcherable
+  id: ClothingHandsGlovesChemist
+  name: heavy-duty chemistry gloves
+  description: High-quality, heavy-duty rubber latex gloves. Expensive PPE, to protect you from all the meth you're making.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Hands/Gloves/chemistry.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Hands/Gloves/chemistry.rsi
+  - type: Fiber
+    fiberMaterial: fibers-black
+  - type: FingerprintMask
+  - type: SurgeryDirtiness # DeltaV - gloves that are likely to be used for surgery should have their bar visible from the getgo
+  - type: ClothingGrantComponent # funky - tie surgery speed to gloves
+    component:
+    - type: SurgerySpeedModifier
+      speedModifier: 1.75

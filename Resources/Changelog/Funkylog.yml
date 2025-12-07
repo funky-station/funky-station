@@ -6139,3 +6139,175 @@ Entries:
       message: Re-added some Holofan related code.
   id: 719
   time: '2025-12-02T21:15:05.0000000+00:00'
+- author: Drywink
+  changes:
+    - type: Add
+      message: New bite ability for arachnids and giant spiders.
+    - type: Tweak
+      message: Reduce cocoon doafter time on incapacitated target.
+  id: 720
+  time: '2025-12-04T19:32:57.0000000+00:00'
+- author: Teasq
+  changes:
+    - type: Tweak
+      message: Resprited the luxury mining hardsuit
+  id: 721
+  time: '2025-12-05T12:45:36.0000000+00:00'
+- author: CalicoDragon
+  changes:
+    - type: Add
+      message: new engineering jumpsuits
+    - type: Remove
+      message: engineering jumpskirt and hazard suit
+    - type: Tweak
+      message: resprited wrench, flashlights, and other tools
+  id: 722
+  time: '2025-12-05T12:46:17.0000000+00:00'
+- author: mkanke-real
+  changes:
+    - type: Tweak
+      message: HoHoHo Roid has preped for Santas apperance
+  id: 723
+  time: '2025-12-05T17:08:29.0000000+00:00'
+- author: AraiMaia
+  changes:
+    - type: Add
+      message: New sprites for almost EVERY Medical clothing item
+    - type: Add
+      message: >-
+        A few new outfits and accessories for Medical, like sleeveless scrubs, a
+        faceshield, and a magnifying monocle
+    - type: Tweak
+      message: Tweaked medical loadouts to allow access to a wider variety of clothing
+    - type: Tweak
+      message: Tweak MedDrobe to dispense even more types of clothes
+  id: 724
+  time: '2025-12-05T21:55:38.0000000+00:00'
+- author: Teasq
+  changes:
+    - type: Tweak
+      message: Resprited the mining hardsuit
+  id: 725
+  time: '2025-12-06T08:57:29.0000000+00:00'
+- author: Terkala
+  changes:
+    - type: Fix
+      message: Fixed a number of bloodcult bugs found in the playtests.
+  id: 726
+  time: '2025-12-07T00:52:56.0000000+00:00'
+- author: Drywink
+  changes:
+    - type: Fix
+      message: Cocooned victim cannot attack.
+    - type: Fix
+      message: Hypospray can be used on cocoon.
+  id: 727
+  time: '2025-12-07T00:54:41.0000000+00:00'
+- author: dotCatshark
+  changes:
+    - type: Tweak
+      message: >-
+        Made french vernacular slightly more french and therefore slightly more
+        stupid sounding.
+  id: 728
+  time: '2025-12-07T00:57:31.0000000+00:00'
+- author: zergologist
+  changes:
+    - type: Tweak
+      message: Ice actually restores thirst now
+  id: 729
+  time: '2025-12-07T01:46:09.0000000+00:00'
+- author: Kreamator
+  changes:
+    - type: Add
+      message: Added a section to Rule 1 for treatment of AFK players
+  id: 730
+  time: '2025-12-07T01:47:28.0000000+00:00'
+- author: Terkala
+  changes:
+    - type: Tweak
+      message: Allowed more maps to roll at highpop
+  id: 731
+  time: '2025-12-07T01:48:20.0000000+00:00'
+- author: Sadie
+  changes:
+    - type: Add
+      message: 'Added Rule 14: Be Mindful of Other''s Roleplay'
+  id: 732
+  time: '2025-12-07T04:49:29.0000000+00:00'
+- author: Xcybitt
+  changes:
+    - type: Tweak
+      message: 'The fire-ier axe now can axe up tiles. '
+  id: 733
+  time: '2025-12-07T04:56:53.0000000+00:00'
+- author: salpphie
+  changes:
+    - type: Add
+      message: Added Argocyte spawners
+  id: 734
+  time: '2025-12-07T05:00:27.0000000+00:00'
+- author: Terkala
+  changes:
+    - type: Tweak
+      message: Zombie Blood poisons infected carriers more slowly.
+  id: 735
+  time: '2025-12-07T05:01:50.0000000+00:00'
+- author: delorphin
+  changes:
+    - type: Fix
+      message: Fixed file paths for night club suit
+  id: 736
+  time: '2025-12-07T05:12:28.0000000+00:00'
+- author: AraiMaia
+  changes:
+    - type: Add
+      message: New Salvage survival box, including extended tanks and flares
+    - type: Tweak
+      message: Survival boxes now have glowsticks instead of flares
+    - type: Fix
+      message: Returned Salvage's AstroNav PDA instead of the Cargo Tech ones.
+  id: 737
+  time: '2025-12-07T05:14:39.0000000+00:00'
+- author: Xcybitt
+  changes:
+    - type: Tweak
+      message: 'Hot drinks are now not as hot. '
+  id: 738
+  time: '2025-12-07T05:18:31.0000000+00:00'
+- author: mkanke-real
+  changes:
+    - type: Add
+      message: >-
+        Added improvised esword (Tider Esword) as a craftable item. Sprites made
+        by Tea!
+  id: 739
+  time: '2025-12-07T05:19:09.0000000+00:00'
+- author: lolmatdi, kipdotnet
+  changes:
+    - type: Add
+      message: Holobell Projector to MailDrobe, a holosign that projects a doorbell!
+  id: 740
+  time: '2025-12-07T05:23:04.0000000+00:00'
+- author: BramvanZijp, ported by amethystowo
+  changes:
+    - type: Add
+      message: >-
+        Added the custom door remote, it does not have any built-in access,
+        instead inheriting the ID access that the user has.
+    - type: Tweak
+      message: >-
+        The captain's locker now comes with a custom door remote instead of a
+        command door remote.
+    - type: Tweak
+      message: >-
+        The Super Door Remote can now effect doors that the user's ID card has
+        access to, even if the remote itself somehow cannot access them.
+  id: 741
+  time: '2025-12-07T05:28:04.0000000+00:00'
+- author: selvamoonbell
+  changes:
+    - type: Add
+      message: Soap and analyzers to surgery and advanced surgery modules
+  id: 742
+  time: '2025-12-07T05:30:11.0000000+00:00'

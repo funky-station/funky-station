@@ -383,7 +383,9 @@
     - WelderIndustrial
     - Multitool
     - GasAnalyzer
+    - SprayPainter
     - RubberStampCyborg # Funkystation
+    
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: tool-module }
 
@@ -480,6 +482,7 @@
     - PowerDrill
     - WelderExperimental
     - Multitool
+    - GasAnalyzer
     - RemoteSignallerAdvanced
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: adv-tools-module }
@@ -521,6 +524,7 @@
     - RCDRecharging
     - BorgFireExtinguisher
     - BorgHandheldGPSBasic
+    - trayscanner
     - GasAnalyzer
     - GeigerCounter
   - type: BorgModuleIcon
@@ -540,6 +544,8 @@
     - RPDRecharging
     - HolofanProjectorRecharging
     - BorgFirefighterTank
+    - GasAnalyzer
+    - trayscanner
     - FirefighterNozzle
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: atmos-module }

@@ -6247,3 +6247,9 @@ Entries:
       message: Added Argocyte spawners
   id: 734
   time: '2025-12-07T05:00:27.0000000+00:00'
+- author: Terkala
+  changes:
+    - type: Tweak
+      message: Zombie Blood poisons infected carriers more slowly.
+  id: 735
+  time: '2025-12-07T05:01:50.0000000+00:00'

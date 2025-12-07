@@ -275,6 +275,77 @@
   plantMetabolism:
   - !type:PlantAdjustHealth
     amount: -5
+  metabolisms:
+    Narcotic:
+      effects:
+      - !type:AdjustReagent
+        conditions:
+        - !type:ReagentThreshold
+          reagent: Nicotine
+          max: 20
+        reagent: Nicotine
+        amount: 0.5
+      - !type:AdjustReagent
+        conditions:
+        - !type:ReagentThreshold
+          reagent: Nicotine
+          min: 20
+        reagent: Nicotine
+        amount: 0.45
+      - !type:Emote
+        conditions:
+        - !type:ReagentThreshold
+          min: 20
+        scaleByQuantity: true
+        emote: Cough
+        probability: 0.1
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentThreshold
+          min: 40   #if you hit this naturally while smoking, good for you.
+        damage:
+          types:
+            Poison: 0.01  #miniscule amounts of poison from the stuff NT puts in, also gives med some work
+            Asphyxiation: 0.1  #lungs are in smoker mode
+      - !type:Emote
+        conditions:
+        - !type:ReagentThreshold
+          min: 40
+        scaleByQuantity: true
+        emote: Gasp
+        probability: 0.05
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentThreshold
+          min: 100   #if you hit this naturally while smoking, what the fuck.
+        damage:
+          types:
+            Cellular: 0.01 #real spess cancer, straight to the source
+            Asphyxiation: 0.2 #lungs are struggling, mega smoker mode
+      - !type:PopupMessage
+        conditions:
+        - !type:ReagentThreshold
+          min: 200
+        scaleByQuantity: true
+        visualType: Medium
+        messages: ["nicotine-effect-dull-ache", "nicotine-effect-sharp-pain"]
+        type: Local
+        probability: 0.05
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentThreshold
+          min: 200   #if you hit this naturally while smoking, uh. How even. Are you literally just staying in med at this point.
+        damage:
+          types:
+            Cellular: 0.01
+            Poison: 0.01 #the three nicotine horsemen
+            Asphyxiation: 0.3
+      - !type:MovespeedModifier
+        conditions:
+        - !type:ReagentThreshold
+          min: 200
+        walkSpeedModifier: 0.8  #lungs don't do good, can't move good.
+        sprintSpeedModifier: 0.8
 
 # TODO: Replace these nonstandardized effects with generic brain damage
 - type: reagent

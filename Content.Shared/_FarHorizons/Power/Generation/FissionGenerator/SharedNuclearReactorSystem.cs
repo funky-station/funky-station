@@ -21,6 +21,7 @@ public abstract class SharedNuclearReactorSystem : EntitySystem
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
+    [Dependency] private readonly EntityManager _entityManager = default!;
 
     protected static readonly int _gridWidth = NuclearReactorComponent.ReactorGridWidth;
     protected static readonly int _gridHeight = NuclearReactorComponent.ReactorGridHeight;
@@ -79,6 +80,10 @@ public abstract class SharedNuclearReactorSystem : EntitySystem
             }
         }
         Dirty(ent);
+
+        // Sanity check to make sure there is actually an appearance component (nullpointer hell)
+        if (!_entityManager.TryGetComponent<AppearanceComponent>(uid, out _))
+            return;
 
         // The data being set doesn't really matter, it just has to trigger AppearanceChangeEvent and the client will handle the rest
         if (!_appearance.TryGetData(uid, ReactorCapVisuals.Sprite, out bool prevValue))

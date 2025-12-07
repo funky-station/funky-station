@@ -105,23 +105,18 @@ public sealed class NuclearReactorSystem : SharedNuclearReactorSystem
         var prefab = SelectPrefab(comp.Prefab);
         for (var x = 0; x < _gridWidth; x++)
             for (var y = 0; y < _gridHeight; y++)
+            {
                 comp.ComponentGrid[x, y] = prefab[x, y] != null ? new ReactorPartComponent(prefab[x, y]!) : null;
+                comp.FluxGrid[x, y] = [];
+            }
 
         comp.ApplyPrefab = false;
-        UpdateGridVisual((uid, comp));
         UpdateGasVolume(comp);
     }
 
     private void OnEnable(Entity<NuclearReactorComponent> ent, ref AtmosDeviceEnabledEvent args)
     {
-        var comp = ent.Comp;
-        for (var x = 0; x < _gridWidth; x++)
-        {
-            for (var y = 0; y < _gridHeight; y++)
-            {
-                comp.FluxGrid[x, y] = [];
-            }
-        }
+        UpdateGridVisual(ent);
     }
 
     private void OnAnalyze(EntityUid uid, NuclearReactorComponent comp, ref GasAnalyzerScanEvent args)

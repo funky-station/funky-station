@@ -54,12 +54,9 @@ public sealed class TypingIndicatorVisualizerSystem : VisualizerSystem<TypingInd
                 TypingIndicatorVisuals.OverrideIndicatorPrototype,
                 out var overrideId))
         {
-            // If we're overriding. We've assigned it on a switch, everything but 2 is default.
-            if (overrideId != "default")
-            {
-                if (_prototypeManager.TryIndex(overrideId, out TypingIndicatorPrototype? overrideProto))
-                    protoToUse = overrideProto;
-            }
+            // Always apply the override if one exists
+            if (_prototypeManager.TryIndex(overrideId, out TypingIndicatorPrototype? overrideProto))
+                protoToUse = overrideProto;
         }
         // FUNKYSTATION EDIT END
         var layerExists = args.Sprite.LayerMapTryGet(TypingIndicatorLayers.Base, out var layer);

@@ -1,3 +1,21 @@
+// SPDX-FileCopyrightText: 2022 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 metalgearsloth <metalgearsloth@gmail.com>
+// SPDX-FileCopyrightText: 2023 I.K <45953835+notquitehadouken@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Slava0135 <40753025+Slava0135@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 notquitehadouken <1isthisameme>
+// SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2024 Magnus Larsen <i.am.larsenml@gmail.com>
+// SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 TemporalOroboros <TemporalOroboros@gmail.com>
+// SPDX-FileCopyrightText: 2024 eoineoineoin <github@eoinrul.es>
+// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+//
+// SPDX-License-Identifier: MIT
+
 using System.Numerics;
 using Content.Client.Animations;
 using Content.Client.Weapons.Melee.Components;
@@ -49,14 +67,14 @@ public sealed partial class MeleeWeaponSystem
         {
             if (user != weapon
                 && TryComp(weapon, out SpriteComponent? weaponSpriteComponent))
-                sprite.CopyFrom(weaponSpriteComponent);
+                _sprite.CopySprite((weapon, weaponSpriteComponent), (animationUid, sprite));
 
             spriteRotation = meleeWeaponComponent.WideAnimationRotation;
 
             if (meleeWeaponComponent.SwingLeft)
                 angle *= -1;
         }
-        sprite.Rotation = localPos.ToWorldAngle();
+        _sprite.SetRotation((animationUid, sprite), localPos.ToWorldAngle());
         var distance = Math.Clamp(localPos.Length() / 2f, 0.2f, 1f);
 
         var xform = _xformQuery.GetComponent(animationUid);
@@ -74,7 +92,7 @@ public sealed partial class MeleeWeaponSystem
             case WeaponArcAnimation.Thrust:
                 track = EnsureComp<TrackUserComponent>(animationUid);
                 track.User = user;
-                _animation.Play(animationUid, GetThrustAnimation(sprite, distance, spriteRotation), ThrustAnimationKey);
+                _animation.Play(animationUid, GetThrustAnimation((animationUid, sprite), distance, spriteRotation), ThrustAnimationKey);
                 if (arcComponent.Fadeout)
                     _animation.Play(animationUid, GetFadeAnimation(sprite, 0.05f, 0.15f), FadeAnimationKey);
                 break;
@@ -132,13 +150,13 @@ public sealed partial class MeleeWeaponSystem
         };
     }
 
-    private Animation GetThrustAnimation(SpriteComponent sprite, float distance, Angle spriteRotation)
+    private Animation GetThrustAnimation(Entity<SpriteComponent> sprite, float distance, Angle spriteRotation)
     {
         const float thrustEnd = 0.05f;
         const float length = 0.15f;
-        var startOffset = sprite.Rotation.RotateVec(new Vector2(0f, -distance / 5f));
-        var endOffset = sprite.Rotation.RotateVec(new Vector2(0f, -distance));
-        sprite.Rotation += spriteRotation;
+        var startOffset = sprite.Comp.Rotation.RotateVec(new Vector2(0f, -distance / 5f));
+        var endOffset = sprite.Comp.Rotation.RotateVec(new Vector2(0f, -distance));
+        _sprite.SetRotation(sprite.AsNullable(), sprite.Comp.Rotation + spriteRotation);
 
         return new Animation()
         {

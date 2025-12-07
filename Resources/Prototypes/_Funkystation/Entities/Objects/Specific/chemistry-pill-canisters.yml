@@ -1,0 +1,37 @@
+# SPDX-FileCopyrightText: 2025 TheSecondLord <88201625+TheSecondLord@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+# Amatoxin pill, disguised as an iron pill. 150 poison if slipped into a drink
+- type: entity
+  name: pill
+  suffix: Amatoxin 10u
+  parent: Pill
+  id: PillAmatoxin
+  components:
+  - type: Pill
+    pillType: 13
+  - type: Sprite
+    state: pill14
+  - type: Label
+    currentLabel: iron 10u
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: Amatoxin
+          Quantity: 10
+
+- type: entity
+  name: pill canister
+  parent: PillCanister
+  id: PillCanisterAmatoxin
+  suffix: Amatoxin 10u
+  components:
+  - type: Label
+    currentLabel: amatoxin 10u, disguised
+  - type: StorageFill
+    contents:
+    - id: PillAmatoxin
+      amount: 8

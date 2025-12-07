@@ -1,0 +1,33 @@
+# SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: cargoProduct
+  id: CrateVendingMachineRestockNippon
+  icon:
+    sprite: Objects/Specific/Service/vending_machine_restock.rsi
+    state: base
+  product: CrateVendingMachineRestockNipponFilled
+  cost: 1200
+  category: cargoproduct-category-name-service
+  group: market
+
+- type: cargoProduct
+  id: CrateVendingMachineRestockSol
+  icon:
+    sprite: Objects/Specific/Service/vending_machine_restock.rsi
+    state: base
+  product: CrateVendingMachineRestocSolFilled
+  cost: 1200
+  category: cargoproduct-category-name-service
+  group: market
+
+- type: cargoProduct
+  id: CrateVendingMachineRestockFitness
+  icon:
+    sprite: Objects/Specific/Service/vending_machine_restock.rsi
+    state: base
+  product: CrateVendingMachineRestockFitnessFilled
+  cost: 1000
+  category: cargoproduct-category-name-service
+  group: market    

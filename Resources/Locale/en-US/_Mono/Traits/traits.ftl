@@ -1,3 +1,9 @@
+# SPDX-FileCopyrightText: 2025 PWJDM <158008238+PWJDM@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 SaffronFennec <firefoxwolf2020@protonmail.com>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
 drunken-resilience-trait-name = Drunken Resilience 
 drunken-resilience-trait-desc = Nothing like a good drink to make you feel on top of the world. While you're drunk, you slowly recover from injuries.
 

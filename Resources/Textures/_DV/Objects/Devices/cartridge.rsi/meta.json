@@ -15,6 +15,9 @@
         },
         {
             "name": "cart-chat"
+        },
+        {
+            "name": "cart-sos"
         }
     ]
 }

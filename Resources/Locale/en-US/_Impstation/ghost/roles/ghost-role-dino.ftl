@@ -1,3 +1,10 @@
+# SPDX-FileCopyrightText: 2025 Darkmajia <darkwindleaf@hotmail.co.uk>
+# SPDX-FileCopyrightText: 2025 PWJDM <158008238+PWJDM@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
 ghost-role-information-dino-name = Dinosaur
 ghost-role-information-dino-description = A Mesozoic soldier, ready to live or die for the Dino Wars.
 

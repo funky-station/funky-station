@@ -1,0 +1,52 @@
+# SPDX-FileCopyrightText: 2025 TheSecondLord <88201625+TheSecondLord@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Xcybitt <xcybitt@gmail.com>
+# SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+#Just a recolour of the merc helmet because it's Cool
+- type: entity
+  parent: [ ClothingHeadHelmetBase, BaseSyndicateContraband ]
+  id: ClothingHeadHelmetMercSyndicate
+  name: syndicate mercenary helmet
+  description: This helmet is often worn by mercenaries hired by the Syndicate, and sometimes by agents who just think it makes them look tough.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Head/Helmets/merc_helmet_syndicate.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Head/Helmets/merc_helmet_syndicate.rsi
+
+# Pilot Helmet
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadCargoPilotHelmet
+  name: cargo shuttle pilot helmet
+  description: A padded helmet meant for handling high-Gs and shuttle collisions. Ironically, not rated for space.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Head/Helmets/pilot_helmet.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Head/Helmets/pilot_helmet.rsi
+    equipSound: /Audio/Mecha/mechmove03.ogg
+    unequipSound: /Audio/Mecha/mechmove03.ogg
+    equipDelay: 2
+    unequipDelay: 2
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.70
+        Slash: 0.85
+        Piercing: 0.90
+        Heat: 0.85
+  - type: Item
+    size: Normal
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+    - HelmetEVA
+  - type: HideLayerClothing
+    slots:
+    - Hair
+    - Snout
+    - HeadTop
+    - HeadSide

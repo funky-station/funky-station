@@ -1,3 +1,11 @@
+# SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
 - type: reagent
   id: Tranquility
   name: reagent-name-tranquility
@@ -44,7 +52,11 @@
   physicalDesc: reagent-physical-desc-pungent
   flavor: offensive
   color: "#BF5E5E"
-  slippery: true
+  slipData:
+    paralyzeTime: 1.5
+    launchForwardsMultiplier: 1.5
+    requiredSlipSpeed: 3.5
+    superSlippery: false
   metabolisms:
     Poison:
       metabolismRate: 0.10

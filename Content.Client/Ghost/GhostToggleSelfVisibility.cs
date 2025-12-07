@@ -1,4 +1,9 @@
-﻿using Content.Shared.Ghost;
+// SPDX-FileCopyrightText: 2023 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+//
+// SPDX-License-Identifier: MIT
+
+using Content.Shared.Ghost;
 using Robust.Client.GameObjects;
 using Robust.Shared.Console;
 
@@ -25,6 +30,7 @@ public sealed class GhostToggleSelfVisibility : IConsoleCommand
         if (!entityManager.TryGetComponent(attachedEntity, out SpriteComponent? spriteComponent))
             return;
 
-        spriteComponent.Visible = !spriteComponent.Visible;
+        var spriteSys = entityManager.System<SpriteSystem>();
+        spriteSys.SetVisible((attachedEntity.Value, spriteComponent), !spriteComponent.Visible);
     }
 }

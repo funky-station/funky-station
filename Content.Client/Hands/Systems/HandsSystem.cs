@@ -1,3 +1,27 @@
+// SPDX-FileCopyrightText: 2021 Swept <sweptwastaken@protonmail.com>
+// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <gradientvera@outlook.com>
+// SPDX-FileCopyrightText: 2022 Flipp Syder <76629141+vulppine@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 Jacob Tong <10494922+ShadowCommander@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 Jezithyr <Jezithyr.@gmail.com>
+// SPDX-FileCopyrightText: 2022 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Kara <lunarautomaton6@gmail.com>
+// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Menshin <Menshin@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+// SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+//
+// SPDX-License-Identifier: MIT
+
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Content.Shared._Shitmed.Body.Events; // Shitmed Change
@@ -19,6 +43,7 @@ using Robust.Shared.Containers;
 using Robust.Shared.GameStates;
 using Robust.Shared.Player;
 using Robust.Shared.Timing;
+using Robust.Shared.Utility;
 
 namespace Content.Client.Hands.Systems
 {
@@ -30,6 +55,7 @@ namespace Content.Client.Hands.Systems
 
         [Dependency] private readonly SharedContainerSystem _containerSystem = default!;
         [Dependency] private readonly StrippableSystem _stripSys = default!;
+        [Dependency] private readonly SpriteSystem _sprite = default!;
         [Dependency] private readonly ExamineSystem _examine = default!;
         [Dependency] private readonly DisplacementMapSystem _displacement = default!;
 
@@ -330,7 +356,7 @@ namespace Content.Client.Hands.Systems
             {
                 foreach (var key in revealedLayers)
                 {
-                    sprite.RemoveLayer(key);
+                    _sprite.RemoveLayer((uid, sprite), key);
                 }
 
                 revealedLayers.Clear();
@@ -366,7 +392,7 @@ namespace Content.Client.Hands.Systems
                     continue;
                 }
 
-                var index = sprite.LayerMapReserveBlank(key);
+                var index = _sprite.LayerMapReserve((uid, sprite), key);
 
                 // In case no RSI is given, use the item's base RSI as a default. This cuts down on a lot of unnecessary yaml entries.
                 if (layerData.RsiPath == null
@@ -374,12 +400,12 @@ namespace Content.Client.Hands.Systems
                     && sprite[index].Rsi == null)
                 {
                     if (TryComp<ItemComponent>(held, out var itemComponent) && itemComponent.RsiPath != null)
-                        sprite.LayerSetRSI(index, itemComponent.RsiPath);
+                        _sprite.LayerSetRsi((uid, sprite), index, new ResPath(itemComponent.RsiPath));
                     else if (TryComp(held, out SpriteComponent? clothingSprite))
-                        sprite.LayerSetRSI(index, clothingSprite.BaseRSI);
+                        _sprite.LayerSetRsi((uid, sprite), index, clothingSprite.BaseRSI);
                 }
 
-                sprite.LayerSetData(index, layerData);
+                _sprite.LayerSetData((uid, sprite), index, layerData);
 
                 //Add displacement maps
                 if (hand.Location == HandLocation.Left && handComp.LeftHandDisplacement is not null)

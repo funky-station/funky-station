@@ -1,3 +1,12 @@
+# SPDX-FileCopyrightText: 2024 John Space <bigdumb421@gmail.com>
+# SPDX-FileCopyrightText: 2024 fishbait <gnesse@gmail.com>
+# SPDX-FileCopyrightText: 2025 QueerCats <jansencheng3@gmail.com>
+# SPDX-FileCopyrightText: 2025 Skye <57879983+Rainbeon@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
 ent-SpawnPointGhostBlob = Blob spawner
     .suffix = DEBUG, Ghost Role Spawner
     .desc = { ent-MarkerBase.desc }
@@ -73,17 +82,17 @@ blob-chem-blazingoil-info = Blazing Oil
                             Deals 15 burn damage and lights targets on fire.
                             Makes you vulnerable to water.
 blob-chem-regenerativemateria-info = Regenerative Materia
-                                    Deals 6 brute damage and 15 toxin damage.
+                                    Deals 6 blunt damage and 15 toxin damage.
                                     The blob core regenerates health 10 times faster than normal and generates 1 extra resource.
 blob-chem-explosivelattice-info = Explosive Lattice
-                                    Deals 5 burn damage and explodes the target, dealing 10 brute damage.
+                                    Deals no direct damage but explodes the target, dealing 15 brute damage. Deals double Structural damage.
                                     Spores explode on death.
                                     You become immune to explosions.
-                                    You take 50% more damage from burns and electrical shock.
+                                    You take 50% more damage from burns and electrical shock, and 30% more damage from piercing.
 blob-chem-electromagneticweb-info = Electromagnetic Web
                                     Deals 20 burn damage, 20% chance to cause an EMP pulse when attacking.
                                     Blob tiles cause an EMP pulse when destroyed.
-                                    You take 25% more brute and heat damage.
+                                    You take 50% more brute damage and 25% more heat damage.
 
 blob-alert-out-off-station = The blob was removed because it was found outside the station!
 

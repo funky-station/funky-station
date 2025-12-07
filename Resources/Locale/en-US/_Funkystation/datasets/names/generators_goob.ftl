@@ -1,4 +1,10 @@
-﻿names-generator-first-dataset-1 = Jeff
+# SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
+names-generator-first-dataset-1 = Jeff
 names-generator-first-dataset-2 = Bob
 names-generator-first-dataset-3 = Lord
 names-generator-first-dataset-4 = Almighty

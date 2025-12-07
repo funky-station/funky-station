@@ -1,3 +1,9 @@
+# SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: MIT
+
 spooky-speaker-generic-1 = ...ooOoooOOoooo...
 spooky-speaker-generic-2 = ...can anyone hear me...?
 spooky-speaker-generic-3 = ...join us...

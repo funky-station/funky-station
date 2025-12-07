@@ -1,3 +1,10 @@
+# SPDX-FileCopyrightText: 2025 ATDoop <bug@bug.bug>
+# SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 ferynn <117872973+ferynn@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
 thaven-mood-compulsive-liar-name = Compulsive Liar
 thaven-mood-compulsive-liar-desc = You must always lie, and can never acknowledge that you are lying. If anyone asks, you're incapable of deception.
 
@@ -37,9 +44,6 @@ thaven-mood-immortal-desc = You are the center of the universe, an immortal bein
 thaven-mood-unknown-name = Unknowable
 thaven-mood-unknown-desc = Your identity is dearly precious. Do not let others know who you are.
 
-thaven-mood-fairy-name = Charmed
-thaven-mood-fairy-desc = You are allergic to iron, steel, and silver. You should avoid touching it directly.
-
 thaven-mood-vampire-talisman-name = Talisman
 thaven-mood-vampire-talisman-desc = Religious iconography causes you physical discomfort when visible.
 
@@ -57,9 +61,6 @@ thaven-mood-pariah-desc = You are a social pariah - you are unworthy of attentio
 
 thaven-mood-touys-bad-name = This Is Not A Place For Children
 thaven-mood-touys-bad-desc = All toys and childish things must be destroyed or removed from the station.
-
-thaven-mood-fairy-rings-name = Fairy Rings
-thaven-mood-fairy-rings-desc = Unbroken circles are impenetrable barriers.
 
 thaven-mood-stay-dead-name = The Dead Should Stay Dead
 thaven-mood-stay-dead-desc = If you die, you should stay dead. If you are revived, you must force whoever revived you to kill you again.
@@ -105,6 +106,12 @@ thaven-mood-aye-aye-desc = {$command} is the only position on the station. Every
 
 thaven-mood-new-job-name = Jobhopping
 thaven-mood-new-job-desc = Your current job is disgusting to you. You must endeavor to get a new one.
+
+thaven-mood-always-alone-name = Lone Wolf
+thaven-mood-always-alone-desc = Other people will only slow you down. You should strive to be alone whenever possible.
+
+thaven-mood-rank-snob-name = Snob
+thaven-mood-rank-snob-desc = You are incredibly reluctant to respond to anyone who is of a lower rank than you. If they must be addressed, do so away from prying eyes.
 
 thaven-mood-corporateconspiracy-name = Corporate Conspiracy
 thaven-mood-corporateconspiracy-desc = You believe there is a hidden connection between Nanotrasen and the Syndicate. Command is complicit.

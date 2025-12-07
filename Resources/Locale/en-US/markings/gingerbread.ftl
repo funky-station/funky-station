@@ -1,3 +1,8 @@
+# SPDX-FileCopyrightText: 2025 Teasq <Xerithin@gmail.com>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: MIT
+
 marking-BodyGummybutton-body_gummybutton = Gummy Buttons
 marking-BodyGummybutton = Gummy Buttons
 

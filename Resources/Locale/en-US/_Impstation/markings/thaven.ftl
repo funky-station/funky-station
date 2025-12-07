@@ -1,3 +1,9 @@
+# SPDX-FileCopyrightText: 2025 ATDoop <bug@bug.bug>
+# SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
 marking-ThavenEars1-ears1 = Small Ears
 marking-ThavenEars1 = Small Ears
 
@@ -10,11 +16,11 @@ marking-ThavenEars3 = Long Ears
 marking-ThavenEars4-ears4 = Droopy Ears
 marking-ThavenEars4 = Droopy Ears
 
-marking-ThavenPiercings-piercings = Helix Piercing
-marking-ThavenPiercings =  Helix Piercing
+marking-ThavenPiercings-piercings = Hoop Piercing
+marking-ThavenPiercings =  Hoop Piercing
 
-marking-ThavenPiercings2-piercings2 = Hoop Piercing
-marking-ThavenPiercings2 = Hoop Piercing
+marking-ThavenPiercings2-piercings2 = Helix Piercing
+marking-ThavenPiercings2 = Helix Piercing
 
 marking-ThavenChestTattoo1-chesttat1 = Back Tattoo
 marking-ThavenChestTattoo1 = Back Tattoo
@@ -73,3 +79,17 @@ marking-ThavenTigerLArm = Tiger (Left)
 
 marking-ThavenLLegScales = Scales (Left)
 marking-ThavenRLegScales = Scales (Right)
+
+marking-ThavenArmFinsBigLeft = Large Fin (Left)
+marking-ThavenArmFinsBigRight = Large Fin (Right)
+marking-ThavenArmFinsSmallLeft = Small Fin (Left)
+marking-ThavenArmFinsSmallRight = Small Fin (Right)
+marking-ThavenLegFinsSmallLeft = Leg Fin (Left)
+marking-ThavenLegFinsSmallRight = Leg Fin (Right)
+marking-ThavenBackFin = Dorsal Fin
+marking-ThavenTailCarpish = Carpish Tail
+marking-ThavenTailFish = Fishy Tail
+marking-ThavenTailDraconic = Draconic Tail
+marking-ThavenHeadFinsFairy = Fairy
+marking-ThavenHeadAnglerStem = Angler Stem
+marking-ThavenHeadAnglerBulb = Angler Bulb

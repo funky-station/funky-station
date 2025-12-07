@@ -1,3 +1,12 @@
+// SPDX-FileCopyrightText: 2025 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 JoulesBerg <104539820+JoulesBerg@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Skye <57879983+Rainbeon@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Terkala <appleorange64@gmail.com>
+// SPDX-FileCopyrightText: 2025 kbarkevich <24629810+kbarkevich@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later OR MIT
+
 using Robust.Shared.Player;
 using Robust.Shared.GameObjects;
 using Robust.Shared.Map;
@@ -13,7 +22,7 @@ namespace Content.Server.GameTicking.Rules.Components;
 /// Component for the BloodCultRuleSystem that stores info about winning/losing, player counts required
 ///	for stuff, and other round-wide stuff.
 /// </summary>
-[RegisterComponent, Access(typeof(BloodCultRuleSystem))]
+[RegisterComponent, Access(typeof(BloodCultRuleSystem), typeof(BloodCult.EntitySystems.BloodCultRiftSetupSystem))]
 public sealed partial class BloodCultRuleComponent : Component
 {
 	/// <summary>
@@ -51,19 +60,29 @@ public sealed partial class BloodCultRuleComponent : Component
 	[DataField] public WeakVeilLocation? LocationForSummon = null;
 
 	/// <summary>
-	/// Charges available for the Revive Rune.
-	/// </summary>
-	[DataField] public int ReviveCharges = 3;
-
-	/// <summary>
 	/// Total sacrifices made.
 	/// </summary>
 	[DataField] public int TotalSacrifices = 0;
 
 	/// <summary>
-	/// Targets sacrificed successfully.
+	/// Current amount of blood collected for the ritual.
 	/// </summary>
-	[DataField] public List<EntityUid> TargetsDown = new List<EntityUid>();
+	[DataField] public double BloodCollected = 0.0;
+
+	/// <summary>
+	/// Blood required to reach the first phase (Eyes).
+	/// </summary>
+	[DataField] public double BloodRequiredForEyes = 0.0;
+
+	/// <summary>
+	/// Blood required to reach the second phase (Rise).
+	/// </summary>
+	[DataField] public double BloodRequiredForRise = 0.0;
+
+	/// <summary>
+	/// Blood required to reach the third phase (Veil Weakened).
+	/// </summary>
+	[DataField] public double BloodRequiredForVeil = 0.0;
 
 	/// <summary>
 	///	Conversions needed until glowing eyes -- set when cult is initialized.
@@ -91,6 +110,26 @@ public sealed partial class BloodCultRuleComponent : Component
 	[DataField] public bool VeilWeakened = false;
 
 	/// <summary>
+	/// Has the blood anomaly spawn been scheduled after weakening the veil?
+	/// </summary>
+	[DataField] public bool BloodAnomalySpawnScheduled = false;
+
+	/// <summary>
+	/// Has the blood anomaly been spawned for the final ritual?
+	/// </summary>
+	[DataField] public bool BloodAnomalySpawned = false;
+
+	/// <summary>
+	/// The time the blood anomaly should be spawned, if scheduled.
+	/// </summary>
+	[DataField] public TimeSpan? BloodAnomalySpawnTime = null;
+
+	/// <summary>
+	/// The spawned blood anomaly entity.
+	/// </summary>
+	[DataField] public EntityUid? BloodAnomalyUid = null;
+
+	/// <summary>
 	/// Whether or not the VeilWeakened announcement has played.
 	/// </summary>
 	[DataField] public bool VeilWeakenedAnnouncementPlayed = false;
@@ -113,35 +152,10 @@ public sealed partial class BloodCultRuleComponent : Component
 	/// </summary>
 	[DataField] public TimeSpan ShuttleCallTime = TimeSpan.FromMinutes(2);
 
-	/// <summary>
-	/// Current target, this is a mind.
-	/// </summary>
-	[DataField] public EntityUid? Target = null;
-
-	/// <summary>
-	/// Current target's original body.
-	/// </summary>
-	[DataField] public EntityUid? TargetOriginalBody = null;
-
 	// <summary>
 	/// When to give initial report on cultist count and crew count.
 	/// </summary>
 	[DataField] public TimeSpan? InitialReportTime = null;
-
-	/// <summary>
-	/// Number of targets required to satisfy the sacrifice condition.
-	/// </summary>
-	[DataField] public int TargetsRequired = 2;
-
-	/// <summary>
-	/// Number of charges required to use a Revive Rune.
-	/// </summary>
-	[DataField] public int CostToRevive = 3;
-
-	/// <summary>
-	/// Number of charges gained for sacrificing someone.
-	/// </summary>
-	[DataField] public int ChargesForSacrifice = 1;
 
 	/// <summary>
 	/// Number of cultists required to sacrifice a dead player.
@@ -149,54 +163,13 @@ public sealed partial class BloodCultRuleComponent : Component
 	[DataField] public int CultistsToSacrifice = 1;
 
 	/// <summary>
-	/// Number of cultists required to sacrifice a target player.
-	/// </summary>
-	[DataField] public int CultistsToSacrificeTarget = 3;
-
-	/// <summary>
 	/// Number of players required to convert a player.
 	/// </summary>
 	[DataField] public int CultistsToConvert = 2;
 
 	/// <summary>
-	/// Whether the Target Reselection Timer for being Off-Station is currently active.
+	/// Minimum number of cultists required on Tear Veil runes to complete the ritual.
+	/// Calculated at round start based on player count (1/8th of total players, minimum 3).
 	/// </summary>
-	[DataField] public bool OffStationReselectTimerActive = false;
-
-	/// <summary>
-	/// The set time the Blood Cult's target will be re-selected due to being off-station, if needed.
-	/// </summary>
-	[DataField] public TimeSpan? OffStationTargetReselectTime;
-
-	/// <summary>
-	/// Time in minutes how long a target can be off station, until the target is re-selected.
-	/// </summary>
-	[DataField] public TimeSpan OffStationTimer = TimeSpan.FromMinutes(2);
-
-	/// <summary>
-	/// Whether the Target Reselection Timer for being Body Mismatch is currently active.
-	/// </summary>
-	[DataField] public bool MismatchReselectTimerActive = false;
-
-	/// <summary>
-	/// The set time the Blood Cult's target will be re-selected due to Mismatch, if needed.
-	/// </summary>
-	[DataField] public TimeSpan? MismatchTargetReselectTime;
-
-	/// <summary>
-	/// Time in minutes how long a target mind can be outside of its original body, until the target is re-selected.
-	/// </summary>
-	[DataField] public TimeSpan MismatchTimer = TimeSpan.FromMinutes(5);
-
-	/// <summary>
-	/// When the next timer initialization check occurs
-	/// </summary>
-	[DataField(customTypeSerializer: typeof(TimeOffsetSerializer))] 
-	public TimeSpan CheckTime;
-
-	/// <summary>
-    /// The amount of time between each timer init check, checked sparsely to reduce server load.
-    /// </summary>
-    [DataField]
-    public TimeSpan TimerWait = TimeSpan.FromSeconds(10);
+	[DataField] public int MinimumCultistsForVeilRitual = 3;
 }

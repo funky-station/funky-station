@@ -1,4 +1,16 @@
-using System.Numerics;
+// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2024 Kara <lunarautomaton6@gmail.com>
+// SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+// SPDX-FileCopyrightText: 2024 TemporalOroboros <TemporalOroboros@gmail.com>
+// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+//
+// SPDX-License-Identifier: MIT
+
 using Content.Client.Gameplay;
 using Content.Shared.Sprite;
 using Robust.Client.GameObjects;
@@ -10,7 +22,6 @@ using Robust.Client.UserInterface;
 using Robust.Shared.Map;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Physics;
-using Robust.Shared.Physics.Components;
 
 namespace Content.Client.Sprite;
 
@@ -28,6 +39,7 @@ public sealed class SpriteFadeSystem : EntitySystem
     [Dependency] private readonly IUserInterfaceManager _uiManager = default!;
     [Dependency] private readonly IInputManager _inputManager = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
+    [Dependency] private readonly SpriteSystem _sprite = default!;
 
     private List<(MapCoordinates Point, bool ExcludeBoundingBox)> _points = new();
 
@@ -58,7 +70,7 @@ public sealed class SpriteFadeSystem : EntitySystem
         if (MetaData(uid).EntityLifeStage >= EntityLifeStage.Terminating || !TryComp<SpriteComponent>(uid, out var sprite))
             return;
 
-        sprite.Color = sprite.Color.WithAlpha(component.OriginalAlpha);
+        _sprite.SetColor((uid, sprite), sprite.Color.WithAlpha(component.OriginalAlpha));
     }
 
     /// <summary>
@@ -132,7 +144,7 @@ public sealed class SpriteFadeSystem : EntitySystem
 
                     if (!sprite.Color.A.Equals(newColor))
                     {
-                        sprite.Color = sprite.Color.WithAlpha(newColor);
+                        _sprite.SetColor((ent, sprite), sprite.Color.WithAlpha(newColor));
                     }
                 }
             }
@@ -157,7 +169,7 @@ public sealed class SpriteFadeSystem : EntitySystem
 
             if (!newColor.Equals(sprite.Color.A))
             {
-                sprite.Color = sprite.Color.WithAlpha(newColor);
+                _sprite.SetColor((uid, sprite), sprite.Color.WithAlpha(newColor));
             }
             else
             {

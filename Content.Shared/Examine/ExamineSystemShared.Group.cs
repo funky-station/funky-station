@@ -1,3 +1,19 @@
+// SPDX-FileCopyrightText: 2022 rolfero <45628623+rolfero@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Ygg01 <y.laughing.man.y@gmail.com>
+// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2024 Winkarst <74284083+Winkarst-cpu@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 McBosserson <148172569+McBosserson@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+// SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+//
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Ghost;
 using Content.Shared.Verbs;
 using Robust.Shared.Utility;
@@ -184,9 +200,9 @@ namespace Content.Shared.Examine
         /// <summary>
         ///     Adds an icon aligned to the left of examine window that gives you info on hover.
         /// </summary>
-        public void AddHoverExamineVerb(GetVerbsEvent<ExamineVerb> verbsEvent, Component component, string hoverMessage, string iconTexture = DefaultIconTexture)
+        public void AddHoverExamineVerb(GetVerbsEvent<ExamineVerb> verbsEvent, Component component, string verbText, string hoverMessage, string iconTexture = DefaultIconTexture)
         {
-            AddDetailedExamineVerb(verbsEvent, component, FormattedMessage.Empty, "", iconTexture, hoverMessage, true);
+            AddDetailedExamineVerb(verbsEvent, component, FormattedMessage.Empty, verbText, iconTexture, hoverMessage, true);
         }
     }
 }

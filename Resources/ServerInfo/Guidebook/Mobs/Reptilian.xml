@@ -1,3 +1,10 @@
+<!--
+SPDX-FileCopyrightText: 2024 Errant <35878406+Errant-4@users.noreply.github.com>
+SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+
+SPDX-License-Identifier: MIT
+-->
+
 <Document>
   # Reptilians
 
@@ -5,12 +12,40 @@
     <GuideEntityEmbed Entity="MobReptilian" Caption=""/>
   </Box>
 
-  They can ONLY eat fruits and meat, but can eat raw meat and drink blood without any ill effects.
-  They prefer a somewhat higher temperature range than humans.
-  They can drag objects with their tail, keeping both their hands free.
+  Evolved from snakes, lizards, crocodiles, and all sorts of other reptiles, Reptilians are a hardy alien species.
 
-  Their unarmed claw attacks deal Slash damage instead of Blunt.
+  ## Claws and Tails
 
-  They take [color=#ffa500]30% more Cold damage.[/color]
+  Reptilian claws are sharp, and deal [color=orange]Slashing[/color] damage. Additionally, Reptilians' tails enable
+  them to drag objects and people with both of their hands free.
+
+  ## Diet
+
+  Reptilians can only eat fruits, meat, and certain special foods like chocolate. They can, however, eat raw meat,
+  paper, crayons, and drink blood without biological consequences.
+  Your fellow crew might look at you differently, though...
+
+  ## Damage
+
+  Reptilians are more comfortable in higher temperatures than other species, but tend to get cold quicker as a result,
+  and suffer 30% more [color=cornflowerblue]Cold[/color] damage.
+
+  ## Reptilian Naming Conventions
+
+  Reptilians typically have hyphenated two to four syllable names favouring guttural consonants while avoiding soft sounds.
+
+  [bullet] Neeus-Hixeeh
+
+  [bullet] Wud-Geel
+
+  [bullet] Deroh-Haj
+
+  Some are known to have names that follow a pattern of Nouns-The-Verb, typically self-assigned or given by family.
+
+  [bullet] Cleans-The-Floor
+
+  [bullet] Fights-The-Battles
+
+  [bullet] Treats-The-Injuries
 
 </Document>

@@ -1,4 +1,10 @@
-﻿﻿using Robust.Shared.Prototypes;
+// SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+//
+// SPDX-License-Identifier: MIT
+
+﻿using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 using Robust.Shared.Utility;
@@ -48,6 +54,20 @@ public sealed class RoboticsConsoleDestroyMessage : BoundUserInterfaceMessage
     public readonly string Address;
 
     public RoboticsConsoleDestroyMessage(string address)
+    {
+        Address = address;
+    }
+}
+
+/// <summary>
+/// Message to impose a Malf-AI Law 0 on the selected cyborg.
+/// </summary>
+[Serializable, NetSerializable]
+public sealed class RoboticsConsoleImposeLawMessage : BoundUserInterfaceMessage
+{
+    public readonly string Address;
+
+    public RoboticsConsoleImposeLawMessage(string address)
     {
         Address = address;
     }
@@ -105,13 +125,21 @@ public partial record struct CyborgControlData
     public bool CanDisable;
 
     /// <summary>
+    /// Whether the borg is emagged for interaction immunity.
+    /// Used to grey out the impose-law button on the console UI.
+    /// </summary>
+    [DataField]
+    public bool Emagged;
+
+
+    /// <summary>
     /// When this cyborg's data will be deleted.
     /// Set by the console when receiving the packet.
     /// </summary>
     [DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
     public TimeSpan Timeout = TimeSpan.Zero;
 
-    public CyborgControlData(SpriteSpecifier? chassisSprite, string chassisName, string name, float charge, int moduleCount, bool hasBrain, bool canDisable)
+    public CyborgControlData(SpriteSpecifier? chassisSprite, string chassisName, string name, float charge, int moduleCount, bool hasBrain, bool canDisable, bool emagged)
     {
         ChassisSprite = chassisSprite;
         ChassisName = chassisName;
@@ -120,6 +148,7 @@ public partial record struct CyborgControlData
         ModuleCount = moduleCount;
         HasBrain = hasBrain;
         CanDisable = canDisable;
+        Emagged = emagged;
     }
 }
 
@@ -131,4 +160,10 @@ public static class RoboticsConsoleConstants
     // sent by robotics console to cyborgs on Cyborg Control frequency
     public const string NET_DISABLE_COMMAND = "cyborg-disable";
     public const string NET_DESTROY_COMMAND = "cyborg-destroy";
+
+    // Malf AI: instruct cyborg to add Law 0 (obey AI).
+    public const string NET_IMPOSE_LAW0_COMMAND = "cyborg-law0";
+
+    // Additional payload key: the AI entity that imposed Law 0
+    public const string NET_IMPOSED_BY = "cyborg-law0-by";
 }

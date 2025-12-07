@@ -1,4 +1,9 @@
-﻿using Content.Server.Chemistry.Containers.EntitySystems;
+// SPDX-FileCopyrightText: 2025 misghast <51974455+misterghast@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
+using Content.Server.Chemistry.Containers.EntitySystems;
 using Content.Server._Goobstation.StationEvents.Metric.Components;
 using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.FixedPoint;

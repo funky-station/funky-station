@@ -1,3 +1,9 @@
+// SPDX-FileCopyrightText: 2025 Steve <marlumpy@gmail.com>
+// SPDX-FileCopyrightText: 2025 marc-pelletier <113944176+marc-pelletier@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
 using Content.Server.Atmos;
 using Content.Server.Atmos.EntitySystems;
 using Content.Shared.Atmos;
@@ -22,9 +28,7 @@ public sealed partial class PluoxiumTritiumProductionReaction : IGasReactionEffe
         var initCO2 = mixture.GetMoles(Gas.CarbonDioxide);
         var initTrit = mixture.GetMoles(Gas.Tritium);
 
-        float[] efficiencies = [5f, initCO2, initO2 * 2f, initTrit * 100f];
-        Array.Sort(efficiencies);
-        var producedAmount = efficiencies[0];
+        float producedAmount = Math.Min(5f, Math.Min(initCO2, Math.Min(initO2 * 2f, initTrit * 100f)));
 
         if (producedAmount <= 0)
             return ReactionResult.NoReaction;

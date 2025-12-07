@@ -1,14 +1,20 @@
 {
     "version": 1,
     "license": "CC-BY-SA-3.0",
-    "copyright": "meijunkie on Discord - https://funkystation.org",
+    "copyright": "meijunkie on Discord - https://funkystation.org, roboticist lizard plushie by Sigma Draconis, based on the original lizard plush",
     "size": {
-      "x": 19,
-      "y": 23
+      "x": 32,
+      "y": 32
     },
     "states": [
       {
         "name": "plushie_cirno"
+      },
+      {
+        "name": "plushie_mothroach"
+      },
+      {
+        "name": "roboticist_lizard"
       }
     ]
 }

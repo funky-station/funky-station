@@ -1,4 +1,10 @@
-﻿using System.Numerics;
+// SPDX-FileCopyrightText: 2024 John Space <bigdumb421@gmail.com>
+// SPDX-FileCopyrightText: 2024 fishbait <gnesse@gmail.com>
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
+using System.Numerics;
 using Content.Client.Weapons.Melee;
 using Content.Shared._Goobstation.Blob;
 using Robust.Client.Audio;

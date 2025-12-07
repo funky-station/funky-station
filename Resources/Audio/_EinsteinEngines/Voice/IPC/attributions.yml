@@ -1,3 +1,9 @@
+# SPDX-FileCopyrightText: 2024 Fishbait <Fishbait@git.ml>
+# SPDX-FileCopyrightText: 2024 John Space <bigdumb421@gmail.com>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
 - files: ["beep_500.ogg", "beep_2000.ogg"]
   license: "CC0-1.0"
   copyright: "Synthesized in Audacity by BasedUser."

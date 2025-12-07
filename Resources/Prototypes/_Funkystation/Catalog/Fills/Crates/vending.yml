@@ -1,0 +1,33 @@
+# SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  id: CrateVendingMachineRestockNipponFilled
+  parent: CratePlastic
+  name: Nippon-tan restock crate
+  description: Contains a restock box for the Nippon-tan.
+  components:
+  - type: StorageFill
+    contents:
+      - id: VendingMachineRestockNippon
+
+- type: entity
+  id: CrateVendingMachineRestockFitnessFilled
+  parent: CratePlastic
+  name: SweatMAX restock crate
+  description: Contains a restock box for the SweatMAX.
+  components:
+  - type: StorageFill
+    contents:
+      - id: VendingMachineRestockFitness
+
+- type: entity
+  id: CrateVendingMachineRestocSolFilled
+  parent: CratePlastic
+  name: Mars Mart restock crate
+  description: Contains a restock box for the Mars Mart.
+  components:
+  - type: StorageFill
+    contents:
+      - id: VendingMachineRestockSol

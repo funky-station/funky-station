@@ -1,3 +1,85 @@
+# SPDX-FileCopyrightText: 2018 Pieter-Jan Briers <pieterjan.briers@gmail.com>
+# SPDX-FileCopyrightText: 2019 DamianX <DamianX@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2020 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2020 Hugo Laloge <hugo.laloge@gmail.com>
+# SPDX-FileCopyrightText: 2020 Peter Wedder <burneddi@gmail.com>
+# SPDX-FileCopyrightText: 2020 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+# SPDX-FileCopyrightText: 2020 Swept <sweptwastaken@protonmail.com>
+# SPDX-FileCopyrightText: 2020 Víctor Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2020 Ygg01 <daniel.fath7@gmail.com>
+# SPDX-FileCopyrightText: 2020 ike709 <ike709@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2021 Elijahrane <60792108+Elijahrane@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2021 Moony <moonheart08@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2021 SweptWasTaken <sweptwastaken@protonmail.com>
+# SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <gradientvera@outlook.com>
+# SPDX-FileCopyrightText: 2022 Cheackraze <71046427+Cheackraze@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Chris V <HoofedEar@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Emisse <99158783+Emisse@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Flipp Syder <76629141+vulppine@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Lamrr <96937466+Lamrr@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Morber <14136326+Morb0@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Paul Ritter <ritter.paul1@googlemail.com>
+# SPDX-FileCopyrightText: 2022 Peptide90 <78795277+Peptide90@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Rane <60792108+Elijahrane@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 lapatison <100279397+lapatison@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 metalgearsloth <comedian_vs_clown@hotmail.com>
+# SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
+# SPDX-FileCopyrightText: 2023 Doru991 <75124791+Doru991@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Ed <96445749+TheShuEd@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Flareguy <78941145+Flareguy@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 MagnusCrowe <whiterider1988@yahoo.com>
+# SPDX-FileCopyrightText: 2023 Maxtone <124747282+MagnusCrowe@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Nairod <110078045+Nairodian@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 PrPleGoo <PrPleGoo@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Puro <103608145+PuroSlavKing@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Rainfall <rainfey0+git@gmail.com>
+# SPDX-FileCopyrightText: 2023 Rainfey <11758391+Rainfey@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Repo <47093363+Titian3@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Vordenburg <114301317+Vordenburg@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Whisper <121047731+QuietlyWhisper@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 brainfood1183 <113240905+brainfood1183@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 crazybrain23 <44417085+crazybrain23@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2024 Brandon Hu <103440971+Brandon-Huu@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 IProduceWidgets <107586145+IProduceWidgets@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Kara <lunarautomaton6@gmail.com>
+# SPDX-FileCopyrightText: 2024 KingFroozy <froozy345@mail.ru>
+# SPDX-FileCopyrightText: 2024 Kira Bridgeton <161087999+Verbalase@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Mr. 27 <45323883+Dutch-VanDerLinde@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 PJBot <pieterjan.briers+bot@gmail.com>
+# SPDX-FileCopyrightText: 2024 PoTeletubby <108604614+PoTeletubby@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Skubman <ba.fallaria@gmail.com>
+# SPDX-FileCopyrightText: 2024 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2024 TsjipTsjip <19798667+TsjipTsjip@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Winkarst <74284083+Winkarst-cpu@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 degradka <69397649+degradka@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 strO0pwafel <153459934+strO0pwafel@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Amethyst <52829582+jackel234@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Catazeus <200477155+Catazeus@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Icepick <122653407+Icepicked@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 JoulesBerg <104539820+JoulesBerg@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 MaiaArai <158123176+YaraaraY@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 W.xyz() <tptechteam@gmail.com>
+# SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 empty0set <16693552+empty0set@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 empty0set <empty0set@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 jackel234 <jackel234@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
+# SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 w.xyz() <84605679+pirakaplant@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
 - type: entity
   parent: Clothing
   id: IDCardStandard
@@ -6,7 +88,7 @@
   abstract: true
   components:
   - type: Sprite
-    sprite: Objects/Misc/id_cards.rsi
+    sprite: _Funkystation/Objects/Misc/id_cards.rsi
   - type: Clothing
     slots:
     - idcard
@@ -26,6 +108,9 @@
   - type: StealTarget
     stealGroup: IDCard
   - type: NanoChatCard # DeltaV
+  - type: Utensil # Funky - for eating mystery scran
+    types:
+    - Fork
 
 #IDs with layers
 
@@ -36,8 +121,11 @@
   components:
   - type: Sprite
     layers:
-    - state: default
-    - state: idpassenger
+    - state: default #base
+    - state: decal-stripe-civillian #decal
+    - sprite: Interface/Misc/job_icons.rsi #icon
+      offset: "-0.125, 0.09375"
+      state: Passenger
   - type: PresetIdCard
     job: Passenger
 
@@ -50,8 +138,11 @@
     job: TechnicalAssistant
   - type: Sprite
     layers:
-    - state: default
-    - state: idintern-tech
+    - state: default #base
+    - state: decal-stripe-engineering #decal
+    - sprite: Interface/Misc/job_icons.rsi #icon
+      offset: "-0.125, 0.09375"
+      state: TechnicalAssistant
 
 - type: entity
   parent: PassengerIDCard
@@ -62,8 +153,11 @@
     job: MedicalIntern
   - type: Sprite
     layers:
-    - state: default
-    - state: idintern-med
+    - state: default #base
+    - state: decal-stripe-medical #decal
+    - sprite: Interface/Misc/job_icons.rsi #icon
+      offset: "-0.125, 0.09375"
+      state: MedicalIntern
 
 - type: entity
   parent: PassengerIDCard
@@ -74,8 +168,11 @@
     job: ResearchAssistant
   - type: Sprite
     layers:
-    - state: default
-    - state: idintern-sci
+    - state: default #base
+    - state: decal-stripe-science #decal
+    - sprite: Interface/Misc/job_icons.rsi #icon
+      offset: "-0.125, 0.09375"
+      state: ResearchAssistant
 
 - type: entity
   parent: PassengerIDCard
@@ -86,8 +183,11 @@
     job: SecurityCadet
   - type: Sprite
     layers:
-    - state: default
-    - state: idintern-cadet
+    - state: default #base
+    - state: decal-stripe-security #decal
+    - sprite: Interface/Misc/job_icons.rsi #icon
+      offset: "-0.125, 0.09375"
+      state: SecurityCadet
 
 - type: entity
   parent: PassengerIDCard
@@ -98,8 +198,11 @@
     job: ServiceWorker
   - type: Sprite
     layers:
-    - state: default
-    - state: idintern-service
+    - state: default #base
+    - state: decal-stripe-service #decal
+    - sprite: Interface/Misc/job_icons.rsi #icon
+      offset: "-0.125, 0.09375"
+      state: ServiceWorker
 
 - type: entity
   parent: [IDCardStandard, BaseGrandTheftContraband]
@@ -108,8 +211,11 @@
   components:
   - type: Sprite
     layers:
-    - state: gold
-    - state: idcaptain
+    - state: gold #base
+    - state: decal-stripe-command #decal
+    - sprite: Interface/Misc/job_icons.rsi #icon
+      offset: "-0.125, 0.09375"
+      state: Captain
   - type: Item
     heldPrefix: gold
   - type: PresetIdCard
@@ -130,8 +236,11 @@
   components:
   - type: Sprite
     layers:
-    - state: default
-    - state: idsecurityofficer
+    - state: default #base
+    - state: decal-stripe-security #decal
+    - sprite: Interface/Misc/job_icons.rsi #icon
+      offset: "-0.125, 0.09375"
+      state: SecurityOfficer
   - type: PresetIdCard
     job: SecurityOfficer
 
@@ -140,12 +249,15 @@
   id: WardenIDCard
   name: warden ID card
   components:
-    - type: Sprite
-      layers:
-        - state: default
-        - state: idwarden
-    - type: PresetIdCard
-      job: Warden
+  - type: Sprite
+    layers:
+    - state: default #base
+    - state: decal-stripe-security #decal
+    - sprite: Interface/Misc/job_icons.rsi #icon
+      offset: "-0.125, 0.09375"
+      state: Warden
+  - type: PresetIdCard
+    job: Warden
 
 - type: entity
   parent: IDCardStandard
@@ -154,8 +266,11 @@
   components:
   - type: Sprite
     layers:
-    - state: default
-    - state: idstationengineer
+    - state: default #base
+    - state: decal-stripe-engineering #decal
+    - sprite: Interface/Misc/job_icons.rsi #icon
+      offset: "-0.125, 0.09375"
+      state: StationEngineer
   - type: PresetIdCard
     job: StationEngineer
 
@@ -166,8 +281,11 @@
   components:
   - type: Sprite
     layers:
-    - state: default
-    - state: idmedicaldoctor
+    - state: default #base
+    - state: decal-stripe-medical #decal
+    - sprite: Interface/Misc/job_icons.rsi #icon
+      offset: "-0.125, 0.09375"
+      state: MedicalDoctor
   - type: PresetIdCard
     job: MedicalDoctor
 
@@ -178,8 +296,11 @@
   components:
   - type: Sprite
     layers:
-    - state: default
-    - state: idparamedic
+    - state: default #base
+    - state: decal-stripe-medical #decal
+    - sprite: Interface/Misc/job_icons.rsi #icon
+      offset: "-0.125, 0.09375"
+      state: Paramedic
   - type: PresetIdCard
     job: Paramedic
 
@@ -190,8 +311,11 @@
   components:
   - type: Sprite
     layers:
-    - state: default
-    - state: idchemist
+    - state: default #base
+    - state: decal-stripe-medical #decal
+    - sprite: Interface/Misc/job_icons.rsi #icon
+      offset: "-0.125, 0.09375"
+      state: Chemist
   - type: PresetIdCard
     job: Chemist
 
@@ -202,8 +326,11 @@
   components:
   - type: Sprite
     layers:
-    - state: default
-    - state: idcargotechnician
+    - state: default #base
+    - state: decal-stripe-cargo #decal
+    - sprite: Interface/Misc/job_icons.rsi #icon
+      offset: "-0.125, 0.09375"
+      state: CargoTechnician
   - type: PresetIdCard
     job: CargoTechnician
 
@@ -214,8 +341,11 @@
   components:
   - type: Sprite
     layers:
-    - state: default
-    - state: idshaftminer
+    - state: default #base
+    - state: decal-stripe-cargo #decal
+    - sprite: Interface/Misc/job_icons.rsi #icon
+      offset: "-0.125, 0.09375"
+      state: ShaftMiner
   - type: PresetIdCard
     job: SalvageSpecialist
 
@@ -224,14 +354,18 @@
   id: QuartermasterIDCard
   name: quartermaster ID card
   components:
-    - type: Sprite
-      layers:
-        - state: silver
-        - state: idquartermaster
-    - type: Item
-      heldPrefix: silver
-    - type: PresetIdCard
-      job: Quartermaster
+  - type: Sprite
+    layers:
+    - state: silver #base
+    - state: decal-stripe-cargo #decal
+    - state: decal-discriminator-command #decal
+    - sprite: Interface/Misc/job_icons.rsi #icon
+      offset: "-0.125, 0.09375"
+      state: QuarterMaster
+  - type: Item
+    heldPrefix: silver
+  - type: PresetIdCard
+    job: Quartermaster
 
 - type: entity
   parent: IDCardStandard
@@ -240,8 +374,11 @@
   components:
   - type: Sprite
     layers:
-    - state: default
-    - state: idscientist
+    - state: default #base
+    - state: decal-stripe-science #decal
+    - sprite: Interface/Misc/job_icons.rsi #icon
+      offset: "-0.125, 0.09375"
+      state: Scientist
   - type: PresetIdCard
     job: Scientist
 
@@ -252,8 +389,11 @@
   components:
   - type: Sprite
     layers:
-    - state: default
-    - state: idroboticist
+    - state: default #base
+    - state: decal-stripe-science #decal
+    - sprite: Interface/Misc/job_icons.rsi #icon
+      offset: "-0.125, 0.09375"
+      state: Roboticist
   - type: PresetIdCard
     job: Roboticist
 
@@ -264,8 +404,11 @@
   components:
   - type: Sprite
     layers:
-    - state: default
-    - state: idclown
+    - state: default #base
+    - state: decal-stripe-rainbow #decal
+    - sprite: Interface/Misc/job_icons.rsi #icon
+      offset: "-0.125, 0.09375"
+      state: Clown
   - type: PresetIdCard
     job: Clown
 
@@ -276,8 +419,11 @@
   components:
   - type: Sprite
     layers:
-    - state: default
-    - state: idmime
+    - state: default #base
+    - state: decal-stripe-stripes #decal
+    - sprite: Interface/Misc/job_icons.rsi #icon
+      offset: "-0.125, 0.09375"
+      state: Mime
   - type: PresetIdCard
     job: Mime
 
@@ -286,12 +432,15 @@
   id: ChaplainIDCard
   name: chaplain ID card
   components:
-    - type: Sprite
-      layers:
-        - state: default
-        - state: idchaplain
-    - type: PresetIdCard
-      job: Chaplain
+  - type: Sprite
+    layers:
+    - state: default #base
+    - state: decal-stripe-civillian #decal
+    - sprite: Interface/Misc/job_icons.rsi #icon
+      offset: "-0.125, 0.09375"
+      state: Chaplain
+  - type: PresetIdCard
+    job: Chaplain
 
 - type: entity
   parent: IDCardStandard
@@ -300,8 +449,11 @@
   components:
   - type: Sprite
     layers:
-    - state: default
-    - state: idjanitor
+    - state: default #base
+    - state: decal-stripe-service #decal
+    - sprite: Interface/Misc/job_icons.rsi #icon
+      offset: "-0.125, 0.09375"
+      state: Janitor
   - type: PresetIdCard
     job: Janitor
 
@@ -312,8 +464,11 @@
   components:
   - type: Sprite
     layers:
-    - state: default
-    - state: idbartender
+    - state: default #base
+    - state: decal-stripe-service #decal
+    - sprite: Interface/Misc/job_icons.rsi #icon
+      offset: "-0.125, 0.09375"
+      state: Bartender
   - type: PresetIdCard
     job: Bartender
 
@@ -322,16 +477,19 @@
   id: PunPunIDCard
   name: pun pun ID card
   components:
-    - type: Sprite
-      layers:
-        - state: default
-        - state: idbartender
-    - type: PresetIdCard
-      job: Bartender
-      name: Pun Pun
-    - type: Tag #  Ignore Chameleon tags
-      tags:
-      - DoorBumpOpener
+  - type: Sprite
+    layers:
+    - state: default #base
+    - state: decal-stripe-service #decal
+    - sprite: Interface/Misc/job_icons.rsi #icon
+      offset: "-0.125, 0.09375"
+      state: Bartender
+  - type: PresetIdCard
+    job: Bartender
+    name: Pun Pun
+  - type: Tag #  Ignore Chameleon tags
+    tags:
+    - DoorBumpOpener
 
 - type: entity
   parent: IDCardStandard
@@ -340,46 +498,79 @@
   components:
   - type: Sprite
     layers:
-    - state: default
-    - state: idcook
+    - state: default #base
+    - state: decal-stripe-service #decal
+    - sprite: Interface/Misc/job_icons.rsi #icon
+      offset: "-0.125, 0.09375"
+      state: Chef
   - type: PresetIdCard
     job: Chef
+
+#Funkystation start
+- type: entity
+  parent: IDCardStandard
+  id: YipYapIDCard
+  name: yip-yap ID card
+  components:
+    - type: Sprite
+      layers:
+        - state: default #base
+        - state: decal-stripe-service #decal
+        - sprite: Interface/Misc/job_icons.rsi #icon
+          offset: "-0.125, 0.09375"
+          state: Chef
+    - type: PresetIdCard
+      job: Chef
+      name: Yip-Yap
+    - type: Tag #  Ignore Chameleon tags
+      tags:
+        - DoorBumpOpener
+#Funkystation end
 
 - type: entity
   parent: IDCardStandard
   id: BotanistIDCard
   name: botanist ID card
   components:
-    - type: Sprite
-      layers:
-        - state: default
-        - state: idbotanist
-    - type: PresetIdCard
-      job: Botanist
+  - type: Sprite
+    layers:
+    - state: default #base
+    - state: decal-stripe-service #decal
+    - sprite: Interface/Misc/job_icons.rsi #icon
+      offset: "-0.125, 0.09375"
+      state: Botanist
+  - type: PresetIdCard
+    job: Botanist
 
 - type: entity
   parent: IDCardStandard
   id: LibrarianIDCard
   name: librarian ID card
   components:
-    - type: Sprite
-      layers:
-        - state: default
-        - state: idcurator
-    - type: PresetIdCard
-      job: Librarian
+  - type: Sprite
+    layers:
+    - state: default #base
+    - state: decal-stripe-civillian #decal
+    - sprite: Interface/Misc/job_icons.rsi #icon
+      offset: "-0.125, 0.09375"
+      state: Librarian
+  - type: PresetIdCard
+    job: Librarian
 
 - type: entity
   parent: IDCardStandard
   id: LawyerIDCard
   name: lawyer ID card
   components:
-    - type: Sprite
-      layers:
-        - state: default
-        - state: idlawyer
-    - type: PresetIdCard
-      job: Lawyer
+  - type: Sprite
+    layers:
+    - state: default #base
+    - state: decal-stripe-civillian #decal
+    - sprite: Interface/Misc/job_icons.rsi #icon
+      offset: "-0.125, 0.09375"
+      state: Lawyer
+  - type: PresetIdCard
+    job: Lawyer
 
 - type: entity
   parent: IDCardStandard
@@ -388,8 +579,12 @@
   components:
   - type: Sprite
     layers:
-    - state: silver
-    - state: idheadofpersonnel
+    - state: silver #base
+    - state: decal-stripe-service #decal
+    - state: decal-discriminator-command #decal
+    - sprite: Interface/Misc/job_icons.rsi #icon
+      offset: "-0.125, 0.09375"
+      state: HeadOfPersonnel
   - type: Item
     heldPrefix: silver
   - type: PresetIdCard
@@ -402,8 +597,12 @@
   components:
   - type: Sprite
     layers:
-    - state: silver
-    - state: idchiefengineer
+    - state: silver #base
+    - state: decal-stripe-engineering #decal
+    - state: decal-discriminator-command #decal
+    - sprite: Interface/Misc/job_icons.rsi #icon
+      offset: "-0.125, 0.09375"
+      state: ChiefEngineer
   - type: Item
     heldPrefix: silver
   - type: PresetIdCard
@@ -416,8 +615,12 @@
   components:
   - type: Sprite
     layers:
-    - state: silver
-    - state: idchiefmedicalofficer
+    - state: silver #base
+    - state: decal-stripe-medical #decal
+    - state: decal-discriminator-command #decal
+    - sprite: Interface/Misc/job_icons.rsi #icon
+      offset: "-0.125, 0.09375"
+      state: ChiefMedicalOfficer
   - type: Item
     heldPrefix: silver
   - type: PresetIdCard
@@ -430,8 +633,12 @@
   components:
   - type: Sprite
     layers:
-    - state: silver
-    - state: idresearchdirector
+    - state: silver #base
+    - state: decal-stripe-science #decal
+    - state: decal-discriminator-command #decal
+    - sprite: Interface/Misc/job_icons.rsi #icon
+      offset: "-0.125, 0.09375"
+      state: ResearchDirector
   - type: Item
     heldPrefix: silver
   - type: PresetIdCard
@@ -444,8 +651,12 @@
   components:
   - type: Sprite
     layers:
-    - state: silver
-    - state: idheadofsecurity
+    - state: silver #base
+    - state: decal-stripe-security #decal
+    - state: decal-discriminator-command #decal
+    - sprite: Interface/Misc/job_icons.rsi #icon
+      offset: "-0.125, 0.09375"
+      state: HeadOfSecurity
   - type: Item
     heldPrefix: silver
   - type: PresetIdCard
@@ -458,8 +669,11 @@
   components:
   - type: Sprite
     layers:
-    - state: default
-    - state: idvisitor
+    - state: default #base
+    - state: decal-stripe-civillian #decal
+    - sprite: Interface/Misc/job_icons.rsi #icon
+      offset: "-0.125, 0.09375"
+      state: Visitor
   - type: IdCard
     jobTitle: job-title-visitor
     jobIcon: JobIconVisitor
@@ -473,8 +687,11 @@
   components:
   - type: Sprite
     layers:
-    - state: default
-    - state: idbrigmedic
+    - state: default #base
+    - state: decal-stripe-security #decal
+    - sprite: Interface/Misc/job_icons.rsi #icon
+      offset: "-0.125, 0.09375"
+      state: Brigmedic
 
 - type: entity
   parent: IDCardStandard
@@ -483,10 +700,12 @@
   components:
   - type: Sprite
     layers:
-    - state: centcom
-    - state: idcentcom
+    - state: cc #base
+    - sprite: _Funkystation/Interface/Misc/job_icons.rsi #icon
+      offset: "-0.125, 0.09375"
+      state: CentralCommandOfficial
   - type: Item
-    heldPrefix: blue
+    heldPrefix: cc
   - type: PresetIdCard
     job: CentralCommandOfficial
   - type: NanoChatCard # DeltaV
@@ -499,12 +718,14 @@
   components:
   - type: Sprite
     layers:
-    - state: gold
-    - state: ert_commander
+    - state: default #base
+    - state: decal-stripe-cc #decal
+    - state: decal-discriminator-ert #decal
+    - sprite: _Funkystation/Interface/Misc/job_icons.rsi #icon
+      offset: "-0.125, 0.09375"
+      state: ERT-Leader
   - type: PresetIdCard
     job: ERTLeader
-  - type: Item
-    heldPrefix: gold
   - type: NanoChatCard # DeltaV
     listNumber: false
 
@@ -515,12 +736,14 @@
   components:
   - type: Sprite
     layers:
-    - state: gold
-    - state: ert_chaplain # we have the sprite for the id but dont have chaplain ERT equipment for now.
+    - state: default #base
+    - state: decal-stripe-cc #decal
+    - state: decal-discriminator-ert #decal
+    - sprite: _Funkystation/Interface/Misc/job_icons.rsi #icon
+      offset: "-0.125, 0.09375"
+      state: ERT-Chaplain
   - type: PresetIdCard
     job: ERTChaplain
-  - type: Item
-    heldPrefix: blue
   - type: NanoChatCard # DeltaV
     listNumber: false
 
@@ -531,8 +754,12 @@
   components:
   - type: Sprite
     layers:
-    - state: gold
-    - state: ert_engineer
+    - state: default #base
+    - state: decal-stripe-cc #decal
+    - state: decal-discriminator-ert #decal
+    - sprite: _Funkystation/Interface/Misc/job_icons.rsi #icon
+      offset: "-0.125, 0.09375"
+      state: ERT-Engineer
   - type: PresetIdCard
     job: ERTEngineer
   - type: NanoChatCard # DeltaV
@@ -545,8 +772,12 @@
   components:
   - type: Sprite
     layers:
-    - state: gold
-    - state: ert_janitor
+    - state: default #base
+    - state: decal-stripe-cc #decal
+    - state: decal-discriminator-ert #decal
+    - sprite: _Funkystation/Interface/Misc/job_icons.rsi #icon
+      offset: "-0.125, 0.09375"
+      state: ERT-Janitor
   - type: PresetIdCard
     job: ERTJanitor
   - type: NanoChatCard # DeltaV
@@ -559,8 +790,12 @@
   components:
   - type: Sprite
     layers:
-    - state: gold
-    - state: ert_medic
+    - state: default #base
+    - state: decal-stripe-cc #decal
+    - state: decal-discriminator-ert #decal
+    - sprite: _Funkystation/Interface/Misc/job_icons.rsi #icon
+      offset: "-0.125, 0.09375"
+      state: ERT-Medic
   - type: PresetIdCard
     job: ERTMedical
   - type: NanoChatCard # DeltaV
@@ -573,8 +808,12 @@
   components:
   - type: Sprite
     layers:
-    - state: gold
-    - state: ert_security
+    - state: default #base
+    - state: decal-stripe-cc #decal
+    - state: decal-discriminator-ert #decal
+    - sprite: _Funkystation/Interface/Misc/job_icons.rsi #icon
+      offset: "-0.125, 0.09375"
+      state: ERT-Security
   - type: PresetIdCard
     job: ERTSecurity
   - type: NanoChatCard # DeltaV
@@ -585,12 +824,15 @@
   id: MusicianIDCard
   name: musician ID card
   components:
-    - type: Sprite
-      layers:
-        - state: default
-        - state: idmusician
-    - type: PresetIdCard
-      job: Musician
+  - type: Sprite
+    layers:
+    - state: default #base
+    - state: decal-stripe-civillian #decal
+    - sprite: Interface/Misc/job_icons.rsi #icon
+      offset: "-0.125, 0.09375"
+      state: Musician
+  - type: PresetIdCard
+    job: Musician
 
 - type: entity
   parent: IDCardStandard
@@ -599,9 +841,12 @@
   components:
   - type: Sprite
     layers:
-    - state: centcom
-  - type: Item
-    heldPrefix: blue
+    - state: default #base
+    - state: decal-stripe-cc #decal
+    - state: decal-discriminator-deathsquad #decal
+    - sprite: _Funkystation/Interface/Misc/job_icons.rsi #icon
+      offset: "-0.125, 0.09375"
+      state: DeathSquad
   - type: PresetIdCard
     job: DeathSquad
   - type: NanoChatCard # DeltaV
@@ -621,8 +866,11 @@
     - SyndicateAgent
   - type: Sprite
     layers:
-    - state: default
-    - state: idpassenger
+    - state: default #base
+    - state: decal-stripe-civillian #decal
+    - sprite: Interface/Misc/job_icons.rsi #icon
+      offset: "-0.125, 0.09375"
+      state: Passenger
   - type: AgentIDCard
   - type: ActivatableUI
     key: enum.AgentIDCardUiKey.Key
@@ -664,8 +912,11 @@
   components:
   - type: Sprite
     layers:
-    - state: orange
-    - state: idatmospherictechnician
+    - state: default #base
+    - state: decal-stripe-engineering #decal
+    - sprite: Interface/Misc/job_icons.rsi #icon
+      offset: "-0.125, 0.09375"
+      state: AtmosphericTechnician
   - type: PresetIdCard
     job: AtmosphericTechnician
 
@@ -676,7 +927,13 @@
   components:
   - type: Sprite
     layers:
-    - state: syndie
+    - state: syndicate #base
+    - state: decal-stripe-syndicate #decal
+    - sprite: Interface/Misc/job_icons.rsi #icon
+      offset: "-0.125, 0.09375"
+      state: Syndicate
+  - type: Item
+    heldPrefix: syndicate
   - type: Access
     tags:
     - NuclearOperative
@@ -691,7 +948,13 @@
   components:
   - type: Sprite
     layers:
-    - state: pirate
+    - state: pirate #base
+    - state: decal-stripe-pirate #decal
+    - sprite: _Funkystation/Interface/Misc/job_icons.rsi #icon
+      offset: "-0.125, 0.09375"
+      state: Pirate
+  - type: Item
+    heldPrefix: pirate
   - type: Access
     tags:
     - NuclearOperative
@@ -706,8 +969,11 @@
   components:
   - type: Sprite
     layers:
-    - state: default
-    - state: idpsychologist
+    - state: default #base
+    - state: decal-stripe-medical #decal
+    - sprite: Interface/Misc/job_icons.rsi #icon
+      offset: "-0.125, 0.09375"
+      state: Psychologist
   - type: PresetIdCard
     job: Psychologist
 
@@ -718,8 +984,11 @@
   components:
   - type: Sprite
     layers:
-    - state: default
-    - state: idreporter
+    - state: default #base
+    - state: decal-stripe-civillian #decal
+    - sprite: Interface/Misc/job_icons.rsi #icon
+      offset: "-0.125, 0.09375"
+      state: Reporter
   - type: PresetIdCard
     job: Reporter
 
@@ -730,8 +999,11 @@
   components:
   - type: Sprite
     layers:
-    - state: default
-    - state: idboxer
+    - state: default #base
+    - state: decal-stripe-civillian #decal
+    - sprite: Interface/Misc/job_icons.rsi #icon
+      offset: "-0.125, 0.09375"
+      state: Boxer
   - type: PresetIdCard
     job: Boxer
 
@@ -742,8 +1014,11 @@
   components:
   - type: Sprite
     layers:
-    - state: default
-    - state: idzookeeper
+    - state: default #base
+    - state: decal-stripe-service #decal
+    - sprite: Interface/Misc/job_icons.rsi #icon
+      offset: "-0.125, 0.09375"
+      state: Zookeeper
   - type: PresetIdCard
     job: Zookeeper
 
@@ -754,8 +1029,11 @@
   components:
   - type: Sprite
     layers:
-    - state: default
-    - state: iddetective
+    - state: default #base
+    - state: decal-stripe-security #decal
+    - sprite: Interface/Misc/job_icons.rsi #icon
+      offset: "-0.125, 0.09375"
+      state: Detective
   - type: PresetIdCard
     job: Detective
 
@@ -767,9 +1045,13 @@
   components:
   - type: Sprite
     layers:
-    - state: orange
+    - state: prison #base
+    - state: decal-stripe-criminal #decal
+    - sprite: Interface/Misc/job_icons.rsi #icon
+      offset: "-0.125, 0.09375"
+      state: Prisoner
   - type: Item
-    heldPrefix: orange
+    heldPrefix: prison
   - type: Access
     tags:
     - GenpopEnter
@@ -801,9 +1083,11 @@
   components:
   - type: Sprite
     layers:
-    - state: centcom
-  - type: Item
-    heldPrefix: blue
+    - state: default #base
+    - state: decal-stripe-cc #decal
+    - sprite: _Funkystation/Interface/Misc/job_icons.rsi #icon
+      offset: "-0.125, 0.09375"
+      state: CBURN
   - type: PresetIdCard
     job: CBURN
   - type: NanoChatCard # DeltaV
@@ -817,8 +1101,11 @@
   components:
   - type: Sprite
     layers:
-    - state: default
-    - state: idcluwne
+    - state: default #base
+    - state: decal-stripe-cluwne #decal
+    - sprite: _Funkystation/Interface/Misc/job_icons.rsi #icon
+      offset: "-0.125, 0.09375"
+      state: Cluwne
   - type: IdCard
     jobTitle: job-title-cluwne
   - type: Unremoveable
@@ -832,8 +1119,24 @@
   components:
   - type: Sprite
     layers:
-    - state: default
-    - state: idseniorengineer
+    - state: default #base
+    - state: decal-stripe-engineering #decal
+    - sprite: Interface/Misc/job_icons.rsi #icon
+      offset: "-0.125, 0.09375"
+      state: SeniorEngineer
+
+- type: entity
+  parent: CargoIDCard
+  id: SeniorCargoIDCard
+  name: senior cargo ID card
+  components:
+  - type: Sprite
+    layers:
+    - state: default #base
+    - state: decal-stripe-cargo #decal
+    - sprite: Interface/Misc/job_icons.rsi #icon
+      offset: "-0.125, 0.09375"
+      state: CargoTechnician
 
 - type: entity
   parent: ResearchIDCard
@@ -842,8 +1145,11 @@
   components:
   - type: Sprite
     layers:
-    - state: default
-    - state: idseniorresearcher
+    - state: default #base
+    - state: decal-stripe-science #decal
+    - sprite: Interface/Misc/job_icons.rsi #icon
+      offset: "-0.125, 0.09375"
+      state: SeniorResearcher
 
 - type: entity
   parent: MedicalIDCard
@@ -852,8 +1158,11 @@
   components:
   - type: Sprite
     layers:
-    - state: default
-    - state: idseniorphysician
+    - state: default #base
+    - state: decal-stripe-medical #decal
+    - sprite: Interface/Misc/job_icons.rsi #icon
+      offset: "-0.125, 0.09375"
+      state: SeniorPhysician
 
 - type: entity
   parent: SecurityIDCard
@@ -862,8 +1171,11 @@
   components:
   - type: Sprite
     layers:
-    - state: default
-    - state: idseniorofficer
+    - state: default #base
+    - state: decal-stripe-security #decal
+    - sprite: Interface/Misc/job_icons.rsi #icon
+      offset: "-0.125, 0.09375"
+      state: SeniorOfficer
 
 - type: entity
   parent: IDCardStandard
@@ -872,8 +1184,13 @@
   components:
   - type: Sprite
     layers:
-    - state: wizard
-    - state: idwizard
+    - state: wizard #base
+    - state: decal-stripe-wizard #decal
+    - sprite: _Funkystation/Interface/Misc/job_icons.rsi #icon
+      offset: "-0.125, 0.09375"
+      state: Wizard
+  - type: Item
+    heldPrefix: wizard
   - type: Access
     tags:
     - Wizard
@@ -890,14 +1207,16 @@
   description: An ID card that gives you access beyond your wildest dreams.
   components:
   - type: Sprite
-    sprite: Objects/Misc/id_cards.rsi
     layers:
-    - state: admin
-    - state: idadmin
+    - state: cc #base
+    - state: decal-admin #decal
+    - sprite: Interface/Misc/job_icons.rsi #icon
+      offset: "-0.125, 0.09375"
+      state: Admin
   - type: Clothing
     sprite: Objects/Misc/id_cards.rsi
   - type: Item
-    heldPrefix: green
+    heldPrefix: cc
   - type: IdCard
     jobTitle: job-title-universal
     jobIcon: JobIconAdmin
@@ -934,8 +1253,12 @@
   components:
   - type: Sprite
     layers:
-    - state: default
-    - state: idsecurityclown
+    - state: default #base
+    - state: decal-stripe-rainbow #decal
+    - state: decal-discriminator-security #decal
+    - sprite: Interface/Misc/job_icons.rsi #icon
+      offset: "-0.125, 0.09375"
+      state: SecurityClown
   - type: PresetIdCard
     job: SecurityClown
 
@@ -946,8 +1269,11 @@
   components:
   - type: Sprite
     layers:
-    - state: default
-    - state: idcommandmaid
+    - state: default #base
+    - state: decal-stripe-command #decal
+    - sprite: Interface/Misc/job_icons.rsi #icon
+      offset: "-0.125, 0.09375"
+      state: CommandMaid
   - type: PresetIdCard
     job: CommandMaid
 
@@ -958,7 +1284,10 @@
   components:
   - type: Sprite
     layers:
-    - state: default
-    - state: idpartymaker
+    - state: default #base
+    - state: decal-stripe-party #decal
+    - sprite: Interface/Misc/job_icons.rsi #icon
+      offset: "-0.125, 0.09375"
+      state: PartyMaker
   - type: PresetIdCard
     job: PartyMaker

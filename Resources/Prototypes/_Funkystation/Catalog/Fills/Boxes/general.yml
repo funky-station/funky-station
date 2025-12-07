@@ -1,0 +1,115 @@
+# SPDX-FileCopyrightText: 2025 ThatOneMoon <91613003+ThatOneGuy227@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 ThatOneMoon <91613003+ThatOneMoon@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
+# SPDX-FileCopyrightText: 2025 Zergologist <114537969+Chedd-Error@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  name: colored lighttube box
+  parent: BoxLightbulb
+  id: BoxLightTubeColored
+  components:
+  - type: StorageFill
+    contents:
+      - id: LightTubeCrystalBlue
+      - id: LightTubeCrystalBlue
+      - id: LightTubeCrystalCyan
+      - id: LightTubeCrystalCyan
+      - id: LightTubeCrystalGreen
+      - id: LightTubeCrystalGreen
+      - id: LightTubeCrystalOrange
+      - id: LightTubeCrystalOrange
+      - id: LightTubeCrystalPink
+      - id: LightTubeCrystalPink
+      - id: LightTubeCrystalRed
+      - id: LightTubeCrystalRed
+
+- type: entity
+  name: colored lighttube box
+  parent: BoxLightbulb
+  id: BoxLightBulbColored
+  components:
+  - type: StorageFill
+    contents:
+      - id: LightBulbCrystalBlue
+      - id: LightBulbCrystalBlue
+      - id: LightBulbCrystalCyan
+      - id: LightBulbCrystalCyan
+      - id: LightBulbCrystalGreen
+      - id: LightBulbCrystalGreen
+      - id: LightBulbCrystalOrange
+      - id: LightBulbCrystalOrange
+      - id: LightBulbCrystalPink
+      - id: LightBulbCrystalPink
+      - id: LightBulbCrystalRed
+      - id: LightBulbCrystalRed
+
+- type: entity
+  name: premium M.R.E.
+  parent: BoxMRE
+  id: BoxMREPrmium
+  description: A box of standard NT ERT rations. Filled with everything you want in a balanced meal after a hard day's work.
+  components:
+  - type: Storage
+    maxItemSize: Normal
+    grid:
+    - 0,0,3,3
+  - type: StorageFill
+    contents:
+      - id: DrinkMREFlask
+      - id: FoodTinMRE
+      - id: FoodTinBeans
+      - id: FoodSnackProteinbar
+      - id: FoodTinPeaches
+      - id: FoodSnackMooncakeWrapped
+      - id: DrinkMilkCartonMiniChocolate
+      - id: FoodBakedCookieOatmeal
+      - id: FoodBakedCookieOatmeal
+      - id: FoodSaladValid
+
+- type: entity
+  name: inflatable wall box
+  parent: BoxCardboard
+  id: BoxInflatable
+  description: A box of self-inflating walls and doors. Highly compact and great for 'temporary' fixes.
+  components:
+  - type: Item
+    shape:
+    - 0,0,1,1
+  - type: Storage
+    maxItemSize: Small
+    grid:
+    - 0,0,1,1
+  - type: StorageFill
+    contents:
+    - id: InflatableWallStack
+      amount: 3
+    - id: InflatableDoorStack
+      amount: 1
+  - type: Sprite
+    layers:
+    - state: box
+    - state: inflatablewall
+
+- type: entity
+  name: inflatable floor box
+  parent: BoxCardboard
+  id: BoxInflatableFloor
+  description: Some squeaky floor tiles best used for sealing up emergency spacings.
+  components:
+  - type: Item
+    shape:
+    - 0,0,1,1
+  - type: Storage
+    maxItemSize: Small
+    grid:
+    - 0,0,1,1
+  - type: StorageFill
+    contents:
+    - id: InflatableFloorStack
+      amount: 4
+  - type: Sprite
+    layers:
+    - state: box
+    - state: inflatablefloor

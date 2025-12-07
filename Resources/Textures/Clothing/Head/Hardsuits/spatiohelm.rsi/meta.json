@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "license": "CC-BY-SA-3.0",
-  "copyright": "Original by Emisse, modified by EmoGarbage404. Vox states by Flareguy for SS14",
+  "license": "CC-BY-NC-4.0",
+  "copyright": "Sprites created by Tea(d.d.tea on Discord, @teasq.bsky.social)",
 
   "size": {
     "x": 32,
@@ -42,6 +42,18 @@
     },
     {
       "name": "equipped-head-unshaded-vox",
+      "directions": 4
+    },
+	{
+      "name": "equipped-head-vulpkanin",
+      "directions": 4
+    },
+    {
+      "name": "equipped-head-light-vulpkanin",
+      "directions": 4
+    },
+    {
+      "name": "equipped-head-unshaded-vulpkanin",
       "directions": 4
     }
   ]

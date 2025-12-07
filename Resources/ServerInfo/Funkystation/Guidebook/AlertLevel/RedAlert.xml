@@ -1,4 +1,11 @@
-﻿<Document>
+<!--
+SPDX-FileCopyrightText: 2025 Skye <57879983+Rainbeon@users.noreply.github.com>
+SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+
+SPDX-License-Identifier: MIT
+-->
+
+<Document>
   # Station Alert - Red
 
   <Box>
@@ -27,11 +34,9 @@
 
   All personnel are required to maximize their Suit Sensors. Personnel in violation of this order may be charged with Endangerment;
 
-  Unless their job demands it, personnel are forbidden from entering maintenance tunnels. Personnel in violation of this order may be charged with Secure Trespassing;
+  Unless their job demands it, or they are given proper permission from a relevant authority, personnel are forbidden from entering maintenance tunnels. Personnel in violation of this order may be charged with Secure Trespassing;
 
   Visitors to the station (anyone with Civilian-level access) are to remain inside the Bar, Library or Dormitories for the duration of Code Red;
 
   Personnel are to follow the instructions of Security staff, so long as they are within the bounds of Space Law and are not acting against the general well-being of the station and its crew. Failure to do so may lead to their arrest for Creating a Workplace Hazard.
-
-  Crewmembers in maintenance without proper reason or authorization may be detained for Secure Trespassing.
 </Document>

@@ -1,3 +1,14 @@
+# SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Tadeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
+# SPDX-FileCopyrightText: 2025 TheSecondLord <88201625+TheSecondLord@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 V <97265903+formlessnameless@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
 - type: entity
   id: BaseMobAsteroid
   parent:
@@ -31,6 +42,12 @@
   - type: Tag
     tags:
     - DoorBumpOpener
+  - type: NightVision # EE edit
+    isActive: true
+    toggleAction: null
+    color: "#50595C"
+    activateSound: null
+    deactivateSound: null
 
 - type: entity
   id: MobGoliath
@@ -67,7 +84,7 @@
     damage:
       types:
         Slash: 10
-        Piercing: 10
+        Blunt: 10
   - type: NpcFactionMember
     factions:
     - SimpleHostile
@@ -187,7 +204,7 @@
 
 - type: entity
   id: MobHivelord
-  parent: [ BaseMobAsteroid, FlyingMobBase ]
+  parent: BaseMobAsteroid
   name: hivelord
   description: A truly alien creature, it is a mass of unknown organic material, constantly fluctuating. When attacking, pieces of it split off and attack in tandem with the original.
   components:
@@ -320,7 +337,7 @@
     entity: FoodHivelordRemainsInert
     stage: 1
   - type: StaticPrice
-    price: 5000
+    price: 1500
 
 - type: entity
   id: FoodHivelordRemainsInert

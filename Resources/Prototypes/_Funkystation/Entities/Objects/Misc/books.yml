@@ -1,0 +1,49 @@
+# SPDX-FileCopyrightText: 2025 Komoni <131829655+Komonighub@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  id: BookCorporateSecrets
+  parent: [BaseGuidebook, BaseCommandContraband]
+  name: command training manual
+  description: There's a big red stamp that says "CONFIDENTIAL" on it. Probably should keep this locked up.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Misc/books.rsi
+    layers:
+    - state: corporate-secrets
+  - type: GuideHelp
+    guides:
+    - CommandSOP
+    - CommandTrainingManual
+    - OrderOfSuccession
+
+- type: entity
+  id: BookSOP
+  parent: BaseGuidebook
+  name: SOP 101
+  description: A book about Standard Operating Procedure written by Nanotrasen. A few pages seem to be missing.
+  components:
+  - type: Sprite
+    layers:
+    - state: paper
+    - state: cover_base
+      color: "#15abab"
+    - state: decor_wingette
+      color: "#5334e0"
+    - state: icon_briefcase
+  - type: MeleeWeapon
+    wideAnimationRotation: 180
+    damage:
+      types:
+        Blunt: 6
+  - type: GuideHelp
+    guides:
+    - LegalSOP
+    - MedicalSOP
+    - ServiceSOP
+    - EngineeringSOP
+    - CargoSOP
+    - ScienceSOP
+    - AlertLevelsSOP

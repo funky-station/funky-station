@@ -1,3 +1,30 @@
+// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Pieter-Jan Briers <pieterjan.briers@gmail.com>
+// SPDX-FileCopyrightText: 2023 Vasilis <vasilis@pikachu.systems>
+// SPDX-FileCopyrightText: 2023 coolmankid12345 <55817627+coolmankid12345@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 coolmankid12345 <coolmankid12345@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 deltanedas <@deltanedas:kde.org>
+// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Killerqu00 <47712032+Killerqu00@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 LordCarve <27449516+LordCarve@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Mr. 27 <45323883+Dutch-VanDerLinde@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 PJBot <pieterjan.briers+bot@gmail.com>
+// SPDX-FileCopyrightText: 2024 Rainfey <rainfey0+github@gmail.com>
+// SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 silver2127 <52584484+silver2127@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Mish <bluscout78@yahoo.com>
+// SPDX-FileCopyrightText: 2025 Rainbow <ev0lvkitten@gmail.com>
+// SPDX-FileCopyrightText: 2025 Skye <57879983+Rainbeon@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Tadeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+//
+// SPDX-License-Identifier: MIT
+
 using Content.Server.Administration.Logs;
 using Content.Server.Antag;
 using Content.Server.EUI;
@@ -39,6 +66,8 @@ using Content.Server.PDA.Ringer;
 using Content.Server.Traitor.Uplink;
 using Content.Shared.Changeling;
 using Content.Shared.Heretic;
+using Content.Shared.Implants;
+using Robust.Shared.Audio;
 
 namespace Content.Server.GameTicking.Rules;
 
@@ -76,7 +105,8 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
         SubscribeLocalEvent<CommandStaffComponent, MobStateChangedEvent>(OnCommandMobStateChanged);
         SubscribeLocalEvent<HeadRevolutionaryComponent, MobStateChangedEvent>(OnHeadRevMobStateChanged);
         SubscribeLocalEvent<HeadRevolutionaryComponent, DeclareOpenRevoltEvent>(OnHeadRevDeclareOpenRevolt); //Funky Station
-
+        
+        SubscribeLocalEvent<RevolutionaryLieutenantComponent, ImplantImplantedEvent>(OnLieutenantImplant); // Funky Station
         SubscribeLocalEvent<RevolutionaryRuleComponent, AfterAntagEntitySelectedEvent>(AfterEntitySelected); // Funky Station
         SubscribeLocalEvent<RevolutionaryRoleComponent, GetBriefingEvent>(OnGetBriefing);
         SubscribeLocalEvent<HeadRevolutionaryComponent, AfterFlashedEvent>(OnPostFlash);
@@ -92,6 +122,30 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
     private void AfterEntitySelected(Entity<RevolutionaryRuleComponent> ent, ref AfterAntagEntitySelectedEvent args)
     {
         MakeHeadRevolutionary(args.EntityUid, ent);
+    }
+    
+    // dont need checks for multiple implants since we alr disabled that
+    private bool CanBeLieutenant(EntityUid uid)
+    {
+        return !HasComp<HeadRevolutionaryComponent>(uid) && HasComp<RevolutionaryComponent>(uid);
+    }
+    
+    private void OnLieutenantImplant(Entity<RevolutionaryLieutenantComponent> component, ref ImplantImplantedEvent ev)
+    {
+        if (ev.Implanted == null)
+            return;
+
+        if (!CanBeLieutenant(ev.Implanted.Value)) 
+            return;
+        
+        if (!_mind.TryGetMind(ev.Implanted.Value, out var mindId, out _))
+            return;
+        
+        EnsureComp<RevolutionaryLieutenantComponent>(ev.Implanted.Value);
+        _antag.SendBriefing(ev.Implanted.Value, Loc.GetString("rev-lieutenant-greeting"), Color.Red, new SoundPathSpecifier("/Audio/_Funkystation/Ambience/Antag/Revolutionary/rev_lieu_intro.ogg"));
+        
+        if (_role.MindHasRole<RevolutionaryRoleComponent>(mindId, out var revRoleComp))
+            AddComp(revRoleComp.Value, new RoleBriefingComponent { Briefing = Loc.GetString("rev-lieutenant-greeting") }, overwrite: true);
     }
 
     /// <summary>
@@ -115,7 +169,7 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
 
         var code = EnsureComp<RingerUplinkComponent>(pda.Value).Code;
 
-        _antag.SendBriefing(traitor, Loc.GetString("head-rev-role-greeting"), Color.Red, null);
+        _antag.SendBriefing(traitor, Loc.GetString("head-rev-role-greeting", ("code", string.Join("-", code).Replace("sharp", "#"))), Color.Red, null);
 
         if (_role.MindHasRole<RevolutionaryRoleComponent>(mindId, out var revRoleComp))
             AddComp(revRoleComp.Value, new RoleBriefingComponent { Briefing = Loc.GetString("head-rev-briefing", ("code", string.Join("-", code).Replace("sharp", "#"))) }, overwrite: true);
@@ -543,7 +597,7 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
                     {
                         gone++;
                     }
-                    else if (checkOffStation && _stationSystem.GetOwningStation(entity) == null && !_emergencyShuttle.EmergencyShuttleArrived)
+                    else if (checkOffStation && _stationSystem.IsEntityOnStationGrid(entity) && !_emergencyShuttle.EmergencyShuttleArrived)
                     {
                         gone++;
                     }

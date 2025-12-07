@@ -1,4 +1,9 @@
-﻿// Global usings for Content.Server
+// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+//
+// SPDX-License-Identifier: MIT
+
+// Global usings for Content.Server
 
 global using System;
 global using System.Collections.Generic;

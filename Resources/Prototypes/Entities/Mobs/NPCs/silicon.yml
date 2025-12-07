@@ -1,33 +1,82 @@
+# SPDX-FileCopyrightText: 2022 Alex Evgrashin <aevgrashin@yandex.ru>
+# SPDX-FileCopyrightText: 2022 Anthemic <93178783+jproads@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Jezithyr <Jezithyr@gmail.com>
+# SPDX-FileCopyrightText: 2022 Justin Trotter <trotter.justin@gmail.com>
+# SPDX-FileCopyrightText: 2022 Morb <14136326+Morb0@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Rane <60792108+Elijahrane@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 metalgearsloth <metalgearsloth@gmail.com>
+# SPDX-FileCopyrightText: 2023 Arendian <137322659+Arendian@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Emisse <99158783+Emisse@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Filler <130583174+FillerVK@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Jezithyr <jezithyr@gmail.com>
+# SPDX-FileCopyrightText: 2023 Kara <lunarautomaton6@gmail.com>
+# SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Nairod <110078045+Nairodian@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 OttoMaticode <124523848+OttoMaticode@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Thom <119594676+ItsMeThom@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Whisper <121047731+QuietlyWhisper@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 brainfood1183 <113240905+brainfood1183@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 deltanedas <@deltanedas:kde.org>
+# SPDX-FileCopyrightText: 2023 lzk228 <124214523+lzk228@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 themias <89101928+themias@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2024 Cojoke <83733158+Cojoke-dot@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Gtheglorious <125694692+Gtheglorious@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Moomoobeef <62638182+Moomoobeef@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 PJBot <pieterjan.briers+bot@gmail.com>
+# SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 PrPleGoo <PrPleGoo@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Psychpsyo <60073468+Psychpsyo@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
+# SPDX-FileCopyrightText: 2024 TsjipTsjip <19798667+TsjipTsjip@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Vasilis <vasilis@pikachu.systems>
+# SPDX-FileCopyrightText: 2024 Verm <32827189+Vermidia@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 no <165581243+pissdemon@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 superjj18 <gagnonjake@gmail.com>
+# SPDX-FileCopyrightText: 2024 voidnull000 <18663194+voidnull000@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 88tv <131759102+88tv@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 AsnDen <75905158+AsnDen@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Herostar898 <askherostar2@gmail.com>
+# SPDX-FileCopyrightText: 2025 Ilya Mikheev <me@ilyamikcoder.com>
+# SPDX-FileCopyrightText: 2025 Mish <bluscout78@yahoo.com>
+# SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+pronana@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 ilyamikcoder <me@ilyamikcoder.com>
+# SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
+# SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
 - type: entity
+  parent: BaseMob # Funkystation: make bots actual mobs
   save: false
   abstract: true
   id: MobSiliconBase
   components:
-  - type: LagCompensation
   - type: Reactive
     groups:
       Acidic: [Touch]
   - type: Clickable
   - type: Damageable
-    damageContainer: Inorganic
-  - type: InteractionOutline
-  - type: Fixtures
-    fixtures:
-      fix1:
-        shape:
-          !type:PhysShapeCircle
-          radius: 0.35
-        density: 50
-        mask:
-        - MobMask
-        layer:
-        - MobLayer
+    # Funkystation: make bots not instantly disappear on death
+    damageContainer: Silicon
+    damageModifierSet: Silicon #Goobstation - Iondamage
+    # end Funkystation
   - type: MovementSpeedModifier
     baseWalkSpeed : 3
     baseSprintSpeed : 4
-  - type: Sprite
-    noRot: true
-    drawdepth: Mobs
   - type: NpcFactionMember
     factions:
     - SimpleNeutral
@@ -51,8 +100,6 @@
     - Shock
     locPrefix: silicon
   - type: MovedByPressure
-  - type: Physics
-    bodyType: KinematicController # Same for all inheritors
   - type: StatusEffects
     allowed:
     - Stun
@@ -71,17 +118,27 @@
     - DoorBumpOpener
     - Bot
     - Unimplantable
+    - ForceStandOnRevive # Funkystation
   - type: MobState
     allowedStates:
       - Alive
+      - Critical
       - Dead
   - type: MobThresholds
     thresholds:
       0: Alive
-      120: Dead
+      # begin Funkystation: make bots not instantly disappear on death
+      100: Critical
+      150: Dead
+      # end Funkystation
     stateAlertDict:
+      # Funkystation: allow bots to see their health and other alerts
       Alive: BorgHealth
+      Critical: BorgCrit
+      Dead: BorgDead
+      # end Funkystation
     showOverlays: false
+    allowRevives: true # Funkystation: make bots not instantly disappear on death
   - type: Stamina
     critThreshold: 120
   - type: Destructible
@@ -93,14 +150,10 @@
       - !type:TriggerBehavior
     - trigger:
         !type:DamageTrigger
-        damage: 120
+        damage: 200 # Funkystation: make bots not instantly disappear on death
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
-  - type: Input
-    context: "human"
-  - type: InputMover
-  - type: MobMover
   - type: Body
     prototype: Bot
   - type: GuideHelp
@@ -115,6 +168,22 @@
   - type: ProtectedFromStepTriggers
   - type: NoSlip
   - type: Insulated
+  # begin Funkystation: give bots emotes
+  - type: Emoting
+  - type: BodyEmotes
+    soundsId: UnisexSilicon
+  - type: AnimatedEmotes
+  - type: Vocal
+    sounds:
+      Unsexed: UnisexSilicon
+  # end Funkystation
+  - type: DamagedSiliconAccent # Funkystation: give bots cyborg-style damaged accent
+    enableChargeCorruption: false
+  - type: UnblockableSpeech # Funkystation: cyborg-type behavior on death (can still talk)
+  - type: StandingState # Funkystation: needed for bots to be able to fall on death
+  - type: RotationVisuals # Funkystation: needed for bots to be able to fall on death
+    defaultRotation: 0
+    horizontalRotation: 90
 
 - type: entity
   parent: MobSiliconBase
@@ -183,7 +252,8 @@
     rootTask:
       task: HonkbotCompound
   - type: Slippery
-    launchForwardsMultiplier: 2
+    slipData:
+      launchForwardsMultiplier: 2
   - type: Speech
     speechVerb: Cluwne
   - type: StepTrigger
@@ -318,6 +388,18 @@
     size: Large
   - type: StationAiVision # Goobstation - AI can see through NT silicon
     range: 0
+  - type: GhostRole # Funkystation: make cleanbots ghost roles
+    makeSentient: true
+    name: ghost-role-information-cleanbot-name
+    description: ghost-role-information-cleanbot-description
+    rules: ghost-role-information-cleanbot-rules
+    raffle:
+      settings: default
+  - type: GhostTakeoverAvailable
+  - type: RotationVisuals # Funkystation: make cleanbots dramatically lay on their backs upon death
+    defaultRotation: 0
+    horizontalRotation: 180
+  - type: CombatMode # Funkystation: it's spinning time (for bots with rotational sprites)
 
 - type: entity
   parent:
@@ -388,6 +470,14 @@
   - type: DoAfter
   - type: StationAiVision # Goobstation - AI can see through NT silicon
     range: 1
+  - type: GhostRole # Funkystation: make medibot ghost roles
+    makeSentient: true
+    name: ghost-role-information-medibot-name
+    description: ghost-role-information-medibot-description
+    rules: ghost-role-information-medibot-rules
+    raffle:
+      settings: default
+  - type: GhostTakeoverAvailable
 
 - type: entity
   parent:
@@ -421,6 +511,7 @@
     interactFailureString: petting-failure-mimebot
   - type: Inventory
     templateId: head
+  - type: CombatMode # Funkystation: it's spinning time (for bots with rotational sprites)
 
 - type: entity
   parent: MobSiliconBase
@@ -485,6 +576,7 @@
     - FootstepSound
     - Bot
     - Unimplantable
+    - ForceStandOnRevive # Funkystation
   - type: ActiveRadio
     channels:
     - Binary
@@ -492,3 +584,6 @@
     - Supply
   - type: StationAiVision # Goobstation - AI can see through NT silicon
     range: 1
+  - type: Puller
+    needsHands: false
+  - type: CombatMode # Funkystation: it's spinning time (for bots with rotational sprites)

@@ -1,5 +1,15 @@
+// SPDX-FileCopyrightText: 2025 AftrLite
+// SPDX-FileCopyrightText: 2025 AftrLite <61218133+AftrLite@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Janet Blackquill <uhhadd@gmail.com>
+// SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
 using System.Linq;
 using Content.Server._DV.CosmicCult.Components;
+using Content.Shared._DV.CosmicCult.Components;
 using Content.Shared.Maps;
 using Robust.Server.GameObjects;
 using Robust.Shared.Map;
@@ -119,6 +129,11 @@ public sealed class CosmicCorruptingSystem : EntitySystem
                     if (ent.Comp.EntityConversionDict.TryGetValue(proto?.ID!, out var conversion))
                     {
                         Spawn(conversion, Transform(convertedEnt).Coordinates);
+                        QueueDel(convertedEnt);
+                    }
+                    else if (TryComp<CosmicCorruptibleComponent>(convertedEnt, out var corruptible))
+                    {
+                        Spawn(corruptible.ConvertTo, Transform(convertedEnt).Coordinates);
                         QueueDel(convertedEnt);
                     }
                 }

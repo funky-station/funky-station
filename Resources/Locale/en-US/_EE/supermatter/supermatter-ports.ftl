@@ -1,4 +1,10 @@
-﻿signal-port-name-supermatter-inactive = Inactive
+# SPDX-FileCopyrightText: 2025 VMSolidus <evilexecutive@gmail.com>
+# SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
+signal-port-name-supermatter-inactive = Inactive
 signal-port-description-supermatter-inactive = This port is invoked when the supermatter is inactive.
 signal-port-name-supermatter-normal = Normal
 signal-port-description-supermatter-normal = This port is invoked when the supermatter is powered and at high integrity.

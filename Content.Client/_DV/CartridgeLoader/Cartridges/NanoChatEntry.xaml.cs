@@ -1,3 +1,13 @@
+// SPDX-FileCopyrightText: 2024 Skubman <ba.fallaria@gmail.com>
+// SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 Evaisa <evagiacosa1@gmail.com>
+// SPDX-FileCopyrightText: 2025 EvaisaDev <mail@evaisa.dev>
+// SPDX-FileCopyrightText: 2025 Icepick <122653407+Icepicked@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
 using Content.Shared._DV.CartridgeLoader.Cartridges;
 using Content.Shared._DV.NanoChat;
 using Content.Shared.Access.Components;
@@ -31,10 +41,14 @@ public sealed partial class NanoChatEntry : BoxContainer
         _pressHandler = _ => OnPressed?.Invoke(_number);
         ChatButton.OnPressed += _pressHandler;
 
-        NameLabel.Text = SharedNanoChatSystem.Truncate(recipient.Name, IdCardConsoleComponent.MaxFullNameLength);
+        // Funky Station - Added "Unknown" fallback for name, was having weird issues when implementing group chats.
+        NameLabel.Text = SharedNanoChatSystem.Truncate(recipient.Name ?? "Unknown", IdCardConsoleComponent.MaxFullNameLength);
         JobLabel.Text = SharedNanoChatSystem.Truncate(recipient.JobTitle ?? "", IdCardConsoleComponent.MaxJobTitleLength);
         JobLabel.Visible = !string.IsNullOrEmpty(recipient.JobTitle);
         UnreadIndicator.Visible = recipient.HasUnread;
+
+        // Funky Station - Show group icon for group chats
+        GroupIcon.Visible = recipient.IsGroup;
 
         ChatButton.ModulateSelfOverride = isSelected ? NanoChatMessageBubble.OwnMessageColor : null;
     }

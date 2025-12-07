@@ -1,4 +1,10 @@
-﻿using Content.Server.Administration;
+// SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+//
+// SPDX-License-Identifier: MIT
+
+using Content.Server.Administration;
 using Content.Server.Power.EntitySystems;
 using Content.Shared.Administration;
 using Robust.Shared.Console;

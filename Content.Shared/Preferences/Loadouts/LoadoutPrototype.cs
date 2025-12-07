@@ -1,3 +1,15 @@
+// SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2024 DrSmugleaf <10968691+DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 MilenVolf <63782763+MilenVolf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 TrixxedHeart <46364955+TrixxedBit@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 qrwas <55228920+qrwas@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+//
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Preferences.Loadouts.Effects;
 using Content.Shared.Roles;
 using Robust.Shared.Prototypes;
@@ -12,6 +24,12 @@ public sealed partial class LoadoutPrototype : IPrototype, IEquipmentLoadout
 {
     [IdDataField]
     public string ID { get; private set; } = string.Empty;
+
+    /// <summary>
+    /// A text identifier used to group loadouts.
+    /// </summary>
+    [DataField]
+    public string? GroupBy;
 
     /*
      * You can either use an existing StartingGearPrototype or specify it inline to avoid bloating yaml.

@@ -1,3 +1,35 @@
+# SPDX-FileCopyrightText: 2021 Swept <sweptwastaken@protonmail.com>
+# SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2021 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2021 mirrorcult <lunarautomaton6@gmail.com>
+# SPDX-FileCopyrightText: 2022 Alex Evgrashin <aevgrashin@yandex.ru>
+# SPDX-FileCopyrightText: 2022 Flipp Syder <76629141+vulppine@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Moony <moonheart08@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Sam Weaver <weaversam8@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 metalgearsloth <comedian_vs_clown@hotmail.com>
+# SPDX-FileCopyrightText: 2023 Doru991 <75124791+Doru991@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Kara <lunarautomaton6@gmail.com>
+# SPDX-FileCopyrightText: 2023 Maxtone <124747282+MagnusCrowe@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Sailor <109166122+Equivocateur@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 deltanedas <@deltanedas:kde.org>
+# SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2024 Alpha-Two <92269094+Alpha-Two@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Eris <eris@erisws.com>
+# SPDX-FileCopyrightText: 2024 Errant <35878406+Errant-4@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Flesh <62557990+PolterTzi@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 IlyaElDunaev <154531074+IlyaElDunaev@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
+# SPDX-FileCopyrightText: 2025 ATDoop <bug@bug.bug>
+# SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 pathetic meowmeow <uhhadd@gmail.com>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
 - type: reagent
   id: EZNutrient
   name: reagent-name-e-z-nutrient
@@ -163,6 +195,29 @@
   flavor: bitter
   color: "#3CB371"
   physicalDesc: reagent-physical-desc-sickly
+  metabolisms: # Funky - expanded diona medication
+    Poison:
+      metabolismRate: 1
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Poison: 2
+      - !type:CreateEntityReactionEffect
+        entity: MobDionaNymph
+        conditions:
+        - !type:OrganType
+          type: Plant
+        - !type:ReagentThreshold
+          min: 40
+      - !type:AdjustReagent
+        reagent: Sedin
+        amount: -20
+        conditions:
+        - !type:OrganType
+          type: Plant
+        - !type:ReagentThreshold
+          min: 40
   plantMetabolism:
     - !type:PlantAdjustHealth
       amount: -2
@@ -217,6 +272,17 @@
         damage:
           types:
             Caustic: 1
+        conditions:
+        - !type:OrganType # Funky - flesh out diona medication
+          type: Plant
+          shouldHave: false
+    Food: # Funky - flesh out diona medication
+      effects:
+      - !type:SatiateHunger
+        factor: 1
+        conditions:
+        - !type:OrganType
+          type: Plant
     Gas:
       effects:
       - !type:HealthChange
@@ -316,3 +382,18 @@
         damage:
           types:
             Caustic: 1
+        conditions:
+        - !type:OrganType # Funky - flesh out diona medication
+          type: Plant
+          shouldHave: false
+    Medicine: # Funky - flesh out diona medication
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Heat: -2
+            Cold: -2
+            Shock: -2
+        conditions:
+        - !type:OrganType
+          type: Plant

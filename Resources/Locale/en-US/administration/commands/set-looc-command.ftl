@@ -1,3 +1,8 @@
+# SPDX-FileCopyrightText: 2022 Morbo <exstrominer@gmail.com>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: MIT
+
 set-looc-command-description = Allows you to enable or disable LOOC.
 set-looc-command-help = Usage: setlooc OR setlooc [value]
 set-looc-command-too-many-arguments-error = Too many arguments.

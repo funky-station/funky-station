@@ -1,0 +1,75 @@
+# SPDX-FileCopyrightText: 2025 Spanky <180730777+spanky-spanky@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Spanky <scott@wearejacob.com>
+# SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 mkanke-real <mikekanke@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: gameMap
+  id: Eclipse
+  mapName: 'Eclipse'
+  mapPath: /Maps/_Harmony/eclipse.yml
+  minPlayers: 75
+  stations:
+    eclipse:
+      stationProto: StandardNanotrasenStation
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Starport LUNA-{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationEmergencyShuttle
+          emergencyShuttlePath: /Maps/_Harmony/Shuttles/emergency_totality.yml
+        - type: StationCargoShuttle
+          path: /Maps/_Harmony/Shuttles/cargo_eclipse.yml
+        - type: StationJobs
+          availableJobs:
+            #command
+            Captain: [ 1, 1 ]
+            NanotrasenRepresentative: [ 1, 1 ]
+            InternalAffairsAgent: [ 4, 4 ]
+            #service
+            HeadOfPersonnel: [ 2, 2 ]
+            Bartender: [ 5, 5 ]
+            Botanist: [ 5, 5 ]
+            Chef: [ 4, 4 ]
+            Janitor: [ 5, 5 ]
+            Chaplain: [ 2, 2 ]
+            Librarian: [ 2, 2 ]
+            ServiceWorker: [ 10, 10 ]
+            #engineering
+            ChiefEngineer: [ 1, 1 ]
+            AtmosphericTechnician: [ 6, 6 ]
+            StationEngineer: [ 12, 12 ]
+            TechnicalAssistant: [ 12, 12 ]
+            #medical
+            ChiefMedicalOfficer: [ 1, 1 ]
+            Chemist: [ 2, 2 ]
+            MedicalDoctor: [ 12, 12 ]
+            MedicalIntern: [ 8, 8 ]
+            Paramedic: [ 2, 2 ]
+            #science
+            ResearchDirector: [ 1, 1 ]
+            Scientist: [ 10, 10 ]
+            ResearchAssistant: [ 6, 6 ]
+            #security
+            HeadOfSecurity: [ 1, 1 ]
+            Warden: [ 1, 1 ]
+            SecurityOfficer: [ 20, 20 ]
+            Detective: [ 2, 2 ]
+            SecurityCadet: [ 8, 8 ]
+            Lawyer: [ 5, 5 ]
+            #supply
+            Quartermaster: [ 1, 1 ]
+            SalvageSpecialist: [ 7, 7 ]
+            CargoTechnician: [ 15, 15 ]
+            #civilian
+            Passenger: [ -1, -1 ]
+            Clown: [ 2, 2 ]
+            Mime: [ 2, 2 ]
+            Musician: [ 7, 7 ]
+            Reporter: [ 1, 2 ]
+            #silicon
+            StationAi: [ 2, 2 ]
+            Borg: [ 10, 10 ]

@@ -1,14 +1,26 @@
+// SPDX-FileCopyrightText: 2025 Skye <57879983+Rainbeon@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Terkala <appleorange64@gmail.com>
+// SPDX-FileCopyrightText: 2025 kbarkevich <24629810+kbarkevich@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
 using Content.Client.UserInterface.Controls;
 //using Content.Shared.Heretic;
 //using Content.Shared.Heretic.Prototypes;
 using Content.Shared.BloodCult;
 //using Content.Shared.BloodCult.Prototypes;
 using Robust.Client.GameObjects;
+using Robust.Client.Graphics;
+using Robust.Client.ResourceManagement;
 using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.XAML;
 using Robust.Shared.GameObjects;
+using Robust.Shared.Graphics;
+using Robust.Shared.Graphics.RSI;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization.TypeSerializers.Implementations;
 using Robust.Shared.Utility;
 using System.Numerics;
 using Content.Shared.BloodCult.Components;
@@ -19,8 +31,9 @@ public sealed partial class RuneRadialMenu : RadialMenu
 {
     [Dependency] private readonly EntityManager _entityManager = default!;
     [Dependency] private readonly IEntitySystemManager _entitySystem = default!;
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+    //[Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly ISharedPlayerManager _playerManager = default!;
+    [Dependency] private readonly IResourceCache _resourceCache = default!;
     private readonly SpriteSystem _spriteSystem;
 
 	public event Action<string>? SendRunesMessageAction;
@@ -73,7 +86,7 @@ public sealed partial class RuneRadialMenu : RadialMenu
 				{
 					VerticalAlignment = VAlignment.Center,
 					HorizontalAlignment = HAlignment.Center,
-					Texture = _spriteSystem.GetPrototypeIcon(rune).Default,
+					Texture = GetRuneIconTexture(rune),
 					TextureScale = new Vector2(2f, 2f)
 				};
 				button.AddChild(texture);
@@ -93,7 +106,7 @@ public sealed partial class RuneRadialMenu : RadialMenu
 				{
 					VerticalAlignment = VAlignment.Center,
 					HorizontalAlignment = HAlignment.Center,
-					Texture = _spriteSystem.GetPrototypeIcon(rune).Default,
+					Texture = GetRuneIconTexture(rune),
 					TextureScale = new Vector2(1f, 1f)
 				};
 				button.AddChild(texture);
@@ -102,6 +115,32 @@ public sealed partial class RuneRadialMenu : RadialMenu
         }
 
         AddRuneButtonOnClickAction(main);
+    }
+
+    // All the runes have a -icon variant in the rsi, so we can just load the texture from the rsi
+    // TearVeilRune is special because it has a different rsi
+    private Texture GetRuneIconTexture(string rune)
+    {
+        var iconName = rune == "TearVeilRune" 
+            ? "narsierune-icon" 
+            : rune.Replace("Rune", "").ToLowerInvariant() + "-icon";
+        
+        var rsiPath = rune == "TearVeilRune"
+            ? "_Funkystation/Structures/BloodCult/narsierune.rsi"
+            : "_Funkystation/Structures/BloodCult/bloodrune.rsi";
+
+        // Load the RSI state properly instead of raw PNG
+        var fullRsiPath = SpriteSpecifierSerializer.TextureRoot / new ResPath(rsiPath);
+        if (_resourceCache.TryGetResource<RSIResource>(fullRsiPath, out var rsiResource))
+        {
+            if (rsiResource.RSI.TryGetState(iconName, out var state))
+            {
+                return state.Frame0;
+            }
+        }
+
+        // Fallback to prototype icon if RSI state not found
+        return _spriteSystem.GetPrototypeIcon(rune).Default;
     }
 
     private void AddRuneButtonOnClickAction(RadialContainer mainControl)

@@ -1,0 +1,14 @@
+<!--
+SPDX-FileCopyrightText: 2025 McBosserson <148172569+McBosserson@users.noreply.github.com>
+SPDX-FileCopyrightText: 2025 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+
+SPDX-License-Identifier: MIT
+-->
+
+<Control xmlns="https://spacestation14.io">
+    <BoxContainer Orientation="Horizontal">
+        <Button Name="OffButton" StyleClasses="OpenRight" Text="{Loc 'ui-button-off'}" />
+        <Button Name="OnButton" StyleClasses="OpenLeft" Text="{Loc 'ui-button-on'}" />
+    </BoxContainer>
+</Control>

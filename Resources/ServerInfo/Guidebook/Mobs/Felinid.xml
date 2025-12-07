@@ -1,24 +1,38 @@
+<!--
+SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
+SPDX-FileCopyrightText: 2024 BeeRobynn <robynthewarcrime@proton.me>
+SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+
+SPDX-License-Identifier: MIT
+-->
+
 <Document>
   # Felinid
 
   <Box>
     <GuideEntityEmbed Entity="MobFelinid" Caption=""/>
   </Box>
-  
+
   Felinids are a mutation of humans, sporting their signature ears and tail from your favourite japanese cartoons.
-  They have a keen sixth sense to landing and [color=#1e90ff]take 80% less damage from falling or high speed impacts.[/color]
-  They will also be slowed down less when injured
-  
-  They will slash with their claws instead of using their fists, dealing [color=#ec3a3a]Slashing[/color] and [color=#ec3a3a]Piercing[/color] damage.
-  
-  ## Ew, Hairballs
-  <Box>
-    <GuideEntityEmbed Entity="Hairball" Caption=""/>
-	<GuideEntityEmbed Entity="MobMouse" Caption=""/>
-  </Box>
-  
-  They are also capable of eating live rats, which will allow them to cough up a disgusting hairball.
-  Be careful when touching them, as they can [color=#ffa500]cause you to throwup when held.[/color]
-  Felinids will use this to their advantage to gross out adversaries
-  
+
+  ## Diet
+
+  Felinids share evolutionary roots with cats, and so they cannot metabolize Theobromine or Allicin. Be careful
+  when eating chocolate, onions, or garlic, and avoid coffee and tea! Despite their dietary restrictions, they get
+  thirsty 20% faster than other species.
+
+  ## Claws
+
+  Felinids have razor sharp claws, so their unarmed attacks deal [color=orange]Slashing[/color] and [color=orange]Piercing[/color] damage.
+
+  ## Padded Feet
+
+  Felinids take less damage from falling and high-speed impacts, and can creep around silently when they're not wearing
+  shoes, but are prone to being stunned quicker and have 25% less stamina than other species.
+
+  ## Damage
+
+  Felinids take 15% more [color=orange]Blunt[/color], [color=orange]Slashing[/color] and [color=orange]Piercing[/color] damage,
+  and take 30% more [color=cornflowerblue]Cold[/color] damage than other species.
+
 </Document>

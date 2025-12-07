@@ -1,3 +1,8 @@
+# SPDX-FileCopyrightText: 2025 Mish <bluscout78@yahoo.com>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: MIT
+
 no-eorg-popup-title = Funky Station
 no-eorg-popup-label = Welcome to the End of Round!
 no-eorg-popup-message = [bold]End-of-round grief (EORG)[/bold] is not allowed. Please stay in character until the lobby screen appears to maintain an immersive environment for everyone. Thank you for respecting the community rules!

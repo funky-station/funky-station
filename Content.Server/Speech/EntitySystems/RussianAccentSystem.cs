@@ -1,3 +1,14 @@
+// SPDX-FileCopyrightText: 2022 Pancake <Pangogie@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 metalgearsloth <comedian_vs_clown@hotmail.com>
+// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2024 Psychpsyo <60073468+Psychpsyo@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 W.xyz() <tptechteam@gmail.com>
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 w.xyz() <84605679+pirakaplant@users.noreply.github.com>
+//
+// SPDX-License-Identifier: MIT
+
 using System.Text;
 using Content.Server.Speech.Components;
 
@@ -8,12 +19,12 @@ public sealed class RussianAccentSystem : EntitySystem
     [Dependency] private readonly ReplacementAccentSystem _replacement = default!;
     public override void Initialize()
     {
-        SubscribeLocalEvent<RussianAccentComponent, AccentGetEvent>(OnAccent);
+        SubscribeLocalEvent<RussianAccentComponent, AccentGetEvent>(OnAccent, after: new[] {typeof(ReplacementAccentSystem)});
     }
 
     public string Accentuate(string message)
     {
-        var accentedMessage = new StringBuilder(_replacement.ApplyReplacements(message, "russian"));
+        var accentedMessage = new StringBuilder(message);
 
         for (var i = 0; i < accentedMessage.Length; i++)
         {

@@ -1,3 +1,12 @@
+# SPDX-FileCopyrightText: 2024 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Fishbait <Fishbait@git.ml>
+# SPDX-FileCopyrightText: 2024 John Space <bigdumb421@gmail.com>
+# SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 mkanke-real <mikekanke@gmail.com>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
 - type: entity
   id: LeftArmCybernetic
   parent: LeftArmHuman
@@ -129,6 +138,9 @@
     - type: Prying
       speedModifier: 1.5
       pryPowered: true
+  - type: Tag
+    tags:
+    - JWLArms
 
 - type: entity
   parent: RightArmCybernetic
@@ -141,6 +153,9 @@
     - type: Prying
       speedModifier: 1.5
       pryPowered: true
+  - type: Tag
+    tags:
+    - JWLArms
 
 - type: entity
   parent: LeftLegCybernetic
@@ -152,9 +167,9 @@
     walkSpeed: 3.125
     sprintSpeed: 5.625
   - type: BodyPart
-    onAdd:
-    - type: NoSlip
-    - type: ProtectedFromStepTriggers
+  - type: Tag
+    tags:
+    - SpeedLegs
 
 - type: entity
   parent: RightLegCybernetic
@@ -166,6 +181,7 @@
     walkSpeed: 3.125
     sprintSpeed: 5.625
   - type: BodyPart
-    onAdd:
-    - type: NoSlip
-    - type: ProtectedFromStepTriggers
+  - type: Tag
+    tags:
+    - SpeedLegs
+

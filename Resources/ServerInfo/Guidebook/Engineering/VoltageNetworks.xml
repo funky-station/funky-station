@@ -1,4 +1,12 @@
-﻿<Document>
+<!--
+SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+
+SPDX-License-Identifier: MIT
+-->
+
+<Document>
   # Voltage Networks
   In Space Station 14, power distribution is divided into three separate voltage networks.
   These networks are the [color=green]Low Voltage[/color] Network, the [color=Yellow]Medium Voltage[/color] Network, and the [color=orange]High Voltage[/color] Network.
@@ -74,7 +82,7 @@
   </Box>
 
   ## High Voltage Network
-  The [color=Orange]High Voltage[/color] Network is used for moving large amount of power across the station. It is used to power most power handling equipment, such as SMES units and Substations.
+  The [color=Orange]High Voltage[/color] Network is used for moving large amounts of power across the station. It is used to power most power handling equipment, such as SMES units and Substations.
 
   Most high-output generators output power to the [color=Orange]High Voltage[/color] Network.
 

@@ -1,4 +1,13 @@
-﻿$replacements = @{
+# SPDX-FileCopyrightText: 2022 ike709 <ike709@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Kara <lunarautomaton6@gmail.com>
+# SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+# SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 sleepyyapril <123355664+sleepyyapril@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: MIT
+
+$replacements = @{
     "moonheart08" = "moony"
     "Elijahrane" = "Rane"
     "ZeroDayDaemon" = "Daemon"

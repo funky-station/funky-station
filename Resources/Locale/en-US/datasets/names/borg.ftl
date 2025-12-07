@@ -1,3 +1,9 @@
+# SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: MIT
+
 names-borg-dataset-1 = Bob
 names-borg-dataset-2 = Joe
 names-borg-dataset-3 = Beep
@@ -37,7 +43,7 @@ names-borg-dataset-36 = Makeshifter
 names-borg-dataset-37 = Twin
 names-borg-dataset-38 = S.A.U.L
 names-borg-dataset-39 = Honker
-names-borg-dataset-40 = Clanker 
+names-borg-dataset-40 = Terabyte
 names-borg-dataset-41 = Is-The-Robot
 names-borg-dataset-42 = 9 of 7
 names-borg-dataset-43 = Dank bot

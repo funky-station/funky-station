@@ -1,3 +1,54 @@
+# SPDX-FileCopyrightText: 2021 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+# SPDX-FileCopyrightText: 2021 Swept <sweptwastaken@protonmail.com>
+# SPDX-FileCopyrightText: 2021 SweptWasTaken <sweptwastaken@protonmail.com>
+# SPDX-FileCopyrightText: 2021 ZeroDayDaemon <60460608+ZeroDayDaemon@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2021 mirrorcult <lunarautomaton6@gmail.com>
+# SPDX-FileCopyrightText: 2022 Alex Evgrashin <aevgrashin@yandex.ru>
+# SPDX-FileCopyrightText: 2022 Fishfish458 <47410468+Fishfish458@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Flipp Syder <76629141+vulppine@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 KIBORG04 <bossmira4@gmail.com>
+# SPDX-FileCopyrightText: 2022 Moony <moonheart08@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Morb <14136326+Morb0@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Peptide90 <78795277+Peptide90@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Rane <60792108+Elijahrane@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Sam Weaver <weaversam8@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Veritius <45957058+Veritius@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 fishfish458 <fishfish458>
+# SPDX-FileCopyrightText: 2022 metalgearsloth <comedian_vs_clown@hotmail.com>
+# SPDX-FileCopyrightText: 2023 Floofi <126319569+Shadowtheprotogen546@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Kara <lunarautomaton6@gmail.com>
+# SPDX-FileCopyrightText: 2023 Moony <moony@hellomouse.net>
+# SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 T-Stalker <43253663+DogZeroX@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Velcroboy <107660393+IamVelcroboy@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Veritius <veritiusgaming@gmail.com>
+# SPDX-FileCopyrightText: 2023 lapatison <100279397+lapatison@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 lzk <124214523+lzk228@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Firewatch <54725557+musicmanvr@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Hanz <41141796+Hanzdegloker@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 RumiTiger <154005209+RumiTiger@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Sybil <azurerosegarden@gmail.com>
+# SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
+# SPDX-FileCopyrightText: 2024 cool dolphin <36332236+Afrokada@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 ATDoop <bug@bug.bug>
+# SPDX-FileCopyrightText: 2025 DevilishMilk <michaellapjr@gmail.com>
+# SPDX-FileCopyrightText: 2025 Mish <bluscout78@yahoo.com>
+# SPDX-FileCopyrightText: 2025 Noah Leach <77765510+BearWithMe18@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+pronana@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 RedBookcase <crazykid1590@gmail.com>
+# SPDX-FileCopyrightText: 2025 SharkSnake98 <peanutbuttersharky@gmail.com>
+# SPDX-FileCopyrightText: 2025 Xcybitt <197952719+Xcybitt@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Zergologist <114537969+Chedd-Error@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 kosticia <kosticia46@gmail.com>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
 - type: reagent
   id: Coffee
   name: reagent-name-coffee
@@ -19,6 +70,54 @@
       - !type:AdjustReagent
         reagent: Theobromine
         amount: 0.05
+      - !type:AdjustTemperature
+        amount: 5000 # thermal energy, not temperature!
+  reactiveEffects:
+    Acidic:
+      methods: [ Touch ]
+      effects:
+      - !type:HealthChange
+        scaleByQuantity: true
+        ignoreResistances: false
+        damage:
+          types:
+            Heat: 0.1
+      - !type:Emote
+        emote: Scream
+        probability: 0.1
+      - !type:AdjustTemperature
+        amount: 1000 # thermal energy, not temperature!
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentThreshold
+          min: 30
+        damage:
+          types:
+            Poison: 0.5
+      - !type:MovespeedModifier
+        conditions:
+        - !type:ReagentThreshold
+          min: 30
+        walkSpeedModifier: 1.1
+        sprintSpeedModifier: 1.1
+      - !type:PopupMessage
+        conditions:
+        - !type:ReagentThreshold
+          min: 30
+        visualType: Medium
+        messages: ["ephedrine-effect-tight-pain", "ephedrine-effect-heart-pounds"]
+        type: Local
+        probability: 0.05
+      - !type:GenericStatusEffect
+        conditions:
+        - !type:ReagentThreshold
+          min: 30
+        key: Stutter
+        component: StutteringAccent
+      - !type:Jitter
+        conditions:
+        - !type:ReagentThreshold
+          min: 30
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/coffeeglass.rsi
     state: icon_empty
@@ -43,6 +142,23 @@
       - !type:AdjustReagent
         reagent: Theobromine
         amount: 0.05
+      - !type:AdjustTemperature
+        amount: 5000 # thermal energy, not temperature!
+  reactiveEffects:
+    Acidic:
+      methods: [ Touch ]
+      effects:
+      - !type:HealthChange
+        scaleByQuantity: true
+        ignoreResistances: false
+        damage:
+          types:
+            Heat: 0.1
+      - !type:Emote
+        emote: Scream
+        probability: 0.1
+      - !type:AdjustTemperature
+        amount: 1000 # thermal energy, not temperature!
 
 - type: reagent
   id: Cream
@@ -109,6 +225,23 @@
         key: Drowsiness
         time: 2.0
         type: Remove
+      - !type:AdjustTemperature
+        amount: 5000 # thermal energy, not temperature!
+  reactiveEffects:
+    Acidic:
+      methods: [ Touch ]
+      effects:
+      - !type:HealthChange
+        scaleByQuantity: true
+        ignoreResistances: false
+        damage:
+          types:
+            Heat: 0.1
+      - !type:Emote
+        emote: Scream
+        probability: 0.1
+      - !type:AdjustTemperature
+        amount: 1000 # thermal energy, not temperature!
 
 - type: reagent
   id: GreenTea
@@ -124,6 +257,32 @@
   metamorphicMaxFillLevels: 4
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 2
+      - !type:AdjustTemperature
+        amount: 5000 # thermal energy, not temperature!
+      - !type:GenericStatusEffect
+        key: Drowsiness
+        time: 2.0
+        type: Remove
+  reactiveEffects:
+    Acidic:
+      methods: [ Touch ]
+      effects:
+      - !type:HealthChange
+        scaleByQuantity: true
+        ignoreResistances: false
+        damage:
+          types:
+            Heat: 0.1
+      - !type:Emote
+        emote: Scream
+        probability: 0.1
+      - !type:AdjustTemperature
+        amount: 1000 # thermal energy, not temperature!
 
 - type: reagent
   id: Grenadine
@@ -167,6 +326,37 @@
         key: Drowsiness
         time: 2.0
         type: Remove
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentThreshold
+          min: 30
+        damage:
+          types:
+            Poison: 0.5
+      - !type:MovespeedModifier
+        conditions:
+        - !type:ReagentThreshold
+          min: 30
+        walkSpeedModifier: 1.1
+        sprintSpeedModifier: 1.1
+      - !type:PopupMessage
+        conditions:
+        - !type:ReagentThreshold
+          min: 30
+        visualType: Medium
+        messages: ["ephedrine-effect-tight-pain", "ephedrine-effect-heart-pounds"]
+        type: Local
+        probability: 0.05
+      - !type:GenericStatusEffect
+        conditions:
+        - !type:ReagentThreshold
+          min: 30
+        key: Stutter
+        component: StutteringAccent
+      - !type:Jitter
+        conditions:
+        - !type:ReagentThreshold
+          min: 30
 
 - type: reagent
   id: IcedGreenTea
@@ -182,6 +372,15 @@
   metamorphicMaxFillLevels: 5
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 2
+      - !type:GenericStatusEffect
+        key: Drowsiness
+        time: 2.0
+        type: Remove
 
 - type: reagent
   id: IcedTea
@@ -205,6 +404,10 @@
       - !type:AdjustReagent
         reagent: Theobromine
         amount: 0.05
+      - !type:GenericStatusEffect
+        key: Drowsiness
+        time: 2.0
+        type: Remove
 
 - type: reagent
   id: JuiceBerryPoison
@@ -407,6 +610,27 @@
       - !type:AdjustReagent
         reagent: Theobromine
         amount: 0.05
+      - !type:AdjustTemperature
+        amount: 5000 # thermal energy, not temperature!
+      - !type:GenericStatusEffect
+        key: Drowsiness
+        time: 2.0
+        type: Remove
+  reactiveEffects:
+    Acidic:
+      methods: [ Touch ]
+      effects:
+      - !type:HealthChange
+        scaleByQuantity: true
+        ignoreResistances: false
+        damage:
+          types:
+            Heat: 0.1
+      - !type:Emote
+        emote: Scream
+        probability: 0.1
+      - !type:AdjustTemperature
+        amount: 1000 # thermal energy, not temperature!
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/teaglass.rsi
     state: icon_empty
@@ -435,13 +659,13 @@
   name: reagent-name-water
   parent: BaseDrink
   desc: reagent-desc-water
-  slippery: true
   physicalDesc: reagent-physical-desc-translucent
   flavor: water
   color: "#75b1f0"
   recognizable: true
   boilingPoint: 100.0
   meltingPoint: 0.0
+  friction: 0.4
   metabolisms:
     Drink:
       effects:
@@ -465,12 +689,20 @@
   id: Ice
   name: reagent-name-ice
   desc: reagent-desc-ice
+  slipData:
+    requiredSlipSpeed: 3.5
   physicalDesc: reagent-physical-desc-frosty
   flavor: cold
   color: "#bed8e6"
   recognizable: true
   meltingPoint: 0.0
   boilingPoint: 100.0
+  friction: 0.05 #Copied from Ice Crust
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 3 # ice is no longer useless; rejoice
   plantMetabolism:
   - !type:PlantAdjustWater
     amount: 1
@@ -519,7 +751,10 @@
   color: "#d8cc5d"
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/arnoldpalmer.rsi
-    state: icon
+    state: icon_empty
+  metamorphicMaxFillLevels: 4
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
   metabolisms:
     Drink:
       effects:
@@ -554,15 +789,15 @@
   color: "#B3B599"
 
 - type: reagent
-  id: KiraSpecial
-  name: reagent-name-kira-special
+  id: OrangeLimeSoda
+  name: reagent-name-orange-lime-soda
   parent: BaseDrink
-  desc: reagent-desc-kira-special
+  desc: reagent-desc-orange-lime-soda
   physicalDesc: reagent-physical-desc-strong-smelling
   flavor: sweet
   color: "#CCCC99"
   metamorphicSprite:
-    sprite: Objects/Consumable/Drinks/kiraspecial.rsi
+    sprite: Objects/Consumable/Drinks/orangelime_soda.rsi
     state: icon_empty
   metamorphicMaxFillLevels: 3
   metamorphicFillBaseName: fill-
@@ -578,7 +813,7 @@
   flavor: sweet
   color: "#485000"
   metamorphicSprite:
-    sprite: Objects/Consumable/Drinks/beerstein.rsi
+    sprite: Objects/Consumable/Drinks/rewriter.rsi
     state: icon_empty
   metamorphicMaxFillLevels: 5
   metamorphicFillBaseName: fill-
@@ -598,3 +833,18 @@
       effects:
       - !type:SatiateThirst
         factor: 0.6
+
+- type: reagent
+  id: Tortuga
+  name: reagent-name-tortuga
+  parent: BaseDrink
+  desc: reagent-desc-tortuga
+  physicalDesc: reagent-physical-desc-sweet
+  flavor: tortuga
+  color: "#1c8c40"
+  metamorphicSprite:
+    sprite: Objects/Consumable/Drinks/tortuga.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 4
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false

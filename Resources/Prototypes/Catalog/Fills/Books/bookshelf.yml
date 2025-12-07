@@ -1,3 +1,22 @@
+# SPDX-FileCopyrightText: 2023 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Kit0vras <123590995+Kit0vras@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 end <72604018+laok233@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 KonstantinAngelov <168754339+KonstantinAngelov@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 PoTeletubby <ajcraigaz@gmail.com>
+# SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2024 lapatison <100279397+lapatison@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Komoni <131829655+Komonighub@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
+# SPDX-FileCopyrightText: 2025 mkanke-real <mikekanke@gmail.com>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
 - type: entityTable
   id: BookshelfEntityTable
   table: !type:AllSelector
@@ -5,7 +24,7 @@
     # Randomly generated books
     - id: BookRandomStory
       amount: !type:RangeNumberSelector
-        range: 0, 4
+        range: 0, 3
     # Guidebooks
     - !type:GroupSelector
       children:
@@ -22,14 +41,17 @@
       - id: BookSecurity
       - id: BookSpaceEncyclopedia
       - id: BookSpaceLaw
+      - id: BookSOP
       - id: BookTheBookOfControl
+      - id: BookCookbookPie #Funky
     # Handwritten books
     - !type:GroupSelector
       rolls: !type:RangeNumberSelector
-        range: 0, 2
+        range: 2, 20
       children:
       - id: BookAurora
       - id: BookCafe
+      - id: BookCookbookPie
       - id: BookEarth
       - id: BookFeather
       - id: BookIanAntarctica
@@ -58,6 +80,11 @@
       - id: BookTruth
       - id: BookWatched
       - id: BookWorld
+      - id: TheWealthOfNations #Funky
+      - id: OnChangelings #Funky
+      - id: IanHoppyBook1 #Funky
+      - id: ZeroSumSymphonyVol1 #Funky
+      - id: ZeroSumSymphonyVol2 #Funky
       - id: BookCosmicCult # imp
     # if you add more books please consider organizing them into a new group selector
 

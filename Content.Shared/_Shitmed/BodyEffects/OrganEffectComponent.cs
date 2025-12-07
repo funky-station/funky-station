@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
 // We keep this clone of the other component since I don't know yet if I'll need organ specific functions in the future.
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;

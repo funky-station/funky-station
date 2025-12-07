@@ -1,3 +1,11 @@
+# SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 brainfood1183 <113240905+brainfood1183@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2024 Verm <32827189+Vermidia@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
 - type: inventoryTemplate
   id: hamster
   slots:
@@ -11,6 +19,15 @@
       tags:
         - PetWearable
         - HamsterWearable
+  - name: head
+    slotTexture: head
+    slotFlags: HEAD
+    uiWindowPos: 1,2
+    strippingWindowPos: 1,0
+    displayName: Head
+    whitelist:
+      tags:
+      - HamsterWearable
   - name: neck
     slotTexture: neck
     slotFlags: NECK
@@ -30,22 +47,14 @@
     whitelist:
       tags:
         - HamsterWearable
-  - name: suitstorage
-    slotTexture: suit_storage
-    slotFlags: SUITSTORAGE
+  - name: tankstorage
+    slotTexture: tank_storage
+    slotFlags: TANKSTORAGE
+    slotGroup: MainHotbar
     stripTime: 3
     uiWindowPos: 1,0
-    strippingWindowPos: 2,5
-    displayName: Suit Storage
+    strippingWindowPos: 2, 5
+    displayName: Tank Storage
     whitelist:
       components:
-        - GasTank
-  - name: head
-    slotTexture: head
-    slotFlags: HEAD
-    uiWindowPos: 1,2
-    strippingWindowPos: 1,0
-    displayName: Head
-    whitelist:
-      tags:
-        - HamsterWearable
+      - GasTank

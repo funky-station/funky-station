@@ -1,3 +1,15 @@
+# SPDX-FileCopyrightText: 2021 20kdc <asdd2808@gmail.com>
+# SPDX-FileCopyrightText: 2021 mirrorcult <notzombiedude@gmail.com>
+# SPDX-FileCopyrightText: 2022 Kara <lunarautomaton6@gmail.com>
+# SPDX-FileCopyrightText: 2023 Repo <47093363+Titian3@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 McBosserson <148172569+McBosserson@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: MIT
+
 ### Special messages used by internal localizer stuff.
 
 # Used internally by the PRESSURE() function.
@@ -29,6 +41,16 @@ zzzz-fmt-power-joules = { TOSTRING($divided, "F1") } { $places ->
     [2] MJ
     [3] GJ
     [4] TJ
+    *[5] ???
+}
+
+# Used internally by the ENERGYWATTHOURS() function.
+zzzz-fmt-energy-watt-hours = { TOSTRING($divided, "F1") } { $places ->
+    [0] Wh
+    [1] kWh
+    [2] MWh
+    [3] GWh
+    [4] TWh
     *[5] ???
 }
 

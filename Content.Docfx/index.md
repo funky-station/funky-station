@@ -1,3 +1,10 @@
+<!--
+SPDX-FileCopyrightText: 2022 Zoldorf <silvertorch5@gmail.com>
+SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+
+SPDX-License-Identifier: MIT
+-->
+
 # Space Station 14 DocFX
 ![](https://i.imgur.com/0h6VoRZ.png)
 

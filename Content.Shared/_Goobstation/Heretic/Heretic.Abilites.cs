@@ -1,3 +1,14 @@
+// SPDX-FileCopyrightText: 2024 John Space <bigdumb421@gmail.com>
+// SPDX-FileCopyrightText: 2024 PJBot <pieterjan.briers+bot@gmail.com>
+// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
+// SPDX-FileCopyrightText: 2025 Kandiyaki <106633914+Kandiyaki@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
 using Content.Shared.Actions;
 using Content.Shared.DoAfter;
 using Content.Shared.Inventory;
@@ -85,6 +96,7 @@ public sealed partial class EventHereticMansusLink : EntityTargetActionEvent { }
 // ash
 public sealed partial class EventHereticAshenShift : InstantActionEvent { }
 public sealed partial class EventHereticVolcanoBlast : InstantActionEvent { }
+public sealed partial class EventHereticBlazingDash : InstantActionEvent { }
 public sealed partial class EventHereticNightwatcherRebirth : InstantActionEvent { }
 public sealed partial class EventHereticFlames : InstantActionEvent { }
 public sealed partial class EventHereticCascade : InstantActionEvent { }
@@ -97,7 +109,7 @@ public sealed partial class EventHereticFleshAscend : InstantActionEvent { }
 // void (including upgrades)
 [Serializable, NetSerializable, DataDefinition] public sealed partial class HereticAristocratWayEvent : EntityEventArgs { }
 [Serializable, NetSerializable, DataDefinition] public sealed partial class HereticAscensionVoidEvent : EntityEventArgs { }
-public sealed partial class HereticVoidBlastEvent : InstantActionEvent { }
+public sealed partial class HereticVoidBlastEvent : WorldTargetActionEvent { }
 public sealed partial class HereticVoidBlinkEvent : WorldTargetActionEvent { }
 public sealed partial class HereticVoidPullEvent : InstantActionEvent { }
 

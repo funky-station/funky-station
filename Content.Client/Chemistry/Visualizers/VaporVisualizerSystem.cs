@@ -1,3 +1,12 @@
+// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
+// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
+// SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+//
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Vapor;
 using Robust.Client.Animations;
 using Robust.Client.GameObjects;
@@ -52,7 +61,7 @@ public sealed class VaporVisualizerSystem : VisualizerSystem<VaporVisualsCompone
     {
         if (AppearanceSystem.TryGetData<Color>(uid, VaporVisuals.Color, out var color, args.Component) && args.Sprite != null)
         {
-            args.Sprite.Color = color;
+            SpriteSystem.SetColor((uid, args.Sprite), color);
         }
     }
 }

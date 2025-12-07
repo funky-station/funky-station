@@ -1,3 +1,8 @@
+# SPDX-FileCopyrightText: 2025 Liamofthesky <157073227+Liamofthesky@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
 plant-analyzer-interface-title = Agrinfo 3000 Plant Analyzer
 plant-analyzer-window-no-seed-information-text = No seed/plant scanned.
 plant-analyzer-window-tab-basics = Basic Info

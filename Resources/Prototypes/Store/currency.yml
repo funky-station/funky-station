@@ -1,3 +1,14 @@
+# SPDX-FileCopyrightText: 2022 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2024 Kira Bridgeton <161087999+Verbalase@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 PoTeletubby <108604614+PoTeletubby@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 keronshb <54602815+keronshb@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 ArchRBX <5040911+ArchRBX@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
 - type: currency
   id: Telecrystal
   displayName: store-currency-display-telecrystal
@@ -11,6 +22,11 @@
   canWithdraw: false
 
 - type: currency
+  id: SiliconMemory
+  displayName: store-currency-display-silicon-memory
+  canWithdraw: false
+
+- type: currency
   id: WizCoin
   displayName: store-currency-display-wizcoin
   canWithdraw: false
@@ -19,3 +35,9 @@
 - type: currency
   id: DebugDollar
   displayName: store-currency-display-debugdollar
+
+# Malf AI currency
+- type: currency
+  id: CPU
+  displayName: CPU
+  canWithdraw: false

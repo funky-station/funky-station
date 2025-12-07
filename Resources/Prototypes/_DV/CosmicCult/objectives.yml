@@ -1,3 +1,11 @@
+# SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 AftrLite
+# SPDX-FileCopyrightText: 2025 Janet Blackquill <uhhadd@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
 - type: entity
   abstract: true
   parent: BaseObjective
@@ -9,6 +17,18 @@
   - type: RoleRequirement
     roles:
     - CosmicCultRole
+
+- type: entity
+  abstract: true
+  parent: BaseObjective
+  id: BaseCosmicColossusObjective
+  components:
+  - type: Objective
+    difficulty: 1.5
+    issuer: objective-issuer-cosmiccult
+  - type: RoleRequirement
+    roles:
+    - CosmicColossusRole
 
 ############################### COSMIC CULT'S OBJECTIVES
 
@@ -56,3 +76,31 @@
     title: objective-condition-victory-title
     description: objective-condition-victory-desc
   - type: CosmicVictoryCondition
+
+############################### COLOSSI OBJECTIVES
+
+- type: entity
+  parent: [BaseCosmicColossusObjective, BaseSurviveObjective]
+  id: ColossusSurviveObjective
+  name: PERSIST
+  description: Persist until the end of all things.
+  components:
+  - type: Objective
+    icon:
+      sprite: _DV/CosmicCult/Icons/objectives.rsi
+      state: colossus
+
+- type: entity
+  parent: [BaseCosmicColossusObjective, BaseCodeObjective]
+  id: ColossusEffigyObjective
+  name: BECKON
+  description: Call forth an Effigy of Entropy.
+  components:
+  - type: Objective
+    icon:
+      sprite: _DV/CosmicCult/Icons/objectives.rsi
+      state: effigy
+  - type: CosmicEffigyCondition
+    effigyTargetBlacklist:
+      tags:
+      - NinjaBombingTargetBlocker

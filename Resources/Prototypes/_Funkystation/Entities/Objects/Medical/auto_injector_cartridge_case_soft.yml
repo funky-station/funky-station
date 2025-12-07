@@ -1,3 +1,10 @@
+# SPDX-FileCopyrightText: 2025 IronDragoon <8961391+IronDragoon@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 IronDragoon <you@example.com>
+# SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
 - type: entity
   id: autoInjectorCartridgeCaseSoft
   name: autoinjector cartridge case soft
@@ -37,8 +44,7 @@
     - 0,0,1,1
   - type: PhysicalComposition
     materialComposition:
-      Plastic: 200
-      Cloth: 200
+      Cloth: 100
   - type: ItemCounter
     count:
       tags: [AutoinjectorCartridge]

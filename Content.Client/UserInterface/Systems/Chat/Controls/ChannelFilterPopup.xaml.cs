@@ -1,3 +1,16 @@
+// SPDX-FileCopyrightText: 2022 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 Jezithyr <Jezithyr.@gmail.com>
+// SPDX-FileCopyrightText: 2023 Chief-Engineer <119664036+Chief-Engineer@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Julian Giebel <juliangiebel@live.de>
+// SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 duston <66768086+dch-GH@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 vectorassembly <vectorassembly@icloud.com>
+// SPDX-FileCopyrightText: 2025 vitopigno <103512727+VitusVeit@users.noreply.github.com>
+//
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Chat;
 using Content.Shared.CCVar;
 using Robust.Shared.Utility;
@@ -92,6 +105,7 @@ public sealed partial class ChannelFilterPopup : Popup
                 checkbox = new ChannelFilterCheckbox(channel);
                 _filterStates.Add(channel, checkbox);
                 checkbox.OnPressed += CheckboxPressed;
+                checkbox.OnRightClicked += CheckboxSolo;
                 checkbox.Pressed = true;
             }
 
@@ -118,6 +132,28 @@ public sealed partial class ChannelFilterPopup : Popup
     {
         var checkbox = (ChannelFilterCheckbox) args.Button;
         OnChannelFilter?.Invoke(checkbox.Channel, checkbox.Pressed);
+    }
+
+    private void CheckboxSolo(ChannelFilterCheckbox checkbox)
+    {
+        // Assume they are all inactive until proven otherwise.
+        var allOthersInactive = true;
+
+        foreach (var channel in ChannelFilterOrder)
+        {
+            if (channel == checkbox.Channel)
+                continue;
+
+            if (IsActive(channel))
+                allOthersInactive = false;
+        }
+
+        // If we right click on this checkbox and it is already solo'd
+        // we set them all back to active,  way to quickly "undo" the soloing of the checkbox.
+        foreach (var channel in ChannelFilterOrder)
+            SetActive(channel, allOthersInactive);
+
+        SetActive(checkbox.Channel, true);
     }
 
     private void HighlightsEntered(ButtonEventArgs _args)

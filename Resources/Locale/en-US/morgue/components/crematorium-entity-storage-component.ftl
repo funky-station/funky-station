@@ -1,3 +1,9 @@
+# SPDX-FileCopyrightText: 2021 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2021 Galactic Chimp <63882831+GalacticChimp@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: MIT
+
 crematorium-entity-storage-component-on-examine-details-is-burning = The {$owner} is [color=red]active[/color]!
 crematorium-entity-storage-component-on-examine-details-has-contents =  The content light is [color=green]on[/color], there's something in here.
 crematorium-entity-storage-component-on-examine-details-empty = The content light is off, there's nothing in here.

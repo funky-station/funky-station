@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Taken from paradise https://github.com/ParadiseSS13/Paradise/tree/master/icons (unknown commit). Vox state by Flareguy for SS14",
+  "copyright": "Taken from paradise https://github.com/ParadiseSS13/Paradise/tree/master/icons (unknown commit). Vox state by Flareguy for SS14 | vulpkanin state taken from https://github.com/DeltaV-Station/Delta-v/tree/82d627f58e632d7764be33c4418c88907d667b42/Resources/Textures/Clothing/Head/Helmets/spaceninja.rsi added by Zephyrpak",
   "size": {
     "x": 32,
     "y": 32
@@ -24,6 +24,10 @@
     },
     {
       "name": "inhand-right",
+      "directions": 4
+    },
+	{
+      "name": "equipped-HELMET-vulpkanin",
       "directions": 4
     }
   ]

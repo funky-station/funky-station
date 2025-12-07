@@ -1,11 +1,20 @@
-﻿<Document>
+<!--
+SPDX-FileCopyrightText: 2024 DevilishMilk <michaellapjr@gmail.com>
+SPDX-FileCopyrightText: 2025 Icepick <122653407+Icepicked@users.noreply.github.com>
+SPDX-FileCopyrightText: 2025 Icepick <icepickedcyanide@gmail.com>
+SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+
+SPDX-License-Identifier: MIT
+-->
+
+<Document>
   # Rule 8 - Have an Appropriate Name
 
   If a name could reasonably appear on a driver's license in the year 3000, it's probably alright.
 
   Humanoid species like Humans, dwarves, felinids, and harpies must have both a first and last name.
 
-  Other species should follow their species specific [textlink="naming scheme" link="NamingScheme"], have both a first name and last name like the humanoid species, or have reasonably alien sounds names.
+  Other species should follow their species specific [textlink="naming scheme" link="NamingScheme"], have both a first name and last name like the humanoid species, or have reasonably alien sounding names.
 
   Names may contain prefixes, suffixes, and one nickname if reasonable.
 

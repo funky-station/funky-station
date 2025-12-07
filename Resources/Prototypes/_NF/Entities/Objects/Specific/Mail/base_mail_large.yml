@@ -1,3 +1,11 @@
+# SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2024 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 mkanke-real <mikekanke@gmail.com>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
 # Large packages.
 - type: entity
   parent: BaseMail
@@ -9,7 +17,7 @@
     size: Ginormous
   - type: Sprite
     scale: 0.8, 0.8
-    sprite: _NF/Objects/Specific/Mail/mail_large.rsi
+    sprite: _Funkystation/Objects/Specific/Mail/mail_large.rsi
     layers:
     - state: icon
       map: ["enum.MailVisualLayers.Icon"]
@@ -71,6 +79,9 @@
   - type: MultiHandedItem
   - type: Mail
     isLarge: true
+  - type: Tag
+    tags:
+    - CardboardboxLarge
 
 - type: entity
   categories: [ HideSpawnMenu ]

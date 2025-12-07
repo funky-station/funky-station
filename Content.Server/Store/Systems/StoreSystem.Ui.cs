@@ -1,3 +1,29 @@
+// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Júlio César Ueti <52474532+Mirino97@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Pieter-Jan Briers <pieterjan.briers@gmail.com>
+// SPDX-FileCopyrightText: 2023 Rane <60792108+Elijahrane@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
+// SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 deltanedas <@deltanedas:kde.org>
+// SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Fildrance <fildrance@gmail.com>
+// SPDX-FileCopyrightText: 2024 J. Brown <DrMelon@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Plykiya <plykiya@protonmail.com>
+// SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2024 keronshb <54602815+keronshb@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
+// SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+//
+// SPDX-License-Identifier: MIT
+
 using System.Linq;
 using Content.Server.Actions;
 using Content.Server.Administration.Logs;
@@ -178,6 +204,8 @@ public sealed partial class StoreSystem
 
             component.BalanceSpent[currency] += value;
         }
+        // Replicate updated balance to clients so Malf CPU HUD updates
+        Dirty(uid, component);
 
         // goobstation - heretics
         // i am too tired of making separate systems for knowledge adding
@@ -212,17 +240,64 @@ public sealed partial class StoreSystem
         //give action
         if (!string.IsNullOrWhiteSpace(listing.ProductAction))
         {
-            EntityUid? actionId;
-            // I guess we just allow duplicate actions?
-            // Allow duplicate actions and just have a single list buy for the buy-once ones.
-            if (!_mind.TryGetMind(buyer, out var mind, out _))
-                actionId = _actions.AddAction(buyer, listing.ProductAction);
-            else
-                actionId = _actionContainer.AddAction(mind, listing.ProductAction);
+            EntityUid? actionId = null;
+            var existingActionFound = false;
 
-            // Add the newly bought action entity to the list of bought entities
+            // Check if buyer already has this action and add charges instead of creating duplicate
+            if (!_mind.TryGetMind(buyer, out var mind, out _))
+            {
+                // Check buyer's actions directly
+                if (TryComp<ActionsComponent>(buyer, out var buyerActions))
+                {
+                    foreach (var existingAction in buyerActions.Actions)
+                    {
+                        if (TryComp<MetaDataComponent>(existingAction, out var metaData) &&
+                            metaData.EntityPrototype?.ID == listing.ProductAction)
+                        {
+                            // Found existing action, add charges to it using existing method
+                            if (listing.ProductActionCharges.HasValue && listing.ProductActionCharges > 0)
+                            {
+                                _actions.AddCharges(existingAction, listing.ProductActionCharges.Value);
+                            }
+                            actionId = existingAction;
+                            existingActionFound = true;
+                            break;
+                        }
+                    }
+                }
+
+                if (!existingActionFound)
+                    actionId = _actions.AddAction(buyer, listing.ProductAction);
+            }
+            else
+            {
+                // Check mind's action container
+                if (TryComp<ActionsContainerComponent>(mind, out var mindActions))
+                {
+                    foreach (var existingAction in mindActions.Container.ContainedEntities)
+                    {
+                        if (TryComp<MetaDataComponent>(existingAction, out var metaData) &&
+                            metaData.EntityPrototype?.ID == listing.ProductAction)
+                        {
+                            // Found existing action, add charges to it using existing method
+                            if (listing.ProductActionCharges.HasValue && listing.ProductActionCharges > 0)
+                            {
+                                _actions.AddCharges(existingAction, listing.ProductActionCharges.Value);
+                            }
+                            actionId = existingAction;
+                            existingActionFound = true;
+                            break;
+                        }
+                    }
+                }
+
+                if (!existingActionFound)
+                    actionId = _actionContainer.AddAction(mind, listing.ProductAction);
+            }
+
+            // Add the newly bought action entity to the list of bought entities (only for new actions)
             // And then add that action entity to the relevant product upgrade listing, if applicable
-            if (actionId != null)
+            if (actionId != null && !existingActionFound)
             {
                 HandleRefundComp(uid, component, actionId.Value);
 
@@ -263,10 +338,22 @@ public sealed partial class StoreSystem
 
         if (listing.ProductEvent != null)
         {
-            if (!listing.RaiseProductEventOnUser)
-                RaiseLocalEvent(listing.ProductEvent);
+            // Handle ActionPurchaseCompanionEvent specially to populate the buyer
+            if (listing.ProductEvent is Content.Shared.Actions.Events.ActionPurchaseCompanionEvent companionEvent)
+            {
+                companionEvent.Buyer = GetNetEntity(buyer);
+                if (!listing.RaiseProductEventOnUser)
+                    RaiseLocalEvent(companionEvent);
+                else
+                    RaiseLocalEvent(buyer, companionEvent);
+            }
             else
-                RaiseLocalEvent(buyer, listing.ProductEvent);
+            {
+                if (!listing.RaiseProductEventOnUser)
+                    RaiseLocalEvent(listing.ProductEvent);
+                else
+                    RaiseLocalEvent(buyer, listing.ProductEvent);
+            }
         }
 
         //log dat shit.
@@ -286,6 +373,7 @@ public sealed partial class StoreSystem
         //WD EDIT END
 
         UpdateUserInterface(buyer, uid, component);
+        ShowMalfCpuIfApplicable(uid, component);
     }
 
     /// <summary>
@@ -329,7 +417,10 @@ public sealed partial class StoreSystem
         }
 
         component.Balance[msg.Currency] -= msg.Amount;
+        // Replicate updated balance to clients so Malf CPU HUD updates
+        Dirty(uid, component);
         UpdateUserInterface(buyer, uid, component);
+        ShowMalfCpuIfApplicable(uid, component);
     }
 
     private void OnRequestRefund(EntityUid uid, StoreComponent component, StoreRequestRefundMessage args)
@@ -376,7 +467,10 @@ public sealed partial class StoreSystem
         // Reset store back to its original state
         RefreshAllListings(component);
         component.BalanceSpent = new();
+        // Replicate updated balance to clients so Malf CPU HUD updates
+        Dirty(uid, component);
         UpdateUserInterface(buyer, uid, component);
+        ShowMalfCpuIfApplicable(uid, component);
     }
 
     private void HandleRefundComp(EntityUid uid, StoreComponent component, EntityUid purchase)

@@ -1,3 +1,13 @@
+# SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
+# SPDX-FileCopyrightText: 2024 yglop <95057024+yglop@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Eris <erisfiregamer1@gmail.com>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
 
 # combat
 
@@ -14,9 +24,8 @@ evolutionmenu-combat-boneshard-desc =
 evolutionmenu-combat-armor-name = Chitinous Armor
 evolutionmenu-combat-armor-desc =
     Inflate your body into an all-consuming chitinous mass of armor.
-    Provides extensive protection against physical damage, but less against other types.
-    It massively slows your movement, and maintaining its shape slows chemical generation.
-    WARNING: Requires you to absorb at least 2 organics to use the ability.
+    Provides protection from space and damage, though is weaker against burns and acid. Maintaining its shape slows chemical generation.
+    WARNING: Requires you to absorb at least 3 organics to use the ability.
     Costs 25 chemicals.
 
 evolutionmenu-combat-shield-name = Organic Shield
@@ -93,7 +102,7 @@ evolutionmenu-utility-panacea-desc =
 
 evolutionmenu-utility-eyesight-name = Augmented Eyesight
 evolutionmenu-utility-eyesight-desc =
-    Evolve additional features in your eyes, such as flash protection.
+    Evolve additional features in your eyes, such as toggleable thermal vision and flash protection. You become more vulnerable to flash-based devices while in thermal vision mode.
     Cost-free.
 
 evolutionmenu-utility-biodegrade-name = Biodegrade

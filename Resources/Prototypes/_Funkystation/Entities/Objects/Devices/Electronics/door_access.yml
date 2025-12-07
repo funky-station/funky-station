@@ -1,0 +1,27 @@
+# SPDX-FileCopyrightText: 2025 mkanke-real <mikekanke@gmail.com>
+#
+# SPDX-License-Identifier: MIT
+
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronicsSpaceCowboy
+  suffix: SpaceCowboy, Locked
+  components:
+  - type: AccessReader
+    access: [["SpaceCowboy"]]
+
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronicsLibrary
+  suffix: Library, Locked
+  components:
+  - type: AccessReader
+    access: [["Library"]]
+
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronicsReporter
+  suffix: Reporter, Locked
+  components:
+  - type: AccessReader
+    access: [["Reporter"]]

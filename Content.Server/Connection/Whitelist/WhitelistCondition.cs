@@ -1,4 +1,11 @@
-﻿using System.Text.Json.Serialization;
+// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2024 Simon <63975668+Simyon264@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+//
+// SPDX-License-Identifier: MIT
+
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using JetBrains.Annotations;
 using Robust.Shared.Network;

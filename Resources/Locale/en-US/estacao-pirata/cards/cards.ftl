@@ -1,3 +1,10 @@
+# SPDX-FileCopyrightText: 2024 V <97265903+formlessnameless@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 RadsammyT <32146976+RadsammyT@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: MIT
+
 card-examined = This is the {$target}.
 cards-verb-shuffle = Shuffle
 card-verb-shuffle-success = Cards shuffled

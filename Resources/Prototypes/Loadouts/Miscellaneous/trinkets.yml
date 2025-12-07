@@ -1,3 +1,26 @@
+# SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2024 Doctor-Cpu <77215380+Doctor-Cpu@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 PJBot <pieterjan.briers+bot@gmail.com>
+# SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2024 UtopiOne <110351290+UtopiOne@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 V <97265903+formlessnameless@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 cool dolphin <36332236+Afrokada@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 jorgun <gnesse@gmail.com>
+# SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 plyush <121322002+toasterpm87@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 88tv <131759102+88tv@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Mora <46364955+TrixxedHeart@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 RadsammyT <32146976+RadsammyT@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 TrixxedHeart <46364955+TrixxedBit@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 qrwas <55228920+qrwas@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
 # Timers
 - type: loadoutEffectGroup
   id: Command
@@ -14,12 +37,14 @@
   storage:
     back:
     - ClothingHeadHatFlowerWreath
+  groupBy: "flowers"
 
 - type: loadout
   id: Hairflower
   storage:
     back:
     - ClothingHeadHatHairflower
+  groupBy: "flowers"
 
 # Headphones
 - type: loadout
@@ -27,6 +52,7 @@
   storage:
     back:
     - ClothingNeckHeadphones
+  groupBy: "headphones"
 
 # Plushies
 - type: loadout
@@ -34,18 +60,21 @@
   storage:
     back:
     - PlushieLizard
+  groupBy: "plushies"
 
 - type: loadout
   id: PlushieSpaceLizard
   storage:
     back:
     - PlushieSpaceLizard
+  groupBy: "plushies"
 
 - type: loadout
   id: PlushieCirno
   storage:
     back:
     - PlushieCirno
+  groupBy: "plushies"
 
 # Smokeables
 - type: loadout
@@ -53,30 +82,35 @@
   storage:
     back:
     - Lighter
+  groupBy: "smokeables"
 
 - type: loadout
   id: CigPackGreen
   storage:
     back:
     - CigPackGreen
+  groupBy: "smokeables"
 
 - type: loadout
   id: CigPackRed
   storage:
     back:
     - CigPackRed
+  groupBy: "smokeables"
 
 - type: loadout
   id: CigPackBlue
   storage:
     back:
     - CigPackBlue
+  groupBy: "smokeables"
 
 - type: loadout
   id: CigPackBlack
   storage:
     back:
     - CigPackBlack
+  groupBy: "smokeables"
 
 - type: loadout
   id: CigarCase
@@ -86,6 +120,7 @@
   storage:
     back:
     - CigarCase
+  groupBy: "smokeables"
 
 - type: loadout
   id: CigarGold
@@ -95,6 +130,7 @@
   storage:
     back:
     - CigarGold
+  groupBy: "smokeables"
 
 # Pins
 - type: loadout
@@ -102,90 +138,176 @@
   storage:
     back:
     - ClothingNeckLGBTPin
+  groupBy: "pin"
 
 - type: loadout
   id: ClothingNeckAllyPin
   storage:
     back:
     - ClothingNeckAllyPin
+  groupBy: "pin"
 
 - type: loadout
   id: ClothingNeckAromanticPin
   storage:
     back:
     - ClothingNeckAromanticPin
+  groupBy: "pin"
 
 - type: loadout
   id: ClothingNeckAsexualPin
   storage:
     back:
     - ClothingNeckAsexualPin
+  groupBy: "pin"
 
 - type: loadout
   id: ClothingNeckBisexualPin
   storage:
     back:
     - ClothingNeckBisexualPin
+  groupBy: "pin"
 
 - type: loadout
   id: ClothingNeckGayPin
   storage:
     back:
     - ClothingNeckGayPin
+  groupBy: "pin"
 
 - type: loadout
   id: ClothingNeckIntersexPin
   storage:
     back:
     - ClothingNeckIntersexPin
+  groupBy: "pin"
 
 - type: loadout
   id: ClothingNeckLesbianPin
   storage:
     back:
     - ClothingNeckLesbianPin
+  groupBy: "pin"
 
 - type: loadout
   id: ClothingNeckNonBinaryPin
   storage:
     back:
     - ClothingNeckNonBinaryPin
+  groupBy: "pin"
 
 - type: loadout
   id: ClothingNeckPansexualPin
   storage:
     back:
     - ClothingNeckPansexualPin
+  groupBy: "pin"
 
 - type: loadout
   id: ClothingNeckOmnisexualPin
   storage:
     back:
     - ClothingNeckOmnisexualPin
+  groupBy: "pin"
 
 - type: loadout
   id: ClothingNeckGenderqueerPin
   storage:
     back:
     - ClothingNeckGenderqueerPin
+  groupBy: "pin"
 
 - type: loadout
   id: ClothingNeckTransPin
   storage:
     back:
     - ClothingNeckTransPin
+  groupBy: "pin"
 
 - type: loadout
   id: ClothingNeckAutismPin
   storage:
     back:
     - ClothingNeckAutismPin
+  groupBy: "pin"
 
 - type: loadout
   id: ClothingNeckGoldAutismPin
   storage:
     back:
     - ClothingNeckGoldAutismPin
+  groupBy: "pin"
+
+# Canes
+# The white cane is intentionally not included here. Thats for the blind.
+- type: loadout
+  id: OffsetCane
+  storage:
+    back:
+    - OffsetCane
+  groupBy: "canes"
+
+- type: loadout
+  id: OffsetCaneWood
+  storage:
+    back:
+    - OffsetCaneWood
+  groupBy: "canes"
+
+
+- type: loadout
+  id: OffsetCaneClown
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobClown
+      time: 3600 # 1hr
+  storage:
+    back:
+    - OffsetCaneClown
+  groupBy: "canes"
+
+
+- type: loadout
+  id: OffsetCaneMime
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobMime
+      time: 3600 # 1hr
+  storage:
+    back:
+    - OffsetCaneMime
+  groupBy: "canes"
+
+
+- type: loadout
+  id: OffsetCaneNT
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:DepartmentTimeRequirement
+      department: Command
+      time: 18000 # 5hr
+  storage:
+    back:
+    - OffsetCaneNT
+  groupBy: "canes"
+
+- type: loadout
+  id: Cane
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobLibrarian
+      time: 3600 # 1hr same as Jamjar.
+  storage:
+    back:
+    - Cane
+  groupBy: "canes"
 
 # Playing Cards (GoobStation)
 - type: loadout
@@ -198,6 +320,7 @@
   storage:
     back:
     - CardBoxBlack
+  groupBy: "cards"
 
 # Nanotrasen Variant
 - type: loadout
@@ -211,6 +334,7 @@
   storage:
     back:
     - CardBoxNanotrasen
+  groupBy: "cards"
 
 # End GoobStation
 
@@ -225,6 +349,7 @@
   storage:
     back:
     - TowelColorWhite
+  groupBy: "towels"
 
 - type: loadout
   id: TowelColorSilver
@@ -236,6 +361,7 @@
   storage:
     back:
     - TowelColorSilver
+  groupBy: "towels"
 
 - type: loadout
   id: TowelColorGold
@@ -247,6 +373,7 @@
   storage:
     back:
     - TowelColorGold
+  groupBy: "towels"
 
 - type: loadout
   id: TowelColorLightBrown
@@ -259,6 +386,7 @@
   storage:
     back:
     - TowelColorLightBrown
+  groupBy: "towels"
 
 - type: loadout
   id: TowelColorGreen
@@ -271,6 +399,7 @@
   storage:
     back:
     - TowelColorGreen
+  groupBy: "towels"
 
 - type: loadout
   id: TowelColorDarkBlue
@@ -283,6 +412,7 @@
   storage:
     back:
     - TowelColorDarkBlue
+  groupBy: "towels"
 
 - type: loadout
   id: TowelColorOrange
@@ -295,6 +425,7 @@
   storage:
     back:
     - TowelColorOrange
+  groupBy: "towels"
 
 - type: loadout
   id: TowelColorLightBlue
@@ -307,6 +438,7 @@
   storage:
     back:
     - TowelColorLightBlue
+  groupBy: "towels"
 
 - type: loadout
   id: TowelColorPurple
@@ -319,6 +451,7 @@
   storage:
     back:
     - TowelColorPurple
+  groupBy: "towels"
 
 - type: loadout
   id: TowelColorRed
@@ -331,6 +464,7 @@
   storage:
     back:
     - TowelColorRed
+  groupBy: "towels"
 
 - type: loadout
   id: TowelColorGray
@@ -343,6 +477,7 @@
   storage:
     back:
     - TowelColorGray
+  groupBy: "towels"
 
 - type: loadout
   id: TowelColorBlack
@@ -355,6 +490,7 @@
   storage:
     back:
     - TowelColorBlack
+  groupBy: "towels"
 
 - type: loadout
   id: TowelColorDarkGreen
@@ -367,6 +503,7 @@
   storage:
     back:
     - TowelColorDarkGreen
+  groupBy: "towels"
 
 - type: loadout
   id: TowelColorMaroon
@@ -379,6 +516,7 @@
   storage:
     back:
     - TowelColorMaroon
+  groupBy: "towels"
 
 - type: loadout
   id: TowelColorYellow
@@ -391,6 +529,7 @@
   storage:
     back:
     - TowelColorYellow
+  groupBy: "towels"
 
 - type: loadout
   id: TowelColorMime
@@ -403,6 +542,7 @@
   storage:
     back:
     - TowelColorMime
+  groupBy: "towels"
 
 # funkystation
 - type: loadout
@@ -416,3 +556,4 @@
   storage:
     back:
     - TowelColorCentcom
+  groupBy: "towels"

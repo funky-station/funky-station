@@ -1,3 +1,33 @@
+// SPDX-FileCopyrightText: 2021 Paul Ritter <ritter.paul1@googlemail.com>
+// SPDX-FileCopyrightText: 2022 Alex Evgrashin <aevgrashin@yandex.ru>
+// SPDX-FileCopyrightText: 2022 Moony <moonheart08@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 metalgearsloth <metalgearsloth@gmail.com>
+// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
+// SPDX-FileCopyrightText: 2023 Darkie <darksaiyanis@gmail.com>
+// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Varen <ychwack@hotmail.it>
+// SPDX-FileCopyrightText: 2023 Ygg01 <y.laughing.man.y@gmail.com>
+// SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2024 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 John Space <bigdumb421@gmail.com>
+// SPDX-FileCopyrightText: 2024 Kara <lunarautomaton6@gmail.com>
+// SPDX-FileCopyrightText: 2024 MilenVolf <63782763+MilenVolf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 eoineoineoin <github@eoinrul.es>
+// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Dia <diatomic.ge@gmail.com>
+// SPDX-FileCopyrightText: 2025 Ed <96445749+TheShuEd@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 ferynn <117872973+ferynn@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 ferynn <witchy.girl.me@gmail.com>
+// SPDX-FileCopyrightText: 2025 sleepyyapril <123355664+sleepyyapril@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 sleepyyapril <flyingkarii@gmail.com>
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+//
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Interaction;
 using Content.Shared.Verbs;
@@ -57,6 +87,20 @@ public abstract class SharedItemSystem : EntitySystem
             return;
 
         component.Shape = shape;
+        Dirty(uid, component);
+    }
+
+    /// <summary>
+    /// Sets the offset used for the item's sprite inside the storage UI.
+    /// Dirties.
+    /// </summary>
+    [PublicAPI]
+    public void SetStoredOffset(EntityUid uid, Vector2i newOffset, ItemComponent? component = null)
+    {
+        if (!Resolve(uid, ref component, false))
+            return;
+
+        component.StoredOffset = newOffset;
         Dirty(uid, component);
     }
 
@@ -255,38 +299,42 @@ public abstract class SharedItemSystem : EntitySystem
         {
             // Funkystation - Check if the item is in a pocket.
             var wasInPocket = false;
-            if (_inventory.TryGetContainerSlotEnumerator(container.Owner, out var enumerator, SlotFlags.POCKET))
-            {
-                while (enumerator.NextItem(out var slotItem, out var slot))
-                {
-                    if (slotItem == uid)
-                    {
-                        // Funkystation - We found it in a pocket.
-                        wasInPocket = true;
 
-                        if (!_inventory.CanEquip(container.Owner, uid, slot.Name, out var _, slot))
-                        {
-                            // Funkystation - It no longer fits, so try to hand it to whoever toggled it.
-                            _transform.AttachToGridOrMap(uid);
-                            _handsSystem.PickupOrDrop(args.User, uid, animate: true);
-                        }
-                        break;
-                    }
-                }
+            if (container == null || !_inventory.TryGetContainerSlotEnumerator(container.Owner, out var enumerator, SlotFlags.POCKET))
+                return;
+
+            while (enumerator.NextItem(out var slotItem, out var slot))
+            {
+                if (slotItem == uid)
+                    continue;
+
+                // Funkystation - We found it in a pocket.
+                wasInPocket = true;
+
+                if (_inventory.CanEquip(container.Owner, uid, slot.Name, out var _, slot))
+                    continue;
+
+                // Funkystation - It no longer fits, so try to hand it to whoever toggled it.
+                _transform.AttachToGridOrMap(uid);
+                _handsSystem.PickupOrDrop(args.User, uid, animate: true);
             }
 
-            if (!wasInPocket && TryComp(container.Owner,
-                out StorageComponent? storage)) // Goobstation - reinsert item in storage because size changed
+            var exists = TryComp(container.Owner, out StorageComponent? storage);
+
+            if (!wasInPocket && exists) // Goobstation - reinsert item in storage because size changed
             {
                 _transform.AttachToGridOrMap(uid);
-                if (!_storage.Insert(container.Owner, uid, out _, null, storage, false))
-                {
-                    // Funkystation - It didn't fit, so try to hand it to whoever toggled it.
-                    _handsSystem.PickupOrDrop(args.User, uid, animate: false);
-                }
+                return;
             }
-        }
 
-        Dirty(uid, item);
+            if (storage == null
+                || !_storage.Insert(container.Owner, uid, out _, null, storage, false))
+                return;
+
+            // Funkystation - It didn't fit, so try to hand it to whoever toggled it.
+            _handsSystem.PickupOrDrop(args.User, uid, animate: false);
+
+            Dirty(uid, item);
+        }
     }
 }

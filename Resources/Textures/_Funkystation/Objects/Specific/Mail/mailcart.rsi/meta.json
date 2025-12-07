@@ -1,0 +1,43 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Sprites by mkanke for https://github.com/funky-station/funky-station",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "cart",
+      "directions": 4
+    },
+    {
+      "name": "big1",
+      "directions": 4
+    },
+    {
+      "name": "big2",
+      "directions": 4
+    },
+    {
+      "name": "flat",
+      "directions": 4
+    },
+    {
+      "name": "small1",
+      "directions": 4
+    },
+    {
+      "name": "small2",
+      "directions": 4
+    },
+    {
+      "name": "small3",
+      "directions": 4
+    },
+    {
+      "name": "small4",
+      "directions": 4
+    }
+  ]
+}

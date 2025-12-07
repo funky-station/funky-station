@@ -1,3 +1,10 @@
+<!--
+SPDX-FileCopyrightText: 2024 Errant <35878406+Errant-4@users.noreply.github.com>
+SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+
+SPDX-License-Identifier: MIT
+-->
+
 <Document>
   # Dwarves
 
@@ -5,7 +12,12 @@
     <GuideEntityEmbed Entity="MobDwarf" Caption=""/>
   </Box>
 
-  Dwarves are similar to humans in most respect, but tolerate alcohol better and are healed by it.
+  Dwarves are a stout and hardy mutation of Humans that have developed highly evolved livers.
+
+  ## Physiology
+
+  The primary difference between Dwarves and Humans is that their livers can metabolize alcohol similarly to medicines,
+  healing [color=orange]Brute[/color] and [color=red]Heat[/color] damage. Few also know, however, that Dwarves tend to asphyxiate twice as much as Humans.
 
 
 </Document>

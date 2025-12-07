@@ -1,3 +1,9 @@
+# SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: MIT
+
 descriptions-atv-dataset-1 = All-Tile Vehicle.
 descriptions-atv-dataset-2 = Ant-Thwarting Vehicle.
 descriptions-atv-dataset-3 = Any-Time Vegetable.

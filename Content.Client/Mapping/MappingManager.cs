@@ -1,4 +1,10 @@
-﻿using System.IO;
+// SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2024 DrSmugleaf <10968691+DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+//
+// SPDX-License-Identifier: MIT
+
+using System.IO;
 using System.Text;
 using System.Threading.Tasks;
 using Content.Shared.Mapping;

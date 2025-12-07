@@ -1,4 +1,9 @@
-﻿using Content.Shared.Standing;
+// SPDX-FileCopyrightText: 2022 Francesco <frafonia@gmail.com>
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+//
+// SPDX-License-Identifier: MIT
+
+using Content.Shared.Standing;
 using Robust.Shared.Containers;
 
 namespace Content.Shared.Medical.Cryogenics;

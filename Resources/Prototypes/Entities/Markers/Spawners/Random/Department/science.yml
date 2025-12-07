@@ -1,3 +1,11 @@
+# SPDX-FileCopyrightText: 2025 Nox <nebulousnox38@gmail.com>
+# SPDX-FileCopyrightText: 2025 SpaceCat~Chan <49094338+SpaceCat-Chan@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
 # Minor science loot spawner
 # Use case: Common areas that aren't science
 - type: entity
@@ -107,20 +115,16 @@
       state: generic
   - type: RandomSpawner
     rarePrototypes:
-    - BorgModuleDefibrillator
+    - BorgModuleAdvancedChemical
     - BorgModuleAdvancedCleaning
     - BorgModuleClowning
     - BorgModuleGardening
     - BorgModuleHarvesting
     - BorgModuleAtmos
+    - BorgModuleAdvancedTool
+
     rareChance: 0.1
     prototypes:
-    - BorgModuleCable
     - BorgModuleFireExtinguisher
-    - BorgModuleGPS
-    - BorgModuleRadiationDetection
-    - BorgModuleTool
-    - BorgModuleArtifact
-    - BorgModuleAnomaly
     chance: 0.9
     offset: 0.2

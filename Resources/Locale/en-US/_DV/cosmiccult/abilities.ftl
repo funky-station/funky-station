@@ -1,4 +1,12 @@
+# SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 AftrLite
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
 cosmicability-generic-fail = Your influence fails to take hold..
+cosmicability-hibernate-confirm = Press again to activate Slumber Shell.
 
 cosmicability-glare-confirm = Press again to activate Null Glare.
 

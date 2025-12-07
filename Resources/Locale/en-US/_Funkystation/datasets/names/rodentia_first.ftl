@@ -1,4 +1,10 @@
-﻿names-rodentia-female-dataset-1 = Squeaks
+# SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
+names-rodentia-female-dataset-1 = Squeaks
 names-rodentia-female-dataset-2 = Squeaker
 names-rodentia-female-dataset-3 = Nibbles
 names-rodentia-female-dataset-4 = Pebbles

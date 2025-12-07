@@ -1,3 +1,17 @@
+# SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Piras314 <92357316+Piras314@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
+# SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
+# SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: MIT
+
 tips-dataset-1 = If you're on fire, you can click the alert on the right of your screen to stop, drop, and roll.
 tips-dataset-2 = You can view and edit all keybindings used in-game at any time through the Options menu.
 tips-dataset-3 = You can access the in-game guidebook through the escape menu, or by pressing Numpad 0 by default.
@@ -20,7 +34,7 @@ tips-dataset-19 = If the Singularity is up, make sure to refuel the radiation co
 tips-dataset-20 = Chemicals don't react while inside the ChemMaster's buffer.
 tips-dataset-21 = Don't anger the bartender by throwing their glasses! Politely place them on the table by tapping Q.
 tips-dataset-22 = You can hold SPACE by default to slow the movement of the shuttle when piloting, to allow for precise movements--or even coming to a complete stop.
-tips-dataset-23 = Dexalin, Dexalin Plus, and Epinephrine will all purge heartbreaker toxin from your bloodstream while metabolizing.
+tips-dataset-23 = Dexalin and Epinephrine will all purge heartbreaker toxin from your bloodstream while metabolizing.
 tips-dataset-24 = Every crewmember comes with an emergency medipen in their survival box containing epinephrine and tranexamic acid.
 tips-dataset-25 = The AME is a high-priority target and is easily sabotaged. Make sure to set up the Singularity or Solars so that you don't run out of power if it blows.
 tips-dataset-26 = If the tesla is loose, it will chase any people, stationary machines and computers. Turning off your electronics does not make you less of a target. Your best bet is not being close to it.
@@ -138,3 +152,39 @@ tips-dataset-136 = If you're trapped behind an electrified door, disable the APC
 tips-dataset-137 = If the AI electrifies a door and you have insulated gloves, snip and mend the power wire to reset their electrification!
 tips-dataset-138 = If you want to stop your prisoner from escaping from the cell right after being uncuffed, turn on combat mode while uncuffing - this will shove the prisoner down.
 tips-dataset-139 = Make sure to clean your illegal implanters with a soap or a damp rag after you use them! Detectives can scan used implanters for incriminating DNA evidence, but not if they've been wiped clean.
+tips-dataset-140 = All similar electronic items have their wires ordered identically. Finding out which wire is a power wire will remain true across all electronics of that type - or, if the electronic is an airlock, that department.
+tips-dataset-141 = Breaking open mail costs cargo spesos. If you have a vendetta against the cargo technician, consider mail theft.
+tips-dataset-142 = As the Magistrate, you have the final say on all matters regarding Space Law. Try not to become too drunk with power, though, or you may find yourself demoted by Central Command.
+tips-dataset-143 = If you ever find yourself far too drunk for your own good, ask the chemist for ethylredoxrazine. Even a 5 unit dose should speed up your sobering by minutes.
+tips-dataset-144 = As a Blob, avoid propagating in parts of maintenance which are frequently traveled. Being unable to control your expansion means that the sound of you unintentionally hitting walls could lead the crew to discover you.
+tips-dataset-145 = As a Paradox Clone, consider dropping your toolbox at the earliest convenience. It's unlikely that this universe's version of you is holding one.
+tips-dataset-146 = There is an incredibly small chance for maintenance pills to contain romerol.
+tips-dataset-147 = There is an incredibly small chance for toy hammers to instantly kill whoever it hits.
+tips-dataset-148 = As the Chief Engineer, think twice before purchasing and activating the Hypertorus Fusion Reactor. Your hubris could destroy the station.
+tips-dataset-149 = While Technical Assistants vaporize on impact with the supermatter crystal, it is theorized that such sacrifices are necessary for a functional engineering department.
+tips-dataset-150 = If the supermatter crystal is threatening to delaminate, have the psychologist make a visit to the engineering department. The presence of a nearby psychologist calms the supermatter crystal.
+tips-dataset-151 = The grand lottery has a wide variety of potential prizes for those rich enough to afford it. Some believe, however, that the Syndicate occasionally use it to smuggle operatives onto Nanotrasen stations.
+tips-dataset-152 = Harpies benefit from the presence of slightly more oxygen in the station's atmosphere. Consider upping the oxygen ratio in distro a percent or two for their sake.
+tips-dataset-153 = While Integrated Positronic Chassis hold numerous benefits over other species, their extreme weakness to heat and reliance on power present unique opportunities to hostile forces such as Space Dragons and Traitors.
+tips-dataset-154 = Rodentia are able to store items in their mouths. While they cannot speak while this is in play, it can be used in a pinch to discretely store something small.
+tips-dataset-155 = Items thrown at slimes have a chance to become lodged in their body. While it can be retrieved afterwards, this could prove detrimental if you end up throwing something important at one.
+tips-dataset-156 = As a Security Officer, avoid fighting hostile forces alone. If you lose a fight and nobody is around to back you up, you risk providing that hostile with your gear.
+tips-dataset-157 = As a Doctor, remember that you can cure rot by transplanting a new heart into a patient's body. Very often, this is the most efficient way to bring someone back to life.
+tips-dataset-158 = Ninjas are extremely powerful in fights against singular targets. If one is present on your station, remember to stick to groups at all times.
+tips-dataset-159 = Janitors are ranked in experience by the color of their plunger. If you ever see a rainbow plunger on a janitor's head, you should probably listen to what they have to say.
+tips-dataset-160 = Cyborgs are vulnerable to having their laws randomly changed by ion storms. If you see a cyborg acting in strange ways, this is likely why.
+tips-dataset-161 = The AI is not necessarily always aligned with the crew. If you notice the AI acting in strange ways, consider that it may be hostile to you or others on the station.
+tips-dataset-162 = Many parts of Standard Operating Procedure have little effect on how well the station runs. Central Command staff are likely to enforce these less useful procedures anyways.
+tips-dataset-163 = In the right hands, atmospherics is capable of producing massive amounts of highly valuable gases. A well-functioning atmospherics team can easily fund an entire station alone.
+tips-dataset-164 = Magic and those who use magic are known to exist by most people employed by Nanotrasen. That being said, there's no way someone would ever use magic to harm others. Right?
+tips-dataset-165 = As a Security Officer, be careful when checking prisoners for implants. Guessing wrong has disastrous consequences.
+tips-dataset-166 = If you want cargo to sell something but wish for your department to retain most of the profit, consider using a lockbox.
+tips-dataset-167 = Be careful when knowingly breaching Standard Operating Procedure - Nanotrasen Representatives and Magistrates are capable of issuing demotions for repeat offenders.
+tips-dataset-168 = Felinids are slightly more susceptible to stamina damage than other species, so stun batons take them down one hit faster than normal.
+tips-dataset-169 = As a Musician, consider requesting Science to flatpack a Digital Audio Workstation for you. This effectively skips having to gather the instruments to create it.
+tips-dataset-170 = You can cut the manager wire on vending machines and other machines to access secret items not typically able to be vended by them.
+tips-dataset-171 = To avoid being detected as having opened an airlock with a logprobe, you can cut the log wire on the airlock before opening it.
+tips-dataset-172 = Changelings are capable of disguising as any crew member they steal DNA from. Be careful - your coworker may not be who they say they are.
+tips-dataset-173 = As an Atmospheric Technician, you can use freezers to cool oxygen or nitrogen to store more mols of gas in the same amount of pressure. This allows you to lower the pressure output on your tank, which lets you breathe from it longer.
+tips-dataset-174 = You're able to create makeshift armor and weaponry using gear commonly found in maintenance. While incredibly slow and difficult to use well, it's typically better than nothing.
+tips-dataset-175 = The Cybersun pen and the Central Command pen can write over papers after they have been stamped or signed. They are also incredibly effective in combat.

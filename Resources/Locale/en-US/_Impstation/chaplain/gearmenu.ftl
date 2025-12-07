@@ -1,3 +1,8 @@
+# SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
 null-grail-verb = Swirl contents
 null-grail-popup = You begin swirling the { THE($shakeable) }'s contents.
 null-grail-popup-others = { CAPITALIZE(THE($user)) } begins swirling the { THE($shakeable) }'s contents.

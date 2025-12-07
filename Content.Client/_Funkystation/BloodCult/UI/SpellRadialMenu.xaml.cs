@@ -1,3 +1,12 @@
+// SPDX-FileCopyrightText: 2024 PJBot <pieterjan.briers+bot@gmail.com>
+// SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 Skye <57879983+Rainbeon@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Terkala <appleorange64@gmail.com>
+// SPDX-FileCopyrightText: 2025 kbarkevich <24629810+kbarkevich@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later or MIT
+
 using Content.Client.UserInterface.Controls;
 using Content.Shared.BloodCult;
 using Robust.Client.GameObjects;
@@ -14,7 +23,7 @@ namespace Content.Client._Funkystation.BloodCult.UI;
 
 public sealed partial class SpellRadialMenu : RadialMenu
 {
-    [Dependency] private readonly EntityManager _entityManager = default!;
+    //[Dependency] private readonly EntityManager _entityManager = default!;
     [Dependency] private readonly IEntitySystemManager _entitySystem = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly ISharedPlayerManager _playerManager = default!;

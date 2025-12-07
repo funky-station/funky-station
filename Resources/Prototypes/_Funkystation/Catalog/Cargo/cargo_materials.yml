@@ -1,0 +1,53 @@
+# SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: cargoProduct
+  id: MaterialGlassBulk
+  icon:
+    sprite: Objects/Materials/Sheets/glass.rsi
+    state: glass_3
+  product: CrateMaterialGlassBulk
+  cost: 4250
+  category: cargoproduct-category-name-materials
+  group: market
+
+- type: cargoProduct
+  id: MaterialSteelBulk
+  icon:
+    sprite: Objects/Materials/Sheets/metal.rsi
+    state: steel_3
+  product: CrateMaterialSteelBulk
+  cost: 4250
+  category: cargoproduct-category-name-materials
+  group: market
+
+- type: cargoProduct
+  id: MaterialPlasticBulk
+  icon:
+    sprite: Objects/Materials/Sheets/other.rsi
+    state: plastic_3
+  product: CrateMaterialPlasticBulk
+  cost: 5500
+  category: cargoproduct-category-name-materials
+  group: market
+
+- type: cargoProduct
+  id: MaterialPlasmaBulk
+  icon:
+    sprite: Objects/Materials/Sheets/other.rsi
+    state: plasma_3
+  product: CrateMaterialPlasmaBulk
+  cost: 5500
+  category: cargoproduct-category-name-materials
+  group: market
+
+- type: cargoProduct
+  id: MaterialWood
+  icon:
+    sprite: Objects/Materials/materials.rsi
+    state: wood_3
+  product: CrateMaterialWood
+  cost: 1000
+  category: cargoproduct-category-name-materials
+  group: market      

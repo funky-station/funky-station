@@ -1,3 +1,11 @@
+// SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+//
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.DeviceNetwork;
 using Content.Shared.Emag.Components;
 using Content.Shared.Movement.Components;
@@ -43,6 +51,7 @@ public sealed partial class BorgSystem
 
             var hasBrain = chassis.BrainEntity != null && !comp.FakeDisabled;
             var canDisable = comp.NextDisable == null && !comp.FakeDisabling;
+            var isEmagged = _emag.CheckFlag(uid, EmagType.Interaction); // Added so malf can't hack borgs multiple times
             var data = new CyborgControlData(
                 comp.Sprite,
                 comp.Name,
@@ -50,7 +59,8 @@ public sealed partial class BorgSystem
                 charge,
                 chassis.ModuleCount,
                 hasBrain,
-                canDisable);
+                canDisable,
+                isEmagged);
 
             var payload = new NetworkPayload()
             {

@@ -1,3 +1,21 @@
+// SPDX-FileCopyrightText: 2022 Eoin Mcloughlin <helloworld@eoinrul.es>
+// SPDX-FileCopyrightText: 2022 Flipp Syder <76629141+vulppine@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 eoineoineoin <eoin.mcloughlin+gh@gmail.com>
+// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
+// SPDX-FileCopyrightText: 2022 vulppine <vulppine@gmail.com>
+// SPDX-FileCopyrightText: 2023 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Steve <marlumpy@gmail.com>
+// SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 marc-pelletier <113944176+marc-pelletier@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 qwerltaz <msmarcinpl@gmail.com>
+// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+//
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Atmos;
 using Content.Shared.Atmos.Monitor.Components;
 using Content.Shared.Atmos.Piping.Unary.Components;
@@ -71,6 +89,7 @@ public sealed partial class ScrubberControl : BoxContainer
             _data.PumpDirection = (ScrubberPumpDirection) args.Id;
             ScrubberDataChanged?.Invoke(_address, _data);
         };
+        _pumpDirection.Disabled = data.AirAlarmPanicWireCut;
 
         _copySettings.OnPressed += _ =>
         {
@@ -114,6 +133,7 @@ public sealed partial class ScrubberControl : BoxContainer
 
         _data.PumpDirection = data.PumpDirection;
         _pumpDirection.Select((int) _data.PumpDirection);
+        _pumpDirection.Disabled = data.AirAlarmPanicWireCut;
 
         _data.VolumeRate = data.VolumeRate;
         _volumeRate.Value = _data.VolumeRate;

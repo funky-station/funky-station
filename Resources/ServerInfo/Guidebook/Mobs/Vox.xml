@@ -1,3 +1,14 @@
+<!--
+SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
+SPDX-FileCopyrightText: 2024 BeeRobynn <robynthewarcrime@proton.me>
+SPDX-FileCopyrightText: 2024 Errant <35878406+Errant-4@users.noreply.github.com>
+SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
+SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+
+SPDX-License-Identifier: MIT
+-->
+
 <Document>
   # Vox
 
@@ -7,20 +18,42 @@
 
   [color=#ffa500]Warning! This species is not recommended for new players due to their fatal allergy to oxygen![/color]
 
+  Vox are an alien species evolutionarily related to equally alien nitrogen-breathing birds.
+
+  ## Vox Lungs
+
   Vox breathe nitrogen, and [color=#ffa500] oxygen is toxic to them.[/color]
-  Unfortunately, space stations tend to be full of oxygen,
-  so Vox must use an internal nitrogen supply at almost all times to avoid fatal exposure.
+  Unfortunately, space stations tend to be full of oxygen, so Vox must use an internal nitrogen supply at almost all
+  times to avoid fatal exposure.
 
   Vox always spawn wearing working nitrogen internals equipment.
   A spare breathing mask and an emergency nitrogen canister is provided in their survival box.
 
-  Vox [color=#1e90ff]slowly recover from low levels of poison damage[/color] on their own,
-  so long as they are careful not to exceed 20 poison damage.
-  This allows them to endure breathing station air for up to thirty seconds at a time without lasting damage,
-  letting them quickly eat, drink, take oral medication, and so on.
+  ## Vox Stomachs
+
+  In addition to regular foods, Vox can also eat various snack packaging, banana peels, eggshells, and raw meat with
+  barely any ill effects. They also like to drink welding fuel.
+
+  ## Vox Livers
+
+  Vox [color=#1e90ff]slowly recover from low levels of Poison damage[/color] on their own, so long as they are careful
+  not to exceed 20 Poison damage. This allows them to endure breathing station air for up to thirty seconds at a time
+  without lasting damage, letting them quickly eat, drink, take oral medication, and so on.
   A thirty second oxygen exposure takes them two minutes to recover from.
   If their health does not seem to improve within a minute of oxygen exposure, they should seek medical attention.
 
-  Vox deal Slash damage with their unarmed attack.
+  ## Claws
+
+  Vox have sharp claws, and deal [color=orange]Slashing[/color] damage with their unarmed attack.
+
+  ## Vox Naming Conventions
+
+  Vox typically have one word names comprised of random syllables and repeating patterns.
+
+  [bullet] Hirikachi
+
+  [bullet] Chepekakak
+
+  [bullet] Skichabi
 
 </Document>

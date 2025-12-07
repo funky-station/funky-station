@@ -1,3 +1,23 @@
+# SPDX-FileCopyrightText: 2022 Aru Moon <anton17082003@gmail.com>
+# SPDX-FileCopyrightText: 2022 Julian Giebel <juliangiebel@live.de>
+# SPDX-FileCopyrightText: 2023 Chief-Engineer <119664036+Chief-Engineer@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 MishaUnity <81403616+MishaUnity@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Phill101 <28949487+Phill101@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Phill101 <holypics4@gmail.com>
+# SPDX-FileCopyrightText: 2024 ArchRBX <5040911+ArchRBX@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Kot <1192090+koteq@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 PJBot <pieterjan.briers+bot@gmail.com>
+# SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2024 lapatison <100279397+lapatison@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Эдуард <36124833+Ertanic@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 B_Kirill <cool.bkirill@yandex.ru>
+#
+# SPDX-License-Identifier: MIT
+
 device-pda-slot-component-slot-name-cartridge = Cartridge
 
 default-program-name = Program
@@ -24,6 +44,8 @@ log-probe-label-number = #
 astro-nav-program-name = AstroNav
 
 med-tek-program-name = MedTek
+
+wordle-program-name = Wordle
 
 # NanoTask cartridge
 
@@ -82,15 +104,9 @@ wanted-list-unknown-reason-label = unknown reason
 wanted-list-initiator-label = [color=darkgray]Initiator:[/color] [color=white]{$initiator}[/color]
 wanted-list-unknown-initiator-label = unknown initiator
 
-wanted-list-status-label = [color=darkgray]status:[/color] {$status ->
-        [suspected] [color=yellow]suspected[/color]
-        [wanted] [color=red]wanted[/color]
-        [detained] [color=#b18644]detained[/color]
-        [paroled] [color=green]paroled[/color]
-        [discharged] [color=green]discharged[/color]
-        *[other] none
-    }
+wanted-list-status-label = [color=darkgray]status:[/color] {$status}
 
 wanted-list-history-table-time-col = Time
 wanted-list-history-table-reason-col = Crime
 wanted-list-history-table-initiator-col = Initiator
+

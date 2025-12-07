@@ -1,12 +1,43 @@
+# SPDX-FileCopyrightText: 2022 Andreas Kämper <andreas@kaemper.tech>
+# SPDX-FileCopyrightText: 2022 Emisse <99158783+Emisse@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Fishfish458 <47410468+Fishfish458@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Flareguy <78941145+Flareguy@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 fishfish458 <fishfish458>
+# SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
+# SPDX-FileCopyrightText: 2022 theashtronaut <112137107+theashtronaut@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Kilk <142771861+TheKilk@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 OctoRocket <88291550+OctoRocket@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 heree <79546981+hereelabs@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 hereelabs <hahmorm@gmail.com>
+# SPDX-FileCopyrightText: 2025 MaiaArai <158123176+YaraaraY@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Sofia Gilsanz <softie.gd@gmail.com>
+# SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 V <97265903+formlessnameless@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
 - type: vendingMachineInventory
   id: EngiDrobeInventory
   startingInventory:
     ClothingBackpackDuffelEngineering: 3
     ClothingBackpackSatchelEngineering: 3
     ClothingBackpackEngineering: 3
+    ClothingUniformJumpsuitEngineeringJumpsuit: 3
+    ClothingUniformJumpsuitEngineeringJumpsuitTied: 3
+    ClothingUniformJumpsuitEngineeringElectrician: 3
+    ClothingUniformJumpskirtEngineeringElectricianTied: 3
+    ClothingUniformJumpsuitEngineeringTankTop: 3
+    ClothingUniformJumpsuitEngineeringBaggyHazard: 3
+    ClothingUniformJumpsuitEngineeringUndersuit: 3
     ClothingUniformJumpsuitEngineering: 3
-    ClothingUniformJumpskirtEngineering: 3
-    ClothingUniformJumpsuitEngineeringHazard: 3
+    ClothingUniformJumpsuitEngineeringOveralls: 2
+    ClothingUniformJumpsuitEngineeringCoveralls: 2
+    ClothingUniformJumpsuitEngineeringRipley: 1
+    ClothingUniformJumpsuitEngineeringShirt: 2
     ClothingShoesColorBlack: 3
     ClothingOuterVestHazard: 3
     ClothingShoesBootsWork: 3

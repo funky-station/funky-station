@@ -1,3 +1,23 @@
+// SPDX-FileCopyrightText: 2021 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+// SPDX-FileCopyrightText: 2021 metalgearsloth <comedian_vs_clown@hotmail.com>
+// SPDX-FileCopyrightText: 2021 tmtmtl30 <53132901+tmtmtl30@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 TekuNut <13456422+TekuNut@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 keronshb <54602815+keronshb@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Kara <lunarautomaton6@gmail.com>
+// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Pieter-Jan Briers <pieterjan.briers@gmail.com>
+// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
+// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Jake Huxell <JakeHuxell@pm.me>
+// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
+// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+//
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Doors.Components;
 using Content.Shared.Doors.Systems;
 using Robust.Client.Animations;
@@ -11,6 +31,7 @@ public sealed class DoorSystem : SharedDoorSystem
 {
     [Dependency] private readonly AnimationPlayerSystem _animationSystem = default!;
     [Dependency] private readonly IResourceCache _resourceCache = default!;
+    [Dependency] private readonly SpriteSystem _sprite = default!;
 
     public override void Initialize()
     {
@@ -85,7 +106,7 @@ public sealed class DoorSystem : SharedDoorSystem
             state = DoorState.Closed;
 
         if (AppearanceSystem.TryGetData<string>(entity, DoorVisuals.BaseRSI, out var baseRsi, args.Component))
-            UpdateSpriteLayers(args.Sprite, baseRsi);
+            UpdateSpriteLayers((entity.Owner, args.Sprite), baseRsi);
 
         if (_animationSystem.HasRunningAnimation(entity, DoorComponent.AnimationKey))
             _animationSystem.Stop(entity.Owner, DoorComponent.AnimationKey);
@@ -95,21 +116,21 @@ public sealed class DoorSystem : SharedDoorSystem
 
     private void UpdateAppearanceForDoorState(Entity<DoorComponent> entity, SpriteComponent sprite, DoorState state)
     {
-        sprite.DrawDepth = state is DoorState.Open ? entity.Comp.OpenDrawDepth : entity.Comp.ClosedDrawDepth;
+        _sprite.SetDrawDepth((entity.Owner, sprite), state is DoorState.Open ? entity.Comp.OpenDrawDepth : entity.Comp.ClosedDrawDepth);
 
         switch (state)
         {
             case DoorState.Open:
                 foreach (var (layer, layerState) in entity.Comp.OpenSpriteStates)
                 {
-                    sprite.LayerSetState(layer, layerState);
+                    _sprite.LayerSetRsiState((entity.Owner, sprite), layer, layerState);
                 }
 
                 return;
             case DoorState.Closed:
                 foreach (var (layer, layerState) in entity.Comp.ClosedSpriteStates)
                 {
-                    sprite.LayerSetState(layer, layerState);
+                    _sprite.LayerSetRsiState((entity.Owner, sprite), layer, layerState);
                 }
 
                 return;
@@ -138,7 +159,7 @@ public sealed class DoorSystem : SharedDoorSystem
         }
     }
 
-    private void UpdateSpriteLayers(SpriteComponent sprite, string baseRsi)
+    private void UpdateSpriteLayers(Entity<SpriteComponent> sprite, string baseRsi)
     {
         if (!_resourceCache.TryGetResource<RSIResource>(SpriteSpecifierSerializer.TextureRoot / baseRsi, out var res))
         {
@@ -146,6 +167,6 @@ public sealed class DoorSystem : SharedDoorSystem
             return;
         }
 
-        sprite.BaseRSI = res.RSI;
+        _sprite.SetBaseRsi(sprite.AsNullable(), res.RSI);
     }
 }

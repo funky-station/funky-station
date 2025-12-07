@@ -1,5 +1,28 @@
+# SPDX-FileCopyrightText: 2025 PWJDM <158008238+PWJDM@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 SaffronFennec <firefoxwolf2020@protonmail.com>
+# SPDX-FileCopyrightText: 2025 empty0set <16693552+empty0set@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 empty0set <empty0set@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
 trait-funky-name = Funky Accent
 trait-funky-desc = Put some funky flair on your inflections.
+
+trait-british-name = British Accent
+trait-british-desc = Speak like you came from the queen's land!
+
+trait-scandinavian-name = Scandinavian accent
+trait-scandinavian-desc = You sound like you come from some nondescript northern European nation. Or you're a Viking!
+
+trait-french-vernacular-name = French vernacular
+trait-french-vernacular-desc = You intensify your Frenchness with some familar-sounding loanwords.
+
+trait-german-vernacular-name = German vernacular
+trait-german-vernacular-desc = You drop a lot of words like "Schmetterling" and "Krankenwagen" in your speech.
+
+trait-russian-vernacular-name = Russian vernacular
+trait-russian-vernacular-desc = When you speak, you can't help but introduce a few Russian words.
 
 trait-extra-lightweight-name = Extreme Lightweight
 trait-extra-lightweight-desc = You are the lightest of lightweights. Even a shot will hit you the same as a glass.
@@ -42,3 +65,9 @@ trait-lizard-dragger-desc = You can drag objects without an open hand, like Liza
 
 trait-acrobat-name = Acrobat
 trait-acrobat-desc = You move much faster in low-gravity, similar to a moth.
+
+trait-nitrogen-breathing-name = Oxygen Allergy
+trait-nitrogen-breathing-desc = You seem to have Vox relatives. Oxygen poisons you. Mask and nitrogen tank included.
+
+trait-supermatter-hallucination-immune-name = Supermatter Immunity
+trait-supermatter-hallucination-immune-desc = You are immune to hallucinations caused by supermatter exposure.

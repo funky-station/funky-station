@@ -1,3 +1,26 @@
+// SPDX-FileCopyrightText: 2023 Emisse <99158783+Emisse@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 KP <13428215+nok-ko@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 LightVillet <dev@null>
+// SPDX-FileCopyrightText: 2023 LightVillet <maxim12000@ya.ru>
+// SPDX-FileCopyrightText: 2023 Repo <47093363+Titian3@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
+// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2024 Cojoke <83733158+Cojoke-dot@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Kara <lunarautomaton6@gmail.com>
+// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2024 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
+// SPDX-FileCopyrightText: 2024 Vasilis <vasilis@pikachu.systems>
+// SPDX-FileCopyrightText: 2024 beck-thompson <107373427+beck-thompson@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 0vrseer <iov3rseeri@gmail.com>
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+//
+// SPDX-License-Identifier: MIT
+
 using Content.Server.Chemistry.Containers.EntitySystems;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.EntitySystems;
@@ -15,11 +38,16 @@ using Content.Shared.Spillable;
 using Content.Shared.Throwing;
 using Content.Shared.Weapons.Melee.Events;
 using Robust.Shared.Player;
+using Content.Shared._DV.Chemistry.Systems; // DeltaV Beergoggles enable safe throw
+using Robust.Shared.Physics.Systems; // DeltaV Beergoggles enable safe throw
 
 namespace Content.Server.Fluids.EntitySystems;
 
 public sealed partial class PuddleSystem
 {
+    [Dependency] private readonly SharedPhysicsSystem _physics = default!; // DeltaV - Beergoggles enable safe throw
+    [Dependency] private readonly SafeSolutionThrowerSystem _safesolthrower = default!; // DeltaV - Beergoggles enable safe throw
+
     protected override void InitializeSpillable()
     {
         base.InitializeSpillable();
@@ -113,6 +141,14 @@ public sealed partial class PuddleSystem
 
         if (args.User != null)
         {
+            // DeltaV - start of Beergoggles enable safe throw
+            if (_safesolthrower.GetSafeThrow(args.User.Value))
+            {
+                _physics.SetAngularVelocity(entity, 0);
+                Transform(entity).LocalRotation = Angle.Zero;
+                return;
+            }
+            // DeltaV - end of Beergoggles enable safe throw
             _adminLogger.Add(LogType.Landed,
                 $"{ToPrettyString(entity.Owner):entity} spilled a solution {SharedSolutionContainerSystem.ToPrettyString(solution):solution} on landing");
         }
@@ -134,6 +170,10 @@ public sealed partial class PuddleSystem
         if (!_solutionContainerSystem.TryGetSolution(ent.Owner, ent.Comp.SolutionName, out _, out var solution) || solution.Volume <= 0)
             return;
 
+        // DeltaV - start of Beergoggles enable safe throw
+        if (_safesolthrower.GetSafeThrow(args.PlayerUid))
+            return;
+        // DeltaV - end of Beergoggles enable safe throw
         args.Cancel("pacified-cannot-throw-spill");
     }
 

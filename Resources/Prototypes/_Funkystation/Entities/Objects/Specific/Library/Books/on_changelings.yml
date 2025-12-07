@@ -1,0 +1,50 @@
+# SPDX-FileCopyrightText: 2025 mkanke-real <mikekanke@gmail.com>
+#
+# SPDX-License-Identifier: MIT
+
+#submited by Soggy
+- type: entity
+  parent: BookBase
+  id: OnChangelings
+  name: "On Changelings: A Brief History on the Science Fiction Trope"
+  description: A short analysis essay on a popular science fiction topic.
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/books.rsi
+    layers:
+    - state: paper
+    - state: cover_base
+      color: "#55369a"
+    - state: decor_bottom
+      color: "#8A6240"
+    - state: icon_eye
+    - state: detail_bookmark
+      color: "#AD03DE"
+  - type: OocAuthorship
+    oocAuthor: Soggy
+  - type: Paper
+    stampedBy:
+    - stampedColor: '#134975'
+      stampedName: "NT APPROVED"
+    content: |2
+      [head=1][color=MediumOrchid]On Changelings[/color][/head]
+      [head=1][/head]
+      Written by TSBTS
+
+      [mono]Introduction[/mono]
+
+      Changelings are a science-fiction favorite, as masters of disguise and debauchery authors can write of without knowing nor acknowledging the intricacies of Syndicate agents.
+
+      Due to their alien forms, they are given a multitude of discreet, yet suspiciously familiar abilities. Whether quiet or loud, bloodthirsty or conflicted, or even in a space station at all (as Orbumn Gumason's series, 'Many Faces of the Medieval Terror,' vividly shows a single changeling overtaking an isolated feudal planet), the abilities of this sort of antagonist are always wondrous and murky at once. They are the author's choice in the end, after all, to replace the Agent's cloak and dagger with things much more organic.
+
+      [head=1][/head]
+
+      [mono]Real-World History[/mono]
+
+      Thankfully, as changelings are a fictional species, there is no true real-world history to them. If they were, even in singular cases, changelings could overthrow a station entirely by their own strengths.
+      However, the changeling trope arose due to the infamous 2509 case, NT v. Cybersun. It originally concluded that all Syndicate mentions or supposed recordings were legal grounds for libel and subsequent legal action.
+
+      [color=Gray][italic]Thankfully due to the Supreme Space Court overturning session in the Frontier Hypatia sector, this no longer applies to fictional literature, cinema, and theory.[/italic][/color]
+
+      In the law industry, this functioned as a barrier to stop undue defamation. For independent authors though, this meant a death sentence- either in the writing industry or otherwise. This lead to the Free Fiction Convention (FFC) of 2512, composed of such writers, who brainstormed a creeping, dangerous threat to replace the banned, beloved Agents of their manuscripts.
+      Thus, the Changeling was born, and with it a sub-genre of science fiction many recognize today.

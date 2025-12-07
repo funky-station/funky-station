@@ -1,3 +1,46 @@
+// SPDX-FileCopyrightText: 2020 20kdc <asdd2808@gmail.com>
+// SPDX-FileCopyrightText: 2020 DamianX <DamianX@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2020 Víctor Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2021 Acruid <shatter66@gmail.com>
+// SPDX-FileCopyrightText: 2021 Metal Gear Sloth <metalgearsloth@gmail.com>
+// SPDX-FileCopyrightText: 2021 Remie Richards <remierichards@gmail.com>
+// SPDX-FileCopyrightText: 2021 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2021 Swept <sweptwastaken@protonmail.com>
+// SPDX-FileCopyrightText: 2021 ike709 <ike709@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 Moony <moonheart08@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 Rane <60792108+Elijahrane@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 T-Stalker <43253663+DogZeroX@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 Veritius <veritiusgaming@gmail.com>
+// SPDX-FileCopyrightText: 2022 Visne <39844191+Visne@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 metalgearsloth <comedian_vs_clown@hotmail.com>
+// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
+// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Flipp Syder <76629141+vulppine@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Morb <14136326+Morb0@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Ciac32 <aknoxlor@gmail.com>
+// SPDX-FileCopyrightText: 2024 Debug <49997488+DebugOk@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Krunklehorn <42424291+Krunklehorn@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Mr. 27 <45323883+Dutch-VanDerLinde@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+// SPDX-FileCopyrightText: 2024 PoTeletubby <151896601+PoTeletubby@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2024 Whisper <121047731+QuietlyWhisper@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Winkarst <74284083+Winkarst-cpu@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 dffdff2423 <dffdff2423@gmail.com>
+// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Lyndomen <49795619+Lyndomen@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
+// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+//
+// SPDX-License-Identifier: MIT
+
 using System;
 using System.Linq;
 using System.Reflection;
@@ -20,6 +63,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Serialization;
 using Robust.Shared.Utility;
+using Content.Shared._Funkystation.Records; // CD - Character Records
 
 namespace Content.Shared.Preferences
 {
@@ -41,12 +85,7 @@ namespace Content.Shared.Preferences
         /// Job preferences for initial spawn.
         /// </summary>
         [DataField]
-        private Dictionary<ProtoId<JobPrototype>, JobPriority> _jobPriorities = new()
-        {
-            {
-                SharedGameTicker.FallbackOverflowJob, JobPriority.High
-            }
-        };
+        private HashSet<ProtoId<JobPrototype>> _jobPreferences = new() { SharedGameTicker.FallbackOverflowJob };
 
         /// <summary>
         /// Antags we have opted in to.
@@ -59,6 +98,12 @@ namespace Content.Shared.Preferences
         /// </summary>
         [DataField]
         private HashSet<ProtoId<TraitPrototype>> _traitPreferences = new();
+
+        /// <summary>
+        /// Is this character enabled? (Should it be considered for round start selection?)
+        /// </summary>
+        [DataField]
+        public bool Enabled;
 
         /// <summary>
         /// <see cref="_loadouts"/>
@@ -115,9 +160,9 @@ namespace Content.Shared.Preferences
         public SpawnPriorityPreference SpawnPriority { get; private set; } = SpawnPriorityPreference.None;
 
         /// <summary>
-        /// <see cref="_jobPriorities"/>
+        /// <see cref="_jobPreferences"/>
         /// </summary>
-        public IReadOnlyDictionary<ProtoId<JobPrototype>, JobPriority> JobPriorities => _jobPriorities;
+        public IReadOnlySet<ProtoId<JobPrototype>> JobPreferences => _jobPreferences;
 
         /// <summary>
         /// <see cref="_antagPreferences"/>
@@ -129,13 +174,11 @@ namespace Content.Shared.Preferences
         /// </summary>
         public IReadOnlySet<ProtoId<TraitPrototype>> TraitPreferences => _traitPreferences;
 
-        /// <summary>
-        /// If we're unable to get one of our preferred jobs do we spawn as a fallback job or do we stay in lobby.
-        /// </summary>
-        [DataField]
-        public PreferenceUnavailableMode PreferenceUnavailable { get; private set; } =
-            PreferenceUnavailableMode.SpawnAsOverflow;
-        // #Goobstation - Borg Preferred Name (borgname)
+        // Begin CD - Character records
+        [DataField("cosmaticDriftCharacterRecords")]
+        public PlayerProvidedCharacterRecords? CDCharacterRecords;
+        // End CD - Character records
+
         public HumanoidCharacterProfile(
             string name,
             string flavortext,
@@ -146,11 +189,16 @@ namespace Content.Shared.Preferences
             Gender gender,
             HumanoidCharacterAppearance appearance,
             SpawnPriorityPreference spawnPriority,
-            Dictionary<ProtoId<JobPrototype>, JobPriority> jobPriorities,
-            PreferenceUnavailableMode preferenceUnavailable,
+            HashSet<ProtoId<JobPrototype>> jobPreferences,
             HashSet<ProtoId<AntagPrototype>> antagPreferences,
             HashSet<ProtoId<TraitPrototype>> traitPreferences,
-            Dictionary<string, RoleLoadout> loadouts)
+            Dictionary<string, RoleLoadout> loadouts,
+            bool enabled,
+            // Begin CD - Character Records
+            PlayerProvidedCharacterRecords? cdCharacterRecords
+            // End CD - Character Records
+            )
+
 
         {
             Name = name;
@@ -162,25 +210,14 @@ namespace Content.Shared.Preferences
             Gender = gender;
             Appearance = appearance;
             SpawnPriority = spawnPriority;
-            _jobPriorities = jobPriorities;
-            PreferenceUnavailable = preferenceUnavailable;
+            _jobPreferences = jobPreferences;
             _antagPreferences = antagPreferences;
             _traitPreferences = traitPreferences;
             _loadouts = loadouts;
-
-            var hasHighPrority = false;
-            foreach (var (key, value) in _jobPriorities)
-            {
-                if (value == JobPriority.Never)
-                    _jobPriorities.Remove(key);
-                else if (value != JobPriority.High)
-                    continue;
-
-                if (hasHighPrority)
-                    _jobPriorities[key] = JobPriority.Medium;
-
-                hasHighPrority = true;
-            }
+            Enabled = enabled;
+            // Begin CD - Character Records
+            CDCharacterRecords = cdCharacterRecords;
+            // End CD - Character Records
         }
 
         /// <summary>Copy constructor</summary>
@@ -195,11 +232,12 @@ namespace Content.Shared.Preferences
                 other.Gender,
                 other.Appearance.Clone(),
                 other.SpawnPriority,
-                new Dictionary<ProtoId<JobPrototype>, JobPriority>(other.JobPriorities),
-                other.PreferenceUnavailable,
+                new HashSet<ProtoId<JobPrototype>>(other.JobPreferences),
                 new HashSet<ProtoId<AntagPrototype>>(other.AntagPreferences),
                 new HashSet<ProtoId<TraitPrototype>>(other.TraitPreferences),
-                new Dictionary<string, RoleLoadout>(other.Loadouts))
+                new Dictionary<string, RoleLoadout>(other.Loadouts),
+                other.Enabled,
+                other.CDCharacterRecords) // CD - Character Records
         {
         }
 
@@ -222,6 +260,7 @@ namespace Content.Shared.Preferences
             return new()
             {
                 Species = species,
+                Appearance = HumanoidCharacterAppearance.DefaultWithSpecies(species),
             };
         }
 
@@ -330,62 +369,42 @@ namespace Content.Shared.Preferences
             return new(this) { SpawnPriority = spawnPriority };
         }
 
-        public HumanoidCharacterProfile WithJobPriorities(IEnumerable<KeyValuePair<ProtoId<JobPrototype>, JobPriority>> jobPriorities)
+        // Begin CD - Character Records
+        public HumanoidCharacterProfile WithCDCharacterRecords(PlayerProvidedCharacterRecords records)
         {
-            var dictionary = new Dictionary<ProtoId<JobPrototype>, JobPriority>(jobPriorities);
-            var hasHighPrority = false;
+            return new HumanoidCharacterProfile(this) { CDCharacterRecords = records };
+        }
+        // End CD - Character Records
 
-            foreach (var (key, value) in dictionary)
-            {
-                if (value == JobPriority.Never)
-                    dictionary.Remove(key);
-                else if (value != JobPriority.High)
-                    continue;
-
-                if (hasHighPrority)
-                    dictionary[key] = JobPriority.Medium;
-
-                hasHighPrority = true;
-            }
-
+        public HumanoidCharacterProfile WithJobPreferences(IEnumerable<ProtoId<JobPrototype>> jobPreferences)
+        {
             return new(this)
             {
-                _jobPriorities = dictionary
+                _jobPreferences = new HashSet<ProtoId<JobPrototype>>(jobPreferences),
             };
         }
 
-        public HumanoidCharacterProfile WithJobPriority(ProtoId<JobPrototype> jobId, JobPriority priority)
+        public HumanoidCharacterProfile WithJob(ProtoId<JobPrototype> jobId, bool include = true)
         {
-            var dictionary = new Dictionary<ProtoId<JobPrototype>, JobPriority>(_jobPriorities);
-            if (priority == JobPriority.Never)
+            var jobPreferences = new HashSet<ProtoId<JobPrototype>>(_jobPreferences);
+            if (include)
             {
-                dictionary.Remove(jobId);
-            }
-            else if (priority == JobPriority.High)
-            {
-                // There can only ever be one high priority job.
-                foreach (var (job, value) in dictionary)
-                {
-                    if (value == JobPriority.High)
-                        dictionary[job] = JobPriority.Medium;
-                }
-
-                dictionary[jobId] = priority;
+                jobPreferences.Add(jobId);
             }
             else
             {
-                dictionary[jobId] = priority;
+                jobPreferences.Remove(jobId);
             }
 
             return new(this)
             {
-                _jobPriorities = dictionary,
+                _jobPreferences = jobPreferences,
             };
         }
 
-        public HumanoidCharacterProfile WithPreferenceUnavailable(PreferenceUnavailableMode mode)
+        public HumanoidCharacterProfile WithoutJob(ProtoId<JobPrototype> jobId)
         {
-            return new(this) { PreferenceUnavailable = mode };
+            return WithJob(jobId, false);
         }
 
         public HumanoidCharacterProfile WithAntagPreferences(IEnumerable<ProtoId<AntagPrototype>> antagPreferences)
@@ -473,6 +492,11 @@ namespace Content.Shared.Preferences
             };
         }
 
+        public HumanoidCharacterProfile AsEnabled(bool enabled = true)
+        {
+            return new(this) { Enabled = enabled };
+        }
+
         public string Summary =>
             Loc.GetString(
                 "humanoid-character-profile-summary",
@@ -491,13 +515,15 @@ namespace Content.Shared.Preferences
             if (Sex != other.Sex) return false;
             if (Gender != other.Gender) return false;
             if (Species != other.Species) return false;
-            if (PreferenceUnavailable != other.PreferenceUnavailable) return false;
             if (SpawnPriority != other.SpawnPriority) return false;
-            if (!_jobPriorities.SequenceEqual(other._jobPriorities)) return false;
+            if (!_jobPreferences.SequenceEqual(other._jobPreferences)) return false;
             if (!_antagPreferences.SequenceEqual(other._antagPreferences)) return false;
             if (!_traitPreferences.SequenceEqual(other._traitPreferences)) return false;
             if (!Loadouts.SequenceEqual(other.Loadouts)) return false;
             if (FlavorText != other.FlavorText) return false;
+            if (Enabled != other.Enabled) return false;
+            if (CDCharacterRecords != null && other.CDCharacterRecords != null && // CD
+               !CDCharacterRecords.MemberwiseEquals(other.CDCharacterRecords)) return false; // CD
             return Appearance.MemberwiseEquals(other.Appearance);
         }
 
@@ -602,13 +628,6 @@ namespace Content.Shared.Preferences
 
             var appearance = HumanoidCharacterAppearance.EnsureValid(Appearance, Species, Sex);
 
-            var prefsUnavailableMode = PreferenceUnavailable switch
-            {
-                PreferenceUnavailableMode.StayInLobby => PreferenceUnavailableMode.StayInLobby,
-                PreferenceUnavailableMode.SpawnAsOverflow => PreferenceUnavailableMode.SpawnAsOverflow,
-                _ => PreferenceUnavailableMode.StayInLobby // Invalid enum values.
-            };
-
             var spawnPriority = SpawnPriority switch
             {
                 SpawnPriorityPreference.None => SpawnPriorityPreference.None,
@@ -617,26 +636,8 @@ namespace Content.Shared.Preferences
                 _ => SpawnPriorityPreference.None // Invalid enum values.
             };
 
-            var priorities = new Dictionary<ProtoId<JobPrototype>, JobPriority>(JobPriorities
-                .Where(p => prototypeManager.TryIndex<JobPrototype>(p.Key, out var job) && job.SetPreference && p.Value switch
-                {
-                    JobPriority.Never => false, // Drop never since that's assumed default.
-                    JobPriority.Low => true,
-                    JobPriority.Medium => true,
-                    JobPriority.High => true,
-                    _ => false
-                }));
-
-            var hasHighPrio = false;
-            foreach (var (key, value) in priorities)
-            {
-                if (value != JobPriority.High)
-                    continue;
-
-                if (hasHighPrio)
-                    priorities[key] = JobPriority.Medium;
-                hasHighPrio = true;
-            }
+            var jobs = new HashSet<ProtoId<JobPrototype>>(JobPreferences
+                .Where(p => prototypeManager.TryIndex(p, out var job) && job.SetPreference));
 
             var antags = AntagPreferences
                 .Where(id => prototypeManager.TryIndex(id, out var antag) && antag.SetPreference)
@@ -656,20 +657,24 @@ namespace Content.Shared.Preferences
             Appearance = appearance;
             SpawnPriority = spawnPriority;
 
-            _jobPriorities.Clear();
-
-            foreach (var (job, priority) in priorities)
-            {
-                _jobPriorities.Add(job, priority);
-            }
-
-            PreferenceUnavailable = prefsUnavailableMode;
+            _jobPreferences = new HashSet<ProtoId<JobPrototype>>(jobs);
 
             _antagPreferences.Clear();
             _antagPreferences.UnionWith(antags);
 
             _traitPreferences.Clear();
             _traitPreferences.UnionWith(GetValidTraits(traits, prototypeManager));
+
+            // Begin CD - Character Records
+            if (CDCharacterRecords == null)
+            {
+                CDCharacterRecords = PlayerProvidedCharacterRecords.DefaultRecords();
+            }
+            else
+            {
+                CDCharacterRecords!.EnsureValid();
+            }
+            // End CD - Character Records
 
             // Checks prototypes exist for all loadouts and dump / set to default if not.
             var toRemove = new ValueList<string>();
@@ -762,7 +767,7 @@ namespace Content.Shared.Preferences
         public override int GetHashCode()
         {
             var hashCode = new HashCode();
-            hashCode.Add(_jobPriorities);
+            hashCode.Add(_jobPreferences);
             hashCode.Add(_antagPreferences);
             hashCode.Add(_traitPreferences);
             hashCode.Add(_loadouts);
@@ -775,8 +780,8 @@ namespace Content.Shared.Preferences
             hashCode.Add((int) Sex);
             hashCode.Add((int) Gender);
             hashCode.Add(Appearance);
-            hashCode.Add((int) SpawnPriority);
-            hashCode.Add((int) PreferenceUnavailable);
+            hashCode.Add((int)SpawnPriority);
+            hashCode.Add(Enabled);
             return hashCode.ToHashCode();
         }
 

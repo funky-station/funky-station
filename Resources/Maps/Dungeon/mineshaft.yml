@@ -1,3 +1,11 @@
+# SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
+# SPDX-FileCopyrightText: 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: MIT
+
 meta:
   format: 6
   postmapinit: false
@@ -17,7 +25,6 @@ entities:
     - type: MetaData
     - type: Transform
     - type: Map
-    - type: PhysicsMap
     - type: Broadphase
     - type: OccluderTree
     - type: MapGrid
@@ -109,7 +116,6 @@ entities:
     - type: LoadedMap
     - type: SpreaderGrid
     - type: GridTree
-    - type: MovedGrids
     - type: GridPathfinding
     - type: DecalGrid
       chunkCollection:
@@ -3622,7 +3628,7 @@ entities:
       rot: 3.141592653589793 rad
       pos: 25.5,13.5
       parent: 2
-- proto: Protolathe
+- proto: OreProcessorIndustrial
   entities:
   - uid: 49
     components:

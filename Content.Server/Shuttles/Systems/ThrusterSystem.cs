@@ -1,3 +1,35 @@
+// SPDX-FileCopyrightText: 2021 Javier Guardia Fernández <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2021 JustinTime <41876089+JustinTether@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2021 metalgearsloth <metalgearsloth@gmail.com>
+// SPDX-FileCopyrightText: 2021 shaeone <60476183+shaeone@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 Acruid <shatter66@gmail.com>
+// SPDX-FileCopyrightText: 2022 Jacob Tong <10494922+ShadowCommander@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 Morb <14136326+Morb0@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 Radrark <76271993+Radrark@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 Vera Aguilera Puerto <gradientvera@outlook.com>
+// SPDX-FileCopyrightText: 2022 metalgearsloth <comedian_vs_clown@hotmail.com>
+// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 router <messagebus@vk.com>
+// SPDX-FileCopyrightText: 2024 Jake Huxell <JakeHuxell@pm.me>
+// SPDX-FileCopyrightText: 2024 Kara <lunarautomaton6@gmail.com>
+// SPDX-FileCopyrightText: 2024 Mervill <mervills.email@gmail.com>
+// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2024 chavonadelal <156101927+chavonadelal@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
+// SPDX-FileCopyrightText: 2025 marc-pelletier <113944176+marc-pelletier@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+//
+// SPDX-License-Identifier: MIT
+
 using System.Numerics;
 using Content.Server.Audio;
 using Content.Server.Power.Components;
@@ -94,41 +126,45 @@ public sealed class ThrusterSystem : EntitySystem
 
     private void OnShuttleTileChange(EntityUid uid, ShuttleComponent component, ref TileChangedEvent args)
     {
-        // If the old tile was space but the new one isn't then disable all adjacent thrusters
-        if (args.NewTile.IsSpace(_tileDefManager) || !args.OldTile.IsSpace(_tileDefManager))
-            return;
-
-        var tilePos = args.NewTile.GridIndices;
-        var grid = Comp<MapGridComponent>(uid);
-        var xformQuery = GetEntityQuery<TransformComponent>();
-        var thrusterQuery = GetEntityQuery<ThrusterComponent>();
-
-        for (var x = -1; x <= 1; x++)
+        foreach (var change in args.Changes)
         {
-            for (var y = -1; y <= 1; y++)
+            // If the old tile was space but the new one isn't then disable all adjacent thrusters
+            if (change.NewTile.IsSpace(_tileDefManager) || !change.OldTile.IsSpace(_tileDefManager))
+                continue;
+
+            var tilePos = change.GridIndices;
+            var grid = Comp<MapGridComponent>(uid);
+            var xformQuery = GetEntityQuery<TransformComponent>();
+            var thrusterQuery = GetEntityQuery<ThrusterComponent>();
+
+            for (var x = -1; x <= 1; x++)
             {
-                if (x != 0 && y != 0)
-                    continue;
-
-                var checkPos = tilePos + new Vector2i(x, y);
-                var enumerator = _mapSystem.GetAnchoredEntitiesEnumerator(uid, grid, checkPos);
-
-                while (enumerator.MoveNext(out var ent))
+                for (var y = -1; y <= 1; y++)
                 {
-                    if (!thrusterQuery.TryGetComponent(ent.Value, out var thruster) || !thruster.RequireSpace)
+                    if (x != 0 && y != 0)
                         continue;
 
-                    // Work out if the thruster is facing this direction
-                    var xform = xformQuery.GetComponent(ent.Value);
-                    var direction = xform.LocalRotation.ToWorldVec();
+                    var checkPos = tilePos + new Vector2i(x, y);
+                    var enumerator = _mapSystem.GetAnchoredEntitiesEnumerator(uid, grid, checkPos);
 
-                    if (new Vector2i((int)direction.X, (int)direction.Y) != new Vector2i(x, y))
-                        continue;
+                    while (enumerator.MoveNext(out var ent))
+                    {
+                        if (!thrusterQuery.TryGetComponent(ent.Value, out var thruster) || !thruster.RequireSpace)
+                            continue;
 
-                    DisableThruster(ent.Value, thruster, xform.GridUid);
+                        // Work out if the thruster is facing this direction
+                        var xform = xformQuery.GetComponent(ent.Value);
+                        var direction = xform.LocalRotation.ToWorldVec();
+
+                        if (new Vector2i((int)direction.X, (int)direction.Y) != new Vector2i(x, y))
+                            continue;
+
+                        DisableThruster(ent.Value, thruster, xform.GridUid);
+                    }
                 }
             }
         }
+
     }
 
     private void OnActivateThruster(EntityUid uid, ThrusterComponent component, ActivateInWorldEvent args)

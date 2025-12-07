@@ -1,3 +1,23 @@
+// SPDX-FileCopyrightText: 2022 Chief-Engineer <119664036+Chief-Engineer@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 Flipp Syder <76629141+vulppine@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 Jezithyr <Jezithyr.@gmail.com>
+// SPDX-FileCopyrightText: 2022 jicksaw <jicksaw@pm.me>
+// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Pieter-Jan Briers <pieterjan.briers@gmail.com>
+// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+// SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2024 Winkarst <74284083+Winkarst-cpu@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 88tv <131759102+88tv@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Tojo <32783144+Alecksohs@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 lzk <124214523+lzk228@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 vectorassembly <vectorassembly@icloud.com>
+// SPDX-FileCopyrightText: 2025 vitopigno <103512727+VitusVeit@users.noreply.github.com>
+//
+// SPDX-License-Identifier: MIT
+
 using Content.Client.UserInterface.Systems.Chat.Controls;
 using Content.Shared.Chat;
 using Content.Shared.Input;
@@ -34,6 +54,8 @@ public partial class ChatBox : UIWidget
         ChatInput.Input.OnTextEntered += OnTextEntered;
         ChatInput.Input.OnKeyBindDown += OnInputKeyBindDown;
         ChatInput.Input.OnTextChanged += OnTextChanged;
+        ChatInput.Input.OnFocusEnter += OnFocusEnter;
+        ChatInput.Input.OnFocusExit += OnFocusExit;
         ChatInput.ChannelSelector.OnChannelSelect += OnChannelSelect;
         ChatInput.FilterButton.Popup.OnChannelFilter += OnChannelFilter;
         ChatInput.FilterButton.Popup.OnNewHighlights += OnNewHighlights;
@@ -121,7 +143,12 @@ public partial class ChatBox : UIWidget
         var selectStart = Index.End;
 
         if (channel != null)
+        {
             ChatInput.ChannelSelector.Select(channel.Value);
+            // FUNKYSTATION EDIT START
+            _controller.NotifyChatTypeChange(channel.Value);
+            // FUNKYSTATION EDIT END
+        }
 
         input.IgnoreNext = true;
         input.GrabKeyboardFocus();
@@ -150,6 +177,7 @@ public partial class ChatBox : UIWidget
             return;
 
         ChatInput.ChannelSelector.Select(toSelect);
+        _controller.NotifyChatTypeChange(toSelect);
     }
 
     private void OnInputKeyBindDown(GUIBoundKeyEventArgs args)
@@ -183,6 +211,22 @@ public partial class ChatBox : UIWidget
 
         // Warn typing indicator about change
         _controller.NotifyChatTextChange();
+    }
+
+    private void OnFocusEnter(LineEditEventArgs args)
+    {
+        // Warn typing indicator about focus
+        _controller.NotifyChatFocus(true);
+        // FUNKYSTATION EDIT START
+        // If it's changed by something that didn't call focus, we handle that.
+        _controller.NotifyChatTypeChange(SelectedChannel);
+        // FUNKYSTATION EDIT END
+    }
+
+    private void OnFocusExit(LineEditEventArgs args)
+    {
+        // Warn typing indicator about focus
+        _controller.NotifyChatFocus(false);
     }
 
     protected override void Dispose(bool disposing)

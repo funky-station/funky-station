@@ -1,0 +1,25 @@
+# SPDX-FileCopyrightText: 2025 TheSecondLord <88201625+TheSecondLord@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entityTable
+  id: RandomSyndieKitTable
+  table: !type:GroupSelector
+    children:
+    # These kits are slightly more gimmicky, so they're a little rarer
+    - id: ClothingBackpackDuffelSyndicateFilledKitSlasher
+      weight: 12
+    - id: ClothingBackpackDuffelSyndicateFilledKitNinja
+      weight: 12
+    - id: ClothingBackpackDuffelSyndicateFilledKitChemical
+      weight: 12
+
+    # These kits are slightly more general
+    - id: ClothingBackpackDuffelSyndicateFilledKitHacker
+      weight: 15
+    - id: ClothingBackpackDuffelSyndicateFilledKitHunter
+      weight: 15
+    - id: ClothingBackpackDuffelSyndicateFilledKitUndercover
+      weight: 17
+    - id: ClothingBackpackDuffelSyndicateFilledKitBond
+      weight: 17

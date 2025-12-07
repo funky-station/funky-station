@@ -1,3 +1,9 @@
+# SPDX-FileCopyrightText: 2025 Falcon <falcon@zigtag.dev>
+# SPDX-FileCopyrightText: 2025 pre-commit-ci[bot] <66853113+pre-commit-ci[bot]@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
 # Heads
 - type: marking
   id: SyntheticLizardHeadM
@@ -128,6 +134,15 @@
   sprites:
   - sprite: Mobs/Customization/eyes.rsi
     state: eyes
+
+- type: marking
+  id: ProtogenMouth
+  bodyPart: Eyes
+  markingCategory: Eyes
+  speciesRestriction: [IPC]
+  sprites:
+  - sprite: _DV/Mobs/Customization/SynthLizIPC/head_markings.rsi
+    state: protogen_mouth
 
 # Snouts
 - type: marking
@@ -270,6 +285,38 @@
     state: synth_lizard_snout_barless_tert_under_2
   - sprite: _DV/Mobs/Customization/SynthLizIPC/snout_markings.rsi
     state: synth_lizard_snout_barless_tert_under_3
+
+- type: marking
+  id: ProtogenSnout
+  bodyPart: Snout
+  markingCategory: Snout
+  speciesRestriction: [IPC]
+  coloring: # Funky - Add default color
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#000000"
+  sprites:
+  - sprite: _DV/Mobs/Customization/SynthLizIPC/snout_markings.rsi
+    state: protogen_snout_1
+  - sprite: _DV/Mobs/Customization/SynthLizIPC/snout_markings.rsi
+    state: protogen_snout_2
+
+- type: marking
+  id: ProtogenBoltSnout
+  bodyPart: Snout
+  markingCategory: Snout
+  speciesRestriction: [IPC]
+  coloring: # Funky - Add default color
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#000000"
+  sprites:
+  - sprite: _DV/Mobs/Customization/SynthLizIPC/snout_markings.rsi
+    state: protogen_snout_bolt_1
+  - sprite: _DV/Mobs/Customization/SynthLizIPC/snout_markings.rsi
+    state: protogen_snout_bolt_2
 
 # Tails
 - type: marking

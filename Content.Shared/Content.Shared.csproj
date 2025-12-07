@@ -1,4 +1,36 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<!--
+SPDX-FileCopyrightText: 2017 PJB3005 <pieterjan.briers@gmail.com>
+SPDX-FileCopyrightText: 2018 Víctor Aguilera Puerto <ZDDM@users.noreply.github.com>
+SPDX-FileCopyrightText: 2018 clusterfack <8516830+clusterfack@users.noreply.github.com>
+SPDX-FileCopyrightText: 2018 clusterfack <clusterfack@users.noreply.github.com>
+SPDX-FileCopyrightText: 2019 Injazz <43905364+Injazz@users.noreply.github.com>
+SPDX-FileCopyrightText: 2019 Pieter-Jan Briers <pieterjan.briers@gmail.com>
+SPDX-FileCopyrightText: 2019 PrPleGoo <PrPleGoo@users.noreply.github.com>
+SPDX-FileCopyrightText: 2019 Silver <Silvertorch5@gmail.com>
+SPDX-FileCopyrightText: 2019 Víctor Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
+SPDX-FileCopyrightText: 2020 Acruid <shatter66@gmail.com>
+SPDX-FileCopyrightText: 2020 DamianX <DamianX@users.noreply.github.com>
+SPDX-FileCopyrightText: 2020 Paul <ritter.paul1+git@googlemail.com>
+SPDX-FileCopyrightText: 2020 Tyler Young <tyler.young@impromptu.ninja>
+SPDX-FileCopyrightText: 2021 Javier Guardia Fernández <DrSmugleaf@users.noreply.github.com>
+SPDX-FileCopyrightText: 2021 Paul Ritter <ritter.paul1@googlemail.com>
+SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
+SPDX-FileCopyrightText: 2022 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
+SPDX-FileCopyrightText: 2023 Kara <lunarautomaton6@gmail.com>
+SPDX-FileCopyrightText: 2024 Mervill <mervills.email@gmail.com>
+SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
+SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
+SPDX-FileCopyrightText: 2025 IronDragoon <8961391+IronDragoon@users.noreply.github.com>
+SPDX-FileCopyrightText: 2025 IronDragoon <you@example.com>
+SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+
+SPDX-License-Identifier: MIT
+-->
+
+<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <!-- Work around https://github.com/dotnet/project-system/issues/4314 -->
     <TargetFramework>$(TargetFramework)</TargetFramework>
@@ -22,6 +54,43 @@
     <ProjectReference Include="..\RobustToolbox\Robust.Shared\Robust.Shared.csproj">
       <Private>false</Private>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="Actions\BaseActionEvent.Serialization.cs" />
+    <Compile Remove="Actions\InstantActionEvent.Serialization.cs" />
+    <Compile Remove="Animation\DynamicRsiAnimationSystem.cs" />
+    <Compile Remove="MalfAI\MalfAiCameraNetworkUpgradeComponent.cs" />
+    <Compile Remove="UI\Themes\UIThemePrototype.cs" />
+    <Compile Remove="UI\UiThemePrototype.cs" />
+    <Compile Remove="Objectives\Components\ObjectivePoolComponent.cs" />
+    <Compile Remove="MalfAI\MalfAiControlBorgsObjectiveComponent.cs" />
+    <Compile Remove="MalfAI\MalfAiActionEvents.cs" />
+    <Compile Remove="Actions\Events\RcdBuildActionEvent.cs" />
+    <Compile Remove="Actions\Events\SaveActionsEvent.cs" />
+    <Compile Remove="_Funkystation\Factory\Systems\RcdBuildDoAfterEvent.cs" />
+    <Compile Remove="MalfAI\Actions\MalfAiLockdownGridActionEvent.cs" />
+    <Compile Remove="MalfAI\Actions\MalfAiDetonateRcdsActionEvent.cs" />
+    <Compile Remove="MalfAI\Actions\MalfAiDoomsdayActionEvent.cs" />
+    <Compile Remove="MalfAI\Actions\OpenMalfAiBorgsUiActionEvent.cs" />
+    <Compile Remove="MalfAI\Actions\MalfAiSetViewportActionEvent.cs" />
+    <Compile Remove="MalfAI\Actions\MalfAiReturnToCoreActionEvent.cs" />
+    <Compile Remove="MalfAI\Actions\MalfAiOverrideMachineActionEvent.cs" />
+    <Compile Remove="MalfAI\Actions\MalfAiOpenViewportActionEvent.cs" />
+    <Compile Remove="MalfAI\Actions\MalfAiShuntToApcActionEvent.cs" />
+    <Compile Remove="MalfAI\Actions\MalfAiHijackMechActionEvent.cs" />
+    <Compile Remove="MalfAI\Actions\MalfAiToggleCameraUpgradeActionEvent.cs" />
+    <Compile Remove="MalfAI\Actions\MalfAiToggleCameraMicrophonesActionEvent.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Animation\" />
+    <Folder Include="Resources\Prototypes\Actions\" />
+    <Folder Include="Resources\Prototypes\Store\" />
+    <Folder Include="UI\Themes\" />
+    <Folder Include="_Funkystation\Factory\Systems\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Resources\Prototypes\Store\malf_ai_viewport.yml" />
+    <None Remove="Resources\Prototypes\Actions\malf_ai.yml" />
   </ItemGroup>
   <Import Project="..\RobustToolbox\MSBuild\Robust.Properties.targets" />
   <Import Project="..\RobustToolbox\MSBuild\Robust.CompNetworkGenerator.targets" />

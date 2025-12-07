@@ -1,3 +1,21 @@
+// SPDX-FileCopyrightText: 2021 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2021 Ygg01 <y.laughing.man.y@gmail.com>
+// SPDX-FileCopyrightText: 2022 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+// SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Plykiya <plykiya@protonmail.com>
+// SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2024 blueDev2 <89804215+blueDev2@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 osjarw <62134478+osjarw@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Drywink <hugogrethen@gmail.com>
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+//
+// SPDX-License-Identifier: MIT
+
 using Content.Server.Body.Components;
 using Content.Server.Body.Systems;
 using Content.Shared.Chemistry;
@@ -14,6 +32,8 @@ using Content.Shared.Interaction;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Stacks;
 using Content.Shared.Nutrition.EntitySystems;
+using Content.Shared.Containers.Components;
+using Robust.Shared.Containers;
 
 namespace Content.Server.Chemistry.EntitySystems;
 
@@ -22,6 +42,7 @@ public sealed class InjectorSystem : SharedInjectorSystem
     [Dependency] private readonly BloodstreamSystem _blood = default!;
     [Dependency] private readonly ReactiveSystem _reactiveSystem = default!;
     [Dependency] private readonly OpenableSystem _openable = default!;
+    [Dependency] private readonly SharedContainerSystem _container = default!;
 
     public override void Initialize()
     {
@@ -29,6 +50,22 @@ public sealed class InjectorSystem : SharedInjectorSystem
 
         SubscribeLocalEvent<InjectorComponent, InjectorDoAfterEvent>(OnInjectDoAfter);
         SubscribeLocalEvent<InjectorComponent, AfterInteractEvent>(OnInjectorAfterInteract);
+    }
+
+    /// <summary>
+    /// Gets the actual target entity from a proxy container if applicable, otherwise returns the original target.
+    /// </summary>
+    private EntityUid GetActualTarget(EntityUid target)
+    {
+        if (TryComp<BloodstreamProxyContainerComponent>(target, out var proxyContainer))
+        {
+            if (_container.TryGetContainer(target, proxyContainer.ContainerId, out var container) &&
+                container.ContainedEntities.Count > 0)
+            {
+                return container.ContainedEntities[0];
+            }
+        }
+        return target;
     }
 
     private bool TryUseInjector(Entity<InjectorComponent> injector, EntityUid target, EntityUid user)
@@ -43,8 +80,22 @@ public sealed class InjectorSystem : SharedInjectorSystem
             if (isOpenOrIgnored && SolutionContainers.TryGetRefillableSolution(target, out var refillableSolution, out _))
                 return TryInject(injector, target, refillableSolution.Value, user, true);
 
+            // Check if target has a bloodstream
             if (TryComp<BloodstreamComponent>(target, out var bloodstream))
                 return TryInjectIntoBloodstream(injector, (target, bloodstream), user);
+
+            // Check if target is a container that proxies to a victim's bloodstream
+            var actualTarget = GetActualTarget(target);
+            if (actualTarget != target)
+            {
+                if (TryComp<BloodstreamComponent>(actualTarget, out var victimBloodstream) &&
+                    SolutionContainers.ResolveSolution(actualTarget, victimBloodstream.ChemicalSolutionName,
+                        ref victimBloodstream.ChemicalSolution))
+                {
+                    if (victimBloodstream.ChemicalSolution != null)
+                        return TryInject(injector, actualTarget, victimBloodstream.ChemicalSolution.Value, user, false);
+                }
+            }
 
             Popup.PopupEntity(Loc.GetString("injector-component-cannot-transfer-message",
                 ("target", Identity.Entity(target, EntityManager))), injector, user);
@@ -58,6 +109,17 @@ public sealed class InjectorSystem : SharedInjectorSystem
                 SolutionContainers.ResolveSolution(target, stream.BloodSolutionName, ref stream.BloodSolution))
             {
                 return TryDraw(injector, (target, stream), stream.BloodSolution.Value, user);
+            }
+
+            // Check if target is a container that proxies to a victim's bloodstream
+            var actualTarget = GetActualTarget(target);
+            if (actualTarget != target)
+            {
+                if (TryComp<BloodstreamComponent>(actualTarget, out var victimStream) &&
+                    SolutionContainers.ResolveSolution(actualTarget, victimStream.BloodSolutionName, ref victimStream.BloodSolution))
+                {
+                    return TryDraw(injector, (actualTarget, victimStream), victimStream.BloodSolution.Value, user);
+                }
             }
 
             // Draw from an object (food, beaker, etc)
@@ -89,7 +151,8 @@ public sealed class InjectorSystem : SharedInjectorSystem
             return;
 
         // Is the target a mob? If yes, use a do-after to give them time to respond.
-        if (HasComp<MobStateComponent>(target) || HasComp<BloodstreamComponent>(target))
+        // Also check for containers that proxy to a victim's bloodstream
+        if (HasComp<MobStateComponent>(target) || HasComp<BloodstreamComponent>(target) || HasComp<BloodstreamProxyContainerComponent>(target))
         {
             // Are use using an injector capible of targeting a mob?
             if (entity.Comp.IgnoreMobs)
@@ -108,6 +171,9 @@ public sealed class InjectorSystem : SharedInjectorSystem
     /// </summary>
     private void InjectDoAfter(Entity<InjectorComponent> injector, EntityUid target, EntityUid user)
     {
+        // If target is a proxy container, get the actual victim for popups and delay calculations
+        target = GetActualTarget(target);
+
         // Create a pop-up for the user
         if (injector.Comp.ToggleState == InjectorToggleMode.Draw)
         {
@@ -146,7 +212,7 @@ public sealed class InjectorSystem : SharedInjectorSystem
 
         if (isTarget)
         {
-            // Create a pop-up for the target
+            // Create a pop-up for the target (victim if proxy container, otherwise the target)
             var userName = Identity.Entity(user, EntityManager);
             if (injector.Comp.ToggleState == InjectorToggleMode.Draw)
             {

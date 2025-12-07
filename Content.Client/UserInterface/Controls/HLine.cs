@@ -1,4 +1,9 @@
-﻿using Content.Client.Stylesheets;
+// SPDX-FileCopyrightText: 2022 Jesse Rougeau <jmaster9999@gmail.com>
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+//
+// SPDX-License-Identifier: MIT
+
+using Content.Client.Stylesheets;
 using Robust.Client.Graphics;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;

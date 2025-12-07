@@ -1,3 +1,9 @@
+# SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
 - type: entity
   id: ProjectileCosmicNova
   name: Astral Nova
@@ -43,6 +49,56 @@
     corruptionSpeed: 0.4
     useVFX: false
     mobile: true
+
+- type: entity
+  id: ProjectileCosmic
+  name: Malign Bolt
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  description: Ouch.
+  components:
+  - type: Reflective
+    reflective:
+    - Energy
+  - type: Sprite
+    noRot: false
+    sprite: _DV/CosmicCult/Effects/weaponprojectiles.rsi
+    layers:
+      - state: razor
+        shader: unshaded
+  - type: Projectile
+    impactEffect: BulletImpactEffectCosmic
+    damage:
+      types:
+        Cold: 12
+    soundHit:
+      path: /Audio/_DV/CosmicCult/projectile_razor_hit.ogg
+      params:
+        variation: 0.08
+  - type: Ammo
+    muzzleFlash: null
+  # Short lifespan
+  - type: TimedDespawn
+    lifetime: 0.6
+  - type: SingularityDistortion
+    intensity: +5
+    falloffPower: 1.5
+  - type: PointLight
+    color: "#42a4ae"
+    radius: 1.5
+    energy: 6
+    castShadows: false
+  - type: LightBehaviour
+    behaviours:
+      - !type:FadeBehaviour
+        interpolate: Linear
+        minDuration: 0.58
+        maxDuration: 0.59
+        startValue: 0.1
+        endValue: 6
+        property: Energy
+        enabled: true
+        reverseWhenFinished: true
 
 - type: entity
   id: ProjectileCosmicRazor

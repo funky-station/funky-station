@@ -1,3 +1,9 @@
+# SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 ferynn <117872973+ferynn@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
 thaven-mood-secret-moods-shared-name = Keep Your Moods Secret
 thaven-mood-secret-moods-shared-desc = Thaven moods are a strictly-kept secret, and should never be revealed to anyone.
 
@@ -54,6 +60,9 @@ thaven-mood-room-holy-desc = Thaven must congregate at least three times per day
 
 thaven-mood-delicacy-name = Just Like Mom Used To Make
 thaven-mood-delicacy-desc = {$edible} is a traditional Thaven delicacy. All Thaven aboard the station should gather as many as possible and organize a feast.
+
+thaven-mood-thirstquencher-name = Thirst Quencher
+thaven-mood-thirstquencher-desc = {$drink} is a traditional Thaven beverage. All Thaven aboard the station should make as many as possible and hold a drinking party.
 
 thaven-mood-holiday-name = Today is {$day}
 thaven-mood-holiday-desc = You think you remember the traditional celebrations...

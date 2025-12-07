@@ -1,0 +1,41 @@
+# SPDX-FileCopyrightText: 2025 8tv <eightev@gmail.com>
+# SPDX-FileCopyrightText: 2025 Errant <35878406+Errant-4@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Southbridge <7013162+southbridge-fur@users.noreply.github.com>
+#
+# SPDX-License-Identifier: MIT
+
+- type: entity
+  parent: MarkerBase
+  id: SpawnMobXenoEasy
+  name: Xeno Spawner
+  suffix: Easy, Random
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - sprite: Mobs/Aliens/Xenos/drone.rsi
+      state: running
+    - state: ai
+  - type: ConditionalSpawner
+    prototypes:
+    - MobXeno
+    - MobXenoDrone
+    - MobXenoRunner
+
+- type: entity
+  parent: MarkerBase
+  id: SpawnMobXenoHard
+  name: Xeno Spawner
+  suffix: Hard, Random
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - sprite: Mobs/Aliens/Xenos/ravager.rsi
+      state: running
+    - state: ai
+  - type: ConditionalSpawner
+    prototypes:
+    - MobXenoPraetorian
+    - MobXenoRavager
+    - MobXenoSpitter

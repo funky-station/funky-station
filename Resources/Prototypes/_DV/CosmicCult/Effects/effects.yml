@@ -1,3 +1,10 @@
+# SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 AftrLite
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
 - type: entity
   categories: [ HideSpawnMenu ]
   id: WeaponArcCosmic
@@ -345,3 +352,41 @@
     energy: 1.6
     castShadows: false
     color: "#42a4ae"
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseCosmicVFX
+  id: CosmicColossusAttack1Vfx
+  placement:
+    mode: SnapgridCenter
+    snap:
+    - Wall
+  components:
+  - type: Transform
+    anchored: true
+    noRot: true
+  - type: TimedDespawn
+    lifetime: 1.5
+  - type: Sprite
+    snapCardinals: true
+    layers:
+    - sprite: _DV/CosmicCult/Effects/colossus_attack.rsi
+      state: attack1
+      shader: unshaded
+  - type: PointLight
+    color: "#42a4ae"
+    radius: 5
+    energy: 5
+    castShadows: true
+  - type: LightBehaviour
+    behaviours:
+    - !type:FadeBehaviour
+      interpolate: Linear
+      minDuration: 1.5
+      maxDuration: 1.5
+      startValue: 0.1
+      endValue: 5
+      property: Energy
+      enabled: true
+      isLooped: true
+      reverseWhenFinished: true

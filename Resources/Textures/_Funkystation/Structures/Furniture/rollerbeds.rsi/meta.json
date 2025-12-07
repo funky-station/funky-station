@@ -1,0 +1,28 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Syndicate Surgery Rollerbed for Funky Station - Design by @Catazeus (GitHub) and Polishing + QA by @vectorassembly (GitHub).",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "syndicate_surgery_rollerbed"
+        },
+        {
+            "name": "syndicate_surgery_rollerbed-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "syndicate_surgery_rollerbed-inhand-right",
+            "directions": 4
+        },
+        {
+            "name": "syndicate_surgery_rollerbed_buckled"
+        },
+        {
+            "name": "syndicate_surgery_rollerbed_folded"
+        }
+    ]
+}

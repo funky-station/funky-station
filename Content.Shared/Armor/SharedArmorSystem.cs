@@ -1,8 +1,20 @@
-﻿using Content.Shared.Damage;
+// SPDX-FileCopyrightText: 2023 Chronophylos <nikolai@chronophylos.com>
+// SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 beck-thompson <107373427+beck-thompson@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
+// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 unknown <alexander.kuepper1234@gmail.com>
+//
+// SPDX-License-Identifier: MIT
+
+using Content.Shared.Damage;
 using Content.Shared.Examine;
 using Content.Shared.Inventory;
 using Content.Shared.Silicons.Borgs;
 using Content.Shared.Verbs;
+using Content.Shared._EE.Supermatter.Components;
 using Robust.Shared.Utility;
 
 namespace Content.Shared.Armor;
@@ -54,7 +66,7 @@ public abstract class SharedArmorSystem : EntitySystem
         if (!args.CanInteract || !args.CanAccess || !component.ShowArmorOnExamine)
             return;
 
-        var examineMarkup = GetArmorExamine(component.Modifiers);
+        var examineMarkup = GetArmorExamine(component.Modifiers, uid);
 
         var ev = new ArmorExamineEvent(examineMarkup);
         RaiseLocalEvent(uid, ref ev);
@@ -64,7 +76,7 @@ public abstract class SharedArmorSystem : EntitySystem
             Loc.GetString("armor-examinable-verb-message"));
     }
 
-    private FormattedMessage GetArmorExamine(DamageModifierSet armorModifiers)
+    private FormattedMessage GetArmorExamine(DamageModifierSet armorModifiers, EntityUid? uid = null)
     {
         var msg = new FormattedMessage();
         msg.AddMarkupOrThrow(Loc.GetString("armor-examine"));
@@ -97,6 +109,12 @@ public abstract class SharedArmorSystem : EntitySystem
                 ("type", armorType),
                 ("value", flatArmor.Value)
             ));
+        }
+
+        if (uid != null && HasComp<SupermatterImmuneComponent>(uid.Value))
+        {
+            msg.PushNewline();
+            msg.AddMarkupOrThrow(Loc.GetString("armor-supermatter-immune"));
         }
 
         return msg;

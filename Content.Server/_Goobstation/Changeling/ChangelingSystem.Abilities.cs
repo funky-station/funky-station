@@ -1,3 +1,24 @@
+// SPDX-FileCopyrightText: 2024 John Space <bigdumb421@gmail.com>
+// SPDX-FileCopyrightText: 2024 PJBot <pieterjan.briers+bot@gmail.com>
+// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
+// SPDX-FileCopyrightText: 2024 yglop <95057024+yglop@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Drywink <43855731+Drywink@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Drywink <hugogrethen@gmail.com>
+// SPDX-FileCopyrightText: 2025 Eris <eris@erisws.com>
+// SPDX-FileCopyrightText: 2025 Eris <erisfiregamer1@gmail.com>
+// SPDX-FileCopyrightText: 2025 Skye <57879983+Rainbeon@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 TheSecondLord <88201625+TheSecondLord@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 V <97265903+formlessnameless@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 ferynn <117872973+ferynn@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 ferynn <witchy.girl.me@gmail.com>
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
 using System.Linq;
 using Content.Shared.Changeling;
 using Content.Shared.Chemistry.Components;
@@ -15,17 +36,19 @@ using Content.Server.Objectives.Components;
 using Content.Server.Light.Components;
 using Content.Shared.Eye.Blinding.Systems;
 using Content.Shared.Eye.Blinding.Components;
-using Content.Server.Flash.Components;
 using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Stealth.Components;
 using Content.Shared.Damage.Components;
 using Content.Server.Radio.Components;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Random.Helpers;
+using Content.Shared._EE.Overlays.Switchable;
+using Content.Shared.Species.Arachnid;
+using Robust.Shared.Containers;
 
 namespace Content.Server.Changeling;
 
-public sealed partial class ChangelingSystem : EntitySystem
+public sealed partial class ChangelingSystem
 {
     public void SubscribeAbilities()
     {
@@ -57,7 +80,6 @@ public sealed partial class ChangelingSystem : EntitySystem
         SubscribeLocalEvent<ChangelingComponent, StingLayEggsEvent>(OnLayEgg);
 
         SubscribeLocalEvent<ChangelingComponent, ActionAnatomicPanaceaEvent>(OnAnatomicPanacea);
-        SubscribeLocalEvent<ChangelingComponent, ActionAugmentedEyesightEvent>(OnAugmentedEyesight);
         SubscribeLocalEvent<ChangelingComponent, ActionBiodegradeEvent>(OnBiodegrade);
         SubscribeLocalEvent<ChangelingComponent, ActionChameleonSkinEvent>(OnChameleonSkin);
         SubscribeLocalEvent<ChangelingComponent, ActionEphedrineOverdoseEvent>(OnEphedrineOverdose);
@@ -589,6 +611,7 @@ public sealed partial class ChangelingSystem : EntitySystem
         eggComp.lingComp = comp;
         eggComp.lingMind = (EntityUid) mind;
         eggComp.lingStore = _serialization.CreateCopy(storeComp, notNullableOverride: true);
+        eggComp.AugmentedEyesightPurchased = HasComp<ThermalVisionComponent>(uid);
 
         EnsureComp<AbsorbedComponent>(target);
         var dmg = new DamageSpecifier(_proto.Index(AbsorbedDamageGroup), 200);
@@ -596,9 +619,9 @@ public sealed partial class ChangelingSystem : EntitySystem
         _blood.ChangeBloodReagent(target, "FerrochromicAcid");
         _blood.SpillAllSolutions(target);
 
-        PlayMeatySound((EntityUid) uid, comp);
+        PlayMeatySound(uid, comp);
 
-        _bodySystem.GibBody((EntityUid) uid);
+        _bodySystem.GibBody(uid);
     }
 
     #endregion
@@ -621,24 +644,18 @@ public sealed partial class ChangelingSystem : EntitySystem
         else return;
         PlayMeatySound(uid, comp);
     }
-    public void OnAugmentedEyesight(EntityUid uid, ChangelingComponent comp, ref ActionAugmentedEyesightEvent args)
-    {
-        if (!TryUseAbility(uid, comp, args))
-            return;
 
-        if (HasComp<FlashImmunityComponent>(uid))
-        {
-            _popup.PopupEntity(Loc.GetString("changeling-passive-active"), uid, uid);
-            return;
-        }
-
-        EnsureComp<FlashImmunityComponent>(uid);
-        _popup.PopupEntity(Loc.GetString("changeling-passive-activate"), uid, uid);
-    }
     public void OnBiodegrade(EntityUid uid, ChangelingComponent comp, ref ActionBiodegradeEvent args)
     {
         if (!TryUseAbility(uid, comp, args))
             return;
+
+        // Check if user is in a cocoon container and break it
+        if (_container.TryGetContainingContainer(uid, out var container) &&
+            TryComp<CocoonContainerComponent>(container.Owner, out var cocoonComp))
+        {
+            _cocoon.BreakCocoon((container.Owner, cocoonComp));
+        }
 
         if (TryComp<CuffableComponent>(uid, out var cuffs) && cuffs.Container.ContainedEntities.Count > 0)
         {
@@ -677,7 +694,7 @@ public sealed partial class ChangelingSystem : EntitySystem
 
         EnsureComp<StealthComponent>(uid);
         EnsureComp<StealthOnMoveComponent>(uid, out var stealthOnMoveComponent);
-        stealthOnMoveComponent.MovementVisibilityRate = 1f; // funkystation - fucking nerf this garbage
+        stealthOnMoveComponent.MovementVisibilityRate = .8f; // funkystation - fucking nerf this garbage
         _popup.PopupEntity(Loc.GetString("changeling-chameleon-start"), uid, uid);
     }
     public void OnEphedrineOverdose(EntityUid uid, ChangelingComponent comp, ref ActionEphedrineOverdoseEvent args)
@@ -807,6 +824,16 @@ public sealed partial class ChangelingSystem : EntitySystem
         transmitter.Channels = new() { "Hivemind" };
 
         _popup.PopupEntity(Loc.GetString("changeling-hivemind-start"), uid, uid);
+    }
+
+    public void GrantHivemindAccess(EntityUid uid)
+    {
+        EnsureComp<HivemindComponent>(uid);
+        EnsureComp<IntrinsicRadioReceiverComponent>(uid);
+        var transmitter = EnsureComp<IntrinsicRadioTransmitterComponent>(uid);
+        var radio = EnsureComp<ActiveRadioComponent>(uid);
+        radio.Channels = ["Hivemind"];
+        transmitter.Channels = ["Hivemind"];
     }
 
     #endregion

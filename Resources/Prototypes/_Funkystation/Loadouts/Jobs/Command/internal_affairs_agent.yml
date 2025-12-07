@@ -1,3 +1,86 @@
+# SPDX-FileCopyrightText: 2025 MaiaArai <158123176+YaraaraY@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 TrixxedHeart <46364955+TrixxedBit@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 kbarkevich <24629810+kbarkevich@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
+# Jumpsuit
+- type: loadout
+  id: InternalAffairsAgentTurtleneckBlack
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitIAATurtleneckBlack
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SeniorCentralCommand
+  groupBy: "jumpsuit"
+
+- type: loadout
+  id: InternalAffairsAgentTurtleneckRed
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitIAATurtleneckRed
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SeniorCentralCommand
+  groupBy: "jumpsuit"
+
+- type: loadout
+  id: InternalAffairsAgentTurtleneckBlue
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitIAATurtleneckBlue
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SeniorCentralCommand
+  groupBy: "jumpsuit"
+
+- type: loadout
+  id: InternalAffairsAgentTurtleneckBlackSkirt
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtIAATurtleneckBlack
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SeniorCentralCommand
+  groupBy: "jumpskirt"
+
+- type: loadout
+  id: InternalAffairsAgentTurtleneckRedSkirt
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtIAATurtleneckRed
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SeniorCentralCommand
+  groupBy: "jumpskirt"
+
+- type: loadout
+  id: InternalAffairsAgentTurtleneckBlueSkirt
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtIAATurtleneckBlue
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SeniorCentralCommand
+  groupBy: "jumpskirt"
+
+# Outer
+- type: loadout
+  id: InternalAffairsAgentWinterCoat
+  equipment:
+    outerClothing: ClothingOuterWinterIAA
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SeniorCentralCommand
+
+# Gloves
+- type: loadout
+  id: InternalAffairsAgentGlovesBlack
+  equipment:
+    gloves: ClothingHandsGlovesColorBlack
+
+- type: loadout
+  id: InternalAffairsAgentGlovesRed
+  equipment:
+    gloves: ClothingHandsGlovesColorRed
+
 # Backpack
 - type: loadout
   id: InternalAffairsAgentDuffel

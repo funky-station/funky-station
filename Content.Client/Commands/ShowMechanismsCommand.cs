@@ -1,3 +1,16 @@
+// SPDX-FileCopyrightText: 2021 Acruid <shatter66@gmail.com>
+// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <gradientvera@outlook.com>
+// SPDX-FileCopyrightText: 2021 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 Jezithyr <Jezithyr@gmail.com>
+// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
+// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 PrPleGoo <PrPleGoo@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+//
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Body.Organ;
 using Robust.Client.GameObjects;
 using Robust.Shared.Console;
@@ -16,11 +29,12 @@ public sealed class ShowMechanismsCommand : LocalizedCommands
 
     public override void Execute(IConsoleShell shell, string argStr, string[] args)
     {
+        var spriteSys = _entManager.System<SpriteSystem>();
         var query = _entManager.AllEntityQueryEnumerator<OrganComponent, SpriteComponent>();
 
-        while (query.MoveNext(out _, out var sprite))
+        while (query.MoveNext(out var uid, out _, out var sprite))
         {
-            sprite.ContainerOccluded = false;
+            spriteSys.SetContainerOccluded((uid, sprite), false);
         }
     }
 }

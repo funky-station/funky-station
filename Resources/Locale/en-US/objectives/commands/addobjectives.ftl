@@ -1,3 +1,9 @@
+# SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: MIT
+
 # addobjectives
 cmd-addobjective-desc = Adds an objective to the player's mind.
 cmd-addobjective-help = addobjective <username> <objectiveID>

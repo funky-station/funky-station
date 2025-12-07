@@ -1,3 +1,14 @@
+<!--
+SPDX-FileCopyrightText: 2024 UBlueberry <161545003+UBlueberry@users.noreply.github.com>
+SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+SPDX-FileCopyrightText: 2025 Tadeo <td12233a@gmail.com>
+SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
+SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+
+SPDX-License-Identifier: MIT
+-->
+
 <Document>
   # Thieves
 
@@ -9,6 +20,8 @@
   </Box>
 
   Thieves are petty yet crafty [color=green]criminals[/color] who can't keep their hands to themselves. You were forcefully given a [bold]pacifism implant[/bold] after your last arrest, but you won't let that stop you from trying to add to your collection.
+
+  You should not, under any circumstances, attempt to intentionally bypass the intended limitations of the pacifist implant via causing direct or indirect harm to other crewmembers. Examples of indirect harm include but are not limited to: removing internals from someone in an attempt to asphyxiate them, injecting someone with harmful chemicals, triggering explosives in someone's presence, or exposing someone to radiation.
 
   ## Art of the Steal
   Unlike other antagonists, [bold]staying out of trouble is almost a requirement for you[/bold] because of your implant.

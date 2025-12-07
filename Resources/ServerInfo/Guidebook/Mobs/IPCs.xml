@@ -1,13 +1,30 @@
+<!--
+SPDX-FileCopyrightText: 2024 Fishbait <Fishbait@git.ml>
+SPDX-FileCopyrightText: 2024 John Space <bigdumb421@gmail.com>
+SPDX-FileCopyrightText: 2025 GumshoeWorm <thelunaman365@gmail.com>
+SPDX-FileCopyrightText: 2025 Kirby <205904127+154942@users.noreply.github.com>
+SPDX-FileCopyrightText: 2025 Lyndomen <49795619+lyndomen@users.noreply.github.com>
+SPDX-FileCopyrightText: 2025 Mish <bluscout78@yahoo.com>
+SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+
+SPDX-License-Identifier: MIT
+-->
+
 <Document>
   # I.P.C.
-  <GuideEntityEmbed Entity="MobIPCDummy" Caption="I.P.C."/>
-  An IPC (short for Integrated Positronic Chassis) is a type of sentient robot and is considered an [color=yellow]independent individual[/color], meaning [color=red]they are not guided by any laws of robotics[/color]. IPCs cannot be hacked by Emags because they do not have to follow any predefined directives in their system. [color=red]IPCs are silicon-based beings, so doctors do not have the skills to repair them.[/color]
+  <GuideEntityEmbed Entity="MobIPCDummy" Caption=""/>
+
+  An IPC (short for Integrated Positronic Chassis) is a type of sentient robot and is considered an
+  [color=yellow]independent individual[/color], meaning [color=red]they are not guided by any laws of robotics[/color].
+  IPCs cannot be hacked by Emags because they do not have to follow any predefined directives in their system.
+  [color=red]IPCs are silicon-based beings, so doctors do not have the skills to repair them.[/color]
 
   <Box>
     <GuideEntityEmbed Entity="PositronicBrain" Caption="Positronic Brain"/>
   </Box>
-  Like borgs, IPCs have a positronic brain as their processing source. However, unlike them, IPCs can't be assembled. "It's cheaper to create a shell that obeys you than one that doesn't! *wink*"
-  
+  Like cyborgs, IPCs have a positronic brain as their processing source. However, unlike them, IPCs can't be assembled.
+  If an IPC's body is destroyed, it becomes incredibly difficult - if not impossible - to repair them.
+
   ## Recharging an IPC
    <Box>
     <GuideEntityEmbed Entity="APCBasic" Caption="APC Terminal"/>
@@ -16,24 +33,25 @@
   </Box>
   IPCs can be recharged in three different ways:
 
-  APC Terminal: IPCs can use APC terminals to recharge. Press [color=yellow]Alt + left click[/color] on a terminal as many times as needed to fully recharge.
+  APC Terminal: IPCs can use APC terminals to recharge. Press [color=yellow]Alt + Left Click[/color] on a terminal as many times as needed to fully recharge.
 
   Borg Rechargers: IPCs can use borg rechargers to recharge. Always prioritize the ones outside of the Sci area to avoid headaches.
 
-  Power Cell: IPCs have an internal power cell that serves as their battery. They can simply swap it out by opening the hatch and manually replacing it.
+  Power Cell: IPCs have an internal power cell that serves as their battery. They, or someone else, can simply swap it out by opening the hatch and manually replacing it.
 
   ## Integrated Radio
   <Box>
     <GuideEntityEmbed Entity="EncryptionKeyScience" Caption="Encryption key"/>
   </Box>
 
-  IPCs do [bold]not[/bold] use external radios because they already have one built in. They only need to get an encryption key from a radio. By clicking on an IPC with a [color=yellow]wire cutter[/color], you can remove their keys.
+  IPCs do [bold]not[/bold] use external radios because they already have one built in. They only need to get an encryption
+  key from a radio. By clicking on an unlocked IPC with a [color=yellow]wire cutter[/color], you can remove their keys.
   You can find new keys around the station or remove one from a sector radio using a [color=yellow]screwdriver[/color].
 
   ## Repairing
   <Box HorizontalAlignment="Stretch">
     <GuideEntityEmbed Entity="WelderIndustrialAdvanced" Caption="Welder"/>
-    Welders can be used to repair [color=yellow]Brute[/color] damage and stop [color=orange]Bleeding[/color].
+    Welders can be used to repair [color=orange]Brute[/color] damage and stop [color=red]Bleeding[/color].
   </Box>
   <Box HorizontalAlignment="Stretch">
     <GuideEntityEmbed Entity="CableApcStack" Caption="Cables (any type)"/>
@@ -49,17 +67,27 @@
   </Box>
   <Box HorizontalAlignment="Stretch">
     <GuideEntityEmbed Entity="SheetPlastic" Caption="Plastic Sheets"/>
-    Plastic Sheets can be used to stop [color=orange]Bleeding[/color].
+    Plastic Sheets can be used to stop [color=red]Bleeding[/color].
   </Box>
   <Box HorizontalAlignment="Stretch">
     <GuideEntityEmbed Entity="Oilpack" Caption="Oil Packs"/>
     IPCs have no blood, but they have Oil. Oil Packs can be used to replenish [color=red]Oil[/color].
   </Box>
   <Box HorizontalAlignment="Stretch">
-    In the event an IPC dies, after being fully repaired, it should be restarted using the [color=yellow]"Restart"[/color] button (located by right-clicking).
+    In the event an IPC dies, after being fully repaired, it should be restarted using the [color=yellow]"Restart"[/color] button (located by Right-Clicking).
   </Box>
   <Box HorizontalAlignment="Stretch">
     [color=red]NEVER ELECTROCUTE AN IPC with a defibrillator or in any other way while it is dead, as this will cause the battery to discharge energy rays outward![/color]
   </Box>
+
+  ## IPC Naming Conventions
+
+  IPCs typically have 3-5 characters names followed by a hyphen and numbers.
+
+  [bullet] ARMA-206
+
+  [bullet] YPT-042
+
+  [bullet] WISP-524
 
 </Document>

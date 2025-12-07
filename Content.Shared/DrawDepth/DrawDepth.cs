@@ -1,3 +1,28 @@
+// SPDX-FileCopyrightText: 2020 ComicIronic <comicironic@gmail.com>
+// SPDX-FileCopyrightText: 2020 Hugal31 <hugo.laloge@gmail.com>
+// SPDX-FileCopyrightText: 2021 Daniel Castro Razo <eldanielcr@gmail.com>
+// SPDX-FileCopyrightText: 2021 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2021 Flipp Syder <76629141+vulppine@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2021 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2021 Moony <moonheart08@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2021 Radrark <76271993+Radrark@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2021 Visne <39844191+Visne@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 themias <89101928+themias@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 ArthurMousatov <57199800+ArthurMousatov@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Flareguy <78941145+Flareguy@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Vordenburg <114301317+Vordenburg@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 John Space <bigdumb421@gmail.com>
+// SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2024 fishbait <gnesse@gmail.com>
+// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 chromiumboy <50505512+chromiumboy@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+//
+// SPDX-License-Identifier: MIT
+
 using Robust.Shared.Serialization;
 using DrawDepthTag = Robust.Shared.GameObjects.DrawDepth;
 
@@ -9,13 +34,15 @@ namespace Content.Shared.DrawDepth
         /// <summary>
         ///     This is for sub-floors, the floors you see after prying off a tile.
         /// </summary>
-        LowFloors = DrawDepthTag.Default - 18,
+        LowFloors = DrawDepthTag.Default - 20,
 
         // various entity types that require different
         // draw depths, as to avoid hiding
         #region SubfloorEntities
-        ThickPipe = DrawDepthTag.Default - 17,
-        ThickWire = DrawDepthTag.Default - 16,
+        ThickPipe = DrawDepthTag.Default - 19,
+        ThickWire = DrawDepthTag.Default - 18,
+        ThinPipeAlt2 = DrawDepthTag.Default - 17,
+        ThinPipeAlt1 = DrawDepthTag.Default - 16,
         ThinPipe = DrawDepthTag.Default - 15,
         ThinWire = DrawDepthTag.Default - 14,
         #endregion

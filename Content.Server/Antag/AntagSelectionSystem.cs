@@ -1,3 +1,37 @@
+// SPDX-FileCopyrightText: 2023 Ed <96445749+TheShuEd@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Pieter-Jan Briers <pieterjan.briers@gmail.com>
+// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
+// SPDX-FileCopyrightText: 2023 Vasilis <vasilis@pikachu.systems>
+// SPDX-FileCopyrightText: 2023 coolmankid12345 <55817627+coolmankid12345@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 coolmankid12345 <coolmankid12345@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2024 Brandon Hu <103440971+Brandon-Huu@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Errant <35878406+Errant-4@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 LordCarve <27449516+LordCarve@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Mervill <mervills.email@gmail.com>
+// SPDX-FileCopyrightText: 2024 NakataRin <45946146+NakataRin@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 PJBot <pieterjan.briers+bot@gmail.com>
+// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2024 Rainfey <rainfey0+github@gmail.com>
+// SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Jen Pollock <jen@jenpollock.ca>
+// SPDX-FileCopyrightText: 2025 Mish <bluscout78@yahoo.com>
+// SPDX-FileCopyrightText: 2025 Quantum-cross <7065792+Quantum-cross@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 Terkala <appleorange64@gmail.com>
+// SPDX-FileCopyrightText: 2025 Tyranex <bobthezombie4@gmail.com>
+// SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+//
+// SPDX-License-Identifier: MIT
+
 using System.Linq;
 using Content.Server.Antag.Components;
 using Content.Server.Chat.Managers;
@@ -13,6 +47,7 @@ using Content.Server.Roles;
 using Content.Server.Roles.Jobs;
 using Content.Server.Shuttles.Components;
 using Content.Server.Station.Events;
+using Content.Server._EinsteinEngines.Silicon.IPC;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Antag;
 using Content.Shared.Clothing;
@@ -51,6 +86,9 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
     [Dependency] private readonly TransformSystem _transform = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
+    [Dependency] private readonly SharedHumanoidAppearanceSystem _appearance = default!;
+    [Dependency] private readonly InternalEncryptionKeySpawner _internalEncryption = default!;
+    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
 
     // arbitrary random number to give late joining some mild interest.
     public const float LateJoinRandomChance = 0.5f;
@@ -344,14 +382,21 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
     {
         _adminLogger.Add(LogType.AntagSelection, $"Start trying to make {session} become the antagonist: {ToPrettyString(ent)}");
 
-        if (checkPref && !HasPrimaryAntagPreference(session, def))
+        if (!IsSessionValid(ent, session, def))
+        {
+            _adminLogger.Add(LogType.AntagSelection, $"{session} didn't have valid session");
             return false;
-
-        if (!IsSessionValid(ent, session, def) || !IsEntityValid(session?.AttachedEntity, def))
-            return false;
+        }
 
         if (onlyPreSelect && session != null)
         {
+            // This is preselection, so check if the PLAYER AS A WHOLE is compatible with the antagonist
+            if (checkPref && !HasPrimaryAntagPreference(session, def, ent.Comp.SelectionTime))
+            {
+                _adminLogger.Add(LogType.AntagSelection, $"{session} didn't have antagonist preference for {ToPrettyString(ent)}");
+                return false;
+            }
+
             if (!ent.Comp.PreSelectedSessions.TryGetValue(def, out var set))
                 ent.Comp.PreSelectedSessions.Add(def, set = new HashSet<ICommonSession>());
             set.Add(session);
@@ -360,6 +405,14 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
         }
         else
         {
+            // This is not preselection, so check the player's actual entity to see if it's compatible with the antagonist.
+            // This function will also check the character profile's antagonist preferences.
+            if (!IsEntityValid(session?.AttachedEntity, def))
+            {
+                _adminLogger.Add(LogType.AntagSelection, $"{session} didn't have valid entity for {ToPrettyString(ent)}");
+                return false;
+            }
+
             MakeAntag(ent, session, def, ignoreSpawner);
         }
 
@@ -393,7 +446,7 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
 
         if (!antagEnt.HasValue)
         {
-            var getEntEv = new AntagSelectEntityEvent(session, ent);
+            var getEntEv = new AntagSelectEntityEvent(session, ent, def);
             RaiseLocalEvent(ent, ref getEntEv, true);
             antagEnt = getEntEv.Entity;
         }
@@ -457,6 +510,10 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
 
         _loadout.Equip(player, gear, def.RoleLoadout);
 
+        // Give IPCs the encryption keys from their headset (e.g., syndicate comms for nukeops)
+        if (def.StartingGear is not null && _prototypeManager.TryIndex(def.StartingGear.Value, out var startingGearProto))
+            _internalEncryption.TryInsertEncryptionKey(player, startingGearProto, EntityManager);
+
         if (session != null)
         {
             var curMind = session.GetMind();
@@ -497,11 +554,11 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
             if (ent.Comp.PreSelectedSessions.TryGetValue(def, out var preSelected) && preSelected.Contains(session))
                 continue;
 
-            if (HasPrimaryAntagPreference(session, def))
+            if (HasPrimaryAntagPreference(session, def, ent.Comp.SelectionTime))
             {
                 preferredList.Add(session);
             }
-            else if (HasFallbackAntagPreference(session, def))
+            else if (HasFallbackAntagPreference(session, def, ent.Comp.SelectionTime))
             {
                 fallbackList.Add(session);
             }
@@ -553,7 +610,23 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
 
         // todo: expand this to allow for more fine antag-selection logic for game rules.
         if (!_jobs.CanBeAntag(session))
+        {
+            // Allow Malf AI rule to bypass job CanBeAntag gating so Station AI can be selected.
+            if (HasComp<Content.Server.GameTicking.Rules.Components.MalfAiRuleComponent>(ent.Owner))
+                goto MalfAiStrictCheck;
             return false;
+        }
+
+        // Strict gating for Malf AI: only the Station AI may be selected as Malf AI.
+        MalfAiStrictCheck:
+        if (HasComp<Content.Server.GameTicking.Rules.Components.MalfAiRuleComponent>(ent.Owner))
+        {
+            var entUid = session.AttachedEntity;
+            if (entUid == null)
+                return false;
+            if (!HasComp<Content.Shared.Silicons.StationAi.StationAiHeldComponent>(entUid.Value))
+                return false;
+        }
 
         return true;
     }
@@ -572,6 +645,15 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
 
         if (!def.AllowNonHumans && !HasComp<HumanoidAppearanceComponent>(entity))
             return false;
+
+        // Ensure that the profile has the antag preference set, if this is a late join this hasn't been checked!
+        var baseProfile = _appearance.GetBaseProfile(entity.Value);
+        if (baseProfile is not null)
+        {
+            if (!def.PrefRoles.ToHashSet().Overlaps(baseProfile.AntagPreferences) &&
+                !def.FallbackRoles.ToHashSet().Overlaps(baseProfile.AntagPreferences))
+                return false;
+        }
 
         if (def.Whitelist != null)
         {
@@ -603,13 +685,15 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
 /// Only raised if the selected player's current entity is invalid.
 /// </summary>
 [ByRefEvent]
-public record struct AntagSelectEntityEvent(ICommonSession? Session, Entity<AntagSelectionComponent> GameRule)
+public record struct AntagSelectEntityEvent(ICommonSession? Session, Entity<AntagSelectionComponent> GameRule, AntagSelectionDefinition Def)
 {
     public readonly ICommonSession? Session = Session;
 
     public bool Handled => Entity != null;
 
     public EntityUid? Entity;
+
+    public AntagSelectionDefinition Def = Def;
 }
 
 /// <summary>

@@ -1,10 +1,26 @@
+<!--
+SPDX-FileCopyrightText: 2023 Albert Snow <ajsnow2012@gmail.com>
+SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+SPDX-FileCopyrightText: 2023 Warentan <113652968+Warentan@users.noreply.github.com>
+SPDX-FileCopyrightText: 2023 end <72604018+laok233@users.noreply.github.com>
+SPDX-FileCopyrightText: 2024 Iztok Bajcar <50874197+iztokbajcar@users.noreply.github.com>
+SPDX-FileCopyrightText: 2024 Kira Bridgeton <161087999+Verbalase@users.noreply.github.com>
+SPDX-FileCopyrightText: 2024 Terraspark4941 <terraspark4941@gmail.com>
+SPDX-FileCopyrightText: 2025 Steve <marlumpy@gmail.com>
+SPDX-FileCopyrightText: 2025 Terkala <appleorange64@gmail.com>
+SPDX-FileCopyrightText: 2025 marc-pelletier <113944176+marc-pelletier@users.noreply.github.com>
+SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+
+SPDX-License-Identifier: MIT
+-->
+
 <Document>
   # Atmospherics
 
   Atmospherics setups are a necessity for your long-term comfort, but are generally underdocumented, resulting in them being a bit tricky to set up. The following attempts to cover the basics.
 
   ## Standard Mix
-  Breathing pure O2 or pure N2 is generally bad for the health of your crew, and it is recommended to instead aim for a mix of [color=#a4885c]78% N2 and 22% O2 at 101.24kPa.[/color] It's recommended that your gas mixer setup be set to output at least 300kPA for faster re-pressurization of rooms, without posing too much of an overpressurization risk, should traitors sabotage the distro.
+  Breathing pure O2 or pure N2 is generally bad for the health of your crew, and it is recommended to instead aim for a mix of [color=#a4885c]74% N2 and 26% O2 at 101.24kPa.[/color] It's recommended that your gas mixer setup be set to output at least 300kPA for faster re-pressurization of rooms, without posing too much of an overpressurization risk, should traitors sabotage the distro.
   <Box>
     <GuideEntityEmbed Entity="OxygenCanister"/>
     <GuideEntityEmbed Entity="NitrogenCanister"/>

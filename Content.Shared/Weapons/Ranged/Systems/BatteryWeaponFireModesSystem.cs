@@ -1,3 +1,18 @@
+// SPDX-FileCopyrightText: 2023 chromiumboy <50505512+chromiumboy@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Matthew Herber <32679887+happyrobot33@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 McBosserson <148172569+McBosserson@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 Toaster <mrtoastymyroasty@gmail.com>
+// SPDX-FileCopyrightText: 2025 imatsoup <93290208+imatsoup@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+//
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Access.Components;
 using Content.Shared.Access.Systems;
 using Content.Shared.Database;
@@ -82,6 +97,10 @@ public sealed class BatteryWeaponFireModesSystem : EntitySystem
 
     private void OnUseInHandEvent(EntityUid uid, BatteryWeaponFireModesComponent component, UseInHandEvent args)
     {
+        if(args.Handled)
+            return;
+
+        args.Handled = true;
         TryCycleFireMode(uid, component, args.User);
     }
 
@@ -133,7 +152,26 @@ public sealed class BatteryWeaponFireModesSystem : EntitySystem
             projectileBatteryAmmoProviderComponent.Shots = (int)Math.Round(projectileBatteryAmmoProviderComponent.Shots / FireCostDiff);
             projectileBatteryAmmoProviderComponent.Capacity = (int)Math.Round(projectileBatteryAmmoProviderComponent.Capacity / FireCostDiff);
 
+            //Dirty the component immediately to send state update to client
             Dirty(uid, projectileBatteryAmmoProviderComponent);
+
+            var updateClientAmmoEvent = new UpdateClientAmmoEvent();
+            RaiseLocalEvent(uid, ref updateClientAmmoEvent);
+        }
+
+        // Also handle hitscan mode switching
+        if (TryComp(uid, out HitscanBatteryAmmoProviderComponent? hitscanBatteryAmmoProviderComponent))
+        {
+            var OldFireCost = hitscanBatteryAmmoProviderComponent.FireCost;
+            hitscanBatteryAmmoProviderComponent.Prototype = fireMode.Prototype;
+            hitscanBatteryAmmoProviderComponent.FireCost = fireMode.FireCost;
+
+            float FireCostDiff = (float)fireMode.FireCost / (float)OldFireCost;
+            hitscanBatteryAmmoProviderComponent.Shots = (int)Math.Round(hitscanBatteryAmmoProviderComponent.Shots / FireCostDiff);
+            hitscanBatteryAmmoProviderComponent.Capacity = (int)Math.Round(hitscanBatteryAmmoProviderComponent.Capacity / FireCostDiff);
+
+            //Dirty the component immediately to send state update to client
+            Dirty(uid, hitscanBatteryAmmoProviderComponent);
 
             var updateClientAmmoEvent = new UpdateClientAmmoEvent();
             RaiseLocalEvent(uid, ref updateClientAmmoEvent);

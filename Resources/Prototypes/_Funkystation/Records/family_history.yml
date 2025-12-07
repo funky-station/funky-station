@@ -1,0 +1,105 @@
+﻿# family history
+- type: medicalInfo
+  id: anemiaFamilyHistory
+  name: medical-info-familyhistory-anemia
+  category: FamilyHistory
+
+- type: medicalInfo
+  id: arthritisFamilyHistory
+  name: medical-info-familyhistory-arthritis
+  category: FamilyHistory
+
+- type: medicalInfo
+  id: asthmaFamilyHistory
+  name: medical-info-familyhistory-asthma
+  category: FamilyHistory
+
+- type: medicalInfo
+  id: autoimmuneFamilyHistory
+  name: medical-info-familyhistory-autoimmune
+  category: FamilyHistory
+
+- type: medicalInfo
+  id: bloodclotsFamilyHistory
+  name: medical-info-familyhistory-bloodclots
+  category: FamilyHistory
+
+- type: medicalInfo
+  id: cancerFamilyHistory
+  name: medical-info-familyhistory-cancer
+  category: FamilyHistory
+
+- type: medicalInfo
+  id: chronicpainFamilyHistory
+  name: medical-info-familyhistory-chronicpain
+  category: FamilyHistory
+
+- type: medicalInfo
+  id: depressionFamilyHistory
+  name: medical-info-familyhistory-depression
+  category: FamilyHistory
+
+- type: medicalInfo
+  id: diabetesFamilyHistory
+  name: medical-info-familyhistory-diabetes
+  category: FamilyHistory
+
+- type: medicalInfo
+  id: heartdiseaseFamilyHistory
+  name: medical-info-familyhistory-heartdisease
+  category: FamilyHistory
+
+- type: medicalInfo
+  id: bloodpressureFamilyHistory
+  name: medical-info-familyhistory-bloodpressure
+  category: FamilyHistory
+
+- type: medicalInfo
+  id: hivFamilyHistory
+  name: medical-info-familyhistory-hiv
+  category: FamilyHistory
+
+- type: medicalInfo
+  id: kidneydiseaseFamilyHistory
+  name: medical-info-familyhistory-kidneydisease
+  category: FamilyHistory
+
+- type: medicalInfo
+  id: kidneystonesFamilyHistory
+  name: medical-info-familyhistory-kidneystones
+  category: FamilyHistory
+
+- type: medicalInfo
+  id: liverdiseaseFamilyHistory
+  name: medical-info-familyhistory-liverdisease
+  category: FamilyHistory
+
+- type: medicalInfo
+  id: lungdiseaseFamilyHistory
+  name: medical-info-familyhistory-lungdisease
+  category: FamilyHistory
+
+- type: medicalInfo
+  id: migrainesFamilyHistory
+  name: medical-info-familyhistory-migraines
+  category: FamilyHistory
+
+- type: medicalInfo
+  id: osteoporosisFamilyHistory
+  name: medical-info-familyhistory-osteoporosis
+  category: FamilyHistory
+
+- type: medicalInfo
+  id: seizuresFamilyHistory
+  name: medical-info-familyhistory-seizures
+  category: FamilyHistory
+
+- type: medicalInfo
+  id: sleepapneaFamilyHistory
+  name: medical-info-familyhistory-sleepapnea
+  category: FamilyHistory
+
+- type: medicalInfo
+  id: strokeFamilyHistory
+  name: medical-info-familyhistory-stroke
+  category: FamilyHistory

@@ -18,6 +18,10 @@
         {
             "name": "vulp_head",
             "directions": 4
+        },
+        {
+            "name": "protogen_mouth",
+            "directions": 4
         }
     ]
 }

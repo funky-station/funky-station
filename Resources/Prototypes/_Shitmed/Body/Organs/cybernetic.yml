@@ -1,3 +1,10 @@
+# SPDX-FileCopyrightText: 2024 Fishbait <Fishbait@git.ml>
+# SPDX-FileCopyrightText: 2024 John Space <bigdumb421@gmail.com>
+# SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
 - type: entity
   parent: OrganHumanEyes
   abstract: true
@@ -32,11 +39,14 @@
     - type: ShowJobIcons
     - type: ShowMindShieldIcons
     - type: ShowCriminalRecordIcons
+  - type: Tag
+    tags:
+    - SecurityCyberneticEyes
 
 - type: entity
   parent: BaseCyberneticEyes
   id: MedicalCyberneticEyes
-  name: cybernetic diagnostic eyes
+  name: cybernetic medical eyes
   description: A pair of cybernetic eyes that enhance your vision, featuring an integrated MedHUD.
   components:
   - type: Organ
@@ -49,3 +59,6 @@
     - type: ShowHealthIcons
       damageContainers:
       - Biological
+  - type: Tag
+    tags:
+    - CyberneticMedicalEyes

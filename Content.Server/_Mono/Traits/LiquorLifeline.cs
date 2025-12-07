@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2025 SaffronFennec <firefoxwolf2020@protonmail.com>
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
 using Content.Server.Chemistry.Containers.EntitySystems;
 using Content.Shared.Body.Components;
 using Content.Shared.Body.Systems;

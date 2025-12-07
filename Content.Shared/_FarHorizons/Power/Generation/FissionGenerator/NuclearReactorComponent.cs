@@ -174,7 +174,7 @@ public sealed partial class NuclearReactorComponent : Component
     /// Flag indicating the reactor should apply the selected prefab
     /// </summary>
     [DataField]
-    public bool ApplyPrefab = true;
+    public bool ApplyPrefab = false;
 
     /// <summary>
     /// Material the reactor is made out of

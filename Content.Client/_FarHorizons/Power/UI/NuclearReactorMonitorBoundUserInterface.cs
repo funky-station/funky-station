@@ -30,7 +30,7 @@ public sealed class NuclearReactorMonitorBoundUserInterface : BoundUserInterface
             return;
 
         // Check if the attached entity is a nuclear reactor
-        if (!_entityManager.TryGetComponent<NuclearReactorComponent>(reactor, out _))
+        if (!_entityManager.HasComponent<NuclearReactorComponent>(reactor))
             return;
 
         base.Open();

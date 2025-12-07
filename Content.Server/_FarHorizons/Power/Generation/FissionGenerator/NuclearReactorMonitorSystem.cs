@@ -35,7 +35,7 @@ public sealed partial class NuclearReactorMonitorSystem : EntitySystem
 
     private void OnNewLink(EntityUid uid, NuclearReactorMonitorComponent comp, ref NewLinkEvent args)
     {
-        if (!TryComp<NuclearReactorComponent>(args.Source, out _))
+        if (!HasComp<NuclearReactorComponent>(args.Source))
             return;
 
         comp.reactor = GetNetEntity(args.Source);

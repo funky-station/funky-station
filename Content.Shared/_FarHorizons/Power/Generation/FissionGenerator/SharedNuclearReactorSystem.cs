@@ -82,7 +82,7 @@ public abstract class SharedNuclearReactorSystem : EntitySystem
         Dirty(ent);
 
         // Sanity check to make sure there is actually an appearance component (nullpointer hell)
-        if (!_entityManager.TryGetComponent<AppearanceComponent>(uid, out _))
+        if (!_entityManager.HasComponent<AppearanceComponent>(uid))
             return;
 
         // The data being set doesn't really matter, it just has to trigger AppearanceChangeEvent and the client will handle the rest

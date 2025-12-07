@@ -110,7 +110,6 @@ public sealed class NuclearReactorSystem : SharedNuclearReactorSystem
                 comp.FluxGrid[x, y] = [];
             }
 
-        comp.ApplyPrefab = false;
         UpdateGasVolume(comp);
     }
 

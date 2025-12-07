@@ -69,9 +69,13 @@
 # SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 wafehling <wafehling@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 BearWithMe18 <77765510+BearWithMe18@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Noah Leach <77765510+BearWithMe18@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 RedBookcase <crazykid1590@gmail.com>
 # SPDX-FileCopyrightText: 2025 SharkSnake98 <peanutbuttersharky@gmail.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 Zergologist <114537969+Chedd-Error@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 delorphin <delorphin@gmail.com>
+# SPDX-FileCopyrightText: 2025 kosticia <kosticia46@gmail.com>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 vectorassembly <vectorassembly@icloud.com>
@@ -222,15 +226,59 @@
         - state: fill1
           map: ["enum.SolutionContainerLayers.Fill"]
           visible: false
-        - state: icon-front
-          map: ["enum.SolutionContainerLayers.Overlay"]
     - type: Appearance
     - type: SolutionContainerManager
       solutions:
         drink:
           maxVol: 30
     - type: SolutionContainerVisuals
-      maxFillLevels: 5
+      maxFillLevels: 3
+      fillBaseName: fill
+
+- type: entity
+  name: collins glass
+  description: A tall glass with a small mouth, perfect for mixing cocktails and keeping fizzy drinks bubbling.
+  parent: DrinkGlassBase
+  id: DrinkGlassCollinsShaped
+  components:
+    - type: Sprite
+      sprite: Objects/Consumable/Drinks/glass_collins_shape.rsi
+      layers:
+        - state: icon
+          map: ["enum.SolutionContainerLayers.Base"]
+        - state: fill1
+          map: ["enum.SolutionContainerLayers.Fill"]
+          visible: false
+    - type: Appearance
+    - type: SolutionContainerManager
+      solutions:
+        drink:
+          maxVol: 30
+    - type: SolutionContainerVisuals
+      maxFillLevels: 3
+      fillBaseName: fill
+
+- type: entity
+  name: lowball glass
+  description: A glass for the old fashioned sort.
+  parent: DrinkGlassBase
+  id: DrinkGlassLowballShaped
+  components:
+    - type: Sprite
+      sprite: Objects/Consumable/Drinks/glass_lowball_shape.rsi
+      layers:
+        - state: icon
+          map: ["enum.SolutionContainerLayers.Base"]
+        - state: fill1
+          map: ["enum.SolutionContainerLayers.Fill"]
+          visible: false
+    - type: Appearance
+    - type: SolutionContainerManager
+      solutions:
+        drink:
+          maxVol: 30
+    - type: SolutionContainerVisuals
+      maxFillLevels: 3
       fillBaseName: fill
 
 - type: entity
@@ -1401,19 +1449,19 @@
 
 - type: entity
   parent: DrinkGlass
-  id: DrinkKiraSpecial
-  suffix: kira special
+  id: DrinkOrangeLimeSodaGlass
+  suffix: citrus bikeshed
   components:
-    - type: SolutionContainerManager
-      solutions:
-        drink:
-          maxVol: 30
-          reagents:
-            - ReagentId: KiraSpecial
-              Quantity: 30
-    - type: Icon
-      sprite: Objects/Consumable/Drinks/kiraspecial.rsi
-      state: icon
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: OrangeLimeSoda
+          Quantity: 30
+  - type: Icon
+    sprite: Objects/Consumable/Drinks/orangelime_soda.rsi
+    state: icon
 
 - type: entity
   parent: DrinkGlass

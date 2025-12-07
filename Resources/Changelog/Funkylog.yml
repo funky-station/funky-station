@@ -6223,3 +6223,9 @@ Entries:
       message: Added a section to Rule 1 for treatment of AFK players
   id: 730
   time: '2025-12-07T01:47:28.0000000+00:00'
+- author: Terkala
+  changes:
+    - type: Tweak
+      message: Allowed more maps to roll at highpop
+  id: 731
+  time: '2025-12-07T01:48:20.0000000+00:00'

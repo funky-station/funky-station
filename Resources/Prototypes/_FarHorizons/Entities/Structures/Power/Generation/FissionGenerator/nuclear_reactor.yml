@@ -104,6 +104,9 @@
     receiveFrequencyId: BasicDevice
   - type: WirelessNetworkConnection
     range: 200
+  - type: DeviceLinkSource
+    ports:
+      - NuclearReactorDataSender
   - type: DeviceLinkSink
     ports:
       - InsertControlRods

@@ -1,13 +1,3 @@
-- type: sinkPort
-  id: VitalsMonitorReceiverMed
-  name: signal-port-name-vitals-monitor-receiver-med
-  description: signal-port-description-vitals-monitor-receiver-med
-
-- type: sinkPort
-  id: VitalsMonitorReceiverStasis
-  name: signal-port-name-vitals-monitor-receiver-stasis
-  description: signal-port-description-vitals-monitor-receiver-stasis
-
 # Nuclear Reactor
 - type: sinkPort
   id: InsertControlRods
@@ -18,6 +8,11 @@
   id: RetractControlRods
   name: signal-port-name-nuclear-reactor-receiver-retract
   description: signal-port-description-nuclear-reactor-receiver-retract
+
+- type: sinkPort
+  id: NuclearReactorDataReceiver
+  name: signal-port-name-nuclear-reactor-data-receiver
+  description: signal-port-description-nuclear-reactor-data-receiver
 
 # Gas Turbine
 - type: sinkPort

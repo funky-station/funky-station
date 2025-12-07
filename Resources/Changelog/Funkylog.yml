@@ -6259,3 +6259,13 @@ Entries:
       message: Fixed file paths for night club suit
   id: 736
   time: '2025-12-07T05:12:28.0000000+00:00'
+- author: AraiMaia
+  changes:
+    - type: Add
+      message: New Salvage survival box, including extended tanks and flares
+    - type: Tweak
+      message: Survival boxes now have glowsticks instead of flares
+    - type: Fix
+      message: Returned Salvage's AstroNav PDA instead of the Cargo Tech ones.
+  id: 737
+  time: '2025-12-07T05:14:39.0000000+00:00'

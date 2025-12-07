@@ -37,6 +37,7 @@
 # SPDX-FileCopyrightText: 2025 Amethyst <52829582+jackel234@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 AtlasHD <99688062+AtlasHDD@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 CalicoDragon <110030310+CalicoDragon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Cthyga <41489382+Cthyga@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Dani <57107055+wgreen84@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 FeelFlows <1493889+FeelFlows@users.noreply.github.com>
@@ -57,6 +58,7 @@
 # SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+Princess-Cheeseballs@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 RadsammyT <32146976+RadsammyT@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 SigmaTheDragon <162711378+SigmaTheDragon@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Sofia Gilsanz <softie.gd@gmail.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 Teasq <Xerithin@gmail.com>
 # SPDX-FileCopyrightText: 2025 ThatOneMoon <91613003+ThatOneMoon@users.noreply.github.com>
@@ -1108,6 +1110,17 @@
   loadouts:
   - LizardPlushieSalvageSpecialist
 
+- type: loadoutGroup
+  id: SurvivalSalvageExtended
+  name: loadout-group-survival-salvage-extended
+  minLimit: 2
+  hidden: true
+  loadouts:
+  - EmergencyNitrogenExtendedSalvage
+  - EmergencyOxygenExtendedSalvage
+  - LoadoutSpeciesVoxNitrogen
+  - EmergencyIPCBox # Funky
+
 # Engineering
 - type: loadoutGroup
   id: ChiefEngineerHead
@@ -1195,8 +1208,11 @@
   name: loadout-group-station-engineer-jumpsuit
   loadouts:
   - StationEngineerJumpsuit
-  - StationEngineerJumpskirt
-  - StationEngineerHazardsuit
+  - StationEngineerJumpsuitWhite
+  - StationEngineerOveralls
+  - StationEngineerCoveralls
+  - StationEngineerRipley
+  - StationEngineerShirt
   - StationEngineerJumpsuitElectrician
   - StationEngineerJumpsuitElectricianTied
   - StationEngineerJumpsuitTankTop
@@ -1772,6 +1788,9 @@
   name: loadout-group-chief-medical-officer-shoes
   loadouts:
   - BrownShoes
+  - BlackShoes
+  - WhiteShoes
+  - NanotrasenRepresentativeBoots #These are just laceup shoes.
   - MedicalWinterBoots
 
 - type: loadoutGroup #WizDen Weh Job Plush
@@ -1789,9 +1808,11 @@
   - MedicalBeret
   - SeniorPhysicianBeret
   - MedicalHeadMirror
+  - MedicalFaceshield
   - BlueSurgeryCap
   - GreenSurgeryCap
   - PurpleSurgeryCap
+  - BlackSurgeryCap
   - NurseHat
 
 - type: loadoutGroup #Funky
@@ -1802,18 +1823,34 @@
     - MedicalNormGlasses
     - MedicalJamjarGlasses
     - MedicalGlasses
+    - MedicalMonocle
 
 - type: loadoutGroup
   id: MedicalDoctorJumpsuit
   name: loadout-group-medical-doctor-jumpsuit
   loadouts:
-  - MedicalDoctorJumpsuit
-  - MedicalDoctorJumpskirt
-  - SeniorPhysicianJumpsuit
-  - SeniorPhysicianJumpskirt
   - MedicalBlueScrubs
   - MedicalGreenScrubs
   - MedicalPurpleScrubs
+  - MedicalBlackScrubs
+  - MedicalBlueScrubsSleeveless
+  - MedicalGreenScrubsSleeveless
+  - MedicalPurpleScrubsSleeveless
+  - MedicalBlackScrubsSleeveless
+  - MedicalDoctorJumpsuit
+  - MedicalDoctorJumpskirt
+  - MedicalDoctorCustodianJumpsuit
+  - ServiceJumpsuitDressWhite
+  - ServiceJumpsuitDressBlue
+  - ServiceJumpsuitDressTied
+  - ServiceJumpsuitServiceCoat
+  - ServiceJumpskirtDressWhite
+  - ServiceJumpskirtDressBlue
+  - ServiceJumpskirtDressTied
+  - SeniorPhysicianJumpsuit
+  - SeniorPhysicianJumpskirt
+  - SeniorPhysicianTurtleneck
+  - SeniorPhysicianTurtleskirt
 
 - type: loadoutGroup
   id: MedicalNeck
@@ -1830,6 +1867,7 @@
   - RegularLabCoat
   - MedicalDoctorWintercoat
   - SeniorPhysicianLabCoat
+  - SeniorPhysicianWinterLabCoat
 
 - type: loadoutGroup
   id: MedicalBackpack
@@ -1844,6 +1882,9 @@
   name: loadout-group-medical-doctor-shoes
   loadouts:
   - WhiteShoes
+  - BlackShoes
+  - BrownShoes
+  - NanotrasenRepresentativeBoots #These are just laceup shoes.
   - MedicalWinterBoots
 
 - type: loadoutGroup
@@ -1879,8 +1920,11 @@
   id: MedicalInternJumpsuit
   name: loadout-group-medical-intern-jumpsuit
   loadouts:
+  - MedicalBlueScrubs
+  - MedicalBlueScrubsSleeveless
   - WhiteJumpsuit
   - WhiteJumpskirt
+
 - type: loadoutGroup
   id: MedicalChemistHead
   name: loadout-group-medical-chemist-head
@@ -1902,8 +1946,17 @@
   loadouts:
   - ChemistJumpsuit
   - ChemistJumpskirt
+  - ServiceJumpsuitDressWhite
+  - ServiceJumpsuitDressBlue
+  - ServiceJumpsuitDressTied
+  - ServiceJumpsuitServiceCoat
+  - ServiceJumpskirtDressWhite
+  - ServiceJumpskirtDressBlue
+  - ServiceJumpskirtDressTied
   - SeniorPhysicianJumpsuit
   - SeniorPhysicianJumpskirt
+  - SeniorPhysicianTurtleneck
+  - SeniorPhysicianTurtleskirt
 
 - type: loadoutGroup
   id: ChemistOuterClothing
@@ -1913,7 +1966,28 @@
   - RegularLabCoat
   - ChemistLabCoat
   - ChemistWintercoat
+  - ChemistApron
   - SeniorPhysicianLabCoat
+  - SeniorPhysicianWinterLabCoat
+
+- type: loadoutGroup
+  id: ChemistGloves
+  name: loadout-group-chemist-gloves
+  loadouts:
+  - ChemistGloves
+  - LatexGloves
+  - NitrileGloves
+
+- type: loadoutGroup
+  id: ChemistShoes
+  name: loadout-group-chemist-shoes
+  loadouts:
+  - ChemistBoots
+  - WhiteShoes
+  - BlackShoes
+  - BrownShoes
+  - NanotrasenRepresentativeBoots #These are just laceup shoes.
+  - MedicalWinterBoots
 
 - type: loadoutGroup
   id: ChemistBackpack

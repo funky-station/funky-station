@@ -389,7 +389,7 @@
   - type: SolutionContainerManager
     solutions:
       beaker:
-        maxVol: 120 # Funky Station, increased from 60u
+        maxVol: 60
         canReact: false
   - type: Tag # Funky Station
     tags:
@@ -638,13 +638,12 @@
   - type: Tag
     tags:
     - Syringe
-    - Trash
 
 - type: entity
   id: SyringeCryostasis
   parent: BaseSyringe
-  name: cryostasis syringe
-  description: An advanced syringe with a larger capacity alongside drawing and injecting faster, contain chemicals or solutions without reactions. # Goobstation - buffing cryo syringe cause its currently pointless and buffing bluespace syringe to make it more useful.
+  name: advanced syringe
+  description: An advanced syringe with a larger capacity that can also draw or inject faster, contain chemicals or solutions without reactions. # Goobstation - buffing cryo syringe cause its currently pointless and buffing bluespace syringe to make it more useful.
   components:
   - type: Sprite
     layers:

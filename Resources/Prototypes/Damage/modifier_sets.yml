@@ -279,7 +279,6 @@
   id: Gingerbread
   coefficients:
     Blunt: 1.5
-    Cold: 0.0
     Radiation: 0.5
     Asphyxiation: 0.0
     Bloodloss: 0.0

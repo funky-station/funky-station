@@ -30,6 +30,10 @@
   - type: Damageable
     damageContainer: Biological
     damageModifierSet: Gingerbread
+  - type: Temperature
+    coldDamage:
+      types:
+        Cold: 0.0
   - type: DamageVisuals
     damageOverlayGroups:
       Brute:
@@ -60,7 +64,7 @@
         scaleByQuantity: true
         damage:
           types:
-            Genetic: 0.3
+            Cellular: 0.3
       - !type:PopupMessage
         type: Local
         visualType: Large

@@ -6217,3 +6217,9 @@ Entries:
       message: Ice actually restores thirst now
   id: 729
   time: '2025-12-07T01:46:09.0000000+00:00'
+- author: Kreamator
+  changes:
+    - type: Add
+      message: Added a section to Rule 1 for treatment of AFK players
+  id: 730
+  time: '2025-12-07T01:47:28.0000000+00:00'

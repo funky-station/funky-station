@@ -35,10 +35,12 @@
 # SPDX-FileCopyrightText: 2025 Dani <57107055+wgreen84@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Dani Green <wgreen84gamergame@gmail.com>
 # SPDX-FileCopyrightText: 2025 Nox <nebulousnox38@gmail.com>
+# SPDX-FileCopyrightText: 2025 Selva <140060182+selvamoonbell@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 SpaceCat~Chan <49094338+SpaceCat-Chan@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 W.xyz() <tptechteam@gmail.com>
 # SPDX-FileCopyrightText: 2025 beef42 <bjarketp@gmail.com>
+# SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 empty0set <16693552+empty0set@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 empty0set <empty0set@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
@@ -965,6 +967,8 @@
     - state: icon-surgery
   - type: ItemBorgModule
     items:
+    - HandheldHealthAnalyzerUnpowered
+    - Soap
     - Scalpel
     - Drill
     - Hemostat
@@ -987,6 +991,8 @@
     - state: icon-advanced-surgery
   - type: ItemBorgModule
     items:
+    - HandheldHealthAnalyzerUnpowered
+    - Soap
     - EnergyScalpel
     - EnergyCautery
     - AdvancedRetractor

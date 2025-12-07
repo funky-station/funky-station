@@ -6283,3 +6283,9 @@ Entries:
         by Tea!
   id: 739
   time: '2025-12-07T05:19:09.0000000+00:00'
+- author: lolmatdi, kipdotnet
+  changes:
+    - type: Add
+      message: Holobell Projector to MailDrobe, a holosign that projects a doorbell!
+  id: 740
+  time: '2025-12-07T05:23:04.0000000+00:00'

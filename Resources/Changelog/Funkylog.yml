@@ -6320,3 +6320,32 @@ Entries:
         significantly more readable.
   id: 743
   time: '2025-12-07T21:33:08.0000000+00:00'
+- author: zergologist
+  changes:
+    - type: Add
+      message: New sprites for every towel. So many new sprites.
+    - type: Add
+      message: Towels can now be unfolded.
+    - type: Add
+      message: >-
+        Towels can now be whipped with. They deal a bit of blunt and a decent
+        amount of stamina damage.
+    - type: Add
+      message: >-
+        White towels can now be printed at a uniform printer and lathe for 3
+        cloth
+    - type: Add
+      message: >-
+        Syndicate towels can be bought at a syndicate uplink for 3 TC or printed
+        at an emagged uniform printer/lathe for 3 cloth and 1 durathread
+    - type: Add
+      message: Towels can now be found as uncommon maintenance loot
+    - type: Tweak
+      message: Towels now have distinct descriptions
+    - type: Fix
+      message: >-
+        Deploy foldables no longer deploy if clicked into an inventory or item
+        that it would not make sense for them to deploy onto. Original fix by
+        Winkarst-cpu on Wizden
+  id: 744
+  time: '2025-12-07T21:43:09.0000000+00:00'

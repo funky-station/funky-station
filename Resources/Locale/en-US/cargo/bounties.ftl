@@ -151,6 +151,83 @@ bounty-item-multiver = Multiver
 bounty-item-dexalin = Dexalin
 bounty-item-space-cleaner = Space Cleaner
 
+bounty-item-super-bite-burger = Super Bite Burger
+bounty-item-sloppy-joe = Sloppy Joe Burger
+bounty-item-slop-bowl = Slop Bowl
+bounty-item-waffles = Waffles
+bounty-item-cuban-nachos = Cuban Nachos
+bounty-item-valid-salad = Valid Salad
+bounty-item-enchiladas = Enchiladas
+bounty-item-fruit-salad = Fruit Salad
+bounty-item-chow-mein = Chow Mein
+bounty-item-gyros = Gyros
+bounty-item-stew = Stew
+
+bounty-item-tech-disk-terminal = Tech Disk Terminal Circuitboard
+bounty-item-artifact-crusher = Artifact Crusher Circuitboard
+bounty-item-anomaly-syncronizer = Anomaly Syncronizer Circuitboard
+bounty-item-experimental-vessel-machine-board = Experimental Anomaly Vessel Circuitboard
+bounty-item-advanced-syringe = Advanced Syringe 
+bounty-item-chimp-handcannon = C.H.I.M.P. Handcannon 
+bounty-item-force-field-projector = Force Field Projector 
+bounty-item-particle-decelerator = Portable Particle Decelerator 
+bounty-item-night-vision-goggles = Night Vision Goggles
+bounty-item-anomaly-locator = Amomaly Locator
+bounty-item-gorilla-gauntlet = G.O.R.I.L.L.A. Gauntlet
+
+bounty-item-scrap-plate = Scrap Armor Plate
+bounty-item-scrap-helmet = Scrap Armor Helmet
+bounty-item-fire-bomb = Fire Bomb
+bounty-item-improvised-bow = Improvised Bow
+bounty-item-improvised-shotgun = Improvised Shotgun
+bounty-item-makeshift-shield = Makeshift Shield
+bounty-item-wooden-buckler = Wooden Buckler
+bounty-item-makeshift-stunprod = Makeshift Stunprod
+bounty-item-makeshift-bola = Makeshift Bola
+bounty-item-svalinn-pistol = Svalinn Pistol
+
+bounty-item-disabler-smg = Disabler SMG
+bounty-item-truncheon = Truncheon
+bounty-item-xray-cannon = Xray Cannon
+bounty-item-laser-cannon = Laser Cannon
+bounty-item-security-hud = Security Hud
+bounty-item-medsec-hud = MedSec Hud
+bounty-item-cybernetic-security-eyes = Cybernetic Security Eyes
+bounty-item-explosive-payload = Explosive Payload
+
+bounty-item-biosynthectic-eyes = Biosynthetic Eyes
+bounty-item-biosynthectic-lung = Biosynthetic Lungs
+bounty-item-biosynthectic-liver = Biosynthetic Liver
+bounty-item-biosynthectic-heart = Biosynthetic Heart
+bounty-item-autoinjector-cartrige = Autoinjector Cartrige
+bounty-item-medical-autoinjector = Autoinjector
+bounty-item-health-analyzer = Health Analyzer
+bounty-item-cybernetic-medical-eyes = Cybernetic Medical Eyes
+bounty-item-defibrillator = Defibrilator
+bounty-item-medical-hud = Medical Hud
+bounty-item-surgery-advanced-tool = Advanced Surgery Tool
+
+bounty-item-bahama-mama = Bahama Mama
+bounty-item-erika-suprise = Erika Suprise
+bounty-item-bloody-mary = BloodyMary
+bounty-item-blue-hawaiian = Blue Hawaiian
+bounty-item-citrus-bikeshed = Citrus Bikeshed
+bounty-item-andalusia = Andalusia
+bounty-item-watermelon-wakeup = Watermelon Wakeup
+bounty-item-xeno-basher = Xeno Basher
+bounty-item-cogchamp = Cogchamp
+bounty-item-demons-blood = Demons Blood
+bounty-item-cosmopolitan = Cosmopolitan
+bounty-item-beepsky-smash = Beepsky Smash
+bounty-item-classic-martini = Classic Martini
+bounty-item-posca = Posca
+bounty-item-the-martinez = The Martinez
+bounty-item-doctors-delight = Doctors Delight
+bounty-item-tayquila = Tayquila
+bounty-item-fever-dream = Fever Dream
+bounty-item-gargle-blaster = Gargle Blaster
+
+
 bounty-description-artifact = NanoTrasen is in some hot water for stealing artifacts from non-spacefaring planets. Return one and we'll compensate you for it.
 bounty-description-baseball-bat = Baseball fever is going on at CentComm! Be a dear and ship them some baseball bats, so that management can live out their childhood dream.
 bounty-description-box-hugs = Several chief officials have sustained serious boo-boos. A box of hugs is urgently needed to aid in their recovery.

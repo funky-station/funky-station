@@ -56,6 +56,10 @@ namespace Content.Server.BloodCult.EntitySystems;
 
 public sealed partial class CultistSpellSystem : EntitySystem
 {
+	private static readonly ProtoId<StackPrototype> RunedSteelStack = "RunedSteel";
+	private static readonly ProtoId<StackPrototype> RunedGlassStack = "RunedGlass";
+	private static readonly ProtoId<StackPrototype> RunedPlasteelStack = "RunedPlasteel";
+
 	[Dependency] private readonly IRobustRandom _random = default!;
 	[Dependency] private readonly IPrototypeManager _proto = default!;
 	[Dependency] private readonly SharedActionsSystem _action = default!;
@@ -65,16 +69,16 @@ public sealed partial class CultistSpellSystem : EntitySystem
 	[Dependency] private readonly StatusEffectsSystem _statusEffect = default!;
 	[Dependency] private readonly BloodCultRuleSystem _bloodCultRules = default!;
 	[Dependency] private readonly HandsSystem _hands = default!;
-	[Dependency] private readonly StaminaSystem _stamina = default!;
+	//[Dependency] private readonly StaminaSystem _stamina = default!;
 	[Dependency] private readonly EmpSystem _emp = default!;
 	[Dependency] private readonly PowerCellSystem _powerCell = default!;
 	[Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
 	[Dependency] private readonly SharedTransformSystem _transform = default!;
 	[Dependency] private readonly MapSystem _mapSystem = default!;
 	[Dependency] private readonly IMapManager _mapManager = default!;
-	[Dependency] private readonly IEntityManager _entMan = default!;
+	//[Dependency] private readonly IEntityManager _entMan = default!;
 	[Dependency] private readonly SharedStunSystem _stun = default!;
-	[Dependency] private readonly ConstructionSystem _construction = default!;
+	//[Dependency] private readonly ConstructionSystem _construction = default!;
 	[Dependency] private readonly BloodstreamSystem _bloodstream = default!;
 	[Dependency] private readonly StackSystem _stackSystem = default!;
 
@@ -98,13 +102,14 @@ public sealed partial class CultistSpellSystem : EntitySystem
 
 		SubscribeLocalEvent<BloodCultistComponent, EventCultistStudyVeil>(OnStudyVeil);
 		SubscribeLocalEvent<BloodCultistComponent, BloodCultCommuneSendMessage>(OnCommune);
+		SubscribeLocalEvent<JuggernautComponent, BloodCultCommuneSendMessage>(OnJuggernautCommune);
 		SubscribeLocalEvent<BloodCultistComponent, EventCultistSanguineDream>(OnSanguineDream);
 		//SubscribeLocalEvent<CultMarkedComponent, AttackedEvent>(OnMarkedAttacked);
 
 		SubscribeLocalEvent<BloodCultistComponent, EventCultistTwistedConstruction>(OnTwistedConstruction);
 
 		SubscribeLocalEvent<BloodCultistComponent, CarveSpellDoAfterEvent>(OnCarveSpellDoAfter);
-		SubscribeLocalEvent<BloodCultistComponent, TwistedConstructionDoAfterEvent>(OnTwistedConstructionDoAfter);
+		//SubscribeLocalEvent<BloodCultistComponent, TwistedConstructionDoAfterEvent>(OnTwistedConstructionDoAfter);
 	}
 
 	private bool TryUseAbility(Entity<BloodCultistComponent> ent, BaseActionEvent args)
@@ -158,26 +163,21 @@ public sealed partial class CultistSpellSystem : EntitySystem
 	{
 		var data = GetSpell(id);
 
-		bool standingOnRune = false;
-		var coords = new EntityCoordinates(uid, default);//.Position;
-		var location = coords.AlignWithClosestGridTile(entityManager: EntityManager, mapManager: _mapManager);
-		var gridUid = _transform.GetGrid(location);
-		if (TryComp<MapGridComponent>(gridUid, out var grid))
-		{
-			var targetTile = _mapSystem.GetTileRef(gridUid.Value, grid, location);
-			foreach(var possibleEnt in _mapSystem.GetAnchoredEntities(gridUid.Value, grid, targetTile.GridIndices))
-			{
-				if (_runeQuery.HasComponent(possibleEnt))
-				{
-					standingOnRune = true;
-				}
-			}
-		}
+		bool standingOnRune = IsStandingOnEmpoweringRune(uid);
 
-		if (comp.KnownSpells.Count > 3 || (!standingOnRune && comp.KnownSpells.Count > 0))
+		if (comp.KnownSpells.Count > 3)
 		{
 			_popup.PopupEntity(Loc.GetString("cult-spell-exceeded"), uid, uid);
 			return;
+		}
+
+		// If not on an empowering rune and they have existing spells, remove the actions matching those spells
+		if (!standingOnRune && comp.KnownSpells.Count > 0)
+		{
+			RemoveActionsMatchingKnownSpells(uid, comp);
+			// Clear KnownSpells since they can only have 0 spells when not on rune
+			comp.KnownSpells.Clear();
+			Dirty(uid, comp);
 		}
 
         if (data.Event != null)
@@ -255,6 +255,55 @@ public sealed partial class CultistSpellSystem : EntitySystem
 		comp.KnownSpells.Remove(GetSpell(id));
 	}
 
+	/// <summary>
+	/// Checks if a cultist is currently standing on an EmpoweringRune.
+	/// </summary>
+	private bool IsStandingOnEmpoweringRune(EntityUid uid)
+	{
+		var coords = new EntityCoordinates(uid, default);
+		var location = coords.AlignWithClosestGridTile(entityManager: EntityManager, mapManager: _mapManager);
+		var gridUid = _transform.GetGrid(location);
+		if (!TryComp<MapGridComponent>(gridUid, out var grid))
+			return false;
+
+		var targetTile = _mapSystem.GetTileRef(gridUid.Value, grid, location);
+		foreach (var possibleEnt in _mapSystem.GetAnchoredEntities(gridUid.Value, grid, targetTile.GridIndices))
+		{
+			if (_runeQuery.HasComponent(possibleEnt))
+			{
+				return true;
+			}
+		}
+
+		return false;
+	}
+
+	/// <summary>
+	/// Removes actions that match spells in the cultist's KnownSpells list.
+	/// This is called when adding a new spell while not on an empowering rune.
+	/// </summary>
+	private void RemoveActionsMatchingKnownSpells(EntityUid uid, BloodCultistComponent cultist)
+	{
+		// Get all actions for this cultist
+		var actions = _action.GetActions(uid);
+		
+		// Create a set of spell IDs for quick lookup
+		var knownSpellIds = new HashSet<ProtoId<CultAbilityPrototype>>(cultist.KnownSpells);
+
+		// Remove actions that match spells in KnownSpells
+		foreach (var action in actions)
+		{
+			if (!TryComp<CultistSpellComponent>(action.Id, out var spellComp))
+				continue;
+
+			// Check if this action's AbilityId matches any spell in KnownSpells
+			if (knownSpellIds.Contains(spellComp.AbilityId))
+			{
+				_action.RemoveAction(uid, action.Id);
+			}
+		}
+	}
+
 	private void OnStudyVeil(Entity<BloodCultistComponent> ent, ref EventCultistStudyVeil args)
 	{
 		if (!TryUseAbility(ent, args))
@@ -265,6 +314,11 @@ public sealed partial class CultistSpellSystem : EntitySystem
 	}
 
 	private void OnCommune(Entity<BloodCultistComponent> ent, ref BloodCultCommuneSendMessage args)
+	{
+		ent.Comp.CommuningMessage = args.Message;
+	}
+
+	private void OnJuggernautCommune(Entity<JuggernautComponent> ent, ref BloodCultCommuneSendMessage args)
 	{
 		ent.Comp.CommuningMessage = args.Message;
 	}
@@ -339,14 +393,28 @@ public sealed partial class CultistSpellSystem : EntitySystem
 
 		args.Handled = true;
 
-		// Mindshield and holy protection repel cult magic
-		if (HasComp<CultResistantComponent>(target) || HasComp<MindShieldComponent>(target))
+		// Mindshield repels cult magic with technology
+		if (HasComp<MindShieldComponent>(target))
+		{
+			_popup.PopupEntity(
+					Loc.GetString("cult-spell-repelled-mindshield"),
+					ent, ent, PopupType.MediumCaution
+				);
+			_popup.PopupEntity(
+					Loc.GetString("cult-spell-mindshield-buzzing"),
+					target, target, PopupType.Medium
+				);
+			_audioSystem.PlayPvs(new SoundPathSpecifier("/Audio/Effects/sparks1.ogg"), Transform(ent).Coordinates);
+			// Knock down the cultist who cast the spell. Might need balancing
+			_stun.TryKnockdown(ent, TimeSpan.FromSeconds(selfStunTime), true);
+		}
+		// Holy protection repels cult magic
+		else if (HasComp<CultResistantComponent>(target))
 		{
 			_popup.PopupEntity(
 					Loc.GetString("cult-spell-repelled"),
 					ent, ent, PopupType.MediumCaution
 				);
-			// todo: Play a different sound if they have a mindshield.
 			_audioSystem.PlayPvs(new SoundPathSpecifier("/Audio/Effects/holy.ogg"), Transform(ent).Coordinates);
 			// Knock down the cultist who cast the spell. Might need balancing
 			_stun.TryKnockdown(ent, TimeSpan.FromSeconds(selfStunTime), true);
@@ -416,26 +484,75 @@ public sealed partial class CultistSpellSystem : EntitySystem
 	//	}
 	//}
 
-	// todo: This is a bit buggy. Doesn't stack stuff properly. Doesn't crash, just looks weird.
+
 	private void OnTwistedConstruction(Entity<BloodCultistComponent> ent, ref EventCultistTwistedConstruction args)
 	{
-		// Check if target is a plasteel stack
-		if (TryComp<StackComponent>(args.Target, out var stack) && stack.StackTypeId == "Plasteel")
+		// Check if target is a steel stack
+		if (TryComp<StackComponent>(args.Target, out var stack) && stack.StackTypeId == "Steel")
 		{
 			if (!TryUseAbility(ent, args))
 				return;
 
 			var count = stack.Count;
-			var thirties_to_spawn = (int)((float)count / 30.0f);
-			var tens_to_spawn = (int)(((float)count - 30.0f*(float)thirties_to_spawn) / 10.0f);
-			var ones_to_spawn = (int)(((float)count - 10.0f*(float)tens_to_spawn) - 30.0f*(float)thirties_to_spawn);
+			var targetCoords = Transform(args.Target).Coordinates;
 
-			for (int i = 0; i < thirties_to_spawn; i++)
-				Spawn("SheetRunedMetal30", Transform(args.Target).Coordinates);
-			for (int i = 0; i < tens_to_spawn; i++)
-				Spawn("SheetRunedMetal10", Transform(args.Target).Coordinates);
-			for (int i = 0; i < ones_to_spawn; i++)
-				Spawn("SheetRunedMetal1", Transform(args.Target).Coordinates);
+			// Use StackSystem.SpawnMultiple to properly split stacks respecting max count (30)
+			var runedSteelProto = _proto.Index(RunedSteelStack);
+			_stackSystem.SpawnMultiple(runedSteelProto.Spawn.ToString(), count, targetCoords);
+
+			QueueDel(args.Target);
+			args.Handled = true;
+			return;
+		}
+
+		// Check if target is a glass stack
+		if (TryComp<StackComponent>(args.Target, out var glassStack) && glassStack.StackTypeId == "Glass")
+		{
+			if (!TryUseAbility(ent, args))
+				return;
+
+			var count = glassStack.Count;
+			var targetCoords = Transform(args.Target).Coordinates;
+
+			// Use StackSystem.SpawnMultiple to properly split stacks respecting max count (30)
+			var runedGlassProto = _proto.Index(RunedGlassStack);
+			_stackSystem.SpawnMultiple(runedGlassProto.Spawn.ToString(), count, targetCoords);
+
+			QueueDel(args.Target);
+			args.Handled = true;
+			return;
+		}
+
+		// Check if target is a reinforced glass stack
+		if (TryComp<StackComponent>(args.Target, out var reinforcedGlassStack) && reinforcedGlassStack.StackTypeId == "ReinforcedGlass")
+		{
+			if (!TryUseAbility(ent, args))
+				return;
+
+			var count = reinforcedGlassStack.Count;
+			var targetCoords = Transform(args.Target).Coordinates;
+
+			// Use StackSystem.SpawnMultiple to properly split stacks respecting max count (30)
+			var runedGlassProto = _proto.Index(RunedGlassStack);
+			_stackSystem.SpawnMultiple(runedGlassProto.Spawn.ToString(), count, targetCoords);
+
+			QueueDel(args.Target);
+			args.Handled = true;
+			return;
+		}
+
+		// Check if target is a plasteel stack
+		if (TryComp<StackComponent>(args.Target, out var plasteelStack) && plasteelStack.StackTypeId == "Plasteel")
+		{
+			if (!TryUseAbility(ent, args))
+				return;
+
+			var count = plasteelStack.Count;
+			var targetCoords = Transform(args.Target).Coordinates;
+
+			// Use StackSystem.SpawnMultiple to properly split stacks respecting max count (30)
+			var runedPlasteelProto = _proto.Index(RunedPlasteelStack);
+			_stackSystem.SpawnMultiple(runedPlasteelProto.Spawn.ToString(), count, targetCoords);
 
 			QueueDel(args.Target);
 			args.Handled = true;
@@ -443,7 +560,7 @@ public sealed partial class CultistSpellSystem : EntitySystem
 		}
 
 		// Check if target is a reinforced wall
-		if (TryComp<ConstructionComponent>(args.Target, out var construction) && 
+		/*if (TryComp<ConstructionComponent>(args.Target, out var construction) && 
 		    construction.Graph == "Girder" && 
 		    construction.Node == "reinforcedWall")
 		{
@@ -469,10 +586,10 @@ public sealed partial class CultistSpellSystem : EntitySystem
 			_doAfter.TryStartDoAfter(doAfterArgs);
 			args.Handled = true;
 			return;
-		}
+		}*/
 
 		// Check if target is a reinforced girder
-		if (TryComp<ConstructionComponent>(args.Target, out var girderConstruction) && 
+		/*if (TryComp<ConstructionComponent>(args.Target, out var girderConstruction) && 
 		    girderConstruction.Graph == "Girder" && 
 		    girderConstruction.Node == "reinforcedGirder")
 		{
@@ -498,10 +615,10 @@ public sealed partial class CultistSpellSystem : EntitySystem
 			_doAfter.TryStartDoAfter(doAfterArgs);
 			args.Handled = true;
 			return;
-		}
+		}*/
 	}
 
-	private void OnTwistedConstructionDoAfter(Entity<BloodCultistComponent> ent, ref TwistedConstructionDoAfterEvent args)
+	/*private void OnTwistedConstructionDoAfter(Entity<BloodCultistComponent> ent, ref TwistedConstructionDoAfterEvent args)
 	{
 		if (args.Cancelled || !TryComp<ConstructionComponent>(args.Target, out var construction))
 			return;
@@ -535,5 +652,5 @@ public sealed partial class CultistSpellSystem : EntitySystem
 			// Change the reinforced girder to a regular girder
 			_construction.ChangeNode(args.Target, ent, "girder", performActions: true, construction: construction);
 		}
-	}
+	}*/
 }

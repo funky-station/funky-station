@@ -1,7 +1,9 @@
 # SPDX-FileCopyrightText: 2025 Skye <57879983+Rainbeon@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Terkala <appleorange64@gmail.com>
+# SPDX-FileCopyrightText: 2025 TheSecondLord <88201625+TheSecondLord@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 V <97265903+formlessnameless@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 kbarkevich <24629810+kbarkevich@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
-# SPDX-FileCopyrightText: 2025 Terkala <appleorange64@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later OR MIT
 
@@ -9,14 +11,12 @@
   name: juggernaut shell
   id: CultJuggernautShell
   parent: BaseBloodCultContraband
-  description: A large, inert monstrosity made from runed metal. Can be completed by dragging a dead body onto it or using a filled soulstone on it.
+  description: A large, inert monstrosity made from runed steel. Can be completed by dragging a dead body onto it or using a filled soulstone on it.
   components:
   - type: BloodCultConstructShell
   - type: Construction
     graph: CultJuggernautShell
     node: juggernautShell
-  - type: Transform
-    anchored: true
   - type: Sprite
     sprite: _Funkystation/BloodCult/Mobs/constructs.rsi
     state: juggernaut
@@ -53,7 +53,7 @@
               collection: MetalBreak
           - !type:SpawnEntitiesBehavior
             spawn:
-              SheetRunedMetal1:
+              SheetRunedSteel1:
                 min: 2
                 max: 4
 
@@ -64,7 +64,9 @@
   parent: [ SimpleSpaceMobBase, BaseBloodCultContraband ]
   categories: [ HideSpawnMenu ]
   components:
-    #- type: Hands
+    - type: Hands
+      showInHands: false
+    - type: ComplexInteraction
     - type: ZombieImmune
     - type: Damageable
       damageContainer: BloodCultConstruct
@@ -78,22 +80,6 @@
       groups:
         Flammable: [ Touch ]
         Extinguish: [ Touch ]
-      reactions:
-      - reagents: [ Blood, Slime, Sap, InsectBlood, CopperBlood, AmmoniaBlood, ZombieBlood, BloodChangeling]
-        methods: [ Touch ]
-        effects:
-        - !type:HealthChange
-          scaleByQuantity: true
-          damage:
-            groups:
-              Brute: -2
-              Burn: -2
-        - !type:PopupMessage
-          type: Local
-          visualType: Medium
-          messages: [ "bloodcult-juggernaut-healed-by-blood" ]
-          probability: 0.5
-        - !type:JuggernautBloodCorruption
     - type: MindContainer
     - type: Juggernaut
     - type: JuggernautBodyContainer
@@ -129,6 +115,7 @@
         - Dead
     - type: MeleeWeapon
       hidden: true
+      canWideSwing: true
       soundHit:
         path: /Audio/Effects/wood_destroy2.ogg
       angle: 60
@@ -161,7 +148,7 @@
     - type: MobThresholds
       thresholds:
         0: Alive
-        140: Critical
+        180: Critical
         280: Dead
     - type: MovementSpeedModifier
       baseWalkSpeed: 2.0
@@ -181,6 +168,10 @@
       color: "#50595C"
       activateSound: null
       deactivateSound: null
+    - type: IntrinsicUI
+      uis:
+        enum.BloodCultistCommuneUIKey.Key:
+          toggleAction: null
     - type: GuideHelp
       guides:
       - Blob
@@ -225,14 +216,16 @@
         - Dead
     - type: MeleeWeapon
       hidden: true
+      canWideSwing: true
       soundHit:
         path: /Audio/Effects/guardian_warn.ogg
-      angle: 0
+      angle: 60
       animation: WeaponArcSmash
+      wideAnimation: WeaponArcSmash
       damage:
         types:
-          Blunt: 7
-          Structural: 7
+          Blunt: 8
+          Structural: 8
     - type: DamageStateVisuals
       states:
         Alive:
@@ -253,7 +246,7 @@
     - type: MobThresholds
       thresholds:
         0: Alive
-        75: Dead
+        100: Dead
     - type: MovementSpeedModifier
       baseWalkSpeed: 3.5
       baseSprintSpeed: 4

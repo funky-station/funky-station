@@ -98,6 +98,12 @@
   - type: Storage
     storageOpenSound:
       collection: BikeHorn
+      params:
+        variation: 0.125
+    storageInsertSound:
+      collection: FootstepClown
+      params:
+        variation: 0.125
 
 - type: entity
   parent: [ClothingBackpackDuffel, BaseSecurityContraband]
@@ -152,10 +158,9 @@
   components:
   - type: Sprite
     sprite: Clothing/Back/Duffels/mime.rsi
-    storageOpenSound:
-      collection: null
-    storageInsertSound:
-      collection: null
+  - type: Storage
+    storageOpenSound: null
+    storageInsertSound: null
 
 - type: entity
   parent: ClothingBackpackDuffel
@@ -166,23 +171,14 @@
   - type: Sprite
     sprite: Clothing/Back/Duffels/science.rsi
 
-- type: entity # funkystation
-  parent: ClothingBackpackDuffel
-  id: ClothingBackpackDuffelRobotics
-  name: robotics duffel bag
-  description: A large red-striped duffel bag for holding extra robotics related parts and materials.
-  components:
-  - type: Sprite
-    sprite: Clothing/Back/Duffels/robotics.rsi
-
 - type: entity
   parent: ClothingBackpackDuffel
   id: ClothingBackpackDuffelHydroponics
   name: hydroponics duffel bag
   description: A large duffel bag for holding extra gardening tools.
   components:
-    - type: Sprite
-      sprite: Clothing/Back/Duffels/hydroponics.rsi
+  - type: Sprite
+    sprite: Clothing/Back/Duffels/hydroponics.rsi
 
 - type: entity
   parent: ClothingBackpackDuffel
@@ -190,8 +186,8 @@
   name: cargo duffel bag
   description: A large duffel bag for stealing cargo's precious loot.
   components:
-    - type: Sprite
-      sprite: Clothing/Back/Duffels/cargo.rsi
+  - type: Sprite
+    sprite: Clothing/Back/Duffels/cargo.rsi
 
 - type: entity
   parent: ClothingBackpackDuffel
@@ -199,8 +195,8 @@
   name: salvage duffel bag
   description: A large duffel bag for holding extra exotic treasures.
   components:
-    - type: Sprite
-      sprite: Clothing/Back/Duffels/salvage.rsi
+  - type: Sprite
+    sprite: Clothing/Back/Duffels/salvage.rsi
 
 - type: entity
   parent: [ClothingBackpackDuffel, BaseSyndicateContraband]
@@ -217,8 +213,16 @@
     - 0,0,8,4
 
 - type: entity
-  parent: ClothingBackpackDuffelSyndicate
+  parent: [ ClothingBackpackDuffelSyndicate, BaseSyndicateContraband ]
   id: ClothingBackpackDuffelSyndicateBundle
+  abstract: true
+  components:
+  - type: Tag
+    tags: [] # ignore "WhitelistChameleon" tag
+
+- type: entity
+  parent: ClothingBackpackDuffel
+  id: ClothingBackpackDuffelBundle
   abstract: true
   components:
   - type: Tag
@@ -227,7 +231,6 @@
 - type: entity
   parent: ClothingBackpackDuffelSyndicate
   id: ClothingBackpackDuffelSyndicateAmmo
-  name: syndicate duffel bag
   components:
   - type: Sprite
     sprite: Clothing/Back/Duffels/syndicate.rsi
@@ -242,13 +245,12 @@
   id: ClothingBackpackDuffelSyndicateAmmoBundle
   abstract: true
   components:
-    - type: Tag
-      tags: [] # ignore "WhitelistChameleon" tag
+  - type: Tag
+    tags: [] # ignore "WhitelistChameleon" tag
 
 - type: entity
   parent: ClothingBackpackDuffelSyndicate
   id: ClothingBackpackDuffelSyndicateMedical
-  name: syndicate duffel bag
   components:
   - type: Sprite
     sprite: Clothing/Back/Duffels/syndicate.rsi
@@ -263,8 +265,8 @@
   id: ClothingBackpackDuffelSyndicateMedicalBundle
   abstract: true
   components:
-    - type: Tag
-      tags: [] # ignore "WhitelistChameleon" tag
+  - type: Tag
+    tags: [] # ignore "WhitelistChameleon" tag
 
 - type: entity
   parent: ClothingBackpackDuffel
@@ -301,5 +303,3 @@
     walkModifier: 1
     sprintModifier: 1
   - type: HeldSpeedModifier
-  - type: Tag
-    tags: [] # ignore "WhitelistChameleon" tag

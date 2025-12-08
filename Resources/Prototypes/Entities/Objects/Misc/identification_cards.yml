@@ -273,7 +273,7 @@
   parent: [IDCardStandard, BaseEngineeringContraband]
   id: EngineeringIDCard
   name: engineer ID card
-  discription: Seems to have a lot of scratches. Surprising that it actually works.
+  description: Seems to have a lot of scratches. Surprising that it actually works.
   components:
   - type: Sprite
     layers:

@@ -419,3 +419,36 @@
         amount: 2
       - id: SyndieTrickyBomb
         amount: 2
+
+- type: entity
+  parent: ClothingBackpackDuffelSyndicateBundle
+  id: ClothingBackpackDuffelSyndicateDecoyKitFilled
+  name: decoy bundle
+  description: "Contains distractions, both auditory and visual. Smell coming soon."
+  components:
+  - type: StorageFill
+    contents:
+    - id: BalloonOperative
+    - id: BalloonAgent
+    - id: BalloonElite
+    - id: BalloonJuggernaut
+    - id: BalloonCommander
+    - id: SnapPopBox
+    - id: GrenadeDummy
+      amount: 2
+    - id: SyndieTrickyBomb
+      amount: 2
+
+- type: entity
+  parent: ClothingBackpackDuffelSyndicateBundle
+  id: ClothingBackpackDuffelSyndicateFilledHushpup
+  name: Hushpup bundle
+  description: Contains the Hushpup, bundled with a box of buckshot. Quarter included.
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: WeaponShotgunHushpup
+        - id: BoxLethalshot
+        - id: TreasureCoinIron

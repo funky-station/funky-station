@@ -46,6 +46,10 @@
         amount: 5
   - type: Bloodstream
     bloodReagent: Sugar
+  - type: Temperature
+    coldDamage:
+      types:
+        Cold: 0.0
   - type: Reactive
     groups:
       Flammable: [ Touch ]

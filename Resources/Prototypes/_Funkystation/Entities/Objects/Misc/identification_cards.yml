@@ -9,9 +9,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
 - type: entity
-  parent: IDCardStandard
+  parent: [IDCardStandard, BaseCommandContraband]
   id: InternalAffairsAgentIDCard
   name: internal affairs agent ID card
+  description: You wouldn't lose this, would you?
   components:
   - type: Sprite
     layers:
@@ -24,7 +25,7 @@
     job: InternalAffairsAgent
 
 - type: entity
-  parent: IDCardStandard
+  parent: [IDCardStandard, BaseCommandContraband]
   id: MagistrateIDCard
   name: magistrate ID card
   components:
@@ -54,7 +55,7 @@
     job: BlueshieldOfficer
 
 - type: entity
-  parent: IDCardStandard
+  parent: [IDCardStandard, BaseCommandContraband]
   id: NanotrasenRepresentativeIDCard
   name: nanotrasen representative ID card
   components:
@@ -148,6 +149,7 @@
   parent: IDCardStandard
   id: SpaceCowboyIDCard
   name: space cowboy ID card
+  description: To the Space Station rode a stranger one fine day.
   components:
   - type: Sprite
     layers:

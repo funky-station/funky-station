@@ -17,7 +17,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
 - type: entity
-  parent: BasePDA
+  parent: [BasePDA, BaseCommandContraband]
   id: InternalAffairsAgentPDA
   name: internal affairs agent PDA
   description: For spying on the innocent and guilty alike.
@@ -44,7 +44,7 @@
     state: pda-iaa
 
 - type: entity
-  parent: BasePDA
+  parent: [BasePDA, BaseCommandContraband]
   id: MagistratePDA
   name: magistrate PDA
   description: For the fortunate ones.
@@ -81,7 +81,7 @@
     - WordleCartridge
 
 - type: entity
-  parent: BaseSecurityPDA
+  parent: [BaseSecurityPDA, BaseSecurityContraband]
   id: SeniorDetectivePDA
   name: senior detective PDA
   description: Ready for another round, kid?
@@ -150,7 +150,7 @@
       - SOSCartridge
 
 - type: entity
-  parent: BasePDA
+  parent: [BasePDA, BaseCommandContraband]
   id: NanotrasenRepresentativePDA
   name: nanotrasen representative PDA
   description: Make everyone anxious with your presense.

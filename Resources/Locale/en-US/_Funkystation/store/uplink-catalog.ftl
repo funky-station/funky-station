@@ -11,3 +11,14 @@ uplink-pistol-magazine-large-uranium-desc = .50 AE magazine compatible with the 
 
 uplink-pistol-magazine-large-incendiary-name = pistol magazine (.50 AE Incendiary)
 uplink-pistol-magazine-large-incendiary-desc = .50 AE magazine compatible with the wyvern. For when you want to spice it up.
+
+# ID card
+uplink-ID-nukie-name = Operative ID card
+uplink-ID-nukie-desc = A spare ID card from an operative, this can be used to show your affiliation to those who have means of looking at your ID card.
+
+# PDA
+uplink-PDA-nukie-name = Operative PDA
+uplink-PDA-nukie-desc = A spare PDA from an operative, this can be used to show your affiliation to those who have means of looking at your PDA. Do keep in mind that syndicate turrets are coded for their crew alone, so don't expect to bypass them easily.
+
+uplink-PDA-agent-name = Agent PDA
+uplink-PDA-agent-desc = A spare PDA from an agent, this can be used to show your affiliation to those who have means of looking at your PDA and to check your wounds. Do keep in mind that syndicate turrets are coded for their crew alone, so don't expect to bypass them easily.

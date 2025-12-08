@@ -26,7 +26,7 @@
   categories:
   - UplinkWeaponry
   saleLimit: 1
-  
+
 - type: listing
   id: UplinkRevolverSalamander
   name: uplink-revolver-salamander-name
@@ -66,3 +66,35 @@
       blacklist:
         components:
           - SurplusBundle
+
+# ID card, can be used for trap rooms where only YOU have access. Do use a multitool on the door electronics for this
+
+- type: listing
+  id: UplinkNukieIDCard
+  name: uplink-ID-nukie-name
+  description: uplink-ID-nukie-desc
+  productEntity: SyndicateIDCard
+  cost:
+    Telecrystal: 5
+  categories:
+  - UplinkWearables
+
+- type: listing
+  id: UplinkNukiePDACard
+  name: uplink-PDA-nukie-name
+  description: uplink-PDA-nukie-desc
+  productEntity: SyndiPDA
+  cost:
+    Telecrystal: 10
+  categories:
+  - UplinkWearables
+
+- type: listing
+  id: UplinkAgentPDACard
+  name: uplink-PDA-agent-name
+  description: uplink-PDA-agent-desc
+  productEntity: SyndiAgentPDA
+  cost:
+    Telecrystal: 15
+  categories:
+  - UplinkWearables

@@ -36,6 +36,7 @@
   parent: SalvageIDCard
   id: HelldiverIDCard
   name: salvage diver ID card
+  description: To go where no person should go, to gain what was not ours, is what we ought to do.
   components:
   - type: Sprite
     layers:

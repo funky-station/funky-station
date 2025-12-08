@@ -296,7 +296,6 @@
         conditions:
         - !type:ReagentThreshold
           min: 20
-        scaleByQuantity: true
         emote: Cough
         probability: 0.1
       - !type:HealthChange
@@ -311,7 +310,6 @@
         conditions:
         - !type:ReagentThreshold
           min: 40
-        scaleByQuantity: true
         emote: Gasp
         probability: 0.05
       - !type:HealthChange
@@ -326,7 +324,6 @@
         conditions:
         - !type:ReagentThreshold
           min: 200
-        scaleByQuantity: true
         visualType: Medium
         messages: ["nicotine-effect-dull-ache", "nicotine-effect-sharp-pain"]
         type: Local

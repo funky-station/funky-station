@@ -12,8 +12,8 @@
 - type: entity
   parent: BaseItem
   id: Cane
-  name: cane
-  description: A wooden cane.
+  name: candy-cane
+  description: A sweet holiday candy-cane.
   components:
   - type: Sprite
     sprite: Objects/Weapons/Melee/cane.rsi
@@ -39,10 +39,10 @@
     delay: 1
 
 - type: entity
-  name: cane blade
+  name: cany-cane blade
   parent: [BaseItem, BaseMajorContraband]
   id: CaneBlade
-  description: A sharp blade with a cane shaped hilt. Enchanted with fire powers by a fellow book lover. # Goobstation
+  description: A sharp blade with a candy-cane hilt. Enchanted with fire powers by space elves. # Goobstation
   components:
   - type: Sharp
   - type: Sprite

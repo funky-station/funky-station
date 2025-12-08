@@ -60,7 +60,7 @@
         scaleByQuantity: true
         damage:
           types:
-            Genetic: 0.3
+            Cellular: 0.3
       - !type:PopupMessage
         type: Local
         visualType: Large

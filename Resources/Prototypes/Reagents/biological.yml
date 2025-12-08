@@ -267,10 +267,18 @@
       metabolismRate: 0.2 # Funkyc
       effects:
       - !type:HealthChange
+        conditions:
+        - !type:OrganType
+          type: ZombieTumor
+          shouldHave: false
         damage:
           types:
             Poison: 4
       - !type:ChemVomit
+        conditions:
+        - !type:OrganType
+          type: ZombieTumor
+          shouldHave: false
         probability: 0.25
 
 - type: reagent

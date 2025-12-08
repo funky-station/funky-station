@@ -1,6 +1,7 @@
 // SPDX-FileCopyrightText: 2024 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Tadeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 Terkala <appleorange64@gmail.com>
 // SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
@@ -85,6 +86,7 @@ public abstract partial class SharedSurgerySystem : EntitySystem
         SubscribeLocalEvent<SurgeryHasBodyConditionComponent, SurgeryValidEvent>(OnHasBodyConditionValid);
         SubscribeLocalEvent<SurgeryPartConditionComponent, SurgeryValidEvent>(OnPartConditionValid);
         SubscribeLocalEvent<SurgeryOrganConditionComponent, SurgeryValidEvent>(OnOrganConditionValid);
+        SubscribeLocalEvent<SurgeryOrganPrototypeConditionComponent, SurgeryValidEvent>(OnOrganPrototypeConditionValid);
         SubscribeLocalEvent<SurgeryWoundedConditionComponent, SurgeryValidEvent>(OnWoundedValid);
         SubscribeLocalEvent<SurgeryPartRemovedConditionComponent, SurgeryValidEvent>(OnPartRemovedConditionValid);
         SubscribeLocalEvent<SurgeryPartPresentConditionComponent, SurgeryValidEvent>(OnPartPresentConditionValid);
@@ -278,6 +280,38 @@ public abstract partial class SharedSurgerySystem : EntitySystem
             }
             else if (!ent.Comp.Inverse)
                 args.Cancelled = true;
+        }
+    }
+
+    private void OnOrganPrototypeConditionValid(Entity<SurgeryOrganPrototypeConditionComponent> ent, ref SurgeryValidEvent args)
+    {
+        if (!TryComp<BodyPartComponent>(args.Part, out var partComp)
+            || partComp.Body != args.Body
+            || ent.Comp.PrototypeId == null)
+        {
+            args.Cancelled = true;
+            return;
+        }
+
+        // Get all organs in the body part
+        var organs = _body.GetPartOrgans(args.Part, partComp);
+        bool found = false;
+
+        foreach (var (organUid, _) in organs)
+        {
+            var meta = MetaData(organUid);
+            if (meta.EntityPrototype?.ID == ent.Comp.PrototypeId)
+            {
+                found = true;
+                break;
+            }
+        }
+
+        // If inverse is true, surgery is valid when organ is NOT found
+        // If inverse is false, surgery is valid when organ IS found
+        if (ent.Comp.Inverse ? found : !found)
+        {
+            args.Cancelled = true;
         }
     }
 

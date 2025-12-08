@@ -119,7 +119,6 @@
         - !type:OrganType
           type: Slime
           shouldHave: false
-        scaleByQuantity: true
         emote: Cough
         probability: 0.5
       - !type:PopupMessage
@@ -135,11 +134,10 @@
         - !type:OrganType
           type: Slime
           shouldHave: false
-        scaleByQuantity: true
         visualType: Medium
         messages: ["oxygen-effect-chest-pain", "oxygen-effect-unease", "oxygen-effect-twitch", "oxygen-effect-ring"]
         type: Local
-        probability: 0.1
+        probability: 0.25
       - !type:Oxygenate
         conditions:
         - !type:OrganType

@@ -94,4 +94,31 @@ reagent-name-bug-spray = bug spray
 reagent-desc-bug-spray = A harsh, acrid, bitter drink, for those who need something to brace themselves. So powerful that you might mistake it for actual bugspray in terms of taste. Unhealthy for Mothpeople.
 
 reagent-name-crevice-spike = crevice spike
-reagent-desc-crevice-sp8ike = Sour, bitter, and smashingly sobering. Any reports of headaches, ego-death, and seizure should be ignored.
+reagent-desc-crevice-spike = Sour, bitter, and smashingly sobering. Any reports of headaches, ego-death, and seizures should be ignored.
+
+reagent-name-fringe-weaver = fringe weaver
+reagent-desc-fringe-weaver = Bubbly, classy, and undoubtedly strong - a Glitch City classic.
+
+reagent-name-four-bit = four bit
+reagent-desc-four-bit = A drink to power your typing hands. Despite what some people claim, it doesn't cause notable improvements in technological skill.
+
+reagent-name-maui-sunrise = maui sunrise
+reagent-desc-maui-sunrise = Behind this drink's red facade lurks a sharp, complex flavour. The colours remind you of the morning sun reflecting off of a tropical ocean
+
+reagent-name-quadruple-sec = quadruple sec
+reagent-desc-quadruple-sec = Kicks just as hard as licking the powercell on a baton, but tastier.
+
+reagent-name-nekomimosa = nekomimosa
+reagent-desc-nekomimosa = A syrupy mess of a cocktail, dedicated to a felinid popstar that took Mars by storm a few years ago.
+
+reagent-name-red-city-am = red city AM
+reagent-desc-red-city-am = A breakfast drink from New Osaka, for when you really need to get drunk at 9:30 in the morning in more socially acceptable manner than drinking bagwine on the bullet train. Not that you should drink this on the bullet train either.
+
+reagent-name-sentai-quencha = sentai quencha
+reagent-desc-sentai-quencha = Based on the galaxy-famous "Kyūkyoku no Ninja Pawā Sentai", the Sentai Quencha is popular among both younger crew members and space-ninjas (If such a thing were to exist).
+
+reagent-name-utility-pole = utility pole
+reagent-desc-utility-pole = A grounding rod in the form of a drink. Don't stand under it if there's a thunderstorm.
+
+reagent-name-wizz-fizz = wizz fizz
+reagent-desc-wizz-fizz = A magical potion, fizzy and wild! However the taste, you will find, is quite mild. Not advised for children, pregnant people, or necromancers.

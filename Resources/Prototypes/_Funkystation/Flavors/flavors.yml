@@ -155,6 +155,51 @@
   description: flavor-complex-crevice-spike
 
 - type: flavor
+  id: fringeweaver
+  flavorType: Complex
+  description: flavor-complex-fringe-weaver
+
+- type: flavor
+  id: fourbit
+  flavorType: Complex
+  description: flavor-complex-four-bit
+
+- type: flavor
+  id: mauisunrise
+  flavorType: Complex
+  description: flavor-complex-maui-sunrise
+
+- type: flavor
+  id: quadruplesec
+  flavorType: Complex
+  description: flavor-complex-quadruple-sec
+
+- type: flavor
+  id: nekomimosa
+  flavorType: Complex
+  description: flavor-complex-nekomimosa
+
+- type: flavor
+  id: redcityam
+  flavorType: Complex
+  description: flavor-complex-red-city-am
+
+- type: flavor
+  id: sentaiquencha
+  flavorType: Complex
+  description: flavor-complex-sentai-quencha
+
+- type: flavor
+  id: utilitypole
+  flavorType: Complex
+  description: flavor-complex-utility-pole
+
+- type: flavor
+  id: wizzfizz
+  flavorType: Complex
+  description: flavor-complex-wizz-fizz
+
+- type: flavor
   id: eggnog
   flavorType: Complex
   description: flavor-complex-eggnog

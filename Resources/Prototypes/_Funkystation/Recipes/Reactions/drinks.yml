@@ -241,3 +241,119 @@
      amount: 2
   products:
     CreviceSpike: 4
+
+- type: reaction
+  id: FringeWeaver
+  reactants:
+   Ethanol:
+     amount: 9
+   Sugar:
+     amount: 1
+  products:
+    FringeWeaver: 10
+
+- type: reaction
+  id: FourBit
+  reactants:
+   HakkaMate:
+     amount: 2
+   JuiceLime:
+     amount: 1
+   Rum:
+     amount: 2
+  products:
+    FourBit: 5
+
+- type: reaction
+  id: MauiSunrise
+  reactants:
+   CoconutRum:
+     amount: 2
+   JuicePineapple:
+     amount: 2
+   MelonLiquor:
+     amount: 1
+   TripleCitrus:
+     amount: 1
+   LemonLime:
+     amount: 4
+  products:
+    MauiSunrise: 10
+
+- type: reaction
+  id: QuadrupleSec
+  reactants:
+   TripleSec:
+     amount: 1
+   TripleCitrus:
+     amount: 1
+   Grenadine:
+     amount: 1
+  products:
+    QuadrupleSec: 3
+
+- type: reaction
+  id: Nekomimosa
+  reactants:
+   MelonLiquor:
+     amount: 2
+   JuiceWatermelon:
+     amount: 2
+   Champagne:
+     amount: 1
+  products:
+    Nekomimosa: 5
+
+- type: reaction
+  id: RedCityAM
+  reactants:
+   RiceBeer:
+     amount: 5
+   JuiceLime:
+     amount: 1
+   RedBool:
+     amount: 1
+   SoySauce:
+     amount: 1
+   JuiceTomato:
+     amount: 2
+  products:
+    RedCityAM: 10
+
+- type: reaction
+  id: SentaiQuencha
+  reactants:
+   MelonSoda:
+     amount: 2
+   TripleCitrus:
+     amount: 1
+   Shochu:
+     amount: 1
+   BlueCuracao:
+     amount: 1
+  products:
+    SentaiQuencha: 5
+
+- type: reaction
+  id: UtilityPole
+  reactants:
+   VoltaicYellowWine:
+     amount: 1
+   DarkandStormy:
+     amount: 2
+   Sake:
+     amount: 1
+  products:
+    UtilityPole: 4
+
+- type: reaction
+  id: WizzFizz
+  reactants:
+   Champagne:
+     amount: 1
+   SodaWater:
+     amount: 1
+   TripleSec:
+     amount: 1
+  products:
+    WizzFizz: 3

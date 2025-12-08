@@ -1067,9 +1067,9 @@
   description: flavor-complex-bahama-mama
 
 - type: flavor
-  id: barefoot
+  id: bigfoot
   flavorType: Complex
-  description: flavor-complex-barefoot
+  description: flavor-complex-bigfoot
 
 - type: flavor
   id: booger

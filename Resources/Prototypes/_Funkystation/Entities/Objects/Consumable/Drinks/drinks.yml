@@ -474,4 +474,121 @@
         reagents:
         - ReagentId: CreviceSpike
           Quantity: 30
+
+- type: entity
+  parent: DrinkGlass
+  id: DrinkGlassFringeWeaver
+  suffix: fringe weaver
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: FringeWeaver
+          Quantity: 30
+
+- type: entity
+  parent: DrinkGlass
+  id: DrinkGlassFourBit
+  suffix: four bit
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: FourBit
+          Quantity: 30
+
+- type: entity
+  parent: DrinkGlass
+  id: DrinkGlassMauiSunrise
+  suffix: maui sunrise
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: MauiSunrise
+          Quantity: 30
+
+- type: entity
+  parent: DrinkGlass
+  id: DrinkGlassQuadrupleSec
+  suffix: quadruple sec
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: QuadrupleSec
+          Quantity: 30
+
+- type: entity
+  parent: DrinkGlass
+  id: DrinkGlassNekomimosa
+  suffix: nekomimosa
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Nekomimosa
+          Quantity: 30
+
+- type: entity
+  parent: DrinkGlass
+  id: DrinkGlassRedCityAM
+  suffix: red city AM
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: RedCityAM
+          Quantity: 30
+
+- type: entity
+  parent: DrinkGlass
+  id: DrinkGlassSentaiQuencha
+  suffix: sentai quencha
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: SentaiQuencha
+          Quantity: 30
+
+- type: entity
+  parent: DrinkGlass
+  id: DrinkGlassUtilityPole
+  suffix: utility pole
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: UtilityPole
+          Quantity: 30
+
+- type: entity
+  parent: DrinkGlass
+  id: DrinkGlassWizzFizz
+  suffix: wizz fizz
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: WizzFizz
+          Quantity: 30
 # pignog

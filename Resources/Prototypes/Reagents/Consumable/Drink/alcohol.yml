@@ -972,12 +972,12 @@
   metamorphicChangeColor: false
 
 - type: reagent
-  id: Barefoot
-  name: reagent-name-barefoot
+  id: Bigfoot
+  name: reagent-name-bigfoot
   parent: BaseAlcohol
-  desc: reagent-desc-barefoot
+  desc: reagent-desc-bigfoot
   physicalDesc: reagent-physical-desc-creamy
-  flavor: barefoot
+  flavor: bigfoot
   color: "#ff66cc"
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/b&p.rsi

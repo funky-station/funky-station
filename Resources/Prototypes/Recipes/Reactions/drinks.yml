@@ -218,7 +218,7 @@
     BahamaMama: 6
 
 - type: reaction
-  id: Barefoot
+  id: Bigfoot
   reactants:
     Cream:
       amount: 1
@@ -227,7 +227,7 @@
     JuiceBerry:
       amount: 1
   products:
-    Barefoot: 3
+    Bigfoot: 3
 
 - type: reaction
   id: BananaHonk

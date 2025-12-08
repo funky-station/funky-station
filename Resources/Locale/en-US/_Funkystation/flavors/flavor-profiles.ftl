@@ -44,6 +44,15 @@ flavor-complex-bosozoku = like going 100 kilometres down Japan National Route 4 
 flavor-complex-branca-menta = like the most bitter mint you've ever tasted
 flavor-complex-bug-spray = like the pain of ten thousand slain mosquitos
 flavor-complex-crevice-spike = like a bitter MIND-SPIKE with a sour aftertaste
+flavor-complex-fringe-weaver = like ethylic alcohol with a hint of sugar
+flavor-complex-four-bit = like plugging into cyberspace
+flavor-complex-maui-sunrise = like a warm sunrise over the Pacific
+flavor-complex-quadruple-sec = like robusting those who might threaten the station, as well as clowns.
+flavor-complex-nekomimosa = like MELON
+flavor-complex-red-city-am = like breakfast in a glass
+flavor-complex-sentai-quencha = like ultimate space-ninja power
+flavor-complex-utility-pole = like a howling storm filling the air with electricity
+flavor-complex-wizz-fizz = like a bombardment of magic spells, including fireball, thunderbolt, and the power of friendship
 
 ## base
 flavor-base-fresh = fresh

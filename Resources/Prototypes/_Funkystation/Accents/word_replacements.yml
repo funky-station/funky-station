@@ -1,4 +1,6 @@
 # SPDX-FileCopyrightText: 2025 W.xyz() <tptechteam@gmail.com>
+# SPDX-FileCopyrightText: 2025 majima-fan-420 <161394779+phmnsx@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 phmnsx <lynnwastinghertime@gmail.com>
 # SPDX-FileCopyrightText: 2025 w.xyz() <84605679+pirakaplant@users.noreply.github.com>
 #
 # SPDX-License-Identifier: MIT
@@ -130,7 +132,17 @@
     accent-french-words-83: accent-french-words-replace-83
     accent-french-words-84: accent-french-words-replace-84
     accent-french-words-85: accent-french-words-replace-85
-    accent-french-words-85-1: accent-french-words-replace-85
+    accent-french-words-85-2: accent-french-words-replace-85
+    accent-french-words-86: accent-french-words-replace-86
+    accent-french-words-86-2: accent-french-words-replace-86
+    accent-french-words-87: accent-french-words-replace-87
+    accent-french-words-87-2: accent-french-words-replace-87
+    accent-french-words-88: accent-french-words-replace-88
+    accent-french-words-88-2: accent-french-words-replace-88
+    accent-french-words-88-3: accent-french-words-replace-88
+    accent-french-words-89: accent-french-words-replace-89
+    accent-french-words-89-2: accent-french-words-replace-89
+    accent-french-words-90: accent-french-words-replace-90
 
 - type: accent # This is just for "ze" and "wat".
   id: germanaccent
@@ -142,3 +154,203 @@
   id: germanthe
   wordReplacements:
     accent-german-words-replace-3: accent-german-words-3
+
+- type: accent
+  id: british
+  wordReplacements:
+    accent-british-words-1-1: accent-british-replacement-1
+    accent-british-words-1-2: accent-british-replacement-1
+    accent-british-words-2: accent-british-replacement-2
+    accent-british-words-3: accent-british-replacement-3
+    accent-british-words-4-1: accent-british-replacement-4
+    accent-british-words-4-2: accent-british-replacement-4
+    accent-british-words-4-3: accent-british-replacement-4
+    accent-british-words-4-4: accent-british-replacement-4
+    accent-british-words-4-5: accent-british-replacement-4
+    accent-british-words-5-1: accent-british-replacement-5
+    accent-british-words-5-2: accent-british-replacement-5
+    accent-british-words-5-3: accent-british-replacement-5
+    accent-british-words-5-4: accent-british-replacement-5
+    accent-british-words-5-5: accent-british-replacement-5
+    accent-british-words-6: accent-british-replacement-6
+    accent-british-words-7: accent-british-replacement-7
+    accent-british-words-8: accent-british-replacement-8
+    accent-british-words-9: accent-british-replacement-9
+    accent-british-words-10-1: accent-british-replacement-10
+    accent-british-words-10-2: accent-british-replacement-10
+    accent-british-words-10-3: accent-british-replacement-10
+    accent-british-words-10-4: accent-british-replacement-10
+    accent-british-words-11-1: accent-british-replacement-11
+    accent-british-words-11-2: accent-british-replacement-11
+    accent-british-words-11-3: accent-british-replacement-11
+    accent-british-words-11-4: accent-british-replacement-11
+    accent-british-words-12: accent-british-replacement-12
+    accent-british-words-13-1: accent-british-replacement-13
+    accent-british-words-13-2: accent-british-replacement-13
+    accent-british-words-13-3: accent-british-replacement-13
+    accent-british-words-13-4: accent-british-replacement-13
+    accent-british-words-13-5: accent-british-replacement-13
+    accent-british-words-14-1: accent-british-replacement-14
+    accent-british-words-14-2: accent-british-replacement-14
+    accent-british-words-14-3: accent-british-replacement-14
+    accent-british-words-15: accent-british-replacement-15
+    accent-british-words-16: accent-british-replacement-16
+    accent-british-words-17: accent-british-replacement-17
+    accent-british-words-18: accent-british-replacement-18
+    accent-british-words-19: accent-british-replacement-19
+    accent-british-words-20: accent-british-replacement-20
+    accent-british-words-21: accent-british-replacement-21
+    accent-british-words-22: accent-british-replacement-22
+    accent-british-words-23-1: accent-british-replacement-23
+    accent-british-words-23-2: accent-british-replacement-23
+    accent-british-words-24-1: accent-british-replacement-24
+    accent-british-words-24-2: accent-british-replacement-24
+    accent-british-words-25-1: accent-british-replacement-25
+    accent-british-words-25-2: accent-british-replacement-25
+    accent-british-words-26: accent-british-replacement-26
+    accent-british-words-27: accent-british-replacement-27
+    accent-british-words-28: accent-british-replacement-28
+    accent-british-words-29-1: accent-british-replacement-29
+    accent-british-words-29-2: accent-british-replacement-29
+    accent-british-words-30: accent-british-replacement-30
+    accent-british-words-31: accent-british-replacement-31
+    accent-british-words-32-1: accent-british-replacement-32
+    accent-british-words-32-2: accent-british-replacement-32
+    accent-british-words-33: accent-british-replacement-33
+    accent-british-words-34-1: accent-british-replacement-34
+    accent-british-words-34-2: accent-british-replacement-34
+    accent-british-words-35-1: accent-british-replacement-35
+    accent-british-words-35-2: accent-british-replacement-35
+    accent-british-words-35-3: accent-british-replacement-35
+    accent-british-words-36-1: accent-british-replacement-36
+    accent-british-words-36-2: accent-british-replacement-36
+    accent-british-words-37-1: accent-british-replacement-37
+    accent-british-words-37-2: accent-british-replacement-37
+    accent-british-words-38-1: accent-british-replacement-38
+    accent-british-words-38-2: accent-british-replacement-38
+    accent-british-words-39-1: accent-british-replacement-39
+    accent-british-words-39-2: accent-british-replacement-39
+    accent-british-words-40-1: accent-british-replacement-40
+    accent-british-words-40-2: accent-british-replacement-40
+    accent-british-words-41: accent-british-replacement-41
+    accent-british-words-42-1: accent-british-replacement-42
+    accent-british-words-42-2: accent-british-replacement-42
+    accent-british-words-42-3: accent-british-replacement-42
+    accent-british-words-42-4: accent-british-replacement-42
+    accent-british-words-43-1: accent-british-replacement-43
+    accent-british-words-43-2: accent-british-replacement-43
+    accent-british-words-43-3: accent-british-replacement-43
+    accent-british-words-43-4: accent-british-replacement-43
+    accent-british-words-43-5: accent-british-replacement-43
+    accent-british-words-44: accent-british-replacement-44
+    accent-british-words-45: accent-british-replacement-45
+    accent-british-words-46-1: accent-british-replacement-46
+    accent-british-words-46-2: accent-british-replacement-46
+    accent-british-words-47-1: accent-british-replacement-47
+    accent-british-words-47-2: accent-british-replacement-47
+    accent-british-words-48: accent-british-replacement-48
+    accent-british-words-49: accent-british-replacement-49
+    accent-british-words-50: accent-british-replacement-50
+    accent-british-words-51: accent-british-replacement-51
+    accent-british-words-52: accent-british-replacement-52
+    accent-british-words-53-1: accent-british-replacement-53
+    accent-british-words-53-2: accent-british-replacement-53
+    accent-british-words-54-1: accent-british-replacement-54
+    accent-british-words-54-2: accent-british-replacement-54
+    accent-british-words-54-3: accent-british-replacement-54
+    accent-british-words-55-1: accent-british-replacement-55
+    accent-british-words-55-2: accent-british-replacement-55
+    accent-british-words-55-3: accent-british-replacement-55
+    accent-british-words-56-1: accent-british-replacement-56
+    accent-british-words-56-2: accent-british-replacement-56
+    accent-british-words-57-1: accent-british-replacement-57
+    accent-british-words-57-2: accent-british-replacement-57
+    accent-british-words-58: accent-british-replacement-58
+    accent-british-words-59-1: accent-british-replacement-59
+    accent-british-words-59-2: accent-british-replacement-59
+    accent-british-words-59-3: accent-british-replacement-59
+    accent-british-words-60: accent-british-replacement-60
+    accent-british-words-61: accent-british-replacement-61
+    accent-british-words-62: accent-british-replacement-62
+    accent-british-words-63: accent-british-replacement-63
+    accent-british-words-64-1: accent-british-replacement-64
+    accent-british-words-64-2: accent-british-replacement-64
+    accent-british-words-65-1: accent-british-replacement-65
+    accent-british-words-65-2: accent-british-replacement-65
+    accent-british-words-66-1: accent-british-replacement-66
+    accent-british-words-66-2: accent-british-replacement-66
+    accent-british-words-67: accent-british-replacement-67
+    accent-british-words-69: accent-british-replacement-69
+    accent-british-words-70: accent-british-replacement-70
+    accent-british-words-71: accent-british-replacement-71
+    accent-british-words-72-1: accent-british-replacement-72
+    accent-british-words-72-2: accent-british-replacement-72
+    accent-british-words-73: accent-british-replacement-73
+    accent-british-words-74: accent-british-replacement-74
+    accent-british-words-75-1: accent-british-replacement-75
+    accent-british-words-75-2: accent-british-replacement-75
+    accent-british-words-76-1: accent-british-replacement-76
+    accent-british-words-76-2: accent-british-replacement-76
+    accent-british-words-77: accent-british-replacement-77
+    accent-british-words-78: accent-british-replacement-78
+    accent-british-words-79: accent-british-replacement-79
+    accent-british-words-80-1: accent-british-replacement-80
+    accent-british-words-80-2: accent-british-replacement-80
+    accent-british-words-81: accent-british-replacement-81
+    accent-british-words-82: accent-british-replacement-82
+    accent-british-words-83: accent-british-replacement-83
+    accent-british-words-84-1: accent-british-replacement-84
+    accent-british-words-84-2: accent-british-replacement-84
+    accent-british-words-84-3: accent-british-replacement-84
+    accent-british-words-84-4: accent-british-replacement-84
+    accent-british-words-85: accent-british-replacement-85
+    accent-british-words-86-1: accent-british-replacement-86
+    accent-british-words-86-2: accent-british-replacement-86
+    accent-british-words-87-1: accent-british-replacement-87
+    accent-british-words-87-2: accent-british-replacement-87
+    accent-british-words-87-3: accent-british-replacement-87
+    accent-british-words-88: accent-british-replacement-88
+    accent-british-words-89: accent-british-replacement-89
+    accent-british-words-90: accent-british-replacement-90
+    accent-british-words-91-1: accent-british-replacement-91
+    accent-british-words-91-2: accent-british-replacement-91
+    accent-british-words-91-3: accent-british-replacement-91
+    accent-british-words-91-4: accent-british-replacement-91
+    accent-british-words-92-1: accent-british-replacement-92
+    accent-british-words-92-2: accent-british-replacement-92
+    accent-british-words-92-3: accent-british-replacement-92
+    accent-british-words-92-4: accent-british-replacement-92
+    accent-british-words-93: accent-british-replacement-93
+    accent-british-words-94-1: accent-british-replacement-94
+    accent-british-words-94-2: accent-british-replacement-94
+    accent-british-words-95: accent-british-replacement-95
+    accent-british-words-96: accent-british-replacement-96
+    accent-british-words-97-1: accent-british-replacement-97
+    accent-british-words-97-2: accent-british-replacement-97
+    accent-british-words-98-1: accent-british-replacement-98
+    accent-british-words-98-2: accent-british-replacement-98
+    accent-british-words-99: accent-british-replacement-99
+    accent-british-words-100-1: accent-british-replacement-99
+    accent-british-words-100-2: accent-british-replacement-100
+
+- type: accent
+  id: cak0spaces
+  wordReplacements:
+    accent-cak-words-1: accent-cak-words-replace
+    accent-cak-words-1-2: accent-cak-words-replace
+    accent-cak-words-1-3: accent-cak-words-replace
+    accent-cak-words-1-4: accent-cak-words-replace
+
+- type: accent
+  id: cak1space
+  wordReplacements:
+    accent-cak-words-2: accent-cak-words-replace
+    accent-cak-words-2-2: accent-cak-words-replace
+    accent-cak-words-2-3: accent-cak-words-replace
+    accent-cak-words-2-4: accent-cak-words-replace
+
+- type: accent
+  id: cak2spaces
+  wordReplacements:
+    accent-cak-words-3: accent-cak-words-replace
+    accent-cak-words-3-2: accent-cak-words-replace

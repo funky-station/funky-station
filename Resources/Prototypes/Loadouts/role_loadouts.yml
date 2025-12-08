@@ -73,6 +73,7 @@
   - HoPJumpsuit
   - HoPBackpack
   - HoPOuterClothing
+  - GenericShoes
   - Glasses
   - Survival
   - Trinkets
@@ -114,6 +115,7 @@
   - BartenderJumpsuit
   - CommonBackpack
   - BartenderOuterClothing
+  - GenericShoes
   - Glasses
   - Survival
   - Trinkets
@@ -123,8 +125,9 @@
 - type: roleLoadout
   id: JobServiceWorker
   groups:
-  - BartenderJumpsuit
+  - ServiceJumpsuit
   - CommonBackpack
+  - GenericShoes
   - Glasses
   - Survival
   - Trinkets
@@ -139,6 +142,7 @@
   - ChefJumpsuit
   - CommonBackpack
   - ChefOuterClothing
+  - GenericShoes
   - Glasses
   - Survival
   - Trinkets
@@ -150,6 +154,7 @@
   groups:
   - LibrarianJumpsuit
   - CommonBackpack
+  - GenericShoes
   - Glasses
   - Survival
   - Trinkets
@@ -162,6 +167,7 @@
   - LawyerNeck
   - LawyerJumpsuit
   - CommonBackpack
+  - GenericShoes
   - Glasses
   - Survival
   - Trinkets
@@ -179,6 +185,7 @@
   - CommonBackpack
   - ChaplainOuterClothing
   - ChaplainBelt # imp
+  - GenericShoes # funky
   - Glasses
   - Survival
   - ChaplainBible # Funky
@@ -252,6 +259,7 @@
   - MusicianJumpsuit
   - CommonBackpack
   - MusicianOuterClothing
+  - GenericShoes
   - Glasses
   - Survival
   - Trinkets
@@ -270,7 +278,7 @@
   - QuartermasterOuterClothing
   - QuartermasterShoes
   - Glasses
-  - Survival
+  - SurvivalSalvageExtended
   - Trinkets
   - QuartermasterJobTrinkets
   - GroupSpeciesBreathTool
@@ -299,9 +307,8 @@
   - SalvageSpecialistBackpack
   - SalvageSpecialistOuterClothing
   - SalvageSpecialistShoes
-  - CargoPDA
   - Glasses
-  - Survival
+  - SurvivalSalvageExtended
   - Trinkets
   - SalvageSpecialistJobTrinkets
   - GroupSpeciesBreathTool
@@ -316,6 +323,7 @@
   - StationEngineerBackpack
   - ChiefEngineerNeck
   - ChiefEngineerOuterClothing
+  - ChiefEngineerBelt
   - ChiefEngineerShoes
   - SurvivalExtended
   - Trinkets
@@ -339,6 +347,7 @@
   - StationEngineerJumpsuit
   - StationEngineerBackpack
   - StationEngineerOuterClothing
+  - StationEngineerBelt
   - StationEngineerShoes
   - StationEngineerID
   - SurvivalExtended
@@ -354,6 +363,7 @@
   - AtmosphericTechnicianJumpsuit
   - AtmosphericTechnicianBackpack
   - AtmosphericTechnicianOuterClothing
+  - AtmosphericTechnicianBelt
   - AtmosphericTechnicianShoes
   - SurvivalExtended
   - Trinkets
@@ -497,11 +507,11 @@
   - MedicalMask
   - MedicalDoctorGlasses #Funky
   - ChiefMedicalOfficerJumpsuit
-  - MedicalGloves
+  - ChemistGloves
   - MedicalBackpack
   - ChiefMedicalOfficerOuterClothing
   - ChiefMedicalOfficerNeck
-  - ChiefMedicalOfficerShoes
+  - ChemistShoes
   - Glasses
   - SurvivalMedical
   - Trinkets
@@ -544,12 +554,12 @@
   - MedicalChemistHead
   - MedicalMask
   - MedicalChemistGlasses #Funky
-  - ChemistJumpsuit
-  - MedicalGloves
-  - ChemistBackpack
   - MedicalNeck
+  - ChemistJumpsuit
+  - ChemistGloves
+  - ChemistBackpack
   - ChemistOuterClothing
-  - MedicalShoes
+  - ChemistShoes
   - SurvivalMedical
   - Trinkets
   - ChemistJobTrinkets
@@ -590,6 +600,7 @@
   - ReporterJumpsuit
   - ReporterOuterClothing # Goobstation - Bodycams
   - CommonBackpack
+  - GenericShoes
   - Glasses
   - Survival
   - Trinkets

@@ -109,3 +109,17 @@ public readonly record struct ClothingDidEquippedEvent(Entity<ClothingComponent>
 /// </summary>
 [ByRefEvent]
 public readonly record struct ClothingDidUnequippedEvent(Entity<ClothingComponent> Clothing);
+
+public sealed partial class ToggleHeadEvent : InstantActionEvent { }
+
+/// <summary>
+///     Event raised on the head entity when it is toggled.
+/// </summary>
+[ByRefEvent]
+public readonly record struct ItemHeadToggledEvent(EntityUid Wearer, string? equippedPrefix, bool IsToggled, bool IsEquip);
+
+/// <summary>
+///     Event raised on the entity wearing the head item when it is toggled.
+/// </summary>
+[ByRefEvent]
+public readonly record struct WearerHeadToggledEvent(bool IsToggled);

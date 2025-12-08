@@ -158,3 +158,10 @@
   id: MalfDoomsdayRipple
   kind: source
   path: "/Textures/Shaders/malf_doomsday_ripple.swsl"
+
+# Welding Protection overlay
+
+- type: shader
+  id: ImageMask
+  kind: source
+  path: "/Textures/Shaders/image_mask.swsl"

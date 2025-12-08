@@ -36,6 +36,10 @@
     {
       "name": "on-equipped-HELMET-vulpkanin",
       "directions": 4
+    },
+    {
+      "name": "up-equipped-HELMET",
+      "directions": 4
     }
   ]
 }

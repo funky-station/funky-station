@@ -52,6 +52,7 @@ public abstract class ClothingSystem : EntitySystem
         SubscribeLocalEvent<ClothingComponent, GotEquippedEvent>(OnGotEquipped);
         SubscribeLocalEvent<ClothingComponent, GotUnequippedEvent>(OnGotUnequipped);
         SubscribeLocalEvent<ClothingComponent, ItemMaskToggledEvent>(OnMaskToggled);
+        SubscribeLocalEvent<ClothingComponent, ItemHeadToggledEvent>(OnHeadToggled);
 
         SubscribeLocalEvent<ClothingComponent, ClothingEquipDoAfterEvent>(OnEquipDoAfter);
         SubscribeLocalEvent<ClothingComponent, ClothingUnequipDoAfterEvent>(OnUnequipDoAfter);
@@ -125,10 +126,19 @@ public abstract class ClothingSystem : EntitySystem
                     {
                         if (TryComp(item, out ClothingComponent? clothing) && clothing.Slots == slot.SlotFlags)
                         {
-                            //Checks for mask toggling. TODO: Make a generic system for this
+                            // Checks for mask toggling
                             if (comp.HideOnToggle && TryComp(item, out MaskComponent? mask))
                             {
                                 if (clothing.EquippedPrefix != mask.EquippedPrefix)
+                                {
+                                    shouldLayerShow = false;
+                                    break;
+                                }
+                            }
+
+                            else if (comp.HideOnToggle && TryComp(item, out HeadToggleComponent? headToggle))
+                            {
+                                if (clothing.EquippedPrefix != headToggle.EquippedPrefix)
                                 {
                                     shouldLayerShow = false;
                                     break;
@@ -227,7 +237,12 @@ public abstract class ClothingSystem : EntitySystem
         if (TryComp(equipment, out HideLayerClothingComponent? clothesComp) && TryComp(equipee, out HumanoidAppearanceComponent? appearanceComp))
             ToggleVisualLayers(equipee, clothesComp.Slots, appearanceComp.HideLayersOnEquip);
     }
-
+    private void OnHeadToggled(Entity<ClothingComponent> ent, ref ItemHeadToggledEvent args)
+    {
+        // Sets the prefix (e.g. "welding-up") if toggled, otherwise null (default sprite)
+        SetEquippedPrefix(ent, args.IsToggled ? args.equippedPrefix : null, ent);
+        CheckEquipmentForLayerHide(ent.Owner, args.Wearer);
+    }
     #region Public API
 
     public void SetEquippedPrefix(EntityUid uid, string? prefix, ClothingComponent? clothing = null)

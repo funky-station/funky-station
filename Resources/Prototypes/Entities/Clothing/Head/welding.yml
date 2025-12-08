@@ -23,9 +23,12 @@
   - type: Item
     storedRotation: 0
   - type: IngestionBlocker
+  - type: EyeProtection
   - type: FlashImmunity
   - type: IdentityBlocker
-  - type: EyeProtection
+  - type: ImageOverlay
+    pathToOverlayImage: "/Textures/Clothing/Head/Welding/weldingTexture.png"
+    additionalColorOverlay: "#000000A0"
   - type: PhysicalComposition
     materialComposition:
       Steel: 200
@@ -39,6 +42,27 @@
   - type: HideLayerClothing
     slots:
     - Snout
+  - type: HeadToggle
+    equippedPrefix: "up"
+  - type: ComponentToggler
+    components:
+    - type: IngestionBlocker
+    - type: EyeProtection
+    - type: FlashImmunity
+    - type: IdentityBlocker
+    - type: ImageOverlay
+      pathToOverlayImage: "/Textures/Clothing/Head/Welding/weldingTexture.png"
+      additionalColorOverlay: "#000000A0"
+
+- type: entity
+  id: ActionToggleHead
+  name: action-name-toggle-head
+  description: action-description-toggle-head
+  components:
+  - type: InstantAction
+    icon: { sprite: Clothing/Head/Welding/welding.rsi, state: icon }
+    event: !type:ToggleHeadEvent
+    checkCanInteract: true
 
 - type: entity
   parent: WeldingMaskBase

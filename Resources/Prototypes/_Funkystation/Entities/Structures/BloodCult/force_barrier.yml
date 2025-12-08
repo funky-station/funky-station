@@ -4,7 +4,6 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
-# TODO: Make BloodCultistComponent members able to walk through this
 - type: entity
   id: ForceBarrierSpawnAnimation
   name: unfinished force barrier

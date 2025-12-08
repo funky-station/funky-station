@@ -139,7 +139,7 @@
   id: ProtogenMouth
   bodyPart: Eyes
   markingCategory: Eyes
-  speciesRestriction: [IPC]
+  speciesRestriction: [Vulpkanin, IPC]
   sprites:
   - sprite: _DV/Mobs/Customization/SynthLizIPC/head_markings.rsi
     state: protogen_mouth
@@ -290,7 +290,7 @@
   id: ProtogenSnout
   bodyPart: Snout
   markingCategory: Snout
-  speciesRestriction: [IPC]
+  speciesRestriction: [Vulpkanin, IPC]
   coloring: # Funky - Add default color
     default:
       type:
@@ -306,7 +306,7 @@
   id: ProtogenBoltSnout
   bodyPart: Snout
   markingCategory: Snout
-  speciesRestriction: [IPC]
+  speciesRestriction: [Vulpkanin, IPC]
   coloring: # Funky - Add default color
     default:
       type:

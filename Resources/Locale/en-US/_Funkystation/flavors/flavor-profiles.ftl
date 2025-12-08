@@ -52,7 +52,7 @@ flavor-complex-nekomimosa = like MELON
 flavor-complex-red-city-am = like breakfast in a glass
 flavor-complex-sentai-quencha = like ultimate space-ninja power
 flavor-complex-utility-pole = like a howling storm filling the air with electricity
-flavor-complex-wizz-fizz = like a bombardment of magic spells, including fireball, thunderbolt, and the power of friendship
+flavor-complex-wizz-fizz = like spectral blade, improved spectral blade, and a magic missile so devastating you'll regret ever crossing paths with this fizzy drink
 
 ## base
 flavor-base-fresh = fresh

@@ -39,9 +39,11 @@
 # SPDX-FileCopyrightText: 2024 saga3152 <133799418+saga3152@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 BearWithMe18 <77765510+BearWithMe18@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Mish <bluscout78@yahoo.com>
+# SPDX-FileCopyrightText: 2025 Noah Leach <77765510+BearWithMe18@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 RedBookcase <crazykid1590@gmail.com>
 # SPDX-FileCopyrightText: 2025 SharkSnake98 <peanutbuttersharky@gmail.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 kosticia <kosticia46@gmail.com>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
@@ -748,7 +750,7 @@
     Kalimotxo: 2
 
 - type: reaction
-  id: KiraSpecial
+  id: OrangeLimeSoda
   requiredMixerCategories:
     - Stir
   reactants:
@@ -759,7 +761,7 @@
     SodaWater:
       amount: 1
   products:
-    KiraSpecial: 3
+    OrangeLimeSoda: 3
 
 - type: reaction
   id: Lemonade

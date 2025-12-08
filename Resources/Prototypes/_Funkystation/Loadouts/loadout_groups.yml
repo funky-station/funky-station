@@ -24,6 +24,9 @@
   - InternalAffairsAgentTurtleneckBlack
   - InternalAffairsAgentTurtleneckRed
   - InternalAffairsAgentTurtleneckBlue
+  - InternalAffairsAgentTurtleneckBlackSkirt
+  - InternalAffairsAgentTurtleneckRedSkirt
+  - InternalAffairsAgentTurtleneckBlueSkirt
 
 - type: loadoutGroup
   id: InternalAffairsAgentOuterClothing
@@ -39,6 +42,7 @@
   loadouts:
   - InternalAffairsAgentGlovesBlack
   - InternalAffairsAgentGlovesRed
+  - NanotrasenRepresentativePaperworkGloves
 
 - type: loadoutGroup
   id: InternalAffairsAgentBackpack

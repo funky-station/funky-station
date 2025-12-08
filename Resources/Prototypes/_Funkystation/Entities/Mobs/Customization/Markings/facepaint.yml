@@ -198,3 +198,35 @@
   sprites:
   - sprite: _Funkystation/Mobs/Customization/Facepaints/thaven.rsi
     state: facepaint_lipstick
+
+## Glowing Blush, because thavens need four eyes
+
+- type: marking
+  id: FacepaintBlushHeadUnshaded
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Arachnid, Dwarf, Felinid, Harpy, Human, Moth, SlimePerson] # Funky: remove Goblin, Oni, Sheleg
+  sprites:
+  - sprite: _NF/Mobs/Customization/Facepaints/shared.rsi
+    state: facepaint_blush
+  shader: unshaded
+
+- type: marking
+  id: FacepaintBlushSnoutUnshaded
+  bodyPart: Snout
+  markingCategory: Head
+  speciesRestriction: [Reptilian, Vulpkanin]
+  sprites:
+  - sprite: _NF/Mobs/Customization/Facepaints/shared.rsi
+    state: facepaint_blush
+  shader: unshaded
+  
+- type: marking
+  id: FacepaintBlushThavenUnshaded
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Thaven]
+  sprites:
+  - sprite: _Funkystation/Mobs/Customization/Facepaints/thaven.rsi
+    state: facepaint_blush
+  shader: unshaded

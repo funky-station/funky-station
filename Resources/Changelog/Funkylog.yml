@@ -6383,3 +6383,9 @@ Entries:
       message: Added stomachs to the biofab!
   id: 749
   time: '2025-12-08T00:03:40.0000000+00:00'
+- author: Xcybitt
+  changes:
+    - type: Remove
+      message: 'Removed gibbing from the emagged recyclers. '
+  id: 750
+  time: '2025-12-08T00:04:45.0000000+00:00'

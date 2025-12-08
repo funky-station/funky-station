@@ -6363,3 +6363,11 @@ Entries:
       message: Core is christmas
   id: 746
   time: '2025-12-07T23:46:19.0000000+00:00'
+- author: AraiMaia
+  changes:
+    - type: Add
+      message: >-
+        New monkey variants for chef clothes - Yip-Yap will no longer look
+        weird.
+  id: 747
+  time: '2025-12-07T23:59:42.0000000+00:00'

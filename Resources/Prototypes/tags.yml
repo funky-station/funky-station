@@ -124,6 +124,8 @@
 # SPDX-FileCopyrightText: 2024 wafehling <wafehling@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
 # SPDX-FileCopyrightText: 2025 88tv <131759102+88tv@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 AftrLite
+# SPDX-FileCopyrightText: 2025 AftrLite <61218133+AftrLite@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Amethyst <52829582+jackel234@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 ArionGekkota <58326140+ArionGekkota@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Dani <57107055+wgreen84@users.noreply.github.com>
@@ -193,7 +195,10 @@
   id: AnomalyHost # Targeting whitelist: BaseAnomalyInjector
 
 - type: Tag
-  id: AnomalyLocator #Used by Anomaly Locator to locate anomalies
+  id: AnomalyLocator # CargoBounty: BountyAnomalyLocator
+
+- type: Tag
+  id: AnomalySyncronizerCircuitBoard # CargoBounty: BountyAnomalySyncronizerCircuitBoard
 
 - type: Tag
   id: AppraisalTool # Storage whitelist: BaseClothingBeltEngineering
@@ -613,6 +618,12 @@
   id: CrystalBlue # ConstructionGraph: BlueLight, BlueLightBulb
 
 - type: Tag
+  id: Cryosyringe # CargoBounty: BountyCryosyringe
+
+- type: Tag
+  id: ChimpHandcannon # CargoBounty: BountyChimpHandcannon
+
+- type: Tag
   id: CrystalCyan # ConstructionGraph: CyanLight, CyanLightBulb
 
 - type: Tag
@@ -752,6 +763,9 @@
 - type: Tag
   id: ExCable # Placement blacklist on CableDetStack. Placement whitelist on WiredDetonator
 
+- type: Tag
+  id: ExperimentalVesselMachineBoard
+
 ## F ##
 
 - type: Tag
@@ -768,6 +782,9 @@
 
 - type: Tag
   id: FireAlarmElectronics # ConstructionGraph: FireAlarmAssembly
+
+- type: Tag
+  id: ForceFieldProjector
 
 - type: Tag
   id: FireAxe # Storage whitelist: FireAxeCabinet
@@ -888,6 +905,9 @@
 
 - type: Tag
   id: GunUpgradeRange # Used by PKAUpgradeRange:GunUpgrade to ensure mutually exclusive upgrades.
+
+- type: Tag
+  id: GorillaGauntlet
 
 - type: Tag
   id: GunUpgradeReloadSpeed # Used by PKAUpgradeFireRate:GunUpgrade to ensure mutually exclusive upgrades.
@@ -1257,6 +1277,9 @@
   id: Ointment # Storage whitelist: ClothingBeltMedical
 
 - type: Tag
+  id: NightVisionGoggles
+
+- type: Tag
   id: Ore # Storage whitelist: OreBag, OreBox. MaterialStorage whitelist: OreProcessor
 
 - type: Tag
@@ -1302,6 +1325,9 @@
 
 - type: Tag
   id: PepperShaker # Storage whitelist: ClothingBeltChef. ItemMapper:  ClothingBeltChef
+
+- type: Tag
+  id: ParticleDecelerator
 
 - type: Tag
   id: PercussionInstrument # CargoBounty: BountyPercussion. MachineBoard construction: DawInstrumentMachineCircuitboard
@@ -1663,6 +1689,9 @@
   id: Spellbook # Storage whitelist: Bookshelf
 
 ## T ##
+
+- type: Tag
+  id: TechDiskTerminalCircuitBoard
 
 - type: Tag # goob edit
   id: Table

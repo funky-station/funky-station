@@ -80,8 +80,11 @@
 # SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 2DSiggy <siggymaxwell@gmail.com>
 # SPDX-FileCopyrightText: 2025 Gansu <68031780+GansuLalan@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Nox <nebulousnox38@gmail.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
@@ -610,8 +613,8 @@
 - type: entity
   id: SyringeCryostasis
   parent: BaseSyringe
-  name: cryostasis syringe
-  description: A syringe used to contain chemicals or solutions without reactions.
+  name: advanced syringe
+  description: An advanced syringe with a larger capacity that can also draw or inject faster, contain chemicals or solutions without reactions. # Goobstation - buffing cryo syringe cause its currently pointless and buffing bluespace syringe to make it more useful.
   components:
   - type: Sprite
     layers:
@@ -637,6 +640,7 @@
   - type: Tag
     tags:
     - Syringe
+    - Cryosyringe
     - Trash
 
 - type: entity

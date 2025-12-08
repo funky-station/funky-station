@@ -570,6 +570,9 @@
     - type: Battery
       maxCharge: 10000
       startingCharge: 10000
+    - type: Tag
+      tags:
+        - ParticleDecelerator
 
 - type: entity
   name: x-ray cannon
@@ -908,6 +911,9 @@
   - type: StaticPrice
     price: 100
   - type: Multishot # Goobstation
+  - type: Tag
+    tags:
+    - ChimpHandcannon
 
 - type: entity
   name: experimental C.H.I.M.P. handcannon
@@ -927,6 +933,9 @@
       fireCost: 100
     - proto: AnomalousParticleSigmaStrong
       fireCost: 100
+  - type: Tag
+    tags:
+      - ChimpHandcannon
 
 - type: entity
   name: eye of a behonker

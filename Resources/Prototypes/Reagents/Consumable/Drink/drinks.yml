@@ -716,7 +716,6 @@
         conditions:
         - !type:OrganType
           type: Thaven
-        scaleByQuantity: true
         factor: 0.1
         # end imp
 

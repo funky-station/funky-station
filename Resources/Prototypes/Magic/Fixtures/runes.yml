@@ -98,7 +98,7 @@
 - type: entity
   parent: BaseBloodCultRune
   id: EmpoweringRune_drawing
-  name: "empowering rune drawing"
+  name: "empowering rune"
   components:
   - type: Sprite
     sprite: _Funkystation/Structures/BloodCult/bloodrune.rsi
@@ -125,7 +125,7 @@
 - type: entity
   parent: BaseBloodCultRune
   id: OfferingRune_drawing
-  name: "offering rune drawing"
+  name: "offering rune"
   components:
   - type: Sprite
     sprite: _Funkystation/Structures/BloodCult/bloodrune.rsi
@@ -153,7 +153,8 @@
 - type: entity
   parent: BaseBloodCultRune
   id: ReviveRune_drawing
-  name: "revive rune drawing"
+  name: "revive rune"
+  description: A blood-soaked rune that brings the dead back to life by draining the invoker's blood.
   components:
   - type: Sprite
     sprite: _Funkystation/Structures/BloodCult/bloodrune.rsi
@@ -192,7 +193,7 @@
 - type: entity
   parent: BaseBloodCultRune
   id: SummoningRune_drawing
-  name: "summoning rune drawing"
+  name: "summoning rune"
   components:
   - type: Sprite
     sprite: _Funkystation/Structures/BloodCult/bloodrune.rsi

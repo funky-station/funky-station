@@ -1,4 +1,5 @@
 // SPDX-FileCopyrightText: 2025 Steve <marlumpy@gmail.com>
+// SPDX-FileCopyrightText: 2025 Terkala <appleorange64@gmail.com>
 // SPDX-FileCopyrightText: 2025 marc-pelletier <113944176+marc-pelletier@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
@@ -18,8 +19,6 @@ namespace Content.Server._Funkystation.EntityEffects.Effects;
 
 public sealed partial class AddReagentToBlood : EntityEffect
 {
-    private readonly SharedSolutionContainerSystem _solutionContainers;
-
     [DataField(customTypeSerializer: typeof(PrototypeIdSerializer<ReagentPrototype>))]
     public string? Reagent = null;
 

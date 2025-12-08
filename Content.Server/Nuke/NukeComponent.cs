@@ -143,7 +143,7 @@ namespace Content.Server.Nuke
         /// </summary>
         [ViewVariables(VVAccess.ReadWrite)]
         [DataField("intensitySlope")]
-        public float IntensitySlope = 5;
+        public float IntensitySlope = 2.5f;
 
         /// <summary>
         ///     The total intensity of this explosion. The radius of the explosion scales like the cube root of this

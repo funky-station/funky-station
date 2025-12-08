@@ -22,3 +22,6 @@ uplink-PDA-nukie-desc = A spare PDA from an operative, this can be used to show 
 
 uplink-PDA-agent-name = Agent PDA
 uplink-PDA-agent-desc = A spare PDA from an agent, this can be used to show your affiliation to those who have means of looking at your PDA and to check your wounds. Do keep in mind that syndicate turrets are coded for their crew alone, so don't expect to bypass them easily.
+# Pointless
+uplink-towel-syndicate-name = Syndicate Towel
+uplink-towel-syndicate-desc = A highly versatile, malicious-looking black towel. Has a meaner whip than most other towels. For the Syndicates's strongest shower warriors.

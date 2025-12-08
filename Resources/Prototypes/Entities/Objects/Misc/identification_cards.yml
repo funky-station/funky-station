@@ -289,7 +289,7 @@
   parent: [IDCardStandard, BaseMedicalContraband]
   id: MedicalIDCard
   name: medical ID card
-  discription: Not as shiny, still as sterile.
+  description: Not as shiny, still as sterile.
   components:
   - type: Sprite
     layers:
@@ -305,7 +305,7 @@
   parent: [IDCardStandard, BaseMedicalContraband]
   id: ParamedicIDCard
   name: paramedic ID card
-  discription: Not as shiny, still as sterile.
+  description: Not as shiny, still as sterile.
   components:
   - type: Sprite
     layers:

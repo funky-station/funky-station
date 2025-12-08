@@ -6389,3 +6389,26 @@ Entries:
       message: 'Removed gibbing from the emagged recyclers. '
   id: 750
   time: '2025-12-08T00:04:45.0000000+00:00'
+- author: ThatOneMoon
+  changes:
+    - type: Add
+      message: >-
+        Added a number of new bounties for the Science category, now asking for
+        a number of items that mostly come from Experimental research
+    - type: Remove
+      message: >-
+        Removed Janitor Bounties, some of the specific targets have been moved
+        into other categories.
+    - type: Tweak
+      message: >-
+        The Cryostasis Syringe has been renamed into the Advanced Syringe and
+        given a updated description, otherwise it functions identical as it does
+        currently
+    - type: Tweak
+      message: >-
+        The Bluespace Syringe is now able to draw/inject up to 20u at a time
+        instead of 15u 
+    - type: Fix
+      message: Autoinjector Cartridge bounties should now all work properly
+  id: 751
+  time: '2025-12-08T00:54:01.0000000+00:00'

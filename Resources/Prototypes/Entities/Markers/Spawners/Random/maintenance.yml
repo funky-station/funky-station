@@ -229,6 +229,32 @@
         - id: ClothingNeckTransPin
         - id: ClothingNeckAutismPin
         - id: ClothingNeckGoldAutismPin
+      # Funky group, towels
+      - !type:GroupSelector
+        children:
+        - id: TowelColorBlack
+        - id: TowelColorBlue
+        - id: TowelColorBrown
+        - id: TowelColorCentcom
+        - id: TowelColorDarkBlue
+        - id: TowelColorDarkGreen
+        - id: TowelColorGold
+        - id: TowelColorGray
+        - id: TowelColorGreen
+        - id: TowelColorLightBlue
+        - id: TowelColorLightBrown
+        - id: TowelColorMaroon
+        - id: TowelColorMime
+        - id: TowelColorNT
+        - id: TowelColorOrange
+        - id: TowelColorPink
+        - id: TowelColorPurple
+        - id: TowelColorRed
+        - id: TowelColorSilver
+        - id: TowelColorSyndicate
+        - id: TowelColorTeal
+        - id: TowelColorWhite
+        - id: TowelColorYellow
     # Rare Group
     - !type:GroupSelector
       weight: 2

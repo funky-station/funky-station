@@ -157,7 +157,7 @@
 - type: tile
   id: InflatablePlating
   name: tiles-inflatable-plating
-  sprite: /Textures/_Funkystation/Objects/Misc/inflatables.rsi/inflatable-floor.png
+  sprite: /Textures/_Funkystation/Objects/Misc/inflatables.rsi/inflatable_floor.png
   baseTurf: Space
   isSubfloor: true
   deconstructTools: [ Prying ]

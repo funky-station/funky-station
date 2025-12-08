@@ -145,6 +145,38 @@
   - type: NuclearReactor
     prefab: meltdown
 
+- type: entity
+  id: NuclearReactor5x5
+  parent: BaseNuclearReactor
+  suffix: 5x5
+  components:
+  - type: Sprite
+    sprite: Structures/Machines/station_anchor.rsi
+    layers:
+    - state: station_anchor
+      visible: true
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-1.5,-1.5,1.5,1.5"
+        density: 190
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+        - HighImpassable
+  - type: NuclearReactor
+    reactorGridWidth: 5
+    reactorGridHeight: 5
+    prefab: normal5x5
+    inletPos: -1, 1
+    inletRot: 180
+    outletPos: 1, 1
+    outletRot: 180
+    arrowPrototype: ReactorFlowArrow5x5
+
 # Nuclear debris resultant from a meltdown
 - type: entity
   id: NuclearDebrisChunk
@@ -167,7 +199,7 @@
   - type: RadiationSource
     intensity: 1.6
 
-# Arrow to indicate flow
+# Arrows to indicate flow
 - type: entity
   id: ReactorFlowArrow
   categories: [ HideSpawnMenu ]
@@ -182,6 +214,26 @@
         - state: arrow
           rotation: 90
           offset: -3, -1
+    - type: TimedDespawn
+      lifetime: 2
+    - type: Tag
+      tags:
+        - HideContextMenu
+
+- type: entity
+  id: ReactorFlowArrow5x5
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: Sprite
+      sprite: Markers/teg_arrow.rsi
+      color: "#FFFFFFBB"
+      layers:
+        - state: arrow
+          rotation: 0
+          offset: -1, 2
+        - state: arrow
+          rotation: 180
+          offset: 1, 2
     - type: TimedDespawn
       lifetime: 2
     - type: Tag

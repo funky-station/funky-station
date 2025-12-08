@@ -14,6 +14,7 @@ using Content.Shared.Materials;
 using Content.Shared.DeviceLinking;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 using Robust.Shared.Serialization;
+using System.Numerics;
 
 namespace Content.Shared._FarHorizons.Power.Generation.FissionGenerator;
 
@@ -24,9 +25,15 @@ namespace Content.Shared._FarHorizons.Power.Generation.FissionGenerator;
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class NuclearReactorComponent : Component
 {
+    /// <summary>
+    /// Width of the reactor grid
+    /// </summary>
     [DataField, ViewVariables(VVAccess.ReadOnly)]
     public int ReactorGridWidth = 7;
 
+    /// <summary>
+    /// Height of the reactor grid
+    /// </summary>
     [DataField, ViewVariables(VVAccess.ReadOnly)]
     public int ReactorGridHeight = 7;
 
@@ -66,7 +73,7 @@ public sealed partial class NuclearReactorComponent : Component
     /// <summary>
     /// Reactor casing temperature
     /// </summary>
-    [DataField]
+    [ViewVariables(VVAccess.ReadWrite)]
     public float Temperature = Atmospherics.T20C;
 
     /// <summary>
@@ -102,7 +109,7 @@ public sealed partial class NuclearReactorComponent : Component
     /// <summary>
     /// The set insertion level of the control rods
     /// </summary>
-    [DataField]
+    [ViewVariables(VVAccess.ReadWrite)]
     public float ControlRodInsertion = 2;
 
     /// <summary>
@@ -198,12 +205,56 @@ public sealed partial class NuclearReactorComponent : Component
     [DataField]
     public int[] Gridbounds = [ 18, 15, 0, 5 ];
 
+    #region Pipe Connections
+    /// <summary>
+    /// Name of the pipe node
+    /// </summary>
     [DataField]
     public string PipeName { get; set; } = "pipe";
+
+    /// <summary>
+    /// Inlet entity
+    /// </summary>
     [ViewVariables]
     public EntityUid? InletEnt;
+
+    /// <summary>
+    /// Position of the inlet entity
+    /// </summary>
+    [DataField]
+    public Vector2 InletPos = new(-2, -1);
+
+    /// <summary>
+    /// Rotation of the inlet entity, in degrees
+    /// </summary>
+    [DataField]
+    public float InletRot = -90;
+
+    /// <summary>
+    /// Outlet entity
+    /// </summary>
     [ViewVariables]
     public EntityUid? OutletEnt;
+
+    /// <summary>
+    /// Position of the outlet entity
+    /// </summary>
+    [DataField]
+    public Vector2 OutletPos = new(2, 1);
+
+    /// <summary>
+    /// Rotation of the outlet entity, in degrees
+    /// </summary>
+    [DataField]
+    public float OutletRot = 90;
+
+    /// <summary>
+    /// Name of the prototype of the arrows that indicate flow on inspect
+    /// </summary>
+    [DataField]
+    public EntProtoId ArrowPrototype = "ReactorFlowArrow";
+
+    #endregion
 
     [DataField("controlRodRetractPort", customTypeSerializer: typeof(PrototypeIdSerializer<SinkPortPrototype>))]
     public string ControlRodRetractPort = "RetractControlRods";

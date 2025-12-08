@@ -17,8 +17,6 @@ public sealed class NuclearReactorSystem : SharedNuclearReactorSystem
     [Dependency] private readonly SpriteSystem _sprite = default!;
     [Dependency] private readonly IResourceCache _resourceCache = default!;
 
-    private static readonly EntProtoId ArrowPrototype = "ReactorFlowArrow";
-
     public override void Initialize()
     {
         base.Initialize();
@@ -63,7 +61,7 @@ public sealed class NuclearReactorSystem : SharedNuclearReactorSystem
 
     private static string FormatMap(int x, int y) => "NuclearReactorCap" + x + "/" + y;
 
-    private void ReactorExamined(EntityUid uid, NuclearReactorComponent comp, ClientExaminedEvent args) => Spawn(ArrowPrototype, new EntityCoordinates(uid, 0, 0));
+    private void ReactorExamined(EntityUid uid, NuclearReactorComponent comp, ClientExaminedEvent args) => Spawn(comp.ArrowPrototype, new EntityCoordinates(uid, 0, 0));
 
     private void OnAppearanceChange(EntityUid uid, NuclearReactorComponent comp, ref AppearanceChangeEvent args)
     {

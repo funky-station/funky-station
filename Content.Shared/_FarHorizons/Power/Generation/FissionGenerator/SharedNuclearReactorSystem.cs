@@ -44,6 +44,7 @@ public abstract class SharedNuclearReactorSystem : EntitySystem
     protected static ReactorPartComponent?[,] SelectPrefab(string select) => select switch
     {
         "normal" => NuclearReactorPrefabs.Normal,
+        "normal5x5" => NuclearReactorPrefabs.Normal5x5,
         "debug" => NuclearReactorPrefabs.Debug,
         "meltdown" => NuclearReactorPrefabs.Meltdown,
         "alignment" => NuclearReactorPrefabs.Alignment,

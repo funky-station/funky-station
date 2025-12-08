@@ -1,4 +1,3 @@
-
 # SPDX-FileCopyrightText: 2019 DamianX <DamianX@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2019 L.E.D <10257081+unusualcrow@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2020 Decappi <kit0001@gmail.com>
@@ -146,6 +145,9 @@
 # SPDX-FileCopyrightText: 2024 takemysoult <143123247+takemysoult@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 to4no_fix <156101927+chavonadelal@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 yglop <95057024+yglop@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 2DSiggy <siggymaxwell@gmail.com>
+# SPDX-FileCopyrightText: 2025 A-Loose-Goose <237446272+A-Loose-Goose@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 ALooseGoose <ALooseGoosey@gmail.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Gansu <68031780+GansuLalan@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 IronDragoon <8961391+IronDragoon@users.noreply.github.com>
@@ -161,10 +163,12 @@
 # SPDX-FileCopyrightText: 2025 Mish <bluscout78@yahoo.com>
 # SPDX-FileCopyrightText: 2025 Mora <46364955+TrixxedHeart@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Nox <nebulousnox38@gmail.com>
 # SPDX-FileCopyrightText: 2025 OnyxTheBrave <131422822+OnyxTheBrave@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 QueerCats <jansencheng3@gmail.com>
 # SPDX-FileCopyrightText: 2025 ScarKy0 <scarky0@onet.eu>
 # SPDX-FileCopyrightText: 2025 SigmaTheDragon <162711378+SigmaTheDragon@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Sofia Gilsanz <softie.gd@gmail.com>
 # SPDX-FileCopyrightText: 2025 SpaceCat~Chan <49094338+SpaceCat-Chan@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Speebro <speebro@notreal.com>
 # SPDX-FileCopyrightText: 2025 Steve <marlumpy@gmail.com>
@@ -180,6 +184,7 @@
 # SPDX-FileCopyrightText: 2025 Xcybitt <197952719+Xcybitt@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Xcybitt <xcybitt@gmail.com>
 # SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Zergologist <114537969+Chedd-Error@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 aa5g21 <aa5g21@soton.ac.uk>
 # SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 delorphin <delorphin@gmail.com>
@@ -192,6 +197,7 @@
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 starch <starchpersonal@gmail.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 vectorassembly <vectorassembly@icloud.com>
 # SPDX-FileCopyrightText: 2025 willow <willowzeta632146@proton.me>
 # SPDX-FileCopyrightText: 2025 wilowzeta <willowzeta632146@proton.me>
 #
@@ -374,6 +380,7 @@
     - SprayBottle
     - MopItem
     - Holoprojector
+    - HolotapeProjector # Funky!
     - Mousetrap
     - LightReplacer
     - TrashBag
@@ -504,6 +511,11 @@
     - CandyBowl #pill(pill that pills you) #funk
     - DeskBell #ringringring #funk
     - BaseHandheldTelevision #watch my channels #funk
+    - InflatableWall #funky inflatables
+    - InflatableDoor #funk
+    - InflatableDock #funk
+    - InflatableFloor #funk
+    - TowelColorWhite #funk towel
     dynamicRecipes:
     - BoomboxRed
     - BoomboxGreen
@@ -557,6 +569,7 @@
     - SecHypo # Goobstation
     - ParamedHypo # Goobstation - ParamedHypo
     - ClothingHandsSecurityKnuckleDusters #funk
+    - TowelColorSyndicate #funk
   - type: BlueprintReceiver
     whitelist:
       tags:
@@ -704,9 +717,9 @@
     - ClothingEyesNightVisionGoggles # Funky - EE nightvision
     - ClothingEyesNightVisionDiagnosticGoggles # Funky - EE nightvision
     - ClothingEyesThermalVisionGoggles # Funky - EE nightvision
-
- 
-
+    - SadTromboneImplanter
+    - LightImplanter
+    - BikeHornImplanter
   - type: EmagLatheRecipes
     emagDynamicRecipes:
     - BoxBeanbag
@@ -753,6 +766,8 @@
     - MagazinePistolLargeIncendiary # Funkystation
     - MagazineBoxPistolLargeUranium # Funkystation
     - MagazineBoxPistolLargeIncendiary # Funkystation
+    - MindShieldImplanter
+    - TrackingImplanter
     - ClothingHandsTruncheonKnuckleDusters # funk
 
 - type: entity
@@ -955,7 +970,6 @@
     - SciFlash
     - BorgModuleCable
     - BorgModuleFireExtinguisher
-    - BorgModuleRadiationDetection
     - BorgModuleTool
     - CyborgEndoskeleton
     - LeftArmBorg
@@ -985,14 +999,15 @@
     - ProximitySensor
     - BorgModuleAdvancedCleaning
     - BorgModuleAdvancedTool
+    - BorgModuleAdvancedMining
     - BorgModuleAtmos
-    - BorgModuleGPS
-    - BorgModuleArtifact
-    - BorgModuleAnomaly
-    - BorgModuleGardening
-    - BorgModuleHarvesting
-    - BorgModuleDefibrillator
-    - BorgModuleAdvancedTreatment
+    #- BorgModuleGPS
+    #- BorgModuleArtifact
+    #- BorgModuleAnomaly
+    #- BorgModuleGardening
+    #- BorgModuleHarvesting
+    #- BorgModuleDefibrillator
+    - BorgModuleAdvancedChemical
     - RipleyHarness
     - RipleyLArm
     - RipleyRArm
@@ -1275,6 +1290,8 @@
     - WeaponMechCombatFlashbangLauncher
     - WeaponMechCombatMissileRack8
     - ClothingEyesNightVisionSecurityGoggles # Funky - EE nightvision
+    - MindShieldImplanter
+    - TrackingImplanter
     - ClothingHandsTruncheonKnuckleDusters # funk
   - type: EmagLatheRecipes # Goobstation
     emagStaticRecipes:
@@ -1444,6 +1461,9 @@
     - BluespaceBeaker
     - SyringeBluespace
     - SyringeCryostasis
+    - SadTromboneImplanter
+    - LightImplanter
+    - BikeHornImplanter
     # Shitmed Change
     - EnergyScalpel
     - EnergyCautery
@@ -1546,7 +1566,7 @@
     - ClothingUniformJumpsuitDetective
     - ClothingUniformJumpskirtDetective
     - ClothingUniformJumpsuitEngineering
-    - ClothingUniformJumpskirtEngineering
+    - ClothingUniformJumpsuitEngineeringOveralls
     - ClothingUniformJumpsuitSeniorEngineer
     - ClothingUniformJumpskirtSeniorEngineer
     - ClothingOuterVestHazard
@@ -1697,6 +1717,8 @@
     - BedsheetNT
     - BedsheetRainbow
     - BedsheetBrigmedic
+    # Funky Towels
+    - TowelColorWhite
   - type: EmagLatheRecipes
     emagStaticRecipes:
     # Clothing
@@ -1743,6 +1765,7 @@
     - ClothingOuterVestWebDurathread # Goobstation - adding durathread armoured clothing
     - ClothingOuterArmourDurathread # Goobstation - adding durathread armoured clothing
     - ClothingUniformJumpsuitDurathread # Goobstation - adding durathread armoured clothing
+    - TowelColorSyndicate # Funky
   - type: MaterialStorage
     whitelist:
       tags:
@@ -2047,6 +2070,7 @@
     - SynthHeart
     - SynthLungs
     - SynthEyes
+    - SynthStomach
     - SynthLeftLeg
     - SynthRightLeg
     - SynthLeftFoot

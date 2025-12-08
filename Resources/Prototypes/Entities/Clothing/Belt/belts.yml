@@ -184,21 +184,6 @@
     capacity: 14
 
 - type: entity
-  parent: ClothingBeltBase
-  id: ClothingBeltChampion
-  name: championship belt
-  description: Proves to the world that you are the strongest!
-  components:
-  - type: Sprite
-    sprite: Clothing/Belt/champion.rsi
-  - type: Clothing
-    sprite: Clothing/Belt/champion.rsi
-    quickEquip: true
-  - type: Tag
-    tags:
-    - Kangaroo
-
-- type: entity
   parent: [ ClothingBeltStorageBase, BaseMagicalContraband ]
   id: ClothingBeltWand
   name: wand belt

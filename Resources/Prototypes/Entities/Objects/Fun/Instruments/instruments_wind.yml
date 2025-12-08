@@ -40,27 +40,6 @@
             Quantity: 10
 
 - type: entity
-  parent: BaseHandheldInstrument
-  id: AccordionInstrument
-  name: accordion
-  components:
-  - type: Instrument
-    program: 21
-  - type: SwappableInstrument
-    instrumentList:
-      "Standard": {21: 0}
-      "Tango": {23: 0}
-  - type: Sprite
-    sprite: Objects/Fun/Instruments/accordion.rsi
-    state: icon
-  - type: Item
-    size: Normal
-    sprite: Objects/Fun/Instruments/accordion.rsi
-  - type: Tag
-    tags:
-    - KeyedInstrument
-
-- type: entity
   parent: [BaseHandheldInstrument, Clothing]
   id: HarmonicaInstrument
   name: harmonica
@@ -79,7 +58,7 @@
     slots:
     - neck
   - type: ActivatableUI
-    inHandsOnly: false  
+    inHandsOnly: false
   - type: Tag
     tags:
     - WoodwindInstrument

@@ -32,7 +32,7 @@ using Content.Server.Heretic.Components;
 using Content.Server.Antag;
 using Robust.Shared.Random;
 using System.Linq;
-using Content.Goobstation.Common.CCVar;
+using Content.Shared._Goobstation.CVars;
 using Content.Server._Goobstation.Objectives.Components;
 using Content.Server.Actions;
 using Content.Server.BloodCult.Components;

@@ -14,7 +14,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
-using Content.Goobstation.Common.CCVar;
+using Content.Shared._Goobstation.CVars;
 using Content.Goobstation.Server.StationEvents.Components;
 using Content.Goobstation.Shared.StationEvents;
 using Content.Server._Goobstation.StationEvents.Components;

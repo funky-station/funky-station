@@ -12,9 +12,6 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
-- type: Tag
-  id: Cigar
-
 - type: entity
   id: Cigar
   parent: BaseCigar
@@ -26,8 +23,8 @@
     state: unlit-icon
   - type: Tag
     tags:
-      - Cigar
-      - Trash
+    - Cigar
+    - Trash
   - type: Clothing
     sprite: Objects/Consumable/Smokeables/Cigars/cigar.rsi
     slots: [ mask ]
@@ -52,9 +49,9 @@
         maxVol: 20
   - type: Tag
     tags:
-      - Cigar
-      - Trash
-      - Burnt
+    - Cigar
+    - Trash
+    - Burnt
 
 - type: entity
   id: CigarGold

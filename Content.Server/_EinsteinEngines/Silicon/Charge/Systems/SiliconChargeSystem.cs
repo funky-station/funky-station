@@ -20,7 +20,7 @@ using Content.Shared.Movement.Systems;
 using Content.Server.Body.Components;
 using Content.Shared.Mind.Components;
 using System.Diagnostics.CodeAnalysis;
-using Content.Goobstation.Common.CCVar;
+using Content.Shared._Goobstation.CVars;
 using Content.Server.Power.EntitySystems; // Goobstation - Energycrit
 using Robust.Shared.Timing;
 using Robust.Shared.Configuration;
@@ -28,6 +28,7 @@ using Robust.Shared.Utility;
 using Content.Shared.PowerCell.Components;
 using Content.Shared.Alert;
 using Content.Shared.Atmos.Components;
+using Content.Shared.CCVar;
 using Content.Shared.Power.Components;
 using Content.Shared.PowerCell;
 using Content.Shared.Temperature.Components;
@@ -121,7 +122,7 @@ public sealed class SiliconChargeSystem : EntitySystem
             // Check if the Silicon is an NPC, and if so, follow the delay as specified in the CVAR.
             if (siliconComp.EntityType.Equals(SiliconType.Npc))
             {
-                var updateTime = _config.GetCVar(GoobCVars.SiliconNpcUpdateTime);
+                var updateTime = _config.GetCVar(CCVars.SiliconNpcUpdateTime);
                 if (_timing.CurTime - siliconComp.LastDrainTime < TimeSpan.FromSeconds(updateTime))
                     continue;
 

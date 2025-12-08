@@ -5,19 +5,6 @@
 
 - type: entity
   parent: DrinkGlass
-  id: DrinkEggnog
-  suffix: eggnog
-  components:
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        maxVol: 30
-        reagents:
-        - ReagentId: Eggnog
-          Quantity: 30
-
-- type: entity
-  parent: DrinkGlass
   id: DrinkPeggnog
   suffix: peggnog
   components:

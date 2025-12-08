@@ -82,7 +82,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
-using Content.Goobstation.Common.CCVar; // Goobstation
+using Content.Shared._Goobstation.CVars; // Goobstation
 using Content.Server.GameTicking;
 using Content.Server.RoundEnd;
 using Content.Server.StationEvents.Components;

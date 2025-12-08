@@ -9,36 +9,6 @@ namespace Content.Shared._DV.CCVars;
 // ReSharper disable once InconsistentNaming - Shush you
 public sealed partial class DCCVars
 {
-    /*
-     * Glimmer
-     */
-
-    /// <summary>
-    ///    Whether glimmer is enabled.
-    /// </summary>
-    public static readonly CVarDef<bool> GlimmerEnabled =
-        CVarDef.Create("glimmer.enabled", true, CVar.REPLICATED);
-
-    /// <summary>
-    ///     Passive glimmer drain per second.
-    ///     Note that this is randomized and this is an average value.
-    /// </summary>
-    public static readonly CVarDef<float> GlimmerLostPerSecond =
-        CVarDef.Create("glimmer.passive_drain_per_second", 0.1f, CVar.SERVERONLY);
-
-    /// <summary>
-    ///     Whether random rolls for psionics are allowed.
-    ///     Guaranteed psionics will still go through.
-    /// </summary>
-    public static readonly CVarDef<bool> PsionicRollsEnabled =
-        CVarDef.Create("psionics.rolls_enabled", true, CVar.SERVERONLY);
-
-    /// <summary>
-    /// Anti-EORG measure. Will add pacified to all players upon round end.
-    /// Its not perfect, but gets the job done.
-    /// </summary>
-    public static readonly CVarDef<bool> RoundEndPacifist =
-        CVarDef.Create("game.round_end_pacifist", false, CVar.SERVERONLY);
 
     /*
      * No EORG
@@ -111,90 +81,6 @@ public sealed partial class DCCVars
     /// </summary>
     public static readonly CVarDef<int> YearOffset =
         CVarDef.Create("game.current_year_offset", 550, CVar.SERVERONLY);
-
-    /*
-     * Feedback webhook
-     */
-
-    /// <summary>
-    ///     Discord webhook URL for getting feedback from players. If empty, will not relay the feedback.
-    /// </summary>
-    public static readonly CVarDef<string> DiscordPlayerFeedbackWebhook =
-        CVarDef.Create("discord.player_feedback_webhook", string.Empty, CVar.SERVERONLY | CVar.CONFIDENTIAL);
-
-    /// <summary>
-    ///     Use the admin's Admin OOC color in bwoinks.
-    ///     If either the ooc color or this is not set, uses the admin.admin_bwoink_color value.
-    /// </summary>
-    public static readonly CVarDef<bool> UseAdminOOCColorInBwoinks =
-        CVarDef.Create("admin.bwoink_use_admin_ooc_color", false, CVar.SERVERONLY);
-
-    /// <summary>
-    ///     If an admin replies to users from discord, should it use their discord role color? (if applicable)
-    ///     Overrides DiscordReplyColor and AdminBwoinkColor.
-    /// </summary>
-    public static readonly CVarDef<bool> UseDiscordRoleColor =
-        CVarDef.Create("admin.use_discord_role_color", false, CVar.SERVERONLY);
-
-    /// <summary>
-    ///     If an admin replies to users from discord, should it use their discord role name? (if applicable)
-    /// </summary>
-    public static readonly CVarDef<bool> UseDiscordRoleName =
-        CVarDef.Create("admin.use_discord_role_name", false, CVar.SERVERONLY);
-
-    /// <summary>
-    ///     The text before an admin's name when replying from discord to indicate they're speaking from discord.
-    /// </summary>
-    public static readonly CVarDef<string> DiscordReplyPrefix =
-        CVarDef.Create("admin.discord_reply_prefix", "(DC) ", CVar.SERVERONLY);
-
-    /// <summary>
-    ///     The color of the names of admins. This is the fallback color for admins.
-    /// </summary>
-    public static readonly CVarDef<string> AdminBwoinkColor =
-        CVarDef.Create("admin.admin_bwoink_color", "red", CVar.SERVERONLY);
-
-    /// <summary>
-    ///     The color of the names of admins who reply from discord. Leave empty to disable.
-    ///     Overrides AdminBwoinkColor.
-    /// </summary>
-    public static readonly CVarDef<string> DiscordReplyColor =
-        CVarDef.Create("admin.discord_reply_color", string.Empty, CVar.SERVERONLY);
-
-    /// <summary>
-    ///    Whether or not to disable the preset selecting test rule from running. Should be disabled in production. DeltaV specific, attached to Impstation Secret concurrent feature.
-    /// </summary>
-    public static readonly CVarDef<bool> EnableBacktoBack =
-        CVarDef.Create("game.disable_preset_test", false, CVar.SERVERONLY);
-
-    /// <summary>
-    /// A string containing a list of newline-separated strings to be highlighted in the chat. Use this instead of Wizden's CVar.
-    /// </summary>
-    public static readonly CVarDef<string> ChatHighlights =
-        CVarDef.Create("deltav.chat.highlights",
-            "",
-            CVar.CLIENTONLY | CVar.ARCHIVE,
-            "A list of newline-separated strings to be highlighted in the chat.");
-
-    /// <summary>
-    /// An option to toggle the automatic filling of the highlights with the character's info, if available.
-    /// </summary>
-    [Obsolete("Use CCVar.ChatAutoFillHighlights instead.")]
-    public static readonly CVarDef<bool> ChatAutoFillHighlights =
-        CVarDef.Create("deltav.chat.auto_fill_highlights",
-            false,
-            CVar.CLIENTONLY | CVar.ARCHIVE,
-            "Toggles automatically filling the highlights with the character's information.");
-
-    /// <summary>
-    /// The color in which the highlights will be displayed.
-    /// </summary>
-    [Obsolete("Use CCVar.ChatHighlightsColor instead.")]
-    public static readonly CVarDef<string> ChatHighlightsColor =
-        CVarDef.Create("deltav.chat.highlights_color",
-            "#17FFC1FF",
-            CVar.CLIENTONLY | CVar.ARCHIVE,
-            "The color in which the highlights will be displayed.");
 
     /* Laying down combat */
 

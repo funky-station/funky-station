@@ -29,7 +29,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
-using Content.Goobstation.Common.CCVar;
+using Content.Shared._Goobstation.CVars;
 using Content.Shared._Goobstation.Mech; // Goob Edit
 // Goobstation
 using Content.Shared.Access.Components;

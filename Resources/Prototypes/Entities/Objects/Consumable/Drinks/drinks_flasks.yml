@@ -121,15 +121,6 @@
 
 - type: entity
   parent: FlaskBase
-  id: DrinkFlaskOld
-  name: flask
-  description: ''
-  components:
-  - type: Sprite
-    sprite: Objects/Consumable/Drinks/flask_old.rsi
-
-- type: entity
-  parent: FlaskBase
   id: DrinkLithiumFlask
   name: lithium flask
   description: A flask with a Lithium Atom symbol on it.

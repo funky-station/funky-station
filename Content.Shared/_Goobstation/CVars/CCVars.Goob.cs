@@ -49,7 +49,7 @@
 
 using Robust.Shared.Configuration;
 
-namespace Content.Goobstation.Common.CCVar;
+namespace Content.Shared._Goobstation.CVars;
 
 [CVarDefs]
 public sealed partial class GoobCVars
@@ -189,60 +189,12 @@ public sealed partial class GoobCVars
 
     #endregion PlayerListener
 
-    #region Discord AHelp Reply System
-
-    /// <summary>
-    ///     If an admin replies to users from discord, should it use their discord role color? (if applicable)
-    ///     Overrides DiscordReplyColor and AdminBwoinkColor.
-    /// </summary>
-    public static readonly CVarDef<bool> UseDiscordRoleColor =
-        CVarDef.Create("admin.use_discord_role_color", true, CVar.SERVERONLY);
-
-    /// <summary>
-    ///     If an admin replies to users from discord, should it use their discord role name? (if applicable)
-    /// </summary>
-    public static readonly CVarDef<bool> UseDiscordRoleName =
-        CVarDef.Create("admin.use_discord_role_name", true, CVar.SERVERONLY);
-
-    /// <summary>
-    ///     The text before an admin's name when replying from discord to indicate they're speaking from discord.
-    /// </summary>
-    public static readonly CVarDef<string> DiscordReplyPrefix =
-        CVarDef.Create("admin.discord_reply_prefix", "(DISCORD) ", CVar.SERVERONLY);
-
-    /// <summary>
-    ///     The color of the names of admins. This is the fallback color for admins.
-    /// </summary>
-    public static readonly CVarDef<string> AdminBwoinkColor =
-        CVarDef.Create("admin.admin_bwoink_color", "red", CVar.SERVERONLY);
-
-    /// <summary>
-    ///     The color of the names of admins who reply from discord. Leave empty to disable.
-    ///     Overrides AdminBwoinkColor.
-    /// </summary>
-    public static readonly CVarDef<string> DiscordReplyColor =
-        CVarDef.Create("admin.discord_reply_color", string.Empty, CVar.SERVERONLY);
-
-    /// <summary>
-    ///     Use the admin's Admin OOC color in bwoinks.
-    ///     If either the ooc color or this is not set, uses the admin.admin_bwoink_color value.
-    /// </summary>
-    public static readonly CVarDef<bool> UseAdminOOCColorInBwoinks =
-        CVarDef.Create("admin.bwoink_use_admin_ooc_color", true, CVar.SERVERONLY);
-
     /// <summary>
     ///     Discord Webhook for the station report
     /// </summary>
     public static readonly CVarDef<string> StationReportDiscordWebHook =
         CVarDef.Create("stationreport.discord_webhook", "", CVar.SERVERONLY | CVar.CONFIDENTIAL);
 
-    #endregion
-
-    /// <summary>
-    ///     Goobstation: The amount of time between NPC Silicons draining their battery in seconds.
-    /// </summary>
-    public static readonly CVarDef<float> SiliconNpcUpdateTime =
-        CVarDef.Create("silicon.npcupdatetime", 1.5f, CVar.SERVERONLY);
 
     /// <summary>
     ///     Should the player automatically get up after being knocked down
@@ -255,18 +207,6 @@ public sealed partial class GoobCVars
     /// </summary>
     public static readonly CVarDef<float> CrawlHitzoneSize =
         CVarDef.Create("goob.crawl_hitzone_size", 0.4f, CVar.SERVER | CVar.REPLICATED);
-
-    #region Blob
-    public static readonly CVarDef<int> BlobMax =
-        CVarDef.Create("blob.max", 3, CVar.SERVERONLY);
-
-    public static readonly CVarDef<int> BlobPlayersPer =
-        CVarDef.Create("blob.players_per", 20, CVar.SERVERONLY);
-
-    public static readonly CVarDef<bool> BlobCanGrowInSpace =
-        CVarDef.Create("blob.grow_space", true, CVar.SERVER);
-
-    #endregion
 
     #region Mechs
 

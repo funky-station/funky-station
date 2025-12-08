@@ -6,10 +6,6 @@
 #
 # SPDX-License-Identifier: MIT
 
-shared-solution-container-component-on-examine-empty-container = Contains no chemicals.
-shared-solution-container-component-on-examine-main-text = It contains {INDEFINITE($desc)} [color={$color}]{$desc}[/color] {$wordedAmount}
-shared-solution-container-component-on-examine-worded-amount-one-reagent = chemical.
-shared-solution-container-component-on-examine-worded-amount-multiple-reagents = mixture of chemicals.
 shared-solution-container-component-on-examine-main-text = It contains {INDEFINITE($desc)} [color={$color}]{$desc}[/color] { $chemCount ->
     [1] chemical.
    *[other] mixture of chemicals.

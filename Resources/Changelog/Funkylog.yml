@@ -6418,3 +6418,17 @@ Entries:
       message: Added the Nuclear Reactor, Gas Turbine, and supporting components.
   id: 752
   time: '2025-12-08T02:20:18.0000000+00:00'
+- author: AftrLite
+  changes:
+    - type: Tweak
+      message: >-
+        The Entropic Colossus now has the same spawn chance as other antags on
+        Funky.
+  id: 753
+  time: '2025-12-08T22:07:57.0000000+00:00'
+- author: Rainbeon
+  changes:
+    - type: Remove
+      message: Reverted this week's inflatable changes.
+  id: 754
+  time: '2025-12-08T23:48:30.0000000+00:00'

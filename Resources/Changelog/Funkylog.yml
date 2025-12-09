@@ -6444,3 +6444,9 @@ Entries:
         manager wire
   id: 755
   time: '2025-12-09T22:17:56.0000000+00:00'
+- author: TrixxedHeart
+  changes:
+    - type: Tweak
+      message: Resprited lizard plushie slippers
+  id: 756
+  time: '2025-12-09T22:19:04.0000000+00:00'

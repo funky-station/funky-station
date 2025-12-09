@@ -22,8 +22,8 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
 - type: entity
+  parent: [ BaseStructureDynamic, BasePaperLabelableVisualized ]
   id: CrateArtifactContainer
-  parent: BaseStructureDynamic
   name: artifact container
   description: Used to safely contain and move artifacts.
   components:
@@ -87,16 +87,6 @@
           behaviors:
             - !type:DoActsBehavior
               acts: ["Destruction"]
-    - type: PaperLabel
-      labelSlot:
-        insertVerbText: comp-paper-label-insert
-        ejectVerbText: comp-paper-label-eject
-        whitelist:
-          components:
-            - Paper
-        blacklist:
-          tags:
-          - Book
     - type: Appearance
     - type: EntityStorageVisuals
       stateDoorOpen: artifact_container_open
@@ -118,7 +108,6 @@
             True: { offset: "0.0,0.3125" }
             False: { offset: "0.0,0.0" }
     - type: LockVisuals
-    - type: ItemSlots
     - type: ContainerContainer
       containers:
         entity_storage: !type:Container

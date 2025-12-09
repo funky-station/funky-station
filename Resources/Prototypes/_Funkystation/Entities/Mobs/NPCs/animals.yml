@@ -133,3 +133,14 @@
     rootTask:
       task: SimpleHostileCompound
   - type: NPCRetaliation #bird talon with cat fangs plus wings equals don't fuck with them
+  - type: GhostRole
+    prob: 0.25
+    makeSentient: true
+    allowSpeech: true
+    allowMovement: true
+    name: ghost-role-information-meowl-name
+    description: ghost-role-information-meowl-description
+    rules: ghost-role-information-freeagent-rules
+    mindRoles:
+    - MindRoleGhostRoleFreeAgentHarmless
+  - type: GhostTakeoverAvailable

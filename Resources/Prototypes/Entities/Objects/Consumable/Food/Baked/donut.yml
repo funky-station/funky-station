@@ -471,7 +471,7 @@
   name: slugcat jelly-donut
   parent: FoodDonutBase
   id: FoodDonutJellySlugcat
-  description: No holes in this donut in case a suspicious looking pole shows up.
+  description: Goes great with a massive cup of rainwater.
   components:
   - type: Sprite
     state: jelly-slug

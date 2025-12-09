@@ -125,7 +125,7 @@
     color: "#b8b8b8"
     activateSound: null
     deactivateSound: null
-    lightRadius: 5
+    lightRadius: 2
   - type: NpcFactionMember
     factions:
     - PetsNT #makes them hunt mice

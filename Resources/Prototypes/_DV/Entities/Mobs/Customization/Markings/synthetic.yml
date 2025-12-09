@@ -9,7 +9,7 @@
   id: SyntheticLizardHeadM
   bodyPart: Head
   markingCategory: Head
-  speciesRestriction: [IPC]
+  speciesRestriction: [Reptilian, IPC]
   sprites:
   - sprite: _DV/Mobs/Customization/SynthLizIPC/head_markings.rsi
     state: synth_lizard_head_m
@@ -18,7 +18,7 @@
   id: SyntheticLizardHeadF
   bodyPart: Head
   markingCategory: Head
-  speciesRestriction: [IPC]
+  speciesRestriction: [Reptilian, IPC]
   sprites:
   - sprite: _DV/Mobs/Customization/SynthLizIPC/head_markings.rsi
     state: synth_lizard_head_f
@@ -37,7 +37,7 @@
   id: SyntheticLizardChestM
   bodyPart: Chest
   markingCategory: Chest
-  speciesRestriction: [IPC]
+  speciesRestriction: [Reptilian, IPC]
   sprites:
   - sprite: _DV/Mobs/Customization/SynthLizIPC/body_markings.rsi
     state: synth_lizard_chest_m
@@ -46,7 +46,7 @@
   id: SyntheticLizardChestF
   bodyPart: Chest
   markingCategory: Chest
-  speciesRestriction: [IPC]
+  speciesRestriction: [Reptilian, IPC]
   sprites:
   - sprite: _DV/Mobs/Customization/SynthLizIPC/body_markings.rsi
     state: synth_lizard_chest_f
@@ -56,7 +56,7 @@
   id: SyntheticLizardRArm
   bodyPart: RArm
   markingCategory: Arms
-  speciesRestriction: [IPC]
+  speciesRestriction: [Reptilian, IPC]
   sprites:
   - sprite: _DV/Mobs/Customization/SynthLizIPC/body_markings.rsi
     state: synth_lizard_r_arm
@@ -65,7 +65,7 @@
   id: SyntheticLizardLArm
   bodyPart: LArm
   markingCategory: Arms
-  speciesRestriction: [IPC]
+  speciesRestriction: [Reptilian, IPC]
   sprites:
   - sprite: _DV/Mobs/Customization/SynthLizIPC/body_markings.rsi
     state: synth_lizard_l_arm
@@ -74,7 +74,7 @@
   id: SyntheticLizardRHand
   bodyPart: RHand
   markingCategory: Arms
-  speciesRestriction: [IPC]
+  speciesRestriction: [Reptilian, IPC]
   sprites:
   - sprite: _DV/Mobs/Customization/SynthLizIPC/body_markings.rsi
     state: synth_lizard_r_hand
@@ -83,7 +83,7 @@
   id: SyntheticLizardLHand
   bodyPart: LHand
   markingCategory: Arms
-  speciesRestriction: [IPC]
+  speciesRestriction: [Reptilian, IPC]
   sprites:
   - sprite: _DV/Mobs/Customization/SynthLizIPC/body_markings.rsi
     state: synth_lizard_l_hand
@@ -93,7 +93,7 @@
   id: SyntheticLizardRLeg
   bodyPart: RLeg
   markingCategory: Legs
-  speciesRestriction: [IPC]
+  speciesRestriction: [Reptilian, IPC]
   sprites:
   - sprite: _DV/Mobs/Customization/SynthLizIPC/body_markings.rsi
     state: synth_lizard_r_leg
@@ -102,7 +102,7 @@
   id: SyntheticLizardLLeg
   bodyPart: LLeg
   markingCategory: Legs
-  speciesRestriction: [IPC]
+  speciesRestriction: [Reptilian, IPC]
   sprites:
   - sprite: _DV/Mobs/Customization/SynthLizIPC/body_markings.rsi
     state: synth_lizard_l_leg
@@ -111,7 +111,7 @@
   id: SyntheticLizardRFoot
   bodyPart: RFoot
   markingCategory: Legs
-  speciesRestriction: [IPC]
+  speciesRestriction: [Reptilian, IPC]
   sprites:
   - sprite: _DV/Mobs/Customization/SynthLizIPC/body_markings.rsi
     state: synth_lizard_r_foot
@@ -120,7 +120,7 @@
   id: SyntheticLizardLFoot
   bodyPart: LFoot
   markingCategory: Legs
-  speciesRestriction: [IPC]
+  speciesRestriction: [Reptilian, IPC]
   sprites:
   - sprite: _DV/Mobs/Customization/SynthLizIPC/body_markings.rsi
     state: synth_lizard_l_foot
@@ -149,7 +149,7 @@
   id: SyntheticLizardSnoutBasic
   bodyPart: Snout
   markingCategory: Snout
-  speciesRestriction: [IPC]
+  speciesRestriction: [Reptilian, IPC]
   sprites:
   - sprite: _DV/Mobs/Customization/SynthLizIPC/snout_markings.rsi
     state: synth_lizard_snout_basic
@@ -158,7 +158,7 @@
   id: SyntheticLizardSnoutUnder
   bodyPart: Snout
   markingCategory: Snout
-  speciesRestriction: [IPC]
+  speciesRestriction: [Reptilian, IPC]
   sprites:
   - sprite: _DV/Mobs/Customization/SynthLizIPC/snout_markings.rsi
     state: synth_lizard_snout_under_1
@@ -169,7 +169,7 @@
   id: SyntheticLizardSnoutOver
   bodyPart: Snout
   markingCategory: Snout
-  speciesRestriction: [IPC]
+  speciesRestriction: [Reptilian, IPC]
   sprites:
   - sprite: _DV/Mobs/Customization/SynthLizIPC/snout_markings.rsi
     state: synth_lizard_snout_over_1
@@ -180,7 +180,7 @@
   id: SyntheticLizardSnoutTert
   bodyPart: Snout
   markingCategory: Snout
-  speciesRestriction: [IPC]
+  speciesRestriction: [Reptilian, IPC]
   sprites:
   - sprite: _DV/Mobs/Customization/SynthLizIPC/snout_markings.rsi
     state: synth_lizard_snout_tert_1
@@ -191,7 +191,7 @@
   id: SyntheticLizardSnoutTertUnder
   bodyPart: Snout
   markingCategory: Snout
-  speciesRestriction: [IPC]
+  speciesRestriction: [Reptilian, IPC]
   sprites:
   - sprite: _DV/Mobs/Customization/SynthLizIPC/snout_markings.rsi
     state: synth_lizard_snout_tert_under_1
@@ -204,7 +204,7 @@
   id: SyntheticLizardSnoutLong
   bodyPart: Snout
   markingCategory: Snout
-  speciesRestriction: [IPC]
+  speciesRestriction: [Reptilian, IPC]
   sprites:
   - sprite: _DV/Mobs/Customization/SynthLizIPC/snout_markings.rsi
     state: synth_lizard_snout_long
@@ -213,7 +213,7 @@
   id: SyntheticLizardSnoutThick
   bodyPart: Snout
   markingCategory: Snout
-  speciesRestriction: [IPC]
+  speciesRestriction: [Reptilian, IPC]
   sprites:
   - sprite: _DV/Mobs/Customization/SynthLizIPC/snout_markings.rsi
     state: synth_lizard_snout_thick
@@ -222,7 +222,7 @@
   id: SyntheticLizardSnoutThickLong
   bodyPart: Snout
   markingCategory: Snout
-  speciesRestriction: [IPC]
+  speciesRestriction: [Reptilian, IPC]
   sprites:
   - sprite: _DV/Mobs/Customization/SynthLizIPC/snout_markings.rsi
     state: synth_lizard_snout_thick_long
@@ -231,7 +231,7 @@
   id: SyntheticLizardSnoutBarlessBasic
   bodyPart: Snout
   markingCategory: Snout
-  speciesRestriction: [IPC]
+  speciesRestriction: [Reptilian, IPC]
   sprites:
   - sprite: _DV/Mobs/Customization/SynthLizIPC/snout_markings.rsi
     state: synth_lizard_snout_barless_basic
@@ -240,7 +240,7 @@
   id: SyntheticLizardSnoutBarlessUnder
   bodyPart: Snout
   markingCategory: Snout
-  speciesRestriction: [IPC]
+  speciesRestriction: [Reptilian, IPC]
   sprites:
   - sprite: _DV/Mobs/Customization/SynthLizIPC/snout_markings.rsi
     state: synth_lizard_snout_barless_under_1
@@ -253,7 +253,7 @@
   id: SyntheticLizardSnoutBarlessOver
   bodyPart: Snout
   markingCategory: Snout
-  speciesRestriction: [IPC]
+  speciesRestriction: [Reptilian, IPC]
   sprites:
   - sprite: _DV/Mobs/Customization/SynthLizIPC/snout_markings.rsi
     state: synth_lizard_snout_barless_over_1
@@ -266,7 +266,7 @@
   id: SyntheticLizardSnoutBarlessTert
   bodyPart: Snout
   markingCategory: Snout
-  speciesRestriction: [IPC]
+  speciesRestriction: [Reptilian, IPC]
   sprites:
   - sprite: _DV/Mobs/Customization/SynthLizIPC/snout_markings.rsi
     state: synth_lizard_snout_barless_tert_1
@@ -277,7 +277,7 @@
   id: SyntheticLizardSnoutBarlessTertUnder
   bodyPart: Snout
   markingCategory: Snout
-  speciesRestriction: [IPC]
+  speciesRestriction: [Reptilian, IPC]
   sprites:
   - sprite: _DV/Mobs/Customization/SynthLizIPC/snout_markings.rsi
     state: synth_lizard_snout_barless_tert_under_1
@@ -323,7 +323,7 @@
   id: SynthLizardTail
   bodyPart: Tail
   markingCategory: Tail
-  speciesRestriction: [IPC]
+  speciesRestriction: [Reptilian, IPC]
   sprites:
   - sprite: _DV/Mobs/Customization/SynthLizIPC/tail_markings.rsi
     state: synth_lizard_tail
@@ -332,7 +332,7 @@
   id: SynthLizardTailAnimated
   bodyPart: Tail
   markingCategory: Tail
-  speciesRestriction: []
+  speciesRestriction: [Reptilian, IPC]
   sprites:
   - sprite: _DV/Mobs/Customization/SynthLizIPC/tail_markings.rsi
     state: synth_lizard_tail_wag
@@ -342,7 +342,7 @@
   id: SynthAntennaBasic
   bodyPart: HeadTop
   markingCategory: HeadTop
-  speciesRestriction: [IPC]
+  speciesRestriction: [Reptilian, IPC]
   sprites:
   - sprite: _DV/Mobs/Customization/SynthLizIPC/antenna_markings.rsi
     state: synth_antenna_basic
@@ -351,7 +351,7 @@
   id: SynthAntennaCurled
   bodyPart: HeadTop
   markingCategory: HeadTop
-  speciesRestriction: [IPC]
+  speciesRestriction: [Reptilian, IPC]
   sprites:
   - sprite: _DV/Mobs/Customization/SynthLizIPC/antenna_markings.rsi
     state: synth_antenna_curled
@@ -360,7 +360,7 @@
   id: SynthAntennaThick
   bodyPart: HeadTop
   markingCategory: HeadTop
-  speciesRestriction: [IPC]
+  speciesRestriction: [Reptilian, IPC]
   sprites:
   - sprite: _DV/Mobs/Customization/SynthLizIPC/antenna_markings.rsi
     state: synth_antenna_thick
@@ -369,7 +369,7 @@
   id: SynthAntennaThickLight
   bodyPart: HeadTop
   markingCategory: HeadTop
-  speciesRestriction: [IPC]
+  speciesRestriction: [Reptilian, IPC]
   sprites:
   - sprite: _DV/Mobs/Customization/SynthLizIPC/antenna_markings.rsi
     state: synth_antenna_thick_light_1
@@ -380,7 +380,7 @@
   id: SynthAntennaShort
   bodyPart: HeadTop
   markingCategory: HeadTop
-  speciesRestriction: [IPC]
+  speciesRestriction: [Reptilian, IPC]
   sprites:
   - sprite: _DV/Mobs/Customization/SynthLizIPC/antenna_markings.rsi
     state: synth_antenna_short
@@ -389,7 +389,7 @@
   id: SynthAntennaSharp
   bodyPart: HeadTop
   markingCategory: HeadTop
-  speciesRestriction: [IPC]
+  speciesRestriction: [Reptilian, IPC]
   sprites:
   - sprite: _DV/Mobs/Customization/SynthLizIPC/antenna_markings.rsi
     state: synth_antenna_sharp
@@ -398,7 +398,7 @@
   id: SynthAntennaSharpLight
   bodyPart: HeadTop
   markingCategory: HeadTop
-  speciesRestriction: [IPC]
+  speciesRestriction: [Reptilian, IPC]
   sprites:
   - sprite: _DV/Mobs/Customization/SynthLizIPC/antenna_markings.rsi
     state: synth_antenna_sharp_light_1
@@ -409,7 +409,7 @@
   id: SynthAntennaCobra
   bodyPart: HeadTop
   markingCategory: HeadTop
-  speciesRestriction: [IPC]
+  speciesRestriction: [Reptilian, IPC]
   sprites:
   - sprite: _DV/Mobs/Customization/SynthLizIPC/antenna_markings.rsi
     state: synth_antenna_cobra_1
@@ -420,7 +420,7 @@
   id: SynthAntennaHood
   bodyPart: HeadTop
   markingCategory: HeadTop
-  speciesRestriction: [IPC]
+  speciesRestriction: [Reptilian, IPC]
   sprites:
   - sprite: _DV/Mobs/Customization/SynthLizIPC/antenna_markings.rsi
     state: synth_antenna_hood_1

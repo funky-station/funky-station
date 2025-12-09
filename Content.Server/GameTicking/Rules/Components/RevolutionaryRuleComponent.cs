@@ -9,6 +9,7 @@
 // SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Skye <57879983+Rainbeon@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Tadeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 ferynn <witchy.girl.me@gmail.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
 // SPDX-License-Identifier: MIT
@@ -83,4 +84,26 @@ public sealed partial class RevolutionaryRuleComponent : Component
 
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public bool OpenRevoltAnnouncementPending = false;
+
+    [DataField, ViewVariables(VVAccess.ReadWrite)]
+    public double RevHeat = 0;
+
+    [DataField, ViewVariables(VVAccess.ReadWrite)]
+    public double HeatThreshold = 0;
+
+    [DataField, ViewVariables(VVAccess.ReadWrite)]
+    public bool GammaCalled = false;
+
+    [DataField]
+    public double CrewPercent = .6;
+
+    public enum HeatLevel
+    {
+        Low = 1,
+        Medium = 3,
+        High = 6,
+        VeryHigh = 10,
+        Extreme = 20
+    }
+
 }

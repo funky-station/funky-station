@@ -18,6 +18,17 @@
         Quantity: 3
       - ReagentId: Sugar
         Quantity: 10
+  - type: SolutionContainerManager
+    solutions:
+        food:
+          reagents:
+            - ReagentId: Sugar
+              Quantity: 5
+  - type: FlavorProfile
+    flavors:
+      - sweet
+      - peppery
+  - type: Food
 
 - type: entity
   id: TorsoGingerbread

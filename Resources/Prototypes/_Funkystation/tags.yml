@@ -22,9 +22,6 @@
   id: ChitinSharkminnow
 
 - type: Tag
-  id: ChangelingInfectionImplant
-
-- type: Tag
   id: Magboots
 
 - type: Tag
@@ -83,12 +80,12 @@
 
 - type: Tag
   id: CardboardboxLargeFlat
-  
+
 - type: Tag
   id: CartridgePistolLarge
 
 - type: Tag
   id: MagazinePistolLarge
-  
+
 - type: Tag
   id: RevolverSalamander

@@ -111,7 +111,7 @@
       food:
         reagents:
         - ReagentId: Sugar
-          Quantity: 100
+          Quantity: 200
 
 
 - type: entity

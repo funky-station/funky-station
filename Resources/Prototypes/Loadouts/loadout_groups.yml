@@ -1110,6 +1110,17 @@
   loadouts:
   - LizardPlushieSalvageSpecialist
 
+- type: loadoutGroup
+  id: SurvivalSalvageExtended
+  name: loadout-group-survival-salvage-extended
+  minLimit: 2
+  hidden: true
+  loadouts:
+  - EmergencyNitrogenExtendedSalvage
+  - EmergencyOxygenExtendedSalvage
+  - LoadoutSpeciesVoxNitrogen
+  - EmergencyIPCBox # Funky
+
 # Engineering
 - type: loadoutGroup
   id: ChiefEngineerHead

@@ -26,8 +26,9 @@
   spawn: InflatableDockStack1
   maxCount: 5
 
-- type: stack
-  id: InflatableFloor
-  name: inflatable floor
-  spawn: InflatableFloorStack1
-  maxCount: 8
+# Inflatable floor are breaking because tiles are fucked in the yaml
+# - type: stack
+#   id: InflatableFloor
+#   name: inflatable floor
+#   spawn: InflatableFloorStack1
+#   maxCount: 8

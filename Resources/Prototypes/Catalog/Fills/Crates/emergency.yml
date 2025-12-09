@@ -130,14 +130,12 @@
 - type: entity
   id: CrateEmergencyInflatablewall
   parent: CratePlastic
-  name: inflatables crate
-  description: A crate with a total of 15 inflatable walls, 5 inflatable doors, and 32 inflatable floors. Just twist and pull the ripvalve on each and watch them expand into airtight structures!
+  name: inflatable wall crate
+  description: A crate with a total of 15 inflatable walls and 5 inflatable doors. Just twist and pull the ripvalve on each and watch them expand into airtight structures!
   components:
   - type: StorageFill
     contents:
       - id: BoxInflatable
-        amount: 1
-      - id: BoxInflatableFloor
         amount: 1
 
 - type: entity

@@ -154,19 +154,20 @@
     prototypeToSpawn: InflatableDockStack1
     disassembleTime: 3
 
-- type: tile
-  id: InflatablePlating
-  name: tiles-inflatable-plating
-  sprite: /Textures/_Funkystation/Objects/Misc/inflatables.rsi/inflatable-floor.png
-  baseTurf: Space
-  isSubfloor: true
-  deconstructTools: [ Prying ]
-  footstepSounds:
-    collection: FootstepClown
-    params:
-      volume: -10
-      variation: 0.17
-  itemDrop: InflatableFloorStack1
-  friction: 1.5
-  heatCapacity: 10000
-  mass: 20
+# Hold while this gets its own entry in a separate PR
+# - type: tile
+#   id: InflatablePlating
+#   name: tiles-inflatable-plating
+#   sprite: /Textures/_Funkystation/Objects/Misc/inflatables.rsi/inflatable-floor.png
+#   baseTurf: Space
+#   isSubfloor: true
+#   deconstructTools: [ Prying ]
+#   footstepSounds:
+#     collection: FootstepClown
+#     params:
+#       volume: -10
+#       variation: 0.17
+#   itemDrop: InflatableFloorStack1
+#   friction: 1.5
+#   heatCapacity: 10000
+#   mass: 20

@@ -63,12 +63,6 @@
             "name": "item_wall"
         },
         {
-            "name": "inflatable-floor"
-        },
-        {
-            "name": "item_floor"
-        },
-        {
             "name": "inhand-left",
             "directions": 4
         },

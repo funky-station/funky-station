@@ -33,7 +33,7 @@
     PowerCellMedium: 5
     ClothingHandsGlovesColorYellow: 6
     BoxInflatable: 4 # 2 < 4 Funky change
-    BoxInflatableFloor: 2 # Funky change
+    # BoxInflatableFloor: 2 # Funky change, on hold because of inflatable floors breaking
     ClothingHeadHatCone: 4
   contrabandInventory:
     CowToolboxFilled: 1

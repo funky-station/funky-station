@@ -507,7 +507,7 @@
     - InflatableWall #funky inflatables
     - InflatableDoor #funk
     - InflatableDock #funk
-    - InflatableFloor #funk
+    # - InflatableFloor #funk, on hold
     dynamicRecipes:
     - BoomboxRed
     - BoomboxGreen

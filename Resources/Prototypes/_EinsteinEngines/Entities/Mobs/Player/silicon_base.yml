@@ -4,9 +4,13 @@
 # SPDX-FileCopyrightText: 2025 KiraZen_ <209320699+KiraZen-Underscore@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Lyndomen <49795619+lyndomen@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Mish <bluscout78@yahoo.com>
+# SPDX-FileCopyrightText: 2025 Mora <46364955+TrixxedHeart@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 No Elka <125199100+NoElkaTheGod@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 No Elka <no.elka.the.god@gmail.com>
 # SPDX-FileCopyrightText: 2025 Skye <57879983+Rainbeon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 Terkala <appleorange64@gmail.com>
+# SPDX-FileCopyrightText: 2025 TrixxedHeart <46364955+TrixxedBit@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 jackel234 <52829582+jackel234@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 kbarkevich <24629810+kbarkevich@users.noreply.github.com>
@@ -45,7 +49,6 @@
     - type: MovementSpeedModifier
       baseWalkSpeed: 4
       baseSprintSpeed: 3
-    - type: ZombieImmune
     - type: DoAfter
     - type: RotationVisuals
       horizontalRotation: 90
@@ -163,6 +166,10 @@
         - map: ["enum.HumanoidVisualLayers.HeadSide"]
         - map: ["enum.HumanoidVisualLayers.HeadTop"]
         - map: ["mask"]
+        - map: [ "enum.PaperLabelVisuals.Layer" ] # Funky edit
+          sprite: "_DV/Objects/Misc/stickies.rsi"
+          state: "sticky_face"
+          visible: false
         - map: ["head"]
         - map: ["pocket1"]
         - map: ["pocket2"]
@@ -237,6 +244,10 @@
             False: { visible: false }
         enum.CultEyesVisuals.CultEyes:
           culteyes:
+            True: { visible: true }
+            False: { visible: false }
+        enum.PaperLabelVisuals.HasLabel:
+          enum.PaperLabelVisuals.Layer:
             True: { visible: true }
             False: { visible: false }
     - type: Cuffable
@@ -363,3 +374,17 @@
     - type: SurgeryTarget
     - type: LayingDown
     - type: CosmicCenserTarget # Funky - coscult fix
+    - type: ContainerContainer # Funky - put sticky notes on those IPCs
+      containers:
+        paper_label: !type:ContainerSlot
+    - type: ItemSlots
+    - type: PaperLabel
+      labelSlot:
+        insertVerbText: comp-paper-label-insert
+        ejectVerbText: comp-paper-label-eject
+        whitelist:
+          tags:
+          - StickyNoteYellow
+          - StickyNotePink
+          - StickyNoteGreen
+          - StickyNoteBlue

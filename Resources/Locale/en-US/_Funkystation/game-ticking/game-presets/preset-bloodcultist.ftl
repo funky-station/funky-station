@@ -88,8 +88,13 @@ cult-spell-exceeded = You cannot carve another spell!
 cult-spell-havealready = You already have that spell!
 cult-spell-fail = You fail to cast the spell!
 cult-spell-repelled = Holy magic protects your target!
+cult-spell-repelled-mindshield = Foul technology prevents your spell from reaching your target!
+cult-spell-mindshield-buzzing = You feel a buzzing coming from your mindshield implant.
 cult-spell-sleep-dream = You feel an overwhelming wave of drowsiness as nightmares of blood-soaked knives flood your mind!
 cult-spell-allied-cultist = You cannot target a fellow devotee of Nar'Sie!
+
+cult-empowering-rune-not-in-range = You are not within the rune's range of influence
+cult-empowering-rune-no-action = You do not have the ability to prepare spells!
 
 cult-shade-summoned = The stolen soul materializes as a servant Shade!
 cult-shade-recalled = You recapture the stolen soul, rejuvinating it!
@@ -154,7 +159,11 @@ cult-ascend-1 = The veil weakens as your cult grows, and your eyes begin to glow
 cult-ascend-2 = The veil weakens as your cult grows, and you are unable to hide your true nature!
 
 cult-deconverted = You suddenly de-convert, and no longer consider yourself a cultist!
-cult-break-control = {$name} looks bewildered as Nar'Sie's influence is shattered!
+cult-break-control = You look bewildered as Nar'Sie's influence is shattered! You don't remember any of your time in the cult.
+cult-deconverted-memory-loss = You lose the last several hours of your memories.
+
+cult-evac-called-announcement = Unusual dimensional disturbances have faded, evac called while centcom investigates this dimensional anomaly. ETA: {$time} {$units}
+cult-evac-sender-announcement = Central Command
 
 cult-commune-window = Commune
 cult-commune-info = Whisper into the veil and communicate with your fellow worshippers.
@@ -185,11 +194,17 @@ cult-soulstone-role-rules = You are serving the blood cult. Follow the orders of
 
 cult-summoning-juggernaut-shell = The rune pulses with dark energy as a juggernaut shell materializes!
 cult-summoning-pylon = The rune glows crimson as a pylon anchors itself to reality!
-cult-summoning-no-materials = Place Runed Metal or Runed Glass on the summoning rune. 30 runed metal summons a juggernaut shell; 10 runed glass summons a pylon.
-cult-summoning-insufficient-materials = Not enough materials! You need 30 runed metal for a juggernaut shell or 10 runed glass for a pylon.
-cult-summoning-need-more-metal = Not enough runed metal! You have {$have}, but need {$needed} for a juggernaut shell.
+cult-summoning-forsaken-boots = The rune shudders as cursed boots materialize from the void!
+cult-summoning-acolyte-armor = The rune glows with unholy light as acolyte armor and a cult helmet materialize!
+cult-summoning-no-materials = Place Runed Steel, Runed Glass, Runed Plasteel, Plastic, Cloth, or Durathread on the summoning rune.
+cult-summoning-insufficient-materials = Not enough materials! You need 30 runed steel for a juggernaut shell, 10 runed glass for a pylon, 10 runed plasteel and an outerwear item for acolyte armor, or 5 plastic and 5 cloth (or 5 durathread) for forsaken boots.
+cult-summoning-need-more-steel = Not enough runed steel! You have {$have}, but need {$needed} for a juggernaut shell.
 cult-summoning-need-more-glass = Not enough runed glass! You have {$have}, but need {$needed} for a pylon.
+cult-summoning-need-more-plastic = Not enough plastic! You have {$have}, but need {$needed} for forsaken boots.
+cult-summoning-need-more-cloth = Not enough cloth! You have {$have}, but need {$needed} for forsaken boots.
+cult-summoning-need-more-plasteel = Not enough runed plasteel! You have {$have}, but need {$needed} and outerwear clothing for acolyte armor.
+cult-summoning-need-outerwear = You need to place an outerwear item on the summoning rune along with the runed plasteel to create acolyte armor.
 cult-summoning-pylon-location-blocked = The pylon cannot be summoned here - the location is blocked!
 cult-summoning-pylon-no-grid = The pylon cannot be summoned here.
-cult-summoning-pylon-anchor-failed = The pylon failed to anchor properly!
+cult-summoning-pylon-anchor-failed = The pylon could not anchor at the rune location, but was summoned nearby instead.
 cult-summoning-pylon-failed = The pylon summoning failed! Your materials have been refunded.

@@ -1,4 +1,11 @@
 # SPDX-FileCopyrightText: 2025 Skye <57879983+Rainbeon@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Terkala <appleorange64@gmail.com>
+# SPDX-FileCopyrightText: 2025 kbarkevich <24629810+kbarkevich@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+# SPDX-FileCopyrightText: 2025 Skye <57879983+Rainbeon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 kbarkevich <24629810+kbarkevich@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 # SPDS-FileCopyrightText: 2025 Terkala <appleorange64@gmail.com>
@@ -103,7 +110,7 @@
 - type: entity
   id: ActionCultistSanguineDream
   name: Sanguine Dream
-  description: A sinister spell that plunges a target into a nightmare-filled sleep, where they dream of crimson-stained blades. EMPs Cyborgs.
+  description: A sinister spell that plunges a target into a nightmare-filled sleep. EMPs Cyborgs. Does not work on those with a mindshield.
   categories: [ HideSpawnMenu ]
   components:
   - type: Icon
@@ -145,7 +152,7 @@
 - type: entity
   id: ActionCultistTwistedConstruction
   name: Twisted Construction
-  description: A sinister spell used to convert plasteel into runed metal or deconstruct reinforced walls to extract plasteel.
+  description: A sinister spell used to convert steel or glass into runed steel or runed glass.
   categories: [ HideSpawnMenu ]
   components:
   - type: Icon
@@ -159,8 +166,6 @@
       components:
       - Stack
       - Construction
-      tags:
-      - Wall
     canTargetSelf: False
     interactOnMiss: False
     itemIconStyle: NoItem

@@ -76,7 +76,7 @@
     sprite: _Funkystation/Objects/Misc/inflatables.rsi
     state: item_wall
   product: CrateEmergencyInflatablewall
-  cost: 350
+  cost: 250
   category: cargoproduct-category-name-emergency
   group: market
 

@@ -248,13 +248,13 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitChemistry
-  name: chemistry jumpsuit
-  description: There's some odd stains on this jumpsuit. Hm.
+  name: chemistry coveralls
+  description: Basic PPE for any Chemist. Seems to smell of... Desoxyephedrine?
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpsuit/chemistry.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/chemistry.rsi
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpsuit/chemistry.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/chemistry.rsi
 
 - type: entity
   parent: ClothingUniformBase
@@ -333,24 +333,24 @@
 - type: entity
   parent: [ClothingUniformBase, BaseCommandContraband]
   id: ClothingUniformJumpsuitCMO
-  name: chief medical officer's jumpsuit
-  description: It's a jumpsuit worn by those with the experience to be Chief Medical Officer. It provides minor biological protection.
+  name: chief medical officer's sterile coveralls
+  description: Sterile coveralls with markings belonging to a CMO. For when the Medbay is particularly messy.
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpsuit/cmo.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/cmo.rsi
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpsuit/cmo.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/cmo.rsi
 
 - type: entity
   parent: [ClothingUniformBase, BaseCommandContraband]
   id: ClothingUniformJumpsuitCMOTurtle
-  name: chief medical officer's turtleneck jumpsuit
+  name: chief medical officer's turtleneck
   description: It's a turtleneck worn by those with the experience to be Chief Medical Officer. It provides minor biological protection.
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpsuit/cmo_turtle.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/cmo_turtle.rsi
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpsuit/cmo_turtle.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/cmo_turtle.rsi
 
 - type: entity
   parent: ClothingUniformBase
@@ -510,13 +510,13 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitMedicalDoctor
-  name: medical doctor jumpsuit
-  description: It's made of a special fiber that provides minor protection against biohazards. It has a cross on the chest denoting that the wearer is trained medical personnel.
+  name: medical sterile coveralls
+  description: Sterile coveralls designed for work in a particularly hazardous Medbay. Safer than a dress shirt, at least.
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpsuit/medical.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/medical.rsi
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpsuit/medical.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/medical.rsi
 
 - type: entity
   parent: ClothingUniformBase

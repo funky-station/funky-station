@@ -1,0 +1,185 @@
+# SPDX-FileCopyrightText: 2025 Homingpenguins <asadellace4@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+#
+
+- type: gameMap
+  id: frezonconfined
+  mapName: Test 1 - Confined Frezon
+  mapPath: /Maps/_Funkystation/Atmos/frezonconfined.yml
+  minPlayers: 0
+  stations:
+    frezonconfined:
+      stationProto: StandardNanotrasenStation
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: "Test 1 - Confined Frezon"
+        - type: StationJobs
+          availableJobs:
+            ChiefEngineer: [ -1, -1 ]
+
+- type: gameMap
+  id: canisterhell
+  mapName: Test 2 - Canister Hell
+  mapPath: /Maps/_Funkystation/Atmos/canisterhell.yml
+  minPlayers: 0
+  stations:
+    canisterhell:
+      stationProto: StandardNanotrasenStation
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: "Test 2 - Canister Hell"
+        - type: StationJobs
+          availableJobs:
+            ChiefEngineer: [ -1, -1 ]
+
+- type: gameMap
+  id: thermalexchangegenerator
+  mapName: Test 3 - Thermal Exchange Generator
+  mapPath: /Maps/_Funkystation/Atmos/thermalexchangegenerator.yml
+  minPlayers: 0
+  stations:
+    thermalexchangegenerator:
+      stationProto: StandardNanotrasenStation
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: "Test 3 - Thermal Exchange Generator"
+        - type: StationJobs
+          availableJobs:
+            ChiefEngineer: [ -1, -1 ]
+
+- type: gameMap
+  id: hhhhhh
+  mapName: Test 4 - H.H.H.H.H.(H)
+  mapPath: /Maps/_Funkystation/Atmos/hhhhhh.yml
+  minPlayers: 0
+  stations:
+    hhhhhh:
+      stationProto: StandardNanotrasenStation
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: "Test 4 - H.H.H.H.H.(H)"
+        - type: StationJobs
+          availableJobs:
+            ChiefEngineer: [ -1, -1 ]
+
+- type: gameMap
+  id: smmadness
+  mapName: Test 5 - Supermatter Madness
+  mapPath: /Maps/_Funkystation/Atmos/smmadness.yml
+  minPlayers: 0
+  stations:
+    smmadness:
+      stationProto: StandardNanotrasenStation
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: "Test 5 - Supermatter Madness"
+        - type: StationJobs
+          availableJobs:
+            ChiefEngineer: [ -1, -1 ]
+
+- type: gameMap
+  id: smmadnesstwo
+  mapName: Test 6 - Supermatter Madness 2
+  mapPath: /Maps/_Funkystation/Atmos/smmadnesstwo.yml
+  minPlayers: 0
+  stations:
+    smmadnesstwo:
+      stationProto: StandardNanotrasenStation
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: "Test 6 - Supermatter Madness 2"
+        - type: StationJobs
+          availableJobs:
+            ChiefEngineer: [ -1, -1 ]
+
+- type: gameMap
+  id: crystalbasics
+  mapName: Test 7 - Crystalizer Basics
+  mapPath: /Maps/_Funkystation/Atmos/crystalbasic.yml
+  minPlayers: 0
+  stations:
+    crystalbasics:
+      stationProto: StandardNanotrasenStation
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: "Test 6 - Crystalizer Basics"
+        - type: StationJobs
+          availableJobs:
+            ChiefEngineer: [ -1, -1 ]
+
+- type: gameMap
+  id: simplezauker
+  mapName: Test 8 - Simple Zauker
+  mapPath: /Maps/_Funkystation/Atmos/simplezauker.yml
+  minPlayers: 0
+  stations:
+    simplezauker:
+      stationProto: StandardNanotrasenStation
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: "Test 7 - Simple Zauker"
+        - type: StationJobs
+          availableJobs:
+            ChiefEngineer: [ -1, -1 ]
+
+- type: gameMap
+  id: crystaladvanced
+  mapName: Test 9 - Crystalizer Advanced
+  mapPath: /Maps/_Funkystation/Atmos/crystaladvanced.yml
+  minPlayers: 0
+  stations:
+    crystaladvanced:
+      stationProto: StandardNanotrasenStation
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: "Test 8 - Crystalizer Advanced"
+        - type: StationJobs
+          availableJobs:
+            ChiefEngineer: [ -1, -1 ]
+
+- type: gameMap
+  id: olddays
+  mapName: Test 10-11 - Olden Days
+  mapPath: /Maps/_Funkystation/Atmos/olddays.yml
+  minPlayers: 0
+  stations:
+    olddays:
+      stationProto: StandardNanotrasenStation
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: "Test 9-10 - Olden Days"
+        - type: StationJobs
+          availableJobs:
+            AtmosphericTechnician: [ -1, -1 ]
+
+- type: gameMap
+  id: heliosglory
+  mapName: Test 12 - The Glory of Helios
+  mapPath: /Maps/_Funkystation/Atmos/heliosglory.yml
+  minPlayers: 0
+  stations:
+    heliosglory:
+      stationProto: StandardNanotrasenStation
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: "Test 11 - The Glory of Helios"
+        - type: StationJobs
+          availableJobs:
+            ChiefEngineer: [ -1, -1 ]
+
+- type: gameMap
+  id: extractantinob
+  mapName: Test 13 - Antinob Extraction
+  mapPath: /Maps/_Funkystation/Atmos/extractantinob.yml
+  minPlayers: 0
+  stations:
+    extractantinob:
+      stationProto: StandardNanotrasenStation
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: "Test 12 - Antinob Extraction"
+        - type: StationJobs
+          availableJobs:
+            ChiefEngineer: [ -1, -1 ]

@@ -14,7 +14,7 @@
   name: Activate Bluespace Lifeline
   description: Activates your bluespace lifeline implant, teleporting you far-far away from this station. You won't be able to come back.
   components:
-  - type: InstantAction
+  - type: Action
     checkCanInteract: false
     checkConsciousness: false
     itemIconStyle: BigAction
@@ -22,18 +22,17 @@
     icon:
       sprite: _Goobstation/Effects/bluespace_lifeline.rsi
       state: bluespace_lifeline
+  - type: InstantAction
     event: !type:ActivateImplantEvent
 
 - type: entity
+  parent: BaseImplantAction
   id: ActivateSmokeImplant
   name: Release a cloud of smoke
-  description: Releases a large cloud of smoke around you that lasts 15 seconds.
+  description: Releases a cloud of smoke around you.
   components:
-  - type: InstantAction
-    useDelay: 35
-    itemIconStyle: BigAction
-    priority: -20
+  - type: Action
+    useDelay: 30
     icon:
       sprite: Objects/Weapons/Grenades/smoke.rsi
       state: icon
-    event: !type:ActivateImplantEvent

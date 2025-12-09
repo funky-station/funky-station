@@ -40,7 +40,7 @@
       healium: 0.8
     temperature: 293.15
     range: 8.0
-  - type: SoundOnTrigger
+  - type: EmitSoundOnTrigger
     sound:
       path: "/Audio/Effects/spray.ogg"
   - type: DeleteOnTrigger
@@ -62,7 +62,7 @@
       nitrogen: 80
       oxygen: 30
     range: 5
-  - type: SoundOnTrigger
+  - type: EmitSoundOnTrigger
     sound:
       path: "/Audio/Effects/spray.ogg"
   - type: DeleteOnTrigger
@@ -83,7 +83,7 @@
     gasAdjustments:
       nitrousoxide: 20
     range: 1
-  - type: SoundOnTrigger
+  - type: EmitSoundOnTrigger
     sound:
       path: "/Audio/Effects/spray.ogg"
   - type: DeleteOnTrigger
@@ -94,7 +94,7 @@
 
 - type: entity
   name: crystal cell
-  description: A non rechargeable cell with a huge power capacity. 
+  description: A non rechargeable cell with a huge power capacity.
   id: CrystalCell
   parent: BasePowerCell
   components:

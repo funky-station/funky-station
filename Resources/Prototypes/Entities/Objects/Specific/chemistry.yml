@@ -98,10 +98,10 @@
   - type: Sprite
     sprite: Objects/Specific/Chemistry/beaker.rsi
     layers:
-      - state: beaker
-      - state: beaker1
-        map: ["enum.SolutionContainerLayers.Fill"]
-        visible: false
+    - state: beaker
+    - state: beaker1
+      map: ["enum.SolutionContainerLayers.Fill"]
+      visible: false
   - type: Item
     sprite: Objects/Specific/Chemistry/beaker.rsi
   - type: MeleeWeapon
@@ -189,65 +189,6 @@
 
 - type: entity
   parent: BaseItem
-  id: BorgBeaker
-  name: integrated beaker
-  description: An internal compartment installed into a cyborg. Rated for 50 units of any liquid.
-  components:
-  # 3 morbillion components are to avoid inheriting breakable since borgs can't replace beakers.
-  - type: Tag
-    tags:
-    - GlassBeaker
-  - type: Sprite
-    sprite: Objects/Specific/Chemistry/beaker.rsi
-    layers:
-      - state: beaker
-      - state: beaker1
-        map: ["enum.SolutionContainerLayers.Fill"]
-        visible: false
-  - type: Item
-    sprite: Objects/Specific/Chemistry/beaker.rsi
-  - type: MeleeWeapon
-    soundNoDamage:
-      path: "/Audio/Effects/Fluids/splat.ogg"
-    damage:
-      types:
-        Blunt: 0
-  - type: SolutionContainerManager
-    solutions:
-      beaker:
-        maxVol: 50
-  - type: MixableSolution
-    solution: beaker
-  - type: FitsInDispenser
-    solution: beaker
-  - type: RefillableSolution
-    solution: beaker
-  - type: DrainableSolution
-    solution: beaker
-  - type: ExaminableSolution
-    solution: beaker
-    exactVolume: true
-  - type: DrawableSolution
-    solution: beaker
-  - type: InjectableSolution
-    solution: beaker
-  - type: SolutionTransfer
-    canChangeTransferAmount: true
-  - type: SolutionItemStatus
-    solution: beaker
-  - type: UserInterface
-    interfaces:
-      enum.TransferAmountUiKey.Key:
-        type: TransferAmountBoundUserInterface
-  - type: Drink
-    solution: beaker
-  - type: Appearance
-  - type: SolutionContainerVisuals
-    maxFillLevels: 6
-    fillBaseName: beaker
-
-- type: entity
-  parent: BaseItem
   id: BaseBeakerMetallic
   abstract: true
   components:
@@ -257,10 +198,10 @@
   - type: Sprite
     sprite: Objects/Specific/Chemistry/beaker.rsi
     layers:
-      - state: beaker
-      - state: beaker1
-        map: ["enum.SolutionContainerLayers.Fill"]
-        visible: false
+    - state: beaker
+    - state: beaker1
+      map: ["enum.SolutionContainerLayers.Fill"]
+      visible: false
   - type: Item
     sprite: Objects/Specific/Chemistry/beaker.rsi
   - type: MeleeWeapon
@@ -357,10 +298,10 @@
   - type: Sprite
     sprite: Objects/Specific/Chemistry/beaker_large.rsi
     layers:
-      - state: beakerlarge
-      - state: beakerlarge1
-        map: ["enum.SolutionContainerLayers.Fill"]
-        visible: false
+    - state: beakerlarge
+    - state: beakerlarge1
+      map: ["enum.SolutionContainerLayers.Fill"]
+      visible: false
   - type: Item
     size: Normal
     sprite: Objects/Specific/Chemistry/beaker_large.rsi
@@ -391,7 +332,7 @@
   - type: Sprite
     sprite: Objects/Specific/Chemistry/beaker_cryostasis.rsi
     layers:
-      - state: beakernoreact
+    - state: beakernoreact
   - type: SolutionContainerVisuals
     maxFillLevels: 0
   - type: SolutionContainerManager
@@ -402,7 +343,6 @@
   - type: Tag # Funky Station
     tags:
     - Cryobeaker
-
 
 - type: entity
   name: bluespace beaker
@@ -415,7 +355,7 @@
   - type: Sprite
     sprite: Objects/Specific/Chemistry/beaker_bluespace.rsi
     layers:
-      - state: beakerbluespace
+    - state: beakerbluespace
   - type: SolutionContainerVisuals
     maxFillLevels: 0
   - type: SolutionContainerManager
@@ -432,10 +372,10 @@
   - type: Sprite
     sprite: Objects/Specific/Chemistry/dropper.rsi
     layers:
-      - state: dropper
-      - state: dropper1
-        map: ["enum.SolutionContainerLayers.Fill"]
-        visible: false
+    - state: dropper
+    - state: dropper1
+      map: ["enum.SolutionContainerLayers.Fill"]
+      visible: false
   - type: SolutionContainerManager
     solutions:
       injector:
@@ -444,10 +384,13 @@
     injectOnly: false
     ignoreMobs: true
     ignoreClosed: false
-    minTransferAmount: 1
-    maxTransferAmount: 5
-    transferAmount: 1
-    toggleState: 1 # draw
+    transferAmounts:
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    currentTransferAmount: 1
   - type: ExaminableSolution
     solution: dropper
     exactVolume: true
@@ -472,24 +415,25 @@
   - type: Tag
     tags:
     - Dropper
+  - type: PhysicalComposition
 
 - type: entity
-  name: borgdropper
   parent: Dropper
-  description: Used to transfer small amounts of chemical solution between containers. Extended for use by medical borgs.
   id: BorgDropper
+  name: hydraulic pipette
+  description: State-of-the-art hydraulic dropper built for cyborgs. It features a higher capacity than hand-powered droppers, able to hold 15 units of liquid.
   components:
   - type: Sprite
     sprite: Objects/Specific/Chemistry/dropper.rsi
     layers:
-      - state: borgdropper
-      - state: dropper1
-        map: ["enum.SolutionContainerLayers.Fill"]
-        visible: false
+    - state: borgdropper
+    - state: dropper1
+      map: ["enum.SolutionContainerLayers.Fill"]
+      visible: false
   - type: SolutionContainerManager
     solutions:
       injector:
-        maxVol: 10
+        maxVol: 15
   - type: Item
     sprite: Objects/Specific/Chemistry/dropper.rsi
 
@@ -503,11 +447,11 @@
   - type: Sprite
     sprite: Objects/Specific/Chemistry/syringe.rsi
     layers:
-      - state: syringe1
-        map: ["enum.SolutionContainerLayers.Fill"]
-        visible: false
-      - state: syringe_base0
-        map: ["enum.SolutionContainerLayers.Base"]
+    - state: syringe1
+      map: ["enum.SolutionContainerLayers.Fill"]
+      visible: false
+    - state: syringe_base0
+      map: ["enum.SolutionContainerLayers.Base"]
   - type: Icon
     sprite: Objects/Specific/Chemistry/syringe.rsi
     state: "syringe_base0"
@@ -520,6 +464,10 @@
         maxVol: 15
   - type: Injector
     injectOnly: false
+    transferAmounts:
+    - 5
+    - 10
+    - 15
   - type: ExaminableSolution
     solution: injector
     exactVolume: true
@@ -557,25 +505,29 @@
   - type: Sprite
     sprite: Objects/Specific/Chemistry/syringe.rsi
     layers:
-      - state: minisyringe1
-        map: ["enum.SolutionContainerLayers.Fill"]
-        visible: false
-      - state: syringeproj
+    - state: minisyringe1
+      map: ["enum.SolutionContainerLayers.Fill"]
+      visible: false
+    - state: syringeproj
   - type: SolutionContainerManager
     solutions:
       injector:
         maxVol: 5
   - type: Injector
-    minTransferAmount: 1
-    maxTransferAmount: 5
-    transferAmount: 5
+    transferAmounts:
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    currentTransferAmount: 5
   - type: SolutionContainerVisuals
     maxFillLevels: 3
     fillBaseName: minisyringe
     inHandsMaxFillLevels: 3
     inHandsFillBaseName: -fill-
   - type: EmbeddableProjectile
-    offset: "-0.1,0"
+    offset: "0,-0.1"
     minimumSpeed: 3
     removalTime: 0.25
     embedOnThrow: false
@@ -584,7 +536,7 @@
     solution: injector
     updateInterval: 2
   - type: SolutionInjectOnEmbed
-    transferAmount: 2
+    transferAmount: 1
     solution: injector
   - type: Fixtures
     fixtures:
@@ -645,7 +597,7 @@
       injector:
         maxVol: 100
   - type: Injector
-    delay: 1 # Goobstation - buffing cryo syringe cause its currently pointless and buffing bluespace syringe to make it more useful.
+    delay: 2.5
     injectOnly: false
   - type: SolutionContainerVisuals
     maxFillLevels: 2
@@ -659,7 +611,7 @@
   id: SyringeCryostasis
   parent: BaseSyringe
   name: cryostasis syringe
-  description: An improved syringe used to contain chemicals or solutions without reactions. # Goobstation - buffing cryo syringe cause its currently pointless and buffing bluespace syringe to make it more useful.
+  description: A syringe used to contain chemicals or solutions without reactions.
   components:
   - type: Sprite
     layers:
@@ -674,14 +626,14 @@
   - type: SolutionContainerManager
     solutions:
       injector:
-        maxVol: 20 # Goobstation - buffing cryo syringe cause its currently pointless and buffing bluespace syringe to make it more useful.
+        maxVol: 10
         canReact: false
   - type: Injector
-    delay: 2
     injectOnly: false
-    minTransferAmount: 5
-    maxTransferAmount: 20
-    transferAmount: 20 # Goobstation - buffing cryo syringe cause its currently pointless and buffing bluespace syringe to make it more useful.
+    transferAmounts:
+    - 5
+    - 10
+    currentTransferAmount: 10
   - type: Tag
     tags:
     - Syringe
@@ -750,7 +702,7 @@
     state: pill_canister
   - type: Tag
     tags:
-      - PillCanister
+    - PillCanister
   - type: Storage
     grid:
     - 0,0,4,1

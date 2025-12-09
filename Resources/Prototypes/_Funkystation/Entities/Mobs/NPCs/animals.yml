@@ -58,8 +58,8 @@
     drawdepth: Mobs
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
-      state: parrot
-      sprite: Resources\Textures\_Funkystation\Mobs\Animals\meowl.rsi
+      sprite: _Funkystation/Mobs/Animals/meowl.rsi
+      state: meowl
   - type: Fixtures
     fixtures:
       fix1:
@@ -71,10 +71,10 @@
         - FlyingMobMask
         layer:
         - FlyingMobLayer
-  - type: DamageStateVisuals
-    states:
-      Alive:
-        Base: meowl
+  # - type: DamageStateVisuals
+  #   states:
+  #     Alive:
+  #       Base: meowl
       # Critical:
       #   Base: dead
       # Dead:
@@ -120,10 +120,13 @@
     angle: 0
     animation: WeaponArcClaw
     soundHit:
-      path: /Audio/Weapons/pierce.ogg
+      path: /Audio/Weapons/Xeno/alien_claw_flesh3.ogg
     damage:
       types:
-        Piercing: 10
+        Slash: 10
+        Piercing: 5
+  - StaminaDamageOnHit:
+    damage: 8 #same as boxing gloves. A bird cat thing scratching at your face is ussually pretty disorienting.
   - type: Grammar
     attributes:
       gender: epicene
@@ -131,10 +134,17 @@
     price: 1000
   - type: Tag
     tags:
+    - CannotSuicide
     - VimPilot
   - type: ThermalVision
     color: "#b8b8b8"
     activateSound: null
     deactivateSound: null
     lightRadius: 5
-  - type: Godmode # why would you ever hurt them :godo:
+  - type: NpcFactionMember
+    factions:
+    - PetsNT #makes them hunt mice
+  - type: HTN
+    rootTask:
+      task: SimpleHostileCompound
+  - type: NPCRetaliation #bird talon with cat fangs plus wings equals don't fuck with them

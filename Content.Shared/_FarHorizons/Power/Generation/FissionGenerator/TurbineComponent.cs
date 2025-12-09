@@ -5,6 +5,7 @@ using Content.Shared.Tools;
 using Content.Shared.Atmos;
 using Content.Shared.DeviceLinking;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
+using System.Numerics;
 
 namespace Content.Shared._FarHorizons.Power.Generation.FissionGenerator;
 
@@ -157,12 +158,55 @@ public sealed partial class TurbineComponent : Component
     [DataField]
     public ProtoId<ToolQualityPrototype> RepairTool = "Welding";
 
+    #region Pipe Connections
+    /// <summary>
+    /// Name of the pipe node
+    /// </summary>
     [DataField]
     public string PipeName { get; set; } = "pipe";
+
+    /// <summary>
+    /// Inlet entity
+    /// </summary>
     [ViewVariables]
     public EntityUid? InletEnt;
+
+    /// <summary>
+    /// Position of the inlet entity
+    /// </summary>
+    [DataField]
+    public Vector2 InletPos = new(-1, -1);
+
+    /// <summary>
+    /// Rotation of the inlet entity, in degrees
+    /// </summary>
+    [DataField]
+    public float InletRot = -90;
+
+    /// <summary>
+    /// Outlet entity
+    /// </summary>
     [ViewVariables]
     public EntityUid? OutletEnt;
+
+    /// <summary>
+    /// Position of the outlet entity
+    /// </summary>
+    [DataField]
+    public Vector2 OutletPos = new(1, -1);
+
+    /// <summary>
+    /// Rotation of the outlet entity, in degrees
+    /// </summary>
+    [DataField]
+    public float OutletRot = 90;
+
+    /// <summary>
+    /// Name of the prototype of the arrows that indicate flow on inspect
+    /// </summary>
+    [DataField]
+    public EntProtoId ArrowPrototype = "TurbineFlowArrow";
+    #endregion
 
     [DataField("speedHighPort", customTypeSerializer: typeof(PrototypeIdSerializer<SourcePortPrototype>))]
     public string SpeedHighPort = "TurbineSpeedHigh";

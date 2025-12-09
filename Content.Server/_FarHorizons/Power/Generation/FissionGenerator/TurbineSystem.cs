@@ -120,9 +120,9 @@ public sealed class TurbineSystem : SharedTurbineSystem
         supplier.MaxSupply = comp.LastGen;
 
         if (!comp.InletEnt.HasValue || EntityManager.Deleted(comp.InletEnt.Value))
-            comp.InletEnt = SpawnAttachedTo("TurbineGasPipe", new(uid, -1, -1), rotation: Angle.FromDegrees(-90));
+            comp.InletEnt = SpawnAttachedTo("TurbineGasPipe", new(uid, comp.InletPos), rotation: Angle.FromDegrees(comp.InletRot));
         if (!comp.OutletEnt.HasValue || EntityManager.Deleted(comp.OutletEnt.Value))
-            comp.OutletEnt = SpawnAttachedTo("TurbineGasPipe", new(uid, 1, -1), rotation: Angle.FromDegrees(90));
+            comp.OutletEnt = SpawnAttachedTo("TurbineGasPipe", new(uid, comp.OutletPos), rotation: Angle.FromDegrees(comp.OutletRot));
 
         CheckAnchoredPipes(uid, comp);
 

@@ -599,7 +599,6 @@
   components:
   - type: Sprite
     sprite: Objects/Storage/Happyhonk/nukie.rsi
-    state: box
   - type: Item
     sprite: Objects/Storage/Happyhonk/nukie.rsi
   - type: EntityTableContainerFill

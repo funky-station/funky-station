@@ -125,7 +125,8 @@
     interfaces:
       enum.TransferAmountUiKey.Key:
         type: TransferAmountBoundUserInterface
-  - type: Drink
+  - type: Edible
+    edible: Drink
     solution: grail
   - type: Spillable
     solution: grail

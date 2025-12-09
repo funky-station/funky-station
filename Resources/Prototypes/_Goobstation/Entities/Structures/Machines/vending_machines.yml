@@ -34,7 +34,7 @@
     denyState: deny-unshaded
     ejectState: eject-unshaded
     screenState: screen
-  - type: Advertise
+  - type: DatasetVocalizer
     pack: FitnessVendAds
   - type: SpeakOnUIClosed
     pack: GenericVendGoodbyes
@@ -78,7 +78,7 @@
   - type: Rotatable
     rotateWhileAnchored: false
     rotateWhilePulling: true
-  - type: Advertise
+  - type: DatasetVocalizer
     pack: HotfoodAds
   - type: SpeakOnUIClosed
     pack: GenericVendGoodbyes
@@ -113,7 +113,7 @@
     normalState: normal-unshaded
     ejectState: eject-unshaded
     denyState: deny-unshaded
-  - type: Advertise
+  - type: DatasetVocalizer
     pack: SolsnackAds
   - type: SpeakOnUIClosed
     pack: GenericVendGoodbyes
@@ -154,7 +154,7 @@
     normalState: normal-unshaded
     denyState: deny-unshaded
     ejectState: eject-unshaded
-  - type: Advertise
+  - type: DatasetVocalizer
     pack: WeebVendAds
   - type: SpeakOnUIClosed
     pack: GenericVendGoodbyes
@@ -181,7 +181,7 @@
     offState: off
     brokenState: broken
     normalState: normal-unshaded
-  - type: Advertise
+  - type: DatasetVocalizer
     pack: MailDrobeAds
   - type: Sprite
     sprite: _Goobstation/Structures/Machines/VendingMachines/maildrobe.rsi

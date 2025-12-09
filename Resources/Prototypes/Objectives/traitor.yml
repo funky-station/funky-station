@@ -134,7 +134,7 @@
     unique: true
   - type: TargetObjective
     title: objective-condition-kill-maroon-title
-  - type: PickRandomHead
+  - type: PickRandomPerson
     filters:
     - !type:BodyMindFilter
       whitelist:

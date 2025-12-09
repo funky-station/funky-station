@@ -8,6 +8,22 @@
   "copyright": "Based off of parrot sprites taken from https://github.com/tgstation/tgstation/commit/53d1f1477d22a11a99c6c6924977cd431075761b // Base sprites by gtheglorious on discord. Animation by gaesnek on discord.",
   "states": [
     {
+      "name": "icon",
+      "delays": [
+        [
+          1
+        ]
+      ]
+    },
+    {
+      "name": "dead",
+      "delays": [
+        [
+          1
+        ]
+      ]
+    },
+    {
       "name": "meowl",
       "directions": 4,
       "delays": [

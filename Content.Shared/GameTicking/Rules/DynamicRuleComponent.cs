@@ -1,71 +1,62 @@
-using Content.Shared.EntityTable.EntitySelectors;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
+// SPDX-FileCopyrightText: 2024 PJBot <pieterjan.briers+bot@gmail.com>
+// SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
+using Content.Shared.Dataset;
+using Robust.Shared.Prototypes;
 
 namespace Content.Shared.GameTicking.Rules;
 
-/// <summary>
-/// Gamerule the spawns multiple antags at intervals based on a budget
-/// </summary>
-[RegisterComponent, AutoGenerateComponentPause]
+[RegisterComponent]
 public sealed partial class DynamicRuleComponent : Component
 {
-    /// <summary>
-    /// The total budget for antags.
-    /// </summary>
-    [DataField]
-    public float Budget;
+    #region Budgets
 
     /// <summary>
-    /// The last time budget was updated.
+    ///     Ignore major threats and stack one upon each other :trollface:
+    ///     Use this if chaos is your thing or you want a budget AAO
     /// </summary>
-    [DataField]
-    public TimeSpan LastBudgetUpdate;
+    [DataField] public bool Unforgiving = false;
 
     /// <summary>
-    /// The amount of budget accumulated every second.
+    ///     Max threat available on lowpop
     /// </summary>
-    [DataField]
-    public float BudgetPerSecond = 0.1f;
+    [DataField] public float LowpopMaxThreat = 40f;
 
     /// <summary>
-    /// The minimum or lower bound for budgets to start at.
+    ///     Maximum amount of threat available
     /// </summary>
-    [DataField]
-    public int StartingBudgetMin = 200;
+    [DataField] public float MaxThreat = 100f;
 
     /// <summary>
-    /// The maximum or upper bound for budgets to start at.
+    ///
     /// </summary>
-    [DataField]
-    public int StartingBudgetMax = 350;
+    [ViewVariables(VVAccess.ReadOnly)] public float ThreatLevel = 0f;
 
     /// <summary>
-    /// The time at which the next rule will start
+    ///     Used for EORG display.
     /// </summary>
-    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoPausedField]
-    public TimeSpan NextRuleTime;
+    [ViewVariables(VVAccess.ReadOnly)] public float RoundstartBudget = 0f;
 
     /// <summary>
-    /// Minimum delay between rules
+    ///     Used for EORG display.
     /// </summary>
-    [DataField]
-    public TimeSpan MinRuleInterval = TimeSpan.FromMinutes(10);
+    [ViewVariables(VVAccess.ReadOnly)] public float MidroundBudget = 0f;
+
+    #endregion
+
+    #region Gamerules
+
+    [DataField] public ProtoId<DatasetPrototype> RoundstartRulesPool;
 
     /// <summary>
-    /// Maximum delay between rules
+    ///     Used for EORG.
     /// </summary>
-    [DataField]
-    public TimeSpan MaxRuleInterval = TimeSpan.FromMinutes(30);
+    [ViewVariables(VVAccess.ReadOnly)] public List<(EntProtoId, EntityUid?)> ExecutedRules = new();
 
-    /// <summary>
-    /// A table of rules that are picked from.
-    /// </summary>
-    [DataField]
-    public EntityTableSelector Table = new NoneSelector();
-
-    /// <summary>
-    /// The rules that have been spawned
-    /// </summary>
-    [DataField]
-    public List<EntityUid> Rules = new();
+    #endregion
 }

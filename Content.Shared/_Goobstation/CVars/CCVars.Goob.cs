@@ -108,13 +108,6 @@ public sealed partial class GoobCVars
         CVarDef.Create("atmos.monstermos_rip_tiles_pressure_offset", 0.44f, CVar.SERVERONLY);
 
     /// <summary>
-    ///     Indicates how much players are required for the round to be considered lowpop.
-    ///     Used for dynamic gamemode.
-    /// </summary>
-    public static readonly CVarDef<float> LowpopThreshold =
-        CVarDef.Create("game.players.lowpop_threshold", 15f, CVar.SERVERONLY);
-
-    /// <summary>
     ///     Indicates how much players are required for the round to be considered highpop.
     ///     Used for dynamic gamemode.
     /// </summary>

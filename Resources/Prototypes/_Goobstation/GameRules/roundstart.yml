@@ -43,7 +43,7 @@
       - MindRoleChangeling
   - type: Tag
     tags:
-      - RoundstartAntag
+    - RoundstartAntag
 
 - type: entity
   parent: BaseTraitorRule
@@ -69,7 +69,7 @@
       - MindRoleTraitor
   - type: Tag
     tags:
-      - CalmAntag
+    - CalmAntag
 
 - type: entity
   parent: Changeling
@@ -92,7 +92,7 @@
       - MindRoleTraitor
   - type: Tag
     tags:
-      - CalmAntag
+    - CalmAntag
 
 - type: entity
   parent: BaseNukeopsRule
@@ -154,7 +154,7 @@
       - MindRoleNukeops
   - type: Tag
     tags:
-      - RoundstartAntag # Calmer than extreme = normal
+    - RoundstartAntag # Calmer than extreme = normal
 
 - type: entity
   id: CalmRevs # For Dual Antag Gamemodes / Funky: For rounds that need a nerfed version in general
@@ -181,7 +181,7 @@
       - MindRoleHeadRevolutionary
   - type: Tag
     tags:
-      - RoundstartAntag # Funky: Calmer than extreme = normal
+    - RoundstartAntag # Funky: Calmer than extreme = normal
 # Blob
 - type: entity
   id: BlobRule

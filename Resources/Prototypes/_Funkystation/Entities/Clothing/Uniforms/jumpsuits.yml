@@ -1,6 +1,8 @@
+# SPDX-FileCopyrightText: 2025 CalicoDragon <110030310+CalicoDragon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Fr0goo <153249069+Fr0goo@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Fr0goo <frogoofrog@outlook.com>
 # SPDX-FileCopyrightText: 2025 MaiaArai <158123176+YaraaraY@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Sofia Gilsanz <softie.gd@gmail.com>
 # SPDX-FileCopyrightText: 2025 ThatOneMoon <91613003+ThatOneMoon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
 # SPDX-FileCopyrightText: 2025 Xcybitt <xcybitt@gmail.com>
@@ -271,6 +273,7 @@
   - type: Clothing
     sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/magistrateturtleneck.rsi
 
+
 # cargo shirt! (by AraiMaia)
 
 - type: entity
@@ -356,3 +359,259 @@
     sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/jani_coveralls.rsi
   - type: Clothing
     sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/jani_coveralls.rsi
+
+# generic shirt and pants (By AraiMaia)
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitDressShirtWhite
+  name: white dress shirt
+  description: A white dress shirt with a matching pair of black pants. Perfectly non-descript.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/dress_shirt_white.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/dress_shirt_white.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitDressShirtBlue
+  name: blue dress shirt
+  description: A blue dress shirt with a matching pair of black pants. How bold.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/dress_shirt_blue.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/dress_shirt_blue.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitDressShirtTied
+  name: tied dress shirt
+  description: A white dress shirt unprofessionally tied around a pair of black pants. Don't let the IAAs see you like this.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/dress_shirt_tied.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/dress_shirt_tied.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitServiceCoat
+  name: black dress coat
+  description: A black dress coat thrown over a white office shirt. Friday night?
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/service_coat.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/service_coat.rsi
+
+# Stingray outfit (By AraiMaia)
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitStingray
+  name: cyber bartender suit
+  description: It's time to mix drinks and change lives.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/stingray.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/stingray.rsi
+
+# hop clothes (By AraiMaia)
+
+- type: entity
+  parent: [ClothingUniformBase, BaseCommandContraband]
+  id: ClothingUniformJumpsuitHoPCoat
+  name: head of personnel's coat
+  description: "HOP SOP, C3.08: The Head of Personnel is not permitted to perform Security duty."
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/hopcoat.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/hopcoat.rsi
+
+- type: entity
+  parent: [ClothingUniformBase, BaseCommandContraband]
+  id: ClothingUniformJumpsuitHoPShirt
+  name: head of personnel's shirt
+  description: Ian left fur all over your other uniform. Can't wear it now, it'd be embarassing.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/hopshirt.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/hopshirt.rsi
+
+- type: entity
+  parent: [ClothingUniformBase, BaseCommandContraband]
+  id: ClothingUniformJumpsuitHoPSweater
+  name: head of personnel's sweater
+  description: Who has Nanotrasen's coziest office? You do!
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/hopsweater.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/hopsweater.rsi
+
+# Chef, blue version! (By AraiMaia)
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitChefBlue
+  name: blue chef uniform
+  description: Blue team, drop the bouillabaisse.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/chefblue.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/chefblue.rsi
+
+# Engi stuff! (By AraiMaia)
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitEngineeringElectrician
+  name: electrician's jumpsuit
+  description: A comfortable suit with hi-viz markings and harnessing points for working in uncomfortable spots. Smells like budget insuls.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/engineerelectrician.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/engineerelectrician.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitBaggyAtmos
+  name: atmospheric technician's jumpsuit
+  description: A comfortable jumpsuit, breatheable but durable. Seems to have a few scorch marks.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/atmosbaggy.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/atmosbaggy.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitEngineeringTankTop
+  name: engineering tank top
+  description: A white tank top, over a pair of hardy engineering cargo pants. Nothing if not practical.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/engineertanktop.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/engineertanktop.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitEngineeringBaggyHazard
+  name: engineering hazard jumpsuit
+  description: A hi-viz jumpsuit, to ensure you don't become space-roadkill.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/hazardjumpsuit.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/hazardjumpsuit.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitEngineeringUndersuit
+  name: engineering undersuit
+  description: The lower layer of a hardsuit, comfortably worn with no gloves or boots. Unfortunately, not space-resistant.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/hardsuitundersuit.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/hardsuitundersuit.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitEngineeringJumpsuit
+  name: white engineering jumpsuit
+  description: A comfortable jumpsuit, breatheable but durable. You have a feeling it isn't as durable as it looks.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/engineerjumpsuit.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/engineerjumpsuit.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitEngineeringSeniorArmored
+  name: senior engineering jumpsuit
+  description: A jumpsuit expertly modified to integrate some essential plating from an old hardsuit. Won't offer any protection, but it sure looks cool.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/seniorengineer.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/seniorengineer.rsi
+
+# Cargo Shorts! (By AraiMaia)
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitCargoShorts
+  name: cargo tech shorts
+  description: A comfy pair of shorts PERFECT for hustling around the Station. The socks are really good quality, too.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/cargoshorts.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/cargoshorts.rsi
+
+# Engineering uniforms (by aCalicoDragon)
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitEngineeringOveralls
+  name: engineer's overalls
+  description: Comfortable for work, yet so stylish!
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/engineering_overalls.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/engineering_overalls.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitEngineeringCoveralls
+  name: engineer's coveralls
+  description: Nice and simple, still effective!
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/engineering_coveralls.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/engineering_coveralls.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitEngineeringRipley
+  name: engineer's coveralls with patch
+  description: You are my lucky star...
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/engineering_ripley.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/engineering_ripley.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitEngineeringShirt
+  name: engineer's shirt with pants
+  description: And we all lift, and we're all adrift, together...
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/engineering_shirt.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/engineering_shirt.rsi
+
+# Medical Custodian (By AraiMaia)
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitMedicalCustodian
+  name: medical custodian jumpsuit
+  description: A cute jumpsuit worn by medical custodians. It's perfect for running from one end of the Medbay to the other, over and over.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/medicalcustodian.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/medicalcustodian.rsi

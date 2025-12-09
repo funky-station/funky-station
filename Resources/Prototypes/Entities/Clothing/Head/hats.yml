@@ -73,8 +73,10 @@
 # SPDX-FileCopyrightText: 2025 Fr0goo <153249069+Fr0goo@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Fr0goo <frogoofrog@outlook.com>
 # SPDX-FileCopyrightText: 2025 GumshoeWorm <thelunaman365@gmail.com>
+# SPDX-FileCopyrightText: 2025 MaiaArai <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 mkanke-real <mikekanke@gmail.com>
 # SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
@@ -335,9 +337,9 @@
   description: "It's a hat used by chefs to keep hair out of your food. Judging by the food in the mess, they don't work."
   components:
   - type: Sprite
-    sprite: Clothing/Head/Hats/chefhat.rsi
+    sprite: _Funkystation/Clothing/Head/Hats/chefhat.rsi
   - type: Clothing
-    sprite: Clothing/Head/Hats/chefhat.rsi
+    sprite: _Funkystation/Clothing/Head/Hats/chefhat.rsi
   - type: Storage
     grid:
     - 0,0,0,0
@@ -538,17 +540,16 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatSurgcapBlue
-  name: surgical cap
-  description: A blue cap surgeons wear during operations. Keeps their hair from tickling your internal organs.
+  name: medical cap
+  description: A blue cap worn for cleanliness and sterility. It makes you look professional.
   components:
   - type: Sprite
-    sprite: Clothing/Head/Hats/surgcap_blue.rsi
+    sprite: _Funkystation/Clothing/Head/Hats/surgcap_blue.rsi
   - type: Clothing
-    sprite: Clothing/Head/Hats/surgcap_blue.rsi
+    sprite: _Funkystation/Clothing/Head/Hats/surgcap_blue.rsi
   - type: Tag
     tags:
     - ClothMade
-    - HamsterWearable
     - WhitelistChameleon
 
 - type: entity
@@ -558,20 +559,20 @@
   description: A green cap surgeons wear during operations. Keeps their hair from tickling your internal organs.
   components:
   - type: Sprite
-    sprite: Clothing/Head/Hats/surgcap_green.rsi
+    sprite: _Funkystation/Clothing/Head/Hats/surgcap_green.rsi
   - type: Clothing
-    sprite: Clothing/Head/Hats/surgcap_green.rsi
+    sprite: _Funkystation/Clothing/Head/Hats/surgcap_green.rsi
 
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatSurgcapPurple
-  name: surgical cap
-  description: A purple cap surgeons wear during operations. Keeps their hair from tickling your internal organs.
+  name: specialist cap
+  description: A pink cap worn by medical specialists, because they need to look special at all times.
   components:
   - type: Sprite
-    sprite: Clothing/Head/Hats/surgcap_purple.rsi
+    sprite: _Funkystation/Clothing/Head/Hats/surgcap_purple.rsi
   - type: Clothing
-    sprite: Clothing/Head/Hats/surgcap_purple.rsi
+    sprite: _Funkystation/Clothing/Head/Hats/surgcap_purple.rsi
 
 - type: entity
   parent: ClothingHeadBase

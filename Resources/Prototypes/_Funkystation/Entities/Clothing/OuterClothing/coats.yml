@@ -123,3 +123,16 @@
       coefficients:
         Slash: 0.95
         Heat: 0.90
+
+# Blue, chef! (By AraiMaia)
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ClothingOuterJacketChefBlue
+  name: blue chef jacket
+  description: An apron-jacket used by a high class blue team chef.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/OuterClothing/Misc/chefblue.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/OuterClothing/Misc/chefblue.rsi

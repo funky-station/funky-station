@@ -9,6 +9,9 @@
 trait-funky-name = Funky Accent
 trait-funky-desc = Put some funky flair on your inflections.
 
+trait-british-name = British Accent
+trait-british-desc = Speak like you came from the queen's land!
+
 trait-scandinavian-name = Scandinavian accent
 trait-scandinavian-desc = You sound like you come from some nondescript northern European nation. Or you're a Viking!
 

@@ -65,7 +65,6 @@
   - type: Tag
     tags:
     - BoxCardboard
-  - type: Dumpable
 
 - type: entity
   name: mousetrap box
@@ -80,8 +79,8 @@
         amount: 4
   - type: Sprite
     layers:
-      - state: box
-      - state: mousetraps
+    - state: box
+    - state: mousetraps
 
 - type: entity
   name: lightbulb box
@@ -91,8 +90,8 @@
   components:
   - type: Sprite
     layers:
-      - state: box
-      - state: light
+    - state: box
+    - state: light
   - type: Storage
     grid:
     - 0,0,5,3
@@ -123,8 +122,8 @@
   components:
   - type: Sprite
     layers:
-      - state: box
-      - state: lighttube
+    - state: box
+    - state: lighttube
   - type: EntityTableContainerFill
     containers:
       storagebase:
@@ -138,8 +137,8 @@
   components:
   - type: Sprite
     layers:
-      - state: box
-      - state: lightmixed
+    - state: box
+    - state: lightmixed
   - type: EntityTableContainerFill
     containers:
       storagebase: !type:AllSelector
@@ -175,8 +174,8 @@
         amount: 4
   - type: Sprite
     layers:
-      - state: box
-      - state: pda
+    - state: box
+    - state: pda
 
 - type: entity
   name: ID card box
@@ -191,8 +190,8 @@
         amount: 4
   - type: Sprite
     layers:
-      - state: box
-      - state: pda
+    - state: box
+    - state: pda
 
 - type: entity
   name: headset box
@@ -207,8 +206,8 @@
         amount: 4
   - type: Sprite
     layers:
-      - state: box
-      - state: headset
+    - state: box
+    - state: headset
 
 - type: entity
   name: meson box
@@ -223,8 +222,8 @@
         amount: 4
   - type: Sprite
     layers:
-      - state: box
-      - state: meson
+    - state: box
+    - state: meson
 
 - type: entity
   name: M.R.E.
@@ -242,8 +241,8 @@
         - id: FoodCondimentPacketKetchup
   - type: Sprite
     layers:
-      - state: box_olive
-      - state: writing
+    - state: box
+    - state: writing
 
 - type: entity
   parent: BoxHug
@@ -266,14 +265,14 @@
     containers:
       storagebase: !type:AllSelector
         children:
-          - id: InflatableWallStack
-            amount: 2
-          - id: InflatableDoorStack
-            amount: 2
+        - id: InflatableWallStack
+          amount: 2
+        - id: InflatableDoorStack
+          amount: 2
   - type: Sprite
     layers:
-      - state: box
-      - state: inflatable
+    - state: box
+    - state: inflatable
 
 - type: entity
   name: hatsune miku day bag
@@ -304,8 +303,8 @@
         amount: 6
   - type: Sprite
     layers:
-      - state: box
-      - state: flare
+    - state: box
+    - state: flare
 
 - type: entity
   name: trashbag box
@@ -324,11 +323,11 @@
     maxItemSize: Large
     whitelist:
       tags:
-        - TrashBag
+      - TrashBag
   - type: Sprite
     layers:
-      - state: box
-      - state: trashbag
+    - state: box
+    - state: trashbag
 
 - type: entity
   name: passenger encryption key box
@@ -343,8 +342,8 @@
         amount: 4
   - type: Sprite
     layers:
-      - state: box
-      - state: encryptokey
+    - state: box
+    - state: encryptokey
   - type: Storage
     whitelist:
       components:
@@ -473,8 +472,8 @@
   components:
   - type: Sprite
     layers:
-      - state: box
-      - state: candle
+    - state: box
+    - state: candle
   - type: Storage
     grid:
     - 0,0,5,3
@@ -524,8 +523,8 @@
   components:
   - type: Sprite
     layers:
-      - state: box
-      - state: darts
+    - state: box
+    - state: darts
   - type: EntityTableContainerFill
     containers:
       storagebase: !type:AllSelector
@@ -547,8 +546,8 @@
   components:
   - type: Sprite
     layers:
-      - state: box
-      - state: envelope
+    - state: box
+    - state: envelope
   - type: EntityTableContainerFill
     containers:
       storagebase:
@@ -563,8 +562,8 @@
   components:
   - type: Sprite
     layers:
-      - state: box
-      - state: utensils
+    - state: box
+    - state: utensils
   - type: EntityTableContainerFill
     containers:
       storagebase: !type:AllSelector

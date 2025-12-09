@@ -587,9 +587,6 @@
   name: Add heart
   categories: [ HideSpawnMenu ]
   components:
-  - type: SurgerySpecialDamageChangeEffect
-    damageType: Rot
-    isConsumable: true
   - type: SurgeryOperatingTableCondition # funkystation - fuck you
 
 - type: entity

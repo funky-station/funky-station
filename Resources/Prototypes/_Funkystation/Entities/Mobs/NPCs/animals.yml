@@ -89,6 +89,7 @@
   - type: Speech
     speechSounds: Cat
     speechVerb: SmallMob
+    allowedEmotes: ['Purr','Mew','Meow','Hiss']
   - type: ReplacementAccent
     accent: cat
   - type: InteractionPopup

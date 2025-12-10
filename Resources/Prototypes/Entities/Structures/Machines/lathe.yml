@@ -568,6 +568,7 @@
     - SecHypo # Goobstation
     - ParamedHypo # Goobstation - ParamedHypo
     - ClothingHandsSecurityKnuckleDusters #funk
+    - GrenadeBaton #funk
   - type: BlueprintReceiver
     whitelist:
       tags:
@@ -1212,6 +1213,7 @@
     - autoInjectorCartridgeCaseSoft
     - SurveillanceWirelessCameraBodySecurity #funk
     - ClothingHandsSecurityKnuckleDusters #funk
+    - GrenadeBaton #funk
     dynamicRecipes:
     - BoxBeanbag
     - BoxShotgunIncendiary

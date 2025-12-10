@@ -293,6 +293,7 @@
     - id: RPDRecharging
     - id: RadioHandheldEngineering #funkystation
     - id: RadioHandheldCommand #funkystation
+    - id: SledgehammerCommand #funk   #CE makes stuff, think them having the option to unmake stuff is cool
 # Hardsuit table, used for suit storage as well
 - type: entityTable
   id: FillChiefEngineerHardsuit
@@ -424,6 +425,9 @@
       prob: 0.15 # GoobStation - RD needs cigs for uhh... science...
     - id: RadioHandheldScience #funkystation
     - id: RadioHandheldCommand #funkystation
+    - id: WeaponImprovisedPneumaticCannonGun #funk  #makes sense for a RD to have something funky as a self defence option? The everything AND the kitchen sink gun
+    - id: MagazineGrenadeBaton #funk
+    - id: MagazineGrenadeFlash #funk
 
 # Hardsuit table, used for suit storage as well
 - type: entityTable

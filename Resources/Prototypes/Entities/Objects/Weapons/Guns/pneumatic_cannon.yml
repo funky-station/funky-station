@@ -127,12 +127,12 @@
     containers:
       storagebase: !type:Container
         ents: []
-        
+
 - type: entity
   name: syringe gun
   parent: BaseStorageItem
   id: LauncherSyringe
-  description: Load full of poisoned syringes for optimal fun.
+  description: Load full of healing and less-lethal syringes for optimal medbay fun.
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Cannons/syringe_gun.rsi
@@ -167,9 +167,11 @@
 
 # shoots bullets instead of throwing them, no other changes
 - type: entity
+  name: improved improvised pneumatic cannon
   parent: WeaponImprovisedPneumaticCannon
   id: WeaponImprovisedPneumaticCannonGun
   suffix: Gun
+  description: Improvised using nothing but a pipe, some zipties, and a pneumatic cannon. This one seems to have been tinkered and modified with to be able to shoot projectiles like bullets. Doesn't accept tanks without enough gas.
   components:
   - type: PneumaticCannon
     throwItems: false

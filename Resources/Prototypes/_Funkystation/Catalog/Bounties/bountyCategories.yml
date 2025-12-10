@@ -1,6 +1,7 @@
 # SPDX-FileCopyrightText: 2025 2DSiggy <siggymaxwell@gmail.com>
 # SPDX-FileCopyrightText: 2025 Gansu <68031780+GansuLalan@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 GreyMario <mariomister541@gmail.com>
+# SPDX-FileCopyrightText: 2025 Nox <nebulousnox38@gmail.com>
 # SPDX-FileCopyrightText: 2025 Patrycja <github@ptrcnull.me>
 # SPDX-FileCopyrightText: 2025 ThatOneMoon <91613003+ThatOneMoon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
@@ -152,13 +153,33 @@
   id: scienceCategory
   name: bounty-category-science
   entries:
-#  - name: bounty-item-artifact
-#    minAmount: 1
-#    maxAmount: 1
-#    rewardPer: 2500
-#    whitelist:
-#      components:
-#      - Artifact
+  - name: bounty-item-tech-disk-terminal
+    minAmount: 1
+    maxAmount: 3
+    rewardPer: 1250
+    whitelist:
+      tags:
+      - TechDiskTerminalCircuitBoard
+    requiredResearch:
+      - AlternativeResearch
+  - name: bounty-item-artifact-crusher
+    minAmount: 1
+    maxAmount: 3
+    rewardPer: 1250
+    whitelist:
+      components:
+      - TechnologyDisk
+    requiredResearch:
+      - AlternativeResearch      
+  - name: bounty-item-anomaly-syncronizer
+    minAmount: 1
+    maxAmount: 3
+    rewardPer: 1250
+    whitelist:
+      tags:
+      - AnomalySyncronizerCircuitBoard
+    requiredResearch:
+      - AdvancedAnomalyResearch          
   - name: bounty-item-tech-disk
     minAmount: 3
     maxAmount: 8
@@ -175,36 +196,103 @@
     whitelist:
       components:
       - AnomalyCore
-  - name: bounty-item-borg-module
+  - name: bounty-item-anomaly-locator
     minAmount: 2
     maxAmount: 5
-    rewardPer: 1200
-    whitelist:
-      components:
-      - BorgModule
-#  - name: bounty-item-artifact-fragment
-#    minAmount: 4
-#    maxAmount: 12
-#    rewardPer: 1500
-#    whitelist:
-#      tags:
-#      - ArtifactFragment
-  - name: bounty-item-microwave-machine-board
-    minAmount: 1
-    maxAmount: 3
     rewardPer: 1000
     whitelist:
       tags:
-      - MicrowaveMachineBoard
-  - name: bounty-item-cryobeaker
+      - AnomalyLocator
+    requiredResearch:
+      - BasicAnomalousResearch      
+  - name: bounty-item-gorilla-gauntlet
     minAmount: 1
     maxAmount: 3
-    rewardPer: 1000
+    rewardPer: 4000
+    whitelist:
+      tags:
+      - GorillaGauntlet
+    requiredResearch:
+      - AnomalyCoreHarnessing            
+  - name: bounty-item-experimental-vessel-machine-board
+    minAmount: 1
+    maxAmount: 3
+    rewardPer: 1250
+    whitelist:
+      tags:
+      - ExperimentalVesselMachineBoard
+    requiredResearch:
+      - AdvancedAnomalyResearch        
+  - name: bounty-item-cryobeaker
+    minAmount: 1
+    maxAmount: 8
+    rewardPer: 750
     whitelist:
       tags:
       - Cryobeaker
     requiredResearch:
       - BiochemicalStasis
+  - name: bounty-item-advanced-syringe
+    minAmount: 1
+    maxAmount: 8
+    rewardPer: 750
+    whitelist:
+      tags:
+      - Cryosyringe
+    requiredResearch:
+      - BiochemicalStasis
+  - name: bounty-item-chimp-handcannon
+    minAmount: 1
+    maxAmount: 4
+    rewardPer: 1500
+    whitelist:
+      tags:
+      - ChimpHandcannon
+    requiredResearch:
+      - AdvancedAnomalyResearch
+  - name: bounty-item-force-field-projector
+    minAmount: 1
+    maxAmount: 4
+    rewardPer: 2250
+    whitelist:
+      tags:
+      - ForceFieldProjector
+    requiredResearch:
+      - DeterrenceTechnologies
+  - name: bounty-item-particle-decelerator
+    minAmount: 1
+    maxAmount: 4
+    rewardPer: 3500
+    whitelist:
+      tags:
+      - ParticleDecelerator
+    requiredResearch:
+      - DeterrenceTechnologies
+  - name: bounty-item-night-vision-goggles
+    minAmount: 1
+    maxAmount: 4
+    rewardPer: 2750
+    whitelist:
+      tags:
+      - NightVisionGoggles
+    requiredResearch:
+      - NightVisionTech
+  - name: bounty-item-advanced-mop
+    minAmount: 1
+    maxAmount: 4
+    rewardPer: 1500
+    whitelist:
+      tags:
+      - MopAdv
+    requiredResearch:
+      - AdvancedCleaning
+  - name: bounty-item-holosign-projector
+    minAmount: 2
+    maxAmount: 4
+    rewardPer: 2000
+    whitelist:
+      tags:
+      - HolosignProjector
 
 # Misc.
 - type: cargoBountyCategory
@@ -310,7 +398,7 @@
     rewardPer: 550
     whitelist:
       tags:
-      - AutoinjectorCartrige
+      - AutoinjectorCartridge
   - name: bounty-item-medical-autoinjector
     minAmount: 1
     maxAmount: 3
@@ -1202,48 +1290,6 @@
       - HiViz
 
 - type: cargoBountyCategory
-  id: janitorCategory
-  name: bounty-category-janitor
-  entries:
-  - name: bounty-item-soap
-    minAmount: 2
-    maxAmount: 4
-    rewardPer: 2000
-    whitelist:
-      tags:
-      - Soap
-  - name: bounty-item-holosign-projector
-    minAmount: 2
-    maxAmount: 4
-    rewardPer: 2000
-    whitelist:
-      tags:
-      - HolosignProjector
-  - name: bounty-item-trash
-    minAmount: 5
-    maxAmount: 15
-    rewardPer: 100
-    whitelist:
-      tags:
-      - Trash
-  - name: bounty-item-advanced-mop
-    minAmount: 1
-    maxAmount: 4
-    rewardPer: 1200
-    whitelist:
-      tags:
-      - MopAdv
-    requiredResearch:
-      - AdvancedCleaning
-  - name: bounty-item-mouse
-    minAmount: 3
-    maxAmount: 5
-    rewardPer: 1000
-    whitelist:
-      tags:
-      - Mouse
-
-- type: cargoBountyCategory
   id: chemistryCategory
   name: bounty-category-chemistry
   entries:
@@ -1272,3 +1318,10 @@
     maxAmount: 50
     rewardPer: 60
     reagent: SpaceCleaner
+  - name: bounty-item-soap
+    minAmount: 2
+    maxAmount: 4
+    rewardPer: 2000
+    whitelist:
+      tags:
+      - Soap

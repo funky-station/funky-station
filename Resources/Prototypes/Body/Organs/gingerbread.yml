@@ -88,7 +88,7 @@
 - type: entity
   id: OrganGingerbreadLungs
   parent: BaseGingerbreadOrgan
-  name: muffin lungs
+  name: spongecake lungs
   description: "Soft, airy pastry sacs that inhale oxygen and exhale the smell of a warm bakery."
   components:
   - type: Organ
@@ -128,7 +128,7 @@
 - type: entity
   id: OrganGingerbreadHeart
   parent: BaseGingerbreadOrgan
-  name: candy heart
+  name: candy apple heart
   description: "A candy-coated apple that thumps with sticky determination. Beats louder when near open flames."
   components:
   - type: Heart
@@ -154,12 +154,13 @@
     flavors:
       - sweet
       - apple
+      - syrupy
 
 - type: entity
   id: OrganGingerbreadStomach
   parent: BaseGingerbreadOrgan
-  name: icing pouch
-  description: "A warm pouch of frosting used for digestion. Sticky, sweet, and very squishy."
+  name: sour candy stomach
+  description: "A lemon sour candy that handles digestion. Tart enough to melt almost anything."
   components:
   - type: Organ
     slotId: stomach
@@ -188,7 +189,8 @@
   - type: FlavorProfile
     flavors:
       - sweet
-      - cheap
+      - sour
+      - lemon
 
 - type: entity
   id: OrganGingerbreadLiver

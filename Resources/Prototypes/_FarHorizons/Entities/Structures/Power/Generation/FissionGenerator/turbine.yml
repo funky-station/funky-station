@@ -108,6 +108,7 @@
 - type: entity
   id: TurbineSmall
   parent: Turbine
+  name: small gas turbine
   components:
   - type: Sprite
     sprite: _FarHorizons/Structures/Power/Generation/FissionGenerator/small_turbine.rsi
@@ -130,6 +131,7 @@
     inletRot: 0 
     outletPos: -1, -1
     outletRot: 0 
+    arrowPrototype: TurbineSmallFlowArrow
   
 # Arrow to indicate flow
 - type: entity
@@ -151,6 +153,19 @@
     - type: Tag
       tags:
         - HideContextMenu
+
+- type: entity
+  id: TurbineSmallFlowArrow
+  parent: TurbineFlowArrow
+  components:
+    - type: Sprite
+      layers:
+        - state: arrow
+          rotation: 180
+          offset: 1, -2
+        - state: arrow
+          rotation: 0
+          offset: -1, -2
 
 # Pipes the turbine uses to connect to the pipe network
 - type: entity

@@ -146,9 +146,9 @@
     prefab: meltdown
 
 - type: entity
-  id: NuclearReactor5x5
+  id: NuclearReactorSmall
   parent: BaseNuclearReactor
-  suffix: 5x5
+  name: small nuclear reactor
   components:
   - type: Sprite
     sprite: _FarHorizons/Structures/Power/Generation/FissionGenerator/small_nuclear_reactor.rsi
@@ -173,7 +173,7 @@
     inletRot: 180
     outletPos: 1, 1
     outletRot: 180
-    arrowPrototype: ReactorFlowArrow5x5
+    arrowPrototype: ReactorSmallFlowArrow
     gridbounds: [ 12, 11, 0, 0 ]
 
 # Nuclear debris resultant from a meltdown
@@ -220,12 +220,10 @@
         - HideContextMenu
 
 - type: entity
-  id: ReactorFlowArrow5x5
-  categories: [ HideSpawnMenu ]
+  id: ReactorSmallFlowArrow
+  parent: ReactorFlowArrow
   components:
     - type: Sprite
-      sprite: Markers/teg_arrow.rsi
-      color: "#FFFFFFBB"
       layers:
         - state: arrow
           rotation: 0
@@ -233,11 +231,6 @@
         - state: arrow
           rotation: 180
           offset: 1, 2
-    - type: TimedDespawn
-      lifetime: 2
-    - type: Tag
-      tags:
-        - HideContextMenu
 
 # Pipes the reactor uses to connect to the pipe network
 - type: entity

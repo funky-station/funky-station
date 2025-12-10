@@ -489,6 +489,7 @@
     sprite: Objects/Tools/rcd.rsi
     state: icon
   - type: Item
+    size: Huge
     storedSprite:
       state: storage
       sprite: Objects/Tools/rcd_storage_64x.rsi #Done in 64x64 because it looks way too puny in 32x32
@@ -532,6 +533,7 @@
     soundHit:
       path: "/Audio/Weapons/smash.ogg"
   - type: Item
+    size: Huge
     storedSprite:
       state: storage
       sprite: Objects/Tools/rpd_storage_64x.rsi #Done in 64x64 because it looks way too puny in 32x32

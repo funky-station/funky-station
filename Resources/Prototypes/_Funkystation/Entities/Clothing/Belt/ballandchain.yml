@@ -14,12 +14,12 @@
   - type: Clothing
     sprite: _Funkystation/Clothing/Belt/ballandchain.rsi
   - type: ClothingSpeedModifier
-    walkModifier: 0.3
-    sprintModifier: 0.4
+    walkModifier: 0.6
+    sprintModifier: 0.7
   - type: SelfUnremovableClothing
   - type: DamageOtherOnHit
     damage:
       types:
         Blunt: 15
   - type: StaminaDamageOnCollide
-    damage: 100
+    damage: 40

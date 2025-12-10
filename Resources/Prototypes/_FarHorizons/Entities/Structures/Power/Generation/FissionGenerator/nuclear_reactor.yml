@@ -222,6 +222,7 @@
 - type: entity
   id: ReactorSmallFlowArrow
   parent: ReactorFlowArrow
+  categories: [ HideSpawnMenu ]
   components:
     - type: Sprite
       layers:

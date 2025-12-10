@@ -29,6 +29,12 @@ public sealed partial class TurbineComponent : Component
     public float StatorLoad = 35000;
 
     /// <summary>
+    /// Maximum setting of stator load
+    /// </summary>
+    [DataField]
+    public float StatorLoadMax = 500000;
+
+    /// <summary>
     /// Current RPM of turbine
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]

@@ -157,6 +157,7 @@
 - type: entity
   id: TurbineSmallFlowArrow
   parent: TurbineFlowArrow
+  categories: [ HideSpawnMenu ]
   components:
     - type: Sprite
       layers:

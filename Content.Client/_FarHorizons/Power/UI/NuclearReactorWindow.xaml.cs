@@ -27,8 +27,12 @@ public sealed partial class NuclearReactorWindow : FancyWindow
     [Dependency] private readonly IEntityManager _entityManager = null!;
     private readonly LockSystem _lock;
 
-    private Dictionary<Vector2i, StyleBoxFlat> _reactorGrid = [];
-    private Dictionary<Vector2i, TextureRect> _reactorRect = [];
+    private readonly Dictionary<Vector2i, StyleBoxFlat> _reactorGrid = [];
+    private readonly Dictionary<Vector2i, TextureRect> _reactorRect = [];
+
+    private readonly StyleBoxFlat _temperatureBar = new(Color.Black);
+    private readonly StyleBoxFlat _radiationBar = new(Color.Black);
+    private readonly StyleBoxFlat _powerBar = new(Color.Black);
 
     private Dictionary<Vector2i, ReactorSlotBUIData> _data = [];
     private int _gridWidth;
@@ -55,6 +59,10 @@ public sealed partial class NuclearReactorWindow : FancyWindow
         IoCManager.InjectDependencies(this);
 
         _lock = _entityManager.System<LockSystem>();
+
+        ReactorTempBar.ForegroundStyleBoxOverride = _temperatureBar;
+        ReactorRadsBar.ForegroundStyleBoxOverride = _radiationBar;
+        ReactorThermBar.ForegroundStyleBoxOverride = _powerBar;
 
         ChangeViewButton.OnPressed += _ => OnChangeViewButtonPressed();
         XIncrement.OnPressed += _ => MoveTarget(1, 0);
@@ -113,12 +121,15 @@ public sealed partial class NuclearReactorWindow : FancyWindow
 
         ReactorTempValue.Text = Math.Round(msg.ReactorTemp - Atmospherics.T0C, 1).ToString() + "C";
         ReactorTempBar.Value = msg.ReactorTemp;
+        _temperatureBar.BackgroundColor = GetColor(293.15, 1500, msg.ReactorTemp);
 
         ReactorRadsValue.Text = Math.Round(msg.ReactorRads, 1).ToString();
         ReactorRadsBar.Value = msg.ReactorRads;
+        _radiationBar.BackgroundColor = GetColor(0, 25, msg.ReactorRads);
 
         ReactorThermValue.Text = FormatPower(msg.ReactorTherm) + "t";
         ReactorThermBar.Value = msg.ReactorTherm;
+        _powerBar.BackgroundColor = GetSteppedColor(7500000, 10000000, msg.ReactorTherm);
 
         ControlRodsValue.Text = Math.Round(msg.ControlRodActual * 50, 1).ToString() + "%";
         ControlRodsActual.Value = msg.ControlRodActual;
@@ -204,6 +215,20 @@ public sealed partial class NuclearReactorWindow : FancyWindow
             result = Color.FromHex("#550000"); // Death.
         else
             result = Color.Black;
+
+        return result;
+    }
+
+    private static Color GetSteppedColor(double pointA, double pointB, double value)
+    {
+        Color result;
+
+        if (value > pointB)
+            result = Color.FromHex("#BB3232");
+        else if (value > pointA)
+            result = Color.FromHex("#BBBB00");
+        else
+            result = Color.FromHex("#31843E");
 
         return result;
     }

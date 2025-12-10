@@ -155,7 +155,7 @@ public abstract class SharedTurbineSystem : EntitySystem
 
     protected static bool AdjustStatorLoad(TurbineComponent turbine, float change)
     { 
-        var newSet = Math.Clamp(turbine.StatorLoad + change, 1000f, 500000f);
+        var newSet = Math.Clamp(turbine.StatorLoad + change, 1000f, turbine.StatorLoadMax);
         if (turbine.StatorLoad != newSet)
         {
             turbine.StatorLoad = newSet;
@@ -176,7 +176,7 @@ public abstract class SharedTurbineSystem : EntitySystem
 
     private void OnTurbineStatorLoadChanged(EntityUid uid, TurbineComponent turbine, TurbineChangeStatorLoadMessage args)
     {
-        turbine.StatorLoad = Math.Clamp(args.StatorLoad, 1000f, 500000f);
+        turbine.StatorLoad = Math.Clamp(args.StatorLoad, 1000f, turbine.StatorLoadMax);
         Dirty(uid, turbine);
         UpdateUI(uid, turbine);
         _adminLogger.Add(LogType.AtmosDeviceSetting, LogImpact.Medium,

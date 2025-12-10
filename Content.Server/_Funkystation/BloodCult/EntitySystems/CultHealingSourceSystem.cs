@@ -1,8 +1,9 @@
 // SPDX-FileCopyrightText: 2025 Skye <57879983+Rainbeon@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Terkala <appleorange64@gmail.com>
 // SPDX-FileCopyrightText: 2025 kbarkevich <24629810+kbarkevich@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
-// SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+// SPDX-License-Identifier: AGPL-3.0-or-later OR MIT
 
 using System.Linq;
 using System.Numerics;
@@ -26,6 +27,12 @@ using Robust.Shared.Containers;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
+using Content.Server.GameTicking.Rules.Components;
+using Content.Shared.GameTicking.Components;
+using Content.Shared.Body.Components;
+using Content.Shared.Body.Systems;
+using Content.Server.Body.Components;
+using Content.Server.Body.Systems;
 
 namespace Content.Server.BloodCult.Systems;
 
@@ -48,7 +55,8 @@ public sealed partial class CultHealingSourceSystem : EntitySystem
     [Dependency] private readonly SharedTransformSystem _transform = default!;
 	[Dependency] private readonly DamageableSystem _damageableSystem = default!;
 	[Dependency] private readonly MobStateSystem _mobState = default!;
-	[Dependency] private readonly IPrototypeManager _protoMan = default!;
+	[Dependency] private readonly SharedBodySystem _bodySystem = default!;
+	[Dependency] private readonly BloodstreamSystem _bloodstreamSystem = default!;
 
 	/// <summary>
 	/// 	Subscribe to the cult healing system's server CCVars.
@@ -336,6 +344,12 @@ public sealed partial class CultHealingSourceSystem : EntitySystem
 
 	public void CultHealEntity(EntityUid uid, float healingPerSecond, float time)
 	{
+		// Apply healing multiplier based on cult progression
+		float healingMultiplier = GetHealingMultiplier();
+		float adjustedHealing = healingPerSecond * healingMultiplier;
+		
+		// Heal the torso (main damageable component)
+		// Note: This is independent of limb healing - limbs will heal even if torso is fully healed
 		if (TryComp<DamageableComponent>(uid, out var damageable))
 		{
 			var keys = new List<string>();
@@ -345,16 +359,95 @@ public sealed partial class CultHealingSourceSystem : EntitySystem
 				if (item.Value > 0)
 					keys.Add(item.Key);
 			}
-			if (keys.Count == 0)
-				return;
-			
-			var ds = new DamageSpecifier();
-			foreach (var key in keys)
+			if (keys.Count > 0)
 			{
-				ds.DamageDict.Add(key, FixedPoint2.New(-(healingPerSecond * time) / keys.Count));
+				var ds = new DamageSpecifier();
+				foreach (var key in keys)
+				{
+					ds.DamageDict.Add(key, FixedPoint2.New(-(adjustedHealing * time) / keys.Count));
+				}
+				_damageableSystem.TryChangeDamage(uid, ds, true, false, origin: uid);
 			}
-			_damageableSystem.TryChangeDamage(uid, ds, true, false, origin: uid);
 		}
+		
+		// Heal all body parts (limbs) at the same rate as the torso
+		// This runs independently of torso healing - limbs heal even if torso has no damage
+		if (TryComp<BodyComponent>(uid, out var body))
+		{
+			foreach (var (partId, partComponent) in _bodySystem.GetBodyChildren(uid, body))
+			{
+				if (TryComp<DamageableComponent>(partId, out var partDamageable))
+				{
+					var partKeys = new List<string>();
+					
+					foreach (var item in partDamageable.Damage.DamageDict)
+					{
+						if (item.Value > 0)
+							partKeys.Add(item.Key);
+					}
+					
+					if (partKeys.Count > 0)
+					{
+						var partDs = new DamageSpecifier();
+						foreach (var key in partKeys)
+						{
+							partDs.DamageDict.Add(key, FixedPoint2.New(-(adjustedHealing * time) / partKeys.Count));
+						}
+						_damageableSystem.TryChangeDamage(partId, partDs, true, false, origin: uid);
+					}
+				}
+			}
+		}
+		
+		// Restore blood levels slowly (4 minutes from 0% to 100%)
+		// Only restore for entities with blood (cultists), not constructs
+		if (TryComp<BloodstreamComponent>(uid, out var bloodstream))
+		{
+			// Only restore if blood max volume > 0 (constructs have 0)
+			if (bloodstream.BloodMaxVolume > FixedPoint2.Zero)
+			{
+				// Check current blood level
+				var currentBloodLevel = _bloodstreamSystem.GetBloodLevelPercentage(uid, bloodstream);
+				
+				// Only restore if below 100%
+				if (currentBloodLevel < 1.0f)
+				{
+					// Calculate blood recovery: restore 100% in 240 seconds (4 minutes)
+					// Blood recovery per update = (bloodMaxVolume / 240.0) * time
+					var bloodRecovery = (bloodstream.BloodMaxVolume / 240.0f) * time;
+					
+					// Restore blood
+					_bloodstreamSystem.TryModifyBloodLevel(uid, bloodRecovery, bloodstream);
+				}
+			}
+		}
+	}
+
+	private float GetHealingMultiplier()
+	{
+		// Check the blood cult rule component to determine phase
+		// The later the phase, the more healing. This should become extremely strong later.
+		var query = EntityQueryEnumerator<BloodCultRuleComponent, GameRuleComponent>();
+		while (query.MoveNext(out var uid, out var ruleComp, out var gameRule))
+		{
+			// Phase 4 (Veil Weakened): 100% more healing
+			if (ruleComp.VeilWeakened)
+				return 2.0f;
+
+			// Phase 3 (Rise): 50% more healing
+			if (ruleComp.HasRisen)
+				return 1.5f;
+			
+			// Phase 2 (Eyes): 25% more healing
+			if (ruleComp.HasEyes)
+				return 1.25f;
+			
+			// Phase 1 (Base): normal healing
+			return 1.0f;
+		}
+		
+		// Default if no rule found
+		return 1.0f;
 	}
 
 	public void CultReconvertEntity(EntityUid uid)

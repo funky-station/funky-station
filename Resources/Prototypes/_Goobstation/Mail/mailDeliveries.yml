@@ -32,10 +32,10 @@
     MailUnusualFood: 0.5
     MailBakedGoods: 0.75
     MailLollipops: 1
-    MailBadCigs: 0.1 
+    MailBadCigs: 0.1
     Mail24Pack: 0.1
     MailCatBerry: 0.05
-    MailSuppermatter: 0.1 
+    MailSuppermatter: 0.1
     MailSuppermatterShard: 0.5
   # Costumes
     MailCosplayMaid: 0.6
@@ -49,7 +49,7 @@
     MailMothSuit: 0.1
     MailRedRacoonSuit: 0.1
     MailViceSuit: 0.2
-    MailNinjaOutfit: 0.1 
+    MailNinjaOutfit: 0.1
     MailNukieOutfit: 0.1
     MailMercOutfit: 0.1
     MailHECU1: 0.1
@@ -75,59 +75,68 @@
     MailMuggingThreat: 0.2
     MailSkele: 0.05
     MailSpamMail: 0.5
-    MailJammiesBundle: 0.3 
-    MailBalloonNukies: 0.05 
-    MailFoamCrossbows: 0.2 
-    MailFoamGuns: 0.2 
-    MailPresent: 0.1 
-    MailFoamBlade: 0.2 
-    MailPracticeGuns: 0.1 
+    MailJammiesBundle: 0.3
+    MailBalloonNukies: 0.05
+    MailFoamCrossbows: 0.2
+    MailFoamGuns: 0.2
+    MailPresent: 0.1
+    MailFoamBlade: 0.2
+    MailPracticeGuns: 0.1
     MailCorgiBalloon: 0.5
     MailNTBalloon: 0.3
     MailSynBalloon: 0.2
     MailCatEars: 0.05
     MailWehPackage: 0.01
-    MailStrangePills: 0.1 
-    MailDealbreakers: 0.3 
-    MailOutlawGlasses: 0.2 
-    MailSingulothToy: 0.1 
-    MailTeslaToy: 0.2 
-    MailSpaceGlue: 0.2 
-    MailSpaceLube: 0.1 
-    MailGlorpMiku: 0.05 
-    MailDrazilPlush: 0.1 
-    MailGodoPlush: 0.1 
-    MailGocrazyPlush: 0.1 
-    MailToySword: 0.2 
-    MailCapGuns: 0.1 
-    MailCodex: 0.1 
+    MailStrangePills: 0.1
+    MailDealbreakers: 0.3
+    MailOutlawGlasses: 0.2
+    MailSingulothToy: 0.1
+    MailTeslaToy: 0.2
+    MailSpaceGlue: 0.2
+    MailSpaceLube: 0.1
+    MailGlorpMiku: 0.05
+    MailDrazilPlush: 0.1
+    MailGodoPlush: 0.1
+    MailGocrazyPlush: 0.1
+    MailToySword: 0.2
+    MailCapGuns: 0.1
     MailCancerMouse: 0.1
     MailSecWhistle: 0.4
     MailSyndWhistle: 0.2
     MailGayWackpack: 0.05
     MailSecurityPracticeBomb: 0.01
-    MailReporterKit: 0.1 
-    MailSpectralLocator: 0.3 
+    MailReporterKit: 0.1
+    MailSpectralLocator: 0.3
     MailPortableMixer: 0.2
-    MailInfiniteCrayon: 0.01 
-    MailKitten: 0.2 
-    MailCak: 0.1 
-    MailBreadDog: 0.1 
-    MailCognizineBottle: 0.05 
+    MailInfiniteCrayon: 0.01
+    MailKitten: 0.2
+    MailCak: 0.1
+    MailBreadDog: 0.1
+    MailCognizineBottle: 0.05
     MailHandheldTV: 0.5
+    MailMothroach: 0.1
+    MailHonkBot: 0.1
+    MailJonkBot: 0.05
+    MailSyndieDrobe: 0.01
+    MailPeelMortar: 0.2
+    MailMousetrapMortar: 0.2
+    MailSyndieToolbox: 0.1
+    MailBloodredPhone: 0.1
+    MailInsulsGambling: 0.6
+    MailConductorKit: 0.5
   # Tools
     MailSignallerKit: 0.5
     MailFlashlight: 0.8
-    MailFilledBelt: 0.4 
-    MailBetterFilledBelt: 0.2 
-    MailFakeInsuls: 0.8 
-    MailInsuls: 0.4 
+    MailFilledBelt: 0.4
+    MailBetterFilledBelt: 0.2
+    MailFakeInsuls: 0.8
+    MailInsuls: 0.4
     MailHandheldMap: 0.6
   # Weapons
     MailKnife: 0.3
     MailSword: 0.2
     MailSwitchblade: 0.05
-    MailBrassKnuckles: 0.1 
+    MailBrassKnuckles: 0.1
   # Departments
   departments:
     Cargo:
@@ -167,7 +176,7 @@
       MailSecurityNonlethalsKit: 1.6
       MailSecuritySpaceLaw: 1
       MailSecurityJusticeHelm: 0.2
-      MailSecurityPracticeShotgun: 0.1 
+      MailSecurityPracticeShotgun: 0.1
       MailSecurityPracticeBomb: 0.05
       MailSecurityFlareShells: 0.2
   jobs: # Jobs

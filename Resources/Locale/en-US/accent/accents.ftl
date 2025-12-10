@@ -15,8 +15,9 @@
 # SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2024 deathride58 <deathride58@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 Terkala <appleorange64@gmail.com>
 #
-# SPDX-License-Identifier: MIT
+# SPDX-License-Identifier: AGPL-3.0-or-later OR MIT
 
 # Cat accent
 accent-words-cat-1 = Meow!
@@ -151,3 +152,12 @@ accent-words-tomato-2 = Trotect
 accent-words-tomato-3 = Mastet?
 accent-words-tomato-4 = Reaty!
 accent-words-tomato-5 = Water...
+
+# Juggernaut
+accent-words-juggernaut-1 = Blood...
+accent-words-juggernaut-2 = Nar'Sie!
+accent-words-juggernaut-3 = Eternal...
+accent-words-juggernaut-4 = Sacrifice!
+accent-words-juggernaut-5 = Geometer...
+accent-words-juggernaut-6 = Suffer...
+accent-words-juggernaut-7 = Obey!

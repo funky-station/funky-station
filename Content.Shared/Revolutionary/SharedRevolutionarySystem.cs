@@ -6,6 +6,8 @@
 // SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Skye <57879983+Rainbeon@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Tadeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 Zergologist <114537969+Chedd-Error@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 ferynn <117872973+ferynn@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 ferynn <witchy.girl.me@gmail.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
@@ -40,10 +42,12 @@ public abstract class SharedRevolutionarySystem : EntitySystem
         SubscribeLocalEvent<MindShieldComponent, MapInitEvent>(MindShieldImplanted);
         SubscribeLocalEvent<RevolutionaryComponent, ComponentGetStateAttemptEvent>(OnRevCompGetStateAttempt);
         SubscribeLocalEvent<HeadRevolutionaryComponent, ComponentGetStateAttemptEvent>(OnRevCompGetStateAttempt);
+        SubscribeLocalEvent<RevolutionaryLieutenantComponent, ComponentGetStateAttemptEvent>(OnLieuRevCompGetStateAttempt);
         SubscribeLocalEvent<RevolutionaryComponent, ComponentStartup>(DirtyRevComps);
         SubscribeLocalEvent<HeadRevolutionaryComponent, ComponentStartup>(DirtyRevComps);
+        SubscribeLocalEvent<RevolutionaryLieutenantComponent, ComponentStartup>(DirtyRevComps);
         SubscribeLocalEvent<ShowAntagIconsComponent, ComponentStartup>(DirtyRevComps);
-
+        
         SubscribeLocalEvent<HeadRevolutionaryComponent, AddImplantAttemptEvent>(OnHeadRevImplantAttempt);
         SubscribeLocalEvent<RevolutionaryComponent, AddImplantAttemptEvent>(OnRevImplantAttempt);
     }
@@ -58,11 +62,6 @@ public abstract class SharedRevolutionarySystem : EntitySystem
             comp.Broken = true; // Goobstation - Broken mindshield implant instead of break it
             Dirty(uid, comp);
             return;
-        }
-
-        if (HasComp<ThievingComponent>(uid)) // funkystation - We're doing it here because this FUCKING SUCKS
-        {
-            RemComp<ThievingComponent>(uid);
         }
 
         if (HasComp<RevolutionaryComponent>(uid))
@@ -97,6 +96,14 @@ public abstract class SharedRevolutionarySystem : EntitySystem
     {
         args.Cancelled = !CanGetState(args.Player);
     }
+    
+    /// <summary>
+    /// Determines if a Lieutenant Rev component should be sent to the client.
+    /// </summary>
+    private void OnLieuRevCompGetStateAttempt(EntityUid uid, RevolutionaryLieutenantComponent comp, ref ComponentGetStateAttemptEvent args)
+    {
+        args.Cancelled = !CanGetState(args.Player);
+    }
 
     /// <summary>
     /// The criteria that determine whether a Rev/HeadRev component should be sent to a client.
@@ -109,7 +116,7 @@ public abstract class SharedRevolutionarySystem : EntitySystem
         if (player?.AttachedEntity is not {} uid)
             return true;
 
-        if (HasComp<RevolutionaryComponent>(uid) || HasComp<HeadRevolutionaryComponent>(uid))
+        if (HasComp<RevolutionaryComponent>(uid) || HasComp<HeadRevolutionaryComponent>(uid) || HasComp<RevolutionaryLieutenantComponent>(uid))
             return true;
 
         return HasComp<ShowAntagIconsComponent>(uid);
@@ -132,6 +139,12 @@ public abstract class SharedRevolutionarySystem : EntitySystem
 
         var headRevComps = AllEntityQuery<HeadRevolutionaryComponent>();
         while (headRevComps.MoveNext(out var uid, out var comp))
+        {
+            Dirty(uid, comp);
+        }
+
+        var lieuRevComps = AllEntityQuery<RevolutionaryLieutenantComponent>();
+        while (lieuRevComps.MoveNext(out var uid, out var comp))
         {
             Dirty(uid, comp);
         }

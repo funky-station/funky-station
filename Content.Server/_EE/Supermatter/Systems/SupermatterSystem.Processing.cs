@@ -1,6 +1,9 @@
+// SPDX-FileCopyrightText: 2025 BrightNibbleston <218794821+BrightNibbleston@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 BrightNibbleston <brightnibbleston@gmail.com>
 // SPDX-FileCopyrightText: 2025 Do You Like Beans <bowenjonathan407@gmail.com>
 // SPDX-FileCopyrightText: 2025 Steve <marlumpy@gmail.com>
 // SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 Terkala <appleorange64@gmail.com>
 // SPDX-FileCopyrightText: 2025 VMSolidus <evilexecutive@gmail.com>
 // SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 marc-pelletier <113944176+marc-pelletier@users.noreply.github.com>
@@ -188,51 +191,26 @@ public sealed partial class SupermatterSystem
             }
         }
 
-
         if (mix.GetMoles(Gas.AntiNoblium) > 0.01f && mix.GetMoles(Gas.Helium) > 0.01f)
         {
-            var ANPP = gasReleased.Pressure * ((mix.GetMoles(Gas.AntiNoblium) / mix.TotalMoles) * 100);
-            var ANRatio = Math.Clamp(0.5f * (ANPP - (101.325f * 0.01f)) / (ANPP + (101.325f * 0.25f)), 0, 1);
-            var consumedAN = gasReleased.GetMoles(Gas.AntiNoblium) * ANRatio;
-            consumedAN = Math.Min(consumedAN,
-                Math.Min(gasReleased.GetMoles(Gas.Helium), gasReleased.GetMoles(Gas.AntiNoblium)));
-
-
-
-
-            var zapPower = 0;
-            var zapCount = 0;
+            // finds the minumum amount of either anti-noblium or helium
+            var consumedAN =  Math.Min(gasReleased.GetMoles(Gas.Helium), gasReleased.GetMoles(Gas.AntiNoblium))* 0.5f;
+            // finds zapPower by dividing the consumededAN and the total mols than multiplying it by 5 (capped between 1 and 3)
+            // finds zapCount by dividing the consumedAN by 4
+            var zapPower = (int) Math.Clamp((Math.Round(consumedAN / mix.TotalMoles) * 5), 1 ,3);
+            var zapCount = (int) Math.Clamp(Math.Round(consumedAN/4), 1, 10);
             var zapRange = Math.Clamp(sm.Power / 1000, 2, 7);
-
-
-
 
             if (consumedAN > 0)
             {
-                zapPower += 1;
-                zapCount += 2;
-                zapRange = Math.Clamp(sm.Power / 1000, 2, 7);
-
-
-                if (sm.Power >= 10)
-                    zapCount += 1;
-
-
-
-
+                //removes consumed gasses
                 gasReleased.AdjustMoles(Gas.AntiNoblium, -consumedAN);
                 gasReleased.AdjustMoles(Gas.Helium, -consumedAN);
                 gasReleased.AdjustMoles(Gas.HyperNoblium, consumedAN);
-
-
-                if (sm.ZapLast + TimeSpan.FromSeconds(5) <= _SmTiming.CurTime )
+                // delay for lightning zaps
+                if (sm.ZapLast + TimeSpan.FromSeconds(5) <= _SmTiming.CurTime)
                 {
-                    _lightning.ShootRandomLightnings(uid,
-                        zapRange,
-                        zapCount,
-                        sm.LightningPrototypes[zapPower],
-                        hitCoordsChance: sm.ZapHitCoordinatesChance);
-                    sm.ZapLast = _SmTiming.CurTime;
+                    _lightning.ShootRandomLightnings(uid, zapRange, zapCount, sm.LightningPrototypes[zapPower], hitCoordsChance: sm.ZapHitCoordinatesChance); sm.ZapLast = _SmTiming.CurTime;
                 }
             }
         }
@@ -769,8 +747,9 @@ public sealed partial class SupermatterSystem
 
         foreach (var mob in mobLookup)
         {
-            // Ignore silicons
-            if (HasComp<SiliconLawBoundComponent>(uid))
+            // Ignore immune entities
+            if (HasComp<SupermatterHallucinationImmuneComponent>(mob) || // Immune to supermatter hallucinations
+            HasComp<SiliconLawBoundComponent>(mob))                // Silicons don't get supermatter hallucinations
                 continue;
 
             if (!EnsureComp<ParacusiaComponent>(mob, out var paracusia))

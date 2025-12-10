@@ -14,6 +14,7 @@
 # SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2024 Winkarst <74284083+Winkarst-cpu@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 SigmaTheDragon <162711378+SigmaTheDragon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
@@ -21,7 +22,7 @@
 
 - type: entity
   id: BaseMagazineShotgun
-  name: ammo drum (.50 shells)
+  name: ammo drum (12 gauge shells)
   parent: [ BaseItem, BaseSecurityContraband ]
   abstract: true
   components:
@@ -56,7 +57,7 @@
 
 - type: entity
   id: MagazineShotgunEmpty
-  name: ammo drum (.50 shells any)
+  name: ammo drum (12 gauge shells any)
   suffix: empty
   parent: BaseMagazineShotgun
   components:
@@ -65,7 +66,7 @@
 
 - type: entity
   id: MagazineShotgun
-  name: ammo drum (.50 pellet)
+  name: ammo drum (12 gauge pellet)
   parent: BaseMagazineShotgun
   components:
   - type: BallisticAmmoProvider
@@ -79,7 +80,7 @@
 
 - type: entity
   id: MagazineShotgunBeanbag
-  name: ammo drum (.50 beanbags)
+  name: ammo drum (12 gauge beanbags)
   parent: BaseMagazineShotgun
   components:
   - type: BallisticAmmoProvider
@@ -93,7 +94,7 @@
 
 - type: entity
   id: MagazineShotgunSlug
-  name: ammo drum (.50 slug)
+  name: ammo drum (12 gauge slug)
   parent: BaseMagazineShotgun
   components:
   - type: BallisticAmmoProvider
@@ -107,7 +108,7 @@
 
 - type: entity
   id: MagazineShotgunIncendiary
-  name: ammo drum (.50 incendiary)
+  name: ammo drum (12 gauge incendiary)
   parent: BaseMagazineShotgun
   components:
   - type: BallisticAmmoProvider

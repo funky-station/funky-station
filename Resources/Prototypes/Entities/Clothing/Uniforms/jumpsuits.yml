@@ -65,7 +65,12 @@
 # SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 strO0pwafel <153459934+strO0pwafel@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 MaiaArai <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 ThatOneMoon <91613003+ThatOneMoon@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
+# SPDX-FileCopyrightText: 2025 Xcybitt <xcybitt@gmail.com>
+# SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
@@ -100,9 +105,9 @@
   description: A nice and tidy uniform. Shame about the bar though.
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpsuit/bartender.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/bartender.rsi
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpsuit/bartender.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/bartender.rsi
 
 - type: entity
   parent: ClothingUniformBase
@@ -126,9 +131,9 @@
   description: A special purple outfit to serve drinks.
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpsuit/bartender_purple.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/bartender_purple.rsi
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpsuit/bartender_purple.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/bartender_purple.rsi
 
 - type: entity
   parent: [ClothingUniformBase, BaseCommandContraband]
@@ -148,9 +153,9 @@
   description: A sturdy jumpsuit, issued to members of the Cargo department.
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpsuit/cargotech.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/cargotech.rsi
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpsuit/cargotech.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/cargotech.rsi
 
 - type: entity
   parent: ClothingUniformBase
@@ -236,20 +241,20 @@
   description: Can't cook without this.
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpsuit/chef.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/chef.rsi
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpsuit/chef.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/chef.rsi
 
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitChemistry
-  name: chemistry jumpsuit
-  description: There's some odd stains on this jumpsuit. Hm.
+  name: chemistry coveralls
+  description: Basic PPE for any Chemist. Seems to smell of... Desoxyephedrine?
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpsuit/chemistry.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/chemistry.rsi
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpsuit/chemistry.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/chemistry.rsi
 
 - type: entity
   parent: ClothingUniformBase
@@ -328,24 +333,24 @@
 - type: entity
   parent: [ClothingUniformBase, BaseCommandContraband]
   id: ClothingUniformJumpsuitCMO
-  name: chief medical officer's jumpsuit
-  description: It's a jumpsuit worn by those with the experience to be Chief Medical Officer. It provides minor biological protection.
+  name: chief medical officer's sterile coveralls
+  description: Sterile coveralls with markings belonging to a CMO. For when the Medbay is particularly messy.
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpsuit/cmo.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/cmo.rsi
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpsuit/cmo.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/cmo.rsi
 
 - type: entity
   parent: [ClothingUniformBase, BaseCommandContraband]
   id: ClothingUniformJumpsuitCMOTurtle
-  name: chief medical officer's turtleneck jumpsuit
+  name: chief medical officer's turtleneck
   description: It's a turtleneck worn by those with the experience to be Chief Medical Officer. It provides minor biological protection.
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpsuit/cmo_turtle.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/cmo_turtle.rsi
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpsuit/cmo_turtle.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/cmo_turtle.rsi
 
 - type: entity
   parent: ClothingUniformBase
@@ -398,9 +403,9 @@
   description: Rather bland and inoffensive. Perfect for vanishing off the face of the universe.
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpsuit/hop.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/hop.rsi
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpsuit/hop.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/hop.rsi
 
 - type: entity
   parent: [ClothingUniformBase, BaseCommandContraband]
@@ -505,13 +510,13 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitMedicalDoctor
-  name: medical doctor jumpsuit
-  description: It's made of a special fiber that provides minor protection against biohazards. It has a cross on the chest denoting that the wearer is trained medical personnel.
+  name: medical sterile coveralls
+  description: Sterile coveralls designed for work in a particularly hazardous Medbay. Safer than a dress shirt, at least.
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpsuit/medical.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/medical.rsi
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpsuit/medical.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/medical.rsi
 
 - type: entity
   parent: ClothingUniformBase
@@ -592,25 +597,25 @@
   description: 'What can brown do for you?'
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpsuit/qm.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/qm.rsi
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpsuit/qm.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/qm.rsi
 
 - type: entity
   parent: [ClothingUniformBase, BaseCommandContraband]
   id: ClothingUniformJumpsuitQMTurtleneck
-  name: quartermasters's turtleneck
+  name: quartermaster's turtleneck
   description: A sharp turtleneck made for the hardy work environment of supply.
   components:
     - type: Sprite
-      sprite: Clothing/Uniforms/Jumpsuit/qmturtle.rsi
+      sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/qmturtle.rsi
     - type: Clothing
-      sprite: Clothing/Uniforms/Jumpsuit/qmturtle.rsi
+      sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/qmturtle.rsi
 
 - type: entity
   parent: [ClothingUniformBase, BaseCommandContraband]
-  id: ClothingUniformJumpsuitQMFormal
-  name: quartermasters's formal suit
+  id: ClothingUniformJumpsuitQMMilitary # Funky change: renamed from the Formal suit to the Military suit
+  name: quartermaster's military suit
   description: Inspired by the quartermasters of military's past, the perfect outfit for supplying a formal occasion.
   components:
     - type: Sprite
@@ -654,13 +659,13 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitRoboticist
-  name: roboticist jumpsuit
-  description: It's a slimming black with reinforced seams; great for industrial work.
+  name: roboticist's interfacing suit
+  description: It's a slimming black with reinforced neuro-connectors; perfect for interfacing with mechs.
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpsuit/roboticist.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/roboticist.rsi
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpsuit/roboticist.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/roboticist.rsi
 
 - type: entity
   parent: [ClothingUniformBase, BaseSecurityContraband]
@@ -759,9 +764,9 @@
   description: A cosy green jumper fit for a curator of books.
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpsuit/librarian.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/librarian.rsi
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpsuit/librarian.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/librarian.rsi
 
 - type: entity
   parent: ClothingUniformBase
@@ -770,9 +775,9 @@
   description: It's sensible. Too sensible...
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpsuit/curator.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/curator.rsi
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpsuit/curator.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/curator.rsi
 
 - type: entity
   parent: ClothingUniformBase
@@ -781,9 +786,9 @@
   description: A flashy red suit worn by lawyers and show-offs.
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpsuit/lawyerred.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/lawyerred.rsi
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpsuit/lawyerred.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/lawyerred.rsi
 
 - type: entity
   parent: ClothingUniformBase
@@ -792,9 +797,9 @@
   description: A flashy blue suit worn by lawyers and show-offs.
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpsuit/lawyerblue.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/lawyerblue.rsi
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpsuit/lawyerblue.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/lawyerblue.rsi
 
 - type: entity
   parent: ClothingUniformBase
@@ -803,9 +808,9 @@
   description: A subtle black suit worn by lawyers and gangsters.
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpsuit/lawyerblack.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/lawyerblack.rsi
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpsuit/lawyerblack.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/lawyerblack.rsi
 
 - type: entity
   parent: ClothingUniformBase
@@ -814,9 +819,9 @@
   description: A stylish purple piece worn by lawyers and show people.
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpsuit/lawyerpurple.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/lawyerpurple.rsi
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpsuit/lawyerpurple.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/lawyerpurple.rsi
 
 - type: entity
   parent: ClothingUniformBase
@@ -825,9 +830,9 @@
   description: A tacky suit perfect for a CRIMINAL lawyer!
   components:
     - type: Sprite
-      sprite: Clothing/Uniforms/Jumpsuit/lawyergood.rsi
+      sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/lawyergood.rsi
     - type: Clothing
-      sprite: Clothing/Uniforms/Jumpsuit/lawyergood.rsi
+      sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/lawyergood.rsi
 
 - type: entity
   parent: [UnsensoredClothingUniformBase, BaseSyndicateContraband]
@@ -994,9 +999,9 @@
   description: A good reporter remains a skeptic all their life.
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpsuit/reporter.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/reporter.rsi
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpsuit/reporter.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/reporter.rsi
 
 - type: entity
   parent: ClothingUniformBase
@@ -1016,9 +1021,9 @@
   description: If journalism is good, it is controversial, by nature.
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpsuit/journalist.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/journalist.rsi
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpsuit/journalist.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/journalist.rsi
 
 - type: entity
   parent: ClothingUniformBase
@@ -1049,9 +1054,9 @@
   description: A fancy tuxedo for the musically inclined.  Perfect for any lounge act!
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpsuit/musician.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/musician.rsi
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpsuit/musician.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/musician.rsi
 
 - type: entity
   parent: [ BaseCentcommContraband, ClothingUniformBase ]

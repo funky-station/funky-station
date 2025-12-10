@@ -6,6 +6,7 @@
 // SPDX-FileCopyrightText: 2023 metalgearsloth <comedian_vs_clown@hotmail.com>
 // SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
 // SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 Tyranex <bobthezombie4@gmail.com>
 // SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
@@ -69,6 +70,26 @@ public abstract class SharedPinpointerSystem : EntitySystem
         if (pinpointer.IsActive)
             UpdateDirectionToTarget(uid, pinpointer);
     }
+
+    /// <summary>
+    ///     Set pinpointers target to track with a custom target name
+    ///     funky addition
+    /// </summary>
+    public virtual void SetTargetWithCustomName(EntityUid uid, EntityUid? target, string? targetName, PinpointerComponent? pinpointer = null)
+    {
+        if (!Resolve(uid, ref pinpointer))
+            return;
+
+        if (pinpointer.Target == target && pinpointer.TargetName == targetName)
+            return;
+
+        pinpointer.Target = target;
+        pinpointer.TargetName = targetName;
+        Dirty(uid, pinpointer);
+        if (pinpointer.IsActive)
+            UpdateDirectionToTarget(uid, pinpointer);
+    }
+
 
     /// <summary>
     ///     Update direction from pinpointer to selected target (if it was set)

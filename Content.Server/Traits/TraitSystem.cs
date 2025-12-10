@@ -12,9 +12,12 @@
 // SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 SaffronFennec <firefoxwolf2020@protonmail.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 vectorassembly <vectorassembly@icloud.com>
 //
 // SPDX-License-Identifier: MIT
 
+using Content.Shared._Funkystation.Humanoid.Events;
+using Content.Shared._Shitmed.Humanoid.Events;
 using Content.Shared.GameTicking;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
@@ -35,55 +38,60 @@ public sealed class TraitSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
-
         SubscribeLocalEvent<PlayerSpawnCompleteEvent>(OnPlayerSpawnComplete);
+        SubscribeLocalEvent<ProfileWithEntityLoadFinishedEvent>(OnProfileLoadFinished);
     }
 
-    // When the player is spawned in, add all trait components selected during character creation
+    private void OnProfileLoadFinished(ProfileWithEntityLoadFinishedEvent ev)
+    {
+        ApplyTraitsToEntity(ev.Uid, ev.Profile.TraitPreferences);
+    }
+
     private void OnPlayerSpawnComplete(PlayerSpawnCompleteEvent args)
     {
-        // Check if player's job allows to apply traits
         if (args.JobId == null ||
-            !_prototypeManager.TryIndex<JobPrototype>(args.JobId ?? string.Empty, out var protoJob) ||
+            !_prototypeManager.TryIndex<JobPrototype>(args.JobId, out var protoJob) ||
             !protoJob.ApplyTraits)
         {
             return;
         }
 
-        foreach (var traitId in args.Profile.TraitPreferences)
+        ApplyTraitsToEntity(args.Mob, args.Profile.TraitPreferences);
+    }
+
+    /// <summary>
+    /// Applies all valid traits from the given list to the target entity.
+    /// </summary>
+    public void ApplyTraitsToEntity(EntityUid target, IReadOnlySet<ProtoId<TraitPrototype>> traitIds)
+    {
+        foreach (var traitId in traitIds)
         {
             if (!_prototypeManager.TryIndex<TraitPrototype>(traitId, out var traitPrototype))
             {
                 Log.Warning($"No trait found with ID {traitId}!");
-                return;
+                continue;
             }
 
-            if (_whitelistSystem.IsWhitelistFail(traitPrototype.Whitelist, args.Mob) ||
-                _whitelistSystem.IsBlacklistPass(traitPrototype.Blacklist, args.Mob))
+            if (_whitelistSystem.IsWhitelistFail(traitPrototype.Whitelist, target) ||
+                _whitelistSystem.IsBlacklistPass(traitPrototype.Blacklist, target))
                 continue;
 
-            // Check species restrictions
-            if (TryComp<HumanoidAppearanceComponent>(args.Mob, out var appearance) &&
+            if (TryComp<HumanoidAppearanceComponent>(target, out var appearance) &&
                 traitPrototype.SpeciesRestrictions != null &&
                 traitPrototype.SpeciesRestrictions.Contains(appearance.Species))
                 continue;
 
-            // Add all components required by the prototype
-            EntityManager.AddComponents(args.Mob, traitPrototype.Components, false);
+            EntityManager.AddComponents(target, traitPrototype.Components, false);
 
-            // Add item required by the trait
             if (traitPrototype.TraitGear == null)
                 continue;
 
-            if (!TryComp(args.Mob, out HandsComponent? handsComponent))
+            if (!TryComp(target, out HandsComponent? handsComponent))
                 continue;
 
-            var coords = Transform(args.Mob).Coordinates;
+            var coords = Transform(target).Coordinates;
             var inhandEntity = EntityManager.SpawnEntity(traitPrototype.TraitGear, coords);
-            _sharedHandsSystem.TryPickup(args.Mob,
-                inhandEntity,
-                checkActionBlocker: false,
-                handsComp: handsComponent);
+            _sharedHandsSystem.TryPickup(target, inhandEntity, checkActionBlocker: false, handsComp: handsComponent);
         }
     }
 }

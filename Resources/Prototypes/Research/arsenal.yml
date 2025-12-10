@@ -24,8 +24,12 @@
 # SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 takemysoult <143123247+takemysoult@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 to4no_fix <156101927+chavonadelal@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 SigmaTheDragon <162711378+SigmaTheDragon@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 ThatOneMoon <91613003+ThatOneMoon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
+# SPDX-FileCopyrightText: 2025 Xcybitt <197952719+Xcybitt@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 ferynn <117872973+ferynn@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 mkanke-real <mikekanke@gmail.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
@@ -63,11 +67,13 @@
   - MagazineLightRifleIncendiary
   - SpeedLoaderMagnumIncendiary
   - MagazineShotgunIncendiary
+  - MagazinePistolLargeIncendiary
   - MagazineBoxPistolIncendiary
   - MagazineBoxMagnumIncendiary
   - MagazineBoxLightRifleIncendiary
   - MagazineBoxRifleIncendiary
   - MagazinePistolSubMachineGunTopMountedIncendiary
+  - MagazineBoxPistolLargeIncendiary
 
 - type: technology
   id: WeaponizedLaserManipulation
@@ -118,6 +124,8 @@
   - MagazineBoxRifleUranium
   - BoxShotgunUranium
   - MagazinePistolSubMachineGunTopMountedUranium
+  - MagazinePistolLargeUranium
+  - MagazineBoxPistolLargeUranium
 
 - type: technology
   id: AdvancedRiotControl
@@ -133,6 +141,7 @@
   - TelescopicShield
   - HoloprojectorSecurity
   - WeaponDisablerSMG
+  - ClothingHandsTruncheonKnuckleDusters
 
 - type: technology
   id: ExplosiveTechnology
@@ -151,6 +160,7 @@
   - FlashPayload
   - ExplosivePayload
   - ChemicalPayload
+  - BreachingCharge #funkystation
 
 - type: technology
   id: SpecialMeans

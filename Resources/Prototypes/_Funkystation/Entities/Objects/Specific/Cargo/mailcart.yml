@@ -18,49 +18,42 @@
   - type: ItemSlots
     slots:
       big_slot2:
-        name: mailcart-slot-component-slot-name-big
         whitelist:
           tags:
           - CardboardboxLarge
         insertOnInteract: true
         priority: 9
       big_slot1:
-        name: mailcart-slot-component-slot-name-big
         whitelist:
           tags:
           - CardboardboxLarge
         insertOnInteract: true
         priority: 8
       flat_slot:
-        name: mailcart-slot-component-slot-name-flat
         whitelist:
           tags:
           - CardboardboxLargeFlat
         insertOnInteract: true
         priority: 7
       small_slot4:
-        name: mailcart-slot-component-slot-name-small
         whitelist:
           tags:
           - CardboardboxSmall
         insertOnInteract: true
         priority: 6
       small_slot3:
-        name: mailcart-slot-component-slot-name-small
         whitelist:
           tags:
           - CardboardboxSmall
         insertOnInteract: true
         priority: 5
       small_slot2:
-        name: mailcart-slot-component-slot-name-small
         whitelist:
           tags:
           - CardboardboxSmall
         insertOnInteract: true
         priority: 4
       small_slot1:
-        name: mailcart-slot-component-slot-name-small
         whitelist:
           tags:
           - CardboardboxSmall

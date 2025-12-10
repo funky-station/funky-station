@@ -1,7 +1,7 @@
 {
     "version": 1,
     "license": "CC-BY-SA-3.0",
-    "copyright": "Taken from paradise station and modified by Peptide90 and then by Nesoryo https://github.com/ParadiseSS13/Paradise/blob/46bb8d448f52278a8f027b3f5bdf061e39d06140/icons/obj/clothing/hats.dmi. Vox, reptilian, vulpkanin and states by Nesoryo.",
+    "copyright": "Taken from TG Station, edit for Funky Station by AraiMaia",
     "size": {
         "x": 32,
         "y": 32
@@ -46,19 +46,11 @@
             "directions": 4
         },
         {
-            "name": "on-equipped-HELMET-reptilian",
-            "directions": 4
-        },
-        {
-            "name": "off-equipped-HELMET-reptilian",
+            "name": "off-equipped-HELMET-vulpkanin",
             "directions": 4
         },
         {
             "name": "on-equipped-HELMET-vulpkanin",
-            "directions": 4
-        },
-        {
-            "name": "off-equipped-HELMET-vulpkanin",
             "directions": 4
         }
     ]

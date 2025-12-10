@@ -1,16 +1,17 @@
+# SPDX-FileCopyrightText: 2025 Ichaie <ichaicoelho@gmail.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 chromiumboy <50505512+chromiumboy@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
-# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+# SPDX-License-Identifier: MIT
 
 - type: entity
   parent: [BaseWeaponEnergyTurret, ConstructibleMachine]
   id: WeaponEnergyTurretStation
-  name: sentry turret
+  name: security turret
   description: A high-tech autonomous weapons system designed to keep unauthorized personnel out of sensitive areas.
   components:
-
   # Physics
   - type: Fixtures
     fixtures:
@@ -31,7 +32,6 @@
         layer:
           - MachineLayer
         hard: false
-
   # Sprites and appearance
   - type: Sprite
     sprite: Objects/Weapons/Guns/Turrets/sentry_turret.rsi
@@ -88,7 +88,6 @@
     - AllHostile
   - type: AccessReader
     access: [["Security"]]
-
   # Weapon systems
   - type: ProjectileBatteryAmmoProvider
     proto: BulletEnergyTurretDisabler
@@ -104,7 +103,6 @@
     - Security
     - Borg
     - BasicSilicon
-
   # Defenses / destruction
   - type: DeployableTurret
     retractedDamageModifierSetId: Metallic
@@ -136,7 +134,6 @@
         node: machineFrame
       - !type:DoActsBehavior
         acts: ["Destruction"]
-
   # Device network
   - type: DeviceNetwork
     deviceNetId: Wired
@@ -147,7 +144,6 @@
     examinableAddress: true
   - type: DeviceNetworkRequiresPower
   - type: WiredNetworkConnection
-
   # Wires
   - type: UserInterface
     interfaces:
@@ -176,7 +172,7 @@
   description: A high-tech autonomous weapons system under the direct control of a local artifical intelligence.
   components:
   - type: AccessReader
-    access: [["StationAi"]]
+    access: [["StationAi"], ["ResearchDirector"]]
   - type: TurretTargetSettings
     exemptAccessLevels:
     - Borg
@@ -186,3 +182,4 @@
   - type: DeviceNetwork
     receiveFrequencyId: TurretControlAI
     transmitFrequencyId: TurretAI
+

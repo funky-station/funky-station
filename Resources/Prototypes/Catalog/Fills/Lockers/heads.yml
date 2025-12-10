@@ -426,8 +426,10 @@
     - id: RadioHandheldScience #funkystation
     - id: RadioHandheldCommand #funkystation
     - id: WeaponImprovisedPneumaticCannonGun #funk  #makes sense for a RD to have something funky as a self defence option? The everything AND the kitchen sink gun
-    - id: MagazineGrenadeBaton #funk
-    - id: MagazineGrenadeFlash #funk
+    - id: GrenadeBaton #funk
+    - id: GrenadeBaton #funk
+    - id: GrenadeFlash #funk
+    - id: GrenadeFlash #funk
 
 # Hardsuit table, used for suit storage as well
 - type: entityTable

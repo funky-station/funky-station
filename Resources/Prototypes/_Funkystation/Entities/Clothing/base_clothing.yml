@@ -1,0 +1,9 @@
+﻿# for clothing that allows you to wear the big RCD/RPD on your back.
+- type: entity
+  abstract: true
+  id: AllowBackStorageClothingEngineering
+  components:
+  - type: AllowBackStorage
+    whitelist:
+      components:
+      - RCD

@@ -500,6 +500,7 @@
     quickEquip: false
     slots:
     - Belt
+    - backStorage
   - type: PhysicalComposition
     materialComposition:
       Steel: 600

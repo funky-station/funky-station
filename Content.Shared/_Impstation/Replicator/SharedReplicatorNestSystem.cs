@@ -5,6 +5,7 @@
 using Content.Shared._Impstation.SpawnedFromTracker;
 using Content.Shared.Actions;
 using Content.Shared.Construction.Components;
+using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Humanoid;
 using Content.Shared.Item;
 using Content.Shared.Mind;
@@ -20,6 +21,7 @@ using Content.Shared.Mind.Components;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Network;
 using Robust.Shared.Timing;
+using Content.Shared.Hands.Components;
 
 namespace Content.Shared._Impstation.Replicator;
 
@@ -27,7 +29,7 @@ public abstract class SharedReplicatorNestSystem : EntitySystem
 {
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly INetManager _net = default!;
-
+    [Dependency] private readonly SharedHandsSystem _handsSystem = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly PullingSystem _pulling = default!;
@@ -77,7 +79,7 @@ public abstract class SharedReplicatorNestSystem : EntitySystem
 
         var isReplicator = HasComp<ReplicatorComponent>(args.Tripper);
 
-        // Allow dead replicators regardless of current level. 
+        // Allow dead replicators regardless of current level.
         if (TryComp<MobStateComponent>(args.Tripper, out var mobState) && isReplicator && _mobState.IsDead(args.Tripper))
         {
             StartFalling(ent, args.Tripper);
@@ -163,13 +165,13 @@ public abstract class SharedReplicatorNestSystem : EntitySystem
             }
         }
 
-        // if we exceed the upgrade threshold after points are added, 
+        // if we exceed the upgrade threshold after points are added,
         if (ent.Comp.TotalPoints >= ent.Comp.NextUpgradeAt)
         {
             // level up
             ent.Comp.CurrentLevel++;
 
-            // this allows us to have an arbitrary number of unique messages for when the nest levels up - and a default for if we run out. 
+            // this allows us to have an arbitrary number of unique messages for when the nest levels up - and a default for if we run out.
             var growthMessage = $"replicator-nest-level{ent.Comp.CurrentLevel}";
             if (Loc.TryGetString(growthMessage, out var localizedMsg))
                 _popup.PopupEntity(localizedMsg, ent);
@@ -249,14 +251,31 @@ public abstract class SharedReplicatorNestSystem : EntitySystem
 
     public void OnUpgrade2(Entity<ReplicatorComponent> ent, ref ReplicatorUpgrade2ActionEvent args)
     {
-        // don't run this clientside
+        // Don't run this clientside
         if (_net.IsClient || !_timing.IsFirstTimePredicted)
             return;
 
-        UpgradeReplicator(ent, 2);
+        var oldUid = ent.Owner;
 
-        QueueDel(ent);
+        var upgradedUid = UpgradeReplicator(ent, 2);
+
+        QueueDel(oldUid);
         QueueDel(args.Action);
+
+        {
+            if (!EntityManager.EntityExists(upgradedUid))
+                return;
+
+            TryComp<HandsComponent>(upgradedUid, out var hands);
+
+            var ReplicatorOmnitool = Spawn("OmnitoolUnremoveable");
+            var ReplicatorWelder = Spawn("WelderExperimentalUnremoveable");
+            _handsSystem.AddHand(upgradedUid, "Left Tool Slot", HandLocation.Left);
+            _handsSystem.AddHand(upgradedUid, "Right Tool Slot", HandLocation.Right);
+            _handsSystem.TryPickupAnyHand(upgradedUid, ReplicatorOmnitool);
+            _handsSystem.TryPickupAnyHand(upgradedUid, ReplicatorWelder);
+
+        };
     }
 
     public void OnUpgrade3(Entity<ReplicatorComponent> ent, ref ReplicatorUpgrade3ActionEvent args)
@@ -265,37 +284,54 @@ public abstract class SharedReplicatorNestSystem : EntitySystem
         if (_net.IsClient || !_timing.IsFirstTimePredicted)
             return;
 
-        UpgradeReplicator(ent, 3);
+        var oldUid = ent.Owner;
+
+        var upgradedUid = UpgradeReplicator(ent, 3);
 
         QueueDel(ent);
         QueueDel(args.Action);
+
+        {
+            if (!EntityManager.EntityExists(upgradedUid))
+                return;
+
+            TryComp<HandsComponent>(upgradedUid, out var hands);
+
+            var ReplicatorArm = Spawn("ReplicatorT3Weapon");
+            _handsSystem.AddHand(upgradedUid, "Arm", HandLocation.Middle);
+            _handsSystem.TryPickupAnyHand(upgradedUid, ReplicatorArm);
+
+        };
     }
 
-    public void UpgradeReplicator(Entity<ReplicatorComponent> ent, int desiredLevel)
+    public EntityUid UpgradeReplicator(Entity<ReplicatorComponent> ent, int desiredLevel)
     {
-        var xform = Transform(ent);
+        var oldUid = ent.Owner;
+        var xform = Transform(oldUid);
 
-        // if adding more stages, maybe make this a switch.
-        var nextStage = desiredLevel == 2 ? ent.Comp.Level2Id : ent.Comp.Level3Id;
+        var nextStage = desiredLevel == 2
+            ? ent.Comp.Level2Id
+            : ent.Comp.Level3Id;
 
         var upgraded = Spawn(nextStage, xform.Coordinates);
+
         var upgradedComp = EnsureComp<ReplicatorComponent>(upgraded);
         upgradedComp.RelatedReplicators = ent.Comp.RelatedReplicators;
         upgradedComp.TargetUpgradeStage = ent.Comp.TargetUpgradeStage;
 
         if (ent.Comp.MyNest != null)
         {
-            var nestComp = EnsureComp<ReplicatorNestComponent>((EntityUid)ent.Comp.MyNest);
-            nestComp.SpawnedMinions.Remove(ent);
+            var nestComp = EnsureComp<ReplicatorNestComponent>((EntityUid) ent.Comp.MyNest);
+            nestComp.SpawnedMinions.Remove(oldUid);
             nestComp.SpawnedMinions.Add(upgraded);
         }
 
-        if (!_mind.TryGetMind(ent, out var mind, out _))
-            return;
+        if (_mind.TryGetMind(oldUid, out var mind, out _))
+        {
+            _mind.TransferTo(mind, upgraded);
+        }
 
-        _mind.TransferTo(mind, upgraded);
-
-        return;
+        return upgraded;
     }
 
     private void Embiggen(Entity<ReplicatorNestComponent> ent)

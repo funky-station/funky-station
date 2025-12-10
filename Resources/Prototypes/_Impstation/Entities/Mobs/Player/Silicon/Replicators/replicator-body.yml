@@ -17,9 +17,9 @@
       - hand 1
       - hand 2
     hand 1:
-      part: LeftArmBorg
-    hand 2: 
-      part: RightArmBorg
+      part: LeftHandIPC
+    hand 2:
+      part: RightHandIPC
 
 - type: body
   id: Replicator3
@@ -31,4 +31,4 @@
       connections:
       - hand 1
     hand 1:
-      part: LeftArmBorg
+      part: LeftHandIPC

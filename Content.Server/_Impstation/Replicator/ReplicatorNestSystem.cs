@@ -46,7 +46,6 @@ public sealed class ReplicatorNestSystem : SharedReplicatorNestSystem
         SubscribeLocalEvent<ReplicatorNestComponent, StepTriggerAttemptEvent>(OnStepTriggerAttempt);
         SubscribeLocalEvent<ReplicatorNestFallingComponent, UpdateCanMoveEvent>(OnUpdateCanMove);
         SubscribeLocalEvent<ReplicatorNestComponent, DestructionEventArgs>(OnDestruction);
-        SubscribeLocalEvent<ReplicatorNestComponent, ComponentRemove>(OnComponentRemove);
         SubscribeLocalEvent<RoundEndTextAppendEvent>(OnRoundEndTextAppend);
     }
 
@@ -90,11 +89,6 @@ public sealed class ReplicatorNestSystem : SharedReplicatorNestSystem
     private void OnUpdateCanMove(Entity<ReplicatorNestFallingComponent> ent, ref UpdateCanMoveEvent args)
     {
         args.Cancel();
-    }
-
-    private void OnComponentRemove(Entity<ReplicatorNestComponent> ent, ref ComponentRemove args)
-    {
-        HandleDestruction(ent);
     }
 
     private void OnDestruction(Entity<ReplicatorNestComponent> ent, ref DestructionEventArgs args)
@@ -182,7 +176,7 @@ public sealed class ReplicatorNestSystem : SharedReplicatorNestSystem
         // linebreak
         args.AddLine("");
 
-        // add a bit for every nest showing their location, level at the end of the round, and points. 
+        // add a bit for every nest showing their location, level at the end of the round, and points.
         foreach (var ent in nests)
         {
             var location = "Unknown";

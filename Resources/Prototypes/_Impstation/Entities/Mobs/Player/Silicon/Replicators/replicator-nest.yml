@@ -12,7 +12,6 @@
   - type: ReplicatorNest
     blacklist:
       tags:
-      - BROS # too many of em. therefore worthless
       - Cartridge
       - CartridgeMagnum
       - Trash

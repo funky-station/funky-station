@@ -40,7 +40,7 @@
   description: Neutralize target to enable termination and consumption.
   components:
   - type: WorldTargetAction
-    icon: { sprite: _Impstation/Objects/Weapons/Guns/Projectiles/energybolts.rsi, state: lightstun } # todo: real sprite
+    icon: { sprite: Objects/Weapons/Guns/Projectiles/projectiles_tg.rsi, state: omnilaser_flash } # todo: real sprite
     event: !type:ActionGunShootEvent
     priority: 2
     checkCanAccess: false
@@ -54,10 +54,10 @@
   description: Neutralize target to enable termination and consumption.
   components:
   - type: RechargeBasicEntityAmmo
-    rechargeCooldown: 5
+    rechargeCooldown: 3
     rechargeSound: /Audio/Weapons/Guns/MagIn/kinetic_reload.ogg
   - type: BasicEntityAmmoProvider
-    proto: BulletDisablerSmg
+    proto: BulletDisabler
     capacity: 1
     count: 1
   - type: Gun

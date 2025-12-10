@@ -18,11 +18,7 @@ public sealed class MultiVisualStateSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<MultiVisualStateComponent, AfterAutoHandleStateEvent>(OnStateChanged);
-
-        // 1. Listen for VISOR toggles (Custom Event)
         SubscribeLocalEvent<MultiVisualStateComponent, ItemHeadToggledEvent>(OnHeadToggled);
-
-        // 2. Listen for LIGHT toggles via Appearance (Avoids event conflict)
         SubscribeLocalEvent<MultiVisualStateComponent, AppearanceChangeEvent>(OnAppearanceChanged);
     }
 
@@ -35,8 +31,6 @@ public sealed class MultiVisualStateSystem : EntitySystem
 
     private void OnAppearanceChanged(Entity<MultiVisualStateComponent> ent, ref AppearanceChangeEvent args)
     {
-        // Check if the appearance update contains light data.
-        // ToggleableLightVisuals.Enabled is the standard key for hand-held lights/hardsuit lights.
         if (_appearance.TryGetData(ent.Owner, ToggleableLightVisuals.Enabled, out bool lightEnabled, args.Component))
         {
             ent.Comp.LightState = lightEnabled;
@@ -54,7 +48,6 @@ public sealed class MultiVisualStateSystem : EntitySystem
         var (uid, comp) = ent;
         string? finalPrefix = null;
 
-        // Select prefix based on the combination of states
         if (comp.VisorState && comp.LightState)
             finalPrefix = comp.PrefixVisorOnLightOn;
         else if (comp.VisorState && !comp.LightState)

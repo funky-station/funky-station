@@ -17,7 +17,7 @@ public sealed partial class HeadToggleComponent : Component
     public EntProtoId ToggleAction = "ActionToggleHead";
 
     /// <summary>
-    /// The action entity for toggling this item.
+    /// The action entity for toggling this item
     /// </summary>
     [DataField, AutoNetworkedField]
     public EntityUid? ToggleActionEntity;
@@ -26,8 +26,8 @@ public sealed partial class HeadToggleComponent : Component
     public bool IsToggled;
 
     /// <summary>
-    /// Equipped prefix to use after the helmet/visor is toggled.
-    /// For a welding helmet, this is usually "up".
+    /// Equipped prefix to use after the helmet/visor is toggled
+    /// For a welding helmet, this is usually up
     /// </summary>
     [DataField, AutoNetworkedField]
     public string EquippedPrefix = "up";
@@ -39,25 +39,25 @@ public sealed partial class HeadToggleComponent : Component
     public bool IsEnabled = true;
 
     /// <summary>
-    /// If true, the logic is inverted. Starts toggled up (inactive), and toggling activates components.
+    /// If true, the logic is inverted. Starts toggled up (inactive), and toggling activates components
     /// </summary>
     [DataField("invertLogic"), AutoNetworkedField]
     public bool InvertLogic;
 
     /// <summary>
-    /// Sound to play when the visor is activated (e.g., visor closing).
+    /// Sound to play when the visor is activated
     /// </summary>
     [DataField("soundToggleOn"), AutoNetworkedField]
     public SoundSpecifier? SoundToggleOn;
 
     /// <summary>
-    /// Sound to play when the visor is deactivated (e.g., visor opening).
+    /// Sound to play when the visor is deactivated
     /// </summary>
     [DataField("soundToggleOff"), AutoNetworkedField]
     public SoundSpecifier? SoundToggleOff;
 
     /// <summary>
-    /// Cooldown time for the toggle action.
+    /// Cooldown time for the toggle action
     /// </summary>
     [DataField("cooldown"), ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
     public TimeSpan? Cooldown;

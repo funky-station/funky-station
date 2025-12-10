@@ -25,17 +25,17 @@ SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
   ## Nucleus
 
-  The most important blob cell is [color=#a4885c]nucleus[/color]. By destroying the nucleus, the blob will be defeated, and all its other cells will die.
+  The most important blob cell is the [color=#a4885c]nucleus[/color]. By destroying the nucleus, the blob will be defeated, and all its other cells will die.
 
   You can always see the core health on the right side of the screen as a percentage. Watch your core and don't let it be destroyed!
 
   There are 2 steps you can do with the kernel: [color=#a4885c]transfer[/color] and [color=#a4885c]split[/color].
   - When a kernel is transferred, the selected node and kernel are swapped. This is useful in case the kernel location is not very secure.
-  - When the kernel is split, the selected node becomes [color=#a4885c]new and independent kernel[/color]. Although this action requires a lot of points, in the long run, a new core can help you capture the station.
+  - When the kernel is split, the selected node becomes a [color=#a4885c]new and independent kernel[/color]. Although this action requires a lot of points, in the long run, a new core can help you capture the station.
 
   ## Blob Types
 
-  Your ordinary unity is a [bold]regular tile[/bold]. Normal cells are extremely vulnerable to burns or even mechanical damage.
+  Your ordinary unit is a [bold]regular tile[/bold]. Normal cells are extremely vulnerable to burns or even mechanical damage.
   They can also be upgraded to reinforced versions, or turned into special blob Tiles.
 
   ## Special cages
@@ -47,8 +47,8 @@ SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
   </Box>
 
   - [color=#a4885c]The Resource Blob[/color] is constantly gaining points for all the actions the blob performs.
-  - [color=#a4885c]Blob Factory[/color] creates Blob Pods and Blobburnouts to help fight against the station.
-  - [color=#a4885c]Blob node[/color] allows you to place other blob cells around it within a certain radius.
+  - [color=#a4885c]Blob Factory[/color] creates Blob Pods and Blobbernauts to help fight against the station.
+  - [color=#a4885c]Blob node[/color] allows you to place other blob cells around it, within a certain radius.
 
   Note! Special blob cells are tied to the nearest core.
   Thus, for the best placement, you should place the nodes as compactly as possible, and build other special cells around them.
@@ -62,9 +62,9 @@ SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 	<GuideEntityEmbed Entity="MobBlobPod" Caption="Blob Pod"/>
   </Box>
 
-  Blob factories can produce Blob pods and Blobburnouts.
+  Blob factories can produce Blob pods and Blobbernauts.
   - Blob pods have the ability to turn dead humanoids into zombie blobs, which will force them to fight on your side against the rest of the crew.
-  - Blobburnouts have a lot of damage, which will come in handy for attacking.
+  - Blobbernauts do a lot of damage, which will come in handy for attacking.
 
   ## Management
 
@@ -82,16 +82,16 @@ SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
   In the action bar, you can use special abilities that will allow you to perform important actions, such as placing special cells, or special actions with the core and chemicals.
 
   - [color=#a4885c]Changing a chemical[/color] allows you to change your chemical to any of the 5 presented. Each has its own characteristics suitable for different situations.
-  - [color=#a4885c]Demote Blob[/color] gives you the option to downgrade any blob cell back to normal for free. It is useful in order to correct the wrong placement.
+  - [color=#a4885c]Demote Blob[/color] gives you the option to downgrade any blob cell back to normal for free. It is useful for correcting erroneous placement.
 
   ## Course of the round
 
   As the blob grows, the station will pass through several stages.
 
-  - 1. [color=#a4885c]Silent stage[/color] - the blob is still undetected, and you can safely evolve while no one knows about you.
+  - 1. [color=#a4885c]Silent stage[/color] - the blob is still undetected, and you can safely evolve while the crew is unaware of your existence.
   - 2. [color=#a4885c]Threat detection[/color] - as soon as the blob grows a little, a Sigma code is installed and a complete isolation of the station is declared. The evacuation shuttle cannot be called at this point.
-  - 3. [color=#a4885c]Critical mass[/color] - if a blob captures a significant part of the station, a gamma code is announced and a CBRN squad arrives to help. The main goal of all survivors at this stage is to blow up the station, which you as a blob must prevent! (note CBRN currently now aveilable)
-  - 4. [color=#a4885c]Blob Win[/color] - When a blob grows to a gigantic size, its growth becomes too uncontrollable, causing the round to end with the blob winning.
+  - 3. [color=#a4885c]Critical mass[/color] - if a blob captures a significant part of the station, Central Command will fax detonation codes for the emergency nuclear device to the station, intending for any remaining crew to arm it and then attempt to escape by any means necessary.
+  - 4. [color=#a4885c]Blob Win[/color] - When a blob grows to a gigantic size, its growth becomes too uncontrollable, causing the round to end in a blob victory.
 
   Starting from the second stage, the captain has a priority goal in the form of protecting the nuclear authentication disk. If you lose it, the blob cannot be destroyed in the Gamma code, which gives an almost guaranteed victory to the blob!
 

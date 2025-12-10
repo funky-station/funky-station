@@ -1,5 +1,9 @@
+# SPDX-FileCopyrightText: 2025 MaiaArai <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Middleson5 <Chance@thethiers.com>
+# SPDX-FileCopyrightText: 2025 Terkala <appleorange64@gmail.com>
+# SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 terkala <appleorange64@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -15,3 +19,35 @@
     sprite: _Funkystation/Clothing/Shoes/Boots/redperformer.rsi
   - type: Clothing
     sprite: _Funkystation/Clothing/Shoes/Boots/redperformer.rsi
+
+# Forsaken Boots (Blood Cult themed no-slip boots), same sprite as done by Middleson
+
+- type: entity
+  parent: [ClothingShoesBaseButcherable, BaseMinorContraband]
+  id: ClothingShoesBootsForsaken
+  name: forsaken boots
+  description: Cursed boots that grip the ground with an unnatural tenacity. The blood cult's dark magic ensures you'll never slip.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Shoes/Boots/redperformer.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Shoes/Boots/redperformer.rsi
+  - type: NoSlip
+# Chem Boots!
+
+- type: entity
+  parent: [ ClothingShoesBase, BaseMedicalContraband ]
+  id: ClothingShoesChemistryBoots
+  name: heavy-duty chemistry boots
+  description: Heavy-duty PPE worn by Chemists. For when some intern spills your entire jug of diphenhydramine.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Shoes/Misc/chemistry.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Shoes/Misc/chemistry.rsi
+  - type: NoSlip
+  - type: SlowedOverSlippery
+    slowdownModifier: 0.7
+  - type: SpeedModifierContactCapClothing
+    maxContactSprintSlowdown: 0.7
+    maxContactWalkSlowdown: 0.7

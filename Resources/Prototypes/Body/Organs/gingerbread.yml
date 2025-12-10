@@ -51,11 +51,11 @@
       organ:
         reagents:
         - ReagentId: Theobromine
-          Quantity: 20
+          Quantity: 25
       food:
         reagents:
         - ReagentId: Theobromine
-          Quantity: 20
+          Quantity: 25
   - type: FlavorProfile
     flavors:
       - sweet

@@ -1,12 +1,3 @@
-# SPDX-FileCopyrightText: 2022 Jack Fox <35575261+DubiousDoggo@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Kevin Zheng <kevinz5000@gmail.com>
-# SPDX-FileCopyrightText: 2022 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 08A <git@08a.re>
-# SPDX-FileCopyrightText: 2023 metalgearsloth <comedian_vs_clown@hotmail.com>
-# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
-#
-# SPDX-License-Identifier: MIT
-
 - type: constructionGraph
   id: GasTrinary
   start: start
@@ -19,73 +10,27 @@
       - material: Steel
         amount: 2
         doAfter: 1
-    - to: filterAlt1
-      steps:
-      - material: Steel
-        amount: 2
-        doAfter: 1
-    - to: filterAlt2
-      steps:
-      - material: Steel
-        amount: 2
-        doAfter: 1
+
     - to: filterflipped
       steps:
       - material: Steel
         amount: 2
         doAfter: 1
-    - to: filterflippedAlt1
-      steps:
-      - material: Steel
-        amount: 2
-        doAfter: 1
-    - to: filterflippedAlt2
-      steps:
-      - material: Steel
-        amount: 2
-        doAfter: 1
+
     # Mixer
     - to: mixer
       steps:
       - material: Steel
         amount: 2
         doAfter: 1
-    - to: mixerAlt1
-      steps:
-      - material: Steel
-        amount: 2
-        doAfter: 1
-    - to: mixerAlt2
-      steps:
-      - material: Steel
-        amount: 2
-        doAfter: 1
+
     - to: mixerflipped
       steps:
       - material: Steel
         amount: 2
         doAfter: 1
-    - to: mixerflippedAlt1
-      steps:
-      - material: Steel
-        amount: 2
-        doAfter: 1
-    - to: mixerflippedAlt2
-      steps:
-      - material: Steel
-        amount: 2
-        doAfter: 1
+
     - to: pneumaticvalve
-      steps:
-      - material: Steel
-        amount: 2
-        doAfter: 1
-    - to: pneumaticvalveAlt1
-      steps:
-      - material: Steel
-        amount: 2
-        doAfter: 1
-    - to: pneumaticvalveAlt2
       steps:
       - material: Steel
         amount: 2
@@ -108,72 +53,8 @@
       - tool: Welding
         doAfter: 1
 
-  - node: filterAlt1
-    entity: GasFilterAlt1
-    edges:
-    - to: start
-      conditions:
-      - !type:EntityAnchored
-        anchored: false
-      completed:
-      - !type:SpawnPrototype
-        prototype: SheetSteel1
-        amount: 2
-      - !type:DeleteEntity
-      steps:
-      - tool: Welding
-        doAfter: 1
-
-  - node: filterAlt2
-    entity: GasFilterAlt2
-    edges:
-    - to: start
-      conditions:
-      - !type:EntityAnchored
-        anchored: false
-      completed:
-      - !type:SpawnPrototype
-        prototype: SheetSteel1
-        amount: 2
-      - !type:DeleteEntity
-      steps:
-      - tool: Welding
-        doAfter: 1
-
   - node: filterflipped
     entity: GasFilterFlipped
-    edges:
-    - to: start
-      conditions:
-      - !type:EntityAnchored
-        anchored: false
-      completed:
-      - !type:SpawnPrototype
-        prototype: SheetSteel1
-        amount: 2
-      - !type:DeleteEntity
-      steps:
-      - tool: Welding
-        doAfter: 1
-
-  - node: filterflippedAlt1
-    entity: GasFilterFlippedAlt1
-    edges:
-    - to: start
-      conditions:
-      - !type:EntityAnchored
-        anchored: false
-      completed:
-      - !type:SpawnPrototype
-        prototype: SheetSteel1
-        amount: 2
-      - !type:DeleteEntity
-      steps:
-      - tool: Welding
-        doAfter: 1
-
-  - node: filterflippedAlt2
-    entity: GasFilterFlippedAlt2
     edges:
     - to: start
       conditions:
@@ -205,38 +86,6 @@
       - tool: Welding
         doAfter: 1
 
-  - node: mixerAlt1
-    entity: GasMixerAlt1
-    edges:
-    - to: start
-      conditions:
-      - !type:EntityAnchored
-        anchored: false
-      completed:
-      - !type:SpawnPrototype
-        prototype: SheetSteel1
-        amount: 2
-      - !type:DeleteEntity
-      steps:
-      - tool: Welding
-        doAfter: 1
-
-  - node: mixerAlt2
-    entity: GasMixerAlt2
-    edges:
-    - to: start
-      conditions:
-      - !type:EntityAnchored
-        anchored: false
-      completed:
-      - !type:SpawnPrototype
-        prototype: SheetSteel1
-        amount: 2
-      - !type:DeleteEntity
-      steps:
-      - tool: Welding
-        doAfter: 1
-
   - node: mixerflipped
     entity: GasMixerFlipped
     edges:
@@ -253,72 +102,8 @@
       - tool: Welding
         doAfter: 1
 
-  - node: mixerflippedAlt1
-    entity: GasMixerFlippedAlt1
-    edges:
-    - to: start
-      conditions:
-      - !type:EntityAnchored
-        anchored: false
-      completed:
-      - !type:SpawnPrototype
-        prototype: SheetSteel1
-        amount: 2
-      - !type:DeleteEntity
-      steps:
-      - tool: Welding
-        doAfter: 1
-
-  - node: mixerflippedAlt2
-    entity: GasMixerFlippedAlt2
-    edges:
-    - to: start
-      conditions:
-      - !type:EntityAnchored
-        anchored: false
-      completed:
-      - !type:SpawnPrototype
-        prototype: SheetSteel1
-        amount: 2
-      - !type:DeleteEntity
-      steps:
-      - tool: Welding
-        doAfter: 1
-
   - node: pneumaticvalve
     entity: PressureControlledValve
-    edges:
-    - to: start
-      conditions:
-      - !type:EntityAnchored
-        anchored: false
-      completed:
-      - !type:SpawnPrototype
-        prototype: SheetSteel1
-        amount: 2
-      - !type:DeleteEntity
-      steps:
-      - tool: Welding
-        doAfter: 1
-
-  - node: pneumaticvalveAlt1
-    entity: PressureControlledValveAlt1
-    edges:
-    - to: start
-      conditions:
-      - !type:EntityAnchored
-        anchored: false
-      completed:
-      - !type:SpawnPrototype
-        prototype: SheetSteel1
-        amount: 2
-      - !type:DeleteEntity
-      steps:
-      - tool: Welding
-        doAfter: 1
-
-  - node: pneumaticvalveAlt2
-    entity: PressureControlledValveAlt2
     edges:
     - to: start
       conditions:

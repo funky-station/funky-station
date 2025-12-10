@@ -2,11 +2,10 @@
 using Content.Shared.Clothing.Components;
 using Content.Shared.Inventory;
 using Content.Shared.Inventory.Events;
-using Content.Shared.Item;
-using Content.Shared.Item.ItemToggle; // <--- ADD THIS NAMESPACE
 using Content.Shared.Popups;
 using Robust.Shared.Timing;
 using Content.Shared.Item.ItemToggle.Components;
+using Robust.Shared.Audio.Systems;
 
 namespace Content.Shared.Clothing.EntitySystems;
 
@@ -16,6 +15,7 @@ public sealed class HeadToggleSystem : EntitySystem
     [Dependency] private readonly InventorySystem _inventorySystem = default!;
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly SharedAudioSystem _audio = default!;
 
     public override void Initialize()
     {
@@ -40,6 +40,15 @@ public sealed class HeadToggleSystem : EntitySystem
 
         if (!_inventorySystem.TryGetSlotEntity(args.Performer, "head", out var existing) || !uid.Equals(existing))
             return;
+
+        bool isActivating;
+        if (head.InvertLogic)
+            isActivating = !head.IsToggled; // For hardsuit, toggling from OFF -> ON is activating
+        else
+            isActivating = head.IsToggled;  // For welding mask, toggling from ON -> OFF is activating
+
+        var soundToPlay = isActivating ? head.SoundToggleOn : head.SoundToggleOff;
+        _audio.PlayPredicted(soundToPlay, uid, args.Performer);
 
         head.IsToggled ^= true;
 
@@ -71,7 +80,8 @@ public sealed class HeadToggleSystem : EntitySystem
         var wearerEv = new WearerHeadToggledEvent(head.IsToggled);
         RaiseLocalEvent(wearer, ref wearerEv);
 
-        var activated = !head.IsToggled;
+        // Use InvertLogic flag to determine if components should be active or not.
+        var activated = head.InvertLogic ? head.IsToggled : !head.IsToggled;
 
         var toggledEv = new ItemToggledEvent(Activated: activated, Predicted: false, User: wearer);
         RaiseLocalEvent(uid, ref toggledEv);

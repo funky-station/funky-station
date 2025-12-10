@@ -17,14 +17,16 @@ using Content.Shared.Inventory.Events;
 using Robust.Shared.GameStates;
 using Robust.Shared.Network;
 using Robust.Shared.Serialization;
+using Content.Shared.Actions;
 
 namespace Content.Shared.SubFloor;
-
+public sealed partial class ToggleTrayScannerEvent : InstantActionEvent { }
 public abstract class SharedTrayScannerSystem : EntitySystem
 {
     [Dependency] private readonly INetManager _netMan = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly SharedEyeSystem _eye = default!;
+    [Dependency] private readonly SharedActionsSystem _actions = default!;
 
     public const float SubfloorRevealAlpha = 0.8f;
 
@@ -42,6 +44,8 @@ public abstract class SharedTrayScannerSystem : EntitySystem
         SubscribeLocalEvent<TrayScannerComponent, GotUnequippedEvent>(OnTrayUnequipped);
 
         SubscribeLocalEvent<TrayScannerUserComponent, GetVisMaskEvent>(OnUserGetVis);
+        SubscribeLocalEvent<TrayScannerComponent, GetItemActionsEvent>(OnGetActions);
+        SubscribeLocalEvent<TrayScannerComponent, ToggleTrayScannerEvent>(OnToggleAction);
     }
 
     private void OnUserGetVis(Entity<TrayScannerUserComponent> ent, ref GetVisMaskEvent args)
@@ -138,6 +142,21 @@ public abstract class SharedTrayScannerSystem : EntitySystem
 
         scanner.Range = state.Range;
         SetScannerEnabled(uid, state.Enabled, scanner);
+    }
+    private void OnGetActions(EntityUid uid, TrayScannerComponent component, GetItemActionsEvent args)
+    {
+        // This gives the player the button when they equip the goggles
+        _actions.AddAction(args.User, ref component.ActionEntity, component.ActionId, uid);
+    }
+
+    private void OnToggleAction(EntityUid uid, TrayScannerComponent component, ToggleTrayScannerEvent args)
+    {
+        // This flips the switch when the button is pressed
+        if (args.Handled)
+            return;
+
+        SetScannerEnabled(uid, !component.Enabled, component);
+        args.Handled = true;
     }
 }
 

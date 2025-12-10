@@ -1,0 +1,47 @@
+﻿using Robust.Shared.GameStates;
+
+namespace Content.Shared.Clothing.Components;
+
+/// <summary>
+/// Manages a single sprite prefix based on multiple independent boolean states,
+/// like a helmet visor and a headlamp.
+/// </summary>
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState(true)]
+public sealed partial class MultiVisualStateComponent : Component
+{
+    /// <summary>
+    /// The prefix to use when the visor is UP and the light is OFF.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public string? PrefixVisorOffLightOff;
+
+    /// <summary>
+    /// The prefix to use when the visor is UP and the light is ON.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public string? PrefixVisorOffLightOn;
+
+    /// <summary>
+    /// The prefix to use when the visor is DOWN and the light is OFF.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public string? PrefixVisorOnLightOff;
+
+    /// <summary>
+    /// The prefix to use when the visor is DOWN and the light is ON.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public string? PrefixVisorOnLightOn;
+
+    /// <summary>
+    /// Current live state of the visor. True = Down/Active.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public bool VisorState;
+
+    /// <summary>
+    /// Current live state of the light. True = On.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public bool LightState;
+}

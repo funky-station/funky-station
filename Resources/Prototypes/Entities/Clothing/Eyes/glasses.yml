@@ -114,18 +114,29 @@
   parent: [ClothingEyesBase, BaseEngineeringSalvageContraband]
   id: ClothingEyesGlassesMeson
   name: engineering goggles #less confusion
-  description: Green-tinted goggles using a proprietary polymer that provides protection from eye damage of all types.
+  description: Green-tinted goggles using a proprietary polymer that provides protection from flying debris and sparks.
   components:
   - type: Sprite
     sprite: Clothing/Eyes/Glasses/meson.rsi
   - type: Clothing
     sprite: Clothing/Eyes/Glasses/meson.rsi
-  - type: EyeProtection
   - type: IdentityBlocker
     coverage: EYES
+  - type: TrayScanner
+    range: 3
+    enabled: false
   - type: Tag
     tags:
     - EngiVision #Funky - jamjarrening
+
+- type: entity
+  id: ActionToggleTrayScanner
+  name: Toggle T-Ray
+  description: Toggles the T-Ray scanner functionality.
+  components:
+  - type: InstantAction
+    event: !type:ToggleTrayScannerEvent
+    checkCanInteract: true
 
 - type: entity
   parent: ClothingEyesBase

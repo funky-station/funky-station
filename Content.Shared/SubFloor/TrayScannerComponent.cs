@@ -12,6 +12,7 @@
 
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization;
+using Robust.Shared.Prototypes;
 
 namespace Content.Shared.SubFloor;
 
@@ -29,6 +30,15 @@ public sealed partial class TrayScannerComponent : Component
     /// </summary>
     [DataField]
     public float Range = 4f;
+
+    /// <summary>
+    /// The action used to toggle the scanner when equipped.
+    /// </summary>
+    [DataField]
+    public EntProtoId ActionId = "ActionToggleTrayScanner";
+
+    [DataField]
+    public EntityUid? ActionEntity;
 }
 
 [Serializable, NetSerializable]

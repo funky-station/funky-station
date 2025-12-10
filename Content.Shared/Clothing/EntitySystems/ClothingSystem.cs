@@ -31,6 +31,7 @@ using Content.Shared.Item;
 using Content.Shared.Strip.Components;
 using Robust.Shared.Containers;
 using Robust.Shared.GameStates;
+using Content.Shared.Toggleable;
 
 namespace Content.Shared.Clothing.EntitySystems;
 
@@ -41,6 +42,7 @@ public abstract class ClothingSystem : EntitySystem
     [Dependency] private readonly SharedHumanoidAppearanceSystem _humanoidSystem = default!;
     [Dependency] private readonly InventorySystem _invSystem = default!;
     [Dependency] private readonly SharedHandsSystem _handsSystem = default!;
+    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
 
     public override void Initialize()
     {
@@ -239,8 +241,16 @@ public abstract class ClothingSystem : EntitySystem
     }
     private void OnHeadToggled(Entity<ClothingComponent> ent, ref ItemHeadToggledEvent args)
     {
-        // Sets the prefix (e.g. "welding-up") if toggled, otherwise null (default sprite)
-        SetEquippedPrefix(ent, args.IsToggled ? args.equippedPrefix : null, ent);
+        // If our custom visual manager is present, stop this default logic from running.
+        if (HasComp<MultiVisualStateComponent>(ent.Owner))
+            return;
+
+        var activePrefix = args.equippedPrefix;
+        var inactivePrefix = "off";
+
+        var newPrefix = ent.Comp.EquippedPrefix == activePrefix ? inactivePrefix : activePrefix;
+
+        SetEquippedPrefix(ent.Owner, newPrefix, ent.Comp);
         CheckEquipmentForLayerHide(ent.Owner, args.Wearer);
     }
     #region Public API

@@ -1,6 +1,7 @@
 ﻿using Content.Shared.Clothing.EntitySystems;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Audio;
 
 namespace Content.Shared.Clothing.Components;
 
@@ -32,4 +33,22 @@ public sealed partial class HeadToggleComponent : Component
     /// </summary>
     [DataField("enabled"), AutoNetworkedField]
     public bool IsEnabled = true;
+
+    /// <summary>
+    /// If true, the logic is inverted. Starts toggled up (inactive), and toggling activates components.
+    /// </summary>
+    [DataField("invertLogic"), AutoNetworkedField]
+    public bool InvertLogic;
+
+    /// <summary>
+    /// Sound to play when the visor is activated (e.g., visor closing).
+    /// </summary>
+    [DataField("soundToggleOn"), AutoNetworkedField]
+    public SoundSpecifier? SoundToggleOn;
+
+    /// <summary>
+    /// Sound to play when the visor is deactivated (e.g., visor opening).
+    /// </summary>
+    [DataField("soundToggleOff"), AutoNetworkedField]
+    public SoundSpecifier? SoundToggleOff;
 }

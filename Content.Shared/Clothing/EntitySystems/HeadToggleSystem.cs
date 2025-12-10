@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using Content.Shared.Actions;
 using Content.Shared.Clothing.Components;
 using Content.Shared.Inventory;
@@ -24,7 +20,6 @@ public sealed class HeadToggleSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
-
         SubscribeLocalEvent<HeadToggleComponent, ToggleHeadEvent>(OnToggleHead);
         SubscribeLocalEvent<HeadToggleComponent, GetItemActionsEvent>(OnGetActions);
         SubscribeLocalEvent<HeadToggleComponent, GotUnequippedEvent>(OnGotUnequipped);
@@ -42,14 +37,21 @@ public sealed class HeadToggleSystem : EntitySystem
         if (head.ToggleActionEntity == null || !_timing.IsFirstTimePredicted || !head.IsEnabled)
             return;
 
+        if (TryComp<InstantActionComponent>(head.ToggleActionEntity, out var action)
+            && action.Cooldown.HasValue
+            && _timing.CurTime < action.Cooldown.Value.End)
+        {
+            return;
+        }
+
         if (!_inventorySystem.TryGetSlotEntity(args.Performer, "head", out var existing) || !uid.Equals(existing))
             return;
 
         bool isActivating;
         if (head.InvertLogic)
-            isActivating = !head.IsToggled; // For hardsuit, toggling from OFF -> ON is activating
+            isActivating = !head.IsToggled;
         else
-            isActivating = head.IsToggled;  // For welding mask, toggling from ON -> OFF is activating
+            isActivating = head.IsToggled;
 
         var soundToPlay = isActivating ? head.SoundToggleOn : head.SoundToggleOff;
         _audio.PlayPredicted(soundToPlay, uid, args.Performer);
@@ -60,9 +62,13 @@ public sealed class HeadToggleSystem : EntitySystem
         var msg = $"action-head-pull-{dir}-popup-message";
         _popupSystem.PopupClient(Loc.GetString(msg, ("head", uid)), args.Performer, args.Performer);
 
-        // If the visor is up (toggled), use the prefix. Otherwise, use null to clear it.
         var prefix = head.IsToggled ? head.EquippedPrefix : null;
         ToggleHeadComponents(uid, head, args.Performer, prefix);
+
+        if (head.Cooldown.HasValue)
+        {
+            _actionSystem.SetCooldown(head.ToggleActionEntity.Value, head.Cooldown.Value);
+        }
     }
 
     private void OnGotUnequipped(EntityUid uid, HeadToggleComponent head, GotUnequippedEvent args)
@@ -71,8 +77,6 @@ public sealed class HeadToggleSystem : EntitySystem
             return;
 
         head.IsToggled = false;
-
-        // When unequipping, always clear the prefix.
         ToggleHeadComponents(uid, head, args.Equipee, null, true);
     }
 
@@ -88,7 +92,6 @@ public sealed class HeadToggleSystem : EntitySystem
         var wearerEv = new WearerHeadToggledEvent(head.IsToggled);
         RaiseLocalEvent(wearer, ref wearerEv);
 
-        // Use InvertLogic flag to determine if components should be active or not.
         var activated = head.InvertLogic ? head.IsToggled : !head.IsToggled;
 
         var toggledEv = new ItemToggledEvent(Activated: activated, Predicted: false, User: wearer);

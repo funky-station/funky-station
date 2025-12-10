@@ -55,4 +55,11 @@ public sealed partial class HeadToggleComponent : Component
     /// </summary>
     [DataField("soundToggleOff"), AutoNetworkedField]
     public SoundSpecifier? SoundToggleOff;
+
+    /// <summary>
+    /// Cooldown time for the toggle action.
+    /// </summary>
+    [DataField("cooldown"), ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
+    public TimeSpan? Cooldown;
+
 }

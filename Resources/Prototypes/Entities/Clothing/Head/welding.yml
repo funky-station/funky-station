@@ -45,6 +45,7 @@
     - Snout
   - type: HeadToggle
     equippedPrefix: "up"
+    cooldown: 2
   - type: ComponentToggler
     components:
     - type: IngestionBlocker

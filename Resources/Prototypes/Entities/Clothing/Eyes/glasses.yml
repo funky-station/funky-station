@@ -136,7 +136,6 @@
   components:
   - type: InstantAction
     event: !type:ToggleTrayScannerEvent
-    checkCanInteract: true
 
 - type: entity
   parent: ClothingEyesBase

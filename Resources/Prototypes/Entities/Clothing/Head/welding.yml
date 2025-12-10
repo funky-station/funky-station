@@ -56,13 +56,12 @@
 
 - type: entity
   id: ActionToggleHead
-  name: action-name-toggle-head
-  description: action-description-toggle-head
+  name: Toggle Welding Mask
+  description: Flips your welding mask up or down.
   components:
   - type: InstantAction
     icon: { sprite: Clothing/Head/Welding/welding.rsi, state: icon }
     event: !type:ToggleHeadEvent
-    checkCanInteract: true
 
 - type: entity
   parent: WeldingMaskBase

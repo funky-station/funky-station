@@ -56,7 +56,9 @@ public sealed class HeadToggleSystem : EntitySystem
         var msg = $"action-head-pull-{dir}-popup-message";
         _popupSystem.PopupClient(Loc.GetString(msg, ("head", uid)), args.Performer, args.Performer);
 
-        ToggleHeadComponents(uid, head, args.Performer, head.EquippedPrefix);
+        // If the visor is up (toggled), use the prefix. Otherwise, use null to clear it.
+        var prefix = head.IsToggled ? head.EquippedPrefix : null;
+        ToggleHeadComponents(uid, head, args.Performer, prefix);
     }
 
     private void OnGotUnequipped(EntityUid uid, HeadToggleComponent head, GotUnequippedEvent args)
@@ -65,7 +67,9 @@ public sealed class HeadToggleSystem : EntitySystem
             return;
 
         head.IsToggled = false;
-        ToggleHeadComponents(uid, head, args.Equipee, head.EquippedPrefix, true);
+
+        // When unequipping, always clear the prefix.
+        ToggleHeadComponents(uid, head, args.Equipee, null, true);
     }
 
     private void ToggleHeadComponents(EntityUid uid, HeadToggleComponent head, EntityUid wearer, string? equippedPrefix = null, bool isEquip = false)

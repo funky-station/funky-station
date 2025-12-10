@@ -493,3 +493,63 @@
   metamorphicMaxFillLevels: 4
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
+
+- type: reagent
+  id: Admiralty
+  name: reagent-name-admiralty
+  parent: BaseAlcohol
+  desc: reagent-desc-admiralty
+  physicalDesc: reagent-physical-desc-inky
+  flavor: admiralty
+  color: "#1b2447"
+  metamorphicSprite:
+    sprite: _Funkystation/Objects/Consumable/Drinks/admiralty.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 4
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
+
+- type: reagent
+  id: LongJohnSilver
+  name: reagent-name-long-john-silver
+  parent: BaseAlcohol
+  desc: reagent-desc-long-john-silver
+  physicalDesc: reagent-physical-desc-citric
+  flavor: longjohnsilver
+  color: "#d39741"
+  metamorphicSprite:
+    sprite: _Funkystation/Objects/Consumable/Drinks/longjohnsilver.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 4
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
+
+- type: reagent
+  id: LongHaul
+  name: reagent-name-long-haul
+  parent: BaseAlcohol
+  desc: reagent-desc-long-haul
+  physicalDesc: reagent-physical-desc-refreshing
+  flavor: longhaul
+  color: "#2789cd"
+  metamorphicSprite:
+    sprite: _Funkystation/Objects/Consumable/Drinks/longhaul.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 5
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
+
+- type: reagent
+  id: TropicalStorm
+  name: reagent-name-tropical-storm
+  parent: BaseAlcohol
+  desc: reagent-desc-tropical-storm
+  physicalDesc: reagent-physical-desc-tropical
+  flavor: tropicalstorm
+  color: "#486859"
+  metamorphicSprite:
+    sprite: _Funkystation/Objects/Consumable/Drinks/tropicalstorm.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 4
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false

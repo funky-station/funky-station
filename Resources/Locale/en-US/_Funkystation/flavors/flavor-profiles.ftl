@@ -53,6 +53,10 @@ flavor-complex-red-city-am = like breakfast in a glass
 flavor-complex-sentai-quencha = like ultimate space-ninja power
 flavor-complex-utility-pole = like a howling storm filling the air with electricity
 flavor-complex-wizz-fizz = like spectral blade, improved spectral blade, and a magic missile so devastating you'll regret ever crossing paths with this fizzy drink
+flavor-complex-admiralty = like haughty arrogance
+flavor-complex-long-john-silver = like piracy on the coast of the Bahamas
+flavor-complex-long-haul = like companionship
+flavor-complex-tropical-storm = like heavy rain and fierce winds crashing against a shoreline in the tropics
 
 ## base
 flavor-base-fresh = fresh

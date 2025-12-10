@@ -186,6 +186,8 @@
 
 - type: reaction
   id: BlueBlazer
+  requiredMixerCategories:
+  - Shake
   reactants:
    Whiskey:
      amount: 4
@@ -208,6 +210,8 @@
 
 - type: reaction
   id: BrancaMenta
+  requiredMixerCategories:
+  - Stir
   reactants:
    CremeDeMenthe:
      amount: 1
@@ -220,6 +224,8 @@
 
 - type: reaction
   id: BugSpray
+  requiredMixerCategories:
+  - Shake
   reactants:
    Rum:
      amount: 2
@@ -234,6 +240,8 @@
 
 - type: reaction
   id: CreviceSpike
+  requiredMixerCategories:
+  - Shake
   reactants:
    JuiceLime:
      amount: 2
@@ -244,6 +252,8 @@
 
 - type: reaction
   id: FringeWeaver
+  requiredMixerCategories:
+  - Shake
   reactants:
    Ethanol:
      amount: 9
@@ -266,6 +276,8 @@
 
 - type: reaction
   id: MauiSunrise
+  requiredMixerCategories:
+  - Shake
   reactants:
    CoconutRum:
      amount: 2
@@ -294,6 +306,8 @@
 
 - type: reaction
   id: Nekomimosa
+  requiredMixerCategories:
+  - Shake
   reactants:
    MelonLiquor:
      amount: 2
@@ -306,6 +320,8 @@
 
 - type: reaction
   id: RedCityAM
+  requiredMixerCategories:
+  - Shake
   reactants:
    RiceBeer:
      amount: 5
@@ -348,6 +364,8 @@
 
 - type: reaction
   id: WizzFizz
+  requiredMixerCategories:
+  - Shake
   reactants:
    Champagne:
      amount: 1
@@ -357,3 +375,61 @@
      amount: 1
   products:
     WizzFizz: 3
+
+- type: reaction
+  id: Admiralty
+  requiredMixerCategories:
+  - Shake
+  reactants:
+   NavyRum:
+     amount: 3
+   Fernet:
+     amount: 1
+   Vermouth:
+     amount: 1
+  products:
+    Admiralty: 3
+
+- type: reaction
+  id: LongJohnSilver
+  reactants:
+   NavyRum:
+     amount: 2
+   Bitters:
+     amount: 1
+   Lemonade:
+     amount: 2
+  products:
+    LongJohnSilver: 5
+
+- type: reaction
+  id: LongHaul
+  reactants:
+   NavyRum:
+     amount: 2
+   Bitters:
+     amount: 1
+   Sugar:
+     amount: 1
+   BlueCuracao:
+     amount: 2
+   SodaWater:
+     amount: 4
+  products:
+    LongHaul: 10
+
+- type: reaction
+  id: TropicalStorm
+  requiredMixerCategories:
+  - Shake
+  reactants:
+   Rum:
+     amount: 2
+   BlueCuracao:
+     amount: 2
+   TripleCitrus:
+     amount: 4
+   JuicePineapple:
+     amount: 2
+  products:
+    TropicalStorm: 10

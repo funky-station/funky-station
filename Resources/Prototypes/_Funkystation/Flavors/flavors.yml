@@ -200,6 +200,26 @@
   description: flavor-complex-wizz-fizz
 
 - type: flavor
+  id: admiralty
+  flavorType: Complex
+  description: flavor-complex-admiralty
+
+- type: flavor
+  id: longjohnsilver
+  flavorType: Complex
+  description: flavor-complex-long-john-silver
+
+- type: flavor
+  id: longhaul
+  flavorType: Complex
+  description: flavor-complex-long-haul
+
+- type: flavor
+  id: tropicalstorm
+  flavorType: Complex
+  description: flavor-complex-tropical-storm
+
+- type: flavor
   id: eggnog
   flavorType: Complex
   description: flavor-complex-eggnog

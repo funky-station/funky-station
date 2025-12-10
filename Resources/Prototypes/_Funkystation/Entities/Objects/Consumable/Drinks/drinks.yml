@@ -591,4 +591,56 @@
         reagents:
         - ReagentId: WizzFizz
           Quantity: 30
+
+- type: entity
+  parent: DrinkGlass
+  id: DrinkGlassAdmiralty
+  suffix: admiralty
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Admiralty
+          Quantity: 30
+
+- type: entity
+  parent: DrinkGlass
+  id: DrinkGlassLongJohnSilver
+  suffix: long john silver
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: LongJohnSilver
+          Quantity: 30
+
+- type: entity
+  parent: DrinkGlass
+  id: DrinkGlassLonghaul
+  suffix: longhaul
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: LongHaul
+          Quantity: 30
+
+- type: entity
+  parent: DrinkGlass
+  id: DrinkGlassTropicalStorm
+  suffix: tropical storm
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: TropicalStorm
+          Quantity: 30
 # pignog

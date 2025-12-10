@@ -122,3 +122,15 @@ reagent-desc-utility-pole = A grounding rod in the form of a drink. Don't stand 
 
 reagent-name-wizz-fizz = wizz fizz
 reagent-desc-wizz-fizz = A magical potion, fizzy and wild! However the taste, you will find, is quite mild. Not advised for children, pregnant people, or necromancers.
+
+reagent-name-admiralty = admiralty
+reagent-desc-admiralty = A refined, bitter drink made with navy rum, vermouth and fernet. It's quite dark, and if you squint hard enough you think you can see something moving in the depths... or you're just drunk.
+
+reagent-name-long-john-silver = long john silver
+reagent-desc-long-john-silver = A long drink of navy rum, bitters, and lemonade. Particularly popular aboard the Mothic Fleet as it's light on ration credits and heavy on flavour.
+
+reagent-name-long-haul = long haul
+reagent-desc-long-haul = A perfect companion for a lonely long haul flight
+
+reagent-name-tropical-storm = tropical storm
+reagent-desc-tropical-storm = A taste of the Caribbean in one stormy glass. Hold on to your cocktail umbrella, lest the hurricane blow it away.

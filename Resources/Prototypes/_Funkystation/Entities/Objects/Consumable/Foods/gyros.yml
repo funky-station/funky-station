@@ -1,3 +1,4 @@
+# SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
 # SPDX-FileCopyrightText: 2025 Zergologist <114537969+Chedd-Error@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -44,6 +45,7 @@
   - type: Tag
     tags:
     - Meat
+    - Gyro
   - type: Item
     inhandVisuals:
       left:
@@ -64,6 +66,7 @@
   - type: Tag
     tags:
     - Meat
+    - Gyro
   - type: Item
     inhandVisuals:
       left:
@@ -89,6 +92,9 @@
       - tomato
   - type: Sprite
     state: tofu
+  - type: Tag
+    tags:
+    - Gyro
   - type: Item
     inhandVisuals:
       left:

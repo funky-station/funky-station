@@ -24,6 +24,7 @@
 // SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
 // SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
 // SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 Terkala <appleorange64@gmail.com>
 // SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
@@ -31,6 +32,7 @@
 
 using System.Linq;
 using Content.Server.Actions;
+using Content.Server.Body.Components;
 using Content.Server.Body.Systems;
 using Content.Server.Chat;
 using Content.Server.Chat.Systems;
@@ -51,6 +53,7 @@ using Content.Shared.NameModifier.EntitySystems;
 using Content.Shared.Popups;
 using Content.Shared.Weapons.Melee.Events;
 using Content.Shared.Zombies;
+using Content.Shared._EinsteinEngines.Silicon.Components;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
@@ -224,6 +227,12 @@ namespace Content.Server.Zombies
 
                 // Stop random groaning
                 _autoEmote.RemoveEmote(uid, "ZombieGroan");
+
+                // Handle death infection spread
+                if (args.NewMobState == MobState.Dead)
+                {
+                    _zombieTumor.HandleZombieDeathInfection(uid);
+                }
             }
         }
 
@@ -287,6 +296,15 @@ namespace Content.Server.Zombies
 
                 if (_mobState.IsIncapacitated(entity, mobState) && !HasComp<ZombieComponent>(entity) && !HasComp<ZombieImmuneComponent>(entity))
                 {
+                    // Check if this is a critical IPC (has Silicon component AND Bloodstream, is in critical state)
+                    if (_mobState.IsCritical(entity, mobState) && 
+                        HasComp<SiliconComponent>(entity) &&
+                        HasComp<BloodstreamComponent>(entity))
+                    {
+                        // Give IPC a robot tumor before zombifying
+                        _zombieTumor.SpawnTumorOrgan(entity);
+                    }
+                    
                     ZombifyEntity(entity);
                     args.BonusDamage = -args.BaseDamage;
                 }

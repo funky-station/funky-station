@@ -77,17 +77,6 @@
   - TurboItemRechargerCircuitboard
   - SMESAdvancedMachineCircuitboard
 
-- type: technology
-  id: MechanicalCompression
-  name: research-technology-mechanical-compression
-  icon:
-    sprite: Structures/Machines/flatpacker.rsi
-    state: base
-  discipline: Industrial
-  tier: 1
-  cost: 10000
-  recipeUnlocks:
-  - FlatpackerMachineCircuitboard
 
 - type: technology
   id: IndustrialEngineering

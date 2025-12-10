@@ -328,3 +328,34 @@
   materials:
     Steel: 200
     Glass: 200
+
+- type: latheRecipe
+  id: CandyBowl
+  result: CandyBowl
+  completetime: 2
+  materials:
+    Glass: 200
+
+- type: latheRecipe
+  id: DeskBell
+  result: DeskBell
+  completetime: 2
+  materials:
+    Steel: 20
+
+- type: latheRecipe
+  id: BaseHandheldTelevision
+  result: BaseHandheldTelevision
+  completetime: 2
+  materials:
+    Steel: 300
+    Plastic: 100
+    
+- type: latheRecipe   
+  id: SurveillanceWirelessCameraBodyEntertainment
+  result: SurveillanceWirelessCameraBodyEntertainment
+  completetime: 3
+  materials:
+    Cloth: 200
+    Steel: 100
+    Plastic: 100

@@ -14,6 +14,7 @@
 // SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
 // SPDX-FileCopyrightText: 2024 blueDev2 <89804215+blueDev2@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Drywink <hugogrethen@gmail.com>
 // SPDX-FileCopyrightText: 2025 IronDragoon <8961391+IronDragoon@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 IronDragoon <you@example.com>
 // SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
@@ -39,13 +40,16 @@ using Content.Shared.Weapons.Melee.Events;
 using Content.Server.Body.Components;
 using System.Linq;
 using Content.Shared._Goobstation.Chemistry.SolutionCartridge;
+using Content.Shared.Containers.Components;
 using Robust.Server.Audio;
+using Robust.Shared.Containers;
 
 namespace Content.Server.Chemistry.EntitySystems;
 
 public sealed class HypospraySystem : SharedHypospraySystem
 {
     [Dependency] private readonly AudioSystem _audio = default!;
+    [Dependency] private readonly SharedContainerSystem _container = default!;
 
     public override void Initialize()
     {
@@ -54,6 +58,22 @@ public sealed class HypospraySystem : SharedHypospraySystem
         SubscribeLocalEvent<HyposprayComponent, AfterInteractEvent>(OnAfterInteract);
         SubscribeLocalEvent<HyposprayComponent, MeleeHitEvent>(OnAttack);
         SubscribeLocalEvent<HyposprayComponent, UseInHandEvent>(OnUseInHand);
+    }
+
+    /// <summary>
+    /// Gets the actual target entity from a proxy container if applicable, otherwise returns the original target.
+    /// </summary>
+    private EntityUid GetActualTarget(EntityUid target)
+    {
+        if (TryComp<BloodstreamProxyContainerComponent>(target, out var proxyContainer))
+        {
+            if (_container.TryGetContainer(target, proxyContainer.ContainerId, out var container) &&
+                container.ContainedEntities.Count > 0)
+            {
+                return container.ContainedEntities[0];
+            }
+        }
+        return target;
     }
 
     private bool TryUseHypospray(Entity<HyposprayComponent> entity, EntityUid target, EntityUid user)
@@ -99,8 +119,26 @@ public sealed class HypospraySystem : SharedHypospraySystem
     {
         var (uid, component) = entity;
 
-        if (!EligibleEntity(target, EntityManager, component))
+        // Check if target is a container that proxies to a victim's bloodstream
+        // This must happen before EligibleEntity check since the container itself might not be eligible
+        var actualTarget = GetActualTarget(target);
+        if (actualTarget != target)
+        {
+            // If we have a proxy container, use the actual victim for eligibility check
+            if (TryComp<BloodstreamComponent>(actualTarget, out _) && EligibleEntity(actualTarget, EntityManager, component))
+            {
+                target = actualTarget;
+            }
+            else
+            {
+                // Proxy container but victim is not eligible
+                return false;
+            }
+        }
+        else if (!EligibleEntity(target, EntityManager, component))
+        {
             return false;
+        }
 
         if (TryComp(uid, out UseDelayComponent? delayComp))
         {

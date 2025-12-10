@@ -68,9 +68,9 @@
           radius: 0.35
         density: 60
         mask:
-          - MobMask
+        - MobMask
         layer:
-          - Opaque
+        - Opaque
   - type: Damageable
     damageContainer: Inorganic
     damageModifierSet: LivingLight
@@ -98,19 +98,19 @@
     speechVerb: Ghost
   - type: Tag
     tags:
-      - FootstepSound
-      - SlowImmune
+    - FootstepSound
+    - SlowImmune
   - type: Destructible
     thresholds:
-      - trigger:
-          !type:DamageTrigger
-          damage: 25
-        behaviors:
-          - !type:DoActsBehavior
-            acts: [ "Destruction" ]
-          - !type:PlaySoundBehavior
-            sound:
-              collection: GlassBreak
+    - trigger:
+        !type:DamageTrigger
+        damage: 25
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
 
 - type: entity
   id: MobLuminousPerson
@@ -191,7 +191,7 @@
     showExamineText: false
     selectedMode: SemiAuto
     availableModes:
-      - SemiAuto
+    - SemiAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser3.ogg
     soundEmpty:

@@ -32,14 +32,14 @@
             Shock: -0.4
       - !type:HealthChange
         conditions:
-          - !type:ReagentThreshold
+          - !type:ReagentCondition
             min: 20
         damage:
           types:
             Blunt: 1
       - !type:Jitter
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           min: 20
 
 - type: reagent
@@ -56,7 +56,7 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           max: 20
         damage:
           types:
@@ -65,13 +65,13 @@
             Cold: -0.6
       - !type:Jitter
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           min: 20
       - !type:SatiateThirst
         factor: -1 # Lenturi hydrates your damaged, burnt skin... by using that water inside!
       - !type:SatiateThirst
          conditions:
-         - !type:ReagentThreshold
+         - !type:ReagentCondition
            min: 20
          factor: -3
 
@@ -107,7 +107,7 @@
             Cold: -0.8
       - !type:HealthChange
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           min: 15.5
         damage:
           types: # ODing should heal burn but cause other damage
@@ -118,7 +118,7 @@
             Piercing: 0.5
       - !type:Jitter
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           min: 15.5
 
 # poison
@@ -140,14 +140,16 @@
             Poison: -1
       - !type:HealthChange
         conditions:
-          - !type:ReagentThreshold
+          - !type:ReagentCondition
+            reagent: Multiver
             min: 20
         damage:
           types:
             Caustic: 2
       - !type:Jitter
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Multiver
           min: 20
   plantMetabolism:
   - !type:PlantAdjustToxins
@@ -175,21 +177,24 @@
         cleanseRate: 2
       - !type:HealthChange
         conditions:
-          - !type:ReagentThreshold
+          - !type:ReagentCondition
+            reagent: PenteticAcid
             min: 15.5
         damage:
           types:
             Caustic: 3
       - !type:Jitter
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: PenteticAcid
           min: 15.5
       - !type:Emote
         emote: Scream
         probability: 0.3
-      - !type:ChemVomit
+      - !type:Vomit
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: PenteticAcid
           min: 15.5
         probability: 0.3
 
@@ -212,14 +217,16 @@
             Brute: -1.2
       - !type:HealthChange
         conditions:
-          - !type:ReagentThreshold
+          - !type:ReagentCondition
+            reagent: Libital
             min: 20
         damage:
           types:
             Heat: 1
       - !type:Jitter
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Libital
           min: 20
 
 - type: reagent
@@ -236,14 +243,16 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Probital
           max: 20
         damage:
           groups:
             Brute: -1.8
-      - !type:ChemVomit
+      - !type:Vomit
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Probital
           min: 20
         probability: 0.02
       - !type:MovespeedModifier
@@ -251,7 +260,8 @@
         sprintSpeedModifier: 0.7
       - !type:MovespeedModifier
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Probital
           min: 20
         walkSpeedModifier: 0.35
         sprintSpeedModifier: 0.35
@@ -284,7 +294,8 @@
             Brute: -2.4
       - !type:HealthChange
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: SalicylicAcid
           min: 15.5
         damage: # ODing causes damage but heals brute
           groups:
@@ -292,7 +303,8 @@
             Brute: -2.4
       - !type:Jitter
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: SalicylicAcid
           min: 15.5
 
 # airloss
@@ -324,7 +336,8 @@
             Airloss: -1
       - !type:HealthChange
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Salbutamol
           min: 15.5
         damage:
           groups: # ODing heals airloss but causes damage
@@ -397,7 +410,8 @@
             Toxin: -1
       - !type:HealthChange
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Pielovene
           min: 1
         - !type:JobCondition
             job:
@@ -409,14 +423,16 @@
             Toxin: 2
       - !type:Jitter
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Pielovene
           min: 1
         - !type:JobCondition
             job:
             - Mime
       - !type:PopupMessage
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Pielovene
           min: 1
         - !type:JobCondition
             job:
@@ -425,9 +441,10 @@
         visualType: Medium
         messages: [ "generic-reagent-effect-nauseous" ]
         probability: 0.2
-      - !type:ChemVomit
+      - !type:Vomit
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Pielovene
           min: 1
         - !type:JobCondition
             job:
@@ -435,7 +452,8 @@
         probability: 0.02
       - !type:Drunk
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Pielovene
           min: 1
         - !type:JobCondition
             job:
@@ -477,7 +495,7 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:Temperature
+        - !type:TemperatureCondition
           min: 337.3 # completely arbitrary
         damage:
           groups: # same as cryox
@@ -502,7 +520,7 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:Temperature
+        - !type:TemperatureCondition
           min: 343.3
         damage:
           types:
@@ -524,7 +542,7 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:Temperature
+        - !type:TemperatureCondition
           min: 343.3
         damage:
           types:
@@ -545,7 +563,7 @@
       effects:
       - !type:HealthChange
          conditions:
-         - !type:Temperature
+         - !type:TemperatureCondition
             min: 343.3
          damage:
            types:
@@ -570,14 +588,16 @@
             Cellular: 5
       - !type:Jitter
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Deunomia
           min: 0.5
       - !type:Emote
         emote: Scream
         probability: 0.3
       - !type:CureChangelingInfection
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Deunomia
           min: 1
 
 - type: reagent

@@ -1,9 +1,9 @@
 # SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
-# SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 #
-# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+# SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: reagent
   parent: Blood
@@ -24,11 +24,11 @@
     CarbonDioxide: 3
     Protein: 4
   effects:
-    - !type:CreateEntityReactionEffect
-      entity: FleshKudzu
-    - !type:ExplosionReactionEffect
-      explosionType: Default
-      maxIntensity: 2
-      intensityPerUnit: 0.5
-      intensitySlope: 4
-      maxTotalIntensity: 1
+  - !type:SpawnEntityEntityEffect
+    entity: FleshKudzu
+  - !type:ExplosionEntityEffect
+    explosionType: Default
+    maxIntensity: 2
+    intensityPerUnit: 0.5
+    intensitySlope: 4
+    maxTotalIntensity: 1

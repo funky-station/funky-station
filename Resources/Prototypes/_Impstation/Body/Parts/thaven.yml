@@ -19,7 +19,7 @@
 - type: entity
   id: TorsoThaven
   name: "thaven torso"
-  parent: [PartThaven, BaseTorso]
+  parent: [PartThaven, BaseChest]
   components:
   - type: Item
     size: Ginormous
@@ -47,6 +47,21 @@
   - type: Sprite
     state: "head"
     offset: 0,-0.3
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Fat
+        Quantity: 5
+      - ReagentId: ShimmeringBlood
+        Quantity: 10
+
+- type: entity
+  id: GroinThaven
+  name: "thaven groin"
+  parent: [PartThaven, BaseGroin]
+  components:
+  - type: Sprite
+    state: "groin_m"
   - type: Extractable
     juiceSolution:
       reagents:

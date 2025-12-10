@@ -822,4 +822,8 @@
     price: 100
   - type: Tag
     tags:
+    - WeldingMask
     - WhitelistChameleon
+  - type: ImageOverlay
+    pathToOverlayImage: "/Textures/Clothing/Head/Welding/weldingTextureWeak.png"
+    additionalColorOverlay: "#000000A0"

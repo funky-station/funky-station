@@ -49,7 +49,7 @@
     - id: Wirecutter
     - id: Welder
     - id: Multitool
-    - id: trayScanner
+    - id: ClothingHeadHatWelding
     - id: GasAnalyzer
 
 - type: entity
@@ -65,4 +65,4 @@
     - id: Multitool
     - id: HolofanProjector
     - id: GasAnalyzer
-    - id: trayScanner
+    - id: ClothingMaskWeldingGas

@@ -74,7 +74,7 @@
       - id: Welder
       - id: Multitool
       #Goob-Station - changes made by Jellygato 7/13/24
-      - id: trayScanner
+      - id: ClothingHeadHatWelding
       - id: GasAnalyzer
 
 - type: entity
@@ -90,7 +90,7 @@
       - id: Multitool
       - id: HolofanProjector
       - id: GasAnalyzer
-      - id: trayScanner
+      - id: ClothingMaskWeldingGas
 
 - type: entityTable
   id: BeltSecurityEntityTable

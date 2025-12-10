@@ -1,17 +1,13 @@
-// SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using Content.Shared.Inventory;
 using Content.Shared.Inventory.Events;
 using Content.Shared.Overlays;
-using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
 using Robust.Client.Player;
-using Robust.Shared.GameObjects;
-using Robust.Shared.GameStates; // <--- ADDED: Needed for State Events
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
+using Content.Shared.Clothing.Components;
+using Content.Shared.Clothing;
+using Content.Shared.Item.ItemToggle.Components;
 
 namespace Content.Client.Overlays;
 
@@ -30,20 +26,15 @@ public sealed class ImageOverlaySystem : EntitySystem
         base.Initialize();
         _overlay = new();
 
-        // Lifecycle Events
         SubscribeLocalEvent<ImageOverlayComponent, ComponentStartup>(OnStartup);
         SubscribeLocalEvent<ImageOverlayComponent, ComponentShutdown>(OnShutdown);
-
-        // Data Sync Event
         SubscribeLocalEvent<ImageOverlayComponent, AfterAutoHandleStateEvent>(OnHandleState);
-
-        // Equipment Events
         SubscribeLocalEvent<ImageOverlayComponent, GotEquippedEvent>(OnEquipped);
         SubscribeLocalEvent<ImageOverlayComponent, GotUnequippedEvent>(OnUnequipped);
-
-        // Player Events
         SubscribeLocalEvent<PlayerAttachedEvent>(OnPlayerAttached);
         SubscribeLocalEvent<PlayerDetachedEvent>(OnPlayerDetached);
+        SubscribeLocalEvent<ImageOverlayComponent, ItemMaskToggledEvent>(OnMaskToggled);
+        SubscribeLocalEvent<ImageOverlayComponent, ItemToggledEvent>(OnItemToggled);
     }
 
     private void OnStartup(EntityUid uid, ImageOverlayComponent comp, ComponentStartup args)
@@ -58,8 +49,6 @@ public sealed class ImageOverlaySystem : EntitySystem
 
     private void OnHandleState(EntityUid uid, ImageOverlayComponent comp, ref AfterAutoHandleStateEvent args)
     {
-        // The component data (path/color) has just been updated from the server.
-        // Refresh to ensure the overlay picks up the new values.
         RefreshOverlay();
     }
 
@@ -84,10 +73,22 @@ public sealed class ImageOverlaySystem : EntitySystem
         _overlayMan.RemoveOverlay(_overlay);
     }
 
-    private void RefreshOverlay(ImageOverlayComponent? ignoreComp = null)
+    private void OnMaskToggled(EntityUid uid, ImageOverlayComponent comp, ref ItemMaskToggledEvent args)
+    {
+        RefreshOverlay(forcedToggleEntity: uid, forcedToggleState: args.IsToggled);
+    }
+
+    private void OnItemToggled(EntityUid uid, ImageOverlayComponent comp, ref ItemToggledEvent args)
+    {
+        RefreshOverlay();
+    }
+
+    private void RefreshOverlay(ImageOverlayComponent? ignoreComp = null, EntityUid? forcedToggleEntity = null, bool? forcedToggleState = null)
     {
         var player = _playerManager.LocalSession?.AttachedEntity;
-        if (player == null) return;
+
+        if (player == null)
+            return;
 
         _overlay.ImageShaders.Clear();
         bool hasOverlay = false;
@@ -100,11 +101,32 @@ public sealed class ImageOverlaySystem : EntitySystem
             {
                 if (TryComp<ImageOverlayComponent>(item, out var comp))
                 {
-                    if (comp == ignoreComp) continue;
+                    if (comp == ignoreComp)
+                        continue;
 
-                    // If data hasn't arrived yet (null), skip for now.
-                    // OnHandleState will catch it milliseconds later.
-                    if (comp.PathToOverlayImage == null) continue;
+                    bool shouldApplyOverlay = true;
+
+                    if (forcedToggleEntity != null && item == forcedToggleEntity.Value && forcedToggleState.HasValue)
+                    {
+                        if (forcedToggleState.Value)
+                            shouldApplyOverlay = false;
+                    }
+                    else if (TryComp<ItemToggleComponent>(item, out var toggle))
+                    {
+                        if (!toggle.Activated)
+                            shouldApplyOverlay = false;
+                    }
+                    else if (TryComp<MaskComponent>(item, out var mask))
+                    {
+                        if (mask.IsToggled)
+                            shouldApplyOverlay = false;
+                    }
+
+                    if (!shouldApplyOverlay)
+                        continue;
+
+                    if (comp.PathToOverlayImage == null)
+                        continue;
 
                     var values = new ImageShaderValues
                     {

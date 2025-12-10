@@ -132,6 +132,7 @@
         - JawsOfLife
         - GPS
         - WeldingMask
+        - GasMask
         - UtilityKnife
       components:
         - StationMap
@@ -217,6 +218,8 @@
         - HolofanProjector
         - Multitool
         - AppraisalTool
+        - WeldingMask
+        - GasMask
         - UtilityKnife
       components:
         - StationMap

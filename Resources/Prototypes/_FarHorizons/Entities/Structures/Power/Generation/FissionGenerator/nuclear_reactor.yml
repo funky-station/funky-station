@@ -151,10 +151,7 @@
   suffix: 5x5
   components:
   - type: Sprite
-    sprite: Structures/Machines/station_anchor.rsi
-    layers:
-    - state: station_anchor
-      visible: true
+    sprite: _FarHorizons/Structures/Power/Generation/FissionGenerator/small_nuclear_reactor.rsi
   - type: Fixtures
     fixtures:
       fix1:
@@ -168,6 +165,7 @@
         - MachineLayer
         - HighImpassable
   - type: NuclearReactor
+    thermalMass: 302400
     reactorGridWidth: 5
     reactorGridHeight: 5
     prefab: normal5x5
@@ -176,6 +174,7 @@
     outletPos: 1, 1
     outletRot: 180
     arrowPrototype: ReactorFlowArrow5x5
+    gridbounds: [ 12, 11, 0, 0 ]
 
 # Nuclear debris resultant from a meltdown
 - type: entity

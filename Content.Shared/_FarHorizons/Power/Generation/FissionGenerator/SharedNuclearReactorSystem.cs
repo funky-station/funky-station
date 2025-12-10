@@ -200,19 +200,19 @@ public static class NuclearReactorPrefabs
     public static readonly ReactorPartComponent?[,] Normal5x5 =
     {
         {
-            null, null, null, null, null
-        },
-        {
             g, h, g, h, g
         },
         {
             h, null, c, null, h
         },
         {
-            g, h, g, h, g
+            g, c, c, c, g
         },
         {
-            null, null, null, null, null
+            h, null, c, null, h
+        },
+        {
+            g, h, g, h, g
         }
     };
 

@@ -110,10 +110,8 @@
   parent: Turbine
   components:
   - type: Sprite
-    sprite: Structures/Machines/station_anchor.rsi
-    layers:
-    - state: station_anchor
-      visible: true
+    sprite: _FarHorizons/Structures/Power/Generation/FissionGenerator/small_turbine.rsi
+    offset: 0, -0.5
   - type: Fixtures
     fixtures:
       fix1:
@@ -127,11 +125,11 @@
         - MachineLayer
   - type: Turbine
     turbineMass: 400
+    powerMultiplier: 0.4
     inletPos: 1, -1
     inletRot: 0 
     outletPos: -1, -1
     outletRot: 0 
-    powerMultiplier: 0.4
   
 # Arrow to indicate flow
 - type: entity

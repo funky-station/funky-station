@@ -31,7 +31,7 @@ public sealed partial class TurbineComponent : Component
     /// <summary>
     /// Current RPM of turbine
     /// </summary>
-    [ViewVariables, AutoNetworkedField]
+    [ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
     public float RPM = 0;
 
     /// <summary>

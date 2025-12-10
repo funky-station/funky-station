@@ -155,6 +155,33 @@
       - DrinkGlassTripleSec
       - DrinkGlass24VoltEnergy
       - DrinkGlassVoltaicYellowWine
+      - DrinkGlassAlexander
+      - DrinkGlassAmarettoAlexander
+      - DrinkGlassAmarettoSour
+      - DrinkGlassAmaterasu
+      - DrinkGlassBanzaiTi
+      - DrinkGlassTripleCitrus
+      - DrinkGlassRootMintBrew
+      - DrinkGlassBetweenTheSheets
+      - DrinkGlassBittersAndSoda
+      - DrinkGlassBlueBlazer
+      - DrinkGlassBosozoku
+      - DrinkGlassBrancaMenta
+      - DrinkGlassBugSpray
+      - DrinkGlassCreviceSpike
+      - DrinkGlassFringeWeaver
+      - DrinkGlassFourBit
+      - DrinkGlassMauiSunrise
+      - DrinkGlassRedCityAM
+      - DrinkGlassSentaiQuencha
+      - DrinkGlassUtilityPole
+      - DrinkGlassAdmiralty
+      - DrinkGlassLongJohnSilver
+      - DrinkGlassLonghaul
+      - DrinkGlassTropicalStorm
+      - DrinkGlassQuadrupleSec
+      - DrinkGlassNekomimosa
+      - DrinkGlassWizzFizz
     chance: 0.8
     offset: 0.0
     #rare
@@ -172,4 +199,5 @@
       - DrinkShakeRobo
       - DrinkHoochGlass
       - DrinkBeepskySmashGlass
+      - DrinkGlassBlankPaper
     rareChance: 0.05

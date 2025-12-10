@@ -334,7 +334,6 @@
     - Welder
     - Wrench
     - CrowbarGreen
-    - Multitool
     - NetworkConfigurator
     - SprayPainter
     - FlashlightLantern
@@ -422,7 +421,6 @@
     - Welder
     - Wrench
     - CrowbarGreen
-    - Multitool
     - NetworkConfigurator
     - SprayPainter
     - FlashlightLantern
@@ -696,6 +694,7 @@
     - ClothingBackpackSatchelHolding
     - ClothingBackpackDuffelHolding
     - WelderExperimental
+    - Multitool
     - JawsOfLife
     - FauxTileAstroGrass
     - FauxTileMowedAstroGrass

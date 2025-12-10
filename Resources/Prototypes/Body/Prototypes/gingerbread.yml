@@ -17,8 +17,8 @@
       connections:
       - torso
       organs:
-        brain: OrganHumanBrain
-        eyes: OrganHumanEyes
+        brain: OrganGingerbreadBrain
+        eyes: OrganGingerbreadEyes
     torso:
       part: TorsoGingerbread
       connections:
@@ -28,11 +28,11 @@
       - left leg
       - head # Shitmed
       organs:
-        heart: OrganHumanHeart
-        lungs: OrganHumanLungs
-        stomach: OrganHumanStomach
-        liver: OrganHumanLiver
-        kidneys: OrganHumanKidneys
+        heart: OrganGingerbreadHeart
+        lungs: OrganGingerbreadLungs
+        stomach: OrganGingerbreadStomach
+        liver: OrganGingerbreadLiver
+        kidneys: OrganGingerbreadKidneys
     right arm:
       part: RightArmGingerbread
       connections:

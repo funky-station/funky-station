@@ -1,0 +1,73 @@
+# SPDX-FileCopyrightText: 2025 Terkala <appleorange64@gmail.com>
+#
+# SPDX-License-Identifier: MIT
+
+- type: entity
+  id: ZombieTumorOrgan
+  parent: BaseItem
+  name: zombie tumor
+  description: A grotesque tumor that spreads zombie infection to nearby entities.
+  components:
+  - type: Organ
+    slotId: "tumor"
+  - type: ZombieTumorOrgan
+    infectionRange: 5
+    baseInfectionChance: 0.05
+    updateInterval: 2
+  - type: Metabolizer
+    # This metabolizer type prevents zombie blood from harming the infected entity
+    metabolizerTypes: [ZombieTumor]
+  - type: Sprite
+    sprite: _Funkystation/Objects/Specific/Medical/zombietumor.rsi
+    state: zombietumor
+  - type: Item
+    sprite: _Funkystation/Objects/Specific/Medical/zombietumor.rsi
+    size: Small
+    shape:
+    - 0,0,2,2
+  - type: Extractable
+    grindableSolutionName: tumor
+  - type: SolutionContainerManager
+    solutions:
+      tumor:
+        maxVol: 15
+        reagents:
+        - ReagentId: Romerol
+          Quantity: 5
+        - ReagentId: ZombieBlood
+          Quantity: 10
+
+- type: entity
+  id: ZombieRoboTumor
+  parent: BaseItem
+  name: zombie robot tumor
+  description: A grotesque robotic tumor that spreads zombie infection to nearby entities. Designed specifically for IPCs.
+  components:
+  - type: Organ
+    slotId: "tumor"
+  - type: ZombieTumorOrgan
+    infectionRange: 5
+    baseInfectionChance: 0.05
+    updateInterval: 2
+  - type: Metabolizer
+    # This metabolizer type prevents zombie blood from harming the infected entity
+    metabolizerTypes: [ZombieTumor]
+  - type: Sprite
+    sprite: _Funkystation/Objects/Specific/Medical/zombietumor.rsi
+    state: zombierobotumor
+  - type: Item
+    sprite: _Funkystation/Objects/Specific/Medical/zombietumor.rsi
+    size: Small
+    shape:
+    - 0,0,2,2
+  - type: Extractable
+    grindableSolutionName: tumor
+  - type: SolutionContainerManager
+    solutions:
+      tumor:
+        maxVol: 15
+        reagents:
+        - ReagentId: Romerol
+          Quantity: 5
+        - ReagentId: ZombieBlood
+          Quantity: 10

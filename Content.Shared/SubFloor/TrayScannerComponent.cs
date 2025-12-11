@@ -14,6 +14,7 @@
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Audio;
 
 namespace Content.Shared.SubFloor;
 
@@ -40,6 +41,12 @@ public sealed partial class TrayScannerComponent : Component
 
     [DataField]
     public EntityUid? ActionEntity;
+
+    [DataField]
+    public SoundSpecifier? OnSound = new SoundPathSpecifier("/Audio/_EE/Items/Goggles/activate.ogg");
+
+    [DataField]
+    public SoundSpecifier? OffSound = new SoundPathSpecifier("/Audio/_EE/Items/Goggles/deactivate.ogg");
 }
 
 [Serializable, NetSerializable]

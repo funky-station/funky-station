@@ -167,3 +167,29 @@
   id: ImageMask
   kind: source
   path: "/Textures/Shaders/image_mask.swsl"
+
+# Meson Xrays
+
+- type: shader
+  id: Goggles
+  kind: source
+  path: "/Textures/Shaders/goggles.swsl"
+  params:
+    lineCount: 75
+    scanlineIntensity: 0.8
+    alpha: 0.4
+    distortionStrength: 0.45
+    flicker: 0.9
+    beamLength: 0.5
+    beamSpeed: 0.5
+
+- type: shader
+  id: XRay
+  kind: source
+  path: "/Textures/Shaders/xray.swsl"
+  params:
+    color: "#3d8599"
+    scanlineColor: "#5f93ba"
+    lineCount: 10
+    scanlineIntensity: 0.9
+    alpha: 1

@@ -130,6 +130,24 @@
   - type: Tag
     tags:
     - EngiVision #Funky - jamjarrening
+  - type: GlassesOverlay
+    shader: Goggles
+    color: '#5AB43CCC'
+    enabled: false
+#  This section enables the meson-style X-Ray vision. It's disabled for now; but
+#  can be re-enabled very easily if/when it wouldn't be a balancing nightmare.
+#  - type: ShowXRay
+#    shader: XRay
+#    enabled: false
+#    whitelist:
+#      components:
+#      - Door
+#      - Chasm
+#      tags:
+#      - Wall
+#      - Window
+#      - Catwalk
+#      - XrayVisible
 
 - type: entity
   id: ActionToggleTrayScanner

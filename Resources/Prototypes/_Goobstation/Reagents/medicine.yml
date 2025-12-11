@@ -38,7 +38,7 @@
               Genetic: -20
         - !type:HealthChange
           conditions:
-          - !type:ReagentThreshold
+          - !type:ReagentCondition
             min: 21
           damage:
             types:

@@ -137,7 +137,7 @@
     Water:
       amount: 5
   effects:
-    - !type:CreateEntityReactionEffect
+    - !type:SpawnEntity
       entity: MobCorgiPuppy
 
 - type: reaction

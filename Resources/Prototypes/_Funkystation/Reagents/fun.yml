@@ -26,11 +26,11 @@
         - !type:OrganType
           type: Animal
           shouldHave: false
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           min: 50
       - !type:AdjustReagent
         reagent: CatExtract
         amount: -20
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           min: 50

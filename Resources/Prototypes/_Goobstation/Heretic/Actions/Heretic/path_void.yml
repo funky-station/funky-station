@@ -7,25 +7,6 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
 - type: entity
-  id: ActionHereticVoidBlast
-  name: Void Blast
-  description: Fire off a cone of ice in front of you.
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: WorldTargetAction
-    useDelay: 15
-    itemIconStyle: NoItem
-    icon:
-      sprite: _Goobstation/Heretic/abilities_heretic.rsi
-      state: void_blast
-    event: !type:HereticVoidBlastEvent
-    checkCanAccess: false
-    range: 0
-  - type: HereticAction
-    requireMagicItem: true
-    messageLoc: heretic-speech-void-blast
-
-- type: entity
   id: ActionHereticVoidPhase
   name: Void Phase
   description: Shift through the void, knocking down everyone around you.

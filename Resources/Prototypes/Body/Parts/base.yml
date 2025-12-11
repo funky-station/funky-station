@@ -44,10 +44,6 @@
     containers:
       bodypart: !type:Container
         ents: []
-      Wounds: !type:Container # Shitmed Change
-        ents: []
-      Bone: !type:Container # Shitmed Change
-        ents: []
   - type: Appearance
   - type: StaticPrice
     price: 100
@@ -84,16 +80,6 @@
         id: heart
       lungs:
         id: lungs
-  - type: Woundable
-    damageContainer: Inorganic
-    integrity: 200
-    integrityCap: 200
-    thresholds:
-      Minor: 180
-      Moderate: 120
-      Severe: 60
-      Critical: 30
-      Mangled: 0
   - type: WoundableVisuals
     thresholds: [ 10, 20, 30, 50, 70, 100 ]
     occupiedLayer: Chest
@@ -104,16 +90,9 @@
       Burn:
         sprite: _Shitmed/Mobs/Effects/burn_damage.rsi
     bleedingOverlay: _Shitmed/Mobs/Effects/bleeding_damage.rsi
-  - type: ConsciousnessRequired
-    identifier: "chest"
-    causesDeath: true
   - type: ContainerContainer
     containers:
       chest_slot: !type:ContainerSlot {}
-      Wounds: !type:Container # Shitmed Change
-        ents: []
-      Bone: !type:Container # Shitmed Change
-        ents: []
 
 - type: entity
   abstract: true
@@ -143,15 +122,6 @@
         id: liver
       kidneys:
         id: kidneys
-  - type: Woundable
-    integrity: 100
-    integrityCap: 100
-    thresholds:
-      Minor: 84
-      Moderate: 70
-      Severe: 55
-      Critical: 30
-      Mangled: 0
     traumaDeductions:
       Dismemberment: 0.5
   - type: WoundableVisuals
@@ -164,16 +134,9 @@
       Burn:
         sprite: _Shitmed/Mobs/Effects/burn_damage.rsi
     bleedingOverlay: _Shitmed/Mobs/Effects/bleeding_damage.rsi
-  - type: ConsciousnessRequired
-    identifier: "groin"
-    causesDeath: false
   - type: ContainerContainer
     containers:
       groin_slot: !type:ContainerSlot {}
-      Wounds: !type:Container # Shitmed Change
-        ents: []
-      Bone: !type:Container # Shitmed Change
-        ents: []
 
 - type: entity
   abstract: true
@@ -200,16 +163,6 @@
     tags:
     - Head
     - Unedible # Goobstation
-  - type: Woundable
-    boneEntity: BoneNeck
-    integrity: 80
-    integrityCap: 80
-    thresholds:
-      Minor: 70
-      Moderate: 50
-      Severe: 25
-      Critical: 10
-      Mangled: 0
     damageOnAmputate: # This seemingly arbitrary spread is the result of the default head health (65) subtracted to 200 (death threshold).
       types:
         Bloodloss: 45
@@ -227,16 +180,9 @@
       Burn:
         sprite: _Shitmed/Mobs/Effects/burn_damage.rsi
     bleedingOverlay: _Shitmed/Mobs/Effects/bleeding_damage.rsi
-  - type: ConsciousnessRequired
-    identifier: "head"
-    causesDeath: true
   - type: ContainerContainer
     containers:
       mouth_slot: !type:ContainerSlot {}
-      Wounds: !type:Container # Shitmed Change
-        ents: []
-      Bone: !type:Container # Shitmed Change
-        ents: []
 
 - type: entity
   abstract: true
@@ -265,15 +211,6 @@
       Burn:
         sprite: _Shitmed/Mobs/Effects/burn_damage.rsi
     bleedingOverlay: _Shitmed/Mobs/Effects/bleeding_damage.rsi
-  - type: Woundable
-    integrity: 80
-    integrityCap: 80
-    thresholds:
-      Minor: 70
-      Moderate: 50
-      Severe: 25
-      Critical: 10
-      Mangled: 0
 
 - type: entity
   abstract: true
@@ -302,15 +239,6 @@
       Burn:
         sprite: _Shitmed/Mobs/Effects/burn_damage.rsi
     bleedingOverlay: _Shitmed/Mobs/Effects/bleeding_damage.rsi
-  - type: Woundable
-    integrity: 80
-    integrityCap: 80
-    thresholds:
-      Minor: 70
-      Moderate: 50
-      Severe: 25
-      Critical: 10
-      Mangled: 0
 
 - type: entity
   abstract: true
@@ -335,15 +263,6 @@
       Burn:
         sprite: _Shitmed/Mobs/Effects/burn_damage.rsi
     bleedingOverlay: null
-  - type: Woundable
-    integrity: 50
-    integrityCap: 50
-    thresholds:
-      Minor: 42
-      Moderate: 36
-      Severe: 26
-      Critical: 15
-      Mangled: 0
 
 - type: entity
   abstract: true
@@ -358,15 +277,6 @@
     partType: Hand
     symmetry: Right
     toolName: "a right hand" # Shitmed Change
-  - type: Woundable
-    integrity: 60
-    integrityCap: 60
-    thresholds:
-      Minor: 50
-      Moderate: 40
-      Severe: 30
-      Critical: 18
-      Mangled: 0
   - type: WoundableVisuals
     thresholds: [ 10, 20, 30, 50, 70, 100 ]
     occupiedLayer: RHand
@@ -406,15 +316,6 @@
       Burn:
         sprite: _Shitmed/Mobs/Effects/burn_damage.rsi
     bleedingOverlay: _Shitmed/Mobs/Effects/bleeding_damage.rsi
-  - type: Woundable
-    integrity: 80
-    integrityCap: 80
-    thresholds:
-      Minor: 70
-      Moderate: 50
-      Severe: 25
-      Critical: 10
-      Mangled: 0
 
 - type: entity
   abstract: true
@@ -444,15 +345,6 @@
       Burn:
         sprite: _Shitmed/Mobs/Effects/burn_damage.rsi
     bleedingOverlay: _Shitmed/Mobs/Effects/bleeding_damage.rsi
-  - type: Woundable
-    integrity: 80
-    integrityCap: 80
-    thresholds:
-      Minor: 70
-      Moderate: 50
-      Severe: 25
-      Critical: 10
-      Mangled: 0
 
 - type: entity
   abstract: true
@@ -477,15 +369,6 @@
       Burn:
         sprite: _Shitmed/Mobs/Effects/burn_damage.rsi
     bleedingOverlay: null
-  - type: Woundable
-    integrity: 60
-    integrityCap: 60
-    thresholds:
-      Minor: 50
-      Moderate: 40
-      Severe: 30
-      Critical: 18
-      Mangled: 0
 
 - type: entity
   abstract: true
@@ -510,12 +393,3 @@
       Burn:
         sprite: _Shitmed/Mobs/Effects/burn_damage.rsi
     bleedingOverlay: null
-  - type: Woundable
-    integrity: 60
-    integrityCap: 60
-    thresholds:
-      Minor: 50
-      Moderate: 40
-      Severe: 30
-      Critical: 18
-      Mangled: 0

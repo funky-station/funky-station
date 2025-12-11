@@ -26,18 +26,18 @@
         key: Muted
         component: Muted
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           min: 5
       - !type:GenericStatusEffect
         key: Pacified
         component: Pacified
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           min: 10
       - !type:Polymorph
         prototype: Gondola
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           min: 25
 
 # CREATED BY Goldminermac

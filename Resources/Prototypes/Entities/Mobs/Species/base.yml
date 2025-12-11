@@ -331,7 +331,6 @@
           False: {visible: false}
   - type: StatusIcon
     bounds: -0.5,-0.5,0.5,0.5
-  - type: HasJobIcons # Goobstation
   - type: RotationVisuals
     defaultRotation: 90
     horizontalRotation: 90
@@ -426,7 +425,6 @@
   - type: SSDIndicator
   - type: StandingState
   - type: Dna
-  - type: Scent # Einstein Engines
   - type: MindContainer
     showExamineInfo: true
   - type: CanEnterCryostorage
@@ -468,11 +466,6 @@
       Male: MaleHuman
       Female: FemaleHuman
       Unsexed: MaleHuman
-  - type: LanguageKnowledge # Einstein Engines - Languages (all mobs should speak TauCeti unless otherwise specified, to prevent universal.)
-    speaks:
-    - TauCetiBasic
-    understands:
-    - TauCetiBasic
   - type: Emoting
   - type: BodyEmotes
     soundsId: GeneralBodyEmotes
@@ -491,16 +484,7 @@
   - type: LayingDown # WD EDIT
   - type: Targeting # Shitmed Change
   - type: CanEscapeInventory # GoobStation - Escape being picked up by players
-  - type: Consciousness
-    cap: 190
-    threshold: 95
-  - type: Penetratable # Goobstation - Better snipers
-    penetrateDamage: 50
-    damagePenalty: 0.2
-  - type: ExaminableCharacter # WWDP
-  - type: Sprinter # Goobstation
   - type: MindControllable # Goobstation
-  - type: VisibleContraband # Goobstation
 
 - type: entity
   save: false
@@ -570,12 +554,7 @@
         Asphyxiation: -1.0
   - type: FireVisuals
     alternateState: Standing
-  - type: FootprintOwner # Corvax-Next-Footprints
   - type: Carriable # Goobstation
-  - type: CPRTraining # Goobstation - Just give to everyone! This ain't MRP.
-  - type: BloodstreamAffectedByMass # Goobstation: port EE height/width sliders. Also, lol at the comment above.
-    power: 0.6
-  - type: FlightAffectedByScale # Goobstation: port EE height/width sliders.
   - type: StunVisuals
 
 - type: entity

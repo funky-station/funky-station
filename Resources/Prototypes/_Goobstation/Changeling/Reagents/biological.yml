@@ -24,9 +24,9 @@
     CarbonDioxide: 3
     Protein: 4
   effects:
-  - !type:SpawnEntityEntityEffect
+  - !type:SpawnEntity
     entity: FleshKudzu
-  - !type:ExplosionEntityEffect
+  - !type:Explosion
     explosionType: Default
     maxIntensity: 2
     intensityPerUnit: 0.5

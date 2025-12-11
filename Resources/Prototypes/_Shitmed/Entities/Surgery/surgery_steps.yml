@@ -380,10 +380,6 @@
   - type: Sprite
     sprite: _Shitmed/Objects/Specific/Medical/Surgery/hemostat.rsi
     state: hemostat
-  - type: SurgeryTendWoundsEffect
-    damage:
-      groups:
-        Brute: -5
   - type: SurgeryRepeatableStep
   - type: SurgeryOperatingTableCondition # funkystation - fuck you
   - type: SurgeryStepDirtiness # DeltaV - surgery cross contamination
@@ -403,11 +399,6 @@
   - type: Sprite
     sprite: _Shitmed/Objects/Specific/Medical/Surgery/hemostat.rsi
     state: hemostat
-  - type: SurgeryTendWoundsEffect
-    mainGroup: Burn
-    damage:
-      groups:
-        Burn: -5
   - type: SurgeryDamageChangeEffect # DeltaV
     damage:
       types:

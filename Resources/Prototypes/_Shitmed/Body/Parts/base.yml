@@ -19,7 +19,6 @@
     partComposition: Organic
   - type: Damageable
     damageContainer: Biological # Shitmed Change
-  - type: Nerve
   - type: Extractable
     juiceSolution:
       reagents:
@@ -48,8 +47,6 @@
   components:
   - type: BodyPart
     partComposition: Organic
-  - type: Woundable
-    damageContainer: Biological
   - type: Destructible
     thresholds:
     - trigger:
@@ -92,8 +89,6 @@
   components:
   - type: BodyPart
     partComposition: Organic
-  - type: Woundable
-    damageContainer: Biological
   - type: WoundableVisuals
     thresholds: [ 10, 20, 30, 50, 70, 100 ]
     occupiedLayer: Groin

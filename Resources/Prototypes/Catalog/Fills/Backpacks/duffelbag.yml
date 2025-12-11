@@ -296,7 +296,7 @@
   components:
   - type: EntityTableContainerFill
     containers:
-      storagebase:
+      storagebase: !type:AllSelector
         id: C4
         amount: 8
 

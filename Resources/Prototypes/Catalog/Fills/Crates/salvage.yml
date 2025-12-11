@@ -130,7 +130,7 @@
   components:
   - type: EntityTableContainerFill
     containers:
-      entity_storage:
+      entity_storage: !type:AllSelector
         id: WeaponCrusherDagger
         amount: 4
 
@@ -143,7 +143,7 @@
   components:
   - type: EntityTableContainerFill
     containers:
-      entity_storage:
+      entity_storage: !type:AllSelector
         id: SeismicCharge
         amount: 6
 
@@ -170,7 +170,7 @@
   components:
   - type: EntityTableContainerFill
     containers:
-      entity_storage:
+      entity_storage: !type:AllSelector
         id: WeaponCrusher
         amount: 2
 
@@ -196,7 +196,7 @@
   components:
   - type: EntityTableContainerFill
     containers:
-      entity_storage:
+      entity_storage: !type:AllSelector
         id: JetpackVoidFilled
 
 - type: entity
@@ -221,7 +221,7 @@
   components:
   - type: EntityTableContainerFill
     containers:
-      entity_storage:
+      entity_storage: !type:AllSelector
         id: WeaponCrusherGlaive
 
 - type: entity
@@ -232,7 +232,7 @@
   components:
   - type: EntityTableContainerFill
     containers:
-      entity_storage:
+      entity_storage: !type:AllSelector
         id: ClothingNeckCloakSalvagerSupreme
 
 - type: entity

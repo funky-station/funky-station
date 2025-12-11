@@ -89,7 +89,7 @@
       effects:
       - !type:HealthChange
         conditions:
-          - !type:TotalDamage
+          - !type:TotalDamageCondition
             max: 30
         damage:
           types:
@@ -98,7 +98,7 @@
             Cold: -0.2
       - !type:HealthChange
         conditions:
-          - !type:TotalDamage
+          - !type:TotalDamageCondition
             min: 30
         damage:
           types:
@@ -280,14 +280,14 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:TotalDamage
+        - !type:TotalDamageCondition
           max: 30
         damage:
           groups:
             Brute: -0.6
       - !type:HealthChange
         conditions:
-        - !type:TotalDamage
+        - !type:TotalDamageCondition
           min: 30
         damage:
           groups:
@@ -322,14 +322,14 @@
       effects:
       - !type:HealthChange
         conditions:
-          - !type:TotalDamage
+          - !type:TotalDamageCondition
             min: 30
         damage:
           groups:
             Airloss: -6
       - !type:HealthChange
         conditions:
-          - !type:TotalDamage
+          - !type:TotalDamageCondition
             max: 30
         damage:
            groups:

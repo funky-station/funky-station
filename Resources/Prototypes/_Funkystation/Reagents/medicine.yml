@@ -615,3 +615,22 @@
         scaleByQuantity: true
         damage:
           Burn: -0.25
+
+- type: reagent # Genetics
+  id: Mutadone
+  name: reagent-name-mutadone
+  group: Toxins
+  desc: reagent-desc-mutadone
+  physicalDesc: reagent-physical-desc-salty
+  flavor: medicine
+  color: "#00ff5f"
+  plantMetabolism:
+  - !type:PlantAdjustMutationLevel
+    amount: -1
+  metabolisms:
+    Medicine:
+      effects:
+      - !type:MutationRemoval
+        Chance: 0.6
+        MinRemovals: 1
+        MaxRemovals: 2

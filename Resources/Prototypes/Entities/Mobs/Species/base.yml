@@ -475,6 +475,10 @@
   - type: FireVisuals
     alternateState: Standing
   - type: Carriable # Goobstation
+  - type: Genetics # Funkystation
+    baseMutations:
+      - id: Muted
+        startActive: true
 
 - type: entity
   save: false

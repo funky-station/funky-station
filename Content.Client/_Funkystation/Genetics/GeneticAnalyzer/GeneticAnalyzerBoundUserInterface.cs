@@ -1,0 +1,34 @@
+using Content.Shared._Funkystation.Genetics.Components;
+using JetBrains.Annotations;
+using Robust.Client.UserInterface;
+
+namespace Content.Client._Funkystation.Genetics.GeneticAnalyzer;
+
+[UsedImplicitly]
+public sealed class GeneticAnalyzerBoundUserInterface : BoundUserInterface
+{
+    [ViewVariables]
+    private GeneticAnalyzerWindow? _window;
+
+    public GeneticAnalyzerBoundUserInterface(EntityUid owner, Enum uiKey) : base(owner, uiKey)
+    {
+    }
+
+    protected override void Open()
+    {
+        base.Open();
+
+        _window = this.CreateWindow<GeneticAnalyzerWindow>();
+        _window.Title = EntMan.GetComponent<MetaDataComponent>(Owner).EntityName;
+    }
+
+    protected override void UpdateState(BoundUserInterfaceState state)
+    {
+        base.UpdateState(state);
+
+        if (state is not GeneticAnalyzerUiState uiState)
+            return;
+
+        _window?.Populate(uiState);
+    }
+}

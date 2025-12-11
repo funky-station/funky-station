@@ -1,0 +1,71 @@
+- type: entity
+  id: HandheldGeneticAnalyzerUnpowered
+  parent: BaseItem
+  name: genetic analyzer
+  description: A hand-held body scanner capable of distinguishing genetic sequences of a subject.
+  suffix: empty
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Specific/Medical/geneticanalyzer.rsi
+    state: icon
+    layers:
+      - state: icon
+      - state: analyzer
+        shader: unshaded
+        visible: true
+        map: [ "enum.PowerDeviceVisualLayers.Powered" ]
+  - type: Item
+    heldPrefix: analyzer
+    storedRotation: -90
+  - type: ActivatableUI
+    key: enum.GeneticAnalyzerUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.GeneticAnalyzerUiKey.Key:
+        type: GeneticAnalyzerBoundUserInterface
+  - type: ItemToggle
+    onUse: false
+  - type: GeneticAnalyzer
+    scanningEndSound:
+      path: "/Audio/Items/Medical/healthscanner.ogg"
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.PowerCellSlotVisuals.Enabled:
+        enum.PowerDeviceVisualLayers.Powered:
+          True: { visible: true }
+          False: { visible: false }
+  - type: GuideHelp
+    guides:
+    - MedicalDoctor
+
+- type: entity
+  id: HandheldGeneticAnalyzer
+  parent: [ HandheldGeneticAnalyzerUnpowered, PowerCellSlotSmallItem ]
+  suffix: Powered
+  components:
+  - type: PowerCellDraw
+    drawRate: 1
+  - type: ToggleCellDraw
+  - type: ActivatableUIRequiresPowerCell
+
+- type: entity
+  id: HandheldGeneticAnalyzerEmpty
+  parent: HandheldGeneticAnalyzer
+  suffix: Empty
+  components:
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+
+- type: latheRecipe
+  id: HandheldGeneticAnalyzer
+  result: HandheldGeneticAnalyzerEmpty
+  categories:
+  - Tools
+  completetime: 4
+  materials:
+    Glass: 200
+    Steel: 200

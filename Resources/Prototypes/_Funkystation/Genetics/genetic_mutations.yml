@@ -1,0 +1,214 @@
+# Speech mutations
+- type: geneticMutation
+  id: CowboyAccent
+  name: "Cowboy Accent"
+  desc: "Subject speaks with a thick cowboy drawl."
+  hidden: false
+  instability: 0
+  components:
+  - type: ReplacementAccent
+    accent: cowboy
+
+- type: geneticMutation
+  id: SouthernAccent
+  name: "Southern Drawl"
+  desc: "Subject speaks with a charming southern accent."
+  hidden: false
+  instability: 0
+  components:
+  - type: SouthernAccent
+
+- type: geneticMutation
+  id: PirateAccent
+  name: "Pirate Speech"
+  desc: "The subject speaks like a scurvy pirate."
+  hidden: false
+  instability: 0
+  components:
+  - type: PirateAccent
+
+- type: geneticMutation
+  id: GermanAccent
+  name: "German Accent"
+  desc: "Subject speaks with a strong German accent."
+  hidden: false
+  instability: 0
+  components:
+  - type: GermanAccent
+
+- type: geneticMutation
+  id: ItalianAccent
+  name: "Italian Accent"
+  desc: "Subject speaks with dramatic Italian flair."
+  hidden: false
+  instability: 0
+  components:
+  - type: ReplacementAccent
+    accent: italian
+
+- type: geneticMutation
+  id: FrenchAccent
+  name: "French Accent"
+  desc: "Subject speaks with a sophisticated French accent."
+  hidden: false
+  instability: 0
+  components:
+  - type: FrenchAccent
+
+- type: geneticMutation
+  id: SpanishAccent
+  name: "Spanish Accent"
+  desc: "Subject speaks with a passionate Spanish accent."
+  hidden: false
+  instability: 0
+  components:
+  - type: SpanishAccent
+
+- type: geneticMutation
+  id: LiarAccent
+  name: "Pathological Liar"
+  desc: "Subject cannot tell the truth."
+  hidden: false
+  instability: 0
+  components:
+  - type: ReplacementAccent
+    accent: liar
+
+- type: geneticMutation
+  id: RussianAccent
+  name: "Russian Accent"
+  desc: "In Soviet Russia, genetics injects YOU."
+  hidden: false
+  instability: 0
+  components:
+  - type: RussianAccent
+
+- type: geneticMutation
+  id: SocialAnxiety
+  name: "Social Anxiety"
+  desc: "Subject stutters badly when speaking."
+  hidden: false
+  instability: 0
+  components:
+  - type: StutteringAccent
+    matchRandomProb: 0.1
+    fourRandomProb: 0
+    threeRandomProb: 0
+    cutRandomProb: 0
+
+- type: geneticMutation
+  id: FrontalLisp
+  name: "Frontal Lisp"
+  desc: "Subject has a pronounced frontal lisp."
+  hidden: false
+  instability: 0
+  components:
+  - type: FrontalLisp
+
+# Disability/Quirk mutations
+- type: geneticMutation
+  id: Pacifist
+  name: "Pacifism"
+  desc: "Subject is incapable of causing harm."
+  hidden: false
+  instability: 10
+  components:
+  - type: Pacified # Need to make a new component so pacified can't be removed.
+
+- type: geneticMutation
+  id: Snoring
+  name: "Chronic Snoring"
+  desc: "Subject snores extremely loudly when asleep."
+  hidden: false
+  instability: 0
+  components:
+  - type: Snoring
+
+- type: geneticMutation
+  id: Blindness
+  name: "Total Blindness"
+  desc: "Subject is completely blind."
+  hidden: false
+  instability: -20
+  components:
+  - type: PermanentBlindness
+
+- type: geneticMutation
+  id: PoorVision
+  name: "Severe Myopia"
+  desc: "Subject has terrible eyesight."
+  hidden: false
+  instability: -10
+  components:
+  - type: PermanentBlindness
+    blindness: 4
+
+- type: geneticMutation
+  id: Narcolepsy
+  name: "Narcolepsy"
+  desc: "Subject randomly falls asleep."
+  hidden: false
+  instability: -10
+  components:
+  - type: Narcolepsy
+    timeBetweenIncidents: 300, 600
+    durationOfIncident: 10, 30
+
+- type: geneticMutation
+  id: Unrevivable
+  name: "Do Not Resuscitate"
+  desc: "Subject cannot be revived by any means. Death is permanent."
+  hidden: false
+  instability: -20
+  components:
+  - type: Unrevivable
+
+- type: geneticMutation
+  id: Muted
+  name: "Mute"
+  desc: "Subject is completely unable to speak."
+  hidden: false
+  instability: -10
+  components:
+  - type: Muted # Need to make a new component so Muted can't be removed.
+
+- type: geneticMutation
+  id: Paracusia
+  name: "Auditory Hallucinations"
+  desc: "Subject hears phantom sounds and voices."
+  hidden: false
+  instability: 0
+  components:
+  - type: Paracusia
+    minTimeBetweenIncidents: 0.1
+    maxTimeBetweenIncidents: 300
+    maxSoundDistance: 7
+    sounds:
+      collection: Paracusia
+
+- type: geneticMutation
+  id: SupermatterHallucinationImmune
+  name: "Supermatter Clarity"
+  desc: "Subject is immune to supermatter-induced hallucinations."
+  hidden: false
+  instability: 10
+  components:
+  - type: SupermatterHallucinationImmune
+
+
+# Instability Mutations
+- type: geneticMutation
+  id: geneticMonkeyMorph
+  name: "Monkeyified"
+  desc: "Subject's DNA has become so unstable they permanently turned into a monkey."
+  hidden: true
+  instabilityMutation: true
+  mutadoneResistant: true
+  sequencerResistant: true
+  scrambleResistant: true
+  printable: false
+  instability: 10
+  entityWhitelist:
+    - MobHuman
+  components:
+  - type: GeneticMonkeyMorph

@@ -366,6 +366,10 @@
         damage:
           types:
             Radiation: 3
+      - !type:RandomMutation # Funkystation - genetics
+        probability: .05 # Kept low as rad damage already causes mutations
+        minMutations: 1
+        maxMutations: 1
 
 - type: reagent
   id: HeartbreakerToxin

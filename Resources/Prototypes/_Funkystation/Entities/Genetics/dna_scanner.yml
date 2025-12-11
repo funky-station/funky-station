@@ -1,0 +1,175 @@
+- type: entity
+  parent: [BaseStructure, ConstructibleMachine] # Not a BaseMachinePowered since we don't want the anchorable component
+  id: DnaScanner
+  name: dna scanner
+  description: A special machine that analyzes the complete DNA profile of anyone inside it.
+  components:
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.DnaScannerVisuals.State:
+        DnaScannerVisualLayers.Main:
+          Occupied: { state: scanner-closed }
+          Empty: { state: scanner-open }
+          EmptyUnpowered: { state: scanner-open-off }
+          OccupiedUnpowered: { state: scanner-closed-off }
+  - type: Sprite
+    sprite: _Funkystation/Structures/Machines/dnascanner.rsi
+    drawdepth: Mobs
+    noRot: true
+    layers:
+      - state: scanner-open
+        map: ["enum.DnaScannerVisualLayers.Main"]
+      - state: scanner-panel
+        map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
+        visible: false
+  - type: InteractionOutline
+  - type: Transform
+    noRot: true
+  - type: Fixtures
+    fixtures:
+      fix1:
+        density: 200
+        mask:
+          - MachineMask
+        layer:
+          - MachineLayer
+  - type: ContainerContainer
+    containers:
+      scanner-body:
+        !type:ContainerSlot
+        showEnts: true
+      machine_board: !type:Container
+      machine_parts: !type:Container
+  - type: Machine
+    board: DnaScannerMachineCircuitboard
+  - type: WiresVisuals
+  - type: WiresPanel
+  - type: Wires
+    boardName: wires-board-name-cryopod
+    layoutId: CryoPod
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: StructuralMetallic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+        - !type:EmptyAllContainersBehaviour
+        - !type:PlaySoundBehavior
+          sound:
+            collection: WindowShatter
+        - !type:ChangeConstructionNodeBehavior
+          node: machineFrame
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+  - type: ApcPowerReceiver
+    powerLoad: 3000
+  - type: ExtensionCableReceiver
+  - type: ItemToggle
+  - type: UserInterface
+    interfaces:
+      enum.WiresUiKey.Key:
+        type: WiresBoundUserInterface
+  - type: PointLight
+    color: "#3a807f"
+    radius: 2
+    energy: 10
+    enabled: false
+  - type: EmptyOnMachineDeconstruct
+    containers:
+      - scanner-body
+  - type: DnaScanner
+  - type: DeviceList
+  - type: DeviceLinkSink
+    ports:
+      - DnaScanner
+  - type: GuideHelp
+    guides:
+    - Cryogenics
+
+- type: entity
+  parent: BaseComputerAiAccess
+  id: ComputerDnaScanner
+  name: dna scanner console
+  description: A console used to operate the dna scanner.
+  components:
+  - type: Sprite
+    layers:
+    - map: ["computerLayerBody"]
+      state: computer
+    - map: ["computerLayerKeyboard"]
+      state: generic_keyboard
+    - map: ["computerLayerScreen"]
+      state: dna
+    - map: ["computerLayerKeys"]
+      state: med_key
+    - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
+      state: generic_panel_open
+  - type: Computer
+    board: DnaScannerConsoleComputerCircuitboard
+  - type: ActivatableUI
+    singleUser: true
+    key: enum.DnaScannerConsoleUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.DnaScannerConsoleUiKey.Key:
+        type: DnaScannerConsoleBoundUserInterface
+      enum.WiresUiKey.Key:
+        type: WiresBoundUserInterface
+  - type: DeviceLinkSource
+    ports:
+      - DnaConsole
+  - type: DnaScannerConsole
+  - type: GuideHelp
+    guides:
+    - AtmosphericNetworkMonitor
+    - DeviceMonitoringAndControl
+
+- type: sinkPort
+  id: DnaScanner
+  name: signal-port-name-dna-scanner
+  description: signal-port-description-dna-scanner
+
+- type: sourcePort
+  id: DnaConsole
+  name: source-port-name-dna-scanner
+  description: signal-port-description-dna-scanner
+  defaultLinks: [ DnaScanner ]
+
+- type: entity
+  parent: BaseComputerCircuitboard
+  id: DnaScannerConsoleComputerCircuitboard
+  name: dna scanner console board
+  description: A computer printed circuit board for the dna scanner console.
+  components:
+    - type: Sprite
+      state: cpu_medical
+    - type: ComputerBoard
+      prototype: ComputerDnaScanner
+
+- type: entity
+  id: DnaScannerMachineCircuitboard
+  parent: BaseMachineCircuitboard
+  name: dna scanner machine board
+  description: A machine printed circuit board for a dna scanner.
+  components:
+    - type: Sprite
+      state: medical
+    - type: MachineBoard
+      prototype: DnaScanner
+      stackRequirements:
+        Glass: 5
+        Cable: 1
+
+- type: latheRecipe
+  parent: BaseCircuitboardRecipe
+  id: DnaScannerConsoleComputerCircuitboard
+  result: DnaScannerConsoleComputerCircuitboard
+
+- type: latheRecipe
+  parent: BaseGoldCircuitboardRecipe
+  id: DnaScannerMachineCircuitboard
+  result: DnaScannerMachineCircuitboard

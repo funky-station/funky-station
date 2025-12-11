@@ -1,0 +1,285 @@
+<controls:FancyWindow xmlns="https://spacestation14.io"
+                      xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+                      xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
+                      MinSize="830 560"
+                      SetSize="860 600"
+                      Title="{Loc 'dna-scanner-console-title'}">
+
+    <BoxContainer Orientation="Vertical" Margin="10 10 10 10">
+
+        <!-- Top Status Bar -->
+        <BoxContainer Orientation="Horizontal" Margin="0 0 0 10">
+            <Label Name="SubjectNameLabel" Text="" StyleClasses="LabelBig" Access="Public" />
+            <Control HorizontalExpand="True" />
+            <Control MinSize="30 0" />
+            <Button Name="ScrambleDnaButton"
+                    Text="{Loc 'dna-scanner-scramble-dna'}"
+                    Disabled="True"
+                    MinSize="120 0"
+                    Access="Public" />
+        </BoxContainer>
+
+        <PanelContainer StyleClasses="LowDivider" Margin="0 0 0 10"/>
+
+        <!-- Subject Info -->
+        <BoxContainer Orientation="Vertical" Name="SubjectInfoBox" Visible="False" Margin="0 0 0 10" Access="Public" >
+
+            <BoxContainer Orientation="Horizontal" Margin="0 0 0 4">
+                <Label Text="{Loc 'dna-scanner-total-damage'}" Margin="0 0 10 0" />
+                <Label Name="HealthLabel" Text="--" HorizontalExpand="True" />
+            </BoxContainer>
+
+            <BoxContainer Orientation="Horizontal" Margin="0 0 0 4">
+                <Label Text="{Loc 'dna-scanner-genetic-damage'}" Margin="0 0 10 0" />
+                <Label Name="GeneticDamageLabel" Text="--" HorizontalExpand="True" />
+            </BoxContainer>
+
+            <BoxContainer Orientation="Horizontal">
+                <Label Text="{Loc 'dna-scanner-genetic-instability'}" Margin="0 0 10 0" />
+                <Label Name="GeneticInstabilityLabel" Text="--" HorizontalExpand="True" />
+            </BoxContainer>
+
+            <PanelContainer StyleClasses="LowDivider" Margin="0 10 0 0"/>
+        </BoxContainer>
+
+
+        <!-- Main Split -->
+        <BoxContainer Orientation="Horizontal" VerticalExpand="True">
+
+            <!-- Left: Tab Container -->
+            <TabContainer Name="MasterTabContainer"
+                          VerticalExpand="True"
+                          Margin="0 0 15 0"
+                          MinSize="300 0">
+
+                <ScrollContainer Name="Sequencer" Margin="8 8 8 8">
+                    <BoxContainer Name="SequencerTab" Orientation="Vertical" VerticalExpand="True" HorizontalExpand="True" Access="Public" Margin="2 2 6 2" >
+                        <Label Text="{Loc 'dna-scanner-no-sequences'}" Name="NoSequencesLabel" StyleClasses="LabelSubText" Margin="0 10" Access="Public" />
+
+                        <BoxContainer Name="SequencesContainer" Orientation="Vertical" Visible="False" >
+                            <BoxContainer Orientation="Horizontal" Name="BaseSequencesCollapsible">
+                                <Label Text="{Loc 'dna-scanner-base-mutations'}" StyleClasses="LabelSubText" Margin="0 10" Access="Public" />
+                                <BoxContainer Orientation="Vertical" HorizontalExpand="True" >
+                                    <PanelContainer StyleClasses="LowDivider" Margin="0 24 0 0"/>
+                                </BoxContainer>
+                            </BoxContainer>
+
+                            <BoxContainer Name="BaseSequencesContainer" Orientation="Vertical" VerticalExpand="True" HorizontalExpand="True" />
+
+                            <BoxContainer Orientation="Horizontal" Name="AddedSequencesCollapsible">
+                                <Label Text="{Loc 'dna-scanner-added-mutations'}" StyleClasses="LabelSubText" Margin="0 10" Access="Public" />
+                                <BoxContainer Orientation="Vertical" HorizontalExpand="True" >
+                                    <PanelContainer StyleClasses="LowDivider" Margin="1 24 0 0"/>
+                                </BoxContainer>
+                            </BoxContainer>
+
+                            <BoxContainer Name="AddedSequencesContainer" Orientation="Vertical" VerticalExpand="True" HorizontalExpand="True" />
+                        </BoxContainer>
+
+                    </BoxContainer>
+                </ScrollContainer>
+
+                <ScrollContainer Name="Storage" Margin="8 8 8 8">
+                    <BoxContainer Name="StorageTab" Orientation="Vertical" VerticalExpand="True" HorizontalExpand="True">
+                        <Label Text="{Loc 'dna-scanner-no-saved-sequences'}" Name="NoSavedSequencesLabel" StyleClasses="LabelSubText" Margin="0 10" Access="Public" />
+                        <BoxContainer Name="StoredSequencesContainer" Orientation="Vertical" VerticalExpand="True" HorizontalExpand="True" />
+                    </BoxContainer>
+                </ScrollContainer>
+
+            </TabContainer>
+
+            <!-- Right: Sequence Info Panel -->
+            <BoxContainer Name="Info"
+                          HorizontalExpand="True"
+                          Orientation="Vertical"
+                          VerticalExpand="True"
+                          Margin="0 22 0 0">
+
+                <PanelContainer VerticalExpand="True">
+                    <PanelContainer.PanelOverride>
+                        <gfx:StyleBoxFlat BackgroundColor="#1B1B1E" />
+                    </PanelContainer.PanelOverride>
+
+                    <BoxContainer Name="InfoContainer" Visible="False" Orientation="Vertical" Margin="10 10 10 10" Access="Public" >
+
+                        <BoxContainer Orientation="Horizontal" Margin="0 0 0 4">
+                            <Label Text="{Loc 'dna-scanner-info-name'}" Margin="0 0 10 0" />
+                            <Label Name="InfoNameLabel" Text="" HorizontalExpand="True" Access="Public" />
+                        </BoxContainer>
+
+                        <BoxContainer Orientation="Horizontal" Margin="0 0 0 4">
+                            <Label Text="{Loc 'dna-scanner-info-description'}" Margin="0 0 10 0" />
+                            <Label Name="InfoDescLabel" Text="" HorizontalExpand="True" Access="Public" />
+                        </BoxContainer>
+
+                        <BoxContainer Orientation="Horizontal" Margin="0 0 0 4">
+                            <Label Text="{Loc 'dna-scanner-info-instability'}" Margin="0 0 10 0" />
+                            <Label Name="InfoInstabilityLabel" Text="" HorizontalExpand="True" Access="Public" />
+                        </BoxContainer>
+
+                        <BoxContainer Orientation="Horizontal" Name="ConflictsLabelContainer" Visible="False" Margin="0 0 0 4">
+                            <Label Text="{Loc 'dna-scanner-info-conflicts'}" Margin="0 0 10 0" />
+                            <Label Name="ConflictsLabel" Text="" HorizontalExpand="True" Access="Public" />
+                        </BoxContainer>
+
+                        <Control VerticalExpand="True" />
+
+                        <BoxContainer Orientation="Horizontal">
+                            <Button Name="PrintActivatorButton"
+                                    Text="{Loc 'dna-scanner-print-activator'}"
+                                    Disabled="True"
+                                    HorizontalExpand="True"
+                                    Margin="0 0 4 0"
+                                    Access="Public" />
+                            <Button Name="PrintMutatorButton"
+                                    Text="{Loc 'dna-scanner-print-mutator'}"
+                                    Disabled="True"
+                                    HorizontalExpand="True"
+                                    Margin="4 0 4 0"
+                                    Access="Public" />
+                            <Button Name="SaveMutationButton"
+                                    Text="{Loc 'dna-scanner-save-mutation'}"
+                                    Disabled="True"
+                                    HorizontalExpand="True"
+                                    Margin="4 0 0 0"
+                                    Access="Public" />
+                            <Button Name="DeleteMutationButton"
+                                    Text="{Loc 'dna-scanner-delete-mutation'}"
+                                    HorizontalExpand="True"
+                                    Margin="4 0 0 0"
+                                    Access="Public" />
+                        </BoxContainer>
+
+                    </BoxContainer>
+                </PanelContainer>
+            </BoxContainer>
+        </BoxContainer>
+
+        <!-- Sequencer -->
+        <BoxContainer Orientation="Vertical" Margin="0 15 0 0" MinSize="785 140" >
+            <Label Text="{Loc 'dna-scanner-sequencer-title'}" Margin="0 0 0 8" />
+            <PanelContainer StyleClasses="LowDivider" />
+            <Control VerticalExpand="True" />
+            <BoxContainer Name="SequencerContainer" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 8 0 0" Visible="False" >
+
+                <!-- Column 1 -->
+                    <PanelContainer>
+                        <PanelContainer.PanelOverride>
+                            <gfx:StyleBoxFlat BorderColor="#50AAFF" BorderThickness="1" />
+                        </PanelContainer.PanelOverride>
+                        <BoxContainer Orientation="Horizontal" HorizontalExpand="True" Margin="4 4 4 4">
+                            <BoxContainer Orientation="Vertical" Margin="0 0 0 4" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <Button Name="Seq_1"  Text="X" MinWidth="42" Margin="0 0 4 0" />
+                                <Label Text="|" Margin="16 0 0 0"/>
+                                <Button Name="Seq_2" Text="X" MinWidth="42" Margin="0 0 4 0" />
+                            </BoxContainer>
+                            <BoxContainer Orientation="Vertical" Margin="0 0 0 4">
+                                <Button Name="Seq_3"  Text="X" MinWidth="42" Margin="0 0 4 0" />
+                                <Label Text="|" Margin="16 0 0 0"/>
+                                <Button Name="Seq_4" Text="X" MinWidth="42" Margin="0 0 4 0" />
+                            </BoxContainer>
+                            <BoxContainer Orientation="Vertical" Margin="0 0 0 4">
+                                <Button Name="Seq_5"  Text="X" MinWidth="42" Margin="0 0 4 0" />
+                                <Label Text="|" Margin="16 0 0 0"/>
+                                <Button Name="Seq_6" Text="X" MinWidth="42" Margin="0 0 4 0" />
+                            </BoxContainer>
+                            <BoxContainer Orientation="Vertical">
+                                <Button Name="Seq_7"  Text="X" MinWidth="42" Margin="0 0 4 0" />
+                                <Label Text="|" Margin="16 0 0 0"/>
+                                <Button Name="Seq_8" Text="X" MinWidth="42" Margin="0 0 4 0" />
+                            </BoxContainer>
+                        </BoxContainer>
+                    </PanelContainer>
+
+                    <!-- Column 2 -->
+                    <PanelContainer Margin="4 0 2 0" >
+                        <PanelContainer.PanelOverride>
+                            <gfx:StyleBoxFlat BorderColor="#50AAFF" BorderThickness="1" />
+                        </PanelContainer.PanelOverride>
+                    <BoxContainer Orientation="Horizontal" HorizontalExpand="True" Margin="4 4 4 4">
+                        <BoxContainer Orientation="Vertical" Margin="0 0 0 4">
+                            <Button Name="Seq_9"  Text="X" MinWidth="42" Margin="0 0 4 0" />
+                            <Label Text="|" Margin="16 0 0 0"/>
+                            <Button Name="Seq_10" Text="X" MinWidth="42" Margin="0 0 4 0" />
+                        </BoxContainer>
+                        <BoxContainer Orientation="Vertical" Margin="0 0 0 4">
+                            <Button Name="Seq_11"  Text="X" MinWidth="42" Margin="0 0 4 0" />
+                            <Label Text="|" Margin="16 0 0 0"/>
+                            <Button Name="Seq_12" Text="X" MinWidth="42" Margin="0 0 4 0" />
+                        </BoxContainer>
+                        <BoxContainer Orientation="Vertical" Margin="0 0 0 4">
+                            <Button Name="Seq_13"  Text="X" MinWidth="42" Margin="0 0 4 0" />
+                            <Label Text="|" Margin="16 0 0 0"/>
+                            <Button Name="Seq_14" Text="X" MinWidth="42" Margin="0 0 4 0" />
+                        </BoxContainer>
+                        <BoxContainer Orientation="Vertical">
+                            <Button Name="Seq_15"  Text="X" MinWidth="42" Margin="0 0 4 0" />
+                            <Label Text="|" Margin="16 0 0 0"/>
+                            <Button Name="Seq_16" Text="X" MinWidth="42" Margin="0 0 4 0" />
+                        </BoxContainer>
+                    </BoxContainer>
+                    </PanelContainer>
+
+                    <!-- Column 3 -->
+                    <PanelContainer Margin="2 0 4 0" >
+                        <PanelContainer.PanelOverride>
+                            <gfx:StyleBoxFlat BorderColor="#50AAFF" BorderThickness="1" />
+                        </PanelContainer.PanelOverride>
+                    <BoxContainer Orientation="Horizontal" HorizontalExpand="True" Margin="4 4 4 4">
+                        <BoxContainer Orientation="Vertical" Margin="0 0 0 4">
+                            <Button Name="Seq_17"  Text="X" MinWidth="42" Margin="0 0 4 0" />
+                            <Label Text="|" Margin="16 0 0 0"/>
+                            <Button Name="Seq_18" Text="X" MinWidth="42" Margin="0 0 4 0" />
+                        </BoxContainer>
+                        <BoxContainer Orientation="Vertical" Margin="0 0 0 4">
+                            <Button Name="Seq_19"  Text="X" MinWidth="42" Margin="0 0 4 0" />
+                            <Label Text="|" Margin="16 0 0 0"/>
+                            <Button Name="Seq_20" Text="X" MinWidth="42" Margin="0 0 4 0" />
+                        </BoxContainer>
+                        <BoxContainer Orientation="Vertical" Margin="0 0 0 4">
+                            <Button Name="Seq_21"  Text="X" MinWidth="42" Margin="0 0 4 0" />
+                            <Label Text="|" Margin="16 0 0 0"/>
+                            <Button Name="Seq_22" Text="X" MinWidth="42" Margin="0 0 4 0" />
+                        </BoxContainer>
+                        <BoxContainer Orientation="Vertical">
+                            <Button Name="Seq_23"  Text="X" MinWidth="42" Margin="0 0 4 0" />
+                            <Label Text="|" Margin="16 0 0 0"/>
+                            <Button Name="Seq_24" Text="X" MinWidth="42" Margin="0 0 4 0" />
+                        </BoxContainer>
+                    </BoxContainer>
+                    </PanelContainer>
+
+                    <!-- Column 4 -->
+                    <PanelContainer>
+                        <PanelContainer.PanelOverride>
+                            <gfx:StyleBoxFlat BorderColor="#50AAFF" BorderThickness="1" />
+                        </PanelContainer.PanelOverride>
+                    <BoxContainer Orientation="Horizontal" HorizontalExpand="True" Margin="4 4 4 4">
+                        <BoxContainer Orientation="Vertical" Margin="0 0 0 4">
+                            <Button Name="Seq_25"  Text="X" MinWidth="42" Margin="0 0 4 0" />
+                            <Label Text="|" Margin="16 0 0 0"/>
+                            <Button Name="Seq_26"  Text="X" MinWidth="42" Margin="0 0 4 0" />
+                        </BoxContainer>
+                        <BoxContainer Orientation="Vertical" Margin="0 0 0 4">
+                            <Button Name="Seq_27"  Text="X" MinWidth="42" Margin="0 0 4 0" />
+                            <Label Text="|" Margin="16 0 0 0"/>
+                            <Button Name="Seq_28" Text="X" MinWidth="42" Margin="0 0 4 0" />
+                        </BoxContainer>
+                        <BoxContainer Orientation="Vertical" Margin="0 0 0 4">
+                            <Button Name="Seq_29"  Text="X" MinWidth="42" Margin="0 0 4 0" />
+                            <Label Text="|" Margin="16 0 0 0"/>
+                            <Button Name="Seq_30" Text="X" MinWidth="42" Margin="0 0 4 0" />
+                        </BoxContainer>
+                        <BoxContainer Orientation="Vertical">
+                            <Button Name="Seq_31"  Text="X" MinWidth="42" Margin="0 0 4 0" />
+                            <Label Text="|" Margin="16 0 0 0"/>
+                            <Button Name="Seq_32" Text="X" MinWidth="42" Margin="0 0 4 0" />
+                        </BoxContainer>
+                    </BoxContainer>
+                    </PanelContainer>
+
+            </BoxContainer>
+        </BoxContainer>
+
+    </BoxContainer>
+</controls:FancyWindow>

@@ -102,7 +102,6 @@ public sealed class StationAiSystem : SharedStationAiSystem
         SubscribeLocalEvent<StationAiCoreComponent, ApcPowerReceiverBatteryChangedEvent>(OnApcBatteryChanged);
         SubscribeLocalEvent<StationAiCoreComponent, ChargeChangedEvent>(OnChargeChanged);
         SubscribeLocalEvent<StationAiCoreComponent, DamageChangedEvent>(OnDamageChanged);
-        SubscribeLocalEvent<StationAiCoreComponent, DamageChangedEvent>(OnAiCoreDamaged);
         SubscribeLocalEvent<StationAiCoreComponent, DestructionEventArgs>(OnDestruction);
         SubscribeLocalEvent<StationAiCoreComponent, DoAfterAttemptEvent<IntellicardDoAfterEvent>>(OnDoAfterAttempt);
         SubscribeLocalEvent<StationAiCoreComponent, RejuvenateEvent>(OnRejuvenate);
@@ -242,8 +241,35 @@ public sealed class StationAiSystem : SharedStationAiSystem
 
     private void OnDamageChanged(Entity<StationAiCoreComponent> entity, ref DamageChangedEvent args)
     {
+        // Original OnDamageChanged logic
         UpdateCoreIntegrityAlert(entity);
         UpdateDamagedAccent(entity);
+
+        // Merged OnAiCoreDamaged logic (Funky edit, AI gets alert for damage)
+        if (args.DamageDelta == null || args.DamageDelta.GetTotal() <= 0)
+            return;
+
+        var currentTime = _timing.CurTime;
+        if (_attackAlertCooldowns.TryGetValue(entity.Owner, out var lastAlertTime))
+        {
+            if (currentTime - lastAlertTime < AttackAlertCooldown)
+                return;
+        }
+
+        _attackAlertCooldowns[entity.Owner] = currentTime;
+
+        var aiCore = (entity.Owner, (StationAiCoreComponent?)entity.Comp);
+        if (!TryGetHeld(aiCore, out var aiEntity))
+            return;
+
+        var msg = Loc.GetString("ai-core-under-attack");
+        _popups.PopupEntity(msg, aiEntity.Value, aiEntity.Value, Shared.Popups.PopupType.LargeCaution);
+
+        if (_mind.TryGetMind(aiEntity.Value, out var mindId, out _))
+        {
+            var alertSound = new SoundPathSpecifier("/Audio/Misc/notice1.ogg");
+            _roles.MindPlaySound(mindId, alertSound);
+        }
     }
 
     /// <summary>

@@ -25,7 +25,6 @@ public sealed class ProjectileSystem : SharedProjectileSystem
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<ProjectileComponent, StartCollideEvent>(OnStartCollide);
     }
 
     private void OnStartCollide(EntityUid uid, ProjectileComponent component, ref StartCollideEvent args)

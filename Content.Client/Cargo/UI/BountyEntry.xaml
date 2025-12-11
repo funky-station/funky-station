@@ -15,7 +15,7 @@ SPDX-License-Identifier: MIT
     Visible="True"
     xmlns="https://spacestation14.io"
     xmlns:customControls="clr-namespace:Content.Client.Administration.UI.CustomControls">
-    <PanelContainer HorizontalExpand="True" StyleClasses="AngleRect">
+    <PanelContainer HorizontalExpand="True" StyleClasses="BackgroundPanel">
         <BoxContainer HorizontalExpand="True" Orientation="Vertical">
             <GridContainer Columns="2" HorizontalExpand="True">
                 <BoxContainer HorizontalExpand="True" Orientation="Vertical">

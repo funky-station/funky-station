@@ -21,7 +21,7 @@ public sealed partial class BlazingDashComponent : Component
 
     public TimeSpan BlazingDashDuration = TimeSpan.FromSeconds(5);
     public SoundSpecifier DashSound = new SoundPathSpecifier("/Audio/Magic/fireball.ogg");
-    public int DashFireStacks = 4;
+    public int DashFireStacks = 1;
     public float DashWalkSpeed = 1.5f;
     public float DashRunSpeed = 2f;
 }

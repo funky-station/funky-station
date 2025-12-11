@@ -69,4 +69,3 @@
   - type: ContainerContainer
     containers:
       ballistic-ammo: !type:Container
-

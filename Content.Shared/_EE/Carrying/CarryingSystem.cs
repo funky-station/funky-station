@@ -4,7 +4,6 @@ using Content.Shared.Buckle.Components;
 using Content.Shared.Climbing.Events;
 using Content.Shared.DoAfter;
 using Content.Shared.Hands;
-using Content.Shared.Hands.Components;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Inventory.VirtualItem;
 using Content.Shared.Mind.Components;
@@ -31,6 +30,7 @@ using Robust.Shared.Configuration;
 using Robust.Shared.Network;
 // imp:
 using Content.Shared.Hands.EntitySystems;
+using Content.Shared.Buckle;
 
 namespace Content.Shared._EE.Carrying;
 
@@ -293,6 +293,7 @@ public sealed partial class CarryingSystem : EntitySystem
         if (_net.IsClient) // no spawning prediction
             return;
 
+        _virtualItem.DeleteInHandsMatching(carrier, carried); // imp: pick up people you're dragging
         _virtualItem.TrySpawnVirtualItemInHand(carried, carrier);
         _virtualItem.TrySpawnVirtualItemInHand(carried, carrier);
     }
@@ -318,6 +319,8 @@ public sealed partial class CarryingSystem : EntitySystem
         RemComp<KnockedDownComponent>(carried); // TODO SHITMED: make sure this doesnt let you make someone with no legs walk
 
         _actionBlocker.UpdateCanMove(carried);
+        // imp TODO: dont stand if we've been buckled
+        //if (!TryComp<BuckleComponent>(carried, out var buckle) || buckle.Buckled == false) // <- THIS DOESNT WORK! FUCK!!!
         _transform.AttachToGridOrMap(carried);
         _standingState.Stand(carried);
     }
@@ -338,16 +341,49 @@ public sealed partial class CarryingSystem : EntitySystem
 
     private bool CanCarry(EntityUid carrier, Entity<CarriableComponent> carried)
     {
-        return carrier != carried.Owner &&
-            // can't carry multiple people, even if you have 4 hands it will break invariants when removing carryingcomponent for first carried person
-            !HasComp<CarryingComponent>(carrier) &&
-            // can't carry someone in a locker, buckled, etc
-            HasComp<MapGridComponent>(Transform(carrier).ParentUid) &&
-            // no tower of spacemen or stack overflow
-            !HasComp<BeingCarriedComponent>(carrier) && !HasComp<BeingCarriedComponent>(carried) &&
-            // finally check that there are enough free hands
-            TryComp<HandsComponent>(carrier, out var handsComp) &&
-            _hands.CountFreeableHands((carrier, handsComp)) >= carried.Comp.FreeHandsRequired;
+        // cant carry yourself, no tower of spacemen or stack overflow
+        if (carrier == carried.Owner ||
+            HasComp<BeingCarriedComponent>(carrier) ||
+            HasComp<BeingCarriedComponent>(carried))
+            return false;
+
+        // can't carry multiple people, even if you have 4 hands it will break invariants when removing carryingcomponent for first carried person
+        if (HasComp<CarryingComponent>(carrier))
+        {
+            _popup.PopupClient(Loc.GetString("carrying-multiple-people"), carrier, carrier);
+            return false;
+        }
+
+        // can't carry someone in a locker, buckled, etc
+        // TODO: this doesnt work. i dont know why. im blaming ee. anyway, it doesnt break anything, so its probably fine.
+        if (!HasComp<MapGridComponent>(Transform(carrier).ParentUid))
+            return false;
+
+        // finally check that there are enough free hands
+        // IMP: we're also not counting any hands that already contain the carried entity as occupied.
+        // this will allow you to pick up someone youre dragging.
+        if (!TryComp<Content.Shared.Hands.Components.HandsComponent>(carrier, out var handsComp))
+            return false;
+        var freeHands = _hands.CountFreeableHands(new Entity<Content.Shared.Hands.Components.HandsComponent>(carrier, handsComp));
+        var handsRequired = carried.Comp.FreeHandsRequired;
+
+        if (TryComp<CarrierOneHandComponent>(carrier, out _) && !carried.Comp.OneHandOverride)
+            handsRequired = 1;
+
+        foreach (var item in _hands.EnumerateHeld(carrier))
+            if (TryComp<VirtualItemComponent>(item, out var virt) &&
+                virt.BlockingEntity == carried.Owner)
+            {
+                freeHands += 1;
+            }
+
+        if (freeHands < handsRequired)
+        {
+            _popup.PopupClient(Loc.GetString("carrying-not-enough-free-hands"), carrier, carrier);
+            return false;
+        }
+
+        return true;
     }
 
     public override void Update(float frameTime)

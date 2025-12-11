@@ -3,6 +3,8 @@ using Content.Shared.ActionBlocker;
 using Content.Shared._EE.Carrying;
 using Content.Shared._EE.Contests;
 using Content.Shared.Movement.Events;
+using Robust.Shared.Configuration; // imp
+using Content.Shared._EE.CCVars; // imp
 
 namespace Content.Server._EE.Carrying;
 
@@ -11,10 +13,15 @@ public sealed class CarryingSystem : EntitySystem
     [Dependency] private readonly ActionBlockerSystem _actionBlocker = default!;
     [Dependency] private readonly ContestsSystem _contests = default!;
     [Dependency] private readonly EscapeInventorySystem _escapeInventory = default!;
+    [Dependency] private readonly IConfigurationManager _cfg = default!; // imp add
+
+    private float _carryEscapeCoeff; // imp add
 
     public override void Initialize()
     {
         base.Initialize();
+
+        Subs.CVar(_cfg, ECCVars.CarryEscapeCoeff, value => _carryEscapeCoeff = value, true); // imp
 
         SubscribeLocalEvent<BeingCarriedComponent, MoveInputEvent>(OnMoveInput); //NF
     }
@@ -34,7 +41,7 @@ public sealed class CarryingSystem : EntitySystem
         if (_actionBlocker.CanInteract(ent, carrier))
         {
             var disadvantage = _contests.MassContest(carrier, ent.Owner, 2f);
-            _escapeInventory.AttemptEscape(ent, carrier, escape, disadvantage);
+            _escapeInventory.AttemptEscape(ent, carrier, escape, disadvantage * _carryEscapeCoeff);
         }
     }
 }

@@ -32,18 +32,18 @@
     layers:
     - state: folder-colormap
     - state: folder-base
-# RandomSpriteColor requires netsync which is currently incompatible with ItemMapper
-#  - type: RandomSpriteColor
-#    sprite: Objects/Misc/folders.rsi
-#    state: folder-colormap
-#    colors:
-#      red: "#cc2323"
-#      blue: "#355d99"
-#      yellow: "#b38e3c"
-#      white: "#e6e6e6"
-#      grey: "#999999"
-#      black: "#3f3f3f"
-#      green: "#43bc38"
+  # RandomSpriteColor requires netsync which is currently incompatible with ItemMapper
+  #  - type: RandomSpriteColor
+  #    sprite: Objects/Misc/folders.rsi
+  #    state: folder-colormap
+  #    colors:
+  #      red: "#cc2323"
+  #      blue: "#355d99"
+  #      yellow: "#b38e3c"
+  #      white: "#e6e6e6"
+  #      grey: "#999999"
+  #      black: "#3f3f3f"
+  #      green: "#43bc38"
   - type: Item
     sprite: Objects/Misc/folders.rsi
     size: Small

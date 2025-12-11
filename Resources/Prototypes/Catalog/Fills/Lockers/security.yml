@@ -212,6 +212,7 @@
       - id: RubberStampDetective
       - id: HoloprojectorSecurity
       - id: BoxEvidenceMarkers
+      - id: HolotapeProjector #funky!
       - id: HandLabeler
       - id: BoxTapeRecorder # DeltaV
       - id: SpeedLoaderMagnum

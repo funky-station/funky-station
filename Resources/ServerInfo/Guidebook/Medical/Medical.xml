@@ -18,9 +18,10 @@ This is the department where people go to when they're hurt, it's up to the folk
     <GuideEntityEmbed Entity="ToyFigurineMedicalDoctor" Caption="Doctor"/>
     <GuideEntityEmbed Entity="ToyFigurineParamedic" Caption="Paramedic"/>
     <GuideEntityEmbed Entity="ToyFigurineChemist" Caption="Chemist"/>
+    <GuideEntityEmbed Entity="ToyFigurineMedicalDoctor" Caption="Geneticist"/>  <!-- Funkystation - Genetics -->
     <GuideEntityEmbed Entity="ToyFigurineChiefMedicalOfficer" Caption="CMO"/>
   </Box>
-  
+
 Right now, medbay is divided into two different sets of care:
 
 ## Medical Treatment

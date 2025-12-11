@@ -1435,6 +1435,7 @@
     - CandyBowl #pill(pill that pills you) #funk
     - DeskBell #ringringring #funk
     - HandheldGeneticAnalyzer # Funkystation - Genetics
+    - DNAInjectorEmpty # Funkystation - Genetics
     dynamicRecipes:
     - ChemicalPayload
     - CryostasisBeaker

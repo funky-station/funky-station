@@ -20,6 +20,9 @@
     - DnaInjector
   - type: Appearance
   - type: DnaSequenceInjector
+  - type: GuideHelp
+    guides:
+    - Genetics
 
 - type: entity
   id: DNAInjectorEmpty

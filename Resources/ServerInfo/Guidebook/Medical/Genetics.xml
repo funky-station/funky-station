@@ -1,0 +1,91 @@
+<Document>
+# Genetics
+
+The Genetics system allows medical personnel and scientists to analyze, modify, and apply genetic mutations to living beings. It is a powerful but risky tool that can grant extraordinary abilities—or cause severe harm through genetic instability and cellular damage.
+
+## Core Equipment
+
+<Box>
+<GuideEntityEmbed Entity="DnaScanner" Caption="DNA scanner" Rotation="0"/>
+<GuideEntityEmbed Entity="ComputerDnaScanner" Caption="DNA scanner console" Rotation="0"/>
+</Box>
+
+### DNA Scanner & Console
+The DNA scanner is the pod-like machine that holds the patient (drag & drop or use the "eject occupant" verb).
+The DNA scanner console (placed nearby) provides the full interface and must be powered and linked to the scanner.
+
+<Box>
+<GuideEntityEmbed Entity="HandheldGeneticAnalyzer" Caption="handheld genetic analyzer" Rotation="0"/>
+</Box>
+
+### Handheld Genetic Analyzer
+A portable device that quickly scans a target's mutations and genetic instability.
+Requires a small power cell.
+
+## The Basics
+
+Place a living patient into the DNA scanner.
+
+Sit at the DNA scanner console and open the UI.
+
+Use the sequencer to reveal the correct DNA sequence for each mutation.
+
+Save useful mutations to the console's storage.
+
+Print DNA activators or DNA mutators to apply mutations to others.
+
+Use the handheld genetic analyzer for quick checks without needing the scanner.
+
+## Using the DNA Scanner Console
+
+The console UI includes several sections:
+
+Subject Info - Patient name, total damage, genetic instability, and health status.
+
+Mutation List - Shows all mutations in the patient's DNA.
+
+Revealed Sequence - Current known bases (X = unknown).
+
+Sequencer - Click bases to change them (each click deals 0.2 cellular damage). When the revealed sequence matches the original, the mutation becomes active.
+
+Saved Mutations - Store discovered mutations here for printing.
+
+Print Activator / Print Mutator - Creates a single-use injector from a saved mutation.
+
+Scramble DNA - Randomly resets the patient's DNA (30-second cooldown, causes 25 cellular damage).
+
+## DNA Injectors
+
+<Box>
+<GuideEntityEmbed Entity="DNAInjectorGenericActivator" Caption="DNA activator" Rotation="0"/>
+<GuideEntityEmbed Entity="DNAInjectorGenericMutator" Caption="DNA mutator" Rotation="0"/>
+<GuideEntityEmbed Entity="DNAInjectorEmpty" Caption="empty DNA injector" Rotation="0"/>
+</Box>
+
+- Activators (blue) - Activate a mutation that is already present.
+- Mutators (red) - Add and activate a new mutation (if the target can accept it).
+- Both are single-use and leave an empty injector behind.
+- Injection takes 2 seconds and works on any reachable target.
+
+## Mutations & Genetic Instability
+
+Mutations are stored in blocks with a fixed sequence of bases (A, C, G, T).
+Revealing the correct sequence in the console activates the mutation.
+
+Each added mutation increases Genetic Instability by its instability value.
+
+Instability thresholds:
+  - >100 - Risk of a dangerous random mutation after 60-90 seconds.
+  - >150 - Constant cellular damage over time.
+
+Scramble DNA resets everything (except scramble-resistant mutations) but is very damaging.
+
+## Tips & Safety
+
+- Sequencing and scrambling both cause cellular damage—monitor the patient's health.
+- Mutadone can remove unwanted mutations (some are resistant).
+- Radiation damage can trigger random mutations.
+- Some mutations are species-specific or incapable of natural generation.
+
+With careful use, Genetics can transform ordinary crew into superhumans—or create horrifying abominations. Use responsibly!
+</Document>

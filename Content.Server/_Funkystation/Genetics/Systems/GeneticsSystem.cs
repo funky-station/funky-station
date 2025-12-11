@@ -320,10 +320,11 @@ public sealed partial class GeneticsSystem : EntitySystem
 
         ApplyMutationComponents(uid, component, proto);
 
-        if (!string.IsNullOrWhiteSpace(proto.PopupText))
-            _popup.PopupEntity(Loc.GetString(proto.PopupText), uid);
-        else
-            _popup.PopupEntity(Loc.GetString("genetics-mutation-activated"), uid);
+        var popMsg = !string.IsNullOrWhiteSpace(proto.PopupText)
+            ? Loc.GetString(proto.PopupText)
+            : Loc.GetString("genetics-mutation-activated");
+
+        _popup.PopupEntity(popMsg, uid, uid);
 
         return true;
     }
@@ -388,7 +389,7 @@ public sealed partial class GeneticsSystem : EntitySystem
             // Cancel cooldown if Instability fell back below 100
             if (RemComp<PendingInstabilityMutationComponent>(uid))
             {
-                _popup.PopupEntity(Loc.GetString("genetics-instability-cancelled"), uid);
+                _popup.PopupEntity(Loc.GetString("genetics-instability-cancelled"), uid, uid);
             }
         }
 

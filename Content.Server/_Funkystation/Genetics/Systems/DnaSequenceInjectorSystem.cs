@@ -135,12 +135,14 @@ public sealed class DNASequenceInjectorSystem : EntitySystem
         {
             _popup.PopupEntity(Loc.GetString("dna-injector-no-effect"), targetUid, user);
         }
-
-        _popup.PopupEntity(
-            comp.IsMutator
-                ? Loc.GetString("dna-mutator-success", ("mutation", proto.Name), ("block", slot.Block))
-                : Loc.GetString("dna-activator-success", ("mutation", proto.Name), ("block", slot.Block)),
-            targetUid, targetUid);
+        else
+        {
+            _popup.PopupEntity(
+                comp.IsMutator
+                    ? Loc.GetString("dna-mutator-success", ("mutation", proto.Name), ("block", slot.Block))
+                    : Loc.GetString("dna-activator-success", ("mutation", proto.Name), ("block", slot.Block)),
+                targetUid, targetUid);
+        }
 
         var empty = Spawn("DNAInjectorEmpty", Transform(injector).Coordinates);
 

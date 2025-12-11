@@ -17,6 +17,7 @@
   children:
   - MedicalDoctor
   - Chemist
+  - Genetics
   - Cloning
   - Cryogenics
   - Medicalpatches
@@ -47,6 +48,11 @@
   # TODO GUIDEBOOK Maybe allow duplicate entries?
   - Botanicals
   - AdvancedBrute
+
+- type: guideEntry # Funkystation - Genetics
+  id: Genetics
+  name: guide-entry-genetics
+  text: "/ServerInfo/Guidebook/Medical/Genetics.xml"
 
 - type: guideEntry
   id: Medicine

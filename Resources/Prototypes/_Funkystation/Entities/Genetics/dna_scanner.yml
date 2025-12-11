@@ -88,7 +88,7 @@
       - DnaScanner
   - type: GuideHelp
     guides:
-    - Cryogenics
+    - Genetics
 
 - type: entity
   parent: BaseComputerAiAccess
@@ -125,8 +125,7 @@
   - type: DnaScannerConsole
   - type: GuideHelp
     guides:
-    - AtmosphericNetworkMonitor
-    - DeviceMonitoringAndControl
+    - Genetics
 
 - type: sinkPort
   id: DnaScanner

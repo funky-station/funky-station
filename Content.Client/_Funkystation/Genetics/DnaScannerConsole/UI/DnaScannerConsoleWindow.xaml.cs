@@ -236,17 +236,13 @@ public sealed partial class DnaScannerConsoleWindow : FancyWindow
     private void UpdateMutationDetails(MutationEntry mutation)
     {
         var isDiscovered = _discoveredMutationIds?.Contains(mutation.Id) ?? false;
-        var isActive = mutation.RevealedSequence == mutation.OriginalSequence;
+        var isActive = mutation.Enabled;
         string displayName = isDiscovered ? mutation.Name : $"Mutation {mutation.Block:00}";
 
-        if (isActive)
+        if (isActive && !_isSelectedMutationStored)
             InfoNameLabel.Text = $"{displayName} (Active)";
         else
             InfoNameLabel.Text = displayName;
-
-        // Only show "(Active)" if discovered, otherwise it looks weird
-        if (isActive && isDiscovered)
-            displayName += " (Active)";
 
         InfoDescLabel.Text = isDiscovered ? (mutation.Description ?? "No description.") : "Undiscovered mutation.";
         InfoInstabilityLabel.Text = isDiscovered ? mutation.Instability.ToString() : "Unknown";

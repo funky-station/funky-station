@@ -3,7 +3,6 @@
   id: CowboyAccent
   name: "Cowboy Accent"
   desc: "Subject speaks with a thick cowboy drawl."
-  hidden: false
   instability: 0
   components:
   - type: ReplacementAccent
@@ -13,7 +12,6 @@
   id: SouthernAccent
   name: "Southern Drawl"
   desc: "Subject speaks with a charming southern accent."
-  hidden: false
   instability: 0
   components:
   - type: SouthernAccent
@@ -22,7 +20,6 @@
   id: PirateAccent
   name: "Pirate Speech"
   desc: "The subject speaks like a scurvy pirate."
-  hidden: false
   instability: 0
   components:
   - type: PirateAccent
@@ -31,7 +28,6 @@
   id: GermanAccent
   name: "German Accent"
   desc: "Subject speaks with a strong German accent."
-  hidden: false
   instability: 0
   components:
   - type: GermanAccent
@@ -40,7 +36,6 @@
   id: ItalianAccent
   name: "Italian Accent"
   desc: "Subject speaks with dramatic Italian flair."
-  hidden: false
   instability: 0
   components:
   - type: ReplacementAccent
@@ -50,7 +45,6 @@
   id: FrenchAccent
   name: "French Accent"
   desc: "Subject speaks with a sophisticated French accent."
-  hidden: false
   instability: 0
   components:
   - type: FrenchAccent
@@ -59,7 +53,6 @@
   id: SpanishAccent
   name: "Spanish Accent"
   desc: "Subject speaks with a passionate Spanish accent."
-  hidden: false
   instability: 0
   components:
   - type: SpanishAccent
@@ -68,7 +61,6 @@
   id: LiarAccent
   name: "Pathological Liar"
   desc: "Subject cannot tell the truth."
-  hidden: false
   instability: 0
   components:
   - type: ReplacementAccent
@@ -78,7 +70,6 @@
   id: RussianAccent
   name: "Russian Accent"
   desc: "In Soviet Russia, genetics injects YOU."
-  hidden: false
   instability: 0
   components:
   - type: RussianAccent
@@ -87,7 +78,6 @@
   id: SocialAnxiety
   name: "Social Anxiety"
   desc: "Subject stutters badly when speaking."
-  hidden: false
   instability: 0
   components:
   - type: StutteringAccent
@@ -100,7 +90,6 @@
   id: FrontalLisp
   name: "Frontal Lisp"
   desc: "Subject has a pronounced frontal lisp."
-  hidden: false
   instability: 0
   components:
   - type: FrontalLisp
@@ -110,7 +99,6 @@
   id: Pacifist
   name: "Pacifism"
   desc: "Subject is incapable of causing harm."
-  hidden: false
   instability: 10
   components:
   - type: Pacified # Need to make a new component so pacified can't be removed.
@@ -119,7 +107,6 @@
   id: Snoring
   name: "Chronic Snoring"
   desc: "Subject snores extremely loudly when asleep."
-  hidden: false
   instability: 0
   components:
   - type: Snoring
@@ -128,7 +115,6 @@
   id: Blindness
   name: "Total Blindness"
   desc: "Subject is completely blind."
-  hidden: false
   instability: -20
   components:
   - type: PermanentBlindness
@@ -137,7 +123,6 @@
   id: PoorVision
   name: "Severe Myopia"
   desc: "Subject has terrible eyesight."
-  hidden: false
   instability: -10
   components:
   - type: PermanentBlindness
@@ -147,7 +132,6 @@
   id: Narcolepsy
   name: "Narcolepsy"
   desc: "Subject randomly falls asleep."
-  hidden: false
   instability: -10
   components:
   - type: Narcolepsy
@@ -158,7 +142,6 @@
   id: Unrevivable
   name: "Do Not Resuscitate"
   desc: "Subject cannot be revived by any means. Death is permanent."
-  hidden: false
   instability: -20
   components:
   - type: Unrevivable
@@ -167,7 +150,6 @@
   id: Muted
   name: "Mute"
   desc: "Subject is completely unable to speak."
-  hidden: false
   instability: -10
   components:
   - type: Muted # Need to make a new component so Muted can't be removed.
@@ -176,7 +158,6 @@
   id: Paracusia
   name: "Auditory Hallucinations"
   desc: "Subject hears phantom sounds and voices."
-  hidden: false
   instability: 0
   components:
   - type: Paracusia
@@ -190,7 +171,6 @@
   id: SupermatterHallucinationImmune
   name: "Supermatter Clarity"
   desc: "Subject is immune to supermatter-induced hallucinations."
-  hidden: false
   instability: 10
   components:
   - type: SupermatterHallucinationImmune

@@ -47,19 +47,19 @@ public sealed class InstabilityCountdownSystem : EntitySystem
 
             if (remaining <= TimeSpan.FromSeconds(10) && !pending.Warning10Sec)
             {
-                _popup.PopupEntity(Loc.GetString("genetics-instability-warning-10sec"), uid);
+                _popup.PopupEntity(Loc.GetString("genetics-instability-warning-10sec"), uid, uid);
                 pending.Warning10Sec = true;
             }
 
             if (remaining <= totalDuration / 2 && !pending.WarningHalfway)
             {
-                _popup.PopupEntity(Loc.GetString("genetics-instability-warning-half"), uid);
+                _popup.PopupEntity(Loc.GetString("genetics-instability-warning-half"), uid, uid);
                 pending.WarningHalfway = true;
             }
 
             if (remaining <= totalDuration - TimeSpan.FromSeconds(10) && !pending.WarningStart)
             {
-                _popup.PopupEntity(Loc.GetString("genetics-instability-warning-start"), uid);
+                _popup.PopupEntity(Loc.GetString("genetics-instability-warning-start"), uid, uid);
                 pending.WarningStart = true;
             }
         }

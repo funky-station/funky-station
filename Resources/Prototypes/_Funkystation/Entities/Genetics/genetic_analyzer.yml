@@ -38,7 +38,7 @@
           False: { visible: false }
   - type: GuideHelp
     guides:
-    - MedicalDoctor
+    - Genetics
 
 - type: entity
   id: HandheldGeneticAnalyzer
@@ -46,7 +46,7 @@
   suffix: Powered
   components:
   - type: PowerCellDraw
-    drawRate: 1
+    drawRate: .5
   - type: ToggleCellDraw
   - type: ActivatableUIRequiresPowerCell
 

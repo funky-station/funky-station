@@ -47,7 +47,7 @@ public sealed class AutoclaveSystem : EntitySystem
                 continue;
 
             EntityStorageComponent? storageComponent = null;
-            if (!_entityStorage.ResolveStorage(uid, ref storageComponent))
+            if (!Resolve(uid, ref storageComponent))
                 continue;
 
             foreach (var containedEntity in storageComponent.Contents.ContainedEntities)
@@ -63,8 +63,8 @@ public sealed class AutoclaveSystem : EntitySystem
     {
         EntityStorageComponent? storageComponent = null;
         bool hasDirtyContents =
-            _entityStorage.ResolveStorage(ent, ref storageComponent)
-                && storageComponent.Contents.ContainedEntities.Any(contained => _surgeryClean.RequiresCleaning(contained));
+            Resolve(ent, ref storageComponent)
+            && storageComponent.Contents.ContainedEntities.Any(contained => _surgeryClean.RequiresCleaning(contained));
 
         var (greenLight, redLight) = (isPowered, isClosed, hasDirtyContents) switch
         {

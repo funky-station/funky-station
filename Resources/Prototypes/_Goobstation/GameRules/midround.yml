@@ -66,10 +66,6 @@
       blacklist:
         components:
         - AntagImmune
-      lateJoinAdditional: true
-      components:
-      - type: ChangelingInfection # Funky: Made midround lings infections instead of instant.
-        needsInitialization: true
   - type: Tag
     tags:
     - MidroundAntag

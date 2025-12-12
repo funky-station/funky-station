@@ -21,7 +21,7 @@
       effects:
         - !type:ModifyBloodLevel
           amount: 10
-        - !type:ModifyBleedAmount
+        - !type:ModifyBleed
           amount: -2
         - !type:ReduceRotting
           seconds: 30

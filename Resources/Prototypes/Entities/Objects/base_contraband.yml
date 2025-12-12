@@ -11,13 +11,22 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
+# generic "highly illegal" contraband; Syndicate/magical contraband are already considered highly illegal under Space Law,
+# so this is mostly for stuff that should be equally illegal but doesn't need its own unique contraband tier added
+- type: entity
+  id: BaseHighlyIllegalContraband
+  abstract: true
+  components:
+  - type: Contraband
+    severity: HighlyIllegal
+
 # used by the unique items of xenoborgs (like modules and stuff)
 - type: entity
   id: BaseXenoborgContraband
   abstract: true
   components:
   - type: Contraband
-    severity: Major # placeholder until they make a better severity
+    severity: HighlyIllegal
 
 # any type of magical items used by wizards and similiar
 - type: entity
@@ -194,15 +203,6 @@
     allowedJobs: [ Bartender ]
 
 - type: entity
-  id: BaseSecurityBartenderZookeeperContraband
-  parent: BaseRestrictedContraband
-  abstract: true
-  components:
-  - type: Contraband
-    allowedDepartments: [ Security ]
-    allowedJobs: [ Bartender, Zookeeper ]
-
-- type: entity
   id: BaseSecurityLawyerContraband
   parent: BaseRestrictedContraband
   abstract: true
@@ -218,40 +218,6 @@
   components:
   - type: Contraband
     allowedJobs: [ Janitor ]
-
-- type: entity
-  id: BaseChaplainContraband
-  parent: BaseRestrictedContraband
-  abstract: true
-  components:
-  - type: Contraband
-    allowedJobs: [ Chaplain ]
-
-- type: entity
-  id: BaseCMOParamedicContraband
-  parent: BaseRestrictedContraband
-  abstract: true
-  components:
-  - type: Contraband
-    allowedJobs: [ ChiefMedicalOfficer, Paramedic ]
-
-- type: entity
-  id: BaseEngineeringSalvageContraband
-  parent: BaseRestrictedContraband
-  abstract: true
-  components:
-  - type: Contraband
-    allowedDepartments: [ Engineering ]
-    allowedJobs: [ SalvageSpecialist ]
-
-- type: entity
-  id: BaseEngineeringScienceSalvageContraband
-  parent: BaseRestrictedContraband
-  abstract: true
-  components:
-  - type: Contraband
-    allowedDepartments: [ Science, Engineering ]
-    allowedJobs: [ SalvageSpecialist ]
 
 # for ~objective items
 - type: entity

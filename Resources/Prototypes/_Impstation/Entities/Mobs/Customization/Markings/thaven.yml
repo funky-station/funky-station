@@ -124,7 +124,7 @@
 
 - type: marking
   id: ThavenREyeGlow
-  bodyPart: Eyes
+  bodyPart: Face
   markingCategory: Head
   speciesRestriction: [Thaven]
   coloring:
@@ -139,7 +139,7 @@
 
 - type: marking
   id: ThavenLEyeGlow
-  bodyPart: Eyes
+  bodyPart: Face
   markingCategory: Head
   speciesRestriction: [Thaven]
   coloring:

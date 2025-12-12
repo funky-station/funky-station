@@ -83,7 +83,7 @@
     - reagents: [Water, SpaceCleaner]
       methods: [Touch]
       effects:
-      - !type:WashCreamPieReaction
+      - !type:WashCreamPie
     - reagents: [ PlantBGone ]
       methods: [ Touch ]
       effects:

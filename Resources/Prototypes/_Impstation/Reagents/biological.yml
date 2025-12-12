@@ -33,7 +33,7 @@
             Toxin: -1
             Airloss: -1
             Brute: -1
-      - !type:ModifyBleedAmount
+      - !type:ModifyBleed
         amount: -1
 
 

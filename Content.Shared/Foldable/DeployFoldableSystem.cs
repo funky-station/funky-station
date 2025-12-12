@@ -1,5 +1,6 @@
 // SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
 // SPDX-FileCopyrightText: 2024 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Zergologist <114537969+Chedd-Error@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
 // SPDX-License-Identifier: MIT
@@ -58,6 +59,10 @@ public sealed class DeployFoldableSystem : EntitySystem
     private void OnAfterInteract(Entity<DeployFoldableComponent> ent, ref AfterInteractEvent args)
     {
         if (args.Handled || !args.CanReach)
+            return;
+
+        // Don't do anything unless you clicked on the floor.
+        if (args.Target.HasValue)
             return;
 
         if (!TryComp<FoldableComponent>(ent, out var foldable))

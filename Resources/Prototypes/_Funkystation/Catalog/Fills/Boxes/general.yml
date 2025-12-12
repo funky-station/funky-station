@@ -1,7 +1,9 @@
+# SPDX-FileCopyrightText: 2025 Rainbow <ev0lvkitten@gmail.com>
 # SPDX-FileCopyrightText: 2025 ThatOneMoon <91613003+ThatOneGuy227@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 ThatOneMoon <91613003+ThatOneMoon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
 # SPDX-FileCopyrightText: 2025 Zergologist <114537969+Chedd-Error@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 vectorassembly <vectorassembly@icloud.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -67,49 +69,3 @@
       - id: FoodBakedCookieOatmeal
       - id: FoodBakedCookieOatmeal
       - id: FoodSaladValid
-
-- type: entity
-  name: inflatable wall box
-  parent: BoxCardboard
-  id: BoxInflatable
-  description: A box of self-inflating walls and doors. Highly compact and great for 'temporary' fixes.
-  components:
-  - type: Item
-    shape:
-    - 0,0,1,1
-  - type: Storage
-    maxItemSize: Small
-    grid:
-    - 0,0,1,1
-  - type: StorageFill
-    contents:
-    - id: InflatableWallStack
-      amount: 3
-    - id: InflatableDoorStack
-      amount: 1
-  - type: Sprite
-    layers:
-    - state: box
-    - state: inflatablewall
-
-- type: entity
-  name: inflatable floor box
-  parent: BoxCardboard
-  id: BoxInflatableFloor
-  description: Some squeaky floor tiles best used for sealing up emergency spacings.
-  components:
-  - type: Item
-    shape:
-    - 0,0,1,1
-  - type: Storage
-    maxItemSize: Small
-    grid:
-    - 0,0,1,1
-  - type: StorageFill
-    contents:
-    - id: InflatableFloorStack
-      amount: 4
-  - type: Sprite
-    layers:
-    - state: box
-    - state: inflatablefloor

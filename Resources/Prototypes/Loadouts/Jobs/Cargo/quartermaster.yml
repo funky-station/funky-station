@@ -2,6 +2,8 @@
 # SPDX-FileCopyrightText: 2024 Mr. 27 <45323883+Dutch-VanDerLinde@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Ubaser <134914314+UbaserB@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Fr0goo <frogoofrog@outlook.com>
+# SPDX-FileCopyrightText: 2025 MaiaArai <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Mora <46364955+TrixxedHeart@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 ThatOneMoon <91613003+ThatOneMoon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
@@ -80,6 +82,11 @@
   equipment:
     head: ClothingHeadHatQMFormal
 
+- type: loadout
+  id: PirateTricord
+  equipment:
+    head: ClothingHeadHatPirateTricord
+
 
 # Neck
 - type: loadout
@@ -110,3 +117,22 @@
   id: QuartermasterWindbreaker
   equipment:
     outerClothing: ClothingOuterQMWindbreaker
+
+# Shoes
+- type: loadout
+  id: BrownCowboyBoots
+  equipment:
+    shoes: ClothingShoesBootsCowboyBrown
+  groupBy: "cowboy"
+
+- type: loadout
+  id: WhiteCowboyBoots
+  equipment:
+    shoes: ClothingShoesBootsCowboyWhite
+  groupBy: "cowboy"
+
+- type: loadout
+  id: BlackCowboyBoots
+  equipment:
+    shoes: ClothingShoesBootsCowboyBlack
+  groupBy: "cowboy"

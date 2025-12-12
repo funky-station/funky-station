@@ -37,6 +37,8 @@ namespace Content.Client.UserInterface.Systems.Actions.Controls;
 
 public sealed class ActionButton : Control, IEntityControl
 {
+    public const string StyleClassActionHighlightRect = "ActionHighlightRect";
+
     private IEntityManager _entities;
     private SpriteSystem? _spriteSys;
     private ActionUIController? _controller;
@@ -93,7 +95,7 @@ public sealed class ActionButton : Control, IEntityControl
         };
         HighlightRect = new PanelContainer
         {
-            StyleClasses = {StyleNano.StyleClassHandSlotHighlight},
+            StyleClasses = { StyleClassActionHighlightRect },
             MinSize = new Vector2(32, 32),
             Visible = false
         };

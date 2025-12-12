@@ -115,3 +115,14 @@
         reagents:
         - ReagentId: Mutadone
           Quantity: 30
+
+- type: latheRecipe
+  id: DnaScannerConsoleComputerCircuitboard
+  result: DnaScannerConsoleComputerCircuitboard
+
+- type: latheRecipe
+  id: DNAInjector
+  result: DNAInjectorEmpty
+  completetime: 1
+  materials:
+    Plastic: 50

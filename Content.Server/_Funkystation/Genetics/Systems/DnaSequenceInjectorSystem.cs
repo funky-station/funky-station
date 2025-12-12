@@ -38,7 +38,7 @@ public sealed class DNASequenceInjectorSystem : EntitySystem
     {
         if (comp.MutationId == null)
         {
-            args.PushMarkup(Loc.GetString("dna-injector-examine-unknown"));
+            args.PushMarkup(Loc.GetString("dna-injector-examine-empty"));
             return;
         }
 
@@ -54,6 +54,12 @@ public sealed class DNASequenceInjectorSystem : EntitySystem
     {
         if (args.Target is not { Valid: true } target || !args.CanReach || args.Handled)
             return;
+
+        if (comp.MutationId == null)
+        {
+            args.Handled = true;
+            return;
+        }
 
         var user = args.User;
 

@@ -11,6 +11,7 @@ using static Robust.Client.Graphics.StyleBox;
 using static Robust.Client.UserInterface.Controls.BoxContainer;
 using Robust.Client.Graphics;
 using Robust.Client.ResourceManagement;
+using Robust.Client.UserInterface.XAML;
 
 namespace Content.Client._Funkystation.Genetics.GeneticAnalyzer;
 
@@ -18,6 +19,7 @@ namespace Content.Client._Funkystation.Genetics.GeneticAnalyzer;
 [GenerateTypedNameReferences]
 public sealed partial class GeneticAnalyzerWindow : FancyWindow
 {
+    public event Action? OnPrintPressed;
 
     private static readonly VectorFont FontBold = new(
         IoCManager.Resolve<IResourceCache>().GetResource<FontResource>("/Fonts/NotoSansDisplay/NotoSansDisplay-Bold.ttf"), 14);
@@ -27,6 +29,9 @@ public sealed partial class GeneticAnalyzerWindow : FancyWindow
 
     public GeneticAnalyzerWindow()
     {
+        RobustXamlLoader.Load(this);
+
+        PrintButton.OnPressed += _ => OnPrintPressed?.Invoke();
     }
 
     public void Populate(GeneticAnalyzerUiState state)

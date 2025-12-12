@@ -1,4 +1,5 @@
 using Content.Shared._Funkystation.Genetics.Components;
+using Content.Shared._Funkystation.Genetics.Events;
 using JetBrains.Annotations;
 using Robust.Client.UserInterface;
 
@@ -20,6 +21,8 @@ public sealed class GeneticAnalyzerBoundUserInterface : BoundUserInterface
 
         _window = this.CreateWindow<GeneticAnalyzerWindow>();
         _window.Title = EntMan.GetComponent<MetaDataComponent>(Owner).EntityName;
+
+        _window.OnPrintPressed += () => SendMessage(new GeneticAnalyzerPrintMessage());
     }
 
     protected override void UpdateState(BoundUserInterfaceState state)

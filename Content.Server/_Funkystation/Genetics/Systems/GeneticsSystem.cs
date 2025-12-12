@@ -21,6 +21,15 @@ public sealed partial class GeneticsSystem : EntitySystem
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
 
+    private const float MinSequenceRevealFraction = 0.50f;
+    private const float MaxSequenceRevealFraction = 0.85f;
+    private const float MinRadsUntilMutation = 15f;
+    private const float MaxRadsUntilMutation = 80f;
+    private const int InstabilityMutationThreshold = 100;
+    private const int InstabilityDamageThreshold = 150;
+    private const int MinInstabilityTimerSeconds = 60;
+    private const int MaxInstabilityTimerSeconds = 90;
+
     public override void Initialize()
     {
         base.Initialize();
@@ -32,7 +41,7 @@ public sealed partial class GeneticsSystem : EntitySystem
     private void OnInit(EntityUid uid, GeneticsComponent component, ComponentInit args)
     {
         FillBaseMutations(uid, component);
-        component.RadsUntilRandomMutation = _random.NextFloat(15f, 80f);
+        component.RadsUntilRandomMutation = _random.NextFloat(MinRadsUntilMutation, MaxRadsUntilMutation);
         Dirty(uid, component);
     }
 
@@ -53,7 +62,7 @@ public sealed partial class GeneticsSystem : EntitySystem
             return;
 
         TriggerRandomMutation(uid, component);
-        component.RadsUntilRandomMutation = _random.NextFloat(15f, 80f);
+        component.RadsUntilRandomMutation = _random.NextFloat(MinRadsUntilMutation, MaxRadsUntilMutation);
         Dirty(uid, component);
     }
 
@@ -111,23 +120,22 @@ public sealed partial class GeneticsSystem : EntitySystem
         var available = _shuffle.CurrentMutation()
             .Where(x => x.Value.Block > 0)
             .Where(x => !component.BaseMutationIds.Contains(x.Key))
+            .Where(x =>
+                _proto.TryIndex<GeneticMutationPrototype>(x.Key, out var proto) &&
+                CanEntityReceiveMutation(uid, proto))
             .ToList();
 
         if (available.Count == 0)
             return;
 
         _random.Shuffle(available);
-        var toAdd = Math.Min(component.MutationSlots, available.Count);
+        var toAdd = Math.Min(slotsLeft, available.Count);
 
         for (var i = 0; i < toAdd; i++)
         {
             var (id, slot) = available[i];
-            if (!_proto.TryIndex(id, out GeneticMutationPrototype? proto))
-                continue;
 
-            if (!CanEntityReceiveMutation(uid, proto))
-                continue;
-
+            var proto = _proto.Index<GeneticMutationPrototype>(id);
             var revealed = RandomizeSequence(slot.Sequence);
             var entry = CreateMutationEntry(
                 mutationId: id,
@@ -209,7 +217,7 @@ public sealed partial class GeneticsSystem : EntitySystem
         revealed[0] = true;
         revealed[length - 1] = true;
 
-        var revealCount = _random.Next((int) (length * 0.6f), (int) (length * 0.85f));
+        var revealCount = _random.Next((int) (length * MinSequenceRevealFraction), (int) (length * MaxSequenceRevealFraction));
         var added = 2;
 
         while (added < revealCount)
@@ -371,8 +379,8 @@ public sealed partial class GeneticsSystem : EntitySystem
         component.GeneticInstability += delta;
         var newVal = component.GeneticInstability;
 
-        // Bad things happen past 100
-        if (old <= 100 && newVal > 100)
+        // Bad things happen past InstabilityMutationThreshold
+        if (old <= InstabilityMutationThreshold && newVal > InstabilityMutationThreshold)
         {
             // Remove any existing pending timer
             RemComp<PendingInstabilityMutationComponent>(uid);
@@ -380,23 +388,23 @@ public sealed partial class GeneticsSystem : EntitySystem
             var pending = AddComp<PendingInstabilityMutationComponent>(uid);
             pending.MutationId = string.Empty;
 
-            // Set a random time from 60 to 90 seconds until bad thing
-            var durationSeconds = _random.Next(60, 90);
+            // Set a random time from MinInstabilityTimerSeconds to MaxInstabilityTimerSeconds seconds until bad thing
+            var durationSeconds = _random.Next(MinInstabilityTimerSeconds, MaxInstabilityTimerSeconds);
             pending.EndTime = _timing.CurTime + TimeSpan.FromSeconds(durationSeconds);
         }
-        else if (old >= 100 && newVal < 100)
+        else if (old >= InstabilityMutationThreshold && newVal < InstabilityMutationThreshold)
         {
-            // Cancel cooldown if Instability fell back below 100
+            // Cancel cooldown if Instability fell back below InstabilityMutationThreshold
             if (RemComp<PendingInstabilityMutationComponent>(uid))
             {
                 _popup.PopupEntity(Loc.GetString("genetics-instability-cancelled"), uid, uid);
             }
         }
 
-        // Steady cellular damage above 150
-        if (old <= 150 && newVal > 150)
+        // Steady cellular damage above InstabilityDamageThreshold
+        if (old <= InstabilityDamageThreshold && newVal > InstabilityDamageThreshold)
             EnsureComp<GeneticsInstabilityDamageComponent>(uid);
-        else if (old > 150 && newVal <= 150)
+        else if (old > InstabilityDamageThreshold && newVal <= InstabilityDamageThreshold)
             RemComp<GeneticsInstabilityDamageComponent>(uid);
     }
 

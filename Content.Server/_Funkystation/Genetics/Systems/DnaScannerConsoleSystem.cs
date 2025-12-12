@@ -31,6 +31,9 @@ public sealed class DnaScannerConsoleSystem : EntitySystem
     [Dependency] private readonly SharedMutationDiscoverySystem _discovery = default!;
     [Dependency] private readonly SharedUserInterfaceSystem _ui = default!;
 
+    private const float SequencerButtonCellularDamage = 0.2f;
+    private const float ScrambleCellularDamage = 25f;
+    private const float ScrambleCooldownSeconds = 30f;
     private static readonly TimeSpan HealthTickInterval = TimeSpan.FromSeconds(2);
 
     public override void Initialize()
@@ -172,7 +175,7 @@ public sealed class DnaScannerConsoleSystem : EntitySystem
             _genetics.TryDeactivateMutation(subject, genetics, msg.MutationId);
 
         // Apply cellular damage
-        var damage = new DamageSpecifier(_proto.Index<DamageTypePrototype>("Cellular"), 0.2f);
+        var damage = new DamageSpecifier(_proto.Index<DamageTypePrototype>("Cellular"), SequencerButtonCellularDamage);
         if (TryComp<DamageableComponent>(subject, out var damageable))
             _damageable.TryChangeDamage(subject, damage, ignoreResistances: true, damageable: damageable);
 
@@ -233,11 +236,11 @@ public sealed class DnaScannerConsoleSystem : EntitySystem
         // Massive cellular damage - or is it supposed to be radiation? TODO: Find out
         if (TryComp<DamageableComponent>(subject, out var damageable))
         {
-            var damage = new DamageSpecifier(_proto.Index<DamageTypePrototype>("Cellular"), 25f);
+            var damage = new DamageSpecifier(_proto.Index<DamageTypePrototype>("Cellular"), ScrambleCellularDamage);
             _damageable.TryChangeDamage(subject, damage, ignoreResistances: true, damageable: damageable);
         }
 
-        comp.ScrambleCooldownEnd = _timing.CurTime + TimeSpan.FromSeconds(30);
+        comp.ScrambleCooldownEnd = _timing.CurTime + TimeSpan.FromSeconds(ScrambleCooldownSeconds);
         _popup.PopupEntity(Loc.GetString("dna-scanner-scramble-complete"), subject, PopupType.Large);
         _audio.PlayPvs(comp.SoundDnaScramble, uid);
         SendUiUpdate(uid, comp, fullUpdate: true);

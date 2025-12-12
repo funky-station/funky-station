@@ -1,4 +1,4 @@
-dna-injector-examine-unknown = This is a DNA injector, but its contents are unknown.
+dna-injector-examine-empty = "This injector is empty."
 
 dna-injector-examine-mutator = This is a DNA mutator containing the [color=#ff0000]{$mutation}[/color] mutation.
 dna-injector-examine-activator = This is a DNA activator containing the [color=#00ff00]{$mutation}[/color] mutation.

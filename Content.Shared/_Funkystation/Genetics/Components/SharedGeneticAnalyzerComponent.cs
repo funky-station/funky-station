@@ -16,9 +16,6 @@ public sealed partial class GeneticAnalyzerComponent : Component
 
     [DataField, AutoNetworkedField]
     public List<MutationEntry> Mutations = new();
-
-    [DataField, AutoNetworkedField]
-    public HashSet<string> DiscoveredIds = new();
 }
 
 

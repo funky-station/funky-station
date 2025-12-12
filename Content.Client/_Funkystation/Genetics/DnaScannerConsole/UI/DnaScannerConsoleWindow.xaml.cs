@@ -133,7 +133,7 @@ public sealed partial class DnaScannerConsoleWindow : FancyWindow
                 Text = displayName,
                 HorizontalExpand = true,
                 Margin = new Thickness(0, 0, 0, 4),
-                StyleClasses = { "ListItemButton" }
+                StyleClasses = { "OpenLeft", "ListItemButton", "OpenRight" }
             };
 
             var capturedIndex = index;
@@ -185,7 +185,7 @@ public sealed partial class DnaScannerConsoleWindow : FancyWindow
                 Text = mut.Name,
                 HorizontalExpand = true,
                 Margin = new Thickness(0, 0, 0, 4),
-                StyleClasses = { "ListItemButton" }
+                StyleClasses = { "OpenLeft", "ListItemButton", "OpenRight" }
             };
 
             button.OnPressed += _ =>
@@ -423,6 +423,7 @@ public sealed partial class DnaScannerConsoleWindow : FancyWindow
             ("seconds", (int)remaining.TotalSeconds));
     }
 
+    // This can probably go now but it helped with bug testing and it's safer to keep. Should never fail.
     private void TryInvokeSelected(Action<string>? action)
     {
         if (_selectedMutationId != null)

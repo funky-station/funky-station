@@ -50,5 +50,7 @@
                           Orientation="Vertical" />
         </ScrollContainer>
 
+        <Button Name="PrintButton" Text="{Loc 'genetic-analyzer-print-button'}" />
+
     </BoxContainer>
 </controls:FancyWindow>

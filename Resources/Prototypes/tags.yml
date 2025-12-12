@@ -536,9 +536,6 @@
 - type: Tag
   id: Enzyme # Storage whitelist: ClothingBeltChef. ItemMapper: ClothingBeltChef
 
-- type: Tag
-  id: ExCable # Placement blacklist on CableDetStack. Placement whitelist on WiredDetonator
-
 ## F ##
 
 - type: Tag

@@ -242,7 +242,7 @@
   - type: Battery
     maxCharge: 60
     startingCharge: 0
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: BulletEnergyHolyBolt
     fireCost: 15
   - type: BatterySelfRecharger

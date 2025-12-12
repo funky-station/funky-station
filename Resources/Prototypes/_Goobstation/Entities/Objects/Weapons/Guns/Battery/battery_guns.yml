@@ -30,7 +30,7 @@
   - type: Gun
     soundGunshot:
       path: /Audio/_Goobstation/Weapons/Guns/Gunshots/heavy_shot_suppressed.ogg
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: BulletMic
     fireCost: 900
   - type: BatterySelfRecharger
@@ -70,7 +70,7 @@
     startingCharge: 600
   - type: MaterialEnergy
     materialWhiteList: [Plasma]
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: BulletPlasmaCutterStrong
     fireCost: 100
   - type: WeaponRandomExplode
@@ -126,7 +126,7 @@
   - type: Battery
     maxCharge: 2400
     startingCharge: 2400
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: BulletDisabler
     fireCost: 100
   - type: EnergyGun

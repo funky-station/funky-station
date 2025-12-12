@@ -21,7 +21,7 @@
       - SemiAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/kinetic_accel.ogg
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: BulletKineticShuttle
     fireCost: 0.1
   - type: Appearance

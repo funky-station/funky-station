@@ -31,7 +31,7 @@
   - type: Appearance
   - type: PowerCellVisuals
   - type: Riggable
-  - type: HitscanBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: SmallRedLaser
     fireCost: 50
   - type: PhysicalComposition
@@ -74,7 +74,7 @@
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Guns/Ammunition/Magazine/energy_cell_pistol_lethal.rsi
-  - type: HitscanBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: SmallRedLaser
     fireCost: 50
 
@@ -87,7 +87,7 @@
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Guns/Ammunition/Magazine/energy_cell_pistol_xray.rsi
-  - type: HitscanBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: SmallXrayLaser
     fireCost: 50
 
@@ -100,7 +100,7 @@
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Guns/Ammunition/Magazine/energy_cell_pistol_overcharge.rsi
-  - type: HitscanBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: SmallOverchargedLaser
     fireCost: 100
 
@@ -113,7 +113,7 @@
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Guns/Ammunition/Magazine/energy_cell_pistol_pulse.rsi
-  - type: HitscanBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: SmallPulseLaser
     fireCost: 50
 
@@ -126,7 +126,7 @@
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Guns/Ammunition/Magazine/energy_cell_pistol_ion.rsi
-  - type: HitscanBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: SmallIonLaser
     fireCost: 50
 
@@ -170,7 +170,7 @@
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Guns/Ammunition/Magazine/energy_cell_rifle_lethal.rsi
-  - type: HitscanBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: MediumRedLaser
     fireCost: 100
 
@@ -183,7 +183,7 @@
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Guns/Ammunition/Magazine/energy_cell_rifle_xray.rsi
-  - type: HitscanBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: MediumXrayLaser
     fireCost: 100
 
@@ -196,7 +196,7 @@
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Guns/Ammunition/Magazine/energy_cell_rifle_overcharge.rsi
-  - type: HitscanBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: MediumOverchargedLaser
     fireCost: 200
 
@@ -209,7 +209,7 @@
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Guns/Ammunition/Magazine/energy_cell_rifle_pulse.rsi
-  - type: HitscanBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: MediumPulseLaser
     fireCost: 100
 
@@ -222,7 +222,7 @@
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Guns/Ammunition/Magazine/energy_cell_rifle_ion.rsi
-  - type: HitscanBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: MediumIonLaser
     fireCost: 100
 
@@ -276,7 +276,7 @@
           False:
             state: lethal
             shader: null
-  - type: HitscanBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: MediumRedLaser
     fireCost: 62.5
 
@@ -302,7 +302,7 @@
           False:
             state: xray
             shader: null
-  - type: HitscanBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: MediumXrayLaser
     fireCost: 62.5
 
@@ -328,7 +328,7 @@
           False:
             state: overcharge
             shader: null
-  - type: HitscanBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: MediumOverchargedLaser
     fireCost: 125
 
@@ -354,7 +354,7 @@
           False:
             state: pulse
             shader: null
-  - type: HitscanBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: MediumPulseLaser
     fireCost: 62.5
 
@@ -380,7 +380,7 @@
           False:
             state: ion
             shader: null
-  - type: HitscanBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: MediumIonLaser
     fireCost: 62.5
 
@@ -408,7 +408,7 @@
     startingCharge: 3000
   - type: BatteryDrinkerSource
     maxAmount: 500
-  - type: HitscanBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: SmallRedLaser
     fireCost: 15
   - type: Tag

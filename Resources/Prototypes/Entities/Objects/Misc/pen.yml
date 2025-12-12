@@ -229,7 +229,7 @@
   - type: BatterySelfRecharger
     autoRecharge: true
     autoRechargeRate: 5
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: HoloFlareCyan
     fireCost: 240
   - type: EnergyGun

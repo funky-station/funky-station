@@ -611,7 +611,7 @@
     rewardPer: 4500
     whitelist:
       components:
-      - HitscanBatteryAmmoProvider
+      - BatteryAmmoProvider
     blacklist:
       tags:
       - PowerCell

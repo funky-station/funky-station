@@ -26,8 +26,6 @@ public sealed class MechGunSystem : EntitySystem
     {
         base.Initialize();
         SubscribeLocalEvent<MechEquipmentComponent, HandleMechEquipmentBatteryEvent>(OnHandleMechEquipmentBattery);
-        SubscribeLocalEvent<HitscanBatteryAmmoProviderComponent, CheckMechWeaponBatteryEvent>(OnCheckBattery);
-        SubscribeLocalEvent<ProjectileBatteryAmmoProviderComponent, CheckMechWeaponBatteryEvent>(OnCheckBattery);
     }
 
     private void OnHandleMechEquipmentBattery(EntityUid uid, MechEquipmentComponent component, HandleMechEquipmentBatteryEvent args)

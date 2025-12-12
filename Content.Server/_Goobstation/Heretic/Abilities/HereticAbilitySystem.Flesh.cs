@@ -55,6 +55,7 @@ public sealed partial class HereticAbilitySystem
         SubscribeLocalEvent<FleshPassiveComponent, GetBodyOrganOverrideEvent<StomachComponent>>(OnGetStomach);
         SubscribeLocalEvent<FleshPassiveComponent, ConsumingFoodEvent>(OnConsumingFood);
         SubscribeLocalEvent<FleshPassiveComponent, ExcludeMetabolismGroupsEvent>(OnExclude);
+        SubscribeLocalEvent<HereticComponent, EventHereticFleshAscend>(OnFleshAscendPolymorph);
     }
 
     private void OnExclude(Entity<FleshPassiveComponent> ent, ref ExcludeMetabolismGroupsEvent args)
@@ -309,5 +310,18 @@ public sealed partial class HereticAbilitySystem
         }
 
         return clone.Value;
+    }
+    private void OnFleshAscendPolymorph(Entity<HereticComponent> ent, ref EventHereticFleshAscend args)
+    {
+        if (!TryUseAbility(ent, args))
+            return;
+
+        var urist = _poly.PolymorphEntity(ent, "EldritchHorror");
+        if (urist == null)
+            return;
+
+        _aud.PlayPvs(new SoundPathSpecifier("/Audio/Animals/space_dragon_roar.ogg"), (EntityUid) urist, AudioParams.Default.AddVolume(2f));
+
+        args.Handled = true;
     }
 }

@@ -173,6 +173,10 @@ public sealed partial class EventHereticFleshSurgery : InstantActionEvent, ITouc
 [Serializable, NetSerializable, DataDefinition]
 public sealed partial class EventHereticFleshPassive : EntityEventArgs;
 
+public sealed partial class EventHereticFleshAscend : InstantActionEvent
+{
+};
+
 // void (+ upgrades)
 [Serializable, NetSerializable, DataDefinition] public sealed partial class HereticAristocratWayEvent : EntityEventArgs { }
 public sealed partial class HereticVoidBlastEvent : InstantActionEvent { }

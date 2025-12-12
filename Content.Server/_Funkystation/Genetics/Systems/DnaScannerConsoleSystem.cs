@@ -30,6 +30,7 @@ public sealed class DnaScannerConsoleSystem : EntitySystem
     [Dependency] private readonly GeneticShuffleSystem _shuffle = default!;
     [Dependency] private readonly SharedMutationDiscoverySystem _discovery = default!;
     [Dependency] private readonly SharedUserInterfaceSystem _ui = default!;
+    [Dependency] private readonly MutationUnlockTriggerSystem _unlockTrigger = default!;
 
     private const float SequencerButtonCellularDamage = 0.2f;
     private const float ScrambleCellularDamage = 25f;
@@ -262,6 +263,8 @@ public sealed class DnaScannerConsoleSystem : EntitySystem
 
         comp.SavedMutations.Add(entry);
         Dirty(uid, comp);
+
+        _unlockTrigger.OnMutationSaved(uid, comp, entry.Id);
         return true;
     }
 

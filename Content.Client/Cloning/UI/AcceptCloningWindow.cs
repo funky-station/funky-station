@@ -7,6 +7,7 @@
 // SPDX-FileCopyrightText: 2022 Paul Ritter <ritter.paul1@googlemail.com>
 // SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Brandon Li <48413902+aspiringLich@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
 // SPDX-License-Identifier: MIT
@@ -30,7 +31,7 @@ namespace Content.Client.Cloning.UI
 
             Title = Loc.GetString("accept-cloning-window-title");
 
-            Contents.AddChild(new BoxContainer
+            ContentsContainer.AddChild(new BoxContainer
             {
                 Orientation = LayoutOrientation.Vertical,
                 Children =

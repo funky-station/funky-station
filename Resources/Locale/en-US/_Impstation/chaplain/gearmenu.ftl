@@ -48,11 +48,25 @@ chaplain-gearset-category-gun-description =
     A Winchester 1886 with religious imagery plastered all over it.
     Carved into its stock, "Matthew 19:23-24." Though it comes with
     four silver bullets, it has no matching ammo box. Spend them wisely.
-	
+
 chaplain-gearset-category-rapier-name = Star Rapier
 chaplain-gearset-category-rapier-description =
-    An interesting weapon harnessing the power of entropy.
+    An interesting weapon harnessing the power of winter.
     Some may call it the embodiment of contradiction, others call it
     fighting fire with fire. Or cold, they burn all the same.
     As a precision weapon, it has lower damage when doing wide swings.
+
+chaplain-gearset-category-crucifix-name = Crooked Crucifix
+chaplain-gearset-category-crucifix-description =
+    An ancient inverted crucifix wielding great power.
+    it's poison coating never seems to wear out, even a
+    small splinter of it being able to cause sickness.
+    It is able to execute very fast thanks to it's demonic influence.
+
+chaplain-gearset-category-pistol-name = N1984H
+chaplain-gearset-category-pistol-description =
+    Blessed by the power of Nanotransen, this pistol
+    can kill not only the body but also the soul.
+    Being made out of pure silver, it has a significantly slower
+    fire rate and much worse accuracy than a standard N1984.
 # end funky

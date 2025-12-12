@@ -149,6 +149,20 @@
     - state: mag-1
       map: ["enum.GunVisualLayers.Mag"]
 
+- type: entity
+  id: MagazineMagnumSilver
+  name: pistol magazine (.45 magnum silver)
+  parent: BaseMagazineMagnum
+  description: 7-round single stack pistol magazine. Intended to hold blessed silver ammunition.
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeMagnumSilver
+  - type: Sprite
+    layers:
+    - state: silver
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
 
 - type: entity
   id: MagazineMagnumSubMachineGunEmpty

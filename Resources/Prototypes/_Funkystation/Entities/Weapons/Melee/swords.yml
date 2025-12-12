@@ -107,9 +107,9 @@
 
 - type: entity
   name: star rapier
-  parent: BaseSword
+  parent: [BaseSword, BaseChaplainContraband]
   id: SwordChaplainCosmic
-  description: An etherial rapier that emmits glimmers of cold enthropy. It is said that wielding this blade too long drains the soul of those not touched by the truth.
+  description: An etherial rapier that feels as cold as winter when you touch it. It is said that wielding this blade too long drains the soul of those not touched by the truth.
   components:
   - type: Sprite
     sprite: _Funkystation/Objects/Weapons/Melee/star_rapier.rsi
@@ -179,3 +179,32 @@
     quickEquip: false
     slots:
     - backStorage
+    
+- type: entity
+  name: crooked crucifix
+  parent: [ BaseItem, BaseChaplainContraband]
+  id: CrossChaplainCrooked
+  description: An inverted and deformed crucifix carved out of ancient wood and coated in poison. The origins of this (un?)holy artifact are unknown, but it may be older than nanotransen itself.
+  components:
+  - type: Sprite
+    state: icon
+    sprite: _Funkystation/Objects/Weapons/Melee/crooked_cross.rsi
+  - type: MeleeWeapon
+    wideAnimationRotation: -135
+    angle: 0
+    attackRate: 1
+    damage:
+      types:
+        Piercing: 6
+        Poison: 10
+        Holy: 15
+    soundHit:
+        path: /Audio/Weapons/bladeslice.ogg
+    shape:
+    - 0,2
+  - type: DisarmMalus
+  - type: Sharp
+  - type: Execution
+    doAfterDuration: 1.5
+  - type: Item
+    size: Normal

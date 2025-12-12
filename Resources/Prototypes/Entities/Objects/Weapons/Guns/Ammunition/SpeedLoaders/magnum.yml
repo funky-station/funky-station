@@ -150,3 +150,24 @@
     steps: 7
     zeroVisible: false
   - type: Appearance
+
+- type: entity
+  id: SpeedLoaderMagnumSilver
+  name: "speed loader (.45 magnum silver)"
+  parent: BaseSpeedLoaderMagnum
+  description: Designed to quickly refill an empty revolver, it fits up to six rounds. Intended to hold blessed silver ammunition.
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeMagnumSilver
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Ammunition/SpeedLoaders/Magnum/magnum_speed_loader.rsi
+    layers:
+      - state: base
+        map: [ "enum.GunVisualLayers.Base" ]
+      - state: silver-6
+        map: [ "enum.GunVisualLayers.Mag" ]
+  - type: MagazineVisuals
+    magState: silver
+    steps: 7
+    zeroVisible: false
+  - type: Appearance

@@ -67,5 +67,25 @@
   content:
   - SwordChaplainCosmic
 
+- type: chaplainGearMenuSet
+  id: ChaplainGearCrucifix
+  name: chaplain-gearset-category-crucifix-name
+  description: chaplain-gearset-category-crucifix-description
+  sprite:
+    sprite: _Funkystation/Objects/Weapons/Melee/crooked_cross.rsi
+    state: icon
+  content:
+  - CrossChaplainCrooked
+  
+- type: chaplainGearMenuSet
+  id: ChaplainGearPistol
+  name: chaplain-gearset-category-pistol-name
+  description: chaplain-gearset-category-pistol-description
+  sprite:
+    sprite: _Funkystation/Objects/Weapons/Guns/Pistols/N1984H.rsi
+    state: icon
+  content:
+  - WeaponChaplainPistol
+  - ClothingEyesGlassesChaplainSunglasses
 # end funky
 

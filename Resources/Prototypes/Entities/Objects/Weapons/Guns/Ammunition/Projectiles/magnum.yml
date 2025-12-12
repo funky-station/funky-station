@@ -80,3 +80,15 @@
       types:
         Radiation: 15
         Piercing: 20
+
+- type: entity
+  id: BulletMagnumSilver
+  name: bullet (.45 magnum silver)
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Holy: 20
+        Piercing: 10

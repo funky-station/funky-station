@@ -216,3 +216,14 @@
     - WhitelistChameleon
     - HudMedical
     - HamsterWearable
+
+- type: entity
+  parent: [ClothingEyesGlassesSunglasses, BaseChaplainContraband]
+  id: ClothingEyesGlassesChaplainSunglasses
+  name: silver sun glasses
+  description: Get ready to receive some holy spirit.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Eyes/Glasses/silverglasses.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Eyes/Glasses/silverglasses.rsi

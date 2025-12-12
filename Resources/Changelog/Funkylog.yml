@@ -6474,3 +6474,19 @@ Entries:
         broadcast!
   id: 759
   time: '2025-12-10T22:42:00.0000000+00:00'
+- author: Fr0goo
+  changes:
+    - type: Add
+      message: Added cowboy boots to QM loudout!
+    - type: Add
+      message: Added pirate hat to QM loudout!
+    - type: Tweak
+      message: Resprited cowboy boots!
+    - type: Tweak
+      message: Resprited pirate hat!
+    - type: Tweak
+      message: >-
+        Resprited QM's formal clothes, military clothes, knuckle dusters, beret,
+        and mantle!
+  id: 760
+  time: '2025-12-12T04:26:23.0000000+00:00'

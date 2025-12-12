@@ -175,6 +175,15 @@
   components:
   - type: SupermatterHallucinationImmune
 
+# Beneficial Mutations
+- type: geneticMutation
+  id: AlcoholImmunity
+  name: "Alcohol Immunity"
+  desc: "Subject's liver seems to completely ignore ethanol. They can drink endlessly with no intoxication."
+  instability: 0
+  components:
+  - type: ChemicalResistanceMutationComponent
+    reagent: Ethanol
 
 # Instability Mutations
 - type: geneticMutation

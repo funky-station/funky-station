@@ -4,7 +4,7 @@ using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
 using Robust.Shared.Prototypes;
 
-namespace Content.Server._Funkystation.Genetics.Systems;
+namespace Content.Server._Funkystation.Genetics.Mutations.Systems;
 
 public sealed class GeneticsInstabilityDamageSystem : EntitySystem
 {

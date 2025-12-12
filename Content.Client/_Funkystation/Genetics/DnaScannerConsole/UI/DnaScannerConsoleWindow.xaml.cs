@@ -336,9 +336,9 @@ public sealed partial class DnaScannerConsoleWindow : FancyWindow
     {
         var button = _sequencerButtons[index];
 
+        // If subject is dead just send unmodified sequence - covered on the server as well
         if (_isSubjectDead)
         {
-            // Dead subjects can't change sequence — just send current
             if (_selectedMutationId != null)
                 OnSequencerButtonPressed?.Invoke(index, button.Text?[0] ?? 'X', _selectedMutationId);
             return;

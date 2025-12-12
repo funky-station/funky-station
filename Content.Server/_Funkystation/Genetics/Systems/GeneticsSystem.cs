@@ -10,6 +10,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using Content.Shared.Mobs;
+using Content.Server._Funkystation.Genetics.Mutations.Systems;
 
 namespace Content.Server._Funkystation.Genetics.Systems;
 

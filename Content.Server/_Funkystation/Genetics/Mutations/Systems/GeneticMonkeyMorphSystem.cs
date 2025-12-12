@@ -1,7 +1,7 @@
-namespace Content.Server._Funkystation.Genetics.Systems;
-
-using Content.Server._Funkystation.Genetics.Components;
+using Content.Server._Funkystation.Genetics.Mutations.Components;
 using Content.Server.Polymorph.Systems;
+
+namespace Content.Server._Funkystation.Genetics.Mutations.Systems;
 
 public sealed class GeneticMonkeyMorphSystem : EntitySystem
 {

@@ -47,6 +47,7 @@ using Robust.Shared.Collections;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
+using Content.Server._Funkystation.Genetics.Mutations.Components;
 
 namespace Content.Server.Body.Systems
 {
@@ -186,6 +187,18 @@ namespace Content.Server.Body.Systems
                     continue;
 
                 var mostToRemove = FixedPoint2.Zero;
+
+                // Funkystation - Genetics
+                // Alcohol resistance mutation - completely ignore alcohol metabolism
+                var bodyUid = ent.Comp2?.Body ?? solutionEntityUid.Value;
+                if (TryComp<ChemicalResistanceMutationComponent>(bodyUid, out var resistance) && reagent.Prototype == resistance.Reagent)
+                {
+                    solution.RemoveReagent(reagent, FixedPoint2.New(1f));
+                    reagents += 1;
+                    continue;
+                }
+                // Funkystation - end of genetics changes
+
                 if (proto.Metabolisms is null)
                 {
                     if (ent.Comp1.RemoveEmpty)

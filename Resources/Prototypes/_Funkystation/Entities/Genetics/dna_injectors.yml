@@ -117,10 +117,6 @@
           Quantity: 30
 
 - type: latheRecipe
-  id: DnaScannerConsoleComputerCircuitboard
-  result: DnaScannerConsoleComputerCircuitboard
-
-- type: latheRecipe
   id: DNAInjector
   result: DNAInjectorEmpty
   completetime: 1

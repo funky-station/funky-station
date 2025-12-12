@@ -56,5 +56,16 @@
   content:
   - WeaponSniperChaplainAnnabelle
   - ClothingOuterDusterCoat
+
+- type: chaplainGearMenuSet
+  id: ChaplainGearRapier
+  name: chaplain-gearset-category-rapier-name
+  description: chaplain-gearset-category-rapier-description
+  sprite:
+    sprite: _Funkystation/Objects/Weapons/Melee/star_rapier.rsi
+    state: icon
+  content:
+  - SwordChaplainCosmic
+
 # end funky
 

@@ -105,3 +105,77 @@
     graph: Tsword
     node: tsword
 
+- type: entity
+  name: star rapier
+  parent: BaseSword
+  id: SwordChaplainCosmic
+  description: An etherial rapier that emmits glimmers of cold enthropy. It is said that wielding this blade too long drains the soul of those not touched by the truth.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Weapons/Melee/star_rapier.rsi
+    layers:
+      - state: icon
+      - state: icon-overlay
+        shader: unshaded
+  - type: MeleeWeapon
+    resistanceBypass: true
+    angle: 90
+    animation: WeaponArcCosmic
+    attackRate: 0.5
+    clickDamageModifier: 1.5
+    damage:
+      types:
+        Slash: 4
+        Asphyxiation: 4
+        Cold: 4
+        Holy: 15
+    soundHit:
+      path: /Audio/_DV/CosmicCult/cosmicsword_hit.ogg
+      params:
+        variation: 0.2
+        volume: 1
+    soundSwing:
+      path: /Audio/_DV/CosmicCult/cosmicweapon_swing.ogg
+      params:
+        variation: 0.125
+        volume: -4
+    soundNoDamage:
+      path: /Audio/_DV/CosmicCult/cosmicsword_glance.ogg
+      params:
+        variation: 0.2
+        volume: -11
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Slash: 6
+        Asphyxiation: 6
+        Cold: 6
+        Holy: 20
+  - type: Reflect
+    reflectProb: .5
+    spread: 60
+    soundOnReflect:
+      path: /Audio/_DV/CosmicCult/cosmicsword_glance.ogg
+      params:
+        variation: 0.2
+        volume: -6
+  - type: DisarmMalus
+  - type: Item
+    size: Huge
+    sprite: _Funkystation/Objects/Weapons/Melee/star_rapier.rsi
+    inhandVisuals:
+      left:
+      - state: inhand-left
+      right:
+      - state: inhand-right
+  - type: EmbeddableProjectile
+    removalTime: 2
+    sound: /Audio/_DV/CosmicCult/cosmiclance_impact.ogg
+  - type: ThrowingAngle
+    angle: 225
+  - type: LandAtCursor
+  - type: Sharp
+  - type: Clothing
+    quickEquip: false
+    slots:
+    - backStorage

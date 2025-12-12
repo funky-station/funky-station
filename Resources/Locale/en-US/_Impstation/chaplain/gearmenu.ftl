@@ -48,4 +48,11 @@ chaplain-gearset-category-gun-description =
     A Winchester 1886 with religious imagery plastered all over it.
     Carved into its stock, "Matthew 19:23-24." Though it comes with
     four silver bullets, it has no matching ammo box. Spend them wisely.
+	
+chaplain-gearset-category-rapier-name = Star Rapier
+chaplain-gearset-category-rapier-description =
+    An interesting weapon harnessing the power of entropy.
+    Some may call it the embodiment of contradiction, others call it
+    fighting fire with fire. Or cold, they burn all the same.
+    As a precision weapon, it has lower damage when doing wide swings.
 # end funky

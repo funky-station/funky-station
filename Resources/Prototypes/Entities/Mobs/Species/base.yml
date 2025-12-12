@@ -366,7 +366,6 @@
     groups:
       Flammable: [ Touch ]
       Extinguish: [ Touch ]
-      Acidic: [Touch, Ingestion, Eyes] # Goobstation
     reactions:
     - reagents: [Water, SpaceCleaner]
       methods: [Touch]
@@ -447,8 +446,6 @@
         type: HumanoidMarkingModifierBoundUserInterface
       enum.StrippingUiKey.Key:
         type: StrippableBoundUserInterface
-      enum.SetWantedVerbMenu.Key: # Goobstation-WantedMenu
-        type: WantedMenuBoundUserInterface
       # Goobstation - changelings
       enum.StoreUiKey.Key:
         type: StoreBoundUserInterface

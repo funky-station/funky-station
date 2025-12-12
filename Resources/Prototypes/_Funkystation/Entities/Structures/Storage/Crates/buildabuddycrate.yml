@@ -390,7 +390,7 @@
     sprite: _Funkystation/Structures/Storage/Crates/buildabuddy.rsi
   - type: StorageFill
     contents:
-    - id: TorsoIPC
+    - id: ChestIPC
       amount: 1
     - id: HeadIPC
       amount: 1

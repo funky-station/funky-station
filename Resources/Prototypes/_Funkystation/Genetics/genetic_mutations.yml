@@ -180,10 +180,44 @@
   id: AlcoholImmunity
   name: "Alcohol Immunity"
   desc: "Subject's liver seems to completely ignore ethanol. They can drink endlessly with no intoxication."
+  popupText: "You feel unusually sober."
   instability: 0
   components:
   - type: ChemicalResistanceMutationComponent
-    reagent: Ethanol
+    reagents:
+      - Ethanol
+
+- type: geneticMutation
+  id: AnaerobicMetabolism
+  name: "Anaerobic Metabolism"
+  desc: "Allows the subject's body to generate its own oxygen internally, invalidating the need for respiration."
+  popupText: "Your lungs feel strangely empty."
+  instability: 40
+  components:
+  - type: BreathingImmunity
+
+- type: geneticMutation
+  id: NightVision
+  name: "Night Vision"
+  desc: "Enhances the subject's optic nerves, allowing them to see in the dark."
+  popupText: "Everything suddenly appears oddly lit."
+  instability: 25
+  components:
+  - type: NightVision
+
+# TODO: Add a bunch of poisons to this
+# - type: geneticMutation
+#   id: ToxinImmunity
+#   name: "Toxin Immunity"
+#   desc: "Renders the subject's blood immune to toxification."
+#   popupText: "You feel unusually sober."
+#   instability: 0
+#   components:
+#   - type: ChemicalResistanceMutationComponent
+#     reagenst:
+#     - Ethanol
+
+
 
 # Instability Mutations
 - type: geneticMutation

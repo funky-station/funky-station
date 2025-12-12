@@ -191,11 +191,13 @@ namespace Content.Server.Body.Systems
                 // Funkystation - Genetics
                 // Alcohol resistance mutation - completely ignore alcohol metabolism
                 var bodyUid = ent.Comp2?.Body ?? solutionEntityUid.Value;
-                if (TryComp<ChemicalResistanceMutationComponent>(bodyUid, out var resistance) && reagent.Prototype == resistance.Reagent)
+
+                if (TryComp<ChemicalResistanceMutationComponent>(bodyUid, out var resistance) && resistance.Reagents.Contains(reagent.Prototype))
                 {
-                    solution.RemoveReagent(reagent, FixedPoint2.New(1f));
+                    var removeAmount = FixedPoint2.Min(resistance.PurgeAmount, quantity);
+                    solution.RemoveReagent(reagent, removeAmount);
                     reagents += 1;
-                    continue;
+                    continue; // Skip normal metabolism and effects
                 }
                 // Funkystation - end of genetics changes
 

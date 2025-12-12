@@ -28,7 +28,7 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:Temperature
+        - !type:TemperatureCondition
           max: 213.0
         - !type:OrganType
           type: Arachnid
@@ -38,7 +38,7 @@
             Bloodloss: -6
       - !type:ModifyBloodLevel
         conditions:
-        - !type:Temperature
+        - !type:TemperatureCondition
           max: 213.0
         - !type:OrganType
           type: Arachnid
@@ -69,7 +69,7 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:Temperature
+        - !type:TemperatureCondition
           max: 213.0
         - !type:OrganType
           type: Arachnid
@@ -79,7 +79,7 @@
             Bloodloss: -6
       - !type:ModifyBloodLevel
         conditions:
-        - !type:Temperature
+        - !type:TemperatureCondition
           max: 213.0
         - !type:OrganType
           type: Arachnid
@@ -109,6 +109,6 @@
         refresh: false
         time: 8.0
         type: Add
-      - !type:MovespeedModifier
+      - !type:MovementSpeedModifier
         walkSpeedModifier: 0.5
         sprintSpeedModifier: 0.5

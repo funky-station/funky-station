@@ -222,17 +222,17 @@
   description: alerts-buckled-desc
 
 - type: alert
-  id: Thieving
-  clickEvent: !type:ThievingToggleEvent
+  id: Stealthy
+  clickEvent: !type:ToggleThievingEvent
   icons:
-  - sprite: /Textures/_Funkystation/Interface/Alerts/thieving.rsi
-    state: thieving_OFF
-  - sprite: /Textures/_Funkystation/Interface/Alerts/thieving.rsi
-    state: thieving_ON
-  name: alerts-thieving-name
-  description: alerts-thieving-desc
-  minSeverity: 1
-  maxSeverity: 2
+  - sprite: /Textures/Interface/Alerts/stealthy.rsi
+    state: stealthy-off
+  - sprite: /Textures/Interface/Alerts/stealthy.rsi
+    state: stealthy-on
+  name: alerts-stealthy-name
+  description: alerts-stealthy-desc
+  minSeverity: 0
+  maxSeverity: 1
 
 - type: alert
   id: HumanCrit
@@ -506,19 +506,6 @@
     state: icon
   name: alerts-pacified-name
   description: alerts-pacified-desc
-
-- type: alert
-  id: Stealthy
-  clickEvent: !type:ToggleThievingEvent
-  icons:
-  - sprite: /Textures/Interface/Alerts/stealthy.rsi
-    state: stealthy-off
-  - sprite: /Textures/Interface/Alerts/stealthy.rsi
-    state: stealthy-on
-  name: alerts-stealthy-name
-  description: alerts-stealthy-desc
-  minSeverity: 0
-  maxSeverity: 1
 
 - type: alert
   id: Adrenaline

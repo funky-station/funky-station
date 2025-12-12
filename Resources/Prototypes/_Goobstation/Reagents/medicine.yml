@@ -39,12 +39,13 @@
         - !type:HealthChange
           conditions:
           - !type:ReagentCondition
+            reagent: Stasizium
             min: 21
           damage:
             types:
               Blunt: 100
         - !type:AdjustTemperature
           conditions:
-          - !type:Temperature
+          - !type:TemperatureCondition
             min: 263.15
           amount: -50000

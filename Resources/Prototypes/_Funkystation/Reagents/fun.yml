@@ -27,10 +27,12 @@
           type: Animal
           shouldHave: false
         - !type:ReagentCondition
+          reagent: CatExtract
           min: 50
       - !type:AdjustReagent
         reagent: CatExtract
         amount: -20
         conditions:
         - !type:ReagentCondition
+          reagent: CatExtract
           min: 50

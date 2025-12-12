@@ -463,10 +463,14 @@
 
 - type: entity
   name: pulse rifle
-  parent: [BaseWeaponBattery, BaseGunWieldable]
+  parent: [BaseWeaponBattery, BaseGunWieldable, BaseCentcommContraband]
   id: WeaponPulseRifle
   description: A weapon that is almost as infamous as its users.
   components:
+  - type: Item
+    size: Huge
+    shape:
+    - 0,0,4,1
   - type: Sprite
     sprite: Objects/Weapons/Guns/Battery/pulse_rifle.rsi
     layers:
@@ -698,7 +702,7 @@
 
 - type: entity
   name: taser
-  parent: [ BaseWeaponBatterySmall, BaseSecurityContraband ]
+  parent: [BaseWeaponBatterySmall, BaseSecurityContraband]
   id: WeaponTaser
   description: A low-capacity, energy-based stun gun used by security teams to subdue targets at close range.
   components:
@@ -721,6 +725,7 @@
     slots:
     - Belt
   - type: Gun
+    fireRate: 0.5
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/taser.ogg
   - type: BatteryAmmoProvider
@@ -731,6 +736,7 @@
     steps: 5
     zeroVisible: true
   - type: Appearance
+  - type: PacifismAllowedGun
 
 - type: entity
   name: elite taser

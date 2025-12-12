@@ -268,7 +268,7 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:Temperature
+        - !type:TemperatureCondition
           # this is a little arbitrary but they gotta be pretty cold
           max: 213.0
         damage:
@@ -293,7 +293,7 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:Temperature
+        - !type:TemperatureCondition
           max: 213.0
         damage:
           types:
@@ -351,6 +351,7 @@
       - !type:HealthChange
         conditions:
         - !type:ReagentCondition
+          reagent: Dexalin
           min: 20
         damage:
           types:
@@ -408,6 +409,7 @@
         - !type:MobStateCondition
           mobstate: Critical
         - !type:ReagentCondition
+          reagent: Epinephrine
           min: 0
           max: 20
         damage:
@@ -420,6 +422,7 @@
       - !type:HealthChange
         conditions:
         - !type:ReagentCondition
+          reagent: Epinephrine
           min: 20
         damage:
           types:
@@ -455,7 +458,7 @@
         key: Adrenaline # Guess what epinephrine is...
         component: IgnoreSlowOnDamage
         time: 5 # lingers less than hivemind reagent to give it a niche
-      - !type:MovespeedModifier # Goob edit
+      - !type:MovementSpeedModifier # Goob edit
         walkSpeedModifier: 1.1
         sprintSpeedModifier: 1.1
 
@@ -480,6 +483,7 @@
       - !type:HealthChange
         conditions:
         - !type:ReagentCondition
+          reagent: Hyronalin
           min: 20 # Funkychem
         damage:
           types:
@@ -487,6 +491,7 @@
       - !type:Jitter
         conditions:
         - !type:ReagentCondition
+          reagent: Hyronalin
           min: 30
 
 - type: reagent
@@ -503,6 +508,7 @@
       - !type:Vomit
         conditions:
         - !type:ReagentCondition
+          reagent: Ipecac
           min: 4
         probability: 0.3
 
@@ -580,12 +586,12 @@
             Cold: -2 # Funkychem
       - !type:AdjustTemperature
         conditions:
-        - !type:Temperature
+        - !type:TemperatureCondition
           max: 293.15
         amount: 100000 # thermal energy, not temperature!
       - !type:AdjustTemperature
         conditions:
-        - !type:Temperature
+        - !type:TemperatureCondition
           min: 293.15
         amount: -10000
       - !type:PopupMessage
@@ -616,6 +622,7 @@
       - !type:HealthChange
         conditions:
         - !type:ReagentCondition
+          reagent: Barozine
           min: 30
         damage:
           types:
@@ -624,6 +631,7 @@
         probability: 0.15
         conditions:
         - !type:ReagentCondition
+          reagent: Barozine
           min: 30
       - !type:GenericStatusEffect
         key: PressureImmunity
@@ -655,6 +663,7 @@
   - !type:PlantPhalanximine
     conditions:
     - !type:ReagentCondition
+      reagent: Phalanximine
       min: 4
   metabolisms:
     Medicine:
@@ -689,6 +698,7 @@
       - !type:HealthChange
         conditions:
         - !type:ReagentCondition
+          reagent: PolypyryliumOligomers
           min: 30
         damage:
           types:
@@ -710,6 +720,7 @@
       - !type:CureZombieInfection
         conditions:
         - !type:ReagentCondition
+          reagent: Ambuzol
           min: 10
 
 - type: reagent
@@ -727,6 +738,7 @@
         innoculate: true
         conditions:
         - !type:ReagentCondition
+          reagent: AmbuzolPlus
           min: 5
 
 - type: reagent
@@ -846,6 +858,7 @@
       - !type:HealthChange
         conditions:
         - !type:ReagentCondition
+          reagent: TranexamicAcid
           min: 15
         damage:
           types:
@@ -865,7 +878,7 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:TotalDamage
+        - !type:TotalDamageCondition
           max: 40 # Funkychem
         damage: # Funkychem
           groups:
@@ -926,6 +939,7 @@
       - !type:HealthChange
         conditions:
         - !type:ReagentCondition
+          reagent: Ultravasculine
           min: 0
           max: 30
         damage:
@@ -935,6 +949,7 @@
       - !type:HealthChange
         conditions:
         - !type:ReagentCondition
+          reagent: Ultravasculine
           min: 30
         damage:
           groups:
@@ -966,7 +981,7 @@
   metabolisms:
     Medicine:
       effects:
-      - !type:HealEyeDamage
+      - !type:EyeDamage
 
 - type: reagent
   id: Cognizine
@@ -982,6 +997,7 @@
       - !type:MakeSentient
         conditions:
         - !type:ReagentCondition
+          reagent: Cognizine
           min: 5
 
 - type: reagent
@@ -1006,6 +1022,7 @@
       - !type:ResetNarcolepsy
         conditions:
         - !type:ReagentCondition
+          reagent: Ethyloxyephedrine
           min: 10
       - !type:PopupMessage
         visualType: Medium
@@ -1031,6 +1048,7 @@
       - !type:ResetNarcolepsy
         conditions:
         - !type:ReagentCondition
+          reagent: Diphenylmethylamine
           min: 5
       - !type:PopupMessage
         visualType: Medium
@@ -1056,6 +1074,7 @@
       - !type:HealthChange
         conditions:
         - !type:ReagentCondition
+          reagent: Sigynate
           min: 16
         damage:
           types:
@@ -1063,10 +1082,12 @@
       - !type:Jitter
         conditions:
         - !type:ReagentCondition
+          reagent: Sigynate
           min: 20
       - !type:PopupMessage
         conditions:
         - !type:ReagentCondition
+          reagent: Sigynate
           min: 20
         type: Local
         visualType: Medium
@@ -1075,6 +1096,7 @@
       - !type:Vomit
         conditions:
         - !type:ReagentCondition
+          reagent: Sigynate
           min: 30
         probability: 0.02
 
@@ -1097,6 +1119,7 @@
       - !type:HealthChange
         conditions:
         - !type:ReagentCondition
+          reagent: Lacerinol
           min: 12
         damage:
           types:
@@ -1122,6 +1145,7 @@
       - !type:HealthChange
         conditions:
         - !type:ReagentCondition
+          reagent: Puncturase
           min: 11
         damage:
           types:
@@ -1146,6 +1170,7 @@
       - !type:HealthChange
         conditions:
         - !type:ReagentCondition
+          reagent: Bruizine
           min: 10.5
         damage:
           types:
@@ -1170,7 +1195,7 @@
         amount: 2.5
       - !type:HealthChange
         conditions:
-        - !type:TotalDamage
+        - !type:TotalDamageCondition
           max: 50
         damage:
           types:
@@ -1190,13 +1215,13 @@
     Extinguish:
       methods: [ Touch ]
       effects:
-      - !type:ExtinguishReaction
+      - !type:Extinguish
     CultistPurge:
       methods: [ Touch ]
       effects:
       - !type:HealthChange
         conditions:
-        - !type:IsBloodCultist
+        - !type:IsBloodCultistCondition
         damage:
           types:
             Heat: 8
@@ -1238,6 +1263,7 @@
       - !type:HealthChange
         conditions:
         - !type:ReagentCondition
+          reagent: Pyrazine
           min: 20
         damage:
           types:
@@ -1246,11 +1272,13 @@
       - !type:Vomit
         conditions:
         - !type:ReagentCondition
+          reagent: Pyrazine
           min: 15
         probability: 0.1
       - !type:Emote
         conditions:
         - !type:ReagentCondition
+          reagent: Pyrazine
           min: 20
         emote: Scream
         probability: 0.2
@@ -1285,6 +1313,7 @@
       - !type:HealthChange
         conditions:
         - !type:ReagentCondition
+          reagent: Insuzine
           min: 12
         damage:
           types:
@@ -1292,11 +1321,13 @@
       - !type:AdjustTemperature
         conditions:
         - !type:ReagentCondition
+          reagent: Insuzine
           min: 12
         amount: -30000
       - !type:Jitter
         conditions:
         - !type:ReagentCondition
+          reagent: Insuzine
           min: 12
 
 - type: reagent
@@ -1315,7 +1346,7 @@
         seconds: 20
         conditions:
         #Patient must be dead and in a cryo tube (or something cold)
-        - !type:Temperature
+        - !type:TemperatureCondition
           max: 150.0
         - !type:MobStateCondition
           mobstate: Dead
@@ -1340,7 +1371,7 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:Temperature
+        - !type:TemperatureCondition
           max: 213.0
         damage:
           groups:
@@ -1363,7 +1394,7 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:Temperature
+        - !type:TemperatureCondition
           max: 213.0
         damage:
           types:
@@ -1385,6 +1416,7 @@
       - !type:PopupMessage
         conditions:
         - !type:ReagentCondition
+          reagent: Mannitol
           min: 15
         type: Local
         visualType: Medium
@@ -1405,6 +1437,7 @@
       - !type:HealthChange
         conditions:
         - !type:ReagentCondition
+          reagent: Psicodine
           min: 30
         damage:
           types:
@@ -1412,6 +1445,7 @@
       - !type:GenericStatusEffect
         conditions:
         - !type:ReagentCondition
+          reagent: Psicodine
           min: 30
         key: SeeingRainbows
         component: SeeingRainbows
@@ -1456,6 +1490,7 @@
       - !type:HealthChange
         conditions:
         - !type:ReagentCondition
+          reagent: PotassiumIodide
           min: 20
         damage:
           types:

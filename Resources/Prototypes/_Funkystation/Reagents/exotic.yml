@@ -34,6 +34,7 @@
       - !type:HealthChange
         conditions:
           - !type:ReagentCondition
+            reagent: Stasicillin
             min: 11
         damage:
           groups:
@@ -44,6 +45,7 @@
       - !type:GenericStatusEffect
         conditions:
         - !type:ReagentCondition
+          reagent: Stasicillin
           min: 11
         key: ForcedSleep
         component: ForcedSleeping
@@ -85,7 +87,7 @@
     Narcotic:
       metabolismRate: 0.2
       effects:
-      - !type:MovespeedModifier
+      - !type:MovementSpeedModifier
         walkSpeedModifier: 1.35
         sprintSpeedModifier: 1.35
       - !type:GenericStatusEffect
@@ -145,12 +147,14 @@
           type: Animal
           shouldHave: false
         - !type:ReagentCondition
+          reagent: Corgium
           min: 20
       - !type:AdjustReagent
         reagent: Corgium
         amount: -10
         conditions:
         - !type:ReagentCondition
+          reagent: Corgium
           min: 20
 
 - type: reagent
@@ -168,4 +172,5 @@
         prototype: CorgiMorphPerm
         conditions:
         - !type:ReagentCondition
+          reagent: Muigroc
           min: 20

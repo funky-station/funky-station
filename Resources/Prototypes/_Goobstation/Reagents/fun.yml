@@ -27,17 +27,20 @@
         component: Muted
         conditions:
         - !type:ReagentCondition
+          reagent: Tranquility
           min: 5
       - !type:GenericStatusEffect
         key: Pacified
         component: Pacified
         conditions:
         - !type:ReagentCondition
+          reagent: Tranquility
           min: 10
       - !type:Polymorph
         prototype: Gondola
         conditions:
         - !type:ReagentCondition
+          reagent: Tranquility
           min: 25
 
 # CREATED BY Goldminermac

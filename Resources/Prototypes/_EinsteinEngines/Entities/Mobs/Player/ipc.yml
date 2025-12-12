@@ -54,9 +54,6 @@
         type: StoreBoundUserInterface
       enum.HereticLivingHeartKey.Key: # goob edit - heretics
         type: LivingHeartMenuBoundUserInterface
-      enum.WizardTeleportUiKey.Key: # Goobstation - wizard
-        type: WizardTeleportBoundUserInterface
-        requireInputValidation: false
       enum.SurgeryUIKey.Key: # Shitmed
         type: SurgeryBui
   # Goobstation Start - Energycrit

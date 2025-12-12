@@ -616,22 +616,6 @@
   - type: ChangelingAction
     chemicalCost: 20
 
-- type: entity
-  id: ActionToggleSpacesuit
-  name: Toggle Space Suit
-  description: Make your body space proof. Costs 20 chemicals.
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: InstantAction
-    useDelay: 2
-    itemIconStyle: NoItem
-    icon:
-      sprite: _Goobstation/Changeling/changeling_abilities.rsi
-      state: space_adaptation
-    event: !type:ActionSpacesuitEvent {}
-  - type: ChangelingAction
-    chemicalCost: 20
-
 #- type: entity
 #  id: ActionHivemindAccess
 #  name: Hivemind Access

@@ -991,14 +991,28 @@
   - type: BatteryAmmoProvider
     proto: BulletLaserSpreadNarrow
     fireCost: 80
-  - type: BatteryWeaponFireModes
-    fireModes:
-    - proto: BulletLaserSpread
-      fireCost: 100
-    - proto: BulletLaserSpreadNarrow
-      fireCost: 100
-    - proto: BulletDisablerSmgSpread
-      fireCost: 100
+  #- type: BatteryWeaponFireModes
+   # fireModes:
+    #- proto: BulletLaserSpread
+    #  fireCost: 100
+    #- proto: BulletLaserSpreadNarrow
+    #  fireCost: 100
+    #- proto: BulletDisablerSmgSpread
+    #  fireCost: 100
+  - type: AmmoSelector
+    prototypes:
+      - BulletLaserSpread
+      - BulletLaserSpreadNarrow
+      - BulletDisablerSmgSpread
+  - type: UserInterface
+    interfaces:
+      enum.AmmoSelectorUiKey.Key:
+        type: AmmoSelectorMenuBoundUserInterface
+  - type: ActivatableUI
+    altVerb: true
+    verbOnly: true
+    verbText: mode-select-verb-text
+    key: enum.AmmoSelectorUiKey.Key
   - type: Item
     size: Large
     sprite: Objects/Weapons/Guns/Battery/inhands_64x.rsi

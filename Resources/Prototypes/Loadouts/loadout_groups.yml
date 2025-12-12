@@ -954,6 +954,7 @@
   - QuartermasterHead
   - QuartermasterBeret
   - QuartermasterTophat
+  - PirateTricord
 
 - type: loadoutGroup
   id: QuartermasterJumpsuit
@@ -992,6 +993,9 @@
   - WorkBoots
   - SalvageBoots
   - CargoWinterBoots
+  - BrownCowboyBoots
+  - WhiteCowboyBoots
+  - BlackCowboyBoots
 
 - type: loadoutGroup #WizDen Weh Job Plush
   id: QuartermasterJobTrinkets

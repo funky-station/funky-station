@@ -35,8 +35,9 @@
   - type: EntityTableContainerFill
     containers:
       entity_storage:
-      - id: WrappedBee # funky
-        amount: 8
+        children:
+        - id: WrappedBee # funky
+          amount: 8
 
 - type: entity
   parent: CrateLivestock
@@ -47,8 +48,9 @@
   - type: EntityTableContainerFill
     containers:
       entity_storage:
-        id: MobButterfly
-        amount: 5
+        children:
+          id: MobButterfly
+          amount: 5
 
 - type: entity
   parent: CrateLivestock

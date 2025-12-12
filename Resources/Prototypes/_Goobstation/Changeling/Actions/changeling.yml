@@ -74,29 +74,6 @@
     useInLesserForm: true
 
 - type: entity
-  id: ActionInfectTarget
-  name: Infect Target
-  description: Injects a Changeling parasite into the target, eventually converting them into a fellow Changeling. Requires them to be incapacitated. Costs 60 chemicals.
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: EntityTargetAction
-    useDelay: 180
-    whitelist:
-      components:
-      - Body
-    canTargetSelf: false
-    interactOnMiss: false
-    itemIconStyle: NoItem
-    icon:
-      sprite: _Goobstation/Changeling/changeling_abilities.rsi
-      state: lay_egg
-    event: !type:ChangelingInfectTargetEvent {}
-  - type: ChangelingAction
-    chemicalCost: 60
-    requireBiomass: true
-    useInLesserForm: false
-
-- type: entity
   id: ActionStingExtractDNA
   name: Extract DNA sting
   description: Steal your target's genetic information. After the first usage, the target must be critical or dead. Costs 25 chemicals.
@@ -558,7 +535,7 @@
     icon:
       sprite: _Goobstation/Changeling/changeling_abilities.rsi
       state: epinephrine_overdose
-    event: !type:ActionEphedrineOverdoseEvent {}
+    event: !type:ActionAdrenalineReservesEvent {}
   - type: ChangelingAction
     chemicalCost: 30
     useInLesserForm: true

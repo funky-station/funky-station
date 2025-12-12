@@ -62,8 +62,6 @@ public sealed partial class ChangelingComponent : Component
 
     #endregion
 
-    public EntProtoId ShieldPrototype = "ChangelingShield";
-
     public bool IsInStasis = false;
 
     public bool StrainedMusclesActive = false;

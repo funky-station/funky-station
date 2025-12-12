@@ -815,7 +815,7 @@
     sprite: Objects/Fun/card_sword.rsi
     slots:
     - Back
-    - SuitStorage
+    - tankStorage
   - type: StaminaDamageOnHit
     damage: 6
   - type: Appearance

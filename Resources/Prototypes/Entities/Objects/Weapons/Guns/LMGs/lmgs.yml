@@ -15,7 +15,7 @@
     quickEquip: false
     slots:
     - Back
-    - suitStorage
+    - tankStorage
   - type: Wieldable
     unwieldOnUse: false
   - type: GunWieldBonus

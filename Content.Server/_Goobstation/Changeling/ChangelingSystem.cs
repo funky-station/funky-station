@@ -165,7 +165,6 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
     public EntProtoId ClawPrototype = "ArmClawChangeling";
     public EntProtoId DartGunPrototype = "DartGunChangeling";
 
-    public EntProtoId ShieldPrototype = "ChangelingShield";
     public EntProtoId BoneShardPrototype = "ThrowingStarChangeling";
 
     public EntProtoId ArmorPrototype = "ChangelingClothingOuterArmor";

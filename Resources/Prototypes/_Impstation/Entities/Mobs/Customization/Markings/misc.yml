@@ -440,47 +440,6 @@
   shader: unshaded
 
 - type: marking
-  id: SpiderMirror
-  bodyPart: Chest
-  markingCategory: Chest
-  speciesRestriction: [ Arachnid ]
-  forcedColoring: false
-  followSkinColor: false
-  sprites:
-  - sprite: _Impstation/Mobs/Customization/animatedmarkings.rsi
-    state: spidermirror
-  shader: unshaded
-
-- type: marking
-  id: SpiderGlowEyes
-  bodyPart: Eyes
-  markingCategory: Head
-  speciesRestriction: [ Arachnid ]
-  forcedColoring: false
-  followSkinColor: false
-  sprites:
-  - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
-    state: spidergloweyes
-  shader: unshaded
-
-- type: marking
-  id: SpiderEyesMulti
-  bodyPart: Eyes
-  markingCategory: Head
-  speciesRestriction: [ Arachnid ]
-  forcedColoring: false
-  followSkinColor: false
-  sprites:
-  - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
-    state: spidereyesmulti1
-  - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
-    state: spidereyesmulti2
-  - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
-    state: spidereyesmulti3
-  - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
-    state: spidereyesmulti4
-
-- type: marking
   id: MothTrueButterfly
   bodyPart: Tail
   markingCategory: Tail

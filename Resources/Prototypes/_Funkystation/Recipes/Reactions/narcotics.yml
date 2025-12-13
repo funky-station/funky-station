@@ -1,7 +1,7 @@
 - type: reaction
   id: ForeverAlcohol
   reactants:
-    Cogchamp:
+    CogChamp:
       amount: 1
     GargleBlaster:
       amount: 1

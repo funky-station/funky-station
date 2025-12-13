@@ -106,5 +106,14 @@ namespace Content.Shared.Atmos.Prototypes
 
         [DataField("pricePerMole")]
         public float PricePerMole { get; set; } = 0;
+
+        /// <summary>
+        /// Funkystation
+        /// The severity of reaction this gas will have interacting with the supermatter.
+        /// This is used for UI only.
+        /// 0 = very safe, 6 = extremely dangerous
+        /// </summary>
+        [DataField("dangerLevel")]
+        public int DangerLevel { get; set; } = 0;
     }
 }

@@ -1,0 +1,97 @@
+# SPDX-FileCopyrightText: 2025 SigmaTheDragon <162711378+SigmaTheDragon@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  name: Wyvern
+  parent: [BaseWeaponPistol, BaseSecurityCommandContraband]
+  id: WeaponPistolWyvern
+  description: A large, bulky and incredibly powerful pistol with large damage potential and stopping power. Chambered in .50 AE, it is able to hurt even armored targets. Historically it has been produced and sold in small amounts to both Nanotransen and Cybersun, making it a rare and sought after pistol.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Weapons/Guns/Pistols/wyvern.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Clothing
+    sprite: _Funkystation/Objects/Weapons/Guns/Pistols/wyvern.rsi
+  - type: Gun
+    minAngle: 1
+    maxAngle: 15
+    angleIncrease: 5
+    angleDecay: 5
+    fireRate: 1.5
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/rifle2.ogg
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MagazinePistolLarge
+        insertSound: /Audio/Weapons/Guns/MagIn/pistol_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/pistol_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+            - MagazinePistolLarge
+        whitelistFailPopup: gun-magazine-whitelist-fail
+      gun_chamber:
+        name: Chamber
+        startingItem: CartridgePistolLarge
+        priority: 1
+        whitelist:
+          tags:
+            - CartridgePistolLarge
+  - type: Multishot # Goobstation
+    spreadMultiplier: 1.5
+
+- type: entity
+  name: Wyvern
+  parent: [BaseWeaponPistol, BaseSecurityCommandContraband]
+  id: WeaponPistolWyvernSyndicate
+  description: A large, bulky and incredibly powerful pistol with large damage potential and stopping power. Chambered in .50 AE, it is able to hurt even armored targets. Historically it has been produced and sold in small amounts to both Nanotransen and Cybersun, making it a rare and sought after pistol.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Weapons/Guns/Pistols/wyvern.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Clothing
+    sprite: _Funkystation/Objects/Weapons/Guns/Pistols/wyvern.rsi
+  - type: Gun
+    minAngle: 1
+    maxAngle: 15
+    angleIncrease: 5
+    angleDecay: 5
+    fireRate: 1.5
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/rifle2.ogg
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MagazinePistolLargeUranium
+        insertSound: /Audio/Weapons/Guns/MagIn/pistol_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/pistol_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+            - MagazinePistolLarge
+        whitelistFailPopup: gun-magazine-whitelist-fail
+      gun_chamber:
+        name: Chamber
+        startingItem: CartridgePistolLargeUranium
+        priority: 1
+        whitelist:
+          tags:
+            - CartridgePistolLarge
+  - type: Multishot # Goobstation
+    spreadMultiplier: 1.5

@@ -1,4 +1,5 @@
 // SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Ilya Mikheev <me@ilyamikcoder.com>
 // SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 // SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
@@ -12,7 +13,7 @@ using Content.Shared.CriminalRecords;
 using Content.Shared.CriminalRecords.Components;
 using Content.Shared.CriminalRecords.Systems;
 using Content.Shared.Random.Helpers;
-using Content.Shared.Security;
+using Content.Shared._Funkystation.Security;
 using Content.Shared.StationRecords;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
@@ -27,6 +28,8 @@ public sealed class CriminalRecordsHackerSystem : SharedCriminalRecordsHackerSys
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly StationSystem _station = default!;
     [Dependency] private readonly StationRecordsSystem _records = default!;
+
+    private static readonly ProtoId<SecurityStatusPrototype> WantedStatusProtoId = "SecurityStatusWanted";
 
     public override void Initialize()
     {
@@ -43,11 +46,12 @@ public sealed class CriminalRecordsHackerSystem : SharedCriminalRecordsHackerSys
         if (_station.GetOwningStation(ent) is not {} station)
             return;
 
+        var wantedStatusPrototype = _proto.Index(WantedStatusProtoId);
         var reasons = _proto.Index(ent.Comp.Reasons);
         foreach (var (key, record) in _records.GetRecordsOfType<CriminalRecord>(station))
         {
             var reason = _random.Pick(reasons);
-            _criminalRecords.OverwriteStatus(new StationRecordKey(key, station), record, SecurityStatus.Wanted, reason);
+            _criminalRecords.OverwriteStatus(new StationRecordKey(key, station), record, wantedStatusPrototype, reason);
             // no radio message since spam
             // no history since lazy and its easy to remove anyway
             // main damage with this is existing arrest warrants are lost and to anger beepsky

@@ -1,22 +1,23 @@
 # SPDX-FileCopyrightText: 2025 Skye <57879983+Rainbeon@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Terkala <appleorange64@gmail.com>
 # SPDX-FileCopyrightText: 2025 kbarkevich <24629810+kbarkevich@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
-# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+# SPDX-License-Identifier: AGPL-3.0-or-later or MIT
 
 - type: entity
   parent: [ SheetMetalBase, BaseBloodCultContraband ]
-  id: SheetRunedMetal
-  name: runed metal
+  id: SheetRunedSteel
+  name: runed steel
   suffix: Full
-  description: A sheet of otherworldly metal, used by acolytes of cosmic entities to assemble twisted constructs.
+  description: A sheet of otherworldly steel, used by acolytes of cosmic entities to assemble twisted constructs.
   components:
   - type: Material
   - type: PhysicalComposition
     materialComposition:
-      RunedMetal: 100
+      RunedSteel: 100
   - type: Stack
-    stackType: RunedMetal
+    stackType: RunedSteel
     baseLayer: base
     layerStates:
     - runedmetal
@@ -29,41 +30,42 @@
     - state: runedmetal_3
       map: ["base"]
   - type: Item
+    sprite: _Funkystation/BloodCult/Sheets/metal.rsi
     heldPrefix: runedmetal
   - type: Appearance
 
 - type: entity
-  parent: SheetRunedMetal
-  id: SheetRunedMetal30
-  name: runed metal
-  suffix: Full
+  parent: SheetRunedSteel
+  id: SheetRunedSteel30
+  name: runed steel
+  suffix: 30
   components:
   - type: Sprite
-    state: runedmetal
+    state: runedmetal_3
   - type: Stack
-    stackType: RunedMetal
+    stackType: RunedSteel
     count: 30
 
 - type: entity
-  parent: SheetRunedMetal
-  id: SheetRunedMetal10
-  name: runed metal
+  parent: SheetRunedSteel
+  id: SheetRunedSteel10
+  name: runed steel
   suffix: 10
   components:
   - type: Sprite
-    state: runedmetal
+    state: runedmetal_2
   - type: Stack
-    stackType: RunedMetal
+    stackType: RunedSteel
     count: 10
 
 - type: entity
-  parent: SheetRunedMetal
-  id: SheetRunedMetal1
-  name: runed metal
+  parent: SheetRunedSteel
+  id: SheetRunedSteel1
+  name: runed steel
   suffix: Single
   components:
   - type: Sprite
     state: runedmetal
   - type: Stack
-    stackType: RunedMetal
+    stackType: RunedSteel
     count: 1

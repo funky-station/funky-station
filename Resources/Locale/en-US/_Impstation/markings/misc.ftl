@@ -7,17 +7,6 @@
 
 # this file is subject to getting its shit moved to other files at a later date#
 
-# arachnids
-marking-SpiderMirror = Mirror
-marking-SpiderMirror-spidermirror = Mirror
-marking-SpiderGlowEyes = Glowing Eyes
-marking-SpiderGlowEyes-spidergloweyes = Glowing Eyes
-marking-SpiderEyesMulti = Multicolor Eyes
-marking-SpiderEyesMulti-spidereyesmulti1 = Top
-marking-SpiderEyesMulti-spidereyesmulti2 = Middle Top
-marking-SpiderEyesMulti-spidereyesmulti3 = Middle Bottom
-marking-SpiderEyesMulti-spidereyesmulti4 = Bottom
-
 # diona
 marking-DionaLivingNymph = Living Nymphs
 marking-DionaLivingNymph-dionalivingnymph = Living Nymphs

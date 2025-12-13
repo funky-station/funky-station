@@ -41,7 +41,12 @@
 # SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 nao fujiwara <awkwarddryad@gmail.com>
 # SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 MaiaArai <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 ThatOneMoon <91613003+ThatOneMoon@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
+# SPDX-FileCopyrightText: 2025 Xcybitt <xcybitt@gmail.com>
+# SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
@@ -54,9 +59,9 @@
   description: A nice and tidy uniform. Shame about the bar though.
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpskirt/bartender.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/bartender.rsi
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpskirt/bartender.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/bartender.rsi
 
 - type: entity
   parent: [ClothingUniformSkirtBase, BaseCommandContraband]
@@ -76,9 +81,9 @@
   description: A sturdy jumpskirt, issued to members of the Cargo department.
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpskirt/cargotech.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/cargotech.rsi
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpskirt/cargotech.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/cargotech.rsi
 
 - type: entity
   parent: [ClothingUniformSkirtBase, BaseCommandContraband]
@@ -120,20 +125,20 @@
   description: Can't cook without this.
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpskirt/chef.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/chef.rsi
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpskirt/chef.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/chef.rsi
 
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtChemistry
-  name: chemistry jumpskirt
-  description: There's some odd stains on this jumpskirt. Hm.
+  name: chemistry coverskirt
+  description: Basic PPE for any Che- Why are you wearing A SKIRT?! THAT'S NOT SAFE AT ALL!
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpskirt/chemistry.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/chemistry.rsi
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpskirt/chemistry.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/chemistry.rsi
 
 - type: entity
   parent: ClothingUniformSkirtBase
@@ -160,24 +165,24 @@
 - type: entity
   parent: [ClothingUniformSkirtBase, BaseCommandContraband]
   id: ClothingUniformJumpskirtCMO
-  name: chief medical officer's jumpskirt
-  description: It's a jumpskirt worn by those with the experience to be Chief Medical Officer. It provides minor biological protection.
+  name: chief medical officer's coverskirt
+  description: Sterile coveralls with markings belonging to a CMO. For when the Medbay is particularly messy - or was, before you decided to wear it with a skirt.
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpskirt/cmo.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/cmo.rsi
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpskirt/cmo.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/cmo.rsi
 
 - type: entity
   parent: [ClothingUniformSkirtBase, BaseCommandContraband]
   id: ClothingUniformJumpskirtCMOTurtle
-  name: chief medical officer's turtleneck jumpskirt
+  name: chief medical officer's turtleskirt
   description: It's a turtleneck worn by those with the experience to be Chief Medical Officer. It provides minor biological protection.
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpskirt/cmo_turtle.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/cmo_turtle.rsi
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpskirt/cmo_turtle.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/cmo_turtle.rsi
 
 - type: entity
   parent: ClothingUniformSkirtBase
@@ -219,9 +224,9 @@
   description: Rather bland and inoffensive. Perfect for vanishing off the face of the universe.
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpskirt/hop.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/hop.rsi
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpskirt/hop.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/hop.rsi
 
 - type: entity
   parent: [ClothingUniformSkirtBase, BaseCommandContraband]
@@ -295,13 +300,13 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtMedicalDoctor
-  name: medical doctor jumpskirt
-  description: It's made of a special fiber that provides minor protection against biohazards. It has a cross on the chest denoting that the wearer is trained medical personnel.
+  name: medical sterile coverskirt
+  description: Sterile coveralls meant for work in a Medbay. This pair seems to have.. a skirt? That doesn't seem very sterile...
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpskirt/medical.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/medical.rsi
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpskirt/medical.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/medical.rsi
 
 - type: entity
   parent: ClothingUniformSkirtBase
@@ -383,20 +388,20 @@
   description: 'What can brown do for you?'
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpskirt/qm.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/qm.rsi
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpskirt/qm.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/qm.rsi
 
 - type: entity
   parent: [ClothingUniformSkirtBase, BaseCommandContraband]
   id: ClothingUniformJumpskirtQMTurtleneck
-  name: quartermasters's turtleneck
+  name: quartermaster's turtleneck
   description: A sharp turtleneck made for the hardy work environment of supply.
   components:
     - type: Sprite
-      sprite: Clothing/Uniforms/Jumpskirt/qmturtleskirt.rsi
+      sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/qmturtleskirt.rsi
     - type: Clothing
-      sprite: Clothing/Uniforms/Jumpskirt/qmturtleskirt.rsi
+      sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/qmturtleskirt.rsi
 
 - type: entity
   parent: [ClothingUniformSkirtBase, BaseCommandContraband]
@@ -423,13 +428,13 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtRoboticist
-  name: roboticist jumpskirt
-  description: It's a slimming black with reinforced seams; great for industrial work.
+  name: roboticist's sleeveless interfacing suit
+  description: It's a slimming black with reinforced neuro-connectors; with a waist-tied lab coat and no sleeves, for maximum fashion.
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpskirt/roboticist.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/roboticist.rsi
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpskirt/roboticist.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/roboticist.rsi
 
 - type: entity
   parent: [ClothingUniformSkirtBase, BaseSecurityContraband]
@@ -456,7 +461,6 @@
       - state: overlay-inhand-right
         sprite: Clothing/Uniforms/Jumpsuit/security.rsi
 
-
 - type: entity
   parent: [ClothingUniformSkirtBase, BaseSecurityContraband]
   id: ClothingUniformJumpskirtWarden
@@ -482,7 +486,6 @@
       - state: overlay-inhand-right
         sprite: Clothing/Uniforms/Jumpsuit/warden.rsi
 
-
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtLibrarian
@@ -490,9 +493,9 @@
   description: A cosy green jumper fit for a curator of books.
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpskirt/librarian.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/librarian.rsi
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpskirt/librarian.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/librarian.rsi
 
 - type: entity
   parent: ClothingUniformSkirtBase
@@ -501,9 +504,9 @@
   description: It's sensible. Too sensible...
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpskirt/curator.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/curator.rsi
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpskirt/curator.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/curator.rsi
 
 - type: entity
   parent: ClothingUniformSkirtBase
@@ -615,9 +618,9 @@
   description: A flashy red suitskirt worn by lawyers and show-offs.
   components:
     - type: Sprite
-      sprite: Clothing/Uniforms/Jumpskirt/lawyerred.rsi
+      sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/lawyerred.rsi
     - type: Clothing
-      sprite: Clothing/Uniforms/Jumpskirt/lawyerred.rsi
+      sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/lawyerred.rsi
 
 - type: entity
   parent: ClothingUniformSkirtBase
@@ -626,9 +629,9 @@
   description: A flashy blue suitskirt worn by lawyers and show-offs.
   components:
     - type: Sprite
-      sprite: Clothing/Uniforms/Jumpskirt/lawyerblue.rsi
+      sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/lawyerblue.rsi
     - type: Clothing
-      sprite: Clothing/Uniforms/Jumpskirt/lawyerblue.rsi
+      sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/lawyerblue.rsi
 
 - type: entity
   parent: ClothingUniformSkirtBase
@@ -637,9 +640,9 @@
   description: A subtle black suitskirt worn by lawyers and gangsters.
   components:
     - type: Sprite
-      sprite: Clothing/Uniforms/Jumpskirt/lawyerblack.rsi
+      sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/lawyerblack.rsi
     - type: Clothing
-      sprite: Clothing/Uniforms/Jumpskirt/lawyerblack.rsi
+      sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/lawyerblack.rsi
 
 - type: entity
   parent: ClothingUniformSkirtBase
@@ -648,9 +651,9 @@
   description: A stylish purple piece worn by lawyers and show people.
   components:
     - type: Sprite
-      sprite: Clothing/Uniforms/Jumpskirt/lawyerpurple.rsi
+      sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/lawyerpurple.rsi
     - type: Clothing
-      sprite: Clothing/Uniforms/Jumpskirt/lawyerpurple.rsi
+      sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/lawyerpurple.rsi
 
 - type: entity
   parent: ClothingUniformSkirtBase
@@ -659,9 +662,9 @@
   description: A tacky suitskirt perfect for a CRIMINAL lawyer!
   components:
     - type: Sprite
-      sprite: Clothing/Uniforms/Jumpskirt/lawyergood.rsi
+      sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/lawyergood.rsi
     - type: Clothing
-      sprite: Clothing/Uniforms/Jumpskirt/lawyergood.rsi
+      sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/lawyergood.rsi
 
 - type: entity
   parent: ClothingUniformSkirtBase
@@ -920,9 +923,9 @@
   description: A fancy skirt for the musically inclined. Perfect for any lounge act!
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpskirt/musician.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/musician.rsi
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpskirt/musician.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/musician.rsi
 
 - type: entity
   parent: ClothingUniformSkirtBase

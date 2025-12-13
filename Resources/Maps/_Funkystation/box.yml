@@ -51,8 +51,10 @@
 # SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Huhm-1 <180088676+Huhm-1@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Huhm-1 <cameronhillard40@gmail.com>
 # SPDX-FileCopyrightText: 2025 Icepick <122653407+Icepicked@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Sofia Gilsanz <softie.gd@gmail.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 kbarkevich <24629810+kbarkevich@users.noreply.github.com>
@@ -76273,7 +76275,7 @@ entities:
     - type: Transform
       pos: 1.4697213,-22.60485
       parent: 8364
-- proto: ClothingUniformJumpsuitEngineeringHazard
+- proto: ClothingUniformJumpsuitEngineeringCoveralls
   entities:
   - uid: 1623
     components:

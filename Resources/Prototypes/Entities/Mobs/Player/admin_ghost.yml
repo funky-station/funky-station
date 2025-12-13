@@ -44,8 +44,12 @@
 # SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 TheSecondLord <88201625+TheSecondLord@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 V <97265903+formlessnameless@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
+# SPDX-FileCopyrightText: 2025 dffdff2423 <dffdff2423@gmail.com>
+# SPDX-FileCopyrightText: 2025 jackel234 <jackel234@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
@@ -152,6 +156,7 @@
   - type: Thieving
     stripTimeReduction: 9999
     stealthy: true
+  - type: InteractionToggleable # CD
   - type: Stripping
   - type: SolutionScanner
   - type: IgnoreUIRange
@@ -162,6 +167,9 @@
     prototypes: [ MobAghostGear ]
   - type: BypassInteractionChecks
   - type: SupermatterImmune # Goobstation
+  - type: ExplosionResistance
+    damageCoefficient: 0
+
 
 - type: entity
   id: ActionAGhostShowSolar

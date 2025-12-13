@@ -1,66 +1,3 @@
-// SPDX-FileCopyrightText: 2019 CatTheSystem <pogorelov950@gmail.com>
-// SPDX-FileCopyrightText: 2019 Peter Wedder <burneddi@gmail.com>
-// SPDX-FileCopyrightText: 2019 Pieter-Jan Briers <pieterjan.briers@gmail.com>
-// SPDX-FileCopyrightText: 2019 Silver <Silvertorch5@gmail.com>
-// SPDX-FileCopyrightText: 2019 Víctor Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2019 moneyl <8206401+Moneyl@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2020 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2020 Hugal31 <hugo.laloge@gmail.com>
-// SPDX-FileCopyrightText: 2020 Hugo Laloge <hugo.laloge@gmail.com>
-// SPDX-FileCopyrightText: 2020 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Daniel Castro Razo <eldanielcr@gmail.com>
-// SPDX-FileCopyrightText: 2021 E F R <602406+Efruit@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Swept <sweptwastaken@protonmail.com>
-// SPDX-FileCopyrightText: 2021 T <tomeno@lulzsec.co.uk>
-// SPDX-FileCopyrightText: 2021 Tomeno <Tomeno@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 chairbender <kwhipke1@gmail.com>
-// SPDX-FileCopyrightText: 2022 Acruid <shatter66@gmail.com>
-// SPDX-FileCopyrightText: 2022 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Flipp Syder <76629141+vulppine@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Jacob Tong <10494922+ShadowCommander@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Jezithyr <Jezithyr.@gmail.com>
-// SPDX-FileCopyrightText: 2022 Kara <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2022 Michael Phillips <1194692+MeltedPixel@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Paul Ritter <ritter.paul1@googlemail.com>
-// SPDX-FileCopyrightText: 2022 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 metalgearsloth <comedian_vs_clown@hotmail.com>
-// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 08A <git@08a.re>
-// SPDX-FileCopyrightText: 2023 0x6273 <0x40@keemail.me>
-// SPDX-FileCopyrightText: 2023 Ahion <58528255+Ahion@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Eoin Mcloughlin <helloworld@eoinrul.es>
-// SPDX-FileCopyrightText: 2023 Moony <moony@hellomouse.net>
-// SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 eoineoineoin <eoin.mcloughlin+gh@gmail.com>
-// SPDX-FileCopyrightText: 2023 iacore <74560659+iacore@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 keronshb <54602815+keronshb@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
-// SPDX-FileCopyrightText: 2024 Errant <35878406+Errant-4@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 James Simonson <jamessimo89@gmail.com>
-// SPDX-FileCopyrightText: 2024 Julian Giebel <juliangiebel@live.de>
-// SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 MilenVolf <63782763+MilenVolf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Repo <47093363+Titian3@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Simon <63975668+Simyon264@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Sk1tch <ben.peter.smith@gmail.com>
-// SPDX-FileCopyrightText: 2024 Skye <57879983+Rainbeon@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
-// SPDX-FileCopyrightText: 2024 Willhelm53 <97707302+Willhelm53@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 chromiumboy <50505512+chromiumboy@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 eoineoineoin <github@eoinrul.es>
-// SPDX-FileCopyrightText: 2024 ike709 <ike709@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 maylokana <88361930+maylokana@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 McBosserson <148172569+McBosserson@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2025 SaffronFennec <firefoxwolf2020@protonmail.com>
-// SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
-//
-// SPDX-License-Identifier: MIT
-
 using System.Linq;
 using System.Numerics;
 using Content.Client.ContextMenu.UI;
@@ -104,6 +41,8 @@ namespace Content.Client.Stylesheets
 
     }
     // STLYE SHEETS WERE A MISTAKE. KILL ALL OF THIS WITH FIRE
+    [Obsolete("Please use the new sheetlet system to define styles, and remove all references to this class as it may be deleted in the future")]
+    // i did :)
     public sealed class StyleNano : StyleBase
     {
         public const string StyleClassBorderedWindowPanel = "BorderedWindowPanel";
@@ -111,7 +50,6 @@ namespace Content.Client.Stylesheets
         public const string StyleClassHandSlotHighlight = "HandSlotHighlight";
         public const string StyleClassChatPanel = "ChatPanel";
         public const string StyleClassChatSubPanel = "ChatSubPanel";
-        public const string StyleClassTransparentBorderedWindowPanel = "TransparentBorderedWindowPanel";
         public const string StyleClassHotbarPanel = "HotbarPanel";
         public const string StyleClassTooltipPanel = "tooltipBox";
         public const string StyleClassTooltipAlertTitle = "tooltipAlertTitle";
@@ -131,6 +69,10 @@ namespace Content.Client.Stylesheets
         public const string StyleClassChatFilterOptionButton = "chatFilterOptionButton";
         public const string StyleClassStorageButton = "storageButton";
         public const string StyleClassInset = "Inset";
+
+        public const string StyleClassConsoleHeading = "ConsoleHeading";
+        public const string StyleClassConsoleSubHeading = "ConsoleSubHeading";
+        public const string StyleClassConsoleText = "ConsoleText";
 
         public const string StyleClassSliderRed = "Red";
         public const string StyleClassSliderGreen = "Green";
@@ -224,6 +166,22 @@ namespace Content.Client.Stylesheets
         public const string StyleClassPinButtonPinned = "pinButtonPinned";
         public const string StyleClassPinButtonUnpinned = "pinButtonUnpinned";
 
+        // i'm not sure what the missing symbols were referencing, and this is getting obseleted anyway so:
+        public const string ButtonOpenRight = "OpenRight";
+        public const string ButtonOpenLeft = "OpenLeft";
+        public const string ButtonOpenBoth = "OpenBoth";
+        public const string ButtonSquare = "OpenBoth";
+        public const string ButtonCaution = "negative";
+        public const string StyleClassLabelHeading = "LabelHeading";
+        public const string StyleClassLabelSubText = "LabelSubText";
+        public const string StyleClassRedTopButton = "negative";
+        public const string ClassHighDivider = "HighDivider";
+        public const string ClassLowDivider = "LowDivider";
+        public const string ClassAngleRect = "AngleRect";
+
+        //Manifest
+        public const string StyleClassCrewManifestGender = "CrewManifestGender";
+
         public static string StyleClassTraitBackground = "TraitBackground";
         public static string StyleClassTraitCost = "TraitCost";
 
@@ -249,6 +207,7 @@ namespace Content.Client.Stylesheets
             var notoSansBold18 = resCache.NotoStack(variation: "Bold", size: 18);
             var notoSansBold20 = resCache.NotoStack(variation: "Bold", size: 20);
             var notoSansMono = resCache.GetFont("/EngineFonts/NotoSans/NotoSansMono-Regular.ttf", size: 12);
+
             var windowHeaderTex = resCache.GetTexture("/Textures/Interface/Nano/window_header.png");
             var windowHeader = new StyleBoxTexture
             {
@@ -300,13 +259,6 @@ namespace Content.Client.Stylesheets
                 Texture = handSlotHighlightTex,
             };
             handSlotHighlight.SetPatchMargin(StyleBox.Margin.All, 2);
-
-            var borderedTransparentWindowBackgroundTex = resCache.GetTexture("/Textures/Interface/Nano/transparent_window_background_bordered.png");
-            var borderedTransparentWindowBackground = new StyleBoxTexture
-            {
-                Texture = borderedTransparentWindowBackgroundTex,
-            };
-            borderedTransparentWindowBackground.SetPatchMargin(StyleBox.Margin.All, 2);
 
             var hotbarBackground = new StyleBoxTexture
             {
@@ -525,10 +477,8 @@ namespace Content.Client.Stylesheets
             itemListItemBackgroundTransparent.SetContentMarginOverride(StyleBox.Margin.Vertical, 2);
             itemListItemBackgroundTransparent.SetContentMarginOverride(StyleBox.Margin.Horizontal, 4);
 
-            var squareTex = resCache.GetTexture("/Textures/Interface/Nano/square.png");
-            var listContainerButton = new StyleBoxTexture
+            var listContainerButton = new StyleBoxFlat
             {
-                Texture = squareTex,
                 ContentMarginLeftOverride = 10
             };
 
@@ -651,12 +601,6 @@ namespace Content.Client.Stylesheets
                     {
                         new StyleProperty(PanelContainer.StylePropertyPanel, borderedWindowBackground),
                     }),
-                new StyleRule(
-                    new SelectorElement(null, new[] {StyleClassTransparentBorderedWindowPanel}, null, null),
-                    new[]
-                    {
-                        new StyleProperty(PanelContainer.StylePropertyPanel, borderedTransparentWindowBackground),
-                    }),
                 // inventory slot background
                 new StyleRule(
                     new SelectorElement(null, new[] {StyleClassInventorySlotBackground}, null, null),
@@ -749,23 +693,6 @@ namespace Content.Client.Stylesheets
 
                 Element<ContainerButton>().Class(ContainerButton.StyleClassButton).Class(ButtonCaution)
                     .Pseudo(ContainerButton.StylePseudoClassDisabled)
-                    .Prop(Control.StylePropertyModulateSelf, ButtonColorCautionDisabled),
-
-                // Colors for confirm buttons confirm states.
-                Element<ConfirmButton>()
-                    .Pseudo(ConfirmButton.ConfirmPrefix + ContainerButton.StylePseudoClassNormal)
-                    .Prop(Control.StylePropertyModulateSelf, ButtonColorCautionDefault),
-
-                Element<ConfirmButton>()
-                    .Pseudo(ConfirmButton.ConfirmPrefix + ContainerButton.StylePseudoClassHover)
-                    .Prop(Control.StylePropertyModulateSelf, ButtonColorCautionHovered),
-
-                Element<ConfirmButton>()
-                    .Pseudo(ConfirmButton.ConfirmPrefix + ContainerButton.StylePseudoClassPressed)
-                    .Prop(Control.StylePropertyModulateSelf, ButtonColorCautionPressed),
-
-                Element<ConfirmButton>()
-                    .Pseudo(ConfirmButton.ConfirmPrefix + ContainerButton.StylePseudoClassDisabled)
                     .Prop(Control.StylePropertyModulateSelf, ButtonColorCautionDisabled),
 
                 new StyleRule(new SelectorChild(
@@ -1099,11 +1026,11 @@ namespace Content.Client.Stylesheets
                 }),
 
                 // small number for the entity counter in the entity menu
-                new StyleRule(new SelectorElement(typeof(Label), new[] {ContextMenuElement.StyleClassEntityMenuIconLabel}, null, null), new[]
-                {
-                    new StyleProperty("font", notoSans10),
-                    new StyleProperty(Label.StylePropertyAlignMode, Label.AlignMode.Right),
-                }),
+                // new StyleRule(new SelectorElement(typeof(Label), new[] {ContextMenuElement.StyleClassEntityMenuIconLabel}, null, null), new[]
+                // {
+                //     new StyleProperty("font", notoSans10),
+                //     new StyleProperty(Label.StylePropertyAlignMode, Label.AlignMode.Right),
+                // }),
 
                 // hotbar slot
                 new StyleRule(new SelectorElement(typeof(RichTextLabel), new[] {StyleClassHotbarSlotNumber}, null, null), new[]
@@ -1275,13 +1202,6 @@ namespace Content.Client.Stylesheets
                     }),
 
                 new StyleRule(
-                    new SelectorElement(typeof(MenuButton), new[] {MenuButton.StyleClassRedTopButton}, null, new[] {Button.StylePseudoClassNormal}),
-                    new[]
-                    {
-                        new StyleProperty(Button.StylePropertyModulateSelf, ButtonColorDefaultRed),
-                    }),
-
-                new StyleRule(
                     new SelectorElement(typeof(MenuButton), null, null, new[] {Button.StylePseudoClassNormal}),
                     new[]
                     {
@@ -1300,20 +1220,6 @@ namespace Content.Client.Stylesheets
                     new[]
                     {
                         new StyleProperty(Button.StylePropertyModulateSelf, ButtonColorHovered),
-                    }),
-
-                new StyleRule(
-                    new SelectorElement(typeof(MenuButton), new[] {MenuButton.StyleClassRedTopButton}, null, new[] {Button.StylePseudoClassHover}),
-                    new[]
-                    {
-                        new StyleProperty(Button.StylePropertyModulateSelf, ButtonColorHoveredRed),
-                    }),
-
-                new StyleRule(
-                    new SelectorElement(typeof(Label), new[] {MenuButton.StyleClassLabelTopButton}, null, null),
-                    new[]
-                    {
-                        new StyleProperty(Label.StylePropertyFont, notoSansDisplayBold14),
                     }),
 
                 // NanoHeading
@@ -1345,6 +1251,11 @@ namespace Content.Client.Stylesheets
                     .Class(StyleClassItemStatusNotHeld)
                     .Prop("font", notoSansItalic10)
                     .Prop("font-color", ItemStatusNotHeldColor),
+
+                Element<RichTextLabel>()
+                    .Class(StyleClassCrewManifestGender)
+                    .Prop("font", notoSansItalic10)
+                    .Prop("font-style", "italic"),
 
                 Element<RichTextLabel>()
                     .Class(StyleClassItemStatus)
@@ -1546,7 +1457,6 @@ namespace Content.Client.Stylesheets
 
                 Element<TextureButton>().Class("CrossButtonRed").Pseudo(TextureButton.StylePseudoClassHover)
                     .Prop(Control.StylePropertyModulateSelf, Color.FromHex("#753131")),
-                // ---
 
                 // Profile Editor
                 Element<TextureButton>().Class("SpeciesInfoDefault")

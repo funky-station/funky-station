@@ -1818,17 +1818,3 @@
     - FloorXenoborg
   - type: Stack
     stackType: FloorTileXenoborg
-
-- type: entity
-  parent: FloorTileItemDark
-  id: FloorTileItemDarkSquiggly
-  name: dark steel squiggly tile
-  components:
-  - type: Sprite
-    state: dark-squiggly
-  - type: FloorTile
-    outputs:
-    - Plating
-    - FloorDarkSquiggly
-  - type: Stack
-    stackType: FloorTileDarkSquiggly

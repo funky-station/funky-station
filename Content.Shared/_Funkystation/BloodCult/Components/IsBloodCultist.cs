@@ -8,7 +8,7 @@ using Content.Shared.BloodCult;
 using Content.Shared.EntityConditions;
 using Robust.Shared.Prototypes;
 
-namespace Content.Server._Funkystation.BloodCult.EntityEffects.Effects;
+namespace Content.Shared._Funkystation.BloodCult.COmponents;
 
 public sealed partial class IsBloodCultistCondition : EntityConditionBase<IsBloodCultistCondition>
 {

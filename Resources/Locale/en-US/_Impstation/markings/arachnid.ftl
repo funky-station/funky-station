@@ -158,39 +158,30 @@ marking-AppendagesScorpion-scorpion = Legs and Pincers
 
 # Tail (Edited here to avoid conflicts)
 
-marking-ArachnidAppendagesDefault = Appendages (Long)
 marking-ArachnidAppendagesDefault-long1 = Appendage
 marking-ArachnidAppendagesDefault-long2 = Stripes
 
-marking-ArachnidAppendagesSharp = Appendages (Sharp)
 marking-ArachnidAppendagesSharp-sharp1 = Appendage
 marking-ArachnidAppendagesSharp-sharp2 = Stripes
 
-marking-ArachnidAppendagesZigZag = Appendages (ZigZag)
 marking-ArachnidAppendagesZigZag-zigzag1 = Appendage
 marking-ArachnidAppendagesZigZag-zigzag2 = Stripes
 
-marking-ArachnidAppendagesCurled = Appendages (Curled)
 marking-ArachnidAppendagesCurled-curled1 = Appendage
 marking-ArachnidAppendagesCurled-curled2 = Stripes
 
-marking-ArachnidAppendagesStingers = Appendages (Stingers)
 marking-ArachnidAppendagesStingers-stingers1 = Appendage
 marking-ArachnidAppendagesStingers-stingers2 = Stripes
 
-marking-ArachnidAppendagesChipped = Appendages (Chipped)
 marking-ArachnidAppendagesChipped-chipped1 = Appendage
 marking-ArachnidAppendagesChipped-chipped2 = Stripes
 
-marking-ArachnidAppendagesHarvest = Appendages (Harvest)
 marking-ArachnidAppendagesHarvest-harvest1 = Appendage
 marking-ArachnidAppendagesHarvest-harvest2 = Stripes
 
-marking-ArachnidAppendagesShort = Appendages (Short)
 marking-ArachnidAppendagesShort-short1 = Appendage
 marking-ArachnidAppendagesShort-short2 = Stripes
 
-marking-ArachnidAppendagesFreaky = Appendages (Freaky long)
 marking-ArachnidAppendagesFreaky-freaky1 = Appendage
 marking-ArachnidAppendagesFreaky-freaky2 = Stripes
 

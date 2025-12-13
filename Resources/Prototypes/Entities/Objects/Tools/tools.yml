@@ -453,7 +453,7 @@
   id: RCD
   parent: [ BaseItem, BaseEngineeringContraband ]
   name: RCD
-  description: The heavy-duty rapid construction device can be used to quickly place and remove various station structures and fixtures. Requires compressed matter to function.
+  description: The heavy-duty rapid construction device can be used to quickly place and remove various station structures and fixtures. Requires compressed matter to function. Can be clipped to the back of an engineering hardsuit.
   components:
   - type: MeleeWeapon
     damage:
@@ -499,7 +499,6 @@
     sprite: Objects/Tools/rcd.rsi
     quickEquip: false
     slots:
-    - Belt
     - backStorage
   - type: PhysicalComposition
     materialComposition:
@@ -524,7 +523,7 @@
   id: RPD
   parent: RCD
   name: RPD
-  description: A heavy-duty industrial device used to rapidly lay atmospheric infrastructure.
+  description: A heavy-duty industrial device used to rapidly lay atmospheric infrastructure. Can be slung around the back of an engineering hardsuit.
   components:
   - type: MeleeWeapon
     damage:
@@ -573,6 +572,11 @@
     charges: 45
   - type: Sprite
     sprite: Objects/Tools/rpd.rsi
+  - type: Clothing
+    sprite: Objects/Tools/rpd.rsi
+    quickEquip: false
+    slots:
+    - backStorage
   - type: UserInterface
     interfaces:
       enum.RpdUiKey.Key:

@@ -23,6 +23,18 @@
         - "foreverweed-effect-paranoia-two"
         - "foreverweed-effect-paranoia-three"
         - "foreverweed-effect-syndicate"
+        - "foreveralcohol-effect-grassman"
+        - "foreveralcohol-effect-loveyou"
+        - "foreveralcohol-effect-selfloathing"
+        - "foreveralcohol-effect-better"
+        - "foreveralcohol-effect-paintrain"
+        - "foreveralcohol-effect-killya"
+        - "foreveralcohol-effect-gunshow"
+        - "foreveralcohol-effect-captain"
+        - "foreveralcohol-effect-captaindl"
+        - "foreveralcohol-effect-centcomm"
+        - "foreveralcohol-effect-centcommdl"
+        - "foreveralcohol-effect-bump"
         probability: 0.01
       - !type:Drunk
         boozePower: 5

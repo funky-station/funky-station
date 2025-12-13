@@ -276,6 +276,13 @@
         damage:
           types:
             Poison: -0.5
+      - !type:AdjustReagent
+        conditions:
+        - !type:ReagentThreshold
+          reagent: ForeverAlcohol
+          min: 1
+        reagent: ForeverAlcohol
+        amount: -1
 
 - type: reagent
   id: Arithrazine

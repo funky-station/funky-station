@@ -172,6 +172,11 @@
       uis:
         enum.BloodCultistCommuneUIKey.Key:
           toggleAction: null
+    - type: UserInterface
+      interfaces:
+        enum.BloodCultistCommuneUIKey.Key:
+          type: BloodCultCommuneBoundUserInterface
+          requireInputValidation: false
     - type: GuideHelp
       guides:
       - Blob

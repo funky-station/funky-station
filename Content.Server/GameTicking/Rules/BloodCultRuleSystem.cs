@@ -71,6 +71,7 @@ using Content.Server.Administration;
 using Content.Shared.Administration;
 using Content.Shared.Speech;
 using Content.Shared.Emoting;
+using Content.Shared.Actions;
 
 namespace Content.Server.GameTicking.Rules;
 
@@ -174,6 +175,7 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 	[Dependency] private readonly BloodCultMindShieldSystem _mindShield = default!;
 	[Dependency] private readonly SleepingSystem _sleeping = default!;
 	[Dependency] private readonly IPrototypeManager _proto = default!;
+	[Dependency] private readonly SharedActionsSystem _action = default!;
 
 	public readonly string CultComponentId = "BloodCultist";
 
@@ -306,6 +308,9 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 				_cultistSpell.AddSpell(traitor, cultist, (ProtoId<CultAbilityPrototype>) "Commune", recordKnownSpell:false);
 				_cultistSpell.AddSpell(traitor, cultist, (ProtoId<CultAbilityPrototype>) "StudyVeil", recordKnownSpell:false);
 				_cultistSpell.AddSpell(traitor, cultist, (ProtoId<CultAbilityPrototype>) "SpellsSelect", recordKnownSpell:false);
+				
+				// Give them the Summon Dagger spell pre-prepared (bypasses DoAfter requirement)
+				_action.AddAction(traitor, "ActionCultistSummonDagger");
 
 				// propogate the selected Nar'Sie summon location
 				// Enable Tear Veil rune if stage 2 (HasRisen) or later has been reached

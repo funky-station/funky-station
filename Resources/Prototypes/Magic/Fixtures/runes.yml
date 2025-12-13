@@ -36,6 +36,13 @@
     - type: BloodCultRune
     - type: Clickable
     - type: TriggerOnActivate
+    - type: CleanableRune
+    - type: Reactive
+      reactions:
+      - reagents: [ Water, SpaceCleaner ]
+        methods: [ Touch ]
+        effects:
+        - !type:DeleteEntityEffect
     - type: Sprite
       sprite: _Funkystation/Structures/BloodCult/bloodrune.rsi
       drawdepth: HighFloorObjects
@@ -121,6 +128,24 @@
       layers:
         - state: offering
           color: '#FF3300CC'
+
+- type: entity
+  parent: BaseBloodCultRune
+  id: FinalRiftRune
+  name: "final rift rune"
+  components:
+    - type: OfferOnTrigger
+    - type: FinalSummoningRune
+    - type: CleanableRune
+      remove: true # FinalRiftRune should not be cleanable
+    - type: Reactive
+      remove: true # FinalRiftRune should not be cleanable with reagents
+    - type: Sprite
+      sprite: _Funkystation/Structures/BloodCult/rune_rift.rsi
+      drawdepth: HighFloorObjects
+      scale: [3, 3]
+      layers:
+        - state: rune_rift
 
 - type: entity
   parent: BaseBloodCultRune
@@ -222,6 +247,10 @@
   name: tear veil rune
   components:
   - type: TearVeil
+  - type: CleanableRune
+      remove: true
+  - type: Reactive
+      remove: true
   - type: Sprite
     sprite: _Funkystation/Structures/BloodCult/narsierune.rsi
     drawdepth: HighFloorObjects

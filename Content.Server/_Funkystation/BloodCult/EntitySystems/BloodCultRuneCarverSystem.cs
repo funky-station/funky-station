@@ -101,11 +101,21 @@ public sealed partial class BloodCultRuneCarverSystem : EntitySystem
 
 	private void OnRuneChosenMessage(Entity<BloodCultRuneCarverComponent> ent, ref RunesMessage args)
 	{
-		//var user = args.Actor;
 		if (!BloodCultRuneCarverComponent.ValidRunes.Contains(args.ProtoId))
 			return;
 		ent.Comp.Rune = args.ProtoId;
         ent.Comp.InProgress = args.ProtoId + "_drawing";
+
+		// Immediately start drawing the rune under the user
+		var user = args.Actor;
+		if (user == EntityUid.Invalid || !TryComp<BloodCultistComponent>(user, out var cultist))
+			return;
+
+		// Get the user's position
+		var userCoords = Transform(user).Coordinates;
+		
+		// Start drawing the rune at the user's location
+		StartDrawingRuneAtLocation(ent, user, userCoords, cultist);
     }
 
 	private void TryOpenUi(EntityUid uid, EntityUid user, BloodCultRuneCarverComponent? component = null)
@@ -164,9 +174,18 @@ public sealed partial class BloodCultRuneCarverSystem : EntitySystem
             return;
         }
 
-		// Third, if clicking on yourself and no rune is selected, open the selection UI
-		if (args.User == target && string.IsNullOrEmpty(ent.Comp.Rune))
+		// Third, if clicking on yourself, open the selection UI or start drawing if rune is selected
+		if (args.User == target)
 		{
+			// If a rune is already selected, start drawing it under the user
+			if (!string.IsNullOrEmpty(ent.Comp.Rune))
+			{
+				var userCoords = Transform(args.User).Coordinates;
+				StartDrawingRuneAtLocation(ent, args.User, userCoords, cultist);
+				return;
+			}
+
+			// Otherwise, open the rune selection menu
 			TryOpenUi(ent, args.User, ent.Comp);
 			return;
 		}
@@ -252,6 +271,97 @@ public sealed partial class BloodCultRuneCarverSystem : EntitySystem
 			);
 		_doAfter.TryStartDoAfter(dargs);
     }
+
+	/// <summary>
+	/// Starts drawing a rune at the specified location. Handles all validation, special cases, and DoAfter setup.
+	/// </summary>
+	private void StartDrawingRuneAtLocation(Entity<BloodCultRuneCarverComponent> ent, EntityUid user, EntityCoordinates targetCoords, BloodCultistComponent cultist)
+	{
+		// Check if user has an active DoAfter (can't draw while already drawing)
+		if (HasComp<ActiveDoAfterComponent>(user))
+			return;
+
+		// Verify that a rune can be placed at the target location
+		if (!CanPlaceRuneAt(targetCoords, out var location))
+			return;
+
+		var timeToCarve = ent.Comp.TimeToCarve;
+
+		// Special handling for TearVeilRune - requires valid veil location
+		if (ent.Comp.Rune == "TearVeilRune")
+		{
+			// Use targetCoords for validation (where the rune will be placed)
+			if (!TryGetValidVeilLocation(targetCoords, out var locationForSummon))
+			{
+				_popupSystem.PopupEntity(
+					Loc.GetString("cult-veil-drawing-toostrong"),
+					user, user, PopupType.MediumCaution
+				);
+				return;
+			}
+
+			cultist.LocationForSummon = locationForSummon;
+
+			// Allow multiple tear veil runes to exist (one per location)
+			// Check if a rune already exists at this specific location
+			var summonRunes = AllEntityQuery<TearVeilComponent, BloodCultRuneComponent, TransformComponent>();
+			while (summonRunes.MoveNext(out var existingRuneUid, out _, out var _, out var runeXform))
+			{
+				// Check if this existing rune is in range of the current location we're trying to draw at
+				if (_transform.InRange(runeXform.Coordinates, locationForSummon.Coordinates, locationForSummon.ValidRadius))
+				{
+					_popupSystem.PopupEntity(
+						Loc.GetString("cult-veil-drawing-alreadyexists-location", ("name", locationForSummon.Name)),
+						user, user, PopupType.MediumCaution
+					);
+					return;
+				}
+			}
+
+			timeToCarve = 45.0f;
+		}
+
+		// Spawn the drawing rune
+		EntityUid? drawingRune = null;
+		if (TryGetRuneDrawingPrototype(ent.Comp.Rune, out var drawingPrototype))
+		{
+			drawingRune = Spawn(drawingPrototype, location);
+			// Anchor the drawing rune if we're on a grid
+			var gridUid = _transform.GetGrid(location);
+			if (gridUid != null && TryComp<MapGridComponent>(gridUid, out var grid))
+			{
+				var targetTile = _mapSystem.GetTileRef(gridUid.Value, grid, location);
+				var drawingRuneTransform = Transform(drawingRune.Value);
+				_transform.AnchorEntity((drawingRune.Value, drawingRuneTransform), ((EntityUid)gridUid, grid), targetTile.GridIndices);
+			}
+		}
+
+		var dargs = new DoAfterArgs(EntityManager, user, timeToCarve, new DrawRuneDoAfterEvent(
+			ent, drawingRune ?? EntityUid.Invalid, location, ent.Comp.Rune, ent.Comp.BleedOnCarve, ent.Comp.CarveSound, null, TimeSpan.Zero), user
+		)
+		{
+			BreakOnDamage = true,
+			BreakOnHandChange = true,
+			BreakOnMove = true,
+			BreakOnDropItem = true,
+			CancelDuplicate = false,
+		};
+
+		if (_protoMan.TryIndex(ent.Comp.Rune, out var ritualPrototype))
+			_popupSystem.PopupEntity(
+				Loc.GetString("cult-rune-drawing-vowel-first") +
+				("aeiou".Contains(ritualPrototype.Name.ToLower()[0]) ? "n" : "") +
+				" " + ritualPrototype.Name + " " + Loc.GetString("cult-rune-drawing-vowel-second"),
+				user, user, PopupType.MediumCaution
+			);
+		else
+			_popupSystem.PopupEntity(
+				Loc.GetString("cult-rune-drawing-novowel"),
+				user, user, PopupType.MediumCaution
+			);
+
+		_doAfter.TryStartDoAfter(dargs);
+	}
 
 	private bool TryGetValidVeilLocation(EntityCoordinates placement, out WeakVeilLocation location)
 	{
@@ -349,12 +459,30 @@ public sealed partial class BloodCultRuneCarverSystem : EntitySystem
 		}
         else
         {
-            return;
+			// DoAfter was cancelled - clear the selected rune so the UI opens automatically next time
+			if (TryComp<BloodCultRuneCarverComponent>(ev.CarverUid, out var carverComp))
+			{
+				carverComp.Rune = "";
+				carverComp.InProgress = "";
+			}
         }
     }
 
 	private void OnUseInHand(Entity<BloodCultRuneCarverComponent> ent, ref UseInHandEvent ev)
 	{
+		if (!TryComp<BloodCultistComponent>(ev.User, out var cultist))
+			return;
+
+		// If a rune is already selected, start drawing it under the user
+		if (!string.IsNullOrEmpty(ent.Comp.Rune))
+		{
+			var userCoords = Transform(ev.User).Coordinates;
+			StartDrawingRuneAtLocation(ent, ev.User, userCoords, cultist);
+			return;
+		}
+
+		// Otherwise, open the rune selection menu
+		TryOpenUi(ent, ev.User, ent.Comp);
 	}
 
 	private void OnEquipped(EntityUid uid, BloodCultRuneCarverComponent component, GotEquippedHandEvent args)

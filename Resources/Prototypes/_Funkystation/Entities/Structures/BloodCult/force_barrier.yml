@@ -33,6 +33,7 @@
     sprite: _Funkystation/Structures/BloodCult/forcewall.rsi
     state: forcewall
   - type: Airtight
+    noAirWhenFullyAirBlocked: false
   #- type: PreventCollide
   - type: Physics
     bodyType: Static

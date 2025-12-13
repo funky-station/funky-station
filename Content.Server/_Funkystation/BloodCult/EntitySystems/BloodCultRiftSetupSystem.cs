@@ -374,21 +374,14 @@ private bool TryFindValid3x3Space(EntityCoordinates center, out EntityCoordinate
 		riftComp.SummoningRunes.Clear();
 		riftComp.OfferingRunes.Clear();
 
-		// Spawn 4 offering runes around the rift: left, right, bottom, top
-		var leftRune = Spawn("OfferingRune", center.Offset(new Vector2(-1, 0)));
-		var rightRune = Spawn("OfferingRune", center.Offset(new Vector2(1, 0)));
-		var bottomRune = Spawn("OfferingRune", center.Offset(new Vector2(0, -1)));
-		var topRune = Spawn("OfferingRune", center.Offset(new Vector2(0, 1)));
+		// Spawn the 3x3 final rift rune sprite at the center (same location as rift)
+		var finalRune = Spawn("FinalRiftRune", center);
+		var finalRuneComp = EnsureComp<FinalSummoningRuneComponent>(finalRune);
+		finalRuneComp.RiftUid = rift;
 
-		// Track these runes for chanting and offerings
-		riftComp.SummoningRunes.Add(leftRune);
-		riftComp.SummoningRunes.Add(rightRune);
-		riftComp.SummoningRunes.Add(bottomRune);
-		riftComp.SummoningRunes.Add(topRune);
-		riftComp.OfferingRunes.Add(leftRune);
-		riftComp.OfferingRunes.Add(rightRune);
-		riftComp.OfferingRunes.Add(bottomRune);
-		riftComp.OfferingRunes.Add(topRune);
+		// Track the rune for chanting and offerings
+		riftComp.SummoningRunes.Add(finalRune);
+		riftComp.OfferingRunes.Add(finalRune);
 
 		// Pre-fills the blood pool with sanguine perniculate.
 		// This makes it so the anomaly spills blood onto the floor when it pulses, rather than taking a while to fill up. It'll make a slowly-growing ocean of blood.

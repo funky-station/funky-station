@@ -1,0 +1,13 @@
+- type: entity
+  name: chief engineer's multitool
+  parent: Multitool
+  id: MultitoolChiefEngineer
+  description: An incredibly robust variant of the multitool, designed to set up the supermatter.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Tools/ce_multitool.rsi
+    layers:
+    - state: icon
+    - state: green-unlit
+      shader: unshaded
+  - type: SupermatterImmune

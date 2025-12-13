@@ -24,7 +24,7 @@
     # Randomly generated books
     - id: BookRandomStory
       amount: !type:RangeNumberSelector
-        range: 0, 3
+        range: 0, 2
     # Guidebooks
     - !type:GroupSelector
       children:
@@ -86,6 +86,12 @@
       - id: ZeroSumSymphonyVol1 #Funky
       - id: ZeroSumSymphonyVol2 #Funky
       - id: BookCosmicCult # imp
+      - id: AshySlashy1 #Funky
+      - id: AshySlashy2 #Funky
+      - id: AshySlashy3 #Funky
+      - id: FrontierMathematician1 #Funky
+      - id: FrontierMathematician2 #Funky
+      - id: how2clown
     # if you add more books please consider organizing them into a new group selector
 
 - type: entity

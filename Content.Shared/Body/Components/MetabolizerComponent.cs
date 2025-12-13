@@ -22,13 +22,13 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared.Body.Components;
-using Content.Server.Body.Systems;
+using Content.Shared.Body.Systems;
 using Content.Shared.Body.Prototypes;
 using Content.Shared.FixedPoint;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
-namespace Content.Server.Body.Components
+namespace Content.Shared.Body.Components
 {
     /// <summary>
     ///     Handles metabolizing various reagents with given effects.

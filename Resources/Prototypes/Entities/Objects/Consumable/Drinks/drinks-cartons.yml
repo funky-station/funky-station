@@ -266,18 +266,3 @@
     currentLabel: reagent-name-cream
   - type: Sprite
     sprite: Objects/Consumable/Drinks/cream.rsi
-
-- type: entity
-  parent: [DrinkCartonVisualsOpenable, DrinkCartonBaseFull]
-  id: DrinkJuicePineappleCarton
-  name: pineapple juice
-  description: Tastes like a tropical vacation far from space.
-  components:
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        reagents:
-        - ReagentId: JuicePineapple
-          Quantity: 50
-  - type: Sprite
-    sprite: Objects/Consumable/Drinks/pineapplejuice.rsi

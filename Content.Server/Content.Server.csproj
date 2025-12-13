@@ -81,6 +81,7 @@ SPDX-License-Identifier: MIT
     <Compile Remove="MalfAI\MalfAiShopSystem.cs" />
     <Compile Remove="_Funkystation\MalfAI\Systems\MalfAiAntagInfoSystem.cs" />
     <Compile Remove="SurveillanceCamera\SurveillanceCameraMicrophoneComponent.cs" />
+    <Compile Remove="Body\Components\MetabolizerComponent.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="Resources\Prototypes\Store\malf_ai.yml" />

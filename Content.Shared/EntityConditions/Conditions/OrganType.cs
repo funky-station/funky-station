@@ -1,10 +1,9 @@
-using Content.Server.Body.Components;
+using Content.Shared.Body.Components;
 using Content.Shared.Body.Prototypes;
-using Content.Shared.EntityConditions;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 
-namespace Content.Server.EntityConditions.Conditions;
+namespace Content.Shared.EntityConditions.Conditions;
 
 /// <summary>
 ///     Requires that the metabolizing organ is or is not tagged with a certain MetabolizerType

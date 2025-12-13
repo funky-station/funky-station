@@ -1,12 +1,12 @@
-type: reagent
-id: ForeverAlcohol
-name: reagent-name-forever-alcohol
-group: Narcotics
-desc: reagent-desc-forever-alcohol
-physicalDesc: reagent-physical-desc-unholu
-flavor: trashy
-color: "#1b8b3d"
-metabolisms:
+- type: reagent
+  id: ForeverAlcohol
+  name: reagent-name-forever-alcohol
+  group: Narcotics
+  desc: reagent-desc-forever-alcohol
+  physicalDesc: reagent-physical-desc-unholu
+  flavor: trashy
+  color: "#1b8b3d"
+  metabolisms:
   Narcotic:
     effects:
     - !type:AdjustReagent

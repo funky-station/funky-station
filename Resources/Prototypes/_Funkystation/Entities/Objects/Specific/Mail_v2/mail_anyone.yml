@@ -1,3 +1,4 @@
+# SPDX-FileCopyrightText: 2025 Xcybitt <197952719+Xcybitt@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Xcybitt <lenazheng88@gmail.com>
 # SPDX-FileCopyrightText: 2025 Xcybitt <xcybitt@gmail.com>
 # SPDX-FileCopyrightText: 2025 mkanke-real <mikekanke@gmail.com>
@@ -574,3 +575,15 @@
     - id: ClothingHandsGlovesConducting
       amount: 7
     - id: ClothingHandsGlovesColorYellow
+
+- type: entity
+  parent: BaseMailLarge
+  id: MailNukie
+  suffix: Nukie #just a box... huh?
+  components:
+  - type: Mail
+    contents:
+    - id: MobSyndicateFootsoldierNukie
+    - id: WeaponPistolViper #to clog up hands + give the reciever a fighting chance
+    - id: CombatKnife
+    - id: WeaponSubMachineGunC20rLottery

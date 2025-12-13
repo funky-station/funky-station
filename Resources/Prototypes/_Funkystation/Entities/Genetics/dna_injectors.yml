@@ -102,6 +102,17 @@
     HeldPrefix: RussianAccent
 
 - type: entity
+  parent: BaseDNAInjectorSyringe
+  id: DNAMutatorAdamantineSkin
+  name: "dna mutator (AdamantineSkin)"
+  components:
+  - type: DnaSequenceInjector
+    mutationId: AdamantineSkin
+    isMutator: true
+  - type: Item
+    HeldPrefix: AdamantineSkin
+
+- type: entity
   id: MutadoneChemistryBottle
   suffix: mutadone
   parent: BaseChemistryBottleFilled

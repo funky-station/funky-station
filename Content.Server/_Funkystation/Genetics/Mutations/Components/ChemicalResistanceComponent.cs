@@ -7,7 +7,7 @@ using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototy
 namespace Content.Server._Funkystation.Genetics.Mutations.Components;
 
 [RegisterComponent]
-public sealed partial class ChemicalResistanceMutationComponent : Component
+public sealed partial class ChemicalResistanceComponent : Component
 {
     /// <summary>
     /// List of reagent prototype IDs that this mutation grants resistance to.

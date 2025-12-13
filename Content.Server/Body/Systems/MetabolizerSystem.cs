@@ -189,10 +189,10 @@ namespace Content.Server.Body.Systems
                 var mostToRemove = FixedPoint2.Zero;
 
                 // Funkystation - Genetics
-                // Alcohol resistance mutation - completely ignore alcohol metabolism
+                // Chemical resistance mutation - completely ignore selected chem metabolism
                 var bodyUid = ent.Comp2?.Body ?? solutionEntityUid.Value;
 
-                if (TryComp<ChemicalResistanceMutationComponent>(bodyUid, out var resistance) && resistance.Reagents.Contains(reagent.Prototype))
+                if (TryComp<ChemicalResistanceComponent>(bodyUid, out var resistance) && resistance.Reagents.Contains(reagent.Prototype))
                 {
                     var removeAmount = FixedPoint2.Min(resistance.PurgeAmount, quantity);
                     solution.RemoveReagent(reagent, removeAmount);

@@ -183,7 +183,7 @@
   popupText: "You feel unusually sober."
   instability: 0
   components:
-  - type: ChemicalResistanceMutationComponent
+  - type: ChemicalResistance
     reagents:
       - Ethanol
 
@@ -213,10 +213,24 @@
 #   popupText: "You feel unusually sober."
 #   instability: 0
 #   components:
-#   - type: ChemicalResistanceMutationComponent
+#   - type: ChemicalResistanceMutation
 #     reagenst:
 #     - Ethanol
 
+- type: geneticMutation
+  id: ChitinoarmisDurescutis
+  name: "Chitinoarmis Durescutis"
+  desc: "Subject skin develops into a hardened carapace."
+  popupText: "You feel your skin harden."
+  instability: 10
+  components:
+  - type: PassiveArmorProvider
+    modifierSetId: ChitinoarmisDurescutisArmor
+- type: damageModifierSet
+  id: ChitinoarmisDurescutisArmor
+  coefficients:
+    Blunt: 80.0
+    Slash: 80.0
 
 
 # Instability Mutations

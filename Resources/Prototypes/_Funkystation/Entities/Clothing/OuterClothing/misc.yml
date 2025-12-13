@@ -21,7 +21,7 @@
       coefficients:
         Blunt: 0.6
         Slash: 0.6
-        Piercing: 0.5 # 0.1 less than a web vest 
+        Piercing: 0.5 # 0.1 less than a web vest
         Heat: 0.6 # 0.2 more than a web vest, because it's an apron I guess
   - type: ExplosionResistance
     damageCoefficient: 0.9

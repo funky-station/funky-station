@@ -6,6 +6,9 @@
 # SPDX-FileCopyrightText: 2025 IronDragoon <8961391+IronDragoon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 IronDragoon <you@example.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 ThatOneMoon <91613003+ThatOneMoon@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
+# SPDX-FileCopyrightText: 2025 Xcybitt <197952719+Xcybitt@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
@@ -49,6 +52,9 @@
         whitelist:
           tags:
           - AutoinjectorCartridge
+  - type: Tag
+    tags:
+    - MedicalAutoinjector
 
 - type: entity
   parent: BaseItem
@@ -76,7 +82,7 @@
     injectOnly: true
   - type: HyposprayBlockNonMobInjection
   - type: UseDelay
-    delay: 60
+    delay: 20
   - type: ContainerContainer
     containers:
       item: !type:ContainerSlot
@@ -114,10 +120,11 @@
         map: ["enum.SolutionContainerLayers.Fill"]
         visible: false
 
+
 - type: entity
   name: syndicate cartridge autoinjector
   parent: [ BaseSyndicateCartridgeAutoinjector , BaseMedicalContraband ]
-  description: Used for rapid administration of medicine. Requires disposable cartridges to function
+  description: Used for rapid administration of medicine. Requires disposable cartridges to function. Has a sinister red finish to it. Seems to be manufactured with speed in mind.
   id: SyndicateHypo
   components:
   - type: Sprite
@@ -138,6 +145,8 @@
   components:
   - type: Item
     size: Tiny
+    shape:
+    - 0,0,0,0
   - type: Sprite
     sprite: _Goobstation/Objects/Specific/Medical/cartridge.rsi
     layers:
@@ -172,6 +181,9 @@
         Quantity: 12
       - ReagentId: TranexamicAcid
         Quantity: 3
+  - type: Tag
+    tags:
+    - AutoinjectorCartridge
 
 - type: entity
   name: airloss autoinjector cartridge #Funky Addition, this recipe may need tweaking
@@ -193,6 +205,9 @@
         Quantity: 10
       - ReagentId: TranexamicAcid
         Quantity: 5
+  - type: Tag
+    tags:
+    - AutoinjectorCartridge
 
 - type: entity
   name: brute autoinjector cartridge #Funky Addition, this recipe may need tweaking
@@ -216,6 +231,9 @@
         Quantity: 6
       - ReagentId: TranexamicAcid
         Quantity: 3
+  - type: Tag
+    tags:
+    - AutoinjectorCartridge
 
 - type: entity
   name: burn autoinjector cartridge
@@ -237,6 +255,9 @@
         Quantity: 7.5
       - ReagentId: Aiuri
         Quantity: 7.5
+  - type: Tag
+    tags:
+    - AutoinjectorCartridge
 
 - type: entity
   name: poison autoinjector cartridge
@@ -258,8 +279,11 @@
         Quantity: 10
       - ReagentId: Diphenhydramine
         Quantity: 5
+  - type: Tag
+    tags:
+    - AutoinjectorCartridge
 
-# Not included yet, prototyping some potential stronger cartridges that could be purchased by nukies (potentially some for syndies also)
+
 - type: entity
   name: syndicate sedative autoinjector cartridge
   parent: [ BaseSyndicateContraband , BaseAutoinjectorCartridge ]
@@ -278,6 +302,9 @@
       reagents:
       - ReagentId: Nocturine
         Quantity: 15
+  - type: Tag
+    tags:
+    - AutoinjectorCartridge
 
 - type: entity
   name: syndicate gunshot autoinjector cartridge
@@ -299,6 +326,9 @@
         Quantity: 10
       - ReagentId: TranexamicAcid
         Quantity: 5
+  - type: Tag
+    tags:
+    - AutoinjectorCartridge
 
 # Medipens
 

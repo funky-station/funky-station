@@ -232,6 +232,52 @@
     Blunt: 80.0
     Slash: 80.0
 
+- type: geneticMutation
+  id: ColdResistance
+  name: "Cold Resistance"
+  desc: "Shields the subject's cellular structure against freezing temperatures and crystallization."
+  popupText: "You feel warm."
+  conflicts:
+    - FireResistance
+    - ThermalResistance
+  instability: 10
+  components:
+  - type: ThermalInsulation
+    coolingCoefficient: 0.5
+
+- type: geneticMutation
+  id: FireResistance
+  name: "Fire Resistance"
+  desc: "Shields the subject's cellular structure against high temperatures and flames."
+  popupText: "You feel cold."
+  conflicts:
+    - ColdResistance
+    - ThermalResistance
+  instability: 10
+  components:
+  - type: ThermalInsulation
+    heatingCoefficient: 0.5
+  - type: FireResistance
+    DamageCoefficient: 0.5
+    Worn: false
+
+- type: geneticMutation
+  id: ThermalResistance
+  name: "Thermal Resistance"
+  desc: "Shields the subject's cellular structure against both high and cold temperatures."
+  popupText: "You feel the perfect temperature."
+  conflicts:
+    - ColdResistance
+    - FireResistance
+  hidden: true
+  instability: 15
+  components:
+  - type: ThermalInsulation
+    heatingCoefficient: 0.6
+    coolingCoefficient: 0.6
+  - type: FireResistance
+    DamageCoefficient: 0.5
+    Worn: false
 
 # Instability Mutations
 - type: geneticMutation

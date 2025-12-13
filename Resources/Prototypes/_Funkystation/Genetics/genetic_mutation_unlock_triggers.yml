@@ -1,9 +1,7 @@
-# Left in as an example
-
-# - type: mutationUnlockTrigger
-#   id: UnlockPacifist
-#   requiredMutations:
-#     - Muted
-#     - RussianAccent
-#   unlockMutations:
-#     - Pacifist
+- type: mutationUnlockTrigger
+  id: UnlockThermalResistance
+  requiredMutations:
+    - FireResistance
+    - ColdResistance
+  unlockMutations:
+    - ThermalResistance

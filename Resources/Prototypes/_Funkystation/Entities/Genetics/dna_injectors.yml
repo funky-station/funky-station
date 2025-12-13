@@ -113,6 +113,29 @@
     HeldPrefix: AdamantineSkin
 
 - type: entity
+  parent: BaseDNAInjectorSyringe
+  id: DNAMutatorColdResistance
+  name: "dna mutator (ColdResistance)"
+  components:
+  - type: DnaSequenceInjector
+    mutationId: ColdResistance
+    isMutator: true
+  - type: Item
+    HeldPrefix: ColdResistance
+
+- type: entity
+  parent: BaseDNAInjectorSyringe
+  id: DNAMutatorFireResistance
+  name: "dna mutator (FireResistance)"
+  components:
+  - type: DnaSequenceInjector
+    mutationId: FireResistance
+    isMutator: true
+  - type: Item
+    HeldPrefix: FireResistance
+
+
+- type: entity
   id: MutadoneChemistryBottle
   suffix: mutadone
   parent: BaseChemistryBottleFilled

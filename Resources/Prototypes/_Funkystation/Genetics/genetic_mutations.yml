@@ -258,8 +258,8 @@
   - type: ThermalInsulation
     heatingCoefficient: 0.5
   - type: FireResistance
-    DamageCoefficient: 0.5
-    Worn: false
+    damageCoefficient: 0.5
+    worn: false
 
 - type: geneticMutation
   id: ThermalResistance
@@ -276,8 +276,8 @@
     heatingCoefficient: 0.6
     coolingCoefficient: 0.6
   - type: FireResistance
-    DamageCoefficient: 0.5
-    Worn: false
+    damageCoefficient: 0.5
+    worn: false
 
 # Instability Mutations
 - type: geneticMutation

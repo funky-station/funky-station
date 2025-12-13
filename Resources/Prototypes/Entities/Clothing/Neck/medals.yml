@@ -2,12 +2,12 @@
 # SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
 # SPDX-FileCopyrightText: 2023 AsikKEsel <115815982+AsikKEsel@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2023 Ed <96445749+TheShuEd@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 AirFryerBuyOneGetOneFree <jakoblondon01@gmail.com>
 # SPDX-FileCopyrightText: 2024 Keer-Sar <144283718+Keer-Sar@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
-
 
 - type: entity
   parent: ClothingNeckBase
@@ -19,12 +19,20 @@
     sprite: Clothing/Neck/Medals/bronzeheart.rsi
   - type: Clothing
     sprite: Clothing/Neck/Medals/bronzeheart.rsi
+  - type: CrewMedal
+  - type: ActivatableUI
+    key: enum.CrewMedalUiKey.Key
+    inHandsOnly: true
+  - type: UserInterface
+    interfaces:
+      enum.CrewMedalUiKey.Key:
+        type: CrewMedalBoundUserInterface
   - type: Tag
     tags:
       - Medal
 
 - type: entity
-  parent: ClothingNeckBase
+  parent: ClothingNeckBronzeheart
   id: ClothingNeckGoldmedal
   name: gold medal of crewmanship
   description: Given to crewmates who display excellent crewmanship.
@@ -35,12 +43,9 @@
     sprite: Clothing/Neck/Medals/gold.rsi
   - type: StealTarget
     stealGroup: ClothingNeckGoldmedal
-  - type: Tag
-    tags:
-      - Medal
 
 - type: entity
-  parent: ClothingNeckBase
+  parent: ClothingNeckBronzeheart
   id: ClothingNeckCargomedal
   name: cargo medal
   description: Given for the best work in the cargo department.
@@ -49,12 +54,9 @@
     sprite: Clothing/Neck/Medals/cargomedal.rsi
   - type: Clothing
     sprite: Clothing/Neck/Medals/cargomedal.rsi
-  - type: Tag
-    tags:
-      - Medal
 
 - type: entity
-  parent: ClothingNeckBase
+  parent: ClothingNeckBronzeheart
   id: ClothingNeckEngineermedal
   name: engineer medal
   description: Given for the best work in the engineering department.
@@ -63,12 +65,9 @@
     sprite: Clothing/Neck/Medals/engineermedal.rsi
   - type: Clothing
     sprite: Clothing/Neck/Medals/engineermedal.rsi
-  - type: Tag
-    tags:
-      - Medal
 
 - type: entity
-  parent: ClothingNeckBase
+  parent: ClothingNeckBronzeheart
   id: ClothingNeckMedicalmedal
   name: medical medal
   description: Given for the best work in the medical department.
@@ -77,12 +76,9 @@
     sprite: Clothing/Neck/Medals/medicalmedal.rsi
   - type: Clothing
     sprite: Clothing/Neck/Medals/medicalmedal.rsi
-  - type: Tag
-    tags:
-      - Medal
 
 - type: entity
-  parent: ClothingNeckBase
+  parent: ClothingNeckBronzeheart
   id: ClothingNeckSciencemedal
   name: science medal
   description: Given for the best work in the science department.
@@ -91,12 +87,9 @@
     sprite: Clothing/Neck/Medals/sciencemedal.rsi
   - type: Clothing
     sprite: Clothing/Neck/Medals/sciencemedal.rsi
-  - type: Tag
-    tags:
-      - Medal
 
 - type: entity
-  parent: ClothingNeckBase
+  parent: ClothingNeckBronzeheart
   id: ClothingNeckSecuritymedal
   name: security medal
   description: Given for the best work in the security department.
@@ -105,12 +98,9 @@
     sprite: Clothing/Neck/Medals/securitymedal.rsi
   - type: Clothing
     sprite: Clothing/Neck/Medals/securitymedal.rsi
-  - type: Tag
-    tags:
-      - Medal
 
 - type: entity
-  parent: ClothingNeckBase
+  parent: ClothingNeckBronzeheart
   id: ClothingNeckClownmedal
   name: clown medal
   description: Given for the best joke in the universe. HONK!
@@ -121,6 +111,3 @@
     sprite: Clothing/Neck/Medals/clownmedal.rsi
   - type: StealTarget
     stealGroup: ClothingNeckClownmedal
-  - type: Tag
-    tags:
-      - Medal

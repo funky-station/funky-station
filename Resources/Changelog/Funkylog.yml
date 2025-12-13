@@ -6517,3 +6517,9 @@ Entries:
         lighters as a job trinket under a playtime requirement.
   id: 763
   time: '2025-12-13T21:55:43.0000000+00:00'
+- author: Dusty-Plant
+  changes:
+    - type: Tweak
+      message: Updated Court station for its trial period.
+  id: 764
+  time: '2025-12-13T23:12:21.0000000+00:00'

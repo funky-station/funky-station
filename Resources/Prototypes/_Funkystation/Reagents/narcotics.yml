@@ -3,27 +3,26 @@
   name: reagent-name-forever-alcohol
   group: Narcotics
   desc: reagent-desc-forever-alcohol
-  physicalDesc: reagent-physical-desc-unholu
+  physicalDesc: reagent-physical-desc-unholy
   flavor: trashy
-  color: "#1b8b3d"
   metabolisms:
-  Narcotic:
-    effects:
-    - !type:AdjustReagent
-      conditions:
-      - !type:ReagentThreshold
+    Narcotic:
+      effects:
+      - !type:AdjustReagent
+        conditions:
+        - !type:ReagentThreshold
+         reagent: ForeverAlcohol
+         max: 5
         reagent: ForeverAlcohol
-        max: 5
-      reagent: ForeverAlcohol
-      amount: 1
-    - !type:PopupMessage
-      type: Local
-      messages:
-      - "foreverweed-effect-parents"
-      - "foreverweed-effect-paranoia-one"
-      - "foreverweed-effect-paranoia-two"
-      - "foreverweed-effect-paranoia-three"
-      - "foreverweed-effect-syndicate"
-      probability: 0.01
-    - !type:Drunk
+        amount: 1
+      - !type:PopupMessage
+        type: Local
+        messages:
+        - "foreverweed-effect-parents"
+        - "foreverweed-effect-paranoia-one"
+        - "foreverweed-effect-paranoia-two"
+        - "foreverweed-effect-paranoia-three"
+        - "foreverweed-effect-syndicate"
+        probability: 0.01
+      - !type:Drunk
         boozePower: 1

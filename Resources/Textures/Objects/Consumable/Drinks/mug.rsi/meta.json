@@ -8,6 +8,9 @@
     "copyright": "By AraiMaia for Funky Station",
     "states": [
         {
+            "name": "icon"
+        },
+        {
             "name": "icon-0"
         },
         {

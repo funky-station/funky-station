@@ -867,35 +867,6 @@
     capacity: 30
 
 - type: entity
-  parent: BaseBulletTrigger
-  id: BulletGrenadeCleanade
-  name: cleanade grenade round
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: Sprite
-    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
-    layers:
-    - state: cleanade
-  - type: SmokeOnTrigger
-    duration: 3.5
-    spreadAmount: 30
-    smokePrototype: Foam
-    solution:
-      reagents:
-      - ReagentId: SpaceCleaner
-        Quantity: 30
-  - type: EmitSoundOnTrigger
-    sound: /Audio/Items/smoke_grenade_smoke.ogg
-    positional: true
-  - type: ExplodeOnTrigger
-  - type: Explosive
-    explosionType: Default
-    totalIntensity: 0.01 # a little pop
-    intensitySlope: 1
-    maxIntensity: 0.01
-    tileBreakScale: 0.01
-
-- type: entity
   id: BulletGrenadeEMP
   name: EMP rocket
   parent: BaseBulletTrigger

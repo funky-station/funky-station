@@ -11,6 +11,7 @@ SPDX-License-Identifier: MIT
 
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
+    <StartupObject>Content.MapRenderer.Program</StartupObject>
     <OutputType>Exe</OutputType>
     <OutputPath>..\bin\Content.MapRenderer\</OutputPath>
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>

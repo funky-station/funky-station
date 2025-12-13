@@ -1,4 +1,5 @@
 # SPDX-FileCopyrightText: 2025 Mish <bluscout78@yahoo.com>
+# SPDX-FileCopyrightText: 2025 SharkSnake98 <sharksnake87@gmail.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
@@ -28,3 +29,407 @@
      amount: 2
   products:
     Peggnog: 3
+
+- type: reaction
+  id: Alexander
+  requiredMixerCategories:
+  - Shake
+  reactants:
+   Cognac:
+     amount: 1
+   CremeDeCacao:
+     amount: 1
+   Cream:
+     amount: 1
+  products:
+    Alexander: 3
+
+- type: reaction
+  id: AmarettoAlexander
+  requiredMixerCategories:
+  - Shake
+  reactants:
+   Amaretto:
+     amount: 1
+   CremeDeCacao:
+     amount: 1
+   Cream:
+     amount: 1
+  products:
+    AmarettoAlexander: 3
+
+- type: reaction
+  id: AmarettoSour
+  requiredMixerCategories:
+  - Stir
+  reactants:
+   Amaretto:
+     amount: 2
+   Egg:
+     amount: 6
+   JuiceLemon:
+     amount: 2
+  products:
+    AmarettoSour: 10
+
+- type: reaction
+  id: Amaterasu
+  reactants:
+   Shochu:
+     amount: 1
+   JuiceBerry:
+     amount: 2
+   Vodka:
+     amount: 1
+   Grenadine:
+     amount: 1
+   SodaWater:
+     amount: 5
+  products:
+    Amaterasu: 10
+
+- type: reaction
+  id: TripleCitrus
+  requiredMixerCategories:
+  - Shake
+  reactants:
+   JuiceLemon:
+     amount: 1
+   JuiceOrange:
+     amount: 1
+   JuiceLime:
+     amount: 1
+  products:
+    TripleCitrus: 3
+
+- type: reaction
+  id: BanzaiTi
+  requiredMixerCategories:
+  - Stir
+  reactants:
+   MelonLiquor:
+     amount: 1
+   TripleSec:
+     amount: 1
+   Gin:
+     amount: 1
+   Rum:
+     amount: 1
+   Tequila:
+     amount: 1
+   TripleCitrus:
+     amount: 1
+   SodaWater:
+     amount: 2
+  products:
+    BanzaiTi: 8
+
+- type: reaction
+  id: RootMintBrew
+  requiredMixerCategories:
+  - Shake
+  reactants:
+   Tea:
+     amount: 1
+   JuiceBerry:
+     amount: 1
+   TripleCitrus:
+     amount: 1
+   CremeDeMenthe:
+     amount: 1
+  products:
+    RootMintBrew: 4
+
+- type: reaction
+  id: BetweenTheSheets
+  requiredMixerCategories:
+  - Shake
+  reactants:
+   Rum:
+     amount: 1
+   Cognac:
+     amount: 2
+   TripleSec:
+     amount: 1
+   JuiceLemon:
+     amount: 1
+  products:
+    BetweenTheSheets: 5
+
+- type: reaction
+  id: BittersAndSoda
+  requiredMixerCategories:
+  - Shake
+  reactants:
+   SodaWater:
+     amount: 5
+   Ice:
+     amount: 3
+   Bitters:
+     amount: 2
+  products:
+    BittersAndSoda: 10
+
+- type: reaction
+  id: BlankPaper
+  requiredMixerCategories:
+  - Shake
+  reactants:
+   Silencer:
+     amount: 1
+   Nothing:
+     amount: 1
+   NuclearCola:
+     amount: 1
+  products:
+    BlankPaper: 3
+
+- type: reaction
+  id: BlueBlazer
+  requiredMixerCategories:
+  - Shake
+  reactants:
+   Whiskey:
+     amount: 4
+   Water:
+     amount: 4
+   Sugar:
+     amount: 1
+  products:
+    BlueBlazer: 9
+
+- type: reaction
+  id: Bosozoku
+  reactants:
+   Lemonade:
+     amount: 1
+   RiceBeer:
+     amount: 1
+  products:
+    Bosozoku: 2
+
+- type: reaction
+  id: BrancaMenta
+  requiredMixerCategories:
+  - Stir
+  reactants:
+   CremeDeMenthe:
+     amount: 1
+   Fernet:
+     amount: 1
+   Ice:
+     amount: 1
+  products:
+    BrancaMenta: 3
+
+- type: reaction
+  id: BugSpray
+  requiredMixerCategories:
+  - Shake
+  reactants:
+   Rum:
+     amount: 2
+   TripleSec:
+     amount: 2
+   Vodka:
+     amount: 1
+   LemonLime:
+     amount: 1
+  products:
+    BugSpray: 6
+
+- type: reaction
+  id: CreviceSpike
+  requiredMixerCategories:
+  - Shake
+  reactants:
+   JuiceLime:
+     amount: 2
+   CapsaicinOil:
+     amount: 2
+  products:
+    CreviceSpike: 4
+
+- type: reaction
+  id: FringeWeaver
+  requiredMixerCategories:
+  - Shake
+  reactants:
+   Ethanol:
+     amount: 9
+   Sugar:
+     amount: 1
+  products:
+    FringeWeaver: 10
+
+- type: reaction
+  id: FourBit
+  reactants:
+   HakkaMate:
+     amount: 2
+   JuiceLime:
+     amount: 1
+   Rum:
+     amount: 2
+  products:
+    FourBit: 5
+
+- type: reaction
+  id: MauiSunrise
+  requiredMixerCategories:
+  - Shake
+  reactants:
+   CoconutRum:
+     amount: 2
+   JuicePineapple:
+     amount: 2
+   MelonLiquor:
+     amount: 1
+   TripleCitrus:
+     amount: 1
+   LemonLime:
+     amount: 4
+  products:
+    MauiSunrise: 10
+
+- type: reaction
+  id: QuadrupleSec
+  reactants:
+   TripleSec:
+     amount: 1
+   TripleCitrus:
+     amount: 1
+   Grenadine:
+     amount: 1
+  products:
+    QuadrupleSec: 3
+
+- type: reaction
+  id: Nekomimosa
+  requiredMixerCategories:
+  - Shake
+  reactants:
+   MelonLiquor:
+     amount: 2
+   JuiceWatermelon:
+     amount: 2
+   Champagne:
+     amount: 1
+  products:
+    Nekomimosa: 5
+
+- type: reaction
+  id: RedCityAM
+  requiredMixerCategories:
+  - Shake
+  reactants:
+   RiceBeer:
+     amount: 5
+   JuiceLime:
+     amount: 1
+   EnergyDrink:
+     amount: 1
+   Soysauce:
+     amount: 1
+   JuiceTomato:
+     amount: 2
+  products:
+    RedCityAM: 10
+
+- type: reaction
+  id: SentaiQuencha
+  reactants:
+   MelonSoda:
+     amount: 2
+   TripleCitrus:
+     amount: 1
+   Shochu:
+     amount: 1
+   BlueCuracao:
+     amount: 1
+  products:
+    SentaiQuencha: 5
+
+- type: reaction
+  id: UtilityPole
+  reactants:
+   VoltaicYellowWine:
+     amount: 1
+   DarkandStormy:
+     amount: 2
+   Sake:
+     amount: 1
+  products:
+    UtilityPole: 4
+
+- type: reaction
+  id: WizzFizz
+  requiredMixerCategories:
+  - Shake
+  reactants:
+   Champagne:
+     amount: 1
+   SodaWater:
+     amount: 1
+   TripleSec:
+     amount: 1
+  products:
+    WizzFizz: 3
+
+- type: reaction
+  id: Admiralty
+  requiredMixerCategories:
+  - Shake
+  reactants:
+   NavyRum:
+     amount: 3
+   Fernet:
+     amount: 1
+   Vermouth:
+     amount: 1
+  products:
+    Admiralty: 3
+
+- type: reaction
+  id: LongJohnSilver
+  reactants:
+   NavyRum:
+     amount: 2
+   Bitters:
+     amount: 1
+   Lemonade:
+     amount: 2
+  products:
+    LongJohnSilver: 5
+
+- type: reaction
+  id: LongHaul
+  reactants:
+   NavyRum:
+     amount: 2
+   Bitters:
+     amount: 1
+   Sugar:
+     amount: 1
+   BlueCuracao:
+     amount: 2
+   SodaWater:
+     amount: 4
+  products:
+    LongHaul: 10
+
+- type: reaction
+  id: TropicalStorm
+  requiredMixerCategories:
+  - Shake
+  reactants:
+   Rum:
+     amount: 2
+   BlueCuracao:
+     amount: 2
+   TripleCitrus:
+     amount: 4
+   JuicePineapple:
+     amount: 2
+  products:
+    TropicalStorm: 10

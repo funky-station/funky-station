@@ -36,8 +36,10 @@
 # SPDX-FileCopyrightText: 2025 McBosserson <148172569+McBosserson@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 McBosserson <mcbosserson@hotmail.com>
 # SPDX-FileCopyrightText: 2025 Milon <milonpl.git@proton.me>
+# SPDX-FileCopyrightText: 2025 Noah Leach <77765510+BearWithMe18@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 RedBookcase <crazykid1590@gmail.com>
 # SPDX-FileCopyrightText: 2025 SharkSnake98 <peanutbuttersharky@gmail.com>
+# SPDX-FileCopyrightText: 2025 SharkSnake98 <sharksnake87@gmail.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 Ultimite <138839119+UltimiteTheHog@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
@@ -1067,9 +1069,9 @@
   description: flavor-complex-bahama-mama
 
 - type: flavor
-  id: barefoot
+  id: bigfoot
   flavorType: Complex
-  description: flavor-complex-barefoot
+  description: flavor-complex-bigfoot
 
 - type: flavor
   id: booger

@@ -453,7 +453,7 @@
   id: RCD
   parent: [ BaseItem, BaseEngineeringContraband ]
   name: RCD
-  description: The heavy-duty rapid construction device can be used to quickly place and remove various station structures and fixtures. Requires compressed matter to function. Can be clipped to the back of an engineering hardsuit.
+  description: The heavy-duty rapid construction device can be used to quickly place and remove various station structures and fixtures. Requires compressed matter to function.
   components:
   - type: MeleeWeapon
     damage:
@@ -499,7 +499,7 @@
     sprite: Objects/Tools/rcd.rsi
     quickEquip: false
     slots:
-    - backStorage
+    - back
   - type: PhysicalComposition
     materialComposition:
       Steel: 600
@@ -576,6 +576,7 @@
     sprite: Objects/Tools/rpd.rsi
     quickEquip: false
     slots:
+    - back
     - backStorage
   - type: UserInterface
     interfaces:

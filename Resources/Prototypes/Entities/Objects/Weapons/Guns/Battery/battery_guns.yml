@@ -63,6 +63,7 @@
 # SPDX-FileCopyrightText: 2025 EmoGarbage404 <retron404@gmail.com>
 # SPDX-FileCopyrightText: 2025 JoulesBerg <104539820+JoulesBerg@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Liamofthesky <157073227+Liamofthesky@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Mingewhinge <theartistjul07@gmail.com>
 # SPDX-FileCopyrightText: 2025 QueerCats <jansencheng3@gmail.com>
 # SPDX-FileCopyrightText: 2025 SigmaTheDragon <162711378+SigmaTheDragon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
@@ -219,7 +220,7 @@
   name: retro laser blaster
   parent: [ BaseWeaponBatterySmall, BaseSecurityContraband ]
   id: WeaponLaserGun
-  description: A weapon using light amplified by the stimulated emission of radiation.
+  description: An older model of the now defunct line of the sectech™ laser blaster. Rumors say it went defunct after a incident when a cadet misfired and melted a centcomm offical's brain.
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Battery/laser_retro.rsi
@@ -232,6 +233,8 @@
   - type: HitscanBatteryAmmoProvider
     proto: RedMediumLaser
     fireCost: 62.5
+  - type: StaticPrice
+    price: 250
   - type: MagazineVisuals
     magState: mag
     steps: 5
@@ -521,6 +524,10 @@
     - type: Battery
       maxCharge: 10000
       startingCharge: 10000
+    - type: Tag
+      tags:
+        - ParticleDecelerator
+
 
 - type: entity
   name: x-ray cannon
@@ -827,6 +834,10 @@
   - type: StaticPrice
     price: 100
   - type: Multishot # Goobstation
+  - type: Tag
+    tags:
+    - ChimpHandcannon
+
 
 - type: entity
   name: experimental C.H.I.M.P. handcannon
@@ -848,7 +859,7 @@
       fireCost: 100
   - type: Tag
     tags:
-      - Sidearm
+      - ChimpHandcannon
 
 - type: entity
   name: eye of a behonker

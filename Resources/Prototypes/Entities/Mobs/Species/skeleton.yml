@@ -53,13 +53,13 @@
   - type: Damageable
     damageContainer: BiologicalMetaphysical
     damageModifierSet: Skeleton
-  - type: DamageVisuals
-    damageOverlayGroups:
-      Brute:
-        sprite: Mobs/Effects/brute_damage.rsi
-        color: "#555555AA"
-      Burn:
-        sprite: Mobs/Effects/burn_damage.rsi
+#  - type: DamageVisuals
+#    damageOverlayGroups:
+#      Brute:
+#        sprite: Mobs/Effects/brute_damage.rsi
+#        color: "#555555AA"
+#      Burn:
+#        sprite: Mobs/Effects/burn_damage.rsi
   - type: MobState
   - type: MobThresholds
     thresholds:

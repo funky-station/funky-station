@@ -6,10 +6,10 @@
 - type: body
   id: SmartCorgi
   name: corgi
-  root: torso
+  root: chest
   slots:
-    torso:
-      part: TorsoAnimal
+    chest:
+      part: ChestAnimal
       connections:
       - right arm
       - left arm

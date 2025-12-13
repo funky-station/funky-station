@@ -89,3 +89,43 @@
 
 - type: Tag
   id: RevolverSalamander
+
+
+- type: Tag
+  id: CapacitorStockPart
+
+- type: Tag
+  id: ManipulatorStockPart
+
+- type: Tag
+  id: MatterBinStockPart
+
+- type: Tag
+  id: Organ
+
+- type: Tag
+  id: Lungs
+
+- type: Tag
+  id: Heart
+
+- type: Tag
+  id: Liver
+
+- type: Tag
+  id: Stomach
+
+- type: Tag
+  id: Kidneys
+
+- type: Tag
+  id: Eyes
+
+- type: Tag
+  id: PDACart
+
+- type: Tag
+  id: AtmosFireSuit
+
+- type: Tag
+  id: Unedible

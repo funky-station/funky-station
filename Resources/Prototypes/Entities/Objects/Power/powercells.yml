@@ -75,16 +75,21 @@
   - type: Extractable
     juiceSolution:
       reagents:
-        - ReagentId: Zinc
-          Quantity: 5
+      - ReagentId: Zinc
+        Quantity: 5
   - type: Tag
     tags:
-      - PowerCell
+    - PowerCell
   - type: Riggable
-  - type: StealTarget #Goobstation - IPC steal
-    stealGroup: Battery
-  - type: BatteryDrinkerSource # Goobstation - Energycrit
-    maxAmount: 360
+  - type: Appearance
+  - type: PredictedBatteryVisuals
+  - type: GenericVisualizer
+    visuals:
+      enum.BatteryVisuals.State:
+        enum.PowerCellVisualLayers.Unshaded:
+          Full: {visible: true, state: o2}
+          Neither: {visible: true, state: o1}
+          Empty: {visible: false}
 
 - type: entity
   name: potato battery
@@ -100,7 +105,7 @@
     startingCharge: 70
   - type: Tag
     tags:
-      - PotatoBattery
+    - PotatoBattery
   - type: Construction
     graph: PowerCellPotato
     node: potatobattery
@@ -124,7 +129,7 @@
     startingCharge: 360
   - type: Tag
     tags:
-      - PowerCellSmall
+    - PowerCellSmall
 
 - type: entity
   id: PowerCellSmallPrinted
@@ -133,12 +138,12 @@
   components:
   - type: Sprite
     layers:
-      - map: [ "enum.PowerCellVisualLayers.Base" ]
-        state: small
-      - map: [ "enum.PowerCellVisualLayers.Unshaded" ]
-        state: o2
-        shader: unshaded
-        visible: false
+    - map: [ "enum.PowerCellVisualLayers.Base" ]
+      state: small
+    - map: [ "enum.PowerCellVisualLayers.Unshaded" ]
+      state: o2
+      shader: unshaded
+      visible: false
   - type: PredictedBattery
     maxCharge: 360
     startingCharge: 0
@@ -178,12 +183,12 @@
   components:
   - type: Sprite
     layers:
-      - map: [ "enum.PowerCellVisualLayers.Base" ]
-        state: medium
-      - map: [ "enum.PowerCellVisualLayers.Unshaded" ]
-        state: o2
-        shader: unshaded
-        visible: false
+    - map: [ "enum.PowerCellVisualLayers.Base" ]
+      state: medium
+    - map: [ "enum.PowerCellVisualLayers.Unshaded" ]
+      state: o2
+      shader: unshaded
+      visible: false
   - type: PredictedBattery
     maxCharge: 720
     startingCharge: 0
@@ -213,12 +218,12 @@
   components:
   - type: Sprite
     layers:
-      - map: [ "enum.PowerCellVisualLayers.Base" ]
-        state: high
-      - map: [ "enum.PowerCellVisualLayers.Unshaded" ]
-        state: o2
-        shader: unshaded
-        visible: false
+    - map: [ "enum.PowerCellVisualLayers.Base" ]
+      state: high
+    - map: [ "enum.PowerCellVisualLayers.Unshaded" ]
+      state: o2
+      shader: unshaded
+      visible: false
   - type: PredictedBattery
     maxCharge: 1080
     startingCharge: 0
@@ -248,12 +253,12 @@
   components:
   - type: Sprite
     layers:
-      - map: [ "enum.PowerCellVisualLayers.Base" ]
-        state: hyper
-      - map: [ "enum.PowerCellVisualLayers.Unshaded" ]
-        state: o2
-        shader: unshaded
-        visible: false
+    - map: [ "enum.PowerCellVisualLayers.Base" ]
+      state: hyper
+    - map: [ "enum.PowerCellVisualLayers.Unshaded" ]
+      state: o2
+      shader: unshaded
+      visible: false
   - type: PredictedBattery
     maxCharge: 1800
     startingCharge: 0
@@ -300,18 +305,18 @@
   id: PowerCellAntiqueProto
   parent: BasePowerCell
   components:
-    - type: Sprite
-      layers:
-      - map: [ "enum.PowerCellVisualLayers.Base" ]
-        state: antique
-      - map: [ "enum.PowerCellVisualLayers.Unshaded" ]
-        state: o2
-        shader: unshaded
-    - type: PredictedBattery
-      maxCharge: 1200
-      startingCharge: 1200
-    - type: PredictedBatterySelfRecharger
-      autoRechargeRate: 40
+  - type: Sprite
+    layers:
+    - map: [ "enum.PowerCellVisualLayers.Base" ]
+      state: antique
+    - map: [ "enum.PowerCellVisualLayers.Unshaded" ]
+      state: o2
+      shader: unshaded
+  - type: PredictedBattery
+    maxCharge: 1200
+    startingCharge: 1200
+  - type: PredictedBatterySelfRecharger
+    autoRechargeRate: 40
 
 # Power cage (big heavy power cell for big devices)
 
@@ -330,11 +335,11 @@
   - type: Extractable
     juiceSolution:
       reagents:
-        - ReagentId: Zinc
-          Quantity: 15
+      - ReagentId: Zinc
+        Quantity: 15
   - type: Tag
     tags:
-      - PowerCage
+    - PowerCage
   - type: ClothingSpeedModifier
     walkModifier: 0.8
     sprintModifier: 0.8

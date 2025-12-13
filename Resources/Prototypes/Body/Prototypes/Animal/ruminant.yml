@@ -8,10 +8,10 @@
 - type: body
   id: AnimalRuminant
   name: "ruminant"
-  root: torso
+  root: chest
   slots:
-    torso:
-      part: TorsoAnimal
+    chest:
+      part: ChestAnimal
       connections:
       - legs
       organs:

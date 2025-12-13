@@ -172,7 +172,6 @@
     slots:
     - Back
     - Belt
-  - type: DisarmMalus
 
 - type: entity
   name: energy katana
@@ -212,32 +211,6 @@
     - NONE
 
 - type: entity
-  name: machete
-  parent: [ BaseSword, BaseMajorContraband ]
-  id: Machete
-  description: A large, vicious looking blade.
-  components:
-  - type: Tag
-    tags:
-    - Machete
-  - type: Sprite
-    sprite: Objects/Weapons/Melee/machete.rsi
-  - type: MeleeWeapon
-    damage:
-      types:
-        Slash: 15
-    soundHit:
-        path: /Audio/Weapons/bladeslice.ogg
-  - type: Item
-    sprite: Objects/Weapons/Melee/machete.rsi
-    storedSprite:
-      state: storage
-      sprite: Objects/Weapons/Melee/machete.rsi
-    shape:
-    - 0,0,0,2
-  - type: DisarmMalus
-
-- type: entity
   name: claymore
   parent: [ BaseSword, BaseMajorContraband ]
   id: Claymore
@@ -262,32 +235,6 @@
     sprite: Objects/Weapons/Melee/claymore.rsi
     slots:
     - back
-  - type: DisarmMalus
-
-- type: entity
-  name: cutlass
-  parent: [ BaseSword, BaseMajorContraband ]
-  id: Cutlass
-  description: A wickedly curved blade, often seen in the hands of space pirates.
-  components:
-  - type: Tag
-    tags:
-    - Machete
-  - type: Sprite
-    sprite: Objects/Weapons/Melee/cutlass.rsi
-  - type: MeleeWeapon
-    damage:
-      types:
-        Slash: 16
-    soundHit:
-        path: /Audio/Weapons/bladeslice.ogg
-  - type: Item
-    sprite: Objects/Weapons/Melee/cutlass.rsi
-    storedSprite:
-      state: storage
-      sprite: Objects/Weapons/Melee/cutlass.rsi
-    shape:
-    - 0,0,0,2
   - type: DisarmMalus
 
 - type: entity

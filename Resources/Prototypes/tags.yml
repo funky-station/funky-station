@@ -192,9 +192,6 @@
   id: Bun # LastElement key on burger associated MetamorphRecipes.
 
 - type: Tag
-  id: Bun # LastElement key on burger associated MetamorphRecipes.
-
-- type: Tag
   id: Burger # Food sequence key
 
 - type: Tag
@@ -213,9 +210,6 @@
 
 - type: Tag
   id: Cake # CargoBounty blacklist: BountyFruit, BountyVegetable
-
-- type: Tag
-  id: Candle # Storage whitelist: BoxCandle
 
 - type: Tag
   id: Candle # Storage whitelist: BoxCandle
@@ -1369,6 +1363,9 @@
   id: StringInstrument # MachineBoard construction: DawInstrumentMachineCircuitboard
 
 - type: Tag
+  id: Stunbaton
+
+- type: Tag
   id: StunImmune # Tagged mob entity cannot gain the stunned status effect. Blacklist on StatusEffectStunned.
 
 - type: Tag
@@ -1509,6 +1506,9 @@
   id: WallmountSubstationElectronics # ConstructionGraph: WallmountSubstation
 
 - type: Tag
+  id: WaterTank
+
+- type: Tag
   id: WeaponAntiqueLaser # Storage whitelist: GlassBoxLaser
 
 - type: Tag
@@ -1519,6 +1519,9 @@
 
 - type: Tag
   id: WeldingMask # Storage whitelist: BaseClothingBeltEngineering
+
+- type: Tag
+  id: WeldingTool
 
 - type: Tag
   id: WetFloorSign # Storage whitelist: ClothingBeltJanitor, JanitorialTrolley. ItemMapper: JanitorialTrolley

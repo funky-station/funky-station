@@ -11,3 +11,18 @@
   name: stack-micro-manipulator
   icon: { sprite: /Textures/Objects/Misc/stock_parts.rsi, state: micro_mani }
   spawn: MicroManipulatorStockPart
+
+- type: stack
+  parent: BaseSmallStack
+  id: MatterBin
+  name: stack-matter-bin
+  icon: { sprite: /Textures/Objects/Misc/stock_parts.rsi, state: matter_bin }
+  spawn: MatterBinStockPart
+
+- type: stack
+  parent: BaseSmallStack
+  id: Capacitor
+  name: stack-capacitor
+  icon: { sprite: /Textures/Objects/Misc/stock_parts.rsi, state: capacitor }
+  spawn: CapacitorStockPart
+

@@ -24,5 +24,6 @@
         - "foreverweed-effect-paranoia-three"
         - "foreverweed-effect-syndicate"
         probability: 0.01
-      - !type:Drunk
-        boozePower: 1
+    Alcohol:
+    - !type:Drunk
+      boozePower: 1

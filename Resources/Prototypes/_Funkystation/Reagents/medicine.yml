@@ -631,6 +631,6 @@
     Medicine:
       effects:
       - !type:MutationRemoval
-        Chance: 0.6
-        MinRemovals: 1
-        MaxRemovals: 2
+        chance: 0.6
+        minRemovals: 1
+        maxRemovals: 2

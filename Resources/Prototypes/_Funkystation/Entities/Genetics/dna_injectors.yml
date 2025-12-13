@@ -15,9 +15,6 @@
   - type: Item
     size: Tiny
     sprite: _Funkystation/Objects/Specific/Medical/dnainjector.rsi
-  - type: Tag
-    tags:
-    - DnaInjector
   - type: Appearance
   - type: DnaSequenceInjector
   - type: GuideHelp
@@ -66,7 +63,6 @@
   - type: DnaSequenceInjector
     mutationId: Pacifist
   - type: Item
-    HeldPrefix: pacifist
 
 - type: entity
   parent: BaseDNAInjectorSyringe
@@ -77,7 +73,6 @@
     mutationId: Pacifist
     isMutator: true
   - type: Item
-    HeldPrefix: pacifist
 
 - type: entity
   parent: BaseDNAInjectorSyringe
@@ -88,7 +83,6 @@
     mutationId: Muted
     isMutator: true
   - type: Item
-    HeldPrefix: muted
 
 - type: entity
   parent: BaseDNAInjectorSyringe
@@ -99,7 +93,6 @@
     mutationId: RussianAccent
     isMutator: true
   - type: Item
-    HeldPrefix: RussianAccent
 
 - type: entity
   parent: BaseDNAInjectorSyringe
@@ -110,7 +103,6 @@
     mutationId: AdamantineSkin
     isMutator: true
   - type: Item
-    HeldPrefix: AdamantineSkin
 
 - type: entity
   parent: BaseDNAInjectorSyringe
@@ -121,7 +113,6 @@
     mutationId: ColdResistance
     isMutator: true
   - type: Item
-    HeldPrefix: ColdResistance
 
 - type: entity
   parent: BaseDNAInjectorSyringe
@@ -132,7 +123,6 @@
     mutationId: FireResistance
     isMutator: true
   - type: Item
-    HeldPrefix: FireResistance
 
 
 - type: entity

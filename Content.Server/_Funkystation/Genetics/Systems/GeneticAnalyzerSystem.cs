@@ -149,7 +149,7 @@ public sealed class GeneticAnalyzerSystem : SharedGeneticAnalyzerSystem
 
         SetScanResults(uid, patientMeta.EntityName, genetics.GeneticInstability, mutationData);
 
-        _audio.PlayPvs("/Audio/Items/Medical/healthscanner.ogg", uid);
+        _audio.PlayPvs(component.ScanningEndSound, uid);
 
         _ui.SetUiState(uid, GeneticAnalyzerUiKey.Key, new GeneticAnalyzerUiState(
             patientName: patientMeta.EntityName,

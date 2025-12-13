@@ -1,6 +1,7 @@
 using Robust.Shared.Serialization;
 using Robust.Shared.GameStates;
 using Content.Shared._Funkystation.Genetics.Systems;
+using Robust.Shared.Audio;
 
 namespace Content.Shared._Funkystation.Genetics.Components;
 
@@ -16,6 +17,9 @@ public sealed partial class GeneticAnalyzerComponent : Component
 
     [DataField, AutoNetworkedField]
     public List<MutationEntry> Mutations = new();
+
+    [ViewVariables(VVAccess.ReadWrite), DataField("scanningEndSound")]
+    public SoundSpecifier ScanningEndSound = new SoundPathSpecifier("/Audio/Items/Medical/healthscanner.ogg");
 }
 
 

@@ -144,24 +144,6 @@
     currentLabel: reagent-name-soda-water
 
 - type: entity
-  parent: [DrinkVisualsAllFilled, DrinkBottlePlasticBaseFull]
-  id: DrinkTonicWaterBottleFull
-  name: tonic water bottle
-  description: Like soda water, but angrier maybe? Often sweeter.
-  components:
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        maxVol: 100
-        reagents:
-        - ReagentId: TonicWater
-          Quantity: 100
-  - type: Sprite
-    sprite: Objects/Consumable/Drinks/tonic-bottle.rsi
-  - type: Label
-    currentLabel: reagent-name-tonic-water
-
-- type: entity
   parent: [DrinkVisualsOpenable, DrinkBottlePlasticBaseFull]
   id: DrinkEnergyDrinkJug
   name: Red Bool jug

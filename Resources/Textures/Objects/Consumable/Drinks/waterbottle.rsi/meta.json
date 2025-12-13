@@ -14,6 +14,24 @@
             "name": "icon_open"
         },
         {
+            "name": "fill-1"
+        },
+        {
+            "name": "fill-2"
+        },
+        {
+            "name": "fill-3"
+        },
+        {
+            "name": "fill-4"
+        },
+        {
+            "name": "fill-5"
+        },
+        {
+            "name": "icon_empty"
+        },
+        {
             "name": "inhand-left",
             "directions": 4
         },

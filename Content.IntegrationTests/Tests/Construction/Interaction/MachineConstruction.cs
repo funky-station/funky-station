@@ -17,6 +17,7 @@ public sealed class MachineConstruction : InteractionTest
     private const string ProtolatheBoard = "ProtolatheMachineCircuitboard";
     private const string Protolathe = "Protolathe";
     private const string Beaker = "Beaker";
+    private const string Bin1 = "Bin1";
 
     [Test]
     public async Task ConstructProtolathe()

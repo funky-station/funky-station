@@ -6,6 +6,9 @@
 //
 // SPDX-License-Identifier: MIT
 
+using Content.Shared.Stacks;
+using Robust.Shared.Prototypes;
+
 namespace Content.IntegrationTests.Tests.Interaction;
 
 // This partial class contains various constant prototype IDs common to interaction tests.
@@ -37,9 +40,12 @@ public abstract partial class InteractionTest
     protected const string Rod = "MetalRod";
 
     // Parts
-    protected const string Bin1 = "MatterBinStockPart";
-    protected const string Cap1 = "CapacitorStockPart";
     protected const string Manipulator1 = "MicroManipulatorStockPart";
     protected const string Battery1 = "PowerCellSmall";
     protected const string Battery4 = "PowerCellHyper";
+
+    // Inflatables & Needle used to pop them
+    protected static readonly EntProtoId InflatableWall = "InflatableWall";
+    protected static readonly EntProtoId Needle = "WeaponMeleeNeedle";
+    protected static readonly ProtoId<StackPrototype> InflatableWallStack = "InflatableWall";
 }

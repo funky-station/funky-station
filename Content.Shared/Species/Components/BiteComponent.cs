@@ -44,5 +44,11 @@ public sealed partial class BiteComponent : Component
     /// </summary>
     [DataField("actionDescription"), AutoNetworkedField]
     public LocId? ActionDescription;
+
+    /// <summary>
+    /// The hunger cost to perform a bite action.
+    /// </summary>
+    [DataField("hungerCost"), AutoNetworkedField]
+    public float HungerCost = 30f;
 }
 

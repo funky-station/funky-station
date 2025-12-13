@@ -115,8 +115,8 @@
 - type: entity
   parent: [ClothingEyesBase, BaseEngineeringSalvageContraband]
   id: ClothingEyesGlassesMeson
-  name: engineering goggles #less confusion
-  description: Green-tinted goggles using a proprietary polymer that provides protection from flying debris and sparks.
+  name: meson goggles # Changed back to Meson because it sounds cooler.
+  description: Green-tinted goggles using a proprietary polymer that provides protection from flying debris and sparks, alongside containing an integrated t-ray projector and scanner.
   components:
   - type: Sprite
     sprite: Clothing/Eyes/Glasses/meson.rsi

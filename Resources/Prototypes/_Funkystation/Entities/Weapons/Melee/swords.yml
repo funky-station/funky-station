@@ -201,8 +201,6 @@
         Holy: 15
     soundHit:
         path: /Audio/Weapons/bladeslice.ogg
-    shape:
-    - 0,2
   - type: DisarmMalus
   - type: Sharp
   - type: Execution

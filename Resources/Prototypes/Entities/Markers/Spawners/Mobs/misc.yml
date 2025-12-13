@@ -21,7 +21,7 @@
 
 - type: entity
   parent: MarkerBase
-  id: SpawnHonkBot
+  id: SpawnMobHonkBot
   name: honk bot spawner
   components:
   - type: Sprite

@@ -110,7 +110,7 @@
     sprite: Objects/Consumable/Smokeables/Cigarettes/Cartons/mixed.rsi
   - type: EntityTableContainerFill
     containers:
-      storagebase: !type:RandomSelector
+      storagebase: !type:AllSelector
         children:
         - id: CigPackMixedMedical
         - id: CigPackMixed

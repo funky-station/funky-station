@@ -28,7 +28,7 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
-- type: job # goob edit
+- type: job
   id: Passenger
   name: job-name-passenger
   description: job-description-passenger
@@ -44,7 +44,7 @@
   equipment:
     id: PassengerPDA
     ears: ClothingHeadsetGrey
-  #storage:
+    #storage:
     #back:
     #- Stuff
 

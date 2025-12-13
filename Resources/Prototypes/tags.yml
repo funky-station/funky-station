@@ -443,6 +443,9 @@
 
 ## D ##
 
+- type: Tag
+  id: Debug
+
 - type: Tag # Exists on diagonal walls and windows
   id: Diagonal # Used by TileWallsCommand and FixRotationsCommand
 
@@ -536,6 +539,9 @@
 - type: Tag
   id: Enzyme # Storage whitelist: ClothingBeltChef. ItemMapper: ClothingBeltChef
 
+- type: Tag
+  id: ExCable # Placement blacklist on CableDetStack. Placement whitelist on WiredDetonator
+
 ## F ##
 
 - type: Tag
@@ -605,6 +611,9 @@
 
 - type: Tag
   id: Galaxythistle # CargoBounty: BountyGalaxyThistle
+
+- type: Tag
+  id: GasMask
 
 - type: Tag
   id: GasScrubber # Used by AtmosAlarmableComponent for syncing devices.
@@ -913,6 +922,9 @@
 
 - type: Tag
   id: Mayo # Storage whitelist: ClothingBeltChef
+
+- type: Tag
+  id: Mask
 
 - type: Tag
   id: Meat # SpecialDigestible: OrganReptilianStomach. CargoBounty: BountyFood. Several MetamorphRecipes.
@@ -1395,6 +1407,9 @@
   id: Taser # Storage whitelist: ClothingBeltSecurity
 
 - type: Tag
+  id: TheaterBagel # used for Bagel Station's randomized theater
+
+- type: Tag
   id: TimerBrigElectronics # ConstructionGraph: Timer
 
 - type: Tag
@@ -1477,6 +1492,9 @@
 - type: Tag
   id: Wall # Tagged entity is a wall. Several systems and several targeting whitelists (BaseMobDragon) care about this.
   # .cs: SharedNavMapSystem, WallmountCondition, TileWallsCommand, DungeonJob
+
+- type: Tag
+  id: WallMount
 
 - type: Tag
   id: WallmountGeneratorAPUElectronics # ConstructionGraph: WallmountGenerator

@@ -25,8 +25,6 @@ namespace Content.Client.VendingMachines.UI
 
         public event Action<GUIBoundKeyEventArgs, ListData>? OnItemSelected;
 
-        // funky: this is out of date and this stupid override should DIE!!!!
-        private readonly StyleBoxFlat _styleBox = new() { BackgroundColor = new Color(70, 73, 102) };
 
         public VendingMachineMenu()
         {
@@ -67,15 +65,16 @@ namespace Content.Client.VendingMachines.UI
             return text.Contains(filter, StringComparison.CurrentCultureIgnoreCase);
         }
 
-        private void GenerateButton(ListData data, ListContainerButton button)
+        private void GenerateButton(ListData data, IListEntry  button)
         {
-            if (data is not VendorItemsListData { ItemProtoID: var protoID, ItemText: var text })
+            if (data is not VendorItemsListData { ItemProtoID: var protoID, ItemText: var text, Amount: var amount })
                 return;
 
-            button.AddChild(new VendingMachineItem(protoID, text));
+            if (button is not VendingMachineEntry entry)
+                return;
 
-            button.ToolTip = text;
-            button.StyleBoxOverride = _styleBox;
+            entry.Init(protoID, text, amount);
+            entry.ControlRoot.ToolTip = text;
         }
 
         /// <summary>
@@ -108,6 +107,8 @@ namespace Content.Client.VendingMachines.UI
             var longestEntry = string.Empty;
             var listData = new List<VendorItemsListData>();
 
+            ResultsLabel.Text = $"Results: {inventory.Count.ToString()}";
+
             for (var i = 0; i < inventory.Count; i++)
             {
                 var entry = inventory[i];
@@ -122,12 +123,12 @@ namespace Content.Client.VendingMachines.UI
                 }
 
                 var itemName = Identity.Name(dummy, _entityManager);
-                var itemText = $"{itemName} [{entry.Amount}]";
+                var itemText = $"{itemName}";
 
                 if (itemText.Length > longestEntry.Length)
                     longestEntry = itemText;
 
-                listData.Add(new VendorItemsListData(prototype.ID, itemText, i));
+                listData.Add(new VendorItemsListData(prototype.ID, itemText, (int)entry.Amount, i));
             }
 
             VendingContents.PopulateList(listData);
@@ -143,4 +144,4 @@ namespace Content.Client.VendingMachines.UI
     }
 }
 
-public record VendorItemsListData(EntProtoId ItemProtoID, string ItemText, int ItemIndex) : ListData;
+public record VendorItemsListData(EntProtoId ItemProtoID, string ItemText, int Amount, int ItemIndex) : ListData;

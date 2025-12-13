@@ -19,20 +19,33 @@ SPDX-License-Identifier: MIT
     xmlns="https://spacestation14.io"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
-    xmlns:co="clr-namespace:Content.Client.UserInterface.Controls"
-    MinHeight="210">
+    xmlns:vendingMachines="clr-namespace:Content.Client.VendingMachines"
+    MinHeight="600"
+    MinWidth="450">
     <BoxContainer Name="MainContainer" Orientation="Vertical">
-        <LineEdit Name="SearchBar" PlaceHolder="{Loc 'vending-machine-component-search-filter'}" HorizontalExpand="True"  Margin ="4 4"/>
-        <co:SearchListContainer Name="VendingContents" VerticalExpand="True" Margin="4 4"/>
-         <!-- Footer -->
+        <PanelContainer StyleClasses="PanelLight" Margin="0,0,0,0">
+            <BoxContainer Orientation="Horizontal">
+                <Label Name="ResultsLabel" Text="Results: 50" HorizontalExpand="True" StyleClasses="font-small"
+                       Margin="8 0" />
+                <LineEdit Name="SearchBar" PlaceHolder="{Loc 'vending-machine-component-search-filter'}" MinWidth="250"
+                          Margin="4 4" />
+            </BoxContainer>
+        </PanelContainer>
+
+
+        <PanelContainer StyleClasses="PanelDark" VerticalExpand="True">
+            <vendingMachines:SearchableVendingListContainer Name="VendingContents" VerticalExpand="True" Margin="0"
+                                                            SeparationOverride="0" />
+        </PanelContainer>
+        <!-- Footer -->
         <BoxContainer Orientation="Vertical">
             <PanelContainer StyleClasses="LowDivider" />
             <BoxContainer Orientation="Horizontal" Margin="10 2 5 0" VerticalAlignment="Bottom">
                 <Label Text="{Loc 'vending-machine-flavor-left'}" StyleClasses="WindowFooterText" />
                 <Label Text="{Loc 'vending-machine-flavor-right'}" StyleClasses="WindowFooterText"
-                        HorizontalAlignment="Right" HorizontalExpand="True"  Margin="0 0 5 0" />
+                       HorizontalAlignment="Right" HorizontalExpand="True" Margin="0 0 5 0" />
                 <TextureRect StyleClasses="NTLogoDark" Stretch="KeepAspectCentered"
-                        VerticalAlignment="Center" HorizontalAlignment="Right" SetSize="19 19"/>
+                             VerticalAlignment="Center" HorizontalAlignment="Right" SetSize="19 19" />
             </BoxContainer>
         </BoxContainer>
     </BoxContainer>

@@ -24,6 +24,7 @@ public static class StyleClass
     public const string StatusCritical = "status-critical"; //  Status.GetStatusColor(0.0f)
 
     public const string FontLarge = "font-large";
+    public const string FontCondensed = "font-condensed";
     public const string FontSmall = "font-small";
     public const string Italic = "italic";
     public const string Monospace = "monospace";
@@ -66,4 +67,8 @@ public static class StyleClass
     public const string TooltipPanel = "TooltipPanel";
     public const string TooltipTitle = "TooltipTitle";
     public const string TooltipDesc = "TooltipDesc";
+
+
+    public const string BorderModal = "BorderModal";
+
 }

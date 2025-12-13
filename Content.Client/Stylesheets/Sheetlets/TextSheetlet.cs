@@ -19,6 +19,7 @@ public sealed class TextSheetlet : Sheetlet<PalettedStylesheet>
             E().Class(StyleClass.Monospace).Font(mono),
             E().Class(StyleClass.Italic).Font(sheet.BaseFont.GetFont(12, FontKind.Italic)),
             E().Class(StyleClass.FontLarge).Font(sheet.BaseFont.GetFont(14)),
+            E().Class(StyleClass.FontCondensed).Font(sheet.BaseFont.GetFont(11)),
             E().Class(StyleClass.FontSmall).Font(sheet.BaseFont.GetFont(10)),
         ];
     }

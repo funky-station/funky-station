@@ -163,6 +163,19 @@ public static class StyleBoxHelpers
         return openBothBox;
     }
 
+    public static StyleBoxFlat BorderModalStyleBox<T>(T sheet) where T : PalettedStylesheet, IButtonConfig
+    {
+        var borderModal = new StyleBoxFlat()
+        {
+            BackgroundColor = Color.Transparent,
+            BorderColor = Color.DimGray.WithAlpha(75),
+            BorderThickness = new Thickness(1.25f),
+        };
+        borderModal.SetContentMarginOverride(StyleBox.Margin.Horizontal, 8);
+        borderModal.SetPadding(StyleBox.Margin.Horizontal, 1);
+        return borderModal;
+    }
+
     public static StyleBoxTexture SmallStyleBox<T>(T sheet) where T : PalettedStylesheet, IButtonConfig
     {
         var smallBox = new StyleBoxTexture

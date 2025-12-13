@@ -172,7 +172,7 @@ public sealed partial class PlayerListControl : BoxContainer
         return text;
     }
 
-    private void GenerateButton(ListData data, ListContainerButton button)
+    private void GenerateButton(ListData data, IListEntry  button)
     {
         if (data is not PlayerListData { Info: var info })
             return;
@@ -184,8 +184,8 @@ public sealed partial class PlayerListControl : BoxContainer
             FilterList();
         };
 
-        button.AddChild(entry);
-        button.AddStyleClass(ListContainer.StyleClassListContainerButton);
+        button.ControlRoot.AddChild(entry);
+        button.ControlRoot.AddStyleClass(ListContainer.StyleClassListContainerButton);
     }
 }
 

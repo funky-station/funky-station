@@ -155,14 +155,14 @@ public sealed partial class PlayerTab : Control
             .ToList());
     }
 
-    private void GenerateButton(ListData data, ListContainerButton button)
+    private void GenerateButton(ListData data, IListEntry  button)
     {
         if (data is not PlayerListData { Info: var player})
             return;
 
         var entry = new PlayerTabEntry(player, new StyleBoxFlat(button.Index % 2 == 0 ? _altColor : _defaultColor));
-        button.AddChild(entry);
-        button.ToolTip = $"{player.Username}, {player.CharacterName}, {player.IdentityName}, {player.StartingJob}";
+        button.ControlRoot.AddChild(entry);
+        button.ControlRoot.ToolTip = $"{player.Username}, {player.CharacterName}, {player.IdentityName}, {player.StartingJob}";
     }
 
     /// <summary>

@@ -199,7 +199,7 @@ public sealed partial class WantedListUiFragment : BoxContainer
         _selectedTargetName = record.TargetInfo.Name;
     }
 
-    private void GenerateItem(ListData data, ListContainerButton button)
+    private void GenerateItem(ListData data, IListEntry  button)
     {
         if (data is not StatusListData(var record))
             return;
@@ -225,15 +225,15 @@ public sealed partial class WantedListUiFragment : BoxContainer
 
         box.AddChild(rect);
         box.AddChild(label);
-        button.AddChild(box);
-        button.AddStyleClass(ListContainer.StyleClassListContainerButton);
+        button.ControlRoot.AddChild(box);
+        button.ControlRoot.AddStyleClass(ListContainer.StyleClassListContainerButton);
 
         if (record.TargetInfo.Name.Equals(_selectedTargetName))
         {
-            button.Pressed = true;
+            button.ButtonRef.Pressed = true;
             // For some reason the event is not called when `Pressed` changed, call it manually.
             OnItemSelected(
-                new(button, new(new(), BoundKeyState.Down, new(), false, new(), new())),
+                new(button.ButtonRef, new(new(), BoundKeyState.Down, new(), false, new(), new())),
                 data);
         }
     }

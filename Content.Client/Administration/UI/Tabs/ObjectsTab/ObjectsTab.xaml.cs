@@ -137,7 +137,7 @@ public sealed partial class ObjectsTab : Control
         SearchList.PopulateList(listData);
     }
 
-    private void GenerateButton(ListData data, ListContainerButton button)
+    private void GenerateButton(ListData data, IListEntry  button)
     {
         if (data is not ObjectsListData { Info: var info, BackgroundColor: var backgroundColor })
             return;
@@ -145,9 +145,9 @@ public sealed partial class ObjectsTab : Control
         var entry = new ObjectsTabEntry(_admin, info.Name, info.Entity, new StyleBoxFlat { BackgroundColor = backgroundColor });
         entry.OnTeleport += TeleportTo;
         entry.OnDelete += Delete;
-        button.ToolTip = $"{info.Name}, {info.Entity}";
+        button.ControlRoot.ToolTip = $"{info.Name}, {info.Entity}";
 
-        button.AddChild(entry);
+        button.ControlRoot.AddChild(entry);
     }
 
     private bool DataFilterCondition(string filter, ListData listData)

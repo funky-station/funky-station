@@ -15,6 +15,8 @@
 # SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Quantum-cross <7065792+Quantum-cross@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
+# SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
@@ -128,6 +130,9 @@
       params:
         maxDistance: 1
         volume: -8
+  - type: Tag
+    tags:
+      - AnomalyLocator
 
 - type: entity
   id: AnomalyLocator
@@ -229,3 +234,6 @@
         Cold: 100
         Radiation: 100
     slots: NONE
+  - type: Tag
+    tags:
+      - GorillaGauntlet

@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 W.xyz() <tptechteam@gmail.com>
+#
+# SPDX-License-Identifier: MIT
+
 - type: entity
   name: chief engineer's multitool
   parent: Multitool

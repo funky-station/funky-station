@@ -69,7 +69,7 @@ chaplain-gearset-category-pistol-description =
     can kill not only the body but also the soul.
     Being made out of pure silver, it has a significantly slower
     fire rate and much worse accuracy than a standard N1984.
-	
+
 chaplain-gearset-category-staff-name = Staff of Nature
 chaplain-gearset-category-staff-description =
     A powerful living wood staff capable of healing allies and

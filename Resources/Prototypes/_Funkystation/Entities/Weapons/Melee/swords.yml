@@ -196,7 +196,7 @@
     damage:
       types:
         Piercing: 6
-        Poison: 10
+        Poison: 8
         Holy: 15
     soundHit:
         path: /Audio/Weapons/bladeslice.ogg

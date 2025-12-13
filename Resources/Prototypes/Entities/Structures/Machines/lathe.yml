@@ -149,6 +149,7 @@
 # SPDX-FileCopyrightText: 2025 A-Loose-Goose <237446272+A-Loose-Goose@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 ALooseGoose <ALooseGoosey@gmail.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 CalicoDragon <110030310+CalicoDragon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Gansu <68031780+GansuLalan@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 IronDragoon <8961391+IronDragoon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 IronDragoon <you@example.com>
@@ -166,6 +167,7 @@
 # SPDX-FileCopyrightText: 2025 Nox <nebulousnox38@gmail.com>
 # SPDX-FileCopyrightText: 2025 OnyxTheBrave <131422822+OnyxTheBrave@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 QueerCats <jansencheng3@gmail.com>
+# SPDX-FileCopyrightText: 2025 Rainbow <ev0lvkitten@gmail.com>
 # SPDX-FileCopyrightText: 2025 ScarKy0 <scarky0@onet.eu>
 # SPDX-FileCopyrightText: 2025 SigmaTheDragon <162711378+SigmaTheDragon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Sofia Gilsanz <softie.gd@gmail.com>
@@ -192,6 +194,7 @@
 # SPDX-FileCopyrightText: 2025 ferynn <117872973+ferynn@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 marc-pelletier <113944176+marc-pelletier@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 mkanke-real <mikekanke@gmail.com>
+# SPDX-FileCopyrightText: 2025 rottenheadphones <juaelwe@outlook.com>
 # SPDX-FileCopyrightText: 2025 salpphie <53307242+salpphie@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 salpphie <alyssa.thomas51@gmail.com>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
@@ -511,10 +514,6 @@
     - CandyBowl #pill(pill that pills you) #funk
     - DeskBell #ringringring #funk
     - BaseHandheldTelevision #watch my channels #funk
-    - InflatableWall #funky inflatables
-    - InflatableDoor #funk
-    - InflatableDock #funk
-    - InflatableFloor #funk
     - TowelColorWhite #funk towel
     dynamicRecipes:
     - BoomboxRed
@@ -635,6 +634,7 @@
     runningState: building
     unlitIdleState: unlit
     unlitRunningState: unlit-building
+
     staticRecipes:
     - LargeBeaker
     - Dropper
@@ -914,6 +914,9 @@
     - ThermomachineAdvancedFreezerMachineCircuitBoard # Assmos
     - MusicTechFabCircuitboard # Funky Station
     - ElectrolyzerMachineCircuitboard # Assmos - /tg/ gases
+    - NuclearFabricatorMachineCircuitboard
+    - NuclearCentrifugeMachineCircuitboard
+
   - type: EmagLatheRecipes
     emagDynamicRecipes:
     - ShuttleGunDusterCircuitboard
@@ -2066,6 +2069,7 @@
     - SynthHeart
     - SynthLungs
     - SynthEyes
+    - SynthStomach
     - SynthLeftLeg
     - SynthRightLeg
     - SynthLeftFoot

@@ -243,10 +243,6 @@
   name: tear veil rune
   components:
   - type: TearVeil
-  - type: CleanableRune
-    remove: true
-  - type: Reactive
-    remove: true
   - type: Sprite
     sprite: _Funkystation/Structures/BloodCult/narsierune.rsi
     drawdepth: HighFloorObjects

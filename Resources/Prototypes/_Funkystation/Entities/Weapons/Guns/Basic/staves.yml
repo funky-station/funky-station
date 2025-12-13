@@ -1,0 +1,59 @@
+# SPDX-FileCopyrightText: 2022 Kara <lunarautomaton6@gmail.com>
+# SPDX-FileCopyrightText: 2022 rolfero <45628623+rolfero@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
+# To be implemented: see #9072
+
+- type: entity
+  name: staff of nature
+  parent: WeaponStaffBase
+  id: WeaponChaplainNatureStaff
+  description: Empowered by the wilderness and mother nature itself, this staff is able to heal those in need while making those that disrespect nature suffer.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Weapons/Melee/staff_of_nature.rsi
+    layers:
+      - state: icon
+  - type: Gun
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/Magic/staff_healing.ogg
+  - type: BasicEntityAmmoProvider
+    proto: ProjectileNatureBolt
+    capacity: 4
+    count: 4
+  - type: Clothing
+    quickEquip: false
+    slots:
+    - backStorage
+  - type: Item
+    size: Huge
+    sprite: _Funkystation/Objects/Weapons/Melee/staff_of_nature.rsi
+    inhandVisuals:
+      left:
+      - state: inhand-left
+      right:
+      - state: inhand-right
+
+- type: entity
+  id: ProjectileNatureBolt
+  name: nature bolt
+  description: Mother nature blesses you.
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/magic.rsi
+    layers:
+    - state: spell
+      color: green
+  - type: Projectile
+    damage:
+      groups:
+        Brute: -30
+        Burn: -30
+        Airloss: -30
+    ignoreResistances: true

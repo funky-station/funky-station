@@ -87,5 +87,15 @@
   content:
   - WeaponChaplainPistol
   - ClothingEyesGlassesChaplainSunglasses
+  
+- type: chaplainGearMenuSet
+  id: ChaplainGearStaff
+  name: chaplain-gearset-category-staff-name
+  description: chaplain-gearset-category-staff-description
+  sprite:
+    sprite: _Funkystation/Objects/Weapons/Melee/staff_of_nature.rsi
+    state: icon
+  content:
+  - WeaponChaplainNatureStaff
 # end funky
 

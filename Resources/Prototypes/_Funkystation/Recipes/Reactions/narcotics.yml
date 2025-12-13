@@ -1,0 +1,15 @@
+- type: reaction
+  id: ForeverAlcohol
+  reactants:
+    Cogchamp:
+      amount: 1
+    GargleBlaster:
+      amount: 1
+    ExoticReagent:
+      amount: 1
+    Ethanol:
+      amount: 1
+    LongIslandIcedTea:
+      amount: 1
+  products:
+    ForeverAlcohol: 1

@@ -38,6 +38,7 @@ using Content.Server.Body.Components;
 using Content.Server.Body.Systems;
 using Content.Shared.BloodCult;
 using Content.Shared.BloodCult.Components;
+using Content.Shared.UserInterface;
 
 namespace Content.Server.BloodCult.EntitySystems;
 
@@ -68,7 +69,7 @@ public sealed partial class BloodCultRuneCarverSystem : EntitySystem
 
 		SubscribeLocalEvent<BloodCultRuneCarverComponent, AfterInteractEvent>(OnTryDrawRune);
 		SubscribeLocalEvent<DamageableComponent, DrawRuneDoAfterEvent>(OnRuneDoAfter);
-		SubscribeLocalEvent<BloodCultRuneCarverComponent, UseInHandEvent>(OnUseInHand);
+		SubscribeLocalEvent<BloodCultRuneCarverComponent, UseInHandEvent>(OnUseInHand, before: new[] { typeof(ActivatableUISystem) });
 		//SubscribeLocalEvent<HereticRitualRuneComponent, InteractHandEvent>(OnInteract);
 
 		SubscribeLocalEvent<BloodCultRuneCarverComponent, GetVerbsEvent<InteractionVerb>>(OnVerb);
@@ -122,7 +123,8 @@ public sealed partial class BloodCultRuneCarverSystem : EntitySystem
 	{
 		if (!HasComp<BloodCultistComponent>(user) || !Resolve(uid, ref component) || !TryComp(user, out ActorComponent? actor))
 			return;
-		_uiSystem.TryToggleUi(uid, RunesUiKey.Key, actor.PlayerSession);
+		// Use OpenUi instead of TryToggleUi to ensure the menu always opens (doesn't close if already open)
+		_uiSystem.OpenUi(uid, RunesUiKey.Key, actor.PlayerSession);
 	}
 
 	private void UpdateUi(EntityUid uid, BloodCultRuneCarverComponent? component = null)
@@ -194,7 +196,12 @@ public sealed partial class BloodCultRuneCarverSystem : EntitySystem
 		if (args.User != target
 			|| !args.ClickLocation.IsValid(EntityManager)
 			|| !CanPlaceRuneAt(args.ClickLocation, out var location))
+		{
+			// Clear rune selection on failure
+			ent.Comp.Rune = "";
+			ent.Comp.InProgress = "";
 			return;
+		}
 
 		var timeToCarve = ent.Comp.TimeToCarve;
 
@@ -207,6 +214,9 @@ public sealed partial class BloodCultRuneCarverSystem : EntitySystem
 					Loc.GetString("cult-veil-drawing-toostrong"),
 					args.User, args.User, PopupType.MediumCaution
 				);
+				// Clear rune selection on failure
+				ent.Comp.Rune = "";
+				ent.Comp.InProgress = "";
 				return;
 			}
 
@@ -224,6 +234,9 @@ public sealed partial class BloodCultRuneCarverSystem : EntitySystem
 						Loc.GetString("cult-veil-drawing-alreadyexists-location", ("name", locationForSummon.Name)),
 						args.User, args.User, PopupType.MediumCaution
 					);
+					// Clear rune selection on failure
+					ent.Comp.Rune = "";
+					ent.Comp.InProgress = "";
 					return;
 				}
 			}
@@ -283,7 +296,12 @@ public sealed partial class BloodCultRuneCarverSystem : EntitySystem
 
 		// Verify that a rune can be placed at the target location
 		if (!CanPlaceRuneAt(targetCoords, out var location))
+		{
+			// Clear rune selection on failure
+			ent.Comp.Rune = "";
+			ent.Comp.InProgress = "";
 			return;
+		}
 
 		var timeToCarve = ent.Comp.TimeToCarve;
 
@@ -297,6 +315,9 @@ public sealed partial class BloodCultRuneCarverSystem : EntitySystem
 					Loc.GetString("cult-veil-drawing-toostrong"),
 					user, user, PopupType.MediumCaution
 				);
+				// Clear rune selection on failure
+				ent.Comp.Rune = "";
+				ent.Comp.InProgress = "";
 				return;
 			}
 
@@ -314,6 +335,9 @@ public sealed partial class BloodCultRuneCarverSystem : EntitySystem
 						Loc.GetString("cult-veil-drawing-alreadyexists-location", ("name", locationForSummon.Name)),
 						user, user, PopupType.MediumCaution
 					);
+					// Clear rune selection on failure
+					ent.Comp.Rune = "";
+					ent.Comp.InProgress = "";
 					return;
 				}
 			}
@@ -472,6 +496,8 @@ public sealed partial class BloodCultRuneCarverSystem : EntitySystem
 	{
 		if (!TryComp<BloodCultistComponent>(ev.User, out var cultist))
 			return;
+
+		ev.Handled = true;
 
 		// If a rune is already selected, start drawing it under the user
 		if (!string.IsNullOrEmpty(ent.Comp.Rune))

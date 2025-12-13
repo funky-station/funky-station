@@ -136,14 +136,9 @@
   components:
     - type: OfferOnTrigger
     - type: FinalSummoningRune
-    - type: CleanableRune
-      remove: true # FinalRiftRune should not be cleanable
-    - type: Reactive
-      remove: true # FinalRiftRune should not be cleanable with reagents
     - type: Sprite
-      sprite: _Funkystation/Structures/BloodCult/rune_rift.rsi
+      sprite: _Funkystation/Structures/BloodCult/runerift.rsi
       drawdepth: HighFloorObjects
-      scale: [3, 3]
       layers:
         - state: rune_rift
 
@@ -208,6 +203,7 @@
   name: "summoning rune"
   components:
     - type: SummonOnTrigger
+    - type: TriggerOnActivate
     - type: Sprite
       #sprite: Structures/Magic/Cult/trap.rsi
       drawdepth: HighFloorObjects
@@ -248,9 +244,9 @@
   components:
   - type: TearVeil
   - type: CleanableRune
-      remove: true
+    remove: true
   - type: Reactive
-      remove: true
+    remove: true
   - type: Sprite
     sprite: _Funkystation/Structures/BloodCult/narsierune.rsi
     drawdepth: HighFloorObjects

@@ -14,6 +14,7 @@ using Content.Server.GameTicking.Rules;
 using Content.Shared.BloodCult.Components;
 using Content.Shared.BloodCult;
 using Content.Shared.Chemistry.EntitySystems;
+using Content.Shared.Chemistry.Reaction;
 using Content.Shared.FixedPoint;
 using Content.Shared.Maps;
 using Content.Shared.Physics;
@@ -374,10 +375,16 @@ private bool TryFindValid3x3Space(EntityCoordinates center, out EntityCoordinate
 		riftComp.SummoningRunes.Clear();
 		riftComp.OfferingRunes.Clear();
 
-		// Spawn the 3x3 final rift rune sprite at the center (same location as rift)
+		// Spawn the final rift rune sprite at the center (same location as rift)
+		// Same size as TearVeilRune, with constant animation (no drawing animation)
 		var finalRune = Spawn("FinalRiftRune", center);
 		var finalRuneComp = EnsureComp<FinalSummoningRuneComponent>(finalRune);
 		finalRuneComp.RiftUid = rift;
+
+		// Remove CleanableRune and Reactive components - FinalRiftRune should not be cleanable
+		// These are inherited from BaseBloodCultRune but we don't want them for the final rune
+		RemComp<CleanableRuneComponent>(finalRune);
+		RemComp<ReactiveComponent>(finalRune);
 
 		// Track the rune for chanting and offerings
 		riftComp.SummoningRunes.Add(finalRune);

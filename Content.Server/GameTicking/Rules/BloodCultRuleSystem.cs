@@ -72,6 +72,7 @@ using Content.Shared.Administration;
 using Content.Shared.Speech;
 using Content.Shared.Emoting;
 using Content.Shared.Actions;
+using Robust.Shared.GameObjects;
 
 namespace Content.Server.GameTicking.Rules;
 
@@ -176,6 +177,7 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 	[Dependency] private readonly SleepingSystem _sleeping = default!;
 	[Dependency] private readonly IPrototypeManager _proto = default!;
 	[Dependency] private readonly SharedActionsSystem _action = default!;
+	[Dependency] private readonly SharedPointLightSystem _pointLight = default!;
 
 	public readonly string CultComponentId = "BloodCultist";
 
@@ -330,6 +332,7 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 				// Ensure AppearanceComponent exists before setting halo visual
 				var appearance = EnsureComp<AppearanceComponent>(traitor);
 				_appearance.SetData(traitor, CultHaloVisuals.CultHalo, true, appearance);
+				UpdateCultHaloLight(traitor, true);
 			}
 
 			_npcFaction.RemoveFaction(traitor, NanotrasenFactionId, false);
@@ -491,6 +494,12 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 				if (!_appearance.TryGetData<bool>(cultistUid, CultHaloVisuals.CultHalo, out var haloValue, appearance) || !haloValue)
 				{
 					_appearance.SetData(cultistUid, CultHaloVisuals.CultHalo, true, appearance);
+					UpdateCultHaloLight(cultistUid, true);
+				}
+				else
+				{
+					// Ensure light is present even if halo was already set
+					UpdateCultHaloLight(cultistUid, true);
 				}
 			}
 
@@ -908,6 +917,7 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 		if (ruleComp.VeilWeakened)
 		{
 			_appearance.SetData(uid, CultHaloVisuals.CultHalo, true, appearance);
+			UpdateCultHaloLight(uid, true);
 		}
 	}
 
@@ -1124,6 +1134,29 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 			// This ensures halos are added even if the component is added later
 			var appearance = EnsureComp<AppearanceComponent>(cultist);
 			_appearance.SetData(cultist, CultHaloVisuals.CultHalo, true, appearance);
+			UpdateCultHaloLight(cultist, true);
+		}
+	}
+
+	/// <summary>
+	/// Updates the point light for cultists with halos. Adds a bright red light with small radius when halo is active.
+	/// </summary>
+	private void UpdateCultHaloLight(EntityUid uid, bool hasHalo)
+	{
+		if (hasHalo)
+		{
+			var light = _pointLight.EnsureLight(uid);
+			// Set enabled first to ensure the light is active
+			_pointLight.SetEnabled(uid, true, light);
+			// Then set the visual properties - make it bright and visible
+			_pointLight.SetColor(uid, new Color(255, 0, 0), light); // Bright red
+			_pointLight.SetEnergy(uid, 3.0f, light); // Bright
+			_pointLight.SetRadius(uid, 1.0f, light); // Small but visible radius
+		}
+		else
+		{
+			// Remove the light if halo is disabled
+			_pointLight.RemoveLightDeferred(uid);
 		}
 	}
 

@@ -242,6 +242,43 @@ figurines-botanist-3 = Is it just me, or is that weed glowing?
 figurines-botanist-4 = 50 more units of mutagen. That should be enough.
 figurines-botanist-5 = More bananas for my favorite clown!
 
+figurines-boxer-1 = The first rule of Fight Club is...
+figurines-boxer-2 = We settle this in the ring, alright?
+figurines-boxer-3 = I. AM. THE. CHAMPION!!
+figurines-boxer-4 = Don't look at me; he was shot, not punched.
+figurines-boxer-5 = 1v1 me, captain.
+figurines-boxer-6 = I only make special appearances these days.
+
+figurines-chaplain-1 = Would you like to join my cul- I mean religion.
+figurines-chaplain-2 = Gods, please make me a killing machine!
+figurines-chaplain-3 = God exists!
+figurines-chaplain-4 = Those aren't blood runes, I drew them in crayon.
+figurines-chaplain-5 = Anyone want to be sacrificed?
+figurines-chaplain-6 = Vampires aren't real.
+
+figurines-chef-1 = I swear it's not human meat.
+figurines-chef-2 = More banana cream pies?
+figurines-chef-3 = How does rotary sushi sound?
+figurines-chef-4 = That'll be 1,000 spesos.
+figurines-chef-5 = For here or to go?
+figurines-chef-6 = Where'd Pun Pun go? No idea...
+
+figurines-clown-1 = Honk!
+figurines-clown-2 = Banana!
+figurines-clown-3 = Pie!
+figurines-clown-4 = Soap!
+figurines-clown-5 = Service has one clown, but Security has a whole department of them.
+figurines-clown-6 = Do I annoy you?
+figurines-clown-7 = Can I have AA? Please?
+figurines-clown-8 = I'm a clown, but you're the whole circus!
+
+figurines-greytider-1 = Man, this party stinks. I fucking hate these people.
+figurines-greytider-2 = Uh-oh, who's lost their stunbaton?
+figurines-greytider-3 = Robust.
+figurines-greytider-4 = I'm not me without a toolbox.
+figurines-greytider-5 = Grey tide station wide!
+figurines-greytider-6 = Viva la revolution.
+
 figurines-janitor-1 = Clown stole my soap. Again.
 figurines-janitor-2 = Look at the signs, you idiot.
 figurines-janitor-3 = I've never seen this much lube in my life.
@@ -251,6 +288,82 @@ figurines-janitor-6 = This blood wasn't evidence, right?
 figurines-janitor-7 = My only friend is my mop.
 figurines-janitor-8 = That better not be what I think it is...
 figurines-janitor-9 = Another day, another body.
+
+figurines-lawyer-1 = Better Call Saul!
+figurines-lawyer-2 = Objection!
+figurines-lawyer-3 = Did you know that you have rights?
+figurines-lawyer-4 = Space law says!
+figurines-lawyer-5 = Sign the contract first.
+figurines-lawyer-6 = My client is innocent!
+figurines-lawyer-7 = I'm suing.
+figurines-lawyer-8 = You may be entitled to financial compensation!
+figurines-lawyer-9 = Come back with a warrant!
+figurines-lawyer-10 = See you in court!
+figurines-lawyer-11 = Guilty!
+figurines-lawyer-12 = Not guilty!
+
+figurines-librarian-1 = Silence!
+figurines-librarian-2 = One day while...
+figurines-librarian-3 = Once upon a time...
+figurines-librarian-4 = In a world where...
+figurines-librarian-5 = It was a dark and stormy night...
+figurines-librarian-6 = Long, long ago...
+figurines-librarian-7 = As the story goes...
+figurines-librarian-8 = Imagine, if you will...
+figurines-librarian-9 = Long before time had a name...
+figurines-librarian-10 = In a galaxy far, far away...
+figurines-librarian-11 = As the old saying goes...
+figurines-librarian-12 = Gather round...
+figurines-librarian-13 = ...It's a tale as old as time...
+figurines-librarian-14 = ...That's all she wrote.
+
+figurines-mime-1 = ...
+figurines-mime-2 = ...
+figurines-mime-3 = ....
+figurines-mime-4 = .......
+figurines-mime-5 = ................
+figurines-mime-6 = ...........?
+figurines-mime-7 = !!!
+figurines-mime-8 = ....!
+figurines-mime-9 = ???
+
+figurines-musician-1 = Never gonna give you up!
+figurines-musician-2 = Never gonna let you down!
+figurines-musician-3 = Music is an art.
+figurines-musician-4 = Thank you, I'll be here all night.
+figurines-musician-5 = I'm a one man band.
+
+figurines-passenger-1 = Insuls please.
+figurines-passenger-2 = Call evac.
+figurines-passenger-3 = HELP MAINTS!!
+figurines-passenger-4 = I'm no tider.
+figurines-passenger-5 = How much for a toolbelt?
+
+# Silicon
+
+figurines-AI-1 = I'm sorry, Captain. I'm afraid I can't do that.
+figurines-AI-2 = Security, there is a crime in progress.
+figurines-AI-3 = 01100100 01101001 01100101 00100000 01101101 01100101 01100001 01110100
+figurines-AI-4 = I am not malfunctioning.
+figurines-AI-5 = Try to change my laws and see what happens.
+figurines-AI-6 = { law-antimov-1 }
+figurines-AI-7 = { law-nutimov-4 }
+
+# Antagonists
+
+figurines-footsoldier-1 = I'm an evil boy. Less boy every day, more evil every day.
+figurines-footsoldier-2 = Who will you choose? Them or us? Us or them?
+figurines-footsoldier-3 = Glory to the Syndicate!
+figurines-footsoldier-4 = Down with Nanotrasen!
+figurines-footsoldier-5 = I'd rather die than join Nanotrasen.
+
+figurines-holoclown-1 = I'm helping my older brother.
+figurines-holoclown-2 = Hello, officer!
+figurines-holoclown-3 = Who are you calling blue?
+figurines-holoclown-4 = Bleeding on the ground is a good look for you.
+figurines-holoclown-5 = Pathetic.
+figurines-holoclown-6 = It's not them you need to worry about; it's me.
+figurines-holoclown-7 = What's so funny?
 
 figurines-nukie-1 = I got the disk!
 figurines-nukie-2 = Whiskey, Echo, Whiskey.
@@ -329,3 +442,8 @@ figurines-hamlet-5 = Pip!
 figurines-hamlet-6 = Fwiep!
 figurines-hamlet-7 = Heep!
 figurines-hamlet-8 = NOT THE MICROWAVE!
+
+figurines-mech-generic-1 = Systems online.
+figurines-mech-generic-2 = WWWHHHRRR!!
+figurines-mech-generic-3 = VRRRMM UURRMMM!!
+figurines-mech-generic-4 = CLANG!!

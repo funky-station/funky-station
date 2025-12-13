@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Client.Overlays;
 using Content.Shared.Inventory.Events;
 using Content.Shared.Physics;

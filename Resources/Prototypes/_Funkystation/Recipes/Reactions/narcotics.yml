@@ -1,0 +1,19 @@
+# SPDX-FileCopyrightText: 2025 PurpleTranStar <purpletranstar@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: reaction
+  id: ForeverAlcohol
+  reactants:
+    CogChamp:
+      amount: 1
+    GargleBlaster:
+      amount: 1
+    ExoticReagent:
+      amount: 1
+    Ethanol:
+      amount: 1
+    LongIslandIcedTea:
+      amount: 1
+  products:
+    ForeverAlcohol: 1

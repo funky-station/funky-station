@@ -1,0 +1,12 @@
+foreveralcohol-effect-grassman = ...yer arses arse and I'm the grass man, punk yeah ya havin' heathen.
+foreveralcohol-effect-loveyou = Iss you an' me 'gainst the wurld. I love you. I LOVE YOU.
+foreveralcohol-effect-selfloathing = Everyone thinks I'm just a one-eyed bloody monster, god damn it...
+foreveralcohol-effect-better = Any of you that think ye're better 'n me, you're gon' have another thing c-...
+foreveralcohol-effect-paintrain = Gonna take down to the pain train station in train town
+foreveralcohol-effect-killya = Gonna kill you and I'll keep killin' you and I'll never, cause you're 'onna be dead and I don't gotta kill you.
+foreveralcohol-effect-gunshow = Just bought two tickets to the gun show, and I'm not givin' 'em to ya; I'm goin' with your tickets!
+foreveralcohol-effect-captain = The captain knows you're drunk.
+foreveralcohol-effect-captaindl = Don't let the captain know you're drunk!
+foreveralcohol-effect-centcomm = CentComm knows you're drunk.
+foreveralcohol-effect-centcommdl = Don't let CentComm know you're drunk!
+foreveralcohol-effect-bump = Hey, that bump is shaped like a captain...

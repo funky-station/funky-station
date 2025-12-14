@@ -1,0 +1,44 @@
+# SPDX-FileCopyrightText: 2025 PurpleTranStar <purpletranstar@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: reagent
+  id: ForeverAlcohol
+  name: reagent-name-forever-alcohol
+  group: Narcotics
+  desc: reagent-desc-forever-alcohol
+  physicalDesc: reagent-physical-desc-unholy
+  flavor: trashy
+  metabolisms:
+    Narcotic:
+      effects:
+      - !type:AdjustReagent
+        conditions:
+        - !type:ReagentThreshold
+         reagent: ForeverAlcohol
+         max: 5
+        reagent: ForeverAlcohol
+        amount: 1
+      - !type:PopupMessage
+        type: Local
+        messages:
+        - "foreverweed-effect-parents"
+        - "foreverweed-effect-paranoia-one"
+        - "foreverweed-effect-paranoia-two"
+        - "foreverweed-effect-paranoia-three"
+        - "foreverweed-effect-syndicate"
+        - "foreveralcohol-effect-grassman"
+        - "foreveralcohol-effect-loveyou"
+        - "foreveralcohol-effect-selfloathing"
+        - "foreveralcohol-effect-better"
+        - "foreveralcohol-effect-paintrain"
+        - "foreveralcohol-effect-killya"
+        - "foreveralcohol-effect-gunshow"
+        - "foreveralcohol-effect-captain"
+        - "foreveralcohol-effect-captaindl"
+        - "foreveralcohol-effect-centcomm"
+        - "foreveralcohol-effect-centcommdl"
+        - "foreveralcohol-effect-bump"
+        probability: 0.01
+      - !type:Drunk
+        boozePower: 5

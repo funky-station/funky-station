@@ -6529,3 +6529,11 @@ Entries:
       message: funky sprites for inflatables to replace the old ones
   id: 765
   time: '2025-12-14T01:39:16.0000000+00:00'
+- author: salpphie
+  changes:
+    - type: Add
+      message: 'Boxer role to Eden map. '
+    - type: Tweak
+      message: Changed Eden's max pop from 45 to 55.
+  id: 766
+  time: '2025-12-14T01:52:41.0000000+00:00'

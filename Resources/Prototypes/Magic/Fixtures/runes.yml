@@ -45,7 +45,6 @@
         - !type:DeleteEntityEffect
     - type: Physics
       bodyType: Static
-      hard: false
     - type: Fixtures
       fixtures:
         vapor:

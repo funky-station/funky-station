@@ -136,6 +136,7 @@ public sealed class AbsorbentSystem : SharedAbsorbentSystem
             && _useDelay.IsDelayed((used, useDelay)))
             return;
 
+        // This section only for BloodCult runes
         // Check if target is a cleanable rune first (handled by BloodCultRuneCleaningSystem)
         // This allows mops to clean runes before processing puddles/refillables
         var ev = new AbsorbentMopTargetEvent(user, target, used, component);

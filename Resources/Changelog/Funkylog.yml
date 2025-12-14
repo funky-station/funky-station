@@ -6559,3 +6559,11 @@ Entries:
         of durathread
   id: 767
   time: '2025-12-14T05:17:33.0000000+00:00'
+- author: Terkala
+  changes:
+    - type: Tweak
+      message: >-
+        Changed the salvage magnet to bring in the ruined debris from nearby
+        spacestations.
+  id: 768
+  time: '2025-12-14T19:46:58.0000000+00:00'

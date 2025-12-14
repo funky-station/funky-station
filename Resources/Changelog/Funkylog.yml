@@ -6567,3 +6567,15 @@ Entries:
         spacestations.
   id: 768
   time: '2025-12-14T19:46:58.0000000+00:00'
+- author: Xcybitt
+  changes:
+    - type: Add
+      message: Added more descriptions to winter vests!
+    - type: Remove
+      message: >-
+        Removed the sec winter vest and captain winter vest from the uniform
+        fab, as they are actually armor.
+    - type: Tweak
+      message: Gave the captain's winter vest armor, but slightly worse.
+  id: 769
+  time: '2025-12-14T23:32:49.0000000+00:00'

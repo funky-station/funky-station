@@ -62,16 +62,23 @@
         scaleByQuantity: true
         damage:
           types:
-            Cellular: 0.3
+            Blunt: 0.1
       - !type:PopupMessage
         type: Local
         visualType: Large
         messages: [ "gingerbread-hurt-by-water-popup" ]
         probability: 0.25
+  - type: Temperature
+    coldDamage:
+      types:
+        Cold: 0.0
+    heatDamage:
+      types:
+        Heat: 0.7
   - type: Flammable
     damage:
       types:
-        Heat: 0.5 # gingerbread don't burn very much
+        Heat: 0.7 # gingerbread don't burn very much
   - type: Fixtures
     fixtures:
       fix1:
@@ -93,6 +100,18 @@
           32:
             sprite: Mobs/Species/Human/displacement.rsi
             state: jumpsuit-female
+  - type: FlavorProfile
+    flavors:
+      - sweet
+      - peppery
+  - type: Food
+    requireDead: true
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: Sugar
+          Quantity: 200
 
 
 - type: entity

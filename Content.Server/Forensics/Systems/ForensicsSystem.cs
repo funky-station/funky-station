@@ -248,13 +248,13 @@ namespace Content.Server.Forensics
             if (TryComp<CleanableRuneComponent>(target, out _))
             {
                 var cleanDelay = cleanForensicsEntity.Comp.CleanDelay;
-                var doAfterArgs = new DoAfterArgs(EntityManager, user, cleanDelay, new CleanForensicsDoAfterEvent(), cleanForensicsEntity, target: target, used: cleanForensicsEntity)
+                var doAfterArgs = new DoAfterArgs(EntityManager, user, cleanDelay, new CleanForensicsDoAfterEvent(), target, target: target, used: cleanForensicsEntity)
                 {
                     NeedHand = true,
                     BreakOnDamage = true,
                     BreakOnMove = true,
                     MovementThreshold = 0.01f,
-                    DistanceThreshold = 1f, // Standard distance for rune cleaning
+                    // DistanceThreshold is null by default, which uses the standard interaction range
                 };
 
                 if (!_doAfterSystem.TryStartDoAfter(doAfterArgs))

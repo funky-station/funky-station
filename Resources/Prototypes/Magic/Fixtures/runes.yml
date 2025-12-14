@@ -43,6 +43,21 @@
         methods: [ Touch ]
         effects:
         - !type:DeleteEntityEffect
+    - type: Physics
+      bodyType: Static
+      hard: false
+    - type: Fixtures
+      fixtures:
+        vapor:
+          shape:
+            !type:PhysShapeCircle
+            radius: 0.3
+          hard: false
+          mask:
+          - MobMask
+          - ItemMask
+          layer:
+          - ItemMask
     - type: Sprite
       sprite: _Funkystation/Structures/BloodCult/bloodrune.rsi
       drawdepth: HighFloorObjects
@@ -134,13 +149,13 @@
   id: FinalRiftRune
   name: "final rift rune"
   components:
-    - type: OfferOnTrigger
-    - type: FinalSummoningRune
-    - type: Sprite
-      sprite: _Funkystation/Structures/BloodCult/runerift.rsi
-      drawdepth: HighFloorObjects
-      layers:
-        - state: rune_rift
+  - type: OfferOnTrigger
+  - type: FinalSummoningRune
+  - type: Sprite
+    sprite: _Funkystation/Structures/BloodCult/runerift.rsi
+    drawdepth: HighFloorObjects
+    layers:
+    - state: rune_rift
 
 - type: entity
   parent: BaseBloodCultRune

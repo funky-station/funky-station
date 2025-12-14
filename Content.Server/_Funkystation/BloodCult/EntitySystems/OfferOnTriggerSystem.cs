@@ -554,16 +554,41 @@ namespace Content.Server.BloodCult.EntitySystems
 				break;
 			}
 
+			// If no brain was found, check if this is a skeleton (skeletons don't have brain organs, the head IS the mind container)
 			if (!brainRemoved)
 			{
+				// Check if victim has a head part (skeleton heads are the mind container, not brain organs)
+				var headParts = _bodySystem.GetBodyChildrenOfType(victim, BodyPartType.Head, body);
+				foreach (var (headUid, headPart) in headParts)
+				{
+					var headMeta = MetaData(headUid);
+					if (headMeta.EntityPrototype != null)
+					{
+						// Store the head part prototype (e.g., HeadSkeleton) for respawning
+						originalEntityPrototype = headMeta.EntityPrototype.ID;
+						break;
+					}
+				}
+
 				QueueDel(victim);
 			}
 		}
 		else if (!brainRemoved)
 		{
-			var victimMeta = MetaData(victim);
-			if (victimMeta.EntityPrototype != null)
-				originalEntityPrototype = victimMeta.EntityPrototype.ID;
+			// Check if the victim is already a detached head (like HeadSkeleton)
+			// If it's a head part, use its prototype directly
+			if (TryComp<BodyPartComponent>(victim, out var bodyPart) && bodyPart.PartType == BodyPartType.Head)
+			{
+				var victimMeta = MetaData(victim);
+				if (victimMeta.EntityPrototype != null)
+					originalEntityPrototype = victimMeta.EntityPrototype.ID;
+			}
+			else
+			{
+				var victimMeta = MetaData(victim);
+				if (victimMeta.EntityPrototype != null)
+					originalEntityPrototype = victimMeta.EntityPrototype.ID;
+			}
 
 			QueueDel(victim);
 		}

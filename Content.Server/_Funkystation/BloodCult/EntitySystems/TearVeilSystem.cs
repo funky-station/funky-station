@@ -25,6 +25,7 @@ using Content.Server.AlertLevel;
 using Content.Server.Station.Systems;
 using Content.Server.Station.Components;
 using Content.Shared.Mind.Components;
+using Content.Server.Chat.Systems;
 
 namespace Content.Server.BloodCult.EntitySystems
 {
@@ -41,6 +42,7 @@ namespace Content.Server.BloodCult.EntitySystems
         [Dependency] private readonly AlertLevelSystem _alertLevel = default!;
         //[Dependency] private readonly StationSystem _station = default!;
         [Dependency] private readonly SharedTransformSystem _transform = default!;
+		[Dependency] private readonly ChatSystem _chat = default!;
 
 		public override void Initialize()
 		{
@@ -399,6 +401,14 @@ namespace Content.Server.BloodCult.EntitySystems
 			{
 				_alertLevel.SetLevel(stationUid, "delta", true, true, true);
 			}
+
+			// Central Command announcement briefing the crew
+			_chat.DispatchGlobalAnnouncement(
+				Loc.GetString("cult-veil-ritual-central-command-announcement"),
+				"Central Command",
+				playSound: false,
+				colorOverride: Color.FromHex("#cae8e8")
+			);
 		}
 	}
 }

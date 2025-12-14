@@ -6496,3 +6496,74 @@ Entries:
       message: 'Map rotation update: -Olympus +Court'
   id: 761
   time: '2025-12-13T01:56:51.0000000+00:00'
+- author: gaesnek
+  changes:
+    - type: Add
+      message: >-
+        The apex predator of the galaxy has arrived to funky station, available
+        from cargo and at random. Make sure to like. comment. share. and
+        subscribe.
+  id: 762
+  time: '2025-12-13T08:57:56.0000000+00:00'
+- author: ThatOneMoon
+  changes:
+    - type: Add
+      message: >-
+        Many new lighters can now be found in both Maints loot and the Syndicate
+        Uplink. (Originaly by Smugman from Wizden)
+    - type: Add
+      message: >-
+        Command and Central Command roles (and clowns) can unlock specific
+        lighters as a job trinket under a playtime requirement.
+  id: 763
+  time: '2025-12-13T21:55:43.0000000+00:00'
+- author: Dusty-Plant
+  changes:
+    - type: Tweak
+      message: Updated Court station for its trial period.
+  id: 764
+  time: '2025-12-13T23:12:21.0000000+00:00'
+- author: zergologist
+  changes:
+    - type: Add
+      message: funky sprites for inflatables to replace the old ones
+  id: 765
+  time: '2025-12-14T01:39:16.0000000+00:00'
+- author: salpphie
+  changes:
+    - type: Add
+      message: 'Boxer role to Eden map. '
+    - type: Tweak
+      message: Changed Eden's max pop from 45 to 55.
+  id: 766
+  time: '2025-12-14T01:52:41.0000000+00:00'
+- author: zergologist
+  changes:
+    - type: Tweak
+      message: inflatables are now quicker to deploy
+    - type: Tweak
+      message: >-
+        inflatable barricades and doors are now tiny items in the inventory that
+        stack up to 5
+    - type: Tweak
+      message: >-
+        inflatables crate and box adjusted accordingly for change, inflatables
+        box is a 2x2 that holds up to 4 stacks and crate has 2 of these boxes
+    - type: Tweak
+      message: engivend now has 4 boxes of inflatables
+    - type: Add
+      message: station engineers get a box of inflatables in their roundstart lockers
+    - type: Add
+      message: >-
+        regular lathes can now print inflatable barricades and doors at the cost
+        of durathread
+  id: 767
+  time: '2025-12-14T05:17:33.0000000+00:00'
+- author: Terkala
+  changes:
+    - type: Tweak
+      message: >-
+        Changed the salvage magnet to bring in the ruined debris from nearby
+        spacestations.
+  id: 768
+  time: '2025-12-14T19:46:58.0000000+00:00'

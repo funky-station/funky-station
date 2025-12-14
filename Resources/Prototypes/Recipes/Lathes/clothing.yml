@@ -32,6 +32,7 @@
 # SPDX-FileCopyrightText: 2024 hiucko <86206040+Hiucko@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 icekot8 <93311212+icekot8@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 CalicoDragon <110030310+CalicoDragon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Fr0goo <153249069+Fr0goo@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Fr0goo <frogoofrog@outlook.com>
 # SPDX-FileCopyrightText: 2025 MaiaArai <158123176+YaraaraY@users.noreply.github.com>
@@ -39,6 +40,7 @@
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 ThatOneMoon <91613003+ThatOneMoon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
+# SPDX-FileCopyrightText: 2025 Xcybitt <197952719+Xcybitt@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 salpphie <53307242+salpphie@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 salpphie <alyssa.thomas51@gmail.com>
@@ -748,10 +750,10 @@
   result: ClothingUniformJumpskirtWarden
 
 # Command winter coats
-- type: latheRecipe
-  parent: BaseCommandCoatRecipe
-  id: ClothingOuterWinterCap
-  result: ClothingOuterWinterCap
+#- type: latheRecipe  #giving this armor, no way am i gonna let armor actually just be fabbed
+#  parent: BaseCommandCoatRecipe
+#  id: ClothingOuterWinterCap
+#  result: ClothingOuterWinterCap
 
 - type: latheRecipe
   parent: BaseCommandCoatRecipe
@@ -889,10 +891,10 @@
   id: ClothingOuterWinterRobo
   result: ClothingOuterWinterRobo
 
-- type: latheRecipe
-  parent: BaseCoatRecipe
-  id: ClothingOuterWinterSec
-  result: ClothingOuterWinterSec
+#- type: latheRecipe   #this has armor, probably not the best to let be fabbable normally
+#  parent: BaseCoatRecipe
+#  id: ClothingOuterWinterSec
+#  result: ClothingOuterWinterSec
 
 - type: latheRecipe
   parent: BaseCoatRecipe

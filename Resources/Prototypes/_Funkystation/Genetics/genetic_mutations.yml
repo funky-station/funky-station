@@ -279,6 +279,28 @@
     damageCoefficient: 0.5
     worn: false
 
+- type: geneticMutation
+  id: HemopoiesisOverdrive
+  name: "Hemopoiesis Overdrive"
+  desc: "Subject regenerates blood far faster than average."
+  popupText: "You feel like being stabbed isn't a big deal."
+  instability: 15
+  components:
+  - type: BloodRegeneration
+    regenRatePerSecond: 1
+    targetPercentage: .75
+    worn: false
+
+- type: geneticMutation
+  id: LateralUndulation
+  name: "Lateral Undulation"
+  desc: "Subject muscles develop the ability to perform a serpentine locomation."
+  popupText: "You feel like a good wiggle."
+  instability: 15
+  components:
+  - type: CrawlSpeedBoost
+    targetSpeedMult: .6
+
 # Instability Mutations
 - type: geneticMutation
   id: geneticMonkeyMorph

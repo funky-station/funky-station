@@ -22,9 +22,12 @@
 // SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
 // SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
 // SPDX-FileCopyrightText: 2024 Winkarst <74284083+Winkarst-cpu@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Janet Blackquill <uhhadd@gmail.com>
+// SPDX-FileCopyrightText: 2025 Tojo <32783144+Alecksohs@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
-// SPDX-License-Identifier: MIT
+// SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
 using System.Numerics;
@@ -39,6 +42,7 @@ using Robust.Client.UserInterface;
 using Content.Client.UserInterface.Controls;
 using Content.Shared.IdentityManagement;
 using Robust.Client.Graphics;
+using Robust.Shared.Utility;
 
 namespace Content.Client.VendingMachines.UI
 {
@@ -49,17 +53,9 @@ namespace Content.Client.VendingMachines.UI
         [Dependency] private readonly IEntityManager _entityManager = default!;
 
         private readonly Dictionary<EntProtoId, EntityUid> _dummies = [];
-        private readonly Dictionary<EntProtoId, (ListContainerButton Button, VendingMachineItem Item)> _listItems = new();
-        private readonly Dictionary<EntProtoId, uint> _amounts = new();
-
-        /// <summary>
-        /// Whether the vending machine is able to be interacted with or not.
-        /// </summary>
-        private bool _enabled;
 
         public event Action<GUIBoundKeyEventArgs, ListData>? OnItemSelected;
 
-        private readonly StyleBoxFlat _styleBox = new() { BackgroundColor = new Color(70, 73, 102) };
 
         public VendingMachineMenu()
         {
@@ -100,16 +96,16 @@ namespace Content.Client.VendingMachines.UI
             return text.Contains(filter, StringComparison.CurrentCultureIgnoreCase);
         }
 
-        private void GenerateButton(ListData data, ListContainerButton button)
+        private void GenerateButton(ListData data, IListEntry  button)
         {
-            if (data is not VendorItemsListData { ItemProtoID: var protoID, ItemText: var text })
+            if (data is not VendorItemsListData { ItemProtoID: var protoID, ItemText: var text, Amount: var amount })
                 return;
 
-            var item = new VendingMachineItem(protoID, text);
-            _listItems[protoID] = (button, item);
-            button.AddChild(item);
-            button.AddStyleClass(StyleClass.ButtonSquare);
-            button.Disabled = !_enabled || _amounts[protoID] == 0;
+            if (button is not VendingMachineEntry entry)
+                return;
+
+            entry.Init(protoID, text, amount);
+            entry.ControlRoot.ToolTip = text;
         }
 
         /// <summary>
@@ -118,10 +114,6 @@ namespace Content.Client.VendingMachines.UI
         /// </summary>
         public void Populate(List<VendingMachineInventoryEntry> inventory, bool enabled)
         {
-            _enabled = enabled;
-            _listItems.Clear();
-            _amounts.Clear();
-
             if (inventory.Count == 0 && VendingContents.Visible)
             {
                 SearchBar.Visible = false;
@@ -146,15 +138,14 @@ namespace Content.Client.VendingMachines.UI
             var longestEntry = string.Empty;
             var listData = new List<VendorItemsListData>();
 
+            ResultsLabel.Text = $"Results: {inventory.Count.ToString()}";
+
             for (var i = 0; i < inventory.Count; i++)
             {
                 var entry = inventory[i];
 
                 if (!_prototypeManager.TryIndex(entry.ID, out var prototype))
-                {
-                    _amounts[entry.ID] = 0;
                     continue;
-                }
 
                 if (!_dummies.TryGetValue(entry.ID, out var dummy))
                 {
@@ -163,49 +154,17 @@ namespace Content.Client.VendingMachines.UI
                 }
 
                 var itemName = Identity.Name(dummy, _entityManager);
-                var itemText = $"{itemName} [{entry.Amount}]";
-                _amounts[entry.ID] = entry.Amount;
+                var itemText = $"{itemName}";
 
                 if (itemText.Length > longestEntry.Length)
                     longestEntry = itemText;
 
-                listData.Add(new VendorItemsListData(prototype.ID, i)
-                {
-                    ItemText = itemText,
-                });
+                listData.Add(new VendorItemsListData(prototype.ID, itemText, (int)entry.Amount, i));
             }
 
             VendingContents.PopulateList(listData);
 
             SetSizeAfterUpdate(longestEntry.Length, inventory.Count);
-        }
-
-        /// <summary>
-        /// Updates text entries for vending data in place without modifying the list controls.
-        /// </summary>
-        public void UpdateAmounts(List<VendingMachineInventoryEntry> cachedInventory, bool enabled)
-        {
-            _enabled = enabled;
-
-            foreach (var proto in _dummies.Keys)
-            {
-                if (!_listItems.TryGetValue(proto, out var button))
-                    continue;
-
-                var dummy = _dummies[proto];
-                var amount = cachedInventory.First(o => o.ID == proto).Amount;
-                // Could be better? Problem is all inventory entries get squashed.
-                var text = GetItemText(dummy, amount);
-
-                button.Item.SetText(text);
-                button.Button.Disabled = !enabled || amount == 0;
-            }
-        }
-
-        private string GetItemText(EntityUid dummy, uint amount)
-        {
-            var itemName = Identity.Name(dummy, _entityManager);
-            return $"{itemName} [{amount}]";
         }
 
         private void SetSizeAfterUpdate(int longestEntryLength, int contentCount)
@@ -214,9 +173,6 @@ namespace Content.Client.VendingMachines.UI
                 Math.Clamp(contentCount * 50, 150, 350));
         }
     }
-
-    public record VendorItemsListData(EntProtoId ItemProtoID, int ItemIndex) : ListData
-    {
-        public string ItemText = string.Empty;
-    }
 }
+
+public record VendorItemsListData(EntProtoId ItemProtoID, string ItemText, int Amount, int ItemIndex) : ListData;

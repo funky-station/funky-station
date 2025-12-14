@@ -9,7 +9,7 @@ namespace Content.Client.VendingMachines;
 
 public sealed class SearchableVendingListContainer : SearchListContainer
 {
-    public override ListContainerButton InitializeControl(ListData data, int index)
+    public override IListEntry InitializeControl(ListData data, int index)
     {
         return new VendingMachineEntry(data, index);
     }

@@ -13,6 +13,7 @@
 // SPDX-FileCopyrightText: 2024 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 // SPDX-FileCopyrightText: 2025 Toaster <mrtoastymyroasty@gmail.com>
+// SPDX-FileCopyrightText: 2025 Tojo <32783144+Alecksohs@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
 // SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
@@ -180,7 +181,7 @@ public sealed partial class PlayerTab : Control
             .ToList());
     }
 
-    private void GenerateButton(ListData data, ListContainerButton button)
+    private void GenerateButton(ListData data, IListEntry  button)
     {
         if (data is not PlayerListData { Info: var player})
             return;
@@ -191,9 +192,8 @@ public sealed partial class PlayerTab : Control
             _playerTabColorSetting,
             _playerTabRoleSetting,
             _playerTabSymbolSetting);
-        button.AddChild(entry);
-        button.ToolTip = $"{player.Username}, {player.CharacterName}, {player.IdentityName}, {player.StartingJob}";
-        button.StyleClasses.Clear();
+        button.ControlRoot.AddChild(entry);
+        button.ControlRoot.ToolTip = $"{player.Username}, {player.CharacterName}, {player.IdentityName}, {player.StartingJob}";
     }
 
     /// <summary>

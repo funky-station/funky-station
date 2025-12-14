@@ -1,88 +1,87 @@
-﻿<controls:FancyWindow
-    xmlns="https://spacestation14.io"
-    xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
-    MinSize="320 180"
-    Resizable="False">
-    <BoxContainer
-        Margin="12 8"
-        Orientation="Horizontal"
-        SeparationOverride="12">
-        <BoxContainer
-            Orientation="Vertical"
-            HorizontalExpand="True">
-            <GridContainer
-                Columns="2"
-                VerticalAlignment="Center">
+﻿<!--
+SPDX-FileCopyrightText: 2021 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+SPDX-FileCopyrightText: 2021 Visne <39844191+Visne@users.noreply.github.com>
+SPDX-FileCopyrightText: 2021 metalgearsloth <comedian_vs_clown@hotmail.com>
+SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
+SPDX-FileCopyrightText: 2024 Julian Giebel <juliangiebel@live.de>
+SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
+SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 
-                <!-- Power -->
-                <Label
-                    Text="{Loc 'power-charge-window-power'}"
-                    HorizontalExpand="True"
-                    StyleClasses="highlight" />
+SPDX-License-Identifier: MIT
+-->
 
-                <BoxContainer
-                    Orientation="Horizontal"
-                    MinWidth="120"
-                    SetWidth="160">
+<controls:FancyWindow xmlns="https://spacestation14.io"
+                      xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+                      MinSize="225 130"
+                      SetSize="500 275">
+    <BoxContainer Margin="0 0" Orientation="Vertical" HorizontalExpand="True">
 
-                    <Button Name="OnButton"
-                        Text="{Loc 'power-charge-window-power-on'}"
-                        StyleClasses="OpenRight"
-                        MinWidth="60"
-                        SetWidth="80"
-                        HorizontalAlignment="Center"/>
 
-                    <Button
-                        Name="OffButton"
-                        Text="{Loc 'power-charge-window-power-off'}"
-                        StyleClasses="OpenLeft"
-                        MinWidth="60"
-                        SetWidth="80"
-                        HorizontalAlignment="Center"/>
-                </BoxContainer>
+        <PanelContainer Margin="5" HorizontalExpand="True" VerticalExpand="True">
+            <BoxContainer Orientation="Horizontal" VerticalExpand="True">
+                <PanelContainer Margin="0 0 0 0" StyleClasses="Inset" HorizontalExpand="True"
+                                SizeFlagsStretchRatio="0.5">
+                    <SpriteView Name="EntityView" SetSize="128 128" OverrideDirection="South" />
+                </PanelContainer>
+                <PanelContainer HorizontalExpand="True" StyleClasses="PanelDark">
+                    <BoxContainer Orientation="Vertical" VerticalExpand="True" HorizontalExpand="True"
+                                  VerticalAlignment="Center" Margin="5">
+                        <!-- Charge -->
+                        <Label Text="{Loc 'power-charge-window-charge'}" StyleClasses="highlight" />
+                        <ProgressBar Name="ChargeBar" MaxValue="255" HorizontalExpand="True" Margin="4 0">
+                            <Label Name="ChargeText" Margin="4 0" Text="0 %" />
+                        </ProgressBar>
+                        <Label Name="PowerLabel" Text="0 / 0 W" StyleClasses="LabelSubText" HorizontalAlignment="Center" />
+                        <!-- Charge -->
 
-                <Control /> <!-- Empty control to act as a spacer in the grid. -->
+                        <controls:HSpacer SetWidth="5" Spacing="10" />
 
-                <Label Name="PowerLabel"
-                    Text="0 / 0 W" />
+                        <!-- Statuses Panel -->
+                        <PanelContainer HorizontalExpand="True" StyleClasses="PanelLight" Margin="4">
+                            <BoxContainer Orientation="Horizontal" HorizontalExpand="True">
 
-                <!-- Status -->
-                <Label
-                    Text="{Loc 'power-charge-window-status'}"
-                    StyleClasses="highlight" />
-                <Label Name="StatusLabel"
-                    Text="{Loc 'power-charge-window-status-fully-charged'}" />
+                                <BoxContainer Orientation="Vertical" Margin="8" HorizontalExpand="True">
+                                    <Label Text="{Loc 'power-charge-window-status'}" StyleClasses="highlight" />
+                                    <Label Name="StatusLabel" Text="{Loc 'power-charge-window-status-fully-charged'}" />
 
-                <!-- ETA -->
-                <Label
-                    Text="{Loc 'power-charge-window-eta'}"
-                    StyleClasses="highlight" />
-                <Label Name="EtaLabel"
-                    Text="N/A" />
 
-                <!-- Charge -->
-                <Label
-                    Text="{Loc 'power-charge-window-charge'}"
-                    StyleClasses="highlight" />
+                                    <Label Text="{Loc 'power-charge-window-eta'}" StyleClasses="highlight" />
+                                    <Label Name="EtaLabel" Text="N/A" />
+                                </BoxContainer>
 
-                <ProgressBar Name="ChargeBar"
-                    MaxValue="255">
+                                <!-- Todo: rewrite Hline to support sheetlet colors. -->
+                                <controls:HLine VerticalExpand="True" MinWidth="2.5" Margin="0,5" Color="#404040" />
 
-                    <Label Name="ChargeText"
-                        HorizontalAlignment="Center"
-                        Margin="4 0"
-                        Text="0 %" />
-                </ProgressBar>
-            </GridContainer>
-        </BoxContainer>
-        <PanelContainer
-            StyleClasses="Inset"
-            VerticalAlignment="Top">
+                                <BoxContainer Orientation="Vertical" Margin="8" HorizontalExpand="True" VerticalAlignment="Center" HorizontalAlignment="Center">
+                                    <Label Text="Breaker" HorizontalAlignment="Center" StyleClasses="highlight"/>
+                                    <BoxContainer Orientation="Horizontal" MinWidth="75">
+                                        <Button Name="OnButton" Text="{Loc 'power-charge-window-power-on'}"
+                                                StyleClasses="OpenRight" />
+                                        <Button Name="OffButton" Text="{Loc 'power-charge-window-power-off'}"
+                                                StyleClasses="OpenLeft" />
+                                    </BoxContainer>
+                                </BoxContainer>
 
-            <SpriteView Name="EntityView"
-                SetSize="96 96"
-                Margin="0 0 0 26"
-                OverrideDirection="South" />
+                            </BoxContainer>
+                        </PanelContainer>
+                        <!-- End Statuses Panel -->
+                    </BoxContainer>
+                </PanelContainer>
+            </BoxContainer>
         </PanelContainer>
+
+        <!-- Footer -->
+        <BoxContainer Orientation="Vertical" VerticalExpand="True">
+            <PanelContainer StyleClasses="LowDivider" />
+            <BoxContainer Orientation="Horizontal" Margin="10 2 5 0" VerticalAlignment="Bottom">
+                <Label Text="{Loc 'power-charge-flavor-left'}" StyleClasses="WindowFooterText" />
+                <Label Text="{Loc 'power-charge-flavor-right'}" StyleClasses="WindowFooterText"
+                       HorizontalAlignment="Right" HorizontalExpand="True" Margin="0 0 5 0" />
+                <TextureRect StyleClasses="NTLogoDark" Stretch="KeepAspectCentered"
+                             VerticalAlignment="Center" HorizontalAlignment="Right" SetSize="19 19" />
+            </BoxContainer>
+        </BoxContainer>
+
+
     </BoxContainer>
 </controls:FancyWindow>

@@ -6537,3 +6537,25 @@ Entries:
       message: Changed Eden's max pop from 45 to 55.
   id: 766
   time: '2025-12-14T01:52:41.0000000+00:00'
+- author: zergologist
+  changes:
+    - type: Tweak
+      message: inflatables are now quicker to deploy
+    - type: Tweak
+      message: >-
+        inflatable barricades and doors are now tiny items in the inventory that
+        stack up to 5
+    - type: Tweak
+      message: >-
+        inflatables crate and box adjusted accordingly for change, inflatables
+        box is a 2x2 that holds up to 4 stacks and crate has 2 of these boxes
+    - type: Tweak
+      message: engivend now has 4 boxes of inflatables
+    - type: Add
+      message: station engineers get a box of inflatables in their roundstart lockers
+    - type: Add
+      message: >-
+        regular lathes can now print inflatable barricades and doors at the cost
+        of durathread
+  id: 767
+  time: '2025-12-14T05:17:33.0000000+00:00'

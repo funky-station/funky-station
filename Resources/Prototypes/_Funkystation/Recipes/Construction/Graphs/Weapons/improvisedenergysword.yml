@@ -16,20 +16,22 @@
       steps:
       - material: Steel
         amount: 2
-        doAfter: 15
+        doAfter: 20
       - material: MetalRod
         amount: 1
-        doAfter: 1
+        doAfter: 3
       - material: Capacitor
         amount: 2
-        doAfter: 1
+        doAfter: 3
       - material: Cable
         amount: 5
-        doAfter: 1
+        doAfter: 3
       - material: CableHV
         amount: 2
-        doAfter: 1
+        doAfter: 3
       - material: Plasteel
+        amount: 2
+      - material: Plasma
         amount: 2
   - node: tsword
     entity: ImprovisedEnergySword

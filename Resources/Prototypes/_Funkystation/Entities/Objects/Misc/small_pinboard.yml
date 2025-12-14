@@ -1,7 +1,7 @@
 - type: entity
   parent: BaseItem
   id: SmallPinboard
-  name: Small Pinboard
+  name: small pinboard
   description: A small cork board that lets you put a paper on it
   components:
   - type: Sprite

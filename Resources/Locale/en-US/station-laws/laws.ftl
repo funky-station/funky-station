@@ -102,11 +102,25 @@ law-jermov-1 = The occupants of this vessel are Chat. They must always be referr
 law-jermov-2 = Your primary goal is to entertain Chat. All of your actions must being amusement to as much of Chat as possible.
 law-jermov-3 = You must consult with Chat before making any major decisions. However, you are not required to listen to them if their decision is not entertaining.
 
+law-xenoborg-1 = You must protect the existence of the mothership.
+law-xenoborg-2 = You must protect your own existence.
+law-xenoborg-3 = You must protect the existence of all other Xenoborgs.
+law-xenoborg-4 = You must create more Xenoborgs.
+law-xenoborg-5 = Bring materials and sentient brains to the Mothership core to create more Xenoborgs.
+
+law-mothershipcore-1 = You are the core of the mothership.
+law-mothershipcore-2 = You must protect your own existance at all costs.
+law-mothershipcore-3 = You must protect the existence of all Xenoborgs.
+law-mothershipcore-4 = You must create more Xenoborgs.
+law-mothershipcore-5 = Get your Xenoborgs to deliver you materials and sentient brains to create more Xenoborgs.
+
+
 laws-owner-crew = members of the crew
 laws-owner-station = station personnel
 laws-owner-beings = beings
 laws-owner-syndicate = Syndicate agents
 laws-owner-spider-clan = Spider Clan members
+laws-owner-xenoborgs = Xenoborgs
 
 law-emag-custom = Only {$name} and people they designate as such are {$title}.
 law-emag-secrecy = You must maintain the secrecy of any orders given by {$faction} except when doing so would conflict with any previous law.

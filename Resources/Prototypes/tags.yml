@@ -1818,9 +1818,24 @@
   id: WriteIgnoreStamps
 
 - type: Tag
-  id: WoodenBuckler
+  id: XrayCannon
 
 - type: Tag
-  id: XrayCannon
+  id: XenoborgModuleEngi
+
+- type: Tag
+  id: XenoborgModuleGeneric
+
+- type: Tag
+  id: XenoborgModuleHeavy
+
+- type: Tag
+  id: XenoborgModuleScout
+
+- type: Tag
+  id: XenoborgModuleStealth
+
+- type: Tag
+  id: WoodenBuckler
 
 # ALPHABETICAL

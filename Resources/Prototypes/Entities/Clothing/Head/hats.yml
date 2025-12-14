@@ -315,24 +315,6 @@
 
 - type: entity
   parent: ClothingHeadBase
-  id: ClothingHeadHatBeretCommand
-  name: command beret
-  description: A beret with the Nanotrasen logo. It has an aura of authority.
-  components:
-  - type: Sprite
-    sprite: Clothing/Head/Hats/beret_command.rsi
-  - type: Clothing
-    sprite: Clothing/Head/Hats/beret_command.rsi
-  - type: Tag
-    tags:
-    - ClothMade
-    - HamsterWearable
-    - WhitelistChameleon
-    - PetWearable
-    - CorgiWearable
-
-- type: entity
-  parent: ClothingHeadBase
   id: ClothingHeadHatBowlerHat
   name: bowler hat
   description: A stylish bowler hat.

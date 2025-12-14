@@ -218,4 +218,5 @@ public abstract class SharedJetpackSystem : EntitySystem
 public enum JetpackVisuals : byte
 {
     Enabled,
+    Layer,
 }

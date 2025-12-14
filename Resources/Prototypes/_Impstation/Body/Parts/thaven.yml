@@ -17,8 +17,8 @@
     species: Thaven
 
 - type: entity
-  id: TorsoThaven
-  name: "thaven torso"
+  id: ChestThaven
+  name: "thaven chest"
   parent: [PartThaven, BaseChest]
   components:
   - type: Item
@@ -26,7 +26,7 @@
     shape:
     - 0,0,5,3
   - type: Sprite
-    state: "torso"
+    state: "chest"
   - type: Extractable
     juiceSolution:
       reagents:

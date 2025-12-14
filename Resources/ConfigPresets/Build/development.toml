@@ -52,3 +52,5 @@ preload_grids = false
 
 [admin]
 see_own_notes = true
+log_to_console = true
+enabled = false

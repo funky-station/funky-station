@@ -106,10 +106,10 @@
   - type: Sprite
     sprite: Objects/Consumable/Drinks/alco-bottle.rsi
     layers:
-      - state: icon_empty
-        map: ["enum.OpenableVisuals.Layer"]
-      - state: fill-6
-        map: ["enum.SolutionContainerLayers.Fill"]
+    - state: icon_empty
+      map: ["enum.OpenableVisuals.Layer"]
+    - state: fill-6
+      map: ["enum.SolutionContainerLayers.Fill"]
   - type: SolutionContainerVisuals
     maxFillLevels: 6
 
@@ -260,10 +260,10 @@
   - type: Sprite
     sprite: Objects/Consumable/Drinks/alco-bottle.rsi
     layers:
-      - state: icon_empty
-        map: ["enum.OpenableVisuals.Layer"]
-      - state: fill-6
-        map: ["enum.SolutionContainerLayers.Fill"]
+    - state: icon_empty
+      map: ["enum.OpenableVisuals.Layer"]
+    - state: fill-6
+      map: ["enum.SolutionContainerLayers.Fill"]
   - type: SolutionContainerVisuals
     maxFillLevels: 6
 

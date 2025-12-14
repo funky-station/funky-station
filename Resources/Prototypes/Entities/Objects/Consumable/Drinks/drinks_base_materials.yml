@@ -43,9 +43,9 @@
     damage:
       types:
         Blunt: 5
-#  - type: EmitSoundOnLand TODO other materials need a sound
-#    sound:
-#      collection: GlassCrack
+  #  - type: EmitSoundOnLand TODO other materials need a sound
+  #    sound:
+  #      collection: GlassCrack
   - type: PhysicalComposition
     materialComposition:
       Glass: 25
@@ -85,7 +85,7 @@
   components:
   - type: Damageable
     damageContainer: Inorganic
-#    damageModifierSet: FlimsyPlastic TODO
+  #    damageModifierSet: FlimsyPlastic TODO
   - type: Destructible
     thresholds:
     - trigger: # Overkill threshold
@@ -116,6 +116,34 @@
   - type: PhysicalComposition
     materialComposition:
       Plastic: 25
+
+# Strong plastic
+- type: entity
+  abstract: true
+  parent: DrinkBaseMaterialPlastic
+  id: DrinkBaseMaterialStrongPlastic
+  components:
+  - type: Destructible
+    thresholds:
+    - trigger: # Overkill threshold
+        !type:DamageTrigger
+        damage: 200
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 20 # can take a few more hits than basic plastic
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalCrunch # TODO a plastic break collection
+      - !type:SpillBehavior { }
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: PhysicalComposition
+    materialComposition:
+      Plastic: 100
 
 # Fragile cardboard
 - type: entity

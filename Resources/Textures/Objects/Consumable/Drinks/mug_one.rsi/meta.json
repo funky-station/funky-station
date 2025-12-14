@@ -11,9 +11,6 @@
             "name": "icon-0"
         },
         {
-            "name": "icon"
-        },
-        {
             "name": "fill-1"
         },
         {
@@ -21,6 +18,9 @@
         },
         {
             "name": "fill-3"
+        },
+        {
+            "name": "icon"
         },
         {
       	    "name": "inhand-left",

@@ -20,6 +20,9 @@
             "name": "fill-3"
         },
         {
+            "name": "icon"
+        },
+        {
       	    "name": "inhand-left",
             "directions": 4
         },

@@ -7,6 +7,7 @@
 
 using Robust.Shared.GameObjects;
 using Content.Shared.BloodCult;
+using Content.Shared.BloodCult.Components;
 
 namespace Content.Server.BloodCult;
 
@@ -26,7 +27,16 @@ public sealed class BloodCultistSystem : SharedBloodCultistSystem
 	{
 		var communeEntity = ev.Action.Comp.Container;
 
-		if (!TryComp<BloodCultistComponent>(communeEntity, out var cultistComp))
+		// Check if communeEntity is valid
+		if (communeEntity == null)
+			return;
+
+		// Allow both blood cultists and juggernauts to use commune
+		// Check both separately to ensure variables are assigned
+		bool isCultist = TryComp<BloodCultistComponent>(communeEntity, out var cultistComp);
+		bool isJuggernaut = TryComp<JuggernautComponent>(communeEntity, out var juggernautComp);
+		
+		if (!isCultist && !isJuggernaut)
 			return;
 
 		if (!_uiSystem.HasUi(communeEntity.Value, BloodCultistCommuneUIKey.Key))
@@ -36,7 +46,13 @@ public sealed class BloodCultistSystem : SharedBloodCultistSystem
 			return;
 
 		if (_uiSystem.TryOpenUi(communeEntity.Value, BloodCultistCommuneUIKey.Key, ev.Performer))
-			UpdateCommuneUI((communeEntity.Value, cultistComp));
+		{
+			if (isCultist && cultistComp != null)
+				UpdateCommuneUI((communeEntity.Value, cultistComp));
+			else if (isJuggernaut && juggernautComp != null)
+				// Juggernauts use the same UI but with empty state (no stored message)
+				_uiSystem.SetUiState(communeEntity.Value, BloodCultistCommuneUIKey.Key, new BloodCultCommuneBuiState(""));
+		}
 
 		ev.Handled = true;
 	}

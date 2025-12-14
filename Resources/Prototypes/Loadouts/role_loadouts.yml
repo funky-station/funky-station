@@ -278,7 +278,7 @@
   - QuartermasterOuterClothing
   - QuartermasterShoes
   - Glasses
-  - Survival
+  - SurvivalSalvageExtended
   - Trinkets
   - QuartermasterJobTrinkets
   - GroupSpeciesBreathTool
@@ -307,9 +307,8 @@
   - SalvageSpecialistBackpack
   - SalvageSpecialistOuterClothing
   - SalvageSpecialistShoes
-  - CargoPDA
   - Glasses
-  - Survival
+  - SurvivalSalvageExtended
   - Trinkets
   - SalvageSpecialistJobTrinkets
   - GroupSpeciesBreathTool
@@ -508,11 +507,11 @@
   - MedicalMask
   - MedicalDoctorGlasses #Funky
   - ChiefMedicalOfficerJumpsuit
-  - MedicalGloves
+  - ChemistGloves
   - MedicalBackpack
   - ChiefMedicalOfficerOuterClothing
   - ChiefMedicalOfficerNeck
-  - ChiefMedicalOfficerShoes
+  - ChemistShoes
   - Glasses
   - SurvivalMedical
   - Trinkets
@@ -555,12 +554,12 @@
   - MedicalChemistHead
   - MedicalMask
   - MedicalChemistGlasses #Funky
-  - ChemistJumpsuit
-  - MedicalGloves
-  - ChemistBackpack
   - MedicalNeck
+  - ChemistJumpsuit
+  - ChemistGloves
+  - ChemistBackpack
   - ChemistOuterClothing
-  - MedicalShoes
+  - ChemistShoes
   - SurvivalMedical
   - Trinkets
   - ChemistJobTrinkets

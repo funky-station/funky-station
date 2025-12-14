@@ -1,0 +1,23 @@
+- type: entity
+  parent: [BaseFlatpack, BaseEngineeringContraband]
+  id: NuclearReactorFlatpack
+  name: nuclear reactor flatpack
+  description: A flatpack used for constructing a nuclear reactor. Parts sold separately.
+  components:
+  - type: Sprite
+    layers:
+    - state: ame-part
+  - type: Flatpack
+    entity: NuclearReactorEmpty
+
+- type: entity
+  parent: [BaseFlatpack, BaseEngineeringContraband]
+  id: GasTurbineFlatpack
+  name: gas turbine flatpack
+  description: A flatpack used for constructing a gas turbine.
+  components:
+  - type: Sprite
+    layers:
+    - state: ame-part
+  - type: Flatpack
+    entity: Turbine

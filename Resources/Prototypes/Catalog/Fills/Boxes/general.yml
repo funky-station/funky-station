@@ -40,10 +40,13 @@
 # SPDX-FileCopyrightText: 2024 wafehling <wafehling@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Janet Blackquill <uhhadd@gmail.com>
 # SPDX-FileCopyrightText: 2025 QueerCats <jansencheng3@gmail.com>
+# SPDX-FileCopyrightText: 2025 Rainbow <ev0lvkitten@gmail.com>
+# SPDX-FileCopyrightText: 2025 Skye <57879983+Rainbeon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 Zergologist <114537969+Chedd-Error@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 vectorassembly <vectorassembly@icloud.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -250,6 +253,32 @@
     contents:
       - id: Brutepack
         amount: 3
+
+- type: entity
+  name: inflatable wall box
+  parent: BoxCardboard
+  id: BoxInflatable
+  description: A box of self-inflating walls and doors. Highly compact and great for 'temporary' fixes.
+  components:
+  - type: Item
+    size: Normal
+    shape:
+    - 0,0,1,1
+  - type: Storage
+    maxItemSize: Small
+    grid:
+    - 0,0,1,1
+  - type: StorageFill
+    contents:
+        - id: InflatableWallStack
+          amount: 3
+        - id: InflatableDoorStack
+          amount: 1
+  - type: Sprite
+    layers:
+      - state: box
+      - state: inflatable
+
 
 - type: entity
   name: hatsune miku day bag

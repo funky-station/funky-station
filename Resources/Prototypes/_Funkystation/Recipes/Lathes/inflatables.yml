@@ -1,4 +1,6 @@
+# SPDX-FileCopyrightText: 2025 Skye <57879983+Rainbeon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Zergologist <114537969+Chedd-Error@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 vectorassembly <vectorassembly@icloud.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -15,18 +17,3 @@
   completetime: 1
   materials:
     Durathread: 50
-
-- type: latheRecipe
-  id: InflatableDock
-  result: InflatableDockStack1
-  completetime: 2
-  materials:
-    Durathread: 100
-    Silver: 50
-
-- type: latheRecipe
-  id: InflatableFloor
-  result: InflatableFloorStack1
-  completetime: 1
-  materials:
-    Durathread: 25

@@ -67,7 +67,7 @@
   components:
   - type: BloodPack
     transferAmount: 2.0
-    ransferDelay: 1.0
+    transferDelay: 1.0
   - type: Sprite
     sprite: _RMC14/Objects/Medical/blood_pack.rsi
     layers:

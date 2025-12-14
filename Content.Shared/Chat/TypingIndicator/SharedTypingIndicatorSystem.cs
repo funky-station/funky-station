@@ -6,6 +6,7 @@
 // SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 88tv <131759102+88tv@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Tojo <32783144+Alecksohs@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 TrixxedHeart <46364955+TrixxedBit@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 lzk <124214523+lzk228@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
@@ -121,20 +122,36 @@ public abstract class SharedTypingIndicatorSystem : EntitySystem
             return;
         }
 
-        var overrideProto = ev.ChatType switch
+        string? overrideProto = ev.ChatType switch
         {
             ChatSelectChannel.LOOC => "outofcharacter",
             ChatSelectChannel.Emotes => "emote",
-            _ => "default",
+            _ => null,
         };
 
-        SetTypingIndicatorType(uid.Value, ev.ChatType, overrideProto);
+        if (overrideProto != null)
+        {
+            SetTypingIndicatorType(uid.Value, ev.ChatType, overrideProto);
+        }
+        else
+        {
+            // For normal chat, clear any existing overrides
+            SetTypingIndicatorType(uid.Value, ev.ChatType, null);
+        }
     }
-    private void SetTypingIndicatorType(EntityUid uid, ChatSelectChannel chatType, string overrideProto, AppearanceComponent? appearance = null)
+    private void SetTypingIndicatorType(EntityUid uid, ChatSelectChannel chatType, string? overrideProto, AppearanceComponent? appearance = null)
     {
         if (!Resolve(uid, ref appearance, false))
             return;
-        _appearance.SetData(uid, TypingIndicatorVisuals.OverrideIndicatorPrototype, overrideProto, appearance);
+
+        if (overrideProto != null)
+        {
+            _appearance.SetData(uid, TypingIndicatorVisuals.OverrideIndicatorPrototype, overrideProto, appearance);
+        }
+        else
+        {
+            _appearance.RemoveData(uid, TypingIndicatorVisuals.OverrideIndicatorPrototype, appearance);
+        }
         _appearance.SetData(uid, TypingIndicatorVisuals.ChatType, chatType, appearance);
     }
     // FUNKYSTATION EDIT END

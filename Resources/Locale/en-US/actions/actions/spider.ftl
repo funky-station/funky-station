@@ -22,8 +22,15 @@ arachnid-wrap-complete-user = You bind {$target} inside a cocoon of silk.
 arachnid-wrap-complete-target = Sticky silk envelops you, leaving you helpless!
 arachnid-unwrap-self = You're trussed up too tightly to free yourself!
 arachnid-unwrap-start-user = You begin unwrapping the cocoon restraining {$target}.
+arachnid-unwrap-start-user-empty = You begin unwrapping the cocoon.
 arachnid-unwrap-start-target = {$user} begins to unwrap you from the cocoon!
 arachnid-unwrap-user = You tear apart the cocoon restraining {$target}.
 arachnid-unwrap-target = {$user} frees you from the cocoon!
 arachnid-cocoon-broken = The cocoon breaks apart from the damage!
 arachnid-unwrap-verb = Remove cocoon
+
+bite-component-cannot-bite-message = You cannot bite {$target}!
+bite-component-cannot-inject-message = You cannot inject {$target}!
+bite-component-bite-success-message = You bite {$target}!
+bite-component-bitten-message = {$user} bites you!
+bite-action-description-sleep = Bite your target with a sleeping agent.

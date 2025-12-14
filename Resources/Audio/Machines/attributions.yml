@@ -13,6 +13,7 @@
 # SPDX-FileCopyrightText: 2024 MilenVolf <63782763+MilenVolf@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 Samuka-C <47865393+Samuka-C@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 ashley <vectorassembly@icloud.com>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
@@ -79,6 +80,11 @@
   license: "CC-BY-SA-3.0"
   copyright: "Taken from TG station."
   source: "https://github.com/tgstation/tgstation/blob/d4f678a1772007ff8d7eddd21cf7218c8e07bfc0/sound/machines/warning-buzzer.ogg"
+
+- files: ["warning_buzzer_xenoborg.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Made by Toast (Discord)"
+  source: "https://github.com/space-wizards/space-station-14/pull/36935"
 
 - files: ["anomaly_sync_connect.ogg"]
   license: "CC0-1.0"

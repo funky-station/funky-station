@@ -1,5 +1,7 @@
 // SPDX-FileCopyrightText: 2024 John Space <bigdumb421@gmail.com>
 // SPDX-FileCopyrightText: 2024 fishbait <gnesse@gmail.com>
+// SPDX-FileCopyrightText: 2025 McBosserson <148172569+McBosserson@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
@@ -15,7 +17,10 @@ namespace Content.Server.GameTicking.Rules.Components;
 public sealed partial class BlobRuleComponent : Component
 {
     [DataField]
-    public SoundSpecifier? AlertAudio = new SoundPathSpecifier("/Audio/Announcements/outbreak5.ogg");
+    public SoundSpecifier? DetectedAudio = new SoundPathSpecifier("/Audio/_Goobstation/Announcements/blob_detected.ogg");
+
+    [DataField]
+    public SoundSpecifier? CriticalAudio = new SoundPathSpecifier("/Audio/StationEvents/blobin_time.ogg");
 
     [ViewVariables]
     public List<(EntityUid mindId, MindComponent mind)> Blobs = new(); //BlobRoleComponent

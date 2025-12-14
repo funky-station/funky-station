@@ -387,29 +387,22 @@ public sealed partial class CultistSpellSystem : EntitySystem
 		if (!TryUseAbility(ent, args))
 			return;
 
+		args.Handled = true;
+
+		// Mindshield protects from nocturine injection, but still stuns briefly
+		if (HasComp<MindShieldComponent>(target))
+		{
+			// Stun the target briefly - this will make them drop prone and drop items
+			_stun.TryKnockdown(target, TimeSpan.FromSeconds(3), true);
+			return;
+		}
+
 		float empDamage = 5000f;  // EMP damage for borgs/IPCs
 		float empDuration = 12f;  // EMP duration in seconds
 		int selfStunTime = 4;
 
-		args.Handled = true;
-
-		// Mindshield repels cult magic with technology
-		if (HasComp<MindShieldComponent>(target))
-		{
-			_popup.PopupEntity(
-					Loc.GetString("cult-spell-repelled-mindshield"),
-					ent, ent, PopupType.MediumCaution
-				);
-			_popup.PopupEntity(
-					Loc.GetString("cult-spell-mindshield-buzzing"),
-					target, target, PopupType.Medium
-				);
-			_audioSystem.PlayPvs(new SoundPathSpecifier("/Audio/Effects/sparks1.ogg"), Transform(ent).Coordinates);
-			// Knock down the cultist who cast the spell. Might need balancing
-			_stun.TryKnockdown(ent, TimeSpan.FromSeconds(selfStunTime), true);
-		}
 		// Holy protection repels cult magic
-		else if (HasComp<CultResistantComponent>(target))
+		if (HasComp<CultResistantComponent>(target))
 		{
 			_popup.PopupEntity(
 					Loc.GetString("cult-spell-repelled"),

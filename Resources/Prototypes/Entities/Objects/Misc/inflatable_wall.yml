@@ -11,21 +11,24 @@
 # SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 Skye <57879983+Rainbeon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 Zergologist <114537969+Chedd-Error@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 vectorassembly <vectorassembly@icloud.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
 - type: entity
   id: InflatableWall
   name: inflatable barricade
-  description: An inflated membrane. Activate to deflate. Do not puncture.
+  description: An inflated membrane. Release ripvalve to deflate. Do not puncture. # Funky altered descriptions
   components:
   - type: Clickable
   - type: InteractionOutline
   - type: Sprite
-    sprite: Objects/Misc/inflatable_wall.rsi
+    sprite: _Funkystation/Objects/Misc/inflatables.rsi
     state: inflatable_wall
   - type: Physics
     bodyType: Static
@@ -62,12 +65,12 @@
   id: InflatableDoor
   name: inflatable door
   parent: BaseMaterialDoor
-  description: An inflated membrane. Activate to deflate. Now with a door. Do not puncture.
+  description: An inflated, semi-traversable membrane. Otherwise known as a door. Release ripvalve to deflate. Do not puncture. # Funky altered descriptions
   components:
   - type: Clickable
   - type: InteractionOutline
   - type: Sprite
-    sprite: Objects/Misc/inflatable_door.rsi
+    sprite: _Funkystation/Objects/Misc/inflatables.rsi
     state: closed
   - type: Physics
     bodyType: Static

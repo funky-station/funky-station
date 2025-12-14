@@ -85,7 +85,7 @@
 - type: entity
   id: ActionCultistSummonDagger
   name: Summon Dagger
-  description: Summon your ritual dagger.
+  description: Use Nar'Sie's blessing to shape a ritual dagger out of your body. As long as your heart continues to beat, She will allow you to make more.
   categories: [ HideSpawnMenu ]
   components:
   - type: Icon
@@ -110,7 +110,7 @@
 - type: entity
   id: ActionCultistSanguineDream
   name: Sanguine Dream
-  description: A sinister spell that plunges a target into a nightmare-filled sleep. EMPs Cyborgs. Does not work on those with a mindshield.
+  description: A sinister spell that plunges a target into a nightmare-filled sleep. EMPs Cyborgs. Those with mindshields will be briefly stunned instead of being put to sleep.
   categories: [ HideSpawnMenu ]
   components:
   - type: Icon

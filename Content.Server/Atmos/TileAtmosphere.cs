@@ -19,6 +19,7 @@
 // SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 drakewill-CRL <46307022+drakewill-CRL@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
 // SPDX-License-Identifier: MIT
@@ -133,6 +134,9 @@ namespace Content.Server.Atmos
 
         [ViewVariables]
         public float MaxFireTemperatureSustained { get; set; }
+
+        [ViewVariables]
+        public int PuddleSolutionFlammability { get; set; }
 
         /// <summary>
         /// If true, then this tile is directly exposed to the map's atmosphere, either because the grid has no tile at

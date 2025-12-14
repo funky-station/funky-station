@@ -14,6 +14,7 @@ using Content.Server.GameTicking.Rules;
 using Content.Shared.BloodCult.Components;
 using Content.Shared.BloodCult;
 using Content.Shared.Chemistry.EntitySystems;
+using Content.Shared.Chemistry.Reaction;
 using Content.Shared.FixedPoint;
 using Content.Shared.Maps;
 using Content.Shared.Physics;
@@ -83,15 +84,14 @@ public sealed class BloodCultRiftSetupSystem : EntitySystem
 			_random.Shuffle(cultists);
 			foreach (var cultist in cultists)
 			{
-				if (!TryComp<TransformComponent>(cultist, out var cultistXform))
-					continue;
+				var cultistXform = Transform(cultist);
 
 			if (TryFindValid3x3Space(cultistXform.Coordinates, out var centerCoords, out var gridUid, out var grid))
 				{
 					ReplaceFlooring(gridUid, grid, centerCoords);
 					rift = SpawnRiftAndRunes(centerCoords);
 					var meta = MetaData(cultist);
-				var riftCoords = TryComp<TransformComponent>(rift.Value, out var riftXform) ? riftXform.Coordinates : centerCoords;
+				var riftCoords = rift.HasValue ? Transform(rift.Value).Coordinates : centerCoords;
 				finalLocation = new WeakVeilLocation(meta.EntityName, cultist, meta.EntityPrototype?.ID ?? string.Empty, riftCoords, 3.0f);
 					break;
 				}
@@ -104,8 +104,7 @@ public sealed class BloodCultRiftSetupSystem : EntitySystem
 		var cultists = CollectCultists();
 			foreach (var cultist in cultists)
 			{
-				if (!TryComp<TransformComponent>(cultist, out var cultistXform))
-					continue;
+				var cultistXform = Transform(cultist);
 
 			var coords = cultistXform.Coordinates;
 			if (!TryResolveGrid(coords, out var gridUid, out var grid))
@@ -115,7 +114,7 @@ public sealed class BloodCultRiftSetupSystem : EntitySystem
 			ReplaceFlooring(gridUid, grid, coords);
 				rift = SpawnRiftAndRunes(coords);
 				var meta = MetaData(cultist);
-			var riftCoords = TryComp<TransformComponent>(rift.Value, out var riftXform) ? riftXform.Coordinates : coords;
+			var riftCoords = rift.HasValue ? Transform(rift.Value).Coordinates : coords;
 			finalLocation = new WeakVeilLocation(meta.EntityName, cultist, meta.EntityPrototype?.ID ?? string.Empty, riftCoords, 3.0f);
 				break;
 			}
@@ -134,7 +133,7 @@ public sealed class BloodCultRiftSetupSystem : EntitySystem
 			ReplaceFlooring(gridUid, grid, coords);
 				rift = SpawnRiftAndRunes(coords);
 				var meta = MetaData(beacon);
-			var riftCoords = TryComp<TransformComponent>(rift.Value, out var riftXform) ? riftXform.Coordinates : coords;
+			var riftCoords = rift.HasValue ? Transform(rift.Value).Coordinates : coords;
 			finalLocation = new WeakVeilLocation(meta.EntityName, beacon, meta.EntityPrototype?.ID ?? string.Empty, riftCoords, 3.0f);
 				break;
 			}
@@ -158,8 +157,7 @@ public sealed class BloodCultRiftSetupSystem : EntitySystem
 		var beaconCoords = Transform(beacon).Coordinates;
 		var offsetX = _random.NextFloat(-10f, 10f);
 		var offsetY = _random.NextFloat(-10f, 10f);
-		if (!TryComp<TransformComponent>(beacon, out var beaconTransform))
-			return false;
+		var beaconTransform = Transform(beacon);
 
 		var anchorGrid = beaconTransform.GridUid ?? beaconTransform.MapUid;
 		if (anchorGrid == null || !anchorGrid.Value.IsValid())
@@ -178,7 +176,7 @@ public sealed class BloodCultRiftSetupSystem : EntitySystem
 		var beaconMeta = MetaData(beacon);
 		var locationName = beaconMeta.EntityPrototype?.EditorSuffix ?? beaconMeta.EntityPrototype?.Name ?? beaconMeta.EntityName;
 		var protoId = beaconMeta.EntityPrototype?.ID ?? string.Empty;
-		coords = TryComp<TransformComponent>(rift.Value, out var riftXform) ? riftXform.Coordinates : centerCoords;
+		coords = rift.HasValue ? Transform(rift.Value).Coordinates : centerCoords;
 		location = new WeakVeilLocation(locationName, beacon, protoId, coords.Value, 3.0f);
 		return true;
 	}
@@ -377,21 +375,20 @@ private bool TryFindValid3x3Space(EntityCoordinates center, out EntityCoordinate
 		riftComp.SummoningRunes.Clear();
 		riftComp.OfferingRunes.Clear();
 
-		// Spawn 4 offering runes around the rift: left, right, bottom, top
-		var leftRune = Spawn("OfferingRune", center.Offset(new Vector2(-1, 0)));
-		var rightRune = Spawn("OfferingRune", center.Offset(new Vector2(1, 0)));
-		var bottomRune = Spawn("OfferingRune", center.Offset(new Vector2(0, -1)));
-		var topRune = Spawn("OfferingRune", center.Offset(new Vector2(0, 1)));
+		// Spawn the final rift rune sprite at the center (same location as rift)
+		// Same size as TearVeilRune, with constant animation (no drawing animation)
+		var finalRune = Spawn("FinalRiftRune", center);
+		var finalRuneComp = EnsureComp<FinalSummoningRuneComponent>(finalRune);
+		finalRuneComp.RiftUid = rift;
 
-		// Track these runes for chanting and offerings
-		riftComp.SummoningRunes.Add(leftRune);
-		riftComp.SummoningRunes.Add(rightRune);
-		riftComp.SummoningRunes.Add(bottomRune);
-		riftComp.SummoningRunes.Add(topRune);
-		riftComp.OfferingRunes.Add(leftRune);
-		riftComp.OfferingRunes.Add(rightRune);
-		riftComp.OfferingRunes.Add(bottomRune);
-		riftComp.OfferingRunes.Add(topRune);
+		// Remove CleanableRune and Reactive components - FinalRiftRune should not be cleanable
+		// These are inherited from BaseBloodCultRune but we don't want them for the final rune
+		RemComp<CleanableRuneComponent>(finalRune);
+		RemComp<ReactiveComponent>(finalRune);
+
+		// Track the rune for chanting and offerings
+		riftComp.SummoningRunes.Add(finalRune);
+		riftComp.OfferingRunes.Add(finalRune);
 
 		// Pre-fills the blood pool with sanguine perniculate.
 		// This makes it so the anomaly spills blood onto the floor when it pulses, rather than taking a while to fill up. It'll make a slowly-growing ocean of blood.

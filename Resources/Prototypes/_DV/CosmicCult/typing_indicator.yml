@@ -1,0 +1,11 @@
+# SPDX-FileCopyrightText: 2025 AftrLite
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
+- type: typingIndicator
+  id: CosmicTyping
+  spritePath: /Textures/_DV/CosmicCult/Effects/speech.rsi
+  typingState: malign0
+  idleState: malign0
+  offset: -0.2, 0.1
+  shader: unshaded

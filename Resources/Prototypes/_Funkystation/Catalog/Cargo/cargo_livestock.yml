@@ -1,0 +1,13 @@
+# SPDX-FileCopyrightText: 2025 Dragon232347 <122056448+Dragon232347@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: cargoProduct
+  id: LivestockMeowl
+  icon:
+    sprite: _Funkystation/Mobs/Animals/meowl.rsi
+    state: icon
+  product: CrateNPCMeowl
+  cost: 5000
+  category: cargoproduct-category-name-livestock
+  group: market

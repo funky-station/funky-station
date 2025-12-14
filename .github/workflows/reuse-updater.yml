@@ -74,13 +74,12 @@ jobs:
           echo "Checking PR body for license..."
           if grep -q "LICENSE: MIT" <<< "$PR_BODY"; then
             echo "PR_LICENSE=mit" >> $GITHUB_ENV
-            echo "License specified in PR: MIT"
           elif grep -q "LICENSE: AGPL" <<< "$PR_BODY"; then
             echo "PR_LICENSE=agpl" >> $GITHUB_ENV
-            echo "License specified in PR: AGPL"
           elif grep -q "LICENSE: MPL" <<< "$PR_BODY"; then
             echo "PR_LICENSE=mpl" >> $GITHUB_ENV
-            echo "License specified in PR: MPL"
+          elif grep -q "LICENSE: CC-BY-NC-SA-3.0" <<< "$PR_BODY"; then
+            echo "PR_LICENSE=cc-by-nc-sa-3.0" >> $GITHUB_ENV
           else
             echo "PR_LICENSE=agpl" >> $GITHUB_ENV
             echo "No license specified in PR, using default: AGPL"

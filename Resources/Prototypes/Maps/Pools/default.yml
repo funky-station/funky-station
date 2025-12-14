@@ -46,14 +46,19 @@
 - type: gameMapPool
   id: DefaultMapPool
   maps: #funkystation
+  # low pop
   - Cluster
   - Eden
-  - Box
-  - Bagel
-  - roid_outpost
   - Amber
-  - Elkridge
+  - roid_outpost
+# - open slot
+  # high pop
+  - Bagel
   - Core
   - Fland
-
+# - open slot
+# - open slot
+  # backup maps
+  # comment and uncomment as needed
+  - Court
 

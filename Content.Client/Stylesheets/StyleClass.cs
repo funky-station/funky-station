@@ -1,4 +1,10 @@
-﻿namespace Content.Client.Stylesheets;
+// SPDX-FileCopyrightText: 2025 Janet Blackquill <uhhadd@gmail.com>
+// SPDX-FileCopyrightText: 2025 Tojo <32783144+Alecksohs@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
+namespace Content.Client.Stylesheets;
 
 ///
 /// <summary>
@@ -24,6 +30,7 @@ public static class StyleClass
     public const string StatusCritical = "status-critical"; //  Status.GetStatusColor(0.0f)
 
     public const string FontLarge = "font-large";
+    public const string FontCondensed = "font-condensed";
     public const string FontSmall = "font-small";
     public const string Italic = "italic";
     public const string Monospace = "monospace";
@@ -66,4 +73,8 @@ public static class StyleClass
     public const string TooltipPanel = "TooltipPanel";
     public const string TooltipTitle = "TooltipTitle";
     public const string TooltipDesc = "TooltipDesc";
+
+
+    public const string BorderModal = "BorderModal";
+
 }

@@ -1,6 +1,7 @@
 // SPDX-FileCopyrightText: 2022 Jacob Tong <10494922+ShadowCommander@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2023 RadioMull <147113069+RadioMull@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Tojo <32783144+Alecksohs@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
 // SPDX-License-Identifier: MIT
@@ -39,8 +40,9 @@ public sealed class ListContainerTest : RobustUnitTest
         var root = new Control { MinSize = new Vector2(50, 60) };
         var listContainer = new ListContainer { SeparationOverride = 3 };
         root.AddChild(listContainer);
-        listContainer.GenerateItem += (_, button) => {
-            button.AddChild(new Control { MinSize = new Vector2(10, 10) });
+        listContainer.GenerateItem += (_, button) =>
+        {
+            button.ControlRoot.AddChild(new Control { MinSize = new Vector2(10, 10) });
         };
 
         var list = new List<TestListData> {new(0), new(1)};
@@ -64,8 +66,9 @@ public sealed class ListContainerTest : RobustUnitTest
         var root = new Control { MinSize = new Vector2(x, y) };
         var listContainer = new ListContainer { SeparationOverride = 3 };
         root.AddChild(listContainer);
-        listContainer.GenerateItem += (_, button) => {
-            button.AddChild(new Control { MinSize = new Vector2(10, 10) });
+        listContainer.GenerateItem += (_, button) =>
+        {
+            button.ControlRoot.AddChild(new Control { MinSize = new Vector2(10, 10) });
         };
 
         var list = new List<TestListData>();
@@ -93,8 +96,9 @@ public sealed class ListContainerTest : RobustUnitTest
         var root = new Control { MinSize = new Vector2(50, 60) };
         var listContainer = new ListContainer { SeparationOverride = 3 };
         root.AddChild(listContainer);
-        listContainer.GenerateItem += (_, button) => {
-            button.AddChild(new Control { MinSize = new Vector2(10, 10) });
+        listContainer.GenerateItem += (_, button) =>
+        {
+            button.ControlRoot.AddChild(new Control { MinSize = new Vector2(10, 10) });
         };
 
         var list = new List<TestListData> {new(0), new(1), new(2), new(3), new(4), new(5)};
@@ -132,8 +136,9 @@ public sealed class ListContainerTest : RobustUnitTest
         var root = new Control { MinSize = new Vector2(50, 60) };
         var listContainer = new ListContainer { SeparationOverride = 3 };
         root.AddChild(listContainer);
-        listContainer.GenerateItem += (_, button) => {
-            button.AddChild(new Control { MinSize = new Vector2(10, 10) });
+        listContainer.GenerateItem += (_, button) =>
+        {
+            button.ControlRoot.AddChild(new Control { MinSize = new Vector2(10, 10) });
         };
 
         var list = new List<TestListData> {new(0), new(1), new(2), new(3), new(4), new(5)};
@@ -180,8 +185,9 @@ public sealed class ListContainerTest : RobustUnitTest
         var root = new Control { MinSize = new Vector2(50, 60) };
         var listContainer = new ListContainer { SeparationOverride = 3 };
         root.AddChild(listContainer);
-        listContainer.GenerateItem += (_, button) => {
-            button.AddChild(new Control { MinSize = new Vector2(10, 10) });
+        listContainer.GenerateItem += (_, button) =>
+        {
+            button.ControlRoot.AddChild(new Control { MinSize = new Vector2(10, 10) });
         };
 
         var list = new List<TestListData> {new(0), new(1), new(2), new(3), new(4), new(5)};
@@ -235,7 +241,7 @@ public sealed class ListContainerTest : RobustUnitTest
         var listContainer = new ListContainer
         {
             SeparationOverride = 0,
-            GenerateItem = (_, button) => { button.AddChild(new Control {MinSize = new Vector2(10, 10)}); }
+            GenerateItem = (_, button) => { button.ControlRoot.AddChild(new Control {MinSize = new Vector2(10, 10)}); }
         };
         root.AddChild(listContainer);
         var button = new ContainerButton
@@ -266,8 +272,9 @@ public sealed class ListContainerTest : RobustUnitTest
         var root = new Control { MinSize = new Vector2(50, height) };
         var listContainer = new ListContainer { SeparationOverride = 0, Toggle = true };
         root.AddChild(listContainer);
-        listContainer.GenerateItem += (_, button) => {
-            button.AddChild(new Control { MinSize = new Vector2(10, 10) });
+        listContainer.GenerateItem += (_, button) =>
+        {
+            button.ControlRoot.AddChild(new Control { MinSize = new Vector2(10, 10) });
         };
 
         var list = new List<TestListData> {new(0), new(1), new(2), new(3), new(4), new(5)};

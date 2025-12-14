@@ -8,6 +8,7 @@
 // SPDX-FileCopyrightText: 2024 Repo <47093363+Titian3@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Vigers Ray <60344369+VigersRay@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Tojo <32783144+Alecksohs@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
 // SPDX-License-Identifier: MIT
@@ -137,7 +138,7 @@ public sealed partial class ObjectsTab : Control
         SearchList.PopulateList(listData);
     }
 
-    private void GenerateButton(ListData data, ListContainerButton button)
+    private void GenerateButton(ListData data, IListEntry  button)
     {
         if (data is not ObjectsListData { Info: var info, BackgroundColor: var backgroundColor })
             return;
@@ -145,9 +146,9 @@ public sealed partial class ObjectsTab : Control
         var entry = new ObjectsTabEntry(_admin, info.Name, info.Entity, new StyleBoxFlat { BackgroundColor = backgroundColor });
         entry.OnTeleport += TeleportTo;
         entry.OnDelete += Delete;
-        button.ToolTip = $"{info.Name}, {info.Entity}";
+        button.ControlRoot.ToolTip = $"{info.Name}, {info.Entity}";
 
-        button.AddChild(entry);
+        button.ControlRoot.AddChild(entry);
     }
 
     private bool DataFilterCondition(string filter, ListData listData)

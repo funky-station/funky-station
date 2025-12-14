@@ -6505,3 +6505,21 @@ Entries:
         subscribe.
   id: 762
   time: '2025-12-13T08:57:56.0000000+00:00'
+- author: ThatOneMoon
+  changes:
+    - type: Add
+      message: >-
+        Many new lighters can now be found in both Maints loot and the Syndicate
+        Uplink. (Originaly by Smugman from Wizden)
+    - type: Add
+      message: >-
+        Command and Central Command roles (and clowns) can unlock specific
+        lighters as a job trinket under a playtime requirement.
+  id: 763
+  time: '2025-12-13T21:55:43.0000000+00:00'
+- author: Dusty-Plant
+  changes:
+    - type: Tweak
+      message: Updated Court station for its trial period.
+  id: 764
+  time: '2025-12-13T23:12:21.0000000+00:00'

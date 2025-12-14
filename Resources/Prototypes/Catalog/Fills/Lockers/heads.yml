@@ -71,6 +71,7 @@
 # SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Эдуард <36124833+Ertanic@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 88tv <131759102+88tv@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Amethyst <52829582+jackel234@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 BramvanZijp <56019239+BramvanZijp@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Catazeus <200477155+Catazeus@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Cthyga <41489382+Cthyga@users.noreply.github.com>
@@ -293,6 +294,7 @@
     - id: RPDRecharging
     - id: RadioHandheldEngineering #funkystation
     - id: RadioHandheldCommand #funkystation
+    - id: SledgehammerCommand #funk   #CE makes stuff, think them having the option to unmake stuff is cool
 # Hardsuit table, used for suit storage as well
 - type: entityTable
   id: FillChiefEngineerHardsuit
@@ -424,6 +426,11 @@
       prob: 0.15 # GoobStation - RD needs cigs for uhh... science...
     - id: RadioHandheldScience #funkystation
     - id: RadioHandheldCommand #funkystation
+    - id: WeaponImprovisedPneumaticCannonGun #funk  #makes sense for a RD to have something funky as a self defence option? The everything AND the kitchen sink gun
+    - id: GrenadeBaton #funk
+    - id: GrenadeBaton #funk
+    - id: GrenadeFlash #funk
+    - id: GrenadeFlash #funk
 
 # Hardsuit table, used for suit storage as well
 - type: entityTable

@@ -934,3 +934,11 @@
     Steel: 200
     Silver: 100
 #Funky end
+
+- type: latheRecipe
+  id: GrenadeBaton
+  result: GrenadeBaton
+  completetime: 3
+  materials:
+    Steel: 100
+    Plastic: 150

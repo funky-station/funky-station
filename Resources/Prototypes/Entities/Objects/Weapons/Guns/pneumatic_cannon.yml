@@ -18,6 +18,7 @@
 # SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 superjj18 <gagnonjake@gmail.com>
+# SPDX-FileCopyrightText: 2025 Xcybitt <197952719+Xcybitt@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
@@ -127,12 +128,12 @@
     containers:
       storagebase: !type:Container
         ents: []
-        
+
 - type: entity
   name: syringe gun
   parent: BaseStorageItem
   id: LauncherSyringe
-  description: Load full of poisoned syringes for optimal fun.
+  description: Load full of healing and less-lethal syringes for optimal medbay fun.
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Cannons/syringe_gun.rsi
@@ -167,10 +168,22 @@
 
 # shoots bullets instead of throwing them, no other changes
 - type: entity
+  name: improved improvised pneumatic cannon
   parent: WeaponImprovisedPneumaticCannon
   id: WeaponImprovisedPneumaticCannonGun
   suffix: Gun
+  description: Improvised using nothing but a pipe, some zipties, and a pneumatic cannon. This one seems to have been tinkered and modified with to be able to shoot projectiles like bullets. Doesn't accept tanks without enough gas.
   components:
+  - type: Gun
+    fireRate: 0.5   #not giving crew a better clake here
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/Effects/thunk.ogg
+    soundEmpty:
+      path: /Audio/Items/hiss.ogg
+    clumsyProof: true
   - type: PneumaticCannon
     throwItems: false
 

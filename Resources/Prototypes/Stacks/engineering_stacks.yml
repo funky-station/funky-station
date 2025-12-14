@@ -3,7 +3,10 @@
 # SPDX-FileCopyrightText: 2022 fishfish458 <fishfish458>
 # SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Skye <57879983+Rainbeon@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Zergologist <114537969+Chedd-Error@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 vectorassembly <vectorassembly@icloud.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -12,10 +15,10 @@
   id: InflatableWall
   name: inflatable wall
   spawn: InflatableWallStack1
-  maxCount: 10
+  maxCount: 5 # 5 < 10, Funky
 
 - type: stack
   id: InflatableDoor
   name: inflatable door
   spawn: InflatableDoorStack1
-  maxCount: 4
+  maxCount: 5 # 5 < 4, Funky

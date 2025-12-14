@@ -12,7 +12,7 @@
   description: A grenade that releases Space Lube foam.
   components:
   - type: Sprite
-    sprite: Objects/Weapons/Grenades/foamdart.rsi
+    sprite: Objects/Fun/Foam/foam_dart.rsi
   - type: SmokeOnTrigger
     duration: 5
     spreadAmount: 25

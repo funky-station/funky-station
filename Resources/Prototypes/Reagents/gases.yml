@@ -23,6 +23,7 @@
 # SPDX-FileCopyrightText: 2025 ATDoop <bug@bug.bug>
 # SPDX-FileCopyrightText: 2025 Steve <marlumpy@gmail.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 Xcybitt <197952719+Xcybitt@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 marc-pelletier <113944176+marc-pelletier@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
@@ -930,6 +931,13 @@
   physicalDesc: reagent-physical-desc-gaseous
   flavor: bitter
   color: "#33cccc"
+  metabolisms:
+    Gas:
+      effects:
+      - !type:Oxygenate #imp, thaven can breathe all gases safely
+        conditions:
+        - !type:OrganType
+          type: Thaven
 
 - type: reagent
   id: Proto-Nitrate
@@ -938,6 +946,13 @@
   physicalDesc: reagent-physical-desc-gaseous
   flavor: bitter
   color: "#009933"
+  metabolisms:
+    Gas:
+      effects:
+      - !type:Oxygenate #imp, thaven can breathe all gases safely
+        conditions:
+        - !type:OrganType
+          type: Thaven
 
 - type: reagent
   id: Zauker
@@ -949,12 +964,19 @@
   metabolisms:
     Gas:
       effects:
+      - !type:Oxygenate #imp, thaven can breathe all gases safely
+        conditions:
+        - !type:OrganType
+          type: Thaven
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
           reagent: Zauker
           min: 0.25
           max: 12
+        - !type:OrganType #imp, thaven can breathe all gases safely
+          type: Thaven
+          shouldHave: false
         scaleByQuantity: true
         ignoreResistances: true
         damage:
@@ -968,6 +990,9 @@
         - !type:ReagentThreshold
           reagent: Zauker
           min: 12
+        - !type:OrganType #imp, thaven can breathe all gases safely
+          type: Thaven
+          shouldHave: false
         ignoreResistances: true
         damage:
           types:
@@ -983,6 +1008,13 @@
   physicalDesc: reagent-physical-desc-gaseous
   flavor: bitter
   color: "#e3574d"
+  metabolisms:
+    Gas:
+      effects:
+      - !type:Oxygenate #imp, thaven can breathe all gases safely
+        conditions:
+        - !type:OrganType
+          type: Thaven
 
 - type: reagent
   id: Helium
@@ -991,6 +1023,13 @@
   physicalDesc: reagent-physical-desc-gaseous
   flavor: bitter
   color: "#005959"
+  metabolisms:
+    Gas:
+      effects:
+      - !type:Oxygenate #imp, thaven can breathe all gases safely
+        conditions:
+        - !type:OrganType
+          type: Thaven
 
 - type: reagent
   id: Anti-Noblium
@@ -999,3 +1038,10 @@
   physicalDesc: reagent-physical-desc-gaseous
   flavor: bitter
   color: "#525151"
+  metabolisms:
+    Gas:
+      effects:
+      - !type:Oxygenate #imp, thaven can breathe all gases safely
+        conditions:
+        - !type:OrganType
+          type: Thaven

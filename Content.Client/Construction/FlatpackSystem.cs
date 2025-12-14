@@ -1,3 +1,4 @@
+
 // SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 // SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
@@ -9,7 +10,6 @@ using Content.Shared.Construction;
 using Content.Shared.Construction.Components;
 using Robust.Client.GameObjects;
 using Robust.Shared.Prototypes;
-using Content.Shared._NF.BindToStation; // Frontier
 
 namespace Content.Client.Construction;
 
@@ -54,11 +54,4 @@ public sealed class FlatpackSystem : SharedFlatpackSystem
         if (color != null)
             _sprite.LayerSetColor((ent.Owner, args.Sprite), FlatpackVisualLayers.Overlay, color.Value);
     }
-
-    // Frontier: station binding
-    // NOOP, all done server-side.
-    protected override void BindToStation(EntityUid toBind, StationBoundObjectComponent bindingParams)
-    {
-    }
-    // End Frontier: station binding
 }

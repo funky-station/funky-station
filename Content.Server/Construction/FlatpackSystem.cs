@@ -1,3 +1,4 @@
+
 // SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
@@ -17,8 +18,6 @@ using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Power;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
-using Content.Shared._NF.BindToStation; // Frontier: station binding
-using Content.Server._NF.BindToStation; // Frontier: station binding
 
 namespace Content.Server.Construction;
 
@@ -28,7 +27,6 @@ public sealed class FlatpackSystem : SharedFlatpackSystem
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly AmbientSoundSystem _ambientSound = default!;
     [Dependency] private readonly ItemSlotsSystem _itemSlots = default!;
-    [Dependency] private readonly BindToStationSystem _bindToStation = default!; // Frontier
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -135,11 +133,4 @@ public sealed class FlatpackSystem : SharedFlatpackSystem
             FinishPacking((uid, comp), false);
         }
     }
-
-    // Frontier: flatpack station binding
-    protected override void BindToStation(EntityUid toBind, StationBoundObjectComponent bindingParams)
-    {
-        _bindToStation.BindToStation(toBind, bindingParams.BoundStation, bindingParams.Enabled);
-    }
-    // End Frontier: flatpack station binding
 }

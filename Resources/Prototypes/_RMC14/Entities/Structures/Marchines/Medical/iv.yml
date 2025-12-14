@@ -30,6 +30,8 @@
     - state: reagent0
       map: [ "enum.IVDripVisualLayers.Reagent" ]
   - type: IVDrip
+    transferAmount: 1.0
+    transferDelay: 2.0
     reagentStates:
     - 0: reagent0
     - 10: reagent10
@@ -60,6 +62,8 @@
   suffix: CM, empty
   components:
   - type: BloodPack
+    transferAmount: 2.0
+    ransferDelay: 1.0
   - type: Sprite
     sprite: _RMC14/Objects/Medical/blood_pack.rsi
     layers:

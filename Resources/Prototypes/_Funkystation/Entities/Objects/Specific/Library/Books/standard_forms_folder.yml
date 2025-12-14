@@ -1,0 +1,224 @@
+- type: entity
+  id: FolderStandardForms
+  parent: BoxFolderBase
+  name: standard forms folder
+  description: A folder filled with editable standard forms for designing paperwork.
+  components:
+  - type: Sprite
+    layers:
+    - state: folder-colormap
+      color: "#1b487e"
+    - state: folder-base
+  - type: OocAuthorship
+    oocAuthor: Compiled from MooMooBeef forms by wgreen84
+  - type: StorageFill
+    contents:
+    - id: PaperHumanResourcesDept
+    - id: PaperMemo
+    - id: PaperScienceAnomalyDocumentationForm
+    - id: PaperJobChangeRequest
+    - id: PaperCrimeSentencingForm
+    - id: PaperReplacementIDForm
+
+- type: entity
+  id: PaperHumanResourcesDept
+  name: Nanotrasen Human Resources Department
+  description: Nanotrasen Human Resources Department welcome form.
+  parent: Paper
+  components:
+  - type: Paper
+    content: |2
+          [color=navy]█▄ █ ▀█▀  [head=3]Nanotrasen Human [/head] [head=1][/head]
+          █ ▀█    █    [head=3]Resources Department[/head][/color]
+          [head=2][color=ForestGreen]                 Congratulations![/color][/head]
+
+          Enclosed inside this folder is some documents you, a brand new bureaucratic employee, can use! These are intended to be templates to allow your paperwork-fueled imagination roam free. Do remember, if you think your form needs another checkbox or question, add it! Crew members as part of their contract are obligated to complete any and all paperwork the Head of Personnel assigns to them!* Through the power of forms, bulletins, missives, and all sorts of busy paperwork will lead to a happier, more bureaucratically sound crew. Through [bold]YOUR[/bold] hard work, the Central Command Personnel will be glad to see how hard you work to provide a papertrail for every single adjustment you make to the crew.
+          Of course, we can not forget that these alone will not get you entirely where you need to go. Some situations will require very complex fields of entry and barriers to stop bad actors! Feel free to ask other legally-minded crew for assistance in procuring such forms to work off of. Never stay stagnant! Never be content! Always push the limit your crew can handle with paperwork!
+          Now go! Let loose the creative mind that you are, we here at NanoTrasen Human Resources look forward to your growth immensely!
+          *[color=#aaaaaa][italic]Be advised that some crew will push back against the beautiful tide that is paperwork. If such unruly crewmembers threaten to torch, shred, eat, delaminate, or any such silly statements, remind them that you have the power to request demotion and that you have more power than many know!
+
+- type: entity
+  id: PaperMemo
+  name: Memo
+  description: Standard memo form.
+  parent: Paper
+  components:
+  - type: Paper
+    content: |2
+          [color=#1b67a5]█▄ █ ▀█▀    [head=3]Memo[/head]
+          █ ▀█    █      From: [NAME]
+            To: [RECIPIENT]
+            Subject: [SUBJECT] [/color]
+            ──────────────────────────────────────────
+            [BODY]
+
+
+            ──────────────────────────────────────────
+            Sincerely, [NAME]
+
+- type: entity
+  id: PaperScienceAnomalyDocumentationForm
+  name: Science Anomaly Documentation Form
+  description: Standard anomaly documentation form.
+  parent: Paper
+  components:
+  - type: Paper
+    content: |2
+          [/color][color=#1b67a5][color=#c96dbf][mono][bolditalic]         Science Anomaly Documentation Form[/bolditalic][/mono][/color]
+          ░▀▄▄▀░
+          ░█░░█░
+          ░▄▀▀▄░
+          [/color]
+
+          [color=#c96dbf][bold]Attending Researcher: [/bold][/color]
+          ─────────────────────────────────────────
+          [color=#c96dbf][bold]Anomaly Type:[/bold][/color]
+
+          [color=#c96dbf][bold]Location:[/bold][/color]
+
+          [color=#c96dbf][bold]Particle Responses:[/bold][/color]
+          [color=Crimson]Dangerous:[/color]
+          [color=BlueViolet]Unstable:[/color]
+          [color=ForestGreen]Containment:[/color]
+          [color=Orange]Transformation:[/color]
+
+          [color=#c96dbf][bold]Anomaly Status:[/bold][/color]
+
+          [color=#c96dbf][bold]Behavior Deviation:[/bold][/color]
+
+          [color=#c96dbf][bold]Warnings:[/bold][/color]
+
+          ─────────────────────────────────────────
+          [mono][color=#aaaaaa]This document may be stamped to confirm that a request has been performed.[/color][mono]
+
+- type: entity
+  id: PaperJobChangeRequest
+  name: Job/Department Change Request Form
+  description: Standard job or department change request form.
+  parent: Paper
+  components:
+  - type: Paper
+    content: |2
+                                      [color=#1b487e]╔══════════════════╗
+                                      ║███░███░░░░██░░░░░║
+                                      ║░██░████░░░██░░░░░║
+                                      ║░░█░██░██░░██░█░░░║
+                                      ║░░░░██░░██░██░██░░║
+                                      ║░░░░██░░░████░███░║
+                                      ╚══════════════════╝[/color]
+            ──────────────────────────────────────
+            [bold][head=2][color=#1b487e]NanoTrasen[/color][/bold]
+            Job/Department Change Request Form[/head]
+            ──────────────────────────────────────
+
+            [bold]Name:[/bold] [YOUR NAME]
+            [bold]Gender:[/bold] [GENDER IF YOU HAVE ONE, N/A IF NOT]
+            [bold]Previous Job and/or Department:[/bold] [PREVIOUS ASSIGNMENT]
+            [bold]New Job and/or Department:[/bold] [NEW ASSIGNMENT]
+            [bold]Reason for job or departmental transfer:[/bold] [GIVE APPROPRIATE REASONING. INNACURATE OR INCORRECT REASONING WILL RESULT IN A INVALID REQUEST.]
+            ──────────────────────────────────────
+            [mono][color=RoyalBlue][head=3]All paperwork below this line is to be filled
+            out by the Head of Personnel only. If any of
+            this is filled out without the Head of
+            Personnel's permission, this paperwork [/head]
+            [/color][bold][head=2][color=red]is null and void.[/head][/color][/mono]
+            ──────────────────────────────────────────
+            [bold]Additional Notes:[/bold]
+
+            ──────────────────────────────────────────
+            [mono][color=black][bold]ALL APPROPRIATE SIGNATURES AND STAMPS BELOW.
+            REQUESTER MUST SIGN.
+            THIS PAPERWORK IS NOT VALID UNTIL
+            THE HEAD OF PERSONNEL GIVES THIS PAPERWORK THE
+            [/color][color=green]APPROVED[/color] STAMP.[/color][/bold][/mono]
+
+- type: entity
+  id: PaperCrimeSentencingForm
+  name: Quick Crime Sentencing Memo
+  description: A document for quickly sentencing crimes.
+  parent: Paper
+  components:
+  - type: Paper
+    content: |2
+            [color=#134975]█▄ █ ▀█▀    [head=3]NT Justice Department[/head]
+            █ ▀█    █    Quick Crime Sentencing Memo[/color]
+            ───────────────────────────────────
+            [head=2][bold]Subject:[/bold] NAME[/head]
+            ……………………………………………………………………………
+            [head=2][color=#4D2E2E][bold]I Degree[/color][/bold][/head]
+            [bullet]1-00 \[  ] Possession/Use of Illegal Substances (3 minutes)
+            [bullet]R-1 \[  ] Disturbance (2 minutes)
+            [bullet]G-1 \[  ] Petty Theft (3 minutes)
+            [bullet]T-1 \[  ]Trespass (2 minutes)
+            [bullet]C-1 \[  ]Vandalism (2 minutes)
+            ……………………………………………………………………………
+            [head=2][color=#2E422E][bold]II Degree[/color][/bold][/head]
+            [bullet]L-2 \[  ] Failure to Comply (2 minutes)
+            [bullet]       \[  ] Animal Cruelty (5 minutes)
+            [bullet]M-2 \[  ] Endangerment (4 mins)
+            [bullet]R-2 \[  ] Rioting (4 minutes)
+            [bullet]C-2 \[  ] Destruction of Property (4 minutes)
+            [bullet]       \[  ] Possession of Restricted Gear (5 minutes)
+            ……………………………………………………………………………
+            [head=2][color=#453A59][bold]III Degree[/color][/bold][/head]
+            [bullet]L-3 \[  ] Breach of Arrest (4 minutes)
+            [bullet]       \[  ] Breach of Custody (5 minutes)
+            [bullet]M-3 \[  ] Manslaughter (10 minutes)
+            [bullet]M-3\[  ] Assault/Battery (6 minutes)
+            [bullet]C-3 \[  ] Mass Destruction (15 minutes)
+            [bullet]      \[  ] Possession of Restricted Weaponry (6 minutes)
+            [bullet]T-3 \[  ] Secure Trespass (8 minutes)
+            [bullet]G-3 \[  ] Grand Theft (6 minutes)
+            ……………………………………………………………………………
+            [head=2][color=#59563A][bold]IV Degree[/color][/bold][/head]
+            [bullet]        \[  ] Kidnapping (10 minutes)
+            [bullet]R-4 \[  ] Murder (10 minutes)
+            ……………………………………………………………………………
+            [head=2][color=#641327][bold]V Degree[/color][/bold][/head]
+            [bullet]     \[  ] Capital Negligence ([color=#c93e1d]Permanent Brig[/color]/Demotion)
+            [bullet]     \[  ] Refusal of Mental Shielding ([color=#c93e1d]Permanent Brig[/color])
+            [bullet]      \[  ] Prevention of Revival ([color=#c93e1d]Permanent Brig[/color])
+            [bullet]R-5 \[  ] Mass Murder ([color=#c93e1d]Permanent Brig[/color])
+            [bullet]      \[  ] Terrorism ([color=#732411]Execution[/color]*)
+            ─────────────────────────────────────────
+            [color=#134975][head=2]Total Time:
+            [bold]Sentenced For XX minutes[/bold][/head][/color]
+
+            [italic][color=#aaaaaa]All times are maximum but not recommended sentences.
+            Crimes stack and you should sum the time to determine sentencing length. Anything longer than 20 minutes is recommended for Permanent Detention.
+            Give more leniency for first time offenses and compliance.
+            * Execution requires CC approval, either through a validated fax or Magistrate authorization. [/color][/italic]
+
+- type: entity
+  id: PaperReplacementIDForm
+  name: Replacement Identification Card and/or Personal Digital Assistant Request
+  description: A document for getting a replacement ID or PDA.
+  parent: Paper
+  components:
+  - type: Paper
+    content: |2
+                                                 [/color][color=#2b4e95]░▄██▄░
+                                                ░████░
+                                                ▄▄██▄▄
+
+                                   [head=1]NanoTrasen[/head]
+            [/color][head=3][bold]S-23 Form:[/bold] Replacement Identification Card and/or Personal Digital Assistant Request[/center]
+            [/head]─────────────────────────────────────────
+            [bold]Name:[/bold][italic]
+            [color=#1b67a5] Sample[/color] [/italic]
+            [bold]Current Job:[/bold][italic]
+            [color=#1b67a5] Sample[/color] [/italic]
+            [bold]Was the PDA/ID Card lost or damaged?:[/bold][italic]
+            [color=#1b67a5] Sample[/color] [/italic]
+            [bold]How was the PDA/ ID Card lost or damaged?:[/bold][italic]
+            [color=#1b67a5] Sample[/color] [/italic]
+            [bold]What can be done to avoid this occurring again?:[/bold][italic]
+            [color=#1b67a5] Sample[/color] [/italic]
+            [bold]What executive action needs to be taken?:[/bold][italic]
+            [color=#1b67a5] Sample[/color] [/italic]
+            ─────────────────────────────────────────
+            [color=#1b67a5][bolditalic] This document is representative of a failure either on security or the issuing parties end. New ID cards and/or PDAs are an expensive asset not to be lost easily. To show the issuing party has understood this mistake and is willing to learn further methods to keep a handle on their personal belongings, the stamp of their Department Head is required for the issuing of a new ID and/or PDA.
+            [/bolditalic][/color]─────────────────────────────────────────
+            Stamp of the affected parties Departmental Head and signature of the affected party are to be completed below this line.
+            ─────────────────────────────────────────
+            [italic][italic][color=#aaaaaa]New ID card requests are governed by fair use policy 67C3. NT withholds the right to deny any and all applications for a replacement ID dependent on policy 67C3 and any other pertinent criteria designated by NT at the time of the denial of application. Excessive ID loss or damage as laid out in 67C3 is to be compensated for out of personal income and accounts as specified under 67C6 and not uniform work expenditure allowances.[/italic][/italic][/color]

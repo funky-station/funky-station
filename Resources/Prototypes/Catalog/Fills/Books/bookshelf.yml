@@ -44,6 +44,7 @@
       - id: BookSOP
       - id: BookTheBookOfControl
       - id: BookCookbookPie #Funky
+      - id: FolderStandardForms #Funky
     # Handwritten books
     - !type:GroupSelector
       rolls: !type:RangeNumberSelector
@@ -91,7 +92,7 @@
       - id: AshySlashy3 #Funky
       - id: FrontierMathematician1 #Funky
       - id: FrontierMathematician2 #Funky
-      - id: how2clown
+      - id: how2clown #Funky
     # if you add more books please consider organizing them into a new group selector
 
 - type: entity

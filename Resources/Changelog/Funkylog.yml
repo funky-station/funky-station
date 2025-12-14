@@ -6579,3 +6579,12 @@ Entries:
       message: Gave the captain's winter vest armor, but slightly worse.
   id: 769
   time: '2025-12-14T23:32:49.0000000+00:00'
+- author: mycobiota
+  changes:
+    - type: Tweak
+      message: >-
+        The basic RCD and RPD can be worn in place of a backpack, and the RPD
+        can be slung on the back of all engineering hardsuits. They can no
+        longer be worn on the belt.
+  id: 770
+  time: '2025-12-14T23:36:47.0000000+00:00'

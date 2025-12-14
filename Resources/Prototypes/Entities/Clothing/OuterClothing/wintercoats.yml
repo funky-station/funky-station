@@ -120,27 +120,18 @@
     size: Normal
 
 - type: entity
-  parent: [ClothingOuterWinterCoatToggleable, BaseCommandContraband]
+  parent: [ClothingOuterWinterCoat, BaseCommandContraband]
   id: ClothingOuterWinterCap
   name: captain's winter coat
+  description: the luxurious coat belonging to the captain. armor not included*
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
-    layers:
-    - state: CAP-icon
-  - type: Item
-    inhandVisuals:
-      left:
-      - state: CAP-inhand-left
-      right:
-      - state: CAP-inhand-right
+    sprite: _Funkystation/Clothing/OuterClothing/WinterCoats/cap_coat.rsi
   - type: Clothing
-    sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
-    clothingVisuals:
-      outerClothing:
-      - state: CAP-equipped-OUTERCLOTHING
+    sprite: _Funkystation/Clothing/OuterClothing/WinterCoats/cap_coat.rsi
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodWinterCaptain
+
 
 - type: entity
   parent: ClothingOuterWinterCoatToggleable

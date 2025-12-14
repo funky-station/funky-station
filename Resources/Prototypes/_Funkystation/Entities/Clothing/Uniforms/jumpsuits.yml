@@ -615,3 +615,15 @@
     sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/medicalcustodian.rsi
   - type: Clothing
     sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/medicalcustodian.rsi
+
+# Sternning Outfit (by mingebag)
+- type: entity
+  parent: [ClothingUniformBase, BaseCommandContraband]
+  id: ClothingUniformCaptainSternn
+  name: Stern jumpsuit
+  description: A uniform to wear when you've got an angle.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/sternn.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/sternn.rsi

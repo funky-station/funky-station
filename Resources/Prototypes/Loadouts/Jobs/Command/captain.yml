@@ -43,6 +43,12 @@
     jumpsuit: ClothingUniformJumpskirtCapFormalDress
   groupBy: "jumpskirt"
 
+- type: loadout
+  id: Sternuniform
+  equipment:
+    jumpsuit: ClothingUniformCaptainSternn
+  groupBy: "jumpsuit"
+
 # Head
 - type: loadout
   id: CaptainHead

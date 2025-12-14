@@ -29,10 +29,10 @@
         enum.StackCustomSplitUiKey.Key:
           type: StackCustomSplitBoundUserInterface
     - type: Sprite
-      sprite: Objects/Misc/inflatable_wall.rsi
+      sprite: _Funkystation/Objects/Misc/inflatables.rsi
       state: item_wall
     - type: Item
-      sprite: Objects/Misc/inflatable_wall.rsi
+      sprite: _Funkystation/Objects/Misc/inflatables.rsi
       size: Small
     - type: SpawnAfterInteract
       prototype: InflatableWall
@@ -57,10 +57,10 @@
         enum.StackCustomSplitUiKey.Key:
           type: StackCustomSplitBoundUserInterface
     - type: Sprite
-      sprite: Objects/Misc/inflatable_door.rsi
+      sprite: _Funkystation/Objects/Misc/inflatables.rsi
       state: item_door
     - type: Item
-      sprite: Objects/Misc/inflatable_door.rsi
+      sprite: _Funkystation/Objects/Misc/inflatables.rsi
       size: Small
     - type: SpawnAfterInteract
       prototype: InflatableDoor

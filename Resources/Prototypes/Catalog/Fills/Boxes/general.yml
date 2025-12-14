@@ -257,14 +257,22 @@
   name: inflatable wall box
   parent: BoxCardboard
   id: BoxInflatable
-  description: Inflatable walls are not to be used as floatation devices.
+  description: A box of self-inflating walls and doors. Highly compact and great for 'temporary' fixes.
   components:
+  - type: Item
+    size: Normal
+    shape:
+    - 0,0,1,1
+  - type: Storage
+    maxItemSize: Small
+    grid:
+    - 0,0,1,1
   - type: StorageFill
     contents:
         - id: InflatableWallStack
-          amount: 2
+          amount: 3
         - id: InflatableDoorStack
-          amount: 2
+          amount: 1
   - type: Sprite
     layers:
       - state: box

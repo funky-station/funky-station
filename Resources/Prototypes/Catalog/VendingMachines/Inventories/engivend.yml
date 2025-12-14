@@ -36,7 +36,7 @@
     NetworkConfigurator: 5
     PowerCellMedium: 5
     ClothingHandsGlovesColorYellow: 6
-    BoxInflatable: 2
+    BoxInflatable: 4 # 4 < 2 Funky
     ClothingHeadHatCone: 4
   contrabandInventory:
     CowToolboxFilled: 1

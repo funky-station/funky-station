@@ -21,12 +21,12 @@
   id: InflatableWallStack
   parent: BaseItem
   name: inflatable barricade
-  description: A folded membrane which rapidly expands into a large cubical shape on activation.
+  description: A folded membrane which rapidly expands into an airtight barricade upon its ripvalve being pulled.
   suffix: Full
   components:
     - type: Stack
       stackType: InflatableWall
-      count: 10
+      count: 5
   # Goobstation - Custom stack splitting dialog
     - type: UserInterface
       interfaces:
@@ -37,24 +37,23 @@
       state: item_wall
     - type: Item
       sprite: _Funkystation/Objects/Misc/inflatables.rsi
-      size: Small
+      size: Tiny
     - type: SpawnAfterInteract
       prototype: InflatableWall
-      doAfter: 1
+      doAfter: 0.5 # 0.5 < 1, Funky
       removeOnInteract: true
     - type: Clickable
-# TODO: Add stack sprites + visuals.
 
 - type: entity
   id: InflatableDoorStack
   parent: BaseItem
   name: inflatable door
-  description: A folded membrane which rapidly expands into a large cubical shape on activation.
+  description: A folded membrane which rapidly expands into an airtight door upon its ripvalve being pulled.
   suffix: Full
   components:
     - type: Stack
       stackType: InflatableDoor
-      count: 4
+      count: 5
   # Goobstation - Custom stack splitting dialog
     - type: UserInterface
       interfaces:
@@ -65,18 +64,19 @@
       state: item_door
     - type: Item
       sprite: _Funkystation/Objects/Misc/inflatables.rsi
-      size: Small
+      size: Tiny
     - type: SpawnAfterInteract
       prototype: InflatableDoor
-      doAfter: 1
+      doAfter: 0.5 # 0.5 < 1, Funky
       removeOnInteract: true
     - type: Clickable
-# TODO: Add stack sprites + visuals.
 
-- type: entity
+# partial stacks
+
+- type: entity # 
   parent: InflatableWallStack
   id: InflatableWallStack5
-  suffix: 5
+  suffix: Redundant, do not map
   components:
     - type: Sprite
       state: item_wall

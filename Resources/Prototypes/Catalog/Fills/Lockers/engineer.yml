@@ -182,6 +182,7 @@
       - id: ClothingShoesBootsMag
       - id: RCD
       - id: RCDAmmo
+      - id: BoxInflatable # funky
 
 - type: entity
   id: LockerEngineerFilled
@@ -196,6 +197,7 @@
       - id: trayScanner
       - id: RCD
       - id: RCDAmmo
+      - id: BoxInflatable # funky
 
 - type: entity
   id: ClosetRadiationSuitFilled

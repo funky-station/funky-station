@@ -132,11 +132,12 @@
   id: CrateEmergencyInflatablewall
   parent: CratePlastic
   name: inflatable wall crate
-  description: Three stacks of inflatable walls for when the stations metal walls don't want to hold atmosphere anymore.
+  description: 30 inflatable walls and 10 inflatable doors conveniently packed for quick repairs. Just twist and pull the ripvalve on each to deploy. # Funky
   components:
   - type: StorageFill
     contents:
       - id: BoxInflatable
+        amount: 2 # Funky
 
 - type: entity
   id: CrateGenericBiosuit

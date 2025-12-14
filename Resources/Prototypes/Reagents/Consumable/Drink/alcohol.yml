@@ -52,6 +52,7 @@
 # SPDX-FileCopyrightText: 2025 Selva <140060182+selvamoonbell@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 SharkSnake98 <peanutbuttersharky@gmail.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 delorphin <delorphin@gmail.com>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
@@ -75,6 +76,7 @@
   metamorphicMaxFillLevels: 5
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: true
+  flammability: 2
   metabolisms:
     Drink:
       effects:
@@ -198,6 +200,7 @@
   color: "#b05b3c"
   boilingPoint: 78.2
   meltingPoint: -114.1
+  flammability: 3
   metabolisms:
     Alcohol:
       effects:
@@ -405,6 +408,7 @@
   metamorphicMaxFillLevels: 3
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
+  flammability: 2
   metabolisms:
     Drink:
       effects:
@@ -444,6 +448,7 @@
   metamorphicMaxFillLevels: 4
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
+  flammability: 2
   metabolisms:
     Drink:
       effects:
@@ -471,6 +476,7 @@
   metamorphicMaxFillLevels: 4
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
+  flammability: 2
   metabolisms:
     Drink:
       effects:

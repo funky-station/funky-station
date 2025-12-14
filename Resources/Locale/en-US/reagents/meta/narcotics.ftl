@@ -67,3 +67,7 @@ reagent-desc-happiness = Fills you with ecstatic numbness and causes minor brain
 
 reagent-name-nitrosyl-plasmide = nitrosyl plasmide
 reagent-desc-nitrosyl-plasmide = A powerful stimulant that can prevent drowsiness, stuns and knock downs.
+
+## can't put it in a new file...
+nicotine-effect-dull-ache = You feel a dull ache in your chest.
+nicotine-effect-sharp-pain = You feel a sharp pain in your chest.

@@ -4,7 +4,7 @@
 # SPDX-FileCopyrightText: 2023 Lazzi0706 <49803294+Lazzi0706@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2023 Lazzi0706 <lazzikrytskiy0706@gmail.com>
 # SPDX-FileCopyrightText: 2024 LankLTE <135308300+LankLTE@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 #
 # SPDX-License-Identifier: MIT
 
@@ -16,13 +16,18 @@
     chest:
       part: ChestAnimal
       connections:
-      - legs
+      - groin
       organs:
         brain: OrganDionaBrain
         lungs: OrganAnimalLungs
+        heart: OrganAnimalHeart
+    groin:
+      part: GroinAnimal
+      connections:
+      - legs
+      organs:
         stomach: OrganAnimalStomach
         liver: OrganAnimalLiver
-        heart: OrganAnimalHeart
         kidneys: OrganAnimalKidneys
     legs:
       part: LegsAnimal
@@ -39,12 +44,17 @@
     chest:
       part: ChestAnimal
       connections:
-      - legs
+      - groin
       organs:
         lungs: OrganDionaLungs
+        heart: OrganAnimalHeart
+    groin:
+      part: GroinAnimal
+      connections:
+      - legs
+      organs:
         stomach: OrganAnimalStomach
         liver: OrganAnimalLiver
-        heart: OrganAnimalHeart
         kidneys: OrganAnimalKidneys
     legs:
       part: LegsAnimal
@@ -61,12 +71,17 @@
     chest:
       part: ChestAnimal
       connections:
-      - legs
+      - groin
       organs:
         lungs: OrganAnimalLungs
+        heart: OrganAnimalHeart
+    groin:
+      part: GroinAnimal
+      connections:
+      - legs
+      organs:
         stomach: OrganDionaStomach
         liver: OrganAnimalLiver
-        heart: OrganAnimalHeart
         kidneys: OrganAnimalKidneys
     legs:
       part: LegsAnimal

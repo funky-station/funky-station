@@ -2,7 +2,7 @@
 # SPDX-FileCopyrightText: 2022 Jezithyr <Jezithyr@gmail.com>
 # SPDX-FileCopyrightText: 2023 Kara <lunarautomaton6@gmail.com>
 # SPDX-FileCopyrightText: 2023 Vasilis <vasilis@pikachu.systems>
-# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 #
 # SPDX-License-Identifier: MIT
 
@@ -13,9 +13,24 @@
   slots:
     chest:
       part: ChestAnimal
+      connections: # Shitmed
+      - groin
       organs:
         lungs: OrganAnimalLungs
+        heart: OrganAnimalHeart
+    # <Shitmed>
+    groin:
+      part: GroinAnimal
+      connections:
+      - legs
+      organs:
         stomach: OrganMothStomach
         liver: OrganAnimalLiver
-        heart: OrganAnimalHeart
         kidneys: OrganAnimalKidneys
+    legs:
+      part: LegsAnimal
+      connections:
+      - feet
+    feet:
+      part: FeetAnimal
+    # </Shitmed>

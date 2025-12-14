@@ -3,11 +3,9 @@
 # SPDX-FileCopyrightText: 2023 Kara <lunarautomaton6@gmail.com>
 # SPDX-FileCopyrightText: 2023 Lazzi0706 <49803294+Lazzi0706@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2023 Lazzi0706 <lazzikrytskiy0706@gmail.com>
-# SPDX-FileCopyrightText: 2024 John Space <bigdumb421@gmail.com>
-# SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
-# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 #
-# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+# SPDX-License-Identifier: MIT
 
 - type: body
   id: Animal
@@ -17,14 +15,18 @@
     chest:
       part: ChestAnimal
       connections:
-      - legs
+      - groin
       organs:
         lungs: OrganAnimalLungs
+        heart: OrganAnimalHeart
+    groin:
+      part: GroinAnimal
+      connections:
+      - legs
+      organs:
         stomach: OrganAnimalStomach
         liver: OrganAnimalLiver
-        heart: OrganAnimalHeart
         kidneys: OrganAnimalKidneys
-        eyes: OrganHumanEyes #funkystation
     legs:
       part: LegsAnimal
       connections:
@@ -40,14 +42,18 @@
     chest:
       part: ChestAnimal
       connections:
-      - legs
+      - groin
       organs:
         lungs: OrganAnimalLungs
+        heart: OrganAnimalHeart
+    groin:
+      part: GroinAnimal
+      connections:
+      - legs
+      organs:
         stomach: OrganMouseStomach
         liver: OrganAnimalLiver
-        heart: OrganAnimalHeart
         kidneys: OrganAnimalKidneys
-        eyes: OrganHumanEyes #funkystation
     legs:
       part: LegsAnimal
       connections:

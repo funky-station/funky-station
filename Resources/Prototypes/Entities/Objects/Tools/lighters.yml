@@ -278,7 +278,7 @@
   description: "A cheap looking flippo lighter, still lasts quite a while. A bizarre image is stamped on the front."
   components:
   - type: Sprite
-    sprite: Objects/Tools/lighters.rsi
+    sprite: Objects/Tools/Lighters/lighters.rsi
     layers:
     - state: zippo_fancy_icon_base
       map: ["base"]

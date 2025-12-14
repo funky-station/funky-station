@@ -32,7 +32,7 @@
   mapName: 'Eden'
   mapPath: /Maps/_Funkystation/eden.yml
   minPlayers: 7
-  maxPlayers: 45
+  maxPlayers: 55
   stations:
     Eden:
       stationProto: StandardNanotrasenStation
@@ -61,21 +61,22 @@
             Reporter: [ 1, 1 ]
             ServiceWorker: [ 2, 2 ]
             Zookeeper: [ 1, 1 ]
+            Boxer: [ 1, 1 ]
             #engineering
             ChiefEngineer: [ 1, 1 ]
             AtmosphericTechnician: [ 2, 2 ]
-            StationEngineer: [ 3, 3 ]
+            StationEngineer: [ 3, 4 ]
             TechnicalAssistant: [ 2, 2 ]
             #medical
             ChiefMedicalOfficer: [ 1, 1 ]
             Chemist: [ 2, 2 ]
-            MedicalDoctor: [ 3, 3 ]
+            MedicalDoctor: [ 3, 4 ]
             Paramedic: [ 1, 1 ]
             Psychologist: [ 1, 1 ]
             MedicalIntern: [ 2, 2 ]
             #science
             ResearchDirector: [ 1, 1 ]
-            Scientist: [ 3, 3 ]
+            Scientist: [ 3, 4 ]
             Roboticist: [ 1, 1 ]
             ResearchAssistant: [ 2, 2 ]
             #security
@@ -87,7 +88,7 @@
             Lawyer: [ 1, 1 ]
             #supply
             Quartermaster: [ 1, 1 ]
-            SalvageSpecialist: [ 2, 2 ]
+            SalvageSpecialist: [ 3, 3 ]
             CargoTechnician: [ 3, 3 ]
             #civilian
             Passenger: [ -1, -1 ]

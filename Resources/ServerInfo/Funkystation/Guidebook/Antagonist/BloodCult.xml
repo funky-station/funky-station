@@ -105,9 +105,9 @@ The summon dagger spell allows a cultist to instantly grant themselves a weapon 
     <GuideEntityEmbed Entity="ActionCultistSanguineDream" Caption="Sanguine Dream"/>
   </Box>
 
-The Sanguine Dream spell plunges a victim into a nightmare-filled sleep where they dream of blood-soaked knives. This also drains energy from cybernetic entities. This does not work on those with a mindshield.
+The Sanguine Dream spell plunges a victim into a nightmare-filled sleep where they dream of blood-soaked knives. This also drains energy from cybernetic entities. Those with a mindshield will be briefly stunned instead of being put to sleep.
 
-This spell may permit you to silently and more efficiently kidnap those your cult requires. It will not work on those whos minds are shielded. It is recommended that all cultists keep a Sanguine Dream spell prepared when roaming beyond their selected base of operations, [bold]just in case.[/bold]
+This spell may permit you to silently and more efficiently kidnap those your cult requires. Those with mindshields will be briefly stunned, making them drop prone and drop any items they are holding. It is recommended that all cultists keep a Sanguine Dream spell prepared when roaming beyond their selected base of operations, [bold]just in case.[/bold]
 
   <Box>
     <GuideEntityEmbed Entity="ActionCultistTwistedConstruction" Caption="Twisted Construction"/>

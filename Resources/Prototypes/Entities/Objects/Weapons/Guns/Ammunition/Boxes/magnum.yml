@@ -15,6 +15,7 @@
 # SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 SigmaTheDragon <162711378+SigmaTheDragon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
@@ -125,3 +126,19 @@
     - state: mag-1
       map: ["enum.GunVisualLayers.Mag"]
     - state: piercing
+
+- type: entity
+  id: MagazineBoxMagnumSilver
+  parent: BaseMagazineBoxMagnum
+  name: ammunition box (.45 magnum silver)
+  description: A cardboard box of .45 magnum rounds. Intended to hold blessed silver ammunition.
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeMagnumSilver
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+    - state: silver

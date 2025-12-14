@@ -20,10 +20,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
 - type: entity
-  id: BulletFoam
-  description: I hope you're wearing eye protection.
-  name: foam dart
   parent: BaseItem
+  id: BulletFoam
+  name: foam dart
+  description: I hope you're wearing eye protection.
   components:
   - type: Fixtures
     fixtures:

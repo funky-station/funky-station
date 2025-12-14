@@ -39,6 +39,7 @@
 # SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 88tv <131759102+88tv@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 8tv <eightev@gmail.com>
+# SPDX-FileCopyrightText: 2025 A-Loose-Goose <237446272+A-Loose-Goose@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 ALooseGoose <ALooseGoosey@gmail.com>
 # SPDX-FileCopyrightText: 2025 AtlasHD <99688062+AtlasHDD@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Dragon232347 <122056448+Dragon232347@users.noreply.github.com>
@@ -46,6 +47,7 @@
 # SPDX-FileCopyrightText: 2025 Teasq <Xerithin@gmail.com>
 # SPDX-FileCopyrightText: 2025 TheSecondLord <88201625+TheSecondLord@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 V <97265903+formlessnameless@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
@@ -113,19 +115,47 @@
 - type: entity
   parent: [ClothingEyesBase, BaseEngineeringSalvageContraband]
   id: ClothingEyesGlassesMeson
-  name: engineering goggles #less confusion
-  description: Green-tinted goggles using a proprietary polymer that provides protection from eye damage of all types.
+  name: meson goggles # Changed back to Meson because it sounds cooler.
+  description: Green-tinted goggles using a proprietary polymer that provides protection from flying debris and sparks, alongside containing an integrated t-ray projector and scanner.
   components:
   - type: Sprite
     sprite: Clothing/Eyes/Glasses/meson.rsi
   - type: Clothing
     sprite: Clothing/Eyes/Glasses/meson.rsi
-  - type: EyeProtection
   - type: IdentityBlocker
     coverage: EYES
+  - type: TrayScanner
+    range: 3
+    enabled: false
   - type: Tag
     tags:
     - EngiVision #Funky - jamjarrening
+  - type: GlassesOverlay
+    shader: Goggles
+    color: '#5AB43CCC'
+    enabled: false
+#  This section enables the meson-style X-Ray vision. It's disabled for now; but
+#  can be re-enabled very easily if/when it wouldn't be a balancing nightmare.
+#  - type: ShowXRay
+#    shader: XRay
+#    enabled: false
+#    whitelist:
+#      components:
+#      - Door
+#      - Chasm
+#      tags:
+#      - Wall
+#      - Window
+#      - Catwalk
+#      - XrayVisible
+
+- type: entity
+  id: ActionToggleTrayScanner
+  name: Toggle T-Ray
+  description: Toggles the T-Ray scanner functionality.
+  components:
+  - type: InstantAction
+    event: !type:ToggleTrayScannerEvent
 
 - type: entity
   parent: ClothingEyesBase

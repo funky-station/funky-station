@@ -5,6 +5,7 @@
 // SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
 // SPDX-FileCopyrightText: 2024 c4llv07e <38111072+c4llv07e@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
@@ -17,14 +18,22 @@ using Content.Shared.Inventory.Events;
 using Robust.Shared.GameStates;
 using Robust.Shared.Network;
 using Robust.Shared.Serialization;
+using Content.Shared.Actions;
+using Content.Shared.XRay;
+using Content.Shared.Glasses;
+using Robust.Shared.Audio.Systems;
 
 namespace Content.Shared.SubFloor;
+
+public sealed partial class ToggleTrayScannerEvent : InstantActionEvent { }
 
 public abstract class SharedTrayScannerSystem : EntitySystem
 {
     [Dependency] private readonly INetManager _netMan = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly SharedEyeSystem _eye = default!;
+    [Dependency] private readonly SharedActionsSystem _actions = default!;
+    [Dependency] private readonly SharedAudioSystem _audio = default!;
 
     public const float SubfloorRevealAlpha = 0.8f;
 
@@ -42,6 +51,8 @@ public abstract class SharedTrayScannerSystem : EntitySystem
         SubscribeLocalEvent<TrayScannerComponent, GotUnequippedEvent>(OnTrayUnequipped);
 
         SubscribeLocalEvent<TrayScannerUserComponent, GetVisMaskEvent>(OnUserGetVis);
+        SubscribeLocalEvent<TrayScannerComponent, GetItemActionsEvent>(OnGetActions);
+        SubscribeLocalEvent<TrayScannerComponent, ToggleTrayScannerEvent>(OnToggleAction);
     }
 
     private void OnUserGetVis(Entity<TrayScannerUserComponent> ent, ref GetVisMaskEvent args)
@@ -117,9 +128,6 @@ public abstract class SharedTrayScannerSystem : EntitySystem
         scanner.Enabled = enabled;
         Dirty(uid, scanner);
 
-        // We don't remove from _activeScanners on disabled, because the update function will handle that, as well as
-        // managing the revealed subfloor entities
-
         if (TryComp<AppearanceComponent>(uid, out var appearance))
         {
             _appearance.SetData(uid, TrayScannerVisual.Visual, scanner.Enabled ? TrayScannerVisual.On : TrayScannerVisual.Off, appearance);
@@ -138,6 +146,38 @@ public abstract class SharedTrayScannerSystem : EntitySystem
 
         scanner.Range = state.Range;
         SetScannerEnabled(uid, state.Enabled, scanner);
+    }
+
+    private void OnGetActions(EntityUid uid, TrayScannerComponent component, GetItemActionsEvent args)
+    {
+        _actions.AddAction(args.User, ref component.ActionEntity, component.ActionId, uid);
+    }
+
+    private void OnToggleAction(EntityUid uid, TrayScannerComponent component, ToggleTrayScannerEvent args)
+    {
+        if (args.Handled)
+            return;
+
+        // Play Sound
+        var sound = component.Enabled ? component.OffSound : component.OnSound;
+        _audio.PlayPredicted(sound, uid, args.Performer);
+
+        // Toggle Logic
+        SetScannerEnabled(uid, !component.Enabled, component);
+
+        if (TryComp<ShowXRayComponent>(uid, out var xray))
+        {
+            xray.Enabled = component.Enabled;
+            Dirty(uid, xray);
+        }
+
+        if (TryComp<GlassesOverlayComponent>(uid, out var glasses))
+        {
+            glasses.Enabled = component.Enabled;
+            Dirty(uid, glasses);
+        }
+
+        args.Handled = true;
     }
 }
 

@@ -90,6 +90,7 @@
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 Tiniest Shark <head.rebel@yahoo.com>
 # SPDX-FileCopyrightText: 2025 Xcybitt <xcybitt@gmail.com>
+# SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 lolmatdi <59433122+lolmatdi@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
 # SPDX-FileCopyrightText: 2025 puuupy <59433122+lolmatdi@users.noreply.github.com>
@@ -132,6 +133,7 @@
         - JawsOfLife
         - GPS
         - WeldingMask
+        - GasMask
         - UtilityKnife
       components:
         - StationMap
@@ -217,6 +219,8 @@
         - HolofanProjector
         - Multitool
         - AppraisalTool
+        - WeldingMask
+        - GasMask
         - UtilityKnife
       components:
         - StationMap

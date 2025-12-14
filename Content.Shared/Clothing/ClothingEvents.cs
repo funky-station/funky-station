@@ -3,6 +3,7 @@
 // SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
 // SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
 // SPDX-License-Identifier: MIT
@@ -109,3 +110,17 @@ public readonly record struct ClothingDidEquippedEvent(Entity<ClothingComponent>
 /// </summary>
 [ByRefEvent]
 public readonly record struct ClothingDidUnequippedEvent(Entity<ClothingComponent> Clothing);
+
+public sealed partial class ToggleHeadEvent : InstantActionEvent { }
+
+/// <summary>
+///     Event raised on the head entity when it is toggled.
+/// </summary>
+[ByRefEvent]
+public readonly record struct ItemHeadToggledEvent(EntityUid Wearer, string? equippedPrefix, bool IsToggled, bool IsEquip);
+
+/// <summary>
+///     Event raised on the entity wearing the head item when it is toggled.
+/// </summary>
+[ByRefEvent]
+public readonly record struct WearerHeadToggledEvent(bool IsToggled);

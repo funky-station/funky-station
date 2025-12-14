@@ -29,7 +29,9 @@
 # SPDX-FileCopyrightText: 2025 McBosserson <148172569+McBosserson@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Milon <milonpl.git@proton.me>
 # SPDX-FileCopyrightText: 2025 MissKay1994 <15877268+MissKay1994@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 ThatOneMoon <91613003+ThatOneMoon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
+# SPDX-FileCopyrightText: 2025 Xcybitt <197952719+Xcybitt@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
@@ -75,6 +77,15 @@
     flavors:
       - cheesy
       - potatoes
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 26
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 18
+        - ReagentId: Cheesium
+          Quantity: 2
   - type: Sprite
     state: loadedbakedpotato
 # Tastes like potato.
@@ -104,6 +115,15 @@
       - potatoes
       - salty
       - cheesy
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 26
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 18
+        - ReagentId: Cheesium
+          Quantity: 2
   - type: Sprite
     state: fries-cheesy
 # Tastes like fries, cheese.
@@ -180,7 +200,9 @@
         maxVol: 15
         reagents:
         - ReagentId: Nutriment
-          Quantity: 6
+          Quantity: 4
+        - ReagentId: Cheesium
+          Quantity: 2
         - ReagentId: Vitamin
           Quantity: 3
         - ReagentId: TableSalt
@@ -299,7 +321,9 @@
         maxVol: 15
         reagents:
         - ReagentId: Nutriment
-          Quantity: 6
+          Quantity: 2
+        - ReagentId: Cheesium
+          Quantity: 4
         - ReagentId: CarpoToxin
           Quantity: 3
   - type: Tag
@@ -563,6 +587,15 @@
     - type: FlavorProfile
       flavors:
         - cheesy
+    - type: SolutionContainerManager
+      solutions:
+        food:
+          maxVol: 26
+          reagents:
+          - ReagentId: Nutriment
+            Quantity: 16
+          - ReagentId: Cheesium
+            Quantity: 4
     - type: Sprite
       state: queso
 # Its queso! Everyone loves queso... Right?.

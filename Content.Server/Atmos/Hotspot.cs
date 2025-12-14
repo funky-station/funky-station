@@ -31,5 +31,14 @@ namespace Content.Server.Atmos
         /// </summary>
         [ViewVariables]
         public byte State;
+
+        [ViewVariables]
+        public HotspotType Type;
     }
+}
+
+public enum HotspotType : byte
+{
+    Gas = 0,
+    Puddle = 1
 }

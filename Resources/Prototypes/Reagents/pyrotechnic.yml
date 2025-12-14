@@ -44,6 +44,7 @@
   color: "#757245"
   boilingPoint: 2977.0 # Aluminum oxide
   meltingPoint: 2030.0
+  flammability: 4
   tileReactions:
   - !type:FlammableTileReaction
     temperatureMultiplier: 2
@@ -64,6 +65,7 @@
   physicalDesc: reagent-physical-desc-soapy
   flavor: bitter
   color: "#FA00AF"
+  flammability: 5
   tileReactions:
   - !type:FlammableTileReaction
     temperatureMultiplier: 5
@@ -93,6 +95,7 @@
   physicalDesc: reagent-physical-desc-burning
   flavor: bitter
   color: "#D4872A"
+  flammability: 5
   metabolisms:
     Poison:
       effects:
@@ -122,6 +125,7 @@
   physicalDesc: reagent-physical-desc-blazing
   flavor: bitter
   color: "#FFC8C8"
+  flammability: 5
   tileReactions:
   - !type:PryTileReaction
   metabolisms:
@@ -179,6 +183,7 @@
   boilingPoint: -84.7 # Acetylene. Close enough.
   meltingPoint: -80.7
   friction: 0.4
+  flammability: 2
   tileReactions:
   - !type:FlammableTileReaction {}
   metabolisms:

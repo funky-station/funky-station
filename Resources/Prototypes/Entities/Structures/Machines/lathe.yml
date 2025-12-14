@@ -519,6 +519,7 @@
     - TowelColorWhite #funk towel
     - InflatableWall #funky inflatables
     - InflatableDoor #funk
+    - SmallPinboard #funky
     dynamicRecipes:
     - BoomboxRed
     - BoomboxGreen

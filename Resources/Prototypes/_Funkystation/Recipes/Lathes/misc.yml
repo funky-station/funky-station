@@ -1,0 +1,6 @@
+- type: latheRecipe
+  id: SmallPinboard
+  result: SmallPinboard
+  completetime: 1
+  materials:
+    Wood: 25

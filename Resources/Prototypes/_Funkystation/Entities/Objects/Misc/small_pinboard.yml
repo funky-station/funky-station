@@ -1,0 +1,36 @@
+- type: entity
+  parent: BaseItem
+  id: SmallPinboard
+  name: Small Pinboard
+  description: A small cork board that lets you put a paper on it
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: _Funkystation/Objects/Misc/small_pinboard.rsi
+    layers:
+      - state: base
+      - state: paper
+        map: ["enum.PaperLabelVisuals.Layer"]
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.PaperLabelVisuals.HasLabel:
+        enum.PaperLabelVisuals.Layer:
+          True: { visible: true }
+          False: { visible: false }
+      enum.PaperLabelVisuals.LabelType:
+        enum.PaperLabelVisuals.Layer:
+          Paper: { state: paper }
+  - type: PaperLabel
+    labelSlot:
+      insertVerbTest: comp-paper-label-insert
+      ejectVerbTest: comp-paper-label-eject
+      whitelist:
+        components:
+        - Paper
+      blacklist:
+        tags:
+        - Book
+  - type: ContainerContainer
+    containers:
+      paper_label: !type:ContainerSlot

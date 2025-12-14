@@ -6523,3 +6523,9 @@ Entries:
       message: Updated Court station for its trial period.
   id: 764
   time: '2025-12-13T23:12:21.0000000+00:00'
+- author: zergologist
+  changes:
+    - type: Add
+      message: funky sprites for inflatables to replace the old ones
+  id: 765
+  time: '2025-12-14T01:39:16.0000000+00:00'

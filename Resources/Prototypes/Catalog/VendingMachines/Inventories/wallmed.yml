@@ -18,7 +18,7 @@
   startingInventory:
     Brutepack: 3
     Ointment: 3
-    Bloodpack: 3
+    CMBloodPackFull: 5
     EpinephrineChemistryBottle: 3
     Syringe: 3
   contrabandInventory:

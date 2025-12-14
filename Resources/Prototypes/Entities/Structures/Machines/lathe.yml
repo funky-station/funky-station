@@ -1397,6 +1397,7 @@
     - Brutepack
     - Ointment
     - Gauze
+    - CMBloodPack
     - HandLabeler
     - Defibrillator
     - HandheldHealthAnalyzer
@@ -1412,6 +1413,7 @@
     - Implanter
     - PillCanister
     - BodyBag
+    - CMIV
     - ChemistryEmptyBottle01
     - RollerBedSpawnFolded
     - CheapRollerBedSpawnFolded

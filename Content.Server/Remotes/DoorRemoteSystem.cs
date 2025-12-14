@@ -13,6 +13,7 @@
 // SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
 // SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 BramvanZijp <56019239+BramvanZijp@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 // SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
@@ -72,11 +73,19 @@ namespace Content.Shared.Remotes
                 return;
             }
 
+            var accessTarget = args.Used;
+            // This covers the accesses the REMOTE has, and is not effected by the user's ID card.
+            if (entity.Comp.IncludeUserAccess) // Allows some door remotes to inherit the user's access.
+            {
+                accessTarget = args.User;
+                // This covers the accesses the USER has, which always includes the remote's access since holding a remote acts like holding an ID card.
+            }
+
             if (TryComp<AccessReaderComponent>(args.Target, out var accessComponent)
-                && !_doorSystem.HasAccess(args.Target.Value, args.Used, doorComp, accessComponent))
+                && !_doorSystem.HasAccess(args.Target.Value, accessTarget, doorComp, accessComponent))
             {
                 if (isAirlock)
-                    _doorSystem.Deny(args.Target.Value, doorComp, args.User);
+                    _doorSystem.Deny(args.Target.Value, doorComp, accessTarget);
                 Popup.PopupEntity(Loc.GetString("door-remote-denied"), args.User, args.User);
                 return;
             }
@@ -84,7 +93,7 @@ namespace Content.Shared.Remotes
             switch (entity.Comp.Mode)
             {
                 case OperatingMode.OpenClose:
-                    if (_doorSystem.TryToggleDoor(args.Target.Value, doorComp, args.Used))
+                    if (_doorSystem.TryToggleDoor(args.Target.Value, doorComp, accessTarget))
                         _adminLogger.Add(LogType.Action,
                             LogImpact.Medium,
                             $"{ToPrettyString(args.User):player} used {ToPrettyString(args.Used)} on {ToPrettyString(args.Target.Value)}: {doorComp.State}");
@@ -94,7 +103,7 @@ namespace Content.Shared.Remotes
                     {
                         if (!boltsComp.BoltWireCut)
                         {
-                            _doorSystem.SetBoltsDown((args.Target.Value, boltsComp), !boltsComp.BoltsDown, args.Used);
+                            _doorSystem.SetBoltsDown((args.Target.Value, boltsComp), !boltsComp.BoltsDown, accessTarget);
                             _adminLogger.Add(LogType.Action,
                                 LogImpact.Medium,
                                 $"{ToPrettyString(args.User):player} used {ToPrettyString(args.Used)} on {ToPrettyString(args.Target.Value)} to {(boltsComp.BoltsDown ? "" : "un")}bolt it");

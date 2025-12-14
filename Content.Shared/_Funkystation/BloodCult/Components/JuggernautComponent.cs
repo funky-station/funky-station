@@ -1,7 +1,7 @@
 // SPDX-FileCopyrightText: 2025 Skye <57879983+Rainbeon@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Terkala <appleorange64@gmail.com>
 // SPDX-FileCopyrightText: 2025 kbarkevich <24629810+kbarkevich@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
-// SPDX-FileCopyrightText: 2025 Terkala <appleorange64@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later OR MIT
 
@@ -12,7 +12,7 @@ namespace Content.Shared.BloodCult.Components;
 /// <summary>
 /// Angery fella.
 /// </summary>
-[RegisterComponent, NetworkedComponent]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class JuggernautComponent : Component
 {
 	/// <summary>
@@ -23,9 +23,22 @@ public sealed partial class JuggernautComponent : Component
 	public EntityUid? SourceSoulstone;
 
 	/// <summary>
-	/// Whether the juggernaut is currently inactive (soulstone has been ejected).
-	/// Inactive juggernauts cannot move or act, even if healed, until a soulstone is reinserted.
+	/// The dead body that was used to create this juggernaut.
+	/// Will be ejected when the juggernaut becomes critical or dies.
 	/// </summary>
 	[DataField]
+	public EntityUid? SourceBody;
+
+	/// <summary>
+	/// Whether the juggernaut is currently inactive (soulstone/body has been ejected).
+	/// Inactive juggernauts cannot move or act, even if healed, until a soulstone or body is reinserted.
+	/// </summary>
+	[DataField, AutoNetworkedField]
 	public bool IsInactive;
+
+	/// <summary>
+	/// Message stored for commune
+	/// </summary>
+	[DataField]
+	public string? CommuningMessage = null;
 }

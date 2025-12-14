@@ -1,4 +1,5 @@
 # SPDX-FileCopyrightText: 2025 Xcybitt <197952719+Xcybitt@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
 # SPDX-FileCopyrightText: 2025 Xcybitt <lenazheng88@gmail.com>
 # SPDX-FileCopyrightText: 2025 Xcybitt <xcybitt@gmail.com>
 # SPDX-FileCopyrightText: 2025 mkanke-real <mikekanke@gmail.com>
@@ -587,3 +588,21 @@
     - id: WeaponPistolViper #to clog up hands + give the reciever a fighting chance
     - id: CombatKnife
     - id: WeaponSubMachineGunC20rLottery
+    
+- type: entity    
+  parent: BaseMail
+  id: MailMysteryLighterBox
+  suffix: Ligher Mystery Box 
+  components:
+  - type: Mail
+    contents:
+    - id: MysteryLighterBox
+
+- type: entity
+  parent: BaseMail
+  id: MailUplinkLighterBox
+  suffix: Uplink Lighter Mystery Box 
+  components:
+  - type: Mail
+    contents:
+    - id: UplinkLighterBox

@@ -182,7 +182,7 @@ thaven-mood-greenthumb-name = Green Thumb
 thaven-mood-greenthumb-desc = Gardening makes you calm, happy even. Grow a garden of your own.
 
 thaven-mood-dryskin-name = Dry Skin
-thaven-mood-dryskin-desc = Your skin is sensitive and will painfully dry out without frequent contact with water. Total immersion is best, but anything is better than nothing.
+thaven-mood-dryskin-desc = Your skin is sensitive and will painful dry out without frequent contact with water. Total immersion is best, but anything is better than nothing.
 
 thaven-mood-speciesblind-name = Species Blind
 thaven-mood-speciesblind-desc = All people are Thaven, even if they claim otherwise.

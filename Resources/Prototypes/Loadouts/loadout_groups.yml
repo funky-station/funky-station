@@ -67,6 +67,7 @@
 # SPDX-FileCopyrightText: 2025 TheHolyAegis <76066612+TheHolyAegis@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 TheHolyAegis <sanderkamphuis719@gmail.com>
 # SPDX-FileCopyrightText: 2025 W.xyz() <tptechteam@gmail.com>
+# SPDX-FileCopyrightText: 2025 Xcybitt <197952719+Xcybitt@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Xcybitt <xcybitt@gmail.com>
 # SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
@@ -1766,6 +1767,14 @@
   loadouts:
     - DetectiveEnergyRevolver
     - DetectiveRevolver
+
+- type: loadoutGroup
+  id: LoadoutSecurityWeapon
+  name: loadout-group-security-weapon
+  minLimit: 1
+  loadouts:
+    - SecurityPistol
+    - SecurityKatana
 
 # Medical
 - type: loadoutGroup

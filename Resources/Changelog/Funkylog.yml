@@ -6523,3 +6523,86 @@ Entries:
       message: Updated Court station for its trial period.
   id: 764
   time: '2025-12-13T23:12:21.0000000+00:00'
+- author: zergologist
+  changes:
+    - type: Add
+      message: funky sprites for inflatables to replace the old ones
+  id: 765
+  time: '2025-12-14T01:39:16.0000000+00:00'
+- author: salpphie
+  changes:
+    - type: Add
+      message: 'Boxer role to Eden map. '
+    - type: Tweak
+      message: Changed Eden's max pop from 45 to 55.
+  id: 766
+  time: '2025-12-14T01:52:41.0000000+00:00'
+- author: zergologist
+  changes:
+    - type: Tweak
+      message: inflatables are now quicker to deploy
+    - type: Tweak
+      message: >-
+        inflatable barricades and doors are now tiny items in the inventory that
+        stack up to 5
+    - type: Tweak
+      message: >-
+        inflatables crate and box adjusted accordingly for change, inflatables
+        box is a 2x2 that holds up to 4 stacks and crate has 2 of these boxes
+    - type: Tweak
+      message: engivend now has 4 boxes of inflatables
+    - type: Add
+      message: station engineers get a box of inflatables in their roundstart lockers
+    - type: Add
+      message: >-
+        regular lathes can now print inflatable barricades and doors at the cost
+        of durathread
+  id: 767
+  time: '2025-12-14T05:17:33.0000000+00:00'
+- author: Terkala
+  changes:
+    - type: Tweak
+      message: >-
+        Changed the salvage magnet to bring in the ruined debris from nearby
+        spacestations.
+  id: 768
+  time: '2025-12-14T19:46:58.0000000+00:00'
+- author: Xcybitt
+  changes:
+    - type: Add
+      message: Added more descriptions to winter vests!
+    - type: Remove
+      message: >-
+        Removed the sec winter vest and captain winter vest from the uniform
+        fab, as they are actually armor.
+    - type: Tweak
+      message: Gave the captain's winter vest armor, but slightly worse.
+  id: 769
+  time: '2025-12-14T23:32:49.0000000+00:00'
+- author: mycobiota
+  changes:
+    - type: Tweak
+      message: >-
+        The basic RCD and RPD can be worn in place of a backpack, and the RPD
+        can be slung on the back of all engineering hardsuits. They can no
+        longer be worn on the belt.
+  id: 770
+  time: '2025-12-14T23:36:47.0000000+00:00'
+- author: vivry
+  changes:
+    - type: Tweak
+      message: Accent tooltips in the character creation menu now demo the accents
+  id: 771
+  time: '2025-12-15T01:16:26.0000000+00:00'
+- author: Alecksohs
+  changes:
+    - type: Tweak
+      message: Resprites various chairs.
+  id: 772
+  time: '2025-12-15T02:01:12.0000000+00:00'
+- author: ferynn
+  changes:
+    - type: Remove
+      message: Inserting a heart no longer removes rot from a body.
+  id: 773
+  time: '2025-12-15T02:06:03.0000000+00:00'

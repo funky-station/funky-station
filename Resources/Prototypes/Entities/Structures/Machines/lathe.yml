@@ -517,6 +517,8 @@
     - DeskBell #ringringring #funk
     - BaseHandheldTelevision #watch my channels #funk
     - TowelColorWhite #funk towel
+    - InflatableWall #funky inflatables
+    - InflatableDoor #funk
     dynamicRecipes:
     - BoomboxRed
     - BoomboxGreen
@@ -1648,7 +1650,7 @@
     - ClothingUniformJumpskirtWarden
     - ClothingHeadHatParamedicsoft
     # Winter outfits
-    - ClothingOuterWinterCap
+    #- ClothingOuterWinterCap
     - ClothingOuterWinterCE
     - ClothingOuterWinterCMO
     - ClothingOuterWinterHoP
@@ -1677,7 +1679,7 @@
     - ClothingOuterWinterViro
     - ClothingOuterWinterSci
     - ClothingOuterWinterRobo
-    - ClothingOuterWinterSec
+    #- ClothingOuterWinterSec
     # Ties
     - ClothingNeckTieRed
     - ClothingNeckTieDet

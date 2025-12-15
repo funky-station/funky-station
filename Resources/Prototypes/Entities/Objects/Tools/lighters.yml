@@ -50,6 +50,10 @@
   - type: ItemToggleSize
     activatedSize: Small
   - type: ItemToggleHot
+  - type: CheapLighter
+    failChance: 0.1
+    soundFail:
+      collection: lighterFailSounds
   - type: Sprite
     sprite: Objects/Tools/Lighters/lighters.rsi
     layers:
@@ -145,7 +149,7 @@
       shader: unshaded
       map: [ "flame" ]
   - type: CheapLighter
-    failChance: 0.5
+    failChance: 0.4
     soundFail:
       collection: lighterFailSounds
   - type: RandomSprite
@@ -920,6 +924,10 @@
     fuelConsumption: 0.2
     fuelLitCost: 0.1
     tankSafe: false
+  - type: CheapLighter
+    failChance: 0.6
+    soundFail:
+      collection: lighterFailSounds
   - type: Item
     sprite: Objects/Tools/Lighters/lighters.rsi
   - type: ToggleableVisuals

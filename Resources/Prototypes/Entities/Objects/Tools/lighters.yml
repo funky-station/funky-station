@@ -144,6 +144,10 @@
       visible: false
       shader: unshaded
       map: [ "flame" ]
+  - type: CheapLighter
+    failChance: 0.5
+    soundFail:
+      collection: lighterFailSounds
   - type: RandomSprite
     available:
       - skin:
@@ -298,9 +302,10 @@
     predictable: false
     soundDeactivate:
       path: /Audio/Items/Lighters/zippo_fancy_close.ogg
-  - type: FancyLighter
+  - type: CheapLighter
     soundActivate:
       path: /Audio/Items/Lighters/zippo_fancy_open.ogg
+    failChance: 0
   - type: SolutionContainerManager
     solutions:
       Welder:

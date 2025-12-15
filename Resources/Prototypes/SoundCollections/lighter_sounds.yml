@@ -16,3 +16,10 @@
   id: lighterOffSounds
   files:
   - /Audio/Items/Lighters/lighter_off.ogg
+
+- type: soundCollection
+  id: lighterFailSounds
+  files:
+  - /Audio/Items/Lighters/lighter_fail1.ogg
+  - /Audio/Items/Lighters/lighter_fail2.ogg
+  - /Audio/Items/Lighters/lighter_fail3.ogg

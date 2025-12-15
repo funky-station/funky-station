@@ -12,7 +12,6 @@ using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Standing;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Containers;
-using System;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Mobs;
 
@@ -21,14 +20,12 @@ namespace Content.Shared.Damage.Components;
 public sealed class RequireProjectileTargetSystem : EntitySystem
 {
     [Dependency] private readonly SharedContainerSystem _container = default!;
-    private System.Random randomCollsionGenerator = default!;
 
     public override void Initialize()
     {
         SubscribeLocalEvent<RequireProjectileTargetComponent, PreventCollideEvent>(PreventCollide);
         SubscribeLocalEvent<RequireProjectileTargetComponent, StoodEvent>(StandingBulletHit);
         SubscribeLocalEvent<RequireProjectileTargetComponent, DownedEvent>(LayingBulletPass);
-        randomCollsionGenerator = new System.Random();
     }
 
     private void PreventCollide(Entity<RequireProjectileTargetComponent> ent, ref PreventCollideEvent args)
@@ -47,12 +44,9 @@ public sealed class RequireProjectileTargetSystem : EntitySystem
             var shooter = projectile.Shooter;
             if (!shooter.HasValue)
                 return;
-            //funkystation
-            //set this variable to the percent you want projectiles to hit prone entities
-            var percentHit = .2;
 
             // Goobstation - Crawling
-            if (TryComp<StandingStateComponent>(shooter, out var standingState) && standingState.CurrentState != StandingState.Standing || percentHit > randomCollsionGenerator.NextDouble())
+            if (TryComp<StandingStateComponent>(shooter, out var standingState) && standingState.CurrentState != StandingState.Standing)
                 return;
 
             // ProjectileGrenades delete the entity that's shooting the projectile,

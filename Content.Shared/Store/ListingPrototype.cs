@@ -11,8 +11,6 @@
 // SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
 // SPDX-FileCopyrightText: 2025 Terkala <appleorange64@gmail.com>
 // SPDX-FileCopyrightText: 2025 TheSecondLord <88201625+TheSecondLord@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Tyranex <bobthezombie4@gmail.com>
-// SPDX-FileCopyrightText: 2025 V <97265903+formlessnameless@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
 // SPDX-License-Identifier: MIT

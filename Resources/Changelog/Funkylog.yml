@@ -6189,3 +6189,402 @@ Entries:
       message: Resprited the mining hardsuit
   id: 725
   time: '2025-12-06T08:57:29.0000000+00:00'
+- author: Terkala
+  changes:
+    - type: Fix
+      message: Fixed a number of bloodcult bugs found in the playtests.
+  id: 726
+  time: '2025-12-07T00:52:56.0000000+00:00'
+- author: Drywink
+  changes:
+    - type: Fix
+      message: Cocooned victim cannot attack.
+    - type: Fix
+      message: Hypospray can be used on cocoon.
+  id: 727
+  time: '2025-12-07T00:54:41.0000000+00:00'
+- author: dotCatshark
+  changes:
+    - type: Tweak
+      message: >-
+        Made french vernacular slightly more french and therefore slightly more
+        stupid sounding.
+  id: 728
+  time: '2025-12-07T00:57:31.0000000+00:00'
+- author: zergologist
+  changes:
+    - type: Tweak
+      message: Ice actually restores thirst now
+  id: 729
+  time: '2025-12-07T01:46:09.0000000+00:00'
+- author: Kreamator
+  changes:
+    - type: Add
+      message: Added a section to Rule 1 for treatment of AFK players
+  id: 730
+  time: '2025-12-07T01:47:28.0000000+00:00'
+- author: Terkala
+  changes:
+    - type: Tweak
+      message: Allowed more maps to roll at highpop
+  id: 731
+  time: '2025-12-07T01:48:20.0000000+00:00'
+- author: Sadie
+  changes:
+    - type: Add
+      message: 'Added Rule 14: Be Mindful of Other''s Roleplay'
+  id: 732
+  time: '2025-12-07T04:49:29.0000000+00:00'
+- author: Xcybitt
+  changes:
+    - type: Tweak
+      message: 'The fire-ier axe now can axe up tiles. '
+  id: 733
+  time: '2025-12-07T04:56:53.0000000+00:00'
+- author: salpphie
+  changes:
+    - type: Add
+      message: Added Argocyte spawners
+  id: 734
+  time: '2025-12-07T05:00:27.0000000+00:00'
+- author: Terkala
+  changes:
+    - type: Tweak
+      message: Zombie Blood poisons infected carriers more slowly.
+  id: 735
+  time: '2025-12-07T05:01:50.0000000+00:00'
+- author: delorphin
+  changes:
+    - type: Fix
+      message: Fixed file paths for night club suit
+  id: 736
+  time: '2025-12-07T05:12:28.0000000+00:00'
+- author: AraiMaia
+  changes:
+    - type: Add
+      message: New Salvage survival box, including extended tanks and flares
+    - type: Tweak
+      message: Survival boxes now have glowsticks instead of flares
+    - type: Fix
+      message: Returned Salvage's AstroNav PDA instead of the Cargo Tech ones.
+  id: 737
+  time: '2025-12-07T05:14:39.0000000+00:00'
+- author: Xcybitt
+  changes:
+    - type: Tweak
+      message: 'Hot drinks are now not as hot. '
+  id: 738
+  time: '2025-12-07T05:18:31.0000000+00:00'
+- author: mkanke-real
+  changes:
+    - type: Add
+      message: >-
+        Added improvised esword (Tider Esword) as a craftable item. Sprites made
+        by Tea!
+  id: 739
+  time: '2025-12-07T05:19:09.0000000+00:00'
+- author: lolmatdi, kipdotnet
+  changes:
+    - type: Add
+      message: Holobell Projector to MailDrobe, a holosign that projects a doorbell!
+  id: 740
+  time: '2025-12-07T05:23:04.0000000+00:00'
+- author: BramvanZijp, ported by amethystowo
+  changes:
+    - type: Add
+      message: >-
+        Added the custom door remote, it does not have any built-in access,
+        instead inheriting the ID access that the user has.
+    - type: Tweak
+      message: >-
+        The captain's locker now comes with a custom door remote instead of a
+        command door remote.
+    - type: Tweak
+      message: >-
+        The Super Door Remote can now effect doors that the user's ID card has
+        access to, even if the remote itself somehow cannot access them.
+  id: 741
+  time: '2025-12-07T05:28:04.0000000+00:00'
+- author: selvamoonbell
+  changes:
+    - type: Add
+      message: Soap and analyzers to surgery and advanced surgery modules
+  id: 742
+  time: '2025-12-07T05:30:11.0000000+00:00'
+- author: TrixxedHeart
+  changes:
+    - type: Tweak
+      message: >-
+        The Russian accent has been tweaked to be more in line with other
+        similar accents, removing Cyrillic homoglyphs and making it
+        significantly more readable.
+  id: 743
+  time: '2025-12-07T21:33:08.0000000+00:00'
+- author: zergologist
+  changes:
+    - type: Add
+      message: New sprites for every towel. So many new sprites.
+    - type: Add
+      message: Towels can now be unfolded.
+    - type: Add
+      message: >-
+        Towels can now be whipped with. They deal a bit of blunt and a decent
+        amount of stamina damage.
+    - type: Add
+      message: >-
+        White towels can now be printed at a uniform printer and lathe for 3
+        cloth
+    - type: Add
+      message: >-
+        Syndicate towels can be bought at a syndicate uplink for 3 TC or printed
+        at an emagged uniform printer/lathe for 3 cloth and 1 durathread
+    - type: Add
+      message: Towels can now be found as uncommon maintenance loot
+    - type: Tweak
+      message: Towels now have distinct descriptions
+    - type: Fix
+      message: >-
+        Deploy foldables no longer deploy if clicked into an inventory or item
+        that it would not make sense for them to deploy onto. Original fix by
+        Winkarst-cpu on Wizden
+  id: 744
+  time: '2025-12-07T21:43:09.0000000+00:00'
+- author: Terkala
+  changes:
+    - type: Tweak
+      message: >-
+        Reworked Zombies gamemode. Still in testing. Core design by oBerry, new
+        Art by Sigma Draconis, Code by Terkala
+  id: 745
+  time: '2025-12-07T22:39:33.0000000+00:00'
+- author: JoulesBerg
+  changes:
+    - type: Tweak
+      message: Core is christmas
+  id: 746
+  time: '2025-12-07T23:46:19.0000000+00:00'
+- author: AraiMaia
+  changes:
+    - type: Add
+      message: >-
+        New monkey variants for chef clothes - Yip-Yap will no longer look
+        weird.
+  id: 747
+  time: '2025-12-07T23:59:42.0000000+00:00'
+- author: salpphie
+  changes:
+    - type: Tweak
+      message: Changed Eden Map to be festive for funkmas.
+  id: 748
+  time: '2025-12-08T00:00:57.0000000+00:00'
+- author: Xcybitt
+  changes:
+    - type: Add
+      message: Added stomachs to the biofab!
+  id: 749
+  time: '2025-12-08T00:03:40.0000000+00:00'
+- author: Xcybitt
+  changes:
+    - type: Remove
+      message: 'Removed gibbing from the emagged recyclers. '
+  id: 750
+  time: '2025-12-08T00:04:45.0000000+00:00'
+- author: ThatOneMoon
+  changes:
+    - type: Add
+      message: >-
+        Added a number of new bounties for the Science category, now asking for
+        a number of items that mostly come from Experimental research
+    - type: Remove
+      message: >-
+        Removed Janitor Bounties, some of the specific targets have been moved
+        into other categories.
+    - type: Tweak
+      message: >-
+        The Cryostasis Syringe has been renamed into the Advanced Syringe and
+        given a updated description, otherwise it functions identical as it does
+        currently
+    - type: Tweak
+      message: >-
+        The Bluespace Syringe is now able to draw/inject up to 20u at a time
+        instead of 15u 
+    - type: Fix
+      message: Autoinjector Cartridge bounties should now all work properly
+  id: 751
+  time: '2025-12-08T00:54:01.0000000+00:00'
+- author: jhrushbe, rottenheadphones
+  changes:
+    - type: Add
+      message: Added the Nuclear Reactor, Gas Turbine, and supporting components.
+  id: 752
+  time: '2025-12-08T02:20:18.0000000+00:00'
+- author: AftrLite
+  changes:
+    - type: Tweak
+      message: >-
+        The Entropic Colossus now has the same spawn chance as other antags on
+        Funky.
+  id: 753
+  time: '2025-12-08T22:07:57.0000000+00:00'
+- author: Rainbeon
+  changes:
+    - type: Remove
+      message: Reverted this week's inflatable changes.
+  id: 754
+  time: '2025-12-08T23:48:30.0000000+00:00'
+- author: TrixxedHeart
+  changes:
+    - type: Tweak
+      message: Resprited Mime clothes
+    - type: Add
+      message: Added odd mime mask as a roundstart mime mask
+    - type: Add
+      message: >-
+        Added security mime mask, can be found in the secdrobe by hacking the
+        manager wire
+  id: 755
+  time: '2025-12-09T22:17:56.0000000+00:00'
+- author: TrixxedHeart
+  changes:
+    - type: Tweak
+      message: Resprited lizard plushie slippers
+  id: 756
+  time: '2025-12-09T22:19:04.0000000+00:00'
+- author: jhrushbe, rottenheadphones
+  changes:
+    - type: Add
+      message: Nuclear Fission!
+  id: 757
+  time: '2025-12-10T06:54:54.0000000+00:00'
+- author: Drywink
+  changes:
+    - type: Fix
+      message: cocoon no longer immune to explosions.
+    - type: Fix
+      message: >-
+        cocoon no longer destroy its content if the victim was gibbed through
+        acidifier.
+  id: 758
+  time: '2025-12-10T20:21:57.0000000+00:00'
+- author: Essnato
+  changes:
+    - type: Add
+      message: >-
+        Changed the sound of cyan alert to something creepy and not illegal to
+        broadcast!
+  id: 759
+  time: '2025-12-10T22:42:00.0000000+00:00'
+- author: Fr0goo
+  changes:
+    - type: Add
+      message: Added cowboy boots to QM loudout!
+    - type: Add
+      message: Added pirate hat to QM loudout!
+    - type: Tweak
+      message: Resprited cowboy boots!
+    - type: Tweak
+      message: Resprited pirate hat!
+    - type: Tweak
+      message: >-
+        Resprited QM's formal clothes, military clothes, knuckle dusters, beret,
+        and mantle!
+  id: 760
+  time: '2025-12-12T04:26:23.0000000+00:00'
+- author: willowzeta
+  changes:
+    - type: Tweak
+      message: 'Map rotation update: -Olympus +Court'
+  id: 761
+  time: '2025-12-13T01:56:51.0000000+00:00'
+- author: gaesnek
+  changes:
+    - type: Add
+      message: >-
+        The apex predator of the galaxy has arrived to funky station, available
+        from cargo and at random. Make sure to like. comment. share. and
+        subscribe.
+  id: 762
+  time: '2025-12-13T08:57:56.0000000+00:00'
+- author: ThatOneMoon
+  changes:
+    - type: Add
+      message: >-
+        Many new lighters can now be found in both Maints loot and the Syndicate
+        Uplink. (Originaly by Smugman from Wizden)
+    - type: Add
+      message: >-
+        Command and Central Command roles (and clowns) can unlock specific
+        lighters as a job trinket under a playtime requirement.
+  id: 763
+  time: '2025-12-13T21:55:43.0000000+00:00'
+- author: Dusty-Plant
+  changes:
+    - type: Tweak
+      message: Updated Court station for its trial period.
+  id: 764
+  time: '2025-12-13T23:12:21.0000000+00:00'
+- author: zergologist
+  changes:
+    - type: Add
+      message: funky sprites for inflatables to replace the old ones
+  id: 765
+  time: '2025-12-14T01:39:16.0000000+00:00'
+- author: salpphie
+  changes:
+    - type: Add
+      message: 'Boxer role to Eden map. '
+    - type: Tweak
+      message: Changed Eden's max pop from 45 to 55.
+  id: 766
+  time: '2025-12-14T01:52:41.0000000+00:00'
+- author: zergologist
+  changes:
+    - type: Tweak
+      message: inflatables are now quicker to deploy
+    - type: Tweak
+      message: >-
+        inflatable barricades and doors are now tiny items in the inventory that
+        stack up to 5
+    - type: Tweak
+      message: >-
+        inflatables crate and box adjusted accordingly for change, inflatables
+        box is a 2x2 that holds up to 4 stacks and crate has 2 of these boxes
+    - type: Tweak
+      message: engivend now has 4 boxes of inflatables
+    - type: Add
+      message: station engineers get a box of inflatables in their roundstart lockers
+    - type: Add
+      message: >-
+        regular lathes can now print inflatable barricades and doors at the cost
+        of durathread
+  id: 767
+  time: '2025-12-14T05:17:33.0000000+00:00'
+- author: Terkala
+  changes:
+    - type: Tweak
+      message: >-
+        Changed the salvage magnet to bring in the ruined debris from nearby
+        spacestations.
+  id: 768
+  time: '2025-12-14T19:46:58.0000000+00:00'
+- author: Xcybitt
+  changes:
+    - type: Add
+      message: Added more descriptions to winter vests!
+    - type: Remove
+      message: >-
+        Removed the sec winter vest and captain winter vest from the uniform
+        fab, as they are actually armor.
+    - type: Tweak
+      message: Gave the captain's winter vest armor, but slightly worse.
+  id: 769
+  time: '2025-12-14T23:32:49.0000000+00:00'
+- author: mycobiota
+  changes:
+    - type: Tweak
+      message: >-
+        The basic RCD and RPD can be worn in place of a backpack, and the RPD
+        can be slung on the back of all engineering hardsuits. They can no
+        longer be worn on the belt.
+  id: 770
+  time: '2025-12-14T23:36:47.0000000+00:00'

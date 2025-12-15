@@ -80,6 +80,7 @@
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 marc-pelletier <113944176+marc-pelletier@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 mycobiota <154991750+mycobiota@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 vectorassembly <vectorassembly@icloud.com>
@@ -489,6 +490,7 @@
     sprite: Objects/Tools/rcd.rsi
     state: icon
   - type: Item
+    size: Huge
     storedSprite:
       state: storage
       sprite: Objects/Tools/rcd_storage_64x.rsi #Done in 64x64 because it looks way too puny in 32x32
@@ -499,7 +501,7 @@
     sprite: Objects/Tools/rcd.rsi
     quickEquip: false
     slots:
-    - Belt
+    - back
   - type: PhysicalComposition
     materialComposition:
       Steel: 600
@@ -523,7 +525,7 @@
   id: RPD
   parent: RCD
   name: RPD
-  description: A heavy-duty industrial device used to rapidly lay atmospheric infrastructure.
+  description: A heavy-duty industrial device used to rapidly lay atmospheric infrastructure. Can be slung around the back of an engineering hardsuit.
   components:
   - type: MeleeWeapon
     damage:
@@ -532,6 +534,7 @@
     soundHit:
       path: "/Audio/Weapons/smash.ogg"
   - type: Item
+    size: Huge
     storedSprite:
       state: storage
       sprite: Objects/Tools/rpd_storage_64x.rsi #Done in 64x64 because it looks way too puny in 32x32
@@ -572,6 +575,12 @@
     charges: 45
   - type: Sprite
     sprite: Objects/Tools/rpd.rsi
+  - type: Clothing
+    sprite: Objects/Tools/rpd.rsi
+    quickEquip: false
+    slots:
+    - back
+    - backStorage
   - type: UserInterface
     interfaces:
       enum.RpdUiKey.Key:

@@ -43,6 +43,7 @@
 # SPDX-FileCopyrightText: 2025 FeelFlows <1493889+FeelFlows@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Fr0goo <153249069+Fr0goo@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Fr0goo <frogoofrog@outlook.com>
+# SPDX-FileCopyrightText: 2025 Frogoo <153249069+Fr0goo@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Icepick <122653407+Icepicked@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 IronDragoon <8961391+IronDragoon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Lyndomen <49795619+lyndomen@users.noreply.github.com>
@@ -245,8 +246,10 @@
   id: CaptainJobTrinkets
   name: loadout-group-jobtrinkets
   minLimit: 0
+  maxLimit: 2
   loadouts:
   - LizardPlushieCaptain
+  - CommandLighter # Funky Change
 
 - type: loadoutGroup
   id: HoPHead
@@ -296,8 +299,10 @@
   id: HoPJobTrinkets
   name: loadout-group-jobtrinkets
   minLimit: 0
+  maxLimit: 2
   loadouts:
   - LizardPlushieHeadOfPersonnel
+  - CommandLighter # Funky Change
 
 # Civilian
 - type: loadoutGroup
@@ -807,8 +812,10 @@
   id: ClownJobTrinkets
   name: loadout-group-jobtrinkets
   minLimit: 0
+  maxLimit: 2
   loadouts:
   - LizardPlushieClown
+  - ClownLighter # Funky Change
 
 - type: loadoutGroup
   id: MimeHead
@@ -948,6 +955,7 @@
   - QuartermasterHead
   - QuartermasterBeret
   - QuartermasterTophat
+  - PirateTricord
 
 - type: loadoutGroup
   id: QuartermasterJumpsuit
@@ -986,13 +994,18 @@
   - WorkBoots
   - SalvageBoots
   - CargoWinterBoots
+  - BrownCowboyBoots
+  - WhiteCowboyBoots
+  - BlackCowboyBoots
 
 - type: loadoutGroup #WizDen Weh Job Plush
   id: QuartermasterJobTrinkets
   name: loadout-group-jobtrinkets
   minLimit: 0
+  maxLimit: 2
   loadouts:
   - LizardPlushieQuartermaster
+  - CommandLighter # Funky Change
 
 - type: loadoutGroup
   id: CargoTechnicianHead
@@ -1110,6 +1123,17 @@
   loadouts:
   - LizardPlushieSalvageSpecialist
 
+- type: loadoutGroup
+  id: SurvivalSalvageExtended
+  name: loadout-group-survival-salvage-extended
+  minLimit: 2
+  hidden: true
+  loadouts:
+  - EmergencyNitrogenExtendedSalvage
+  - EmergencyOxygenExtendedSalvage
+  - LoadoutSpeciesVoxNitrogen
+  - EmergencyIPCBox # Funky
+
 # Engineering
 - type: loadoutGroup
   id: ChiefEngineerHead
@@ -1164,8 +1188,10 @@
   id: ChiefEngineerJobTrinkets
   name: loadout-group-jobtrinkets
   minLimit: 0
+  maxLimit: 2
   loadouts:
   - LizardPlushieChiefEngineer
+  - CommandLighter # Funky Change
 
 - type: loadoutGroup
   id: TechnicalAssistantJumpsuit
@@ -1368,8 +1394,10 @@
   id: ResearchDirectorJobTrinkets
   name: loadout-group-jobtrinkets
   minLimit: 0
+  maxLimit: 2
   loadouts:
   - LizardPlushieResearchDirector
+  - CommandLighter # Funky Change
 
 - type: loadoutGroup
   id: ScientistHead
@@ -1521,8 +1549,10 @@
   id: HeadofSecurityJobTrinkets
   name: loadout-group-jobtrinkets
   minLimit: 0
+  maxLimit: 2
   loadouts:
   - LizardPlushieHeadofSecurity
+  - CommandLighter # Funky Change
 
 - type: loadoutGroup
   id: WardenHead
@@ -1786,8 +1816,10 @@
   id: ChiefMedicalOfficerJobTrinkets
   name: loadout-group-jobtrinkets
   minLimit: 0
+  maxLimit: 2
   loadouts:
   - LizardPlushieChiefMedicalOfficer
+  - CommandLighter # Funky Change
 
 - type: loadoutGroup
   id: MedicalDoctorHead

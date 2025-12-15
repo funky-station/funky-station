@@ -12,7 +12,7 @@
             "directions": 1,
             "delays": [
                 [
-                    1.2
+                    1.0
                 ]
             ]
         },
@@ -35,7 +35,7 @@
             "directions": 1,
             "delays": [
                 [
-                    1.2
+                    1.0
                 ]
             ]
         },
@@ -61,12 +61,6 @@
         },
         {
             "name": "item_wall"
-        },
-        {
-            "name": "inflatable-floor"
-        },
-        {
-            "name": "item_floor"
         },
         {
             "name": "inhand-left",

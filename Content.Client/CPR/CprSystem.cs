@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
+//
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Cpr;
 using Robust.Client.Animations;
 using Robust.Client.GameObjects;

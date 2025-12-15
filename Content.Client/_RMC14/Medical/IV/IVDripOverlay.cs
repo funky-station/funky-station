@@ -1,4 +1,8 @@
-﻿using Content.Shared._RMC14.Medical.IV;
+// SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
+//
+// SPDX-License-Identifier: MIT
+
+using Content.Shared._RMC14.Medical.IV;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
 using Robust.Shared.Enums;

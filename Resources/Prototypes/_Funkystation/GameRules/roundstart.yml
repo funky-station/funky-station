@@ -19,8 +19,9 @@
     selectionTime: IntraPlayerSpawn
     definitions:
     - prefRoles: [ BloodCultist ]
+      min: 3
       max: 5
-      playerRatio: 12
+      playerRatio: 10
       startingGear: BloodCultistGear
       briefing:
         text: cult-start-briefing

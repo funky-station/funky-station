@@ -19,7 +19,7 @@
       map: [ "blade" ]
   - type: ToggleCellDraw
   - type: PowerCellDraw
-    drawRate: 15
+    drawRate: 35
   - type: PowerCellSlot
     cellSlotId: cell_slot
   - type: ItemSlots
@@ -64,8 +64,8 @@
         variation: 0.125
     activatedDamage:
       types:
-        Slash: 7
-        Heat: 11
+        Slash: 6
+        Heat: 10
         Structural: 5
   - type: MeleeWeapon
     wideAnimationRotation: -135

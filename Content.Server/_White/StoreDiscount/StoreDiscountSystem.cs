@@ -3,6 +3,7 @@
 // SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 terkala <appleorange64@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -10,6 +11,7 @@ using System.Linq;
 using Content.Shared.FixedPoint;
 using Content.Shared.Store;
 using Content.Shared.Store.Components;
+using Content.Shared.Tag;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 
@@ -18,6 +20,8 @@ namespace Content.Server._White.StoreDiscount;
 public sealed class StoreDiscountSystem : EntitySystem
 {
     [Dependency] private readonly IRobustRandom _random = default!;
+
+    private static readonly ProtoId<TagPrototype> DAGDOnlyTag = "DAGDOnly";
 
     public void ApplyDiscounts(IEnumerable<ListingData> listings, StoreComponent store)
     {
@@ -28,7 +32,11 @@ public sealed class StoreDiscountSystem : EntitySystem
 
         listings = listings
             .Where(l => !l.SaleBlacklist && l.Cost.Any(x => x.Value > 1) && store.Categories.Overlaps(l.Categories)) // goob edit
-            .OrderBy(_ => _random.Next()).Take(count).ToList();
+            // Don't put DAGD-only items on sale / discount
+            .Where(l => !l.Tags.Contains(DAGDOnlyTag))
+            .OrderBy(_ => _random.Next())
+            .Take(count)
+            .ToList();
 
         foreach (var listing in listings)
         {

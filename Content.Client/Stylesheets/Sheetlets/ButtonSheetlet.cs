@@ -1,3 +1,9 @@
+// SPDX-FileCopyrightText: 2025 Janet Blackquill <uhhadd@gmail.com>
+// SPDX-FileCopyrightText: 2025 Tojo <32783144+Alecksohs@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using System.Numerics;
 using Content.Client.Stylesheets.Palette;
 using Content.Client.Stylesheets.SheetletConfigs;
@@ -161,6 +167,19 @@ public static class StyleBoxHelpers
         openBothBox.SetContentMarginOverride(StyleBox.Margin.Horizontal, 8);
         openBothBox.SetPadding(StyleBox.Margin.Horizontal, 1);
         return openBothBox;
+    }
+
+    public static StyleBoxFlat BorderModalStyleBox<T>(T sheet) where T : PalettedStylesheet, IButtonConfig
+    {
+        var borderModal = new StyleBoxFlat()
+        {
+            BackgroundColor = Color.Transparent,
+            BorderColor = Color.DimGray.WithAlpha(75),
+            BorderThickness = new Thickness(1.25f),
+        };
+        borderModal.SetContentMarginOverride(StyleBox.Margin.Horizontal, 8);
+        borderModal.SetPadding(StyleBox.Margin.Horizontal, 1);
+        return borderModal;
     }
 
     public static StyleBoxTexture SmallStyleBox<T>(T sheet) where T : PalettedStylesheet, IButtonConfig

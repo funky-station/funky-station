@@ -19,6 +19,8 @@
 # SPDX-FileCopyrightText: 2024 deathride58 <deathride58@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 88tv <131759102+88tv@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Quantum-cross <7065792+Quantum-cross@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Tyranex <bobthezombie4@gmail.com>
+# SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
@@ -158,3 +160,36 @@
   id: MalfDoomsdayRipple
   kind: source
   path: "/Textures/Shaders/malf_doomsday_ripple.swsl"
+
+# Welding Protection overlay
+
+- type: shader
+  id: ImageMask
+  kind: source
+  path: "/Textures/Shaders/image_mask.swsl"
+
+# Meson Xrays
+
+- type: shader
+  id: Goggles
+  kind: source
+  path: "/Textures/Shaders/goggles.swsl"
+  params:
+    lineCount: 75
+    scanlineIntensity: 0.8
+    alpha: 0.4
+    distortionStrength: 0.45
+    flicker: 0.9
+    beamLength: 0.5
+    beamSpeed: 0.5
+
+- type: shader
+  id: XRay
+  kind: source
+  path: "/Textures/Shaders/xray.swsl"
+  params:
+    color: "#3d8599"
+    scanlineColor: "#5f93ba"
+    lineCount: 10
+    scanlineIntensity: 0.9
+    alpha: 1

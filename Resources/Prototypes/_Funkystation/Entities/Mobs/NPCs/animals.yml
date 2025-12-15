@@ -1,5 +1,8 @@
+# SPDX-FileCopyrightText: 2025 Dragon232347 <122056448+Dragon232347@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Ed <96445749+TheShuEd@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Mish <bluscout78@yahoo.com>
 # SPDX-FileCopyrightText: 2025 Toaster <mrtoastymyroasty@gmail.com>
+# SPDX-FileCopyrightText: 2025 Toastermeister <215405651+Toastermeister@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
@@ -48,3 +51,97 @@
       Burger: RoingusBurger
       Taco: RoingusTaco
 
+- type: entity
+  id: MobMeowl
+  name: meowl
+  description: The peak of evolution, the most efficient pest hunter any side of the galaxy. Considered highly invasive on every planet.
+  parent: [SimpleMobBase, FlyingMobBase]
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      sprite: _Funkystation/Mobs/Animals/meowl.rsi
+      state: meowl
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.25
+        density: 10
+        mask:
+        - FlyingMobMask
+        layer:
+        - FlyingMobLayer
+  - type: DamageStateVisuals
+    states:
+     Alive:
+       Base: meowl
+     Critical:
+       Base: dead
+     Dead:
+       Base: dead
+  - type: Butcherable
+    spawned:
+    - id: FoodMeat
+      amount: 1
+  - type: Speech
+    speechSounds: Cat
+    speechVerb: SmallMob
+    allowedEmotes: ['Purr','Mew','Meow','Hiss']
+  - type: ReplacementAccent
+    accent: cat
+  - type: InteractionPopup
+    successChance: 0.6
+    interactSuccessString: petting-success-cat
+    interactFailureString: petting-failure-generic
+    interactSuccessSpawn: EffectHearts
+    interactSuccessSound:
+      path: /Audio/Animals/cat_meow.ogg
+  - type: Bloodstream
+    bloodMaxVolume: 50
+  - type: MeleeWeapon
+    altDisarm: false
+    angle: 0
+    animation: WeaponArcClaw
+    soundHit:
+      path: /Audio/Weapons/Xeno/alien_claw_flesh3.ogg
+    damage:
+      types:
+        Slash: 5
+        Piercing: 5
+  - type: StaminaDamageOnHit
+    damage: 8 #as strong as boxing gloves. HOLY SHIT THERES A BIRDCAT IN MY FACE AAHGAH GET IT OFF GET IT OFF
+  - type: Grammar
+    attributes:
+      gender: epicene
+  - type: MobPrice
+    price: 1000
+  - type: Tag
+    tags:
+    - CannotSuicide
+    - VimPilot
+  - type: ThermalVision
+    color: "#b8b8b8"
+    activateSound: null
+    deactivateSound: null
+    lightRadius: 2
+  - type: NpcFactionMember
+    factions:
+    - PetsNT #makes them hunt mice
+  - type: HTN
+    rootTask:
+      task: SimpleHostileCompound
+  - type: NPCRetaliation #bird talon with cat fangs plus wings equals don't fuck with them
+  - type: GhostRole
+    prob: 0.25
+    makeSentient: true
+    allowSpeech: true
+    allowMovement: true
+    name: ghost-role-information-meowl-name
+    description: ghost-role-information-meowl-description
+    rules: ghost-role-information-freeagent-rules
+    mindRoles:
+    - MindRoleGhostRoleFreeAgentHarmless
+  - type: GhostTakeoverAvailable

@@ -1,6 +1,9 @@
 using Content.Server._NF.Manufacturing.Components;
+using Content.Server.Atmos.Components;
 using Content.Server.Atmos.EntitySystems;
+using Content.Server.NodeContainer;
 using Content.Server.NodeContainer.EntitySystems;
+using Content.Server.NodeContainer.Nodes;
 using Content.Server.Power.Components;
 using Content.Server.Power.EntitySystems;
 using Content.Server.Power.Nodes;
@@ -13,8 +16,9 @@ using Content.Shared.Power;
 using Content.Shared.UserInterface;
 using Robust.Server.GameObjects;
 using Robust.Shared.Timing;
+using Content.Server.Atmos.Piping.Unary.Components;
 
-namespace Content.Shared._NF.Manufacturing.EntitySystems;
+namespace Content.Server._NF.Manufacturing.EntitySystems; // Changed from Content.Shared._NF.Manufacturing.EntitySystems
 
 /// <summary>
 /// Consumes large quantities of power, scales excessive overage down to reasonable values.
@@ -41,13 +45,14 @@ public sealed partial class GasSpawnPowerConsumerSystem : EntitySystem
         SubscribeLocalEvent<GasSpawnPowerConsumerComponent, ExaminedEvent>(OnExamined);
         SubscribeLocalEvent<GasSpawnPowerConsumerComponent, AfterActivatableUIOpenEvent>(OnUIOpen);
 
-        Subs.BuiEvents<GasSpawnPowerConsumerComponent>(
-            AdjustablePowerDrawUiKey.Key,
-            subs =>
-            {
-                subs.Event<AdjustablePowerDrawSetEnabledMessage>(HandleSetEnabled);
-                subs.Event<AdjustablePowerDrawSetLoadMessage>(HandleSetLoad);
-            });
+        // Comment out or remove BUI events if AdjustablePowerDrawUiKey doesn't exist
+        // Subs.BuiEvents<GasSpawnPowerConsumerComponent>(
+        //     AdjustablePowerDrawUiKey.Key,
+        //     subs =>
+        //     {
+        //         subs.Event<AdjustablePowerDrawSetEnabledMessage>(HandleSetEnabled);
+        //         subs.Event<AdjustablePowerDrawSetLoadMessage>(HandleSetLoad);
+        //     });
     }
 
     private void OnMapInit(Entity<GasSpawnPowerConsumerComponent> ent, ref MapInitEvent args)
@@ -177,7 +182,7 @@ public sealed partial class GasSpawnPowerConsumerSystem : EntitySystem
 
     private void HandleSetEnabled(Entity<GasSpawnPowerConsumerComponent> ent, ref AdjustablePowerDrawSetEnabledMessage args)
     {
-        if (TryComp(ent, out NodeContainerComponent? node) &&
+        if (TryComp<NodeContainerComponent>(ent, out var node) &&
             _node.TryGetNode<CableDeviceNode>(node, ent.Comp.PowerNodeName, out var deviceNode))
         {
             deviceNode.Enabled = args.On;
@@ -206,7 +211,7 @@ public sealed partial class GasSpawnPowerConsumerSystem : EntitySystem
             return;
 
         bool nodeEnabled = false;
-        if (TryComp(ent, out NodeContainerComponent? node) &&
+        if (TryComp<NodeContainerComponent>(ent, out var node) &&
             _node.TryGetNode<CableDeviceNode>(node, ent.Comp.PowerNodeName, out var deviceNode))
         {
             nodeEnabled = deviceNode.Enabled;

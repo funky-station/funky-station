@@ -1,3 +1,4 @@
+
 // SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
@@ -20,7 +21,7 @@ namespace Content.Server.Tesla.EntitySystems;
 /// <summary>
 /// A component that tracks an entity's saturation level from absorbing other creatures by touch, and spawns new entities when the saturation limit is reached.
 /// </summary>
-public sealed partial class TeslaEnergyBallSystem : EntitySystem // DeltaV - Change to partial
+public sealed class TeslaEnergyBallSystem : EntitySystem
 {
     [Dependency] private readonly AudioSystem _audio = default!;
 

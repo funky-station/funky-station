@@ -1,3 +1,4 @@
+
 # SPDX-FileCopyrightText: 2022 Cheackraze <71046427+Cheackraze@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2022 Emisse <99158783+Emisse@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2022 Kara <lunarautomaton6@gmail.com>
@@ -119,8 +120,7 @@ JobCentralCommandOfficial = Central Command Official
 JobChaplain = Chaplain
 JobChef = Chef
 JobChemist = Chemist
-# Frontier: Chief Engineer<Plant Manager
-JobChiefEngineer = Plant Manager
+JobChiefEngineer = Chief Engineer
 JobChiefMedicalOfficer = Chief Medical Officer
 JobClown = Clown
 JobCommandMaid = Command Maid
@@ -161,3 +161,4 @@ JobTechnicalAssistant = Technical Assistant
 JobVisitor = Visitor
 JobWarden = Warden
 JobZookeeper = Zookeeper
+

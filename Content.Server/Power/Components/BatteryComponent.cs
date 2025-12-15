@@ -1,3 +1,4 @@
+
 // SPDX-FileCopyrightText: 2020 Peter Wedder <burneddi@gmail.com>
 // SPDX-FileCopyrightText: 2020 SoulSloth <67545203+SoulSloth@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2020 Visne <vincefvanwijk@gmail.com>
@@ -58,7 +59,7 @@ namespace Content.Server.Power.Components
         /// The price per one joule. Default is 1 credit for 10kJ.
         /// </summary>
         [DataField]
-        public float PricePerJoule = 0.0f; // Frontier: 0.0001f<0.0f
+        public float PricePerJoule = 0.0001f;
     }
 
     /// <summary>

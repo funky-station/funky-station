@@ -1,5 +1,7 @@
 using Content.Server.Materials;
+using Content.Server.NodeContainer;
 using Content.Server.NodeContainer.EntitySystems;
+using Content.Server.NodeContainer.Nodes; // Added this
 using Content.Server.Power.Components;
 using Content.Server.Power.EntitySystems;
 using Content.Server.Power.Nodes;
@@ -42,13 +44,14 @@ public sealed partial class EntitySpawnPowerConsumerSystem : SharedEntitySpawnPo
         SubscribeLocalEvent<EntitySpawnPowerConsumerComponent, AfterActivatableUIOpenEvent>(OnUIOpen);
         SubscribeLocalEvent<EntitySpawnPowerConsumerComponent, MaterialEntityInsertedEvent>(OnMaterialInserted);
 
-        Subs.BuiEvents<EntitySpawnPowerConsumerComponent>(
-            AdjustablePowerDrawUiKey.Key,
-            subs =>
-            {
-                subs.Event<AdjustablePowerDrawSetEnabledMessage>(HandleSetEnabled);
-                subs.Event<AdjustablePowerDrawSetLoadMessage>(HandleSetLoad);
-            });
+        // Comment out or remove BUI events if AdjustablePowerDrawUiKey doesn't exist
+        // Subs.BuiEvents<EntitySpawnPowerConsumerComponent>(
+        //     AdjustablePowerDrawUiKey.Key,
+        //     subs =>
+        //     {
+        //         subs.Event<AdjustablePowerDrawSetEnabledMessage>(HandleSetEnabled);
+        //         subs.Event<AdjustablePowerDrawSetLoadMessage>(HandleSetLoad);
+        //     });
     }
 
     private void OnMapInit(Entity<EntitySpawnPowerConsumerComponent> ent, ref MapInitEvent args)
@@ -176,7 +179,7 @@ public sealed partial class EntitySpawnPowerConsumerSystem : SharedEntitySpawnPo
 
     private void HandleSetEnabled(Entity<EntitySpawnPowerConsumerComponent> ent, ref AdjustablePowerDrawSetEnabledMessage args)
     {
-        if (TryComp(ent, out NodeContainerComponent? node) &&
+        if (TryComp<NodeContainerComponent>(ent, out var node) && // Fixed: Use TryComp<T>
             _node.TryGetNode<CableDeviceNode>(node, ent.Comp.NodeName, out var deviceNode))
         {
             deviceNode.Enabled = args.On;
@@ -205,7 +208,7 @@ public sealed partial class EntitySpawnPowerConsumerSystem : SharedEntitySpawnPo
             return;
 
         bool nodeEnabled = false;
-        if (TryComp(ent, out NodeContainerComponent? node) &&
+        if (TryComp<NodeContainerComponent>(ent, out var node) && // Fixed: Use TryComp<T>
             _node.TryGetNode<CableDeviceNode>(node, ent.Comp.NodeName, out var deviceNode))
         {
             nodeEnabled = deviceNode.Enabled;

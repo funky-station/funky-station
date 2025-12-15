@@ -1,0 +1,29 @@
+# SPDX-FileCopyrightText: 2025 Terkala <appleorange64@gmail.com>
+# SPDX-FileCopyrightText: 2025 terkala <appleorange64@gmail.com>
+#
+# SPDX-License-Identifier: MIT
+
+# Configuration for salvage magnet ruin generation.
+# This controls flood-fill parameters and damage simulation.
+
+- type: salvageMagnetRuinConfig
+  id: Default
+  floodFillPoints: 20 #if you increase this, also increase the ruinSpawnDistance, otherwise the ruins will spawn ontop of the magnet
+  ruinSpawnDistance: 80  # Distance in tiles from magnet where ruins spawn
+  wallDestroyChance: 0.15 #chance of a wall being destroyed and not spawned
+  windowDamageChance: 0.05 #chance of a window being damaged and not spawned
+  floorToLatticeChance: 0.05 #chance of a floor tile being replaced with lattice, makes it look more damaged
+  # Path costs for flood-fill algorithm (higher = more expensive to traverse)
+  # the way floodfill works, it costs this much to traverse each tile
+  wallCost: 20
+  directionalWindowCost: 10
+  reinforcedWindowCost: 10
+  regularWindowCost: 4
+  directionalGlassCost: 8
+  reinforcedGlassCost: 12
+  regularGlassCost: 8
+  grilleCost: 4
+  defaultTileCost: 1
+  spaceCost: 9999  # Space tiles (not in map) - very high cost makes them impassable
+  floodFillStages: 5  # Number of flood-fill stages to create irregular branching shapes. It does the flood fill this many times on the edges to construct the ruin.
+

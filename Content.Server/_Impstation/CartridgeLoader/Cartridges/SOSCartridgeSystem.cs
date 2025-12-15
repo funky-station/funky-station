@@ -67,7 +67,7 @@ public sealed class SOSCartridgeSystem : EntitySystem
                     }
                 }
 
-                component.Timer = SOSCartridgeComponent.TimeOut;
+                component.Timer = component.TimeOut;
                 // DeltaV - send feedback that you succeeded
                 _popupSystem.PopupEntity(Loc.GetString("sos-message-sent-success"), uid, PopupType.Medium);
             }

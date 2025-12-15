@@ -1,6 +1,6 @@
 - type: entity
   id: PowerTransmissionPoint
-  parent: [ BaseStructureDisableToolUse, BaseStructureIndestructible, BaseMachine ]
+  parent: [ BaseStructureDisableToolUse, BaseStructure, BaseMachine ]
   name: power transmission point
   description: A gargantuan machine for offsite power transmission using quantum entanglement.
   placement:

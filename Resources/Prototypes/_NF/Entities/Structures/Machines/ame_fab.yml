@@ -1,5 +1,5 @@
 - type: entity
-  parent: [BaseStructure, BaseMachine ]
+  parent: BaseStructure
   id: AntiMatterFabricator
   name: anti-matter fabricator
   description: A colossal machine that converts plasteel and power into antimatter and stores it in AME fuel jars in a slot.

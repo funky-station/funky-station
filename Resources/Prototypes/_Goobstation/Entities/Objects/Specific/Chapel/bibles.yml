@@ -16,15 +16,3 @@
     sprite: _Goobstation/Objects/Specific/Chapel/atheism.rsi
   - type: Item
     sprite: _Goobstation/Objects/Specific/Chapel/atheism.rsi
-
-- type: entity
-  parent: Bible
-  name: tripitaka
-  description: "This book is an ancient collection of Buddhist sacred scriptures."
-  id: BibleBhuddhist
-  components:
-  - type: Sprite
-    sprite: _Goobstation/Objects/Specific/Chapel/tripitaka.rsi
-  - type: Item
-    sprite: _Goobstation/Objects/Specific/Chapel/tripitaka.rsi
-## Public Domain YAML Ends

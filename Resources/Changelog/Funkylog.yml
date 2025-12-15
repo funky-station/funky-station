@@ -6600,3 +6600,9 @@ Entries:
       message: Resprites various chairs.
   id: 772
   time: '2025-12-15T02:01:12.0000000+00:00'
+- author: ferynn
+  changes:
+    - type: Remove
+      message: Inserting a heart no longer removes rot from a body.
+  id: 773
+  time: '2025-12-15T02:06:03.0000000+00:00'

@@ -56,7 +56,7 @@ using JetBrains.Annotations;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Content.Shared._DV.CosmicCult.Components; // DeltaV
-
+using Content.Shared.Cpr;
 
 namespace Content.Server.Body.Systems;
 
@@ -123,7 +123,26 @@ public sealed class RespiratorSystem : EntitySystem
             // End DeltaV Additions
             UpdateSaturation(uid, multiplier * (float) respirator.UpdateInterval.TotalSeconds, respirator); // DeltaV: use multiplier instead of negating
 
-            if (!_mobState.IsIncapacitated(uid) && !HasComp<DebrainedComponent>(uid)) // Shitmed Change - Cannot breathe in crit or when no brain.
+            var breathe = false;
+
+            // 1. Check if receiving CPR (Assisted Breathing)
+            if (TryComp<AssistedRespirationComponent>(uid, out var assist))
+            {
+                // can breathe if not dead and breathing is assisted
+                if (!_mobState.IsDead(uid) && assist.AssistedUntil >= _gameTiming.CurTime)
+                    breathe = true;
+
+                // We leave the component lingering after it stopped having an effect, to be able to detect CPR being performed too slowly
+                if (assist.AssistedUntil + TimeSpan.FromSeconds(10) < _gameTiming.CurTime)
+                    RemCompDeferred<AssistedRespirationComponent>(uid);
+            }
+
+            // 2. Normal Breathing Check (Not Incapacitated AND Has a Brain)
+            if (!_mobState.IsIncapacitated(uid) && !HasComp<DebrainedComponent>(uid)) // Shitmed Change
+                breathe = true;
+
+            // 3. Execute Breathing Logic
+            if (breathe)
             {
                 switch (respirator.Status)
                 {

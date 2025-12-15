@@ -55,7 +55,7 @@
     - type: Defibrillator
       zapHeal:
         types:
-          Asphyxiation: -40
+          Asphyxiation: -100
     - type: DoAfter
     - type: UseDelay
     - type: StaticPrice
@@ -95,7 +95,7 @@
   suffix: One-Handed, Unpowered
 
 - type: entity
-  id: DefibrillatorCompact 
+  id: DefibrillatorCompact
   parent: [ BaseDefibrillator, PowerCellSlotMediumItem ]
   name: compact defibrillator
   description: Now in fun size!

@@ -1258,7 +1258,7 @@ namespace Content.Shared.Interaction
                 return false;
 
             // Goobstation [
-            var useAttemptEv = new UseInHandAttemptEvent(user); 
+            var useAttemptEv = new UseInHandAttemptEvent(user);
             RaiseLocalEvent(used, useAttemptEv);
 
             if (useAttemptEv.Cancelled)
@@ -1505,6 +1505,18 @@ namespace Content.Shared.Interaction
             return ev.Handled;
         }
 
+        /// <summary>
+        /// Get a list of entities which are currently considered to be interacting with the specified target entity.
+        /// Note: the result set is cleared on call.
+        /// </summary>
+        public void GetEntitiesInteractingWithTarget(EntityUid target, HashSet<EntityUid> result)
+        {
+            result.Clear();
+
+            var ev = new GetInteractingEntitiesEvent(target, result);
+            RaiseLocalEvent(target, ref ev, true);
+        }
+
         [Obsolete("Use ActionBlockerSystem")]
         public bool SupportsComplexInteractions(EntityUid user)
         {
@@ -1581,5 +1593,14 @@ namespace Content.Shared.Interaction
 
         public bool Handled;
         public bool InRange = false;
+    }
+    /// <summary>
+    /// Raised to allow systems to provide entities which are interacting with the target entity.
+    /// </summary>
+    [ByRefEvent]
+    public record struct GetInteractingEntitiesEvent(EntityUid Target, HashSet<EntityUid> InteractingEntities)
+    {
+        public readonly EntityUid Target = Target;
+        public HashSet<EntityUid> InteractingEntities = InteractingEntities;
     }
 }

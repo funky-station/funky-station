@@ -1,7 +1,7 @@
 # Big ol' SMES. 10 SMESeses.
 - type: entity
   id: SMESBig
-  parent: [BaseStructureDisableToolUse, BaseStructure, BaseSMES]
+  parent: [BaseStructure, BaseSMES]
   name: BLES
   description: A bluespace-leveraged energy storage (BLES) unit.
   components:

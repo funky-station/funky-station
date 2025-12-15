@@ -509,6 +509,7 @@
             Cold: -5
             Heat: -3 # offsets heat damage from the pod
             Shock: -3
+            Caustic: -1
 
 - type: reagent
   id: Natusixadone

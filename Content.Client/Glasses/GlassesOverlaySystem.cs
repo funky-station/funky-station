@@ -32,20 +32,7 @@ public sealed class GlassesOverlaySystem : EquipmentHudSystem<GlassesOverlayComp
         component.Enabled = state.Enabled;
         component.Shader = state.Shader;
         component.Color = state.Color;
-
-        // DIRECT UPDATE (Bypassing Relay)
-        // Manually refresh the local provider list
-        if (component.Enabled)
-        {
-            _overlay.Providers.Add(component);
-        }
-        else
-        {
-            _overlay.Providers.Remove(component);
-        }
-
-        // No explicit Refresh() method needed for GlassesOverlay usually,
-        // as it checks Providers.Any() in BeforeDraw, but if it has one, call it.
+        RefreshOverlay();
     }
 
     protected override void UpdateInternal(RefreshEquipmentHudEvent<GlassesOverlayComponent> args)
@@ -55,7 +42,6 @@ public sealed class GlassesOverlaySystem : EquipmentHudSystem<GlassesOverlayComp
         if (!_overlayMan.HasOverlay<GlassesOverlay>())
             _overlayMan.AddOverlay(_overlay);
 
-        // Note: The original code used a HashSet of components
         _overlay.Providers = args.Components.Where(c => c.Enabled).ToHashSet();
     }
 

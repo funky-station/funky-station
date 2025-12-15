@@ -116,8 +116,10 @@ public sealed partial class SleepingSystem : EntitySystem
             _statusEffectsSystem.TryRemoveStatusEffect(ent.Owner, "KnockedDown");
 
             EnsureComp<StunnedComponent>(ent);
-            EnsureComp<KnockedDownComponent>(ent);
-
+            // The entity will not fall over  if they are buckled. I think this could be written better.
+            if (!EntityManager.TryGetComponent(ent, out BuckleComponent? buckleComp) || !bucklecComp.Buckled) {
+                EnsureComp<KnockedDownComponent>(ent);
+            }
             if (TryComp<SleepEmitSoundComponent>(ent, out var sleepSound))
             {
                 var emitSound = EnsureComp<SpamEmitSoundComponent>(ent);

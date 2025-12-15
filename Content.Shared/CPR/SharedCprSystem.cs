@@ -1,7 +1,5 @@
 using Content.Shared.CCVar;
 using Content.Shared.Damage;
-using Content.Shared.Damage.Components;
-using Content.Shared.Damage.Systems;
 using Content.Shared.DoAfter;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Mobs;
@@ -9,13 +7,14 @@ using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Verbs;
-using Content.Shared.Interaction; // Required for GetInteractingEntitiesEvent
+using Content.Shared.Interaction;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Serialization;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 using Robust.Shared.Random;
 using Robust.Shared.Configuration;
+using Content.Shared.Traits.Assorted;
 
 namespace Content.Shared.Cpr;
 
@@ -55,15 +54,11 @@ public abstract partial class SharedCprSystem : EntitySystem
         SubscribeLocalEvent<CprComponent, GetVerbsEvent<AlternativeVerb>>(OnGetAlternativeVerbs);
         SubscribeLocalEvent<CprComponent, CprDoAfterEvent>(OnCprDoAfter);
 
-        // ADDED SUBSCRIPTION
         SubscribeLocalEvent<CprComponent, GetInteractingEntitiesEvent>(OnGetInteractingEntities);
     }
 
-    // NEW HANDLER: Reports the CPR performer as interacting with the target
     private void OnGetInteractingEntities(Entity<CprComponent> ent, ref GetInteractingEntitiesEvent args)
     {
-        // If someone performed CPR recently (within the last ~0.7s), they are considered interacting.
-        // This covers continuous CPR cycles effectively.
         if (ent.Comp.LastCaretaker is { } user && !CprCaretakerOutdated(ent.Comp))
         {
             args.InteractingEntities.Add(user);
@@ -118,9 +113,10 @@ public abstract partial class SharedCprSystem : EntitySystem
 
         _audio.PlayPredicted(cpr.Sound, ent.Owner, args.User);
 
-        if (mobState.CurrentState == MobState.Dead)
+        // If the patient is Dead, roll for a revive chance
         {
-            if (_mobThreshold.TryGetThresholdForState(ent.Owner, MobState.Dead, out var threshold) &&
+            if (!HasComp<UnrevivableComponent>(ent) &&
+                _mobThreshold.TryGetThresholdForState(ent.Owner, MobState.Dead, out var threshold) &&
                 damage.TotalDamage < threshold &&
                 _random.Prob(CprReviveChance))
             {
@@ -133,6 +129,7 @@ public abstract partial class SharedCprSystem : EntitySystem
             }
         }
 
+        // Applies brute damage
         var scaledDamage = _cprRepeat
             ? cpr.Change
             : cpr.Change * ((CprManualEffectDuration - CprManualThreshold) / CprDoAfterDelay);
@@ -148,9 +145,14 @@ public abstract partial class SharedCprSystem : EntitySystem
         if (newUntil > assist.AssistedUntil)
             assist.AssistedUntil = newUntil;
 
-        if (mobState.CurrentState == MobState.Critical)
+        if (mobState.CurrentState != MobState.Critical &&
+            mobState.CurrentState != MobState.Dead &&
+            cpr.BonusHeal != null)
         {
-            _damage.TryChangeDamage(ent.Owner, cpr.BonusHeal, interruptsDoAfters: false, ignoreResistances: true, damageable: damage);
+            var healing = new DamageSpecifier(cpr.BonusHeal);
+            healing.DamageDict.Remove("Bloodloss");
+
+            _damage.TryChangeDamage(ent.Owner, healing, interruptsDoAfters: false, ignoreResistances: true, damageable: damage);
         }
 
         cpr.LastCaretaker = args.User;

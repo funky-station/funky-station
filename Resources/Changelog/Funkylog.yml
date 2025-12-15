@@ -6618,3 +6618,21 @@ Entries:
       message: Emagged Recyclers now gib living beings
   id: 775
   time: '2025-12-15T06:34:55.0000000+00:00'
+- author: RosySaturniidae
+  changes:
+    - type: Tweak
+      message: >-
+        paramedic's entire kit is now palette and style consistent. (aka the
+        greenening)
+    - type: Tweak
+      message: updated the handheld crew monitor.
+    - type: Fix
+      message: >-
+        did you know that there were sprites for an unzipped PM windbreaker that
+        were just never used? 
+    - type: Add
+      message: paramedic-styled hud options.
+    - type: Add
+      message: paramedic speedsuit/skirt, just in case of any super-science accidents.
+  id: 776
+  time: '2025-12-15T22:28:00.0000000+00:00'

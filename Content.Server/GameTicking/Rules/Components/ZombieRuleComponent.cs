@@ -7,6 +7,7 @@
 // SPDX-FileCopyrightText: 2024 Rainfey <rainfey0+github@gmail.com>
 // SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
 // SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 ferynn <witchy.girl.me@gmail.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
 // SPDX-License-Identifier: MIT
@@ -41,4 +42,7 @@ public sealed partial class ZombieRuleComponent : Component
 
     // goob edit
     public bool StartAnnounced = false;
+
+    //funky
+    public bool RoundEndCalled = false;
 }

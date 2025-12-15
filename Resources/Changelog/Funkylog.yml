@@ -6588,3 +6588,51 @@ Entries:
         longer be worn on the belt.
   id: 770
   time: '2025-12-14T23:36:47.0000000+00:00'
+- author: vivry
+  changes:
+    - type: Tweak
+      message: Accent tooltips in the character creation menu now demo the accents
+  id: 771
+  time: '2025-12-15T01:16:26.0000000+00:00'
+- author: Alecksohs
+  changes:
+    - type: Tweak
+      message: Resprites various chairs.
+  id: 772
+  time: '2025-12-15T02:01:12.0000000+00:00'
+- author: ferynn
+  changes:
+    - type: Remove
+      message: Inserting a heart no longer removes rot from a body.
+  id: 773
+  time: '2025-12-15T02:06:03.0000000+00:00'
+- author: Alecksohs
+  changes:
+    - type: Add
+      message: Added Ambient Occlusion from Upstream.
+  id: 774
+  time: '2025-12-15T04:22:20.0000000+00:00'
+- author: taydeo
+  changes:
+    - type: Add
+      message: Emagged Recyclers now gib living beings
+  id: 775
+  time: '2025-12-15T06:34:55.0000000+00:00'
+- author: RosySaturniidae
+  changes:
+    - type: Tweak
+      message: >-
+        paramedic's entire kit is now palette and style consistent. (aka the
+        greenening)
+    - type: Tweak
+      message: updated the handheld crew monitor.
+    - type: Fix
+      message: >-
+        did you know that there were sprites for an unzipped PM windbreaker that
+        were just never used? 
+    - type: Add
+      message: paramedic-styled hud options.
+    - type: Add
+      message: paramedic speedsuit/skirt, just in case of any super-science accidents.
+  id: 776
+  time: '2025-12-15T22:28:00.0000000+00:00'

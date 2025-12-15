@@ -11,12 +11,14 @@
 // SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
 // SPDX-FileCopyrightText: 2025 TheSecondLord <88201625+TheSecondLord@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 terkala <appleorange64@gmail.com>
 //
 // SPDX-License-Identifier: MIT
 
 using System.Linq;
 using Content.Shared.FixedPoint;
 using Content.Shared.Heretic.Prototypes;
+using Content.Shared.Tag;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 using Robust.Shared.Utility;
@@ -155,6 +157,10 @@ public partial class ListingData : IEquatable<ListingData>, ICloneable
     public List<string> Components = new();
     // WD END
 
+    /// Tags for filtering listings (e.g., DAGDOnly)
+    [DataField, NonSerialized]
+    public HashSet<ProtoId<TagPrototype>> Tags = new();
+
     public bool Equals(ListingData? listing)
     {
         if (listing == null)
@@ -225,6 +231,7 @@ public partial class ListingData : IEquatable<ListingData>, ICloneable
             OldCost = OldCost,
             Components = Components,
             // WD END
+            Tags = Tags,
         };
     }
 }

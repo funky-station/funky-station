@@ -22,16 +22,20 @@
 // SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Tadeo <td12233a@gmail.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 terkala <appleorange64@gmail.com>
 //
 // SPDX-License-Identifier: MIT
 
+using Content.Server.Objectives;
 using Content.Server.Store.Systems;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Inventory;
+using Content.Shared.Mind;
 using Content.Shared.PDA;
 using Content.Shared.FixedPoint;
 using Content.Shared.Store;
 using Content.Shared.Store.Components;
+using Content.Shared.Tag;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server.Traitor.Uplink
@@ -39,12 +43,15 @@ namespace Content.Server.Traitor.Uplink
     public sealed class UplinkSystem : EntitySystem
     {
         [Dependency] private readonly InventorySystem _inventorySystem = default!;
-        [Dependency] private readonly IEntityManager _entityManager = default!;
         [Dependency] private readonly SharedHandsSystem _handsSystem = default!;
         [Dependency] private readonly StoreSystem _store = default!;
+        [Dependency] private readonly SharedMindSystem _mindSystem = default!;
+        [Dependency] private readonly ObjectiveLimitSystem _objectiveLimitSystem = default!;
+        [Dependency] private readonly TagSystem _tagSystem = default!;
 
-        [ValidatePrototypeId<CurrencyPrototype>]
-        public const string TelecrystalCurrencyPrototype = "Telecrystal";
+        private static readonly ProtoId<CurrencyPrototype> TelecrystalCurrencyPrototype = "Telecrystal";
+        private static readonly ProtoId<TagPrototype> NukeOpsUplinkTag = "NukeOpsUplink";
+        private static readonly ProtoId<TagPrototype> DAGDStoreTag = "DAGDStore";
 
         /// <summary>
         /// Adds an uplink to the target
@@ -90,7 +97,21 @@ namespace Content.Server.Traitor.Uplink
             if (balance != null)
             {
                 store.Balance.Clear();
-                _store.TryAddCurrency(new Dictionary<string, FixedPoint2> { { currencyProtoId ?? TelecrystalCurrencyPrototype, balance.Value } }, uplinkEntity.Value, store);
+                _store.TryAddCurrency(new Dictionary<string, FixedPoint2> { { currencyProtoId ?? (string)TelecrystalCurrencyPrototype, balance.Value } }, uplinkEntity.Value, store);
+            }
+
+            // Check if this is a DAGD store (traitor with DieObjective, not Nukies/LoneOps)
+            if (_mindSystem.TryGetMind(user, out var mindId, out var mind))
+            {
+                // Don't tag Nukies/LoneOps
+                if (!_tagSystem.HasTag(uplinkEntity.Value, NukeOpsUplinkTag))
+                {
+                    // Check if the traitor has DieObjective
+                    if (_objectiveLimitSystem.HasObjective(mindId, "DieObjective", mind))
+                    {
+                        _tagSystem.TryAddTag(uplinkEntity.Value, DAGDStoreTag);
+                    }
+                }
             }
 
             // TODO add BUI. Currently can't be done outside of yaml -_-

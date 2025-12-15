@@ -1828,4 +1828,7 @@
 - type: Tag
   id: XrayCannon
 
+- type: Tag
+  id: XrayVisible
+
 # ALPHABETICAL

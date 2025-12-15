@@ -44,6 +44,7 @@
     - ChaplainGearCrucifix #funky
     - ChaplainGearPistol # funky
     - ChaplainGearStaff # funky
+    - ChaplainGearLauncher # funky
   - type: ActivatableUI
     key: enum.ChaplainGearMenuUIKey.Key
   - type: UserInterface

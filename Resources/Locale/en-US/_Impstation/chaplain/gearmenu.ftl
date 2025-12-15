@@ -75,4 +75,11 @@ chaplain-gearset-category-staff-description =
     A powerful living wood staff capable of healing allies and
     burning the enemies of mother nature.
     While subpar at hurting others, it excells in healing and curing.
+
+chaplain-gearset-category-launcher-name = Honkmother's Honkannon
+chaplain-gearset-category-launcher-description =
+    Blessed by the Honkmother, this pie cannon is able to infinitely fire
+    bananium pies that both stun and deal slight damage.
+    It deals very little damage and reloads slowly, but will always be funny.
+    HONK!
 # end funky

@@ -99,5 +99,18 @@
     state: icon
   content:
   - WeaponChaplainNatureStaff
+
+- type: chaplainGearMenuSet
+  id: ChaplainGearLauncher
+  name: chaplain-gearset-category-launcher-name
+  description: chaplain-gearset-category-launcher-description
+  sprite:
+    sprite: _Funkystation/Objects/Weapons/Guns/Cannons/honkannon.rsi
+    state: piecannon
+  content:
+  - WeaponChaplainLauncher
+  - FoodPieBananium
+  - FoodPieBananium
+  - ClothingShoesClown
 # end funky
 

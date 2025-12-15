@@ -1,8 +1,4 @@
-// SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
-using System.Diagnostics.CodeAnalysis;
+﻿using System.Diagnostics.CodeAnalysis;
 using Content.Server.Body.Components;
 using Content.Server.Chat.Systems;
 using Content.Shared._RMC14.Medical.IV;

@@ -6636,3 +6636,9 @@ Entries:
       message: paramedic speedsuit/skirt, just in case of any super-science accidents.
   id: 776
   time: '2025-12-15T22:28:00.0000000+00:00'
+- author: otokonoko-dev
+  changes:
+    - type: Fix
+      message: Annabelle pump no longer crashes client
+  id: 777
+  time: '2025-12-16T22:57:41.0000000+00:00'

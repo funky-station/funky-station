@@ -82,4 +82,11 @@ chaplain-gearset-category-launcher-description =
     bananium pies that both stun and deal slight damage.
     It deals very little damage and reloads slowly, but will always be funny.
     HONK!
+
+chaplain-gearset-category-toolbox-name = Enchanted Toolbox
+chaplain-gearset-category-toolbox-description =
+    An enchanted toolbox made of brass and gold that is able to fit in
+    backpacks, satchels and dufflebags.
+    It's bigger on the inside than in the outside, allowing for greater storage,
+    but it's smaller size means it won't hurt as much as a normal toolbox.
 # end funky

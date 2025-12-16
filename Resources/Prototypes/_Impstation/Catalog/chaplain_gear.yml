@@ -112,5 +112,15 @@
   - FoodPieBananium
   - FoodPieBananium
   - ClothingShoesClown
+  
+- type: chaplainGearMenuSet
+  id: ChaplainGearToolbox
+  name: chaplain-gearset-category-toolbox-name
+  description: chaplain-gearset-category-toolbox-description
+  sprite:
+    sprite: _Funkystation/Objects/Tools/toolbox_enchanted.rsi
+    state: icon
+  content:
+  - WeaponChaplainLToolbox
 # end funky
 

@@ -1,0 +1,49 @@
+- type: entity
+  id: WeaponChaplainToolbox
+  name: enchanted toolbox
+  parent: [BaseStorageItem, BaseChaplainContraband]
+  abstract: false
+  description: A magic toolbox enchanted with holy power. It seems to be bigger on the inside than the outside.
+  components:
+  - type: EmitSoundOnPickup
+    sound: /Audio/SimpleStation14/Items/Handling/toolbox_pickup.ogg
+  - type: Sprite
+    sprite: _Funkystation/Objects/Tools/toolbox_enchanted.rsi
+    state: icon
+    layers:
+      - map: [ base ]
+        state: icon
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Items/toolbox_drop.ogg
+  - type: Storage
+    storageOpenSound: /Audio/Items/toolbox_open.ogg
+    storageCloseSound: /Audio/Items/toolbox_close.ogg
+    storageInsertSound: /Audio/Items/toolbox_insert.ogg
+    storageRemoveSound: /Audio/Items/toolbox_remove.ogg
+    maxItemSize: Normal
+    grid:
+    - 0,0,5,3
+  - type: Item
+    size: Normal
+    sprite: _Funkystation/Objects/Tools/toolbox_enchanted.rsi
+    shape:
+    - 0,0,1,1
+  - type: MeleeWeapon
+    autoAttack: true
+    damage:
+      types:
+        Blunt: 8
+        Holy: 15
+    soundHit:
+      path: "/Audio/Weapons/smash.ogg"
+  - type: Tag
+    tags:
+    - Toolbox
+  - type: GenericVisualizer
+    visuals:
+      enum.StorageVisuals.Open:
+        base:
+          True: { state: icon-open }
+          False: { state: icon }
+  - type: Appearance

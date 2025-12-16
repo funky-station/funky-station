@@ -45,14 +45,14 @@ public sealed partial class GasSpawnPowerConsumerSystem : EntitySystem
         SubscribeLocalEvent<GasSpawnPowerConsumerComponent, ExaminedEvent>(OnExamined);
         SubscribeLocalEvent<GasSpawnPowerConsumerComponent, AfterActivatableUIOpenEvent>(OnUIOpen);
 
-        // Comment out or remove BUI events if AdjustablePowerDrawUiKey doesn't exist
-        // Subs.BuiEvents<GasSpawnPowerConsumerComponent>(
-        //     AdjustablePowerDrawUiKey.Key,
-        //     subs =>
-        //     {
-        //         subs.Event<AdjustablePowerDrawSetEnabledMessage>(HandleSetEnabled);
-        //         subs.Event<AdjustablePowerDrawSetLoadMessage>(HandleSetLoad);
-        //     });
+       
+          Subs.BuiEvents<GasSpawnPowerConsumerComponent>(
+          AdjustablePowerDrawUiKey.Key,
+            subs =>
+         {
+                subs.Event<AdjustablePowerDrawSetEnabledMessage>(HandleSetEnabled);
+                subs.Event<AdjustablePowerDrawSetLoadMessage>(HandleSetLoad);
+            });
     }
 
     private void OnMapInit(Entity<GasSpawnPowerConsumerComponent> ent, ref MapInitEvent args)

@@ -123,6 +123,13 @@
     sprite: Objects/Weapons/Guns/Battery/energy_shotgun.rsi
     state: base
 
+- type: stealTargetGroup
+  id: ClothingShoesBootsMagCombat
+  name: steal-target-groups-combat-magboots
+  sprite:
+    sprite: _Funkystation/Clothing/Shoes/Boots/magboots-combat.rsi
+    state: icon
+
 # Thief Collection
 
 - type: stealTargetGroup

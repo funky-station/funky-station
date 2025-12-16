@@ -501,6 +501,7 @@
     - id: JetpackSecurityFilled
     - id: OxygenTankFilled
     - id: NitrogenTankFilled
+    - id: ClothingShoesBootsMagCombat
 
 # No hardsuit locker
 - type: entity

@@ -228,6 +228,21 @@
     stealGroup: WeaponEnergyShotgun
     owner: job-name-warden
 
+## hos
+
+- type: entity
+  parent: BaseTraitorStealObjective
+  id: HOSCombatMagbootsStealObjective
+  components:
+  - type: Objective
+    # Its HoS. Need I say more?
+    difficulty: 3
+  - type: NotJobRequirement
+    job: HeadOfSecurity
+  - type: StealCondition
+    stealGroup: ClothingShoesBootsMagCombat
+    owner: job-name-hos
+
 ## ce
 
 - type: entity

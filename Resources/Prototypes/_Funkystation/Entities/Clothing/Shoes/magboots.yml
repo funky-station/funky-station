@@ -1,8 +1,8 @@
 - type: entity
   parent: [ClothingShoesBootsMagBase, BaseJetpack, BaseGrandTheftContraband]
-  id: ClothingShoesBootsMagSecurity
+  id: ClothingShoesBootsMagCombat
   name: combat magboots
-  description: Magnetic Boots tested and designed for Combat scenarios in various environments. They have an integrated Jetpack for emergency use. It can hold 0.25 L of gas.
+  description: Magnetic Boots tested and designed for Combat scenarios in various environments. It can hold 0.5 L of gas.
   components:
   - type: Sprite
     sprite: _Funkystation/Clothing/Shoes/Boots/magboots-combat.rsi
@@ -23,3 +23,12 @@
   - type: Item
     sprite: null
     size: Normal
+  - type: Tag
+    tags:
+    - HighRiskItem
+  - type: StealTarget
+    stealGroup: ClothingShoesBootsMagCombat
+  - type: ClothingSlowOnDamageModifier
+    modifier: 0.5
+  - type: ClothingModifyStunTime # Goobstation
+    modifier: 0.8

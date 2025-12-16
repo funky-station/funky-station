@@ -52,12 +52,12 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 20
+        maxVol: 50
         reagents: #Most of these are this with slight variations, not worth changing until we have the rest of the reagents
         - ReagentId: Nutriment
-          Quantity: 11
+          Quantity: 30
         - ReagentId: Vitamin
-          Quantity: 5
+          Quantity: 20
   - type: Food #All pies here made with a pie tin; unless you're some kind of savage, you're probably not destroying this when you eat or slice the pie!
     trash:
     - FoodPlateTin
@@ -117,6 +117,8 @@
     tags:
     - Fruit
     - Pie
+
+
 
 - type: entity
   name: slice of apple pie
@@ -516,14 +518,14 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 17
+        maxVol: 50
         reagents:
         - ReagentId: Nutriment
-          Quantity: 6
+          Quantity: 20
         - ReagentId: Amatoxin
-          Quantity: 3
+          Quantity: 20
         - ReagentId: Vitamin
-          Quantity: 4
+          Quantity: 10
 # Tastes like pie, mushrooms.
 
 - type: entity

@@ -614,6 +614,8 @@
     count: 3
     slice: FoodCroissantRaw
 
+
+
 - type: entity
   name: flat cotton dough
   parent: FoodBakingBase
@@ -628,6 +630,15 @@
   - type: SliceableFood
     count: 3
     slice: FoodCroissantRawCotton
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 18
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 5
+        - ReagentId: Fiber
+          Quantity: 10
 
 - type: entity
   name: pizza bread
@@ -983,10 +994,10 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 4
+        maxVol: 5
         reagents:
         - ReagentId: Nutriment
-          Quantity: 3
+          Quantity: 5
 
 - type: entity
   name: raw cotton croissant
@@ -1000,3 +1011,12 @@
     - cotton
   - type: Sprite
     state: croissant-raw-cotton
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 1.5
+        - ReagentId: Fiber
+          Quantity: 3.5

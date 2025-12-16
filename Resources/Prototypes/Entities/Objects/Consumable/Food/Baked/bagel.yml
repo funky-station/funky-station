@@ -28,10 +28,10 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 7
+        maxVol: 15
         reagents:
         - ReagentId: Nutriment
-          Quantity: 5
+          Quantity: 10
   - type: Tag
     tags:
     - VoxFood
@@ -56,12 +56,12 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 12
+        maxVol: 15
         reagents:
         - ReagentId: SalicylicAcid
           Quantity: 5
         - ReagentId: Nutriment
-          Quantity: 5
+          Quantity: 10
 
 - type: entity
   id: FoodBagelCotton
@@ -83,10 +83,10 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 12
+        maxVol: 15
         reagents:
         - ReagentId: Nutriment
-          Quantity: 2.5
+          Quantity: 5
         - ReagentId: Fiber
-          Quantity: 2.5
+          Quantity: 5
 

@@ -391,7 +391,7 @@
 
 - type: entity
   name: blueberry pancake
-  parent: FoodBakedPancake
+  parent: FoodBakedBase
   id: FoodBakedPancakeBb
   description: A fluffy and delicious blueberry pancake.
   components:
@@ -441,6 +441,7 @@
     tags:
     - Pancake
     - Fruit
+
 
 - type: entity
   name: chocolate chip pancake
@@ -513,12 +514,14 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 20
+        maxVol: 30
         reagents:
         - ReagentId: Nutriment
-          Quantity: 8
+          Quantity: 15
+        - ReagentId: Protein
+          Quantity: 6
         - ReagentId: Vitamin
-          Quantity: 1
+          Quantity: 6
   - type: Tag
     tags:
     - Waffle
@@ -536,12 +539,14 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 20
+        maxVol: 30
         reagents:
         - ReagentId: Nutriment
-          Quantity: 10
+          Quantity: 15
+        - ReagentId: Protein
+          Quantity: 6
         - ReagentId: Vitamin
-          Quantity: 1
+          Quantity: 6
   - type: Tag
     tags:
     - Waffle
@@ -559,12 +564,14 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 20
+        maxVol: 30
         reagents:
         - ReagentId: Nutriment
+          Quantity: 15
+        - ReagentId: Protein
           Quantity: 10
         - ReagentId: Vitamin
-          Quantity: 1
+          Quantity: 6
   - type: Tag
     tags:
     - Waffle
@@ -583,12 +590,14 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 20
+        maxVol: 30
         reagents:
         - ReagentId: Nutriment
-          Quantity: 8
+          Quantity: 10
+        - ReagentId: Protein
+          Quantity: 10
         - ReagentId: Vitamin
-          Quantity: 2
+          Quantity: 10
   - type: Tag
     tags:
     - Waffle
@@ -637,9 +646,9 @@
         maxVol: 20
         reagents:
         - ReagentId: Nutriment
-          Quantity: 8
+          Quantity: 15
         - ReagentId: Protein
-          Quantity: 2
+          Quantity: 10
   - type: FlavorProfile
     flavors:
       - meaty
@@ -902,14 +911,14 @@
     - type: SolutionContainerManager
       solutions:
         food:
-          maxVol: 4
+          maxVol: 5
           reagents:
           - ReagentId: Nutriment
-            Quantity: 1
+            Quantity: 2
           - ReagentId: Allicin
             Quantity: 1
           - ReagentId: Vitamin
-            Quantity: 1
+            Quantity: 2
 
 - type: entity
   name: croissant
@@ -960,16 +969,14 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 7
+        maxVol: 15
         reagents:
         - ReagentId: Nutriment
-          Quantity: 1.5
+          Quantity: 5
         - ReagentId: Fiber
-          Quantity: 1.5
+          Quantity: 6
         - ReagentId: Butter
-          Quantity: 2
-        - ReagentId: Vitamin
-          Quantity: 1
+          Quantity: 4
 
 - type: entity
   name: grilled cheese sandwich

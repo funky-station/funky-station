@@ -164,6 +164,7 @@
   id: RecipeBearger
   name: bearger recipe
   result: FoodBurgerBear
+  resultCount: 2
   time: 10
   group: Savory
   solids:
@@ -673,7 +674,7 @@
   group: Breads
   solids:
     FoodBreadPlainSlice: 1
-    FoodJellyAmanita: 1 #replace with jelly
+    FoodBerries: 1 #replace with jelly
 
 - type: microwaveMealRecipe
   id: RecipeMoldyBreadSlice
@@ -700,7 +701,7 @@
   id: RecipeOnionRings
   name: onion rings recipe
   result: FoodOnionRings
-  time: 15
+  time: 5
   group: Savory
   solids:
     FoodOnionSlice: 1
@@ -857,13 +858,12 @@
   result: FoodNoodlesChowmein
   time: 10
   group: Pasta
-  reagents:
-    Egg: 6
   solids:
     FoodNoodlesBoiled: 1
-    FoodEggplant: 1
+    FoodMeat: 1
+    FoodSoybeans: 1
     FoodCarrot: 1
-    FoodCorn: 1
+    FoodOnion: 1
 
 - type: microwaveMealRecipe
   id: RecipeOatmeal
@@ -881,7 +881,7 @@
   id: RecipeBoiledRice
   name: boiled rice recipe
   result: FoodRiceBoiled
-  time: 15
+  time: 5
   group: Savory
   reagents:
     Rice: 15
@@ -956,9 +956,9 @@
     Water: 10
   solids:
     FoodBowlBig: 1
-    FoodTomato: 1
-    FoodMushroom: 1
-    FoodMeatFish: 1
+    FoodCarrot: 1
+    FoodOnionRed: 1
+    FoodShrimpRaw: 1
 
 - type: microwaveMealRecipe
   id: RecipeMeatballSoup
@@ -985,7 +985,7 @@
     Egg: 6
   solids:
     FoodBowlBig: 1
-    Nettle: 1
+    Nettle: 3
     FoodPotato: 1
 
 - type: microwaveMealRecipe
@@ -1038,6 +1038,8 @@
     Milk: 5
   solids:
     FoodBowlBig: 1
+    FoodCarrot: 1
+    FoodPotato: 1
     FoodMushroom: 2
 
 - type: microwaveMealRecipe
@@ -1089,6 +1091,7 @@
   group: Soup
   reagents:
     Soysauce: 5
+    Water: 10
   solids:
     FoodBowlBig: 1
     FoodMeatXenoCutlet: 2
@@ -1101,6 +1104,7 @@
   group: Soup
   reagents:
     Soysauce: 5
+    Water: 10
   solids:
     FoodBowlBig: 1
     FoodMeatSpider: 2
@@ -1112,7 +1116,7 @@
   time: 10
   group: Soup
   reagents:
-    Water: 5
+    Water: 10
   solids:
     FoodBowlBig: 1
     FoodCorn: 1
@@ -1141,7 +1145,7 @@
   time: 10
   group: Soup
   reagents:
-    Flour: 5
+    Water: 10
     TableSalt: 1
     Blackpepper: 1
   solids:
@@ -1179,10 +1183,9 @@
   result: FoodSoupEscargot
   time: 10
   group: Soup
-  reagents:
-    Water: 5
   solids:
     FoodBowlBig: 1
+    FoodGarlic: 1
     FoodOnionSlice: 1
     FoodButter: 1
     FoodMeatSnailCooked: 1
@@ -1197,7 +1200,7 @@
   group: Pie
   solids:
     FoodDoughPie: 1
-    FoodFlyAmanita: 1
+    FoodFlyAmanita: 2
     FoodPlateTin: 1
 
 - type: microwaveMealRecipe
@@ -1918,7 +1921,7 @@
   id: RecipeHotChili
   name: hot chili recipe
   result: FoodSoupChiliHot
-  time: 20
+  time: 15
   group: Soup
   solids:
     FoodBowlBig: 1
@@ -1931,12 +1934,14 @@
   id: RecipeColdChili
   name: cold chili recipe
   result: FoodSoupChiliCold
-  time: 5
+  time: 15
   group: Soup
-  reagents:
-    Nitrogen: 5
   solids:
-    FoodSoupChiliHot: 1
+    FoodBowlBig: 1
+    FoodChillyPepper: 1
+    FoodMeatCutlet: 1
+    FoodOnionSlice: 1
+    FoodTomato: 1
 
 - type: microwaveMealRecipe
   id: RecipeClownTears
@@ -2325,7 +2330,8 @@
   time: 10
   group: Soup
   solids:
-    FoodPeaPod: 2
+    FoodPeaPod: 3
+    FoodGarlic: 1
     FoodBowlBig: 1
   reagents:
     Water: 10
@@ -2509,4 +2515,3 @@
     Fiber: 10
   solids:
     FoodCakePlain: 1
-    

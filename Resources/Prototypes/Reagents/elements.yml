@@ -164,7 +164,7 @@
   color: "#cccccc"
   boilingPoint: -253.0
   meltingPoint: -259.2
-  flammability: 5
+  flammability: 3
 
 - type: reagent
   id: Iodine

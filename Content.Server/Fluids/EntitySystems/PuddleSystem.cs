@@ -37,11 +37,13 @@
 
 using System.Linq;
 using Content.Server.Administration.Logs;
+using Content.Server.Atmos.Components;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Chemistry.TileReactions;
 using Content.Server.DoAfter;
 using Content.Server.Fluids.Components;
 using Content.Server.Spreader;
+using Content.Shared.Atmos.Components;
 using Content.Shared.Chemistry;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Components.SolutionManager;
@@ -112,6 +114,7 @@ public sealed partial class PuddleSystem : SharedPuddleSystem
     private HashSet<EntityUid> _deletionQueue = [];
 
     private EntityQuery<PuddleComponent> _puddleQuery;
+    private EntityQuery<TransformComponent> _xformQuery;
 
     /*
      * TODO: Need some sort of way to do blood slash / vomit solution spill on its own
@@ -124,6 +127,7 @@ public sealed partial class PuddleSystem : SharedPuddleSystem
         base.Initialize();
 
         _puddleQuery = GetEntityQuery<PuddleComponent>();
+        _xformQuery = GetEntityQuery<TransformComponent>();
 
         // Shouldn't need re-anchoring.
         SubscribeLocalEvent<PuddleComponent, AnchorStateChangedEvent>(OnAnchorChanged);
@@ -346,6 +350,8 @@ public sealed partial class PuddleSystem : SharedPuddleSystem
         _reactive.DoEntityReaction(args.Slipped, splitSol, ReactionMethod.Touch);
     }
 
+    private float _ignitionTimer;
+
     /// <inheritdoc/>
     public override void Update(float frameTime)
     {
@@ -359,6 +365,39 @@ public sealed partial class PuddleSystem : SharedPuddleSystem
         _deletionQueue.Clear();
 
         TickEvaporation();
+
+        // Check for auto-ignition from hot air
+        _ignitionTimer += frameTime;
+        if (_ignitionTimer >= 1.0f)
+        {
+            _ignitionTimer -= 1.0f;
+            var query = EntityQueryEnumerator<PuddleComponent, TransformComponent>();
+            while (query.MoveNext(out var uid, out var puddle, out var xform))
+            {
+                if (xform.GridUid is not { } gridUid)
+                    continue;
+
+                // don't check empty puddles
+                if (puddle.Solution == null || puddle.Solution.Value.Comp.Solution.Volume <= FixedPoint2.Zero)
+                    continue;
+
+                if (!TryComp(gridUid, out MapGridComponent? mapGrid))
+                    continue;
+
+                if (!TryComp(gridUid, out GridAtmosphereComponent? gridAtmos))
+                    continue;
+
+                var tileIndices = _map.TileIndicesFor(gridUid, mapGrid, xform.Coordinates);
+
+                var gridEnt = (gridUid, gridAtmos, (GasTileOverlayComponent?)null);
+                var mixture = _atmos.GetTileMixture(gridEnt, null, tileIndices);
+
+                if (mixture == null || mixture.Temperature < 373.15f)
+                    continue;
+
+                _atmos.HotspotExpose((gridUid, gridAtmos), tileIndices, mixture.Temperature, mixture.Volume, null, true);
+            }
+        }
     }
 
     private void OnSolutionUpdate(Entity<PuddleComponent> entity, ref SolutionContainerChangedEvent args)

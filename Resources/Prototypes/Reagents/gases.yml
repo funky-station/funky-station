@@ -40,7 +40,7 @@
   color: "#c4f5ff"
   boilingPoint: -183.0
   meltingPoint: -218.4
-  flammability: 3
+  flammability: 2
   metabolisms:
     Poison:
       effects:

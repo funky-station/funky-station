@@ -130,7 +130,9 @@ public abstract partial class SharedPuddleSystem : EntitySystem
                 ref ent.Comp.Solution,
                 out var solution))
             return;
-        _solutionContainerSystem.BurnFlammableReagents(ent.Comp.Solution.Value, 0.05f);
+
+        // Changed from 0.05f to 0.001f, fires will burn longer.
+        _solutionContainerSystem.BurnFlammableReagents(ent.Comp.Solution.Value, 0.001f);
 
     }
 

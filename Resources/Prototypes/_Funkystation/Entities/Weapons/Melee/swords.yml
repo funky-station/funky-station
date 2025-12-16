@@ -207,3 +207,59 @@
     doAfterDuration: 1.5
   - type: Item
     size: Normal
+
+- type: entity
+  name: bloody chainsword
+  parent: [BaseItem, BaseChaplainContraband]
+  id: WeaponChaplainChainsword
+  description: A brutal mix of chainsaw and sword, covered in blood stains. Blood for the blood god!
+  components:
+  - type: Wieldable
+    wieldSound: !type:SoundPathSpecifier
+      path: /Audio/Weapons/chainsawwield.ogg
+      params:
+        volume: -3
+  - type: Sharp
+  - type: Sprite
+    sprite: _Funkystation/Objects/Weapons/Melee/chainsword.rsi
+    state: icon
+  - type: MeleeWeapon
+    autoAttack: true
+    angle: 0
+    wideAnimationRotation: -135
+    attackRate: 3
+    damage:
+      types:
+        Slash: 2
+        Blunt: 1
+        Structural: 5
+        Holy: 5
+    soundHit:
+      path: /Audio/Weapons/chainsaw.ogg
+      params:
+        volume: -3
+  - type: IncreaseDamageOnWield
+    damage:
+      types:
+        Slash: 1
+        Blunt: 1
+        Structural: 5
+  - type: Item
+    size: Normal
+    sprite: _Funkystation/Objects/Weapons/Melee/chainsword.rsi
+  - type: DisarmMalus
+  - type: UseDelay
+    delay: 1
+  - type: BoneSaw # Shitmed
+    speed: 0.9
+  - type: SurgeryTool # Shitmed
+    startSound:
+      path: /Audio/Weapons/chainsawwield.ogg
+    endSound:
+      path: /Audio/Weapons/chainsaw.ogg
+  - type: Clothing
+    sprite: _Funkystation/Objects/Weapons/Melee/chainsword.rsi
+    quickEquip: false
+    slots:
+    - Back
+    - backStorage

@@ -122,5 +122,16 @@
     state: icon
   content:
   - WeaponChaplainToolboxFilled
+
+  
+- type: chaplainGearMenuSet
+  id: ChaplainGearChainsword
+  name: chaplain-gearset-category-chainsword-name
+  description: chaplain-gearset-category-chainsword-description
+  sprite:
+    sprite: _Funkystation/Objects/Weapons/Melee/chainsword.rsi
+    state: icon
+  content:
+  - WeaponChaplainChainsword
 # end funky
 

@@ -89,4 +89,11 @@ chaplain-gearset-category-toolbox-description =
     backpacks, satchels and dufflebags.
     It's bigger on the inside than in the outside, allowing for greater storage,
     but it's smaller size means it won't hurt as much as a normal toolbox.
+
+chaplain-gearset-category-chainsword-name = Bloody Chainsword
+chaplain-gearset-category-chainsword-description =
+    A menacing-looking chainsword stained with the blood of slain foes, the
+    Bloody Chainsword put the fear of death into the hearts of those it strikes.
+    Its damage is low but its high attack speed more than makes up for it.
+    Blood for the blood god, skulls for the skull throne!
 # end funky

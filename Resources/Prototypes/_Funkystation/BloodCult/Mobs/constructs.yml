@@ -113,6 +113,9 @@
         - Alive
         - Critical
         - Dead
+    - type: MobStateActions
+      actions:
+        Critical: []  # Juggernauts should not have critical state actions (suicide, last words)
     - type: MeleeWeapon
       hidden: true
       canWideSwing: true
@@ -172,6 +175,11 @@
       uis:
         enum.BloodCultistCommuneUIKey.Key:
           toggleAction: null
+    - type: UserInterface
+      interfaces:
+        enum.BloodCultistCommuneUIKey.Key:
+          type: BloodCultCommuneBoundUserInterface
+          requireInputValidation: false
     - type: GuideHelp
       guides:
       - Blob

@@ -1,5 +1,6 @@
-using Robust.Shared.Prototypes; // Add this
+using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
+using Content.Shared.Cargo.Prototypes;
 
 namespace Content.Server._NF.Power.Components;
 
@@ -42,7 +43,7 @@ public sealed partial class PowerTransmissionComponent : Component
     /// The account to deposit funds from sold energy into.
     ///</summary>
     [DataField(required: true)]
-    public string Account = "Cargo"; // Changed back to string if CargoAccountPrototype doesn't exist
+    public ProtoId<CargoAccountPrototype> Account = "Cargo";
     #endregion Power Sale
 
     #region Linear Rates

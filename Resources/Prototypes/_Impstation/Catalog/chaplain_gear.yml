@@ -133,5 +133,15 @@
     state: icon
   content:
   - WeaponChaplainChainsword
+
+- type: chaplainGearMenuSet
+  id: ChaplainGearHauntedSword
+  name: chaplain-gearset-category-haunted-sword-name
+  description: chaplain-gearset-category-haunted-sword-description
+  sprite:
+    sprite: _Funkystation/Objects/Weapons/Melee/haunted_sword.rsi
+    state: icon
+  content:
+  - WeaponChaplainHauntedSword
 # end funky
 

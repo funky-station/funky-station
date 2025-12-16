@@ -96,4 +96,10 @@ chaplain-gearset-category-chainsword-description =
     Bloody Chainsword put the fear of death into the hearts of those it strikes.
     Its damage is low but its high attack speed more than makes up for it.
     Blood for the blood god, skulls for the skull throne!
+
+chaplain-gearset-category-haunted-sword-name = Haunted Sword
+chaplain-gearset-category-haunted-sword-description =
+    Haunted and possesed by an ancient and powerful spirit, the Haunted Sword
+    can serve as both a close companion and a powerful weapon.
+    Don't forger to keep your sword stimulated with bad jokes and stories!
 # end funky

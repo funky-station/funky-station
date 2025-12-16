@@ -263,3 +263,63 @@
     slots:
     - Back
     - backStorage
+
+- type: entity
+  name: haunted sword
+  parent: [ BaseSword, BaseChaplainContraband ]
+  id: WeaponChaplainHauntedSword
+  description: An ancient weapon haunted by spirits unknown, it harnesses this powerful spiritual power to harm foes (and for occasional jokes).
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Weapons/Melee/haunted_sword.rsi
+  - type: MeleeWeapon
+    attackRate: 0.75
+    damage:
+      types:
+        Slash: 10
+        Heat: 5
+        Holy: 15
+    soundHit:
+        path: /Audio/Weapons/bladeslice.ogg
+  - type: Item
+    shape:
+    - 0,0,1,3
+  - type: Clothing
+    sprite: _Funkystation/Objects/Weapons/Melee/haunted_sword.rsi
+    slots:
+    - back
+    - backStorage
+  - type: DisarmMalus
+  - type: Reflect
+    reflectProb: .15
+    spread: 120
+    soundOnReflect:
+      path: /Audio/Weapons/bladeslice.ogg
+      params:
+        variation: 0.2
+        volume: -6
+  - type: GhostRole
+    makeSentient: true
+    allowSpeech: true
+    allowMovement: false
+    name: ghost-role-information-haunted-sword-name
+    description: ghost-role-information-haunted-sword-description
+    rules: ghost-role-information-familiar-rules
+  - type: BlockMovement
+  - type: Speech
+    speechVerb: Default
+    speechSounds: Tenor
+  - type: GhostTakeoverAvailable
+  - type: Vocal
+    sounds:
+      Unsexed: MaleHuman
+  - type: Grammar
+    attributes:
+      proper: false
+      gender: male
+  - type: NightVision
+    isActive: true
+    toggleAction: null
+    color: "#50595C"
+    activateSound: null
+    deactivateSound: null

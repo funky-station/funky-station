@@ -1,17 +1,15 @@
+// SPDX-FileCopyrightText: 2025 MaiaArai <158123176+YaraaraY@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared.Clothing.Components;
-using Content.Shared.Toggleable;
-using Robust.Client.GameObjects; // Required for ToggleableLightVisuals
 
 namespace Content.Shared.Clothing.EntitySystems;
 
 public sealed class MultiVisualStateSystem : EntitySystem
 {
     [Dependency] private readonly ClothingSystem _clothingSystem = default!;
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
 
     public override void Initialize()
     {
@@ -19,7 +17,6 @@ public sealed class MultiVisualStateSystem : EntitySystem
 
         SubscribeLocalEvent<MultiVisualStateComponent, AfterAutoHandleStateEvent>(OnStateChanged);
         SubscribeLocalEvent<MultiVisualStateComponent, ItemHeadToggledEvent>(OnHeadToggled);
-        SubscribeLocalEvent<MultiVisualStateComponent, AppearanceChangeEvent>(OnAppearanceChanged);
     }
 
     private void OnHeadToggled(Entity<MultiVisualStateComponent> ent, ref ItemHeadToggledEvent args)
@@ -29,21 +26,12 @@ public sealed class MultiVisualStateSystem : EntitySystem
         UpdateVisuals(ent);
     }
 
-    private void OnAppearanceChanged(Entity<MultiVisualStateComponent> ent, ref AppearanceChangeEvent args)
-    {
-        if (_appearance.TryGetData(ent.Owner, ToggleableLightVisuals.Enabled, out bool lightEnabled, args.Component))
-        {
-            ent.Comp.LightState = lightEnabled;
-            UpdateVisuals(ent);
-        }
-    }
-
     private void OnStateChanged(Entity<MultiVisualStateComponent> ent, ref AfterAutoHandleStateEvent args)
     {
         UpdateVisuals(ent);
     }
 
-    private void UpdateVisuals(Entity<MultiVisualStateComponent> ent)
+    public void UpdateVisuals(Entity<MultiVisualStateComponent> ent)
     {
         var (uid, comp) = ent;
         string? finalPrefix = null;

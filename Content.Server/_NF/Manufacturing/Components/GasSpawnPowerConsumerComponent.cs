@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2025 Whatstone <166147148+whatston3@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 rotty <juaelwe@outlook.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Shared.Atmos;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 

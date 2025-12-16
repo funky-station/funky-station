@@ -99,7 +99,7 @@ chaplain-gearset-category-chainsword-description =
 
 chaplain-gearset-category-haunted-sword-name = Haunted Sword
 chaplain-gearset-category-haunted-sword-description =
-    Haunted and possesed by an ancient and powerful spirit, the Haunted Sword
-    can serve as both a close companion and a powerful weapon.
-    Don't forger to keep your sword stimulated with bad jokes and stories!
+    Haunted and possesed by an ancient and powerful spirit, the Haunted
+    Sword can serve as both a close companion and a powerful weapon.
+    Don't forget to keep your sword stimulated with bad jokes and stories!
 # end funky

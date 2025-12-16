@@ -10,8 +10,27 @@
 # To be implemented: see #9072
 
 - type: entity
+  id: WeaponNatureStaffBase
+  abstract: true
+  parent: [ BaseItem, BaseChaplainContraband ]
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Basic/staves.rsi
+  - type: Item
+    heldPrefix: staff
+    size: Normal
+  - type: Gun
+    fireRate: 1
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+  - type: AmmoCounter
+  - type: RechargeBasicEntityAmmo
+    rechargeCooldown: 15
+
+- type: entity
   name: staff of nature
-  parent: WeaponStaffBase
+  parent: WeaponNatureStaffBase
   id: WeaponChaplainNatureStaff
   description: Empowered by the wilderness and mother nature itself, this staff is able to heal those in need while making those that disrespect nature suffer.
   components:

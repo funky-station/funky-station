@@ -4,7 +4,7 @@
 
 - type: entity
   name: Honkmother's Honkannon
-  parent: BaseStorageItem
+  parent: [BaseStorageItem, BaseChaplainContraband]
   id: WeaponChaplainLauncher
   description: Blesed by the Honkmother, this holy pie cannon fires Bananium Pies to smite those that are unfunny.
   components:

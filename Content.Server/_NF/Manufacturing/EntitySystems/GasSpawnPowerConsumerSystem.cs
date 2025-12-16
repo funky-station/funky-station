@@ -33,6 +33,8 @@ public sealed partial class GasSpawnPowerConsumerSystem : EntitySystem
     [Dependency] private readonly UserInterfaceSystem _ui = default!;
 
     private GasMixture _mixture = new();
+    private TimeSpan _lastUiUpdate = TimeSpan.Zero;
+    private static readonly TimeSpan UiUpdateCooldown = TimeSpan.FromSeconds(0.5f);
 
     public override void Initialize()
     {
@@ -82,6 +84,8 @@ public sealed partial class GasSpawnPowerConsumerSystem : EntitySystem
         var query = EntityQueryEnumerator<GasSpawnPowerConsumerComponent, PowerConsumerComponent>();
         while (query.MoveNext(out var uid, out var spawn, out var power))
         {
+            var wasPowered = power.NetworkLoad.Enabled && power.NetworkLoad.ReceivingPower > 0;
+            
             if (power.NetworkLoad.Enabled)
                 spawn.AccumulatedSpawnCheckEnergy += power.NetworkLoad.ReceivingPower * frameTime;
 
@@ -136,7 +140,12 @@ public sealed partial class GasSpawnPowerConsumerSystem : EntitySystem
                 }
             }
 
-            _appearance.SetData(uid, PowerDeviceVisuals.Powered, power.NetworkLoad.Enabled && power.NetworkLoad.ReceivingPower > 0);
+            // Only update appearance if the power state actually changed
+            var isPowered = power.NetworkLoad.Enabled && power.NetworkLoad.ReceivingPower > 0;
+            if (wasPowered != isPowered)
+            {
+                _appearance.SetData(uid, PowerDeviceVisuals.Powered, isPowered);
+            }
         }
     }
 
@@ -152,7 +161,17 @@ public sealed partial class GasSpawnPowerConsumerSystem : EntitySystem
         if (power <= ent.Comp.LinearMaxValue)
             actualPower = power;
         else
-            actualPower = ent.Comp.LogarithmCoefficient * MathF.Pow(ent.Comp.LogarithmRateBase, MathF.Log10(power) - ent.Comp.LogarithmSubtrahend);
+        {
+            actualPower = ent.Comp.LogarithmCoefficient * MathF.Pow(
+                ent.Comp.LogarithmRateBase, 
+                MathF.Log10(power / ent.Comp.LinearMaxValue) - ent.Comp.LogarithmSubtrahend
+            );
+        }
+        
+        const float maxReasonablePower = 100_000_000f;
+        if (!float.IsFinite(actualPower) || actualPower > maxReasonablePower)
+            return maxReasonablePower;
+        
         return actualPower;
     }
 
@@ -205,6 +224,12 @@ public sealed partial class GasSpawnPowerConsumerSystem : EntitySystem
 
     private void UpdateUI(Entity<GasSpawnPowerConsumerComponent> ent, PowerConsumerComponent power)
     {
+        var currentTime = _timing.CurTime;
+        if (currentTime - _lastUiUpdate < UiUpdateCooldown)
+            return;
+            
+        _lastUiUpdate = currentTime;
+        
         if (!_ui.IsUiOpen(ent.Owner, AdjustablePowerDrawUiKey.Key))
             return;
 

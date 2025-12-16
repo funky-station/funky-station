@@ -1,0 +1,21 @@
+uniform lowp vec4 color;
+uniform lowp vec4 scanlineColor;
+uniform lowp int  lineCount;
+uniform lowp float scanlineIntensity; // 0 - 1
+uniform lowp float scanlineSpeed;
+uniform lowp float alpha;
+
+void fragment() {
+    precision highp float;
+
+    lowp vec4 tex = texture2D(TEXTURE, UV);
+    tex.a *= alpha;
+    lowp vec3 base = tex.rgb * color.rgb;
+
+    float cycle = fract(UV.y * float(lineCount));
+    float mask  = step(0.5, cycle) * scanlineIntensity;
+
+    lowp vec3 col = base * mix(vec3(1.0), scanlineColor.rgb, mask);
+
+    COLOR = vec4(col, tex.a);
+}

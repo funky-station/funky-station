@@ -1,5 +1,6 @@
 // SPDX-FileCopyrightText: 2025 Janet Blackquill <uhhadd@gmail.com>
 // SPDX-FileCopyrightText: 2025 QueerCats <jansencheng3@gmail.com>
+// SPDX-FileCopyrightText: 2025 Tojo <32783144+Alecksohs@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
 // SPDX-License-Identifier: MIT
@@ -47,16 +48,16 @@ public sealed partial class SmartFridgeMenu : FancyWindow
         return entry.Entry.Name.Contains(filter, StringComparison.CurrentCultureIgnoreCase);
     }
 
-    private void GenerateButton(ListData data, ListContainerButton button)
+    private void GenerateButton(ListData data, IListEntry  button)
     {
         if (data is not SmartFridgeListData entry)
             return;
 
         var label = Loc.GetString("smart-fridge-list-item", ("item", entry.Entry.Name), ("amount", entry.Amount));
-        button.AddChild(new SmartFridgeItem(entry.Representative, label));
+        button.ControlRoot.AddChild(new SmartFridgeItem(entry.Representative, label));
 
-        button.ToolTip = label;
-        button.StyleBoxOverride = _styleBox;
+        button.ControlRoot.ToolTip = label;
+        button.ControlRoot.StyleIdentifier = "VendingEntryButton";
     }
 
     public void Populate(Entity<SmartFridgeComponent> ent)

@@ -46,7 +46,6 @@
   - type: ItemSlots
     slots:
       pack:
-        name: pack
         whitelist:
           components:
           - BloodPack

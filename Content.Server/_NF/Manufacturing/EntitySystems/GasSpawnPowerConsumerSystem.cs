@@ -1,5 +1,4 @@
 using Content.Server._NF.Manufacturing.Components;
-using Content.Server.Atmos.Components;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.NodeContainer;
 using Content.Server.NodeContainer.EntitySystems;
@@ -16,9 +15,8 @@ using Content.Shared.Power;
 using Content.Shared.UserInterface;
 using Robust.Server.GameObjects;
 using Robust.Shared.Timing;
-using Content.Server.Atmos.Piping.Unary.Components;
 
-namespace Content.Server._NF.Manufacturing.EntitySystems; // Changed from Content.Shared._NF.Manufacturing.EntitySystems
+namespace Content.Server._NF.Manufacturing.EntitySystems;
 
 /// <summary>
 /// Consumes large quantities of power, scales excessive overage down to reasonable values.
@@ -45,11 +43,10 @@ public sealed partial class GasSpawnPowerConsumerSystem : EntitySystem
         SubscribeLocalEvent<GasSpawnPowerConsumerComponent, ExaminedEvent>(OnExamined);
         SubscribeLocalEvent<GasSpawnPowerConsumerComponent, AfterActivatableUIOpenEvent>(OnUIOpen);
 
-       
-          Subs.BuiEvents<GasSpawnPowerConsumerComponent>(
-          AdjustablePowerDrawUiKey.Key,
+        Subs.BuiEvents<GasSpawnPowerConsumerComponent>(
+            AdjustablePowerDrawUiKey.Key,
             subs =>
-         {
+            {
                 subs.Event<AdjustablePowerDrawSetEnabledMessage>(HandleSetEnabled);
                 subs.Event<AdjustablePowerDrawSetLoadMessage>(HandleSetLoad);
             });

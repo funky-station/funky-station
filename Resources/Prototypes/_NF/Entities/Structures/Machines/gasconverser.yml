@@ -99,7 +99,7 @@
       moles:
       - 0.22 # Oxygen
       - 0.78 # Nitrogen
-      temperature: 5273 # ~ 5000 deg C, roughly when plasma turns back into gas
+      temperature: 293.15
   - type: GasCanister
     gasMixture:
       volume: 10000 # big tank to store backup

@@ -1,3 +1,9 @@
+// SPDX-FileCopyrightText: 2025 Janet Blackquill <uhhadd@gmail.com>
+// SPDX-FileCopyrightText: 2025 Tojo <32783144+Alecksohs@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Client.Stylesheets.SheetletConfigs;
 using Robust.Client.Graphics;
 using Robust.Client.UserInterface;
@@ -38,6 +44,9 @@ public sealed class PanelSheetlet<T> : Sheetlet<T> where T : PalettedStylesheet,
             E<PanelContainer>()
                 .Class("BackgroundDark")
                 .Prop(PanelContainer.StylePropertyPanel, new StyleBoxFlat(Color.FromHex("#25252A"))),
+
+            // panels that are separator borders but do not have backgrounds
+            E<PanelContainer>().Class(StyleClass.BorderModal).Prop(PanelContainer.StylePropertyPanel, StyleBoxHelpers.BorderModalStyleBox(sheet)),
 
             // panels that have the same corner bezels as buttons
             E()

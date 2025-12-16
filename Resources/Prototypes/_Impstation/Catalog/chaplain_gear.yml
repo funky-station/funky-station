@@ -121,6 +121,6 @@
     sprite: _Funkystation/Objects/Tools/toolbox_enchanted.rsi
     state: icon
   content:
-  - WeaponChaplainLToolbox
+  - WeaponChaplainToolboxFilled
 # end funky
 

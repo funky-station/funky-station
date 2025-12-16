@@ -1,4 +1,3 @@
-
 using Content.Shared.Atmos;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
@@ -48,9 +47,10 @@ public sealed partial class GasSpawnPowerConsumerComponent : Component
 
     ///<summary>
     /// The total amount of energy required to spawn one mole of gas.
+    /// 2,500 J/mol = 2,000,000 W / 800 mol/s
     ///</summary>
     [DataField]
-    public float EnergyPerMole = 5_000;
+    public float EnergyPerMole = 2_500f;
 
     ///<summary>
     /// The total mixture to spawn per unit of energy.
@@ -62,9 +62,10 @@ public sealed partial class GasSpawnPowerConsumerComponent : Component
     #region Linear Rates
     ///<summary>
     /// The number of moles of gas to spawn per joule of power.
+    /// 0.0004 mol/J = 1 / 2,500 J/mol
     ///</summary>
     [DataField]
-    public float LinearRate = 0.0002f;
+    public float LinearRate = 0.0004f;
 
     ///<summary>
     /// The maximum value (inclusive) of the linear mode per deposit, in watts
@@ -85,9 +86,10 @@ public sealed partial class GasSpawnPowerConsumerComponent : Component
     ///<summary>
     /// The coefficient of the logarithmic mode: k in Tk*a^(log10(x/T)-R)
     /// Note: should be set to LinearRate*LinearMaxValue for a continuous function.
+    /// 0.0004 * 2,000,000 = 800
     ///</summary>
     [DataField]
-    public float LogarithmCoefficient = 400f;
+    public float LogarithmCoefficient = 800f;
 
     ///<summary>
     /// The exponential subtrahend of the logarithmic mode: R in Tk*a^(log10(x/T)-R)
@@ -114,5 +116,4 @@ public sealed partial class GasSpawnPowerConsumerComponent : Component
     ///</summary>
     [DataField]
     public float MaximumRequestablePower = 10_000_000; // 10 MW
-
-    }
+}

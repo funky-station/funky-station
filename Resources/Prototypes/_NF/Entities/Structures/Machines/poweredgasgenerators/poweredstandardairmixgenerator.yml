@@ -1,9 +1,9 @@
 # When mapping this, ensure the middle square has HV cable and a connector port, it should work.
 - type: entity
   parent: BaseStructure
-  id: EnergyAirConverter
-  name: energy-to-air converter
-  description: An enormous machine that converts huge amounts of power into superheated air.
+  id: GasMinerAirMixPowered
+  name: Standard Air Mix Atmospheric Generator
+  description: An enormous machine that converts huge amounts of power into Air.
   placement:
     mode: SnapgridCenter
   components:

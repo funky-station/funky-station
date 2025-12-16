@@ -46,6 +46,7 @@ using Robust.Shared.Containers;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
+using Robust.Shared.Prototypes;
 
 // This file features edits for Funky Station, there are a lot of edits throughout the file
 

@@ -15,6 +15,7 @@ using Content.Shared.Power;
 using Content.Shared.UserInterface;
 using Robust.Server.GameObjects;
 using Robust.Shared.Timing;
+using Content.Server.Atmos.Piping.Unary.Components;
 
 namespace Content.Server._NF.Manufacturing.EntitySystems;
 

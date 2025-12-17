@@ -115,7 +115,7 @@
       0: Alive
       10: Dead
   - type: Stamina
-    baseCritThreshold: 10
+    critThreshold: 10
     animationThreshold: 1
   - type: DamageStateVisuals
     states:
@@ -1682,8 +1682,7 @@
       types:
         Blunt: 2
         Piercing: 7
-      groups:
-        Burn: 3
+        Heat: 3
     catchingFailDamage:
       types:
         Blunt: 1

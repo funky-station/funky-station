@@ -50,6 +50,135 @@ public abstract partial class SharedCryoPodSystem: EntitySystem
         InitializeInsideCryoPod();
     }
 
+    public override void Update(float frameTime)
+    {
+        base.Update(frameTime);
+
+        var curTime = _timing.CurTime;
+        var query = EntityQueryEnumerator<ActiveCryoPodComponent, CryoPodComponent>();
+
+        while (query.MoveNext(out var uid, out _, out var cryoPod))
+        {
+            if (curTime < cryoPod.NextInjectionTime)
+                continue;
+
+            cryoPod.NextInjectionTime += cryoPod.BeakerTransferTime;
+            Dirty(uid, cryoPod);
+
+            if (!_itemSlotsQuery.TryComp(uid, out var itemSlotsComponent))
+                continue;
+
+            var container = _itemSlots.GetItemOrNull(uid, cryoPod.SolutionContainerName, itemSlotsComponent);
+            var patient = cryoPod.BodyContainer.ContainedEntity;
+            if (container != null
+                && container.Value.Valid
+                && patient != null
+                && _dispenserQuery.TryComp(container, out var fitsInDispenserComponent)
+                && _solutionContainerQuery.TryComp(container, out var solutionContainerManagerComponent)
+                && _solutionContainer.TryGetFitsInDispenser((container.Value, fitsInDispenserComponent, solutionContainerManagerComponent),
+                    out var containerSolution, out _)
+                && _bloodstreamQuery.TryComp(patient, out var bloodstream))
+            {
+                var solutionToInject = _solutionContainer.SplitSolution(containerSolution.Value, cryoPod.BeakerTransferAmount);
+                _bloodstream.TryAddToBloodstream((patient.Value, bloodstream), solutionToInject);
+                _reactive.DoEntityReaction(patient.Value, solutionToInject, ReactionMethod.Injection);
+            }
+        }
+    }
+
+    private void HandleDragDropOn(Entity<CryoPodComponent> ent, ref DragDropTargetEvent args)
+    {
+        if (ent.Comp.BodyContainer.ContainedEntity != null)
+            return;
+
+        var doAfterArgs = new DoAfterArgs(EntityManager, args.User, ent.Comp.EntryDelay, new CryoPodDragFinished(), ent, target: args.Dragged, used: ent)
+        {
+            BreakOnDamage = true,
+            BreakOnMove = true,
+            NeedHand = false,
+        };
+        _doAfter.TryStartDoAfter(doAfterArgs);
+        args.Handled = true;
+    }
+
+    private void OnDragFinished(Entity<CryoPodComponent> ent, ref CryoPodDragFinished args)
+    {
+        if (args.Cancelled || args.Handled || args.Args.Target == null)
+            return;
+
+        if (InsertBody(ent.Owner, args.Args.Target.Value, ent.Comp))
+        {
+            _adminLogger.Add(LogType.Action, LogImpact.Medium,
+                $"{ToPrettyString(args.User)} inserted {ToPrettyString(args.Args.Target.Value)} into {ToPrettyString(ent.Owner)}");
+        }
+        args.Handled = true;
+    }
+
+    private void OnActivateUIAttempt(Entity<CryoPodComponent> ent, ref ActivatableUIOpenAttemptEvent args)
+    {
+        if (args.Cancelled)
+            return;
+
+        var containedEntity = ent.Comp.BodyContainer.ContainedEntity;
+        if (containedEntity == null || containedEntity == args.User || !HasComp<ActiveCryoPodComponent>(ent))
+            args.Cancel();
+    }
+
+    private void OnInteractUsing(Entity<CryoPodComponent> ent, ref InteractUsingEvent args)
+    {
+        if (args.Handled || !ent.Comp.Locked || ent.Comp.BodyContainer.ContainedEntity == null)
+            return;
+
+        args.Handled = _tool.UseTool(args.Used, args.User, ent.Owner, ent.Comp.PryDelay, ent.Comp.UnlockToolQuality, new CryoPodPryFinished());
+    }
+
+    private void OnCryoPodPryFinished(EntityUid uid, CryoPodComponent cryoPodComponent, CryoPodPryFinished args)
+    {
+        if (args.Cancelled)
+            return;
+
+        var ejected = EjectBody(uid, cryoPodComponent);
+        if (ejected != null)
+            _adminLogger.Add(LogType.Action, LogImpact.Medium, $"{ToPrettyString(ejected.Value)} pried out of {ToPrettyString(uid)} by {ToPrettyString(args.User)}");
+    }
+
+    private void OnPowerChanged(Entity<CryoPodComponent> ent, ref PowerChangedEvent args)
+    {
+        // Needed to avoid adding/removing components on a deleted entity
+        if (Terminating(ent))
+            return;
+
+        if (args.Powered)
+        {
+            EnsureComp<ActiveCryoPodComponent>(ent);
+            ent.Comp.NextInjectionTime = _timing.CurTime + ent.Comp.BeakerTransferTime;
+            Dirty(ent);
+        }
+        else
+        {
+            RemComp<ActiveCryoPodComponent>(ent);
+            _ui.CloseUi(ent.Owner, HealthAnalyzerUiKey.Key);
+        }
+
+        UpdateAppearance(ent.Owner, ent.Comp);
+    }
+
+    private void OnExamined(Entity<CryoPodComponent> entity, ref ExaminedEvent args)
+    {
+        var container = _itemSlots.GetItemOrNull(entity.Owner, entity.Comp.SolutionContainerName);
+        if (args.IsInDetailsRange && container != null && _solutionContainer.TryGetFitsInDispenser(container.Value, out _, out var containerSolution))
+        {
+            using (args.PushGroup(nameof(CryoPodComponent)))
+            {
+                args.PushMarkup(Loc.GetString("cryo-pod-examine", ("beaker", Name(container.Value))));
+                if (containerSolution.Volume == 0)
+                {
+                    args.PushMarkup(Loc.GetString("cryo-pod-empty-beaker"));
+                }
+            }
+        }
+    }
+
     private void OnCryoPodCanDropOn(EntityUid uid, CryoPodComponent component, ref CanDropTargetEvent args)
     {
         if (args.Handled)

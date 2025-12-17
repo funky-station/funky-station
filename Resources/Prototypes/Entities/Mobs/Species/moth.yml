@@ -117,17 +117,17 @@
     - id: FoodMeat
       amount: 5
   - type: Bloodstream
-    bloodReagents:
+    bloodReferenceSolution:
       reagents:
       - ReagentId: InsectBlood
-        Quantity: 1
-#  - type: DamageVisuals
-#    damageOverlayGroups:
-#      Brute:
-#        sprite: Mobs/Effects/brute_damage.rsi
-#        color: "#808A51"
-#      Burn:
-#        sprite: Mobs/Effects/burn_damage.rsi
+        Quantity: 300
+  - type: DamageVisuals
+    damageOverlayGroups:
+      Brute:
+        sprite: Mobs/Effects/brute_damage.rsi
+        color: "#808A51"
+      Burn:
+        sprite: Mobs/Effects/burn_damage.rsi
   - type: MothAccent
   - type: Vocal
     sounds:
@@ -135,8 +135,8 @@
       Female: UnisexMoth
       Unsexed: UnisexMoth
   - type: MovementSpeedModifier
-    weightlessAcceleration: 1.5 # Move around more easily in space.
-    weightlessFriction: 1
+    baseWeightlessAcceleration: 1.5 # Move around more easily in space.
+    baseWeightlessFriction: 1
     baseWeightlessModifier: 1
   - type: Flammable
     damage:

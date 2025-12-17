@@ -66,7 +66,7 @@ namespace Content.Shared.Body.Components
         ///     From which solution will this metabolizer attempt to metabolize chemicals
         /// </summary>
         [DataField("solution")]
-        public string SolutionName = BloodstreamComponent.DefaultChemicalsSolutionName;
+        public string SolutionName = BloodstreamComponent.DefaultBloodSolutionName;
 
         /// <summary>
         ///     Does this component use a solution on it's parent entity (the body) or itself

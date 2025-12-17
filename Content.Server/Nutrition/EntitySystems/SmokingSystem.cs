@@ -216,7 +216,7 @@ namespace Content.Server.Nutrition.EntitySystems
                 // END Funkystation
 
                 _reactiveSystem.DoEntityReaction(containerManager.Owner, inhaledSolution, ReactionMethod.Ingestion);
-                _bloodstreamSystem.TryAddToChemicals((containerManager.Owner, bloodstream), inhaledSolution);
+                _bloodstreamSystem.TryAddToBloodstream((containerManager.Owner, bloodstream), inhaledSolution);
             }
 
             _timer -= UpdateTimer;

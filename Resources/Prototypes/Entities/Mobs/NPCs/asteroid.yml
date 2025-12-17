@@ -47,7 +47,7 @@
 
 - type: entity
   id: MobGoliath
-  parent: BaseMobAsteroid
+  parent: [ BaseMobAsteroid, MobBloodstream ]
   name: goliath
   description: A massive beast that uses long tentacles to ensnare its prey, threatening them is not advised under any conditions.
   components:
@@ -67,6 +67,11 @@
   - type: MovementSpeedModifier
     baseWalkSpeed : 2.00
     baseSprintSpeed : 2.00
+  - type: Bloodstream
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Blood
+        Quantity: 350
   - type: MobThresholds
     thresholds:
       0: Alive
@@ -85,6 +90,7 @@
     factions:
     - SimpleHostile
   - type: HTN
+    constantlyReplan: false
     rootTask:
       task: GoliathCompound
     blackboard:
@@ -92,6 +98,8 @@
         6
       AggroVisionRadius: !type:Single
         10
+      NavSmash: !type:Bool
+        true
   - type: NPCUseActionOnTarget
     actionId: ActionGoliathTentacle
   - type: Tag
@@ -203,7 +211,7 @@
 
 - type: entity
   id: MobHivelord
-  parent: BaseMobAsteroid
+  parent: [ BaseMobAsteroid, FlyingMobBase ]
   name: hivelord
   description: A truly alien creature, it is a mass of unknown organic material, constantly fluctuating. When attacking, pieces of it split off and attack in tandem with the original.
   components:
@@ -255,6 +263,8 @@
         4
       AggroVisionRadius: !type:Single
         9
+      NavSmash: !type:Bool
+        true
   - type: Butcherable
     spawned:
     - id: FoodHivelordRemains
@@ -307,6 +317,8 @@
         15
       AggroVisionRadius: !type:Single
         15
+      NavSmash: !type:Bool
+        true
   - type: TimedDespawn
     lifetime: 100
 
@@ -336,7 +348,12 @@
     entity: FoodHivelordRemainsInert
     stage: 1
   - type: StaticPrice
-    price: 1500
+    price: 5000
+  - type: Tag
+    tags:
+    - HivelordRemains
+    - Meat
+    - Raw
 
 - type: entity
   id: FoodHivelordRemainsInert

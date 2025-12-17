@@ -68,8 +68,7 @@ public sealed class HealingSystem : EntitySystem
             {
                 var popup = (args.User == target.Owner)
                     ? Loc.GetString("medical-item-stop-bleeding-self")
-                    : Loc.GetString("medical-item-stop-bleeding",
-                        ("target", Identity.Entity(target.Owner, EntityManager)));
+                    : Loc.GetString("medical-item-stop-bleeding", ("target", Identity.Entity(target.Owner, EntityManager)));
                 _popupSystem.PopupClient(popup, target, args.User);
             }
         }
@@ -78,11 +77,7 @@ public sealed class HealingSystem : EntitySystem
         if (healing.ModifyBloodLevel != 0 && bloodstream != null)
             _bloodstreamSystem.TryModifyBloodLevel((target.Owner, bloodstream), healing.ModifyBloodLevel);
 
-        if (!_damageable.TryChangeDamage(target.Owner,
-                healing.Damage * _damageable.UniversalTopicalsHealModifier,
-                out var healed,
-                true,
-                origin: args.Args.User) && healing.BloodlossModifier != 0)
+        if (!_damageable.TryChangeDamage(target.Owner, healing.Damage * _damageable.UniversalTopicalsHealModifier, out var healed, true, origin: args.Args.User) && healing.BloodlossModifier != 0)
             return;
 
         var total = healed.GetTotal();
@@ -120,12 +115,13 @@ public sealed class HealingSystem : EntitySystem
 
         if (!args.Repeat)
         {
-            _popupSystem.PopupClient(Loc.GetString("medical-item-finished-using", ("item", args.Used)),
-                target.Owner,
-                args.User);
+            _popupSystem.PopupClient(Loc.GetString("medical-item-finished-using", ("item", args.Used)), target.Owner, args.User);
             return;
         }
 
+        // Update our self heal delay so it shortens as we heal more damage.
+        if (args.User == target.Owner)
+            args.Args.Delay = healing.Delay * GetScaledHealingPenalty(target.Owner, healing.SelfHealPenaltyMultiplier);
     }
 
     private bool HasDamage(Entity<HealingComponent> healing, Entity<DamageableComponent> target)
@@ -144,11 +140,8 @@ public sealed class HealingSystem : EntitySystem
         {
             // Is ent missing blood that we can restore?
             if (healing.Comp.ModifyBloodLevel > 0
-                && _solutionContainerSystem.ResolveSolution(target.Owner,
-                    bloodstream.BloodSolutionName,
-                    ref bloodstream.BloodSolution,
-                    out var bloodSolution)
-                && bloodSolution.Volume < bloodSolution.MaxVolume)
+                && _solutionContainerSystem.ResolveSolution(target.Owner, bloodstream.BloodSolutionName, ref bloodstream.BloodSolution, out var bloodSolution)
+                && _bloodstreamSystem.GetBloodLevel((target, bloodstream)) < 1)
             {
                 return true;
             }
@@ -211,9 +204,7 @@ public sealed class HealingSystem : EntitySystem
 
         if (isNotSelf)
         {
-            var msg = Loc.GetString("medical-item-popup-target",
-                ("user", Identity.Entity(user, EntityManager)),
-                ("item", healing.Owner));
+            var msg = Loc.GetString("medical-item-popup-target", ("user", Identity.Entity(user, EntityManager)), ("item", healing.Owner));
             _popupSystem.PopupEntity(msg, target, target, PopupType.Medium);
         }
 
@@ -222,13 +213,7 @@ public sealed class HealingSystem : EntitySystem
             : healing.Comp.Delay * GetScaledHealingPenalty(target, healing.Comp.SelfHealPenaltyMultiplier);
 
         var doAfterEventArgs =
-            new DoAfterArgs(EntityManager,
-                user,
-                delay,
-                new HealingDoAfterEvent(),
-                target,
-                target: target,
-                used: healing)
+            new DoAfterArgs(EntityManager, user, delay, new HealingDoAfterEvent(), target, target: target, used: healing)
             {
                 // Didn't break on damage as they may be trying to prevent it and
                 // not being able to heal your own ticking damage would be frustrating.
@@ -255,9 +240,9 @@ public sealed class HealingSystem : EntitySystem
         if (!_mobThresholdSystem.TryGetThresholdForState(ent, MobState.Critical, out var amount, ent.Comp2))
             return 1;
 
-        var percentDamage = (float) (ent.Comp1.TotalDamage / amount);
-
+        var percentDamage = (float)(ent.Comp1.TotalDamage / amount);
         //basically make it scale from 1 to the multiplier.
+
         var output = percentDamage * (mod - 1) + 1;
         return Math.Max(output, 1);
     }

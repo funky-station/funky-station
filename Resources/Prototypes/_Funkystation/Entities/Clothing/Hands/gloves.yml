@@ -41,8 +41,8 @@
 - type: entity
   parent: ClothingHandsGlovesColorYellow
   id: ClothingHandsGlovesChiefEngineerInsuls
-  name: chief engineer's insulated gloves
-  description: High-quality, heavy-duty insulated gloves. These'll keep you safe from just about any voltage.
+  name: chief engineer's arc gloves
+  description: High-quality, heavy-duty insulated arc gloves. These'll keep you safe from just about any voltage.
   components:
   - type: Sprite
     sprite: _Funkystation/Clothing/Hands/Gloves/ceinsuls.rsi
@@ -58,7 +58,7 @@
 - type: entity
   parent: ClothingHandsGlovesColorYellow
   id: ClothingHandsGlovesArcGloves
-  name: insulated arc gloves
+  name: arc gloves
   description: Industrial-grade arc gloves designed to keep you safe from any high voltages you may encounter. Or, at least, make your funeral open casket.
   components:
   - type: Sprite

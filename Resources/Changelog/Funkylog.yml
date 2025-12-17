@@ -6696,3 +6696,9 @@ Entries:
       message: Added more maints near cargo
   id: 782
   time: '2025-12-17T19:20:13.0000000+00:00'
+- author: Terkala
+  changes:
+    - type: Fix
+      message: Fixed issues identified in last zombie rework playtest
+  id: 783
+  time: '2025-12-17T23:34:01.0000000+00:00'

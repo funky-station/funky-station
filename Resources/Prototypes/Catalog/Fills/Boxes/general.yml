@@ -41,6 +41,7 @@
 # SPDX-FileCopyrightText: 2025 Janet Blackquill <uhhadd@gmail.com>
 # SPDX-FileCopyrightText: 2025 QueerCats <jansencheng3@gmail.com>
 # SPDX-FileCopyrightText: 2025 Rainbow <ev0lvkitten@gmail.com>
+# SPDX-FileCopyrightText: 2025 Skye <57879983+Rainbeon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 Zergologist <114537969+Chedd-Error@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
@@ -257,14 +258,22 @@
   name: inflatable wall box
   parent: BoxCardboard
   id: BoxInflatable
-  description: Inflatable walls are not to be used as floatation devices.
+  description: A box of self-inflating walls and doors. Highly compact and great for 'temporary' fixes.
   components:
+  - type: Item
+    size: Normal
+    shape:
+    - 0,0,1,1
+  - type: Storage
+    maxItemSize: Small
+    grid:
+    - 0,0,1,1
   - type: StorageFill
     contents:
         - id: InflatableWallStack
-          amount: 2
+          amount: 3
         - id: InflatableDoorStack
-          amount: 2
+          amount: 1
   - type: Sprite
     layers:
       - state: box

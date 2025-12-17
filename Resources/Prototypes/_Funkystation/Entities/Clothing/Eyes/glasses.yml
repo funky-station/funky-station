@@ -1,5 +1,7 @@
+# SPDX-FileCopyrightText: 2025 A-Loose-Goose <237446272+A-Loose-Goose@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 ALooseGoose <ALooseGoosey@gmail.com>
 # SPDX-FileCopyrightText: 2025 AtlasHD <99688062+AtlasHDD@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 DESKTOP-0V0K4HQ\Rosy <rosysaturniidae@gmail.com>
 # SPDX-FileCopyrightText: 2025 Teasq <Xerithin@gmail.com>
 # SPDX-FileCopyrightText: 2025 mkanke-real <mikekanke@gmail.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
@@ -216,3 +218,67 @@
     - WhitelistChameleon
     - HudMedical
     - HamsterWearable
+
+- type: entity
+  parent: [ClothingEyesBase, ShowMedicalIcons]
+  id: ClothingEyesHudParamedic
+  name: paramedic hud
+  description: A heads-up display in paramedic styling that scans humanoids in view and provides accurate data about their health status.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Eyes/Hud/paramedic_hud.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Eyes/Hud/paramedic_hud.rsi
+  - type: Tag
+    tags:
+    - HudMedical
+
+- type: entity
+  parent: [ClothingEyesHudMedical, ClothingHeadEyeBaseFlippable]
+  id: ClothingEyesHudParamedicEyepatch
+  name: paramedic hud eyepatch
+  description: A heads-up display in paramedic styling that scans humanoids in view and provides accurate data about their health status. For true patriots.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Eyes/Hud/paramedic_eyepatch.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Eyes/Hud/paramedic_eyepatch.rsi
+
+- type: entity
+  parent: [ ClothingEyesGlasses, ShowMedicalIcons ]
+  id: ClothingEyesGlassesParamedic
+  name: paramedic-issue glasses
+  description: Upgraded glasses that provide a medical HUD, styled for paramedics.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Eyes/Glasses/paramedic_glasses.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Eyes/Glasses/paramedic_glasses.rsi
+  - type: VisionCorrection
+  - type: Construction
+    graph: GlassesMed
+    node: medGlasses
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+    - HudMedical
+    - HamsterWearable
+
+- type: entity
+  parent: [ ClothingEyesGlassesJamjar, ShowMedicalIcons ]
+  id: ClothingEyesGlassesParamedicJamjar
+  name: paramedic-issue jamjar glasses
+  description: These retro glasses remind you of people screaming about blood and gunshots.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Eyes/Jamjars/paramedic_jar.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Eyes/Jamjars/paramedic_jar.rsi
+  - type: VisionCorrection
+  - type: Construction
+    graph: jamjarGlassesMed
+    node: medjarGlasses
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+    - HudMedical

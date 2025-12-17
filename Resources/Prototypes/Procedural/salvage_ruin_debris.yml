@@ -1,0 +1,61 @@
+# SPDX-FileCopyrightText: 2025 Terkala <appleorange64@gmail.com>
+#
+# SPDX-License-Identifier: MIT
+
+# Configuration for debris entities that spawn on salvage ruins.
+# These entities supplement the biome system spawning and are placed on empty floor tiles.
+- type: salvageRuinDebris
+  id: Default
+  entries:
+  # Structural debris
+  - proto: Girder
+    chance: 0.15
+  - proto: Grille
+    chance: 0.10
+  - proto: GrilleBroken
+    chance: 0.15
+  
+  # Furniture and storage
+  - proto: Table
+    chance: 0.10
+  - proto: Rack
+    chance: 0.10
+  - proto: ClosetMaintenanceFilledRandom
+    chance: 0.20
+  
+  # Equipment and containers
+  - proto: WeldingFuelTankFull
+    chance: 0.05
+  - proto: SalvageCanisterSpawner
+    chance: 0.10
+  
+  # Spawners for dynamic content
+  - proto: SalvageSpawnerMobMagnet100
+    chance: 0.20 
+  - proto: SalvageSpawnerMobShark
+    chance: 0.05 
+  - proto: SalvageSpawnerScrapCommon
+    chance: 0.24 # Metal, glass, plastic scrap
+  - proto: SalvageSpawnerScrapValuable
+    chance: 0.08 # Steel, plasma, plasteel scrap
+  - proto: SalvageSpawnerTreasure
+    chance: 0.08
+  - proto: SalvageSpawnerEquipment
+    chance: 0.08
+  - proto: SalvageSpawnerTreasureValuable
+    chance: 0.08
+  - proto: SalvageSpawnerEquipmentValuable
+    chance: 0.08
+
+  # Destroyed/damaged generators
+  - proto: ScrapGeneratorUraniumLeaking
+    chance: 0.05 # Leaking S.U.P.E.R.P.A.C.M.A.N. (radioactive!)
+  - proto: ScrapGeneratorUranium
+    chance: 0.05 # Destroyed S.U.P.E.R.P.A.C.M.A.N.
+  - proto: ScrapGeneratorPlasmaLeaking
+    chance: 0.05 # Leaking P.A.C.M.A.N.
+  - proto: ScrapGeneratorPlasma
+    chance: 0.05 # Old P.A.C.M.A.N.
+  - proto: ScrapGeneratorFrame
+    chance: 0.05 # Generator frame (stripped)
+

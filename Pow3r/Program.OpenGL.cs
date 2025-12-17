@@ -72,10 +72,12 @@ namespace Pow3r
             var t = drawData.DisplayPos.Y;
             var b = drawData.DisplayPos.Y + drawData.DisplaySize.Y;
 
-            var matrix = Matrix4x4.CreateOrthographicOffCenter(l, r, b, t, -1, 1);
-
             GL.MatrixMode(MatrixMode.Projection);
-            GL.LoadMatrix((float*) &matrix);
+            GL.LoadIdentity();
+            GL.Ortho(l, r, b, t, -1, 1);
+
+            GL.MatrixMode(MatrixMode.Modelview);
+            GL.LoadIdentity();
 
             var clipOff = drawData.DisplayPos;
             var clipScale = drawData.FramebufferScale;

@@ -1,5 +1,4 @@
 # SPDX-FileCopyrightText: 2025 Terkala <appleorange64@gmail.com>
-# SPDX-FileCopyrightText: 2025 terkala <appleorange64@gmail.com>
 #
 # SPDX-License-Identifier: MIT
 
@@ -8,9 +7,9 @@
 
 - type: salvageMagnetRuinConfig
   id: Default
-  floodFillPoints: 20 #if you increase this, also increase the ruinSpawnDistance, otherwise the ruins will spawn ontop of the magnet
-  ruinSpawnDistance: 80  # Distance in tiles from magnet where ruins spawn
-  wallDestroyChance: 0.15 #chance of a wall being destroyed and not spawned
+  floodFillPoints: 25 #if you increase this, also increase the ruinSpawnDistance, otherwise the ruins will spawn ontop of the magnet
+  ruinSpawnDistance: 82  # Distance in tiles from magnet where ruins spawn
+  wallDestroyChance: 0.20 #chance of a wall being destroyed and not spawned
   windowDamageChance: 0.05 #chance of a window being damaged and not spawned
   floorToLatticeChance: 0.05 #chance of a floor tile being replaced with lattice, makes it look more damaged
   # Path costs for flood-fill algorithm (higher = more expensive to traverse)
@@ -25,5 +24,5 @@
   grilleCost: 4
   defaultTileCost: 1
   spaceCost: 9999  # Space tiles (not in map) - very high cost makes them impassable
-  floodFillStages: 5  # Number of flood-fill stages to create irregular branching shapes. It does the flood fill this many times on the edges to construct the ruin.
+  floodFillStages: 7  # Number of flood-fill stages to create irregular branching shapes. It does the flood fill this many times on the edges to construct the ruin.
 

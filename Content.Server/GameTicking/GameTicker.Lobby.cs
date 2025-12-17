@@ -96,7 +96,7 @@ namespace Content.Server.GameTicking
             {
                 foundOne = true;
                 if (stationNames.Length > 0)
-                        stationNames.Append('\n');
+                    stationNames.Append('\n');
 
                 stationNames.Append(meta.EntityName);
             }
@@ -107,8 +107,8 @@ namespace Content.Server.GameTicking
                                     Loc.GetString("game-ticker-no-map-selected"));
             }
 
-            var gmTitle = Loc.GetString(preset.ModeTitle);
-            var desc = Loc.GetString(preset.Description);
+            var gmTitle = (Decoy == null) ? Loc.GetString(preset.ModeTitle) : Loc.GetString(Decoy.ModeTitle);
+            var desc = (Decoy == null) ? Loc.GetString(preset.Description) : Loc.GetString(Decoy.Description);
             return Loc.GetString(
                 RunLevel == GameRunLevel.PreRoundLobby
                     ? "game-ticker-get-info-preround-text"
@@ -142,7 +142,7 @@ namespace Content.Server.GameTicking
 
         private TickerLobbyInfoEvent GetInfoMsg()
         {
-            return new (GetInfoText());
+            return new(GetInfoText());
         }
 
         private void UpdateLateJoinStatus()
@@ -192,7 +192,6 @@ namespace Content.Server.GameTicking
                 if (!_playerManager.TryGetSessionById(playerUserId, out var playerSession))
                     continue;
                 RaiseNetworkEvent(GetStatusMsg(playerSession), playerSession.Channel);
-                RaiseLocalEvent(new PlayerToggleReadyEvent(playerSession));
             }
         }
 
@@ -209,20 +208,8 @@ namespace Content.Server.GameTicking
                 return;
             }
 
-            // Ensure that the player has a character enabled with a compatible job that can even join.
-            var readyPossible = (_prefsManager.GetPreferencesOrNull(player.UserId)?.JobPrioritiesFiltered().Count ?? 0) != 0;
-
-            var newStatus = ready && readyPossible
-                ? PlayerGameStatus.ReadyToPlay
-                : PlayerGameStatus.NotReadyToPlay;
-
-            if (newStatus == _playerGameStatuses[player.UserId])
-                return;
-
-            _playerGameStatuses[player.UserId] = newStatus;
-
+            _playerGameStatuses[player.UserId] = ready ? PlayerGameStatus.ReadyToPlay : PlayerGameStatus.NotReadyToPlay;
             RaiseNetworkEvent(GetStatusMsg(player), player.Channel);
-            RaiseLocalEvent(new PlayerToggleReadyEvent(player));
             // update server info to reflect new ready count
             UpdateInfoText();
         }
@@ -232,15 +219,5 @@ namespace Content.Server.GameTicking
 
         public bool UserHasJoinedGame(NetUserId userId)
             => PlayerGameStatuses.TryGetValue(userId, out var status) && status == PlayerGameStatus.JoinedGame;
-    }
-
-    public sealed class PlayerToggleReadyEvent : EntityEventArgs
-    {
-        public readonly ICommonSession PlayerSession;
-
-        public PlayerToggleReadyEvent(ICommonSession playerSession)
-        {
-            PlayerSession = playerSession;
-        }
     }
 }

@@ -49,6 +49,11 @@
     - Shock
 
 - type: damageContainer
+  id: SiliconRadiation
+  supportedGroups:
+  - Radiation
+
+- type: damageContainer
   id: Shield
   supportedGroups:
     - Brute

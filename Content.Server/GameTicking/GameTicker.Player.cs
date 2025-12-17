@@ -72,7 +72,6 @@ namespace Content.Server.GameTicking
             {
                 case SessionStatus.Connected:
                 {
-                    _userDb.ClientConnected(session); // Surely moving this here won't break anything? :clueless:
                     AddPlayerToDb(args.Session.UserId.UserId);
 
                     // Always make sure the client has player data.
@@ -82,6 +81,10 @@ namespace Content.Server.GameTicking
                         data.Mind = mindId;
                         session.Data.ContentDataUncast = data;
                     }
+
+                    // Make the player actually join the game.
+                    // timer time must be > tick length
+                    Timer.Spawn(0, () => _playerManager.JoinGame(args.Session));
 
                     var record = await _db.GetPlayerRecordByUserId(args.Session.UserId);
                     var firstConnection = record != null &&
@@ -109,6 +112,8 @@ namespace Content.Server.GameTicking
 
                 case SessionStatus.InGame:
                 {
+                    _userDb.ClientConnected(session);
+
                     if (mind == null)
                     {
                         if (LobbyEnabled)
@@ -153,8 +158,7 @@ namespace Content.Server.GameTicking
                         _pvsOverride.RemoveSessionOverride(mindId.Value, session);
                     }
 
-                    if (_playerGameStatuses.ContainsKey(session.UserId)) // Goobstation - Queue
-                        _userDb.ClientDisconnected(session);
+                    _userDb.ClientDisconnected(session);
                     break;
                 }
             }

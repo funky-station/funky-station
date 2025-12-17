@@ -1,11 +1,3 @@
-// SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
-// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
-//
-// SPDX-License-Identifier: MIT
-
 using Content.Server.GameTicking.Rules;
 using Content.Server.Maps;
 using Content.Shared.GridPreloader.Prototypes;
@@ -42,7 +34,11 @@ public sealed partial class LoadMapRuleComponent : Component
     /// <summary>
     /// A <see cref="PreloadedGridPrototype"/> to move to a new map.
     /// If there are no instances left nothing is done.
+    /// <para>
+    /// This is deprecated. Do not create new content that uses this field,
+    /// and migrate existing content to be loaded dynamically during the round.
+    /// </para>
     /// </summary>
-    [DataField]
+    [DataField, Obsolete("Do not pre-load grids. This causes the server to have to keep that grid loaded in memory during the entire round, even if that grid is never summoned to the playspace.")]
     public ProtoId<PreloadedGridPrototype>? PreloadedGrid;
 }

@@ -129,3 +129,12 @@
 
 - type: Tag
   id: Unedible
+
+- type: Tag
+  id: ForceStandOnRevive
+
+- type: Tag
+  id: SiliconMob
+
+- type: Tag
+  id: IPCDrinkBlacklist

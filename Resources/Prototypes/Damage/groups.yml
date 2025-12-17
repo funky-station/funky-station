@@ -58,3 +58,9 @@
   name: damage-group-metaphysical
   damageTypes:
   - Holy
+
+- type: damageGroup
+  id: Radiation
+  name: damage-group-radiation
+  damageTypes:
+    - Radiation

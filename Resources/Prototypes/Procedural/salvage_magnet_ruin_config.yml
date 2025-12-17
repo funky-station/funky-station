@@ -9,9 +9,9 @@
   id: Default
   floodFillPoints: 25 #if you increase this, also increase the ruinSpawnDistance, otherwise the ruins will spawn ontop of the magnet
   ruinSpawnDistance: 82  # Distance in tiles from magnet where ruins spawn
-  wallDestroyChance: 0.20 #chance of a wall being destroyed and not spawned
-  windowDamageChance: 0.05 #chance of a window being damaged and not spawned
-  floorToLatticeChance: 0.05 #chance of a floor tile being replaced with lattice, makes it look more damaged
+  wallDestroyChance: 0.30 #chance of a wall being destroyed and not spawned
+  windowDamageChance: 0.10 #chance of a window being damaged and not spawned
+  floorToLatticeChance: 0.15 #chance of a floor tile being replaced with lattice, makes it look more damaged
   # Path costs for flood-fill algorithm (higher = more expensive to traverse)
   # the way floodfill works, it costs this much to traverse each tile
   wallCost: 20

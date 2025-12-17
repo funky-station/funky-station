@@ -347,7 +347,7 @@
   parent: ClothingHandsBase
   id: ClothingHandsGlovesColorYellow
   name: insulated gloves
-  description: These gloves will protect the wearer from electric shocks.
+  description: These gloves will protect the wearer from low-voltage electric shocks. Try not to touch the yellow or orange ones, though...
   components:
   - type: FingerprintMask
   - type: Sprite

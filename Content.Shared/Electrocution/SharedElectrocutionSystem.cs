@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2021 Pieter-Jan Briers <pieterjan.briers@gmail.com>
+    // SPDX-FileCopyrightText: 2021 Pieter-Jan Briers <pieterjan.briers@gmail.com>
 // SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2022 Emisse <99158783+Emisse@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2022 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
@@ -89,6 +89,8 @@ namespace Content.Shared.Electrocution
 
         private void OnInsulatedElectrocutionAttempt(EntityUid uid, InsulatedComponent insulated, ElectrocutionAttemptEvent args)
         {
+            if (args.SiemensCoefficient > insulated.MaxSiemensThreshold)
+                return;
             args.SiemensCoefficient *= insulated.Coefficient;
         }
     }

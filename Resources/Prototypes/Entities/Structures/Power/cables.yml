@@ -138,6 +138,8 @@
     range: 2
     sound:
       path: /Audio/Ambience/Objects/emf_buzz.ogg
+  - type: Electrified
+    siemensCoefficient: 3
 
 - type: entity
   id: CableHVUncuttable
@@ -192,6 +194,8 @@
   - type: CableVisualizer
     statePrefix: mvcable_
     extraLayerPrefix: mvstripes_
+  - type: Electrified
+    siemensCoefficient: 2
 
 - type: entity
   id: CableMVUncuttable

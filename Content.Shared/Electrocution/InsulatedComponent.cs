@@ -23,5 +23,11 @@ namespace Content.Shared.Electrocution
         /// </summary>
         [DataField, AutoNetworkedField]
         public float Coefficient { get; set; } = 0f;
+
+        /// <summary>
+        /// Won't insulate beyond this Siemens value
+        /// </summary>
+        [DataField, AutoNetworkedField]
+        public float MaxSiemensThreshold = 1f;
     }
 }

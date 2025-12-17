@@ -35,3 +35,38 @@
     component:
     - type: SurgerySpeedModifier
       speedModifier: 1.75
+
+# Super Duper Mega Hyper Insuls
+- type: entity
+  parent: ClothingHandsGlovesColorYellow
+  id: ClothingHandsGlovesChiefEngineerInsuls
+  name: chief engineer's insulated gloves
+  description: High-quality, heavy-duty insulated gloves. These'll keep you safe from just about any voltage.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Hands/Gloves/ceinsuls.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Hands/Gloves/ceinsuls.rsi
+  - type: Insulated
+    coefficient: 0.0
+    maxSiemensThreshold: 4
+  - type: Fiber
+    fiberMaterial: fibers-insulative
+    fiberColor: fibers-black
+
+- type: entity
+  parent: ClothingHandsGlovesColorYellow
+  id: ClothingHandsGlovesArcGloves
+  name: insulated arc gloves
+  description: Industrial-grade arc gloves designed to keep you safe from any high-voltages you may encounter. Or, at least, make your funeral open casket.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Hands/Gloves/arcgloves.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Hands/Gloves/arcgloves.rsi
+  - type: Insulated
+    coefficient: 0.0
+    maxSiemensThreshold: 4
+  - type: Fiber
+    fiberMaterial: fibers-insulative
+    fiberColor: fibers-white

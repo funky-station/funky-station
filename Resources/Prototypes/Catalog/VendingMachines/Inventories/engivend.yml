@@ -30,6 +30,7 @@
   id: EngiVendInventory
   startingInventory:
     ClothingEyesGlassesMeson: 4
+    ClothingHandsGlovesArcGloves: 1
     ClothingHeadHatWelding: 6
     HolotapeProjector: 6
     CrowbarYellow: 8

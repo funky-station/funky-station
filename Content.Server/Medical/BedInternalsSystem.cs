@@ -12,6 +12,9 @@ using Robust.Shared.Containers;
 using Robust.Shared.Audio;
 using Robust.Shared.Utility;
 using Robust.Server.Audio;
+using Content.Shared.Medical;
+using Robust.Server.GameObjects;
+
 namespace Content.Server.Medical.Systems;
 
 public sealed class BedInternalsSystem : EntitySystem
@@ -20,6 +23,7 @@ public sealed class BedInternalsSystem : EntitySystem
     [Dependency] private readonly InventorySystem _inventory = default!;
     [Dependency] private readonly GasTankSystem _gasTank = default!;
     [Dependency] private readonly AudioSystem _audio = default!;
+    [Dependency] private readonly AppearanceSystem _appearance = default!;
     public override void Initialize()
     {
         SubscribeLocalEvent<BedInternalsComponent, GetVerbsEvent<InteractionVerb>>(OnGetVerbs);
@@ -55,6 +59,8 @@ public sealed class BedInternalsSystem : EntitySystem
 
         comp.CachedTank = args.Entity;
 
+        _appearance.SetData(uid, BedInternalsVisuals.TankInserted, true);
+
         if (comp.Enabled && TryComp<StrapComponent>(uid, out var strap))
         {
             foreach (var patient in strap.BuckledEntities)
@@ -71,6 +77,8 @@ public sealed class BedInternalsSystem : EntitySystem
             return;
 
         comp.CachedTank = null;
+
+        _appearance.SetData(uid, BedInternalsVisuals.TankInserted, false);
 
         if (comp.Enabled)
         {

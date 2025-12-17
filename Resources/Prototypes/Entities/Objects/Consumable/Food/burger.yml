@@ -434,7 +434,7 @@
       food:
         maxVol: 25
         reagents:
-        - ReagentId: Bicaridine #keeping it somewhat consistent with the meat itself
+        - ReagentId: Probital #keeping it somewhat consistent with the meat itself
           Quantity: 7
         - ReagentId: Vitamin
           Quantity: 12

@@ -41,6 +41,7 @@ public sealed class ChemistryGuideDataSystem : SharedChemistryGuideDataSystem
 
         SubscribeNetworkEvent<ReagentGuideRegistryChangedEvent>(OnReceiveRegistryUpdate);
         SubscribeLocalEvent<PrototypesReloadedEventArgs>(OnPrototypesReloaded);
+        OnPrototypesReloaded(null);
     }
 
     private void OnReceiveRegistryUpdate(ReagentGuideRegistryChangedEvent message)

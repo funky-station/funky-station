@@ -405,7 +405,7 @@
         - ReagentSlimePax
         - ReagentSlimeNocturine
         - ReagentSlimeTHC
-        - ReagentSlimeBicaridine
+        - ReagentSlimeProbital
         - ReagentSlimeToxin
         - ReagentSlimeNapalm
         - ReagentSlimeOmnizine
@@ -502,14 +502,14 @@
         color: "#808080"
 
 - type: entity
-  id: ReagentSlimeBicaridine
+  id: ReagentSlimeProbital
   parent: ReagentSlime
-  suffix: Bicaridine
+  suffix: Probital
   components:
   - type: Bloodstream
     bloodReagents:
       reagents:
-      - ReagentId: Bicaridine
+      - ReagentId: Probital
         Quantity: 1
   - type: PointLight
     color: "#ffaa00"

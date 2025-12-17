@@ -481,7 +481,7 @@
         visualType: Medium
         messages: [ "effect-sleepy" ]
         probability: 0.1
-      - !type:MovespeedModifier
+      - !type:MovementSpeedModifier
         conditions:
         - !type:ReagentCondition
           reagent: BZ
@@ -623,7 +623,7 @@
         conditions:
         - !type:OrganType
           type: Thaven
-      - !type:NitriumMovespeedModifier
+      - !type:MovementSpeedModifier
         conditions:
         - !type:ReagentCondition
           reagent: Nitrium
@@ -631,7 +631,7 @@
           max: 8
         walkSpeedModifier: 1.25
         sprintSpeedModifier: 1.25
-      - !type:NitriumMovespeedModifier
+      - !type:MovementSpeedModifier
         conditions:
         - !type:ReagentCondition
           reagent: Nitrium
@@ -639,7 +639,7 @@
           max: 12
         walkSpeedModifier: 1.4
         sprintSpeedModifier: 1.4
-      - !type:NitriumMovespeedModifier
+      - !type:MovementSpeedModifier
         conditions:
         - !type:ReagentCondition
           reagent: Nitrium

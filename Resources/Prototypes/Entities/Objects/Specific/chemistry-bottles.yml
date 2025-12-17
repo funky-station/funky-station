@@ -274,7 +274,7 @@
 
 - type: entity
   id: ChemistryBottleProbital
-  suffix: bicaridine
+  suffix: probital
   parent: BaseChemistryBottleFilled
   components:
   - type: Label
@@ -349,7 +349,7 @@
 
 - type: entity
   id: ChemistryBottleAiuri
-  suffix: dermaline
+  suffix: aiuri
   parent: BaseChemistryBottleFilled
   components:
   - type: Label
@@ -589,7 +589,7 @@
 
 - type: entity
   id: ChemistryBottleLenturi
-  suffix: kelotane
+  suffix: lenturi
   parent: BaseChemistryBottleFilled
   components:
   - type: Label

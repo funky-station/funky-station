@@ -75,14 +75,12 @@
   parent: [ClothingHandsGlovesColorBlack, BaseMajorContraband]
   id: ClothingHandsGlovesCombatBloodred
   name: blood-red combat gloves
-  description: These tactical gloves are shock-resistant, with high grip palms and padded knuckles. You feel unstoppable.
+  description: These tactical gloves are resistant to low voltage shocks, with high grip palms and padded knuckles. You feel unstoppable.
   components:
   - type: Sprite
     sprite: _Funkystation/Clothing/Hands/Gloves/bloodredcombatgloves.rsi
   - type: Clothing
     sprite: _Funkystation/Clothing/Hands/Gloves/bloodredcombatgloves.rsi
   - type: Insulated
-    coefficient: 0.0
-    maxSiemensThreshold: 4
   - type: Fiber
     fiberMaterial: fibers-insulative

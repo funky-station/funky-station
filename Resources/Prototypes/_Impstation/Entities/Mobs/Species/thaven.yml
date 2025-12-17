@@ -30,7 +30,6 @@
       types:
         Asphyxiation: -1.0
   - type: Sprite
-    noRot: true
     drawdepth: Mobs
     scale: 1, 1.05
   - type: Body

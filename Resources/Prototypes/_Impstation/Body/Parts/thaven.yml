@@ -61,7 +61,7 @@
   parent: [PartThaven, BaseGroin]
   components:
   - type: Sprite
-    state: "groin_m"
+    state: "groin"
   - type: Extractable
     juiceSolution:
       reagents:

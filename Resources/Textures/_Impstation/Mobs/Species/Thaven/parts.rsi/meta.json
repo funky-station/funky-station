@@ -51,6 +51,10 @@
       "directions": 4
     },
     {
+      "name": "groin",
+      "directions": 4
+    },
+    {
       "name": "eyes",
       "directions": 4
     }

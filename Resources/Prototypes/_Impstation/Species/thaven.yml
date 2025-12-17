@@ -28,13 +28,19 @@
 - type: speciesBaseSprites
   id: MobThavenSprites
   sprites:
-    Hair: MobHumanoidAnyMarking
-    Eyes: MobThavenEyes
+    Special: MobHumanoidAnyMarking
     Head: MobThavenHead
+    Face: MobHumanoidAnyMarking
+    Hair: MobHumanoidAnyMarking
+    FacialHair: MobHumanoidAnyMarking
+    Snout: MobHumanoidAnyMarking
+    Underwear: MobHumanoidAnyMarking
+    Undershirt: MobHumanoidAnyMarking
+    Chest: MobThavenChest
+    Groin: MobThavenGroin
+    Eyes: MobThavenEyes
     HeadTop: MobHumanoidAnyMarking
     HeadSide: MobHumanoidAnyMarking
-    Tail: MobHumanoidAnyMarking
-    Chest: MobThavenTorso
     LArm: MobThavenLArm
     RArm: MobThavenRArm
     LHand: MobThavenLHand
@@ -43,6 +49,7 @@
     RLeg: MobThavenRLeg
     LFoot: MobThavenLFoot
     RFoot: MobThavenRFoot
+    Tail: MobHumanoidAnyMarking
 
 - type: markingPoints
   id: MobThavenMarkingLimits
@@ -80,7 +87,7 @@
 - type: humanoidBaseSprite
   id: MobThavenEyes
   baseSprite:
-    sprite: _Impstation/Mobs/Species/Thaven/parts.rsi
+    sprite: _Impstation/Mobs/Species/Thaven/eyes.rsi
     state: eyes
 
 - type: humanoidBaseSprite
@@ -102,23 +109,40 @@
     state: head
 
 - type: humanoidBaseSprite
-  id: MobThavenTorso
+  id: MobThavenChest
   baseSprite:
     sprite: _Impstation/Mobs/Species/Thaven/parts.rsi
     state: chest
 
 - type: humanoidBaseSprite
-  id: MobThavenTorsoMale
+  id: MobThavenChestMale
   baseSprite:
     sprite: _Impstation/Mobs/Species/Thaven/parts.rsi
     state: chest
 
 - type: humanoidBaseSprite
-  id: MobThavenTorsoFemale
+  id: MobThavenChestFemale
   baseSprite:
     sprite: _Impstation/Mobs/Species/Thaven/parts.rsi
     state: chest
 
+- type: humanoidBaseSprite
+  id: MobThavenGroin
+  baseSprite:
+    sprite: _Impstation/Mobs/Species/Thaven/parts.rsi
+    state: groin
+
+- type: humanoidBaseSprite
+  id: MobThavenGroinMale
+  baseSprite:
+    sprite: _Impstation/Mobs/Species/Thaven/parts.rsi
+    state: groin
+
+- type: humanoidBaseSprite
+  id: MobThavenGroinFemale
+  baseSprite:
+    sprite: _Impstation/Mobs/Species/Thaven/parts.rsi
+    state: groin
 
 - type: humanoidBaseSprite
   id: MobThavenLLeg

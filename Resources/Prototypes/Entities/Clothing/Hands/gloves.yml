@@ -374,8 +374,6 @@
   - type: Clothing
     sprite: Clothing/Hands/Gloves/mercbattle.rsi
   - type: Insulated
-    coefficient: 0.0
-    maxSiemensThreshold: 4
   - type: Butcherable
     butcheringType: Knife
     spawned:

@@ -116,6 +116,20 @@
   - type: Construction
     graph: bed
     node: medicalbed
+  - type: ItemSlots
+    slots:
+      gasTankSlot:
+        name: comp-gas-canister-slot-name-gas-tank
+        whitelist:
+          components:
+            - GasTank
+        insertOnInteract: true
+  - type: ContainerContainer
+    containers:
+      gasTankSlot: !type:ContainerSlot {}
+  - type: BedInternals
+    slot: gasTankSlot
+    maskPrototype: ClothingMaskBreathMedical
   - type: GuideHelp
     guides:
     - MedicalDoctor

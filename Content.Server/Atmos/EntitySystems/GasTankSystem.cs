@@ -53,6 +53,7 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Random;
 using Robust.Shared.Configuration;
+using Content.Shared.Buckle.Components;
 using Content.Shared.CCVar;
 
 namespace Content.Server.Atmos.EntitySystems
@@ -188,13 +189,18 @@ namespace Content.Server.Atmos.EntitySystems
                     ReleaseGas(gasTank);
                 }
 
-                if (comp.CheckUser)
+                if (comp.User != null)
                 {
-                    comp.CheckUser = false;
-                    if (Transform(uid).ParentUid != comp.User)
+                    var parent = Transform(uid).ParentUid;
+
+                    if (parent != comp.User)
                     {
-                        DisconnectFromInternals(gasTank);
-                        continue;
+                                if (parent != EntityUid.Invalid && comp.User != null && TryComp<BuckleComponent>(comp.User.Value, out var buckle) && buckle.BuckledTo == parent){}
+                        else
+                        {
+                            DisconnectFromInternals(gasTank);
+                            continue;
+                        }
                     }
                 }
 
@@ -279,18 +285,16 @@ namespace Content.Server.Atmos.EntitySystems
                 return;
 
             if (_internals.TryConnectTank((internalsUid.Value, internalsComp), owner))
+            {
                 component.User = internalsUid.Value;
+                component.CheckUser = false;
 
-            _actions.SetToggled(component.ToggleActionEntity, component.IsConnected);
+                component.ConnectStream = _audioSys.Stop(component.ConnectStream);
+                component.ConnectStream = _audioSys.PlayPvs(component.ConnectSound, owner)?.Entity;
 
-            // Couldn't toggle!
-            if (!component.IsConnected)
+                UpdateUserInterface(ent);
                 return;
-
-            component.ConnectStream = _audioSys.Stop(component.ConnectStream);
-            component.ConnectStream = _audioSys.PlayPvs(component.ConnectSound, owner)?.Entity;
-
-            UpdateUserInterface(ent);
+            }
         }
 
         public void DisconnectFromInternals(Entity<GasTankComponent> ent)

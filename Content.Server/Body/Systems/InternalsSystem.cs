@@ -130,6 +130,7 @@ public sealed class InternalsSystem : EntitySystem
         if (!Resolve(uid, ref internals, logMissing: false))
             return;
 
+
         // Toggle off if they're on
         if (AreInternalsWorking(internals))
         {
@@ -150,7 +151,15 @@ public sealed class InternalsSystem : EntitySystem
             return;
         }
 
-        var tank = FindBestGasTank(uid);
+        Entity<GasTankComponent>? tank = null;
+        if (internals.GasTankEntity != null && TryComp<GasTankComponent>(internals.GasTankEntity, out var preTank))
+        {
+            tank = (internals.GasTankEntity.Value, preTank);
+        }
+        else
+        {
+            tank = FindBestGasTank(uid);
+        }
 
         if (tank is null)
         {
@@ -211,10 +220,22 @@ public sealed class InternalsSystem : EntitySystem
 
     private void OnInhaleLocation(Entity<InternalsComponent> ent, ref InhaleLocationEvent args)
     {
-        if (AreInternalsWorking(ent))
+        var working = AreInternalsWorking(ent);
+        if (working)
         {
-            var gasTank = Comp<GasTankComponent>(ent.Comp.GasTankEntity!.Value);
-            args.Gas = _gasTank.RemoveAirVolume((ent.Comp.GasTankEntity.Value, gasTank), Atmospherics.BreathVolume);
+            var gasTankEnt = ent.Comp.GasTankEntity!.Value;
+            var gasTank = Comp<GasTankComponent>(gasTankEnt);
+            var removed = _gasTank.RemoveAirVolume((gasTankEnt, gasTank), Atmospherics.BreathVolume);
+            float plasma = 0;
+            try
+            {
+                plasma = removed[(int)Gas.Plasma];
+            }
+            catch
+            {
+                // ignore
+            }
+            args.Gas = removed;
             // TODO: Should listen to gas tank updates instead I guess?
             _alerts.ShowAlert(ent, ent.Comp.InternalsAlert, GetSeverity(ent));
         }
@@ -243,7 +264,9 @@ public sealed class InternalsSystem : EntitySystem
     public void DisconnectTank(Entity<InternalsComponent> ent)
     {
         if (TryComp(ent.Comp.GasTankEntity, out GasTankComponent? tank))
+        {
             _gasTank.DisconnectFromInternals((ent.Comp.GasTankEntity.Value, tank));
+        }
 
         ent.Comp.GasTankEntity = null;
         _alerts.ShowAlert(ent.Owner, ent.Comp.InternalsAlert, GetSeverity(ent.Comp));

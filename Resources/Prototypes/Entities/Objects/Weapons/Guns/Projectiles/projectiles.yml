@@ -334,7 +334,7 @@
         hard: false
   - type: Ammo
   - type: StaminaDamageOnCollide
-    damage: 33
+    damage: 25
   - type: Projectile
     impactEffect: BulletImpactEffectDisabler
     damage:

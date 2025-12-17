@@ -26,7 +26,7 @@
   id: Stunprod
   description: A stun prod for illegal incapacitation.
   components:
-  - type: Tag 
+  - type: Tag
     tags:
     - MakeshiftStunprod
   - type: Sprite
@@ -61,10 +61,10 @@
     angle: 60
     animation: WeaponArcThrust
   - type: StaminaDamageOnHit
-    damage: 40
+    damage: 35
     sound: /Audio/Weapons/egloves.ogg
   - type: StaminaDamageOnCollide
-    damage: 40
+    damage: 35
     sound: /Audio/Weapons/egloves.ogg
   - type: LandAtCursor # it deals stamina damage when thrown
   - type: Battery

@@ -114,10 +114,10 @@
     soundHit:
       collection: MetalThud #fs - Thwack
   - type: StaminaDamageOnHit
-    damage: 40 #fs - Stunbaton 2-hit stun
+    damage: 35 #fs - Stunbaton 2-hit stun
     sound: /Audio/Weapons/egloves.ogg
   - type: StaminaDamageOnCollide
-    damage: 40 #fs - Stunbaton 2-hit stun
+    damage: 35 #fs - Stunbaton 2-hit stun
     sound: /Audio/Weapons/egloves.ogg
   - type: LandAtCursor # it deals stamina damage when thrown
   - type: Battery

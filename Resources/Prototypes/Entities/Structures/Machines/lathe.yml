@@ -1403,6 +1403,7 @@
     - Brutepack
     - Ointment
     - Gauze
+    - CMBloodPack
     - HandLabeler
     - Defibrillator
     - HandheldHealthAnalyzer
@@ -1418,6 +1419,7 @@
     - Implanter
     - PillCanister
     - BodyBag
+    - CMIV
     - ChemistryEmptyBottle01
     - RollerBedSpawnFolded
     - CheapRollerBedSpawnFolded
@@ -1650,7 +1652,7 @@
     - ClothingUniformJumpskirtWarden
     - ClothingHeadHatParamedicsoft
     # Winter outfits
-    - ClothingOuterWinterCap
+    #- ClothingOuterWinterCap
     - ClothingOuterWinterCE
     - ClothingOuterWinterCMO
     - ClothingOuterWinterHoP
@@ -1679,7 +1681,7 @@
     - ClothingOuterWinterViro
     - ClothingOuterWinterSci
     - ClothingOuterWinterRobo
-    - ClothingOuterWinterSec
+    #- ClothingOuterWinterSec
     # Ties
     - ClothingNeckTieRed
     - ClothingNeckTieDet

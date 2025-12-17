@@ -33,15 +33,18 @@
 # SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2024 Ubaser <134914314+UbaserB@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 jellygato <aly.jellygato@gmail.com>
-# SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Dani <57107055+wgreen84@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 DevilishMilk <michaellapjr@gmail.com>
 # SPDX-FileCopyrightText: 2025 IronDragoon <8961391+IronDragoon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 IronDragoon <you@example.com>
+# SPDX-FileCopyrightText: 2025 MaiaArai <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Mish <bluscout78@yahoo.com>
 # SPDX-FileCopyrightText: 2025 Rainbow <ev0lvkitten@gmail.com>
 # SPDX-FileCopyrightText: 2025 Skye <57879983+Rainbeon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 Tiniest Shark <head.rebel@yahoo.com>
+# SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
@@ -74,7 +77,7 @@
       - id: Welder
       - id: Multitool
       #Goob-Station - changes made by Jellygato 7/13/24
-      - id: trayScanner
+      - id: ClothingHeadHatWelding
       - id: GasAnalyzer
 
 - type: entity
@@ -90,7 +93,7 @@
       - id: Multitool
       - id: HolofanProjector
       - id: GasAnalyzer
-      - id: trayScanner
+      - id: ClothingMaskWeldingGas
 
 - type: entityTable
   id: BeltSecurityEntityTable
@@ -148,8 +151,6 @@
         amount: 2
       - id: Ointment
         amount: 1
-      - id: Bloodpack
-        amount: 1
       - id: Gauze
       - id: EmergencyMedipen #You never know what people are going to latejoin into
 
@@ -162,7 +163,6 @@
     contents:
       - id: Brutepack
       - id: Ointment
-      - id: Bloodpack
       - id: Gauze
       - id: EmergencyMedipen
       - id: ParamedHypo

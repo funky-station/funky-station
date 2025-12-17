@@ -6642,3 +6642,15 @@ Entries:
       message: Annabelle pump no longer crashes client
   id: 777
   time: '2025-12-16T22:57:41.0000000+00:00'
+- author: AraiMaia, Orsoniks, ciaran
+  changes:
+    - type: Add
+      message: >-
+        Added CPR! Helps people in critical condition breathe, keeping them from
+        dying of airloss.
+    - type: Tweak
+      message: >-
+        Defibrillators no longer revive, instead only healing 100 airloss on
+        CRITICAL mobs. Instead, CPR now has a 5% chance to revive each pump.
+  id: 778
+  time: '2025-12-17T01:47:37.0000000+00:00'

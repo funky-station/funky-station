@@ -6670,3 +6670,15 @@ Entries:
       message: Tweaked Medical belt fills & NanoMed inventories
   id: 780
   time: '2025-12-17T02:18:16.0000000+00:00'
+- author: KittyCat432
+  changes:
+    - type: Add
+      message: Added Box back into the map pool.
+    - type: Tweak
+      message: Box's science department has received a massive overhaul.
+    - type: Tweak
+      message: Box's sec maints has received some touch ups.
+    - type: Tweak
+      message: Box's Evac has been moved south.
+  id: 781
+  time: '2025-12-17T11:06:52.0000000+00:00'

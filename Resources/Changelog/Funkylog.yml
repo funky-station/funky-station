@@ -6654,3 +6654,9 @@ Entries:
         CRITICAL mobs. Instead, CPR now has a 5% chance to revive each pump.
   id: 778
   time: '2025-12-17T01:47:37.0000000+00:00'
+- author: PurpleTranStar
+  changes:
+    - type: Remove
+      message: The Tripitaka has been removed.
+  id: 779
+  time: '2025-12-17T02:17:24.0000000+00:00'

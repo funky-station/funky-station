@@ -1,16 +1,18 @@
 uniform sampler2D SCREEN_TEXTURE;
 uniform lowp vec4 color;
 uniform lowp int lineCount;
-uniform lowp float scanlineIntensity; // 0 - 1
+uniform lowp float scanlineIntensity;
 uniform lowp float alpha;
 uniform lowp float distortionStrength;
-uniform lowp float flicker; // 0 - 1
+uniform lowp float flicker;
 uniform lowp float beamLength;
 uniform lowp float beamSpeed;
 
 const highp float PI = 3.14159265;
 
 void fragment() {
+    precision highp float;
+
     highp vec2 uv = FRAGCOORD.xy * SCREEN_PIXEL_SIZE.xy;
 
     highp vec2 center = uv - 0.5;
@@ -28,8 +30,9 @@ void fragment() {
     scanline = 1.0 - (scanline * scanlineIntensity);
 
     lowp vec3 finalColor = tinted * scanline;
-    lowp float flicker = flicker + (1- flicker) * sin(TIME * 50.0); // fuck the us
-    finalColor *= flicker;
+
+    lowp float flickerEffect = flicker + (1.0 - flicker) * sin(TIME * 50.0);
+    finalColor *= flickerEffect;
 
     lowp float beam = smoothstep(0.0, beamLength, abs(fract(uv.y + TIME * beamSpeed)));
     finalColor = mix(finalColor, finalColor * beam * 0.2, beam);

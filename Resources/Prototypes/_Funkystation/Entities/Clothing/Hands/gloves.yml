@@ -58,7 +58,7 @@
   parent: ClothingHandsGlovesColorYellow
   id: ClothingHandsGlovesArcGloves
   name: insulated arc gloves
-  description: Industrial-grade arc gloves designed to keep you safe from any high-voltages you may encounter. Or, at least, make your funeral open casket.
+  description: Industrial-grade arc gloves designed to keep you safe from any high voltages you may encounter. Or, at least, make your funeral open casket.
   components:
   - type: Sprite
     sprite: _Funkystation/Clothing/Hands/Gloves/arcgloves.rsi

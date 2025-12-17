@@ -111,7 +111,13 @@
   - type: Clothing
     sprite: _Funkystation/Clothing/Eyes/Jamjars/jamgog.rsi
   - type: VisionCorrection
-  - type: EyeProtection
+  - type: TrayScanner
+    range: 3
+    enabled: false
+  - type: GlassesOverlay
+    shader: Goggles
+    color: '#5AB43CCC'
+    enabled: false
   - type: IdentityBlocker
     coverage: EYES
   - type: Construction

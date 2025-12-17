@@ -6660,3 +6660,13 @@ Entries:
       message: The Tripitaka has been removed.
   id: 779
   time: '2025-12-17T02:17:24.0000000+00:00'
+- author: AraiMaia, gusxyz, QuietlyWhisper, DrSmugleaf
+  changes:
+    - type: Add
+      message: >-
+        New IV bags & IV stands, replacing the old blood packs; you can finally
+        IV drip patients!
+    - type: Tweak
+      message: Tweaked Medical belt fills & NanoMed inventories
+  id: 780
+  time: '2025-12-17T02:18:16.0000000+00:00'

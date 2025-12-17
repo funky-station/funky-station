@@ -4,7 +4,7 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Server._Funkystation.Genetics.Mutations.Systems;
 
-public sealed class MutationArmorSystem : EntitySystem
+public sealed class MutationPassiveArmorProviderSystem : EntitySystem
 {
     [Dependency] private readonly IPrototypeManager _proto = default!;
 
@@ -12,13 +12,10 @@ public sealed class MutationArmorSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<PassiveArmorProviderComponent, DamageModifyEvent>(OnDamageModify);
+        SubscribeLocalEvent<MutationPassiveArmorProviderComponent, DamageModifyEvent>(OnDamageModify);
     }
 
-    /// <summary>
-    /// Applies the mutation's damage reduction.
-    /// </summary>
-    private void OnDamageModify(EntityUid uid, PassiveArmorProviderComponent comp, ref DamageModifyEvent args)
+    private void OnDamageModify(EntityUid uid, MutationPassiveArmorProviderComponent comp, ref DamageModifyEvent args)
     {
         DamageModifierSet modifiers = _proto.TryIndex(comp.ModifierSetId, out var proto) ? proto : new();
 

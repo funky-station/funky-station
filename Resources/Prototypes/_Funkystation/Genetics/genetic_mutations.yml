@@ -568,7 +568,7 @@
 - type: geneticMutation
   id: Regeneration
   name: "Accelerated Tissue Regeneration"
-  desc: "Subject's cellular regeneration processes are dramatically overactive, enabling rapid recovery from physical trauma."
+  desc: "Subject's cellular regeneration processes are fiercely overactive, enabling rapid recovery from physical trauma."
   popupText: "Your skin feels tingly and shifty"
   conflicts:
     - MinorRegeneration
@@ -606,6 +606,7 @@
   id: SupermatterHallucinationImmune
   name: "Supermatter Clarity"
   desc: "Subject is immune to supermatter-induced hallucinations."
+  popupText: "Your mind feels particularly clear"
   instability: 10
   components:
   - type: SupermatterHallucinationImmune
@@ -830,6 +831,7 @@
   id: SevereMyopia
   name: "Severe Myopia"
   desc: "Subject has terrible eyesight."
+  popupText: "Everything gets a little blurry"
   instability: -10
   components:
   - type: PermanentBlindness # TODO: Make system to ensure and set PermanentBlindness component instead.
@@ -839,6 +841,7 @@
   id: Blindness
   name: "Total Blindness"
   desc: "Subject is completely blind."
+  popupText: "You can't see a thing"
   instability: -20
   components:
   - type: PermanentBlindness # TODO: Make system to ensure and set PermanentBlindness component instead.
@@ -847,6 +850,7 @@
   id: Unrevivable
   name: "Do Not Resuscitate"
   desc: "Subject cannot be revived by any means. Death is permanent."
+  popupText: "You feel your mortality"
   instability: -20
   components:
   - type: Unrevivable
@@ -966,6 +970,7 @@
   desc: "Causes damage to the subject's brain structure, occassionally utterly stupefying and stunning them."
   popupText: "Your thoughts become disorderly and hard to control"
   instability: 10
+  mutadoneResistant: true
   components:
   - type: MutationStupefaction
     minInterval: 90

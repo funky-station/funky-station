@@ -97,7 +97,7 @@
     head: ClothingHeadHelmetSwatSyndicate
     mask: ClothingMaskGasSyndicate
     outerClothing: ClothingOuterArmorBasic
-    gloves: ClothingHandsGlovesCombat
+    gloves: ClothingHandsGlovesCombatBloodred
     back: ClothingBackpack
     shoes: ClothingShoesBootsCombat
     id: SyndiPDA
@@ -114,7 +114,7 @@
     head: ClothingHeadHelmetSwatSyndicate
     eyes: ClothingEyesHudSyndicate
     outerClothing: ClothingOuterArmorBasic
-    gloves: ClothingHandsGlovesCombat
+    gloves: ClothingHandsGlovesCombatBloodred
     back: ClothingBackpack
     shoes: ClothingShoesBootsCombatFilled
   storage:
@@ -144,7 +144,7 @@
     mask: ClothingMaskGasSwat
     outerClothing: ClothingOuterArmorBasicSlim
     ears: ClothingHeadsetAltSecurityRegular # Goobstation
-    gloves: ClothingHandsGlovesCombat
+    gloves: ClothingHandsGlovesCombatBloodred
   storage:
     back:
     - BoxSurvivalSlotsSecurity # Goobstation - Slots Based Survival Boxes

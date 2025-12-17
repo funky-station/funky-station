@@ -203,7 +203,7 @@
     - id: ClothingHandsGlovesNitrile
     - id: ClothingHeadHatOutlawHat
     - id: ClothingMaskItalianMoustache
-    - id: ClothingHandsGlovesCombat
+    - id: ClothingHandsGlovesCombatBloodred
     - id: ClothingNeckScarfStripedSyndieRed
 
 - type: entityTable

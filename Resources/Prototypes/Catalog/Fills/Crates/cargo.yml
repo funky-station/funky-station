@@ -250,7 +250,7 @@
     helmet: ClothingHeadHelmetHardsuitSyndie
     mask: ClothingMaskGasSyndicate
     outerClothing: ClothingOuterHardsuitSyndie
-    gloves: ClothingHandsGlovesCombat
+    gloves: ClothingHandsGlovesCombatBloodred
     back: ClothingBackpackDuffelSyndicate
     shoes: ClothingShoesBootsCombat
     id: SyndiPDA
@@ -550,7 +550,7 @@
       - id: DoubleEmergencyNitrogenTankFilled
       - id: ToolboxMechanicalFilledAllTools
       - id: ClothingMaskWeldingGas
-      - id: ClothingHandsGlovesCombat
+      - id: ClothingHandsGlovesCombatBloodred
       - id: PlushieAtmosian
     - id: CrateSyndicateSurplusBundle
     - id: CrateTerroristKit

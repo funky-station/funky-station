@@ -75,7 +75,7 @@
     mask: ClothingMaskGasSyndicate
     eyes: ClothingEyesHudSyndicate
     ears: ClothingHeadsetAltSyndicate
-    gloves: ClothingHandsGlovesCombat
+    gloves: ClothingHandsGlovesCombatBloodred
     #outerClothing: ClothingOuterHardsuitSyndie # goobstation - duke nukies
     shoes: ClothingShoesBootsCombatFilled
     id: SyndiPDA

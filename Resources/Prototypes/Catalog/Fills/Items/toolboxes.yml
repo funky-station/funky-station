@@ -162,7 +162,7 @@
     - id: Wirecutter
     - id: Welder
     - id: Multitool
-    - id: ClothingHandsGlovesCombat
+    - id: ClothingHandsGlovesCombatBloodred
     - id: ClothingMaskGasSyndicate
 
 - type: entity

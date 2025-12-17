@@ -302,7 +302,7 @@
     contents:
       - id: ClothingOuterHardsuitSyndie
       - id: ClothingMaskGasSyndicate
-      - id: ClothingHandsGlovesCombat
+      - id: ClothingHandsGlovesCombatBloodred
       - id: DoubleEmergencyOxygenTankFilled
       - id: DoubleEmergencyNitrogenTankFilled
 
@@ -316,7 +316,7 @@
     contents:
       - id: ClothingOuterHardsuitSyndieElite
       - id: ClothingMaskGasSyndicate
-      - id: ClothingHandsGlovesCombat
+      - id: ClothingHandsGlovesCombatBloodred
       - id: DoubleEmergencyOxygenTankFilled
       - id: DoubleEmergencyNitrogenTankFilled
 
@@ -329,7 +329,7 @@
   - type: StorageFill
     contents:
       - id: ClothingMaskGasSyndicate
-      - id: ClothingHandsGlovesCombat
+      - id: ClothingHandsGlovesCombatBloodred
       - id: DoubleEmergencyOxygenTankFilled
       - id: DoubleEmergencyNitrogenTankFilled
 

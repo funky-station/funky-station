@@ -104,6 +104,6 @@
   parent: SyndicateOperativeGearExtremelyBasic
   equipment:
     ears: ClothingHeadsetAltSyndicate
-    gloves: ClothingHandsGlovesCombat
+    gloves: ClothingHandsGlovesCombatBloodred
     pocket1: BaseUplinkRadio200TC # Goobstation - Telecrystal rework
     id: SyndiPDA

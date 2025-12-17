@@ -6,7 +6,7 @@ using Content.Shared.Mobs.Systems;
 
 namespace Content.Server._Funkystation.Genetics.Mutations.Systems;
 
-public sealed class PassiveBloodHealingSystem : EntitySystem
+public sealed class MutationBloodRegenerationSystem : EntitySystem
 {
     [Dependency] private readonly BloodstreamSystem _bloodstream = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
@@ -24,7 +24,7 @@ public sealed class PassiveBloodHealingSystem : EntitySystem
 
         _accum -= 1.0f;
 
-        var query = EntityQueryEnumerator<BloodRegenerationComponent, BloodstreamComponent>();
+        var query = EntityQueryEnumerator<MutationBloodRegenerationComponent, BloodstreamComponent>();
         while (query.MoveNext(out var uid, out var regen, out var bloodstream))
         {
             // Skip if dead or in crit (no passive regen while dead)

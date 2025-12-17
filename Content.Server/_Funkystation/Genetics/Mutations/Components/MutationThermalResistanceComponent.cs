@@ -3,8 +3,7 @@ using Content.Server._Funkystation.Genetics.Mutations.Systems;
 namespace Content.Server._Funkystation.Genetics.Mutations.Components;
 
 [RegisterComponent]
-[Access(typeof(ThermalInsulationSystem))]
-public sealed partial class ThermalInsulationComponent : Component
+public sealed partial class MutationThermalResistanceComponent : Component
 {
     /// <summary>
     /// Multiplier for heat transfer when heating up (higher = worse insulation, lets more heat in)

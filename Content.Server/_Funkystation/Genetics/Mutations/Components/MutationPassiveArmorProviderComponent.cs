@@ -7,7 +7,7 @@ namespace Content.Server._Funkystation.Genetics.Mutations.Components;
 /// Added directly to a mob to provide passive armor.
 /// </summary>
 [RegisterComponent]
-public sealed partial class PassiveArmorProviderComponent : Component
+public sealed partial class MutationPassiveArmorProviderComponent : Component
 {
     /// <summary>
     /// The damage modifiers provided by this mutation.

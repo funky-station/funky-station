@@ -1,7 +1,7 @@
 namespace Content.Server._Funkystation.Genetics.Mutations.Components;
 
 [RegisterComponent]
-public sealed partial class BloodRegenerationComponent : Component
+public sealed partial class MutationBloodRegenerationComponent : Component
 {
     /// <summary>
     ///     How much blood (in units) to regenerate per second.

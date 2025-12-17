@@ -4,17 +4,17 @@ namespace Content.Server._Funkystation.Genetics.Mutations.Systems;
 
 using Content.Shared.Temperature;
 
-public sealed class ThermalInsulationSystem : EntitySystem
+public sealed class MutationThermalInsulationSystem : EntitySystem
 {
     public override void Initialize()
     {
         base.Initialize();
 
-        SubscribeLocalEvent<ThermalInsulationComponent, GetThermalInsulationEvent>(OnGetInsulation);
-        SubscribeLocalEvent<ThermalInsulationComponent, ModifyChangedTemperatureEvent>(OnModifyTemperature);
+        SubscribeLocalEvent<MutationThermalResistanceComponent, GetThermalInsulationEvent>(OnGetInsulation);
+        SubscribeLocalEvent<MutationThermalResistanceComponent, ModifyChangedTemperatureEvent>(OnModifyTemperature);
     }
 
-    private void OnGetInsulation(EntityUid uid, ThermalInsulationComponent component, ref GetThermalInsulationEvent args)
+    private void OnGetInsulation(EntityUid uid, MutationThermalResistanceComponent component, ref GetThermalInsulationEvent args)
     {
         var coefficient = args.TemperatureDelta < 0
             ? component.CoolingCoefficient
@@ -23,7 +23,7 @@ public sealed class ThermalInsulationSystem : EntitySystem
         args.Coefficient *= coefficient;
     }
 
-    private void OnModifyTemperature(EntityUid uid, ThermalInsulationComponent component, ref ModifyChangedTemperatureEvent args)
+    private void OnModifyTemperature(EntityUid uid, MutationThermalResistanceComponent component, ref ModifyChangedTemperatureEvent args)
     {
         var ev = new GetThermalInsulationEvent(1f)
         {

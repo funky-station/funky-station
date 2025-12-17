@@ -95,13 +95,6 @@
   - type: FrontalLisp
 
 # Disability/Quirk mutations
-- type: geneticMutation
-  id: Pacifist
-  name: "Pacifism"
-  desc: "Subject is incapable of causing harm."
-  instability: 10
-  components:
-  - type: Pacified # Need to make a new component so pacified can't be removed.
 
 - type: geneticMutation
   id: Snoring
@@ -110,49 +103,6 @@
   instability: 0
   components:
   - type: Snoring
-
-- type: geneticMutation
-  id: Blindness
-  name: "Total Blindness"
-  desc: "Subject is completely blind."
-  instability: -20
-  components:
-  - type: PermanentBlindness
-
-- type: geneticMutation
-  id: PoorVision
-  name: "Severe Myopia"
-  desc: "Subject has terrible eyesight."
-  instability: -10
-  components:
-  - type: PermanentBlindness
-    blindness: 4
-
-- type: geneticMutation
-  id: Narcolepsy
-  name: "Narcolepsy"
-  desc: "Subject randomly falls asleep."
-  instability: -10
-  components:
-  - type: Narcolepsy
-    timeBetweenIncidents: 300, 600
-    durationOfIncident: 10, 30
-
-- type: geneticMutation
-  id: Unrevivable
-  name: "Do Not Resuscitate"
-  desc: "Subject cannot be revived by any means. Death is permanent."
-  instability: -20
-  components:
-  - type: Unrevivable
-
-- type: geneticMutation
-  id: Muted
-  name: "Mute"
-  desc: "Subject is completely unable to speak."
-  instability: -10
-  components:
-  - type: Muted # Need to make a new component so Muted can't be removed.
 
 - type: geneticMutation
   id: Paracusia
@@ -167,25 +117,156 @@
     sounds:
       collection: Paracusia
 
-- type: geneticMutation
-  id: SupermatterHallucinationImmune
-  name: "Supermatter Clarity"
-  desc: "Subject is immune to supermatter-induced hallucinations."
-  instability: 10
-  components:
-  - type: SupermatterHallucinationImmune
-
 # Beneficial Mutations
+
 - type: geneticMutation
   id: AlcoholImmunity
   name: "Alcohol Immunity"
   desc: "Subject's liver seems to completely ignore ethanol. They can drink endlessly with no intoxication."
   popupText: "You feel unusually sober."
   instability: 0
+  conflicts:
+    - AcidResistance
+    - PlasmaImmunity
+    - GeneralToxinResistance
+    - NeurotoxinResistance
+    - RadiationToxinResistance
+    - BruteMedicineImmunity
+    - BurnMedicineImmunity
+    - AirlossMedicineImmunity
+    - DetoxMedicineImmunity
+    - AdvancedMedicineImmunity
+    - MutationMedicineImmunity
   components:
-  - type: ChemicalResistance
+  - type: MutationChemicalResistance
     reagents:
       - Ethanol
+
+- type: geneticMutation
+  id: AcidResistance
+  name: "Acid Tolerance"
+  desc: "Subject's tissues and blood are highly resistant to acidic compounds."
+  popupText: "You could go for some orange juice."
+  instability: 10
+  conflicts:
+    - AlcoholImmunity
+    - PlasmaImmunity
+    - GeneralToxinResistance
+    - NeurotoxinResistance
+    - RadiationToxinResistance
+    - BruteMedicineImmunity
+    - BurnMedicineImmunity
+    - AirlossMedicineImmunity
+    - DetoxMedicineImmunity
+    - AdvancedMedicineImmunity
+    - MutationMedicineImmunity
+  components:
+  - type: MutationChemicalResistance
+    reagents:
+      - SulfuricAcid
+      - FluorosulfuricAcid
+      - PolytrinicAcid
+
+- type: geneticMutation
+  id: PlasmaImmunity
+  name: "Plasma Immunity"
+  desc: "Subject's body completely neutralizes the toxic effects of plasma exposure."
+  popupText: "You feel unaffected by the glow of plasma."
+  instability: 5
+  conflicts:
+    - AlcoholImmunity
+    - AcidResistance
+    - GeneralToxinResistance
+    - NeurotoxinResistance
+    - RadiationToxinResistance
+    - BruteMedicineImmunity
+    - BurnMedicineImmunity
+    - AirlossMedicineImmunity
+    - DetoxMedicineImmunity
+    - AdvancedMedicineImmunity
+    - MutationMedicineImmunity
+  components:
+  - type: MutationChemicalResistance
+    reagents:
+      - Plasma
+
+- type: geneticMutation
+  id: GeneralToxinResistance
+  name: "Broad Toxin Resistance"
+  desc: "Subject's metabolism efficiently neutralizes many common poisons and toxins."
+  popupText: "A bitter taste fades quickly from your tongue."
+  instability: 15
+  conflicts:
+    - AlcoholImmunity
+    - AcidResistance
+    - PlasmaImmunity
+    - NeurotoxinResistance
+    - RadiationToxinResistance
+    - BruteMedicineImmunity
+    - BurnMedicineImmunity
+    - AirlossMedicineImmunity
+    - DetoxMedicineImmunity
+    - AdvancedMedicineImmunity
+    - MutationMedicineImmunity
+  components:
+  - type: MutationChemicalResistance
+    reagents:
+      - Toxin
+      - CarpoToxin
+      - ChloralHydrate
+      - Lexorin
+      - Histamine
+      - Amatoxin
+      - Bungotoxin
+
+- type: geneticMutation
+  id: NeurotoxinResistance
+  name: "Neurotoxin Tolerance"
+  desc: "Subject's nervous system resists paralytic and mind-altering toxins."
+  popupText: "Your nerves feel unusually steady."
+  instability: 10
+  conflicts:
+    - AlcoholImmunity
+    - AcidResistance
+    - PlasmaImmunity
+    - GeneralToxinResistance
+    - RadiationToxinResistance
+    - BruteMedicineImmunity
+    - BurnMedicineImmunity
+    - AirlossMedicineImmunity
+    - DetoxMedicineImmunity
+    - AdvancedMedicineImmunity
+    - MutationMedicineImmunity
+  components:
+  - type: MutationChemicalResistance
+    reagents:
+      - MindbreakerToxin
+      - Vestine
+      - Pax
+
+- type: geneticMutation
+  id: RadiationToxinResistance
+  name: "Radiation Toxin Tolerance"
+  desc: "Subject's cells resist damage from radioactive compounds."
+  mutadoneResistant: true
+  popupText: "Glowing substances feel harmless."
+  instability: 5
+  conflicts:
+    - AlcoholImmunity
+    - AcidResistance
+    - PlasmaImmunity
+    - GeneralToxinResistance
+    - NeurotoxinResistance
+    - BruteMedicineImmunity
+    - BurnMedicineImmunity
+    - AirlossMedicineImmunity
+    - DetoxMedicineImmunity
+    - AdvancedMedicineImmunity
+    - MutationMedicineImmunity
+  components:
+  - type: MutationChemicalResistance
+    reagents:
+      - UnstableMutagen
 
 - type: geneticMutation
   id: AnaerobicMetabolism
@@ -197,44 +278,178 @@
   - type: BreathingImmunity
 
 - type: geneticMutation
-  id: NightVision
-  name: "Night Vision"
-  desc: "Enhances the subject's optic nerves, allowing them to see in the dark."
-  popupText: "Everything suddenly appears oddly lit."
-  instability: 25
-  components:
-  - type: NightVision
-
-# TODO: Add a bunch of poisons to this
-# - type: geneticMutation
-#   id: ToxinImmunity
-#   name: "Toxin Immunity"
-#   desc: "Renders the subject's blood immune to toxification."
-#   popupText: "You feel unusually sober."
-#   instability: 0
-#   components:
-#   - type: ChemicalResistanceMutation
-#     reagenst:
-#     - Ethanol
-
-- type: geneticMutation
   id: ChitinoarmisDurescutis
   name: "Chitinoarmis Durescutis"
   desc: "Subject skin develops into a hardened carapace."
   popupText: "You feel your skin harden."
   instability: 10
+  conflicts:
+    - DermalKeratinHyperplasia
+    - OssifiedExoskeleton
+    - CrystallineDermalLattice
+    - AblativeCuticle
+    - ReinforcedDermalMatrix
+    - ComprehensiveDermalFortification
   components:
-  - type: PassiveArmorProvider
+  - type:  MutationPassiveArmorProvider
     modifierSetId: ChitinoarmisDurescutisArmor
 - type: damageModifierSet
   id: ChitinoarmisDurescutisArmor
   coefficients:
+    Blunt: 85.0
+    Slash: 85.0
+
+- type: geneticMutation
+  id: DermalKeratinHyperplasia
+  name: "Dermal Keratin Hyperplasia"
+  desc: "Subject's epidermis rapidly proliferates keratin, creating a thick protective barrier."
+  popupText: "Your skin feels thick and rough"
+  instability: 15
+  conflicts:
+    - ChitinoarmisDurescutis
+    - OssifiedExoskeleton
+    - CrystallineDermalLattice
+    - AblativeCuticle
+    - ReinforcedDermalMatrix
+    - ComprehensiveDermalFortification
+  components:
+  - type:  MutationPassiveArmorProvider
+    modifierSetId: DermalKeratinHyperplasiaArmor
+- type: damageModifierSet
+  id: DermalKeratinHyperplasiaArmor
+  coefficients:
+    Slash: 90.0
+    Pierce: 90.0
+
+- type: geneticMutation
+  id: OssifiedExoskeleton
+  name: "Ossified Exoskeleton"
+  desc: "Subject's dermis mineralizes into dense bone plates, providing robust protection against piercing and cutting damage."
+  popupText: "Your skin creaks as it hardens into bone."
+  instability: 20
+  conflicts:
+    - ChitinoarmisDurescutis
+    - DermalKeratinHyperplasia
+    - CrystallineDermalLattice
+    - AblativeCuticle
+    - ReinforcedDermalMatrix
+    - ComprehensiveDermalFortification
+  components:
+  - type:  MutationPassiveArmorProvider
+    modifierSetId: OssifiedExoskeletonArmor
+- type: damageModifierSet
+  id: OssifiedExoskeletonArmor
+  coefficients:
+    Piercing: 85.0
+    Slash: 85.0
     Blunt: 80.0
-    Slash: 80.0
+
+- type: geneticMutation
+  id: CrystallineDermalLattice
+  name: "Crystalline Dermal Lattice"
+  desc: "Subject's skin incorporates silicon-based crystalline structures, offering exceptional resistance to energy-based damage."
+  popupText: "Your skin begins to sparkle."
+  hidden: true
+  instability: 20
+  conflicts:
+    - ChitinoarmisDurescutis
+    - DermalKeratinHyperplasia
+    - OssifiedExoskeleton
+    - AblativeCuticle
+    - ReinforcedDermalMatrix
+    - ComprehensiveDermalFortification
+  components:
+  - type:  MutationPassiveArmorProvider
+    modifierSetId: CrystallineDermalLatticeArmor
+- type: damageModifierSet
+  id: CrystallineDermalLatticeArmor
+  coefficients:
+    Heat: 85.0
+    Cold: 85.0
+    Shock: 80.0
+
+- type: geneticMutation
+  id: AblativeCuticle
+  name: "Ablative Cuticle"
+  desc: "Subject develops a multi-layered cuticle that ablates under extreme heat, dissipating thermal and caustic energy."
+  popupText: "Your skin feels ready to shed under stress."
+  instability: 20
+  conflicts:
+    - ChitinoarmisDurescutis
+    - DermalKeratinHyperplasia
+    - OssifiedExoskeleton
+    - CrystallineDermalLattice
+    - ReinforcedDermalMatrix
+    - ComprehensiveDermalFortification
+  components:
+  - type:  MutationPassiveArmorProvider
+    modifierSetId: AblativeCuticleArmor
+- type: damageModifierSet
+  id: AblativeCuticleArmor
+  coefficients:
+    Heat: 90.0
+    Caustic: 85.0
+
+- type: geneticMutation
+  id: ReinforcedDermalMatrix
+  name: "Reinforced Dermal Matrix"
+  desc: "Subject's skin evolves into a composite layered structure, combining multiple protective adaptations for broad-spectrum resistance."
+  popupText: "Your skin feels impossibly resilient."
+  hidden: true
+  instability: 35
+  conflicts:
+    - ChitinoarmisDurescutis
+    - DermalKeratinHyperplasia
+    - OssifiedExoskeleton
+    - CrystallineDermalLattice
+    - AblativeCuticle
+    - ComprehensiveDermalFortification
+  components:
+  - type:  MutationPassiveArmorProvider
+    modifierSetId: ReinforcedDermalMatrixArmor
+- type: damageModifierSet
+  id: ReinforcedDermalMatrixArmor
+  coefficients:
+    Blunt: 85.0
+    Slash: 90.0
+    Piercing: 90.0
+    Heat: 85.0
+    Cold: 85.0
+    Caustic: 85.0
+    Shock: 80.0
+
+- type: geneticMutation
+  id: ComprehensiveDermalFortification
+  name: "Comprehensive Dermal Fortification"
+  desc: "Subject's skin has achieved ultimate adaptation, forming a near-impenetrable multi-layered barrier against nearly all forms of damage."
+  popupText: "You feel invincible beneath your skin."
+  hidden: true
+  instability: 50
+  conflicts:
+    - ChitinoarmisDurescutis
+    - DermalKeratinHyperplasia
+    - OssifiedExoskeleton
+    - CrystallineDermalLattice
+    - AblativeCuticle
+    - ReinforcedDermalMatrix
+  components:
+  - type:  MutationPassiveArmorProvider
+    modifierSetId: ComprehensiveDermalFortificationArmor
+- type: damageModifierSet
+  id: ComprehensiveDermalFortificationArmor
+  coefficients:
+    Blunt: 90.0
+    Slash: 92.0
+    Piercing: 92.0
+    Heat: 90.0
+    Cold: 90.0
+    Caustic: 88.0
+    Shock: 85.0
+    Radiation: 80.0
 
 - type: geneticMutation
   id: ColdResistance
-  name: "Cold Resistance"
+  name: "Cold Adaptation"
   desc: "Shields the subject's cellular structure against freezing temperatures and crystallization."
   popupText: "You feel warm."
   conflicts:
@@ -242,12 +457,12 @@
     - ThermalResistance
   instability: 10
   components:
-  - type: ThermalInsulation
+  - type:  MutationThermalInsulation
     coolingCoefficient: 0.5
 
 - type: geneticMutation
   id: FireResistance
-  name: "Fire Resistance"
+  name: "Heat Adaptation"
   desc: "Shields the subject's cellular structure against high temperatures and flames."
   popupText: "You feel cold."
   conflicts:
@@ -255,7 +470,7 @@
     - ThermalResistance
   instability: 10
   components:
-  - type: ThermalInsulation
+  - type:  MutationThermalInsulation
     heatingCoefficient: 0.5
   - type: FireResistance
     damageCoefficient: 0.5
@@ -263,16 +478,16 @@
 
 - type: geneticMutation
   id: ThermalResistance
-  name: "Thermal Resistance"
+  name: "Thermal Adaptation"
   desc: "Shields the subject's cellular structure against both high and cold temperatures."
-  popupText: "You feel the perfect temperature."
+  popupText: "You feel the perfect temperature"
   conflicts:
     - ColdResistance
     - FireResistance
   hidden: true
   instability: 15
   components:
-  - type: ThermalInsulation
+  - type:  MutationThermalInsulation
     heatingCoefficient: 0.6
     coolingCoefficient: 0.6
   - type: FireResistance
@@ -283,10 +498,10 @@
   id: HemopoiesisOverdrive
   name: "Hemopoiesis Overdrive"
   desc: "Subject regenerates blood far faster than average."
-  popupText: "You feel like being stabbed isn't a big deal."
+  popupText: "You feel like being stabbed isn't a big deal"
   instability: 15
   components:
-  - type: BloodRegeneration
+  - type: MutationBloodRegeneration
     regenRatePerSecond: 1
     targetPercentage: .75
     worn: false
@@ -295,13 +510,492 @@
   id: LateralUndulation
   name: "Lateral Undulation"
   desc: "Subject muscles develop the ability to perform a serpentine locomation."
-  popupText: "You feel like a good wiggle."
+  popupText: "You feel like a good wiggle"
   instability: 15
   components:
   - type: CrawlSpeedBoost
     targetSpeedMult: .6
 
+- type: geneticMutation
+  id: MetaNeuralAntenna
+  name: "Meta-Neural Antenna"
+  desc: "Enables the subject's brain to pick up radio signals."
+  popupText: "You can hear weird chatter in your head"
+  instability: 5
+  components:
+  - type: MutationRadio
+    radioChannels:
+    - Common
+
+- type: geneticMutation
+  id: MusculatureEnhancement
+  name: "Musculature Enhancement"
+  desc: "Enhances the subject's ability to build and retain heavy muscles."
+  popupText: "You feel buff!"
+  instability: 10
+  components:
+  - type: BonusMeleeDamage
+    heavyDamageMultiplier: 1.1
+  - type: MutationPullStrengthModifier
+    multiplier: 1.03 # TODO: Fix whatever I did here. Should not be so fast at such a low multiplier.
+
+- type: geneticMutation
+  id: EnhancedPhysicalConditioning
+  name: "Enhanced Physical Conditioning"
+  desc: "Subject exhibits naturally elevated cardiovascular and muscular endurance, possessing greater stamina reserves than average."
+  popupText: "You feel slightly more energetic"
+  instability: 10
+  components:
+  - type: MutationIncreaseStaminaCritThreshold
+    thresholdBonus: 30
+
+- type: geneticMutation
+  id: RadiationResistance
+  name: "Ionizing Radiation Tolerance"
+  desc: "Subject's cellular repair mechanisms provide strong protection against ionizing radiation damage."
+  popupText: "You feel like radiation isn't a big deal."
+  instability: 25
+  sequencerResistant: true
+  scrambleResistant: true
+  components:
+  - type: MutationRadiationResistance
+    modifier: RadiationResistance
+- type: damageModifierSet
+  id: RadiationResistance
+  coefficients:
+    Radiation: 0.05
+
+- type: geneticMutation
+  id: Regeneration
+  name: "Accelerated Tissue Regeneration"
+  desc: "Subject's cellular regeneration processes are dramatically overactive, enabling rapid recovery from physical trauma."
+  popupText: "Your skin feels tingly and shifty"
+  conflicts:
+    - MinorRegeneration
+  instability: 40
+  components:
+  - type: MutationRegeneration
+    healAmount: 1
+    interval: 3
+
+- type: geneticMutation
+  id: Insulated
+  name: "Cutaneous Electrical Insulation"
+  desc: "Subject's dermal layers exhibit near-complete electrical resistance, preventing conduction of electrical currents."
+  popupText: "Your fingertips go numb"
+  instability: 20
+  components:
+  - type: Insulated
+
+- type: geneticMutation
+  id: AdaptiveIridophores
+  name: "Adaptive Iridophores"
+  desc: "Subject has near-perfect camouflage when motionless."
+  popupText: "You feel one with your surroundings"
+  instability: 35
+  components:
+  - type: Stealth
+    enabledOnDeath: false
+  - type: StealthOnMove
+    passiveVisibilityRate: -0.1
+    movementVisibilityRate: 1
+    invisibilityPenalty: 1
+    maxInvisibilityPenalty: 1.5
+
+- type: geneticMutation
+  id: SupermatterHallucinationImmune
+  name: "Supermatter Clarity"
+  desc: "Subject is immune to supermatter-induced hallucinations."
+  instability: 10
+  components:
+  - type: SupermatterHallucinationImmune
+
+- type: geneticMutation
+  id: NoSlip
+  name: "Podotactile Friction Hyperadhesion"
+  desc: "Subject's plantar surfaces overexpress integrin complexes, vastly increasing friction and preventing slippage."
+  popupText: "Your soles feel weirdly grippy"
+  instability: 10
+  components:
+  - type: NoSlip
+
+- type: geneticMutation
+  id: AdrenalHypersecretion
+  name: "Adrenal Hypersecretion"
+  desc: "Subject's adrenal glands hypersecrete neurotransmitters, greatly improving alertness and movement speed."
+  popupText: "Your nerves feel like they're buzzing"
+  instability: 25
+  components:
+  - type: MutationSpeedBoost
+    walkMultiplier: 1.15
+    sprintMultiplier: 1.15
+
+- type: geneticMutation
+  id: MitochondrialEfficiencyEnhancement
+  name: "Mitochondrial Efficiency Enhancement"
+  desc: "Subject's mitochondria produce energy more efficiently, greatly reducing fatigue buildup."
+  popupText: "Your muscles no longer burn"
+  instability: 15
+  components:
+  - type: MutationStaminaRegenerationBoost
+    regenBonus: 1.5
+  - type: StaminaResistance
+    damageCoefficient: 0.7
+    worn: false
+
+- type: geneticMutation
+  id: PressureResistance
+  name: "Pressure Adaptation"
+  desc: "Subject withstands extreme pressures without cellular rupture."
+  popupText: "The air feels irrelevant"
+  instability: 15
+  components:
+  - type: PressureImmunity
+
+- type: geneticMutation
+  id: MinorRegeneration
+  name: "Minor Tissue Regeneration"
+  desc: "Subject displays quicker passive healing of minor wounds."
+  popupText: "You feel healthy"
+  conflicts:
+    - Regeneration
+  instability: 15
+  components:
+  - type: MutationRegeneration
+    healAmount: 0.1
+    interval: 5
+
+- type: geneticMutation
+  id: PhotoreceptorDesensitization
+  name: "Photoreceptor Desensitization"
+  desc: "Subject's retinal cells exhibit reduced sensitivity to sudden intense light."
+  popupText: "Harsh lights no longer bother you"
+  instability: 15
+  components:
+  - type: FlashImmunity
+
+# Harmful Mutations
+
+- type: geneticMutation
+  id: BruteMedicineImmunity
+  name: "Brute Medicine Rejection"
+  desc: "Subject's body rejects common brute-healing medications, preventing them from working."
+  popupText: "Your body feels strangely heavy"
+  instability: -5
+  conflicts:
+    - AlcoholImmunity
+    - AcidResistance
+    - PlasmaImmunity
+    - GeneralToxinResistance
+    - NeurotoxinResistance
+    - RadiationToxinResistance
+    - BurnMedicineImmunity
+    - AirlossMedicineImmunity
+    - DetoxMedicineImmunity
+    - AdvancedMedicineImmunity
+    - MutationMedicineImmunity
+  components:
+  - type: MutationChemicalResistance
+    reagents:
+      - Libital
+      - Probital
+      - SalicylicAcid
+      - Granibitulari
+      - StypticPowder
+
+- type: geneticMutation
+  id: BurnMedicineImmunity
+  name: "Burn Medicine Rejection"
+  desc: "Subject's body rejects common burn-healing medications, preventing them from working."
+  popupText: "Your skin feels oddly sensitive"
+  instability: -5
+  conflicts:
+    - AlcoholImmunity
+    - AcidResistance
+    - PlasmaImmunity
+    - GeneralToxinResistance
+    - NeurotoxinResistance
+    - RadiationToxinResistance
+    - BruteMedicineImmunity
+    - AirlossMedicineImmunity
+    - DetoxMedicineImmunity
+    - AdvancedMedicineImmunity
+    - MutationMedicineImmunity
+  components:
+  - type: MutationChemicalResistance
+    reagents:
+      - Aiuri
+      - Lenturi
+      - Oxandrolone
+      - SilverSulfadiazine
+
+- type: geneticMutation
+  id: AirlossMedicineImmunity
+  name: "Respiratory Medicine Rejection"
+  desc: "Subject's lungs reject common airloss-healing medications, preventing recovery from asphyxiation damage."
+  popupText: "Your chest feels tight and heavy"
+  instability: -10
+  conflicts:
+    - AlcoholImmunity
+    - AcidResistance
+    - PlasmaImmunity
+    - GeneralToxinResistance
+    - NeurotoxinResistance
+    - RadiationToxinResistance
+    - BruteMedicineImmunity
+    - BurnMedicineImmunity
+    - DetoxMedicineImmunity
+    - AdvancedMedicineImmunity
+    - MutationMedicineImmunity
+  components:
+  - type: MutationChemicalResistance
+    reagents:
+      - Salbutamol
+      - Convermol
+
+- type: geneticMutation
+  id: DetoxMedicineImmunity
+  name: "Detoxification Rejection"
+  desc: "Subject's liver and kidneys reject common anti-toxin medications, blocking chemical detoxification."
+  popupText: "A faint bitterness lingers in your mouth"
+  instability: -5
+  conflicts:
+    - AlcoholImmunity
+    - AcidResistance
+    - PlasmaImmunity
+    - GeneralToxinResistance
+    - NeurotoxinResistance
+    - RadiationToxinResistance
+    - BruteMedicineImmunity
+    - BurnMedicineImmunity
+    - AirlossMedicineImmunity
+    - AdvancedMedicineImmunity
+    - MutationMedicineImmunity
+  components:
+  - type: MutationChemicalResistance
+    reagents:
+      - Multiver
+      - PenteticAcid
+
+- type: geneticMutation
+  id: AdvancedMedicineImmunity
+  name: "Advanced Healing Rejection"
+  desc: "Subject's metabolism completely rejects powerful advanced healing compounds."
+  popupText: "Your blood feels thick and sluggish"
+  instability: -10
+  conflicts:
+    - AlcoholImmunity
+    - AcidResistance
+    - PlasmaImmunity
+    - GeneralToxinResistance
+    - NeurotoxinResistance
+    - RadiationToxinResistance
+    - BruteMedicineImmunity
+    - BurnMedicineImmunity
+    - AirlossMedicineImmunity
+    - DetoxMedicineImmunity
+    - MutationMedicineImmunity
+  components:
+  - type: MutationChemicalResistance
+    reagents:
+      - Hypothium
+      - Granibitulari
+      - Pyroxadone
+
+- type: geneticMutation
+  id: MutationMedicineImmunity
+  name: "Genetic Stabilizer Rejection"
+  desc: "Subject's DNA rejects mutadone, preventing the removal of genetic mutations."
+  mutadoneResistant: true
+  popupText: "Your body feels unusually stable"
+  instability: -15
+  conflicts:
+    - AlcoholImmunity
+    - AcidResistance
+    - PlasmaImmunity
+    - GeneralToxinResistance
+    - NeurotoxinResistance
+    - RadiationToxinResistance
+    - BruteMedicineImmunity
+    - BurnMedicineImmunity
+    - AirlossMedicineImmunity
+    - DetoxMedicineImmunity
+    - AdvancedMedicineImmunity
+  components:
+  - type: MutationChemicalResistance
+    reagents:
+      - Mutadone
+
+- type: geneticMutation
+  id: SevereMyopia
+  name: "Severe Myopia"
+  desc: "Subject has terrible eyesight."
+  instability: -10
+  components:
+  - type: PermanentBlindness # TODO: Make system to ensure and set PermanentBlindness component instead.
+    blindness: 4
+
+- type: geneticMutation
+  id: Blindness
+  name: "Total Blindness"
+  desc: "Subject is completely blind."
+  instability: -20
+  components:
+  - type: PermanentBlindness # TODO: Make system to ensure and set PermanentBlindness component instead.
+
+- type: geneticMutation
+  id: Unrevivable
+  name: "Do Not Resuscitate"
+  desc: "Subject cannot be revived by any means. Death is permanent."
+  instability: -20
+  components:
+  - type: Unrevivable
+
+- type: geneticMutation
+  id: BloodToxification
+  name: "Blood Toxification"
+  desc: "The subject's blood gradually accumulates toxins over time."
+  popupText: "You feel a creeping sickness in your veins"
+  instability: -15
+  components:
+  - type: MutationBloodToxification
+    interval: 5.0
+    chance: 0.25
+    toxinAmount: 1.0
+
+- type: geneticMutation
+  id: ChronicCough
+  name: "Chronic Cough"
+  desc: "Enhances the sensitivity of nerves in the subject's throat, causing periodic coughing fits."
+  popupText: "You feel an irritating itch in your throat"
+  instability: -5
+  components:
+  - type: MutationChronicEmote
+    interval: 20.0
+    emoteChance: 0.4
+    dropChance: 0.25
+    emoteId: "Cough"
+
+- type: geneticMutation
+  id: Dyspraxia
+  name: "Dyspraxia"
+  desc: "Hinders transmissions in the subject's nervous system, causing poor motor skills."
+  popupText: "You feel kind of off-balance and disoriented"
+  instability: -10
+  components:
+  - type: Clumsy
+
+- type: geneticMutation
+  id: FrontalGyrusSuspension
+  name: "Frontal Gyrus Suspension"
+  desc: "Subject is completely unable to speak."
+  popupText: "You are at a loss for words"
+  instability: -10
+  components:
+  - type: Muted # Need to make a new component so Muted can't be removed.
+
+- type: geneticMutation
+  id: Pacifist
+  name: "Pacifism"
+  desc: "Subject is incapable of causing harm."
+  popupText: "You feel like you couldn't hurt a fly"
+  instability: -10
+  components:
+  - type: Pacified # Need to make a new component so pacified can't be removed.
+
+- type: geneticMutation
+  id: Narcolepsy
+  name: "Narcolepsy"
+  desc: "Subject randomly falls asleep."
+  popupText: "You suddenly feel very tired"
+  instability: -5
+  components:
+  - type: Narcolepsy
+    timeBetweenIncidents: 300, 600
+    durationOfIncident: 10, 30
+
+- type: geneticMutation
+  id: Radioactive
+  name: "Radioactive"
+  desc: "The subject emits low-level radiation."
+  popupText: "You can taste copper"
+  instability: 15
+  components:
+  - type: RadiationSource
+
+- type: geneticMutation
+  id: Paranoia
+  name: "Paranoia"
+  desc: "Causes the subject to become easily startled."
+  popupText: "They're gonna get you!"
+  instability: 0
+  components:
+  - type: MutationParanoia
+    interval: 20.0
+    emoteChance: 0.6
+    emoteId: "Scream"
+
+- type: geneticMutation
+  id: PhysicallyUnfit
+  name: "Physically Unfit"
+  desc: "Causes the subject to be naturally less physically fit than average."
+  popupText: "You feel slightly less energetic"
+  instability: -5
+  components:
+  - type: MutationIncreaseStaminaCritThreshold
+    thresholdBonus: -30
+
+- type: geneticMutation
+  id: SpatialDestabilization
+  name: "Spatial Destabilization"
+  desc: "Causes the subject's molecular structure to become partially unstuck in space."
+  popupText: "You feel a bit out of place"
+  instability: 20
+  components:
+  - type: MutationSpatialDestabilization
+    minInterval: 45
+    maxInterval: 120
+    teleportRadius: 8
+    teleportAttempts: 10
+    sound:
+      path: /Audio/Effects/teleport_departure.ogg
+
+- type: geneticMutation
+  id: Stupefaction
+  name: "Stupefaction"
+  desc: "Causes damage to the subject's brain structure, occassionally utterly stupefying and stunning them."
+  popupText: "Your thoughts become disorderly and hard to control"
+  instability: 10
+  components:
+  - type: MutationStupefaction
+    minInterval: 90
+    maxInterval: 240
+    drainAmount: 999
+
+# Power Mutations
+
+- type: geneticMutation
+  id: NightVision
+  name: "Scotopic Vision Enhancement"
+  desc: "Enhances the subject's optic nerves, allowing them to see in the dark."
+  popupText: "Everything suddenly appears oddly lit."
+  instability: 25
+  components:
+  - type: NightVision
+
+- type: geneticMutation
+  id: SpiderWeb
+  name: "Araneogenetic Silk Production"
+  desc: "Subject's abdominal glands have developed specialized spinnerets capable of extruding high-tensile proteinaceous silk threads."
+  popupText: "Your abdomen feels strangely heavy."
+  instability: 15
+  components:
+  - type: Spider
+  - type: IgnoreSpiderWeb
+
+
 # Instability Mutations
+
 - type: geneticMutation
   id: geneticMonkeyMorph
   name: "Monkeyified"

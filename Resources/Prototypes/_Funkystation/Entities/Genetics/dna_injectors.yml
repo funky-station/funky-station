@@ -116,6 +116,26 @@
 
 - type: entity
   parent: BaseDNAInjectorSyringe
+  id: DNAMutatorMetaNeuralAntenna
+  name: "dna mutator (MetaNeuralAntenna)"
+  components:
+  - type: DnaSequenceInjector
+    mutationId: MetaNeuralAntenna
+    isMutator: true
+  - type: Item
+
+- type: entity
+  parent: BaseDNAInjectorSyringe
+  id: DNAMutatorAdaptiveIridophores
+  name: "dna mutator (AdaptiveIridophores)"
+  components:
+  - type: DnaSequenceInjector
+    mutationId: AdaptiveIridophores
+    isMutator: true
+  - type: Item
+
+- type: entity
+  parent: BaseDNAInjectorSyringe
   id: DNAMutatorFireResistance
   name: "dna mutator (FireResistance)"
   components:

@@ -162,9 +162,3 @@ public sealed class DNASequenceInjectorSystem : EntitySystem
         return true;
     }
 }
-
-/// <summary>
-/// DoAfter event for DNA injectors
-/// </summary>
-[Serializable]
-public sealed partial class DNAInjectorDoAfterEvent : SimpleDoAfterEvent { }

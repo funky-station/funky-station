@@ -37,9 +37,22 @@
     state: brain
 
 - type: marking
-  id: SlimeEyeglow
+  id: SlimeEyesDefault
   bodyPart: Eyes
-  markingCategory: Head
+  markingCategory: Eyes
+  speciesRestriction: [SlimePerson]
+  coloring:
+    default:
+      type:
+        !type:EyeColoring
+  sprites:
+  - sprite: Mobs/Species/Slime/parts.rsi
+    state: eyes
+
+- type: marking
+  id: SlimeEyeDefaultGlow
+  bodyPart: Eyes
+  markingCategory: Eyes
   speciesRestriction: [SlimePerson]
   coloring:
     default:
@@ -49,6 +62,64 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/slime_parts.rsi
     state: eyeglow
+  shader: unshaded
+
+- type: marking
+  id: SlimeEyesDroopy
+  bodyPart: Eyes
+  markingCategory: Eyes
+  speciesRestriction: [ SlimePerson ]
+  coloring:
+    default:
+      type:
+        !type:EyeColoring
+        negative: false
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/slime_parts.rsi
+    state: droopy
+
+- type: marking
+  id: SlimeEyesDroopyGlow
+  bodyPart: Eyes
+  markingCategory: Eyes
+  speciesRestriction: [SlimePerson]
+  coloring:
+    default:
+      type:
+        !type:EyeColoring
+          negative: false
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/slime_parts.rsi
+    state: droopyglow
+  shader: unshaded
+
+- type: marking
+  id: SlimeEyesCyclops
+  bodyPart: Eyes
+  markingCategory: Eyes
+  speciesRestriction: [ SlimePerson ]
+  coloring:
+    default:
+      type:
+        !type:EyeColoring
+        negative: false
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/slime_parts.rsi
+    state: cyclops
+
+- type: marking
+  id: SlimeEyesCyclopsGlow
+  bodyPart: Eyes
+  markingCategory: Eyes
+  speciesRestriction: [ SlimePerson ]
+  coloring:
+    default:
+      type:
+        !type:EyeColoring
+        negative: false
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/slime_parts.rsi
+    state: cyclopsglow
   shader: unshaded
 
 - type: marking

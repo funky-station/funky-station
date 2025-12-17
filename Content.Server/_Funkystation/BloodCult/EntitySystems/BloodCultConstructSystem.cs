@@ -32,6 +32,7 @@ using Content.Shared.NPC.Systems;
 using Content.Shared.NPC.Components;
 using Content.Server.GameTicking.Rules;
 using Content.Shared.Actions;
+using Content.Shared.Mobs.Components;
 
 namespace Content.Server.BloodCult.EntitySystems;
 
@@ -62,6 +63,7 @@ public sealed partial class BloodCultConstructSystem : EntitySystem
 			Dirty(communeAction.Value, actionComp);
 		}
 	}
+
 
 	public override void Initialize()
 	{

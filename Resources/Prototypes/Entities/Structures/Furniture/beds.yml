@@ -146,6 +146,8 @@
     slot: gasTankSlot
     maskPrototype: ClothingMaskBreathMedical
   - type: BedWheels
+  - type: PlaceableSurface
+    isPlaceable: False
   - type: GuideHelp
     guides:
     - MedicalDoctor

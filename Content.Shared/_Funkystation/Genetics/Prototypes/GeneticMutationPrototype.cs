@@ -50,7 +50,7 @@ public sealed partial class GeneticMutationPrototype : IPrototype
     public List<string>? EntityBlacklist { get; private set; }
 
     /// <summary>
-    /// If set, mutation can ONLY be applied to these entity prototype IDs.
+    /// If set, mutation can ONLY be applied to these entity prototype IDs or it's children.
     /// Mutation cannot be applied outside of this list even if a mutator is used.
     /// </summary>
     [DataField("strictEntityWhitelist")]

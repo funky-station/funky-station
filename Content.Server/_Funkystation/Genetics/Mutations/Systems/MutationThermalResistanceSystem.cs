@@ -4,7 +4,7 @@ namespace Content.Server._Funkystation.Genetics.Mutations.Systems;
 
 using Content.Shared.Temperature;
 
-public sealed class MutationThermalInsulationSystem : EntitySystem
+public sealed class MutationThermalResistanceSystem : EntitySystem
 {
     public override void Initialize()
     {

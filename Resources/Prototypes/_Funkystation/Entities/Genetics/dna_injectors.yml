@@ -116,11 +116,11 @@
 
 - type: entity
   parent: BaseDNAInjectorSyringe
-  id: DNAMutatorMetaNeuralAntenna
-  name: "dna mutator (MetaNeuralAntenna)"
+  id: DNAMutatorApianHoneyGlands
+  name: "dna mutator (ApianHoneyGlands)"
   components:
   - type: DnaSequenceInjector
-    mutationId: MetaNeuralAntenna
+    mutationId: ApianHoneyGlands
     isMutator: true
   - type: Item
 
@@ -136,11 +136,11 @@
 
 - type: entity
   parent: BaseDNAInjectorSyringe
-  id: DNAMutatorFireResistance
-  name: "dna mutator (FireResistance)"
+  id: DNAMutatorBioluminescentDermalGlands
+  name: "dna mutator (BioluminescentDermalGlands)"
   components:
   - type: DnaSequenceInjector
-    mutationId: FireResistance
+    mutationId: BioluminescentDermalGlands
     isMutator: true
   - type: Item
 

@@ -6712,3 +6712,9 @@ Entries:
         middle of the sprite
   id: 784
   time: '2025-12-18T05:16:34.0000000+00:00'
+- author: Drywink
+  changes:
+    - type: Add
+      message: Bullets can fly over cocoon.
+  id: 785
+  time: '2025-12-18T21:07:58.0000000+00:00'

@@ -38,7 +38,7 @@
           bounds: "-0.5,-0.5,-0.2,-0.15"
         density: 190
         mask:
-        - TabletopMachineMask
+        - None
         layer:
         - TabletopMachineLayer
   - type: LightOnCollide
@@ -48,8 +48,6 @@
   - type: SlimPoweredLight
     enabled: false
   - type: StationAiVision
-  - type: SurveillanceCameraMicrophone
-  - type: ActiveListener
   - type: Clickable
   - type: InteractionOutline
   - type: Construction
@@ -59,9 +57,6 @@
     enabled: false
     usesApcPower: true
   - type: WallMount
-  - type: Tag # Funky edit
-    tags:
-    - WallMount
   - type: ApcPowerReceiver
   - type: ExtensionCableReceiver
   - type: Eye
@@ -80,9 +75,9 @@
     drawdepth: WallMountedItems
     sprite: Structures/Wallmounts/camera.rsi
     layers:
-      - map: [ "enum.SurveillanceCameraVisualsKey.Layer" ]
-        state: camera
-        cycle: true
+    - map: [ "enum.SurveillanceCameraVisualsKey.Layer" ]
+      state: camera
+      cycle: true
   - type: Appearance
   - type: SurveillanceCameraVisuals
     sprites:
@@ -99,27 +94,27 @@
     price: 200
   - type: Destructible
     thresholds:
-      - trigger:
-          !type:DamageTrigger
-          damage: 200
-        behaviors:
-          - !type:DoActsBehavior
-            acts: [ "Destruction" ]
-      - trigger:
-          !type:DamageTrigger
-          damage: 100
-        behaviors:
-          - !type:DoActsBehavior
-            acts: [ "Destruction" ]
-          - !type:PlaySoundBehavior
-            sound:
-              collection: MetalBreak
-              params:
-                volume: -8
+    - trigger:
+        !type:DamageTrigger
+        damage: 200
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+          params:
+            volume: -8
   placement:
     mode: SnapgridCenter
     snap:
-      - Wallmount
+    - Wallmount
 
 - type: entity
   parent: SurveillanceCameraBase
@@ -127,19 +122,19 @@
   name: camera
   suffix: Constructed
   components:
-    - type: DeviceNetwork
-      deviceNetId: Wired
-      transmitFrequencyId: SurveillanceCamera
-    - type: SurveillanceCamera
-      setupAvailableNetworks:
-        - SurveillanceCameraEngineering
-        - SurveillanceCameraSecurity
-        - SurveillanceCameraService
-        - SurveillanceCameraSupply
-        - SurveillanceCameraScience
-        - SurveillanceCameraGeneral
-        - SurveillanceCameraMedical
-        - SurveillanceCameraCommand
+  - type: DeviceNetwork
+    deviceNetId: Wired
+    transmitFrequencyId: SurveillanceCamera
+  - type: SurveillanceCamera
+    setupAvailableNetworks:
+    - SurveillanceCameraEngineering
+    - SurveillanceCameraSecurity
+    - SurveillanceCameraService
+    - SurveillanceCameraSupply
+    - SurveillanceCameraScience
+    - SurveillanceCameraGeneral
+    - SurveillanceCameraMedical
+    - SurveillanceCameraCommand
 
 - type: entity
   parent: SurveillanceCameraBase
@@ -250,23 +245,23 @@
   name: camera
   description: A surveillance camera. Doesn't seem to be watching anybody any time soon. Probably.
   components:
-    - type: Clickable
-    - type: InteractionOutline
-    - type: Construction
-      graph: SurveillanceCamera
-      node: assembly
-    - type: WallMount
-    - type: Transform
-      anchored: true
-    - type: Damageable
-      damageContainer: StructuralInorganic
-      damageModifierSet: Metallic
-    - type: Sprite
-      drawdepth: WallMountedItems
-      sprite: Structures/Wallmounts/camera.rsi
-      layers:
-        - state: camera_off
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Construction
+    graph: SurveillanceCamera
+    node: assembly
+  - type: WallMount
+  - type: Transform
+    anchored: true
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Metallic
+  - type: Sprite
+    drawdepth: WallMountedItems
+    sprite: Structures/Wallmounts/camera.rsi
+    layers:
+    - state: camera_off
   placement:
     mode: SnapgridCenter
     snap:
-      - Wallmount
+    - Wallmount

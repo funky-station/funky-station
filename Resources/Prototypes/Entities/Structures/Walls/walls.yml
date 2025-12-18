@@ -142,37 +142,87 @@
   - type: SunShadowCast
 
 - type: entity
-  parent: BaseWall
-  id: WallBrick
-  name: brick wall
+  abstract: true
+  parent: BaseStructure
+  id: BaseStructureWall
+  name: basewall
+  description: Keeps the air in and the greytide out.
+  placement:
+    mode: SnapgridCenter
+    snap:
+    - Wall
   components:
+  - type: Anchorable
+    flags: [Anchorable]
+  - type: Rotatable
+  - type: RangedDamageSound
+    soundGroups:
+      Brute: { collection: MetalBulletImpact }
+    soundTypes:
+      Heat: { collection: MetalLaserImpact }
+  - type: Tag
+    tags: [Wall]
+  - type: IsRoof
   - type: Sprite
-    sprite: Structures/Walls/brick.rsi
+    drawdepth: Walls
   - type: Icon
-    sprite: Structures/Walls/brick.rsi
-  - type: RCDDeconstructable
-    cost: 6
-    delay: 8
-    fx: EffectRCDDeconstruct8
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 300
-      behaviors:
-      - !type:SpawnEntitiesBehavior
-        spawn:
-          Girder:
-            min: 1
-            max: 1
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-
-  - type: IconSmooth
+    state: full
+  - type: PlacementReplacement
     key: walls
-    base: brick
-  - type: CosmicCorruptible # DeltaV - Cosmic Cult
-    convertTo: WallCosmicCult
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: StructuralMetallic
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape: !type:PhysShapeAabb
+          bounds: "-0.5,-0.5,0.5,0.5"
+        mask: [FullTileMask]
+        layer: [WallLayer]
+        density: 1000
+  - type: Airtight
+  - type: StaticPrice
+    price: 75
+  - type: RadiationBlocker
+    resistance: 2
+  - type: BlockWeather
+  - type: SunShadowCast
+
+- type: entity
+  abstract: true
+  parent: BaseStructureWall
+  id: BaseWall
+  components:
+  - type: Occluder
+
+- type: entity
+  abstract: true
+  parent: BaseStructureWall
+  id: WallDiagonalBase
+  suffix: Diagonal
+  components:
+  - type: Tag
+    tags: [Wall, Diagonal]
+  - type: IconSmooth
+    mode: Diagonal
+    key: walls
+    base: state
+  - type: Airtight
+    noAirWhenFullyAirBlocked: false
+    airBlockedDirection: [South, East]
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape: !type:PolygonShape
+          vertices:
+          - "-0.5,-0.5"
+          - "0.5,0.5"
+          - "0.5,-0.5"
+        mask: [FullTileMask]
+        layer: [WallLayer]
+
 
 - type: entity
   parent: BaseWall
@@ -627,23 +677,15 @@
               acts: [ "Destruction" ]
 
 - type: entity
-  parent: WallShuttleDiagonal
+  parent: WallPlastitaniumDiagonalIndestructible
   id: WallPlastitaniumDiagonal
   name: plastitanium wall
   suffix: diagonal
-  placement:
-    mode: SnapgridCenter
-    snap:
-    - Wall
   components:
   - type: Sprite
     drawdepth: Walls
     sprite: Structures/Walls/plastitanium_diagonal.rsi
     state: state0
-  - type: IconSmooth
-    mode: Diagonal
-    key: walls
-    base: state
   - type: Icon
     sprite: Structures/Walls/plastitanium_diagonal.rsi
     state: state0
@@ -651,73 +693,37 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 2000
-      behaviors:
-        - !type:DoActsBehavior
-          acts: [ "Destruction" ]
-        - !type:PlaySoundBehavior
-          sound:
-            collection: MetalSlam
-    - trigger:
-        !type:DamageTrigger
         damage: 1000
       behaviors:
-      - !type:ChangeConstructionNodeBehavior
-        node: girder
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          Girder:
+            min: 1
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
       - !type:PlaySoundBehavior
         sound:
           collection: MetalSlam
-      - !type:DoActsBehavior
-        acts: ["Destruction"]
 
 - type: entity
+  parent: WallDiagonalBase
   id: WallPlastitaniumDiagonalIndestructible
   name: plastitanium wall
   suffix: diagonal, indestructible
-  description: Keeps the air in and the greytide out.
-  placement:
-    mode: SnapgridCenter
-    snap:
-    - Wall
   components:
-  - type: Transform
-    anchored: true
-  - type: Clickable
-  - type: Tag
-    tags:
-    - Wall
-    - Diagonal
   - type: Sprite
     drawdepth: Walls
     sprite: Structures/Walls/plastitanium_diagonal.rsi
     state: state0
-  - type: IconSmooth
-    mode: Diagonal
-    key: walls
-    base: state
   - type: Icon
     sprite: Structures/Walls/plastitanium_diagonal.rsi
     state: state0
-  - type: Physics
-    bodyType: Static
-  - type: Airtight
-    noAirWhenFullyAirBlocked: false
-    airBlockedDirection:
-    - South
-    - East
-  - type: Fixtures
-    fixtures:
-      fix1:
-        shape:
-          !type:PolygonShape
-            vertices:
-            - "-0.5,-0.5"
-            - "0.5,0.5"
-            - "0.5,-0.5"
-        mask:
-        - FullTileMask
-        layer:
-        - WallLayer
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: StructuralMetallicStrong
+  - type: RadiationBlocker
+    resistance: 5
 
 - type: entity
   parent: BaseWall
@@ -833,29 +839,44 @@
     convertTo: WallCosmicCult
 
 - type: entity
-  parent: WallShuttleDiagonal
+  parent: WallDiagonalBase
   id: WallReinforcedDiagonal
   name: reinforced wall
-  suffix: diagonal
-  placement:
-    mode: SnapgridCenter
-    snap:
-    - Wall
   components:
-  - type: Tag
-    tags:
-    - Diagonal
   - type: Sprite
     drawdepth: Walls
     sprite: Structures/Walls/reinforced_diagonal.rsi
     state: state0
-  - type: IconSmooth
-    mode: Diagonal
-    key: walls
-    base: state
   - type: Icon
     sprite: Structures/Walls/reinforced_diagonal.rsi
     state: state0
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: StructuralMetallicStrong
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 600
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalSlam
+    - trigger:
+        !type:DamageTrigger
+        damage: 300
+      behaviors:
+      - !type:ChangeConstructionNodeBehavior
+        node: girder
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalSlam
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+  - type: RadiationBlocker
+    resistance: 5
 
 # Riveting
 - type: entity
@@ -974,35 +995,17 @@
 
 #shuttle walls
 - type: entity
+  parent: WallDiagonalBase
   id: WallShuttleDiagonal
   name: shuttle wall
-  suffix: Diagonal
-  description: Keeps the air in and the greytide out.
-  placement:
-    mode: SnapgridCenter
-    snap:
-    - Wall
   components:
-  - type: Transform
-    anchored: true
-  - type: Clickable
-  - type: Tag
-    tags:
-    - Wall
-    - Diagonal
   - type: Sprite
     drawdepth: Walls
     sprite: Structures/Walls/shuttle_diagonal.rsi
     state: state0
-  - type: IconSmooth
-    mode: Diagonal
-    key: walls
-    base: state
   - type: Icon
     sprite: Structures/Walls/shuttle_diagonal.rsi
     state: state0
-  - type: Physics
-    bodyType: Static
   - type: Reflect
     reflectProb: 1
   - type: Pullable
@@ -1016,10 +1019,10 @@
       fix1:
         shape:
           !type:PolygonShape
-            vertices:
-            - "-0.5,-0.5"
-            - "0.5,0.5"
-            - "0.5,-0.5"
+          vertices:
+          - "-0.5,-0.5"
+          - "0.5,0.5"
+          - "0.5,-0.5"
         mask:
         - FullTileMask
         layer:
@@ -1034,11 +1037,11 @@
         !type:DamageTrigger
         damage: 600
       behaviors:
-        - !type:DoActsBehavior
-          acts: [ "Destruction" ]
-        - !type:PlaySoundBehavior
-          sound:
-            collection: MetalSlam
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalSlam
     - trigger:
         !type:DamageTrigger
         damage: 300
@@ -1053,6 +1056,10 @@
   - type: Construction
     graph: Girder
     node: diagonalshuttleWall
+  - type: RadiationBlocker
+    resistance: 5
+  - type: StaticPrice
+    price: 200
 
 - type: entity
   parent: BaseWall
@@ -1224,26 +1231,39 @@
     convertTo: WallCosmicCult
 
 - type: entity
-  parent: WallShuttleDiagonal
+  parent: WallDiagonalBase
   id: WallSolidDiagonal
   name: solid wall
-  suffix: diagonal
-  placement:
-    mode: SnapgridCenter
-    snap:
-    - Wall
   components:
   - type: Sprite
     drawdepth: Walls
     sprite: Structures/Walls/solid_diagonal.rsi
     state: state0
-  - type: IconSmooth
-    mode: Diagonal
-    key: walls
-    base: state
   - type: Icon
     sprite: Structures/Walls/solid_diagonal.rsi
     state: state0
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 400
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalSlam
+    - trigger:
+        !type:DamageTrigger
+        damage: 200
+      behaviors:
+      - !type:ChangeConstructionNodeBehavior
+        node: girder
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalSlam
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
 
 - type: entity
   parent: WallSolid
@@ -1512,26 +1532,45 @@
     convertTo: WallCosmicCult
 
 - type: entity
-  parent: WallShuttleDiagonal
+  parent: WallDiagonalBase
   id: WallMiningDiagonal
-  name: mining shuttle wall
-  suffix: diagonal
-  placement:
-    mode: SnapgridCenter
-    snap:
-    - Wall
+  name: mining wall
   components:
   - type: Sprite
     drawdepth: Walls
     sprite: Structures/Walls/mining_diagonal.rsi
     state: state0
-  - type: IconSmooth
-    mode: Diagonal
-    key: walls
-    base: state
   - type: Icon
     sprite: Structures/Walls/mining_diagonal.rsi
     state: state0
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: StructuralMetallicStrong
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 600
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalSlam
+    - trigger:
+        !type:DamageTrigger
+        damage: 300
+      behaviors:
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          Girder:
+            min: 1
+            max: 1
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalSlam
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
 
 
 # Vault Walls

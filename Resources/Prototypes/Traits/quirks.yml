@@ -106,3 +106,14 @@
   cost: 0
   components:
     - type: SupermatterHallucinationImmune
+
+- type: trait
+  id: ChronicMigraines
+  name: trait-chronic-migraines-name
+  description: trait-chronic-migraines-desc
+  category: Quirks
+  cost: 0
+  components:
+    - type: ChronicMigraines
+      timeBetweenIncidents: 600, 1800
+      durationOfIncident: 8, 12

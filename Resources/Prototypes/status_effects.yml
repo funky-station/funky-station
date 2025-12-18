@@ -69,6 +69,10 @@
   id: ForcedSleep #I.e., they will not wake on damage or similar
 
 - type: statusEffect
+  id: Migraine
+  alwaysAllowed: true
+
+- type: statusEffect
   id: TemporaryBlindness
 
 - type: statusEffect

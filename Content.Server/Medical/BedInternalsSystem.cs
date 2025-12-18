@@ -59,7 +59,7 @@ public sealed class BedInternalsSystem : EntitySystem
 
         comp.CachedTank = args.Entity;
 
-        _appearance.SetData(uid, BedInternalsVisuals.TankInserted, true);
+        UpdateTankVisual(uid, args.Entity);
 
         if (comp.Enabled && TryComp<StrapComponent>(uid, out var strap))
         {
@@ -78,7 +78,7 @@ public sealed class BedInternalsSystem : EntitySystem
 
         comp.CachedTank = null;
 
-        _appearance.SetData(uid, BedInternalsVisuals.TankInserted, false);
+        UpdateTankVisual(uid, null);
 
         if (comp.Enabled)
         {
@@ -90,6 +90,18 @@ public sealed class BedInternalsSystem : EntitySystem
                     RemoveInternalsFromPatient(uid, comp, patient);
                 }
             }
+        }
+    }
+
+    private void UpdateTankVisual(EntityUid bed, EntityUid? tank)
+    {
+        if (tank != null && TryComp<BedTankVisualComponent>(tank.Value, out var visual))
+        {
+            _appearance.SetData(bed, BedInternalsVisuals.TankVisual, visual.Visual);
+        }
+        else
+        {
+            _appearance.SetData(bed, BedInternalsVisuals.TankVisual, BedTankVisual.None);
         }
     }
 

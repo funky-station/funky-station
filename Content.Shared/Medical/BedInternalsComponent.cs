@@ -10,7 +10,18 @@ namespace Content.Shared.Medical;
 [Serializable, NetSerializable]
 public enum BedInternalsVisuals
 {
-    TankInserted
+    TankVisual
+}
+
+[Serializable, NetSerializable]
+public enum BedTankVisual
+{
+    None,
+    Nitrogen,
+    Oxygen,
+    Generic,
+    Plasma,
+    Nitrous
 }
 
 [RegisterComponent, NetworkedComponent]

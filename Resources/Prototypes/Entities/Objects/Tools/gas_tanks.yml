@@ -113,6 +113,8 @@
     sprite: Objects/Tanks/oxygen.rsi
   - type: Clothing
     sprite: Objects/Tanks/oxygen.rsi
+  - type: BedTankVisual
+    visual: Oxygen
 
 - type: entity
   parent: GasTankRoundBase
@@ -126,6 +128,8 @@
     sprite: Objects/Tanks/red.rsi
   - type: Clothing
     sprite: Objects/Tanks/red.rsi
+  - type: BedTankVisual
+    visual: Nitrogen
 
 - type: entity
   parent: GasTankRoundBase
@@ -158,6 +162,8 @@
   - type: Tag # Goobstation - For survival boxes
     tags:
     - EmergencyOxygenTank
+  - type: BedTankVisual
+    visual: Oxygen
 
 
 - type: entity
@@ -175,6 +181,8 @@
   - type: Tag # Goobstation - For survival boxes
     tags:
     - EmergencyNitrogenTank
+  - type: BedTankVisual
+    visual: Nitrogen
 
 - type: entity
   parent: EmergencyOxygenTank
@@ -277,6 +285,8 @@
   components:
   - type: GasTank
     outputPressure: 101.3
+  - type: BedTankVisual
+    visual: Generic
 
 - type: entity
   parent: GasTankRoundBase
@@ -292,6 +302,8 @@
     outputPressure: 30.4
   - type: Clothing
     sprite: Objects/Tanks/anesthetic.rsi
+  - type: BedTankVisual
+    visual: Nitrous
 
 - type: entity
   # it's a square so no rolling dough
@@ -311,3 +323,5 @@
     slots:
     - Belt
     - tankStorage
+  - type: BedTankVisual
+    visual: Plasma

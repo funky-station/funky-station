@@ -106,19 +106,21 @@
   description: A hospital bed for patients to recover in. Resting here provides fairly slow healing.
   components:
   - type: Sprite
-    sprite: Structures/Furniture/furniture.rsi
+    sprite: Structures/Furniture/medical_bed.rsi
     layers:
       - state: bed-MED
-      - state: bed-MED-tank
-        map: ["tank"]
-        visible: false
+      - map: ["tank"]
   - type: Appearance
   - type: GenericVisualizer
     visuals:
-      enum.BedInternalsVisuals.TankInserted:
+      enum.BedInternalsVisuals.TankVisual:
         tank:
-          True: { visible: true }
-          False: { visible: false }
+          None:   { visible: false }
+          Nitrogen:  { state: tank_1, visible: true }
+          Oxygen:  { state: tank_2, visible: true }
+          Generic:  { state: tank_3, visible: true }
+          Plasma:  { state: tank_4, visible: true }
+          Nitrous:  { state: tank_5, visible: true }
   - type: HealOnBuckle
     damage:
       types:

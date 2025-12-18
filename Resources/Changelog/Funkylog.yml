@@ -6682,3 +6682,39 @@ Entries:
       message: Box's Evac has been moved south.
   id: 781
   time: '2025-12-17T11:06:52.0000000+00:00'
+- author: JoulesBerg
+  changes:
+    - type: Add
+      message: >-
+        Added a reactor to core - accessible via the nuclear trashcan in
+        engineering, or via a space walk.
+    - type: Tweak
+      message: >-
+        Moved chapel and chaplain offices and replaced the old location with
+        maints
+    - type: Add
+      message: Added more maints near cargo
+  id: 782
+  time: '2025-12-17T19:20:13.0000000+00:00'
+- author: Terkala
+  changes:
+    - type: Fix
+      message: Fixed issues identified in last zombie rework playtest
+  id: 783
+  time: '2025-12-17T23:34:01.0000000+00:00'
+- author: AraiMaia
+  changes:
+    - type: Add
+      message: Added new Funky original sprites for the IV stand
+    - type: Tweak
+      message: >-
+        IV stand now properly draws the tubing from the bag rather than the
+        middle of the sprite
+  id: 784
+  time: '2025-12-18T05:16:34.0000000+00:00'
+- author: Drywink
+  changes:
+    - type: Add
+      message: Bullets can fly over cocoon.
+  id: 785
+  time: '2025-12-18T21:07:58.0000000+00:00'

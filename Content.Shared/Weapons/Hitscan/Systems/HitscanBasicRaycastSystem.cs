@@ -7,6 +7,7 @@ using Content.Shared.Weapons.Hitscan.Events;
 using Content.Shared.Weapons.Ranged.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Map;
+using Robust.Shared.Network;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Player;
@@ -20,6 +21,8 @@ public sealed class HitscanBasicRaycastSystem : EntitySystem
     [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly ISharedAdminLogManager _log = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private readonly INetManager _netManager = default!;
+
 
     private EntityQuery<HitscanBasicVisualsComponent> _visualsQuery;
 
@@ -141,10 +144,14 @@ public sealed class HitscanBasicRaycastSystem : EntitySystem
 
         if (sprites.Count > 0)
         {
+            if (!_netManager.IsServer)
+                return;
+
             RaiseNetworkEvent(new SharedGunSystem.HitscanEvent
             {
                 Sprites = sprites,
             }, Filter.Pvs(fromCoordinates, entityMan: EntityManager));
+
         }
     }
 }

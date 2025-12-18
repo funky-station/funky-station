@@ -96,6 +96,7 @@ using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 using Content.Shared.Item;
 using Content.Shared.Weapons.Hitscan.Components;
+using Content.Shared.Weapons.Hitscan.Events;
 
 namespace Content.Shared.Weapons.Ranged.Systems;
 
@@ -630,6 +631,24 @@ public abstract partial class SharedGunSystem : EntitySystem
                         else if (_netManager.IsClient)
                             RemoveShootable(ent.Value);
                     }
+                    break;
+                case HitscanAmmoComponent:
+                    if (ent == null)
+                        break;
+
+                    var hitscanEv = new HitscanTraceEvent
+                    {
+                        FromCoordinates = fromCoordinates,
+                        ShotDirection = mapDirection.Normalized(),
+                        Gun = gunUid,
+                        Shooter = user,
+                        Target = gun.Target,
+                    };
+                    RaiseLocalEvent(ent.Value, ref hitscanEv);
+
+                    Del(ent);
+
+                    Audio.PlayPredicted(gun.SoundGunshotModified, gunUid, user);
                     break;
             }
         }

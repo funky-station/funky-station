@@ -123,9 +123,6 @@
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
     soundEmpty:
       path: /Audio/_DV/Weapons/Guns/Empty/dry_fire.ogg
-  - type: Battery
-    maxCharge: 2400
-    startingCharge: 2400
   - type: BatteryAmmoProvider
     proto: BulletDisabler
     fireCost: 100

@@ -138,3 +138,6 @@
 
 - type: Tag
   id: IPCDrinkBlacklist
+
+- type: Tag
+  id: NoRecharge

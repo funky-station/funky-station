@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
+//
+// SPDX-License-Identifier: MIT
+
 using Content.Shared._RMC14.Medical.IV;
 using Content.Shared.Rounding;
 using Robust.Client.GameObjects;

@@ -38,3 +38,4 @@
   - type: ContainerContainer
     containers:
       paper_label: !type:ContainerSlot
+  - type: ItemSlots

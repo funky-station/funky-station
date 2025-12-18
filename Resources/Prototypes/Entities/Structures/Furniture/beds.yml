@@ -145,6 +145,7 @@
   - type: BedInternals
     slot: gasTankSlot
     maskPrototype: ClothingMaskBreathMedical
+  - type: BedWheels
   - type: GuideHelp
     guides:
     - MedicalDoctor

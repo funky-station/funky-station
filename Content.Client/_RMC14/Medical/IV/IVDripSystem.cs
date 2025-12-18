@@ -1,17 +1,15 @@
-// SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
-//
-// SPDX-License-Identifier: MIT
-
 using Content.Shared._RMC14.Medical.IV;
 using Content.Shared.Rounding;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
+using Robust.Shared.Containers; // Required for SharedContainerSystem
 
 namespace Content.Client._RMC14.Medical.IV;
 
 public sealed class IVDripSystem : SharedIVDripSystem
 {
     [Dependency] private readonly IOverlayManager _overlay = default!;
+    [Dependency] private readonly SharedContainerSystem _container = default!; // Add this dependency
 
     public override void Initialize()
     {
@@ -32,10 +30,31 @@ public sealed class IVDripSystem : SharedIVDripSystem
         if (!TryComp(iv, out SpriteComponent? sprite))
             return;
 
-        var hookedState = iv.Comp.AttachedTo == default
-            ? iv.Comp.UnattachedState
-            : iv.Comp.AttachedState;
-        sprite.LayerSetState(IVDripVisualLayers.Base, hookedState);
+        // check if slot has an item
+        bool hasBag = false;
+        if (_container.TryGetContainer(iv, iv.Comp.Slot, out var container) &&
+            container.ContainedEntities.Count > 0)
+        {
+            hasBag = true;
+        }
+
+        // determine state
+        string baseState;
+
+        if (!hasBag)
+        {
+            // if no bag, then show no bag
+            baseState = iv.Comp.NoBagState;
+        }
+        else
+        {
+            // if yes bag, check if its attached
+            baseState = iv.Comp.AttachedTo == default
+                ? iv.Comp.UnattachedState
+                : iv.Comp.AttachedState;
+        }
+
+        sprite.LayerSetState(IVDripVisualLayers.Base, baseState);
 
         string? reagentState = null;
         for (var i = iv.Comp.ReagentStates.Count - 1; i >= 0; i--)
@@ -48,7 +67,8 @@ public sealed class IVDripSystem : SharedIVDripSystem
             }
         }
 
-        if (reagentState == null)
+        // if there is no bag, we force the reagent layer to hide
+        if (reagentState == null || !hasBag)
         {
             sprite.LayerSetVisible(IVDripVisualLayers.Reagent, false);
             return;

@@ -1,3 +1,4 @@
+// SPDX-FileCopyrightText: 2025 MaiaArai <158123176+YaraaraY@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
 //
 // SPDX-License-Identifier: MIT
@@ -9,6 +10,7 @@ using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
+using System.Numerics;
 
 namespace Content.Shared._RMC14.Medical.IV;
 
@@ -36,6 +38,9 @@ public sealed partial class IVDripComponent : Component
     [DataField, AutoNetworkedField]
     public string UnattachedState = "unhooked";
 
+    [DataField, AutoNetworkedField]
+    public string NoBagState = "empty";
+
     /// <summary>
     ///     Percentages are from 0 to 100
     /// </summary>
@@ -62,6 +67,12 @@ public sealed partial class IVDripComponent : Component
 
     [DataField, AutoNetworkedField]
     public ProtoId<EmotePrototype> RipEmote = "Scream";
+
+    /// <summary>
+    /// Offset from the center of the entity where the IV line should start
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public Vector2 LineOriginOffset = Vector2.Zero;
 }
 
 [Serializable, NetSerializable]

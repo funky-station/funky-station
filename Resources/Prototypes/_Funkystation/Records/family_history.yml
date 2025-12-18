@@ -103,3 +103,9 @@
   id: strokeFamilyHistory
   name: medical-info-familyhistory-stroke
   category: FamilyHistory
+
+- type: medicalInfo
+  id: neuroaversionFamilyHistory
+  name: medical-info-familyhistory-neuroaversion
+  category: FamilyHistory
+

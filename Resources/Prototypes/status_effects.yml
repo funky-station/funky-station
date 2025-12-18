@@ -74,6 +74,10 @@
   alwaysAllowed: true
 
 - type: statusEffect
+  id: MigraineSeizure
+  alwaysAllowed: true
+
+- type: statusEffect
   id: TemporaryBlindness
 
 - type: statusEffect

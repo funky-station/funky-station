@@ -1516,6 +1516,9 @@
         - "psicodine-effect-anxieties-wash-away"
         - "psicodine-effect-at-peace"
         probability: 0.2
+      - !type:ReduceSeizureBuild
+        reductionAmount: 0.01
+        probability: 1.0
 
 - type: reagent
   id: PotassiumIodide

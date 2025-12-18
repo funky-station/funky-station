@@ -43,12 +43,9 @@ public sealed class ActionButton : Control, IEntityControl
     public const string StyleClassActionHighlightRect = "ActionHighlightRect";
 
     private IEntityManager _entities;
-    private IPlayerManager? _player;
+    private IPlayerManager _player;
     private SpriteSystem? _spriteSys;
     private ActionUIController? _controller;
-    private SharedChargesSystem? _sharedChargesSys;
-    private SharedChargesSystem? SharedChargesSys => _sharedChargesSys ??= _entities?.System<SharedChargesSystem>();
-
     private bool _beingHovered;
     private bool _depressed;
     private bool _toggled;
@@ -90,9 +87,8 @@ public sealed class ActionButton : Control, IEntityControl
         // TODO why is this constructor so slooooow. The rest of the code is fine
 
         _entities = entities;
-        _player = null;
+        _player = IoCManager.Resolve<IPlayerManager>();
         _spriteSys = spriteSys;
-        _sharedChargesSys = null;
         _controller = controller;
 
         MouseFilter = MouseFilterMode.Pass;
@@ -222,14 +218,7 @@ public sealed class ActionButton : Control, IEntityControl
 
         var name = FormattedMessage.FromMarkupPermissive(Loc.GetString(metadata.EntityName));
         var desc = FormattedMessage.FromMarkupPermissive(Loc.GetString(metadata.EntityDescription));
-        try
-        {
-            _player ??= IoCManager.Resolve<IPlayerManager>();
-        }
-        catch
-        {
-            return new ActionAlertTooltip(name, desc);
-        }
+
         if (_player.LocalEntity is null)
             return null;
 
@@ -321,27 +310,22 @@ public sealed class ActionButton : Control, IEntityControl
         }
 
         _controller ??= UserInterfaceManager.GetUIController<ActionUIController>();
-        _spriteSys ??= _entities?.System<SpriteSystem>();
+        _spriteSys ??= _entities.System<SpriteSystem>();
         var icon = action.Comp.Icon;
-
         if (_controller.SelectingTargetFor == action || action.Comp.Toggled)
         {
             if (action.Comp.IconOn is {} iconOn)
                 icon = iconOn;
 
             if (action.Comp.BackgroundOn is {} background)
-            {
-                if (_spriteSys != null)
-                    _buttonBackgroundTexture = _spriteSys.Frame0(background);
-            }
+                _buttonBackgroundTexture = _spriteSys.Frame0(background);
         }
         else
         {
             _buttonBackgroundTexture = Theme.ResolveTexture("SlotBackground");
         }
 
-        SetActionIcon(icon != null && _spriteSys != null ? _spriteSys.Frame0(icon) : null);
-
+        SetActionIcon(icon != null ? _spriteSys.Frame0(icon) : null);
     }
 
     public void UpdateBackground()
@@ -480,4 +464,3 @@ public sealed class ActionButton : Control, IEntityControl
 
     EntityUid? IEntityControl.UiEntity => Action;
 }
-

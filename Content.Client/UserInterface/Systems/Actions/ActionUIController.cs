@@ -27,7 +27,6 @@
 
 using System.Linq;
 using System.Numerics;
-using System.Runtime.InteropServices;
 using Content.Client.Actions;
 using Content.Client.Construction;
 using Content.Client.Gameplay;
@@ -72,7 +71,6 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
     [Dependency] private readonly IOverlayManager _overlays = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IPlayerManager _playerManager = default!;
-    [Dependency] private readonly IEntityManager _entMan = default!;
     [Dependency] private readonly IInputManager _input = default!;
 
     [UISystemDependency] private readonly ActionsSystem? _actionsSystem = default;
@@ -80,18 +78,14 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
     [UISystemDependency] private readonly TargetOutlineSystem? _targetOutline = default;
     [UISystemDependency] private readonly SpriteSystem _spriteSystem = default!;
 
-    private const int DefaultPageIndex = 0;
     private ActionButtonContainer? _container;
     private readonly List<EntityUid?> _actions = new();
-    private readonly List<ActionPage> _pages = new();
-    private int _currentPageIndex = DefaultPageIndex;
     private readonly DragDropHelper<ActionButton> _menuDragHelper;
     private readonly TextureRect _dragShadow;
     private ActionsWindow? _window;
 
     private ActionsBar? ActionsBar => UIManager.GetActiveUIWidgetOrNull<ActionsBar>();
     private MenuButton? ActionButton => UIManager.GetActiveUIWidgetOrNull<MenuBar.Widgets.GameTopMenuBar>()?.ActionButton;
-    private ActionPage CurrentPage => _pages[_currentPageIndex];
 
     public bool IsDragging => _menuDragHelper.IsDragging;
 
@@ -111,14 +105,6 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
             SetSize = new Vector2(64, 64),
             MouseFilter = MouseFilterMode.Ignore
         };
-
-        var pageCount = ContentKeyFunctions.GetLoadoutBoundKeys().Length;
-        var buttonCount = ContentKeyFunctions.GetHotbarBoundKeys().Length;
-        for (var i = 0; i < pageCount; i++)
-        {
-            var page = new ActionPage(buttonCount);
-            _pages.Add(page);
-        }
     }
 
     public override void Initialize()
@@ -169,15 +155,6 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
                 TriggerAction(boundId);
                 return true;
             }, false, true));
-        }
-
-        var loadoutKeys = ContentKeyFunctions.GetLoadoutBoundKeys();
-        for (var i = 0; i < loadoutKeys.Length; i++)
-        {
-            var boundId = i; // This is needed, because the lambda captures it.
-            var boundKey = loadoutKeys[i];
-            builder = builder.Bind(boundKey,
-                InputCmdHandler.FromDelegate(_ => ChangePage(boundId)));
         }
 
         builder
@@ -296,66 +273,6 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
             _actionsSystem?.TriggerAction(action);
     }
 
-    private void ChangePage(int index)
-    {
-        if (_actionsSystem == null)
-            return;
-
-        var lastPage = _pages.Count - 1;
-        if (index < 0)
-        {
-            index = lastPage;
-        }
-        else if (index > lastPage)
-        {
-            index = 0;
-        }
-
-        _currentPageIndex = index;
-        var page = _pages[_currentPageIndex];
-        _container?.SetActionData(_actionsSystem, page);
-
-        ActionsBar!.PageButtons.Label.Text = $"{_currentPageIndex + 1}";
-    }
-
-    private void OnLeftArrowPressed(ButtonEventArgs args)
-    {
-        ChangePage(_currentPageIndex - 1);
-    }
-
-    private void OnRightArrowPressed(ButtonEventArgs args)
-    {
-        ChangePage(_currentPageIndex + 1);
-    }
-
-    private void AppendAction(EntityUid action)
-    {
-        if (_container == null)
-            return;
-
-        foreach (var button in _container.GetButtons())
-        {
-            if (button.Action != null)
-                continue;
-
-            SetAction(button, action);
-            return;
-        }
-
-        foreach (var page in _pages)
-        {
-            for (var i = 0; i < page.Size; i++)
-            {
-                var pageAction = page[i];
-                if (pageAction != null)
-                    continue;
-
-                page[i] = action;
-                return;
-            }
-        }
-    }
-
     private void OnActionAdded(EntityUid actionId)
     {
         if (_actionsSystem?.GetAction(actionId) is not {} action)
@@ -366,18 +283,10 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
         if (action.Comp.Toggled && EntityManager.TryGetComponent<TargetActionComponent>(actionId, out var target))
             StartTargeting((action, action, target));
 
-        foreach (var page in _pages)
-        {
-            for (var i = 0; i < page.Size; i++)
-            {
-                if (page[i] == actionId)
-                {
-                    return;
-                }
-            }
-        }
+        if (_actions.Contains(action))
+            return;
 
-        AppendAction(action);
+        _actions.Add(action);
     }
 
     private void OnActionRemoved(EntityUid actionId)
@@ -388,41 +297,15 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
         if (actionId == SelectingTargetFor)
             StopTargeting();
 
-        foreach (var button in _container.GetButtons())
-        {
-            if (button.Action?.Owner == actionId)
-            {
-                SetAction(button, null);
-            }
-        }
-
-        foreach (var page in _pages)
-        {
-            for (var i = 0; i < page.Size; i++)
-            {
-                if (page[i] == actionId)
-                {
-                    page[i] = null;
-                }
-            }
-        }
+        _actions.RemoveAll(x => x == actionId);
     }
 
     private void OnActionsUpdated()
     {
         QueueWindowUpdate();
 
-        if (_container == null)
-            return;
-
-        // TODO ACTIONS allow buttons to persist across state applications
-        // Then we don't have to interrupt drags any time the buttons get rebuilt.
-        _menuDragHelper.EndDrag();
-
-        foreach (var button in _container.GetButtons())
-        {
-            button.UpdateIcons();
-        }
+        if (_actionsSystem != null)
+            _container?.SetActionData(_actionsSystem, _actions.ToArray());
     }
 
     private void ActionButtonPressed(ButtonEventArgs args)
@@ -582,20 +465,26 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
             button.ClearData();
             if (_container?.TryGetButtonIndex(button, out position) ?? false)
             {
-                CurrentPage[position] = actionId;
+                if (_actions.Count > position && position >= 0)
+                    _actions.RemoveAt(position);
             }
-            return;
         }
-
-        if (button.TryReplaceWith(actionId.Value, _actionsSystem) &&
+        else if (button.TryReplaceWith(actionId.Value, _actionsSystem) &&
             _container != null &&
             _container.TryGetButtonIndex(button, out position))
         {
-            CurrentPage[position] = actionId;
+            if (position >= _actions.Count)
+            {
+                _actions.Add(actionId);
+            }
+            else
+            {
+                _actions[position] = actionId;
+            }
         }
 
-        if (updateSlots && _actionsSystem != null)
-            _container?.SetActionData(_actionsSystem, CurrentPage);
+        if (updateSlots)
+            _container?.SetActionData(_actionsSystem, _actions.ToArray());
     }
 
     private void DragAction()
@@ -618,7 +507,7 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
             SetAction(dragged, swapAction, false);
 
         if (_actionsSystem != null)
-            _container?.SetActionData(_actionsSystem, CurrentPage);
+            _container?.SetActionData(_actionsSystem, _actions.ToArray());
 
         _menuDragHelper.EndDrag();
     }
@@ -690,10 +579,7 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
             return;
         }
 
-        var ev = new FillActionSlotEvent();
-        EntityManager.EventBus.RaiseEvent(EventSource.Local, ev);
-        if (ev.Action != null)
-            SetAction(button, ev.Action);
+        // good job
     }
 
     private void OnActionUnpressed(GUIBoundKeyEventArgs args, ActionButton button)
@@ -785,9 +671,6 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
             return;
         }
 
-        ActionsBar.PageButtons.LeftArrow.OnPressed -= OnLeftArrowPressed;
-        ActionsBar.PageButtons.RightArrow.OnPressed -= OnRightArrowPressed;
-
         if (_window != null)
         {
             _window.OnOpen -= OnWindowOpened;
@@ -818,9 +701,6 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
             return;
         }
 
-        ActionsBar.PageButtons.LeftArrow.OnPressed += OnLeftArrowPressed;
-        ActionsBar.PageButtons.RightArrow.OnPressed += OnRightArrowPressed;
-
         RegisterActionContainer(ActionsBar.ActionsContainer);
 
         _actionsSystem?.LinkAllActions();
@@ -849,12 +729,13 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
         if (_actionsSystem == null)
             return;
 
-        foreach (ref var assignment in CollectionsMarshal.AsSpan(assignments))
+        _actions.Clear();
+        foreach (var assign in assignments)
         {
-            _pages[assignment.Hotbar][assignment.Slot] = assignment.ActionId;
+            _actions.Add(assign.ActionId);
         }
 
-        _container?.SetActionData(_actionsSystem, _pages[_currentPageIndex]);
+        _container?.SetActionData(_actionsSystem, _actions.ToArray());
     }
 
     public void RemoveActionContainer()
@@ -890,8 +771,8 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
         if (_actionsSystem == null)
             return;
 
-        LoadDefaultActions(component);
-        _container?.SetActionData(_actionsSystem, _pages[DefaultPageIndex]);
+        LoadDefaultActions();
+        _container?.SetActionData(_actionsSystem, _actions.ToArray());
         QueueWindowUpdate();
     }
 
@@ -902,7 +783,7 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
         StopTargeting();
     }
 
-    private void LoadDefaultActions(ActionsComponent component)
+    private void LoadDefaultActions()
     {
         if (_actionsSystem == null)
             return;
@@ -910,36 +791,11 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
         var actions = _actionsSystem.GetClientActions().Where(action => action.Comp.AutoPopulate).ToList();
         actions.Sort(ActionComparer);
 
-        var offset = 0;
-        var totalPages = _pages.Count;
-        var pagesLeft = totalPages;
-        var currentPage = DefaultPageIndex;
-        while (pagesLeft > 0)
+        _actions.Clear();
+        foreach (var (action, _) in actions)
         {
-            var page = _pages[currentPage];
-            var pageSize = page.Size;
-
-            for (var slot = 0; slot < pageSize; slot++)
-            {
-                var actionIndex = slot + offset;
-                if (actionIndex < actions.Count)
-                {
-                    page[slot] = actions[slot + offset].Owner;
-                }
-                else
-                {
-                    page[slot] = null;
-                }
-            }
-
-            offset += pageSize;
-            currentPage++;
-            if (currentPage == totalPages)
-            {
-                currentPage = 0;
-            }
-
-            pagesLeft--;
+            if (!_actions.Contains(action))
+                _actions.Add(action);
         }
     }
 
@@ -1048,33 +904,5 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
 
         handOverlay.IconOverride = null;
         handOverlay.EntityOverride = null;
-    }
-
-    private sealed class ActionPage
-    {
-        private readonly EntityUid?[] _data;
-
-        public ActionPage(int size)
-        {
-            _data = new EntityUid?[size];
-        }
-
-        public EntityUid? this[int index]
-        {
-            get => _data[index];
-            set => _data[index] = value;
-        }
-
-        public static implicit operator EntityUid?[](ActionPage p)
-        {
-            return p._data.ToArray();
-        }
-
-        public void Clear()
-        {
-            Array.Fill(_data, null);
-        }
-
-        public int Size => _data.Length;
     }
 }

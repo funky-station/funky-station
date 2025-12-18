@@ -4,11 +4,14 @@
 
 using Content.Server.GameTicking;
 using Content.Shared.Administration.Logs;
-using Content.Shared.Clothing;
 using Content.Shared._Impstation.CrewMedal;
 using Content.Shared.Database;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Popups;
+using Content.Shared.DoAfter;
+using Content.Shared.Hands.EntitySystems;
+using Content.Shared.Inventory;
+using Content.Shared.Interaction;
 using System.Linq;
 using System.Text;
 
@@ -18,26 +21,40 @@ public sealed class CrewMedalSystem : SharedCrewMedalSystem
 {
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private readonly SharedDoAfterSystem _doAfterSystem = default!;
+    [Dependency] private readonly InventorySystem _inventory = default!;
+    [Dependency] private readonly SharedHandsSystem _hands = default!;
 
     public override void Initialize()
     {
         base.Initialize();
 
-        SubscribeLocalEvent<CrewMedalComponent, ClothingGotEquippedEvent>(OnEquipped);
+        SubscribeLocalEvent<CrewMedalComponent, AfterInteractEvent>(OnAfterInteract);
         SubscribeLocalEvent<CrewMedalComponent, CrewMedalReasonChangedMessage>(OnReasonChanged);
+        SubscribeLocalEvent<CrewMedalComponent, CrewMedalAwardDoAfterEvent>(OnDoAfterAward);
         SubscribeLocalEvent<RoundEndTextAppendEvent>(OnRoundEndText);
     }
 
-    private void OnEquipped(Entity<CrewMedalComponent> medal, ref ClothingGotEquippedEvent args)
+    private void OnAfterInteract(EntityUid uid, CrewMedalComponent component, AfterInteractEvent args)
     {
-        if (medal.Comp.Awarded)
+        // Only allow awarding if not already awarded.
+        if (component.Awarded)
             return;
-        medal.Comp.Recipient = Identity.Name(args.Wearer, EntityManager);
-        medal.Comp.Awarded = true;
-        Dirty(medal);
-        _popup.PopupEntity(Loc.GetString("comp-crew-medal-award-text", ("recipient", medal.Comp.Recipient), ("medal", Name(medal.Owner))), medal.Owner);
-        // Log medal awarding
-        _adminLogger.Add(LogType.Action, LogImpact.Low, $"{ToPrettyString(args.Wearer):player} was awarded the {ToPrettyString(medal.Owner):entity} with the award reason \"{medal.Comp.Reason}\"");
+
+        if (args.Target == null || !args.CanReach)
+            return;
+
+        var doAfterTime = 2.0f;
+
+        var doAfter = new CrewMedalAwardDoAfterEvent();
+
+        _doAfterSystem.TryStartDoAfter(new DoAfterArgs(EntityManager, args.User, doAfterTime, doAfter, uid, target: args.Target, used: uid)
+        {
+            DistanceThreshold = SharedInteractionSystem.InteractionRange,
+            BreakOnDamage = true,
+            BreakOnMove = true,
+            NeedHand = true,
+        });
     }
 
     private void OnReasonChanged(EntityUid uid, CrewMedalComponent medalComp, CrewMedalReasonChangedMessage args)
@@ -49,6 +66,38 @@ public sealed class CrewMedalSystem : SharedCrewMedalSystem
 
         // Log medal reason change
         _adminLogger.Add(LogType.Action, LogImpact.Low, $"{ToPrettyString(args.Actor):user} set {ToPrettyString(uid):entity} to apply the award reason \"{medalComp.Reason}\"");
+    }
+
+    private void OnDoAfterAward(EntityUid uid, CrewMedalComponent comp, CrewMedalAwardDoAfterEvent args)
+    {
+        if (args.Handled || args.Cancelled || args.Target == null)
+            return;
+
+        if (comp.Awarded)
+            return;
+
+        var recipient = args.Target.Value;
+
+        comp.Recipient = Identity.Name(recipient, EntityManager);
+        comp.Awarded = true;
+        Dirty(uid, comp);
+
+        _popup.PopupEntity(Loc.GetString("comp-crew-medal-award-text", ("recipient", comp.Recipient), ("medal", Name(uid))), uid);
+
+        // Try to equip to neck slot if empty, otherwise try to put in any free hand.
+        if (!_inventory.TryGetSlotEntity(recipient, "neck", out _))
+        {
+            // neck slot empty, try to equip
+            _inventory.TryEquip(recipient, uid, "neck", silent: true, force: true);
+        }
+        else
+        {
+            // neck occupied, try to put in a free hand
+            _hands.TryPickupAnyHand(recipient, uid, checkActionBlocker: false);
+        }
+
+        // Log medal awarding
+        _adminLogger.Add(LogType.Action, LogImpact.Low, $"{ToPrettyString(recipient):player} was awarded the {ToPrettyString(uid):entity} by {ToPrettyString(args.User):user} with the award reason \"{comp.Reason}\"");
     }
 
     private void OnRoundEndText(RoundEndTextAppendEvent ev)

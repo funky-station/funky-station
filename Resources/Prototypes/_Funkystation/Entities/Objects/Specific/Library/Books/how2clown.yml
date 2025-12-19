@@ -1,7 +1,7 @@
 - type: entity
   parent: BookBase
   id: how2clown
-  name: "Gloobmaster's Guide 2 Clowning!!!!"
+  name: "Guide 2 Clowning!!!!"
   description: Upon closer inspection, the book's cover seems to be made out of banana peels with a plastic banana glued onto it..
   components:
   - type: Sprite
@@ -17,13 +17,15 @@
     - state: icon_banana
     - state: icon_text2
       color: "#000000"
+  - type: OocAuthorship
+    oocAuthor: Gloobmaster
   - type: Paper
     stampedBy:
     - stampedColor: '#134975'
       stampedName: "NT APPROVED"
     content: |2
-      [head=2]Gloobmaster's Guide 2 Clowning!!!!
-      BY GLOOBMASTER!!!
+      [head=2]Guide 2 Clowning!!!!
+      BY ███████████!!!
       MASTER OF GLOOBING!![/head]
 
       1. If the clown is the only one laughing, they aren't a good clown. Sure, slipping someone and taking their stuff might be funny to you, but it feels really bad for the person being slipped. Refer to step 2 for viable targets!

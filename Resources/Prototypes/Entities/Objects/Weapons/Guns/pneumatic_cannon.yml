@@ -175,7 +175,7 @@
   description: Improvised using nothing but a pipe, some zipties, and a pneumatic cannon. This one seems to have been tinkered and modified with to be able to shoot projectiles like bullets. Doesn't accept tanks without enough gas.
   components:
   - type: Gun
-    fireRate: 0.5   #not giving crew a better clake here
+    fireRate: 0.2   #not giving crew a better clake here
     selectedMode: SemiAuto
     availableModes:
     - SemiAuto

@@ -14,6 +14,7 @@
 
 using System.Numerics;
 using Content.Shared.Alert;
+using Content.Shared.FixedPoint;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;

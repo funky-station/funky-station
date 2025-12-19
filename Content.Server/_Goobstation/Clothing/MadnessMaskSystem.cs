@@ -8,6 +8,7 @@
 
 using Content.Server.EntityEffects.Effects;
 using Content.Shared.Clothing.Components;
+using Content.Server.Damage.Systems;
 using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Drugs;

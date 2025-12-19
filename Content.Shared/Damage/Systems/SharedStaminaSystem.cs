@@ -159,10 +159,10 @@ public abstract partial class SharedStaminaSystem : EntitySystem
             ExitStamCrit(entity, entity.Comp);
         }
 
-        component.StaminaDamage = 0;
-        RemComp<ActiveStaminaComponent>(uid);
-        SetStaminaAlert(uid, component);
-        Dirty(uid, component);
+        entity.Comp.StaminaDamage = 0;
+        RemComp<ActiveStaminaComponent>(entity);
+        SetStaminaAlert(entity, entity.Comp);
+        Dirty(entity, entity.Comp);
     }
 
     private void OnDisarmed(EntityUid uid, StaminaComponent component, DisarmedEvent args)
@@ -352,7 +352,7 @@ public abstract partial class SharedStaminaSystem : EntitySystem
         if (oldDamage < slowdownThreshold &&
             component.StaminaDamage > slowdownThreshold)
         {
-            _stunSystem.TrySlowdown(uid, TimeSpan.FromSeconds(3), true, 0.8f, 0.8f);
+            StunSystem.TrySlowdown(uid, TimeSpan.FromSeconds(3), true, 0.8f, 0.8f);
         }
 
         UpdateStaminaVisuals((uid, component));
@@ -409,7 +409,7 @@ public abstract partial class SharedStaminaSystem : EntitySystem
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
-        if (!_timing.IsFirstTimePredicted)
+        if (!Timing.IsFirstTimePredicted)
             return;
 
         var stamQuery = GetEntityQuery<StaminaComponent>();

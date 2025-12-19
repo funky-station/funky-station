@@ -44,6 +44,8 @@ using Robust.Shared.Random;
 using Robust.Shared.Containers;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Systems;
+using Content.Shared.Storage.Components;
+using Content.Shared.Storage.EntitySystems;
 
 namespace Content.Server.Nutrition.EntitySystems;
 
@@ -56,6 +58,7 @@ public sealed class SliceableFoodSystem : EntitySystem
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
+    [Dependency] private readonly SecretStashSystem _secretStash = default!;
     public override void Initialize()
     {
         base.Initialize();
@@ -169,7 +172,12 @@ public sealed class SliceableFoodSystem : EntitySystem
         RaiseLocalEvent(uid, ev);
         if (ev.Cancelled)
             return;
-
+        // If this sliceable food has a secret stash, dump it out first.
+        if (TryComp<SecretStashComponent>(uid, out var stash))
+        {
+            // Drop at the cake's current position (or you could use user's coords if you prefer)
+            _secretStash.DropContentsAndAlert((uid, stash), Transform(uid).Coordinates);
+        }
         // Locate the sliced food and spawn its trash
         foreach (var trash in foodComp.Trash)
         {

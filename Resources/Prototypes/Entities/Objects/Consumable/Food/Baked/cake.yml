@@ -70,6 +70,18 @@
     tags:
     - Cake
     - VoxFood
+  - type: SecretStash
+    secretStashName: secret-stash-cake
+    blacklist:
+      components:
+      - SecretStash
+      # no nuke disk blacklist, kinda funny seeing a nukie gorge a cake mid firefight to get the disk
+      tags:
+      - QuantumSpinInverter
+  - type: ToolOpenable
+    openToolQualityNeeded: Digging
+    closeToolQualityNeeded: Digging
+    name: secret-stash-cake
 
 - type: entity
   parent: FoodCakeBase
@@ -1156,6 +1168,17 @@
     damage:
       groups:
         Brute: 1
+  - type: SecretStash
+    secretStashName: secret-stash-cake
+    blacklist:
+      components:
+      - SecretStash
+      tags:
+      - QuantumSpinInverter
+  - type: ToolOpenable
+    openToolQualityNeeded: Digging
+    closeToolQualityNeeded: Digging
+    name: secret-stash-cake
 
 # Suppermatter
 # I can't figure out where to put this. It kind of acts like a cake I guess?

@@ -134,6 +134,9 @@
     timeToMix: 0.5
     reactionTypes:
     - Stir
+  - type: Tool
+    qualities:
+    - Digging
 
 - type: entity
   parent: UtensilBasePlastic
@@ -155,6 +158,9 @@
     timeToMix: 0.5
     reactionTypes:
     - Stir
+  - type: Tool
+    qualities:
+    - Digging
 
 - type: entity
   parent: UtensilBasePlastic
@@ -203,3 +209,6 @@
         Blunt: 2
   - type: Shovel
     speedModifier: 0.05 # nah
+  - type: Tool
+    qualities:
+    - Digging

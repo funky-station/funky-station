@@ -238,7 +238,7 @@ public sealed class SecretStashSystem : EntitySystem
     /// <summary>
     ///     Drop the item stored in the stash and alert all nearby players with a popup.
     /// </summary>
-    private void DropContentsAndAlert(Entity<SecretStashComponent> entity, EntityCoordinates? cords = null)
+    public void DropContentsAndAlert(Entity<SecretStashComponent> entity, EntityCoordinates? cords = null)
     {
         var storedInside = _containerSystem.EmptyContainer(entity.Comp.ItemContainer, true, cords);
         if (storedInside != null && storedInside.Count >= 1)

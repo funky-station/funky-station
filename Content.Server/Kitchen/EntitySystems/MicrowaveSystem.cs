@@ -92,6 +92,8 @@ using Content.Server.Construction.Components;
 using Content.Shared.Chat;
 using Content.Shared.Damage;
 using Robust.Shared.Utility;
+using Content.Shared.Storage.Components;
+using Content.Shared.Storage.EntitySystems;
 
 namespace Content.Server.Kitchen.EntitySystems
 {
@@ -119,6 +121,7 @@ namespace Content.Server.Kitchen.EntitySystems
         [Dependency] private readonly IPrototypeManager _prototype = default!;
         [Dependency] private readonly IAdminLogManager _adminLogger = default!;
         [Dependency] private readonly SharedSuicideSystem _suicide = default!;
+        [Dependency] private readonly SecretStashSystem _secretStash = default!;
 
         [ValidatePrototypeId<EntityPrototype>]
         private const string MalfunctionSpark = "Spark";
@@ -246,7 +249,7 @@ namespace Content.Server.Kitchen.EntitySystems
             }
         }
 
-        private void SubtractContents(MicrowaveComponent component, FoodRecipePrototype recipe)
+        private void SubtractContents(EntityUid microwaveUid, MicrowaveComponent component, FoodRecipePrototype recipe)
         {
             // TODO Turn recipe.IngredientsReagents into a ReagentQuantity[]
 
@@ -321,6 +324,8 @@ namespace Content.Server.Kitchen.EntitySystems
                         else
                         {
                             _container.Remove(item, component.Storage);
+                            if (TryComp<SecretStashComponent>(item, out var stash))
+                                _secretStash.DropContentsAndAlert((item, stash), Transform(microwaveUid).Coordinates);
                             Del(item);
                             break;
                         }
@@ -755,7 +760,7 @@ namespace Content.Server.Kitchen.EntitySystems
                     var coords = Transform(uid).Coordinates;
                     for (var i = 0; i < active.PortionedRecipe.Item2; i++)
                     {
-                        SubtractContents(microwave, active.PortionedRecipe.Item1);
+                        SubtractContents(uid, microwave, active.PortionedRecipe.Item1);
                         Spawn(active.PortionedRecipe.Item1.Result, coords);
                     }
                 }

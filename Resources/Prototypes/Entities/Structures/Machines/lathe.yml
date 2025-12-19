@@ -1237,7 +1237,7 @@
     - ClothingBackpackElectropack
     - ExplosivePayload
     - FlashPayload
-    #- GrenadeBlast
+    - GrenadeBlast
     - GrenadeEMP
     - GrenadeFlash
     - HoloprojectorSecurity

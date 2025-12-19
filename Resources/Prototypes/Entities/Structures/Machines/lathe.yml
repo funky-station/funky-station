@@ -570,7 +570,6 @@
     - SecHypo # Goobstation
     - ParamedHypo # Goobstation - ParamedHypo
     - ClothingHandsSecurityKnuckleDusters #funk
-    - GrenadeBaton #funk
     - TowelColorSyndicate #funk
   - type: BlueprintReceiver
     whitelist:
@@ -1220,7 +1219,6 @@
     - autoInjectorCartridgeCaseSoft
     - SurveillanceWirelessCameraBodySecurity #funk
     - ClothingHandsSecurityKnuckleDusters #funk
-    - GrenadeBaton #funk
     dynamicRecipes:
     - BoxBeanbag
     - BoxShotgunIncendiary

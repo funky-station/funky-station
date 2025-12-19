@@ -91,13 +91,6 @@
   - type: Electrified
     enabled: false
     usesApcPower: true
-  - type: PointLight
-    enabled: false
-    castShadows: false
-    radius: 2
-    energy: 1.5
-    mask: /Textures/Effects/LightMasks/cone.png
-    autoRot: true
   - type: LitOnPowered
   - type: ApcPowerReceiver
     powerLoad: 200
@@ -162,10 +155,6 @@
   - type: Wires
     boardName: wires-board-name-vendingmachine
     layoutId: Vending
-  - type: PointLight
-    enabled: false
-    castShadows: false
-    radius: 1.5
   - type: LitOnPowered
   - type: Appearance
   - type: WiresVisuals
@@ -1726,30 +1715,6 @@
 # wallmounted machines
 
 - type: entity
-  id: VendingMachineWallmount
-  parent: VendingMachine
-  name: vending machine
-  abstract: true
-  placement:
-    mode: SnapgridCenter
-    snap:
-    - Wallmount
-  components:
-  - type: Physics
-    canCollide: false
-  - type: Fixtures
-  - type: Sprite
-    drawdepth: WallMountedItems
-    snapCardinals: false
-  - type: WallMount
-    arc: 175
-  - type: Transform
-    noRot: false
-  - type: Rotatable
-    rotateWhileAnchored: false
-    rotateWhilePulling: true
-
-- type: entity
   parent: VendingMachineWallmount
   id: VendingMachineWallMedical
   name: NanoMed
@@ -2205,10 +2170,6 @@
       shader: unshaded
     - state: panel
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
-  - type: PointLight
-    radius: 1.5
-    energy: 3.0
-    color: "#6927C5"
   - type: AccessReader
     access: [["Janitor"]]
   - type: PointLight
@@ -2568,8 +2529,6 @@
     denyState: deny-unshaded
     ejectState: eject-unshaded
     screenState: screen
-  - type: Advertise
-    pack: FitnessVendAds
   - type: Transform
     noRot: false
   - type: Rotatable
@@ -2610,8 +2569,6 @@
   - type: Rotatable
     rotateWhileAnchored: false
     rotateWhilePulling: true
-  - type: Advertise
-    pack: HotfoodAds
   - type: PointLight
     radius: 2
     energy: 1.6
@@ -2643,8 +2600,6 @@
     normalState: normal-unshaded
     ejectState: eject-unshaded
     denyState: deny-unshaded
-  - type: Advertise
-    pack: SolsnackAds
   - type: Transform
     noRot: false
   - type: Rotatable
@@ -2682,8 +2637,6 @@
     normalState: normal-unshaded
     denyState: deny-unshaded
     ejectState: eject-unshaded
-  - type: Advertise
-    pack: WeebVendAds
   - type: Transform
     noRot: false
   - type: Rotatable

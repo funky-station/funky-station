@@ -216,7 +216,6 @@
   - PowerCageSmall
   - PowerCageMedium
   - MagazineGrenadeEmpty
-  - GrenadeBlast
   - ShuttleGunSvalinnMachineGunCircuitboard
   - ShuttleGunPerforatorCircuitboard
   - ShuttleGunFriendshipCircuitboard
@@ -263,6 +262,7 @@
   cost: 15000
   recipeUnlocks:
   - GrenadeEMP
+  - GrenadeBlast  
   - PowerCageHigh
   - ShuttleGunDusterCircuitboard
   technologyPrerequisites:

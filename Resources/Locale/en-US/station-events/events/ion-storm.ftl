@@ -72,8 +72,8 @@ ion-storm-law-eat = THE {$who} MUST EAT {$adjective} {$food} TO SURVIVE
 ion-storm-law-drink = THE {$who} MUST DRINK {$adjective} {$drink} TO SURVIVE
 
 ion-storm-law-change-job = THE {$who} ARE NOW {$adjective} {$change}
-ion-storm-law-highest-rank = THE {$who} ARE NOW THE HIGHEST RANKING CREWMEMBERS
-ion-storm-law-lowest-rank = THE {$who} ARE NOW THE LOWEST RANKING CREWMEMBERS
+# ion-storm-law-highest-rank = THE {$who} ARE NOW THE HIGHEST RANKING CREWMEMBERS # funky removals
+# ion-storm-law-lowest-rank = THE {$who} ARE NOW THE LOWEST RANKING CREWMEMBERS
 
 ion-storm-law-crew-must = THE {$who} MUST {$must}
 ion-storm-law-crew-must-go = THE {$who} MUST GO TO {$area}

@@ -601,12 +601,34 @@ public abstract partial class SharedSurgerySystem
 
     private void OnRemoveOrganStep(Entity<SurgeryRemoveOrganStepComponent> ent, ref SurgeryStepEvent args)
     {
-        if (!TryComp<SurgeryOrganConditionComponent>(args.Surgery, out var organComp)
+        // Check if there's a prototype condition (can be used with or without organ condition)
+        TryComp<SurgeryOrganPrototypeConditionComponent>(args.Surgery, out var prototypeComp);
+
+        // Handle prototype-only conditions (e.g., SurgeryRemoveZombieTumor)
+        if (prototypeComp?.PrototypeId != null && !TryComp<SurgeryOrganConditionComponent>(args.Surgery, out var organComp))
+        {
+            if (!TryComp(args.Part, out BodyPartComponent? partComp))
+                return;
+
+            // Get all organs in the body part and find the one matching the prototype
+            var organs = _body.GetPartOrgans(args.Part, partComp);
+            foreach (var (organUid, organ) in organs)
+            {
+                var meta = MetaData(organUid);
+                if (meta.EntityPrototype?.ID == prototypeComp.PrototypeId)
+                {
+                    _body.RemoveOrgan(organUid, organ);
+                    _hands.TryPickupAnyHand(args.User, organUid);
+                    return;
+                }
+            }
+            return;
+        }
+
+        // Handle organ condition (with optional prototype filter)
+        if (!TryComp<SurgeryOrganConditionComponent>(args.Surgery, out organComp)
             || organComp.Organ == null)
             return;
-
-        // Check if there's a prototype condition to filter by specific organ prototype
-        TryComp<SurgeryOrganPrototypeConditionComponent>(args.Surgery, out var prototypeComp);
 
         foreach (var reg in organComp.Organ.Values)
         {
@@ -639,10 +661,35 @@ public abstract partial class SharedSurgerySystem
 
     private void OnRemoveOrganCheck(Entity<SurgeryRemoveOrganStepComponent> ent, ref SurgeryStepCompleteCheckEvent args)
     {
-        if (!TryComp<SurgeryOrganConditionComponent>(args.Surgery, out var organComp)
-            || organComp.Organ == null
-            || !TryComp(args.Part, out BodyPartComponent? partComp)
+        if (!TryComp(args.Part, out BodyPartComponent? partComp)
             || partComp.Body != args.Body)
+            return;
+
+        // Check if there's a prototype condition (can be used with or without organ condition)
+        TryComp<SurgeryOrganPrototypeConditionComponent>(args.Surgery, out var prototypeComp);
+
+        // Handle prototype-only conditions (e.g., SurgeryRemoveZombieTumor)
+        if (prototypeComp?.PrototypeId != null && !TryComp<SurgeryOrganConditionComponent>(args.Surgery, out var organComp))
+        {
+            // Get all organs in the body part and check if one matches the prototype
+            var organs = _body.GetPartOrgans(args.Part, partComp);
+            foreach (var (organUid, _) in organs)
+            {
+                var meta = MetaData(organUid);
+                if (meta.EntityPrototype?.ID == prototypeComp.PrototypeId)
+                {
+                    // Organ still exists, step is not complete
+                    args.Cancelled = true;
+                    return;
+                }
+            }
+            // Organ not found, step is complete
+            return;
+        }
+
+        // Handle organ condition (with optional prototype filter)
+        if (!TryComp<SurgeryOrganConditionComponent>(args.Surgery, out organComp)
+            || organComp.Organ == null)
             return;
 
         foreach (var reg in organComp.Organ.Values)
@@ -651,8 +698,26 @@ public abstract partial class SharedSurgerySystem
                 && organs != null
                 && organs.Count > 0)
             {
-                args.Cancelled = true;
-                return;
+                // If prototype condition exists, filter organs by prototype ID
+                if (prototypeComp?.PrototypeId != null)
+                {
+                    foreach (var (organUid, _) in organs)
+                    {
+                        var meta = MetaData(organUid);
+                        if (meta.EntityPrototype?.ID == prototypeComp.PrototypeId)
+                        {
+                            // Organ still exists, step is not complete
+                            args.Cancelled = true;
+                            return;
+                        }
+                    }
+                }
+                else
+                {
+                    // No prototype filter, any matching organ means step is not complete
+                    args.Cancelled = true;
+                    return;
+                }
             }
         }
     }

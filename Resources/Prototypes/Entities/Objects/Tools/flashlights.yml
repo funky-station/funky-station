@@ -129,7 +129,7 @@
     slots:
       cell_slot:
         name: power-cell-slot-component-slot-name-default
-        startingItem: PowerCellMedium
+        startingItem: PowerCellHighSingle
   - type: HandheldLight
     addPrefix: false
     wattage: 0.5

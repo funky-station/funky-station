@@ -19,7 +19,7 @@ using Robust.Shared.Player;
 
 namespace Content.Shared.Mobs.Systems;
 
-public partial class    MobStateSystem
+public partial class MobStateSystem
 {
     #region Public API
 

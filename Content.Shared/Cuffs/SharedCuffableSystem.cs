@@ -306,7 +306,7 @@ namespace Content.Shared.Cuffs
 
             if (args.User.Value == uid)
             {
-                // If they are cuffed in soft/hard critical, they cannot stop the pull
+                // If they are cuffed or in soft/hard critical, they cannot stop the pull
                 if (!component.CanStillInteract || _mobState.IsCritical(uid))
                 {
                     args.Cancelled = true;

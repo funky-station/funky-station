@@ -149,6 +149,8 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
     public EntProtoId SpacesuitPrototype = "ChangelingClothingOuterHardsuit";
     public EntProtoId SpacesuitHelmetPrototype = "ChangelingClothingHeadHelmetHardsuit";
 
+    private System.Random RandomNumberGenerator = default!;
+
     private readonly List<TargetBodyPart> _bodyPartBlacklist =
     [
         TargetBodyPart.Head,
@@ -172,6 +174,8 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
     public override void Initialize()
     {
         base.Initialize();
+        
+        RandomNumberGenerator = new System.Random();
 
         SubscribeLocalEvent<ChangelingComponent, ComponentStartup>(OnStartup);
         SubscribeLocalEvent<ChangelingComponent, MobStateChangedEvent>(OnMobStateChange);

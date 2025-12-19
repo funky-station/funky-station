@@ -4,6 +4,8 @@
 // SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
 // SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 MaiaArai <158123176+YaraaraY@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
 // SPDX-License-Identifier: MIT
@@ -20,6 +22,7 @@ using Content.Shared.Movement.Events;
 using Content.Shared.StepTrigger.Components;
 using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
+using Content.Shared.Atmos;
 
 namespace Content.Shared.Fluids;
 
@@ -45,6 +48,7 @@ public abstract partial class SharedPuddleSystem : EntitySystem
         SubscribeLocalEvent<RefillableSolutionComponent, CanDropDraggedEvent>(OnRefillableCanDropDragged);
         SubscribeLocalEvent<PuddleComponent, GetFootstepSoundEvent>(OnGetFootstepSound);
         SubscribeLocalEvent<PuddleComponent, ExaminedEvent>(HandlePuddleExamined);
+        SubscribeLocalEvent<PuddleComponent, TileFireEvent>(OnPuddleBurn);
 
         InitializeSpillable();
     }
@@ -118,6 +122,19 @@ public abstract partial class SharedPuddleSystem : EntitySystem
             else
                 args.PushMarkup(Loc.GetString("puddle-component-examine-evaporating-no"));
         }
+    }
+
+    public void OnPuddleBurn(Entity<PuddleComponent> ent, ref TileFireEvent args)
+    {
+        if (!_solutionContainerSystem.ResolveSolution(ent.Owner,
+                ent.Comp.SolutionName,
+                ref ent.Comp.Solution,
+                out var solution))
+            return;
+
+        // Changed from 0.05f to 0.001f, fires will burn longer.
+        _solutionContainerSystem.BurnFlammableReagents(ent.Comp.Solution.Value, 0.001f);
+
     }
 
     #region Spill

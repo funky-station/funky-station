@@ -40,6 +40,7 @@ loadout-group-backpack = Backpack
 loadout-group-instruments = Instruments
 loadout-group-survival-basic = Survival Box
 loadout-group-survival-extended = Extended Survival Box
+loadout-group-survival-salvage-extended = Extended Survival Box
 loadout-group-survival-clown = Clown Survival Box
 loadout-group-survival-medical = Medical Survival Box
 loadout-group-survival-security = Security Survival Box
@@ -254,6 +255,7 @@ loadout-group-medical-chemist-glasses = Chemist glasses
 loadout-group-medical-chemist-head = Chemist head
 
 loadout-group-paramedic-head = Paramedic head
+loadout-group-paramedic-glasses = Paramedic glasses
 loadout-group-paramedic-jumpsuit = Paramedic jumpsuit
 loadout-group-paramedic-outerclothing = Paramedic outer clothing
 loadout-group-paramedic-shoes = Paramedic shoes

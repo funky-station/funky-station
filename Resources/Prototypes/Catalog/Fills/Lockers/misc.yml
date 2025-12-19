@@ -39,11 +39,15 @@
 # SPDX-FileCopyrightText: 2025 MintyTheBinty <193618231+MintyTheBinty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 PurpleTranStar <tehevilduckiscoming@gmail.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 ThatOneMoon <91613003+ThatOneMoon@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
 # SPDX-FileCopyrightText: 2025 TheSecondLord <88201625+TheSecondLord@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Unkn0wn_Gh0st <shadowstalkermll@gmail.com>
 # SPDX-FileCopyrightText: 2025 V <97265903+formlessnameless@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Xcybitt <197952719+Xcybitt@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 willowzeta <willowzeta632146@proton.me>
 # SPDX-FileCopyrightText: 2025 wilowzeta <willowzeta632146@proton.me>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
@@ -64,6 +68,7 @@
         - id: ClothingUniformJumpskirtOperative
         - id: ClothingHeadsetAltSyndicate
         - id: ClothingEyesHudSyndicate
+        - id: HandheldStationMap #funk, i kinda don't want memorizing the station to be somewhat of a must for nukies
 
 - type: entityTable
   id: FillLockerEmergencyStandard
@@ -178,7 +183,7 @@
     - id: ClothingBeltMilitaryWebbing
     - id: ClothingShoesBootsCombatFilled
     - id: ToolboxSyndicateFilled
-    - id: BalloonSyn
+    - id: UplinkLighterBox # Funky change
     - id: WeaponSniperMosin
     - id: ClothingEyesNightVisionGogglesSyndie
     - id: ClothingEyesThermalVisionGogglesSyndie

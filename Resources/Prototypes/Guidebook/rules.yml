@@ -10,6 +10,7 @@
 # SPDX-FileCopyrightText: 2025 Icepick <122653407+Icepicked@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Icepick <icepickedcyanide@gmail.com>
 # SPDX-FileCopyrightText: 2025 Mish <bluscout78@yahoo.com>
+# SPDX-FileCopyrightText: 2025 Sadie <sadiecmstone@gmail.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
@@ -56,7 +57,7 @@
   - RuleC11
   - RuleC12
   - RuleC13
-#  - RuleC14
+  - RuleC14
 
 - type: guideEntry
   id: RuleC1
@@ -150,12 +151,19 @@
   text: "/ServerInfo/Guidebook/ServerRules/CoreRules/RuleC13NoEORG.xml"
 
 - type: guideEntry
+  id: RuleC14
+  name: guide-entry-rules-c14
+  ruleEntry: true
+  priority: 14
+  text: "/ServerInfo/Guidebook/ServerRules/CoreRules/RuleC14LOOC.xml"
+
+- type: guideEntry
   id: Metashield
   name: guide-entry-metashield
   ruleEntry: false
   priority: 4
   text: "/ServerInfo/Guidebook/ServerRules/Metashield.xml"
-  
+
 - type: guideEntry
   id: NamingScheme
   name: guide-entry-namingscheme

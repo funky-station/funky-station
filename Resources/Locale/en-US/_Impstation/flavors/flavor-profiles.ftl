@@ -27,6 +27,9 @@ flavor-complex-supermixerpsych = like a psychiatric appointment
 
 flavor-complex-moonrise = like sweet nostalgia
 
+flavor-complex-safe = safe
+flavor-complex-profane = profane
+
 flavor-complex-armory = like armory access
 flavor-complex-atmospherics = like atmospherics access
 flavor-complex-bar = like bar access

@@ -11,8 +11,10 @@
 // SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
 // SPDX-FileCopyrightText: 2024 Winkarst <74284083+Winkarst-cpu@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 MaiaArai <158123176+YaraaraY@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Steve <marlumpy@gmail.com>
 // SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 marc-pelletier <113944176+marc-pelletier@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
@@ -69,16 +71,19 @@ namespace Content.Server.Atmos.EntitySystems
             if ((tile.Hotspot.Temperature < Atmospherics.FireMinimumTemperatureToExist) || (tile.Hotspot.Volume <= 1f)
                || (tile.Air == null || tile.Air.GetMoles(Gas.Oxygen) < 0.5f || (tile.Air.GetMoles(Gas.Plasma) < 0.5f
                && tile.Air.GetMoles(Gas.Tritium) < 0.5f && tile.Air.GetMoles(Gas.Hydrogen) < 0.5f)
-               || tile.Air.GetMoles(Gas.HyperNoblium) > 5f))  // Assmos - /tg/ gases
+               || tile.Air.GetMoles(Gas.HyperNoblium) > 5f) && tile.PuddleSolutionFlammability == 0)  // Assmos - /tg/ gases
             {
                 tile.Hotspot = new Hotspot();
+                tile.Hotspot.Type = tile.PuddleSolutionFlammability > 0 ? HotspotType.Puddle : HotspotType.Gas;
                 InvalidateVisuals(ent, tile);
                 return;
             }
 
             PerformHotspotExposure(tile);
 
-            if (tile.Hotspot.Bypassing)
+            tile.Hotspot.Type = tile.PuddleSolutionFlammability > 0 ? HotspotType.Puddle : HotspotType.Gas;
+
+            if (tile.Hotspot.Bypassing || tile.PuddleSolutionFlammability > 0)
             {
                 tile.Hotspot.State = 3;
 
@@ -106,7 +111,7 @@ namespace Content.Server.Atmos.EntitySystems
                 if (tileBurntDecals < 4)
                     _decalSystem.TryAddDecal(_burntDecals[_random.Next(_burntDecals.Length)], new EntityCoordinates(gridUid, tilePos), out _, cleanable: true);
 
-                if (tile.Air.Temperature > Atmospherics.FireMinimumTemperatureToSpread)
+                if (tile.Air != null && tile.Air.Temperature > Atmospherics.FireMinimumTemperatureToSpread)
                 {
                     var radiatedTemperature = tile.Air.Temperature * Atmospherics.FireSpreadRadiosityScale;
                     foreach (var otherTile in tile.AdjacentTiles)
@@ -160,34 +165,62 @@ namespace Content.Server.Atmos.EntitySystems
             var hydrogen = tile.Air.GetMoles(Gas.Hydrogen); // Assmos - /tg/ gases
             var hypernob = tile.Air.GetMoles(Gas.HyperNoblium); // Assmos - /tg/ gases
 
+            // Clamp effective flammability so super-dense puddles don't create heat death of the universe temperatures
+            var rawFlammability = (float)tile.PuddleSolutionFlammability;
+            var effectiveFlammability = Math.Min(rawFlammability, 20f);
+
+            // Use the higher of the exposed temp neighbor or the tile's own air temp.
+            // This ensures hot ambient gas ignites the puddle
+            var ignitionTemperature = Math.Max(exposedTemperature, tile.Air.Temperature);
+
             if (tile.Hotspot.Valid)
             {
                 if (soh)
                 {
-                    if (plasma > 0.5f && hypernob < 5f || tritium > 0.5f && hypernob < 5f || hydrogen > 0.5f && hypernob < 5f) // Assmos - /tg/ gases
+                    if (plasma > 0.5f && hypernob < 5f || tritium > 0.5f && hypernob < 5f || hydrogen > 0.5f && hypernob < 5f || rawFlammability > 0) // Assmos - /tg/ gases
                     {
-                        if (tile.Hotspot.Temperature < exposedTemperature)
-                            tile.Hotspot.Temperature = exposedTemperature;
+                        if (tile.Hotspot.Temperature < ignitionTemperature)
+                            tile.Hotspot.Temperature = ignitionTemperature;
                         if (tile.Hotspot.Volume < exposedVolume)
                             tile.Hotspot.Volume = exposedVolume;
                     }
                 }
 
+                // Linear scaling
+                tile.Hotspot.Temperature = AddClampedTemperature(
+                    tile.Hotspot.Temperature,
+                    10 * effectiveFlammability,
+                    (float)(Atmospherics.T0C + 100 * effectiveFlammability));
+
                 return;
             }
 
-            if ((exposedTemperature > Atmospherics.PlasmaMinimumBurnTemperature) && (plasma > 0.5f && hypernob < 5f || tritium > 0.5f && hypernob < 5f || hydrogen > 0.5f && hypernob < 5f)) // Assmos - /tg/ gases
+            // Ignition threshold
+            var ignitionThreshold = Math.Max(373.15f, 573.15f - (10 * effectiveFlammability));
+
+            if ((ignitionTemperature > Atmospherics.PlasmaMinimumBurnTemperature && (plasma > 0.5f && hypernob < 5f || tritium > 0.5f && hypernob < 5f || hydrogen > 0.5f && hypernob < 5f))
+                || (rawFlammability > 0 && ignitionTemperature > ignitionThreshold) ) // Assmos - /tg/ gases
             {
                 if (sparkSourceUid.HasValue)
                     _adminLog.Add(LogType.Flammable, LogImpact.High, $"Heat/spark of {ToPrettyString(sparkSourceUid.Value)} caused atmos ignition of gas: {tile.Air.Temperature.ToString():temperature}K - {oxygen}mol Oxygen, {plasma}mol Plasma, {tritium}mol Tritium, {hydrogen}mol Hydrogen"); //Assmos - /tg/ gases
 
+                var temperature = ignitionTemperature;
+                if(rawFlammability > 0)
+                {
+                    temperature = AddClampedTemperature(
+                        temperature,
+                        10 * effectiveFlammability,
+                        (float)(Atmospherics.T0C + 100 * effectiveFlammability));
+                }
+
                 tile.Hotspot = new Hotspot
                 {
                     Volume = exposedVolume * 25f,
-                    Temperature = exposedTemperature,
+                    Temperature = temperature,
                     SkippedFirstProcess = tile.CurrentCycle > gridAtmosphere.UpdateCounter,
                     Valid = true,
-                    State = 1
+                    State = 1,
+                    Type = rawFlammability > 0 ? HotspotType.Puddle : HotspotType.Gas
                 };
 
                 AddActiveTile(gridAtmosphere, tile);
@@ -197,9 +230,10 @@ namespace Content.Server.Atmos.EntitySystems
 
         private void PerformHotspotExposure(TileAtmosphere tile)
         {
-            if (tile.Air == null || !tile.Hotspot.Valid) return;
+            if (tile.Air == null || !tile.Hotspot.Valid)
+                return;
 
-            tile.Hotspot.Bypassing = tile.Hotspot.SkippedFirstProcess && tile.Hotspot.Volume > tile.Air.Volume*0.95f;
+            tile.Hotspot.Bypassing = tile.Hotspot.SkippedFirstProcess && tile.Hotspot.Volume > tile.Air.Volume*0.95f && tile.PuddleSolutionFlammability == 0;
 
             if (tile.Hotspot.Bypassing)
             {
@@ -209,7 +243,28 @@ namespace Content.Server.Atmos.EntitySystems
             else
             {
                 var affected = tile.Air.RemoveVolume(tile.Hotspot.Volume);
-                affected.Temperature = tile.Hotspot.Temperature;
+
+                var effectiveFlammability = Math.Min((float)tile.PuddleSolutionFlammability, 20f);
+                affected.Temperature = MathF.Max(tile.Hotspot.Temperature, Atmospherics.T0C + 25 * effectiveFlammability);
+
+                // Gas consumption and production
+                if (effectiveFlammability > 0)
+                {
+                    // Enough to impact the room, but slow enough to allow the fire to propagate before suffocating
+                    var burnAmount = 0.10f * effectiveFlammability;
+                    var oxygen = affected.GetMoles(Gas.Oxygen);
+                    var actualBurn = Math.Min(burnAmount, oxygen);
+
+                    if (actualBurn > 0)
+                    {
+                        affected.AdjustMoles(Gas.Oxygen, -actualBurn);
+
+                        // Produces CO2 and H2O to simulate a dirty burn
+                        affected.AdjustMoles(Gas.CarbonDioxide, actualBurn * 1.5f);
+                        affected.AdjustMoles(Gas.WaterVapor, actualBurn * 0.5f);
+                    }
+                }
+
                 React(affected, tile);
                 tile.Hotspot.Temperature = affected.Temperature;
                 tile.Hotspot.Volume = affected.ReactionResults[(byte)GasReaction.Fire] * Atmospherics.FireGrowthRate;
@@ -224,6 +279,13 @@ namespace Content.Server.Atmos.EntitySystems
             {
                 RaiseLocalEvent(entity, ref fireEvent);
             }
+        }
+        /// <summary>
+        /// Used for reagent fires to ensure the temperature doesn't get too far out of control.
+        /// </summary>
+        private float AddClampedTemperature(float temperature, float kelvinToAdd, float clampTemperature)
+        {
+            return MathF.Max(temperature, MathF.Min(temperature + kelvinToAdd, clampTemperature));
         }
     }
 }

@@ -1,0 +1,27 @@
+# SPDX-FileCopyrightText: 2025 Terkala <appleorange64@gmail.com>
+# SPDX-FileCopyrightText: 2025 terkala <appleorange64@gmail.com>
+#
+# SPDX-License-Identifier: MIT
+
+# Ruin maps that can be used for salvage magnet ruin offerings.
+# These maps are used to extract floor and wall tiles using flood-fill.
+
+- type: ruinMap
+  id: Bagel
+  mapPath: /Maps/_Funkystation/bagel.yml
+
+- type: ruinMap
+  id: Box
+  mapPath: /Maps/_Funkystation/box.yml
+
+- type: ruinMap
+  id: Core
+  mapPath: /Maps/_Funkystation/core.yml
+
+- type: ruinMap
+  id: Court
+  mapPath: /Maps/_Funkystation/court.yml
+
+- type: ruinMap
+  id: Fland
+  mapPath: /Maps/_Funkystation/fland.yml

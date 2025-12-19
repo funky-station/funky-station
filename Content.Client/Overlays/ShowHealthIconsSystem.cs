@@ -23,6 +23,10 @@ using System.Linq;
 
 namespace Content.Client.Overlays;
 
+
+/// <summary>
+/// Shows a healthy icon on mobs.
+/// </summary>
 public sealed class ShowHealthIconsSystem : EquipmentHudSystem<ShowHealthIconsComponent>
 {
     [Dependency] private readonly IPrototypeManager _prototypeMan = default!;
@@ -82,10 +86,12 @@ public sealed class ShowHealthIconsSystem : EquipmentHudSystem<ShowHealthIconsCo
 
         var result = new List<HealthIconPrototype>();
 
+        // Here you could check health status, diseases, mind status, etc. and pick a good icon, or multiple depending on whatever.
         if (damageableComponent?.DamageContainerID == "Biological")
         {
             if (TryComp<MobStateComponent>(entity, out var state))
             {
+                // Since there is no MobState for a rotting mob, we have to deal with this case first.
                 if (HasComp<RottingComponent>(entity) && _prototypeMan.TryIndex(damageableComponent.RottingIcon, out var rottingIcon))
                 {
                     result.Add(rottingIcon);

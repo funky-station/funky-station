@@ -84,6 +84,7 @@ public sealed partial class EntityHealthBarOverlay : Overlay
             if (statusIcon != null && !_statusIconSystem.IsVisible((uid, _entManager.GetComponent<MetaDataComponent>(uid)), statusIcon))
                 continue;
 
+            // We want the stealth user to still be able to see his health bar himself
             if (!xformQuery.TryGetComponent(uid, out var xform) ||
                 xform.MapID != args.MapId)
                 continue;
@@ -91,6 +92,7 @@ public sealed partial class EntityHealthBarOverlay : Overlay
             if (damageableComponent.DamageContainerID == null || !DamageContainers.Contains(damageableComponent.DamageContainerID))
                 continue;
 
+            // we use the status icon component bounds if specified otherwise use sprite
             var bounds = _entManager.GetComponentOrNull<StatusIconComponent>(uid)?.Bounds ?? _spriteSystem.GetLocalBounds((uid, spriteComponent));
             var worldPos = _transform.GetWorldPosition(xform, xformQuery);
 
@@ -114,6 +116,7 @@ public sealed partial class EntityHealthBarOverlay : Overlay
             var position = new Vector2(-widthOfMob / EyeManager.PixelsPerMeter / 2, yOffset / EyeManager.PixelsPerMeter);
             var color = GetProgressColor(deathProgress.ratio, deathProgress.inCrit);
 
+            // Hardcoded width of the progress bar because it doesn't match the texture.
             const float startX = 8f;
             var endX = widthOfMob - 8f;
 
@@ -135,6 +138,9 @@ public sealed partial class EntityHealthBarOverlay : Overlay
         handle.SetTransform(Matrix3x2.Identity);
     }
 
+    /// <summary>
+    /// Returns a ratio between 0 and 1, and whether the entity is in crit.
+    /// </summary>
     private (float ratio, bool inCrit)? CalcProgress(EntityUid uid, MobStateComponent component, DamageableComponent dmg, MobThresholdsComponent thresholds)
     {
         FixedPoint2 firstCritThreshold = 0;

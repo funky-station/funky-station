@@ -10,48 +10,53 @@
 - type: body #This entire thing will need to get changed because it will seem very odd when the raptor turns into a vox corpse
   id: CeledonRaptor
   name: "celedonraptor"
-  root: torso
+  root: chest
   slots:
     head:
       part: HeadVox
       organs:
         brain: OrganAnimalBrain
         eyes: OrganAnimalEyes
-    torso:
-      part: TorsoVox
+    chest:
+      part: ChestVox
       connections:
-      - left leg
-      - right leg
       - left arm
       - right arm
+      - groin
       - head
       organs:
         heart: OrganAnimalHeart
         lungs: OrganAnimalLungs
+    groin:
+      part: GroinVox
+      connections:
+      - left leg
+      - right leg
+      organs:
         stomach: OrganReptilianStomach
         liver: OrganAnimalLiver
         kidneys: OrganHumanKidneys
-    left leg:
-      part: LeftLegVox
-      connections:
-      - left foot
-    left foot:
-      part: LeftFootVox
-    right leg:
-      part: RightLegVox
-      connections:
-      - right foot
-    right foot:
-      part: RightFootVox
-    left arm:
-      part: LeftArmVox
-      connections:
-      - left hand
-    left hand:
-      part: LeftHandVox
     right arm:
       part: RightArmVox
       connections:
       - right hand
+    left arm:
+      part: LeftArmVox
+      connections:
+      - left hand
     right hand:
       part: RightHandVox
+    left hand:
+      part: LeftHandVox
+    right leg:
+      part: RightLegVox
+      connections:
+      - right foot
+    left leg:
+      part: LeftLegVox
+      connections:
+      - left foot
+    right foot:
+      part: RightFootVox
+    left foot:
+      part: LeftFootVox

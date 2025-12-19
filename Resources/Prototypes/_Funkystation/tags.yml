@@ -141,3 +141,12 @@
 
 - type: Tag
   id: NoRecharge
+
+- type: Tag
+  id: VoxFood
+
+- type: Tag
+  id: MetalHydrogen
+
+- type: Tag
+  id: Cryobeaker

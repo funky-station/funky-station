@@ -84,3 +84,19 @@
         - ReagentId: PineappleMargherita
           Quantity: 30
 # pignog
+
+- type: entity
+  parent: DrinkGlass
+  id: DrinkOrangeLimeSodaGlass
+  suffix: citrus bikeshed
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: OrangeLimeSoda
+          Quantity: 30
+  - type: Icon
+    sprite: Objects/Consumable/Drinks/orangelime_soda.rsi
+    state: icon

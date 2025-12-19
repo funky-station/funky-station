@@ -111,6 +111,21 @@
             Quantity: 30
 
 - type: entity
+  id: CigaretteLaughter
+  parent: SoakedCigarette
+  name: Clown Adjacency Bonus
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      smokable:
+        maxVol: 40
+        reagents:
+        - ReagentId: Nicotine
+          Quantity: 10
+        - ReagentId: Laughter
+          Quantity: 10
+
+- type: entity
   id: CigaretteOmnizine
   parent: SoakedCigarette
   name: Hot Dog Water Flavor Explosion
@@ -393,6 +408,7 @@
             Quantity: 10
           - ReagentId: MuteToxin
             Quantity: 2
+
 - type: entity
   id: CigaretteLipolicide
   parent: SoakedCigarette
@@ -421,6 +437,21 @@
         - ReagentId: Nicotine
           Quantity: 10
         - ReagentId: SodiumPolyacrylate
+          Quantity: 10
+
+- type: entity
+  id: CigaretteFrezon
+  parent: SoakedCigarette
+  name: Atmospheric Adventure
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      smokable:
+        maxVol: 40
+        reagents:
+        - ReagentId: Nicotine
+          Quantity: 10
+        - ReagentId: Frezon
           Quantity: 10
 
 - type: entity
@@ -454,6 +485,21 @@
             Quantity: 2
 
 - type: entity
+  id: CigaretteRadium
+  parent: SoakedCigarette
+  name: Ex Ray
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      smokable:
+        maxVol: 40
+        reagents:
+        - ReagentId: Nicotine
+          Quantity: 10
+        - ReagentId: Radium
+          Quantity: 10
+
+- type: entity
   id: CigaretteLicoxide
   parent: SoakedCigarette
   name: Wake Up Call
@@ -467,6 +513,21 @@
             Quantity: 10
           - ReagentId: Licoxide
             Quantity: 5
+
+- type: entity
+  id: CigarettePhlogiston
+  parent: SoakedCigarette
+  name: Dragon Dating Sim
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      smokable:
+        maxVol: 40
+        reagents:
+        - ReagentId: Nicotine
+          Quantity: 10
+        - ReagentId: Phlogiston
+          Quantity: 10
 
 - type: entity
   id: CigaretteWeldingFuel

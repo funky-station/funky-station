@@ -50,7 +50,7 @@ public sealed class KillTrackingSystem : EntitySystem
 
     private void OnMobStateChanged(EntityUid uid, KillTrackerComponent component, MobStateChangedEvent args)
     {
-        if (args.NewMobState != component.KillState || args.OldMobState >= args.NewMobState)
+        if (component.KillState.Contains(args.NewMobState))
             return;
 
         // impulse is the entity that did the finishing blow.

@@ -12,6 +12,7 @@
 using Content.Shared.Atmos.Rotting;
 using Content.Shared.Damage;
 using Content.Shared.Inventory.Events;
+using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Overlays;
 using Content.Shared.StatusIcon;
@@ -21,9 +22,6 @@ using System.Linq;
 
 namespace Content.Client.Overlays;
 
-/// <summary>
-/// Shows a healthy icon on mobs.
-/// </summary>
 public sealed class ShowHealthIconsSystem : EquipmentHudSystem<ShowHealthIconsComponent>
 {
     [Dependency] private readonly IPrototypeManager _prototypeMan = default!;
@@ -83,16 +81,30 @@ public sealed class ShowHealthIconsSystem : EquipmentHudSystem<ShowHealthIconsCo
 
         var result = new List<HealthIconPrototype>();
 
-        // Here you could check health status, diseases, mind status, etc. and pick a good icon, or multiple depending on whatever.
         if (damageableComponent?.DamageContainerID == "Biological")
         {
             if (TryComp<MobStateComponent>(entity, out var state))
             {
-                // Since there is no MobState for a rotting mob, we have to deal with this case first.
                 if (HasComp<RottingComponent>(entity) && _prototypeMan.TryIndex(damageableComponent.RottingIcon, out var rottingIcon))
+                {
                     result.Add(rottingIcon);
-                else if (damageableComponent.HealthIcons.TryGetValue(state.CurrentState, out var value) && _prototypeMan.TryIndex(value, out var icon))
-                    result.Add(icon);
+                }
+                else
+                {
+                    // Try to get the specific state icon
+                    if (damageableComponent.HealthIcons.TryGetValue(state.CurrentState, out var value))
+                    {
+                        if (_prototypeMan.TryIndex(value, out var icon))
+                            result.Add(icon);
+                    }
+                    // Fallback: If in SoftCrit or HardCrit but no icon found, use the standard Critical icon
+                    else if ((state.CurrentState == MobState.SoftCritical || state.CurrentState == MobState.HardCritical) &&
+                             damageableComponent.HealthIcons.TryGetValue(MobState.Critical, out var critValue))
+                    {
+                        if (_prototypeMan.TryIndex(critValue, out var critIcon))
+                            result.Add(critIcon);
+                    }
+                }
             }
         }
 

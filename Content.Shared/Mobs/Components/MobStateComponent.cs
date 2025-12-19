@@ -33,7 +33,7 @@ namespace Content.Shared.Mobs.Components
         public HashSet<MobState> AllowedStates = new()
             {
                 MobState.Alive,
-                MobState.Critical,
+                MobState.HardCritical,
                 MobState.Dead
             };
     }

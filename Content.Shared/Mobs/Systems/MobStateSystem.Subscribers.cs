@@ -30,6 +30,7 @@ using Content.Shared.Inventory.Events;
 using Content.Shared.Item;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Movement.Events;
+using Content.Shared.Movement.Systems;
 using Content.Shared.Pointing;
 using Content.Shared.Pulling.Events;
 using Content.Shared.Speech;
@@ -71,6 +72,7 @@ public partial class MobStateSystem
         SubscribeLocalEvent<MobStateComponent, CombatModeShouldHandInteractEvent>(OnCombatModeShouldHandInteract);
         SubscribeLocalEvent<MobStateComponent, AttemptPacifiedAttackEvent>(OnAttemptPacifiedAttack);
         SubscribeLocalEvent<MobStateComponent, DamageModifyEvent>(OnDamageModify);
+        SubscribeLocalEvent<MobStateComponent, RefreshMovementSpeedModifiersEvent>(OnRefreshMovespeed);
 
         SubscribeLocalEvent<MobStateComponent, UnbuckleAttemptEvent>(OnUnbuckleAttempt);
     }
@@ -89,6 +91,8 @@ public partial class MobStateSystem
         {
             case MobState.Dead:
             case MobState.Critical:
+            case MobState.SoftCritical:
+            case MobState.HardCritical:
                 args.Cancelled = true;
                 break;
         }
@@ -102,15 +106,17 @@ public partial class MobStateSystem
                 //unused
                 break;
             case MobState.Critical:
+            case MobState.SoftCritical:
                 var forceStand = false;
                 if (TryComp<TagComponent>(target, out var tag))
                     forceStand = _tag.HasTag(tag, ForceStandOnReviveTag);
 
                 _standing.Stand(target, force: forceStand);
                 break;
+            case MobState.HardCritical:
+                break;
             case MobState.Dead:
                 RemComp<CollisionWakeComponent>(target);
-                _standing.Stand(target);
                 break;
             case MobState.Invalid:
                 //unused
@@ -138,6 +144,8 @@ public partial class MobStateSystem
                 _appearance.SetData(target, MobStateVisuals.State, MobState.Alive);
                 break;
             case MobState.Critical:
+            case MobState.SoftCritical:
+            case MobState.HardCritical:
                 _standing.Down(target);
                 _appearance.SetData(target, MobStateVisuals.State, MobState.Critical);
                 break;
@@ -155,6 +163,15 @@ public partial class MobStateSystem
     }
 
     #region Event Subscribers
+
+    private void OnRefreshMovespeed(EntityUid uid, MobStateComponent component, RefreshMovementSpeedModifiersEvent args)
+    {
+        if (component.CurrentState == MobState.SoftCritical)
+        {
+            // apply a 0.4x multiplier (60% slowdown) when in soft crit
+            args.ModifySpeed(0.4f, 0.4f);
+        }
+    }
 
     private void OnSleepAttempt(EntityUid target, MobStateComponent component, ref TryingToSleepEvent args)
     {
@@ -179,6 +196,9 @@ public partial class MobStateSystem
             return;
         }
 
+        if (component.CurrentState == MobState.SoftCritical)
+            args.OnlyWhisper = true;
+
         CheckAct(uid, component, args);
     }
 
@@ -188,6 +208,7 @@ public partial class MobStateSystem
         {
             case MobState.Dead:
             case MobState.Critical:
+            case MobState.HardCritical:
                 args.Cancel();
                 break;
         }

@@ -132,7 +132,7 @@ public sealed class DamageForceSaySystem : EntitySystem
 
     private void OnMobStateChanged(EntityUid uid, DamageForceSayComponent component, MobStateChangedEvent args)
     {
-        if (args is not { OldMobState: MobState.Alive, NewMobState: MobState.Critical or MobState.Dead })
+        if (args is not { OldMobState: MobState.Alive, NewMobState: MobState.Critical or MobState.SoftCritical or MobState.HardCritical or MobState.Dead })
             return;
 
         // no suffix for the drama

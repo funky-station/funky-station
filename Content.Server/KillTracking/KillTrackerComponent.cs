@@ -7,6 +7,7 @@
 using Content.Shared.FixedPoint;
 using Content.Shared.Mobs;
 using Robust.Shared.Network;
+using Content.Shared.FixedPoint;
 
 namespace Content.Server.KillTracking;
 
@@ -20,7 +21,12 @@ public sealed partial class KillTrackerComponent : Component
     /// The mobstate that registers as a "kill"
     /// </summary>
     [DataField("killState")]
-    public MobState KillState = MobState.Critical;
+    public List<MobState> KillState = new()
+    {
+        MobState.Critical,
+        MobState.HardCritical,
+        MobState.Dead
+    };
 
     /// <summary>
     /// A dictionary of sources and how much damage they've done to this entity over time.

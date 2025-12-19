@@ -92,6 +92,8 @@ namespace Content.Shared.Damage
         {
             { MobState.Alive, "HealthIconFine" },
             { MobState.Critical, "HealthIconCritical" },
+            { MobState.SoftCritical, "HealthIconCritical" },
+            { MobState.HardCritical, "HealthIconCritical" },
             { MobState.Dead, "HealthIconDead" },
         };
 

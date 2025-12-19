@@ -68,6 +68,8 @@ public abstract class SharedDevourSystem : EntitySystem
             switch (targetState.CurrentState)
             {
                 case MobState.Critical:
+                case MobState.SoftCritical:
+                case MobState.HardCritical:
                 case MobState.Dead:
 
                     _doAfterSystem.TryStartDoAfter(new DoAfterArgs(EntityManager, uid, component.DevourTime, new DevourDoAfterEvent(), uid, target: target, used: uid)

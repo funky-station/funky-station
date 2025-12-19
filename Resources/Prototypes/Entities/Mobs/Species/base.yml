@@ -393,6 +393,18 @@
   - type: MobPrice
     price: 1500 # Kidnapping a living person and selling them for cred is a good move.
     deathPenalty: 0.01 # However they really ought to be living and intact, otherwise they're worth 100x less.
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      100: SoftCritical
+      150: HardCritical
+      200: Dead
+  - type: MobState
+    allowedStates:
+    - Alive
+    - SoftCritical
+    - HardCritical
+    - Dead
   - type: Tag
     tags:
     - CanPilot

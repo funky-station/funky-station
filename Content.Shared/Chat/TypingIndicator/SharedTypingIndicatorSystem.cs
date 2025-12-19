@@ -88,7 +88,7 @@ public abstract class SharedTypingIndicatorSystem : EntitySystem
         }
 
         // check if this entity can speak or emote
-        if (!_actionBlocker.CanEmote(uid.Value) && !_actionBlocker.CanSpeak(uid.Value))
+        if (!_actionBlocker.CanEmote(uid.Value) && !_actionBlocker.CanSpeak(uid.Value, out _))
         {
             // nah, make sure that typing indicator is disabled
             SetTypingIndicatorState(uid.Value, TypingIndicatorState.None);
@@ -116,7 +116,7 @@ public abstract class SharedTypingIndicatorSystem : EntitySystem
         }
 
         // check if this entity can speak or emote
-        if (!_actionBlocker.CanEmote(uid.Value) && !_actionBlocker.CanSpeak(uid.Value))
+        if (!_actionBlocker.CanEmote(uid.Value) && !_actionBlocker.CanSpeak(uid.Value, out _))
         {
             SetTypingIndicatorType(uid.Value, ChatSelectChannel.None, "default");
             return;

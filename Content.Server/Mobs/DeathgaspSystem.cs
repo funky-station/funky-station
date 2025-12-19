@@ -32,7 +32,7 @@ public sealed class DeathgaspSystem: EntitySystem
     {
         // don't deathgasp if they arent going straight from crit to dead
         if (component.NeedsCritical // Goobstation
-            && args.OldMobState != MobState.Critical
+            && args.OldMobState != MobState.HardCritical
             || args.NewMobState != MobState.Dead)
             return;
 

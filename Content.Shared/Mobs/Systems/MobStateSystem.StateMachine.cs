@@ -19,7 +19,7 @@ using Robust.Shared.Player;
 
 namespace Content.Shared.Mobs.Systems;
 
-public partial class MobStateSystem
+public partial class    MobStateSystem
 {
     #region Public API
 
@@ -116,11 +116,31 @@ public partial class MobStateSystem
     {
         var oldState = component.CurrentState;
         //make sure we are allowed to enter the new state
-        if (oldState == newState || !component.AllowedStates.Contains(newState))
+        if (oldState == newState)
             return;
 
-        if (oldState == MobState.Dead && HasComp<DebrainedComponent>(target)) // Shitmed Change
-            return;
+        if (!component.AllowedStates.Contains(newState))
+        {
+            if (newState != MobState.Critical)
+                return;
+
+            if (!component.AllowedStates.Contains(MobState.SoftCritical) || !component.AllowedStates.Contains(MobState.HardCritical))
+                return;
+
+            switch (oldState)
+            {
+                case MobState.Alive:
+                {
+                    newState = MobState.SoftCritical;
+                    break;
+                }
+                case MobState.Dead:
+                {
+                    newState = MobState.HardCritical;
+                    break;
+                }
+            }
+        }
 
         OnExitState(target, component, oldState);
         component.CurrentState = newState;

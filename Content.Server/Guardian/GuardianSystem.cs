@@ -278,7 +278,7 @@ namespace Content.Server.Guardian
             if (component.HostedGuardian == null)
                 return;
 
-            if (args.NewMobState == MobState.Critical)
+            if (args.NewMobState == MobState.Critical || args.NewMobState == MobState.SoftCritical)
             {
                 _popupSystem.PopupEntity(Loc.GetString("guardian-host-critical-warn"), component.HostedGuardian.Value, component.HostedGuardian.Value);
                 _audio.PlayPvs("/Audio/Effects/guardian_warn.ogg", component.HostedGuardian.Value);

@@ -302,6 +302,16 @@ public sealed partial class ChatSystem : SharedChatSystem
         // and i dont feel like vibe checking 50 code paths
         // so we set this here
         // todo free me from chat code
+
+        // check if the entity is forced to whisper and convert to local whisper if yes
+        if (!ignoreActionBlocker && _actionBlocker.CanSpeak(source, out var onlyWhisper))
+        {
+            if (desiredType == InGameICChatType.Speak && onlyWhisper)
+            {
+                desiredType = InGameICChatType.Whisper;
+            }
+        }
+
         if (player != null)
         {
             _chatManager.EnsurePlayer(player.UserId).AddEntity(GetNetEntity(source));
@@ -587,7 +597,10 @@ public sealed partial class ChatSystem : SharedChatSystem
         bool ignoreActionBlocker = false
     )
     {
-        if (!_actionBlocker.CanSpeak(source) && !ignoreActionBlocker)
+        if (!_actionBlocker.CanSpeak(source, out var onlyWhisper) && !ignoreActionBlocker)
+            return;
+
+        if (onlyWhisper)
             return;
 
         var message = TransformSpeech(source, originalMessage);
@@ -667,8 +680,12 @@ public sealed partial class ChatSystem : SharedChatSystem
         bool ignoreActionBlocker = false
     )
     {
-        if (!_actionBlocker.CanSpeak(source) && !ignoreActionBlocker)
+        if (!_actionBlocker.CanSpeak(source, out var onlyWhisper) && !ignoreActionBlocker)
             return;
+
+        // if a channel is present but the user must whisper, force it to be a local whisper
+        if (channel != null && onlyWhisper)
+            channel = null;
 
         var message = TransformSpeech(source, FormattedMessage.RemoveMarkupOrThrow(originalMessage));
         if (message.Length == 0)

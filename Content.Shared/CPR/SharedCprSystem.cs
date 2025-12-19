@@ -40,7 +40,7 @@ public abstract partial class SharedCprSystem : EntitySystem
     [Dependency] private readonly MobStateSystem _mobState = default!;
 
     public const float CprInteractionRangeMultiplier = 0.25f;
-    public const float CprDoAfterDelay = 0.7f;
+    public const float CprDoAfterDelay = 0.5f;
     public const float CprAnimationLength = 0.2f;
     public const float CprAnimationEndTime = 1f;
     public const float CprManualEffectDuration = 5f;
@@ -76,17 +76,17 @@ public abstract partial class SharedCprSystem : EntitySystem
 
     public bool CanDoCpr(EntityUid recipient, EntityUid giver)
     {
-        if (!TryComp<CprComponent>(recipient, out var cpr) ||
-            !TryComp<MobThresholdsComponent>(recipient, out var thresholds) ||
-            !TryComp<MobThresholdsComponent>(giver, out var myThresholds))
+        if (!HasComp<CprComponent>(recipient))
             return false;
 
-        if ((thresholds.CurrentThresholdState != MobState.Critical && thresholds.CurrentThresholdState != MobState.Dead) ||
-            myThresholds.CurrentThresholdState == MobState.Critical ||
-            myThresholds.CurrentThresholdState == MobState.Dead)
+        if (!_mobState.IsIncapacitated(recipient))
             return false;
 
-        if (cpr.LastCaretaker.HasValue &&
+        if (_mobState.IsIncapacitated(giver))
+            return false;
+
+        if (TryComp<CprComponent>(recipient, out var cpr) &&
+            cpr.LastCaretaker.HasValue &&
             !CprCaretakerOutdated(cpr) &&
             cpr.LastCaretaker.Value != giver)
             return false;
@@ -109,7 +109,6 @@ public abstract partial class SharedCprSystem : EntitySystem
 
         if (!TryComp<DamageableComponent>(ent, out var damage) ||
             !TryComp<CprComponent>(ent, out var cpr) ||
-            !TryComp<MobThresholdsComponent>(ent, out var thresholds) ||
             !TryComp<MobStateComponent>(ent, out var mobState))
             return;
 
@@ -117,16 +116,19 @@ public abstract partial class SharedCprSystem : EntitySystem
 
         _audio.PlayPredicted(cpr.Sound, ent.Owner, args.User);
 
-        // If the patient is Dead, roll for a revive chance
+        // if the patient is dead, roll for a revive chance
+        if (_mobState.IsDead(ent.Owner, mobState))
         {
             if (!HasComp<UnrevivableComponent>(ent) &&
                 _mobThreshold.TryGetThresholdForState(ent.Owner, MobState.Dead, out var threshold) &&
                 damage.TotalDamage < threshold &&
                 _random.Prob(CprReviveChance))
             {
+                // we revive them into standard Critical.
+                // they should transition to SoftCritical automatically if their damage is low enough
                 _mobState.ChangeMobState(ent.Owner, MobState.Critical, mobState);
 
-                if (mobState.CurrentState == MobState.Critical)
+                if (_mobState.IsCritical(ent.Owner, mobState))
                 {
                     _popup.PopupPredicted(Loc.GetString("cpr-revive-success", ("target", ent.Owner)), args.User, args.User);
                 }
@@ -149,9 +151,8 @@ public abstract partial class SharedCprSystem : EntitySystem
         if (newUntil > assist.AssistedUntil)
             assist.AssistedUntil = newUntil;
 
-        if (mobState.CurrentState != MobState.Critical &&
-            mobState.CurrentState != MobState.Dead &&
-            cpr.BonusHeal != null)
+        // if they are NOT incapacitated apply bonus healing
+        if (!_mobState.IsIncapacitated(ent.Owner, mobState) && cpr.BonusHeal != null)
         {
             var healing = new DamageSpecifier(cpr.BonusHeal);
             healing.DamageDict.Remove("Bloodloss");
@@ -162,7 +163,8 @@ public abstract partial class SharedCprSystem : EntitySystem
         cpr.LastCaretaker = args.User;
         cpr.LastTimeGivenCare = Timing.CurTime;
 
-        args.Repeat = (mobState.CurrentState == MobState.Critical || mobState.CurrentState == MobState.Dead) && _cprRepeat;
+        // repeat if the mob is still in any crit state or dead
+        args.Repeat = _mobState.IsIncapacitated(ent.Owner, mobState) && _cprRepeat;
         args.Handled = true;
     }
 

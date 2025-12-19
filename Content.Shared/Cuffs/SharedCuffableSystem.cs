@@ -60,6 +60,7 @@ using Content.Shared.Interaction.Events;
 using Content.Shared.Inventory.Events;
 using Content.Shared.Inventory.VirtualItem;
 using Content.Shared.Item;
+using Content.Shared.Mobs.Systems; // Required for MobStateSystem
 using Content.Shared.Movement.Events;
 using Content.Shared.Movement.Pulling.Events;
 using Content.Shared.Popups;
@@ -98,6 +99,7 @@ namespace Content.Shared.Cuffs
         [Dependency] private readonly SharedTransformSystem _transform = default!;
         [Dependency] private readonly UseDelaySystem _delay = default!;
         [Dependency] private readonly SharedCombatModeSystem _combatMode = default!;
+        [Dependency] private readonly MobStateSystem _mobState = default!; // Added dependency
 
         public override void Initialize()
         {
@@ -302,8 +304,14 @@ namespace Content.Shared.Cuffs
             if (args.User == null || !Exists(args.User.Value))
                 return;
 
-            if (args.User.Value == uid && !component.CanStillInteract)
-                args.Cancelled = true;
+            if (args.User.Value == uid)
+            {
+                // If they are cuffed in soft/hard critical, they cannot stop the pull
+                if (!component.CanStillInteract || _mobState.IsCritical(uid))
+                {
+                    args.Cancelled = true;
+                }
+            }
         }
 
         private void OnRemoveCuffsAlert(Entity<CuffableComponent> ent, ref RemoveCuffsAlertEvent args)

@@ -27,18 +27,24 @@
 // SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
 // SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
 // SPDX-FileCopyrightText: 2024 mr-bo-jangles <mr-bo-jangles@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 MaiaArai <158123176+YaraaraY@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Mish <bluscout78@yahoo.com>
 // SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+pronana@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
 // SPDX-License-Identifier: MIT
 
 using System.Linq;
 using Content.Server.Administration.Logs;
+using Content.Server.Atmos.Components;
+using Content.Server.Atmos.EntitySystems;
 using Content.Server.Chemistry.TileReactions;
 using Content.Server.DoAfter;
 using Content.Server.Fluids.Components;
 using Content.Server.Spreader;
+using Content.Shared.Atmos.Components;
 using Content.Shared.Chemistry;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Components.SolutionManager;
@@ -91,6 +97,7 @@ public sealed partial class PuddleSystem : SharedPuddleSystem
     [Dependency] private readonly StepTriggerSystem _stepTrigger = default!;
     [Dependency] private readonly SpeedModifierContactsSystem _speedModContacts = default!;
     [Dependency] private readonly TileFrictionController _tile = default!;
+    [Dependency] private readonly AtmosphereSystem _atmos = default!;
 
     [ValidatePrototypeId<ReagentPrototype>]
     private const string Blood = "Blood";
@@ -108,6 +115,7 @@ public sealed partial class PuddleSystem : SharedPuddleSystem
     private HashSet<EntityUid> _deletionQueue = [];
 
     private EntityQuery<PuddleComponent> _puddleQuery;
+    private EntityQuery<TransformComponent> _xformQuery;
 
     /*
      * TODO: Need some sort of way to do blood slash / vomit solution spill on its own
@@ -120,6 +128,7 @@ public sealed partial class PuddleSystem : SharedPuddleSystem
         base.Initialize();
 
         _puddleQuery = GetEntityQuery<PuddleComponent>();
+        _xformQuery = GetEntityQuery<TransformComponent>();
 
         // Shouldn't need re-anchoring.
         SubscribeLocalEvent<PuddleComponent, AnchorStateChangedEvent>(OnAnchorChanged);
@@ -342,18 +351,54 @@ public sealed partial class PuddleSystem : SharedPuddleSystem
         _reactive.DoEntityReaction(args.Slipped, splitSol, ReactionMethod.Touch);
     }
 
+    private float _ignitionTimer;
+
     /// <inheritdoc/>
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
         foreach (var ent in _deletionQueue)
         {
+            UpdateFlammability(ent, null);
             Del(ent);
         }
 
         _deletionQueue.Clear();
 
         TickEvaporation();
+
+        // Check for auto-ignition from hot air
+        _ignitionTimer += frameTime;
+        if (_ignitionTimer >= 1.0f)
+        {
+            _ignitionTimer -= 1.0f;
+            var query = EntityQueryEnumerator<PuddleComponent, TransformComponent>();
+            while (query.MoveNext(out var uid, out var puddle, out var xform))
+            {
+                if (xform.GridUid is not { } gridUid)
+                    continue;
+
+                // don't check empty puddles
+                if (puddle.Solution == null || puddle.Solution.Value.Comp.Solution.Volume <= FixedPoint2.Zero)
+                    continue;
+
+                if (!TryComp(gridUid, out MapGridComponent? mapGrid))
+                    continue;
+
+                if (!TryComp(gridUid, out GridAtmosphereComponent? gridAtmos))
+                    continue;
+
+                var tileIndices = _map.TileIndicesFor(gridUid, mapGrid, xform.Coordinates);
+
+                var gridEnt = (gridUid, gridAtmos, (GasTileOverlayComponent?)null);
+                var mixture = _atmos.GetTileMixture(gridEnt, null, tileIndices);
+
+                if (mixture == null || mixture.Temperature < 373.15f)
+                    continue;
+
+                _atmos.HotspotExpose((gridUid, gridAtmos), tileIndices, mixture.Temperature, mixture.Volume, null, true);
+            }
+        }
     }
 
     private void OnSolutionUpdate(Entity<PuddleComponent> entity, ref SolutionContainerChangedEvent args)
@@ -368,10 +413,24 @@ public sealed partial class PuddleSystem : SharedPuddleSystem
         }
 
         _deletionQueue.Remove(entity);
+        UpdateFlammability((entity.Owner, entity.Comp), args.Solution);
         UpdateSlip((entity, entity.Comp), args.Solution);
         UpdateSlow(entity, args.Solution);
         UpdateEvaporation(entity, args.Solution);
         UpdateAppearance(entity, entity.Comp);
+    }
+
+    private void UpdateFlammability(Entity<PuddleComponent?> entity, Solution? solution)
+    {
+        if (solution is null)
+        {
+            _atmos.SetPuddleFlammabilityAtTile(entity.Owner, 0);
+            return;
+        }
+
+        var flammability = solution.GetSolutionFlammability(_prototypeManager);
+        _atmos.SetPuddleFlammabilityAtTile(entity.Owner, flammability);
+
     }
 
     private void UpdateAppearance(EntityUid uid, PuddleComponent? puddleComponent = null,

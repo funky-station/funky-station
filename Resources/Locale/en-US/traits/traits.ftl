@@ -25,19 +25,19 @@ trait-unrevivable-name = Unrevivable
 trait-unrevivable-desc = You are unable to be revived by defibrillators.
 
 trait-pirate-accent-name = Pirate accent
-trait-pirate-accent-desc = You can't stop speaking like a pirate!
+trait-pirate-accent-desc = Arrgh crack open yere coffer of booty and sing a shanty, for ya arrr a pirate!
 
 trait-accentless-name = Accentless
-trait-accentless-desc = You don't have the accent that your species would usually have
+trait-accentless-desc = You don't have the accent that your species would usually have.
 
 trait-frontal-lisp-name = Frontal lisp
 trait-frontal-lisp-desc = You thpeak with a lithp.
 
 trait-socialanxiety-name = Stutter
-trait-socialanxiety-desc = You speak with a stutter.
+trait-socialanxiety-desc = Y-You speak with a st-tutter.
 
 trait-southern-name = Southern drawl
-trait-southern-desc = You have a different way of speakin'.
+trait-southern-desc = You have a different way of speakin', an' it ain't subtle!
 
 trait-snoring-name = Snoring
 trait-snoring-desc = You will snore while sleeping.
@@ -46,13 +46,13 @@ trait-liar-name = Pathological liar
 trait-liar-desc = You can hardly bring yourself to tell the truth. Sometimes you lie anyway.
 
 trait-cowboy-name = Cowboy vernacular
-trait-cowboy-desc = You speak with the vocabulary of a cowboy!
+trait-cowboy-desc = By gum, your mighty slick words make everyone reckon you're the sheriff!
 
 trait-german-name = German accent
-trait-german-desc = You seem to come from space Germany.
+trait-german-desc = You seem to cöme from ze distant land of space Germany.
 
 trait-italian-name = Italian accent
-trait-italian-desc = Mamma mia! You seem to have lived in space Italy!
+trait-italian-desc = Your molto bene Italian accent could-a wow even the capitano!
 
 trait-atheist-name = Atheist
 trait-atheist-desc = You are an Atheist. You cannot pray.
@@ -64,16 +64,16 @@ trait-christian-name = Christian
 trait-christian-desc = You are a Christian.
 
 trait-french-name = French accent
-trait-french-desc = Your accent seems to have a certain «je ne sais quoi».
+trait-french-desc = Your gentleur accent seems to 'af a certain iconique «je ne sais quoi».
 
 trait-spanish-name = Spanish accent
-trait-spanish-desc = Hola señor, donde esta la biblioteca.
+trait-spanish-desc = ¿You espeak with a noticeable Espanish accent, can't you hear?
 
 trait-painnumbness-name = Numb
 trait-painnumbness-desc = You lack any sense of feeling pain, being unaware of how hurt you may be.
 
 trait-russian-name = Russian accent
-trait-russian-desc = Niko, it's Roman! Let's go bowling!
+trait-russian-desc = Oy blin! You speak vith strong Russian accent!
 
 trait-species-restricted = Your species cannot take this trait.
 

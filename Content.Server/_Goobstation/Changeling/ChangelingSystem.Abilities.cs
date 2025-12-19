@@ -43,6 +43,7 @@ using Content.Server.Radio.Components;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Random.Helpers;
 using Content.Shared._EE.Overlays.Switchable;
+using Content.Shared.Atmos.Rotting;
 using Content.Shared.Species.Arachnid;
 using Robust.Shared.Containers;
 
@@ -230,6 +231,7 @@ public sealed partial class ChangelingSystem
         var bonusChemicals = 0f;
         var bonusEvolutionPoints = 0f;
         var isTargetChangeling = false;
+        var isTargetRotting = false;
         if (TryComp<ChangelingComponent>(target, out var targetComp))
         {
             bonusChemicals += targetComp.MaxChemicals / 2;
@@ -237,26 +239,39 @@ public sealed partial class ChangelingSystem
             comp.MaxBiomass += targetComp.MaxBiomass / 2;
 
             isTargetChangeling = true;
+
+            TryStealDNA(uid, target, comp, true);
+            comp.TotalAbsorbedEntities++;
+        }
+        else if (TryComp<RottingComponent>(target,out var rotComp))
+        {
+            popup = Loc.GetString("changeling-absorb-rotten");
+            isTargetRotting = true;
         }
         else
         {
             popup = Loc.GetString("changeling-absorb-end-self");
             bonusChemicals += 10;
             bonusEvolutionPoints += 2;
+
         }
-        TryStealDNA(uid, target, comp, true);
-        comp.TotalAbsorbedEntities++;
+        if (!isTargetRotting)
+        {
+            TryStealDNA(uid, target, comp, true);
+            comp.TotalAbsorbedEntities++;
+
+        }
 
         _popup.PopupEntity(popup, args.User, args.User);
         comp.MaxChemicals += bonusChemicals;
 
-        if (TryComp<StoreComponent>(args.User, out var store))
+        if (TryComp<StoreComponent>(args.User, out var store) && !isTargetRotting)
         {
             _store.TryAddCurrency(new Dictionary<string, FixedPoint2> { { "EvolutionPoint", bonusEvolutionPoints } }, args.User, store);
             _store.UpdateUserInterface(args.User, args.User, store);
         }
 
-        if (_mind.TryGetMind(uid, out var mindId, out var mind))
+        if (!isTargetRotting && _mind.TryGetMind(uid, out var mindId, out var mind))
             if (_mind.TryGetObjectiveComp<AbsorbConditionComponent>(mindId, out var objective, mind))
                 objective.Absorbed += 1;
 
@@ -266,14 +281,16 @@ public sealed partial class ChangelingSystem
             return; // funky station - if you get here somethings really wrong
 
         var bodyPart = _bodySystem.GetRandomBodyPart(target, targetingComponent, _bodyPartBlacklist);
-
-        if (bodyPart != null)
+        //chance to grab a body part - Funky
+        var bodyPartPercentChance = .5;
+        if (bodyPart != null && bodyPartPercentChance > RandomNumberGenerator.NextDouble())
         {
             if (_proto.TryIndex<DamageTypePrototype>("Blunt", out var bluntDamage))
                 _damage.TryChangeDamage(target, new DamageSpecifier(bluntDamage, 200), ignoreResistances: true, targetPart: bodyPart);
         }
 
-        var organs = GetRandomOrgans();
+        var numOrgans = 1;
+        var organs = GetRandomOrgans(numOrgans);
         var bodyOrgans = _bodySystem.GetBodyOrgans(target);
 
         var valueTuples = bodyOrgans.ToList();
@@ -286,15 +303,20 @@ public sealed partial class ChangelingSystem
                 Del(organ.Id);
             }
         }
+
+        //Add cellular damage to target
+        if (_proto.TryIndex<DamageTypePrototype>("Cellular", out var cellularDamage))
+        {
+            _damage.TryChangeDamage(target, new DamageSpecifier(cellularDamage, 50));
+        }
     }
 
-    private List<string> GetRandomOrgans()
+    private List<string> GetRandomOrgans(int numOrgans)
     {
         var organWhitelist = new Dictionary<string, float>(_organWhitelist);
         List<string> organs = [];
-        const int tries = 3;
 
-        for (var i = 0; i < tries; i++)
+        for (var i = 0; i < numOrgans; i++)
         {
             _rand.TryPickAndTake(organWhitelist, out var organ);
 

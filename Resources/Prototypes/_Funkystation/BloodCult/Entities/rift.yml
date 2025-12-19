@@ -50,6 +50,8 @@
   - type: BloodCultRift
     pulseInterval: 30.0
     bloodPerPulse: 50.0
+  - type: Clickable
+  - type: TriggerOnActivate
   - type: SolutionContainerManager
     solutions:
       sanguine_pool:

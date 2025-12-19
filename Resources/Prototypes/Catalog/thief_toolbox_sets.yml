@@ -12,7 +12,9 @@
 # SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Benjamin Velliquette <32338704+bVelliquette@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Rainbow <ev0lvkitten@gmail.com>
+# SPDX-FileCopyrightText: 2025 Skye <57879983+Rainbeon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
 # SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
@@ -76,7 +78,7 @@
   - TraitorCodePaper
   - Emag
   - AccessBreaker
-  - Lighter
+  - UplinkLighterBox # Funky Change
   - CigPackSyndicate
    # Goobstation - Telecrystal rework
   - Telecrystal50 # The thief cannot use them, but it may induce communication with traitors

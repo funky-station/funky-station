@@ -20,6 +20,8 @@
 # SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Smugman <85798843+Smugman@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 vectorassembly <vectorassembly@icloud.com>
 #
@@ -151,3 +153,43 @@
     tags:
     - Trash
   - type: SpaceGarbage
+
+- type: entity
+  parent: [Matchbox, BaseMinorContraband]
+  id: GorlexMatchbox
+  name: Gorlex match box
+  description: "A pneumatic match box styled after the Gorlex Marauders' equipment. Contains 24 matches."
+  components:
+  - type: Sprite
+    sprite: Objects/Tools/Lighters/gorlex.rsi
+  - type: Item
+    sprite: Objects/Tools/Lighters/gorlex.rsi
+  - type: Storage
+    grid:
+    - 0,0,11,1
+  - type: StorageFill
+    contents:
+      - id: GorlexMatchstick
+        amount: 24
+  - type: Matchbox
+
+- type: entity
+  name: match stick
+  parent: [Matchstick, BaseMinorContraband]
+  id: GorlexMatchstick
+  description: A military grade match stick, used for lighting fine smokables and noncombatants alike.
+  components:
+  - type: Sprite
+    sprite: Objects/Tools/Lighters/gorlexmatch.rsi
+    layers:
+      - state: match_unlit
+  - type: Item
+    sprite: Objects/Tools/Lighters/gorlexmatch.rsi
+    heldPrefix: unlit
+    size: Tiny
+  - type: PointLight
+    enabled: false
+    radius: 3
+    color: green
+  - type: Matchstick
+    duration: 30

@@ -19,6 +19,10 @@
   components:
     - type: Item
       size: Huge
+    - type: MultiHandedItem
+    - type: HeldSpeedModifier #verrryy heavy
+      walkModifier: 0.6
+      sprintModifier: 0.6
     - type: NodeContainer
       examinable: true
       nodes:
@@ -49,6 +53,11 @@
           acts: [ "Destruction" ]
     - type: PowerSink
     - type: Battery
+      # Very important:
+      # Disable networking to prevent the battery getting continuously dirtied every tick as it interacts with the power network.
+      # This can not be done by changing the charge rate as the power supply ramps up over time.
+      # This disables prediction for this battery.
+      netsync: false
       maxCharge: 7500000
       pricePerJoule: 0.0003
     - type: ExaminableBattery
@@ -66,3 +75,5 @@
       blacklist:
         tags:
         - GhostOnlyWarp
+    - type: StaticPrice
+      price: 3000

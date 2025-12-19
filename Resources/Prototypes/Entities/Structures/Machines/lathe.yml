@@ -519,7 +519,7 @@
     - TowelColorWhite #funk towel
     - InflatableWall #funky inflatables
     - InflatableDoor #funk
-    - PowerCellHighSingle
+    - PowerCellHighSingle #funk
     dynamicRecipes:
     - BoomboxRed
     - BoomboxGreen

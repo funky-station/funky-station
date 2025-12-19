@@ -152,6 +152,7 @@
   minLimit: 0
   loadouts:
   - Glasses
+  - CheapSunglasses
   - GlassesJamjar
   - GlassesJensen
 
@@ -308,6 +309,29 @@
   - GreyJumpskirt
   - AncientJumpsuit
   - RainbowJumpsuit
+  - ServiceJumpsuitDressWhite
+  - ServiceJumpsuitDressBlue
+  - ServiceJumpsuitDressTied
+  - ServiceJumpsuitServiceCoat
+  - ServiceJumpskirtDressWhite
+  - ServiceJumpskirtDressBlue
+  - ServiceJumpskirtDressTied
+  - WhiteJumpsuit
+  - WhiteJumpskirt
+  - BlackJumpsuit
+  - BlackJumpskirt
+  - BlueJumpsuit
+  - BlueJumpskirt
+  - GreenJumpsuit
+  - GreenJumpskirt
+  - YellowJumpsuit
+  - YellowJumpskirt
+  - OrangeJumpsuit
+  - OrangeJumpskirt
+  - RedJumpsuit
+  - RedJumpskirt
+  - PinkJumpsuit
+  - PinkJumpskirt
 
 - type: loadoutGroup
   id: PassengerFace
@@ -322,6 +346,16 @@
   minLimit: 0
   loadouts:
   - PassengerGloves
+  - GreyGloves
+  - WhiteGloves
+  - BlackGloves
+  - BrownGloves
+  - OrangeGloves
+  - RedGloves
+  - GreenGloves
+  - TealGloves
+  - BlueGloves
+  - PurpleGloves
 
 - type: loadoutGroup
   id: CommonBackpack
@@ -344,6 +378,7 @@
   minLimit: 0
   loadouts:
   - PassengerWintercoat
+  - BikerJacket
 
 - type: loadoutGroup
   id: PassengerShoes
@@ -419,6 +454,47 @@
   - WhiteShoes
   - BrownShoes
   - NanotrasenRepresentativeBoots #These are just laceup shoes.
+
+- type: loadoutGroup
+  id: GenericHats
+  name: loadout-group-generic-hats
+  minLimit: 1
+  loadouts:
+  - BandanaBlack
+  - BandanaBlue
+  - BandanaGold
+  - BandanaGreen
+  - BandanaRed
+  - BandanaSkull
+  - BandanaBrown
+  - softwhite
+  - softgrey
+  - softblack
+  - softCorp
+  - softblue
+  - softpurple
+  - softyellow
+  - softgreen
+  - orangesoft
+  - redsoft
+  - RedBeret
+  - BlackBeret
+
+- type: loadoutGroup
+  id: Gloves
+  name: loadout-group-gloves
+  minLimit: 0
+  loadouts:
+  - GreyGloves
+  - WhiteGloves
+  - BlackGloves
+  - BrownGloves
+  - OrangeGloves
+  - RedGloves
+  - GreenGloves
+  - TealGloves
+  - BlueGloves
+  - PurpleGloves
 
 - type: loadoutGroup #WizDen Weh Job Plush
   id: BartenderJobTrinkets

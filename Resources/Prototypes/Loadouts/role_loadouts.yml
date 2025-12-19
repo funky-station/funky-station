@@ -95,13 +95,14 @@
 - type: roleLoadout
   id: JobPassenger
   groups:
+  - GenericHats
   - PassengerJumpsuit
   - CommonBackpack
   - PassengerNeck
   - PassengerFace
   - PassengerGloves
   - PassengerOuterClothing
-  - PassengerShoes
+  - GenericShoes
   - Glasses
   - Survival
   - Trinkets
@@ -114,6 +115,7 @@
   - BartenderHead
   - BartenderJumpsuit
   - CommonBackpack
+  - Gloves
   - BartenderOuterClothing
   - GenericShoes
   - Glasses

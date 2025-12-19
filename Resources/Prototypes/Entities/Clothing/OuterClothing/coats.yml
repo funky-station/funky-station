@@ -558,3 +558,14 @@
   parent: [ClothingOuterStorageFoldableBaseOpened, ClothingOuterCoatRain]
   id: ClothingOuterCoatRainOpened
   name: rain coat
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ClothingOuterCoatBiker
+  name: biker's jacket
+  description: a black leather jacket decorated with skulls and a big zipper, why? beacuse its badass!
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/OuterClothing/Coats/biker.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/OuterClothing/Coats/biker.rsi

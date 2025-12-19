@@ -1,14 +1,14 @@
 // SPDX-FileCopyrightText: 2025 SaffronFennec <firefoxwolf2020@protonmail.com>
+// SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
 using Content.Shared.Damage;
-using Content.Shared.FixedPoint;
+using Content.Shared.Traits.BrittleBones;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
-using Content.Shared.Traits.BrittleBones;
 
 namespace Content.Server.Traits.BrittleBones;
 
@@ -33,37 +33,54 @@ public sealed class BrittleBonesSystem : EntitySystem
 
     private void OnInit(Entity<BrittleBonesComponent> ent, ref ComponentInit args)
     {
+        // When the component is added, modify the critical thresholds
         if (TryComp<MobThresholdsComponent>(ent, out var thresholds))
         {
-            ApplyThresholdModifier(ent, ent.Comp.CriticalThresholdModifier, thresholds);
+            var mod = ent.Comp.CriticalThresholdModifier;
+
+            // Modify SoftCritical
+            if (_mobThresholdSystem.TryGetThresholdForState(ent, MobState.SoftCritical, out var softCritThreshold))
+            {
+                _mobThresholdSystem.SetMobStateThreshold(ent, softCritThreshold.Value + mod, MobState.SoftCritical);
+            }
+
+            // Modify Critical
+            if (_mobThresholdSystem.TryGetThresholdForState(ent, MobState.Critical, out var critThreshold))
+            {
+                _mobThresholdSystem.SetMobStateThreshold(ent, critThreshold.Value + mod, MobState.Critical);
+            }
+
+            // Modify HardCritical
+            if (_mobThresholdSystem.TryGetThresholdForState(ent, MobState.HardCritical, out var hardCritThreshold))
+            {
+                _mobThresholdSystem.SetMobStateThreshold(ent, hardCritThreshold.Value + mod, MobState.HardCritical);
+            }
         }
     }
 
     private void OnRemove(Entity<BrittleBonesComponent> ent, ref ComponentRemove args)
     {
+        // When the component is removed, restore the original critical thresholds
         if (TryComp<MobThresholdsComponent>(ent, out var thresholds))
         {
-            // Restore original thresholds by removing the modifier (adding the inverse)
-            ApplyThresholdModifier(ent, -ent.Comp.CriticalThresholdModifier, thresholds);
-        }
-    }
+            var mod = ent.Comp.CriticalThresholdModifier;
 
-    private void ApplyThresholdModifier(EntityUid uid, FixedPoint2 modifier, MobThresholdsComponent thresholds)
-    {
-        // Shifts softcrit, hardcrit, standard crit, and dead thresholds
-        var statesToCheck = new[]
-        {
-            MobState.SoftCritical,
-            MobState.Critical,
-            MobState.HardCritical,
-            MobState.Dead
-        };
-
-        foreach (var state in statesToCheck)
-        {
-            if (_mobThresholdSystem.TryGetThresholdForState(uid, state, out var currentThreshold, thresholds))
+            // Restore SoftCritical
+            if (_mobThresholdSystem.TryGetThresholdForState(ent, MobState.SoftCritical, out var softCritThreshold))
             {
-                _mobThresholdSystem.SetMobStateThreshold(uid, currentThreshold.Value + modifier, state, thresholds);
+                _mobThresholdSystem.SetMobStateThreshold(ent, softCritThreshold.Value - mod, MobState.SoftCritical);
+            }
+
+            // Restore Critical
+            if (_mobThresholdSystem.TryGetThresholdForState(ent, MobState.Critical, out var critThreshold))
+            {
+                _mobThresholdSystem.SetMobStateThreshold(ent, critThreshold.Value - mod, MobState.Critical);
+            }
+
+            // Restore HardCritical
+            if (_mobThresholdSystem.TryGetThresholdForState(ent, MobState.HardCritical, out var hardCritThreshold))
+            {
+                _mobThresholdSystem.SetMobStateThreshold(ent, hardCritThreshold.Value - mod, MobState.HardCritical);
             }
         }
     }

@@ -5,6 +5,7 @@
 # SPDX-FileCopyrightText: 2025 RosySaturniidae <rosysaturniidae@gmail.com>
 # SPDX-FileCopyrightText: 2025 SigmaTheDragon <162711378+SigmaTheDragon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Teasq <Xerithin@gmail.com>
+# SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 mkanke-real <mikekanke@gmail.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 tea <xerithin@gmail.com>
@@ -113,7 +114,13 @@
   - type: Clothing
     sprite: _Funkystation/Clothing/Eyes/Jamjars/jamgog.rsi
   - type: VisionCorrection
-  - type: EyeProtection
+  - type: TrayScanner
+    range: 3
+    enabled: false
+  - type: GlassesOverlay
+    shader: Goggles
+    color: '#5AB43CCC'
+    enabled: false
   - type: IdentityBlocker
     coverage: EYES
   - type: Construction
@@ -295,4 +302,3 @@
     tags:
     - WhitelistChameleon
     - HudMedical
-

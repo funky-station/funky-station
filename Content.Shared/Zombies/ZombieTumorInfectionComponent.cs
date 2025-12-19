@@ -2,6 +2,7 @@
 //
 // SPDX-License-Identifier: MIT
 
+using System.Collections.Generic;
 using Content.Shared.Damage;
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
@@ -58,38 +59,40 @@ public sealed partial class ZombieTumorInfectionComponent : Component
     public TimeSpan? AutoZombifyTime;
 
     /// <summary>
-    /// Damage dealt per tick in early stage before tumor formation
+    /// Damage dealt per tick for each infection stage.
     /// </summary>
     [DataField, AutoNetworkedField]
-    public DamageSpecifier EarlyDamage = new()
+    public Dictionary<ZombieTumorInfectionStage, DamageSpecifier> StageDamage = new()
     {
-        DamageDict = new()
         {
-            { "Poison", 0.1 }
-        }
-    };
-
-    /// <summary>
-    /// Damage dealt per tick after tumor formation.
-    /// </summary>
-    [DataField, AutoNetworkedField]
-    public DamageSpecifier TumorDamage = new()
-    {
-        DamageDict = new()
+            ZombieTumorInfectionStage.Early,
+            new DamageSpecifier
+            {
+                DamageDict = new()
+                {
+                    { "Poison", 0.1 }
+                }
+            }
+        },
         {
-            { "Poison", 0.2 }
-        }
-    };
-
-    /// <summary>
-    /// Damage dealt per tick in advanced stage
-    /// </summary>
-    [DataField, AutoNetworkedField]
-    public DamageSpecifier AdvancedDamage = new()
-    {
-        DamageDict = new()
+            ZombieTumorInfectionStage.TumorFormed,
+            new DamageSpecifier
+            {
+                DamageDict = new()
+                {
+                    { "Poison", 0.2 }
+                }
+            }
+        },
         {
-            { "Poison", 0.5 }
+            ZombieTumorInfectionStage.Advanced,
+            new DamageSpecifier
+            {
+                DamageDict = new()
+                {
+                    { "Poison", 0.5 }
+                }
+            }
         }
     };
 

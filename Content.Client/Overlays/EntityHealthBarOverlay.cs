@@ -6,6 +6,9 @@
 // SPDX-FileCopyrightText: 2024 PrPleGoo <PrPleGoo@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 eoineoineoin <github@eoinrul.es>
 // SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
+// SPDX-FileCopyrightText: 2025 Toastermeister <215405651+Toastermeister@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
 // SPDX-License-Identifier: MIT

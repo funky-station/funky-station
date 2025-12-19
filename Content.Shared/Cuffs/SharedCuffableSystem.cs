@@ -33,6 +33,8 @@
 // SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 JoulesBerg <104539820+JoulesBerg@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 ferynn <117872973+ferynn@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 ferynn <witchy.girl.me@gmail.com>
 // SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>

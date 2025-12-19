@@ -73,7 +73,7 @@
 - type: entity
   id: BaseGrenade
   name: base grenade
-  parent: [BaseItem, BaseMajorContraband]
+  parent: [BaseItem, BaseSecurityContraband]
   abstract: true
   components:
   - type: Tag
@@ -87,6 +87,7 @@
   id: GrenadeBaton
   name: baton grenade
   parent: BaseGrenade
+  description: A grenade cartridge made to subdue one unruly crewmember.
   components:
   - type: CartridgeAmmo
     proto: BulletGrenadeBaton
@@ -104,6 +105,7 @@
   id: GrenadeBlast
   name: blast grenade
   parent: BaseGrenade
+  description: Dear target, please cease your lifesigns rapidly.
   components:
   - type: CartridgeAmmo
     proto: BulletGrenadeBlast
@@ -121,6 +123,7 @@
   id: GrenadeFlash
   name: flash grenade
   parent: BaseGrenade
+  description: A nonlethal grenade cartridge made to subdue unruly crewmembers.
   components:
   - type: CartridgeAmmo
     proto: BulletGrenadeFlash
@@ -138,6 +141,7 @@
   id: GrenadeFrag
   name: frag grenade
   parent: BaseGrenade
+  description: To whom it may concern, please cease your lifesigns rapidly.
   components:
   - type: CartridgeAmmo
     proto: BulletGrenadeFrag
@@ -154,6 +158,7 @@
 - type: entity
   id: GrenadeEMP
   name: EMP grenade
+  description: A nonlethal grenade cartridge made to kill electronics.
   parent: BaseGrenade
   components:
   - type: CartridgeAmmo
@@ -166,6 +171,24 @@
   - type: Appearance
   - type: SpentAmmoVisuals
     state: frag
+    suffix: false
+
+- type: entity
+  id: GrenadeTearGas
+  name: tear gas grenade
+  description: A nonlethal grenade cartridge made for riot control.
+  parent: BaseGrenade
+  components:
+  - type: CartridgeAmmo
+    proto: BulletGrenadeTear
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi
+    layers:
+    - state: flash
+      map: ["enum.AmmoVisualLayers.Base"]
+  - type: Appearance
+  - type: SpentAmmoVisuals
+    state: flash
     suffix: false
 
 # Cannon Balls

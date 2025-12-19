@@ -93,6 +93,7 @@
       - id: ClothingHeadHelmetRiot
       - id: ClothingBeltBallandChain
       - id: NetworkConfigurator # Funky
+      - id: WeaponLauncherRiot #funk #ward please give this to sec when they need it
 
 - type: entity
   id: LockerWardenFilled
@@ -124,6 +125,7 @@
       - id: ClothingHeadHelmetRiot
       - id: ClothingBeltBallandChain
       - id: NetworkConfigurator # Funky
+      - id: WeaponLauncherRiot #funk #ward please give this to sec when they need it
 
 - type: entity
   id: LockerSecurityFilled

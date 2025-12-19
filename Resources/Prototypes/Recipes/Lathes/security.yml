@@ -934,3 +934,37 @@
     Steel: 200
     Silver: 100
 #Funky end
+
+- type: latheRecipe
+  id: GrenadeBaton
+  result: GrenadeBaton
+  completetime: 3
+  materials:
+    Steel: 150
+    Plastic: 200
+
+- type: latheRecipe
+  id: GrenadeTearGas
+  result: GrenadeTearGas
+  completetime: 3
+  materials:
+    Steel: 100
+    Plastic: 200
+    Glass: 100
+
+- type: latheRecipe
+  id: TearGasGrenade
+  result: TearGasGrenade
+  completetime: 3
+  materials:
+    Steel: 200
+    Plastic: 300
+    Glass: 100
+
+- type: latheRecipe
+  id: WeaponFlareGunSecurityBola
+  result: WeaponFlareGunSecurityBola
+  completetime: 3
+  materials:
+    Steel: 400
+    Plastic: 100

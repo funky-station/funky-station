@@ -142,6 +142,7 @@
   - HoloprojectorSecurity
   - WeaponDisablerSMG
   - ClothingHandsTruncheonKnuckleDusters
+  - WeaponFlareGunSecurityBola
 
 - type: technology
   id: ExplosiveTechnology
@@ -215,7 +216,6 @@
   - PowerCageSmall
   - PowerCageMedium
   - MagazineGrenadeEmpty
-  - GrenadeFlash
   - GrenadeBlast
   - ShuttleGunSvalinnMachineGunCircuitboard
   - ShuttleGunPerforatorCircuitboard

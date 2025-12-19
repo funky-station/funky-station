@@ -573,6 +573,10 @@
     - ParamedHypo # Goobstation - ParamedHypo
     - ClothingHandsSecurityKnuckleDusters #funk
     - TowelColorSyndicate #funk
+    - GrenadeFlash #funk
+    - GrenadeBaton #funk
+    - GrenadeTearGas #funk
+    - TearGasGrenade #funk
   - type: BlueprintReceiver
     whitelist:
       tags:
@@ -732,7 +736,6 @@
     - ExplosivePayload
     - GrenadeBlast
     - GrenadeEMP
-    - GrenadeFlash
     - HoloprojectorSecurity
     - MagazineBoxLightRifleIncendiary
     - MagazineBoxLightRifleUranium
@@ -1221,6 +1224,10 @@
     - autoInjectorCartridgeCaseSoft
     - SurveillanceWirelessCameraBodySecurity #funk
     - ClothingHandsSecurityKnuckleDusters #funk
+    - GrenadeFlash #funk
+    - GrenadeBaton #funk
+    - GrenadeTearGas #funk
+    - TearGasGrenade #funk
     dynamicRecipes:
     - BoxBeanbag
     - BoxShotgunIncendiary
@@ -1230,7 +1237,7 @@
     - ClothingBackpackElectropack
     - ExplosivePayload
     - FlashPayload
-    - GrenadeBlast
+    #- GrenadeBlast
     - GrenadeEMP
     - GrenadeFlash
     - HoloprojectorSecurity
@@ -1296,6 +1303,7 @@
     - MindShieldImplanter
     - TrackingImplanter
     - ClothingHandsTruncheonKnuckleDusters # funk
+    - WeaponFlareGunSecurityBola #funk
   - type: EmagLatheRecipes # Goobstation
     emagStaticRecipes:
     - GrenadeShrapnel #funky
@@ -1306,6 +1314,8 @@
     #- MagazineHighCaliberEmpty # Goobstation - Burner not added yet
     #- MagazineHighCaliber # Goobstation
     #- MagazineBoxHighCaliber # Goobstation
+    emagDynamicRecipes:
+    - GrenadeBlast
   - type: MaterialStorage
     whitelist:
       tags:

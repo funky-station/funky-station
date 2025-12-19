@@ -289,8 +289,19 @@ namespace Content.Server.Zombies
                 {
                     if (!HasComp<ZombieImmuneComponent>(entity) && !HasComp<NonSpreaderZombieComponent>(args.User) && _random.Prob(GetZombieInfectionChance(entity, component)))
                     {
-                        EnsureComp<PendingZombieComponent>(entity);
-                        EnsureComp<ZombifyOnDeathComponent>(entity);
+                        // For alive (non-crit, non-dead) players, give them zombie tumor infection
+                        // Crit/dead players will be zombified immediately in the block below
+                        if (mobState.CurrentState == MobState.Alive)
+                        {
+                            // Bite infections immediately skip to stage 2 (TumorFormed)
+                            _zombieTumor.InfectEntity(entity, ZombieTumorInfectionStage.TumorFormed);
+                        }
+                        else
+                        {
+                            // For crit/dead players, keep the old behavior
+                            EnsureComp<PendingZombieComponent>(entity);
+                            EnsureComp<ZombifyOnDeathComponent>(entity);
+                        }
                     }
                 }
 

@@ -1,4 +1,7 @@
 # SPDX-FileCopyrightText: 2025 Dark <darkwindleaf@hotmail.co.uk>
+# SPDX-FileCopyrightText: 2025 Lyndomen <49795619+Lyndomen@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
+# SPDX-FileCopyrightText: 2025 Victoriafae <jhardtmadsen@gmail.com>
 # SPDX-FileCopyrightText: 2025 jhardtmadsen-blip <jhardtmadsen@gmail.com>
 #
 # SPDX-License-Identifier: MIT
@@ -23,10 +26,12 @@
     back: ClothingBackpackChemistry
     belt: ChemBag
     eyes: ClothingEyesGlassesChemical
+    gloves: ClothingHandsGlovesNitrile 
     outerClothing: ClothingOuterCoatLabChem
+    shoes: ClothingShoesBootsWinterSyndicate    
     id: SyndiPDA
     ears: ClothingHeadsetAltSyndicate
-    pocket1: HandLabeler
+    pocket1: InterdyneFlippo # Funky change 
     pocket2: RubberStampSyndicate
     mask: ClothingMaskNeckGaiter
     head: ClothingHeadHatSyndie

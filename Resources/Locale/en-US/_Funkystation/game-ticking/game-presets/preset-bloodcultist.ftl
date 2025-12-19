@@ -47,6 +47,7 @@ cult-veil-ritual-not-enough-at-end = The ritual fails! Not enough cultists remai
 cult-veil-ritual-failed = The Tear the Veil ritual has failed! The cultists were unable to maintain the ritual.
 cult-veil-ritual-success = The Tear the Veil ritual is complete! The veil has been weakened, and Nar'Sie's power grows!
 cult-veil-ritual-already-completed = The Tear the Veil ritual has already been completed. The veil cannot be weakened further.
+cult-veil-ritual-central-command-announcement = Attention all personnel: Reality-distorting anomalies have been detected. The veil between dimensions has been compromised. All security personnel are to arm immediately. Avoid, arrest, or stop any crew exhibiting extradimensional abilities. The station is now operating under maximum alert protocols.
 
 cult-final-ritual-already-in-progress = The final summoning ritual is already in progress!
 cult-final-ritual-not-enough-cultists = Not enough cultists stand upon the summoning runes! {$current} present, {$required} required. All three runes must be occupied!
@@ -208,3 +209,8 @@ cult-summoning-pylon-location-blocked = The pylon cannot be summoned here - the 
 cult-summoning-pylon-no-grid = The pylon cannot be summoned here.
 cult-summoning-pylon-anchor-failed = The pylon could not anchor at the rune location, but was summoned nearby instead.
 cult-summoning-pylon-failed = The pylon summoning failed! Your materials have been refunded.
+
+cult-rune-clean-verb-text = Clean Rune
+cult-rune-clean-verb-message = Clean the blood cult rune with soap
+cult-rune-cleaning = You begin cleaning the rune...
+cult-rune-cleaned = You successfully clean away the rune!

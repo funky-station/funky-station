@@ -1,5 +1,8 @@
+// SPDX-FileCopyrightText: 2025 88tv <131759102+88tv@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 8tv <eightev@gmail.com>
 // SPDX-FileCopyrightText: 2025 Crude Oil <124208219+CroilBird@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Errant <35878406+Errant-4@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
 //
 // SPDX-License-Identifier: MIT
 

@@ -519,6 +519,7 @@
     - TowelColorWhite #funk towel
     - InflatableWall #funky inflatables
     - InflatableDoor #funk
+    - PowerCellHighSingle
     dynamicRecipes:
     - BoomboxRed
     - BoomboxGreen
@@ -723,6 +724,7 @@
     - SadTromboneImplanter
     - LightImplanter
     - BikeHornImplanter
+    - PowerCellHyperSingle #funk
   - type: EmagLatheRecipes
     emagDynamicRecipes:
     - BoxBeanbag

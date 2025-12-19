@@ -84,3 +84,28 @@
     Glass: 800
     Plastic: 400
     Gold: 100
+
+#funkstart
+- type: latheRecipe
+  id: PowerCellHighSingle
+  result: PowerCellHighSingle
+  categories:
+  - Parts
+  completetime: 10
+  materials:
+    Steel: 300
+    Glass: 300
+    Plastic: 300
+
+- type: latheRecipe
+  id: PowerCellHyperSingle
+  result: PowerCellHyperSingle
+  categories:
+  - Parts
+  completetime: 10
+  materials:
+    Steel: 400
+    Glass: 400
+    Plastic: 400
+    Gold: 100
+#funkend

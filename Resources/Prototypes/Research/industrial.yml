@@ -74,6 +74,7 @@
   cost: 7500
   recipeUnlocks:
   - PowerCellHigh
+  - PowerCellHyperSingle
   - TurboItemRechargerCircuitboard
   - SMESAdvancedMachineCircuitboard
 

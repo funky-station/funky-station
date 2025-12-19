@@ -602,14 +602,14 @@
   minTemp: 400 #Maybe if a method of reducing reagent temp exists one day, this could be -50
   reactants:
     Cognizine:
-      amount: 1
+      amount: 1 #QoL slop, I think cog being consumed sucks since uh. You kinda have to think about using cog for non productive stuff as just a heavy ask, since you can use that for yk, actual fucking people who are rotting in the morgue. Will however buff the usage of plasma, as ideally it'd be a limiter.
+      catalyst: true
     Plasma:
       amount: 5
     Doxarubixadone:
       amount: 1
   products:
     Opporozidone: 3
-    Cognizine: 1 #QoL slop, I think cog being consumed sucks since uh. You kinda have to think about using cog for non productive stuff as just a heavy ask, since you can use that for yk, actual fucking people who are rotting in the morgue. Will however buff the usage of plasma, as ideally it'd be a limiter.
 
 - type: reaction
   id: Necrosol

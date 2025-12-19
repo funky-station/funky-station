@@ -24,7 +24,7 @@
     # Randomly generated books
     - id: BookRandomStory
       amount: !type:RangeNumberSelector
-        range: 0, 2
+        range: 0, 1
     # Guidebooks
     - !type:GroupSelector
       children:

@@ -1,4 +1,8 @@
-﻿using Content.Shared.Bed.Sleep;
+﻿// SPDX-FileCopyrightText: 2025 Princess-Cheeseballs <https://github.com/Princess-Cheeseballs>
+//
+// SPDX-License-Identifier: MIT
+
+using Content.Shared.Bed.Sleep;
 using Content.Shared.Mobs;
 using Robust.Shared.Serialization;
 

@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 Princess-Cheeseballs <https://github.com/Princess-Cheeseballs>
+//
+// SPDX-License-Identifier: MIT
+
 using Content.Client.Stunnable;
 using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Systems;

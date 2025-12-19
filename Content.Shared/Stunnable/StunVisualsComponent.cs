@@ -1,4 +1,8 @@
-﻿using Robust.Shared.Utility;
+﻿// SPDX-FileCopyrightText: 2025 Princess-Cheeseballs <https://github.com/Princess-Cheeseballs>
+//
+// SPDX-License-Identifier: MIT
+
+using Robust.Shared.Utility;
 
 namespace Content.Shared.Stunnable;
 

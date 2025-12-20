@@ -141,7 +141,7 @@ public sealed partial class PuddleSystem : SharedPuddleSystem
         SubscribeLocalEvent<PuddleComponent, SolutionContainerChangedEvent>(OnSolutionUpdate);
         SubscribeLocalEvent<PuddleComponent, SpreadNeighborsEvent>(OnPuddleSpread);
         SubscribeLocalEvent<PuddleComponent, SlipEvent>(OnPuddleSlip);
-
+        SubscribeLocalEvent<PuddleFireLightComponent, ComponentShutdown>(OnFireLightShutdown);
         SubscribeLocalEvent<EvaporationComponent, MapInitEvent>(OnEvaporationMapInit);
 
         InitializeTransfers();
@@ -414,9 +414,6 @@ public sealed partial class PuddleSystem : SharedPuddleSystem
         {
             if (curTime > fireLight.ExtinguishTime)
             {
-                if (fireLight.LightEntity.HasValue)
-                    QueueDel(fireLight.LightEntity.Value);
-
                 RemComp<PuddleFireLightComponent>(uid);
             }
             else
@@ -430,6 +427,17 @@ public sealed partial class PuddleSystem : SharedPuddleSystem
         }
     }
 
+    /// <summary>
+    /// when the component is removed we ensure the dummy light entity is also deleted
+    /// </summary>
+    private void OnFireLightShutdown(Entity<PuddleFireLightComponent> ent, ref ComponentShutdown args)
+    {
+        if (ent.Comp.LightEntity.HasValue && !TerminatingOrDeleted(ent.Comp.LightEntity.Value))
+        {
+            QueueDel(ent.Comp.LightEntity.Value);
+            ent.Comp.LightEntity = null;
+        }
+    }
     public override void OnPuddleBurn(Entity<PuddleComponent> entity, ref TileFireEvent args)
     {
         base.OnPuddleBurn(entity, ref args);

@@ -67,12 +67,15 @@ using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Events;
 using Content.Shared.Database;
 using Content.Shared.Effects;
+using Content.Shared.FixedPoint;
 using Content.Shared.Jittering;
+using Content.Shared.Movement.Components;
+using Content.Shared.Movement.Systems;
 using Content.Shared.Projectiles;
 using Content.Shared.Rejuvenate;
 using Content.Shared.Rounding;
 using Content.Shared.Speech.EntitySystems;
-using Content.Shared.StatusEffect;
+using Content.Shared.StatusEffectNew;
 using Content.Shared.Stunnable;
 using Content.Shared.Throwing;
 using Content.Shared.Weapons.Melee.Events;
@@ -88,10 +91,6 @@ using Robust.Shared.Timing;
 
 // Goobstation usings
 using Robust.Shared.Random; // Shove
-using Content.Shared.Damage.Events;
-using Content.Shared.FixedPoint;
-using Content.Shared.Movement.Systems;
-using Robust.Shared.Utility;
 
 
 namespace Content.Shared.Damage.Systems;
@@ -109,8 +108,8 @@ public abstract partial class SharedStaminaSystem : EntitySystem
     [Dependency] private readonly MovementModStatusSystem _movementMod = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedColorFlashEffectSystem _color = default!;
+    [Dependency] private readonly StatusEffectsSystem _status = default!;
     [Dependency] protected readonly SharedStunSystem StunSystem = default!;
-    [Dependency] private readonly StatusEffectsSystem _statusEffect = default!; // goob edit
     [Dependency] private readonly SharedStutteringSystem _stutter = default!; // goob edit
     [Dependency] private readonly SharedJitteringSystem _jitter = default!; // goob edit
     [Dependency] private readonly IRobustRandom _random = default!; // Goob - Shove
@@ -198,7 +197,7 @@ public abstract partial class SharedStaminaSystem : EntitySystem
         entity.Comp.StaminaDamage = 0;
         AdjustStatus(entity.Owner);
         RemComp<ActiveStaminaComponent>(entity);
-        _statusEffect.TryRemoveStatusEffect(entity, StaminaLow);
+        _status.TryRemoveStatusEffect(entity, StaminaLow);
         UpdateStaminaVisuals(entity);
         Dirty(entity);
     }
@@ -563,7 +562,7 @@ public abstract partial class SharedStaminaSystem : EntitySystem
 
         if (!hardStun)
         {
-            if (!_statusEffect.HasStatusEffect(uid, "KnockedDown"))
+            if (!_status.HasStatusEffect(uid, "KnockedDown"))
                 StunSystem.TryKnockdown(uid, component.StunTime, true);
             return;
         }
@@ -608,5 +607,33 @@ public abstract partial class SharedStaminaSystem : EntitySystem
         UpdateStaminaVisuals((uid, component));
         Dirty(uid, component);
         _adminLogger.Add(LogType.Stamina, LogImpact.Low, $"{ToPrettyString(uid):user} recovered from stamina crit");
+    }
+
+    /// <summary>
+    /// Adjusts the modifiers of the <see cref="StaminaLow"/> status effect entity and applies relevant statuses.
+    /// System iterates through the <see cref="StaminaComponent.StunModifierThresholds"/> to find correct movement modifer.
+    /// This modifier is saved to the Stamina Low Status Effect entity's <see cref="MovementModStatusEffectComponent"/>.
+    /// </summary>
+    /// <param name="ent">Entity to update</param>
+    private void AdjustStatus(Entity<StaminaComponent?> ent)
+    {
+        if (!Resolve(ent, ref ent.Comp))
+            return;
+
+        if (!_status.TrySetStatusEffectDuration(ent, StaminaLow, out var status))
+            return;
+
+        var closest = FixedPoint2.Zero;
+
+        // Iterate through the dictionary in the similar way as in Damage.SlowOnDamageSystem.OnRefreshMovespeed
+        foreach (var thres in ent.Comp.StunModifierThresholds)
+        {
+            var key = thres.Key.Float();
+
+            if ((ent.Comp.StaminaDamage / ent.Comp.CritThreshold) >= key && key > closest && closest < 1f)
+                closest = thres.Key;
+        }
+
+        _movementMod.TryUpdateMovementStatus(ent.Owner, status.Value, ent.Comp.StunModifierThresholds[closest]);
     }
 }

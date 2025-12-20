@@ -4,7 +4,6 @@ using Content.Shared.Popups;
 using Content.Shared.Traits.Assorted;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
-
 namespace Content.Server.Traits.Assorted;
 
 /// <summary>
@@ -20,7 +19,6 @@ public sealed class ChronicMigrainesSystem : EntitySystem
         base.Initialize();
         SubscribeLocalEvent<ChronicMigrainesComponent, ComponentStartup>(SetupChronicMigraines);
         SubscribeLocalEvent<ActorComponent, ComponentStartup>(OnActorStartup);
-        SubscribeLocalEvent<MigraineComponent, ComponentShutdown>(OnMigraineShutdown);
     }
 
     private void OnActorStartup(EntityUid uid, ActorComponent component, ComponentStartup args)
@@ -38,17 +36,6 @@ public sealed class ChronicMigrainesSystem : EntitySystem
         component.NextMigraineTime = _random.NextFloat(component.TimeBetweenMigraines.X, component.TimeBetweenMigraines.Y);
     }
 
-    private void OnMigraineShutdown(EntityUid uid, MigraineComponent component, ComponentShutdown args)
-    {
-        if (!HasComp<ChronicMigrainesComponent>(uid))
-            return;
-        
-        if (component.IsFading && !TerminatingOrDeleted(uid))
-        {
-            var msg = Loc.GetString("trait-chronic-migraines-end");
-            _popup.PopupEntity(msg, uid, uid, PopupType.Medium);
-        }
-    }
 
     public override void Update(float frameTime)
     {
@@ -76,6 +63,10 @@ public sealed class ChronicMigrainesSystem : EntitySystem
 
             var msg = Loc.GetString("trait-chronic-migraines-start");
             _popup.PopupEntity(msg, uid, uid, PopupType.MediumCaution);
+
+            // Show to other nearby players
+            var othersMsg = Loc.GetString("trait-chronic-migraines-others", ("target", uid));
+            _popup.PopupEntity(othersMsg, uid, Filter.PvsExcept(uid), true, PopupType.Medium);
 
             var migraineComp = AddComp<MigraineComponent>(uid);
             migraineComp.Duration = duration;

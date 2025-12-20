@@ -87,3 +87,4 @@ trait-chronic-migraines-desc = You experience occasional episodes of debilitatin
 
 trait-chronic-migraines-start = Your head begins to throb painfully...
 trait-chronic-migraines-end = The migraine subsides.
+trait-chronic-migraines-others = {THE($target)} rubs {POSS-ADJ($target)} temples in pain.

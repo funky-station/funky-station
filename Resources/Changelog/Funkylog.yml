@@ -6733,3 +6733,17 @@ Entries:
         autolathe.
   id: 787
   time: '2025-12-20T00:11:53.0000000+00:00'
+- author: zergologist
+  changes:
+    - type: Add
+      message: truly funky sprites for the base thaven
+    - type: Add
+      message: truly funky sprites for many thaven markings
+    - type: Tweak
+      message: existing thaven tails touched up
+    - type: Tweak
+      message: 'sharkminnow eyeliner is now light before the multiply layer '
+    - type: Fix
+      message: fixed thaven neck, eye, ear, mask, and head offsets to be pixel perfect
+  id: 788
+  time: '2025-12-20T12:46:16.0000000+00:00'

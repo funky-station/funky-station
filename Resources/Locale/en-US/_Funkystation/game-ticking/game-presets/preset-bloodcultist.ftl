@@ -9,10 +9,7 @@ roles-antag-cult-name = Blood Cultist
 roles-antag-cult-objective = Your objective is to summon your master, the Geometer of Blood, Nar'Sie. Through conversion, domination, and blood may She be brought back into this world. Cooperate with your fellow Cultists to tear open the veil and bring about Her coming!
 
 cult-role-greeting =
-    You are a Blood Cultist.
-    You are tasked with summoning your master, Nar'Sie, to this plane of existence.
-    Sacrifice those the Geometer of Blood demands and convert your crewmates to the cause to tear open the veil.
-    TOK-LYR RQA-NAP G'OLT-ULOFT!!
+    You are a Blood Cultist. Use your Cult Dagger to strike at the cult's foes, receive healing from Her pylons, and offer their souls to Her!
 
 cult-briefing = Help your fellow cult members convert the crew and sacrifice your targets to summon your deity.
 

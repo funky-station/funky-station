@@ -6724,3 +6724,12 @@ Entries:
       message: new slime eye markings. blyump
   id: 786
   time: '2025-12-19T20:38:56.0000000+00:00'
+- author: Gosera
+  changes:
+    - type: Add
+      message: >-
+        Added a small pinboard that lets you view a piece of paper of
+        information at inspect for your menu/front desk needs, craftable in the
+        autolathe.
+  id: 787
+  time: '2025-12-20T00:11:53.0000000+00:00'

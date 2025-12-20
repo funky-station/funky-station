@@ -257,25 +257,48 @@ namespace Content.Server.Hands.Systems
         }
 
         // Shitmed Change Start
-        private void TryAddHand(EntityUid uid, HandsComponent component, Entity<BodyPartComponent> part, string slot)
+        private void TryAddHand(
+            EntityUid uid,
+            HandsComponent component,
+            Entity<BodyPartComponent> part,
+            string slot)
         {
             if (part.Comp.PartType != BodyPartType.Hand)
                 return;
 
-            // If this annoys you, which it should.
-            // Ping Smugleaf.
+            if (!part.Comp.Enabled)
+                return;
+
+            if (!_bodySystem.TryGetParentBodyPart(part, out _, out var parentPartComp))
+                return;
+
+            if (!parentPartComp.Enabled)
+                return;
+
+            // Determine hand location
             var location = part.Comp.Symmetry switch
             {
-                BodyPartSymmetry.None => HandLocation.Middle,
                 BodyPartSymmetry.Left => HandLocation.Left,
                 BodyPartSymmetry.Right => HandLocation.Right,
+                BodyPartSymmetry.None => HandLocation.Middle,
                 _ => throw new ArgumentOutOfRangeException(nameof(part.Comp.Symmetry))
             };
 
-            if (part.Comp.Enabled
-                && _bodySystem.TryGetParentBodyPart(part, out var _, out var parentPartComp)
-                && parentPartComp.Enabled)
-                AddHand(uid, slot, location);
+            var handId = part.Comp.Symmetry switch
+            {
+                BodyPartSymmetry.Left => "left hand",
+                BodyPartSymmetry.Right => "right hand",
+                BodyPartSymmetry.None => "middle hand",
+                _ => null
+            };
+
+            if (handId == null)
+                return;
+
+            if (component.Hands.ContainsKey(handId))
+                return;
+
+            AddHand(uid, handId, location);
         }
 
         private void HandleBodyPartAdded(Entity<HandsComponent> ent, ref BodyPartAddedEvent args)
@@ -285,10 +308,19 @@ namespace Content.Server.Hands.Systems
 
         private void HandleBodyPartRemoved(EntityUid uid, HandsComponent component, ref BodyPartRemovedEvent args)
         {
-            if (args.Part.Comp is null
-                || args.Part.Comp.PartType != BodyPartType.Hand)
+            if (args.Part.Comp?.PartType != BodyPartType.Hand)
                 return;
-            RemoveHand(uid, args.Slot);
+
+            var handId = args.Part.Comp.Symmetry switch
+            {
+                BodyPartSymmetry.Left => "left hand",
+                BodyPartSymmetry.Right => "right hand",
+                BodyPartSymmetry.None => "middle hand",
+                _ => null
+            };
+
+            if (handId != null)
+                RemoveHand(uid, handId);
         }
 
         private void HandleBodyPartEnabled(EntityUid uid, HandsComponent component, ref BodyPartEnabledEvent args) =>

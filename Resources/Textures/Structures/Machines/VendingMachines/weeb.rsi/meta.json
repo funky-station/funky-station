@@ -9,7 +9,6 @@
   "states": [
     {
       "name": "normal-unshaded",
-      "directions": 4,
       "delays": [
         [
           4,
@@ -31,7 +30,6 @@
     },
     {
       "name": "eject-unshaded",
-      "directions": 4,
       "delays": [
         [
           0.1,
@@ -65,7 +63,6 @@
     },
     {
       "name": "deny-unshaded",
-      "directions": 4,
       "delays": [
         [
           0.1,
@@ -90,16 +87,13 @@
       ]
     },
     {
-      "name": "off",
-      "directions": 4
+      "name": "off"
     },
     {
-      "name": "broken",
-      "directions": 4
+      "name": "broken"
     },
     {
       "name": "fan",
-      "directions": 4,
       "delays": [
         [
           0.1,
@@ -128,8 +122,7 @@
       ]
     },
     {
-      "name": "panel",
-      "directions": 4
+      "name": "panel"
     }
   ]
 }

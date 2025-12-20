@@ -25,6 +25,7 @@
   name: blast door
   description: This one says 'BLAST DONGER'.
   components:
+  - type: MeltImmune
   - type: AccessReader
     containerAccessProvider: board
   - type: Sprite

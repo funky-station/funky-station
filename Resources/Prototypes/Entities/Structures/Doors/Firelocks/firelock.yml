@@ -60,6 +60,7 @@
   name: firelock
   description: Apply crowbar.
   components:
+    - type: MeltImmune
     - type: AtmosAlarmable
       syncWith:
         - FireAlarm
@@ -204,6 +205,7 @@
   id: Firelock
   parent: BaseFirelock
   components:
+  - type: MeltImmune
   - type: StationAiWhitelist
   - type: ContainerContainer
     containers:
@@ -222,6 +224,7 @@
   parent: Firelock
   name: glass firelock
   components:
+    - type: MeltImmune
     - type: StationAiWhitelist
     - type: Sprite
       sprite: Structures/Doors/Airlocks/Glass/firelock.rsi
@@ -248,6 +251,7 @@
   parent: Firelock
   name: firelock
   components:
+    - type: MeltImmune
     - type: StationAiWhitelist
     - type: Sprite
       sprite: Structures/Doors/edge_door_hazard.rsi

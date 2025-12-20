@@ -28,6 +28,7 @@
     snap:
     - Window
   components:
+  - type: MeltImmune
   - type: RCDDeconstructable
     deconstructable: false
   - type: MeleeSound
@@ -102,6 +103,7 @@
   name: plastitanium window
   parent: PlastitaniumWindowSquareBase
   components:
+  - type: MeltImmune
   - type: Destructible
     thresholds:
     - trigger:
@@ -147,6 +149,7 @@
   parent: PlastitaniumWindowBase
   suffix: diagonal
   components:
+  - type: MeltImmune
   - type: Sprite
     drawdepth: WallTops
     sprite: Structures/Windows/plastitanium_window_diagonal.rsi

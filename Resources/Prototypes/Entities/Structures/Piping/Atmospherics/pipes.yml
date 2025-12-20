@@ -51,6 +51,7 @@
   placement:
     mode: SnapgridCenter
   components:
+  - type: MeltImmune
   - type: Visibility
     layer: 1
   - type: Item
@@ -146,6 +147,7 @@
   placement:
     mode: AlignAtmosPipeLayers
   components:
+  - type: MeltImmune
   - type: NodeContainer
     nodes:
       pipe:
@@ -182,6 +184,7 @@
   placement:
     mode: AlignAtmosPipeLayers
   components:
+  - type: MeltImmune
   - type: NodeContainer
     nodes:
       pipe:
@@ -226,6 +229,7 @@
   placement:
     mode: AlignAtmosPipeLayers
   components:
+  - type: MeltImmune
   - type: NodeContainer
     nodes:
       pipe:
@@ -277,6 +281,7 @@
     mode: AlignAtmosPipeLayers
   suffix: TJunction
   components:
+  - type: MeltImmune
   - type: NodeContainer
     nodes:
       pipe:
@@ -321,6 +326,7 @@
   placement:
     mode: AlignAtmosPipeLayers
   components:
+  - type: MeltImmune
   - type: Transform
     noRot: true
   - type: NodeContainer
@@ -366,6 +372,7 @@
   name: broken pipe
   description: It used to hold gas.
   components:
+  - type: MeltImmune
   - type: Sprite
     sprite: Structures/Piping/Atmospherics/pipe.rsi
     drawdepth: ThinPipe

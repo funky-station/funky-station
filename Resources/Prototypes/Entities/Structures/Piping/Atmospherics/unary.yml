@@ -36,6 +36,7 @@
   placement:
     mode: AlignAtmosPipeLayers
   components:
+    - type: MeltImmune
     - type: ApcPowerReceiver
     - type: ExtensionCableReceiver
     - type: DeviceNetwork
@@ -100,6 +101,7 @@
   placement:
     mode: AlignAtmosPipeLayers
   components:
+    - type: MeltImmune
     - type: SubFloorHide
       visibleLayers:
       - enum.SubfloorLayers.FirstLayer
@@ -138,6 +140,7 @@
   placement:
     mode: AlignAtmosPipeLayers
   components:
+    - type: MeltImmune
     - type: ApcPowerReceiver
     - type: ExtensionCableReceiver
     - type: DeviceNetwork
@@ -202,6 +205,7 @@
   placement:
     mode: AlignAtmosPipeLayers
   components:
+    - type: MeltImmune
     - type: Sprite
       drawdepth: FloorObjects
       sprite: Structures/Piping/Atmospherics/outletinjector.rsi
@@ -521,7 +525,7 @@
   parent: GasThermoMachineFreezer
   id: GasThermoMachineUpgradedFreezer
   name: upgraded freezer
-  description: An advanced machine that cools gas in connected pipes. This looks like an upgraded model. 
+  description: An advanced machine that cools gas in connected pipes. This looks like an upgraded model.
   components:
   - type: Sprite
     sprite: _Funkystation/Structures/Piping/Atmospherics/upgradedthermomachine.rsi
@@ -536,7 +540,7 @@
   parent: GasThermoMachineHeater
   id: GasThermoMachineUpgradedHeater
   name: upgraded heater
-  description: An advanced machine that heats gas in connected pipes. This looks like an upgraded model. 
+  description: An advanced machine that heats gas in connected pipes. This looks like an upgraded model.
   components:
   - type: Sprite
     sprite: _Funkystation/Structures/Piping/Atmospherics/upgradedthermomachine.rsi
@@ -551,7 +555,7 @@
   parent: GasThermoMachineFreezer
   id: GasThermoMachineAdvancedFreezer
   name: advanced freezer
-  description: An advanced machine that cools gas in connected pipes. This looks like a particularly advanced model. 
+  description: An advanced machine that cools gas in connected pipes. This looks like a particularly advanced model.
   components:
   - type: Sprite
     sprite: _Funkystation/Structures/Piping/Atmospherics/advancedthermomachine.rsi
@@ -566,7 +570,7 @@
   parent: GasThermoMachineHeater
   id: GasThermoMachineAdvancedHeater
   name: advanced heater
-  description: An advanced machine that heats gas in connected pipes. This looks like a particularly advanced model. 
+  description: An advanced machine that heats gas in connected pipes. This looks like a particularly advanced model.
   components:
   - type: Sprite
     sprite: _Funkystation/Structures/Piping/Atmospherics/advancedthermomachine.rsi

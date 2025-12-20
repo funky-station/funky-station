@@ -636,6 +636,7 @@
   placement:
     mode: AlignAtmosPipeLayers
   components:
+  - type: MeltImmune
   - type: Rotatable
   - type: Transform
     noRot: false
@@ -691,6 +692,7 @@
   placement:
     mode: AlignAtmosPipeLayers
   components:
+    - type: MeltImmune
     - type: SubFloorHide
       visibleLayers:
       - enum.SubfloorLayers.FirstLayer

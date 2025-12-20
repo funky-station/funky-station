@@ -353,6 +353,7 @@
   parent: BaseSecureWindoor
   abstract: true
   components:
+  - type: MeltImmune
   - type: Sprite
     sprite: Structures/Doors/Windoors/plasma.rsi
     layers:
@@ -490,6 +491,7 @@
   parent: BaseSecureWindoor
   abstract: true
   components:
+  - type: MeltImmune
   - type: Sprite
     sprite: Structures/Doors/Windoors/uranium.rsi
     layers:

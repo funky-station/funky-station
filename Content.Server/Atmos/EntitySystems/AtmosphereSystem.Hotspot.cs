@@ -49,34 +49,6 @@ namespace Content.Server.Atmos.EntitySystems
 
         private int _hotspotSoundCooldown = 0;
 
-        // Prototypes immune to melting
-        private static readonly HashSet<string> ImmuneStructures = new()
-        {
-            "WallReinforced",
-            "WallPlastitanium",
-            "ReinforcedPlasmaWindow",
-            "PlasmaReinforcedWindowDirectional",
-            "UraniumReinforcedWindowDirectional",
-            "ReinforcedUraniumWindow",
-            "PlastitaniumWindow",
-            "WallShuttle",
-            "WallShuttleInterior",
-            "WallRiveted",
-            "Firelock",
-            "FirelockGlass",
-            "FirelockEdge",
-            "BlastDoor",
-            "AirlockExternal",
-            "InflatableWall",
-            "InflatableDoor",
-            "GasVentScrubber",
-            "GasPassiveVent",
-            "GasPipeTJunction",
-            "GasPipeBend",
-            "GasPipeStraight",
-            "GasOutletInjector"
-        };
-
         [ViewVariables(VVAccess.ReadWrite)]
         public string? HotspotSound { get; private set; } = "/Audio/Effects/fire.ogg";
 
@@ -179,6 +151,14 @@ namespace Content.Server.Atmos.EntitySystems
             if (tile.Hotspot.Temperature > tile.MaxFireTemperatureSustained)
                 tile.MaxFireTemperatureSustained = tile.Hotspot.Temperature;
 
+            if (_hotspotSoundCooldown++ == 0 && !string.IsNullOrEmpty(HotspotSound))
+            {
+                var coordinates = _mapSystem.ToCenterCoordinates(tile.GridIndex, tile.GridIndices);
+                _audio.PlayPvs(HotspotSound, coordinates, AudioParams.Default.WithVariation(0.15f/tile.Hotspot.State).WithVolume(-5f + 5f * tile.Hotspot.State));
+            }
+
+            if (_hotspotSoundCooldown > HotspotSoundCooldownCycles)
+                _hotspotSoundCooldown = 0;
         }
 
         private void UpdateFireLight(EntityUid gridUid, Vector2i indices, bool active)
@@ -247,9 +227,11 @@ namespace Content.Server.Atmos.EntitySystems
             foreach (var uid in targets)
             {
                 if (TerminatingOrDeleted(uid)) continue;
-                var meta = MetaData(uid);
-                if (meta.EntityPrototype != null && ImmuneStructures.Contains(meta.EntityPrototype.ID))
+
+                // Check for MeltImmuneComponent
+                if (HasComp<MeltImmuneComponent>(uid))
                     continue;
+
                 _damageable.TryChangeDamage(uid, damage, ignoreResistances: true);
             }
         }
@@ -267,13 +249,10 @@ namespace Content.Server.Atmos.EntitySystems
             var hydrogen = tile.Air.GetMoles(Gas.Hydrogen); // Assmos - /tg/ gases
             var hypernob = tile.Air.GetMoles(Gas.HyperNoblium); // Assmos - /tg/ gases
 
-            // Clamp effective flammability so super-dense puddles don't create heat death of the universe temperatures
             var rawFlammability = (float)tile.PuddleSolutionFlammability;
-            var effectiveFlammability = System.Math.Min(rawFlammability, 50f);
-            var capFlammability = System.Math.Min(rawFlammability, 200f);
+            var effectiveFlammability = rawFlammability;
+            var capFlammability = rawFlammability;
 
-            // Use the higher of the exposed temp neighbor or the tile's own air temp.
-            // This ensures hot ambient gas ignites the puddle
             var ignitionTemperature = Math.Max(exposedTemperature, tile.Air.Temperature);
 
             if (tile.Hotspot.Valid)
@@ -289,17 +268,16 @@ namespace Content.Server.Atmos.EntitySystems
                     }
                 }
 
-                // Linear scaling
                 tile.Hotspot.Temperature = AddClampedTemperature(
                     tile.Hotspot.Temperature,
-                    15 * effectiveFlammability,
-                    (float)(Atmospherics.T0C + 60 * capFlammability));
+                    200 * effectiveFlammability,
+                    (float)(Atmospherics.T0C + 1200 * capFlammability));
 
                 return;
             }
 
             // Ignition threshold
-            var ignitionThreshold = Math.Max(373.15f, 573.15f - (10 * effectiveFlammability));
+            var ignitionThreshold = System.Math.Max(373.15f, 573.15f - (50 * effectiveFlammability));
 
             if ((ignitionTemperature > Atmospherics.PlasmaMinimumBurnTemperature && (plasma > 0.5f && hypernob < 5f || tritium > 0.5f && hypernob < 5f || hydrogen > 0.5f && hypernob < 5f))
                 || (rawFlammability > 0 && ignitionTemperature > ignitionThreshold) )
@@ -312,8 +290,8 @@ namespace Content.Server.Atmos.EntitySystems
                 {
                     temperature = AddClampedTemperature(
                         temperature,
-                        10 * effectiveFlammability,
-                        (float)(Atmospherics.T0C + 60 * capFlammability));
+                        200 * effectiveFlammability,
+                        (float)(Atmospherics.T0C + 1200 * capFlammability));
                 }
 
                 tile.Hotspot = new Hotspot
@@ -346,14 +324,14 @@ namespace Content.Server.Atmos.EntitySystems
             {
                 var affected = tile.Air.RemoveVolume(tile.Hotspot.Volume);
 
-                var effectiveFlammability = System.Math.Min((float)tile.PuddleSolutionFlammability, 50f);
-                affected.Temperature = MathF.Max(tile.Hotspot.Temperature, Atmospherics.T0C + 60 * effectiveFlammability);
+                var effectiveFlammability = (float)tile.PuddleSolutionFlammability;
+                affected.Temperature = MathF.Max(tile.Hotspot.Temperature, Atmospherics.T0C + 1200 * effectiveFlammability);
 
                 // Gas consumption and production
                 if (effectiveFlammability > 0)
                 {
                     // Enough to impact the room, but slow enough to allow the fire to propagate before suffocating
-                    var burnAmount = 0.10f * effectiveFlammability;
+                    var burnAmount = 1.0f * effectiveFlammability;
                     var oxygen = affected.GetMoles(Gas.Oxygen);
                     var actualBurn = System.Math.Min(burnAmount, oxygen);
 

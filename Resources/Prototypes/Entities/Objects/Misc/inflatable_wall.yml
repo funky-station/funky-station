@@ -25,6 +25,7 @@
   name: inflatable barricade
   description: An inflated membrane. Release ripvalve to deflate. Do not puncture. # Funky altered descriptions
   components:
+  - type: MeltImmune
   - type: Clickable
   - type: InteractionOutline
   - type: Sprite
@@ -67,6 +68,7 @@
   parent: BaseMaterialDoor
   description: An inflated, semi-traversable membrane. Otherwise known as a door. Release ripvalve to deflate. Do not puncture. # Funky altered descriptions
   components:
+  - type: MeltImmune
   - type: Clickable
   - type: InteractionOutline
   - type: Sprite

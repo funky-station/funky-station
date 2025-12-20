@@ -26,6 +26,7 @@
   name: reinforced uranium window
   parent: WindowRCDResistant
   components:
+  - type: MeltImmune
   - type: Sprite
     drawdepth: WallTops
     sprite: Structures/Windows/reinforced_uranium_window.rsi
@@ -88,6 +89,7 @@
     snap:
     - Window
   components:
+  - type: MeltImmune
   - type: Sprite
     sprite: Structures/Windows/directional.rsi
     state: uranium_reinforced_window

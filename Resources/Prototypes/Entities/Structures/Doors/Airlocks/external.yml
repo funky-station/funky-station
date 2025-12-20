@@ -24,6 +24,7 @@
   suffix: External
   description: It opens, it closes, it might crush you, and there might be only space behind it.
   components:
+  - type: MeltImmune
   - type: Door
     crushDamage:
       types:
@@ -47,6 +48,7 @@
   id: AirlockExternalGlass
   suffix: Glass, External
   components:
+  - type: MeltImmune
   - type: Door
     occludes: false
   - type: Occluder

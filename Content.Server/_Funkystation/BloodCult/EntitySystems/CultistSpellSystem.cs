@@ -364,10 +364,10 @@ public sealed partial class CultistSpellSystem : EntitySystem
 		}
 		else if (HasComp<BorgChassisComponent>(target) &&
                  TryComp<PowerCellSlotComponent>(target, out var slotComp) &&
-                 _powerCell.TryGetBatteryFromSlot((Entity<PowerCellSlotComponent?>)(target, slotComp), out var predictedBattery) &&
-                 predictedBattery != null)
+                 _powerCell.TryGetBatteryFromSlot((Entity<PowerCellSlotComponent?>)(target, slotComp), out var Battery) &&
+                 Battery != null)
 		{
-            var batteryUid = predictedBattery.Value.Owner;
+            var batteryUid = Battery.Value.Owner;
 			_emp.DoEmpEffects((EntityUid)batteryUid, empDamage, TimeSpan.FromSeconds(stunTime));
 			_statusEffect.TryAddStatusEffect<MutedComponent>(target, "Muted", TimeSpan.FromSeconds(stunTime), false);
 		}

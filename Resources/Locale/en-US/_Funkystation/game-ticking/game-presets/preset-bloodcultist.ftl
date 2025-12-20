@@ -144,8 +144,11 @@ cult-central-rift-warning = Attention! A rift in reality has been opened in { $l
 
 cult-status-cultdata = Current cult members: {$cultMembers} cultists and {$constructCount} constructs
 
-cult-blood-progress = [italic]Blood Spilled: {$bloodCollected}u / {$totalRequired}u. {$bloodNeeded}u more needed for {$nextPhase}. Convert non-believers or spill their blood with your cult dagger.[/italic]
-cult-blood-progress-stage-complete = [italic]Blood Spilled: {$bloodCollected}u / {$totalRequired}u (Stage complete)[/italic]
+cult-blood-progress = [italic]{ $isComplete ->
+    [true] Await the next phase of {$nextPhase} in summoning Nar'Sie
+   *[false] Spill {$bloodNeeded}u of blood or convert more people for Nar'Sie's {$nextPhase}
+}[/italic]
+
 cult-blood-progress-tear-veil = [italic]Next objective: Perform the Tear Veil ritual at {$location1}, {$location2}, or {$location3} with {$required} cultists.[/italic]
 cult-blood-progress-final-summon = [italic]Next objective: Find the reality rift and perform the final summoning ritual with 9 cultists.[/italic]
 cult-blood-progress-final-summon-pending = [italic]Next objective: Await the manifestation of the blood rift.[/italic]

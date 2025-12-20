@@ -1248,22 +1248,27 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 		{
 			currentPhase = "Eyes";
 			nextThreshold = component.BloodRequiredForEyes;
-			bloodNeeded = nextThreshold - currentBlood;
+			bloodNeeded = Math.Max(0.0, nextThreshold - currentBlood);
 		}
 		else if (!component.HasRisen)
 		{
 			currentPhase = "Rise";
 			nextThreshold = component.BloodRequiredForRise;
-			bloodNeeded = nextThreshold - currentBlood;
+			bloodNeeded = Math.Max(0.0, nextThreshold - currentBlood);
 		}
 		else if (!component.VeilWeakened)
 		{
 			// Stage 2 complete - need to do Tear Veil ritual
+			currentPhase = "Rise";
 			nextThreshold = component.BloodRequiredForRise;
+			bloodNeeded = 0.0; // Stage is complete
 			
-			string message = Loc.GetString("cult-blood-progress-stage-complete",
-				("bloodCollected", Math.Round(currentBlood, 1).ToString()),
-				("totalRequired", Math.Round(nextThreshold, 1).ToString()));
+			string message = Loc.GetString("cult-blood-progress",
+				("bloodCollected", Math.Round(currentBlood, 1)),
+				("bloodNeeded", Math.Round(bloodNeeded, 1)),
+				("nextPhase", currentPhase),
+				("totalRequired", Math.Round(nextThreshold, 1)),
+				("isComplete", true));
 			
 			// Show Tear Veil locations if they exist
 			if (component.WeakVeil1 != null && component.WeakVeil2 != null && component.WeakVeil3 != null)
@@ -1283,11 +1288,16 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 		else
 		{
 			// Stage 3 - Veil is weakened, need to do final summoning
+			currentPhase = "Veil";
 			nextThreshold = component.BloodRequiredForVeil;
+			bloodNeeded = 0.0; // Stage is complete
 			
-			string message = Loc.GetString("cult-blood-progress-stage-complete",
-				("bloodCollected", Math.Round(currentBlood, 1).ToString()),
-				("totalRequired", Math.Round(nextThreshold, 1).ToString()));
+			string message = Loc.GetString("cult-blood-progress",
+				("bloodCollected", Math.Round(currentBlood, 1)),
+				("bloodNeeded", Math.Round(bloodNeeded, 1)),
+				("nextPhase", currentPhase),
+				("totalRequired", Math.Round(nextThreshold, 1)),
+				("isComplete", true));
 			message += "\n" + Loc.GetString(
 				component.BloodAnomalySpawned
 					? "cult-blood-progress-final-summon-ready"
@@ -1304,11 +1314,13 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 			return message;
 		}
 
+		bool isComplete = bloodNeeded <= 0.05; // Account for rounding precision
 		return Loc.GetString("cult-blood-progress",
-			("bloodCollected", Math.Round(currentBlood, 1).ToString()),
-			("bloodNeeded", Math.Round(bloodNeeded, 1).ToString()),
+			("bloodCollected", Math.Round(currentBlood, 1)),
+			("bloodNeeded", Math.Round(bloodNeeded, 1)),
 			("nextPhase", currentPhase),
-			("totalRequired", Math.Round(nextThreshold, 1).ToString()));
+			("totalRequired", Math.Round(nextThreshold, 1)),
+			("isComplete", isComplete));
 	}
 
 	// private bool TryGetRiftDirectionMessage(EntityUid cultistUid, WeakVeilLocation location, out string message)

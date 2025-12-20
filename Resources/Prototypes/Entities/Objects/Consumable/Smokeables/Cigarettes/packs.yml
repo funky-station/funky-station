@@ -327,41 +327,6 @@
     - id: CigarettePax
       prob: 0.10
 
-
-- type: entity
-  id: CigPackMixed
-  parent: CigPackMixedBase
-  name: Dan's soaked smokes
-  suffix: Mixed
-  description: Dan worked with NT chemistry to dispose of excess chemicals, ENJOY.
-  components:
-  - type: Sprite
-    sprite: Objects/Consumable/Smokeables/Cigarettes/Packs/mixed.rsi
-  - type: Item
-    sprite: Objects/Consumable/Smokeables/Cigarettes/Packs/mixed.rsi
-  - type: StorageFill
-    contents:
-    - id: CigaretteBbqSauce
-      prob: 0.70
-    - id: CigaretteBlackPepper
-      prob: 0.70
-    - id: CigaretteCapsaicinOil
-      prob: 0.70
-    - id: CigaretteBread
-      prob: 0.70
-    - id: CigaretteMilk
-      prob: 0.70
-    - id: CigaretteBanana
-      prob: 0.10
-    - id: CigaretteTHC
-      prob: 0.70
-    - id: CigaretteTricordrazine
-      prob: 0.25
-    - id: CigaretteSpaceDrugs
-      prob: 0.50
-    - id: CigaretteLicoxide
-      prob: 0.10
-
 - type: entity
   id: CigPackMixedNasty
   parent: CigPackMixedBase

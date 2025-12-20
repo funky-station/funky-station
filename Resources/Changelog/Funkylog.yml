@@ -6733,3 +6733,67 @@ Entries:
         autolathe.
   id: 787
   time: '2025-12-20T00:11:53.0000000+00:00'
+- author: zergologist
+  changes:
+    - type: Add
+      message: truly funky sprites for the base thaven
+    - type: Add
+      message: truly funky sprites for many thaven markings
+    - type: Tweak
+      message: existing thaven tails touched up
+    - type: Tweak
+      message: 'sharkminnow eyeliner is now light before the multiply layer '
+    - type: Fix
+      message: fixed thaven neck, eye, ear, mask, and head offsets to be pixel perfect
+  id: 788
+  time: '2025-12-20T12:46:16.0000000+00:00'
+- author: TheHolyAegis
+  changes:
+    - type: Add
+      message: Added an air tank dispenser to the salvage area.
+    - type: Fix
+      message: >-
+        The Nanotrasen Representative office shutters are now linked to the
+        button by default.
+    - type: Add
+      message: >-
+        Added shutters to the lawyer room, so they can have conversations with
+        confidential information without anyone eavesdropping.
+    - type: Fix
+      message: >-
+        Moved the exosuit fabricators, now the cyborg endoskeletons won't get
+        stuck between it and the wall.
+    - type: Fix
+      message: >-
+        Added a vent and scrubber to the zoo, now the animals won't slowly
+        suffocate.
+    - type: Fix
+      message: >-
+        AI core fixes, the APCs are now separated, and AI sentry turret control
+        panels were added.
+    - type: Add
+      message: Added a ton of intercoms, you no longer have to search for one.
+    - type: Tweak
+      message: >-
+        Added and moved some cameras so the Station AI doesn't have weird
+        blindspots in the middle of the hallway.
+    - type: Tweak
+      message: >-
+        Medical has been redesigned to promote smaller room treatment, and added
+        IVs.
+    - type: Add
+      message: >-
+        Added a long-range holopad to the bridge, for potential roleplay with CC
+        or maybe the cargo shuttle got lost.
+    - type: Tweak
+      message: >-
+        Replaced brigmed with a temporary cell, for if the warden is taking a
+        while...
+    - type: Add
+      message: Added a cyborg recharger and cryogenic sleep unit to genpop.
+    - type: Tweak
+      message: >-
+        Replaced the TEG with a Nuclear Reactor. (This is a test, and will be
+        reverted if it doesn't work out nicely)
+  id: 789
+  time: '2025-12-20T12:47:16.0000000+00:00'

@@ -83,7 +83,13 @@ public abstract partial class SharedHandsSystem
     private void OnMapInit(Entity<HandsComponent> ent, ref MapInitEvent args)
     {
         if (ent.Comp.ActiveHandId == null)
-            SetActiveHand(ent.AsNullable(), ent.Comp.SortedHands.FirstOrDefault());
+        {
+            if (ent.Comp.SortedHands.Count > 0)
+                SetActiveHand(ent.AsNullable(), ent.Comp.SortedHands[0]);
+            else if (ent.Comp.Hands.Count > 0)
+                SetActiveHand(ent.AsNullable(), ent.Comp.Hands.Keys.First());
+        }
+
     }
 
     /// <summary>
@@ -118,6 +124,7 @@ public abstract partial class SharedHandsSystem
             SetActiveHand(ent, handName);
 
         RaiseLocalEvent(ent, new HandCountChangedEvent(ent));
+        SanitizeHands(ent.Owner, ent.Comp, "AddHand");
     }
 
     /// <summary>
@@ -144,6 +151,7 @@ public abstract partial class SharedHandsSystem
 
         RaiseLocalEvent(ent, new HandCountChangedEvent(ent));
         Dirty(ent);
+        SanitizeHands(ent.Owner, ent.Comp, "RemoveHand");
     }
 
     /// <summary>
@@ -278,7 +286,8 @@ public abstract partial class SharedHandsSystem
         if (!Resolve(ent, ref ent.Comp, false))
             yield break;
 
-        if (ent.Comp.ActiveHandId != null)
+        if (ent.Comp.ActiveHandId != null &&
+            ent.Comp.Hands.ContainsKey(ent.Comp.ActiveHandId))
             yield return ent.Comp.ActiveHandId;
 
         foreach (var name in ent.Comp.SortedHands)
@@ -507,4 +516,41 @@ public abstract partial class SharedHandsSystem
 
         handsComp.SortedHands.Insert(index, handName);
     }
+
+    protected void SanitizeHands(EntityUid uid, HandsComponent comp, string context)
+    {
+        // 1. Remove invalid sorted hands
+        comp.SortedHands.RemoveAll(h => !comp.Hands.ContainsKey(h));
+
+        // 2. Add missing hands to SortedHands
+        foreach (var hand in comp.Hands.Keys)
+        {
+            if (!comp.SortedHands.Contains(hand))
+                comp.SortedHands.Add(hand);
+        }
+
+        // 3. Fix ActiveHandId
+        if (comp.ActiveHandId == null || !comp.Hands.ContainsKey(comp.ActiveHandId))
+        {
+            comp.ActiveHandId = comp.SortedHands.FirstOrDefault();
+        }
+
+#if DEBUG
+        // Optional but HIGHLY recommended while testing
+        if (comp.ActiveHandId != null && !comp.Hands.ContainsKey(comp.ActiveHandId))
+        {
+            Log.Error(
+                $"[HANDS SANITIZE FAILED]\n" +
+                $"Entity: {uid}\n" +
+                $"Context: {context}\n" +
+                $"ActiveHandId: {comp.ActiveHandId}\n" +
+                $"Hands: {string.Join(", ", comp.Hands.Keys)}\n" +
+                $"SortedHands: {string.Join(", ", comp.SortedHands)}"
+            );
+        }
+#endif
+
+        Dirty(uid, comp);
+    }
+
 }

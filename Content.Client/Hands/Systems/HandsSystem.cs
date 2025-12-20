@@ -99,9 +99,18 @@ namespace Content.Client.Hands.Systems
             {
                 AddHand(ent.AsNullable(), handId, state.Hands[handId]);
             }
-            ent.Comp.SortedHands = new (state.SortedHands);
+            ent.Comp.SortedHands = new(state.SortedHands);
 
-            SetActiveHand(ent.AsNullable(), state.ActiveHandId);
+            if (state.ActiveHandId != null && ent.Comp.Hands.ContainsKey(state.ActiveHandId))
+            {
+                SetActiveHand(ent.AsNullable(), state.ActiveHandId);
+            }
+            else
+            {
+                ent.Comp.ActiveHandId = null;
+            }
+
+            SanitizeHands(ent.Owner, ent.Comp, "Client HandleComponentState");
 
             _stripSys.UpdateUi(ent);
         }
@@ -412,6 +421,8 @@ namespace Content.Client.Hands.Systems
 
         private void OnHandsStartup(EntityUid uid, HandsComponent component, ComponentStartup args)
         {
+            SanitizeHands(uid, component, "Client ComponentStartup");
+
             if (_playerManager.LocalEntity == uid)
                 OnPlayerHandsAdded?.Invoke((uid, component));
         }

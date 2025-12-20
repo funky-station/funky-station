@@ -121,7 +121,8 @@ public sealed class PullingSystem : EntitySystem
 
         if (!_virtual.TrySpawnVirtualItemInHand(args.PulledUid, uid))
         {
-            DebugTools.Assert("Unable to find available hand when starting pulling??");
+          //  DebugTools.Assert("Unable to find available hand when starting pulling??");
+          return;
         }
     }
 

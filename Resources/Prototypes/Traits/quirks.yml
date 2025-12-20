@@ -117,3 +117,4 @@
     - type: ChronicMigraines
       timeBetweenIncidents: 600, 1800
       durationOfIncident: 8, 12
+      fadeOutDuration: 0.5

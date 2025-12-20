@@ -2,8 +2,6 @@
 
 using Content.Shared.StatusEffect;
 using Content.Shared.Stunnable;
-using System;
-
 namespace Content.Shared.Traits.Assorted;
 
 /// <summary>
@@ -31,13 +29,67 @@ public sealed class MigraineSystem : EntitySystem
         {
             migraine.PulseAccumulator += frameTime;
 
-            var rampSpeed = migraine.BlurryMagnitude > migraine.CurrentBlur
+            // Handle duration countdown if set
+            if (migraine.Duration > 0)
+            {
+                migraine.Duration -= frameTime;
+                if (migraine.Duration <= 0)
+                {
+                    migraine.IsFading = true;
+                    migraine.Duration = -1f;
+
+                    _statusEffects.TryRemoveStatusEffect(uid, "SlowedDown");
+                }
+            }
+
+            // If this is a fading component, fade to zero instead of target magnitude
+            var targetBlur = migraine.IsFading ? 0f : migraine.BlurryMagnitude;
+
+            if (migraine.IsFading)
+            {
+                var fadeSpeed = 1.0f / migraine.FadeOutDuration;
+                var fadeAmount = fadeSpeed * frameTime;
+
+                migraine.BlurryMagnitude = MathHelper.Lerp(migraine.BlurryMagnitude, 0f, fadeAmount);
+                migraine.PulseAmplitude = MathHelper.Lerp(migraine.PulseAmplitude, 0f, fadeAmount);
+
+                targetBlur = migraine.BlurryMagnitude;
+
+                // Remove the component when fade is complete or very close
+                if (migraine.BlurryMagnitude <= 0.01f && migraine.PulseAmplitude <= 0.01f)
+                {
+
+                    RemComp<MigraineComponent>(uid);
+                    continue;
+                }
+            }
+
+            // Always apply normal interpolation for CurrentBlur (whether fading or not)
+            var rampSpeed = targetBlur > migraine.CurrentBlur
                 ? migraine.RampUpSpeed
                 : (migraine.RampDownSpeed > 0f ? migraine.RampDownSpeed : migraine.RampUpSpeed);
-            migraine.CurrentBlur = MathHelper.Lerp(migraine.CurrentBlur, migraine.BlurryMagnitude, frameTime * rampSpeed);
+
+            migraine.CurrentBlur = MathHelper.Lerp(migraine.CurrentBlur, targetBlur, frameTime * rampSpeed);
 
             Dirty(uid, migraine);
         }
+    }
+
+    /// <summary>
+    /// Starts the fadeout process for a migraine component.
+    /// </summary>
+    public void StartFadeOut(EntityUid uid)
+    {
+        if (!TryComp<MigraineComponent>(uid, out var migraine))
+            return;
+
+        migraine.IsFading = true;
+
+        // Remove the slowdown immediately when starting fade
+        _statusEffects.TryRemoveStatusEffect(uid, "SlowedDown");
+
+
+        Dirty(uid, migraine);
     }
 
     private void OnMigraineInit(EntityUid uid, MigraineComponent component, ComponentInit args)
@@ -60,7 +112,18 @@ public sealed class MigraineSystem : EntitySystem
         if (TerminatingOrDeleted(uid))
             return;
 
-        // Remove the slowdown
+        if (!component.IsFading)
+        {
+            component.IsFading = true;
+
+            // Remove the slowdown immediately
+            _statusEffects.TryRemoveStatusEffect(uid, "SlowedDown");
+
+            // let update handle fade
+            return;
+        }
+
+        // If we're already fading and this is called again, remove the slowdown
         _statusEffects.TryRemoveStatusEffect(uid, "SlowedDown");
     }
 }

@@ -71,10 +71,6 @@ namespace Content.Client.Traits.Assorted
                 if (strength <= 0f)
                     return false;
 
-                if (_entityManager.TryGetComponent<BlindableComponent>(playerEntity, out var blindComp)
-                    && blindComp.IsBlind)
-                    return false;
-
                 return true;
             }
 

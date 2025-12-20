@@ -76,8 +76,28 @@ public sealed partial class MigraineComponent : Component
     public bool UseSoftShader;
 
     /// <summary>
-    /// Multiplier applied to shader strength/particle amplitude when UseSoftShader is true
+    /// Multiplier applied to shader strength  when UseSoftShader is true
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite), DataField("softness"), AutoNetworkedField]
     public float Softness = 0.45f;
+
+    /// <summary>
+    /// This component instance was created to fade out visuals after the status effect ended.
+    /// If true, the system will automatically remove it once CurrentBlur and pulse are negligible.
+    /// </summary>
+    [ViewVariables(VVAccess.ReadWrite), DataField("isFading"), AutoNetworkedField]
+    public bool IsFading;
+
+    /// <summary>
+    /// Duration remaining for this migraine episode. When this reaches 0, the migraine will start fading out.
+    /// Set to -1 for infinite.
+    /// </summary>
+    [ViewVariables(VVAccess.ReadWrite), DataField]
+    public float Duration = -1f;
+
+    /// <summary>
+    /// How long the fadeout should take when the migraine ends (in seconds).
+    /// </summary>
+    [ViewVariables(VVAccess.ReadWrite), DataField]
+    public float FadeOutDuration = 0.5f;
 }

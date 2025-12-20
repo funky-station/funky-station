@@ -1,13 +1,9 @@
 // SPDX-License-Identifier: MIT
 
 using Content.Shared.Popups;
-using Content.Shared.StatusEffect;
 using Content.Shared.Traits.Assorted;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
-using Robust.Server.Player;
-using Robust.Shared.Localization;
-using System;
 
 namespace Content.Server.Traits.Assorted;
 
@@ -18,15 +14,13 @@ public sealed class ChronicMigrainesSystem : EntitySystem
 {
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly StatusEffectsSystem _statusEffects = default!;
-
-    private const string StatusEffectKey = "Migraine";
 
     public override void Initialize()
     {
         base.Initialize();
         SubscribeLocalEvent<ChronicMigrainesComponent, ComponentStartup>(SetupChronicMigraines);
         SubscribeLocalEvent<ActorComponent, ComponentStartup>(OnActorStartup);
+        SubscribeLocalEvent<MigraineComponent, ComponentShutdown>(OnMigraineShutdown);
     }
 
     private void OnActorStartup(EntityUid uid, ActorComponent component, ComponentStartup args)
@@ -44,6 +38,18 @@ public sealed class ChronicMigrainesSystem : EntitySystem
         component.NextMigraineTime = _random.NextFloat(component.TimeBetweenMigraines.X, component.TimeBetweenMigraines.Y);
     }
 
+    private void OnMigraineShutdown(EntityUid uid, MigraineComponent component, ComponentShutdown args)
+    {
+        if (!HasComp<ChronicMigrainesComponent>(uid))
+            return;
+        
+        if (component.IsFading && !TerminatingOrDeleted(uid))
+        {
+            var msg = Loc.GetString("trait-chronic-migraines-end");
+            _popup.PopupEntity(msg, uid, uid, PopupType.Medium);
+        }
+    }
+
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
@@ -56,19 +62,24 @@ public sealed class ChronicMigrainesSystem : EntitySystem
             if (migraines.NextMigraineTime >= 0)
                 continue;
 
+            // Don't start a new migraine if one is already active
+            if (HasComp<MigraineComponent>(uid))
+                continue;
+
             // Set the new time for next incident
             migraines.NextMigraineTime += _random.NextFloat(migraines.TimeBetweenMigraines.X, migraines.TimeBetweenMigraines.Y);
 
             var duration = _random.NextFloat(migraines.MigraineDuration.X, migraines.MigraineDuration.Y);
 
-            // Make sure the episode time doesn't cut into the time to next incident, this shouldnt be possible but god forbid
+            // Make sure the episode time doesn't cut into the time to next incident
             migraines.NextMigraineTime += duration;
 
             var msg = Loc.GetString("trait-chronic-migraines-start");
             _popup.PopupEntity(msg, uid, uid, PopupType.MediumCaution);
 
-            // Apply migraine effect
-            _statusEffects.TryAddStatusEffect<MigraineComponent>(uid, StatusEffectKey, TimeSpan.FromSeconds(duration), false);
+            var migraineComp = AddComp<MigraineComponent>(uid);
+            migraineComp.Duration = duration;
+            migraineComp.FadeOutDuration = migraines.FadeOutDuration;
         }
     }
 }

@@ -75,10 +75,12 @@ namespace Content.Server.Atmos.EntitySystems
             if(tile.ExcitedGroup != null)
                 ExcitedGroupResetCooldowns(tile.ExcitedGroup);
 
+            bool isSuperHeated = tile.Hotspot.Temperature > 5000f;
+
             if ((tile.Hotspot.Temperature < Atmospherics.FireMinimumTemperatureToExist) || (tile.Hotspot.Volume <= 1f)
-               || (tile.Air == null || tile.Air.GetMoles(Gas.Oxygen) < 0.5f || (tile.Air.GetMoles(Gas.Plasma) < 0.5f
+               || (!isSuperHeated && (tile.Air == null || tile.Air.GetMoles(Gas.Oxygen) < 0.5f || (tile.Air.GetMoles(Gas.Plasma) < 0.5f
                && tile.Air.GetMoles(Gas.Tritium) < 0.5f && tile.Air.GetMoles(Gas.Hydrogen) < 0.5f)
-               || tile.Air.GetMoles(Gas.HyperNoblium) > 5f) && tile.PuddleSolutionFlammability == 0)  // Assmos - /tg/ gases
+               || tile.Air.GetMoles(Gas.HyperNoblium) > 5f) && tile.PuddleSolutionFlammability == 0))  // Assmos - /tg/ gases
             {
                 tile.Hotspot = new Hotspot();
                 tile.Hotspot.Type = tile.PuddleSolutionFlammability > 0 ? HotspotType.Puddle : HotspotType.Gas;

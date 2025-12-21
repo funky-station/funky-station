@@ -151,6 +151,9 @@
       map: [ "blade" ]
   - type: Item
     sprite: Objects/Weapons/Melee/e_sword-inhands.rsi
+  - type: Tag
+    tags:
+    - Knife
 
 - type: entity
   name: energy dagger
@@ -215,6 +218,9 @@
     energy: 1.5
     color: white
     netsync: false
+  - type: Tag
+    tags:
+    - Knife
 
 - type: entity
   name: pen

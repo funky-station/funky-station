@@ -143,6 +143,7 @@
     useSound:
       collection: Welder
     qualities: Welding
+  - type: WeldingSparks
   - type: Welder
   - type: PointLight
     enabled: false
@@ -242,6 +243,8 @@
     enabled: false
     radius: 1.5
     color: lightblue
+  - type: WeldingSparks
+    effect: EffectWeldingSparksExp
   - type: SolutionRegeneration
     solution: Welder
     generated:

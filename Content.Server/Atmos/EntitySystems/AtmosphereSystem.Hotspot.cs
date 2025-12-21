@@ -48,6 +48,11 @@ namespace Content.Server.Atmos.EntitySystems
         private const int HotspotSoundCooldownCycles = 200;
 
         private int _hotspotSoundCooldown = 0;
+        private int _decalCheckCooldown = 0;
+
+        // reusable objects to prevent allocation in hot loops
+        private readonly List<EntityUid> _meltTargets = new();
+        private readonly DamageSpecifier _meltDamageSpec = new();
 
         [ViewVariables(VVAccess.ReadWrite)]
         public string? HotspotSound { get; private set; } = "/Audio/Effects/fire.ogg";
@@ -100,29 +105,34 @@ namespace Content.Server.Atmos.EntitySystems
             {
                 tile.Hotspot.State = 3;
 
-                var gridUid = ent.Owner;
-                var tilePos = tile.GridIndices;
-
-                // Get the existing decals on the tile
-                var tileDecals = _decalSystem.GetDecalsInRange(gridUid, tilePos);
-
-                // Count the burnt decals on the tile
-                var tileBurntDecals = 0;
-
-                foreach (var set in tileDecals)
+                // don't check every single tick for every tile
+                if (_decalCheckCooldown++ > 20)
                 {
-                    if (Array.IndexOf(_burntDecals, set.Decal.Id) == -1)
-                        continue;
+                    _decalCheckCooldown = 0;
+                    var gridUid = ent.Owner;
+                    var tilePos = tile.GridIndices;
 
-                    tileBurntDecals++;
+                    // Get the existing decals on the tile
+                    var tileDecals = _decalSystem.GetDecalsInRange(gridUid, tilePos);
 
-                    if (tileBurntDecals > 4)
-                        break;
+                    // Count the burnt decals on the tile
+                    var tileBurntDecals = 0;
+
+                    foreach (var set in tileDecals)
+                    {
+                        if (Array.IndexOf(_burntDecals, set.Decal.Id) == -1)
+                            continue;
+
+                        tileBurntDecals++;
+
+                        if (tileBurntDecals > 4)
+                            break;
+                    }
+
+                    // Add a random burned decal to the tile only if there are less than 4 of them
+                    if (tileBurntDecals < 4)
+                        _decalSystem.TryAddDecal(_burntDecals[_random.Next(_burntDecals.Length)], new EntityCoordinates(gridUid, tilePos), out _, cleanable: true);
                 }
-
-                // Add a random burned decal to the tile only if there are less than 4 of them
-                if (tileBurntDecals < 4)
-                    _decalSystem.TryAddDecal(_burntDecals[_random.Next(_burntDecals.Length)], new EntityCoordinates(gridUid, tilePos), out _, cleanable: true);
 
                 if (tile.Air != null && tile.Air.Temperature > Atmospherics.FireMinimumTemperatureToSpread)
                 {
@@ -144,10 +154,11 @@ namespace Content.Server.Atmos.EntitySystems
             }
 
             // Wall melting logic
-            if (tile.Hotspot.Temperature > 5000f)
+            var meltingTemp = Math.Max(tile.Hotspot.Temperature, tile.Air?.Temperature ?? 0f);
+
+            if (meltingTemp > 5000f)
             {
-                // only run this check 10% of the time per tick to save performance.
-                MeltStructures(ent.Owner, ent.Comp3, tile.GridIndices, tile.Hotspot.Temperature);
+                    MeltStructures(ent.Owner, ent.Comp3, tile.GridIndices, meltingTemp);
             }
 
             if (tile.Hotspot.Temperature > tile.MaxFireTemperatureSustained)
@@ -210,10 +221,11 @@ namespace Content.Server.Atmos.EntitySystems
             var damageAmount = tempDiff * 0.001f;
             damageAmount = System.Math.Min(damageAmount, 10f);
 
-            var damage = new DamageSpecifier();
-            damage.DamageDict.Add("Structural", damageAmount);
+            // reuse cached DamageSpecifier and List to avoid even more allocations
+            _meltDamageSpec.DamageDict.Clear();
+            _meltDamageSpec.DamageDict.Add("Structural", damageAmount);
 
-            var targets = new List<EntityUid>();
+            _meltTargets.Clear();
 
             for (var i = 0; i < 4; i++)
             {
@@ -222,11 +234,11 @@ namespace Content.Server.Atmos.EntitySystems
                 var anchored = _mapSystem.GetAnchoredEntitiesEnumerator(gridUid, grid, neighborIndices);
                 while (anchored.MoveNext(out var uid))
                 {
-                    if (uid.HasValue) targets.Add(uid.Value);
+                    if (uid.HasValue) _meltTargets.Add(uid.Value);
                 }
             }
 
-            foreach (var uid in targets)
+            foreach (var uid in _meltTargets)
             {
                 if (TerminatingOrDeleted(uid)) continue;
 
@@ -234,7 +246,7 @@ namespace Content.Server.Atmos.EntitySystems
                 if (HasComp<MeltImmuneComponent>(uid))
                     continue;
 
-                _damageable.TryChangeDamage(uid, damage, ignoreResistances: true);
+                _damageable.TryChangeDamage(uid, _meltDamageSpec, ignoreResistances: true);
             }
         }
 
@@ -281,8 +293,10 @@ namespace Content.Server.Atmos.EntitySystems
             // Ignition threshold
             var ignitionThreshold = System.Math.Max(373.15f, 573.15f - (50 * effectiveFlammability));
 
+            // added || ignitionTemperature > 5000f to allow inert superheated gas to trigger a hotspot
             if ((ignitionTemperature > Atmospherics.PlasmaMinimumBurnTemperature && (plasma > 0.5f && hypernob < 5f || tritium > 0.5f && hypernob < 5f || hydrogen > 0.5f && hypernob < 5f))
-                || (rawFlammability > 0 && ignitionTemperature > ignitionThreshold) )
+                || (rawFlammability > 0 && ignitionTemperature > ignitionThreshold)
+                || (ignitionTemperature > 5000f))
             {
                 if (sparkSourceUid.HasValue)
                     _adminLog.Add(LogType.Flammable, LogImpact.High, $"Heat/spark of {ToPrettyString(sparkSourceUid.Value)} caused atmos ignition of gas: {tile.Air.Temperature.ToString():temperature}K - {oxygen}mol Oxygen, {plasma}mol Plasma, {tritium}mol Tritium, {hydrogen}mol Hydrogen");

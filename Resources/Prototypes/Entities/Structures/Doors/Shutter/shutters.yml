@@ -133,8 +133,8 @@
       collection: FenceRattle
   - type: BlockWeather
   - type: WeldingSparksAnimation # Goobstation
-      startingOffset: -0.5, -0.5
-      endingOffset: 0.5, -0.5
+    startingOffset: -0.5, -0.5
+    endingOffset: 0.5, -0.5
 
 - type: entity
   id: ShuttersNormal

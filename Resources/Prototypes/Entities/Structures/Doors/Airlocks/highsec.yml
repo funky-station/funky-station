@@ -183,3 +183,5 @@
     tags:
       - HighSecDoor
       # This tag is used to nagivate the Airlock construction graph. It's needed because this construction graph is shared between Airlock, AirlockGlass, and HighSecDoor
+  - type: WeldingSparksAnimation # Goobstation
+    startingOffset: 0, 0.5

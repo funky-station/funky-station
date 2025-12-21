@@ -113,6 +113,8 @@
     node: airlock
   - type: StaticPrice
     price: 350
+  - type: WeldingSparksAnimation # Goobstation
+    startingOffset: -0.5, -0.2
 
 - type: entity
   id: AirlockGlassShuttle

@@ -6,7 +6,6 @@ using Content.Shared._Goobstation.Tools;
 using Content.Server.Tools;
 using Content.Shared.Coordinates.Helpers;
 using Content.Shared.DoAfter;
-using Content.Shared.Doors.Components;
 using Content.Shared.Interaction;
 using Content.Shared.Tools.Components;
 using Content.Shared.Tools.Systems;
@@ -47,15 +46,9 @@ public sealed class WeldingSparksSystem : EntitySystem
         var effect = Spawn(ent.Comp.EffectProto, spawnLoc);
         ent.Comp.SpawnedEffects.Add(id, effect);
 
-        // Doors get an animation.
-        if (args.Target is { } target && TryComp<DoorComponent>(target, out var door))
+        if (args.Target is { } target)
         {
-            RaiseNetworkEvent(new PlayWeldAnimationEvent(GetNetEntity(effect),
-                new WeldAnimationData(
-                    HasComp<FirelockComponent>(target) ? AnimationDir.Horizontal : AnimationDir.Vertical,
-                    door.State == DoorState.Welded,
-                    args.DoAfterLength)
-            ));
+            RaiseNetworkEvent(new SpawnedWeldingSparksEvent(GetNetEntity(target), GetNetEntity(effect), args.DoAfterLength));
         }
     }
 

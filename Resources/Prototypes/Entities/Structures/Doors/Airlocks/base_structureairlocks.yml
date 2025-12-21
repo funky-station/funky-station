@@ -241,6 +241,8 @@
     - Airlocks
     - WirePanels
     - Networking
+  - type: WeldingSparksAnimation # Goobstation
+    startingOffset: 0, 0.5
   placement:
     mode: SnapgridCenter
 

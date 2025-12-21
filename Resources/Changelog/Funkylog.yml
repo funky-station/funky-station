@@ -6712,3 +6712,112 @@ Entries:
         middle of the sprite
   id: 784
   time: '2025-12-18T05:16:34.0000000+00:00'
+- author: Drywink
+  changes:
+    - type: Add
+      message: Bullets can fly over cocoon.
+  id: 785
+  time: '2025-12-18T21:07:58.0000000+00:00'
+- author: RosySaturniidae
+  changes:
+    - type: Add
+      message: new slime eye markings. blyump
+  id: 786
+  time: '2025-12-19T20:38:56.0000000+00:00'
+- author: Gosera
+  changes:
+    - type: Add
+      message: >-
+        Added a small pinboard that lets you view a piece of paper of
+        information at inspect for your menu/front desk needs, craftable in the
+        autolathe.
+  id: 787
+  time: '2025-12-20T00:11:53.0000000+00:00'
+- author: zergologist
+  changes:
+    - type: Add
+      message: truly funky sprites for the base thaven
+    - type: Add
+      message: truly funky sprites for many thaven markings
+    - type: Tweak
+      message: existing thaven tails touched up
+    - type: Tweak
+      message: 'sharkminnow eyeliner is now light before the multiply layer '
+    - type: Fix
+      message: fixed thaven neck, eye, ear, mask, and head offsets to be pixel perfect
+  id: 788
+  time: '2025-12-20T12:46:16.0000000+00:00'
+- author: TheHolyAegis
+  changes:
+    - type: Add
+      message: Added an air tank dispenser to the salvage area.
+    - type: Fix
+      message: >-
+        The Nanotrasen Representative office shutters are now linked to the
+        button by default.
+    - type: Add
+      message: >-
+        Added shutters to the lawyer room, so they can have conversations with
+        confidential information without anyone eavesdropping.
+    - type: Fix
+      message: >-
+        Moved the exosuit fabricators, now the cyborg endoskeletons won't get
+        stuck between it and the wall.
+    - type: Fix
+      message: >-
+        Added a vent and scrubber to the zoo, now the animals won't slowly
+        suffocate.
+    - type: Fix
+      message: >-
+        AI core fixes, the APCs are now separated, and AI sentry turret control
+        panels were added.
+    - type: Add
+      message: Added a ton of intercoms, you no longer have to search for one.
+    - type: Tweak
+      message: >-
+        Added and moved some cameras so the Station AI doesn't have weird
+        blindspots in the middle of the hallway.
+    - type: Tweak
+      message: >-
+        Medical has been redesigned to promote smaller room treatment, and added
+        IVs.
+    - type: Add
+      message: >-
+        Added a long-range holopad to the bridge, for potential roleplay with CC
+        or maybe the cargo shuttle got lost.
+    - type: Tweak
+      message: >-
+        Replaced brigmed with a temporary cell, for if the warden is taking a
+        while...
+    - type: Add
+      message: Added a cyborg recharger and cryogenic sleep unit to genpop.
+    - type: Tweak
+      message: >-
+        Replaced the TEG with a Nuclear Reactor. (This is a test, and will be
+        reverted if it doesn't work out nicely)
+  id: 789
+  time: '2025-12-20T12:47:16.0000000+00:00'
+- author: JoulesBerg
+  changes:
+    - type: Add
+      message: Added iv stands to the treatment rooms in medical
+    - type: Add
+      message: Added some additional safety features to the reactor
+    - type: Tweak
+      message: Changed the medical area in security to a dedicated briefing room
+    - type: Add
+      message: Gave the warden a single, basic first aid kit.
+    - type: Tweak
+      message: Medical now has a working way for non staff to exit the treatment area
+    - type: Tweak
+      message: The medical front desk isn't shitty any more
+    - type: Add
+      message: Added ai turret controls in appropriate locations
+    - type: Tweak
+      message: >-
+        Fixed some areas that did not have cameras, that should have had
+        cameras.
+    - type: Remove
+      message: Removed most of the wall lockers that shouldn't be wall mounts >:(
+  id: 790
+  time: '2025-12-20T21:55:53.0000000+00:00'

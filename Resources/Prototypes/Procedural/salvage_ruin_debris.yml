@@ -9,11 +9,11 @@
   entries:
   # Structural debris
   - proto: Girder
-    chance: 0.15
+    chance: 0.10
   - proto: Grille
     chance: 0.10
   - proto: GrilleBroken
-    chance: 0.15
+    chance: 0.10
   
   # Furniture and storage
   - proto: Table
@@ -21,7 +21,7 @@
   - proto: Rack
     chance: 0.10
   - proto: ClosetMaintenanceFilledRandom
-    chance: 0.20
+    chance: 0.15
   
   # Equipment and containers
   - proto: WeldingFuelTankFull
@@ -39,23 +39,23 @@
   - proto: SalvageSpawnerScrapValuable
     chance: 0.08 # Steel, plasma, plasteel scrap
   - proto: SalvageSpawnerTreasure
-    chance: 0.08
+    chance: 0.12
   - proto: SalvageSpawnerEquipment
-    chance: 0.08
+    chance: 0.12
   - proto: SalvageSpawnerTreasureValuable
-    chance: 0.08
+    chance: 0.12
   - proto: SalvageSpawnerEquipmentValuable
-    chance: 0.08
+    chance: 0.12
 
   # Destroyed/damaged generators
   - proto: ScrapGeneratorUraniumLeaking
-    chance: 0.05 # Leaking S.U.P.E.R.P.A.C.M.A.N. (radioactive!)
+    chance: 0.06 # Leaking S.U.P.E.R.P.A.C.M.A.N. (radioactive!)
   - proto: ScrapGeneratorUranium
-    chance: 0.05 # Destroyed S.U.P.E.R.P.A.C.M.A.N.
+    chance: 0.06 # Destroyed S.U.P.E.R.P.A.C.M.A.N.
   - proto: ScrapGeneratorPlasmaLeaking
-    chance: 0.05 # Leaking P.A.C.M.A.N.
+    chance: 0.06 # Leaking P.A.C.M.A.N.
   - proto: ScrapGeneratorPlasma
-    chance: 0.05 # Old P.A.C.M.A.N.
+    chance: 0.06 # Old P.A.C.M.A.N.
   - proto: ScrapGeneratorFrame
-    chance: 0.05 # Generator frame (stripped)
+    chance: 0.06 # Generator frame (stripped)
 

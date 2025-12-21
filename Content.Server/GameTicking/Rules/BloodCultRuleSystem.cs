@@ -613,12 +613,11 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
         base.AppendRoundEndText(uid, component, gameRule, ref args);
 
         var sessionData = _antag.GetAntagIdentifiers(uid);
-		var cultists = GetCultists();
 		if (component.CultistsWin)
 			args.AddLine(Loc.GetString("cult-roundend-victory"));
 		else
 			args.AddLine(Loc.GetString("cult-roundend-failure"));
-		args.AddLine(Loc.GetString("cult-roundend-count", ("count", cultists.Count.ToString())));
+		args.AddLine(Loc.GetString("cult-roundend-count", ("count", component.TotalConversions.ToString())));
 		args.AddLine(Loc.GetString("cult-roundend-sacrifices", ("sacrifices", component.TotalSacrifices.ToString())));
     }
 
@@ -869,6 +868,9 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 		_audio.PlayPvs(new SoundPathSpecifier("/Audio/_Funkystation/Ambience/Antag/creepyshriek.ogg"), uid);
 		MakeCultist(uid, component);
 		_rejuvenate.PerformRejuvenate(uid);
+		
+		// Increment conversion counter
+		component.TotalConversions++;
 		
 		// Wake up sleeping players 
 		if (TryComp<SleepingComponent>(uid, out var sleeping))

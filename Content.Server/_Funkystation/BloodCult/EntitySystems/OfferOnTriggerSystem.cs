@@ -599,7 +599,16 @@ namespace Content.Server.BloodCult.EntitySystems
 		var soulstone = Spawn(soulstonePrototype, coordinates);
 		_mind.TransferTo(mindId.Value, soulstone, mind: mindComp);
 
-		EnsureComp<SpeechComponent>(soulstone);
+		// Preserve speech component from Hamlet
+		var victimMeta = MetaData(victim);
+		if (victimMeta.EntityPrototype?.ID == "MobHamsterHamlet" && TryComp<SpeechComponent>(victim, out var victimSpeech))
+		{
+			CopyComp(victim, soulstone, victimSpeech);
+		}
+		else
+		{
+			EnsureComp<SpeechComponent>(soulstone);
+		}
 		EnsureComp<EmotingComponent>(soulstone);
 
 		if (TryComp<SoulStoneComponent>(soulstone, out var soulstoneComp) && originalEntityPrototype != null)

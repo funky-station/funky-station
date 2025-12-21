@@ -154,6 +154,17 @@ public sealed partial class BloodCultConstructSystem : EntitySystem
 		// Transfer mind from soulstone to juggernaut
 		_mind.TransferTo((EntityUid)mindId, juggernaut, mind:mindComp);
 		
+		// Preserve speech component from soulstone only if it's a Hamlet soulstone
+		if (TryComp<SoulStoneComponent>(soulstone, out var soulstoneComp) && 
+		    soulstoneComp.OriginalEntityPrototype == "MobHamsterHamlet" &&
+		    TryComp<SpeechComponent>(soulstone, out var soulstoneSpeech))
+		{
+			// Remove existing speech component if present, then copy from soulstone
+			if (HasComp<SpeechComponent>(juggernaut))
+				RemComp<SpeechComponent>(juggernaut);
+			CopyComp(soulstone, juggernaut, soulstoneSpeech);
+		}
+		
 		// Ensure juggernaut is in the BloodCultist faction (remove any crew alignment)
 		// Use ClearFactions and AddFaction to ensure proper faction alignment after mind transfer
 		if (TryComp<NpcFactionMemberComponent>(juggernaut, out var npcFaction))
@@ -201,6 +212,15 @@ public sealed partial class BloodCultConstructSystem : EntitySystem
 
 		// Transfer mind from soulstone to juggernaut
 		_mind.TransferTo((EntityUid)mindId, juggernaut, mind: mindComp);
+		
+		// Preserve speech component from soulstone (e.g., Hamlet's squeak sounds)
+		if (TryComp<SpeechComponent>(soulstone, out var soulstoneSpeech))
+		{
+			// Remove existing speech component if present, then copy from soulstone
+			if (HasComp<SpeechComponent>(juggernaut))
+				RemComp<SpeechComponent>(juggernaut);
+			CopyComp(soulstone, juggernaut, soulstoneSpeech);
+		}
 		
 		// Ensure juggernaut is in the BloodCultist faction (remove any crew alignment)
 		// Use ClearFactions and AddFaction to ensure proper faction alignment after mind transfer

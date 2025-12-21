@@ -32,7 +32,12 @@
     sprite: _Funkystation/Clothing/Shoes/Boots/redperformer.rsi
   - type: Clothing
     sprite: _Funkystation/Clothing/Shoes/Boots/redperformer.rsi
-  - type: NoSlip
+#  - type: NoSlip
+  - type: SlowedOverSlippery
+    slowdownModifier: 0.7
+  - type: SpeedModifierContactCapClothing
+    maxContactSprintSlowdown: 0.7
+    maxContactWalkSlowdown: 0.7
 # Chem Boots!
 
 - type: entity

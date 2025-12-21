@@ -183,6 +183,8 @@
     - type: GuideHelp
       guides:
       - Blob
+    - type: Body
+      # No prototype - juggernauts have no organs or limbs, like borgs
 
 - type: entity
   id: MobBloodCultShade

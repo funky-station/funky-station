@@ -186,7 +186,10 @@ cult-ghost-role-rules = You are a team antagonist. Work with your fellow Cultist
 cult-roundend-victory = The blood cult has summoned Nar'Sie and laid claim
     to the sector in Her name.
 cult-roundend-failure = The blood cult was unable to summon their master.
-cult-roundend-count = There were {$count} total blood cultists.
+cult-roundend-count = The blood cult performed {$count} {$count ->
+    [1] conversion
+    *[other] conversions
+} throughout the round.
 cult-roundend-sacrifices = The blood cult rendered {$sacrifices} souls up to the Geometer of Blood.
 
 cult-soulstone-role-name = Trapped Soul

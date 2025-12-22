@@ -68,7 +68,8 @@ public sealed partial class MarkingSet
     public Dictionary<MarkingCategories, MarkingPoints> Points = new();
 
     public MarkingSet()
-    {}
+    {
+    }
 
     /// <summary>
     ///     Construct a MarkingSet using a list of markings, and a points
@@ -78,7 +79,10 @@ public sealed partial class MarkingSet
     /// </summary>
     /// <param name="markings">The lists of markings to use.</param>
     /// <param name="pointsPrototype">The ID of the points dictionary prototype.</param>
-    public MarkingSet(List<Marking> markings, string pointsPrototype, MarkingManager? markingManager = null, IPrototypeManager? prototypeManager = null)
+    public MarkingSet(List<Marking> markings,
+        string pointsPrototype,
+        MarkingManager? markingManager = null,
+        IPrototypeManager? prototypeManager = null)
     {
         IoCManager.Resolve(ref markingManager, ref prototypeManager);
 
@@ -125,7 +129,9 @@ public sealed partial class MarkingSet
     ///     Construct a MarkingSet only with a points dictionary.
     /// </summary>
     /// <param name="pointsPrototype">The ID of the points dictionary prototype.</param>
-    public MarkingSet(string pointsPrototype, MarkingManager? markingManager = null, IPrototypeManager? prototypeManager = null)
+    public MarkingSet(string pointsPrototype,
+        MarkingManager? markingManager = null,
+        IPrototypeManager? prototypeManager = null)
     {
         IoCManager.Resolve(ref markingManager, ref prototypeManager);
 
@@ -161,7 +167,10 @@ public sealed partial class MarkingSet
     /// <param name="skinColor">The skin color for recoloring (i.e. slimes). Use null if you want only filter markings</param>
     /// <param name="markingManager">Marking manager.</param>
     /// <param name="prototypeManager">Prototype manager.</param>
-    public void EnsureSpecies(string species, Color? skinColor, MarkingManager? markingManager = null, IPrototypeManager? prototypeManager = null)
+    public void EnsureSpecies(string species,
+        Color? skinColor,
+        MarkingManager? markingManager = null,
+        IPrototypeManager? prototypeManager = null)
     {
         IoCManager.Resolve(ref markingManager);
         IoCManager.Resolve(ref prototypeManager);
@@ -299,23 +308,24 @@ public sealed partial class MarkingSet
                 continue;
             }
 
-            var index = 0;
-            while (points.Points > 0 || index < points.DefaultMarkings.Count)
+            var max = Math.Min(points.Points, points.DefaultMarkings.Count);
+
+            for (var i = 0; i < max; i++)
             {
-                if (markingManager.Markings.TryGetValue(points.DefaultMarkings[index], out var prototype))
-                {
-                    var colors = MarkingColoring.GetMarkingLayerColors(
-                            prototype,
-                            skinColor,
-                            eyeColor,
-                            this
-                        );
-                    var marking = new Marking(points.DefaultMarkings[index], colors);
+                var id = points.DefaultMarkings[i];
 
-                    AddBack(category, marking);
-                }
+                if (!markingManager.Markings.TryGetValue(id, out var prototype))
+                    continue;
 
-                index++;
+                var colors = MarkingColoring.GetMarkingLayerColors(
+                    prototype,
+                    skinColor,
+                    eyeColor,
+                    this
+                );
+
+                AddBack(category, new Marking(id, colors));
+
             }
         }
     }

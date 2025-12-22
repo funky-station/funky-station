@@ -205,11 +205,3 @@
     state: tailstub1
   - sprite: _Impstation/Mobs/Customization/thaven/thaven.rsi
     state: tailstub2
-
-- type: marking
-  id: ThavenHeadSideNone
-  bodyPart: HeadSide
-  speciesRestriction: [Thaven]
-  sprites:
-  - sprite: Mobs/Customization/blank.rsi
-    state: blank

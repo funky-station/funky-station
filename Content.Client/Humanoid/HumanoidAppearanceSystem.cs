@@ -167,7 +167,32 @@ public sealed class HumanoidAppearanceSystem : SharedHumanoidAppearanceSystem
         var customBaseLayers = new Dictionary<HumanoidVisualLayers, CustomBaseLayerInfo>();
 
         var speciesPrototype = _prototypeManager.Index<SpeciesPrototype>(profile.Species);
+        Logger.Error(
+            $"[HUMANOID LOAD] Entity={uid} Species={profile.Species}"
+        );
         var markings = new MarkingSet(speciesPrototype.MarkingPoints, _markingManager, _prototypeManager);
+
+        Logger.Error($"[HUMANOID LOAD] Entity={uid} Species={profile.Species}");
+
+        var markingPointsProto =
+            _prototypeManager.Index<MarkingPointsPrototype>(speciesPrototype.MarkingPoints);
+
+        foreach (var (category, points) in markingPointsProto.Points)
+        {
+            var available = 0;
+
+            foreach (var marking in _prototypeManager.EnumeratePrototypes<MarkingPrototype>())
+            {
+                if (marking.MarkingCategory == category)
+                    available++;
+            }
+
+            Logger.Error(
+                $"[MARKING CHECK] Species={profile.Species} " +
+                $"Category={category} Points={points} Available={available}"
+            );
+        }
+
 
         // Add markings that doesn't need coloring. We store them until we add all other markings that doesn't need it.
         var markingFColored = new Dictionary<Marking, MarkingPrototype>();

@@ -165,3 +165,6 @@
 
 - type: Tag
   id: Nozzle
+
+- type: Tag
+  id: MagazineCaselessRifle

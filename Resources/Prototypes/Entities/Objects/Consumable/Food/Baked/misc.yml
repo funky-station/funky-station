@@ -333,13 +333,38 @@
 # Cookies
 
 - type: entity
-  name: cookie
+  name: chocolate cookie
   parent: FoodBakedBase
   id: FoodBakedCookie
   description: COOKIE!!!
   components:
+  - type: Stack
+    stackType: Cookie
+    count: 1
   - type: Sprite
     state: COOKIE!!!
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 3
+        - ReagentId: Sugar
+          Quantity: 1
+        - ReagentId: Theobromine
+          Quantity: 0.5
+        - ReagentId: CocoaPowder
+          Quantity: 0.5
+
+- type: entity
+  name: chocolate cookie
+  parent: FoodBakedCookie
+  id: FoodBakedCookieSix
+  suffix: Six
+  components:
+  - type: Stack
+    count: 6
 
 - type: entity
   name: oatmeal cookie
@@ -347,17 +372,31 @@
   id: FoodBakedCookieOatmeal
   description: The best of both cookie and oat.
   components:
+  - type: Stack
+    stackType: CookieOatmeal
+    count: 1
   - type: Sprite
     state: cookie-oatmeal
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 8
+        maxVol: 5
         reagents:
         - ReagentId: Nutriment
-          Quantity: 5
+          Quantity: 3
+        - ReagentId: Sugar
+          Quantity: 1
         - ReagentId: Vitamin
           Quantity: 1
+
+- type: entity
+  name: oatmeal cookie
+  parent: FoodBakedCookieOatmeal
+  id: FoodBakedCookieOatmealSix
+  suffix: Six
+  components:
+  - type: Stack
+    count: 6
 
 - type: entity
   name: raisin cookie
@@ -365,15 +404,20 @@
   id: FoodBakedCookieRaisin
   description: Why would you put raisins in a cookie?
   components:
+  - type: Stack
+    stackType: CookieRaisin
+    count: 1
   - type: Sprite
     state: cookie-raisin
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 8
+        maxVol: 5
         reagents:
         - ReagentId: Nutriment
-          Quantity: 5
+          Quantity: 3
+        - ReagentId: Sugar
+          Quantity: 1
         - ReagentId: Vitamin
           Quantity: 1
   - type: Tag
@@ -381,13 +425,45 @@
     - Fruit
 
 - type: entity
+  name: raisin cookie
+  parent: FoodBakedCookieRaisin
+  id: FoodBakedCookieRaisinSix
+  suffix: Six
+  components:
+  - type: Stack
+    count: 6
+
+- type: entity
   name: sugar cookie
   parent: FoodBakedBase
   id: FoodBakedCookieSugar
   description: Just like your mom used to make.
   components:
+  - type: Stack
+    stackType: CookieSugar
+    count: 1
   - type: Sprite
     state: cookie-sugar
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 2
+        - ReagentId: Sugar
+          Quantity: 2
+        - ReagentId: Vitamin
+          Quantity: 1
+
+- type: entity
+  name: sugar cookie
+  parent: FoodBakedCookieSugar
+  id: FoodBakedCookieSugarSix
+  suffix: Six
+  components:
+  - type: Stack
+    count: 6
 
 # Nuggets
 

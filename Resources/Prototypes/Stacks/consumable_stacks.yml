@@ -76,6 +76,29 @@
   spawn: FoodBakedMuffinCloth
   maxCount: 6
 
+- type: stack
+  id: Cookie
+  name: Cookie
+  spawn: FoodBakedCookie
+  maxCount: 6
+
+- type: stack
+  id: CookieSugar
+  name: Sugar Cookie
+  spawn: FoodBakedCookieSugar
+  maxCount: 6
+
+- type: stack
+  id: CookieOatmeal
+  name: Oatmeal Cookie
+  spawn: FoodBakedCookieOatmeal
+  maxCount: 6
+
+- type: stack
+  id: CookieRaisin
+  name: Raisin Cookie
+  spawn: FoodBakedCookieRaisin
+  maxCount: 6
 # Food Containers
 
 - type: stack

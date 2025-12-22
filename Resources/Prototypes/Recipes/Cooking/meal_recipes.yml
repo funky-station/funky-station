@@ -1789,7 +1789,7 @@
   time: 5
   group: Cake
   reagents:
-    Slime: 30p
+    Slime: 30
     Sugar: 15
   solids:
     FoodCakePlain: 1

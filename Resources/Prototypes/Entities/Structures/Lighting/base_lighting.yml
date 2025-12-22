@@ -111,6 +111,7 @@
   - type: Tag # Funky edit
     tags:
     - WallMount
+    - LightFixture
   - type: Physics
     bodyType: Static
   - type: Fixtures

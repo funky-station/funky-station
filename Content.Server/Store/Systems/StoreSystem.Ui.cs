@@ -244,7 +244,7 @@ public sealed partial class StoreSystem
             var existingActionFound = false;
 
             // Check if buyer already has this action and add charges instead of creating duplicate
-            if (!_mind.TryGetMind(buyer, out var mind, out _))
+            if (!_mind.TryGetMind(buyer, out var mind, out _) || !component.GrantActionsToMind) // DeltaV - allow forcing actions to be on the entity
             {
                 // Check buyer's actions directly
                 if (TryComp<ActionsComponent>(buyer, out var buyerActions))

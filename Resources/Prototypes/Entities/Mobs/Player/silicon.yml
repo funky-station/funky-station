@@ -141,6 +141,17 @@
     title: comms-console-announcement-title-station-ai
     color: "#5ed7aa"
   - type: ShowJobIcons
+  # Begin DeltaV - AI Shop System
+  - type: StationAiShop
+  - type: Store
+    categories:
+    - AiAbilities
+    currencyWhitelist:
+    - AiMemory
+    balance:
+      AiMemory: 3
+    grantActionsToMind: false
+  # End DeltaV - AI Shop System
 
 - type: entity
   id: AiHeldIntellicard

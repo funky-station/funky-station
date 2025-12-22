@@ -6839,3 +6839,9 @@ Entries:
       message: Det's bug is now buggier.
   id: 792
   time: '2025-12-22T02:20:31.0000000+00:00'
+- author: taydeo
+  changes:
+    - type: Remove
+      message: IPCs are no longer a round-start species.
+  id: 793
+  time: '2025-12-22T02:37:32.0000000+00:00'

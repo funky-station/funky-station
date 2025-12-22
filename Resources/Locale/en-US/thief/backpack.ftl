@@ -44,7 +44,7 @@ thief-backpack-category-tools-description =
     What's that sound? A lil' C4 knockin' at their door.
     No obstacle can stop you!
     Includes: Two C4, a multitool, remote signaller, jaws of life,
-    advanced welder, engineering goggles, and insulated gloves.
+    advanced welder, engineering goggles, and blood-red insulated gloves.
 
 thief-backpack-category-chemistry-name = anatomy kit
 thief-backpack-category-chemistry-description =

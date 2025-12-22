@@ -7,6 +7,7 @@
 # SPDX-FileCopyrightText: 2025 Fenn <162015305+TooSillyFennec@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 QueerCats <jansencheng3@gmail.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
@@ -19,6 +20,7 @@
   startingInventory:
     Jug: 4
     MedicalPatchBasic: 30 # Can't refill these, and they are nearly the equivalent of a pill. Sucks, but best work around.
+    CMBloodPack: 10
     BoxBottle: 6
     BoxBeaker: 1
     JugAluminium: 2

@@ -29,6 +29,7 @@
 // SPDX-FileCopyrightText: 2024 TurboTracker <130304754+TurboTrackerss14@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 otokonoko-dev <248204705+otokonoko-dev@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
 // SPDX-License-Identifier: MIT
@@ -53,6 +54,7 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Random;
 using Robust.Shared.Configuration;
+using Content.Shared.Buckle.Components;
 using Content.Shared.CCVar;
 
 namespace Content.Server.Atmos.EntitySystems
@@ -188,13 +190,18 @@ namespace Content.Server.Atmos.EntitySystems
                     ReleaseGas(gasTank);
                 }
 
-                if (comp.CheckUser)
+                if (comp.User != null)
                 {
-                    comp.CheckUser = false;
-                    if (Transform(uid).ParentUid != comp.User)
+                    var parent = Transform(uid).ParentUid;
+
+                    if (parent != comp.User)
                     {
-                        DisconnectFromInternals(gasTank);
-                        continue;
+                                if (parent != EntityUid.Invalid && comp.User != null && TryComp<BuckleComponent>(comp.User.Value, out var buckle) && buckle.BuckledTo == parent){}
+                        else
+                        {
+                            DisconnectFromInternals(gasTank);
+                            continue;
+                        }
                     }
                 }
 
@@ -279,18 +286,16 @@ namespace Content.Server.Atmos.EntitySystems
                 return;
 
             if (_internals.TryConnectTank((internalsUid.Value, internalsComp), owner))
+            {
                 component.User = internalsUid.Value;
+                component.CheckUser = false;
 
-            _actions.SetToggled(component.ToggleActionEntity, component.IsConnected);
+                component.ConnectStream = _audioSys.Stop(component.ConnectStream);
+                component.ConnectStream = _audioSys.PlayPvs(component.ConnectSound, owner)?.Entity;
 
-            // Couldn't toggle!
-            if (!component.IsConnected)
+                UpdateUserInterface(ent);
                 return;
-
-            component.ConnectStream = _audioSys.Stop(component.ConnectStream);
-            component.ConnectStream = _audioSys.PlayPvs(component.ConnectSound, owner)?.Entity;
-
-            UpdateUserInterface(ent);
+            }
         }
 
         public void DisconnectFromInternals(Entity<GasTankComponent> ent)

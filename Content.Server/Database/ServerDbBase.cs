@@ -122,14 +122,6 @@ namespace Content.Server.Database
             return null;
         }
 
-        public async Task SaveSelectedCharacterIndexAsync(NetUserId userId, int index)
-        {
-            await using var db = await GetDb();
-            var jobPriorities = prefs.JobPriorities.ToDictionary(j => new ProtoId<JobPrototype>(j.JobName), j => (JobPriority) j.Priority);
-
-            return new PlayerPreferences(profiles, Color.FromHex(prefs.AdminOOCColor), jobPriorities);
-        }
-
         public async Task SaveCharacterSlotAsync(NetUserId userId, ICharacterProfile? profile, int slot)
         {
             await using var db = await GetDb();
@@ -237,11 +229,19 @@ namespace Content.Server.Database
 
             await db.DbContext.SaveChangesAsync();
 
+            var favorites = prefs.ConstructionFavorites
+                .Select(id => new ProtoId<ConstructionPrototype>(id))
+                .ToList();
+
             return new PlayerPreferences(
-                new[] {new KeyValuePair<int, ICharacterProfile>(0, defaultProfile)},
+                new[] { new KeyValuePair<int, ICharacterProfile>(0, defaultProfile) },
                 Color.FromHex(prefs.AdminOOCColor),
-                priorities
+                priorities,
+                prefs.ConstructionFavorites
+                    .Select(id => new ProtoId<ConstructionPrototype>(id))
+                    .ToList()
             );
+
         }
 
         public async Task SaveAdminOOCColorAsync(NetUserId userId, Color color)
@@ -268,12 +268,6 @@ namespace Content.Server.Database
             prefs.ConstructionFavorites = favorites;
 
             await db.DbContext.SaveChangesAsync();
-        }
-
-        private static async Task SetSelectedCharacterSlotAsync(NetUserId userId, int newSlot, ServerDbContext db)
-        {
-            var prefs = await db.Preference.SingleAsync(p => p.UserId == userId.UserId);
-            prefs.SelectedCharacterSlot = newSlot;
         }
 
         private static HumanoidCharacterProfile ConvertProfiles(Profile profile)

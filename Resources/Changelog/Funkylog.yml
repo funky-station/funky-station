@@ -6797,3 +6797,51 @@ Entries:
         reverted if it doesn't work out nicely)
   id: 789
   time: '2025-12-20T12:47:16.0000000+00:00'
+- author: JoulesBerg
+  changes:
+    - type: Add
+      message: Added iv stands to the treatment rooms in medical
+    - type: Add
+      message: Added some additional safety features to the reactor
+    - type: Tweak
+      message: Changed the medical area in security to a dedicated briefing room
+    - type: Add
+      message: Gave the warden a single, basic first aid kit.
+    - type: Tweak
+      message: Medical now has a working way for non staff to exit the treatment area
+    - type: Tweak
+      message: The medical front desk isn't shitty any more
+    - type: Add
+      message: Added ai turret controls in appropriate locations
+    - type: Tweak
+      message: >-
+        Fixed some areas that did not have cameras, that should have had
+        cameras.
+    - type: Remove
+      message: Removed most of the wall lockers that shouldn't be wall mounts >:(
+  id: 790
+  time: '2025-12-20T21:55:53.0000000+00:00'
+- author: Doctor-Cpu, AraiMaia
+  changes:
+    - type: Add
+      message: >-
+        Added a new Soft Critical system, active when between 100 and 150 total
+        damage. It allows you to crawl and whisper, and not much else.
+    - type: Tweak
+      message: >-
+        CPR DoAfter has been changed to 0.5 seconds, mimicking a 120bpm rhythm
+        for CPR.
+  id: 791
+  time: '2025-12-22T00:53:49.0000000+00:00'
+- author: Xcybitt
+  changes:
+    - type: Tweak
+      message: Det's bug is now buggier.
+  id: 792
+  time: '2025-12-22T02:20:31.0000000+00:00'
+- author: taydeo
+  changes:
+    - type: Remove
+      message: IPCs are no longer a round-start species.
+  id: 793
+  time: '2025-12-22T02:37:32.0000000+00:00'

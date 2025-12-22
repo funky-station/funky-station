@@ -7,13 +7,15 @@ using Content.Shared.Tools.Components;
 using Content.Shared.Item.ItemToggle.Components;
 using Robust.Shared.Audio.Components;
 using Robust.Shared.Audio.Systems;
+using Robust.Shared.Random;
 
 
 namespace Content.Shared.Tools.Systems;
 
-public sealed class FancyLighterSystem : EntitySystem
+public sealed class CheapLighterSystem : EntitySystem
 {
     [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly IRobustRandom _random = default!;
 
     private EntityUid? _audioUid;
     private AudioComponent? _audioComponent;
@@ -22,11 +24,11 @@ public sealed class FancyLighterSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<FancyLighterComponent, ItemToggleDeactivateAttemptEvent>(OnLighterClose);
-        SubscribeLocalEvent<FancyLighterComponent, ItemToggleActivateAttemptEvent>(OnLighterOpen);
+        SubscribeLocalEvent<CheapLighterComponent, ItemToggleDeactivateAttemptEvent>(OnLighterClose);
+        SubscribeLocalEvent<CheapLighterComponent, ItemToggleActivateAttemptEvent>(OnLighterOpen);
     }
 
-    private void OnLighterClose(EntityUid uid, FancyLighterComponent component, ref ItemToggleDeactivateAttemptEvent args)
+    private void OnLighterClose(EntityUid uid, CheapLighterComponent component, ref ItemToggleDeactivateAttemptEvent args)
     {
         if (!args.Cancelled)
         {
@@ -34,9 +36,16 @@ public sealed class FancyLighterSystem : EntitySystem
         }
     }
 
-    private void OnLighterOpen(EntityUid uid, FancyLighterComponent component, ref ItemToggleActivateAttemptEvent args)
+    private void OnLighterOpen(EntityUid uid, CheapLighterComponent component, ref ItemToggleActivateAttemptEvent args)
     {
-        if (!args.Cancelled)
+        if (_random.NextFloat() < component.FailChance)
+        {
+            args.Cancelled = true;
+            _audio.PlayPvs(component.SoundFail, uid);
+            return;
+        }
+
+        if (!args.Cancelled && component.SoundActivate != null)
         {
             (EntityUid, AudioComponent) audio = _audio.PlayPvs(component.SoundActivate, uid).GetValueOrDefault();
             _audioUid = audio.Item1;

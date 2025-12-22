@@ -34,9 +34,9 @@
   - type: ContainerContainer
     containers:
       storagebase: !type:Container
-        ents: [ ]
-      tank_slot: !type:ContainerSlot { }
-      defib_slot: !type:ContainerSlot { }
+        ents: []
+      tank_slot: !type:ContainerSlot {}
+      defib_slot: !type:ContainerSlot {}
   - type: ItemMapper
     mapLayers:
       front_oxy:
@@ -149,9 +149,9 @@
   - type: ContainerContainer
     containers:
       storagebase: !type:Container
-        ents: [ ]
-      tank_slot: !type:ContainerSlot { }
-      defib_slot: !type:ContainerSlot { }
+        ents: []
+      tank_slot: !type:ContainerSlot {}
+      defib_slot: !type:ContainerSlot {}
   - type: ItemMapper
     mapLayers:
       front_oxy:

@@ -85,6 +85,7 @@ using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Configuration;
 using Robust.Shared.Console;
+using Robust.Shared.Containers;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
@@ -116,6 +117,13 @@ public sealed partial class ChatSystem : SharedChatSystem
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly ReplacementAccentSystem _wordreplacement = default!;
     [Dependency] private readonly ExamineSystemShared _examineSystem = default!;
+    [Dependency] private readonly SharedContainerSystem _containers = default!;
+    [Dependency] private readonly IConsoleHost _conHost = default!;
+
+    public const int VoiceRange = 10; // how far voice goes in world units
+    public const int WhisperClearRange = 2; // how far whisper goes while still being understandable, in world units
+    public const int WhisperMuffledRange = 5; // how far whisper goes at all, in world units
+    public const string DefaultAnnouncementSound = "/Audio/Announcements/announce.ogg";
 
     private bool _loocEnabled = true;
     private bool _deadLoocEnabled;
@@ -173,6 +181,7 @@ public sealed partial class ChatSystem : SharedChatSystem
             case GameRunLevel.PreRoundLobby:
                 if (!_configurationManager.GetCVar(CCVars.OocEnableDuringRound))
                     _configurationManager.SetCVar(CCVars.OocEnabled, true);
+                ResetLoocBudget();
                 break;
         }
     }
@@ -236,6 +245,15 @@ public sealed partial class ChatSystem : SharedChatSystem
         // and i dont feel like vibe checking 50 code paths
         // so we set this here
         // todo free me from chat code
+
+        // check if the entity is forced to whisper and convert to local whisper if yes
+        if (!ignoreActionBlocker && _actionBlocker.CanSpeak(source, out var onlyWhisper))
+        {
+            if (desiredType == InGameICChatType.Speak && onlyWhisper)
+            {
+                desiredType = InGameICChatType.Whisper;
+            }
+        }
 
         if (player != null)
         {

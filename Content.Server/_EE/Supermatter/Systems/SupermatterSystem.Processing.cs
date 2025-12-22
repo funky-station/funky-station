@@ -406,6 +406,7 @@ public sealed partial class SupermatterSystem
         // Absorbed gas from surrounding area
         var absorbedGas = mix.Remove(sm.GasEfficiency * mix.TotalMoles);
         var moles = absorbedGas.TotalMoles;
+        // Funky Fix: Release Gas
         var gasReturned = absorbedGas;
 
         var totalDamage = 0f;
@@ -434,7 +435,7 @@ public sealed partial class SupermatterSystem
         }
         else
             sm.HeatHealing = 0f;
-            // Return gas
+            // Funky Fix: Returns gas
             _atmosphere.Merge(mix, gasReturned);
 
         // Check for space tiles next to SM

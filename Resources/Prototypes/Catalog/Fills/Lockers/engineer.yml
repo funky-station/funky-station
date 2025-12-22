@@ -146,6 +146,7 @@
       - id: RCD
       - id: RCDAmmo
       - id: ClothingBackpackFirefighterTank
+      - id: MaterialBag #funky!
 
 - type: entity
   id: LockerAtmosphericsFilled
@@ -166,6 +167,7 @@
       - id: RCD
       - id: RCDAmmo
       - id: ClothingBackpackFirefighterTank
+      - id: MaterialBag #funky!
 
 - type: entity
   id: LockerEngineerFilledHardsuit
@@ -184,6 +186,7 @@
       - id: RCD
       - id: RCDAmmo
       - id: BoxInflatable # funky
+      - id: MaterialBag #funky!
 
 - type: entity
   id: LockerEngineerFilled
@@ -199,6 +202,7 @@
       - id: RCD
       - id: RCDAmmo
       - id: BoxInflatable # funky
+      - id: MaterialBag #funky!
 
 - type: entity
   id: ClosetRadiationSuitFilled

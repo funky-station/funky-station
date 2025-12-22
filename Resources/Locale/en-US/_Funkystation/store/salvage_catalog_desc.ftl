@@ -141,3 +141,9 @@ vendor-salvage-fulton-desc = Used to extract containers, items, or forcibly recr
 
 vendor-salvage-cargo-radio = Supply Handheld Radio
 vendor-salvage-cargo-radio-desc = A handheld radio tuned to the supply radio frequency.
+
+vendor-salvage-floodlight-name = Floodlight
+vendor-salvage-floodlight-desc = A pole with powerful mounted lights on it.
+
+vendor-salvage-ore-box-name = Ore Box
+vendor-salvage-ore-box-desc = A large storage container for holding unprocessed ores.

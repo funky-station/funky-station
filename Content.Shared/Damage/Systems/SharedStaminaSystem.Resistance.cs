@@ -1,6 +1,7 @@
 // SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 // SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 Princess-Cheeseballs <https://github.com/Princess-Cheeseballs>
 //
 // SPDX-License-Identifier: MIT
 
@@ -11,7 +12,7 @@ using Content.Shared.Inventory;
 
 namespace Content.Shared.Damage.Systems;
 
-public sealed partial class StaminaSystem
+public partial class SharedStaminaSystem
 {
     private void InitializeResistance()
     {

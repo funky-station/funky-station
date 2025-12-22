@@ -6821,3 +6821,15 @@ Entries:
       message: Removed most of the wall lockers that shouldn't be wall mounts >:(
   id: 790
   time: '2025-12-20T21:55:53.0000000+00:00'
+- author: Doctor-Cpu, AraiMaia
+  changes:
+    - type: Add
+      message: >-
+        Added a new Soft Critical system, active when between 100 and 150 total
+        damage. It allows you to crawl and whisper, and not much else.
+    - type: Tweak
+      message: >-
+        CPR DoAfter has been changed to 0.5 seconds, mimicking a 120bpm rhythm
+        for CPR.
+  id: 791
+  time: '2025-12-22T00:53:49.0000000+00:00'

@@ -28,3 +28,18 @@
   name: stack-silver
   icon: { sprite: "/Textures/Objects/Materials/ingots.rsi", state: silver }
   spawn: IngotSilver1
+
+- type: stack
+  parent: BaseMediumStack
+  id: Metal hydrogen
+  name: stack-metal-hydrogen
+  icon: { sprite: "/Textures/Objects/Materials/ingots.rsi", state: hydrogen }
+  spawn: MetalHydrogen1
+
+# Assmos
+- type: stack
+  parent: BaseMediumStack
+  id: Zaukerite
+  name: stack-zaukerite
+  icon: { sprite: "/Textures/Objects/Materials/ingots.rsi", state: zaukerite }
+  spawn: Zaukerite1

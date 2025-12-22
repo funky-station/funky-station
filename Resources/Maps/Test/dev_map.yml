@@ -1488,7 +1488,7 @@ entities:
     - type: Transform
       pos: 11.5,-14.5
       parent: 179
-- proto: BoozeDispenserEmpty
+- proto: BoozeDispenser
   entities:
   - uid: 752
     components:
@@ -3524,7 +3524,7 @@ entities:
     - type: Transform
       pos: 24.5,5.5
       parent: 179
-- proto: ChemDispenserEmpty
+- proto: ChemDispenser
   entities:
   - uid: 583
     components:

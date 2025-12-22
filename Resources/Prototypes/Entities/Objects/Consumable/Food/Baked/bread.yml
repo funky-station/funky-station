@@ -719,7 +719,7 @@
           Quantity: 15
         - ReagentId: Vitamin
           Quantity: 5
-        - ReagentId: TableSaltD
+        - ReagentId: TableSalt
           Quantity: 2.5
         - ReagentId: Blackpepper
           Quantity: 2.5

@@ -1,3 +1,4 @@
+# SPDX-FileCopyrightText: 2025 MaiaArai <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
 #
 # SPDX-License-Identifier: MIT
@@ -29,13 +30,17 @@
     noRot: true
     sprite: _RMC14/Structures/Machines/Medical/iv_drip.rsi
     layers:
-    - state: unhooked
+    - state: empty
       map: [ "enum.IVDripVisualLayers.Base" ]
     - state: reagent0
       map: [ "enum.IVDripVisualLayers.Reagent" ]
   - type: IVDrip
     transferAmount: 1.0
     transferDelay: 2.0
+    noBagState: empty
+    unattachedState: unhooked
+    attachedState: hooked
+    lineOriginOffset: "0.19, 0.16"
     reagentStates:
     - 0: reagent0
     - 10: reagent10

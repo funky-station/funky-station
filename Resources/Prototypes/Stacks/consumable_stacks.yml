@@ -34,6 +34,48 @@
   spawn: FoodBakedPancakeCc
   maxCount: 9
 
+- type: stack
+  id: Muffin
+  name: muffin
+  spawn: FoodBakedMuffin
+  maxCount: 6
+
+- type: stack
+  id: MuffinBanana
+  name: banana muffin
+  spawn: FoodBakedMuffinBanana
+  maxCount: 6
+
+- type: stack
+  id: MuffinBerry
+  name: berry muffin
+  spawn: FoodBakedMuffinBerry
+  maxCount: 6
+
+- type: stack
+  id: MuffinBluecherry
+  name: bluecherry muffin
+  spawn: FoodBakedMuffinBluecherry
+  maxCount: 6
+
+- type: stack
+  id: MuffinCherry
+  name: cherry muffin
+  spawn: FoodBakedMuffinCherry
+  maxCount: 6
+
+- type: stack
+  id: MuffinChocolate
+  name: chocolate muffin
+  spawn: FoodBakedMuffinChocolate
+  maxCount: 6
+
+- type: stack
+  id: MuffinCloth
+  name: moffin
+  spawn: FoodBakedMuffinCloth
+  maxCount: 6
+
 # Food Containers
 
 - type: stack

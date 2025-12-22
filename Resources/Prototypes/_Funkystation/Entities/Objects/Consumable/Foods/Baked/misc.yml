@@ -1,3 +1,4 @@
+
 # SPDX-FileCopyrightText: 2025 Mish <bluscout78@yahoo.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
@@ -10,6 +11,9 @@
   id: FoodBakedMuffinCloth
   description: A muffin made of cloth.
   components:
+  - type: Stack
+    stackType: MuffinCloth
+    count: 1
   - type: Sprite
     sprite: _Funkystation/Objects/Consumable/Food/Baked/misc.rsi
     state: muffin-cloth
@@ -21,12 +25,20 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 10
+        maxVol: 5
         reagents:
-        - ReagentId: Nutriment
-          Quantity: 4
+        - ReagentId: Sugar
+          Quantity: 1
         - ReagentId: Fiber
-          Quantity: 4
-        - ReagentId: Vitamin
-          Quantity: 2
+          Quantity: 3
+        - ReagentId: Nutriment
+          Quantity: 1
 
+- type: entity
+  name: moffin
+  parent: FoodBakedMuffinCloth
+  id: FoodBakedMuffinClothSix
+  suffix: Six
+  components:
+  - type: Stack
+    count: 6

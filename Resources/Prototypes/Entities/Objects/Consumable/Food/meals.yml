@@ -675,15 +675,19 @@
         maxVol: 65
         reagents:
         - ReagentId: Nutriment
-          Quantity: 30
+          Quantity: 10
         - ReagentId: Vitamin
-          Quantity: 15
-        - ReagentId: Water
-          Quantity: 5
-        - ReagentId: Libital
-          Quantity: 5
-        - ReagentId: Aiuri
-          Quantity: 5
+          Quantity: 30
+        - ReagentId: JuiceWatermelon
+          Quantity: 2
+        - ReagentId: JuiceApple
+          Quantity: 2
+        - ReagentId: JuiceBanana
+          Quantity: 2
+        - ReagentId: JuiceLemon
+          Quantity: 2
+        - ReagentId: JuiceOrange
+          Quantity: 2
   - type: Tag
     tags:
     - Fruit

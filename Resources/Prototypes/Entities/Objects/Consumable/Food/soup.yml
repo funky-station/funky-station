@@ -152,14 +152,20 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 25
+        maxVol: 100
         reagents:
         - ReagentId: Nutriment
-          Quantity: 8
+          Quantity: 15
+        - ReagentId: SpaceDrugs
+          Quantity: 15
         - ReagentId: Vitamin
-          Quantity: 6
+          Quantity: 30
         - ReagentId: Omnizine
-          Quantity: 8
+          Quantity: 10
+        - ReagentId: Epinephrine
+          Quantity: 5
+        - ReagentId: DoctorsDelight
+          Quantity: 25
   - type: Tag
     tags:
     - Soup
@@ -182,12 +188,18 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 15
+        maxVol: 50
         reagents:
+        - ReagentId: Probital
+          Quantity: 5
+        - ReagentId: Lenturi
+          Quantity: 5
         - ReagentId: Nutriment
-          Quantity: 8
+          Quantity: 10
         - ReagentId: Vitamin
-          Quantity: 2
+          Quantity: 20
+        - ReagentId: Epinephrine
+          Quantity: 5
   - type: Tag
     tags:
     - Fruit
@@ -212,13 +224,17 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 20
+        maxVol: 60
         reagents:
         - ReagentId: Nutriment
-          Quantity: 8
+          Quantity: 20
         - ReagentId: Vitamin
-          Quantity: 2
+          Quantity: 10
         - ReagentId: DoctorsDelight
+          Quantity: 10
+        - ReagentId: Protein
+          Quantity: 5
+        - ReagentId: Epinephrine
           Quantity: 5
   - type: Tag
     tags:
@@ -245,14 +261,16 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 15
+        maxVol: 40
         reagents:
         - ReagentId: Nutriment
-          Quantity: 8
+          Quantity: 15
         - ReagentId: Vitamin
-          Quantity: 2
+          Quantity: 11
         - ReagentId: Allicin
-          Quantity: 3
+          Quantity: 4
+        - ReagentId: Vinaigrette
+          Quantity: 5
 
 - type: entity
   name: caesar salad
@@ -273,12 +291,16 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 15
+        maxVol: 40
         reagents:
         - ReagentId: Nutriment
-          Quantity: 8
+          Quantity: 20
         - ReagentId: Vitamin
-          Quantity: 6
+          Quantity: 9
+        - ReagentId: Allicin
+          Quantity: 1
+        - ReagentId: OilOlive
+          Quantity: 5
 
 - type: entity
   name: kimchi salad
@@ -298,14 +320,16 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 15
+        maxVol: 60
         reagents:
         - ReagentId: Nutriment
-          Quantity: 8
+          Quantity: 26
         - ReagentId: Vitamin
-          Quantity: 2
+          Quantity: 15
         - ReagentId: Allicin
-          Quantity: 2
+          Quantity: 4
+        - ReagentId: Vinegar
+          Quantity: 5
 
 - type: entity
   name: fruit salad
@@ -323,12 +347,21 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 10
+        maxVol: 50
         reagents:
         - ReagentId: Nutriment
-          Quantity: 2
+          Quantity: 10
         - ReagentId: Vitamin
-          Quantity: 4
+          Quantity: 20
+        - ReagentId: JuiceWatermelon
+          Quantity: 5
+        - ReagentId: JuiceGrape
+          Quantity: 5
+        - ReagentId: JuiceApple
+          Quantity: 5
+        - ReagentId: JuiceOrange
+          Quantity: 5
+
   - type: Tag
     tags:
     - Fruit
@@ -352,12 +385,20 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 15
+        maxVol: 50
         reagents:
         - ReagentId: Nutriment
-          Quantity: 7
+          Quantity: 10
         - ReagentId: Vitamin
-          Quantity: 4
+          Quantity: 20
+        - ReagentId: JuiceBungo
+          Quantity: 5
+        - ReagentId: JuiceLime
+          Quantity: 5
+        - ReagentId: JuiceBanana
+          Quantity: 5
+        - ReagentId: JuicePineapple
+          Quantity: 5
   - type: Tag
     tags:
     - Fruit
@@ -380,12 +421,18 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 38
+        maxVol: 40
         reagents:
         - ReagentId: Nutriment
-          Quantity: 18
+          Quantity: 5
         - ReagentId: Vitamin
           Quantity: 15
+        - ReagentId: JuiceLemon
+          Quantity: 5
+        - ReagentId: JuiceLime
+          Quantity: 5
+        - ReagentId: JuiceOrange
+          Quantity: 5
   - type: Tag
     tags:
     - Fruit
@@ -405,17 +452,23 @@
     layers:
     - state: bowl
     - state: eden
-  - type: SolutionContainerManager
+  - type: SolutionContainerManager # Placeholder values for now as Ambrosia Gaia is not currently a thing
     solutions:
       food:
-        maxVol: 25
+        maxVol: 100
         reagents:
         - ReagentId: Nutriment
-          Quantity: 8
+          Quantity: 15
+        - ReagentId: SpaceDrugs
+          Quantity: 15
         - ReagentId: Vitamin
-          Quantity: 5
+          Quantity: 30
         - ReagentId: Omnizine
+          Quantity: 10
+        - ReagentId: Epinephrine
           Quantity: 5
+        - ReagentId: DoctorsDelight
+          Quantity: 25
 
 # Rice
 
@@ -1211,14 +1264,16 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 15
+        maxVol: 50
         reagents:
           - ReagentId: Nutriment
-            Quantity: 1
+            Quantity: 20
           - ReagentId: Vitamin
             Quantity: 5
           - ReagentId: Allicin
             Quantity: 5
+          - ReagentId: Water
+            Quantity: 10
 
 - type: entity
   name: bisque

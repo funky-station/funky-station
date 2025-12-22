@@ -71,6 +71,9 @@
   id: FoodBakedMuffin
   description: A delicious and spongy little cake.
   components:
+  - type: Stack
+    stackType: Muffin
+    count: 1
   - type: Food
     trash:
     - FoodPlateMuffinTin
@@ -80,12 +83,16 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 10
+        maxVol: 5
         reagents:
         - ReagentId: Nutriment
-          Quantity: 6
+          Quantity: 1
         - ReagentId: Vitamin
           Quantity: 2
+        - ReagentId: Butter
+          Quantity: 1
+        - ReagentId: Sugar
+          Quantity: 1
   - type: FlavorProfile
     flavors:
       - sweet
@@ -93,27 +100,50 @@
     size: Tiny
 
 - type: entity
+  name: muffin
+  parent: FoodBakedMuffin
+  id: FoodBakedMuffinSix
+  suffix: Six
+  components:
+  - type: Stack
+    count: 6
+
+- type: entity
   name: berry muffin
   parent: FoodBakedMuffin
   id: FoodBakedMuffinBerry
   description: A delicious and spongy little cake, with berries.
   components:
+  - type: Stack
+    stackType: MuffinBerry
+    count: 1
   - type: Sprite
     state: muffin-berry
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 12
+        maxVol: 5
         reagents:
         - ReagentId: Nutriment
-          Quantity: 6
+          Quantity: 1
         - ReagentId: Vitamin
           Quantity: 2
         - ReagentId: JuiceBerry
-          Quantity: 2
+          Quantity: 1
+        - ReagentId: Sugar
+          Quantity: 1
   - type: Tag
     tags:
     - Fruit
+
+- type: entity
+  name: berry muffin
+  parent: FoodBakedMuffinBerry
+  id: FoodBakedMuffinBerrySix
+  suffix: Six
+  components:
+  - type: Stack
+    count: 6
 
 - type: entity
   name: cherry muffin
@@ -121,22 +151,36 @@
   id: FoodBakedMuffinCherry
   description: A sweet muffin with cherry bits.
   components:
+  - type: Stack
+    stackType: MuffinCherry
+    count: 1
   - type: Sprite
     state: muffin-cherry
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 12
+        maxVol: 5
         reagents:
         - ReagentId: Nutriment
-          Quantity: 6
+          Quantity: 1
         - ReagentId: Vitamin
           Quantity: 2
         - ReagentId: JuiceCherry
-          Quantity: 2
+          Quantity: 1
+        - ReagentId: Sugar
+          Quantity: 1
   - type: Tag
     tags:
     - Fruit
+
+- type: entity
+  name: cherry muffin
+  parent: FoodBakedMuffinCherry
+  id: FoodBakedMuffinCherrySix
+  suffix: Six
+  components:
+  - type: Stack
+    count: 6
 
 - type: entity
   name: bluecherry muffin
@@ -144,11 +188,36 @@
   id: FoodBakedMuffinBluecherry
   description: Blue cherries inside a delicious muffin.
   components:
+  - type: Stack
+    stackType: MuffinBluecherry
+    count: 1
   - type: Sprite
     state: muffin-bluecherry
   - type: Tag
     tags:
     - Fruit
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 1
+        - ReagentId: Vitamin
+          Quantity: 2
+        - ReagentId: JuiceCherry
+          Quantity: 1
+        - ReagentId: Sugar
+          Quantity: 1
+
+- type: entity
+  name: bluecherry muffin
+  parent: FoodBakedMuffinBluecherry
+  id: FoodBakedMuffinBluecherrySix
+  suffix: Six
+  components:
+  - type: Stack
+    count: 6
 
 - type: entity
   name: chocolate muffin
@@ -156,19 +225,35 @@
   id: FoodBakedMuffinChocolate
   description: A delicious and spongy chocolate muffin.
   components:
+  - type: Stack
+    stackType: MuffinChocolate
+    count: 1
   - type: Sprite
     state: muffin-chocolate
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 12
+        maxVol: 5
         reagents:
         - ReagentId: Nutriment
-          Quantity: 6
+          Quantity: 1
         - ReagentId: Vitamin
           Quantity: 2
         - ReagentId: CocoaPowder
-          Quantity: 2
+          Quantity: 0.5
+        - ReagentId: Theobromine
+          Quantity: 0.5
+        - ReagentId: Sugar
+          Quantity: 1
+
+- type: entity
+  name: chocolate muffin
+  parent: FoodBakedMuffinChocolate
+  id: FoodBakedMuffinChocolateSix
+  suffix: Six
+  components:
+  - type: Stack
+    count: 6
 
 - type: entity
   name: banana muffin
@@ -176,6 +261,9 @@
   id: FoodBakedMuffinBanana
   description: A delicious and spongy banana muffin.
   components:
+  - type: Stack
+    stackType: MuffinBanana
+    count: 1
   - type: Sprite
     state: muffin-banana
   - type: SolutionContainerManager
@@ -184,14 +272,25 @@
         maxVol: 12
         reagents:
         - ReagentId: Nutriment
-          Quantity: 6
+          Quantity: 1
         - ReagentId: Vitamin
           Quantity: 2
         - ReagentId: JuiceBanana
-          Quantity: 2
+          Quantity: 1
+        - ReagentId: Sugar
+          Quantity: 1
   - type: Tag
     tags:
     - Fruit
+
+- type: entity
+  name: banana muffin
+  parent: FoodBakedMuffinBanana
+  id: FoodBakedMuffinBananaSix
+  suffix: Six
+  components:
+  - type: Stack
+    count: 6
 
 # Buns
 
@@ -301,6 +400,7 @@
   - type: Tag
     tags:
       - Nugget
+      - Meat
   - type: Sprite
     sprite: Objects/Consumable/Food/Baked/nuggets.rsi
     layers:
@@ -388,10 +488,30 @@
   - type: Tag
     tags:
     - Pancake
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 1
+        - ReagentId: Butter
+          Quantity: 1
+        - ReagentId: Vitamin
+          Quantity: 3
+
+- type: entity
+  name: pancake
+  parent: FoodBakedPancake
+  id: FoodBakedPancakeSix
+  suffix: Six
+  components:
+  - type: Stack
+    count: 6
 
 - type: entity
   name: blueberry pancake
-  parent: FoodBakedBase
+  parent: FoodBakedPancake
   id: FoodBakedPancakeBb
   description: A fluffy and delicious blueberry pancake.
   components:
@@ -441,6 +561,26 @@
     tags:
     - Pancake
     - Fruit
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 1
+        - ReagentId: JuiceBerry
+          Quantity: 1
+        - ReagentId: Vitamin
+          Quantity: 3
+
+- type: entity
+  name: blueberry pancake
+  parent: FoodBakedPancakeBb
+  id: FoodBakedPancakeBbSix
+  suffix: Six
+  components:
+  - type: Stack
+    count: 6
 
 
 - type: entity
@@ -494,12 +634,25 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 6
+        maxVol: 5
         reagents:
         - ReagentId: Nutriment
-          Quantity: 5
-        - ReagentId: Theobromine
           Quantity: 1
+        - ReagentId: Theobromine
+          Quantity: 0.5
+        - ReagentId: CocoaPowder
+          Quantity: 0.5
+        - ReagentId: Vitamin
+          Quantity: 3
+
+- type: entity
+  name: chocolate chip pancake
+  parent: FoodBakedPancakeCc
+  id: FoodBakedPancakeCcSix
+  suffix: Six
+  components:
+  - type: Stack
+    count: 6
 
 - type: entity
   name: waffles
@@ -729,12 +882,16 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 78
+        maxVol: 90
         reagents:
         - ReagentId: Nutriment
           Quantity: 30
         - ReagentId: Theobromine
-          Quantity: 18
+          Quantity: 10
+        - ReagentId: Vitamin
+          Quantity: 20
+        - ReagentId: Sugar
+          Quantity: 30
   - type: SliceableFood
     count: 6
     slice: FoodBakedBrownie
@@ -756,12 +913,16 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 13
+        maxVol: 15
         reagents:
-        - ReagentId: Nutriment
+        - ReagentId: Sugar
           Quantity: 5
         - ReagentId: Theobromine
-          Quantity: 3
+          Quantity: 1.67
+        - ReagentId: Vitamin
+          Quantity: 3.33
+        - ReagentId: Nutriment
+          Quantity: 5
   - type: Tag
     tags:
     - Slice
@@ -783,14 +944,18 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 228
+        maxVol: 120
         reagents:
         - ReagentId: Nutriment
-          Quantity: 30
+          Quantity: 10
         - ReagentId: Theobromine
-          Quantity: 18
+          Quantity: 10
         - ReagentId: THC
-          Quantity: 150
+          Quantity: 60
+        - ReagentId: Vitamin
+          Quantity: 20
+        - ReagentId: Sugar
+          Quantity: 20
   - type: SliceableFood
     count: 6
     slice: FoodBakedCannabisBrownie
@@ -812,14 +977,18 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 38
+        maxVol: 20
         reagents:
         - ReagentId: Nutriment
-          Quantity: 5
+          Quantity: 1.65
         - ReagentId: Theobromine
-          Quantity: 3
+          Quantity: 1.67
         - ReagentId: THC
-          Quantity: 25
+          Quantity: 10
+        - ReagentId: Vitamin
+          Quantity: 3.34
+        - ReagentId: Sugar
+          Quantity: 3.34
   - type: Tag
     tags:
     - Slice
@@ -994,14 +1163,14 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 21
+        maxVol: 30
         reagents:
         - ReagentId: Nutriment
-          Quantity: 11
+          Quantity: 5
         - ReagentId: Butter
-          Quantity: 2
+          Quantity: 5
         - ReagentId: Vitamin
-          Quantity: 3
+          Quantity: 10
 
 - type: entity
   parent: FoodBakedBase
@@ -1025,13 +1194,13 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 21
+        maxVol: 30
         reagents:
         - ReagentId: Nutriment
-          Quantity: 6
+          Quantity: 5
         - ReagentId: Fiber
           Quantity: 5
         - ReagentId: Butter
-          Quantity: 2
+          Quantity: 5
         - ReagentId: Vitamin
-          Quantity: 3
+          Quantity: 5

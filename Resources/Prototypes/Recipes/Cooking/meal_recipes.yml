@@ -1222,7 +1222,7 @@
   group: BarsAndCookies
   solids:
     FoodDoughPie: 1
-    FoodSnackPistachios: 1 #i'd rather use a botany crop but we don't have nuts yet
+    FoodSnackPistachios: 2 #i'd rather use a botany crop but we don't have nuts yet
     FoodPlateTin: 1
 
 - type: microwaveMealRecipe
@@ -1231,6 +1231,8 @@
   result: FoodPieBananaCream
   time: 15
   group: Pie
+  reagents:
+    Cream: 10
   solids:
     FoodDoughPie: 1
     FoodBanana: 3
@@ -1335,12 +1337,11 @@
   time: 15
   group: Pie
   reagents:
-    Gold: 10
     Sugar: 5
     Milk: 5
   solids:
     FoodDoughPie: 1
-    FoodApple: 2 #in absence of the real gapple i'm substituting one apple with 10u gold (one ingot)
+    FoodGoldenApple: 2
     FoodPlateTin: 1
 
 - type: microwaveMealRecipe
@@ -1501,18 +1502,20 @@
 - type: microwaveMealRecipe
   id: RecipePancake
   name: pancake recipe
-  result: FoodBakedPancake
+  result: FoodBakedPancakeSix
   time: 5
   group: Breakfast
   reagents:
     Flour: 5
     Milk: 5
     Egg: 6
+  solids:
+    FoodButter: 1
 
 - type: microwaveMealRecipe
   id: RecipeBlueberryPancake
   name: blueberry pancake recipe
-  result: FoodBakedPancakeBb
+  result: FoodBakedPancakeBbSix
   time: 5
   group: Breakfast
   reagents:
@@ -1598,9 +1601,9 @@
 - type: microwaveMealRecipe
   id: RecipeChocolateChipPancake
   name: chocolate chip pancake recipe
-  result: FoodBakedPancakeCc
+  result: FoodBakedPancakeCcSix
   time: 5
-  group: BarsAndCookies
+  group: Breakfast
   reagents:
     Flour: 5
     Milk: 5
@@ -1614,6 +1617,8 @@
   result: FoodCakeApple
   time: 5
   group: Cake
+  reagents:
+    Cream: 10
   solids:
     FoodCakePlain: 1
     FoodApple: 3
@@ -1626,7 +1631,7 @@
   group: Cake
   solids:
     FoodCakePlain: 1
-    FoodCarrot: 3
+    FoodCarrot: 4
 
 - type: microwaveMealRecipe
   id: RecipeLemonCake
@@ -1634,6 +1639,9 @@
   result: FoodCakeLemon
   time: 5
   group: Cake
+  reagents:
+    Cream: 10
+    Sugar: 10
   solids:
     FoodCakePlain: 1
     FoodLemon: 3
@@ -1655,6 +1663,9 @@
   result: FoodCakeOrange
   time: 5
   group: Cake
+  reagents:
+    Cream: 10
+    Sugar: 10
   solids:
     FoodCakePlain: 1
     FoodOrange: 3
@@ -1675,6 +1686,9 @@
   result: FoodCakeLime
   time: 5
   group: Cake
+  reagents:
+    Cream: 10
+    Sugar: 10
   solids:
     FoodCakePlain: 1
     FoodLime: 3
@@ -1686,10 +1700,11 @@
   time: 5
   group: Cake
   reagents:
-    Cream: 10
+    Cream: 15
+    Sugar: 15
   solids:
     FoodCakePlain: 1
-    FoodCheeseSlice: 3
+    FoodCheese: 1
 
 - type: microwaveMealRecipe
   id: RecipePumpkinCake
@@ -1697,6 +1712,9 @@
   result: FoodCakePumpkin
   time: 5
   group: Cake
+  reagents:
+    Cream: 10
+    Sugar: 10
   solids:
     FoodCakePlain: 1
     FoodPumpkin: 1
@@ -1707,7 +1725,11 @@
   result: FoodCakeClown
   time: 5
   group: Cake
+  reagents:
+    Cream: 10
+    Sugar: 10
   solids:
+    FoodBanana: 5
     ClothingMaskClown: 1
     FoodCakePlain: 1
 
@@ -1727,9 +1749,10 @@
   time: 5
   group: Cake
   reagents:
-    Cream: 5
+    Cream: 10
+    Sugar: 15
   solids:
-    FoodCakePlain: 1
+    FoodCakePlain: 2
 
 - type: microwaveMealRecipe
   id: RecipeChocolateCake
@@ -1737,9 +1760,11 @@
   result: FoodCakeChocolate
   time: 5
   group: Cake
+  reagents:
+    Cream: 10
   solids:
     FoodCakePlain: 1
-    FoodSnackChocolateBar: 2
+    FoodSnackChocolateBar: 3
 
 - type: microwaveMealRecipe
   id: RecipeBrainCake
@@ -1758,7 +1783,8 @@
   time: 5
   group: Cake
   reagents:
-    Slime: 15
+    Slime: 30p
+    Sugar: 15
   solids:
     FoodCakePlain: 1
 
@@ -1786,7 +1812,7 @@
     FoodCakePlain: 1
     FoodBerries: 5
   reagents:
-    Milk: 10
+    Cream: 5
 
 - type: microwaveMealRecipe
   id: RecipeBreadDog
@@ -1913,6 +1939,7 @@
   id: RecipeDonkpocketMoth
   name: warm moth-pocket recipe
   result: FoodDonkpocketMothWarm
+  group: Moth
   time: 5
   solids:
     FoodDonkpocketMoth: 1
@@ -2030,6 +2057,17 @@
     FoodMeatMeatball: 1
 
 - type: microwaveMealRecipe
+  id: RecipeAesirSalad
+  name: valid salad recipe
+  result: FoodSaladAesir
+  time: 5
+  group: Salad
+  solids:
+    FoodBowlBig: 1
+    FoodAmbrosiaDeus: 3
+    FoodGoldenApple: 2
+
+- type: microwaveMealRecipe
   id: RecipeColeslaw
   name: coleslaw recipe
   result: FoodSaladColeslaw
@@ -2105,9 +2143,9 @@
   solids:
     FoodBowlBig: 1
     FoodBanana: 1
-    FoodApple: 1
-    FoodGrape: 1
-    FoodWatermelonSlice: 2
+    FoodBungo: 1
+    FoodLime: 1
+    FoodPineapple: 1
 
 - type: microwaveMealRecipe
   id: RecipeWatermelonFruitBowlSalad
@@ -2121,26 +2159,26 @@
     FoodBanana: 1
     FoodLemon: 1
     FoodOrange: 1
-    FoodAmbrosiaVulgaris: 1
 
 # Muffins
 
 - type: microwaveMealRecipe
   id: RecipeMuffin
   name: muffin recipe
-  result: FoodBakedMuffin
+  result: FoodBakedMuffinSix
   time: 15
   group: Dessert
   solids:
     FoodPlateMuffinTin: 1
     FoodDoughSlice: 1
+    FoodButter: 1
   reagents:
     Sugar: 10
 
 - type: microwaveMealRecipe
   id: RecipeMuffinChocolate
   name: chocolate muffin recipe
-  result: FoodBakedMuffinChocolate
+  result: FoodBakedMuffinChocolateSix
   time: 15
   group: Dessert
   solids:
@@ -2153,7 +2191,7 @@
 - type: microwaveMealRecipe
   id: RecipeMuffinBerry
   name: berry muffin recipe
-  result: FoodBakedMuffinBerry
+  result: FoodBakedMuffinBerrySix
   time: 15
   group: Dessert
   solids:
@@ -2166,7 +2204,7 @@
 - type: microwaveMealRecipe
   id: RecipeMuffinBanana
   name: banana muffin recipe
-  result: FoodBakedMuffinBanana
+  result: FoodBakedMuffinBananaSix
   time: 15
   group: Dessert
   solids:
@@ -2179,7 +2217,7 @@
 - type: microwaveMealRecipe
   id: RecipeMuffinCherry
   name: cherry muffin recipe
-  result: FoodBakedMuffinCherry
+  result: FoodBakedMuffinCherrySix
   time: 15
   group: Dessert
   solids:
@@ -2239,6 +2277,7 @@
   id: RecipeSuppermatter
   name: suppermatter recipe
   result: FoodCakeSuppermatter
+  group: Cake
   time: 30
   solids:
     FoodCakeBatter: 2
@@ -2287,7 +2326,7 @@
     Sugar: 30
     Egg: 18
   solids:
-    FoodCannabisButter: 2
+    FoodCannabisButter: 1
     FoodSnackChocolateBar: 2
 
 - type: microwaveMealRecipe
@@ -2303,6 +2342,7 @@
   id: RecipeForeverWeedBrownies
   name: cannabis brownie recipe
   result: FoodBakedForeverWeedBrownieBatch
+  group: BarsAndCookies
   time: 25
   reagents:
     Flour: 15
@@ -2349,9 +2389,11 @@
   id: RecipeTacoBeef
   name: beef taco recipe
   result: FoodTacoBeef
+  group: Savory
   time: 10
   solids:
     FoodTacoShell: 1
+    FoodTomato: 1
     FoodMeatCutlet: 1
     FoodCheeseSlice: 1
 
@@ -2359,20 +2401,23 @@
   id: RecipeTacoChicken
   name: chicken taco recipe
   result: FoodTacoChicken
+  group: Savory
   time: 10
   solids:
     FoodTacoShell: 1
+    FoodTomato: 1
     FoodMeatChickenCutlet: 1
     FoodCheeseSlice: 1
 
 - type: microwaveMealRecipe
   id: RecipeTacoFish
-  name: fish taco recipe
+  name: seafood taco recipe
   result: FoodTacoFish
+  group: Savory
   time: 10
   solids:
     FoodTacoShell: 1
-    FoodMeatFish: 1
+    FoodShrimpRaw: 1
     FoodOnionSlice: 2
     FoodTomato: 1
     FoodCabbage: 1
@@ -2381,16 +2426,19 @@
   id: RecipeTacoRat
   name: rat taco recipe
   result: FoodTacoRat
+  group: Savory
   time: 10
   solids:
     FoodTacoShell: 1
     FoodCheeseSlice: 1
+    FoodTomato: 1
     FoodMeatRat: 1
 
 - type: microwaveMealRecipe
   id: RecipeTacoBeefSupreme
   name: beef taco supreme recipe
   result: FoodTacoBeefSupreme
+  group: Savory
   time: 10
   solids:
     FoodTacoShell: 1
@@ -2402,8 +2450,9 @@
 
 - type: microwaveMealRecipe
   id: RecipeTacoChickenSupreme
-  name: beef taco supreme recipe
+  name: chicken taco supreme recipe
   result: FoodTacoChickenSupreme
+  group: Savory
   time: 10
   solids:
     FoodTacoShell: 1
@@ -2476,6 +2525,7 @@
   id: RecipeGrilledCheeseSandwich
   name: grilled cheese sandwich recipe
   result: FoodBakedGrilledCheeseSandwich
+  group: Savory
   time: 10
   solids:
     FoodBreadPlainSlice: 2
@@ -2486,6 +2536,7 @@
   id: RecipeGrilledCheeseSandwichCotton
   name: cotton grilled cheese sandwich recipe
   result: FoodBakedGrilledCheeseSandwichCotton
+  group: Moth
   time: 10
   solids:
     FoodBreadCottonSlice: 2
@@ -2513,5 +2564,7 @@
   group: Cake
   reagents:
     Fiber: 10
+    Sugar: 15
   solids:
     FoodCakePlain: 1
+    CottonBol: 2

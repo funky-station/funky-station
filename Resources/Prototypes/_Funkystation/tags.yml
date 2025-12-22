@@ -168,3 +168,9 @@
 
 - type: Tag
   id: MagazineCaselessRifle
+
+- type: Tag
+  id: SpeedLoaderRifle
+
+- type: Tag
+  id: SpeedLoaderPistol

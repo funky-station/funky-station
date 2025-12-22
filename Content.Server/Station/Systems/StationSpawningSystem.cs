@@ -193,7 +193,7 @@ public sealed class StationSpawningSystem : SharedStationSpawningSystem
             DoJobSpecials(job, jobEntity);
             _identity.QueueIdentityUpdate(jobEntity);
             // #Goobstation - Borg Preferred Name
-            if (profile != null && (prototype.ID == "Borg")
+            if (profile != null && prototype.ID == "Borg")
             {
                 var name = profile.BorgName;
                 if (TryComp<NameIdentifierComponent>(jobEntity, out var nameIdentifier))

@@ -588,6 +588,9 @@
   - type: ActivatableUI
     inHandsOnly: true
     key: enum.RpdUiKey.Key
+  - type: ClothingSpeedModifier
+    walkModifier: 1.0
+    sprintModifier: 1.0
 
 - type: entity
   id: RCDEmpty

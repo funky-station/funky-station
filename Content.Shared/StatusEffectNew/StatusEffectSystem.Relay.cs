@@ -1,5 +1,6 @@
 using Content.Shared.Body.Events;
 using Content.Shared.Damage.Events;
+using Content.Shared.Mobs.Events;
 using Content.Shared.Movement.Events;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Rejuvenate;

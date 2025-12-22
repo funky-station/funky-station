@@ -25,7 +25,14 @@ public static class JobRequirements
     {
         var sys = entManager.System<SharedRoleSystem>();
         var requirements = sys.GetRoleRequirements(job);
-        return TryRequirementsMet(requirements, playTimes, out reason, entManager, protoManager, profile);
+        return TryRequirementsMet(
+            requirements,
+            playTimes ?? new Dictionary<string, TimeSpan>(),
+            out reason,
+            entManager,
+            protoManager,
+            profile);
+
     }
 
     /// <summary>

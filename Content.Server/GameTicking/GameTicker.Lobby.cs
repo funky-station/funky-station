@@ -224,5 +224,14 @@ namespace Content.Server.GameTicking
 
         public bool UserHasJoinedGame(NetUserId userId)
             => PlayerGameStatuses.TryGetValue(userId, out var status) && status == PlayerGameStatus.JoinedGame;
+        public sealed class PlayerToggleReadyEvent : EntityEventArgs
+        {
+            public readonly ICommonSession PlayerSession;
+
+            public PlayerToggleReadyEvent(ICommonSession playerSession)
+            {
+                PlayerSession = playerSession;
+            }
+        }
     }
 }

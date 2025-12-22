@@ -45,10 +45,12 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using Content.Shared._Funkystation.Records;
 using Content.Shared.CCVar;
+using Content.Shared.Dataset;
 using Content.Shared.GameTicking;
 using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Prototypes;
 using Content.Shared.Preferences.Loadouts;
+using Content.Shared.Random.Helpers;
 using Content.Shared.Roles;
 using Content.Shared.Traits;
 using Robust.Shared.Collections;
@@ -173,13 +175,6 @@ namespace Content.Shared.Preferences
         /// <see cref="_traitPreferences"/>
         /// </summary>
         public IReadOnlySet<ProtoId<TraitPrototype>> TraitPreferences => _traitPreferences;
-
-        /// <summary>
-        /// If we're unable to get one of our preferred jobs do we spawn as a fallback job or do we stay in lobby.
-        /// </summary>
-        [DataField]
-        public PreferenceUnavailableMode PreferenceUnavailable { get; private set; } =
-            PreferenceUnavailableMode.SpawnAsOverflow;
 
         public HumanoidCharacterProfile(
             string name,

@@ -33,7 +33,7 @@ public sealed class ReadyManifestSystem : EntitySystem
     {
         SubscribeNetworkEvent<RequestReadyManifestMessage>(OnRequestReadyManifest);
         SubscribeLocalEvent<RoundStartingEvent>(OnRoundStarting);
-        SubscribeLocalEvent<PlayerToggleReadyEvent>(OnPlayerToggleReady);
+        SubscribeLocalEvent<GameTicker.PlayerToggleReadyEvent>(OnPlayerToggleReady);
     }
 
     private void OnRoundStarting(RoundStartingEvent ev)

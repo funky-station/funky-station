@@ -151,6 +151,7 @@
 # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 CalicoDragon <110030310+CalicoDragon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Gansu <68031780+GansuLalan@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Gosera <goseru@gmail.com>
 # SPDX-FileCopyrightText: 2025 IronDragoon <8961391+IronDragoon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 IronDragoon <you@example.com>
 # SPDX-FileCopyrightText: 2025 Komoni <131829655+Komonighub@users.noreply.github.com>
@@ -519,6 +520,7 @@
     - TowelColorWhite #funk towel
     - InflatableWall #funky inflatables
     - InflatableDoor #funk
+    - SmallPinboard #funky
     dynamicRecipes:
     - BoomboxRed
     - BoomboxGreen
@@ -1401,6 +1403,7 @@
     - Brutepack
     - Ointment
     - Gauze
+    - CMBloodPack
     - HandLabeler
     - Defibrillator
     - HandheldHealthAnalyzer
@@ -1416,6 +1419,7 @@
     - Implanter
     - PillCanister
     - BodyBag
+    - CMIV
     - ChemistryEmptyBottle01
     - RollerBedSpawnFolded
     - CheapRollerBedSpawnFolded

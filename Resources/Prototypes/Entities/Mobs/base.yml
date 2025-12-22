@@ -42,9 +42,14 @@
 # SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 88tv <131759102+88tv@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Drywink <hugogrethen@gmail.com>
+# SPDX-FileCopyrightText: 2025 MaiaArai <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Mish <bluscout78@yahoo.com>
 # SPDX-FileCopyrightText: 2025 Orsoniks <orsoniksstuff@gmail.com>
+# SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+princess-cheeseballs@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Princess-Cheeseballs <https://github.com/Princess-Cheeseballs>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
@@ -99,6 +104,7 @@
   - type: MovementSpeedModifier
   - type: RequireProjectileTarget
     active: False
+  - type: StunVisuals
   - type: AnimatedEmotes
 
 - type: entity
@@ -274,6 +280,20 @@
   abstract: true
   components:
   - type: Internals
+  - type: Cpr
+    change:
+      types:
+        Bloodloss: -0.5
+        Blunt: 0.2
+    bonusHeal:
+      types:
+        Asphyxiation: -5
+        Bloodloss: -1.5
+    sound:
+      path: "/Audio/Effects/cprpulse.ogg"
+      params:
+        volume: 0.5
+        variation: 0.125
   - type: Respirator
     damage:
       types:

@@ -32,10 +32,11 @@ namespace Content.Shared.Preferences
         public PlayerPreferences(
             IEnumerable<KeyValuePair<int, ICharacterProfile>> characters,
             Color adminOOCColor,
-            Dictionary<ProtoId<JobPrototype>, JobPriority> jobPriorities)
+            Dictionary<ProtoId<JobPrototype>, JobPriority> jobPriorities, List<ProtoId<ConstructionPrototype>> constructionFavorites)
         {
             _characters = new Dictionary<int, ICharacterProfile>(characters);
             AdminOOCColor = adminOOCColor;
+            ConstructionFavorites = constructionFavorites;
             JobPriorities = SanitizeJobPriorities(jobPriorities);
         }
 

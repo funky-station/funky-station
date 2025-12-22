@@ -1,3 +1,4 @@
+using System.Linq;
 using Content.Server.Antag.Components;
 using Robust.Shared.Random;
 
@@ -19,22 +20,33 @@ public sealed class AntagMultipleRoleSpawnerSystem : EntitySystem
         _sawmill = _log.GetSawmill("antag_multiple_spawner");
     }
 
-    private void OnSelectEntity(Entity<AntagMultipleRoleSpawnerComponent> ent, ref AntagSelectEntityEvent args)
+    private void OnSelectEntity(
+        Entity<AntagMultipleRoleSpawnerComponent> ent,
+        ref AntagSelectEntityEvent args)
     {
-        // If its more than one the logic breaks
-        if (args.AntagRoles.Count != 1)
+        // Combine preferred + fallback antag prototypes
+        var antagRoles = args.Def.PrefRoles
+            .Concat(args.Def.FallbackRoles)
+            .ToList();
+
+        if (antagRoles.Count != 1)
         {
-            _sawmill.Fatal($"Antag multiple role spawner had more than one antag ({args.AntagRoles.Count})");
+            _sawmill.Fatal(
+                $"Antag multiple role spawner had more than one antag ({antagRoles.Count})");
             return;
         }
 
-        var role = args.AntagRoles[0];
+        var antagRole = antagRoles[0];
 
-        var entProtos = ent.Comp.AntagRoleToPrototypes[role];
+        if (!ent.Comp.AntagRoleToPrototypes.TryGetValue(antagRole, out var entProtos))
+            return; // No mapping → fall back to default behavior
 
         if (entProtos.Count == 0)
-            return; // You will just get a normal job
+            return;
 
-        args.Entity = Spawn(ent.Comp.PickAndTake ? _random.PickAndTake(entProtos) : _random.Pick(entProtos));
+        args.Entity = Spawn(
+            ent.Comp.PickAndTake
+                ? _random.PickAndTake(entProtos)
+                : _random.Pick(entProtos));
     }
 }

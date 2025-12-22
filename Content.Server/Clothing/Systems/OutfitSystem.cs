@@ -1,4 +1,5 @@
-﻿using Content.Server.Hands.Systems;
+﻿using System.Linq;
+using Content.Server.Hands.Systems;
 using Content.Server.Preferences.Managers;
 using Content.Shared._EinsteinEngines.Silicon.IPC;
 using Content.Shared.Access.Components;
@@ -46,7 +47,14 @@ public sealed class OutfitSystem : EntitySystem
             session = actorComponent.PlayerSession;
             var userId = actorComponent.PlayerSession.UserId;
             var prefs = _preferenceManager.GetPreferences(userId);
-            profile = prefs.SelectedCharacter as HumanoidCharacterProfile;
+
+            profile = prefs.Characters.Values
+                          .OfType<HumanoidCharacterProfile>()
+                          .FirstOrDefault(p => p.Enabled)
+                      ?? prefs.Characters.Values
+                          .OfType<HumanoidCharacterProfile>()
+                          .FirstOrDefault();
+
         }
 
         if (_invSystem.TryGetSlots(target, out var slots))

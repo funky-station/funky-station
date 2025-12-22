@@ -205,7 +205,10 @@ public sealed class PlayTimeTrackingSystem : EntitySystem
 
     private void OnIsRoleAllowed(ref IsRoleAllowedEvent ev)
     {
-        if (!IsAllowed(ev.Player, ev.JobId))
+        if (ev.Jobs == null)
+            return; // no job restrictions → allowed
+
+        if (!IsAllowed(ev.Player, ev.Jobs))
             ev.Cancelled = true;
     }
 
@@ -241,6 +244,17 @@ public sealed class PlayTimeTrackingSystem : EntitySystem
 
         var allProfilesForJob = _preferencesManager.GetPreferences(player.UserId).GetAllEnabledProfilesForJob(job);
         return allProfilesForJob.Values.Any(profile => JobRequirements.TryRequirementsMet(job, playTimes, out _, EntityManager, _prototypes, profile));
+    }
+    public bool IsAllowed(ICommonSession player, List<ProtoId<JobPrototype>> jobs)
+    {
+        foreach (var jobId in jobs)
+        {
+            // ProtoId<T> → string
+            if (IsAllowed(player, jobId.Id))
+                return true;
+        }
+
+        return false;
     }
 
     public HashSet<ProtoId<JobPrototype>> GetDisallowedJobs(ICommonSession player)

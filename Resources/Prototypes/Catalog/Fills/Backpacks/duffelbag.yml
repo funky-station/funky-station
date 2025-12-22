@@ -318,7 +318,7 @@
       storagebase: !type:AllSelector
         children:
         - id: ClothingHeadHelmetSyndicate
-        - id: ClothingOuterHardsuitSyndicateDurathread
+        - id: ClothingOuterEVASuitSyndicateDurathread
         - id: ClothingMaskGasSyndicate
         - id: ClothingHandsGlovesColorYellowBudget
         - id: DoubleEmergencyOxygenTankFilled

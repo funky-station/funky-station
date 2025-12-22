@@ -226,7 +226,12 @@ public sealed class LobbyUIController : UIController, IOnStateEntered<LobbyState
         var (characterGui, _) = EnsureGui();
         characterGui.ReloadCharacterPickers(selectJobPriorities: true);
     }
-
+    private void RefreshProfileEditor()
+    {
+        _profileEditor?.RefreshAntags();
+        _profileEditor?.RefreshJobs();
+        _profileEditor?.RefreshLoadouts();
+    }
     private void SaveProfile()
     {
         DebugTools.Assert(EditedProfile != null);

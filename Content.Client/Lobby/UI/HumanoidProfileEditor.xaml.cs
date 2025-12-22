@@ -771,8 +771,7 @@ namespace Content.Client.Lobby.UI
                 selector.Setup(items, title, 250, description, guides: antag.Guides);
                 selector.Select(Profile?.AntagPreferences.Contains(antag.ID) == true ? 0 : 1);
 
-                var requirements = _entManager.System<SharedRoleSystem>().GetAntagRequirement(antag);
-                if (!_requirements.CheckRoleRequirements(requirements, Profile, out var reason))
+                if (!_requirements.IsAllowed(antag, Profile, out var reason))
                 {
                     selector.LockRequirements(reason);
                     Profile = Profile?.WithAntagPreference(antag.ID, false);
@@ -913,23 +912,19 @@ namespace Content.Client.Lobby.UI
 
         private void OnSpeciesInfoButtonPressed(BaseButton.ButtonEventArgs args)
         {
-            // TODO GUIDEBOOK
-            // make the species guide book a field on the species prototype.
-            // I.e., do what jobs/antags do.
-
             var guidebookController = UserInterfaceManager.GetUIController<GuidebookUIController>();
+
             var species = Profile?.Species ?? SharedHumanoidAppearanceSystem.DefaultSpecies;
             var page = DefaultSpeciesGuidebook;
-            if (_prototypeManager.HasIndex<GuideEntryPrototype>(species))
-                page = new ProtoId<GuideEntryPrototype>(species.Id); // Gross. See above todo comment.
 
-            if (_prototypeManager.Resolve(DefaultSpeciesGuidebook, out var guideRoot))
-            {
-                var dict = new Dictionary<ProtoId<GuideEntryPrototype>, GuideEntry>();
-                dict.Add(DefaultSpeciesGuidebook, guideRoot);
-                //TODO: Don't close the guidebook if its already open, just go to the correct page
-                guidebookController.OpenGuidebook(dict, includeChildren:true, selected: page);
-            }
+            if (_prototypeManager.HasIndex<GuideEntryPrototype>(species))
+                page = new ProtoId<GuideEntryPrototype>(species.Id);
+
+            guidebookController.OpenGuidebook(
+                new List<ProtoId<GuideEntryPrototype>> { page },
+                includeChildren: true,
+                selected: page
+            );
         }
 
         /// <summary>

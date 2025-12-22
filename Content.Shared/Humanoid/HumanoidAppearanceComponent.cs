@@ -64,6 +64,7 @@ public sealed partial class HumanoidAppearanceComponent : Component
     /// </summary>
     [DataField(required: true), AutoNetworkedField]
     public ProtoId<SpeciesPrototype> Species { get; set; }
+        = SharedHumanoidAppearanceSystem.DefaultSpecies;
 
     /// <summary>
     ///     The initial profile and base layers to apply to this humanoid.

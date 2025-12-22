@@ -13,9 +13,12 @@ using System.Numerics;
 using Content.Client.Lobby;
 using Content.Client.UserInterface.Controls;
 using Content.Shared.Heretic;
+using Content.Shared.Humanoid;
+using Content.Shared.Humanoid.Markings;
 using Robust.Client.Player;
 using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.XAML;
+using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
 
 namespace Content.Client._Goobstation.Heretic.UI;
@@ -25,6 +28,7 @@ public sealed class LivingHeartMenu : RadialMenu
     [Dependency] private readonly EntityManager _ent = default!;
     [Dependency] private readonly IPrototypeManager _prot = default!;
     [Dependency] private readonly IPlayerManager _player = default!;
+    [Dependency] private readonly SharedHumanoidAppearanceSystem _appearance = default!;
 
     private readonly LobbyUIController _controller;
 
@@ -49,7 +53,8 @@ public sealed class LivingHeartMenu : RadialMenu
     private void UpdateUI()
     {
         var main = FindControl<RadialContainer>("Main");
-        if (main == null) return;
+        if (main == null)
+            return;
 
         var player = _player.LocalEntity;
 
@@ -58,17 +63,24 @@ public sealed class LivingHeartMenu : RadialMenu
 
         foreach (var target in heretic.SacrificeTargets)
         {
-            if (!_ent.TryGetEntity(target.Entity, out var ent) || !_ent.EntityExists(ent))
-                ent = _controller.LoadProfileEntity(target.Profile, _prot.Index(target.Job), true);
+            if (!_ent.TryGetEntity(target.Entity, out EntityUid? ent))
+                continue;
+
+            var uid = ent.Value;
+
+            var tooltip = target.Profile?.Name ?? "Unknown";
+            if (_ent.TryGetComponent<MetaDataComponent>(uid, out var md))
+                tooltip = md.EntityName;
 
             var button = new EmbeddedEntityMenuButton
             {
+                StyleClasses = { "RadialMenuButton" },
                 SetSize = new Vector2(64, 64),
-                ToolTip = target.Profile.Name,
-                NetEntity = target.Entity,
+                ToolTip = tooltip,
+                NetEntity = target.Entity
             };
 
-            var texture = new SpriteView(ent.Value, _ent)
+            var texture = new SpriteView(uid, _ent)
             {
                 OverrideDirection = Direction.South,
                 VerticalAlignment = VAlignment.Center,
@@ -76,10 +88,11 @@ public sealed class LivingHeartMenu : RadialMenu
                 VerticalExpand = true,
                 Stretch = SpriteView.StretchMode.Fill,
             };
-            button.AddChild(texture);
 
+            button.AddChild(texture);
             main.AddChild(button);
         }
+
         AddAction(main);
     }
 

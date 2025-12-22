@@ -128,7 +128,6 @@ namespace Content.Server.Database.Migrations.Sqlite
                     preference_id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     user_id = table.Column<Guid>(type: "TEXT", nullable: false),
-                    selected_character_slot = table.Column<int>(type: "INTEGER", nullable: false),
                     admin_ooc_color = table.Column<string>(type: "TEXT", nullable: false),
                     construction_favorites = table.Column<string>(type: "TEXT", nullable: false)
                 },
@@ -250,6 +249,27 @@ namespace Content.Server.Database.Migrations.Sqlite
                 });
 
             migrationBuilder.CreateTable(
+                name: "job_priority_entry",
+                columns: table => new
+                {
+                    job_priority_entry_id = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    preference_id = table.Column<int>(type: "INTEGER", nullable: false),
+                    job_name = table.Column<string>(type: "TEXT", nullable: false),
+                    priority = table.Column<int>(type: "INTEGER", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_job_priority_entry", x => x.job_priority_entry_id);
+                    table.ForeignKey(
+                        name: "FK_job_priority_entry_preference_preference_id",
+                        column: x => x.preference_id,
+                        principalTable: "preference",
+                        principalColumn: "preference_id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "profile",
                 columns: table => new
                 {
@@ -258,6 +278,7 @@ namespace Content.Server.Database.Migrations.Sqlite
                     slot = table.Column<int>(type: "INTEGER", nullable: false),
                     char_name = table.Column<string>(type: "TEXT", nullable: false),
                     flavor_text = table.Column<string>(type: "TEXT", nullable: false),
+                    borg_name = table.Column<string>(type: "TEXT", nullable: false),
                     age = table.Column<int>(type: "INTEGER", nullable: false),
                     sex = table.Column<string>(type: "TEXT", nullable: false),
                     gender = table.Column<string>(type: "TEXT", nullable: false),
@@ -270,7 +291,7 @@ namespace Content.Server.Database.Migrations.Sqlite
                     eye_color = table.Column<string>(type: "TEXT", nullable: false),
                     skin_color = table.Column<string>(type: "TEXT", nullable: false),
                     spawn_priority = table.Column<int>(type: "INTEGER", nullable: false),
-                    pref_unavailable = table.Column<int>(type: "INTEGER", nullable: false),
+                    enabled = table.Column<bool>(type: "INTEGER", nullable: false),
                     preference_id = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
@@ -400,8 +421,7 @@ namespace Content.Server.Database.Migrations.Sqlite
                     job_id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     profile_id = table.Column<int>(type: "INTEGER", nullable: false),
-                    job_name = table.Column<string>(type: "TEXT", nullable: false),
-                    priority = table.Column<int>(type: "INTEGER", nullable: false)
+                    job_name = table.Column<string>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -1028,7 +1048,8 @@ namespace Content.Server.Database.Migrations.Sqlite
             migrationBuilder.CreateIndex(
                 name: "IX_cdprofile_profile_id",
                 table: "cdprofile",
-                column: "profile_id");
+                column: "profile_id",
+                unique: true);
 
             migrationBuilder.CreateIndex(
                 name: "IX_connection_log_server_id",
@@ -1052,13 +1073,6 @@ namespace Content.Server.Database.Migrations.Sqlite
                 unique: true);
 
             migrationBuilder.CreateIndex(
-                name: "IX_job_one_high_priority",
-                table: "job",
-                column: "profile_id",
-                unique: true,
-                filter: "priority = 3");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_job_profile_id",
                 table: "job",
                 column: "profile_id");
@@ -1068,6 +1082,18 @@ namespace Content.Server.Database.Migrations.Sqlite
                 table: "job",
                 columns: new[] { "profile_id", "job_name" },
                 unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_job_one_high_priority",
+                table: "job_priority_entry",
+                column: "preference_id",
+                unique: true,
+                filter: "priority = 3");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_job_priority_entry_preference_id",
+                table: "job_priority_entry",
+                column: "preference_id");
 
             migrationBuilder.CreateIndex(
                 name: "IX_play_time_player_id_tracker",
@@ -1253,6 +1279,9 @@ namespace Content.Server.Database.Migrations.Sqlite
 
             migrationBuilder.DropTable(
                 name: "job");
+
+            migrationBuilder.DropTable(
+                name: "job_priority_entry");
 
             migrationBuilder.DropTable(
                 name: "play_time");

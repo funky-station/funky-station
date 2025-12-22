@@ -77,7 +77,7 @@ namespace Content.Client.Lobby
             {
                 [slot] = new HumanoidCharacterProfile(profile) {Enabled = enable},
             };
-            Preferences = new PlayerPreferences(characters, Preferences.AdminOOCColor, Preferences.JobPriorities);
+            Preferences = new PlayerPreferences(characters, Preferences.AdminOOCColor, Preferences.JobPriorities, Preferences.ConstructionFavorites);
 
             var msg = new MsgSetCharacterEnable
             {
@@ -92,7 +92,7 @@ namespace Content.Client.Lobby
             var collection = IoCManager.Instance!;
             profile.EnsureValid(_playerManager.LocalSession!, collection);
             var characters = new Dictionary<int, ICharacterProfile>(Preferences.Characters) {[slot] = profile};
-            Preferences = new PlayerPreferences(characters, Preferences.AdminOOCColor, Preferences.JobPriorities);
+            Preferences = new PlayerPreferences(characters, Preferences.AdminOOCColor, Preferences.JobPriorities, Preferences.ConstructionFavorites);
             var msg = new MsgUpdateCharacter
             {
                 Profile = profile,
@@ -115,7 +115,7 @@ namespace Content.Client.Lobby
 
             var l = lowest.Value;
             characters.Add(l, profile);
-            Preferences = new PlayerPreferences(characters, Preferences.AdminOOCColor, Preferences.JobPriorities);
+            Preferences = new PlayerPreferences(characters, Preferences.AdminOOCColor, Preferences.JobPriorities, Preferences.ConstructionFavorites);
 
             UpdateCharacter(profile, l);
         }
@@ -128,7 +128,7 @@ namespace Content.Client.Lobby
         public void DeleteCharacter(int slot)
         {
             var characters = Preferences.Characters.Where(p => p.Key != slot);
-            Preferences = new PlayerPreferences(characters, Preferences.AdminOOCColor, Preferences.JobPriorities);
+            Preferences = new PlayerPreferences(characters, Preferences.AdminOOCColor, Preferences.JobPriorities, Preferences.ConstructionFavorites);
             var msg = new MsgDeleteCharacter
             {
                 Slot = slot
@@ -144,10 +144,21 @@ namespace Content.Client.Lobby
         {
             Preferences = new PlayerPreferences(Preferences.Characters,
                 Preferences.AdminOOCColor,
-                jobPriorities);
+                jobPriorities,
+                Preferences.ConstructionFavorites);
             var msg = new MsgUpdateJobPriorities
             {
                 JobPriorities = jobPriorities,
+            };
+            _netManager.ClientSendMessage(msg);
+        }
+
+        public void UpdateConstructionFavorites(List<ProtoId<ConstructionPrototype>> favorites)
+        {
+            Preferences = new PlayerPreferences(Preferences.Characters, Preferences.AdminOOCColor, Preferences.JobPriorities, favorites);
+            var msg = new MsgUpdateConstructionFavorites
+            {
+                Favorites = favorites
             };
             _netManager.ClientSendMessage(msg);
         }

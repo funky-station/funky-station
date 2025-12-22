@@ -1,4 +1,5 @@
-﻿using Content.Server.Clothing.Systems;
+﻿using System.Linq;
+using Content.Server.Clothing.Systems;
 using Content.Server.Preferences.Managers;
 using Content.Shared.Clothing;
 using Content.Shared.Clothing.Components;
@@ -89,8 +90,16 @@ public sealed class ChameleonControllerSystem : SharedChameleonControllerSystem
         var userId = actorComponent.PlayerSession.UserId;
         var prefs = _preferences.GetPreferences(userId);
 
-        if (prefs.SelectedCharacter is not HumanoidCharacterProfile profile)
+        var profile = prefs.Characters.Values
+                          .OfType<HumanoidCharacterProfile>()
+                          .FirstOrDefault(p => p.Enabled)
+                      ?? prefs.Characters.Values
+                          .OfType<HumanoidCharacterProfile>()
+                          .FirstOrDefault();
+
+        if (profile == null)
             return;
+
 
         var jobProtoId = LoadoutSystem.GetJobPrototype(jobPrototype.ID);
 

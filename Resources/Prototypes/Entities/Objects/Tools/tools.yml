@@ -744,6 +744,8 @@
   - type: Item
     sprite: Objects/Tools/rcd.rsi
     heldPrefix: ammo
+    shape:
+    - 0,0,1,0
   - type: PhysicalComposition
     materialComposition:
       Steel: 100

@@ -22,9 +22,11 @@
 # SPDX-FileCopyrightText: 2024 MACMAN2003 <macman2003c@gmail.com>
 # SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2024 chromiumboy <50505512+chromiumboy@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Elliot Culbertson <77753819+omgitsatrex@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 John Doe <johndoe@example.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
@@ -37,6 +39,7 @@
   name: reinforced plasma window
   parent: WindowRCDResistant
   components:
+  - type: MeltImmune
   - type: Sprite
     drawdepth: WallTops
     sprite: Structures/Windows/reinforced_plasma_window.rsi
@@ -111,6 +114,7 @@
     snap:
     - Window
   components:
+  - type: MeltImmune
   - type: Sprite
     sprite: Structures/Windows/directional.rsi
     state: plasma_reinforced_window

@@ -39,6 +39,8 @@
 # SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 QueerCats <jansencheng3@gmail.com>
+# SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 otokonoko-dev <248204705+otokonoko-dev@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
@@ -113,6 +115,8 @@
     sprite: Objects/Tanks/oxygen.rsi
   - type: Clothing
     sprite: Objects/Tanks/oxygen.rsi
+  - type: BedTankVisual
+    visual: Oxygen
 
 - type: entity
   parent: GasTankRoundBase
@@ -126,6 +130,8 @@
     sprite: Objects/Tanks/red.rsi
   - type: Clothing
     sprite: Objects/Tanks/red.rsi
+  - type: BedTankVisual
+    visual: Nitrogen
 
 - type: entity
   parent: GasTankRoundBase
@@ -158,6 +164,8 @@
   - type: Tag # Goobstation - For survival boxes
     tags:
     - EmergencyOxygenTank
+  - type: BedTankVisual
+    visual: Oxygen
 
 
 - type: entity
@@ -175,6 +183,8 @@
   - type: Tag # Goobstation - For survival boxes
     tags:
     - EmergencyNitrogenTank
+  - type: BedTankVisual
+    visual: Nitrogen
 
 - type: entity
   parent: EmergencyOxygenTank
@@ -277,6 +287,8 @@
   components:
   - type: GasTank
     outputPressure: 101.3
+  - type: BedTankVisual
+    visual: Generic
 
 - type: entity
   parent: GasTankRoundBase
@@ -292,6 +304,8 @@
     outputPressure: 30.4
   - type: Clothing
     sprite: Objects/Tanks/anesthetic.rsi
+  - type: BedTankVisual
+    visual: Nitrous
 
 - type: entity
   # it's a square so no rolling dough
@@ -311,3 +325,5 @@
     slots:
     - Belt
     - tankStorage
+  - type: BedTankVisual
+    visual: Plasma

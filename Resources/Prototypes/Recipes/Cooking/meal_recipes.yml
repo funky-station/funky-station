@@ -166,7 +166,6 @@
   id: RecipeBearger
   name: bearger recipe
   result: FoodBurgerBear
-  resultCount: 2
   time: 10
   group: Savory
   solids:

@@ -715,7 +715,7 @@
   group: Pizza
   solids:
     FoodDoughFlat: 1
-    FoodCheeseSlice: 1
+    FoodCheeseSlice: 2
     FoodTomato: 4
 
 - type: microwaveMealRecipe
@@ -727,6 +727,8 @@
   solids:
     FoodDoughFlat: 1
     FoodMushroom: 5
+    FoodCheeseSlice: 1
+    FoodTomato: 2
 
 - type: microwaveMealRecipe
   id: RecipeMeatPizza
@@ -752,6 +754,7 @@
     FoodCarrot: 1
     FoodCorn: 1
     FoodTomato: 1
+    FoodCheeseSlice: 1
 
 - type: microwaveMealRecipe
   id: RecipeHawaiianPizza
@@ -761,8 +764,11 @@
   group: Pizza
   solids:
     FoodDoughFlat: 1
-    FoodMeatChickenCutlet: 3
+    FoodMeatChicken: 2
     FoodPineappleSlice: 5
+    FoodTomato: 1
+    FoodCheeseSlice: 1
+
 
 - type: microwaveMealRecipe
   id: RecipeDankPizza
@@ -808,7 +814,7 @@
   group: Moth
   solids:
     FoodDoughCottonFlat: 1
-    CottonBol: 4
+    CottonBol: 6
 
 #Italian
 - type: microwaveMealRecipe
@@ -873,7 +879,7 @@
   group: Savory
   reagents:
     Oats: 15
-    Water: 10
+    Milk: 10
   solids:
     FoodBowlBig: 1
 
@@ -1450,7 +1456,7 @@
   reagents:
     TableSalt: 5
   solids:
-    FoodCarrot: 1
+    FoodCarrot: 2
 
 - type: microwaveMealRecipe
   id: RecipeNachos
@@ -2029,8 +2035,8 @@
   group: Savory
   solids:
     FoodChiliPepper: 2
-    FoodMeatCutlet: 1
-    FoodCorn: 1
+    FoodMeatCutlet: 2
+    FoodDoughTortilla: 1
 
 # SALADS: These should be moved out of the microwave as soon as possible
 - type: microwaveMealRecipe

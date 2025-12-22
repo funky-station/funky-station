@@ -153,3 +153,18 @@
 
 - type: Tag
   id: MagazineMagnumSubMachineGun
+
+- type: Tag
+  id: AtmosBackTank
+
+- type: Tag
+  id: NozzleBackTank
+
+- type: Tag
+  id: Debug
+
+- type: Tag
+  id: Nozzle
+
+- type: Tag
+  id: MagazineCaselessRifle

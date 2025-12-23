@@ -9,9 +9,9 @@
   id: Electrolyzer
   name: electrolyzer
   components:
-  - type: MeltImmune
   - type: Electrolyzer
   - type: AtmosDevice
+  - type: MeltImmune
   - type: ApcPowerReceiver
     powerDisabled: true
   - type: Sprite

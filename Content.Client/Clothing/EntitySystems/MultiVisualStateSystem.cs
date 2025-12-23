@@ -26,7 +26,7 @@ public sealed class MultiVisualClientSystem : EntitySystem
     private void OnAppearanceChanged(Entity<MultiVisualStateComponent> ent, ref AppearanceChangeEvent args)
     {
         // Update the local component state based on Appearance data
-        if (_appearance.TryGetData(ent.Owner, ToggleableLightVisuals.Enabled, out bool lightEnabled, args.Component))
+        if (_appearance.TryGetData(ent.Owner, ToggleableVisuals.Enabled, out bool lightEnabled, args.Component))
         {
             ent.Comp.LightState = lightEnabled;
 

@@ -41,26 +41,38 @@ public sealed partial class SprayPainterGroup : BoxContainer
         }
     }
 
-    private void GenerateItems(ListData data, ListContainerButton button)
+    private void GenerateItems(ListData data, IListEntry entry)
     {
         if (data is not SpriteListData spriteListData)
             return;
 
-        var box = new BoxContainer() { Orientation = LayoutOrientation.Horizontal };
+        if (entry is not ListContainerButton button)
+            return;
+
+        var box = new BoxContainer
+        {
+            Orientation = LayoutOrientation.Horizontal
+        };
+
         var protoView = new EntityPrototypeView();
         protoView.SetPrototype(spriteListData.Prototype);
-        var label = new Label()
+
+        var label = new Label
         {
-            Text = Loc.GetString($"spray-painter-style-{spriteListData.Group.ToLower()}-{spriteListData.Style.ToLower()}")
+            Text = Loc.GetString(
+                $"spray-painter-style-{spriteListData.Group.ToLower()}-{spriteListData.Style.ToLower()}")
         };
 
         box.AddChild(protoView);
         box.AddChild(label);
+
         button.AddChild(box);
         button.AddStyleClass(ListContainer.StyleClassListContainerButton);
+
         button.OnPressed += _ => OnButtonPressed?.Invoke(spriteListData);
 
         if (spriteListData.SelectedIndex == button.Index)
             button.Pressed = true;
     }
 }
+

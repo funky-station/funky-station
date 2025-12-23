@@ -71,7 +71,6 @@ namespace Content.Client.VendingMachines
 
             var system = EntMan.System<VendingMachineSystem>();
             _cachedInventory = system.GetAllInventory(Owner);
-            _menu?.UpdateAmounts(_cachedInventory, enabled);
         }
 
         private void OnItemSelected(GUIBoundKeyEventArgs args, ListData data)

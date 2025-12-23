@@ -117,9 +117,9 @@ namespace Content.Client.Construction.UI
                 box.AddChild(entProtoView);
                 box.AddChild(label);
 
-                button.AddChild(box);
-                button.ToolTip = prototype.Description;
-                button.AddStyleClass(ListContainer.StyleClassListContainerButton);
+                button.ControlRoot.AddChild(box);
+                button.ControlRoot.ToolTip = prototype.Description;
+                button.ControlRoot.AddStyleClass(ListContainer.StyleClassListContainerButton);
             };
 
             SearchBar.OnTextChanged += _ =>

@@ -76,6 +76,7 @@
     flavors:
       - cheesy
       - potatoes
+  - type: SolutionContainerManager         
     solutions:
       food:
         maxVol: 30

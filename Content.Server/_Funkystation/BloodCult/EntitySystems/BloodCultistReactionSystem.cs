@@ -14,7 +14,9 @@ using Content.Shared.Chemistry;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Reagent;
 using Content.Server.Damage.Systems;
+using Content.Shared.Body.Components;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Systems;
 using Content.Shared.FixedPoint;
 using Content.Shared.Popups;
@@ -90,8 +92,8 @@ public sealed class BloodCultistReactionSystem : EntitySystem
 		// Each unit of consumed blood restores 2 units of their blood volume
 		if (TryComp<BloodstreamComponent>(uid, out var bloodstream))
 		{
-			_bloodstream.TryModifyBloodLevel(uid, bloodAmount.Float() * 2.0f, bloodstream);
-			
+			_bloodstream.TryModifyBloodLevel(uid, bloodAmount.Float() * 2.0f);
+
 			/// Commented out below code. Why did I ever think it was a good idea to bleed when you drink blood?
 			// Cause brief bleeding (1 unit/second for each 5 units consumed)
 			// This represents the blood being processed through their system
@@ -100,7 +102,7 @@ public sealed class BloodCultistReactionSystem : EntitySystem
 			//{
 			//	_bloodstream.TryModifyBleedAmount(uid, bleedAmount, bloodstream);
 			//}
-			
+
 		}
 
 		/// Commented out, handled by the blooddrinker flag now
@@ -210,8 +212,8 @@ public sealed class BloodCultistReactionSystem : EntitySystem
 
 		// Make it so that the deCultify effect is only 25% as strong as the metabolism version, because touch effects multiply how much is being sprayed
 		// The idea is to make it so you can deconvert with a fire extinguisher, but that a cultist would probably reasonably kill you first in a fair fight.
-		var deCultifyMultiplier = .35f; 
-		
+		var deCultifyMultiplier = .35f;
+
 		var scale = args.ReagentQuantity.Quantity.Float();
 		var deCultifyAmount = scale * deCultifyMultiplier;
 

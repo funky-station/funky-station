@@ -183,6 +183,19 @@
     priority: 2
     lightningExplode: false
   - type: SurgeryContaminable # DeltaV - surgery cross contamination
+  - type: Cpr
+    change:
+      types:
+        Blunt: 0.2
+    bonusHeal:
+      types:
+        Asphyxiation: -5
+        Bloodloss: -1.5
+    sound:
+      path: "/Audio/Effects/cprpulse.ogg"
+      params:
+        volume: 0.5
+        variation: 0.125
 
 # Used for mobs that can enter combat mode and can attack.
 - type: entity
@@ -280,20 +293,6 @@
   abstract: true
   components:
   - type: Internals
-  - type: Cpr
-    change:
-      types:
-        Bloodloss: -0.5
-        Blunt: 0.2
-    bonusHeal:
-      types:
-        Asphyxiation: -5
-        Bloodloss: -1.5
-    sound:
-      path: "/Audio/Effects/cprpulse.ogg"
-      params:
-        volume: 0.5
-        variation: 0.125
   - type: Respirator
     damage:
       types:

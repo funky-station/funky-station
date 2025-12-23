@@ -103,11 +103,14 @@ public sealed class RespiratorSystem : EntitySystem
     {
         base.Update(frameTime);
 
-        var query = EntityQueryEnumerator<RespiratorComponent, BodyComponent>();
-        while (query.MoveNext(out var uid, out var respirator, out var body))
+        var query = EntityQueryEnumerator<RespiratorComponent>();
+        while (query.MoveNext(out var uid, out var respirator))
         {
             if (_gameTiming.CurTime < respirator.NextUpdate)
                 continue;
+
+            // resolve body optionally to support simple mobs
+            TryComp<BodyComponent>(uid, out var body);
 
             respirator.NextUpdate += respirator.UpdateInterval;
 
@@ -115,13 +118,18 @@ public sealed class RespiratorSystem : EntitySystem
                 continue;
 
             // Begin DeltaV Additions
-            var organs = _bodySystem.GetBodyOrganEntityComps<LungComponent>((uid, body));
-            var multiplier = -1f;
-            foreach (var (_, lung, _) in organs)
+            var multiplier = 0f; // default to 0 for bodiless mobs so they don't suffocate automatically
+            if (body != null)
             {
-                multiplier *= lung.SaturationLoss;
+                multiplier = -1f;
+                var organs = _bodySystem.GetBodyOrganEntityComps<LungComponent>((uid, body));
+                foreach (var (_, lung, _) in organs)
+                {
+                    multiplier *= lung.SaturationLoss;
+                }
             }
             // End DeltaV Additions
+
             UpdateSaturation(uid, multiplier * (float) respirator.UpdateInterval.TotalSeconds, respirator); // DeltaV: use multiplier instead of negating
 
             var breathe = false;

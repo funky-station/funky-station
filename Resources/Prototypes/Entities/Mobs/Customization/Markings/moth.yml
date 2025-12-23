@@ -295,7 +295,9 @@
   speciesRestriction: [Moth]
   sprites:
   - sprite: Mobs/Customization/Moth/moth_wings.rsi
-    state: charred
+    state: charred_primary
+  - sprite: Mobs/Customization/Moth/moth_wings.rsi
+    state: charred_secondary
 
 - type: marking
   id: MothWingsDbushy
@@ -307,6 +309,8 @@
     state: dbushy_primary
   - sprite: Mobs/Customization/Moth/moth_wings.rsi
     state: dbushy_secondary
+  - sprite: Mobs/Customization/Moth/moth_wings.rsi
+    state: dbushy_tertiary
 
 - type: marking
   id: MothWingsDeathhead
@@ -335,7 +339,9 @@
   speciesRestriction: [Moth]
   sprites:
   - sprite: Mobs/Customization/Moth/moth_wings.rsi
-    state: dfan
+    state: dfan_primary
+  - sprite: Mobs/Customization/Moth/moth_wings.rsi
+    state: dfan_secondary
 
 - type: marking
   id: MothWingsFeathery
@@ -344,7 +350,9 @@
   speciesRestriction: [Moth]
   sprites:
   - sprite: Mobs/Customization/Moth/moth_wings.rsi
-    state: feathery
+    state: feathery_primary
+  - sprite: Mobs/Customization/Moth/moth_wings.rsi
+    state: feathery_secondary
 
 - type: marking
   id: MothWingsFirewatch

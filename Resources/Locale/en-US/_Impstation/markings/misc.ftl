@@ -96,9 +96,9 @@ marking-MothBee-bee2 = Wings
 # Frontier: stripe < Stripe
 marking-MothBee-bee3 = Inner Stripe
 marking-MothBeetleTail = Beetle Wings (Junebug)
-marking-MothBeetleTail-beetle1 = Outline
-marking-MothBeetleTail-beetle2 = Wings
-marking-MothBeetleTail-beetle3 = Shine
+marking-MothBeetleTail-beetle1 = Wings
+marking-MothBeetleTail-beetle2 = Shell
+marking-MothBeetleTail-beetle3 = Top
 marking-MothBeetleHorn1 = Beetle Horn (Pronged)
 marking-MothBeetleHorn1-mothbeetlehorn1 = Beetle Horn (Pronged)
 marking-MothBeetleHorn2 = Beetle Horn (Lance)

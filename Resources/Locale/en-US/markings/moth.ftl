@@ -72,11 +72,13 @@ marking-MothWingsDefault-default_primary = Primary
 marking-MothWingsDefault-default_secondary = Secondary
 marking-MothWingsDefault = Wings (Default)
 
-marking-MothWingsCharred-charred = Wing
+marking-MothWingsCharred-charred_primary = Primary
+marking-MothWingsCharred-charred_secondary = Secondary
 marking-MothWingsCharred = Wings (Charred)
 
 marking-MothWingsDbushy-dbushy_primary = Primary
 marking-MothWingsDbushy-dbushy_secondary = Secondary
+marking-MothWingsDbushy-dbushy_tertiary = Tertiary
 marking-MothWingsDbushy = Wings (Dark & Bushy)
 
 marking-MothWingsDeathhead-deathhead_primary = Primary
@@ -86,10 +88,12 @@ marking-MothWingsDeathhead = Wings (Death's-Head)
 marking-MothWingsFan-fan = Wing
 marking-MothWingsFan = Wings (Fan)
 
-marking-MothWingsDfan-dfan = Wing
+marking-MothWingsDfan-dfan_primary = Primary
+marking-MothWingsDfan-dfan_secondary = Secondary
 marking-MothWingsDfan = Wings (Dark & Fan)
 
-marking-MothWingsFeathery-feathery = Wing
+marking-MothWingsFeathery-feathery_primary = Primary
+marking-MothWingsFeathery-feathery_secondary = Secondary
 marking-MothWingsFeathery = Wings (Feathery)
 
 marking-MothWingsFirewatch-firewatch_primary = Primary

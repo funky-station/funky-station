@@ -16,7 +16,11 @@
       "directions": 4
     },
     {
-      "name": "charred",
+      "name": "charred_primary",
+      "directions": 4
+    },
+    {
+      "name": "charred_secondary",
       "directions": 4
     },
     {
@@ -25,6 +29,10 @@
     },
     {
       "name": "dbushy_secondary",
+      "directions": 4
+    },
+    {
+      "name": "dbushy_tertiary",
       "directions": 4
     },
     {
@@ -40,11 +48,19 @@
       "directions": 4
     },
     {
-      "name": "dfan",
+      "name": "dfan_primary",
       "directions": 4
     },
     {
-      "name": "feathery",
+      "name": "dfan_secondary",
+      "directions": 4
+    },
+    {
+      "name": "feathery_primary",
+      "directions": 4
+    },
+    {
+      "name": "feathery_secondary",
       "directions": 4
     },
     {

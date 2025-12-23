@@ -23,7 +23,7 @@
           - DefibrillatorCompact
         insertOnInteract: true
         priority: 9
-      tank_slot:
+      tank_slot1:
         whitelist:
           tags:
           - OxygenTank
@@ -39,8 +39,8 @@
     containers:
       storagebase: !type:Container
         ents: []
-      tank_slot: !type:ContainerSlot {}
-      defib_slot: !type:ContainerSlot {}
+      tank_slot1: !type:ContainerSlot {}
+      defib_slot1: !type:ContainerSlot {}
   - type: ItemMapper
     mapLayers:
       front_oxy:
@@ -137,7 +137,7 @@
           - DefibrillatorCompact
         insertOnInteract: true
         priority: 9
-      tank_slot:
+      tank_slot1:
         startingItem: OxygenTank
         whitelist:
           tags:
@@ -154,8 +154,8 @@
     containers:
       storagebase: !type:Container
         ents: []
-      tank_slot: !type:ContainerSlot {}
-      defib_slot: !type:ContainerSlot {}
+      tank_slot1: !type:ContainerSlot {}
+      defib_slot1: !type:ContainerSlot {}
   - type: ItemMapper
     mapLayers:
       front_oxy:

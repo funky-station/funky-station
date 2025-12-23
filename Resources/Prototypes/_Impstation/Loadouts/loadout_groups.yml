@@ -181,7 +181,7 @@
     id: BotanistPDA
     belt: ClothingBeltPlantFilled
     outerClothing: ClothingOuterApronBotanist
-    head: ClothingHeadBandBotany
+    head: ClothingHeadBandGreen
     pocket1: EmergencyOxygenTank
     pocket2: ClothingMaskBreath
     ears: ClothingHeadsetService
@@ -197,7 +197,7 @@
     pocket1: EmergencyOxygenTank
     pocket2: ClothingMaskBreath
     ears: ClothingHeadsetMedical
-    eyes: ClothingEyesGlassesHudMedical
+    eyes: ClothingEyesHudMedical
 
 - type: startingGear #the engineer!
   id: StartingGearApidEngineer

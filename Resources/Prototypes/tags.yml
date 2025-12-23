@@ -31,6 +31,9 @@
   id: AnomalyHost # Targeting whitelist: BaseAnomalyInjector
 
 - type: Tag
+  id: AnomalyLocator #Used by Anomaly Locator to locate anomalies
+
+- type: Tag
   id: AppraisalTool # Storage whitelist: BaseClothingBeltEngineering
 
 - type: Tag

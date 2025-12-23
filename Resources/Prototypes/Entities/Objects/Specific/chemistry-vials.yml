@@ -149,8 +149,9 @@
     fillBaseName: vial-1-
     inHandsMaxFillLevels: 4
     inHandsFillBaseName: -fill-
-  - type: Drink
-    solution: beaker
+  - type: Edible
+    edible: Drink
+    solution: vial
   - type: SolutionContainerManager
     solutions:
       beaker:

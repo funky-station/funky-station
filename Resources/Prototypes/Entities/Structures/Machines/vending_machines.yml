@@ -1645,40 +1645,6 @@
 
 - type: entity
   parent: VendingMachine
-  id: VendingMachineSalvage
-  name: Salvage Vendor
-  description: A dwarf's best friend!
-  components:
-  - type: VendingMachine
-    pack: SalvageEquipmentInventory
-    offState: off
-    brokenState: broken
-    normalState: normal-unshaded
-    denyState: deny-unshaded
-  - type: Sprite
-    sprite: Structures/Machines/VendingMachines/mining.rsi
-    layers:
-    - state: "off"
-      map: ["enum.VendingMachineVisualLayers.Base"]
-    - state: "off"
-      map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
-      shader: unshaded
-    - state: panel
-      map: ["enum.WiresVisualLayers.MaintenancePanel"]
-  - type: PointLight
-    radius: 2
-    energy: 3.0
-    color: "#b89f25"
-    mask: /Textures/Effects/LightMasks/cone.png
-    autoRot: true
-  - type: AccessReader
-    access: [["Salvage"]]
-  - type: GuideHelp
-    guides:
-    - Salvage
-
-- type: entity
-  parent: VendingMachine
   id: VendingMachineDonut
   name: Monkin' Donuts
   description: A donut vendor provided by Robust Industries, LLC.

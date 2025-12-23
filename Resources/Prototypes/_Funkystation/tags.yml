@@ -171,3 +171,6 @@
 
 - type: Tag
   id: SpeedLoaderPistol
+
+- type: Tag
+  id: TechDiskTerminalCircuitBoard

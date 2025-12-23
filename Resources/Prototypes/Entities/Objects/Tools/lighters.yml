@@ -296,7 +296,7 @@
     predictable: false
     soundDeactivate:
       path: /Audio/Items/Lighters/zippo_fancy_close.ogg
-  - type: FancyLighter
+  - type: CheapLighter
     soundActivate:
       path: /Audio/Items/Lighters/zippo_fancy_open.ogg
   - type: SolutionContainerManager

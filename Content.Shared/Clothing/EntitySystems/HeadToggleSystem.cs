@@ -3,6 +3,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared.Actions;
+using Content.Shared.Actions.Components;
 using Content.Shared.Clothing.Components;
 using Content.Shared.Inventory;
 using Content.Shared.Inventory.Events;
@@ -41,9 +42,8 @@ public sealed class HeadToggleSystem : EntitySystem
         if (head.ToggleActionEntity == null || !_timing.IsFirstTimePredicted || !head.IsEnabled)
             return;
 
-        if (TryComp<InstantActionComponent>(head.ToggleActionEntity, out var action)
-            && action.Cooldown.HasValue
-            && _timing.CurTime < action.Cooldown.Value.End)
+        if (TryComp<ActionComponent>(head.ToggleActionEntity, out var action)
+            && _actionSystem.IsCooldownActive(action))
         {
             return;
         }

@@ -8,7 +8,7 @@ namespace Content.Shared.Traits.Assorted;
 
 /// <summary>
 /// Component for migraines.
-/// Note: Movement slowdown is handled by SlowedDownComponent which is added alongside this.
+/// Note: Movement slowdown is handled by MovementSpeedModifierSystem.
 /// </summary>
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class MigraineComponent : Component

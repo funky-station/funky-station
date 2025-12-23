@@ -2,8 +2,11 @@
 //
 // SPDX-License-Identifier: MIT
 
+using Content.Shared.Movement.Systems;
 using Content.Shared.StatusEffect;
 using Content.Shared.Stunnable;
+using Robust.Shared.Timing;
+
 namespace Content.Shared.Traits.Assorted;
 
 /// <summary>
@@ -13,6 +16,10 @@ public sealed class MigraineSystem : EntitySystem
 {
     [Dependency] private readonly SharedStunSystem _stun = default!;
     [Dependency] private readonly StatusEffectsSystem _statusEffects = default!;
+    [Dependency] private readonly MovementSpeedModifierSystem _movement = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
+
+
 
     public override void Initialize()
     {
@@ -97,13 +104,14 @@ public sealed class MigraineSystem : EntitySystem
     private void OnMigraineInit(EntityUid uid, MigraineComponent component, ComponentInit args)
     {
         component.CurrentBlur = MathF.Min(0.01f, component.BlurryMagnitude);
-        component.PulseAccumulator = (float) (DateTime.UtcNow.TimeOfDay.TotalSeconds % 1000.0); // awesome seed generation
+        component.PulseAccumulator =
+            (float) (DateTime.UtcNow.TimeOfDay.TotalSeconds % 1000.0);
 
-        // Apply slowdown if we wanna
+        // Apply movement slowdown if enabled
         if (component.ApplySlowdown)
         {
-            // TrySlowdown with given thingy
-            _stun.TrySlowdown(uid, TimeSpan.FromHours(1), true, component.SlowdownFactor, component.SlowdownFactor);
+            EnsureComp<MigraineSlowdownComponent>(uid).Modifier =
+                component.SlowdownFactor;
         }
 
         Dirty(uid, component);
@@ -119,13 +127,13 @@ public sealed class MigraineSystem : EntitySystem
             component.IsFading = true;
 
             // Remove the slowdown immediately
-            _statusEffects.TryRemoveStatusEffect(uid, "SlowedDown");
+            RemComp<MigraineSlowdownComponent>(uid);
 
             // let update handle fade
             return;
         }
 
         // If we're already fading and this is called again, remove the slowdown
-        _statusEffects.TryRemoveStatusEffect(uid, "SlowedDown");
+        RemComp<MigraineSlowdownComponent>(uid);
     }
 }

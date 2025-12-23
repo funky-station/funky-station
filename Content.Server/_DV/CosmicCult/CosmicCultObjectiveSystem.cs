@@ -9,10 +9,10 @@
 
 using Content.Server._DV.CosmicCult.Components;
 using Content.Server.Objectives.Components;
-using Content.Server.Warps;
 using Content.Shared._DV.Roles;
 using Content.Shared.Objectives.Components;
 using Content.Shared.Roles;
+using Content.Shared.Warps;
 using Content.Shared.Whitelist;
 using Robust.Shared.Random;
 
@@ -47,7 +47,7 @@ public sealed class CosmicCultObjectiveSystem : EntitySystem
         var query = EntityQueryEnumerator<WarpPointComponent>();
         while (query.MoveNext(out var warpUid, out var warp))
         {
-            if (!_entityWhitelist.IsBlacklistFail(comp.EffigyTargetBlacklist, warpUid))
+            if (!_entityWhitelist.IsWhitelistPass(comp.EffigyTargetBlacklist, warpUid))
                 continue;
 
             if (warp.Location != null)

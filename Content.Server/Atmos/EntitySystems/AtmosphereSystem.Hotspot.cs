@@ -37,6 +37,7 @@ using Robust.Shared.Player;
 using Robust.Shared.Random;
 using Robust.Server.GameObjects;
 using Content.Shared.Audio;
+using Content.Shared.Damage.Systems;
 
 namespace Content.Server.Atmos.EntitySystems
 {

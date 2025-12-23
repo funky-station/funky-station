@@ -169,6 +169,9 @@ namespace Content.Shared.Chemistry.Reagent
         public bool WorksOnTheDead;
 
         [DataField]
+        public int Flammability = 0;
+
+        [DataField]
         public FrozenDictionary<ProtoId<MetabolismGroupPrototype>, ReagentEffectsEntry>? Metabolisms;
 
         [DataField]

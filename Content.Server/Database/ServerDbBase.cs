@@ -119,7 +119,19 @@ namespace Content.Server.Database
             var constructionFavorites = new List<ProtoId<ConstructionPrototype>>(prefs.ConstructionFavorites.Count);
             foreach (var favorite in prefs.ConstructionFavorites)
                 constructionFavorites.Add(new ProtoId<ConstructionPrototype>(favorite));
-            return null;
+
+            var jobPriorities = prefs.JobPriorities.ToDictionary(
+                j => new ProtoId<JobPrototype>(j.JobName),
+                j => (JobPriority) j.Priority
+            );
+
+            return new PlayerPreferences(
+                profiles,
+                Color.FromHex(prefs.AdminOOCColor),
+                jobPriorities,
+                constructionFavorites
+            );
+
         }
 
         public async Task SaveCharacterSlotAsync(NetUserId userId, ICharacterProfile? profile, int slot)

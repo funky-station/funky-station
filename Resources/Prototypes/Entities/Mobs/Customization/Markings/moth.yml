@@ -284,7 +284,9 @@
   speciesRestriction: [Moth]
   sprites:
   - sprite: Mobs/Customization/Moth/moth_wings.rsi
-    state: default
+    state: default_primary
+  - sprite: Mobs/Customization/Moth/moth_wings.rsi
+    state: default_secondary
 
 - type: marking
   id: MothWingsCharred

@@ -8,7 +8,11 @@
   },
   "states": [
     {
-      "name": "default",
+      "name": "default_primary",
+      "directions": 4
+    },
+    {
+      "name": "default_secondary",
       "directions": 4
     },
     {

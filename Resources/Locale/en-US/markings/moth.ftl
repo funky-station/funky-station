@@ -68,7 +68,8 @@ marking-MothAntennasUnderwing = Antennae (Underwing)
 
 
 
-marking-MothWingsDefault-default = Wing
+marking-MothWingsDefault-default_primary = Primary
+marking-MothWingsDefault-default_secondary = Secondary
 marking-MothWingsDefault = Wings (Default)
 
 marking-MothWingsCharred-charred = Wing

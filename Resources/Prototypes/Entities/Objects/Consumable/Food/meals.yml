@@ -113,6 +113,7 @@
       - potatoes
       - salty
       - cheesy
+  - type: SolutionContainerManager      
     solutions:
       food:
         maxVol: 30

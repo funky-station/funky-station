@@ -14,6 +14,7 @@
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 wilowzeta <willowzeta632146@proton.me>
+# SPDX-FileCopyrightText: 2025 AftrLite
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -474,6 +475,9 @@
   components:
   - type: NavMapBeacon
     defaultText: station-beacon-solars
+  - type: Tag
+    tags:
+    - NinjaBombingTargetBlocker
 
 - type: entity
   parent: DefaultStationBeaconEngineering
@@ -628,6 +632,9 @@
   components:
   - type: NavMapBeacon
     defaultText: station-beacon-arrivals
+  - type: Tag
+    tags:
+    - NinjaBombingTargetBlocker
 
 - type: entity
   parent: DefaultStationBeacon
@@ -716,6 +723,9 @@
   components:
   - type: NavMapBeacon
     defaultText: station-beacon-cryosleep
+  - type: Tag
+    tags:
+    - NinjaBombingTargetBlocker
 
 - type: entity
   parent: DefaultStationBeacon

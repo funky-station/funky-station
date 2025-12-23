@@ -21,7 +21,7 @@ SPDX-License-Identifier: MIT
             <PanelContainer StyleClasses="WindowHeadingBackground" Name="WindowHeader" />
             <BoxContainer Margin="4 2 4 0" Orientation="Horizontal">
                 <Label Name="WindowTitle"
-                       HorizontalExpand="True" VAlign="Center" StyleClasses="FancyWindowTitle" />
+                       HorizontalExpand="True" VAlign="Center" StyleClasses="FancyWindowTitle" ClipText="True" />
                 <TextureButton Name="HelpButton" StyleClasses="windowHelpButton" VerticalAlignment="Center" Disabled="True" Visible="False" Access="Public" />
                 <TextureButton Name="CloseButton" StyleClasses="windowCloseButton"
                                VerticalAlignment="Center" />

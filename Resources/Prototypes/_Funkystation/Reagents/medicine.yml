@@ -2,6 +2,7 @@
 # SPDX-FileCopyrightText: 2025 Eris <eris@erisws.com>
 # SPDX-FileCopyrightText: 2025 Eris <erisfiregamer1@gmail.com>
 # SPDX-FileCopyrightText: 2025 Fenn <162015305+TooSillyFennec@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 RosySaturniidae <rosysaturniidae@gmail.com>
 # SPDX-FileCopyrightText: 2025 UristMcWiki <endernate2015@gmail.com>
 # SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 jackel234 <52829582+jackel234@users.noreply.github.com>
@@ -536,6 +537,7 @@
             Cold: -5
             Heat: -3 # offsets heat damage from the pod
             Shock: -3
+            Caustic: -1
 
 - type: reagent
   id: Natusixadone

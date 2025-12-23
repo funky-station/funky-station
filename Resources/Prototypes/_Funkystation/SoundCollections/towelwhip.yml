@@ -1,0 +1,8 @@
+# SPDX-FileCopyrightText: 2025 Zergologist <114537969+Chedd-Error@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: soundCollection
+  id: TowelWhip
+  files:
+    - /Audio/_Funkystation/Items/towel_whip_crack3.ogg

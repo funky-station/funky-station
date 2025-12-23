@@ -6,6 +6,9 @@
 // SPDX-FileCopyrightText: 2024 PrPleGoo <PrPleGoo@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 eoineoineoin <github@eoinrul.es>
 // SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
+// SPDX-FileCopyrightText: 2025 Toastermeister <215405651+Toastermeister@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
 // SPDX-License-Identifier: MIT
@@ -31,7 +34,7 @@ namespace Content.Client.Overlays;
 /// <summary>
 /// Overlay that shows a health bar on mobs.
 /// </summary>
-public sealed class EntityHealthBarOverlay : Overlay
+public sealed partial class EntityHealthBarOverlay : Overlay
 {
     private readonly IEntityManager _entManager;
     private readonly IPrototypeManager _prototype;
@@ -96,7 +99,6 @@ public sealed class EntityHealthBarOverlay : Overlay
             if (!bounds.Translated(worldPos).Intersects(args.WorldAABB))
                 continue;
 
-            // we are all progressing towards death every day
             if (CalcProgress(uid, mobStateComponent, damageableComponent, mobThresholdsComponent) is not { } deathProgress)
                 continue;
 
@@ -141,39 +143,57 @@ public sealed class EntityHealthBarOverlay : Overlay
     /// </summary>
     private (float ratio, bool inCrit)? CalcProgress(EntityUid uid, MobStateComponent component, DamageableComponent dmg, MobThresholdsComponent thresholds)
     {
+        FixedPoint2 firstCritThreshold = 0;
+        FixedPoint2 deadThreshold = 0;
+
+        // Establish the range for the bars using nullable-safe out parameters
+        if (_mobThresholdSystem.TryGetThresholdForState(uid, MobState.SoftCritical, out var soft, thresholds))
+        {
+            firstCritThreshold = soft ?? 0;
+        }
+        else if (_mobThresholdSystem.TryGetThresholdForState(uid, MobState.Critical, out var crit, thresholds))
+        {
+            firstCritThreshold = crit ?? 0;
+        }
+        else if (_mobThresholdSystem.TryGetThresholdForState(uid, MobState.Dead, out var deadAsCrit, thresholds))
+        {
+            firstCritThreshold = deadAsCrit ?? 0;
+        }
+
+        if (_mobThresholdSystem.TryGetThresholdForState(uid, MobState.Dead, out var dead, thresholds))
+        {
+            deadThreshold = dead ?? 0;
+        }
+
         if (_mobStateSystem.IsAlive(uid, component))
         {
             if (dmg.HealthBarThreshold != null && dmg.TotalDamage < dmg.HealthBarThreshold)
                 return null;
 
-            if (!_mobThresholdSystem.TryGetThresholdForState(uid, MobState.Critical, out var threshold, thresholds) &&
-                !_mobThresholdSystem.TryGetThresholdForState(uid, MobState.Dead, out threshold, thresholds))
-                return (1, false);
+            if (firstCritThreshold == 0)
+                return (1f, false);
 
-            var ratio = 1 - ((FixedPoint2)(dmg.TotalDamage / threshold)).Float();
-            return (ratio, false);
+            var ratio = 1f - (float) (dmg.TotalDamage / firstCritThreshold);
+            return (Math.Clamp(ratio, 0f, 1f), false);
         }
 
-        if (_mobStateSystem.IsCritical(uid, component))
+        if (_mobStateSystem.IsIncapacitated(uid, component) && !_mobStateSystem.IsDead(uid, component))
         {
-            if (!_mobThresholdSystem.TryGetThresholdForState(uid, MobState.Critical, out var critThreshold, thresholds) ||
-                !_mobThresholdSystem.TryGetThresholdForState(uid, MobState.Dead, out var deadThreshold, thresholds))
-            {
-                return (1, true);
-            }
+            if (deadThreshold <= firstCritThreshold)
+                return (0f, true);
 
-            var ratio = 1 - ((dmg.TotalDamage - critThreshold) / (deadThreshold - critThreshold)).Value.Float();
-
-            return (ratio, true);
+            var denom = (float) (deadThreshold - firstCritThreshold);
+            var ratio = 1f - (float) ((dmg.TotalDamage - firstCritThreshold) / denom);
+            return (Math.Clamp(ratio, 0f, 1f), true);
         }
 
-        return (0, true);
+        return (0f, true);
     }
 
     public Color GetProgressColor(float progress, bool crit)
     {
         if (crit)
-            progress = 0;
+            return Red;
 
         return _progressColor.GetProgressColor(progress);
     }

@@ -154,6 +154,9 @@ ghost-role-information-smile-description = The sweetest creature in the world. S
 ghost-role-information-punpun-name = Pun Pun
 ghost-role-information-punpun-description = An honorable member of the monkey society in charge of the bar and helping the bartenders in any way he can.
 
+ghost-role-information-yipyap-name = Yip-Yap
+ghost-role-information-yipyap-description = The Chef's mischevious little helper. Some say he has a rivalry with Pun Pun, but others say that's just hearsay.
+
 ghost-role-information-xeno-name = Xeno
 ghost-role-information-xeno-description = You are a xeno, co-operate with your hive to kill all crewmembers!
 ghost-role-information-xeno-rules = You are a [color=red][bold]Team Antagonist[/bold][/color] with all other xenos.

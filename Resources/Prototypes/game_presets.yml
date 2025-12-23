@@ -376,6 +376,7 @@
   showInVote: false
   rules:
   - Zombie
+  - CalmTraitor
   - BasicStationEventScheduler
   - MeteorSwarmScheduler
   - SpaceTrafficControlEventScheduler
@@ -390,6 +391,7 @@
   showInVote: false
   rules:
   - Zombie
+  - CalmTraitor
   - BasicStationEventScheduler
   - MeteorSwarmScheduler
   - SpaceTrafficControlEventScheduler

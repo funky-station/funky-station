@@ -1,0 +1,41 @@
+# SPDX-FileCopyrightText: 2025 mkanke-real <mikekanke@gmail.com>
+#
+# SPDX-License-Identifier: MIT
+
+- type: entity
+  name: breaching charge
+  description: When you need in that room by any means necessary.
+  parent: [BasePlasticExplosive, BaseSecurityContraband]
+  id: BreachingCharge
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Weapons/breaching_charge.rsi
+    state: icon
+    layers:
+    - state: icon
+      map: ["base"]
+  - type: Clothing
+    sprite: _Funkystation/Objects/Weapons/breaching_charge.rsi
+    slots:
+    - HEAD
+    quickEquip: false
+    equipDelay: 3
+    unequipDelay: 6
+  - type: OnUseTimerTrigger
+    delay: 5
+    delayOptions: [5, 10]
+    initialBeepDelay: 1
+    beepSound: /Audio/Machines/Nuke/general_beep.ogg
+    startOnStick: true
+    canToggleStartOnStick: true
+  - type: TimerStartOnSignal
+  - type: DeviceLinkSink
+    ports:
+    - Timer
+  - type: Explosive # As few tiles as possible but still able to take down a high sec door
+    explosionType: DemolitionCharge
+    totalIntensity: 13
+    intensitySlope: 50
+    maxIntensity: 12
+    canCreateVacuum: false
+  - type: ExplodeOnTrigger

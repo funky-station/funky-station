@@ -1,0 +1,547 @@
+# SPDX-FileCopyrightText: 2025 ThatOneMoon <91613003+ThatOneMoon@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+# Hardsuits
+
+- type: listing
+  id: SalvageVendorSpationaught
+  name: vendor-salvage-spationaught-name
+  description: vendor-salvage-spationaught-desc
+  icon: { sprite:  Clothing/OuterClothing/Hardsuits/spatio.rsi, state: icon}
+  productEntity: ClothingOuterHardsuitSpatio
+  cost:
+    SalvageTicket: 200
+  categories:
+  - SalvageVendorWearables
+
+- type: listing
+  id: SalvageVendorMiningSuit
+  name: vendor-salvage-mining-suit-name
+  description: vendor-salvage-mining-suit-desc
+  icon: { sprite:  Clothing/OuterClothing/Hardsuits/salvage.rsi, state: icon}
+  productEntity: ClothingOuterHardsuitSalvage
+  cost:
+    SalvageTicket: 1000 
+  categories:
+  - SalvageVendorWearables
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 3
+
+- type: listing
+  id: SalvageVendorHelldiverKit
+  name: vendor-salvage-helldiver-kit-name
+  description: vendor-salvage-helldiver-kit-desc
+  icon: { sprite:  _Goobstation/Clothing/OuterClothing/Armor/helldiver.rsi, state: icon}
+  productEntity: ClothingBackpackDuffelSalvageHelldiver
+  cost:
+    SalvageTicket: 3000
+  categories:
+  - SalvageVendorWearables
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 3
+
+- type: listing
+  id: SalvageVendorMaxim
+  name: vendor-salvage-maxim-name
+  description: vendor-salvage-maxim-desc
+  icon: { sprite:  Clothing/OuterClothing/Hardsuits/maxim.rsi, state: icon}
+  productEntity: ClothingOuterHardsuitMaxim
+  cost:
+    SalvageTicket: 9999 
+  categories:
+  - SalvageVendorWearables
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+# Wearables
+
+- type: listing
+  id: SalvageVendorSalvageRig
+  name: vendor-salvage-salvage-rig-name
+  description: vendor-salvage-salvage-rig-desc
+  icon: { sprite:  Clothing/Belt/salvagewebbing.rsi, state: icon}
+  productEntity: ClothingBeltSalvageWebbing
+  cost:
+    SalvageTicket: 250
+  categories:
+  - SalvageVendorWearables
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 3
+
+- type: listing
+  id: SalvageVendorSalvageRigMerc
+  name: vendor-salvage-salvage-rig-merc-name
+  description: vendor-salvage-salvage-rig-merc-desc
+  icon: { sprite:  Clothing/Belt/mercwebbing.rsi, state: icon}
+  productEntity: ClothingBeltMercWebbing
+  cost:
+    SalvageTicket: 250
+  categories:
+  - SalvageVendorWearables
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 3
+
+- type: listing
+  id: SalvageVendorMercGasMask
+  name: vendor-salvage-merc-gas-mask-name
+  description: vendor-salvage-merc-gas-mask-desc
+  icon: { sprite: Clothing/Mask/merc.rsi, state: icon}
+  productEntity: ClothingMaskGasMerc
+  cost:
+    SalvageTicket: 350
+  categories:
+  - SalvageVendorWearables
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 4
+
+- type: listing
+  id: SalvageVendorVestWebMerc
+  name: vendor-salvage-merc-web-vest-name
+  description: vendor-salvage-merc-web-vest-desc
+  icon: { sprite: Clothing/OuterClothing/Vests/mercwebvest.rsi, state: icon}
+  productEntity: ClothingOuterVestWebMerc
+  cost:
+    SalvageTicket: 750
+  categories:
+  - SalvageVendorWearables
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 2
+
+- type: listing
+  id: SalvageVendorBackpackMerc
+  name: vendor-salvage-merc-backpack-name
+  description: vendor-salvage-merc-backpack-desc
+  icon: { sprite: Clothing/Back/Backpacks/merc.rsi, state: icon}
+  productEntity: ClothingBackpackMerc
+  cost:
+    SalvageTicket: 500
+  categories:
+  - SalvageVendorWearables
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 4
+
+- type: listing
+  id: SalvageVendorMercHelmet
+  name: vendor-salvage-merc-helmet-name
+  description: vendor-salvage-merc-helmet-desc
+  icon: { sprite: Clothing/Head/Helmets/merc_helmet.rsi, state: icon}
+  productEntity: ClothingHeadHelmetMerc
+  cost:
+    SalvageTicket: 300
+  categories:
+  - SalvageVendorWearables
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 2
+
+- type: listing
+  id: SalvageVendorMercBoots
+  name: vendor-salvage-merc-boots-name
+  description: vendor-salvage-merc-boots-desc
+  icon: { sprite: Clothing/Shoes/Boots/mercboots.rsi, state: icon}
+  productEntity: ClothingShoesBootsMerc
+  cost:
+    SalvageTicket: 250
+  categories:
+  - SalvageVendorWearables
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 2
+
+# Equipment 
+
+- type: listing
+  id: SalvageVendorCrusherAxe
+  name: vendor-salvage-crusher-axe-name
+  description: vendor-salvage-crusher-axe-desc
+  icon: { sprite:  Objects/Weapons/Melee/crusher.rsi, state: icon}
+  productEntity: WeaponCrusher
+  cost:
+    SalvageTicket: 1500
+  categories:
+  - SalvageVendorEquipment
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: SalvageVendorCrusherGlaive
+  name: vendor-salvage-crusher-glaive-name
+  description: vendor-salvage-crusher-glaive-desc
+  icon: { sprite:  Objects/Weapons/Melee/crusher_glaive.rsi, state: icon}
+  productEntity: WeaponCrusherGlaive
+  cost:
+    SalvageTicket: 1500
+  categories:
+  - SalvageVendorEquipment
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: SalvageVendorCrusherDagger
+  name: vendor-salvage-crusher-dagger-name
+  description: vendor-salvage-crusher-dagger-desc
+  icon: { sprite:  Objects/Weapons/Melee/crusher_dagger.rsi, state: icon}
+  productEntity: WeaponCrusherDagger
+  cost:
+    SalvageTicket: 750
+  categories:
+  - SalvageVendorEquipment
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 2
+
+- type: listing
+  id: SalvageVendorMosin
+  name: vendor-salvage-mosin-name
+  description: vendor-salvage-mosin-desc
+  icon: { sprite:  Objects/Weapons/Guns/Snipers/bolt_gun_wood.rsi, state: base}
+  productEntity: WeaponSniperMosin
+  cost:
+    SalvageTicket: 1500
+  categories:
+  - SalvageVendorEquipment
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: SalvageVendorAntiqueCell
+  name: vendor-salvage-antique-cell-name
+  description: vendor-salvage-antique-cell-desc
+  icon: { sprite:  Objects/Power/power_cells.rsi, state: antique}
+  productEntity: PowerCellAntiqueProto
+  cost:
+    SalvageTicket: 3000
+  categories:
+  - SalvageVendorEquipment
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: SalvageVendorMiniJetpack
+  name: vendor-salvage-mini-jetpack-name
+  description: vendor-salvage-mini-jetpack-desc
+  icon: { sprite:  Objects/Tanks/Jetpacks/mini.rsi, state: icon}
+  productEntity: JetpackMiniFilled
+  cost:
+    SalvageTicket: 250
+  categories:
+  - SalvageVendorEquipment
+
+- type: listing
+  id: SalvageVendorBoxShotgunFlare
+  name: vendor-salvage-box-shotgun-flare-name
+  description: vendor-salvage-box-shotgun-flare-desc
+  icon: { sprite:  Objects/Weapons/Guns/Ammunition/Casings/shotgun_shell.rsi, state: flare}
+  productEntity: BoxShotgunFlare
+  cost:
+    SalvageTicket: 50
+  categories:
+  - SalvageVendorEquipment
+
+
+# Supplies 
+
+- type: listing
+  id: SalvageVendorCarpPocket
+  name: vendor-salvage-carp-pocket-name
+  description: vendor-salvage-carp-pocket-desc
+  icon: { sprite:  Objects/Consumable/Food/Baked/donkpocket.rsi, state: carp-box}
+  productEntity: FoodBoxDonkpocketCarp
+  cost:
+    SalvageTicket: 100
+  categories:
+  - SalvageVendorSupplies
+
+- type: listing
+  id: SalvageVendorPremiumMRE
+  name: vendor-salvage-premium-mre-name
+  description: vendor-salvage-premium-mre-desc
+  icon: { sprite:  Objects/Storage/boxes.rsi, state: box_olive}
+  productEntity: BoxMREPrmium
+  cost:
+    SalvageTicket: 175
+  categories:
+  - SalvageVendorSupplies
+
+- type: listing
+  id: SalvageVendorEmergencyPen
+  name: vendor-salvage-emergency-pen-name
+  description: vendor-salvage-emergency-pen-desc
+  icon: { sprite:  Objects/Specific/Medical/medipen.rsi, state: medipen}
+  productEntity: EmergencyMedipen
+  cost:
+    SalvageTicket: 75
+  categories:
+  - SalvageVendorSupplies
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 6
+
+- type: listing
+  id: SalvageVendorVodka
+  name: vendor-salvage-vodka-name
+  description: vendor-salvage-vodka-desc
+  icon: { sprite:  Objects/Consumable/Drinks/vodkabottle.rsi, state: icon}
+  productEntity: DrinkVodkaBottleFull
+  cost:
+    SalvageTicket: 50
+  categories:
+  - SalvageVendorSupplies
+
+- type: listing
+  id: SalvageVendorDoubleNitrogen
+  name: vendor-salvage-double-nitrogen-name
+  description: vendor-salvage-double-nitrogen-desc
+  icon: { sprite:  Objects/Tanks/emergency_double_red.rsi, state: icon}
+  productEntity: DoubleEmergencyNitrogenTankFilled
+  cost:
+    SalvageTicket: 250
+  categories:
+  - SalvageVendorSupplies
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 3
+
+- type: listing
+  id: SalvageVendorDoubleOxygen
+  name: vendor-salvage-double-oxygen-name
+  description: vendor-salvage-double-oxygen-desc
+  icon: { sprite: Objects/Tanks/emergency_double.rsi, state: icon}
+  productEntity: DoubleEmergencyOxygenTankFilled
+  cost:
+    SalvageTicket: 250
+  categories:
+  - SalvageVendorSupplies  
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 3
+
+- type: listing
+  id: SalvageVendorBruteMedkit
+  name: vendor-salvage-brute-medkit-name
+  description: vendor-salvage-brute-medkit-desc
+  icon: { sprite: Objects/Specific/Medical/firstaidkits.rsi, state: brutekit}
+  productEntity: MedkitBruteFilled
+  cost:
+    SalvageTicket: 300
+  categories:
+  - SalvageVendorSupplies  
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 2
+
+- type: listing
+  id: SalvageVendorOilPack
+  name: vendor-salvage-oil-pack-name
+  description: vendor-salvage-oil-pack-desc
+  icon: { sprite:  _DV/Objects/Medical/Oilpack.rsi, state: icon}
+  productEntity: Oilpack
+  cost:
+    SalvageTicket: 50
+  categories:
+  - SalvageVendorSupplies
+
+# Misc. 
+
+- type: listing
+  id: SalvageVendorGoliathCloak
+  name: vendor-salvage-goliath-cloak-name
+  description: vendor-salvage-goliath-cloak-desc
+  icon: { sprite:  Clothing/Neck/Cloaks/goliathcloak.rsi, state: icon}
+  productEntity: ClothingNeckCloakGoliathCloak
+  cost:
+    SalvageTicket: 500
+  categories:
+  - SalvageVendorMisc
+
+- type: listing
+  id: SalvageVendorMiningCloak
+  name: vendor-salvage-mining-cloak-name
+  description: vendor-salvage-mining-cloak-desc
+  icon: { sprite:  Clothing/Neck/Cloaks/miner.rsi, state: icon}
+  productEntity: ClothingNeckCloakMiner
+  cost:
+    SalvageTicket: 1500
+  categories:
+  - SalvageVendorMisc
+
+- type: listing
+  id: SalvageVendorShuttleKit
+  name: vendor-salvage-shuttle-kit-name
+  description: vendor-salvage-shuttle-kit-desc
+  icon: { sprite:  Structures/Shuttles/thruster.rsi, state: base}
+  productEntity: BoxSalvageVendShuttleKit
+  cost:
+    SalvageTicket: 750
+  categories:
+  - SalvageVendorMisc
+
+- type: listing
+  id: SalvageVendorMedicalKit
+  name: vendor-salvage-medical-kit-name
+  description: vendor-salvage-medical-kit-desc
+  icon: { sprite:  Structures/Furniture/furniture.rsi, state: bed-MED}
+  productEntity: BoxSalvageMedicalKit
+  cost:
+    SalvageTicket: 750
+  categories:
+  - SalvageVendorMisc
+
+- type: listing
+  id: SalvageVendorCookoutKit
+  name: vendor-salvage-cookout-name
+  description: vendor-salvage-cookout-desc
+  icon: { sprite:  Structures/Machines/electric_grill.rsi, state: icon}
+  productEntity: BoxSalvageCookoutKit
+  cost:
+    SalvageTicket: 500
+  categories:
+  - SalvageVendorMisc
+
+# Standard Equipment 
+
+- type: listing
+  id: SalvageVendorMaterialBag
+  name: vendor-salvage-material-bag
+  description: vendor-salvage-material-bag-desc
+  icon: { sprite:  _Funkystation/Objects/Specific/Cargo/material_bag.rsi, state: icon}
+  productEntity: MaterialBag
+  categories:
+  - SalvageVendorStandard
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 3
+
+- type: listing
+  id: SalvageVendorOreBag
+  name: vendor-salvage-ore-bag
+  description: vendor-salvage-ore-bag-desc
+  icon: { sprite:  Objects/Specific/Mining/ore_bag.rsi, state: icon}
+  productEntity: OreBag
+  categories:
+  - SalvageVendorStandard
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 4
+
+- type: listing
+  id: SalvageVendorOreBox
+  name: vendor-salvage-ore-box-name
+  description: vendor-salvage-ore-box-desc
+  icon: { sprite:  Structures/Storage/orebox.rsi, state: orebox}
+  productEntity: OreBox
+  categories:
+  - SalvageVendorStandard
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 2
+
+- type: listing
+  id: SalvageVendorFloodlight
+  name: vendor-salvage-floodlight-name
+  description: vendor-salvage-floodlight-desc
+  icon: { sprite:  Objects/Misc/Lights/lights.rsi, state: floodlight}
+  productEntity: Floodlight
+  categories:
+  - SalvageVendorStandard
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 4
+
+- type: listing
+  id: SalvageVendorPKA
+  name: vendor-salvage-pka
+  description: vendor-salvage-pka-desc
+  icon: { sprite:  Objects/Weapons/Guns/Basic/kinetic_accelerator.rsi, state: icon}
+  productEntity: WeaponProtoKineticAccelerator
+  categories:
+  - SalvageVendorStandard
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 4
+
+- type: listing
+  id: SalvageVendorPickaxe
+  name: vendor-salvage-pickaxe-name
+  description: vendor-salvage-pickaxe-desc
+  icon: { sprite:  Objects/Weapons/Melee/pickaxe.rsi, state: pickaxe}
+  productEntity: Pickaxe
+  categories:
+  - SalvageVendorStandard
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 4
+
+- type: listing
+  id: SalvageVendorGrappleHook
+  name: vendor-salvage-grapple-hook
+  description: vendor-salvage-grapple-hook-desc
+  icon: { sprite:  Objects/Weapons/Guns/Launchers/grappling_gun.rsi, state: base}
+  productEntity: WeaponGrapplingGun
+  categories:
+  - SalvageVendorStandard    
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 4
+
+- type: listing
+  id: SalvageVendorSeismicCharge
+  name: vendor-salvage-seismic-charge
+  description: vendor-salvage-seismic-charge-desc
+  icon: { sprite:  Objects/Weapons/Bombs/seismic.rsi, state: icon}
+  productEntity: SeismicCharge
+  categories:
+  - SalvageVendorStandard    
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 2
+
+- type: listing
+  id: SalvageVendorFultonBeacon
+  name: vendor-salvage-fulton-beacon
+  description: vendor-salvage-fulton-beacon-desc
+  icon: { sprite:  Objects/Tools/fulton.rsi, state: folded_extraction}
+  productEntity: FultonBeacon
+  categories:
+  - SalvageVendorStandard  
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 2
+
+- type: listing
+  id: SalvageVendorFulton
+  name: vendor-salvage-fulton
+  description: vendor-salvage-fulton-desc
+  icon: { sprite:  Objects/Tools/fulton.rsi, state: extraction_pack}
+  productEntity: Fulton
+  categories:
+  - SalvageVendorStandard  
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 3
+
+- type: listing
+  id: SalvageVendorCargoRadio
+  name: vendor-salvage-cargo-radio
+  description: vendor-salvage-cargo-radio-desc
+  icon: { sprite:  _Funkystation/Objects/Devices/radio.rsi, state: base}
+  productEntity: RadioHandheldCargo
+  categories:
+  - SalvageVendorStandard
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 4

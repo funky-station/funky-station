@@ -7,6 +7,7 @@
 // SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
 // SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
 // SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
@@ -68,7 +69,7 @@ public partial class MobStateSystem : EntitySystem
     {
         if (!_mobStateQuery.Resolve(target, ref component, false))
             return false;
-        return component.CurrentState == MobState.Critical;
+        return component.CurrentState == MobState.Critical || component.CurrentState == MobState.SoftCritical || component.CurrentState == MobState.HardCritical;
     }
 
     /// <summary>
@@ -94,7 +95,14 @@ public partial class MobStateSystem : EntitySystem
     {
         if (!_mobStateQuery.Resolve(target, ref component, false))
             return false;
-        return component.CurrentState is MobState.Critical or MobState.Dead;
+        return component.CurrentState is MobState.Critical or MobState.SoftCritical or MobState.HardCritical or MobState.Dead;
+    }
+
+    public bool IsImmobile(EntityUid target, MobStateComponent? component = null)
+    {
+        if (!_mobStateQuery.Resolve(target, ref component, false))
+            return false;
+        return component.CurrentState is MobState.Critical or MobState.HardCritical or MobState.Dead;
     }
 
     /// <summary>

@@ -1,4 +1,5 @@
 // SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
@@ -157,7 +158,7 @@ namespace Content.Server._DV.Harpy
         {
             // CanSpeak covers all reasons you can't talk, including being incapacitated
             // (crit/dead), asleep, or for any reason mute inclding glimmer or a mime's vow.
-            var canNotSpeak = !_blocker.CanSpeak(uid);
+            var canNotSpeak = !_blocker.CanSpeak(uid, out _);
             var zombified = TryComp<ZombieComponent>(uid, out var _);
             var muzzled = _inventorySystem.TryGetSlotEntity(uid, "mask", out var maskUid) &&
                 TryComp<AddAccentClothingComponent>(maskUid, out var accent) &&

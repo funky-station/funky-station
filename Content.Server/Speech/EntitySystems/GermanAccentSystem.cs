@@ -1,4 +1,5 @@
 // SPDX-FileCopyrightText: 2024 Psychpsyo <60073468+Psychpsyo@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 W.xyz() <tptechteam@gmail.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
 // SPDX-License-Identifier: MIT
@@ -17,7 +18,6 @@ public sealed class GermanAccentSystem : EntitySystem
     [Dependency] private readonly ReplacementAccentSystem _replacement = default!;
 
     private static readonly Regex RegexTh = new(@"(?<=\s|^)th", RegexOptions.IgnoreCase);
-    private static readonly Regex RegexThe = new(@"(?<=\s|^)the(?=\s|$)", RegexOptions.IgnoreCase);
 
     public override void Initialize()
     {
@@ -30,7 +30,7 @@ public sealed class GermanAccentSystem : EntitySystem
 
         // rarely, "the" should become "das" instead of "ze"
         // TODO: The ReplacementAccentSystem should have random replacements this built-in.
-        foreach (Match match in RegexThe.Matches(msg))
+        /*foreach (Match match in RegexThe.Matches(msg))
         {
             if (_random.Prob(0.3f))
             {
@@ -41,10 +41,10 @@ public sealed class GermanAccentSystem : EntitySystem
                       (char)(msg[match.Index + 2] + 14) +
                       msg.Substring(match.Index + 3);
             }
-        }
+        }*/
 
         // now, apply word replacements
-        msg = _replacement.ApplyReplacements(msg, "german");
+        msg = _replacement.ApplyReplacements(msg, "germanaccent");
 
         // replace th with zh (for zhis, zhat, etc. the => ze is handled by replacements already)
         var msgBuilder = new StringBuilder(msg);

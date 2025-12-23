@@ -49,6 +49,8 @@ astro-nav-program-name = AstroNav
 
 med-tek-program-name = MedTek
 
+wordle-program-name = Wordle
+
 # NanoTask cartridge
 
 nano-task-ui-heading-high-priority-tasks =

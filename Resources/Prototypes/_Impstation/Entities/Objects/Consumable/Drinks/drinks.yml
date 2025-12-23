@@ -1,5 +1,6 @@
 # SPDX-FileCopyrightText: 2025 ATDoop <bug@bug.bug>
 # SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 maelines <genovedd.almn@gmail.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
@@ -19,4 +20,36 @@
           Quantity: 30
   - type: Icon
     sprite: _Impstation/Objects/Consumable/Drinks/feverdream.rsi
+    state: icon
+
+- type: entity
+  parent: DrinkGlass
+  id: DrinkBatteryAcidGlass
+  suffix: battery acid
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: BatteryAcid
+          Quantity: 30
+  - type: Icon
+    sprite: _Impstation/Objects/Consumable/Drinks/batteryacid.rsi
+    state: icon
+
+- type: entity
+  parent: DrinkGlass
+  id: DrinkAngelsKissGlass
+  suffix: angel's kiss
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: AngelsKiss
+          Quantity: 30
+  - type: Icon
+    sprite: _Impstation/Objects/Consumable/Drinks/angelskiss.rsi
     state: icon

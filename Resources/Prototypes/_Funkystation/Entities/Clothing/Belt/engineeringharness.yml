@@ -1,0 +1,69 @@
+# SPDX-FileCopyrightText: 2025 MaiaArai <158123176+YaraaraY@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+# Engineering Harness for Funky Station
+
+- type: entity
+  parent: ClothingBeltUtility
+  id: ClothingBeltEngineeringHarness
+  name: engineering harness
+  description: Holds your tools, and holds you to the Station. If only you had remembered to bring your carabiners.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Belt/engineeringharness.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Belt/engineeringharness.rsi
+  - type: Storage
+    maxItemSize: Normal
+  - type: ItemMapper
+    sprite: _Funkystation/Clothing/Belt/belt_overlay.rsi
+
+- type: entity
+  parent: ClothingBeltChiefEngineer
+  id: ClothingBeltChiefEngineeringHarness
+  name: chief engineer's harness
+  description: Slightly scorched, frayed straps. It seems you STILL forgot your carabiners, though.
+  components:
+  - type: ItemMapper
+    sprite: _Funkystation/Clothing/Belt/belt_overlay.rsi
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Belt/chiefengineeringharness.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Belt/chiefengineeringharness.rsi
+  - type: Storage
+    maxItemSize: Normal
+
+# Filled
+
+- type: entity
+  id: ClothingBeltEngineeringHarnessFilled
+  parent: ClothingBeltEngineeringHarness
+  suffix: Filled
+  components:
+  - type: StorageFill
+    contents:
+    - id: CrowbarYellow
+    - id: Wrench
+    - id: Screwdriver
+    - id: Wirecutter
+    - id: Welder
+    - id: Multitool
+    - id: ClothingHeadHatWelding
+    - id: GasAnalyzer
+
+- type: entity
+  id: ClothingBeltChiefEngineeringHarnessFilled
+  parent: ClothingBeltChiefEngineeringHarness
+  suffix: Filled
+  components:
+  - type: StorageFill
+    contents:
+    - id: PowerDrill
+    - id: JawsOfLife
+    - id: WelderExperimental
+    - id: Multitool
+    - id: HolofanProjector
+    - id: GasAnalyzer
+    - id: ClothingMaskWeldingGas

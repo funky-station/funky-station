@@ -1,11 +1,13 @@
+// SPDX-FileCopyrightText: 2025 Terkala <appleorange64@gmail.com>
 // SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
-// SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+// SPDX-License-Identifier: AGPL-3.0-or-later OR MIT
 
 using Content.Server._DV.CosmicCult.Components;
 using Content.Server.Bible.Components;
+using Content.Server.BloodCult.EntitySystems;
 using Content.Shared._DV.CosmicCult.Components.Examine;
 using Content.Shared._DV.CosmicCult.Components;
 using Content.Shared._DV.CosmicCult;
@@ -18,6 +20,7 @@ using Content.Shared.Jittering;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Timing;
+using Content.Shared.BloodCult;
 using Content.Shared.Tools.Systems;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Audio;
@@ -37,6 +40,7 @@ public sealed class DeconversionSystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedToolSystem _tools = default!;
     [Dependency] private readonly UseDelaySystem _delay = default!;
+    [Dependency] private readonly BloodCultMindShieldSystem _bloodCultMindShield = default!;
 
     public override void Initialize()
     {
@@ -60,10 +64,10 @@ public sealed class DeconversionSystem : EntitySystem
         var deconCultTimer = EntityQueryEnumerator<CleanseCultComponent>();
         while (deconCultTimer.MoveNext(out var uid, out var comp))
         {
-            if (_timing.CurTime >= comp.CleanseTime && !HasComp<CosmicBlankComponent>(uid))
+        if (_timing.CurTime >= comp.CleanseTime && !HasComp<CosmicBlankComponent>(uid))
             {
                 RemComp<CleanseCultComponent>(uid);
-                DeconvertCultist(uid);
+            DeconvertCultist(uid);
             }
         }
     }
@@ -112,6 +116,14 @@ public sealed class DeconversionSystem : EntitySystem
             _audio.PlayPvs(censer.CleanseSound, targetPosition, AudioParams.Default.WithVolume(4f));
             _popup.PopupEntity(Loc.GetString("cleanse-deconvert-attempt-success", ("target", Identity.Entity(target.Value, EntityManager))), args.User, args.User);
         }
+        else if (TryComp<BloodCultistComponent>(target, out _))
+        {
+            Spawn(censer.CleanseVFX, targetPosition);
+            EnsureComp<CleanseCultComponent>(target.Value, out var cleanse);
+            cleanse.CleanseDuration = TimeSpan.FromSeconds(1);
+            _audio.PlayPvs(censer.CleanseSound, targetPosition, AudioParams.Default.WithVolume(4f));
+            _popup.PopupEntity(Loc.GetString("cleanse-deconvert-attempt-success", ("target", Identity.Entity(target.Value, EntityManager))), args.User, args.User);
+        }
         else if (HasComp<RogueAscendedInfectionComponent>(target))
         {
             Spawn(censer.CleanseVFX, targetPosition);
@@ -134,7 +146,16 @@ public sealed class DeconversionSystem : EntitySystem
 
     private void DeconvertCultist(EntityUid uid)
     {
-        RemComp<CosmicCultComponent>(uid);
-        RemComp<RogueAscendedInfectionComponent>(uid);
+        if (HasComp<CosmicCultComponent>(uid))
+        {
+            RemComp<CosmicCultComponent>(uid);
+        }
+
+        if (HasComp<RogueAscendedInfectionComponent>(uid))
+        {
+            RemComp<RogueAscendedInfectionComponent>(uid);
+        }
+
+        _bloodCultMindShield.TryDeconvert(uid, popupLocId: null, log: false);
     }
 }

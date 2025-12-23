@@ -10,13 +10,19 @@
 // SPDX-FileCopyrightText: 2023 forkeyboards <91704530+forkeyboards@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 SaffronFennec <firefoxwolf2020@protonmail.com>
+// SPDX-FileCopyrightText: 2025 W.xyz() <tptechteam@gmail.com>
+// SPDX-FileCopyrightText: 2025 jackel234 <jackel234@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 maelines <genovedd.almn@gmail.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 w.xyz() <84605679+pirakaplant@users.noreply.github.com>
 //
 // SPDX-License-Identifier: MIT
 
 using Content.Shared.Roles;
 using Content.Shared.Whitelist;
 using Robust.Shared.Prototypes;
+using Content.Shared.Humanoid.Prototypes;
+using Content.Shared.Tag; // DeltaV - Trait species hiding
 
 namespace Content.Shared.Traits;
 
@@ -61,6 +67,12 @@ public sealed partial class TraitPrototype : IPrototype
     public HashSet<string>? SpeciesRestrictions;
 
     /// <summary>
+    /// Trait required to take this trait.
+    /// </summary>
+    [DataField]
+    public string? Prerequisite { get; private set; }
+
+    /// <summary>
     /// The components that get added to the player, when they pick this trait.
     /// NOTE: When implementing a new trait, it's preferable to add it as a status effect instead if possible.
     /// </summary>
@@ -91,4 +103,16 @@ public sealed partial class TraitPrototype : IPrototype
     /// </summary>
     [DataField]
     public ProtoId<TraitCategoryPrototype>? Category;
+
+    /// <summary>
+    /// The organ that this trait should be assigned to instead of the body.
+    /// </summary>
+    [DataField]
+    public ProtoId<TagPrototype>? Organ;
+
+    /// <summary>
+    /// DeltaV - Hides traits from specific species
+    /// </summary>
+    [DataField]
+    public HashSet<ProtoId<SpeciesPrototype>> ExcludedSpecies = new();
 }

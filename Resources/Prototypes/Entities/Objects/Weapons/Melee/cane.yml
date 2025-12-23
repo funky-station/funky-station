@@ -3,7 +3,9 @@
 # SPDX-FileCopyrightText: 2024 Ps3Moira <113228053+ps3moira@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Mora <46364955+trixxedheart@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 SigmaTheDragon <162711378+SigmaTheDragon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 vectorassembly <vectorassembly@icloud.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -38,7 +40,7 @@
 
 - type: entity
   name: cane blade
-  parent: [BaseItem, BaseSyndicateContraband]
+  parent: [BaseItem, BaseMajorContraband]
   id: CaneBlade
   description: A sharp blade with a cane shaped hilt. Enchanted with fire powers by a fellow book lover. # Goobstation
   components:

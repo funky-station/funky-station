@@ -11,9 +11,31 @@ SPDX-License-Identifier: MIT
   <Box>
     <GuideEntityEmbed Entity="MobVulpkanin" Caption=""/>
   </Box>
-  
-  Vulpkanin are fox-human hybrids, sporting distinct ears and tails. They see the world in reds and greens,
-  deal [color=#ec3a3a]blunt [/color]and [color=#ec3a3a]slash [/color] damage with their claws, are a little less
-  affected by temperatures, and capable of stealing things from people a little faster
-  
+
+  Vulpkanin are fox-human hybrids, sporting distinct ears and tails.
+
+  ## Diet
+
+  Vulpkanin share evolutionary roots with foxes, and so they cannot metabolize Theobromine or Allicin. Be careful
+  when eating chocolate, onions, or garlic, and avoid coffee and tea!
+
+  ## Claws
+
+  Vulpkanin have dull claws, which do a mixture of [color=orange]Blunt[/color] and [color=orange]Slashing[/color] damage.
+
+  ## Fur
+
+  Vulpkanin fur provides some slight insulation against [color=red]hot[/color] and [color=cornflowerblue]cold[/color] environments, but not enough to protect against a
+  raging fire or the vacuum of space.
+
+  ## Vulpkanin Naming Conventions
+
+  Vulpkanin have similar names to the humanoid species, but are typically more guttural and harsh.
+
+  [bullet] Hugo Meissner
+
+  [bullet] Cadog Thalassa
+
+  [bullet] Emery Kamphaus
+
 </Document>

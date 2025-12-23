@@ -2,6 +2,9 @@
 // SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
 // SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
+// SPDX-FileCopyrightText: 2025 Amethyst <52829582+jackel234@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 V <97265903+formlessnameless@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 miosar <74148670+miosar@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 mqole <113324899+mqole@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
@@ -41,7 +44,7 @@ public sealed partial class HereticAbilitySystem : EntitySystem
             var dargs = new DoAfterArgs(EntityManager, ent, 10f, new EventHereticFleshSurgeryDoAfter(args.Target), ent, args.Target)
             {
                 BreakOnDamage = true,
-                BreakOnMove = true,
+                BreakOnMove = false,
                 BreakOnHandChange = false,
                 BreakOnDropItem = false,
             };

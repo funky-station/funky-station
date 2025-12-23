@@ -81,3 +81,10 @@ trait-impaired-mobility-name = Impaired Mobility
 trait-impaired-mobility-desc = You have difficulty moving without a mobility aid.
 
 trait-prerequisite-required = This trait requires the {$prerequisite} trait.
+
+trait-chronic-migraines-name = Chronic Migraines
+trait-chronic-migraines-desc = You experience occasional episodes of debilitating migraines that impair your vision and movement.
+
+trait-chronic-migraines-start = Your head begins to throb painfully...
+trait-chronic-migraines-end = The migraine subsides.
+trait-chronic-migraines-others = {THE($target)} rubs {POSS-ADJ($target)} temples in pain.

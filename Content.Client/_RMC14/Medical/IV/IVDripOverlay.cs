@@ -1,3 +1,4 @@
+// SPDX-FileCopyrightText: 2025 MaiaArai <158123176+YaraaraY@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
 //
 // SPDX-License-Identifier: MIT
@@ -40,7 +41,11 @@ public sealed class IVDripOverlay : Overlay
             if (ivDripPosition.MapId == MapId.Nullspace || attachedPosition.MapId == MapId.Nullspace)
                 continue;
 
-            handle.DrawLine(ivDripPosition.Position, attachedPosition.Position, Color.White);
+            var rotation = transformSystem.GetWorldRotation(ivDripId);
+            var rotatedOffset = rotation.RotateVec(ivDripComponent.LineOriginOffset);
+            var startPos = ivDripPosition.Position + rotatedOffset;
+
+            handle.DrawLine(startPos, attachedPosition.Position, Color.White);
         }
 
         var bloodPacks = _entity.EntityQueryEnumerator<BloodPackComponent>();

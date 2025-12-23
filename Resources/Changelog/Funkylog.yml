@@ -6855,3 +6855,9 @@ Entries:
       message: CPR now works on animals
   id: 794
   time: '2025-12-23T21:46:23.0000000+00:00'
+- author: AraiMaia
+  changes:
+    - type: Fix
+      message: Electrolyzer no longer melts. Oops.
+  id: 795
+  time: '2025-12-23T23:09:29.0000000+00:00'

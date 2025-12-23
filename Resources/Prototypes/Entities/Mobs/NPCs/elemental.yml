@@ -382,6 +382,7 @@
   parent: [ MobAdultSlimes, MobCombat ]
   description: It consists of a liquid, and it wants to dissolve you in itself.
   components:
+  - type: Unrevivable
   - type: GhostRole
     prob: 0
     description: ghost-role-information-angry-slimes-description

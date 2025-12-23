@@ -15,12 +15,3 @@
     antagPrototype: BloodCultist
 #    exclusiveAntag: true
   - type: BloodCultRole
-
-- type: entity
-  parent: BaseAction
-  id: ActionCultistCommune
-  name: Cultist Commune
-  components:
-    - type: InstantAction
-      raiseOnUser: true
-      event: !type:CultistCommuneEvent

@@ -1,5 +1,6 @@
 // SPDX-FileCopyrightText: 2025 MaiaArai <158123176+YaraaraY@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 otokonoko-dev <248204705+otokonoko-dev@users.noreply.github.com>
 //
 // SPDX-License-Identifier: MIT
 
@@ -20,6 +21,9 @@ using Robust.Shared.Utility;
 using Robust.Shared.Random;
 using Robust.Shared.Configuration;
 using Content.Shared.Traits.Assorted;
+using Content.Shared._Shitmed.Targeting;
+// NEW: Add this using statement for DamageSpecifier
+using Content.Shared.Damage.Prototypes;
 
 namespace Content.Shared.Cpr;
 
@@ -47,6 +51,10 @@ public abstract partial class SharedCprSystem : EntitySystem
     public const float CprManualEffectDuration = 5f;
     public const float CprManualThreshold = 1.5f;
     public const float CprReviveChance = 0.05f;
+
+    public const float CprAirlossHealThreshold = 190f; // The damage threshold above which CPR will start healing airloss on a dead patient
+    public const float CprAirlossHealAmount = 1f; // The amount of airloss to heal per CPR pump
+    public const string AirlossDamageType = "Asphyxiation";
 
     private bool _cprRepeat;
 
@@ -120,16 +128,37 @@ public abstract partial class SharedCprSystem : EntitySystem
         // if the patient is dead, roll for a revive chance
         if (_mobState.IsDead(ent.Owner, mobState))
         {
+            // heal airloss if the patient is dead and has high total damage
+            if (damage.TotalDamage > CprAirlossHealThreshold)
+            {
+                var airlossHeal = new DamageSpecifier();
+                airlossHeal.DamageDict.Add(AirlossDamageType, -CprAirlossHealAmount);
+
+                _damage.TryChangeDamage(ent.Owner, airlossHeal, interruptsDoAfters: false, ignoreResistances: true, damageable: damage);
+            }
+
+            // try to get the dead threshold, if it's missing, we just proceed anyways
+            bool hasDeadThreshold = _mobThreshold.TryGetThresholdForState(ent.Owner, MobState.Dead, out var threshold);
+            bool isHealedEnough = !hasDeadThreshold || damage.TotalDamage < threshold;
+
             if (!HasComp<UnrevivableComponent>(ent) &&
-                _mobThreshold.TryGetThresholdForState(ent.Owner, MobState.Dead, out var threshold) &&
-                damage.TotalDamage < threshold &&
+                isHealedEnough &&
                 _random.Prob(CprReviveChance))
             {
-                // we revive them into standard Critical.
-                // they should transition to SoftCritical automatically if their damage is low enough
-                _mobState.ChangeMobState(ent.Owner, MobState.Critical, mobState);
+                // determine the state to revive into based on current damage
+                // defaults to alive
+                var targetState = MobState.Alive;
 
-                if (_mobState.IsCritical(ent.Owner, mobState))
+                // only go to critical if they actually have enough damage to be critical
+                if (_mobThreshold.TryGetThresholdForState(ent.Owner, MobState.Critical, out var critThreshold) &&
+                    damage.TotalDamage > critThreshold)
+                {
+                    targetState = MobState.Critical;
+                }
+
+                _mobState.ChangeMobState(ent.Owner, targetState, mobState);
+
+                if (_mobState.IsCritical(ent.Owner, mobState) || _mobState.IsAlive(ent.Owner, mobState))
                 {
                     _popup.PopupPredicted(Loc.GetString("cpr-revive-success", ("target", ent.Owner)), args.User, args.User);
                 }
@@ -141,8 +170,7 @@ public abstract partial class SharedCprSystem : EntitySystem
             ? cpr.Change
             : cpr.Change * ((CprManualEffectDuration - CprManualThreshold) / CprDoAfterDelay);
 
-        _damage.TryChangeDamage(ent.Owner, scaledDamage, interruptsDoAfters: false, ignoreResistances: true, damageable: damage);
-
+            _damage.TryChangeDamage(ent.Owner, scaledDamage, interruptsDoAfters: false, ignoreResistances: true, damageable: damage, targetPart: TargetBodyPart.Torso);
         var assist = EnsureComp<AssistedRespirationComponent>(ent);
 
         var newUntil = _cprRepeat

@@ -295,9 +295,9 @@
       - !type:Emote
         conditions:
         - !type:ReagentThreshold
-          min: 20
+          min: 40
         emote: Cough
-        probability: 0.1
+        probability: 0.05
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
@@ -306,20 +306,20 @@
           types:
             Poison: 0.01  #miniscule amounts of poison from the stuff NT puts in, also gives med some work
             Asphyxiation: 0.1  #lungs are in smoker mode
-      - !type:Emote
-        conditions:
-        - !type:ReagentThreshold
-          min: 40
-        emote: Gasp
-        probability: 0.05
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
-          min: 100   #if you hit this naturally while smoking, what the fuck.
+          min: 70   #if you hit this naturally while smoking, what the fuck.
         damage:
           types:
             Cellular: 0.01 #real spess cancer, straight to the source
             Asphyxiation: 0.2 #lungs are struggling, mega smoker mode
+      - !type:Emote
+        conditions:
+        - !type:ReagentThreshold
+          min: 70
+        emote: Gasp
+        probability: 0.05
       - !type:PopupMessage
         conditions:
         - !type:ReagentThreshold

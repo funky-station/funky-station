@@ -129,6 +129,7 @@
   groups:
   - ServiceJumpsuit
   - CommonBackpack
+  - Gloves
   - GenericShoes
   - Glasses
   - Survival
@@ -143,6 +144,7 @@
   - ChefMask
   - ChefJumpsuit
   - CommonBackpack
+  - Gloves
   - ChefOuterClothing
   - GenericShoes
   - Glasses
@@ -156,6 +158,7 @@
   groups:
   - LibrarianJumpsuit
   - CommonBackpack
+  - Gloves
   - GenericShoes
   - Glasses
   - Survival
@@ -169,6 +172,7 @@
   - LawyerNeck
   - LawyerJumpsuit
   - CommonBackpack
+  - Gloves
   - GenericShoes
   - Glasses
   - Survival
@@ -214,9 +218,10 @@
 - type: roleLoadout
   id: JobBotanist
   groups:
-  - BotanistHead
+  - GenericHats
   - BotanistJumpsuit
   - BotanistBackpack
+  - Gloves
   - BotanistOuterClothing
   - Glasses
   - Survival
@@ -232,6 +237,7 @@
   - ClownMask
   - ClownJumpsuit
   - ClownBackpack
+  - Gloves
   - ClownOuterClothing
   - ClownShoes
   - Glasses
@@ -247,6 +253,7 @@
   - MimeMask
   - MimeJumpsuit
   - MimeBackpack
+  - Gloves
   - MimeOuterClothing
   - MimeBelt
   - Glasses
@@ -260,6 +267,7 @@
   groups:
   - MusicianJumpsuit
   - CommonBackpack
+  - Gloves
   - MusicianOuterClothing
   - GenericShoes
   - Glasses
@@ -292,6 +300,7 @@
   - CargoTechnicianNeck
   - CargoTechnicianJumpsuit
   - CargoTechnicianBackpack
+  - Gloves
   - CargoTechnicianOuterClothing
   - CargoTechnicianShoes
   - CargoPDA

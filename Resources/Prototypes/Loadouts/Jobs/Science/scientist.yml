@@ -33,16 +33,7 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: SeniorResearcher
-
-- type: loadout
-  id: RoboticistCap
-  equipment:
-    head: ClothingHeadHatCorpsoft
-
-- type: loadout
-  id: SkullBandana
-  equipment:
-    head: ClothingHeadBandSkull
+  groupBy: "berets"
 
 # Head - Funky
 - type: loadout

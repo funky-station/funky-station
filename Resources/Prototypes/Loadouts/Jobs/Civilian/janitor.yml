@@ -107,24 +107,6 @@
 
 # Head
 - type: loadout
-  id: JanitorHead
-  equipment:
-    head: ClothingHeadHatPurplesoft
-  groupBy: "caps"
-
-- type: loadout
-  id: YellowJanitorHead
-  equipment:
-    head: ClothingHeadHatYellowsoft
-  groupBy: "caps"
-
-- type: loadout
-  id: OrangeJanitorHead
-  equipment:
-    head: ClothingHeadHatOrangesoft
-  groupBy: "caps"
-
-- type: loadout
   id: RainHat
   equipment:
     head: ClothingHeadRainHat
@@ -202,18 +184,6 @@
   equipment:
     gloves: ClothingHandsPurpleGlovesJanitor
   groupBy: "rubber gloves"
-
-- type: loadout
-  id: OrangeGloves
-  equipment:
-    gloves: ClothingHandsGlovesColorOrange
-  groupBy: "gloves"
-
-- type: loadout
-  id: PurpleGloves
-  equipment:
-    gloves: ClothingHandsGlovesColorPurple
-  groupBy: "gloves"
 
 # Outer clothing
 - type: loadout

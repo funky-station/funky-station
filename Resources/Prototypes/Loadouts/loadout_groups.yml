@@ -707,10 +707,27 @@
   name: loadout-group-janitor-head
   minLimit: 0
   loadouts:
-  - JanitorHead
-  - YellowJanitorHead
-  - OrangeJanitorHead
   - RainHat
+  - BandanaBlack
+  - BandanaBlue
+  - BandanaGold
+  - BandanaGreen
+  - BandanaRed
+  - BandanaSkull
+  - BandanaBrown
+  - softwhite
+  - softgrey
+  - softblack
+  - softCorp
+  - softblue
+  - softpurple
+  - softyellow
+  - softgreen
+  - orangesoft
+  - redsoft
+  - redtrucker
+  - RedBeret
+  - BlackBeret
 
 - type: loadoutGroup
   id: JanitorJumpsuit
@@ -733,7 +750,15 @@
   - JanitorBlueRubberGloves
   - JanitorOrangeRubberGloves
   - JanitorPurpleRubberGloves
+  - GreyGloves
+  - WhiteGloves
+  - BlackGloves
+  - BrownGloves
   - OrangeGloves
+  - RedGloves
+  - GreenGloves
+  - TealGloves
+  - BlueGloves
   - PurpleGloves
 
 - type: loadoutGroup
@@ -1448,7 +1473,10 @@
   id: ResearchDirectorShoes
   name: loadout-group-research-director-shoes
   loadouts:
+  - BlackShoes
+  - WhiteShoes
   - BrownShoes
+  - NanotrasenRepresentativeBoots #These are just laceup shoes.
   - ScienceWinterBoots
 
 - type: loadoutGroup #WizDen Weh Job Plush
@@ -1463,8 +1491,25 @@
   name: loadout-group-scientist-head
   minLimit: 0
   loadouts:
-  - RoboticistCap
-  - SkullBandana
+  - BandanaBlack
+  - BandanaBlue
+  - BandanaGold
+  - BandanaGreen
+  - BandanaRed
+  - BandanaSkull
+  - BandanaBrown
+  - softwhite
+  - softgrey
+  - softblack
+  - softCorp
+  - softblue
+  - softpurple
+  - softyellow
+  - softgreen
+  - orangesoft
+  - redsoft
+  - RedBeret
+  - BlackBeret
   - ScientistHardhatWhite # Funky
   - ScientificBeret
 
@@ -1510,6 +1555,7 @@
   - RegularLabCoat
   - ScienceLabCoat
   - ScienceWintercoat
+  - BikerJacket
   - RoboticistLabCoat
   - RoboticistWintercoat
   - SeniorResearcherLabCoat
@@ -1518,8 +1564,10 @@
   id: ScientistShoes
   name: loadout-group-scientist-shoes
   loadouts:
-  - WhiteShoes
   - BlackShoes
+  - WhiteShoes
+  - BrownShoes
+  - NanotrasenRepresentativeBoots #These are just laceup shoes.
   - ScienceWinterBoots
 
 - type: loadoutGroup
@@ -1528,8 +1576,17 @@
   minLimit: 0
   loadouts:
   - LatexGloves
-  - PurpleGloves
   - RobohandsGloves
+  - PurpleGloves
+  - GreyGloves
+  - WhiteGloves
+  - BlackGloves
+  - BrownGloves
+  - OrangeGloves
+  - RedGloves
+  - GreenGloves
+  - TealGloves
+  - BlueGloves
 
 - type: loadoutGroup
   id: ScientistPDA

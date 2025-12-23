@@ -9,6 +9,7 @@ using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Systems;
 using Content.Shared.FixedPoint;
 using Content.Shared.Fluids.Components;
@@ -81,9 +82,9 @@ public sealed class JuggernautBloodAbsorptionSystem : EntitySystem
 			if (isCritical)
 			{
 				// Check if juggernaut is player controlled (has ActorComponent) or has a mind (player or AI)
-				bool isControlled = HasComp<ActorComponent>(uid) || 
+				bool isControlled = HasComp<ActorComponent>(uid) ||
 				                    (TryComp<MindContainerComponent>(uid, out var mindContainer) && mindContainer.Mind != null);
-				
+
 				// Skip healing if critical and not controlled
 				if (!isControlled)
 					continue;
@@ -94,16 +95,16 @@ public sealed class JuggernautBloodAbsorptionSystem : EntitySystem
 			var transform = Transform(uid);
 			var coordinates = transform.Coordinates;
 			var puddlesInRange = _lookup.GetEntitiesInRange<PuddleComponent>(coordinates, 0.6f, LookupFlags.Uncontained);
-			
+
 			if (puddlesInRange.Count == 0)
 				continue;
-			
+
 			// Find the closest puddle (or just use the first one if multiple)
 			// This handles if a juggernaut is partway between two tiles and it just picks the closest
 			EntityUid? puddleUid = null;
 			var juggernautMapPos = _transform.GetMapCoordinates(uid, transform);
 			float closestDistance = float.MaxValue;
-			
+
 			foreach (var puddleEntity in puddlesInRange)
 			{
 				var puddleMapPos = _transform.GetMapCoordinates(puddleEntity);
@@ -114,7 +115,7 @@ public sealed class JuggernautBloodAbsorptionSystem : EntitySystem
 					puddleUid = puddleEntity;
 				}
 			}
-			
+
 			if (puddleUid == null)
 				continue;
 
@@ -192,7 +193,7 @@ public sealed class JuggernautBloodAbsorptionSystem : EntitySystem
 	{
 		// Instead of creating new ReagentIds, iterate through the solution and match by prototype
 		// This avoids issues with ReagentId Data field mismatches
-		
+
 		// Check for any blood reagent in the whitelist first (prioritize regular blood over SanguinePerniculate)
 		foreach (var bloodReagent in BloodCultConstants.SacrificeBloodReagents)
 		{

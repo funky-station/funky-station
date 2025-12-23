@@ -28,6 +28,7 @@ using Content.Shared.Ghost;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Mind.Components;
+using Content.Shared.Trigger;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Player;
@@ -182,7 +183,7 @@ public sealed partial class BloodCultRiftSystem : EntitySystem
 			return;
 
 		var cultistsOnRunes = GetCultistsOnSummoningRunes(component);
-			
+
 		if (cultistsOnRunes.Count == 0)
 		{
 			component.ChantsCompletedInCycle = SacrificeChantDelays.Length;
@@ -190,7 +191,7 @@ public sealed partial class BloodCultRiftSystem : EntitySystem
 			return;
 		}
 
-		// If we haven't picked someone to lead the chant, pick someone. 
+		// If we haven't picked someone to lead the chant, pick someone.
 		// Whoever gets the fancy chant is the next to die. Hopefully that's spooky and ominous.
 		// I want people thinking "Why am I saying something different from everyone else?"
 		// Foreshadowing is fun *evil laugh*

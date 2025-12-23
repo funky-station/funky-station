@@ -13,6 +13,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Map;
 using Robust.Shared.Serialization;
 using Content.Shared.BloodCult.Prototypes;
+using Content.Shared.Chemistry.Components;
 
 namespace Content.Shared.BloodCult;
 
@@ -86,7 +87,7 @@ public sealed partial class BloodCultistComponent : Component
 	/// The original blood reagent before becoming a cultist.
 	/// Used to restore the blood type when deconverted.
 	/// </summary>
-	[DataField] public string OriginalBloodReagent = "Blood";
+    public Solution? OriginalBloodSolution;
 
 	[DataField] public SacrificingData? Sacrifice = null;
 	[DataField] public ConvertingData? Convert = null;

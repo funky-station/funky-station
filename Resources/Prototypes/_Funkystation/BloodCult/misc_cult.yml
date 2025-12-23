@@ -15,3 +15,8 @@
     antagPrototype: BloodCultist
 #    exclusiveAntag: true
   - type: BloodCultRole
+
+- type: action
+  id: ActionCultistCommune
+  raiseOnUser: true
+  event: !type:CultistCommuneEvent

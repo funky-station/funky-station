@@ -253,8 +253,6 @@ public sealed class HereticSystem : EntitySystem
 
         // pick one command staff
         predicates.Add(HasComp<CommandStaffComponent>);
-        // pick one security staff
-        predicates.Add(HasComp<SecurityStaffComponent>);
 
         // add more predicates here
 

@@ -10,6 +10,7 @@ using Content.Shared.Actions;
 using Content.Shared.BloodCult;
 using Content.Shared.BloodCult.Components;
 using Content.Server.Popups;
+using Content.Shared.Actions.Components;
 using Content.Shared.Popups;
 
 namespace Content.Server.BloodCult.EntitySystems;
@@ -53,21 +54,20 @@ public sealed class EmpowerOnStandSystem : EntitySystem
 		var actions = _action.GetActions(args.User);
 		foreach (var action in actions)
 		{
-			if (!TryComp<CultistSpellComponent>(action.Id, out var spellComp))
+			if (!TryComp<CultistSpellComponent>(action.Owner, out var spellComp))
 				continue;
 
-			if (spellComp.AbilityId != "SpellsSelect")
-				continue;
+            if (spellComp.AbilityId != "SpellsSelect")
+                continue;
 
-			// Raise the spell selection event
-			var spellEvent = new BloodCultSpellsEvent
-			{
-				Action = action,
-				Performer = args.User
-			};
-			RaiseLocalEvent(spellEvent);
-			args.Handled = true;
-			return;
+            _action.PerformAction(
+                (args.User, Comp<ActionsComponent>(args.User)),
+                action
+            );
+
+            args.Handled = true;
+            return;
+
 		}
 
 		// If no spell selection action found, show error

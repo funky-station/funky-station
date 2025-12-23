@@ -8,9 +8,12 @@ using Content.Server.Atmos.Components;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Medical.Components;
 using Content.Server.Body.Systems;
+using Content.Shared.Atmos.Components;
+using Content.Shared.Body.Components;
 using Content.Shared.Inventory;
 using Content.Shared.Buckle;
 using Content.Shared.Buckle.Components;
+using Content.Shared.Internals;
 using Content.Shared.Verbs;
 using Robust.Shared.Containers;
 using Robust.Shared.Audio;
@@ -205,8 +208,11 @@ public sealed class BedInternalsSystem : EntitySystem
 
                 if (!_internals.AreInternalsWorking(internals))
                 {
+                    if (!_internals.AreInternalsWorking(patient))
+                    {
+                        RaiseLocalEvent(patient, new ToggleInternalsAlertEvent());
+                    }
 
-                    _internals.ToggleInternals(patient, patient, force: true, internals);
                 }
                 return;
             }
@@ -248,7 +254,6 @@ public sealed class BedInternalsSystem : EntitySystem
         if (TryComp<BreathToolComponent>(maskEnt, out var breathComp))
         {
             breathComp.ConnectedInternalsEntity = patient;
-            breathComp.IsFunctional = true;
         }
 
         _internals.ConnectBreathTool((patient, internals), maskEnt);
@@ -271,8 +276,10 @@ public sealed class BedInternalsSystem : EntitySystem
             }
         }
 
-        if (!_internals.AreInternalsWorking(internals))
-            _internals.ToggleInternals(patient, patient, force: true, internals);
+        if (!_internals.AreInternalsWorking(patient))
+        {
+            RaiseLocalEvent(patient, new ToggleInternalsAlertEvent());
+        }
     }
 
 
@@ -281,7 +288,10 @@ public sealed class BedInternalsSystem : EntitySystem
         if (!TryComp<InternalsComponent>(patient, out var internals))
             return;
 
-        _internals.ToggleInternals(patient, patient, force: true, internals);
+        if (!_internals.AreInternalsWorking(patient))
+        {
+            RaiseLocalEvent(patient, new ToggleInternalsAlertEvent());
+        }
 
 
         if (comp.TempMasks.TryGetValue(patient, out var tempMask) && tempMask != EntityUid.Invalid)

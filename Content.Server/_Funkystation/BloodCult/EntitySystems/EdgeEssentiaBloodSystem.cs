@@ -8,13 +8,16 @@ using Content.Server.Body.Systems;
 using Content.Server.GameTicking;
 using Content.Server.GameTicking.Rules;
 using Content.Server.GameTicking.Rules.Components;
+using Content.Shared.BloodCult;
 using Content.Shared.BloodCult.Components;
+using Content.Shared.Body.Components;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.FixedPoint;
 using Content.Shared.GameTicking.Components;
 using Content.Shared.Mind.Components;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 
 namespace Content.Server.BloodCult.EntitySystems;
@@ -33,6 +36,10 @@ public sealed class EdgeEssentiaBloodSystem : EntitySystem
 
 	private TimeSpan _nextUpdate = TimeSpan.Zero;
 	private bool _bloodCultRuleActive = false;
+    private static readonly ReagentId SanguinePerniculateReagent
+        = new("SanguinePerniculate", null);
+    private static readonly ReagentId EdgeEssentiaReagent
+        = new("EdgeEssentia", null);
 
 	public override void Update(float frameTime)
 	{
@@ -46,7 +53,7 @@ public sealed class EdgeEssentiaBloodSystem : EntitySystem
 
 		// Check all entities with EdgeEssentiaBloodComponent
 		var query = EntityQueryEnumerator<EdgeEssentiaBloodComponent, BloodstreamComponent>();
-		
+
 		// Early exit if no entities need processing (zero-cost when no cultists are active)
 		if (!query.MoveNext(out var uid, out var edgeEssentia, out var bloodstream))
 			return;
@@ -63,10 +70,15 @@ public sealed class EdgeEssentiaBloodSystem : EntitySystem
 				continue;
 
 			// Track how much Sanguine Perniculate they're bleeding out (only if cult rule is active)
-			if (_bloodCultRuleActive && bloodstream.BloodReagent == "SanguinePerniculate")
-			{
-				TrackSanguinePerniculateLoss(uid, edgeEssentia, bloodstream);
-			}
+            if (_solutionContainer.ResolveSolution(
+                    uid,
+                    bloodstream.BloodSolutionName,
+                    ref bloodstream.BloodSolution,
+                    out var bloodSolution)
+                && bloodSolution.ContainsReagent(SanguinePerniculateReagent))
+            {
+                TrackSanguinePerniculateLoss(uid, edgeEssentia, bloodstream);
+            }
 
 			// Check if they still have Edge Essentia in their system
 			if (HasEdgeEssentia(uid, bloodstream))
@@ -77,7 +89,7 @@ public sealed class EdgeEssentiaBloodSystem : EntitySystem
 				continue;
 
 			// No Edge Essentia left - restore their original blood type and remove the component
-			_bloodstream.ChangeBloodReagent(uid, edgeEssentia.OriginalBloodReagent, bloodstream);
+            _bloodstream.ChangeBloodReagents(uid, edgeEssentia.OriginalBloodReagents);
 			RemCompDeferred<EdgeEssentiaBloodComponent>(uid);
 		}
 		while (query.MoveNext(out uid, out edgeEssentia, out bloodstream));
@@ -96,27 +108,34 @@ public sealed class EdgeEssentiaBloodSystem : EntitySystem
 			return;
 
 	// Only track if their blood type is SanguinePerniculate AND they're bleeding
-	if (bloodstream.BloodReagent != "SanguinePerniculate" || bloodstream.BleedAmount <= 0)
-		return;
+    if (!_solutionContainer.ResolveSolution(
+            uid,
+            bloodstream.BloodSolutionName,
+            ref bloodstream.BloodSolution,
+            out var bloodSolution))
+        return;
+
+    if (!bloodSolution.ContainsReagent(SanguinePerniculateReagent) || bloodstream.BleedAmount <= 0)
+        return;
 
 		// Track based on how much they're bleeding per second
 		// BleedAmount represents units of blood lost per second
 		// Only 1/4th of the bleed rate contributes to the ritual pool, since the bleed amount is much higher than the quantity of blood someone has
 		var bloodLostThisTick = (double)(bloodstream.BleedAmount * 0.25f);
-			
+
 		// Enforce the per-entity cap. Mechanically making there no benefit to capturing people for bleeding.
 		var remainingCapacity = Math.Max(0.0, tracker.MaxBloodPerEntity - tracker.TotalBloodCollected);
 		var bloodToAdd = Math.Min(bloodLostThisTick, remainingCapacity);
-		
+
 		// Hard cap: never exceed the maximum
 		if (bloodToAdd > 0 && tracker.TotalBloodCollected < tracker.MaxBloodPerEntity)
 		{
 			// Ensure we don't go over the cap even with floating point errors
 			bloodToAdd = Math.Min(bloodToAdd, tracker.MaxBloodPerEntity - tracker.TotalBloodCollected);
-			
+
 			// Add to the ritual pool
 			_bloodCultRule.AddBloodForConversion(bloodToAdd);
-			
+
 			// Update the tracker and clamp to max
 			tracker.TotalBloodCollected = (float)Math.Min(tracker.TotalBloodCollected + bloodToAdd, tracker.MaxBloodPerEntity);
 			Dirty(uid, tracker);

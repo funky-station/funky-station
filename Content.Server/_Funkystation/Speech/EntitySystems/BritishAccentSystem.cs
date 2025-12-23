@@ -8,6 +8,7 @@ using Content.Server.Speech.Components;
 using Robust.Shared.Random;
 using System.Text.RegularExpressions;
 using System.Linq;
+using Content.Shared.Speech;
 
 namespace Content.Server.Speech.EntitySystems;
 
@@ -21,7 +22,7 @@ public sealed class BritishAccentSystem : EntitySystem
     private static readonly Regex RegexEndT = new(@"(?i)(d|t)\s(?=\w)");
     // Fix H in beginning of string
     private static readonly Regex RegexNakedH = new(@"(?i)(?<=^|\s)h(?=\w+)");
-    // kill all the | 
+    // kill all the |
     private static readonly Regex ClearBlockedWords = new(@"\|");
     private readonly IReadOnlyList<string> _endings = new List<string>(){ ", innit?", ", mate", ", bruv"};
     private readonly IReadOnlyList<string> _starts = new List<string>(){ "Oi bruv ", "Oi ", "Mate ", "Oi mate "};
@@ -42,8 +43,8 @@ public sealed class BritishAccentSystem : EntitySystem
         // for some reason i didn't see it before, so feel free to do that for any accent you create
         //made to prevent accents break some british "features", such as when a lizard speaks
         // "tuesday" -> "tuesssday" and it wouldn't become chewsday
-        SubscribeLocalEvent<BritishAccentComponent, AccentGetEvent>(OnAccent, before: new[] { typeof(LizardAccentSystem), typeof(StutteringSystem), 
-                                                                                              typeof(ScandinavianAccentSystem), typeof(RussianAccentSystem)}, 
+        SubscribeLocalEvent<BritishAccentComponent, AccentGetEvent>(OnAccent, before: new[] { typeof(LizardAccentSystem), typeof(StutteringSystem),
+                                                                                              typeof(ScandinavianAccentSystem), typeof(RussianAccentSystem)},
                                                                               after: new [] { typeof(NoContractionsAccentComponentAccentSystem) });
 
     }
@@ -73,7 +74,7 @@ public sealed class BritishAccentSystem : EntitySystem
         {
             var start = _random.Pick(_starts);
             //if the phrase has one of the start words already, don't add it again
-            if (!_startwords.Any(word => msg.ToLower().Contains(word) && start.ToLower().Contains(word))) 
+            if (!_startwords.Any(word => msg.ToLower().Contains(word) && start.ToLower().Contains(word)))
             {
                 if (startShouldBeUpper)
                     start = start.ToUpper();
@@ -83,7 +84,7 @@ public sealed class BritishAccentSystem : EntitySystem
                     var rest = msg.Substring(1);
                     msg = msg.Remove(0);
                     msg = first + rest;
-                }  
+                }
                 msg = start + msg;
             }
             limit++;
@@ -94,7 +95,7 @@ public sealed class BritishAccentSystem : EntitySystem
         {
             var ending = _random.Pick(_endings);
             //if the phrase has one of the end words already, don't add it again
-            if (!_endwords.Any(word => msg.ToLower().Contains(word) && ending.ToLower().Contains(word))) 
+            if (!_endwords.Any(word => msg.ToLower().Contains(word) && ending.ToLower().Contains(word)))
             {
                 var lastchar = msg[msg.Length - 1];
                 if (lastchar == '.' || lastchar == '!' || lastchar == '?')
@@ -113,7 +114,7 @@ public sealed class BritishAccentSystem : EntitySystem
                         ending = ending.ToUpper();
                     msg = msg + ending;
                 }
-                    
+
             }
             limit++;
         }

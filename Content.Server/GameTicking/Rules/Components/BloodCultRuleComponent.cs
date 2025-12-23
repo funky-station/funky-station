@@ -7,14 +7,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later OR MIT
 
-using Robust.Shared.Player;
-using Robust.Shared.GameObjects;
-using Robust.Shared.Map;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
-using Content.Server.GameTicking.Rules;
-using Content.Shared.Mind;
 using Content.Shared.BloodCult;
-using Content.Shared.BloodCult.Components;
 
 namespace Content.Server.GameTicking.Rules.Components;
 

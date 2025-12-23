@@ -30,16 +30,42 @@ public sealed class HereticRitualRuneBoundUserInterface : BoundUserInterface
     {
         base.Open();
 
-        _hereticRitualMenu = this.CreateWindow<HereticRitualRuneRadialMenu>();
-        _hereticRitualMenu.SetEntity(Owner);
-        _hereticRitualMenu.SendHereticRitualRuneMessageAction += SendHereticRitualMessage;
+        // If window already exists and is open, just bring it to front
+        if (_hereticRitualMenu != null && _hereticRitualMenu.IsOpen)
+        {
+            _hereticRitualMenu.MoveToFront();
+            return;
+        }
 
-        var vpSize = _displayManager.ScreenSize;
-        _hereticRitualMenu.OpenCenteredAt(_inputManager.MouseScreenPosition.Position / vpSize);
+        _hereticRitualMenu = this.CreateWindow<HereticRitualRuneRadialMenu>();
+        if (_hereticRitualMenu != null)
+        {
+            _hereticRitualMenu._shouldRefresh = true;
+            _hereticRitualMenu.SetEntity(Owner);
+            _hereticRitualMenu.SendHereticRitualRuneMessageAction += SendHereticRitualMessage;
+        }
+
+        if (_hereticRitualMenu != null)
+        {
+            var vpSize = _displayManager.ScreenSize;
+            _hereticRitualMenu.OpenCenteredAt(_inputManager.MouseScreenPosition.Position / vpSize);
+        }
+    }
+
+    protected override void Dispose(bool disposing)
+    {
+        base.Dispose(disposing);
+        if (_hereticRitualMenu != null)
+        {
+            _hereticRitualMenu.Close();
+            _hereticRitualMenu = null;
+        }
     }
 
     private void SendHereticRitualMessage(ProtoId<HereticRitualPrototype> protoId)
     {
+        // A predicted message cannot be used here as the heretic ritual selection UI is closed immediately
+        // after this message is sent, which will stop the server from receiving it
         SendMessage(new HereticRitualMessage(protoId));
     }
 }

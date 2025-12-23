@@ -42,6 +42,7 @@ using Content.Shared.PowerCell.Components;
 using Content.Shared.Silicons.Borgs.Components;
 using Content.Shared.Weapons.Melee;
 using Content.Shared.Weapons.Melee.Events;
+using Robust.Shared.Log;
 
 
 namespace Content.Server.BloodCult.EntitySystems;
@@ -139,7 +140,9 @@ public sealed partial class CultistSpellSystem : EntitySystem
 
 	public void AddSpell(EntityUid uid, BloodCultistComponent comp, ProtoId<CultAbilityPrototype> id, bool recordKnownSpell = true)
 	{
+		Log.Info($"[CultistSpellSystem] AddSpell called for entity {uid} with spell {id}, recordKnownSpell={recordKnownSpell}");
 		var data = GetSpell(id);
+		Log.Info($"[CultistSpellSystem] Got spell data for {id}: DoAfterLength={data.DoAfterLength}, ActionPrototypes={data.ActionPrototypes?.Count ?? 0}");
 
 		bool standingOnRune = false;
 		var coords = new EntityCoordinates(uid, default);//.Position;
@@ -200,6 +203,7 @@ public sealed partial class CultistSpellSystem : EntitySystem
 
 		if (data.DoAfterLength > 0)
 		{
+			Log.Info($"[CultistSpellSystem] Starting DoAfter for spell {id} on entity {uid}, length={data.DoAfterLength * (standingOnRune ? 1 : 3)}, standingOnRune={standingOnRune}");
 			_popup.PopupEntity(standingOnRune ? Loc.GetString("cult-spell-carving-rune") : Loc.GetString("cult-spell-carving"), uid, uid, PopupType.MediumCaution);
 			var dargs = new DoAfterArgs(EntityManager, uid, data.DoAfterLength * (standingOnRune ? 1 : 3), new CarveSpellDoAfterEvent(
 				uid, data, recordKnownSpell, standingOnRune), uid
@@ -214,19 +218,24 @@ public sealed partial class CultistSpellSystem : EntitySystem
 				CancelDuplicate = false,
 			};
 
-			_doAfter.TryStartDoAfter(dargs);
+			var doAfterResult = _doAfter.TryStartDoAfter(dargs);
+			Log.Info($"[CultistSpellSystem] TryStartDoAfter returned {doAfterResult} for spell {id} on entity {uid}");
 		}
 		else
 		{
 			foreach (var act in data.ActionPrototypes)
-				_action.AddAction(uid, act);
+			{
+				EntityUid? actionEnt = null;
+				_action.AddAction(uid, ref actionEnt, act);
+			}
 			if (recordKnownSpell)
-				comp.KnownSpells.Add(data);
+				comp.KnownSpells.Add(id);
 		}
 	}
 
 	public void OnCarveSpellDoAfter(Entity<BloodCultistComponent> ent, ref CarveSpellDoAfterEvent args)
 	{
+		Log.Info($"[CultistSpellSystem] OnCarveSpellDoAfter called for entity {ent.Owner}, spell={args.CultAbility.ID}, cancelled={args.Cancelled}");
 		if (ent.Comp.KnownSpells.Count > 3)
 		{
 			_popup.PopupEntity(Loc.GetString("cult-spell-exceeded"), ent, ent);
@@ -271,25 +280,36 @@ public sealed partial class CultistSpellSystem : EntitySystem
 
         if (!args.Cancelled)
 		{
+			Log.Info($"[CultistSpellSystem] DoAfter completed successfully for spell {args.CultAbility.ID} on entity {ent.Owner}");
 			foreach (var act in args.CultAbility.ActionPrototypes)
 			{
-				_action.AddAction(args.CarverUid, act);
+				EntityUid? actionEnt = null;
+				_action.AddAction(args.CarverUid, ref actionEnt, act);
+				Log.Info($"[CultistSpellSystem] Added action {act} for spell {args.CultAbility.ID} on entity {ent.Owner}");
 			}
 			if (args.RecordKnownSpell)
-				ent.Comp.KnownSpells.Add(args.CultAbility);
+			{
+				ent.Comp.KnownSpells.Add(args.CultAbility.ID);
+				Log.Info($"[CultistSpellSystem] Added spell {args.CultAbility.ID} to KnownSpells for entity {ent.Owner}. KnownSpells count is now {ent.Comp.KnownSpells.Count}");
+			}
 
 			_damageableSystem.TryChangeDamage(ent, appliedDamageSpecifier, true, origin: ent);
 			_audioSystem.PlayPvs(args.CultAbility.CarveSound, ent);
 			if (args.StandingOnRune)
 				_bloodCultRules.Speak(ent, Loc.GetString("cult-invocation-empowering"));
 		}
+		else
+		{
+			Log.Warning($"[CultistSpellSystem] DoAfter was cancelled for spell {args.CultAbility.ID} on entity {ent.Owner}");
+		}
 
         Dirty(ent, ent.Comp);
+		Log.Info($"[CultistSpellSystem] OnCarveSpellDoAfter completed for entity {ent.Owner}, spell={args.CultAbility.ID}");
 	}
 
 	public void RemoveSpell(ProtoId<CultAbilityPrototype> id, BloodCultistComponent comp)
 	{
-		comp.KnownSpells.Remove(GetSpell(id));
+		comp.KnownSpells.Remove(id);
 	}
 
 	private void OnStudyVeil(Entity<BloodCultistComponent> ent, ref EventCultistStudyVeil args)
@@ -308,12 +328,25 @@ public sealed partial class CultistSpellSystem : EntitySystem
 
 	private void OnSpellSelectedMessage(Entity<BloodCultistComponent> ent, ref SpellsMessage args)
 	{
-		if (!CultistSpellComponent.ValidSpells.Contains(args.ProtoId) || ent.Comp.KnownSpells.Contains(args.ProtoId))
+		Log.Info($"[CultistSpellSystem] OnSpellSelectedMessage called for entity {ent.Owner} with spell {args.ProtoId}");
+		
+		if (!CultistSpellComponent.ValidSpells.Contains(args.ProtoId))
 		{
+			Log.Warning($"[CultistSpellSystem] Spell {args.ProtoId} is not in ValidSpells list");
 			_popup.PopupEntity(Loc.GetString("cult-spell-havealready"), ent, ent);
 			return;
 		}
+		
+		if (ent.Comp.KnownSpells.Contains(args.ProtoId))
+		{
+			Log.Warning($"[CultistSpellSystem] Spell {args.ProtoId} is already in KnownSpells for entity {ent.Owner}");
+			_popup.PopupEntity(Loc.GetString("cult-spell-havealready"), ent, ent);
+			return;
+		}
+		
+		Log.Info($"[CultistSpellSystem] Calling AddSpell for entity {ent.Owner} with spell {args.ProtoId}");
 		AddSpell(ent, ent.Comp, args.ProtoId, recordKnownSpell:true);
+		Log.Info($"[CultistSpellSystem] AddSpell completed for entity {ent.Owner} with spell {args.ProtoId}");
 	}
 
 	private void OnSummonDagger(Entity<BloodCultistComponent> ent, ref EventCultistSummonDagger args)

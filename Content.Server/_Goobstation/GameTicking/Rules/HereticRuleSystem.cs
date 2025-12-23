@@ -14,11 +14,13 @@ using Content.Server.Objectives;
 using Content.Server.Objectives.Components;
 using Content.Server.Roles;
 using Content.Shared.Heretic;
+using Content.Shared._Shitcode.Heretic;
 using Content.Shared.NPC.Prototypes;
 using Content.Shared.NPC.Systems;
 using Content.Shared.Roles;
 using Content.Shared.Store;
 using Content.Shared.Store.Components;
+using Content.Server.Store.Systems;
 using Robust.Shared.Audio;
 using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
@@ -26,6 +28,7 @@ using Robust.Shared.Random;
 using System.Linq;
 using System.Text;
 using Content.Shared.Roles.Components;
+using Robust.Shared.GameObjects;
 
 namespace Content.Server.GameTicking.Rules;
 
@@ -37,6 +40,8 @@ public sealed partial class HereticRuleSystem : GameRuleSystem<HereticRuleCompon
     [Dependency] private readonly NpcFactionSystem _npcFaction = default!;
     [Dependency] private readonly ObjectivesSystem _objective = default!;
     [Dependency] private readonly IRobustRandom _rand = default!;
+    [Dependency] private readonly SharedUserInterfaceSystem _uiSystem = default!;
+    [Dependency] private readonly StoreSystem _store = default!;
 
     public readonly SoundSpecifier BriefingSound = new SoundPathSpecifier("/Audio/_Goobstation/Heretic/Ambience/Antag/Heretic/heretic_gain.ogg");
 
@@ -88,12 +93,24 @@ public sealed partial class HereticRuleSystem : GameRuleSystem<HereticRuleCompon
 
         EnsureComp<HereticComponent>(target);
 
+        // Add heretic UI interface
+        _uiSystem.SetUi(target, HereticLivingHeartKey.Key, new InterfaceData("LivingHeartMenuBoundUserInterface", requireInputValidation: false));
+
         // add store
         var store = EnsureComp<StoreComponent>(target);
         foreach (var category in rule.StoreCategories)
             store.Categories.Add(category);
         store.CurrencyWhitelist.Add(Currency);
         store.Balance.Add(Currency, 2);
+        
+        // Refresh listings after setting up categories
+        // This populates FullListingsCatalog with all available listings
+        // ComponentStartup will also call RefreshAllListings, but we call it here
+        // to ensure listings are available immediately after categories are set
+        _store.RefreshAllListings(store);
+        
+        // Ensure the component is marked as dirty so the UI gets updated
+        Dirty(target, store);
 
         rule.Minds.Add(mindId);
 

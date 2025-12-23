@@ -122,14 +122,6 @@
       # Goobstation - changelings
       enum.StoreUiKey.Key:
         type: StoreBoundUserInterface
-      enum.HereticLivingHeartKey.Key: # goob edit - heretics
-        type: LivingHeartMenuBoundUserInterface
-      enum.BloodCultistCommuneUIKey.Key: # funky edit - cultists
-        type: BloodCultCommuneBoundUserInterface
-        requireInputValidation: false
-      enum.SpellsUiKey.Key: # funky edit - cultists
-        type: SpellsBoundUserInterface
-        requireInputValidation: false
       # Shitmed
       enum.SurgeryUIKey.Key:
         type: SurgeryBui

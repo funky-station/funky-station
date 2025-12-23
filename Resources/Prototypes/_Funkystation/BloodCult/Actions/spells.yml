@@ -9,14 +9,16 @@
   id: ActionCultistStudyVeil
   name: Study Veil
   description: Examine the state of the veil, and the strength of your cult.
+  parent: BaseAction
   categories: [ HideSpawnMenu ]
   components:
-  - type: InstantAction
-    checkCanInteract: false
-    itemIconStyle: NoItem
+  - type: Action
     icon:
       sprite: _Funkystation/BloodCult/spells_cultist.rsi
       state: study_veil
+  - type: InstantAction
+    checkCanInteract: false
+    itemIconStyle: NoItem
     event: !type:EventCultistStudyVeil {}
   - type: Sprite
     sprite: _Funkystation/BloodCult/spells_cultist.rsi
@@ -32,14 +34,16 @@
   id: ActionCultistCommune
   name: Commune
   description: Send a message to your fellow cultists. Beware - the uninitiated can see you whispering the incantation.
+  parent: BaseAction
   categories: [ HideSpawnMenu ]
   components:
-  - type: InstantAction
-    checkCanInteract: false
-    itemIconStyle: NoItem
+  - type: Action
     icon:
       sprite: _Funkystation/BloodCult/spells_cultist.rsi
       state: commune
+  - type: InstantAction
+    checkCanInteract: false
+    itemIconStyle: NoItem
     event: !type:BloodCultCommuneEvent {}
   - type: Sprite
     sprite: _Funkystation/BloodCult/spells_cultist.rsi
@@ -55,14 +59,17 @@
   id: ActionCultistSpellsSelect
   name: Prepare Spell
   description: Prepare a blood spell by carving it into your body. Up to 1 spell may be prepared without standing on an empowering rune.
+  parent: BaseAction
   categories: [ HideSpawnMenu ]
   components:
-  - type: InstantAction
-    checkCanInteract: false
-    itemIconStyle: NoItem
+  - type: Action
     icon:
       sprite: _Funkystation/BloodCult/spells_cultist.rsi
       state: spell_select
+    raiseOnUser: true
+  - type: InstantAction
+    checkCanInteract: false
+    itemIconStyle: NoItem
     event: !type:BloodCultSpellsEvent {}
   - type: Sprite
     sprite: _Funkystation/BloodCult/spells_cultist.rsi
@@ -78,19 +85,18 @@
   id: ActionCultistSummonDagger
   name: Summon Dagger
   description: Summon your ritual dagger.
+  parent: BaseAction
   categories: [ HideSpawnMenu ]
   components:
-  - type: Icon
-    sprite: _Funkystation/BloodCult/spells_cultist.rsi
-    state: summon_dagger
+  - type: Action
+    icon:
+      sprite: _Funkystation/BloodCult/spells_cultist.rsi
+      state: summon_dagger
   - type: Sprite
     sprite: _Funkystation/BloodCult/spells_cultist.rsi
     state: summon_dagger
   - type: InstantAction
     itemIconStyle: NoItem
-    icon:
-      sprite: _Funkystation/BloodCult/spells_cultist.rsi
-      state: summon_dagger
     event: !type:EventCultistSummonDagger {}
   - type: CultistSpell
     abilityId: SummonDagger
@@ -103,11 +109,16 @@
   id: ActionCultistStun
   name: Stun
   description: A potent spell that will knock down, silence, and mark a target. Stabbing marked targets with your cult dagger will stun and re-silence them. EMPs Cyborgs.
+  parent: BaseAction
   categories: [ HideSpawnMenu ]
   components:
-  - type: Icon
-    sprite: _Funkystation/BloodCult/spells_cultist.rsi
-    state: stun
+  - type: Action
+    icon:
+      sprite: _Funkystation/BloodCult/spells_cultist.rsi
+      state: stun
+    iconOn:
+      sprite: _Funkystation/BloodCult/spells_cultist.rsi
+      state: stun_selected
   - type: Sprite
     sprite: _Funkystation/BloodCult/spells_cultist.rsi
     state: stun
@@ -118,12 +129,6 @@
     canTargetSelf: False
     interactOnMiss: False
     itemIconStyle: NoItem
-    icon:
-      sprite: _Funkystation/BloodCult/spells_cultist.rsi
-      state: stun
-    iconOn:
-      sprite: _Funkystation/BloodCult/spells_cultist.rsi
-      state: stun_selected
     event: !type:EventCultistStun {}
     #useDelay: 60  TIME DELAY BETWEEN ACTION USES
     #deselectOnMiss: False
@@ -145,11 +150,16 @@
   id: ActionCultistTwistedConstruction
   name: Twisted Construction
   description: A sinister spell used to convert plasteel into runed metal. # and airlocks into cult airlocks.
+  parent: BaseAction
   categories: [ HideSpawnMenu ]
   components:
-  - type: Icon
-    sprite: _Funkystation/BloodCult/spells_cultist.rsi
-    state: twisted_construction
+  - type: Action
+    icon:
+      sprite: _Funkystation/BloodCult/spells_cultist.rsi
+      state: twisted_construction
+    iconOn:
+      sprite: _Funkystation/BloodCult/spells_cultist.rsi
+      state: twisted_construction
   - type: Sprite
     sprite: _Funkystation/BloodCult/spells_cultist.rsi
     state: twisted_construction
@@ -160,12 +170,6 @@
     canTargetSelf: False
     interactOnMiss: False
     itemIconStyle: NoItem
-    icon:
-      sprite: _Funkystation/BloodCult/spells_cultist.rsi
-      state: twisted_construction
-    iconOn:
-      sprite: _Funkystation/BloodCult/spells_cultist.rsi
-      state: twisted_construction
     event: !type:EventCultistTwistedConstruction {}
     #useDelay: 60  TIME DELAY BETWEEN ACTION USES
     #deselectOnMiss: False

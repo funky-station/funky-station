@@ -6,6 +6,7 @@
   id: ActionPAIOpenPda
   name: Open PDA
   description: Open the PDA you're in.
+  parent: BaseAction
   components:
   - type: InstantAction
     checkCanInteract: false

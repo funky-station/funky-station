@@ -34,9 +34,6 @@ public sealed partial class HereticComponent : Component
         "AmberFocus",
         "LivingHeart",
         "CodexCicatrix",
-        "CloakOfShadow",
-        "Reminiscence",
-        "FeastOfOwls",
     };
 
     [DataField]

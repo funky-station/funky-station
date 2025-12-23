@@ -15,6 +15,7 @@ using Robust.Client.UserInterface.XAML;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
+using Robust.Shared.Log;
 using System.Numerics;
 using Content.Shared.BloodCult.Components;
 using Content.Shared.BloodCult.Prototypes;
@@ -23,7 +24,7 @@ namespace Content.Client._Funkystation.BloodCult.UI;
 
 public sealed partial class SpellRadialMenu : RadialMenu
 {
-    //[Dependency] private readonly EntityManager _entityManager = default!;
+    [Dependency] private readonly IEntityManager _entityManager = default!;
     [Dependency] private readonly IEntitySystemManager _entitySystem = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly ISharedPlayerManager _playerManager = default!;
@@ -32,6 +33,7 @@ public sealed partial class SpellRadialMenu : RadialMenu
 	public event Action<ProtoId<CultAbilityPrototype>>? SendSpellsMessageAction;
 
     public EntityUid Entity { get; set; }
+    public bool _shouldRefresh = true;
 
     public SpellRadialMenu()
     {
@@ -43,7 +45,8 @@ public sealed partial class SpellRadialMenu : RadialMenu
     public void SetEntity(EntityUid uid)
     {
         Entity = uid;
-        RefreshUI();
+        if (_shouldRefresh)
+            RefreshUI();
     }
 
     private void RefreshUI()
@@ -52,10 +55,27 @@ public sealed partial class SpellRadialMenu : RadialMenu
         if (main == null)
             return;
 
+        // Clear existing children before adding new ones
+        main.Children.Clear();
+
         var player = _playerManager.LocalEntity;
+
+        // Get known spells to filter them out
+        // Note: We only filter spells that are fully learned (in KnownSpells).
+        // Spells with DoAfters won't be in KnownSpells until the DoAfter completes,
+        // so they will still show up in the UI until then.
+        var knownSpells = new HashSet<ProtoId<CultAbilityPrototype>>();
+        if (_entityManager.TryGetComponent<BloodCultistComponent>(Entity, out var cultistComp))
+        {
+            knownSpells.UnionWith(cultistComp.KnownSpells);
+        }
 
         foreach (var cultAbility in CultistSpellComponent.ValidSpells)
 		{
+			// Skip spells that are already fully learned (not just being prepared)
+			if (knownSpells.Contains(cultAbility))
+				continue;
+
 			_prototypeManager.TryIndex<CultAbilityPrototype>(cultAbility, out var cultAbilityPrototype);
 			if (cultAbilityPrototype == null || cultAbilityPrototype.ActionPrototypes == null)
 				continue;
@@ -98,15 +118,17 @@ public sealed partial class SpellRadialMenu : RadialMenu
             if (castChild == null)
                 continue;
 
-            castChild.OnKeyBindUp += _ =>
+            castChild.OnPressed += _ =>
             {
+                // Log.Info($"[SpellRadialMenu] Button clicked for spell {castChild.ProtoId}, invoking SendSpellsMessageAction");
                 SendSpellsMessageAction?.Invoke(castChild.ProtoId);
+                // Log.Info($"[SpellRadialMenu] SendSpellsMessageAction invoked, closing window");
                 Close();
             };
         }
     }
 
-    public sealed class SpellsMenuButton : RadialMenu
+    public sealed class SpellsMenuButton : RadialMenuButton
     {
 		public required ProtoId<CultAbilityPrototype> ProtoId { get; set; }
     }

@@ -59,6 +59,7 @@ using Content.Server.Chat.Managers;
 using Content.Shared.Administration.Systems;
 using Content.Shared.Chat;
 using Content.Shared.Roles.Components;
+using Robust.Shared.GameObjects;
 
 namespace Content.Server.GameTicking.Rules;
 
@@ -89,6 +90,7 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 	[Dependency] private readonly AppearanceSystem _appearance = default!;
 	[Dependency] private readonly NpcFactionSystem _npcFaction = default!;
 	[Dependency] private readonly IAdminLogManager _adminLogger = default!;
+	[Dependency] private readonly SharedUserInterfaceSystem _uiSystem = default!;
 
 	[Dependency] private readonly IEntityManager _entManager = default!;
 
@@ -285,6 +287,10 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 				// propogate the selected Nar'Sie summon location
 				cultist.ShowTearVeilRune = component.VeilWeakened;
 				cultist.LocationForSummon = component.LocationForSummon;
+
+				// Add cultist UI interfaces
+				_uiSystem.SetUi(traitor, BloodCultistCommuneUIKey.Key, new InterfaceData("BloodCultCommuneBoundUserInterface", requireInputValidation: false));
+				_uiSystem.SetUi(traitor, SpellsUiKey.Key, new InterfaceData("SpellsBoundUserInterface", requireInputValidation: false));
 			}
 
 			if (component.HasEyes)

@@ -27,6 +27,7 @@ public sealed partial class HereticRitualRuneRadialMenu : RadialMenu
     public event Action<ProtoId<HereticRitualPrototype>>? SendHereticRitualRuneMessageAction;
 
     public EntityUid Entity { get; set; }
+    public bool _shouldRefresh = true;
 
     public HereticRitualRuneRadialMenu()
     {
@@ -38,7 +39,8 @@ public sealed partial class HereticRitualRuneRadialMenu : RadialMenu
     public void SetEntity(EntityUid uid)
     {
         Entity = uid;
-        RefreshUI();
+        if (_shouldRefresh)
+            RefreshUI();
     }
 
     private void RefreshUI()
@@ -46,6 +48,9 @@ public sealed partial class HereticRitualRuneRadialMenu : RadialMenu
         var main = FindControl<RadialContainer>("Main");
         if (main == null)
             return;
+
+        // Clear existing children before adding new ones
+        main.Children.Clear();
 
         var player = _playerManager.LocalEntity;
 
@@ -92,7 +97,7 @@ public sealed partial class HereticRitualRuneRadialMenu : RadialMenu
             if (castChild == null)
                 continue;
 
-            castChild.OnKeyBindUp += _ =>
+            castChild.OnPressed += _ =>
             {
                 SendHereticRitualRuneMessageAction?.Invoke(castChild.ProtoId);
                 Close();
@@ -100,7 +105,7 @@ public sealed partial class HereticRitualRuneRadialMenu : RadialMenu
         }
     }
 
-    public sealed class HereticRitualMenuButton : RadialMenu
+    public sealed class HereticRitualMenuButton : RadialMenuButton
     {
         public ProtoId<HereticRitualPrototype> ProtoId { get; set; }
     }

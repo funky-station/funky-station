@@ -7,17 +7,19 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
 - type: entity
+  parent: BaseAction
   id: ActionHereticVoidPhase
   name: Void Phase
   description: Shift through the void, knocking down everyone around you.
   categories: [ HideSpawnMenu ]
   components:
-  - type: WorldTargetAction
-    useDelay: 15
-    itemIconStyle: NoItem
+  - type: Action
     icon:
       sprite: _Goobstation/Heretic/abilities_heretic.rsi
       state: void_phase
+  - type: WorldTargetAction
+    useDelay: 15
+    itemIconStyle: NoItem
     event: !type:HereticVoidBlinkEvent
     checkCanAccess: false
     range: 0
@@ -26,17 +28,19 @@
     messageLoc: heretic-speech-void-phase
 
 - type: entity
+  parent: BaseAction
   id: ActionHereticVoidPull
   name: Void Pull
   description: Pull and damage nearby heathens.
   categories: [ HideSpawnMenu ]
   components:
-  - type: InstantAction
-    useDelay: 20
-    itemIconStyle: NoItem
+  - type: Action
     icon:
       sprite: _Goobstation/Heretic/abilities_heretic.rsi
       state: void_pull
+  - type: InstantAction
+    useDelay: 20
+    itemIconStyle: NoItem
     event: !type:HereticVoidPullEvent
   - type: HereticAction
     requireMagicItem: true

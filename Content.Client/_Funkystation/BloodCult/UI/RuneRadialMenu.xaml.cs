@@ -155,7 +155,7 @@ public sealed partial class RuneRadialMenu : RadialMenu
             if (castChild == null)
                 continue;
 
-            castChild.OnKeyBindUp += _ =>
+            castChild.OnPressed += _ =>
             {
                 SendRunesMessageAction?.Invoke(castChild.ProtoId);
                 Close();
@@ -163,7 +163,7 @@ public sealed partial class RuneRadialMenu : RadialMenu
         }
     }
 
-    public sealed class RunesMenuButton : RadialMenu
+    public sealed class RunesMenuButton : RadialMenuButton
     {
 		public required string ProtoId { get; set; }
     }

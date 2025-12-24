@@ -6870,3 +6870,11 @@ Entries:
         often.
   id: 796
   time: '2025-12-24T00:22:47.0000000+00:00'
+- author: Tea
+  changes:
+    - type: Tweak
+      message: >-
+        The satchel, smuggler satchel and leather satchel got a new coat of
+        paint!
+  id: 797
+  time: '2025-12-24T23:24:04.0000000+00:00'

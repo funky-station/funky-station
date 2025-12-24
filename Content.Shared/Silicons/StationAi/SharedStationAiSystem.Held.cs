@@ -10,7 +10,6 @@
 //
 // SPDX-License-Identifier: MIT
 
-using System.Diagnostics.CodeAnalysis;
 using Content.Shared.Actions.Events;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction.Events;
@@ -181,8 +180,12 @@ public abstract partial class SharedStationAiSystem
 
     private void OnTargetVerbs(Entity<StationAiWhitelistComponent> ent, ref GetVerbsEvent<AlternativeVerb> args)
     {
+        if (!_uiSystem.HasUi(args.Target, AiUi.Key))
+            return;
+
         if (!args.CanComplexInteract
-            || !HasComp<StationAiHeldComponent>(args.User))
+            || !HasComp<StationAiHeldComponent>(args.User)
+            || !args.CanInteract)
         {
             return;
         }
@@ -198,13 +201,6 @@ public abstract partial class SharedStationAiSystem
             Text = isOpen ? Loc.GetString("ai-close") : Loc.GetString("ai-open"),
             Act = () =>
             {
-                // no need to show menu if device is not powered.
-                if (!PowerReceiver.IsPowered(ent.Owner))
-                {
-                    ShowDeviceNotRespondingPopup(user);
-                    return;
-                }
-
                 if (isOpen)
                 {
                     _uiSystem.CloseUi(ent.Owner, AiUi.Key, user);
@@ -221,6 +217,11 @@ public abstract partial class SharedStationAiSystem
     private void ShowDeviceNotRespondingPopup(EntityUid toEntity)
     {
         _popup.PopupClient(Loc.GetString("ai-device-not-responding"), toEntity, PopupType.MediumCaution);
+    }
+
+    private void ShowDeviceNoAccessPopup(EntityUid toEntity)
+    {
+        _popup.PopupClient(Loc.GetString("ai-device-no-access"), toEntity, PopupType.MediumCaution);
     }
 }
 

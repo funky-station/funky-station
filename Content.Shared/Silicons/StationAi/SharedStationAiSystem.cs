@@ -13,6 +13,7 @@
 //
 // SPDX-License-Identifier: MIT
 
+using Content.Shared.Access.Systems;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Actions;
 using Content.Shared.Administration.Managers;
@@ -57,6 +58,7 @@ public abstract partial class SharedStationAiSystem : EntitySystem
     [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly ItemSlotsSystem _slots = default!;
     [Dependency] private readonly ItemToggleSystem _toggles = default!;
+    [Dependency] private readonly AccessReaderSystem _access = default!;
     [Dependency] private readonly ActionBlockerSystem _blocker = default!;
     [Dependency] private readonly MetaDataSystem _metadata = default!;
     [Dependency] private readonly SharedAirlockSystem _airlocks = default!;
@@ -283,6 +285,9 @@ public abstract partial class SharedStationAiSystem : EntitySystem
         if (!TryComp(args.Target, out StationAiHolderComponent? targetHolder))
             return;
 
+        //Don't want to download/upload between several intellicards. You can just pick it up at that point.
+        if (HasComp<IntellicardComponent>(args.Target))
+            return;
 
         if (!TryComp(args.Used, out IntellicardComponent? intelliComp))
             return;
@@ -309,7 +314,7 @@ public abstract partial class SharedStationAiSystem : EntitySystem
             RaiseLocalEvent(held.Value, ref ev);
         }
 
-        var doAfterArgs = new DoAfterArgs(EntityManager, args.User, cardHasAi ? intelliComp.UploadTime : intelliComp.DownloadTime, new IntellicardDoAfterEvent(), ent.Owner, args.Target, ent.Owner)
+        var doAfterArgs = new DoAfterArgs(EntityManager, args.User, cardHasAi ? intelliComp.UploadTime : intelliComp.DownloadTime, new IntellicardDoAfterEvent(), args.Target, ent.Owner)
         {
             BreakOnDamage = true,
             BreakOnMove = true,
@@ -334,12 +339,30 @@ public abstract partial class SharedStationAiSystem : EntitySystem
 
     private void OnHolderConInsert(Entity<StationAiHolderComponent> ent, ref EntInsertedIntoContainerMessage args)
     {
+        if (_timing.ApplyingState)
+            return;
+
+        if (args.Container.ID != ent.Comp.Slot.ID)
+            return;
+
         UpdateAppearance((ent.Owner, ent.Comp));
+
+        if (ent.Comp.RenameOnInsert)
+            _metadata.SetEntityName(ent.Owner, MetaData(args.Entity).EntityName);
     }
 
     private void OnHolderConRemove(Entity<StationAiHolderComponent> ent, ref EntRemovedFromContainerMessage args)
     {
+        if (_timing.ApplyingState)
+            return;
+
+        if (args.Container.ID != ent.Comp.Slot.ID)
+            return;
+
         UpdateAppearance((ent.Owner, ent.Comp));
+
+        if (ent.Comp.RenameOnInsert)
+            _metadata.SetEntityName(ent.Owner, Prototype(ent.Owner)?.Name ?? string.Empty);
     }
 
     private void OnHolderMapInit(Entity<StationAiHolderComponent> ent, ref MapInitEvent args)
@@ -355,20 +378,6 @@ public abstract partial class SharedStationAiSystem : EntitySystem
 
         QueueDel(ent.Comp.RemoteEntity);
         ent.Comp.RemoteEntity = null;
-
-        //Funky edit, Handle AI brain destruction when core is destroyed
-        if (_containers.TryGetContainer(ent.Owner, StationAiCoreComponent.Container, out var container))
-        {
-            foreach (var containedEntity in container.ContainedEntities)
-            {
-                if (HasComp<StationAiHeldComponent>(containedEntity))
-                {
-                    // The AI brain's parent core is being destroyed, so destroy the AI brain too
-                    QueueDel(containedEntity);
-                }
-            }
-        }
-        // End funky edit
     }
 
     private void OnCorePower(Entity<StationAiCoreComponent> ent, ref PowerChangedEvent args)
@@ -413,10 +422,19 @@ public abstract partial class SharedStationAiSystem : EntitySystem
         EntityCoordinates? coords = ent.Comp.RemoteEntity != null ? Transform(ent.Comp.RemoteEntity.Value).Coordinates : null;
 
         // Attach new eye
+        var oldEye = ent.Comp.RemoteEntity;
+
         ClearEye(ent);
 
         if (SetupEye(ent, coords))
             AttachEye(ent);
+
+        if (oldEye != null)
+        {
+            // Raise the following event on the old eye before it's deleted
+            var ev = new StationAiRemoteEntityReplacementEvent(ent.Comp.RemoteEntity);
+            RaiseLocalEvent(oldEye.Value, ref ev);
+        }
 
         // Adjust user FoV
         var user = GetInsertedAI(ent);
@@ -488,6 +506,9 @@ public abstract partial class SharedStationAiSystem : EntitySystem
         }
 
         _mover.SetRelay(user, ent.Comp.RemoteEntity.Value);
+
+        var eyeName = Loc.GetString("station-ai-eye-name", ("name", Name(user)));
+        _metadata.SetEntityName(ent.Comp.RemoteEntity.Value, eyeName);
     }
 
     private EntityUid? GetInsertedAI(Entity<StationAiCoreComponent> ent)
@@ -512,9 +533,6 @@ public abstract partial class SharedStationAiSystem : EntitySystem
         ClearEye(ent);
         ent.Comp.Remote = true;
 
-        // Just so text and the likes works properly
-        _metadata.SetEntityName(ent.Owner, MetaData(args.Entity).EntityName);
-
         if (SetupEye(ent))
             AttachEye(ent);
     }
@@ -528,9 +546,6 @@ public abstract partial class SharedStationAiSystem : EntitySystem
             return;
 
         ent.Comp.Remote = true;
-
-        // Reset name to whatever
-        _metadata.SetEntityName(ent.Owner, Prototype(ent.Owner)?.Name ?? string.Empty);
 
         // Remove eye relay
         RemCompDeferred<RelayInputMoverComponent>(args.Entity);

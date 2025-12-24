@@ -145,7 +145,7 @@ public sealed class StationAiSystem : SharedStationAiSystem
                 // Set the new AI brain to the 'rebooting' state
                 if (TryComp<StationAiCustomizationComponent>(aiBrain, out var customization))
                     SetStationAiState((aiBrain, customization), StationAiState.Rebooting);
-                
+
             }
 
             // Delete the new AI brain if it cannot be inserted into the core
@@ -201,6 +201,8 @@ public sealed class StationAiSystem : SharedStationAiSystem
 
     protected override void OnMobStateChanged(Entity<StationAiCustomizationComponent> ent, ref MobStateChangedEvent args)
     {
+        base.OnMobStateChanged(ent, ref args);
+
         if (args.NewMobState != MobState.Alive)
         {
             SetStationAiState(ent, StationAiState.Dead);

@@ -121,6 +121,7 @@
   - type: PointLight
     netsync: false
     radius: 6
+    castShadows: false
     enabled: false
 
 # proto for player ghosts specifically
@@ -130,7 +131,7 @@
   components:
   - type: Spectral
   - type: Tag
-    tags:
+    tags: # BAD: Intentional removal of inherited tag
     - AllowGhostShownByEvent
 
 - type: entity
@@ -190,11 +191,10 @@
   name: Toggle Ghosts
   description: Toggle the visibility of other ghosts.
   components:
-  - type: InstantAction
-  #begin Funkystation
+  - type: Action
     icon: Interface/Actions/toggle-other-ghosts.png
-  #end Funkystation
     clientExclusive: true
+  - type: InstantAction
     event: !type:ToggleGhostsActionEvent
 
 - type: entity

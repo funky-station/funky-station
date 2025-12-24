@@ -442,19 +442,9 @@ namespace Content.Shared.Atmos
         public const float ProtoNitrateTemperatureScale = 5e-3f;
 
         /// <summary>
-        /// The maximum number of moles of hydrogen that can be converted into proto-nitrate in a single reaction tick.
+        /// The amount of energy converting a mole of Trit or Hydrogen into the other produces or Takes.
         /// </summary>
-        public const float ProtoNitrateHydrogenConversionMaxRate = 5f;
-
-        /// <summary>
-        /// The amount of energy converting a mole of hydrogen into half a mole of proto-nitrate consumes.
-        /// </summary>
-        public const float ProtoNitrateHydrogenConversionEnergy = -2500f;
-
-        /// <summary>
-        /// The amount of energy proto-nitrate converting a mole of tritium into hydrogen releases.
-        /// </summary>
-        public const float ProtoNitrateTritiumConversionEnergy = 10000f;
+        public const float ProtoNitrateConversionEnergy = 2000f;
 
         /// <summary>
         /// The amount of energy proto-nitrate breaking down a mole of BZ releases.

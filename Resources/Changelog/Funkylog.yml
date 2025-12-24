@@ -6845,3 +6845,28 @@ Entries:
       message: IPCs are no longer a round-start species.
   id: 793
   time: '2025-12-22T02:37:32.0000000+00:00'
+- author: AraiMaia, Ven
+  changes:
+    - type: Tweak
+      message: Reagent slimes are now unrevivable
+    - type: Fix
+      message: CPR no longer hurts entire body, only the torso. no more delimbs
+    - type: Fix
+      message: CPR now works on animals
+  id: 794
+  time: '2025-12-23T21:46:23.0000000+00:00'
+- author: AraiMaia
+  changes:
+    - type: Fix
+      message: Electrolyzer no longer melts. Oops.
+  id: 795
+  time: '2025-12-23T23:09:29.0000000+00:00'
+- author: AraiMaia
+  changes:
+    - type: Tweak
+      message: >-
+        Tweaked values for nicotine poisoning; coughing will happen only after a
+        significant amount of cigarettes back to back, and you'll cough less
+        often.
+  id: 796
+  time: '2025-12-24T00:22:47.0000000+00:00'

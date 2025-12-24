@@ -533,7 +533,7 @@
     - SurgeryStepRemoveOrgan
     - SurgeryStepSealOrganWound
   - type: SurgeryPartCondition
-    part: Torso
+    part: Chest
   - type: SurgeryOrganPrototypeCondition
     prototypeId: ZombieTumorOrgan
 
@@ -586,7 +586,7 @@
     - SurgeryStepRemoveOrgan
     - SurgeryStepSealOrganWound
   - type: SurgeryPartCondition
-    part: Torso
+    part: Chest
   - type: SurgeryOrganCondition
     organ:
     - type: ZombieTumorOrgan

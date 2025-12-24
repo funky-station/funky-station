@@ -149,6 +149,9 @@
   id: MetalHydrogen
 
 - type: Tag
+  id: MetalHydrogenArmor
+
+- type: Tag
   id: Cryobeaker
 
 - type: Tag
@@ -174,3 +177,24 @@
 
 - type: Tag
   id: TechDiskTerminalCircuitBoard
+
+- type: Tag
+  id: ReactorPart #FarHorizons
+
+- type: Tag
+  id: MopSword
+
+- type: Tag
+  id: HidesNose
+
+- type: Tag
+  id: MagazineLightRiflePan
+
+- type: Tag
+  id: ListeningBug
+
+- type: Tag
+  id: Tongue
+
+- type: Tag
+  id: RodUranium1

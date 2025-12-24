@@ -31,7 +31,7 @@
 
 - type: stack
   parent: BaseMediumStack
-  id: Metal hydrogen
+  id: MetalHydrogen
   name: stack-metal-hydrogen
   icon: { sprite: "/Textures/Objects/Materials/ingots.rsi", state: hydrogen }
   spawn: MetalHydrogen1

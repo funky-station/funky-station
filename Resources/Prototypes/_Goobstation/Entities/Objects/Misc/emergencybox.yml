@@ -98,7 +98,7 @@
       nutriblock:
       - FoodSnackNutribrick
       flare:
-      - GlowstickBase
+      - GlowstickGreen
       tank:
       - EmergencyOxygenTankFilled
       mask:
@@ -172,7 +172,7 @@
       nutriblock:
       - FoodSnackNutribrick
       flare:
-      - GlowstickBase
+      - GlowstickGreen
       tank:
       - EmergencyNitrogenTankFilled
       mask:

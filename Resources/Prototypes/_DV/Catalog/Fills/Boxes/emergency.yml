@@ -12,7 +12,7 @@
   components:
   - type: StorageFill
     contents:
-    - id: GlowstickBase
+    - id: GlowstickGreen
     - id: Oilpack1
     - id: CableApcStack10
     - id: WelderMini

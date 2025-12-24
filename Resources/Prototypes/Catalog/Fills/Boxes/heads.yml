@@ -13,7 +13,6 @@
         - id: CargoSaleComputerCircuitboard
         - id: CargoShuttleConsoleCircuitboard
         - id: SalvageMagnetMachineCircuitboard
-        - id: SalvageJobBoardComputerCircuitboard
         - id: MailTeleporterMachineCircuitboard
 
 - type: entity

@@ -43,3 +43,18 @@
       - MobState
   - type: Pacified
 
+- type: entity
+  parent: BaseSubdermalImplant
+  id: SmokeImplant
+  name: smoke implant
+  description: This implant releases smoke cloud on activation.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SubdermalImplant
+    implantAction: ActivateSmokeImplant
+  - type: TriggerOnActivateImplant
+  - type: SmokeOnTrigger
+    spreadAmount: 25
+    duration: 10
+  - type: EmitSoundOnTrigger
+    sound: /Audio/Effects/smoke.ogg

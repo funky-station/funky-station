@@ -30,7 +30,7 @@
 # NOTE: Bounties seem to work weird with stackable items currently, if you have a bounty for 6 artifact fragments, you need to split them into 6 diffrent stacks for it to count properly,
 #       So for the time being stackable items should be avoided as bounty targets.
 
-# Botany 
+# Botany
 - type: cargoBountyCategory
   id: botanyCategory
   name: bounty-category-botany
@@ -205,7 +205,7 @@
     requiredResearch:
       - BiochemicalStasis
 
-# Misc. 
+# Misc.
 - type: cargoBountyCategory
   id: miscCategory
   name: bounty-category-misc
@@ -270,7 +270,7 @@
 #      tags:
 #      - BoxCardboard
 
-# Medical 
+# Medical
 - type: cargoBountyCategory
   id: medicalCategory
   name: bounty-category-medical
@@ -364,7 +364,7 @@
     requiredResearch:
       - AdvancedTreatment
 
-# Kitchen 
+# Kitchen
 - type: cargoBountyCategory
   id: kitchenCategory
   name: bounty-category-kitchen
@@ -410,7 +410,7 @@
     rewardPer: 3000
     whitelist:
       tags:
-      - ValidSalad                  
+      - ValidSalad
   - name: bounty-item-bread
     minAmount: 1
     maxAmount: 6
@@ -513,7 +513,7 @@
     rewardPer: 3500
     whitelist:
       tags:
-      - Stew      
+      - Stew
   - name: bounty-item-reptilian-food
     minAmount: 1
     maxAmount: 2
@@ -646,22 +646,6 @@
       - LaserCannon
     requiredResearch:
       - ConcentratedLaserWeaponry
-  - name: bounty-item-svalinn-pistol
-    minAmount: 2
-    maxAmount: 10
-    rewardPer: 2500
-    whitelist:
-      tags:
-      - SvalinnPistol
-    requiredResearch:
-      - ExperimentalBatteryAmmo
-  - name: bounty-item-security-hud
-    minAmount: 2
-    maxAmount: 8
-    rewardPer: 900
-    whitelist:
-      tags:
-      - HudSecurity
   - name: bounty-item-medsec-hud
     minAmount: 2
     maxAmount: 5
@@ -700,7 +684,7 @@
       tags:
       - Stunbaton
 
-# Makeshift Weapons 
+# Makeshift Weapons
 - type: cargoBountyCategory
   id: weaponCategory
   name: bounty-category-weaponry
@@ -1050,7 +1034,7 @@
 #    requiredResearch:
 #      - Instruments
 
-# Bar 
+# Bar
 - type: cargoBountyCategory
   id: barCategory
   name: bounty-category-bar

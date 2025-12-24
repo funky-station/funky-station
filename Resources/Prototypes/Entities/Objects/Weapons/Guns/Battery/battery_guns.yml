@@ -236,9 +236,6 @@
     - Sidearm
     - LaserWeapon
   - type: Multishot # Goobstation
-  - type: Tag
-    tags:
-    - SvalinnPistol
 
 - type: entity
   name: retro laser blaster

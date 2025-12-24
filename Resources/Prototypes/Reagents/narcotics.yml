@@ -276,27 +276,29 @@
       effects:
       - !type:AdjustReagent
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           reagent: Nicotine
           max: 20
         reagent: Nicotine
         amount: 0.5
       - !type:AdjustReagent
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           reagent: Nicotine
           min: 20
         reagent: Nicotine
         amount: 0.45
       - !type:Emote
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Nicotine
           min: 20
         emote: Cough
         probability: 0.1
       - !type:HealthChange
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Nicotine
           min: 40   #if you hit this naturally while smoking, good for you.
         damage:
           types:
@@ -304,13 +306,15 @@
             Asphyxiation: 0.1  #lungs are in smoker mode
       - !type:Emote
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Nicotine
           min: 40
         emote: Gasp
         probability: 0.05
       - !type:HealthChange
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Nicotine
           min: 100   #if you hit this naturally while smoking, what the fuck.
         damage:
           types:
@@ -318,7 +322,8 @@
             Asphyxiation: 0.2 #lungs are struggling, mega smoker mode
       - !type:PopupMessage
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Nicotine
           min: 200
         visualType: Medium
         messages: ["nicotine-effect-dull-ache", "nicotine-effect-sharp-pain"]
@@ -326,16 +331,18 @@
         probability: 0.05
       - !type:HealthChange
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Nicotine
           min: 200   #if you hit this naturally while smoking, uh. How even. Are you literally just staying in med at this point.
         damage:
           types:
             Cellular: 0.01
             Poison: 0.01 #the three nicotine horsemen
             Asphyxiation: 0.3
-      - !type:MovespeedModifier
+      - !type:MovementSpeedModifier
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Nicotine
           min: 200
         walkSpeedModifier: 0.8  #lungs don't do good, can't move good.
         sprintSpeedModifier: 0.8

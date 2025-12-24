@@ -188,7 +188,6 @@
         # anyway it's just a quality of life thing.
         showEnts: True
 
-
 # Items
 - type: entity
   id: Intellicard
@@ -272,7 +271,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 1000
+        damage: 400
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -281,7 +280,7 @@
         acts: [ "Breakage" ]
     - trigger:
         !type:DamageTrigger
-        damage: 800
+        damage: 2000
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -297,7 +296,7 @@
       - !type:DoActsBehavior
         acts: ["Destruction"]
   - type: DamageVisuals
-    thresholds: [25, 50, 75, 100, 125, 150, 175]
+    thresholds: [25, 50, 75, 100, 200, 300, 400]
     damageDivisor: 4
     trackAllDamage: true
     damageOverlay:
@@ -470,7 +469,7 @@
       board: !type:Container
       station_ai_brain_slot: !type:Container
 
-# The actual brain inside the core
+      # The actual brain inside the core
 - type: entity
   id: StationAiBrain
   parent: PositronicBrain
@@ -527,6 +526,15 @@
     layerData:
     - sprite: Mobs/Silicon/holograms.rsi
       state: default
+  - type: NameIdentifier
+    group: StationAi
+  - type: ToggleableGhostRole
+    roleName: station-ai-ghost-role-name
+    roleDescription: station-ai-ghost-role-description
+    roleRules: ghost-role-information-silicon-rules
+    mindRoles:
+    - MindRoleGhostRoleSilicon
+    job: StationAi
 
 # Hologram projection that the AI's eye tracks.
 - type: entity
@@ -625,11 +633,11 @@
   - type: ContainerFill
     containers:
       borg_brain:
-        - PositronicBrain
+      - PositronicBrain
       borg_module:
-        - BorgModuleOperative
-        - BorgModuleL6C
-        - BorgModuleDoubleEsword
+      - BorgModuleOperative
+      - BorgModuleL6C
+      - BorgModuleDoubleEsword
   - type: ItemSlots
     slots:
       cell_slot:
@@ -643,14 +651,14 @@
   parent: PlayerBorgSyndicateAssaultBattery
   suffix: Ghost role
   components:
-    - type: GhostRole
-      name: ghost-role-information-syndicate-cyborg-assault-name
-      description: ghost-role-information-syndicate-cyborg-description
-      rules: ghost-role-information-silicon-rules
-      raffle:
-        settings: default
-      job: Borg
-    - type: GhostTakeoverAvailable
+  - type: GhostRole
+    name: ghost-role-information-syndicate-cyborg-assault-name
+    description: ghost-role-information-syndicate-cyborg-description
+    rules: ghost-role-information-silicon-rules
+    raffle:
+      settings: default
+    job: Borg
+  - type: GhostTakeoverAvailable
 
 - type: entity
   id: PlayerBorgSyndicateSaboteurBattery
@@ -661,11 +669,11 @@
   - type: ContainerFill
     containers:
       borg_brain:
-        - PositronicBrain
+      - PositronicBrain
       borg_module:
-        - BorgModuleTool
-        - BorgModuleOperative
-        - BorgModuleSyndicateWeapon
+      - BorgModuleTool
+      - BorgModuleOperative
+      - BorgModuleSyndicateWeapon
   - type: ItemSlots
     slots:
       cell_slot:
@@ -679,14 +687,14 @@
   parent: PlayerBorgSyndicateSaboteurBattery
   suffix: Ghost role
   components:
-    - type: GhostRole
-      name: ghost-role-information-syndicate-cyborg-saboteur-name
-      description: ghost-role-information-syndicate-cyborg-description
-      rules: ghost-role-information-silicon-rules
-      raffle:
-        settings: default
-      job: Borg
-    - type: GhostTakeoverAvailable
+  - type: GhostRole
+    name: ghost-role-information-syndicate-cyborg-saboteur-name
+    description: ghost-role-information-syndicate-cyborg-description
+    rules: ghost-role-information-silicon-rules
+    raffle:
+      settings: default
+    job: Borg
+  - type: GhostTakeoverAvailable
 
 - type: entity
   name: syndicate invasion borg spawner
@@ -695,9 +703,9 @@
   components:
   - type: Sprite
     layers:
-      - state: red
-      - sprite: Structures/Decoration/banner.rsi
-        state: banner_syndicate
+    - state: red
+    - sprite: Structures/Decoration/banner.rsi
+      state: banner_syndicate
   - type: RandomSpawner
     prototypes:
     - PlayerBorgSyndicateAssaultGhostRole
@@ -750,10 +758,10 @@
   - type: ContainerFill
     containers:
       borg_brain:
-        - PositronicBrain
+      - PositronicBrain
       borg_module:
-        - BorgModuleTool
-        - BorgModuleFireExtinguisher
+      - BorgModuleTool
+      - BorgModuleFireExtinguisher
   - type: ItemSlots
     slots:
       cell_slot:
@@ -761,23 +769,21 @@
         startingItem: PowerCellHigh
   - type: RandomMetadata
     nameSegments: [NamesBorg]
-  - type: CombatPower # Goobstation
-    factor: 10 # / 2 = times more powerful than an unarmed crew-member
 
 - type: entity
   parent: PlayerBorgDerelict
   id: PlayerBorgDerelictGhostRole
   suffix: Ghost role
   components:
-    - type: GhostRole
-      name: ghost-role-information-derelict-cyborg-name
-      description: ghost-role-information-derelict-cyborg-description
-      rules: ghost-role-information-silicon-rules
-      raffle:
-        settings: default
-      reregister: false
-      job: Borg
-    - type: GhostTakeoverAvailable
+  - type: GhostRole
+    name: ghost-role-information-derelict-cyborg-name
+    description: ghost-role-information-derelict-cyborg-description
+    rules: ghost-role-information-silicon-rules
+    raffle:
+      settings: default
+    reregister: false
+    job: Borg
+  - type: GhostTakeoverAvailable
 
 - type: entity
   parent: JanitorBorgChassisDerelict

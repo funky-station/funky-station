@@ -91,7 +91,7 @@
 - type: humanoidBaseSprite
   id: MobThavenEyes
   baseSprite:
-    sprite: _Impstation/Mobs/Species/Thaven/eyes.rsi
+    sprite: _Impstation/Mobs/Species/Thaven/parts.rsi
     state: eyes
 
 - type: humanoidBaseSprite

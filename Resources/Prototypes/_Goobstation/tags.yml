@@ -29,9 +29,6 @@
   id: AutoinjectorCartridgeCaseSoft
 
 - type: Tag
-  id: AutoinjectorCartridge
-
-- type: Tag
   id: NukeOpsMedicUplink
 
 - type: Tag

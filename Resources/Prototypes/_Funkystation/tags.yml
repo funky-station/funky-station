@@ -176,9 +176,6 @@
   id: SpeedLoaderPistol
 
 - type: Tag
-  id: TechDiskTerminalCircuitBoard
-
-- type: Tag
   id: ReactorPart #FarHorizons
 
 - type: Tag

@@ -39,8 +39,8 @@
 
 - type: marking
   id: SlimeEyesDefault
-  bodyPart: Eyes
-  markingCategory: Eyes
+  bodyPart: Face
+  markingCategory: Face
   speciesRestriction: [SlimePerson]
   coloring:
     default:
@@ -52,8 +52,8 @@
 
 - type: marking
   id: SlimeEyeDefaultGlow
-  bodyPart: Eyes
-  markingCategory: Eyes
+  bodyPart: Face
+  markingCategory: Face
   speciesRestriction: [SlimePerson]
   coloring:
     default:
@@ -67,8 +67,8 @@
 
 - type: marking
   id: SlimeEyesDroopy
-  bodyPart: Eyes
-  markingCategory: Eyes
+  bodyPart: Face
+  markingCategory: Face
   speciesRestriction: [ SlimePerson ]
   coloring:
     default:
@@ -81,8 +81,8 @@
 
 - type: marking
   id: SlimeEyesDroopyGlow
-  bodyPart: Eyes
-  markingCategory: Eyes
+  bodyPart: Face
+  markingCategory: Face
   speciesRestriction: [SlimePerson]
   coloring:
     default:
@@ -96,8 +96,8 @@
 
 - type: marking
   id: SlimeEyesCyclops
-  bodyPart: Eyes
-  markingCategory: Eyes
+  bodyPart: Face
+  markingCategory: Face
   speciesRestriction: [ SlimePerson ]
   coloring:
     default:
@@ -110,8 +110,8 @@
 
 - type: marking
   id: SlimeEyesCyclopsGlow
-  bodyPart: Eyes
-  markingCategory: Eyes
+  bodyPart: Face
+  markingCategory: Face
   speciesRestriction: [ SlimePerson ]
   coloring:
     default:

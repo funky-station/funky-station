@@ -13,3 +13,8 @@
   name: Alien Kids - An Alien Song (In Their Own Language! Glumphish
   path:
     path: /Audio/_Funkystation/Music/an_alien_song_alien_kids.ogg
+- type: jukebox
+  id: ChrisRemoSpaceAsshole
+  name: Chris Remo - Space Asshole
+  path:
+    path: /Audio/Lobby/space_asshole_mono.ogg

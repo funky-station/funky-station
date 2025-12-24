@@ -829,9 +829,6 @@
   id: FireBomb # CargoBounty: FireBomb
 
 - type: Tag
-  id: FlashPayload # CargoBounty: FlashPayload
-
-- type: Tag
   id: Galaxythistle # CargoBounty: BountyGalaxyThistle
 
 - type: Tag

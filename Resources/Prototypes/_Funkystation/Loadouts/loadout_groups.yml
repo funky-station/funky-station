@@ -67,6 +67,7 @@
   minLimit: 0
   loadouts:
   - CommandLighter
+  - CentralCommandLighter
 
 - type: loadoutGroup
   id: ChaplainBible

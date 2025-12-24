@@ -378,14 +378,6 @@
 
 - type: jobIcon
   parent: JobIcon
-  id: JobIconBrigmedic
-  icon:
-    sprite: /Textures/Interface/Misc/job_icons.rsi
-    state: Brigmedic
-  jobName: job-name-brigmedic
-
-- type: jobIcon
-  parent: JobIcon
   id: JobIconMedicalDoctor
   icon:
     sprite: /Textures/Interface/Misc/job_icons.rsi

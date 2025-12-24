@@ -398,4 +398,9 @@ public sealed class MindSystem : SharedMindSystem
         MakeSentientCommand.MakeSentient(target, EntityManager);
         TransferTo(mindId, target, ghostCheckOverride: true, mind: mind);
     }
+
+    internal bool TryGetMind(EntityUid mindId, out object mind)
+    {
+        throw new NotImplementedException();
+    }
 }

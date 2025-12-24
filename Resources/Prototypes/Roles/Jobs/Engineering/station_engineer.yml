@@ -51,6 +51,12 @@
   - External
   extendedAccess:
   - Atmospherics
+  alternateTitles:
+  - StationEngineerMaintenanceTechnician
+  - StationEngineerMechanic
+  - StationEngineerElectrician
+  - StationEngineerEngineOperator
+  - StationEngineerSenior
 
 - type: startingGear
   id: StationEngineerGear
@@ -60,3 +66,27 @@
   #storage:
     #back:
     #- Stuff
+
+- type: jobAlternateTitle
+  id: StationEngineerMaintenanceTechnician
+  name: job-name-alt-engineer-1
+
+- type: jobAlternateTitle
+  id: StationEngineerMechanic
+  name: job-name-alt-engineer-2
+
+- type: jobAlternateTitle
+  id: StationEngineerElectrician
+  name: job-name-alt-engineer-3
+
+- type: jobAlternateTitle
+  id: StationEngineerEngineOperator
+  name: job-name-alt-engineer-4
+
+- type: jobAlternateTitle
+  id: StationEngineerSenior
+  name: job-name-alt-engineer-5
+  requirements:
+  - !type:DepartmentTimeRequirement
+    department: Engineering
+    time: 216000 # 60 hrs

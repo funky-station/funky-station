@@ -44,6 +44,9 @@
   - !type:GiveItemOnHolidaySpecial
     holiday: FourTwenty
     prototype: CannabisSeeds
+  alternateTitles:
+  - BotanistHydroponicsSpecialist
+  - BotanistHerbologist
 
 - type: startingGear
   id: BotanistGear
@@ -55,3 +58,11 @@
   #storage:
     #back:
     #- Stuff
+
+- type: jobAlternateTitle
+  id: BotanistHydroponicsSpecialist
+  name: job-name-alt-botanist-1
+
+- type: jobAlternateTitle
+  id: BotanistHerbologist
+  name: job-name-alt-botanist-2

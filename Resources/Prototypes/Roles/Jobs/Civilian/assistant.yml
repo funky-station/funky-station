@@ -38,6 +38,11 @@
   supervisors: job-supervisors-everyone
   access:
   - Maintenance
+  alternateTitles:
+  - AssistantPassenger
+  - AssistantVisitor
+  - AssistantEntrepreneur
+  - AssistantOffDuty
 
 - type: startingGear
   id: PassengerGear
@@ -47,3 +52,19 @@
   #storage:
     #back:
     #- Stuff
+
+- type: jobAlternateTitle
+  id: AssistantPassenger
+  name: job-name-alt-assistant-1
+
+- type: jobAlternateTitle
+  id: AssistantVisitor
+  name: job-name-alt-assistant-2
+
+- type: jobAlternateTitle
+  id: AssistantEntrepreneur
+  name: job-name-alt-assistant-3
+
+- type: jobAlternateTitle
+  id: AssistantOffDuty
+  name: job-name-alt-assistant-4

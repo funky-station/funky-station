@@ -46,6 +46,10 @@
     components:
     - type: BibleUser #Lets them heal with bibles and transform null rods.
     - type: CultResistant # Funky cult
+  alternateTitles:
+  - ChaplainPreacher
+  - ChaplainSpiritualAdvisor
+  - ChaplainShrineGuardian
 
 - type: startingGear
   id: ChaplainGear
@@ -58,3 +62,15 @@
     - RubberStampChaplain
     - NullRodDefault
     - CosmicCenser # DeltaV - Cosmic Cult
+
+- type: jobAlternateTitle
+  id: ChaplainPreacher
+  name: job-name-alt-chaplain-1
+
+- type: jobAlternateTitle
+  id: ChaplainSpiritualAdvisor
+  name: job-name-alt-chaplain-2
+
+- type: jobAlternateTitle
+  id: ChaplainShrineGuardian
+  name: job-name-alt-chaplain-3

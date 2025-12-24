@@ -20,9 +20,9 @@ using Content.Server.Access.Components;
 using Content.Server.GameTicking;
 using Content.Server.Station.Components;
 using Content.Server.Station.Systems;
+using Content.Shared.Access.Components;
 using Content.Shared.Access.Systems;
 using Content.Shared.Roles;
-using Content.Shared.StatusIcon;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server.Access.Systems;
@@ -79,9 +79,8 @@ public sealed class PresetIdCardSystem : EntitySystem
 
     private void SetupIdName(EntityUid uid, PresetIdCardComponent id)
     {
-        if (id.IdName == null)
-            return;
-        _cardSystem.TryChangeFullName(uid, id.IdName);
+        if (id.IdName != null)
+            _cardSystem.TryChangeFullName(uid, id.IdName);
     }
 
     private void SetupIdAccess(EntityUid uid, PresetIdCardComponent id, bool extended)
@@ -89,7 +88,7 @@ public sealed class PresetIdCardSystem : EntitySystem
         if (id.JobName == null)
             return;
 
-        if (!_prototypeManager.TryIndex(id.JobName, out JobPrototype? job))
+        if (!_prototypeManager.TryIndex(id.JobName.Value, out JobPrototype? job))
         {
             Log.Error($"Invalid job id ({id.JobName}) for preset card");
             return;
@@ -97,10 +96,45 @@ public sealed class PresetIdCardSystem : EntitySystem
 
         _accessSystem.SetAccessToJob(uid, job, extended);
 
+        if (!TryComp<IdCardComponent>(uid, out var card))
+        {
+            Log.Warning($"Entity {uid} does not have IdCardComponent, skipping title setup.");
+            return;
+        }
+
+        string? titleToSet = null;
+
+        if (id.AlternateTitleId != null &&
+            _prototypeManager.TryIndex(id.AlternateTitleId.Value, out JobAlternateTitlePrototype? altTitle))
+        {
+            titleToSet = altTitle.LocalizedName;
+        }
+        else if (job.AlternateTitles != null && job.AlternateTitles.Count > 0)
+        {
+            JobAlternateTitlePrototype? altFromJob = null;
+            foreach (var altId in job.AlternateTitles)
+            {
+                if (_prototypeManager.TryIndex(altId, out var proto))
+                {
+                    altFromJob = proto;
+                    break;
+                }
+            }
+
+            titleToSet = altFromJob?.LocalizedName ?? job.LocalizedName;
+        }
+        else
+        {
+            titleToSet = job.LocalizedName;
+        }
+
+        if (!string.IsNullOrEmpty(titleToSet))
+            _cardSystem.TryChangeJobTitle(uid, titleToSet);
+
         _cardSystem.TryChangeJobTitle(uid, job.LocalizedName);
         _cardSystem.TryChangeJobDepartment(uid, job);
 
-        if (_prototypeManager.TryIndex(job.Icon, out var jobIcon))
+        if (!string.IsNullOrEmpty(job.Icon) && _prototypeManager.TryIndex(job.Icon, out var jobIcon))
             _cardSystem.TryChangeJobIcon(uid, jobIcon);
     }
 }

@@ -142,6 +142,19 @@ public sealed class IdCardSystem : SharedIdCardSystem
         }
     }
 
+    public bool TryChangeJobTitle(EntityUid uid, LocId newJobTitleLocId, IdCardComponent? card = null)
+    {
+        if (!Resolve(uid, ref card))
+            return false;
+
+        card.JobTitle = newJobTitleLocId;
+        card.LocalizedJobTitle = Loc.GetString(newJobTitleLocId);
+
+        Dirty(uid, card);
+
+        return true;
+    }
+
     public override void ExpireId(Entity<ExpireIdCardComponent> ent)
     {
         if (ent.Comp.Expired)

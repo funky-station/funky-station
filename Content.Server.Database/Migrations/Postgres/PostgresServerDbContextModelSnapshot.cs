@@ -663,6 +663,38 @@ namespace Content.Server.Database.Migrations.Postgres
                         });
                 });
 
+            modelBuilder.Entity("Content.Server.Database.DBJobAlternateTitle", b =>
+            {
+                b.Property<int>("Id")
+                    .ValueGeneratedOnAdd()
+                    .HasColumnType("integer")
+                    .HasColumnName("dbjob_alternate_title_id");
+
+                NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                b.Property<string>("AlternateTitle")
+                    .IsRequired()
+                    .HasColumnType("text")
+                    .HasColumnName("alternate_title");
+
+                b.Property<int>("ProfileId")
+                    .HasColumnType("integer")
+                    .HasColumnName("profile_id");
+
+                b.Property<string>("RoleName")
+                    .IsRequired()
+                    .HasColumnType("text")
+                    .HasColumnName("role_name");
+
+                b.HasKey("Id")
+                    .HasName("PK_dbjob_alternate_title");
+
+                b.HasIndex("ProfileId", "RoleName", "AlternateTitle")
+                    .IsUnique();
+
+                b.ToTable("dbjob_alternate_title", (string)null);
+            });
+
             modelBuilder.Entity("Content.Server.Database.IPIntelCache", b =>
                 {
                     b.Property<int>("Id")
@@ -1763,6 +1795,18 @@ namespace Content.Server.Database.Migrations.Postgres
                     b.Navigation("Server");
                 });
 
+            modelBuilder.Entity("Content.Server.Database.DBJobAlternateTitle", b =>
+            {
+                b.HasOne("Content.Server.Database.Profile", "Profile")
+                    .WithMany("AltTitles")
+                    .HasForeignKey("ProfileId")
+                    .OnDelete(DeleteBehavior.Cascade)
+                    .IsRequired()
+                    .HasConstraintName("FK_dbjob_alternate_title_profile_profile_id");
+
+                b.Navigation("Profile");
+            });
+
             modelBuilder.Entity("Content.Server.Database.Job", b =>
                 {
                     b.HasOne("Content.Server.Database.Profile", "Profile")
@@ -2147,6 +2191,8 @@ namespace Content.Server.Database.Migrations.Postgres
 
             modelBuilder.Entity("Content.Server.Database.Profile", b =>
                 {
+                    b.Navigation("AltTitles");
+
                     b.Navigation("Antags");
 
                     b.Navigation("CDProfile");

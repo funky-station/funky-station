@@ -109,6 +109,8 @@ using Robust.Shared.Utility;
 // Begin CD - Character Records
 using Content.Client._Funkystation.Medical.Records.UI;
 using Content.Shared._Funkystation.Records;
+using Robust.Client.Utility;
+
 // End CD - Character Records
 
 namespace Content.Client.Lobby.UI
@@ -1038,6 +1040,8 @@ namespace Content.Client.Lobby.UI
 
                 Array.Sort(jobs, JobUIComparer.Instance);
 
+                var altJobTitlesEnable = _cfgManager.GetCVar(CCVars.ICAlternateJobTitlesEnable);
+
                 foreach (var job in jobs)
                 {
                     var jobContainer = new BoxContainer()
@@ -1048,6 +1052,7 @@ namespace Content.Client.Lobby.UI
                     var selector = new RequirementsSelector()
                     {
                         Margin = new Thickness(3f, 3f, 3f, 0f),
+                        HorizontalExpand = true,
                     };
                     selector.OnOpenGuidebook += OnOpenGuidebook;
 
@@ -1057,8 +1062,39 @@ namespace Content.Client.Lobby.UI
                         VerticalAlignment = VAlignment.Center
                     };
                     var jobIcon = _prototypeManager.Index(job.Icon);
-                    icon.Texture = _sprite.Frame0(jobIcon.Icon);
-                    selector.Setup(items, job.LocalizedName, 200, job.LocalizedDescription, icon, job.Guides);
+                    icon.Texture = jobIcon.Icon.Frame0();
+                    var hasDefaultAltTitle = Profile?.JobAlternateTitles.ContainsKey(job.ID);
+
+                    List<(ProtoId<JobAlternateTitlePrototype> Id, bool Locked)>? altTitleInfo = null;
+                    ProtoId<JobAlternateTitlePrototype>? currentAlt = null;
+
+                    if (altJobTitlesEnable)
+                    {
+                        if (hasDefaultAltTitle.HasValue && hasDefaultAltTitle.Value)
+                        {
+                            currentAlt = Profile?.JobAlternateTitles[job.ID];
+                        }
+
+                        if (job.AlternateTitles != null)
+                        {
+                            altTitleInfo = new List<(ProtoId<JobAlternateTitlePrototype>, bool)>();
+                            foreach (var titleId in job.AlternateTitles)
+                            {
+                                var isLocked = false;
+                                if (_prototypeManager.TryIndex(titleId, out var titleProto) &&
+                                    titleProto.Requirements != null)
+                                {
+                                    if (!_requirements.CheckRoleRequirements(titleProto.Requirements, Profile, out _))
+                                    {
+                                        isLocked = true;
+                                    }
+                                }
+                                altTitleInfo.Add((titleId, isLocked));
+                            }
+                        }
+                    }
+
+                    selector.Setup(items, job.LocalizedName, 280, job.LocalizedDescription, icon, job.Guides, altTitleInfo, currentAlt, _prototypeManager);
 
                     if (!_requirements.IsAllowed(job, Profile, out var reason))
                     {
@@ -1070,6 +1106,14 @@ namespace Content.Client.Lobby.UI
                     {
                         selector.UnlockRequirements();
                     }
+
+                    selector.OnSelectedTitle += selectedTitle =>
+                    {
+                        if (!altJobTitlesEnable)
+                            return;
+                        Profile = Profile?.WithJobAltTitle(job.ID, selectedTitle);
+                        SetDirty();
+                    };
 
                     selector.OnSelected += selection =>
                     {

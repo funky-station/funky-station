@@ -46,6 +46,10 @@
   extendedAccess:
   - Kitchen
   - Hydroponics
+  alternateTitles:
+  - BartenderMixologist
+  - BartenderBarista
+  - BartenderHydrationEquipmentOperator
 
 - type: startingGear
   id: BartenderGear
@@ -55,3 +59,15 @@
   #storage:
     #back:
     #- Stuff
+
+- type: jobAlternateTitle
+  id: BartenderMixologist
+  name: job-name-alt-bartender-1
+
+- type: jobAlternateTitle
+  id: BartenderHydrationEquipmentOperator
+  name: job-name-alt-bartender-2
+
+- type: jobAlternateTitle
+  id: BartenderBarista
+  name: job-name-alt-bartender-3

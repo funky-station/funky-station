@@ -69,3 +69,16 @@
      - id: CrowbarYellow
      - id: NitrogenTankFilled
      - id: OxygenTankFilled
+
+# funky station
+- type: entity
+  id: CrateEngineeringTEG
+  parent: CrateEngineeringSecure
+  name: TEG crate
+  description: Contains the center of a TEG and two circulators to match.
+  components:
+  - type: StorageFill
+    contents:
+    - id: TegCenterFlatpack
+    - id: TegCirculatorFlatpack
+    - id: TegCirculatorFlatpack

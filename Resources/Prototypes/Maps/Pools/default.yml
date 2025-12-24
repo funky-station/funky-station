@@ -30,6 +30,7 @@
 # SPDX-FileCopyrightText: 2025 Huhm-1 <180088676+Huhm-1@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Huhm-1 <cameronhillard40@gmail.com>
 # SPDX-FileCopyrightText: 2025 K3-1R <150430196+K3-1R@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Kit <nikkiestes0@gmail.com>
 # SPDX-FileCopyrightText: 2025 Spanky <scott@wearejacob.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 mkanke-real <mikekanke@gmail.com>
@@ -46,13 +47,19 @@
 - type: gameMapPool
   id: DefaultMapPool
   maps: #funkystation
+  # low pop
   - Cluster
   - Eden
-  - Bagel
-  - roid_outpost
   - Amber
+  - roid_outpost
+# - open slot
+  # high pop
+  - Bagel
   - Core
   - Fland
-  - Olympus
-
+  - Box
+# - open slot
+  # backup maps
+  # comment and uncomment as needed
+  - Court
 

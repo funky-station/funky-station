@@ -41,3 +41,52 @@
     component:
     - type: SurgerySpeedModifier
       speedModifier: 1.75
+
+# Super Duper Mega Hyper Insuls
+- type: entity
+  parent: ClothingHandsGlovesColorYellow
+  id: ClothingHandsGlovesChiefEngineerInsuls
+  name: chief engineer's arc gloves
+  description: High-quality, heavy-duty insulated arc gloves. These'll keep you safe from just about any voltage.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Hands/Gloves/ceinsuls.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Hands/Gloves/ceinsuls.rsi
+  - type: Insulated
+    coefficient: 0.0
+    maxSiemensThreshold: 4
+  - type: Fiber
+    fiberMaterial: fibers-insulative
+    fiberColor: fibers-black
+
+- type: entity
+  parent: ClothingHandsGlovesColorYellow
+  id: ClothingHandsGlovesArcGloves
+  name: arc gloves
+  description: Industrial-grade arc gloves designed to keep you safe from any high voltages you may encounter. Or, at least, make your funeral open casket.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Hands/Gloves/arcgloves.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Hands/Gloves/arcgloves.rsi
+  - type: Insulated
+    coefficient: 0.0
+    maxSiemensThreshold: 4
+  - type: Fiber
+    fiberMaterial: fibers-insulative
+    fiberColor: fibers-white
+
+- type: entity
+  parent: [ClothingHandsGlovesColorBlack, BaseMajorContraband]
+  id: ClothingHandsGlovesCombatBloodred
+  name: blood-red combat gloves
+  description: These tactical gloves are resistant to low voltage shocks, with high grip palms and padded knuckles. You feel unstoppable.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Hands/Gloves/bloodredcombatgloves.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Hands/Gloves/bloodredcombatgloves.rsi
+  - type: Insulated
+  - type: Fiber
+    fiberMaterial: fibers-insulative

@@ -321,6 +321,8 @@
           True: {state: icon-green}
           False: {state: icon}
   - type: Insulated
+    coefficient: 0.0
+    maxSiemensThreshold: 4
   - type: Fiber
     fiberMaterial: fibers-nanomachines
   - type: FingerprintMask
@@ -388,6 +390,8 @@
   - type: Clothing
     sprite: Clothing/Hands/Gloves/tacticalmaidgloves.rsi
   - type: Insulated
+    coefficient: 0.0
+    maxSiemensThreshold: 4
   - type: Fiber
     fiberColor: fibers-black
   - type: ClothingGrantComponent # funky - tie surgery speed to gloves
@@ -405,6 +409,7 @@
     sprite: Clothing/Hands/Gloves/mercbattle.rsi
   - type: Clothing
     sprite: Clothing/Hands/Gloves/mercbattle.rsi
+  - type: Insulated
   - type: Butcherable
     butcheringType: Knife
     spawned:

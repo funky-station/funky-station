@@ -58,7 +58,7 @@
 - type: entity
   id: CultPylon
   parent: CultBaseStructure
-  name: Pylon
+  name: pylon
   suffix: Cult
   description: A floating crystal that slowly heals those faithful to Nar'Sie.
   components:
@@ -90,6 +90,22 @@
         - MachineMask
         layer:
         - MachineLayer
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 300
+        behaviors:
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
+          - !type:PlaySoundBehavior
+            sound:
+              collection: GlassBreak
+          - !type:SpawnEntitiesBehavior
+            spawn:
+              SheetGlass1:
+                min: 2
+                max: 4
 
 - type: entity
   id: CultForge

@@ -28,8 +28,8 @@ public sealed partial class ProtoNitrateConversionReaction : IGasReactionEffect
         var temperature = mixture.Temperature;
 
         //Equal amounts of Trit and H2 will slowly gravitate twards certain tempertures. Imbalance in the mix will lean it endo or exo.
-        var burnedH2 = initH2 * (.40f * float.Sin(temperature / 250f - 1.2f) + .5f);
-        var burnedTrit = initTrit * (-.40f * float.Sin(temperature / 250f - 1.2f) + .5f);
+        var burnedH2 = initH2 * (.25f * float.Sin(temperature / 250f - 1.2f) + .25f);
+        var burnedTrit = initTrit * (-.25f * float.Sin(temperature / 250f - 1.2f) + .25f);
         var producedAmount = burnedH2 + burnedTrit;
 
         if (initTrit - burnedTrit < 0 && initH2 - burnedH2 < 0 || initPN - producedAmount * 0.01f < 0)

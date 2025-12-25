@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Content.Server.Database.Migrations.Sqlite
 {
     [DbContext(typeof(SqliteServerDbContext))]
-    [Migration("20251225035645_DBJobAlternateTitle")]
+    [Migration("20251225053430_DBJobAlternateTitle")]
     partial class DBJobAlternateTitle
     {
         /// <inheritdoc />

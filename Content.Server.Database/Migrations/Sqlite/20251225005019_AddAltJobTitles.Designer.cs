@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2020 20kdc <asdd2808@gmail.com>
+﻿// SPDX-FileCopyrightText: 2020 20kdc <asdd2808@gmail.com>
 // SPDX-FileCopyrightText: 2021 Javier Guardia Fernández <DrSmugleaf@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2021 Leo <lzimann@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2021 Swept <sweptwastaken@protonmail.com>
@@ -46,7 +46,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace Content.Server.Database.Migrations
+namespace Content.Server.Database.Migrations.Sqlite
 {
     [DbContext(typeof(SqliteServerDbContext))]
     [Migration("20251225005019_AddAltJobTitles")]

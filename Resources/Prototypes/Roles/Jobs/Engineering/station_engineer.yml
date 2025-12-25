@@ -56,7 +56,6 @@
   - StationEngineerMechanic
   - StationEngineerElectrician
   - StationEngineerEngineOperator
-  - StationEngineerSenior
 
 - type: startingGear
   id: StationEngineerGear
@@ -83,10 +82,3 @@
   id: StationEngineerEngineOperator
   name: job-name-alt-engineer-4
 
-- type: jobAlternateTitle
-  id: StationEngineerSenior
-  name: job-name-alt-engineer-5
-  requirements:
-  - !type:DepartmentTimeRequirement
-    department: Engineering
-    time: 216000 # 60 hrs

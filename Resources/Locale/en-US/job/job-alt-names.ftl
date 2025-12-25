@@ -22,7 +22,6 @@ job-name-alt-engineer-1 = Maintenance Technician
 job-name-alt-engineer-2 = Mechanic
 job-name-alt-engineer-3 = Electrician
 job-name-alt-engineer-4 = Engine Operator
-job-name-alt-engineer-5 = Senior Engineer
 
 job-name-alt-scientist-1 = Xenoarchaeologist
 job-name-alt-scientist-2 = Anomaly Researcher
@@ -92,7 +91,7 @@ job-name-alt-boxer-5 = Heel
 
 job-name-alt-psychologist-1 = Therapist
 job-name-alt-psychologist-2 = Guidance Counselor
-job-name-alt-psychologist-3 = Psychatrist
+job-name-alt-psychologist-3 = Psychiatrist
 
 job-name-alt-zookeeper-1 = Animal Control
 job-name-alt-zookeeper-2 = Menagerist

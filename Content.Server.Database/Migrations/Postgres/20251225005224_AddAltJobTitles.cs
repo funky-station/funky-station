@@ -2,7 +2,7 @@
 
 #nullable disable
 
-namespace Content.Server.Database.Migrations
+namespace Content.Server.Database.Migrations.Postgres
 {
     /// <inheritdoc />
     public partial class AddAltJobTitles : Migration

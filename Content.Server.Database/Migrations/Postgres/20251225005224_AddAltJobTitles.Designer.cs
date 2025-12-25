@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2020 20kdc <asdd2808@gmail.com>
+﻿// SPDX-FileCopyrightText: 2020 20kdc <asdd2808@gmail.com>
 // SPDX-FileCopyrightText: 2021 Javier Guardia Fernández <DrSmugleaf@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2021 Leo <lzimann@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2021 Swept <sweptwastaken@protonmail.com>
@@ -50,7 +50,7 @@ using NpgsqlTypes;
 
 #nullable disable
 
-namespace Content.Server.Database.Migrations
+namespace Content.Server.Database.Migrations.Postgres
 {
     [DbContext(typeof(PostgresServerDbContext))]
     [Migration("20251225005224_AddAltJobTitles")]

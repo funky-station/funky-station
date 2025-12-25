@@ -158,6 +158,13 @@
   text: "/ServerInfo/Guidebook/ServerRules/CoreRules/RuleC14LOOC.xml"
 
 - type: guideEntry
+  id: RuleC15
+  name: guide-entry-rules-c15
+  ruleEntry: true
+  priority: 15
+  text: "/ServerInfo/Guidebook/ServerRules/CoreRules/RuleC15Roles.xml"
+
+- type: guideEntry
   id: Metashield
   name: guide-entry-metashield
   ruleEntry: false

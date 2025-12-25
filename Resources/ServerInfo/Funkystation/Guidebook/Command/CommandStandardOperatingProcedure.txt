@@ -38,17 +38,6 @@ SPDX-License-Identifier: MIT
 
   [bold]4.[/bold] Command may extend the length of a shift if there is an approved project for which overtime funds have been granted via a fax from Central Command.
 
-  ## General Command OOC Rules
-
-  [bold]0.[/bold] Command is held to a higher standard when it comes to breaking SOP, though following SOP is still not necessarily a rule.
-
-  [bold]1.[/bold]These rules and SOP apply to you even if you are promoted into a command position. You will still be held accountable to command expectations in all gameplay aspects that do not DIRECTLY relate to antagonist objectives.
-
-  [bold]2.[/bold] Command should always act professionally, prioritizing the station running smoothly over antics. The station CAN run smoothly when antics are happening though.
-
-  [bold]3.[/bold] It is the duty of command to make sure that interns in their departments are TAUGHT. You should prioritize this over non station critical activities.
-
-
   # Captain SOP
 
   [bold]1.[/bold] The Captain is not permitted to perform regular Security Duty. However, they may still assist Security if they are understaffed, or if they see a crime being committed.
@@ -71,11 +60,6 @@ SPDX-License-Identifier: MIT
 
   [bold]10.[/bold] In the event that the captain must act as the presiding judge at a non criminal trial, they have authority to enact class 1 or 2 punitive measures as a result of the trial.
 
-  ## Captain OOC Rules
-
-  [bold]1.[/bold] You should not be acting in the capacity of a dictator and micromanaging every aspect of the station. When you act as the HoP for example to give accesses, you need to follow their SOP and get approval from the head of staff of that department.
-
-
   # Head of Personnel SOP
 
   [bold]1.[/bold] The Head of Personnel may not transfer any personnel to another Department without authorization from the relevant Head of Staff. If no Head of Staff is available, the Head of Personnel may make a judgment call. This does not apply to Security, which always requires authorization from the Head of Security, or Genetics, which requires both Chief Medical Officer and Research Director approval. If there is no Head of Security active, no transfers are allowed to Security without authorization from the Captain;
@@ -94,11 +78,6 @@ SPDX-License-Identifier: MIT
 
   [bold]8.[/bold] The Head of Personnel is not permitted to perform Security duty. The Head of Personnel is permitted to carry a Disabler for self-defense only.
 
-  ## Head of Personnel OOC Rules
-
-  [bold]1.[/bold] You are a non combatant role and should only be entering combat if there is a station ending threat to contend with, or in self defense - except in the case of antagonist objectives.
-
-
   # Internal Affairs Agent SOP
 
   [bold]1.[/bold] Internal Affairs Agents are to ensure that Standard Operating Procedure is being properly followed, and to contact the relevant Head of Staff when it is not;
@@ -113,13 +92,6 @@ SPDX-License-Identifier: MIT
 
   [bold]6.[/bold] Internal Affairs Agents are permitted to carry their flash and their administrative sunglasses;
 
-  ## Internal Affairs Agent OOC Rules
-
-  [bold]1.[/bold] You are a non combatant advisor, and should not be participating in combat except in the case of self defense.
-
-  [bold]2.[/bold] You have a lot of power as an Internal Affairs Agent. Abuse of this trust will result in a permanent, non appealable role ban from CC roles. Your job is to make the round more fun through interesting role play, not just be an authoritarian power tripper.
-
-
   # Nanotrasen Representative SOP
 
   [bold]1.[/bold] The NanoTrasen Representative is to ensure that every Department is following Standard Operating Procedure, up to and including the respective Head of Staff. If a Head of Staff is not available for a Department, the NanoTrasen Representative must ensure that the Captain appoints an Acting Head of Staff for said Department;
@@ -133,15 +105,6 @@ SPDX-License-Identifier: MIT
   [bold]5.[/bold] The NanoTrasen Representative must follow the directions of the Magistrate and defer to their judgement in matters not concerning standard operating procedure, but should advocate their stance firmly in the case of disagreements, and escalate to Central Command directly if they feel there has been wrongdoing;
 
   [bold]6.[/bold] The NanoTrasen Representative is permitted to carry their flash and a blade-cane, or a stun baton if the blade-cane is lost;
-
-  ## Nanotrasen Representative OOC Rules
-
-  [bold]1.[/bold] You are not a Mega Captain. You are really only on station as an advisor, and should generally only exersize your authority in regard to matters other than SOP in extreme circumstances, or obvious cases of wrongdoing.
-
-  [bold]2.[/bold] You are a non combatant advisor, and should not be participating in combat except in the case of self defense.
-
-  [bold]3.[/bold] You have a lot of power as the NanoTrasen Representative. Abuse of this trust will result in a permanent, non appealable role ban from CC roles. Your job is to make the round more fun through interesting role play, not just be an authoritarian power tripper.
-
 
   # Magistrate SOP
 
@@ -160,14 +123,6 @@ SPDX-License-Identifier: MIT
   [bold]7.[/bold] The Magistrate may administer class 1, 2, and 3 penalties for misconduct concerning the misinterpretation of space law. They should consult with the NanoTrasen Representative before administering penalties for misconduct concerning standard operating procedure, but have authority to administer up to class 3 penalties for those breaches as well.
 
   [bold]8.[/bold] The Magistrate is permitted to carry their flash;
-
-  ## Magistrate OOC Rules
-
-  [bold]1.[/bold] You are not a mega Captain. You are really only on station as an advisor, and should generally only exersize your authority in regard to matters other than space law in extreme circumstances, or obvious cases of wrongdoing.
-
-  [bold]2.[/bold] You are a non combatant advisor, and should not be participating in combat except in the case of self defense.
-
-  [bold]3.[/bold] You have a LOT of power as the Magistrate. Abuse of this trust will result in a permanent, non appealable role ban from CC roles. Your job is to make the round more fun through interesting role play, not just be an authoritarian power tripper.
 
   # Central Command Staff Punitive Measures
   [italic]Punitive measures are administered in cases of misconduct that are NOT direct violations of Space Law - including violations of SOP.[/italic]
@@ -191,6 +146,9 @@ SPDX-License-Identifier: MIT
   [bold]Document document document![/bold]
   After action reports, calling CentCom on the fabled red phone, or even praying will be heard by CentCom and your actions may be excused if they were determined to be in the best interest of NanoTrasen.
 
+
+  # Station Command and Central Command Staff OOC Rules
+  [textlink="Act and behave within the spirit of the Job you have been assigned" link="RuleC15"]
 
   # I don't see my job listed here
 

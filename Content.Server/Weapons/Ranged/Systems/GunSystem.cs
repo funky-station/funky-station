@@ -41,7 +41,6 @@
 // SPDX-License-Identifier: MIT
 
 using Content.Server.Cargo.Systems;
-using Content.Server.Power.EntitySystems;
 using Content.Shared.Cargo;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Effects;
@@ -56,14 +55,12 @@ namespace Content.Server.Weapons.Ranged.Systems;
 
 public sealed partial class GunSystem : SharedGunSystem
 {
-    [Dependency] private readonly IComponentFactory _factory = default!;
-    [Dependency] private readonly BatterySystem _battery = default!;
     [Dependency] private readonly DamageExamineSystem _damageExamine = default!;
     [Dependency] private readonly PricingSystem _pricing = default!;
     [Dependency] private readonly SharedColorFlashEffectSystem _color = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly SharedStaminaSystem _stamina = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
+    [Dependency] private readonly SharedMapSystem _map = default!;
 
     private const float DamagePitchVariation = 0.05f;
 
@@ -73,9 +70,7 @@ public sealed partial class GunSystem : SharedGunSystem
         SubscribeLocalEvent<BallisticAmmoProviderComponent, PriceCalculationEvent>(OnBallisticPrice);
     }
 
-    private void OnBallisticPrice(EntityUid uid,
-        BallisticAmmoProviderComponent component,
-        ref PriceCalculationEvent args)
+    private void OnBallisticPrice(EntityUid uid, BallisticAmmoProviderComponent component, ref PriceCalculationEvent args)
     {
         if (string.IsNullOrEmpty(component.Proto) || component.UnspawnedCount == 0)
             return;
@@ -93,10 +88,7 @@ public sealed partial class GunSystem : SharedGunSystem
 
     protected override void Popup(string message, EntityUid? uid, EntityUid? user) { }
 
-    protected override void CreateEffect(EntityUid gunUid,
-        MuzzleFlashEvent message,
-        EntityUid? user = null,
-        EntityUid? player = null)
+    protected override void CreateEffect(EntityUid gunUid, MuzzleFlashEvent message, EntityUid? user = null, EntityUid? player = null)
     {
         var filter = Filter.Pvs(gunUid, entityManager: EntityManager);
         if (TryComp<ActorComponent>(user, out var actor))

@@ -45,6 +45,6 @@ public abstract class SharedGunPredictionSystem : EntitySystem
         gun.ShootCoordinates = GetCoordinates(coordinates);
         gun.Target = GetEntity(target);
 #pragma warning restore RA0002
-        return _gun.ShootRequested(netGun, coordinates, target, projectiles, session);
+        return _gun.AttemptShoot(user.Value, ent, gun, projectiles, session);
     }
 }

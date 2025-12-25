@@ -90,6 +90,8 @@ public sealed class GunPredictionSystem : SharedGunPredictionSystem
 
     private void OnClientProjectileStartCollide(Entity<PredictedProjectileClientComponent> ent, ref StartCollideEvent args)
     {
+        Log.Info($"Predicted collide at spawn? Tick={_timing.CurTick} Other={ToPrettyString(args.OtherEntity)}");
+
         if (ent.Comp.Hit)
             return;
 

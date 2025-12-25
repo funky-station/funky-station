@@ -576,19 +576,10 @@ namespace Content.Server.BloodCult.EntitySystems
 		else if (!brainRemoved)
 		{
 			// Check if the victim is already a detached head (like HeadSkeleton)
-			// If it's a head part, use its prototype directly
-			if (TryComp<BodyPartComponent>(victim, out var bodyPart) && bodyPart.PartType == BodyPartType.Head)
-			{
-				var victimMeta = MetaData(victim);
-				if (victimMeta.EntityPrototype != null)
-					originalEntityPrototype = victimMeta.EntityPrototype.ID;
-			}
-			else
-			{
-				var victimMeta = MetaData(victim);
-				if (victimMeta.EntityPrototype != null)
-					originalEntityPrototype = victimMeta.EntityPrototype.ID;
-			}
+			// Get the prototype (both branches do the same thing)
+			var victimMeta = MetaData(victim);
+			if (victimMeta.EntityPrototype != null)
+				originalEntityPrototype = victimMeta.EntityPrototype.ID;
 
 			QueueDel(victim);
 		}
@@ -600,8 +591,9 @@ namespace Content.Server.BloodCult.EntitySystems
 		_mind.TransferTo(mindId.Value, soulstone, mind: mindComp);
 
 		// Preserve speech component from Hamlet
-		var victimMeta = MetaData(victim);
-		if (victimMeta.EntityPrototype?.ID == "MobHamsterHamlet" && TryComp<SpeechComponent>(victim, out var victimSpeech))
+		// Get victim metadata before victim might be deleted
+		var victimMetadata = MetaData(victim);
+		if (victimMetadata.EntityPrototype?.ID == "MobHamsterHamlet" && TryComp<SpeechComponent>(victim, out var victimSpeech))
 		{
 			CopyComp(victim, soulstone, victimSpeech);
 		}

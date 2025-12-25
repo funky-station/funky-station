@@ -66,6 +66,7 @@ cult-invocation-fail = More cultists must be present!
 cult-invocation-fail-noshell = An empty juggernaut shell must be present on the rune to perform a sacrifice!
 cult-invocation-interrupted = The ritual was interrupted!
 cult-revive-success = The ritual is complete! Life flows back into the body as your own blood is drained!
+cult-revive-success-noncultist = The ritual is complete! Life flows back into the body, though Nar'Sie demands her blood tithe!
 cult-revive-fail-notarget = No valid target found to revive! The target must be dead and on the rune.
 cult-sanguine-perniculate-heal = The sanguine perniculate soothes your wounds, healing {$amount} holy damage!
 cult-holywater-burn = The holy water starts expelling Nar'Sie from your soul!

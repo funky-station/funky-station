@@ -6,6 +6,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later OR MIT
 
 using System;
+using System.Linq;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Maths;
@@ -596,6 +597,14 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 		{
 			component.CultVictoryAnnouncementPlayed = true;
 			component.CultVictoryEndTime = null;
+			
+			// Play the cult win announcement before ending the round
+			_chat.DispatchGlobalAnnouncement(
+				Loc.GetString("cult-win-announcement"),
+				"Central Command",
+				colorOverride: Color.Gold
+			);
+			
 			_roundEnd.EndRound();
 			return;
 		}

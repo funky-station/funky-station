@@ -71,6 +71,7 @@
     - type: Damageable
       damageContainer: BloodCultConstruct
       damageModifierSet: CultJuggernaut
+    - type: IgnoreSlowOnDamage
     - type: BloodCultConstruct
     - type: Bloodstream
       bloodMaxVolume: 0
@@ -119,6 +120,7 @@
     - type: MeleeWeapon
       hidden: true
       canWideSwing: true
+      altDisarm: false
       soundHit:
         path: /Audio/Effects/wood_destroy2.ogg
       angle: 60
@@ -227,6 +229,7 @@
     - type: MeleeWeapon
       hidden: true
       canWideSwing: true
+      altDisarm: false
       soundHit:
         path: /Audio/Effects/guardian_warn.ogg
       angle: 60

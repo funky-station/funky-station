@@ -104,7 +104,12 @@ public sealed partial class RequirementsSelector : BoxContainer
         Help.Visible = guides != null;
         _guides = guides;
 
-        TitleContent.MinSize = new Vector2(titleSize, 0f);
+        // FIXED WIDTH LOGIC
+        // We use the 'titleSize' passed from HumanoidProfileEditor (which is 280)
+        // We lock both Min and Max to prevent any shrinking or growing.
+        var fixedWidth = (float) titleSize;
+        TitleContent.MinWidth = fixedWidth;
+        TitleContent.MaxWidth = fixedWidth;
 
         if (altTitles != null && altTitles.Count > 0 && protoMan != null)
         {
@@ -112,7 +117,11 @@ public sealed partial class RequirementsSelector : BoxContainer
 
             var titleOptions = new OptionButton
             {
-                ToolTip = description
+                ToolTip = description,
+                // These three lines ensure the blue box fills the 280px exactly
+                HorizontalExpand = true,
+                MinWidth = fixedWidth,
+                HorizontalAlignment = HAlignment.Stretch
             };
 
             titleOptions.AddItem(title);
@@ -176,7 +185,9 @@ public sealed partial class RequirementsSelector : BoxContainer
             {
                 ToolTip = description,
                 Text = title,
-                HorizontalExpand = false,
+                // Ensure plain text titles (like "Mime") also occupy the same 280px
+                HorizontalExpand = true,
+                MinWidth = fixedWidth,
                 HorizontalAlignment = HAlignment.Left
             };
             TitleContent.AddChild(titleLabel);

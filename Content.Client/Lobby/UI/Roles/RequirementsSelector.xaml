@@ -6,14 +6,23 @@ SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 SPDX-License-Identifier: MIT
 -->
 
+
 <BoxContainer xmlns="https://spacestation14.io"
               xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-              Orientation="Horizontal">
-    <Control Name="TitleContent" Margin="5 0" HorizontalExpand="True"/>
+              Orientation="Horizontal"
+              RectClipContent="True">
+
+    <Control Name="TitleContent"
+             Margin="5 0"
+             MaxWidth="600"
+             RectClipContent="True" />
+
+    <Control HorizontalExpand="True" />
 
     <Control SetSize="21 21">
         <TextureButton Name="Help" StyleClasses="HelpButton"/>
     </Control>
 
-    <BoxContainer Name="OptionsContainer"/>
+    <BoxContainer Name="OptionsContainer" />
 </BoxContainer>
+

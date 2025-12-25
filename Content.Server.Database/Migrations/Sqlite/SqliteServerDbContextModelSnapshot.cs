@@ -626,34 +626,34 @@ namespace Content.Server.Database.Migrations.Sqlite
                 });
 
             modelBuilder.Entity("Content.Server.Database.DBJobAlternateTitle", b =>
-            {
-                b.Property<int>("Id")
-                    .ValueGeneratedOnAdd()
-                    .HasColumnType("INTEGER")
-                    .HasColumnName("dbjob_alternate_title_id");
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("dbjob_alternate_title_id");
 
-                b.Property<string>("AlternateTitle")
-                    .IsRequired()
-                    .HasColumnType("TEXT")
-                    .HasColumnName("alternate_title");
+                    b.Property<string>("AlternateTitle")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("alternate_title");
 
-                b.Property<int>("ProfileId")
-                    .HasColumnType("INTEGER")
-                    .HasColumnName("profile_id");
+                    b.Property<int>("ProfileId")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("profile_id");
 
-                b.Property<string>("RoleName")
-                    .IsRequired()
-                    .HasColumnType("TEXT")
-                    .HasColumnName("role_name");
+                    b.Property<string>("RoleName")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("role_name");
 
-                b.HasKey("Id")
-                    .HasName("PK_dbjob_alternate_title");
+                    b.HasKey("Id")
+                        .HasName("PK_dbjob_alternate_title");
 
-                b.HasIndex("ProfileId", "RoleName", "AlternateTitle")
-                    .IsUnique();
+                    b.HasIndex("ProfileId", "RoleName", "AlternateTitle")
+                        .IsUnique();
 
-                b.ToTable("dbjob_alternate_title", (string)null);
-            });
+                    b.ToTable("dbjob_alternate_title", (string)null);
+                });
 
             modelBuilder.Entity("Content.Server.Database.IPIntelCache", b =>
                 {
@@ -1714,16 +1714,16 @@ namespace Content.Server.Database.Migrations.Sqlite
                 });
 
             modelBuilder.Entity("Content.Server.Database.DBJobAlternateTitle", b =>
-            {
-                b.HasOne("Content.Server.Database.Profile", "Profile")
-                    .WithMany("AltTitles")
-                    .HasForeignKey("ProfileId")
-                    .OnDelete(DeleteBehavior.Cascade)
-                    .IsRequired()
-                    .HasConstraintName("FK_dbjob_alternate_title_profile_profile_id");
+                {
+                    b.HasOne("Content.Server.Database.Profile", "Profile")
+                        .WithMany("AltTitles")
+                        .HasForeignKey("ProfileId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired()
+                        .HasConstraintName("FK_dbjob_alternate_title_profile_profile_id");
 
-                b.Navigation("Profile");
-            });
+                    b.Navigation("Profile");
+                });
 
             modelBuilder.Entity("Content.Server.Database.Job", b =>
                 {

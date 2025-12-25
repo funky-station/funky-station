@@ -33,6 +33,9 @@
 // SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 JoulesBerg <104539820+JoulesBerg@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 ferynn <117872973+ferynn@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 ferynn <witchy.girl.me@gmail.com>
 // SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
@@ -59,6 +62,7 @@ using Content.Shared.Interaction.Events;
 using Content.Shared.Inventory.Events;
 using Content.Shared.Inventory.VirtualItem;
 using Content.Shared.Item;
+using Content.Shared.Mobs.Systems; // Required for MobStateSystem
 using Content.Shared.Movement.Events;
 using Content.Shared.Movement.Pulling.Events;
 using Content.Shared.Popups;
@@ -97,6 +101,7 @@ namespace Content.Shared.Cuffs
         [Dependency] private readonly SharedTransformSystem _transform = default!;
         [Dependency] private readonly UseDelaySystem _delay = default!;
         [Dependency] private readonly SharedCombatModeSystem _combatMode = default!;
+        [Dependency] private readonly MobStateSystem _mobState = default!; // Added dependency
 
         public override void Initialize()
         {
@@ -127,11 +132,6 @@ namespace Content.Shared.Cuffs
             SubscribeLocalEvent<CuffableComponent, UseAttemptEvent>(CheckAct);
             SubscribeLocalEvent<CuffableComponent, InteractionAttemptEvent>(CheckInteract);
 
-            // funky - fuck crawl meta
-            SubscribeLocalEvent<CuffableComponent, DownedEvent>(OnDowned);
-            SubscribeLocalEvent<CuffableComponent, StoodEvent>(OnStood);
-            // funky - end
-
             SubscribeLocalEvent<HandcuffComponent, AfterInteractEvent>(OnCuffAfterInteract);
             SubscribeLocalEvent<HandcuffComponent, MeleeHitEvent>(OnCuffMeleeHit);
             SubscribeLocalEvent<HandcuffComponent, AddCuffDoAfterEvent>(OnAddCuffDoAfter);
@@ -146,7 +146,7 @@ namespace Content.Shared.Cuffs
                 // allow interaction with something you are buckled into (for if you are laying in a bed)
                 if (TryComp<BuckleComponent>(args.Uid, out var buckleComp) && args.Target == buckleComp.BuckledTo)
                     return;
-                // allow interaction with yourself. 
+                // allow interaction with yourself.
                 if (args.Uid == args.Target)
                     return;
             }
@@ -155,24 +155,6 @@ namespace Content.Shared.Cuffs
             if (!ent.Comp.CanStillInteract)
                 args.Cancelled = true;
         }
-
-        // funky - fuck crawl meta
-        private void OnDowned(EntityUid uid, CuffableComponent component, DownedEvent args)
-        {
-            component.CanStillInteract = false;
-            Dirty(uid, component);
-        }
-
-        private void OnStood(EntityUid uid, CuffableComponent component, StoodEvent args)
-        {
-            if (component.CuffedHandCount == 0)
-            {
-                component.CanStillInteract = true;
-                _actionBlocker.UpdateCanMove(uid);
-                Dirty(uid, component);
-            }
-        }
-        // funky - end
 
         private void OnUncuffAttempt(ref UncuffAttemptEvent args)
         {
@@ -324,8 +306,14 @@ namespace Content.Shared.Cuffs
             if (args.User == null || !Exists(args.User.Value))
                 return;
 
-            if (args.User.Value == uid && !component.CanStillInteract)
-                args.Cancelled = true;
+            if (args.User.Value == uid)
+            {
+                // If they are cuffed or in soft/hard critical, they cannot stop the pull
+                if (!component.CanStillInteract || _mobState.IsCritical(uid))
+                {
+                    args.Cancelled = true;
+                }
+            }
         }
 
         private void OnRemoveCuffsAlert(Entity<CuffableComponent> ent, ref RemoveCuffsAlertEvent args)

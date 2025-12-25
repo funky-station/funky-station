@@ -24,6 +24,8 @@
       color: "#ffffff"
     - state: detail_bookmark
       color: "#d11717"
+  - type: OocAuthorship
+    oocAuthor: Sevenups
   - type: Paper
     stampedBy:
     - stampedColor: '#134975'
@@ -76,6 +78,3 @@
       Officer Blorp came running up with Ian and panted, “Can I join?”
       “Of course!” said Dr. Lightseeker, “And then we can all go and eat French toast!”
       Ian barked, “Hoppy was right! It is fun to have a productive shift!”
-
-
-      [italic]OOC Author - Sevenups[/italic]

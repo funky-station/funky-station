@@ -6,6 +6,7 @@
     lifetime: 0.4
   - type: Sprite
     drawdepth: BelowMobs
+    offset: 0.33, 0
     layers:
     - shader: unshaded
       map: ["enum.EffectLayers.Unshaded"]
@@ -75,15 +76,6 @@
         mask:
         - Impassable
         - BulletImpassable
-      fly-by: &flybyfixture
-        shape: !type:PhysShapeCircle
-          radius: 1.5
-        layer:
-        - Impassable
-        - MidImpassable
-        - HighImpassable
-        - LowImpassable
-        hard: False
   - type: Projectile
     impactEffect: BulletImpactEffect
     damage:
@@ -117,7 +109,6 @@
         mask:
         - Impassable
         - BulletImpassable
-      fly-by: *flybyfixture
 
 - type: entity
   id: BaseBulletPractice
@@ -220,7 +211,6 @@
         - Opaque
         - Impassable
         - BulletImpassable
-      fly-by: *flybyfixture
   - type: Ammo
   - type: Projectile
     damage:
@@ -299,7 +289,6 @@
         - Opaque
         - Impassable
         - BulletImpassable
-      fly-by: *flybyfixture
   - type: Ammo
   - type: StaminaDamageOnCollide
     damage: 33
@@ -340,7 +329,6 @@
         - Opaque
         - Impassable
         - BulletImpassable
-      fly-by: *flybyfixture
   - type: Ammo
   - type: StaminaDamageOnCollide
     damage: 1
@@ -376,7 +364,6 @@
         hard: false
         mask:
         - Opaque
-      fly-by: *flybyfixture
   - type: Projectile
     #   soundHit:  Waiting on serv3
     damage:
@@ -420,7 +407,6 @@
         - Opaque
         - Impassable
         - BulletImpassable
-      fly-by: *flybyfixture
   - type: Projectile
     #   soundHit:  Waiting on serv3
     impactEffect: BulletImpactEffectDisabler
@@ -626,7 +612,6 @@
         hard: false
         mask:
         - Opaque
-      fly-by: *flybyfixture
   - type: Projectile
     damage:
       types:
@@ -1069,7 +1054,6 @@
         - Opaque
         - Impassable
         - BulletImpassable
-      fly-by: *flybyfixture
   - type: Ammo
   - type: StaminaDamageOnCollide
     damage: 15
@@ -1111,7 +1095,6 @@
         hard: false
         mask:
         - Opaque
-      fly-by: *flybyfixture
   - type: Ammo
 
 - type: entity
@@ -1221,7 +1204,6 @@
         - Opaque
         - Impassable
         - BulletImpassable
-      fly-by: *flybyfixture
   - type: Ammo
   - type: Projectile
     impactEffect: BulletImpactEffectOrangeDisabler

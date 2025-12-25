@@ -72,7 +72,19 @@
       "directions": 4
     },
     {
-      "name": "gothic",
+      "name": "firewatch_tertiary",
+      "directions": 4
+    },
+    {
+      "name": "gothic_primary",
+      "directions": 4
+    },
+    {
+      "name": "gothic_secondary",
+      "directions": 4
+    },
+    {
+      "name": "gothic_tertiary",
       "directions": 4
     },
     {
@@ -80,7 +92,15 @@
       "directions": 4
     },
     {
-      "name": "ladybug",
+      "name": "ladybug_primary",
+      "directions": 4
+    },
+    {
+      "name": "ladybug_secondary",
+      "directions": 4
+    },
+    {
+      "name": "ladybug_tertiary",
       "directions": 4
     },
     {

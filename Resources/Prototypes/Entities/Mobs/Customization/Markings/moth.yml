@@ -364,6 +364,8 @@
     state: firewatch_primary
   - sprite: Mobs/Customization/Moth/moth_wings.rsi
     state: firewatch_secondary
+  - sprite: Mobs/Customization/Moth/moth_wings.rsi
+    state: firewatch_tertiary
 
 - type: marking
   id: MothWingsGothic
@@ -372,7 +374,11 @@
   speciesRestriction: [Moth]
   sprites:
   - sprite: Mobs/Customization/Moth/moth_wings.rsi
-    state: gothic
+    state: gothic_primary
+  - sprite: Mobs/Customization/Moth/moth_wings.rsi
+    state: gothic_secondary
+  - sprite: Mobs/Customization/Moth/moth_wings.rsi
+    state: gothic_tertiary
 
 - type: marking
   id: MothWingsJungle
@@ -390,7 +396,11 @@
   speciesRestriction: [Moth]
   sprites:
   - sprite: Mobs/Customization/Moth/moth_wings.rsi
-    state: ladybug
+    state: ladybug_primary
+  - sprite: Mobs/Customization/Moth/moth_wings.rsi
+    state: ladybug_secondary
+  - sprite: Mobs/Customization/Moth/moth_wings.rsi
+    state: ladybug_tertiary
 
 - type: marking
   id: MothWingsMaple

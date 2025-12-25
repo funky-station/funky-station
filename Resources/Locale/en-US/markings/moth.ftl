@@ -98,15 +98,20 @@ marking-MothWingsFeathery = Wings (Feathery)
 
 marking-MothWingsFirewatch-firewatch_primary = Primary
 marking-MothWingsFirewatch-firewatch_secondary = Secondary
+marking-MothWingsFirewatch-firewatch_tertiary = Tertiary
 marking-MothWingsFirewatch = Wings (Firewatch)
 
-marking-MothWingsGothic-gothic = Wing
+marking-MothWingsGothic-gothic_primary = Primary
+marking-MothWingsGothic-gothic_secondary = Secondary
+marking-MothWingsGothic-gothic_tertiary = Tertiary
 marking-MothWingsGothic = Wings (Gothic)
 
 marking-MothWingsJungle-jungle = Wing
 marking-MothWingsJungle = Wings (Jungle)
 
-marking-MothWingsLadybug-ladybug = Wing
+marking-MothWingsLadybug-ladybug_primary = Primary
+marking-MothWingsLadybug-ladybug_secondary = Secondary
+marking-MothWingsLadybug-ladybug_tertiary = Tertiary
 marking-MothWingsLadybug = Wings (Ladybug)
 
 marking-MothWingsMaple-maple_primary = Primary

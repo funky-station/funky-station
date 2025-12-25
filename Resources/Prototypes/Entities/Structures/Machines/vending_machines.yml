@@ -210,6 +210,7 @@
   - type: ContainerContainer
     containers:
       hidden_slot: !type:ContainerSlot
+      paper_label: !type:ContainerSlot
   - type: ItemSlots
     slots:
       hidden_slot:
@@ -229,9 +230,6 @@
           Bounty: { state: bounty }
           CaptainsPaper: { state: captains_paper }
           Invoice: { state: invoice }
-  - type: ContainerContainer
-    containers:
-      paper_label: !type:ContainerSlot
   - type: ItemSlots
   - type: PaperLabel
     labelSlot:

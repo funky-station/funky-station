@@ -230,7 +230,6 @@
           Bounty: { state: bounty }
           CaptainsPaper: { state: captains_paper }
           Invoice: { state: invoice }
-  - type: ItemSlots
   - type: PaperLabel
     labelSlot:
       insertVerbText: comp-paper-label-insert

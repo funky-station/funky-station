@@ -27,6 +27,8 @@ namespace Content.Server.BloodCult.EntitySystems
 {
 	public sealed partial class BarrierOnTriggerSystem : EntitySystem
 	{
+		private static readonly ProtoId<DamageTypePrototype> SlashDamageType = "Slash";
+
 		[Dependency] private readonly EntityManager _entManager = default!;
 		[Dependency] private readonly SharedTransformSystem _transform = default!;
 		[Dependency] private readonly MapSystem _mapSystem = default!;
@@ -111,7 +113,7 @@ namespace Content.Server.BloodCult.EntitySystems
 						TryComp<DamageableComponent>(user, out var damComp);
 
 						DamageSpecifier appliedDamageSpecifier;
-						appliedDamageSpecifier = new DamageSpecifier(_protoMan.Index<DamageTypePrototype>("Slash"), FixedPoint2.New(damageOnActivate));
+						appliedDamageSpecifier = new DamageSpecifier(_protoMan.Index(SlashDamageType), FixedPoint2.New(damageOnActivate));
 
 						_damageableSystem.TryChangeDamage(user, appliedDamageSpecifier, true, origin: user);
 					}
@@ -120,19 +122,20 @@ namespace Content.Server.BloodCult.EntitySystems
 			args.Handled = true;
 		}
 
-		private void SpawnAtLocation(EntityCoordinates inLocation)
+	private void SpawnAtLocation(EntityCoordinates inLocation)
+	{
+		var gridUid = _transform.GetGrid(inLocation);
+		if (!TryComp<MapGridComponent>(gridUid, out var grid))
 		{
-			var gridUid = _transform.GetGrid(inLocation);
-			if (!TryComp<MapGridComponent>(gridUid, out var grid))
-			{
-				return;
-			}
-			var targetTile = _mapSystem.GetTileRef(gridUid.Value, grid, inLocation);
+			return;
+		}
+		var targetTile = _mapSystem.GetTileRef(gridUid.Value, grid, inLocation);
 
 		var barrier = Spawn("ForceBarrier", inLocation);
 
-		if (gridUid != null && TryComp<TransformComponent>(barrier, out var barrierTransform))
+		if (gridUid != null)
 		{
+			var barrierTransform = Transform(barrier);
 			_transform.AnchorEntity((barrier, barrierTransform), ((EntityUid)gridUid, grid), targetTile.GridIndices);
 			_audioSystem.PlayPvs(new SoundPathSpecifier("/Audio/Effects/inneranomaly.ogg"), inLocation);
 		}
@@ -140,7 +143,7 @@ namespace Content.Server.BloodCult.EntitySystems
 		{
 			QueueDel(barrier);
 		}
-		}
+	}
 
 		private bool CanPlaceBarrierAt(EntityCoordinates clickedAt, out EntityCoordinates location)
 		{

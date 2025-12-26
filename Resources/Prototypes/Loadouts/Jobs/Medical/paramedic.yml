@@ -2,6 +2,7 @@
 # SPDX-FileCopyrightText: 2024 Mr. 27 <45323883+Dutch-VanDerLinde@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Verm <32827189+Vermidia@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 DESKTOP-0V0K4HQ\Rosy <rosysaturniidae@gmail.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
@@ -10,20 +11,55 @@
 
 # Head
 - type: loadout
-  id: ParamedicHead
+  id: ParamedicCap # funky - used to be ParamedicHead, i figure we might add new hats... ever
   equipment:
     head: ClothingHeadHatParamedicsoft
+
+# Eyes - funky
+- type: loadout
+  id: ParamedicHud
+  equipment:
+    eyes: ClothingEyesHudParamedic
+
+- type: loadout
+  id: ParamedicEyepatch
+  equipment:
+    eyes: ClothingEyesHudParamedicEyepatch
+
+- type: loadout
+  id: ParamedicGlasses
+  equipment:
+    eyes: ClothingEyesGlassesParamedic
+
+- type: loadout
+  id: ParamedicJamjars
+  equipment:
+    eyes: ClothingEyesGlassesParamedicJamjar
 
 # Jumpsuit
 - type: loadout
   id: ParamedicJumpsuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitParamedic
+  groupBy: "jumpsuit"
+
+- type: loadout
+  id: ParamedicSpeedsuit
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitParamedicSpeedsuit
+  groupBy: "jumpsuit"
 
 - type: loadout
   id: ParamedicJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtParamedic
+  groupBy: "jumpskirt"
+
+- type: loadout
+  id: ParamedicSpeedskirt
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtParamedicSpeedskirt
+  groupBy: "jumpskirt"
 
 # Outer clothing
 - type: loadout
@@ -41,3 +77,8 @@
   id: BlueShoes
   equipment:
     shoes: ClothingShoesColorBlue
+
+- type: loadout
+  id: LaceupShoes
+  equipment:
+    shoes: ClothingShoesBootsLaceup

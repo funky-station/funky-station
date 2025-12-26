@@ -52,6 +52,7 @@
 # SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 MaiaArai <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 QueerCats <jansencheng3@gmail.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 ThatOneMoon <91613003+ThatOneMoon@users.noreply.github.com>
@@ -60,6 +61,7 @@
 # SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 ferynn <117872973+ferynn@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 mycobiota <154991750+mycobiota@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
@@ -77,9 +79,9 @@
   description: A basic, universal hardsuit that protects the wearer against the horrors of life in space. Beats not having a hardsuit, at least.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Hardsuits/basic.rsi
+    sprite: _Funkystation/Clothing/OuterClothing/Hardsuits/basic.rsi
   - type: Clothing
-    sprite: Clothing/OuterClothing/Hardsuits/basic.rsi
+    sprite: _Funkystation/Clothing/OuterClothing/Hardsuits/basic.rsi
   - type: Armor
     modifiers:
       coefficients:
@@ -99,7 +101,7 @@
 
 #Atmospherics Hardsuit
 - type: entity
-  parent: [ClothingOuterHardsuitBase, BaseEngineeringContraband]
+  parent: [ClothingOuterHardsuitBase, BaseEngineeringContraband, AllowBackStorageClothingEngineering]
   id: ClothingOuterHardsuitAtmos
   name: atmos hardsuit
   description: A special suit that protects against hazardous, low pressure environments. Has thermal shielding.
@@ -135,7 +137,7 @@
 
 #Engineering Hardsuit
 - type: entity
-  parent: [ClothingOuterHardsuitBase, BaseEngineeringContraband]
+  parent: [ClothingOuterHardsuitBase, BaseEngineeringContraband, AllowBackStorageClothingEngineering]
   id: ClothingOuterHardsuitEngineering
   name: engineering hardsuit
   description: A special suit that protects against hazardous, low pressure environments. Has radiation shielding.
@@ -187,6 +189,8 @@
         Piercing: 0.90
         Radiation: 0.40
         Caustic: 0.80
+  - type: ExplosionResistance
+    damageCoefficient: 0.8
   - type: ClothingSpeedModifier
     walkModifier: 0.90
     sprintModifier: 0.80
@@ -222,7 +226,7 @@
         Radiation: 0.3
         Caustic: 0.85
   - type: ExplosionResistance
-    damageCoefficient: 0.8
+    damageCoefficient: 0.7
   - type: ClothingSpeedModifier
     walkModifier: 0.85
     sprintModifier: 0.85
@@ -235,7 +239,7 @@
   parent: [ClothingOuterHardsuitBase, AllowBackStorageClothingCombat, BaseCargoContraband]
   id: ClothingOuterHardsuitGoliath
   name: goliath hardsuit
-  description: A lightweight hardsuit, adorned with a patchwork of thick, chitinous goliath hide.
+  description: A bulky hardsuit, adorned with a patchwork of thick, chitinous goliath hide.
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Hardsuits/goliath.rsi
@@ -254,7 +258,7 @@
         Caustic: 0.75
         Radiation: 0.4
   - type: ExplosionResistance
-    damageCoefficient: 0.75
+    damageCoefficient: 0.65
   - type: ClothingSpeedModifier
     walkModifier: 0.75
     sprintModifier: 0.75
@@ -435,7 +439,7 @@
 
 #Chief Engineer's Hardsuit
 - type: entity
-  parent: [ClothingOuterHardsuitBase, BaseCommandContraband]
+  parent: [ClothingOuterHardsuitBase, BaseCommandContraband, AllowBackStorageClothingEngineering]
   id: ClothingOuterHardsuitEngineeringWhite
   name: chief engineer's hardsuit
   description: A special hardsuit that protects against hazardous, low pressure environments, made for the chief engineer of the station.
@@ -601,7 +605,7 @@
         Caustic: 0.8
         Heat: 0.8
   - type: ExplosionResistance
-    damageCoefficient: 0.75
+    damageCoefficient: 0.65
   - type: ClothingSpeedModifier
     walkModifier: 0.85
     sprintModifier: 0.85

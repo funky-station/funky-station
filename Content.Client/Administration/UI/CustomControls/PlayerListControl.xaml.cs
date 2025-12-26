@@ -17,6 +17,7 @@
 // SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
 // SPDX-FileCopyrightText: 2024 Repo <47093363+Titian3@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Tojo <32783144+Alecksohs@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
 // SPDX-License-Identifier: MIT
@@ -172,7 +173,7 @@ public sealed partial class PlayerListControl : BoxContainer
         return text;
     }
 
-    private void GenerateButton(ListData data, ListContainerButton button)
+    private void GenerateButton(ListData data, IListEntry  button)
     {
         if (data is not PlayerListData { Info: var info })
             return;
@@ -184,8 +185,8 @@ public sealed partial class PlayerListControl : BoxContainer
             FilterList();
         };
 
-        button.AddChild(entry);
-        button.AddStyleClass(ListContainer.StyleClassListContainerButton);
+        button.ControlRoot.AddChild(entry);
+        button.ControlRoot.AddStyleClass(ListContainer.StyleClassListContainerButton);
     }
 }
 

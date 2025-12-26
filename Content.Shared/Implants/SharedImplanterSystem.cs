@@ -17,10 +17,10 @@
 //
 // SPDX-License-Identifier: MIT
 
-using Content.Shared.Chemistry.Components.SolutionManager; // Funky
-using Content.Shared.Chemistry.EntitySystems; // Funky
+using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using Content.Shared.Containers.ItemSlots;
-using Content.Shared.Damage;
+using Content.Shared.Damage.Systems;
 using Content.Shared.DoAfter;
 using Content.Shared.Examine;
 using Content.Shared.Forensics;
@@ -34,8 +34,6 @@ using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 using Robust.Shared.Utility;
-using System.Diagnostics.CodeAnalysis;
-using System.Linq;
 
 namespace Content.Shared.Implants;
 
@@ -49,7 +47,6 @@ public abstract class SharedImplanterSystem : EntitySystem
     [Dependency] private readonly DamageableSystem _damageableSystem = default!;
     [Dependency] private readonly SharedUserInterfaceSystem _uiSystem = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly SharedSolutionContainerSystem _solution = default!; // Funky
 
     public override void Initialize()
     {
@@ -78,7 +75,7 @@ public abstract class SharedImplanterSystem : EntitySystem
 
     private void OnEntInserted(EntityUid uid, ImplanterComponent component, EntInsertedIntoContainerMessage args)
     {
-        var implantData = EntityManager.GetComponent<MetaDataComponent>(args.Entity);
+        var implantData = Comp<MetaDataComponent>(args.Entity);
         component.ImplantData = (implantData.EntityName, implantData.EntityDescription);
     }
 
@@ -140,7 +137,7 @@ public abstract class SharedImplanterSystem : EntitySystem
     //Set to draw mode if not implant only
     public void Implant(EntityUid user, EntityUid target, EntityUid implanter, ImplanterComponent component)
     {
-        if (!CanImplant(user, target, implanter, component, out var implant, out var implantComp))
+        if (!CanImplant(user, target, implanter, component, out var implant, out _))
             return;
 
         // Check if we are trying to implant a implant which is already implanted
@@ -153,15 +150,12 @@ public abstract class SharedImplanterSystem : EntitySystem
             return;
         }
 
-        TransferImplantSolution(implanter, implant.GetValueOrDefault()); // Funky edit - For reagent implanters
-
         //If the target doesn't have the implanted component, add it.
         var implantedComp = EnsureComp<ImplantedComponent>(target);
         var implantContainer = implantedComp.ImplantContainer;
 
         if (component.ImplanterSlot.ContainerSlot != null)
             _container.Remove(implant.Value, component.ImplanterSlot.ContainerSlot);
-        implantComp.ImplantedEntity = target;
         implantContainer.OccludesLight = false;
         _container.Insert(implant.Value, implantContainer);
 
@@ -202,7 +196,7 @@ public abstract class SharedImplanterSystem : EntitySystem
     protected bool CheckTarget(EntityUid target, EntityWhitelist? whitelist, EntityWhitelist? blacklist)
     {
         return _whitelistSystem.IsWhitelistPassOrNull(whitelist, target) &&
-            _whitelistSystem.IsBlacklistFailOrNull(blacklist, target);
+            _whitelistSystem.IsWhitelistFailOrNull(blacklist, target);
     }
 
     //Draw the implant out of the target
@@ -235,7 +229,7 @@ public abstract class SharedImplanterSystem : EntitySystem
                         continue;
                     }
 
-                    DrawImplantIntoImplanter(implanter, target, implant, implantContainer, implanterContainer, implantComp, component);
+                    DrawImplantIntoImplanter(implanter, target, implant, implantContainer, implanterContainer, implantComp);
                     permanentFound = implantComp.Permanent;
 
                     //Break so only one implant is drawn
@@ -270,11 +264,11 @@ public abstract class SharedImplanterSystem : EntitySystem
                     }
                     else
                     {
-                        DrawImplantIntoImplanter(implanter, target, implant.Value, implantContainer, implanterContainer, implantComp, component);
+                        DrawImplantIntoImplanter(implanter, target, implant.Value, implantContainer, implanterContainer, implantComp);
                         permanentFound = implantComp.Permanent;
                     }
 
-                    if (component.CurrentMode == ImplanterToggleMode.Draw && !component.ImplantOnly && !permanentFound && !component.DeimplantCrushes)
+                    if (component.CurrentMode == ImplanterToggleMode.Draw && !component.ImplantOnly && !permanentFound)
                         ImplantMode(implanter, component);
                 }
                 else
@@ -301,13 +295,10 @@ public abstract class SharedImplanterSystem : EntitySystem
         _popup.PopupEntity(failedPermanentMessage, target, user);
     }
 
-    private void DrawImplantIntoImplanter(EntityUid implanter, EntityUid target, EntityUid implant, BaseContainer implantContainer, ContainerSlot implanterContainer, SubdermalImplantComponent implantComp, ImplanterComponent implanterComp)
+    private void DrawImplantIntoImplanter(EntityUid implanter, EntityUid target, EntityUid implant, BaseContainer implantContainer, ContainerSlot implanterContainer, SubdermalImplantComponent implantComp)
     {
         _container.Remove(implant, implantContainer);
-        implantComp.ImplantedEntity = null;
-
-        if (!implanterComp.DeimplantCrushes)
-            _container.Insert(implant, implanterContainer);
+        _container.Insert(implant, implanterContainer);
 
         var ev = new TransferDnaEvent { Donor = target, Recipient = implanter };
         RaiseLocalEvent(target, ref ev);
@@ -370,27 +361,6 @@ public abstract class SharedImplanterSystem : EntitySystem
 
         Dirty(uid, component);
     }
-
-    // Funky edit - For reagent implanters
-    private void TransferImplantSolution(EntityUid implanter, EntityUid implant)
-    {
-        // Get the solution on the implanter
-        if (!TryComp<SolutionContainerManagerComponent>(implanter, out var solutionComp) ||
-            !_solution.TryGetSolution(implanter, "drink", out var _, out var solution))
-            return;
-
-        // Ensure a new solution container on the implant, and add the implanter's solution to it
-        EnsureComp<SolutionContainerManagerComponent>(implant);
-        if (_solution.EnsureSolution(implant, "drink", out var newSolution))
-        {
-            newSolution.MaxVolume = 45.0f;
-            newSolution.AddSolution(solution, _proto);
-        }
-
-        // Remove solution container from the implanter
-        RemComp<SolutionContainerManagerComponent>(implanter);
-    }
-    // Funky edit end
 }
 
 [Serializable, NetSerializable]
@@ -418,22 +388,6 @@ public sealed class AddImplantAttemptEvent : CancellableEntityEventArgs
         Implanter = implanter;
     }
 }
-
-
-[Serializable, NetSerializable]
-public sealed class DeimplantBuiState : BoundUserInterfaceState
-{
-    public readonly string? Implant;
-
-    public Dictionary<string, string> ImplantList;
-
-    public DeimplantBuiState(string? implant, Dictionary<string, string> implantList)
-    {
-        Implant = implant;
-        ImplantList = implantList;
-    }
-}
-
 
 /// <summary>
 /// Change the chosen implanter in the UI.

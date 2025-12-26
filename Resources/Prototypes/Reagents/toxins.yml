@@ -1,58 +1,3 @@
-# SPDX-FileCopyrightText: 2022 CrudeWax <75271456+CrudeWax@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 EmoGarbage404 <98561806+EmoGarbage404@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Flipp Syder <76629141+vulppine@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Jessica M <jessica@jessicamaybe.com>
-# SPDX-FileCopyrightText: 2022 Moony <moonheart08@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Sam Weaver <weaversam8@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 lapatison <100279397+lapatison@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 metalgearsloth <comedian_vs_clown@hotmail.com>
-# SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-# SPDX-FileCopyrightText: 2023 Alex Evgrashin <aevgrashin@yandex.ru>
-# SPDX-FileCopyrightText: 2023 CrigCrag <137215465+CrigCrag@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Doru991 <75124791+Doru991@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Kara <lunarautomaton6@gmail.com>
-# SPDX-FileCopyrightText: 2023 LankLTE <135308300+LankLTE@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Maxtone <124747282+MagnusCrowe@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Moony <moony@hellomouse.net>
-# SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 ProPandaBear <propandabear@gmail.com>
-# SPDX-FileCopyrightText: 2023 QuantumSeanyGlass <quantum1002@gmail.com>
-# SPDX-FileCopyrightText: 2023 Rane <60792108+Elijahrane@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Ubaser <134914314+UbaserB@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Whisper <121047731+QuietlyWhisper@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 brainfood1183 <113240905+brainfood1183@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
-# SPDX-FileCopyrightText: 2024 Avalon <148660190+BYONDFuckery@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 EdenTheLiznerd <138748328+EdenTheLiznerd@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Errant <35878406+Errant-4@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Kira Bridgeton <161087999+Verbalase@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 MissKay1994 <15877268+MissKay1994@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Mr. 27 <45323883+Dutch-VanDerLinde@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
-# SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
-# SPDX-FileCopyrightText: 2024 Token <esil.bektay@yandex.com>
-# SPDX-FileCopyrightText: 2024 Vasilis <vasilis@pikachu.systems>
-# SPDX-FileCopyrightText: 2024 Verm <32827189+Vermidia@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 potato1234_x <79580518+potato1234x@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 ATDoop <bug@bug.bug>
-# SPDX-FileCopyrightText: 2025 McBosserson <148172569+McBosserson@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Milon <milonpl.git@proton.me>
-# SPDX-FileCopyrightText: 2025 Mish <bluscout78@yahoo.com>
-# SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+pronana@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Steve <marlumpy@gmail.com>
-# SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 hereelabs <hahmorme@gmail.com>
-# SPDX-FileCopyrightText: 2025 marc-pelletier <113944176+marc-pelletier@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
-
 - type: reagent
   id: Toxin
   name: reagent-name-toxin
@@ -61,6 +6,7 @@
   flavor: bitter
   color: "#cf3600"
   physicalDesc: reagent-physical-desc-opaque
+  contrabandSeverity: Minor
   plantMetabolism:
   - !type:PlantAdjustToxins
     amount: 10
@@ -82,6 +28,8 @@
   flavor: bitter
   color: "#e2a38c"
   physicalDesc: reagent-physical-desc-exotic-smelling
+  allowedDepartments:
+  - Medical
   plantMetabolism:
   - !type:PlantAdjustToxins
     amount: 10
@@ -91,18 +39,10 @@
     Poison:
       effects:
       - !type:HealthChange
-        conditions: #imp, thaven are immune to carpotoxin because it's naturally in their bodies
-        - !type:OrganType
-          type: Thaven
-          shouldHave: false
         damage:
           types:
             Poison: 4
       - !type:PopupMessage
-        conditions: #imp, thaven are immune to carpotoxin because it's naturally in their bodies
-        - !type:OrganType
-          type: Thaven
-          shouldHave: false
         type: Local
         visualType: MediumCaution
         messages: [ "generic-reagent-effect-burning-insides" ]
@@ -116,36 +56,27 @@
   flavor: bitter
   color: "#000067"
   physicalDesc: reagent-physical-desc-nondescript
+  allowedDepartments:
+  - Medical
+  allowedJobs:
+  - Zookeeper
   metabolisms:
     Poison:
-      metabolismRate: 0.25 # DeltaV: chloral hydrate should last longer for surgery
       effects:
       - !type:Emote
         emote: Yawn
         showInChat: true
         probability: 0.1
-      - !type:MovespeedModifier
+      - !type:MovementSpeedModifier
         walkSpeedModifier: 0.65
         sprintSpeedModifier: 0.65
-      - !type:GenericStatusEffect
-        key: Drowsiness
-        component: Drowsiness
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectDrowsiness
         time: 4
-        type: Add
-        refresh: false
-      - !type:GenericStatusEffect # DeltaV: anesthesia
-        conditions:
-        - !type:ReagentThreshold
-          reagent: ChloralHydrate
-          min: 10
-        key: Anesthesia
-        component: Anesthesia
-        refresh: false
-        time: 4.0
-        type: Add
+        type: Update
       - !type:HealthChange
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           reagent: ChloralHydrate
           min: 20
         damage:
@@ -167,9 +98,10 @@
           damage:
             types:
               Poison: 2
-        - !type:ChemVomit
+        - !type:Vomit
           conditions:
-          - !type:ReagentThreshold
+          - !type:ReagentCondition
+            reagent: GastroToxin
             min: 2
           probability: 0.2
 
@@ -196,6 +128,7 @@
   group: Toxins
   desc: reagent-desc-polytrinic-acid
   physicalDesc: reagent-physical-desc-strong-smelling
+  contrabandSeverity: Major
   flavor: acid
   color: "#a1000b"
   boilingPoint: 78.2 # This isn't a real chemical...
@@ -212,7 +145,6 @@
       methods: [ Touch ]
       effects:
       - !type:HealthChange
-        scaleByQuantity: true
         ignoreResistances: false
         damage:
           types:
@@ -251,7 +183,6 @@
       - !type:SatiateThirst
         factor: -1.5
       - !type:HealthChange
-        scaleByQuantity: true
         ignoreResistances: true
         damage:
           types:
@@ -264,6 +195,7 @@
   group: Toxins
   desc: reagent-desc-fluorosulfuric-acid
   physicalDesc: reagent-physical-desc-strong-smelling
+  contrabandSeverity: Minor
   flavor: acid
   color: "#5050ff"
   boilingPoint: 165
@@ -273,7 +205,6 @@
       methods: [ Touch ]
       effects:
       - !type:HealthChange
-        scaleByQuantity: true
         ignoreResistances: false
         damage:
           types:
@@ -304,6 +235,8 @@
   group: Toxins
   desc: reagent-desc-sulfuric-acid
   physicalDesc: reagent-physical-desc-oily
+  allowedJobs:
+  - Chemist
   flavor: acid
   color: "#BF8C00"
   recognizable: true
@@ -321,7 +254,6 @@
       methods: [ Touch ]
       effects:
       - !type:HealthChange
-        scaleByQuantity: true
         ignoreResistances: false
         damage:
           types:
@@ -352,6 +284,9 @@
   group: Toxins
   desc: reagent-desc-unstable-mutagen
   physicalDesc: reagent-physical-desc-glowing
+  allowedJobs:
+  - Chemist
+  - Botanist
   flavor: bitter
   color: "#00ff5f"
   boilingPoint: 340282300000000000000000000000000000000 # Ethidium bromide, which doesn't boil.
@@ -373,6 +308,7 @@
   group: Toxins
   desc: reagent-desc-heartbreaker-toxin
   physicalDesc: reagent-physical-desc-strong-smelling
+  contrabandSeverity: Major
   color: "#5f959c"
   metabolisms:
     Poison:
@@ -391,6 +327,7 @@
   group: Toxins
   desc: reagent-desc-lexorin
   physicalDesc: reagent-physical-desc-pungent
+  contrabandSeverity: Syndicate
   color: "#6b0007"
   metabolisms:
     Poison:
@@ -414,12 +351,10 @@
   metabolisms:
     Poison:
       effects:
-      - !type:GenericStatusEffect
-        key: SeeingRainbows
-        component: SeeingRainbows
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectSeeingRainbow
         type: Add
         time: 10
-        refresh: false
   # TODO: PROPER hallucinations
 
 - type: reagent
@@ -440,20 +375,23 @@
       # todo: cough, sneeze
       - !type:HealthChange
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Histamine
           min: 45
         damage:
           groups:
             Brute: 2
-            Toxin: 2
             Airloss: 2
+          types:
+            Poison: 2
       - !type:PopupMessage
         type: Local
         messages: [ "histamine-effect-light-itchiness" ]
         probability: 0.1
       - !type:PopupMessage
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Histamine
           min: 45
         type: Local
         visualType: Medium
@@ -475,16 +413,16 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:OrganType
-          type: Animal # Applying damage to the mobs with lower metabolism capabilities
+        - !type:MetabolizerTypeCondition
+          type: [Animal] # Applying damage to the mobs with lower metabolism capabilities
         damage:
           types:
             Poison: 0.4
-      - !type:ChemVomit
+      - !type:Vomit
         probability: 0.04 #Scaled for time, not metabolismrate.
         conditions:
-          - !type:OrganType
-            type: Animal
+          - !type:MetabolizerTypeCondition
+            type: [Animal]
 
 - type: reagent
   id: Amatoxin
@@ -492,6 +430,7 @@
   group: Toxins
   desc: reagent-desc-amatoxin
   physicalDesc: reagent-physical-desc-nondescript
+  contrabandSeverity: Major
   color: "#D6CE7B"
   metabolisms:
     Poison:
@@ -524,6 +463,7 @@
   group: Toxins
   desc: reagent-desc-romerol
   physicalDesc: reagent-physical-desc-necrotic
+  contrabandSeverity: Syndicate
   flavor: bitter
   color: "#7e916e"
   worksOnTheDead: true
@@ -532,7 +472,8 @@
       effects:
         - !type:CauseZombieInfection
           conditions:
-            - !type:ReagentThreshold
+            - !type:ReagentCondition
+              reagent: Romerol
               min: 5
 
 - type: reagent
@@ -548,61 +489,37 @@
       effects:
       - !type:PopupMessage
         conditions:
-          - !type:OrganType
-            type: Animal
-            shouldHave: false
-          - !type:OrganType
-            type: Vox
-            shouldHave: false
-          - !type:OrganType
-            type: Arachnid
-            shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type: [ Animal, Vox ]
+          inverted: true
         type: Local
         visualType: MediumCaution
         messages: [ "generic-reagent-effect-sick" ]
         probability: 0.5
-      - !type:ChemVomit
+      - !type:Vomit
         probability: 0.1
         conditions:
-          - !type:OrganType
-            type: Animal
-            shouldHave: false
-          - !type:OrganType
-            type: Vox
-            shouldHave: false
-          - !type:OrganType
-            type: Arachnid
-            shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type: [ Animal, Vox ]
+          inverted: true
       - !type:HealthChange
         conditions:
-        - !type:OrganType
-          type: Animal
-          shouldHave: false
-        - !type:OrganType
-          type: Vox
-          shouldHave: false
-        - !type:OrganType
-          type: Arachnid
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type: [ Animal, Vox ]
+          inverted: true
         damage:
           types:
             Poison: 1
       - !type:AdjustReagent
         conditions:
-        - !type:OrganType
-          type: Animal
+        - !type:MetabolizerTypeCondition
+          type: [ Animal ]
         reagent: Protein
         amount: 0.5
       - !type:AdjustReagent
         conditions:
-        - !type:OrganType
-          type: Arachnid
-        reagent: Protein
-        amount: 0.5
-      - !type:AdjustReagent
-        conditions:
-        - !type:OrganType
-          type: Vox
+        - !type:MetabolizerTypeCondition
+          type: [ Vox ]
         reagent: Protein
         amount: 0.25
 
@@ -620,10 +537,11 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Allicin
           min: 1
-        - !type:OrganType
-          type: Animal
+        - !type:MetabolizerTypeCondition
+          type: [Animal]
         damage:
           types:
             Poison: 0.06
@@ -634,6 +552,11 @@
   group: Narcotics
   desc: reagent-desc-pax
   physicalDesc: reagent-physical-desc-soothing
+  allowedDepartments:
+  - Security
+  - Medical
+  allowedJobs:
+  - Zookeeper
   color: "#AAAAAA"
   metabolisms:
     Poison:
@@ -641,7 +564,6 @@
       - !type:GenericStatusEffect
         key: Pacified
         component: Pacified
-        type: Add
         time: 4
 
 - type: reagent
@@ -659,14 +581,16 @@
       - !type:Emote
         emote: Honk
         showInChat: true
+        showInGuidebook: true
         force: true
         probability: 0.2
       - !type:HealthChange
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Honk
           min: 1
-        - !type:OrganType
-          type: Animal
+        - !type:MetabolizerTypeCondition
+          type: [ Animal ]
         damage:
           types:
             Poison: 0.06
@@ -678,6 +602,7 @@
   group: Toxins
   desc: reagent-desc-lead
   physicalDesc: reagent-physical-desc-metallic
+  contrabandSeverity: Major
   color: "#5C6274"
   metabolisms:
     Poison:
@@ -694,6 +619,7 @@
   group: Toxins
   desc: reagent-desc-bungotoxin
   physicalDesc: reagent-physical-desc-nondescript
+  contrabandSeverity: Major
   color: "#EBFF8E"
   metabolisms:
     Poison:
@@ -710,6 +636,7 @@
   group: Toxins
   desc: reagent-desc-vestine
   physicalDesc: reagent-physical-desc-shiny
+  contrabandSeverity: Syndicate
   flavor: medicine
   color: "#435166"
   metabolisms:
@@ -717,9 +644,10 @@
       effects:
       - !type:Jitter
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Vestine
           min: 5
-      - !type:MovespeedModifier
+      - !type:MovementSpeedModifier
         walkSpeedModifier: 0.8
         sprintSpeedModifier: 0.8
       - !type:HealthChange
@@ -733,6 +661,7 @@
   group: Toxins
   desc: reagent-desc-tazinide
   physicalDesc: reagent-physical-desc-metallic
+  contrabandSeverity: Syndicate
   flavor: shocking
   color: "#FDD023"
   metabolisms:
@@ -747,6 +676,8 @@
   group: Toxins
   desc: reagent-desc-lipolicide
   physicalDesc: reagent-physical-desc-strong-smelling
+  allowedDepartments:
+  - Medical
   flavor: mothballs #why does weightloss juice taste like mothballs
   color: "#F0FFF0"
   metabolisms:
@@ -754,7 +685,7 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:Hunger
+        - !type:HungerCondition
           max: 50
         damage:
           types:
@@ -778,30 +709,30 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:OrganType
-          type: Arachnid
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type: [Arachnid]
+          inverted: true
         damage:
           types:
             Poison: 1.6
-      - !type:MovespeedModifier
+      - !type:MovementSpeedModifier
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           reagent: Mechanotoxin
           min: 2
-        - !type:OrganType
-          type: Arachnid
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type: [Arachnid]
+          inverted: true
         walkSpeedModifier: 0.8
         sprintSpeedModifier: 0.8
-      - !type:MovespeedModifier
+      - !type:MovementSpeedModifier
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           reagent: Mechanotoxin
           min: 4
-        - !type:OrganType
-          type: Arachnid
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type: [Arachnid]
+          inverted: true
         walkSpeedModifier: 0.4
         sprintSpeedModifier: 0.4
 
@@ -818,25 +749,24 @@
       - !type:SatiateHunger
         factor: 1
         conditions:
-        - !type:OrganType
-          type: Vox
+        - !type:MetabolizerTypeCondition
+          type: [Vox]
 
-# Assmos - /tg/ gases
 - type: reagent
-  id: BZMetabolites
-  name: reagent-name-bz-metabolites
+  id: Hemorrhinol
+  name: reagent-name-hemorrhinol
   group: Toxins
-  desc: reagent-desc-bz-metabolites
-  flavor: bitter
-  color: "#b19cd9"
-  physicalDesc: reagent-physical-desc-nondescript
+  desc: reagent-desc-hemorrhinol
+  physicalDesc: reagent-physical-desc-thin
+  contrabandSeverity: Major
+  flavor: sharp
+  color: "#96424f"
   metabolisms:
     Poison:
       effects:
-      - !type:AdjustLingChemicals
-        conditions:
-        - !type:LingCondition {}
-        - !type:ReagentThreshold
-          reagent: BZMetabolites
-          min: 0.2
-        amount: -8
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectHemorrhage
+        time: 21 # 7 bleed ticks, you bleed every 3 seconds by default.
+        type: Update
+      - !type:ModifyBleed
+        amount: 0.5

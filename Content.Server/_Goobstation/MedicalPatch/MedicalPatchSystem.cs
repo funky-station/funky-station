@@ -100,7 +100,7 @@ public sealed class MedicalPatchSystem : EntitySystem
         var removedSolution = _solutionContainers.SplitSolution(medicalPatchSoln.Value, realTransferAmount);
         if (!targetSolution.CanAddSolution(removedSolution))
             return true;
-        _reactiveSystem.DoEntityReaction(target, removedSolution, ReactionMethod.Touch, 4f); // Funky - patches are dermal not intravenous
+        _reactiveSystem.DoEntityReaction(target, removedSolution, ReactionMethod.Touch, uid); // Funky - patches are dermal not intravenous
         _solutionContainers.TryAddSolution(targetSoln.Value, removedSolution);
         return true;
     }

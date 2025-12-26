@@ -20,21 +20,20 @@
       - state: screen
         shader: unshaded
         visible: false
-        map: ["enum.ToggleVisuals.Layer"]
+        map: ["enum.ToggleableVisuals.Layer"]
   - type: Appearance
   - type: GenericVisualizer
     visuals:
-      enum.ToggleVisuals.Toggled:
-        enum.ToggleVisuals.Layer:
+      enum.ToggleableVisuals.Enabled:
+        enum.ToggleableVisuals.Layer:
           True: { visible: true }
           False: { visible: false }
   - type: ItemToggle
   - type: ProximityBeeper
   - type: ProximityDetector
     range: 12
-    criteria:
-      components:
-      - Spectral # reacts to AI eye, intentional
+    components:
+    - type: Spectral # reacts to AI eye, intentional
   - type: Beeper
     isMuted: true
     minBeepInterval: 0.25
@@ -52,7 +51,7 @@
   components:
   - type: PowerCellDraw
     drawRate: 1
-    useRate: 0
+    useCharge: 0
   - type: ToggleCellDraw
 
 - type: entity

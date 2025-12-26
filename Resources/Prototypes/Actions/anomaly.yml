@@ -5,11 +5,13 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
 - type: entity
+  parent: BaseAction
   id: ActionAnomalyPulse
   name: Anomaly pulse
   description: Release a pulse of energy of your abnormal nature
   components:
-  - type: InstantAction
-    icon: { sprite: Structures/Specific/anomaly.rsi, state: anom1 }
-    event: !type:ActionAnomalyPulseEvent
+  - type: Action
     useDelay: 30
+    icon: { sprite: Structures/Specific/anomaly.rsi, state: anom1 }
+  - type: InstantAction
+    event: !type:ActionAnomalyPulseEvent

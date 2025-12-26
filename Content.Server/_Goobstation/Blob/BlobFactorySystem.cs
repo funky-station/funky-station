@@ -7,6 +7,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
+using Content.Goobstation.Shared.Blob.Components;
 using Content.Server._Goobstation.Blob.Components;
 using Content.Server.Popups;
 using Content.Shared._Goobstation.Blob;
@@ -18,6 +19,7 @@ using Content.Shared.Damage;
 using Content.Shared.Destructible;
 using Content.Shared.Explosion.Components;
 using Content.Shared.FixedPoint;
+using Content.Shared.Trigger.Components.Effects;
 using Content.Shared.Weapons.Melee;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;

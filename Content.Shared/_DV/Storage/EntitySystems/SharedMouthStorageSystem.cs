@@ -9,6 +9,7 @@ using Content.Shared.Actions;
 using Content.Shared.CombatMode;
 using Content.Shared.Damage;
 using Content.Shared._DV.Storage.Components;
+using Content.Shared.Damage.Systems;
 using Content.Shared.Examine;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Standing;
@@ -31,7 +32,6 @@ public abstract class SharedMouthStorageSystem : EntitySystem
 
         SubscribeLocalEvent<MouthStorageComponent, MapInitEvent>(OnMouthStorageInit);
         SubscribeLocalEvent<MouthStorageComponent, DownedEvent>(DropAllContents);
-        SubscribeLocalEvent<MouthStorageComponent, DisarmedEvent>(DropAllContents);
         SubscribeLocalEvent<MouthStorageComponent, DamageChangedEvent>(OnDamageModified);
         SubscribeLocalEvent<MouthStorageComponent, ExaminedEvent>(OnExamined);
     }

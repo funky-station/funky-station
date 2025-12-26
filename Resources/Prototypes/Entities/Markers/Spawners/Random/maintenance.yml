@@ -131,7 +131,7 @@
       - id: ClothingHeadHatPaper
       - id: ClothingHeadHatPirate
       - id: ClothingMaskSterile
-      - id: ClothingNeckHeadphones
+      - id: ClothingMultipleHeadphones
       - id: ClothingNeckTieRed
       - id: ClothingOuterCoatGentle
       - !type:AllSelector
@@ -180,6 +180,7 @@
         - id: ClothingNeckCloakGoliathCloak
         - id: ClothingNeckCloakAce
         - id: ClothingNeckCloakAro
+        - id: ClothingNeckCloakAroace
         - id: ClothingNeckCloakBi
         - id: ClothingNeckCloakIntersex
         - id: ClothingNeckCloakLesbian
@@ -220,12 +221,14 @@
         - id: ClothingNeckAllyPin
         - id: ClothingNeckAromanticPin
         - id: ClothingNeckAsexualPin
+        - id: ClothingNeckAroacePin
         - id: ClothingNeckBisexualPin
         - id: ClothingNeckGayPin
         - id: ClothingNeckIntersexPin
         - id: ClothingNeckLesbianPin
         - id: ClothingNeckNonBinaryPin
         - id: ClothingNeckPansexualPin
+        - id: ClothingNeckPluralPin
         - id: ClothingNeckOmnisexualPin
         - id: ClothingNeckGenderqueerPin
         - id: ClothingNeckTransPin
@@ -387,7 +390,7 @@
       - id: trayScanner
       - id: HandheldGPSBasic
       - id: HandLabeler
-      - id: GlowstickBase
+      - id: GlowstickGreen
       - id: Bucket
       - id: RadioHandheld
       - id: AppraisalTool

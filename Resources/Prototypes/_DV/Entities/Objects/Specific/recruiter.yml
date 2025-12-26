@@ -5,7 +5,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
 - type: entity
-  parent: Pen
+  parent: LuxuryPen
   id: PenRecruiter
   name: recruiter's pen
   description: A uniquely evil pen that draws your blood to make signatures.
@@ -22,13 +22,14 @@
     blacklist:
       components:
       - MindShield
-    mindBlacklist:
-      components:
-      - RecruiterRole # no silly goose
+    factionBlacklist:
+    - Syndicate # no silly goose
+    currency: #currency prototype spawned on signing
+      SpaceCash100
   - type: SolutionContainerManager
     solutions:
       blood:
-        maxVol: 5
+        maxVol: 35
   - type: Appearance
   - type: SolutionContainerVisuals
     solutionName: blood

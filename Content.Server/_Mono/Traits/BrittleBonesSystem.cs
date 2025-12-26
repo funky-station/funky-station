@@ -5,6 +5,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
 using Content.Shared.Damage;
+using Content.Shared.Damage.Systems;
 using Content.Shared.Traits.BrittleBones;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;

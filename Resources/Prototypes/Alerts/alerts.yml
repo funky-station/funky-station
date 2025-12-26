@@ -30,11 +30,8 @@
 # SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Drywink <43855731+Drywink@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Drywink <hugogrethen@gmail.com>
 # SPDX-FileCopyrightText: 2025 Tadeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 dffdff2423 <dffdff2423@gmail.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
@@ -70,8 +67,9 @@
     - category: Hunger
     - category: Thirst
     - alertType: Magboots
+    - alertType: Rooted
     - alertType: Pacified
-    - alertType: ToggleInteraction # CD
+    - alertType: Stealthy
 
 - type: entity
   id: AlertSpriteView
@@ -191,20 +189,20 @@
   description: alerts-stunned-desc
 
 - type: alert
+  id: Knockdown
+  clickEvent: !type:KnockedDownAlertEvent
+  icons:
+  - sprite: /Textures/Interface/Alerts/stunnable.rsi
+    state: knocked-down
+  name: alerts-knockdown-name
+  description: alerts-knockdown-desc
+
+- type: alert
   id: Handcuffed
   clickEvent: !type:RemoveCuffsAlertEvent
   icons: [ /Textures/Interface/Alerts/Handcuffed/Handcuffed.png ]
   name: alerts-handcuffed-name
   description: alerts-handcuffed-desc
-
-- type: alert
-  id: Cocooned
-  clickEvent: !type:RemoveCocoonAlertEvent
-  icons:
-  - sprite: /Textures/Mobs/Effects/cocooned.rsi
-    state: cocooned
-  name: alerts-cocooned-name
-  description: alerts-cocooned-desc
 
 - type: alert
   id: Ensnared
@@ -224,17 +222,17 @@
   description: alerts-buckled-desc
 
 - type: alert
-  id: Thieving
-  clickEvent: !type:ThievingToggleEvent
+  id: Stealthy
+  clickEvent: !type:ToggleThievingEvent
   icons:
-  - sprite: /Textures/_Funkystation/Interface/Alerts/thieving.rsi
-    state: thieving_OFF
-  - sprite: /Textures/_Funkystation/Interface/Alerts/thieving.rsi
-    state: thieving_ON
-  name: alerts-thieving-name
-  description: alerts-thieving-desc
-  minSeverity: 1
-  maxSeverity: 2
+  - sprite: /Textures/Interface/Alerts/stealthy.rsi
+    state: stealthy-off
+  - sprite: /Textures/Interface/Alerts/stealthy.rsi
+    state: stealthy-on
+  name: alerts-stealthy-name
+  description: alerts-stealthy-desc
+  minSeverity: 0
+  maxSeverity: 1
 
 - type: alert
   id: HumanCrit
@@ -340,6 +338,7 @@
   description: alerts-battery-desc
   minSeverity: 0
   maxSeverity: 10
+  clientHandled: true # the power cell is read on the client so that we don't have to periodically network the charge
 
 - type: alert
   id: BorgBatteryNone
@@ -349,6 +348,7 @@
     state: battery-none
   name: alerts-no-battery-name
   description: alerts-no-battery-desc
+  clientHandled: true # the power cell battery is read on the client so that we don't have to periodically network the charge
 
 - type: alert
   id: Internals
@@ -370,7 +370,9 @@
   id: PilotingShuttle
   category: Piloting
   clickEvent: !type:StopPilotingAlertEvent
-  icons: [ /Textures/Interface/Alerts/piloting.png ]
+  icons:
+  - sprite: /Textures/Interface/Alerts/shuttle.rsi
+    state: piloting
   name: alerts-piloting-name
   description: alerts-piloting-desc
 

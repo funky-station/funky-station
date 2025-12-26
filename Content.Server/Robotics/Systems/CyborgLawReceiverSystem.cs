@@ -17,8 +17,11 @@ using System;
 using Content.Server.Silicons.Laws;
 using Content.Shared.Roles;
 using Content.Server.Mind;
+using Content.Shared.DeviceNetwork;
+using Content.Shared.DeviceNetwork.Events;
 using Content.Shared.Mind;
 using Content.Shared.Silicons.StationAi;
+using Robust.Server.Player;
 
 namespace Content.Server.Robotics.Systems;
 
@@ -30,7 +33,7 @@ public sealed class CyborgLawReceiverSystem : EntitySystem
     [Dependency] private readonly SiliconLawSystem _laws = default!;
     [Dependency] private readonly SharedRoleSystem _sharedRoleSystem = default!;
     [Dependency] private readonly MindSystem _mindSystem = default!;
-
+    [Dependency] private readonly IPlayerManager _players = default!;
     public override void Initialize()
     {
         base.Initialize();
@@ -86,10 +89,13 @@ public sealed class CyborgLawReceiverSystem : EntitySystem
             mind.RoleType = "MalfunctioningSilicon";
             Dirty(mindId.Value, mind);
 
-            // Trigger UI update event
-            if (_mindSystem.TryGetSession(mindId.Value, out var session))
+            // Trigger UI update event — get the session via IPlayerManager instead of a non-existent TryGetSession on MindSystem
+            if (mind.UserId != null && _players.TryGetSessionById(mind.UserId.Value, out var session))
+            {
                 RaiseNetworkEvent(new MindRoleTypeChangedEvent(), session.Channel);
+            }
         }
+
 
         // Add existing laws with original orders (skip any pre-existing 0)
         foreach (var law in current.Laws.OrderBy(l => l.Order))

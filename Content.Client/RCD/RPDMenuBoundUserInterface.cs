@@ -9,6 +9,9 @@ using Robust.Client.Input;
 using Robust.Client.UserInterface;
 using Robust.Shared;
 using Robust.Shared.Prototypes;
+using Content.Client.UserInterface.Controls;
+using Robust.Shared.Collections;
+using System.Collections.Generic;
 
 namespace Content.Client.RCD;
 
@@ -17,8 +20,9 @@ public sealed class RPDMenuBoundUserInterface : BoundUserInterface
     [Dependency] private readonly IClyde _displayManager = default!;
     [Dependency] private readonly IInputManager _inputManager = default!;
     [Dependency] private readonly IEntityManager _entityManager = default!;
+    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
 
-    private RPDMenu? _menu;
+    private SimpleRadialMenu? _menu;
     private Dictionary<string, Color?> _palette = new()
     {
         { "default", null },
@@ -48,27 +52,81 @@ public sealed class RPDMenuBoundUserInterface : BoundUserInterface
         if (!_entityManager.HasComponent<RCDComponent>(Owner))
             return;
 
-        _menu = this.CreateWindow<RPDMenu>();
-        _menu.SetEntity(Owner);
-        _menu.ColorSelected += OnColorSelected;
-        _menu.SendRCDSystemMessageAction += OnRCDSystemMessage;
+        // Create and track the SimpleRadialMenu (matches RCDMenuBoundUserInterface pattern).
+        _menu = new SimpleRadialMenu();
+        _menu.Track(Owner);
 
-        string selectedColor = _entityManager.TryGetComponent<RCDComponent>(Owner, out var comp) && _palette.ContainsKey(comp.PipeColor.Key)
-            ? comp.PipeColor.Key
-            : "default";
-        _menu.Populate(_palette, selectedColor);
+        // Build models: a nested layer for prototypes, and individual color options.
+        var models = BuildModels();
 
-        var vpSize = _displayManager.ScreenSize;
-        _menu.OpenCenteredAt(_inputManager.MouseScreenPosition.Position / vpSize);
+        _menu.SetButtons(models);
+
+        // Open at the mouse position
+        _menu.OpenOverMouseScreenPosition();
+    }
+
+    private RadialMenuOptionBase[] BuildModels()
+    {
+        // 1) Build prototype actions into a nested layer
+        var protoOptions = new List<RadialMenuActionOptionBase>();
+        if (_entityManager.TryGetComponent<RCDComponent>(Owner, out var comp))
+        {
+            foreach (var protoId in comp.AvailablePrototypes)
+            {
+                // Safely index prototype
+                if (!_prototypeManager.TryIndex(protoId, out RCDPrototype? proto))
+                    continue;
+
+                var action = new RadialMenuActionOption<ProtoId<RCDPrototype>>(OnRCDSystemMessage, protoId)
+                {
+                    IconSpecifier = RadialMenuIconSpecifier.With(proto.Sprite),
+                    ToolTip = proto.SetName
+                };
+
+                protoOptions.Add(action);
+            }
+        }
+
+        // Create a nested layer only if there are prototypes.
+        var modelsList = new List<RadialMenuOptionBase>();
+
+        if (protoOptions.Count > 0)
+        {
+            var nested = new RadialMenuNestedLayerOption(protoOptions)
+            {
+                ToolTip = Loc.GetString("rcd-components"),
+                // No specific icon supplied here; engine will show a default or none.
+            };
+            modelsList.Add(nested);
+        }
+
+        // 2) Build color action options (flat, top-level)
+        foreach (var kv in _palette)
+        {
+            var key = kv.Key;
+            var color = kv.Value;
+
+            // When clicked, send the same payload you used previously.
+            var action = new RadialMenuActionOption<string>(OnColorSelected, key)
+            {
+                ToolTip = Loc.GetString($"rcd-color-{key}"),
+                // Optionally set an icon that visually represents the color if you have a sprite.
+                // We'll skip an icon here; if you want a colored sprite, provide a SpriteSpecifier.
+            };
+
+            modelsList.Add(action);
+        }
+
+        return modelsList.ToArray();
     }
 
     private void OnColorSelected(string colorKey)
     {
-        if (_palette.TryGetValue(colorKey, out var color))
-        {
-            var pipeColor = (colorKey, color);
-            SendMessage(new RCDColorChangeMessage(_entityManager.GetNetEntity(Owner), pipeColor));
-        }
+        if (!_palette.TryGetValue(colorKey, out var color))
+            return;
+
+        var pipeColor = (colorKey, color);
+        SendMessage(new RCDColorChangeMessage(_entityManager.GetNetEntity(Owner), pipeColor));
     }
 
     private void OnRCDSystemMessage(ProtoId<RCDPrototype> protoId)
@@ -80,12 +138,9 @@ public sealed class RPDMenuBoundUserInterface : BoundUserInterface
     {
         if (disposing)
         {
-            if (_menu != null)
-            {
-                _menu.ColorSelected -= OnColorSelected;
-                _menu.SendRCDSystemMessageAction -= OnRCDSystemMessage;
-            }
+            _menu?.Dispose();
         }
+
         base.Dispose(disposing);
     }
 }

@@ -10,7 +10,10 @@
   suffix: Cyborg
   description: A special bucket of refreshy refilling ice. Prohibited use for challenge with the same name!
   components:
-  - type: Drink
+  - type: Edible
+    edible: Drink
+    solution: drink
+    destroyOnEmpty: false
   - type: DrainableSolution
     solution: drink
   - type: DrawableSolution

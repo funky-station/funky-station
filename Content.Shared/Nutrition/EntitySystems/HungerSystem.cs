@@ -15,17 +15,15 @@
 
 using System.Diagnostics.CodeAnalysis;
 using Content.Shared.Alert;
-using Content.Shared.Damage;
+using Content.Shared.Damage.Systems;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Nutrition.Components;
 using Content.Shared.Rejuvenate;
 using Content.Shared.StatusIcon;
-using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
-using Robust.Shared.Utility;
 
 namespace Content.Shared.Nutrition.EntitySystems;
 
@@ -40,14 +38,9 @@ public sealed class HungerSystem : EntitySystem
     [Dependency] private readonly MovementSpeedModifierSystem _movementSpeedModifier = default!;
     [Dependency] private readonly SharedJetpackSystem _jetpack = default!;
 
-    [ValidatePrototypeId<SatiationIconPrototype>]
-    private const string HungerIconOverfedId = "HungerIconOverfed";
-
-    [ValidatePrototypeId<SatiationIconPrototype>]
-    private const string HungerIconPeckishId = "HungerIconPeckish";
-
-    [ValidatePrototypeId<SatiationIconPrototype>]
-    private const string HungerIconStarvingId = "HungerIconStarving";
+    private static readonly ProtoId<SatiationIconPrototype> HungerIconOverfedId = "HungerIconOverfed";
+    private static readonly ProtoId<SatiationIconPrototype> HungerIconPeckishId = "HungerIconPeckish";
+    private static readonly ProtoId<SatiationIconPrototype> HungerIconStarvingId = "HungerIconStarving";
 
     public override void Initialize()
     {
@@ -137,7 +130,7 @@ public sealed class HungerSystem : EntitySystem
     {
         entity.Comp.LastAuthoritativeHungerChangeTime = _timing.CurTime;
         entity.Comp.LastAuthoritativeHungerValue = ClampHungerWithinThresholds(entity.Comp, value);
-        DirtyField(entity.Owner, entity.Comp, nameof(HungerComponent.LastAuthoritativeHungerChangeTime));
+        Dirty(entity);
     }
 
     private void UpdateCurrentThreshold(EntityUid uid, HungerComponent? component = null)

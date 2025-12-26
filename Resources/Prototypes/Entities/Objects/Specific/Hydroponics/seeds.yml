@@ -38,7 +38,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
 - type: entity
-  parent: BaseItem
+  parent: [ BaseItem, BasePaperLabelable ] #TODO: Add sprites for different types of paper, replace BasePaperLabelable with BasePaperLabelableVisualized
   id: SeedBase
   abstract: true
   components:

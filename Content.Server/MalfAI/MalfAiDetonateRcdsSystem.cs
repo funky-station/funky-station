@@ -70,7 +70,7 @@ public sealed class MalfAiDetonateRcdsSystem : EntitySystem
             if (_containers.TryGetContainingContainer((rcdUid, xform, null), out var container))
             {
                 var owner = container.Owner;
-                if (TryComp<HandsComponent>(owner, out var hands) && _hands.IsHolding(owner, rcdUid, out _, hands))
+                if (TryComp<HandsComponent>(owner, out var hands) && _hands.IsHolding(owner, rcdUid, out _))
                 {
                     var msg = Loc.GetString("detonate_rcd_warning");
                     _popup.PopupEntity(msg, owner, owner, PopupType.LargeCaution);

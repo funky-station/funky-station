@@ -33,7 +33,7 @@ namespace Content.Shared.Emag.Systems;
 public sealed class EmagSystem : EntitySystem
 {
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
-    [Dependency] private readonly SharedChargesSystem _charges = default!;
+    [Dependency] private readonly SharedChargesSystem _sharedCharges = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly TagSystem _tag = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
@@ -63,9 +63,9 @@ public sealed class EmagSystem : EntitySystem
     }
 
     /// <summary>
-    /// Does the emag effect on a specified entity
+    /// Does the emag effect on a specified entity with a specified EmagType. The optional field customEmagType can be used to override the emag type defined in the component.
     /// </summary>
-    public bool TryEmagEffect(Entity<EmagComponent?> ent, EntityUid user, EntityUid target)
+    public bool TryEmagEffect(Entity<EmagComponent?> ent, EntityUid user, EntityUid target, EmagType? customEmagType = null)
     {
         if (!Resolve(ent, ref ent.Comp, false))
             return false;
@@ -73,14 +73,16 @@ public sealed class EmagSystem : EntitySystem
         if (_tag.HasTag(target, ent.Comp.EmagImmuneTag))
             return false;
 
-        TryComp<LimitedChargesComponent>(ent, out var charges);
-        if (_charges.IsEmpty(ent, charges))
+        Entity<LimitedChargesComponent?> chargesEnt = ent.Owner;
+        if (_sharedCharges.IsEmpty(chargesEnt))
         {
             _popup.PopupClient(Loc.GetString("emag-no-charges"), user, user);
             return false;
         }
 
-        var emaggedEvent = new GotEmaggedEvent(user, ent.Comp.EmagType);
+        var typeToUse = customEmagType ?? ent.Comp.EmagType;
+
+        var emaggedEvent = new GotEmaggedEvent(user, typeToUse);
         RaiseLocalEvent(target, ref emaggedEvent);
 
         if (!emaggedEvent.Handled)
@@ -90,16 +92,16 @@ public sealed class EmagSystem : EntitySystem
 
         _audio.PlayPredicted(ent.Comp.EmagSound, ent, ent);
 
-        _adminLogger.Add(LogType.Emag, LogImpact.High, $"{ToPrettyString(user):player} emagged {ToPrettyString(target):target} with flag(s): {ent.Comp.EmagType}");
+        _adminLogger.Add(LogType.Emag, LogImpact.High, $"{ToPrettyString(user):player} emagged {ToPrettyString(target):target} with flag(s): {typeToUse}");
 
-        if (charges != null  && emaggedEvent.Handled)
-            _charges.UseCharge(ent, charges);
+        if (emaggedEvent.Handled)
+            _sharedCharges.TryUseCharge(chargesEnt);
 
         if (!emaggedEvent.Repeatable)
         {
             EnsureComp<EmaggedComponent>(target, out var emaggedComp);
 
-            emaggedComp.EmagType |= ent.Comp.EmagType;
+            emaggedComp.EmagType |= typeToUse;
             Dirty(target, emaggedComp);
         }
 
@@ -141,9 +143,10 @@ public sealed class EmagSystem : EntitySystem
 
 [Flags]
 [Serializable, NetSerializable]
-public enum EmagType : byte
+public enum EmagType
 {
     None = 0,
+    All = ~None,
     Interaction = 1 << 1,
     Access = 1 << 2
 }

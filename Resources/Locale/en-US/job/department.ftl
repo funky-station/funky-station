@@ -23,3 +23,5 @@ department-Science = Science
 department-Silicon = Silicon
 department-Ghostrole = Ghostrole
 department-Specific = Station specific
+
+department-Unknown = Unknown

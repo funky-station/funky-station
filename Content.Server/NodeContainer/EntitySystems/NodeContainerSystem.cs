@@ -17,6 +17,8 @@ using System.Diagnostics.CodeAnalysis;
 using Content.Server.NodeContainer.NodeGroups;
 using Content.Server.NodeContainer.Nodes;
 using Content.Shared.Examine;
+using Content.Shared.NodeContainer;
+using Content.Shared.NodeContainer.NodeGroups;
 using JetBrains.Annotations;
 
 namespace Content.Server.NodeContainer.EntitySystems
@@ -26,7 +28,7 @@ namespace Content.Server.NodeContainer.EntitySystems
     /// </summary>
     /// <seealso cref="NodeGroupSystem"/>
     [UsedImplicitly]
-    public sealed class NodeContainerSystem : EntitySystem
+    public sealed class NodeContainerSystem : SharedNodeContainerSystem
     {
         [Dependency] private readonly NodeGroupSystem _nodeGroupSystem = default!;
         private EntityQuery<NodeContainerComponent> _query;

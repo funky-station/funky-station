@@ -66,7 +66,6 @@ using System.Numerics;
 using Content.Server.Announcements;
 using Content.Server.Discord;
 using Content.Server.GameTicking.Events;
-using Content.Server.Ghost;
 using Content.Server.Maps;
 using Content.Server.Roles;
 using Content.Shared.CCVar;
@@ -75,6 +74,7 @@ using Content.Shared.GameTicking;
 using Content.Shared.Mind;
 using Content.Shared.Players;
 using Content.Shared.Preferences;
+using Content.Shared.Roles.Components;
 using JetBrains.Annotations;
 using Prometheus;
 using Robust.Shared.Asynchronous;
@@ -82,7 +82,6 @@ using Robust.Shared.Audio;
 using Robust.Shared.EntitySerialization;
 using Robust.Shared.EntitySerialization.Systems;
 using Robust.Shared.Map;
-using Robust.Shared.Map.Components;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
@@ -271,7 +270,7 @@ namespace Content.Server.GameTicking
                 }
 
                 _metaData.SetEntityName(mapUid, proto.MapName);
-                var g = new List<EntityUid> {grid.Value.Owner};
+                var g = new List<EntityUid> { grid.Value.Owner };
                 RaiseLocalEvent(new PostGameMapLoad(proto, mapId, g, stationName));
                 return g;
             }
@@ -321,7 +320,7 @@ namespace Content.Server.GameTicking
                 }
 
                 _metaData.SetEntityName(mapUid, proto.MapName);
-                var g = new List<EntityUid> {grid.Value.Owner};
+                var g = new List<EntityUid> { grid.Value.Owner };
                 RaiseLocalEvent(new PostGameMapLoad(proto, mapId, g, stationName));
                 return g;
             }
@@ -371,7 +370,7 @@ namespace Content.Server.GameTicking
                     throw new Exception($"Failed to load game-map grid {ev.GameMap.ID}");
                 }
 
-                var g = new List<EntityUid> {grid.Value.Owner};
+                var g = new List<EntityUid> { grid.Value.Owner };
                 // TODO MAP LOADING use a new event?
                 RaiseLocalEvent(new PostGameMapLoad(proto, targetMap, g, stationName));
                 return g;
@@ -1043,12 +1042,6 @@ namespace Content.Server.GameTicking
 
             Text += text;
             _doNewLine = true;
-        }
-
-        // goob edit
-        public void AppendAtStart(string text)
-        {
-            Text = text + Text;
         }
     }
 }

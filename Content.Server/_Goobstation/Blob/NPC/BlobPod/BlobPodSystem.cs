@@ -1,35 +1,44 @@
-// SPDX-FileCopyrightText: 2024 John Space <bigdumb421@gmail.com>
+// SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2024 Fishbait <Fishbait@git.ml>
 // SPDX-FileCopyrightText: 2024 fishbait <gnesse@gmail.com>
-// SPDX-FileCopyrightText: 2025 Skye <57879983+Rainbeon@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
+// SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
+// SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2025 Rinary <72972221+Rinary1@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 //
-// SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+// SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Server._Goobstation.Blob.Components;
+using Content.Goobstation.Shared.Blob.Components;
 using Content.Server.DoAfter;
 using Content.Server.Explosion.EntitySystems;
 using Content.Server.NPC.HTN;
 using Content.Server.NPC.Systems;
 using Content.Server.Popups;
-using Content.Shared.ActionBlocker;
 using Content.Shared._Goobstation.Blob.Components;
 using Content.Shared._Goobstation.Blob.NPC.BlobPod;
+using Content.Shared.ActionBlocker;
 using Content.Shared.CombatMode;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Systems;
 using Content.Shared.Destructible;
 using Content.Shared.DoAfter;
 using Content.Shared.Humanoid;
 using Content.Shared.Interaction.Components;
 using Content.Shared.Inventory;
 using Content.Shared.Mobs.Systems;
-using Content.Shared.Movement.Components;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Rejuvenate;
 using Robust.Server.Audio;
 using Robust.Shared.Containers;
 using Robust.Shared.Player;
 
-namespace Content.Server._Goobstation.Blob.NPC.BlobPod;
+namespace Content.Goobstation.Server.Blob.NPC.BlobPod;
 
 public sealed class BlobPodSystem : SharedBlobPodSystem
 {
@@ -73,6 +82,9 @@ public sealed class BlobPodSystem : SharedBlobPodSystem
         if (!HasComp<HumanoidAppearanceComponent>(args.Container.Owner) || !HasComp<ZombieBlobComponent>(args.Container.Owner))
             return;
 
+        if (!TryComp<ZombieBlobComponent>(args.Container.Owner, out var zombieBlob))
+            return;
+
         RemCompDeferred<ZombieBlobComponent>(args.Container.Owner);
     }
 
@@ -84,12 +96,6 @@ public sealed class BlobPodSystem : SharedBlobPodSystem
         {
             _explosionSystem.QueueExplosion(uid, blobCoreComponent.BlobExplosive, 4, 1, 2, maxTileBreak: 0);
         }
-
-        if (component.Factory == null || !TryComp<BlobFactoryComponent>(component.Factory, out var factoryComp))
-            return;
-        
-        factoryComp.BlobPods.Remove(uid);
-        factoryComp.SpawnedCount -= 1;
     }
 
     public bool Zombify(Entity<BlobPodComponent> ent, EntityUid target)
@@ -107,13 +113,13 @@ public sealed class BlobPodSystem : SharedBlobPodSystem
         _popups.PopupEntity(Loc.GetString("blob-mob-zombify-second-end", ("pod", ent.Owner)),
             target,
             target,
-            Shared.Popups.PopupType.LargeCaution);
+            Content.Shared.Popups.PopupType.LargeCaution);
         _popups.PopupEntity(
             Loc.GetString("blob-mob-zombify-third-end", ("pod", ent.Owner), ("target", target)),
             target,
             Filter.PvsExcept(target),
             true,
-            Shared.Popups.PopupType.LargeCaution);
+            Content.Shared.Popups.PopupType.LargeCaution);
 
         RemComp<CombatModeComponent>(ent);
         RemComp<HTNComponent>(ent);
@@ -177,9 +183,9 @@ public sealed class BlobPodSystem : SharedBlobPodSystem
 
         component.ZombifyTarget = target;
         _popups.PopupEntity(Loc.GetString("blob-mob-zombify-second-start", ("pod", uid)), target, target,
-            Shared.Popups.PopupType.LargeCaution);
+            Content.Shared.Popups.PopupType.LargeCaution);
         _popups.PopupEntity(Loc.GetString("blob-mob-zombify-third-start", ("pod", uid), ("target", target)), target,
-            Filter.PvsExcept(target), true, Shared.Popups.PopupType.LargeCaution);
+            Filter.PvsExcept(target), true, Content.Shared.Popups.PopupType.LargeCaution);
 
         component.ZombifyStingStream = _audioSystem.PlayPvs(component.ZombifySoundPath, target);
         component.IsZombifying = true;
@@ -189,7 +195,7 @@ public sealed class BlobPodSystem : SharedBlobPodSystem
         {
             BreakOnMove = true,
             DistanceThreshold = 2f,
-            NeedHand = false
+            NeedHand = false,
         };
 
         _doAfter.TryStartDoAfter(args);

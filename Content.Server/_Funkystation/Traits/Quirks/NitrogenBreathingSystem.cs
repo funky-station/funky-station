@@ -6,6 +6,7 @@ using Content.Server.Body.Components;
 using Content.Server.Body.Systems;
 using Content.Shared._Funkystation.Quirks;
 using Content.Shared._Funkystation.Traits.Quirks;
+using Content.Shared.Body.Components;
 using Content.Shared.GameTicking;
 using Robust.Server.Player;
 

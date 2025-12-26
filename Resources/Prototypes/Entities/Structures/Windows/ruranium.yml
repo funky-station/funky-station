@@ -25,7 +25,7 @@
 - type: entity
   id: ReinforcedUraniumWindow
   name: reinforced uranium window
-  parent: WindowRCDResistant
+  parent: [WindowRCDResistant, BaseDeltaPressureReinforcedPlasma]
   components:
   - type: MeltImmune
   - type: Sprite
@@ -82,7 +82,7 @@
 
 - type: entity
   id: UraniumReinforcedWindowDirectional
-  parent: WindowDirectional
+  parent: [WindowDirectionalRCDResistant, BaseDeltaPressureReinforcedPlasmaQuarter]
   name: directional reinforced uranium window
   description: Don't smudge up the glass down there.
   placement:

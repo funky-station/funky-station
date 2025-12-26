@@ -9,15 +9,13 @@ using Content.Server._DV.Objectives.Events;
 using Content.Server.Antag;
 using Content.Server.Polymorph.Systems;
 using Content.Server.Popups;
-using Content.Server.Radio.Components;
 using Content.Shared._DV.CosmicCult;
 using Content.Shared._DV.CosmicCult.Components;
 using Content.Shared.DoAfter;
-using Content.Shared.Mobs;
-using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.NPC;
 using Content.Shared.Radio;
+using Content.Shared.Radio.Components;
 using Content.Shared.Silicons.Borgs.Components;
 using Content.Shared.Silicons.Laws.Components;
 using Robust.Shared.Containers;
@@ -124,14 +122,14 @@ public sealed class CosmicFragmentationSystem : EntitySystem
             return;
         if (args.Lawset.Id == "CosmicCultLaws")
         {
-            radio.IntrinsicChannels.Add(_cultRadio);
-            transmitter.IntrinsicChannels.Add(_cultRadio);
+            radio.Channels.Add(_cultRadio);
+            transmitter.Channels.Add(_cultRadio);
             _antag.SendBriefing(args.Target, Loc.GetString("cosmiccult-ai-subverted-briefing"), Color.FromHex("#4cabb3"), null);
         }
         else
         {
-            radio.IntrinsicChannels.Remove(_cultRadio);
-            transmitter.IntrinsicChannels.Remove(_cultRadio);
+            radio.Channels.Remove(_cultRadio);
+            transmitter.Channels.Remove(_cultRadio);
         }
     }
 }

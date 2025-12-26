@@ -1,36 +1,5 @@
-// SPDX-FileCopyrightText: 2022 EmoGarbage404 <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Flipp Syder <76629141+vulppine@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Kara <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2022 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 metalgearsloth <metalgearsloth@gmail.com>
-// SPDX-FileCopyrightText: 2023 Alex Evgrashin <aevgrashin@yandex.ru>
-// SPDX-FileCopyrightText: 2023 Doru991 <75124791+Doru991@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 LankLTE <135308300+LankLTE@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Tom Leys <tom@crump-leys.com>
-// SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Vyacheslav Titov <rincew1nd@ya.ru>
-// SPDX-FileCopyrightText: 2023 corentt <36075110+corentt@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
-// SPDX-FileCopyrightText: 2024 Bellwether <157836624+BellwetherLogic@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Mr. 27 <45323883+Dutch-VanDerLinde@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2024 liltenhead <104418166+liltenhead@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 shamp <140359015+shampunj@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Mish <bluscout78@yahoo.com>
-// SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
-// SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
-// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
-//
-// SPDX-License-Identifier: MIT
-
-using Content.Shared.Antag;
 using Content.Shared.Chat.Prototypes;
+using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Damage;
 using Content.Shared.Humanoid;
@@ -48,17 +17,30 @@ namespace Content.Shared.Zombies;
 public sealed partial class ZombieComponent : Component
 {
     /// <summary>
-    /// The baseline infection chance you have if you are completely nude
+    /// The baseline infection chance you have if you have no protective gear
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
-    public float MaxZombieInfectionChance = 0.80f;
+    public float BaseZombieInfectionChance = 0.75f;
 
     /// <summary>
     /// The minimum infection chance possible. This is simply to prevent
-    /// being invincible by bundling up.
+    /// being overly protected by bundling up.
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
-    public float MinZombieInfectionChance = 0.25f;
+    public float MinZombieInfectionChance = 0.05f;
+
+    /// <summary>
+    /// How effective each resistance type on a piece of armor is. Using a damage specifier for this seems illegal.
+    /// </summary>
+    public DamageSpecifier ResistanceEffectiveness = new()
+    {
+        DamageDict = new ()
+        {
+            {"Slash", 0.5},
+            {"Piercing", 0.3},
+            {"Blunt", 0.1},
+        }
+    };
 
     [ViewVariables(VVAccess.ReadWrite)]
     public float ZombieMovementSpeedDebuff = 0.70f;
@@ -111,10 +93,8 @@ public sealed partial class ZombieComponent : Component
     [DataField("beforeZombifiedEyeColor")]
     public Color BeforeZombifiedEyeColor;
 
-    [DataField("emoteId", customTypeSerializer: typeof(PrototypeIdSerializer<EmoteSoundsPrototype>))]
-    public string? EmoteSoundsId = "Zombie";
-
-    public EmoteSoundsPrototype? EmoteSounds;
+    [DataField("emoteId")]
+    public ProtoId<EmoteSoundsPrototype>? EmoteSoundsId = "Zombie";
 
     [DataField("nextTick", customTypeSerializer:typeof(TimeOffsetSerializer))]
     public TimeSpan NextTick;
@@ -130,9 +110,9 @@ public sealed partial class ZombieComponent : Component
     {
         DamageDict = new ()
         {
-            { "Blunt", -0.6 },
-            { "Slash", -0.3 },
-            { "Piercing", -0.3 },
+            { "Blunt", -0.4 },
+            { "Slash", -0.2 },
+            { "Piercing", -0.2 },
             { "Heat", -0.02 },
             { "Shock", -0.02 }
         }
@@ -185,14 +165,14 @@ public sealed partial class ZombieComponent : Component
     public SoundSpecifier BiteSound = new SoundPathSpecifier("/Audio/Effects/bite.ogg");
 
     /// <summary>
-    /// The blood reagent of the humanoid to restore in case of cloning
+    /// The blood reagents of the humanoid to restore in case of cloning
     /// </summary>
-    [DataField("beforeZombifiedBloodReagent")]
-    public string BeforeZombifiedBloodReagent = string.Empty;
+    [DataField("beforeZombifiedBloodReagents")]
+    public Solution BeforeZombifiedBloodReagents = new();
 
     /// <summary>
-    /// The blood reagent to give the zombie. In case you want zombies that bleed milk, or something.
+    /// The blood reagents to give the zombie. In case you want zombies that bleed milk, or something.
     /// </summary>
-    [DataField("newBloodReagent", customTypeSerializer: typeof(PrototypeIdSerializer<ReagentPrototype>))]
-    public string NewBloodReagent = "ZombieBlood";
+    [DataField("newBloodReagents")]
+    public Solution NewBloodReagents = new([new("ZombieBlood", 1)]);
 }

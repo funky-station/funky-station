@@ -1,8 +1,3 @@
-// SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
-//
-// SPDX-License-Identifier: MIT
-
 using Content.Server.Antag;
 using Content.Server.GameTicking.Rules.Components;
 using Content.Server.Spawners.Components;
@@ -69,6 +64,17 @@ public sealed class RuleGridsSystem : GameRuleSystem<RuleGridsComponent>
 
             if (_whitelist.IsWhitelistFail(ent.Comp.SpawnerWhitelist, uid))
                 continue;
+
+            if (TryComp<GridSpawnPointWhitelistComponent>(uid, out var gridSpawnPointWhitelistComponent))
+            {
+                var entity = args.Session?.AttachedEntity;
+
+                if (!_whitelist.CheckBoth(
+                        entity,
+                        gridSpawnPointWhitelistComponent.Blacklist,
+                        gridSpawnPointWhitelistComponent.Whitelist))
+                    continue;
+            }
 
             args.Coordinates.Add(_transform.GetMapCoordinates(xform));
         }

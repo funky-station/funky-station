@@ -127,7 +127,8 @@
     interfaces:
       enum.TransferAmountUiKey.Key:
         type: TransferAmountBoundUserInterface
-  - type: Drink
+  - type: Edible
+    edible: Drink
     solution: grail
   - type: Spillable
     solution: grail
@@ -248,7 +249,7 @@
   - type: Battery
     maxCharge: 60
     startingCharge: 0
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: BulletEnergyHolyBolt
     fireCost: 15
   - type: BatterySelfRecharger

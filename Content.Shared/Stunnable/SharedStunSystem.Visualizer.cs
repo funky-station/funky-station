@@ -1,11 +1,4 @@
-// SPDX-FileCopyrightText: 2025 Drywink <hugogrethen@gmail.com>
-// SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+princess-cheeseballs@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+pronana@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Princess-Cheeseballs <https://github.com/Princess-Cheeseballs>
-//
-// SPDX-License-Identifier: MIT
-
-using Content.Shared.Bed.Sleep;
+﻿using Content.Shared.Bed.Sleep;
 using Content.Shared.Mobs;
 using Robust.Shared.Serialization;
 
@@ -24,7 +17,7 @@ public abstract partial class SharedStunSystem
         if (!Resolve(entity, ref entity.Comp2, false))
             return false;
 
-        return _blocker.CanConsciouslyPerformAction(entity);
+        return Blocker.CanConsciouslyPerformAction(entity);
     }
 
     private void OnStunMobStateChanged(Entity<StunVisualsComponent> entity, ref MobStateChangedEvent args)
@@ -47,7 +40,7 @@ public abstract partial class SharedStunSystem
         if (!Appearance.TryGetData<bool>(entity, StunVisuals.SeeingStars, out var stars, entity.Comp) && stars)
             return;
 
-        if (!_blocker.CanConsciouslyPerformAction(entity))
+        if (!Blocker.CanConsciouslyPerformAction(entity))
             return;
 
         Appearance.SetData(entity, StunVisuals.SeeingStars, true);

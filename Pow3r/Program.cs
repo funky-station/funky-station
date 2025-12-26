@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2021 20kdc <asdd2808@gmail.com>
+﻿// SPDX-FileCopyrightText: 2021 20kdc <asdd2808@gmail.com>
 // SPDX-FileCopyrightText: 2022 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
@@ -109,10 +109,8 @@ namespace Pow3r
             GLFW.WindowHint(WindowHintBool.SrgbCapable, true);
             var windowSettings = new NativeWindowSettings
             {
-                Size = (1280, 720),
                 WindowState = WindowState.Maximized,
                 StartVisible = false,
-
                 Title = "Pow3r"
             };
 
@@ -207,7 +205,7 @@ namespace Pow3r
             _cursors[(int) ImGuiMouseCursor.TextInput] = GLFW.CreateStandardCursor(CursorShape.IBeam);
             _cursors[(int) ImGuiMouseCursor.ResizeNS] = GLFW.CreateStandardCursor(CursorShape.VResize);
             _cursors[(int) ImGuiMouseCursor.ResizeEW] = GLFW.CreateStandardCursor(CursorShape.HResize);
-            _cursors[(int) ImGuiMouseCursor.Hand] = GLFW.CreateStandardCursor(CursorShape.Hand);
+            _cursors[(int) ImGuiMouseCursor.Hand]     = GLFW.CreateStandardCursor(CursorShape.Hand);
             _cursors[(int) ImGuiMouseCursor.ResizeAll] = GLFW.CreateStandardCursor(CursorShape.Arrow);
             _cursors[(int) ImGuiMouseCursor.ResizeNESW] = GLFW.CreateStandardCursor(CursorShape.Arrow);
             _cursors[(int) ImGuiMouseCursor.ResizeNWSE] = GLFW.CreateStandardCursor(CursorShape.Arrow);

@@ -12,443 +12,164 @@
 # SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 IronDragoon <8961391+IronDragoon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 McBosserson <148172569+McBosserson@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 willowzeta <willowzeta632146@proton.me>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
 - type: entity
-  id: CrateCargoLuxuryHardsuit
   parent: CratePirate
+  id: CrateCargoLuxuryHardsuit
   name: luxury mining hardsuit crate
   description: Finally, a hardsuit Quartermasters could call their own. Centcomm has heard you, now stop asking.
   components:
-  - type: StorageFill
-    contents:
-    - id: ClothingOuterHardsuitLuxury
-
-# funkystation changes from here on out
-
-# The grand lottery now uses a nested selector method of determining its rolls.
-# This has better readability and allows more control for gimmicks on extreme rolls.
-
-# Standard rolls are what you'd typically expect out of a lottery crate.
-# Jackpot and whammy rolls don't have vanity junk in them but are usually always good/bad one way or another.
-# Super jackpots are always absurd, and rarer than anything else.
-# Super whammies will undoubtedly condemn the area the crate was opened in and require security or security-level intervention to address
-# Maybe add some functionality where super rolls can't be rolled when evac is en route/docked?
-
-# things that only exist for this crate because they didn't already
-- type: entity
-  parent: Paper
-  id: PaperPushYourLuck
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: Paper
-    content: You've been spared from a terrible fate this time. Push your luck again, if you dare.
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage:
+        id: ClothingOuterHardsuitLuxury
 
 - type: entity
-  parent: Paper
-  id: PaperTSpawn
-  categories: [ HideSpawnMenu ]
+  parent: CrateGenericSteel
+  id: CrateCargoParcelWrap
+  name: parcel wrap crate
+  description: All your parcel wrapping needs in one crate, containing three rolls of parcel wrap.
   components:
-  - type: Paper
-    content: The bomb code is 7355608.
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage:
+        id: ParcelWrap
+        amount: 3
 
 - type: entity
-  parent: Jug
-  suffix: cognizine
-  id: JugCognizine
+  parent: CratePrivateSecure
+  id: CrateCargoGambling
+  name: the grand lottery $$$
+  description: A box containing treasure beyond your greatest imaginations!
   components:
-  - type: Label
-    currentLabel: reagent-name-cognizine
-  - type: SolutionContainerManager
-    solutions:
-      beaker:
-        reagents:
-        - ReagentId: Cognizine
-          Quantity: 200
-
-- type: entity
-  parent: MechGygaxBattery
-  id: MechGygaxJackpot
-  suffix: Battery, Filled
-  components:
-  - type: Mech
-    startingEquipment:
-    - WeaponMechCombatShotgun
-    - WeaponMechCombatMissileRack8
-    - WeaponMechCombatSolarisLaser
-
-- type: entity
-  parent: CrateLivestock
-  id: CrateMothroachSwarm
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: StorageFill
-    contents:
-    - id: MobMothroach
-      amount: 30
-
-- type: entity
-  parent: CrateLivestock
-  id: CrateCarpArmy
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: StorageFill
-    contents:
-    - id: MobCarp
-      amount: 10
-    - id: MobShark
-      amount: 5
-
-- type: entity
-  parent: CrateLivestock
-  id: CrateXenoArmy
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: StorageFill
-    contents:
-    - id: MobXenoDrone
-      amount: 5
-    - id: MobXenoRunner
-      amount: 5
-    - id: MobXenoSpitter
-      amount: 5
-    - id: MobXenoQueen
-
-- type: entity
-  parent: CrateLivestock
-  id: CrateHonkbotHorde
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: StorageFill
-    contents:
-    - id: MobHonkBot
-      amount: 15
-
-- type: entity
-  parent: CrateLivestock
-  id: CratePetPackage
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: StorageFill
-    contents:
-    - id: MobCorgiIan
-    - id: MobCatRuntime
-    - id: MobCatException
-    - id: MobCatCaracal
-    - id: MobBandito
-    - id: MobBingus
-    - id: MobMcGriff
-    - id: MobPaperwork
-    - id: MobWalter
-    - id: MobPossumMorty
-    - id: MobRaccoonMorticia
-    - id: MobAlexander
-    - id: MobFoxRenault
-    - id: MobHamsterHamlet
-    - id: MobSpiderShiva
-    - id: MobKangarooWillow
-    - id: MobSlimesPet
-    - id: MobCrabAtmos
-
-- type: entity
-  parent: CrateEngineering
-  id: CrateAdvTools
-  name: advanced tool crate
-  categories: [ HideSpawnMenu ]
-  components:
-    - type: StorageFill
-      contents:
-      - id: PowerDrill
-      - id: JawsOfLife
-      - id: Multitool
-      - id: trayScanner
-      - id: GasAnalyzer
-      - id: WelderExperimental
-      - id: HolofanProjector
-      - id: RCD
-      - id: RPD
-
-- type: entity
-  parent: CrateBaseSecure
-  id: CrateTerroristKit
-  name: terrorist kit
-  description: Should you ever need to blow up a bunch of random unmarked boxes.
-  components:
-  - type: Icon
-    sprite: Structures/Storage/Crates/weapon.rsi
-  - type: Sprite
-    sprite: Structures/Storage/Crates/weapon.rsi
-  - type: StorageFill
-    contents:
-    - id: WeaponRifleAk
-    - id: MagazineLightRifle
-      amount: 2
-    - id: WeaponPistolN1984
-    - id: MagazineMagnum
-      amount: 2
-    - id: CombatKnife
-    - id: ExGrenade
-    - id: SmokeGrenade
-    - id: GrenadeFlashBang
-    - id: GrenadeIncendiary
-    - id: C4
-    - id: ClothingEyesGlassesCheapSunglasses
-    - id: ClothingMaskNeckGaiter
-    - id: ClothingOuterArmorBasic
-    - id: ClothingUniformJumpsuitMercenary
-    - id: ClothingShoesBootsMerc
-    - id: PaperTSpawn
-
-- type: entity
-  parent: CrateBaseSecure
-  id: CrateCounterTerroristKit
-  name: counter-terrorist kit
-  description: Should you ever need to stop some idiots from blowing up a bunch of random unmarked boxes.
-  components:
-  - type: Icon
-    sprite: Structures/Storage/Crates/weapon.rsi
-  - type: Sprite
-    sprite: Structures/Storage/Crates/weapon.rsi
-  - type: StorageFill
-    contents:
-    - id: WeaponSubMachineGunDrozd
-    - id: MagazinePistolSubMachineGun
-      amount: 2
-    - id: WeaponPistolCobra
-    - id: MagazinePistolCaselessRifle
-      amount: 2
-    - id: CombatKnife
-    - id: ExGrenade
-    - id: SmokeGrenade
-    - id: GrenadeFlashBang
-    - id: GrenadeIncendiary
-    - id: Multitool
-    - id: ClothingHeadHelmetBasic
-    - id: ClothingMaskGasSecurity
-    - id: ClothingOuterArmorBulletproof
-    - id: ClothingUniformJumpsuitTacticool
-    - id: ClothingShoesBootsCombat
-
-- type: entity
-  parent: FrezonCanister
-  id: FrezonCanisterBad # slightly evil
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: Lock
-    locked: false
-  - type: GasCanister
-    releasePressure: 1013.25
-    releaseValve: true
-
-- type: startingGear
-  id: SyndicateFootsoldierGearNukie
-  equipment:
-    jumpsuit: ClothingUniformJumpsuitOperative
-    helmet: ClothingHeadHelmetHardsuitSyndie
-    mask: ClothingMaskGasSyndicate
-    outerClothing: ClothingOuterHardsuitSyndie
-    gloves: ClothingHandsGlovesCombatBloodred
-    back: ClothingBackpackDuffelSyndicate
-    shoes: ClothingShoesBootsCombat
-    id: SyndiPDA
-
-- type: entity
-  name: syndicate nuclear operative
-  suffix: (AI, Grand Lottery)
-  parent: MobSyndicateFootsoldier
-  id: MobSyndicateFootsoldierNukie
-  components:
-  - type: Loadout
-    prototypes:
-    - SyndicateFootsoldierGearNukie
-
-- type: entity
-  categories: [ HideSpawnMenu ]
-  name: C-20r submachine gun
-  parent: [BaseWeaponSubMachineGun, BaseSyndicateContraband]
-  id: WeaponSubMachineGunC20rLottery
-  description: A firearm that is often used by the infamous nuclear operatives. Uses .35 auto ammo.
-  components:
-  - type: Sprite
-    sprite: Objects/Weapons/Guns/SMGs/c20r.rsi
-    layers:
-    - state: base
-      map: ["enum.GunVisualLayers.Base"]
-    - state: mag-0
-      map: ["enum.GunVisualLayers.Mag"]
-  - type: Clothing
-    sprite: Objects/Weapons/Guns/SMGs/c20r.rsi
-  - type: Wieldable
-    unwieldOnUse: false
-  - type: GunWieldBonus
-    minAngle: -19
-    maxAngle: -16
-  - type: Gun
-    minAngle: 21
-    maxAngle: 32
-    shotsPerBurst: 5
-    availableModes:
-    - Burst
-    - FullAuto
-    - SemiAuto
-    soundGunshot:
-      path: /Audio/Weapons/Guns/Gunshots/c-20r.ogg
-  - type: ChamberMagazineAmmoProvider
-    autoEject: true
-    boltClosed: true
-  - type: MagazineVisuals
-    magState: mag
-    steps: 6
-    zeroVisible: true
-  - type: Appearance
-
-- type: entity
-  parent: CrateLivestock
-  id: CrateNukeOps
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: StorageFill
-    contents:
-    - id: MobSyndicateFootsoldierNukie
-      amount: 5
-    - id: WeaponSubMachineGunC20rLottery
-      amount: 5
-
-# standard roll tables
-- type: entityTable
-  id: RandomGasCanisterTable
-  table: !type:GroupSelector
-    children:
-    - id: OxygenCanister
-    - id: NitrogenCanister
-    - id: CarbonDioxideCanister
-    - id: WaterVaporCanister
-    - id: PlasmaCanister
-    - id: AmmoniaCanister
-    - id: NitrousOxideCanister
-    - id: HydrogenCanister
-      weight: 0.5
-    - id: TritiumCanister
-      weight: 0.5
-    - id: BZCanister
-      weight: 0.5
-    - id: HeliumCanister
-      weight: 0.5
-    - id: FrezonCanister
-      weight: 0.25
-    - id: PluoxiumCanister
-      weight: 0.25
-    - id: HalonCanister
-      weight: 0.25
-    - id: HealiumCanister
-      weight: 0.075
-    - id: NitriumCanister
-      weight: 0.075
-    - id: HyperNobliumCanister
-      weight: 0.05
-    - id: ProtoNitrateCanister
-      weight: 0.05
-    - id: ZaukerCanister
-      weight: 0.001
-    - id: AntiNobliumCanister
-      weight: 0.001
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - !type:NestedSelector
+          tableId: LotteryCashEntityTable
+        - !type:NestedSelector
+          tableId: LotteryJunkEntityTable
+        - !type:NestedSelector
+          tableId: LotteryCanistersEntityTable
+        - !type:NestedSelector
+          tableId: LotteryWeaponsEntityTable
+        - !type:NestedSelector
+          tableId: LotteryClothingEntityTable
+        - !type:NestedSelector
+          tableId: LotterySwagEntityTable
+        - !type:NestedSelector
+          tableId: LotteryPlushiesEntityTable
+        - !type:NestedSelector
+          tableId: LotteryUsefulEntityTable
+        - !type:NestedSelector
+          tableId: LotteryNotUsefulEntityTable
 
 - type: entityTable
-  id: RandomSpesoTable
+  id: LotteryCashEntityTable
   table: !type:GroupSelector
     children:
     - id: SpaceCash1000000
-      weight: 0.0001
+      weight: 0.01
     - id: SpaceCash10000
-      weight: 0.01
+      weight: 0.1
     - id: SpaceCash5000
-      weight: 0.1
     - id: SpaceCash2500
-      weight: 0.4
+      weight: 4
     - id: SpaceCash500
-      weight: 0.3
+      weight: 3
     - id: SpaceCash100
-      weight: 0.1
     - id: SpaceCash10
-      weight: 0.01
+      weight: 0.5
     - id: SpaceCash
-      weight: 0.01
-
-- type: entityTable
-  id: RandomMaterialsTable
-  table: !type:GroupSelector
-    children:
-    - id: SheetSteel
-    - id: SheetPlastic
-    - id: SheetGlass
-    - id: SheetBrass
-    - id: SheetPlasteel
-      weight: 0.5
-    - id: SheetPlasma
-    - id: SheetUranium
-    - id: IngotSilver
-    - id: IngotGold
-    - id: SheetPaper
-    - id: MaterialSheetMeat
-    - id: SheetRGlass
-    - id: SheetPGlass
-      weight: 0.5
-    - id: SheetRPGlass
-      weight: 0.5
-    - id: SheetUGlass
-      weight: 0.5
-    - id: SheetRUGlass
-      weight: 0.5
-    - id: MaterialWebSilk
-    - id: MaterialCardboard
-    - id: MaterialCloth
-    - id: MaterialDurathread
-    - id: MaterialWoodPlank
-    - id: MaterialBiomass
-      weight: 0.01
-    - id: MaterialDiamond
-      weight: 0.001
-
-- type: entityTable
-  id: RandomVanityTable
-  table: !type:GroupSelector
-    children:
-    - !type:NestedSelector
-      tableId: MaintFluffTable
-    - !type:NestedSelector
-      tableId: SyndieMaintLoot
-    - !type:NestedSelector
-      tableId: AllPlushiesTable
-    - id: GlorpPerformancePlushie
-    - id: ClothingNeckBling
-    - id: ClothingShoesBling
-    - id: DrinkGoldenCup
-    - id: ClothingEyesGlassesGar
-    - id: ClothingEyesGlassesGarGiga
-    - id: ClothingEyesGlassesGarOrange
-    - id: ClothingHeadHatChameleon
       weight: 0.1
-    - id: ClothingBeltChampion
-    - id: ClothingUniformJumpsuitFamilyGuy
-    - id: ClothingOuterHardsuitCBURN
+
+- type: entityTable
+  id: LotteryJunkEntityTable
+  table: !type:GroupSelector
+    children:
+    - id: CigaretteSpent
+    - id: FoodBowlBigTrash
+    - id: FoodFrozenPopsicleTrash
+    - id: FoodCornTrash
+    - id: TrashBananaPeel
+    - id: TrashBananaPeelExplosive
       weight: 0.01
-    - id: ClothingOuterHardsuitBasic
+    - id: FoodTinBeansTrash
+    - id: TrashBakedBananaPeel
+    - id: TrashMimanaPeel
+    - id: TrashBananiumPeel
+
+- type: entityTable
+  id: LotteryCanistersEntityTable
+  table: !type:GroupSelector
+    children:
+    - id: AirCanister
+    - id: AmmoniaCanister
+    - id: CarbonDioxideCanister
+    - id: FrezonCanister
+    - id: NitrogenCanister
+    - id: NitrousOxideCanister
+    - id: OxygenCanister
+    - id: PlasmaCanister
+    - id: TritiumCanister
+    - id: WaterVaporCanister
+
+- type: entityTable
+  id: LotteryWeaponsEntityTable
+  table: !type:GroupSelector
+    children:
+    - id: WeaponPulseCarbine
+      weight: 0.01
+    - id: WeaponRifleAk
+      weight: 0.01
+    - id: WeaponLauncherPirateCannon
+      weight: 0.1
+    - id: WeaponPistolCHIMP
+      weight: 0.1
+    - id: WeaponSniperMosin
+    - id: WeaponMakeshiftLaser
+      weight: 0.1
+    - id: Sledgehammer
+      weight: 0.1
+    - id: WeaponMeleeToolboxRobust
+    - id: ThrowingStar
+    - id: WeaponLaserGun
+      weight: 0.1
+    - id: WeaponShotgunHandmade
+    - id: WeaponFlareGun
+    - id: Bola
+    - id: ToySword
+    - id: Shovel
+    - id: WeaponWaterPistol
+    - id: WeaponWaterBlaster
+    - id: WeaponTurretXeno
+    - id: WeaponRifleFoam
+      weight: 3
+
+- type: entityTable
+  id: LotteryClothingEntityTable
+  table: !type:GroupSelector
+    children:
+    - id: ClothingUniformJumpsuitFamilyGuy
+      weight: 5
+    - id: ClothingOuterHardsuitCBURN
+      weight: 0.1
+    - id: ClothingOuterHardsuitSanta
       weight: 0.1
     - id: ClothingBackpackERTClown
-      weight: 0.2
+      weight: 0.1
     - id: ClothingNeckCloakAdmin
     - id: ClothingOuterFlannelBlue
     - id: ClothingHeadHelmetBone
-      weight: 0.5
     - id: ClothingOuterSuitCarp
     - id: ClothingHeadHatCatEars
     - id: ClothingHeadHatDogEars
     - id: ClothingOuterArmorReflective
-      weight: 0.25
     - id: ClothingUniformJumpskirtSyndieFormalDress
     - id: ClothingNeckCloakNanotrasen
     - id: ClothingUniformJumpsuitNanotrasen
@@ -462,158 +183,90 @@
     - id: ClothingUniformJumpskirtOfLife
 
 - type: entityTable
-  id: RandomToolsWeaponsTable
+  id: LotterySwagEntityTable
   table: !type:GroupSelector
     children:
-    - !type:NestedSelector
-      tableId: MaintToolsTable
-    - !type:NestedSelector
-      tableId: MaintWeaponTable
-
-#defining all the roll outcomes
-- type: entityTable
-  id: StandardRoll
-  table: !type:AllSelector
-   children:
-    - !type:NestedSelector
-      tableId: RandomGasCanisterTable
-    - !type:NestedSelector
-      tableId: RandomSpesoTable
-    - !type:NestedSelector
-      tableId: RandomMaterialsTable
-      rolls: !type:RangeNumberSelector
-        range: 0, 2
-    - !type:NestedSelector
-      tableId: RandomVanityTable
-      rolls: !type:RangeNumberSelector
-        range: 3, 5
-    - !type:NestedSelector
-      tableId: RandomToolsWeaponsTable
-      rolls: !type:RangeNumberSelector
-        range: 1, 2
+    - id: ClothingNeckBling
+    - id: ClothingShoesBling
+    - id: IngotGold1
+    - id: IngotGold
+      weight: 0.1
+    - id: GoldOre1
+    - id: GoldOre
+      weight: 0.1
+    - id: DrinkGoldenCup
+    - id: ToolboxGoldFilled
+      weight: 0.1
+    - id: ClothingEyesGlassesGar
+    - id: ClothingEyesGlassesGarGiga
+    - id: ClothingEyesGlassesGarOrange
+    - id: ClothingHeadHatChameleon
+    - id: ClothingBeltChampion
 
 - type: entityTable
-  id: JackpotRoll
+  id: LotteryPlushiesEntityTable
   table: !type:GroupSelector
     children:
-    - id: JugCognizine
-    - id: CratePetPackage
-    - id: CrateNPCGondola
-    - id: CrateAdvTools
+    - id: PlushieRGBee
+    - id: PlushieGhost
+    - id: PlushieHampter
+    - id: PlushieGhostRevenant
+    - id: PlushiePenguin
+    - id: PlushieHuman
+    - id: PlushieLizard
+    - id: PlushieRouny
+    - id: PlushieLamp
+    - id: PlushieSharkBlue
+    - id: PlushieMoth
+    - id: PlushieVulp
+    - id: PlushieArachind
+    - id: PlushieLizardJobMultiweh # the exceedingly rare multiweh!
+    - id: PlushieThrongler #hehe
+      weight: 0.05
+
+- type: entityTable
+  id: LotteryUsefulEntityTable
+  table: !type:GroupSelector
+    children:
+    - id: AmeJar
     - id: Omnitool
-    - id: EncryptionKeyStationMaster
       weight: 0.1
-    - !type:AllSelector
+    - id: SoapOmega
       weight: 0.1
-      children:
-      - id: RubberStampApproved
-      - id: RubberStampDenied
-      - id: RubberStampCaptain
-      - id: RubberStampChaplain
-      - id: RubberStampCE
-      - id: RubberStampCMO
-      - id: RubberStampClown
-      - id: RubberStampDetective
-      - id: RubberStampGreytide
-      - id: RubberStampHop
-      - id: RubberStampHos
-      - id: RubberStampLawyer
-      - id: RubberStampMime
-      - id: RubberStampPsychologist
-      - id: RubberStampQm
-      - id: RubberStampSyndicate
-      - id: RubberStampWarden
-      - id: RubberStampWizard
+    - id: ClothingEyesGlassesMeson
+    - id: MechVim
+    - id: Chainsaw
+      weight: 0.1
+    - id: Crowbar
+    - id: WelderIndustrial
+    - id: HydroponicsToolHatchet
+    - id: ToyAmongPequeno
+    - id: Lamp
+    - id: FloraTreeLarge
+    - id: LightTree #Funny mobs maybe
 
 - type: entityTable
-  id: WhammyRoll
+  id: LotteryNotUsefulEntityTable
   table: !type:GroupSelector
     children:
-    - id: SyndicateBusinessCard
-    - id: DrinkBottleOfNothingFull
-    - id: CrateMothroachSwarm
-    - id: CrateHonkbotHorde
+    - id: LidSalami
+    - id: MobHamsterHamlet
     - id: MobLaserRaptor
+    - id: DrinkNothing
+    - id: FoodOatmeal
+    - id: FoodDonutChaos
+    - id: RagItem
+    - id: ClothingHandsGlovesColorYellowBudget
+    - id: CartridgeCap
+    - id: EncryptionKeyCommon
+    - id: CableHVStack1
+    - id: DrinkMugBlue
+    - id: CablecuffsBroken
+    - id: FoodPlateTin
     - id: WeakKudzu
-    - id: TrashMimanaPeel
-    - id: TheEffigy
-    - id: WehNade
-
-- type: entityTable
-  id: SuperJackpotRoll
-  table: !type:GroupSelector
-    children:
-    # crew gygax bundle
-    - !type:AllSelector
-      children:
-      - id: MechGygaxJackpot
-      - id: DoubleEmergencyOxygenTankFilled
-      - id: DoubleEmergencyNitrogenTankFilled
-      - id: ToolboxMechanicalFilledAllTools
-      - id: ClothingMaskWeldingGas
-      - id: ClothingHandsGlovesCombatBloodred
-      - id: PlushieAtmosian
-    - id: CrateSyndicateSurplusBundle
-    - id: CrateTerroristKit
-    - id: CrateCounterTerroristKit
-    - !type:AllSelector
-      children:
-      - id: NukeDiskFake
-      - id: WeaponAntiqueLaser
-      - id: JetpackCaptainFilled
-      - id: CaptainIDCard
-      - id: FoodMeatCorgi
-      - id: WeaponEnergyShotgun
-      - id: ClothingShoesBootsMagAdv
-      - id: ClothingOuterHardsuitRd
-      - id: HandTeleporter
-      - id: Hypospray
-      - id: BoxFolderQmClipboard
-
-- type: entityTable
-  id: SuperWhammyRoll
-  table: !type:GroupSelector
-    children:
-    - id: CrateCarpArmy
-    - id: CrateXenoArmy
-    - id: FrezonCanisterBad
-    - id: CrateNukeOps
-    - !type:AllSelector
+    - id: MagazineFoamBox
       weight: 0.1
-      children:
-      - id: CrateCargoGambling
-      - id: PaperPushYourLuck
-
-# the part that picks what kind of roll you get
-- type: entityTable
-  id: MainGamblingSelector
-  table: !type:GroupSelector
-    children:
-    - !type:NestedSelector
-      tableId: StandardRoll
-      weight: 8000
-    - !type:NestedSelector
-      tableId: JackpotRoll
-      weight: 800
-    - !type:NestedSelector
-      tableId: WhammyRoll
-      weight: 1000
-    - !type:NestedSelector
-      tableId: SuperJackpotRoll
-      weight: 5
-    - !type:NestedSelector
-      tableId: SuperWhammyRoll
-      weight: 195
-
-# the crate itself
-- type: entity
-  id: CrateCargoGambling
-  name: the grand lottery $$$
-  description: What could be inside? Unimaginable riches? Instant death? Nothing at all? Only one way to find out!
-  parent: CratePrivateSecure
-  components:
-  - type: EntityTableContainerFill
-    containers:
-      entity_storage: !type:NestedSelector
-        tableId: MainGamblingSelector
-
+    - id: BoxDonkSoftBox
+      weight: 0.8
+    - id: GrenadeFoamDart
+      weight: 0.1

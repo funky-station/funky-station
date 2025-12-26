@@ -1,13 +1,12 @@
 // SPDX-FileCopyrightText: 2025 Skye <57879983+Rainbeon@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Terkala <appleorange64@gmail.com>
 // SPDX-FileCopyrightText: 2025 kbarkevich <24629810+kbarkevich@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
-// SPDX-License-Identifier: AGPL-3.0-or-later OR MIT
+// SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
 using Robust.Shared.GameObjects;
+using Robust.Shared.Log;
 using Content.Shared.BloodCult;
-using Content.Shared.BloodCult.Components;
 
 namespace Content.Server.BloodCult;
 
@@ -25,33 +24,46 @@ public sealed class BloodCultistSystem : SharedBloodCultistSystem
 	#region CommuneUI
 	private void OpenCommuneUI(BloodCultCommuneEvent ev)
 	{
-		var communeEntity = ev.Action.Comp.Container;
+		// Use the performer (cultist) directly - it's already an EntityUid
+		var communeEntity = ev.Performer;
 
-		// Check if communeEntity is valid
-		if (communeEntity == null)
-			return;
+		Logger.Debug($"OpenCommuneUI called for entity {communeEntity}");
 
-		// Allow both blood cultists and juggernauts to use commune
-		// Check both separately to ensure variables are assigned
-		bool isCultist = TryComp<BloodCultistComponent>(communeEntity, out var cultistComp);
-		bool isJuggernaut = TryComp<JuggernautComponent>(communeEntity, out var juggernautComp);
-		
-		if (!isCultist && !isJuggernaut)
-			return;
-
-		if (!_uiSystem.HasUi(communeEntity.Value, BloodCultistCommuneUIKey.Key))
-			return;
-
-		if (_uiSystem.IsUiOpen(communeEntity.Value, BloodCultistCommuneUIKey.Key))
-			return;
-
-		if (_uiSystem.TryOpenUi(communeEntity.Value, BloodCultistCommuneUIKey.Key, ev.Performer))
+		// Early return if already handled
+		if (ev.Handled)
 		{
-			if (isCultist && cultistComp != null)
-				UpdateCommuneUI((communeEntity.Value, cultistComp));
-			else if (isJuggernaut && juggernautComp != null)
-				// Juggernauts use the same UI but with empty state (no stored message)
-				_uiSystem.SetUiState(communeEntity.Value, BloodCultistCommuneUIKey.Key, new BloodCultCommuneBuiState(""));
+			Logger.Debug($"OpenCommuneUI: Event already handled");
+			return;
+		}
+
+		if (!TryComp<BloodCultistComponent>(communeEntity, out var cultistComp))
+		{
+			Logger.Warning($"OpenCommuneUI: Entity {communeEntity} does not have BloodCultistComponent");
+			return;
+		}
+
+		if (!_uiSystem.HasUi(communeEntity, BloodCultistCommuneUIKey.Key))
+		{
+			Logger.Warning($"OpenCommuneUI: Entity {communeEntity} does not have BloodCultistCommuneUIKey UI");
+			return;
+		}
+
+		if (_uiSystem.IsUiOpen(communeEntity, BloodCultistCommuneUIKey.Key))
+		{
+			Logger.Debug($"OpenCommuneUI: UI already open");
+			ev.Handled = true;
+			return;
+		}
+
+		Logger.Debug($"OpenCommuneUI: Attempting to open UI");
+		if (_uiSystem.TryOpenUi(communeEntity, BloodCultistCommuneUIKey.Key, communeEntity))
+		{
+			Logger.Debug($"OpenCommuneUI: UI opened successfully");
+			UpdateCommuneUI((communeEntity, cultistComp));
+		}
+		else
+		{
+			Logger.Warning($"OpenCommuneUI: Failed to open UI");
 		}
 
 		ev.Handled = true;
@@ -67,16 +79,49 @@ public sealed class BloodCultistSystem : SharedBloodCultistSystem
 	#region SpellsUI
 	private void OpenSpellsUI(BloodCultSpellsEvent ev)
 	{
-		var spellsEntity = ev.Action.Comp.Container;
+		// Use the performer (cultist) directly - it's already an EntityUid
+		var spellsEntity = ev.Performer;
+
+		Logger.Debug($"OpenSpellsUI called for entity {spellsEntity}");
+
+		// Early return if already handled
+		if (ev.Handled)
+		{
+			Logger.Debug($"OpenSpellsUI: Event already handled");
+			return;
+		}
 
 		if (!TryComp<BloodCultistComponent>(spellsEntity, out var cultistComp))
+		{
+			Logger.Warning($"OpenSpellsUI: Entity {spellsEntity} does not have BloodCultistComponent");
 			return;
+		}
 
-		if (!_uiSystem.HasUi(spellsEntity.Value, SpellsUiKey.Key))
+		if (!_uiSystem.HasUi(spellsEntity, SpellsUiKey.Key))
+		{
+			Logger.Warning($"OpenSpellsUI: Entity {spellsEntity} does not have SpellsUiKey UI");
 			return;
+		}
 
-		_uiSystem.OpenUi(spellsEntity.Value, SpellsUiKey.Key, ev.Performer);
-		UpdateSpellsUI((spellsEntity.Value, cultistComp));
+		if (_uiSystem.IsUiOpen(spellsEntity, SpellsUiKey.Key))
+		{
+			Logger.Debug($"OpenSpellsUI: UI already open");
+			ev.Handled = true;
+			return;
+		}
+
+		Logger.Debug($"OpenSpellsUI: Attempting to open UI");
+		if (_uiSystem.TryOpenUi(spellsEntity, SpellsUiKey.Key, spellsEntity))
+		{
+			Logger.Debug($"OpenSpellsUI: UI opened successfully");
+			UpdateSpellsUI((spellsEntity, cultistComp));
+		}
+		else
+		{
+			Logger.Warning($"OpenSpellsUI: Failed to open UI");
+		}
+
+		ev.Handled = true;
 	}
 
 	private void UpdateSpellsUI(Entity<BloodCultistComponent> entity)

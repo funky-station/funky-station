@@ -1,37 +1,52 @@
-// SPDX-FileCopyrightText: 2024 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
-// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2024 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
+// SPDX-FileCopyrightText: 2025 Spatison <137375981+Spatison@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 kurokoTurbo <92106367+kurokoTurbo@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Trest <144359854+trest100@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
+// SPDX-FileCopyrightText: 2025 Kayzel <43700376+KayzelW@users.noreply.github.com>
 //
-// SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+// SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared.Body.Part;
 using Content.Shared.Body.Systems;
-using Content.Shared._Shitmed.Body.Events;
+using Content.Shared._Shitmed.BodyEffects.Subsystems;
 using Robust.Shared.Map;
-using Robust.Shared.Timing;
-using Robust.Shared.Network;
+using Robust.Shared.Containers;
 using System.Numerics;
 
-namespace Content.Shared._Shitmed.BodyEffects.Subsystems;
+namespace Content.Server._Shitmed.BodyEffects.Subsystems;
 
 public sealed class GenerateChildPartSystem : EntitySystem
 {
     [Dependency] private readonly SharedBodySystem _bodySystem = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly INetManager _net = default!;
+    [Dependency] private readonly SharedContainerSystem _container = default!;
     public override void Initialize()
     {
         base.Initialize();
 
-        SubscribeLocalEvent<GenerateChildPartComponent, BodyPartComponentsModifyEvent>(OnPartComponentsModify);
+        SubscribeLocalEvent<GenerateChildPartComponent, BodyPartAddedEvent>(OnPartAttached);
+        SubscribeLocalEvent<GenerateChildPartComponent, BodyPartRemovedEvent>(OnPartDetached);
     }
 
-    private void OnPartComponentsModify(EntityUid uid, GenerateChildPartComponent component, ref BodyPartComponentsModifyEvent args)
+    private void OnPartAttached(EntityUid uid, GenerateChildPartComponent component, ref BodyPartAddedEvent args)
     {
-        if (args.Add)
-            CreatePart(uid, component);
-        //else
-            //DeletePart(uid, component);
+        CreatePart(uid, component);
+    }
+
+    private void OnPartDetached(EntityUid uid, GenerateChildPartComponent component, ref BodyPartRemovedEvent args)
+    {
+        if (component.ChildPart == null || TerminatingOrDeleted(component.ChildPart))
+            return;
+
+        if (!_container.TryGetContainingContainer(
+                (component.ChildPart.Value, Transform(component.ChildPart.Value), MetaData(component.ChildPart.Value)),
+                out var container))
+            return;
+
+        _container.Remove(component.ChildPart.Value, container, false, true);
+        QueueDel(component.ChildPart);
     }
 
     private void CreatePart(EntityUid uid, GenerateChildPartComponent component)
@@ -41,33 +56,16 @@ public sealed class GenerateChildPartSystem : EntitySystem
             || component.Active)
             return;
 
-        // I pinky swear to also move this to the server side properly next update :)
-        if (_net.IsServer)
-        {
-            var childPart = Spawn(component.Id, new EntityCoordinates(partComp.Body.Value, Vector2.Zero));
+        var childPart = Spawn(component.Id, new EntityCoordinates(partComp.Body.Value, Vector2.Zero));
 
-            if (!TryComp(childPart, out BodyPartComponent? childPartComp))
-                return;
-
-            var slotName = _bodySystem.GetSlotFromBodyPart(childPartComp);
-            _bodySystem.TryCreatePartSlot(uid, slotName, childPartComp.PartType, out var _);
-            _bodySystem.AttachPart(uid, slotName, childPart, partComp, childPartComp);
-            component.ChildPart = childPart;
-            component.Active = true;
-            Dirty(childPart, childPartComp);
-        }
-    }
-
-    // Still unusued, gotta figure out what I want to do with this function outside of fuckery with mantis blades.
-    private void DeletePart(EntityUid uid, GenerateChildPartComponent component)
-    {
-        if (!TryComp(uid, out BodyPartComponent? partComp))
+        if (!TryComp(childPart, out BodyPartComponent? childPartComp))
             return;
 
-        _bodySystem.DropSlotContents((uid, partComp));
-        var ev = new BodyPartDroppedEvent((uid, partComp));
-        RaiseLocalEvent(uid, ref ev);
-        QueueDel(uid);
+        var slotName = _bodySystem.GetSlotFromBodyPart(childPartComp);
+        _bodySystem.TryCreatePartSlot(uid, slotName, childPartComp.PartType, childPartComp.Symmetry, out var _);
+        _bodySystem.AttachPart(uid, slotName, childPart, partComp, childPartComp);
+        component.ChildPart = childPart;
+        component.Active = true;
+        Dirty(childPart, childPartComp);
     }
 }
-

@@ -1,24 +1,19 @@
 # SPDX-FileCopyrightText: 2025 Mora <46364955+trixxedheart@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
-# SPDX-FileCopyrightText: 2025 W.xyz() <tptechteam@gmail.com>
 # SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
-# SPDX-FileCopyrightText: 2025 phmnsx <lynnwastinghertime@gmail.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
-# SPDX-FileCopyrightText: 2025 vectorassembly <vectorassembly@icloud.com>
-# SPDX-FileCopyrightText: 2025 w.xyz() <84605679+pirakaplant@users.noreply.github.com>
 #
 # SPDX-License-Identifier: MIT
 
 # Settings for cloning bodies
 # If you add a new trait, job specific component or a component doing visual/examination changes for humanoids
 # then add it here to the correct prototype.
-# The datafields of the components are only shallow copied using CopyComp.
+# The datafields of the components copied using CopyComp.
 # Subscribe to CloningEvent instead if that is not enough.
 
-# for basic traits etc.
-# used by the random clone spawner
+# for basic physical traits
 - type: cloningSettings
-  id: BaseClone
+  id: Body
   components:
   # general
   - DetailExaminable
@@ -26,33 +21,27 @@
   - Fingerprint
   - NpcFactionMember
   # traits
+  - BlackAndWhiteOverlay
+  - Clumsy
   - ImpairedMobility
   # - LegsParalyzed (you get healed)
   - LightweightDrunk
+  - Muted
   - Narcolepsy
   - Pacified
-  - PainNumbness
   - Paracusia
   - PermanentBlindness
+  - Snoring
   - Unrevivable
-  # job specific
-  - BibleUser
-  - CommandStaff
-  - Clumsy
-  - MindShield
-  - MimePowers
-  - SpaceNinja
   # accents
   - Accentless
   - BackwardsAccent
-  - BritishAccent
   - BarkAccent
   - BleatingAccent
   - DamagedSiliconAccent
   - FrenchAccent
-  - FunkyAccent
+  - FrontalLisp
   - GermanAccent
-  - GermanVernacular
   - LizardAccent
   - MobsterAccent
   - MonkeyAccent
@@ -66,13 +55,36 @@
   # TODO: AddAccentClothingComponent should use an inventory relay event.
   # Also ZombieComponent overwrites the old replacement accent, because you can only have one at a time.
   - RussianAccent
-  - ScandinavianAccent
   - ScrambledAccent
   - SkeletonAccent
   - SlurredAccent
   - SouthernAccent
   - SpanishAccent
   - StutteringAccent
+
+# for job-specific traits etc.
+- type: cloningSettings
+  id: Special
+  components:
+  - BibleUser
+  - CommandStaff
+  - MindShield
+  - MimePowers
+  - SpaceNinja
+  - Thieving
+
+# antag roles
+- type: cloningSettings
+  id: Antag
+  components:
+  - HeadRevolutionary
+  - Revolutionary
+  - NukeOperative
+
+# a full clone with all traits and items, but no antag roles
+- type: cloningSettings
+  id: BaseClone
+  parent: [Body, Special]
   blacklist:
     components:
     - AttachedClothing # helmets, which are part of the suit
@@ -80,26 +92,52 @@
     - Implanter # they will spawn full again, but you already get the implant. And we can't do item slot copying yet
     - VirtualItem
 
-# all antagonist roles
-- type: cloningSettings
-  id: Antag
-  parent: BaseClone
-  components:
-  - HeadRevolutionary
-  - Revolutionary
-  - NukeOperative
-
 # for cloning pods
 - type: cloningSettings
   id: CloningPod
-  parent: Antag
+  parent: [BaseClone, Antag]
   forceCloning: false
   copyEquipment: null
   copyInternalStorage: false
   copyImplants: false
 
-# spawner
+# for paradox clones
+- type: cloningSettings
+  id: ParadoxCloningSettings
+  parent: [BaseClone, Antag]
+  components:
+  - Forensics # This is so hugging data is copied to the clone, so you can't hug metagame them
 
+# changeling identity copying
+- type: cloningSettings
+  id: ChangelingCloningSettings
+  parent: Body
+  components:
+  # These are already part of the base species prototype that is spawned for the clone,
+  # that means we only need to copy them over when switching between species.
+  # So these don't need to be part of the Body settings, unless someone makes a trait that adjusts these components.
+  - BodyEmotes
+  - MessyDrinker
+  # - Fixtures TODO: A better way to clone fixtures or a fixture fix. Currently if you devour someone on the ground and transform, you lose collision with tables as they were knocked down when they were copied.
+  - Speech
+  - TemperatureProtection
+  - TypingIndicator
+  - ScaleVisuals # for dwarf height
+  eventComponents:
+  # these need special treatment in the event subscription
+  - Inventory # arachnid pockets and diona feet
+  - Wagging # lizard tails
+  - Vocal # voice sounds
+  - Storage # slime storage
+  - Rootable # diona
+  - Sericulture # arachnids
+  - MovementSpeedModifier # moths when weightless
+  - JumpAbility # vulp leaping
+  copyEquipment: null
+  copyInternalStorage: false
+  copyImplants: false
+
+# spawner
 - type: entity
   id: RandomCloneSpawner
   name: Random Clone

@@ -78,7 +78,7 @@ public sealed class PlayTimeTrackingSystem : EntitySystem
         SubscribeLocalEvent<MobStateChangedEvent>(OnMobStateChanged);
         SubscribeLocalEvent<PlayerJoinedLobbyEvent>(OnPlayerJoinedLobby);
         SubscribeLocalEvent<StationJobsGetCandidatesEvent>(OnStationJobsGetCandidates);
-        SubscribeLocalEvent<IsJobAllowedEvent>(OnIsJobAllowed);
+        SubscribeLocalEvent<IsRoleAllowedEvent>(OnIsRoleAllowed);
         SubscribeLocalEvent<GetDisallowedJobsEvent>(OnGetDisallowedJobs);
         _adminManager.OnPermsChanged += AdminPermsChanged;
     }
@@ -110,6 +110,9 @@ public sealed class PlayTimeTrackingSystem : EntitySystem
         trackers.UnionWith(GetTimedRoles(player));
     }
 
+    /// <summary>
+    /// Returns true if the player has an attached mob and it is alive (even if in critical).
+    /// </summary>
     private bool IsPlayerAlive(ICommonSession session)
     {
         var attached = session.AttachedEntity;
@@ -145,7 +148,7 @@ public sealed class PlayTimeTrackingSystem : EntitySystem
 
     private void OnRoleEvent(RoleEvent ev)
     {
-        if (_minds.TryGetSession(ev.Mind, out var session))
+        if (_playerManager.TryGetSessionById(ev.Mind.UserId, out var session))
             _tracking.QueueRefreshTrackers(session);
     }
 
@@ -200,9 +203,12 @@ public sealed class PlayTimeTrackingSystem : EntitySystem
         RemoveDisallowedJobs(ev.Player, ev.Jobs);
     }
 
-    private void OnIsJobAllowed(ref IsJobAllowedEvent ev)
+    private void OnIsRoleAllowed(ref IsRoleAllowedEvent ev)
     {
-        if (!IsAllowed(ev.Player, ev.JobId))
+        if (ev.Jobs == null)
+            return; // no job restrictions → allowed
+
+        if (!IsAllowed(ev.Player, ev.Jobs))
             ev.Cancelled = true;
     }
 
@@ -238,6 +244,17 @@ public sealed class PlayTimeTrackingSystem : EntitySystem
 
         var allProfilesForJob = _preferencesManager.GetPreferences(player.UserId).GetAllEnabledProfilesForJob(job);
         return allProfilesForJob.Values.Any(profile => JobRequirements.TryRequirementsMet(job, playTimes, out _, EntityManager, _prototypes, profile));
+    }
+    public bool IsAllowed(ICommonSession player, List<ProtoId<JobPrototype>> jobs)
+    {
+        foreach (var jobId in jobs)
+        {
+            // ProtoId<T> → string
+            if (IsAllowed(player, jobId.Id))
+                return true;
+        }
+
+        return false;
     }
 
     public HashSet<ProtoId<JobPrototype>> GetDisallowedJobs(ICommonSession player)

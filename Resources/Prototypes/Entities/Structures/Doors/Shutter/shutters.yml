@@ -49,6 +49,8 @@
     layers:
     - state: closed
       map: ["enum.DoorVisualLayers.Base"]
+    - state: welded
+      map: ["enum.WeldableLayers.BaseWelded"]
   - type: AnimationPlayer
   - type: Physics
   - type: Fixtures
@@ -139,7 +141,7 @@
 
 - type: entity
   id: ShuttersNormal
-  parent: BaseShutter
+  parent: [BaseShutter, BaseDeltaPressureGlass]
   components:
   - type: Occluder
   - type: Construction
@@ -166,7 +168,7 @@
 
 - type: entity
   id: ShuttersRadiation
-  parent: BaseShutter
+  parent: [BaseShutter, BaseDeltaPressureGlass]
   name: radiation shutters
   description: Why did they make these shutters radioactive?
   components:
@@ -175,6 +177,8 @@
     layers:
     - state: closed
       map: ["enum.DoorVisualLayers.Base"]
+    - state: welded
+      map: ["enum.WeldableLayers.BaseWelded"]
   - type: Occluder
   - type: Construction
     graph: Shutters
@@ -202,7 +206,7 @@
 
 - type: entity
   id: ShuttersWindow
-  parent: BaseShutter
+  parent: [BaseShutter, BaseDeltaPressureGlass]
   name: window shutters
   description: The Best (TM) place to see your friends explode!
   components:
@@ -211,6 +215,8 @@
     layers:
     - state: closed
       map: ["enum.DoorVisualLayers.Base"]
+    - state: welded
+      map: ["enum.WeldableLayers.BaseWelded"]
   - type: Construction
     graph: Shutters
     node: ShuttersWindow

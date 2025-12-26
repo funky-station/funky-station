@@ -41,6 +41,8 @@ using Content.Shared.Interaction;
 using Content.Shared.MalfAI;
 using Content.Shared.CCVar;
 using Content.Shared.Emag.Components;
+using Content.Shared.Emp;
+using Content.Shared.Power;
 using Robust.Shared.Configuration;
 
 namespace Content.Server.Power.EntitySystems;

@@ -12,9 +12,9 @@
 // SPDX-License-Identifier: MIT
 
 using Content.Client.Eui;
-using Content.Server.Ghost.Roles.Raffles;
 using Content.Shared.Eui;
 using Content.Shared.Ghost.Roles;
+using Content.Shared.Ghost.Roles.Raffles;
 using JetBrains.Annotations;
 using Robust.Client.Console;
 using Robust.Client.Player;

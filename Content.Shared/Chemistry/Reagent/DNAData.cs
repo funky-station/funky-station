@@ -1,10 +1,3 @@
-// SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
-// SPDX-FileCopyrightText: 2024 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
-//
-// SPDX-License-Identifier: MIT
-
-using Content.Shared.FixedPoint;
 using Robust.Shared.Serialization;
 
 namespace Content.Shared.Chemistry.Reagent;
@@ -13,9 +6,15 @@ namespace Content.Shared.Chemistry.Reagent;
 public sealed partial class DnaData : ReagentData
 {
     [DataField]
-    public string DNA = String.Empty;
+    public string DNA = string.Empty;
 
-    public override ReagentData Clone() => this;
+    public override ReagentData Clone()
+    {
+        return new DnaData
+        {
+            DNA = DNA,
+        };
+    }
 
     public override bool Equals(ReagentData? other)
     {

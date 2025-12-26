@@ -22,7 +22,7 @@ public sealed class UseDelaySystem : EntitySystem
     [Dependency] private readonly IGameTiming _gameTiming = default!;
     [Dependency] private readonly MetaDataSystem _metadata = default!;
 
-    private const string DefaultId = "default";
+    public const string DefaultId = "default";
 
     public override void Initialize()
     {
@@ -103,7 +103,7 @@ public sealed class UseDelaySystem : EntitySystem
     /// </summary>
     public bool IsDelayed(Entity<UseDelayComponent?> ent, string id = DefaultId)
     {
-        if (!Resolve(ent, ref ent.Comp, false))
+        if (!Resolve(ent.Owner, ref ent.Comp, false))
             return false;
 
         if (!ent.Comp.Delays.TryGetValue(id, out var entry))
@@ -131,8 +131,14 @@ public sealed class UseDelaySystem : EntitySystem
     /// <param name="info"></param>
     /// <param name="id"></param>
     /// <returns></returns>
-    public bool TryGetDelayInfo(Entity<UseDelayComponent> ent, [NotNullWhen(true)] out UseDelayInfo? info, string id = DefaultId)
+    public bool TryGetDelayInfo(Entity<UseDelayComponent?> ent, [NotNullWhen(true)] out UseDelayInfo? info, string id = DefaultId)
     {
+        if (!Resolve(ent.Owner, ref ent.Comp, false))
+        {
+            info = null;
+            return false;
+        }
+
         return ent.Comp.Delays.TryGetValue(id, out info);
     }
 

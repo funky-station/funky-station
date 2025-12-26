@@ -7,9 +7,8 @@
 //
 // SPDX-License-Identifier: MIT
 
-using Content.Shared._Funkystation.Security;
+using Content.Shared.Security;
 using Robust.Shared.Serialization;
-using Robust.Shared.Prototypes;
 
 namespace Content.Shared.CriminalRecords;
 
@@ -24,7 +23,7 @@ public sealed partial record CriminalRecord
     /// Status of the person (None, Wanted, Detained).
     /// </summary>
     [DataField]
-    public ProtoId<SecurityStatusPrototype> Status = "SecurityStatusNone";
+    public SecurityStatus Status = SecurityStatus.None;
 
     /// <summary>
     /// When Status is Wanted, the reason for it.
@@ -44,7 +43,7 @@ public sealed partial record CriminalRecord
     /// This should have charges and time served added after someone is detained.
     /// </summary>
     [DataField]
-    public List<CrimeHistory> History = [];
+    public List<CrimeHistory> History = new();
 }
 
 /// <summary>

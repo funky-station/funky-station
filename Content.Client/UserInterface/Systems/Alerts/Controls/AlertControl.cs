@@ -31,6 +31,10 @@ namespace Content.Client.UserInterface.Systems.Alerts.Controls
 {
     public sealed class AlertControl : BaseButton
     {
+        [Dependency] private readonly IEntityManager _entityManager = default!;
+
+        private readonly SpriteSystem _sprite;
+
         public AlertPrototype Alert { get; }
 
         /// <summary>
@@ -49,25 +53,10 @@ namespace Content.Client.UserInterface.Systems.Alerts.Controls
             }
         }
 
-        public string? DynamicMessage
-        {
-            get => _dynamicMessage;
-            set
-            {
-                _dynamicMessage = value;
-                if (SuppliedTooltip is ActionAlertTooltip actionAlertTooltip)
-                {
-                    actionAlertTooltip.DynamicMessage = value;
-                }
-            }
-        }
-
         private (TimeSpan Start, TimeSpan End)? _cooldown;
-        private string? _dynamicMessage;
 
         private short? _severity;
-        private readonly IGameTiming _gameTiming;
-        private readonly IEntityManager _entityManager;
+
         private readonly SpriteView _icon;
         private readonly CooldownGraphic _cooldownGraphic;
 
@@ -80,14 +69,22 @@ namespace Content.Client.UserInterface.Systems.Alerts.Controls
         /// <param name="severity">severity of alert, null if alert doesn't have severity levels</param>
         public AlertControl(AlertPrototype alert, short? severity)
         {
-            _gameTiming = IoCManager.Resolve<IGameTiming>();
-            _entityManager = IoCManager.Resolve<IEntityManager>();
+            // Alerts will handle this.
+            MuteSounds = true;
+
+            IoCManager.InjectDependencies(this);
+            _sprite = _entityManager.System<SpriteSystem>();
             TooltipSupplier = SupplyTooltip;
             Alert = alert;
+
+            HorizontalAlignment = HAlignment.Left;
             _severity = severity;
             _icon = new SpriteView
             {
-                Scale = new Vector2(2, 2)
+                Scale = new Vector2(2, 2),
+                MaxSize = new Vector2(64, 64),
+                Stretch = SpriteView.StretchMode.None,
+                HorizontalAlignment = HAlignment.Left
             };
 
             SetupIcon();
@@ -104,7 +101,7 @@ namespace Content.Client.UserInterface.Systems.Alerts.Controls
         {
             var msg = FormattedMessage.FromMarkupOrThrow(Loc.GetString(Alert.Name));
             var desc = FormattedMessage.FromMarkupOrThrow(Loc.GetString(Alert.Description));
-            return new ActionAlertTooltip(msg, desc) {Cooldown = Cooldown, DynamicMessage = DynamicMessage};
+            return new ActionAlertTooltip(msg, desc) { Cooldown = Cooldown };
         }
 
         /// <summary>
@@ -119,8 +116,8 @@ namespace Content.Client.UserInterface.Systems.Alerts.Controls
             if (!_entityManager.TryGetComponent<SpriteComponent>(_spriteViewEntity, out var sprite))
                 return;
             var icon = Alert.GetIcon(_severity);
-            if (sprite.LayerMapTryGet(AlertVisualLayers.Base, out var layer))
-                sprite.LayerSetSprite(layer, icon);
+            if (_sprite.LayerMapTryGet((_spriteViewEntity, sprite), AlertVisualLayers.Base, out var layer, false))
+                _sprite.LayerSetSprite((_spriteViewEntity, sprite), layer, icon);
         }
 
         protected override void FrameUpdate(FrameEventArgs args)
@@ -147,8 +144,8 @@ namespace Content.Client.UserInterface.Systems.Alerts.Controls
             if (_entityManager.TryGetComponent<SpriteComponent>(_spriteViewEntity, out var sprite))
             {
                 var icon = Alert.GetIcon(_severity);
-                if (sprite.LayerMapTryGet(AlertVisualLayers.Base, out var layer))
-                    sprite.LayerSetSprite(layer, icon);
+                if (_sprite.LayerMapTryGet((_spriteViewEntity, sprite), AlertVisualLayers.Base, out var layer, false))
+                    _sprite.LayerSetSprite((_spriteViewEntity, sprite), layer, icon);
             }
 
             _icon.SetEntity(_spriteViewEntity);

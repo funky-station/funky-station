@@ -13,6 +13,8 @@ using Content.Client.Crayon.Overlays;
 using Content.Client.Items;
 using Content.Client.Message;
 using Content.Client.Stylesheets;
+using Content.Shared.Charges.Components;
+using Content.Shared.Charges.Systems;
 using Content.Shared.Crayon;
 using Content.Shared.Decals;
 using Robust.Client.GameObjects;

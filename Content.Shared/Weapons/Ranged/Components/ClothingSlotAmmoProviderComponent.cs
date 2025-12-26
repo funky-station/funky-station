@@ -10,6 +10,7 @@ using Content.Shared.Inventory;
 using Content.Shared.Weapons.Ranged.Systems;
 using Content.Shared.Whitelist;
 using Robust.Shared.GameStates;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 
 namespace Content.Shared.Weapons.Ranged.Components;
 
@@ -21,21 +22,20 @@ namespace Content.Shared.Weapons.Ranged.Components;
 public sealed partial class ClothingSlotAmmoProviderComponent : AmmoProviderComponent
 {
     /// <summary>
-    /// The slot that the ammo provider should be located in.
+    /// Whether to check hands for ammo providers
     /// </summary>
-    [DataField("targetSlot", required: true)]
-    public SlotFlags TargetSlot;
+    [DataField]
+    public bool CheckHands = false;
 
     /// <summary>
-    /// A whitelist for determining whether or not an ammo provider is valid.
+    /// Whitelist for valid ammo provider entities
     /// </summary>
-    [DataField("providerWhitelist")]
+    [DataField]
     public EntityWhitelist? ProviderWhitelist;
 
     /// <summary>
-    /// Assmos - Extinguisher Nozzle
-    /// If the hands are considered a valid ammo provider slot.
+    /// Target inventory slot to check
     /// </summary>
-    [DataField("checkHands")]
-    public bool CheckHands = false;
+    [DataField]
+    public SlotFlags TargetSlot = SlotFlags.BELT;
 }

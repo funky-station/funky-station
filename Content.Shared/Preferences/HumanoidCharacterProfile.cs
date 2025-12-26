@@ -41,17 +41,15 @@
 //
 // SPDX-License-Identifier: MIT
 
-using System;
 using System.Linq;
-using System.Reflection;
 using System.Text.RegularExpressions;
+using Content.Shared._Funkystation.Records;
 using Content.Shared.CCVar;
 using Content.Shared.Dataset;
 using Content.Shared.GameTicking;
 using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Prototypes;
 using Content.Shared.Preferences.Loadouts;
-using Content.Shared.Random;
 using Content.Shared.Random.Helpers;
 using Content.Shared.Roles;
 using Content.Shared.Traits;
@@ -63,7 +61,6 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Serialization;
 using Robust.Shared.Utility;
-using Content.Shared._Funkystation.Records; // CD - Character Records
 
 namespace Content.Shared.Preferences
 {
@@ -169,15 +166,15 @@ namespace Content.Shared.Preferences
         /// </summary>
         public IReadOnlySet<ProtoId<AntagPrototype>> AntagPreferences => _antagPreferences;
 
-        /// <summary>
-        /// <see cref="_traitPreferences"/>
-        /// </summary>
-        public IReadOnlySet<ProtoId<TraitPrototype>> TraitPreferences => _traitPreferences;
-
         // Begin CD - Character records
         [DataField("cosmaticDriftCharacterRecords")]
         public PlayerProvidedCharacterRecords? CDCharacterRecords;
         // End CD - Character records
+
+        /// <summary>
+        /// <see cref="_traitPreferences"/>
+        /// </summary>
+        public IReadOnlySet<ProtoId<TraitPrototype>> TraitPreferences => _traitPreferences;
 
         public HumanoidCharacterProfile(
             string name,
@@ -255,8 +252,10 @@ namespace Content.Shared.Preferences
         /// </summary>
         /// <param name="species">The species to use in this default profile. The default species is <see cref="SharedHumanoidAppearanceSystem.DefaultSpecies"/>.</param>
         /// <returns>Humanoid character profile with default settings.</returns>
-        public static HumanoidCharacterProfile DefaultWithSpecies(string species = SharedHumanoidAppearanceSystem.DefaultSpecies)
+        public static HumanoidCharacterProfile DefaultWithSpecies(string? species = null)
         {
+            species ??= SharedHumanoidAppearanceSystem.DefaultSpecies;
+
             return new()
             {
                 Species = species,
@@ -279,8 +278,10 @@ namespace Content.Shared.Preferences
             return RandomWithSpecies(species);
         }
 
-        public static HumanoidCharacterProfile RandomWithSpecies(string species = SharedHumanoidAppearanceSystem.DefaultSpecies)
+        public static HumanoidCharacterProfile RandomWithSpecies(string? species = null)
         {
+            species ??= SharedHumanoidAppearanceSystem.DefaultSpecies;
+
             var prototypeManager = IoCManager.Resolve<IPrototypeManager>();
             var random = IoCManager.Resolve<IRobustRandom>();
 
@@ -411,7 +412,7 @@ namespace Content.Shared.Preferences
         {
             return new(this)
             {
-                _antagPreferences = new(antagPreferences),
+                _antagPreferences = new (antagPreferences),
             };
         }
 
@@ -444,7 +445,7 @@ namespace Content.Shared.Preferences
             // Category not found so dump it.
             TraitCategoryPrototype? traitCategory = null;
 
-            if (category != null && !protoManager.TryIndex(category, out traitCategory))
+            if (category != null && !protoManager.Resolve(category, out traitCategory))
                 return new(this);
 
             var list = new HashSet<ProtoId<TraitPrototype>>(_traitPreferences) { traitId };
@@ -562,13 +563,14 @@ namespace Content.Shared.Preferences
             };
 
             string name;
+            var maxNameLength = configManager.GetCVar(CCVars.MaxNameLength);
             if (string.IsNullOrEmpty(Name))
             {
                 name = GetName(Species, gender);
             }
-            else if (Name.Length > MaxNameLength)
+            else if (Name.Length > maxNameLength)
             {
-                name = Name[..MaxNameLength];
+                name = Name[..maxNameLength];
             }
             else
             {
@@ -576,7 +578,6 @@ namespace Content.Shared.Preferences
             }
 
             name = name.Trim();
-
 
             if (configManager.GetCVar(CCVars.RestrictedNames))
             {
@@ -594,11 +595,11 @@ namespace Content.Shared.Preferences
                 name = GetName(Species, gender);
             }
 
-
             string flavortext;
-            if (FlavorText.Length > MaxDescLength)
+            var maxFlavorTextLength = configManager.GetCVar(CCVars.MaxFlavorTextLength);
+            if (FlavorText.Length > maxFlavorTextLength)
             {
-                flavortext = FormattedMessage.RemoveMarkupOrThrow(FlavorText)[..MaxDescLength];
+                flavortext = FormattedMessage.RemoveMarkupOrThrow(FlavorText)[..maxFlavorTextLength];
             }
             else
             {
@@ -687,6 +688,9 @@ namespace Content.Shared.Preferences
                     continue;
                 }
 
+                // This happens after we verify the prototype exists
+                // These values are set equal in the database and we need to make sure they're equal here too!
+                loadouts.Role = roleName;
                 loadouts.EnsureValid(this, session, collection);
             }
 
@@ -718,7 +722,7 @@ namespace Content.Shared.Preferences
                 }
 
                 // No category so dump it.
-                if (!protoManager.TryIndex(traitProto.Category, out var category))
+                if (!protoManager.Resolve(traitProto.Category, out var category))
                     continue;
 
                 var existing = groups.GetOrNew(category.ID);
@@ -777,8 +781,8 @@ namespace Content.Shared.Preferences
             hashCode.Add(BorgName);
             hashCode.Add(Species);
             hashCode.Add(Age);
-            hashCode.Add((int) Sex);
-            hashCode.Add((int) Gender);
+            hashCode.Add((int)Sex);
+            hashCode.Add((int)Gender);
             hashCode.Add(Appearance);
             hashCode.Add((int)SpawnPriority);
             hashCode.Add(Enabled);

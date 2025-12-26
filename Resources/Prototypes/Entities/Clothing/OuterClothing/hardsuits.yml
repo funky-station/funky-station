@@ -783,6 +783,10 @@
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitCybersun
+  - type: Tag
+    tags:
+    - MonkeyWearable
+    - WhitelistChameleon
 
 #Wizard Hardsuit
 - type: entity
@@ -1077,6 +1081,8 @@
         Shock: 0.1
         Radiation: 0.1
         Caustic: 0.1
+  - type: ZombificationResistance
+    zombificationResistanceCoefficient: 0.25
   - type: ClothingSpeedModifier
     walkModifier: 1.0
     sprintModifier: 1.0

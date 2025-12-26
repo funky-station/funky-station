@@ -71,13 +71,10 @@
 # SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Эдуард <36124833+Ertanic@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 88tv <131759102+88tv@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Amethyst <52829582+jackel234@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 BramvanZijp <56019239+BramvanZijp@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Catazeus <200477155+Catazeus@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Cthyga <41489382+Cthyga@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Cymric22 <seanadams305@gmail.com>
 # SPDX-FileCopyrightText: 2025 DevilishMilk <michaellapjr@gmail.com>
-# SPDX-FileCopyrightText: 2025 MaiaArai <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Mish <bluscout78@yahoo.com>
 # SPDX-FileCopyrightText: 2025 PurpleTranStar <tehevilduckiscoming@gmail.com>
 # SPDX-FileCopyrightText: 2025 Rainbow <ev0lvkitten@gmail.com>
@@ -90,7 +87,6 @@
 # SPDX-FileCopyrightText: 2025 Unkn0wn_Gh0st <shadowstalkermll@gmail.com>
 # SPDX-FileCopyrightText: 2025 Xcybitt <197952719+Xcybitt@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Xcybitt <xcybitt@gmail.com>
-# SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
 # SPDX-FileCopyrightText: 2025 mkanke-real <mikekanke@gmail.com>
@@ -110,20 +106,12 @@
     children:
     - id: BoxEncryptionKeyCargo
     - id: BoxFolderQmClipboard
-    - id: CargoBountyComputerCircuitboard
-    - id: CargoRequestComputerCircuitboard
-    - id: CargoSaleComputerCircuitboard
-    - id: CargoShuttleComputerCircuitboard
-    - id: CargoShuttleConsoleCircuitboard
-    - id: SalvageMagnetMachineCircuitboard
+    - id: BoxQMCircuitboards
+    - id: BoxQMStamps
     - id: CigPackGreen
       prob: 0.50
     - id: ClothingHeadsetAltCargo
     - id: DoorRemoteCargo
-    - id: RubberStampApproved
-    - id: RubberStampDenied
-    - id: RubberStampQm
-    - id: SalvageShuttleConsoleCircuitboard
     - id: AstroNavCartridge
     - id: ClothingOuterHardsuitLuxury
     - id: ClothingHandsKnuckleDustersQM
@@ -133,6 +121,7 @@
     - id: NitrogenTankFilled
     - id: RadioHandheldCargo #funkystation
     - id: RadioHandheldCommand #funkystation
+    - id: MailTeleporterMachineCircuitboard
 
 - type: entity
   id: LockerQuarterMasterFilled
@@ -155,7 +144,7 @@
     - id: ClothingBeltSheathFilled
     - id: ClothingHeadsetAltCommand
     - id: ClothingOuterArmorCaptainCarapace
-    - id: CommsComputerCircuitboard
+    - id: BoxCaptainCircuitboards
     - id: DoorRemoteCustom
     - id: MedalCase
     - id: NukeDisk
@@ -234,6 +223,8 @@
     - id: BoxEncryptionKeyPassenger
     - id: BoxEncryptionKeyService
     - id: BoxHeadset
+    - id: BoxHoPCircuitboards
+    - id: BoxHoPStamps
     - id: BoxID
     - id: BoxPDA
     - id: CigarGoldCase
@@ -246,6 +237,7 @@
     - id: ClothingNeckGoldmedal
     - id: DoorRemoteService
     - id: HoPIDCard
+    - id: WeaponDisabler
     - id: IDComputerCircuitboard
     - id: FundingAllocationComputerCircuitboard
     - id: CargoRequestServiceComputerCircuitboard
@@ -282,16 +274,16 @@
     - id: CigarCase
       prob: 0.15
     - id: ClothingBeltChiefEngineerFilled
-    - id: HolotapeProjector #funky!
     - id: ClothingEyesGlassesMeson
-    - id: ClothingHandsGlovesChiefEngineerInsuls #funky!
+    - id: ClothingHandsGlovesColorYellow
     - id: ClothingHeadsetAltEngineering
     - id: DoorRemoteEngineering
-    - id: CargoRequestEngineeringComputerCircuitboard
-    - id: RCDRecharging
+    - id: BoxCECircuitboards
+    - id: RCD
+    - id: RCDAmmo
     - id: RubberStampCE
     - id: BaseHandheldStationMapPowerCe
-    - id: RPDRecharging
+    - id: RPD # RPD
     - id: RadioHandheldEngineering #funkystation
     - id: RadioHandheldCommand #funkystation
 # Hardsuit table, used for suit storage as well
@@ -348,8 +340,7 @@
     - id: DoorRemoteMedical
     - id: HandheldCrewMonitor
     - id: Hypospray
-    - id: MedicalTechFabCircuitboard
-    - id: CargoRequestMedicalComputerCircuitboard
+    - id: BoxCMOCircuitboards
     - id: MedkitFilled
     - id: RubberStampCMO
     - id: RadioHandheldMedical #funkystation
@@ -411,14 +402,11 @@
     children:
     - id: Intellicard
     - id: BoxEncryptionKeyScience
-    - id: CircuitImprinterMachineCircuitboard
+    - id: BoxRDCircuitboards
     - id: ClothingBeltUtilityFilled
     - id: ClothingHeadsetAltScience
     - id: DoorRemoteResearch
     - id: HandTeleporter
-    - id: ProtolatheMachineCircuitboard
-    - id: ResearchComputerCircuitboard
-    - id: CargoRequestScienceComputerCircuitboard
     - id: RubberStampRd
     - id: AnomalyLocator # GoobStation - adding anomaly locator to the RD locker to reduce the amount of anoms that crit
     - id: CigarCase
@@ -482,15 +470,11 @@
     - id: DoorRemoteSecurity
     - id: HoloprojectorSecurity
     - id: RubberStampHos
-    - id: SecurityTechFabCircuitboard
-    - id: CargoRequestSecurityComputerCircuitboard
+    - id: BoxHoSCircuitboards
     - id: WeaponDisabler
     - id: WantedListCartridge
     - id: DrinkHosFlask
     - id: RadioHandheldCommand #funkystation, no sec radio since they start with one
-    - id: HandheldStationMap #funk, all HoS' must find their way
-    - id: BreachingCharge #funkystation knock knock, sec's here
-    - id: BreachingCharge #funkystation knock knock, sec's here
 
 # Hardsuit table, used for suit storage as well
 - type: entityTable

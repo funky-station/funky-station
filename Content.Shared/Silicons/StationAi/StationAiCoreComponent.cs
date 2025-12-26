@@ -41,16 +41,25 @@ public sealed partial class StationAiCoreComponent : Component
     public EntProtoId? RemoteEntityProto = "StationAiHolo";
 
     /// <summary>
-    /// Buffer for TTS words. Can be set negative.
-    /// </summary>
-    [DataField]
-    public int TtsBufferBetweenWordsMs = -50;
-
-    /// <summary>
     /// Prototype that represents the physical avatar of the AI
     /// </summary>
     [DataField(readOnly: true)]
     public EntProtoId? PhysicalEntityProto = "StationAiHoloLocal";
 
+    /// <summary>
+    /// Name of the container slot that holds the inhabiting AI's mind
+    /// </summary>
     public const string Container = "station_ai_mind_slot";
+
+    /// <summary>
+    /// Name of the container slot that holds the 'brain' used to construct the AI core
+    /// </summary>
+    public const string BrainContainer = "station_ai_brain_slot";
 }
+
+/// <summary>
+/// This event is raised on a station AI 'eye' that is being replaced with a new one
+/// </summary>
+/// <param name="NewRemoteEntity">The entity UID of the replacement entity</param>
+[ByRefEvent]
+public record struct StationAiRemoteEntityReplacementEvent(EntityUid? NewRemoteEntity);

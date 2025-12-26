@@ -1,21 +1,7 @@
-// SPDX-FileCopyrightText: 2022 Alex Evgrashin <aevgrashin@yandex.ru>
-// SPDX-FileCopyrightText: 2022 Moony <moonheart08@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Slava0135 <40753025+Slava0135@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Ygg01 <y.laughing.man.y@gmail.com>
-// SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2024 exincore <me@exin.xyz>
-// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
-// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
-//
-// SPDX-License-Identifier: MIT
-
-using Content.Server.IdentityManagement;
 using Content.Shared.Clothing.Components;
 using Content.Shared.Clothing.EntitySystems;
+using Content.Shared.Emp;
+using Content.Shared.IdentityManagement;
 using Content.Shared.IdentityManagement.Components;
 using Content.Shared.Prototypes;
 using Robust.Shared.Prototypes;
@@ -25,7 +11,6 @@ namespace Content.Server.Clothing.Systems;
 public sealed class ChameleonClothingSystem : SharedChameleonClothingSystem
 {
     [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly IComponentFactory _factory = default!;
     [Dependency] private readonly IdentitySystem _identity = default!;
 
     public override void Initialize()
@@ -57,7 +42,7 @@ public sealed class ChameleonClothingSystem : SharedChameleonClothingSystem
     /// <summary>
     ///     Change chameleon items name, description and sprite to mimic other entity prototype.
     /// </summary>
-    public void SetSelectedPrototype(EntityUid uid, string? protoId, bool forceUpdate = false,
+    public override void SetSelectedPrototype(EntityUid uid, string? protoId, bool forceUpdate = false,
         ChameleonClothingComponent? component = null)
     {
         if (!Resolve(uid, ref component, false))
@@ -81,9 +66,30 @@ public sealed class ChameleonClothingSystem : SharedChameleonClothingSystem
         Dirty(uid, component);
     }
 
+    public override void Update(float frameTime)
+    {
+        base.Update(frameTime);
+        // Randomize EMP-affected clothing
+        var query = EntityQueryEnumerator<EmpDisabledComponent, ChameleonClothingComponent>();
+        while (query.MoveNext(out var uid, out _, out var chameleon))
+        {
+            if (!chameleon.EmpContinuous)
+                continue;
+
+            if (Timing.CurTime < chameleon.NextEmpChange)
+                continue;
+
+            // randomly pick cloth element from available and apply it
+            var pick = GetRandomValidPrototype(chameleon.Slot, chameleon.RequireTag);
+            SetSelectedPrototype(uid, pick, component: chameleon);
+
+            chameleon.NextEmpChange += TimeSpan.FromSeconds(1f / chameleon.EmpChangeIntensity);
+        }
+    }
+
     private void UpdateIdentityBlocker(EntityUid uid, ChameleonClothingComponent component, EntityPrototype proto)
     {
-        if (proto.HasComponent<IdentityBlockerComponent>(_factory))
+        if (proto.HasComponent<IdentityBlockerComponent>(Factory))
             EnsureComp<IdentityBlockerComponent>(uid);
         else
             RemComp<IdentityBlockerComponent>(uid);

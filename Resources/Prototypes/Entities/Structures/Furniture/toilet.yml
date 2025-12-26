@@ -63,8 +63,6 @@
       components:
       - HumanoidAppearance
   - type: DisposalUnit
-    autoEngageEnabled: false
-    noUI: true
     blacklist:
       components:
       - HumanoidAppearance
@@ -106,11 +104,16 @@
     autoDrain: false
   - type: StaticPrice
     price: 100
+  - type: ActivatableUI
+    key: enum.DisposalUnitUiKey.Key
+    verbOnly: true # Not strictly needed, but we want E to toggle lid
   - type: UserInterface
     interfaces:
       enum.DisposalUnitUiKey.Key:
         type: DisposalUnitBoundUserInterface
-  - type: RatKingRummageable
+  - type: Rummageable
+    table: !type:NestedSelector
+      tableId: RatKingLoot
   - type: SolutionContainerManager
     solutions:
       drainBuffer:

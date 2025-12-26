@@ -2,7 +2,7 @@
 # SPDX-FileCopyrightText: 2024 John Space <bigdumb421@gmail.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
-# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+# SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: marking
   id: CyberLimbsMarkingHesphiastosHead
@@ -42,8 +42,8 @@
 - type: marking
   id: CyberLimbsMarkingHesphiastosLArm
   bodyPart: LArm
-  markingCategory: Arms
-  speciesRestriction: [IPC, Moth, Dwarf, Human, Arachnid, Felinid, Oni, Vulpkanin, HumanoidFoxes, Reptilian]
+  markingCategory: LeftArm
+  speciesRestriction: [IPC, Moth, Dwarf, Human, Arachnid, Felinid, Oni, Vulpkanin, HumanoidFoxes, Reptilian, Tajaran] # Goobstation - Tajaran
   sprites:
   - sprite: _EinsteinEngines/Mobs/Species/Cybernetics/hesphiastos/hesphiastos_main.rsi
     state: l_arm-1
@@ -53,8 +53,8 @@
 - type: marking
   id: CyberLimbsMarkingHesphiastosLHand
   bodyPart: LHand
-  markingCategory: Arms
-  speciesRestriction: [IPC, Moth, Dwarf, Human, Arachnid, Felinid, Oni, Vulpkanin, HumanoidFoxes, Reptilian]
+  markingCategory: LeftHand
+  speciesRestriction: [IPC, Moth, Dwarf, Human, Arachnid, Felinid, Oni, Vulpkanin, HumanoidFoxes, Reptilian, Tajaran] # Goobstation - Tajaran
   sprites:
   - sprite: _EinsteinEngines/Mobs/Species/Cybernetics/hesphiastos/hesphiastos_main.rsi
     state: l_hand-1
@@ -64,8 +64,8 @@
 - type: marking
   id: CyberLimbsMarkingHesphiastosLLeg
   bodyPart: LLeg
-  markingCategory: Legs
-  speciesRestriction: [IPC, Moth, Dwarf, Human, Arachnid, Felinid, Oni, Vulpkanin, HumanoidFoxes, Reptilian]
+  markingCategory: LeftLeg
+  speciesRestriction: [IPC, Moth, Dwarf, Human, Arachnid, Felinid, Oni, Vulpkanin, HumanoidFoxes, Reptilian, Tajaran] # Goobstation - Tajaran
   sprites:
   - sprite: _EinsteinEngines/Mobs/Species/Cybernetics/hesphiastos/hesphiastos_main.rsi
     state: l_leg-1
@@ -76,8 +76,8 @@
 - type: marking
   id: CyberLimbsMarkingHesphiastosLFoot
   bodyPart: LFoot
-  markingCategory: Legs
-  speciesRestriction: [IPC, Moth, Dwarf, Human, Arachnid, Felinid, Oni, Vulpkanin, HumanoidFoxes, Reptilian]
+  markingCategory: LeftFoot
+  speciesRestriction: [IPC, Moth, Dwarf, Human, Arachnid, Felinid, Oni, Vulpkanin, HumanoidFoxes, Reptilian, Tajaran] # Goobstation - Tajaran
   sprites:
   - sprite: _EinsteinEngines/Mobs/Species/Cybernetics/hesphiastos/hesphiastos_main.rsi
     state: l_foot-1
@@ -89,8 +89,8 @@
 - type: marking
   id: CyberLimbsMarkingHesphiastosRArm
   bodyPart: RArm
-  markingCategory: Arms
-  speciesRestriction: [IPC, Moth, Dwarf, Human, Arachnid, Felinid, Oni, Vulpkanin, HumanoidFoxes, Reptilian]
+  markingCategory: RightArm
+  speciesRestriction: [IPC, Moth, Dwarf, Human, Arachnid, Felinid, Oni, Vulpkanin, HumanoidFoxes, Reptilian, Tajaran] # Goobstation - Tajaran
   sprites:
   - sprite: _EinsteinEngines/Mobs/Species/Cybernetics/hesphiastos/hesphiastos_main.rsi
     state: r_arm-1
@@ -101,8 +101,8 @@
 - type: marking
   id: CyberLimbsMarkingHesphiastosRHand
   bodyPart: RHand
-  markingCategory: Arms
-  speciesRestriction: [IPC, Moth, Dwarf, Human, Arachnid, Felinid, Oni, Vulpkanin, HumanoidFoxes, Reptilian]
+  markingCategory: RightHand
+  speciesRestriction: [IPC, Moth, Dwarf, Human, Arachnid, Felinid, Oni, Vulpkanin, HumanoidFoxes, Reptilian, Tajaran] # Goobstation - Tajaran
   sprites:
   - sprite: _EinsteinEngines/Mobs/Species/Cybernetics/hesphiastos/hesphiastos_main.rsi
     state: r_hand-1
@@ -113,8 +113,8 @@
 - type: marking
   id: CyberLimbsMarkingHesphiastosRLeg
   bodyPart: RLeg
-  markingCategory: Legs
-  speciesRestriction: [IPC, Moth, Dwarf, Human, Arachnid, Felinid, Oni, Vulpkanin, HumanoidFoxes, Reptilian]
+  markingCategory: RightLeg
+  speciesRestriction: [IPC, Moth, Dwarf, Human, Arachnid, Felinid, Oni, Vulpkanin, HumanoidFoxes, Reptilian, Tajaran] # Goobstation - Tajaran
   sprites:
   - sprite: _EinsteinEngines/Mobs/Species/Cybernetics/hesphiastos/hesphiastos_main.rsi
     state: r_leg-1
@@ -125,8 +125,8 @@
 - type: marking
   id: CyberLimbsMarkingHesphiastosRFoot
   bodyPart: RFoot
-  markingCategory: Legs
-  speciesRestriction: [IPC, Moth, Dwarf, Human, Arachnid, Felinid, Oni, Vulpkanin, HumanoidFoxes, Reptilian]
+  markingCategory: RightFoot
+  speciesRestriction: [IPC, Moth, Dwarf, Human, Arachnid, Felinid, Oni, Vulpkanin, HumanoidFoxes, Reptilian, Tajaran] # Goobstation - Tajaran
   sprites:
   - sprite: _EinsteinEngines/Mobs/Species/Cybernetics/hesphiastos/hesphiastos_main.rsi
     state: r_foot-1

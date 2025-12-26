@@ -6,11 +6,12 @@
 // SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
 // SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
-// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
 // SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 // SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
+// SPDX-FileCopyrightText: 2025 Toastermeister <215405651+Toastermeister@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
@@ -19,6 +20,7 @@
 using Content.Client.Rotation;
 using Content.Shared.Buckle;
 using Content.Shared.Buckle.Components;
+using Content.Shared.Movement.Systems;
 using Content.Shared.Rotation;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
@@ -40,6 +42,15 @@ internal sealed class BuckleSystem : SharedBuckleSystem
         SubscribeLocalEvent<StrapComponent, MoveEvent>(OnStrapMoveEvent);
         SubscribeLocalEvent<BuckleComponent, BuckledEvent>(OnBuckledEvent);
         SubscribeLocalEvent<BuckleComponent, UnbuckledEvent>(OnUnbuckledEvent);
+        SubscribeLocalEvent<BuckleComponent, AttemptMobCollideEvent>(OnMobCollide);
+    }
+
+    private void OnMobCollide(Entity<BuckleComponent> ent, ref AttemptMobCollideEvent args)
+    {
+        if (ent.Comp.Buckled)
+        {
+            args.Cancelled = true;
+        }
     }
 
     private void OnStrapMoveEvent(EntityUid uid, StrapComponent component, ref MoveEvent args)

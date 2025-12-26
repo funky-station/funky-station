@@ -171,6 +171,15 @@
     Plastic: 300
 
 - type: latheRecipe
+  id: PushHorn
+  result: PushHorn
+  completetime: 5
+  materials:
+    Steel: 500
+    Plastic: 500
+    Plasma: 200
+
+- type: latheRecipe
   parent: BaseToolRecipe
   id: NodeScanner
   result: NodeScanner
@@ -248,6 +257,16 @@
 
 - type: latheRecipe
   parent: BaseFauxTileRecipe
+  id: FauxTileDarkAstroGrass
+  result: FloorTileItemDarkAstroGrass
+
+- type: latheRecipe
+  parent: BaseFauxTileRecipe
+  id: FauxTileLightAstroGrass
+  result: FloorTileItemLightAstroGrass
+
+- type: latheRecipe
+  parent: BaseFauxTileRecipe
   id: FauxTileAstroIce
   result: FloorTileItemAstroIce
 
@@ -260,6 +279,16 @@
   parent: BaseFauxTileRecipe
   id: FauxTileAstroAsteroidSand
   result: FloorTileItemAstroAsteroidSand
+
+- type: latheRecipe
+  parent: BaseFauxTileRecipe
+  id: FauxTileAstroAsteroidSandBorderless
+  result: FloorTileItemAstroAsteroidSandBorderless
+
+- type: latheRecipe
+  parent: BaseFauxTileRecipe
+  id: FauxTileDesertAstroSand
+  result: FloorTileItemDesertAstroSand
 
 - type: latheRecipe
   id: FloorGreenCircuit
@@ -330,32 +359,17 @@
     Glass: 200
 
 - type: latheRecipe
-  id: CandyBowl
-  result: CandyBowl
+  id: BoxFolderClipboardEmpty
+  result: BoxFolderClipboardEmpty
   completetime: 2
   materials:
-    Glass: 200
+    Wood: 100
+    Steel: 25
 
 - type: latheRecipe
-  id: DeskBell
-  result: DeskBell
+  id: BoxFolderPlasticClipboardEmpty
+  result: BoxFolderPlasticClipboardEmpty
   completetime: 2
   materials:
-    Steel: 20
-
-- type: latheRecipe
-  id: BaseHandheldTelevision
-  result: BaseHandheldTelevision
-  completetime: 2
-  materials:
-    Steel: 300
     Plastic: 100
-    
-- type: latheRecipe   
-  id: SurveillanceWirelessCameraBodyEntertainment
-  result: SurveillanceWirelessCameraBodyEntertainment
-  completetime: 3
-  materials:
-    Cloth: 200
-    Steel: 100
-    Plastic: 100
+    Steel: 25

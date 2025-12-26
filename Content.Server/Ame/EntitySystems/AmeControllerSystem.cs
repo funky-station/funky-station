@@ -30,6 +30,7 @@ using Content.Shared.Ame.Components;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Database;
 using Content.Shared.Mind.Components;
+using Content.Shared.NodeContainer;
 using Content.Shared.Power;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
@@ -260,7 +261,7 @@ public sealed class AmeControllerSystem : EntitySystem
             return;
 
         var humanReadableState = value ? "Inject" : "Not inject";
-        _adminLogger.Add(LogType.Action, LogImpact.Medium, $"{EntityManager.ToPrettyString(user.Value):player} has set the AME to {humanReadableState}");
+        _adminLogger.Add(LogType.Action, LogImpact.Medium, $"{ToPrettyString(user.Value):player} has set the AME to {humanReadableState}");
     }
 
     public void ToggleInjecting(EntityUid uid, EntityUid? user = null, AmeControllerComponent? controller = null)
@@ -295,7 +296,7 @@ public sealed class AmeControllerSystem : EntitySystem
 
         var logImpact = (oldValue <= safeLimit && value > safeLimit) ? LogImpact.Extreme : LogImpact.Medium;
 
-        _adminLogger.Add(LogType.Action, logImpact, $"{EntityManager.ToPrettyString(user.Value):player} has set the AME to inject {controller.InjectionAmount} while set to {humanReadableState}");
+        _adminLogger.Add(LogType.Action, logImpact, $"{ToPrettyString(user.Value):player} has set the AME to inject {controller.InjectionAmount} while set to {humanReadableState}");
     }
 
     public void AdjustInjectionAmount(EntityUid uid, int delta, EntityUid? user = null, AmeControllerComponent? controller = null)

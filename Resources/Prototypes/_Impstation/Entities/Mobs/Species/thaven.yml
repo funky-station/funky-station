@@ -31,7 +31,6 @@
       types:
         Asphyxiation: -1.0
   - type: Sprite
-    noRot: true
     drawdepth: Mobs
     scale: 1, 1.05
   - type: Body
@@ -42,11 +41,11 @@
   - type: Damageable
     damageContainer: Biological
     damageModifierSet: Thaven
-  - type: DamageVisuals
-    damageOverlayGroups:
-      Brute:
-        sprite: Mobs/Effects/brute_damage.rsi
-        color: "#ff624a"
+#  - type: DamageVisuals
+#    damageOverlayGroups:
+#      Brute:
+#        sprite: Mobs/Effects/brute_damage.rsi
+#        color: "#ff624a"
   - type: MeleeWeapon
     attackRate: 0.55
     soundHit:
@@ -124,14 +123,6 @@
       # Goobstation - changelings
       enum.StoreUiKey.Key:
         type: StoreBoundUserInterface
-      enum.HereticLivingHeartKey.Key: # goob edit - heretics
-        type: LivingHeartMenuBoundUserInterface
-      enum.BloodCultistCommuneUIKey.Key: # funky edit - cultists
-        type: BloodCultCommuneBoundUserInterface
-        requireInputValidation: false
-      enum.SpellsUiKey.Key: # funky edit - cultists
-        type: SpellsBoundUserInterface
-        requireInputValidation: false
       # Shitmed
       enum.SurgeryUIKey.Key:
         type: SurgeryBui

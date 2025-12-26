@@ -88,7 +88,8 @@ public sealed class LobbyUIController : UIController, IOnStateEntered<LobbyState
             _profileEditor?.RefreshFlavorText();
         });
 
-        _configurationManager.OnValueChanged(CCVars.GameRoleTimers, _ => RefreshEditors());
+        _configurationManager.OnValueChanged(CCVars.GameRoleTimers, _ => RefreshProfileEditor());
+        _configurationManager.OnValueChanged(CCVars.GameRoleLoadoutTimers, _ => RefreshProfileEditor());
 
         _configurationManager.OnValueChanged(CCVars.GameRoleWhitelist, _ => RefreshEditors());
     }
@@ -225,7 +226,12 @@ public sealed class LobbyUIController : UIController, IOnStateEntered<LobbyState
         var (characterGui, _) = EnsureGui();
         characterGui.ReloadCharacterPickers(selectJobPriorities: true);
     }
-
+    private void RefreshProfileEditor()
+    {
+        _profileEditor?.RefreshAntags();
+        _profileEditor?.RefreshJobs();
+        _profileEditor?.RefreshLoadouts();
+    }
     private void SaveProfile()
     {
         DebugTools.Assert(EditedProfile != null);
@@ -298,7 +304,7 @@ public sealed class LobbyUIController : UIController, IOnStateEntered<LobbyState
             _configurationManager,
             EntityManager,
             _dialogManager,
-            _logManager,
+            LogManager,
             _playerManager,
             _prototypeManager,
             _resourceCache,

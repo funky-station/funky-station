@@ -1,40 +1,16 @@
-// SPDX-FileCopyrightText: 2022 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 deltanedas <@deltanedas:kde.org>
-// SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
-// SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
-// SPDX-FileCopyrightText: 2024 Zonespace <41448081+Zonespace27@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 keronshb <54602815+keronshb@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
-// SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
-// SPDX-FileCopyrightText: 2025 misghast <51974455+misterghast@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
-//
-// SPDX-License-Identifier: MIT
-
+using System.Linq;
 using Content.Server.Store.Components;
-using Content.Shared.UserInterface;
 using Content.Shared.FixedPoint;
 using Content.Shared.Implants.Components;
 using Content.Shared.Interaction;
 using Content.Shared.Popups;
 using Content.Shared.Stacks;
 using Content.Shared.Store.Components;
+using Content.Shared.Store.Events;
+using Content.Shared.UserInterface;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Utility;
-using System.Linq;
-using Content.Server._White.StoreDiscount;
 using Robust.Shared.Timing;
-using Content.Shared.MalfAI;
-using Content.Shared.Store;
+using Robust.Shared.Utility;
 
 namespace Content.Server.Store.Systems;
 
@@ -47,9 +23,6 @@ public sealed partial class StoreSystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly StoreDiscountSystem _storeDiscount = default!;
-    [Dependency] private readonly Content.Shared.Alert.AlertsSystem _alerts = default!;
-    private static readonly ProtoId<CurrencyPrototype> CpuCurrencyId = "CPU";
 
     public override void Initialize()
     {
@@ -63,7 +36,7 @@ public sealed partial class StoreSystem : EntitySystem
         SubscribeLocalEvent<StoreComponent, ComponentStartup>(OnStartup);
         SubscribeLocalEvent<StoreComponent, ComponentShutdown>(OnShutdown);
         SubscribeLocalEvent<StoreComponent, OpenUplinkImplantEvent>(OnImplantActivate);
-        SubscribeLocalEvent<StoreComponent, OpenMalfAiStoreActionEvent>(OnMalfAiOpenStore);
+        SubscribeLocalEvent<StoreComponent, IntrinsicStoreActionEvent>(OnIntrinsicStoreAction);
 
         InitializeUi();
         InitializeCommand();
@@ -138,12 +111,6 @@ public sealed partial class StoreSystem : EntitySystem
         ToggleUi(args.Performer, uid, component);
     }
 
-    private void OnMalfAiOpenStore(EntityUid uid, StoreComponent component, Content.Shared.MalfAI.OpenMalfAiStoreActionEvent args)
-    {
-        ToggleUi(args.Performer, uid, component);
-        args.Handled = true;
-    }
-
     /// <summary>
     /// Gets the value from an entity's currency component.
     /// Scales with stacks.
@@ -186,7 +153,7 @@ public sealed partial class StoreSystem : EntitySystem
         // same tick
         currency.Comp.Price.Clear();
         if (stack != null)
-            _stack.SetCount(currency.Owner, 0, stack);
+            _stack.SetCount((currency.Owner, stack), 0);
 
         QueueDel(currency);
         return true;
@@ -217,26 +184,15 @@ public sealed partial class StoreSystem : EntitySystem
                 store.Balance[type.Key] += type.Value;
         }
 
-        // Replicate updated balance to clients before UI/alert updates.
-        Dirty(uid, store);
         UpdateUserInterface(null, uid, store);
-        ShowMalfCpuIfApplicable(uid, store);
         return true;
     }
 
-    private void ShowMalfCpuIfApplicable(EntityUid uid, StoreComponent store)
+    private void OnIntrinsicStoreAction(Entity<StoreComponent> ent, ref IntrinsicStoreActionEvent args)
     {
-        if (!store.CurrencyWhitelist.Contains(CpuCurrencyId))
-            return;
-        if (!HasComp<MalfAiMarkerComponent>(uid))
-            return;
-
-        var amountInt = 0;
-        if (store.Balance.TryGetValue(CpuCurrencyId, out var val))
-            amountInt = (int) val.Int();
-
-        _alerts.ShowAlert(uid, "MalfCpu", dynamicMessage: amountInt.ToString());
+        ToggleUi(args.Performer, ent.Owner, ent.Comp);
     }
+
 }
 
 public sealed class CurrencyInsertAttemptEvent : CancellableEntityEventArgs

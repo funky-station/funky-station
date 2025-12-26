@@ -1,46 +1,10 @@
-// SPDX-FileCopyrightText: 2022 Flipp Syder <76629141+vulppine@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Moony <moonheart08@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Paul Ritter <ritter.paul1@googlemail.com>
-// SPDX-FileCopyrightText: 2022 metalgearsloth <metalgearsloth@gmail.com>
-// SPDX-FileCopyrightText: 2023 20kdc <asdd2808@gmail.com>
-// SPDX-FileCopyrightText: 2023 Chief-Engineer <119664036+Chief-Engineer@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 deltanedas <@deltanedas:kde.org>
-// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Aexxie <codyfox.077@gmail.com>
-// SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
-// SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
-// SPDX-FileCopyrightText: 2024 DrSmugleaf <10968691+DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Jake Huxell <JakeHuxell@pm.me>
-// SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 LordCarve <27449516+LordCarve@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 MilenVolf <63782763+MilenVolf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Mr. 27 <45323883+Dutch-VanDerLinde@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 PJBot <pieterjan.briers+bot@gmail.com>
-// SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
-// SPDX-FileCopyrightText: 2024 TsjipTsjip <19798667+TsjipTsjip@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 beck-thompson <107373427+beck-thompson@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 eoineoineoin <github@eoinrul.es>
-// SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
-// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
-//
-// SPDX-License-Identifier: MIT
-
-using System.Linq;
 using System.Numerics;
-using Content.Server.Atmos.EntitySystems;
-using Content.Server.Explosion.Components;
 using Content.Shared.CCVar;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Components;
 using Content.Shared.Database;
 using Content.Shared.Explosion;
 using Content.Shared.Explosion.Components;
-using Content.Shared.Explosion.EntitySystems;
 using Content.Shared.Maps;
 using Content.Shared.Physics;
 using Content.Shared.Projectiles;
@@ -50,7 +14,6 @@ using Robust.Shared.Map.Components;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Dynamics;
-using Robust.Shared.Player;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
@@ -60,8 +23,6 @@ namespace Content.Server.Explosion.EntitySystems;
 
 public sealed partial class ExplosionSystem
 {
-    [Dependency] private readonly FlammableSystem _flammableSystem = default!;
-
     /// <summary>
     ///     Used to limit explosion processing time. See <see cref="MaxProcessingTime"/>.
     /// </summary>
@@ -100,13 +61,10 @@ public sealed partial class ExplosionSystem
 
     private List<EntityUid> _anchored = new();
 
-    private void OnMapChanged(MapChangedEvent ev)
+    private void OnMapRemoved(MapRemovedEvent ev)
     {
         // If a map was deleted, check the explosion currently being processed belongs to that map.
-        if (ev.Created)
-            return;
-
-        if (_activeExplosion?.Epicenter.MapId != ev.Map)
+        if (_activeExplosion?.Epicenter.MapId != ev.MapId)
             return;
 
         QueueDel(_activeExplosion.VisualEnt);
@@ -182,7 +140,7 @@ public sealed partial class ExplosionSystem
             }
 #if EXCEPTION_TOLERANCE
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 // Ensure the system does not get stuck in an error-loop.
                 if (_activeExplosion != null)
@@ -477,28 +435,25 @@ public sealed partial class ExplosionSystem
         float? fireStacksOnIgnite,
         EntityUid? cause)
     {
-        if (originalDamage != null)
+        if (originalDamage is not null)
         {
             GetEntitiesToDamage(uid, originalDamage, id);
             foreach (var (entity, damage) in _toDamage)
             {
-                if (damage.GetTotal() > 0 && TryComp<ActorComponent>(entity, out var actorComponent))
-                {
-                    // Log damage to player entities only, cause this will create a massive amount of log spam otherwise.
-                    if (cause != null)
-                    {
-                        _adminLogger.Add(LogType.ExplosionHit, LogImpact.Medium, $"Explosion of {ToPrettyString(cause):actor} dealt {damage.GetTotal()} damage to {ToPrettyString(entity):subject}");
-                    }
-                    else
-                    {
-                        _adminLogger.Add(LogType.ExplosionHit, LogImpact.Medium, $"Explosion at {epicenter:epicenter} dealt {damage.GetTotal()} damage to {ToPrettyString(entity):subject}");
-                    }
-
-                }
+                if (!_damageableQuery.TryComp(entity, out var damageable))
+                    continue;
 
                 // TODO EXPLOSIONS turn explosions into entities, and pass the the entity in as the damage origin.
-                _damageableSystem.TryChangeDamage(entity, damage * _damageableSystem.UniversalExplosionDamageModifier, ignoreResistances: true);
+                _damageableSystem.TryChangeDamage((entity, damageable), damage, ignoreResistances: true, ignoreGlobalModifiers: true);
 
+                if (_actorQuery.HasComp(entity))
+                {
+                    // Log damage to player entities only; this will create a massive amount of log spam otherwise.
+                    if (cause is not null)
+                        _adminLogger.Add(LogType.ExplosionHit, LogImpact.Medium, $"Explosion of {ToPrettyString(cause):actor} dealt {damage.GetTotal()} damage to {ToPrettyString(entity):subject}");
+                    else
+                        _adminLogger.Add(LogType.ExplosionHit, LogImpact.Medium, $"Explosion at {epicenter:epicenter} dealt {damage.GetTotal()} damage to {ToPrettyString(entity):subject}");
+                }
             }
         }
 
@@ -704,6 +659,7 @@ sealed class Explosion
     private readonly IEntityManager _entMan;
     private readonly ExplosionSystem _system;
     private readonly SharedMapSystem _mapSystem;
+    private readonly Shared.Damage.Systems.DamageableSystem _damageable;
 
     public readonly EntityUid VisualEnt;
 
@@ -724,10 +680,10 @@ sealed class Explosion
         int maxTileBreak,
         bool canCreateVacuum,
         IEntityManager entMan,
-        IMapManager mapMan,
         EntityUid visualEnt,
         EntityUid? cause,
-        SharedMapSystem mapSystem)
+        SharedMapSystem mapSystem,
+        Shared.Damage.Systems.DamageableSystem damageable)
     {
         VisualEnt = visualEnt;
         Cause = cause;
@@ -742,6 +698,7 @@ sealed class Explosion
         _maxTileBreak = maxTileBreak;
         _canCreateVacuum = canCreateVacuum;
         _entMan = entMan;
+        _damageable = damageable;
 
         _xformQuery = entMan.GetEntityQuery<TransformComponent>();
         _physicsQuery = entMan.GetEntityQuery<PhysicsComponent>();
@@ -751,7 +708,7 @@ sealed class Explosion
 
         if (spaceData != null)
         {
-            var mapUid = mapMan.GetMapEntityId(epicenter.MapId);
+            var mapUid = mapSystem.GetMap(epicenter.MapId);
 
             _explosionData.Add(new()
             {
@@ -796,8 +753,10 @@ sealed class Explosion
                 _expectedDamage = ExplosionType.DamagePerIntensity * _currentIntensity;
             }
 #endif
-
-            _currentDamage = ExplosionType.DamagePerIntensity * _currentIntensity;
+            var modifier = _currentIntensity
+                           * _damageable.UniversalExplosionDamageModifier
+                           * _damageable.UniversalAllDamageModifier;
+            _currentDamage = ExplosionType.DamagePerIntensity * modifier;
 
             // only throw if either the explosion is small, or if this is the outer ring of a large explosion.
             var doThrow = Area < _system.ThrowLimit || CurrentIteration > _tileSetIntensity.Count - 6;
@@ -949,10 +908,10 @@ sealed class Explosion
 /// <summary>
 /// Data needed to spawn an explosion with <see cref="ExplosionSystem.SpawnExplosion"/>.
 /// </summary>
-public sealed class QueuedExplosion
+public sealed class QueuedExplosion(ExplosionPrototype proto)
 {
     public MapCoordinates Epicenter;
-    public ExplosionPrototype Proto = new();
+    public ExplosionPrototype Proto = proto;
     public float TotalIntensity, Slope, MaxTileIntensity, TileBreakScale;
     public int MaxTileBreak;
     public bool CanCreateVacuum;

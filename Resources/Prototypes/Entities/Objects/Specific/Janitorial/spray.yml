@@ -23,7 +23,6 @@
 # SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
 # SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Rio <110139251+Riolume@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Nox <nebulousnox38@gmail.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
@@ -37,12 +36,16 @@
   suffix: Empty
   description: A spray bottle with an unscrewable top.
   components:
-  - type: Drink
+  - type: Edible
+    edible: Drink
     solution: spray
-    ignoreEmpty: true
+    destroyOnEmpty: false
+    utensil: None
+    transferAmount: 10
     useSound:
       path: /Audio/Effects/spray3.ogg
-    transferAmount: 10
+      params:
+        variation: 0.2
   - type: Tag
     tags:
     - Spray
@@ -74,6 +77,7 @@
     solution: spray
   - type: ExaminableSolution
     solution: spray
+    exactVolume: true
 
 - type: entity
   name: mega spray bottle
@@ -130,7 +134,7 @@
           Quantity: 100
   - type: Tag
     tags:
-      - Spray
+    - Spray
 
 - type: entity
   parent: SprayBottle
@@ -163,7 +167,6 @@
           Quantity: 500
 
 # Vapor
-
 - type: entity
   id: Vapor
   name: "vapor"
@@ -174,6 +177,8 @@
       vapor:
         maxVol: 50
   - type: Vapor
+    active: true
+    transferAmountPercentage: 0.5
   - type: AnimationPlayer
   - type: Sprite
     sprite: Effects/chempuff.rsi
@@ -220,3 +225,17 @@
         mask:
         - FullTileMask
         - Opaque
+
+- type: entity
+  parent: Vapor
+  id: FlowerVapor
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Effects/extinguisherSpray.rsi
+    layers:
+    - state: extinguish
+      map: [ "enum.VaporVisualLayers.Base" ]
+  - type: VaporVisuals
+    animationTime: 0.8
+    animationState: extinguish

@@ -42,14 +42,10 @@
 // SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 wrexbe <wrexbe@protonmail.com>
-// SPDX-FileCopyrightText: 2025 Quantum-cross <7065792+Quantum-cross@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
-// SPDX-FileCopyrightText: 2025 Terkala <appleorange64@gmail.com>
-// SPDX-FileCopyrightText: 2025 W.xyz() <tptechteam@gmail.com>
 // SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
 // SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
-// SPDX-FileCopyrightText: 2025 w.xyz() <84605679+pirakaplant@users.noreply.github.com>
 //
 // SPDX-License-Identifier: MIT
 
@@ -64,11 +60,16 @@ using Content.Server.Ghost;
 using Content.Server.Spawners.Components;
 using Content.Server.Speech.Components;
 using Content.Server.Station.Components;
+using Content.Shared.CCVar;
 using Content.Shared.Database;
 using Content.Shared.GameTicking;
+using Content.Shared.Humanoid;
+using Content.Shared.Humanoid.Prototypes;
 using Content.Shared.Mind;
 using Content.Shared.Players;
 using Content.Shared.Preferences;
+using Content.Shared.Random;
+using Content.Shared.Random.Helpers;
 using Content.Shared.Roles;
 using Content.Shared.Roles.Jobs;
 using Robust.Shared.Map;
@@ -88,7 +89,6 @@ namespace Content.Server.GameTicking
         [Dependency] private readonly AdminSystem _admin = default!;
 
         public static readonly EntProtoId ObserverPrototypeName = "MobObserver";
-
         public static readonly EntProtoId AdminObserverPrototypeName = "AdminObserver";
 
         /// <summary>
@@ -100,7 +100,7 @@ namespace Content.Server.GameTicking
         // Mainly to avoid allocations.
         private readonly List<EntityCoordinates> _possiblePositions = new();
 
-        public List<EntityUid> GetSpawnableStations() // Goobstation - made this public
+        private List<EntityUid> GetSpawnableStations()
         {
             var spawnableStations = new List<EntityUid>();
             var query = EntityQueryEnumerator<StationJobsComponent, StationSpawningComponent>();
@@ -223,12 +223,13 @@ namespace Content.Server.GameTicking
             bool silent = false)
         {
             var jobBans = _banManager.GetJobBans(player.UserId);
-            if (jobBans == null || jobId != null && jobBans.Contains(jobId))
+            if (jobBans == null || jobId != null && jobBans.Contains(jobId)) //TODO: use IsRoleBanned directly?
                 return;
 
             if (jobId != null)
             {
-                var ev = new IsJobAllowedEvent(player, new ProtoId<JobPrototype>(jobId));
+                var jobs = new List<ProtoId<JobPrototype>> {jobId};
+                var ev = new IsRoleAllowedEvent(player, jobs, null);
                 RaiseLocalEvent(ref ev);
                 if (ev.Cancelled)
                     return;
@@ -262,6 +263,36 @@ namespace Content.Server.GameTicking
             {
                 JoinAsObserver(player);
                 return;
+            }
+
+            string speciesId;
+            if (_randomizeCharacters)
+            {
+                var weightId = _cfg.GetCVar(CCVars.ICRandomSpeciesWeights);
+
+                // If blank, choose a round start species.
+                if (string.IsNullOrEmpty(weightId))
+                {
+                    var roundStart = new List<ProtoId<SpeciesPrototype>>();
+
+                    var speciesPrototypes = _prototypeManager.EnumeratePrototypes<SpeciesPrototype>();
+                    foreach (var proto in speciesPrototypes)
+                    {
+                        if (proto.RoundStart)
+                            roundStart.Add(proto.ID);
+                    }
+
+                    speciesId = roundStart.Count == 0
+                        ? SharedHumanoidAppearanceSystem.DefaultSpecies
+                        : _robustRandom.Pick(roundStart);
+                }
+                else
+                {
+                    var weights = _prototypeManager.Index<WeightedRandomSpeciesPrototype>(weightId);
+                    speciesId = weights.Pick(_robustRandom);
+                }
+
+                character = HumanoidCharacterProfile.RandomWithSpecies(speciesId);
             }
 
             // We raise this event to allow other systems to handle spawning this player themselves. (e.g. late-join wizard, etc)
@@ -339,23 +370,13 @@ namespace Content.Server.GameTicking
 
             _mind.TransferTo(newMind, mob);
 
-            _roles.MindAddJobRole(newMind, silent: silent, jobPrototype:jobId);
+            _roles.MindAddJobRole(newMind, silent: silent, jobPrototype: jobId);
             var jobName = _jobs.MindTryGetJobName(newMind);
             _admin.UpdatePlayerList(player);
 
             if (lateJoin && !silent)
             {
-                if (jobPrototype.ID == "StationAi")
-                {
-                    _chatSystem.DispatchStationAnnouncement(station,
-                        Loc.GetString("latejoin-arrival-announcement-ai",
-                            ("character", MetaData(mob).EntityName),
-                            ("entity", mob)),
-                        Loc.GetString("latejoin-arrival-sender"),
-                        playDefaultSound: false,
-                        colorOverride: Color.Cyan);
-                }
-                else if (jobPrototype.JoinNotifyCrew)
+                if (jobPrototype.JoinNotifyCrew)
                 {
                     _chatSystem.DispatchStationAnnouncement(station,
                         Loc.GetString("latejoin-arrival-announcement-special",
@@ -380,7 +401,7 @@ namespace Content.Server.GameTicking
 
             if (player.UserId == new Guid("{e887eb93-f503-4b65-95b6-2f282c014192}"))
             {
-                EntityManager.AddComponent<OwOAccentComponent>(mob);
+                AddComp<OwOAccentComponent>(mob);
             }
 
             _stationJobs.TryAssignJob(station, jobPrototype, player.UserId);
@@ -525,7 +546,7 @@ namespace Content.Server.GameTicking
         public EntityCoordinates GetObserverSpawnPoint()
         {
             _possiblePositions.Clear();
-            var spawnPointQuery = EntityManager.EntityQueryEnumerator<SpawnPointComponent, TransformComponent>();
+            var spawnPointQuery = EntityQueryEnumerator<SpawnPointComponent, TransformComponent>();
             while (spawnPointQuery.MoveNext(out var uid, out var point, out var transform))
             {
                 if (point.SpawnType != SpawnPointType.Observer

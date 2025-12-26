@@ -14,16 +14,17 @@
 using System.Linq;
 using Content.Server.Ghost.Roles;
 using Content.Server.Ghost.Roles.Components;
-using Content.Server.Mind.Commands;
-using Content.Server.Roles;
+using Content.Server.Mind;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Prototypes;
+using Content.Shared.Damage.Systems;
 using Content.Shared.FixedPoint;
 using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
 using Content.Shared.Players;
 using Content.Shared.Roles;
-using Content.Shared.Roles.Jobs;
+using Content.Shared.Roles.Components;
 using Robust.Server.Console;
 using Robust.Server.GameObjects;
 using Robust.Server.Player;
@@ -161,7 +162,7 @@ public sealed partial class MindTests
                 return;
             }
 
-            damageableSystem.SetDamage(entity, damageable, new DamageSpecifier(prototype, FixedPoint2.New(401)));
+            damageableSystem.SetDamage((entity, damageable), new DamageSpecifier(prototype, FixedPoint2.New(401)));
             Assert.That(mindSystem.GetMind(entity, mindContainerComp), Is.EqualTo(mindId));
         });
 
@@ -349,7 +350,7 @@ public sealed partial class MindTests
         var entMan = server.ResolveDependency<IServerEntityManager>();
         var playerMan = server.ResolveDependency<IPlayerManager>();
 
-        var mindSystem = entMan.EntitySysManager.GetEntitySystem<SharedMindSystem>();
+        var mindSystem = entMan.EntitySysManager.GetEntitySystem<MindSystem>();
 
         EntityUid entity = default!;
         EntityUid mindId = default!;
@@ -389,7 +390,7 @@ public sealed partial class MindTests
 
             mob = entMan.SpawnEntity(null, new MapCoordinates());
 
-            MakeSentientCommand.MakeSentient(mob, entMan);
+            mindSystem.MakeSentient(mob);
             mobMindId = mindSystem.CreateMind(player.UserId, "Mindy McThinker the Second");
             mobMind = entMan.GetComponent<MindComponent>(mobMindId);
 

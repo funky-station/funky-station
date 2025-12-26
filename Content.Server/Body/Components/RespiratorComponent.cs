@@ -1,31 +1,5 @@
-// SPDX-FileCopyrightText: 2020 ColdAutumnRain <73938872+ColdAutumnRain@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2020 creadth <creadth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 20kdc <asdd2808@gmail.com>
-// SPDX-FileCopyrightText: 2021 Acruid <shatter66@gmail.com>
-// SPDX-FileCopyrightText: 2021 Flipp Syder <76629141+vulppine@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Galactic Chimp <63882831+GalacticChimp@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Javier Guardia Fernández <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Paul Ritter <ritter.paul1@googlemail.com>
-// SPDX-FileCopyrightText: 2021 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Silver <silvertorch5@gmail.com>
-// SPDX-FileCopyrightText: 2021 Tomeno <Tomeno@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <gradientvera@outlook.com>
-// SPDX-FileCopyrightText: 2021 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 ike709 <ike709@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2022 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 0x6273 <0x40@keemail.me>
-// SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
-// SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
-//
-// SPDX-License-Identifier: MIT
-
 using Content.Server.Body.Systems;
+using Content.Shared.Atmos;
 using Content.Shared.Chat.Prototypes;
 using Content.Shared.Damage;
 using Robust.Shared.Prototypes;
@@ -33,13 +7,35 @@ using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
 namespace Content.Server.Body.Components
 {
-    [RegisterComponent, Access(typeof(RespiratorSystem))]
+    [RegisterComponent, Access(typeof(RespiratorSystem)), AutoGenerateComponentPause]
     public sealed partial class RespiratorComponent : Component
     {
         /// <summary>
+        ///     Gas container for this entity
+        /// </summary>
+        [DataField]
+        public GasMixture Air = new()
+        {
+            Volume = 6, // 6 liters, the average lung capacity for a human according to Google
+            Temperature = Atmospherics.NormalBodyTemperature
+        };
+
+        /// <summary>
+        ///     Volume of our breath in liters
+        /// </summary>
+        [DataField]
+        public float BreathVolume = Atmospherics.BreathVolume;
+
+        /// <summary>
+        ///     How much of the gas we inhale is metabolized? Value range is (0, 1]
+        /// </summary>
+        [DataField]
+        public float Ratio = 1.0f;
+
+        /// <summary>
         ///     The next time that this body will inhale or exhale.
         /// </summary>
-        [DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
+        [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoPausedField]
         public TimeSpan NextUpdate;
 
         /// <summary>
@@ -48,6 +44,18 @@ namespace Content.Server.Body.Components
         /// </summary>
         [DataField]
         public TimeSpan UpdateInterval = TimeSpan.FromSeconds(2);
+
+        /// <summary>
+        /// Multiplier applied to <see cref="UpdateInterval"/> for adjusting based on metabolic rate multiplier.
+        /// </summary>
+        [DataField]
+        public float UpdateIntervalMultiplier = 1f;
+
+        /// <summary>
+        /// Adjusted update interval based off of the multiplier value.
+        /// </summary>
+        [ViewVariables]
+        public TimeSpan AdjustedUpdateInterval => UpdateInterval * UpdateIntervalMultiplier;
 
         /// <summary>
         ///     Saturation level. Reduced by UpdateInterval each tick.

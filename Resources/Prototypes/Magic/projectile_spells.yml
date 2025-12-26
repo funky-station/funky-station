@@ -1,51 +1,39 @@
-# SPDX-FileCopyrightText: 2022 Kara <lunarautomaton6@gmail.com>
-# SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 metalgearsloth <comedian_vs_clown@hotmail.com>
-# SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
-# SPDX-FileCopyrightText: 2024 CatMagic <135462166+CatMagic1@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Kira Bridgeton <161087999+Verbalase@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 PoTeletubby <108604614+PoTeletubby@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 PoTeletubby <ajcraigaz@gmail.com>
-# SPDX-FileCopyrightText: 2024 keronshb <54602815+keronshb@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
-
 - type: entity
+  parent: BaseAction
   id: ActionFireball
   name: Fireball
   description: Fires an explosive fireball towards the clicked location.
   components:
   - type: Magic
-  - type: WorldTargetAction
+  - type: Action
     useDelay: 15
     itemIconStyle: BigAction
-    checkCanAccess: false
     raiseOnUser: true
-    range: 60
     sound: !type:SoundPathSpecifier
       path: /Audio/Magic/fireball.ogg
     icon:
       sprite: Objects/Magic/magicactions.rsi
       state: fireball
+  - type: TargetAction
+    range: 60
+    checkCanAccess: false
+  - type: WorldTargetAction
     event: !type:ProjectileSpellEvent
       prototype: ProjectileFireball
-      speech: action-speech-spell-fireball
+  - type: SpeakOnAction
+    sentence: action-speech-spell-fireball
   - type: ActionUpgrade
     effectedLevels:
       2: ActionFireballII
       3: ActionFireballIII
 
 - type: entity
-  id: ActionFireballII
   parent: ActionFireball
+  id: ActionFireballII
   name: Fireball II
   description: Fires a fireball, but faster!
   components:
   - type: WorldTargetAction
-    useDelay: 10
-    renewCharges: true
     itemIconStyle: BigAction
     checkCanAccess: false
     raiseOnUser: true
@@ -57,17 +45,16 @@
       state: fireball
     event: !type:ProjectileSpellEvent
       prototype: ProjectileFireball
-      speech: action-speech-spell-fireball
+  - type: SpeakOnAction
+    sentence: action-speech-spell-fireball
 
 - type: entity
-  id: ActionFireballIII
   parent: ActionFireball
+  id: ActionFireballIII
   name: Fireball III
   description: The fastest fireball in the west!
   components:
     - type: WorldTargetAction
-      useDelay: 8
-      renewCharges: true
       itemIconStyle: BigAction
       checkCanAccess: false
       raiseOnUser: true
@@ -79,4 +66,5 @@
         state: fireball
       event: !type:ProjectileSpellEvent
         prototype: ProjectileFireball
-        speech: action-speech-spell-fireball
+    - type: SpeakOnAction
+      sentence: action-speech-spell-fireball

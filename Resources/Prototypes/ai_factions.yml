@@ -16,7 +16,6 @@
 # SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
-# SPDX-FileCopyrightText: 2025 Terkala <appleorange64@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -33,7 +32,7 @@
     - Blob # Goobstation - Blob
     - AllHostile
     - Wizard
-    - BloodCultist # Blood cultists
+    - Xenoborg
 
 - type: npcFaction
   id: NanoTrasen
@@ -49,6 +48,7 @@
   - Heretic # goob edit - heretics
   - Blob # Goobstation - Blob
   - Wizard
+  - Xenoborg
 
 - type: npcFaction
   id: Mouse
@@ -62,6 +62,8 @@
 
 - type: npcFaction
   id: PetsNT
+  friendly:
+  - NanoTrasen
   hostile:
   - Mouse
   - SimpleHostile
@@ -85,7 +87,7 @@
   - AllHostile
   - Wizard
   - Dragon
-  - BloodCultist # Blood cultists
+  - Xenoborg
 
 - type: npcFaction
   id: SimpleNeutral
@@ -104,7 +106,7 @@
   - Heretic # goob edit - heretics
   - Blob # Goobstation - Blob
   - Wizard
-  - BloodCultist # Blood cultists
+  - Xenoborg
 
 - type: npcFaction
   id: Xeno
@@ -120,7 +122,7 @@
   - Blob # Goobstation - Blob
   - Wizard
   - Dragon
-  - BloodCultist # Blood cultists
+  - Xenoborg
 
 - type: npcFaction
   id: Zombie
@@ -139,7 +141,7 @@
   - Blob # Goobstation - Blob
   - Wizard
   - Dragon
-  - BloodCultist # Blood cultists
+  - Xenoborg
 
 - type: npcFaction
   id: Revolutionary
@@ -151,7 +153,7 @@
   - AllHostile
   - Blob
   - Wizard
-  - BloodCultist # Blood cultists
+  - Xenoborg
 
 - type: npcFaction
   id: AllHostile
@@ -171,7 +173,7 @@
   - Heretic # goob edit - heretics
   - Blob # Goobstation - Blob
   - Wizard
-  - BloodCultist # Blood cultists
+  - Xenoborg
 
 - type: npcFaction
   id: Wizard
@@ -188,4 +190,20 @@
   - Zombie
   - Revolutionary
   - AllHostile
-  - BloodCultist # Blood cultists
+  - Xenoborg
+
+- type: npcFaction
+  id: Xenoborg
+  hostile:
+  # they have brains
+  - NanoTrasen
+  - Syndicate
+  - Zombie
+  - Revolutionary
+  - Wizard
+
+  - Xeno # rivalry
+
+  # cause they are hostile to them
+  - SimpleHostile
+  - AllHostile

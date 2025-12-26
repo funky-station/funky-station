@@ -88,35 +88,35 @@
 - type: gamePreset
   id: Dynamic
   alias:
-    - dynamic
-    - dyn
-    - secret2
+  - dynamic
+  - dyn
+  - secret2
   name: gamemode-dynamic-title
   description: gamemode-dynamic-description
   showInVote: false
   rules:
-    - Dynamic
-    - BasicStationEventSchedulerNoAntag
-    - DynamicStationEventScheduler
-    #- MeteorSwarmScheduler Goobstation - nuh uh
-    - SpaceTrafficControlEventScheduler
-    - SpaceTrafficControlFriendlyEventScheduler
-    - BasicRoundstartVariation
+  - Dynamic
+  - BasicStationEventSchedulerNoAntag
+  - DynamicStationEventScheduler
+  #- MeteorSwarmScheduler Goobstation - nuh uh
+  - SpaceTrafficControlEventScheduler
+  - SpaceTrafficControlFriendlyEventScheduler
+  - BasicRoundstartVariation
 
 - type: gamePreset
   id: DynamicUnforgiving
   alias:
-    - dynamic2
-    - aao2
-    - deathrollercoaster
+  - dynamic2
+  - aao2
+  - deathrollercoaster
   name: gamemode-dynamic-u-title
   description: gamemode-dynamic-u-description
   showInVote: false # admeme only
   rules:
-    - DynamicUnforgiving
-    - BasicStationEventSchedulerNoAntag
-    - DynamicStationEventScheduler
-#    - MeteorSwarmScheduler Goob Edit
-    - SpaceTrafficControlEventScheduler
-    - SpaceTrafficControlFriendlyEventScheduler
-    - BasicRoundstartVariation
+  - DynamicUnforgiving
+  - BasicStationEventSchedulerNoAntag
+  - DynamicStationEventScheduler
+  #    - MeteorSwarmScheduler Goob Edit
+  - SpaceTrafficControlEventScheduler
+  - SpaceTrafficControlFriendlyEventScheduler
+  - BasicRoundstartVariation

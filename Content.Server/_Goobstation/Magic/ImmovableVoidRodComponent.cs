@@ -6,6 +6,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
+using Content.Shared.Heretic;
 using Robust.Shared.Audio;
 
 namespace Content.Server.Magic;
@@ -23,4 +24,6 @@ public sealed partial class ImmovableVoidRodComponent : Component
 
     [DataField]
     public string IceTilePrototype = "FloorAstroIce";
+
+    [NonSerialized] public Entity<HereticComponent>? User = null;
 }

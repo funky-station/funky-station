@@ -2,14 +2,13 @@
 // SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
 // SPDX-FileCopyrightText: 2024 ElectroJr <leonsfriedrich@gmail.com>
+// SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 MilenVolf <63782763+MilenVolf@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
 // SPDX-FileCopyrightText: 2024 Vasilis <vasilis@pikachu.systems>
 // SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Quantum-cross <7065792+Quantum-cross@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
 // SPDX-License-Identifier: MIT
@@ -22,168 +21,58 @@ using Content.Server.Database;
 using Content.Server.Preferences.Managers;
 using Content.Shared.Preferences;
 using Content.Shared.Roles;
+using Robust.Shared.EntitySerialization;
+using Robust.Shared.EntitySerialization.Systems;
 using JetBrains.Annotations;
 using Robust.Shared.GameObjects;
 using Robust.Shared.Map;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
-using Robust.UnitTesting;
+using Robust.Shared.Utility;
+using Robust.UnitTesting.Pool;
 
 namespace Content.IntegrationTests.Pair;
 
 // Contains misc helper functions to make writing tests easier.
 public sealed partial class TestPair
 {
+    public Task<TestMapData> CreateTestMap(bool initialized = true)
+        => CreateTestMap(initialized, "Plating");
+
     /// <summary>
-    /// Creates a map, a grid, and a tile, and gives back references to them.
+    /// Loads a test map and returns a <see cref="TestMapData"/> representing it.
     /// </summary>
-    [MemberNotNull(nameof(TestMap))]
-    public async Task<TestMapData> CreateTestMap(bool initialized = true, string tile = "Plating")
+    /// <param name="testMapPath">The <see cref="ResPath"/> to the test map to load.</param>
+    /// <param name="initialized">Whether to initialize the map on load.</param>
+    /// <returns>A <see cref="TestMapData"/> representing the loaded map.</returns>
+    public async Task<TestMapData> LoadTestMap(ResPath testMapPath, bool initialized = true)
     {
-        var mapData = new TestMapData();
-        TestMap = mapData;
-        await Server.WaitIdleAsync();
-        var tileDefinitionManager = Server.ResolveDependency<ITileDefinitionManager>();
+        TestMapData mapData = new();
+        var deserializationOptions = DeserializationOptions.Default with { InitializeMaps = initialized };
+        var mapLoaderSys = Server.EntMan.System<MapLoaderSystem>();
+        var mapSys = Server.System<SharedMapSystem>();
 
-        TestMap = mapData;
-        await Server.WaitPost(() =>
+        // Load our test map in and assert that it exists.
+        await Server.WaitAssertion(() =>
         {
-            mapData.MapUid = Server.System<SharedMapSystem>().CreateMap(out mapData.MapId, runMapInit: initialized);
-            mapData.Grid = Server.MapMan.CreateGridEntity(mapData.MapId);
-            mapData.GridCoords = new EntityCoordinates(mapData.Grid, 0, 0);
-            var plating = tileDefinitionManager[tile];
-            var platingTile = new Tile(plating.TileId);
-            Server.System<SharedMapSystem>().SetTile(mapData.Grid.Owner, mapData.Grid.Comp, mapData.GridCoords, platingTile);
-            mapData.MapCoords = new MapCoordinates(0, 0, mapData.MapId);
-            mapData.Tile = Server.System<SharedMapSystem>().GetAllTiles(mapData.Grid.Owner, mapData.Grid.Comp).First();
-        });
+            Assert.That(mapLoaderSys.TryLoadMap(testMapPath, out var map, out var gridSet, deserializationOptions),
+                $"Failed to load map {testMapPath}.");
+            Assert.That(gridSet, Is.Not.Empty, "There were no grids loaded from the map!");
 
-        TestMap = mapData;
-        if (!Settings.Connected)
-            return mapData;
+            mapData.MapUid = map!.Value.Owner;
+            mapData.MapId = map!.Value.Comp.MapId;
+            mapData.Grid = gridSet!.First();
+            mapData.GridCoords = new EntityCoordinates(mapData.Grid, 0, 0);
+            mapData.MapCoords = new MapCoordinates(0, 0, mapData.MapId);
+            mapData.Tile = mapSys.GetAllTiles(mapData.Grid.Owner, mapData.Grid.Comp).First();
+        });
 
         await RunTicksSync(10);
         mapData.CMapUid = ToClientUid(mapData.MapUid);
         mapData.CGridUid = ToClientUid(mapData.Grid);
         mapData.CGridCoords = new EntityCoordinates(mapData.CGridUid, 0, 0);
 
-        TestMap = mapData;
         return mapData;
-    }
-
-    /// <summary>
-    /// Convert a client-side uid into a server-side uid
-    /// </summary>
-    public EntityUid ToServerUid(EntityUid uid) => ConvertUid(uid, Client, Server);
-
-    /// <summary>
-    /// Convert a server-side uid into a client-side uid
-    /// </summary>
-    public EntityUid ToClientUid(EntityUid uid) => ConvertUid(uid, Server, Client);
-
-    private static EntityUid ConvertUid(
-        EntityUid uid,
-        RobustIntegrationTest.IntegrationInstance source,
-        RobustIntegrationTest.IntegrationInstance destination)
-    {
-        if (!uid.IsValid())
-            return EntityUid.Invalid;
-
-        if (!source.EntMan.TryGetComponent<MetaDataComponent>(uid, out var meta))
-        {
-            Assert.Fail($"Failed to resolve MetaData while converting the EntityUid for entity {uid}");
-            return EntityUid.Invalid;
-        }
-
-        if (!destination.EntMan.TryGetEntity(meta.NetEntity, out var otherUid))
-        {
-            Assert.Fail($"Failed to resolve net ID while converting the EntityUid entity {source.EntMan.ToPrettyString(uid)}");
-            return EntityUid.Invalid;
-        }
-
-        return otherUid.Value;
-    }
-
-    /// <summary>
-    /// Execute a command on the server and wait some number of ticks.
-    /// </summary>
-    public async Task WaitCommand(string cmd, int numTicks = 10)
-    {
-        await Server.ExecuteCommand(cmd);
-        await RunTicksSync(numTicks);
-    }
-
-    /// <summary>
-    /// Execute a command on the client and wait some number of ticks.
-    /// </summary>
-    public async Task WaitClientCommand(string cmd, int numTicks = 10)
-    {
-        await Client.ExecuteCommand(cmd);
-        await RunTicksSync(numTicks);
-    }
-
-    /// <summary>
-    /// Retrieve all entity prototypes that have some component.
-    /// </summary>
-    public List<(EntityPrototype, T)> GetPrototypesWithComponent<T>(
-        HashSet<string>? ignored = null,
-        bool ignoreAbstract = true,
-        bool ignoreTestPrototypes = true)
-        where T : IComponent, new()
-    {
-        if (!Server.ResolveDependency<IComponentFactory>().TryGetRegistration<T>(out var reg)
-            && !Client.ResolveDependency<IComponentFactory>().TryGetRegistration<T>(out reg))
-        {
-            Assert.Fail($"Unknown component: {typeof(T).Name}");
-            return new();
-        }
-
-        var id = reg.Name;
-        var list = new List<(EntityPrototype, T)>();
-        foreach (var proto in Server.ProtoMan.EnumeratePrototypes<EntityPrototype>())
-        {
-            if (ignored != null && ignored.Contains(proto.ID))
-                continue;
-
-            if (ignoreAbstract && proto.Abstract)
-                continue;
-
-            if (ignoreTestPrototypes && IsTestPrototype(proto))
-                continue;
-
-            if (proto.Components.TryGetComponent(id, out var cmp))
-                list.Add((proto, (T)cmp));
-        }
-
-        return list;
-    }
-
-    /// <summary>
-    /// Retrieve all entity prototypes that have some component.
-    /// </summary>
-    public List<EntityPrototype> GetPrototypesWithComponent(Type type,
-        HashSet<string>? ignored = null,
-        bool ignoreAbstract = true,
-        bool ignoreTestPrototypes = true)
-    {
-        var id = Server.ResolveDependency<IComponentFactory>().GetComponentName(type);
-        var list = new List<EntityPrototype>();
-        foreach (var proto in Server.ProtoMan.EnumeratePrototypes<EntityPrototype>())
-        {
-            if (ignored != null && ignored.Contains(proto.ID))
-                continue;
-
-            if (ignoreAbstract && proto.Abstract)
-                continue;
-
-            if (ignoreTestPrototypes && IsTestPrototype(proto))
-                continue;
-
-            if (proto.Components.ContainsKey(id))
-                list.Add((proto));
-        }
-
-        return list;
     }
 
     /// <summary>

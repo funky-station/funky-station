@@ -35,7 +35,7 @@
       - MindRoleTraitor
   - type: Tag
     tags:
-      - MidroundAntag
+    - MidroundAntag
 
 # Midround Changelings
 - type: entity
@@ -65,14 +65,10 @@
       playerRatio: 1 # 10 normally, 1 for testing
       blacklist:
         components:
-          - AntagImmune
-      lateJoinAdditional: true
-      components:
-      - type: ChangelingInfection # Funky: Made midround lings infections instead of instant.
-        needsInitialization: true
+        - AntagImmune
   - type: Tag
     tags:
-      - MidroundAntag
+    - MidroundAntag
 
 - type: entity
   parent: Heretic
@@ -108,7 +104,7 @@
       startingGear: HereticGear # see Roles/Antags/heretic.yml
   - type: Tag
     tags:
-      - MidroundAntag
+    - MidroundAntag
 
 # Midround Revolutionaries
 - type: entity
@@ -154,7 +150,7 @@
       - MindRoleHeadRevolutionary
   - type: Tag
     tags:
-      - MidroundAntag
+    - MidroundAntag
 # Skeleton Spawn
 - type: entity
   parent: BaseGameRule
@@ -172,7 +168,7 @@
     prototype: MobSkeletonCloset
   - type: Tag
     tags:
-      - MidroundAntag
+    - MidroundAntag
 # Blob Midround
 - type: entity
   parent: BaseGameRule
@@ -201,4 +197,4 @@
     maxCarrierBlob: 1
   - type: Tag
     tags:
-      - MidroundAntag
+    - MidroundAntag

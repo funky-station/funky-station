@@ -21,7 +21,7 @@
       effects:
         - !type:ModifyBloodLevel
           amount: 10
-        - !type:ModifyBleedAmount
+        - !type:ModifyBleed
           amount: -2
         - !type:ReduceRotting
           seconds: 30
@@ -38,13 +38,14 @@
               Genetic: -20
         - !type:HealthChange
           conditions:
-          - !type:ReagentThreshold
+          - !type:ReagentCondition
+            reagent: Stasizium
             min: 21
           damage:
             types:
               Blunt: 100
         - !type:AdjustTemperature
           conditions:
-          - !type:Temperature
+          - !type:TemperatureCondition
             min: 263.15
           amount: -50000

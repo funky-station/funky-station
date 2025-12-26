@@ -403,6 +403,7 @@ public sealed class ListContainerButton : ContainerButton, IListEntry
 {
     public ListContainerButton(ListData data, int index)
     {
+        AddStyleClass(StyleClassButton);
         Data = data;
         Index = index;
         StyleBoxOverride = new StyleBoxFlat(Color.White);

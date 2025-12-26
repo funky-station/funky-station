@@ -11,6 +11,7 @@ using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Damage.Components;
+using Content.Shared.Temperature.Components;
 
 namespace Content.Server._Goobstation.Temperature;
 

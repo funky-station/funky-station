@@ -1,23 +1,7 @@
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Fildrance <fildrance@gmail.com>
-// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
-// SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
-// SPDX-FileCopyrightText: 2024 keronshb <54602815+keronshb@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
-// SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
-// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
-//
-// SPDX-License-Identifier: MIT
-
-using Content.Shared._White.StoreDiscount;
 using Content.Shared.FixedPoint;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 
 namespace Content.Shared.Store.Components;
 
@@ -60,16 +44,16 @@ public sealed partial class StoreComponent : Component
     public EntityUid? AccountOwner = null;
 
     /// <summary>
-    /// All listings, including those that aren't available to the buyer
+    /// Cached list of listings items with modifiers.
     /// </summary>
     [DataField]
-    public HashSet<ListingData> Listings = new();
+    public HashSet<ListingDataWithCostModifiers> FullListingsCatalog = new();
 
     /// <summary>
     /// All available listings from the last time that it was checked.
     /// </summary>
     [ViewVariables]
-    public HashSet<ListingData> LastAvailableListings = new();
+    public HashSet<ListingDataWithCostModifiers> LastAvailableListings = new();
 
     /// <summary>
     ///     All current entities bought from this shop. Useful for keeping track of refunds and upgrades.
@@ -101,11 +85,6 @@ public sealed partial class StoreComponent : Component
     /// </summary>
     [DataField]
     public EntityUid? StartingMap;
-
-    // WD EDIT START
-    [DataField]
-    public SalesSpecifier Sales { get; private set; } = new();
-    // WD EDIT END
 
     #region audio
     /// <summary>

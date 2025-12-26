@@ -40,6 +40,14 @@ namespace Content.Shared.Storage
     {
         public static string ContainerId = "storagebase";
 
+        public const byte ChunkSize = 8;
+
+        // No datafield because we can just derive it from stored items.
+        /// <summary>
+        /// Bitmask of occupied tiles
+        /// </summary>
+        public Dictionary<Vector2i, ulong> OccupiedGrid = new();
+
         [ViewVariables]
         public Container Container = default!;
 
@@ -174,6 +182,13 @@ namespace Content.Shared.Storage
         {
             Key,
         }
+
+        /// <summary>
+        /// Allow or disallow showing the "open/close storage" verb.
+        /// This is desired on items that we don't want to be accessed by the player directly.
+        /// </summary>
+        [DataField]
+        public bool ShowVerb = true;
     }
 
     [Serializable, NetSerializable]

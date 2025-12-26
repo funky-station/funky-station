@@ -1,49 +1,3 @@
-// SPDX-FileCopyrightText: 2020 SoulSloth <67545203+SoulSloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 20kdc <asdd2808@gmail.com>
-// SPDX-FileCopyrightText: 2021 Acruid <shatter66@gmail.com>
-// SPDX-FileCopyrightText: 2021 Galactic Chimp <63882831+GalacticChimp@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <gradientvera@outlook.com>
-// SPDX-FileCopyrightText: 2021 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 0x6273 <0x40@keemail.me>
-// SPDX-FileCopyrightText: 2022 EmoGarbage404 <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Flipp Syder <76629141+vulppine@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Moony <moonheart08@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2022 fishfish458 <fishfish458>
-// SPDX-FileCopyrightText: 2022 och-och <80923370+och-och@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Emisse <99158783+Emisse@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Jezithyr <jezithyr@gmail.com>
-// SPDX-FileCopyrightText: 2023 Julian Giebel <juliangiebel@live.de>
-// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 OctoRocket <88291550+OctoRocket@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Pieter-Jan Briers <pieterjan.briers@gmail.com>
-// SPDX-FileCopyrightText: 2023 Rane <60792108+Elijahrane@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 brainfood1183 <113240905+brainfood1183@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 corentt <36075110+corentt@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 keronshb <54602815+keronshb@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 metalgearsloth <comedian_vs_clown@hotmail.com>
-// SPDX-FileCopyrightText: 2024 John Space <bigdumb421@gmail.com>
-// SPDX-FileCopyrightText: 2024 Kara <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 PJBot <pieterjan.briers+bot@gmail.com>
-// SPDX-FileCopyrightText: 2024 Scribbles0 <91828755+Scribbles0@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
-// SPDX-FileCopyrightText: 2024 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-FileCopyrightText: 2024 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 GreyMaria <mariomister541@gmail.com>
-// SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
-// SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
-// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
-//
-// SPDX-License-Identifier: MIT
-
 using Content.Server.Humanoid;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Cloning;
@@ -53,8 +7,9 @@ using Content.Shared.Humanoid;
 using Content.Shared.Inventory;
 using Content.Shared.Implants;
 using Content.Shared.Implants.Components;
-using Content.Shared.NameModifier.Components;
+using Content.Shared.NameModifier.EntitySystems;
 using Content.Shared.StatusEffect;
+using Content.Shared.StatusEffectNew.Components;
 using Content.Shared.Storage;
 using Content.Shared.Storage.EntitySystems;
 using Content.Shared.Whitelist;
@@ -70,9 +25,8 @@ namespace Content.Server.Cloning;
 ///     System responsible for making a copy of a humanoid's body.
 ///     For the cloning machines themselves look at CloningPodSystem, CloningConsoleSystem and MedicalScannerSystem instead.
 /// </summary>
-public sealed partial class CloningSystem : EntitySystem
+public sealed partial class CloningSystem : SharedCloningSystem
 {
-    [Dependency] private readonly IComponentFactory _componentFactory = default!;
     [Dependency] private readonly HumanoidAppearanceSystem _humanoidSystem = default!;
     [Dependency] private readonly InventorySystem _inventory = default!;
     [Dependency] private readonly MetaDataSystem _metaData = default!;
@@ -82,6 +36,8 @@ public sealed partial class CloningSystem : EntitySystem
     [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly SharedStorageSystem _storage = default!;
     [Dependency] private readonly SharedSubdermalImplantSystem _subdermalImplant = default!;
+    [Dependency] private readonly NameModifierSystem _nameMod = default!;
+    [Dependency] private readonly Shared.StatusEffectNew.StatusEffectsSystem _statusEffects = default!; //TODO: This system has to support both the old and new status effect systems, until the old is able to be fully removed.
 
     /// <summary>
     ///     Spawns a clone of the given humanoid mob at the specified location or in nullspace.
@@ -89,13 +45,13 @@ public sealed partial class CloningSystem : EntitySystem
     public bool TryCloning(EntityUid original, MapCoordinates? coords, ProtoId<CloningSettingsPrototype> settingsId, [NotNullWhen(true)] out EntityUid? clone)
     {
         clone = null;
-        if (!_prototype.TryIndex(settingsId, out var settings))
+        if (!_prototype.Resolve(settingsId, out var settings))
             return false; // invalid settings
 
         if (!TryComp<HumanoidAppearanceComponent>(original, out var humanoid))
             return false; // whatever body was to be cloned, was not a humanoid
 
-        if (!_prototype.TryIndex(humanoid.Species, out var speciesPrototype))
+        if (!_prototype.Resolve(humanoid.Species, out var speciesPrototype))
             return false; // invalid species
 
         var attemptEv = new CloningAttemptEvent(settings);
@@ -106,44 +62,9 @@ public sealed partial class CloningSystem : EntitySystem
         clone = coords == null ? Spawn(speciesPrototype.Prototype) : Spawn(speciesPrototype.Prototype, coords.Value);
         _humanoidSystem.CloneAppearance(original, clone.Value);
 
-        var componentsToCopy = settings.Components;
+        CloneComponents(original, clone.Value, settings);
 
-        // don't make status effects permanent
-        if (TryComp<StatusEffectsComponent>(original, out var statusComp))
-            componentsToCopy.ExceptWith(statusComp.ActiveEffects.Values.Select(s => s.RelevantComponent).Where(s => s != null)!);
-
-        foreach (var componentName in componentsToCopy)
-        {
-            if (!_componentFactory.TryGetRegistration(componentName, out var componentRegistration))
-            {
-                Log.Error($"Tried to use invalid component registration for cloning: {componentName}");
-                continue;
-            }
-
-            if (EntityManager.TryGetComponent(original, componentRegistration.Type, out var sourceComp)) // Does the original have this component?
-            {
-                if (HasComp(clone.Value, componentRegistration.Type)) // CopyComp cannot overwrite existing components
-                    RemComp(clone.Value, componentRegistration.Type);
-                CopyComp(original, clone.Value, sourceComp);
-            }
-        }
-
-        var cloningEv = new Shared.Cloning.Events.CloningEvent(settings, clone.Value);
-        RaiseLocalEvent(original, ref cloningEv); // used for datafields that cannot be directly copied
-
-        // funkystation: let's rename the clone first, since we're manually cloning ID and PDA names
-        var originalName = Name(original);
-        if (TryComp<NameModifierComponent>(original, out var nameModComp)) // if the originals name was modified, use the unmodified name
-            originalName = nameModComp.BaseName;
-
-        // This will properly set the BaseName and EntityName for the clone.
-        // Adding the component first before renaming will make sure RefreshNameModifers is called.
-        // Without this the name would get reverted to Urist.
-        // If the clone has no name modifiers, NameModifierComponent will be removed again.
-        EnsureComp<NameModifierComponent>(clone.Value);
-        _metaData.SetEntityName(clone.Value, originalName);
-
-        // funkystation: ok NOW let's copy equipment and such
+        // Add equipment first so that SetEntityName also renames the ID card.
         if (settings.CopyEquipment != null)
             CopyEquipment(original, clone.Value, settings.CopyEquipment.Value, settings.Whitelist, settings.Blacklist);
 
@@ -156,8 +77,71 @@ public sealed partial class CloningSystem : EntitySystem
         if (settings.CopyImplants)
             CopyImplants(original, clone.Value, settings.CopyInternalStorage, settings.Whitelist, settings.Blacklist);
 
+        // Copy permanent status effects
+        if (settings.CopyStatusEffects)
+            CopyStatusEffects(original, clone.Value);
+
+        var originalName = _nameMod.GetBaseName(original);
+
+        // Set the clone's name. The raised events will also adjust their PDA and ID card names.
+        _metaData.SetEntityName(clone.Value, originalName);
+
         _adminLogger.Add(LogType.Chat, LogImpact.Medium, $"The body of {original:player} was cloned as {clone.Value:player}");
         return true;
+    }
+
+    public override void CloneComponents(EntityUid original, EntityUid clone, ProtoId<CloningSettingsPrototype> settings)
+    {
+        if (!_prototype.Resolve(settings, out var proto))
+            return;
+
+        CloneComponents(original, clone, proto);
+    }
+
+    public override void CloneComponents(EntityUid original, EntityUid clone, CloningSettingsPrototype settings)
+    {
+        var componentsToCopy = settings.Components;
+        var componentsToEvent = settings.EventComponents;
+
+        // don't make status effects permanent
+        if (TryComp<StatusEffectsComponent>(original, out var statusComp))
+        {
+            var statusComps = statusComp.ActiveEffects.Values.Select(s => s.RelevantComponent).Where(s => s != null).ToList();
+            componentsToCopy.ExceptWith(statusComps!);
+            componentsToEvent.ExceptWith(statusComps!);
+        }
+
+        foreach (var componentName in componentsToCopy)
+        {
+            if (!Factory.TryGetRegistration(componentName, out var componentRegistration))
+            {
+                Log.Error($"Tried to use invalid component registration for cloning: {componentName}");
+                continue;
+            }
+
+            // If the original does not have the component, then the clone shouldn't have it either.
+            RemComp(clone, componentRegistration.Type);
+            if (EntityManager.TryGetComponent(original, componentRegistration.Type, out var sourceComp)) // Does the original have this component?
+            {
+                CopyComp(original, clone, sourceComp);
+            }
+        }
+
+        foreach (var componentName in componentsToEvent)
+        {
+            if (!Factory.TryGetRegistration(componentName, out var componentRegistration))
+            {
+                Log.Error($"Tried to use invalid component registration for cloning: {componentName}");
+                continue;
+            }
+
+            // If the original does not have the component, then the clone shouldn't have it either.
+            if (!HasComp(original, componentRegistration.Type))
+                RemComp(clone, componentRegistration.Type);
+        }
+
+        var cloningEv = new CloningEvent(settings, clone);
+        RaiseLocalEvent(original, ref cloningEv); // used for datafields that cannot be directly copied using CopyComp
     }
 
     /// <summary>
@@ -200,7 +184,7 @@ public sealed partial class CloningSystem : EntitySystem
         if (prototype == null)
             return null;
 
-        var spawned = EntityManager.SpawnAtPosition(prototype, coords);
+        var spawned = SpawnAtPosition(prototype, coords);
 
         // copy over important component data
         var ev = new CloningItemEvent(spawned);
@@ -288,5 +272,34 @@ public sealed partial class CloningSystem : EntitySystem
                 CopyStorage(originalImplant, targetImplant.Value, whitelist, blacklist); // only needed for storage implants
         }
 
+    }
+
+    /// <summary>
+    ///    Scans all permanent status effects applied to the original entity and transfers them to the clone.
+    /// </summary>
+    public void CopyStatusEffects(Entity<StatusEffectContainerComponent?> original, Entity<StatusEffectContainerComponent?> target)
+    {
+        if (!Resolve(original, ref original.Comp, false))
+            return;
+
+        if (original.Comp.ActiveStatusEffects is null)
+            return;
+
+        foreach (var effect in original.Comp.ActiveStatusEffects.ContainedEntities)
+        {
+            if (!TryComp<StatusEffectComponent>(effect, out var effectComp))
+                continue;
+
+            //We are not interested in temporary effects, only permanent ones.
+            if (effectComp.EndEffectTime is not null)
+                continue;
+
+            var effectProto = Prototype(effect);
+
+            if (effectProto is null)
+                continue;
+
+            _statusEffects.TrySetStatusEffectDuration(target, effectProto);
+        }
     }
 }

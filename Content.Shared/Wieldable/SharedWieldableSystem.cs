@@ -37,6 +37,8 @@ using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction.Events;
+using Content.Shared.Inventory;
+using Content.Shared.Inventory.Events;
 using Content.Shared.Inventory.VirtualItem;
 using Content.Shared.Item;
 using Content.Shared.Movement.Components;
@@ -52,6 +54,7 @@ using Content.Shared.Weapons.Ranged.Events;
 using Content.Shared.Weapons.Ranged.Systems;
 using Content.Shared.Wieldable.Components;
 using Robust.Shared.Audio.Systems;
+using Robust.Shared.Collections;
 using Robust.Shared.Network;
 using Robust.Shared.Timing;
 
@@ -81,6 +84,12 @@ public abstract class SharedWieldableSystem : EntitySystem
         SubscribeLocalEvent<WieldableComponent, VirtualItemDeletedEvent>(OnVirtualItemDeleted);
         SubscribeLocalEvent<WieldableComponent, GetVerbsEvent<InteractionVerb>>(AddToggleWieldVerb);
         SubscribeLocalEvent<WieldableComponent, HandDeselectedEvent>(OnDeselectWieldable);
+
+        SubscribeLocalEvent<WieldingBlockerComponent, GotEquippedEvent>(OnBlockerEquipped);
+        SubscribeLocalEvent<WieldingBlockerComponent, GotEquippedHandEvent>(OnBlockerEquippedHand);
+        SubscribeLocalEvent<WieldingBlockerComponent, WieldAttemptEvent>(OnBlockerAttempt);
+        SubscribeLocalEvent<WieldingBlockerComponent, InventoryRelayedEvent<WieldAttemptEvent>>(OnBlockerAttempt);
+        SubscribeLocalEvent<WieldingBlockerComponent, HeldRelayedEvent<WieldAttemptEvent>>(OnBlockerAttempt);
 
         SubscribeLocalEvent<MeleeRequiresWieldComponent, AttemptMeleeEvent>(OnMeleeAttempt);
         SubscribeLocalEvent<GunRequiresWieldComponent, ExaminedEvent>(OnExamineRequires);
@@ -137,7 +146,7 @@ public abstract class SharedWieldableSystem : EntitySystem
 
     private void OnDeselectWieldable(EntityUid uid, WieldableComponent component, HandDeselectedEvent args)
     {
-        if (_hands.EnumerateHands(args.User).Count() > 2)
+        if (_hands.GetHandCount(args.User) > 2)
             return;
 
         TryUnwield(uid, component, args.User);
@@ -193,7 +202,7 @@ public abstract class SharedWieldableSystem : EntitySystem
         if (args.Hands == null || !args.CanAccess || !args.CanInteract)
             return;
 
-        if (!_hands.IsHolding(args.User, uid, out _, args.Hands))
+        if (!_hands.IsHolding((args.User, args.Hands), uid, out _))
             return;
 
         // TODO VERB TOOLTIPS Make CanWield or some other function return string, set as verb tooltip and disable
@@ -217,12 +226,53 @@ public abstract class SharedWieldableSystem : EntitySystem
             return;
 
         if (!component.Wielded)
-            args.Handled = TryWield(uid, component, args.User);
+        {
+            TryWield(uid, component, args.User);
+            args.Handled = true; // always mark as handled or we will cycle ammo when wielding is blocked
+        }
         else if (component.UnwieldOnUse)
-            args.Handled = TryUnwield(uid, component, args.User);
+        {
+            TryUnwield(uid, component, args.User);
+            args.Handled = true;
+        }
 
         if (HasComp<UseDelayComponent>(uid) && !component.UseDelayOnWield)
             args.ApplyDelay = false;
+    }
+
+    private void OnBlockerEquipped(Entity<WieldingBlockerComponent> ent, ref GotEquippedEvent args)
+    {
+        if (ent.Comp.BlockEquipped)
+            UnwieldAll(args.Equipee, force: true);
+    }
+
+    private void OnBlockerEquippedHand(Entity<WieldingBlockerComponent> ent, ref GotEquippedHandEvent args)
+    {
+        if (ent.Comp.BlockInHand)
+            UnwieldAll(args.User, force: true);
+    }
+
+    private void OnBlockerAttempt(Entity<WieldingBlockerComponent> ent, ref InventoryRelayedEvent<WieldAttemptEvent> args)
+    {
+        if (ent.Comp.BlockEquipped)
+        {
+            args.Args.Message = Loc.GetString("wieldable-component-blocked-wield", ("blocker", ent.Owner), ("item", args.Args.Wielded));
+            args.Args.Cancelled = true;
+        }
+    }
+
+    private void OnBlockerAttempt(Entity<WieldingBlockerComponent> ent, ref HeldRelayedEvent<WieldAttemptEvent> args)
+    {
+        if (ent.Comp.BlockInHand)
+        {
+            args.Args.Message = Loc.GetString("wieldable-component-blocked-wield", ("blocker", ent.Owner), ("item", args.Args.Wielded));
+            args.Args.Cancelled = true;
+        }
+    }
+
+    private void OnBlockerAttempt(Entity<WieldingBlockerComponent> ent, ref WieldAttemptEvent args)
+    {
+        args.Cancelled = true;
     }
 
     public bool CanWield(EntityUid uid, WieldableComponent component, EntityUid user, bool quiet = false)
@@ -236,14 +286,14 @@ public abstract class SharedWieldableSystem : EntitySystem
         }
 
         // Is it.. actually in one of their hands?
-        if (!_hands.IsHolding(user, uid, out _, hands))
+        if (!_hands.IsHolding((user, hands), uid, out _))
         {
             if (!quiet)
                 _popup.PopupClient(Loc.GetString("wieldable-component-not-in-hands", ("item", uid)), user, user);
             return false;
         }
 
-        if (_hands.CountFreeableHands((user, hands)) < component.FreeHandsRequired)
+        if (_hands.CountFreeableHands((user, hands), except: uid) < component.FreeHandsRequired)
         {
             if (!quiet)
             {
@@ -273,11 +323,15 @@ public abstract class SharedWieldableSystem : EntitySystem
                 return false;
         }
 
-        var attemptEv = new WieldAttemptEvent(user);
-        RaiseLocalEvent(used, ref attemptEv);
+        var attemptEv = new WieldAttemptEvent(user, used);
+        RaiseLocalEvent(user, ref attemptEv);
 
         if (attemptEv.Cancelled)
+        {
+            if (attemptEv.Message != null)
+                _popup.PopupClient(attemptEv.Message, user, user);
             return false;
+        }
 
         if (TryComp<ItemComponent>(used, out var item))
         {
@@ -291,26 +345,22 @@ public abstract class SharedWieldableSystem : EntitySystem
             _audio.PlayPredicted(component.WieldSound, used, user);
 
         //This section handles spawning the virtual item(s) to occupy the required additional hand(s).
-        //Since the client can't currently predict entity spawning, only do this if this is running serverside.
-        //Remove this check if TrySpawnVirtualItem in SharedVirtualItemSystem is allowed to complete clientside.
-        if (_netManager.IsServer)
+        var virtuals = new ValueList<EntityUid>();
+        for (var i = 0; i < component.FreeHandsRequired; i++)
         {
-            var virtuals = new List<EntityUid>();
-            for (var i = 0; i < component.FreeHandsRequired; i++)
+            // don't show a popup when dropping items because it will overlap with the popup for wielding
+            if (_virtualItem.TrySpawnVirtualItemInHand(used, user, out var virtualItem, true, silent: true))
             {
-                if (_virtualItem.TrySpawnVirtualItemInHand(used, user, out var virtualItem, true))
-                {
-                    virtuals.Add(virtualItem.Value);
-                    continue;
-                }
-
-                foreach (var existingVirtual in virtuals)
-                {
-                    QueueDel(existingVirtual);
-                }
-
-                return false;
+                virtuals.Add(virtualItem.Value);
+                continue;
             }
+
+            foreach (var existingVirtual in virtuals)
+            {
+                QueueDel(existingVirtual);
+            }
+
+            return false;
         }
 
         var selfMessage = Loc.GetString("wieldable-component-successful-wield", ("item", used));
@@ -334,11 +384,15 @@ public abstract class SharedWieldableSystem : EntitySystem
 
         if (!force)
         {
-            var attemptEv = new UnwieldAttemptEvent(user);
-            RaiseLocalEvent(used, ref attemptEv);
+            var attemptEv = new UnwieldAttemptEvent(user, used);
+            RaiseLocalEvent(user, ref attemptEv);
 
             if (attemptEv.Cancelled)
+            {
+                if (attemptEv.Message != null)
+                    _popup.PopupClient(attemptEv.Message, user, user);
                 return false;
+            }
         }
 
         SetWielded((used, component), false);
@@ -346,6 +400,19 @@ public abstract class SharedWieldableSystem : EntitySystem
         var ev = new ItemUnwieldedEvent(user, force);
         RaiseLocalEvent(used, ref ev);
         return true;
+    }
+
+    /// <summary>
+    /// Makes an entity unwield all currently wielded items.
+    /// </summary>
+    /// <param name="force">If this is true we will bypass UnwieldAttemptEvent.</param>
+    public void UnwieldAll(Entity<HandsComponent?> wielder, bool force = false)
+    {
+        foreach (var held in _hands.EnumerateHeld(wielder))
+        {
+            if (TryComp<WieldableComponent>(held, out var wieldable))
+                TryUnwield(held, wieldable, wielder, force);
+        }
     }
 
     /// <summary>

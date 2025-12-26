@@ -4,6 +4,8 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
+using Content.Goobstation.Shared.Blob;
+using Content.Goobstation.Shared.Blob.Components;
 using Content.Shared.Actions;
 using Content.Shared.Antag;
 using Content.Shared.Damage;

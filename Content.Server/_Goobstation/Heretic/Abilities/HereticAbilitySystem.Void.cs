@@ -1,64 +1,70 @@
-// SPDX-FileCopyrightText: 2024 PJBot <pieterjan.briers+bot@gmail.com>
 // SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
-// SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
-// SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Kandiyaki <106633914+Kandiyaki@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 jackel234 <52829582+jackel234@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Marcus F <199992874+thebiggestbruh@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
+// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+// SPDX-FileCopyrightText: 2025 thebiggestbruh <199992874+thebiggestbruh@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 username <113782077+whateverusername0@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 whateverusername0 <whateveremail>
 //
-// SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+// SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Server.Atmos.Components;
-using Content.Server.Body.Components;
-using Content.Server.Heretic.Components;
-using Content.Server.Temperature.Components;
+using Content.Server.Magic;
+using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Damage;
-using Content.Shared.Damage.Prototypes;
 using Content.Shared.Heretic;
-using Content.Shared.Physics;
-using Content.Shared.Temperature.Components;
+using Content.Shared.Movement.Components;
+using Content.Shared.Slippery;
 using Robust.Shared.Audio;
-using Robust.Shared.Physics;
 using Robust.Shared.Physics.Components;
 using System.Linq;
-using Content.Server.Temperature.Systems;
-using Content.Shared.FixedPoint;
-using Content.Shared.Magic;
-using Content.Shared.Magic.Events;
+using Content.Goobstation.Common.Atmos;
+using Content.Goobstation.Common.Temperature.Components;
+using Content.Goobstation.Shared.Body.Components;
+using Content.Server.Heretic.Components;
+using Content.Shared.Atmos.Components;
+using Content.Shared.Interaction;
 
-namespace Content.Server.Heretic.Abilities;
+namespace Content.Server._Goobstation.Heretic.Abilities;
 
-public sealed partial class HereticAbilitySystem : EntitySystem
+public sealed partial class HereticAbilitySystem
 {
-    [Dependency] private readonly DamageableSystem _damage = default!;
-    [Dependency] private readonly TemperatureSystem _temperature = default!;
     private void SubscribeVoid()
     {
         SubscribeLocalEvent<HereticComponent, HereticAristocratWayEvent>(OnAristocratWay);
         SubscribeLocalEvent<HereticComponent, HereticAscensionVoidEvent>(OnAscensionVoid);
 
         SubscribeLocalEvent<HereticComponent, HereticVoidBlastEvent>(OnVoidBlast);
-        SubscribeLocalEvent<HereticComponent, HereticVoidBlinkEvent>(OnVoidBlink);
         SubscribeLocalEvent<HereticComponent, HereticVoidPullEvent>(OnVoidPull);
     }
 
     private void OnAristocratWay(Entity<HereticComponent> ent, ref HereticAristocratWayEvent args)
     {
-        RemComp<TemperatureComponent>(ent);
-        RemComp<TemperatureSpeedComponent>(ent);
-        RemComp<RespiratorComponent>(ent);
+        EnsureComp<SpecialLowTempImmunityComponent>(ent);
+        EnsureComp<SpecialBreathingImmunityComponent>(ent);
     }
+
     private void OnAscensionVoid(Entity<HereticComponent> ent, ref HereticAscensionVoidEvent args)
     {
-        RemComp<BarotraumaComponent>(ent);
+        EnsureComp<SpecialHighTempImmunityComponent>(ent);
+        EnsureComp<SpecialPressureImmunityComponent>(ent);
         EnsureComp<AristocratComponent>(ent);
 
-        if(TryComp<FixturesComponent>(ent, out var fixtures) && TryComp<PhysicsComponent>(ent, out var physics))
-        {
-            var fix = fixtures.Fixtures.First();
-            _phys.SetCollisionMask(ent, fix.Key, fix.Value, (int)CollisionGroup.Opaque);
-            _phys.SetCollisionLayer(ent, fix.Key, fix.Value, (int)CollisionGroup.BulletImpassable);
-        }
+        EnsureComp<MovementIgnoreGravityComponent>(ent);
+        EnsureComp<NoSlipComponent>(ent); // :godo:
+
+        // fire immunity
+        var flam = EnsureComp<FlammableComponent>(ent);
+        flam.Damage = new(); // reset damage dict
+
+        // the hunt begins
+        var voidVision = new HereticVoidVisionEvent();
+        RaiseLocalEvent(ent, voidVision);
     }
 
     private void OnVoidBlast(Entity<HereticComponent> ent, ref HereticVoidBlastEvent args)
@@ -67,6 +73,8 @@ public sealed partial class HereticAbilitySystem : EntitySystem
             return;
 
         var rod = Spawn("ImmovableVoidRod", Transform(ent).Coordinates);
+        if (TryComp<ImmovableVoidRodComponent>(rod, out var vrod))
+            vrod.User = ent;
 
         if (TryComp(rod, out PhysicsComponent? phys))
         {
@@ -75,58 +83,10 @@ public sealed partial class HereticAbilitySystem : EntitySystem
             _phys.SetBodyStatus(rod, phys, BodyStatus.InAir);
 
             var xform = Transform(rod);
-            var direction = _transform.ToMapCoordinates(args.Target).Position - _transform.GetWorldPosition(ent);
-            direction.Normalize();
-
-            var vel = direction * 15f;
+            var vel = Transform(ent).WorldRotation.ToWorldVec() * 15f;
 
             _phys.SetLinearVelocity(rod, vel, body: phys);
-            xform.LocalRotation = direction.ToAngle();
-        }
-
-        args.Handled = true;
-    }
-
-    private void OnVoidBlink(Entity<HereticComponent> ent, ref HereticVoidBlinkEvent args)
-    {
-        if (!TryUseAbility(ent, args))
-            return;
-
-        _aud.PlayPvs(new SoundPathSpecifier("/Audio/_Funkystation/Effects/Heretic/voidblink.ogg"), ent);
-
-        foreach (var pookie in GetNearbyPeople(ent, 2f))
-        {
-            _stun.TryKnockdown(pookie, TimeSpan.FromSeconds(2f), true);
-
-            if (TryComp<TemperatureComponent>(pookie, out var temp))
-                _temperature.ForceChangeTemperature(pookie, temp.CurrentTemperature - 25f, temp);
-
-            if (TryComp<DamageableComponent>(pookie, out var damage))
-            {
-                var appliedDamageSpecifier =
-                    new DamageSpecifier(_prot.Index<DamageTypePrototype>("Cold"), FixedPoint2.New(5f));
-                _damage.TryChangeDamage(pookie, appliedDamageSpecifier, true, origin: ent);
-            }
-        }
-
-        _transform.SetCoordinates(ent, args.Target);
-
-        // repeating for both sides
-        _aud.PlayPvs(new SoundPathSpecifier("/Audio/_Funkystation/Effects/Heretic/voidblink.ogg"), ent);
-
-        foreach (var pookie in GetNearbyPeople(ent, 2f))
-        {
-            _stun.TryKnockdown(pookie, TimeSpan.FromSeconds(2f), true);
-
-            if (TryComp<TemperatureComponent>(pookie, out var temp))
-                _temperature.ForceChangeTemperature(pookie, temp.CurrentTemperature - 25f, temp);
-
-            if (TryComp<DamageableComponent>(pookie, out var damage))
-            {
-                var appliedDamageSpecifier =
-                    new DamageSpecifier(_prot.Index<DamageTypePrototype>("Cold"), FixedPoint2.New(5f));
-                _damage.TryChangeDamage(pookie, appliedDamageSpecifier, true, origin: ent);
-            }
+            xform.LocalRotation = Transform(ent).LocalRotation;
         }
 
         args.Handled = true;
@@ -137,52 +97,37 @@ public sealed partial class HereticAbilitySystem : EntitySystem
         if (!TryUseAbility(ent, args))
             return;
 
-        var topPriority = GetNearbyPeople(ent, 2f);
-        var midPriority = GetNearbyPeople(ent, 3.5f);
-        var farPriority = GetNearbyPeople(ent, 5f);
+        var path = ent.Comp.CurrentPath;
+        var topPriority = GetNearbyPeople(ent, args.DamageRadius, path);
+        var midPriority = GetNearbyPeople(ent, args.StunRadius, path);
+        var farPriority = GetNearbyPeople(ent, args.Radius, path);
 
-        // Freeze closest ones, and do heavy damage - funky
+        // damage closest ones
         foreach (var pookie in topPriority)
         {
-            if (TryComp<TemperatureComponent>(pookie, out var temp))
-                _temperature.ForceChangeTemperature(pookie, temp.CurrentTemperature - 50f, temp);
-
-            if (TryComp<DamageableComponent>(pookie, out var damage))
-            {
-                var appliedDamageSpecifier =
-                    new DamageSpecifier(_prot.Index<DamageTypePrototype>("Cold"), FixedPoint2.New(25f));
-                _damage.TryChangeDamage(pookie, appliedDamageSpecifier, true, origin: ent);
-            }
+            // apply gaming.
+            _dmg.TryChangeDamage(pookie,
+                args.Damage,
+                true,
+                origin: ent,
+                targetPart: TargetBodyPart.All);
         }
 
-        //Reduce mid-range entities' temps, and do decent damage - funky
+        // stun close-mid range
         foreach (var pookie in midPriority)
         {
-            if (TryComp<TemperatureComponent>(pookie, out var temp))
-                _temperature.ForceChangeTemperature(pookie, temp.CurrentTemperature - 30f, temp);
-
-            if (TryComp<DamageableComponent>(pookie, out var damage))
-            {
-                var appliedDamageSpecifier =
-                    new DamageSpecifier(_prot.Index<DamageTypePrototype>("Cold"), FixedPoint2.New(12.5f));
-                _damage.TryChangeDamage(pookie, appliedDamageSpecifier, true, origin: ent);
-
-                _stun.TryKnockdown(pookie, TimeSpan.FromSeconds(2.5f), true);
-            }
+            _stun.TryAddStunDuration(pookie, args.StunTime);
         }
 
-        //Do light damage to far ones - funky
+        var coords = Transform(ent).Coordinates;
+
+        // pull in farthest ones
         foreach (var pookie in farPriority)
         {
-            if (TryComp<DamageableComponent>(pookie, out var damage))
-            {
-                var appliedDamageSpecifier =
-                    new DamageSpecifier(_prot.Index<DamageTypePrototype>("Cold"), FixedPoint2.New(5f));
-                _damage.TryChangeDamage(pookie, appliedDamageSpecifier, true, origin: ent);
-
-                _throw.TryThrow(pookie, Transform(ent).Coordinates);
-            }
+            _throw.TryThrow(pookie, coords);
         }
+
+        Spawn(args.InEffect, coords);
 
         args.Handled = true;
     }

@@ -1,9 +1,3 @@
-// SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
-// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
-//
-// SPDX-License-Identifier: MIT
-
 ﻿using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
@@ -25,9 +19,15 @@ public sealed class RoboticsConsoleState : BoundUserInterfaceState
     /// </summary>
     public Dictionary<string, CyborgControlData> Cyborgs;
 
-    public RoboticsConsoleState(Dictionary<string, CyborgControlData> cyborgs)
+    /// <summary>
+    /// If the UI will have the buttons to disable and destroy.
+    /// </summary>
+    public bool AllowBorgControl;
+
+    public RoboticsConsoleState(Dictionary<string, CyborgControlData> cyborgs, bool allowBorgControl)
     {
         Cyborgs = cyborgs;
+        AllowBorgControl = allowBorgControl;
     }
 }
 
@@ -54,20 +54,6 @@ public sealed class RoboticsConsoleDestroyMessage : BoundUserInterfaceMessage
     public readonly string Address;
 
     public RoboticsConsoleDestroyMessage(string address)
-    {
-        Address = address;
-    }
-}
-
-/// <summary>
-/// Message to impose a Malf-AI Law 0 on the selected cyborg.
-/// </summary>
-[Serializable, NetSerializable]
-public sealed class RoboticsConsoleImposeLawMessage : BoundUserInterfaceMessage
-{
-    public readonly string Address;
-
-    public RoboticsConsoleImposeLawMessage(string address)
     {
         Address = address;
     }
@@ -105,6 +91,12 @@ public partial record struct CyborgControlData
     public float Charge;
 
     /// <summary>
+    /// HP level from 0 to 1.
+    /// </summary>
+    [DataField]
+    public float HpPercent; // 0.0 to 1.0
+
+    /// <summary>
     /// How many modules this borg has, just useful information for roboticists.
     /// Lets them keep track of the latejoin borgs that need new modules and stuff.
     /// </summary>
@@ -125,30 +117,22 @@ public partial record struct CyborgControlData
     public bool CanDisable;
 
     /// <summary>
-    /// Whether the borg is emagged for interaction immunity.
-    /// Used to grey out the impose-law button on the console UI.
-    /// </summary>
-    [DataField]
-    public bool Emagged;
-
-
-    /// <summary>
     /// When this cyborg's data will be deleted.
     /// Set by the console when receiving the packet.
     /// </summary>
     [DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
     public TimeSpan Timeout = TimeSpan.Zero;
 
-    public CyborgControlData(SpriteSpecifier? chassisSprite, string chassisName, string name, float charge, int moduleCount, bool hasBrain, bool canDisable, bool emagged)
+    public CyborgControlData(SpriteSpecifier? chassisSprite, string chassisName, string name, float charge, float hpPercent, int moduleCount, bool hasBrain, bool canDisable)
     {
         ChassisSprite = chassisSprite;
         ChassisName = chassisName;
         Name = name;
         Charge = charge;
+        HpPercent = hpPercent;
         ModuleCount = moduleCount;
         HasBrain = hasBrain;
         CanDisable = canDisable;
-        Emagged = emagged;
     }
 }
 

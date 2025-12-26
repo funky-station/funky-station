@@ -1,40 +1,11 @@
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Moony <moony@hellomouse.net>
-// SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Pieter-Jan Briers <pieterjan.briers@gmail.com>
-// SPDX-FileCopyrightText: 2023 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 deltanedas <@deltanedas:kde.org>
-// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
-// SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
-// SPDX-FileCopyrightText: 2024 Bakke <luringens@protonmail.com>
-// SPDX-FileCopyrightText: 2024 Jake Huxell <JakeHuxell@pm.me>
-// SPDX-FileCopyrightText: 2024 Kira Bridgeton <161087999+Verbalase@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 MilenVolf <63782763+MilenVolf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
-// SPDX-FileCopyrightText: 2024 keronshb <54602815+keronshb@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 JoulesBerg <104539820+JoulesBerg@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
-// SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
-// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
-//
-// SPDX-License-Identifier: MIT
-
 using Content.Server.Actions;
 using Content.Server.Humanoid;
 using Content.Server.Inventory;
-using Content.Server.Mind.Commands;
 using Content.Server.Polymorph.Components;
-using Content.Shared.Actions;
 using Content.Shared.Buckle;
-using Content.Shared.Damage;
+using Content.Shared.Coordinates;
+using Content.Shared.Damage.Components;
+using Content.Shared.Damage.Systems;
 using Content.Shared.Destructible;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.IdentityManagement;
@@ -47,7 +18,6 @@ using Content.Shared.Popups;
 using Robust.Server.Audio;
 using Robust.Server.Containers;
 using Robust.Server.GameObjects;
-using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
@@ -56,8 +26,7 @@ namespace Content.Server.Polymorph.Systems;
 
 public sealed partial class PolymorphSystem : EntitySystem
 {
-    [Dependency] private readonly IComponentFactory _compFact = default!;
-    [Dependency] private readonly IMapManager _mapManager = default!;
+    [Dependency] private readonly SharedMapSystem _map = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly IGameTiming _gameTiming = default!;
     [Dependency] private readonly ActionsSystem _actions = default!;
@@ -85,12 +54,11 @@ public sealed partial class PolymorphSystem : EntitySystem
         SubscribeLocalEvent<PolymorphableComponent, PolymorphActionEvent>(OnPolymorphActionEvent);
         SubscribeLocalEvent<PolymorphedEntityComponent, RevertPolymorphActionEvent>(OnRevertPolymorphActionEvent);
 
-        SubscribeLocalEvent<PolymorphedEntityComponent, BeforeFullyEatenEvent>(OnBeforeFullyEaten);
         SubscribeLocalEvent<PolymorphedEntityComponent, BeforeFullySlicedEvent>(OnBeforeFullySliced);
         SubscribeLocalEvent<PolymorphedEntityComponent, DestructionEventArgs>(OnDestruction);
+        SubscribeLocalEvent<PolymorphedEntityComponent, EntityTerminatingEvent>(OnPolymorphedTerminating);
 
         InitializeMap();
-        InitializeTrigger();
     }
 
     public override void Update(float frameTime)
@@ -117,8 +85,6 @@ public sealed partial class PolymorphSystem : EntitySystem
                 Revert((uid, comp));
             }
         }
-
-        UpdateTrigger();
     }
 
     private void OnComponentStartup(Entity<PolymorphableComponent> ent, ref ComponentStartup args)
@@ -140,14 +106,14 @@ public sealed partial class PolymorphSystem : EntitySystem
 
         if (_actions.AddAction(uid, ref component.Action, out var action, RevertPolymorphId))
         {
-            action.EntityIcon = component.Parent;
-            action.UseDelay = TimeSpan.FromSeconds(component.Configuration.Delay);
+            _actions.SetEntityIcon((component.Action.Value, action), component.Parent);
+            _actions.SetUseDelay(component.Action.Value, TimeSpan.FromSeconds(component.Configuration.Delay));
         }
     }
 
     private void OnPolymorphActionEvent(Entity<PolymorphableComponent> ent, ref PolymorphActionEvent args)
     {
-        if (!_proto.TryIndex(args.ProtoId, out var prototype) || args.Handled)
+        if (!_proto.Resolve(args.ProtoId, out var prototype) || args.Handled)
             return;
 
         PolymorphEntity(ent, prototype.Configuration);
@@ -161,24 +127,13 @@ public sealed partial class PolymorphSystem : EntitySystem
         Revert((ent, ent));
     }
 
-    private void OnBeforeFullyEaten(Entity<PolymorphedEntityComponent> ent, ref BeforeFullyEatenEvent args)
-    {
-        var (_, comp) = ent;
-        if (comp.Configuration.RevertOnEat)
-        {
-            args.Cancel();
-            Revert((ent, ent));
-        }
-    }
-
     private void OnBeforeFullySliced(Entity<PolymorphedEntityComponent> ent, ref BeforeFullySlicedEvent args)
     {
-        var (_, comp) = ent;
-        if (comp.Configuration.RevertOnEat)
-        {
-            args.Cancel();
-            Revert((ent, ent));
-        }
+        if (ent.Comp.Reverted || !ent.Comp.Configuration.RevertOnEat)
+            return;
+
+        args.Cancel();
+        Revert((ent, ent));
     }
 
     /// <summary>
@@ -187,10 +142,23 @@ public sealed partial class PolymorphSystem : EntitySystem
     /// </summary>
     private void OnDestruction(Entity<PolymorphedEntityComponent> ent, ref DestructionEventArgs args)
     {
-        if (ent.Comp.Configuration.RevertOnDeath)
-        {
-            Revert((ent, ent));
-        }
+        if (ent.Comp.Reverted || !ent.Comp.Configuration.RevertOnDeath)
+            return;
+
+        Revert((ent, ent));
+    }
+
+    private void OnPolymorphedTerminating(Entity<PolymorphedEntityComponent> ent, ref EntityTerminatingEvent args)
+    {
+        if (ent.Comp.Reverted)
+            return;
+
+        if (ent.Comp.Configuration.RevertOnDelete)
+            Revert(ent.AsNullable());
+
+        // Remove our original entity too
+        // Note that Revert will set Parent to null, so reverted entities will not be deleted
+        QueueDel(ent.Comp.Parent);
     }
 
     /// <summary>
@@ -205,15 +173,18 @@ public sealed partial class PolymorphSystem : EntitySystem
     }
 
     /// <summary>
-    /// Polymorphs the target entity into another
+    /// Polymorphs the target entity into another.
     /// </summary>
     /// <param name="uid">The entity that will be transformed</param>
-    /// <param name="configuration">Polymorph data</param>
-    /// <returns></returns>
+    /// <param name="configuration">The new polymorph configuration</param>
+    /// <returns>The new entity, or null if the polymorph failed.</returns>
     public EntityUid? PolymorphEntity(EntityUid uid, PolymorphConfiguration configuration)
     {
-        // if it's already morphed, don't allow it again with this condition active.
-        if (!configuration.AllowRepeatedMorphs && HasComp<PolymorphedEntityComponent>(uid))
+        // If they're morphed, check their current config to see if they can be
+        // morphed again
+        if (!configuration.IgnoreAllowRepeatedMorphs
+            && TryComp<PolymorphedEntityComponent>(uid, out var currentPoly)
+            && !currentPoly.Configuration.AllowRepeatedMorphs)
             return null;
 
         // If this polymorph has a cooldown, check if that amount of time has passed since the
@@ -233,9 +204,15 @@ public sealed partial class PolymorphSystem : EntitySystem
 
         var child = Spawn(configuration.Entity, _transform.GetMapCoordinates(uid, targetTransformComp), rotation: _transform.GetWorldRotation(uid));
 
-        MakeSentientCommand.MakeSentient(child, EntityManager);
+        if (configuration.PolymorphPopup != null)
+            _popup.PopupEntity(Loc.GetString(configuration.PolymorphPopup,
+                ("parent", Identity.Entity(uid, EntityManager)),
+                ("child", Identity.Entity(child, EntityManager))),
+                child);
 
-        var polymorphedComp = _compFact.GetComponent<PolymorphedEntityComponent>();
+        _mindSystem.MakeSentient(child);
+
+        var polymorphedComp = Factory.GetComponent<PolymorphedEntityComponent>();
         polymorphedComp.Parent = uid;
         polymorphedComp.Configuration = configuration;
         AddComp(child, polymorphedComp);
@@ -252,7 +229,7 @@ public sealed partial class PolymorphSystem : EntitySystem
             _mobThreshold.GetScaledDamage(uid, child, out var damage) &&
             damage != null)
         {
-            _damageable.SetDamage(child, damageParent, damage);
+            _damageable.SetDamage((child, damageParent), damage);
         }
 
         if (configuration.Inventory == PolymorphInventoryChange.Transfer)
@@ -300,6 +277,10 @@ public sealed partial class PolymorphSystem : EntitySystem
         var ev = new PolymorphedEvent(uid, child, false);
         RaiseLocalEvent(uid, ref ev);
 
+        // visual effect spawn
+        if (configuration.EffectProto != null)
+            SpawnAttachedTo(configuration.EffectProto, child.ToCoordinates());
+
         return child;
     }
 
@@ -317,12 +298,18 @@ public sealed partial class PolymorphSystem : EntitySystem
         if (Deleted(uid))
             return null;
 
-        var parent = component.Parent;
+        if (component.Parent is not { } parent)
+            return null;
+
         if (Deleted(parent))
             return null;
 
         var uidXform = Transform(uid);
         var parentXform = Transform(parent);
+
+        // Don't swap back onto a terminating grid
+        if (TerminatingOrDeleted(uidXform.ParentUid))
+            return null;
 
         if (component.Configuration.ExitPolymorphSound != null)
             _audio.PlayPvs(component.Configuration.ExitPolymorphSound, uidXform.Coordinates);
@@ -330,12 +317,14 @@ public sealed partial class PolymorphSystem : EntitySystem
         _transform.SetParent(parent, parentXform, uidXform.ParentUid);
         _transform.SetCoordinates(parent, parentXform, uidXform.Coordinates, uidXform.LocalRotation);
 
+        component.Reverted = true;
+
         if (component.Configuration.TransferDamage &&
             TryComp<DamageableComponent>(parent, out var damageParent) &&
             _mobThreshold.GetScaledDamage(uid, parent, out var damage) &&
             damage != null)
         {
-            _damageable.SetDamage(parent, damageParent, damage);
+            _damageable.SetDamage((parent, damageParent), damage);
         }
 
         if (component.Configuration.Inventory == PolymorphInventoryChange.Transfer)
@@ -376,14 +365,16 @@ public sealed partial class PolymorphSystem : EntitySystem
         var ev = new PolymorphedEvent(uid, parent, true);
         RaiseLocalEvent(uid, ref ev);
 
-        _popup.PopupEntity(Loc.GetString("polymorph-revert-popup-generic",
+        // visual effect spawn
+        if (component.Configuration.EffectProto != null)
+            SpawnAttachedTo(component.Configuration.EffectProto, parent.ToCoordinates());
+
+        if (component.Configuration.ExitPolymorphPopup != null)
+            _popup.PopupEntity(Loc.GetString(component.Configuration.ExitPolymorphPopup,
                 ("parent", Identity.Entity(uid, EntityManager)),
                 ("child", Identity.Entity(parent, EntityManager))),
-            parent);
+                parent);
         QueueDel(uid);
-
-        // goob edit
-        RaiseLocalEvent(parent, new PolymorphRevertEvent());
 
         return parent;
     }
@@ -399,7 +390,7 @@ public sealed partial class PolymorphSystem : EntitySystem
         if (target.Comp.PolymorphActions.ContainsKey(id))
             return;
 
-        if (!_proto.TryIndex(id, out var polyProto))
+        if (!_proto.Resolve(id, out var polyProto))
             return;
 
         var entProto = _proto.Index(polyProto.Configuration.Entity);
@@ -414,21 +405,20 @@ public sealed partial class PolymorphSystem : EntitySystem
         _metaData.SetEntityName(actionId.Value, Loc.GetString("polymorph-self-action-name", ("target", entProto.Name)), metaDataCache);
         _metaData.SetEntityDescription(actionId.Value, Loc.GetString("polymorph-self-action-description", ("target", entProto.Name)), metaDataCache);
 
-        if (!_actions.TryGetActionData(actionId, out var baseAction))
+        if (_actions.GetAction(actionId) is not {} action)
             return;
 
-        baseAction.Icon = new SpriteSpecifier.EntityPrototype(polyProto.Configuration.Entity);
-        if (baseAction is InstantActionComponent action)
-            action.Event = new PolymorphActionEvent(id);
+        _actions.SetIcon((action, action.Comp), new SpriteSpecifier.EntityPrototype(polyProto.Configuration.Entity));
+        _actions.SetEvent(action, new PolymorphActionEvent(id));
     }
 
     public void RemovePolymorphAction(ProtoId<PolymorphPrototype> id, Entity<PolymorphableComponent> target)
     {
-        if (target.Comp.PolymorphActions == null)
+        if (target.Comp.PolymorphActions is not {} actions)
             return;
 
-        if (target.Comp.PolymorphActions.TryGetValue(id, out var val))
-            _actions.RemoveAction(target, val);
+        if (actions.TryGetValue(id, out var action))
+            _actions.RemoveAction(target.Owner, action);
     }
 }
 

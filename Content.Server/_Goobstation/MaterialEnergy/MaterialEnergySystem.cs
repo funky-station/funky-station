@@ -57,7 +57,7 @@ namespace Content.Server._Goobstation.MaterialEnergy
             int materialPerSheet,
             int sheetsInStack)
         {
-            var chargeDiff = _batterySystem.GetChargeDifference(cutter);
+            var chargeDiff = _batterySystem.GetRemainingUses(cutter, 0);
             if (chargeDiff == 0)
                 return;
 
@@ -78,7 +78,7 @@ namespace Content.Server._Goobstation.MaterialEnergy
                 chargeToAdd = Math.Abs(Math.Abs(materialLeft) - chargeDiff);
             }
 
-            _batterySystem.AddCharge(cutter, chargeToAdd);
+            _batterySystem.ChangeCharge(cutter, chargeToAdd);
 
             var toDel = _stack.Split(
                 (EntityUid) _material,

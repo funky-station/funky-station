@@ -25,7 +25,7 @@ SPDX-License-Identifier: MIT
             VerticalAlignment="Center"
             MaxSize="64 9999"
             Name="ActionsContainer"
-            Access="Public"/>
-        <controls:ActionPageButtons Name="PageButtons" Access="Public"/> <!-- goobstation -->
+            Access="Public"
+            Rows="1"/>
     </BoxContainer>
 </widgets:ActionsBar>

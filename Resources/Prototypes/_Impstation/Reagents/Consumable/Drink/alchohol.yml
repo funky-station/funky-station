@@ -22,9 +22,10 @@
       effects:
       - !type:SatiateThirst
         factor: 1
-      - !type:MovespeedModifier
+      - !type:MovementSpeedModifier
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: BatteryAcid
           min: 20
         walkSpeedModifier: 1.02
         sprintSpeedModifier: 1.02
@@ -36,7 +37,8 @@
       effects:
       - !type:Electrocute
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: BatteryAcid
           min: 20
         probability: 0.02
   fizziness: .3

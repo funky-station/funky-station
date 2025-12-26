@@ -9,6 +9,7 @@ using System.Threading;
 using Content.Shared._DV.CosmicCult;
 using Content.Shared._DV.CosmicCult.Components;
 using Content.Shared.Actions;
+using Content.Shared.Actions.Components;
 using Content.Shared.Actions.Events;
 using Content.Shared.Maps;
 using Robust.Client.GameObjects;
@@ -99,10 +100,10 @@ public sealed class MonumentPlacementPreviewSystem : EntitySystem
         }
 
         //CHECK IF IT'S BEING PLACED CHEESILY CLOSE TO SPACE
-        var worldPos = _transform.GetWorldPosition(xform); //this is technically wrong but basically fine; if
+        var worldPos = _transform.GetWorldPosition(xform);
         foreach (var tile in _map.GetTilesIntersecting(xform.GridUid.Value, grid, new Circle(worldPos, MinimumDistanceFromSpace)))
         {
-            if (tile.IsSpace(_tileDef))
+            if (tile.Tile.IsEmpty)
                 return false;
         }
 

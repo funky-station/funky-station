@@ -129,9 +129,6 @@
     stampLargeIcon: "large_stamp-clown" # imp
   - type: Sprite
     state: stamp-clown
-  - type: Tag
-    tags:
-      - ClownRubberStamp
 
 - type: entity
   name: chief engineer's rubber stamp

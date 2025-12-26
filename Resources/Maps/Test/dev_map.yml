@@ -6713,7 +6713,7 @@ entities:
     - type: Transform
       pos: -6.5,-12.5
       parent: 179
-- proto: SodaDispenser
+- proto: SodaDispenserEmpty
   entities:
   - uid: 751
     components:

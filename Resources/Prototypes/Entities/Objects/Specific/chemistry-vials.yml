@@ -51,8 +51,11 @@
     fillBaseName: vial-1-
     inHandsMaxFillLevels: 4
     inHandsFillBaseName: -fill-
-  - type: Drink
+  - type: Edible
+    edible: Drink
     solution: beaker
+    destroyOnEmpty: false
+    utensil: None
   - type: SolutionContainerManager
     solutions:
       beaker:
@@ -65,6 +68,7 @@
     solution: beaker
   - type: ExaminableSolution
     solution: beaker
+    exactVolume: true
   - type: DrawableSolution
     solution: beaker
   - type: SolutionTransfer
@@ -145,8 +149,9 @@
     fillBaseName: vial-1-
     inHandsMaxFillLevels: 4
     inHandsFillBaseName: -fill-
-  - type: Drink
-    solution: beaker
+  - type: Edible
+    edible: Drink
+    solution: vial
   - type: SolutionContainerManager
     solutions:
       beaker:

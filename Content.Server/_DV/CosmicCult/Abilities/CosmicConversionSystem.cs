@@ -10,6 +10,7 @@ using Content.Server.Popups;
 using Content.Shared._DV.CosmicCult.Components;
 using Content.Shared._DV.CosmicCult;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Systems;
 using Content.Shared.Mindshield.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
@@ -69,7 +70,7 @@ public sealed class CosmicConversionSystem : EntitySystem
             }
             else
             {
-                _stun.TryStun(target, TimeSpan.FromSeconds(4f), false);
+                _stun.TryAddStunDuration(target, TimeSpan.FromSeconds(4f));
                 _damageable.TryChangeDamage(target, uid.Comp.ConversionHeal * -1);
                 _cultRule.CosmicConversion(uid, target);
                 var finaleQuery = EntityQueryEnumerator<CosmicFinaleComponent>(); // Enumerator for The Monument's Finale

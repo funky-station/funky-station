@@ -1,20 +1,12 @@
-# SPDX-FileCopyrightText: 2025 LaryNevesPR <LaryNevesPR@proton.me>
-# SPDX-FileCopyrightText: 2025 Sparlight <twiksparlight@gmail.com>
-#
-# SPDX-License-Identifier: MIT
-
 - type: body
   id: SmartCorgi
   name: corgi
-  root: torso
+  root: chest
   slots:
-    torso:
-      part: TorsoAnimal
+    chest:
+      part: ChestAnimal
       connections:
-      - right arm
-      - left arm
-      - right leg
-      - left leg
+      - groin
       organs:
         brain: OrganHumanBrain # feels strange but it is what it is
         lungs: OrganAnimalLungs
@@ -22,27 +14,17 @@
         liver: OrganAnimalLiver
         heart: OrganAnimalHeart
         kidneys: OrganAnimalKidneys
-    right arm:
-      part: RightArmSmartCorgi
+    groin:
+      part: GroinAnimal
       connections:
-      - right hand
-    left arm:
-      part: LeftArmSmartCorgi
+      - legs
+      organs:
+        stomach: OrganAnimalStomach
+        liver: OrganAnimalLiver
+        kidneys: OrganAnimalKidneys
+    legs:
+      part: LegsAnimal
       connections:
-      - left hand
-    right hand:
-      part: RightHandSmartCorgi
-    left hand:
-      part: LeftHandSmartCorgi
-    right leg:
-      part: RightLegSmartCorgi
-      connections:
-      - right foot
-    left leg:
-      part: LeftLegSmartCorgi
-      connections:
-      - left foot
-    right foot:
-      part: RightFootSmartCorgi
-    left foot:
-      part: LeftFootSmartCorgi
+      - feet
+    feet:
+      part: FeetAnimal

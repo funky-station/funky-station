@@ -16,7 +16,7 @@
     sprite: _Funkystation/Structures/Storage/Crates/buildabuddy.rsi
   - type: StorageFill
     contents:
-    - id: TorsoHuman
+    - id: ChestHuman
       amount: 1
     - id: HeadHuman
       amount: 1
@@ -50,7 +50,7 @@
     sprite: _Funkystation/Structures/Storage/Crates/buildabuddy.rsi
   - type: StorageFill
     contents:
-    - id: TorsoReptilian
+    - id: ChestReptilian
       amount: 1
     - id: HeadReptilian
       amount: 1
@@ -84,7 +84,7 @@
     sprite: _Funkystation/Structures/Storage/Crates/buildabuddy.rsi
   - type: StorageFill
     contents:
-    - id: TorsoSlime
+    - id: ChestSlime
       amount: 1
     - id: HeadSlime
       amount: 1
@@ -118,7 +118,7 @@
     sprite: _Funkystation/Structures/Storage/Crates/buildabuddy.rsi
   - type: StorageFill
     contents:
-    - id: TorsoMoth
+    - id: ChestMoth
       amount: 1
     - id: HeadMoth
       amount: 1
@@ -152,7 +152,7 @@
     sprite: _Funkystation/Structures/Storage/Crates/buildabuddy.rsi
   - type: StorageFill
     contents:
-    - id: TorsoVox
+    - id: ChestVox
       amount: 1
     - id: HeadVox
       amount: 1
@@ -186,7 +186,7 @@
     sprite: _Funkystation/Structures/Storage/Crates/buildabuddy.rsi
   - type: StorageFill
     contents:
-    - id: TorsoDiona
+    - id: ChestDiona
       amount: 1
     - id: HeadDiona
       amount: 1
@@ -220,7 +220,7 @@
     sprite: _Funkystation/Structures/Storage/Crates/buildabuddy.rsi
   - type: StorageFill
     contents:
-    - id: TorsoArachnid
+    - id: ChestArachnid
       amount: 1
     - id: HeadArachnid
       amount: 1
@@ -254,7 +254,7 @@
     sprite: _Funkystation/Structures/Storage/Crates/buildabuddy.rsi
   - type: StorageFill
     contents:
-    - id: TorsoGingerbread
+    - id: ChestGingerbread
       amount: 1
     - id: HeadGingerbread
       amount: 1
@@ -288,7 +288,7 @@
     sprite: _Funkystation/Structures/Storage/Crates/buildabuddy.rsi
   - type: StorageFill
     contents:
-    - id: TorsoVulpkanin
+    - id: ChestVulpkanin
       amount: 1
     - id: HeadVulpkanin
       amount: 1
@@ -322,7 +322,7 @@
     sprite: _Funkystation/Structures/Storage/Crates/buildabuddy.rsi
   - type: StorageFill
     contents:
-    - id: TorsoRodentia
+    - id: ChestRodentia
       amount: 1
     - id: HeadRodentia
       amount: 1
@@ -356,7 +356,7 @@
     sprite: _Funkystation/Structures/Storage/Crates/buildabuddy.rsi
   - type: StorageFill
     contents:
-    - id: TorsoHarpy
+    - id: ChestHarpy
       amount: 1
     - id: HeadHarpy
       amount: 1
@@ -390,7 +390,7 @@
     sprite: _Funkystation/Structures/Storage/Crates/buildabuddy.rsi
   - type: StorageFill
     contents:
-    - id: TorsoIPC
+    - id: ChestIPC
       amount: 1
     - id: HeadIPC
       amount: 1

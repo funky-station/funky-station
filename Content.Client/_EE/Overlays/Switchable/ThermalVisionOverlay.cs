@@ -1,12 +1,16 @@
-// SPDX-FileCopyrightText: 2025 V <97265903+formlessnameless@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
+// SPDX-FileCopyrightText: 2025 Spatison <137375981+Spatison@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
 using System.Numerics;
 using Content.Client.Stealth;
+using Content.Goobstation.Shared.Overlays;
 using Content.Shared.Body.Components;
-using Content.Shared._EE.Overlays.Switchable;
 using Content.Shared.Stealth.Components;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
@@ -15,7 +19,7 @@ using Robust.Shared.Enums;
 using Robust.Shared.Map;
 using Robust.Shared.Timing;
 
-namespace Content.Client._EE.Overlays.Switchable;
+namespace Content.Goobstation.Client.Overlays;
 
 public sealed class ThermalVisionOverlay : Overlay
 {
@@ -135,6 +139,7 @@ public sealed class ThermalVisionOverlay : Overlay
         var position = _transform.GetWorldPosition(xform);
         var rotation = _transform.GetWorldRotation(xform);
 
+
         var originalColor = sprite.Color;
         sprite.Color = color.WithAlpha(alpha);
         sprite.Render(handle, eyeRot, rotation, position: position);
@@ -143,8 +148,7 @@ public sealed class ThermalVisionOverlay : Overlay
 
     private bool CanSee(EntityUid uid, SpriteComponent sprite)
     {
-        return sprite.Visible && (!_entity.TryGetComponent(uid, out StealthComponent? stealth) ||
-                                  _stealth.GetVisibility(uid, stealth) > 0.5f);
+        return sprite.Visible && (!_entity.TryGetComponent(uid, out StealthComponent? stealth));
     }
 
     public void ResetLight(bool checkFirstTimePredicted = true)

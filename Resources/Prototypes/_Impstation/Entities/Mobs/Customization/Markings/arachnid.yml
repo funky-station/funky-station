@@ -58,12 +58,12 @@
   - sprite: _Impstation/Mobs/Customization/Arachnid/snout.rsi
     state: whipspidermouth
 
-# Eyes
+# Face
 
 - type: marking
   id: ArachnidEyesDefault
-  bodyPart: Eyes
-  markingCategory: Eyes
+  bodyPart: Face
+  markingCategory: Face
   speciesRestriction: [ Arachnid ]
   forcedColoring: true
   coloring:
@@ -76,8 +76,8 @@
 
 - type: marking
   id: ArachnidEyesJumper
-  bodyPart: Eyes
-  markingCategory: Eyes
+  bodyPart: Face
+  markingCategory: Face
   speciesRestriction: [ Arachnid ]
   coloring:
     default:
@@ -95,8 +95,8 @@
 
 - type: marking
   id: ArachnidEyesJumperGlowing
-  bodyPart: Eyes
-  markingCategory: Eyes
+  bodyPart: Face
+  markingCategory: Face
   speciesRestriction: [ Arachnid ]
   coloring:
     default:
@@ -115,8 +115,8 @@
 
 - type: marking
   id: ArachnidEyesRound
-  bodyPart: Eyes
-  markingCategory: Eyes
+  bodyPart: Face
+  markingCategory: Face
   speciesRestriction: [ Arachnid ]
   coloring:
     default:
@@ -134,8 +134,8 @@
 
 - type: marking
   id: ArachnidEyesRoundGlowing
-  bodyPart: Eyes
-  markingCategory: Eyes
+  bodyPart: Face
+  markingCategory: Face
   speciesRestriction: [ Arachnid ]
   coloring:
     default:
@@ -154,8 +154,8 @@
 
 - type: marking
   id: SpiderEyesMulti
-  bodyPart: Eyes
-  markingCategory: Eyes
+  bodyPart: Face
+  markingCategory: Face
   speciesRestriction: [ Arachnid ]
   coloring:
     default:
@@ -173,8 +173,8 @@
 
 - type: marking
   id: SpiderGlowEyes
-  bodyPart: Eyes
-  markingCategory: Eyes
+  bodyPart: Face
+  markingCategory: Face
   speciesRestriction: [ Arachnid ]
   forcedColoring: true
   coloring:

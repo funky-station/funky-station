@@ -1,69 +1,8 @@
-// SPDX-FileCopyrightText: 2021 20kdc <asdd2808@gmail.com>
-// SPDX-FileCopyrightText: 2021 Acruid <shatter66@gmail.com>
-// SPDX-FileCopyrightText: 2021 Javier Guardia Fernández <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Vordenburg <114301317+Vordenburg@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 corentt <36075110+corentt@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 metalgearsloth <metalgearsloth@gmail.com>
-// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Kara <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2023 Moony <moony@hellomouse.net>
-// SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-FileCopyrightText: 2023 TsjipTsjip <19798667+TsjipTsjip@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Ubaser <134914314+UbaserB@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Ygg01 <y.laughing.man.y@gmail.com>
-// SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 metalgearsloth <comedian_vs_clown@hotmail.com>
-// SPDX-FileCopyrightText: 2024 778b <33431126+778b@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
-// SPDX-FileCopyrightText: 2024 CMDR-Piboy314 <92357316+CMDR-Piboy314@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Emisse <99158783+Emisse@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Errant <35878406+Errant-4@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 IProduceWidgets <107586145+IProduceWidgets@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 John Space <bigdumb421@gmail.com>
-// SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 MilenVolf <63782763+MilenVolf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 PJBot <pieterjan.briers+bot@gmail.com>
-// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2024 Piras314 <92357316+Piras314@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
-// SPDX-FileCopyrightText: 2024 Rainfey <rainfey0+github@gmail.com>
-// SPDX-FileCopyrightText: 2024 Spessmann <156740760+Spessmann@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
-// SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2024 heree <79546981+hereelabs@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 mkanke-real <mikekanke@gmail.com>
-// SPDX-FileCopyrightText: 2024 terezi <147006836+terezi-station@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 ArsCatalyst <Heartflareburst@gmail.com>
-// SPDX-FileCopyrightText: 2025 Dusty_Plant <34702649+Dusty-Plant@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Dusty_Plant <ytsur2001@gmail.com>
-// SPDX-FileCopyrightText: 2025 EmillyCoelho <167008606+Ichaie@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Evaisa <mail@evaisa.dev>
-// SPDX-FileCopyrightText: 2025 Ichaie <ichaicoelho@gmail.com>
-// SPDX-FileCopyrightText: 2025 LaCumbiaDelCoronavirus <90893484+LaCumbiaDelCoronavirus@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Spanky <180730777+spanky-spanky@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Spanky <scott@wearejacob.com>
-// SPDX-FileCopyrightText: 2025 Steve <marlumpy@gmail.com>
-// SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
-// SPDX-FileCopyrightText: 2025 marc-pelletier <113944176+marc-pelletier@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
-// SPDX-FileCopyrightText: 2025 salpphie <53307242+salpphie@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 salpphie <alyssa.thomas51@gmail.com>
-// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
-// SPDX-FileCopyrightText: 2025 willow <willowzeta632146@proton.me>
-// SPDX-FileCopyrightText: 2025 wilowzeta <willowzeta632146@proton.me>
-//
-// SPDX-License-Identifier: MIT
-
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Text.RegularExpressions;
+using YamlDotNet.RepresentationModel;
 using Content.Server.Administration.Systems;
 using Content.Server.GameTicking;
 using Content.Server.Maps;
@@ -73,19 +12,18 @@ using Content.Server.Spawners.Components;
 using Content.Server.Station.Components;
 using Content.Shared.CCVar;
 using Content.Shared.Roles;
+using Content.Shared.Station.Components;
 using Robust.Shared.Configuration;
 using Robust.Shared.ContentPack;
-using Robust.Shared.GameObjects;
-using Robust.Shared.Map;
-using Robust.Shared.Map.Components;
-using Robust.Shared.Prototypes;
-using Content.Shared.Station.Components;
 using Robust.Shared.EntitySerialization;
 using Robust.Shared.EntitySerialization.Systems;
+using Robust.Shared.GameObjects;
 using Robust.Shared.IoC;
+using Robust.Shared.Map;
+using Robust.Shared.Map.Components;
+using Robust.Shared.Map.Events;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
-using YamlDotNet.RepresentationModel;
-
 namespace Content.IntegrationTests.Tests
 {
     [TestFixture]
@@ -103,66 +41,70 @@ namespace Content.IntegrationTests.Tests
         private static readonly string[] Grids =
         {
             "/Maps/centcomm.yml",
-            "/Maps/_Harmony/centcomm.yml", // Funky, Harmony CC version
             AdminTestArenaSystem.ArenaMapPath
         };
 
+        /// <summary>
+        /// A dictionary linking maps to collections of entity prototype ids that should be exempt from "DoNotMap" restrictions.
+        /// </summary>
+        /// <remarks>
+        /// This declares that the listed entity prototypes are allowed to be present on the map
+        /// despite being categorized as "DoNotMap", while any unlisted prototypes will still
+        /// cause the test to fail.
+        /// </remarks>
+        private static readonly Dictionary<string, HashSet<EntProtoId>> DoNotMapWhitelistSpecific = new()
+        {
+            {"/Maps/bagel.yml", ["RubberStampMime"]},
+            {"/Maps/reach.yml", ["HandheldCrewMonitor"]},
+            {"/Maps/Shuttles/ShuttleEvent/honki.yml", ["GoldenBikeHorn", "RubberStampClown"]},
+            {"/Maps/Shuttles/ShuttleEvent/syndie_evacpod.yml", ["RubberStampSyndicate"]},
+            {"/Maps/Shuttles/ShuttleEvent/cruiser.yml", ["ShuttleGunPerforator"]},
+            {"/Maps/Shuttles/ShuttleEvent/instigator.yml", ["ShuttleGunFriendship"]},
+        };
+
+        /// <summary>
+        /// Maps listed here are given blanket freedom to contain "DoNotMap" entities. Use sparingly.
+        /// </summary>
+        /// <remarks>
+        /// It is also possible to whitelist entire directories here. For example, adding
+        /// "/Maps/Shuttles/**" will whitelist all shuttle maps.
+        /// </remarks>
         private static readonly string[] DoNotMapWhitelist =
         {
             "/Maps/centcomm.yml",
-            "/Maps/_Harmony/centcomm.yml", // Funky, Harmony CC version
+            "/Maps/Shuttles/AdminSpawn/**" // admin gaming
         };
+
+        /// <summary>
+        /// Converts the above globs into regex so your eyes dont bleed trying to add filepaths.
+        /// </summary>
+        private static readonly Regex[] DoNotMapWhiteListRegexes = DoNotMapWhitelist
+            .Select(glob => new Regex(GlobToRegex(glob), RegexOptions.IgnoreCase | RegexOptions.Compiled))
+            .ToArray();
 
         private static readonly string[] GameMaps =
         {
             "Dev",
             "TestTeg",
-            "TestHFR", // Funky - HFR
             "Fland",
-            "Meta",
             "Packed",
-            "Cluster", // Goobstation - Readds Cluster
-            "Omega",
             "Bagel",
             "CentComm",
             "Box",
-            "Europa", // Goobstation - Readds Europa
-            "Atlas", // Goobstation - Readds Atlas
-            "Core",
             "Marathon",
             "MeteorArena",
             "Saltern",
             "Reach",
-            "Origin", // Goobstation - Readds Origin
-            "Train",
             "Oasis",
-            "Cog",
-            "FlandHighPop", // Goobstation - add highpop maps
-            "OriginHighPop",
-            "OasisHighPop",
-            "Gax", // funkystation
-            "Divide", // funkystation
-            "Glacier", // funkystation
-			"Eden", // funkystation
-			"Court", // funkystation
-            "Barratry", // Harmony
-            "Eclipse", // Harmony
-            "Kettle", // Goobstation - add Kettle
-            "Olympus", // funkystation - hey a step I didn't know existed
-            "Amber",
-            "HotSprings",
-            "Gate",
-            "Loop",
-            "roid_outpost",
-            "DMVStation",
             "Plasma",
             "Elkridge",
-            "Convex",
             "Relic",
-            "Resort",
-            "microstation",
-            "dm01-entryway"
+            "dm01-entryway",
+            "Exo",
+            "Snowball",
         };
+
+        private static readonly ProtoId<EntityCategoryPrototype> DoNotMapCategory = "DoNotMap";
 
         /// <summary>
         /// Asserts that specific files have been saved as grids and not maps.
@@ -304,9 +246,12 @@ namespace Content.IntegrationTests.Tests
             }
 
             var deps = server.ResolveDependency<IEntitySystemManager>().DependencyCollection;
+            var ev = new BeforeEntityReadEvent();
+            server.EntMan.EventBus.RaiseEvent(EventSource.Local, ev);
+
             foreach (var map in v7Maps)
             {
-                Assert.That(IsPreInit(map, loader, deps));
+                Assert.That(IsPreInit(map, loader, deps, ev.RenamedPrototypes, ev.DeletedPrototypes));
             }
 
             // Check that the test actually does manage to catch post-init maps and isn't just blindly passing everything.
@@ -319,14 +264,22 @@ namespace Content.IntegrationTests.Tests
             // First check that a pre-init version passes
             var path = new ResPath($"{nameof(NoSavedPostMapInitTest)}.yml");
             Assert.That(loader.TrySaveMap(id, path));
-            Assert.That(IsPreInit(path, loader, deps));
+            Assert.That(IsPreInit(path, loader, deps, ev.RenamedPrototypes, ev.DeletedPrototypes));
 
             // and the post-init version fails.
             await server.WaitPost(() => mapSys.InitializeMap(id));
             Assert.That(loader.TrySaveMap(id, path));
-            Assert.That(IsPreInit(path, loader, deps), Is.False);
+            Assert.That(IsPreInit(path, loader, deps, ev.RenamedPrototypes, ev.DeletedPrototypes), Is.False);
 
             await pair.CleanReturnAsync();
+        }
+
+        private bool IsWhitelistedForMap(EntProtoId protoId, ResPath map)
+        {
+            if (!DoNotMapWhitelistSpecific.TryGetValue(map.ToString(), out var allowedProtos))
+                return false;
+
+            return allowedProtos.Contains(protoId);
         }
 
         /// <summary>
@@ -334,13 +287,17 @@ namespace Content.IntegrationTests.Tests
         /// </summary>
         private void CheckDoNotMap(ResPath map, YamlNode node, IPrototypeManager protoManager)
         {
-            if (DoNotMapWhitelist.Contains(map.ToString()))
-                return;
+            foreach (var regex in DoNotMapWhiteListRegexes)
+            {
+                if (regex.IsMatch(map.ToString()))
+                    return;
+            }
 
             var yamlEntities = node["entities"];
-            if (!protoManager.TryIndex<EntityCategoryPrototype>("DoNotMap", out var dnmCategory))
-                return;
+            var dnmCategory = protoManager.Index(DoNotMapCategory);
 
+            // Make a set containing all the specific whitelisted proto ids for this map
+            HashSet<EntProtoId> unusedExemptions = DoNotMapWhitelistSpecific.TryGetValue(map.ToString(), out var exemptions) ? new(exemptions) : [];
             Assert.Multiple(() =>
             {
                 foreach (var yamlEntity in (YamlSequenceNode)yamlEntities)
@@ -348,16 +305,27 @@ namespace Content.IntegrationTests.Tests
                     var protoId = yamlEntity["proto"].AsString();
 
                     // This doesn't properly handle prototype migrations, but thats not a significant issue.
-                    if (!protoManager.TryIndex(protoId, out var proto, false))
+                    if (!protoManager.TryIndex(protoId, out var proto))
                         continue;
 
-                    //Assert.That(!proto.Categories.Contains(dnmCategory),
-                    //    $"\nMap {map} contains entities in the DO NOT MAP category ({proto.Name})");
+                    Assert.That(!proto.Categories.Contains(dnmCategory) || IsWhitelistedForMap(protoId, map),
+                        $"\nMap {map} contains entities in the DO NOT MAP category ({proto.Name})");
+
+                    // The proto id is used on this map, so remove it from the set
+                    unusedExemptions.Remove(protoId);
                 }
             });
+
+            // If there are any proto ids left, they must not have been used in the map!
+            Assert.That(unusedExemptions, Is.Empty,
+                $"Map {map} has DO NOT MAP entities whitelisted that are not present in the map: {string.Join(", ", unusedExemptions)}");
         }
 
-        private bool IsPreInit(ResPath map, MapLoaderSystem loader, IDependencyCollection deps)
+        private bool IsPreInit(ResPath map,
+            MapLoaderSystem loader,
+            IDependencyCollection deps,
+            Dictionary<string, string> renamedPrototypes,
+            HashSet<string> deletedPrototypes)
         {
             if (!loader.TryReadFile(map, out var data))
             {
@@ -365,7 +333,12 @@ namespace Content.IntegrationTests.Tests
                 return false;
             }
 
-            var reader = new EntityDeserializer(deps, data, DeserializationOptions.Default);
+            var reader = new EntityDeserializer(deps,
+                data,
+                DeserializationOptions.Default,
+                renamedPrototypes,
+                deletedPrototypes);
+
             if (!reader.TryProcessData())
             {
                 Assert.Fail($"Failed to process {map}");
@@ -406,7 +379,7 @@ namespace Content.IntegrationTests.Tests
                 MapId mapId;
                 try
                 {
-                    var opts = DeserializationOptions.Default with {InitializeMaps = true};
+                    var opts = DeserializationOptions.Default with { InitializeMaps = true };
                     ticker.LoadGameMap(protoManager.Index<GameMapPrototype>(mapProto), out mapId, opts);
                 }
                 catch (Exception ex)
@@ -513,7 +486,7 @@ namespace Content.IntegrationTests.Tests
 #nullable enable
             while (queryPoint.MoveNext(out T? comp, out var xform))
             {
-                var spawner = (ISpawnPoint) comp;
+                var spawner = (ISpawnPoint)comp;
 
                 if (spawner.SpawnType is not SpawnPointType.LateJoin
                 || xform.GridUid == null
@@ -626,6 +599,21 @@ namespace Content.IntegrationTests.Tests
 
             await server.WaitRunTicks(1);
             await pair.CleanReturnAsync();
+        }
+
+        /// <summary>
+        /// Lets us the convert the filepaths to regex without eyeglaze trying to add new paths.
+        /// </summary>
+        private static string GlobToRegex(string glob)
+        {
+            var regex = Regex.Escape(glob)
+                .Replace(@"\*\*", "**") // replace **
+                .Replace(@"\*", "*")    // replace *
+                .Replace("**", ".*")    // ** → match across folders
+                .Replace("*", @"[^/]*") // * → match within a single folder
+                .Replace(@"\?", ".");   // ? → any single character
+
+            return $"^{regex}$";
         }
     }
 }

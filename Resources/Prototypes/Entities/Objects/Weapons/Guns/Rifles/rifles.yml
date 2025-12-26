@@ -51,6 +51,8 @@
   - type: Sprite
   - type: Item
     size: Huge
+    shape:
+    - 0,0,3,2
   - type: Clothing
     sprite: Objects/Weapons/Guns/Rifles/ak.rsi
     quickEquip: false
@@ -240,7 +242,7 @@
       gun_chamber: !type:ContainerSlot
   - type: MagazineVisuals
     magState: mag
-    steps: 1
+    steps: 5
     zeroVisible: true
   - type: Appearance
 
@@ -251,11 +253,13 @@
   description: A premium foam rifle of the highest quality. Its plastic feels rugged, and its mechanisms sturdy.
   components:
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Rifles/foam_rifle.rsi
+    sprite: Objects/Fun/Foam/foam_rifle.rsi
   - type: Clothing
-    sprite: Objects/Weapons/Guns/Rifles/foam_rifle.rsi
+    sprite: Objects/Fun/Foam/foam_rifle.rsi
   - type: Item
-    sprite: Objects/Weapons/Guns/Rifles/foam_rifle_inhand_64x.rsi
+    sprite: Objects/Fun/Foam/foam_rifle_inhand_64x.rsi
+    shape:
+    - 0,0,3,0
   - type: BallisticAmmoProvider
     whitelist:
       tags:

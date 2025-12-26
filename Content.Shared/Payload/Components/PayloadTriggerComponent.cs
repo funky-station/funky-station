@@ -1,14 +1,5 @@
-// SPDX-FileCopyrightText: 2022 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Moony <moony@hellomouse.net>
-// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
-// SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
-// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
-//
-// SPDX-License-Identifier: MIT
-
-using Content.Shared.Explosion.Components;
+using Content.Shared.Trigger.Components;
+using Content.Shared.Trigger.Components.Triggers;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
@@ -20,7 +11,7 @@ namespace Content.Shared.Payload.Components;
 /// <remarks>
 ///     This component performs two functions. Firstly, it will add or remove other components to some entity when this
 ///     item is installed inside of it. This is intended for use with constructible grenades. For example, this allows
-///     you to add things like <see cref="OnUseTimerTriggerComponent"/>, or <see cref="TriggerOnProximityComponent"/>.
+///     you to add things like <see cref="TimerTriggerComponent"/>, or <see cref="TriggerOnProximityComponent"/>.
 ///     This is required because otherwise you would have to forward arbitrary interaction directed at the casing
 ///     through to the trigger, which would be quite complicated. Also proximity triggers don't really work inside of
 ///     containers.
@@ -39,7 +30,7 @@ public sealed partial class PayloadTriggerComponent : Component
     /// <summary>
     ///     List of components to add or remove from an entity when this trigger is (un)installed.
     /// </summary>
-    [DataField("components", serverOnly:true, readOnly: true)]
+    [DataField(serverOnly: true, readOnly: true)]
     public ComponentRegistry? Components = null;
 
     /// <summary>
@@ -51,6 +42,6 @@ public sealed partial class PayloadTriggerComponent : Component
     ///     when removing the component, to ensure that removal of this trigger only removes the components that it was
     ///     responsible for adding.
     /// </remarks>
-    [DataField("grantedComponents", serverOnly: true)]
+    [DataField(serverOnly: true)]
     public HashSet<Type> GrantedComponents = new();
 }

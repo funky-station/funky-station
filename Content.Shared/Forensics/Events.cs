@@ -1,15 +1,5 @@
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 themias <89101928+themias@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
-// SPDX-FileCopyrightText: 2024 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
-// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
-//
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.DoAfter;
+using Content.Shared.Inventory;
 using Robust.Shared.Serialization;
 
 namespace Content.Shared.Forensics;
@@ -64,7 +54,7 @@ public record struct TransferDnaEvent()
 }
 
 /// <summary>
-/// An event to generate and act upon new DNA for an entity.
+/// Raised on an entity when its DNA has been changed.
 /// </summary>
 [ByRefEvent]
 public record struct GenerateDnaEvent()
@@ -78,4 +68,17 @@ public record struct GenerateDnaEvent()
     /// The generated DNA.
     /// </summary>
     public required string DNA;
+}
+
+/// <summary>
+/// An event to check if the fingerprint is accessible.
+/// </summary>
+public sealed class TryAccessFingerprintEvent : CancellableEntityEventArgs, IInventoryRelayEvent
+{
+    SlotFlags IInventoryRelayEvent.TargetSlots => SlotFlags.WITHOUT_POCKET;
+
+    /// <summary>
+    ///     Entity that blocked access.
+    /// </summary>
+    public EntityUid? Blocker;
 }

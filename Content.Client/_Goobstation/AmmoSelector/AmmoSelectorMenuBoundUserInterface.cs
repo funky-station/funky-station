@@ -1,8 +1,9 @@
-// SPDX-FileCopyrightText: 2024 Aviu00 <93730715+Aviu00@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 John Space <bigdumb421@gmail.com>
-// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
+// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 //
-// SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+// SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared._Goobstation.Weapons.AmmoSelector;
 using JetBrains.Annotations;
@@ -11,7 +12,7 @@ using Robust.Client.Input;
 using Robust.Client.UserInterface;
 using Robust.Shared.Prototypes;
 
-namespace Content.Client._Goobstation.AmmoSelector;
+namespace Content.Goobstation.Client.AmmoSelector;
 
 [UsedImplicitly]
 public sealed class AmmoSelectorMenuBoundUserInterface : BoundUserInterface
@@ -19,7 +20,7 @@ public sealed class AmmoSelectorMenuBoundUserInterface : BoundUserInterface
     [Dependency] private readonly IClyde _displayManager = default!;
     [Dependency] private readonly IInputManager _inputManager = default!;
 
-    private AmmoSelectorMenu? _menu;
+    private Content.Client._Goobstation.AmmoSelector.AmmoSelectorMenu? _menu;
 
     public AmmoSelectorMenuBoundUserInterface(EntityUid owner, Enum uiKey) : base(owner, uiKey)
     {
@@ -30,7 +31,7 @@ public sealed class AmmoSelectorMenuBoundUserInterface : BoundUserInterface
     {
         base.Open();
 
-        _menu = this.CreateWindow<AmmoSelectorMenu>();
+        _menu = this.CreateWindow<Content.Client._Goobstation.AmmoSelector.AmmoSelectorMenu>();
         _menu.SetEntity(Owner);
         _menu.SendAmmoSelectorSystemMessageAction += SendAmmoSelectorSystemMessage;
 
@@ -40,6 +41,6 @@ public sealed class AmmoSelectorMenuBoundUserInterface : BoundUserInterface
 
     public void SendAmmoSelectorSystemMessage(ProtoId<SelectableAmmoPrototype> protoId)
     {
-        SendMessage(new AmmoSelectedMessage(protoId));
+        SendPredictedMessage(new AmmoSelectedMessage(protoId));
     }
 }

@@ -854,7 +854,7 @@
 
 - type: entity
   name: passenger ID card
-  parent: IDCardStandard
+  parent: [IDCardStandard, BaseChameleon]
   id: AgentIDCard
   suffix: Agent
   components:
@@ -872,9 +872,11 @@
       offset: "-0.125, 0.09375"
       state: Passenger
   - type: AgentIDCard
+  - type: UIRequiresLock
   - type: ActivatableUI
     key: enum.AgentIDCardUiKey.Key
     inHandsOnly: true
+    verbText: agent-id-open-ui-verb
   - type: Tag
     tags:
     - DoorBumpOpener
@@ -1229,6 +1231,7 @@
     - NuclearOperative
     - SyndicateAgent
     - Wizard
+    - Xenoborg
   - type: Tag #  Ignore Chameleon tags
     tags:
     - DoorBumpOpener

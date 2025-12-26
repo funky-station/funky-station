@@ -1,28 +1,7 @@
-// SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
-// SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
-// SPDX-FileCopyrightText: 2024 Emisse <99158783+Emisse@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Errant <35878406+Errant-4@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Mervill <mervills.email@gmail.com>
-// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
-// SPDX-FileCopyrightText: 2024 Rainfey <rainfey0+github@gmail.com>
-// SPDX-FileCopyrightText: 2024 Simon <63975668+Simyon264@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
-// SPDX-FileCopyrightText: 2024 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
-// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
-//
-// SPDX-License-Identifier: MIT
-
 using System.Numerics;
 using Content.Server.Shuttles.Components;
-using Content.Server.Station.Components;
 using Content.Server.Station.Events;
 using Content.Shared.CCVar;
-using Content.Shared.Salvage;
 using Content.Shared.Shuttles.Components;
 using Content.Shared.Station.Components;
 using Robust.Shared.Collections;
@@ -81,10 +60,7 @@ public sealed partial class ShuttleSystem
         if (!_cfg.GetCVar(CCVars.GridFill))
             return;
 
-        if (!TryComp(uid, out StationDataComponent? dataComp))
-            return;
-
-        var targetGrid = _station.GetLargestGrid(dataComp);
+        var targetGrid = _station.GetLargestGrid(uid);
 
         if (targetGrid == null)
             return;
@@ -113,7 +89,7 @@ public sealed partial class ShuttleSystem
 
         var dungeonProtoId = _random.Pick(group.Protos);
 
-        if (!_protoManager.TryIndex(dungeonProtoId, out var dungeonProto))
+        if (!_protoManager.Resolve(dungeonProtoId, out var dungeonProto))
         {
             return false;
         }
@@ -184,12 +160,7 @@ public sealed partial class ShuttleSystem
         if (!_cfg.GetCVar(CCVars.GridFill))
             return;
 
-        if (!TryComp<StationDataComponent>(uid, out var data))
-        {
-            return;
-        }
-
-        var targetGrid = _station.GetLargestGrid(data);
+        var targetGrid = _station.GetLargestGrid(uid);
 
         if (targetGrid == null)
             return;
@@ -221,7 +192,7 @@ public sealed partial class ShuttleSystem
                         throw new NotImplementedException();
                 }
 
-                if (_protoManager.TryIndex(group.NameDataset, out var dataset))
+                if (_protoManager.Resolve(group.NameDataset, out var dataset))
                 {
                     _metadata.SetEntityName(spawned, _salvage.GetFTLName(dataset, _random.Next()));
                 }
@@ -290,7 +261,7 @@ public sealed partial class ShuttleSystem
                 if (HasComp(grid.Value, compType))
                     continue;
 
-                var comp = _factory.GetComponent(compType);
+                var comp = Factory.GetComponent(compType);
                 AddComp(grid.Value, comp, true);
             }
         }

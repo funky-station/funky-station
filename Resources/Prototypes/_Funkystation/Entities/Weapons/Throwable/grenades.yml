@@ -33,7 +33,7 @@
     layers:
     - state: tin
     - state: plain
-  - type: OnUseTimerTrigger # todo: make it activate through welder/lighter/fire instead
+  - type: TimerTrigger # todo: make it activate through welder/lighter/fire instead
     delay: 5
     examinable: false
     initialBeepDelay: 0

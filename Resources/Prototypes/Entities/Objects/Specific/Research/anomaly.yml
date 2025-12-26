@@ -106,21 +106,20 @@
       - state: screen
         shader: unshaded
         visible: false
-        map: ["enum.ToggleVisuals.Layer"]
+        map: ["enum.ToggleableVisuals.Layer"]
   - type: Appearance
   - type: GenericVisualizer
     visuals:
-      enum.ToggleVisuals.Toggled:
-        enum.ToggleVisuals.Layer:
+      enum.ToggleableVisuals.Enabled:
+        enum.ToggleableVisuals.Layer:
           True: { visible: true }
           False: { visible: false }
   - type: ItemToggle
   - type: ProximityBeeper
   - type: ProximityDetector
     range: 20
-    criteria:
-      components:
-      - Anomaly
+    components:
+    - type: Anomaly
   - type: Beeper
     isMuted: true
     minBeepInterval: 0.15
@@ -141,7 +140,7 @@
   components:
   - type: PowerCellDraw
     drawRate: 1
-    useRate: 0
+    useCharge: 0
   - type: ToggleCellDraw
 
 - type: entity
@@ -175,7 +174,7 @@
   components:
   - type: PowerCellDraw
     drawRate: 1
-    useRate: 0
+    useCharge: 0
   - type: ToggleCellDraw
 
 - type: entity
@@ -214,7 +213,7 @@
       path: "/Audio/Weapons/Guns/Gunshots/kinetic_accel.ogg"
   - type: CorePoweredThrower
   - type: MeleeThrowOnHit
-    unanchorOnHit: true
+    unanchorOnHit: Unanchorable
   - type: ItemSlots
     slots:
       core_slot:

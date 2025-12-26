@@ -9,6 +9,7 @@ using Content.Shared.Damage;
 using Content.Shared.FixedPoint;
 using Content.Shared.MalfAI;
 using Content.Server.Damage.Systems;
+using Content.Shared.Damage.Systems;
 using Content.Shared.Silicons.StationAi;
 using Content.Shared.Popups;
 using Content.Shared.Interaction;
@@ -30,7 +31,7 @@ public sealed class MalfAiGyroscopeSystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedInteractionSystem _interaction = default!;
     [Dependency] private readonly SharedActionsSystem _actions = default!;
-    [Dependency] private readonly Content.Server.Silicons.StationAi.StationAiSystem _stationAi = default!;
+    [Dependency] private readonly Silicons.StationAi.StationAiSystem _stationAi = default!;
 
     public override void Initialize()
     {
@@ -248,7 +249,7 @@ public sealed class MalfAiGyroscopeSystem : EntitySystem
         // Drive client radial cooldown and server lockout through the Actions system.
         var start = _timing.CurTime;
         var end = start + TimeSpan.FromSeconds(3);
-        _actions.SetCooldown(ev.Action, start, end);
+        _actions.SetCooldown((EntityUid?)ev.Action, TimeSpan.FromSeconds(3));
 
         // Mark handled so ActionsUseDelay will also be respected by the system.
         ev.Handled = true;

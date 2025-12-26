@@ -38,17 +38,7 @@ namespace Content.Shared.Atmos.Piping.Unary.Components
             Gas.WaterVapor,
             Gas.Ammonia,
             Gas.NitrousOxide,
-            Gas.Frezon,
-            Gas.BZ, // Assmos - /tg/ gases
-            Gas.Healium, // Assmos - /tg/ gases
-            Gas.Nitrium, // Assmos - /tg/ gases
-            Gas.Hydrogen, // Assmos - /tg/ gases
-            Gas.HyperNoblium, // Assmos - /tg/ gases
-            Gas.ProtoNitrate, // Assmos - /tg/ gases
-            Gas.Zauker, // Assmos - /tg/ gases
-            Gas.Halon, // Assmos - /tg/ gases
-            Gas.Helium, // Assmos - /tg/ gases
-            Gas.AntiNoblium, // Assmos - /tg/ gases
+            Gas.Frezon
         };
 
         // Presets for 'dumb' air alarm modes

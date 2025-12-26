@@ -43,6 +43,7 @@ using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Database;
 using Content.Shared.FixedPoint;
+using Content.Shared.Labels.EntitySystems;
 using Content.Shared.Storage;
 using JetBrains.Annotations;
 using Robust.Server.Audio;
@@ -73,8 +74,7 @@ namespace Content.Server.Chemistry.EntitySystems
         [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
         [Dependency] private readonly IEntityManager _entityManager = default!;
 
-        [ValidatePrototypeId<EntityPrototype>]
-        private const string PillPrototypeId = "Pill";
+        private static readonly EntProtoId PillPrototypeId = "Pill";
 
         [ValidatePrototypeId<EntityPrototype>]
         private const string PillCanisterPrototypeId = "PillCanister";

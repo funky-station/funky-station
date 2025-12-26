@@ -47,7 +47,7 @@
           state: firstaid
     - type: RandomSpawner
       rarePrototypes: # Funkychem
-        - PillCanisterLenturi 
+        - PillCanisterLenturi
         - PillCanisterMultiver
         - PillCanisterLibital
         - PillCanisterAiuri
@@ -65,7 +65,7 @@
         - Ointment
         - Gauze
         - EmergencyMedipen
-        - EpinephrineChemistryBottle
+        - ChemistryBottleEpinephrine
         - PillCanisterTricordrazine
         - PillCanisterCharcoal
         - PillCanisterHyronalin

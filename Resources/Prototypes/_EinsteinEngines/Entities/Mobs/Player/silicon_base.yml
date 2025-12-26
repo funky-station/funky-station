@@ -35,7 +35,7 @@
         - reagents: [Water, SpaceCleaner]
           methods: [Touch]
           effects:
-            - !type:WashCreamPieReaction
+            - !type:WashCreamPie
     - type: DamageOnHighSpeedImpact
       damage:
         types:
@@ -161,6 +161,7 @@
         - map: ["belt"]
         - map: ["neck"]
         - map: ["back"]
+        - map: [ "enum.HumanoidVisualLayers.Face" ]
         - map: ["enum.HumanoidVisualLayers.FacialHair"]
         - map: ["enum.HumanoidVisualLayers.Hair"]
         - map: ["enum.HumanoidVisualLayers.HeadSide"]
@@ -227,6 +228,7 @@
         - CanPilot
         - FootstepSound
         - DoorBumpOpener
+        - IPCDrinkBlacklist # Goobstation - Energycrit: Don't let self antagging IPCs steal power from other battery powered species.
     - type: Hands
     - type: Inventory
       templateId: human
@@ -266,14 +268,6 @@
           type: StrippableBoundUserInterface
         enum.StoreUiKey.Key: # Goobstation - changelings
           type: StoreBoundUserInterface
-        enum.HereticLivingHeartKey.Key: # goob edit - heretics
-          type: LivingHeartMenuBoundUserInterface
-        enum.BloodCultistCommuneUIKey.Key: # funky edit - cultists
-          type: BloodCultCommuneBoundUserInterface
-          requireInputValidation: false
-        enum.SpellsUiKey.Key: # funky edit - cultists
-          type: SpellsBoundUserInterface
-          requireInputValidation: false
         enum.SurgeryUIKey.Key: # Shitmed
           type: SurgeryBui
         enum.ThavenMoodsUiKey.Key: # impstation edit

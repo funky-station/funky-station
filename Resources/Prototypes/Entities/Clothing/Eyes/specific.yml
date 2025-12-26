@@ -8,14 +8,15 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
 - type: entity
-  parent: ClothingEyesBase
+  parent: [ClothingEyesBase, BaseChameleon]
   id: ClothingEyesChameleon # no flash immunity, sorry
   name: sun glasses
   description: Useful both for security and cargonia.
   suffix: Chameleon
   components:
     - type: Tag
-      tags: [] # ignore "WhitelistChameleon" tag
+      tags: # intentionally no WhitelistChameleon tag
+      - PetWearable
     - type: Sprite
       sprite: Clothing/Eyes/Glasses/sunglasses.rsi
     - type: Clothing

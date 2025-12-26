@@ -28,7 +28,6 @@
   cost: 5000
   recipeUnlocks:
   - ProximitySensor
-  - ExosuitFabricatorMachineCircuitboard
 
 - type: technology
   id: BasicAnomalousResearch
@@ -140,8 +139,6 @@
   - WeaponParticleDecelerator
   - HoloprojectorField
 
-# Tier 3
-
 - type: technology
   id: GravityManipulation
   name: research-technology-gravity-manipulation
@@ -149,11 +146,13 @@
     sprite: Objects/Weapons/Guns/Launchers/tether_gun.rsi
     state: base
   discipline: Experimental
-  tier: 3
+  tier: 2
   cost: 10000
   recipeUnlocks:
     - WeaponForceGun
     - WeaponTetherGun
+
+# Tier 3
 
 - type: technology
   id: QuantumLeaping
@@ -166,3 +165,15 @@
   cost: 10000
   recipeUnlocks:
   - DeviceQuantumSpinInverter
+
+- type: technology
+  id: BluespaceTimeManipulation
+  name: research-technology-bluespace-time-manipulation
+  icon:
+    sprite: Objects/Devices/desynchronizer.rsi
+    state: icon
+  discipline: Experimental
+  tier: 3
+  cost: 10000
+  recipeUnlocks:
+  - DeviceDesynchronizer

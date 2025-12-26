@@ -1,5 +1,4 @@
 // SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
-// SPDX-FileCopyrightText: 2025 Quantum-cross <7065792+Quantum-cross@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
 // SPDX-License-Identifier: MIT
@@ -24,6 +23,7 @@ public sealed class ReadyManifestSystem : EntitySystem
 {
     [Dependency] private readonly EuiManager _euiManager = default!;
     [Dependency] private readonly IConfigurationManager _configManager = default!;
+    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly GameTicker _gameTicker = default!;
     [Dependency] private readonly IServerPreferencesManager _prefsManager = default!;
 
@@ -35,32 +35,6 @@ public sealed class ReadyManifestSystem : EntitySystem
         SubscribeNetworkEvent<RequestReadyManifestMessage>(OnRequestReadyManifest);
         SubscribeLocalEvent<RoundStartingEvent>(OnRoundStarting);
         SubscribeLocalEvent<PlayerToggleReadyEvent>(OnPlayerToggleReady);
-        SubscribeLocalEvent<PlayerJobPriorityChangedEvent>(OnPlayerJobPriorityChanged);
-    }
-
-    private void OnPlayerJobPriorityChanged(PlayerJobPriorityChangedEvent ev)
-    {
-        if (!_gameTicker.PlayerGameStatuses.TryGetValue(ev.Session.UserId, out var status))
-            return;
-
-        if (status != PlayerGameStatus.ReadyToPlay)
-            return;
-
-        var allJobs = ev.OldPriorities.Keys.Union(ev.NewPriorities.Keys);
-        foreach (var job in allJobs)
-        {
-            var oldPrio = ev.OldPriorities.GetValueOrDefault(job);
-            var newPrio = ev.NewPriorities.GetValueOrDefault(job);
-            if (oldPrio != JobPriority.Never && newPrio == JobPriority.Never)
-            {
-                _jobCounts[job]--;
-            }
-            else if (oldPrio == JobPriority.Never && newPrio != JobPriority.Never)
-            {
-                _jobCounts[job]++;
-            }
-        }
-        UpdateEuis();
     }
 
     private void OnRoundStarting(RoundStartingEvent ev)
@@ -93,6 +67,8 @@ public sealed class ReadyManifestSystem : EntitySystem
             return;
         }
 
+
+        // HumanoidCharacterProfile profile = (HumanoidCharacterProfile) preferences.SelectedCharacter;
         var profileJobs = preferences.JobPrioritiesFiltered().Keys;
 
         if (_gameTicker.PlayerGameStatuses[userId] == PlayerGameStatus.ReadyToPlay)

@@ -1,20 +1,18 @@
-// SPDX-FileCopyrightText: 2024 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
-// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
 //
-// SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+// SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Shared.Body.Systems;
-using Content.Shared.Mobs;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared._Shitmed.Targeting.Events;
-using Content.Shared.Body.Part;
+using Content.Shared.Mobs;
 
 namespace Content.Server._Shitmed.Targeting;
 public sealed class TargetingSystem : SharedTargetingSystem
 {
-    [Dependency] private readonly SharedBodySystem _bodySystem = default!;
-
     public override void Initialize()
     {
         base.Initialize();
@@ -40,22 +38,18 @@ public sealed class TargetingSystem : SharedTargetingSystem
         {
             foreach (var part in GetValidParts())
             {
-                component.BodyStatus[part] = TargetIntegrity.Dead;
                 changed = true;
             }
-            // I love groin shitcode.
-            component.BodyStatus[TargetBodyPart.Groin] = TargetIntegrity.Dead;
         }
-        else if (args.OldMobState == MobState.Dead && (args.NewMobState == MobState.Alive || args.NewMobState == MobState.Critical))
+        else if (args is { OldMobState: MobState.Dead, NewMobState: MobState.Alive or MobState.Critical })
         {
-            component.BodyStatus = _bodySystem.GetBodyPartStatus(uid);
             changed = true;
         }
 
-        if (changed)
-        {
-            Dirty(uid, component);
-            RaiseNetworkEvent(new TargetIntegrityChangeEvent(GetNetEntity(uid)), uid);
-        }
+        if (!changed)
+            return;
+
+        Dirty(uid, component);
+        RaiseNetworkEvent(new TargetIntegrityChangeEvent(GetNetEntity(uid)), uid);
     }
 }

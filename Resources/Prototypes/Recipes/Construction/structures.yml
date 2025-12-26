@@ -413,6 +413,19 @@
   - !type:TileNotBlocked
 
 - type: construction
+  id: Cardwall
+  graph: Cardwall
+  startNode: start
+  targetNode: cardwall
+  category: construction-category-structures
+  conditions:
+  - !type:TileNotBlocked
+    failIfSpace: false
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canRotate: false
+
+- type: construction
   name: grille
   id: Grille
   graph: Grille
@@ -1754,6 +1767,16 @@
     state: closed
 
 - type: construction
+  id: CardDoor
+  graph: DoorGraph
+  startNode: start
+  targetNode: cardDoor
+  category: construction-category-structures
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+
+- type: construction
   name: plastic flaps
   id: PlasticFlapsClear
   graph: PlasticFlapsGraph
@@ -1870,5 +1893,18 @@
   icon:
     sprite: Structures/Doors/secret_door.rsi
     state: closed
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  id: StationAiCore
+  graph: StationAiCore
+  startNode: start
+  targetNode: stationAiCore
+  category: construction-category-structures
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canRotate: false
+  canBuildInImpassable: false
   conditions:
     - !type:TileNotBlocked

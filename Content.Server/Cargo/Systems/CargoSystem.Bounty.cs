@@ -21,7 +21,6 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Content.Server.Cargo.Components;
-using Content.Server.Labels;
 using Content.Server.NameIdentifier;
 using Content.Server.Research.Systems;
 using Content.Shared._Funkystation.Cargo.Prototypes;
@@ -34,6 +33,7 @@ using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Database;
 using Content.Shared.IdentityManagement;
+using Content.Shared.Labels.EntitySystems;
 using Content.Shared.NameIdentifier;
 using Content.Shared.Paper;
 using Content.Shared.Research.Components;
@@ -46,6 +46,7 @@ using Robust.Shared.Containers;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
+using Robust.Shared.Prototypes;
 
 // This file features edits for Funky Station, there are a lot of edits throughout the file
 
@@ -60,8 +61,7 @@ public sealed partial class CargoSystem
     [Dependency] private readonly SharedResearchSystem _research = default!;
     [Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
 
-    [ValidatePrototypeId<NameIdentifierGroupPrototype>]
-    private const string BountyNameIdentifierGroup = "Bounty";
+    private static readonly ProtoId<NameIdentifierGroupPrototype> BountyNameIdentifierGroup = "Bounty";
 
     private EntityQuery<StackComponent> _stackQuery;
     private EntityQuery<ContainerManagerComponent> _containerQuery;

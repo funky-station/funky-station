@@ -1,14 +1,8 @@
-// SPDX-FileCopyrightText: 2023 Morb <14136326+Morb0@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Kot <1192090+koteq@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 lzk <124214523+lzk228@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
-//
-// SPDX-License-Identifier: MIT
-
-using Content.Shared.Bed.Sleep;
 using Content.Shared.CCVar;
+using Content.Shared.StatusEffectNew;
 using Robust.Shared.Configuration;
 using Robust.Shared.Player;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 
 namespace Content.Shared.SSDIndicator;
@@ -18,8 +12,11 @@ namespace Content.Shared.SSDIndicator;
 /// </summary>
 public sealed class SSDIndicatorSystem : EntitySystem
 {
+    public static readonly EntProtoId StatusEffectSSDSleeping = "StatusEffectSSDSleeping";
+
     [Dependency] private readonly IConfigurationManager _cfg = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly StatusEffectsSystem _statusEffects = default!;
 
     private bool _icSsdSleep;
     private float _icSsdSleepTime;
@@ -42,12 +39,9 @@ public sealed class SSDIndicatorSystem : EntitySystem
         if (_icSsdSleep)
         {
             component.FallAsleepTime = TimeSpan.Zero;
-            if (component.ForcedSleepAdded) // Remove component only if it has been added by this system
-            {
-                EntityManager.RemoveComponent<ForcedSleepingComponent>(uid);
-                component.ForcedSleepAdded = false;
-            }
+            _statusEffects.TryRemoveStatusEffect(uid, StatusEffectSSDSleeping);
         }
+
         Dirty(uid, component);
     }
 
@@ -60,18 +54,19 @@ public sealed class SSDIndicatorSystem : EntitySystem
         {
             component.FallAsleepTime = _timing.CurTime + TimeSpan.FromSeconds(_icSsdSleepTime);
         }
+
         Dirty(uid, component);
     }
 
     // Prevents mapped mobs to go to sleep immediately
     private void OnMapInit(EntityUid uid, SSDIndicatorComponent component, MapInitEvent args)
     {
-        if (_icSsdSleep &&
-            component.IsSSD &&
-            component.FallAsleepTime == TimeSpan.Zero)
-        {
-            component.FallAsleepTime = _timing.CurTime + TimeSpan.FromSeconds(_icSsdSleepTime);
-        }
+        if (!_icSsdSleep || !component.IsSSD)
+            return;
+
+        component.FallAsleepTime = _timing.CurTime + TimeSpan.FromSeconds(_icSsdSleepTime);
+        component.NextUpdate = _timing.CurTime + component.UpdateInterval;
+        Dirty(uid, component);
     }
 
     public override void Update(float frameTime)
@@ -81,19 +76,21 @@ public sealed class SSDIndicatorSystem : EntitySystem
         if (!_icSsdSleep)
             return;
 
+        var curTime = _timing.CurTime;
         var query = EntityQueryEnumerator<SSDIndicatorComponent>();
 
         while (query.MoveNext(out var uid, out var ssd))
         {
             // Forces the entity to sleep when the time has come
-            if(ssd.IsSSD &&
-                ssd.FallAsleepTime <= _timing.CurTime &&
-                !TerminatingOrDeleted(uid) &&
-                !HasComp<ForcedSleepingComponent>(uid)) // Don't add the component if the entity has it from another sources
-            {
-                EnsureComp<ForcedSleepingComponent>(uid);
-                ssd.ForcedSleepAdded = true;
-            }
+            if (!ssd.IsSSD
+                || ssd.NextUpdate > curTime
+                || ssd.FallAsleepTime > curTime
+                || TerminatingOrDeleted(uid))
+                continue;
+
+            _statusEffects.TryUpdateStatusEffectDuration(uid, StatusEffectSSDSleeping);
+            ssd.NextUpdate += ssd.UpdateInterval;
+            Dirty(uid, ssd);
         }
     }
 }

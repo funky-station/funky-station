@@ -105,6 +105,7 @@
   - type: Tag
     tags:
     - HiViz
+    - WhitelistChameleon
 
 #(Bartender) vest -  #Funky - bartender changes
 - type: entity

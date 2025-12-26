@@ -6,6 +6,8 @@
 
 using Content.Shared.CCVar;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Components;
+using Content.Shared.Damage.Systems;
 using Content.Shared.DoAfter;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Mobs;
@@ -170,7 +172,7 @@ public abstract partial class SharedCprSystem : EntitySystem
             ? cpr.Change
             : cpr.Change * ((CprManualEffectDuration - CprManualThreshold) / CprDoAfterDelay);
 
-            _damage.TryChangeDamage(ent.Owner, scaledDamage, interruptsDoAfters: false, ignoreResistances: true, damageable: damage, targetPart: TargetBodyPart.Torso);
+            _damage.TryChangeDamage(ent.Owner, scaledDamage, interruptsDoAfters: false, ignoreResistances: true, damageable: damage, targetPart: TargetBodyPart.Chest);
         var assist = EnsureComp<AssistedRespirationComponent>(ent);
 
         var newUntil = _cprRepeat

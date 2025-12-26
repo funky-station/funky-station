@@ -16,6 +16,36 @@
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+- type: entity
+  name: bang hitscan 1dmg
+  parent: BaseWeaponBatterySmall
+  id: WeaponHitscanDebug
+  description: pew pew!
+  suffix: DEBUG
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Pistols/debug.rsi
+    state: icon
+  - type: Clothing
+    sprite: Objects/Weapons/Guns/Pistols/debug.rsi
+  - type: Gun
+    fireRate: 10
+    availableModes:
+    - SemiAuto
+    - FullAuto
+  - type: BatteryAmmoProvider
+    proto: DebugLaser
+    fireCost: 1
+  - type: BatterySelfRecharger
+    autoRechargeRate: 1000
+
+- type: entity
+  name: bang hitscan gibber
+  parent: WeaponHitscanDebug
+  id: WeaponHitscanDebugGib
+  components:
+  - type: BatteryAmmoProvider
+    proto: DebugLaserGib
 
 - type: entity
   name: bang, ded
@@ -24,9 +54,6 @@
   description: ded
   suffix: DEBUG
   components:
-  - type: Tag
-    tags:
-      - Debug
   - type: Sprite
     sprite: Objects/Weapons/Guns/Pistols/debug.rsi
     state: icon
@@ -51,14 +78,14 @@
         priority: 2
         whitelist:
           tags:
-            - Debug
+            - MagazineDebug
       gun_chamber:
         name: Chamber
         startingItem: CartridgeDebug
         priority: 1
         whitelist:
           tags:
-            - CartridgePistol
+            - CartridgeDebug
 
 - type: entity
   id: MagazinePistolDebug
@@ -68,7 +95,7 @@
   components:
   - type: Tag
     tags:
-      - Debug
+      - MagazineDebug
   - type: BallisticAmmoProvider
     proto: CartridgeDebug
     capacity: 1000
@@ -82,9 +109,6 @@
   categories: [ Debug, HideSpawnMenu ]
   suffix: DEBUG
   components:
-  - type: Tag
-    tags:
-      - Debug
   - type: Projectile
     damage:
       types:
@@ -98,7 +122,7 @@
   components:
   - type: Tag
     tags:
-      - Debug
+    - CartridgeDebug
   - type: CartridgeAmmo
     proto: BulletDebug
 
@@ -109,9 +133,6 @@
   description: hit hard ye
   suffix: DEBUG
   components:
-  - type: Tag
-    tags:
-      - Debug
   - type: Sprite
     sprite: Objects/Weapons/Melee/debug.rsi
     state: icon
@@ -128,9 +149,6 @@
   parent: MeleeDebugGib
   id: MeleeDebug100
   components:
-  - type: Tag
-    tags:
-      - Debug
   - type: MeleeWeapon
     damage:
       types:
@@ -141,9 +159,6 @@
   parent: MeleeDebugGib
   id: MeleeDebug200
   components:
-  - type: Tag
-    tags:
-      - Debug
   - type: MeleeWeapon
     damage:
       types:

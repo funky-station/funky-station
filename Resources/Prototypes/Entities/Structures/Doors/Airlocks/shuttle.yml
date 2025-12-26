@@ -47,7 +47,6 @@
 # SPDX-FileCopyrightText: 2024 chromiumboy <50505512+chromiumboy@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
@@ -106,16 +105,13 @@
   - type: Tag
     tags:
       - ForceNoFixRotations
-  - type: PaintableAirlock
-    group: Shuttle
-    department: null
   - type: Construction
     graph: AirlockShuttle
     node: airlock
   - type: StaticPrice
     price: 350
-  - type: WeldingSparksAnimation # Goobstation
-    startingOffset: -0.5, -0.2
+  - type: Paintable
+    group: null
 
 - type: entity
   id: AirlockGlassShuttle
@@ -128,8 +124,6 @@
     sprite: Structures/Doors/Airlocks/Glass/shuttle.rsi
   - type: Occluder
     enabled: false
-  - type: PaintableAirlock
-    group: ShuttleGlass
   - type: Door
     occludes: false
   - type: Fixtures
@@ -176,3 +170,13 @@
   components:
   - type: Sprite
     sprite: Structures/Doors/Airlocks/Standard/shuttle_syndicate.rsi
+
+- type: entity
+  parent: AirlockShuttle
+  id: AirlockShuttleXenoborg
+  suffix: Docking
+  name: external airlock
+  description: Necessary for connecting two space craft together.
+  components:
+  - type: Sprite
+    sprite: Structures/Doors/Airlocks/Standard/shuttle_xenoborg.rsi

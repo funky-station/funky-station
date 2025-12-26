@@ -5,27 +5,39 @@
 // SPDX-FileCopyrightText: 2023 brainfood1183 <113240905+brainfood1183@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2023 deltanedas <@deltanedas:kde.org>
+// SPDX-FileCopyrightText: 2023 keronshb <keronshb@live.com>
 // SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2023 themias <89101928+themias@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Arendian <137322659+Arendian@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 John Space <bigdumb421@gmail.com>
+// SPDX-FileCopyrightText: 2024 NULL882 <gost6865@yandex.ru>
 // SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 ScyronX <166930367+ScyronX@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
 // SPDX-FileCopyrightText: 2024 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
+// SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
+// SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
+// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 //
-// SPDX-License-Identifier: MIT
+// SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
+using Content.Shared._Goobstation.CVars;
+using Content.Shared._Goobstation.Mech; // Goob Edit
+// Goobstation
 using Content.Shared.Access.Components;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Actions;
 using Content.Shared.Destructible;
 using Content.Shared.DoAfter;
 using Content.Shared.DragDrop;
-using Content.Shared.FixedPoint;
 using Content.Shared.Interaction;
 using Content.Shared.Interaction.Components;
 using Content.Shared.Interaction.Events;
@@ -41,25 +53,20 @@ using Robust.Shared.Network;
 using Robust.Shared.Serialization;
 using Robust.Shared.Timing;
 
-// Goobstation Change
-using Content.Shared.CCVar;
-using Content.Shared._Goobstation.CCVar;
 using Content.Shared.Emag.Systems;
+using Content.Shared.FixedPoint;
 using Content.Shared.Weapons.Ranged.Events;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Inventory.VirtualItem;
 using Robust.Shared.Configuration;
-using Content.Shared.Implants.Components;
-using Content.Shared.MalfAI;
-using Content.Shared.Silicons.StationAi;
 
 namespace Content.Shared.Mech.EntitySystems;
 
 /// <summary>
 /// Handles all of the interactions, UI handling, and items shennanigans for <see cref="MechComponent"/>
 /// </summary>
-public abstract class SharedMechSystem : EntitySystem
+public abstract partial class SharedMechSystem : EntitySystem
 {
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly INetManager _net = default!;
@@ -72,6 +79,7 @@ public abstract class SharedMechSystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
+    [Dependency] private readonly EmagSystem _emag = default!; // Goobstation change
     [Dependency] private readonly SharedHandsSystem _hands = default!; // Goobstation Change
     [Dependency] private readonly SharedVirtualItemSystem _virtualItem = default!; // Goobstation Change
     [Dependency] private readonly IConfigurationManager _config = default!; // Goobstation Change
@@ -98,6 +106,8 @@ public abstract class SharedMechSystem : EntitySystem
         SubscribeLocalEvent<MechPilotComponent, EntGotRemovedFromContainerMessage>(OnEntGotRemovedFromContainer);
         SubscribeLocalEvent<MechEquipmentComponent, ShotAttemptedEvent>(OnShotAttempted); // Goobstation
         Subs.CVar(_config, GoobCVars.MechGunOutsideMech, value => _canUseMechGunOutside = value, true); // Goobstation
+
+        InitializeRelay();
     }
 
     // GoobStation: Fixes scram implants or teleports locking the pilot out of being able to move.
@@ -181,6 +191,7 @@ public abstract class SharedMechSystem : EntitySystem
         _actions.AddAction(pilot, ref component.MechCycleActionEntity, component.MechCycleAction, mech);
         _actions.AddAction(pilot, ref component.MechUiActionEntity, component.MechUiAction, mech);
         _actions.AddAction(pilot, ref component.MechEjectActionEntity, component.MechEjectAction, mech);
+        _actions.AddAction(pilot, ref component.ToggleActionEntity, component.ToggleAction, mech); //Goobstation Mech Lights toggle action
     }
 
     private void RemoveUser(EntityUid mech, EntityUid pilot)
@@ -315,6 +326,7 @@ public abstract class SharedMechSystem : EntitySystem
 
     /// <summary>
     /// Attempts to change the amount of energy in the mech.
+    /// TODO: Power cells are predicted now, so no need to duplicate the charge level
     /// </summary>
     /// <param name="uid">The mech itself</param>
     /// <param name="delta">The change in energy</param>
@@ -383,19 +395,7 @@ public abstract class SharedMechSystem : EntitySystem
         if (!Resolve(uid, ref component))
             return false;
 
-        // Allow AI positronic brains to be inserted even if they cannot "move" per ActionBlocker.
-        var canMove = _actionBlocker.CanMove(toInsert);
-        // Allow Malf AI brain entities to be inserted even if they cannot move.
-        // Some forks may not keep StationAiHeldComponent on the brain when removed from its holder; in that case,
-        // still allow if the entity is the StationAiBrain prototype or carries the MalfAiMarkerComponent.
-        var isAiHeld = HasComp<StationAiHeldComponent>(toInsert);
-        var hasMalfMarker = HasComp<MalfAiMarkerComponent>(toInsert);
-        var isStationAiBrainProto = false;
-        var meta = MetaData(toInsert);
-        if (meta.EntityPrototype != null)
-            isStationAiBrainProto = meta.EntityPrototype.ID == "StationAiBrain";
-        var allowAi = isAiHeld || hasMalfMarker || isStationAiBrainProto;
-        return IsEmpty(component) && (canMove || allowAi);
+        return IsEmpty(component) && _actionBlocker.CanMove(toInsert);
     }
 
     /// <summary>
@@ -429,7 +429,12 @@ public abstract class SharedMechSystem : EntitySystem
         SetupUser(uid, toInsert.Value);
         _container.Insert(toInsert.Value, component.PilotSlot);
         UpdateAppearance(uid, component);
-        UpdateHands(toInsert.Value, uid, true); // Goobstation
+        // <Goobstation>
+        UpdateHands(toInsert.Value, uid, true);
+
+        var ev = new MechInsertedEvent(uid);
+        RaiseLocalEvent(toInsert.Value, ev);
+        // </Goobstation>
         return true;
     }
 
@@ -454,7 +459,12 @@ public abstract class SharedMechSystem : EntitySystem
         RemoveUser(uid, pilot.Value);
         _container.RemoveEntity(uid, pilot.Value);
         UpdateAppearance(uid, component);
-        UpdateHands(pilot.Value, uid, false); // Goobstation
+        // <Goobstation>
+        UpdateHands(pilot.Value, uid, false);
+
+        var ev = new MechEjectedEvent(uid);
+        RaiseLocalEvent(pilot.Value, ev);
+        // </Goobstation>
         return true;
     }
 
@@ -473,19 +483,19 @@ public abstract class SharedMechSystem : EntitySystem
     private void BlockHands(EntityUid uid, EntityUid mech, HandsComponent handsComponent)
     {
         var freeHands = 0;
-        foreach (var hand in _hands.EnumerateHands(uid, handsComponent))
+        foreach (var hand in _hands.EnumerateHands((uid, handsComponent)))
         {
-            if (hand.HeldEntity == null)
+            if (!_hands.TryGetHeldItem((uid, handsComponent), hand, out var held))
             {
                 freeHands++;
                 continue;
             }
 
             // Is this entity removable? (they might have handcuffs on)
-            if (HasComp<UnremoveableComponent>(hand.HeldEntity) && hand.HeldEntity != mech)
+            if (HasComp<UnremoveableComponent>(held) && held != mech)
                 continue;
 
-            _hands.DoDrop(uid, hand, true, handsComponent);
+            _hands.DoDrop((uid, handsComponent), hand);
             freeHands++;
             if (freeHands == 2)
                 break;
@@ -576,7 +586,7 @@ public abstract class SharedMechSystem : EntitySystem
 
     private void OnEmagged(EntityUid uid, MechComponent component, ref GotEmaggedEvent args) // Goobstation
     {
-        if (!component.BreakOnEmag)
+        if (!component.BreakOnEmag || !_emag.CompareFlag(args.Type, EmagType.Interaction))
             return;
         args.Handled = true;
         component.EquipmentWhitelist = null;

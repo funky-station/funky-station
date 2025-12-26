@@ -5,6 +5,7 @@
 
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
+using Content.Shared.Damage.Systems;
 using Content.Shared.Mobs.Systems;
 using Robust.Shared.Prototypes;
 namespace Content.Server._Shitmed.DelayedDeath;

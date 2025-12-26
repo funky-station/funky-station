@@ -1,24 +1,36 @@
-// SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
-// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
+// SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
+// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 //
-// SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+// SPDX-License-Identifier: AGPL-3.0-or-later
 
+using System.Numerics;
+using Content.Client.Lobby;
 using Content.Client.UserInterface.Controls;
 using Content.Shared.Heretic;
+using Content.Shared.Humanoid;
+using Content.Shared.Humanoid.Markings;
 using Robust.Client.Player;
 using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.XAML;
+using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
-using System.Numerics;
 
 namespace Content.Client._Goobstation.Heretic.UI;
 
-public sealed partial class LivingHeartMenu : RadialMenu
+public sealed class LivingHeartMenu : RadialMenu
 {
     [Dependency] private readonly EntityManager _ent = default!;
     [Dependency] private readonly IPrototypeManager _prot = default!;
     [Dependency] private readonly IPlayerManager _player = default!;
+    [Dependency] private readonly SharedHumanoidAppearanceSystem _appearance = default!;
+
+    private readonly LobbyUIController _controller;
 
     public EntityUid Entity { get; private set; }
 
@@ -28,6 +40,8 @@ public sealed partial class LivingHeartMenu : RadialMenu
     {
         IoCManager.InjectDependencies(this);
         RobustXamlLoader.Load(this);
+
+        _controller = UserInterfaceManager.GetUIController<LobbyUIController>();
     }
 
     public void SetEntity(EntityUid ent)
@@ -39,7 +53,8 @@ public sealed partial class LivingHeartMenu : RadialMenu
     private void UpdateUI()
     {
         var main = FindControl<RadialContainer>("Main");
-        if (main == null) return;
+        if (main == null)
+            return;
 
         var player = _player.LocalEntity;
 
@@ -48,21 +63,24 @@ public sealed partial class LivingHeartMenu : RadialMenu
 
         foreach (var target in heretic.SacrificeTargets)
         {
-            if (target == null) continue;
-
-            var ent = _ent.GetEntity(target);
-            if (ent == null)
+            if (!_ent.TryGetEntity(target.Entity, out EntityUid? ent))
                 continue;
+
+            var uid = ent.Value;
+
+            var tooltip = target.Profile?.Name ?? "Unknown";
+            if (_ent.TryGetComponent<MetaDataComponent>(uid, out var md))
+                tooltip = md.EntityName;
 
             var button = new EmbeddedEntityMenuButton
             {
                 StyleClasses = { "RadialMenuButton" },
                 SetSize = new Vector2(64, 64),
-                ToolTip = _ent.TryGetComponent<MetaDataComponent>(ent.Value, out var md) ? md.EntityName : "Unknown",
-                NetEntity = (NetEntity) target,
+                ToolTip = tooltip,
+                NetEntity = target.Entity
             };
 
-            var texture = new SpriteView(ent.Value, _ent)
+            var texture = new SpriteView(uid, _ent)
             {
                 OverrideDirection = Direction.South,
                 VerticalAlignment = VAlignment.Center,
@@ -70,10 +88,11 @@ public sealed partial class LivingHeartMenu : RadialMenu
                 VerticalExpand = true,
                 Stretch = SpriteView.StretchMode.Fill,
             };
-            button.AddChild(texture);
 
+            button.AddChild(texture);
             main.AddChild(button);
         }
+
         AddAction(main);
     }
 
@@ -88,7 +107,7 @@ public sealed partial class LivingHeartMenu : RadialMenu
             if (castChild == null)
                 continue;
 
-            castChild.OnButtonUp += _ =>
+            castChild.OnKeyBindUp += _ =>
             {
                 SendActivateMessageAction?.Invoke(castChild.NetEntity);
                 Close();
@@ -96,7 +115,7 @@ public sealed partial class LivingHeartMenu : RadialMenu
         }
     }
 
-    public sealed class EmbeddedEntityMenuButton : RadialMenuTextureButton
+    public sealed class EmbeddedEntityMenuButton : RadialMenu
     {
         public NetEntity NetEntity;
     }

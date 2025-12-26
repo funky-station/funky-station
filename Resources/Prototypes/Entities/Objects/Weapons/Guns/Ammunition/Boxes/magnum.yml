@@ -66,7 +66,7 @@
   parent: BaseMagazineBoxMagnum
   id: MagazineBoxMagnumPractice
   name: ammunition box (.45 magnum practice)
-  description: A cardboard box of .45 magnum rounds. Intended to hold non-harmful chalk ammunition.
+  description: A cardboard box of .45 magnum rounds. Intended to hold harmless practice ammunition.
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeMagnumPractice
@@ -114,7 +114,7 @@
   id: MagazineBoxMagnumAP
   parent: BaseMagazineBoxMagnum
   name: ammunition box (.45 magnum armor-piercing)
-  description: A cardboard box of .45 magnum rounds. Intended to hold rare armor-piercing ammunition.
+  description: A cardboard box of .45 magnum rounds. Intended to hold specialized armor-piercing ammunition.
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeMagnumAP

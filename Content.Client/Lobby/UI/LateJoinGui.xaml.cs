@@ -64,6 +64,7 @@ namespace Content.Client.Lobby.UI
         [Dependency] private readonly IEntitySystemManager _entitySystem = default!;
         [Dependency] private readonly JobRequirementsManager _jobRequirements = default!;
         [Dependency] private readonly IClientPreferencesManager _preferencesManager = default!;
+        [Dependency] private readonly ILogManager _logManager = default!;
         [Dependency] private readonly ISharedPlayerManager _playerManager = default!;
 
         /// <summary>
@@ -74,6 +75,7 @@ namespace Content.Client.Lobby.UI
         private readonly ClientGameTicker _gameTicker;
         private readonly SpriteSystem _sprites;
         private readonly CrewManifestSystem _crewManifest;
+        private readonly ISawmill _sawmill;
 
         private readonly Dictionary<NetEntity, Dictionary<string, List<JobButton>>> _jobButtons = new();
         private readonly Dictionary<NetEntity, Dictionary<string, BoxContainer>> _jobCategories = new();
@@ -88,6 +90,7 @@ namespace Content.Client.Lobby.UI
             _sprites = _entitySystem.GetEntitySystem<SpriteSystem>();
             _crewManifest = _entitySystem.GetEntitySystem<CrewManifestSystem>();
             _gameTicker = _entitySystem.GetEntitySystem<ClientGameTicker>();
+            _sawmill = _logManager.GetSawmill("latejoin.panel");
 
             _jobRequirements.Updated += RebuildUI;
             RebuildUI();

@@ -1,10 +1,4 @@
-// SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
-// SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
-//
-// SPDX-License-Identifier: MIT
-
 namespace Content.Shared.Weapons.Ranged.Events;
 
 [ByRefEvent]
-public readonly record struct UpdateClientAmmoEvent();
+public readonly record struct UpdateClientAmmoEvent(int AritifialIncrease = 0); //RMC14, added the parameter to update ammo count, when ammo is taken because of something happening serverside

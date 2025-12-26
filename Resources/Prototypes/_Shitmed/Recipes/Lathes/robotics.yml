@@ -26,8 +26,8 @@
 
 - type: latheRecipe
   parent: BaseRoboticsRecipe
-  id: TorsoIPC
-  result: TorsoIPC
+  id: ChestIPC
+  result: ChestIPC
   completetime: 3
   materials:
     Steel: 3000

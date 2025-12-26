@@ -1,18 +1,18 @@
 # SPDX-FileCopyrightText: 2023 Flareguy <78941145+Flareguy@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2024 IProduceWidgets <107586145+IProduceWidgets@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Kira Bridgeton <161087999+Verbalase@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Teasq <Xerithin@gmail.com>
-# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 #
-# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+# SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: species
   id: Gingerbread
   name: Gingerbread
-  roundStart: true
+  roundStart: false
   prototype: MobGingerbread
   sprites: MobGingerbreadSprites
-  markingLimits: MobGingerbreadMarkingLimits
+  markingLimits: MobHumanMarkingLimits
   dollPrototype: MobGingerbreadDummy
   skinColoration: HumanToned
   defaultSkinTone: "#9a7c5a"
@@ -21,12 +21,13 @@
   id: MobGingerbreadSprites
   sprites:
     Head: MobGingerbreadHead
-    Hair: MobHumanoidAnyMarking
-    HeadSide: MobHumanoidAnyMarking
-    Chest: MobGingerbreadTorso
-    Eyes: MobGingerbreadEyes
     HeadTop: MobHumanoidAnyMarking
-    Tail: MobHumanoidAnyMarking
+    HeadSide: MobHumanoidAnyMarking
+    Underwear: MobHumanoidAnyMarking
+    Undershirt: MobHumanoidAnyMarking
+    Chest: MobGingerbreadChest
+    Groin: MobGingerbreadGroin
+    Eyes: MobGingerbreadEyes
     LArm: MobGingerbreadLArm
     RArm: MobGingerbreadRArm
     LHand: MobGingerbreadLHand
@@ -35,36 +36,6 @@
     RLeg: MobGingerbreadRLeg
     LFoot: MobGingerbreadLFoot
     RFoot: MobGingerbreadRFoot
-    
-- type: markingPoints
-  id: MobGingerbreadMarkingLimits
-  points:
-    Hair:
-      points: 1
-      required: false
-    Head:
-      points: 1
-      required: true
-      defaultMarkings: [ FaceIcingDefault ]
-    HeadTop:
-      points: 1
-      required: false
-    HeadSide:
-      points: 1
-      required: false
-    Tail: 
-      points: 1
-      required: false
-    Chest:
-      points: 2
-      required: false
-    Legs:
-      points: 2
-      required: false
-    Arms:
-      points: 2
-      required: false
-
 
 - type: humanoidBaseSprite
   id: MobGingerbreadEyes
@@ -91,22 +62,40 @@
     state: head_f
 
 - type: humanoidBaseSprite
-  id: MobGingerbreadTorso
+  id: MobGingerbreadChest
   baseSprite:
     sprite: Mobs/Species/Gingerbread/parts.rsi
-    state: torso_m
+    state: chest_m
 
 - type: humanoidBaseSprite
-  id: MobGingerbreadTorsoMale
+  id: MobGingerbreadChestMale
   baseSprite:
     sprite: Mobs/Species/Gingerbread/parts.rsi
-    state: torso_m
+    state: chest_m
 
 - type: humanoidBaseSprite
-  id: MobGingerbreadTorsoFemale
+  id: MobGingerbreadChestFemale
   baseSprite:
     sprite: Mobs/Species/Gingerbread/parts.rsi
-    state: torso_f
+    state: chest_f
+
+- type: humanoidBaseSprite
+  id: MobGingerbreadGroin
+  baseSprite:
+    sprite: Mobs/Species/Gingerbread/parts.rsi
+    state: groin_m
+
+- type: humanoidBaseSprite
+  id: MobGingerbreadGroinMale
+  baseSprite:
+    sprite: Mobs/Species/Gingerbread/parts.rsi
+    state: groin_m
+
+- type: humanoidBaseSprite
+  id: MobGingerbreadGroinFemale
+  baseSprite:
+    sprite: Mobs/Species/Gingerbread/parts.rsi
+    state: groin_f
 
 - type: humanoidBaseSprite
   id: MobGingerbreadLLeg

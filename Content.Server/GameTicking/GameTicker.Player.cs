@@ -6,6 +6,7 @@
 // SPDX-FileCopyrightText: 2022 Moony <moonheart08@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2022 Radosvik <65792927+Radosvik@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2022 Veritius <veritiusgaming@gmail.com>
+// SPDX-FileCopyrightText: 2022 metalgearsloth <comedian_vs_clown@hotmail.com>
 // SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
 // SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2023 Chief-Engineer <119664036+Chief-Engineer@users.noreply.github.com>
@@ -23,11 +24,9 @@
 // SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
 // SPDX-FileCopyrightText: 2024 Repo <47093363+Titian3@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
-// SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
-// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 //
-// SPDX-License-Identifier: MIT
+// SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared.Administration;
 using Content.Shared.CCVar;
@@ -63,11 +62,8 @@ namespace Content.Server.GameTicking
             {
                 if (args.NewStatus != SessionStatus.Disconnected)
                 {
-                    mind.Session = session;
                     _pvsOverride.AddSessionOverride(mindId.Value, session);
                 }
-
-                DebugTools.Assert(mind.Session == session);
             }
 
             DebugTools.Assert(session.GetMind() == mindId);
@@ -157,10 +153,9 @@ namespace Content.Server.GameTicking
                 case SessionStatus.Disconnected:
                 {
                     _chatManager.SendAdminAnnouncement(Loc.GetString("player-leave-message", ("name", args.Session.Name)));
-                    if (mind != null)
+                    if (mindId != null)
                     {
-                        _pvsOverride.ClearOverride(GetNetEntity(mindId!.Value));
-                        mind.Session = null;
+                        _pvsOverride.RemoveSessionOverride(mindId.Value, session);
                     }
 
                     _userDb.ClientDisconnected(session);

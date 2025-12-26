@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2021 20kdc <asdd2808@gmail.com>
+﻿// SPDX-FileCopyrightText: 2021 20kdc <asdd2808@gmail.com>
 // SPDX-FileCopyrightText: 2021 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
 // SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
@@ -72,10 +72,12 @@ namespace Pow3r
             var t = drawData.DisplayPos.Y;
             var b = drawData.DisplayPos.Y + drawData.DisplaySize.Y;
 
-            var matrix = Matrix4x4.CreateOrthographicOffCenter(l, r, b, t, -1, 1);
-
             GL.MatrixMode(MatrixMode.Projection);
-            GL.LoadMatrix((float*) &matrix);
+            GL.LoadIdentity();
+            GL.Ortho(l, r, b, t, -1, 1);
+
+            GL.MatrixMode(MatrixMode.Modelview);
+            GL.LoadIdentity();
 
             var clipOff = drawData.DisplayPos;
             var clipScale = drawData.FramebufferScale;

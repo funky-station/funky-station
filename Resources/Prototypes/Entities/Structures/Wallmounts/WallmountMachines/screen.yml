@@ -1,0 +1,52 @@
+# SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2024 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2024 avery <51971268+graevy@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 mkanke-real <mikekanke@gmail.com>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
+- type: entity
+  parent: BaseWallmountMachine
+  id: Screen
+  name: screen
+  description: Displays text or time.
+  components:
+  - type: Rotatable
+  - type: TextScreenVisuals
+    textOffset: 0,3
+    timerOffset: 0,-4
+    rows: 2
+  - type: Sprite
+    drawdepth: WallMountedItems
+    sprite: Structures/Wallmounts/screen.rsi
+    state: screen
+    noRot: true
+  - type: ApcPowerReceiver
+    powerLoad: 100
+  - type: ExtensionCableReceiver
+  - type: Screen
+  - type: DeviceNetwork
+    deviceNetId: Wireless
+    receiveFrequencyId: ShuttleTimer
+  - type: ContainerContainer
+    containers:
+      hidden_slot: !type:ContainerSlot
+  - type: ItemSlots
+    slots:
+      hidden_slot:
+        name: computer_slot_accessory
+        whitelist:
+          tags:
+          - ListeningBug
+
+- type: entity
+  id: ArrivalsShuttleTimer
+  parent: Screen
+  name: arrivals screen
+  description: Displays time of arrivals shuttle ETA.
+  components:
+  - type: DeviceNetwork
+    deviceNetId: Private
+    receiveFrequencyId: ArrivalsShuttleTimer

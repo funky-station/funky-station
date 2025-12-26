@@ -164,9 +164,9 @@
   id: WoodenBuckler
   description: A small round wooden makeshift shield.
   components:
-    - type: Tag 
+    - type: Tag
       tags:
-      - WoodenBuckler    
+      - WoodenBuckler
     - type: Sprite
       state: buckler-icon
     - type: Item
@@ -218,14 +218,66 @@
 
 
 - type: entity
+  name: cardboard shield
+  parent: BaseShield
+  id: CardShield
+  description: A shield that wont shield you from much.
+  components:
+    - type: Sprite
+      state: cardshield-icon
+    - type: Item
+      heldPrefix: cardshield
+    - type: Blocking
+      passiveBlockModifier:
+        coefficients:
+          Blunt: 1
+          Slash: 2
+          Piercing: 0.6
+          Heat: 3
+      activeBlockModifier:
+        coefficients:
+          Blunt: 0.9
+          Slash: 1.8
+          Piercing: 0.5
+          Heat: 2.5
+        flatReductions:
+          Blunt: 0.5
+    - type: Construction
+      graph: CardShield
+      node: cardShield
+    - type: Destructible
+      thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 25
+        behaviors:
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+      - trigger:
+          !type:DamageTrigger
+          damage: 10 #Very very weak shield
+        behaviors:
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+        - !type:PlaySoundBehavior
+          sound: /Audio/Items/Toys/ToyFall2.ogg
+        - !type:SpawnEntitiesBehavior
+          spawn:
+            MaterialCardboard:
+              min: 2
+              max: 4
+    - type: StaticPrice
+      price: 20
+
+- type: entity
   name: makeshift shield
   parent: BaseShield
   id: MakeshiftShield
   description: A rundown looking shield, not good for much.
   components:
-    - type: Tag 
+    - type: Tag
       tags:
-      - MakeshiftShield  
+      - MakeshiftShield
     - type: Sprite
       state: makeshift-icon
     - type: Item
@@ -441,7 +493,7 @@
       heldPrefix: eshield
     - type: UseDelay
       delay: 0.5
-    - type: ToggleableLightVisuals
+    - type: ToggleableVisuals
       spriteLayer: shield
       inhandVisuals:
         left:
@@ -553,7 +605,7 @@
       heldPrefix: teleriot
     - type: UseDelay
       delay: 0.5
-    - type: ToggleableLightVisuals
+    - type: ToggleableVisuals
       spriteLayer: shield
       inhandVisuals:
         left:

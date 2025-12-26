@@ -9,7 +9,6 @@
 //
 // SPDX-License-Identifier: MIT
 
-using System.Linq;
 using Content.Shared.Access.Systems;
 using Content.Shared.CCVar;
 using Content.Shared.Examine;
@@ -19,6 +18,7 @@ using Content.Shared.Verbs;
 using Robust.Shared.Configuration;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
+using System.Linq;
 
 namespace Content.Shared.Contraband;
 
@@ -33,6 +33,7 @@ public sealed class ContrabandSystem : EntitySystem
     [Dependency] private readonly ExamineSystemShared _examine = default!;
 
     private bool _contrabandExamineEnabled;
+    private bool _contrabandExamineOnlyInHudEnabled;
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -40,6 +41,7 @@ public sealed class ContrabandSystem : EntitySystem
         SubscribeLocalEvent<ContrabandComponent, GetVerbsEvent<ExamineVerb>>(OnDetailedExamine);
 
         Subs.CVar(_configuration, CCVars.ContrabandExamine, SetContrabandExamine, true);
+        Subs.CVar(_configuration, CCVars.ContrabandExamineOnlyInHUD, SetContrabandExamineOnlyInHUD, true);
     }
 
     public void CopyDetails(EntityUid uid, ContrabandComponent other, ContrabandComponent? contraband = null)
@@ -53,46 +55,35 @@ public sealed class ContrabandSystem : EntitySystem
         Dirty(uid, contraband);
     }
 
-    private void OnDetailedExamine(EntityUid ent,ContrabandComponent component, ref GetVerbsEvent<ExamineVerb> args)
+    private void OnDetailedExamine(EntityUid ent, ContrabandComponent component, ref GetVerbsEvent<ExamineVerb> args)
     {
 
         if (!_contrabandExamineEnabled)
             return;
 
+        // Checking if contraband is only shown in the HUD
+        if (_contrabandExamineOnlyInHudEnabled)
+        {
+            var ev = new GetContrabandDetailsEvent();
+            RaiseLocalEvent(args.User, ref ev);
+            if (!ev.CanShowContraband)
+                return;
+        }
+
         // CanAccess is not used here, because we want people to be able to examine legality in strip menu.
         if (!args.CanInteract)
             return;
 
-        var severity = _proto.Index(component.Severity);
         // two strings:
         // one, the actual informative 'this is restricted'
         // then, the 'you can/shouldn't carry this around' based on the ID the user is wearing
-        var jobs = component.AllowedJobs.Select(p => _proto.Index(p).LocalizedName).ToArray();
-        if (component.AllowedDepartments == null) // for one off items that dont need any specifics - funky station
-        {
-            var msg = new FormattedMessage();
-
-            msg.AddMarkupOrThrow(severity.ExamineText);
-
-            _examine.AddDetailedExamineVerb(args,
-                component,
-                msg,
-                Loc.GetString("contraband-examinable-verb-text"),
-                "/Textures/Interface/VerbIcons/lock.svg.192dpi.png",
-                Loc.GetString("contraband-examinable-verb-message"));
-
-            return;
-        }
-
-        var localizedDepartments = component.AllowedDepartments!.Select(p => Loc.GetString("contraband-department-plural", ("department", Loc.GetString(_proto.Index(p).Name))));
-        var localizedJobs = component.AllowedJobs.Select(p => Loc.GetString("contraband-job-plural", ("job", _proto.Index(p).LocalizedName)));
+        var severity = _proto.Index(component.Severity);
         String departmentExamineMessage;
         if (severity.ShowDepartmentsAndJobs)
         {
-            //creating a combined list of jobs and departments for the restricted text
-            var list = ContentLocalizationManager.FormatList(localizedDepartments.Concat(localizedJobs).ToList());
             // department restricted text
-            departmentExamineMessage = Loc.GetString("contraband-examine-text-Restricted-department", ("departments", list));
+            departmentExamineMessage =
+                GenerateDepartmentExamineMessage(component.AllowedDepartments, component.AllowedJobs);
         }
         else
         {
@@ -111,6 +102,7 @@ public sealed class ContrabandSystem : EntitySystem
             }
         }
 
+        var jobs = component.AllowedJobs.Select(p => _proto.Index(p).LocalizedName).ToArray();
         // if it is fully restricted, you're department-less, or your department isn't in the allowed list, you cannot carry it. Otherwise, you can.
         var carryingMessage = Loc.GetString("contraband-examine-text-avoid-carrying-around");
         var iconTexture = "/Textures/Interface/VerbIcons/lock-red.svg.192dpi.png";
@@ -128,6 +120,19 @@ public sealed class ContrabandSystem : EntitySystem
             iconTexture);
     }
 
+    public string GenerateDepartmentExamineMessage(HashSet<ProtoId<DepartmentPrototype>> allowedDepartments, HashSet<ProtoId<JobPrototype>> allowedJobs, ContrabandItemType itemType = ContrabandItemType.Item)
+    {
+        var localizedDepartments = allowedDepartments.Select(p => Loc.GetString("contraband-department-plural", ("department", Loc.GetString(_proto.Index(p).Name))));
+        var jobs = allowedJobs.Select(p => _proto.Index(p).LocalizedName).ToArray();
+        var localizedJobs = jobs.Select(p => Loc.GetString("contraband-job-plural", ("job", p)));
+
+        //creating a combined list of jobs and departments for the restricted text
+        var list = ContentLocalizationManager.FormatList(localizedDepartments.Concat(localizedJobs).ToList());
+
+        // department restricted text
+        return Loc.GetString("contraband-examine-text-Restricted-department", ("departments", list), ("type", itemType));
+    }
+
     private FormattedMessage GetContrabandExamine(String deptMessage, String carryMessage)
     {
         var msg = new FormattedMessage();
@@ -141,4 +146,18 @@ public sealed class ContrabandSystem : EntitySystem
     {
         _contrabandExamineEnabled = val;
     }
+
+    private void SetContrabandExamineOnlyInHUD(bool val)
+    {
+        _contrabandExamineOnlyInHudEnabled = val;
+    }
+}
+
+/// <summary>
+/// The item type that the contraband text should follow in the description text.
+/// </summary>
+public enum ContrabandItemType
+{
+    Item,
+    Reagent
 }

@@ -38,7 +38,6 @@
 # SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 plykiya <plykiya@protonmail.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
-# SPDX-FileCopyrightText: 2025 TrixxedHeart <46364955+TrixxedBit@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 UristMcWiki <endernate2015@gmail.com>
 # SPDX-FileCopyrightText: 2025 V <97265903+formlessnameless@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
@@ -72,6 +71,7 @@
   - type: ItemToggleSize
     activatedSize: Huge
   - type: ItemTogglePointLight
+    toggleableVisualsColorModulatesLights: true
   - type: ItemToggleMeleeWeapon
     activatedSoundOnHit:
       path: /Audio/Weapons/eblade1.ogg
@@ -108,7 +108,7 @@
     color: white
     netsync: false
   - type: Appearance
-  - type: ToggleableLightVisuals # Add support for multiple layers
+  - type: ToggleableVisuals # Add support for multiple layers
     spriteLayer: blade
     inhandVisuals:
       left:
@@ -120,20 +120,6 @@
   - type: Reflect
   - type: IgnitionSource
     temperature: 700
-  - type: Scalpel # Shitmed
-    speed: 0.75
-  - type: Cautery # Shitmed: you have to be very, very careful to cauterize with it
-    speed: 0.2
-  - type: SurgeryTool # Shitmed
-    startSound:
-      path: /Audio/Weapons/ebladehum.ogg
-    endSound:
-      path: /Audio/Weapons/eblade1.ogg
-      params:
-        variation: 0.250
-  - type: ItemToggleSignatureWriter # imp start
-    activatedFont: AndTheDoorCreeeaked
-    activatedColor: black # imp end
 
 - type: entity
   name: energy sword
@@ -152,9 +138,8 @@
       map: [ "blade" ]
   - type: Item
     sprite: Objects/Weapons/Melee/e_sword-inhands.rsi
-  - type: Tag
-    tags:
-    - Knife
+  - type: StaticPrice
+    price: 2500
 
 - type: entity
   name: energy dagger
@@ -178,9 +163,9 @@
         volume: -3
         variation: 0.250
     activatedDamage:
-        types:
-            Slash: 10
-            Heat: 10
+      types:
+        Slash: 10
+        Heat: 10
     deactivatedSecret: true
   - type: ItemToggleActiveSound
     activeSound:
@@ -197,12 +182,12 @@
   - type: Sprite
     sprite: Objects/Weapons/Melee/e_dagger_loud.rsi
     layers:
-      - state: e_sword
-      - state: e_sword_blade
-        color: "#FFFFFF"
-        visible: false
-        shader: unshaded
-        map: [ "blade" ]
+    - state: e_sword
+    - state: e_sword_blade
+      color: "#FFFFFF"
+      visible: false
+      shader: unshaded
+      map: [ "blade" ]
   - type: MeleeWeapon
     wideAnimationRotation: 145
     attackRate: 1
@@ -216,16 +201,13 @@
   - type: PointLight
     enabled: false
     radius: 1.5
-    energy: 1.5
+    energy: 2.7
     color: white
     netsync: false
-  - type: Tag
-    tags:
-    - Knife
 
 - type: entity
   name: pen
-  parent: BaseMeleeWeaponEnergy
+  parent: [BaseMeleeWeaponEnergy, SelectableLock]
   id: EnergyDagger
   suffix: E-Dagger
   description: 'A dark ink pen.'
@@ -266,19 +248,19 @@
   - type: Sprite
     sprite: Objects/Weapons/Melee/e_dagger.rsi
     layers:
-      - state: e_sword
-      - state: e_sword_blade
-        color: "#FFFFFF"
-        visible: false
-        shader: unshaded
-        map: [ "blade" ]
+    - state: e_sword
+    - state: e_sword_blade
+      color: "#FFFFFF"
+      visible: false
+      shader: unshaded
+      map: [ "blade" ]
   - type: Item
     size: Tiny
     sprite: Objects/Weapons/Melee/e_dagger.rsi
   - type: PointLight
     enabled: false
     radius: 1.5
-    energy: 1.5
+    energy: 2.7
     color: white
     netsync: false
   - type: MeleeWeapon
@@ -288,10 +270,19 @@
     damage:
       types:
         Blunt: 1
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/Items/pen_click.ogg
+      params:
+        volume: -4
+        maxDistance: 2
+  - type: UseDelay
+    delay: 1.5
+  - type: ItemToggleRequiresLock #  TODO: FIX THIS VERB IS COOKED
+    lockedPopup: null
   - type: Tag
     tags:
     - Write
-  - type: SignatureWriter # imp
 
 - type: entity
   parent: [BaseItem, BaseSyndicateContraband]
@@ -319,19 +310,19 @@
   components:
   - type: ItemToggleMeleeWeapon
     activatedDamage:
-        types:
-            Slash: 10
-            Heat: 12
+      types:
+        Slash: 10
+        Heat: 12
     deactivatedSecret: true
   - type: Sprite
     sprite: Objects/Weapons/Melee/e_cutlass.rsi
     layers:
-      - state: e_cutlass
-      - state: e_cutlass_blade
-        color: "#e95151"
-        visible: false
-        shader: unshaded
-        map: [ "blade" ]
+    - state: e_cutlass
+    - state: e_cutlass_blade
+      color: "#e95151"
+      visible: false
+      shader: unshaded
+      map: [ "blade" ]
   - type: Item
     sprite: Objects/Weapons/Melee/e_cutlass.rsi
 
@@ -359,10 +350,10 @@
         volume: 3
         variation: 0.250
     activatedDamage:
-        types:
-            Slash: 15
-            Heat: 15
-            Structural: 20
+      types:
+        Slash: 12
+        Heat: 12
+        Structural: 15
   - type: ItemToggleActiveSound
     activeSound:
       path: /Audio/Weapons/ebladehum.ogg
@@ -387,17 +378,17 @@
   - type: Sprite
     sprite: Objects/Weapons/Melee/e_sword_double.rsi
     layers:
-      - state: e_sword_double
-      - state: e_sword_double_blade
-        color: "#FFFFFF"
-        visible: false
-        shader: unshaded
-        map: [ "blade" ]
+    - state: e_sword_double
+    - state: e_sword_double_blade
+      color: "#FFFFFF"
+      visible: false
+      shader: unshaded
+      map: [ "blade" ]
   - type: Item
     size: Small
     sprite: Objects/Weapons/Melee/e_sword_double-inhands.rsi
   - type: Reflect
-    reflectProb: .45
+    reflectProb: .75
     spread: 75
 
 # Item will look weird in handslot. Will need to adjust handstorage visuals in a future PR
@@ -454,11 +445,27 @@
     spread: 75
 
 # Borgs
+
 - type: entity
-  suffix: One-Handed, For Borgs
+  parent: EnergySword
+  id: CyborgEnergySword
+  suffix: For Borgs
+  description: A very loud & dangerous sword with a beam made of pure, concentrated plasma. Specially designed for syndicate cyborgs.
+
+- type: entity
   parent: EnergySwordDouble
   id: CyborgEnergySwordDouble # why is this invalid if ID is BorgEnergySwordDouble
+  suffix: One-Handed, For Borgs
   description: Syndicate Command Interns thought that having one blade on the energy sword was not enough. Specially designed for syndicate cyborgs.
   components: # could add energy-draining like the L6C
   - type: Wieldable
     freeHandsRequired: 0 # because borg has no off-hand to wield with.  Without this, it will be unable to activate the esword
+
+- type: entity
+  parent: [ EnergyDaggerLoud, BaseXenoborgContraband ]
+  id: EnergyDaggerLoudBlue
+  suffix: blue
+  components:
+  - type: EnergySword
+    colorOptions:
+    - "#2288ff" # can only be blue

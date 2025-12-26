@@ -57,7 +57,6 @@ using Content.Server.Hands.Systems;
 using Content.Server.Kitchen.Components;
 using Content.Server.Power.Components;
 using Content.Server.Power.EntitySystems;
-using Content.Server.Temperature.Components;
 using Content.Server.Temperature.Systems;
 using Content.Shared.Body.Components;
 using Content.Shared.Body.Part;
@@ -90,8 +89,8 @@ using Robust.Shared.Timing;
 using Content.Shared.Stacks;
 using Content.Server.Construction.Components;
 using Content.Shared.Chat;
-using Content.Shared.Damage;
-using Robust.Shared.Utility;
+using Content.Shared.Damage.Components;
+using Content.Shared.Temperature.Components;
 
 namespace Content.Server.Kitchen.EntitySystems
 {
@@ -120,8 +119,7 @@ namespace Content.Server.Kitchen.EntitySystems
         [Dependency] private readonly IAdminLogManager _adminLogger = default!;
         [Dependency] private readonly SharedSuicideSystem _suicide = default!;
 
-        [ValidatePrototypeId<EntityPrototype>]
-        private const string MalfunctionSpark = "Spark";
+        private static readonly EntProtoId MalfunctionSpark = "Spark";
 
         private static readonly ProtoId<TagPrototype> MetalTag = "Metal";
         private static readonly ProtoId<TagPrototype> PlasticTag = "Plastic";
@@ -187,7 +185,7 @@ namespace Content.Server.Kitchen.EntitySystems
 
         private void OnActiveMicrowaveRemove(Entity<ActiveMicrowaveComponent> ent, ref EntRemovedFromContainerMessage args)
         {
-            EntityManager.RemoveComponentDeferred<ActivelyMicrowavedComponent>(args.Entity);
+            RemCompDeferred<ActivelyMicrowavedComponent>(args.Entity);
         }
 
         // Stop items from transforming through constructiongraphs while being microwaved.
@@ -292,7 +290,7 @@ namespace Content.Server.Kitchen.EntitySystems
                         // If an entity has a stack component, use the stacktype instead of prototype id
                         if (TryComp<StackComponent>(item, out var stackComp))
                         {
-                            itemID = _prototype.Index<StackPrototype>(stackComp.StackTypeId).Spawn;
+                            itemID = _prototype.Index(stackComp.StackTypeId).Spawn;
                         }
                         else
                         {
@@ -315,7 +313,7 @@ namespace Content.Server.Kitchen.EntitySystems
                             {
                                 _container.Remove(item, component.Storage);
                             }
-                            _stack.Use(item, 1, stackComp);
+                            _stack.ReduceCount((item, stackComp), 1);
                             break;
                         }
                         else
@@ -799,7 +797,7 @@ namespace Content.Server.Kitchen.EntitySystems
             if (!HasContents(ent.Comp) || HasComp<ActiveMicrowaveComponent>(ent))
                 return;
 
-            _container.Remove(EntityManager.GetEntity(args.EntityID), ent.Comp.Storage);
+            _container.Remove(GetEntity(args.EntityID), ent.Comp.Storage);
             UpdateUserInterfaceState(ent, ent.Comp);
         }
 

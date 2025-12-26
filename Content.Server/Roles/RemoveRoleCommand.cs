@@ -17,6 +17,7 @@ using Content.Shared.Administration;
 using Content.Shared.Players;
 using Content.Shared.Roles;
 using Content.Shared.Roles.Jobs;
+using Content.Shared.Roles.Components;
 using Robust.Server.Player;
 using Robust.Shared.Console;
 
@@ -59,7 +60,7 @@ namespace Content.Server.Roles
             var roles = _entityManager.System<SharedRoleSystem>();
             var jobs = _entityManager.System<SharedJobSystem>();
             if (jobs.MindHasJobWithId(mind, args[1]))
-                roles.MindTryRemoveRole<JobRoleComponent>(mind.Value);
+                roles.MindRemoveRole<JobRoleComponent>(mind.Value);
         }
     }
 }

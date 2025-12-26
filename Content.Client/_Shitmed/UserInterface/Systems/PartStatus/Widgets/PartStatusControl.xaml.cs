@@ -26,7 +26,7 @@ public sealed partial class PartStatusControl : UIWidget
         _partStatusControls = new Dictionary<TargetBodyPart, TextureRect>
         {
             { TargetBodyPart.Head, DollHead },
-            { TargetBodyPart.Torso, DollTorso },
+            { TargetBodyPart.Chest, DollTorso },
             { TargetBodyPart.Groin, DollGroin },
             { TargetBodyPart.LeftArm, DollLeftArm },
             { TargetBodyPart.LeftHand, DollLeftHand },

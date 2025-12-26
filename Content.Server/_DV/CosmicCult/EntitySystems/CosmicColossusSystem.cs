@@ -18,10 +18,12 @@ using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Timing;
 using Content.Shared._DV.CosmicCult.Components;
-using Content.Server.Warps;
 using Content.Server._DV.CosmicCult.Components;
 using Content.Server.Station.Systems;
-using Content.Server.Station.Components;
+using Content.Shared.Damage.Components;
+using Content.Shared.Damage.Systems;
+using Content.Shared.Station.Components;
+using Content.Shared.Warps;
 
 namespace Content.Server._DV.CosmicCult.EntitySystems;
 
@@ -87,10 +89,16 @@ public sealed class CosmicColossusSystem : EntitySystem
     private void OnSpawn(Entity<CosmicColossusComponent> ent, ref ComponentInit args) // BIG GUY HURLED TOWARDS THE STATION SO FUKINGE FAST
     {
         ent.Comp.DeathTimer = _timing.CurTime + ent.Comp.DeathWait;
-        if (_station.GetStationInMap(Transform(ent).MapID) is { } station && TryComp<StationDataComponent>(station, out var stationData) &&
-            _station.GetLargestGrid(stationData) is { } grid)
+        if (_station.GetStationInMap(Transform(ent).MapID) is { } station &&
+            _station.GetLargestGrid(station) is { } grid)
         {
-            _throw.TryThrow(ent, Transform(grid).Coordinates, baseThrowSpeed: 25, null, 0, 0, false, false, false, false, false);
+            _throw.TryThrow(
+                ent,
+                Transform(grid).Coordinates,
+                baseThrowSpeed: 25,
+                null, 0, 0,
+                false, false, false, false, false
+            );
         }
         if (ent.Comp.Timed)
             _actions.AddAction(ent, ref ent.Comp.EffigyPlaceActionEntity, ent.Comp.EffigyPlaceAction, ent);

@@ -22,6 +22,7 @@ using Content.Shared.BloodCult;
 using Content.Shared.BloodCult.Components;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
+using Content.Shared.Damage.Systems;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
@@ -29,7 +30,10 @@ using Content.Server.Body.Systems;
 using Content.Server.Body.Components;
 using Content.Server.GameTicking.Rules;
 using Content.Server.Administration.Systems;
+using Content.Shared.Administration.Systems;
+using Content.Shared.Body.Components;
 using Content.Shared.Chemistry.EntitySystems;
+using Content.Shared.Damage.Components;
 
 namespace Content.Server.BloodCult.EntitySystems
 {
@@ -59,7 +63,7 @@ namespace Content.Server.BloodCult.EntitySystems
 
 		EntityUid user = (EntityUid)args.User;
 		var lookup = _lookup.GetEntitiesInRange(uid, component.ReviveRange);
-		
+
 		// Find dead entities to revive (prioritize cultists, but can revive anyone)
 		foreach (var look in lookup)
 		{
@@ -82,7 +86,7 @@ namespace Content.Server.BloodCult.EntitySystems
 			if (_solutionContainer.ResolveSolution(look, bloodstream.BloodSolutionName, ref bloodstream.BloodSolution, out var bloodSolution))
 			{
 				bloodExtracted = (double)bloodSolution.Volume.Float();
-				
+
 				// Remove all blood from the entity
 				_solutionContainer.RemoveAllSolution(bloodstream.BloodSolution.Value);
 			}
@@ -91,12 +95,12 @@ namespace Content.Server.BloodCult.EntitySystems
 			// Make the invoker bleed heavily (10u bleed amount)
 			if (TryComp<BloodstreamComponent>(user, out var invokerBloodstream))
 			{
-				_bloodstream.TryModifyBleedAmount(user, 10.0f, invokerBloodstream);
+				_bloodstream.TryModifyBleedAmount(user, 10.0f);
 			}
 
 			// Revive the entity
 			_rejuvenate.PerformRejuvenate(look);
-			
+
 			// Apply different conditions based on cultist status
 			if (isCultist)
 			{
@@ -105,11 +109,11 @@ namespace Content.Server.BloodCult.EntitySystems
 				revivalDamage.DamageDict.Add("Bloodloss", FixedPoint2.New(80));  // Increased from 50
 				revivalDamage.DamageDict.Add("Slash", FixedPoint2.New(30));
 				_damageableSystem.TryChangeDamage(look, revivalDamage, true, origin: user);
-				
+
 				// Add bleeding effect to simulate the blood cost
 				if (TryComp<BloodstreamComponent>(look, out var revivedBloodstream))
 				{
-					_bloodstream.TryModifyBleedAmount(look, 8.0f, revivedBloodstream);  // Heavy bleeding
+					_bloodstream.TryModifyBleedAmount(look, 8.0f);  // Heavy bleeding
 				}
 			}
 			else
@@ -123,7 +127,7 @@ namespace Content.Server.BloodCult.EntitySystems
 					_damageableSystem.TryChangeDamage(look, criticalDamage, true, origin: user);
 				}
 			}
-			
+
 			// Play effects
 			_audioSystem.PlayPvs(new SoundPathSpecifier("/Audio/Magic/staff_healing.ogg"), Transform(look).Coordinates);
 			_popupSystem.PopupEntity(

@@ -31,6 +31,7 @@ using Content.Server.Atmos.EntitySystems;
 using Content.Server.Storage.EntitySystems;
 using Content.Server.Stunnable;
 using Content.Server.Weapons.Ranged.Systems;
+using Content.Shared.Atmos.Components;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Interaction;
 using Content.Shared.PneumaticCannon;
@@ -107,10 +108,9 @@ public sealed class PneumaticCannonSystem : SharedPneumaticCannonSystem
         if (gas == null && component.GasUsage > 0f)
             return;
 
-        if (TryComp<StatusEffectsComponent>(args.User, out var status)
-            && component.Power == PneumaticCannonPower.High)
+        if (component.Power == PneumaticCannonPower.High
+            && _stun.TryUpdateParalyzeDuration(args.User, TimeSpan.FromSeconds(component.HighPowerStunTime)))
         {
-            _stun.TryParalyze(args.User, TimeSpan.FromSeconds(component.HighPowerStunTime), true, status);
             Popup.PopupEntity(Loc.GetString("pneumatic-cannon-component-power-stun",
                 ("cannon", uid)), cannon, args.User);
         }

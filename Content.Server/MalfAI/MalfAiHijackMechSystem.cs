@@ -97,7 +97,7 @@ public sealed class MalfAiHijackMechSystem : EntitySystem
         if (mech.PilotSlot.ContainedEntity is EntityUid currentPilot)
         {
             _mech.TryEject(target, mech);
-            _stun.TryParalyze(currentPilot, PilotStun, true);
+            _stun.TryAddParalyzeDuration(currentPilot, PilotStun);
             _popup.PopupEntity(Loc.GetString("mech-eject-pilot-alert", ("item", target), ("user", aiUid)), popupTarget, aiUid);
         }
 

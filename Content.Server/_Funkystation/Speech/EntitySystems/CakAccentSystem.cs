@@ -4,6 +4,7 @@
 
 using Content.Server.Speech.Components;
 using System.Text.RegularExpressions;
+using Content.Shared.Speech;
 
 namespace Content.Server.Speech.EntitySystems;
 

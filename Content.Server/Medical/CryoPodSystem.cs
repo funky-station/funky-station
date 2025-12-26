@@ -2,45 +2,83 @@
 // SPDX-FileCopyrightText: 2023 Chief-Engineer <119664036+Chief-Engineer@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2023 DrSmugleaf <drsmugleaf@gmail.com>
-// SPDX-FileCopyrightText: 2023 Emisse <99158783+Emisse@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 ElectroJr <leonsfriedrich@gmail.com>
 // SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
 // SPDX-FileCopyrightText: 2023 faint <46868845+ficcialfaint@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2023 keronshb <54602815+keronshb@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 keronshb <keronshb@live.com>
+// SPDX-FileCopyrightText: 2024 12rabbits <53499656+12rabbits@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Alzore <140123969+Blackern5000@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Brandon Hu <103440971+Brandon-Huu@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Cojoke <83733158+Cojoke-dot@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Dimastra <65184747+Dimastra@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Dimastra <dimastra@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Emisse <99158783+Emisse@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Eoin Mcloughlin <helloworld@eoinrul.es>
 // SPDX-FileCopyrightText: 2024 Fildrance <fildrance@gmail.com>
+// SPDX-FileCopyrightText: 2024 IProduceWidgets <107586145+IProduceWidgets@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 JIPDawg <51352440+JIPDawg@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 JIPDawg <JIPDawg93@gmail.com>
 // SPDX-FileCopyrightText: 2024 Jezithyr <jezithyr@gmail.com>
 // SPDX-FileCopyrightText: 2024 Kara <lunarautomaton6@gmail.com>
 // SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Mervill <mervills.email@gmail.com>
+// SPDX-FileCopyrightText: 2024 Moomoobeef <62638182+Moomoobeef@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 PJBot <pieterjan.briers+bot@gmail.com>
+// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers@gmail.com>
 // SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2024 PopGamer46 <yt1popgamer@gmail.com>
+// SPDX-FileCopyrightText: 2024 PursuitInAshes <pursuitinashes@gmail.com>
+// SPDX-FileCopyrightText: 2024 QueerNB <176353696+QueerNB@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Rainfey <rainfey0+github@gmail.com>
-// SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2024 Saphire Lattice <lattice@saphi.re>
+// SPDX-FileCopyrightText: 2024 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Simon <63975668+Simyon264@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Spessmann <156740760+Spessmann@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Thomas <87614336+Aeshus@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Whisper <121047731+QuietlyWhisper@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Winkarst <74284083+Winkarst-cpu@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 deltanedas <@deltanedas:kde.org>
+// SPDX-FileCopyrightText: 2024 eoineoineoin <github@eoinrul.es>
+// SPDX-FileCopyrightText: 2024 github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 metalgearsloth <comedian_vs_clown@hotmail.com>
 // SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 pa.pecherskij <pa.pecherskij@interfax.ru>
 // SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 stellar-novas <stellar_novas@riseup.net>
 // SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 //
-// SPDX-License-Identifier: MIT
+// SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Server.Administration.Logs;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Atmos.Piping.Components;
 using Content.Server.Atmos.Piping.Unary.EntitySystems;
-using Content.Server.Body.Components;
 using Content.Server.Body.Systems;
 using Content.Server.Medical.Components;
 using Content.Server.NodeContainer.EntitySystems;
 using Content.Server.NodeContainer.NodeGroups;
 using Content.Server.NodeContainer.Nodes;
 using Content.Server.Temperature.Components;
-using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Atmos;
+using Content.Shared.Actions; // Shitmed Change
 using Content.Shared.UserInterface;
+using Content.Shared.Body.Components;
 using Content.Shared.Chemistry;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Components.SolutionManager;
+using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Climbing.Systems;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Database;
@@ -52,17 +90,23 @@ using Content.Shared.Interaction;
 using Content.Shared.Medical.Cryogenics;
 using Content.Shared.MedicalScanner;
 using Content.Shared.Power;
+using Content.Shared.Tools;
+using Content.Shared.Tools.Systems;
+using Content.Shared.UserInterface;
 using Content.Shared.Verbs;
+using Content.Shared.Bed.Sleep;
+using Content.Shared.Temperature.Components; // Shitmed Change
 using Robust.Server.GameObjects;
 using Robust.Shared.Containers;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
-using SharedToolSystem = Content.Shared.Tools.Systems.SharedToolSystem;
 
 namespace Content.Server.Medical;
 
 public sealed partial class CryoPodSystem : SharedCryoPodSystem
 {
     [Dependency] private readonly AtmosphereSystem _atmosphereSystem = default!;
+    [Dependency] private readonly SharedActionsSystem _actionsSystem = default!;
     [Dependency] private readonly GasCanisterSystem _gasCanisterSystem = default!;
     [Dependency] private readonly ClimbSystem _climbSystem = default!;
     [Dependency] private readonly ItemSlotsSystem _itemSlotsSystem = default!;
@@ -76,6 +120,9 @@ public sealed partial class CryoPodSystem : SharedCryoPodSystem
     [Dependency] private readonly ReactiveSystem _reactiveSystem = default!;
     [Dependency] private readonly IAdminLogManager _adminLogger = default!;
     [Dependency] private readonly NodeContainerSystem _nodeContainer = default!;
+    [Dependency] private readonly SleepingSystem _sleepingSystem = default!;
+
+    private static readonly ProtoId<ToolQualityPrototype> PryingQuality = "Prying";
 
     public override void Initialize()
     {
@@ -137,8 +184,11 @@ public sealed partial class CryoPodSystem : SharedCryoPodSystem
                     continue;
                 }
 
-                var solutionToInject = _solutionContainerSystem.SplitSolution(containerSolution.Value, cryoPod.BeakerTransferAmount);
-                _bloodstreamSystem.TryAddToChemicals(patient.Value, solutionToInject, bloodstream);
+                // Filter out a fixed amount of each reagent from the cryo pod's beaker
+                var solutionToInject = _solutionContainerSystem.SplitSolutionReagentsEvenly(containerSolution.Value, cryoPod.BeakerTransferAmount);
+                //  for every .25 units used, .5 units per second are added to the body, making cryo-pod more efficient than injections
+                solutionToInject.ScaleSolution(cryoPod.PotencyMultiplier);
+                _bloodstreamSystem.TryAddToChemicals((patient.Value, bloodstream), solutionToInject);
                 _reactiveSystem.DoEntityReaction(patient.Value, solutionToInject, ReactionMethod.Injection);
             }
         }
@@ -221,16 +271,16 @@ public sealed partial class CryoPodSystem : SharedCryoPodSystem
             entity.Owner,
             HealthAnalyzerUiKey.Key,
             new HealthAnalyzerScannedUserMessage(GetNetEntity(entity.Comp.BodyContainer.ContainedEntity),
-                temp?.CurrentTemperature ?? 0,
-                (bloodstream != null && _solutionContainerSystem.ResolveSolution(entity.Comp.BodyContainer.ContainedEntity.Value,
-                    bloodstream.BloodSolutionName, ref bloodstream.BloodSolution, out var bloodSolution))
-                    ? bloodSolution.FillFraction
-                    : 0,
-                null,
-                null,
-                null,
-                null // Shitmed Change
-            ));
+            temp?.CurrentTemperature ?? 0,
+            (bloodstream != null && _solutionContainerSystem.ResolveSolution(entity.Comp.BodyContainer.ContainedEntity.Value,
+                bloodstream.BloodSolutionName, ref bloodstream.BloodSolution, out var bloodSolution))
+                ? bloodSolution.FillFraction
+                : 0,
+            null,
+            null,
+            null,
+            null // Shitmed Change
+        ));
     }
 
     private void OnInteractUsing(Entity<CryoPodComponent> entity, ref InteractUsingEvent args)
@@ -238,7 +288,7 @@ public sealed partial class CryoPodSystem : SharedCryoPodSystem
         if (args.Handled || !entity.Comp.Locked || entity.Comp.BodyContainer.ContainedEntity == null)
             return;
 
-        args.Handled = _toolSystem.UseTool(args.Used, args.User, entity.Owner, entity.Comp.PryDelay, "Prying", new CryoPodPryFinished());
+        args.Handled = _toolSystem.UseTool(args.Used, args.User, entity.Owner, entity.Comp.PryDelay, PryingQuality, new CryoPodPryFinished());
     }
 
     private void OnExamined(Entity<CryoPodComponent> entity, ref ExaminedEvent args)
@@ -265,6 +315,8 @@ public sealed partial class CryoPodSystem : SharedCryoPodSystem
             return;
         }
 
+        var insidePod = entity.Comp.BodyContainer.ContainedEntity; // Shitmed Change
+
         if (args.Powered)
         {
             EnsureComp<ActiveCryoPodComponent>(entity);
@@ -272,6 +324,8 @@ public sealed partial class CryoPodSystem : SharedCryoPodSystem
         else
         {
             RemComp<ActiveCryoPodComponent>(entity);
+            if (insidePod is { } patient) // Shitmed Change
+                _sleepingSystem.TryWaking(patient);
             _uiSystem.CloseUi(entity.Owner, HealthAnalyzerUiKey.Key);
         }
         UpdateAppearance(entity.Owner, entity.Comp);

@@ -1,13 +1,8 @@
-# SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 TomaszKawalec <40093912+TK-A369@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Flesh <62557990+PolterTzi@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
-# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
-#
-# SPDX-License-Identifier: MIT
-
-guidebook-reagent-effect-description =
-    {$chance ->
+﻿guidebook-reagent-effect-description =
+    {$quantity ->
+        [0] {""}
+        *[other] If there is at least {$quantity}u {$reagent},{" "}
+    }{$chance ->
         [1] { $effect }
         *[other] Has a { NATURALPERCENT($chance, 2) } chance to { $effect }
     }{ $conditionCount ->

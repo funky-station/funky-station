@@ -53,7 +53,7 @@ entities:
   - uid: 3
     components:
     - type: MetaData
-      name: map 89
+      name: "Empty Debug Map"
     - type: Transform
     - type: Map
     - type: GridTree

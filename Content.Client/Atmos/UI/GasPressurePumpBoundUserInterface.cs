@@ -5,8 +5,9 @@
 // SPDX-FileCopyrightText: 2024 Kot <1192090+koteq@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
-// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Milon <milonpl.git@proton.me>
 // SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
@@ -15,6 +16,8 @@
 using Content.Shared.Atmos;
 using Content.Shared.Atmos.Components;
 using Content.Shared.Atmos.Piping.Binary.Components;
+using Content.Shared.IdentityManagement;
+using Content.Shared.Localizations;
 using Content.Shared.IdentityManagement;
 using JetBrains.Annotations;
 using Robust.Client.UserInterface;
@@ -27,9 +30,6 @@ namespace Content.Client.Atmos.UI;
 [UsedImplicitly]
 public sealed class GasPressurePumpBoundUserInterface(EntityUid owner, Enum uiKey) : BoundUserInterface(owner, uiKey)
 {
-    [ViewVariables]
-    private const float MaxPressure = Atmospherics.MaxOutputPressure;
-
     [ViewVariables]
     private GasPressurePumpWindow? _window;
 

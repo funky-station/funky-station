@@ -1,15 +1,13 @@
-// SPDX-FileCopyrightText: 2024 Fishbait <Fishbait@git.ml>
-// SPDX-FileCopyrightText: 2024 John Space <bigdumb421@gmail.com>
+// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
 // SPDX-FileCopyrightText: 2024 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Falcon <falcon@zigtag.dev>
-// SPDX-FileCopyrightText: 2025 pre-commit-ci[bot] <66853113+pre-commit-ci[bot]@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
+// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 //
-// SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+// SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Robust.Shared.Random;
 using Content.Shared._EinsteinEngines.Silicon.Components;
-using Content.Server.Power.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Server.Temperature.Components;
 using Content.Server.Atmos.Components;
@@ -21,20 +19,19 @@ using Content.Shared.Movement.Systems;
 using Content.Server.Body.Components;
 using Content.Shared.Mind.Components;
 using System.Diagnostics.CodeAnalysis;
-using Content.Server.PowerCell;
+using Content.Shared._Goobstation.CVars;
+using Content.Server.Power.EntitySystems;
 using Robust.Shared.Timing;
 using Robust.Shared.Configuration;
 using Robust.Shared.Utility;
-using Content.Shared.CCVar;
 using Content.Shared.PowerCell.Components;
-using Content.Shared.Mind;
 using Content.Shared.Alert;
-using Content.Server._EinsteinEngines.Silicon.Death;
-using Content.Server._EinsteinEngines.Power.Components;
-// Begin TheDen - IPC Dynamic Power draw
-using Content.Shared.Movement.Components;
-using Robust.Shared.Physics.Components;
-// End TheDen
+using Content.Shared.Atmos.Components;
+using Content.Shared.CCVar;
+using Content.Shared.Power.Components;
+using Content.Shared.Power.EntitySystems;
+using Content.Shared.PowerCell;
+using Content.Shared.Temperature.Components;
 
 namespace Content.Server._EinsteinEngines.Silicon.Charge;
 
@@ -49,28 +46,36 @@ public sealed class SiliconChargeSystem : EntitySystem
     [Dependency] private readonly IConfigurationManager _config = default!;
     [Dependency] private readonly PowerCellSystem _powerCell = default!;
     [Dependency] private readonly AlertsSystem _alerts = default!;
-    [Dependency] private readonly SharedJetpackSystem _jetpack = default!; // TheDen - IPC Dynamic Power draw
+    [Dependency] private readonly SharedBatterySystem _battery = default!;
+
     public override void Initialize()
     {
         base.Initialize();
-
         SubscribeLocalEvent<SiliconComponent, ComponentStartup>(OnSiliconStartup);
     }
-
-    public bool TryGetSiliconBattery(EntityUid silicon, [NotNullWhen(true)] out BatteryComponent? batteryComp)
+    public bool TryGetSiliconBattery(
+        EntityUid silicon,
+        [NotNullWhen(true)] out BatteryComponent? batteryComp,
+        [NotNullWhen(true)] out EntityUid? batteryEnt)
     {
         batteryComp = null;
+        batteryEnt = null;
+
         if (!HasComp<SiliconComponent>(silicon))
             return false;
 
-
-        // try get a battery directly on the inserted entity
-        if (TryComp(silicon, out batteryComp)
-            || _powerCell.TryGetBatteryFromSlot(silicon, out batteryComp))
+        if (TryComp(silicon, out batteryComp))
+        {
+            batteryEnt = silicon;
             return true;
+        }
 
+        if (_powerCell.TryGetBatteryFromSlot(silicon, out var battery))
+        {
+            batteryEnt = battery.Value.Owner;
+            return TryComp(batteryEnt.Value, out batteryComp);
+        }
 
-        //DebugTools.Assert("SiliconComponent does not contain Battery");
         return false;
     }
 
@@ -87,15 +92,12 @@ public sealed class SiliconChargeSystem : EntitySystem
     {
         base.Update(frameTime);
 
-        // For each siliconComp entity with a battery component, drain their charge.
         var query = EntityQueryEnumerator<SiliconComponent>();
         while (query.MoveNext(out var silicon, out var siliconComp))
         {
-            if (_mobState.IsDead(silicon)
-                || !siliconComp.BatteryPowered)
+            if (_mobState.IsDead(silicon) || !siliconComp.BatteryPowered)
                 continue;
 
-            // Check if the Silicon is an NPC, and if so, follow the delay as specified in the CVAR.
             if (siliconComp.EntityType.Equals(SiliconType.Npc))
             {
                 var updateTime = _config.GetCVar(CCVars.SiliconNpcUpdateTime);
@@ -105,65 +107,45 @@ public sealed class SiliconChargeSystem : EntitySystem
                 siliconComp.LastDrainTime = _timing.CurTime;
             }
 
-            // If you can't find a battery, set the indicator and skip it.
-            if (!TryGetSiliconBattery(silicon, out var batteryComp))
+            if (!TryGetSiliconBattery(silicon, out var batteryComp, out var batteryEnt))
             {
                 UpdateChargeState(silicon, 0, siliconComp);
-                if (_alerts.IsShowingAlert(silicon, siliconComp.BatteryAlert))
-                {
-                    _alerts.ClearAlert(silicon, siliconComp.BatteryAlert);
-                    _alerts.ShowAlert(silicon, siliconComp.NoBatteryAlert);
-                }
+                _alerts.ClearAlert(silicon, siliconComp.BatteryAlert);
+                _alerts.ShowAlert(silicon, siliconComp.NoBatteryAlert);
                 continue;
             }
 
-            // If the silicon ghosted or is SSD while still being powered, skip it.
-            if (TryComp<MindContainerComponent>(silicon, out var mindContComp)
-                && !mindContComp.HasMind)
+            if (TryComp<MindContainerComponent>(silicon, out var mind) && !mind.HasMind)
                 continue;
 
             var drainRate = siliconComp.DrainPerSecond;
-
-            // All multipliers will be subtracted by 1, and then added together, and then multiplied by the drain rate. This is then added to the base drain rate.
-            // This is to stop exponential increases, while still allowing for less-than-one multipliers.
             var drainRateFinalAddi = 0f;
 
-            // TODO: Devise a method of adding multis where other systems can alter the drain rate.
-            // Maybe use something similar to refreshmovespeedmodifiers, where it's stored in the component.
-            // Maybe it doesn't matter, and stuff should just use static drain?
-            if (!siliconComp.EntityType.Equals(SiliconType.Npc)) // Don't bother checking heat if it's an NPC. It's a waste of time, and it'd be delayed due to the update time.
-            {
-                drainRateFinalAddi += SiliconHeatEffects(silicon, siliconComp, frameTime) - 1; // This will need to be changed at some point if we allow external batteries, since the heat of the Silicon might not be applicable.
-                drainRateFinalAddi += SiliconMovementEffects(silicon, siliconComp); // TheDen - IPC Dynamic Power draw // Removes between 90% and 0% of the total power draw.
-            }
+            if (!siliconComp.EntityType.Equals(SiliconType.Npc))
+                drainRateFinalAddi += SiliconHeatEffects(silicon, siliconComp, frameTime) - 1f;
 
-            // Ensures that the drain rate is at least 10% of normal,
-            // and would allow at least 4 minutes of life with a max charge, to prevent cheese.
-            drainRate += Math.Clamp(drainRateFinalAddi, drainRate * -0.9f, batteryComp.MaxCharge / 240);
+            drainRate += Math.Clamp(
+                drainRateFinalAddi,
+                drainRate * -0.9f,
+                batteryComp.MaxCharge / 240f);
 
-            // Drain the battery.
-            _powerCell.TryUseCharge(silicon, frameTime * drainRate);
+            _battery.TryUseCharge(batteryEnt.Value, frameTime * drainRate);
 
-            // Figure out the current state of the Silicon.
-            var chargePercent = (short) MathF.Round(batteryComp.CurrentCharge / batteryComp.MaxCharge * 10f);
+            var charge = _battery.GetCharge(batteryEnt.Value);
+            var chargePercent = (short) MathF.Round(charge / batteryComp.MaxCharge * 10f);
 
             UpdateChargeState(silicon, chargePercent, siliconComp);
         }
     }
 
-    /// <summary>
-    ///     Checks if anything needs to be updated, and updates it.
-    /// </summary>
     public void UpdateChargeState(EntityUid uid, short chargePercent, SiliconComponent component)
     {
         component.ChargeState = chargePercent;
 
         RaiseLocalEvent(uid, new SiliconChargeStateUpdateEvent(chargePercent));
-
         _moveMod.RefreshMovementSpeedModifiers(uid);
 
-        // If the battery was replaced and the no battery indicator is showing, replace the indicator
-        if (_alerts.IsShowingAlert(uid, component.NoBatteryAlert) && chargePercent != 0)
+        if (_alerts.IsShowingAlert(uid, component.NoBatteryAlert) && chargePercent > 0)
         {
             _alerts.ClearAlert(uid, component.NoBatteryAlert);
             _alerts.ShowAlert(uid, component.BatteryAlert, chargePercent);
@@ -172,68 +154,35 @@ public sealed class SiliconChargeSystem : EntitySystem
 
     private float SiliconHeatEffects(EntityUid silicon, SiliconComponent siliconComp, float frameTime)
     {
-        if (!TryComp<TemperatureComponent>(silicon, out var temperComp)
-            || !TryComp<ThermalRegulatorComponent>(silicon, out var thermalComp))
+        if (!TryComp<TemperatureComponent>(silicon, out var temp)
+            || !TryComp<ThermalRegulatorComponent>(silicon, out var thermal))
             return 0;
 
-        // If the Silicon is hot, drain the battery faster, if it's cold, drain it slower, capped.
-        var upperThresh = thermalComp.NormalBodyTemperature + thermalComp.ThermalRegulationTemperatureThreshold;
-        var upperThreshHalf = thermalComp.NormalBodyTemperature + thermalComp.ThermalRegulationTemperatureThreshold * 0.5f;
+        var upper = thermal.NormalBodyTemperature + thermal.ThermalRegulationTemperatureThreshold;
+        var upperHalf = thermal.NormalBodyTemperature + thermal.ThermalRegulationTemperatureThreshold * 0.5f;
 
-        // Check if the silicon is in a hot environment.
-        if (temperComp.CurrentTemperature > upperThreshHalf)
+        if (temp.CurrentTemperature > upperHalf)
         {
-            // Divide the current temp by the max comfortable temp capped to 4, then add that to the multiplier.
-            var hotTempMulti = Math.Min(temperComp.CurrentTemperature / upperThreshHalf, 4);
-
-            // If the silicon is hot enough, it has a chance to catch fire.
+            var hotMulti = Math.Min(temp.CurrentTemperature / upperHalf, 4f);
 
             siliconComp.OverheatAccumulator += frameTime;
-            if (!(siliconComp.OverheatAccumulator >= 5))
-                return hotTempMulti;
+            if (siliconComp.OverheatAccumulator < 5f)
+                return hotMulti;
 
-            siliconComp.OverheatAccumulator -= 5;
+            siliconComp.OverheatAccumulator -= 5f;
 
-            if (!EntityManager.TryGetComponent<FlammableComponent>(silicon, out var flamComp)
-                || flamComp is { OnFire: true }
-                || !(temperComp.CurrentTemperature > temperComp.HeatDamageThreshold))
-                return hotTempMulti;
+            if (!TryComp<FlammableComponent>(silicon, out var flam)
+                || flam.OnFire
+                || temp.CurrentTemperature <= temp.HeatDamageThreshold)
+                return hotMulti;
 
             _popup.PopupEntity(Loc.GetString("silicon-overheating"), silicon, silicon, PopupType.MediumCaution);
-            if (!_random.Prob(Math.Clamp(temperComp.CurrentTemperature / (upperThresh * 5), 0.001f, 0.9f)))
-                return hotTempMulti;
-
-            // Goobstation: Replaced by KillOnOverheatSystem
-            //_flammable.AdjustFireStacks(silicon, Math.Clamp(siliconComp.FireStackMultiplier, -10, 10), flamComp);
-            //_flammable.Ignite(silicon, silicon, flamComp);
-            return hotTempMulti;
+            return hotMulti;
         }
 
-        // Check if the silicon is in a cold environment.
-        if (temperComp.CurrentTemperature < thermalComp.NormalBodyTemperature)
-            return 0.5f + temperComp.CurrentTemperature / thermalComp.NormalBodyTemperature * 0.5f;
+        if (temp.CurrentTemperature < thermal.NormalBodyTemperature)
+            return 0.5f + temp.CurrentTemperature / thermal.NormalBodyTemperature * 0.5f;
 
         return 0;
-    }
-
-    // TheDen - IPC Dynamic Power draw
-    private float SiliconMovementEffects(EntityUid silicon, SiliconComponent siliconComp)
-    {
-        // Calculate dynamic power draw.
-        if (!TryComp(silicon, out MovementSpeedModifierComponent? movement) ||
-            !TryComp(silicon, out PhysicsComponent? physics) ||
-            !TryComp(silicon, out InputMoverComponent? input))
-            return 0;
-
-        if (input.HeldMoveButtons == MoveButtons.None || _jetpack.IsUserFlying(silicon) || movement.CurrentSprintSpeed==0) // If nothing is being held or jet packing
-        {
-            return siliconComp.DrainPerSecond * siliconComp.IdleDrainReduction * (-1); // Reduces draw by idle drain reduction
-        }
-
-        // LinearVelocity is relative to the parent
-        return Math.Clamp(
-            siliconComp.DrainPerSecond * ((physics.LinearVelocity.Length() / movement.CurrentSprintSpeed) - 1), // Power draw changes as a negative percentage of the movement
-            siliconComp.DrainPerSecond * siliconComp.IdleDrainReduction * (-1), // Should be a maximum of the idle drain reduction (negative)
-            0f); // Minimum reduction is no change to power draw
     }
 }

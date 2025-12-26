@@ -105,7 +105,7 @@
     contents:
         - id: OxygenTankFilled
         - id: NitrogenTankFilled
-        - id: ClothingOuterHardsuitSyndicateDurathread
+        - id: ClothingOuterEVASuitSyndicateDurathread
         - id: ClothingHeadHelmetSyndicate
         - id: ClothingMaskGasSyndicate
 
@@ -155,13 +155,10 @@
   parent: SuitStorageBase
   suffix: Station Engineer
   components:
-  - type: StorageFill
-    contents:
-        - id: OxygenTankFilled
-        - id: NitrogenTankFilled
-        - id: ClothingShoesBootsMag
-        - id: ClothingOuterHardsuitEngineering
-        - id: ClothingMaskBreath
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: FillEngineerHardsuit
   - type: AccessReader
     access: [["Engineering"]]
 
@@ -171,25 +168,10 @@
   parent: SuitStorageBase
   suffix: Atmospheric Technician
   components:
-  - type: StorageFill
-    contents:
-        - id: OxygenTankFilled
-        - id: NitrogenTankFilled
-        - id: ClothingOuterHardsuitAtmos
-        - id: ClothingMaskBreath
-  - type: Sprite
-    noRot: true
-    sprite: _Funkystation/Structures/Storage/Lockers/suit_storage_atmos.rsi
-    layers:
-    - state: base
-    - state: door
-      map: [ "enum.StorageVisualLayers.Door" ]
-    - state: welded
-      visible: false
-      map: [ "enum.WeldableLayers.BaseWelded" ]
-    - state: locked
-      map: [ "enum.LockVisualLayers.Lock" ]
-      shader: unshaded
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: FillAtmosphericsHardsuit
   - type: AccessReader
     access: [["Atmospherics"]]
 
@@ -460,4 +442,6 @@
         - id: NitrogenTankFilled
         - id: ClothingOuterHardsuitWizard
         - id: ClothingMaskBreath
-        - id: JetpackVoidFilled
+        # TODO: Gone until reworked to have no space protection
+        #- id: ClothingOuterHardsuitWizard
+        #- id: JetpackVoidFilled

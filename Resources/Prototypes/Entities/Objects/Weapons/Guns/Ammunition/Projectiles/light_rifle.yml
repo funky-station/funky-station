@@ -19,10 +19,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
 - type: entity
-  id: BulletLightRifle
-  name: bullet (.20 rifle)
   parent: BaseBullet
+  id: BulletLightRifle
   categories: [ HideSpawnMenu ]
+  name: bullet (.30 rifle)
   components:
   - type: Projectile
     damage:
@@ -30,10 +30,10 @@
         Piercing: 19
 
 - type: entity
-  id: BulletLightRiflePractice
-  name: bullet (.20 rifle practice)
   parent: BaseBulletPractice
+  id: BulletLightRiflePractice
   categories: [ HideSpawnMenu ]
+  name: bullet (.30 rifle practice)
   components:
   - type: Projectile
     damage:
@@ -53,10 +53,10 @@
         Holy: 15
 
 - type: entity
-  id: BulletLightRifleIncendiary
   parent: BaseBulletIncendiary
-  name: bullet (.20 rifle incendiary)
+  id: BulletLightRifleIncendiary
   categories: [ HideSpawnMenu ]
+  name: bullet (.30 rifle incendiary)
   components:
   - type: Projectile
     damage:
@@ -65,10 +65,10 @@
         Heat: 16
 
 - type: entity
-  id: BulletLightRifleUranium
   parent: BaseBulletUranium
-  name: bullet (.20 rifle uranium)
+  id: BulletLightRifleUranium
   categories: [ HideSpawnMenu ]
+  name: bullet (.30 rifle uranium)
   components:
   - type: Projectile
     damage:

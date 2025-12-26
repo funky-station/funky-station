@@ -47,23 +47,6 @@ public sealed partial class GhostRoleComponent : Component
 
     [DataField("rules")] private string _roleRules = "ghost-role-component-default-rules";
 
-    [DataField("requirements")] private HashSet<JobRequirement>? _requirements;
-
-    // Actually make use of / enforce this requirement?
-    // Why is this even here.
-    // Move to ghost role prototype & respect CCvars.GameRoleTimerOverride
-    [ViewVariables(VVAccess.ReadWrite)]
-    [Access(typeof(GhostRoleSystem), Other = AccessPermissions.ReadWriteExecute)]
-    public HashSet<JobRequirement>? Requirements
-    {
-        get => _requirements;
-        set
-        {
-            _requirements = value;
-            IoCManager.Resolve<IEntityManager>().System<GhostRoleSystem>().UpdateAllEui();
-        }
-    }
-
     /// <summary>
     /// Whether the <see cref="MakeSentientCommand"/> should run on the mob.
     /// </summary>
@@ -153,8 +136,6 @@ public sealed partial class GhostRoleComponent : Component
     [DataField("job")]
     [Access(typeof(GhostRoleSystem), Other = AccessPermissions.ReadWriteExecute)] // also FIXME Friends
     public ProtoId<JobPrototype>? JobProto = null;
-
-    [Access(typeof(GhostRoleSystem))]
-    public EntityUid? SpawnerGhostRoleEntity;
 }
+
 

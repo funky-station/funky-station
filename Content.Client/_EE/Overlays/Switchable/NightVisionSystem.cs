@@ -2,6 +2,8 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Client.Overlays;
+using Content.Goobstation.Shared.Overlays;
 using Content.Shared.Inventory;
 using Content.Shared.Inventory.Events;
 using Content.Shared._EE.Overlays.Switchable;

@@ -1,21 +1,3 @@
-// SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 MilenVolf <63782763+MilenVolf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
-// SPDX-FileCopyrightText: 2024 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
-// SPDX-FileCopyrightText: 2025 Terkala <appleorange64@gmail.com>
-// SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
-// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
-//
-// SPDX-License-Identifier: MIT
-
 using System.Linq;
 using System.Numerics;
 using System.Threading.Tasks;
@@ -127,7 +109,7 @@ public sealed partial class BiomeSystem : SharedBiomeSystem
             if (biome.Template == null || !reloads.Modified.TryGetValue(biome.Template, out var proto))
                 continue;
 
-            SetTemplate(uid, biome, (BiomeTemplatePrototype) proto);
+            SetTemplate(uid, biome, (BiomeTemplatePrototype)proto);
         }
     }
 
@@ -274,8 +256,8 @@ public sealed partial class BiomeSystem : SharedBiomeSystem
 
     private void OnFTLStarted(ref FTLStartedEvent ev)
     {
-        var targetMap = ev.TargetCoordinates.ToMap(EntityManager, _transform);
-        var targetMapUid = _mapManager.GetMapEntityId(targetMap.MapId);
+        var targetMap = _transform.ToMapCoordinates(ev.TargetCoordinates);
+        var targetMapUid = _mapSystem.GetMapOrInvalid(targetMap.MapId);
 
         if (!TryComp<BiomeComponent>(targetMapUid, out var biome))
             return;
@@ -301,12 +283,12 @@ public sealed partial class BiomeSystem : SharedBiomeSystem
             {
                 for (var y = Math.Floor(aabb.Bottom); y <= Math.Ceiling(aabb.Top); y++)
                 {
-                    var index = new Vector2i((int) x, (int) y);
+                    var index = new Vector2i((int)x, (int)y);
                     var chunk = SharedMapSystem.GetChunkIndices(index, ChunkSize);
 
                     var mod = biome.ModifiedTiles.GetOrNew(chunk * ChunkSize);
 
-                    if (!mod.Add(index) || !TryGetBiomeTile(index, biome.Layers, biome.Seed, grid, out var tile))
+                    if (!mod.Add(index) || !TryGetBiomeTile(index, biome.Layers, biome.Seed, (ev.MapUid, grid), out var tile))
                         continue;
 
                     // If we flag it as modified then the tile is never set so need to do it ourselves.
@@ -511,9 +493,9 @@ public sealed partial class BiomeSystem : SharedBiomeSystem
                 var layerProto = ProtoManager.Index<BiomeMarkerLayerPrototype>(layer);
                 var markerSeed = seed + chunk.X * ChunkSize + chunk.Y + localIdx;
                 var rand = new Random(markerSeed);
-                var buffer = (int) (layerProto.Radius / 2f);
+                var buffer = (int)(layerProto.Radius / 2f);
                 var bounds = new Box2i(chunk + buffer, chunk + layerProto.Size - buffer);
-                var count = (int) (bounds.Area / (layerProto.Radius * layerProto.Radius));
+                var count = (int)(bounds.Area / (layerProto.Radius * layerProto.Radius));
                 count = Math.Min(count, layerProto.MaxCount);
 
                 GetMarkerNodes(gridUid, component, grid, layerProto, forced, bounds, count, rand,
@@ -625,7 +607,7 @@ public sealed partial class BiomeSystem : SharedBiomeSystem
                     continue;
 
                 // Check if mask matches // anything blocking.
-                TryGetEntity(node, biome, grid, out var proto);
+                TryGetEntity(node, biome, (gridUid, grid), out var proto);
 
                 // If there's an existing entity and it doesn't match the mask then skip.
                 if (layerProto.EntityMask.Count > 0 &&
@@ -745,14 +727,14 @@ public sealed partial class BiomeSystem : SharedBiomeSystem
                     continue;
 
                 // Need to ensure the tile under it has loaded for anchoring.
-                if (TryGetBiomeTile(node, component.Layers, seed, grid, out var tile))
+                if (TryGetBiomeTile(node, component.Layers, seed, (gridUid, grid), out var tile))
                 {
                     _mapSystem.SetTile(gridUid, grid, node, tile.Value);
                 }
 
                 string? prototype;
 
-                if (TryGetEntity(node, component, grid, out var proto) &&
+                if (TryGetEntity(node, component, (gridUid, grid), out var proto) &&
                     layerProto.EntityMask.TryGetValue(proto, out var maskedProto))
                 {
                     prototype = maskedProto;
@@ -811,7 +793,7 @@ public sealed partial class BiomeSystem : SharedBiomeSystem
                 if (_mapSystem.TryGetTileRef(gridUid, grid, indices, out var tileRef) && !tileRef.Tile.IsEmpty)
                     continue;
 
-                if (!TryGetBiomeTile(indices, component.Layers, seed, grid, out var biomeTile))
+                if (!TryGetBiomeTile(indices, component.Layers, seed, (gridUid, grid), out var biomeTile))
                     continue;
 
                 _tiles.Add((indices, biomeTile.Value));
@@ -837,7 +819,7 @@ public sealed partial class BiomeSystem : SharedBiomeSystem
                 // Don't mess with anything that's potentially anchored.
                 var anchored = _mapSystem.GetAnchoredEntitiesEnumerator(gridUid, grid, indices);
 
-                if (anchored.MoveNext(out _) || !TryGetEntity(indices, component, grid, out var entPrototype))
+                if (anchored.MoveNext(out _) || !TryGetEntity(indices, component, (gridUid, grid), out var entPrototype))
                     continue;
 
                 // TODO: Fix non-anchored ents spawning.
@@ -870,7 +852,7 @@ public sealed partial class BiomeSystem : SharedBiomeSystem
                 // Don't mess with anything that's potentially anchored.
                 var anchored = _mapSystem.GetAnchoredEntitiesEnumerator(gridUid, grid, indices);
 
-                if (anchored.MoveNext(out _) || !TryGetDecals(indices, component.Layers, seed, grid, out var decals))
+                if (anchored.MoveNext(out _) || !TryGetDecals(indices, component.Layers, seed, (gridUid, grid), out var decals))
                     continue;
 
                 foreach (var decal in decals)
@@ -984,7 +966,7 @@ public sealed partial class BiomeSystem : SharedBiomeSystem
                     continue;
 
                 // Don't mess with anything that's potentially anchored.
-                var anchored = grid.GetAnchoredEntitiesEnumerator(indices);
+                var anchored = _mapSystem.GetAnchoredEntitiesEnumerator(gridUid, grid, indices);
 
                 if (anchored.MoveNext(out _))
                 {
@@ -1029,7 +1011,7 @@ public sealed partial class BiomeSystem : SharedBiomeSystem
             return;
 
         EnsureComp<MapGridComponent>(mapUid);
-        var biome = (BiomeComponent) EntityManager.ComponentFactory.GetComponent(typeof(BiomeComponent));
+        var biome = EntityManager.ComponentFactory.GetComponent<BiomeComponent>();
         seed ??= _random.Next();
         SetSeed(mapUid, biome, seed.Value, false);
         SetTemplate(mapUid, biome, biomeTemplate, false);
@@ -1054,9 +1036,12 @@ public sealed partial class BiomeSystem : SharedBiomeSystem
 
         EnsureComp<LightCycleComponent>(mapUid);
 
+        EnsureComp<SunShadowComponent>(mapUid);
+        EnsureComp<SunShadowCycleComponent>(mapUid);
+
         var moles = new float[Atmospherics.AdjustedNumberOfGases];
-        moles[(int) Gas.Oxygen] = 21.824779f;
-        moles[(int) Gas.Nitrogen] = 82.10312f;
+        moles[(int)Gas.Oxygen] = 21.824779f;
+        moles[(int)Gas.Nitrogen] = 82.10312f;
 
         var mixture = new GasMixture(moles, Atmospherics.T20C);
 
@@ -1085,7 +1070,7 @@ public sealed partial class BiomeSystem : SharedBiomeSystem
                 continue;
             }
 
-            if (!TryGetBiomeTile(tileSet.GridIndices, biome.Layers, biome.Seed, mapGrid, out var tile))
+            if (!TryGetBiomeTile(tileSet.GridIndices, biome.Layers, biome.Seed, (mapUid, mapGrid), out var tile))
             {
                 continue;
             }
@@ -1097,67 +1082,5 @@ public sealed partial class BiomeSystem : SharedBiomeSystem
         }
 
         _mapSystem.SetTiles(mapUid, mapGrid, tiles);
-    }
-
-    /// <summary>
-    /// Marks specific tiles as modified in the biome component.
-    /// This prevents the biome system from spawning entities on these tiles.
-    /// </summary>
-    public void MarkTilesAsModified(EntityUid gridUid, BiomeComponent biome, IEnumerable<Vector2i> tiles)
-    {
-        foreach (var tile in tiles)
-        {
-            var chunkOrigin = SharedMapSystem.GetChunkIndices(tile, ChunkSize) * ChunkSize;
-            var modifiedTiles = biome.ModifiedTiles.GetOrNew(chunkOrigin);
-            modifiedTiles.Add(tile);
-        }
-    }
-
-    /// <summary>
-    /// Forces immediate loading of all biome chunks for a grid.
-    /// This should be called when a biome is applied to a pre-built grid and needs to spawn entities immediately.
-    /// </summary>
-    public void ForceLoadAllChunks(EntityUid gridUid, BiomeComponent? biome = null, MapGridComponent? grid = null)
-    {
-        if (!Resolve(gridUid, ref biome, ref grid, false))
-            return;
-
-        if (!biome.Enabled)
-            return;
-
-        var seed = biome.Seed;
-        var chunks = new HashSet<Vector2i>();
-
-        // Get all chunks in the grid's bounds
-        var bounds = grid.LocalAABB;
-        var enumerator = new ChunkIndicesEnumerator(bounds, ChunkSize);
-
-        while (enumerator.MoveNext(out var chunkOrigin))
-        {
-            chunks.Add(chunkOrigin.Value * ChunkSize);
-        }
-
-        // Temporarily set active chunks for this biome
-        _activeChunks[biome] = chunks;
-        _markerChunks.GetOrNew(biome);
-
-        // Add marker chunks if the biome has marker layers
-        foreach (var layer in biome.MarkerLayers)
-        {
-            var layerProto = ProtoManager.Index(layer);
-            var markerEnumerator = new ChunkIndicesEnumerator(bounds, layerProto.Size);
-            var markerChunks = _markerChunks[biome].GetOrNew(layer);
-
-            while (markerEnumerator.MoveNext(out var markerChunk))
-            {
-                markerChunks.Add(markerChunk.Value * layerProto.Size);
-            }
-        }
-
-        // Load all chunks immediately
-        LoadChunks(biome, gridUid, grid, seed);
-
-        // Clear temporary active chunks
-        _activeChunks.Remove(biome);
     }
 }

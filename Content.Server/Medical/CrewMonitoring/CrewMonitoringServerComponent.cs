@@ -4,7 +4,7 @@
 //
 // SPDX-License-Identifier: MIT
 
-using Content.Shared.Medical.SuitSensor;
+using Content.Shared.Medical.SuitSensors;
 using Robust.Shared.Map;
 
 namespace Content.Server.Medical.CrewMonitoring;

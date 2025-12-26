@@ -7,7 +7,7 @@
 // SPDX-FileCopyrightText: 2025 Brandon Li <48413902+aspiringLich@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
-// SPDX-License-Identifier: MIT
+// SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Client.Stylesheets;
 using Content.Shared.Atmos.Monitor;
@@ -42,7 +42,10 @@ public sealed partial class ThresholdBoundControl : BoxContainer
     public void SetValue(float value)
     {
         _value = value;
-        CSpinner.Value = ScaledValue;
+        if (!CSpinner.HasKeyboardFocus())
+        {
+            CSpinner.Value = ScaledValue;
+        }
     }
 
     public void SetEnabled(bool enabled)

@@ -1,9 +1,4 @@
-// SPDX-FileCopyrightText: 2024 brainfood1183 <113240905+brainfood1183@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
-//
-// SPDX-License-Identifier: MIT
-
-using Content.Shared.Damage;
+using Content.Shared.Damage.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Fax.Components;
 
@@ -31,7 +26,7 @@ public sealed class FaxecuteSystem : EntitySystem
             return;
 
         var damageSpec = faxecute.Damage;
-        _damageable.TryChangeDamage(sendEntity, damageSpec);
+        _damageable.ChangeDamage(sendEntity.Value, damageSpec);
         _popupSystem.PopupEntity(Loc.GetString("fax-machine-popup-error", ("target", uid)), uid, PopupType.LargeCaution);
         return;
 

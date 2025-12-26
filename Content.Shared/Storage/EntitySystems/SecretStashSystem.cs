@@ -1,26 +1,5 @@
-// SPDX-FileCopyrightText: 2021 Paul Ritter <ritter.paul1@googlemail.com>
-// SPDX-FileCopyrightText: 2021 metalgearsloth <comedian_vs_clown@hotmail.com>
-// SPDX-FileCopyrightText: 2022 Alex Evgrashin <aevgrashin@yandex.ru>
-// SPDX-FileCopyrightText: 2022 Kara <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2022 Morb <14136326+Morb0@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2023 dontbetank <59025279+dontbetank@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
-// SPDX-FileCopyrightText: 2024 PJBot <pieterjan.briers+bot@gmail.com>
-// SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
-// SPDX-FileCopyrightText: 2024 beck-thompson <107373427+beck-thompson@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 brainfood1183 <113240905+brainfood1183@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
-//
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Construction.EntitySystems;
+using Content.Shared.Damage.Systems;
 using Content.Shared.Destructible;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
@@ -28,6 +7,8 @@ using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction;
 using Content.Shared.Item;
 using Content.Shared.Materials;
+using Content.Shared.Nutrition;
+using Content.Shared.Nutrition.EntitySystems;
 using Content.Shared.Popups;
 using Content.Shared.Storage.Components;
 using Content.Shared.Tools.EntitySystems;
@@ -52,6 +33,7 @@ public sealed class SecretStashSystem : EntitySystem
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly ToolOpenableSystem _toolOpenableSystem = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
+    [Dependency] private readonly DamageableSystem _damageableSystem = default!;
 
     public override void Initialize()
     {
@@ -60,6 +42,7 @@ public sealed class SecretStashSystem : EntitySystem
         SubscribeLocalEvent<SecretStashComponent, DestructionEventArgs>(OnDestroyed);
         SubscribeLocalEvent<SecretStashComponent, GotReclaimedEvent>(OnReclaimed);
         SubscribeLocalEvent<SecretStashComponent, InteractUsingEvent>(OnInteractUsing, after: new[] { typeof(ToolOpenableSystem), typeof(AnchorableSystem) });
+        SubscribeLocalEvent<SecretStashComponent, FullyEatenEvent>(OnFullyEaten);
         SubscribeLocalEvent<SecretStashComponent, InteractHandEvent>(OnInteractHand);
         SubscribeLocalEvent<SecretStashComponent, GetVerbsEvent<InteractionVerb>>(OnGetVerb);
     }
@@ -77,6 +60,14 @@ public sealed class SecretStashSystem : EntitySystem
     private void OnReclaimed(Entity<SecretStashComponent> entity, ref GotReclaimedEvent args)
     {
         DropContentsAndAlert(entity, args.ReclaimerCoordinates);
+    }
+
+    private void OnFullyEaten(Entity<SecretStashComponent> entity, ref FullyEatenEvent args)
+    {
+        // TODO: When newmed is finished should do damage to teeth (Or something like that!)
+        var damage = entity.Comp.DamageEatenItemInside;
+        if (HasItemInside(entity) && damage != null)
+            _damageableSystem.TryChangeDamage(args.User, damage, true);
     }
 
     private void OnInteractUsing(Entity<SecretStashComponent> entity, ref InteractUsingEvent args)
@@ -117,7 +108,7 @@ public sealed class SecretStashSystem : EntitySystem
 
         // check if item is too big to fit into secret stash or is in the blacklist
         if (_item.GetSizePrototype(itemComp.Size) > _item.GetSizePrototype(entity.Comp.MaxItemSize) ||
-            _whitelistSystem.IsBlacklistPass(entity.Comp.Blacklist, itemToHideUid))
+            _whitelistSystem.IsWhitelistPass(entity.Comp.Blacklist, itemToHideUid))
         {
             var msg = Loc.GetString("comp-secret-stash-action-hide-item-too-big",
                 ("item", itemToHideUid), ("stashname", GetStashName(entity)));

@@ -56,20 +56,23 @@
   - type: Damageable
     damageContainer: Biological
     damageModifierSet: Diona
-  - type: DamageVisuals
-    damageOverlayGroups:
-      Brute:
-        sprite: Mobs/Effects/brute_damage.rsi
-        color: "#cd7314"
-      Burn:
-        sprite: Mobs/Effects/burn_damage.rsi
+#  - type: DamageVisuals
+#    damageOverlayGroups:
+#      Brute:
+#        sprite: Mobs/Effects/brute_damage.rsi
+#        color: "#cd7314"
+#      Burn:
+#        sprite: Mobs/Effects/burn_damage.rsi
   - type: Butcherable
     butcheringType: Spike
     spawned:
       - id: FoodMeatPlant
         amount: 5
   - type: Bloodstream
-    bloodReagent: Sap
+    bloodReagents:
+      reagents:
+      - ReagentId: Sap
+        Quantity: 1
   - type: Reactive
     groups:
       Flammable: [ Touch ]
@@ -80,7 +83,7 @@
     - reagents: [Water, SpaceCleaner]
       methods: [Touch]
       effects:
-      - !type:WashCreamPieReaction
+      - !type:WashCreamPie
     - reagents: [ PlantBGone ]
       methods: [ Touch ]
       effects:
@@ -88,9 +91,9 @@
         scaleByQuantity: true
         damage:
           types:
-            Blunt: 0.1
-            Slash: 0.1
-            Piercing: 0.15
+            Blunt: 0.05
+            Slash: 0.05
+            Piercing: 0.075
       - !type:PopupMessage
         type: Local
         visualType: Large
@@ -103,7 +106,7 @@
         scaleByQuantity: true
         damage:
           types:
-            Poison: 0.25
+            Poison: 0.125
       - !type:PopupMessage
         type: Local
         visualType: Large
@@ -149,6 +152,7 @@
           32:
             sprite: Mobs/Species/Human/displacement.rsi
             state: jumpsuit-female
+  - type: Rootable
   - type: StepTriggerImmune # Goobstation
     whitelist:
       types:

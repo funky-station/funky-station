@@ -5,8 +5,8 @@
 // SPDX-License-Identifier: MIT
 
 using Content.Server.Ghost;
-using Content.Server.Light.Components;
 using Content.Server.Xenoarchaeology.Artifact.XAE.Components;
+using Content.Shared.Light.Components;
 using Content.Shared.Xenoarchaeology.Artifact;
 using Content.Shared.Xenoarchaeology.Artifact.XAE;
 using Robust.Shared.Random;

@@ -1,7 +1,7 @@
 {
     "version": 1,
     "license": "CC-BY-SA-3.0",
-    "copyright": "bartender and bureaucracy by iaada(github)",
+    "copyright": "artistic bartender and bureaucracy by iaada(github), tcktck modules by kipdotnet (github), mining module by LazyRiverfolk, disabler module by TuttlePants",
     "size": {
         "x": 32,
         "y": 32
@@ -12,6 +12,9 @@
         },
         {
             "name": "bureaucracy-module"
+        },
+        {
+            "name": "courier-module"
         }
     ]
 }

@@ -5,7 +5,7 @@
 using Content.Server.Administration.Logs;
 using Content.Server.Mind;
 using Content.Server.Popups;
-using Content.Server.Roles;
+using Content.Shared.Roles;
 using Content.Shared.Database;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Mindshield.Components;
@@ -15,6 +15,7 @@ using Content.Shared.BloodCult;
 using Content.Server.BloodCult;
 using Content.Server.BloodCult.EntitySystems;
 using Content.Server.GameTicking.Rules;
+using Content.Server.Roles;
 using Content.Shared.Actions;
 using Content.Shared.NPC.Systems;
 using Robust.Server.GameObjects;
@@ -28,7 +29,7 @@ namespace Content.Server.BloodCult.EntitySystems;
 public sealed class BloodCultMindShieldSystem : EntitySystem
 {
     [Dependency] private readonly IAdminLogManager _adminLogManager = default!;
-    [Dependency] private readonly RoleSystem _roleSystem = default!;
+    [Dependency] private readonly SharedRoleSystem _roleSystem = default!;
     [Dependency] private readonly MindSystem _mindSystem = default!;
     [Dependency] private readonly PopupSystem _popupSystem = default!;
     [Dependency] private readonly SharedStunSystem _sharedStun = default!;
@@ -57,7 +58,7 @@ public sealed class BloodCultMindShieldSystem : EntitySystem
 
         if (_mindSystem.TryGetMind(uid, out var mindId, out _))
         {
-            _roleSystem.MindTryRemoveRole<BloodCultRoleComponent>(mindId);
+            _roleSystem.MindRemoveRole<BloodCultRoleComponent>(mindId);
             _npcFaction.RemoveFaction(mindId, BloodCultRuleSystem.BloodCultistFactionId, false);
             // Possible to add other factions back here? It'd have to track their original faction
             // Todo: add a component to track original factions
@@ -74,7 +75,7 @@ public sealed class BloodCultMindShieldSystem : EntitySystem
 
         var stunTime = stunDuration ?? TimeSpan.FromSeconds(4);
         if (stunTime > TimeSpan.Zero)
-            _sharedStun.TryParalyze(uid, stunTime, true);
+            _sharedStun.TryAddParalyzeDuration(uid, stunTime);
 
         if (popupLocId != null && name != null)
             _popupSystem.PopupEntity(Loc.GetString(popupLocId, ("name", name!)), uid);
@@ -89,10 +90,11 @@ public sealed class BloodCultMindShieldSystem : EntitySystem
     {
         foreach (var action in _actions.GetActions(uid))
         {
-            if (!TryComp<CultistSpellComponent>(action.Id, out _))
+            // action is Entity<ActionComponent>
+            if (!TryComp<CultistSpellComponent>(action.Owner, out _))
                 continue;
 
-            _actions.RemoveAction(uid, action.Id);
+            _actions.RemoveAction(uid, action.Owner);
         }
 
         if (!removeVisuals)

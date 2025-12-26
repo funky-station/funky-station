@@ -16,7 +16,6 @@ using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.XAML;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
-using Content.Client.MalfAI.Theme;
 
 namespace Content.Client.Store.Ui;
 
@@ -28,49 +27,12 @@ public sealed partial class StoreListingControl : Control
     [Dependency] private readonly IGameTiming _timing = default!;
     private readonly ClientGameTicker _ticker;
 
-    private readonly ListingData _data;
+    private readonly ListingDataWithCostModifiers _data;
 
     private readonly bool _hasBalance;
     private readonly string _price;
-
-    public void ApplyMalfTheme(Font font, Color accent)
-    {
-        // Apply font theming locally (do not touch global theme).
-        StoreItemName.FontOverride = font;
-
-        // RichTextLabel doesn't support FontOverride; render description in monospace via markup.
-        ApplyMalfDescriptionMonospace();
-
-        // Apply color theming.
-        StoreItemName.Modulate = accent;
-        StoreItemDescription.Modulate = accent;
-
-        // Buttons don't have FontOverride directly; set their label if present.
-        if (StoreItemBuyButton.Label != null)
-        {
-            StoreItemBuyButton.Label.FontOverride = font;
-            StoreItemBuyButton.Label.Modulate = accent;
-        }
-
-        // Apply Malf-styled green-bordered black background to buy button unless it's a sale-red button.
-        if (!StoreItemBuyButton.HasStyleClass("ButtonColorRed"))
-        {
-            var buyStyle = MalfUiTheme.CreateButtonStyle(accent);
-            StoreItemBuyButton.StyleBoxOverride = buyStyle;
-        }
-    }
-
-    // Call this ONLY for the Malf AI shop to render description in monospace.
-    public void ApplyMalfDescriptionMonospace()
-    {
-        var current = StoreItemDescription.Text ?? string.Empty;
-
-        // Avoid double-wrapping if called multiple times.
-        if (!string.IsNullOrEmpty(current) && !current.StartsWith("[font=Monospace]"))
-            StoreItemDescription.Text = $"[font=Monospace]{current}[/font]";
-    }
-
-    public StoreListingControl(ListingData data, string price, bool hasBalance, Texture? texture = null)
+    private readonly string _discount;
+    public StoreListingControl(ListingDataWithCostModifiers data, string price, string discount, bool hasBalance, Texture? texture = null)
     {
         IoCManager.InjectDependencies(this);
         RobustXamlLoader.Load(this);
@@ -80,6 +42,7 @@ public sealed partial class StoreListingControl : Control
         _data = data;
         _hasBalance = hasBalance;
         _price = price;
+        _discount = discount;
 
         StoreItemName.Text = ListingLocalisationHelpers.GetLocalisedNameOrEntityName(_data, _prototype);
         StoreItemDescription.SetMessage(ListingLocalisationHelpers.GetLocalisedDescriptionOrEntityDescription(_data, _prototype));
@@ -107,11 +70,12 @@ public sealed partial class StoreListingControl : Control
         var stationTime = _timing.CurTime.Subtract(_ticker.RoundStartTimeSpan);
         if (_data.RestockTime > stationTime)
         {
-            var timeLeftToBuy = _data.RestockTime - stationTime;
-            StoreItemBuyButton.Text = timeLeftToBuy.Duration().ToString(@"mm\:ss");
+            var timeLeftToBuy = stationTime - _data.RestockTime;
+            StoreItemBuyButton.Text =  timeLeftToBuy.Duration().ToString(@"mm\:ss");
         }
         else
         {
+            DiscountSubText.Text = _discount;
             StoreItemBuyButton.Text = _price;
         }
     }

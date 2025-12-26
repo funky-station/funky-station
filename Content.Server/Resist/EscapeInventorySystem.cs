@@ -19,7 +19,8 @@
 
 using Content.Server.Popups;
 using Content.Shared.Storage;
-using Content.Server.Carrying; // Carrying system from Nyanotrasen.
+using Content.Server.Carrying;
+using Content.Shared._DV.Carrying; // Carrying system from Nyanotrasen.
 using Content.Shared.Inventory;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Storage.Components;

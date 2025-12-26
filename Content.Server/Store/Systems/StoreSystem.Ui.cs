@@ -1,43 +1,14 @@
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Júlio César Ueti <52474532+Mirino97@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Pieter-Jan Briers <pieterjan.briers@gmail.com>
-// SPDX-FileCopyrightText: 2023 Rane <60792108+Elijahrane@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 deltanedas <@deltanedas:kde.org>
-// SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Fildrance <fildrance@gmail.com>
-// SPDX-FileCopyrightText: 2024 J. Brown <DrMelon@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
-// SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Plykiya <plykiya@protonmail.com>
-// SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
-// SPDX-FileCopyrightText: 2024 keronshb <54602815+keronshb@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
-// SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
-// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
-//
-// SPDX-License-Identifier: MIT
-
 using System.Linq;
 using Content.Server.Actions;
 using Content.Server.Administration.Logs;
-using Content.Server.Heretic.EntitySystems;
-using Content.Server.PDA.Ringer;
 using Content.Server.Stack;
 using Content.Server.Store.Components;
 using Content.Shared.Actions;
 using Content.Shared.Database;
 using Content.Shared.FixedPoint;
 using Content.Shared.Hands.EntitySystems;
-using Content.Shared.Heretic;
-using Content.Shared.Heretic.Prototypes;
 using Content.Shared.Mind;
+using Content.Shared.PDA.Ringer;
 using Content.Shared.Store;
 using Content.Shared.Store.Components;
 using Content.Shared.UserInterface;
@@ -59,9 +30,6 @@ public sealed partial class StoreSystem
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly StackSystem _stack = default!;
     [Dependency] private readonly UserInterfaceSystem _ui = default!;
-
-    // goobstation - heretics
-    [Dependency] private readonly HereticKnowledgeSystem _heretic = default!;
 
     private void InitializeUi()
     {
@@ -122,7 +90,8 @@ public sealed partial class StoreSystem
         //this is the person who will be passed into logic for all listing filtering.
         if (user != null) //if we have no "buyer" for this update, then don't update the listings
         {
-            component.LastAvailableListings = GetAvailableListings(component.AccountOwner ?? user.Value, store, component).ToHashSet();
+            component.LastAvailableListings = GetAvailableListings(component.AccountOwner ?? user.Value, store, component)
+                .ToHashSet();
         }
 
         //dictionary for all currencies, including 0 values for currencies on the whitelist
@@ -140,6 +109,7 @@ public sealed partial class StoreSystem
 
         // only tell operatives to lock their uplink if it can be locked
         var showFooter = HasComp<RingerUplinkComponent>(store);
+
         var state = new StoreUpdateState(component.LastAvailableListings, allCurrency, showFooter, component.RefundAllowed);
         _ui.SetUiState(store, StoreUiKey.Key, state);
     }
@@ -159,7 +129,7 @@ public sealed partial class StoreSystem
     /// </summary>
     private void OnBuyRequest(EntityUid uid, StoreComponent component, StoreBuyListingMessage msg)
     {
-        var listing = component.Listings.FirstOrDefault(x => x.Equals(msg.Listing));
+        var listing = component.FullListingsCatalog.FirstOrDefault(x => x.ID.Equals(msg.Listing.Id));
 
         if (listing == null) //make sure this listing actually exists
         {
@@ -184,9 +154,10 @@ public sealed partial class StoreSystem
         }
 
         //check that we have enough money
-        foreach (var currency in listing.Cost)
+        var cost = listing.Cost;
+        foreach (var (currency, amount) in cost)
         {
-            if (!component.Balance.TryGetValue(currency.Key, out var balance) || balance < currency.Value)
+            if (!component.Balance.TryGetValue(currency, out var balance) || balance < amount)
             {
                 return;
             }
@@ -196,25 +167,13 @@ public sealed partial class StoreSystem
             DisableRefund(uid, component);
 
         //subtract the cash
-        foreach (var (currency, value) in listing.Cost)
+        foreach (var (currency, amount) in cost)
         {
-            component.Balance[currency] -= value;
+            component.Balance[currency] -= amount;
 
             component.BalanceSpent.TryAdd(currency, FixedPoint2.Zero);
 
-            component.BalanceSpent[currency] += value;
-        }
-        // Replicate updated balance to clients so Malf CPU HUD updates
-        Dirty(uid, component);
-
-        // goobstation - heretics
-        // i am too tired of making separate systems for knowledge adding
-        // and all that shit. i've had like 4 failed attempts
-        // so i'm just gonna shitcode my way out of my misery
-        if (listing.ProductHereticKnowledge != null)
-        {
-            if (TryComp<HereticComponent>(buyer, out var heretic))
-                _heretic.AddKnowledge(buyer, heretic, (ProtoId<HereticKnowledgePrototype>) listing.ProductHereticKnowledge);
+            component.BalanceSpent[currency] += amount;
         }
 
         //spawn entity
@@ -240,70 +199,23 @@ public sealed partial class StoreSystem
         //give action
         if (!string.IsNullOrWhiteSpace(listing.ProductAction))
         {
-            EntityUid? actionId = null;
-            var existingActionFound = false;
-
-            // Check if buyer already has this action and add charges instead of creating duplicate
+            EntityUid? actionId;
+            // I guess we just allow duplicate actions?
+            // Allow duplicate actions and just have a single list buy for the buy-once ones.
             if (!_mind.TryGetMind(buyer, out var mind, out _))
-            {
-                // Check buyer's actions directly
-                if (TryComp<ActionsComponent>(buyer, out var buyerActions))
-                {
-                    foreach (var existingAction in buyerActions.Actions)
-                    {
-                        if (TryComp<MetaDataComponent>(existingAction, out var metaData) &&
-                            metaData.EntityPrototype?.ID == listing.ProductAction)
-                        {
-                            // Found existing action, add charges to it using existing method
-                            if (listing.ProductActionCharges.HasValue && listing.ProductActionCharges > 0)
-                            {
-                                _actions.AddCharges(existingAction, listing.ProductActionCharges.Value);
-                            }
-                            actionId = existingAction;
-                            existingActionFound = true;
-                            break;
-                        }
-                    }
-                }
-
-                if (!existingActionFound)
-                    actionId = _actions.AddAction(buyer, listing.ProductAction);
-            }
+                actionId = _actions.AddAction(buyer, listing.ProductAction);
             else
-            {
-                // Check mind's action container
-                if (TryComp<ActionsContainerComponent>(mind, out var mindActions))
-                {
-                    foreach (var existingAction in mindActions.Container.ContainedEntities)
-                    {
-                        if (TryComp<MetaDataComponent>(existingAction, out var metaData) &&
-                            metaData.EntityPrototype?.ID == listing.ProductAction)
-                        {
-                            // Found existing action, add charges to it using existing method
-                            if (listing.ProductActionCharges.HasValue && listing.ProductActionCharges > 0)
-                            {
-                                _actions.AddCharges(existingAction, listing.ProductActionCharges.Value);
-                            }
-                            actionId = existingAction;
-                            existingActionFound = true;
-                            break;
-                        }
-                    }
-                }
+                actionId = _actionContainer.AddAction(mind, listing.ProductAction);
 
-                if (!existingActionFound)
-                    actionId = _actionContainer.AddAction(mind, listing.ProductAction);
-            }
-
-            // Add the newly bought action entity to the list of bought entities (only for new actions)
+            // Add the newly bought action entity to the list of bought entities
             // And then add that action entity to the relevant product upgrade listing, if applicable
-            if (actionId != null && !existingActionFound)
+            if (actionId != null)
             {
                 HandleRefundComp(uid, component, actionId.Value);
 
                 if (listing.ProductUpgradeId != null)
                 {
-                    foreach (var upgradeListing in component.Listings)
+                    foreach (var upgradeListing in component.FullListingsCatalog)
                     {
                         if (upgradeListing.ID == listing.ProductUpgradeId)
                         {
@@ -338,22 +250,15 @@ public sealed partial class StoreSystem
 
         if (listing.ProductEvent != null)
         {
-            // Handle ActionPurchaseCompanionEvent specially to populate the buyer
-            if (listing.ProductEvent is Content.Shared.Actions.Events.ActionPurchaseCompanionEvent companionEvent)
-            {
-                companionEvent.Buyer = GetNetEntity(buyer);
-                if (!listing.RaiseProductEventOnUser)
-                    RaiseLocalEvent(companionEvent);
-                else
-                    RaiseLocalEvent(buyer, companionEvent);
-            }
+            if (!listing.RaiseProductEventOnUser)
+                RaiseLocalEvent(listing.ProductEvent);
             else
-            {
-                if (!listing.RaiseProductEventOnUser)
-                    RaiseLocalEvent(listing.ProductEvent);
-                else
-                    RaiseLocalEvent(buyer, listing.ProductEvent);
-            }
+                RaiseLocalEvent(buyer, listing.ProductEvent);
+        }
+
+        if (listing.DisableRefund)
+        {
+            component.RefundAllowed = false;
         }
 
         //log dat shit.
@@ -364,16 +269,14 @@ public sealed partial class StoreSystem
         listing.PurchaseAmount++; //track how many times something has been purchased
         _audio.PlayEntity(component.BuySuccessSound, msg.Actor, uid); //cha-ching!
 
-        //WD EDIT START
-        if (listing.SaleLimit != 0 && listing.DiscountValue > 0 && listing.PurchaseAmount >= listing.SaleLimit)
+        var buyFinished = new StoreBuyFinishedEvent
         {
-            listing.DiscountValue = 0;
-            listing.Cost = listing.OldCost;
-        }
-        //WD EDIT END
+            PurchasedItem = listing,
+            StoreUid = uid
+        };
+        RaiseLocalEvent(ref buyFinished);
 
         UpdateUserInterface(buyer, uid, component);
-        ShowMalfCpuIfApplicable(uid, component);
     }
 
     /// <summary>
@@ -410,17 +313,14 @@ public sealed partial class StoreSystem
         {
             var cashId = proto.Cash[value];
             var amountToSpawn = (int) MathF.Floor((float) (amountRemaining / value));
-            var ents = _stack.SpawnMultiple(cashId, amountToSpawn, coordinates);
+            var ents = _stack.SpawnMultipleAtPosition(cashId, amountToSpawn, coordinates);
             if (ents.FirstOrDefault() is {} ent)
                 _hands.PickupOrDrop(buyer, ent);
             amountRemaining -= value * amountToSpawn;
         }
 
         component.Balance[msg.Currency] -= msg.Amount;
-        // Replicate updated balance to clients so Malf CPU HUD updates
-        Dirty(uid, component);
         UpdateUserInterface(buyer, uid, component);
-        ShowMalfCpuIfApplicable(uid, component);
     }
 
     private void OnRequestRefund(EntityUid uid, StoreComponent component, StoreRequestRefundMessage args)
@@ -450,12 +350,9 @@ public sealed partial class StoreSystem
 
             component.BoughtEntities.RemoveAt(i);
 
-            if (_actions.TryGetActionData(purchase, out var actionComponent, logError: false))
-            {
-                _actionContainer.RemoveAction(purchase, actionComponent);
-            }
+            _actionContainer.RemoveAction(purchase, logMissing: false);
 
-            EntityManager.DeleteEntity(purchase);
+            Del(purchase);
         }
 
         component.BoughtEntities.Clear();
@@ -464,13 +361,11 @@ public sealed partial class StoreSystem
         {
             component.Balance[currency] += value;
         }
+
         // Reset store back to its original state
         RefreshAllListings(component);
         component.BalanceSpent = new();
-        // Replicate updated balance to clients so Malf CPU HUD updates
-        Dirty(uid, component);
         UpdateUserInterface(buyer, uid, component);
-        ShowMalfCpuIfApplicable(uid, component);
     }
 
     private void HandleRefundComp(EntityUid uid, StoreComponent component, EntityUid purchase)
@@ -498,3 +393,14 @@ public sealed partial class StoreSystem
         component.RefundAllowed = false;
     }
 }
+
+/// <summary>
+/// Event of successfully finishing purchase in store (<see cref="StoreSystem"/>.
+/// </summary>
+/// <param name="StoreUid">EntityUid on which store is placed.</param>
+/// <param name="PurchasedItem">ListingItem that was purchased.</param>
+[ByRefEvent]
+public readonly record struct StoreBuyFinishedEvent(
+    EntityUid StoreUid,
+    ListingDataWithCostModifiers PurchasedItem
+);

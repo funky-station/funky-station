@@ -21,7 +21,7 @@ SPDX-License-Identifier: MIT
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center"
                 MinSize="32 32"
-                />
+            />
             <Label Name="RecipeName" HorizontalExpand="True" />
         </BoxContainer>
     </Button>

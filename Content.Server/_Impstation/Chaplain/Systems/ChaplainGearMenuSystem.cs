@@ -19,6 +19,7 @@ using Content.Shared.Damage;
 using Robust.Shared.Audio;
 using Content.Shared.Damage.Prototypes;
 using Content.Server.Stunnable;
+using Content.Shared.Damage.Systems;
 
 namespace Content.Server._Impstation.Chaplain.Systems;
 
@@ -62,7 +63,7 @@ public sealed class ChaplainGearMenuSystem : EntitySystem
             _damageableSystem.TryChangeDamage(args.Actor, searDamage, true);
 
             _stun.TryKnockdown(args.Actor, TimeSpan.FromSeconds(1.5f), true);
-            _stun.TryStun(args.Actor, TimeSpan.FromSeconds(1.5f), true);
+            _stun.TryAddStunDuration(args.Actor, TimeSpan.FromSeconds(1.5f));
             _ui.CloseUi(args.Entity, ChaplainGearMenuUIKey.Key);
             return;
         }

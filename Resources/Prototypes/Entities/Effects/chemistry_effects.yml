@@ -46,7 +46,6 @@
   - type: SmokeVisuals
   - type: Transform
     anchored: true
-  - type: Clickable
   - type: Physics
   - type: Fixtures
     fixtures:
@@ -86,6 +85,29 @@
     - HideContextMenu
 
 - type: entity
+  parent: BaseFoam
+  id: TearGasSmoke
+  name: tear gas
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Effects/chemsmoke.rsi
+    state: chemsmoke
+  - type: TimedDespawn
+    lifetime: 10
+  - type: Tag
+    tags:
+    - HideContextMenu
+
+- type: entity
+  parent: TearGasSmoke
+  id: TearGasSmokeWhite
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    state: chemsmoke_white
+
+- type: entity
   parent: Smoke
   id: WizardSmoke
   name: smoke
@@ -122,9 +144,6 @@
     animationState: foam-dissolve
   - type: Slippery
   - type: StepTrigger
-    triggerGroups:
-      types:
-      - SlipTile
   # disabled until foam reagent duplication is fixed
   #- type: ScoopableSolution
   #  solution: solutionArea
@@ -271,6 +290,17 @@
       state: metal_foam-north
     - map: [ "enum.EdgeLayer.West" ]
       state: metal_foam-west
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: FlimsyMetallic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 1 # Intentionally very weak to encourage speedy repair, think of it as thin webbing
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
 
 - type: entity
   id: ReactionFlash

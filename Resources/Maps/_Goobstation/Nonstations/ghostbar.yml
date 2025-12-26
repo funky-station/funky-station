@@ -12516,7 +12516,7 @@ entities:
       rot: 3.141592653589793 rad
       pos: 15.5,18.5
       parent: 4
-- proto: SodaDispenser
+- proto: SodaDispenserEmpty
   entities:
   - uid: 1642
     components:

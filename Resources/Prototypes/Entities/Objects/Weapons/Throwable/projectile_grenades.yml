@@ -1,15 +1,4 @@
-# SPDX-FileCopyrightText: 2024 MilenVolf <63782763+MilenVolf@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
-# SPDX-FileCopyrightText: 2025 IronDragoon <8961391+IronDragoon@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
-# SPDX-FileCopyrightText: 2025 Xcybitt <xcybitt@gmail.com>
-# SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
-# SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
-
-- type: entity
+﻿- type: entity
   abstract: true
   parent: BaseItem
   id: ProjectileGrenadeBase
@@ -18,6 +7,8 @@
   - type: Damageable
     damageContainer: Inorganic
   - type: DeleteOnTrigger
+    keysIn:
+    - timer
   - type: Destructible
     thresholds:
     - trigger:
@@ -25,6 +16,7 @@
         damage: 10
       behaviors:
       - !type:TriggerBehavior
+        keyOut: timer # explode immediately
   - type: ContainerContainer
     containers:
       cluster-payload: !type:Container
@@ -36,9 +28,22 @@
         enum.ConstructionVisuals.Layer:
           Primed: { state: primed }
           Unprimed: { state: icon }
+  - type: Tag
+    tags:
+    - HandGrenade
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape: !type:PhysShapeCircle
+          radius: 0.2
+        density: 20 # derived from base_item
+        mask:
+        - ItemMask
+        restitution: 0.3
+        friction: 0.2
 
 - type: entity
-  parent: [ProjectileGrenadeBase, BaseSecurityContraband]
+  parent: [FragileGrenadeBase, ProjectileGrenadeBase, BaseSecurityContraband]
   id: GrenadeStinger
   name: stinger grenade
   description: Nothing to see here, please disperse.
@@ -52,23 +57,27 @@
     fillPrototype: PelletClusterRubber
     capacity: 30
   - type: EmitSoundOnTrigger
+    keysIn:
+    - timer
     sound:
       path: "/Audio/Effects/flash_bang.ogg"
+    positional: true
   - type: SpawnOnTrigger
+    keysIn:
+    - timer
     proto: GrenadeFlashEffect
-  - type: OnUseTimerTrigger
+    predicted: true
+  - type: TriggerOnUse
+  - type: TimerTrigger
     initialBeepDelay: 0
     beepInterval: 2
     delay: 3.5
   - type: TimerTriggerVisuals
     primingSound:
       path: /Audio/Effects/countdown.ogg
-  - type: Tag
-    tags:
-    - NonlethalGrenade
 
 - type: entity
-  parent: [ProjectileGrenadeBase, BaseSyndicateContraband]
+  parent: [FragileGrenadeBase, ProjectileGrenadeBase, BaseSyndicateContraband]
   id: GrenadeIncendiary
   name: incendiary grenade
   description: Guaranteed to light up the mood.
@@ -81,7 +90,8 @@
   - type: ProjectileGrenade
     fillPrototype: PelletClusterIncendiary
     capacity: 30
-  - type: OnUseTimerTrigger
+  - type: TriggerOnUse
+  - type: TimerTrigger
     beepSound:
       path: "/Audio/Effects/beep1.ogg"
       params:
@@ -90,11 +100,16 @@
     beepInterval: 2
     delay: 3.5
   - type: EmitSoundOnTrigger
+    keysIn:
+    - timer
     sound:
       path: "/Audio/Weapons/Guns/Gunshots/batrifle.ogg"
+    positional: true
+  - type: StaticPrice
+    price: 1500
 
 - type: entity
-  parent: [ProjectileGrenadeBase, BaseSyndicateContraband]
+  parent: [FragileGrenadeBase, ProjectileGrenadeBase, BaseSyndicateContraband]
   id: GrenadeShrapnel
   name: shrapnel grenade
   description: Releases a deadly spray of shrapnel that causes severe bleeding.
@@ -107,7 +122,8 @@
   - type: ProjectileGrenade
     fillPrototype: PelletClusterLethal
     capacity: 30
-  - type: OnUseTimerTrigger
+  - type: TriggerOnUse
+  - type: TimerTrigger
     beepSound:
       path: "/Audio/Effects/beep1.ogg"
       params:
@@ -116,31 +132,10 @@
     beepInterval: 2
     delay: 3.5
   - type: EmitSoundOnTrigger
+    keysIn:
+    - timer
     sound:
       path: "/Audio/Weapons/Guns/Gunshots/batrifle.ogg"
-
-- type: entity
-  parent: [ProjectileGrenadeBase, BaseSecurityContraband]
-  id: GrenadeShrapnelSecurity
-  name: security shrapnel grenade
-  description: Releases a "less lethal" spray of shrapnel that causes moderate bleeding. Feels oddly light for it's size.
-  components:
-  - type: Sprite
-    sprite: Objects/Weapons/Grenades/shrapnelgrenade.rsi
-    layers:
-    - state: icon
-      map: ["enum.TriggerVisualLayers.Base"]
-  - type: ProjectileGrenade
-    fillPrototype: PelletClusterLethal
-    capacity: 10
-  - type: OnUseTimerTrigger
-    beepSound:
-      path: "/Audio/Effects/beep1.ogg"
-      params:
-        volume: 5
-    initialBeepDelay: 0
-    beepInterval: 2
-    delay: 3.5
-  - type: EmitSoundOnTrigger
-    sound:
-      path: "/Audio/Weapons/Guns/Gunshots/batrifle.ogg"
+    positional: true
+  - type: StaticPrice
+    price: 1500

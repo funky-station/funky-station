@@ -7,6 +7,7 @@
 using Content.Shared._RMC14.Input;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Hands.Components;
+using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Verbs;
 using Robust.Shared.Input.Binding;
 
@@ -16,6 +17,7 @@ public sealed class UniqueActionSystem : EntitySystem
 {
     [Dependency] private readonly ActionBlockerSystem _actionBlockerSystem = default!;
     [Dependency] private readonly IEntityManager _entityManager = default!;
+    [Dependency] private readonly SharedHandsSystem _handsSystem = default!;
 
 
     public override void Initialize()
@@ -57,11 +59,14 @@ public sealed class UniqueActionSystem : EntitySystem
 
     private void TryUniqueAction(EntityUid userUid)
     {
-        if (!_entityManager.TryGetComponent(userUid, out HandsComponent? handsComponent) ||
-            handsComponent.ActiveHandEntity == null)
+        if (!_entityManager.TryGetComponent(userUid, out HandsComponent? handsComponent))
             return;
 
-        TryUniqueAction(userUid, handsComponent.ActiveHandEntity.Value);
+        var activeHeldEntity = _handsSystem.GetActiveItem((userUid, handsComponent));
+        if (activeHeldEntity == null)
+            return;
+
+        TryUniqueAction(userUid, activeHeldEntity.Value);
     }
 
     private void TryUniqueAction(EntityUid userUid, EntityUid targetUid)

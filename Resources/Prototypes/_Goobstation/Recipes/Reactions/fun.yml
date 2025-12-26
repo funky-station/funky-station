@@ -17,7 +17,7 @@
     JuiceBanana:
       amount: 20
   effects:
-    - !type:CreateEntityReactionEffect
+    - !type:SpawnEntity
       entity: SoapHomemadeBanana
 
 # CREATED BY Goldminermac

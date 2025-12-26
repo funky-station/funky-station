@@ -13,9 +13,9 @@ using Content.Shared.Mind;
 using Content.Server._DV.CosmicCult.Components;
 using Content.Shared._DV.CosmicCult;
 using Content.Shared._DV.CosmicCult.Components;
+using Content.Shared.Warps;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Map;
-using Content.Server.Warps;
 
 namespace Content.Server._DV.CosmicCult.Abilities;
 

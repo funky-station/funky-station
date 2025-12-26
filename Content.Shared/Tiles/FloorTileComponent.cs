@@ -3,14 +3,14 @@
 // SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2023 Pieter-Jan Briers <pieterjan.briers@gmail.com>
 // SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 //
 // SPDX-License-Identifier: MIT
 
 using Content.Shared.Maps;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.List;
+using Robust.Shared.Prototypes;
 
 namespace Content.Shared.Tiles
 {
@@ -21,8 +21,8 @@ namespace Content.Shared.Tiles
     [RegisterComponent, NetworkedComponent]
     public sealed partial class FloorTileComponent : Component
     {
-        [DataField("outputs", customTypeSerializer: typeof(PrototypeIdListSerializer<ContentTileDefinition>))]
-        public List<string>? OutputTiles;
+        [DataField]
+        public List<ProtoId<ContentTileDefinition>>? Outputs;
 
         [DataField("placeTileSound")] public SoundSpecifier PlaceTileSound =
             new SoundPathSpecifier("/Audio/Items/genhit.ogg")

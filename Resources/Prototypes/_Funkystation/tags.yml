@@ -22,9 +22,6 @@
   id: ChitinSharkminnow
 
 - type: Tag
-  id: ChangelingInfectionImplant
-
-- type: Tag
   id: Magboots
 
 - type: Tag
@@ -93,5 +90,108 @@
 - type: Tag
   id: RevolverSalamander
 
+
+- type: Tag
+  id: CapacitorStockPart
+
+- type: Tag
+  id: ManipulatorStockPart
+
+- type: Tag
+  id: MatterBinStockPart
+
+- type: Tag
+  id: Organ
+
+- type: Tag
+  id: Lungs
+
+- type: Tag
+  id: Heart
+
+- type: Tag
+  id: Liver
+
+- type: Tag
+  id: Stomach
+
+- type: Tag
+  id: Kidneys
+
+- type: Tag
+  id: Eyes
+
+- type: Tag
+  id: PDACart
+
+- type: Tag
+  id: AtmosFireSuit
+
+- type: Tag
+  id: Unedible
+
+- type: Tag
+  id: ForceStandOnRevive
+
+- type: Tag
+  id: SiliconMob
+
+- type: Tag
+  id: IPCDrinkBlacklist
+
+- type: Tag
+  id: NoRecharge
+
+- type: Tag
+  id: VoxFood
+
+- type: Tag
+  id: MetalHydrogen
+
+- type: Tag
+  id: MetalHydrogenArmor
+
+- type: Tag
+  id: Cryobeaker
+
+- type: Tag
+  id: MagazineMagnumSubMachineGun
+
+- type: Tag
+  id: AtmosBackTank
+
+- type: Tag
+  id: Debug
+
+- type: Tag
+  id: Nozzle
+
+- type: Tag
+  id: MagazineCaselessRifle
+
+- type: Tag
+  id: SpeedLoaderRifle
+
+- type: Tag
+  id: SpeedLoaderPistol
+
+- type: Tag
+  id: ReactorPart #FarHorizons
+
+- type: Tag
+  id: MopSword
+
+- type: Tag
+  id: HidesNose
+
+- type: Tag
+  id: MagazineLightRiflePan
+
 - type: Tag
   id: ListeningBug
+
+- type: Tag
+  id: Tongue
+
+- type: Tag
+  id: RodUranium1

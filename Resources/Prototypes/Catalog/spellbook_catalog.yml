@@ -196,8 +196,8 @@
   - SpellbookUtility
   conditions:
   - !type:ListingLimitedStockCondition
-    stock: 1                       
-    
+    stock: 1
+
 # Equipment
 - type: listing
   id: SpellbookWandDoor

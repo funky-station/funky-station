@@ -13,17 +13,21 @@
 // SPDX-FileCopyrightText: 2023 metalgearsloth <comedian_vs_clown@hotmail.com>
 // SPDX-FileCopyrightText: 2024 Kara <lunarautomaton6@gmail.com>
 // SPDX-FileCopyrightText: 2024 c4llv07e <38111072+c4llv07e@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Toaster <mrtoastymyroasty@gmail.com>
 // SPDX-FileCopyrightText: 2025 ilyamikcoder <me@ilyamikcoder.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 āda <ss.adasts@gmail.com>
 //
 // SPDX-License-Identifier: MIT
 
 using Content.Shared.Access;
 using Content.Shared.Access.Components;
 using Content.Shared.Access.Systems;
+using Content.Shared.CCVar;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.CrewManifest;
 using Content.Shared.StatusIcon;
+using Robust.Shared.Configuration;
 using Robust.Shared.Prototypes;
 using static Content.Shared.Access.Components.IdCardConsoleComponent;
 
@@ -32,13 +36,21 @@ namespace Content.Client.Access.UI
     public sealed class IdCardConsoleBoundUserInterface : BoundUserInterface
     {
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+        [Dependency] private readonly IConfigurationManager _cfgManager = default!;
         private readonly SharedIdCardConsoleSystem _idCardConsoleSystem = default!;
 
         private IdCardConsoleWindow? _window;
 
+        // CCVar.
+        private int _maxNameLength;
+        private int _maxIdJobLength;
+
         public IdCardConsoleBoundUserInterface(EntityUid owner, Enum uiKey) : base(owner, uiKey)
         {
             _idCardConsoleSystem = EntMan.System<SharedIdCardConsoleSystem>();
+
+            _maxNameLength =_cfgManager.GetCVar(CCVars.MaxNameLength);
+            _maxIdJobLength = _cfgManager.GetCVar(CCVars.MaxIdJobLength);
         }
 
         protected override void Open()
@@ -87,11 +99,11 @@ namespace Content.Client.Access.UI
 
         public void SubmitData(string newFullName, string newJobTitle, string newJobIcon, List<ProtoId<AccessLevelPrototype>> newAccessList, string newJobPrototype)
         {
-            if (newFullName.Length > MaxFullNameLength)
-                newFullName = newFullName[..MaxFullNameLength];
+            if (newFullName.Length > _maxNameLength)
+                newFullName = newFullName[.._maxNameLength];
 
-            if (newJobTitle.Length > MaxJobTitleLength)
-                newJobTitle = newJobTitle[..MaxJobTitleLength];
+            if (newJobTitle.Length > _maxIdJobLength)
+                newJobTitle = newJobTitle[.._maxIdJobLength];
 
             SendMessage(new WriteToTargetIdMessage(
                 newFullName,

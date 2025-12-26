@@ -23,7 +23,7 @@ using Robust.Client.UserInterface.Controls;
 using Robust.Shared.Utility;
 
 namespace Content.Client.UserInterface.Systems.Actions.Controls;
-// goobstation heavily modified
+
 [Virtual]
 public class ActionButtonContainer : GridContainer
 {
@@ -37,7 +37,6 @@ public class ActionButtonContainer : GridContainer
     public ActionButtonContainer()
     {
         IoCManager.InjectDependencies(this);
-        UserInterfaceManager.GetUIController<ActionUIController>().RegisterActionContainer(this);
     }
 
     public ActionButton this[int index]
@@ -45,15 +44,26 @@ public class ActionButtonContainer : GridContainer
         get => (ActionButton) GetChild(index);
     }
 
-
-    private void BuildActionButtons(int count)
+    public void SetActionData(ActionsSystem system, params EntityUid?[] actionTypes)
     {
+        var uniqueCount = Math.Min(system.GetClientActions().Count(), actionTypes.Length + 1);
         var keys = ContentKeyFunctions.GetHotbarBoundKeys();
 
-        Children.Clear();
-        for (var index = 0; index < count; index++)
+        for (var i = 0; i < uniqueCount; i++)
         {
-            Children.Add(MakeButton(index));
+            if (i >= ChildCount)
+            {
+                AddChild(MakeButton(i));
+            }
+
+            if (!actionTypes.TryGetValue(i, out var action))
+                action = null;
+            ((ActionButton) GetChild(i)).UpdateData(action, system);
+        }
+
+        for (var i = ChildCount - 1; i >= uniqueCount; i--)
+        {
+            RemoveChild(GetChild(i));
         }
 
         ActionButton MakeButton(int index)
@@ -70,20 +80,6 @@ public class ActionButtonContainer : GridContainer
             }
 
             return button;
-        }
-    }
-
-    public void SetActionData(ActionsSystem system, params EntityUid?[] actionTypes)
-    {
-        BuildActionButtons(10);
-        ClearActionData();
-
-        for (var i = 0; i < actionTypes.Length; i++)
-        {
-            var action = actionTypes[i];
-            if (action == null)
-                continue;
-            ((ActionButton) GetChild(i)).UpdateData(action.Value, system);
         }
     }
 

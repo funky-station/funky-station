@@ -1,44 +1,8 @@
-// SPDX-FileCopyrightText: 2022 Morbo <14136326+Morb0@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2022 Rane <60792108+Elijahrane@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 keronshb <54602815+keronshb@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Ben <50087092+benev0@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 BenOwnby <ownbyb@appstate.edu>
-// SPDX-FileCopyrightText: 2023 Brandon Hu <103440971+Brandon-Huu@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Doru991 <75124791+Doru991@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Duke <112821543+DukeVanity@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Emisse <99158783+Emisse@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Pieter-Jan Briers <pieterjan.briers@gmail.com>
-// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Cojoke <83733158+Cojoke-dot@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Crotalus <Crotalus@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Flesh <62557990+PolterTzi@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Jezithyr <jezithyr@gmail.com>
-// SPDX-FileCopyrightText: 2024 Kara <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2024 Kevin Zheng <kevinz5000@gmail.com>
-// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
-// SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
-// SPDX-FileCopyrightText: 2024 Token <esil.bektay@yandex.com>
-// SPDX-FileCopyrightText: 2024 botanySupremist <160211017+botanySupremist@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 drakewill-CRL <46307022+drakewill-CRL@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
-// SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
-// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
-//
-// SPDX-License-Identifier: MIT
-
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Botany.Components;
-using Content.Server.Kitchen.Components;
+using Content.Server.Hands.Systems;
 using Content.Server.Popups;
+using Content.Shared.Administration.Logs;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Atmos;
 using Content.Shared.Botany;
@@ -59,10 +23,12 @@ using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
-using Content.Server.Labels.Components;
-using Content.Shared.Administration.Logs;
+using Content.Shared.Chemistry.Reaction;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Database;
+using Content.Shared.EntityEffects;
+using Content.Shared.Kitchen.Components;
+using Content.Shared.Labels.Components;
 
 namespace Content.Server.Botany.Systems;
 
@@ -74,6 +40,7 @@ public sealed class PlantHolderSystem : EntitySystem
     [Dependency] private readonly MutationSystem _mutation = default!;
     [Dependency] private readonly AppearanceSystem _appearance = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly HandsSystem _hands = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly IGameTiming _gameTiming = default!;
     [Dependency] private readonly SharedSolutionContainerSystem _solutionContainerSystem = default!;
@@ -82,7 +49,7 @@ public sealed class PlantHolderSystem : EntitySystem
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly ItemSlotsSystem _itemSlots = default!;
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
-
+    [Dependency] private readonly SharedEntityEffectsSystem _entityEffects = default!;
 
     public const float HydroponicsSpeedMultiplier = 1f;
     public const float HydroponicsConsumptionMultiplier = 2f;
@@ -154,6 +121,20 @@ public sealed class PlantHolderSystem : EntitySystem
                                 ? "plant-holder-component-plant-old-adjective"
                                 : "plant-holder-component-plant-unhealthy-adjective"))));
                 }
+
+                // For future reference, mutations should only appear on examine if they apply to a plant, not to produce.
+
+                if (component.Seed.Ligneous)
+                    args.PushMarkup(Loc.GetString("mutation-plant-ligneous"));
+
+                if (component.Seed.TurnIntoKudzu)
+                    args.PushMarkup(Loc.GetString("mutation-plant-kudzu"));
+
+                if (component.Seed.CanScream)
+                    args.PushMarkup(Loc.GetString("mutation-plant-scream"));
+
+                if (component.Seed.Viable == false)
+                    args.PushMarkup(Loc.GetString("mutation-plant-unviable"));
             }
             else
             {
@@ -730,9 +711,9 @@ public sealed class PlantHolderSystem : EntitySystem
 
         if (component.Harvest && !component.Dead)
         {
-            if (TryComp<HandsComponent>(user, out var hands))
+            if (_hands.TryGetActiveItem(user, out var activeItem))
             {
-                if (!_botany.CanHarvest(component.Seed, hands.ActiveHandEntity))
+                if (!_botany.CanHarvest(component.Seed, activeItem))
                 {
                     _popup.PopupCursor(Loc.GetString("plant-holder-component-ligneous-cant-harvest-message"), user);
                     return false;
@@ -904,12 +885,13 @@ public sealed class PlantHolderSystem : EntitySystem
 
         if (solution.Volume > 0 && component.MutationLevel < 25)
         {
-            var amt = FixedPoint2.New(1);
-            foreach (var entry in _solutionContainerSystem.RemoveEachReagent(component.SoilSolution.Value, amt))
+            foreach (var entry in component.SoilSolution.Value.Comp.Solution.Contents)
             {
                 var reagentProto = _prototype.Index<ReagentPrototype>(entry.Reagent.Prototype);
-                reagentProto.ReactionPlant(uid, entry, solution);
+                _entityEffects.ApplyEffects(uid, reagentProto.PlantMetabolisms.ToArray(), entry.Quantity.Float());
             }
+
+            _solutionContainerSystem.RemoveEachReagent(component.SoilSolution.Value, FixedPoint2.New(1));
         }
 
         CheckLevelSanity(uid, component);

@@ -1,46 +1,15 @@
-// SPDX-FileCopyrightText: 2021 20kdc <asdd2808@gmail.com>
-// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <gradientvera@outlook.com>
-// SPDX-FileCopyrightText: 2021 Ygg01 <y.laughing.man.y@gmail.com>
-// SPDX-FileCopyrightText: 2021 metalgearsloth <comedian_vs_clown@hotmail.com>
-// SPDX-FileCopyrightText: 2022 Jacob Tong <10494922+ShadowCommander@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 keronshb <54602815+keronshb@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Emisse <99158783+Emisse@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Pieter-Jan Briers <pieterjan.briers@gmail.com>
-// SPDX-FileCopyrightText: 2023 Slava0135 <40753025+Slava0135@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Aexxie <codyfox.077@gmail.com>
-// SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
-// SPDX-FileCopyrightText: 2024 Cojoke <83733158+Cojoke-dot@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
-// SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
-// SPDX-FileCopyrightText: 2024 Vyacheslav Kovalevsky <40753025+Slava0135@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Winkarst <74284083+Winkarst-cpu@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
-// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
-//
-// SPDX-License-Identifier: MIT
-
-using Content.Server.Explosion.EntitySystems;
 using Content.Server.Fluids.EntitySystems;
 using Content.Server.Nutrition.Components;
 using Content.Server.Popups;
 using Content.Shared.Containers.ItemSlots;
-using Content.Shared.Explosion.Components;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Nutrition;
 using Content.Shared.Nutrition.Components;
 using Content.Shared.Nutrition.EntitySystems;
 using Content.Shared.Rejuvenate;
 using Content.Shared.Throwing;
+using Content.Shared.Trigger.Components;
+using Content.Shared.Trigger.Systems;
 using Content.Shared.Chemistry.EntitySystems;
 using JetBrains.Annotations;
 using Robust.Shared.Audio;
@@ -76,7 +45,7 @@ namespace Content.Server.Nutrition.EntitySystems
             var coordinates = Transform(uid).Coordinates;
             _audio.PlayPvs(_audio.ResolveSound(creamPie.Sound), coordinates, AudioParams.Default.WithVariation(0.125f));
 
-            if (EntityManager.TryGetComponent(uid, out FoodComponent? foodComp))
+            if (TryComp(uid, out FoodComponent? foodComp))
             {
                 if (_solutions.TryGetSolution(uid, foodComp.Solution, out _, out var solution))
                 {
@@ -84,12 +53,12 @@ namespace Content.Server.Nutrition.EntitySystems
                 }
                 foreach (var trash in foodComp.Trash)
                 {
-                    EntityManager.SpawnEntity(trash, Transform(uid).Coordinates);
+                    Spawn(trash, Transform(uid).Coordinates);
                 }
             }
             ActivatePayload(uid);
 
-            EntityManager.QueueDeleteEntity(uid);
+            QueueDel(uid);
         }
 
         private void OnConsume(Entity<CreamPieComponent> entity, ref ConsumeDoAfterEvent args)
@@ -108,15 +77,9 @@ namespace Content.Server.Nutrition.EntitySystems
             {
                 if (_itemSlots.TryEject(uid, itemSlot, user: null, out var item))
                 {
-                    if (TryComp<OnUseTimerTriggerComponent>(item.Value, out var timerTrigger))
+                    if (TryComp<TimerTriggerComponent>(item.Value, out var timerTrigger))
                     {
-                        _trigger.HandleTimerTrigger(
-                            item.Value,
-                            null,
-                            timerTrigger.Delay,
-                            timerTrigger.BeepInterval,
-                            timerTrigger.InitialBeepDelay,
-                            timerTrigger.BeepSound);
+                        _trigger.ActivateTimerTrigger((item.Value, timerTrigger));
                     }
                 }
             }
@@ -124,13 +87,16 @@ namespace Content.Server.Nutrition.EntitySystems
 
         protected override void CreamedEntity(EntityUid uid, CreamPiedComponent creamPied, ThrowHitByEvent args)
         {
-            _popup.PopupEntity(Loc.GetString("cream-pied-component-on-hit-by-message", ("thrower", args.Thrown)), uid, args.Target);
-            var otherPlayers = Filter.Empty().AddPlayersByPvs(uid);
-            if (TryComp<ActorComponent>(args.Target, out var actor))
-            {
-                otherPlayers.RemovePlayer(actor.PlayerSession);
-            }
-            _popup.PopupEntity(Loc.GetString("cream-pied-component-on-hit-by-message-others", ("owner", Identity.Name(uid, EntityManager)), ("thrower", args.Thrown)), uid, otherPlayers, false);
+            _popup.PopupEntity(Loc.GetString("cream-pied-component-on-hit-by-message",
+                                            ("thrown", Identity.Entity(args.Thrown, EntityManager))),
+                                            uid, args.Target);
+
+            var otherPlayers = Filter.PvsExcept(uid);
+
+            _popup.PopupEntity(Loc.GetString("cream-pied-component-on-hit-by-message-others",
+                                            ("owner", Identity.Entity(uid, EntityManager)),
+                                            ("thrown", Identity.Entity(args.Thrown, EntityManager))),
+                                            uid, otherPlayers, false);
         }
 
         private void OnRejuvenate(Entity<CreamPiedComponent> entity, ref RejuvenateEvent args)

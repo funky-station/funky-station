@@ -23,6 +23,8 @@ using System.Linq;
 using Content.Shared.Humanoid;
 using Content.Server.Temperature.Components;
 using Content.Server.Body.Components;
+using Content.Shared.Body.Components;
+using Content.Shared.Temperature.Components;
 
 namespace Content.Server.Heretic.EntitySystems;
 
@@ -57,8 +59,8 @@ public sealed partial class HereticCombatMarkSystem : EntitySystem
             case "Flesh":
                 if (TryComp<BloodstreamComponent>(target, out var blood))
                 {
-                    _blood.TryModifyBleedAmount(target, 5f, blood);
-                    _blood.SpillAllSolutions(target, blood);
+                    _blood.TryModifyBleedAmount(target, 5f);
+                    _blood.SpillAllSolutions(target);
                 }
                 break;
 

@@ -12,12 +12,13 @@
 // SPDX-FileCopyrightText: 2024 Repo <47093363+Titian3@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 Toaster <mrtoastymyroasty@gmail.com>
 // SPDX-FileCopyrightText: 2025 Tojo <32783144+Alecksohs@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
 // SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
-// SPDX-License-Identifier: MIT
+// SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
 using Content.Client.Administration.Systems;
@@ -53,6 +54,10 @@ public sealed partial class PlayerTab : Control
     private bool _ascending = true;
     private bool _showDisconnected;
 
+    private AdminPlayerTabColorOption _playerTabColorSetting;
+    private AdminPlayerTabRoleTypeOption _playerTabRoleSetting;
+    private AdminPlayerTabSymbolOption _playerTabSymbolSetting;
+
     public event Action<GUIBoundKeyEventArgs, ListData>? OnEntryKeyBindDown;
 
     public PlayerTab()
@@ -65,9 +70,10 @@ public sealed partial class PlayerTab : Control
         _adminSystem.OverlayEnabled += OverlayEnabled;
         _adminSystem.OverlayDisabled += OverlayDisabled;
 
-        _config.OnValueChanged(CCVars.AdminPlayerlistSeparateSymbols, PlayerListSettingsChanged);
-        _config.OnValueChanged(CCVars.AdminPlayerlistHighlightedCharacterColor, PlayerListSettingsChanged);
-        _config.OnValueChanged(CCVars.AdminPlayerlistRoleTypeColor, PlayerListSettingsChanged);
+        _config.OnValueChanged(CCVars.AdminPlayerTabRoleSetting, RoleSettingChanged, true);
+        _config.OnValueChanged(CCVars.AdminPlayerTabColorSetting, ColorSettingChanged, true);
+        _config.OnValueChanged(CCVars.AdminPlayerTabSymbolSetting, SymbolSettingChanged, true);
+
 
         OverlayButton.OnPressed += OverlayButtonPressed;
         ShowDisconnectedButton.OnPressed += ShowDisconnectedPressed;
@@ -134,8 +140,27 @@ public sealed partial class PlayerTab : Control
 
     #region ListContainer
 
-    private void PlayerListSettingsChanged(bool _)
+    private void RoleSettingChanged(string s)
     {
+        if (!Enum.TryParse<AdminPlayerTabRoleTypeOption>(s, out var format))
+            format = AdminPlayerTabRoleTypeOption.Subtype;
+        _playerTabRoleSetting = format;
+        RefreshPlayerList(_adminSystem.PlayerList);
+    }
+
+    private void ColorSettingChanged(string s)
+    {
+        if (!Enum.TryParse<AdminPlayerTabColorOption>(s, out var format))
+            format = AdminPlayerTabColorOption.Both;
+        _playerTabColorSetting = format;
+        RefreshPlayerList(_adminSystem.PlayerList);
+    }
+
+    private void SymbolSettingChanged(string s)
+    {
+        if (!Enum.TryParse<AdminPlayerTabSymbolOption>(s, out var format))
+            format = AdminPlayerTabSymbolOption.Specific;
+        _playerTabSymbolSetting = format;
         RefreshPlayerList(_adminSystem.PlayerList);
     }
 
@@ -161,7 +186,12 @@ public sealed partial class PlayerTab : Control
         if (data is not PlayerListData { Info: var player})
             return;
 
-        var entry = new PlayerTabEntry(player, new StyleBoxFlat(button.Index % 2 == 0 ? _altColor : _defaultColor));
+        var entry = new PlayerTabEntry(
+            player,
+            new StyleBoxFlat(button.Index % 2 == 0 ? _altColor : _defaultColor),
+            _playerTabColorSetting,
+            _playerTabRoleSetting,
+            _playerTabSymbolSetting);
         button.ControlRoot.AddChild(entry);
         button.ControlRoot.ToolTip = $"{player.Username}, {player.CharacterName}, {player.IdentityName}, {player.StartingJob}";
     }

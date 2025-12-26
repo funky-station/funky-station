@@ -100,14 +100,6 @@
       # Goobstation - changelings
       enum.StoreUiKey.Key:
         type: StoreBoundUserInterface
-      enum.HereticLivingHeartKey.Key: # goob edit - heretics
-        type: LivingHeartMenuBoundUserInterface
-      enum.BloodCultistCommuneUIKey.Key: # funky edit - cultists
-        type: BloodCultCommuneBoundUserInterface
-        requireInputValidation: false
-      enum.SpellsUiKey.Key: # funky edit - cultists
-        type: SpellsBoundUserInterface
-        requireInputValidation: false
       # Shitmed
       enum.SurgeryUIKey.Key:
         type: SurgeryBui
@@ -142,15 +134,18 @@
         Heat: -0.14
       groups:
         Brute: -0.14
-  - type: DamageVisuals
-    damageOverlayGroups:
-      Brute:
-        sprite: Mobs/Effects/brute_damage.rsi
-        color: "#2cf274"
-      Burn:
-        sprite: Mobs/Effects/burn_damage.rsi
+#  - type: DamageVisuals
+#    damageOverlayGroups:
+#      Brute:
+#        sprite: Mobs/Effects/brute_damage.rsi
+#        color: "#2cf274"
+#      Burn:
+#        sprite: Mobs/Effects/burn_damage.rsi
   - type: Bloodstream
-    bloodReagent: Slime # TODO Color slime blood based on their slime color or smth
+    bloodReagents: # TODO Color slime blood based on their slime color or smth
+      reagents:
+      - ReagentId: Slime
+        Quantity: 1
   - type: Barotrauma
     damage:
       types:
@@ -165,15 +160,14 @@
     - reagents: [ Water, SpaceCleaner ]
       methods: [ Touch ]
       effects:
-      - !type:WashCreamPieReaction
+      - !type:WashCreamPie
     - reagents: [ Water ]
       methods: [ Touch ]
       effects:
       - !type:HealthChange
-        scaleByQuantity: true
         damage:
           types:
-            Heat: 0.1
+            Heat: 0.05
       - !type:PopupMessage
         type: Local
         visualType: Large

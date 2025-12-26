@@ -20,7 +20,9 @@ using Content.Server.DoAfter;
 using Content.Server.Explosion.EntitySystems;
 using Content.Server.Nutrition.Components;
 using Content.Server.Popups;
-using Content.Shared.Damage;
+using Content.Shared.Body.Components;
+using Content.Shared.Atmos;
+using Content.Shared.Damage.Systems;
 using Content.Shared.DoAfter;
 using Content.Shared.Emag.Components;
 using Content.Shared.Emag.Systems;
@@ -29,6 +31,7 @@ using Content.Shared.Interaction;
 using Content.Shared.Nutrition;
 using System.Threading;
 using Content.Shared.Atmos;
+using Content.Shared.Nutrition.EntitySystems;
 
 /// <summary>
 /// System for vapes
@@ -40,7 +43,7 @@ namespace Content.Server.Nutrition.EntitySystems
         [Dependency] private readonly DoAfterSystem _doAfterSystem = default!;
         [Dependency] private readonly DamageableSystem _damageableSystem = default!;
         [Dependency] private readonly EmagSystem _emag = default!;
-        [Dependency] private readonly FoodSystem _foodSystem = default!;
+        [Dependency] private readonly IngestionSystem _ingestion = default!;
         [Dependency] private readonly ExplosionSystem _explosionSystem = default!;
         [Dependency] private readonly PopupSystem _popupSystem = default!;
 
@@ -60,7 +63,8 @@ namespace Content.Server.Nutrition.EntitySystems
             if (!args.CanReach
                 || !_solutionContainerSystem.TryGetRefillableSolution(entity.Owner, out _, out var solution)
                 || !HasComp<BloodstreamComponent>(args.Target)
-                || _foodSystem.IsMouthBlocked(args.Target.Value, args.User))
+                || _ingestion.HasMouthAvailable(args.Target.Value, args.User)
+                )
             {
                 return;
             }
@@ -82,7 +86,7 @@ namespace Content.Server.Nutrition.EntitySystems
             if (entity.Comp.ExplodeOnUse || _emag.CheckFlag(entity, EmagType.Interaction))
             {
                 _explosionSystem.QueueExplosion(entity.Owner, "Default", entity.Comp.ExplosionIntensity, 0.5f, 3, canCreateVacuum: false);
-                EntityManager.DeleteEntity(entity);
+                Del(entity);
                 exploded = true;
             }
             else
@@ -98,7 +102,7 @@ namespace Content.Server.Nutrition.EntitySystems
                     {
                         exploded = true;
                         _explosionSystem.QueueExplosion(entity.Owner, "Default", entity.Comp.ExplosionIntensity, 0.5f, 3, canCreateVacuum: false);
-                        EntityManager.DeleteEntity(entity);
+                        Del(entity);
                         break;
                     }
                 }

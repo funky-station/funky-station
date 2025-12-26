@@ -98,6 +98,15 @@
   solids:
     FoodDoughSlice: 1 # one third of a standard bread dough recipe
 
+- type: microwaveMealRecipe
+  id: RecipeCottonBun
+  name: cotton bun recipe
+  result: FoodCottonBun
+  time: 5
+  group: Breads
+  solids:
+    FoodDoughCottonSlice: 1
+
 #Bagels
 - type: microwaveMealRecipe
   id: RecipeBagel
@@ -2509,4 +2518,30 @@
     Fiber: 10
   solids:
     FoodCakePlain: 1
-    
+
+- type: microwaveMealRecipe
+  id: RecipeBreakfastAmerican
+  name: full american breakfast recipe
+  result: FoodBreakfastAmerican
+  time: 30
+  group: Savory
+  reagents:
+    Egg: 12
+  solids:
+    FoodMeatBacon: 2
+    FoodPotato: 1
+    FoodBakedPancake: 2
+
+- type: microwaveMealRecipe
+  id: RecipeBreakfastEnglish
+  name: full english breakfast recipe
+  result: FoodBreakfastEnglish
+  time: 30
+  group: Savory
+  reagents:
+    Egg: 12
+  solids:
+    FoodMeatBacon: 1
+    FoodMeat: 1
+    FoodTomato: 1
+    FoodSoybeans: 2 # replace these with green beans once those become a thing

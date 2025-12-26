@@ -15,18 +15,20 @@
 // SPDX-FileCopyrightText: 2024 TemporalOroboros <TemporalOroboros@gmail.com>
 // SPDX-FileCopyrightText: 2024 eoineoineoin <github@eoinrul.es>
 // SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 // SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
-// SPDX-License-Identifier: MIT
+// SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Numerics;
 using Content.Client.Atmos.Components;
 using Content.Client.Atmos.EntitySystems;
 using Content.Shared.Atmos;
 using Content.Shared.Atmos.Components;
+using Content.Shared.Atmos.EntitySystems;
 using Content.Shared.Atmos.Prototypes;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
@@ -43,8 +45,12 @@ namespace Content.Client.Atmos.Overlays
 {
     public sealed class GasTileOverlay : Overlay
     {
+        private static readonly ProtoId<ShaderPrototype> UnshadedShader = "unshaded";
+
         private readonly IEntityManager _entManager;
         private readonly IMapManager _mapManager;
+        private readonly SharedAtmosphereSystem _atmosphereSystem;
+        private readonly SharedMapSystem _mapSystem;
         private readonly SharedTransformSystem _xformSys;
 
         public override OverlaySpace Space => OverlaySpace.WorldSpaceEntities | OverlaySpace.WorldSpaceBelowWorld;
@@ -75,8 +81,10 @@ namespace Content.Client.Atmos.Overlays
         {
             _entManager = entManager;
             _mapManager = IoCManager.Resolve<IMapManager>();
+            _atmosphereSystem = entManager.System<SharedAtmosphereSystem>();
+            _mapSystem = entManager.System<SharedMapSystem>();
             _xformSys = xformSys;
-            _shader = protoMan.Index<ShaderPrototype>("unshaded").Instance();
+            _shader = protoMan.Index(UnshadedShader).Instance();
             ZIndex = GasOverlayZIndex;
 
             _gasCount = system.VisibleGasId.Length;
@@ -87,7 +95,7 @@ namespace Content.Client.Atmos.Overlays
 
             for (var i = 0; i < _gasCount; i++)
             {
-                var gasPrototype = protoMan.Index<GasPrototype>(system.VisibleGasId[i].ToString());
+                var gasPrototype = _atmosphereSystem.GetGas(system.VisibleGasId[i]);
 
                 SpriteSpecifier overlay;
 
@@ -187,7 +195,7 @@ namespace Content.Client.Atmos.Overlays
                 xformQuery,
                 _xformSys);
 
-            var mapUid = _mapManager.GetMapEntityId(args.MapId);
+            var mapUid = _mapSystem.GetMapOrInvalid(args.MapId);
 
             if (_entManager.TryGetComponent<MapAtmosphereComponent>(mapUid, out var atmos))
                 DrawMapOverlay(drawHandle, args, mapUid, atmos);

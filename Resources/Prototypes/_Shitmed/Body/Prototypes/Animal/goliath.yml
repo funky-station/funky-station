@@ -10,10 +10,10 @@
 - type: body
   id: Goliath
   name: "goliath"
-  root: torso
+  root: chest
   slots:
-    torso:
-      part: TorsoAnimal
+    chest:
+      part: ChestAnimal
       connections:
       - legs
       organs:

@@ -59,11 +59,10 @@
   - type: MovementSpeedModifier
     baseWalkSpeed: 5
     baseSprintSpeed: 7
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: WatcherBolt
     fireCost: 50
   - type: BatterySelfRecharger
-    autoRecharge: true
     autoRechargeRate: 50
   - type: Battery
     maxCharge: 1000
@@ -141,7 +140,7 @@
     radius: 1.5
     energy: 1
     color: orangered
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: WatcherBoltMagmawing
     fireCost: 50
 

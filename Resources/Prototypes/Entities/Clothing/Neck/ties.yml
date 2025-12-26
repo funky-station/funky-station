@@ -2,7 +2,6 @@
 # SPDX-FileCopyrightText: 2023 Flareguy <78941145+Flareguy@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2023 brainfood1183 <113240905+brainfood1183@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2023 cOrigin <96662984+c0rigin@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 SharkSnake98 <sharksnake87@gmail.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
 # SPDX-License-Identifier: MIT
@@ -17,6 +16,10 @@
     sprite: Clothing/Neck/Ties/redtie.rsi
   - type: Clothing
     sprite: Clothing/Neck/Ties/redtie.rsi
+  - type: Item
+    storedSprite:
+      state: storage
+      sprite: Clothing/Neck/Ties/redtie.rsi
   - type: Tag
     tags:
     - HamsterWearable
@@ -33,6 +36,10 @@
     sprite: Clothing/Neck/Ties/dettie.rsi
   - type: Clothing
     sprite: Clothing/Neck/Ties/dettie.rsi
+  - type: Item
+    storedSprite:
+      state: storage
+      sprite: Clothing/Neck/Ties/dettie.rsi
 
 - type: entity
   parent: ClothingNeckBase
@@ -44,38 +51,12 @@
     sprite: Clothing/Neck/Ties/scitie.rsi
   - type: Clothing
     sprite: Clothing/Neck/Ties/scitie.rsi
+  - type: Item
+    storedSprite:
+      state: storage
+      sprite: Clothing/Neck/Ties/scitie.rsi
   - type: Tag
     tags:
     - ClothMade
     - HamsterWearable
     - WhitelistChameleon
-
-- type: entity
-  parent: ClothingNeckBase
-  id: ClothingNeckTieDisco
-  name: horrific necktie
-  description: A garish, horribly vivid, multicoloured necktie. It's your friend now, Bratan!
-  components:
-  - type: Sprite
-    sprite: Clothing/Neck/Ties/discotie.rsi
-  - type: Clothing
-    sprite: Clothing/Neck/Ties/discotie.rsi
-  - type: GhostRole
-    makeSentient: true
-    allowSpeech: true
-    allowMovement: false
-    name: ghost-role-information-horrific-necktie-name
-    description: ghost-role-information-horrific-necktie-description
-    rules: ghost-role-information-familiar-rules
-  - type: BlockMovement
-  - type: Speech
-    speechVerb: Default
-    speechSounds: Tenor
-  - type: GhostTakeoverAvailable
-  - type: Vocal
-    sounds:
-      Unsexed: MaleHuman
-  - type: Grammar
-    attributes:
-      proper: false
-      gender: male

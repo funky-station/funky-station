@@ -1,9 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
-// SPDX-FileCopyrightText: 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
-//
-// SPDX-License-Identifier: MIT
-
 using System.Numerics;
 using Content.Shared.Light.Components;
 using Content.Shared.Light.EntitySystems;
@@ -57,8 +51,9 @@ public sealed class RoofOverlay : Overlay
 
         var worldHandle = args.WorldHandle;
         var lightoverlay = _overlay.GetOverlay<BeforeLightTargetOverlay>();
+        var lightRes = lightoverlay.GetCachedForViewport(args.Viewport);
         var bounds = lightoverlay.EnlargedBounds;
-        var target = lightoverlay.EnlargedLightTarget;
+        var target = lightRes.EnlargedLightTarget;
 
         _grids.Clear();
         _mapManager.FindGridsIntersecting(args.MapId, bounds, ref _grids, approx: true, includeMap: true);
@@ -118,13 +113,15 @@ public sealed class RoofOverlay : Overlay
                     // Due to stencilling we essentially draw on unrooved tiles
                     while (tileEnumerator.MoveNext(out var tileRef))
                     {
-                        if (!_roof.IsRooved(roofEnt, tileRef.GridIndices))
+                        var color = _roof.GetColor(roofEnt, tileRef.GridIndices);
+
+                        if (color == null)
                         {
                             continue;
                         }
 
                         var local = _lookup.GetLocalBounds(tileRef, grid.Comp.TileSize);
-                        worldHandle.DrawRect(local, roof.Color);
+                        worldHandle.DrawRect(local, color.Value);
                     }
                 }
             }, null);

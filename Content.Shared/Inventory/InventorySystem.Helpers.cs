@@ -30,12 +30,9 @@ public partial class InventorySystem
     {
         if (Resolve(user.Owner, ref user.Comp1, false))
         {
-            foreach (var hand in user.Comp1.Hands.Values)
+            foreach (var held in _handsSystem.EnumerateHeld(user))
             {
-                if (hand.HeldEntity == null)
-                    continue;
-
-                yield return hand.HeldEntity.Value;
+                yield return held;
             }
         }
 
@@ -72,17 +69,6 @@ public partial class InventorySystem
                && (slot.SlotFlags & flags) == flags;
     }
 
-    public void SetSlotIgnoreDependencices(EntityUid entityUid, InventoryComponent inventory, string slot, bool ignore = true)
-    {
-        if (HasSlot(entityUid, slot, inventory))
-            inventory.IgnoreDependencies[slot] = ignore;
-    }
-
-    public bool GetSlotIgnoreDependencices(InventoryComponent inventory, string slot)
-    {
-        return inventory.IgnoreDependencies.GetValueOrDefault(slot, false);
-    }
-
     public bool SpawnItemInSlot(EntityUid uid, string slot, string prototype, bool silent = false, bool force = false, InventoryComponent? inventory = null)
     {
         if (!Resolve(uid, ref inventory, false))
@@ -101,12 +87,12 @@ public partial class InventorySystem
             return false;
 
         // Let's spawn this first...
-        var item = EntityManager.SpawnEntity(prototype, Transform(uid).Coordinates);
+        var item = Spawn(prototype, Transform(uid).Coordinates);
 
         // Helper method that deletes the item and returns false.
         bool DeleteItem()
         {
-            EntityManager.DeleteEntity(item);
+            Del(item);
             return false;
         }
 

@@ -13,7 +13,7 @@
     sprite: Objects/Weapons/Grenades/flashbang.rsi
   - type: RevolutionaryFlashOnTrigger
     range: 7
-  - type: SoundOnTrigger
+  - type: EmitSoundOnTrigger
     sound:
       path: "/Audio/Effects/flash_bang.ogg"
   - type: DeleteOnTrigger

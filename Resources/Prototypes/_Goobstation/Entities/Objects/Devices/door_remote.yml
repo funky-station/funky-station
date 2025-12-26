@@ -7,8 +7,8 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
-- type: entity 
-  parent: DoorRemoteDefault
+- type: entity
+  parent: [DoorRemoteDefault, BaseEngineeringContraband]
   id: DoorRemoteFirefight
   name: fire-fighting door remote
   description: A gadget which can open and bolt FireDoors remotely.
@@ -23,3 +23,4 @@
     - type: Access
       groups:
         - FireFight
+    - type: DoorRemote

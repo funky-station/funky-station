@@ -1,9 +1,3 @@
-// SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
-// SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
-//
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.DeviceNetwork.Components;
 
 namespace Content.Shared.DeviceNetwork.Systems;
@@ -64,6 +58,36 @@ public abstract class SharedDeviceNetworkJammerSystem : EntitySystem
             return;
 
         ent.Comp.JammableNetworks.Clear();
+        Dirty(ent);
+    }
+
+    /// <summary>
+    /// Enables this entity to stop packets with the specified frequency from being jammmed.
+    /// </summary>
+    public void AddExcludedFrequency(Entity<DeviceNetworkJammerComponent> ent, uint frequency)
+    {
+        if (ent.Comp.FrequenciesExcluded.Add(frequency))
+            Dirty(ent);
+    }
+
+    /// <summary>
+    /// Stops this entity to stop packets with the specified frequency from being jammmed.
+    /// </summary>
+    public void RemoveExcludedFrequency(Entity<DeviceNetworkJammerComponent> ent, uint frequency)
+    {
+        if (ent.Comp.FrequenciesExcluded.Remove(frequency))
+            Dirty(ent);
+    }
+
+    /// <summary>
+    /// Stops this entity to stop packets with any frequency from being jammmed.
+    /// </summary>
+    public void ClearExcludedFrequency(Entity<DeviceNetworkJammerComponent> ent)
+    {
+        if (ent.Comp.FrequenciesExcluded.Count == 0)
+            return;
+
+        ent.Comp.FrequenciesExcluded.Clear();
         Dirty(ent);
     }
 }

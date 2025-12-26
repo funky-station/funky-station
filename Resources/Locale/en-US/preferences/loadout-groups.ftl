@@ -76,6 +76,7 @@ loadout-group-passenger-neck = Passenger neck
 loadout-group-bartender-head = Bartender head
 loadout-group-bartender-jumpsuit = Bartender jumpsuit
 loadout-group-bartender-outerclothing = Bartender outer clothing
+loadout-group-bartender-shaker = Bartender shaker
 
 loadout-group-service_jumpsuit = Service jumpsuit
 loadout-group-generic-shoes = Shoes

@@ -1,27 +1,31 @@
-// SPDX-FileCopyrightText: 2024 John Space <bigdumb421@gmail.com>
+// SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2024 Fishbait <Fishbait@git.ml>
+// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
 // SPDX-FileCopyrightText: 2024 fishbait <gnesse@gmail.com>
-// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
+// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 //
-// SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+// SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
-using System.Numerics;
+using Content.Goobstation.Shared.Blob;
+using Content.Goobstation.Shared.Blob.Components;
 using Content.Server.Emp;
 using Content.Server.Explosion.EntitySystems;
 using Content.Shared._Goobstation.Blob;
 using Content.Shared._Goobstation.Blob.Components;
 using Content.Shared.Damage;
-using Content.Shared.Mobs;
+using Content.Shared.Damage.Systems;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Weapons.Melee.Events;
 using Robust.Server.GameObjects;
-using Robust.Shared.Map.Components;
 using Robust.Shared.Random;
-using Robust.Shared.Timing;
 
-namespace Content.Server._Goobstation.Blob;
+namespace Content.Goobstation.Server.Blob;
 
 public sealed class BlobbernautSystem : SharedBlobbernautSystem
 {
@@ -94,7 +98,7 @@ public sealed class BlobbernautSystem : SharedBlobbernautSystem
 
     private void OnMeleeHit(EntityUid uid, BlobbernautComponent component, MeleeHitEvent args)
     {
-        if (args.HitEntities.Count >= 1)
+        if (args.HitEntities.Count < 1)
             return;
         if (!_tileQuery.TryComp(component.Factory, out var blobTileComponent))
             return;
@@ -110,7 +114,7 @@ public sealed class BlobbernautSystem : SharedBlobbernautSystem
             {
                 var xform = Transform(args.HitEntities.FirstOrDefault());
                 if (_random.Prob(0.2f))
-                    _empSystem.EmpPulse(_transform.GetMapCoordinates(xform), 3f, 50f, 3f);
+                    _empSystem.EmpPulse(_transform.GetMapCoordinates(xform), 3f, 50f, TimeSpan.FromSeconds(3f));
                 break;
             }
         }
@@ -119,6 +123,11 @@ public sealed class BlobbernautSystem : SharedBlobbernautSystem
     private DamageSpecifier? TryChangeDamage(string msg, EntityUid ent, DamageSpecifier dmg)
     {
         _popup.PopupEntity(Loc.GetString(msg), ent, ent, PopupType.LargeCaution);
-        return _damageableSystem.TryChangeDamage(ent, dmg);
+
+        // The DamageableSystem method requires an out parameter
+        if (_damageableSystem.TryChangeDamage(ent, dmg, out var dealt))
+            return dealt;
+
+        return null;
     }
 }

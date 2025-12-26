@@ -1,27 +1,20 @@
-# SPDX-FileCopyrightText: 2025 empty0set <16693552+empty0set@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 iaada <iaada@users.noreply.github.com>
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
+#Borg modules
 - type: entity
-  id: BorgModulePaper
-  parent: [ BaseBorgModuleService, BaseProviderBorgModule ]
-  name: bureaucracy cyborg module
+  id: BorgModuleArtistic
+  parent: [ BaseBorgModule, BaseProviderBorgModule ]
+  name: artistic borg module
   components:
   - type: Sprite
     layers:
-    - state: service
+    - state: generic
     - state: icon-pen
   - type: ItemBorgModule
-    items:
-    - Pen
-    - BooksBag
-    - HandLabeler
-    - RubberStampApproved
-    - RubberStampDenied
-    - RubberStampCyborg
+    hands:
+    - item: CrayonInfinite
+    - item: SprayPainter
+    - item: Pen
   - type: BorgModuleIcon
-    icon: { sprite: _Impstation/Interface/Actions/actions_borg.rsi, state: bureaucracy-module }
+    icon: { sprite: _Impstation/Interface/Actions/actions_borg.rsi, state: artistic-module }
 
 - type: entity
   id: BorgModuleBartender
@@ -33,12 +26,37 @@
     - state: service
     - state: icon-beer
   - type: ItemBorgModule
-    items:
-    - Lighter
-    - DrinkShaker
-    - BarSpoon
-    - BorgIceBucket
-    - Pitcher
-    - BorgDropper
+    hands:
+    - item: Lighter
+    - item: DrinkShaker
+    - item: BarSpoon
+    - item: BorgIceBucket
+    - item: Pitcher
   - type: BorgModuleIcon
     icon: { sprite: _Impstation/Interface/Actions/actions_borg.rsi, state: bartender-module }
+
+- type: entity
+  id: BorgModuleCourier
+  parent: [ BaseBorgModuleCargo, BaseProviderBorgModule ]
+  name: courier cyborg module
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Specific/Robotics/borgmodules.rsi
+    layers:
+    - state: cargo
+    - state: icon-courier
+  - type: ItemBorgModule
+    hands:
+    - item: MailBag
+    - item: BorgHoloBellProjector
+    - hand:
+        emptyLabel: borg-slot-mail-empty
+        emptyRepresentative: Paper
+        whitelist:
+          components:
+          - Delivery
+          tags:
+          - Document
+          - Paper
+  - type: BorgModuleIcon
+    icon: { sprite: _Impstation/Interface/Actions/actions_borg.rsi, state: courier-module }

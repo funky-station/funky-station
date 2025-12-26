@@ -1,14 +1,10 @@
-// SPDX-FileCopyrightText: 2024 Fishbait <Fishbait@git.ml>
-// SPDX-FileCopyrightText: 2024 John Space <bigdumb421@gmail.com>
-// SPDX-FileCopyrightText: 2025 Currot <carpecarrot@gmail.com>
-// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2024 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 //
-// SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+// SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Server.Radio.Components;
-using Content.Shared.PAI;
-using Content.Shared.Radio;
-using Content.Shared.Radio.Components;
+using Content.Shared._Goobstation.Radio;
+using Content.Shared._Goobstation.Radio.Components;
 
 namespace Content.Server._EinsteinEngines.Radio;
 
@@ -18,24 +14,23 @@ public sealed class IntrinsicRadioKeySystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<IntrinsicRadioTransmitterComponent, EncryptionChannelsChangedEvent>(OnTransmitterChannelsChanged);
-        SubscribeLocalEvent<ActiveRadioComponent, EncryptionChannelsChangedEvent>(OnReceiverChannelsChanged);
+        SubscribeLocalEvent<IntrinsicRadioTransmitterIPCComponent, EncryptionChannelsChangedIPCEvent>(OnTransmitterChannelsChanged);
+        SubscribeLocalEvent<ActiveRadioIPCComponent, EncryptionChannelsChangedIPCEvent>(OnReceiverChannelsChanged);
     }
 
-    private void OnTransmitterChannelsChanged(EntityUid uid, IntrinsicRadioTransmitterComponent component, EncryptionChannelsChangedEvent args)
+    private void OnTransmitterChannelsChanged(EntityUid uid, Shared._Goobstation.Radio.Components.IntrinsicRadioTransmitterIPCComponent ipcComponent, Shared._Goobstation.Radio.EncryptionChannelsChangedIPCEvent args)
     {
-        if (!HasComp<PAIComponent>(uid)) //We don't want to update what channels a pAI can talk to
-            UpdateChannels(uid, args.Component, ref component.Channels);
+        UpdateChannels(uid, args.IpcComponent, ref ipcComponent.Channels);
     }
 
-    private void OnReceiverChannelsChanged(EntityUid uid, ActiveRadioComponent component, EncryptionChannelsChangedEvent args)
+    private void OnReceiverChannelsChanged(EntityUid uid, Shared._Goobstation.Radio.Components.ActiveRadioIPCComponent ipcComponent, Shared._Goobstation.Radio.EncryptionChannelsChangedIPCEvent args)
     {
-        UpdateChannels(uid, args.Component, ref component.Channels);
+        UpdateChannels(uid, args.IpcComponent, ref ipcComponent.Channels);
     }
 
-    private void UpdateChannels(EntityUid _, EncryptionKeyHolderComponent keyHolderComp, ref HashSet<string> channels)
+    private void UpdateChannels(EntityUid _, Shared._Goobstation.Radio.Components.EncryptionKeyHolderIPCComponent keyHolderIpcComp, ref HashSet<string> channels)
     {
         channels.Clear();
-        channels.UnionWith(keyHolderComp.Channels);
+        channels.UnionWith(keyHolderIpcComp.Channels);
     }
 }

@@ -24,8 +24,11 @@ using Content.Server.NodeContainer.Nodes;
 using Content.Server.Power.Components;
 using Content.Shared.Atmos;
 using Content.Shared.DeviceNetwork;
+using Content.Shared.DeviceNetwork.Events;
 using Content.Shared.Examine;
+using Content.Shared.NodeContainer;
 using Content.Shared.Power;
+using Content.Shared.Power.EntitySystems;
 using Content.Shared.Power.Generation.Teg;
 using Content.Shared.Rounding;
 using Robust.Server.GameObjects;
@@ -81,11 +84,12 @@ public sealed class TegSystem : EntitySystem
     /// </summary>
     public const string DeviceNetworkCommandSyncData = "teg_sync_data";
 
+    [Dependency] private readonly AmbientSoundSystem _ambientSound = default!;
+    [Dependency] private readonly AppearanceSystem _appearance = default!;
     [Dependency] private readonly AtmosphereSystem _atmosphere = default!;
     [Dependency] private readonly DeviceNetworkSystem _deviceNetwork = default!;
-    [Dependency] private readonly AppearanceSystem _appearance = default!;
     [Dependency] private readonly PointLightSystem _pointLight = default!;
-    [Dependency] private readonly AmbientSoundSystem _ambientSound = default!;
+    [Dependency] private readonly SharedPowerReceiverSystem _receiver = default!;
 
     private EntityQuery<NodeContainerComponent> _nodeContainerQuery;
 
@@ -261,8 +265,7 @@ public sealed class TegSystem : EntitySystem
 
         var powerReceiver = Comp<ApcPowerReceiverComponent>(uid);
 
-        powerReceiver.PowerDisabled = !group.IsFullyBuilt;
-
+        _receiver.SetPowerDisabled(uid, !group.IsFullyBuilt, powerReceiver);
         UpdateAppearance(uid, component, powerReceiver, group);
     }
 

@@ -1,30 +1,24 @@
 # SPDX-FileCopyrightText: 2025 Skye <57879983+Rainbeon@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Terkala <appleorange64@gmail.com>
 # SPDX-FileCopyrightText: 2025 kbarkevich <24629810+kbarkevich@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
-# SPDX-FileCopyrightText: 2025 Skye <57879983+Rainbeon@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 kbarkevich <24629810+kbarkevich@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
-# SPDS-FileCopyrightText: 2025 Terkala <appleorange64@gmail.com>
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later OR MIT
+# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
 # actions
 - type: entity
   id: ActionCultistStudyVeil
   name: Study Veil
   description: Examine the state of the veil, and the strength of your cult.
+  parent: BaseAction
   categories: [ HideSpawnMenu ]
   components:
-  - type: InstantAction
-    checkCanInteract: false
-    itemIconStyle: NoItem
+  - type: Action
     icon:
       sprite: _Funkystation/BloodCult/spells_cultist.rsi
       state: study_veil
+  - type: InstantAction
+    checkCanInteract: false
+    itemIconStyle: NoItem
     event: !type:EventCultistStudyVeil {}
   - type: Sprite
     sprite: _Funkystation/BloodCult/spells_cultist.rsi
@@ -40,14 +34,16 @@
   id: ActionCultistCommune
   name: Commune
   description: Send a message to your fellow cultists. Beware - the uninitiated can see you whispering the incantation.
+  parent: BaseAction
   categories: [ HideSpawnMenu ]
   components:
-  - type: InstantAction
-    checkCanInteract: false
-    itemIconStyle: NoItem
+  - type: Action
     icon:
       sprite: _Funkystation/BloodCult/spells_cultist.rsi
       state: commune
+  - type: InstantAction
+    checkCanInteract: false
+    itemIconStyle: NoItem
     event: !type:BloodCultCommuneEvent {}
   - type: Sprite
     sprite: _Funkystation/BloodCult/spells_cultist.rsi
@@ -63,14 +59,17 @@
   id: ActionCultistSpellsSelect
   name: Prepare Spell
   description: Prepare a blood spell by carving it into your body. Up to 1 spell may be prepared without standing on an empowering rune.
+  parent: BaseAction
   categories: [ HideSpawnMenu ]
   components:
-  - type: InstantAction
-    checkCanInteract: false
-    itemIconStyle: NoItem
+  - type: Action
     icon:
       sprite: _Funkystation/BloodCult/spells_cultist.rsi
       state: spell_select
+    raiseOnUser: true
+  - type: InstantAction
+    checkCanInteract: false
+    itemIconStyle: NoItem
     event: !type:BloodCultSpellsEvent {}
   - type: Sprite
     sprite: _Funkystation/BloodCult/spells_cultist.rsi
@@ -85,20 +84,19 @@
 - type: entity
   id: ActionCultistSummonDagger
   name: Summon Dagger
-  description: Use Nar'Sie's blessing to shape a ritual dagger out of your body. As long as your heart continues to beat, She will allow you to make more.
+  description: Summon your ritual dagger.
+  parent: BaseAction
   categories: [ HideSpawnMenu ]
   components:
-  - type: Icon
-    sprite: _Funkystation/BloodCult/spells_cultist.rsi
-    state: summon_dagger
+  - type: Action
+    icon:
+      sprite: _Funkystation/BloodCult/spells_cultist.rsi
+      state: summon_dagger
   - type: Sprite
     sprite: _Funkystation/BloodCult/spells_cultist.rsi
     state: summon_dagger
   - type: InstantAction
     itemIconStyle: NoItem
-    icon:
-      sprite: _Funkystation/BloodCult/spells_cultist.rsi
-      state: summon_dagger
     event: !type:EventCultistSummonDagger {}
   - type: CultistSpell
     abilityId: SummonDagger
@@ -108,14 +106,19 @@
     rechargeTime: 0
 
 - type: entity
-  id: ActionCultistSanguineDream
-  name: Sanguine Dream
-  description: A sinister spell that plunges a target into a nightmare-filled sleep. EMPs Cyborgs. Those with mindshields will be briefly stunned instead of being put to sleep.
+  id: ActionCultistStun
+  name: Stun
+  description: A potent spell that will knock down, silence, and mark a target. Stabbing marked targets with your cult dagger will stun and re-silence them. EMPs Cyborgs.
+  parent: BaseAction
   categories: [ HideSpawnMenu ]
   components:
-  - type: Icon
-    sprite: _Funkystation/BloodCult/spells_cultist.rsi
-    state: stun
+  - type: Action
+    icon:
+      sprite: _Funkystation/BloodCult/spells_cultist.rsi
+      state: stun
+    iconOn:
+      sprite: _Funkystation/BloodCult/spells_cultist.rsi
+      state: stun_selected
   - type: Sprite
     sprite: _Funkystation/BloodCult/spells_cultist.rsi
     state: stun
@@ -126,13 +129,7 @@
     canTargetSelf: False
     interactOnMiss: False
     itemIconStyle: NoItem
-    icon:
-      sprite: _Funkystation/BloodCult/spells_cultist.rsi
-      state: stun
-    iconOn:
-      sprite: _Funkystation/BloodCult/spells_cultist.rsi
-      state: stun_selected
-    event: !type:EventCultistSanguineDream {}
+    event: !type:EventCultistStun {}
     #useDelay: 60  TIME DELAY BETWEEN ACTION USES
     #deselectOnMiss: False
     #targetingIndicator: True  # apparently defaults to using what is held in hand?
@@ -140,7 +137,7 @@
     #sound: a SoundSpecifier. Should probably be used instead of castSound down below.
     #iconOn:  # The sprite when selected. USE THIS.
   - type: CultistSpell
-    abilityId: SanguineDream
+    abilityId: CultStun
     charges: 1
     infinite: False
     healthCost: 0
@@ -152,12 +149,17 @@
 - type: entity
   id: ActionCultistTwistedConstruction
   name: Twisted Construction
-  description: A sinister spell used to convert steel or glass into runed steel or runed glass.
+  description: A sinister spell used to convert plasteel into runed metal. # and airlocks into cult airlocks.
+  parent: BaseAction
   categories: [ HideSpawnMenu ]
   components:
-  - type: Icon
-    sprite: _Funkystation/BloodCult/spells_cultist.rsi
-    state: twisted_construction
+  - type: Action
+    icon:
+      sprite: _Funkystation/BloodCult/spells_cultist.rsi
+      state: twisted_construction
+    iconOn:
+      sprite: _Funkystation/BloodCult/spells_cultist.rsi
+      state: twisted_construction
   - type: Sprite
     sprite: _Funkystation/BloodCult/spells_cultist.rsi
     state: twisted_construction
@@ -165,16 +167,9 @@
     whitelist:
       components:
       - Stack
-      - Construction
     canTargetSelf: False
     interactOnMiss: False
     itemIconStyle: NoItem
-    icon:
-      sprite: _Funkystation/BloodCult/spells_cultist.rsi
-      state: twisted_construction
-    iconOn:
-      sprite: _Funkystation/BloodCult/spells_cultist.rsi
-      state: twisted_construction
     event: !type:EventCultistTwistedConstruction {}
     #useDelay: 60  TIME DELAY BETWEEN ACTION USES
     #deselectOnMiss: False

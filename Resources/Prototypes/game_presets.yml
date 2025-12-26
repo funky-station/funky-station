@@ -115,6 +115,7 @@
     - Changeling # Goobstation - changeling playtest
     - SpaceTrafficControlEventScheduler
     - BasicRoundstartVariation
+    - Xenoborgs
 
 - type: gamePreset
   id: AllerAtOnce
@@ -135,6 +136,7 @@
     - Wizard
     - BlobGameMode # Goobstation antag
     - SubGamemodesRule
+    - Xenoborgs
     - BasicStationEventScheduler
     - KesslerSyndromeScheduler
     - MeteorSwarmMildScheduler
@@ -340,6 +342,22 @@
   rules:
   - Wizard
   - DummyNonAntagChance
+  - BasicStationEventScheduler
+  - MeteorSwarmScheduler
+  - SpaceTrafficControlEventScheduler
+  - BasicRoundstartVariation
+
+- type: gamePreset
+  id: Xenoborgs
+  alias:
+    - xenoborgs
+  name: xenoborgs-title
+  description: xenoborgs-description
+  showInVote: false
+  rules:
+  - Xenoborgs
+  - DummyNonAntagChance
+  - SubGamemodesRuleNoXenoborg # no two motherships
   - BasicStationEventScheduler
   - MeteorSwarmScheduler
   - SpaceTrafficControlEventScheduler

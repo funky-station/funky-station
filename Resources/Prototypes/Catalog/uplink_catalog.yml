@@ -137,9 +137,7 @@
 # SPDX-FileCopyrightText: 2025 Neoncamouflage <neoncamouflage@yahoo.com>
 # SPDX-FileCopyrightText: 2025 SigmaTheDragon <162711378+SigmaTheDragon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Skye <57879983+Rainbeon@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Smugman <85798843+Smugman@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
-# SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
 # SPDX-FileCopyrightText: 2025 TheSecondLord <88201625+TheSecondLord@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Unkn0wn_Gh0st <shadowstalkermll@gmail.com>
 # SPDX-FileCopyrightText: 2025 UristMcWiki <endernate2015@gmail.com>
@@ -2506,7 +2504,7 @@
   icon: { sprite:  Objects/Tools/Lighters/syndielighter.rsi, state: icon}
   productEntity: UplinkLighterBox
   cost:
-    Telecrystal: 2 # Funky 
+    Telecrystal: 1
   categories:
   - UplinkPointless
 
@@ -2520,6 +2518,24 @@
   categories:
   - UplinkDeception
   saleLimit: 1 # WD EDIT
+
+- type: listing
+  id: UplinkAcolyteArmor
+  name: uplink-acolyte-armor-name
+  description: uplink-acolyte-armor-desc
+  icon: { sprite: Clothing/OuterClothing/Armor/cult_armour.rsi, state: icon}
+  productEntity: ClothingBackpackDuffelAcolyteBundle
+  discountCategory: veryRareDiscounts
+  discountDownTo:
+    Telecrystal: 3
+  cost:
+    Telecrystal: 4
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:BuyerJobCondition
+    whitelist:
+    - Chaplain
 
 # Funky duplicate to fix surplus bundle, this one cannot be bought ignore
 - type: listing

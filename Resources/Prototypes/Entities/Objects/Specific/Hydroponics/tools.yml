@@ -41,6 +41,12 @@
         Slash: 6
   - type: Item
     sprite: Objects/Tools/Hydroponics/hoe.rsi
+    storedSprite:
+      state: storage
+      sprite: Objects/Tools/Hydroponics/hoe.rsi
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 100
 
 - type: entity
   name: plant clippers
@@ -62,6 +68,9 @@
   - type: Item
     sprite: Objects/Tools/Hydroponics/clippers.rsi
     storedRotation: -90
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 100
   - type: Retractor # Shitmed: Same as wirecutters
     speed: 0.35
   - type: Hemostat
@@ -95,6 +104,10 @@
     - back
   - type: StaticPrice
     price: 40
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 100
+      Plastic: 100
 
 - type: entity
   name: hatchet
@@ -118,6 +131,12 @@
         Piercing: 2
   - type: Item
     sprite: Objects/Tools/Hydroponics/hatchet.rsi
+    storedSprite:
+      state: storage
+      sprite: Objects/Tools/Hydroponics/hatchet.rsi
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 100
   - type: BoneSaw # Shitmed
     speed: 0.35
   - type: SurgeryTool # Shitmed
@@ -146,8 +165,14 @@
       collection: MetalThud
   - type: Item
     sprite: Objects/Tools/Hydroponics/spade.rsi
+    storedSprite:
+      state: storage
+      sprite: Objects/Tools/Hydroponics/spade.rsi
   - type: Shovel
     speedModifier: 0.75 # slower at digging than a full-sized shovel
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 100
 
 - type: entity
   name: plant bag

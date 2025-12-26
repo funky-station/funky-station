@@ -1,27 +1,27 @@
 // SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
-// SPDX-FileCopyrightText: 2024 PJBot <pieterjan.briers+bot@gmail.com>
+// SPDX-FileCopyrightText: 2024 Errant <35878406+Errant-4@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
-// SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
-// SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
-// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2024 Rank #1 Jonestown partygoer <mary@thughunt.ing>
+// SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
+// SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
+// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 //
-// SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+// SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Robust.Server.GameObjects;
+using Content.Server._Goobstation.Ghostbar.Components;
+using Content.Server.Antag.Components;
 using Content.Server.GameTicking;
 using Content.Server.GameTicking.Events;
-using Content.Server.Station.Components;
-using Content.Server.Station.Events;
-using Content.Server.Station.Systems;
-using Robust.Shared.Map;
-using Robust.Shared.Prototypes;
-using Robust.Shared.Random;
-using Content.Shared.Ghost;
-using Content.Server._Goobstation.Ghostbar.Components;
 using Content.Server.Mind;
-using Content.Shared.Mind;
+using Content.Server.Station.Systems;
+using Content.Shared.Ghost;
 using Content.Shared.Mind.Components;
-using Content.Shared.Roles.Jobs;
+using Content.Shared.Mindshield.Components;
+using Content.Shared.Players;
 using Content.Shared.Roles;
 using Content.Shared.Inventory;
 using Content.Server.Antag.Components;
@@ -29,6 +29,9 @@ using Content.Server.Preferences.Managers;
 using Content.Shared.Mindshield.Components;
 using Robust.Shared.EntitySerialization;
 using Robust.Shared.EntitySerialization.Systems;
+using Robust.Shared.Map;
+using Robust.Shared.Prototypes;
+using Robust.Shared.Random;
 using Robust.Shared.Utility;
 
 namespace Content.Server._Goobstation.Ghostbar;

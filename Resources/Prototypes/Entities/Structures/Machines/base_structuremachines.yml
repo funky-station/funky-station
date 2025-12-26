@@ -63,8 +63,8 @@
         !type:DamageTrigger
         damage: 200
       behaviors:
-        - !type:DoActsBehavior
-          acts: [ "Destruction" ]
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
     - trigger:
         !type:DamageTrigger
         damage: 100
@@ -118,4 +118,4 @@
   parent: ConstructibleMachine
   id: SmallConstructibleMachine
   components:
-    - type: RequireProjectileTarget
+  - type: RequireProjectileTarget

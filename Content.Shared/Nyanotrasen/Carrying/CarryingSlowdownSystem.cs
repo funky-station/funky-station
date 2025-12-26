@@ -1,52 +1,38 @@
-// SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
-// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
 //
-// SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+// SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Shared.Carrying;
 using Content.Shared.Movement.Systems;
-using Robust.Shared.GameStates;
 
-namespace Content.Shared.Carrying
+namespace Content.Shared._DV.Carrying;
+
+public sealed class CarryingSlowdownSystem : EntitySystem
 {
-    public sealed class CarryingSlowdownSystem : EntitySystem
+    [Dependency] private readonly MovementSpeedModifierSystem _movementSpeed = default!;
+
+    public override void Initialize()
     {
-        [Dependency] private readonly MovementSpeedModifierSystem _movementSpeed = default!;
+        base.Initialize();
 
-        public override void Initialize()
-        {
-            base.Initialize();
-            SubscribeLocalEvent<CarryingSlowdownComponent, ComponentGetState>(OnGetState);
-            SubscribeLocalEvent<CarryingSlowdownComponent, ComponentHandleState>(OnHandleState);
-            SubscribeLocalEvent<CarryingSlowdownComponent, RefreshMovementSpeedModifiersEvent>(OnRefreshMoveSpeed);
-        }
+        SubscribeLocalEvent<CarryingSlowdownComponent, RefreshMovementSpeedModifiersEvent>(OnRefreshMoveSpeed);
+    }
 
-        public void SetModifier(EntityUid uid, float walkSpeedModifier, float sprintSpeedModifier, CarryingSlowdownComponent? component = null)
-        {
-            if (!Resolve(uid, ref component))
-                return;
+    public void SetModifier(Entity<CarryingSlowdownComponent?> ent, float modifier)
+    {
+        ent.Comp ??= EnsureComp<CarryingSlowdownComponent>(ent);
+        ent.Comp.Modifier = modifier;
+        Dirty(ent, ent.Comp);
 
-            component.WalkModifier = walkSpeedModifier;
-            component.SprintModifier = sprintSpeedModifier;
-            _movementSpeed.RefreshMovementSpeedModifiers(uid);
-        }
-        private void OnGetState(EntityUid uid, CarryingSlowdownComponent component, ref ComponentGetState args)
-        {
-            args.State = new CarryingSlowdownComponentState(component.WalkModifier, component.SprintModifier);
-        }
+        _movementSpeed.RefreshMovementSpeedModifiers(ent);
+    }
 
-        private void OnHandleState(EntityUid uid, CarryingSlowdownComponent component, ref ComponentHandleState args)
-        {
-            if (args.Current is CarryingSlowdownComponentState state)
-            {
-                component.WalkModifier = state.WalkModifier;
-                component.SprintModifier = state.SprintModifier;
-
-                _movementSpeed.RefreshMovementSpeedModifiers(uid);
-            }
-        }
-        private void OnRefreshMoveSpeed(EntityUid uid, CarryingSlowdownComponent component, RefreshMovementSpeedModifiersEvent args)
-        {
-            args.ModifySpeed(component.WalkModifier, component.SprintModifier);
-        }
+    private void OnRefreshMoveSpeed(Entity<CarryingSlowdownComponent> ent, ref RefreshMovementSpeedModifiersEvent args)
+    {
+        args.ModifySpeed(ent.Comp.Modifier, ent.Comp.Modifier);
     }
 }

@@ -125,20 +125,20 @@
   - sprite: _DV/Mobs/Customization/SynthLizIPC/body_markings.rsi
     state: synth_lizard_l_foot
 
-# Eyes
+# Face
 - type: marking
   id: SyntheticIPCEyes
-  bodyPart: Eyes
-  markingCategory: Eyes
+  bodyPart: Face
+  markingCategory: Face
   speciesRestriction: [IPC]
   sprites:
   - sprite: Mobs/Customization/eyes.rsi
-    state: eyes
+    state: Face
 
 - type: marking
   id: ProtogenMouth
-  bodyPart: Eyes
-  markingCategory: Eyes
+  bodyPart: Face
+  markingCategory: Face
   speciesRestriction: [IPC]
   sprites:
   - sprite: _DV/Mobs/Customization/SynthLizIPC/head_markings.rsi

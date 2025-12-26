@@ -16,10 +16,10 @@ public sealed class IsDeadICSystem : EntitySystem
 {
     public override void Initialize()
     {
-        SubscribeLocalEvent<IsDeadICComponent, GetCharactedDeadIcEvent>(OnGetDeadIC);
+        SubscribeLocalEvent<IsDeadICComponent, SharedMindSystem.GetCharactedDeadIcEvent>(OnGetDeadIC);
     }
 
-    private void OnGetDeadIC(EntityUid uid, IsDeadICComponent component, ref GetCharactedDeadIcEvent args)
+    private void OnGetDeadIC(EntityUid uid, IsDeadICComponent component, ref SharedMindSystem.GetCharactedDeadIcEvent args)
     {
         args.Dead = true;
     }

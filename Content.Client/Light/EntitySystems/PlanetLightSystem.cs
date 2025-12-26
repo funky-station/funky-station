@@ -1,8 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
-// SPDX-FileCopyrightText: 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
-//
-// SPDX-License-Identifier: MIT
 using Content.Shared.CCVar;
 using Robust.Client.Graphics;
 using Robust.Shared.Configuration;
@@ -55,6 +50,7 @@ public sealed class PlanetLightSystem : EntitySystem
         _overlayMan.AddOverlay(new RoofOverlay(EntityManager));
         _overlayMan.AddOverlay(new TileEmissionOverlay(EntityManager));
         _overlayMan.AddOverlay(new LightBlurOverlay());
+        _overlayMan.AddOverlay(new SunShadowOverlay());
         _overlayMan.AddOverlay(new AfterLightTargetOverlay());
     }
 
@@ -70,6 +66,7 @@ public sealed class PlanetLightSystem : EntitySystem
         _overlayMan.RemoveOverlay<RoofOverlay>();
         _overlayMan.RemoveOverlay<TileEmissionOverlay>();
         _overlayMan.RemoveOverlay<LightBlurOverlay>();
+        _overlayMan.RemoveOverlay<SunShadowOverlay>();
         _overlayMan.RemoveOverlay<AfterLightTargetOverlay>();
     }
 }

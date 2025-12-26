@@ -7,6 +7,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
+using Content.Server.Damage.Systems;
 using Content.Server.EntityEffects.Effects;
 using Content.Shared.Clothing.Components;
 using Content.Server.Damage.Systems;
@@ -57,7 +58,7 @@ public sealed partial class MadnessMaskSystem : EntitySystem
                     _jitter.DoJitter(look, TimeSpan.FromSeconds(.5f), true, amplitude: 5, frequency: 10);
 
                 if (_random.Prob(.25f))
-                    _statusEffect.TryAddStatusEffect<SeeingRainbowsComponent>(look, "SeeingRainbows", TimeSpan.FromSeconds(10f), false);
+                    _statusEffect.TryAddStatusEffect<SeeingRainbowsStatusEffectComponent>(look, "SeeingRainbows", TimeSpan.FromSeconds(10f), false);
             }
         }
     }

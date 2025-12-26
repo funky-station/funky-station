@@ -66,6 +66,17 @@
 
 - type: entity
   parent: ClothingNeckPinBase
+  id: ClothingNeckAroacePin
+  name: aroace pin
+  description: Be aroace do crime.
+  components:
+  - type: Sprite
+    state: aroace
+  - type: Clothing
+    equippedPrefix: aroace
+
+- type: entity
+  parent: ClothingNeckPinBase
   id: ClothingNeckAsexualPin
   name: asexual pin
   description: Be ace do crime.
@@ -143,6 +154,17 @@
 
 - type: entity
   parent: ClothingNeckPinBase
+  id: ClothingNeckPluralPin
+  name: plural pin
+  description: Be plural, do crimes.
+  components:
+  - type: Sprite
+    state: plural
+  - type: Clothing
+    equippedPrefix: plural
+
+- type: entity
+  parent: ClothingNeckPinBase
   id: ClothingNeckOmnisexualPin
   name: omnisexual pin
   description: Be omni do crime.
@@ -206,3 +228,55 @@
     state: goldautism
   - type: Clothing
     equippedPrefix: goldautism
+
+- type: entity
+  parent: BaseItem
+  id: SprayFlowerPin
+  name: flower pin
+  description: A cute flower pin. Something seems off with it...
+  components:
+  - type: Item
+    size: Tiny
+  - type: Sprite
+    sprite: Clothing/Neck/Misc/pins.rsi
+    state: flower
+  - type: Clothing
+    equippedPrefix: flower
+    sprite: Clothing/Neck/Misc/pins.rsi
+    quickEquip: true
+    slots:
+    - neck
+  - type: EquipSpray
+    verbLocId: equip-spray-verb-press
+  - type: SolutionContainerManager
+    solutions:
+      spray:
+        maxVol: 30
+        reagents:
+        - ReagentId: Water
+          Quantity: 30
+  - type: RefillableSolution
+    solution: spray
+  - type: DrainableSolution
+    solution: spray
+  - type: SolutionTransfer
+    maxTransferAmount: 30
+    transferAmount: 30
+  - type: UseDelay
+  - type: Spray
+    transferAmount: 5
+    pushbackAmount: 30
+    spraySound:
+      path: /Audio/Effects/spray3.ogg
+    sprayedPrototype: FlowerVapor
+    vaporAmount: 1
+    vaporSpread: 90
+    sprayVelocity: 1.0
+    sprayEmptyPopupMessage: pin-spray-popup-empty
+  - type: ActionGrant
+    actions:
+    - ActionShootWater
+  - type: ItemActionGrant
+    actions:
+    - ActionShootWater
+    activeIfWorn: true

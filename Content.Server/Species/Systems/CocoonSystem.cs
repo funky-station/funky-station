@@ -32,6 +32,7 @@ using Content.Shared.Mobs.Systems;
 using Content.Shared.Destructible;
 using Content.Shared.Gibbing.Events;
 using Content.Server.Body.Components;
+using Content.Shared.Body.Events;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
@@ -368,12 +369,11 @@ public sealed class CocoonSystem : SharedCocoonSystem
         // Drop all items from victim's hands before inserting
         if (TryComp<HandsComponent>(target, out var hands))
         {
-            foreach (var hand in _hands.EnumerateHands(target, hands))
+            var ent = (target, hands);
+
+            foreach (var handId in _hands.EnumerateHands(ent))
             {
-                if (hand.HeldEntity != null)
-                {
-                    _hands.TryDrop(target, hand, checkActionBlocker: false);
-                }
+                _hands.TryDrop(ent, handId, checkActionBlocker: false);
             }
         }
 

@@ -6,31 +6,35 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
 - type: entity
+  parent: BaseAction
   id: ActionHereticFleshSurgery
-  name: flesh surgery
-  description: Remove a random organ from someone, or heal your teammates.
+  name: Knit Flesh
+  description: A touch spell that allows you to either perform quick surgery or restore flesh of target.
   components:
-  - type: EntityTargetAction
-    useDelay: 30
-    event: !type:EventHereticFleshSurgery
+  - type: Action
+    useDelay: 1
     itemIconStyle: NoItem
     icon:
       sprite: _Goobstation/Heretic/abilities_heretic.rsi
       state: flesh_surgery
+    checkCanInteract: true
+  - type: InstantAction
+    event: !type:EventHereticFleshSurgery
   - type: HereticAction
-    messageLoc: heretic-speech-flesh-surgery
 
 - type: entity
+  parent: BaseAction
   id: ActionPolymorphHereticHorror
   name: REALITY UNCOIL
   description: Transform into an eldritch horror.
   components:
+  - type: Action
+    icon:
+      sprite: _Goobstation/Heretic/abilities_heretic.rsi
+      state: final_hymn
   - type: InstantAction
     useDelay: 60
     event: !type:EventHereticFleshAscend
     itemIconStyle: NoItem
-    icon:
-      sprite: _Goobstation/Heretic/abilities_heretic.rsi
-      state: final_hymn
   - type: HereticAction
     messageLoc: heretic-speech-flesh-worm

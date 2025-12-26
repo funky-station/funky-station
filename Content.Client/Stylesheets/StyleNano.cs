@@ -50,6 +50,7 @@ namespace Content.Client.Stylesheets
         public const string StyleClassHandSlotHighlight = "HandSlotHighlight";
         public const string StyleClassChatPanel = "ChatPanel";
         public const string StyleClassChatSubPanel = "ChatSubPanel";
+        public const string StyleClassTransparentBorderedWindowPanel = "TransparentBorderedWindowPanel";
         public const string StyleClassHotbarPanel = "HotbarPanel";
         public const string StyleClassTooltipPanel = "tooltipBox";
         public const string StyleClassTooltipAlertTitle = "tooltipAlertTitle";
@@ -58,7 +59,6 @@ namespace Content.Client.Stylesheets
         public const string StyleClassTooltipActionTitle = "tooltipActionTitle";
         public const string StyleClassTooltipActionDescription = "tooltipActionDesc";
         public const string StyleClassTooltipActionCooldown = "tooltipActionCooldown";
-        public const string StyleClassTooltipActionDynamicMessage = "tooltipActionDynamicMessage";
         public const string StyleClassTooltipActionRequirements = "tooltipActionCooldown";
         public const string StyleClassTooltipActionCharges = "tooltipActionCharges";
         public const string StyleClassHotbarSlotNumber = "hotbarSlotNumber";
@@ -105,7 +105,6 @@ namespace Content.Client.Stylesheets
 
         public static readonly Color ButtonColorDefault = Color.FromHex("#464966");
         public static readonly Color ButtonColorDefaultRed = Color.FromHex("#D43B3B");
-        public static readonly Color ButtonColorDefaultPurpleAndCool = Color.FromHex("#58296B"); // Imp
         public static readonly Color ButtonColorHovered = Color.FromHex("#575b7f");
         public static readonly Color ButtonColorHoveredRed = Color.FromHex("#DF6B6B");
         public static readonly Color ButtonColorPressed = Color.FromHex("#3e6c45");
@@ -157,7 +156,6 @@ namespace Content.Client.Stylesheets
         //Buttons
         public const string StyleClassCrossButtonRed = "CrossButtonRed";
         public const string StyleClassButtonColorRed = "ButtonColorRed";
-        public const string StyleClassButtonColorPurpleAndCool = "ButtonColorPurpleAndCool"; // Imp
         public const string StyleClassButtonColorGreen = "ButtonColorGreen";
 
         public static readonly Color ChatBackgroundColor = Color.FromHex("#25252ADD");
@@ -178,12 +176,6 @@ namespace Content.Client.Stylesheets
         public const string ClassHighDivider = "HighDivider";
         public const string ClassLowDivider = "LowDivider";
         public const string ClassAngleRect = "AngleRect";
-
-        //Manifest
-        public const string StyleClassCrewManifestGender = "CrewManifestGender";
-
-        public static string StyleClassTraitBackground = "TraitBackground";
-        public static string StyleClassTraitCost = "TraitCost";
 
 
         public override Stylesheet Stylesheet { get; }
@@ -259,6 +251,13 @@ namespace Content.Client.Stylesheets
                 Texture = handSlotHighlightTex,
             };
             handSlotHighlight.SetPatchMargin(StyleBox.Margin.All, 2);
+
+            var borderedTransparentWindowBackgroundTex = resCache.GetTexture("/Textures/Interface/Nano/transparent_window_background_bordered.png");
+            var borderedTransparentWindowBackground = new StyleBoxTexture
+            {
+                Texture = borderedTransparentWindowBackgroundTex,
+            };
+            borderedTransparentWindowBackground.SetPatchMargin(StyleBox.Margin.All, 2);
 
             var hotbarBackground = new StyleBoxTexture
             {
@@ -601,6 +600,12 @@ namespace Content.Client.Stylesheets
                     {
                         new StyleProperty(PanelContainer.StylePropertyPanel, borderedWindowBackground),
                     }),
+                new StyleRule(
+                    new SelectorElement(null, new[] {StyleClassTransparentBorderedWindowPanel}, null, null),
+                    new[]
+                    {
+                        new StyleProperty(PanelContainer.StylePropertyPanel, borderedTransparentWindowBackground),
+                    }),
                 // inventory slot background
                 new StyleRule(
                     new SelectorElement(null, new[] {StyleClassInventorySlotBackground}, null, null),
@@ -693,6 +698,23 @@ namespace Content.Client.Stylesheets
 
                 Element<ContainerButton>().Class(ContainerButton.StyleClassButton).Class(ButtonCaution)
                     .Pseudo(ContainerButton.StylePseudoClassDisabled)
+                    .Prop(Control.StylePropertyModulateSelf, ButtonColorCautionDisabled),
+
+                // Colors for confirm buttons confirm states.
+                Element<ConfirmButton>()
+                    .Pseudo(ConfirmButton.ConfirmPrefix + ContainerButton.StylePseudoClassNormal)
+                    .Prop(Control.StylePropertyModulateSelf, ButtonColorCautionDefault),
+
+                Element<ConfirmButton>()
+                    .Pseudo(ConfirmButton.ConfirmPrefix + ContainerButton.StylePseudoClassHover)
+                    .Prop(Control.StylePropertyModulateSelf, ButtonColorCautionHovered),
+
+                Element<ConfirmButton>()
+                    .Pseudo(ConfirmButton.ConfirmPrefix + ContainerButton.StylePseudoClassPressed)
+                    .Prop(Control.StylePropertyModulateSelf, ButtonColorCautionPressed),
+
+                Element<ConfirmButton>()
+                    .Pseudo(ConfirmButton.ConfirmPrefix + ContainerButton.StylePseudoClassDisabled)
                     .Prop(Control.StylePropertyModulateSelf, ButtonColorCautionDisabled),
 
                 new StyleRule(new SelectorChild(
@@ -1012,10 +1034,6 @@ namespace Content.Client.Stylesheets
                 {
                     new StyleProperty("font", notoSans15)
                 }),
-                new StyleRule(new SelectorElement(typeof(RichTextLabel), new[] {StyleClassTooltipActionDynamicMessage}, null, null), new[]
-                {
-                    new StyleProperty("font", notoSans15)
-                }),
                 new StyleRule(new SelectorElement(typeof(RichTextLabel), new[] {StyleClassTooltipActionRequirements}, null, null), new[]
                 {
                     new StyleProperty("font", notoSans15)
@@ -1253,11 +1271,6 @@ namespace Content.Client.Stylesheets
                     .Prop("font-color", ItemStatusNotHeldColor),
 
                 Element<RichTextLabel>()
-                    .Class(StyleClassCrewManifestGender)
-                    .Prop("font", notoSansItalic10)
-                    .Prop("font-style", "italic"),
-
-                Element<RichTextLabel>()
                     .Class(StyleClassItemStatus)
                     .Prop(nameof(RichTextLabel.LineHeightScale), 0.7f)
                     .Prop(nameof(Control.Margin), new Thickness(0, 0, 0, -6)),
@@ -1458,6 +1471,11 @@ namespace Content.Client.Stylesheets
                 Element<TextureButton>().Class("CrossButtonRed").Pseudo(TextureButton.StylePseudoClassHover)
                     .Prop(Control.StylePropertyModulateSelf, Color.FromHex("#753131")),
 
+                //
+                Element<TextureButton>().Class("Refresh")
+                    .Prop(TextureButton.StylePropertyTexture, resCache.GetTexture("/Textures/Interface/Nano/circular_arrow.svg.96dpi.png")),
+                // ---
+
                 // Profile Editor
                 Element<TextureButton>().Class("SpeciesInfoDefault")
                     .Prop(TextureButton.StylePropertyTexture, resCache.GetTexture("/Textures/Interface/VerbIcons/information.svg.192dpi.png")),
@@ -1490,16 +1508,6 @@ namespace Content.Client.Stylesheets
                 Element<Button>().Class("ButtonColorRed").Pseudo(ContainerButton.StylePseudoClassHover)
                     .Prop(Control.StylePropertyModulateSelf, ButtonColorHoveredRed),
                 // ---
-
-                // Imp
-                Element<Button>().Class("ButtonColorPurpleAndCool")
-                    .Prop(Control.StylePropertyModulateSelf, ButtonColorDefaultPurpleAndCool),
-
-                Element<Button>().Class("ButtonColorPurpleAndCool").Pseudo(ContainerButton.StylePseudoClassNormal)
-                    .Prop(Control.StylePropertyModulateSelf, ButtonColorDefaultPurpleAndCool),
-
-                Element<Button>().Class("ButtonColorPurpleAndCool").Pseudo(ContainerButton.StylePseudoClassHover)
-                    .Prop(Control.StylePropertyModulateSelf, ButtonColorDefaultPurpleAndCool),
 
                 // Green Button ---
                 Element<Button>().Class("ButtonColorGreen")
@@ -1652,60 +1660,6 @@ namespace Content.Client.Stylesheets
                         BackgroundColor = FancyTreeSelectedRowColor,
                     }),
 
-                // Shitmed Change Start
-                Element<TextureButton>().Class("TargetDollButtonHead")
-                    .Pseudo(TextureButton.StylePseudoClassHover)
-                    .Prop(TextureButton.StylePropertyTexture, resCache.GetTexture("/Textures/_Shitmed/Interface/Targeting/Doll/head_hover.png")),
-
-                Element<TextureButton>().Class("TargetDollButtonChest")
-                    .Pseudo(TextureButton.StylePseudoClassHover)
-                    .Prop(TextureButton.StylePropertyTexture, resCache.GetTexture("/Textures/_Shitmed/Interface/Targeting/Doll/torso_hover.png")),
-
-                Element<TextureButton>().Class("TargetDollButtonGroin")
-                    .Pseudo(TextureButton.StylePseudoClassHover)
-                    .Prop(TextureButton.StylePropertyTexture, resCache.GetTexture("/Textures/_Shitmed/Interface/Targeting/Doll/groin_hover.png")),
-
-                Element<TextureButton>().Class("TargetDollButtonLeftArm")
-                    .Pseudo(TextureButton.StylePseudoClassHover)
-                    .Prop(TextureButton.StylePropertyTexture, resCache.GetTexture("/Textures/_Shitmed/Interface/Targeting/Doll/leftarm_hover.png")),
-
-                Element<TextureButton>().Class("TargetDollButtonLeftHand")
-                    .Pseudo(TextureButton.StylePseudoClassHover)
-                    .Prop(TextureButton.StylePropertyTexture, resCache.GetTexture("/Textures/_Shitmed/Interface/Targeting/Doll/lefthand_hover.png")),
-
-                Element<TextureButton>().Class("TargetDollButtonRightArm")
-                    .Pseudo(TextureButton.StylePseudoClassHover)
-                    .Prop(TextureButton.StylePropertyTexture, resCache.GetTexture("/Textures/_Shitmed/Interface/Targeting/Doll/rightarm_hover.png")),
-
-                Element<TextureButton>().Class("TargetDollButtonRightHand")
-                    .Pseudo(TextureButton.StylePseudoClassHover)
-                    .Prop(TextureButton.StylePropertyTexture, resCache.GetTexture("/Textures/_Shitmed/Interface/Targeting/Doll/righthand_hover.png")),
-
-                Element<TextureButton>().Class("TargetDollButtonLeftLeg")
-                    .Pseudo(TextureButton.StylePseudoClassHover)
-                    .Prop(TextureButton.StylePropertyTexture, resCache.GetTexture("/Textures/_Shitmed/Interface/Targeting/Doll/leftleg_hover.png")),
-
-                Element<TextureButton>().Class("TargetDollButtonLeftFoot")
-                    .Pseudo(TextureButton.StylePseudoClassHover)
-                    .Prop(TextureButton.StylePropertyTexture, resCache.GetTexture("/Textures/_Shitmed/Interface/Targeting/Doll/leftfoot_hover.png")),
-
-                Element<TextureButton>().Class("TargetDollButtonRightLeg")
-                    .Pseudo(TextureButton.StylePseudoClassHover)
-                    .Prop(TextureButton.StylePropertyTexture, resCache.GetTexture("/Textures/_Shitmed/Interface/Targeting/Doll/rightleg_hover.png")),
-
-                Element<TextureButton>().Class("TargetDollButtonRightFoot")
-                    .Pseudo(TextureButton.StylePseudoClassHover)
-                    .Prop(TextureButton.StylePropertyTexture, resCache.GetTexture("/Textures/_Shitmed/Interface/Targeting/Doll/rightfoot_hover.png")),
-
-                Element<TextureButton>().Class("TargetDollButtonEyes")
-                    .Pseudo(TextureButton.StylePseudoClassHover)
-                    .Prop(TextureButton.StylePropertyTexture, resCache.GetTexture("/Textures/_Shitmed/Interface/Targeting/Doll/eyes_hover.png")),
-
-                Element<TextureButton>().Class("TargetDollButtonMouth")
-                    .Pseudo(TextureButton.StylePseudoClassHover)
-                    .Prop(TextureButton.StylePropertyTexture, resCache.GetTexture("/Textures/_Shitmed/Interface/Targeting/Doll/mouth_hover.png")),
-                // Shitmed Change End
-
                 // Silicon law edit ui
                 Element<Label>().Class(SiliconLawContainer.StyleClassSiliconLawPositionLabel)
                     .Prop(Label.StylePropertyFontColor, NanoGold),
@@ -1724,21 +1678,6 @@ namespace Content.Client.Stylesheets
                     {
                         new StyleProperty(TextureButton.StylePropertyTexture, resCache.GetTexture("/Textures/Interface/Bwoink/un_pinned.png"))
                     }),
-
-                // Trait selector styling
-                Element<PanelContainer>().Class(StyleClassTraitBackground)
-                    .Prop(PanelContainer.StylePropertyPanel, new StyleBoxFlat
-                    {
-                        BackgroundColor = Color.FromHex("#25252A"),
-                        BorderColor = Color.FromHex("#404040"),
-                        BorderThickness = new Thickness(1),
-                        ContentMarginLeftOverride = 4,
-                        ContentMarginRightOverride = 4
-                    }),
-
-                Element<Label>().Class(StyleClassTraitCost)
-                    .Prop(Label.StylePropertyFont, notoSansBold12)
-                    .Prop(Label.StylePropertyFontColor, new Color(200, 200, 200)),
 
                 Element<PanelContainer>()
                     .Class(StyleClassInset)

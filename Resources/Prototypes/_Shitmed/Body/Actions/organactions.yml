@@ -10,7 +10,7 @@
   name: "[color=red]Tentacle Slam[/color]"
   description: Use your tentacles to grab and stun a target player!
   components:
-  - type: EntityWorldTargetAction
+  - type: WorldTargetAction
     raiseOnUser: true
     icon:
       sprite: Mobs/Aliens/Asteroid/goliath.rsi

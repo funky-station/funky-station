@@ -29,7 +29,7 @@ public sealed class BloodCultRuneCleaningSystem : EntitySystem
 	public override void Initialize()
 	{
 		base.Initialize();
-		
+
 		// Subscribe to the custom event raised by AbsorbentSystem when a mop is used
 		// This allows us to handle rune cleaning before AbsorbentSystem processes puddles/refillables
 		SubscribeLocalEvent<CleanableRuneComponent, AbsorbentMopTargetEvent>(OnAbsorbentMopTarget);
@@ -48,15 +48,18 @@ public sealed class BloodCultRuneCleaningSystem : EntitySystem
 	{
 
 		// Check if mop has a solution
-		if (!_solutionContainer.TryGetSolution(mop, AbsorbentComponent.SolutionName, out var absorberSoln))
-			return false;
+        if (!TryComp<AbsorbentComponent>(mop, out var absorbent))
+            return false;
+
+        if (!_solutionContainer.TryGetSolution(mop, absorbent.SolutionName, out var absorberSoln))
+            return false;
 
 		// Check if mop is on cooldown
 		if (TryComp<UseDelayComponent>(mop, out var useDelay) && _useDelay.IsDelayed((mop, useDelay)))
 			return false;
 
 		var solution = absorberSoln.Value.Comp.Solution;
-		
+
 		// Check if mop has water or space cleaner by iterating through solution contents
 		bool hasWater = false;
 		bool hasSpaceCleaner = false;
@@ -75,7 +78,7 @@ public sealed class BloodCultRuneCleaningSystem : EntitySystem
 		// Create a temporary CleansForensics component for the mop
 		var cleansForensics = EnsureComp<CleansForensicsComponent>(mop);
 		cleansForensics.CleanDelay = 3f; // Mops are slower than soap
-		
+
 		return _forensics.TryStartCleaning((mop, cleansForensics), user, target);
 	}
 }

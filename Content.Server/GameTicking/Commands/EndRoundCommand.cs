@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2021 Acruid <shatter66@gmail.com>
+﻿// SPDX-FileCopyrightText: 2021 Acruid <shatter66@gmail.com>
 // SPDX-FileCopyrightText: 2021 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2021 Moony <moonheart08@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
@@ -13,28 +13,23 @@ using Content.Server.Administration;
 using Content.Shared.Administration;
 using Robust.Shared.Console;
 
-namespace Content.Server.GameTicking.Commands
+namespace Content.Server.GameTicking.Commands;
+
+[AdminCommand(AdminFlags.Round)]
+public sealed class EndRoundCommand : LocalizedEntityCommands
 {
-    [AdminCommand(AdminFlags.Round)]
-    sealed class EndRoundCommand : IConsoleCommand
+    [Dependency] private readonly GameTicker _gameTicker = default!;
+
+    public override string Command => "endround";
+
+    public override void Execute(IConsoleShell shell, string argStr, string[] args)
     {
-        [Dependency] private readonly IEntityManager _e = default!;
-
-        public string Command => "endround";
-        public string Description => "Ends the round and moves the server to PostRound.";
-        public string Help => String.Empty;
-
-        public void Execute(IConsoleShell shell, string argStr, string[] args)
+        if (_gameTicker.RunLevel != GameRunLevel.InRound)
         {
-            var ticker = _e.System<GameTicker>();
-
-            if (ticker.RunLevel != GameRunLevel.InRound)
-            {
-                shell.WriteLine("This can only be executed while the game is in a round.");
-                return;
-            }
-
-            ticker.EndRound();
+            shell.WriteLine(Loc.GetString("shell-can-only-run-while-round-is-active"));
+            return;
         }
+
+        _gameTicker.EndRound();
     }
 }

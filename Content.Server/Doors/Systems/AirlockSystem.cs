@@ -1,42 +1,9 @@
-// SPDX-FileCopyrightText: 2021 Kara D <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <gradientvera@outlook.com>
-// SPDX-FileCopyrightText: 2021 mirrorcult <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2022 0x6273 <0x40@keemail.me>
-// SPDX-FileCopyrightText: 2022 Flipp Syder <76629141+vulppine@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Paul Ritter <ritter.paul1@googlemail.com>
-// SPDX-FileCopyrightText: 2022 Rane <60792108+Elijahrane@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Julian Giebel <juliangiebel@live.de>
-// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Morb <14136326+Morb0@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Slava0135 <40753025+Slava0135@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Tom Leys <tom@crump-leys.com>
-// SPDX-FileCopyrightText: 2023 chromiumboy <50505512+chromiumboy@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 metalgearsloth <comedian_vs_clown@hotmail.com>
-// SPDX-FileCopyrightText: 2023 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
-// SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
-// SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
-// SPDX-FileCopyrightText: 2025 TheSecondLord <88201625+TheSecondLord@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
-// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
-//
-// SPDX-License-Identifier: MIT
-
-using Content.Server.Emp;
 using Content.Server.Power.Components;
 using Content.Server.Wires;
 using Content.Shared.DeviceLinking.Events;
 using Content.Shared.Doors.Components;
 using Content.Shared.Doors.Systems;
+using Content.Shared.Emp;
 using Content.Shared.Interaction;
 using Content.Shared.Power;
 using Content.Shared.Wires;
@@ -53,11 +20,12 @@ public sealed class AirlockSystem : SharedAirlockSystem
         base.Initialize();
 
         SubscribeLocalEvent<AirlockComponent, SignalReceivedEvent>(OnSignalReceived);
-
         SubscribeLocalEvent<AirlockComponent, PowerChangedEvent>(OnPowerChanged);
         SubscribeLocalEvent<AirlockComponent, ActivateInWorldEvent>(OnActivate, before: new[] { typeof(DoorSystem) });
-        SubscribeLocalEvent<AirlockComponent, EmpPulseEvent>(OnEmpPulse); // Funky edit
-        SubscribeLocalEvent<AirlockComponent, EmpDisabledRemoved>(OnEmpFinished); // Funky edit
+
+        // EMP event subscriptions
+        SubscribeLocalEvent<AirlockComponent, EmpPulseEvent>(OnEmpPulse);
+        SubscribeLocalEvent<AirlockComponent, EmpDisabledRemovedEvent>(OnEmpFinished);
     }
 
     private void OnSignalReceived(EntityUid uid, AirlockComponent component, ref SignalReceivedEvent args)
@@ -71,9 +39,6 @@ public sealed class AirlockSystem : SharedAirlockSystem
 
     private void OnPowerChanged(EntityUid uid, AirlockComponent component, ref PowerChangedEvent args)
     {
-        if (component.ForceDisabled) // Funky edit - Don't turn on if it is currently disabled by an EMP
-            return;
-
         component.Powered = args.Powered;
         Dirty(uid, component);
 
@@ -118,7 +83,7 @@ public sealed class AirlockSystem : SharedAirlockSystem
         }
     }
 
-    // Funky edit starts - Airlocks get disabled by EMP pulses
+    // Airlocks get disabled by EMP pulses
     private void OnEmpPulse(EntityUid uid, AirlockComponent comp, ref EmpPulseEvent args)
     {
         args.Affected = true;
@@ -129,7 +94,7 @@ public sealed class AirlockSystem : SharedAirlockSystem
         Dirty(uid, comp);
     }
 
-    private void OnEmpFinished(EntityUid uid, AirlockComponent comp, ref EmpDisabledRemoved args)
+    private void OnEmpFinished(EntityUid uid, AirlockComponent comp, ref EmpDisabledRemovedEvent args)
     {
         comp.ForceDisabled = false;
         Dirty(uid, comp);
@@ -137,5 +102,4 @@ public sealed class AirlockSystem : SharedAirlockSystem
         if (TryComp<ApcPowerReceiverComponent>(uid, out var powerComp))
             powerComp.Recalculate = true;   // Re-check power state in case it stopped getting powered/wasn't powered in the first place
     }
-    // Funky edit ends
 }

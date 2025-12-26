@@ -34,7 +34,6 @@ using Content.Shared.Stunnable;
 using Content.Shared.Emp;
 using Content.Server.Emp;
 using Content.Shared.Popups;
-using Content.Server.PowerCell;
 using Content.Shared.PowerCell;
 using Content.Shared.PowerCell.Components;
 using Content.Shared.Silicons.Borgs.Components;
@@ -50,6 +49,9 @@ using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Mindshield.Components;
 using Content.Shared.Mind.Components;
 using Content.Server.Stack;
+using Content.Shared.Body.Components;
+using Content.Shared.Damage.Components;
+using Content.Shared.Power.Components;
 
 
 namespace Content.Server.BloodCult.EntitySystems;
@@ -118,16 +120,6 @@ public sealed partial class CultistSpellSystem : EntitySystem
             return false;
 		if (!TryComp<CultistSpellComponent>(args.Action, out var actionComp))
             return false;
-
-		// check if enough charges remain
-		if (!actionComp.Infinite)
-			actionComp.Charges = actionComp.Charges - 1;
-
-		if (actionComp.Charges == 0)
-		{
-			_action.RemoveAction(args.Action.Owner);
-			RemoveSpell(GetSpell(actionComp.AbilityId), ent.Comp);
-		}
 
 		// apply damage
 		if (actionComp.HealthCost > 0 && TryComp<DamageableComponent>(ent, out var damageable))
@@ -236,7 +228,7 @@ public sealed partial class CultistSpellSystem : EntitySystem
 			}
 			if (args.RecordKnownSpell)
 				ent.Comp.KnownSpells.Add(args.CultAbility);
-			
+
 			_damageableSystem.TryChangeDamage(ent, appliedDamageSpecifier, true, origin: ent);
 			_audioSystem.PlayPvs(args.CultAbility.CarveSound, ent);
 		if (args.StandingOnRune)
@@ -286,20 +278,20 @@ public sealed partial class CultistSpellSystem : EntitySystem
 	{
 		// Get all actions for this cultist
 		var actions = _action.GetActions(uid);
-		
+
 		// Create a set of spell IDs for quick lookup
 		var knownSpellIds = new HashSet<ProtoId<CultAbilityPrototype>>(cultist.KnownSpells);
 
 		// Remove actions that match spells in KnownSpells
 		foreach (var action in actions)
 		{
-			if (!TryComp<CultistSpellComponent>(action.Id, out var spellComp))
+			if (!TryComp<CultistSpellComponent>(action.Owner, out var spellComp))
 				continue;
 
 			// Check if this action's AbilityId matches any spell in KnownSpells
 			if (knownSpellIds.Contains(spellComp.AbilityId))
 			{
-				_action.RemoveAction(uid, action.Id);
+				_action.RemoveAction(uid, action.Owner);
 			}
 		}
 	}
@@ -359,7 +351,7 @@ public sealed partial class CultistSpellSystem : EntitySystem
 			return true;
 
 		// Check if the target's mind has BloodCultistComponent (for SSD cultists)
-		if (TryComp<MindContainerComponent>(target, out var mindContainer) && 
+		if (TryComp<MindContainerComponent>(target, out var mindContainer) &&
 		    mindContainer.Mind != null &&
 		    HasComp<BloodCultistComponent>(mindContainer.Mind.Value))
 			return true;
@@ -402,51 +394,55 @@ public sealed partial class CultistSpellSystem : EntitySystem
 		int selfStunTime = 4;
 
 		// Holy protection repels cult magic
-		if (HasComp<CultResistantComponent>(target))
-		{
-			_popup.PopupEntity(
-					Loc.GetString("cult-spell-repelled"),
-					ent, ent, PopupType.MediumCaution
-				);
-			_audioSystem.PlayPvs(new SoundPathSpecifier("/Audio/Effects/holy.ogg"), Transform(ent).Coordinates);
-			// Knock down the cultist who cast the spell. Might need balancing
-			_stun.TryKnockdown(ent, TimeSpan.FromSeconds(selfStunTime), true);
-		}
-		else if (HasComp<SiliconComponent>(target) &&
-			_powerCell.TryGetBatteryFromSlot(target, out EntityUid? ipcBatteryUid, out BatteryComponent? _) &&
-			ipcBatteryUid != null)
-		{
-			// Apply EMP damage directly to the IPC's battery
-			_emp.DoEmpEffects((EntityUid)ipcBatteryUid, empDamage, empDuration);
-			_statusEffect.TryAddStatusEffect<MutedComponent>(target, "Muted", TimeSpan.FromSeconds(empDuration), false);
-		}
-		else if (HasComp<BorgChassisComponent>(target) &&
-			_powerCell.TryGetBatteryFromSlot(target, out EntityUid? borgBatteryUid, out BatteryComponent? _) &&
-			borgBatteryUid != null)
-		{
-			// Apply EMP damage directly to the borg's battery
-			_emp.DoEmpEffects((EntityUid)borgBatteryUid, empDamage, empDuration);
-			_statusEffect.TryAddStatusEffect<MutedComponent>(target, "Muted", TimeSpan.FromSeconds(empDuration), false);
-		}
+        if (HasComp<CultResistantComponent>(target))
+        {
+            _popup.PopupEntity(
+                Loc.GetString("cult-spell-repelled"),
+                ent.Owner,
+                ent.Owner,
+                PopupType.MediumCaution
+            );
+
+            _audioSystem.PlayPvs(
+                new SoundPathSpecifier("/Audio/Effects/holy.ogg"),
+                Transform(ent.Owner).Coordinates
+            );
+
+            // Knock down the cultist who cast the spell
+            _stun.TryKnockdown(ent.Owner, TimeSpan.FromSeconds(selfStunTime), true);
+        }
+        else if ((HasComp<SiliconComponent>(target) || HasComp<BorgChassisComponent>(target)) &&
+                 _powerCell.TryGetBatteryFromSlotOrEntity(target, out var battery))
+        {
+            // Apply EMP effects directly to the battery
+            _emp.DoEmpEffects(battery.Value.Owner, empDamage, TimeSpan.FromSeconds(empDuration));
+
+            _statusEffect.TryAddStatusEffect<MutedComponent>(
+                target,
+                "Muted",
+                TimeSpan.FromSeconds(empDuration),
+                false
+            );
+        }
 		else if (TryComp<BloodstreamComponent>(target, out var bloodstream))
 		{
 			// Inject sleep chemicals (Nocturine + Chloral Hydrate)
 			var sleepSolution = new Solution();
 			sleepSolution.AddReagent("Nocturine", FixedPoint2.New(15));  // 15u Nocturine
 			sleepSolution.AddReagent("EdgeEssentia", FixedPoint2.New(5));  // 5u Edge Essentia
-			
-			_bloodstream.TryAddToChemicals(target, sleepSolution, bloodstream);
-			
+
+			_bloodstream.TryAddToChemicals(target, sleepSolution);
+
 			// Show the dream message
 			_popup.PopupEntity(
 				Loc.GetString("cult-spell-sleep-dream"),
 				target, target, PopupType.LargeCaution
 			);
-			
+
 			// Mark them for follow-up attacks
 			// disabled for now, follow up attacks work, but end up being too fancy and not really needed.
 			//EnsureComp<CultMarkedComponent>(target);
-			
+
 			// Added a manual mute, since I know upstream has a possible Nocturine debuff that makes it take effect slower.
 			// The intent is for this to work to kidnap any non-mindshielded crew member.
 			_statusEffect.TryAddStatusEffect<MutedComponent>(target, "Muted", TimeSpan.FromSeconds(15), false);
@@ -456,7 +452,7 @@ public sealed partial class CultistSpellSystem : EntitySystem
 			// Fallback for entities without bloodstream (IPCs, rare cases)
 			// Apply EMP effects directly to the entity, and mute them.
 			// todo: Explore if this is a less fancy way to do it. Might be able to just do this for all entities?
-			_emp.DoEmpEffects(target, empDamage, empDuration);
+            _emp.DoEmpEffects(target, empDamage, TimeSpan.FromSeconds(empDuration));
 			_statusEffect.TryAddStatusEffect<MutedComponent>(target, "Muted", TimeSpan.FromSeconds(empDuration), false);
 		}
 	}
@@ -478,138 +474,92 @@ public sealed partial class CultistSpellSystem : EntitySystem
 	//}
 
 
-	private void OnTwistedConstruction(Entity<BloodCultistComponent> ent, ref EventCultistTwistedConstruction args)
-	{
-		// Check if target is a steel stack
-		if (TryComp<StackComponent>(args.Target, out var stack) && stack.StackTypeId == "Steel")
-		{
-			if (!TryUseAbility(ent, args))
-				return;
+private void OnTwistedConstruction(Entity<BloodCultistComponent> ent, ref EventCultistTwistedConstruction args)
+{
+    // Steel → Runed Steel
+    if (TryComp<StackComponent>(args.Target, out var stack) &&
+        stack.StackTypeId == "Steel")
+    {
+        if (!TryUseAbility(ent, args))
+            return;
 
-			var count = stack.Count;
-			var targetCoords = Transform(args.Target).Coordinates;
+        var count = stack.Count;
+        var targetCoords = Transform(args.Target).Coordinates;
 
-			// Use StackSystem.SpawnMultiple to properly split stacks respecting max count (30)
-			var runedSteelProto = _proto.Index(RunedSteelStack);
-			_stackSystem.SpawnMultiple(runedSteelProto.Spawn.ToString(), count, targetCoords);
+        _stackSystem.SpawnMultipleAtPosition(
+            RunedSteelStack,
+            count,
+            targetCoords
+        );
 
-			QueueDel(args.Target);
-			args.Handled = true;
-			return;
-		}
+        QueueDel(args.Target);
+        args.Handled = true;
+        return;
+    }
 
-		// Check if target is a glass stack
-		if (TryComp<StackComponent>(args.Target, out var glassStack) && glassStack.StackTypeId == "Glass")
-		{
-			if (!TryUseAbility(ent, args))
-				return;
+    // Glass → Runed Glass
+    if (TryComp<StackComponent>(args.Target, out var glassStack) &&
+        glassStack.StackTypeId == "Glass")
+    {
+        if (!TryUseAbility(ent, args))
+            return;
 
-			var count = glassStack.Count;
-			var targetCoords = Transform(args.Target).Coordinates;
+        var count = glassStack.Count;
+        var targetCoords = Transform(args.Target).Coordinates;
 
-			// Use StackSystem.SpawnMultiple to properly split stacks respecting max count (30)
-			var runedGlassProto = _proto.Index(RunedGlassStack);
-			_stackSystem.SpawnMultiple(runedGlassProto.Spawn.ToString(), count, targetCoords);
+        _stackSystem.SpawnMultipleAtPosition(
+            RunedGlassStack,
+            count,
+            targetCoords
+        );
 
-			QueueDel(args.Target);
-			args.Handled = true;
-			return;
-		}
+        QueueDel(args.Target);
+        args.Handled = true;
+        return;
+    }
 
-		// Check if target is a reinforced glass stack
-		if (TryComp<StackComponent>(args.Target, out var reinforcedGlassStack) && reinforcedGlassStack.StackTypeId == "ReinforcedGlass")
-		{
-			if (!TryUseAbility(ent, args))
-				return;
+    // Reinforced Glass → Runed Glass
+    if (TryComp<StackComponent>(args.Target, out var reinforcedGlassStack) &&
+        reinforcedGlassStack.StackTypeId == "ReinforcedGlass")
+    {
+        if (!TryUseAbility(ent, args))
+            return;
 
-			var count = reinforcedGlassStack.Count;
-			var targetCoords = Transform(args.Target).Coordinates;
+        var count = reinforcedGlassStack.Count;
+        var targetCoords = Transform(args.Target).Coordinates;
 
-			// Use StackSystem.SpawnMultiple to properly split stacks respecting max count (30)
-			var runedGlassProto = _proto.Index(RunedGlassStack);
-			_stackSystem.SpawnMultiple(runedGlassProto.Spawn.ToString(), count, targetCoords);
+        _stackSystem.SpawnMultipleAtPosition(
+            RunedGlassStack,
+            count,
+            targetCoords
+        );
 
-			QueueDel(args.Target);
-			args.Handled = true;
-			return;
-		}
+        QueueDel(args.Target);
+        args.Handled = true;
+        return;
+    }
 
-		// Check if target is a plasteel stack
-		if (TryComp<StackComponent>(args.Target, out var plasteelStack) && plasteelStack.StackTypeId == "Plasteel")
-		{
-			if (!TryUseAbility(ent, args))
-				return;
+    // Plasteel → Runed Plasteel
+    if (TryComp<StackComponent>(args.Target, out var plasteelStack) &&
+        plasteelStack.StackTypeId == "Plasteel")
+    {
+        if (!TryUseAbility(ent, args))
+            return;
 
-			var count = plasteelStack.Count;
-			var targetCoords = Transform(args.Target).Coordinates;
+        var count = plasteelStack.Count;
+        var targetCoords = Transform(args.Target).Coordinates;
 
-			// Use StackSystem.SpawnMultiple to properly split stacks respecting max count (30)
-			var runedPlasteelProto = _proto.Index(RunedPlasteelStack);
-			_stackSystem.SpawnMultiple(runedPlasteelProto.Spawn.ToString(), count, targetCoords);
+        _stackSystem.SpawnMultipleAtPosition(
+            RunedPlasteelStack,
+            count,
+            targetCoords
+        );
 
-			QueueDel(args.Target);
-			args.Handled = true;
-			return;
-		}
-
-		// Check if target is a reinforced wall
-		/*if (TryComp<ConstructionComponent>(args.Target, out var construction) && 
-		    construction.Graph == "Girder" && 
-		    construction.Node == "reinforcedWall")
-		{
-			// Wall deconstruction doesn't consume spell charges
-			// Generate random chant for wall deconstruction
-			if (TryComp<CultistSpellComponent>(args.Action, out var actionComp))
-			{
-				var invocation = _bloodCultRules.GenerateChant(wordCount: 2);
-				_bloodCultRules.Speak(ent, invocation);
-				if (actionComp.CastSound != null)
-					_audioSystem.PlayPvs(actionComp.CastSound, ent);
-			}
-
-			// Start do-after for wall deconstruction
-			var doAfterArgs = new DoAfterArgs(EntityManager, ent, TimeSpan.FromSeconds(3), 
-				new TwistedConstructionDoAfterEvent(args.Target), ent, target: args.Target)
-			{
-				BreakOnMove = true,
-				BreakOnDamage = true,
-				NeedHand = false,
-			};
-
-			_doAfter.TryStartDoAfter(doAfterArgs);
-			args.Handled = true;
-			return;
-		}*/
-
-		// Check if target is a reinforced girder
-		/*if (TryComp<ConstructionComponent>(args.Target, out var girderConstruction) && 
-		    girderConstruction.Graph == "Girder" && 
-		    girderConstruction.Node == "reinforcedGirder")
-		{
-			// Girder downgrade doesn't consume spell charges
-			// Generate random chant for girder deconstruction
-			if (TryComp<CultistSpellComponent>(args.Action, out var actionComp))
-			{
-				var invocation = _bloodCultRules.GenerateChant(wordCount: 2);
-				_bloodCultRules.Speak(ent, invocation);
-				if (actionComp.CastSound != null)
-					_audioSystem.PlayPvs(actionComp.CastSound, ent);
-			}
-
-			// Start do-after for reinforced girder downgrade
-			var doAfterArgs = new DoAfterArgs(EntityManager, ent, TimeSpan.FromSeconds(2), 
-				new TwistedConstructionDoAfterEvent(args.Target), ent, target: args.Target)
-			{
-				BreakOnMove = true,
-				BreakOnDamage = true,
-				NeedHand = false,
-			};
-
-			_doAfter.TryStartDoAfter(doAfterArgs);
-			args.Handled = true;
-			return;
-		}*/
-	}
+        QueueDel(args.Target);
+        args.Handled = true;
+        return;
+    }
+}
 
 	/*private void OnTwistedConstructionDoAfter(Entity<BloodCultistComponent> ent, ref TwistedConstructionDoAfterEvent args)
 	{
@@ -617,7 +567,7 @@ public sealed partial class CultistSpellSystem : EntitySystem
 			return;
 
 		// Verify it's a valid target (reinforced wall or reinforced girder)
-		if (construction.Graph != "Girder" || 
+		if (construction.Graph != "Girder" ||
 		    (construction.Node != "reinforcedWall" && construction.Node != "reinforcedGirder"))
 			return;
 

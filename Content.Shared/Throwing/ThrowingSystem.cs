@@ -1,27 +1,9 @@
-// SPDX-FileCopyrightText: 2022 metalgearsloth <metalgearsloth@gmail.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Vyacheslav Kovalevsky <40753025+Slava0135@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 metalgearsloth <comedian_vs_clown@hotmail.com>
-// SPDX-FileCopyrightText: 2024 GreyMario <mariomister541@gmail.com>
-// SPDX-FileCopyrightText: 2024 Jezithyr <jezithyr@gmail.com>
-// SPDX-FileCopyrightText: 2024 Kara <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2024 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-FileCopyrightText: 2024 Zealith-Gamer <61980908+Zealith-Gamer@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
-// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
-//
-// SPDX-License-Identifier: MIT
-
 using System.Numerics;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Camera;
 using Content.Shared.CCVar;
 using Content.Shared.Construction.Components;
+using Content.Shared.Construction.EntitySystems;
 using Content.Shared.Database;
 using Content.Shared.Friction;
 using Content.Shared.Gravity;
@@ -31,6 +13,7 @@ using Robust.Shared.Map;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Systems;
+using Robust.Shared.Serialization;
 using Robust.Shared.Timing;
 
 namespace Content.Shared.Throwing;
@@ -39,16 +22,14 @@ public sealed class ThrowingSystem : EntitySystem
 {
     public const float ThrowAngularImpulse = 5f;
 
-    /// <summary>
-    /// Speed cap on rotation in case of click-spam.
-    /// </summary>
-    public const float ThrowAngularCap = 3f * MathF.PI;
-
     public const float PushbackDefault = 2f;
 
     public const float FlyTimePercentage = 0.8f;
 
+    private const float TileFrictionMod = 1.5f;
+
     private float _frictionModifier;
+    private float _airDamping;
 
     [Dependency] private readonly IGameTiming _gameTiming = default!;
     [Dependency] private readonly SharedGravitySystem _gravity = default!;
@@ -58,12 +39,18 @@ public sealed class ThrowingSystem : EntitySystem
     [Dependency] private readonly SharedCameraRecoilSystem _recoil = default!;
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
     [Dependency] private readonly IConfigurationManager _configManager = default!;
+    [Dependency] private readonly AnchorableSystem _anchorable = default!;
+
+    private EntityQuery<AnchorableComponent> _anchorableQuery;
 
     public override void Initialize()
     {
         base.Initialize();
 
+        _anchorableQuery = GetEntityQuery<AnchorableComponent>();
+
         Subs.CVar(_configManager, CCVars.TileFrictionModifier, value => _frictionModifier = value, true);
+        Subs.CVar(_configManager, CCVars.AirFriction, value => _airDamping = value, true);
     }
 
     public void TryThrow(
@@ -78,7 +65,7 @@ public sealed class ThrowingSystem : EntitySystem
         bool animated = true,
         bool playSound = true,
         bool doSpin = true,
-        bool unanchor = false)
+        ThrowingUnanchorStrength unanchor = ThrowingUnanchorStrength.None)
     {
         var thrownPos = _transform.GetMapCoordinates(uid);
         var mapPos = _transform.ToMapCoordinates(coordinates);
@@ -99,7 +86,7 @@ public sealed class ThrowingSystem : EntitySystem
     /// <param name="friction">friction value used for the distance calculation. If set to null this defaults to the standard tile values</param>
     /// <param name="compensateFriction">True will adjust the throw so the item stops at the target coordinates. False means it will land at the target and keep sliding.</param>
     /// <param name="doSpin">Whether spin will be applied to the thrown entity.</param>
-    /// <param name="unanchor">If true and the thrown entity has <see cref="AnchorableComponent"/>, unanchor the thrown entity</param>
+    /// <param name="unanchor">If set to Unanchorable, if the entity has <see cref="AnchorableComponent"/> and is unanchorable, it will unanchor the thrown entity. If set to All, it will unanchor the entity regardless.</param>
     public void TryThrow(EntityUid uid,
         Vector2 direction,
         float baseThrowSpeed = 10.0f,
@@ -111,7 +98,7 @@ public sealed class ThrowingSystem : EntitySystem
         bool animated = true,
         bool playSound = true,
         bool doSpin = true,
-        bool unanchor = false)
+        ThrowingUnanchorStrength unanchor = ThrowingUnanchorStrength.None)
     {
         var physicsQuery = GetEntityQuery<PhysicsComponent>();
         if (!physicsQuery.TryGetComponent(uid, out var physics))
@@ -141,7 +128,7 @@ public sealed class ThrowingSystem : EntitySystem
     /// <param name="friction">friction value used for the distance calculation. If set to null this defaults to the standard tile values</param>
     /// <param name="compensateFriction">True will adjust the throw so the item stops at the target coordinates. False means it will land at the target and keep sliding.</param>
     /// <param name="doSpin">Whether spin will be applied to the thrown entity.</param>
-    /// <param name="unanchor">If true and the thrown entity has <see cref="AnchorableComponent"/>, unanchor the thrown entity</param>
+    /// <param name="unanchor">If set to Unanchorable, if the entity has <see cref="AnchorableComponent"/> and is unanchorable, it will unanchor the thrown entity. If set to All, it will unanchor the entity regardless.</param>
     public void TryThrow(EntityUid uid,
         Vector2 direction,
         PhysicsComponent physics,
@@ -156,12 +143,16 @@ public sealed class ThrowingSystem : EntitySystem
         bool animated = true,
         bool playSound = true,
         bool doSpin = true,
-        bool unanchor = false)
+        ThrowingUnanchorStrength unanchor = ThrowingUnanchorStrength.None)
     {
         if (baseThrowSpeed <= 0 || direction == Vector2Helpers.Infinity || direction == Vector2Helpers.NaN || direction == Vector2.Zero || friction < 0)
             return;
 
-        if (unanchor && HasComp<AnchorableComponent>(uid))
+        // Unanchor the entity if applicable
+        if (unanchor == ThrowingUnanchorStrength.All ||
+            unanchor == ThrowingUnanchorStrength.Unanchorable &&
+            _anchorableQuery.TryComp(uid, out var anchorableComponent) &&
+            (anchorableComponent.Flags & AnchorableFlags.Unanchorable) != 0)
             _transform.Unanchor(uid);
 
         if ((physics.BodyType & (BodyType.Dynamic | BodyType.KinematicController)) == 0x0)
@@ -178,7 +169,7 @@ public sealed class ThrowingSystem : EntitySystem
         };
 
         // if not given, get the default friction value for distance calculation
-        var tileFriction = friction ?? _frictionModifier * TileFrictionController.DefaultFriction;
+        var tileFriction = friction ?? _frictionModifier * TileFrictionMod;
 
         if (tileFriction == 0f)
             compensateFriction = false; // cannot calculate this if there is no friction
@@ -212,8 +203,6 @@ public sealed class ThrowingSystem : EntitySystem
             }
         }
 
-        var throwEvent = new ThrownEvent(user, uid);
-        RaiseLocalEvent(uid, ref throwEvent, true);
         if (user != null)
             _adminLogger.Add(LogType.Throw, LogImpact.Low, $"{ToPrettyString(user.Value):user} threw {ToPrettyString(uid):entity}");
 
@@ -221,9 +210,18 @@ public sealed class ThrowingSystem : EntitySystem
         // else let the item land on the cursor and from where it slides a little further.
         // This is an exact formula we get from exponentially decaying velocity after landing.
         // If someone changes how tile friction works at some point, this will have to be adjusted.
+        // This doesn't actually compensate for air friction, but it's low enough it shouldn't matter.
         var throwSpeed = compensateFriction ? direction.Length() / (flyTime + 1 / tileFriction) : baseThrowSpeed;
         var impulseVector = direction.Normalized() * throwSpeed * physics.Mass;
         _physics.ApplyLinearImpulse(uid, impulseVector, body: physics);
+
+        var thrownEvent = new ThrownEvent(user, uid);
+        RaiseLocalEvent(uid, ref thrownEvent, true);
+        if (user != null)
+        {
+            var throwEvent = new ThrowEvent(user, uid);
+            RaiseLocalEvent(user.Value, ref throwEvent, true);
+        }
 
         if (comp.LandTime == null || comp.LandTime <= TimeSpan.Zero)
         {
@@ -241,17 +239,43 @@ public sealed class ThrowingSystem : EntitySystem
             _recoil.KickCamera(user.Value, -direction * 0.04f);
 
         // Give thrower an impulse in the other direction
-        if (pushbackRatio != 0.0f &&
-            physics.Mass > 0f &&
-            TryComp(user.Value, out PhysicsComponent? userPhysics) &&
-            _gravity.IsWeightless(user.Value, userPhysics))
-        {
-            var msg = new ThrowPushbackAttemptEvent();
-            RaiseLocalEvent(uid, msg);
-            const float massLimit = 5f;
+        if (pushbackRatio == 0.0f ||
+            physics.Mass == 0f ||
+            !TryComp(user.Value, out PhysicsComponent? userPhysics))
+            return;
+        var msg = new ThrowPushbackAttemptEvent();
+        RaiseLocalEvent(uid, msg);
 
-            if (!msg.Cancelled)
-                _physics.ApplyLinearImpulse(user.Value, -impulseVector / physics.Mass * pushbackRatio * MathF.Min(massLimit, physics.Mass), body: userPhysics);
-        }
+        if (msg.Cancelled)
+            return;
+
+        var pushEv = new ThrowerImpulseEvent();
+        RaiseLocalEvent(user.Value, ref pushEv);
+        const float massLimit = 5f;
+
+        if (pushEv.Push)
+            _physics.ApplyLinearImpulse(user.Value, -impulseVector / physics.Mass * pushbackRatio * MathF.Min(massLimit, physics.Mass), body: userPhysics);
     }
+
+
+}
+
+/// <summary>
+/// If a throwing action should attempt to unanchor anchored entities.
+/// </summary>
+[Serializable, NetSerializable]
+public enum ThrowingUnanchorStrength : byte
+{
+    /// <summary>
+    /// No entites will be unanchored.
+    /// </summary>
+    None,
+    /// <summary>
+    /// Only entities that can be unanchored (e.g. via wrench) will be unanchored.
+    /// </summary>
+    Unanchorable,
+    /// <summary>
+    /// All entities will be unanchored.
+    /// </summary>
+    All,
 }

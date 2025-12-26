@@ -1,21 +1,27 @@
-// SPDX-FileCopyrightText: 2024 John Space <bigdumb421@gmail.com>
+// SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2024 Fishbait <Fishbait@git.ml>
+// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
 // SPDX-FileCopyrightText: 2024 fishbait <gnesse@gmail.com>
-// SPDX-FileCopyrightText: 2025 Mish <bluscout78@yahoo.com>
-// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
+// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 //
-// SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+// SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
 using System.Numerics;
+using Content.Goobstation.Shared.Blob;
+using Content.Goobstation.Shared.Blob.Components;
 using Content.Server.Construction.Components;
 using Content.Server.Destructible;
 using Content.Server.Emp;
 using Content.Shared._Goobstation.Blob;
 using Content.Shared._Goobstation.Blob.Components;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Systems;
 using Content.Shared.Destructible;
 using Content.Shared.Mobs.Components;
-using Content.Shared.Mobs.Systems;
 using Content.Shared.NPC.Components;
 using Content.Shared.NPC.Prototypes;
 using Content.Shared.NPC.Systems;
@@ -26,7 +32,7 @@ using Robust.Shared.Map.Components;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
 
-namespace Content.Server._Goobstation.Blob;
+namespace Content.Goobstation.Server.Blob;
 
 public sealed class BlobTileSystem : SharedBlobTileSystem
 {
@@ -38,7 +44,6 @@ public sealed class BlobTileSystem : SharedBlobTileSystem
     [Dependency] private readonly TransformSystem _transform = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly NpcFactionSystem _npcFactionSystem = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
 
     private EntityQuery<BlobCoreComponent> _blobCoreQuery;
 
@@ -52,7 +57,6 @@ public sealed class BlobTileSystem : SharedBlobTileSystem
         SubscribeLocalEvent<BlobTileComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<BlobTileComponent, DestructionEventArgs>(OnDestruction);
         SubscribeLocalEvent<BlobTileComponent, BlobTileGetPulseEvent>(OnPulsed);
-        // SubscribeLocalEvent<BlobTileComponent, FlashAttemptEvent>(OnFlashAttempt); // funky - no blob flash damage
         SubscribeLocalEvent<BlobTileComponent, EntityTerminatingEvent>(OnTerminate);
 
         _blobCoreQuery = GetEntityQuery<BlobCoreComponent>();
@@ -78,17 +82,6 @@ public sealed class BlobTileSystem : SharedBlobTileSystem
         component.Core!.Value.Comp.BlobTiles.Remove(uid);
     }
 
-    // private void OnFlashAttempt(EntityUid uid, BlobTileComponent component, FlashAttemptEvent args) // funky - no blob flash damage
-    // {
-    //     if (args.Used == null || MetaData(args.Used.Value).EntityPrototype?.ID != "GrenadeFlashBang")
-    //         return;
-    //
-    //     if (component.BlobTileType == BlobTileType.Normal)
-    //     {
-    //         _damageableSystem.TryChangeDamage(uid, component.FlashDamage);
-    //     }
-    // }
-
     private void OnDestruction(EntityUid uid, BlobTileComponent component, DestructionEventArgs args)
     {
         if (
@@ -99,7 +92,7 @@ public sealed class BlobTileSystem : SharedBlobTileSystem
 
         if (blobCoreComponent.CurrentChem == BlobChemType.ElectromagneticWeb)
         {
-            _empSystem.EmpPulse(_transform.GetMapCoordinates(uid), 3f, 50f, 3f);
+            _empSystem.EmpPulse(_transform.GetMapCoordinates(uid), 3f, 50f, TimeSpan.FromSeconds(3f));
         }
     }
 

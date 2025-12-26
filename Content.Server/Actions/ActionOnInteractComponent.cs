@@ -31,4 +31,7 @@ public sealed partial class ActionOnInteractComponent : Component
     public List<EntProtoId>? Actions;
 
     [DataField] public List<EntityUid>? ActionEntities;
+
+    [DataField]
+    public bool RequiresCharge = true;
 }

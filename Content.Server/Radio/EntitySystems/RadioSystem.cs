@@ -32,7 +32,6 @@
 using Content.Server.Administration.Logs;
 using Content.Server.Chat.Systems;
 using Content.Server.Power.Components;
-using Content.Server.Radio.Components;
 using Content.Shared.Chat;
 using Content.Shared.Database;
 using Content.Shared.Radio;
@@ -212,7 +211,7 @@ public sealed class RadioSystem : EntitySystem
     }
 
     private bool CanTalkChannel(EntityUid uid, string channelId){
-        if (TryComp<IntrinsicRadioTransmitterComponent>(uid, out var intrinsicTransmitter) && (intrinsicTransmitter.IntrinsicChannels.Contains(channelId) || intrinsicTransmitter.Channels.Contains(channelId)))
+        if (TryComp<IntrinsicRadioTransmitterComponent>(uid, out var intrinsicTransmitter) && (intrinsicTransmitter.Channels.Contains(channelId) || intrinsicTransmitter.Channels.Contains(channelId)))
             return true;
 
         return false;
@@ -220,7 +219,7 @@ public sealed class RadioSystem : EntitySystem
 
     private bool CanListenChannel(EntityUid uid, string channelId){
 
-        if (TryComp<ActiveRadioComponent>(uid, out var activeRadio) && (activeRadio.IntrinsicChannels.Contains(channelId) || activeRadio.Channels.Contains(channelId)))
+        if (TryComp<ActiveRadioComponent>(uid, out var activeRadio) && (activeRadio.Channels.Contains(channelId) || activeRadio.Channels.Contains(channelId)))
             return true;
 
         return false;

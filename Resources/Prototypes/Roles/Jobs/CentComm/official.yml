@@ -23,9 +23,7 @@
 # SPDX-FileCopyrightText: 2024 mkanke-real <mikekanke@gmail.com>
 # SPDX-FileCopyrightText: 2025 Catazeus <200477155+Catazeus@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Josh Hilsberg <thejoulesberg@gmail.com>
-# SPDX-FileCopyrightText: 2025 JoulesBerg <104539820+JoulesBerg@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
-# SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
 # SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
@@ -65,5 +63,14 @@
     id: CentcomOfficialPDA     # funky - centcomm ghostjobs
     ears: ClothingHeadsetAltCentCom
     belt: WeaponPistolN1984
-    pocket1: BoxFolderBlack
-    pocket2: CentCommFlippo # funky change
+    pocket1: BoxFolderCentComClipboardThreePapers
+    pocket2: PenCentcom
+
+
+- type: chameleonOutfit
+  id: CentralCommandOfficialOutfit
+  job: CentralCommandOfficial
+  hasMindShield: true
+  equipment:
+    neck: ClothingNeckScarfStripedCentcom
+    mask: ClothingMaskGasCentcom

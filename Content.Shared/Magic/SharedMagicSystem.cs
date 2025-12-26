@@ -12,7 +12,6 @@
 // SPDX-License-Identifier: MIT
 
 using System.Numerics;
-using Content.Shared.Actions;
 using Content.Shared.Body.Components;
 using Content.Shared.Body.Systems;
 using Content.Shared.Coordinates.Helpers;
@@ -77,6 +76,7 @@ public abstract class SharedMagicSystem : EntitySystem
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly SharedStunSystem _stun = default!;
+    [Dependency] private readonly TurfSystem _turf = default!;
 
     private static readonly ProtoId<TagPrototype> InvalidForGlobalSpawnSpellTag = "InvalidForGlobalSpawnSpell";
 
@@ -96,6 +96,79 @@ public abstract class SharedMagicSystem : EntitySystem
         SubscribeLocalEvent<RandomGlobalSpawnSpellEvent>(OnRandomGlobalSpawnSpell);
         SubscribeLocalEvent<MindSwapSpellEvent>(OnMindSwapSpell);
         SubscribeLocalEvent<VoidApplauseSpellEvent>(OnVoidApplause);
+
+        // Spell wishlist
+        //  A wishlish of spells that I'd like to implement or planning on implementing in a future PR
+
+        // TODO: InstantDoAfterSpell and WorldDoafterSpell
+        //  Both would be an action that take in an event, that passes an event to trigger once the doafter is done
+        //  This would be three events:
+        //    1 - Event that triggers from the action that starts the doafter
+        //    2 - The doafter event itself, which passes the event with it
+        //    3 - The event to trigger once the do-after finishes
+
+        // TODO: Inanimate objects to life ECS
+        //  AI sentience
+
+        // TODO: Flesh2Stone
+        //   Entity Target spell
+        //   Synergy with Inanimate object to life (detects player and allows player to move around)
+
+        // TODO: Lightning Spell
+        // Should just fire lightning, try to prevent arc back to caster
+
+        // TODO: Magic Missile (homing projectile ecs)
+        //   Instant action, target any player (except self) on screen
+
+        // TODO: Random projectile ECS for magic-carp, wand of magic
+
+        // TODO: Recall Spell
+        //  mark any item in hand to recall
+        //    ItemRecallComponent
+        //    Event adds the component if it doesn't exist and the performer isn't stored in the comp
+        //    2nd firing of the event checks to see if the recall comp has this uid, and if it does it calls it
+        //  if no free hands, summon at feet
+        //  if item deleted, clear stored item
+
+        // TODO: Jaunt (should be its own ECS)
+        // Instant action
+        //   When clicked, disappear/reappear (goes to paused map)
+        //   option to restrict to tiles
+        //   option for requiring entry/exit (blood jaunt)
+        //   speed option
+
+        // TODO: Summon Events
+        //  List of wizard events to add into the event pool that frequently activate
+        //  floor is lava
+        //  change places
+        //  ECS that when triggered, will periodically trigger a random GameRule
+        //  Would need a controller/controller entity?
+
+        // TODO: Summon Guns
+        //  Summon a random gun at peoples feet
+        //    Get every alive player (not in cryo, not a simplemob)
+        //  TODO: After Antag Rework - Rare chance of giving gun collector status to people
+
+        // TODO: Summon Magic
+        //  Summon a random magic wand at peoples feet
+        //    Get every alive player (not in cryo, not a simplemob)
+        //  TODO: After Antag Rework - Rare chance of giving magic collector status to people
+
+        // TODO: Bottle of Blood
+        //  Summons Slaughter Demon
+        //  TODO: Slaughter Demon
+        //    Also see Jaunt
+
+        // TODO: Field Spells
+        //  Should be able to specify a grid of tiles (3x3 for example) that it effects
+        //  Timed despawn - so it doesn't last forever
+        //  Ignore caster - for spells that shouldn't effect the caster (ie if timestop should effect the caster)
+
+        // TODO: Touch toggle spell
+        //  1 - When toggled on, show in hand
+        //  2 - Block hand when toggled on
+        //      - Require free hand
+        //  3 - use spell event when toggled & click
     }
 
     private void OnBeforeCastSpell(Entity<MagicComponent> ent, ref BeforeCastSpellEvent args)
@@ -154,7 +227,6 @@ public abstract class SharedMagicSystem : EntitySystem
             SpawnSpellHelper(args.Prototype, position, args.Performer, preventCollide: args.PreventCollideWithCaster);
         }
 
-        Speak(args);
         args.Handled = true;
     }
 
@@ -174,7 +246,7 @@ public abstract class SharedMagicSystem : EntitySystem
 
                 if (!TryComp<MapGridComponent>(casterXform.GridUid, out var mapGrid))
                     return new List<EntityCoordinates>();
-                if (!directionPos.TryGetTileRef(out var tileReference, EntityManager, _mapManager))
+                if (!_turf.TryGetTileRef(directionPos, out var tileReference))
                     return new List<EntityCoordinates>();
 
                 var tileIndex = tileReference.Value.GridIndices;
@@ -187,7 +259,7 @@ public abstract class SharedMagicSystem : EntitySystem
                 if (!TryComp<MapGridComponent>(casterXform.GridUid, out var mapGrid))
                     return new List<EntityCoordinates>();
 
-                if (!directionPos.TryGetTileRef(out var tileReference, EntityManager, _mapManager))
+                if (!_turf.TryGetTileRef(directionPos, out var tileReference))
                     return new List<EntityCoordinates>();
 
                 var tileIndex = tileReference.Value.GridIndices;
@@ -248,7 +320,6 @@ public abstract class SharedMagicSystem : EntitySystem
         var targetMapCoords = args.Target;
 
         WorldSpawnSpellHelper(args.Prototypes, targetMapCoords, args.Performer, args.Lifetime, args.Offset);
-        Speak(args);
         args.Handled = true;
     }
 
@@ -284,7 +355,6 @@ public abstract class SharedMagicSystem : EntitySystem
             return;
 
         ev.Handled = true;
-        Speak(ev);
 
         var xform = Transform(ev.Performer);
         var fromCoords = xform.Coordinates;
@@ -312,8 +382,6 @@ public abstract class SharedMagicSystem : EntitySystem
             return;
 
         ev.Handled = true;
-        if (ev.DoSpeech)
-            Speak(ev);
 
         RemoveComponents(ev.Target, ev.ToRemove);
         AddComponents(ev.Target, ev.ToAdd);
@@ -337,7 +405,6 @@ public abstract class SharedMagicSystem : EntitySystem
 
         _transform.SetCoordinates(args.Performer, args.Target);
         _transform.AttachToGridOrMap(args.Performer, transform);
-        Speak(args);
         args.Handled = true;
     }
 
@@ -347,7 +414,6 @@ public abstract class SharedMagicSystem : EntitySystem
             return;
 
         ev.Handled = true;
-        Speak(ev);
 
         _transform.SwapPositions(ev.Performer, ev.Target);
     }
@@ -384,7 +450,7 @@ public abstract class SharedMagicSystem : EntitySystem
             var component = (Component)_compFact.GetComponent(name);
             var temp = (object)component;
             _seriMan.CopyTo(data.Component, ref temp);
-            EntityManager.AddComponent(target, (Component)temp!);
+            AddComp(target, (Component)temp!);
         }
     }
 
@@ -405,7 +471,6 @@ public abstract class SharedMagicSystem : EntitySystem
             return;
 
         ev.Handled = true;
-        Speak(ev);
 
         var direction = _transform.GetMapCoordinates(ev.Target, Transform(ev.Target)).Position - _transform.GetMapCoordinates(ev.Performer, Transform(ev.Performer)).Position;
         var impulseVector = direction * 10000;
@@ -431,7 +496,6 @@ public abstract class SharedMagicSystem : EntitySystem
             return;
 
         args.Handled = true;
-        Speak(args);
 
         var transform = Transform(args.Performer);
 
@@ -461,7 +525,7 @@ public abstract class SharedMagicSystem : EntitySystem
             return;
 
         EntityUid? wand = null;
-        foreach (var item in _hands.EnumerateHeld(ev.Performer, handsComp))
+        foreach (var item in _hands.EnumerateHeld((ev.Performer, handsComp)))
         {
             if (!_tag.HasTag(item, ev.WandTag))
                 continue;
@@ -470,7 +534,6 @@ public abstract class SharedMagicSystem : EntitySystem
         }
 
         ev.Handled = true;
-        Speak(ev);
 
         if (wand == null || !TryComp<BasicEntityAmmoProviderComponent>(wand, out var basicAmmoComp) || basicAmmoComp.Count == null)
             return;
@@ -488,7 +551,6 @@ public abstract class SharedMagicSystem : EntitySystem
             return;
 
         ev.Handled = true;
-        Speak(ev);
 
         var allHumans = _mind.GetAliveHumans();
 
@@ -522,7 +584,6 @@ public abstract class SharedMagicSystem : EntitySystem
             return;
 
         ev.Handled = true;
-        Speak(ev);
 
         // Need performer mind, but target mind is unnecessary, such as taking over a NPC
         // Need to get target mind before putting performer mind into their body if they have one
@@ -540,22 +601,12 @@ public abstract class SharedMagicSystem : EntitySystem
             _mind.TransferTo(tarMind, ev.Performer);
         }
 
-        _stun.TryParalyze(ev.Target, ev.TargetStunDuration, true);
-        _stun.TryParalyze(ev.Performer, ev.PerformerStunDuration, true);
+        _stun.TryUpdateParalyzeDuration(ev.Target, ev.TargetStunDuration);
+        _stun.TryUpdateParalyzeDuration(ev.Performer, ev.PerformerStunDuration);
     }
 
     #endregion
     // End Spells
     #endregion
 
-    // When any spell is cast it will raise this as an event, so then it can be played in server or something. At least until chat gets moved to shared
-    // TODO: Temp until chat is in shared
-    private void Speak(BaseActionEvent args)
-    {
-        if (args is not ISpeakSpell speak || string.IsNullOrWhiteSpace(speak.Speech))
-            return;
-
-        var ev = new SpeakSpellEvent(args.Performer, speak.Speech);
-        RaiseLocalEvent(ref ev);
-    }
 }

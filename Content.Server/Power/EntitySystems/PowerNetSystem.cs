@@ -1,30 +1,3 @@
-// SPDX-FileCopyrightText: 2020 py01 <60152240+collinlunn@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2020 py01 <pyronetics01@gmail.com>
-// SPDX-FileCopyrightText: 2021 20kdc <asdd2808@gmail.com>
-// SPDX-FileCopyrightText: 2021 Acruid <shatter66@gmail.com>
-// SPDX-FileCopyrightText: 2021 Kara D <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2021 Pieter-Jan Briers <pieterjan.briers@gmail.com>
-// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <gradientvera@outlook.com>
-// SPDX-FileCopyrightText: 2021 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 collinlunn <60152240+collinlunn@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
-// SPDX-FileCopyrightText: 2024 Cojoke <83733158+Cojoke-dot@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Kevin Zheng <kevinz5000@gmail.com>
-// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
-// SPDX-FileCopyrightText: 2024 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
-// SPDX-FileCopyrightText: 2025 Terkala <appleorange64@gmail.com>
-// SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
-// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later or MIT
-
 using System.Linq;
 using Content.Server.NodeContainer.EntitySystems;
 using Content.Server.Power.Components;
@@ -38,7 +11,6 @@ using JetBrains.Annotations;
 using Robust.Server.GameObjects;
 using Robust.Shared.Configuration;
 using Robust.Shared.Threading;
-using Content.Server.Power.Components;
 
 namespace Content.Server.Power.EntitySystems
 {
@@ -59,7 +31,6 @@ namespace Content.Server.Power.EntitySystems
         private readonly HashSet<ApcNet> _apcNetReconnectQueue = new();
 
         private EntityQuery<ApcPowerReceiverBatteryComponent> _apcBatteryQuery;
-        private EntityQuery<AppearanceComponent> _appearanceQuery;
         private EntityQuery<BatteryComponent> _batteryQuery;
 
         private BatteryRampPegSolver _solver = new();
@@ -69,12 +40,12 @@ namespace Content.Server.Power.EntitySystems
             base.Initialize();
 
             _apcBatteryQuery = GetEntityQuery<ApcPowerReceiverBatteryComponent>();
-            _appearanceQuery = GetEntityQuery<AppearanceComponent>();
             _batteryQuery = GetEntityQuery<BatteryComponent>();
 
             UpdatesAfter.Add(typeof(NodeGroupSystem));
             _solver = new(_cfg.GetCVar(CCVars.DebugPow3rDisableParallel));
 
+            SubscribeLocalEvent<ApcPowerReceiverComponent, MapInitEvent>(ApcPowerReceiverMapInit);
             SubscribeLocalEvent<ApcPowerReceiverComponent, ComponentInit>(ApcPowerReceiverInit);
             SubscribeLocalEvent<ApcPowerReceiverComponent, ComponentShutdown>(ApcPowerReceiverShutdown);
             SubscribeLocalEvent<ApcPowerReceiverComponent, ComponentRemove>(ApcPowerReceiverRemove);
@@ -102,6 +73,11 @@ namespace Content.Server.Power.EntitySystems
         private void DebugPow3rDisableParallelChanged(bool val)
         {
             _solver = new(val);
+        }
+
+        private void ApcPowerReceiverMapInit(Entity<ApcPowerReceiverComponent> ent, ref MapInitEvent args)
+        {
+            _appearance.SetData(ent, PowerDeviceVisuals.Powered, ent.Comp.Powered);
         }
 
         private void ApcPowerReceiverInit(EntityUid uid, ApcPowerReceiverComponent component, ComponentInit args)
@@ -345,15 +321,25 @@ namespace Content.Server.Power.EntitySystems
             _powerNetReconnectQueue.Clear();
         }
 
+        private bool IsPoweredCalculate(ApcPowerReceiverComponent comp)
+        {
+            return !comp.PowerDisabled
+                   && (!comp.NeedsPower
+                       || MathHelper.CloseToPercent(comp.NetworkLoad.ReceivingPower,
+                           comp.Load));
+        }
+
+        public override bool IsPoweredCalculate(SharedApcPowerReceiverComponent comp)
+        {
+            return IsPoweredCalculate((ApcPowerReceiverComponent)comp);
+        }
+
         private void UpdateApcPowerReceiver(float frameTime)
         {
             var enumerator = AllEntityQuery<ApcPowerReceiverComponent>();
             while (enumerator.MoveNext(out var uid, out var apcReceiver))
             {
-                var powered = !apcReceiver.PowerDisabled
-                              && (!apcReceiver.NeedsPower
-                                  || MathHelper.CloseToPercent(apcReceiver.NetworkLoad.ReceivingPower,
-                                      apcReceiver.Load));
+                var powered = IsPoweredCalculate(apcReceiver);
 
                 MetaDataComponent? metadata = null;
 
@@ -361,6 +347,10 @@ namespace Content.Server.Power.EntitySystems
                 // Check if the entity has an internal battery
                 if (_apcBatteryQuery.TryComp(uid, out var apcBattery) && _batteryQuery.TryComp(uid, out var battery))
                 {
+                    metadata = MetaData(uid);
+                    if (Paused(uid, metadata))
+                        continue;
+
                     apcReceiver.Load = apcBattery.IdleLoad;
 
                     // Try to draw power from the battery if there isn't sufficient external power
@@ -368,23 +358,22 @@ namespace Content.Server.Power.EntitySystems
 
                     if (requireBattery)
                     {
-                        _battery.SetCharge(uid, battery.CurrentCharge - apcBattery.IdleLoad * frameTime, battery);
+                        _battery.ChangeCharge((uid, battery), -apcBattery.IdleLoad * frameTime);
                     }
-                    // Otherwise try to charge the battery, but only if it's below 95% capacity
-                    else if (powered && battery.CurrentCharge < battery.MaxCharge * 0.95f)
+                    // Otherwise try to charge the battery
+                    else if (powered && !_battery.IsFull((uid, battery)))
                     {
                         apcReceiver.Load += apcBattery.BatteryRechargeRate * apcBattery.BatteryRechargeEfficiency;
-                        _battery.SetCharge(uid, battery.CurrentCharge + apcBattery.BatteryRechargeRate * frameTime, battery);
+                        _battery.ChangeCharge((uid, battery), apcBattery.BatteryRechargeRate * frameTime);
                     }
 
                     // Enable / disable the battery if the state changed
-                    // Battery only enables if we need it AND the battery has more than 5% charge
-                    var enableBattery = requireBattery && battery.CurrentCharge > battery.MaxCharge * 0.05f;
+                    var currentCharge = _battery.GetCharge((uid, battery));
+                    var enableBattery = requireBattery && currentCharge > 0;
 
                     if (apcBattery.Enabled != enableBattery)
                     {
                         apcBattery.Enabled = enableBattery;
-                        metadata = MetaData(uid);
                         Dirty(uid, apcBattery, metadata);
 
                         var apcBatteryEv = new ApcPowerReceiverBatteryChangedEvent(enableBattery);
@@ -397,22 +386,18 @@ namespace Content.Server.Power.EntitySystems
                 }
 
                 // If new value is the same as the old, then exit
-                if (!apcReceiver.Recalculate && apcReceiver.Powered == powered)
+                if (apcReceiver.Powered == powered)
                     continue;
 
                 metadata ??= MetaData(uid);
                 if (Paused(uid, metadata))
                     continue;
 
-                apcReceiver.Recalculate = false;
                 apcReceiver.Powered = powered;
                 Dirty(uid, apcReceiver, metadata);
 
                 var ev = new PowerChangedEvent(powered, apcReceiver.NetworkLoad.ReceivingPower);
                 RaiseLocalEvent(uid, ref ev);
-
-                if (_appearanceQuery.TryComp(uid, out var appearance))
-                    _appearance.SetData(uid, PowerDeviceVisuals.Powered, powered, appearance);
             }
         }
 

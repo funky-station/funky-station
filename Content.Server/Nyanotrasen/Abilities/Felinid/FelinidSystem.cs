@@ -22,7 +22,10 @@ using Content.Server.Nutrition.EntitySystems;
 using Content.Server.Nutrition.Components;
 using Content.Server.Chemistry.EntitySystems;
 using Content.Server.Popups;
+using Content.Shared.Body.Components;
+using Content.Shared.Charges.Systems;
 using Content.Shared.Chemistry.EntitySystems;
+using Content.Shared.Medical;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Player;
@@ -43,6 +46,7 @@ public sealed partial class FelinidSystem : EntitySystem
     [Dependency] private readonly InventorySystem _inventorySystem = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly SharedChargesSystem _chargesSystem = default!;
 
     public override void Initialize()
     {
@@ -148,10 +152,10 @@ public sealed partial class FelinidSystem : EntitySystem
             return;
         }
 
-        if (component.HairballAction != null)
+        if (component.HairballAction is { } hairballAction)
         {
-            _actionsSystem.SetCharges(component.HairballAction, 1); // You get the charge back and that's it. Tough.
-            _actionsSystem.SetEnabled(component.HairballAction, true);
+            _chargesSystem.AddCharges(hairballAction, 1); // You get the charge back and that's it. Tough.
+            _actionsSystem.SetEnabled(hairballAction, true);
         }
         Del(component.EatActionTarget.Value);
         component.EatActionTarget = null;

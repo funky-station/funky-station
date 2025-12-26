@@ -20,6 +20,7 @@ using Content.Server.Mind.Commands;
 using Content.Server.Roles;
 using Content.Server.Temperature.Components;
 using Content.Server._Goobstation.Heretic.UI;
+using Content.Shared.Administration.Systems;
 using Content.Shared.Body.Systems;
 using Content.Shared.Examine;
 using Content.Shared.Ghost.Roles.Components;
@@ -34,6 +35,9 @@ using Content.Shared.Mobs.Systems;
 using Content.Shared.NPC.Systems;
 using Content.Shared.Nutrition.AnimalHusbandry;
 using Content.Shared.Nutrition.Components;
+using Content.Shared.Roles.Components;
+using Content.Shared.Temperature.Components;
+using Robust.Server.Player;
 using Robust.Shared.Audio;
 
 namespace Content.Server.Heretic.EntitySystems;
@@ -49,6 +53,7 @@ public sealed partial class GhoulSystem : Shared.Heretic.EntitySystems.SharedGho
     [Dependency] private readonly MobThresholdSystem _threshold = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly SharedBodySystem _body = default!;
+    [Dependency] private readonly IPlayerManager _playerManager = default!;
 
     public void GhoulifyEntity(Entity<GhoulComponent> ent)
     {
@@ -65,11 +70,10 @@ public sealed partial class GhoulSystem : Shared.Heretic.EntitySystems.SharedGho
         {
             SendBriefing(ent, mindId, mind);
 
-            if (_mind.TryGetSession(mindId, out var session))
+            if (mind is { UserId: not null } && _playerManager.TryGetSessionById(mind.UserId.Value, out var session))
             {
                 _euiMan.OpenEui(new GhoulNotifEui(), session);
             }
-
         }
 
         if (TryComp<HumanoidAppearanceComponent>(ent, out var humanoid))

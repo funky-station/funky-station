@@ -1,51 +1,36 @@
-<!--
-SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-SPDX-FileCopyrightText: 2024 Killerqu00 <47712032+Killerqu00@users.noreply.github.com>
-SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-SPDX-FileCopyrightText: 2025 Gansu <68031780+GansuLalan@users.noreply.github.com>
-SPDX-FileCopyrightText: 2025 aa5g21 <aa5g21@soton.ac.uk>
-SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
-
-SPDX-License-Identifier: MIT
--->
-
-<BoxContainer
-    HorizontalExpand="True"
-    Margin="10,10,10,0"
-    Visible="True"
-    xmlns="https://spacestation14.io"
-    xmlns:customControls="clr-namespace:Content.Client.Administration.UI.CustomControls">
-    <PanelContainer HorizontalExpand="True" StyleClasses="BackgroundPanel">
-        <BoxContainer HorizontalExpand="True" Orientation="Vertical">
-            <GridContainer Columns="2" HorizontalExpand="True">
-                <BoxContainer HorizontalExpand="True" Orientation="Vertical">
-                    <RichTextLabel Name="RewardLabel" />
-                    <RichTextLabel Margin="0,0,150,0" Name="ManifestLabel" />
+<BoxContainer xmlns="https://spacestation14.io"
+              xmlns:customControls="clr-namespace:Content.Client.Administration.UI.CustomControls"
+              Margin="10 10 10 0"
+              HorizontalExpand="True"
+              Visible="True">
+    <PanelContainer StyleClasses="BackgroundPanel" HorizontalExpand="True">
+        <BoxContainer Orientation="Vertical"
+                      HorizontalExpand="True">
+            <BoxContainer Orientation="Horizontal">
+                <BoxContainer Orientation="Vertical" HorizontalExpand="True">
+                    <RichTextLabel Name="RewardLabel"/>
+                    <RichTextLabel Name="ManifestLabel"/>
                 </BoxContainer>
-                <BoxContainer MinWidth="120" Orientation="Vertical">
-                    <BoxContainer MinWidth="120" Orientation="Horizontal">
-                        <Button
-                            HorizontalAlignment="Right"
-                            HorizontalExpand="False"
-                            Name="PrintButton"
-                            StyleClasses="OpenRight"
-                            Text="{Loc 'bounty-console-label-button-text'}" />
-                        <Button
-                            HorizontalAlignment="Right"
-                            HorizontalExpand="False"
-                            Name="SkipButton"
-                            StyleClasses="OpenLeft"
-                            Text="{Loc 'bounty-console-skip-button-text'}" />
+                <Control MinWidth="10"/>
+                <BoxContainer Orientation="Vertical" MinWidth="120">
+                    <BoxContainer Orientation="Horizontal" MinWidth="120">
+                        <Button Name="PrintButton"
+                                Text="{Loc 'bounty-console-label-button-text'}"
+                                HorizontalExpand="False"
+                                HorizontalAlignment="Right"
+                                StyleClasses="OpenRight"/>
+                        <Button Name="SkipButton"
+                                Text="{Loc 'bounty-console-skip-button-text'}"
+                                HorizontalExpand="False"
+                                HorizontalAlignment="Right"
+                                StyleClasses="OpenLeft"/>
                     </BoxContainer>
-                    <RichTextLabel
-                        HorizontalAlignment="Right"
-                        Margin="0,0,5,0"
-                        Name="IdLabel" />
+                    <RichTextLabel Name="IdLabel" HorizontalAlignment="Right" Margin="0 0 5 0"/>
                 </BoxContainer>
-            </GridContainer>
-            <customControls:HSeparator Margin="5,10,5,10" />
+            </BoxContainer>
+            <customControls:HSeparator Margin="5 10 5 10"/>
             <BoxContainer>
-                <RichTextLabel Name="DescriptionLabel" />
+                <RichTextLabel Name="DescriptionLabel"/>
             </BoxContainer>
         </BoxContainer>
     </PanelContainer>

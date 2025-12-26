@@ -39,10 +39,7 @@
 //
 // SPDX-License-Identifier: MIT
 
-using System.Diagnostics;
-using System.Globalization;
 using System.Linq;
-using System.Text;
 using Content.Shared.Eye.Blinding.Components;
 using Content.Shared.Ghost;
 using Content.Shared.Interaction;
@@ -155,7 +152,7 @@ namespace Content.Shared.Examine
             if (!examinerComp.CheckInRangeUnOccluded)
                 return true;
 
-            if (EntityManager.GetComponent<TransformComponent>(examiner).MapID != target.MapId)
+            if (Comp<TransformComponent>(examiner).MapID != target.MapId)
                 return false;
 
             // Do target InRangeUnoccluded which has different checks.

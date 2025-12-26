@@ -29,7 +29,8 @@ public sealed class RevolutionarySystem : SharedRevolutionarySystem
     {
         foreach (var actionId in uid.Comp.BaseHeadRevActions)
         {
-            var actionEnt = _actions.AddAction(uid, actionId);
+            EntityUid? actionEnt = null;
+            _actions.AddAction(uid.Owner, ref actionEnt, actionId);
         }
     }
 }

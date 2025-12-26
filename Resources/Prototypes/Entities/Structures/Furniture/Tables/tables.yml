@@ -1,43 +1,3 @@
-# SPDX-FileCopyrightText: 2020 Git-Nivrak <59925169+Git-Nivrak@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2020 Peter Wedder <burneddi@gmail.com>
-# SPDX-FileCopyrightText: 2020 Ygg01 <daniel.fath7@gmail.com>
-# SPDX-FileCopyrightText: 2021 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021 Galactic Chimp <GalacticChimpanzee@gmail.com>
-# SPDX-FileCopyrightText: 2021 Metal Gear Sloth <metalgearsloth@gmail.com>
-# SPDX-FileCopyrightText: 2021 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021 Swept <sweptwastaken@protonmail.com>
-# SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <zddm@outlook.es>
-# SPDX-FileCopyrightText: 2022 Fishfish458 <47410468+Fishfish458@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Jacob Tong <10494922+ShadowCommander@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Peptide90 <78795277+Peptide90@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-# SPDX-FileCopyrightText: 2022 fishfish458 <fishfish458>
-# SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-# SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Ilya Chvilyov <90278813+Telyonok@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 PixelTK <85175107+PixelTheKermit@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 lzk <124214523+lzk228@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Ilya246 <57039557+Ilya246@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Kara <lunarautomaton6@gmail.com>
-# SPDX-FileCopyrightText: 2024 MACMAN2003 <macman2003c@gmail.com>
-# SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
-# SPDX-FileCopyrightText: 2024 deathride58 <deathride58@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
-# SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
-# SPDX-FileCopyrightText: 2025 mkanke-real <mikekanke@gmail.com>
-# SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
-
 - type: entity
   id: TableFrame
   # BaseStructure and not BaseTable, since these shouldn't be climbable/placeable.
@@ -117,8 +77,7 @@
         mask:
         - TableMask
         layer:
-        - TableLayer
-        - BulletImpassable #Goobstation
+        - CounterLayer
   - type: Damageable
     damageContainer: StructuralInorganic
     damageModifierSet: Wood
@@ -150,18 +109,6 @@
   - type: Construction
     graph: Table
     node: CounterWoodFrame
-  - type: RequireProjectileTarget # Goobstation - Crawling
-    ignoreThrow: true
-  - type: ContainerContainer
-    containers:
-      hidden_slot: !type:ContainerSlot
-  - type: ItemSlots
-    slots:
-      hidden_slot:
-        name: table_slot_hidden
-        whitelist:
-          tags:
-          - ListeningBug
 
 - type: entity
   id: CounterMetalFrame
@@ -251,13 +198,10 @@
   - type: Construction
     graph: Table
     node: Table
-  - type: Tag # goob edit
-    tags:
-    - Table
 
 - type: entity
   id: TableReinforced
-  parent: TableBase
+  parent: CounterBase
   name: reinforced table
   description: A square piece of metal standing on four metal legs. Extra robust.
   components:
@@ -301,8 +245,6 @@
       types:
         Blunt: 8
     bonkTime: 3
-  - type: CosmicCorruptible # DeltaV - Cosmic Cult
-    convertTo: CosmicTable
 
 - type: entity
   id: TableGlass
@@ -357,8 +299,61 @@
   - type: FootstepModifier
     footstepSoundCollection:
       collection: FootstepTile
-  - type: CosmicCorruptible # DeltaV - Cosmic Cult
-    convertTo: CosmicTable
+
+- type: entity
+  id: TableCard
+  parent: TableBase
+  name: cardboard table
+  description: Cardboard sheets wrapped around a metal table frame.
+  components:
+  - type: Sprite
+    sprite: Structures/Furniture/Tables/card.rsi
+  - type: Icon
+    sprite: Structures/Furniture/Tables/card.rsi
+  - type: GlassTable #they named it that cause 'it would never be used elsewhere' or something, smh
+    climberDamage:
+      types:
+        Blunt: 6
+    tableDamage:
+      types:
+        Blunt: 15
+    tableMassLimit: 40
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Card
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 45 #excess damage (nuke?). avoid computational cost of spawning entities.
+      behaviors:
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+        - !type:PlaySoundBehavior
+          sound: /Audio//Weapons/pierce.ogg
+    - trigger:
+        !type:DamageTrigger
+        damage: 15
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound: /Audio//Weapons/pierce.ogg
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          MaterialCardboard:
+            min: 1
+            max: 2
+      - !type:ChangeConstructionNodeBehavior
+        node: TableFrame
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: IconSmooth
+    key: cardtable
+  - type: Construction
+    graph: Table
+    node: TableCard
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: FootstepTile
 
 - type: entity
   id: TableReinforcedGlass
@@ -416,8 +411,6 @@
   - type: FootstepModifier
     footstepSoundCollection:
       collection: FootstepTile
-  - type: CosmicCorruptible # DeltaV - Cosmic Cult
-    convertTo: CosmicTable
 
 - type: entity
   id: TablePlasmaGlass
@@ -475,12 +468,10 @@
   - type: FootstepModifier
     footstepSoundCollection:
       collection: FootstepTile
-  - type: CosmicCorruptible # DeltaV - Cosmic Cult
-    convertTo: CosmicTable
 
 - type: entity
   id: TableBrass
-  parent: TableBase
+  parent: CounterBase
   name: brass table
   description: A shiny, corrosion resistant brass table. Steampunk!
   components:
@@ -520,8 +511,6 @@
   - type: Construction
     graph: Table
     node: TableBrass
-  - type: CosmicCorruptible # DeltaV - Cosmic Cult
-    convertTo: CosmicTable
 
 - type: entity
   id: TableWood
@@ -571,8 +560,6 @@
   - type: FootstepModifier
     footstepSoundCollection:
       collection: FootstepWood
-  - type: CosmicCorruptible # DeltaV - Cosmic Cult
-    convertTo: CosmicTable
 
 - type: entity
   id: TableCarpet
@@ -588,6 +575,15 @@
     damageModifierSet: Wood
   - type: Destructible
     thresholds:
+    - trigger: # Excess damage, don't spawn entities
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: WoodDestroy
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
     - trigger:
         !type:DamageTrigger
         damage: 15
@@ -616,12 +612,10 @@
   - type: FootstepModifier
     footstepSoundCollection:
       collection: FootstepCarpet
-  - type: CosmicCorruptible # DeltaV - Cosmic Cult
-    convertTo: CosmicTable
 
 - type: entity
   id: TableStone
-  parent: TableBase
+  parent: CounterBase
   name: stone table
   description: Literally the sturdiest thing you have ever seen.
   components:
@@ -645,8 +639,6 @@
   - type: FootstepModifier
     footstepSoundCollection:
       collection: FootstepFloor
-  - type: CosmicCorruptible # DeltaV - Cosmic Cult
-    convertTo: CosmicTable
 
 - type: entity
   id: TableWeb
@@ -681,8 +673,6 @@
   - type: FootstepModifier
     footstepSoundCollection:
       collection: FootstepCarpet
-  - type: CosmicCorruptible # DeltaV - Cosmic Cult
-    convertTo: CosmicTable
 
 # Fancy tables
 
@@ -722,8 +712,6 @@
   - type: FootstepModifier
     footstepSoundCollection:
       collection: FootstepCarpet
-  - type: CosmicCorruptible # DeltaV - Cosmic Cult
-    convertTo: CosmicTable
 
 - type: entity
   id: TableFancyBlue
@@ -869,9 +857,6 @@
   description: PUT ON THEM CODERSOCKS!!
   suffix: DEBUG
   components:
-  - type: Tag
-    tags:
-      - Debug
   - type: Sprite
     sprite: Structures/Furniture/Tables/debug.rsi
   - type: Icon

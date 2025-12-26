@@ -29,9 +29,6 @@
   id: AutoinjectorCartridgeCaseSoft
 
 - type: Tag
-  id: AutoinjectorCartridge
-
-- type: Tag
   id: NukeOpsMedicUplink
 
 - type: Tag
@@ -165,3 +162,18 @@
 
 - type: Tag
   id: MidroundAntag
+
+- type: Tag
+  id: GasMask
+
+- type: Tag
+  id: Mask
+
+- type: Tag
+  id: Stunbaton
+
+- type: Tag
+  id: WaterTank
+
+- type: Tag
+  id: WeldingTool

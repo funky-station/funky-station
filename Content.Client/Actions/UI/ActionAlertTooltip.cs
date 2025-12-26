@@ -13,6 +13,10 @@
 // SPDX-FileCopyrightText: 2024 Winkarst <74284083+Winkarst-cpu@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 chavonadelal <156101927+chavonadelal@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Brandon Li <48413902+aspiringLich@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Janet Blackquill <uhhadd@gmail.com>
+// SPDX-FileCopyrightText: 2025 Red <96445749+TheShuEd@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Toaster <mrtoastymyroasty@gmail.com>
+// SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
 // SPDX-License-Identifier: MIT
@@ -33,16 +37,14 @@ namespace Content.Client.Actions.UI
         private const float TooltipTextMaxWidth = 350;
 
         private readonly RichTextLabel _cooldownLabel;
-        private readonly RichTextLabel _dynamicMessageLabel;
         private readonly IGameTiming _gameTiming;
 
         /// <summary>
         /// Current cooldown displayed in this tooltip. Set to null to show no cooldown.
         /// </summary>
         public (TimeSpan Start, TimeSpan End)? Cooldown { get; set; }
-        public string? DynamicMessage { get; set; }
 
-        public ActionAlertTooltip(FormattedMessage name, FormattedMessage? desc, string? requires = null, FormattedMessage? charges = null)
+        public ActionAlertTooltip(FormattedMessage name, FormattedMessage? desc, string? requires = null)
         {
             Stylesheet = IoCManager.Resolve<IStylesheetManager>().SheetSystem;
             _gameTiming = IoCManager.Resolve<IGameTiming>();
@@ -74,28 +76,10 @@ namespace Content.Client.Actions.UI
                 vbox.AddChild(description);
             }
 
-            if (charges != null && !string.IsNullOrWhiteSpace(charges.ToString()))
-            {
-                var chargesLabel = new RichTextLabel
-                {
-                    MaxWidth = TooltipTextMaxWidth,
-                    StyleClasses = { StyleNano.StyleClassTooltipActionCharges }
-                };
-                chargesLabel.SetMessage(charges);
-                vbox.AddChild(chargesLabel);
-            }
-
             vbox.AddChild(_cooldownLabel = new RichTextLabel
             {
                 MaxWidth = TooltipTextMaxWidth,
                 StyleClasses = { StyleClass.TooltipDesc },
-                Visible = false
-            });
-
-            vbox.AddChild(_dynamicMessageLabel = new RichTextLabel
-            {
-                MaxWidth = TooltipTextMaxWidth,
-                StyleClasses = {StyleNano.StyleClassTooltipActionDynamicMessage},
                 Visible = false
             });
 
@@ -122,33 +106,23 @@ namespace Content.Client.Actions.UI
             if (!Cooldown.HasValue)
             {
                 _cooldownLabel.Visible = false;
+                return;
+            }
+
+            var timeLeft = Cooldown.Value.End - _gameTiming.CurTime;
+            if (timeLeft > TimeSpan.Zero)
+            {
+                var duration = Cooldown.Value.End - Cooldown.Value.Start;
+
+                if (!FormattedMessage.TryFromMarkup(Loc.GetString("ui-actionslot-duration", ("duration", (int)duration.TotalSeconds), ("timeLeft", (int)timeLeft.TotalSeconds + 1)), out var markup))
+                    return;
+
+                _cooldownLabel.SetMessage(markup);
+                _cooldownLabel.Visible = true;
             }
             else
             {
-                var timeLeft = Cooldown.Value.End - _gameTiming.CurTime;
-                if (timeLeft > TimeSpan.Zero)
-                {
-                    var duration = Cooldown.Value.End - Cooldown.Value.Start;
-
-                    if (FormattedMessage.TryFromMarkup($"[color=#a10505]{(int) duration.TotalSeconds} sec cooldown ({(int) timeLeft.TotalSeconds + 1} sec remaining)[/color]", out var markup)){
-                        _cooldownLabel.SetMessage(markup);
-                        _cooldownLabel.Visible = true;
-                    }
-                }
-                else
-                {
-                    _cooldownLabel.Visible = false;
-                }
-            }
-
-            if (string.IsNullOrWhiteSpace(DynamicMessage))
-            {
-                _dynamicMessageLabel.Visible = false;
-            }
-            else if (FormattedMessage.TryFromMarkup($"[color=#ffffff]{DynamicMessage}[/color]", out var dynamicMarkup))
-            {
-                _dynamicMessageLabel.SetMessage(dynamicMarkup);
-                _dynamicMessageLabel.Visible = true;
+                _cooldownLabel.Visible = false;
             }
         }
     }

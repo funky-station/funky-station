@@ -22,6 +22,13 @@
             "directions": 4
         },
         {
+            "name": "aroace"
+        },
+        {
+            "name": "aroace-equipped-NECK",
+            "directions": 4
+        },
+        {
             "name": "asex"
         },
         {
@@ -92,6 +99,13 @@
             "directions": 4
         },
         {
+            "name": "plural"
+        },
+        {
+            "name": "plural-equipped-NECK",
+            "directions": 4
+        },
+        {
             "name": "trans"
         },
         {
@@ -117,6 +131,13 @@
         },
         {
             "name": "genderfluid-equipped-NECK",
+            "directions": 4
+        },
+        {
+            "name": "flower"
+        },
+        {
+            "name": "flower-equipped-NECK",
             "directions": 4
         }
     ]

@@ -6,26 +6,27 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
 using System.Linq;
-using System.Numerics;
 using System.Threading;
 using System.Threading.Tasks;
-using Content.Server.Atmos.Components;
+using Content.Goobstation.Server.Blob;
 using Content.Server.Atmos.EntitySystems;
-using Content.Server._Goobstation.Blob.Components;
 using Content.Server.Destructible;
 using Content.Server.Emp;
 using Content.Server.Explosion.EntitySystems;
 using Content.Server.Popups;
 using Content.Shared._Goobstation.Blob;
 using Content.Shared._Goobstation.Blob.Components;
+using Content.Shared.Atmos.Components;
+using Content.Shared._Goobstation.CVars;
 using Content.Shared.CCVar;
-using Content.Shared.Damage;
+using Content.Shared.Damage.Systems;
 using Content.Shared.Interaction;
 using Content.Shared.Item;
 using Content.Shared.Popups;
 using Content.Shared.SubFloor;
 using Robust.Server.Audio;
 using Robust.Server.GameObjects;
+using Robust.Shared;
 using Robust.Shared.Audio;
 using Robust.Shared.Configuration;
 using Robust.Shared.CPUJob.JobQueues;
@@ -271,7 +272,7 @@ public sealed class BlobCoreActionSystem : SharedBlobCoreActionSystem
             case BlobChemType.ElectromagneticWeb:
             {
                 if (_random.Prob(0.2f))
-                    _empSystem.EmpPulse(_transform.GetMapCoordinates(target), 3f, 50f, 3f);
+                    _empSystem.EmpPulse(_transform.GetMapCoordinates(target), 3f, 50f, TimeSpan.FromSeconds(3f));
                 break;
             }
             case BlobChemType.BlazingOil:

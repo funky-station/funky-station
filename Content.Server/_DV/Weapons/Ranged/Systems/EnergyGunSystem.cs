@@ -126,13 +126,13 @@ public sealed class EnergyGunSystem : EntitySystem
 
         component.CurrentFireMode = fireMode;
 
-        if (TryComp(uid, out ProjectileBatteryAmmoProviderComponent? projectileBatteryAmmoProvider))
+        if (TryComp(uid, out BatteryAmmoProviderComponent? batteryAmmoProvider))
         {
             if (!_prototypeManager.TryIndex<EntityPrototype>(fireMode.Prototype, out var prototype))
                 return;
 
-            projectileBatteryAmmoProvider.Prototype = fireMode.Prototype;
-            projectileBatteryAmmoProvider.FireCost = fireMode.FireCost;
+            batteryAmmoProvider.Prototype = fireMode.Prototype;
+            batteryAmmoProvider.FireCost = fireMode.FireCost;
 
             if (user != null)
             {
@@ -144,7 +144,7 @@ public sealed class EnergyGunSystem : EntitySystem
 
             if (TryComp<AppearanceComponent>(uid, out var _) && TryComp<ItemComponent>(uid, out var item))
             {
-                _item.SetHeldPrefix(uid, component.CurrentFireMode.State, component: item);
+                _item.SetHeldPrefix(uid, component.CurrentFireMode.State, false, item);
                 switch (component.CurrentFireMode.State)
                 {
                     case "disabler":
@@ -156,17 +156,6 @@ public sealed class EnergyGunSystem : EntitySystem
                     case "special":
                         UpdateAppearance(uid, EnergyGunFireModeState.Special);
                         break;
-                    // Frontier: holoflare modes
-                    case "cyan":
-                        UpdateAppearance(uid, EnergyGunFireModeState.Cyan);
-                        break;
-                    case "red":
-                        UpdateAppearance(uid, EnergyGunFireModeState.Red);
-                        break;
-                    case "yellow":
-                        UpdateAppearance(uid, EnergyGunFireModeState.Yellow);
-                        break;
-                    // End Frontier
                 }
             }
         }

@@ -8,7 +8,6 @@ using Content.Client.Stylesheets;
 using Content.Shared.APC;
 using Robust.Client.Graphics;
 using FancyWindow = Content.Client.UserInterface.Controls.FancyWindow;
-using System.Numerics;
 
 namespace Content.Client.Power.APC.UI
 {

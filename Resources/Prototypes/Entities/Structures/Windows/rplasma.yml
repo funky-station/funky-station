@@ -37,7 +37,7 @@
 - type: entity
   id: ReinforcedPlasmaWindow
   name: reinforced plasma window
-  parent: WindowRCDResistant
+  parent: [WindowRCDResistant, BaseDeltaPressureReinforcedPlasma]
   components:
   - type: MeltImmune
   - type: Sprite
@@ -106,7 +106,7 @@
 
 - type: entity
   id: PlasmaReinforcedWindowDirectional
-  parent: WindowDirectionalRCDResistant
+  parent: [WindowDirectionalRCDResistant, BaseDeltaPressureReinforcedPlasmaQuarter]
   name: directional reinforced plasma window
   description: Don't smudge up the glass down there.
   placement:

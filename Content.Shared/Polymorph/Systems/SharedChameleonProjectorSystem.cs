@@ -9,7 +9,6 @@
 
 using Content.Shared.Actions;
 using Content.Shared.Coordinates;
-using Content.Shared.Damage;
 using Content.Shared.Hands;
 using Content.Shared.Interaction;
 using Content.Shared.Item;
@@ -23,6 +22,7 @@ using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.Manager;
 using System.Diagnostics.CodeAnalysis;
+using Content.Shared.Damage.Systems;
 
 namespace Content.Shared.Polymorph.Systems;
 
@@ -200,7 +200,7 @@ public abstract class SharedChameleonProjectorSystem : EntitySystem
     public bool IsInvalid(ChameleonProjectorComponent comp, EntityUid target)
     {
         return _whitelist.IsWhitelistFail(comp.Whitelist, target)
-            || _whitelist.IsBlacklistPass(comp.Blacklist, target);
+            || _whitelist.IsWhitelistPass(comp.Blacklist, target);
     }
 
     /// <summary>

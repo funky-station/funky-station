@@ -19,6 +19,7 @@
 using Content.Server.Administration.Logs;
 using Content.Server.Cargo.Systems;
 using Content.Server.Storage.Components;
+using Content.Shared.Cargo;
 using Content.Shared.Database;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Interaction.Events;
@@ -57,7 +58,7 @@ namespace Content.Server.Storage.EntitySystems
                 // Calculate the average price of the possible spawned items
                 args.Price += _pricing.GetPrice(protUid) * entry.SpawnProbability * entry.GetAmount(getAverage: true);
 
-                EntityManager.DeleteEntity(protUid);
+                Del(protUid);
             }
 
             foreach (var group in orGroups)
@@ -71,7 +72,7 @@ namespace Content.Server.Storage.EntitySystems
                                   (entry.SpawnProbability / group.CumulativeProbability) *
                                   entry.GetAmount(getAverage: true);
 
-                    EntityManager.DeleteEntity(protUid);
+                    Del(protUid);
                 }
             }
 

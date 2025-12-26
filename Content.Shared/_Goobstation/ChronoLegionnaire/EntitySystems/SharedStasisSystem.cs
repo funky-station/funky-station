@@ -12,6 +12,7 @@ using Content.Shared.Damage.Components;
 using Content.Shared.Database;
 using Content.Shared.Emoting;
 using Content.Shared._Goobstation.ChronoLegionnaire.Components;
+using Content.Shared.Damage.Systems;
 using Content.Shared.Hands;
 using Content.Shared.Interaction;
 using Content.Shared.Interaction.Events;

@@ -142,6 +142,8 @@
     sprite: Clothing/Head/Misc/richard.rsi
   - type: Clothing
     sprite: Clothing/Head/Misc/richard.rsi
+  - type: Item
+    storedRotation: 0
   - type: IngestionBlocker
   - type: IdentityBlocker
 
@@ -247,13 +249,10 @@
     accent: OwOAccent
 
 - type: entity
-  categories: [ Actions, HideSpawnMenu ]
+  parent: BaseToggleAction
   id: ActionBecomeValid
   name: Become Valid
   description: "*notices your killsign* owo whats this"
-  components:
-  - type: InstantAction
-    event: !type:ToggleActionEvent
 
 - type: entity
   parent: ClothingHeadBase
@@ -309,15 +308,17 @@
   - type: Clothing
     slots:
     - HEAD
-  - type: Food
+  - type: Edible
+    edible: Drink
     solution: drink
-    useSound: /Audio/Items/drink.ogg
-    eatMessage: drink-component-try-use-drink-success-slurp
     delay: 0.5
     forceFeedDelay: 1.5
+    utensil: Spoon
   - type: FlavorProfile
     flavors:
       - water
+  - type: DrainableSolution
+    solution: drink
   - type: SolutionContainerManager
     solutions:
       drink:
@@ -361,3 +362,19 @@
     sprite: Clothing/Head/Misc/hairflower.rsi
   - type: Clothing
     sprite: Clothing/Head/Misc/hairflower.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadPerformerWig
+  name: performer's wig
+  description: On a closer inspection, it appears that it is made from optic fiber.
+  components:
+  - type: Sprite
+    sprite: Clothing/Head/Misc/performer-wig.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Misc/performer-wig.rsi
+  - type: HideLayerClothing
+    slots:
+    - Hair
+    - HeadTop
+    - HeadSide

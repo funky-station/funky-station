@@ -1,40 +1,27 @@
-// SPDX-FileCopyrightText: 2024 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Cojoke <83733158+Cojoke-dot@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 MilenVolf <63782763+MilenVolf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
-// SPDX-FileCopyrightText: 2025 ferynn <witchy.girl.me@gmail.com>
-// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
-//
-// SPDX-License-Identifier: MIT
-
+using Content.Shared.Damage.Components;
 using Content.Shared.Projectiles;
-using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Standing;
-using Robust.Shared.Physics.Events;
+using Content.Shared.Weapons.Ranged.Components;
 using Robust.Shared.Containers;
-using System;
-using Content.Shared.Mobs.Systems;
-using Content.Shared.Mobs;
+using Robust.Shared.Physics.Events;
 
-namespace Content.Shared.Damage.Components;
+namespace Content.Shared.Damage.Systems;
 
 public sealed class RequireProjectileTargetSystem : EntitySystem
 {
     [Dependency] private readonly SharedContainerSystem _container = default!;
-    private System.Random randomCollsionGenerator = default!;
 
     public override void Initialize()
     {
         SubscribeLocalEvent<RequireProjectileTargetComponent, PreventCollideEvent>(PreventCollide);
         SubscribeLocalEvent<RequireProjectileTargetComponent, StoodEvent>(StandingBulletHit);
         SubscribeLocalEvent<RequireProjectileTargetComponent, DownedEvent>(LayingBulletPass);
-        randomCollsionGenerator = new System.Random();
     }
 
     private void PreventCollide(Entity<RequireProjectileTargetComponent> ent, ref PreventCollideEvent args)
     {
         if (args.Cancelled)
-            return;
+          return;
 
         if (!ent.Comp.Active)
             return;
@@ -46,13 +33,6 @@ public sealed class RequireProjectileTargetSystem : EntitySystem
             // Prevents shooting out of while inside of crates
             var shooter = projectile.Shooter;
             if (!shooter.HasValue)
-                return;
-            //funkystation
-            //set this variable to the percent you want projectiles to hit prone entities
-            var percentHit = .2;
-
-            // Goobstation - Crawling
-            if (TryComp<StandingStateComponent>(shooter, out var standingState) && standingState.CurrentState != StandingState.Standing || percentHit > randomCollsionGenerator.NextDouble())
                 return;
 
             // ProjectileGrenades delete the entity that's shooting the projectile,

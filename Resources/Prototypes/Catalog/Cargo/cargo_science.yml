@@ -24,6 +24,16 @@
   group: market
 
 - type: cargoProduct
+  id: HandheldArtifactContainer
+  icon:
+    sprite: Objects/Storage/artifact_container.rsi
+    state: icon
+  product: HandheldArtifactContainer
+  cost: 500
+  category: cargoproduct-category-name-science
+  group: market
+
+- type: cargoProduct
   id: RandomArtifact
   icon:
     sprite: Objects/Specific/Xenoarchaeology/xeno_artifacts.rsi
@@ -50,5 +60,15 @@
     state: server
   product: CrateCrewMonitoring
   cost: 2000
+  category: cargoproduct-category-name-science
+  group: market
+
+- type: cargoProduct
+  id: StationAiCore
+  icon:
+    sprite: Mobs/Silicon/station_ai.rsi
+    state: frame_4
+  product: CrateStationAiCore
+  cost: 10000
   category: cargoproduct-category-name-science
   group: market

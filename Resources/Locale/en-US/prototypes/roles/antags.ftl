@@ -74,3 +74,9 @@ roles-antag-dragon-objective = Create a carp army to take over this quadrant.
 
 roles-antag-malfunctioning-ai-name = Malfunctioning AI
 roles-antag-malfunctioning-ai-objective = Sabotage the station as a malfunctioning AI.
+
+roles-antag-mothership-core-name = Xenoborg Core
+roles-antag-mothership-core-objective = Use your xenoborgs to create even more xenoborgs.
+
+roles-antag-xenoborg-name = Xenoborg
+roles-antag-xenoborg-objective = Help the mothership create more xenoborgs.

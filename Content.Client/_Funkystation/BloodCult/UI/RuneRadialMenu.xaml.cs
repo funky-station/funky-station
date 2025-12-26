@@ -121,10 +121,10 @@ public sealed partial class RuneRadialMenu : RadialMenu
     // TearVeilRune is special because it has a different rsi
     private Texture GetRuneIconTexture(string rune)
     {
-        var iconName = rune == "TearVeilRune" 
-            ? "narsierune-icon" 
+        var iconName = rune == "TearVeilRune"
+            ? "narsierune-icon"
             : rune.Replace("Rune", "").ToLowerInvariant() + "-icon";
-        
+
         var rsiPath = rune == "TearVeilRune"
             ? "_Funkystation/Structures/BloodCult/narsierune.rsi"
             : "_Funkystation/Structures/BloodCult/bloodrune.rsi";
@@ -155,7 +155,7 @@ public sealed partial class RuneRadialMenu : RadialMenu
             if (castChild == null)
                 continue;
 
-            castChild.OnButtonUp += _ =>
+            castChild.OnPressed += _ =>
             {
                 SendRunesMessageAction?.Invoke(castChild.ProtoId);
                 Close();
@@ -163,7 +163,7 @@ public sealed partial class RuneRadialMenu : RadialMenu
         }
     }
 
-    public sealed class RunesMenuButton : RadialMenuTextureButton
+    public sealed class RunesMenuButton : RadialMenuButton
     {
 		public required string ProtoId { get; set; }
     }

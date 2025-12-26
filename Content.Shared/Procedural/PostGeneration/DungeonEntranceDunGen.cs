@@ -1,18 +1,13 @@
-// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
-//
-// SPDX-License-Identifier: MIT
+using Content.Shared.EntityTable;
+using Content.Shared.Maps;
+using Content.Shared.Storage;
+using Robust.Shared.Prototypes;
 
 namespace Content.Shared.Procedural.PostGeneration;
 
 /// <summary>
 /// Selects [count] rooms and places external doors to them.
 /// </summary>
-/// <remarks>
-/// Dungeon data keys are:
-/// - Entrance
-/// - FallbackTile
-/// </remarks>
 public sealed partial class DungeonEntranceDunGen : IDunGenLayer
 {
     /// <summary>
@@ -20,4 +15,10 @@ public sealed partial class DungeonEntranceDunGen : IDunGenLayer
     /// </summary>
     [DataField]
     public int Count = 1;
+
+    [DataField(required: true)]
+    public ProtoId<ContentTileDefinition> Tile;
+
+    [DataField(required: true)]
+    public ProtoId<EntityTablePrototype> Contents;
 }

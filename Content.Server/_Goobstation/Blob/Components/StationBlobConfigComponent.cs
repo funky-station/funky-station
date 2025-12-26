@@ -14,7 +14,7 @@ namespace Content.Server._Goobstation.Blob.Components;
 [RegisterComponent]
 public sealed partial class StationBlobConfigComponent : Component
 {
-    public const int DefaultStageBegin = 80;
+    public const int DefaultStageBegin = 30;
     public const int DefaultStageCritical = 400;
     public const int DefaultStageEnd = 800;
 

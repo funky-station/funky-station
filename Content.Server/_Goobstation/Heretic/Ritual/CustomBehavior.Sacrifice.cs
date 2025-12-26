@@ -28,11 +28,17 @@ using Content.Shared.Inventory;
 using Robust.Server.GameObjects;
 using Content.Shared.Chat;
 using System.Linq;
+using Content.Shared.Damage.Components;
+using Content.Shared.Damage.Systems;
 using Robust.Shared.Physics;
 using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Movement.Pulling.Systems;
+using Content.Shared.Silicons.Borgs.Components;
+using Robust.Server.Player;
+
 
 namespace Content.Server.Heretic.Ritual;
+
 
 /// <summary>
 ///     Checks for a nearest dead body,
@@ -61,6 +67,12 @@ public partial class RitualSacrificeBehavior : RitualCustomBehavior
     [DataField]
     public bool OnlyTargets = false;
 
+    /// <summary>
+    ///     Should we count only humanoids?
+    /// </summary>
+    [DataField]
+    public bool OnlyHumanoid = true;
+
     protected List<EntityUid> uids = new();
 
     public override bool Execute(RitualData args, out string? outstr)
@@ -81,15 +93,18 @@ public partial class RitualSacrificeBehavior : RitualCustomBehavior
         }
 
         // get all the dead ones
-        foreach (var found in res)
+        foreach (var look in res)
         {
-            if (!args.EntityManager.TryGetComponent<MobStateComponent>(found, out var mobstate) // only mobs
-            || !args.EntityManager.HasComponent<HumanoidAppearanceComponent>(found) // only humans
-            || OnlyTargets && !hereticComp.SacrificeTargets.Contains(args.EntityManager.GetNetEntity(found))) // only targets
+            if (!args.EntityManager.TryGetComponent<MobStateComponent>(look, out var mobstate) // only mobs
+                || OnlyHumanoid && !args.EntityManager.HasComponent<HumanoidAppearanceComponent>(look) // only humans
+                || args.EntityManager.HasComponent<BorgChassisComponent>(look) // no borgs
+                || OnlyTargets
+                && hereticComp.SacrificeTargets.All(x => x.Entity != args.EntityManager.GetNetEntity(look)) // only targets
+                && !args.EntityManager.HasComponent<HereticComponent>(look)) // or other heretics
                 continue;
 
             if (mobstate.CurrentState == MobState.Dead)
-                uids.Add(found);
+                uids.Add(look);
         }
 
         if (uids.Count < Min)
@@ -177,19 +192,24 @@ public partial class RitualSacrificeBehavior : RitualCustomBehavior
             // tell them they've been sacrificed -space
             var message = Loc.GetString("sacrificed-description");
             var wrappedMessage = Loc.GetString("chat-manager-server-wrap-message", ("message", message));
+            var playerManager = IoCManager.Resolve<IPlayerManager>();
 
             if (message is not null &&
-                sharedMindSystem.TryGetMind(uid, out _, out var mindComponent) &&
-                mindComponent.Session != null)
+                sharedMindSystem.TryGetMind(uid, out var mindId, out MindComponent? mindComponent) &&
+                mindComponent?.UserId != null &&
+                playerManager.TryGetSessionById(mindComponent.UserId.Value, out var session))
             {
-                chatManager.ChatMessageToOne(ChatChannel.Server,
+                chatManager.ChatMessageToOne(
+                    ChatChannel.Server,
                     message,
                     wrappedMessage,
                     default,
                     false,
-                     mindComponent.Session.Channel,
-                     Color.FromSrgb(new Color(255, 100, 255)));
+                    client: session.Channel,
+                    Color.FromSrgb(new Color(255, 100, 255))
+                );
             }
+
 
             args.EntityManager.EnsureComponent<SacrificedComponent>(uid);
         }

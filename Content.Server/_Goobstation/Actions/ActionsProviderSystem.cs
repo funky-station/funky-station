@@ -22,6 +22,9 @@ public sealed partial class ActionsProviderSystem : EntitySystem
     private void OnInit(Entity<ActionsProviderComponent> ent, ref ComponentInit args)
     {
         foreach (var action in ent.Comp.Actions)
-            _actions.AddAction(ent, action);
+        {
+            EntityUid? actionEnt = null;
+            _actions.AddAction(ent.Owner, ref actionEnt, action);
+        }
     }
 }

@@ -86,7 +86,9 @@ SPDX-License-Identifier: MIT
     <Folder Include="Resources\Prototypes\Actions\" />
     <Folder Include="Resources\Prototypes\Store\" />
     <Folder Include="UI\Themes\" />
+    <Folder Include="Xenoborg\Components\" />
     <Folder Include="_Funkystation\Factory\Systems\" />
+    <Folder Include="_Shitmed\Medical\" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="Resources\Prototypes\Store\malf_ai_viewport.yml" />

@@ -10,7 +10,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
 - type: entity
-  parent: ClothingOuterBase
+  parent: [ClothingOuterBase, BaseChameleon]
   id: ClothingOuterChameleon
   name: vest
   description: A thick vest with a rubbery, water-resistant shell.

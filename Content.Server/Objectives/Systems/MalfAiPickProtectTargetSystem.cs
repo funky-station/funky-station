@@ -6,6 +6,7 @@ using Content.Shared.Roles;
 using Content.Shared.Objectives.Components;
 using Robust.Shared.Random;
 using System.Linq;
+using Content.Shared.Roles.Components;
 
 namespace Content.Server.Objectives.Systems;
 

@@ -12,9 +12,9 @@
 // SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
 // SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
-// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
@@ -24,6 +24,7 @@ using System.Linq;
 using Content.Shared.Alert;
 using JetBrains.Annotations;
 using Robust.Client.Player;
+using Robust.Client.UserInterface;
 using Robust.Shared.GameStates;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
@@ -37,6 +38,7 @@ public sealed class ClientAlertsSystem : AlertsSystem
 
     [Dependency] private readonly IPlayerManager _playerManager = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+    [Dependency] private readonly IUserInterfaceManager _ui = default!;
 
     public event EventHandler? ClearAlerts;
     public event EventHandler<IReadOnlyDictionary<AlertKey, AlertState>>? SyncAlerts;
@@ -49,6 +51,12 @@ public sealed class ClientAlertsSystem : AlertsSystem
         SubscribeLocalEvent<AlertsComponent, LocalPlayerDetachedEvent>(OnPlayerDetached);
         SubscribeLocalEvent<AlertsComponent, ComponentHandleState>(OnHandleState);
     }
+
+    protected override void HandledAlert()
+    {
+        _ui.ClickSound();
+    }
+
     protected override void LoadPrototypes()
     {
         base.LoadPrototypes();

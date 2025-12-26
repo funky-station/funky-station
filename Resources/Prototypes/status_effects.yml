@@ -1,4 +1,4 @@
-# SPDX-FileCopyrightText: 2021 Pieter-Jan Briers <pieterjan.briers@gmail.com>
+﻿# SPDX-FileCopyrightText: 2021 Pieter-Jan Briers <pieterjan.briers@gmail.com>
 # SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2021 mirrorcult <lunarautomaton6@gmail.com>
 # SPDX-FileCopyrightText: 2022 Julian Giebel <juliangiebel@live.de>
@@ -13,13 +13,15 @@
 # SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 TrixxedHeart <46364955+TrixxedBit@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
 # Status effect prototypes.
 # Holds no actual logic, just some basic data about the effect.
+
+# Note: We have a new status effect system that needs all of these status effects to be fully ported to.
+# Adding new status effects under the old system is NOT RECOMMENDED.
 
 - type: statusEffect
   id: Stun
@@ -43,9 +45,6 @@
   id: AllCaps
 
 - type: statusEffect
-  id: SeeingRainbows
-
-- type: statusEffect
   id: Electrocution
 
 - type: statusEffect
@@ -67,13 +66,6 @@
   alert: Corporeal
 
 - type: statusEffect
-  id: ForcedSleep #I.e., they will not wake on damage or similar
-
-- type: statusEffect
-  id: Migraine
-  alwaysAllowed: true
-
-- type: statusEffect
   id: TemporaryBlindness
 
 - type: statusEffect
@@ -83,16 +75,10 @@
   id: RatvarianLanguage #Praise him
 
 - type: statusEffect
-  id: StaminaModifier
-
-- type: statusEffect
   id: Flashed
 
 - type: statusEffect
   id: RadiationProtection
-
-- type: statusEffect
-  id: Drowsiness #blurs your vision and makes you randomly fall asleep
 
 - type: statusEffect
   id: Adrenaline

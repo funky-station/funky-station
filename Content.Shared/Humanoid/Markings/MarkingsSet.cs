@@ -3,9 +3,16 @@
 // SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2023 Morb <14136326+Morb0@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2023 csqrb <56765288+CaptainSqrBeard@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2024 Skubman <ba.fallaria@gmail.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Froffy025 <scotttaco025@gmail.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
+// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
-// SPDX-License-Identifier: MIT
+// SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Collections;
 using System.Diagnostics.CodeAnalysis;
@@ -61,7 +68,8 @@ public sealed partial class MarkingSet
     public Dictionary<MarkingCategories, MarkingPoints> Points = new();
 
     public MarkingSet()
-    {}
+    {
+    }
 
     /// <summary>
     ///     Construct a MarkingSet using a list of markings, and a points
@@ -71,7 +79,10 @@ public sealed partial class MarkingSet
     /// </summary>
     /// <param name="markings">The lists of markings to use.</param>
     /// <param name="pointsPrototype">The ID of the points dictionary prototype.</param>
-    public MarkingSet(List<Marking> markings, string pointsPrototype, MarkingManager? markingManager = null, IPrototypeManager? prototypeManager = null)
+    public MarkingSet(List<Marking> markings,
+        string pointsPrototype,
+        MarkingManager? markingManager = null,
+        IPrototypeManager? prototypeManager = null)
     {
         IoCManager.Resolve(ref markingManager, ref prototypeManager);
 
@@ -118,7 +129,9 @@ public sealed partial class MarkingSet
     ///     Construct a MarkingSet only with a points dictionary.
     /// </summary>
     /// <param name="pointsPrototype">The ID of the points dictionary prototype.</param>
-    public MarkingSet(string pointsPrototype, MarkingManager? markingManager = null, IPrototypeManager? prototypeManager = null)
+    public MarkingSet(string pointsPrototype,
+        MarkingManager? markingManager = null,
+        IPrototypeManager? prototypeManager = null)
     {
         IoCManager.Resolve(ref markingManager, ref prototypeManager);
 
@@ -154,14 +167,17 @@ public sealed partial class MarkingSet
     /// <param name="skinColor">The skin color for recoloring (i.e. slimes). Use null if you want only filter markings</param>
     /// <param name="markingManager">Marking manager.</param>
     /// <param name="prototypeManager">Prototype manager.</param>
-    public void EnsureSpecies(string species, Color? skinColor, MarkingManager? markingManager = null, IPrototypeManager? prototypeManager = null)
+    public void EnsureSpecies(string species,
+        Color? skinColor,
+        MarkingManager? markingManager = null,
+        IPrototypeManager? prototypeManager = null)
     {
         IoCManager.Resolve(ref markingManager);
         IoCManager.Resolve(ref prototypeManager);
 
         var toRemove = new List<(MarkingCategories category, string id)>();
         var speciesProto = prototypeManager.Index<SpeciesPrototype>(species);
-        var onlyWhitelisted = prototypeManager.Index<MarkingPointsPrototype>(speciesProto.MarkingPoints).OnlyWhitelisted;
+        var onlyWhitelisted = prototypeManager.Index(speciesProto.MarkingPoints).OnlyWhitelisted;
 
         foreach (var (category, list) in Markings)
         {
@@ -292,23 +308,24 @@ public sealed partial class MarkingSet
                 continue;
             }
 
-            var index = 0;
-            while (points.Points > 0 || index < points.DefaultMarkings.Count)
+            var max = Math.Min(points.Points, points.DefaultMarkings.Count);
+
+            for (var i = 0; i < max; i++)
             {
-                if (markingManager.Markings.TryGetValue(points.DefaultMarkings[index], out var prototype))
-                {
-                    var colors = MarkingColoring.GetMarkingLayerColors(
-                            prototype,
-                            skinColor,
-                            eyeColor,
-                            this
-                        );
-                    var marking = new Marking(points.DefaultMarkings[index], colors);
+                var id = points.DefaultMarkings[i];
 
-                    AddBack(category, marking);
-                }
+                if (!markingManager.Markings.TryGetValue(id, out var prototype))
+                    continue;
 
-                index++;
+                var colors = MarkingColoring.GetMarkingLayerColors(
+                    prototype,
+                    skinColor,
+                    eyeColor,
+                    this
+                );
+
+                AddBack(category, new Marking(id, colors));
+
             }
         }
     }

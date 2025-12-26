@@ -275,8 +275,11 @@
       solution: beaker
     - type: SolutionTransfer
       canChangeTransferAmount: true
-    - type: Drink
+    - type: Edible
+      edible: Drink
       solution: beaker
+      destroyOnEmpty: false
+      utensil: None
 
 - type: entity
   id: XenoArtifactSpeedUp
@@ -496,10 +499,9 @@
         - !type:NestedSelector
           tableId: GenericTrashItems
           weight: 35
-        - !type:AllSelector
+        - !type:NestedSelector
+          tableId: AllPlushiesTable
           weight: 1
-          children:
-          - id: ToySpawner
 
 - type: entity
   id: XenoArtifactEffectLightFlicker

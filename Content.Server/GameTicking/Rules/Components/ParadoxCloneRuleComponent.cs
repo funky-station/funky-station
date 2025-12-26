@@ -1,9 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
-// SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
-// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
-//
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Cloning;
 using Content.Shared.Whitelist;
 using Robust.Shared.Prototypes;
@@ -20,7 +14,7 @@ public sealed partial class ParadoxCloneRuleComponent : Component
     ///     Cloning settings to be used.
     /// </summary>
     [DataField]
-    public ProtoId<CloningSettingsPrototype> Settings = "Antag";
+    public ProtoId<CloningSettingsPrototype> Settings = "ParadoxCloningSettings";
 
     /// <summary>
     ///     Visual effect spawned when gibbing at round end.

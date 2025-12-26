@@ -162,6 +162,14 @@
   objectType: Item
 
 - type: construction
+  id: CardShield
+  graph: CardShield
+  startNode: start
+  targetNode: cardShield
+  category: construction-category-weapons
+  objectType: Item
+
+- type: construction
   name: makeshift shield
   id: MakeshiftShield
   graph: MakeshiftShield
@@ -203,6 +211,14 @@
   category: construction-category-weapons
   description: An arrow tipped with pieces of a uranium glass shard, for use with a bow.
   icon: { sprite: Objects/Weapons/Guns/Bow/bow.rsi, state: wielded-arrow }
+  objectType: Item
+
+- type: construction
+  id: CardArrow
+  graph: CardArrow
+  startNode: start
+  targetNode: CardArrow
+  category: construction-category-weapons
   objectType: Item
 
 - type: construction
@@ -248,4 +264,12 @@
   category: construction-category-weapons
   description: Brass knuckle dusters, just like how they used to make em and still hit just as hard.
   icon: { sprite: Clothing/Hands/Gloves/KnuckleDusters/brassknuckleduster.rsi, state: brassknuckleduster }
+  objectType: Item
+
+- type: construction
+  id: CardSword
+  graph: CardSword
+  startNode: start
+  targetNode: cardSword
+  category: construction-category-weapons
   objectType: Item

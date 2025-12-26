@@ -1,43 +1,9 @@
-// SPDX-FileCopyrightText: 2021 Paul Ritter <ritter.paul1@googlemail.com>
-// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Jezithyr <Jezithyr.@gmail.com>
-// SPDX-FileCopyrightText: 2022 Jezithyr <Jezithyr@gmail.com>
-// SPDX-FileCopyrightText: 2022 Vera Aguilera Puerto <gradientvera@outlook.com>
-// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2022 moonheart08 <moonheart08@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Chief-Engineer <119664036+Chief-Engineer@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Jezithyr <jezithyr@gmail.com>
-// SPDX-FileCopyrightText: 2023 Kot <1192090+koteq@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 OctoRocket <88291550+OctoRocket@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2023 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 qwerltaz <69696513+qwerltaz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 DrSmugleaf <10968691+DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Errant <35878406+Errant-4@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Kara <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
-// SPDX-FileCopyrightText: 2024 ShadowCommander <shadowjjt@gmail.com>
-// SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
-// SPDX-FileCopyrightText: 2024 Winkarst <74284083+Winkarst-cpu@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Terkala <appleorange64@gmail.com>
-// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
-//
-// SPDX-License-Identifier: MIT
-
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Threading.Tasks;
 using Content.Server.GameTicking.Presets;
 using Content.Server.Maps;
 using Content.Shared.CCVar;
-using Content.Shared.Mobs.Systems;
 using JetBrains.Annotations;
 using Robust.Shared.Player;
 
@@ -45,13 +11,17 @@ namespace Content.Server.GameTicking;
 
 public sealed partial class GameTicker
 {
-
     public const float PresetFailedCooldownIncrease = 30f;
 
     /// <summary>
     /// The selected preset that will be used at the start of the next round.
     /// </summary>
     public GamePresetPrototype? Preset { get; private set; }
+
+    /// <summary>
+    /// The selected preset that will be shown at the lobby screen to fool players.
+    /// </summary>
+    public GamePresetPrototype? Decoy { get; private set; }
 
     /// <summary>
     /// The preset that's currently active.
@@ -65,6 +35,7 @@ public sealed partial class GameTicker
 
     private bool StartPreset(ICommonSession[] origReadyPlayers, bool force)
     {
+        _sawmill.Info($"Attempting to start preset '{CurrentPreset?.ID}'");
         var startAttempt = new RoundStartAttemptEvent(origReadyPlayers, force);
         RaiseLocalEvent(startAttempt);
 
@@ -81,15 +52,18 @@ public sealed partial class GameTicker
             DelayStart(TimeSpan.FromSeconds(PresetFailedCooldownIncrease));
         }
 
-            if (_cfg.GetCVar(CCVars.GameLobbyFallbackEnabled))
-            {
-                var fallbackPresets = _cfg.GetCVar(CCVars.GameLobbyFallbackPreset).Split(",");
-                var startFailed = true;
+        if (_cfg.GetCVar(CCVars.GameLobbyFallbackEnabled))
+        {
+            var fallbackPresets = _cfg.GetCVar(CCVars.GameLobbyFallbackPreset).Split(",");
+            var startFailed = true;
 
+            _sawmill.Info($"Fallback - Failed to start round, attempting to start fallback presets.");
             foreach (var preset in fallbackPresets)
             {
+                _sawmill.Info($"Fallback - Clearing up gamerules");
                 ClearGameRules();
-                SetGamePreset(preset);
+                _sawmill.Info($"Fallback - Attempting to start '{preset}'");
+                SetGamePreset(preset, resetDelay: 1);
                 AddGamePresetRules();
                 StartGamePresetRules();
 
@@ -106,6 +80,7 @@ public sealed partial class GameTicker
                     startFailed = false;
                     break;
                 }
+                _sawmill.Info($"Fallback - '{preset}' failed to start.");
             }
 
             if (startFailed)
@@ -117,6 +92,7 @@ public sealed partial class GameTicker
 
         else
         {
+            _sawmill.Info($"Fallback - Failed to start preset but fallbacks are disabled. Returning to Lobby.");
             FailedPresetRestart();
             return false;
         }
@@ -124,12 +100,12 @@ public sealed partial class GameTicker
         return true;
     }
 
-        private void InitializeGamePreset()
-        {
-            SetGamePreset(LobbyEnabled ? _cfg.GetCVar(CCVars.GameLobbyDefaultPreset) : "sandbox");
-        }
+    private void InitializeGamePreset()
+    {
+        SetGamePreset(LobbyEnabled ? _cfg.GetCVar(CCVars.GameLobbyDefaultPreset) : "sandbox");
+    }
 
-    public void SetGamePreset(GamePresetPrototype? preset, bool force = false, int? resetDelay = null)
+    public void SetGamePreset(GamePresetPrototype? preset, bool force = false, GamePresetPrototype? decoy = null, int? resetDelay = null)
     {
         // Do nothing if this game ticker is a dummy!
         if (DummyTicker)
@@ -141,10 +117,15 @@ public sealed partial class GameTicker
             // Reset counter is checked and changed at the end of each round
             // So if the game is in the lobby, the first requested round will happen before the check, and we need one less check
             if (CurrentPreset is null)
-                ResetCountdown = resetDelay.Value -1;
+                ResetCountdown = resetDelay.Value - 1;
+        }
+        else
+        {
+            ResetCountdown = null;
         }
 
         Preset = preset;
+        Decoy = decoy;
         ValidateMap();
         UpdateInfoText();
 
@@ -154,11 +135,11 @@ public sealed partial class GameTicker
         }
     }
 
-    public void SetGamePreset(string preset, bool force = false)
+    public void SetGamePreset(string preset, bool force = false, int? resetDelay = null)
     {
         var proto = FindGamePreset(preset);
-        if(proto != null)
-            SetGamePreset(proto, force);
+        if (proto != null)
+            SetGamePreset(proto, force, null, resetDelay);
     }
 
     public GamePresetPrototype? FindGamePreset(string preset)

@@ -8,6 +8,7 @@
 using Content.Server.Body.Components;
 using Content.Server.Body.Systems;
 using Content.Server.Fluids.EntitySystems;
+using Content.Shared.Body.Components;
 using Content.Shared.Chemistry;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Electrocution;
@@ -76,7 +77,7 @@ public sealed class LeakyObjectSystem : EntitySystem
             leakedSolution.ScaleSolution(comp.LeakEfficiency);
 
             _reactiveSystem.DoEntityReaction(container.Owner, leakedSolution, ReactionMethod.Touch);
-            _bloodstreamSystem.TryAddToChemicals(container.Owner, leakedSolution, bloodstream);
+            _bloodstreamSystem.TryAddToChemicals(container.Owner, leakedSolution);
         }
     }
 

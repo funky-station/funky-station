@@ -1,32 +1,3 @@
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Kara <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Pieter-Jan Briers <pieterjan.briers@gmail.com>
-// SPDX-FileCopyrightText: 2023 Raphael Bertoche <rbertoche@cpti.cetuc.puc-rio.br>
-// SPDX-FileCopyrightText: 2023 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 metalgearsloth <comedian_vs_clown@hotmail.com>
-// SPDX-FileCopyrightText: 2024 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
-// SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
-// SPDX-FileCopyrightText: 2024 Cojoke <83733158+Cojoke-dot@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 DrSmugleaf <10968691+DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 MilenVolf <63782763+MilenVolf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Scribbles0 <91828755+Scribbles0@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
-// SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
-// SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
-//
-// SPDX-License-Identifier: MIT
-
 using Content.Server.Atmos.Rotting;
 using Content.Server.Chat.Systems;
 using Content.Server.DoAfter;
@@ -34,25 +5,24 @@ using Content.Server.Electrocution;
 using Content.Server.EUI;
 using Content.Server.Ghost;
 using Content.Server.Popups;
-using Content.Server.PowerCell;
+using Content.Shared.PowerCell;
 using Content.Shared.Traits.Assorted;
-using Content.Shared.Damage;
+using Content.Shared.Chat;
+using Content.Shared.Damage.Components;
+using Content.Shared.Damage.Systems;
 using Content.Shared.DoAfter;
 using Content.Shared.Interaction;
-using Content.Shared.Interaction.Components;
-using Content.Shared.Interaction.Events;
 using Content.Shared.Item.ItemToggle;
 using Content.Shared.Medical;
 using Content.Shared.Mind;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
+using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.PowerCell;
 using Content.Shared.Timing;
-using Content.Shared.Toggleable;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Player;
-using Content.Shared.Movement.Pulling.Components;
 
 namespace Content.Server.Medical;
 
@@ -66,12 +36,13 @@ public sealed class DefibrillatorSystem : EntitySystem
     [Dependency] private readonly DoAfterSystem _doAfter = default!;
     [Dependency] private readonly ElectrocutionSystem _electrocution = default!;
     [Dependency] private readonly EuiManager _euiManager = default!;
+    [Dependency] private readonly ISharedPlayerManager _player = default!;
     [Dependency] private readonly ItemToggleSystem _toggle = default!;
-    [Dependency] private readonly RottingSystem _rotting = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly MobThresholdSystem _mobThreshold = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly PowerCellSystem _powerCell = default!;
+    [Dependency] private readonly RottingSystem _rotting = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly UseDelaySystem _useDelay = default!;
@@ -110,6 +81,16 @@ public sealed class DefibrillatorSystem : EntitySystem
     /// <summary>
     ///     Checks if you can actually defib a target.
     /// </summary>
+    /// <param name="uid">Uid of the defib</param>
+    /// <param name="target">Uid of the target getting defibbed</param>
+    /// <param name="user">Uid of the entity using the defibrillator</param>
+    /// <param name="component">Defib component</param>
+    /// <param name="targetCanBeAlive">
+    ///     If true, the target can be alive. If false, the function will check if the target is alive and will return false if they are.
+    /// </param>
+    /// <returns>
+    ///     Returns true if the target is valid to be defibed, false otherwise.
+    /// </returns>
     public bool CanZap(EntityUid uid, EntityUid target, EntityUid? user = null, DefibrillatorComponent? component = null, bool targetCanBeAlive = false)
     {
         if (!Resolve(uid, ref component))
@@ -131,19 +112,9 @@ public sealed class DefibrillatorSystem : EntitySystem
         if (!_powerCell.HasActivatableCharge(uid, user: user))
             return false;
 
-        // Prevent usage on dead people
-        if (_mobState.IsDead(target, mobState))
-        {
-            if (user != null)
-                _popup.PopupEntity(Loc.GetString("defibrillator-dead"), uid, user.Value); // Optional: Define this string in Loc or remove popup
-            return false;
-        }
-
-        // Prevent usage on alive people
         if (!targetCanBeAlive && _mobState.IsAlive(target, mobState))
             return false;
 
-        // Ensure we can zap Critical people
         if (!targetCanBeAlive && !component.CanDefibCrit && _mobState.IsCritical(target, mobState))
             return false;
 
@@ -153,6 +124,13 @@ public sealed class DefibrillatorSystem : EntitySystem
     /// <summary>
     ///     Tries to start defibrillating the target. If the target is valid, will start the defib do-after.
     /// </summary>
+    /// <param name="uid">Uid of the defib</param>
+    /// <param name="target">Uid of the target getting defibbed</param>
+    /// <param name="user">Uid of the entity using the defibrillator</param>
+    /// <param name="component">Defib component</param>
+    /// <returns>
+    ///     Returns true if the defibrillation do-after started, otherwise false.
+    /// </returns>
     public bool TryStartZap(EntityUid uid, EntityUid target, EntityUid user, DefibrillatorComponent? component = null)
     {
         if (!Resolve(uid, ref component))
@@ -203,11 +181,9 @@ public sealed class DefibrillatorSystem : EntitySystem
             return;
 
         _audio.PlayPvs(component.ZapSound, uid);
-
-        // Apply shock damage
         _electrocution.TryDoElectrocution(target, null, component.ZapDamage, component.WritheDuration, true, ignoreInsulation: true);
 
-                var interacters = new HashSet<EntityUid>();
+        var interacters = new HashSet<EntityUid>();
         _interactionSystem.GetEntitiesInteractingWithTarget(target, interacters);
         foreach (var other in interacters)
         {
@@ -223,22 +199,59 @@ public sealed class DefibrillatorSystem : EntitySystem
         _useDelay.SetLength((uid, useDelay), component.ZapDelay, component.DelayId);
         _useDelay.TryResetDelay((uid, useDelay), id: component.DelayId);
 
-        // Apply Healing (AirLoss reduction) ONLY if Critical
-        if (_mobState.IsCritical(target, mob))
+        ICommonSession? session = null;
+
+        var dead = true;
+        if (_rotting.IsRotten(target))
         {
-            _damageable.TryChangeDamage(target, component.ZapHeal, true, origin: uid);
-            _audio.PlayPvs(component.SuccessSound, uid);
+            _chatManager.TrySendInGameICMessage(uid, Loc.GetString("defibrillator-rotten"),
+                InGameICChatType.Speak, true);
+        }
+        else if (TryComp<UnrevivableComponent>(target, out var unrevivable))
+        {
+            _chatManager.TrySendInGameICMessage(uid, Loc.GetString(unrevivable.ReasonMessage),
+                InGameICChatType.Speak, true);
         }
         else
         {
-            // Fallback for weird edge cases
-            _audio.PlayPvs(component.FailureSound, uid);
+            if (_mobState.IsDead(target, mob))
+                _damageable.TryChangeDamage(target, component.ZapHeal, true, origin: uid);
+
+            if (_mobThreshold.TryGetThresholdForState(target, MobState.Dead, out var threshold) &&
+                TryComp<DamageableComponent>(target, out var damageableComponent) &&
+                damageableComponent.TotalDamage < threshold)
+            {
+                _mobState.ChangeMobState(target, MobState.Critical, mob, uid);
+                dead = false;
+            }
+
+            if (_mind.TryGetMind(target, out _, out var mind) &&
+                _player.TryGetSessionById(mind.UserId, out var playerSession))
+            {
+                session = playerSession;
+                // notify them they're being revived.
+                if (mind.CurrentEntity != target)
+                {
+                    _euiManager.OpenEui(new ReturnToBodyEui(mind, _mind, _player), session);
+                }
+            }
+            else
+            {
+                _chatManager.TrySendInGameICMessage(uid, Loc.GetString("defibrillator-no-mind"),
+                    InGameICChatType.Speak, true);
+            }
         }
+
+        var sound = dead || session == null
+            ? component.FailureSound
+            : component.SuccessSound;
+        _audio.PlayPvs(sound, uid);
 
         // if we don't have enough power left for another shot, turn it off
         if (!_powerCell.HasActivatableCharge(uid))
             _toggle.TryDeactivate(uid);
 
+        // TODO clean up this clown show above
         var ev = new TargetDefibrillatedEvent(user, (uid, component));
         RaiseLocalEvent(target, ref ev);
     }

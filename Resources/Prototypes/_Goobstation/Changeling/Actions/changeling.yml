@@ -21,14 +21,11 @@
 # SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
 # SPDX-FileCopyrightText: 2024 yglop <95057024+yglop@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Eris <erisfiregamer1@gmail.com>
-# SPDX-FileCopyrightText: 2025 Kit <nikkiestes0@gmail.com>
 # SPDX-FileCopyrightText: 2025 Rainbow <ev0lvkitten@gmail.com>
 # SPDX-FileCopyrightText: 2025 Skye <57879983+Rainbeon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 TheSecondLord <88201625+TheSecondLord@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 V <97265903+formlessnameless@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 ferynn <117872973+ferynn@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 ferynn <witchy.girl.me@gmail.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
@@ -43,7 +40,6 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
-    checkCanInteract: false
     itemIconStyle: NoItem
     icon:
       sprite: _Goobstation/Changeling/changeling_abilities.rsi
@@ -78,29 +74,6 @@
     useInLesserForm: true
 
 - type: entity
-  id: ActionInfectTarget
-  name: Infect Target
-  description: Injects a Changeling parasite into the target, eventually converting them into a fellow Changeling. Requires them to be incapacitated. Costs 60 chemicals.
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: EntityTargetAction
-    useDelay: 180
-    whitelist:
-      components:
-      - Body
-    canTargetSelf: false
-    interactOnMiss: false
-    itemIconStyle: NoItem
-    icon:
-      sprite: _Goobstation/Changeling/changeling_abilities.rsi
-      state: lay_egg
-    event: !type:ChangelingInfectTargetEvent {}
-  - type: ChangelingAction
-    chemicalCost: 60
-    requireBiomass: true
-    useInLesserForm: false
-
-- type: entity
   id: ActionStingExtractDNA
   name: Extract DNA sting
   description: Steal your target's genetic information. After the first usage, the target must be critical or dead. Costs 25 chemicals.
@@ -131,7 +104,6 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
-    checkCanInteract: false
     itemIconStyle: NoItem
     icon:
       sprite: _Goobstation/Changeling/changeling_abilities.rsi
@@ -148,7 +120,6 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
-    checkCanInteract: false
     useDelay: 5
     itemIconStyle: NoItem
     icon:
@@ -161,7 +132,6 @@
 
 - type: entity
   id: ActionEnterStasis
-  parent: BaseSuicideAction
   name: Enter regenerative stasis
   description: Fake your death and start regenerating. Drains all your chemicals. Consumes biomass.
   categories: [ HideSpawnMenu ]
@@ -206,7 +176,6 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
-    checkCanInteract: false
     useDelay: 2
     itemIconStyle: NoItem
     icon:
@@ -239,7 +208,6 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
-    checkCanInteract: false
     useDelay: 2
     itemIconStyle: NoItem
     icon:
@@ -248,7 +216,7 @@
     event: !type:ToggleChitinousArmorEvent {}
   - type: ChangelingAction
     chemicalCost: 25
-    requireAbsorbed: 3
+    requireAbsorbed: 2
 
 - type: entity
   id: ActionToggleOrganicShield
@@ -257,7 +225,6 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
-    checkCanInteract: false
     useDelay: 2
     itemIconStyle: NoItem
     icon:
@@ -275,7 +242,6 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
-    checkCanInteract: false
     useDelay: 10
     itemIconStyle: NoItem
     icon:
@@ -294,7 +260,6 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
-    checkCanInteract: false
     useDelay: 10
     itemIconStyle: NoItem
     icon:
@@ -313,7 +278,6 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
-    checkCanInteract: false
     useDelay: 1
     itemIconStyle: NoItem
     icon:
@@ -326,151 +290,166 @@
 
 # stings
 - type: entity
+  parent: BaseAction
   id: ActionStingBlind
   name: Blind Sting
-  description: Silently sting your target, blinding them for a short time and rendering them near sighted. Costs 35 chemicals.
+  description: Silently sting your target, blinding them for a short time and rendering them near sighted. Costs 25 chemicals.
   categories: [ HideSpawnMenu ]
   components:
-  - type: EntityTargetAction
-    whitelist:
-      components:
-      - Body
-    canTargetSelf: false
-    interactOnMiss: false
+  - type: Action
     itemIconStyle: NoItem
+    checkCanInteract: false
     icon:
       sprite: _Goobstation/Changeling/changeling_abilities.rsi
       state: sting_blind
-    event: !type:StingBlindEvent {}
-  - type: ChangelingAction
-    chemicalCost: 35
-    useInLesserForm: true
-
-- type: entity
-  id: ActionStingCryo
-  name: Cryogenic Sting
-  description: Silently sting your target, constantly slowing and freezing them. Costs 35 chemicals.
-  categories: [ HideSpawnMenu ]
-  components:
+  - type: TargetAction
+    interactOnMiss: false
   - type: EntityTargetAction
     whitelist:
       components:
       - Body
     canTargetSelf: false
-    interactOnMiss: false
+    event: !type:StingReagentEvent {}
+  - type: ChangelingAction
+    chemicalCost: 20
+    useInLesserForm: true
+  - type: ChangelingReagentSting
+    configuration: StingBlind
+    dartGunAmmo: StingBlind
+
+- type: entity
+  parent: BaseAction
+  id: ActionStingCryo
+  name: Cryogenic Sting
+  description: Silently sting your target, constantly slowing and freezing them. Costs 25 chemicals.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
     itemIconStyle: NoItem
+    checkCanInteract: false
     icon:
       sprite: _Goobstation/Changeling/changeling_abilities.rsi
       state: sting_cryo
-    event: !type:StingCryoEvent {}
-  - type: ChangelingAction
-    chemicalCost: 35
-    useInLesserForm: true
-
-- type: entity
-  id: ActionStingLethargic
-  name: Lethargic Sting
-  description: Silently inject a cocktail of anesthetics into the target. Costs 35 chemicals.
-  categories: [ HideSpawnMenu ]
-  components:
+  - type: TargetAction
+    interactOnMiss: false
   - type: EntityTargetAction
     whitelist:
       components:
       - Body
     canTargetSelf: false
-    interactOnMiss: false
+    event: !type:StingReagentEvent {}
+  - type: ChangelingAction
+    chemicalCost: 20
+    useInLesserForm: true
+  - type: ChangelingReagentSting
+    configuration: StingCryo
+    dartGunAmmo: StingCryo
+
+- type: entity
+  parent: BaseAction
+  id: ActionStingLethargic
+  name: Lethargic Sting
+  description: Silently inject a cocktail of anesthetics into the target. Costs 30 chemicals.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
     itemIconStyle: NoItem
+    checkCanInteract: false
     icon:
       sprite: _Goobstation/Changeling/changeling_abilities.rsi
       state: sting_lethargic
-    event: !type:StingLethargicEvent {}
-  - type: ChangelingAction
-    chemicalCost: 35
-    useInLesserForm: true
-
-- type: entity
-  id: ActionStingMute
-  name: Mute Sting
-  description: Silently sting your target, completely silencing them for a short time. Costs 35 chemicals.
-  categories: [ HideSpawnMenu ]
-  components:
+  - type: TargetAction
+    interactOnMiss: false
   - type: EntityTargetAction
     whitelist:
       components:
       - Body
     canTargetSelf: false
-    interactOnMiss: false
+    event: !type:StingReagentEvent {}
+  - type: ChangelingAction
+    chemicalCost: 30
+    useInLesserForm: true
+  - type: ChangelingReagentSting
+    configuration: StingLethargic
+    dartGunAmmo: StingLethargic
+
+- type: entity
+  parent: BaseAction
+  id: ActionStingMute
+  name: Mute Sting
+  description: Silently sting your target, completely silencing them for a short time. Costs 25 chemicals.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
     itemIconStyle: NoItem
+    checkCanInteract: false
     icon:
       sprite: _Goobstation/Changeling/changeling_abilities.rsi
       state: sting_mute
-    event: !type:StingMuteEvent {}
-  - type: ChangelingAction
-    chemicalCost: 35
-    useInLesserForm: true
-
-- type: entity
-  id: ActionStingFakeArmblade
-  name: Fake Armblade Sting
-  description: Silently sting your target, making them grow a dull armblade for a short time. Costs 50 chemicals.
-  categories: [ HideSpawnMenu ]
-  components:
+  - type: TargetAction
+    interactOnMiss: false
   - type: EntityTargetAction
     whitelist:
       components:
       - Body
     canTargetSelf: false
-    interactOnMiss: false
+    event: !type:StingReagentEvent {}
+  - type: ChangelingAction
+    chemicalCost: 20
+    useInLesserForm: true
+  - type: ChangelingReagentSting
+    configuration: StingMute
+    dartGunAmmo: StingMute
+
+- type: entity
+  parent: BaseAction
+  id: ActionStingFakeArmblade
+  name: Fake Armblade Sting
+  description: Silently sting your target, making them grow a dull armblade for a short time. Costs 30 chemicals.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
     itemIconStyle: NoItem
+    checkCanInteract: false
     icon:
       sprite: _Goobstation/Changeling/changeling_abilities.rsi
       state: sting_armblade
+  - type: TargetAction
+    interactOnMiss: false
+  - type: EntityTargetAction
+    whitelist:
+      components:
+      - Body
+    canTargetSelf: false
     event: !type:StingFakeArmbladeEvent {}
   - type: ChangelingAction
-    chemicalCost: 50
+    chemicalCost: 30
     useInLesserForm: true
 
 - type: entity
+  parent: BaseAction
   id: ActionStingTransform
   name: Transformation Sting
   description: Silently sting your target, transforming them into a person of your choosing. Costs 75 chemicals.
   categories: [ HideSpawnMenu ]
   components:
+  - type: Action
+    itemIconStyle: NoItem
+    checkCanInteract: false
+    icon:
+      sprite: _Goobstation/Changeling/changeling_abilities.rsi
+      state: sting_transform
+  - type: TargetAction
+    interactOnMiss: false
   - type: EntityTargetAction
     whitelist:
       components:
       - Body
     canTargetSelf: false
-    interactOnMiss: false
-    itemIconStyle: NoItem
-    icon:
-      sprite: _Goobstation/Changeling/changeling_abilities.rsi
-      state: sting_transform
     event: !type:StingTransformEvent {}
   - type: ChangelingAction
     chemicalCost: 75
     useInLesserForm: true
-
-- type: entity
-  id: ActionLayEgg
-  name: Lay Egg
-  description: Plant an egg in a dead corpse which will mature into a new form for us.
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: EntityTargetAction
-    whitelist:
-      components:
-      - Body
-    canTargetSelf: false
-    interactOnMiss: false
-    itemIconStyle: NoItem
-    icon:
-      sprite: _Goobstation/Changeling/changeling_abilities.rsi
-      state: lay_egg
-    event: !type:StingLayEggsEvent {}
-  - type: ChangelingAction
-    chemicalCost: 0
-    useInLastResort: true
 
 # utility
 - type: entity
@@ -556,7 +535,7 @@
     icon:
       sprite: _Goobstation/Changeling/changeling_abilities.rsi
       state: epinephrine_overdose
-    event: !type:ActionEphedrineOverdoseEvent {}
+    event: !type:ActionAdrenalineReservesEvent {}
   - type: ChangelingAction
     chemicalCost: 30
     useInLesserForm: true
@@ -611,23 +590,6 @@
       sprite: _Goobstation/Changeling/changeling_abilities.rsi
       state: lesser_form
     event: !type:ActionLesserFormEvent {}
-  - type: ChangelingAction
-    chemicalCost: 20
-
-- type: entity
-  id: ActionToggleSpacesuit
-  name: Toggle Space Suit
-  description: Make your body space proof. Costs 20 chemicals.
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: InstantAction
-    useDelay: 2
-    checkCanInteract: false
-    itemIconStyle: NoItem
-    icon:
-      sprite: _Goobstation/Changeling/changeling_abilities.rsi
-      state: space_adaptation
-    event: !type:ActionSpacesuitEvent {}
   - type: ChangelingAction
     chemicalCost: 20
 

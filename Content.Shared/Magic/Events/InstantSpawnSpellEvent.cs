@@ -11,7 +11,7 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Shared.Magic.Events;
 
-public sealed partial class InstantSpawnSpellEvent : InstantActionEvent, ISpeakSpell
+public sealed partial class InstantSpawnSpellEvent : InstantActionEvent
 {
     /// <summary>
     /// What entity should be spawned.
@@ -21,9 +21,6 @@ public sealed partial class InstantSpawnSpellEvent : InstantActionEvent, ISpeakS
 
     [DataField]
     public bool PreventCollideWithCaster = true;
-
-    [DataField]
-    public string? Speech { get; private set; }
 
     /// <summary>
     /// Gets the targeted spawn positons; may lead to multiple entities being spawned.

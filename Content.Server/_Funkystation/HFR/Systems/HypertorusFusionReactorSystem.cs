@@ -39,6 +39,7 @@ using Robust.Shared.Map;
 using Content.Server.Atmos.Components;
 using Content.Shared.Atmos.Components;
 using Content.Server.Power.Components;
+using Content.Shared.Chat;
 
 namespace Content.Server._Funkystation.Atmos.HFR.Systems
 {
@@ -941,7 +942,7 @@ namespace Content.Server._Funkystation.Atmos.HFR.Systems
                 );
             }
 
-            // Radiation Pulse - barely worth doing but thrown in for now. Someone please replace this with something that works. 
+            // Radiation Pulse - barely worth doing but thrown in for now. Someone please replace this with something that works.
             if (radPulse && radPulseSize > 0)
             {
                 if (_entityManager.TryGetComponent<RadiationSourceComponent>(coreUid, out var radSource))
@@ -955,14 +956,16 @@ namespace Content.Server._Funkystation.Atmos.HFR.Systems
             if (emPulse)
             {
                 var empCoords = _transformSystem.GetMapCoordinates(coreUid);
-                var empRange = critical ? empLightSize * 4 : empLightSize;
+                var empRangeInt = critical ? empLightSize * 4 : empLightSize;
+                var empRangeFloat = Convert.ToSingle(empRangeInt);
                 var energyConsumption = empHeavySize * 1000f;
                 var duration = 30f;
                 _empSystem.EmpPulse(
                     empCoords,
-                    range: empRange,
+                    range: empRangeFloat,
                     energyConsumption: energyConsumption,
-                    duration: duration
+                    duration: TimeSpan.FromSeconds(duration),
+                    coreUid
                 );
             }
 

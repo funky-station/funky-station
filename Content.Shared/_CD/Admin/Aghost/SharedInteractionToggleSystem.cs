@@ -30,12 +30,27 @@ public abstract class SharedInteractionToggleSystem : EntitySystem
     private void OnToggleInteraction(Entity<InteractionToggleableComponent> ent, ref ToggleInteractionEvent args)
     {
         ent.Comp.BlockInteraction = !ent.Comp.BlockInteraction;
-        _alertsSystem.ShowAlert(ent.Owner, ent.Comp.ToggleAlertProtoId, (short)(ent.Comp.BlockInteraction ? 1 : 0));
+
+        if (TryComp<AlertsComponent>(ent.Owner, out var alerts))
+        {
+            _alertsSystem.ShowAlert(
+                (ent.Owner, alerts),
+                ent.Comp.ToggleAlertProtoId,
+                (short) (ent.Comp.BlockInteraction ? 1 : 0)
+            );
+        }
+
         Dirty(ent);
     }
-
-    private void OnCompInit(Entity<InteractionToggleableComponent> entity, ref ComponentInit args)
+    private void OnCompInit(Entity<InteractionToggleableComponent> ent, ref ComponentInit args)
     {
-        _alertsSystem.ShowAlert(entity, entity.Comp.ToggleAlertProtoId, 0);
+        if (TryComp<AlertsComponent>(ent.Owner, out var alerts))
+        {
+            _alertsSystem.ShowAlert(
+                (ent.Owner, alerts),
+                ent.Comp.ToggleAlertProtoId,
+                0
+            );
+        }
     }
 }

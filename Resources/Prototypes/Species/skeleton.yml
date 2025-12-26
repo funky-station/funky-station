@@ -3,11 +3,9 @@
 # SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2023 Repo <47093363+Titian3@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
-# SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
-# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 #
-# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+# SPDX-License-Identifier: MIT
 
 - type: species
   id: Skeleton
@@ -26,7 +24,8 @@
   id: MobSkeletonSprites
   sprites:
     Head: MobSkeletonHead
-    Chest: MobSkeletonTorso
+    Chest: MobSkeletonChest
+    Groin: MobSkeletonGroin
     LArm: MobSkeletonLArm
     RArm: MobSkeletonRArm
     LHand: MobSkeletonLHand
@@ -55,22 +54,40 @@
     state: head_f
 
 - type: humanoidBaseSprite
-  id: MobSkeletonTorso
+  id: MobSkeletonChest
   baseSprite:
     sprite: Mobs/Species/Skeleton/parts.rsi
-    state: torso_m
+    state: chest_m
 
 - type: humanoidBaseSprite
-  id: MobSkeletonTorsoMale
+  id: MobSkeletonChestMale
   baseSprite:
     sprite: Mobs/Species/Skeleton/parts.rsi
-    state: torso_m
+    state: chest_m
 
 - type: humanoidBaseSprite
-  id: MobSkeletonTorsoFemale
+  id: MobSkeletonChestFemale
   baseSprite:
     sprite: Mobs/Species/Skeleton/parts.rsi
-    state: torso_f
+    state: chest_f
+
+- type: humanoidBaseSprite
+  id: MobSkeletonGroin
+  baseSprite:
+    sprite: Mobs/Species/Skeleton/parts.rsi
+    state: groin_m
+
+- type: humanoidBaseSprite
+  id: MobSkeletonGroinMale
+  baseSprite:
+    sprite: Mobs/Species/Skeleton/parts.rsi
+    state: groin_m
+
+- type: humanoidBaseSprite
+  id: MobSkeletonGroinFemale
+  baseSprite:
+    sprite: Mobs/Species/Skeleton/parts.rsi
+    state: groin_f
 
 - type: humanoidBaseSprite
   id: MobSkeletonLLeg

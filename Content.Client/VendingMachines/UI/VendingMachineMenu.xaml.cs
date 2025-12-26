@@ -112,7 +112,7 @@ namespace Content.Client.VendingMachines.UI
         /// Populates the list of available items on the vending machine interface
         /// and sets icons based on their prototypes
         /// </summary>
-        public void Populate(List<VendingMachineInventoryEntry> inventory)
+        public void Populate(List<VendingMachineInventoryEntry> inventory, bool enabled)
         {
             if (inventory.Count == 0 && VendingContents.Visible)
             {

@@ -16,7 +16,6 @@ using Content.Server.Administration.Logs;
 using Content.Server.Atmos.Components;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Station.Systems;
-using Content.Server.Warps;
 using Content.Shared.Database;
 using Content.Shared.Examine;
 using Content.Shared.Localizations;
@@ -27,6 +26,7 @@ using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Timing;
 using System.Diagnostics.CodeAnalysis;
+using Content.Shared.Warps;
 
 namespace Content.Server.Pinpointer;
 
@@ -41,7 +41,7 @@ public sealed partial class NavMapSystem : SharedNavMapSystem
     [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
     [Dependency] private readonly IMapManager _mapManager = default!;
     [Dependency] private readonly IGameTiming _gameTiming = default!;
-    [Dependency] private readonly ITileDefinitionManager _tileDefManager = default!;
+    [Dependency] private readonly TurfSystem _turfSystem = default!;
 
     public const float CloseDistance = 15f;
     public const float FarDistance = 30f;
@@ -131,7 +131,7 @@ public sealed partial class NavMapSystem : SharedNavMapSystem
             var relative = SharedMapSystem.GetChunkRelative(tile, ChunkSize);
             ref var tileData = ref chunk.TileData[GetTileIndex(relative)];
 
-            if (change.NewTile.IsSpace(_tileDefManager))
+            if (_turfSystem.IsSpace(change.NewTile))
             {
                 tileData = 0;
                 if (PruneEmpty((ev.Entity, navMap), chunk))

@@ -1,15 +1,3 @@
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 brainfood1183 <113240905+brainfood1183@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Whisper <121047731+QuietlyWhisper@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
-//
-// SPDX-License-Identifier: MIT
-
-using Content.Shared.Damage;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
@@ -43,6 +31,24 @@ public sealed partial class HandcuffComponent : Component
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public float StunBonus = 2f;
+
+    /// <summary>
+    ///     Modifier for the amount of time it takes an entity to stand up if cuffed.
+    /// </summary>
+    [DataField]
+    public float StandupMod = 5f;
+
+    /// <summary>
+    ///     Modifier to the speed of an entity who is cuffed, does not stack with KnockedMovementMod
+    /// </summary>
+    [DataField]
+    public float MovementMod = 1f;
+
+    /// <summary>
+    ///     Modifier to the knocked down speed of an entity who is cuffed
+    /// </summary>
+    [DataField]
+    public float KnockedMovementMod = 0.4f;
 
     /// <summary>
     ///     Will the cuffs break when removed?

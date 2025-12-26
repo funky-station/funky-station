@@ -34,12 +34,6 @@
     scanningEndSound:
       path: "/Audio/Items/Medical/healthscanner.ogg"
   - type: Appearance
-  - type: GenericVisualizer
-    visuals:
-      enum.PowerCellSlotVisuals.Enabled:
-        enum.PowerDeviceVisualLayers.Powered:
-          True: { visible: true }
-          False: { visible: false }
 
 - type: entity
   id: PlantAnalyzer

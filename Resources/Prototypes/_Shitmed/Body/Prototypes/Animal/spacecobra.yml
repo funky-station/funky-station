@@ -10,10 +10,10 @@
 - type: body
   id: SpaceCobra
   name: "space cobra"
-  root: torso
+  root: chest
   slots:
-    torso:
-      part: TorsoAnimal
+    chest:
+      part: ChestAnimal
       connections:
       - legs
       organs:

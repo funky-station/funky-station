@@ -21,7 +21,6 @@ public sealed class UiControlTest
     // You should not be adding to this.
     private Type[] _ignored = new Type[]
     {
-        typeof(EmotesMenu),
         typeof(LateJoinGui),
     };
 

@@ -24,6 +24,9 @@
 // SPDX-License-Identifier: MIT
 
 using Content.Shared.Chemistry.EntitySystems;
+using Content.Shared.Administration.Logs;
+using Content.Shared.Body.Components;
+using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Chemistry.Hypospray.Events;
@@ -32,10 +35,13 @@ using Content.Shared.Database;
 using Content.Shared.FixedPoint;
 using Content.Shared.Forensics;
 using Content.Shared.IdentityManagement;
+using Content.Shared.Interaction.Events;
 using Content.Shared.Interaction;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Mobs.Components;
+using Content.Shared.Popups;
 using Content.Shared.Timing;
+using Content.Shared.Verbs;
 using Content.Shared.Weapons.Melee.Events;
 using Content.Server.Body.Components;
 using System.Linq;
@@ -44,7 +50,7 @@ using Content.Shared.Containers.Components;
 using Robust.Server.Audio;
 using Robust.Shared.Containers;
 
-namespace Content.Server.Chemistry.EntitySystems;
+namespace Content.Shared.Chemistry.EntitySystems;
 
 public sealed class HypospraySystem : SharedHypospraySystem
 {
@@ -238,7 +244,7 @@ public sealed class HypospraySystem : SharedHypospraySystem
         RaiseLocalEvent(uid, ref afterinjectev); // Goobstation
 
         // same LogType as syringes...
-        _adminLogger.Add(LogType.ForceFeed, $"{EntityManager.ToPrettyString(user):user} injected {EntityManager.ToPrettyString(target):target} with a solution {SharedSolutionContainerSystem.ToPrettyString(removedSolution):removedSolution} using a {EntityManager.ToPrettyString(uid):using}");
+        _adminLogger.Add(LogType.ForceFeed, $"{ToPrettyString(user):user} injected {ToPrettyString(target):target} with a solution {SharedSolutionContainerSystem.ToPrettyString(removedSolution):removedSolution} using a {ToPrettyString(uid):using}");
 
         return true;
     }

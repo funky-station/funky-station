@@ -6,7 +6,7 @@
 // SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
 // SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
 // SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
 // SPDX-License-Identifier: MIT
@@ -26,7 +26,7 @@ namespace Content.Client.Decals
         [Dependency] private readonly IOverlayManager _overlayManager = default!;
         [Dependency] private readonly SpriteSystem _sprites = default!;
 
-        private DecalOverlay _overlay = default!;
+        private DecalOverlay? _overlay;
 
         private HashSet<uint> _removedUids = new();
         private readonly List<Vector2i> _removedChunks = new();
@@ -44,6 +44,9 @@ namespace Content.Client.Decals
 
         public void ToggleOverlay()
         {
+            if (_overlay == null)
+                return;
+
             if (_overlayManager.HasOverlay<DecalOverlay>())
             {
                 _overlayManager.RemoveOverlay(_overlay);
@@ -57,6 +60,10 @@ namespace Content.Client.Decals
         public override void Shutdown()
         {
             base.Shutdown();
+
+            if (_overlay == null)
+                return;
+
             _overlayManager.RemoveOverlay(_overlay);
         }
 

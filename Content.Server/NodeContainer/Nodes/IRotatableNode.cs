@@ -9,6 +9,8 @@
 //
 // SPDX-License-Identifier: MIT
 
+using Content.Shared.NodeContainer;
+
 namespace Content.Server.NodeContainer.Nodes
 {
     /// <summary>

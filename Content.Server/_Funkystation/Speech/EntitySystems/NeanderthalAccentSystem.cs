@@ -4,6 +4,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
 using Content.Server.Speech.Components;
+using Content.Shared.Speech;
 using Robust.Shared.Random;
 using Robust.Shared.GameObjects;
 
@@ -27,13 +28,13 @@ namespace Content.Server.Speech.EntitySystems
             SubscribeLocalEvent<NeanderthalAccentComponent, AccentGetEvent>(OnAccent);
         }
 
-		
+
         public string Accentuate(EntityUid uid, string message)
         {
 			string name = "";
 			if (TryComp<MetaDataComponent>(uid, out var metaDataComponent))
 				name = metaDataComponent.EntityName;
-			
+
 			string[] words = message.Split(new char[0], StringSplitOptions.RemoveEmptyEntries);
 
 			string newMessage = "";
@@ -45,7 +46,7 @@ namespace Content.Server.Speech.EntitySystems
 				else
 					newMessage = newMessage + _random.Pick(Grunts);
 			}
-			
+
 			if ((message.Length > 1) && (message.EndsWith("!!")))
 				newMessage = newMessage + "!!";
 			else if (message.EndsWith("?") || message.EndsWith("!"))
@@ -60,6 +61,6 @@ namespace Content.Server.Speech.EntitySystems
         {
             args.Message = Accentuate(uid, args.Message);
         }
-		
+
     }
 }

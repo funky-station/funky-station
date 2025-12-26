@@ -1,8 +1,71 @@
-# SPDX-FileCopyrightText: 2025 Gansu <68031780+GansuLalan@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Nox <nebulousnox38@gmail.com>
-# SPDX-FileCopyrightText: 2025 QueerCats <jansencheng3@gmail.com>
-# SPDX-FileCopyrightText: 2025 ScarKy0 <scarky0@onet.eu>
-# SPDX-FileCopyrightText: 2025 aa5g21 <aa5g21@soton.ac.uk>
-# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
-#
-# SPDX-License-Identifier: MIT
+## Static
+
+- type: latheRecipePack
+  id: RoboticsStatic
+  recipes:
+  - MMI
+  - PositronicBrain
+  - SciFlash
+  - CyborgEndoskeleton
+
+- type: latheRecipePack
+  id: BorgModulesStatic
+  recipes:
+  - BorgModuleTool
+  - BorgModuleCable
+  - BorgModuleFireExtinguisher
+  - BorgModuleInflatable
+  - BorgModuleArtistry
+
+- type: latheRecipePack
+  id: BorgLimbsStatic
+  recipes:
+  - LeftArmBorg
+  - RightArmBorg
+  - LeftLegBorg
+  - RightLegBorg
+  - LightHeadBorg
+  - TorsoBorg
+
+## Dynamic
+
+- type: latheRecipePack
+  id: Robotics
+  recipes:
+  - ProximitySensor
+
+- type: latheRecipePack
+  id: BorgModules
+  recipes:
+  - BorgModuleAdvancedCleaning
+  - BorgModuleAdvancedTool
+  - BorgModuleAdvancedClowning
+  - BorgModuleAdvancedChemical
+  - BorgModuleAdvancedMining
+
+- type: latheRecipePack
+  id: MechParts
+  recipes:
+  - RipleyHarness
+  - RipleyLArm
+  - RipleyRArm
+  - RipleyLLeg
+  - RipleyRLeg
+  - HonkerHarness
+  - HonkerLArm
+  - HonkerRArm
+  - HonkerLLeg
+  - HonkerRLeg
+  - HamtrHarness
+  - HamtrLArm
+  - HamtrRArm
+  - HamtrLLeg
+  - HamtrRLeg
+  - VimHarness
+
+- type: latheRecipePack
+  id: MechEquipment
+  recipes:
+    - MechEquipmentGrabber
+    - MechEquipmentHorn
+    - MechEquipmentGrabberSmall

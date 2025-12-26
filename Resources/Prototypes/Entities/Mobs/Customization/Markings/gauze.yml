@@ -2,13 +2,24 @@
 # SPDX-FileCopyrightText: 2024 CatMagic <135462166+CatMagic1@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Kira Bridgeton <161087999+Verbalase@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 KittenColony <149278380+KittenColony@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Skubman <ba.fallaria@gmail.com>
+# SPDX-FileCopyrightText: 2024 portfiend <109661617+portfiend@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
 # SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2024 Арт <123451459+JustArt1m@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 W.xyz() <tptechteam@gmail.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Ark <189933909+ark1368@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Froffy025 <78222136+Froffy025@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Froffy025 <scotttaco025@gmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
+# SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
-# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+# SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: marking
   id: GauzeLefteyePatch
@@ -238,7 +249,7 @@
   id: GauzeHead
   bodyPart: Head
   markingCategory: Overlay
-  speciesRestriction: [Dwarf, Human, Reptilian, Arachnid, Moth, Chitinid] # Delta V - Chitinid
+  speciesRestriction: [Dwarf, Human, Reptilian, Arachnid, Moth]
   coloring:
     default:
       type:
@@ -324,7 +335,7 @@
   id: GauzeMothBlindfold
   bodyPart: Eyes
   markingCategory: Overlay
-  speciesRestriction: [Moth, Chitinid] # Delta V - Chitinid
+  speciesRestriction: [Moth]
   coloring:
     default:
       type:
@@ -338,7 +349,7 @@
   id: GauzeMothShoulder
   bodyPart: Chest
   markingCategory: Overlay
-  speciesRestriction: [Moth, Chitinid] # Delta V - Chitinid
+  speciesRestriction: [Moth]
   coloring:
     default:
       type:
@@ -352,7 +363,7 @@
   id: GauzeMothStomach
   bodyPart: Chest
   markingCategory: Overlay
-  speciesRestriction: [Moth, Chitinid] # Delta V - Chitinid
+  speciesRestriction: [Moth]
   coloring:
     default:
       type:
@@ -366,7 +377,7 @@
   id: GauzeMothLeftEyePatch
   bodyPart: Eyes
   markingCategory: Overlay
-  speciesRestriction: [Moth, Chitinid] # Delta V - Chitinid
+  speciesRestriction: [Moth]
   coloring:
     default:
       type:
@@ -380,7 +391,7 @@
   id: GauzeMothLeftEyePad
   bodyPart: Eyes
   markingCategory: Overlay
-  speciesRestriction: [Moth, Chitinid] # Delta V - Chitinid
+  speciesRestriction: [Moth]
   coloring:
     default:
       type:
@@ -394,7 +405,7 @@
   id: GauzeMothRightEyePatch
   bodyPart: Eyes
   markingCategory: Overlay
-  speciesRestriction: [Moth, Chitinid] # Delta V - Chitinid
+  speciesRestriction: [Moth]
   coloring:
     default:
       type:
@@ -408,7 +419,7 @@
   id: GauzeMothRightEyePad
   bodyPart: Eyes
   markingCategory: Overlay
-  speciesRestriction: [Moth, Chitinid] # Delta V - Chitinid
+  speciesRestriction: [Moth]
   coloring:
     default:
       type:
@@ -422,7 +433,7 @@
   id: GauzeMothUpperArmRight
   bodyPart: RArm
   markingCategory: Overlay
-  speciesRestriction: [Moth, Chitinid] # Delta V - Chitinid
+  speciesRestriction: [Moth]
   coloring:
     default:
       type:
@@ -436,7 +447,7 @@
   id: GauzeMothUpperArmLeft
   bodyPart: LArm
   markingCategory: Overlay
-  speciesRestriction: [Moth, Chitinid] # Delta V - Chitinid
+  speciesRestriction: [Moth]
   coloring:
     default:
       type:
@@ -450,7 +461,7 @@
   id: GauzeMothUpperLegRight
   bodyPart: RLeg
   markingCategory: Overlay
-  speciesRestriction: [Moth, Chitinid] # Delta V - Chitinid
+  speciesRestriction: [Moth]
   coloring:
     default:
       type:
@@ -464,7 +475,7 @@
   id: GauzeMothUpperLegLeft
   bodyPart: LLeg
   markingCategory: Overlay
-  speciesRestriction: [Moth, Chitinid] # Delta V - Chitinid
+  speciesRestriction: [Moth]
   coloring:
     default:
       type:
@@ -478,7 +489,7 @@
   id: GauzeMothLowerLegRight
   bodyPart: RFoot
   markingCategory: Overlay
-  speciesRestriction: [Moth, Chitinid] # Delta V - Chitinid
+  speciesRestriction: [Moth]
   coloring:
     default:
       type:
@@ -492,7 +503,7 @@
   id: GauzeMothLowerLegLeft
   bodyPart: LFoot
   markingCategory: Overlay
-  speciesRestriction: [Moth, Chitinid] # Delta V - Chitinid
+  speciesRestriction: [Moth]
   coloring:
     default:
       type:

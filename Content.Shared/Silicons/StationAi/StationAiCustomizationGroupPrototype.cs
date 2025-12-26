@@ -14,7 +14,7 @@ namespace Content.Shared.Silicons.StationAi;
 public sealed partial class StationAiCustomizationGroupPrototype : IPrototype
 {
     [IdDataField]
-    public string ID { get; } = string.Empty;
+    public string ID { get; private set; } = string.Empty;
 
     /// <summary>
     /// The localized name of the customization.

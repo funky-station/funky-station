@@ -20,8 +20,6 @@
 # SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Smugman <85798843+Smugman@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 vectorassembly <vectorassembly@icloud.com>
 #
@@ -76,6 +74,12 @@
     duration: 10
     igniteSound:
       path: /Audio/Items/match_strike.ogg
+      params:
+        volume: -0.125
+        variation: 0.125
+  - type: IgnitionSource
+    ignited: false
+    temperature: 400.0
   - type: PointLight
     enabled: false
     radius: 1.1
@@ -136,9 +140,10 @@
   - type: Storage
     grid:
     - 0,0,2,1
-  - type: StorageFill
-    contents:
-      - id: Matchstick
+  - type: EntityTableContainerFill
+    containers:
+      storagebase:
+        id: Matchstick
         amount: 6
   - type: ItemCounter
     count:
@@ -155,7 +160,7 @@
   - type: SpaceGarbage
 
 - type: entity
-  parent: [Matchbox, BaseMinorContraband]
+  parent: [Matchbox, BaseSyndicateContraband]
   id: GorlexMatchbox
   name: Gorlex match box
   description: "A pneumatic match box styled after the Gorlex Marauders' equipment. Contains 24 matches."
@@ -167,15 +172,16 @@
   - type: Storage
     grid:
     - 0,0,11,1
-  - type: StorageFill
-    contents:
-      - id: GorlexMatchstick
+  - type: EntityTableContainerFill
+    containers:
+      storagebase:
+        id: GorlexMatchstick
         amount: 24
   - type: Matchbox
 
 - type: entity
   name: match stick
-  parent: [Matchstick, BaseMinorContraband]
+  parent: [Matchstick, BaseSyndicateContraband]
   id: GorlexMatchstick
   description: A military grade match stick, used for lighting fine smokables and noncombatants alike.
   components:

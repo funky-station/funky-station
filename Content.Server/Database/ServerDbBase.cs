@@ -51,6 +51,7 @@ using System.Threading.Tasks;
 using Content.Server.Administration.Logs;
 using Content.Server.Administration.Managers;
 using Content.Shared.Administration.Logs;
+using Content.Shared.Construction.Prototypes;
 using Content.Shared.Database;
 using Content.Shared.GameTicking;
 using Content.Shared.Humanoid;
@@ -115,9 +116,22 @@ namespace Content.Server.Database
                 profiles[profile.Slot] = ConvertProfiles(profile);
             }
 
-            var jobPriorities = prefs.JobPriorities.ToDictionary(j => new ProtoId<JobPrototype>(j.JobName), j => (JobPriority) j.Priority);
+            var constructionFavorites = new List<ProtoId<ConstructionPrototype>>(prefs.ConstructionFavorites.Count);
+            foreach (var favorite in prefs.ConstructionFavorites)
+                constructionFavorites.Add(new ProtoId<ConstructionPrototype>(favorite));
 
-            return new PlayerPreferences(profiles, Color.FromHex(prefs.AdminOOCColor), jobPriorities);
+            var jobPriorities = prefs.JobPriorities.ToDictionary(
+                j => new ProtoId<JobPrototype>(j.JobName),
+                j => (JobPriority) j.Priority
+            );
+
+            return new PlayerPreferences(
+                profiles,
+                Color.FromHex(prefs.AdminOOCColor),
+                jobPriorities,
+                constructionFavorites
+            );
+
         }
 
         public async Task SaveCharacterSlotAsync(NetUserId userId, ICharacterProfile? profile, int slot)
@@ -227,11 +241,19 @@ namespace Content.Server.Database
 
             await db.DbContext.SaveChangesAsync();
 
+            var favorites = prefs.ConstructionFavorites
+                .Select(id => new ProtoId<ConstructionPrototype>(id))
+                .ToList();
+
             return new PlayerPreferences(
-                new[] {new KeyValuePair<int, ICharacterProfile>(0, defaultProfile)},
+                new[] { new KeyValuePair<int, ICharacterProfile>(0, defaultProfile) },
                 Color.FromHex(prefs.AdminOOCColor),
-                priorities
+                priorities,
+                prefs.ConstructionFavorites
+                    .Select(id => new ProtoId<ConstructionPrototype>(id))
+                    .ToList()
             );
+
         }
 
         public async Task SaveAdminOOCColorAsync(NetUserId userId, Color color)
@@ -242,6 +264,20 @@ namespace Content.Server.Database
                 .Include(p => p.Profiles)
                 .SingleAsync(p => p.UserId == userId.UserId);
             prefs.AdminOOCColor = color.ToHex();
+
+            await db.DbContext.SaveChangesAsync();
+
+        }
+
+        public async Task SaveConstructionFavoritesAsync(NetUserId userId, List<ProtoId<ConstructionPrototype>> constructionFavorites)
+        {
+            await using var db = await GetDb();
+            var prefs = await db.DbContext.Preference.SingleAsync(p => p.UserId == userId.UserId);
+
+            var favorites = new List<string>(constructionFavorites.Count);
+            foreach (var favorite in constructionFavorites)
+                favorites.Add(favorite.Id);
+            prefs.ConstructionFavorites = favorites;
 
             await db.DbContext.SaveChangesAsync();
         }
@@ -375,13 +411,13 @@ namespace Content.Server.Database
             profile.Antags.Clear();
             profile.Antags.AddRange(
                 humanoid.AntagPreferences
-                    .Select(a => new Antag { AntagName = a })
+                    .Select(a => new Antag {AntagName = a})
             );
 
             profile.Traits.Clear();
             profile.Traits.AddRange(
                 humanoid.TraitPreferences
-                        .Select(t => new Trait { TraitName = t })
+                        .Select(t => new Trait {TraitName = t})
             );
 
             // Begin CD - Character Records
@@ -1444,7 +1480,7 @@ INSERT INTO player_round (players_id, rounds_id) VALUES ({players[player]}, {id}
                 ban.LastEditedAt,
                 ban.ExpirationTime,
                 ban.Hidden,
-                new[] { ban.RoleId.Replace(BanManager.JobPrefix, null) },
+                new [] { ban.RoleId.Replace(BanManager.PrefixJob, null).Replace(BanManager.PrefixAntag, null) },
                 MakePlayerRecord(unbanningAdmin),
                 ban.Unban?.UnbanTime);
         }
@@ -1608,10 +1644,10 @@ INSERT INTO player_round (players_id, rounds_id) VALUES ({players[player]}, {id}
         protected async Task<List<AdminWatchlistRecord>> GetActiveWatchlistsImpl(DbGuard db, Guid player)
         {
             var entities = await (from watchlist in db.DbContext.AdminWatchlists
-                                  where watchlist.PlayerUserId == player &&
-                                        !watchlist.Deleted &&
-                                        (watchlist.ExpirationTime == null || DateTime.UtcNow < watchlist.ExpirationTime)
-                                  select watchlist)
+                          where watchlist.PlayerUserId == player &&
+                                !watchlist.Deleted &&
+                                (watchlist.ExpirationTime == null || DateTime.UtcNow < watchlist.ExpirationTime)
+                          select watchlist)
                 .Include(note => note.Round)
                 .ThenInclude(r => r!.Server)
                 .Include(note => note.CreatedBy)
@@ -1636,9 +1672,9 @@ INSERT INTO player_round (players_id, rounds_id) VALUES ({players[player]}, {id}
         protected async Task<List<AdminMessageRecord>> GetMessagesImpl(DbGuard db, Guid player)
         {
             var entities = await (from message in db.DbContext.AdminMessages
-                                  where message.PlayerUserId == player && !message.Deleted &&
-                                        (message.ExpirationTime == null || DateTime.UtcNow < message.ExpirationTime)
-                                  select message).Include(note => note.Round)
+                        where message.PlayerUserId == player && !message.Deleted &&
+                              (message.ExpirationTime == null || DateTime.UtcNow < message.ExpirationTime)
+                        select message).Include(note => note.Round)
                     .ThenInclude(r => r!.Server)
                     .Include(note => note.CreatedBy)
                     .Include(note => note.LastEditedBy)
@@ -1717,7 +1753,7 @@ INSERT INTO player_round (players_id, rounds_id) VALUES ({players[player]}, {id}
 
             // Client side query, as EF can't do groups yet
             var bansEnumerable = bansQuery
-                    .GroupBy(ban => new { ban.BanTime, CreatedBy = (Player?) ban.CreatedBy, ban.Reason, Unbanned = ban.Unban == null })
+                    .GroupBy(ban => new { ban.BanTime, CreatedBy = (Player?)ban.CreatedBy, ban.Reason, Unbanned = ban.Unban == null })
                     .Select(banGroup => banGroup)
                     .ToArray();
 
@@ -1744,7 +1780,7 @@ INSERT INTO player_round (players_id, rounds_id) VALUES ({players[player]}, {id}
                     NormalizeDatabaseTime(firstBan.LastEditedAt),
                     NormalizeDatabaseTime(firstBan.ExpirationTime),
                     firstBan.Hidden,
-                    banGroup.Select(ban => ban.RoleId.Replace(BanManager.JobPrefix, null)).ToArray(),
+                    banGroup.Select(ban => ban.RoleId.Replace(BanManager.PrefixJob, null).Replace(BanManager.PrefixAntag, null)).ToArray(),
                     MakePlayerRecord(unbanningAdmin),
                     NormalizeDatabaseTime(firstBan.Unban?.UnbanTime)));
             }

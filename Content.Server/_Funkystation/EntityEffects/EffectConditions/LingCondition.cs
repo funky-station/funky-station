@@ -5,19 +5,14 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
 using Content.Shared.Changeling;
-using Content.Shared.EntityEffects;
+using Content.Shared.EntityConditions;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server._Funkystation.EntityEffects.EffectConditions;
 
-public sealed partial class LingCondition : EntityEffectCondition
+public sealed partial class LingCondition : EntityConditionBase<LingCondition>
 {
-    public override bool Condition(EntityEffectBaseArgs args)
-    {
-        return args.EntityManager.HasComponent<ChangelingComponent>(args.TargetEntity);
-    }
-
-    public override string GuidebookExplanation(IPrototypeManager prototype)
+    public override string EntityConditionGuidebookText(IPrototypeManager prototype)
     {
         return Loc.GetString("reagent-effect-condition-guidebook-ling");
     }

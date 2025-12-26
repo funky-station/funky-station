@@ -79,29 +79,6 @@
 
 - type: entity
   parent: BaseHandheldInstrument
-  id: SynthesizerInstrument
-  name: synthesizer
-  components:
-  - type: Instrument
-    program: 62
-  - type: SwappableInstrument
-    instrumentList:
-      "Electro": {62: 0} #i needed generic sounding synth presets, sue me
-      "Bubbles": {63: 0}
-  - type: Sprite
-    sprite: Objects/Fun/Instruments/h_synthesizer.rsi
-    state: icon
-  - type: Item
-    size: Normal
-    sprite: Objects/Fun/Instruments/h_synthesizer.rsi
-  - type: Tag
-    tags:
-    - KeyedInstrument
-  - type: StaticPrice
-    price: 90
-
-- type: entity
-  parent: BaseHandheldInstrument
   id: KalimbaInstrument
   name: kalimba
   description: The power of a piano right at your thumbs.
@@ -118,6 +95,10 @@
     inHandsOnly: false
   - type: Item
     size: Small
+    storedSprite:
+      state: storage
+      sprite: Objects/Fun/Instruments/microphone.rsi
+
 
 - type: entity
   parent: BaseHandheldInstrument
@@ -145,21 +126,3 @@
   - type: Sprite
     sprite: Objects/Fun/Instruments/reversecymbal.rsi
     state: icon
-
-- type: entity
-  parent: BaseHandheldInstrument
-  id: SuperSynthesizerInstrument
-  name: super synthesizer
-  description: Blasting the ghetto with Touhou MIDIs since 2020.
-  components:
-  - type: Instrument
-    allowPercussion: true
-    allowProgramChange: true
-    respectMidiLimits: false
-  - type: Sprite
-    sprite: Objects/Fun/Instruments/h_synthesizer.rsi
-    state: supersynth
-  - type: Item
-    heldPrefix: super
-    size: Normal
-    sprite: Objects/Fun/Instruments/h_synthesizer.rsi

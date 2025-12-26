@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 Kara <lunarautomaton6@gmail.com>
+﻿// SPDX-FileCopyrightText: 2024 Kara <lunarautomaton6@gmail.com>
 // SPDX-FileCopyrightText: 2024 TemporalOroboros <TemporalOroboros@gmail.com>
 // SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
@@ -65,7 +65,7 @@ public abstract class BaseEntityReplaceVariationPassSystem<TEntComp, TGameRuleCo
             Transform(newEnt).LocalRotation = rot;
         }
 
-        Log.Debug($"Entity replacement took {stopwatch.Elapsed} with {Stations.GetTileCount(args.Station)} tiles");
+        Log.Debug($"Entity replacement took {stopwatch.Elapsed} with {Stations.GetTileCount(args.Station.AsNullable())} tiles");
     }
 
     private void QueueReplace(Entity<TransformComponent> ent, List<EntitySpawnEntry> replacements)

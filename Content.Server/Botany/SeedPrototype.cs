@@ -1,29 +1,6 @@
-// SPDX-FileCopyrightText: 2022 Kevin Zheng <kevinz5000@gmail.com>
-// SPDX-FileCopyrightText: 2022 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Morb <14136326+Morb0@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Paul Ritter <ritter.paul1@googlemail.com>
-// SPDX-FileCopyrightText: 2022 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2022 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2023 Doru991 <75124791+Doru991@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Duke <112821543+DukeVanity@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Ygg01 <y.laughing.man.y@gmail.com>
-// SPDX-FileCopyrightText: 2023 drteaspoon420 <87363733+drteaspoon420@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 DrSmugleaf <10968691+DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
-// SPDX-FileCopyrightText: 2024 Token <esil.bektay@yandex.com>
-// SPDX-FileCopyrightText: 2024 drakewill-CRL <46307022+drakewill-CRL@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
-// SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
-// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
-//
-// SPDX-License-Identifier: MIT
-
 using Content.Server.Botany.Components;
 using Content.Server.Botany.Systems;
+using Content.Server.EntityEffects.Effects.Botany;
 using Content.Shared.Atmos;
 using Content.Shared.Database;
 using Content.Shared.EntityEffects;
@@ -31,7 +8,6 @@ using Content.Shared.Random;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.List;
 using Robust.Shared.Utility;
 
 namespace Content.Server.Botany;
@@ -104,9 +80,13 @@ public partial struct SeedChemQuantity
     [DataField("Inherent")] public bool Inherent = true;
 }
 
-// TODO reduce the number of friends to a reasonable level. Requires ECS-ing things like plant holder component.
+// TODO Make Botany ECS and give it a proper API. I removed the limited access of this class because it's egregious how many systems needed access to it due to a lack of an actual API.
+/// <remarks>
+/// SeedData is no longer restricted because the number of friends is absolutely unreasonable.
+/// This entire data definition is unreasonable. I felt genuine fear looking at this, this is horrific. Send help.
+/// </remarks>
+// TODO: Hit Botany with hammers
 [Virtual, DataDefinition]
-[Access(typeof(BotanySystem), typeof(PlantHolderSystem), typeof(SeedExtractorSystem), typeof(PlantHolderComponent), typeof(EntityEffect), typeof(MutationSystem))]
 public partial class SeedData
 {
     #region Tracking
@@ -155,8 +135,8 @@ public partial class SeedData
     /// <summary>
     ///     The entity prototype this seed spawns when it gets harvested.
     /// </summary>
-    [DataField("productPrototypes", customTypeSerializer: typeof(PrototypeIdListSerializer<EntityPrototype>))]
-    public List<string> ProductPrototypes = new();
+    [DataField]
+    public List<EntProtoId> ProductPrototypes = new();
 
     [DataField] public Dictionary<string, SeedChemQuantity> Chemicals = new();
 
@@ -265,8 +245,8 @@ public partial class SeedData
     /// <summary>
     ///     The seed prototypes this seed may mutate into when prompted to.
     /// </summary>
-    [DataField(customTypeSerializer: typeof(PrototypeIdListSerializer<SeedPrototype>))]
-    public List<string> MutationPrototypes = new();
+    [DataField]
+    public List<ProtoId<SeedPrototype>> MutationPrototypes = new();
 
     /// <summary>
     ///  Log impact for when the seed is planted.
@@ -292,8 +272,8 @@ public partial class SeedData
             Mysterious = Mysterious,
 
             PacketPrototype = PacketPrototype,
-            ProductPrototypes = new List<string>(ProductPrototypes),
-            MutationPrototypes = new List<string>(MutationPrototypes),
+            ProductPrototypes = new List<EntProtoId>(ProductPrototypes),
+            MutationPrototypes = new List<ProtoId<SeedPrototype>>(MutationPrototypes),
             Chemicals = new Dictionary<string, SeedChemQuantity>(Chemicals),
             ConsumeGasses = new Dictionary<Gas, float>(ConsumeGasses),
             ExudeGasses = new Dictionary<Gas, float>(ExudeGasses),
@@ -352,8 +332,8 @@ public partial class SeedData
             Mysterious = other.Mysterious,
 
             PacketPrototype = other.PacketPrototype,
-            ProductPrototypes = new List<string>(other.ProductPrototypes),
-            MutationPrototypes = new List<string>(other.MutationPrototypes),
+            ProductPrototypes = new List<EntProtoId>(other.ProductPrototypes),
+            MutationPrototypes = new List<ProtoId<SeedPrototype>>(other.MutationPrototypes),
 
             Chemicals = new Dictionary<string, SeedChemQuantity>(Chemicals),
             ConsumeGasses = new Dictionary<Gas, float>(ConsumeGasses),

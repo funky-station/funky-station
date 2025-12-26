@@ -15,6 +15,7 @@ using Content.Shared._DV.CosmicCult;
 using Content.Shared._DV.CosmicCult.Components;
 using Content.Shared.Effects;
 using Content.Shared.Interaction;
+using Content.Shared.Light.Components;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Physics;
 using Robust.Shared.Audio.Systems;
@@ -73,11 +74,11 @@ public sealed class CosmicGlareSystem : EntitySystem
         {
             var targetEnt = GetEntity(target);
 
-            _flash.Flash(targetEnt, uid, args.Action, (float)uid.Comp.CosmicGlareDuration.TotalMilliseconds, uid.Comp.CosmicGlarePenalty, false, false, uid.Comp.CosmicGlareStun);
+            _flash.Flash(targetEnt, uid, args.Action, TimeSpan.FromMilliseconds(uid.Comp.CosmicGlareDuration.TotalMilliseconds), uid.Comp.CosmicGlarePenalty, false, false, uid.Comp.CosmicGlareStun);
 
             if (HasComp<WeldingHealableComponent>(targetEnt)) //This component is used exclusively by IPCs and borgs, so we use it here to target 'em specifically.
             {
-                _stun.TryParalyze(targetEnt, uid.Comp.CosmicGlareDuration / 2, true);
+                _stun.TryAddParalyzeDuration(targetEnt, uid.Comp.CosmicGlareDuration / 2);
             }
 
             _color.RaiseEffect(Color.CadetBlue, new List<EntityUid>() { targetEnt }, Filter.Pvs(targetEnt, entityManager: EntityManager));

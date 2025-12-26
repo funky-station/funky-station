@@ -6,6 +6,7 @@
 // SPDX-License-Identifier: MIT
 
 using Content.Shared.Actions;
+using Content.Shared.Actions.Components;
 using Content.Shared.Ninja.Systems;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;

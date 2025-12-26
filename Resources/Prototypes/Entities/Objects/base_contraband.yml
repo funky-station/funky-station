@@ -11,6 +11,23 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
+# generic "highly illegal" contraband; Syndicate/magical contraband are already considered highly illegal under Space Law,
+# so this is mostly for stuff that should be equally illegal but doesn't need its own unique contraband tier added
+- type: entity
+  id: BaseHighlyIllegalContraband
+  abstract: true
+  components:
+  - type: Contraband
+    severity: HighlyIllegal
+
+# used by the unique items of xenoborgs (like modules and stuff)
+- type: entity
+  id: BaseXenoborgContraband
+  abstract: true
+  components:
+  - type: Contraband
+    severity: HighlyIllegal
+
 # any type of magical items used by wizards and similiar
 - type: entity
   id: BaseMagicalContraband

@@ -1,14 +1,18 @@
 # SPDX-FileCopyrightText: 2024 Flareguy <78941145+Flareguy@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Froffy025 <scotttaco025@gmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
 # SPDX-FileCopyrightText: 2025 Mora <46364955+TrixxedHeart@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 TrixxedHeart <46364955+TrixxedBit@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
-# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+# SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: marking
   id: TattooVoxHeartLeftArm
   bodyPart: LArm
-  markingCategory: Arms
+  markingCategory: LeftArm
   speciesRestriction: [Vox]
   coloring:
     default:
@@ -22,7 +26,7 @@
 - type: marking
   id: TattooVoxHeartRightArm
   bodyPart: RArm
-  markingCategory: Arms
+  markingCategory: RightArm
   speciesRestriction: [Vox]
   coloring:
     default:
@@ -60,7 +64,7 @@
   sprites:
   - sprite: Mobs/Customization/vox_tattoos.rsi
     state: nightling_s
-    
+
 - type: marking
   id: TattooVoxNightbelt
   bodyPart: Chest
@@ -77,7 +81,7 @@
 
 - type: marking
   id: TattooEyeVoxRight
-  bodyPart: Eyes
+  bodyPart: Face
   markingCategory: Overlay
   speciesRestriction: [Vox]
   coloring:
@@ -91,7 +95,7 @@
 
 - type: marking
   id: TattooEyeVoxLeft
-  bodyPart: Eyes
+  bodyPart: Face
   markingCategory: Overlay
   speciesRestriction: [Vox]
   coloring:
@@ -104,43 +108,43 @@
     state: tattoo_eye_vox_l
 
 - type: marking
-  id: TattooEyeshadowVoxSmall
+  id: TattooFacehadowVoxSmall
   # there are a lot of deliberate limitations with this marking that should be pointed out. some of them may seem overly restrictive on the surface, but most of them are fully intentional.
   # this marking is meant to be supplementary so they are transparent. if you give this 255 alpha it will probably be really distracting looking and make the face very difficult to read
   # the reason these are also not recolorable is because allowing for the full RGB range makes these look not very good (especially considering they are stackable, and ESPECIALLY considering vox can stack 3 at once.)
   # this is not a very big issue on humans, but is much more pronounced on vox & other nonhuman species, where the skin being more colorful can make for some truly dreadful meshing with the sprite thats definitely not desired.
-  # some of these limitations could possibly be removed with better control over how the marking can be customized - possibly removing stacking, allowing recoloring & clamping higher-end colors for the eyeshadow, etc.
-  bodyPart: Eyes
+  # some of these limitations could possibly be removed with better control over how the marking can be customized - possibly removing stacking, allowing recoloring & clamping higher-end colors for the Facehadow, etc.
+  bodyPart: Face
   markingCategory: Overlay
   speciesRestriction: [Vox]
   forcedColoring: true
   sprites:
   - sprite: Mobs/Customization/vox_tattoos.rsi
-    state: eyeshadow_small
+    state: Facehadow_small
 
 - type: marking
-  id: TattooEyeshadowVoxMedium
-  bodyPart: Eyes
+  id: TattooFacehadowVoxMedium
+  bodyPart: Face
   markingCategory: Overlay
   speciesRestriction: [Vox]
   forcedColoring: true
   sprites:
   - sprite: Mobs/Customization/vox_tattoos.rsi
-    state: eyeshadow_medium
+    state: Facehadow_medium
 
 - type: marking
-  id: TattooEyeshadowVoxLarge
-  bodyPart: Eyes
+  id: TattooFacehadowVoxLarge
+  bodyPart: Face
   markingCategory: Overlay
   speciesRestriction: [Vox]
   forcedColoring: true
   sprites:
   - sprite: Mobs/Customization/vox_tattoos.rsi
-    state: eyeshadow_large
-    
+    state: Facehadow_large
+
 - type: marking
   id: VoxTattooEyeliner
-  bodyPart: Eyes
+  bodyPart: Face
   markingCategory: Overlay
   speciesRestriction: [Vox]
   sprites:

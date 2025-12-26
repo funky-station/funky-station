@@ -46,7 +46,7 @@
 
 - type: entity
   id: Window
-  parent: BaseStructure
+  parent: [BaseStructure, BaseDeltaPressureGlass]
   name: window
   description: Don't smudge up the glass down there.
   placement:
@@ -170,7 +170,7 @@
 
 - type: entity
   id: WindowDirectional
-  parent: BaseStructure
+  parent: [BaseStructure, BaseDeltaPressureGlassQuarter]
   name: directional window
   description: Don't smudge up the glass down there.
   placement:

@@ -5,6 +5,7 @@
 
 using Content.Server._Goobstation.Explosion.Components;
 using Content.Server.Explosion.EntitySystems;
+using Content.Shared.Trigger;
 
 namespace Content.Server._Goobstation.Explosion.EntitySystems;
 

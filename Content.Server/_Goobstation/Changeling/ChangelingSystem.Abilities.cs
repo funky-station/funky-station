@@ -1,99 +1,128 @@
-// SPDX-FileCopyrightText: 2024 John Space <bigdumb421@gmail.com>
-// SPDX-FileCopyrightText: 2024 PJBot <pieterjan.briers+bot@gmail.com>
-// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
-// SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2024 Armok <155400926+ARMOKS@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Fishbait <Fishbait@git.ml>
+// SPDX-FileCopyrightText: 2024 TGRCDev <tgrc@tgrc.dev>
+// SPDX-FileCopyrightText: 2024 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
 // SPDX-FileCopyrightText: 2024 yglop <95057024+yglop@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Drywink <43855731+Drywink@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Drywink <hugogrethen@gmail.com>
-// SPDX-FileCopyrightText: 2025 Eris <eris@erisws.com>
-// SPDX-FileCopyrightText: 2025 Eris <erisfiregamer1@gmail.com>
-// SPDX-FileCopyrightText: 2025 Skye <57879983+Rainbeon@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
-// SPDX-FileCopyrightText: 2025 TheSecondLord <88201625+TheSecondLord@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 V <97265903+formlessnameless@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 ferynn <117872973+ferynn@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 ferynn <witchy.girl.me@gmail.com>
-// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2025 August Eymann <august.eymann@gmail.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
+// SPDX-FileCopyrightText: 2025 Marcus F <199992874+thebiggestbruh@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Marcus F <marcus2008stoke@gmail.com>
+// SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
+// SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2025 Rinary <72972221+Rinary1@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+// SPDX-FileCopyrightText: 2025 Spatison <137375981+Spatison@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
+// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+// SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
+// SPDX-FileCopyrightText: 2025 the biggest bruh <199992874+thebiggestbruh@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 thebiggestbruh <199992874+thebiggestbruh@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 thebiggestbruh <marcus2008stoke@gmail.com>
 //
-// SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+// SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
-using Content.Shared.Changeling;
+using Content.Goobstation.Common.Changeling;
+using Content.Goobstation.Server.Changeling.Objectives.Components;
+using Content.Goobstation.Shared.Changeling.Actions;
+using Content.Goobstation.Shared.Changeling.Components;
+using Content.Server.Light.Components;
+using Content.Server.Nutrition.Components;
+using Content.Shared._Goobstation.Weapons.AmmoSelector;
+using Content.Shared._Shitmed.Targeting; // Shitmed Change
 using Content.Shared.Chemistry.Components;
+using Content.Shared.Chemistry.Components.SolutionManager;
+using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Cuffs.Components;
+using Content.Shared.Damage;
+using Content.Shared.Damage.Components;
+using Content.Shared.Damage.Prototypes;
 using Content.Shared.DoAfter;
-using Content.Shared.FixedPoint;
+using Content.Shared.Ensnaring;
+using Content.Shared.Ensnaring.Components;
+using Content.Shared.Eye.Blinding.Components;
+using Content.Shared.Humanoid;
+using Content.Shared.Hands.Components;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Mobs;
-using Content.Shared.Store.Components;
-using Content.Shared.Popups;
-using Content.Shared.Damage;
-using Robust.Shared.Prototypes;
-using Content.Shared.Damage.Prototypes;
-using Content.Server.Objectives.Components;
-using Content.Server.Light.Components;
-using Content.Shared.Eye.Blinding.Systems;
-using Content.Shared.Eye.Blinding.Components;
 using Content.Shared.Movement.Pulling.Components;
+using Content.Shared.Popups;
+using Content.Shared.Rejuvenate;
 using Content.Shared.Stealth.Components;
-using Content.Shared.Damage.Components;
-using Content.Server.Radio.Components;
-using Content.Shared._Shitmed.Targeting;
-using Content.Shared.Random.Helpers;
-using Content.Shared._EE.Overlays.Switchable;
-using Content.Shared.Atmos.Rotting;
-using Content.Shared.Species.Arachnid;
-using Robust.Shared.Containers;
+using Content.Shared.Store.Components;
+using Content.Shared.StatusEffect;
+using Content.Shared.Traits.Assorted;
+using Robust.Shared.Player;
+using Robust.Shared.Prototypes;
+using Content.Shared.Actions.Components;
+using Content.Goobstation.Shared.Devour.Events;
+using Content.Goobstation.Shared.SpecialPassives.BoostedImmunity.Components;
+using Content.Goobstation.Shared.SpecialPassives.Fleshmend.Components;
+using Content.Goobstation.Shared.SpecialPassives.SuperAdrenaline.Components;
+using Content.Server._Goobstation.Changeling.Objectives.Components;
+using Content.Shared._Goobstation.Changeling.Components;
+using Content.Shared.FixedPoint;
+using Content.Shared.Light.Components;
+using Content.Shared.Nutrition.Components;
 
-namespace Content.Server.Changeling;
+namespace Content.Goobstation.Server.Changeling;
 
 public sealed partial class ChangelingSystem
 {
+    #region Dependencies
+    [Dependency] private readonly StatusEffectsSystem _statusEffects = default!;
+    #endregion
+
     public void SubscribeAbilities()
     {
-        SubscribeLocalEvent<ChangelingComponent, OpenEvolutionMenuEvent>(OnOpenEvolutionMenu);
-        SubscribeLocalEvent<ChangelingComponent, AbsorbDNAEvent>(OnAbsorb);
-        SubscribeLocalEvent<ChangelingComponent, AbsorbDNADoAfterEvent>(OnAbsorbDoAfter);
-        SubscribeLocalEvent<ChangelingComponent, ChangelingInfectTargetEvent>(OnInfect);
-        SubscribeLocalEvent<ChangelingComponent, ChangelingInfectTargetDoAfterEvent>(OnInfectDoAfter);
-        SubscribeLocalEvent<ChangelingComponent, StingExtractDNAEvent>(OnStingExtractDNA);
-        SubscribeLocalEvent<ChangelingComponent, ChangelingTransformCycleEvent>(OnTransformCycle);
-        SubscribeLocalEvent<ChangelingComponent, ChangelingTransformEvent>(OnTransform);
-        SubscribeLocalEvent<ChangelingComponent, EnterStasisEvent>(OnEnterStasis);
-        SubscribeLocalEvent<ChangelingComponent, ExitStasisEvent>(OnExitStasis);
+        SubscribeLocalEvent<ChangelingIdentityComponent, OpenEvolutionMenuEvent>(OnOpenEvolutionMenu);
+        SubscribeLocalEvent<ChangelingIdentityComponent, AbsorbDNAEvent>(OnAbsorb);
+        SubscribeLocalEvent<ChangelingIdentityComponent, AbsorbDNADoAfterEvent>(OnAbsorbDoAfter);
+        SubscribeLocalEvent<ChangelingIdentityComponent, StingExtractDNAEvent>(OnStingExtractDNA);
+        SubscribeLocalEvent<ChangelingIdentityComponent, ChangelingTransformCycleEvent>(OnTransformCycle);
+        SubscribeLocalEvent<ChangelingIdentityComponent, ChangelingTransformEvent>(OnTransform);
+        SubscribeLocalEvent<ChangelingIdentityComponent, EnterStasisEvent>(OnEnterStasis);
+        SubscribeLocalEvent<ChangelingIdentityComponent, ExitStasisEvent>(OnExitStasis);
 
-        SubscribeLocalEvent<ChangelingComponent, ToggleArmbladeEvent>(OnToggleArmblade);
-        SubscribeLocalEvent<ChangelingComponent, CreateBoneShardEvent>(OnCreateBoneShard);
-        SubscribeLocalEvent<ChangelingComponent, ToggleChitinousArmorEvent>(OnToggleArmor);
-        SubscribeLocalEvent<ChangelingComponent, ToggleOrganicShieldEvent>(OnToggleShield);
-        SubscribeLocalEvent<ChangelingComponent, ShriekDissonantEvent>(OnShriekDissonant);
-        SubscribeLocalEvent<ChangelingComponent, ShriekResonantEvent>(OnShriekResonant);
-        SubscribeLocalEvent<ChangelingComponent, ToggleStrainedMusclesEvent>(OnToggleStrainedMuscles);
+        SubscribeLocalEvent<ChangelingIdentityComponent, ToggleArmbladeEvent>(OnToggleArmblade);
+        SubscribeLocalEvent<ChangelingIdentityComponent, ToggleArmHammerEvent>(OnToggleHammer);
+        SubscribeLocalEvent<ChangelingIdentityComponent, ToggleArmClawEvent>(OnToggleClaw);
+        SubscribeLocalEvent<ChangelingIdentityComponent, ToggleDartGunEvent>(OnToggleDartGun);
+        SubscribeLocalEvent<ChangelingIdentityComponent, CreateBoneShardEvent>(OnCreateBoneShard);
+        SubscribeLocalEvent<ChangelingIdentityComponent, ToggleChitinousArmorEvent>(OnToggleArmor);
+        SubscribeLocalEvent<ChangelingIdentityComponent, ShriekDissonantEvent>(OnShriekDissonant);
+        SubscribeLocalEvent<ChangelingIdentityComponent, ShriekResonantEvent>(OnShriekResonant);
+        SubscribeLocalEvent<ChangelingIdentityComponent, ToggleStrainedMusclesEvent>(OnToggleStrainedMuscles);
 
-        SubscribeLocalEvent<ChangelingComponent, StingBlindEvent>(OnStingBlind);
-        SubscribeLocalEvent<ChangelingComponent, StingCryoEvent>(OnStingCryo);
-        SubscribeLocalEvent<ChangelingComponent, StingLethargicEvent>(OnStingLethargic);
-        SubscribeLocalEvent<ChangelingComponent, StingMuteEvent>(OnStingMute);
-        SubscribeLocalEvent<ChangelingComponent, StingTransformEvent>(OnStingTransform);
-        SubscribeLocalEvent<ChangelingComponent, StingFakeArmbladeEvent>(OnStingFakeArmblade);
-        SubscribeLocalEvent<ChangelingComponent, StingLayEggsEvent>(OnLayEgg);
+        SubscribeLocalEvent<ChangelingIdentityComponent, StingReagentEvent>(OnStingReagent);
+        SubscribeLocalEvent<ChangelingIdentityComponent, StingTransformEvent>(OnStingTransform);
+        SubscribeLocalEvent<ChangelingIdentityComponent, StingFakeArmbladeEvent>(OnStingFakeArmblade);
+        SubscribeLocalEvent<ChangelingIdentityComponent, StingLayEggsEvent>(OnLayEgg);
 
-        SubscribeLocalEvent<ChangelingComponent, ActionAnatomicPanaceaEvent>(OnAnatomicPanacea);
-        SubscribeLocalEvent<ChangelingComponent, ActionBiodegradeEvent>(OnBiodegrade);
-        SubscribeLocalEvent<ChangelingComponent, ActionChameleonSkinEvent>(OnChameleonSkin);
-        SubscribeLocalEvent<ChangelingComponent, ActionEphedrineOverdoseEvent>(OnEphedrineOverdose);
-        SubscribeLocalEvent<ChangelingComponent, ActionFleshmendEvent>(OnHealUltraSwag);
-        SubscribeLocalEvent<ChangelingComponent, ActionLastResortEvent>(OnLastResort);
-        SubscribeLocalEvent<ChangelingComponent, ActionLesserFormEvent>(OnLesserForm);
-        SubscribeLocalEvent<ChangelingComponent, ActionSpacesuitEvent>(OnSpacesuit);
-        SubscribeLocalEvent<ChangelingComponent, ActionHivemindAccessEvent>(OnHivemindAccess);
+        SubscribeLocalEvent<ChangelingIdentityComponent, ActionAnatomicPanaceaEvent>(OnAnatomicPanacea);
+        SubscribeLocalEvent<ChangelingIdentityComponent, ActionBiodegradeEvent>(OnBiodegrade);
+        SubscribeLocalEvent<ChangelingIdentityComponent, ActionChameleonSkinEvent>(OnChameleonSkin);
+        SubscribeLocalEvent<ChangelingIdentityComponent, ActionAdrenalineReservesEvent>(OnAdrenalineReserves);
+        SubscribeLocalEvent<ChangelingIdentityComponent, ActionFleshmendEvent>(OnHealUltraSwag);
+        SubscribeLocalEvent<ChangelingIdentityComponent, ActionLastResortEvent>(OnLastResort);
+        SubscribeLocalEvent<ChangelingIdentityComponent, ActionLesserFormEvent>(OnLesserForm);
+        SubscribeLocalEvent<ChangelingIdentityComponent, AbsorbBiomatterEvent>(OnAbsorbBiomatter);
+        SubscribeLocalEvent<ChangelingIdentityComponent, AbsorbBiomatterDoAfterEvent>(OnAbsorbBiomatterDoAfter);
     }
 
     #region Basic Abilities
 
-    private void OnOpenEvolutionMenu(EntityUid uid, ChangelingComponent comp, ref OpenEvolutionMenuEvent args)
+    private void OnOpenEvolutionMenu(EntityUid uid, ChangelingIdentityComponent comp, ref OpenEvolutionMenuEvent args)
     {
         if (!TryComp<StoreComponent>(uid, out var store))
             return;
@@ -101,23 +130,24 @@ public sealed partial class ChangelingSystem
         _store.ToggleUi(uid, uid, store);
     }
 
-    private void OnAbsorb(EntityUid uid, ChangelingComponent comp, ref AbsorbDNAEvent args)
+    private void OnAbsorb(EntityUid uid, ChangelingIdentityComponent comp, ref AbsorbDNAEvent args)
     {
         var target = args.Target;
 
-        if (!IsIncapacitated(target))
-        {
-            _popup.PopupEntity(Loc.GetString("changeling-absorb-fail-incapacitated"), uid, uid);
-            return;
-        }
         if (HasComp<AbsorbedComponent>(target))
         {
             _popup.PopupEntity(Loc.GetString("changeling-absorb-fail-absorbed"), uid, uid);
             return;
         }
-        if (!HasComp<AbsorbableComponent>(target))
+        if (!HasComp<Shared.Changeling.Components.AbsorbableComponent>(target))
         {
             _popup.PopupEntity(Loc.GetString("changeling-absorb-fail-unabsorbable"), uid, uid);
+            return;
+        }
+
+        if (CheckFireStatus(target)) // checks if the target is on fire
+        {
+            _popup.PopupEntity(Loc.GetString("changeling-absorb-fail-onfire"), uid, uid);
             return;
         }
 
@@ -134,215 +164,201 @@ public sealed partial class ChangelingSystem
             BreakOnHandChange = false,
             BreakOnMove = true,
             BreakOnWeightlessMove = true,
-            AttemptFrequency = AttemptFrequency.StartAndEnd
+            AttemptFrequency = AttemptFrequency.StartAndEnd,
         };
         _doAfter.TryStartDoAfter(dargs);
     }
+    public ProtoId<DamageGroupPrototype> AbsorbedDamageGroup = "Genetic";
+    private void OnAbsorbDoAfter(EntityUid uid, ChangelingIdentityComponent comp, ref AbsorbDNADoAfterEvent args)
+    {
+        if (args.Args.Target == null)
+            return;
 
-    private void OnInfect(EntityUid uid, ChangelingComponent comp, ref ChangelingInfectTargetEvent args)
+        var target = args.Args.Target.Value;
+
+        if (args.Cancelled || HasComp<AbsorbedComponent>(target) || (!IsIncapacitated(target) ))
+            return;
+
+        PlayMeatySound(args.User, comp);
+
+        var dmg = new DamageSpecifier(_proto.Index(AbsorbedDamageGroup), 200);
+        _damage.TryChangeDamage(target, dmg, true, false, targetPart: TargetBodyPart.All); // Shitmed Change
+        _blood.ChangeBloodReagent(target, "FerrochromicAcid");
+        _blood.SpillAllSolutions(target);
+
+        EnsureComp<AbsorbedComponent>(target);
+        EnsureComp<UnrevivableComponent>(target);
+
+        var popup = string.Empty;
+        var bonusChemicals = 0f;
+        var bonusEvolutionPoints = 0f;
+        var bonusChangelingAbsorbs = 0;
+
+        var biomassMaxIncrease = 0f;
+        var biomassValid = false;
+
+        if (TryComp<ChangelingIdentityComponent>(target, out var targetComp))
+        {
+            popup = Loc.GetString("changeling-absorb-end-self-ling");
+            bonusChemicals += targetComp.MaxChemicals / 2;
+            bonusEvolutionPoints += targetComp.TotalEvolutionPoints / 2;
+            bonusChangelingAbsorbs += targetComp.TotalChangelingsAbsorbed + 1;
+
+            biomassValid = true;
+
+            if (TryComp<Shared.Changeling.Components.ChangelingBiomassComponent>(uid, out var userBiomass))
+                biomassMaxIncrease = userBiomass.MaxBiomass / 2;
+
+            if (!TryComp<HumanoidAppearanceComponent>(target, out var targetForm)
+                || targetForm.Species == "Monkey") // if they are a headslug or in monkey form
+                popup = Loc.GetString("changeling-absorb-end-self-ling-incompatible");
+        }
+        else if (!HasComp<Shared.Changeling.Components.PartialAbsorbableComponent>(target))
+        {
+            popup = Loc.GetString("changeling-absorb-end-self");
+            bonusChemicals += 10;
+            bonusEvolutionPoints += 2;
+
+            biomassValid = true;
+        }
+        else
+            popup = Loc.GetString("changeling-absorb-end-partial");
+
+        comp.TotalEvolutionPoints += bonusEvolutionPoints;
+
+        var objBool = !HasComp<Shared.Changeling.Components.PartialAbsorbableComponent>(target);
+        if (objBool)
+        {
+            comp.TotalAbsorbedEntities++;
+            comp.TotalChangelingsAbsorbed += bonusChangelingAbsorbs;
+        }
+
+        TryStealDNA(uid, target, comp, objBool);
+
+        _popup.PopupEntity(popup, args.User, args.User);
+        comp.MaxChemicals += bonusChemicals;
+
+        if (TryComp<StoreComponent>(args.User, out var store))
+        {
+            _store.TryAddCurrency(new Dictionary<string, FixedPoint2> { { "EvolutionPoint", bonusEvolutionPoints } }, args.User, store);
+            _store.UpdateUserInterface(args.User, args.User, store);
+        }
+
+        if (_mind.TryGetMind(uid, out var mindId, out var mind))
+        {
+            if (_mind.TryGetObjectiveComp<AbsorbConditionComponent>(mindId, out var absorbObj, mind)
+                && !HasComp<Shared.Changeling.Components.PartialAbsorbableComponent>(target))
+                absorbObj.Absorbed += 1;
+
+            if (_mind.TryGetObjectiveComp<AbsorbChangelingConditionComponent>(mindId, out var lingAbsorbObj, mind)
+                && TryComp<ChangelingIdentityComponent>(target, out var absorbed))
+                lingAbsorbObj.LingAbsorbed += absorbed.TotalChangelingsAbsorbed + 1;
+        }
+
+        UpdateChemicals(uid, comp, comp.MaxChemicals); // refill chems to max
+
+        // modify biomass if the changeling uses it
+        if (TryComp<Shared.Changeling.Components.ChangelingBiomassComponent>(uid, out var biomass)
+            && biomassValid)
+        {
+            biomass.MaxBiomass += biomassMaxIncrease;
+            biomass.Biomass = biomass.MaxBiomass;
+
+            Dirty(uid, biomass);
+        }
+
+    }
+
+    public List<ProtoId<ReagentPrototype>> BiomassAbsorbedChemicals = new() { "Nutriment", "Protein", "UncookedAnimalProteins", "Fat" }; // fat so absorbing raw meat good
+    private void OnAbsorbBiomatter(EntityUid uid, ChangelingIdentityComponent comp, ref AbsorbBiomatterEvent args)
     {
         var target = args.Target;
-
-        if (!IsIncapacitated(target))
-        {
-            _popup.PopupEntity(Loc.GetString("changeling-convert-fail-incapacitated"), uid, uid);
-            return;
-        }
-        if (HasComp<ChangelingInfectionComponent>(target))
-        {
-            _popup.PopupEntity(Loc.GetString("changeling-convert-fail-already"), uid, uid);
-            return;
-        }
-        if (!HasComp<AbsorbableComponent>(target))
-        {
-            _popup.PopupEntity(Loc.GetString("changeling-convert-fail-incompatible"), uid, uid);
-            return;
-        }
 
         if (!TryUseAbility(uid, comp, args))
             return;
 
-        var popupOthers = Loc.GetString("changeling-convert-start", ("user", Identity.Entity(uid, EntityManager)), ("target", Identity.Entity(target, EntityManager)));
-        _popup.PopupEntity(popupOthers, uid, PopupType.LargeCaution);
+        if (!TryComp<FoodComponent>(target, out var food))
+            return;
+
+        if (!TryComp<SolutionContainerManagerComponent>(target, out var solMan))
+            return;
+
+        var totalFood = FixedPoint2.New(0);
+        foreach (var (_, sol) in _solution.EnumerateSolutions((target, solMan)))
+            foreach (var proto in BiomassAbsorbedChemicals)
+                totalFood += sol.Comp.Solution.GetTotalPrototypeQuantity(proto);
+
+        if (food.RequiresSpecialDigestion || totalFood == 0) // no eating winter coats or food that won't give you anything
+        {
+            var popup = Loc.GetString("changeling-absorbbiomatter-bad-food");
+            _popup.PopupEntity(popup, uid, uid);
+            return;
+        }
+
+        var popupOthers = Loc.GetString("changeling-absorbbiomatter-start", ("user", Identity.Entity(uid, EntityManager)));
+        _popup.PopupEntity(popupOthers, uid, PopupType.MediumCaution);
         PlayMeatySound(uid, comp);
-        var dargs = new DoAfterArgs(EntityManager, uid, TimeSpan.FromSeconds(30), new ChangelingInfectTargetDoAfterEvent(), uid, target)
+        // so you can't just instantly mukbang a bag of food mid-combat, 2.7s for raw meat
+        var dargs = new DoAfterArgs(EntityManager, uid, TimeSpan.FromSeconds(totalFood.Float() * 0.15f), new AbsorbBiomatterDoAfterEvent(), uid, target)
         {
             DistanceThreshold = 1.5f,
             BreakOnDamage = true,
             BreakOnHandChange = false,
             BreakOnMove = true,
             BreakOnWeightlessMove = true,
+            DuplicateCondition = DuplicateConditions.SameEvent,
             AttemptFrequency = AttemptFrequency.StartAndEnd
         };
         _doAfter.TryStartDoAfter(dargs);
     }
-    public ProtoId<DamageGroupPrototype> AbsorbedDamageGroup = "Genetic";
-
-    private void OnInfectDoAfter(EntityUid uid, ChangelingComponent comp, ref ChangelingInfectTargetDoAfterEvent args)
+    private void OnAbsorbBiomatterDoAfter(EntityUid uid, ChangelingIdentityComponent comp, ref AbsorbBiomatterDoAfterEvent args)
     {
         if (args.Args.Target == null)
             return;
 
         var target = args.Args.Target.Value;
 
-        if (args.Cancelled || !IsIncapacitated(target) || HasComp<ChangelingInfectionComponent>(target))
+        if (args.Cancelled)
             return;
 
-        if (TryComp<ChangelingComponent>(target, out var targetComp))
-        {
-            var popupOther = Loc.GetString("changeling-convert-end-immune", ("target", Identity.Entity(target, EntityManager)));
-            _popup.PopupEntity(popupOther, args.User, args.User, PopupType.LargeCaution);
-            return;
-        }
-
-        PlayMeatySound(args.User, comp);
-
-        EnsureComp<ChangelingInfectionComponent>(target);
-
-        var popup = Loc.GetString("changeling-convert-end", ("target", Identity.Entity(target, EntityManager)));
-        _popup.PopupEntity(popup, args.User, args.User, PopupType.Medium);
-
-        var popupTwo = Loc.GetString("changeling-convert-end-warning", ("user", Identity.Entity(uid, EntityManager)));
-        _popup.PopupEntity(popupTwo, target, target, PopupType.LargeCaution);
-    }
-    private void OnAbsorbDoAfter(EntityUid uid, ChangelingComponent comp, ref AbsorbDNADoAfterEvent args)
-    {
-        if (args.Args.Target == null)
+        if (!TryComp<SolutionContainerManagerComponent>(target, out var solMan))
             return;
 
-        var target = args.Args.Target.Value;
-
-        if (args.Cancelled || !IsIncapacitated(target) || HasComp<AbsorbedComponent>(target))
-            return;
-
-        PlayMeatySound(args.User, comp);
-
-        UpdateBiomass(uid, comp, comp.MaxBiomass - comp.TotalAbsorbedEntities);
-
-        // funky - updated gaming
-        //var dmg = new DamageSpecifier(_proto.Index(AbsorbedDamageGroup), 200);
-        //_damage.TryChangeDamage(target, dmg, false, false);
-        //_blood.ChangeBloodReagent(target, "FerrochromicAcid");
-        //_blood.SpillAllSolutions(target);
-
-        EnsureComp<AbsorbedComponent>(target);
-
-        var popup = Loc.GetString("changeling-absorb-end-self-ling");
-        var bonusChemicals = 0f;
-        var bonusEvolutionPoints = 0f;
-        var isTargetChangeling = false;
-        var isTargetRotting = false;
-        if (TryComp<ChangelingComponent>(target, out var targetComp))
+        var totalFood = FixedPoint2.New(0);
+        foreach (var (name, sol) in _solution.EnumerateSolutions((target, solMan)))
         {
-            bonusChemicals += targetComp.MaxChemicals / 2;
-            bonusEvolutionPoints += 10;
-            comp.MaxBiomass += targetComp.MaxBiomass / 2;
-
-            isTargetChangeling = true;
-
-            TryStealDNA(uid, target, comp, true);
-            comp.TotalAbsorbedEntities++;
-        }
-        else if (TryComp<RottingComponent>(target,out var rotComp))
-        {
-            popup = Loc.GetString("changeling-absorb-rotten");
-            isTargetRotting = true;
-        }
-        else
-        {
-            popup = Loc.GetString("changeling-absorb-end-self");
-            bonusChemicals += 10;
-            bonusEvolutionPoints += 2;
-
-        }
-        if (!isTargetRotting)
-        {
-            TryStealDNA(uid, target, comp, true);
-            comp.TotalAbsorbedEntities++;
-
-        }
-
-        _popup.PopupEntity(popup, args.User, args.User);
-        comp.MaxChemicals += bonusChemicals;
-
-        if (TryComp<StoreComponent>(args.User, out var store) && !isTargetRotting)
-        {
-            _store.TryAddCurrency(new Dictionary<string, FixedPoint2> { { "EvolutionPoint", bonusEvolutionPoints } }, args.User, store);
-            _store.UpdateUserInterface(args.User, args.User, store);
-        }
-
-        if (!isTargetRotting && _mind.TryGetMind(uid, out var mindId, out var mind))
-            if (_mind.TryGetObjectiveComp<AbsorbConditionComponent>(mindId, out var objective, mind))
-                objective.Absorbed += 1;
-
-        if (isTargetChangeling) return;
-
-        if (!TryComp<TargetingComponent>(target, out var targetingComponent))
-            return; // funky station - if you get here somethings really wrong
-
-        var bodyPart = _bodySystem.GetRandomBodyPart(target, targetingComponent, _bodyPartBlacklist);
-        //chance to grab a body part - Funky
-        var bodyPartPercentChance = .5;
-        if (bodyPart != null && bodyPartPercentChance > RandomNumberGenerator.NextDouble())
-        {
-            if (_proto.TryIndex<DamageTypePrototype>("Blunt", out var bluntDamage))
-                _damage.TryChangeDamage(target, new DamageSpecifier(bluntDamage, 200), ignoreResistances: true, targetPart: bodyPart);
-        }
-
-        var numOrgans = 1;
-        var organs = GetRandomOrgans(numOrgans);
-        var bodyOrgans = _bodySystem.GetBodyOrgans(target);
-
-        var valueTuples = bodyOrgans.ToList();
-
-        foreach (var organ in valueTuples)
-        {
-            if (organs.Contains(organ.Component.SlotId))
+            var solution = sol.Comp.Solution;
+            foreach (var proto in BiomassAbsorbedChemicals)
             {
-                _bodySystem.RemoveOrgan(organ.Id);
-                Del(organ.Id);
+                var quant = solution.GetTotalPrototypeQuantity(proto);
+                totalFood += quant;
+                solution.RemoveReagent(proto, quant);
             }
+            _puddle.TrySpillAt(target, solution, out var _);
         }
 
-        //Add cellular damage to target
-        if (_proto.TryIndex<DamageTypePrototype>("Cellular", out var cellularDamage))
-        {
-            _damage.TryChangeDamage(target, new DamageSpecifier(cellularDamage, 50));
-        }
+        UpdateChemicals(uid, comp, totalFood.Float() * 2); // 36 for raw meat
+
+        QueueDel(target); // eaten
     }
 
-    private List<string> GetRandomOrgans(int numOrgans)
-    {
-        var organWhitelist = new Dictionary<string, float>(_organWhitelist);
-        List<string> organs = [];
-
-        for (var i = 0; i < numOrgans; i++)
-        {
-            _rand.TryPickAndTake(organWhitelist, out var organ);
-
-            if (organ != null)
-                organs.Add(organ);
-        }
-
-        return organs;
-    }
-
-    private void OnStingExtractDNA(EntityUid uid, ChangelingComponent comp, ref StingExtractDNAEvent args)
+    private void OnStingExtractDNA(EntityUid uid, ChangelingIdentityComponent comp, ref StingExtractDNAEvent args)
     {
         if (!TrySting(uid, comp, args, true))
             return;
 
         var target = args.Target;
-        if (!TryStealDNA(uid, target, comp, true))
+        var objBool = !HasComp<Shared.Changeling.Components.PartialAbsorbableComponent>(target);
+
+        if (!TryStealDNA(uid, target, comp, objBool))
         {
-            _popup.PopupEntity(Loc.GetString("changeling-sting-extract-fail"), uid, uid);
             // royal cashback
             comp.Chemicals += Comp<ChangelingActionComponent>(args.Action).ChemicalCost;
         }
         else _popup.PopupEntity(Loc.GetString("changeling-sting", ("target", Identity.Entity(target, EntityManager))), uid, uid);
     }
 
-    private void OnTransformCycle(EntityUid uid, ChangelingComponent comp, ref ChangelingTransformCycleEvent args)
+    private void OnTransformCycle(EntityUid uid, ChangelingIdentityComponent comp, ref ChangelingTransformCycleEvent args)
     {
         comp.AbsorbedDNAIndex += 1;
         if (comp.AbsorbedDNAIndex >= comp.MaxAbsorbedDNA || comp.AbsorbedDNAIndex >= comp.AbsorbedDNA.Count)
@@ -358,7 +374,7 @@ public sealed partial class ChangelingSystem
         comp.SelectedForm = selected;
         _popup.PopupEntity(Loc.GetString("changeling-transform-cycle", ("target", selected.Name)), uid, uid);
     }
-    private void OnTransform(EntityUid uid, ChangelingComponent comp, ref ChangelingTransformEvent args)
+    private void OnTransform(EntityUid uid, ChangelingIdentityComponent comp, ref ChangelingTransformEvent args)
     {
         if (!TryUseAbility(uid, comp, args))
             return;
@@ -367,7 +383,7 @@ public sealed partial class ChangelingSystem
             comp.Chemicals += Comp<ChangelingActionComponent>(args.Action).ChemicalCost;
     }
 
-    private void OnEnterStasis(EntityUid uid, ChangelingComponent comp, ref EnterStasisEvent args)
+    private void OnEnterStasis(EntityUid uid, ChangelingIdentityComponent comp, ref EnterStasisEvent args)
     {
         if (comp.IsInStasis || HasComp<AbsorbedComponent>(uid))
         {
@@ -375,28 +391,42 @@ public sealed partial class ChangelingSystem
             return;
         }
 
-        if (!TryUseAbility(uid, comp, args))
+        if (!TryUseAbility(uid, comp, args, fireAffected: false))
             return;
-
-        comp.Chemicals = 0f;
 
         if (_mobState.IsAlive(uid))
         {
             // fake our death
             var othersMessage = Loc.GetString("suicide-command-default-text-others", ("name", uid));
-            _popup.PopupEntity(othersMessage, uid, Robust.Shared.Player.Filter.PvsExcept(uid), true);
-
-            var selfMessage = Loc.GetString("changeling-stasis-enter");
-            _popup.PopupEntity(selfMessage, uid, uid);
+            _popup.PopupEntity(othersMessage, uid, Filter.PvsExcept(uid), true);
         }
+
+        var currentTime = comp.StasisTime;
+        var lowestTime = comp.DefaultStasisTime;
+        var highestTime = comp.CatastrophicStasisTime;
+
+        // tell the changeling how bad they screwed up
+        if (currentTime == lowestTime)
+            _popup.PopupEntity(Loc.GetString("changeling-stasis-enter"), uid, uid);
+        else if (currentTime > lowestTime && currentTime < highestTime)
+            _popup.PopupEntity(Loc.GetString("changeling-stasis-enter-damaged"), uid, uid);
+        else
+            _popup.PopupEntity(Loc.GetString("changeling-stasis-enter-catastrophic"), uid, uid);
 
         if (!_mobState.IsDead(uid))
             _mobState.ChangeMobState(uid, MobState.Dead);
 
         comp.IsInStasis = true;
     }
-    private void OnExitStasis(EntityUid uid, ChangelingComponent comp, ref ExitStasisEvent args)
+    private void OnExitStasis(EntityUid uid, ChangelingIdentityComponent comp, ref ExitStasisEvent args)
     {
+        // check if we're allowed to revive
+        var reviveEv = new BeforeSelfRevivalEvent(uid, "self-revive-fail");
+        RaiseLocalEvent(uid, ref reviveEv);
+
+        if (reviveEv.Cancelled)
+            return;
+
         if (!comp.IsInStasis)
         {
             _popup.PopupEntity(Loc.GetString("changeling-stasis-exit-fail"), uid, uid);
@@ -407,39 +437,115 @@ public sealed partial class ChangelingSystem
             _popup.PopupEntity(Loc.GetString("changeling-stasis-exit-fail-dead"), uid, uid);
             return;
         }
+        if (comp.StasisTime > 0)
+        {
+            _popup.PopupEntity(Loc.GetString("changeling-stasis-exit-fail-time"), uid, uid);
+            return;
+        }
 
-        if (!TryUseAbility(uid, comp, args))
+        if (!TryUseAbility(uid, comp, args, fireAffected: false))
             return;
 
         if (!TryComp<DamageableComponent>(uid, out var damageable))
             return;
 
         // heal of everything
-        _damage.SetAllDamage(uid, damageable, 0);
-        _mobState.ChangeMobState(uid, MobState.Alive);
-        _blood.TryModifyBloodLevel(uid, 1000);
-        _blood.TryModifyBleedAmount(uid, -1000);
+        var stasisEv = new RejuvenateEvent();
+        RaiseLocalEvent(uid, stasisEv);
 
         _popup.PopupEntity(Loc.GetString("changeling-stasis-exit"), uid, uid);
 
-        comp.IsInStasis = false;
+        // stuns or knocks down anybody grabbing you
+        if (_pull.IsPulled(uid))
+        {
+            var puller = Comp<PullableComponent>(uid).Puller;
+            if (puller != null)
+            {
+                _stun.TryKnockdown(puller.Value, TimeSpan.FromSeconds(1), true);
+            }
+        }
     }
 
     #endregion
 
     #region Combat Abilities
 
-    private void OnToggleArmblade(EntityUid uid, ChangelingComponent comp, ref ToggleArmbladeEvent args)
+    private void OnToggleArmblade(EntityUid uid, ChangelingIdentityComponent comp, ref ToggleArmbladeEvent args)
     {
-        if (!TryUseAbility(uid, comp, args))
+        if (!TryUseAbility(uid, comp, args, GetEquipmentChemCostOverride(comp, ArmbladePrototype)))
             return;
 
-        if (!TryToggleItem(uid, ArmbladePrototype, comp))
+        if (!TryToggleItem(uid, ArmbladePrototype, comp, out _))
             return;
 
         PlayMeatySound(uid, comp);
     }
-    private void OnCreateBoneShard(EntityUid uid, ChangelingComponent comp, ref CreateBoneShardEvent args)
+    private void OnToggleHammer(EntityUid uid, ChangelingIdentityComponent comp, ref ToggleArmHammerEvent args)
+    {
+        if (!TryUseAbility(uid, comp, args, GetEquipmentChemCostOverride(comp, HammerPrototype)))
+            return;
+
+        if (!TryToggleItem(uid, HammerPrototype, comp, out _))
+            return;
+
+        PlayMeatySound(uid, comp);
+    }
+    private void OnToggleClaw(EntityUid uid, ChangelingIdentityComponent comp, ref ToggleArmClawEvent args)
+    {
+        if (!TryUseAbility(uid, comp, args, GetEquipmentChemCostOverride(comp, ClawPrototype)))
+            return;
+
+        if (!TryToggleItem(uid, ClawPrototype, comp, out _))
+            return;
+
+        PlayMeatySound(uid, comp);
+    }
+    private void OnToggleDartGun(EntityUid uid, ChangelingIdentityComponent comp, ref ToggleDartGunEvent args)
+    {
+        var chemCostOverride = GetEquipmentChemCostOverride(comp, DartGunPrototype);
+
+        if (!TryUseAbility(uid, comp, args, chemCostOverride))
+            return;
+
+        if (!TryToggleItem(uid, DartGunPrototype, comp, out var dartgun))
+            return;
+
+        if (!TryComp(dartgun, out AmmoSelectorComponent? ammoSelector))
+        {
+            PlayMeatySound(uid, comp);
+            return;
+        }
+
+        if (!_mind.TryGetMind(uid, out var mindId, out _) || !TryComp(mindId, out ActionsContainerComponent? container))
+            return;
+
+        var setProto = false;
+        foreach (var ability in container.Container.ContainedEntities)
+        {
+            if (!TryComp(ability, out ChangelingReagentStingComponent? sting) || sting.DartGunAmmo == null)
+                continue;
+
+            ammoSelector.Prototypes.Add(sting.DartGunAmmo.Value);
+
+            if (setProto)
+                continue;
+
+        }
+
+        if (ammoSelector.Prototypes.Count == 0)
+        {
+            comp.Chemicals += chemCostOverride ?? Comp<ChangelingActionComponent>(args.Action).ChemicalCost;
+            _popup.PopupEntity(Loc.GetString("changeling-dartgun-no-stings"), uid, uid);
+            comp.Equipment.Remove(DartGunPrototype);
+            QueueDel(dartgun.Value);
+            return;
+        }
+
+        Dirty(dartgun.Value, ammoSelector);
+
+        PlayMeatySound(uid, comp);
+    }
+    private void OnCreateBoneShard(EntityUid uid, ChangelingIdentityComponent comp, ref CreateBoneShardEvent args)
     {
         if (!TryUseAbility(uid, comp, args))
             return;
@@ -449,66 +555,56 @@ public sealed partial class ChangelingSystem
 
         PlayMeatySound(uid, comp);
     }
-    private void OnToggleArmor(EntityUid uid, ChangelingComponent comp, ref ToggleChitinousArmorEvent args)
+    private void OnToggleArmor(EntityUid uid, ChangelingIdentityComponent comp, ref ToggleChitinousArmorEvent args)
     {
-        if (!TryUseAbility(uid, comp, args))
+        float? chemCostOverride = comp.ActiveArmor == null ? null : 0f;
+
+        if (!TryUseAbility(uid, comp, args, chemCostOverride))
             return;
 
         if (!TryToggleArmor(uid, comp, [(ArmorHelmetPrototype, "head"), (ArmorPrototype, "outerClothing")]))
         {
             _popup.PopupEntity(Loc.GetString("changeling-equip-armor-fail"), uid, uid);
-            comp.Chemicals += Comp<ChangelingActionComponent>(args.Action).ChemicalCost;
+            comp.Chemicals += chemCostOverride ?? Comp<ChangelingActionComponent>(args.Action).ChemicalCost;
             return;
         }
 
-        PlayMeatySound(uid, comp);
     }
-    private void OnToggleShield(EntityUid uid, ChangelingComponent comp, ref ToggleOrganicShieldEvent args)
+    private void OnShriekDissonant(EntityUid uid, ChangelingIdentityComponent comp, ref ShriekDissonantEvent args)
     {
-        if (!TryUseAbility(uid, comp, args))
-            return;
-
-        if (!TryToggleItem(uid, comp.ShieldPrototype, comp))
-            return;
-
-        PlayMeatySound(uid, comp);
-    }
-    private void OnShriekDissonant(EntityUid uid, ChangelingComponent comp, ref ShriekDissonantEvent args)
-    {
-        if (!TryUseAbility(uid, comp, args))
+        if (!TryUseAbility(uid, comp, args, fireAffected: false))
             return;
 
         DoScreech(uid, comp);
 
         var pos = _transform.GetMapCoordinates(uid);
         var power = comp.ShriekPower;
-        _emp.EmpPulse(pos, power, 5000f, power * 2);
+        _emp.EmpPulse(pos, 10f, 5000f, TimeSpan.FromSeconds(power * 2f), comp.Owner);
     }
-    private void OnShriekResonant(EntityUid uid, ChangelingComponent comp, ref ShriekResonantEvent args)
+    private void OnShriekResonant(EntityUid uid, ChangelingIdentityComponent comp, ref ShriekResonantEvent args)
     {
-        if (!TryUseAbility(uid, comp, args))
+        if (!TryUseAbility(uid, comp, args, fireAffected: false))
             return;
 
-        DoScreech(uid, comp);
+        DoScreech(uid, comp); // screenshake
+        TryScreechStun(uid, comp); // the actual thing
 
         var power = comp.ShriekPower;
-        _flash.FlashArea(uid, uid, power, power * 2f * 1000f);
-
-        var lookup = _lookup.GetEntitiesInRange(uid, power);
         var lights = GetEntityQuery<PoweredLightComponent>();
+        var lookup = _lookup.GetEntitiesInRange(uid, power);
 
         foreach (var ent in lookup)
             if (lights.HasComponent(ent))
                 _light.TryDestroyBulb(ent);
     }
-    private void OnToggleStrainedMuscles(EntityUid uid, ChangelingComponent comp, ref ToggleStrainedMusclesEvent args)
+    private void OnToggleStrainedMuscles(EntityUid uid, ChangelingIdentityComponent comp, ref ToggleStrainedMusclesEvent args)
     {
-        if (!TryUseAbility(uid, comp, args))
+        if (!TryUseAbility(uid, comp, args, fireAffected: false))
             return;
 
         ToggleStrainedMuscles(uid, comp);
     }
-    private void ToggleStrainedMuscles(EntityUid uid, ChangelingComponent comp)
+    private void ToggleStrainedMuscles(EntityUid uid, ChangelingIdentityComponent comp)
     {
         if (!comp.StrainedMusclesActive)
         {
@@ -529,52 +625,11 @@ public sealed partial class ChangelingSystem
 
     #region Stings
 
-    private void OnStingBlind(EntityUid uid, ChangelingComponent comp, ref StingBlindEvent args)
+    private void OnStingReagent(EntityUid uid, ChangelingIdentityComponent comp, StingReagentEvent args)
     {
-        if (!TrySting(uid, comp, args))
-            return;
-
-        var target = args.Target;
-        if (!TryComp<BlindableComponent>(target, out var blindable) || blindable.IsBlind)
-            return;
-
-        _blindable.AdjustEyeDamage((target, blindable), 2);
-        var timeSpan = TimeSpan.FromSeconds(5f);
-        _statusEffect.TryAddStatusEffect(target, TemporaryBlindnessSystem.BlindingStatusEffect, timeSpan, false, TemporaryBlindnessSystem.BlindingStatusEffect);
+        TryReagentSting(uid, comp, args);
     }
-    private void OnStingCryo(EntityUid uid, ChangelingComponent comp, ref StingCryoEvent args)
-    {
-        var reagents = new List<(string, FixedPoint2)>()
-        {
-            ("Fresium", 20f),
-            ("ChloralHydrate", 10f)
-        };
-
-        if (!TryReagentSting(uid, comp, args, reagents))
-            return;
-    }
-    private void OnStingLethargic(EntityUid uid, ChangelingComponent comp, ref StingLethargicEvent args)
-    {
-        var reagents = new List<(string, FixedPoint2)>()
-        {
-            ("Impedrezene", 10f),
-            ("MuteToxin", 5f)
-        };
-
-        if (!TryReagentSting(uid, comp, args, reagents))
-            return;
-    }
-    private void OnStingMute(EntityUid uid, ChangelingComponent comp, ref StingMuteEvent args)
-    {
-        var reagents = new List<(string, FixedPoint2)>()
-        {
-            ("MuteToxin", 15f)
-        };
-
-        if (!TryReagentSting(uid, comp, args, reagents))
-            return;
-    }
-    private void OnStingTransform(EntityUid uid, ChangelingComponent comp, ref StingTransformEvent args)
+    private void OnStingTransform(EntityUid uid, ChangelingIdentityComponent comp, ref StingTransformEvent args)
     {
         if (!TrySting(uid, comp, args, true))
             return;
@@ -583,24 +638,34 @@ public sealed partial class ChangelingSystem
         if (!TryTransform(target, comp, true, true))
             comp.Chemicals += Comp<ChangelingActionComponent>(args.Action).ChemicalCost;
     }
-    private void OnStingFakeArmblade(EntityUid uid, ChangelingComponent comp, ref StingFakeArmbladeEvent args)
+    private void OnStingFakeArmblade(EntityUid uid, ChangelingIdentityComponent comp, ref StingFakeArmbladeEvent args)
     {
         if (!TrySting(uid, comp, args))
             return;
 
         var target = args.Target;
         var fakeArmblade = EntityManager.SpawnEntity(FakeArmbladePrototype, Transform(target).Coordinates);
-        if (!_hands.TryPickupAnyHand(target, fakeArmblade))
+
+        var handsValid = _hands.TryForcePickupAnyHand(target, fakeArmblade);
+
+        if (TryComp<HandsComponent>(target, out var handComp)
+            && handsValid)
+        {
+            var weaponCount = _hands.EnumerateHeld((target, handComp)).Count(HasComp<ChangelingFakeWeaponComponent>);
+            handsValid = (weaponCount <= 1);
+        }
+
+        if (!handsValid)
         {
             QueueDel(fakeArmblade);
             comp.Chemicals += Comp<ChangelingActionComponent>(args.Action).ChemicalCost;
-            _popup.PopupEntity(Loc.GetString("changeling-sting-fail-simplemob"), uid, uid);
+            _popup.PopupEntity(Loc.GetString("changeling-sting-fail-fakeweapon"), uid, uid);
             return;
         }
 
         PlayMeatySound(target, comp);
     }
-    public void OnLayEgg(EntityUid uid, ChangelingComponent comp, ref StingLayEggsEvent args)
+    public void OnLayEgg(EntityUid uid, ChangelingIdentityComponent comp, ref StingLayEggsEvent args)
     {
         var target = args.Target;
 
@@ -614,12 +679,16 @@ public sealed partial class ChangelingSystem
             _popup.PopupEntity(Loc.GetString("changeling-absorb-fail-absorbed"), uid, uid);
             return;
         }
-        if (!HasComp<AbsorbableComponent>(target))
+        if (!HasComp<Shared.Changeling.Components.AbsorbableComponent>(target))
         {
             _popup.PopupEntity(Loc.GetString("changeling-absorb-fail-unabsorbable"), uid, uid);
             return;
         }
-
+        if (CheckFireStatus(uid)) // checks if the target is on fire
+        {
+            _popup.PopupEntity(Loc.GetString("changeling-absorb-fail-onfire"), uid, uid);
+            return;
+        }
         var mind = _mind.GetMind(uid);
         if (mind == null)
             return;
@@ -633,58 +702,60 @@ public sealed partial class ChangelingSystem
         eggComp.lingComp = comp;
         eggComp.lingMind = (EntityUid) mind;
         eggComp.lingStore = _serialization.CreateCopy(storeComp, notNullableOverride: true);
-        eggComp.AugmentedEyesightPurchased = HasComp<ThermalVisionComponent>(uid);
+        eggComp.AugmentedEyesightPurchased = HasComp<Shared.Overlays.ThermalVisionComponent>(uid);
 
         EnsureComp<AbsorbedComponent>(target);
         var dmg = new DamageSpecifier(_proto.Index(AbsorbedDamageGroup), 200);
-        _damage.TryChangeDamage(target, dmg, false, false);
+        _damage.TryChangeDamage(target, dmg, false, false, targetPart: TargetBodyPart.All); // Shitmed Change
         _blood.ChangeBloodReagent(target, "FerrochromicAcid");
         _blood.SpillAllSolutions(target);
 
         PlayMeatySound(uid, comp);
 
-        _bodySystem.GibBody(uid);
+        Body.GibBody(uid);
     }
 
     #endregion
 
     #region Utilities
 
-    public void OnAnatomicPanacea(EntityUid uid, ChangelingComponent comp, ref ActionAnatomicPanaceaEvent args)
+    public void OnAnatomicPanacea(EntityUid uid, ChangelingIdentityComponent comp, ref ActionAnatomicPanaceaEvent args)
     {
         if (!TryUseAbility(uid, comp, args))
             return;
 
-        var reagents = new List<(string, FixedPoint2)>()
-        {
-            ("Diphenhydramine", 5f),
-            ("Arithrazine", 5f),
-            ("Ethylredoxrazine", 5f)
-        };
-        if (TryInjectReagents(uid, reagents))
-            _popup.PopupEntity(Loc.GetString("changeling-panacea"), uid, uid);
-        else return;
-        PlayMeatySound(uid, comp);
+        _popup.PopupEntity(Loc.GetString("changeling-panacea"), uid, uid);
+
+        var panacea = _compFactory.GetComponent<BoostedImmunityComponent>();
+        panacea.AlertId = args.Alert;
+        panacea.Duration = args.Duration;
+
+        AddComp(uid, panacea, true);
+
+        _alerts.ShowAlert(
+            uid,
+            args.Alert,
+            cooldown: (_timing.CurTime, _timing.CurTime + TimeSpan.FromSeconds(args.Duration)),
+            autoRemove: true);
     }
-
-    public void OnBiodegrade(EntityUid uid, ChangelingComponent comp, ref ActionBiodegradeEvent args)
+    public void OnBiodegrade(EntityUid uid, ChangelingIdentityComponent comp, ref ActionBiodegradeEvent args)
     {
-        if (!TryUseAbility(uid, comp, args))
+        if (!TryUseAbility(uid, comp, args, fireAffected: false))
             return;
-
-        // Check if user is in a cocoon container and break it
-        if (_container.TryGetContainingContainer(uid, out var container) &&
-            TryComp<CocoonContainerComponent>(container.Owner, out var cocoonComp))
-        {
-            _cocoon.BreakCocoon((container.Owner, cocoonComp));
-        }
 
         if (TryComp<CuffableComponent>(uid, out var cuffs) && cuffs.Container.ContainedEntities.Count > 0)
         {
-            var cuff = cuffs.LastAddedCuffs;
+            var cuffsToRemove = cuffs.Container.ContainedEntities[^1];
+            _cuffs.Uncuff(uid, null, cuffsToRemove);
+            QueueDel(cuffsToRemove);
+        }
 
-            _cuffs.Uncuff(uid, cuffs.LastAddedCuffs, cuff);
-            QueueDel(cuff);
+        if (TryComp<EnsnareableComponent>(uid, out var ensnareable) && ensnareable.Container.ContainedEntities.Count > 0)
+        {
+            var bola = ensnareable.Container.ContainedEntities[0];
+            // Yes this is dumb, but trust me this is the best way to do this. Bola code is fucking awful.
+            _doAfter.TryStartDoAfter(new DoAfterArgs(EntityManager, uid, 0, new EnsnareableDoAfterEvent(), uid, uid, bola));
+            QueueDel(bola);
         }
 
         var soln = new Solution();
@@ -695,78 +766,92 @@ public sealed partial class ChangelingSystem
             var puller = Comp<PullableComponent>(uid).Puller;
             if (puller != null)
             {
-                _puddle.TrySplashSpillAt((EntityUid) puller, Transform((EntityUid) puller).Coordinates, soln, out _);
+                _puddle.TrySplashSpillAt(puller.Value, Transform((EntityUid) puller).Coordinates, soln, out _);
+                _stun.TryKnockdown(puller.Value, TimeSpan.FromSeconds(1.5));
+
+                if (!TryComp(puller.Value, out StatusEffectsComponent? status))
+                    return;
+
+                _statusEffects.TryAddStatusEffect<TemporaryBlindnessComponent>(puller.Value,
+                    "TemporaryBlindness",
+                    TimeSpan.FromSeconds(2f),
+                    true,
+                    status);
                 return;
             }
         }
         _puddle.TrySplashSpillAt(uid, Transform(uid).Coordinates, soln, out _);
     }
-    public void OnChameleonSkin(EntityUid uid, ChangelingComponent comp, ref ActionChameleonSkinEvent args)
+    public void OnChameleonSkin(EntityUid uid, ChangelingIdentityComponent comp, ref ActionChameleonSkinEvent args)
     {
         if (!TryUseAbility(uid, comp, args))
             return;
 
-        if (HasComp<StealthComponent>(uid) && HasComp<StealthOnMoveComponent>(uid))
+        if (!comp.ChameleonActive)
+        {
+            EnsureComp<StealthComponent>(uid);
+            EnsureComp<StealthOnMoveComponent>(uid);
+            _popup.PopupEntity(Loc.GetString("changeling-chameleon-start"), uid, uid);
+            comp.ChameleonActive = true;
+            comp.ChemicalRegenMultiplier -= 0.25f; // chem regen slowed by a flat 25%
+        }
+        else
         {
             RemComp<StealthComponent>(uid);
             RemComp<StealthOnMoveComponent>(uid);
             _popup.PopupEntity(Loc.GetString("changeling-chameleon-end"), uid, uid);
-            return;
+            comp.ChameleonActive = false;
+            comp.ChemicalRegenMultiplier += 0.25f; // chem regen debuff removed
         }
-
-        EnsureComp<StealthComponent>(uid);
-        EnsureComp<StealthOnMoveComponent>(uid, out var stealthOnMoveComponent);
-        stealthOnMoveComponent.MovementVisibilityRate = .8f; // funkystation - fucking nerf this garbage
-        _popup.PopupEntity(Loc.GetString("changeling-chameleon-start"), uid, uid);
     }
-    public void OnEphedrineOverdose(EntityUid uid, ChangelingComponent comp, ref ActionEphedrineOverdoseEvent args)
+
+    public void OnAdrenalineReserves(EntityUid uid, ChangelingIdentityComponent comp, ref ActionAdrenalineReservesEvent args)
     {
-        if (!TryUseAbility(uid, comp, args))
+        if (!TryUseAbility(uid, comp, args, fireAffected: false))
             return;
 
-        var stam = EnsureComp<StaminaComponent>(uid);
-        stam.StaminaDamage = 0;
+        _popup.PopupEntity(Loc.GetString("changeling-adrenaline"), uid, uid);
 
-        var reagents = new List<(string, FixedPoint2)>()
-        {
-            ("Desoxyephedrine", 5f)
-        };
-        if (TryInjectReagents(uid, reagents))
-            _popup.PopupEntity(Loc.GetString("changeling-inject"), uid, uid);
-        else
-        {
-            _popup.PopupEntity(Loc.GetString("changeling-inject-fail"), uid, uid);
-            return;
-        }
+        var adrenaline = _compFactory.GetComponent<SuperAdrenalineComponent>();
+        adrenaline.AlertId = args.Alert;
+        adrenaline.Duration = args.Duration;
+        adrenaline.PassiveDamage = args.PassiveDamage;
+
+        AddComp(uid, adrenaline, true);
+
+        _alerts.ShowAlert(
+            uid,
+            args.Alert,
+            cooldown: (_timing.CurTime, _timing.CurTime + TimeSpan.FromSeconds(args.Duration)),
+            autoRemove: true);
     }
     // john space made me do this
-    public void OnHealUltraSwag(EntityUid uid, ChangelingComponent comp, ref ActionFleshmendEvent args)
+    public void OnHealUltraSwag(EntityUid uid, ChangelingIdentityComponent comp, ref ActionFleshmendEvent args)
     {
         if (!TryUseAbility(uid, comp, args))
             return;
 
-        var reagents = new List<(string, FixedPoint2)>()
-        {
-            ("Ichor", 10f),
-            ("TranexamicAcid", 5f)
-        };
-        if (TryInjectReagents(uid, reagents))
-            _popup.PopupEntity(Loc.GetString("changeling-fleshmend"), uid, uid);
-        else return;
-        PlayMeatySound(uid, comp);
+        _popup.PopupEntity(Loc.GetString("changeling-fleshmend"), uid, uid);
+
+        var fleshmend = _compFactory.GetComponent<FleshmendComponent>();
+        fleshmend.AlertId = args.Alert;
+        fleshmend.Duration = args.Duration;
+        fleshmend.PassiveSound = args.PassiveSound;
+        fleshmend.ResPath = args.ResPath;
+        fleshmend.EffectState = args.EffectState;
+
+        AddComp(uid, fleshmend, true);
+
+        _alerts.ShowAlert(
+            uid,
+            args.Alert,
+            cooldown: (_timing.CurTime, _timing.CurTime + TimeSpan.FromSeconds(args.Duration)),
+            autoRemove: true);
     }
-    public void OnLastResort(EntityUid uid, ChangelingComponent comp, ref ActionLastResortEvent args)
+    public void OnLastResort(EntityUid uid, ChangelingIdentityComponent comp, ref ActionLastResortEvent args)
     {
-        if (!TryUseAbility(uid, comp, args))
+        if (!TryUseAbility(uid, comp, args, fireAffected: false))
             return;
-
-        if (TryComp<CuffableComponent>(uid, out var cuffs) && cuffs.Container.ContainedEntities.Count > 0)
-        {
-            var cuff = cuffs.LastAddedCuffs;
-
-            _cuffs.Uncuff(uid, cuffs.LastAddedCuffs, cuff);
-            QueueDel(cuff);
-        }
 
         comp.IsInLastResort = true;
 
@@ -795,7 +880,7 @@ public sealed partial class ChangelingSystem
 
         PlayMeatySound((EntityUid) newUid, comp);
     }
-    public void OnLesserForm(EntityUid uid, ChangelingComponent comp, ref ActionLesserFormEvent args)
+    public void OnLesserForm(EntityUid uid, ChangelingIdentityComponent comp, ref ActionLesserFormEvent args)
     {
         if (!TryUseAbility(uid, comp, args))
             return;
@@ -809,53 +894,9 @@ public sealed partial class ChangelingSystem
             return;
         }
 
+        EnsureComp<Shared.Changeling.Components.AbsorbableComponent>((EntityUid) newUid); // allow other changelings to absorb them (monkeys dont have this by default)
+
         PlayMeatySound((EntityUid) newUid, comp);
-        var loc = Loc.GetString("changeling-transform-others", ("user", Identity.Entity((EntityUid) newUid, EntityManager)));
-        _popup.PopupEntity(loc, (EntityUid) newUid, PopupType.LargeCaution);
-    }
-    public void OnSpacesuit(EntityUid uid, ChangelingComponent comp, ref ActionSpacesuitEvent args)
-    {
-        if (!TryUseAbility(uid, comp, args))
-            return;
-
-        if (!TryToggleArmor(uid, comp, [(SpacesuitHelmetPrototype, "head"), (SpacesuitPrototype, "outerClothing")]))
-        {
-            _popup.PopupEntity(Loc.GetString("changeling-equip-armor-fail"), uid, uid);
-            comp.Chemicals += Comp<ChangelingActionComponent>(args.Action).ChemicalCost;
-            return;
-        }
-
-        PlayMeatySound(uid, comp);
-    }
-    public void OnHivemindAccess(EntityUid uid, ChangelingComponent comp, ref ActionHivemindAccessEvent args)
-    {
-        if (!TryUseAbility(uid, comp, args))
-            return;
-
-        if (HasComp<HivemindComponent>(uid))
-        {
-            _popup.PopupEntity(Loc.GetString("changeling-passive-active"), uid, uid);
-            return;
-        }
-
-        EnsureComp<HivemindComponent>(uid);
-        var reciever = EnsureComp<IntrinsicRadioReceiverComponent>(uid);
-        var transmitter = EnsureComp<IntrinsicRadioTransmitterComponent>(uid);
-        var radio = EnsureComp<ActiveRadioComponent>(uid);
-        radio.Channels = new() { "Hivemind" };
-        transmitter.Channels = new() { "Hivemind" };
-
-        _popup.PopupEntity(Loc.GetString("changeling-hivemind-start"), uid, uid);
-    }
-
-    public void GrantHivemindAccess(EntityUid uid)
-    {
-        EnsureComp<HivemindComponent>(uid);
-        EnsureComp<IntrinsicRadioReceiverComponent>(uid);
-        var transmitter = EnsureComp<IntrinsicRadioTransmitterComponent>(uid);
-        var radio = EnsureComp<ActiveRadioComponent>(uid);
-        radio.Channels = ["Hivemind"];
-        transmitter.Channels = ["Hivemind"];
     }
 
     #endregion

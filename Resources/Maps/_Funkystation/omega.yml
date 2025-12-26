@@ -78340,7 +78340,7 @@ entities:
     - type: Physics
       angularDamping: 0
       linearDamping: 0
-- proto: TorsoHuman
+- proto: ChestHuman
   entities:
   - uid: 11794
     components:

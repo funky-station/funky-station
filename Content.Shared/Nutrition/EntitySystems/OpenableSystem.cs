@@ -8,9 +8,9 @@
 
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Examine;
-using Content.Shared.Lock;
 using Content.Shared.Interaction;
 using Content.Shared.Interaction.Events;
+using Content.Shared.Lock;
 using Content.Shared.Nutrition.Components;
 using Content.Shared.Popups;
 using Content.Shared.Verbs;
@@ -129,11 +129,8 @@ public sealed partial class OpenableSystem : EntitySystem
 
     private void OnTransferAttempt(Entity<OpenableComponent> ent, ref SolutionTransferAttemptEvent args)
     {
-        if (!ent.Comp.Opened)
-        {
-            // message says its just for drinks, shouldn't matter since you typically dont have a food that is openable and can be poured out
-            args.Cancel(Loc.GetString("drink-component-try-use-drink-not-open", ("owner", ent.Owner)));
-        }
+        if (ent.Comp.Opened)
+            args.Cancel(Loc.GetString(ent.Comp.ClosedPopup, ("owner", ent.Owner)));
     }
 
     private void OnAttemptShake(Entity<OpenableComponent> entity, ref AttemptShakeEvent args)
@@ -158,23 +155,11 @@ public sealed partial class OpenableSystem : EntitySystem
     }
 
     /// <summary>
-    /// Returns true if the entity either does not have OpenableComponent or it is opened.
-    /// Drinks that don't have OpenableComponent are automatically open, so it returns true.
-    /// </summary>
-    public bool IsOpen(EntityUid uid, OpenableComponent? comp = null)
-    {
-        if (!Resolve(uid, ref comp, false))
-            return true;
-
-        return comp.Opened;
-    }
-
-    /// <summary>
     /// Returns true if the entity both has OpenableComponent and is not opened.
     /// Drinks that don't have OpenableComponent are automatically open, so it returns false.
     /// If user is not null a popup will be shown to them.
     /// </summary>
-    public bool IsClosed(EntityUid uid, EntityUid? user = null, OpenableComponent? comp = null)
+    public bool IsClosed(EntityUid uid, EntityUid? user = null, OpenableComponent? comp = null, bool predicted = false)
     {
         if (!Resolve(uid, ref comp, false))
             return false;
@@ -183,7 +168,12 @@ public sealed partial class OpenableSystem : EntitySystem
             return false;
 
         if (user != null)
-            _popup.PopupEntity(Loc.GetString(comp.ClosedPopup, ("owner", uid)), user.Value, user.Value);
+        {
+            if (predicted)
+                _popup.PopupClient(Loc.GetString(comp.ClosedPopup, ("owner", uid)), user.Value, user.Value);
+            else
+                _popup.PopupEntity(Loc.GetString(comp.ClosedPopup, ("owner", uid)), user.Value, user.Value);
+        }
 
         return true;
     }

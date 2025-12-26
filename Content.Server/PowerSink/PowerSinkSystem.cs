@@ -1,27 +1,13 @@
-// SPDX-FileCopyrightText: 2022 Veritius <veritiusgaming@gmail.com>
-// SPDX-FileCopyrightText: 2022 metalgearsloth <comedian_vs_clown@hotmail.com>
-// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Pieter-Jan Briers <pieterjan.briers@gmail.com>
-// SPDX-FileCopyrightText: 2023 Skye <22365940+Skyedra@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
-// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
-//
-// SPDX-License-Identifier: MIT
-
+using Content.Server.Chat.Systems;
 using Content.Server.Explosion.EntitySystems;
 using Content.Server.Power.Components;
-using Content.Shared.Examine;
-using Robust.Shared.Utility;
-using Content.Server.Chat.Systems;
-using Content.Server.Station.Systems;
-using Robust.Shared.Timing;
-using Robust.Shared.Audio;
-using Robust.Shared.Audio.Systems;
 using Content.Server.Power.EntitySystems;
+using Content.Server.Station.Systems;
+using Content.Shared.Examine;
+using Content.Shared.Power.Components;
+using Robust.Shared.Audio.Systems;
+using Robust.Shared.Timing;
+using Robust.Shared.Utility;
 
 namespace Content.Server.PowerSink
 {
@@ -80,9 +66,9 @@ namespace Content.Server.PowerSink
                 if (!transform.Anchored)
                     continue;
 
-                _battery.SetCharge(entity, battery.CurrentCharge + networkLoad.NetworkLoad.ReceivingPower / 1000, battery);
+                _battery.ChangeCharge((entity, battery), networkLoad.NetworkLoad.ReceivingPower * frameTime);
 
-                var currentBatteryThreshold = battery.CurrentCharge / battery.MaxCharge;
+                var currentBatteryThreshold = _battery.GetChargeLevel((entity, battery));
 
                 // Check for warning message threshold
                 if (!component.SentImminentExplosionWarningMessage &&
@@ -104,7 +90,7 @@ namespace Content.Server.PowerSink
                 }
 
                 // Check for explosion
-                if (battery.CurrentCharge < battery.MaxCharge)
+                if (!_battery.IsFull((entity, battery)))
                     continue;
 
                 if (component.ExplosionTime == null)
@@ -125,7 +111,7 @@ namespace Content.Server.PowerSink
             foreach (var (entity, component) in toRemove)
             {
                 _explosionSystem.QueueExplosion(entity, "PowerSink", 2000f, 4f, 20f, canCreateVacuum: true);
-                EntityManager.RemoveComponent(entity, component);
+                RemComp(entity, component);
             }
         }
 

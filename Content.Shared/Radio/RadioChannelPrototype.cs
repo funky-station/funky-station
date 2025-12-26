@@ -1,16 +1,19 @@
+// SPDX-FileCopyrightText: 2022 Kevin Zheng <kevinz5000@gmail.com>
 // SPDX-FileCopyrightText: 2022 Morber <14136326+Morb0@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2022 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2023 Slava0135 <40753025+Slava0135@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 chavonadelal <156101927+chavonadelal@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Ecramox <65426878+Ecramox@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
-// SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
-// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
+// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
 //
-// SPDX-License-Identifier: MIT
+// SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Shared.Whitelist;
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared.Radio;
@@ -48,6 +51,15 @@ public sealed partial class RadioChannelPrototype : IPrototype
     /// </summary>
     [DataField("longRange"), ViewVariables]
     public bool LongRange = false;
+
+    /// <summary>
+    /// Whitelist for entities that can send or receive this radio channel messages
+    /// </summary>
+    [DataField]
+    public EntityWhitelist? SendWhitelist = null;
+
+    [DataField]
+    public EntityWhitelist? ReceiveWhitelist = null;
 
     /// <summary>
     /// ImpStation original. If a channel is readOnly, then headsets cannot send messages through it.

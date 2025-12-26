@@ -11,6 +11,7 @@
 
 using System.Numerics;
 using Content.Shared.Hands.Components;
+using Content.Shared.Hands.EntitySystems;
 using JetBrains.Annotations;
 using Robust.Shared.Map;
 using Robust.Shared.Serialization;
@@ -166,6 +167,78 @@ namespace Content.Shared.Hands
             User = user;
         }
     }
+
+    /// <summary>
+    ///     Raised directed on both the blocking entity and user when
+    ///     a virtual hand item is thrown (at least attempted to).
+    /// </summary>
+    public sealed class VirtualItemThrownEvent : EntityEventArgs
+    {
+        public EntityUid BlockingEntity;
+        public EntityUid User;
+        public EntityUid VirtualItem;
+        public Vector2 Direction;
+        public VirtualItemThrownEvent(EntityUid blockingEntity, EntityUid user, EntityUid virtualItem, Vector2 direction)
+        {
+            BlockingEntity = blockingEntity;
+            User = user;
+            VirtualItem = virtualItem;
+            Direction = direction;
+        }
+    }
+
+    // Goobstation start
+    // Added virtual items for grab intent, this is heavily edited please do not bulldoze.
+    /// <summary>
+    ///     Raised directed on both the blocking entity and user when
+    ///     a virtual hand item is deleted.
+    /// </summary>
+    /// <summary>
+    ///     Raised directed on both the blocking entity and user when
+    ///     user tries to drop it by keybind.
+    ///     Cancellable.
+    /// </summary>
+    public sealed class VirtualItemDropAttemptEvent : CancellableEntityEventArgs
+    {
+        public EntityUid BlockingEntity;
+        public EntityUid User;
+        public EntityUid VirtualItem;
+        public bool Throw;
+        public VirtualItemDropAttemptEvent(EntityUid blockingEntity, EntityUid user, EntityUid virtualItem, bool thrown)
+        {
+            BlockingEntity = blockingEntity;
+            User = user;
+            VirtualItem = virtualItem;
+            Throw = thrown;
+        }
+    }
+    // Goobstation end
+
+    /// <summary>
+    /// Raised against an item being picked up before it is actually inserted
+    /// into the pick-up-ers hand container. This can be handled with side
+    /// effects, and may be canceled preventing the pickup in a way that
+    /// <see cref="SharedHandsSystem.CanPickupToHand"/> and similar don't see.
+    /// </summary>
+    /// <param name="User">The user picking up the item.</param>
+    /// <param name="Cancelled">
+    /// If true, the item will not be equipped into the user's hand.
+    /// </param>
+    [ByRefEvent]
+    public record struct BeforeGettingEquippedHandEvent(EntityUid User, bool Cancelled = false);
+
+    /// <summary>
+    /// Raised against a mob picking up and item before it is actually inserted
+    /// into the pick-up-ers hand container. This can be handled with side
+    /// effects, and may be canceled preventing the pickup in a way that
+    /// <see cref="SharedHandsSystem.CanPickupToHand"/> and similar don't see.
+    /// </summary>
+    /// <param name="Item">The item being picked up.</param>
+    /// <param name="Cancelled">
+    /// If true, the item will not be equipped into the user's hand.
+    /// </param>
+    [ByRefEvent]
+    public record struct BeforeEquippingHandEvent(EntityUid Item, bool Cancelled = false);
 
     /// <summary>
     ///     Raised when putting an entity into a hand slot

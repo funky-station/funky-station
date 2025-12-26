@@ -757,6 +757,10 @@ namespace Content.Server.Database.Migrations.Sqlite
                         .HasColumnType("TEXT")
                         .HasColumnName("last_read_rules");
 
+                    b.Property<TimeSpan?>("LastRolledAntag")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("last_rolled_antag");
+
                     b.Property<string>("LastSeenAddress")
                         .IsRequired()
                         .HasColumnType("TEXT")
@@ -770,6 +774,10 @@ namespace Content.Server.Database.Migrations.Sqlite
                         .IsRequired()
                         .HasColumnType("TEXT")
                         .HasColumnName("last_seen_user_name");
+
+                    b.Property<int>("ServerCurrency")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("server_currency");
 
                     b.Property<Guid>("UserId")
                         .HasColumnType("TEXT")
@@ -800,6 +808,11 @@ namespace Content.Server.Database.Migrations.Sqlite
                         .IsRequired()
                         .HasColumnType("TEXT")
                         .HasColumnName("admin_ooc_color");
+
+                    b.PrimitiveCollection<string>("ConstructionFavorites")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("construction_favorites");
 
                     b.Property<Guid>("UserId")
                         .HasColumnType("TEXT")

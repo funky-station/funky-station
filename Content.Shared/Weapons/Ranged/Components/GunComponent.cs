@@ -21,6 +21,7 @@
 
 using Content.Shared._Goobstation.Weapons.Multishot;
 using System.Numerics;
+using Content.Goobstation.Shared.Weapons.Multishot;
 using Content.Shared.Weapons.Ranged.Events;
 using Content.Shared.Weapons.Ranged.Systems;
 using Robust.Shared.Audio;

@@ -16,7 +16,7 @@
       amount: 5
       catalyst: true
   effects:
-    - !type:CreateEntityReactionEffect
+    - !type:SpawnEntity
       entity: FoodMysteryMeat
 
 # Condiments

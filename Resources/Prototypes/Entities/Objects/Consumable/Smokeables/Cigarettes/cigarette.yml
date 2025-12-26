@@ -111,6 +111,21 @@
             Quantity: 30
 
 - type: entity
+  id: CigaretteLaughter
+  parent: SoakedCigarette
+  name: Clown Adjacency Bonus
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      smokable:
+        maxVol: 40
+        reagents:
+        - ReagentId: Nicotine
+          Quantity: 10
+        - ReagentId: Laughter
+          Quantity: 10
+
+- type: entity
   id: CigaretteOmnizine
   parent: SoakedCigarette
   name: Hot Dog Water Flavor Explosion
@@ -201,7 +216,7 @@
             Quantity: 10
 
 - type: entity
-  id: CigaretteIpecac
+  id: CigaretteNutriment
   parent: SoakedCigarette
   name: Grandma's Christmas Fruitcake
   components:
@@ -210,10 +225,10 @@
       smokable:
         maxVol: 40
         reagents:
-          - ReagentId: Nicotine
-            Quantity: 10
-          - ReagentId: Ipecac
-            Quantity: 2
+        - ReagentId: Nicotine
+          Quantity: 10
+        - ReagentId: Nutriment
+          Quantity: 10
 
 - type: entity # Funkychem
   id: CigaretteSalicylicAcid
@@ -244,6 +259,22 @@
             Quantity: 10
           - ReagentId: Dexalin
             Quantity: 10
+
+- type: entity
+  id: CigaretteSaline
+  parent: SoakedCigarette
+  name: North Atlantic Cruise
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      smokable:
+        maxVol: 40
+        reagents:
+        - ReagentId: Nicotine
+          Quantity: 10
+        - ReagentId: Saline
+          Quantity: 10
+
 
 - type: entity
   id: CigarettePax
@@ -379,6 +410,66 @@
             Quantity: 2
 
 - type: entity
+  id: CigaretteLipolicide
+  parent: SoakedCigarette
+  name: 80's Workout Routine
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      smokable:
+        maxVol: 40
+        reagents:
+        - ReagentId: Nicotine
+          Quantity: 10
+        - ReagentId: Lipolicide
+          Quantity: 10
+
+- type: entity
+  id: CigaretteSodiumPolyacrylate
+  parent: SoakedCigarette
+  name: Unhealthy Habits
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      smokable:
+        maxVol: 40
+        reagents:
+        - ReagentId: Nicotine
+          Quantity: 10
+        - ReagentId: SodiumPolyacrylate
+          Quantity: 10
+
+- type: entity
+  id: CigaretteFrezon
+  parent: SoakedCigarette
+  name: Atmospheric Adventure
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      smokable:
+        maxVol: 40
+        reagents:
+        - ReagentId: Nicotine
+          Quantity: 10
+        - ReagentId: Frezon
+          Quantity: 10
+
+- type: entity
+  id: CigaretteHaloperidol
+  parent: SoakedCigarette
+  name: Warm Bovine Extract
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      smokable:
+        maxVol: 40
+        reagents:
+        - ReagentId: Nicotine
+          Quantity: 10
+        - ReagentId: Haloperidol
+          Quantity: 10
+
+- type: entity
   id: CigaretteMold
   parent: SoakedCigarette
   name: Beneath The Sink Experience
@@ -392,6 +483,21 @@
             Quantity: 10
           - ReagentId: Mold
             Quantity: 2
+
+- type: entity
+  id: CigaretteRadium
+  parent: SoakedCigarette
+  name: Ex Ray
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      smokable:
+        maxVol: 40
+        reagents:
+        - ReagentId: Nicotine
+          Quantity: 10
+        - ReagentId: Radium
+          Quantity: 10
 
 - type: entity
   id: CigaretteLicoxide
@@ -409,6 +515,21 @@
             Quantity: 5
 
 - type: entity
+  id: CigarettePhlogiston
+  parent: SoakedCigarette
+  name: Dragon Dating Sim
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      smokable:
+        maxVol: 40
+        reagents:
+        - ReagentId: Nicotine
+          Quantity: 10
+        - ReagentId: Phlogiston
+          Quantity: 10
+
+- type: entity
   id: CigaretteWeldingFuel
   parent: SoakedCigarette
   name: Plasma Sauce
@@ -424,16 +545,16 @@
             Quantity: 5
 
 - type: entity
-  id: CigaretteTHC
+  id: CigaretteRobustHarvest
   parent: SoakedCigarette
-  name: Hippy Romance Novel
+  name: Hippie Romance Novel
   components:
   - type: SolutionContainerManager
     solutions:
       smokable:
         maxVol: 40
         reagents:
-          - ReagentId: Nicotine
-            Quantity: 10
-          - ReagentId: THC
-            Quantity: 5
+        - ReagentId: Nicotine
+          Quantity: 10
+        - ReagentId: RobustHarvest
+          Quantity: 10

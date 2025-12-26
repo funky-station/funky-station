@@ -1,34 +1,40 @@
-// SPDX-FileCopyrightText: 2024 John Space <bigdumb421@gmail.com>
+// SPDX-FileCopyrightText: 2024 NULL882 <gost6865@yandex.ru>
+// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
 // SPDX-FileCopyrightText: 2024 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
+// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 //
-// SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+// SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Server.Mech.Systems;
-using Content.Server.Power.Components;
 using Content.Server.Power.EntitySystems;
 using Content.Shared.Mech.Components;
 using Content.Shared.Mech.EntitySystems;
 using Content.Shared.Mech.Equipment.Components;
-using Content.Shared.Throwing;
+using Content.Shared.Power.Components;
+using Content.Shared.Power.EntitySystems;
 using Content.Shared.Weapons.Ranged.Components;
-using Robust.Shared.Random;
 
-namespace Content.Server.Mech.Equipment.EntitySystems;
+namespace Content.Goobstation.Server.Mech.Equipment.EntitySystems;
+
 public sealed class MechGunSystem : EntitySystem
 {
     [Dependency] private readonly MechSystem _mech = default!;
-    [Dependency] private readonly BatterySystem _battery = default!;
+    [Dependency] private readonly SharedBatterySystem _battery = default!;
 
     public override void Initialize()
     {
         base.Initialize();
+
         SubscribeLocalEvent<MechEquipmentComponent, HandleMechEquipmentBatteryEvent>(OnHandleMechEquipmentBattery);
-        SubscribeLocalEvent<HitscanBatteryAmmoProviderComponent, CheckMechWeaponBatteryEvent>(OnCheckBattery);
-        SubscribeLocalEvent<ProjectileBatteryAmmoProviderComponent, CheckMechWeaponBatteryEvent>(OnCheckBattery);
+        SubscribeLocalEvent<BatteryAmmoProviderComponent, CheckMechWeaponBatteryEvent>(OnCheckBattery);
     }
 
-    private void OnHandleMechEquipmentBattery(EntityUid uid, MechEquipmentComponent component, HandleMechEquipmentBatteryEvent args)
+    private void OnHandleMechEquipmentBattery(
+        EntityUid uid,
+        MechEquipmentComponent component,
+        HandleMechEquipmentBatteryEvent args)
     {
         if (!component.EquipmentOwner.HasValue)
             return;
@@ -36,47 +42,57 @@ public sealed class MechGunSystem : EntitySystem
         if (!TryComp<MechComponent>(component.EquipmentOwner.Value, out var mech))
             return;
 
-        if (TryComp<BatteryComponent>(uid, out var battery))
-        {
-            var ev = new CheckMechWeaponBatteryEvent(battery);
-            RaiseLocalEvent(uid, ref ev);
+        if (!TryComp<BatteryComponent>(uid, out var battery))
+            return;
 
-            if (ev.Cancelled)
-                return;
+        var ev = new CheckMechWeaponBatteryEvent(uid);
+        RaiseLocalEvent(uid, ref ev);
 
-            ChargeGunBattery(uid, battery);
-        }
+        if (ev.Cancelled)
+            return;
+
+        ChargeGunBattery(uid, battery, mech);
     }
 
-    private void OnCheckBattery(EntityUid uid, BatteryAmmoProviderComponent component, CheckMechWeaponBatteryEvent args)
+    private void OnCheckBattery(
+        EntityUid uid,
+        BatteryAmmoProviderComponent component,
+        ref CheckMechWeaponBatteryEvent args)
     {
-        if (args.Battery.CurrentCharge > component.FireCost)
+        var charge = _battery.GetCharge(uid);
+
+        if (charge >= component.FireCost)
             args.Cancelled = true;
     }
 
-    private void ChargeGunBattery(EntityUid uid, BatteryComponent component)
+    private void ChargeGunBattery(
+        EntityUid uid,
+        BatteryComponent battery,
+        MechComponent mech)
     {
-        if (!TryComp<MechEquipmentComponent>(uid, out var mechEquipment) || !mechEquipment.EquipmentOwner.HasValue)
+        if (!TryComp<MechEquipmentComponent>(uid, out var mechEquipment))
             return;
 
-        if (!TryComp<MechComponent>(mechEquipment.EquipmentOwner.Value, out var mech))
+        if (!mechEquipment.EquipmentOwner.HasValue)
             return;
 
-        var maxCharge = component.MaxCharge;
-        var currentCharge = component.CurrentCharge;
+        var currentCharge = _battery.GetCharge(uid);
+        var maxCharge = battery.MaxCharge;
 
         var chargeDelta = maxCharge - currentCharge;
 
-        // TODO: The battery charge of the mech would be spent directly when fired.
-        if (chargeDelta <= 0 || mech.Energy - chargeDelta < 0)
+        if (chargeDelta <= 0f)
+            return;
+
+        if (mech.Energy < chargeDelta)
             return;
 
         if (!_mech.TryChangeEnergy(mechEquipment.EquipmentOwner.Value, -chargeDelta, mech))
             return;
 
-        _battery.SetCharge(uid, component.MaxCharge, component);
+        _battery.SetCharge(uid, maxCharge);
     }
 }
 
 [ByRefEvent]
-public record struct CheckMechWeaponBatteryEvent(BatteryComponent Battery, bool Cancelled = false);
+public record struct CheckMechWeaponBatteryEvent(EntityUid BatteryUid, bool Cancelled = false);

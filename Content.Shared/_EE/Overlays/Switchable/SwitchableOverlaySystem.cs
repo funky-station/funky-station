@@ -1,10 +1,14 @@
-// SPDX-FileCopyrightText: 2025 TheSecondLord <88201625+TheSecondLord@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 V <97265903+formlessnameless@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
+// SPDX-FileCopyrightText: 2025 Spatison <137375981+Spatison@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared._Goobstation.Flashbang;
 using Content.Shared.Actions;
+using Content.Shared.Flash;
 using Content.Shared.Inventory;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.GameStates;
@@ -12,10 +16,10 @@ using Robust.Shared.Network;
 using Robust.Shared.Player;
 using Robust.Shared.Timing;
 
-namespace Content.Shared._EE.Overlays.Switchable;
+namespace Content.Goobstation.Shared.Overlays;
 
-public abstract class SwitchableOverlaySystem<TComp, TEvent> : EntitySystem
-    where TComp : SwitchableOverlayComponent
+public abstract class SwitchableOverlaySystem<TComp, TEvent> : EntitySystem // this should get move to a white module if we ever do anything with forks..
+    where TComp : SwitchableVisionOverlayComponent
     where TEvent : InstantActionEvent
 {
     [Dependency] private readonly SharedAudioSystem _audio = default!;
@@ -38,13 +42,15 @@ public abstract class SwitchableOverlaySystem<TComp, TEvent> : EntitySystem
 
     private void OnGetFlashMultiplier(Entity<TComp> ent, ref FlashDurationMultiplierEvent args)
     {
-        args.Multiplier *= GetFlashMultiplier(ent);
+        if (!ent.Comp.IsEquipment)
+            args.Multiplier *= GetFlashMultiplier(ent);
     }
 
     private void OnGetInventoryFlashMultiplier(Entity<TComp> ent,
         ref InventoryRelayedEvent<FlashDurationMultiplierEvent> args)
     {
-        args.Args.Multiplier *= GetFlashMultiplier(ent);
+        if (ent.Comp.IsEquipment)
+            args.Args.Multiplier *= GetFlashMultiplier(ent);
     }
 
     private float GetFlashMultiplier(TComp comp)
@@ -93,27 +99,31 @@ public abstract class SwitchableOverlaySystem<TComp, TEvent> : EntitySystem
 
     private void OnGetState(EntityUid uid, TComp component, ref ComponentGetState args)
     {
-        args.State = new SwitchableOverlayComponentState
+        args.State = new SwitchableVisionOverlayComponentState
         {
             Color = component.Color,
+            IsEquipment = component.IsEquipment,
             IsActive = component.IsActive,
             FlashDurationMultiplier = component.FlashDurationMultiplier,
             ActivateSound = component.ActivateSound,
             DeactivateSound = component.DeactivateSound,
             ToggleAction = component.ToggleAction,
             LightRadius = component is ThermalVisionComponent thermal ? thermal.LightRadius : 0f,
+            DrawOverlay = component.DrawOverlay,
         };
     }
 
     private void OnHandleState(EntityUid uid, TComp component, ref ComponentHandleState args)
     {
-        if (args.Current is not SwitchableOverlayComponentState state)
+        if (args.Current is not SwitchableVisionOverlayComponentState state)
             return;
 
         component.Color = state.Color;
+        component.IsEquipment = state.IsEquipment;
         component.FlashDurationMultiplier = state.FlashDurationMultiplier;
         component.ActivateSound = state.ActivateSound;
         component.DeactivateSound = state.DeactivateSound;
+        component.DrawOverlay = state.DrawOverlay;
 
         if (component.ToggleAction != state.ToggleAction)
         {
@@ -144,10 +154,8 @@ public abstract class SwitchableOverlaySystem<TComp, TEvent> : EntitySystem
 
     private void OnShutdown(EntityUid uid, TComp component, ComponentShutdown args)
     {
-        if (component.IsEquipment)
-            return;
-
-        _actions.RemoveAction(uid, component.ToggleActionEntity);
+        if (!component.IsEquipment)
+            _actions.RemoveAction(uid, component.ToggleActionEntity);
     }
 
     private void OnInit(EntityUid uid, TComp component, ComponentInit args)
@@ -185,6 +193,7 @@ public abstract class SwitchableOverlaySystem<TComp, TEvent> : EntitySystem
         }
 
         component.IsActive = activate;
+        _actions.SetToggled(component.ToggleActionEntity, activate); // WD EDIT - it's white dream system but okay
         Dirty(uid, component);
     }
 

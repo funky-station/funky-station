@@ -68,6 +68,8 @@ SPDX-License-Identifier: MIT
     <Folder Include="Resources\Prototypes\Store\" />
     <Folder Include="_DV\StationEvents\Components\" />
     <Folder Include="_DV\StationEvents\Events\" />
+    <Folder Include="_EinsteinEngines\Silicon\IPC\" />
+    <Folder Include="_Funkystation\BloodCult\EntityEffects\Effects\" />
     <Folder Include="_Funkystation\MalfAI\Components\" />
   </ItemGroup>
   <ItemGroup>
@@ -80,6 +82,10 @@ SPDX-License-Identifier: MIT
     <Compile Remove="MalfAI\MalfAiShopSystem.cs" />
     <Compile Remove="_Funkystation\MalfAI\Systems\MalfAiAntagInfoSystem.cs" />
     <Compile Remove="SurveillanceCamera\SurveillanceCameraMicrophoneComponent.cs" />
+    <Compile Remove="Body\Components\MetabolizerComponent.cs" />
+    <Compile Remove="_Funkystation\BloodCult\EntityEffects\Effects\IsBloodCultistCondition.cs" />
+    <Compile Remove="_Funkystation\BloodCult\EntityEffects\Effects\DeleteEntityEffect.cs" />
+    <Compile Remove="_Funkystation\BloodCult\EntityEffects\Effects\JuggernautBloodCorruptionEffect.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="Resources\Prototypes\Store\malf_ai.yml" />

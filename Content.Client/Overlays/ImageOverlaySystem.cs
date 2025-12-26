@@ -79,7 +79,7 @@ public sealed class ImageOverlaySystem : EntitySystem
 
     private void OnMaskToggled(EntityUid uid, ImageOverlayComponent comp, ref ItemMaskToggledEvent args)
     {
-        RefreshOverlay(forcedToggleEntity: uid, forcedToggleState: args.IsToggled);
+        RefreshOverlay(forcedToggleEntity: uid, forcedToggleState: args.Mask.Comp.IsToggled);
     }
 
     private void OnItemToggled(EntityUid uid, ImageOverlayComponent comp, ref ItemToggledEvent args)

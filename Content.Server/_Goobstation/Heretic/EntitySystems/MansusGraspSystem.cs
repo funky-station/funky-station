@@ -1,129 +1,86 @@
-// SPDX-FileCopyrightText: 2024 PJBot <pieterjan.briers+bot@gmail.com>
-// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
-// SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2024 Armok <155400926+ARMOKS@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Amethyst <52829582+jackel234@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Drywink <hugogrethen@gmail.com>
-// SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
-// SPDX-FileCopyrightText: 2025 V <97265903+formlessnameless@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 duston <66768086+dch-GH@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 jackel234 <52829582+jackel234@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 misghast <51974455+misterghast@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 mqole <113324899+mqole@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 JohnOakman <sremy2012@hotmail.fr>
+// SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
+// SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
+// SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
+// SPDX-FileCopyrightText: 2025 Spatison <137375981+Spatison@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 github-actions <github-actions@github.com>
+// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 //
-// SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+// SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Server._Goobstation.Heretic.Abilities;
 using Content.Server.Chat.Systems;
-using Content.Server.EntityEffects.Effects.StatusEffects;
+using Content.Server.Explosion.EntitySystems;
+using Content.Server.Heretic.Abilities;
 using Content.Server.Heretic.Components;
+using Content.Server.Popups;
 using Content.Server.Speech.EntitySystems;
-using Content.Server.Temperature.Components;
-using Content.Server.Temperature.Systems;
-using Content.Shared.Extensions;
+using Content.Shared._Goobstation.Heretic.Components;
+using Content.Shared._Shitcode.Heretic.Systems;
 using Content.Shared.Actions;
-using Content.Server.Damage.Systems;
-using Content.Shared.Damage;
+using Content.Shared.Chat;
 using Content.Shared.Damage.Systems;
 using Content.Shared.DoAfter;
-using Content.Shared.Doors.Components;
-using Content.Shared.Doors.Systems;
-using Content.Shared.Explosion.Components;
-using Content.Shared.Eye.Blinding.Systems;
 using Content.Shared.Heretic;
 using Content.Shared.Interaction;
-using Content.Shared.Interaction.Events;
-using Content.Shared.Mobs.Components;
-using Content.Shared.Silicons.Borgs.Components;
-using Content.Shared.Speech.Muting;
+using Content.Shared.Maps;
 using Content.Shared.StatusEffect;
 using Content.Shared.Stunnable;
 using Content.Shared.Tag;
+using Content.Shared.Timing;
+using Content.Shared.Weapons.Melee.Events;
+using Content.Shared.Whitelist;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
+using Robust.Shared.Map;
 
 namespace Content.Server.Heretic.EntitySystems;
 
-public sealed partial class MansusGraspSystem : EntitySystem
+public sealed class MansusGraspSystem : SharedMansusGraspSystem
 {
-    [Dependency] private readonly StaminaSystem _stamina = default!;
+    [Dependency] private readonly ITileDefinitionManager _tileDefinitionManager = default!;
+    [Dependency] private readonly IMapManager _mapManager = default!;
+    [Dependency] private readonly SharedStaminaSystem _stamina = default!;
     [Dependency] private readonly SharedStunSystem _stun = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly ChatSystem _chat = default!;
     [Dependency] private readonly RatvarianLanguageSystem _language = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
-    [Dependency] private readonly SharedDoorSystem _door = default!;
     [Dependency] private readonly StatusEffectsSystem _statusEffect = default!;
-    [Dependency] private readonly DamageableSystem _damage = default!;
-    [Dependency] private readonly TemperatureSystem _temperature = default!;
+    [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private readonly TagSystem _tag = default!;
+    [Dependency] private readonly UseDelaySystem _delay = default!;
+    [Dependency] private readonly SharedMapSystem _mapSystem = default!;
+    [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
+    [Dependency] private readonly HereticAbilitySystem _ability = default!;
     [Dependency] private readonly SharedActionsSystem _actions = default!;
+    [Dependency] private readonly PopupSystem _popup = default!;
 
-    private TimeSpan GraspCooldown { get; } = TimeSpan.FromSeconds(10);
+    public static readonly SoundSpecifier DefaultSound = new SoundPathSpecifier("/Audio/Items/welder.ogg");
 
-    public void ApplyGraspEffect(EntityUid performer, EntityUid target, string path)
-    {
-        switch (path)
-        {
-            case "Ash":
-                var timeSpan = TimeSpan.FromSeconds(5f);
-                _statusEffect.TryAddStatusEffect(target, TemporaryBlindnessSystem.BlindingStatusEffect, timeSpan, false, TemporaryBlindnessSystem.BlindingStatusEffect);
-                break;
+    public static readonly LocId DefaultInvocation = "heretic-speech-mansusgrasp";
 
-            case "Blade":
-                // blade is basically an upgrade to the current grasp
-                _stamina.TakeStaminaDamage(target, 100f);
-                break;
-
-            case "Lock":
-                if (!TryComp<DoorComponent>(target, out var door))
-                    break;
-
-                if (TryComp<DoorBoltComponent>(target, out var doorBolt))
-                    _door.SetBoltsDown((target, doorBolt), false);
-
-                _door.StartOpening(target, door);
-                _audio.PlayPvs(new SoundPathSpecifier("/Audio/_Goobstation/Heretic/hereticknock.ogg"), target);
-                break;
-
-            case "Flesh":
-                if (TryComp<MobStateComponent>(target, out var mobState) && mobState.CurrentState == Shared.Mobs.MobState.Dead)
-                {
-                    var ghoul = EnsureComp<GhoulComponent>(target);
-                    ghoul.BoundHeretic = performer;
-                }
-                break;
-
-            case "Rust":
-                if (!TryComp<DamageableComponent>(target, out var dmg))
-                    break;
-                // hopefully damage only walls and cyborgs
-                if (HasComp<BorgChassisComponent>(target) || !HasComp<StatusEffectsComponent>(target))
-                    _damage.SetAllDamage(target, dmg, 50f);
-                break;
-
-            case "Void":
-                if (TryComp<TemperatureComponent>(target, out var temp))
-                    _temperature.ForceChangeTemperature(target, temp.CurrentTemperature - 100f, temp);
-                _statusEffect.TryAddStatusEffect<MutedComponent>(target, "Muted", TimeSpan.FromSeconds(8), false);
-                break;
-
-            default:
-                return;
-        }
-    }
+    public static readonly TimeSpan DefaultCooldown = TimeSpan.FromSeconds(10);
 
     public override void Initialize()
     {
         base.Initialize();
 
         SubscribeLocalEvent<MansusGraspComponent, AfterInteractEvent>(OnAfterInteract);
-
         SubscribeLocalEvent<TagComponent, AfterInteractEvent>(OnAfterInteract);
         SubscribeLocalEvent<HereticComponent, DrawRitualRuneDoAfterEvent>(OnRitualRuneDoAfter);
-        SubscribeLocalEvent<MansusGraspComponent, UseInHandEvent>(OnUseInHand);
     }
-
     private void OnAfterInteract(Entity<MansusGraspComponent> ent, ref AfterInteractEvent args)
     {
         if (!args.CanReach)
@@ -132,67 +89,30 @@ public sealed partial class MansusGraspSystem : EntitySystem
         if (args.Target == null || args.Target == args.User)
             return;
 
-        if (!TryComp<HereticComponent>(args.User, out var hereticComp))
-        {
-            args.Handled = true;
-            QueueDel(ent);
-            return;
-        }
-
-        var target = (EntityUid) args.Target;
-
-        if ((TryComp<HereticComponent>(args.Target, out var th) && th.CurrentPath == ent.Comp.Path))
-            return;
-
-        if (HasComp<StatusEffectsComponent>(target))
-        {
-            _chat.TrySendInGameICMessage(args.User, Loc.GetString("heretic-speech-mansusgrasp"), InGameICChatType.Speak, false);
-            _audio.PlayPvs(new SoundPathSpecifier("/Audio/_Funkystation/Effects/Heretic/mansusgrasp.ogg"), target);
-            _stun.TryKnockdown(target, TimeSpan.FromSeconds(3f), true);
-            _stamina.TakeStaminaDamage(target, 65f);
-            _language.DoRatvarian(target, TimeSpan.FromSeconds(10f), true);
-
-            foreach (var action in _actions.GetActions(args.User))
-            {
-                if (TryPrototype(action.Id, out var actionPrototype) && actionPrototype.ID.Equals("ActionHereticMansusGrasp"))
-                {
-                    _actions.SetIfBiggerCooldown(action.Id, GraspCooldown);
-                }
-            }
-        }
-
-        // upgraded grasp
-        if (hereticComp.CurrentPath != null)
-        {
-            if (hereticComp.PathStage >= 2)
-                ApplyGraspEffect(args.User, target, hereticComp.CurrentPath!);
-
-            if (hereticComp.PathStage >= 4 && HasComp<StatusEffectsComponent>(target))
-            {
-                var markComp = EnsureComp<HereticCombatMarkComponent>(target);
-                markComp.Path = hereticComp.CurrentPath;
-            }
-        }
-
-        hereticComp.MansusGraspActive = false;
-        args.Handled = true;
-        QueueDel(ent);
-    }
-
-    private void OnUseInHand(EntityUid uid, MansusGraspComponent component, UseInHandEvent args)
-    {
-        if (args.Handled)
-            return;
+        var (uid, comp) = ent;
 
         if (!TryComp<HereticComponent>(args.User, out var hereticComp))
         {
             QueueDel(uid);
+            args.Handled = true;
             return;
         }
 
+        _actions.SetCooldown(hereticComp.MansusGrasp, ent.Comp.CooldownAfterUse);
+        hereticComp.MansusGrasp = EntityUid.Invalid;
+        InvokeGrasp(args.User, ent);
+        QueueDel(ent);
         args.Handled = true;
-        hereticComp.MansusGraspActive = false;
-        QueueDel(uid);
+    }
+
+    public void InvokeGrasp(EntityUid user, Entity<MansusGraspComponent>? ent)
+    {
+        var (sound, invocation) = ent == null
+            ? (DefaultSound, DefaultInvocation)
+            : (ent.Value.Comp.Sound, ent.Value.Comp.Invocation);
+
+        _audio.PlayPvs(sound, user);
+        _chat.TrySendInGameICMessage(user, Loc.GetString(invocation), InGameICChatType.Speak, false);
     }
 
     private void OnAfterInteract(Entity<TagComponent> ent, ref AfterInteractEvent args)
@@ -200,28 +120,37 @@ public sealed partial class MansusGraspSystem : EntitySystem
         var tags = ent.Comp.Tags;
 
         if (!args.CanReach
-        || !args.ClickLocation.IsValid(EntityManager)
-        || !TryComp<HereticComponent>(args.User, out var heretic) // not a heretic - how???
-        || !heretic.MansusGraspActive // no grasp - not special
-        || HasComp<ActiveDoAfterComponent>(args.User) // prevent rune shittery
-        || !tags.Contains("Write") || !tags.Contains("Pen")) // not a pen
+            || !args.ClickLocation.IsValid(EntityManager)
+            || !TryComp<HereticComponent>(args.User, out var heretic) // not a heretic - how???
+            || HasComp<ActiveDoAfterComponent>(args.User)) // prevent rune shittery
             return;
 
-        if (args.Target != null && EntityManager.IsChildOf(args.User, args.Target.Value))
+        var runeProto = "HereticRuneRitualDrawAnimation";
+        float time = 14;
+
+        if (TryComp(ent, out TransmutationRuneScriberComponent? scriber)) // if it is special rune scriber
+        {
+            runeProto = scriber.RuneDrawingEntity;
+            time = scriber.Time;
+        }
+        else if (heretic.MansusGrasp == EntityUid.Invalid // no grasp - not special
+                 || !tags.Contains("Write") || !tags.Contains("Pen")) // not a pen
             return;
+
+        args.Handled = true;
 
         // remove our rune if clicked
         if (args.Target != null && HasComp<HereticRitualRuneComponent>(args.Target))
         {
             // todo: add more fluff
-            args.Handled = true;
             QueueDel(args.Target);
             return;
         }
 
         // spawn our rune
-        var rune = Spawn("HereticRuneRitualDrawAnimation", args.ClickLocation);
-        var dargs = new DoAfterArgs(EntityManager, args.User, 14f, new DrawRitualRuneDoAfterEvent(rune, args.ClickLocation), args.User)
+        var rune = Spawn(runeProto, args.ClickLocation);
+        _transform.AttachToGridOrMap(rune);
+        var dargs = new DoAfterArgs(EntityManager, args.User, time, new DrawRitualRuneDoAfterEvent(rune, args.ClickLocation), args.User)
         {
             BreakOnDamage = true,
             BreakOnHandChange = true,
@@ -236,6 +165,6 @@ public sealed partial class MansusGraspSystem : EntitySystem
         QueueDel(ev.RitualRune);
 
         if (!ev.Cancelled)
-            Spawn("HereticRuneRitual", ev.Coords);
+            _transform.AttachToGridOrMap(Spawn("HereticRuneRitual", ev.Coords));
     }
 }

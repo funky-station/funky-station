@@ -1,7 +1,7 @@
 # SPDX-FileCopyrightText: 2024 Tornado Tech <54727692+Tornado-Technology@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 #
-# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+# SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
   parent: MobHuman
@@ -10,16 +10,16 @@
   description: He can count
   suffix: AI, DEBUG
   components:
-    - type: HTN
-      rootTask:
-        task: DebugCounterCompound
-      blackboard:
-        MinimumIdleTime: !type:Single
-          0.5
-        MaximumIdleTime: !type:Single
-          0.5
-        Count: !type:Single
-          0
+  - type: HTN
+    rootTask:
+      task: DebugCounterCompound
+    blackboard:
+      MinimumIdleTime: !type:Single
+        0.5
+      MaximumIdleTime: !type:Single
+        0.5
+      Count: !type:Single
+        0
 
 - type: entity
   parent: MobHuman
@@ -28,16 +28,16 @@
   description: He can randomize
   suffix: AI, DEBUG
   components:
-    - type: HTN
-      rootTask:
-        task: DebugRandomCounterCompound
-      blackboard:
-        MinimumIdleTime: !type:Single
-          1
-        MaximumIdleTime: !type:Single
-          1
-        Count: !type:Single
-          0
+  - type: HTN
+    rootTask:
+      task: DebugRandomCounterCompound
+    blackboard:
+      MinimumIdleTime: !type:Single
+        1
+      MaximumIdleTime: !type:Single
+        1
+      Count: !type:Single
+        0
 
 - type: entity
   parent: MobHuman
@@ -46,13 +46,13 @@
   description: He can lessing
   suffix: AI, DEBUG
   components:
-    - type: HTN
-      rootTask:
-        task: DebugRandomLessCompound
-      blackboard:
-        MinimumIdleTime: !type:Single
-          1
-        MaximumIdleTime: !type:Single
-          1
-        Count: !type:Single
-          0
+  - type: HTN
+    rootTask:
+      task: DebugRandomLessCompound
+    blackboard:
+      MinimumIdleTime: !type:Single
+        1
+      MaximumIdleTime: !type:Single
+        1
+      Count: !type:Single
+        0

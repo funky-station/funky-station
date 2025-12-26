@@ -72,11 +72,33 @@
   - type: SubGamemodes
     rules:
     - id: Thief
-      prob: 0.65
-    - id: Heretic
-      prob: 0.3
-    - id: Wizard
-      prob: 0.01
+      prob: 0.5
+    - id: SubWizard
+      prob: 0.05
+    - id: Xenoborgs
+      prob: 0.05
+
+- type: entity
+  parent: BaseGameRule
+  id: SubGamemodesRuleNoWizard
+  components:
+  - type: SubGamemodes
+    rules:
+    - id: Thief
+      prob: 0.5
+    - id: Xenoborgs
+      prob: 0.05
+
+- type: entity
+  parent: BaseGameRule
+  id: SubGamemodesRuleNoXenoborg
+  components:
+  - type: SubGamemodes
+    rules:
+    - id: Thief
+      prob: 0.5
+    - id: SubWizard
+      prob: 0.05
 
 - type: entity
   parent: BaseGameRule
@@ -141,6 +163,7 @@
     nameSegments:
     - NamesOperationPrefix
     - NamesOperationSuffix
+    nameFormat: name-format-nuclear-operation
   - type: NukeopsRule
   - type: RuleGrids
   - type: AntagSelection
@@ -219,9 +242,8 @@
         - Syndicate
       mindRoles:
       - MindRoleNukeops
-  - type: Tag
-    tags:
-    - ExtremeAntag # Funky
+  - type: DynamicRuleCost
+    cost: 200
 
 - type: entity
   abstract: true
@@ -237,6 +259,8 @@
     maxDifficulty: 5
   - type: AntagSelection
     agentName: traitor-round-end-agent-name
+  - type: DynamicRuleCost
+    cost: 100
 
 - type: entity
   parent: BaseTraitorRule
@@ -254,7 +278,7 @@
         components:
         - AntagImmune
         - Changeling # Goobstation
-      lateJoinAdditional: true
+      lateJoinAdditional: false
       mindRoles:
       - MindRoleTraitor
 
@@ -292,9 +316,8 @@
       - type: HeadRevolutionary
       mindRoles:
       - MindRoleHeadRevolutionary
-  - type: Tag
-    tags:
-    - ExtremeAntag # Funky
+  - type: DynamicRuleCost
+    cost: 200
 
 - type: entity
   id: Sandbox
@@ -357,9 +380,8 @@
         - NamesWizardLast
       mindRoles:
       - MindRoleWizard
-  - type: Tag
-    tags:
-    - ExtremeAntag # Funky
+  - type: DynamicRuleCost
+    cost: 150
 
 - type: entity
   id: Zombie
@@ -391,6 +413,8 @@
       - type: InitialInfected
       mindRoles:
       - MindRoleInitialInfected
+  - type: DynamicRuleCost
+    cost: 200
 
 # This rule makes the chosen players unable to get other antag rules, as a way to prevent metagaming job rolls.
 # Put this before antags assigned to station jobs, but after non-job antags (NukeOps/Wiz).
@@ -420,18 +444,7 @@
       - !type:NestedSelector
         tableId: BasicAntagEventsTable
       - !type:NestedSelector
-        tableId: CargoGiftsTable
-      - !type:NestedSelector
-        tableId: CalmPestEventsTable
-      - !type:NestedSelector
-        tableId: SpicyPestEventsTable
-
-- type: entityTable
-  id: BasicGameRulesTableNoAntag
-  table: !type:AllSelector
-    children:
-      - !type:NestedSelector
-        tableId: BasicCalmEventsTable
+        tableId: ModerateAntagEventsTable
       - !type:NestedSelector
         tableId: CargoGiftsTable
       - !type:NestedSelector
@@ -440,13 +453,19 @@
         tableId: SpicyPestEventsTable
 
 - type: entityTable
-  id: AllGameRulesTable
-  table: !type:AllSelector
+  id: DynamicGameRulesTable
+  table: !type:AllSelector # we need to pass a list of rules, since rules have further restrictions to consider via StationEventComp
     children:
     - !type:NestedSelector
-      tableId: BasicGameRulesTableNoAntag
+      tableId: BasicCalmEventsTable
     - !type:NestedSelector
       tableId: BasicAntagEventsTable
+    - !type:NestedSelector
+      tableId: CargoGiftsTable
+    - !type:NestedSelector
+      tableId: CalmPestEventsTable
+    - !type:NestedSelector
+      tableId: SpicyPestEventsTable
 
 - type: entityTable
   id: SpaceTrafficControlTable
@@ -466,14 +485,6 @@
   - type: BasicStationEventScheduler
     scheduledGameRules: !type:NestedSelector
       tableId: BasicGameRulesTable
-
-- type: entity
-  id: AntagStationEventScheduler
-  parent: BaseGameRule
-  components:
-  - type: BasicStationEventScheduler
-    scheduledGameRules: !type:NestedSelector
-      tableId: BasicAntagEventsTable
 
 - type: entity
   id: RampingStationEventScheduler
@@ -537,3 +548,13 @@
       prob: 0.90
     - id: CutWireVariationPass # funkystation
       prob: 0.20 # would suck if it happened every single round, but it's something for engi to be vigilant of
+    - id: SolarPanelDamageVariationPass
+    - id: SolarPanelEmptyVariationPass
+    - id: BasicDecalDirtVariationPass
+    - id: BasicDecalGraffitiVariationPass
+    - id: BasicDecalBrunsVariationPass
+      prob: 0.50
+      orGroup: monospaceDecals
+    - id: BasicDecalDirtMonospaceVariationPass
+      prob: 0.50
+      orGroup: monospaceDecals

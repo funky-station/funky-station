@@ -6884,3 +6884,11 @@ Entries:
       message: Fixed a typo on the SoP Guidebook
   id: 798
   time: '2025-12-25T09:18:49.0000000+00:00'
+- author: AraiMaia
+  changes:
+    - type: Tweak
+      message: >-
+        Made it so firelocks actually shut when they detect a major temperature
+        difference.
+  id: 799
+  time: '2025-12-26T23:54:08.0000000+00:00'

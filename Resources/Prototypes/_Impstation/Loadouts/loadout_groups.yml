@@ -193,7 +193,7 @@
     id: MedicalPDA
     belt: ClothingBeltMedicalFilled
     outerClothing: ClothingOuterWinterMed
-    #head: 
+    #head:
     pocket1: EmergencyOxygenTankFilled
     pocket2: ClothingMaskBreath
     ears: ClothingHeadsetMedical
@@ -219,7 +219,7 @@
     id: ParamedicPDA
     belt: ApidEmergencyResponseBeltFilled
     outerClothing: ClothingOuterHardsuitERTMedical
-    head: ClothingHeadHatParamedicSirenCap
+    head: ClothingHeadHatParamedicsoft
     pocket1: DoubleEmergencyOxygenTankFilled
     pocket2: WeaponDisabler
     ears: ClothingHeadsetMedical

@@ -1,4 +1,14 @@
-﻿- type: body # this is just the human one but with one hand and bee lungs
+# SPDX-FileCopyrightText: 2022 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Jezithyr <Jezithyr@gmail.com>
+# SPDX-FileCopyrightText: 2023 Jezithyr <jezithyr@gmail.com>
+# SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 metalgearsloth <comedian_vs_clown@hotmail.com>
+# SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
+- type: body
   id: Apid
   name: "apid"
   root: torso
@@ -13,30 +23,38 @@
     torso:
       part: TorsoApid
       connections:
-      - right_arm
-      - right_leg
-      - left_leg
+      - right arm
+      - left arm
+      - right leg
+      - left leg
+      - head # Shitmed
       organs:
         heart: OrganHumanHeart
         lungs: OrganApidLungs
         stomach: OrganHumanStomach
         liver: OrganHumanLiver
         kidneys: OrganHumanKidneys
-    right_arm:
+    right arm:
       part: RightArmApid
       connections:
-      - right_hand
-    right_hand:
+      - right hand
+    left arm:
+      part: LeftArmApid
+      connections:
+      - left hand
+    right hand:
       part: RightHandApid
-    right_leg:
+    left hand:
+      part: LeftHandApid
+    right leg:
       part: RightLegApid
       connections:
-      - right_foot
-    left_leg:
+      - right foot
+    left leg:
       part: LeftLegApid
       connections:
-      - left_foot
-    right_foot:
+      - left foot
+    right foot:
       part: RightFootApid
-    left_foot:
+    left foot:
       part: LeftFootApid

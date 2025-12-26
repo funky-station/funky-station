@@ -4,13 +4,10 @@
   name: "apid body part"
   abstract: true
   components:
-  - type: Extractable
-    juiceSolution:
-      reagents:
-      - ReagentId: Fat
-        Quantity: 3
-      - ReagentId: Blood
-        Quantity: 10
+  - type: Sprite # Shitmed Change
+    sprite: _Impstation/Mobs/Species/Apid/parts.rsi
+  - type: BodyPart # Shitmed Change
+    species: Apid
 
 - type: entity
   id: TorsoApid

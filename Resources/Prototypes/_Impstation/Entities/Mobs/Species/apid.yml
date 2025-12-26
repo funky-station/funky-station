@@ -3,13 +3,14 @@
   name: Urist McBee
   parent: BaseMobSpeciesOrganic
   id: BaseMobApid
-  abstract: true
+  abstract: false
   components:
   - type: Absorbable
   - type: Hunger
   - type: Thirst
+  - type: Hands
   - type: Icon
-    sprite: _Impstation/Mobs/Species/Apid/parts.rsi 
+    sprite: _Impstation/Mobs/Species/Apid/parts.rsi
     state: full
   - type: Respirator
     damage:
@@ -53,7 +54,8 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      60: Critical
+      60: SoftCritical
+      95: HardCritical
       125: Dead
   - type: PassiveDamage # Slight passive regen. Assuming one damage type, comes out to about 4 damage a minute.
     allowedStates:
@@ -117,8 +119,8 @@
     proto: moth
   - type: Vocal
     sounds:
-      Male: MaleMoth
-      Female: FemaleMoth
+      Male: UnisexMoth
+      Female: UnisexMoth
       Unsexed: UnisexMoth
   - type: Speech
     speechVerb: Moth

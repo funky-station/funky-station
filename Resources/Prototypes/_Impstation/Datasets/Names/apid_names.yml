@@ -1,54 +1,35 @@
-- type: dataset
+- type: localizedDataset
   id: apid_worker
   values:
-  - Worker
+    prefix: names-apid-worker-first-dataset-
+    count: 1
 
-- type: dataset
+- type: localizedDataset
   id: apid_botanist
   values:
-  - Worker
-  - Forager
+    prefix: names-apid-botanist-first-dataset-
+    count: 2
 
-- type: dataset
+- type: localizedDataset
   id: apid_doctor
   values:
-  - Mender
-  - Nurse
+    prefix: names-apid-doctor-first-dataset-
+    count: 2
 
-- type: dataset
+- type: localizedDataset
   id: apid_engineer
   values:
-  - Builder
-  - Carpenter
-  - Mason
-  - Leafcutter
+    prefix: names-apid-engineer-first-dataset-
+    count: 4
 
-- type: dataset
+- type: localizedDataset
   id: apid_emergency
   values:
-  - Watcher
-  - Guardian
+    prefix: names-apid-emergency-first-dataset-
+    count: 2
 
-- type: dataset #ANGRY BEE NOISES
+- type: localizedDataset # ANGRY BEE NOISES
   id: names_apid
   values:
-  - B'zrz
-  - Zzb'rz
-  - Zzr'z
-  - Zz'zrz
-  - Z'bzz
-  - R'zzb'z
-  - zz'bzz'z
-  - B'zz'zzb
-  - R'bzz'zz
-  - Zzrz'rzz
-  - Zz'zsz
-  - B'zzb'z
-  - R'zz'bzzbzz
-  - Zs'bzz'zz
-  - Zz'bzr'z
-  - Zs'bzsz'z
-  - Zzzz'bz
-  - B'bzz'bzz
-  - Zrzz'sbzz
-  - B'bzzz
+    prefix: names-apid-last-dataset-
+    count: 20

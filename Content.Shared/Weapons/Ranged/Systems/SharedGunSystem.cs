@@ -638,6 +638,7 @@ public abstract partial class SharedGunSystem : EntitySystem
                             Del(ent.Value);
                         else if (_netManager.IsClient)
                             RemoveShootable(ent.Value);
+                        MarkPredicted(ent!.Value, 0);
                     }
                     break;
                 case HitscanAmmoComponent:

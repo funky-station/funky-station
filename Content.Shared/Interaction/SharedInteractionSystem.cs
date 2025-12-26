@@ -59,6 +59,7 @@
 
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using Content.Shared._RMC14.Movement;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Administration.Logs;
 using Content.Shared.CCVar;
@@ -159,6 +160,9 @@ namespace Content.Shared.Interaction
         private static readonly ProtoId<TagPrototype> BypassInteractionRangeChecksTag = "BypassInteractionRangeChecks";
 
         public delegate bool Ignored(EntityUid entity);
+
+        [Dependency] private readonly SharedRMCLagCompensationSystem _rmcLagCompensation = default!;
+        [Dependency] private readonly INetManager _net = default!;
 
         public override void Initialize()
         {
@@ -327,6 +331,7 @@ namespace Content.Shared.Interaction
 
         private bool HandleTryPullObject(ICommonSession? session, EntityCoordinates coords, EntityUid uid)
         {
+            _rmcLagCompensation.SendLastRealTick();
             if (!ValidateClientInput(session, coords, uid, out var userEntity))
             {
                 Log.Info($"TryPullObject input validation failed");
@@ -377,6 +382,7 @@ namespace Content.Shared.Interaction
 
         public bool HandleAltUseInteraction(ICommonSession? session, EntityCoordinates coords, EntityUid uid)
         {
+            _rmcLagCompensation.SendLastRealTick();
             // client sanitization
             if (!ValidateClientInput(session, coords, uid, out var user))
             {
@@ -391,6 +397,7 @@ namespace Content.Shared.Interaction
 
         public bool HandleUseInteraction(ICommonSession? session, EntityCoordinates coords, EntityUid uid)
         {
+            _rmcLagCompensation.SendLastRealTick();
             // client sanitization
             if (!ValidateClientInput(session, coords, uid, out var userEntity))
             {
@@ -430,7 +437,7 @@ namespace Content.Shared.Interaction
             if (!_itemQuery.HasComp(target))
                 return false;
 
-            var combatEv = new CombatModeShouldHandInteractEvent();
+            var combatEv = new CombatModeShouldHandInteractEvent(user);
             RaiseLocalEvent(target.Value, ref combatEv);
 
             if (combatEv.Cancelled)
@@ -582,7 +589,6 @@ namespace Content.Shared.Interaction
             }
 
             DebugTools.Assert(!IsDeleted(user) && !IsDeleted(target));
-
             // all interactions should only happen when in range / unobstructed, so no range check is needed
             var message = new InteractHandEvent(user, target);
             RaiseLocalEvent(target, message, true);
@@ -760,7 +766,9 @@ namespace Content.Shared.Interaction
             CollisionGroup collisionMask = InRangeUnobstructedMask,
             Ignored? predicate = null,
             bool popup = false,
-            bool overlapCheck = true)
+            bool overlapCheck = true,
+            EntityUid? user = null,
+            bool lagCompensate = true)
         {
             if (!Resolve(other, ref other.Comp))
                 return false;
@@ -773,10 +781,17 @@ namespace Content.Shared.Interaction
                 return ev.InRange;
             }
 
+            // RMC14
+            var otherCoordinates = other.Comp.Coordinates;
+            var otherAngle = other.Comp.LocalRotation;
+            if (lagCompensate && TryComp(user ?? origin, out ActorComponent? originActor))
+                (otherCoordinates, otherAngle) = _rmcLagCompensation.GetCoordinatesAngle(other, originActor.PlayerSession);
+            // RMC14
+
             return InRangeUnobstructed(origin,
                 other,
-                other.Comp.Coordinates,
-                other.Comp.LocalRotation,
+                otherCoordinates,
+                otherAngle,
                 range,
                 collisionMask,
                 predicate,
@@ -823,6 +838,15 @@ namespace Content.Shared.Interaction
             bool popup = false,
             bool overlapCheck = true)
         {
+            if (_net.IsServer)
+                range += _rmcLagCompensation.MarginTiles;
+
+            if (origin.Owner == other.Owner && Resolve(other, ref other.Comp, false))
+            {
+                otherCoordinates = other.Comp.Coordinates;
+                otherAngle = other.Comp.LocalRotation;
+            }
+
             Ignored combinedPredicate = e => e == origin.Owner || (predicate?.Invoke(e) ?? false);
             var inRange = true;
             MapCoordinates originPos = default;
@@ -875,7 +899,7 @@ namespace Content.Shared.Interaction
                 // Out of range so don't raycast.
                 else if (distance > range)
                 {
-                    inRange = false;
+                    originPos = _transform.GetMapCoordinates(origin, xform: origin.Comp); // RMC14
                 }
                 else
                 {
@@ -971,7 +995,19 @@ namespace Content.Shared.Interaction
                 }
 
                 if (ignoreAnchored && _mapManager.TryFindGridAt(targetCoords, out var gridUid, out var grid))
+                {
                     ignored.UnionWith(_map.GetAnchoredEntities((gridUid, grid), targetCoords));
+                    foreach (var ent in _lookup.GetEntitiesInRange(targetCoords, 0.2f))
+                    {
+                        if (!TryComp(ent, out TransformComponent? xform) ||
+                            !xform.Anchored)
+                        {
+                            continue;
+                        }
+
+                        ignored.Add(ent);
+                    }
+                }
             }
 
             Ignored combinedPredicate = e => e == target || (predicate?.Invoke(e) ?? false) || ignored.Contains(e);
@@ -1191,6 +1227,7 @@ namespace Content.Shared.Interaction
         #region ActivateItemInWorld
         private bool HandleActivateItemInWorld(ICommonSession? session, EntityCoordinates coords, EntityUid uid)
         {
+            _rmcLagCompensation.SendLastRealTick();
             if (!ValidateClientInput(session, coords, uid, out var user))
             {
                 Log.Info($"ActivateItemInWorld input validation failed");
@@ -1359,7 +1396,8 @@ namespace Content.Shared.Interaction
             Entity<TransformComponent?> target,
             float range = InteractionRange,
             CollisionGroup collisionMask = InRangeUnobstructedMask,
-            Ignored? predicate = null)
+            Ignored? predicate = null,
+            bool lagCompensated = false)
         {
             if (user == target)
                 return true;
@@ -1603,12 +1641,13 @@ namespace Content.Shared.Interaction
     /// </summary>
     /// <param name="Cancelled">Whether the hand interaction should be cancelled.</param>
     [ByRefEvent]
-    public record struct CombatModeShouldHandInteractEvent(bool Cancelled = false);
+    public record struct CombatModeShouldHandInteractEvent(EntityUid User, bool Cancelled = false);
 
     /// <summary>
     /// Override event raised directed on the user to say the target is accessible.
     /// </summary>
-    /// <param name="Target">Entity we're targeting</param>
+    /// <param name="User"></param>
+    /// <param name="Target"></param>
     [ByRefEvent]
     public record struct AccessibleOverrideEvent(EntityUid User, EntityUid Target)
     {

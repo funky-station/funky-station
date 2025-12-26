@@ -46,8 +46,6 @@
         whitelist:
           tags:
             - CartridgePistolLarge
-  - type: Multishot # Goobstation
-    spreadMultiplier: 1.5
 
 - type: entity
   name: Wyvern
@@ -93,5 +91,3 @@
         whitelist:
           tags:
             - CartridgePistolLarge
-  - type: Multishot # Goobstation
-    spreadMultiplier: 1.5

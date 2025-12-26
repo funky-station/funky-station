@@ -124,10 +124,6 @@
       collection: MetalThud # Goobstation ^
   - type: BatteryDrinkerSource # Goobstation - Energycrit
     maxAmount: 180 # you probably don't want to drain your entire gun charging in battle
-  - type: Multishot # Goobstation V
-    missChance: 0.4
-    spreadMultiplier: 3
-    spreadAddition: 40
 
 - type: entity
   id: BaseWeaponPowerCell
@@ -235,7 +231,6 @@
     tags:
     - Sidearm
     - LaserWeapon
-  - type: Multishot # Goobstation
 
 - type: entity
   name: retro laser blaster
@@ -261,7 +256,6 @@
     steps: 5
     zeroVisible: true
   - type: Appearance
-  - type: Multishot # Goobstation
   - type: Tag
     tags:
     - Sidearm
@@ -296,7 +290,6 @@
   - type: Battery
     maxCharge: 500
     startingCharge: 500
-  - type: Multishot # Goobstation
   - type: Tag
     tags:
     - Sidearm
@@ -421,7 +414,6 @@
   - type: Battery
     maxCharge: 2000
     startingCharge: 2000
-  - type: Multishot # Goobstation
   - type: Tag
     tags:
     - Sidearm
@@ -820,7 +812,6 @@
     flavorKind: station-event-random-sentience-flavor-inanimate
     weight: 0.0002 # 5,000 times less likely than 1 regular animal
     # not putting a BlockMovement component here cause that's funny.
-  - type: Multishot # Goobstation
 
 - type: entity
   name: advanced laser pistol
@@ -857,7 +848,6 @@
   - type: Appearance
   - type: StaticPrice
     price: 63
-  - type: Multishot # Goobstation
   - type: Tag
     tags:
     - Sidearm
@@ -910,7 +900,6 @@
     node: start
   - type: StaticPrice
     price: 100
-  - type: Multishot # Goobstation
   - type: Tag
     tags:
     - ChimpHandcannon

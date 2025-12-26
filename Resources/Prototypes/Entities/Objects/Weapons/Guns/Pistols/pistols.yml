@@ -117,8 +117,6 @@
   - type: Appearance
   - type: StaticPrice
     price: 500
-  - type: Multishot # Goobstation
-    spreadMultiplier: 1.25
 
 - type: entity
   name: viper
@@ -309,5 +307,3 @@
         whitelist:
           tags:
             - CartridgeMagnum
-  - type: Multishot # Goobstation
-    spreadMultiplier: 1.25

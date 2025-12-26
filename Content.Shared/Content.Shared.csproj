@@ -80,6 +80,7 @@ SPDX-License-Identifier: MIT
     <Compile Remove="MalfAI\Actions\MalfAiHijackMechActionEvent.cs" />
     <Compile Remove="MalfAI\Actions\MalfAiToggleCameraUpgradeActionEvent.cs" />
     <Compile Remove="MalfAI\Actions\MalfAiToggleCameraMicrophonesActionEvent.cs" />
+    <Compile Remove="_Goobstation\Weapons\Multishot\SharedMultishotSystem.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Animation\" />
@@ -88,6 +89,7 @@ SPDX-License-Identifier: MIT
     <Folder Include="UI\Themes\" />
     <Folder Include="Xenoborg\Components\" />
     <Folder Include="_Funkystation\Factory\Systems\" />
+    <Folder Include="_Goobstation\Weapons\Multishot\" />
     <Folder Include="_Shitmed\Medical\" />
   </ItemGroup>
   <ItemGroup>

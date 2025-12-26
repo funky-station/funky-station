@@ -34,55 +34,56 @@ namespace Content.Shared.DrawDepth
         /// <summary>
         ///     This is for sub-floors, the floors you see after prying off a tile.
         /// </summary>
-        LowFloors = DrawDepthTag.Default - 20,
+        LowFloors = DrawDepthTag.Default - 21,
 
         // various entity types that require different
         // draw depths, as to avoid hiding
         #region SubfloorEntities
-        ThickPipe = DrawDepthTag.Default - 19,
-        ThickWire = DrawDepthTag.Default - 18,
-        ThinPipeAlt2 = DrawDepthTag.Default - 17,
-        ThinPipeAlt1 = DrawDepthTag.Default - 16,
-        ThinPipe = DrawDepthTag.Default - 15,
-        ThinWire = DrawDepthTag.Default - 14,
+        ThickPipe = DrawDepthTag.Default - 20,
+        ThickWire = DrawDepthTag.Default - 19,
+        ThinPipeAlt2 = DrawDepthTag.Default - 18,
+        ThinPipeAlt1 = DrawDepthTag.Default - 17,
+        ThinPipe = DrawDepthTag.Default - 16,
+        ThinWire = DrawDepthTag.Default - 15,
         #endregion
 
         /// <summary>
         ///     Things that are beneath regular floors.
         /// </summary>
-        BelowFloor = DrawDepthTag.Default - 13,
+        BelowFloor = DrawDepthTag.Default - 14,
 
         /// <summary>
         ///     Used for entities like carpets.
         /// </summary>
-        FloorTiles = DrawDepthTag.Default - 12,
+        FloorTiles = DrawDepthTag.Default - 13,
 
         /// <summary>
         ///     Things that are actually right on the floor, like ice crust or atmos devices. This does not mean objects like
         ///     tables, even though they are technically "on the floor".
         /// </summary>
-        FloorObjects = DrawDepthTag.Default - 11,
+        FloorObjects = DrawDepthTag.Default - 12,
 
         /// <summary>
         //     Discrete drawdepth to avoid z-fighting with other FloorObjects but also above floor entities.
         /// </summary>
-        Puddles = DrawDepthTag.Default - 10,
+        Puddles = DrawDepthTag.Default - 11,
 
         // There's a gap for subfloor entities to retain relative draw depth when revealed by a t-ray scanner.
         /// <summary>
         //     Objects that are on the floor, but should render above puddles. This includes kudzu, holopads, telepads and levers.
         /// </summary>
-        HighFloorObjects = DrawDepthTag.Default - 5,
+        HighFloorObjects = DrawDepthTag.Default - 6,
 
         BlobTiles = DrawDepthTag.Default - 4, // Goobstation - Blob
 
-        DeadMobs = DrawDepthTag.Default - 4,
+        DeadMobs = DrawDepthTag.Default - 5,
 
         /// <summary>
         ///     Allows small mobs like mice and drones to render under tables and chairs but above puddles and vents
         /// </summary>
-        SmallMobs = DrawDepthTag.Default - 3,
+        SmallMobs = DrawDepthTag.Default - 4,
 
+        BelowWalls = DrawDepthTag.Default - 3,
         Walls = DrawDepthTag.Default - 2,
 
         /// <summary>

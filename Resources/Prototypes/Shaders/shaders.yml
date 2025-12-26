@@ -193,3 +193,13 @@
     lineCount: 10
     scanlineIntensity: 0.9
     alpha: 1
+
+- type: shader
+  id: SolarFlare
+  kind: source
+  path: "/Textures/Shaders/solar_flare.swsl"
+
+- type: shader
+  id: IonStorm
+  kind: source
+  path: "/Textures/Shaders/ion_storm.swsl"

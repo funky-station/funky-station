@@ -26,6 +26,7 @@ using Content.Shared.Chat;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
 // CD - end synth trait
+using Content.Shared.StationEvents.Events;
 
 namespace Content.Server.StationEvents.Events;
 
@@ -41,6 +42,9 @@ public sealed class IonStormRule : StationEventSystem<IonStormRuleComponent>
 
         if (!TryGetRandomStation(out var chosenStation))
             return;
+
+        var localEv = new IonStormedEvent(GetNetEntity(chosenStation.Value), GetNetEntity(uid));
+        RaiseNetworkEvent(localEv);
 
          // CD - Go through everyone with the SynthComponent and inform them a storm is happening.
         var synthQuery = EntityQueryEnumerator<SynthComponent>();

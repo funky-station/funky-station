@@ -32,8 +32,13 @@
 using Content.Shared.DoAfter;
 using Content.Shared.Emp;
 using Content.Shared.Examine;
+using Content.Shared.Explosion.Components;
 using Content.Shared.Interaction;
 using Content.Shared.Interaction.Events;
+using Content.Shared.Light.Components;
+using Content.Shared.Stacks;
+using Content.Shared.Storage;
+using Content.Shared.Trigger.Components;
 using Content.Shared.Verbs;
 using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Events;
@@ -47,7 +52,6 @@ public abstract partial class SharedGunSystem
 {
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
 
-    [MustCallBase]
     protected virtual void InitializeBallistic()
     {
         SubscribeLocalEvent<BallisticAmmoProviderComponent, ComponentInit>(OnBallisticInit);
@@ -103,6 +107,14 @@ public abstract partial class SharedGunSystem
             return;
         }
 
+        // RMC14
+        if (Containers.TryGetContainingContainer((args.Target.Value, null), out var container) &&
+            container.Owner != args.User &&
+            HasComp<StorageComponent>(container.Owner))
+        {
+            return;
+        }
+
         args.Handled = true;
 
         // Continuous loading
@@ -143,7 +155,7 @@ public abstract partial class SharedGunSystem
                 args.User);
             return;
         }
-
+        // Simulates using a single ammo entity on the other BAP, loading it in.
         void SimulateInsertAmmo(EntityUid ammo, EntityUid ammoProvider, EntityCoordinates coordinates)
         {
             // We call SharedInteractionSystem to raise contact events. Checks are already done by this point.
@@ -182,7 +194,7 @@ public abstract partial class SharedGunSystem
                 Del(ent.Value);
         }
 
-        // repeat if there is more space in the target and more ammo to fill
+        // repeat if there is more space in the target and more ammo to fill it
         var moreSpace = target.Entities.Count + target.UnspawnedCount < target.Capacity;
         var moreAmmo = component.Entities.Count + component.UnspawnedCount > 0;
         args.Repeat = moreSpace && moreAmmo;

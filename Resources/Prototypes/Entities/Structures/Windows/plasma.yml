@@ -75,7 +75,7 @@
     node: plasmaWindow
   - type: Appearance
   - type: DamageVisuals
-    thresholds: [5, 10, 20]
+    thresholds: [2, 4, 6 ,8 , 10, 12, 14, 16, 18, 20]
     damageDivisor: 3
     trackAllDamage: true
     damageOverlay:
@@ -109,7 +109,7 @@
   - type: Appearance
   - type: DamageVisuals
     thresholds: [5, 10, 20]
-    damageDivisor: 1.5
+    damageDivisor: 2
     trackAllDamage: true
     damageOverlay:
       sprite: Structures/Windows/cracks_directional.rsi
@@ -185,6 +185,7 @@
     - South
     - East
   - type: DamageVisuals
+    thresholds: [5, 10, 20]
     damageOverlay:
       sprite: Structures/Windows/cracks_diagonal.rsi
   - type: Construction

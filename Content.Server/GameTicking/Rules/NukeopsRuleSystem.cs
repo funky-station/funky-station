@@ -473,6 +473,10 @@ public sealed class NukeopsRuleSystem : GameRuleSystem<NukeopsRuleComponent>
 
             var msg = Loc.GetString("store-currency-war-boost-given", ("target", uid));
             _popupSystem.PopupEntity(msg, uid);
+
+            // Refresh the store UI to update available listings after war declaration
+            // This ensures WarOpsCondition listings are properly shown/hidden
+            _store.UpdateUserInterface(component.AccountOwner, uid, component);
         }
     }
 

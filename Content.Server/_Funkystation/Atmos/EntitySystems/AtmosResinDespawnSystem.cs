@@ -39,6 +39,7 @@ public sealed class AtmosResinDespawnSystem : EntitySystem
 
         var gasesToRemove = new[]
         {
+            Gas.WaterVapor,
             Gas.CarbonDioxide,
             Gas.Plasma,
             Gas.Tritium,

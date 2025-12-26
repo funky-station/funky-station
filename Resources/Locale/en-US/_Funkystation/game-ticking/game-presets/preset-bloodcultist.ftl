@@ -65,7 +65,7 @@ cult-invocation-fail-resisted = This holy being resists Nar'Sie's influence!
 cult-invocation-fail = More cultists must be present!
 cult-invocation-fail-noshell = An empty juggernaut shell must be present on the rune to perform a sacrifice!
 cult-invocation-interrupted = The ritual was interrupted!
-cult-revive-success = The ritual is complete! Life flows back into the body as your own blood is drained!
+cult-revive-success = The ritual is complete! Life flows back into the body!
 cult-revive-success-noncultist = The ritual is complete! Life flows back into the body, though Nar'Sie demands her blood tithe!
 cult-revive-fail-notarget = No valid target found to revive! The target must be dead and on the rune.
 cult-sanguine-perniculate-heal = The sanguine perniculate soothes your wounds, healing {$amount} holy damage!
@@ -123,7 +123,7 @@ bloodcult-juggernaut-healed-by-blood = The juggernaut absorbs the blood, its wou
 cult-status-veil-strong = [italic]The Veil needs to be weakened before we are able to summon The Dark One.[/italic]
 
 cult-status-veil-weak = [italic]You and your acolytes have succeeded in preparing the station for the ultimate ritual![/italic]
-cult-status-veil-weak-pending = [italic]A blood anomaly will manifest soon—ready your offering runes and prepare sacrifices.[/italic]
+cult-status-veil-weak-pending = [italic]A blood anomaly will manifest soon—ready your conversion runes and prepare sacrifices.[/italic]
 cult-status-veil-weak-anomaly = [italic]The blood anomaly has manifested! Feed it with sacrifices to empower the final summoning ritual.[/italic]
 cult-veil-torn = The veil... is... torn!
 cult-rift-spawn-soon = The veil screams. A blood anomaly will manifest in two minutes—prepare your offerings!
@@ -133,7 +133,6 @@ cult-status-veil-strong-goal = [italic]Current goal: Sacrifice {$targetName}, th
 cult-status-veil-weak-goal = [italic]Current goal: Summon Nar'Sie by invoking the rune 'Tear Veil' with 9 cultists, constructs, or summoned ghosts on it.
     The summoning can only be accomplished in the {$firstLoc} area, the {$secondLoc} area, or the {$thirdLoc} area - where the veil is weak enough for the ritual to begin.[/italic]
 cult-status-veil-weak-goal-pending = [italic]Current goal: Await the arrival of the holy blood of Nar'Sie as you spill more blood in her name![/italic]
-cult-status-veil-weak-goal-anomaly = [italic]Current goal: Feed the blood anomaly at {$firstLoc}, {$secondLoc}, or {$thirdLoc} with offering runes, then gather 9 cultists, constructs, or summoned ghosts on Tear Veil to summon Nar'Sie.[/italic]
 cult-status-veil-weak-rift-location = [italic]The final rift coalesces around {$location}. The ritual must be completed there.[/italic]
 cult-status-veil-weak-direction = [italic]{$location} lies to your {$direction}. Follow the call of the rift.[/italic]
 cult-status-veil-weak-direction-here = [italic]You stand at {$location}; the rift is within reach.[/italic]

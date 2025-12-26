@@ -43,7 +43,6 @@ namespace Content.Server.BloodCult.EntitySystems
 		[Dependency] private readonly EntityLookupSystem _lookup = default!;
 		[Dependency] private readonly MobStateSystem _mobState = default!;
 		[Dependency] private readonly MobThresholdSystem _mobThreshold = default!;
-		[Dependency] private readonly BloodstreamSystem _bloodstream = default!;
 		[Dependency] private readonly BloodCultRuleSystem _bloodCultRule = default!;
 		[Dependency] private readonly RejuvenateSystem _rejuvenate = default!;
 		[Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
@@ -96,7 +95,7 @@ namespace Content.Server.BloodCult.EntitySystems
 			// Apply different conditions based on cultist status
 			if (isCultist)
 			{
-				// Cultists are revived to exactly 80 health
+				// Cultists are revived with 20 health remaining
 				// Get the death threshold (which represents max health) and calculate damage needed
 				if (TryComp<MobThresholdsComponent>(look, out var thresholds) &&
 				    _mobThreshold.TryGetDeadThreshold(look, out var maxHealth, thresholds) &&

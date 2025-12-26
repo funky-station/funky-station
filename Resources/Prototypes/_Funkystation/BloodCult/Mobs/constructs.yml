@@ -73,10 +73,6 @@
       damageModifierSet: CultJuggernaut
     - type: IgnoreSlowOnDamage
     - type: BloodCultConstruct
-    - type: Bloodstream
-      bloodMaxVolume: 0
-      bloodReagent: Blood
-      maxBleedAmount: 0
     - type: Reactive
       groups:
         Flammable: [ Touch ]
@@ -114,6 +110,12 @@
         - Alive
         - Critical
         - Dead
+    - type: StatusEffects
+      allowed:
+        - Stun
+        - KnockedDown
+        - SlowedDown
+        # Electrocution is intentionally excluded - juggernauts are immune to electrical shocks
     - type: MobStateActions
       actions:
         Critical: []  # Juggernauts should not have critical state actions (suicide, last words)

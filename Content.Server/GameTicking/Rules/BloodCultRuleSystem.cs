@@ -71,6 +71,7 @@ using Robust.Shared.Console;
 using Content.Server.Administration;
 using Content.Shared.Administration;
 using Content.Shared.Speech;
+using Content.Server.Speech.Components;
 using Content.Shared.Emoting;
 using Content.Shared.Actions;
 using Robust.Shared.GameObjects;
@@ -324,8 +325,15 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 			if (component.HasEyes)
 			{
 				// Ensure AppearanceComponent exists before setting eyes visual
+				// Only enable eyes if the body has an attached head
 				var appearance = EnsureComp<AppearanceComponent>(traitor);
-				_appearance.SetData(traitor, CultEyesVisuals.CultEyes, true, appearance);
+				var hasHead = false;
+				if (TryComp<BodyComponent>(traitor, out var body))
+				{
+					var head = _body.GetBodyChildrenOfType(traitor, BodyPartType.Head, body).FirstOrDefault();
+					hasHead = head.Id != EntityUid.Invalid;
+				}
+				_appearance.SetData(traitor, CultEyesVisuals.CultEyes, hasHead, appearance);
 			}
 
 			if (component.VeilWeakened)
@@ -804,13 +812,41 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 		if (mindId != null && mindComp != null)
 		{
 			var coordinates = Transform(uid).Coordinates;
+			
+			// Check if the victim is Hamlet to spawn hamstone instead of soulstone
+			// Get speech component and accent component BEFORE gibbing the body
+			var victimMeta = MetaData(uid);
+			var isHamlet = victimMeta.EntityPrototype?.ID == "MobHamsterHamlet";
+			SpeechComponent? victimSpeech = null;
+			ReplacementAccentComponent? victimAccent = null;
+			if (isHamlet)
+			{
+				TryComp<SpeechComponent>(uid, out victimSpeech);
+				TryComp<ReplacementAccentComponent>(uid, out victimAccent);
+			}
+			
 			_audio.PlayPvs(new SoundPathSpecifier("/Audio/Magic/disintegrate.ogg"), coordinates);
+			var soulstonePrototype = isHamlet ? "CultHamstone" : "CultSoulStone";
+			
 			_body.GibBody(uid, true);
-			var soulstone = Spawn("CultSoulStone", coordinates);
+			var soulstone = Spawn(soulstonePrototype, coordinates);
 			_mind.TransferTo((EntityUid)mindId, soulstone, mind:mindComp);
 			
-			// Ensure the soulstone can speak but not move
-			EnsureComp<SpeechComponent>(soulstone);
+			// Preserve speech component and speech restrictions (ReplacementAccentComponent) from Hamlet if applicable
+			if (isHamlet && victimSpeech != null)
+			{
+				CopyComp(uid, soulstone, victimSpeech);
+				// Copy ReplacementAccentComponent if it exists (preserves speech restrictions like cognizine requirement)
+				if (victimAccent != null)
+				{
+					CopyComp(uid, soulstone, victimAccent);
+				}
+			}
+			else
+			{
+				// Ensure the soulstone can speak but not move
+				EnsureComp<SpeechComponent>(soulstone);
+			}
 			EnsureComp<EmotingComponent>(soulstone);
 		
 		// Give the soulstone a physics push for visual effect
@@ -919,9 +955,16 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 			return;
 
 		// Apply eyes visual if stage 1 (HasEyes) or later has been reached
+		// But only if the body has an attached head
 		if (ruleComp.HasEyes)
 		{
-			_appearance.SetData(uid, CultEyesVisuals.CultEyes, true, appearance);
+			var hasHead = false;
+			if (TryComp<BodyComponent>(uid, out var body))
+			{
+				var head = _body.GetBodyChildrenOfType(uid, BodyPartType.Head, body).FirstOrDefault();
+				hasHead = head.Id != EntityUid.Invalid;
+			}
+			_appearance.SetData(uid, CultEyesVisuals.CultEyes, hasHead, appearance);
 		}
 
 		// Apply halo visual if stage 3 (VeilWeakened) has been reached
@@ -931,6 +974,34 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 			UpdateCultHaloLight(uid, true);
 		}
 	}
+
+	private void UpdateCultEyesBasedOnHead(EntityUid bodyUid)
+	{
+		// Only process for cultists
+		if (!TryComp<BloodCultistComponent>(bodyUid, out _))
+			return;
+
+		// Check if we have an active rule to get stage information
+		if (!TryGetActiveRule(out var ruleComp) || !ruleComp.HasEyes)
+			return;
+
+		// Check if body has an attached head
+		// How they got this far without a head is questionable
+		var hasHead = false;
+		if (TryComp<BodyComponent>(bodyUid, out var body))
+		{
+			var head = _body.GetBodyChildrenOfType(bodyUid, BodyPartType.Head, body).FirstOrDefault();
+			hasHead = head.Id != EntityUid.Invalid;
+		}
+
+		// Update eyes visual based on whether head exists
+		if (TryComp<AppearanceComponent>(bodyUid, out var appearance))
+		{
+			_appearance.SetData(bodyUid, CultEyesVisuals.CultEyes, hasHead, appearance);
+		}
+	}
+
+
 
 	private void CheckCultistCountAndCallEvac()
 	{
@@ -1124,7 +1195,14 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 		{
 			if (EntityManager.TryGetComponent(cultist, out AppearanceComponent? appearance))
 			{
-				_appearance.SetData(cultist, CultEyesVisuals.CultEyes, true, appearance);
+				// Only enable eyes if the body has an attached head
+				var hasHead = false;
+				if (TryComp<BodyComponent>(cultist, out var body))
+				{
+					var head = _body.GetBodyChildrenOfType(cultist, BodyPartType.Head, body).FirstOrDefault();
+					hasHead = head.Id != EntityUid.Invalid;
+				}
+				_appearance.SetData(cultist, CultEyesVisuals.CultEyes, hasHead, appearance);
 			}
 		}
 	}
@@ -1441,7 +1519,7 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 	}
 
 	/// <summary>
-	/// Announces Nar'Sie's summon to the entire station and triggers end-game events.
+	/// Sets the win condition when Nar'Sie is summoned.
 	/// </summary>
 	public void AnnounceNarsieSummon()
 	{
@@ -1450,12 +1528,6 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 		{
 			ruleComp.CultistsWin = true;
 			ruleComp.CultVictoryEndTime = _timing.CurTime + ruleComp.CultVictoryEndDelay;
-
-			// Station-wide announcement
-			_chat.DispatchGlobalAnnouncement(
-				Loc.GetString("cult-narsie-spawning"),
-				colorOverride: Color.DarkRed
-			);
 
 			return;
 		}

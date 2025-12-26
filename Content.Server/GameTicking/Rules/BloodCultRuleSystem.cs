@@ -28,6 +28,7 @@ using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
 using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
+using Content.Server.Speech.Prototypes;
 using Content.Shared.BloodCult;
 using Content.Shared.BloodCult.Components;
 using Content.Server.BloodCult.Components;
@@ -70,6 +71,8 @@ using Content.Server.Administration;
 using Content.Shared.Administration;
 using Content.Shared.Speech;
 using Content.Shared.Emoting;
+using Content.Shared.Actions;
+using Robust.Shared.GameObjects;
 
 namespace Content.Server.GameTicking.Rules;
 
@@ -78,6 +81,8 @@ namespace Content.Server.GameTicking.Rules;
 /// </summary>
 public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 {
+	private const string JuggernautAccentPrototypeId = "juggernaut";
+	
 	private enum BloodStage
 	{
 		Rise,
@@ -170,6 +175,9 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 	//[Dependency] private readonly SharedTransformSystem _transformSystem = default!;
 	[Dependency] private readonly BloodCultMindShieldSystem _mindShield = default!;
 	[Dependency] private readonly SleepingSystem _sleeping = default!;
+	[Dependency] private readonly IPrototypeManager _proto = default!;
+	[Dependency] private readonly SharedActionsSystem _action = default!;
+	[Dependency] private readonly SharedPointLightSystem _pointLight = default!;
 
 	public readonly string CultComponentId = "BloodCultist";
 
@@ -196,6 +204,10 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 
 		SubscribeLocalEvent<BloodCultistComponent, MindAddedMessage>(OnMindAdded);
 		SubscribeLocalEvent<BloodCultistComponent, MindRemovedMessage>(OnMindRemoved);
+		SubscribeLocalEvent<BloodCultistComponent, ComponentRemove>(OnCultistRemoved);
+		
+		// Ensure halos are applied when AppearanceComponent is added to cultists
+		SubscribeLocalEvent<AppearanceComponent, ComponentStartup>(OnAppearanceStartup);
 
 		// Do we need a special "head" cultist? Don't think so
 		//SubscribeLocalEvent<HeadRevolutionaryComponent, AfterFlashedEvent>(OnPostFlash);
@@ -298,6 +310,9 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 				_cultistSpell.AddSpell(traitor, cultist, (ProtoId<CultAbilityPrototype>) "Commune", recordKnownSpell:false);
 				_cultistSpell.AddSpell(traitor, cultist, (ProtoId<CultAbilityPrototype>) "StudyVeil", recordKnownSpell:false);
 				_cultistSpell.AddSpell(traitor, cultist, (ProtoId<CultAbilityPrototype>) "SpellsSelect", recordKnownSpell:false);
+				
+				// Give them the Summon Dagger spell pre-prepared (bypasses DoAfter requirement)
+				_action.AddAction(traitor, "ActionCultistSummonDagger");
 
 				// propogate the selected Nar'Sie summon location
 				// Enable Tear Veil rune if stage 2 (HasRisen) or later has been reached
@@ -307,27 +322,21 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 
 			if (component.HasEyes)
 			{
-				if (EntityManager.TryGetComponent(traitor, out AppearanceComponent? appearance))
-				{
-					_appearance.SetData(traitor, CultEyesVisuals.CultEyes, true, appearance);
-				}
+				// Ensure AppearanceComponent exists before setting eyes visual
+				var appearance = EnsureComp<AppearanceComponent>(traitor);
+				_appearance.SetData(traitor, CultEyesVisuals.CultEyes, true, appearance);
 			}
 
 			if (component.VeilWeakened)
 			{
-				if (EntityManager.TryGetComponent(traitor, out AppearanceComponent? appearance))
-				{
-					_appearance.SetData(traitor, CultHaloVisuals.CultHalo, true, appearance);
-				}
+				// Ensure AppearanceComponent exists before setting halo visual
+				var appearance = EnsureComp<AppearanceComponent>(traitor);
+				_appearance.SetData(traitor, CultHaloVisuals.CultHalo, true, appearance);
+				UpdateCultHaloLight(traitor, true);
 			}
 
 			_npcFaction.RemoveFaction(traitor, NanotrasenFactionId, false);
 			_npcFaction.AddFaction(traitor, BloodCultistFactionId);
-
-			// Ensure the blood gland organ is added (makes them bleed SanguinePerniculate)
-			// This is normally handled by BloodCultistMetabolismSystem.OnCultistInit, but for round-start
-			// cultists the body might not be ready when ComponentInit fires, so we ensure it here too
-			_EnsureBloodGlandOrgan(traitor);
 
 			return true;
 		}
@@ -352,49 +361,6 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
         return true;
 	}
 
-	/// <summary>
-	/// Ensures the blood gland organ is added to the cultist.
-	/// This organ makes them bleed SanguinePerniculate instead of normal blood.
-	/// </summary>
-	private void _EnsureBloodGlandOrgan(EntityUid uid)
-	{
-		if (!TryComp<BodyComponent>(uid, out var body))
-			return;
-		
-		// Check if they already have a blood gland
-		bool hasBloodGland = false;
-		foreach (var (organUid, organ) in _body.GetBodyOrgans(uid, body))
-		{
-			if (organ.SlotId == "blood_gland")
-			{
-				hasBloodGland = true;
-				break;
-			}
-		}
-		
-		if (hasBloodGland)
-			return;
-		
-		// Find the torso to add the blood gland
-		var parts = _body.GetBodyChildren(uid, body);
-		foreach (var (partUid, part) in parts)
-		{
-			if (part.PartType == BodyPartType.Torso)
-			{
-				// Create the blood_gland slot if it doesn't exist
-				if (!part.Organs.ContainsKey("blood_gland"))
-				{
-					_body.TryCreateOrganSlot(partUid, "blood_gland", out _, part);
-				}
-				
-				// Spawn and insert blood gland
-				var coords = Transform(uid).Coordinates;
-				var bloodGland = Spawn("OrganBloodGland", coords);
-				_body.InsertOrgan(partUid, bloodGland, "blood_gland", part);
-				break;
-			}
-		}
-	}
 
 	protected override void ActiveTick(EntityUid uid, BloodCultRuleComponent component, GameRuleComponent gameRule, float frameTime)
     {
@@ -518,6 +484,25 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 				DirtyField(cultistUid, cultist, nameof(BloodCultistComponent.ShowTearVeilRune));
 			}
 
+			// Ensure halos are always present when veil is weakened
+			// This handles edge cases where AppearanceComponent was added later or halo wasn't set
+			if (component.VeilWeakened)
+			{
+				var appearance = EnsureComp<AppearanceComponent>(cultistUid);
+				// Check if halo is already set to avoid unnecessary updates
+				// Use TryGetData to check if the halo is already set to true
+				if (!_appearance.TryGetData<bool>(cultistUid, CultHaloVisuals.CultHalo, out var haloValue, appearance) || !haloValue)
+				{
+					_appearance.SetData(cultistUid, CultHaloVisuals.CultHalo, true, appearance);
+					UpdateCultHaloLight(cultistUid, true);
+				}
+				else
+				{
+					// Ensure light is present even if halo was already set
+					UpdateCultHaloLight(cultistUid, true);
+				}
+			}
+
 			// Show cult status
 			if (cultist.StudyingVeil)
 			{
@@ -592,6 +577,17 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 				var narsieSpawn = Spawn("MobNarsieSpawn", (EntityCoordinates)cultist.NarsieSummoned);
 				cultist.NarsieSummoned = null;
 				component.CultVictoryEndTime = _timing.CurTime + component.CultVictoryEndDelay;
+			}
+		}
+
+		// Process juggernaut communes
+		var juggernauts = AllEntityQuery<JuggernautComponent>();
+		while (juggernauts.MoveNext(out var juggernautUid, out var juggernaut))
+		{
+			if (juggernaut.CommuningMessage != null)
+			{
+				DistributeCommune(component, juggernaut.CommuningMessage, juggernautUid);
+				juggernaut.CommuningMessage = null;
 			}
 		}
 
@@ -889,6 +885,67 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 	private void OnMindRemoved(EntityUid uid, BloodCultistComponent cultist, MindRemovedMessage args)
 	{
 		_role.MindRemoveRole<BloodCultRoleComponent>(args.Mind.Owner);
+		CheckCultistCountAndCallEvac();
+	}
+
+	private void OnCultistRemoved(EntityUid uid, BloodCultistComponent cultist, ComponentRemove args)
+	{
+		CheckCultistCountAndCallEvac();
+	}
+
+	/// <summary>
+	/// When AppearanceComponent is added to an entity, ensure cult visuals (eyes/halo) are applied if applicable.
+	/// This handles edge cases where AppearanceComponent is added after the cult has progressed.
+	/// </summary>
+	private void OnAppearanceStartup(EntityUid uid, AppearanceComponent appearance, ComponentStartup args)
+	{
+		// Only process for cultists
+		if (!TryComp<BloodCultistComponent>(uid, out var cultist))
+			return;
+
+		// Check if we have an active rule to get stage information
+		if (!TryGetActiveRule(out var ruleComp))
+			return;
+
+		// Apply eyes visual if stage 1 (HasEyes) or later has been reached
+		if (ruleComp.HasEyes)
+		{
+			_appearance.SetData(uid, CultEyesVisuals.CultEyes, true, appearance);
+		}
+
+		// Apply halo visual if stage 3 (VeilWeakened) has been reached
+		if (ruleComp.VeilWeakened)
+		{
+			_appearance.SetData(uid, CultHaloVisuals.CultHalo, true, appearance);
+			UpdateCultHaloLight(uid, true);
+		}
+	}
+
+	private void CheckCultistCountAndCallEvac()
+	{
+		// Only check if there's an active rule
+		if (!TryGetActiveRule(out var rule))
+			return;
+
+		// Don't call evac if it's already been called
+		if (_roundEnd.IsRoundEndRequested())
+			return;
+
+		// Get all cultists (excluding constructs)
+		var cultists = GetCultists(includeConstructs: false);
+		var cultistCount = cultists.Count;
+
+		// Call evac if cult drops to 0 or 1 members
+		if (cultistCount <= 1)
+		{
+			_roundEnd.RequestRoundEnd(
+				TimeSpan.FromMinutes(10),
+				null,
+				false,
+				"cult-evac-called-announcement",
+				"cult-evac-sender-announcement"
+			);
+		}
 	}
 
 	public void Speak(EntityUid? uid, string speech, bool forceLoud = false)
@@ -1073,10 +1130,33 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 		}
 		foreach (EntityUid cultist in cultists)
 		{
-			if (EntityManager.TryGetComponent(cultist, out AppearanceComponent? appearance))
-			{
-				_appearance.SetData(cultist, CultHaloVisuals.CultHalo, true, appearance);
-			}
+			// Ensure AppearanceComponent exists and set halo visual
+			// This ensures halos are added even if the component is added later
+			var appearance = EnsureComp<AppearanceComponent>(cultist);
+			_appearance.SetData(cultist, CultHaloVisuals.CultHalo, true, appearance);
+			UpdateCultHaloLight(cultist, true);
+		}
+	}
+
+	/// <summary>
+	/// Updates the point light for cultists with halos. Adds a bright red light with small radius when halo is active.
+	/// </summary>
+	private void UpdateCultHaloLight(EntityUid uid, bool hasHalo)
+	{
+		if (hasHalo)
+		{
+			var light = _pointLight.EnsureLight(uid);
+			// Set enabled first to ensure the light is active
+			_pointLight.SetEnabled(uid, true, light);
+			// Then set the visual properties - make it bright and visible
+			_pointLight.SetColor(uid, new Color(255, 0, 0), light); // Bright red
+			_pointLight.SetEnergy(uid, 3.0f, light); // Bright
+			_pointLight.SetRadius(uid, 1.0f, light); // Small but visible radius
+		}
+		else
+		{
+			// Remove the light if halo is disabled
+			_pointLight.RemoveLightDeferred(uid);
 		}
 	}
 
@@ -1247,9 +1327,30 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 		if (mindId != null)
 		{
 			var metaData = MetaData(sender);
-			// Generate a random single-word chant from cult-chants.ftl
-			var chant = GenerateChant(wordCount: 1);
-			_chat.TrySendInGameICMessage(sender, chant, InGameICChatType.Whisper, ChatTransmitRange.Normal);
+			string localSpeech;
+			
+			// Check if sender is a juggernaut - use juggernaut accent words instead of random chant
+			if (HasComp<JuggernautComponent>(sender))
+			{
+				// Dynamically get the count of juggernaut accent words from the prototype
+				var juggernautWordCount = 1; // Default to 1 if prototype not found
+				if (_proto.TryIndex<ReplacementAccentPrototype>(JuggernautAccentPrototypeId, out var juggernautAccent) &&
+				    juggernautAccent.FullReplacements != null && juggernautAccent.FullReplacements.Length > 0)
+				{
+					juggernautWordCount = juggernautAccent.FullReplacements.Length;
+				}
+				
+				// Pick a random juggernaut accent word (1-based index)
+				var juggernautWordIndex = _random.Next(1, juggernautWordCount + 1);
+				localSpeech = Loc.GetString($"accent-words-juggernaut-{juggernautWordIndex}");
+			}
+			else
+			{
+				// Generate a random single-word chant from cult-chants.ftl
+				localSpeech = GenerateChant(wordCount: 1);
+			}
+			
+			_chat.TrySendInGameICMessage(sender, localSpeech, InGameICChatType.Whisper, ChatTransmitRange.Normal);
 			_jobs.MindTryGetJob(mindId, out var prototype);
 			string job = "Crewmember";
 			if (prototype != null)
@@ -1300,6 +1401,7 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 			if (!ruleComp.VeilWeakened)
 			{
 				ruleComp.VeilWeakened = true;
+				// Get all cultists (constructs don't have the culthalo sprite layer, so they're excluded)
 				var cultists = GetCultists();
 				RiseCultists(cultists, announce: false);
 

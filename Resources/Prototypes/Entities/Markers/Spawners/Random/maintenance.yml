@@ -48,17 +48,26 @@
 # SPDX-FileCopyrightText: 2025 DevilishMilk <michaellapjr@gmail.com>
 # SPDX-FileCopyrightText: 2025 Dragon232347 <122056448+Dragon232347@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 IronDragoon <8961391+IronDragoon@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 MaiaArai <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Mish <bluscout78@yahoo.com>
 # SPDX-FileCopyrightText: 2025 Professor Renderer Grizzleton <dimjcb@aol.com>
+# SPDX-FileCopyrightText: 2025 Rainbow <ev0lvkitten@gmail.com>
+# SPDX-FileCopyrightText: 2025 Skye <57879983+Rainbeon@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Smugman <85798843+Smugman@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 Teasq <Xerithin@gmail.com>
+# SPDX-FileCopyrightText: 2025 ThatOneMoon <91613003+ThatOneMoon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Unkn0wn_Gh0st <shadowstalkermll@gmail.com>
 # SPDX-FileCopyrightText: 2025 W.xyz() <tptechteam@gmail.com>
+# SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Zergologist <114537969+Chedd-Error@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 mkanke-real <mikekanke@gmail.com>
 # SPDX-FileCopyrightText: 2025 mycobiota <154991750+mycobiota@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 tea <xerithin@gmail.com>
+# SPDX-FileCopyrightText: 2025 vectorassembly <vectorassembly@icloud.com>
+# SPDX-FileCopyrightText: 2025 w.xyz() <84605679+pirakaplant@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -106,6 +115,7 @@
         - id: ClothingMaskBat
       - id: ClothingBeltSuspendersRed
       - id: ClothingBeltSuspendersBlack
+      - id: ClothingOuterWinterStingray #Funky!
       - id: ClothingEyesEyepatch
       - id: ClothingEyesGlasses
       - id: ClothingHandsGlovesLatex
@@ -221,6 +231,32 @@
         - id: ClothingNeckTransPin
         - id: ClothingNeckAutismPin
         - id: ClothingNeckGoldAutismPin
+      # Funky group, towels
+      - !type:GroupSelector
+        children:
+        - id: TowelColorBlack
+        - id: TowelColorBlue
+        - id: TowelColorBrown
+        - id: TowelColorCentcom
+        - id: TowelColorDarkBlue
+        - id: TowelColorDarkGreen
+        - id: TowelColorGold
+        - id: TowelColorGray
+        - id: TowelColorGreen
+        - id: TowelColorLightBlue
+        - id: TowelColorLightBrown
+        - id: TowelColorMaroon
+        - id: TowelColorMime
+        - id: TowelColorNT
+        - id: TowelColorOrange
+        - id: TowelColorPink
+        - id: TowelColorPurple
+        - id: TowelColorRed
+        - id: TowelColorSilver
+        - id: TowelColorSyndicate
+        - id: TowelColorTeal
+        - id: TowelColorWhite
+        - id: TowelColorYellow
     # Rare Group
     - !type:GroupSelector
       weight: 2
@@ -234,6 +270,7 @@
       - id: ClothingUniformJumpsuitFamilyGuy
       - id: WristwatchGold
       - id: RubberStampGreytide
+      - id: MysteryLighterBox
       - id: GoldenPersonalAI
 
 - type: entity

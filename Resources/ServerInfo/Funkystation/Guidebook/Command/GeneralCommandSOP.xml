@@ -1,0 +1,65 @@
+<!--
+SPDX-FileCopyrightText: 2024 DevilishMilk <bluscout78@yahoo.com>
+SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
+SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+
+SPDX-License-Identifier: MIT
+-->
+<Document>
+# General Command SOP
+
+[bold]1.[/bold] Command members are to ensure the safety of the entire station, each primarily responsible for their own Department and respective duties;
+
+[bold]2.[/bold] Command members are to ensure the wellbeing and dignity of [color=#134975]Nanotrasen[/color] and its related assets;
+
+[bold]3.[/bold] Command members may not slander or libel [color=#134975]Nanotrasen[/color];
+
+[bold]4.[/bold] Command members must ensure that [color=#134975]Nanotrasen[/color] corporate secrets remain confidential, and may reprimand or punish fellow Command members who threaten this confidentiality;
+
+[bold]5.[/bold] Command members must report such confidentiality breaks as soon as reasonable to a member of [color=#009100]Central Command Staff[/color] on station, or to [color=#009100]Central Command[/color] via fax;
+
+[bold]6.[/bold] Command members must follow the direction of [color=#009100]Central Command Staff[/color] in respect to decisions regarding the revelation of corporate secrets to general crew. In the event of emergency, or no such staff on station, Command may reveal certain secrets pertaining to specific confirmed threats if they deem it necessary;
+
+[bold]7.[/bold] Command members must accept and assist in carrying out any penalties for breaches of conduct imposed by [color=#009100]Central Command Staff[/color].
+
+[bold]8.[/bold] Command is [bold]not[/bold] to alter the length of a shift through early evacuation or shift extension except in the circumstances outlined below;
+
+### Circumstances Warrenting Shift length alteration
+
+[bold]1.[/bold] Command may call the shuttle early in the event of catastrophic damage that renders two or more departments largely incapable of work OR that renders a single department 100% inoperable.
+
+[bold]2.[/bold] Command may call the shuttle early in the case of a mass casualty event which renders more than 30% of the crew incapacitated or dead.
+
+[bold]3.[/bold] Command may extend the length of a shift if there is a project for which [bold]all[/bold] living crew on shift and in good standing have explicitly consented to work overtime for no extra pay.
+
+[bold]4.[/bold] Command may extend the length of a shift if there is an approved project for which overtime funds have been granted via a fax from [color=#009100]Central Command[/color].
+
+## General Command OOC Rules
+
+[bold]0.[/bold] Command is held to a higher standard when it comes to breaking SOP, though following SOP is still not necessarily a rule.
+
+[bold]1.[/bold]These rules and SOP apply to you even if you are promoted into a command position. You will still be held accountable to command expectations in all gameplay aspects that do not DIRECTLY relate to your antagonist objectives.
+
+[bold]2.[/bold] Command should always act professionally, prioritizing the station running smoothly over antics. The station CAN run smoothly when antics are happening though.
+
+[bold]3.[/bold] It is the duty of command to make sure that interns in their departments are TAUGHT. You should prioritize this over non station critical activities.
+
+## Departmental SOP
+[italic](All Command SOP can also be found under the respective department's SOP)[/italic]
+  - [textlink="Captain" link="CaptainSOP"]
+  - [textlink="Head of Personnel" link="HoPSOP"]
+  - [textlink="Head of Security" link="HoSSOP"]
+  - [textlink="Research Director" link="RDSOP"]
+  - [textlink="Chief Medical Officer" link="CMOSOP"]
+  - [textlink="Chief Engineer" link="CESOP"]
+  - [textlink="Quartermaster" link="QMSOP"]
+
+Please also see:
+  - [textlink="Command Training Manual" link="CommandTrainingManual"]
+  - [textlink="Order of Sucession" link="OrderOfSuccession"]
+  
+<Box>
+[color=#999999][italic]"The Captain, despite being in charge of the Station, is not separate from Nanotrasen. Any attempts to disregard general company policy are to be considered an instant condition for contract termination;"[/italic] - Captain SOP {7}[/color]
+</Box>
+</Document>

@@ -1,7 +1,7 @@
 // SPDX-FileCopyrightText: 2025 Skye <57879983+Rainbeon@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Terkala <appleorange64@gmail.com>
 // SPDX-FileCopyrightText: 2025 kbarkevich <24629810+kbarkevich@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
-// SPDX-FileCopyrightText: 2025 Terkala <appleorange64@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later OR MIT
 
@@ -104,9 +104,7 @@ public sealed class SoulStoneSystem : EntitySystem
 		if (!args.DamageIncreased)
 			return;
 
-		if (!TryComp<TransformComponent>(uid, out var xform))
-			return;
-
+		var xform = Transform(uid);
 		var filter = Filter.Pvs(xform.Coordinates, entityMan: EntityManager);
 		_color.RaiseEffect(Color.FromHex("#bf2cff"), new List<EntityUid> { uid }, filter);
 	}
@@ -256,6 +254,11 @@ public sealed class SoulStoneSystem : EntitySystem
 		// Get the mind from the soulstone
 		EntityUid? mindId = CompOrNull<MindContainerComponent>(soulstone)?.Mind;
 
+		// Clear BloodCult antag role if present (e.g., from juggernauts)
+		if (mindId != null && _role.MindHasRole<BloodCultRoleComponent>(mindId.Value))
+		{
+			_role.MindTryRemoveRole<BloodCultRoleComponent>(mindId.Value);
+		}
 
 		// Figure out what the original entity was, probably a positronic brain or IPC brain
 		if (soulstone.Comp.OriginalEntityPrototype != null)

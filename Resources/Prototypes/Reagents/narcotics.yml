@@ -40,6 +40,7 @@
 # SPDX-FileCopyrightText: 2025 Starry <202317940+PurpleTranStar@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Starry <tehevilduckiscoming@gmail.com>
 # SPDX-FileCopyrightText: 2025 Xcybitt <197952719+Xcybitt@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
@@ -275,6 +276,74 @@
   plantMetabolism:
   - !type:PlantAdjustHealth
     amount: -5
+  metabolisms:
+    Narcotic:
+      effects:
+      - !type:AdjustReagent
+        conditions:
+        - !type:ReagentThreshold
+          reagent: Nicotine
+          max: 20
+        reagent: Nicotine
+        amount: 0.5
+      - !type:AdjustReagent
+        conditions:
+        - !type:ReagentThreshold
+          reagent: Nicotine
+          min: 20
+        reagent: Nicotine
+        amount: 0.45
+      - !type:Emote
+        conditions:
+        - !type:ReagentThreshold
+          min: 40
+        emote: Cough
+        probability: 0.05
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentThreshold
+          min: 40   #if you hit this naturally while smoking, good for you.
+        damage:
+          types:
+            Poison: 0.01  #miniscule amounts of poison from the stuff NT puts in, also gives med some work
+            Asphyxiation: 0.1  #lungs are in smoker mode
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentThreshold
+          min: 70   #if you hit this naturally while smoking, what the fuck.
+        damage:
+          types:
+            Cellular: 0.01 #real spess cancer, straight to the source
+            Asphyxiation: 0.2 #lungs are struggling, mega smoker mode
+      - !type:Emote
+        conditions:
+        - !type:ReagentThreshold
+          min: 70
+        emote: Gasp
+        probability: 0.05
+      - !type:PopupMessage
+        conditions:
+        - !type:ReagentThreshold
+          min: 200
+        visualType: Medium
+        messages: ["nicotine-effect-dull-ache", "nicotine-effect-sharp-pain"]
+        type: Local
+        probability: 0.05
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentThreshold
+          min: 200   #if you hit this naturally while smoking, uh. How even. Are you literally just staying in med at this point.
+        damage:
+          types:
+            Cellular: 0.01
+            Poison: 0.01 #the three nicotine horsemen
+            Asphyxiation: 0.3
+      - !type:MovespeedModifier
+        conditions:
+        - !type:ReagentThreshold
+          min: 200
+        walkSpeedModifier: 0.8  #lungs don't do good, can't move good.
+        sprintSpeedModifier: 0.8
 
 # TODO: Replace these nonstandardized effects with generic brain damage
 - type: reagent

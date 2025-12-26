@@ -16,6 +16,7 @@
 # SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 Terkala <appleorange64@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -32,6 +33,7 @@
     - Blob # Goobstation - Blob
     - AllHostile
     - Wizard
+    - BloodCultist # Blood cultists
 
 - type: npcFaction
   id: NanoTrasen
@@ -83,6 +85,7 @@
   - AllHostile
   - Wizard
   - Dragon
+  - BloodCultist # Blood cultists
 
 - type: npcFaction
   id: SimpleNeutral
@@ -101,6 +104,7 @@
   - Heretic # goob edit - heretics
   - Blob # Goobstation - Blob
   - Wizard
+  - BloodCultist # Blood cultists
 
 - type: npcFaction
   id: Xeno
@@ -116,6 +120,7 @@
   - Blob # Goobstation - Blob
   - Wizard
   - Dragon
+  - BloodCultist # Blood cultists
 
 - type: npcFaction
   id: Zombie
@@ -134,6 +139,7 @@
   - Blob # Goobstation - Blob
   - Wizard
   - Dragon
+  - BloodCultist # Blood cultists
 
 - type: npcFaction
   id: Revolutionary
@@ -145,6 +151,7 @@
   - AllHostile
   - Blob
   - Wizard
+  - BloodCultist # Blood cultists
 
 - type: npcFaction
   id: AllHostile
@@ -164,6 +171,7 @@
   - Heretic # goob edit - heretics
   - Blob # Goobstation - Blob
   - Wizard
+  - BloodCultist # Blood cultists
 
 - type: npcFaction
   id: Wizard
@@ -180,3 +188,4 @@
   - Zombie
   - Revolutionary
   - AllHostile
+  - BloodCultist # Blood cultists

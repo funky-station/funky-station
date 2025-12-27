@@ -232,6 +232,14 @@
     - WhitelistChameleon
     - BreathMask  # Goobstation - For survial boxes
 
+- type: entity
+  parent: ClothingMaskBreathMedical
+  id: ClothingMaskBreathMedicalBed
+  suffix: Unremovable
+  description: A close-fitting sterile mask that can be connected to an air supply. This one is attached to the medical bed's internals system.
+  components:
+  - type: Unremoveable
+    deleteOnDrop: true
 
 - type: entity
   parent: ClothingMaskBreathMedical

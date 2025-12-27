@@ -6,6 +6,8 @@ using Content.Shared.Inventory;
 using Content.Shared.Inventory.Events;
 using Content.Shared._EE.Overlays.Switchable;
 using Robust.Client.Graphics;
+using Robust.Client.GameObjects;
+using Robust.Client.Player;
 
 namespace Content.Client._EE.Overlays.Switchable;
 
@@ -13,7 +15,12 @@ public sealed class NightVisionSystem : Client.Overlays.EquipmentHudSystem<Night
 {
     [Dependency] private readonly IOverlayManager _overlayMan = default!;
     [Dependency] private readonly ILightManager _lightManager = default!;
+    [Dependency] private readonly PointLightSystem _pointLightSystem = default!;
+    [Dependency] private readonly IPlayerManager _playerManager = default!;
+    [Dependency] private readonly IEntityManager _entMan = default!;
+    [Dependency] private readonly TransformSystem _transformSystem = default!;
     private BaseSwitchableOverlay<NightVisionComponent> _overlay = default!;
+    private EntityUid? _nvLight;
 
     public override void Initialize()
     {
@@ -67,7 +74,14 @@ public sealed class NightVisionSystem : Client.Overlays.EquipmentHudSystem<Night
                 break;
         }
 
-        UpdateNightVision(active);
+        if (_playerManager.LocalEntity is { } player)
+        {
+            if (active)
+                EnableNightVision(player);
+            else
+                DisableNightVision();
+        }
+
         UpdateOverlay(nvComp);
     }
 
@@ -75,11 +89,11 @@ public sealed class NightVisionSystem : Client.Overlays.EquipmentHudSystem<Night
     {
         base.DeactivateInternal();
 
-        UpdateNightVision(false);
+        DisableNightVision();
         UpdateOverlay(null);
     }
 
-    private void UpdateNightVision(bool active)
+    private void UpdateNightVision(bool active, EntityUid player)
     {
         _lightManager.DrawShadows = !active;
     }
@@ -100,5 +114,24 @@ public sealed class NightVisionSystem : Client.Overlays.EquipmentHudSystem<Night
 
         if (_overlayMan.TryGetOverlay<BaseSwitchableOverlay<ThermalVisionComponent>>(out var overlay))
             overlay.IsActive = nvComp == null;
+    }
+
+    private void EnableNightVision(EntityUid player)
+    {
+        if (_nvLight != null && _entMan.EntityExists(_nvLight.Value))
+            return;
+
+        var ent = _entMan.SpawnEntity(null, Transform(player).Coordinates);
+        _nvLight = ent;
+        _transformSystem.SetParent(ent, player);
+        var light = _entMan.AddComponent<PointLightComponent>(ent);
+        _pointLightSystem.SetRadius(ent, 999f, light);
+    }
+    private void DisableNightVision()
+    {
+        if (_nvLight is { } ent && _entMan.EntityExists(ent))
+            _entMan.DeleteEntity(ent);
+
+        _nvLight = null;
     }
 }

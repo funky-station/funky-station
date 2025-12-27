@@ -172,6 +172,12 @@
     gloves: ClothingHandsGlovesLatex
 
 - type: loadout
+  id: PurpleGloves
+  equipment:
+    gloves: ClothingHandsGlovesColorPurple
+  groupBy: "gloves"
+
+- type: loadout
   id: RobohandsGloves
   equipment:
     gloves: ClothingHandsGlovesRobohands

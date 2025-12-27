@@ -1339,7 +1339,6 @@
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitCasualBlue
   name: casual blue jumpsuit
-  description: A loose worn blue shirt with a grey pants, perfect for someone looking to relax.
   description: A loose worn blue shirt with black pants, perfect for someone looking to relax.
   components:
   - type: Sprite
@@ -1370,7 +1369,6 @@
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitCasualPurple
   name: casual purple jumpsuit
-  description: A loose worn purple shirt with a grey pants, perfect for someone looking to relax.
   description: A loose worn purple shirt with black pants, perfect for someone looking to relax.
   components:
   - type: Sprite
@@ -1401,7 +1399,6 @@
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitCasualRed
   name: casual red jumpsuit
-  description: A loose worn red shirt with a grey pants, perfect for someone looking to relax.
   description: A loose worn red shirt with black pants, perfect for someone looking to relax.
   components:
   - type: Sprite
@@ -1432,7 +1429,6 @@
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitCasualGreen
   name: casual green jumpsuit
-  description: A loose worn green shirt with a grey pants, perfect for someone looking to relax.
   description: A loose worn green shirt with black pants, perfect for someone looking to relax.
   components:
   - type: Sprite

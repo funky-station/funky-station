@@ -1191,7 +1191,7 @@ entities:
     - type: Transform
       pos: 25.531822,8.293641
       parent: 179
-- proto: ClothingUniformJumpsuitEngineering
+- proto: ClothingUniformJumpsuitEngineeringCoveralls
   entities:
   - uid: 424
     components:

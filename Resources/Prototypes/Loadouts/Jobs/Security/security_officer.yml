@@ -178,11 +178,6 @@
 # Gloves - Funky
 
 - type: loadout
-  id: BlackGloves
-  equipment:
-    gloves: ClothingHandsGlovesColorBlack
-
-- type: loadout
   id: FingerlessGloves
   equipment:
     gloves: ClothingHandsGlovesFingerless

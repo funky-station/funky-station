@@ -233,12 +233,6 @@
     jumpsuit: ClothingUniformJumpskirtColorGreen
   groupBy: "colorjumpskirt"
 
-- type: loadout
-  id: YellowJumpskirt
-  equipment:
-    jumpsuit: ClothingUniformJumpskirtColorYellow
-  groupBy: "colorjumpskirt"
-
 # Orange
 - type: loadout
   id: OrangeJumpsuit
@@ -356,12 +350,6 @@
   id: BlueGloves
   equipment:
     gloves: ClothingHandsGlovesColorBlue
-  groupBy: "gloves"
-
-- type: loadout
-  id: Purpleloves
-  equipment:
-    gloves: ClothingHandsGlovesColorPurple
   groupBy: "gloves"
 
 # Outerclothing

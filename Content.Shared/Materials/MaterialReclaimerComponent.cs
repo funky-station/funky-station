@@ -136,6 +136,24 @@ public sealed partial class MaterialReclaimerComponent : Component
     /// </remarks>
     [DataField, AutoNetworkedField]
     public int ItemsProcessed;
+
+    /// <summary>
+    /// Container ID for the processing queue container.
+    /// </summary>
+    public const string QueueContainerId = "material-reclaimer-queue-container";
+
+    /// <summary>
+    /// Queue of items waiting to be processed.
+    /// </summary>
+    [DataField]
+    public List<EntityUid> ProcessingQueue = new();
+
+    /// <summary>
+    /// The item currently being processed.
+    /// </summary>
+    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), ViewVariables(VVAccess.ReadWrite)]
+    [AutoPausedField]
+    public TimeSpan? CurrentProcessingEndTime;
 }
 
 [NetSerializable, Serializable]

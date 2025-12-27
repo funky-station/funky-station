@@ -48,6 +48,7 @@ using Content.Shared.Nutrition.EntitySystems;
 using Content.Shared.Power;
 using Content.Shared.Stacks;
 using Robust.Server.GameObjects;
+using Robust.Shared.Containers;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
@@ -81,16 +82,31 @@ public sealed class MaterialReclaimerSystem : SharedMaterialReclaimerSystem
         SubscribeLocalEvent<MaterialReclaimerComponent, InteractUsingEvent>(OnInteractUsing,
             before: [typeof(WiresSystem), typeof(SolutionTransferSystem)]);
         SubscribeLocalEvent<MaterialReclaimerComponent, SuicideByEnvironmentEvent>(OnSuicideByEnvironment);
-        SubscribeLocalEvent<ActiveMaterialReclaimerComponent, PowerChangedEvent>(OnActivePowerChanged);
 
         SubscribeLocalEvent<MaterialReclaimerComponent, BreakageEventArgs>(OnBreakage);
         SubscribeLocalEvent<MaterialReclaimerComponent, RepairedEvent>(OnRepaired);
+        SubscribeLocalEvent<MaterialReclaimerComponent, AnchorStateChangedEvent>(OnAnchorChanged);
+    }
+
+    private void OnAnchorChanged(Entity<MaterialReclaimerComponent> entity, ref AnchorStateChangedEvent args)
+    {
+        // Stop processing when unanchored, but preserve items in container
+        if (!args.Anchored)
+        {
+            entity.Comp.CurrentProcessingEndTime = null;
+            Dirty(entity);
+        }
     }
 
     private void OnPowerChanged(Entity<MaterialReclaimerComponent> entity, ref PowerChangedEvent args)
     {
         AmbientSound.SetAmbience(entity.Owner, entity.Comp.Enabled && args.Powered);
         entity.Comp.Powered = args.Powered;
+        // Stop processing when power lost, but preserve items in container
+        if (!args.Powered)
+        {
+            entity.Comp.CurrentProcessingEndTime = null;
+        }
         Dirty(entity);
     }
 
@@ -114,7 +130,7 @@ public sealed class MaterialReclaimerSystem : SharedMaterialReclaimerSystem
             }
         }
 
-        args.Handled = TryStartProcessItem(entity.Owner, args.Used, entity.Comp, args.User);
+        args.Handled = TryQueueItem(entity.Owner, args.Used, entity.Comp, args.User);
     }
 
     private void OnSuicideByEnvironment(Entity<MaterialReclaimerComponent> entity, ref SuicideByEnvironmentEvent args)
@@ -144,12 +160,6 @@ public sealed class MaterialReclaimerSystem : SharedMaterialReclaimerSystem
         args.Handled = true;
     }
 
-    private void OnActivePowerChanged(Entity<ActiveMaterialReclaimerComponent> entity, ref PowerChangedEvent args)
-    {
-        if (!args.Powered)
-            TryFinishProcessItem(entity, null, entity.Comp);
-    }
-
     private void OnBreakage(Entity<MaterialReclaimerComponent> ent, ref BreakageEventArgs args)
     {
         //un-emags itself when it breaks
@@ -169,31 +179,78 @@ public sealed class MaterialReclaimerSystem : SharedMaterialReclaimerSystem
 
         _appearance.SetData(ent, RecyclerVisuals.Broken, val);
         SetReclaimerEnabled(ent, false);
+        // Stop processing when broken, but preserve items in container
+        ent.Comp.CurrentProcessingEndTime = null;
 
         ent.Comp.Broken = val;
         Dirty(ent);
     }
 
     /// <inheritdoc/>
-    public override bool TryFinishProcessItem(EntityUid uid, MaterialReclaimerComponent? component = null, ActiveMaterialReclaimerComponent? active = null)
+    public override void Update(float frameTime)
     {
-        if (!Resolve(uid, ref component, ref active, false))
-            return false;
+        base.Update(frameTime);
 
-        if (!base.TryFinishProcessItem(uid, component, active))
-            return false;
+        var query = EntityQueryEnumerator<MaterialReclaimerComponent>();
+        while (query.MoveNext(out var uid, out var component))
+        {
+            // Skip if not powered, enabled, or broken
+            if (!component.Powered || !component.Enabled || component.Broken)
+            {
+                component.CurrentProcessingEndTime = null;
+                continue;
+            }
 
-        if (active.ReclaimingContainer.ContainedEntities.FirstOrNull() is not { } item)
-            return false;
+            // If we're currently processing, wait until it's done
+            if (component.CurrentProcessingEndTime.HasValue)
+            {
+                if (Timing.CurTime < component.CurrentProcessingEndTime.Value)
+                    continue;
 
-        Container.Remove(item, active.ReclaimingContainer);
-        Dirty(uid, component);
+                // Processing finished, process the first item in queue
+                if (component.ProcessingQueue.Count > 0)
+                {
+                    var item = component.ProcessingQueue[0];
+                    component.ProcessingQueue.RemoveAt(0);
 
-        // scales the output if the process was interrupted.
-        var completion = 1f; //funkystation fix dupe bug
-        Reclaim(uid, item, completion, component);
+                    var queueContainer = Container.EnsureContainer<Container>(uid, MaterialReclaimerComponent.QueueContainerId);
+                    if (Container.Remove(item, queueContainer))
+                    {
+                        Reclaim(uid, item, 1f, component);
+                    }
 
-        return true;
+                    // Start processing next item if any
+                    if (component.ProcessingQueue.Count > 0)
+                    {
+                        var nextItem = component.ProcessingQueue[0];
+                        var duration = GetReclaimingDuration(uid, nextItem, component);
+                        component.CurrentProcessingEndTime = Timing.CurTime + duration;
+                    }
+                    else
+                    {
+                        component.CurrentProcessingEndTime = null;
+                    }
+
+                    Dirty(uid, component);
+                }
+                else
+                {
+                    component.CurrentProcessingEndTime = null;
+                    Dirty(uid, component);
+                }
+            }
+            else
+            {
+                // Not currently processing, start processing first item in queue
+                if (component.ProcessingQueue.Count > 0)
+                {
+                    var item = component.ProcessingQueue[0];
+                    var duration = GetReclaimingDuration(uid, item, component);
+                    component.CurrentProcessingEndTime = Timing.CurTime + duration;
+                    Dirty(uid, component);
+                }
+            }
+        }
     }
 
     /// <inheritdoc/>

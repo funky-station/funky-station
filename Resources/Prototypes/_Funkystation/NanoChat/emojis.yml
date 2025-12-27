@@ -346,3 +346,10 @@
   id: floorgoblin
   category: Misc
   sprite: /Textures/_Funkystation/Interface/NanoChat/Emotes/floorgoblin.png
+
+- type: nanoChatEmoji
+  id: brick
+  category: Misc
+  sprite: 
+    sprite: /Textures/_Funkystation/Objects/Misc/brick.rsi
+    state: brick

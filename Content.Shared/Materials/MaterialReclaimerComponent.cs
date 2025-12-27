@@ -147,13 +147,6 @@ public sealed partial class MaterialReclaimerComponent : Component
     /// </summary>
     [DataField]
     public List<EntityUid> ProcessingQueue = new();
-
-    /// <summary>
-    /// The item currently being processed.
-    /// </summary>
-    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), ViewVariables(VVAccess.ReadWrite)]
-    [AutoPausedField]
-    public TimeSpan? CurrentProcessingEndTime;
 }
 
 [NetSerializable, Serializable]

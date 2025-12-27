@@ -90,23 +90,14 @@ public sealed class MaterialReclaimerSystem : SharedMaterialReclaimerSystem
 
     private void OnAnchorChanged(Entity<MaterialReclaimerComponent> entity, ref AnchorStateChangedEvent args)
     {
-        // Stop processing when unanchored, but preserve items in container
-        if (!args.Anchored)
-        {
-            entity.Comp.CurrentProcessingEndTime = null;
-            Dirty(entity);
-        }
+        // Items remain in container when unanchored, processing stops automatically
     }
 
     private void OnPowerChanged(Entity<MaterialReclaimerComponent> entity, ref PowerChangedEvent args)
     {
         AmbientSound.SetAmbience(entity.Owner, entity.Comp.Enabled && args.Powered);
         entity.Comp.Powered = args.Powered;
-        // Stop processing when power lost, but preserve items in container
-        if (!args.Powered)
-        {
-            entity.Comp.CurrentProcessingEndTime = null;
-        }
+        // Items remain in container when power lost, processing stops automatically
         Dirty(entity);
     }
 
@@ -179,8 +170,7 @@ public sealed class MaterialReclaimerSystem : SharedMaterialReclaimerSystem
 
         _appearance.SetData(ent, RecyclerVisuals.Broken, val);
         SetReclaimerEnabled(ent, false);
-        // Stop processing when broken, but preserve items in container
-        ent.Comp.CurrentProcessingEndTime = null;
+        // Items remain in container when broken, processing stops automatically
 
         ent.Comp.Broken = val;
         Dirty(ent);
@@ -196,59 +186,32 @@ public sealed class MaterialReclaimerSystem : SharedMaterialReclaimerSystem
         {
             // Skip if not powered, enabled, or broken
             if (!component.Powered || !component.Enabled || component.Broken)
-            {
-                component.CurrentProcessingEndTime = null;
                 continue;
-            }
 
-            // If we're currently processing, wait until it's done
-            if (component.CurrentProcessingEndTime.HasValue)
+            // Process items one at a time immediately
+            while (component.ProcessingQueue.Count > 0)
             {
-                if (Timing.CurTime < component.CurrentProcessingEndTime.Value)
+                var item = component.ProcessingQueue[0];
+                component.ProcessingQueue.RemoveAt(0);
+
+                // Skip if item was deleted while in queue
+                if (!Exists(item))
                     continue;
 
-                // Processing finished, process the first item in queue
-                if (component.ProcessingQueue.Count > 0)
-                {
-                    var item = component.ProcessingQueue[0];
-                    component.ProcessingQueue.RemoveAt(0);
+                var queueContainer = Container.EnsureContainer<Container>(uid, MaterialReclaimerComponent.QueueContainerId);
+                
+                // If item is no longer in container (shouldn't happen, but handle gracefully)
+                if (!queueContainer.Contains(item))
+                    continue;
 
-                    var queueContainer = Container.EnsureContainer<Container>(uid, MaterialReclaimerComponent.QueueContainerId);
-                    if (Container.Remove(item, queueContainer))
-                    {
-                        Reclaim(uid, item, 1f, component);
-                    }
-
-                    // Start processing next item if any
-                    if (component.ProcessingQueue.Count > 0)
-                    {
-                        var nextItem = component.ProcessingQueue[0];
-                        var duration = GetReclaimingDuration(uid, nextItem, component);
-                        component.CurrentProcessingEndTime = Timing.CurTime + duration;
-                    }
-                    else
-                    {
-                        component.CurrentProcessingEndTime = null;
-                    }
-
-                    Dirty(uid, component);
-                }
-                else
+                if (Container.Remove(item, queueContainer))
                 {
-                    component.CurrentProcessingEndTime = null;
-                    Dirty(uid, component);
+                    Reclaim(uid, item, 1f, component);
                 }
-            }
-            else
-            {
-                // Not currently processing, start processing first item in queue
-                if (component.ProcessingQueue.Count > 0)
-                {
-                    var item = component.ProcessingQueue[0];
-                    var duration = GetReclaimingDuration(uid, item, component);
-                    component.CurrentProcessingEndTime = Timing.CurTime + duration;
-                    Dirty(uid, component);
-                }
+
+                Dirty(uid, component);
+                // Only process one item per frame
+                break;
             }
         }
     }

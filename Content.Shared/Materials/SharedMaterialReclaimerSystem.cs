@@ -69,8 +69,6 @@ public abstract class SharedMaterialReclaimerSystem : EntitySystem
     private void OnShutdown(EntityUid uid, MaterialReclaimerComponent component, ComponentShutdown args)
     {
         _audio.Stop(component.Stream);
-        // Stop processing on shutdown, but preserve items in container
-        component.CurrentProcessingEndTime = null;
     }
 
     private void OnExamined(EntityUid uid, MaterialReclaimerComponent component, ExaminedEvent args)
@@ -106,7 +104,7 @@ public abstract class SharedMaterialReclaimerSystem : EntitySystem
         if (!Resolve(uid, ref component))
             return false;
 
-        // Duplication prevention: check if item is already in the container FIRST
+        // Duplication prevention: check if item is already in the container
         var queueContainer = Container.EnsureContainer<Container>(uid, MaterialReclaimerComponent.QueueContainerId);
         if (queueContainer.Contains(item))
             return false;
@@ -140,7 +138,6 @@ public abstract class SharedMaterialReclaimerSystem : EntitySystem
         var reclaimedEvent = new GotReclaimedEvent(Transform(uid).Coordinates);
         RaiseLocalEvent(item, ref reclaimedEvent);
 
-        // Insert item into container immediately
         Container.Insert(item, queueContainer);
         component.ProcessingQueue.Add(item);
         Dirty(uid, component);

@@ -7,10 +7,22 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
 trait-funky-name = Funky Accent
-trait-funky-desc = Put some funky flair on your inflections.
+trait-funky-desc = Puh sahme fuhky flaahr ahn yahuh inflecshuns.
+
+trait-british-name = British Accent
+trait-british-desc = Oi you soun'like someone a'a Bri'ish pub, ea'ing chips an'wa'ching the telly with your chums.
 
 trait-scandinavian-name = Scandinavian accent
-trait-scandinavian-desc = You sound like you come from some nondescript northern European nation. Or you're a Viking!
+trait-scandinavian-desc = Yøu sound like yøu cöme frøm søme nondescript norðern Euröpæän nation. Ör you'ræ a Viking!
+
+trait-french-vernacular-name = French vernacular
+trait-french-vernacular-desc = You make your parfait French accent strongeur, using several très common loanwords.
+
+trait-german-vernacular-name = German vernacular
+trait-german-vernacular-desc = Mein gott, your ability to sprinkle words like "Schmetterling" und "Krankenwagen" in your speech is fantastisch!
+
+trait-russian-vernacular-name = Russian vernacular
+trait-russian-vernacular-desc = Vhen you speak, you add in more Russian vords with ochen zick accent.
 
 trait-extra-lightweight-name = Extreme Lightweight
 trait-extra-lightweight-desc = You are the lightest of lightweights. Even a shot will hit you the same as a glass.

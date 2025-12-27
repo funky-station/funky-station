@@ -19,6 +19,7 @@
 # SPDX-FileCopyrightText: 2024 heree <79546981+hereelabs@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 hereelabs <hahmorm@gmail.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
@@ -37,6 +38,8 @@
     ClothingOuterWinterBar: 2
     ClothingUniformJumpsuitBartender: 2
     ClothingUniformJumpskirtBartender: 2
+    ClothingUniformJumpsuitStingray: 2 #Funky!
+    ClothingUniformJumpskirtStingray: 2 #Funky!
     ClothingUniformNightclubSuit: 2 #imp
     ClothingUniformNightclubSuitSkirt: 2 #imp
     ClothingUniformJumpsuitBartenderPurple: 2
@@ -47,5 +50,6 @@
     ClothingEyesGlassesSunglasses: 2
   emaggedInventory:
     ClothingUniformJumpsuitBartenderSyndicate: 2
+    ClothingOuterWinterStingray: 1
   contrabandInventory:
     ToyFigurineBartender: 1

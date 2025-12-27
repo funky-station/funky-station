@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2025 AftrLite
+// SPDX-FileCopyrightText: 2025 AftrLite <61218133+AftrLite@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Janet Blackquill <uhhadd@gmail.com>
 // SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
@@ -29,3 +32,6 @@ public sealed partial class CancelFinaleDoAfterEvent : SimpleDoAfterEvent;
 
 [Serializable, NetSerializable]
 public sealed partial class EventCosmicFragmentationDoAfter : SimpleDoAfterEvent;
+
+[Serializable, NetSerializable]
+public sealed partial class EventCosmicColossusIngressDoAfter : SimpleDoAfterEvent;

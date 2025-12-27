@@ -152,7 +152,11 @@ public abstract class SharedMaterialReclaimerSystem : EntitySystem
 
         var active = EnsureComp<ActiveMaterialReclaimerComponent>(uid);
         active.Duration = duration;
-        active.EndTime = Timing.CurTime + duration;
+        var newEndTime = Timing.CurTime + duration;
+        if (newEndTime > active.EndTime)
+        {
+            active.EndTime = newEndTime;
+        }
         Container.Insert(item, active.ReclaimingContainer);
         return true;
     }
@@ -219,9 +223,6 @@ public abstract class SharedMaterialReclaimerSystem : EntitySystem
     /// </summary>
     public bool CanStart(EntityUid uid, MaterialReclaimerComponent component)
     {
-        if (HasComp<ActiveMaterialReclaimerComponent>(uid))
-            return false;
-
         return component.Powered && component.Enabled && !component.Broken;
     }
 

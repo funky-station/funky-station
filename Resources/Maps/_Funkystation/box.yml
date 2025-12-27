@@ -1,78 +1,11 @@
-# SPDX-FileCopyrightText: 2021 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021 E F R <602406+Efruit@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021 Elijahrane <60792108+Elijahrane@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021 Mith-randalf <84274729+Mith-randalf@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021 Paul Ritter <ritter.paul1@googlemail.com>
-# SPDX-FileCopyrightText: 2021 buletsponge <96000213+buletsponge@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021 wrexbe <81056464+wrexbe@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 20kdc <asdd2808@gmail.com>
-# SPDX-FileCopyrightText: 2022 Jacob Tong <10494922+ShadowCommander@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Kara <lunarautomaton6@gmail.com>
-# SPDX-FileCopyrightText: 2022 Moony <moonheart08@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Morbo <14136326+Morb0@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Myctai <108953437+Myctai@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 OldDanceJacket <98985560+OldDanceJacket@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Peptide90 <78795277+Peptide90@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 TaralGit <76408146+TaralGit@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 TimrodDX <timrod@gmail.com>
-# SPDX-FileCopyrightText: 2022 and_a <and_a@DESKTOP-RJENGIR>
-# SPDX-FileCopyrightText: 2022 corentt <36075110+corentt@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 metalgearsloth <comedian_vs_clown@hotmail.com>
-# SPDX-FileCopyrightText: 2022 metalgearsloth <metalgearsloth@gmail.com>
-# SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-# SPDX-FileCopyrightText: 2022 moonheart08 <moonheart08@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Eoin Mcloughlin <helloworld@eoinrul.es>
-# SPDX-FileCopyrightText: 2023 Filler <130583174+FillerVK@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Jackrost <jackrost@mail.ru>
-# SPDX-FileCopyrightText: 2023 Kevin Zheng <kevinz5000@gmail.com>
-# SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 MisterMecky <mrmecky@hotmail.com>
-# SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 PeterFuto <futo.petr@gmail.com>
-# SPDX-FileCopyrightText: 2023 Ubaser <134914314+UbaserB@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 eoineoineoin <github@eoinrul.es>
-# SPDX-FileCopyrightText: 2023 faint <46868845+ficcialfaint@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 88tv <131759102+88tv@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 8tv <eightev@gmail.com>
-# SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
-# SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
-# SPDX-FileCopyrightText: 2024 Boaz1111 <149967078+Boaz1111@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Brandon Hu <103440971+Brandon-Huu@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Emisse <99158783+Emisse@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Flareguy <78941145+Flareguy@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 JustCone <141039037+JustCone14@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Krunklehorn <42424291+Krunklehorn@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 NkoKirkto <153374559+NkoKirkto@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 NkoKirkto <halloleute640mail.com>
-# SPDX-FileCopyrightText: 2024 PJBot <pieterjan.briers+bot@gmail.com>
-# SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-# SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
-# SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
-# SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 CalicoDragon <110030310+CalicoDragon@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Huhm-1 <180088676+Huhm-1@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Huhm-1 <cameronhillard40@gmail.com>
-# SPDX-FileCopyrightText: 2025 Icepick <122653407+Icepicked@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Kit <nikkiestes0@gmail.com>
-# SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
-# SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 kbarkevich <24629810+kbarkevich@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 rottenheadphones <juaelwe@outlook.com>
-# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 meta:
   format: 7
   category: Map
   engineVersion: 268.0.0
   forkId: ""
   forkVersion: ""
-  time: 12/17/2025 03:17:04
-  entityCount: 29827
+  time: 12/27/2025 17:54:43
+  entityCount: 29836
 maps:
 - 11906
 grids:
@@ -11918,25 +11851,25 @@ entities:
       parent: 8364
 - proto: AirlockExternalGlassShuttleEmergencyLocked
   entities:
-  - uid: 20042
+  - uid: 548
     components:
     - type: Transform
-      pos: 95.5,-21.5
+      pos: 95.5,-23.5
       parent: 8364
-  - uid: 27633
+  - uid: 19287
     components:
     - type: Transform
       pos: 95.5,-31.5
       parent: 8364
-  - uid: 27634
+  - uid: 19979
     components:
     - type: Transform
       pos: 95.5,-29.5
       parent: 8364
-  - uid: 27635
+  - uid: 20042
     components:
     - type: Transform
-      pos: 95.5,-23.5
+      pos: 95.5,-21.5
       parent: 8364
 - proto: AirlockExternalGlassShuttleEscape
   entities:
@@ -12249,7 +12182,7 @@ entities:
       pos: 24.5,16.5
       parent: 8364
     - type: Door
-      secondsUntilStateChange: -129170.18
+      secondsUntilStateChange: -129607.945
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -12414,7 +12347,7 @@ entities:
       pos: 74.5,-14.5
       parent: 8364
     - type: Door
-      secondsUntilStateChange: -29833.113
+      secondsUntilStateChange: -30270.877
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -17310,6 +17243,30 @@ entities:
         19031:
         - - BluespaceSender
           - BluespaceGasUtilizer
+        28874:
+        - - BluespaceSender
+          - BluespaceGasUtilizer
+        22549:
+        - - BluespaceSender
+          - BluespaceGasUtilizer
+        20142:
+        - - BluespaceSender
+          - BluespaceGasUtilizer
+        27635:
+        - - BluespaceSender
+          - BluespaceGasUtilizer
+        28547:
+        - - BluespaceSender
+          - BluespaceGasUtilizer
+        29833:
+        - - BluespaceSender
+          - BluespaceGasUtilizer
+        29834:
+        - - BluespaceSender
+          - BluespaceGasUtilizer
+        29835:
+        - - BluespaceSender
+          - BluespaceGasUtilizer
 - proto: BluespaceVendor
   entities:
   - uid: 17091
@@ -17351,16 +17308,81 @@ entities:
       bluespaceSenderConnected: True
     - type: BluespaceGasUtilizer
       bluespaceSender: 16951
+  - uid: 20142
+    components:
+    - type: Transform
+      pos: 10.5,34.5
+      parent: 8364
+    - type: BluespaceVendor
+      bluespaceSenderConnected: True
+    - type: BluespaceGasUtilizer
+      bluespaceSender: 16951
+  - uid: 22549
+    components:
+    - type: Transform
+      pos: 34.5,-10.5
+      parent: 8364
+    - type: BluespaceVendor
+      bluespaceSenderConnected: True
+    - type: BluespaceGasUtilizer
+      bluespaceSender: 16951
+  - uid: 27635
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 1.5,-52.5
+      parent: 8364
+    - type: BluespaceVendor
+      bluespaceSenderConnected: True
+    - type: BluespaceGasUtilizer
+      bluespaceSender: 16951
   - uid: 28547
     components:
     - type: Transform
-      pos: 34.5,-11.5
+      pos: -41.5,0.5
       parent: 8364
+    - type: BluespaceVendor
+      bluespaceSenderConnected: True
+    - type: BluespaceGasUtilizer
+      bluespaceSender: 16951
   - uid: 28874
     components:
     - type: Transform
       pos: 16.5,-46.5
       parent: 8364
+    - type: BluespaceVendor
+      bluespaceSenderConnected: True
+    - type: BluespaceGasUtilizer
+      bluespaceSender: 16951
+  - uid: 29833
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 34.5,-27.5
+      parent: 8364
+    - type: BluespaceVendor
+      bluespaceSenderConnected: True
+    - type: BluespaceGasUtilizer
+      bluespaceSender: 16951
+  - uid: 29834
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 64.5,-33.5
+      parent: 8364
+    - type: BluespaceVendor
+      bluespaceSenderConnected: True
+    - type: BluespaceGasUtilizer
+      bluespaceSender: 16951
+  - uid: 29835
+    components:
+    - type: Transform
+      pos: 85.5,-18.5
+      parent: 8364
+    - type: BluespaceVendor
+      bluespaceSenderConnected: True
+    - type: BluespaceGasUtilizer
+      bluespaceSender: 16951
 - proto: BodyBagFolded
   entities:
   - uid: 4556
@@ -17983,13 +18005,6 @@ entities:
     components:
     - type: Transform
       pos: 48.424255,8.669407
-      parent: 8364
-- proto: BoxPDA
-  entities:
-  - uid: 548
-    components:
-    - type: Transform
-      pos: -11.614725,-21.270159
       parent: 8364
 - proto: BoxShotgunIncendiary
   entities:
@@ -89211,6 +89226,8 @@ entities:
     - type: Transform
       pos: -54.5,-7.5
       parent: 8364
+    - type: FaxMachine
+      name: News Office
   - uid: 5534
     components:
     - type: Transform
@@ -89302,6 +89319,13 @@ entities:
       parent: 8364
     - type: FaxMachine
       name: Library
+  - uid: 22012
+    components:
+    - type: Transform
+      pos: -11.5,-21.5
+      parent: 8364
+    - type: FaxMachine
+      name: Head of Personell Office
   - uid: 26057
     components:
     - type: Transform
@@ -91453,7 +91477,7 @@ entities:
       pos: 27.5,-15.5
       parent: 8364
     - type: Door
-      secondsUntilStateChange: -19810.71
+      secondsUntilStateChange: -20248.475
       state: Closing
   - uid: 14342
     components:
@@ -91491,7 +91515,7 @@ entities:
       pos: -34.5,-14.5
       parent: 8364
     - type: Door
-      secondsUntilStateChange: -123358.72
+      secondsUntilStateChange: -123796.484
       state: Closing
   - uid: 15010
     components:
@@ -92016,7 +92040,7 @@ entities:
       pos: -4.5,-71.5
       parent: 8364
     - type: Door
-      secondsUntilStateChange: -115106.45
+      secondsUntilStateChange: -115544.22
       state: Closing
   - uid: 27600
     components:
@@ -127821,6 +127845,11 @@ entities:
     - type: Transform
       pos: 34.5,-54.5
       parent: 8364
+  - uid: 27634
+    components:
+    - type: Transform
+      pos: 60.5,-24.5
+      parent: 8364
   - uid: 28179
     components:
     - type: Transform
@@ -130957,13 +130986,12 @@ entities:
   - uid: 22718
     components:
     - type: Transform
-      pos: -10.602661,-36.607548
+      pos: -10.161623,-36.22467
       parent: 8364
     - type: NetworkConfigurator
       devices:
         'UID: 28729': 25314
         'UID: 28916': 25313
-      linkModeActive: False
     - type: Physics
       angularDamping: 0
       linearDamping: 0
@@ -156403,6 +156431,11 @@ entities:
     - type: Transform
       pos: 69.5,-50.5
       parent: 8364
+  - uid: 27633
+    components:
+    - type: Transform
+      pos: 60.5,-24.5
+      parent: 8364
 - proto: TableReinforced
   entities:
   - uid: 828
@@ -159088,6 +159121,13 @@ entities:
     components:
     - type: Transform
       pos: -29.5,-36.5
+      parent: 8364
+- proto: VendingMachineSciDrobe
+  entities:
+  - uid: 26592
+    components:
+    - type: Transform
+      pos: 69.5,-27.5
       parent: 8364
 - proto: VendingMachineSec
   entities:
@@ -184430,7 +184470,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -2421.8228
+      secondsUntilStateChange: -2859.5857
       state: Opening
     - type: Airlock
       autoClose: False

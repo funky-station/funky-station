@@ -362,7 +362,7 @@
     - ExtremeAntag # Funky
 
 - type: entity
-  id: Zombie
+  id: medZombies
   parent: BaseGameRule
   components:
   - type: GameRule
@@ -371,26 +371,55 @@
       min: 600
       max: 900
   - type: ZombieRule
+    infectionSpreadMultiplier: 1.0
   - type: AntagSelection
     definitions:
-    - prefRoles: [ InitialInfected ]
-      max: 6
+    - max: 6
       playerRatio: 10
       blacklist:
         components:
         - ZombieImmune
         - AntagImmune
-      briefing:
-        text: zombie-patientzero-role-greeting
-        color: Plum
-        sound: "/Audio/Ambience/Antag/zombie_start.ogg"
-      components:
-      - type: PendingZombie
-      - type: ZombifyOnDeath
-      - type: IncurableZombie
-      - type: InitialInfected
-      mindRoles:
-      - MindRoleInitialInfected
+
+- type: entity
+  id: lowZombies
+  parent: BaseGameRule
+  components:
+  - type: GameRule
+    minPlayers: 15
+    delay:
+      min: 600
+      max: 900
+  - type: ZombieRule
+    infectionSpreadMultiplier: 0.5
+  - type: AntagSelection
+    definitions:
+    - max: 6
+      playerRatio: 10
+      blacklist:
+        components:
+        - ZombieImmune
+        - AntagImmune
+
+- type: entity
+  id: highZombies
+  parent: BaseGameRule
+  components:
+  - type: GameRule
+    minPlayers: 15
+    delay:
+      min: 600
+      max: 900
+  - type: ZombieRule
+    infectionSpreadMultiplier: 2.0
+  - type: AntagSelection
+    definitions:
+    - max: 6
+      playerRatio: 10
+      blacklist:
+        components:
+        - ZombieImmune
+        - AntagImmune
 
 # This rule makes the chosen players unable to get other antag rules, as a way to prevent metagaming job rolls.
 # Put this before antags assigned to station jobs, but after non-job antags (NukeOps/Wiz).
@@ -404,7 +433,7 @@
     selectionTime: IntraPlayerSpawn # Pre-selection before jobs; assignment doesn't really matter though, we only care about the pre-selection to block other antags.
     removeUponFailedSpawn: false
     definitions:
-    - prefRoles: [ InitialInfected, Traitor, Thief, HeadRev ]
+    - prefRoles: [ Traitor, Thief, HeadRev ]
       max: 2
       playerRatio: 30
 

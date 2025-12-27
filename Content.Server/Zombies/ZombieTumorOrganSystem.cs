@@ -6,6 +6,7 @@ using Content.Server.Atmos.EntitySystems;
 using Content.Server.Body.Components;
 using Content.Server.Body.Systems;
 using Content.Server.Chat.Systems;
+using Content.Server.GameTicking.Rules.Components;
 using Content.Shared.Actions;
 using Content.Shared.Atmos;
 using Content.Shared.Body.Components;
@@ -20,6 +21,7 @@ using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.FixedPoint;
+using Content.Shared.GameTicking.Components;
 using Content.Shared.Inventory;
 using Content.Shared.Maps;
 using Content.Shared.Mobs;
@@ -198,6 +200,15 @@ public sealed class ZombieTumorOrganSystem : SharedZombieTumorOrganSystem
         if (infection.Stage == ZombieTumorInfectionStage.Incubation)
             return;
 
+        // No damage during the first 2 minutes of TumorFormed stage (grace period)
+        if (infection.Stage == ZombieTumorInfectionStage.TumorFormed && 
+            infection.TumorFormedTime.HasValue)
+        {
+            var timeSinceTumorFormed = _timing.CurTime - infection.TumorFormedTime.Value;
+            if (timeSinceTumorFormed < infection.TumorFormedGracePeriod)
+                return;
+        }
+
         // Determine oil drain amount based on infection stage
         float drainPerTick;
         switch (infection.Stage)
@@ -239,6 +250,15 @@ public sealed class ZombieTumorOrganSystem : SharedZombieTumorOrganSystem
         // No damage during incubation period
         if (infection.Stage == ZombieTumorInfectionStage.Incubation)
             return;
+
+        // No damage during the first 2 minutes of TumorFormed stage (grace period)
+        if (infection.Stage == ZombieTumorInfectionStage.TumorFormed && 
+            infection.TumorFormedTime.HasValue)
+        {
+            var timeSinceTumorFormed = _timing.CurTime - infection.TumorFormedTime.Value;
+            if (timeSinceTumorFormed < infection.TumorFormedGracePeriod)
+                return;
+        }
 
         // Get damage for current stage from dictionary
         if (!infection.StageDamage.TryGetValue(infection.Stage, out var damage))
@@ -335,6 +355,7 @@ public sealed class ZombieTumorOrganSystem : SharedZombieTumorOrganSystem
                 // Progress to tumor formed stage (tumor already exists)
                 infection.Stage = ZombieTumorInfectionStage.TumorFormed;
                 infection.NextStageAt = _timing.CurTime + infection.TumorToAdvancedTime;
+                infection.TumorFormedTime = _timing.CurTime; // Track when tumor formed stage started
                 
                 // Initialize random timers for sickness effects
                 infection.NextSicknessMessage = _timing.CurTime + TimeSpan.FromSeconds(_random.Next(30, 91));
@@ -508,6 +529,14 @@ public sealed class ZombieTumorOrganSystem : SharedZombieTumorOrganSystem
 
     private void UpdateOrganInfectionSpread(TimeSpan curTime)
     {
+        // Get infection spread multiplier from active zombie rule
+        float infectionMultiplier = 1.0f;
+        var ruleQuery = EntityQueryEnumerator<ZombieRuleComponent, ActiveGameRuleComponent>();
+        if (ruleQuery.MoveNext(out _, out var zombieRule, out _))
+        {
+            infectionMultiplier = zombieRule.InfectionSpreadMultiplier;
+        }
+
         // Track cumulative infection chance for each target from all tumors
         var targetInfectionChances = new Dictionary<EntityUid, float>();
 
@@ -548,14 +577,17 @@ public sealed class ZombieTumorOrganSystem : SharedZombieTumorOrganSystem
             {
                 // Calculate base infection chance based on THIS tumor's distance to the target
                 float baseChance;
-                if (distance <= 1f)
-                    baseChance = 0.0045f; // 0.35% at 1 tile. 13% chance to infect at 1 tile in 30 sec.
-                else if (distance <= 2f)
-                    baseChance = 0.0022f; // 0.17% at 2 tiles. 6.5% chance to infect at 2 tiles in 30 sec.
+                if (distance <= 2f)
+                    baseChance = 0.0135f; // Keep in mind this is a per-second chance.
                 else if (distance <= 3f)
-                    baseChance = 0.00087f; // 0.067% at 3 tiles. 2.6% chance to infect at 3 tiles in 30 sec.
+                    baseChance = 0.0066f; 
+                else if (distance <= 4f)
+                    baseChance = 0.0026f; 
                 else
                     continue; // Beyond 3 tiles, no infection from this tumor
+
+                // Apply infection spread multiplier from game mode
+                baseChance *= infectionMultiplier;
 
                 // Add this tumor's infection chance to the target's cumulative chance
                 if (!targetInfectionChances.ContainsKey(target))
@@ -784,6 +816,7 @@ public sealed class ZombieTumorOrganSystem : SharedZombieTumorOrganSystem
         else if (initialStage == ZombieTumorInfectionStage.TumorFormed)
         {
             infection.NextStageAt = _timing.CurTime + infection.TumorToAdvancedTime;
+            infection.TumorFormedTime = _timing.CurTime; // Track when tumor formed stage started
             
             // Initialize random timers for sickness effects (same as when progressing to TumorFormed)
             infection.NextSicknessMessage = _timing.CurTime + TimeSpan.FromSeconds(_random.Next(30, 91));

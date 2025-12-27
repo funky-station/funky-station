@@ -127,6 +127,7 @@
 - type: roleLoadout
   id: JobServiceWorker
   groups:
+  - GenericHats
   - ServiceJumpsuit
   - CommonBackpack
   - Gloves
@@ -608,9 +609,11 @@
 - type: roleLoadout
   id: JobReporter
   groups:
+  - GenericHats
   - ReporterJumpsuit
   - ReporterOuterClothing # Goobstation - Bodycams
   - CommonBackpack
+  - Gloves
   - GenericShoes
   - Glasses
   - Survival

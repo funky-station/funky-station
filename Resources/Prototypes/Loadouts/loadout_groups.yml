@@ -1114,9 +1114,29 @@
   name: loadout-group-cargo-technician-head
   minLimit: 0
   loadouts:
-  - CargoTechnicianHead
   - CargoTechnicianHeadMail # Goob/DeltaV - Mail
+  - CargoTechnicianHead
+  - BandanaBlack
+  - BandanaBlue
+  - BandanaGold
+  - BandanaGreen
+  - BandanaRed
+  - BandanaSkull
+  - BandanaBrown
+  - softwhite
+  - softgrey
+  - softblack
+  - softCorp
+  - softblue
+  - softpurple
+  - softyellow
+  - softgreen
+  - orangesoft
+  - redsoft
+  - redtrucker
   - SeniorCargoTechnicianBeret #Funky!
+  - RedBeret
+  - BlackBeret
 
 - type: loadoutGroup
   id: CargoTechnicianNeck

@@ -24,6 +24,7 @@
   id: CargoTechnicianHead
   equipment:
     head: ClothingHeadHatCargosoft
+  groupBy: "caps"
 
 - type: loadout
   id: SeniorCargoTechnicianBeret
@@ -32,7 +33,7 @@
     proto: SeniorCargo
   equipment:
     head: ClothingHeadHatCargoSeniorBeret
-  groupBy: "jumpsuit"
+  groupBy: "berets"
 
 # Neck
 - type: loadout

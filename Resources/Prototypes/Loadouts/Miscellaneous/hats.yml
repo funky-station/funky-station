@@ -1,3 +1,5 @@
+# softcaps
+
 - type: loadout
   id: softgrey
   equipment:
@@ -64,6 +66,8 @@
     head: ClothingHeadHatTrucker
   groupBy: "caps"
 
+# Bandanas
+
 - type: loadout
   id: BandanaBlack
   equipment:
@@ -105,6 +109,8 @@
   equipment:
     head: ClothingHeadBandBrown
   groupBy: "bandanas"
+
+# Berets
 
 - type: loadout
   id: RedBeret

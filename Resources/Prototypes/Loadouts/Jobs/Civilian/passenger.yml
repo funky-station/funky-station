@@ -39,6 +39,14 @@
   equipment:
     mask: ClothingMaskGas
 
+- type: loadout
+  id: BandanaGrey
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: GreyTider
+  equipment:
+   mask: ClothingMaskBandGrey
+
 # Jumpsuits
 # Grey
 - type: loadout

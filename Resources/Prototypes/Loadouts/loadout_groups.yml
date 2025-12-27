@@ -339,6 +339,7 @@
   minLimit: 0
   loadouts:
   - PassengerFace
+  - BandanaGrey
 
 - type: loadoutGroup
   id: PassengerGloves

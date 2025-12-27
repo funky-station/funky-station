@@ -16,33 +16,68 @@
   components:
   - type: Sprite
     sprite: Structures/Furniture/Tables/optable.rsi
-    state: operating_table
     noRot: true
+    layers:
+      - state: operating_table
+        map: ["enum.OperatingTableVisualLayers.Base"]
+      - state: vitals_1
+        map: ["enum.OperatingTableVisualLayers.Vitals"]
+        visible: false
+      - map: ["tank"]
   - type: Icon
     sprite: Structures/Furniture/Tables/optable.rsi
     state: operating_table
+  - type: Appearance
+  - type: PlaceableSurface
+    isPlaceable: false
+  - type: PointLight
+    enabled: false
+    radius: 6
+    energy: 3
+    color: "#FFFFFF"
+    castShadows: false
+    netsync: true
   - type: OperatingTable
+  - type: OperatingTableLight
+  - type: OperatingTableVisuals
+  - type: GenericVisualizer
+    visuals:
+      enum.BedInternalsVisuals.TankVisual:
+        tank:
+          None:      { visible: false }
+          Nitrogen:  { state: tank_1, visible: true }
+          Oxygen:    { state: tank_2, visible: true }
+          Generic:   { state: tank_3, visible: true }
+          Plasma:    { state: tank_4, visible: true }
+          Nitrous:   { state: tank_5, visible: true }
   # Begin Shitmed Changes
   - type: Construction
     graph: Machine
     node: machine
-    containers:
-    - machine_board
-    - machine_parts
   - type: Machine
     board: OperatingTableCircuitboard
   - type: ContainerContainer
     containers:
       machine_board: !type:Container
       machine_parts: !type:Container
+      gasTankSlot: !type:ContainerSlot {}
       hidden_slot: !type:ContainerSlot
   - type: ItemSlots
     slots:
+      gasTankSlot:
+        name: comp-gas-canister-slot-name-gas-tank
+        whitelist:
+          components:
+            - GasTank
+        insertOnInteract: true
       hidden_slot:
         name: computer_slot_accessory
         whitelist:
           tags:
           - ListeningBug
+  - type: BedInternals
+    slot: gasTankSlot
+    maskPrototype: ClothingMaskBreathMedical
   - type: DeviceList
   - type: DeviceNetwork
     deviceNetId: Wired

@@ -78,7 +78,7 @@
           - ListeningBug
   - type: BedInternals
     slot: gasTankSlot
-    maskPrototype: ClothingMaskBreathMedical
+    maskPrototype: ClothingMaskBreathMedicalBed
   - type: DeviceList
   - type: DeviceNetwork
     deviceNetId: Wired

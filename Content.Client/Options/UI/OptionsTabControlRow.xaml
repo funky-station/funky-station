@@ -17,7 +17,7 @@ SPDX-License-Identifier: MIT
 
             <Button Name="ResetButton"
                     Text="{Loc 'ui-options-reset-all'}"
-                    StyleClasses="Caution" />
+                    StyleClasses="negative" />
             <Button Name="ApplyButton"
                     Text="{Loc 'ui-options-apply'}"
                     StyleClasses="OpenLeft" />

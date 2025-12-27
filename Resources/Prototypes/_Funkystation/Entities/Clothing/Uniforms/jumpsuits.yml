@@ -1,4 +1,5 @@
 # SPDX-FileCopyrightText: 2025 CalicoDragon <110030310+CalicoDragon@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 DESKTOP-0V0K4HQ\Rosy <rosysaturniidae@gmail.com>
 # SPDX-FileCopyrightText: 2025 Fr0goo <153249069+Fr0goo@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Fr0goo <frogoofrog@outlook.com>
 # SPDX-FileCopyrightText: 2025 MaiaArai <158123176+YaraaraY@users.noreply.github.com>
@@ -615,3 +616,16 @@
     sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/medicalcustodian.rsi
   - type: Clothing
     sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/medicalcustodian.rsi
+
+# paramedic speedsuit (sprites by AraiMaia, im just putting it here)
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitParamedicSpeedsuit
+  name: paramedic speedsuit
+  description: Why do you think these things are like, 95% polyester? You can clean off blood and vomit with a wet nap!
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/paramedic_speedsuit.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/paramedic_speedsuit.rsi

@@ -2,8 +2,11 @@
 # SPDX-FileCopyrightText: 2024 IProduceWidgets <107586145+IProduceWidgets@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 John Space <bigdumb421@gmail.com>
 # SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 CalicoDragon <110030310+CalicoDragon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Fenn <162015305+TooSillyFennec@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Sofia Gilsanz <softie.gd@gmail.com>
+# SPDX-FileCopyrightText: 2025 ThatOneMoon <91613003+ThatOneMoon@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
 # SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
@@ -28,6 +31,7 @@
     ears: ClothingHeadsetAltCommand
     outerClothing: ClothingOuterArmorCaptainCarapace
     pocket1: WeaponDisabler
+    pocket2: NanotrasenFlippo #Funky
 
 - type: startingGear
   id: VisitorCaptainAlt
@@ -44,6 +48,7 @@
     ears: ClothingHeadsetAltCommand
     outerClothing: ClothingOuterArmorCaptainCarapace
     pocket1: WeaponDisabler
+    pocket2: NanotrasenFlippo #Funky
 
 - type: startingGear
   id: VisitorCE
@@ -58,6 +63,7 @@
     ears: ClothingHeadsetAltEngineering # Goobstation
     outerClothing: ClothingOuterVestHazard
     pocket1: WeaponDisabler
+    pocket2: NanotrasenFlippo #Funky
 
 - type: startingGear
   id: VisitorCEAlt
@@ -72,6 +78,7 @@
     ears: ClothingHeadsetAltEngineering # Goobstation
     outerClothing: ClothingOuterWinterCE
     pocket1: WeaponDisabler
+    pocket2: NanotrasenFlippo #Funky
 
 - type: startingGear
   id: VisitorCMO
@@ -87,6 +94,7 @@
     belt: ClothingBeltMedicalFilled
     outerClothing: ClothingOuterCoatLabCmo
     pocket1: WeaponDisabler
+    pocket2: NanotrasenFlippo #Funky
 
 - type: startingGear
   id: VisitorCMOAlt
@@ -102,6 +110,7 @@
     belt: ClothingBeltMedicalFilled
     outerClothing: ClothingOuterCoatLabCmo
     pocket1: WeaponDisabler
+    pocket2: NanotrasenFlippo #Funky
 
 - type: startingGear
   id: VisitorHOP
@@ -116,6 +125,7 @@
     ears: ClothingHeadsetAltCommand
     outerClothing: ClothingOuterWinterHoP
     pocket1: WeaponDisabler
+    pocket2: NanotrasenFlippo #Funky
 
 - type: startingGear
   id: VisitorHOPAlt
@@ -130,6 +140,7 @@
     ears: ClothingHeadsetAltCommand
     outerClothing: ClothingOuterWinterHoP
     pocket1: WeaponDisabler
+    pocket2: NanotrasenFlippo #Funky
 
 - type: startingGear
   id: VisitorHOS
@@ -149,6 +160,9 @@
     pocket2: MagazinePistolSubMachineGunTopMounted
   inhand:
   - WeaponSubMachineGunWt550
+  storage:
+    back:
+    - NanotrasenFlippo #Funky
 
 - type: startingGear
   id: VisitorHOSAlt
@@ -167,6 +181,9 @@
     pocket2: MagazinePistolSubMachineGunTopMounted
   inhand:
   - WeaponSubMachineGunWt550
+  storage:
+    back:
+    - NanotrasenFlippo #Funky
 
 - type: startingGear
   id: VisitorRD
@@ -181,6 +198,7 @@
     ears: ClothingHeadsetAltScience # Goobstation
     outerClothing: ClothingOuterCoatRD
     pocket1: WeaponDisabler
+    pocket2: NanotrasenFlippo #Funky
 
 - type: startingGear
   id: VisitorRDAlt
@@ -195,6 +213,7 @@
     ears: ClothingHeadsetAltScience # Goobstation
     outerClothing: ClothingOuterCoatRD
     pocket1: WeaponDisabler
+    pocket2: NanotrasenFlippo #Funky
 
 - type: startingGear
   id: VisitorQM
@@ -208,7 +227,9 @@
     ears: ClothingHeadsetAltCargo # Goobstation
     outerClothing: ClothingOuterWinterQM
     pocket1: WeaponDisabler
-    pocket2: AppraisalTool
+    pocket2: NanotrasenFlippo #Funky
+  inhand:
+  - AppraisalTool
 
 - type: startingGear
   id: VisitorQMAlt
@@ -222,7 +243,9 @@
     ears: ClothingHeadsetAltCargo # Goobstation
     outerClothing: ClothingOuterWinterQM
     pocket1: WeaponDisabler
-    pocket2: AppraisalTool
+    pocket2: NanotrasenFlippo #Funky
+  inhand:
+  - AppraisalTool
 
 # Security
 

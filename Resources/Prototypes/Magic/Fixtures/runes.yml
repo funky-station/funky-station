@@ -36,6 +36,27 @@
     - type: BloodCultRune
     - type: Clickable
     - type: TriggerOnActivate
+    - type: CleanableRune
+    - type: Reactive
+      reactions:
+      - reagents: [ Water, SpaceCleaner ]
+        methods: [ Touch ]
+        effects:
+        - !type:DeleteEntityEffect
+    - type: Physics
+      bodyType: Static
+    - type: Fixtures
+      fixtures:
+        vapor:
+          shape:
+            !type:PhysShapeCircle
+            radius: 0.3
+          hard: false
+          mask:
+          - MobMask
+          - ItemMask
+          layer:
+          - ItemMask
     - type: Sprite
       sprite: _Funkystation/Structures/BloodCult/bloodrune.rsi
       drawdepth: HighFloorObjects
@@ -124,6 +145,19 @@
 
 - type: entity
   parent: BaseBloodCultRune
+  id: FinalRiftRune
+  name: "final rift rune"
+  components:
+  - type: OfferOnTrigger
+  - type: FinalSummoningRune
+  - type: Sprite
+    sprite: _Funkystation/Structures/BloodCult/runerift.rsi
+    drawdepth: HighFloorObjects
+    layers:
+    - state: rune_rift
+
+- type: entity
+  parent: BaseBloodCultRune
   id: OfferingRune_drawing
   name: "offering rune"
   components:
@@ -183,6 +217,7 @@
   name: "summoning rune"
   components:
     - type: SummonOnTrigger
+    - type: TriggerOnActivate
     - type: Sprite
       #sprite: Structures/Magic/Cult/trap.rsi
       drawdepth: HighFloorObjects

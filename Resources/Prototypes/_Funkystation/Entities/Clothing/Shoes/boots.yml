@@ -29,9 +29,9 @@
   description: Cursed boots that grip the ground with an unnatural tenacity. The blood cult's dark magic ensures you'll never slip.
   components:
   - type: Sprite
-    sprite: _Funkystation/BloodCult/Objects/cultboots.rsi
+    sprite: _Funkystation/BloodCult/Clothing/cult_boots.rsi
   - type: Clothing
-    sprite: _Funkystation/Clothing/Shoes/Boots/redperformer.rsi
+    sprite: _Funkystation/BloodCult/Clothing/cult_boots.rsi
 #  - type: NoSlip
   - type: SlowedOverSlippery
     slowdownModifier: 0.7

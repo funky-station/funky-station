@@ -253,12 +253,12 @@
   id: Zombie #Blunt resistant and immune to biological threats, but can be hacked apart and burned
   coefficients:
     Blunt: 0.5 #funkystation
-    Piercing: 0.5 #funkystation
+    Piercing: 0.6 #funkystation
     Cold: 0.3
-    Heat: 0.6 #funkystation
+    Heat: 1.0 #funkystation
     Poison: 0.0
     Radiation: 0.0
-    Holy: 1.5 #funkystation`
+    Holy: 0.0 #funkystation`
 
 # immune to everything except physical and heat damage
 - type: damageModifierSet

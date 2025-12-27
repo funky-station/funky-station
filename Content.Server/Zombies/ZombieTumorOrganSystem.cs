@@ -29,6 +29,7 @@ using Robust.Shared.Map;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
+using Content.Shared.StatusIcon.Components;
 using Content.Shared.Zombies;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared._EinsteinEngines.Silicon.Components;
@@ -64,6 +65,7 @@ public sealed class ZombieTumorOrganSystem : SharedZombieTumorOrganSystem
     [Dependency] private readonly InternalsSystem _internalsSystem = default!;
     [Dependency] private readonly ChatSystem _chat = default!;
     [Dependency] private readonly SharedActionsSystem _actions = default!;
+    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
 
     private readonly TimeSpan _updateInterval = TimeSpan.FromSeconds(1); // Check every second for distance-based infection
 
@@ -406,6 +408,22 @@ public sealed class ZombieTumorOrganSystem : SharedZombieTumorOrganSystem
         // Don't spawn if tumor already exists (prevents duplicate tumors)
         if (HasTumorOrgan(bodyUid))
             return true;
+
+        // Check if any body part is an animal part (animals shouldn't get tumors)
+        // Animals use body parts that inherit from PartAnimal (e.g., TorsoAnimal, LegsAnimal)
+        foreach (var part in _bodySystem.GetBodyChildren(bodyUid, body))
+        {
+            var protoId = MetaData(part.Id).EntityPrototype?.ID;
+            if (protoId != null)
+            {
+                // Check if this prototype or any parent is PartAnimal
+                foreach (var parent in _prototypeManager.EnumerateParents<EntityPrototype>(protoId))
+                {
+                    if (parent.ID == "PartAnimal")
+                        return false; // Don't spawn tumors in animals
+                }
+            }
+        }
 
         // Collect all valid body parts we can spawn tumors in
         // GetBodyChildrenOfType only returns attached parts
@@ -803,6 +821,9 @@ public sealed class ZombieTumorOrganSystem : SharedZombieTumorOrganSystem
         var infection = EnsureComp<ZombieTumorInfectionComponent>(target);
         infection.Stage = initialStage;
         infection.NextTick = _timing.CurTime + TimeSpan.FromSeconds(1);
+        
+        // Ensure StatusIconComponent exists so infection status can be displayed in UI
+        EnsureComp<StatusIconComponent>(target);
         
         // Set NextStageAt and initialize stage-specific timers based on initial stage
         if (initialStage == ZombieTumorInfectionStage.Incubation)

@@ -55,17 +55,21 @@
 // SPDX-FileCopyrightText: 2024 dffdff2423 <dffdff2423@gmail.com>
 // SPDX-FileCopyrightText: 2024 eoineoineoin <github@eoinrul.es>
 // SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Janet Blackquill <uhhadd@gmail.com>
 // SPDX-FileCopyrightText: 2025 Lyndomen <49795619+Lyndomen@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Mish <bluscout78@yahoo.com>
+// SPDX-FileCopyrightText: 2025 Mora <46364955+TrixxedHeart@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Quantum-cross <7065792+Quantum-cross@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 SaffronFennec <firefoxwolf2020@protonmail.com>
 // SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 // SPDX-FileCopyrightText: 2025 Tobias Berger <toby@tobot.dev>
 // SPDX-FileCopyrightText: 2025 W.xyz() <tptechteam@gmail.com>
 // SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 maelines <genovedd.almn@gmail.com>
 // SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
 // SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 w.xyz() <84605679+pirakaplant@users.noreply.github.com>
 //
 // SPDX-License-Identifier: MIT
 
@@ -77,8 +81,8 @@ using Content.Client.Lobby.UI.Loadouts;
 using Content.Client.Lobby.UI.Roles;
 using Content.Client.Message;
 using Content.Client.Players.PlayTimeTracking;
-using Content.Client.Sprite;
 using Content.Client.Stylesheets;
+using Content.Client.Sprite;
 using Content.Client.UserInterface.Systems.Guidebook;
 using Content.Shared.CCVar;
 using Content.Shared.Clothing;
@@ -306,6 +310,7 @@ namespace Content.Client.Lobby.UI
             {
                 SpeciesButton.SelectId(args.Id);
                 SetSpecies(_species[args.Id].ID);
+                RefreshTraits(); // DeltaV - Allows for hiding traits
                 UpdateHairPickers();
                 OnSkinColorOnValueChanged();
             };
@@ -588,6 +593,14 @@ namespace Content.Client.Lobby.UI
 
             foreach (var trait in traits)
             {
+                // Begin DeltaV Additions - Species trait exlusion
+                if (Profile?.Species is { } selectedSpecies && trait.ExcludedSpecies.Contains(selectedSpecies))
+                {
+                    Profile = Profile?.WithoutTraitPreference(trait.ID, _prototypeManager);
+                    continue;
+                }
+                // End DeltaV Additions
+
                 if (trait.Category == null)
                 {
                     defaultTraits.Add(trait.ID);
@@ -614,7 +627,7 @@ namespace Content.Client.Lobby.UI
                     {
                         Text = Loc.GetString(category.Name),
                         Margin = new Thickness(0, 10, 0, 0),
-                        StyleClasses = { StyleBase.StyleClassLabelHeading },
+                        StyleClasses = { StyleClass.LabelHeading },
                     });
                 }
 
@@ -1513,7 +1526,7 @@ namespace Content.Client.Lobby.UI
                 return;
 
             const string style = "SpeciesInfoDefault";
-            SpeciesInfoButton.StyleClasses.Add(style);
+            SpeciesInfoButton.StyleIdentifier = style;
         }
 
         private void UpdateMarkings()

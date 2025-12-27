@@ -11,6 +11,8 @@
 # SPDX-FileCopyrightText: 2023 Jackal298 <129199891+Jackal298@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Hanz <41141796+Hanzdegloker@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 MintyTheBinty <193618231+MintyTheBinty@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 PurpleTranStar <tehevilduckiscoming@gmail.com>
+# SPDX-FileCopyrightText: 2025 Smugman <85798843+Smugman@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
@@ -27,6 +29,7 @@
     FoodSnackPopcorn: 3
     FoodSnackEnergy: 3
     CigPackMixed: 2
+    DiscountDanLighter: 1
   contrabandInventory:
     FoodSnackDanDanNoodles: 3
     FoodBakedBunHoney: 3

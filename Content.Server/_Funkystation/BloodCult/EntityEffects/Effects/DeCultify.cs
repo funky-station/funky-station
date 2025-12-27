@@ -1,3 +1,4 @@
+// SPDX-FileCopyrightText: 2025 Drywink <hugogrethen@gmail.com>
 // SPDX-FileCopyrightText: 2025 Skye <57879983+Rainbeon@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Terkala <appleorange64@gmail.com>
 // SPDX-FileCopyrightText: 2025 kbarkevich <24629810+kbarkevich@users.noreply.github.com>
@@ -9,6 +10,7 @@ using System.Text.Json.Serialization;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Audio;
+using Content.Server.Damage.Systems;
 using Content.Shared.EntityEffects;
 using Content.Shared.BloodCult;
 using Content.Shared.Damage.Systems;

@@ -257,6 +257,7 @@ loadout-group-medical-chemist-glasses = Chemist glasses
 loadout-group-medical-chemist-head = Chemist head
 
 loadout-group-paramedic-head = Paramedic head
+loadout-group-paramedic-glasses = Paramedic glasses
 loadout-group-paramedic-jumpsuit = Paramedic jumpsuit
 loadout-group-paramedic-outerclothing = Paramedic outer clothing
 loadout-group-paramedic-shoes = Paramedic shoes

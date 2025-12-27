@@ -1650,16 +1650,16 @@
   - UplinkWearables
   saleLimit: 1 # WD EDIT
 
-- type: listing
-  id: UplinkgClothingThievingGloves
-  name: uplink-clothing-thieving-gloves-name
-  description: uplink-clothing-thieving-gloves-desc
-  productEntity: ThievingGloves
-  cost:
-    Telecrystal: 20 # goob
-  categories:
-  - UplinkWearables
-  saleLimit: 1 # WD EDIT
+#- type: listing FUNKY EDIT: removal from uplink
+#  id: UplinkgClothingThievingGloves
+#  name: uplink-clothing-thieving-gloves-name
+#  description: uplink-clothing-thieving-gloves-desc
+#  productEntity: ThievingGloves
+#  cost:
+#    Telecrystal: 20 # goob
+#  categories:
+#  - UplinkWearables
+#  saleLimit: 1 # WD EDIT
 
 - type: listing
   id: UplinkClothingOuterVestWeb

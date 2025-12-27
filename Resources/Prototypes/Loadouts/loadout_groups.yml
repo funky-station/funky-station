@@ -477,6 +477,7 @@
   - softgreen
   - orangesoft
   - redsoft
+  - redtrucker
   - RedBeret
   - BlackBeret
 
@@ -804,14 +805,26 @@
   name: loadout-group-botanist-head
   minLimit: 0
   loadouts:
-  - BotanistHead
-  - BotanistBandanaBlack
-  - BotanistBandanaBlue
-  - BotanistBandanaGold
-  - BotanistBandanaGreen
-  - BotanistBandanaRed
-  - BotanistBandanaSkull
-  - BotanistBandanaBrown
+  - BandanaBlack
+  - BandanaBlue
+  - BandanaGold
+  - BandanaGreen
+  - BandanaRed
+  - BandanaSkull
+  - BandanaBrown
+  - softwhite
+  - softgrey
+  - softblack
+  - softCorp
+  - softblue
+  - softpurple
+  - softyellow
+  - softgreen
+  - orangesoft
+  - redsoft
+  - redtrucker
+  - RedBeret
+  - BlackBeret
 
 - type: loadoutGroup
   id: BotanistJumpsuit
@@ -1508,6 +1521,7 @@
   - softgreen
   - orangesoft
   - redsoft
+  - redtrucker
   - RedBeret
   - BlackBeret
   - ScientistHardhatWhite # Funky

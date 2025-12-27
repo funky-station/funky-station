@@ -6,13 +6,3 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
 # Jumpsuit
-- type: loadout
-  id: RedJumpsuit
-  equipment:
-    jumpsuit: ClothingUniformJumpsuitColorRed
-  groupBy: "colorjumpsuit"
-- type: loadout
-  id: RedJumpskirt
-  equipment:
-    jumpsuit: ClothingUniformJumpskirtColorRed
-  groupBy: "colorjumpskirt"

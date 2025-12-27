@@ -131,7 +131,7 @@
     - Nukeops
     - Traitor
     - Revolutionary
-    - Zombie
+    - medZombies
     - Wizard
     - BlobGameMode # Goobstation antag
     - SubGamemodesRule
@@ -417,7 +417,7 @@
   description: zombieteors-description
   showInVote: false
   rules:
-  - Zombie
+  - medZombies
   - BasicStationEventScheduler
   - KesslerSyndromeScheduler
   - SpaceTrafficControlEventScheduler

@@ -112,11 +112,19 @@
       "directions": 4
     },
     {
+      "name": "maple_tertiary",
+      "directions": 4
+    },
+    {
       "name": "moffra_primary",
       "directions": 4
     },
     {
       "name": "moffra_secondary",
+      "directions": 4
+    },
+    {
+      "name": "moffra_tertiary",
       "directions": 4
     },
     {

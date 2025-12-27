@@ -533,7 +533,12 @@
   followSkinColor: false
   sprites:
   - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
+    state: mothfirefly1
+  - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
     state: mothfirefly2
+  - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
+    state: mothfirefly3
+
 
 - type: marking
   id: MothBeetleTail

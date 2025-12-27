@@ -116,11 +116,14 @@ marking-MothWingsLadybug = Wings (Ladybug)
 
 marking-MothWingsMaple-maple_primary = Primary
 marking-MothWingsMaple-maple_secondary = Secondary
+marking-MothWingsMaple-maple_tertiary = Tertiary
 marking-MothWingsMaple = Wings (Maple)
 
 marking-MothWingsMoffra-moffra_primary = Primary
 marking-MothWingsMoffra-moffra_secondary = Secondary
+marking-MothWingsMoffra-moffra_tertiary = Tertiary
 marking-MothWingsMoffra = Wings (Moffra)
+
 
 marking-MothWingsOakworm-oakworm = Wing
 marking-MothWingsOakworm = Wings (Oak Worm)

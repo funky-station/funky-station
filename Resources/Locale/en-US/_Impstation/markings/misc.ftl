@@ -88,7 +88,9 @@ marking-MothGlowAntenna-mothglowantenna = Antennae (Glowing)
 marking-MothFireflyOverlay = Firefly Overlay
 marking-MothFireflyOverlay-mothfirefly1 = Firefly Overlay
 marking-MothFirefly = Wings (Firefly)
-marking-MothFirefly-mothfirefly2 = Firefly Wings
+marking-MothFirefly-mothfirefly1 = Firefly Primary
+marking-MothFirefly-mothfirefly2 = Firefly Secondary
+marking-MothFirefly-mothfirefly3 = Firefly Tertiary
 marking-MothBee = Wings (Bumblebee)
 # Frontier: stripes < Stripes
 marking-MothBee-bee1 = Outer Stripes

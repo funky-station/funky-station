@@ -412,6 +412,8 @@
     state: maple_primary
   - sprite: Mobs/Customization/Moth/moth_wings.rsi
     state: maple_secondary
+  - sprite: Mobs/Customization/Moth/moth_wings.rsi
+    state: maple_tertiary
 
 - type: marking
   id: MothWingsMoffra
@@ -423,6 +425,8 @@
     state: moffra_primary
   - sprite: Mobs/Customization/Moth/moth_wings.rsi
     state: moffra_secondary
+  - sprite: Mobs/Customization/Moth/moth_wings.rsi
+    state: moffra_tertiary
 
 - type: marking
   id: MothWingsOakworm

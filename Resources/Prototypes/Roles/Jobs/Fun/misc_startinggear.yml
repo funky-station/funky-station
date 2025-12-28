@@ -87,6 +87,7 @@
     jumpsuit: ClothingUniformJumpsuitSyndieFormal
     back: ClothingBackpackDuffelSyndicate
     shoes: ClothingShoesBootsCombat
+    outerClothing: ClothingOuterHardsuitSyndieFake #they took the children toys as EVA
     gloves: ClothingHandsGlovesColorBlack
     id: SyndiPDA
     ears: ClothingHeadsetAltSyndicate

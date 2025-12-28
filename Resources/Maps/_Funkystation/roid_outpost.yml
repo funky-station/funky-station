@@ -4,8 +4,8 @@ meta:
   engineVersion: 268.0.0
   forkId: ""
   forkVersion: ""
-  time: 12/28/2025 21:49:07
-  entityCount: 20688
+  time: 12/28/2025 21:57:00
+  entityCount: 20686
 maps:
 - 1
 grids:
@@ -9784,7 +9784,7 @@ entities:
           -4,-4:
             0: 65535
           -4,-5:
-            0: 5051
+            0: 4979
           -5,-4:
             0: 65535
           -4,-3:
@@ -9802,7 +9802,7 @@ entities:
           -3,-2:
             0: 61679
           -3,-5:
-            0: 64767
+            0: 64732
           -3,-3:
             0: 61152
           -2,-4:
@@ -9816,7 +9816,7 @@ entities:
           -1,-5:
             0: 61439
           -8,0:
-            0: 65522
+            0: 65520
           -8,-1:
             0: 32575
           -8,1:
@@ -9834,7 +9834,7 @@ entities:
           -8,4:
             0: 65311
           -7,0:
-            0: 61418
+            0: 65258
           -7,1:
             0: 65278
           -7,2:
@@ -9976,23 +9976,23 @@ entities:
           -4,-8:
             0: 46011
           -4,-7:
-            0: 64795
+            0: 64923
           -4,-6:
-            0: 47901
+            0: 48029
           -4,-9:
             0: 45951
           -3,-8:
             0: 53439
           -3,-7:
-            0: 65437
+            0: 65501
           -3,-6:
-            0: 65487
+            0: 56799
           -3,-9:
             0: 45227
           -2,-8:
             0: 24831
           -2,-7:
-            0: 65350
+            0: 65382
           -2,-6:
             0: 30479
           -2,-9:
@@ -10008,7 +10008,7 @@ entities:
           0,-8:
             0: 65039
           0,-7:
-            0: 65294
+            0: 61198
           0,-6:
             0: 4078
           0,-9:
@@ -10540,7 +10540,7 @@ entities:
           -12,5:
             0: 61024
           -13,5:
-            0: 36068
+            0: 36548
             3: 4368
           -12,6:
             0: 65535
@@ -10667,25 +10667,23 @@ entities:
           -16,4:
             0: 65535
           -15,2:
-            0: 13311
-            4: 32768
+            0: 55807
           -15,3:
-            0: 13107
-            4: 34944
+            0: 56793
           -15,4:
-            0: 65523
+            0: 4381
+            3: 52224
           -14,2:
-            0: 35327
-            4: 12288
+            0: 56575
           -14,3:
-            4: 13105
-            0: 34952
+            0: 56796
+          -14,4:
+            0: 52429
+            3: 4352
           -14,1:
             0: 2188
           -13,2:
             0: 30583
-          -14,4:
-            0: 65528
           -13,4:
             0: 30583
           8,1:
@@ -13963,7 +13961,7 @@ entities:
       pos: -10.5,-40.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -163815.8
+      secondsUntilStateChange: -163931.1
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -14140,7 +14138,7 @@ entities:
       pos: -7.5,-7.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -343359.1
+      secondsUntilStateChange: -343474.4
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -14666,7 +14664,7 @@ entities:
       pos: -27.5,10.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -521762.03
+      secondsUntilStateChange: -521877.34
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -88712,11 +88710,6 @@ entities:
     - type: Transform
       pos: 1.5,-36.5
       parent: 2
-  - uid: 10967
-    components:
-    - type: Transform
-      pos: -6.5,-13.5
-      parent: 2
 - proto: MedicalBiofabricator
   entities:
   - uid: 19105
@@ -98253,11 +98246,6 @@ entities:
       parent: 2
 - proto: ShelfRGlass
   entities:
-  - uid: 6399
-    components:
-    - type: Transform
-      pos: -7.5,-13.5
-      parent: 2
   - uid: 10777
     components:
     - type: Transform
@@ -102675,12 +102663,16 @@ entities:
       parent: 2
   - uid: 9007
     components:
+    - type: MetaData
+      name: 'patient room #1 camera'
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -6.5,-27.5
       parent: 2
   - uid: 10143
     components:
+    - type: MetaData
+      name: 'patient room #4 camera'
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -12.5,-21.5
@@ -102761,6 +102753,8 @@ entities:
       id: Psych
   - uid: 17170
     components:
+    - type: MetaData
+      name: 'patient room #2 camera'
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -9.5,-27.5
@@ -102773,6 +102767,8 @@ entities:
       parent: 2
   - uid: 20620
     components:
+    - type: MetaData
+      name: 'patient room #3 camera'
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -12.5,-27.5

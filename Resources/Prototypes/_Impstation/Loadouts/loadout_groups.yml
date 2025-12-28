@@ -3,177 +3,6 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
-# service
-
-- type: loadoutGroup
-  id: ChaplainEyes
-  name: loadout-group-chaplain-eyes
-  minLimit: 0
-  loadouts:
-  - ChaplainBlindfold
-
-- type: loadoutGroup
-  id: ChaplainBelt
-  name: loadout-group-chaplain-belt
-  minLimit: 0
-  loadouts:
-  - BeltChaplainDragon
-  - CaptainSunglasses
-  - CaptainVisor
-
-- type: loadoutGroup
-  id: CaptainGloves
-  name: loadout-group-captain-gloves
-  loadouts:
-  - CaptainGloves
-  - CaptainFlightGloves
-
-- type: loadoutGroup
-  id: CaptainShoes
-  name: loadout-group-captain-shoes
-  loadouts:
-  - LacedShoes
-  - LeatherShoes
-  - BlackCommandHeels
-  - BlueCommandHeels
-  - CaptainJumpBoots
-
-- type: loadoutGroup
-  id: CommandHeadset
-  name: loadout-group-command-headset
-  loadouts:
-  - CommandHeadsetBasic
-  - CommandHeadset
-  - CommandVeteranHeadset
-
-- type: loadoutGroup
-  id: SurvivalCommand
-  name: loadout-group-survival-command
-  minLimit: 2
-  hidden: true
-  loadouts:
-  - EmergencyNitrogenCommand
-  - EmergencyOxygenCommand
-  - LoadoutSpeciesVoxNitrogenCommand
-
-- type: loadoutGroup
-  id: SurvivalExtendedCommand
-  name: loadout-group-survival-extended-command
-  minLimit: 2
-  hidden: true
-  loadouts:
-  - EmergencyNitrogenExtendedCommand
-  - EmergencyOxygenExtendedCommand
-  - LoadoutSpeciesVoxNitrogenCommand
-
-- type: loadoutGroup
-  id: SurvivalSecurityCommand
-  name: loadout-group-survival-security-command
-  minLimit: 2
-  hidden: true
-  loadouts:
-  - EmergencyNitrogenSecurityCommand
-  - EmergencyOxygenSecurityCommand
-  - LoadoutSpeciesVoxNitrogenCommand
-
-- type: loadoutGroup
-  id: QuartermasterHeadset
-  name: loadout-group-quartermaster-headset
-  loadouts:
-  - QuartermasterHeadsetBasic
-  - QuartermasterHeadset
-  - QuartermasterVeteranHeadset
-
-- type: loadoutGroup
-  id: QuartermasterBackpack
-  name: loadout-group-quartermaster-backpack
-  loadouts:
-  - CargoTechnicianBackpack
-  - CargoTechnicianSatchel
-  - CargoTechnicianDuffel
-  - CommandVeteranBackpack
-  - CommandVeteranSatchel
-  - CommandVeteranDuffel
-
-- type: loadoutGroup
-  id: ChiefEngineerHeadset
-  name: loadout-group-chief-engineer-headset
-  loadouts:
-  - ChiefEngineerHeadsetBasic
-  - ChiefEngineerHeadset
-  - ChiefEngineerVeteranHeadset
-
-- type: loadoutGroup
-  id: ChiefEngineerBackpack
-  name: loadout-group-chief-engineer-backpack
-  loadouts:
-  - StationEngineerBackpack
-  - StationEngineerSatchel
-  - StationEngineerDuffel
-  - CommandVeteranBackpack
-  - CommandVeteranSatchel
-  - CommandVeteranDuffel
-
-- type: loadoutGroup
-  id: ResearchDirectorBackpack
-  name: loadout-group-research-director-backpack
-  loadouts:
-  - ScientistBackpack
-  - ScientistSatchel
-  - ScientistDuffel
-  - CommandVeteranBackpack
-  - CommandVeteranSatchel
-  - CommandVeteranDuffel
-
-- type: loadoutGroup
-  id: HeadofSecurityHeadset
-  name: loadout-group-head-of-security-headset
-  loadouts:
-  - HeadofSecurityHeadsetBasic
-  - HeadofSecurityHeadset
-  - HeadofSecurityVeteranHeadset
-
-- type: loadoutGroup
-  id: HeadofSecurityBackpack
-  name: loadout-group-head-of-security-backpack
-  loadouts:
-  - SecurityBackpack
-  - SecuritySatchel
-  - SecurityDuffel
-  - CommandVeteranBackpack
-  - CommandVeteranSatchel
-  - CommandVeteranDuffel
-
-- type: loadoutGroup
-  id: ChiefMedicalOfficerHeadset
-  name: loadout-group-chief-medical-officer-headset
-  loadouts:
-  - ChiefMedicalOfficerHeadsetBasic
-  - ChiefMedicalOfficerHeadset
-  - ChiefMedicalOfficerVeteranHeadset
-
-- type: loadoutGroup
-  id: ChiefMedicalOfficerBackpack
-  name: loadout-group-chief-medical-officer-backpack
-  loadouts:
-  - MedicalDoctorBackpack
-  - MedicalDoctorSatchel
-  - MedicalDoctorDuffel
-  - CommandVeteranBackpack
-  - CommandVeteranSatchel
-  - CommandVeteranDuffel
-
-- type: loadoutGroup
-  id: HoPShoes
-  name: loadout-group-hop-shoes
-  loadouts:
-  - BrownShoes
-  - LacedShoes
-  - LeatherShoes
-  - HoPShoesWhite
-  - BlackCommandHeels
-  - BlueCommandHeels
-
 - type: startingGear #the starting gear for the apid botanist. they dont have a backslot and whatever so ive gotta do it bespoke
   id: StartingGearApidBotanist
   equipment:
@@ -185,6 +14,7 @@
     pocket1: EmergencyOxygenTankFilled
     pocket2: ClothingMaskBreath
     ears: ClothingHeadsetService
+    gloves: ClothingHandsGlovesLeather
 
 - type: startingGear #the doctor too
   id: StartingGearApidDoctor
@@ -211,6 +41,10 @@
     pocket2: ClothingMaskBreath
     ears: ClothingHeadsetEngineering
     eyes: ClothingEyesGlassesMeson
+    gloves: ClothingHandsGlovesColorYellow
+  inhand:
+  - RCD
+
 
 - type: startingGear #emergency responder
   id: StartingGearApidEmergency
@@ -276,8 +110,9 @@
     pocket2: ClothingMaskBreath
     ears: ClothingHeadsetService
     eyes: ClothingEyesGlassesChemical
+    gloves: ClothingHandsGlovesJanitor    
   inhand:
-  - AdvMopItem
+  - MegaSprayBottle
 
 - type: startingGear #AA
   id: StartingGearApidAdministrativeAssistant

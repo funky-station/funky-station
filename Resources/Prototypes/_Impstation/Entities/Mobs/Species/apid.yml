@@ -68,8 +68,8 @@
         Brute: -0.07
   - type: MovementSpeedModifier
     baseWalkSpeed: 3.5
-    baseSprintSpeed: 5
-    weightlessAcceleration: 1.5 # zoom
+    baseSprintSpeed: 5.5
+    weightlessAcceleration: 1.2 # zoom
     weightlessFriction: 1
     weightlessModifier: 1
   - type: MovementIgnoreGravity # nyoom

@@ -35,6 +35,10 @@
 	  "directions": 4
 	},
 	{
+	  "name": "hands",
+	  "directions": 4
+	},
+	{
 	  "name": "outerClothing",
 	  "directions": 4
 	}

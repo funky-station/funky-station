@@ -8,22 +8,6 @@
   },
   "states": [
       {
-          "name": "comfy",
-          "directions": 4
-      },
-      {
-          "name": "comfy-overlay",
-          "directions": 4
-      },
-      {
-          "name": "office-dark",
-          "directions": 4
-      },
-      {
-          "name": "office-white",
-          "directions": 4
-      },
-      {
           "name": "apid"
       }
   ]

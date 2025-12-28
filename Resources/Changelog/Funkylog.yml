@@ -6845,3 +6845,56 @@ Entries:
       message: IPCs are no longer a round-start species.
   id: 793
   time: '2025-12-22T02:37:32.0000000+00:00'
+- author: AraiMaia, Ven
+  changes:
+    - type: Tweak
+      message: Reagent slimes are now unrevivable
+    - type: Fix
+      message: CPR no longer hurts entire body, only the torso. no more delimbs
+    - type: Fix
+      message: CPR now works on animals
+  id: 794
+  time: '2025-12-23T21:46:23.0000000+00:00'
+- author: AraiMaia
+  changes:
+    - type: Fix
+      message: Electrolyzer no longer melts. Oops.
+  id: 795
+  time: '2025-12-23T23:09:29.0000000+00:00'
+- author: AraiMaia
+  changes:
+    - type: Tweak
+      message: >-
+        Tweaked values for nicotine poisoning; coughing will happen only after a
+        significant amount of cigarettes back to back, and you'll cough less
+        often.
+  id: 796
+  time: '2025-12-24T00:22:47.0000000+00:00'
+- author: Tea
+  changes:
+    - type: Tweak
+      message: >-
+        The satchel, smuggler satchel and leather satchel got a new coat of
+        paint!
+  id: 797
+  time: '2025-12-24T23:24:04.0000000+00:00'
+- author: ToNy025
+  changes:
+    - type: Fix
+      message: Fixed a typo on the SoP Guidebook
+  id: 798
+  time: '2025-12-25T09:18:49.0000000+00:00'
+- author: AraiMaia
+  changes:
+    - type: Tweak
+      message: >-
+        Made it so firelocks actually shut when they detect a major temperature
+        difference.
+  id: 799
+  time: '2025-12-26T23:54:08.0000000+00:00'
+- author: BrightNibbleston
+  changes:
+    - type: Tweak
+      message: Updated the iv bag sprite!
+  id: 800
+  time: '2025-12-27T22:32:28.0000000+00:00'

@@ -1,14 +1,14 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "soulstone_old Created by Paradise Station. Soulstone sprited by zergologist (discord) for funky.",
+  "copyright": "Hammy Soulstone by Sigma Draconis (discord) for Funky.",
   "size": {
     "x": 32,
     "y": 32
   },
   "states": [
     {
-      "name": "soulstone"
+      "name": "hamstone"
     },
 	{
 		"name": "inhand-left",
@@ -17,9 +17,6 @@
 	{
 		"name": "inhand-right",
 		"directions": 4
-	},
-	{
-      "name": "soulstone_old"
-    }
+	}
   ]
 }

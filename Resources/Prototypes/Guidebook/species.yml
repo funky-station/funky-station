@@ -33,6 +33,7 @@
     # - IPC
     # ImpStation additions
     - Thaven
+    - Apid
 
 - type: guideEntry
   id: Arachnid

@@ -37,8 +37,8 @@ SPDX-License-Identifier: MIT
   <Box>
   <GuideEntityEmbed Entity="MobVulpkanin" Caption="Vulpkanin"/>
   <GuideEntityEmbed Entity="MobRodentia" Caption="Rodentia"/>
-  <GuideEntityEmbed Entity="MobIPCDummy" Caption="I.P.C."/>
   <GuideEntityEmbed Entity="MobThaven" Caption="Thaven"/>
+  <GuideEntityEmbed Entity="BaseMobApid" Caption="Apid"/>
   </Box>
 
 </Document>

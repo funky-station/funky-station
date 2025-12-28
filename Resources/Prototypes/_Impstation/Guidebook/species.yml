@@ -8,3 +8,8 @@
   id: Thaven
   name: Thaven
   text: "/ServerInfo/_Impstation/Guidebook/Mobs/Thaven.xml"
+
+- type: guideEntry
+  id: Apid
+  name: Apid
+  text: "/ServerInfo/_Impstation/Guidebook/Mobs/Apids.xml"  

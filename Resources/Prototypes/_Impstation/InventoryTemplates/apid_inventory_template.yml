@@ -6,7 +6,7 @@
       slotFlags: GLOVES
       uiWindowPos: 2,1
       strippingWindowPos: 2,1
-      displayName: Gloves  
+      displayName: Gloves
     - name: jumpsuit
       slotTexture: uniform
       slotFlags: INNERCLOTHING
@@ -88,25 +88,3 @@
       uiWindowPos: 3,1
       strippingWindowPos: 1,5
       displayName: Belt
-    - name: backstorage
-      slotTexture: back_storage
-      slotFlags:   BACKSTORAGE
-      slotGroup: MainHotbar
-      stripTime: 3
-      uiWindowPos: 2,0
-      strippingWindowPos: 0,5
-      dependsOn: outerClothing
-      dependsOnComponents:
-      - type: AllowBackStorage
-      displayName: Back Storage
-    - name: tankstorage # Funky Edit
-      slotTexture: tank_storage
-      slotFlags:   TANKSTORAGE
-      slotGroup: MainHotbar
-      stripTime: 3
-      uiWindowPos: 3,0
-      strippingWindowPos: 1, 5
-      dependsOn: outerClothing
-      dependsOnComponents:
-      - type: AllowTankStorage
-      displayName: Tank Storage

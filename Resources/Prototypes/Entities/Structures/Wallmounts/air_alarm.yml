@@ -73,13 +73,13 @@
     - GasVent
     - GasScrubber
   - type: AtmosAlarmableVisuals
-    layerMap: "airAlarmBase"
+    layerMap: "airAlarmDisplay"
     alarmStates:
       Normal: alarm0
       Warning: alarm2
       Danger: alarm1
     setOnDepowered:
-      airAlarmBase: alarmp
+      airAlarmDisplay: alarmp
   - type: Tag
     tags:
       - AirAlarm
@@ -112,8 +112,10 @@
   - type: Sprite
     sprite: Structures/Wallmounts/air_monitors.rsi
     layers:
-    - state: alarm0
-      map: ["airAlarmBase"] # TODO: fire alarm enum
+    - state: alarmp
+    - state: alarmdisplay
+      map: ["airAlarmDisplay"] # TODO: fire alarm enum
+      shader: unshaded
     - state: alarmx
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: Transform

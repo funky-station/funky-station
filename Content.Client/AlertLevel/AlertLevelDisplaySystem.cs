@@ -32,6 +32,9 @@ public sealed class AlertLevelDisplaySystem : EntitySystem
         }
         var layer = _sprite.LayerMapReserve((uid, args.Sprite), AlertLevelDisplay.Layer);
 
+        // Quick fix for Fire Alarms to enable displays to be unlit. If this causes issues, do refactor firealarm and remove this.
+        args.Sprite.LayerSetShader(layer, "unshaded");
+
         if (args.AppearanceData.TryGetValue(AlertLevelDisplay.Powered, out var poweredObject))
         {
             _sprite.LayerSetVisible((uid, args.Sprite), layer, poweredObject is true);

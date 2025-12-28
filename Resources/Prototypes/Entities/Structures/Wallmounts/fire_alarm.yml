@@ -99,6 +99,7 @@
       map: ["fireAlarmBase"]
     - state: fire_off
       map: ["fireAlarmState"]
+      shader: unshaded
     - state: fire_b2
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: Transform

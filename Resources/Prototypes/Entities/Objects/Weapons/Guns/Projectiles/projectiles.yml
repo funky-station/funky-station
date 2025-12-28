@@ -333,8 +333,18 @@
         - LowImpassable
         hard: false
   - type: Ammo
-  - type: StaminaDamageOnCollide
-    damage: 33
+  #- type: StaminaDamageOnCollide   #kill
+  #  damage: 33
+  - type: SolutionContainerManager
+    solutions:
+      ammo:
+        maxVol: 5
+        reagents:
+        - ReagentId: DisablerMix
+          Quantity: 5
+  - type: SolutionInjectOnEmbed
+    transferAmount: 5
+    solution: ammo
   - type: Projectile
     impactEffect: BulletImpactEffectDisabler
     damage:

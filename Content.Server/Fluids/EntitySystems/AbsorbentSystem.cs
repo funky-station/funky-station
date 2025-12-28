@@ -18,6 +18,7 @@
 // SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
 // SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
 // SPDX-FileCopyrightText: 2024 eoineoineoin <github@eoinrul.es>
+// SPDX-FileCopyrightText: 2025 Terkala <appleorange64@gmail.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
 // SPDX-License-Identifier: MIT
@@ -27,6 +28,7 @@ using Content.Server.Popups;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.FixedPoint;
+using Content.Shared.BloodCult;
 using Content.Shared.Fluids;
 using Content.Shared.Fluids.Components;
 using Content.Shared.Interaction;
@@ -133,6 +135,14 @@ public sealed class AbsorbentSystem : SharedAbsorbentSystem
 
         if (TryComp<UseDelayComponent>(used, out var useDelay)
             && _useDelay.IsDelayed((used, useDelay)))
+            return;
+
+        // This section only for BloodCult runes
+        // Check if target is a cleanable rune first (handled by BloodCultRuneCleaningSystem)
+        // This allows mops to clean runes before processing puddles/refillables
+        var ev = new AbsorbentMopTargetEvent(user, target, used, component);
+        RaiseLocalEvent(target, ref ev);
+        if (ev.Handled)
             return;
 
         // If it's a puddle try to grab from

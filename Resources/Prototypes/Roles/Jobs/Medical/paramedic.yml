@@ -65,6 +65,9 @@
   - External # goobstation
   extendedAccess:
   - Chemistry
+  alternateTitles:
+  - ParamedicTraumaSpecialist
+  - ParamedicEmergencyMedicalTechnician
 
 - type: startingGear
   id: ParamedicGear
@@ -76,3 +79,11 @@
   storage:
     back:
     - EmergencyRollerBedSpawnFolded
+
+- type: jobAlternateTitle
+  id: ParamedicTraumaSpecialist
+  name: job-name-alt-paramedic-1
+
+- type: jobAlternateTitle
+  id: ParamedicEmergencyMedicalTechnician
+  name: job-name-alt-paramedic-2

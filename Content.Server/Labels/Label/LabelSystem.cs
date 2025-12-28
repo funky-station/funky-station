@@ -29,6 +29,7 @@ using Content.Shared.Labels.EntitySystems;
 using Content.Shared.Paper;
 using JetBrains.Annotations;
 using Robust.Shared.Containers;
+using Robust.Shared.Utility;
 
 namespace Content.Server.Labels
 {
@@ -66,7 +67,7 @@ namespace Content.Server.Labels
             if (!Resolve(uid, ref label, false))
                 label = EnsureComp<LabelComponent>(uid);
 
-            label.CurrentLabel = text;
+            label.CurrentLabel = text == null ? null : FormattedMessage.EscapeText(text);
             NameMod.RefreshNameModifiers(uid);
 
             Dirty(uid, label);

@@ -122,14 +122,14 @@ namespace Content.Server.BloodCult.EntitySystems
 			args.Handled = true;
 		}
 
-		private void SpawnAtLocation(EntityCoordinates inLocation)
+	private void SpawnAtLocation(EntityCoordinates inLocation)
+	{
+		var gridUid = _transform.GetGrid(inLocation);
+		if (!TryComp<MapGridComponent>(gridUid, out var grid))
 		{
-			var gridUid = _transform.GetGrid(inLocation);
-			if (!TryComp<MapGridComponent>(gridUid, out var grid))
-			{
-				return;
-			}
-			var targetTile = _mapSystem.GetTileRef(gridUid.Value, grid, inLocation);
+			return;
+		}
+		var targetTile = _mapSystem.GetTileRef(gridUid.Value, grid, inLocation);
 
 		var barrier = Spawn("ForceBarrier", inLocation);
 
@@ -143,7 +143,7 @@ namespace Content.Server.BloodCult.EntitySystems
 		{
 			QueueDel(barrier);
 		}
-		}
+	}
 
 		private bool CanPlaceBarrierAt(EntityCoordinates clickedAt, out EntityCoordinates location)
 		{

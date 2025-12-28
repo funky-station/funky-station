@@ -27,8 +27,7 @@
   components:
   - type: StorageFill #this may seem excessive. I invite you to try and play a salvage bee without it
     contents:
-      - id: WeaponTetherGun
-      - id: MiningDrill
+      - id: Crowbar
       - id: Wrench
       - id: WeaponProtoKineticAcceleratorApid
       - id: EmergencyMedipen

@@ -110,7 +110,7 @@
     pocket2: ClothingMaskBreath
     ears: ClothingHeadsetService
     eyes: ClothingEyesGlassesChemical
-    gloves: ClothingHandsGlovesJanitor    
+    gloves: ClothingHandsGlovesJanitor
   inhand:
   - MegaSprayBottle
 
@@ -118,7 +118,7 @@
   id: StartingGearApidAdministrativeAssistant
   equipment:
     jumpsuit: ClothingUniformCreamSuit
-    id: CommandMaidPDA 
+    id: CommandMaidPDA
     belt: BoxFolderClipboard
     outerClothing: ClothingOuterWinterColorBlue
     #head:
@@ -147,9 +147,10 @@
     id: SalvagePDA
     belt: ClothingBeltSalvageWebbingApid
     outerClothing: ClothingOuterHardsuitSpatio
-    #head: 
+    #head:
     pocket1: DoubleEmergencyOxygenTankFilled
     pocket2: SurvivalKnife
     ears: ClothingHeadsetCargo
     eyes: ClothingEyesGlassesMeson
-
+  inhand:
+    - Pickaxe

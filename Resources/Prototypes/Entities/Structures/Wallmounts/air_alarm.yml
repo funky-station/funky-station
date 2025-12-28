@@ -114,7 +114,7 @@
     sprite: Structures/Wallmounts/air_monitors.rsi
     layers:
     - state: alarmp
-    - state: alarmdisplay
+    - state: alarm0
       map: ["airAlarmDisplay"] # TODO: fire alarm enum
       shader: unshaded
     - state: alarmx

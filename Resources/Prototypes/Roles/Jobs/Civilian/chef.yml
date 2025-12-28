@@ -48,6 +48,10 @@
   extendedAccess:
   - Hydroponics
   - Bar
+  alternateTitles:
+  - ChefSousChef
+  - ChefLineCook
+  - ChefNutritionist
 
 - type: startingGear
   id: ChefGear
@@ -58,3 +62,15 @@
   #storage:
     #back:
     #- Stuff
+
+- type: jobAlternateTitle
+  id: ChefSousChef
+  name: job-name-alt-chef-1
+
+- type: jobAlternateTitle
+  id: ChefLineCook
+  name: job-name-alt-chef-2
+
+- type: jobAlternateTitle
+  id: ChefNutritionist
+  name: job-name-alt-chef-3

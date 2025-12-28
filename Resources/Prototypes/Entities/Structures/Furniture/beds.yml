@@ -144,7 +144,7 @@
       gasTankSlot: !type:ContainerSlot {}
   - type: BedInternals
     slot: gasTankSlot
-    maskPrototype: ClothingMaskBreathMedical
+    maskPrototype: ClothingMaskBreathMedicalBed
   - type: BedWheels
   - type: PlaceableSurface
     isPlaceable: False

@@ -10,8 +10,10 @@
 using Content.Client.UserInterface.Controls;
 using Content.Shared.BloodCult;
 using Robust.Client.GameObjects;
+using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.XAML;
+using Robust.Shared.IoC;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
@@ -35,7 +37,9 @@ public sealed partial class SpellRadialMenu : RadialMenu
 
     public SpellRadialMenu()
     {
-        IoCManager.InjectDependencies(this);
+        var dependencies = IoCManager.Instance;
+        if (dependencies != null)
+            dependencies.InjectDependencies(this);
         RobustXamlLoader.Load(this);
         _spriteSystem = _entitySystem.GetEntitySystem<SpriteSystem>();
     }

@@ -4,4 +4,23 @@
   name: apid lungs
   description: "For beeathing."
   suffix: "Apid"
-
+  #components: # Funky Change, the Apid Metabolizer type seems to not want to work properly, so for now they are just going to act like human lungs
+  #- type: SolutionContainerManager
+  #  solutions:
+  #    stomach:
+  #      maxVol: 50
+  #    food:
+  #      maxVol: 5
+  #      reagents:
+  #      - ReagentId: UncookedAnimalProteins
+  #        Quantity: 5
+  #- type: Stomach
+  #- type: Metabolizer
+  #  metabolizerTypes: [ Apid ]
+  #  maxReagents: 3
+  #  groups:
+  #  - id: Food
+  #  - id: Drink
+  #  - id: Gas
+  #    rateModifier: 100.0
+  #- type: Lung

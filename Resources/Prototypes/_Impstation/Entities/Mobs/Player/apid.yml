@@ -12,7 +12,7 @@
     randomizeName: false
   - type: Grammar # Funky change, all apids are now gender-neutral
     attributes:
-      gender: epicene # They/Them 
+      gender: epicene # They/Them
 
 - type: entity
   name: apid botanist

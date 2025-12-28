@@ -675,6 +675,47 @@
     - Hardsuit
     - WhitelistChameleon
 
+#Fake Bloodred
+- type: entity
+  parent: [ ClothingOuterHardsuitBase, AllowBackStorageClothingCombat, BaseSyndicateContraband ]
+  id: ClothingOuterHardsuitSyndieFake
+  name: blood-red hardsuit
+  description: A previously heavily armored hardsuit designed for work in special operations. Property of Gorlex Marauders. The plating seems to have been swapped with cardboard.
+  components:
+  - type: Sprite
+    sprite: Clothing/OuterClothing/Hardsuits/syndicate.rsi
+  - type: Item
+    size: Huge
+  - type: Clothing
+    sprite: Clothing/OuterClothing/Hardsuits/syndicate.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.05
+    lowPressureMultiplier: 1000
+  - type: ExplosionResistance
+    damageCoefficient: 1
+  - type: StaminaResistance
+    damageCoefficient: 0.6
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 1
+        Slash: 1
+        Piercing: 1
+        Heat: 1
+        Radiation: 1
+        Caustic: 1
+  - type: ClothingSpeedModifier
+    walkModifier: 0.9
+    sprintModifier: 0.9
+  - type: HeldSpeedModifier
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitSyndie
+  - type: Tag
+    tags:
+    - MonkeyWearable
+    - Hardsuit
+    - WhitelistChameleon
+
 #Syndicate Elite Hardsuit
 - type: entity
   parent: [ClothingOuterHardsuitBase, AllowBackStorageClothingCombat, BaseSyndicateContraband]

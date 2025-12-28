@@ -217,4 +217,15 @@
     Telecrystal: 3 # gives a towel with a mean whip, three TC is probably a good cost for it
   categories:
   - UplinkPointless
-  saleBlacklist: true 
+  saleBlacklist: true
+
+- type: listing
+  id: UplinkClothingOuterHardsuitSyndieFake  #technically EVA soooo. when bad shit happens, this can be an option for massive buying.
+  name: uplink-fakesuit-syndicate-name
+  description: uplink-fakesuit-syndicate-desc
+  productEntity: ClothingOuterHardsuitSyndieFake
+  cost:
+    Telecrystal: 5
+  categories:
+  - UplinkPointless
+  saleBlacklist: true

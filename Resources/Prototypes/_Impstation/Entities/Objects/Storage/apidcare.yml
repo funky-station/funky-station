@@ -1,6 +1,6 @@
 - type: entity
   id: ApidCareCase
-  parent: BaseStorageItem
+  parent: ToolboxBase
   name: apid care case
   description: A tall case bearing the Apid royal seal, containing everything needed to keep homesick Apids happy and healthy.
   components:
@@ -17,6 +17,7 @@
     sound:
       path: /Audio/Items/toolbox_drop.ogg
   - type: Storage
+    maxItemSize: Large
     grid:
     - 0,0,3,2
     - 0,4,3,5
@@ -29,7 +30,6 @@
     sprite: _Impstation/Objects/Storage/apidcare.rsi
   - type: Tag
     tags:
-    - DroneUsable
     - Toolbox
   - type: GenericVisualizer
     visuals:
@@ -73,9 +73,6 @@
         ents: []
   - type: ItemSlots
   - type: Appearance
-  - type: DamageOtherOnHit # imp
-    meleeDamageMultiplier: 1.33
-    staminaCost: 12.5
   - type: ClothingSpeedModifier
     walkModifier: 1
     sprintModifier: 0.9

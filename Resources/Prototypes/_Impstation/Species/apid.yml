@@ -8,6 +8,8 @@
   markingLimits: MobApidMarkingLimits
   dollPrototype: MobApidDummy
   skinColoration: TintedHues # this prevents RandomHumanoidAppearance from fucking with their colorscheme too much
+  sexes:
+  - Unsexed
 
 - type: speciesBaseSprites
   id: MobApidSprites

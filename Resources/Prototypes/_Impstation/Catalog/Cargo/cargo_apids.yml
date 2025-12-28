@@ -44,18 +44,18 @@
   product: ApidCryopodJanitor
   category: cargoproduct-category-name-service
 
-- type: cargoProduct
-  id: ApidAdministrativeAssistant
-  parent: ApidBotanist
-  product: ApidCryopodAdministrativeAssistant
-  category: cargoproduct-category-name-service
+#- type: cargoProduct
+#  id: ApidAdministrativeAssistant
+#  parent: ApidBotanist
+#  product: ApidCryopodAdministrativeAssistant
+#  category: cargoproduct-category-name-service
 
 - type: cargoProduct
   id: ApidChaplain
   parent: ApidBotanist
   product: ApidCryopodChaplain
   category: cargoproduct-category-name-service
-  
+
 - type: cargoProduct
   id: ApidSalvageSpecialist
   parent: ApidBotanist

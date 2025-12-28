@@ -175,21 +175,21 @@
   - type: GhostRoleMobSpawner
     prototype: MobApidJanitor
 
-- type: entity
-  id: ApidCryopodAdministrativeAssistant
-  parent: ApidCryopodBotanist
-  name: apid administrative assistant cryopod
-  suffix: Ghost role
-  description: A small, hexagonal cryopod containing a Beefolk administrative assistant. They might take a little bit to wake up.
-  components:
-  - type: GhostRole
-    name: ghost-role-information-apid-adminassistant-name
-    description: ghost-role-information-apid-adminassistant-description
-    rules: ghost-role-information-crewmember-rules
-    raffle:
-      settings: default
-  - type: GhostRoleMobSpawner
-    prototype: MobApidAdminAssistant
+#- type: entity
+#  id: ApidCryopodAdministrativeAssistant
+#  parent: ApidCryopodBotanist
+#  name: apid administrative assistant cryopod
+# suffix: Ghost role
+#  description: A small, hexagonal cryopod containing a Beefolk administrative assistant. They might take a little bit to wake up.
+#  components:
+#  - type: GhostRole
+#    name: ghost-role-information-apid-adminassistant-name
+#    description: ghost-role-information-apid-adminassistant-description
+#    rules: ghost-role-information-crewmember-rules
+#    raffle:
+#      settings: default
+#  - type: GhostRoleMobSpawner
+#    prototype: MobApidAdminAssistant
 
 - type: entity
   id: ApidCryopodChaplain

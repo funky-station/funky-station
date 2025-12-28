@@ -10,6 +10,9 @@
     - names_apid
   - type: RandomHumanoidAppearance
     randomizeName: false
+  - type: Grammar # Funky change, all apids are now gender-neutral
+    attributes:
+      gender: epicene # They/Them 
 
 - type: entity
   name: apid botanist
@@ -123,19 +126,19 @@
     - apid_janitor
     - names_apid
 
-- type: entity
-  name: apid administrative assistant
-  id: MobApidAdminAssistant
-  parent: MobApidBaseGhostrole
-  description: Enthusiastic workers, these cute little balls of fuzz are distant relatives to moth people.
-  components:
-  - type: Loadout
-    prototypes:
-      - StartingGearApidAdministrativeAssistant
-  - type: RandomMetadata
-    nameSegments:
-    - apid_adminassistant
-    - names_apid
+#- type: entity
+#  name: apid administrative assistant
+#  id: MobApidAdminAssistant
+#  parent: MobApidBaseGhostrole
+#  description: Enthusiastic workers, these cute little balls of fuzz are distant relatives to moth people.
+#  components:
+#  - type: Loadout
+#    prototypes:
+#      - StartingGearApidAdministrativeAssistant
+#  - type: RandomMetadata
+#    nameSegments:
+#    - apid_adminassistant
+#    - names_apid
 
 - type: entity
   name: apid chaplain

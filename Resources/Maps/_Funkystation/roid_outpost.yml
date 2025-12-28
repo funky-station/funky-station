@@ -4,8 +4,8 @@ meta:
   engineVersion: 268.0.0
   forkId: ""
   forkVersion: ""
-  time: 12/26/2025 08:58:24
-  entityCount: 20687
+  time: 12/28/2025 21:49:07
+  entityCount: 20688
 maps:
 - 1
 grids:
@@ -13963,7 +13963,7 @@ entities:
       pos: -10.5,-40.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -163695.95
+      secondsUntilStateChange: -163815.8
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -14140,7 +14140,7 @@ entities:
       pos: -7.5,-7.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -343239.25
+      secondsUntilStateChange: -343359.1
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -14666,7 +14666,7 @@ entities:
       pos: -27.5,10.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -521642.2
+      secondsUntilStateChange: -521762.03
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -54921,6 +54921,13 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -28.585608,-43.397984
+      parent: 2
+- proto: CrashCartFilled
+  entities:
+  - uid: 20688
+    components:
+    - type: Transform
+      pos: -10.5,-23.5
       parent: 2
 - proto: CrateAirlockKit
   entities:

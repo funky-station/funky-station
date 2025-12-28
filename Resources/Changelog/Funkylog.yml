@@ -6898,3 +6898,9 @@ Entries:
       message: Updated the iv bag sprite!
   id: 800
   time: '2025-12-27T22:32:28.0000000+00:00'
+- author: CrimeMoot, AraiMaia
+  changes:
+    - type: Add
+      message: Added new cosmetic job titles, selectable from the jobs menu.
+  id: 801
+  time: '2025-12-28T09:30:45.0000000+00:00'

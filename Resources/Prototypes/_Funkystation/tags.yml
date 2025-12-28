@@ -95,3 +95,24 @@
 
 - type: Tag
   id: ListeningBug
+
+- type: Tag
+  id: DefibrillatorCompact
+
+- type: Tag
+  id: OxygenTank
+
+- type: Tag
+  id: NitrogenTank
+
+- type: Tag
+  id: NitrousOxideTank
+
+- type: Tag
+  id: PlasmaTank
+
+- type: Tag
+  id: AirTank
+
+- type: Tag
+  id: ExtendedEmergencyNitrogenTank

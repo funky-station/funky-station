@@ -6682,3 +6682,219 @@ Entries:
       message: Box's Evac has been moved south.
   id: 781
   time: '2025-12-17T11:06:52.0000000+00:00'
+- author: JoulesBerg
+  changes:
+    - type: Add
+      message: >-
+        Added a reactor to core - accessible via the nuclear trashcan in
+        engineering, or via a space walk.
+    - type: Tweak
+      message: >-
+        Moved chapel and chaplain offices and replaced the old location with
+        maints
+    - type: Add
+      message: Added more maints near cargo
+  id: 782
+  time: '2025-12-17T19:20:13.0000000+00:00'
+- author: Terkala
+  changes:
+    - type: Fix
+      message: Fixed issues identified in last zombie rework playtest
+  id: 783
+  time: '2025-12-17T23:34:01.0000000+00:00'
+- author: AraiMaia
+  changes:
+    - type: Add
+      message: Added new Funky original sprites for the IV stand
+    - type: Tweak
+      message: >-
+        IV stand now properly draws the tubing from the bag rather than the
+        middle of the sprite
+  id: 784
+  time: '2025-12-18T05:16:34.0000000+00:00'
+- author: Drywink
+  changes:
+    - type: Add
+      message: Bullets can fly over cocoon.
+  id: 785
+  time: '2025-12-18T21:07:58.0000000+00:00'
+- author: RosySaturniidae
+  changes:
+    - type: Add
+      message: new slime eye markings. blyump
+  id: 786
+  time: '2025-12-19T20:38:56.0000000+00:00'
+- author: Gosera
+  changes:
+    - type: Add
+      message: >-
+        Added a small pinboard that lets you view a piece of paper of
+        information at inspect for your menu/front desk needs, craftable in the
+        autolathe.
+  id: 787
+  time: '2025-12-20T00:11:53.0000000+00:00'
+- author: zergologist
+  changes:
+    - type: Add
+      message: truly funky sprites for the base thaven
+    - type: Add
+      message: truly funky sprites for many thaven markings
+    - type: Tweak
+      message: existing thaven tails touched up
+    - type: Tweak
+      message: 'sharkminnow eyeliner is now light before the multiply layer '
+    - type: Fix
+      message: fixed thaven neck, eye, ear, mask, and head offsets to be pixel perfect
+  id: 788
+  time: '2025-12-20T12:46:16.0000000+00:00'
+- author: TheHolyAegis
+  changes:
+    - type: Add
+      message: Added an air tank dispenser to the salvage area.
+    - type: Fix
+      message: >-
+        The Nanotrasen Representative office shutters are now linked to the
+        button by default.
+    - type: Add
+      message: >-
+        Added shutters to the lawyer room, so they can have conversations with
+        confidential information without anyone eavesdropping.
+    - type: Fix
+      message: >-
+        Moved the exosuit fabricators, now the cyborg endoskeletons won't get
+        stuck between it and the wall.
+    - type: Fix
+      message: >-
+        Added a vent and scrubber to the zoo, now the animals won't slowly
+        suffocate.
+    - type: Fix
+      message: >-
+        AI core fixes, the APCs are now separated, and AI sentry turret control
+        panels were added.
+    - type: Add
+      message: Added a ton of intercoms, you no longer have to search for one.
+    - type: Tweak
+      message: >-
+        Added and moved some cameras so the Station AI doesn't have weird
+        blindspots in the middle of the hallway.
+    - type: Tweak
+      message: >-
+        Medical has been redesigned to promote smaller room treatment, and added
+        IVs.
+    - type: Add
+      message: >-
+        Added a long-range holopad to the bridge, for potential roleplay with CC
+        or maybe the cargo shuttle got lost.
+    - type: Tweak
+      message: >-
+        Replaced brigmed with a temporary cell, for if the warden is taking a
+        while...
+    - type: Add
+      message: Added a cyborg recharger and cryogenic sleep unit to genpop.
+    - type: Tweak
+      message: >-
+        Replaced the TEG with a Nuclear Reactor. (This is a test, and will be
+        reverted if it doesn't work out nicely)
+  id: 789
+  time: '2025-12-20T12:47:16.0000000+00:00'
+- author: JoulesBerg
+  changes:
+    - type: Add
+      message: Added iv stands to the treatment rooms in medical
+    - type: Add
+      message: Added some additional safety features to the reactor
+    - type: Tweak
+      message: Changed the medical area in security to a dedicated briefing room
+    - type: Add
+      message: Gave the warden a single, basic first aid kit.
+    - type: Tweak
+      message: Medical now has a working way for non staff to exit the treatment area
+    - type: Tweak
+      message: The medical front desk isn't shitty any more
+    - type: Add
+      message: Added ai turret controls in appropriate locations
+    - type: Tweak
+      message: >-
+        Fixed some areas that did not have cameras, that should have had
+        cameras.
+    - type: Remove
+      message: Removed most of the wall lockers that shouldn't be wall mounts >:(
+  id: 790
+  time: '2025-12-20T21:55:53.0000000+00:00'
+- author: Doctor-Cpu, AraiMaia
+  changes:
+    - type: Add
+      message: >-
+        Added a new Soft Critical system, active when between 100 and 150 total
+        damage. It allows you to crawl and whisper, and not much else.
+    - type: Tweak
+      message: >-
+        CPR DoAfter has been changed to 0.5 seconds, mimicking a 120bpm rhythm
+        for CPR.
+  id: 791
+  time: '2025-12-22T00:53:49.0000000+00:00'
+- author: Xcybitt
+  changes:
+    - type: Tweak
+      message: Det's bug is now buggier.
+  id: 792
+  time: '2025-12-22T02:20:31.0000000+00:00'
+- author: taydeo
+  changes:
+    - type: Remove
+      message: IPCs are no longer a round-start species.
+  id: 793
+  time: '2025-12-22T02:37:32.0000000+00:00'
+- author: AraiMaia, Ven
+  changes:
+    - type: Tweak
+      message: Reagent slimes are now unrevivable
+    - type: Fix
+      message: CPR no longer hurts entire body, only the torso. no more delimbs
+    - type: Fix
+      message: CPR now works on animals
+  id: 794
+  time: '2025-12-23T21:46:23.0000000+00:00'
+- author: AraiMaia
+  changes:
+    - type: Fix
+      message: Electrolyzer no longer melts. Oops.
+  id: 795
+  time: '2025-12-23T23:09:29.0000000+00:00'
+- author: AraiMaia
+  changes:
+    - type: Tweak
+      message: >-
+        Tweaked values for nicotine poisoning; coughing will happen only after a
+        significant amount of cigarettes back to back, and you'll cough less
+        often.
+  id: 796
+  time: '2025-12-24T00:22:47.0000000+00:00'
+- author: Tea
+  changes:
+    - type: Tweak
+      message: >-
+        The satchel, smuggler satchel and leather satchel got a new coat of
+        paint!
+  id: 797
+  time: '2025-12-24T23:24:04.0000000+00:00'
+- author: ToNy025
+  changes:
+    - type: Fix
+      message: Fixed a typo on the SoP Guidebook
+  id: 798
+  time: '2025-12-25T09:18:49.0000000+00:00'
+- author: AraiMaia
+  changes:
+    - type: Tweak
+      message: >-
+        Made it so firelocks actually shut when they detect a major temperature
+        difference.
+  id: 799
+  time: '2025-12-26T23:54:08.0000000+00:00'
+- author: BrightNibbleston
+  changes:
+    - type: Tweak
+      message: Updated the iv bag sprite!
+  id: 800
+  time: '2025-12-27T22:32:28.0000000+00:00'

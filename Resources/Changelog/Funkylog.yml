@@ -6920,3 +6920,9 @@ Entries:
       message: Defrosted Roid until next year, Merry Christmas!
   id: 803
   time: '2025-12-29T02:18:36.0000000+00:00'
+- author: 2DSiggy
+  changes:
+    - type: Remove
+      message: Thieving gloves are no longer available in the syndicate uplink.
+  id: 804
+  time: '2025-12-29T03:15:13.0000000+00:00'

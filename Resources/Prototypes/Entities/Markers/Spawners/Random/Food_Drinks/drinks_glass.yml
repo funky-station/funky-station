@@ -15,6 +15,7 @@
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 Zergologist <114537969+Chedd-Error@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 kosticia <kosticia46@gmail.com>
+# SPDX-FileCopyrightText: 2025 maelines <genovedd.almn@gmail.com>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
@@ -200,4 +201,6 @@
       - DrinkHoochGlass
       - DrinkBeepskySmashGlass
       - DrinkGlassBlankPaper
+      - DrinkBatteryAcidGlass
+      - DrinkAngelsKissGlass
     rareChance: 0.05

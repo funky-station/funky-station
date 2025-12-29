@@ -2,6 +2,8 @@
 # SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
 # SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 Mish <bluscout78@yahoo.com>
+# SPDX-FileCopyrightText: 2025 ThatOneMoon <91613003+ThatOneMoon@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
 # SPDX-FileCopyrightText: 2025 Xcybitt <lenazheng88@gmail.com>
 # SPDX-FileCopyrightText: 2025 Xcybitt <xcybitt@gmail.com>
 # SPDX-FileCopyrightText: 2025 mkanke-real <mikekanke@gmail.com>
@@ -65,6 +67,8 @@
     MailPlushie: 0.9
     MailNFVagueThreat: 0.45
     MailFigurines: 0.9
+    MailMysteryLighterBox: 0.9
+    MailUplinkLighterBox: 0.35
     MailPlushieThrongler: 0.01 # funky - I HATE YOU I HATE YOU I HATE YOU I HATE YOU
     MailInstrumentSmall: 0.9
     MailCritters: 0.5

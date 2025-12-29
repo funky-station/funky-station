@@ -45,6 +45,8 @@
   - External
   extendedAccess:
   - Logistics #Imp
+  alternateTitles:
+  - SalvageSpecialistMiner
 
 - type: startingGear
   id: SalvageSpecialistGear
@@ -54,3 +56,7 @@
   #storage:
     #back:
     #- Stuff
+
+- type: jobAlternateTitle
+  id: SalvageSpecialistMiner
+  name: job-name-alt-salvage-1

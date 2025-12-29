@@ -285,7 +285,7 @@ namespace Content.Server.Atmos.EntitySystems
                 tile.Hotspot.Temperature = AddClampedTemperature(
                     tile.Hotspot.Temperature,
                     200 * effectiveFlammability,
-                    (float)(Atmospherics.T0C + 1200 * capFlammability));
+                    (float)(Atmospherics.T0C + 53.5f * MathF.Pow(capFlammability, 2.5f)));
 
                 return;
             }
@@ -307,7 +307,7 @@ namespace Content.Server.Atmos.EntitySystems
                     temperature = AddClampedTemperature(
                         temperature,
                         200 * effectiveFlammability,
-                        (float)(Atmospherics.T0C + 1200 * capFlammability));
+                        (float)(Atmospherics.T0C + 53.5f * MathF.Pow(capFlammability, 2.5f)));
                 }
 
                 tile.Hotspot = new Hotspot
@@ -341,7 +341,7 @@ namespace Content.Server.Atmos.EntitySystems
                 var affected = tile.Air.RemoveVolume(tile.Hotspot.Volume);
 
                 var effectiveFlammability = (float)tile.PuddleSolutionFlammability;
-                affected.Temperature = MathF.Max(tile.Hotspot.Temperature, Atmospherics.T0C + 1200 * effectiveFlammability);
+                affected.Temperature = MathF.Max(tile.Hotspot.Temperature, Atmospherics.T0C + 53.5f * MathF.Pow(effectiveFlammability, 2.5f));
 
                 // Gas consumption and production
                 if (effectiveFlammability > 0)

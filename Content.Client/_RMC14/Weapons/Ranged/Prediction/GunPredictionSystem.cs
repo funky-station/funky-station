@@ -10,6 +10,7 @@ using System.Linq;
 using Content.Client.Projectiles;
 using Content.Shared._RMC14.Weapons.Ranged.Prediction;
 using Content.Shared.Projectiles;
+using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Events;
 using Robust.Client.GameObjects;
 using Robust.Client.Physics;
@@ -52,7 +53,24 @@ public sealed class GunPredictionSystem : SharedGunPredictionSystem
 
         SubscribeLocalEvent<PredictedProjectileServerComponent, ComponentStartup>(OnServerProjectileStartup);
 
+        // Subscribe to fire mode changes to invalidate prediction cache
+        SubscribeLocalEvent<BatteryAmmoProviderComponent, FireModeChangedEvent>(OnFireModeChanged);
+
         UpdatesBefore.Add(typeof(TransformSystem));
+    }
+
+    private void OnFireModeChanged(EntityUid uid, BatteryAmmoProviderComponent component, ref FireModeChangedEvent args)
+    {
+        // When fire mode changes, we need to ensure the next predicted shot uses the correct prototype
+        // The component's Prototype field has already been updated by the BatteryWeaponFireModesSystem
+        // This subscription ensures that any client-side caching or visual preparation is refreshed
+
+        // Since projectiles are spawned fresh on each shot using component.Prototype,
+        // we don't need to clear a cache here. The prediction system will automatically
+        // use the updated prototype from the component on the next shot.
+
+        // However, if you have any client-side visual preloading or caching in the future,
+        // this is where you would clear it and reload with args.NewPrototype
     }
 
     private void OnBeforeSolve(ref PhysicsUpdateBeforeSolveEvent ev)

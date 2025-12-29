@@ -15,7 +15,7 @@ public sealed partial class BatteryAmmoProviderComponent : AmmoProviderComponent
     /// <summary>
     /// The projectile or hitscan entity to spawn when firing.
     /// </summary>
-    [DataField("proto", required: true)]
+    [DataField("proto", required: true), AutoNetworkedField]
     public EntProtoId Prototype;
 
     /// <summary>
@@ -52,7 +52,6 @@ public sealed partial class BatteryAmmoProviderComponent : AmmoProviderComponent
     /// </summary>
     /// <remarks>
     /// Not a datafield since this is only cached and refreshed on component startup.
-    /// TODO: If we ever fully predict all batteries then remove this and just read the charge on the client.
     /// </remarks>
     [ViewVariables, AutoNetworkedField]
     public int Shots;
@@ -63,7 +62,6 @@ public sealed partial class BatteryAmmoProviderComponent : AmmoProviderComponent
     /// </summary>
     /// <remarks>
     /// Not a datafield since this is only cached and refreshed on component startup.
-    /// TODO: If we ever fully predict all batteries then remove this and just read the charge on the client.
     /// </remarks>
     [ViewVariables, AutoNetworkedField]
     public int Capacity;

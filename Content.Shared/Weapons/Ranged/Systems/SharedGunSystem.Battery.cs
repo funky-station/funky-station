@@ -7,6 +7,7 @@
 //
 // SPDX-License-Identifier: MIT
 
+using Content.Shared._RMC14.Weapons.Ranged.Prediction;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Events;
 using Content.Shared.Examine;
@@ -100,11 +101,25 @@ public abstract partial class SharedGunSystem
         // UpdateShots is already called by the resulting ChargeChangedEvent
     }
 
-    private (EntityUid? Entity, IShootable) GetShootable(BatteryAmmoProviderComponent component, EntityCoordinates coordinates)
+    private (EntityUid? Entity, IShootable) GetShootable(Entity<BatteryAmmoProviderComponent> ent, EntityCoordinates coordinates)
     {
+        EntityUid projectile;
 
-        var ent = Spawn(component.Prototype, coordinates);
-        return (ent, EnsureShootable(ent));
+        // On client, spawn as client-side entity for prediction
+        if (_netManager.IsClient)
+        {
+            projectile = SpawnAtPosition(ent.Comp.Prototype, coordinates);
+
+            // Add prediction component to track this projectile
+            var predComp = new PredictedProjectileClientComponent();
+            AddComp(projectile, predComp);
+        }
+        else
+        {
+            projectile = Spawn(ent.Comp.Prototype, coordinates);
+        }
+
+        return (projectile, EnsureShootable(projectile));
     }
 
     public void UpdateShots(Entity<BatteryAmmoProviderComponent> ent)

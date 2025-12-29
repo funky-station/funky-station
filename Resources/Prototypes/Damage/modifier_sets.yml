@@ -43,6 +43,7 @@
 # SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 2DSiggy <siggymaxwell@gmail.com>
 # SPDX-FileCopyrightText: 2025 Mish <bluscout78@yahoo.com>
+# SPDX-FileCopyrightText: 2025 Terkala <appleorange64@gmail.com>
 # SPDX-FileCopyrightText: 2025 otokonoko-dev <248204705+otokonoko-dev@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
@@ -253,12 +254,12 @@
   id: Zombie #Blunt resistant and immune to biological threats, but can be hacked apart and burned
   coefficients:
     Blunt: 0.5 #funkystation
-    Piercing: 0.5 #funkystation
+    Piercing: 0.6 #funkystation
     Cold: 0.3
-    Heat: 0.6 #funkystation
+    Heat: 1.0 #funkystation
     Poison: 0.0
     Radiation: 0.0
-    Holy: 1.5 #funkystation`
+    Holy: 0.0 #funkystation`
 
 # immune to everything except physical and heat damage
 - type: damageModifierSet

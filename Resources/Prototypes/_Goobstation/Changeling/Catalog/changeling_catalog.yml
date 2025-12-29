@@ -190,7 +190,7 @@
   icon: { sprite: _Goobstation/Changeling/changeling_abilities.rsi, state: sting_armblade }
   productAction: ActionStingFakeArmblade
   cost:
-    EvolutionPoint: 5
+    EvolutionPoint: 4
   categories:
   - ChangelingAbilitySting
   conditions:
@@ -236,7 +236,7 @@
   productEvent: !type:AugmentedEyesightPurchasedEvent
   raiseProductEventOnUser: true
   cost:
-    EvolutionPoint: 4
+    EvolutionPoint: 6
   categories:
   - ChangelingAbilityUtility
   conditions:
@@ -292,7 +292,7 @@
   icon: { sprite: _Goobstation/Changeling/changeling_abilities.rsi, state: fleshmend }
   productAction: ActionFleshmend
   cost:
-    EvolutionPoint: 5
+    EvolutionPoint: 4
   categories:
   - ChangelingAbilityUtility
   conditions:
@@ -334,7 +334,7 @@
   icon: { sprite: _Goobstation/Changeling/changeling_abilities.rsi, state: space_adaptation }
   productAction: ActionToggleSpacesuit
   cost:
-    EvolutionPoint: 4
+    EvolutionPoint: 2
   categories:
   - ChangelingAbilityUtility
   conditions:

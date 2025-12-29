@@ -90,6 +90,7 @@ using Robust.Shared.Serialization.Manager;
 using Robust.Shared.Timing;
 using System.Linq;
 using System.Numerics;
+using Content.Shared.Atmos.Rotting;
 
 namespace Content.Server.Changeling;
 
@@ -175,7 +176,7 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
     public override void Initialize()
     {
         base.Initialize();
-        
+
         RandomNumberGenerator = new System.Random();
 
         SubscribeLocalEvent<ChangelingComponent, ComponentStartup>(OnStartup);
@@ -287,7 +288,7 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
             _popup.PopupEntity(Loc.GetString("popup-changeling-biomass-deficit-high"), uid, uid, PopupType.LargeCaution);
             _jitter.DoJitter(uid, TimeSpan.FromSeconds(comp.BiomassUpdateCooldown), true, amplitude: 5, frequency: 10);
         }
-        else if (comp.Biomass <= comp.MaxBiomass / 3)
+        else if (comp.Biomass <= comp.MaxBiomass / 5)
         {
             // vomit (funkystation) VOMIT LIKE ITS A HUGE GIVEAWAY IF ITS BLOOD VRO LIKE WTF???
             if (random == 1)
@@ -312,7 +313,7 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
                 _jitter.DoJitter(uid, TimeSpan.FromSeconds(.5f), true, amplitude: 5, frequency: 10);
             }
         }
-        else if (comp.Biomass <= comp.MaxBiomass / 2 && random == 3)
+        else if (comp.Biomass <= comp.MaxBiomass / 3 && random == 3)
         {
             if (random == 1)
                 _popup.PopupEntity(Loc.GetString("popup-changeling-biomass-deficit-low"), uid, uid, PopupType.SmallCaution);
@@ -752,6 +753,7 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
     {
         RemComp<HungerComponent>(uid);
         RemComp<ThirstComponent>(uid);
+        RemComp<PerishableComponent>(uid);
         EnsureComp<ZombieImmuneComponent>(uid);
 
         // add actions

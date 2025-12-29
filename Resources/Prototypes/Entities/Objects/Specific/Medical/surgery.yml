@@ -198,6 +198,16 @@
     sprite: Objects/Specific/Medical/Surgery/scalpel.rsi
     storedRotation: 90
     heldPrefix: laser
+  - type: MeleeWeapon
+    wideAnimationRotation: 90
+    swingLeft: true
+    attackRate: 1.5
+    damage:
+      types:
+        Slash: 6
+        Heat: 2 #laser
+    soundHit:
+      path: /Audio/Weapons/bladeslice.ogg
   - type: Scalpel # Shitmed
     speed: 1.5
   # TODO: prevent bleeding from incisions

@@ -571,7 +571,7 @@ SPDX-License-Identifier: MIT
   When mixed with BZ at temperatures below 273 K and pressures above 10 MPa, hydrogen can form metal hydrogen, a rare material. Handle hydrogen carefully to prevent fires or explosions, and store canisters securely.
 
   ##Proto-Nitrate
-  Proto-Nitrate is a highly reactive, non-toxic gas. Combine 1 mole hydrogen with 0.1 moles pluoxium to yield 1.1 moles proto-nitrate exothermically, best at 5000-10000K.
+  Proto-Nitrate is a highly reactive, non-toxic gas. Combine 1 moles Hydrogen with 0.1 moles Pluoxium to yield 1.1 moles Proto-Nitrate exothermically, best at 5,000-10,000 Kelvin.
 
   <Box>
     <GuideEntityEmbed Entity="HydrogenCanister"/>
@@ -579,6 +579,9 @@ SPDX-License-Identifier: MIT
     <GuideEntityEmbed Entity="GasVentScrubber"/>
     <GuideEntityEmbed Entity="ProtoNitrateCanister"/>
   </Box>
+
+  Exposing PN to Tritium or Hydrogen turns one into the other in a Plasma-producing reaction that is respectively exo- or endo-thermic.
+  It will also react with BZ between 260 to 280 Kelvin to yield Nitrogen, Helium, and Plasma. Handle carefully to avoid leaks.
 
   ##Helium
   Helium is an inert, invisible gas produced via the decay of BZ. This decay can be caused by exposing BZ and Proto Nitrate together at just under room temperature (260-280 Kelvin). It has minimal use in atmospherics, so scrub it to avoid diluting other gases.

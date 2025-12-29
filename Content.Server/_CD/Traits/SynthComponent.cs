@@ -14,5 +14,5 @@ public sealed partial class SynthComponent : Component
     /// The chance that the synth is alerted of an ion storm
     /// </summary>
     [DataField]
-    public float AlertChance = 0.3f;
+    public float AlertChance = 0.0f; // Funky change, people cannot behave.
 }

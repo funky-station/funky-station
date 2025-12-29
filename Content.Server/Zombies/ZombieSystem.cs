@@ -51,6 +51,7 @@ using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.NameModifier.EntitySystems;
 using Content.Shared.Popups;
+using Content.Shared.StatusIcon.Components;
 using Content.Shared.Weapons.Melee.Events;
 using Content.Shared.Zombies;
 using Content.Shared._EinsteinEngines.Silicon.Components;
@@ -301,6 +302,8 @@ namespace Content.Server.Zombies
                             // For crit/dead players, keep the old behavior
                             EnsureComp<PendingZombieComponent>(entity);
                             EnsureComp<ZombifyOnDeathComponent>(entity);
+                            // Ensure StatusIconComponent exists so infection status can be displayed in UI
+                            EnsureComp<StatusIconComponent>(entity);
                         }
                     }
                 }

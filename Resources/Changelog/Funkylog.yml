@@ -6884,3 +6884,31 @@ Entries:
       message: Fixed a typo on the SoP Guidebook
   id: 798
   time: '2025-12-25T09:18:49.0000000+00:00'
+- author: AraiMaia
+  changes:
+    - type: Tweak
+      message: >-
+        Made it so firelocks actually shut when they detect a major temperature
+        difference.
+  id: 799
+  time: '2025-12-26T23:54:08.0000000+00:00'
+- author: BrightNibbleston
+  changes:
+    - type: Tweak
+      message: Updated the iv bag sprite!
+  id: 800
+  time: '2025-12-27T22:32:28.0000000+00:00'
+- author: CrimeMoot, AraiMaia
+  changes:
+    - type: Add
+      message: Added new cosmetic job titles, selectable from the jobs menu.
+  id: 801
+  time: '2025-12-28T09:30:45.0000000+00:00'
+- author: ika6163
+  changes:
+    - type: Fix
+      message: >-
+        Removed the ported goobstation AI preferred name PR, allowing seperate
+        names for AI and borgs
+  id: 802
+  time: '2025-12-28T20:42:27.0000000+00:00'

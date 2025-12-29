@@ -6940,3 +6940,9 @@ Entries:
       message: Removed pill type from gingerbread brain
   id: 806
   time: '2025-12-29T04:11:28.0000000+00:00'
+- author: zergologist
+  changes:
+    - type: Add
+      message: Existing facepaints extended to Vox. Glowing blush included.
+  id: 807
+  time: '2025-12-29T04:23:32.0000000+00:00'

@@ -34,7 +34,6 @@
   mapName: 'Court Station'
   mapPath: /Maps/_Funkystation/court.yml
   minPlayers: 30 
-  maxPlayers: 90
   stations:
     Court:
       stationProto: StandardNanotrasenStation
@@ -77,7 +76,7 @@
             #science
             ResearchDirector: [ 1, 1 ]
             Scientist: [ 4, 4 ]
-            Roboticist: [ 1, 2 ]
+            Roboticist: [ 1, 1 ]
             ResearchAssistant: [ 4, 4 ]
             #security
             HeadOfSecurity: [ 1, 1 ]

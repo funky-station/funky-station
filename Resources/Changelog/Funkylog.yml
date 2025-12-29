@@ -6912,3 +6912,11 @@ Entries:
         names for AI and borgs
   id: 802
   time: '2025-12-28T20:42:27.0000000+00:00'
+- author: mkanke-real
+  changes:
+    - type: Tweak
+      message: Roid medbay swapped to be individual rooms
+    - type: Tweak
+      message: Defrosted Roid until next year, Merry Christmas!
+  id: 803
+  time: '2025-12-29T02:18:36.0000000+00:00'

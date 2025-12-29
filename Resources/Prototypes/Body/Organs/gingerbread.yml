@@ -36,7 +36,6 @@
   - type: Organ
     slotId: brain
   - type: Brain
-  - type: Pill
   - type: Tag
     tags:
       - Organ

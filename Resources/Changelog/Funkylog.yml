@@ -6952,3 +6952,9 @@ Entries:
       message: Resprites Fire Alarms, Air Alarms, Light Tubes, and Auth Scanners.
   id: 808
   time: '2025-12-29T04:24:37.0000000+00:00'
+- author: Alecksohs
+  changes:
+    - type: Fix
+      message: Fixed Air Alarms glowing.
+  id: 809
+  time: '2025-12-29T20:27:15.0000000+00:00'

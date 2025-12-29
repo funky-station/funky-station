@@ -74,7 +74,7 @@ namespace Content.Shared.Roles
         public string LocalizedName => Loc.GetString(Name);
 
         [DataField]
-        public HashSet<ProtoId<JobAlternateTitlePrototype>> AlternateTitles { get; private set; } = default!;
+        public HashSet<ProtoId<JobAlternateTitlePrototype>>? AlternateTitles { get; private set; } = default!;
 
         /// <summary>
         ///     The name of this job as displayed to players.

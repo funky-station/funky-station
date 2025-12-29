@@ -23,12 +23,3 @@
     Sugar: 2
     CarbonDioxide: 3
     Protein: 4
-  effects:
-    - !type:CreateEntityReactionEffect
-      entity: FleshKudzu
-    - !type:ExplosionReactionEffect
-      explosionType: Default
-      maxIntensity: 2
-      intensityPerUnit: 0.5
-      intensitySlope: 4
-      maxTotalIntensity: 1

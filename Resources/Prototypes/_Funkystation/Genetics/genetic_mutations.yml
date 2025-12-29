@@ -1203,6 +1203,8 @@
   instability: 5
   popupText: "Feathers burst from the base of your spine"
   researchPoints: 600
+  strictEntityWhitelist:
+    - BaseMobSpeciesOrganic
   conflicts:
     - FelinidTailMutation
     - VulpkaninTailMutation
@@ -1219,6 +1221,8 @@
   instability: 5
   popupText: "A bushy fox-like tail grows in"
   researchPoints: 600
+  strictEntityWhitelist:
+    - BaseMobSpeciesOrganic
   conflicts:
     - FelinidTailMutation
     - HarpyTailMutation
@@ -1235,6 +1239,8 @@
   instability: 5
   popupText: "Scales ripple down your spine into a tail"
   researchPoints: 600
+  strictEntityWhitelist:
+    - BaseMobSpeciesOrganic
   conflicts:
     - FelinidTailMutation
     - HarpyTailMutation
@@ -1251,6 +1257,8 @@
   popupText: "A thin, whip-like tail extends from your body"
   instability: 5
   researchPoints: 600
+  strictEntityWhitelist:
+    - BaseMobSpeciesOrganic
   conflicts:
     - FelinidTailMutation
     - HarpyTailMutation

@@ -1,4 +1,3 @@
-// GeneticistsConsoleStorageView.xaml.cs
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -128,8 +127,6 @@ public sealed partial class GeneticistsConsoleStorageView : Control
         UpdateResearchCountLabel();
     }
 
-    // ── Selection & Info Panel ──────────────────────────────────────────────
-
     public void OnMutationSelected(string? id)
     {
         if (string.IsNullOrEmpty(id))
@@ -154,7 +151,7 @@ public sealed partial class GeneticistsConsoleStorageView : Control
         var isDiscovered = ParentWindow?.DiscoveredMutationIds?.Contains(mutation.Id) ?? false;
         string displayName = isDiscovered ? mutation.Name : $"Mutation {mutation.Block:00}";
 
-        StorageInfoNameLabel.Text = displayName;  // No "(Active)" in storage view
+        StorageInfoNameLabel.Text = displayName;
 
         StorageInfoDescLabel.Text = isDiscovered
             ? (mutation.Description ?? "No description.")
@@ -246,8 +243,6 @@ public sealed partial class GeneticistsConsoleStorageView : Control
         StorageInfoResearchLabel.Text = completed >= total ? "Researched" : $"{completed} / {total}";
     }
 
-    // ── Action Buttons State ────────────────────────────────────────────────
-
     private void UpdateActionButtonsState()
     {
         var hasSelection = !string.IsNullOrEmpty(_selectedMutationId);
@@ -261,7 +256,6 @@ public sealed partial class GeneticistsConsoleStorageView : Control
             return;
         }
 
-        // Is this mutation researched?
         bool isResearched = false;
         if (ParentWindow is not null && ParentWindow.ResearchOriginal.TryGetValue(_selectedMutationId!, out var original))
         {
@@ -307,8 +301,6 @@ public sealed partial class GeneticistsConsoleStorageView : Control
         int current = ParentWindow.ActiveResearchIds.Count;
         ResearchCountLabel.Text = $"{current}/5";
     }
-
-    // ── Public API for parent window ────────────────────────────────────────
 
     public void UpdateDiscoveredMutations(HashSet<string>? discoveredIds)
     {

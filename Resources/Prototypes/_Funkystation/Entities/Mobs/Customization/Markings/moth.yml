@@ -34,3 +34,13 @@
   sprites:
   - sprite: _Funkystation/Mobs/Customization/Moth/moth_parts.rsi
     state: eyes_heterochromia_soft
+
+- type: marking
+  id: MothEyeshadow
+  bodyPart: Eyes
+  markingCategory: Head
+  speciesRestriction: [Moth]
+  followSkinColor: false
+  sprites:
+  - sprite: _Funkystation/Mobs/Customization/Moth/moth_parts.rsi
+    state: motheyeshadow

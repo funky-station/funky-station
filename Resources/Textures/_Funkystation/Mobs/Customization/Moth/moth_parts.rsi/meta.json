@@ -18,6 +18,10 @@
     {
       "name": "eyes_heterochromia_soft",
       "directions": 4
+    },
+    {
+      "name": "motheyeshadow",
+      "directions": 4
     }
   ]
 }

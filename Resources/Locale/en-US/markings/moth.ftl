@@ -85,9 +85,6 @@ marking-MothWingsDeathhead-deathhead_primary = Primary
 marking-MothWingsDeathhead-deathhead_secondary = Secondary
 marking-MothWingsDeathhead = Wings (Death's-Head)
 
-marking-MothWingsFan-fan = Wing
-marking-MothWingsFan = Wings (Fan)
-
 marking-MothWingsDfan-dfan_primary = Primary
 marking-MothWingsDfan-dfan_secondary = Secondary
 marking-MothWingsDfan = Wings (Dark & Fan)
@@ -106,7 +103,9 @@ marking-MothWingsGothic-gothic_secondary = Secondary
 marking-MothWingsGothic-gothic_tertiary = Tertiary
 marking-MothWingsGothic = Wings (Gothic)
 
-marking-MothWingsJungle-jungle = Wing
+marking-MothWingsJungle-jungle_primary = Primary
+marking-MothWingsJungle-jungle_secondary = Secondary
+marking-MothWingsJungle-jungle_tertiary = Tertiary
 marking-MothWingsJungle = Wings (Jungle)
 
 marking-MothWingsLadybug-ladybug_primary = Primary
@@ -125,38 +124,55 @@ marking-MothWingsMoffra-moffra_tertiary = Tertiary
 marking-MothWingsMoffra = Wings (Moffra)
 
 
-marking-MothWingsOakworm-oakworm = Wing
+marking-MothWingsOakworm-oakworm_primary = Primary
+marking-MothWingsOakworm-oakworm_secondary = Secondary
+marking-MothWingsOakworm-oakworm_tertiary = Tertiary
 marking-MothWingsOakworm = Wings (Oak Worm)
 
 marking-MothWingsPlasmafire-plasmafire_primary = Primary
 marking-MothWingsPlasmafire-plasmafire_secondary = Secondary
+marking-MothWingsPlasmafire-plasmafire_tertiary = Tertiary
 marking-MothWingsPlasmafire = Wings (Plasmafire)
 
-marking-MothWingsPointy-pointy = Wing
+marking-MothWingsPointy-pointy_primary = Primary
+marking-MothWingsPointy-pointy_secondary = Secondary
+marking-MothWingsPointy-pointy_tertiary = Tertiary
 marking-MothWingsPointy = Wings (Pointy)
 
 marking-MothWingsRoyal-royal_primary = Primary
 marking-MothWingsRoyal-royal_secondary = Secondary
+marking-MothWingsRoyal-royal_tertiary = Tertiary
 marking-MothWingsRoyal = Wings (Royal)
 
-marking-MothWingsStellar-stellar = Wing
+marking-MothWingsStellar-stellar_primary = Primary
+marking-MothWingsStellar-stellar_secondary = Secondary
+marking-MothWingsStellar-stellar_tertiary = Tertiary
 marking-MothWingsStellar = Wings (Stellar)
 
-marking-MothWingsStriped-striped = Wing
-marking-MothWingsStriped = Wings (Striped)
-
-marking-MothWingsSwirly-swirly = Wing
+marking-MothWingsSwirly-swirly_primary = Primary
+marking-MothWingsSwirly-swirly_secondary = Secondary
+marking-MothWingsSwirly-swirly_tertiary = Tertiary
 marking-MothWingsSwirly = Wings (Swirly)
 
-marking-MothWingsWhitefly-whitefly = Wing
+marking-MothWingsWhitefly-whitefly_primary = Primary
+marking-MothWingsWhitefly-whitefly_secondary = Secondary
+marking-MothWingsWhitefly-whitefly_tertiary = Tertiary
 marking-MothWingsWhitefly = Wings (White Fly)
 
-marking-MothWingsWitchwing-witchwing = Wing
+marking-MothWingsWitchwing-witchwing_primary = Primary
+marking-MothWingsWitchwing-witchwing_secondary = Secondary
+marking-MothWingsWitchwing-witchwing_tertiary = Tertiary
 marking-MothWingsWitchwing = Wings (Witch Wing)
 
 marking-MothWingsUnderwing-underwing_primary = Primary
 marking-MothWingsUnderwing-underwing_secondary = Secondary
+marking-MothWingsUnderwing-underwing_tertiary = Tertiary
 marking-MothWingsUnderwing = Wings (Underwing)
+
+marking-MothWingsOrigins-origins_primary = Primary
+marking-MothWingsOrigins-origins_secondary = Secondary
+marking-MothWingsOrigins-origins_tertiary = Tertiary
+marking-MothWingsOrigins = Wings (Origins)
 
 
 

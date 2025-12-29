@@ -44,10 +44,6 @@
       "directions": 4
     },
     {
-      "name": "fan",
-      "directions": 4
-    },
-    {
       "name": "dfan_primary",
       "directions": 4
     },
@@ -88,7 +84,15 @@
       "directions": 4
     },
     {
-      "name": "jungle",
+      "name": "jungle_primary",
+      "directions": 4
+    },
+    {
+      "name": "jungle_secondary",
+      "directions": 4
+    },
+    {
+      "name": "jungle_tertiary",
       "directions": 4
     },
     {
@@ -128,7 +132,15 @@
       "directions": 4
     },
     {
-      "name": "oakworm",
+      "name": "oakworm_primary",
+      "directions": 4
+    },
+    {
+      "name": "oakworm_secondary",
+      "directions": 4
+    },
+    {
+      "name": "oakworm_tertiary",
       "directions": 4
     },
     {
@@ -140,7 +152,19 @@
       "directions": 4
     },
     {
-      "name": "pointy",
+      "name": "plasmafire_tertiary",
+      "directions": 4
+    },
+    {
+      "name": "pointy_primary",
+      "directions": 4
+    },
+    {
+      "name": "pointy_secondary",
+      "directions": 4
+    },
+    {
+      "name": "pointy_tertiary",
       "directions": 4
     },
     {
@@ -152,23 +176,55 @@
       "directions": 4
     },
     {
-      "name": "stellar",
+      "name": "royal_tertiary",
       "directions": 4
     },
     {
-      "name": "striped",
+      "name": "stellar_primary",
       "directions": 4
     },
     {
-      "name": "swirly",
+      "name": "stellar_secondary",
       "directions": 4
     },
     {
-      "name": "whitefly",
+      "name": "stellar_tertiary",
       "directions": 4
     },
     {
-      "name": "witchwing",
+      "name": "swirly_primary",
+      "directions": 4
+    },
+    {
+      "name": "swirly_secondary",
+      "directions": 4
+    },
+    {
+      "name": "swirly_tertiary",
+      "directions": 4
+    },
+    {
+      "name": "whitefly_primary",
+      "directions": 4
+    },
+    {
+      "name": "whitefly_secondary",
+      "directions": 4
+    },
+    {
+      "name": "whitefly_tertiary",
+      "directions": 4
+    },
+    {
+      "name": "witchwing_primary",
+      "directions": 4
+    },
+    {
+      "name": "witchwing_secondary",
+      "directions": 4
+    },
+    {
+      "name": "witchwing_tertiary",
       "directions": 4
     },
     {
@@ -177,6 +233,22 @@
     },
     {
       "name": "underwing_secondary",
+      "directions": 4
+    },
+    {
+      "name": "underwing_tertiary",
+      "directions": 4
+    },
+    {
+      "name": "origins_primary",
+      "directions": 4
+    },
+    {
+      "name": "origins_secondary",
+      "directions": 4
+    },
+    {
+      "name": "origins_tertiary",
       "directions": 4
     }
   ]

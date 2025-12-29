@@ -467,8 +467,6 @@
     state: rhinobeetle1
   - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
     state: rhinobeetle2
-  - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
-    state: rhinobeetle3
 
 - type: marking
   id: MothGlasswing
@@ -520,8 +518,8 @@
   forcedColoring: false
   followSkinColor: false
   sprites:
-  - sprite: _Impstation/Mobs/Customization/animatedmarkings.rsi
-    state: mothfirefly1
+  - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
+    state: mothfirefly4
   shader: unshaded
 
 - type: marking
@@ -534,8 +532,6 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
     state: mothfirefly1
-  - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
-    state: mothfirefly2
   - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
     state: mothfirefly3
 
@@ -602,6 +598,8 @@
     state: snoth1
   - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
     state: snoth2
+  - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
+    state: snoth3
 
 - type: marking
   id: VoxCocktail

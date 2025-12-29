@@ -80,6 +80,10 @@
             "directions": 4
         },
         {
+            "name": "mothfirefly4",
+            "directions": 4
+        },
+        {
             "name": "voxcocktail1",
             "directions": 4
         },
@@ -288,6 +292,10 @@
             "directions": 4
         },
         {
+            "name": "snoth3",
+            "directions": 4
+        },
+        {
             "name": "vitiligoheadl",
             "directions": 4
         },
@@ -357,10 +365,6 @@
         },
         {
             "name": "rhinobeetle2",
-            "directions": 4
-        },
-        {
-            "name": "rhinobeetle3",
             "directions": 4
         },
         {

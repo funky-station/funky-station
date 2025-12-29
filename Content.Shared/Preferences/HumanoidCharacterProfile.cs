@@ -680,7 +680,7 @@ namespace Content.Shared.Preferences
                     continue;
                 if (!prototypeManager.TryIndex(key, out var job))
                     continue;
-                if (job.AlternateTitles.Contains(value))
+                if (job.AlternateTitles != null && job.AlternateTitles.Contains(value))
                 {
                     altTitles.Add(key, value);
                 }

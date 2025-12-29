@@ -8,6 +8,7 @@
 // SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Amethyst <52829582+jackel234@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 MaiaArai <158123176+YaraaraY@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 jackel234 <jackel234@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 maelines <amae.tones@gmail.com>
@@ -46,8 +47,8 @@ public sealed class IonStormRule : StationEventSystem<IonStormRuleComponent>
         if (!TryGetRandomStation(out var chosenStation))
             return;
 
-        var localEv = new IonStormedEvent(GetNetEntity(chosenStation.Value), GetNetEntity(uid));
-        RaiseNetworkEvent(localEv);
+        //var localEv = new IonStormedEvent(GetNetEntity(chosenStation.Value), GetNetEntity(uid));
+        //RaiseNetworkEvent(localEv);
 
          // CD - Go through everyone with the SynthComponent and inform them a storm is happening.
         var synthQuery = EntityQueryEnumerator<SynthComponent>();

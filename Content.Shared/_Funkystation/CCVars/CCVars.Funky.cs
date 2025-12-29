@@ -39,4 +39,16 @@ public sealed class CCVars_Funky
     /// </summary>
     public static readonly CVarDef<int> DefaultLoocBudget =
         CVarDef.Create("funky.looc_budget_default", 20, CVar.SERVER | CVar.REPLICATED);
+
+    /// <summary>
+    /// If objectives show up as completed or failed (green or red) on the round end summary.
+    /// </summary>
+    public static readonly CVarDef<bool> GreentextEnabled =
+        CVarDef.Create("objectives.green_text_enabled", true, CVar.SERVER | CVar.REPLICATED);
+
+    /// <summary>
+    /// If custom objective summaries are enabled.
+    /// </summary>
+    public static readonly CVarDef<bool> PinktextEnabled =
+        CVarDef.Create("objectives.pink_text_enabled", true, CVar.SERVER | CVar.REPLICATED);
 }

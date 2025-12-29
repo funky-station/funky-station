@@ -81,7 +81,9 @@
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]
   alternateTitles:
-  - SecurityOfficerHallMonitor
+  - SecurityOfficerRegulatoryControlOfficer
+  - SecurityOfficerCommunityOutreachOfficer
+  - SecurityOfficerDeskOfficer
 
 - type: startingGear
   id: SecurityOfficerGear
@@ -97,5 +99,13 @@
     - CartridgeEmergency
 
 - type: jobAlternateTitle
-  id: SecurityOfficerHallMonitor
+  id: SecurityOfficerRegulatoryControlOfficer
   name: job-name-alt-secoff-1
+
+- type: jobAlternateTitle
+  id: SecurityOfficerCommunityOutreachOfficer
+  name: job-name-alt-secoff-2
+
+- type: jobAlternateTitle
+  id: SecurityOfficerDeskOfficer
+  name: job-name-alt-secoff-3

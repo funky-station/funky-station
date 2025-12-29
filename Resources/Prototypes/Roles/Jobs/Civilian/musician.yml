@@ -38,7 +38,7 @@
     prototype: BoxPerformer
   alternateTitles:
   - MusicianRadioDJ
-  - MusicianVisitingCelebrity
+  - MusicianBusker
   - MusicianPerformer
 
 - type: startingGear
@@ -56,7 +56,7 @@
   name: job-name-alt-musician-1
 
 - type: jobAlternateTitle
-  id: MusicianVisitingCelebrity
+  id: MusicianBusker
   name: job-name-alt-musician-2
 
 - type: jobAlternateTitle

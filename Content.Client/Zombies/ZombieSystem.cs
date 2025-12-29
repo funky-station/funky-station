@@ -38,6 +38,7 @@ public sealed class ZombieSystem : SharedZombieSystem
         SubscribeLocalEvent<ZombieComponent, GetStatusIconsEvent>(GetZombieIcon);
         SubscribeLocalEvent<InitialInfectedComponent, GetStatusIconsEvent>(GetInitialInfectedIcon);
         SubscribeLocalEvent<ZombieTumorInfectionComponent, GetStatusIconsEvent>(GetInfectionStageIcon);
+        SubscribeLocalEvent<PendingZombieComponent, GetStatusIconsEvent>(GetPendingZombieIcon);
     }
 
     private void GetZombieIcon(Entity<ZombieComponent> ent, ref GetStatusIconsEvent args)
@@ -82,6 +83,23 @@ public sealed class ZombieSystem : SharedZombieSystem
             var iconPrototype = _prototype.Index<FactionIconPrototype>(iconId);
             args.StatusIcons.Add(iconPrototype);
         }
+    }
+
+    private void GetPendingZombieIcon(Entity<PendingZombieComponent> ent, ref GetStatusIconsEvent args)
+    {
+        // Skip if already a full zombie (they should use the zombie icon instead)
+        if (HasComp<ZombieComponent>(ent))
+            return;
+
+        // Don't show pending zombie icon to the player themselves (only show to ghosts/admins)
+        var viewer = _playerManager.LocalSession?.AttachedEntity;
+        if (viewer == ent.Owner)
+            return;
+
+        // Use Advanced stage icon for pending zombies (crit/dead entities that will zombify)
+        var iconId = new ProtoId<FactionIconPrototype>("ZombieInfectionAdvanced");
+        var iconPrototype = _prototype.Index(iconId);
+        args.StatusIcons.Add(iconPrototype);
     }
 
     private void OnStartup(EntityUid uid, ZombieComponent component, ComponentStartup args)

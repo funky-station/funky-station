@@ -9,7 +9,9 @@
 # SPDX-FileCopyrightText: 2024 basic pack <159909786+packmore@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Icepick <122653407+Icepicked@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Icepick <icepickedcyanide@gmail.com>
+# SPDX-FileCopyrightText: 2025 JoulesBerg <thejoulesberg@gmail.com>
 # SPDX-FileCopyrightText: 2025 Mish <bluscout78@yahoo.com>
+# SPDX-FileCopyrightText: 2025 PoquitoDondito <danielchristianstone@gmail.com>
 # SPDX-FileCopyrightText: 2025 Sadie <sadiecmstone@gmail.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
@@ -156,6 +158,13 @@
   ruleEntry: true
   priority: 14
   text: "/ServerInfo/Guidebook/ServerRules/CoreRules/RuleC14LOOC.xml"
+
+- type: guideEntry
+  id: RuleC15
+  name: guide-entry-rules-c15
+  ruleEntry: true
+  priority: 15
+  text: "/ServerInfo/Guidebook/ServerRules/CoreRules/RuleC15Roles.xml"
 
 - type: guideEntry
   id: Metashield

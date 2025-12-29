@@ -79,8 +79,8 @@
   - type: Sprite
     sprite: Objects/Misc/bureaucracy.rsi
     layers:
-    - state: paper_receipt_horizontal
-    - state: paper_receipt_horizontal_words
+    - state: paper_receipt
+    - state: paper_receipt_words
       map: ["enum.PaperVisualLayers.Writing"]
       visible: false
     - state: paper_stamp-generic
@@ -91,7 +91,7 @@
     headerImagePath: "/Textures/Interface/Paper/paper_heading_forensic_scanner.svg.96dpi.png"
     headerMargin: 0.0, 0.0, 0.0, 4.0
     backgroundImageTile: true
-    backgroundPatchMargin: 6.0, 0.0, 6.0, 0.0
+    backgroundPatchMargin: 0.0, 6.0, 0.0, 6.0
     contentMargin: 12.0, 0.0, 6.0, 0.0
     maxWritableArea: 378.0, 256.0
   - type: GuideHelp

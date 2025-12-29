@@ -55,8 +55,22 @@ public sealed class MutationUnlockTriggerSystem : EntitySystem
                 if (!_proto.TryIndex<GeneticMutationPrototype>(unlockId, out var proto))
                     continue;
 
-                var entry = CreateMutationEntry(unlockId, proto);
-                console.SavedMutations.Add(entry);
+                var slot = _shuffle.GetOrAssignSlot(unlockId);
+
+                if (slot.Block <= 0)
+                    continue;
+
+                var entry = new MutationEntry(
+                    Block: slot.Block,
+                    Id: unlockId,
+                    Name: proto.Name,
+                    OriginalSequence: slot.Sequence,
+                    RevealedSequence: slot.Sequence,
+                    Enabled: false,
+                    Description: proto.Description,
+                    Instability: proto.Instability,
+                    Conflicts: proto.Conflicts
+                );
 
                 // Also discover it on the grid
                 _discovery.DiscoverMutation(consoleUid, unlockId);
@@ -65,23 +79,5 @@ public sealed class MutationUnlockTriggerSystem : EntitySystem
 
         if (console.SavedMutations.Count != savedIds.Count)
             Dirty(consoleUid, console);
-    }
-
-    private MutationEntry CreateMutationEntry(string mutationId, GeneticMutationPrototype proto)
-    {
-        var block = _shuffle.GetBlock(mutationId);
-        var sequence = _shuffle.GetSequence(mutationId);
-
-        return new MutationEntry(
-            Block: block,
-            Id: mutationId,
-            Name: proto.Name,
-            OriginalSequence: sequence,
-            RevealedSequence: sequence,
-            Enabled: false,
-            Description: proto.Description,
-            Instability: proto.Instability,
-            Conflicts: proto.Conflicts
-        );
     }
 }

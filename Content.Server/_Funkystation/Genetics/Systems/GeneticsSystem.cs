@@ -22,14 +22,14 @@ public sealed partial class GeneticsSystem : EntitySystem
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
 
-    private const float MinSequenceRevealFraction = 0.50f;
-    private const float MaxSequenceRevealFraction = 0.85f;
-    private const float MinRadsUntilMutation = 15f;
-    private const float MaxRadsUntilMutation = 80f;
+    private const float MinSequenceRevealFraction = 0.45f;
+    private const float MaxSequenceRevealFraction = 0.80f;
+    private const float MinRadsUntilMutation = 20f;
+    private const float MaxRadsUntilMutation = 95f;
     private const int InstabilityMutationThreshold = 100;
     private const int InstabilityDamageThreshold = 150;
-    private const int MinInstabilityTimerSeconds = 60;
-    private const int MaxInstabilityTimerSeconds = 90;
+    private const int MinInstabilityTimerSeconds = 90;
+    private const int MaxInstabilityTimerSeconds = 160;
 
     public override void Initialize()
     {
@@ -75,18 +75,21 @@ public sealed partial class GeneticsSystem : EntitySystem
         component.Mutations.Clear();
         component.BaseMutationIds.Clear();
 
-        var added = 0;
+        var mutationsToAdd = new List<MutationEntry>();
+        var addedForcedCount = 0;
 
-        // Apply forced base mutations
+        // Forced base mutations
         foreach (var forced in component.ForcedBaseMutations)
         {
-            if (!_proto.TryIndex<GeneticMutationPrototype>(forced.Id, out var proto))
+            if (!(_random.NextFloat() < forced.Chance))
                 continue;
 
-            if (!CanEntityReceiveMutation(uid, proto))
+            if (!_proto.TryIndex<GeneticMutationPrototype>(forced.Id, out var proto) ||
+                !CanEntityReceiveMutation(uid, proto))
                 continue;
 
-            if (!_shuffle.TryGetSlot(forced.Id, out var slot))
+            var slot = _shuffle.GetOrAssignSlot(forced.Id);
+            if (slot.Block <= 0)
                 continue;
 
             var revealed = forced.StartActive ? slot.Sequence : RandomizeSequence(slot.Sequence);
@@ -99,47 +102,35 @@ public sealed partial class GeneticsSystem : EntitySystem
                 enabled: forced.StartActive
             );
 
-            component.Mutations.Add(entry);
+            mutationsToAdd.Add(entry);
             component.BaseMutationIds.Add(forced.Id);
 
             // Apply components if it starts active. Skips all checks.
             if (forced.StartActive)
                 ApplyMutationComponents(uid, component, proto);
 
-            added++;
+            addedForcedCount++;
         }
 
-        var slotsLeft = Math.Max(0, component.MutationSlots - added);
+        var slotsLeft = Math.Max(0, component.MutationSlots - addedForcedCount);
 
-        if (slotsLeft <= 0)
+        // Random filler mutations
+        for (int i = 0; i < slotsLeft; i++)
         {
-            Dirty(uid, component);
-            return;
-        }
+            var chosenId = PickRandomAvailableMutation(uid, component);
+            if (chosenId == null)
+                break;
 
-        // Fill random mutations
-        var available = _shuffle.CurrentMutation()
-            .Where(x => x.Value.Block > 0)
-            .Where(x => !component.BaseMutationIds.Contains(x.Key))
-            .Where(x =>
-                _proto.TryIndex<GeneticMutationPrototype>(x.Key, out var proto) &&
-                CanEntityReceiveMutation(uid, proto))
-            .ToList();
+            if (!_proto.TryIndex<GeneticMutationPrototype>(chosenId, out var proto))
+                continue;
 
-        if (available.Count == 0)
-            return;
+            var slot = _shuffle.GetOrAssignSlot(chosenId);
+            if (slot.Block <= 0)
+                continue;
 
-        _random.Shuffle(available);
-        var toAdd = Math.Min(slotsLeft, available.Count);
-
-        for (var i = 0; i < toAdd; i++)
-        {
-            var (id, slot) = available[i];
-
-            var proto = _proto.Index<GeneticMutationPrototype>(id);
             var revealed = RandomizeSequence(slot.Sequence);
             var entry = CreateMutationEntry(
-                mutationId: id,
+                mutationId: chosenId,
                 proto: proto,
                 block: slot.Block,
                 originalSequence: slot.Sequence,
@@ -147,28 +138,72 @@ public sealed partial class GeneticsSystem : EntitySystem
                 enabled: false
             );
 
-            component.Mutations.Add(entry);
-            component.BaseMutationIds.Add(id);
+            mutationsToAdd.Add(entry);
+            component.BaseMutationIds.Add(chosenId);
         }
 
-        if (TryComp<MetaDataComponent>(uid, out var meta))
-            Dirty(uid, meta);
+        // Shuffle the entire list of mutations before adding them to the component
+        // this stops forced mutations from clustering at the beginning of the list
+        _random.Shuffle(mutationsToAdd);
+
+        // Add them in the shuffled order
+        foreach (var entry in mutationsToAdd)
+            component.Mutations.Add(entry);
+
+        Dirty(uid, component);
+    }
+
+    private string? PickRandomAvailableMutation(EntityUid uid, GeneticsComponent component)
+    {
+        var candidates = _proto.EnumeratePrototypes<GeneticMutationPrototype>()
+            .Where(p => CanEntityReceiveMutation(uid, p, true))
+            .Where(p => !component.Mutations.Any(m => m.Id == p.ID))
+            .Where(p => !IsConflictingWithExisting(component, p))
+            .Where(p => !component.BaseMutationIds.Contains(p.ID))
+            .ToList();
+
+        if (candidates.Count == 0)
+            return null;
+
+        // If only one, no need for weighting
+        if (candidates.Count == 1)
+            return candidates[0].ID;
+
+        // Calculate total weight
+        float totalWeight = 0f;
+        foreach (var proto in candidates)
+        {
+            totalWeight += proto.ProbabilityWeight;
+        }
+
+        // Roll a random value between 0 and totalWeight
+        float roll = _random.NextFloat(0f, totalWeight);
+
+        // Find which prototype the roll lands on
+        float current = 0f;
+        foreach (var proto in candidates)
+        {
+            current += proto.ProbabilityWeight;
+            if (roll <= current)
+                return proto.ID;
+        }
+
+        // Fallback (should never hit, but kept for safety)
+        return candidates.Last().ID;
     }
 
     public void TriggerRandomMutation(EntityUid uid, GeneticsComponent component)
     {
-        var available = _shuffle.CurrentMutation()
-            .Where(x => x.Value.Block > 0)
-            .Select(x => x.Key)
-            .Where(id => _proto.TryIndex(id, out GeneticMutationPrototype? proto) && CanEntityReceiveMutation(uid, proto))
-            .ToList();
-
-        if (available.Count == 0)
+        var chosenId = PickRandomAvailableMutation(uid, component);
+        if (chosenId == null)
             return;
 
-        var chosen = _random.Pick(available);
-        TryAddMutation(uid, component, chosen);
-        TryActivateMutation(uid, component, chosen);
+        var slot = _shuffle.GetOrAssignSlot(chosenId);
+        if (slot.Block <= 0)
+            return;
+
+        TryAddMutation(uid, component, chosenId);
+        TryActivateMutation(uid, component, chosenId);
     }
 
     public void RemoveRandomMutation(EntityUid uid, GeneticsComponent component, bool mutadone = false)
@@ -218,7 +253,7 @@ public sealed partial class GeneticsSystem : EntitySystem
         revealed[0] = true;
         revealed[length - 1] = true;
 
-        var revealCount = _random.Next((int) (length * MinSequenceRevealFraction), (int) (length * MaxSequenceRevealFraction));
+        var revealCount = _random.Next((int) (length * MinSequenceRevealFraction), (int) (length * MaxSequenceRevealFraction) + 1);
         var added = 2;
 
         while (added < revealCount)
@@ -242,12 +277,17 @@ public sealed partial class GeneticsSystem : EntitySystem
 
     public bool TryAddMutation(EntityUid uid, GeneticsComponent component, string mutationId)
     {
-        if (!_shuffle.TryGetSlot(mutationId, out var slot) ||
+        var slot = _shuffle.GetOrAssignSlot(mutationId);
+
+        if (slot == GeneticBlock.Invalid ||
             component.Mutations.Any(m => m.Id == mutationId) ||
             !_proto.TryIndex(mutationId, out GeneticMutationPrototype? proto))
             return false;
 
         if (!CanEntityReceiveMutation(uid, proto, false))
+            return false;
+
+        if (IsConflictingWithExisting(component, proto))
             return false;
 
         var revealed = RandomizeSequence(slot.Sequence);
@@ -290,12 +330,10 @@ public sealed partial class GeneticsSystem : EntitySystem
             return true;
         }
 
-        component.Mutations.Remove(entry);
+        if (_proto.TryIndex<GeneticMutationPrototype>(mutationId, out var proto))
+            ModifyInstability(uid, component, -proto.Instability);
 
-        if (_proto.TryIndex(mutationId, out GeneticMutationPrototype? proto))
-        {
-            RemoveMutationComponents(uid, proto);
-        }
+        component.Mutations.Remove(entry);
 
         Dirty(uid, component);
         return true;
@@ -370,6 +408,12 @@ public sealed partial class GeneticsSystem : EntitySystem
             if (HasComp(uid, comp.GetType()))
                 RemComp(uid, comp.GetType());
         }
+    }
+
+    private bool IsConflictingWithExisting(GeneticsComponent component, GeneticMutationPrototype proto)
+    {
+        return proto.Conflicts.Any(conflictId =>
+            component.Mutations.Any(m => m.Id == conflictId));
     }
 
     private void ModifyInstability(EntityUid uid, GeneticsComponent component, int delta)

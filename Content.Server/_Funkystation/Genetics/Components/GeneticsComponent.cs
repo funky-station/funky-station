@@ -6,8 +6,8 @@ namespace Content.Server._Funkystation.Genetics.Components;
 [AutoGenerateComponentState(true)]
 public sealed partial class GeneticsComponent : Component
 {
-    [DataField("slots"), ViewVariables(VVAccess.ReadWrite)]
-    public int MutationSlots { get; private set; } = 6;
+    [DataField, ViewVariables(VVAccess.ReadWrite)]
+    public int MutationSlots { get; private set; } = 2;
 
     /// <summary>
     /// All mutations this entity currently has (active or not).
@@ -42,5 +42,7 @@ public sealed partial class ForcedMutation
 
     [DataField("startActive")]
     public bool StartActive { get; set; } = false;
+    [DataField("chance")]
+    public float Chance { get; set; } = 1f;
 }
 

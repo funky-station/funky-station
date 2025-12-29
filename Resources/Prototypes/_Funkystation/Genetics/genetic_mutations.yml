@@ -1,16 +1,19 @@
 # Speech mutations
 - type: geneticMutation
   id: CowboyAccent
-  name: "Cowboy Accent"
+  name: "Frontal Gyrus Alteration Type-CB"
   desc: "Subject speaks with a thick cowboy drawl."
   instability: 0
+  conflicts:
+    - ItalianAccent
+    - LiarAccent
   components:
   - type: ReplacementAccent
     accent: cowboy
 
 - type: geneticMutation
   id: SouthernAccent
-  name: "Southern Drawl"
+  name: "Frontal Gyrus Alteration Type-SD"
   desc: "Subject speaks with a charming southern accent."
   instability: 0
   components:
@@ -18,7 +21,7 @@
 
 - type: geneticMutation
   id: PirateAccent
-  name: "Pirate Speech"
+  name: "Frontal Gyrus Alteration Type-AR"
   desc: "The subject speaks like a scurvy pirate."
   instability: 0
   components:
@@ -26,7 +29,7 @@
 
 - type: geneticMutation
   id: GermanAccent
-  name: "German Accent"
+  name: "Frontal Gyrus Alteration Type-G"
   desc: "Subject speaks with a strong German accent."
   instability: 0
   components:
@@ -34,16 +37,19 @@
 
 - type: geneticMutation
   id: ItalianAccent
-  name: "Italian Accent"
+  name: "Frontal Gyrus Alteration Type-I"
   desc: "Subject speaks with dramatic Italian flair."
   instability: 0
+  conflicts:
+    - CowboyAccent
+    - LiarAccent
   components:
   - type: ReplacementAccent
     accent: italian
 
 - type: geneticMutation
   id: FrenchAccent
-  name: "French Accent"
+  name: "Frontal Gyrus Alteration Type-FR"
   desc: "Subject speaks with a sophisticated French accent."
   instability: 0
   components:
@@ -51,7 +57,7 @@
 
 - type: geneticMutation
   id: SpanishAccent
-  name: "Spanish Accent"
+  name: "Frontal Gyrus Alteration Type-SP"
   desc: "Subject speaks with a passionate Spanish accent."
   instability: 0
   components:
@@ -59,24 +65,27 @@
 
 - type: geneticMutation
   id: LiarAccent
-  name: "Pathological Liar"
+  name: "Frontal Gyrus Alteration Type-L"
   desc: "Subject cannot tell the truth."
   instability: 0
+  conflicts:
+    - CowboyAccent
+    - ItalianAccent
   components:
   - type: ReplacementAccent
     accent: liar
 
 - type: geneticMutation
   id: RussianAccent
-  name: "Russian Accent"
-  desc: "In Soviet Russia, genetics injects YOU."
+  name: "Frontal Gyrus Alteration Type-R"
+  desc: "Subject speaks with a strong Russian accent."
   instability: 0
   components:
   - type: RussianAccent
 
 - type: geneticMutation
   id: SocialAnxiety
-  name: "Social Anxiety"
+  name: "Frontal Gyrus Alteration Type-N"
   desc: "Subject stutters badly when speaking."
   instability: 0
   components:
@@ -88,8 +97,9 @@
 
 - type: geneticMutation
   id: FrontalLisp
-  name: "Frontal Lisp"
+  name: "Lingual Sibilance Disorder"
   desc: "Subject has a pronounced frontal lisp."
+  popupText: "Your tongue feels a bit too forward in your mouth"
   instability: 0
   components:
   - type: FrontalLisp
@@ -98,7 +108,7 @@
 
 - type: geneticMutation
   id: Snoring
-  name: "Chronic Snoring"
+  name: "Rhonchopathy"
   desc: "Subject snores extremely loudly when asleep."
   instability: 0
   components:
@@ -106,7 +116,7 @@
 
 - type: geneticMutation
   id: Paracusia
-  name: "Auditory Hallucinations"
+  name: "Paracusia"
   desc: "Subject hears phantom sounds and voices."
   instability: 0
   components:
@@ -120,7 +130,7 @@
 - type: geneticMutation
   id: ApianHoneyGlands
   name: "Apian Honey Glands"
-  desc: "Subject's salivary glands hypersecrete a thick, nutritious honey-like substance at random intervals."
+  desc: "Subject's salivary glands hypersecrete a thick, nutritious honey-like substance."
   popupText: "Your mouth tastes unusually sweet and sticky."
   instability: 5
   components:
@@ -131,6 +141,102 @@
     minInterval: 90
     maxInterval: 240
     chance: 0.75
+
+- type: geneticMutation
+  id: MothStomach
+  name: "Lepidopteran Digestion"
+  desc: "Subject's digestive system has adapted to break down cellulose and cloth fibers, similar to that of a moth."
+  popupText: "You feel a strange craving for fabric"
+  instability: 0
+  entityWhitelist:
+    - MobMoth
+    - BaseMobMoth
+  conflicts:
+    - ReptilianStomach
+    - CarnivoreStomach
+    - HumanStomach
+  components:
+  - type: MutationStomachSwap
+    newStomachPrototype: OrganMothStomach
+
+- type: geneticMutation
+  id: ReptilianStomach
+  name: "Reptilian Digestion"
+  desc: "Subject's stomach has developed the ability to dissolve tough and unpalatable materials such as raw meat, blood, and crayons."
+  popupText: "You feel like you could eat a whole box of crayons"
+  instability: 0
+  entityWhitelist:
+    - MobReptilian
+    - BaseMobReptilian
+  conflicts:
+    - MothStomach
+    - CarnivoreStomach
+    - HumanStomach
+  components:
+  - type: MutationStomachSwap
+    newStomachPrototype: OrganReptilianStomach
+
+- type: geneticMutation
+  id: CarnivoreStomach
+  name: "Carnivorous Digestion"
+  desc: "Subject's stomach has evolved extreme acidity and enzymatic potency, allowing complete digestion of raw meat, blood, bone, and other animal tissues."
+  popupText: "Your stomach growls hungrily for fresh meat"
+  instability: 0
+  entityWhitelist:
+    - BaseMobVulpkanin
+    - MobFelinidBase
+  conflicts:
+    - MothStomach
+    - ReptilianStomach
+    - HumanStomach
+  components:
+  - type: MutationStomachSwap
+    newStomachPrototype: OrganVulpkaninStomach
+
+- type: geneticMutation
+  id: HumanStomach
+  name: "Omnivorous Digestion"
+  desc: "Subject possesses a generalized omnivorous digestive system optimized for a broad range of nutritional sources."
+  popupText: "Your guts feel disappointingly normal"
+  instability: 0
+  entityWhitelist:
+    - MobHuman
+    - BaseMobHuman
+  conflicts:
+    - MothStomach
+    - ReptilianStomach
+    - CarnivoreStomach
+  components:
+  - type: MutationStomachSwap
+    newStomachPrototype: OrganHumanStomach
+
+- type: geneticMutation
+  id: NitrogenBreathingMutation
+  name: "Nitrogen Respiration"
+  desc: "Subject possesses vox-like lungs capable of metabolizing nitrogen as a respiratory gas. Oxygen is lethally toxic."
+  popupText: "The air burns in your lungs!"
+  instability: 0
+  entityWhitelist:
+    - MobVox
+    - BaseMobVox
+  conflicts:
+    - PlasmaBreathingMutation
+  components:
+  - type: MutationLungSwap
+    newLungPrototype: OrganVoxLungs
+
+- type: geneticMutation
+  id: PlasmaBreathingMutation
+  name: "Plasma Respiration"
+  desc: "Subject possesses specialized lungs capable of metabolizing plasma as a primary respiratory gas. Standard atmospheric oxygen is highly toxic."
+  popupText: "Your lungs crave plasma!"
+  instability: 0
+  probabilityWeight: 5
+  conflicts:
+    - NitrogenBreathingMutation
+  components:
+  - type: MutationLungSwap
+    newLungPrototype: OrganPlasmaLungs
 
 # Beneficial Mutations
 
@@ -288,6 +394,7 @@
   name: "Anaerobic Metabolism"
   desc: "Allows the subject's body to generate its own oxygen internally, invalidating the need for respiration."
   popupText: "Your lungs feel strangely empty."
+  probabilityWeight: 4
   instability: 40
   components:
   - type: BreathingImmunity
@@ -299,11 +406,10 @@
   popupText: "You feel your skin harden."
   instability: 10
   conflicts:
-    - DermalKeratinHyperplasia
+    - KeratinHyperplasia
     - OssifiedExoskeleton
     - CrystallineDermalLattice
     - AblativeCuticle
-    - ReinforcedDermalMatrix
     - ComprehensiveDermalFortification
   components:
   - type:  MutationPassiveArmorProvider
@@ -315,23 +421,22 @@
     Slash: 85.0
 
 - type: geneticMutation
-  id: DermalKeratinHyperplasia
-  name: "Dermal Keratin Hyperplasia"
+  id: KeratinHyperplasia
+  name: "Keratin Hyperplasia"
   desc: "Subject's epidermis rapidly proliferates keratin, creating a thick protective barrier."
-  popupText: "Your skin feels thick and rough"
+  popupText: "Your skin grows rough and ridged"
   instability: 15
   conflicts:
     - ChitinoarmisDurescutis
     - OssifiedExoskeleton
     - CrystallineDermalLattice
     - AblativeCuticle
-    - ReinforcedDermalMatrix
     - ComprehensiveDermalFortification
   components:
   - type:  MutationPassiveArmorProvider
-    modifierSetId: DermalKeratinHyperplasiaArmor
+    modifierSetId: KeratinHyperplasiaArmor
 - type: damageModifierSet
-  id: DermalKeratinHyperplasiaArmor
+  id: KeratinHyperplasiaArmor
   coefficients:
     Slash: 90.0
     Pierce: 90.0
@@ -344,10 +449,9 @@
   instability: 20
   conflicts:
     - ChitinoarmisDurescutis
-    - DermalKeratinHyperplasia
+    - KeratinHyperplasia
     - CrystallineDermalLattice
     - AblativeCuticle
-    - ReinforcedDermalMatrix
     - ComprehensiveDermalFortification
   components:
   - type:  MutationPassiveArmorProvider
@@ -363,15 +467,15 @@
   id: CrystallineDermalLattice
   name: "Crystalline Dermal Lattice"
   desc: "Subject's skin incorporates silicon-based crystalline structures, offering exceptional resistance to energy-based damage."
-  popupText: "Your skin begins to sparkle."
+  popupText: "Your skin begins to sparkle"
   hidden: true
+  researchPoints: 1400
   instability: 20
   conflicts:
     - ChitinoarmisDurescutis
-    - DermalKeratinHyperplasia
+    - KeratinHyperplasia
     - OssifiedExoskeleton
     - AblativeCuticle
-    - ReinforcedDermalMatrix
     - ComprehensiveDermalFortification
   components:
   - type:  MutationPassiveArmorProvider
@@ -388,13 +492,14 @@
   name: "Ablative Cuticle"
   desc: "Subject develops a multi-layered cuticle that ablates under extreme heat, dissipating thermal and caustic energy."
   popupText: "Your skin feels ready to shed under stress."
+  hidden: true
+  researchPoints: 3000
   instability: 20
   conflicts:
     - ChitinoarmisDurescutis
-    - DermalKeratinHyperplasia
+    - KeratinHyperplasia
     - OssifiedExoskeleton
     - CrystallineDermalLattice
-    - ReinforcedDermalMatrix
     - ComprehensiveDermalFortification
   components:
   - type:  MutationPassiveArmorProvider
@@ -406,24 +511,24 @@
     Caustic: 85.0
 
 - type: geneticMutation
-  id: ReinforcedDermalMatrix
-  name: "Reinforced Dermal Matrix"
-  desc: "Subject's skin evolves into a composite layered structure, combining multiple protective adaptations for broad-spectrum resistance."
-  popupText: "Your skin feels impossibly resilient."
+  id: ComprehensiveDermalFortification
+  name: "Comprehensive Dermal Fortification"
+  desc: "Subject's skin evolves into a composite layered structure, combining multiple protective adaptations."
+  popupText: "Your skin feels impossibly resilient"
   hidden: true
-  instability: 35
+  researchPoints: 3000
+  instability: 30
   conflicts:
     - ChitinoarmisDurescutis
-    - DermalKeratinHyperplasia
+    - KeratinHyperplasia
     - OssifiedExoskeleton
     - CrystallineDermalLattice
     - AblativeCuticle
-    - ComprehensiveDermalFortification
   components:
   - type:  MutationPassiveArmorProvider
-    modifierSetId: ReinforcedDermalMatrixArmor
+    modifierSetId: ComprehensiveDermalFortificationArmor
 - type: damageModifierSet
-  id: ReinforcedDermalMatrixArmor
+  id: ComprehensiveDermalFortificationArmor
   coefficients:
     Blunt: 85.0
     Slash: 90.0
@@ -434,39 +539,10 @@
     Shock: 80.0
 
 - type: geneticMutation
-  id: ComprehensiveDermalFortification
-  name: "Comprehensive Dermal Fortification"
-  desc: "Subject's skin has achieved ultimate adaptation, forming a near-impenetrable multi-layered barrier against nearly all forms of damage."
-  popupText: "You feel invincible beneath your skin."
-  hidden: true
-  instability: 50
-  conflicts:
-    - ChitinoarmisDurescutis
-    - DermalKeratinHyperplasia
-    - OssifiedExoskeleton
-    - CrystallineDermalLattice
-    - AblativeCuticle
-    - ReinforcedDermalMatrix
-  components:
-  - type:  MutationPassiveArmorProvider
-    modifierSetId: ComprehensiveDermalFortificationArmor
-- type: damageModifierSet
-  id: ComprehensiveDermalFortificationArmor
-  coefficients:
-    Blunt: 90.0
-    Slash: 92.0
-    Piercing: 92.0
-    Heat: 90.0
-    Cold: 90.0
-    Caustic: 88.0
-    Shock: 85.0
-    Radiation: 80.0
-
-- type: geneticMutation
   id: ColdResistance
   name: "Cold Adaptation"
   desc: "Shields the subject's cellular structure against freezing temperatures and crystallization."
-  popupText: "You feel warm."
+  popupText: "You feel warm"
   conflicts:
     - FireResistance
     - ThermalResistance
@@ -479,7 +555,7 @@
   id: FireResistance
   name: "Heat Adaptation"
   desc: "Shields the subject's cellular structure against high temperatures and flames."
-  popupText: "You feel cold."
+  popupText: "You feel cold"
   conflicts:
     - ColdResistance
     - ThermalResistance
@@ -500,6 +576,7 @@
     - ColdResistance
     - FireResistance
   hidden: true
+  researchPoints: 2500
   instability: 15
   components:
   - type: MutationThermalResistance
@@ -550,7 +627,7 @@
   instability: 10
   components:
   - type: BonusMeleeDamage
-    heavyDamageMultiplier: 1.2
+    heavyDamageMultiplier: 1.4
   - type: MutationPullStrengthModifier
     multiplier: 1.03 # TODO: Fix whatever I did here. Should not be so fast at such a low multiplier.
 
@@ -572,6 +649,8 @@
   instability: 25
   sequencerResistant: true
   scrambleResistant: true
+  probabilityWeight: 5
+  researchPoints: 900
   components:
   - type: MutationRadiationResistance
     modifier: RadiationResistance
@@ -587,6 +666,8 @@
   popupText: "Your skin feels tingly and shifty"
   conflicts:
     - MinorRegeneration
+  probabilityWeight: 2.5
+  researchPoints: 4000
   instability: 40
   components:
   - type: MutationRegeneration
@@ -596,7 +677,7 @@
 - type: geneticMutation
   id: Insulated
   name: "Cutaneous Electrical Insulation"
-  desc: "Subject's dermal layers exhibit near-complete electrical resistance, preventing conduction of electrical currents."
+  desc: "Subject's dermal layers exhibit near-complete electrical resistance, preventing conduction of electricity."
   popupText: "Your fingertips go numb"
   instability: 20
   components:
@@ -608,11 +689,16 @@
   desc: "Subject has near-perfect camouflage when motionless."
   popupText: "You feel one with your surroundings"
   instability: 35
+  entityWhitelist:
+  - MobReptilian
+  - MobKobold
+  probabilityWeight: 6
+  researchPoints: 2500
   components:
   - type: Stealth
     enabledOnDeath: false
   - type: StealthOnMove
-    passiveVisibilityRate: -0.1
+    passiveVisibilityRate: -0.25
     movementVisibilityRate: 1
     invisibilityPenalty: 1
     maxInvisibilityPenalty: 1.5
@@ -638,18 +724,20 @@
 - type: geneticMutation
   id: AdrenalHypersecretion
   name: "Adrenal Hypersecretion"
-  desc: "Subject's adrenal glands hypersecrete neurotransmitters, greatly improving alertness and movement speed."
+  desc: "Subject exhibit overactive adrenal glands, greatly improving alertness and movement speed."
   popupText: "Your nerves feel like they're buzzing"
   instability: 25
+  probabilityWeight: 6
+  researchPoints: 1800
   components:
   - type: MutationSpeedBoost
-    walkMultiplier: 1.15
-    sprintMultiplier: 1.15
+    walkMultiplier: 1.2
+    sprintMultiplier: 1.2
 
 - type: geneticMutation
   id: MitochondrialEfficiencyEnhancement
   name: "Mitochondrial Efficiency Enhancement"
-  desc: "Subject's mitochondria produce energy more efficiently, greatly reducing fatigue buildup."
+  desc: "Subject's mitochondria produce energy more efficiently, greatly reducing stamina loss."
   popupText: "Your muscles no longer burn"
   instability: 15
   components:
@@ -691,11 +779,13 @@
   - type: FlashImmunity
 
 - type: geneticMutation
-  id: NeuralHyperkinesis
-  name: "Neural Hyperkinesis"
+  id: QuickReflexes
+  name: "Quick Reflexes"
   desc: "Subject exhibits hyperaccelerated neural transmission, significantly increasing speed of actions."
   popupText: "Your reflexes feel unnaturally sharp."
   instability: 20
+  probabilityWeight: 5
+  researchPoints: 1200
   components:
   - type: MutationDoAfterModifier
     multiplier: 0.75
@@ -834,7 +924,9 @@
   desc: "Subject's DNA rejects mutadone, preventing the removal of genetic mutations."
   mutadoneResistant: true
   popupText: "Your body feels unusually stable"
-  instability: -15
+  probabilityWeight: 4
+  researchPoints: 1200
+  instability: 35
   conflicts:
     - AlcoholImmunity
     - AcidResistance
@@ -895,12 +987,12 @@
 - type: geneticMutation
   id: ChronicCough
   name: "Chronic Cough"
-  desc: "Enhances the sensitivity of nerves in the subject's throat, causing periodic coughing fits."
+  desc: "Subject has a permanent tickle in their throat, causing periodic coughing fits."
   popupText: "You feel an irritating itch in your throat"
   instability: -5
   components:
   - type: MutationChronicEmote
-    interval: 20.0
+    interval: 60.0
     emoteChance: 0.4
     dropChance: 0.25
     emoteId: "Cough"
@@ -919,7 +1011,7 @@
   name: "Frontal Gyrus Suspension"
   desc: "Subject is completely unable to speak."
   popupText: "You are at a loss for words"
-  instability: -10
+  instability: -5
   components:
   - type: Muted # Need to make a new component so Muted can't be removed.
 
@@ -980,6 +1072,7 @@
   desc: "Causes the subject's molecular structure to become partially unstuck in space."
   popupText: "You feel a bit out of place"
   instability: 20
+  probabilityWeight: 12
   components:
   - type: MutationSpatialDestabilization
     minInterval: 45
@@ -995,6 +1088,7 @@
   desc: "Causes damage to the subject's brain structure, occassionally utterly stupefying and stunning them."
   popupText: "Your thoughts become disorderly and hard to control"
   instability: 10
+  probabilityWeight: 12
   mutadoneResistant: true
   components:
   - type: MutationStupefaction
@@ -1012,14 +1106,14 @@
     - MusculatureEnhancement
   components:
   - type: BonusMeleeDamage
-    heavyDamageMultiplier: 0.8
+    heavyDamageMultiplier: 0.7
   - type: MutationPullStrengthModifier
     multiplier: 0.97
 
 - type: geneticMutation
   id: ReducedPhysicalConditioning
   name: "Reduced Physical Conditioning"
-  desc: "Subject exhibits naturally lowered cardiovascular and muscular endurance, possessing smaller stamina reserves than average."
+  desc: "Subject exhibits lowered muscular endurance, possessing smaller stamina reserves than average."
   popupText: "You feel a bit sluggish."
   instability: -5
   conflicts:
@@ -1031,7 +1125,7 @@
 - type: geneticMutation
   id: AdrenalHyposecretion
   name: "Adrenal Hyposecretion"
-  desc: "Subject's adrenal glands under-secrete neurotransmitters, reducing alertness and movement speed."
+  desc: "Subject impaired with underactive adrenal glands, reducing alertness and movement speed."
   popupText: "Your nerves feel sluggish."
   instability: -10
   conflicts:
@@ -1044,7 +1138,7 @@
 - type: geneticMutation
   id: MitochondrialInefficiency
   name: "Mitochondrial Inefficiency"
-  desc: "Subject's mitochondria produce energy less efficiently, causing faster fatigue buildup."
+  desc: "Subject's mitochondria produce energy less efficiently, causing faster stamina loss."
   popupText: "You feel your muscles burn."
   instability: -5
   conflicts:
@@ -1071,11 +1165,12 @@
 # Visual Mutations
 
 - type: geneticMutation
-  id: BioluminescentDermalGlands
-  name: "Bioluminescent Dermal Glands"
+  id: BioluminescentGlands
+  name: "Bioluminescent Glands"
   desc: "Specialized chromatophores and photophores in the subject's skin produce a steady bioluminescent glow."
   popupText: "Your skin begins to emit a soft light."
   instability: 0
+  probabilityWeight: 15
   components:
   - type: PointLight
     enabled: true
@@ -1083,25 +1178,138 @@
     radius: 5
     energy: 0.5
 
+- type: geneticMutation
+  id: FelinidTailMutation
+  name: "Felinid Tail"
+  desc: "Subject possesses a fluffy feline tail."
+  instability: 5
+  popupText: "A fluffy tail sprouts from your lower back"
+  researchPoints: 600
+  strictEntityWhitelist:
+    - BaseMobSpeciesOrganic
+  conflicts:
+    - HarpyTailMutation
+    - VulpkaninTailMutation
+    - ReptilianTailMutation
+    - RodentiaTailMutation
+  components:
+  - type: MutationTailSwap
+    newTailMarking: FelinidFluffyTail
+
+- type: geneticMutation
+  id: HarpyTailMutation
+  name: "Harpy Tail"
+  desc: "Subject possesses elegant harpy tail feathers."
+  instability: 5
+  popupText: "Feathers burst from the base of your spine"
+  researchPoints: 600
+  conflicts:
+    - FelinidTailMutation
+    - VulpkaninTailMutation
+    - ReptilianTailMutation
+    - RodentiaTailMutation
+  components:
+  - type: MutationTailSwap
+    newTailMarking: HarpyTailRooster
+
+- type: geneticMutation
+  id: VulpkaninTailMutation
+  name: "Vulpkanin Tail"
+  desc: "Subject possesses a thick vulpkanin tail."
+  instability: 5
+  popupText: "A bushy fox-like tail grows in"
+  researchPoints: 600
+  conflicts:
+    - FelinidTailMutation
+    - HarpyTailMutation
+    - ReptilianTailMutation
+    - RodentiaTailMutation
+  components:
+  - type: MutationTailSwap
+    newTailMarking: VulpTail
+
+- type: geneticMutation
+  id: ReptilianTailMutation
+  name: "Reptilian Tail"
+  desc: "Subject possesses a scaled reptilian tail."
+  instability: 5
+  popupText: "Scales ripple down your spine into a tail"
+  researchPoints: 600
+  conflicts:
+    - FelinidTailMutation
+    - HarpyTailMutation
+    - VulpkaninTailMutation
+    - RodentiaTailMutation
+  components:
+  - type: MutationTailSwap
+    newTailMarking: LizardTailSmooth
+
+- type: geneticMutation
+  id: RodentiaTailMutation
+  name: "Rodentia Tail"
+  desc: "Subject possesses a long rodent tail."
+  popupText: "A thin, whip-like tail extends from your body"
+  instability: 5
+  researchPoints: 600
+  conflicts:
+    - FelinidTailMutation
+    - HarpyTailMutation
+    - VulpkaninTailMutation
+    - ReptilianTailMutation
+  components:
+  - type: MutationTailSwap
+    newTailMarking: RodentiaTailMouse
+
 # Power Mutations
 
 - type: geneticMutation
   id: NightVision
-  name: "Scotopic Vision Enhancement"
+  name: "Scotopic Vision"
   desc: "Enhances the subject's optic nerves, allowing them to see in the dark."
-  popupText: "Everything suddenly appears oddly lit."
-  instability: 25
+  popupText: "Everything suddenly appears oddly lit"
+  instability: 20
+  probabilityWeight: 8
+  researchPoints: 1000
   components:
   - type: NightVision
 
 - type: geneticMutation
+  id: ThermalVision
+  name: "Infrared Vision"
+  desc: "Subject's retinas have adapted to detect infrared radiation, allowing for the detection of heat signatures."
+  popupText: "The world glows with heat"
+  instability: 35
+  probabilityWeight: 0.5
+  researchPoints: 3500
+  components:
+  - type: ThermalVision
+
+- type: geneticMutation
   id: SpiderWeb
   name: "Araneogenetic Silk Production"
-  desc: "Subject's abdominal glands have developed specialized spinnerets capable of extruding high-tensile proteinaceous silk threads."
-  popupText: "Your abdomen feels strangely heavy."
-  instability: 15
+  desc: "Subject's abdominal glands have developed specialized spinnerets capable of extruding high-tensile silk threads."
+  popupText: "Your abdomen feels strangely heavy"
+  researchPoints: 600
+  instability: 10
+  conflicts:
+    - ClownSpiderWeb
   components:
   - type: Spider
+  - type: IgnoreSpiderWeb
+
+- type: geneticMutation
+  id: ClownSpiderWeb
+  name: "Viscous Araneid Secretion"
+  desc: "Subject's spinnerets extrude a slippery, pink, high-tensile silk."
+  popupText: "You feel a silly, slippery weight in your abdomen"
+  researchPoints: 3000
+  hidden: true
+  instability: 15
+  conflicts:
+    - SpiderWeb
+  components:
+  - type: Spider
+    webPrototype: SpiderWebClown
   - type: IgnoreSpiderWeb
 
 - type: geneticMutation
@@ -1110,11 +1318,201 @@
   desc: "Subject develops specialized reproductive glands capable of periodically laying eggs."
   popupText: "Your abdomen feels bloated and ready to produce."
   instability: 10
+  probabilityWeight: 7
+  researchPoints: 800
   components:
   - type: EggLayer
-    eggPrototype: FoodEggSoft
-    interval: 180
+    eggSpawn:
+    - proto: FoodEggMystery
+      amount: 1
+- type: entity
+  id: FoodEggMystery
+  description: I wouldn't eat that if I were you.
+  parent: FoodEgg
+  suffix: Mystery
 
+- type: geneticMutation
+  id: Firebreath
+  name: "Fire Breath Glands"
+  desc: "Subject's respiratory tract has developed specialized plasma-excreting glands, allowing them to expel searing plasma breath."
+  popupText: "You can smell plasma on your breath"
+  instability: 25
+  entityWhitelist:
+    - BaseMobReptilian
+    - MobBaseKobold
+  probabilityWeight: 2.5
+  researchPoints: 2500
+  components:
+  - type: MutationFirebreath
+- type: entity
+  id: ActionGeneticFireball
+  name: fire breath
+  components:
+  - type: WorldTargetAction
+    useDelay: 10
+    itemIconStyle: BigAction
+    checkCanAccess: false
+    raiseOnUser: true
+    range: 60
+    sound: !type:SoundPathSpecifier
+      path: /Audio/Magic/fireball.ogg
+    icon:
+      sprite: Objects/Magic/magicactions.rsi
+      state: fireball
+    event: !type:ProjectileSpellEvent
+      prototype: ProjectileWeakFireball
+- type: entity
+  id: ProjectileWeakFireball
+  parent: ProjectileFireball
+  name: weak fireball
+  description: A small, mildly destructive fireball.
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Heat: 10
+  - type: Explosive
+    explosionType: Default
+    maxIntensity: 25
+    intensitySlope: 1
+    totalIntensity: 5
+    maxTileBreak: 0
+  - type: IgnitionSource
+    temperature: 1000
+    ignited: true
+  - type: IgniteOnCollide
+    fireStacks: 0.35
+  - type: PointLight
+    radius: 1.5
+    energy: 3.0
+
+- type: geneticMutation
+  id: StoragePouch
+  name: "Subdermal Recess"
+  desc: "Subject has developed a specialized pocketing, allowing for the internal storage of small objects."
+  popupText: "You feel a strange hollowness"
+  instability: 10
+  probabilityWeight: 6
+  researchPoints: 800
+  components:
+  - type: MouthStorage
+    mouthProto: CheekStorage
+    openStorageAction: ActionOpenMouthStorage
+
+- type: geneticMutation
+  id: AdrenalineRush
+  name: "Adrenaline Rush"
+  desc: "Enables the subject to voluntarily empty glands of stimulants into their bloodstream."
+  popupText: "You feel hype!"
+  instability: 20
+  probabilityWeight: 5
+  researchPoints: 950
+  components:
+  - type: MutationAdrenalineRush
+    actionId: ActionAdrenalineRush
+- type: entity
+  id: ActionAdrenalineRush
+  name: "Adrenaline Rush"
+  description: "Triggers a powerful surge of adrenaline, instantly injecting 15u of epinephrine into your bloodstream."
+  components:
+  - type: InstantAction
+    useDelay: 600
+    icon:
+      sprite: Objects/Magic/magicactions.rsi
+      state: fireball
+    event: !type:AdrenalineRushActionEvent
+
+- type: geneticMutation
+  id: Cryokinesis
+  name: "Cryokinesis"
+  desc: "Allows the subject to control ice and cold."
+  popupText: "You notice a strange cold tingle in your fingertips."
+  instability: 25
+  probabilityWeight: 4
+  researchPoints: 1000
+  components:
+  - type: MutationCryokinesis
+- type: entity
+  id: ActionGeneticIceball
+  name: cryoball
+  components:
+  - type: WorldTargetAction
+    itemIconStyle: BigAction
+    checkCanAccess: false
+    raiseOnUser: true
+    range: 60
+    sound: !type:SoundPathSpecifier
+      path: /Audio/Weapons/bladeslice.ogg
+    icon:
+      sprite: Objects/Magic/magicactions.rsi
+      state: fireball
+    event: !type:ProjectileSpellEvent
+      prototype: ProjectileIcicle
+
+- type: geneticMutation
+  id: InkGlands
+  name: "Ink Glands"
+  desc: "Subject has developed specialized glands capable of expelling thick black ink for escape."
+  popupText: "You feel strangely full and inky"
+  instability: 8
+  probabilityWeight: 8
+  researchPoints: 600
+  components:
+  - type: MutationInkGlands
+    actionId: ActionInkSpurt
+- type: entity
+  id: ActionInkSpurt
+  name: "Ink Spurt"
+  description: "Spurt a puddle of slippery black ink at your feet to slow pursuers."
+  components:
+  - type: InstantAction
+    useDelay: 15
+    cooldown: 120
+    icon:
+      sprite: Objects/Magic/magicactions.rsi
+      state: fireball
+    event: !type:InkSpurtActionEvent
+- type: reagent
+  id: Ink
+  name: ink
+  desc: "A thick, dark, viscous liquid"
+  physicalDesc: reagent-physical-desc-viscous
+  flavor: bitter
+  color: "#000000"
+  slipData:
+    requiredSlipSpeed: 3.5
+  recognizable: true
+  boilingPoint: 100.0
+  meltingPoint: 0.0
+  friction: 0.4
+
+- type: geneticMutation
+  id: OpticEnergizer
+  name: "Optic Energizer Glands"
+  desc: "Imbues the subject's eyes with the potential to project concentrated thermal energy."
+  popupText: "Your eyes ache and burn"
+  instability: 25
+  probabilityWeight: 5
+  researchPoints: 1200
+  components:
+  - type: MutationOpticEnergizer
+    actionId: ActionOpticBlast
+- type: entity
+  id: ActionOpticBlast
+  name: optic blast
+  components:
+  - type: WorldTargetAction
+    useDelay: 10
+    itemIconStyle: BigAction
+    checkCanAccess: false
+    raiseOnUser: true
+    range: 60
+    sound: !type:SoundPathSpecifier
+      path: /Audio/Weapons/Guns/Gunshots/laser3.ogg
+    icon:
+      sprite: Objects/Magic/magicactions.rsi
+      state: fireball
+    event: !type:OpticBlastActionEvent
 
 # Instability Mutations
 
@@ -1122,6 +1520,97 @@
   id: geneticMonkeyMorph
   name: "Monkeyified"
   desc: "Subject's DNA has become so unstable they permanently turned into a monkey."
+  popupText: "You have regressed into a primitive form"
+  hidden: true
+  researchPoints: 6000
+  instabilityMutation: true
+  mutadoneResistant: true
+  sequencerResistant: true
+  scrambleResistant: true
+  printable: false
+  instability: 20
+  strictEntityWhitelist:
+    - BaseMobHuman
+  components:
+  - type: MutationInstabilityPolymorph
+    polymorphId: GeneticMonkeyMorph
+
+- type: geneticMutation
+  id: geneticKoboldMorph
+  name: "Koboldified"
+  desc: "Subject's DNA has become so unstable they permanently turned into a kobold."
+  popupText: "You have regressed into a primitive form"
+  hidden: true
+  researchPoints: 6000
+  instabilityMutation: true
+  mutadoneResistant: true
+  sequencerResistant: true
+  scrambleResistant: true
+  printable: false
+  instability: 20
+  strictEntityWhitelist:
+    - BaseMobReptilian
+  components:
+  - type: MutationInstabilityPolymorph
+    polymorphId: GeneticKoboldMorph
+
+- type: geneticMutation
+  id: FleshJaredCurse
+  name: "Flesh Wad"
+  desc: "The subject has been overtaken by aberrant flesh."
+  popupText: "Your body twists and warps into grotesque flesh!"
+  hidden: true
+  researchPoints: 6000
+  instabilityMutation: true
+  mutadoneResistant: true
+  sequencerResistant: true
+  scrambleResistant: true
+  printable: false
+  instability: 10
+  components:
+  - type: MutationInstabilityPolymorph
+    polymorphId: GeneticFleshJaredMorph
+
+- type: geneticMutation
+  id: FleshGolemCurse
+  name: "Flesh Golem"
+  desc: "The subject's body has swollen into a hulking mass of flesh."
+  popupText: "Your body twists and warps into grotesque flesh!"
+  hidden: true
+  researchPoints: 6000
+  instabilityMutation: true
+  mutadoneResistant: true
+  sequencerResistant: true
+  scrambleResistant: true
+  printable: false
+  instability: 20
+  components:
+  - type: MutationInstabilityPolymorph
+    polymorphId: GeneticFleshGolemMorph
+
+- type: geneticMutation
+  id: FleshClampCurse
+  name: "Flesh Clamp"
+  desc: "The subject's body has mutated into a grotesque, snapping horror."
+  popupText: "Your body twists and warps into grotesque flesh!"
+  hidden: true
+  researchPoints: 6000
+  instabilityMutation: true
+  mutadoneResistant: true
+  sequencerResistant: true
+  scrambleResistant: true
+  printable: false
+  instability: 10
+  components:
+  - type: MutationInstabilityPolymorph
+    polymorphId: GeneticFleshClampMorph
+
+- type: geneticMutation
+  id: FleshLoverCurse
+  name: "Flesh Lover"
+  desc: "The subject's body has twisted into a horrifying form that resembles a heart."
+  popupText: "Your body twists and warps into grotesque flesh!"
+  researchPoints: 6000
   hidden: true
   instabilityMutation: true
   mutadoneResistant: true
@@ -1129,7 +1618,6 @@
   scrambleResistant: true
   printable: false
   instability: 10
-  entityWhitelist:
-    - MobHuman
   components:
-  - type: GeneticMonkeyMorph
+  - type: MutationInstabilityPolymorph
+    polymorphId: GeneticFleshLoverMorph

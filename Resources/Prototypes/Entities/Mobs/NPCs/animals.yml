@@ -246,6 +246,10 @@
     color: "#50595C"
     activateSound: null
     deactivateSound: null
+  - type: Genetics # Funkystation - Genetics
+    baseMutations:
+    - id: NightVision
+      chance: 0.5
 
 - type: entity
   name: bee
@@ -308,6 +312,10 @@
   - type: HTN
     rootTask:
       task: SimpleHostileCompound
+  - type: Genetics # Funkystation - Genetics
+    baseMutations:
+    - id: ApianHoneyGlands
+      chance: 0.5
 
 - type: entity
   name: bee
@@ -418,6 +426,10 @@
   - type: NpcFactionMember
     factions:
     - Passive
+  - type: Genetics # Funkystation - Genetics
+    baseMutations:
+    - id: OvipositionGlands
+      chance: 0.5
 
 - type: entity
   parent: MobChicken
@@ -585,6 +597,11 @@
     color: "#50595C"
     activateSound: null
     deactivateSound: null
+  - type: Genetics # Funkystation - Genetics
+    baseMutations:
+    - id: RadiationResistance
+      chance: 0.8
+      startActive: true
 
 - type: entity
   name: glockroach
@@ -877,6 +894,10 @@
   - type: NpcFactionMember
     factions:
     - Passive
+  - type: Genetics # Funkystation - Genetics
+    baseMutations:
+    - id: OvipositionGlands
+      chance: 0.5
 
 - type: entity
   name: white duck #Quack
@@ -1168,6 +1189,10 @@
     color: "#50595C"
     activateSound: null
     deactivateSound: null
+  - type: Genetics # Funkystation - Genetics
+    baseMutations:
+    - id: ChitinoarmisDurescutis
+      chance: 0.5
 
 - type: entity
   name: goat
@@ -1325,6 +1350,10 @@
   - type: NpcFactionMember
     factions:
     - Passive
+  - type: Genetics # Funkystation - Genetics
+    baseMutations:
+    - id: OvipositionGlands
+      chance: 0.5
 
 - type: entity
   name: gorilla
@@ -1380,6 +1409,10 @@
   - type: HTN
     rootTask:
       task: SimpleHostileCompound
+  - type: Genetics # Funkystation - Genetics
+    baseMutations:
+    - id: MusculatureEnhancement
+      chance: 0.5
 
 - type: entity
   name: kangaroo
@@ -1467,6 +1500,11 @@
   - type: HTN
     rootTask:
       task: SimpleHostileCompound
+  - type: Genetics # Funkystation - Genetics
+    mutationSlots: 4
+    baseMutations:
+    - id: StoragePouch
+      chance: 0.5
 
 - type: entity
   name: boxing kangaroo
@@ -1635,6 +1673,8 @@
       methods: [ Touch ]
       effects:
       - !type:WashCreamPieReaction
+  - type: Genetics # Funkystation - Genetics
+    mutationSlots: 4
 
 
 
@@ -1798,6 +1838,8 @@
     name: ghost-role-information-kobold-name
     description: ghost-role-information-kobold-description
     rules: ghost-role-information-nonantagonist-rules
+  - type: Genetics # Funkystation - Genetics
+    mutationSlots: 4
 
 - type: entity
   name: kobold
@@ -2053,6 +2095,12 @@
         Asphyxiation: 4
         Slash: 7
         Blunt: 3
+  - type: Genetics # Funkystation - Genetics
+    baseMutations:
+    - id: NightVision
+      chance: 0.2
+    - id: StoragePouch
+      chance: 0.2
 
 - type: entity
   parent: MobMouse
@@ -2162,6 +2210,10 @@
   - type: Damageable
     damageContainer: Biological
     damageModifierSet: Zombie
+  - type: Genetics # Funkystation - Genetics
+    baseMutations:
+    - id: Radioactive
+      chance: 0.8
 
 - type: entity
   name: lizard #Weh
@@ -2223,6 +2275,10 @@
     color: "#50595C"
     activateSound: null
     deactivateSound: null
+  - type: Genetics # Funkystation - Genetics
+    baseMutations:
+    - id: AdaptiveIridophores
+      chance: 0.25
 
 
 - type: entity
@@ -2420,6 +2476,10 @@
       path: /Audio/Animals/parrot_raught.ogg
   - type: Bloodstream
     bloodMaxVolume: 50
+  - type: Genetics # Funkystation - Genetics
+    baseMutations:
+    - id: OvipositionGlands
+      chance: 0.5
 
 - type: entity
   name: parrot
@@ -2488,6 +2548,10 @@
     heatDamage:
       types:
         Heat : 0.2 #per second, scales with temperature & other constants
+  - type: Genetics # Funkystation - Genetics
+    baseMutations:
+    - id: OvipositionGlands
+      chance: 0.5
 
 - type: entity
   name: grenade penguin
@@ -2613,6 +2677,12 @@
     color: "#50595C"
     activateSound: null
     deactivateSound: null
+  - type: Genetics # Funkystation - Genetics
+    baseMutations:
+    - id: LateralUndulation
+      chance: 0.5
+    - id: ThermalVision
+      chance: 0.08
 
 # Code unique spider prototypes or combine them all into one spider and get a
 # random sprite state when you spawn it.
@@ -2716,9 +2786,13 @@
     color: "#50595C"
     activateSound: null
     deactivateSound: null
-  - type: Inventory # FunkyStation. Mainly for Shiva, but doing it for all spiders
+  - type: Inventory # Funkystation - Genetics. Mainly for Shiva, but doing it for all spiders
     speciesId: spider
     templateId: pet
+  - type: Genetics # Funkystation - Genetics
+    baseMutations:
+    - id: SpiderWeb
+      chance: 0.5
 
 - type: entity
   parent: MobSpiderBase
@@ -2854,6 +2928,10 @@
     - type: Bloodstream
       bloodMaxVolume: 150
       bloodReagent: Laughter
+    - type: Genetics # Funkystation - Genetics
+      baseMutations:
+      - id: ClownSpiderWeb
+        chance: 0.4
 
 - type: entity
   name: clown spider
@@ -2902,6 +2980,10 @@
     - type: Bloodstream
       bloodMaxVolume: 150
       bloodReagent: Laughter
+    - type: Genetics # Funkystation - Genetics
+      baseMutations:
+      - id: ClownSpiderWeb
+        chance: 0.4
 
 - type: entity
   name: wizard spider
@@ -3587,6 +3669,10 @@
   - type: Tag
     tags:
     - VimPilot
+  - type: Genetics # Funkystation - Genetics
+    baseMutations:
+    - id: Narcolepsy
+      chance: 0.5
 
 - type: entity
   name: ferret
@@ -3647,6 +3733,10 @@
     color: "#50595C"
     activateSound: null
     deactivateSound: null
+  - type: Genetics # Funkystation - Genetics
+    baseMutations:
+    - id: LateralUndulation
+      chance: 0.5
 
 - type: entity
   name: hamster
@@ -3789,6 +3879,10 @@
   - type: FireVisuals
     sprite: Mobs/Effects/onfire.rsi
     normalState: Mouse_burning
+  - type: Genetics # Funkystation - Genetics
+    baseMutations:
+    - id: StoragePouch
+      chance: 0.5
 
 - type: entity
   name: pig

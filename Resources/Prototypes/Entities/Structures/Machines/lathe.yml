@@ -815,7 +815,6 @@
     - BorgChargerCircuitboard
     - ThermomachineFreezerMachineCircuitBoard # Assmos - Moved to staticRecipes from dynamicRecipes
     - DnaScannerConsoleComputerCircuitboard # Funkystation - Genetics
-    - DnaScannerMachineCircuitboard # Funkystation - Genetics
     dynamicRecipes:
     - HellfireFreezerMachineCircuitBoard
     - PortableScrubberMachineCircuitBoard

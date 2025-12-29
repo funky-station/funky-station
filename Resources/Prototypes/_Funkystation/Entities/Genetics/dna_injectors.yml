@@ -76,41 +76,61 @@
 
 - type: entity
   parent: BaseDNAInjectorSyringe
-  id: DNAMutatorMuted
-  name: "dna mutator (muted)"
+  id: DNAMutatorFrontalGyrusSuspension
+  name: "dna mutator (FrontalGyrusSuspension)"
   components:
   - type: DnaSequenceInjector
-    mutationId: Muted
+    mutationId: FrontalGyrusSuspension
     isMutator: true
   - type: Item
 
 - type: entity
   parent: BaseDNAInjectorSyringe
-  id: DNAMutatorRussianAccent
-  name: "dna mutator (RussianAccent)"
+  id: DNAMutatorFleshJaredCurse
+  name: "dna mutator (FleshJaredCurse)"
   components:
   - type: DnaSequenceInjector
-    mutationId: RussianAccent
+    mutationId: FleshJaredCurse
     isMutator: true
   - type: Item
 
 - type: entity
   parent: BaseDNAInjectorSyringe
-  id: DNAMutatorAdamantineSkin
-  name: "dna mutator (AdamantineSkin)"
+  id: DNAMutatorAdrenalineRush
+  name: "dna mutator (AdrenalineRush)"
   components:
   - type: DnaSequenceInjector
-    mutationId: AdamantineSkin
+    mutationId: AdrenalineRush
     isMutator: true
   - type: Item
 
 - type: entity
   parent: BaseDNAInjectorSyringe
-  id: DNAMutatorColdResistance
-  name: "dna mutator (ColdResistance)"
+  id: DNAMutatorCryokinesis
+  name: "dna mutator (Cryokinesis)"
   components:
   - type: DnaSequenceInjector
-    mutationId: ColdResistance
+    mutationId: Cryokinesis
+    isMutator: true
+  - type: Item
+
+- type: entity
+  parent: BaseDNAInjectorSyringe
+  id: DNAMutatorInkGlands
+  name: "dna mutator (InkGlands)"
+  components:
+  - type: DnaSequenceInjector
+    mutationId: InkGlands
+    isMutator: true
+  - type: Item
+
+- type: entity
+  parent: BaseDNAInjectorSyringe
+  id: DNAMutatorOpticEnergizer
+  name: "dna mutator (OpticEnergizer)"
+  components:
+  - type: DnaSequenceInjector
+    mutationId: OpticEnergizer
     isMutator: true
   - type: Item
 
@@ -141,6 +161,36 @@
   components:
   - type: DnaSequenceInjector
     mutationId: BioluminescentDermalGlands
+    isMutator: true
+  - type: Item
+
+- type: entity
+  parent: BaseDNAInjectorSyringe
+  id: DNAMutatorFleshGolemCurse
+  name: "dna mutator (FleshGolemCurse)"
+  components:
+  - type: DnaSequenceInjector
+    mutationId: FleshGolemCurse
+    isMutator: true
+  - type: Item
+
+- type: entity
+  parent: BaseDNAInjectorSyringe
+  id: DNAMutatorFleshClampCurse
+  name: "dna mutator (Flesh Clamp)"
+  components:
+  - type: DnaSequenceInjector
+    mutationId: FleshClampCurse
+    isMutator: true
+  - type: Item
+
+- type: entity
+  parent: BaseDNAInjectorSyringe
+  id: DNAMutatorFleshLoverCurse
+  name: "dna mutator (Flesh Lover)"
+  components:
+  - type: DnaSequenceInjector
+    mutationId: FleshLoverCurse
     isMutator: true
   - type: Item
 

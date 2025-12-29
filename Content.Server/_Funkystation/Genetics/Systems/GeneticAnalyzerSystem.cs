@@ -60,6 +60,7 @@ public sealed class GeneticAnalyzerSystem : SharedGeneticAnalyzerSystem
         _metaData.SetEntityName(printed, title);
 
         var sb = new StringBuilder();
+        sb.AppendLine();
         var sorted = component.Mutations
             .Where(m => m.Block > 0)
             .OrderBy(m => m.Block);

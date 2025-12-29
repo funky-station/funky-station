@@ -110,4 +110,17 @@ public sealed partial class GeneticMutationPrototype : IPrototype
     /// </summary>
     [DataField("popupText")]
     public string? PopupText { get; private set; }
+
+    /// <summary>
+    ///     Weight for random selection when radiation triggers a mutation.
+    ///     Higher = more likely to be picked. Default is 10.
+    /// </summary>
+    [DataField("probabilityWeight")]
+    public float ProbabilityWeight { get; private set; } = 10f;
+
+    /// <summary>
+    ///     Research points granted to the station's research server the first time this mutation is discovered.
+    /// </summary>
+    [DataField("researchPoints")]
+    public int ResearchPoints { get; private set; } = 300;
 }

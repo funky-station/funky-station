@@ -475,7 +475,8 @@
   - type: FireVisuals
     alternateState: Standing
   - type: Carriable # Goobstation
-  - type: Genetics # Funkystation
+  - type: Genetics # Funkystation - Genetics
+    mutationSlots: 8
 
 - type: entity
   save: false

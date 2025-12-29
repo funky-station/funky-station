@@ -79,3 +79,22 @@ public sealed class DnaScannerDiscoveredMutationsUpdatedMessage : BoundUserInter
         DiscoveredMutationIds = discoveredMutationIds;
     }
 }
+
+[Serializable, NetSerializable]
+public sealed class DnaScannerToggleResearchMessage : BoundUserInterfaceMessage
+{
+    public readonly string MutationId;
+
+    public DnaScannerToggleResearchMessage(string mutationId)
+    {
+        MutationId = mutationId;
+    }
+}
+
+[Serializable, NetSerializable]
+public sealed class DnaScannerUseJokerMessage : BoundUserInterfaceMessage
+{
+    public DnaScannerUseJokerMessage()
+    {
+    }
+}

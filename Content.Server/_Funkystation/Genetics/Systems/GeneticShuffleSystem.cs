@@ -1,9 +1,4 @@
-using System.Collections.Frozen;
-using Content.Server.GameTicking;
 using Content.Server.GameTicking.Events;
-using Content.Server._Funkystation.Genetics.Components;
-using Content.Shared._Funkystation.Genetics.Prototypes;
-using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using System.Linq;
 
@@ -11,80 +6,71 @@ namespace Content.Server._Funkystation.Genetics.Systems;
 
 public sealed class GeneticShuffleSystem : EntitySystem
 {
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly IEntityManager _entityManager = default!;
+    [Dependency] private readonly IRobustRandom _random = default!;
 
-    private const int ActiveBlocks = 150;
+    private const int MaxShuffledBlocks = 150;
     private static ReadOnlySpan<char> Bases => "ATGC";
     private static ReadOnlySpan<char> Pairs => "TACG";
-    private EntityUid _shuffledMutationsSingleton;
+    private Dictionary<string, GeneticBlock> _currentMapping = new();
+    private readonly HashSet<string> _usedSequences = new();
+    private readonly List<int> _shuffledBlocks = new();
+    private int _nextSequentialBlock = 1;
 
     public override void Initialize()
     {
         base.Initialize();
 
         SubscribeLocalEvent<RoundStartingEvent>(OnRoundStarting);
-        SubscribeLocalEvent<GameRunLevelChangedEvent>(OnRunLevelChanged);
     }
 
     private void OnRoundStarting(RoundStartingEvent _)
     {
-        ShuffleMutations();
+        ResetForNextRound();
     }
 
-    private void OnRunLevelChanged(GameRunLevelChangedEvent ev)
+    private void ResetForNextRound()
     {
-        if (ev.New is GameRunLevel.PreRoundLobby or GameRunLevel.PostRound)
-            ClearMutation();
+        _currentMapping.Clear();
+        _usedSequences.Clear();
+        _shuffledBlocks.Clear();
+        _shuffledBlocks.AddRange(Enumerable.Range(1, MaxShuffledBlocks));
+        _random.Shuffle(_shuffledBlocks);
+
+        _nextSequentialBlock = MaxShuffledBlocks + 1;
     }
 
-    private void ClearMutation()
+    public bool TryGetSlot(string mutationId, out GeneticBlock slot)
     {
-        if (EntityQuery<GeneticShuffleSingletonComponent>(true).FirstOrDefault() is { } comp)
-        {
-            comp.Clear();
-            _entityManager.Dirty(comp.Owner, comp);
-        }
+        return _currentMapping.TryGetValue(mutationId, out slot);
     }
 
-    private void ShuffleMutations()
+    public IReadOnlyDictionary<string, GeneticBlock> CurrentMapping() => _currentMapping;
+
+    public GeneticBlock GetOrAssignSlot(string mutationId)
     {
-        var prototypes = _prototypeManager
-            .EnumeratePrototypes<GeneticMutationPrototype>()
-            .Select(p => p.ID)
-            .ToList();
+        if (_currentMapping.TryGetValue(mutationId, out var existing))
+            return existing;
 
-        if (prototypes.Count == 0)
-            return;
+        var sequence = GenerateUniqueSequence();
 
-        _random.Shuffle(prototypes);
+        // Try to get a pre-shuffled block
+        int block = _shuffledBlocks.Count > 0
+            ? _shuffledBlocks[^1] // Take last
+            : _nextSequentialBlock++; // Fallback: just increment
 
-        var blocks = Enumerable.Range(1, ActiveBlocks).ToList();
-        _random.Shuffle(blocks);
+        if (_shuffledBlocks.Count > 0)
+            _shuffledBlocks.RemoveAt(_shuffledBlocks.Count - 1);
 
-        var mutation = new Dictionary<string, GeneticBlock>(prototypes.Count);
-        var usedSequences = new HashSet<string>(prototypes.Count);
+        var blockData = new GeneticBlock(block, sequence);
+        _currentMapping[mutationId] = blockData;
 
-        for (var i = 0; i < prototypes.Count; i++)
-        {
-            var id = prototypes[i];
-            var block = i < blocks.Count ? blocks[i] : -1;
-            var sequence = GenerateUniqueSequence(usedSequences);
-            mutation[id] = new GeneticBlock(block, sequence);
-        }
-
-        _shuffledMutationsSingleton = Spawn();
-
-        var singleton = EnsureComp<GeneticShuffleSingletonComponent>(_shuffledMutationsSingleton);
-        singleton.SetMutation(mutation);
-        _entityManager.Dirty(singleton.Owner, singleton);
+        return blockData;
     }
 
-    private string GenerateUniqueSequence(HashSet<string> used)
+    private string GenerateUniqueSequence()
     {
         Span<char> buffer = stackalloc char[32];
-
         string seq;
         do
         {
@@ -95,37 +81,8 @@ public sealed class GeneticShuffleSystem : EntitySystem
                 buffer[i + 1] = Pairs[idx];
             }
             seq = new string(buffer);
-        } while (!used.Add(seq));
+        } while (!_usedSequences.Add(seq));
 
         return seq;
-    }
-
-
-
-    public bool TryGetSlot(string mutationId, out GeneticBlock slot)
-    {
-        slot = GeneticBlock.Invalid;
-
-        if (!TryComp<GeneticShuffleSingletonComponent>(_shuffledMutationsSingleton, out var comp))
-            return false;
-
-        return comp.Mutation.TryGetValue(mutationId, out slot);
-    }
-
-    public GeneticBlock GetSlot(string mutationId)
-        => TryGetSlot(mutationId, out var slot) ? slot : GeneticBlock.Invalid;
-
-    public int GetBlock(string mutationId)
-        => TryGetSlot(mutationId, out var slot) ? slot.Block : -1;
-
-    public string GetSequence(string mutationId)
-        => TryGetSlot(mutationId, out var slot) ? slot.Sequence : string.Empty;
-
-    public IReadOnlyDictionary<string, GeneticBlock> CurrentMutation()
-    {
-        if (TryComp<GeneticShuffleSingletonComponent>(_shuffledMutationsSingleton, out var comp))
-            return comp.Mutation;
-
-        return FrozenDictionary<string, GeneticBlock>.Empty;
     }
 }

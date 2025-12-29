@@ -21,29 +21,12 @@
     - DermalKeratinHyperplasia
     - CrystallineDermalLattice
   unlockMutations:
-    - ReinforcedDermalMatrix
+    - ComprehensiveDermalFortification
 
 - type: mutationUnlockTrigger
   id: UnlockReinforcedFromOssifiedAblative
   requiredMutations:
     - OssifiedExoskeleton
     - AblativeCuticle
-  unlockMutations:
-    - ReinforcedDermalMatrix
-
-- type: mutationUnlockTrigger
-  id: UnlockComprehensiveFromReinforcedCrystalAblative
-  requiredMutations:
-    - ReinforcedDermalMatrix
-    - CrystallineDermalLattice
-    - AblativeCuticle
-  unlockMutations:
-    - ComprehensiveDermalFortification
-
-- type: mutationUnlockTrigger
-  id: UnlockComprehensiveFromReinforcedOssified
-  requiredMutations:
-    - ReinforcedDermalMatrix
-    - OssifiedExoskeleton
   unlockMutations:
     - ComprehensiveDermalFortification

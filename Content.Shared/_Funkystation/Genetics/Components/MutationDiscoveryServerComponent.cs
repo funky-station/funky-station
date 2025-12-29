@@ -6,4 +6,10 @@ namespace Content.Shared._Funkystation.Genetics.Components;
 public sealed partial class DnaScannerDiscoveryTrackerComponent : Component
 {
     [DataField] public HashSet<string> GridDiscoveredMutations { get; private set; } = new();
+
+    /// <summary>
+    /// Persistent tracking of research progress for all mutations that have ever been queued.
+    /// </summary>
+    [DataField]
+    public Dictionary<string, int> GridResearchProgress = new();
 }

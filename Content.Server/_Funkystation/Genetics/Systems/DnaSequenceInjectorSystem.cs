@@ -14,6 +14,7 @@ using Content.Shared._Funkystation.Genetics;
 using Content.Shared.Popups;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
+using Content.Shared.Interaction.Events;
 
 namespace Content.Server._Funkystation.Genetics.Systems;
 
@@ -30,6 +31,7 @@ public sealed class DNASequenceInjectorSystem : EntitySystem
     {
         base.Initialize();
         SubscribeLocalEvent<DnaSequenceInjectorComponent, AfterInteractEvent>(OnAfterInteract);
+        SubscribeLocalEvent<DnaSequenceInjectorComponent, UseInHandEvent>(OnUseInHand);
         SubscribeLocalEvent<DnaSequenceInjectorComponent, DNASequenceInjectorDoAfterEvent>(OnDoAfter);
         SubscribeLocalEvent<DnaSequenceInjectorComponent, ExaminedEvent>(OnExamined);
     }
@@ -86,6 +88,35 @@ public sealed class DNASequenceInjectorSystem : EntitySystem
         args.Handled = true;
     }
 
+    private void OnUseInHand(EntityUid uid, DnaSequenceInjectorComponent comp, UseInHandEvent args)
+    {
+        if (args.Handled)
+            return;
+
+        if (comp.MutationId == null)
+        {
+            args.Handled = true;
+            return;
+        }
+
+        var user = args.User;
+        var target = args.User;
+
+        var doAfterArgs = new DoAfterArgs(EntityManager, user, 2f, new DNASequenceInjectorDoAfterEvent(), uid, target)
+        {
+            BreakOnDamage = true,
+            BreakOnMove = true,
+            BreakOnHandChange = true,
+            NeedHand = true,
+            DuplicateCondition = DuplicateConditions.SameTarget
+        };
+
+        _popup.PopupEntity(Loc.GetString("dna-injector-start-self"), user, user);
+
+        _doAfter.TryStartDoAfter(doAfterArgs);
+        args.Handled = true;
+    }
+
     private void OnDoAfter(EntityUid uid, DnaSequenceInjectorComponent comp, DNASequenceInjectorDoAfterEvent args)
     {
         if (args.Cancelled || args.Target is not { } target || args.Handled)
@@ -112,11 +143,6 @@ public sealed class DNASequenceInjectorSystem : EntitySystem
             return false;
         }
 
-        if (!_genetics.CanEntityReceiveMutation(targetUid, proto))
-        {
-            _popup.PopupEntity(Loc.GetString("dna-injector-incompatible-biology"), targetUid, user);
-        }
-
         if (!_shuffle.TryGetSlot(mutationId, out var slot))
         {
             // This should never happen so just delete it and give them nothing
@@ -140,14 +166,6 @@ public sealed class DNASequenceInjectorSystem : EntitySystem
         if (!success)
         {
             _popup.PopupEntity(Loc.GetString("dna-injector-no-effect"), targetUid, user);
-        }
-        else
-        {
-            _popup.PopupEntity(
-                comp.IsMutator
-                    ? Loc.GetString("dna-mutator-success", ("mutation", proto.Name), ("block", slot.Block))
-                    : Loc.GetString("dna-activator-success", ("mutation", proto.Name), ("block", slot.Block)),
-                targetUid, targetUid);
         }
 
         var empty = Spawn("DNAInjectorEmpty", Transform(injector).Coordinates);

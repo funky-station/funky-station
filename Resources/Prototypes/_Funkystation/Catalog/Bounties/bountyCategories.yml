@@ -170,7 +170,7 @@
       components:
       - TechnologyDisk
     requiredResearch:
-      - AlternativeResearch      
+      - AlternativeResearch
   - name: bounty-item-anomaly-syncronizer
     minAmount: 1
     maxAmount: 3
@@ -179,7 +179,7 @@
       tags:
       - AnomalySyncronizerCircuitBoard
     requiredResearch:
-      - AdvancedAnomalyResearch          
+      - AdvancedAnomalyResearch
   - name: bounty-item-tech-disk
     minAmount: 3
     maxAmount: 8
@@ -204,7 +204,7 @@
       tags:
       - AnomalyLocator
     requiredResearch:
-      - BasicAnomalousResearch      
+      - BasicAnomalousResearch
   - name: bounty-item-gorilla-gauntlet
     minAmount: 1
     maxAmount: 3
@@ -213,7 +213,7 @@
       tags:
       - GorillaGauntlet
     requiredResearch:
-      - AnomalyCoreHarnessing            
+      - AnomalyCoreHarnessing
   - name: bounty-item-experimental-vessel-machine-board
     minAmount: 1
     maxAmount: 3
@@ -222,7 +222,7 @@
       tags:
       - ExperimentalVesselMachineBoard
     requiredResearch:
-      - AdvancedAnomalyResearch        
+      - AdvancedAnomalyResearch
   - name: bounty-item-cryobeaker
     minAmount: 1
     maxAmount: 8
@@ -1325,3 +1325,13 @@
     whitelist:
       tags:
       - Soap
+
+- type: cargoBountyCategory
+  id: AtmosCategory
+  name: AtmosTest
+  entries:
+  - name: Oxygen
+    minAmount: 90
+    maxAmount: 90
+    rewardPer: 65
+    gas: Oxygen

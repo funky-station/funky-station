@@ -20,6 +20,7 @@
 
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using Content.Server.Atmos.Components;
 using Content.Server.Cargo.Components;
 using Content.Server.Labels;
 using Content.Server.NameIdentifier;
@@ -172,6 +173,12 @@ public sealed partial class CargoSystem
                     break;
                 case CargoReagentBountyItemData reagentBounty:
                     msg.AddMarkupOrThrow($"- {Loc.GetString("bounty-console-manifest-entry-reagent",
+                        ("amount", entry.Amount),
+                        ("item", Loc.GetString(entry.Name)))}");
+                    msg.PushNewline();
+                    break;
+                case CargoGasBountyItemData gasBounty:
+                    msg.AddMarkupOrThrow($"- {Loc.GetString("bounty-console-manifest-entry-gas",
                         ("amount", entry.Amount),
                         ("item", Loc.GetString(entry.Name)))}");
                     msg.PushNewline();
@@ -341,6 +348,7 @@ public sealed partial class CargoSystem
             {
                 CargoObjectBountyItemEntry itemEntry => new CargoObjectBountyItemData(itemEntry),
                 CargoReagentBountyItemEntry itemEntry => new CargoReagentBountyItemData(itemEntry),
+                CargoGasBountyItemEntry itemEntry => new CargoGasBountyItemData(itemEntry),
                 _ => throw new NotImplementedException($"Unknown type: {entry.GetType().Name}"),
             };
             items.Add(newItem);
@@ -359,6 +367,7 @@ public sealed partial class CargoSystem
             {
                 CargoObjectBountyItemEntry itemEntry => new CargoObjectBountyItemData(itemEntry),
                 CargoReagentBountyItemEntry itemEntry => new CargoReagentBountyItemData(itemEntry),
+                CargoGasBountyItemEntry itemEntry => new CargoGasBountyItemData(itemEntry),
                 _ => throw new NotImplementedException($"Unknown type: {entry.GetType().Name}"),
             };
             items.Add(newItem);
@@ -422,6 +431,18 @@ public sealed partial class CargoSystem
         return false;
     }
 
+    public bool IsValidBountyEntry(EntityUid entity, CargoGasBountyItemData gasBounty)
+    {
+        if (!TryComp<GasTankComponent>(entity, out var gasTank))
+            return false;
+
+        var gases = gasTank.Air;
+
+        return gases.GetMoles(gasBounty.Gas) > 0;
+
+        return false;
+    }
+
     /// <summary>
     /// Determines whether the <paramref name="entity"/> meets the criteria for the bounty <paramref name="entry"/>.
     /// </summary>
@@ -434,6 +455,8 @@ public sealed partial class CargoSystem
                 IsValidBountyEntry(entity, new CargoObjectBountyItemData(objectBounty)),
             CargoReagentBountyItemEntry reagentBounty =>
                 IsValidBountyEntry(entity, new CargoReagentBountyItemData(reagentBounty)),
+            CargoGasBountyItemEntry gasBounty =>
+                IsValidBountyEntry(entity, new CargoGasBountyItemData(gasBounty)),
             _ => throw new NotImplementedException($"Unknown type: {entry.GetType().Name}"),
         };
     }
@@ -468,6 +491,10 @@ public sealed partial class CargoSystem
                         break;
                     case CargoReagentBountyItemData reagentBounty:
                         if (!IsValidBountyEntry(entity, reagentBounty))
+                            continue;
+                        break;
+                    case CargoGasBountyItemData gasBounty:
+                        if (!IsValidBountyEntry(entity, gasBounty))
                             continue;
                         break;
                 }
@@ -515,6 +542,18 @@ public sealed partial class CargoSystem
                             }
 
                         }
+                    }
+                    break;
+                case CargoGasBountyItemData bountyItem:
+                    if (!TryComp<GasTankComponent>(entity, out var gasTank))
+                        return false;
+
+                    var gases = gasTank.Air;
+
+                    foreach (var cargoBountyItemData in possibleEntries)
+                    {
+                        var cargoBountyGasData = (CargoGasBountyItemData)cargoBountyItemData;
+                        remaining[cargoBountyGasData] -= (int)Math.Floor(gases.GetMoles(cargoBountyGasData.Gas));
                     }
                     break;
             }
@@ -653,6 +692,7 @@ public sealed partial class CargoSystem
             {
                 CargoObjectBountyItemEntry itemEntry => new CargoObjectBountyItemData(itemEntry),
                 CargoReagentBountyItemEntry itemEntry => new CargoReagentBountyItemData(itemEntry),
+                CargoGasBountyItemEntry itemEntry => new CargoGasBountyItemData(itemEntry),
                 _ => throw new NotImplementedException($"Unknown type: {bountyItem.GetType().Name}"),
             };
 
@@ -669,6 +709,9 @@ public sealed partial class CargoSystem
                     totalBountyItems += bountyAmount;
                     break;
                 case CargoReagentBountyItemData reagentBounty:
+                    totalBountyItems ++;
+                    break;
+                case CargoGasBountyItemData gasBounty:
                     totalBountyItems ++;
                     break;
             }

@@ -25,6 +25,11 @@ bounty-console-manifest-entry-reagent =
     [1] {$item}
     *[other] {$item} {$amount}u
     }
+bounty-console-manifest-entry-gas =
+    { $amount ->
+    [1] {$item}
+    *[other] {$item} {$amount}mols
+        }
 bounty-console-manifest-reward = Reward: ${$reward}
 bounty-console-description-label = [color=gray]{$description}[/color]
 bounty-console-id-label = ID#{$id}

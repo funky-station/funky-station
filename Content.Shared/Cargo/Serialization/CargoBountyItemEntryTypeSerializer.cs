@@ -29,6 +29,11 @@ public sealed class CargoBountyItemEntryTypeSerializer : ITypeReader<CargoBounty
             return typeof(CargoReagentBountyItemEntry);
         }
 
+        if (node.Has("gas"))
+        {
+            return typeof(CargoGasBountyItemEntry);
+        }
+
         return null;
     }
     public CargoBountyItemEntry Read(ISerializationManager serializationManager,

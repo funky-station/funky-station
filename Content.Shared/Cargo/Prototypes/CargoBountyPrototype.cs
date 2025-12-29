@@ -11,6 +11,7 @@
 //
 // SPDX-License-Identifier: MIT
 
+using Content.Shared.Atmos;
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Research.Prototypes;
 using Content.Shared.Whitelist;
@@ -133,5 +134,17 @@ public partial record CargoReagentBountyItemEntry : CargoBountyItemEntry
     /// </summary>
     [DataField(required: true)]
     public ProtoId<ReagentPrototype> Reagent { get; set; }
+}
+
+[DataDefinition, Serializable, NetSerializable]
+public partial record CargoGasBountyItemEntry : CargoBountyItemEntry
+{
+    /// <summary>
+    /// What gas reagent will satisfy the entry.
+    /// I hate gases, this needs to be set as per the entries in the Gas enum in <see cref="Content.Shared.Atmos.Atmospherics"/>
+    /// I pray someone smarter than I knows a better way to do this
+    /// </summary>
+    [DataField(required: true)]
+    public Gas Gas { get; set; }
     // End of Funky Station edits
 }

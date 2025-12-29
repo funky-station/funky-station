@@ -78,6 +78,7 @@ public sealed partial class CargoBountyData
             {
                 CargoObjectBountyItemEntry itemEntry => new CargoObjectBountyItemData(itemEntry),
                 CargoReagentBountyItemEntry itemEntry => new CargoReagentBountyItemData(itemEntry),
+                CargoGasBountyItemEntry itemEntry => new CargoGasBountyItemData(itemEntry),
                 _ => throw new NotImplementedException($"Unknown type: {entry.GetType().Name}"),
             };
             items.Add(newItem);

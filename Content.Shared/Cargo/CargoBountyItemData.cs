@@ -3,6 +3,7 @@
 //
 // SPDX-License-Identifier: MIT
 
+using Content.Shared.Atmos;
 using Content.Shared.Cargo.Prototypes;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Reagent;
@@ -67,5 +68,23 @@ public sealed partial class CargoReagentBountyItemData : CargoBountyItemData
         Name = entry.Name;
         Amount = entry.Amount;
         Reagent = entry.Reagent;
+    }
+}
+
+[DataDefinition, Serializable, NetSerializable]
+public sealed partial class CargoGasBountyItemData : CargoBountyItemData
+{
+    /// <summary>
+    /// What gas reagent will satisfy the entry.
+    /// I hate gases, this needs to be set as per the entries in the Gas enum in <see cref="Content.Shared.Atmos.Atmospherics"/>
+    /// I pray someone smarter than I knows a better way to do this
+    /// </summary>
+    public Gas Gas;
+
+    public CargoGasBountyItemData(CargoGasBountyItemEntry entry)
+    {
+        Name = entry.Name;
+        Amount = entry.Amount;
+        Gas = entry.Gas;
     }
 }

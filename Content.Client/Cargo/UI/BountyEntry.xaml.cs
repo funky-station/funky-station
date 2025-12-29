@@ -53,6 +53,11 @@ public sealed partial class BountyEntry : BoxContainer
                         ("amount", entry.Amount),
                         ("item", Loc.GetString(entry.Name))));
                     break;
+                case CargoGasBountyItemData gasBounty:
+                    items.Add(Loc.GetString("bounty-console-manifest-entry-gas",
+                        ("amount", entry.Amount),
+                        ("item", Loc.GetString(entry.Name))));
+                    break;
             }
         }
         ManifestLabel.SetMarkup(Loc.GetString("bounty-console-manifest-label", ("item", string.Join(", ", items))));

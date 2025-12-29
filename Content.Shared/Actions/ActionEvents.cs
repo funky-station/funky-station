@@ -1,26 +1,10 @@
-// SPDX-FileCopyrightText: 2022 Rane <60792108+Elijahrane@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 deltanedas <@deltanedas:kde.org>
-// SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
-// SPDX-FileCopyrightText: 2024 DrSmugleaf <10968691+DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
-// SPDX-FileCopyrightText: 2024 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
-// SPDX-FileCopyrightText: 2024 keronshb <54602815+keronshb@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
-//
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Actions.Components;
 using Content.Shared.Hands;
 using Content.Shared.Inventory;
 using Content.Shared.Inventory.Events;
 using Robust.Shared.Map;
 using Robust.Shared.Serialization;
+using Robust.Shared.Timing;
 
 namespace Content.Shared.Actions;
 
@@ -102,29 +86,34 @@ public sealed class RequestPerformActionEvent : EntityEventArgs
     public readonly NetEntity Action;
     public readonly NetEntity? EntityTarget;
     public readonly NetCoordinates? EntityCoordinatesTarget;
+    public readonly GameTick LastRealTick;
 
-    public RequestPerformActionEvent(NetEntity action)
+    public RequestPerformActionEvent(NetEntity action, GameTick lastRealTick)
     {
         Action = action;
+        LastRealTick = lastRealTick;
     }
 
-    public RequestPerformActionEvent(NetEntity action, NetEntity entityTarget)
+    public RequestPerformActionEvent(NetEntity action, NetEntity entityTarget, GameTick lastRealTick)
     {
         Action = action;
         EntityTarget = entityTarget;
+        LastRealTick = lastRealTick;
     }
 
-    public RequestPerformActionEvent(NetEntity action, NetCoordinates entityCoordinatesTarget)
+    public RequestPerformActionEvent(NetEntity action, NetCoordinates entityCoordinatesTarget, GameTick lastRealTick)
     {
         Action = action;
         EntityCoordinatesTarget = entityCoordinatesTarget;
+        LastRealTick = lastRealTick;
     }
 
-    public RequestPerformActionEvent(NetEntity action, NetEntity? entityTarget, NetCoordinates entityCoordinatesTarget)
+    public RequestPerformActionEvent(NetEntity action, NetEntity? entityTarget, NetCoordinates entityCoordinatesTarget, GameTick lastRealTick)
     {
         Action = action;
         EntityTarget = entityTarget;
         EntityCoordinatesTarget = entityCoordinatesTarget;
+        LastRealTick = lastRealTick;
     }
 }
 

@@ -59,6 +59,7 @@
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 kbarkevich <24629810+kbarkevich@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 kit <nikkiestes0@gmail.com>
 # SPDX-FileCopyrightText: 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 rottenheadphones <juaelwe@outlook.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
@@ -71,8 +72,8 @@ meta:
   engineVersion: 268.0.0
   forkId: ""
   forkVersion: ""
-  time: 12/17/2025 03:17:04
-  entityCount: 29827
+  time: 12/27/2025 17:54:43
+  entityCount: 29836
 maps:
 - 11906
 grids:
@@ -11918,25 +11919,25 @@ entities:
       parent: 8364
 - proto: AirlockExternalGlassShuttleEmergencyLocked
   entities:
-  - uid: 20042
+  - uid: 548
     components:
     - type: Transform
-      pos: 95.5,-21.5
+      pos: 95.5,-23.5
       parent: 8364
-  - uid: 27633
+  - uid: 19287
     components:
     - type: Transform
       pos: 95.5,-31.5
       parent: 8364
-  - uid: 27634
+  - uid: 19979
     components:
     - type: Transform
       pos: 95.5,-29.5
       parent: 8364
-  - uid: 27635
+  - uid: 20042
     components:
     - type: Transform
-      pos: 95.5,-23.5
+      pos: 95.5,-21.5
       parent: 8364
 - proto: AirlockExternalGlassShuttleEscape
   entities:
@@ -12249,7 +12250,7 @@ entities:
       pos: 24.5,16.5
       parent: 8364
     - type: Door
-      secondsUntilStateChange: -129170.18
+      secondsUntilStateChange: -129607.945
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -12414,7 +12415,7 @@ entities:
       pos: 74.5,-14.5
       parent: 8364
     - type: Door
-      secondsUntilStateChange: -29833.113
+      secondsUntilStateChange: -30270.877
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -17310,6 +17311,30 @@ entities:
         19031:
         - - BluespaceSender
           - BluespaceGasUtilizer
+        28874:
+        - - BluespaceSender
+          - BluespaceGasUtilizer
+        22549:
+        - - BluespaceSender
+          - BluespaceGasUtilizer
+        20142:
+        - - BluespaceSender
+          - BluespaceGasUtilizer
+        27635:
+        - - BluespaceSender
+          - BluespaceGasUtilizer
+        28547:
+        - - BluespaceSender
+          - BluespaceGasUtilizer
+        29833:
+        - - BluespaceSender
+          - BluespaceGasUtilizer
+        29834:
+        - - BluespaceSender
+          - BluespaceGasUtilizer
+        29835:
+        - - BluespaceSender
+          - BluespaceGasUtilizer
 - proto: BluespaceVendor
   entities:
   - uid: 17091
@@ -17351,16 +17376,81 @@ entities:
       bluespaceSenderConnected: True
     - type: BluespaceGasUtilizer
       bluespaceSender: 16951
+  - uid: 20142
+    components:
+    - type: Transform
+      pos: 10.5,34.5
+      parent: 8364
+    - type: BluespaceVendor
+      bluespaceSenderConnected: True
+    - type: BluespaceGasUtilizer
+      bluespaceSender: 16951
+  - uid: 22549
+    components:
+    - type: Transform
+      pos: 34.5,-10.5
+      parent: 8364
+    - type: BluespaceVendor
+      bluespaceSenderConnected: True
+    - type: BluespaceGasUtilizer
+      bluespaceSender: 16951
+  - uid: 27635
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 1.5,-52.5
+      parent: 8364
+    - type: BluespaceVendor
+      bluespaceSenderConnected: True
+    - type: BluespaceGasUtilizer
+      bluespaceSender: 16951
   - uid: 28547
     components:
     - type: Transform
-      pos: 34.5,-11.5
+      pos: -41.5,0.5
       parent: 8364
+    - type: BluespaceVendor
+      bluespaceSenderConnected: True
+    - type: BluespaceGasUtilizer
+      bluespaceSender: 16951
   - uid: 28874
     components:
     - type: Transform
       pos: 16.5,-46.5
       parent: 8364
+    - type: BluespaceVendor
+      bluespaceSenderConnected: True
+    - type: BluespaceGasUtilizer
+      bluespaceSender: 16951
+  - uid: 29833
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 34.5,-27.5
+      parent: 8364
+    - type: BluespaceVendor
+      bluespaceSenderConnected: True
+    - type: BluespaceGasUtilizer
+      bluespaceSender: 16951
+  - uid: 29834
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 64.5,-33.5
+      parent: 8364
+    - type: BluespaceVendor
+      bluespaceSenderConnected: True
+    - type: BluespaceGasUtilizer
+      bluespaceSender: 16951
+  - uid: 29835
+    components:
+    - type: Transform
+      pos: 85.5,-18.5
+      parent: 8364
+    - type: BluespaceVendor
+      bluespaceSenderConnected: True
+    - type: BluespaceGasUtilizer
+      bluespaceSender: 16951
 - proto: BodyBagFolded
   entities:
   - uid: 4556
@@ -17983,13 +18073,6 @@ entities:
     components:
     - type: Transform
       pos: 48.424255,8.669407
-      parent: 8364
-- proto: BoxPDA
-  entities:
-  - uid: 548
-    components:
-    - type: Transform
-      pos: -11.614725,-21.270159
       parent: 8364
 - proto: BoxShotgunIncendiary
   entities:
@@ -89211,6 +89294,8 @@ entities:
     - type: Transform
       pos: -54.5,-7.5
       parent: 8364
+    - type: FaxMachine
+      name: News Office
   - uid: 5534
     components:
     - type: Transform
@@ -89302,6 +89387,13 @@ entities:
       parent: 8364
     - type: FaxMachine
       name: Library
+  - uid: 22012
+    components:
+    - type: Transform
+      pos: -11.5,-21.5
+      parent: 8364
+    - type: FaxMachine
+      name: Head of Personell Office
   - uid: 26057
     components:
     - type: Transform
@@ -91453,7 +91545,7 @@ entities:
       pos: 27.5,-15.5
       parent: 8364
     - type: Door
-      secondsUntilStateChange: -19810.71
+      secondsUntilStateChange: -20248.475
       state: Closing
   - uid: 14342
     components:
@@ -91491,7 +91583,7 @@ entities:
       pos: -34.5,-14.5
       parent: 8364
     - type: Door
-      secondsUntilStateChange: -123358.72
+      secondsUntilStateChange: -123796.484
       state: Closing
   - uid: 15010
     components:
@@ -92016,7 +92108,7 @@ entities:
       pos: -4.5,-71.5
       parent: 8364
     - type: Door
-      secondsUntilStateChange: -115106.45
+      secondsUntilStateChange: -115544.22
       state: Closing
   - uid: 27600
     components:
@@ -127821,6 +127913,11 @@ entities:
     - type: Transform
       pos: 34.5,-54.5
       parent: 8364
+  - uid: 27634
+    components:
+    - type: Transform
+      pos: 60.5,-24.5
+      parent: 8364
   - uid: 28179
     components:
     - type: Transform
@@ -130957,13 +131054,12 @@ entities:
   - uid: 22718
     components:
     - type: Transform
-      pos: -10.602661,-36.607548
+      pos: -10.161623,-36.22467
       parent: 8364
     - type: NetworkConfigurator
       devices:
         'UID: 28729': 25314
         'UID: 28916': 25313
-      linkModeActive: False
     - type: Physics
       angularDamping: 0
       linearDamping: 0
@@ -156403,6 +156499,11 @@ entities:
     - type: Transform
       pos: 69.5,-50.5
       parent: 8364
+  - uid: 27633
+    components:
+    - type: Transform
+      pos: 60.5,-24.5
+      parent: 8364
 - proto: TableReinforced
   entities:
   - uid: 828
@@ -159088,6 +159189,13 @@ entities:
     components:
     - type: Transform
       pos: -29.5,-36.5
+      parent: 8364
+- proto: VendingMachineSciDrobe
+  entities:
+  - uid: 26592
+    components:
+    - type: Transform
+      pos: 69.5,-27.5
       parent: 8364
 - proto: VendingMachineSec
   entities:
@@ -184430,7 +184538,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -2421.8228
+      secondsUntilStateChange: -2859.5857
       state: Opening
     - type: Airlock
       autoClose: False

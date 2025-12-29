@@ -6946,3 +6946,9 @@ Entries:
       message: Existing facepaints extended to Vox. Glowing blush included.
   id: 807
   time: '2025-12-29T04:23:32.0000000+00:00'
+- author: Alecksohs
+  changes:
+    - type: Tweak
+      message: Resprites Fire Alarms, Air Alarms, Light Tubes, and Auth Scanners.
+  id: 808
+  time: '2025-12-29T04:24:37.0000000+00:00'

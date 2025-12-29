@@ -54,8 +54,8 @@
       sprite: Mobs/Species/Human/organs.rsi
       state: brain
   - type: NumberObjective
-    min: 6
-    max: 9
+    min: 3
+    max: 4
     title: objective-condition-stealdna-title
     description: objective-condition-stealdna-description
   - type: StealDNACondition

@@ -39,8 +39,8 @@
       sprite: Mobs/Demons/abomination.rsi
       state: dead
   - type: NumberObjective
-    min: 2
-    max: 4
+    min: 1
+    max: 3
     title: objective-condition-absorb-title
     description: objective-condition-absorb-description
   - type: AbsorbCondition
@@ -54,8 +54,8 @@
       sprite: Mobs/Species/Human/organs.rsi
       state: brain
   - type: NumberObjective
-    min: 6
-    max: 9
+    min: 3
+    max: 5
     title: objective-condition-stealdna-title
     description: objective-condition-stealdna-description
   - type: StealDNACondition

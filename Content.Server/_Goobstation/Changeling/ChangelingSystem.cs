@@ -139,6 +139,7 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
     [Dependency] private readonly ExplosionSystem _explosionSystem = default!;
     [Dependency] private readonly BodySystem _bodySystem = default!;
     [Dependency] private readonly IComponentFactory _compFactory = default!;
+    [Dependency] private readonly SharedRottingSystem _rottingSystem = default!;
 
     public EntProtoId ArmbladePrototype = "ArmBladeChangeling";
     public EntProtoId FakeArmbladePrototype = "FakeArmBladeChangeling";
@@ -753,8 +754,8 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
     {
         RemComp<HungerComponent>(uid);
         RemComp<ThirstComponent>(uid);
-        RemComp<PerishableComponent>(uid);
         EnsureComp<ZombieImmuneComponent>(uid);
+        _rottingSystem.TrySetPerishableTime(uid, TimeSpan.MaxValue);
 
         // add actions
         foreach (var actionId in comp.BaseChangelingActions)

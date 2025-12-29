@@ -181,4 +181,15 @@ public abstract class SharedRottingSystem : EntitySystem
 
         return (int) (comp.TotalRotTime.TotalSeconds / perishable.RotAfter.TotalSeconds);
     }
+
+    //Funky. Allows for a different value than the default of 10 minutes to be set for a default rot time period
+    public bool TrySetPerishableTime(EntityUid uid, TimeSpan time)
+    {
+        if(!TryComp<PerishableComponent>(uid,out var perishable))
+        {
+            return false; //return false if method failed.
+        }
+        perishable.RotAfter = time;
+        return true;
+    }
 }

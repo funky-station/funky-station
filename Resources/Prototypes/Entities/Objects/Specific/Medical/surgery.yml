@@ -483,6 +483,7 @@
   name: medical multitool
   id: OmnimedTool
   parent: BaseToolSurgery
+  description: A high end surgery tool that has all the needed surgery tools built in inside it, it's the end of the line for surgeons looking for better tools.
   components:
   - type: Sprite
     sprite: _Shitmed/Objects/Specific/Medical/Surgery/omnimed.rsi
@@ -493,25 +494,25 @@
     startSound:
       path: /Audio/_Shitmed/Medical/Surgery/saw.ogg
   - type: Hemostat
-    speed: 0.75  # funkystation
+    speed: 1.5  # funkystation #nobody ever uses these cause of the speed malus, bumping up to 1.5 from 0.75, they're T3 for god's sake, it should just be better.
   - type: Scalpel
-    speed: 0.75  # funkystation
+    speed: 1.5  # funkystation
   - type: Drill
-    speed: 0.75  # funkystation
+    speed: 1.5  # funkystation
   - type: BoneSetter
-    speed: 0.75  # funkystation
+    speed: 1.5  # funkystation
   - type: Retractor
-    speed: 0.75  # funkystation
+    speed: 1.5  # funkystation
   - type: Cautery
-    speed: 0.75  # funkystation
+    speed: 1.5  # funkystation
   - type: BoneGel
-    speed: 0.75  # funkystation
+    speed: 1.5  # funkystation
   - type: BoneSaw
-    speed: 0.75  # funkystation
+    speed: 1.5  # funkystation
   - type: Tweezers
-    speed: 0.75  # funkystation
+    speed: 1.5  # funkystation
   - type: Tending
-    speed: 0.75  # funkystation
+    speed: 1.5  # funkystation
   - type: Tag
     tags:
     - AdvancedSurgeryTool
@@ -519,9 +520,30 @@
 - type: entity
   parent: [ OmnimedTool, BaseSyndicateContraband ]
   id: OmnimedToolSyndie
+  description: A higher end surgery tool that has all the needed surgery tools built in inside it, it's the end of the line for evil surgeons looking for better tools. Seems to be of Interdyne make.
   components:
   - type: Sprite
     state: evil
+  - type: Hemostat
+    speed: 2  # funkystation # Interdyne just makes better tools
+  - type: Scalpel
+    speed: 2  # funkystation
+  - type: Drill
+    speed: 2  # funkystation
+  - type: BoneSetter
+    speed: 2  # funkystation
+  - type: Retractor
+    speed: 2  # funkystation
+  - type: Cautery
+    speed: 2  # funkystation
+  - type: BoneGel
+    speed: 2  # funkystation
+  - type: BoneSaw
+    speed: 2  # funkystation
+  - type: Tweezers
+    speed: 2  # funkystation
+  - type: Tending
+    speed: 2  # funkystation
   - type: Item
     size: Small
     heldPrefix: evil

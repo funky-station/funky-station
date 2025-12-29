@@ -33,11 +33,13 @@
 # SPDX-FileCopyrightText: 2025 Milon <milonpl.git@proton.me>
 # SPDX-FileCopyrightText: 2025 MissKay1994 <15877268+MissKay1994@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
 # SPDX-FileCopyrightText: 2025 Toastermeister <215405651+Toastermeister@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 W.xyz() <tptechteam@gmail.com>
 # SPDX-FileCopyrightText: 2025 mubururu_ <139181059+muburu@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 w.xyz() <84605679+pirakaplant@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -84,12 +86,12 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 10
+        maxVol: 15
         reagents:
         - ReagentId: Nutriment
-          Quantity: 4
+          Quantity: 10
         - ReagentId: Vitamin
-          Quantity: 1
+          Quantity: 5
   - type: Item
     size: Tiny
   - type: Tag
@@ -213,14 +215,14 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 30
+        maxVol: 75
         reagents:
-        - ReagentId: JuiceCarrot
+        - ReagentId: Nutriment
+          Quantity: 35
+        - ReagentId: Oculine
           Quantity: 15
-        - ReagentId: Sugar
-          Quantity: 5
         - ReagentId: Vitamin
-          Quantity: 5
+          Quantity: 25
   - type: Tag
     tags:
     - Cake
@@ -351,6 +353,19 @@
       - state: plain-inhand-right
       - state: alpha-filling-inhand-right
         color: "#ffffff"
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 75
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 35
+        - ReagentId: Vitamin
+          Quantity: 10
+        - ReagentId: Cream
+          Quantity: 15
+        - ReagentId: Sugar
+          Quantity: 15
 
 - type: entity
   name: slice of cheese cake
@@ -399,6 +414,21 @@
       - state: plain-inhand-right
       - state: alpha-filling-inhand-right
         color: "#ff9900"
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 75
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 20
+        - ReagentId: Vitamin
+          Quantity: 20
+        - ReagentId: JuiceOrange
+          Quantity: 15
+        - ReagentId: Sugar
+          Quantity: 10
+        - ReagentId: Cream
+          Quantity: 10
 
 - type: entity
   name: slice of orange cake
@@ -454,6 +484,21 @@
       - state: plain-inhand-right
       - state: alpha-filling-inhand-right
         color: "#00ff00"
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 75
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 20
+        - ReagentId: Vitamin
+          Quantity: 20
+        - ReagentId: JuiceLime
+          Quantity: 15
+        - ReagentId: Sugar
+          Quantity: 10
+        - ReagentId: Cream
+          Quantity: 10
 
 - type: entity
   name: slice of lime cake
@@ -509,6 +554,21 @@
       - state: plain-inhand-right
       - state: alpha-filling-inhand-right
         color: "#ffff00"
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 75
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 20
+        - ReagentId: Vitamin
+          Quantity: 20
+        - ReagentId: JuiceLemon
+          Quantity: 15
+        - ReagentId: Sugar
+          Quantity: 10
+        - ReagentId: Cream
+          Quantity: 10
 
 - type: entity
   name: slice of lemon cake
@@ -625,14 +685,18 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 35
+        maxVol: 75
         reagents:
         - ReagentId: Nutriment
-          Quantity: 20
+          Quantity: 40
         - ReagentId: Theobromine
-          Quantity: 5
+          Quantity: 10
         - ReagentId: Vitamin
+          Quantity: 10
+        - ReagentId: CocoaPowder
           Quantity: 5
+        - ReagentId: Cream
+          Quantity: 10
   - type: Item
     inhandVisuals:
       left:
@@ -699,6 +763,17 @@
       - state: plain-inhand-right
       - state: alpha-filling-inhand-right
         color: "#ff4300"
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 75
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 40
+        - ReagentId: Vitamin
+          Quantity: 25
+        - ReagentId: Cream
+          Quantity: 10
 
 - type: entity
   name: slice of apple cake
@@ -726,6 +801,17 @@
       - state: plain-slice-inhand-right
       - state: alpha-slice-filling-inhand-right
         color: "#ff4300"
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 15
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 8
+        - ReagentId: Vitamin
+          Quantity: 5
+        - ReagentId: Cream
+          Quantity: 2
 
 # Tastes like sweetness, cake, slime.
 
@@ -755,6 +841,19 @@
         color: "#00ffff"
       - state: alpha-filling-inhand-right
         color: "#00ffff"
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 75
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 20
+        - ReagentId: Vitamin
+          Quantity: 10
+        - ReagentId: Slime
+          Quantity: 30
+        - ReagentId: Sugar
+          Quantity: 15
 
 - type: entity
   name: slice of slime cake
@@ -796,12 +895,18 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 50
+        maxVol: 75
         reagents:
         - ReagentId: Nutriment
-          Quantity: 32
+          Quantity: 20
         - ReagentId: Vitamin
-          Quantity: 11
+          Quantity: 15
+        - ReagentId: PumpkinFlesh
+          Quantity: 20
+        - ReagentId: Sugar
+          Quantity: 10
+        - ReagentId: Cream
+          Quantity: 10
   - type: Tag
     tags:
     - Cake
@@ -908,6 +1013,19 @@
     slice: FoodCakeBirthdaySlice
   - type: Item
     heldPrefix: birthday
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 75
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 35
+        - ReagentId: Vitamin
+          Quantity: 15
+        - ReagentId: Sugar
+          Quantity: 15
+        - ReagentId: Cream
+          Quantity: 10
 
 - type: entity
   name: slice of birthday cake
@@ -919,6 +1037,19 @@
     state: birthday-slice
   - type: Item
     heldPrefix: birthday-slice
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 15
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 7
+        - ReagentId: Vitamin
+          Quantity: 3
+        - ReagentId: Sugar
+          Quantity: 3
+        - ReagentId: Cream
+          Quantity: 2
 # Tastes like sweetness, cake, christmas.
 
 - type: entity
@@ -1174,10 +1305,10 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 48
+        maxVol: 160
         reagents:
         - ReagentId: Nutriment
-          Quantity: 48
+          Quantity: 160
   - type: Food
     transferAmount: 12
   - type: Item
@@ -1236,14 +1367,16 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 55
+        maxVol: 75
         reagents:
         - ReagentId: Nutriment
-          Quantity: 30
+          Quantity: 20
         - ReagentId: Vitamin
-          Quantity: 5
-        - ReagentId: Fiber
           Quantity: 10
+        - ReagentId: Fiber
+          Quantity: 30
+        - ReagentId: Sugar
+          Quantity: 15
   - type: Item
     heldPrefix: cotton
 
@@ -1292,14 +1425,14 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 55
+        maxVol: 75
         reagents:
         - ReagentId: Nutriment
-          Quantity: 40
+          Quantity: 45
         - ReagentId: Vitamin
-          Quantity: 10
-        - ReagentId: Milk
-          Quantity: 10
+          Quantity: 25
+        - ReagentId: Cream
+          Quantity: 5
   - type: SliceableFood
     slice: FoodCakeBerryDelightSlice
   - type: Tag

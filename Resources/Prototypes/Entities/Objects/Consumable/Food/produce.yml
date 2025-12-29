@@ -1705,8 +1705,6 @@
     entries:
       Taco: AmbrosiaVulgaris
       Burger: AmbrosiaVulgarisBurger
-  - type: TimedDespawn # RMC14
-    lifetime: 0.5
 
 - type: entity
   name: ambrosia deus

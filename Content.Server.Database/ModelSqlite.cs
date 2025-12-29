@@ -106,13 +106,6 @@ namespace Content.Server.Database
             modelBuilder.Entity<IPIntelCache>()
                 .HasIndex(p => p.Address)
                 .IsUnique();
-
-            // RMC14
-            modelBuilder
-                .Entity<RMCChatBans>()
-                .Property(e => e.Address)
-                .HasColumnType("TEXT")
-                .HasConversion(ipMaskConverter);
         }
 
         public override int CountAdminLogs()

@@ -23,7 +23,6 @@
 using System.Globalization;
 using System.Linq;
 using System.Text.RegularExpressions;
-using Content.Shared._RMC14.Localizations;
 using Robust.Shared.Utility;
 
 namespace Content.Shared.Localizations
@@ -63,8 +62,6 @@ namespace Content.Shared.Localizations
             _loc.AddFunction(culture, "NATURALPERCENT", FormatNaturalPercent);
             _loc.AddFunction(culture, "PLAYTIME", FormatPlaytime);
 
-            // RMC14
-            IoCManager.Resolve<RMCLocalizationManager>().Initialize(culture);
 
             /*
              * The following language functions are specific to the english localization. When working on your own

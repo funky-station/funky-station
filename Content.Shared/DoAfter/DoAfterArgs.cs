@@ -162,6 +162,13 @@ public sealed partial class DoAfterArgs
     /// </summary>
     [DataField]
     public bool RequireCanInteract = true;
+
+    /// <summary>
+    ///     RMC14
+    ///     Whether to use the position compensated by lag for the target, with the user as the reference.
+    /// </summary>
+    [DataField]
+    public bool LagCompensated;
     #endregion
 
     #region Duplicates

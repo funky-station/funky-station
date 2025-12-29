@@ -46,5 +46,9 @@ SPDX-License-Identifier: MIT
     <Folder Include="Migrations\Sqlite\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Compile Remove="Migrations\Sqlite\SqliteServerDbContextModelSnapshot.cs" />
+  </ItemGroup>
+
   <Import Project="..\RobustToolbox\MSBuild\Robust.Properties.targets" />
 </Project>

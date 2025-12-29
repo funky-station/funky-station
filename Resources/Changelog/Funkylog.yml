@@ -6934,3 +6934,9 @@ Entries:
         the brain, it may contain toxins.
   id: 805
   time: '2025-12-29T03:49:26.0000000+00:00'
+- author: Ven
+  changes:
+    - type: Fix
+      message: Removed pill type from gingerbread brain
+  id: 806
+  time: '2025-12-29T04:11:28.0000000+00:00'

@@ -6926,3 +6926,11 @@ Entries:
       message: Thieving gloves are no longer available in the syndicate uplink.
   id: 804
   time: '2025-12-29T03:15:13.0000000+00:00'
+- author: otokonoko-dev
+  changes:
+    - type: Add
+      message: >-
+        Gingerbreads now have their own organs. Animals should be careful eating
+        the brain, it may contain toxins.
+  id: 805
+  time: '2025-12-29T03:49:26.0000000+00:00'

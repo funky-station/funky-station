@@ -85,3 +85,5 @@
   - type: Insulated
   - type: Fiber
     fiberMaterial: fibers-insulative
+  - type: Thieving
+    stripTimeReduction: 1

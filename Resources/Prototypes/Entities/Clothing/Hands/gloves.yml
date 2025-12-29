@@ -345,6 +345,8 @@
   - type: Insulated
   - type: Fiber
     fiberMaterial: fibers-insulative
+  - type: Thieving
+    stripTimeReduction: 1
 
 # can't parent combat gloves since they are butcherable
 - type: entity
@@ -362,6 +364,8 @@
     maxSiemensThreshold: 4
   - type: Fiber
     fiberColor: fibers-black
+  - type: Thieving
+    stripTimeReduction: 1
 
 - type: entity
   parent: [ BaseSecurityCargoContraband, ClothingHandsGlovesCombat ]

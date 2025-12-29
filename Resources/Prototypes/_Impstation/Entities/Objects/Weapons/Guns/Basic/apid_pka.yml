@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Kip <32859367+kipdotnet@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: entity
   id: WeaponProtoKineticAcceleratorApid
   parent: BaseItem

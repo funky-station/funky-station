@@ -35,6 +35,10 @@
   - Service
   - Maintenance
   - Reporter
+  alternateTitles:
+  - ReporterInfluencer
+  - ReporterDocumentarian
+  - ReporterMediaCoordinator
 
 - type: startingGear
   id: ReporterGear
@@ -48,3 +52,15 @@
     - TapeRecorder
     - CassetteTape
     - CassetteTape
+
+- type: jobAlternateTitle
+  id: ReporterInfluencer
+  name: job-name-alt-reporter-1
+
+- type: jobAlternateTitle
+  id: ReporterDocumentarian
+  name: job-name-alt-reporter-2
+
+- type: jobAlternateTitle
+  id: ReporterMediaCoordinator
+  name: job-name-alt-reporter-3

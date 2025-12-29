@@ -14,7 +14,8 @@ using Content.Shared.FixedPoint;
 using Content.Shared.Fluids.Components;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
-using Robust.Shared.Containers;
+using Content.Shared.Mind.Components;
+using Robust.Shared.Player;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Physics.Systems;
@@ -59,8 +60,12 @@ public sealed class JuggernautBloodAbsorptionSystem : EntitySystem
 		var query = EntityQueryEnumerator<JuggernautComponent, DamageableComponent>();
 		while (query.MoveNext(out var uid, out var juggernaut, out var damageable))
 		{
+			// Get mob state component once
+			if (!TryComp<MobStateComponent>(uid, out var mobState))
+				continue;
+
 			// Skip if juggernaut is dead (can't heal dead juggernauts)
-			if (TryComp<MobStateComponent>(uid, out var mobState) && mobState.CurrentState == MobState.Dead)
+			if (mobState.CurrentState == MobState.Dead)
 				continue;
 
 			// Check if juggernaut has more than the threshold damage
@@ -68,24 +73,27 @@ public sealed class JuggernautBloodAbsorptionSystem : EntitySystem
 			if (totalDamage <= MinDamageThreshold)
 				continue;
 
-		// Check if juggernaut contains a soulstone or dead body (player inside).
-		// Only heal if there's a player entity in the juggernaut.
-		// Check the component fields directly - these are set to null when ejected, so they're reliable.
-		bool hasPlayer = false;
-		if (juggernaut.SourceSoulstone != null && Exists(juggernaut.SourceSoulstone.Value))
-			hasPlayer = true;
-		else if (juggernaut.SourceBody != null && Exists(juggernaut.SourceBody.Value))
-			hasPlayer = true;
-		
-		// Skip healing if no player entity is present
-		if (!hasPlayer)
-			continue;
+			// Check if juggernaut is in critical state
+			bool isCritical = mobState.CurrentState == MobState.Critical;
+
+			// If juggernaut is critical, only heal if it's player controlled or has AI
+			// If not critical, always allow healing regardless of control
+			if (isCritical)
+			{
+				// Check if juggernaut is player controlled (has ActorComponent) or has a mind (player or AI)
+				bool isControlled = HasComp<ActorComponent>(uid) || 
+				                    (TryComp<MindContainerComponent>(uid, out var mindContainer) && mindContainer.Mind != null);
+				
+				// Skip healing if critical and not controlled
+				if (!isControlled)
+					continue;
+			}
 
 			// Get the puddle at the juggernaut's position
-			// Use a small range to find puddles near the juggernaut (0.5 units should cover the tile)
+			// Use a range to find puddles near the juggernaut (0.6 units to account for juggernauts lying down)
 			var transform = Transform(uid);
 			var coordinates = transform.Coordinates;
-			var puddlesInRange = _lookup.GetEntitiesInRange<PuddleComponent>(coordinates, 0.5f, LookupFlags.Uncontained);
+			var puddlesInRange = _lookup.GetEntitiesInRange<PuddleComponent>(coordinates, 0.6f, LookupFlags.Uncontained);
 			
 			if (puddlesInRange.Count == 0)
 				continue;
@@ -123,15 +131,15 @@ public sealed class JuggernautBloodAbsorptionSystem : EntitySystem
 				continue;
 
 			// Check if the solution contains valid blood reagents. This is the list of reagents that are blood, plus Sanguine Perniculate specifically.
-			var validReagent = FindValidBloodReagent(solution);
-			if (validReagent == null)
+			var (validReagent, reagentId) = FindValidBloodReagent(solution);
+			if (validReagent == null || reagentId == null)
 				continue;
 
 			// Calculate how much to absorb, based on the absorption rate and update interval.
 			var absorbAmount = FixedPoint2.New(AbsorptionRate * UpdateInterval);
-			var reagentId = new ReagentId(validReagent, null);
-			if (absorbAmount > solution.GetReagentQuantity(reagentId))
-				absorbAmount = solution.GetReagentQuantity(reagentId);
+			var reagentQuantity = solution.GetReagentQuantity(reagentId.Value);
+			if (absorbAmount > reagentQuantity)
+				absorbAmount = reagentQuantity;
 
 			if (absorbAmount <= FixedPoint2.Zero)
 				continue;
@@ -139,7 +147,7 @@ public sealed class JuggernautBloodAbsorptionSystem : EntitySystem
 			// Remove the reagent from the puddle using the solution container system
 			if (puddleComp.Solution != null)
 			{
-				_solutionContainer.RemoveReagent(puddleComp.Solution.Value, reagentId, absorbAmount);
+				_solutionContainer.RemoveReagent(puddleComp.Solution.Value, reagentId.Value, absorbAmount);
 			}
 
 			// Heal the juggernaut 1:1 (1 unit blood = 1 unit total healing)
@@ -176,26 +184,34 @@ public sealed class JuggernautBloodAbsorptionSystem : EntitySystem
 	}
 
 	/// <summary>
-	/// Finds a valid blood reagent in the solution. Returns null if none found.
+	/// Finds a valid blood reagent in the solution. Returns (reagent name, ReagentId) if found, (null, null) if none found.
 	/// Valid reagents are those in SacrificeBloodReagents or SanguinePerniculate.
 	/// Prioritizes non-SanguinePerniculate blood types first, then falls back to SanguinePerniculate.
 	/// </summary>
-	private string? FindValidBloodReagent(Solution solution)
+	private (string?, ReagentId?) FindValidBloodReagent(Solution solution)
 	{
+		// Instead of creating new ReagentIds, iterate through the solution and match by prototype
+		// This avoids issues with ReagentId Data field mismatches
+		
 		// Check for any blood reagent in the whitelist first (prioritize regular blood over SanguinePerniculate)
 		foreach (var bloodReagent in BloodCultConstants.SacrificeBloodReagents)
 		{
-			var reagentId = new ReagentId(bloodReagent, null);
-			if (solution.GetReagentQuantity(reagentId) > FixedPoint2.Zero)
-				return bloodReagent;
+			// Find all reagents in solution that match this prototype
+			foreach (var (reagentId, quantity) in solution.Contents)
+			{
+				if (reagentId.Prototype == bloodReagent && quantity > FixedPoint2.Zero)
+					return (bloodReagent, reagentId);
+			}
 		}
 
 		// Fall back to SanguinePerniculate if no other blood types are found
-		var sanguineId = new ReagentId("SanguinePerniculate", null);
-		if (solution.GetReagentQuantity(sanguineId) > FixedPoint2.Zero)
-			return "SanguinePerniculate";
+		foreach (var (reagentId, quantity) in solution.Contents)
+		{
+			if (reagentId.Prototype == "SanguinePerniculate" && quantity > FixedPoint2.Zero)
+				return ("SanguinePerniculate", reagentId);
+		}
 
-		return null;
+		return (null, null);
 	}
 }
 

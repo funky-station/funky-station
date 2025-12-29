@@ -5,7 +5,6 @@
 // SPDX-FileCopyrightText: 2023 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
 // SPDX-FileCopyrightText: 2023 eoineoineoin <github@eoinrul.es>
-// SPDX-FileCopyrightText: 2024 Jajsha <101492056+Zap527@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 LucasTheDrgn <kirbyfan.95@gmail.com>
 // SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
@@ -17,9 +16,11 @@
 // SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 Terkala <appleorange64@gmail.com>
 // SPDX-FileCopyrightText: 2025 ThatOneMoon <91613003+ThatOneMoon@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
 // SPDX-FileCopyrightText: 2025 Tyranex <bobthezombie4@gmail.com>
+// SPDX-FileCopyrightText: 2025 Xcybitt <197952719+Xcybitt@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 // SPDX-FileCopyrightText: 2025 willow <willowzeta632146@proton.me>
@@ -38,7 +39,6 @@ using Content.Shared.Body.Systems;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Chemistry.EntitySystems;
-using Content.Shared.Damage;
 using Content.Shared.Database;
 using Content.Shared.Destructible;
 using Content.Shared.Emag.Components;
@@ -51,6 +51,7 @@ using Content.Shared.Nutrition.EntitySystems;
 using Content.Shared.Power;
 using Content.Shared.Stacks;
 using Robust.Server.GameObjects;
+using Robust.Shared.Containers;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
@@ -70,7 +71,6 @@ public sealed class MaterialReclaimerSystem : SharedMaterialReclaimerSystem
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
     [Dependency] private readonly SharedBodySystem _body = default!; //bobby
-    [Dependency] private readonly DamageableSystem _damageable = default!; //Harmony
     [Dependency] private readonly PuddleSystem _puddle = default!;
     [Dependency] private readonly StackSystem _stack = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
@@ -85,16 +85,22 @@ public sealed class MaterialReclaimerSystem : SharedMaterialReclaimerSystem
         SubscribeLocalEvent<MaterialReclaimerComponent, InteractUsingEvent>(OnInteractUsing,
             before: [typeof(WiresSystem), typeof(SolutionTransferSystem)]);
         SubscribeLocalEvent<MaterialReclaimerComponent, SuicideByEnvironmentEvent>(OnSuicideByEnvironment);
-        SubscribeLocalEvent<ActiveMaterialReclaimerComponent, PowerChangedEvent>(OnActivePowerChanged);
 
         SubscribeLocalEvent<MaterialReclaimerComponent, BreakageEventArgs>(OnBreakage);
         SubscribeLocalEvent<MaterialReclaimerComponent, RepairedEvent>(OnRepaired);
+        SubscribeLocalEvent<MaterialReclaimerComponent, AnchorStateChangedEvent>(OnAnchorChanged);
+    }
+
+    private void OnAnchorChanged(Entity<MaterialReclaimerComponent> entity, ref AnchorStateChangedEvent args)
+    {
+        // Items remain in container when unanchored, processing stops automatically
     }
 
     private void OnPowerChanged(Entity<MaterialReclaimerComponent> entity, ref PowerChangedEvent args)
     {
         AmbientSound.SetAmbience(entity.Owner, entity.Comp.Enabled && args.Powered);
         entity.Comp.Powered = args.Powered;
+        // Items remain in container when power lost, processing stops automatically
         Dirty(entity);
     }
 
@@ -118,7 +124,7 @@ public sealed class MaterialReclaimerSystem : SharedMaterialReclaimerSystem
             }
         }
 
-        args.Handled = TryStartProcessItem(entity.Owner, args.Used, entity.Comp, args.User);
+        args.Handled = TryQueueItem(entity.Owner, args.Used, entity.Comp, args.User);
     }
 
     private void OnSuicideByEnvironment(Entity<MaterialReclaimerComponent> entity, ref SuicideByEnvironmentEvent args)
@@ -148,12 +154,6 @@ public sealed class MaterialReclaimerSystem : SharedMaterialReclaimerSystem
         args.Handled = true;
     }
 
-    private void OnActivePowerChanged(Entity<ActiveMaterialReclaimerComponent> entity, ref PowerChangedEvent args)
-    {
-        if (!args.Powered)
-            TryFinishProcessItem(entity, null, entity.Comp);
-    }
-
     private void OnBreakage(Entity<MaterialReclaimerComponent> ent, ref BreakageEventArgs args)
     {
         //un-emags itself when it breaks
@@ -173,31 +173,50 @@ public sealed class MaterialReclaimerSystem : SharedMaterialReclaimerSystem
 
         _appearance.SetData(ent, RecyclerVisuals.Broken, val);
         SetReclaimerEnabled(ent, false);
+        // Items remain in container when broken, processing stops automatically
 
         ent.Comp.Broken = val;
         Dirty(ent);
     }
 
     /// <inheritdoc/>
-    public override bool TryFinishProcessItem(EntityUid uid, MaterialReclaimerComponent? component = null, ActiveMaterialReclaimerComponent? active = null)
+    public override void Update(float frameTime)
     {
-        if (!Resolve(uid, ref component, ref active, false))
-            return false;
+        base.Update(frameTime);
 
-        if (!base.TryFinishProcessItem(uid, component, active))
-            return false;
+        var query = EntityQueryEnumerator<MaterialReclaimerComponent>();
+        while (query.MoveNext(out var uid, out var component))
+        {
+            // Skip if not powered, enabled, or broken
+            if (!component.Powered || !component.Enabled || component.Broken)
+                continue;
 
-        if (active.ReclaimingContainer.ContainedEntities.FirstOrNull() is not { } item)
-            return false;
+            // Process items one at a time immediately
+            while (component.ProcessingQueue.Count > 0)
+            {
+                var item = component.ProcessingQueue[0];
+                component.ProcessingQueue.RemoveAt(0);
 
-        Container.Remove(item, active.ReclaimingContainer);
-        Dirty(uid, component);
+                // Skip if item was deleted while in queue
+                if (!Exists(item))
+                    continue;
 
-        // scales the output if the process was interrupted.
-        var completion = 1f; //funkystation fix dupe bug
-        Reclaim(uid, item, completion, component);
+                var queueContainer = Container.EnsureContainer<Container>(uid, MaterialReclaimerComponent.QueueContainerId);
+                
+                // If item is no longer in container (shouldn't happen, but handle gracefully)
+                if (!queueContainer.Contains(item))
+                    continue;
 
-        return true;
+                if (Container.Remove(item, queueContainer))
+                {
+                    Reclaim(uid, item, 1f, component);
+                }
+
+                Dirty(uid, component);
+                // Only process one item per frame
+                break;
+            }
+        }
     }
 
     /// <inheritdoc/>
@@ -209,28 +228,34 @@ public sealed class MaterialReclaimerSystem : SharedMaterialReclaimerSystem
         if (!Resolve(uid, ref component))
             return;
 
+        // Allow systems to intercept processing (e.g., robotics factory conversion).
+        var processEvent = new MaterialReclaimerProcessEntityEvent(item);
+        RaiseLocalEvent(uid, processEvent);
+        if (processEvent.Handled)
+        {
+            return;
+        }
+
         base.Reclaim(uid, item, completion, component);
 
         var xform = Transform(uid);
 
         SpawnMaterialsFromComposition(uid, item, completion * component.Efficiency, xform: xform);
 
-        if (CanRecycleMob(uid, item, component))
+        if (CanGib(uid, item, component))
         {
-            // Harmony - Recycler now deals damage instead of gibbing.
-            if (component.Damage == null)
-                return;
-
-            _damageable.TryChangeDamage(item, component.Damage, true);
-            _adminLogger.Add(LogType.Damaged, LogImpact.Medium, $"{ToPrettyString(item):victim} was recycled by {ToPrettyString(uid):entity}, dealing {component.Damage.GetTotal()} damage.");
+            var logImpact = HasComp<HumanoidAppearanceComponent>(item) ? LogImpact.Extreme : LogImpact.Medium;
+            _adminLogger.Add(LogType.Gib, logImpact, $"{ToPrettyString(item):victim} was gibbed by {ToPrettyString(uid):entity} ");
+            SpawnChemicalsFromComposition(uid, item, completion, false, component, xform);
+            _body.GibBody(item, true);
             _appearance.SetData(uid, RecyclerVisuals.Bloody, true);
         }
         else
         {
             SpawnChemicalsFromComposition(uid, item, completion, true, component, xform);
-            QueueDel(item);
         }
 
+        QueueDel(item);
     }
 
     private void SpawnMaterialsFromComposition(EntityUid reclaimer,
@@ -246,9 +271,12 @@ public sealed class MaterialReclaimerSystem : SharedMaterialReclaimerSystem
         if (!Resolve(item, ref composition, false))
             return;
 
+        // If more of these checks are needed, use an event instead
+        var modifier = CompOrNull<StackComponent>(item)?.Count ?? 1.0f;
+
         foreach (var (material, amount) in composition.MaterialComposition)
         {
-            var outputAmount = (int) (amount * efficiency);
+            var outputAmount = (int) (amount * efficiency* modifier);
             _materialStorage.TryChangeMaterialAmount(reclaimer, material, outputAmount, storage);
         }
 

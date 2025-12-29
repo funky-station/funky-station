@@ -3,7 +3,7 @@
 // SPDX-FileCopyrightText: 2025 kbarkevich <24629810+kbarkevich@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
-// SPDX-License-Identifier: AGPL-3.0-or-later OR MIT
+// SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
 using Robust.Shared.Random;
 using Robust.Shared.Prototypes;
@@ -387,29 +387,22 @@ public sealed partial class CultistSpellSystem : EntitySystem
 		if (!TryUseAbility(ent, args))
 			return;
 
+		args.Handled = true;
+
+		// Mindshield protects from nocturine injection, but still stuns briefly
+		if (HasComp<MindShieldComponent>(target))
+		{
+			// Stun the target briefly - this will make them drop prone and drop items
+			_stun.TryKnockdown(target, TimeSpan.FromSeconds(3), true);
+			return;
+		}
+
 		float empDamage = 5000f;  // EMP damage for borgs/IPCs
 		float empDuration = 12f;  // EMP duration in seconds
 		int selfStunTime = 4;
 
-		args.Handled = true;
-
-		// Mindshield repels cult magic with technology
-		if (HasComp<MindShieldComponent>(target))
-		{
-			_popup.PopupEntity(
-					Loc.GetString("cult-spell-repelled-mindshield"),
-					ent, ent, PopupType.MediumCaution
-				);
-			_popup.PopupEntity(
-					Loc.GetString("cult-spell-mindshield-buzzing"),
-					target, target, PopupType.Medium
-				);
-			_audioSystem.PlayPvs(new SoundPathSpecifier("/Audio/Effects/sparks1.ogg"), Transform(ent).Coordinates);
-			// Knock down the cultist who cast the spell. Might need balancing
-			_stun.TryKnockdown(ent, TimeSpan.FromSeconds(selfStunTime), true);
-		}
 		// Holy protection repels cult magic
-		else if (HasComp<CultResistantComponent>(target))
+		if (HasComp<CultResistantComponent>(target))
 		{
 			_popup.PopupEntity(
 					Loc.GetString("cult-spell-repelled"),
@@ -434,6 +427,14 @@ public sealed partial class CultistSpellSystem : EntitySystem
 			// Apply EMP damage directly to the borg's battery
 			_emp.DoEmpEffects((EntityUid)borgBatteryUid, empDamage, empDuration);
 			_statusEffect.TryAddStatusEffect<MutedComponent>(target, "Muted", TimeSpan.FromSeconds(empDuration), false);
+		}
+		else if (HasComp<JuggernautComponent>(target))
+		{
+			// Juggernauts are immune to sanguine dream (they have no bloodstream)
+			_popup.PopupEntity(
+				Loc.GetString("cult-spell-fail"),
+				ent, ent, PopupType.MediumCaution
+			);
 		}
 		else if (TryComp<BloodstreamComponent>(target, out var bloodstream))
 		{

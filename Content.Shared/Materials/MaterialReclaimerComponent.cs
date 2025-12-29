@@ -3,16 +3,16 @@
 // SPDX-FileCopyrightText: 2023 Pieter-Jan Briers <pieterjan.briers@gmail.com>
 // SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
 // SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Jajsha <101492056+Zap527@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 LucasTheDrgn <kirbyfan.95@gmail.com>
 // SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
 // SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 Terkala <appleorange64@gmail.com>
+// SPDX-FileCopyrightText: 2025 Xcybitt <197952719+Xcybitt@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
 // SPDX-License-Identifier: MIT
 
-using Content.Shared.Damage;
 using Content.Shared.Whitelist;
 using JetBrains.Annotations;
 using Robust.Shared.Audio;
@@ -139,12 +139,16 @@ public sealed partial class MaterialReclaimerComponent : Component
     [DataField, AutoNetworkedField]
     public int ItemsProcessed;
 
-    [DataField]
+    /// <summary>
+    /// Container ID for the processing queue container.
+    /// </summary>
+    public const string QueueContainerId = "material-reclaimer-queue-container";
 
     /// <summary>
-    /// The damage the recycler will deal to creatures.
+    /// Queue of items waiting to be processed.
     /// </summary>
-    public DamageSpecifier? Damage = default!;
+    [DataField]
+    public List<EntityUid> ProcessingQueue = new();
 }
 
 [NetSerializable, Serializable]

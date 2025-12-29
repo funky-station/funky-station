@@ -6,6 +6,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later OR MIT
 
 using System;
+using System.Linq;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Maths;
@@ -70,7 +71,10 @@ using Robust.Shared.Console;
 using Content.Server.Administration;
 using Content.Shared.Administration;
 using Content.Shared.Speech;
+using Content.Server.Speech.Components;
 using Content.Shared.Emoting;
+using Content.Shared.Actions;
+using Robust.Shared.GameObjects;
 
 namespace Content.Server.GameTicking.Rules;
 
@@ -174,6 +178,8 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 	[Dependency] private readonly BloodCultMindShieldSystem _mindShield = default!;
 	[Dependency] private readonly SleepingSystem _sleeping = default!;
 	[Dependency] private readonly IPrototypeManager _proto = default!;
+	[Dependency] private readonly SharedActionsSystem _action = default!;
+	[Dependency] private readonly SharedPointLightSystem _pointLight = default!;
 
 	public readonly string CultComponentId = "BloodCultist";
 
@@ -306,6 +312,9 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 				_cultistSpell.AddSpell(traitor, cultist, (ProtoId<CultAbilityPrototype>) "Commune", recordKnownSpell:false);
 				_cultistSpell.AddSpell(traitor, cultist, (ProtoId<CultAbilityPrototype>) "StudyVeil", recordKnownSpell:false);
 				_cultistSpell.AddSpell(traitor, cultist, (ProtoId<CultAbilityPrototype>) "SpellsSelect", recordKnownSpell:false);
+				
+				// Give them the Summon Dagger spell pre-prepared (bypasses DoAfter requirement)
+				_action.AddAction(traitor, "ActionCultistSummonDagger");
 
 				// propogate the selected Nar'Sie summon location
 				// Enable Tear Veil rune if stage 2 (HasRisen) or later has been reached
@@ -316,8 +325,15 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 			if (component.HasEyes)
 			{
 				// Ensure AppearanceComponent exists before setting eyes visual
+				// Only enable eyes if the body has an attached head
 				var appearance = EnsureComp<AppearanceComponent>(traitor);
-				_appearance.SetData(traitor, CultEyesVisuals.CultEyes, true, appearance);
+				var hasHead = false;
+				if (TryComp<BodyComponent>(traitor, out var body))
+				{
+					var head = _body.GetBodyChildrenOfType(traitor, BodyPartType.Head, body).FirstOrDefault();
+					hasHead = head.Id != EntityUid.Invalid;
+				}
+				_appearance.SetData(traitor, CultEyesVisuals.CultEyes, hasHead, appearance);
 			}
 
 			if (component.VeilWeakened)
@@ -325,6 +341,7 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 				// Ensure AppearanceComponent exists before setting halo visual
 				var appearance = EnsureComp<AppearanceComponent>(traitor);
 				_appearance.SetData(traitor, CultHaloVisuals.CultHalo, true, appearance);
+				UpdateCultHaloLight(traitor, true);
 			}
 
 			_npcFaction.RemoveFaction(traitor, NanotrasenFactionId, false);
@@ -486,6 +503,12 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 				if (!_appearance.TryGetData<bool>(cultistUid, CultHaloVisuals.CultHalo, out var haloValue, appearance) || !haloValue)
 				{
 					_appearance.SetData(cultistUid, CultHaloVisuals.CultHalo, true, appearance);
+					UpdateCultHaloLight(cultistUid, true);
+				}
+				else
+				{
+					// Ensure light is present even if halo was already set
+					UpdateCultHaloLight(cultistUid, true);
 				}
 			}
 
@@ -582,6 +605,14 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 		{
 			component.CultVictoryAnnouncementPlayed = true;
 			component.CultVictoryEndTime = null;
+			
+			// Play the cult win announcement before ending the round
+			_chat.DispatchGlobalAnnouncement(
+				Loc.GetString("cult-win-announcement"),
+				"Central Command",
+				colorOverride: Color.Gold
+			);
+			
 			_roundEnd.EndRound();
 			return;
 		}
@@ -599,12 +630,11 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
         base.AppendRoundEndText(uid, component, gameRule, ref args);
 
         var sessionData = _antag.GetAntagIdentifiers(uid);
-		var cultists = GetCultists();
 		if (component.CultistsWin)
 			args.AddLine(Loc.GetString("cult-roundend-victory"));
 		else
 			args.AddLine(Loc.GetString("cult-roundend-failure"));
-		args.AddLine(Loc.GetString("cult-roundend-count", ("count", cultists.Count.ToString())));
+		args.AddLine(Loc.GetString("cult-roundend-count", ("count", component.TotalConversions.ToString())));
 		args.AddLine(Loc.GetString("cult-roundend-sacrifices", ("sacrifices", component.TotalSacrifices.ToString())));
     }
 
@@ -782,13 +812,41 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 		if (mindId != null && mindComp != null)
 		{
 			var coordinates = Transform(uid).Coordinates;
+			
+			// Check if the victim is Hamlet to spawn hamstone instead of soulstone
+			// Get speech component and accent component BEFORE gibbing the body
+			var victimMeta = MetaData(uid);
+			var isHamlet = victimMeta.EntityPrototype?.ID == "MobHamsterHamlet";
+			SpeechComponent? victimSpeech = null;
+			ReplacementAccentComponent? victimAccent = null;
+			if (isHamlet)
+			{
+				TryComp<SpeechComponent>(uid, out victimSpeech);
+				TryComp<ReplacementAccentComponent>(uid, out victimAccent);
+			}
+			
 			_audio.PlayPvs(new SoundPathSpecifier("/Audio/Magic/disintegrate.ogg"), coordinates);
+			var soulstonePrototype = isHamlet ? "CultHamstone" : "CultSoulStone";
+			
 			_body.GibBody(uid, true);
-			var soulstone = Spawn("CultSoulStone", coordinates);
+			var soulstone = Spawn(soulstonePrototype, coordinates);
 			_mind.TransferTo((EntityUid)mindId, soulstone, mind:mindComp);
 			
-			// Ensure the soulstone can speak but not move
-			EnsureComp<SpeechComponent>(soulstone);
+			// Preserve speech component and speech restrictions (ReplacementAccentComponent) from Hamlet if applicable
+			if (isHamlet && victimSpeech != null)
+			{
+				CopyComp(uid, soulstone, victimSpeech);
+				// Copy ReplacementAccentComponent if it exists (preserves speech restrictions like cognizine requirement)
+				if (victimAccent != null)
+				{
+					CopyComp(uid, soulstone, victimAccent);
+				}
+			}
+			else
+			{
+				// Ensure the soulstone can speak but not move
+				EnsureComp<SpeechComponent>(soulstone);
+			}
 			EnsureComp<EmotingComponent>(soulstone);
 		
 		// Give the soulstone a physics push for visual effect
@@ -856,6 +914,9 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 		MakeCultist(uid, component);
 		_rejuvenate.PerformRejuvenate(uid);
 		
+		// Increment conversion counter
+		component.TotalConversions++;
+		
 		// Wake up sleeping players 
 		if (TryComp<SleepingComponent>(uid, out var sleeping))
 		{
@@ -894,17 +955,53 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 			return;
 
 		// Apply eyes visual if stage 1 (HasEyes) or later has been reached
+		// But only if the body has an attached head
 		if (ruleComp.HasEyes)
 		{
-			_appearance.SetData(uid, CultEyesVisuals.CultEyes, true, appearance);
+			var hasHead = false;
+			if (TryComp<BodyComponent>(uid, out var body))
+			{
+				var head = _body.GetBodyChildrenOfType(uid, BodyPartType.Head, body).FirstOrDefault();
+				hasHead = head.Id != EntityUid.Invalid;
+			}
+			_appearance.SetData(uid, CultEyesVisuals.CultEyes, hasHead, appearance);
 		}
 
 		// Apply halo visual if stage 3 (VeilWeakened) has been reached
 		if (ruleComp.VeilWeakened)
 		{
 			_appearance.SetData(uid, CultHaloVisuals.CultHalo, true, appearance);
+			UpdateCultHaloLight(uid, true);
 		}
 	}
+
+	private void UpdateCultEyesBasedOnHead(EntityUid bodyUid)
+	{
+		// Only process for cultists
+		if (!TryComp<BloodCultistComponent>(bodyUid, out _))
+			return;
+
+		// Check if we have an active rule to get stage information
+		if (!TryGetActiveRule(out var ruleComp) || !ruleComp.HasEyes)
+			return;
+
+		// Check if body has an attached head
+		// How they got this far without a head is questionable
+		var hasHead = false;
+		if (TryComp<BodyComponent>(bodyUid, out var body))
+		{
+			var head = _body.GetBodyChildrenOfType(bodyUid, BodyPartType.Head, body).FirstOrDefault();
+			hasHead = head.Id != EntityUid.Invalid;
+		}
+
+		// Update eyes visual based on whether head exists
+		if (TryComp<AppearanceComponent>(bodyUid, out var appearance))
+		{
+			_appearance.SetData(bodyUid, CultEyesVisuals.CultEyes, hasHead, appearance);
+		}
+	}
+
+
 
 	private void CheckCultistCountAndCallEvac()
 	{
@@ -1098,7 +1195,14 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 		{
 			if (EntityManager.TryGetComponent(cultist, out AppearanceComponent? appearance))
 			{
-				_appearance.SetData(cultist, CultEyesVisuals.CultEyes, true, appearance);
+				// Only enable eyes if the body has an attached head
+				var hasHead = false;
+				if (TryComp<BodyComponent>(cultist, out var body))
+				{
+					var head = _body.GetBodyChildrenOfType(cultist, BodyPartType.Head, body).FirstOrDefault();
+					hasHead = head.Id != EntityUid.Invalid;
+				}
+				_appearance.SetData(cultist, CultEyesVisuals.CultEyes, hasHead, appearance);
 			}
 		}
 	}
@@ -1119,6 +1223,29 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 			// This ensures halos are added even if the component is added later
 			var appearance = EnsureComp<AppearanceComponent>(cultist);
 			_appearance.SetData(cultist, CultHaloVisuals.CultHalo, true, appearance);
+			UpdateCultHaloLight(cultist, true);
+		}
+	}
+
+	/// <summary>
+	/// Updates the point light for cultists with halos. Adds a bright red light with small radius when halo is active.
+	/// </summary>
+	private void UpdateCultHaloLight(EntityUid uid, bool hasHalo)
+	{
+		if (hasHalo)
+		{
+			var light = _pointLight.EnsureLight(uid);
+			// Set enabled first to ensure the light is active
+			_pointLight.SetEnabled(uid, true, light);
+			// Then set the visual properties - make it bright and visible
+			_pointLight.SetColor(uid, new Color(255, 0, 0), light); // Bright red
+			_pointLight.SetEnergy(uid, 3.0f, light); // Bright
+			_pointLight.SetRadius(uid, 1.0f, light); // Small but visible radius
+		}
+		else
+		{
+			// Remove the light if halo is disabled
+			_pointLight.RemoveLightDeferred(uid);
 		}
 	}
 
@@ -1210,22 +1337,27 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 		{
 			currentPhase = "Eyes";
 			nextThreshold = component.BloodRequiredForEyes;
-			bloodNeeded = nextThreshold - currentBlood;
+			bloodNeeded = Math.Max(0.0, nextThreshold - currentBlood);
 		}
 		else if (!component.HasRisen)
 		{
 			currentPhase = "Rise";
 			nextThreshold = component.BloodRequiredForRise;
-			bloodNeeded = nextThreshold - currentBlood;
+			bloodNeeded = Math.Max(0.0, nextThreshold - currentBlood);
 		}
 		else if (!component.VeilWeakened)
 		{
 			// Stage 2 complete - need to do Tear Veil ritual
+			currentPhase = "Rise";
 			nextThreshold = component.BloodRequiredForRise;
+			bloodNeeded = 0.0; // Stage is complete
 			
-			string message = Loc.GetString("cult-blood-progress-stage-complete",
-				("bloodCollected", Math.Round(currentBlood, 1).ToString()),
-				("totalRequired", Math.Round(nextThreshold, 1).ToString()));
+			string message = Loc.GetString("cult-blood-progress",
+				("bloodCollected", Math.Round(currentBlood, 1)),
+				("bloodNeeded", Math.Round(bloodNeeded, 1)),
+				("nextPhase", currentPhase),
+				("totalRequired", Math.Round(nextThreshold, 1)),
+				("isComplete", true));
 			
 			// Show Tear Veil locations if they exist
 			if (component.WeakVeil1 != null && component.WeakVeil2 != null && component.WeakVeil3 != null)
@@ -1245,11 +1377,16 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 		else
 		{
 			// Stage 3 - Veil is weakened, need to do final summoning
+			currentPhase = "Veil";
 			nextThreshold = component.BloodRequiredForVeil;
+			bloodNeeded = 0.0; // Stage is complete
 			
-			string message = Loc.GetString("cult-blood-progress-stage-complete",
-				("bloodCollected", Math.Round(currentBlood, 1).ToString()),
-				("totalRequired", Math.Round(nextThreshold, 1).ToString()));
+			string message = Loc.GetString("cult-blood-progress",
+				("bloodCollected", Math.Round(currentBlood, 1)),
+				("bloodNeeded", Math.Round(bloodNeeded, 1)),
+				("nextPhase", currentPhase),
+				("totalRequired", Math.Round(nextThreshold, 1)),
+				("isComplete", true));
 			message += "\n" + Loc.GetString(
 				component.BloodAnomalySpawned
 					? "cult-blood-progress-final-summon-ready"
@@ -1266,11 +1403,13 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 			return message;
 		}
 
+		bool isComplete = bloodNeeded <= 0.05; // Account for rounding precision
 		return Loc.GetString("cult-blood-progress",
-			("bloodCollected", Math.Round(currentBlood, 1).ToString()),
-			("bloodNeeded", Math.Round(bloodNeeded, 1).ToString()),
+			("bloodCollected", Math.Round(currentBlood, 1)),
+			("bloodNeeded", Math.Round(bloodNeeded, 1)),
 			("nextPhase", currentPhase),
-			("totalRequired", Math.Round(nextThreshold, 1).ToString()));
+			("totalRequired", Math.Round(nextThreshold, 1)),
+			("isComplete", isComplete));
 	}
 
 	// private bool TryGetRiftDirectionMessage(EntityUid cultistUid, WeakVeilLocation location, out string message)
@@ -1380,7 +1519,7 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 	}
 
 	/// <summary>
-	/// Announces Nar'Sie's summon to the entire station and triggers end-game events.
+	/// Sets the win condition when Nar'Sie is summoned.
 	/// </summary>
 	public void AnnounceNarsieSummon()
 	{
@@ -1389,12 +1528,6 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 		{
 			ruleComp.CultistsWin = true;
 			ruleComp.CultVictoryEndTime = _timing.CurTime + ruleComp.CultVictoryEndDelay;
-
-			// Station-wide announcement
-			_chat.DispatchGlobalAnnouncement(
-				Loc.GetString("cult-narsie-spawning"),
-				colorOverride: Color.DarkRed
-			);
 
 			return;
 		}

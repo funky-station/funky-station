@@ -54,13 +54,13 @@ Your bread-and-butter as a cultist are your [color=#ff6666]Runes.[/color] These 
 
 [color=#ff6666]Runes[/color] can be drawn at your feet by activating a cult dagger in your hand, selecting a rune from the radial menu that appears, and then using the dagger on yourself. Beware -- this will hurt.
 
-The most important runes you have available are the [color=#ff6666]offering rune[/color] and the [color=#ff6666]empowering rune[/color]. With these runes placed in a safe location, cultists may begin enacting [color=#dd55aa]the will of their mistress[/color].
+The most important runes you have available are the [color=#ff6666]conversion rune[/color] and the [color=#ff6666]empowering rune[/color]. With these runes placed in a safe location, cultists may begin enacting [color=#dd55aa]the will of their mistress[/color].
 
   <Box>
-    <GuideEntityEmbed Entity="OfferingRune" Caption="offering rune"/>
+    <GuideEntityEmbed Entity="OfferingRune" Caption="conversion rune"/>
   </Box>
 
-The [bold][color=#ff6666]offering rune[/color][/bold] allows cultists to convert the weak-minded to their cause. Once the [color=#ff3333]Geometer[/color] has risen, her power can destroy mental protections on those offered to her.
+The [bold][color=#ff6666]conversion rune[/color][/bold] allows cultists to convert the weak-minded to their cause. Once the [color=#ff3333]Geometer[/color] has risen, her power can destroy mental protections on those offered to her. This rune can also be used on brains, posibrains, and borgs to trap their souls in crystalized blood, to better serve Nar'Sie.
 - [color=#EEEE33]Converting[/color] a living, weak-minded individual to your cause -- an individual who is not mindshielded, not a Chaplain.
 - [color=#99CC99]Breaking[/color] the mindshield of their mental protections can only be done if the [color=#ff3333]Geometer[/color] has risen.
 
@@ -105,9 +105,9 @@ The summon dagger spell allows a cultist to instantly grant themselves a weapon 
     <GuideEntityEmbed Entity="ActionCultistSanguineDream" Caption="Sanguine Dream"/>
   </Box>
 
-The Sanguine Dream spell plunges a victim into a nightmare-filled sleep where they dream of blood-soaked knives. This also drains energy from cybernetic entities. This does not work on those with a mindshield.
+The Sanguine Dream spell plunges a victim into a nightmare-filled sleep where they dream of blood-soaked knives. This also drains energy from cybernetic entities. Those with a mindshield will be briefly stunned instead of being put to sleep.
 
-This spell may permit you to silently and more efficiently kidnap those your cult requires. It will not work on those whos minds are shielded. It is recommended that all cultists keep a Sanguine Dream spell prepared when roaming beyond their selected base of operations, [bold]just in case.[/bold]
+This spell may permit you to silently and more efficiently kidnap those your cult requires. Those with mindshields will be briefly stunned, making them drop prone and drop any items they are holding. It is recommended that all cultists keep a Sanguine Dream spell prepared when roaming beyond their selected base of operations, [bold]just in case.[/bold]
 
   <Box>
     <GuideEntityEmbed Entity="ActionCultistTwistedConstruction" Caption="Twisted Construction"/>
@@ -176,7 +176,7 @@ Once the veil is torn, the geometer will begin her journey to this plane of exis
 
 This will manifest in our reality as a bloody tear. Find this tear and perform the final ritual breaking through the walls of reality.
 
-You will need several cultists to stand on the offering runes and perform the final ritual. If the runes have been wiped away, you can redraw them.
+You will need several cultists to stand on the final rune and perform the final ritual. If the runes have been wiped away, you can redraw them.
 
 This final ritual will incur a dark cost on the cultists performing it, but will end with her glorious return.
 

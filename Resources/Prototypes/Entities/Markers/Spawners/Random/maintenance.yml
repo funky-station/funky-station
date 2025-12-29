@@ -322,6 +322,8 @@
           weight: 0.25
         - id: MaterialWoodPlank10
           weight: 0.25
+        - id: SheetBrass10 # Funkystation
+          weight: 0.25
       - id: Plunger
       - id: PowerCellMedium
       - id: PowerCellSmall

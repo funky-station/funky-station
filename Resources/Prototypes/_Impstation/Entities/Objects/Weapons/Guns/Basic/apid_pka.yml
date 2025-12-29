@@ -17,16 +17,22 @@
     sprite: _Impstation/Objects/Weapons/Guns/Basic/apid_kinetic_accelerator.rsi
     size: Small
     storedRotation: -90
+  - type: GunWieldBonus
+    minAngle: -43
+    maxAngle: -43
   - type: Wieldable
   - type: Gun
-    fireRate: 4 # imp: 0.5 -> 4, fire rate handled with recharge instead
+    fireRate: 0.5
     selectedMode: SemiAuto
+    angleDecay: 45
+    minAngle: 44
+    maxAngle: 45
     availableModes:
     - SemiAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/kinetic_accel.ogg
-    soundEmpty: # imp edit
-      path: /Audio/_Impstation/Weapons/Guns/Empty/dry_fire.ogg
+    soundEmpty:
+      path: /Audio/Weapons/Guns/MagIn/kinetic_reload.ogg
   - type: AmmoCounter
   - type: Appearance
   - type: RechargeBasicEntityAmmo
@@ -39,28 +45,3 @@
     count: 1
   - type: UseDelay
     delay: 1
-
-  - type: MeleeWeapon #weapon melee
-    range: 0.8
-    attackRate: 0.6
-    damage:
-      types:
-        Blunt: 5
-    soundHit:
-      collection: WeakHit
-    soundSwing:
-      path: /Audio/_Impstation/Weapons/Guns/Melee/shove_foley.ogg
-    resetOnHandSelected: false
-  - type: AltFireMelee
-    attackType: Heavy
-  - type: DamageOtherOnHit #for throwing
-    staminaCost: 10
-    damage:
-      types:
-        Blunt: 8
-  - type: StaminaDamageOnHit
-    damage: 10 #slight stagger, but still like 10 hits to stun completely
-  - type: MeleeRequiresWield
-  - type: MeleeThrowOnHit
-    distance: 0.8
-    speed: 5

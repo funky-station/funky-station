@@ -26,7 +26,6 @@
     sprite: _Impstation/Objects/Storage/Lunchboxes/lunchboxapid.rsi
   - type: Tag
     tags:
-    - DroneUsable
     - Toolbox
   - type: GenericVisualizer
     visuals:

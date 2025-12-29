@@ -179,13 +179,11 @@
   id: JobChaplain
   groups:
   - ChaplainHead
-  - ChaplainEyes # imp
   - ChaplainMask
   - ChaplainNeck
   - ChaplainJumpsuit
   - CommonBackpack
   - ChaplainOuterClothing
-  - ChaplainBelt # imp
   - GenericShoes # funky
   - Glasses
   - Survival

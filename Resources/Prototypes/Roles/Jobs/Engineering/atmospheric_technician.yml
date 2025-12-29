@@ -51,6 +51,8 @@
   - !type:GiveItemOnHolidaySpecial
     holiday: FirefighterDay
     prototype: FireAxe
+  alternateTitles:
+  - AtmosphericTechnicianFirefighter
 
 - type: startingGear
   id: AtmosphericTechnicianGear
@@ -71,3 +73,7 @@
     neck: ClothingNeckScarfStripedLightBlue
     outerClothing: ClothingOuterSuitAtmosFire
     gloves: ClothingHandsGlovesColorYellow
+
+- type: jobAlternateTitle
+  id: AtmosphericTechnicianFirefighter
+  name: job-name-alt-atmos-1

@@ -51,6 +51,11 @@
   - External
   extendedAccess:
   - Atmospherics
+  alternateTitles:
+  - StationEngineerMaintenanceTechnician
+  - StationEngineerMechanic
+  - StationEngineerElectrician
+  - StationEngineerEngineOperator
 
 - type: startingGear
   id: StationEngineerGear
@@ -71,3 +76,20 @@
     outerClothing: ClothingOuterWinterEngi
     gloves: ClothingHandsGlovesColorYellow
     shoes: ClothingShoesBootsMag
+
+- type: jobAlternateTitle
+  id: StationEngineerMaintenanceTechnician
+  name: job-name-alt-engineer-1
+
+- type: jobAlternateTitle
+  id: StationEngineerMechanic
+  name: job-name-alt-engineer-2
+
+- type: jobAlternateTitle
+  id: StationEngineerElectrician
+  name: job-name-alt-engineer-3
+
+- type: jobAlternateTitle
+  id: StationEngineerEngineOperator
+  name: job-name-alt-engineer-4
+

@@ -28,6 +28,7 @@
 # SPDX-FileCopyrightText: 2024 Errant <35878406+Errant-4@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Mr. 27 <45323883+Dutch-VanDerLinde@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 MaiaArai <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
@@ -48,6 +49,10 @@
   extendedAccess:
   - Hydroponics
   - Bar
+  alternateTitles:
+  - ChefSousChef
+  - ChefLineCook
+  - ChefCaterer
 
 - type: startingGear
   id: ChefGear
@@ -70,3 +75,15 @@
     outerClothing: ClothingOuterJacketChef
     gloves: ClothingHandsGlovesColorWhite
     shoes: ClothingShoesChef
+
+- type: jobAlternateTitle
+  id: ChefSousChef
+  name: job-name-alt-chef-1
+
+- type: jobAlternateTitle
+  id: ChefLineCook
+  name: job-name-alt-chef-2
+
+- type: jobAlternateTitle
+  id: ChefCaterer
+  name: job-name-alt-chef-3

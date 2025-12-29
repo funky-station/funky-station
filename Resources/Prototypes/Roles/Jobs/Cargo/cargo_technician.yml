@@ -56,6 +56,10 @@
   - !type:GiveItemOnHolidaySpecial
     holiday: BoxingDay
     prototype: BoxCardboard
+  alternateTitles:
+  - CargoTechnicianCourier
+  - CargoTechnicianPilot
+  - CargoTechnicianClerk
 
 - type: startingGear
   id: CargoTechGear
@@ -76,3 +80,15 @@
     outerClothing: ClothingOuterWinterCargo
     neck: ClothingNeckScarfStripedBrown
     gloves: ClothingHandsGlovesFingerless
+
+- type: jobAlternateTitle
+  id: CargoTechnicianCourier
+  name: job-name-alt-cargotech-1
+
+- type: jobAlternateTitle
+  id: CargoTechnicianPilot
+  name: job-name-alt-cargotech-2
+
+- type: jobAlternateTitle
+  id: CargoTechnicianClerk
+  name: job-name-alt-cargotech-3

@@ -58,6 +58,7 @@
 # SPDX-FileCopyrightText: 2024 degradka <69397649+degradka@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 wafehling <wafehling@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 SharkSnake98 <sharksnake87@gmail.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
@@ -573,3 +574,78 @@
     tags:
     - Wine
     - DrinkCan
+
+- type: entity
+  parent: DrinkCanBaseFull
+  id: DrinkHakkaMateCan
+  name: hakka mate can
+  description: A bright orange can of hakka mate, a form of yerba-mate soda popular on mars!
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: HakkaMate
+          Quantity: 30
+      grindable:
+        reagents:
+        - ReagentId: Aluminium
+          Quantity: 4
+        - ReagentId: Iron
+          Quantity: 1
+  - type: Drink
+  - type: Sprite
+    sprite: Objects/Consumable/Drinks/hakkamate_can.rsi
+  - type: Item
+    sprite: Objects/Consumable/Drinks/hakkamate_can.rsi
+
+- type: entity
+  parent: DrinkCanBaseFull
+  id: DrinkMelonSodaCan
+  name: katsuga melon soda can
+  description: A can of katsuna melon soda. Has the distinct taste of melon and soda, unsurprisingly.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: MelonSoda
+          Quantity: 30
+      grindable:
+        reagents:
+        - ReagentId: Aluminium
+          Quantity: 4
+        - ReagentId: Iron
+          Quantity: 1
+  - type: Drink
+  - type: Sprite
+    sprite: Objects/Consumable/Drinks/melonsoda_can.rsi
+  - type: Item
+    sprite: Objects/Consumable/Drinks/melonsoda_can.rsi
+
+- type: entity
+  parent: DrinkCanBaseFull
+  id: Drink24VoltEnergySodaCan
+  name: 24 Volt Energy can
+  description: A can of 24 volt energy. Has a certain battery-acid taste to it which can't be beat.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: 24VoltEnergy
+          Quantity: 30
+      grindable:
+        reagents:
+        - ReagentId: Aluminium
+          Quantity: 4
+        - ReagentId: Iron
+          Quantity: 1
+  - type: Drink
+  - type: Sprite
+    sprite: Objects/Consumable/Drinks/24voltenergy.rsi
+  - type: Item
+    sprite: Objects/Consumable/Drinks/24voltenergy.rsi

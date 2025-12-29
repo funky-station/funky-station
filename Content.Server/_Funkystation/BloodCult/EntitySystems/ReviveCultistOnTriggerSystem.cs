@@ -1,7 +1,7 @@
 // SPDX-FileCopyrightText: 2025 Skye <57879983+Rainbeon@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Terkala <appleorange64@gmail.com>
 // SPDX-FileCopyrightText: 2025 kbarkevich <24629810+kbarkevich@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
-// SPDX-FileCopyrightText: 2025 Terkala <appleorange64@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later OR MIT
 
@@ -24,6 +24,7 @@ using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Mobs.Systems;
+using Content.Shared.Mobs.Components;
 using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
 using Content.Server.Body.Systems;
@@ -45,7 +46,7 @@ namespace Content.Server.BloodCult.EntitySystems
 
 		[Dependency] private readonly EntityLookupSystem _lookup = default!;
 		[Dependency] private readonly MobStateSystem _mobState = default!;
-		[Dependency] private readonly BloodstreamSystem _bloodstream = default!;
+		[Dependency] private readonly MobThresholdSystem _mobThreshold = default!;
 		[Dependency] private readonly BloodCultRuleSystem _bloodCultRule = default!;
 		[Dependency] private readonly RejuvenateSystem _rejuvenate = default!;
 		[Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
@@ -92,28 +93,26 @@ namespace Content.Server.BloodCult.EntitySystems
 			}
 		}
 
-			// Make the invoker bleed heavily (10u bleed amount)
-			if (TryComp<BloodstreamComponent>(user, out var invokerBloodstream))
-			{
-				_bloodstream.TryModifyBleedAmount(user, 10.0f);
-			}
-
-			// Revive the entity
+			// Revive the entity (no health cost to the user)
 			_rejuvenate.PerformRejuvenate(look);
 
 			// Apply different conditions based on cultist status
 			if (isCultist)
 			{
-				// Cultists are revived with bloodloss + slash damage to simulate the blood cost
-				var revivalDamage = new DamageSpecifier();
-				revivalDamage.DamageDict.Add("Bloodloss", FixedPoint2.New(80));  // Increased from 50
-				revivalDamage.DamageDict.Add("Slash", FixedPoint2.New(30));
-				_damageableSystem.TryChangeDamage(look, revivalDamage, true, origin: user);
-
-				// Add bleeding effect to simulate the blood cost
-				if (TryComp<BloodstreamComponent>(look, out var revivedBloodstream))
+				// Cultists are revived with 20 health remaining
+				// Get the death threshold (which represents max health) and calculate damage needed
+				if (TryComp<MobThresholdsComponent>(look, out var thresholds) &&
+				    _mobThreshold.TryGetDeadThreshold(look, out var maxHealth, thresholds) &&
+				    maxHealth != null)
 				{
-					_bloodstream.TryModifyBleedAmount(look, 8.0f);  // Heavy bleeding
+					// Calculate damage needed: maxHealth - 80
+					var damageNeeded = maxHealth.Value - FixedPoint2.New(80);
+					if (damageNeeded > FixedPoint2.Zero)
+					{
+						var revivalDamage = new DamageSpecifier();
+						revivalDamage.DamageDict.Add("Bloodloss", damageNeeded);
+						_damageableSystem.TryChangeDamage(look, revivalDamage, true, origin: user);
+					}
 				}
 			}
 			else
@@ -130,10 +129,22 @@ namespace Content.Server.BloodCult.EntitySystems
 
 			// Play effects
 			_audioSystem.PlayPvs(new SoundPathSpecifier("/Audio/Magic/staff_healing.ogg"), Transform(look).Coordinates);
-			_popupSystem.PopupEntity(
-				Loc.GetString("cult-revive-success"),
-				user, user, PopupType.Large
-			);
+
+			// Use different messages for cultists vs non-cultists
+			if (isCultist)
+			{
+				_popupSystem.PopupEntity(
+					Loc.GetString("cult-revive-success"),
+					user, user, PopupType.Large
+				);
+			}
+			else
+			{
+				_popupSystem.PopupEntity(
+					Loc.GetString("cult-revive-success-noncultist"),
+					user, user, PopupType.Large
+				);
+			}
 
 			// Add extracted blood to the ritual pool (only for non-cultists)
 			if (!isCultist && bloodExtracted > 0)

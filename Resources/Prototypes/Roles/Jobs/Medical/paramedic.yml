@@ -63,6 +63,9 @@
   - External # goobstation
   extendedAccess:
   - Chemistry
+  alternateTitles:
+  - ParamedicTraumaSpecialist
+  - ParamedicEmergencyMedicalTechnician
 
 - type: startingGear
   id: ParamedicGear
@@ -85,3 +88,11 @@
     neck: ClothingNeckStethoscope
     outerClothing: ClothingOuterCoatParamedicWB
     gloves: ClothingHandsGlovesLatex
+
+- type: jobAlternateTitle
+  id: ParamedicTraumaSpecialist
+  name: job-name-alt-paramedic-1
+
+- type: jobAlternateTitle
+  id: ParamedicEmergencyMedicalTechnician
+  name: job-name-alt-paramedic-2

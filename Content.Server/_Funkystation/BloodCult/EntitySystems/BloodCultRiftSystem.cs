@@ -652,7 +652,7 @@ public sealed partial class BloodCultRiftSystem : EntitySystem
 		if (message == null)
 			return;
 
-		_chatSystem.DispatchGlobalAnnouncement(message, "Unknown", playSound: true);
+		_chatSystem.DispatchGlobalAnnouncement(message, "Unknown", playSound: true, colorOverride: Color.DarkRed);
 	}
 
 	private bool IsValidSummoningParticipant(EntityUid entity)

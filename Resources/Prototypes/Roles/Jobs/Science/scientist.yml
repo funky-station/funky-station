@@ -47,6 +47,10 @@
   access:
   - Research
   - Maintenance
+  alternateTitles:
+  - ScientistXenoarchaeologist
+  - ScientistAnomalyResearcher
+  - ScientistHardwareTechnician
 
 - type: startingGear
   id: ScientistGear
@@ -66,3 +70,15 @@
     neck: ClothingNeckTieSci
     outerClothing: ClothingOuterCoatRnd
     gloves: ClothingHandsGlovesLatex
+
+- type: jobAlternateTitle
+  id: ScientistXenoarchaeologist
+  name: job-name-alt-scientist-1
+
+- type: jobAlternateTitle
+  id: ScientistAnomalyResearcher
+  name: job-name-alt-scientist-2
+
+- type: jobAlternateTitle
+  id: ScientistHardwareTechnician
+  name: job-name-alt-scientist-3

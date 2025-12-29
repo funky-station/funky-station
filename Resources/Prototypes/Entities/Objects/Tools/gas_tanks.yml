@@ -40,6 +40,7 @@
 # SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 QueerCats <jansencheng3@gmail.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 mkanke-real <mikekanke@gmail.com>
 # SPDX-FileCopyrightText: 2025 otokonoko-dev <248204705+otokonoko-dev@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
@@ -114,6 +115,10 @@
     sprite: Objects/Tanks/oxygen.rsi
   - type: BedTankVisual
     visual: Oxygen
+  - type: Tag
+    tags:
+    - GasTank
+    - OxygenTank
 
 - type: entity
   parent: GasTankRoundBase
@@ -129,6 +134,10 @@
     sprite: Objects/Tanks/red.rsi
   - type: BedTankVisual
     visual: Nitrogen
+  - type: Tag
+    tags:
+    - GasTank
+    - NitrogenTank
 
 - type: entity
   parent: GasTankRoundBase
@@ -230,6 +239,7 @@
   - type: Tag # Goobstation - For survival boxes
     tags:
     - EmergencyNitrogenTank
+    - ExtendedEmergencyNitrogenTank
 
 - type: entity
   parent: ExtendedEmergencyOxygenTank
@@ -307,6 +317,10 @@
     outputPressure: 101.3
   - type: BedTankVisual
     visual: Generic
+  - type: Tag
+    tags:
+    - GasTank
+    - AirTank
 
 - type: entity
   parent: GasTankRoundBase
@@ -324,6 +338,10 @@
     sprite: Objects/Tanks/anesthetic.rsi
   - type: BedTankVisual
     visual: Nitrous
+  - type: Tag
+    tags:
+    - GasTank
+    - NitrousOxideTank
 
 - type: entity
   # it's a square so no rolling dough
@@ -345,3 +363,7 @@
     - tankStorage
   - type: BedTankVisual
     visual: Plasma
+  - type: Tag
+    tags:
+    - GasTank
+    - PlasmaTank

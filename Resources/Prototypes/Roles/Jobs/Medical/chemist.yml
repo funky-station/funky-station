@@ -43,6 +43,9 @@
   - Medical
   - Chemistry
   - Maintenance
+  alternateTitles:
+  - ChemistPharmacist
+  - ChemistLabTechnician
 
 - type: startingGear
   id: ChemistGear
@@ -65,3 +68,11 @@
     neck: ClothingNeckStethoscope
     outerClothing: ClothingOuterCoatLabChem
     gloves: ClothingHandsGlovesLatex
+
+- type: jobAlternateTitle
+  id: ChemistPharmacist
+  name: job-name-alt-chemist-1
+
+- type: jobAlternateTitle
+  id: ChemistLabTechnician
+  name: job-name-alt-chemist-2

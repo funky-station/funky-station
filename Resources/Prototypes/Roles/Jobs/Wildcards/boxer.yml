@@ -33,6 +33,12 @@
   - !type:GiveItemOnHolidaySpecial
     holiday: BoxingDay
     prototype: ClothingHandsGlovesBoxingRigged
+  alternateTitles:
+  - BoxerFitnessInstructor
+  - BoxerYogaInstructor
+  - BoxerLifeCoach
+  - BoxerPersonalTrainer
+  - BoxerHeel
 
 - type: startingGear
   id: BoxerGear
@@ -55,3 +61,23 @@
     outerClothing: ClothingOuterWinterColorGray
     jumpsuit: UniformShortsRedWithTop
     neck: ClothingNeckScarfStripedRed
+
+- type: jobAlternateTitle
+  id: BoxerFitnessInstructor
+  name: job-name-alt-boxer-1
+
+- type: jobAlternateTitle
+  id: BoxerYogaInstructor
+  name: job-name-alt-boxer-2
+
+- type: jobAlternateTitle
+  id: BoxerLifeCoach
+  name: job-name-alt-boxer-3
+
+- type: jobAlternateTitle
+  id: BoxerPersonalTrainer
+  name: job-name-alt-boxer-4
+
+- type: jobAlternateTitle
+  id: BoxerHeel
+  name: job-name-alt-boxer-5

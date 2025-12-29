@@ -48,6 +48,10 @@
   - Lawyer
   - Brig
   - Maintenance
+  alternateTitles:
+  - LawyerAttorney
+  - LawyerLegalRepresentative
+  - LawyerCounsel
 
 - type: startingGear
   id: LawyerGear
@@ -71,3 +75,15 @@
     neck: ClothingNeckLawyerbadge
     outerClothing: ClothingOuterWinterColorBlack
     gloves: ClothingHandsGlovesColorBlack
+
+- type: jobAlternateTitle
+  id: LawyerAttorney
+  name: job-name-alt-lawyer-1
+
+- type: jobAlternateTitle
+  id: LawyerLegalRepresentative
+  name: job-name-alt-lawyer-2
+
+- type: jobAlternateTitle
+  id: LawyerCounsel
+  name: job-name-alt-lawyer-3

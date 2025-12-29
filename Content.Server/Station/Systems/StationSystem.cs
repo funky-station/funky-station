@@ -24,6 +24,7 @@
 // SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
 // SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 misghast <51974455+misterghast@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
 // SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
@@ -392,6 +393,7 @@ public sealed partial class StationSystem : SharedStationSystem
 
         var stationMember = EnsureComp<StationMemberComponent>(mapGrid);
         stationMember.Station = station;
+        Dirty(mapGrid, stationMember);
         stationData.Grids.Add(mapGrid);
         Dirty(station, stationData);
 
@@ -460,6 +462,144 @@ public sealed partial class StationSystem : SharedStationSystem
             throw new ArgumentException("Tried to use a non-station entity as a station!", nameof(station));
 
         QueueDel(station);
+    }
+
+    public EntityUid? GetOwningStation(EntityUid? entity, TransformComponent? xform = null)
+    {
+        if (entity == null)
+            return null;
+
+        return GetOwningStation(entity.Value, xform);
+    }
+
+    /// <summary>
+    /// Gets the station that "owns" the given entity (essentially, the station the grid it's on is attached to)
+    /// </summary>
+    /// <param name="entity">Entity to find the owner of.</param>
+    /// <param name="xform">Resolve pattern, transform of the entity.</param>
+    /// <returns>The owning station, if any.</returns>
+    /// <remarks>
+    /// This does not remember what station an entity started on, it simply checks where it is currently located.
+    /// </remarks>
+    public EntityUid? GetOwningStation(EntityUid entity, TransformComponent? xform = null)
+    {
+        if (!Resolve(entity, ref xform))
+            throw new ArgumentException("Tried to use an abstract entity!", nameof(entity));
+
+        if (TryComp<StationDataComponent>(entity, out _))
+        {
+            // We are the station, just return ourselves.
+            return entity;
+        }
+
+        if (TryComp<MapGridComponent>(entity, out _))
+        {
+            // We are the station, just check ourselves.
+            return CompOrNull<StationMemberComponent>(entity)?.Station;
+        }
+
+        if (xform.GridUid == EntityUid.Invalid)
+        {
+            Log.Debug("Unable to get owning station - GridUid invalid.");
+            return null;
+        }
+
+        return CompOrNull<StationMemberComponent>(xform.GridUid)?.Station;
+    }
+
+    public List<EntityUid> GetStations()
+    {
+        var stations = new List<EntityUid>();
+        var query = EntityQueryEnumerator<StationDataComponent>();
+        while (query.MoveNext(out var uid, out _))
+        {
+            stations.Add(uid);
+        }
+
+        return stations;
+    }
+
+    public HashSet<EntityUid> GetStationsSet()
+    {
+        var stations = new HashSet<EntityUid>();
+        var query = EntityQueryEnumerator<StationDataComponent>();
+        while (query.MoveNext(out var uid, out _))
+        {
+            stations.Add(uid);
+        }
+
+        return stations;
+    }
+
+    public List<(string Name, NetEntity Entity)> GetStationNames()
+    {
+        var stations = GetStationsSet();
+        var stats = new List<(string Name, NetEntity Station)>();
+
+        foreach (var weh in stations)
+        {
+            stats.Add((MetaData(weh).EntityName, GetNetEntity(weh)));
+        }
+
+        return stats;
+    }
+    // Goobstation start
+    public HashSet<EntityUid> GetAllStationGrids()
+    {
+        // Collect all grids owned by stations
+        var grids = new HashSet<EntityUid>();
+
+        var query = EntityQueryEnumerator<StationDataComponent>();
+        while (query.MoveNext(out var uid, out var data))
+        {
+            // Add to the list of grids
+            grids.UnionWith(data.Grids);
+        }
+
+        return grids;
+    }
+    // Goobstation end
+
+    /// <summary>
+    /// Returns the first station that has a grid in a certain map.
+    /// If the map has no stations, null is returned instead.
+    /// </summary>
+    /// <remarks>
+    /// If there are multiple stations on a map it is probably arbitrary which one is returned.
+    /// </remarks>
+    public EntityUid? GetStationInMap(MapId map)
+    {
+        var query = EntityQueryEnumerator<StationDataComponent>();
+        while (query.MoveNext(out var uid, out var data))
+        {
+            foreach (var gridUid in data.Grids)
+            {
+                if (Transform(gridUid).MapID == map)
+                {
+                    return uid;
+                }
+            }
+        }
+
+        return null;
+    }
+
+    // funkystation
+    /// <summary>
+    /// Returns true if the entity is on a station proper, not just on a StationMember
+    /// otherwise just returns false if not on a station or whatever
+    /// </summary>
+    public bool IsEntityOnStationGrid(EntityUid entity)
+    {
+        var res = GetOwningStation(entity);
+
+        if (res == null)
+            return false;
+
+        if (!TryComp<StationMemberComponent>(res, out var comp))
+            return false;
+
+        return Transform(entity).GridUid == Transform(comp.Station).GridUid;
     }
 }
 

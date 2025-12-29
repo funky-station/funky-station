@@ -38,6 +38,11 @@
   - Service
   - Maintenance
   - Library
+  alternateTitles:
+  - LibrarianClerk
+  - LibrarianWriter
+  - LibrarianProfessor
+  - LibrarianCurator
 
 - type: startingGear
   id: LibrarianGear
@@ -60,3 +65,19 @@
     neck: ClothingNeckScarfStripedGreen
     outerClothing: ClothingOuterWinterColorGreen
     gloves: ClothingHandsGlovesColorBlack
+
+- type: jobAlternateTitle
+  id: LibrarianClerk
+  name: job-name-alt-librarian-1
+
+- type: jobAlternateTitle
+  id: LibrarianWriter
+  name: job-name-alt-librarian-2
+
+- type: jobAlternateTitle
+  id: LibrarianProfessor
+  name: job-name-alt-librarian-3
+
+- type: jobAlternateTitle
+  id: LibrarianCurator
+  name: job-name-alt-librarian-4

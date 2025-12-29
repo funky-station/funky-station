@@ -21,6 +21,7 @@
 // SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
 // SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 MaiaArai <158123176+YaraaraY@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 // SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
@@ -176,6 +177,9 @@ namespace Content.Server.Doors.Systems
             }
 
             if (!HasComp<GridAtmosphereComponent>(xform.ParentUid))
+                return (false, false);
+
+            if (xform.MapUid == null || !HasComp<MapAtmosphereComponent>(xform.MapUid.Value))
                 return (false, false);
 
             var grid = Comp<MapGridComponent>(xform.ParentUid);

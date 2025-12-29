@@ -24,6 +24,7 @@
 # SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
@@ -38,6 +39,11 @@
   supervisors: job-supervisors-everyone
   access:
   - Maintenance
+  alternateTitles:
+  - AssistantPassenger
+  - AssistantVisitor
+  - AssistantEntrepreneur
+  - AssistantOffDuty
 
 - type: startingGear
   id: PassengerGear
@@ -58,3 +64,19 @@
     neck: ClothingNeckMantle
     outerClothing: ClothingOuterWinterCoat
     gloves: ClothingHandsGlovesColorYellowBudget
+
+- type: jobAlternateTitle
+  id: AssistantPassenger
+  name: job-name-alt-assistant-1
+
+- type: jobAlternateTitle
+  id: AssistantVisitor
+  name: job-name-alt-assistant-2
+
+- type: jobAlternateTitle
+  id: AssistantEntrepreneur
+  name: job-name-alt-assistant-3
+
+- type: jobAlternateTitle
+  id: AssistantOffDuty
+  name: job-name-alt-assistant-4

@@ -45,6 +45,8 @@
   - External
   extendedAccess:
   - Logistics #Imp
+  alternateTitles:
+  - SalvageSpecialistMiner
 
 - type: startingGear
   id: SalvageSpecialistGear
@@ -66,3 +68,7 @@
     neck: ClothingNeckScarfStripedBrown
     gloves: ClothingHandsGlovesColorBlack
 
+
+- type: jobAlternateTitle
+  id: SalvageSpecialistMiner
+  name: job-name-alt-salvage-1

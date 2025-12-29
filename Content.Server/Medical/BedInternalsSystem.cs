@@ -177,46 +177,38 @@ public sealed class BedInternalsSystem : EntitySystem
         if (!TryComp<InternalsComponent>(patient, out var internals))
             return;
 
-
-
+        if (!comp.OriginalInternalsState.ContainsKey(patient))
+        {
+            comp.OriginalInternalsState[patient] = _internals.AreInternalsWorking(internals);
+            comp.OriginalGasTank[patient] = internals.GasTankEntity;
+        }
 
         if (_inventory.TryGetSlotEntity(patient, "mask", out var existing))
         {
             if (existing != null && TryComp<BreathToolComponent>(existing, out _))
             {
-
                 _internals.ConnectBreathTool((patient, internals), existing.Value);
 
                 if (comp.CachedTank != null && TryComp<GasTankComponent>(comp.CachedTank.Value, out var tankComp))
                 {
+                    if (internals.GasTankEntity != null)
+                        _internals.DisconnectTank((patient, internals));
 
-                    tankComp.User = patient;
-                    _gasTank.ConnectToInternals((comp.CachedTank.Value, tankComp));
-
-
-                    if (internals.GasTankEntity == null)
+                    var ok = _internals.TryConnectTank((patient, internals), comp.CachedTank.Value);
+                    if (ok)
                     {
-                        var ok = _internals.TryConnectTank((patient, internals), comp.CachedTank.Value);
-                        if (ok)
-                        {
-                            tankComp.User = patient;
-                            tankComp.CheckUser = false;
-                            _gasTank.UpdateUserInterface((comp.CachedTank.Value, tankComp));
-                        }
+                        tankComp.User = patient;
+                        tankComp.CheckUser = false;
+                        _gasTank.ConnectToInternals((comp.CachedTank.Value, tankComp));
+                        _gasTank.UpdateUserInterface((comp.CachedTank.Value, tankComp));
+                        comp.BedProvidedTank[patient] = true;
                     }
                 }
 
                 if (!_internals.AreInternalsWorking(internals))
-                {
-                    if (!_internals.AreInternalsWorking(patient))
-                    {
-                        RaiseLocalEvent(patient, new ToggleInternalsAlertEvent());
-                    }
-
-                }
+                    _internals.ToggleInternals(patient, patient, force: true, internals);
                 return;
             }
-
 
             if (existing != null)
             {
@@ -232,7 +224,6 @@ public sealed class BedInternalsSystem : EntitySystem
             }
         }
 
-
         EntityUid maskEnt;
         if (comp.TempMasks.TryGetValue(patient, out var temp) && temp != EntityUid.Invalid)
         {
@@ -245,8 +236,6 @@ public sealed class BedInternalsSystem : EntitySystem
             comp.TempMasks[patient] = maskEnt;
         }
 
-
-
         var equipped = _inventory.TryEquip(patient, maskEnt, "mask", silent: true, force: true);
         if (!equipped)
             return;
@@ -258,21 +247,19 @@ public sealed class BedInternalsSystem : EntitySystem
 
         _internals.ConnectBreathTool((patient, internals), maskEnt);
 
-
         if (comp.CachedTank != null && TryComp<GasTankComponent>(comp.CachedTank.Value, out var tankComp2))
         {
-            tankComp2.User = patient;
-            _gasTank.ConnectToInternals((comp.CachedTank.Value, tankComp2));
+            if (internals.GasTankEntity != null)
+                _internals.DisconnectTank((patient, internals));
 
-            if (internals.GasTankEntity == null)
+            var ok = _internals.TryConnectTank((patient, internals), comp.CachedTank.Value);
+            if (ok)
             {
-                var ok = _internals.TryConnectTank((patient, internals), comp.CachedTank.Value);
-                if (ok)
-                {
-                    tankComp2.User = patient;
-                    tankComp2.CheckUser = false;
-                    _gasTank.UpdateUserInterface((comp.CachedTank.Value, tankComp2));
-                }
+                tankComp2.User = patient;
+                tankComp2.CheckUser = false;
+                _gasTank.ConnectToInternals((comp.CachedTank.Value, tankComp2));
+                _gasTank.UpdateUserInterface((comp.CachedTank.Value, tankComp2));
+                comp.BedProvidedTank[patient] = true;
             }
         }
 
@@ -288,11 +275,40 @@ public sealed class BedInternalsSystem : EntitySystem
         if (!TryComp<InternalsComponent>(patient, out var internals))
             return;
 
-        if (!_internals.AreInternalsWorking(patient))
-        {
-            RaiseLocalEvent(patient, new ToggleInternalsAlertEvent());
-        }
+        if (!comp.OriginalInternalsState.ContainsKey(patient))
+            return;
 
+        var hadInternalsEnabled = comp.OriginalInternalsState.GetValueOrDefault(patient, false);
+        var originalTank = comp.OriginalGasTank.GetValueOrDefault(patient, null);
+        var bedProvidedTank = comp.BedProvidedTank.GetValueOrDefault(patient, false);
+
+        if (hadInternalsEnabled && !bedProvidedTank)
+        {
+            if (!_internals.AreInternalsWorking(internals))
+            {
+                if (originalTank != null && internals.GasTankEntity != originalTank)
+                    _internals.TryConnectTank((patient, internals), originalTank.Value);
+
+                if (!_internals.AreInternalsWorking(internals))
+                    _internals.ToggleInternals(patient, patient, force: false, internals);
+            }
+        }
+        else if (bedProvidedTank)
+        {
+            if (_internals.AreInternalsWorking(internals))
+                _internals.DisconnectTank((patient, internals));
+
+            if (originalTank != null)
+                _internals.TryConnectTank((patient, internals), originalTank.Value);
+
+            if (hadInternalsEnabled && !_internals.AreInternalsWorking(internals))
+                _internals.ToggleInternals(patient, patient, force: true, internals);
+        }
+        else
+        {
+            if (_internals.AreInternalsWorking(internals))
+                _internals.DisconnectTank((patient, internals));
+        }
 
         if (comp.TempMasks.TryGetValue(patient, out var tempMask) && tempMask != EntityUid.Invalid)
         {
@@ -301,18 +317,7 @@ public sealed class BedInternalsSystem : EntitySystem
             if (EntityManager.EntityExists(tempMask))
             {
                 _internals.DisconnectBreathTool((patient, internals), tempMask);
-            }
-
-            if (removed == tempMask)
-            {
-                if (EntityManager.EntityExists(tempMask))
-                    EntityManager.DeleteEntity(tempMask);
-            }
-            else if (removed != null && removed != tempMask)
-            {
-
-                if (EntityManager.EntityExists(tempMask))
-                    EntityManager.DeleteEntity(tempMask);
+                EntityManager.DeleteEntity(tempMask);
             }
 
             comp.TempMasks.Remove(patient);
@@ -323,5 +328,9 @@ public sealed class BedInternalsSystem : EntitySystem
             _inventory.TryEquip(patient, stored, "mask", silent: true, force: true);
             comp.StoredMasks.Remove(patient);
         }
+
+        comp.OriginalInternalsState.Remove(patient);
+        comp.OriginalGasTank.Remove(patient);
+        comp.BedProvidedTank.Remove(patient);
     }
 }

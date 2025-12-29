@@ -1,4 +1,5 @@
 # SPDX-FileCopyrightText: 2025 Mish <bluscout78@yahoo.com>
+# SPDX-FileCopyrightText: 2025 SharkSnake98 <sharksnake87@gmail.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
@@ -82,6 +83,552 @@
         maxVol: 30
         reagents:
         - ReagentId: PineappleMargherita
+          Quantity: 30
+
+- type: entity
+  parent: DrinkGlass
+  id: DrinkGlassAmaretto
+  suffix: amaretto
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Amaretto
+          Quantity: 30
+
+- type: entity
+  parent: DrinkGlass
+  id: DrinkGlassApplejack
+  suffix: applejack
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Applejack
+          Quantity: 30
+
+- type: entity
+  parent: DrinkGlass
+  id: DrinkGlassBitters
+  suffix: bitters
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Bitters
+          Quantity: 30
+
+- type: entity
+  parent: DrinkGlass
+  id: DrinkGlassCremeDeCacao
+  suffix: creme de cacao
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: CremeDeCacao
+          Quantity: 30
+
+- type: entity
+  parent: DrinkGlass
+  id: DrinkGlassCremeDeMenthe
+  suffix: creme de menthe
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: CremeDeMenthe
+          Quantity: 30
+
+- type: entity
+  parent: DrinkGlass
+  id: DrinkGlassFernet
+  suffix: fernet
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Fernet
+          Quantity: 30
+
+- type: entity
+  parent: DrinkGlass
+  id: DrinkGlassHakkaMate
+  suffix: hakka mate
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: HakkaMate
+          Quantity: 30
+
+- type: entity
+  parent: DrinkGlass
+  id: DrinkGlassMelonSoda
+  suffix: melon soda
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: MelonSoda
+          Quantity: 30
+
+- type: entity
+  parent: DrinkGlass
+  id: DrinkGlassNavyRum
+  suffix: navy rum
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: NavyRum
+          Quantity: 30
+
+- type: entity
+  parent: DrinkGlass
+  id: DrinkGlassRiceBeer
+  suffix: rice beer
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: RiceBeer
+          Quantity: 30
+
+- type: entity
+  parent: DrinkGlass
+  id: DrinkGlassShochu
+  suffix: shochu
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Shochu
+          Quantity: 30
+
+- type: entity
+  parent: DrinkGlass
+  id: DrinkGlassTripleSec
+  suffix: triple sec
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: TripleSec
+          Quantity: 30
+
+- type: entity
+  parent: DrinkGlass
+  id: DrinkGlass24VoltEnergy
+  suffix: 24 volt energy
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: 24VoltEnergy
+          Quantity: 30
+
+- type: entity
+  parent: DrinkGlass
+  id: DrinkGlassVoltaicYellowWine
+  suffix: voltaic yellow wine
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: VoltaicYellowWine
+          Quantity: 30
+
+- type: entity
+  parent: DrinkGlass
+  id: DrinkGlassAlexander
+  suffix: alexander
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Alexander
+          Quantity: 30
+
+- type: entity
+  parent: DrinkGlass
+  id: DrinkGlassAmarettoAlexander
+  suffix: amaretto alexander
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: AmarettoAlexander
+          Quantity: 30
+
+- type: entity
+  parent: DrinkGlass
+  id: DrinkGlassAmarettoSour
+  suffix: amaretto sour
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: AmarettoSour
+          Quantity: 30
+
+- type: entity
+  parent: DrinkGlass
+  id: DrinkGlassAmaterasu
+  suffix: amaterasu
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Amaterasu
+          Quantity: 30
+
+- type: entity
+  parent: DrinkGlass
+  id: DrinkGlassBanzaiTi
+  suffix: banzai-tī
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: BanzaiTi
+          Quantity: 30
+
+- type: entity
+  parent: DrinkGlass
+  id: DrinkGlassTripleCitrus
+  suffix: triple citrus
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: TripleCitrus
+          Quantity: 30
+
+- type: entity
+  parent: DrinkGlass
+  id: DrinkGlassRootMintBrew
+  suffix: root mint brew
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: RootMintBrew
+          Quantity: 30
+
+- type: entity
+  parent: DrinkGlass
+  id: DrinkGlassBetweenTheSheets
+  suffix: between the sheets
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: BetweenTheSheets
+          Quantity: 30
+
+- type: entity
+  parent: DrinkGlass
+  id: DrinkGlassBittersAndSoda
+  suffix: bitters and soda
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: BittersAndSoda
+          Quantity: 30
+
+- type: entity
+  parent: DrinkGlass
+  id: DrinkGlassBlankPaper
+  suffix: blank paper
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: BlankPaper
+          Quantity: 30
+
+- type: entity
+  parent: DrinkGlass
+  id: DrinkGlassBlueBlazer
+  suffix: blue blazer
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: BlueBlazer
+          Quantity: 30
+
+- type: entity
+  parent: DrinkGlass
+  id: DrinkGlassBosozoku
+  suffix: bōsōzoku
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Bosozoku
+          Quantity: 30
+
+- type: entity
+  parent: DrinkGlass
+  id: DrinkGlassBrancaMenta
+  suffix: branca menta
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: BrancaMenta
+          Quantity: 30
+
+- type: entity
+  parent: DrinkGlass
+  id: DrinkGlassBugSpray
+  suffix: bug spray
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: BugSpray
+          Quantity: 30
+
+- type: entity
+  parent: DrinkGlass
+  id: DrinkGlassCreviceSpike
+  suffix: crevice spike
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: CreviceSpike
+          Quantity: 30
+
+- type: entity
+  parent: DrinkGlass
+  id: DrinkGlassFringeWeaver
+  suffix: fringe weaver
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: FringeWeaver
+          Quantity: 30
+
+- type: entity
+  parent: DrinkGlass
+  id: DrinkGlassFourBit
+  suffix: four bit
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: FourBit
+          Quantity: 30
+
+- type: entity
+  parent: DrinkGlass
+  id: DrinkGlassMauiSunrise
+  suffix: maui sunrise
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: MauiSunrise
+          Quantity: 30
+
+- type: entity
+  parent: DrinkGlass
+  id: DrinkGlassQuadrupleSec
+  suffix: quadruple sec
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: QuadrupleSec
+          Quantity: 30
+
+- type: entity
+  parent: DrinkGlass
+  id: DrinkGlassNekomimosa
+  suffix: nekomimosa
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Nekomimosa
+          Quantity: 30
+
+- type: entity
+  parent: DrinkGlass
+  id: DrinkGlassRedCityAM
+  suffix: red city AM
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: RedCityAM
+          Quantity: 30
+
+- type: entity
+  parent: DrinkGlass
+  id: DrinkGlassSentaiQuencha
+  suffix: sentai quencha
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: SentaiQuencha
+          Quantity: 30
+
+- type: entity
+  parent: DrinkGlass
+  id: DrinkGlassUtilityPole
+  suffix: utility pole
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: UtilityPole
+          Quantity: 30
+
+- type: entity
+  parent: DrinkGlass
+  id: DrinkGlassWizzFizz
+  suffix: wizz fizz
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: WizzFizz
+          Quantity: 30
+
+- type: entity
+  parent: DrinkGlass
+  id: DrinkGlassAdmiralty
+  suffix: admiralty
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Admiralty
+          Quantity: 30
+
+- type: entity
+  parent: DrinkGlass
+  id: DrinkGlassLongJohnSilver
+  suffix: long john silver
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: LongJohnSilver
+          Quantity: 30
+
+- type: entity
+  parent: DrinkGlass
+  id: DrinkGlassLonghaul
+  suffix: longhaul
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: LongHaul
+          Quantity: 30
+
+- type: entity
+  parent: DrinkGlass
+  id: DrinkGlassTropicalStorm
+  suffix: tropical storm
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: TropicalStorm
           Quantity: 30
 # pignog
 

@@ -204,9 +204,8 @@ public sealed class SummonOnTriggerSystem : EntitySystem
 					// Delete the outerwear item (it's being transformed into acolyte armor)
 					QueueDel(outerwearItem.Value);
 
-				// Spawn acolyte armor at the rune coordinates
-				var acolyteArmor = Spawn("ClothingOuterArmorCult", runeCoords);
-				var cultHelmet = Spawn("ClothingHeadHelmetCult", runeCoords);
+				// Spawn bloodcult robes at the rune coordinates
+				var bloodcultRobes = Spawn("ClothingOuterRobesBloodCult", runeCoords);
 
 					_popupSystem.PopupEntity(
 						Loc.GetString("cult-summoning-acolyte-armor"),

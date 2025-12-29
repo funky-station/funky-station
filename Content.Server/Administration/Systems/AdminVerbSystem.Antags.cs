@@ -68,12 +68,11 @@ public sealed partial class AdminVerbSystem
     [Dependency] private readonly ZombieTumorOrganSystem _zombieTumor = default!;
     [Dependency] private readonly GameTicker _gameTicker = default!;
 
-    private static readonly EntProtoId DefaultTraitorRule = "Traitor";
-    private static readonly EntProtoId DefaultInitialInfectedRule = "Zombie";
-    private static readonly EntProtoId DefaultNukeOpRule = "LoneOpsSpawn";
-    private static readonly EntProtoId DefaultRevsRule = "Revolutionary";
-    private static readonly EntProtoId DefaultThiefRule = "Thief";
-    private static readonly ProtoId<StartingGearPrototype> PirateGearId = "PirateGear";
+    [ValidatePrototypeId<EntityPrototype>]
+    private const string DefaultTraitorRule = "Traitor";
+
+    [ValidatePrototypeId<EntityPrototype>]
+    private const string DefaultInitialInfectedRule = "medZombies";
 
     private static readonly EntProtoId ParadoxCloneRuleId = "ParadoxCloneSpawn";
 

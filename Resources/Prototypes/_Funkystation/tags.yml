@@ -22,6 +22,9 @@
   id: ChitinSharkminnow
 
 - type: Tag
+  id: ChangelingInfectionImplant
+
+- type: Tag
   id: Magboots
 
 - type: Tag
@@ -195,3 +198,24 @@
 
 - type: Tag
   id: RodUranium1
+
+- type: Tag
+  id: DefibrillatorCompact
+
+- type: Tag
+  id: OxygenTank
+
+- type: Tag
+  id: NitrogenTank
+
+- type: Tag
+  id: NitrousOxideTank
+
+- type: Tag
+  id: PlasmaTank
+
+- type: Tag
+  id: AirTank
+
+- type: Tag
+  id: ExtendedEmergencyNitrogenTank

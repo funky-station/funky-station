@@ -130,8 +130,8 @@
         orGroup: Guns
       - id: WeaponDisabler
         orGroup: Guns
-      - id: WeaponDisablerSMG
-        orGroup: Guns
+#      - id: WeaponDisablerSMG
+#        orGroup: Guns
       - id: WeaponTaser
         orGroup: Guns
       - id: WeaponAntiqueLaser

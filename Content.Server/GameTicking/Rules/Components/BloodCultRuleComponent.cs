@@ -58,6 +58,11 @@ public sealed partial class BloodCultRuleComponent : Component
 	[DataField] public int TotalSacrifices = 0;
 
 	/// <summary>
+	/// Total conversions made throughout the round.
+	/// </summary>
+	[DataField] public int TotalConversions = 0;
+
+	/// <summary>
 	/// Current amount of blood collected for the ritual.
 	/// </summary>
 	[DataField] public double BloodCollected = 0.0;

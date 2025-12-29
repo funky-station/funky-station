@@ -129,6 +129,7 @@
 # SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
+# SPDX-FileCopyrightText: 2025 2DSiggy <siggymaxwell@gmail.com>
 # SPDX-FileCopyrightText: 2025 88tv <131759102+88tv@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 8tv <eightev@gmail.com>
 # SPDX-FileCopyrightText: 2025 Catazeus <200477155+Catazeus@users.noreply.github.com>
@@ -1650,16 +1651,16 @@
   - UplinkWearables
   saleLimit: 1 # WD EDIT
 
-- type: listing
-  id: UplinkgClothingThievingGloves
-  name: uplink-clothing-thieving-gloves-name
-  description: uplink-clothing-thieving-gloves-desc
-  productEntity: ThievingGloves
-  cost:
-    Telecrystal: 20 # goob
-  categories:
-  - UplinkWearables
-  saleLimit: 1 # WD EDIT
+#- type: listing FUNKY EDIT: removal from uplink
+#  id: UplinkgClothingThievingGloves
+#  name: uplink-clothing-thieving-gloves-name
+#  description: uplink-clothing-thieving-gloves-desc
+#  productEntity: ThievingGloves
+#  cost:
+#    Telecrystal: 20 # goob
+#  categories:
+#  - UplinkWearables
+#  saleLimit: 1 # WD EDIT
 
 - type: listing
   id: UplinkClothingOuterVestWeb

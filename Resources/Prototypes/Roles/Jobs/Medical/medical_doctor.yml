@@ -56,7 +56,10 @@
   - !type:GiveItemOnHolidaySpecial
     holiday: DoctorDay
     prototype: WehMedipen
-
+  alternateTitles:
+  - MedicalDoctorPhysician
+  - MedicalDoctorNurse
+  - MedicalDoctorSurgeon
 
 - type: startingGear
   id: DoctorGear
@@ -77,3 +80,15 @@
     neck: ClothingNeckStethoscope
     outerClothing: ClothingOuterCoatLab
     gloves: ClothingHandsGlovesLatex
+
+- type: jobAlternateTitle
+  id: MedicalDoctorSurgeon
+  name: job-name-alt-medical-1
+
+- type: jobAlternateTitle
+  id: MedicalDoctorNurse
+  name: job-name-alt-medical-2
+
+- type: jobAlternateTitle
+  id: MedicalDoctorPhysician
+  name: job-name-alt-medical-3

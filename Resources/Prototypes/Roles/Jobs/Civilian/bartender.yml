@@ -26,6 +26,7 @@
 # SPDX-FileCopyrightText: 2024 Errant <35878406+Errant-4@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Mr. 27 <45323883+Dutch-VanDerLinde@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 MaiaArai <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
@@ -46,6 +47,10 @@
   extendedAccess:
   - Kitchen
   - Hydroponics
+  alternateTitles:
+  - BartenderMixologist
+  - BartenderBarista
+  - BartenderHydrationEquipmentOperator
 
 - type: startingGear
   id: BartenderGear
@@ -67,3 +72,15 @@
     outerClothing: ClothingOuterArmorBasicSlim
     gloves: ClothingHandsGlovesColorBlack
 
+
+- type: jobAlternateTitle
+  id: BartenderMixologist
+  name: job-name-alt-bartender-1
+
+- type: jobAlternateTitle
+  id: BartenderHydrationEquipmentOperator
+  name: job-name-alt-bartender-2
+
+- type: jobAlternateTitle
+  id: BartenderBarista
+  name: job-name-alt-bartender-3

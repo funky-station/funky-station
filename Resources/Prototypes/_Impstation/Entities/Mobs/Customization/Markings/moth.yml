@@ -129,7 +129,9 @@
   followSkinColor: false
   sprites:
   - sprite: _Impstation/Mobs/Customization/moth.rsi
-    state: wings_backstabbed
+    state: wings_backstabbed_primary
+  - sprite: _Impstation/Mobs/Customization/moth.rsi
+    state: wings_backstabbed_secondary
 
 - type: marking
   id: ChestChimeraFemaleMoth

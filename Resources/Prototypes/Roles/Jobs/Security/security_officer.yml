@@ -46,6 +46,7 @@
 # SPDX-FileCopyrightText: 2025 Teasq <Xerithin@gmail.com>
 # SPDX-FileCopyrightText: 2025 Terkala <appleorange64@gmail.com>
 # SPDX-FileCopyrightText: 2025 Xcybitt <197952719+Xcybitt@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 ilyamikcoder <me@ilyamikcoder.com>
 # SPDX-FileCopyrightText: 2025 kbarkevich <24629810+kbarkevich@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 mkanke-real <mikekanke@gmail.com>
@@ -83,7 +84,9 @@
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]
   alternateTitles:
-  - SecurityOfficerHallMonitor
+  - SecurityOfficerRegulatoryControlOfficer
+  - SecurityOfficerCommunityOutreachOfficer
+  - SecurityOfficerDeskOfficer
 
 - type: startingGear
   id: SecurityOfficerGear
@@ -99,5 +102,13 @@
     - CartridgeEmergency
 
 - type: jobAlternateTitle
-  id: SecurityOfficerHallMonitor
+  id: SecurityOfficerRegulatoryControlOfficer
   name: job-name-alt-secoff-1
+
+- type: jobAlternateTitle
+  id: SecurityOfficerCommunityOutreachOfficer
+  name: job-name-alt-secoff-2
+
+- type: jobAlternateTitle
+  id: SecurityOfficerDeskOfficer
+  name: job-name-alt-secoff-3

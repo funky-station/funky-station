@@ -37,11 +37,13 @@
 // SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
 // SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Flux3284 <flux3284@gmail.com>
 // SPDX-FileCopyrightText: 2025 GreyMario <mariomister541@gmail.com>
 // SPDX-FileCopyrightText: 2025 JORJ949 <159719201+JORJ949@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 // SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 ferynn <117872973+ferynn@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 flux3824 <flux3824@gmail.com>
 // SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
@@ -193,10 +195,10 @@ public sealed class StationSpawningSystem : SharedStationSpawningSystem
             DoJobSpecials(job, jobEntity);
             _identity.QueueIdentityUpdate(jobEntity);
             // #Goobstation - Borg Preferred Name
-            if (profile != null && (prototype.ID == "Borg" || prototype.ID == "StationAi"))
+            if (profile != null && prototype.ID == "Borg")
             {
                 var name = profile.BorgName;
-                if (TryComp<NameIdentifierComponent>(jobEntity, out var nameIdentifier) && (prototype.ID !="StationAi"))
+                if (TryComp<NameIdentifierComponent>(jobEntity, out var nameIdentifier))
                     name = $"{name} {nameIdentifier.FullIdentifier}";
 
                 _metaSystem.SetEntityName(jobEntity, name);

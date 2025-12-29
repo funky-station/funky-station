@@ -13,3 +13,8 @@
     sprite: _Funkystation/Clothing/Neck/Mantle/ntrmantle.rsi
   - type: Clothing
     sprite: _Funkystation/Clothing/Neck/Mantle/ntrmantle.rsi
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 5
+    bluntStaminaDamageFactor: 2

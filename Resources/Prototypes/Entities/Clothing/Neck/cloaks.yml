@@ -44,6 +44,11 @@
     sprite: Clothing/Neck/Cloaks/centcomcloakformal.rsi
   - type: StealTarget
     stealGroup: HeadCloak # leaving this here because I suppose it might be interesting?
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 5
+    bluntStaminaDamageFactor: 4 #it's heavy, it hits hard
 
 - type: entity
   parent: [ClothingNeckBase, BaseCommandContraband]
@@ -55,6 +60,11 @@
     sprite: Clothing/Neck/Cloaks/cap.rsi
   - type: StealTarget
     stealGroup: HeadCloak
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 5
+    bluntStaminaDamageFactor: 2
 
 - type: entity
   parent: [ClothingNeckBase, BaseCommandContraband]
@@ -66,6 +76,11 @@
     sprite: Clothing/Neck/Cloaks/hos.rsi
   - type: StealTarget
     stealGroup: HeadCloak
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 5
+    bluntStaminaDamageFactor: 2
 
 - type: entity
   parent: [ClothingNeckBase, BaseCommandContraband]
@@ -77,6 +92,11 @@
     sprite: Clothing/Neck/Cloaks/ce.rsi
   - type: StealTarget
     stealGroup: HeadCloak
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 5
+    bluntStaminaDamageFactor: 2
 
 - type: entity
   parent: [ClothingNeckBase, BaseCommandContraband]
@@ -88,6 +108,11 @@
     sprite: Clothing/Neck/Cloaks/cmo.rsi
   - type: StealTarget
     stealGroup: HeadCloak
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 5
+    bluntStaminaDamageFactor: 2
 
 - type: entity
   parent: [ClothingNeckBase, BaseCommandContraband]
@@ -99,6 +124,11 @@
     sprite: Clothing/Neck/Cloaks/rd.rsi
   - type: StealTarget
     stealGroup: HeadCloak
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 5
+    bluntStaminaDamageFactor: 2
 
 - type: entity
   parent: [ClothingNeckBase, BaseCommandContraband]
@@ -110,6 +140,11 @@
     sprite: Clothing/Neck/Cloaks/qm.rsi
   - type: StealTarget
     stealGroup: HeadCloak
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 5
+    bluntStaminaDamageFactor: 2
 
 - type: entity
   parent: [ClothingNeckBase, BaseCommandContraband]
@@ -121,6 +156,11 @@
     sprite: Clothing/Neck/Cloaks/hop.rsi
   - type: StealTarget
     stealGroup: HeadCloak
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 5
+    bluntStaminaDamageFactor: 2
 
 - type: entity
   parent: ClothingNeckBase
@@ -150,6 +190,11 @@
     sprite: Clothing/Neck/Cloaks/capcloakformal.rsi
   - type: StealTarget
     stealGroup: HeadCloak
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 5
+    bluntStaminaDamageFactor: 2
 
 - type: entity
   parent: ClothingNeckBase

@@ -21,6 +21,11 @@
     sprite: Clothing/Neck/mantles/capmantle.rsi
   - type: Clothing
     sprite: Clothing/Neck/mantles/capmantle.rsi
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 5
+    bluntStaminaDamageFactor: 2
 
 - type: entity
   parent: [ClothingNeckBase, BaseCommandContraband]
@@ -32,6 +37,11 @@
     sprite: Clothing/Neck/mantles/cemantle.rsi
   - type: Clothing
     sprite: Clothing/Neck/mantles/cemantle.rsi
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 5
+    bluntStaminaDamageFactor: 2
 
 - type: entity
   parent: [ClothingNeckBase, BaseCommandContraband]
@@ -43,6 +53,11 @@
     sprite: Clothing/Neck/mantles/cmomantle.rsi
   - type: Clothing
     sprite: Clothing/Neck/mantles/cmomantle.rsi
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 5
+    bluntStaminaDamageFactor: 2
 
 - type: entity
   parent: [ClothingNeckBase, BaseCommandContraband]
@@ -54,6 +69,11 @@
     sprite: Clothing/Neck/mantles/hopmantle.rsi
   - type: Clothing
     sprite: Clothing/Neck/mantles/hopmantle.rsi
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 5
+    bluntStaminaDamageFactor: 2
 
 - type: entity
   parent: [ClothingNeckBase, BaseCommandContraband]
@@ -65,6 +85,11 @@
     sprite: Clothing/Neck/mantles/hosmantle.rsi
   - type: Clothing
     sprite: Clothing/Neck/mantles/hosmantle.rsi
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 5
+    bluntStaminaDamageFactor: 2
 
 - type: entity
   parent: [ClothingNeckBase, BaseCommandContraband]
@@ -76,6 +101,11 @@
     sprite: Clothing/Neck/mantles/rdmantle.rsi
   - type: Clothing
     sprite: Clothing/Neck/mantles/rdmantle.rsi
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 5
+    bluntStaminaDamageFactor: 2
 
 - type: entity
   parent: [ClothingNeckBase, BaseCommandContraband]
@@ -87,6 +117,11 @@
     sprite: Clothing/Neck/mantles/qmmantle.rsi
   - type: Clothing
     sprite: Clothing/Neck/mantles/qmmantle.rsi
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 5
+    bluntStaminaDamageFactor: 2
 
 - type: entity
   parent: ClothingNeckBase
@@ -97,4 +132,4 @@
   - type: Sprite
     sprite: Clothing/Neck/mantles/mantle.rsi
   - type: Clothing
-    sprite: Clothing/Neck/mantles/mantle.rsi 
+    sprite: Clothing/Neck/mantles/mantle.rsi

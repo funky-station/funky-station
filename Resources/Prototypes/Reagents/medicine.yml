@@ -540,6 +540,9 @@
       - !type:MovespeedModifier # Goob edit
         walkSpeedModifier: 1.1
         sprintSpeedModifier: 1.1
+      - !type:AdjustReagent
+        reagent: DisablerMix
+        amount: -5
 
 - type: reagent
   id: Hyronalin

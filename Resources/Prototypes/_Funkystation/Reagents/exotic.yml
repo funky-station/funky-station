@@ -110,6 +110,9 @@
         key: Adrenaline
         component: IgnoreSlowOnDamage
         time: 5
+      - !type:AdjustReagent
+        reagent: DisablerMix
+        amount: -5
 
 - type: reagent
   id: Revivopine

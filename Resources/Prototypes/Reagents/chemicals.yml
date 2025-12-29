@@ -237,3 +237,6 @@
         key: Adrenaline
         component: IgnoreSlowOnDamage
         time: 120
+      - !type:AdjustReagent
+        reagent: DisablerMix
+        amount: -5

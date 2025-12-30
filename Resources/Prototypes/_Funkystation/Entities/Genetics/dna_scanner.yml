@@ -1,0 +1,84 @@
+- type: entity
+  parent: BaseComputerAiAccess
+  id: ComputerDnaScanner
+  name: geneticists console
+  description: A console used with the medical scanner for DNA research.
+  components:
+  - type: Sprite
+    layers:
+    - map: ["computerLayerBody"]
+      state: computer
+    - map: ["computerLayerKeyboard"]
+      state: generic_keyboard
+    - map: ["computerLayerScreen"]
+      state: dna
+    - map: ["computerLayerKeys"]
+      state: med_key
+    - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
+      state: generic_panel_open
+  - type: Computer
+    board: DnaScannerConsoleComputerCircuitboard
+  - type: UserInterface
+    interfaces:
+      enum.WiresUiKey.Key:
+        type: WiresBoundUserInterface
+  - type: DeviceLinkSource
+    range: 4
+    ports:
+      - DnaConsole
+  - type: ResearchPointSource
+    pointspersecond: 0
+    active: true
+  - type: ResearchClient
+  - type: GuideHelp
+    guides:
+    - Genetics
+
+- type: sinkPort
+  id: DnaConsole
+  name: signal-port-name-dna-scanner
+  description: signal-port-description-dna-scanner
+
+- type: entity
+  parent: BaseComputerCircuitboard
+  id: DnaScannerConsoleComputerCircuitboard
+  name: geneticists console board
+  description: A computer printed circuit board for the dna scanner console.
+  components:
+    - type: Sprite
+      state: cpu_medical
+    - type: ComputerBoard
+      prototype: ComputerDnaScanner
+
+- type: latheRecipe
+  parent: BaseCircuitboardRecipe
+  id: DnaScannerConsoleComputerCircuitboard
+  result: DnaScannerConsoleComputerCircuitboard
+
+
+- type: entity
+  id: DnaDiscoveredIcon
+  name: "dna discovered icon"
+  components:
+  - type: Sprite
+    sprite: /Textures/_Funkystation/Interface/Genetics/dna_seq.rsi
+    layers:
+    - state: dna_discovered
+
+- type: entity
+  id: DnaUndiscoveredIcon
+  name: "dna undiscovered icon"
+  components:
+  - type: Sprite
+    sprite: /Textures/_Funkystation/Interface/Genetics/dna_seq.rsi
+    layers:
+    - state: dna_undiscovered
+
+- type: entity
+  id: DnaExtraIcon
+  name: "dna extra icon"
+  components:
+  - type: Sprite
+    sprite: /Textures/_Funkystation/Interface/Genetics/dna_seq.rsi
+    layers:
+    - state: dna_extra

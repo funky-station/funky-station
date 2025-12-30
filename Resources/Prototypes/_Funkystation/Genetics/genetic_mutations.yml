@@ -237,6 +237,24 @@
   components:
   - type: MutationLungSwap
     newLungPrototype: OrganPlasmaLungs
+- type: entity
+  id: OrganPlasmaLungs
+  parent: OrganHumanLungs
+  name: plasma lungs
+  description: "Highly adapted lungs that metabolize plasma as a respiratory gas. Oxygen is toxic, and normal breathing gas mixtures are suffocating."
+  components:
+  - type: Metabolizer
+    metabolizerTypes: [ PlasmaBreather ]
+  - type: Lung
+    alert: LowOxygen
+  - type: Item
+    size: Normal
+    shape:
+    - 0,0,1,1
+    heldPrefix: lungs
+- type: metabolizerType
+  id: PlasmaBreather
+  name: metabolizer-type-plasma
 
 # Beneficial Mutations
 
@@ -1421,7 +1439,7 @@
 - type: entity
   id: ActionAdrenalineRush
   name: "Adrenaline Rush"
-  description: "Triggers a powerful surge of adrenaline, instantly injecting 10u of epinephrine into your bloodstream."
+  description: "Triggers a powerful surge of adrenaline."
   components:
   - type: InstantAction
     useDelay: 60
@@ -1443,7 +1461,8 @@
   - type: MutationCryokinesis
 - type: entity
   id: ActionGeneticIceball
-  name: cryoball
+  name: "Cryokinesis"
+  description: "Fire a bolt of ice from your fingertips."
   components:
   - type: WorldTargetAction
     itemIconStyle: BigAction
@@ -1508,7 +1527,8 @@
     actionId: ActionOpticBlast
 - type: entity
   id: ActionOpticBlast
-  name: optic blast
+  name: "Optic Blast"
+  desc: "Fire a beam of pure energy from your eyes."
   components:
   - type: WorldTargetAction
     Cooldown: 30

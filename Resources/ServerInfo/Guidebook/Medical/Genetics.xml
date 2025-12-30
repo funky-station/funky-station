@@ -6,25 +6,25 @@ The Genetics system allows medical personnel and scientists to analyze, modify, 
 ## Core Equipment
 
 <Box>
-<GuideEntityEmbed Entity="DnaScanner" Caption="DNA scanner" Rotation="0"/>
-<GuideEntityEmbed Entity="ComputerDnaScanner" Caption="DNA scanner console" Rotation="0"/>
+<GuideEntityEmbed Entity="MedicalScanner" Caption="medical scanner" Rotation="0"/>
+<GuideEntityEmbed Entity="ComputerDnaScanner" Caption="geneticists console" Rotation="0"/>
 </Box>
 
 ### DNA Scanner & Console
-The DNA scanner is the pod-like machine that holds the patient (drag & drop or use the "eject occupant" verb).
-The DNA scanner console (placed nearby) provides the full interface and must be powered and linked to the scanner.
+The medical scanner is the pod-like machine that holds the patient (drag & drop or use the "eject occupant" verb).
+The geneticists console (placed nearby) provides the full interface and must be powered and linked to the scanner.
 
 <Box>
 <GuideEntityEmbed Entity="HandheldGeneticAnalyzer" Caption="handheld genetic analyzer" Rotation="0"/>
 </Box>
 
 ### Handheld Genetic Analyzer
-A portable device that quickly scans a target's mutations and genetic instability.
-Requires a small power cell.
+A portable device that quickly scans a target's mutations and genetic instability, allowing you to print them out for later viewing.
+Requires a power cell.
 
 ## The Basics
 
-Place a living patient into the DNA scanner.
+Place a living subject into the DNA scanner.
 
 Sit at the DNA scanner console and open the UI.
 
@@ -40,7 +40,7 @@ Use the handheld genetic analyzer for quick checks without needing the scanner.
 
 The console UI includes several sections:
 
-Subject Info - Patient name, total damage, genetic instability, and health status.
+Subject Info - Name, total damage, genetic instability, and health status.
 
 Mutation List - Shows all mutations in the patient's DNA.
 
@@ -62,10 +62,9 @@ Scramble DNA - Randomly resets the patient's DNA (30-second cooldown, causes 25 
 <GuideEntityEmbed Entity="DNAInjectorEmpty" Caption="empty DNA injector" Rotation="0"/>
 </Box>
 
-- Activators (blue) - Activate a mutation that is already present.
-- Mutators (red) - Add and activate a new mutation (if the target can accept it).
+- Activators - Activate a mutation that is already present.
+- Mutators - Add and activate a new mutation (if the target can accept it).
 - Both are single-use and leave an empty injector behind.
-- Injection takes 2 seconds and works on any reachable target.
 
 ## Mutations & Genetic Instability
 
@@ -78,7 +77,7 @@ Instability thresholds:
   - >100 - Risk of a dangerous random mutation after 60-90 seconds.
   - >150 - Constant cellular damage over time.
 
-Scramble DNA resets everything (except scramble-resistant mutations) but is very damaging.
+Scramble DNA resets everything (except scramble-resistant mutations) but is very deals heavy genetic damage.
 
 ## Tips & Safety
 

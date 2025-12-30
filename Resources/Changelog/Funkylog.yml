@@ -6926,3 +6926,41 @@ Entries:
       message: Thieving gloves are no longer available in the syndicate uplink.
   id: 804
   time: '2025-12-29T03:15:13.0000000+00:00'
+- author: otokonoko-dev
+  changes:
+    - type: Add
+      message: >-
+        Gingerbreads now have their own organs. Animals should be careful eating
+        the brain, it may contain toxins.
+  id: 805
+  time: '2025-12-29T03:49:26.0000000+00:00'
+- author: Ven
+  changes:
+    - type: Fix
+      message: Removed pill type from gingerbread brain
+  id: 806
+  time: '2025-12-29T04:11:28.0000000+00:00'
+- author: zergologist
+  changes:
+    - type: Add
+      message: Existing facepaints extended to Vox. Glowing blush included.
+  id: 807
+  time: '2025-12-29T04:23:32.0000000+00:00'
+- author: Alecksohs
+  changes:
+    - type: Tweak
+      message: Resprites Fire Alarms, Air Alarms, Light Tubes, and Auth Scanners.
+  id: 808
+  time: '2025-12-29T04:24:37.0000000+00:00'
+- author: Alecksohs
+  changes:
+    - type: Fix
+      message: Fixed Air Alarms glowing.
+  id: 809
+  time: '2025-12-29T20:27:15.0000000+00:00'
+- author: Tea
+  changes:
+    - type: Tweak
+      message: NanoTrasen got a killer deal on new designer satchel bags!
+  id: 810
+  time: '2025-12-30T10:46:33.0000000+00:00'

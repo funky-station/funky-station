@@ -29,9 +29,9 @@
           !type:PhysShapeAabb
           bounds: "-0.25,-0.25,0.25,0.4"
         mask:
-        - FullTileMask
+        - FullTileMask # Funk
         layer:
-        - WallLayer
+        - WallLayer # Funk
   - type: Transform
     anchored: true
     noRot: true

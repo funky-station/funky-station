@@ -54,7 +54,7 @@
         mask:
         - MachineMask
         layer:
-        - GlassLayer
+        - GlassLayer # MachineLayer < GlassLayer Funk
   - type: Transform
     anchored: true
   - type: Sprite

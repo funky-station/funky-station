@@ -1,3 +1,5 @@
+// SPDX-FileCopyrightText: 2025 TrixxedHeart <46364955+TrixxedBit@users.noreply.github.com>
+//
 // SPDX-License-Identifier: MIT
 
 using Content.Shared.Jittering;

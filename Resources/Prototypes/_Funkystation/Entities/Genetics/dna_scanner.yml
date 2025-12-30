@@ -30,9 +30,6 @@
     pointspersecond: 0
     active: true
   - type: ResearchClient
-  - type: GuideHelp
-    guides:
-    - Genetics
 
 - type: sourcePort
   id: DnaConsole

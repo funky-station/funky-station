@@ -22,7 +22,7 @@ using Robust.Shared.Random;
 using Robust.Shared.Configuration;
 using Content.Shared.Traits.Assorted;
 using Content.Shared._Shitmed.Targeting;
-// NEW: Add this using statement for DamageSpecifier
+// Shitmed forced me to add this to apply damage to only the torso
 using Content.Shared.Damage.Prototypes;
 
 namespace Content.Shared.Cpr;
@@ -94,12 +94,6 @@ public abstract partial class SharedCprSystem : EntitySystem
         if (_mobState.IsIncapacitated(giver))
             return false;
 
-        if (TryComp<CprComponent>(recipient, out var cpr) &&
-            cpr.LastCaretaker.HasValue &&
-            !CprCaretakerOutdated(cpr) &&
-            cpr.LastCaretaker.Value != giver)
-            return false;
-
         return true;
     }
 
@@ -110,8 +104,16 @@ public abstract partial class SharedCprSystem : EntitySystem
 
     public void OnCprDoAfter(Entity<CprComponent> ent, ref CprDoAfterEvent args)
     {
-        if (args.Handled || args.Cancelled)
+        if (args.Handled)
             return;
+
+        if (args.Cancelled)
+        {
+            ent.Comp.LastCaretaker = null;
+            ent.Comp.LastTimeGivenCare = TimeSpan.Zero;
+            Dirty(ent, ent.Comp);
+            return;
+        }
 
         if (!CanDoCpr(ent, args.User))
             return;
@@ -191,6 +193,7 @@ public abstract partial class SharedCprSystem : EntitySystem
 
         cpr.LastCaretaker = args.User;
         cpr.LastTimeGivenCare = Timing.CurTime;
+        Dirty(ent, cpr);
 
         // repeat if the mob is still in any crit state or dead
         args.Repeat = _mobState.IsIncapacitated(ent.Owner, mobState) && _cprRepeat;
@@ -201,25 +204,55 @@ public abstract partial class SharedCprSystem : EntitySystem
 
     public void TryStartCpr(EntityUid recipient, EntityUid giver)
     {
+        if (!TryComp<CprComponent>(recipient, out var cpr))
+            return;
+
+        if (!CanDoCpr(recipient, giver) || !InRangeForCpr(recipient, giver))
+            return;
+
+        // Check if someone else is already performing a DoAfter on this target
+        var interactingEntities = new HashSet<EntityUid>();
+        _interactionSystem.GetEntitiesInteractingWithTarget(recipient, interactingEntities);
+
+        // Remove self from the set (we're allowed to start CPR on someone we're already doing CPR on)
+        interactingEntities.Remove(giver);
+
+        if (interactingEntities.Count > 0)
+        {
+            _popup.PopupClient(Loc.GetString("cpr-already-in-progress"), recipient, giver);
+            return;
+        }
+
+        // Set LastCaretaker immediately for client-side prediction and interaction tracking
+        cpr.LastCaretaker = giver;
+        cpr.LastTimeGivenCare = Timing.CurTime;
+        Dirty(recipient, cpr);
+
         var doAfterEventArgs = new DoAfterArgs(
             EntityManager,
             giver,
             TimeSpan.FromSeconds(CprDoAfterDelay),
             new CprDoAfterEvent(),
             recipient,
-            giver
+            recipient
             )
         {
             BreakOnMove = true,
+            DistanceThreshold = SharedInteractionSystem.InteractionRange * CprInteractionRangeMultiplier,
             BlockDuplicate = true,
+            DuplicateCondition = DuplicateConditions.SameTarget,
             RequireCanInteract = true,
             NeedHand = true
         };
 
-        if (!CanDoCpr(recipient, giver)
-            || !InRangeForCpr(recipient, giver)
-            || !_doAfter.TryStartDoAfter(doAfterEventArgs))
+        if (!_doAfter.TryStartDoAfter(doAfterEventArgs))
+        {
+            // DoAfter failed to start - reset LastCaretaker
+            cpr.LastCaretaker = null;
+            cpr.LastTimeGivenCare = TimeSpan.Zero;
+            Dirty(recipient, cpr);
             return;
+        }
 
         var timeLeft = TimeSpan.Zero;
         if (TryComp<AssistedRespirationComponent>(recipient, out var comp))

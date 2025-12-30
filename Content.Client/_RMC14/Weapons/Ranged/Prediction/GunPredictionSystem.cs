@@ -129,17 +129,47 @@ public sealed class GunPredictionSystem : SharedGunPredictionSystem
 
     private void OnServerProjectileStartup(Entity<PredictedProjectileServerComponent> ent, ref ComponentStartup args)
     {
+        HideServerProjectile(ent);
+    }
+
+    private void OnServerProjectileStateHandled(Entity<PredictedProjectileServerComponent> ent, ref AfterAutoHandleStateEvent args)
+    {
+        HideServerProjectile(ent);
+    }
+
+    private void HideServerProjectile(Entity<PredictedProjectileServerComponent> ent)
+    {
+        Log.Debug($"Attempting to hide server projectile: {ToPrettyString(ent)}, GunPrediction: {GunPrediction}");
+
         if (!GunPrediction)
+        {
+            Log.Debug("GunPrediction disabled, not hiding");
             return;
+        }
+
+        Log.Debug($"ClientEnt: {ent.Comp.ClientEnt}, LocalEntity: {_player.LocalEntity}, Match: {ent.Comp.ClientEnt == _player.LocalEntity}");
 
         if (ent.Comp.ClientEnt != _player.LocalEntity)
+        {
+            Log.Debug("ClientEnt doesn't match LocalEntity, not hiding");
             return;
+        }
 
         if (_ignorePredictionHideQuery.HasComp(ent))
+        {
+            Log.Debug("Has IgnorePredictionHide component, not hiding");
             return;
+        }
 
         if (_spriteQuery.TryComp(ent, out var sprite))
+        {
+            Log.Debug($"Hiding server projectile: {ToPrettyString(ent)}");
             _sprite.SetVisible((ent, sprite), false);
+        }
+        else
+        {
+            Log.Debug("No sprite component found");
+        }
     }
 
     public override void Update(float frameTime)

@@ -8,6 +8,8 @@ using Content.Shared.Buckle;
 using Content.Shared.Buckle.Components;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Components;
+using Content.Shared.Damage.Systems;
 using Content.Shared.Interaction;
 using Content.Shared.Mobs;
 using Robust.Shared.Utility;

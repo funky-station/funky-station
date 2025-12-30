@@ -44,12 +44,12 @@ using Content.Server._DV.CosmicCult.Components;
 using Content.Server._Goobstation.Changeling.GameTicking;
 using Content.Server.Administration.Commands;
 using Content.Server.Antag;
-using Content.Server.Clothing.Systems;
 using Content.Server.GameTicking;
 using Content.Server.GameTicking.Rules.Components;
 using Content.Server.Zombies;
-using Content.Shared._EinsteinEngines.Silicon.Components;
 using Content.Shared.Administration;
+using Content.Server.Clothing.Systems;
+using Content.Shared._EinsteinEngines.Silicon.Components;
 using Content.Shared.Database;
 using Content.Shared.Humanoid;
 using Content.Shared.Mind.Components;
@@ -58,6 +58,7 @@ using Content.Shared.Verbs;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
+using Content.Shared.Roles.Components;
 
 namespace Content.Server.Administration.Systems;
 
@@ -68,13 +69,16 @@ public sealed partial class AdminVerbSystem
     [Dependency] private readonly ZombieTumorOrganSystem _zombieTumor = default!;
     [Dependency] private readonly GameTicker _gameTicker = default!;
 
-    [ValidatePrototypeId<EntityPrototype>]
-    private const string DefaultTraitorRule = "Traitor";
-
-    [ValidatePrototypeId<EntityPrototype>]
-    private const string DefaultInitialInfectedRule = "medZombies";
-
+    private static readonly EntProtoId DefaultTraitorRule = "Traitor";
+    private static readonly EntProtoId DefaultInitialInfectedRule = "medZombie";
+    private static readonly EntProtoId DefaultNukeOpRule = "LoneOpsSpawn";
+    private static readonly EntProtoId DefaultRevsRule = "Revolutionary";
+    private static readonly EntProtoId DefaultThiefRule = "Thief";
+    private static readonly EntProtoId DefaultChangelingRule = "Changeling";
     private static readonly EntProtoId ParadoxCloneRuleId = "ParadoxCloneSpawn";
+    private static readonly EntProtoId DefaultWizardRule = "Wizard";
+    private static readonly EntProtoId DefaultNinjaRule = "NinjaSpawn";
+    private static readonly ProtoId<StartingGearPrototype> PirateGearId = "PirateGear";
 
     // All antag verbs have names so invokeverb works.
     private void AddAntagVerbs(GetVerbsEvent<Verb> args)
@@ -92,23 +96,25 @@ public sealed partial class AdminVerbSystem
 
         var targetPlayer = targetActor.PlayerSession;
 
+        var traitorName = Loc.GetString("admin-verb-text-make-traitor");
         Verb traitor = new()
         {
-            Text = Loc.GetString("admin-verb-text-make-traitor"),
+            Text = traitorName,
             Category = VerbCategory.Antag,
-            Icon = new SpriteSpecifier.Rsi(new ResPath("/Textures/Structures/Wallmounts/posters.rsi"), "poster5_contraband"),
+            Icon = new SpriteSpecifier.Rsi(new ResPath("/Textures/Interface/Misc/job_icons.rsi"), "Syndicate"),
             Act = () =>
             {
                 _antag.ForceMakeAntag<TraitorRuleComponent>(targetPlayer, DefaultTraitorRule);
             },
             Impact = LogImpact.High,
-            Message = Loc.GetString("admin-verb-make-traitor"),
+            Message = string.Join(": ", traitorName, Loc.GetString("admin-verb-make-traitor")),
         };
         args.Verbs.Add(traitor);
 
+        var initialInfectedName = Loc.GetString("admin-verb-text-make-initial-infected");
         Verb initialInfected = new()
         {
-            Text = Loc.GetString("admin-verb-text-make-initial-infected"),
+            Text = initialInfectedName,
             Category = VerbCategory.Antag,
             Icon = new SpriteSpecifier.Rsi(new("/Textures/Interface/Misc/job_icons.rsi"), "InitialInfected"),
             Act = () =>
@@ -116,15 +122,16 @@ public sealed partial class AdminVerbSystem
                 _antag.ForceMakeAntag<ZombieRuleComponent>(targetPlayer, DefaultInitialInfectedRule);
             },
             Impact = LogImpact.High,
-            Message = Loc.GetString("admin-verb-make-initial-infected"),
+            Message = string.Join(": ", initialInfectedName, Loc.GetString("admin-verb-make-initial-infected")),
         };
         args.Verbs.Add(initialInfected);
 
+        var zombieName = Loc.GetString("admin-verb-text-make-zombie");
         Verb zombie = new()
         {
-            Text = Loc.GetString("admin-verb-text-make-zombie"),
+            Text = zombieName,
             Category = VerbCategory.Antag,
-            Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/Actions/zombie-turn.png")),
+            Icon = new SpriteSpecifier.Rsi(new("/Textures/Interface/Misc/job_icons.rsi"), "Zombie"),
             Act = () =>
             {
                 // Give them a tumor infection instead of immediately zombifying
@@ -132,28 +139,29 @@ public sealed partial class AdminVerbSystem
                 _zombieTumor.InfectEntity(args.Target);
             },
             Impact = LogImpact.High,
-            Message = Loc.GetString("admin-verb-make-zombie"),
+            Message = string.Join(": ", zombieName, Loc.GetString("admin-verb-make-zombie")),
         };
         args.Verbs.Add(zombie);
 
-
+        var nukeOpName = Loc.GetString("admin-verb-text-make-nuclear-operative");
         Verb nukeOp = new()
         {
-            Text = Loc.GetString("admin-verb-text-make-nuclear-operative"),
+            Text = nukeOpName,
             Category = VerbCategory.Antag,
-            Icon = new SpriteSpecifier.Rsi(new("/Textures/Structures/Wallmounts/signs.rsi"), "radiation"),
+            Icon = new SpriteSpecifier.Rsi(new("/Textures/Clothing/Head/Hardsuits/syndicate.rsi"), "icon"),
             Act = () =>
             {
                 _antag.ForceMakeAntag<NukeopsRuleComponent>(targetPlayer, DefaultNukeOpRule);
             },
             Impact = LogImpact.High,
-            Message = Loc.GetString("admin-verb-make-nuclear-operative"),
+            Message = string.Join(": ", nukeOpName, Loc.GetString("admin-verb-make-nuclear-operative")),
         };
         args.Verbs.Add(nukeOp);
 
+        var pirateName = Loc.GetString("admin-verb-text-make-pirate");
         Verb pirate = new()
         {
-            Text = Loc.GetString("admin-verb-text-make-pirate"),
+            Text = pirateName,
             Category = VerbCategory.Antag,
             Icon = new SpriteSpecifier.Rsi(new("/Textures/Clothing/Head/Hats/pirate.rsi"), "icon"),
             Act = () =>
@@ -162,13 +170,14 @@ public sealed partial class AdminVerbSystem
                 _outfit.SetOutfit(args.Target, PirateGearId);
             },
             Impact = LogImpact.High,
-            Message = Loc.GetString("admin-verb-make-pirate"),
+            Message = string.Join(": ", pirateName, Loc.GetString("admin-verb-make-pirate")),
         };
         args.Verbs.Add(pirate);
 
+        var headRevName = Loc.GetString("admin-verb-text-make-head-rev");
         Verb headRev = new()
         {
-            Text = Loc.GetString("admin-verb-text-make-head-rev"),
+            Text = headRevName,
             Category = VerbCategory.Antag,
             Icon = new SpriteSpecifier.Rsi(new("/Textures/Interface/Misc/job_icons.rsi"), "HeadRevolutionary"),
             Act = () =>
@@ -176,13 +185,14 @@ public sealed partial class AdminVerbSystem
                 _antag.ForceMakeAntag<RevolutionaryRuleComponent>(targetPlayer, DefaultRevsRule);
             },
             Impact = LogImpact.High,
-            Message = Loc.GetString("admin-verb-make-head-rev"),
+            Message = string.Join(": ", headRevName, Loc.GetString("admin-verb-make-head-rev")),
         };
         args.Verbs.Add(headRev);
 
+        var thiefName = Loc.GetString("admin-verb-text-make-thief");
         Verb thief = new()
         {
-            Text = Loc.GetString("admin-verb-text-make-thief"),
+            Text = thiefName,
             Category = VerbCategory.Antag,
             Icon = new SpriteSpecifier.Rsi(new ResPath("/Textures/Clothing/Hands/Gloves/Color/black.rsi"), "icon"),
             Act = () =>
@@ -190,7 +200,7 @@ public sealed partial class AdminVerbSystem
                 _antag.ForceMakeAntag<ThiefRuleComponent>(targetPlayer, DefaultThiefRule);
             },
             Impact = LogImpact.High,
-            Message = Loc.GetString("admin-verb-make-thief"),
+            Message = string.Join(": ", thiefName, Loc.GetString("admin-verb-make-thief")),
         };
         args.Verbs.Add(thief);
 
@@ -309,6 +319,37 @@ public sealed partial class AdminVerbSystem
             Impact = LogImpact.High,
             Message = string.Join(": ", paradoxCloneName, Loc.GetString("admin-verb-make-paradox-clone")),
         };
+
+        var wizardName = Loc.GetString("admin-verb-text-make-wizard");
+        Verb wizard = new()
+        {
+            Text = wizardName,
+            Category = VerbCategory.Antag,
+            Icon = new SpriteSpecifier.Rsi(new("/Textures/Interface/Misc/job_icons.rsi"), "Wizard"),
+            Act = () =>
+            {
+                // Wizard has no rule components as of writing, but I gotta put something here to satisfy the machine so just make it wizard mind rule :)
+                _antag.ForceMakeAntag<WizardRoleComponent>(targetPlayer, DefaultWizardRule);
+            },
+            Impact = LogImpact.High,
+            Message = string.Join(": ", wizardName, Loc.GetString("admin-verb-make-wizard")),
+        };
+        args.Verbs.Add(wizard);
+
+        var ninjaName = Loc.GetString("admin-verb-text-make-space-ninja");
+        Verb ninja = new()
+        {
+            Text = ninjaName,
+            Category = VerbCategory.Antag,
+            Icon = new SpriteSpecifier.Rsi(new("/Textures/Objects/Weapons/Melee/energykatana.rsi"), "icon"),
+            Act = () =>
+            {
+                _antag.ForceMakeAntag<NinjaRoleComponent>(targetPlayer, DefaultNinjaRule);
+            },
+            Impact = LogImpact.High,
+            Message = string.Join(": ", ninjaName, Loc.GetString("admin-verb-make-space-ninja")),
+        };
+        args.Verbs.Add(ninja);
 
         if (HasComp<HumanoidAppearanceComponent>(args.Target)) // only humanoids can be cloned
             args.Verbs.Add(paradox);

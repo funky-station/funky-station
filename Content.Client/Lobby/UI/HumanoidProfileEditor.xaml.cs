@@ -1092,7 +1092,10 @@ namespace Content.Client.Lobby.UI
                                 if (_prototypeManager.TryIndex(titleId, out var titleProto) &&
                                     titleProto.Requirements != null)
                                 {
-                                    if (!_requirements.CheckRoleRequirements(titleProto.Requirements, Profile, out _))
+                                    if (!_requirements.IsAllowed(
+                                            titleProto.Requirements,
+                                            Profile,
+                                            out _))
                                     {
                                         isLocked = true;
                                     }

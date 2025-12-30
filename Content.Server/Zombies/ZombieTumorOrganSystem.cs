@@ -382,8 +382,7 @@ public sealed class ZombieTumorOrganSystem : SharedZombieTumorOrganSystem
 
                 // Start converting blood to zombie blood (but not for IPCs - they keep their Oil)
                 // Only change blood if NOT an IPC (doesn't have Silicon component)
-                if (!HasComp<SiliconComponent>(uid) &&
-                    TryComp<BloodstreamComponent>(uid, out var bloodstream))
+                if (!HasComp<SiliconComponent>(uid) && TryComp<BloodstreamComponent>(uid, out var bloodstream))
                 {
                     _bloodstream.ChangeBloodReagent(uid, "ZombieBlood");
                 }

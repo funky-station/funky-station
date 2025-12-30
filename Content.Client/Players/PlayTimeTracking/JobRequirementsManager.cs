@@ -222,6 +222,13 @@ public sealed class JobRequirementsManager : ISharedPlaytimeManager
         reason = reasons.Count == 0 ? null : FormattedMessage.FromMarkupOrThrow(string.Join('\n', reasons));
         return reason == null;
     }
+    public bool IsAllowed(
+        HashSet<JobRequirement>? requirements,
+        HumanoidCharacterProfile? profile,
+        out FormattedMessage? reason)
+    {
+        return CheckRoleRequirements(requirements, profile, out reason);
+    }
 
     public bool CheckWhitelist(JobPrototype job, [NotNullWhen(false)] out FormattedMessage? reason)
     {

@@ -271,3 +271,15 @@
       amount: 1
   products:
     SilverSulfadiazine: 5
+
+- type: reaction # Genetics
+  id: Mutadone
+  reactants:
+    UnstableMutagen:
+      amount: 1
+    Chlorine:
+      amount: 1
+    Acetone:
+      amount: 1
+  products:
+    Mutadone: 3

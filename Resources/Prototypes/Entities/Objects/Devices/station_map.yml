@@ -92,3 +92,16 @@
   id: HandheldStationMapUnpowered
   parent: BaseHandheldStationMap
   suffix: Handheld, Unpowered
+
+- type: entity
+  id: HandheldStationMapTactical
+  parent: [HandheldStationMapUnpowered, BaseSecurityContraband]
+  name: tactical station map
+  description: Displays a readout of the current station, without needing power to do so.
+  components:
+    - type: Sprite
+      sprite: _Goobstation/Objects/Devices/tablets.rsi
+      layers:
+        - state: tablet
+        - state: television
+          shader: unshaded

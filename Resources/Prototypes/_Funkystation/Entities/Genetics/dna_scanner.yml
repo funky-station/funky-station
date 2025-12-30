@@ -34,7 +34,7 @@
     guides:
     - Genetics
 
-- type: sinkPort
+- type: sourcePort
   id: DnaConsole
   name: signal-port-name-dna-scanner
   description: signal-port-description-dna-scanner

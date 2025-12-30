@@ -27,17 +27,9 @@
           !type:PhysShapeAabb
           bounds: "-0.25,-0.25,0.25,0.4"
         mask:
-        - Impassable
-        - MidImpassable
-        - HighImpassable
-        - LowImpassable
-        - InteractImpassable
-        - Opaque
+        - FullTileMask
         layer:
-        - MidImpassable
-        - HighImpassable
-        - BulletImpassable
-        - InteractImpassable
+        - WallLayer
   - type: Transform
     anchored: true
     noRot: true

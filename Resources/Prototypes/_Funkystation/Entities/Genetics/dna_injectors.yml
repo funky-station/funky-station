@@ -194,6 +194,16 @@
     isMutator: true
   - type: Item
 
+- type: entity
+  parent: BaseDNAInjectorSyringe
+  id: DNAMutatorTrichochromaticShift
+  name: "dna mutator (TrichochromaticShift)"
+  components:
+  - type: DnaSequenceInjector
+    mutationId: TrichochromaticShift
+    isMutator: true
+  - type: Item
+
 
 - type: entity
   id: MutadoneChemistryBottle

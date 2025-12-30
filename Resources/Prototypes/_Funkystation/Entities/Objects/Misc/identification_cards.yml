@@ -69,6 +69,21 @@
   - type: PresetIdCard
     job: NanotrasenRepresentative
 
+- type: entity
+  parent: IDCardStandard
+  id: GeneticistIDCard
+  name: geneticist ID card
+  components:
+  - type: Sprite
+    layers:
+    - state: default #base
+    - state: decal-stripe-medical #decal
+    - sprite: Interface/Misc/job_icons.rsi #icon
+      offset: "-0.125, 0.09375"
+      state: Geneticist
+  - type: PresetIdCard
+    job: Geneticist
+
 # Charlie Station / Ancient ID Cards
 
 - type: entity

@@ -268,7 +268,7 @@
   name: "Acid Tolerance"
   desc: "Subject's tissues and blood are highly resistant to acidic compounds."
   popupText: "You could go for some orange juice."
-  instability: 10
+  instability: 8
   conflicts:
     - AlcoholImmunity
     - PlasmaImmunity
@@ -395,7 +395,7 @@
   desc: "Allows the subject's body to generate its own oxygen internally, invalidating the need for respiration."
   popupText: "Your lungs feel strangely empty."
   probabilityWeight: 4
-  instability: 40
+  instability: 30
   components:
   - type: BreathingImmunity
 
@@ -404,7 +404,7 @@
   name: "Chitinoarmis Durescutis"
   desc: "Subject skin develops into a hardened carapace."
   popupText: "You feel your skin harden."
-  instability: 10
+  instability: 12
   conflicts:
     - KeratinHyperplasia
     - OssifiedExoskeleton
@@ -425,7 +425,7 @@
   name: "Keratin Hyperplasia"
   desc: "Subject's epidermis rapidly proliferates keratin, creating a thick protective barrier."
   popupText: "Your skin grows rough and ridged"
-  instability: 15
+  instability: 14
   conflicts:
     - ChitinoarmisDurescutis
     - OssifiedExoskeleton
@@ -446,7 +446,7 @@
   name: "Ossified Exoskeleton"
   desc: "Subject's dermis mineralizes into dense bone plates, providing robust protection against piercing and cutting damage."
   popupText: "Your skin creaks as it hardens into bone."
-  instability: 20
+  instability: 18
   conflicts:
     - ChitinoarmisDurescutis
     - KeratinHyperplasia
@@ -469,8 +469,8 @@
   desc: "Subject's skin incorporates silicon-based crystalline structures, offering exceptional resistance to energy-based damage."
   popupText: "Your skin begins to sparkle"
   hidden: true
-  researchPoints: 1400
-  instability: 20
+  researchPoints: 1600
+  instability: 18
   conflicts:
     - ChitinoarmisDurescutis
     - KeratinHyperplasia
@@ -493,8 +493,8 @@
   desc: "Subject develops a multi-layered cuticle that ablates under extreme heat, dissipating thermal and caustic energy."
   popupText: "Your skin feels ready to shed under stress."
   hidden: true
-  researchPoints: 3000
-  instability: 20
+  researchPoints: 1600
+  instability: 18
   conflicts:
     - ChitinoarmisDurescutis
     - KeratinHyperplasia
@@ -507,7 +507,7 @@
 - type: damageModifierSet
   id: AblativeCuticleArmor
   coefficients:
-    Heat: 90.0
+    Heat: 85.0
     Caustic: 85.0
 
 - type: geneticMutation
@@ -517,7 +517,7 @@
   popupText: "Your skin feels impossibly resilient"
   hidden: true
   researchPoints: 3000
-  instability: 30
+  instability: 24
   conflicts:
     - ChitinoarmisDurescutis
     - KeratinHyperplasia
@@ -591,7 +591,7 @@
   name: "Hemopoiesis Overdrive"
   desc: "Subject regenerates blood far faster than average."
   popupText: "You feel like being stabbed isn't a big deal"
-  instability: 15
+  instability: 12
   components:
   - type: MutationBloodRegeneration
     regenRatePerSecond: 1
@@ -603,7 +603,7 @@
   name: "Lateral Undulation"
   desc: "Subject muscles develop the ability to perform a serpentine locomation."
   popupText: "You feel like a good wiggle"
-  instability: 15
+  instability: 8
   components:
   - type: CrawlSpeedBoost
     targetSpeedMult: .6
@@ -668,7 +668,7 @@
     - MinorRegeneration
   probabilityWeight: 2.5
   researchPoints: 4000
-  instability: 40
+  instability: 35
   components:
   - type: MutationRegeneration
     healAmount: 1
@@ -679,7 +679,7 @@
   name: "Cutaneous Electrical Insulation"
   desc: "Subject's dermal layers exhibit near-complete electrical resistance, preventing conduction of electricity."
   popupText: "Your fingertips go numb"
-  instability: 20
+  instability: 15
   components:
   - type: Insulated
 
@@ -688,7 +688,7 @@
   name: "Adaptive Iridophores"
   desc: "Subject has near-perfect camouflage when motionless."
   popupText: "You feel one with your surroundings"
-  instability: 35
+  instability: 30
   entityWhitelist:
   - MobReptilian
   - MobKobold
@@ -698,7 +698,7 @@
   - type: Stealth
     enabledOnDeath: false
   - type: StealthOnMove
-    passiveVisibilityRate: -0.25
+    passiveVisibilityRate: -0.14
     movementVisibilityRate: 1
     invisibilityPenalty: 1
     maxInvisibilityPenalty: 1.5
@@ -708,7 +708,7 @@
   name: "Supermatter Clarity"
   desc: "Subject is immune to supermatter-induced hallucinations."
   popupText: "Your mind feels particularly clear"
-  instability: 10
+  instability: 6
   components:
   - type: SupermatterHallucinationImmune
 
@@ -726,7 +726,7 @@
   name: "Adrenal Hypersecretion"
   desc: "Subject exhibit overactive adrenal glands, greatly improving alertness and movement speed."
   popupText: "Your nerves feel like they're buzzing"
-  instability: 25
+  instability: 20
   probabilityWeight: 6
   researchPoints: 1800
   components:
@@ -774,7 +774,7 @@
   name: "Photoreceptor Desensitization"
   desc: "Subject's retinal cells exhibit reduced sensitivity to sudden intense light."
   popupText: "Harsh lights no longer bother you"
-  instability: 15
+  instability: 18
   components:
   - type: FlashImmunity
 
@@ -783,7 +783,7 @@
   name: "Quick Reflexes"
   desc: "Subject exhibits hyperaccelerated neural transmission, significantly increasing speed of actions."
   popupText: "Your reflexes feel unnaturally sharp."
-  instability: 20
+  instability: 18
   probabilityWeight: 5
   researchPoints: 1200
   components:
@@ -926,7 +926,7 @@
   popupText: "Your body feels unusually stable"
   probabilityWeight: 4
   researchPoints: 1200
-  instability: 35
+  instability: 15
   conflicts:
     - AlcoholImmunity
     - AcidResistance
@@ -1087,7 +1087,7 @@
   name: "Stupefaction"
   desc: "Causes damage to the subject's brain structure, occassionally utterly stupefying and stunning them."
   popupText: "Your thoughts become disorderly and hard to control"
-  instability: 10
+  instability: -10
   probabilityWeight: 12
   mutadoneResistant: true
   components:
@@ -1275,7 +1275,7 @@
   name: "Scotopic Vision"
   desc: "Enhances the subject's optic nerves, allowing them to see in the dark."
   popupText: "Everything suddenly appears oddly lit"
-  instability: 20
+  instability: 16
   probabilityWeight: 8
   researchPoints: 1000
   components:
@@ -1286,7 +1286,7 @@
   name: "Infrared Vision"
   desc: "Subject's retinas have adapted to detect infrared radiation, allowing for the detection of heat signatures."
   popupText: "The world glows with heat"
-  instability: 35
+  instability: 25
   probabilityWeight: 0.5
   researchPoints: 3500
   components:
@@ -1298,7 +1298,7 @@
   desc: "Subject's abdominal glands have developed specialized spinnerets capable of extruding high-tensile silk threads."
   popupText: "Your abdomen feels strangely heavy"
   researchPoints: 600
-  instability: 10
+  instability: 12
   conflicts:
     - ClownSpiderWeb
   components:
@@ -1312,7 +1312,7 @@
   popupText: "You feel a silly, slippery weight in your abdomen"
   researchPoints: 3000
   hidden: true
-  instability: 15
+  instability: 18
   conflicts:
     - SpiderWeb
   components:
@@ -1421,10 +1421,11 @@
 - type: entity
   id: ActionAdrenalineRush
   name: "Adrenaline Rush"
-  description: "Triggers a powerful surge of adrenaline, instantly injecting 15u of epinephrine into your bloodstream."
+  description: "Triggers a powerful surge of adrenaline, instantly injecting 10u of epinephrine into your bloodstream."
   components:
   - type: InstantAction
-    useDelay: 600
+    useDelay: 60
+    cooldown: 60
     icon:
       sprite: Objects/Magic/magicactions.rsi
       state: fireball
@@ -1435,7 +1436,7 @@
   name: "Cryokinesis"
   desc: "Allows the subject to control ice and cold."
   popupText: "You notice a strange cold tingle in your fingertips."
-  instability: 25
+  instability: 15
   probabilityWeight: 4
   researchPoints: 1000
   components:
@@ -1471,11 +1472,11 @@
 - type: entity
   id: ActionInkSpurt
   name: "Ink Spurt"
-  description: "Spurt a puddle of slippery black ink at your feet to slow pursuers."
+  description: "Spurt a puddle of slippery black ink behind you."
   components:
   - type: InstantAction
-    useDelay: 15
-    cooldown: 120
+    useDelay: 60
+    cooldown: 60
     icon:
       sprite: Objects/Magic/magicactions.rsi
       state: fireball
@@ -1496,10 +1497,10 @@
 
 - type: geneticMutation
   id: OpticEnergizer
-  name: "Optic Energizer Glands"
+  name: "Optic Energizer"
   desc: "Imbues the subject's eyes with the potential to project concentrated thermal energy."
   popupText: "Your eyes ache and burn"
-  instability: 25
+  instability: 15
   probabilityWeight: 5
   researchPoints: 1200
   components:
@@ -1510,7 +1511,8 @@
   name: optic blast
   components:
   - type: WorldTargetAction
-    useDelay: 10
+    Cooldown: 30
+    useDelay: 30
     itemIconStyle: BigAction
     checkCanAccess: false
     raiseOnUser: true
@@ -1521,6 +1523,30 @@
       sprite: Objects/Magic/magicactions.rsi
       state: fireball
     event: !type:OpticBlastActionEvent
+
+- type: geneticMutation
+  id: TrichochromaticShift
+  name: "Trichochromatic Shift"
+  desc: "Subject's hair follicles have become highly mutable, allowing voluntary shifts in pigmentation."
+  popupText: "Your scalp tingles as your hair color begins to shift!"
+  instability: 6
+  probabilityWeight: 9
+  researchPoints: 700
+  components:
+  - type: MutationTrichochromaticShift
+    actionId: ActionTrichochromaticShift
+- type: entity
+  id: ActionTrichochromaticShift
+  name: "Trichochromatic Shift"
+  description: "Shift your hair to a random color."
+  components:
+  - type: InstantAction
+    Cooldown: 30
+    useDelay: 30
+    icon:
+      sprite: Objects/Magic/magicactions.rsi
+      state: fireball
+    event: !type:TrichochromaticShiftActionEvent
 
 # Instability Mutations
 

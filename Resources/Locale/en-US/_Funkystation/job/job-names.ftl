@@ -8,6 +8,7 @@ job-name-internal-affairs-agent = Internal Affairs Agent
 job-name-magistrate = Magistrate
 job-name-central-command-intern = Central Command Intern
 job-name-space-cowboy = Space Cowboy
+job-name-geneticist = Geneticist
 
 # Role timers - Make these alphabetical or I eat you
 

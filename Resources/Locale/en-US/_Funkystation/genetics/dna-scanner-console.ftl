@@ -25,7 +25,6 @@ dna-scanner-unresearched-mutations = Unresearched
 dna-scanner-researched-mutations = Researched
 dna-scanner-sequencer-clear = Clear
 dna-scanner-sequencer-joker = JOKER
-dna-scanner-sequencer-joker = Joker
 dna-scanner-joker-cooldown = Joker ({ $seconds }s)
 dna-scanner-sequences = Sequences
 dna-scanner-sequence-info = Sequence Info

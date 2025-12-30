@@ -1,0 +1,56 @@
+- type: loadout
+  id: GeneticistJumpsuit
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitGenetics
+  groupBy: "jumpsuit"
+
+- type: loadout
+  id: GeneticistJumpskirt
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtGenetics
+  groupBy: "jumpskirt"
+
+- type: loadout
+  id: GeneticistLabcoat
+  equipment:
+    outerClothing: ClothingOuterCoatLabGene
+
+- type: loadout
+  id: GeneticistWintercoat
+  equipment:
+    outerClothing: ClothingOuterWinterGen
+
+- type: loadout
+  id: GeneticistBackpack
+  equipment:
+    back: ClothingBackpackGenetics
+
+- type: loadout
+  id: GeneticistSatchel
+  equipment:
+    back: ClothingBackpackSatchelGenetics
+
+- type: loadout
+  id: GeneticistDuffel
+  equipment:
+    back: ClothingBackpackDuffelGenetics
+
+- type: loadout
+  id: GeneticistGlovesLatex
+  equipment:
+    gloves: ClothingHandsGlovesLatex
+
+- type: loadout
+  id: GeneticistGlovesNitrile
+  equipment:
+    gloves: ClothingHandsGlovesNitrile
+
+- type: loadout
+  id: GeneticistShoesWhite
+  equipment:
+    shoes: ClothingShoesColorWhite
+
+- type: loadout
+  id: GeneticistShoesBlue
+  equipment:
+    shoes: ClothingShoesColorBlue

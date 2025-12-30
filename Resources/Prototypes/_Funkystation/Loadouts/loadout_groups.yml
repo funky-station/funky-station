@@ -145,3 +145,43 @@
   - ScienceRoboNormGlasses
   - ScienceRoboJamjarGlasses
   - ScienceRoboGlasses
+
+- type: loadoutGroup
+  id: GeneticistJumpsuit
+  name: loadout-group-geneticist-jumpsuit
+  loadouts:
+    - GeneticistJumpsuit
+    - GeneticistJumpskirt
+
+- type: loadoutGroup
+  id: GeneticistOuterClothing
+  name: loadout-group-geneticist-outer
+  minLimit: 0
+  maxLimit: 1
+  loadouts:
+    - GeneticistLabcoat
+    - GeneticistWintercoat
+
+- type: loadoutGroup
+  id: GeneticistBackpack
+  name: loadout-group-geneticist-backpack
+  loadouts:
+    - GeneticistBackpack
+    - GeneticistSatchel
+    - GeneticistDuffel
+
+- type: loadoutGroup
+  id: GeneticistGloves
+  name: loadout-group-geneticist-gloves
+  minLimit: 0
+  maxLimit: 1
+  loadouts:
+    - GeneticistGlovesLatex
+    - GeneticistGlovesNitrile
+
+- type: loadoutGroup
+  id: GeneticistShoes
+  name: loadout-group-geneticist-shoes
+  loadouts:
+    - GeneticistShoesWhite
+    - GeneticistShoesBlue

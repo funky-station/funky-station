@@ -23,3 +23,10 @@ loadout-group-magistrate-gloves = Magistrate gloves
 loadout-group-magistrate-shoes = Magistrate shoes
 loadout-group-magistrate-outer = Magistrate outer clothing
 loadout-group-magistrate-flavor = Magistrate extras
+
+# Geneticist
+loadout-group-geneticist-backpack = Geneticist backpack
+loadout-group-geneticist-head = Geneticist head
+loadout-group-geneticist-jumpsuit = Geneticist jumpsuit
+loadout-group-geneticist-outer = Geneticist outer clothing
+loadout-group-geneticist-flavor = Geneticist extras

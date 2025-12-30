@@ -56,3 +56,16 @@
   - Survival
   - Trinkets
   - GroupSpeciesBreathTool
+
+- type: roleLoadout
+  id: JobGeneticist
+  groups:
+    - GeneticistJumpsuit
+    - GeneticistOuterClothing
+    - GeneticistBackpack
+    - GeneticistGloves
+    - GeneticistShoes
+    - Survival
+    - Trinkets
+    - GroupSpeciesBreathTool
+

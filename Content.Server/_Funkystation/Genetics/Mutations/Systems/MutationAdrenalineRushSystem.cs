@@ -12,7 +12,7 @@ public sealed class MutationAdrenalineRushSystem : EntitySystem
     [Dependency] private readonly SharedSolutionContainerSystem _solution = default!;
 
     private const string ReagentId = "Epinephrine";
-    private const float Amount = 5f;
+    private const float Amount = 10f;
 
     public override void Initialize()
     {

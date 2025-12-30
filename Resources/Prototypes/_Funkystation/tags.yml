@@ -218,4 +218,7 @@
   id: AirTank
 
 - type: Tag
+  id: GasTank
+
+- type: Tag
   id: ExtendedEmergencyNitrogenTank

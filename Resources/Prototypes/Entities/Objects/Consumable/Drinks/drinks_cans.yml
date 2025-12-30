@@ -594,7 +594,6 @@
           Quantity: 4
         - ReagentId: Iron
           Quantity: 1
-  - type: Drink
   - type: Sprite
     sprite: Objects/Consumable/Drinks/hakkamate_can.rsi
   - type: Item
@@ -619,7 +618,6 @@
           Quantity: 4
         - ReagentId: Iron
           Quantity: 1
-  - type: Drink
   - type: Sprite
     sprite: Objects/Consumable/Drinks/melonsoda_can.rsi
   - type: Item
@@ -644,7 +642,6 @@
           Quantity: 4
         - ReagentId: Iron
           Quantity: 1
-  - type: Drink
   - type: Sprite
     sprite: Objects/Consumable/Drinks/24voltenergy.rsi
   - type: Item

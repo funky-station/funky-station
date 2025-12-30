@@ -1,0 +1,73 @@
+﻿- type: entity
+  parent: BaseItemCabinet
+  id: GeigerMount
+  name: geiger mount
+  description: A small wall mounted geiger counter. Warranty void if opened.
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: WallMount
+    arc: 175
+  - type: Transform
+    anchored: true
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Sprite
+    sprite: _Funkystation/Structures/Wallmounts/geigermount.rsi
+    noRot: false
+    layers:
+    - state: frame
+    - state: fill
+      map: ["enum.ItemCabinetVisuals.Layer"]
+      visible: true
+    - state: closed
+      map: ["enum.OpenableVisuals.Layer"]
+  - type: ItemSlots
+    slots:
+      ItemCabinet:
+        ejectOnInteract: true
+        whitelist:
+          components:
+          - Geiger
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Metallic
+  - type: Destructible
+    thresholds:
+    - trigger: !type:DamageTrigger
+        damage: 80
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger: !type:DamageTrigger
+        damage: 40
+      behaviors:
+      - !type:EmptyAllContainersBehaviour
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalGlassBreak
+
+- type: entity
+  parent: GeigerMount
+  id: GeigerMountOpen
+  suffix: Open
+  components:
+  - type: Openable
+    opened: true
+
+- type: entity
+  parent: GeigerMount
+  id: GeigerMountFilled
+  suffix: Filled
+  components:
+  - type: ContainerFill
+    containers:
+      ItemCabinet:
+      - GeigerCounterActive
+
+- type: entity
+  parent: [GeigerMountFilled, GeigerMountOpen]
+  id: GeigerMountFilledOpen
+  suffix: Filled, Open

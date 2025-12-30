@@ -25,6 +25,7 @@
     - type: Geiger
       showControl: true
       showExamine: true
+      broadcastAudio: true
     - type: Appearance
     - type: GenericVisualizer
       visuals:
@@ -46,3 +47,11 @@
       tags:
         - GeigerCounter
 
+- type: entity
+  parent: GeigerCounter
+  id: GeigerCounterActive
+  suffix: Active
+  components:
+  - type: Geiger
+    isEnabled: true
+  - type: RadiationReceiver

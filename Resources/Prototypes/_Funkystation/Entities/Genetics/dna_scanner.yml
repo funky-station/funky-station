@@ -30,7 +30,7 @@
   - type: DeviceLinkSource
     range: 4
     ports:
-      - MedicalScannerSender
+      - DnaConsole
   - type: ResearchPointSource
     pointspersecond: 0
     active: true
@@ -41,13 +41,8 @@
     - Genetics
 
 - type: sinkPort
-  id: DnaScanner
-  name: signal-port-name-dna-scanner
-  description: signal-port-description-dna-scanner
-
-- type: sourcePort
   id: DnaConsole
-  name: source-port-name-dna-scanner
+  name: signal-port-name-dna-scanner
   description: signal-port-description-dna-scanner
 
 - type: entity

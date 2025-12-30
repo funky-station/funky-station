@@ -44,8 +44,5 @@ dna-scanner-print-corrupted = The genetic sequence for { $mutation } cannot be p
 dna-scanner-health-dead = Dead
 
 # Ports
-signal-port-name-dna-scanner = DNA Scanner
-signal-port-description-dna-scanner = Port connected to a DNA Scanner.
-
-source-port-name-dna-scanner = DNA Scanner Console
-source-port-description-dna-scanner = Port on the DNA Scanner Console.
+signal-port-name-dna-scanner = Geneticists console
+signal-port-description-dna-scanner = Port on the geneticists console.

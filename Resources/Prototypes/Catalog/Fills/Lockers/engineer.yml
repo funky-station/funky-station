@@ -83,6 +83,8 @@
         prob: 0.3
       - id: SprayPainter
         prob: 0.7
+      - id: MetalFoamGrenade #funky!
+        prob: 0.1
 
 - type: entity
   id: LockerElectricalSuppliesFilled
@@ -147,6 +149,7 @@
       - id: RCDAmmo
       - id: ClothingBackpackFirefighterTank
       - id: MaterialBag #funky!
+      - id: MetalFoamGrenade #funky!
 
 - type: entity
   id: LockerAtmosphericsFilled
@@ -168,6 +171,7 @@
       - id: RCDAmmo
       - id: ClothingBackpackFirefighterTank
       - id: MaterialBag #funky!
+      - id: MetalFoamGrenade #funky!
 
 - type: entity
   id: LockerEngineerFilledHardsuit
@@ -187,6 +191,7 @@
       - id: RCDAmmo
       - id: BoxInflatable # funky
       - id: MaterialBag #funky!
+      - id: MetalFoamGrenade #funky!
 
 - type: entity
   id: LockerEngineerFilled
@@ -203,6 +208,7 @@
       - id: RCDAmmo
       - id: BoxInflatable # funky
       - id: MaterialBag #funky!
+      - id: MetalFoamGrenade #funky!
 
 - type: entity
   id: ClosetRadiationSuitFilled

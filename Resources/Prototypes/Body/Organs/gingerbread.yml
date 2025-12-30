@@ -1,0 +1,258 @@
+# SPDX-FileCopyrightText: 2025 otokonoko-dev <248204705+otokonoko-dev@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  id: BaseGingerbreadOrgan
+  parent: BaseItem
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: Mobs/Species/Gingerbread/organs.rsi
+  - type: Organ
+  - type: Food
+  - type: SolutionContainerManager
+    solutions:
+      organ:
+        reagents:
+        - ReagentId: Sugar
+          Quantity: 10
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: Sugar
+          Quantity: 5
+  - type: Extractable
+  grindableSolutionName: organ
+
+- type: entity
+  id: OrganGingerbreadBrain
+  parent: BaseGingerbreadOrgan
+  name: pudding brain
+  description: "The source of incredible, unending fudginess. Yum!"
+  components:
+  - type: Sprite
+    state: brain
+  - type: Organ
+    slotId: brain
+  - type: Brain
+  - type: Tag
+    tags:
+      - Organ
+      - Brain
+  - type: Item
+    size: Small
+    shape:
+      - 0,0,1,1
+    heldPrefix: brain
+  - type: SolutionContainerManager
+    solutions:
+      organ:
+        reagents:
+        - ReagentId: Theobromine
+          Quantity: 25
+      food:
+        reagents:
+        - ReagentId: Theobromine
+          Quantity: 25
+  - type: FlavorProfile
+    flavors:
+      - sweet
+      - chocolate
+
+- type: entity
+  id: OrganGingerbreadEyes
+  parent: BaseGingerbreadOrgan
+  name: gummy eyes
+  description: "Two glossy gummy candies that somehow see the world. Wiggle them and they jiggle right back."
+  components:
+  - type: Organ
+    slotId: eyes
+  - type: Eyes
+  - type: Sprite
+    layers:
+      - state: eyeball-l
+      - state: eyeball-r
+  - type: Tag
+    tags:
+      - Organ
+      - Eyes
+  - type: Item
+    size: Small
+    shape:
+    - 0,0,1,0
+    heldPrefix: eyeballs
+  - type: FlavorProfile
+    flavors:
+      - sweet
+      - fruity
+      - jelly
+
+- type: entity
+  id: OrganGingerbreadLungs
+  parent: BaseGingerbreadOrgan
+  name: spongecake lungs
+  description: "Soft, airy pastry sacs that inhale oxygen and exhale the smell of a warm bakery."
+  components:
+  - type: Organ
+    slotId: lungs
+  - type: Sprite
+    layers:
+      - state: lung-l
+      - state: lung-r
+  - type: Item
+    size: Normal
+    shape:
+      - 0,0,1,1
+    heldPrefix: lungs
+  - type: Lung
+  - type: Metabolizer
+    removeEmpty: true
+    solutionOnBody: false
+    solution: "Lung"
+    metabolizerTypes: [ Human ]
+    groups:
+    - id: Gas
+      rateModifier: 100.0
+  - type: SolutionContainerManager
+    solutions:
+      Lung:
+        maxVol: 100.0
+        canReact: false
+  - type: Tag
+    tags:
+      - Organ
+      - Lungs
+  - type: FlavorProfile
+    flavors:
+      - sweet
+      - muffin
+
+- type: entity
+  id: OrganGingerbreadHeart
+  parent: BaseGingerbreadOrgan
+  name: candy apple heart
+  description: "A candy-coated apple that thumps with sticky determination. Beats louder when near open flames."
+  components:
+  - type: Heart
+  - type: Organ
+    slotId: heart
+  - type: Sprite
+    state: heart-on
+  - type: Metabolizer
+    maxReagents: 3
+    metabolizerTypes: [Human]
+    groups:
+    - id: Medicine
+    - id: Poison
+    - id: Narcotic
+  - type: Tag
+    tags:
+      - Organ
+      - Heart
+  - type: Item
+    size: Tiny
+    heldPrefix: heart
+  - type: FlavorProfile
+    flavors:
+      - sweet
+      - apple
+      - syrupy
+
+- type: entity
+  id: OrganGingerbreadStomach
+  parent: BaseGingerbreadOrgan
+  name: sour candy stomach
+  description: "A lemon sour candy that handles digestion. Tart enough to melt almost anything."
+  components:
+  - type: Organ
+    slotId: stomach
+  - type: Sprite
+    state: stomach
+  - type: Item
+    size: Normal
+    shape:
+      - 0,0,1,1
+    heldPrefix: stomach
+  - type: SolutionContainerManager
+    solutions:
+      stomach:
+        maxVol: 50
+  - type: Stomach
+  - type: Metabolizer
+    maxReagents: 3
+    metabolizerTypes: [Human]
+    groups:
+    - id: Food
+    - id: Drink
+  - type: Tag
+    tags:
+      - Organ
+      - Stomach
+  - type: FlavorProfile
+    flavors:
+      - sweet
+      - sour
+      - lemon
+
+- type: entity
+  id: OrganGingerbreadLiver
+  parent: BaseGingerbreadOrgan
+  name: brownie liver
+  description: "A rich brownie square that filters stray crumbs and off-flavors. Warm, gooey, and medically vital."
+  components:
+  - type: Liver
+  - type: Organ
+    slotId: liver
+  - type: Sprite
+    state: liver
+  - type: Item
+    size: Small
+    shape:
+      - 0,0,1,1
+    heldPrefix: liver
+  - type: Metabolizer
+    maxReagents: 1
+    metabolizerTypes: [Human]
+    groups:
+    - id: Alcohol
+      rateModifier: 0.1
+  - type: Tag
+    tags:
+      - Organ
+      - Liver
+  - type: FlavorProfile
+    flavors:
+      - sweet
+      - mrebrownie
+
+- type: entity
+  id: OrganGingerbreadKidneys
+  parent: BaseGingerbreadOrgan
+  name: croissant kidneys
+  description: "Two flaky crescents doing their best to act like real kidneys. It shouldn’t work, but somehow it does."
+  components:
+  - type: Organ
+    slotId: kidneys
+  - type: Sprite
+    layers:
+      - state: kidney-l
+      - state: kidney-r
+  - type: Item
+    size: Normal
+    shape:
+      - 0,0,1,1
+    heldPrefix: kidneys
+  - type: Metabolizer
+    maxReagents: 5
+    metabolizerTypes: [Human]
+    removeEmpty: true
+  - type: Tag
+    tags:
+      - Organ
+      - Kidneys
+  - type: FlavorProfile
+    flavors:
+      - sweet
+      - butter
+      - bread

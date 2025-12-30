@@ -54,31 +54,3 @@
   parent: BaseCircuitboardRecipe
   id: DnaScannerConsoleComputerCircuitboard
   result: DnaScannerConsoleComputerCircuitboard
-
-
-- type: entity
-  id: DnaDiscoveredIcon
-  name: "dna discovered icon"
-  components:
-  - type: Sprite
-    sprite: /Textures/_Funkystation/Interface/Genetics/dna_seq.rsi
-    layers:
-    - state: dna_discovered
-
-- type: entity
-  id: DnaUndiscoveredIcon
-  name: "dna undiscovered icon"
-  components:
-  - type: Sprite
-    sprite: /Textures/_Funkystation/Interface/Genetics/dna_seq.rsi
-    layers:
-    - state: dna_undiscovered
-
-- type: entity
-  id: DnaExtraIcon
-  name: "dna extra icon"
-  components:
-  - type: Sprite
-    sprite: /Textures/_Funkystation/Interface/Genetics/dna_seq.rsi
-    layers:
-    - state: dna_extra

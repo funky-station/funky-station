@@ -53,7 +53,7 @@ trait-table-hider-desc = You can sneak under objects like tables that no normal 
 
 # NeuroAversion trait
 trait-neuro-aversion-name = NeuroAversion
-trait-neuro-aversion-desc = Your nervous system has an adverse reaction to MindShield implants for one reason or another. When mindshielded, you experience various side effects such as migraines and seizures.
+trait-neuro-aversion-desc = Your nervous system has an adverse reaction to MindShield implants. You experience migraines and rare seizures.
 
 trait-neuro-aversion-migraine-start = The Mindshield begins to throb painfully...
 trait-neuro-aversion-migraine-start-other = {THE($target)} winces and clutches {POSS-ADJ($target)}

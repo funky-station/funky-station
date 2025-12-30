@@ -208,7 +208,7 @@
     state: icon
     layers:
     - state: icon
-    - state: icon-unlit
+    - state: icon-unshaded
       shader: unshaded
   - type: Item
     size: Ginormous

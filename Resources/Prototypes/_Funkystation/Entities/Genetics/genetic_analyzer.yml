@@ -1,0 +1,91 @@
+- type: entity
+  id: HandheldGeneticAnalyzerUnpowered
+  parent: BaseItem
+  name: genetic analyzer
+  description: A hand-held body scanner capable of distinguishing genetic sequences of a subject.
+  suffix: empty
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Specific/Medical/geneticanalyzer.rsi
+    state: icon
+    layers:
+      - state: icon
+      - state: analyzer
+        shader: unshaded
+        visible: true
+        map: [ "enum.PowerDeviceVisualLayers.Powered" ]
+  - type: Item
+    heldPrefix: analyzer
+    storedRotation: -90
+  - type: ActivatableUI
+  - type: ItemToggle
+    onUse: false
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.PowerCellSlotVisuals.Enabled:
+        enum.PowerDeviceVisualLayers.Powered:
+          True: { visible: true }
+          False: { visible: false }
+  - type: GuideHelp
+    guides:
+    - Genetics
+
+- type: entity
+  id: HandheldGeneticAnalyzer
+  parent: [ HandheldGeneticAnalyzerUnpowered, PowerCellSlotSmallItem ]
+  suffix: Powered
+  components:
+  - type: PowerCellDraw
+    drawRate: .5
+  - type: ToggleCellDraw
+  - type: ActivatableUIRequiresPowerCell
+
+- type: entity
+  id: HandheldGeneticAnalyzerEmpty
+  parent: HandheldGeneticAnalyzer
+  suffix: Empty
+  components:
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+
+- type: latheRecipe
+  id: HandheldGeneticAnalyzer
+  result: HandheldGeneticAnalyzerEmpty
+  categories:
+  - Tools
+  completetime: 4
+  materials:
+    Glass: 200
+    Steel: 200
+
+- type: entity
+  name: genetic analysis report
+  parent: Paper
+  id: GeneticAnalyzerReportPaper
+  description: A detailed genetic analysis of a scanned subject's structural enzymes sequences.
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/bureaucracy.rsi
+    layers:
+    - state: paper_receipt
+    - state: paper_receipt_words
+      map: ["enum.PaperVisualLayers.Writing"]
+      visible: false
+    - state: paper_stamp-generic
+      map: ["enum.PaperVisualLayers.Stamp"]
+      visible: false
+  - type: PaperVisuals
+    backgroundImagePath: "/Textures/Interface/Paper/paper_background_perforated.svg.96dpi.png"
+    headerImagePath: "/Textures/Interface/Paper/paper_heading_forensic_scanner.svg.96dpi.png"
+    headerMargin: 0.0, 0.0, 0.0, 4.0
+    backgroundImageTile: true
+    backgroundPatchMargin: 0.0, 6.0, 0.0, 6.0
+    contentMargin: 12.0, 0.0, 6.0, 0.0
+    maxWritableArea: 378.0, 256.0
+  - type: GuideHelp
+    guides:
+    - Genetics

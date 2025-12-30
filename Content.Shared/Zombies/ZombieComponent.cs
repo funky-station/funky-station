@@ -30,8 +30,8 @@
 //
 // SPDX-License-Identifier: MIT
 
-using Content.Shared.Antag;
 using Content.Shared.Chat.Prototypes;
+using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Damage;
 using Content.Shared.Humanoid;
@@ -49,17 +49,30 @@ namespace Content.Shared.Zombies;
 public sealed partial class ZombieComponent : Component
 {
     /// <summary>
-    /// The baseline infection chance you have if you are completely nude
+    /// The baseline infection chance you have if you have no protective gear
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
-    public float MaxZombieInfectionChance = 0.80f;
+    public float BaseZombieInfectionChance = 0.75f;
 
     /// <summary>
     /// The minimum infection chance possible. This is simply to prevent
-    /// being invincible by bundling up.
+    /// being overly protected by bundling up.
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
     public float MinZombieInfectionChance = 0.25f;
+
+    /// <summary>
+    /// How effective each resistance type on a piece of armor is. Using a damage specifier for this seems illegal.
+    /// </summary>
+    public DamageSpecifier ResistanceEffectiveness = new()
+    {
+        DamageDict = new ()
+        {
+            {"Slash", 0.5},
+            {"Piercing", 0.3},
+            {"Blunt", 0.1},
+        }
+    };
 
     [ViewVariables(VVAccess.ReadWrite)]
     public float ZombieMovementSpeedDebuff = 0.70f;
@@ -112,10 +125,8 @@ public sealed partial class ZombieComponent : Component
     [DataField("beforeZombifiedEyeColor")]
     public Color BeforeZombifiedEyeColor;
 
-    [DataField("emoteId", customTypeSerializer: typeof(PrototypeIdSerializer<EmoteSoundsPrototype>))]
-    public string? EmoteSoundsId = "Zombie";
-
-    public EmoteSoundsPrototype? EmoteSounds;
+    [DataField("emoteId")]
+    public ProtoId<EmoteSoundsPrototype>? EmoteSoundsId = "Zombie";
 
     [DataField("nextTick", customTypeSerializer:typeof(TimeOffsetSerializer))]
     public TimeSpan NextTick;
@@ -186,14 +197,14 @@ public sealed partial class ZombieComponent : Component
     public SoundSpecifier BiteSound = new SoundPathSpecifier("/Audio/Effects/bite.ogg");
 
     /// <summary>
-    /// The blood reagent of the humanoid to restore in case of cloning
+    /// The blood reagents of the humanoid to restore in case of cloning
     /// </summary>
-    [DataField("beforeZombifiedBloodReagent")]
-    public string BeforeZombifiedBloodReagent = string.Empty;
+    [DataField("beforeZombifiedBloodReagents")]
+    public Solution BeforeZombifiedBloodReagents = new();
 
     /// <summary>
-    /// The blood reagent to give the zombie. In case you want zombies that bleed milk, or something.
+    /// The blood reagents to give the zombie. In case you want zombies that bleed milk, or something.
     /// </summary>
-    [DataField("newBloodReagent", customTypeSerializer: typeof(PrototypeIdSerializer<ReagentPrototype>))]
-    public string NewBloodReagent = "ZombieBlood";
+    [DataField("newBloodReagents")]
+    public Solution NewBloodReagents = new([new("ZombieBlood", 1)]);
 }

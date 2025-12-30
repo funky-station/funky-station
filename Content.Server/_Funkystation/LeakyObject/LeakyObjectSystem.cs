@@ -77,7 +77,7 @@ public sealed class LeakyObjectSystem : EntitySystem
             leakedSolution.ScaleSolution(comp.LeakEfficiency);
 
             _reactiveSystem.DoEntityReaction(container.Owner, leakedSolution, ReactionMethod.Touch);
-            _bloodstreamSystem.TryAddToChemicals(container.Owner, leakedSolution);
+            _bloodstreamSystem.TryAddToBloodstream(container.Owner, leakedSolution);
         }
     }
 

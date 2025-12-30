@@ -42,6 +42,7 @@
 // SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 wrexbe <wrexbe@protonmail.com>
+// SPDX-FileCopyrightText: 2025 Quantum-cross <7065792+Quantum-cross@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 // SPDX-FileCopyrightText: 2025 Terkala <appleorange64@gmail.com>
 // SPDX-FileCopyrightText: 2025 W.xyz() <tptechteam@gmail.com>
@@ -49,6 +50,7 @@
 // SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
 // SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 w.xyz() <84605679+pirakaplant@users.noreply.github.com>
 //
 // SPDX-License-Identifier: MIT
 
@@ -92,6 +94,7 @@ namespace Content.Server.GameTicking
         [Dependency] private readonly AdminSystem _admin = default!;
 
         public static readonly EntProtoId ObserverPrototypeName = "MobObserver";
+
         public static readonly EntProtoId AdminObserverPrototypeName = "AdminObserver";
 
         /// <summary>
@@ -103,7 +106,7 @@ namespace Content.Server.GameTicking
         // Mainly to avoid allocations.
         private readonly List<EntityCoordinates> _possiblePositions = new();
 
-        private List<EntityUid> GetSpawnableStations()
+        public List<EntityUid> GetSpawnableStations() // Goobstation - made this public
         {
             var spawnableStations = new List<EntityUid>();
             var query = EntityQueryEnumerator<StationJobsComponent, StationSpawningComponent>();
@@ -384,7 +387,6 @@ namespace Content.Server.GameTicking
             _mind.TransferTo(newMind, mob);
 
             _roles.MindAddJobRole(newMind, silent: silent, jobPrototype: jobId);
-            var jobName = _jobs.MindTryGetJobName(newMind);
             _admin.UpdatePlayerList(player);
 
             if (lateJoin && !silent)
@@ -559,7 +561,7 @@ namespace Content.Server.GameTicking
         public EntityCoordinates GetObserverSpawnPoint()
         {
             _possiblePositions.Clear();
-            var spawnPointQuery = EntityQueryEnumerator<SpawnPointComponent, TransformComponent>();
+            var spawnPointQuery = EntityManager.EntityQueryEnumerator<SpawnPointComponent, TransformComponent>();
             while (spawnPointQuery.MoveNext(out var uid, out var point, out var transform))
             {
                 if (point.SpawnType != SpawnPointType.Observer

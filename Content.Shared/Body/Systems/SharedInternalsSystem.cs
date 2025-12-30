@@ -71,7 +71,7 @@ public abstract class SharedInternalsSystem : EntitySystem
         args.Verbs.Add(verb);
     }
 
-    protected bool ToggleInternals(
+    public bool ToggleInternals(
         EntityUid target,
         EntityUid user,
         bool force,

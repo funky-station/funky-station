@@ -16,37 +16,81 @@
 
 using Content.Shared.Administration.Logs;
 using Content.Shared.Body.Components;
+using Content.Shared.Body.Systems;
+using Content.Shared.Chemistry;
+using Content.Shared.Chemistry.Components;
+using Content.Shared.Chemistry.Components.SolutionManager;
+using Content.Shared.Chemistry.EntitySystems;
+using Content.Shared.Climbing.Systems;
+using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Database;
 using Content.Shared.DoAfter;
 using Content.Shared.DragDrop;
 using Content.Shared.Emag.Systems;
+using Content.Shared.Examine;
+using Content.Shared.Interaction;
+using Content.Shared.MedicalScanner;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
+using Content.Shared.Power;
 using Content.Shared.Standing;
 using Content.Shared.Stunnable;
+using Content.Shared.Tools.Systems;
+using Content.Shared.UserInterface;
 using Content.Shared.Verbs;
 using Robust.Shared.Containers;
 using Robust.Shared.Serialization;
+using Robust.Shared.Timing;
 
 namespace Content.Shared.Medical.Cryogenics;
 
-public abstract partial class SharedCryoPodSystem: EntitySystem
+public abstract partial class SharedCryoPodSystem : EntitySystem
 {
-    [Dependency] private readonly SharedAppearanceSystem _appearanceSystem = default!;
-    [Dependency] private readonly StandingStateSystem _standingStateSystem = default!;
+    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
+    [Dependency] private readonly StandingStateSystem _standingState = default!;
     [Dependency] private readonly EmagSystem _emag = default!;
-    [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
-    [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
-    [Dependency] private readonly SharedContainerSystem _containerSystem = default!;
+    [Dependency] private readonly ItemSlotsSystem _itemSlots = default!;
+    [Dependency] private readonly MobStateSystem _mobState = default!;
+    [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly SharedPointLightSystem _light = default!;
+    [Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
+    [Dependency] private readonly ClimbSystem _climb = default!;
+    [Dependency] private readonly SharedBloodstreamSystem _bloodstream = default!;
+    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
+    [Dependency] private readonly SharedUserInterfaceSystem _ui = default!;
+    [Dependency] private readonly SharedToolSystem _tool = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly ReactiveSystem _reactive = default!;
+
+    private EntityQuery<BloodstreamComponent> _bloodstreamQuery;
+    private EntityQuery<ItemSlotsComponent> _itemSlotsQuery;
+    private EntityQuery<FitsInDispenserComponent> _dispenserQuery;
+    private EntityQuery<SolutionContainerManagerComponent> _solutionContainerQuery;
 
     public override void Initialize()
     {
         base.Initialize();
 
         SubscribeLocalEvent<CryoPodComponent, CanDropTargetEvent>(OnCryoPodCanDropOn);
+        SubscribeLocalEvent<CryoPodComponent, ExaminedEvent>(OnExamined);
+        SubscribeLocalEvent<CryoPodComponent, ComponentInit>(OnComponentInit);
+        SubscribeLocalEvent<CryoPodComponent, GetVerbsEvent<AlternativeVerb>>(AddAlternativeVerbs);
+        SubscribeLocalEvent<CryoPodComponent, GotEmaggedEvent>(OnEmagged);
+        SubscribeLocalEvent<CryoPodComponent, CryoPodDragFinished>(OnDragFinished);
+        SubscribeLocalEvent<CryoPodComponent, CryoPodPryFinished>(OnCryoPodPryFinished);
+        SubscribeLocalEvent<CryoPodComponent, DragDropTargetEvent>(HandleDragDropOn);
+        SubscribeLocalEvent<CryoPodComponent, InteractUsingEvent>(OnInteractUsing);
+        SubscribeLocalEvent<CryoPodComponent, PowerChangedEvent>(OnPowerChanged);
+        SubscribeLocalEvent<CryoPodComponent, ActivatableUIOpenAttemptEvent>(OnActivateUIAttempt);
+
+        _bloodstreamQuery = GetEntityQuery<BloodstreamComponent>();
+        _itemSlotsQuery = GetEntityQuery<ItemSlotsComponent>();
+        _dispenserQuery = GetEntityQuery<FitsInDispenserComponent>();
+        _solutionContainerQuery = GetEntityQuery<SolutionContainerManagerComponent>();
+
         InitializeInsideCryoPod();
     }
 
@@ -188,12 +232,12 @@ public abstract partial class SharedCryoPodSystem: EntitySystem
         args.Handled = true;
     }
 
-    protected void OnComponentInit(EntityUid uid, CryoPodComponent cryoPodComponent, ComponentInit args)
+    private void OnComponentInit(EntityUid uid, CryoPodComponent cryoPodComponent, ComponentInit args)
     {
-        cryoPodComponent.BodyContainer = _containerSystem.EnsureContainer<ContainerSlot>(uid, "scanner-body");
+        cryoPodComponent.BodyContainer = _container.EnsureContainer<ContainerSlot>(uid, CryoPodComponent.BodyContainerName);
     }
 
-    protected void UpdateAppearance(EntityUid uid, CryoPodComponent? cryoPod = null, AppearanceComponent? appearance = null)
+    private void UpdateAppearance(EntityUid uid, CryoPodComponent? cryoPod = null, AppearanceComponent? appearance = null)
     {
         if (!Resolve(uid, ref cryoPod))
             return;
@@ -202,14 +246,14 @@ public abstract partial class SharedCryoPodSystem: EntitySystem
 
         if (_light.TryGetLight(uid, out var light))
         {
-            _light.SetEnabled(uid, cryoPodEnabled && cryoPod.BodyContainer.ContainedEntity != null, light);
+            _light.SetEnabled(uid, cryoPodEnabled && cryoPod.BodyContainer?.ContainedEntity != null, light);
         }
 
         if (!Resolve(uid, ref appearance))
             return;
 
-        _appearanceSystem.SetData(uid, CryoPodComponent.CryoPodVisuals.ContainsEntity, cryoPod.BodyContainer.ContainedEntity == null, appearance);
-        _appearanceSystem.SetData(uid, CryoPodComponent.CryoPodVisuals.IsOn, cryoPodEnabled, appearance);
+        _appearance.SetData(uid, CryoPodVisuals.ContainsEntity, cryoPod.BodyContainer?.ContainedEntity == null, appearance);
+        _appearance.SetData(uid, CryoPodVisuals.IsOn, cryoPodEnabled, appearance);
     }
 
     public bool InsertBody(EntityUid uid, EntityUid target, CryoPodComponent cryoPodComponent)
@@ -221,10 +265,10 @@ public abstract partial class SharedCryoPodSystem: EntitySystem
             return false;
 
         var xform = Transform(target);
-        _containerSystem.Insert((target, xform), cryoPodComponent.BodyContainer);
+        _container.Insert((target, xform), cryoPodComponent.BodyContainer);
 
         EnsureComp<InsideCryoPodComponent>(target);
-        _standingStateSystem.Stand(target, force: true); // Force-stand the mob so that the cryo pod sprite overlays it fully
+        _standingState.Stand(target, force: true); // Force-stand the mob so that the cryo pod sprite overlays it fully
 
         UpdateAppearance(uid, cryoPodComponent);
         return true;
@@ -239,7 +283,7 @@ public abstract partial class SharedCryoPodSystem: EntitySystem
 
         if (cryoPodComponent.Locked)
         {
-            _popupSystem.PopupEntity(Loc.GetString("cryo-pod-locked"), uid, userId);
+            _popup.PopupClient(Loc.GetString("cryo-pod-locked"), uid, userId);
             return;
         }
 
@@ -254,28 +298,25 @@ public abstract partial class SharedCryoPodSystem: EntitySystem
     /// <param name="uid">The cryopod entity</param>
     /// <param name="cryoPodComponent">Cryopod component of <see cref="uid"/></param>
     /// <returns>Ejected entity</returns>
-    public virtual EntityUid? EjectBody(EntityUid uid, CryoPodComponent? cryoPodComponent)
+    public EntityUid? EjectBody(EntityUid uid, CryoPodComponent? cryoPodComponent)
     {
         if (!Resolve(uid, ref cryoPodComponent))
             return null;
 
-        if (cryoPodComponent.BodyContainer.ContainedEntity is not {Valid: true} contained)
+        if (cryoPodComponent.BodyContainer.ContainedEntity is not { Valid: true } contained)
             return null;
 
-        _containerSystem.Remove(contained, cryoPodComponent.BodyContainer);
+        _container.Remove(contained, cryoPodComponent.BodyContainer);
         // InsideCryoPodComponent is removed automatically in its EntGotRemovedFromContainerMessage listener
         // RemComp<InsideCryoPodComponent>(contained);
 
         // Restore the correct position of the patient. Checking the components manually feels hacky, but I did not find a better way for now.
-        if (HasComp<KnockedDownComponent>(contained) || _mobStateSystem.IsIncapacitated(contained))
-        {
-            _standingStateSystem.Down(contained);
-        }
+        if (HasComp<KnockedDownComponent>(contained) || _mobState.IsIncapacitated(contained))
+            _standingState.Down(contained);
         else
-        {
-            _standingStateSystem.Stand(contained);
-        }
+            _standingState.Stand(contained);
 
+        _climb.ForciblySetClimbing(contained, uid);
         UpdateAppearance(uid, cryoPodComponent);
         return contained;
     }
@@ -311,26 +352,13 @@ public abstract partial class SharedCryoPodSystem: EntitySystem
 
         cryoPodComponent.PermaLocked = true;
         cryoPodComponent.Locked = true;
+        Dirty(uid, cryoPodComponent);
         args.Handled = true;
     }
 
-    protected void OnCryoPodPryFinished(EntityUid uid, CryoPodComponent cryoPodComponent, CryoPodPryFinished args)
-    {
-        if (args.Cancelled)
-            return;
-
-        var ejected = EjectBody(uid, cryoPodComponent);
-        if (ejected != null)
-            _adminLogger.Add(LogType.Action, LogImpact.Medium, $"{ToPrettyString(ejected.Value)} pried out of {ToPrettyString(uid)} by {ToPrettyString(args.User)}");
-    }
+    [Serializable, NetSerializable]
+    public sealed partial class CryoPodPryFinished : SimpleDoAfterEvent;
 
     [Serializable, NetSerializable]
-    public sealed partial class CryoPodPryFinished : SimpleDoAfterEvent
-    {
-    }
-
-    [Serializable, NetSerializable]
-    public sealed partial class CryoPodDragFinished : SimpleDoAfterEvent
-    {
-    }
+    public sealed partial class CryoPodDragFinished : SimpleDoAfterEvent;
 }

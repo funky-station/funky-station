@@ -59,6 +59,7 @@ using Robust.Shared.Random;
 using Content.Shared.GameTicking.Components;
 using Content.Shared.Speech;
 using Content.Server.Speech.Components;
+using Content.Shared.Body.Systems;
 using Content.Shared.Emoting;
 using Content.Shared.NPC.Systems;
 
@@ -77,7 +78,7 @@ namespace Content.Server.BloodCult.EntitySystems
 		[Dependency] private readonly SharedAudioSystem _audio = default!;
 		[Dependency] private readonly GameTicker _gameTicker = default!;
 		[Dependency] private readonly SharedContainerSystem _container = default!;
-		[Dependency] private readonly BloodstreamSystem _bloodstream = default!;
+		[Dependency] private readonly SharedBloodstreamSystem _bloodstream = default!;
 		[Dependency] private readonly SharedStunSystem _stun = default!;
 		[Dependency] private readonly BloodCultRuleSystem _bloodCultRule = default!;
 		[Dependency] private readonly BodySystem _bodySystem = default!;
@@ -320,7 +321,7 @@ namespace Content.Server.BloodCult.EntitySystems
 				// Add blood to the ritual pool based on the victim's current blood level
 				// If they're at 50% blood, only add 50u instead of 100u
 				// Also account for blood already spilled from EdgeEssentia wounds
-				var bloodPercentage = _bloodstream.GetBloodLevelPercentage(offerable);
+				var bloodPercentage = _bloodstream.GetBloodLevel(offerable);
 				var bloodFromConversion = 100.0 * bloodPercentage;
 
 				// Check if this entity has already contributed blood via EdgeEssentia bleeding
@@ -1018,7 +1019,7 @@ namespace Content.Server.BloodCult.EntitySystems
 		// Add blood to the ritual pool based on the victim's current blood level
 		// If they're at 50% blood, only add 50u instead of 100u
 		// Also account for blood already spilled from EdgeEssentia wounds
-		var bloodPercentage = _bloodstream.GetBloodLevelPercentage(victim);
+		var bloodPercentage = _bloodstream.GetBloodLevel(victim);
 		var bloodFromConversion = 100.0 * bloodPercentage;
 
 		// Check if this entity has already contributed blood via EdgeEssentia bleeding

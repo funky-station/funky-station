@@ -25,7 +25,7 @@ public sealed partial class BloodReagentConditionSystem : EntityConditionSystem<
         }
 
         // Try to resolve the chemical solution
-        if (!_solutionSystem.ResolveSolution(entity.Owner, entity.Comp.ChemicalSolutionName, ref entity.Comp.ChemicalSolution, out var chemSolution))
+        if (!_solutionSystem.ResolveSolution(entity.Owner, entity.Comp.BloodSolutionName, ref entity.Comp.BloodSolution, out var chemSolution))
         {
             args.Result = true;
             return;

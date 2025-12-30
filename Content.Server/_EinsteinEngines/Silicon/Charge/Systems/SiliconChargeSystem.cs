@@ -155,7 +155,7 @@ public sealed class SiliconChargeSystem : EntitySystem
     private float SiliconHeatEffects(EntityUid silicon, SiliconComponent siliconComp, float frameTime)
     {
         if (!TryComp<TemperatureComponent>(silicon, out var temp)
-            || !TryComp<ThermalRegulatorComponent>(silicon, out var thermal))
+            || !TryComp<ThermalRegulatorComponent>(silicon, out var thermal) || (!TryComp<TemperatureDamageComponent>(silicon, out var tempthreshold)))
             return 0;
 
         var upper = thermal.NormalBodyTemperature + thermal.ThermalRegulationTemperatureThreshold;
@@ -173,7 +173,7 @@ public sealed class SiliconChargeSystem : EntitySystem
 
             if (!TryComp<FlammableComponent>(silicon, out var flam)
                 || flam.OnFire
-                || temp.CurrentTemperature <= temp.HeatDamageThreshold)
+                || temp.CurrentTemperature <= tempthreshold.HeatDamageThreshold)
                 return hotMulti;
 
             _popup.PopupEntity(Loc.GetString("silicon-overheating"), silicon, silicon, PopupType.MediumCaution);

@@ -23,6 +23,6 @@ public sealed partial class AddReagentToBloodSystem : EntityEffectSystem<Bloodst
 
         var solution = new Solution();
         solution.AddReagent(args.Effect.Reagent, args.Effect.Amount * args.Scale);
-        _bloodstream.TryAddToChemicals((entity.Owner, entity.Comp), solution);
+        _bloodstream.TryAddToBloodstream((entity.Owner, entity.Comp), solution);
     }
 }

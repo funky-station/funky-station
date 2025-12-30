@@ -144,7 +144,7 @@ public sealed class EdgeEssentiaBloodSystem : EntitySystem
 
 	private bool HasEdgeEssentia(EntityUid uid, BloodstreamComponent bloodstream)
 	{
-		if (!_solutionContainer.ResolveSolution(uid, bloodstream.ChemicalSolutionName, ref bloodstream.ChemicalSolution, out var chemSolution))
+		if (!_solutionContainer.ResolveSolution(uid, bloodstream.BloodSolutionName, ref bloodstream.BloodSolution, out var chemSolution))
 			return false;
 
 		foreach (var reagent in chemSolution.Contents)

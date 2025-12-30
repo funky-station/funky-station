@@ -52,6 +52,7 @@ using Content.Server.Ghost.Roles.Components;
 using Content.Server.Humanoid;
 using Content.Server.Inventory;
 using Content.Server.Mind;
+using Content.Server.Mind.Commands;
 using Content.Server.NPC;
 using Content.Server.NPC.HTN;
 using Content.Server.NPC.Systems;
@@ -73,6 +74,7 @@ using Content.Shared.NPC.Systems;
 using Content.Shared.Nutrition.AnimalHusbandry;
 using Content.Shared.Nutrition.Components;
 using Content.Shared.Popups;
+using Content.Shared.Roles;
 using Content.Shared.Weapons.Melee;
 using Content.Shared.Zombies;
 using Content.Shared.Prying.Components;
@@ -86,6 +88,7 @@ using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Content.Shared.NPC.Prototypes;
 using Content.Shared.Roles;
+using Content.Shared.Standing;
 using Content.Shared.Temperature.Components;
 
 namespace Content.Server.Zombies;
@@ -112,6 +115,8 @@ public sealed partial class ZombieSystem
     [Dependency] private readonly MovementSpeedModifierSystem _movementSpeedModifier = default!;
     [Dependency] private readonly NameModifierSystem _nameMod = default!;
     [Dependency] private readonly NPCSystem _npc = default!;
+    [Dependency] private readonly SharedRoleSystem _roles = default!;
+    [Dependency] private readonly StandingStateSystem _standing = default!;
     [Dependency] private readonly TagSystem _tag = default!;
     [Dependency] private readonly ISharedPlayerManager _player = default!;
     [Dependency] private readonly SharedRoleSystem _role = default!;
@@ -356,6 +361,13 @@ public sealed partial class ZombieSystem
         RaiseLocalEvent(target, ref ev, true);
         //zombies get slowdown once they convert
         _movementSpeedModifier.RefreshMovementSpeedModifiers(target);
+
+        // If this zombie doesn't already have a tumor organ (e.g., from romerol infection),
+        // spawn one immediately so they can spread the infection
+        if (!_zombieTumor.HasTumorOrgan(target))
+        {
+            _zombieTumor.SpawnTumorOrgan(target);
+        }
 
         //Need to prevent them from getting an item, they have no hands.
         // Also prevents them from becoming a Survivor. They're undead.

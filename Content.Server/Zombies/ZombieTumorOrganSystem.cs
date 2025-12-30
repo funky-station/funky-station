@@ -232,7 +232,7 @@ public sealed class ZombieTumorOrganSystem : SharedZombieTumorOrganSystem
 
         // Use bloodstream system to drain oil - same as how bleeding works
         // Check current blood level percentage
-        var currentBloodLevel = _bloodstream.GetBloodLevelPercentage(uid);
+        var currentBloodLevel = _bloodstream.GetBloodLevel(uid);
 
         if (currentBloodLevel > 0)
         {

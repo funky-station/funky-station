@@ -27,6 +27,6 @@ public sealed partial class AddReagentToBloodSystem : EntityEffectSystem<Bloodst
         solution.AddReagent(args.Effect.Reagent, args.Effect.Amount * args.Scale);
 
         // Add the solution to the entity's bloodstream chemicals
-        _bloodstream.TryAddToChemicals((entity.Owner, entity.Comp), solution);
+        _bloodstream.TryAddToBloodstream((entity.Owner, entity.Comp), solution);
     }
 }

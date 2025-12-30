@@ -431,7 +431,7 @@ public sealed partial class CultistSpellSystem : EntitySystem
 			sleepSolution.AddReagent("Nocturine", FixedPoint2.New(15));  // 15u Nocturine
 			sleepSolution.AddReagent("EdgeEssentia", FixedPoint2.New(5));  // 5u Edge Essentia
 
-			_bloodstream.TryAddToChemicals(target, sleepSolution);
+			_bloodstream.TryAddToBloodstream(target, sleepSolution);
 
 			// Show the dream message
 			_popup.PopupEntity(

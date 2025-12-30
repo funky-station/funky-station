@@ -143,7 +143,7 @@ public sealed class ZombieBlobSystem : SharedZombieBlobSystem
 
         EnsureComp<PressureImmunityComponent>(uid);
 
-        if (TryComp<TemperatureComponent>(uid, out var temperatureComponent))
+        if (TryComp<TemperatureDamageComponent>(uid, out var temperatureComponent))
         {
             component.OldColdDamageThreshold = temperatureComponent.ColdDamageThreshold;
             temperatureComponent.ColdDamageThreshold = 0;
@@ -201,7 +201,7 @@ public sealed class ZombieBlobSystem : SharedZombieBlobSystem
         // RemComp<ReplacementAccentComponent>(uid); // Languages - No need for accents.
         RemComp<PressureImmunityComponent>(uid);
 
-        if (TryComp<TemperatureComponent>(uid, out var temperatureComponent) && component.OldColdDamageThreshold != null)
+        if (TryComp<TemperatureDamageComponent>(uid, out var temperatureComponent) && component.OldColdDamageThreshold != null)
         {
             temperatureComponent.ColdDamageThreshold = component.OldColdDamageThreshold.Value;
         }

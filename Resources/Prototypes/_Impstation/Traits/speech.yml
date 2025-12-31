@@ -14,9 +14,6 @@
   components:
   - type: ReplacementAccent
     accent: nocontractions
-<<<<<<< HEAD
-  - type: NoContractionsAccent
-=======
   - type: NoContractionsAccent
 
 # 2 cost
@@ -29,4 +26,3 @@
   cost: 2
   components:
   - type: MilbratAccent
->>>>>>> f664aa6387 (New Accent: Military Jargon (#3114))

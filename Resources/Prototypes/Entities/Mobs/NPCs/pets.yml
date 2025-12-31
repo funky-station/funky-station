@@ -972,24 +972,28 @@
   id: MobCrabAtmos
   description: The noble and stalwart defender of Atmosia. Viva!
   components:
-  #  - type: GhostRole
-  #    prob: 1
-  #    makeSentient: true
-  #    allowSpeech: true
-  #    allowMovement: true
-  #    name: ghost-role-information-tropico-name
-  #    description: ghost-role-information-tropico-description
-  #    rules: ghost-role-information-nonantagonist-rules
-  #  - type: GhostTakeoverAvailable
+  - type: GhostRole
+    prob: 1
+    makeSentient: true
+    allowSpeech: true
+    allowMovement: true
+    name: ghost-role-information-tropico-name
+    description: ghost-role-information-tropico-description
+    rules: ghost-role-information-nonantagonist-rules
+    requirements:
+    - !type:DepartmentTimeRequirement
+      department: Engineering
+      time: 18000 #5 hrs
+  - type: GhostTakeoverAvailable
   - type: Tag
     tags:
     - VimPilot
     - CannotSuicide
+    - DoorBumpOpener
   - type: Grammar
     attributes:
       proper: true
       gender: male
-  #  - type: AlwaysRevolutionaryConvertible
   - type: StealTarget
     stealGroup: AnimalTropico
 

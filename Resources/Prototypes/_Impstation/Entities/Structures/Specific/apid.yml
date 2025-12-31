@@ -27,7 +27,7 @@
   - type: GhostRole
     name: ghost-role-information-apid-botanist-name
     description: ghost-role-information-apid-botanist-description
-    rules: ghost-role-information-crewmember-rules
+    rules: ghost-role-information-nonantagonist-rules
     raffle:
       settings: default
   - type: GhostRoleMobSpawner
@@ -73,7 +73,7 @@
   - type: GhostRole
     name: ghost-role-information-apid-doctor-name
     description: ghost-role-information-apid-doctor-description
-    rules: ghost-role-information-crewmember-rules
+    rules: ghost-role-information-nonantagonist-rules
     raffle:
       settings: default
   - type: GhostRoleMobSpawner
@@ -89,7 +89,7 @@
   - type: GhostRole
     name: ghost-role-information-apid-engineer-name
     description: ghost-role-information-apid-engineer-description
-    rules: ghost-role-information-crewmember-rules
+    rules: ghost-role-information-nonantagonist-rules
     raffle:
       settings: default
   - type: GhostRoleMobSpawner
@@ -105,7 +105,7 @@
   - type: GhostRole
     name: ghost-role-information-apid-beert-name
     description: ghost-role-information-apid-beert-description
-    rules: ghost-role-information-crewmember-rules
+    rules: ghost-role-information-nonantagonist-rules
     raffle:
       settings: default
   - type: GhostRoleMobSpawner
@@ -121,7 +121,7 @@
   - type: GhostRole
     name: ghost-role-information-apid-chef-name
     description: ghost-role-information-apid-chef-description
-    rules: ghost-role-information-crewmember-rules
+    rules: ghost-role-information-nonantagonist-rules
     raffle:
       settings: default
   - type: GhostRoleMobSpawner
@@ -137,7 +137,7 @@
   - type: GhostRole
     name: ghost-role-information-apid-courier-name
     description: ghost-role-information-apid-courier-description
-    rules: ghost-role-information-crewmember-rules
+    rules: ghost-role-information-nonantagonist-rules
     raffle:
       settings: default
   - type: GhostRoleMobSpawner
@@ -153,7 +153,7 @@
   - type: GhostRole
     name: ghost-role-information-apid-scientist-name
     description: ghost-role-information-apid-scientist-description
-    rules: ghost-role-information-crewmember-rules
+    rules: ghost-role-information-nonantagonist-rules
     raffle:
       settings: default
   - type: GhostRoleMobSpawner
@@ -169,7 +169,7 @@
   - type: GhostRole
     name: ghost-role-information-apid-janitor-name
     description: ghost-role-information-apid-janitor-description
-    rules: ghost-role-information-crewmember-rules
+    rules: ghost-role-information-nonantagonist-rules
     raffle:
       settings: default
   - type: GhostRoleMobSpawner
@@ -185,7 +185,7 @@
 #  - type: GhostRole
 #    name: ghost-role-information-apid-adminassistant-name
 #    description: ghost-role-information-apid-adminassistant-description
-#    rules: ghost-role-information-crewmember-rules
+#    rules: ghost-role-information-nonantagonist-rules
 #    raffle:
 #      settings: default
 #  - type: GhostRoleMobSpawner
@@ -201,13 +201,13 @@
   - type: GhostRole
     name: ghost-role-information-apid-chaplain-name
     description: ghost-role-information-apid-chaplain-description
-    rules: ghost-role-information-crewmember-rules
+    rules: ghost-role-information-nonantagonist-rules
     raffle:
       settings: default
   - type: GhostRoleMobSpawner
     prototype: MobApidChaplain
 
-- type: entity
+- type: entitye
   id: ApidCryopodSalvageSpecialist
   parent: ApidCryopodBotanist
   name: apid salvage specialist cryopod
@@ -217,7 +217,7 @@
   - type: GhostRole
     name: ghost-role-information-apid-salvager-name
     description: ghost-role-information-apid-salvager-description
-    rules: ghost-role-information-crewmember-rules
+    rules: ghost-role-information-nonantagonist-rules
     raffle:
       settings: default
   - type: GhostRoleMobSpawner

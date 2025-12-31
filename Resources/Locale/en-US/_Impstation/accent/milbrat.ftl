@@ -70,7 +70,7 @@ accent-milbrat-words-12-5 = sup
 accent-milbrat-words-replace-12 = reporting for duty
 
 accent-milbrat-words-13 = are you sure
-accent-archaic-words-13-2 = you sure
+accent-milbrat-words-13-2 = you sure
 accent-milbrat-words-replace-13 = please confirm
 
 accent-milbrat-words-14 = well done

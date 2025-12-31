@@ -28,7 +28,7 @@
 - type: entity
   id: PartReptilian
   parent: [BaseItem, BasePart]
-  name: "reptilian body part"
+  name: "tlaat-axi body part"
   abstract: true
   components:
   - type: Extractable
@@ -41,7 +41,7 @@
 
 - type: entity
   id: TorsoReptilian
-  name: "reptilian torso"
+  name: "tlaat-axi torso"
   parent: [PartReptilian, BaseTorso]
   components:
   - type: Item
@@ -61,7 +61,7 @@
 
 - type: entity
   id: HeadReptilian
-  name: "reptilian head"
+  name: "tlaat-axi head"
   parent: [PartReptilian, BaseHead]
   components:
   - type: Item
@@ -82,7 +82,7 @@
 
 - type: entity
   id: LeftArmReptilian
-  name: "left reptilian arm"
+  name: "left tlaat-axi arm"
   parent: [PartReptilian, BaseLeftArm]
   components:
   - type: Item
@@ -96,7 +96,7 @@
 
 - type: entity
   id: RightArmReptilian
-  name: "right reptilian arm"
+  name: "right tlaat-axi arm"
   parent: [PartReptilian, BaseRightArm]
   components:
   - type: Item
@@ -110,7 +110,7 @@
 
 - type: entity
   id: LeftHandReptilian
-  name: "left reptilian hand"
+  name: "left tlaat-axi hand"
   parent: [PartReptilian, BaseLeftHand]
   components:
   - type: Item
@@ -122,7 +122,7 @@
 
 - type: entity
   id: RightHandReptilian
-  name: "right reptilian hand"
+  name: "right tlaat-axi hand"
   parent: [PartReptilian, BaseRightHand]
   components:
   - type: Item
@@ -134,7 +134,7 @@
 
 - type: entity
   id: LeftLegReptilian
-  name: "left reptilian leg"
+  name: "left tlaat-axi leg"
   parent: [PartReptilian, BaseLeftLeg]
   components:
   - type: Item
@@ -148,7 +148,7 @@
 
 - type: entity
   id: RightLegReptilian
-  name: "right reptilian leg"
+  name: "right tlaat-axi leg"
   parent: [PartReptilian, BaseRightLeg]
   components:
   - type: Item
@@ -162,7 +162,7 @@
 
 - type: entity
   id: LeftFootReptilian
-  name: "left reptilian foot"
+  name: "left tlaat-axi foot"
   parent: [PartReptilian, BaseLeftFoot]
   components:
   - type: Item
@@ -174,7 +174,7 @@
 
 - type: entity
   id: RightFootReptilian
-  name: "right reptilian foot"
+  name: "right tlaat-axi foot"
   parent: [PartReptilian, BaseRightFoot]
   components:
   - type: Item

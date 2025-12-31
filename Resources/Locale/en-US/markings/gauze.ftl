@@ -65,10 +65,10 @@ marking-GauzeLizardFootRight = Gauze Foot Wrap (Right)
 marking-GauzeLizardFootLeft-gauze_lizard_foot_l = Gauze Foot Wrap (Left)
 marking-GauzeLizardFootLeft = Gauze Foot Wrap (Left)
 
-marking-GauzeLizardLefteyePatch-gauze_lizard_lefteye = Reptilian Gauze eyepatch (Left)
+marking-GauzeLizardLefteyePatch-gauze_lizard_lefteye = Tlaat-Axi Gauze eyepatch (Left)
 marking-GauzeLizardLefteyePatch = Reptilian Gauze eyepatch (Left)
 
-marking-GauzeLizardRighteyePatch-gauze_lizard_righteye = Reptilian Gauze eyepatch (Right)
+marking-GauzeLizardRighteyePatch-gauze_lizard_righteye = Tlaat-Axi Gauze eyepatch (Right)
 marking-GauzeLizardRighteyePatch = Reptilian Gauze Eyepatch (Right)
 
 marking-GauzeMothStomach-gauze_moth_abdomen = Insectoid Stomach Wrap

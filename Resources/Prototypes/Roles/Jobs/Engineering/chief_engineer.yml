@@ -53,15 +53,9 @@
   description: job-description-ce
   playTimeTracker: JobChiefEngineer
   requirements:
-    - !type:RoleTimeRequirement
-      role: JobAtmosphericTechnician
-      time: 36000 #10 hrs
-    - !type:RoleTimeRequirement
-      role: JobStationEngineer
-      time: 36000 #10 hrs
-    - !type:DepartmentTimeRequirement #redundant but consistent
+    - !type:DepartmentTimeRequirement
       department: Engineering
-      time: 72000 #20 hrs
+      time: 90000 #25 hrs
     - !type:OverallPlaytimeRequirement
       time: 90000 #25 hrs
   weight: 10

@@ -167,7 +167,7 @@
 - type: entity
   id: LockerAtmospherics
   parent: LockerBase
-  name: atmospheric technician's locker
+  name: atmospheric equipment locker
   components:
   - type: Appearance
   - type: EntityStorageVisuals

@@ -49,12 +49,13 @@
   - Maintenance
   - Engineering
   - External
-  extendedAccess:
   - Atmospherics
   alternateTitles:
   - StationEngineerMaintenanceTechnician
+  - StationEngineerFirefighter
   - StationEngineerMechanic
   - StationEngineerElectrician
+  - StationEngineerAtmosphericTechnician
   - StationEngineerEngineOperator
 
 - type: startingGear
@@ -82,3 +83,10 @@
   id: StationEngineerEngineOperator
   name: job-name-alt-engineer-4
 
+- type: jobAlternateTitle
+  id: StationEngineerFirefighter
+  name: job-name-alt-atmos-1
+
+- type: jobAlternateTitle
+  id: StationEngineerAtmosphericTechnician
+  name: job-name-alt-atmos-2

@@ -51,8 +51,6 @@
   - !type:GiveItemOnHolidaySpecial
     holiday: FirefighterDay
     prototype: FireAxe
-  alternateTitles:
-  - AtmosphericTechnicianFirefighter
 
 - type: startingGear
   id: AtmosphericTechnicianGear
@@ -63,7 +61,3 @@
   #storage:
     #back:
     #- Stuff
-
-- type: jobAlternateTitle
-  id: AtmosphericTechnicianFirefighter
-  name: job-name-alt-atmos-1

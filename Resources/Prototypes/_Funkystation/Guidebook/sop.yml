@@ -313,7 +313,6 @@
   children:
   - CESOP
   - StationEngineerSOP
-  - AtmosphericSOP
 
 - type: guideEntry
   id: CESOP
@@ -324,11 +323,6 @@
   id: StationEngineerSOP
   name: guide-entry-stationengineer-sop
   text: "/ServerInfo/Funkystation/Guidebook/Engineering/StationEngineerSOP.xml"
-
-- type: guideEntry
-  id: AtmosphericSOP
-  name: guide-entry-atmospheric-sop
-  text: "/ServerInfo/Funkystation/Guidebook/Engineering/AtmosphericSOP.xml"
 
 # CARGO
 

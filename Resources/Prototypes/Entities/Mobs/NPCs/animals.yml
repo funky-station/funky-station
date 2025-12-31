@@ -3981,16 +3981,16 @@
   - type: Sprite
     drawdepth: Mobs
     layers:
-    - map: ["enum.DamageStateVisualLayers.Base"]
+    - map: ["enum.DamageStateVisualLayers.Base", "movement"]
       state: reindeer_buck
       sprite: Mobs/Animals/reindeer_buck.rsi
-#  - type: SpriteMovement  # One day when this shit isnt broken as hell. For now they hoppity hop.
-#    movementLayers:
-#      movement:
-#        state: reindeer_buck
-#    noMovementLayers:
-#      movement:
-#        state: reindeer_buck_still
+  - type: SpriteMovement
+    movementLayers:
+      movement:
+        state: reindeer_buck
+    noMovementLayers:
+      movement:
+        state: reindeer_buck_still
   - type: Physics
   - type: Fixtures
     fixtures:
@@ -4017,11 +4017,13 @@
       amount: 4
   - type: Bloodstream
     bloodMaxVolume: 300
-    # Horns though
+    # Horns though 
+    # funky: what the fuck do you mean "horns though" do NOT give a mob 22 piercing melee!!
   - type: MeleeWeapon
     damage:
       types:
-        Piercing: 22
+        # Piercing: 22
+        Piercing: 8
     animation: WeaponArcFist
   - type: NPCRetaliation
   - type: FactionException
@@ -4053,16 +4055,16 @@
   - type: Sprite
     drawdepth: Mobs
     layers:
-    - map: ["enum.DamageStateVisualLayers.Base"]
+    - map: ["enum.DamageStateVisualLayers.Base", "movement"]
       state: reindeer_doe
       sprite: Mobs/Animals/reindeer_doe.rsi
-#  - type: SpriteMovement  # One day when this shit isnt broken as hell. For now they hoppity hop.
-#    movementLayers:
-#      movement:
-#        state: reindeer_doe
-#    noMovementLayers:
-#      movement:
-#        state: reindeer_doe_still
+  - type: SpriteMovement 
+    movementLayers:
+      movement:
+        state: reindeer_doe
+    noMovementLayers:
+      movement:
+        state: reindeer_doe_still
   - type: DamageStateVisuals
     states:
       Alive:

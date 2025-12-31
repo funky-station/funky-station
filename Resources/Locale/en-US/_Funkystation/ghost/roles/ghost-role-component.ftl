@@ -45,3 +45,6 @@ ghost-role-information-horrific-necktie-description = A horribly garish necktie 
 
 ghost-role-information-meowl-name = Meowl
 ghost-role-information-meowl-description = A highly invasive apex predator. The sole cause of the rapid decline of mothroaches.
+
+ghost-role-information-reindeer-name = Atmospheric Reindeer
+ghost-role-information-reindeer-description = A reindeer adapted to life within and around the engineering department. Holds many complaints regarding atmospheric pipenets.

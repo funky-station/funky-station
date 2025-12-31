@@ -1154,6 +1154,12 @@
   - type: Tag
     tags:
     - VimPilot
+  - type: Prying # stolen from spiders, Open door from xeno.yml.
+    pryPowered: true
+    force: true
+    speedModifier: 1.5
+    useSound:
+      path: /Audio/Items/crowbar.ogg
   - type: HTN
     rootTask:
       task: RuminantCompound

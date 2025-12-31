@@ -143,7 +143,7 @@ public partial class SharedGunSystem
                 return false;
             }
 
-            for (var i = Math.Min(ev.Ammo.Count - 1, component.Capacity - 1); i >= 0; i--)
+            for (var i = 0; i < component.Capacity; i++)
             {
                 var index = (component.CurrentIndex + i) % component.Capacity;
 
@@ -426,7 +426,7 @@ public partial class SharedGunSystem
             }
 
             // Delete the cartridge entity on client
-            if (_netManager.IsClient && IsClientSide(ent.Value))
+            if (_netManager.IsClient)
             {
                 QueueDel(ent);
             }

@@ -14,13 +14,13 @@ public sealed partial class ForceGunComponent : BaseForceGunComponent
     /// <summary>
     /// Maximum distance to throw entities.
     /// </summary>
-    [ViewVariables(VVAccess.ReadWrite), DataField("throwDistance"), AutoNetworkedField]
+    [DataField, AutoNetworkedField]
     public float ThrowDistance = 15f;
 
-    [ViewVariables(VVAccess.ReadWrite), DataField("throwForce"), AutoNetworkedField]
+    [DataField, AutoNetworkedField]
     public float ThrowForce = 30f;
 
-    [ViewVariables(VVAccess.ReadWrite), DataField("soundLaunch")]
+    [DataField("soundLaunch")]
     public SoundSpecifier? LaunchSound = new SoundPathSpecifier("/Audio/Weapons/soup.ogg")
     {
         Params = AudioParams.Default.WithVolume(5f),

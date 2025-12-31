@@ -101,25 +101,11 @@ public abstract partial class SharedGunSystem
         // UpdateShots is already called by the resulting ChargeChangedEvent
     }
 
-    private (EntityUid? Entity, IShootable) GetShootable(Entity<BatteryAmmoProviderComponent> ent, EntityCoordinates coordinates)
+    private (EntityUid? Entity, IShootable) GetShootable(BatteryAmmoProviderComponent component, EntityCoordinates coordinates)
     {
-        EntityUid projectile;
 
-        // On client, spawn as client-side entity for prediction
-        if (_netManager.IsClient)
-        {
-            projectile = SpawnAtPosition(ent.Comp.Prototype, coordinates);
-
-            // Add prediction component to track this projectile
-            var predComp = new PredictedProjectileClientComponent();
-            AddComp(projectile, predComp);
-        }
-        else
-        {
-            projectile = Spawn(ent.Comp.Prototype, coordinates);
-        }
-
-        return (projectile, EnsureShootable(projectile));
+        var ent = Spawn(component.Prototype, coordinates);
+        return (ent, EnsureShootable(ent));
     }
 
     public void UpdateShots(Entity<BatteryAmmoProviderComponent> ent)

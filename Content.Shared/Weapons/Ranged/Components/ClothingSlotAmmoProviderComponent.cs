@@ -8,9 +8,7 @@
 
 using Content.Shared.Inventory;
 using Content.Shared.Weapons.Ranged.Systems;
-using Content.Shared.Whitelist;
 using Robust.Shared.GameStates;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 
 namespace Content.Shared.Weapons.Ranged.Components;
 
@@ -19,23 +17,4 @@ namespace Content.Shared.Weapons.Ranged.Components;
 /// to an entity in the user's clothing slot.
 /// </summary>
 [RegisterComponent, NetworkedComponent, Access(typeof(SharedGunSystem))]
-public sealed partial class ClothingSlotAmmoProviderComponent : AmmoProviderComponent
-{
-    /// <summary>
-    /// Whether to check hands for ammo providers
-    /// </summary>
-    [DataField]
-    public bool CheckHands = false;
-
-    /// <summary>
-    /// Whitelist for valid ammo provider entities
-    /// </summary>
-    [DataField]
-    public EntityWhitelist? ProviderWhitelist;
-
-    /// <summary>
-    /// Target inventory slot to check
-    /// </summary>
-    [DataField]
-    public SlotFlags TargetSlot = SlotFlags.BELT;
-}
+public sealed partial class ClothingSlotAmmoProviderComponent : AmmoProviderComponent;

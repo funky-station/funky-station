@@ -22,7 +22,6 @@ using Content.Shared.Popups;
 using Content.Shared.Verbs;
 using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Events;
-using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared.Weapons.Ranged.Systems;
@@ -34,7 +33,6 @@ public sealed class BatteryWeaponFireModesSystem : EntitySystem
     [Dependency] private readonly AccessReaderSystem _accessReaderSystem = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearanceSystem = default!;
     [Dependency] private readonly SharedGunSystem _gun = default!;
-    [Dependency] private readonly INetManager _net = default!;
 
     public override void Initialize()
     {
@@ -43,8 +41,6 @@ public sealed class BatteryWeaponFireModesSystem : EntitySystem
         SubscribeLocalEvent<BatteryWeaponFireModesComponent, UseInHandEvent>(OnUseInHandEvent);
         SubscribeLocalEvent<BatteryWeaponFireModesComponent, GetVerbsEvent<Verb>>(OnGetVerb);
         SubscribeLocalEvent<BatteryWeaponFireModesComponent, ExaminedEvent>(OnExamined);
-
-        SubscribeNetworkEvent<RequestFireModeChangeEvent>(OnRequestFireModeChange);
     }
 
     private void OnExamined(EntityUid uid, BatteryWeaponFireModesComponent component, ExaminedEvent args)
@@ -57,7 +53,7 @@ public sealed class BatteryWeaponFireModesSystem : EntitySystem
         if (!_prototypeManager.TryIndex<EntityPrototype>(fireMode.Prototype, out var proto))
             return;
 
-        args.PushMarkup(Loc.GetString("gun-set-fire-mode", ("mode", proto.Name)));
+        args.PushMarkup(Loc.GetString("gun-set-fire-mode-examine", ("mode", proto.Name)));
     }
 
     private BatteryWeaponFireMode GetMode(BatteryWeaponFireModesComponent component)
@@ -92,37 +88,12 @@ public sealed class BatteryWeaponFireModesSystem : EntitySystem
                 DoContactInteraction = true,
                 Act = () =>
                 {
-                    // On client, apply immediately for prediction and send request to server
-                    if (_net.IsClient)
-                    {
-                        SetFireMode(uid, component, index, args.User);
-                        var ev = new RequestFireModeChangeEvent(GetNetEntity(uid), index);
-                        RaiseNetworkEvent(ev);
-                    }
-                    else
-                    {
-                        // On server, just apply normally
-                        TrySetFireMode(uid, component, index, args.User);
-                    }
+                    TrySetFireMode(uid, component, index, args.User);
                 }
             };
 
             args.Verbs.Add(v);
         }
-    }
-
-    private void OnRequestFireModeChange(RequestFireModeChangeEvent ev, EntitySessionEventArgs args)
-    {
-        // Server receives the request and applies it authoritatively
-        var uid = GetEntity(ev.Gun);
-
-        if (!TryComp<BatteryWeaponFireModesComponent>(uid, out var component))
-            return;
-
-        if (args.SenderSession.AttachedEntity is not { } user)
-            return;
-
-        TrySetFireMode(uid, component, ev.Index, user);
     }
 
     private void OnUseInHandEvent(EntityUid uid, BatteryWeaponFireModesComponent component, UseInHandEvent args)
@@ -167,8 +138,8 @@ public sealed class BatteryWeaponFireModesSystem : EntitySystem
             if (TryComp<AppearanceComponent>(uid, out var appearance))
                 _appearanceSystem.SetData(uid, BatteryWeaponFireModeVisuals.State, prototype.ID, appearance);
 
-            if (user != null && _net.IsServer)
-                _popupSystem.PopupClient(Loc.GetString("gun-set-fire-mode", ("mode", prototype.Name)), uid, user.Value);
+            if (user != null)
+                _popupSystem.PopupClient(Loc.GetString("gun-set-fire-mode-popup", ("mode", prototype.Name)), uid, user.Value);
         }
 
         if (TryComp(uid, out BatteryAmmoProviderComponent? batteryAmmoProviderComponent))
@@ -176,7 +147,8 @@ public sealed class BatteryWeaponFireModesSystem : EntitySystem
             batteryAmmoProviderComponent.Prototype = fireMode.Prototype;
             batteryAmmoProviderComponent.FireCost = fireMode.FireCost;
 
-            // UpdateShots recalculates shots and calls Dirty internally
+            Dirty(uid, batteryAmmoProviderComponent);
+
             _gun.UpdateShots((uid, batteryAmmoProviderComponent));
         }
     }

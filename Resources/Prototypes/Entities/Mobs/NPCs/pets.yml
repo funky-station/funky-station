@@ -1020,3 +1020,34 @@
     prototypes: [ MobPollyGear ]
   - type: IntercomOnlyBypass
 
+- type: entity
+  name: Tropico
+  parent: MobReindeerBuck
+  id: MobTegReindeerBuck
+  description: The noble and stalwart defender of Atmosia. Viva!
+  components:
+  - type: GhostRole
+    prob: 1
+    makeSentient: true
+    allowSpeech: true
+    allowMovement: true
+    name: ghost-role-information-reindeer-name
+    description: ghost-role-information-reindeer-description
+    rules: ghost-role-information-nonantagonist-rules
+    requirements:
+    - !type:DepartmentTimeRequirement
+      department: Engineering
+      time: 18000 #5 hours
+  - type: GhostTakeoverAvailable
+  - type: Tag
+    tags:
+    - CannotSuicide
+    - DoorBumpOpener
+    - FootstepSound
+  - type: Grammar
+    attributes:
+      proper: true
+      gender: male
+  - type: AlwaysRevolutionaryConvertible
+  - type: StealTarget
+    stealGroup: AnimalTropico

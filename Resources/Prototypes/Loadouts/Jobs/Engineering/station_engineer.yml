@@ -171,18 +171,6 @@
     jumpsuit: ClothingUniformJumpskirtSeniorEngineer
   groupBy: "senior"
 
-- type: loadout
-  id: AtmosphericTechnicianJumpsuit
-  equipment:
-    jumpsuit: ClothingUniformJumpsuitBaggyAtmos
-  groupBy: "jumpsuit"
-
-- type: loadout
-  id: AtmosphericTechnicianJumpskirt
-  equipment:
-    jumpsuit: ClothingUniformJumpskirtBaggyAtmosTied
-  groupBy: "jumpsuit"
-
 # Back
 - type: loadout
   id: StationEngineerBackpack
@@ -205,10 +193,6 @@
   equipment:
     outerClothing: ClothingOuterVestHazard
 
-- type: loadout
-  id: AtmosphericTechnicianWintercoat
-  equipment:
-    outerClothing: ClothingOuterWinterAtmos
 
 - type: loadout
   id: StationEngineerWintercoat

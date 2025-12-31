@@ -89,8 +89,8 @@ public abstract partial class SharedBorgSystem : EntitySystem
         SubscribeLocalEvent<BorgChassisComponent, ActivatableUIOpenAttemptEvent>(OnUIOpenAttempt);
         SubscribeLocalEvent<BorgChassisComponent, MobStateChangedEvent>(OnMobStateChanged);
         SubscribeLocalEvent<BorgChassisComponent, BeingGibbedEvent>(OnBeingGibbed);
-        SubscribeLocalEvent<BorgChassisComponent, SharedMindSystem.GetCharactedDeadIcEvent>(OnGetDeadIC);
-        SubscribeLocalEvent<BorgChassisComponent, SharedMindSystem.GetCharacterUnrevivableIcEvent>(OnGetUnrevivableIC);
+        SubscribeLocalEvent<BorgChassisComponent, GetCharactedDeadIcEvent>(OnGetDeadIC);
+        SubscribeLocalEvent<BorgChassisComponent, GetCharacterUnrevivableIcEvent>(OnGetUnrevivableIC);
         SubscribeLocalEvent<BorgChassisComponent, PowerCellSlotEmptyEvent>(OnPowerCellSlotEmpty);
         SubscribeLocalEvent<BorgChassisComponent, PowerCellChangedEvent>(OnPowerCellChanged);
 
@@ -199,6 +199,7 @@ public abstract partial class SharedBorgSystem : EntitySystem
 
         TryActivate(chassis);
 
+        _access.SetAccessEnabled(chassis.Owner, true); // Needs a player so that scientists can't drag around an empty borg for free AA.
         _appearance.SetData(chassis.Owner, BorgVisuals.HasPlayer, true);
     }
 
@@ -211,6 +212,8 @@ public abstract partial class SharedBorgSystem : EntitySystem
         // Turn off the light so that the no-player visuals can be seen.
         if (TryComp<HandheldLightComponent>(chassis.Owner, out var light))
             _handheldLight.TurnOff((chassis.Owner, light), makeNoise: false); // Already plays a sound when toggling the borg off.
+
+        _access.SetAccessEnabled(chassis.Owner, false); // Needs a player so that scientists can't drag around an empty borg for free AA.
         _appearance.SetData(chassis.Owner, BorgVisuals.HasPlayer, false);
     }
 
@@ -301,12 +304,12 @@ public abstract partial class SharedBorgSystem : EntitySystem
         _container.EmptyContainer(chassis.Comp.ModuleContainer);
     }
 
-    private void OnGetDeadIC(Entity<BorgChassisComponent> chassis, ref SharedMindSystem.GetCharactedDeadIcEvent args)
+    private void OnGetDeadIC(Entity<BorgChassisComponent> chassis, ref GetCharactedDeadIcEvent args)
     {
         args.Dead = true;
     }
 
-    private void OnGetUnrevivableIC(Entity<BorgChassisComponent> chassis, ref SharedMindSystem.GetCharacterUnrevivableIcEvent args)
+    private void OnGetUnrevivableIC(Entity<BorgChassisComponent> chassis, ref GetCharacterUnrevivableIcEvent args)
     {
         args.Unrevivable = true;
     }

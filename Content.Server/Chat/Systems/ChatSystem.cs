@@ -237,15 +237,6 @@ public sealed partial class ChatSystem : SharedChatSystem
         // so we set this here
         // todo free me from chat code
 
-        // check if the entity is forced to whisper and convert to local whisper if yes
-        if (!ignoreActionBlocker && _actionBlocker.CanSpeak(source, out var onlyWhisper))
-        {
-            if (desiredType == InGameICChatType.Speak && onlyWhisper)
-            {
-                desiredType = InGameICChatType.Whisper;
-            }
-        }
-
         if (player != null)
         {
             _chatManager.EnsurePlayer(player.UserId).AddEntity(GetNetEntity(source));

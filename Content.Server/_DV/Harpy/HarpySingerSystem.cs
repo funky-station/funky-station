@@ -158,7 +158,7 @@ namespace Content.Server._DV.Harpy
         {
             // CanSpeak covers all reasons you can't talk, including being incapacitated
             // (crit/dead), asleep, or for any reason mute inclding glimmer or a mime's vow.
-            var canNotSpeak = !_blocker.CanSpeak(uid, out _);
+            var canNotSpeak = !_blocker.CanSpeak(uid);
             var zombified = TryComp<ZombieComponent>(uid, out var _);
             var muzzled = _inventorySystem.TryGetSlotEntity(uid, "mask", out var maskUid) &&
                 TryComp<AddAccentClothingComponent>(maskUid, out var accent) &&

@@ -176,13 +176,12 @@ namespace Content.Shared.ActionBlocker
             return !itemEv.Cancelled;
         }
 
-        public bool CanSpeak(EntityUid uid, out bool onlyWhisper)
+        public bool CanSpeak(EntityUid uid)
         {
             // This one is used as broadcast
             var ev = new SpeakAttemptEvent(uid);
             RaiseLocalEvent(uid, ev, true);
 
-            onlyWhisper = ev.OnlyWhisper;
             return !ev.Cancelled;
         }
 

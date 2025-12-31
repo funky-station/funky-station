@@ -155,9 +155,13 @@
     layers:
     - state: green
     - state: ai
-  - type: ConditionalSpawner
+  - type: RandomSpawner #funky - add MobTEGReindeerBuck at 1%
     prototypes:
     - MobCrabAtmos
+    chance: 0.99
+    rarePrototypes:
+    - MobTegReindeerBuck
+    rareChance: 0.01
 
 - type: entity
   parent: MarkerBase

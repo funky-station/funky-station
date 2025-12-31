@@ -1,8 +1,8 @@
 - type: entity
   parent: [MarkerBase, SpawnMobReindeerBuck]
-  id: SpawnMobTEGReindeerBuck
+  id: SpawnMobTegReindeerBuck
   name: TEG Reindeer Buck Spawner
   components:
   - type: ConditionalSpawner
     prototypes:
-    - MobTEGReindeerBuck
+    - MobTegReindeerBuck

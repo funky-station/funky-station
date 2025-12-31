@@ -420,7 +420,7 @@ accent-archaic-words-117 = dipshits
 accent-archaic-words-replace-117 = cretins
 
 accent-archaic-words-118 = let go of
-accent-archaic-words-replace = 118 = unhand
+accent-archaic-words-replace-118 = unhand
 
 accent-archaic-words-119 = win
 accent-archaic-words-replace-119 = triumph

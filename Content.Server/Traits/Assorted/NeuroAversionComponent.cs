@@ -127,12 +127,6 @@ public sealed partial class NeuroAversionComponent : Component
     [ViewVariables(VVAccess.ReadOnly)]
     public float NextSeizureRollTime = 3f;
 
-    /// <summary>
-    /// Debug timer for seizure build progress messages.
-    /// </summary>
-    [ViewVariables(VVAccess.ReadOnly)]
-    public float DebugMessageTimer = 0f;
-
     // =| API STUFF |=
 
     /// <summary>

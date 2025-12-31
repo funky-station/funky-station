@@ -84,12 +84,19 @@ public sealed class FrictionContactsSystem : EntitySystem
         var frictionNoInput = 0.0f;
         var acceleration = 0.0f;
 
+        var isAirborne = physicsComponent.BodyStatus == BodyStatus.InAir || _gravity.IsWeightless(entity.Owner);
+
         var remove = true;
         var entries = 0;
         foreach (var ent in _physics.GetContactingEntities(entity, physicsComponent))
         {
             if (!TryComp<FrictionContactsComponent>(ent, out var contacts))
                 continue;
+
+            // Entities that are airborne should not be affected by contact slowdowns that are specified to not affect airborne entities.
+            if (isAirborne && !contacts.AffectAirborne)
+                continue;
+
             friction += contacts.MobFriction;
             frictionNoInput += contacts.MobFrictionNoInput ?? contacts.MobFriction;
             acceleration += contacts.MobAcceleration;

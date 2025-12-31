@@ -7,7 +7,6 @@
 //
 // SPDX-License-Identifier: MIT
 
-using Content.Shared._RMC14.Weapons.Ranged.Prediction;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Events;
 using Content.Shared.Examine;

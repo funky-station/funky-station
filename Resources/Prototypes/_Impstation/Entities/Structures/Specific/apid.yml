@@ -207,7 +207,7 @@
   - type: GhostRoleMobSpawner
     prototype: MobApidChaplain
 
-- type: entitye
+- type: entity
   id: ApidCryopodSalvageSpecialist
   parent: ApidCryopodBotanist
   name: apid salvage specialist cryopod

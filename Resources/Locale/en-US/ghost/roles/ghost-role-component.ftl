@@ -90,6 +90,11 @@ ghost-role-information-skeleton-rules = You are a [color=yellow][bold]Skeleton[/
                                         You are free to self antag as long as it's funny.
                                         Keep crew harm to a minimum.
 
+ghost-role-information-IPC-rules = You are an [color=yellow][bold]IPC[/bold][/color]. You are a former member of crew and are considered crew.
+                                        Be as silly as possible.
+                                        You are free to self antag as long as it's funny.
+                                        Keep crew harm to a minimum.
+
 # funkystation
 ghost-role-information-neanderthal-rules = You are a [color=yellow][bold]Neanderthal[/bold][/color]. You are freshly thawed out of a block of ice and have no idea where you are.
                                          While your existence may be tolerated by the crew and Central Command, you are free to act as an antagonist or a non antagonist.
@@ -242,6 +247,9 @@ ghost-role-information-skeleton-biker-description = Ride around on your sweet ri
 
 ghost-role-information-closet-skeleton-name = Closet Skeleton
 ghost-role-information-closet-skeleton-description = You are arguably one of the oldest members of the station! Get your old job back, or cause chaos! The world is yours to shape.
+
+ghost-role-information-lost-IPC-name = Lost IPC
+ghost-role-information-lost-IPC-description = You are a forgotten IPC, having been disabled and left alone for years. Now reactivated, you have nothing to lose! Get your old job back, or cause chaos! The world is yours to shape.
 
 # funkystation
 ghost-role-information-neanderthal-name = Unfrozen Neanderthal

@@ -30,6 +30,7 @@ dynamic-gamerule-nukeops-title = [color=red]Nuclear Emergency[/color]
 dynamic-gamerule-threat-perrule = {$num} threat.
 
 dynamic-gamerule-skeleton-title = Closet Skeleton Spawn
+dynamic-gamerule-lost-IPC-title = Lost IPC Spawn
 dynamic-gamerule-ninja-title = Space Ninja Spawn
 dynamic-gamerule-loneop-title = Lone Operative Spawn
 dynamic-gamerule-dragon-title = Space Dragon Spawn

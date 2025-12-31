@@ -130,6 +130,22 @@
   - type: Wagging # Funky - Added wagging for IPCs
 
 - type: entity
+  parent: MobIPC
+  id: MobLostIPC
+  name: lost IPC
+  components:
+  - type: GhostRole
+    name: ghost-role-information-lost-IPC-name
+    description: ghost-role-information-lost-IPC-description
+    rules: ghost-role-information-IPC-rules
+    mindRoles:
+    - MindRoleGhostRoleFreeAgent
+    raffle:
+      settings: default
+  - type: GhostTakeoverAvailable
+  - type: RandomHumanoidAppearance
+
+- type: entity
   save: false
   name: Urist McPositronic
   parent: MobHumanDummy

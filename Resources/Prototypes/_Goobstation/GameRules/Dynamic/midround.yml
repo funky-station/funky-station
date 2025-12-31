@@ -121,6 +121,22 @@
   - type: RandomEntityStorageSpawnRule
     prototype: MobSkeletonCloset
 
+# Lost IPC Spawn
+- type: entity
+  parent: BaseGameRule
+  id: LostIPCDynamicMidround
+  components:
+  - type: DynamicRuleset
+    nameLoc: dynamic-gamerule-lost-IPC-title
+    weight: 20
+    cost: 5
+  - type: StationEvent
+    weight: 5
+    duration: 1
+    minimumPlayers: 15
+  - type: RandomEntityStorageSpawnRule
+    prototype: MobLostIPC
+
 # Dragon Spawn
 - type: entity
   parent: BaseGameRule

@@ -242,6 +242,18 @@
 
 - type: entity
   parent: BaseGameRule
+  id: LostIPC
+  components:
+  - type: StationEvent
+    weight: 5
+    duration: 1
+    minimumPlayers: 10
+    reoccurrenceDelay: 30 # funkystation
+  - type: RandomEntityStorageSpawnRule
+    prototype: MobLostIPC
+
+- type: entity
+  parent: BaseGameRule
   id: DragonSpawn
   components:
   - type: StationEvent

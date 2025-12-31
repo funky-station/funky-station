@@ -33,3 +33,11 @@
   components:
   - type: Label
     currentLabel: holopad-general-service
+
+- type: entity
+  parent: Holopad
+  id: HolopadGenetics
+  suffix: Genetics
+  components:
+  - type: Label
+    currentLabel: holopad-genetics

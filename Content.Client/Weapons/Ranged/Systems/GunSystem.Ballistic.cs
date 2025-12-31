@@ -16,8 +16,6 @@ namespace Content.Client.Weapons.Ranged.Systems;
 
 public sealed partial class GunSystem
 {
-    [Dependency] private readonly StackSystem _stack = default!;
-
     protected override void InitializeBallistic()
     {
         base.InitializeBallistic();
@@ -28,7 +26,7 @@ public sealed partial class GunSystem
     {
         if (args.Control is DefaultStatusControl control)
         {
-            control.Update(GetBallisticShots(component) + args.ArtificialIncrease, component.Capacity);
+            control.Update(GetBallisticShots(component), component.Capacity);
         }
     }
 
@@ -52,7 +50,6 @@ public sealed partial class GunSystem
         {
             component.UnspawnedCount--;
             ent = Spawn(component.Proto, coordinates);
-            _stack.SetCount(ent.Value, 1);
             EnsureShootable(ent.Value);
         }
 

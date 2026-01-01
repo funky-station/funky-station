@@ -18,6 +18,7 @@
 # SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2024 deathride58 <deathride58@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 88tv <131759102+88tv@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 MaiaArai <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Quantum-cross <7065792+Quantum-cross@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tyranex <bobthezombie4@gmail.com>
 # SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
@@ -193,3 +194,13 @@
     lineCount: 10
     scanlineIntensity: 0.9
     alpha: 1
+
+- type: shader
+  id: SolarFlare
+  kind: source
+  path: "/Textures/Shaders/solar_flare.swsl"
+
+- type: shader
+  id: IonStorm
+  kind: source
+  path: "/Textures/Shaders/ion_storm.swsl"

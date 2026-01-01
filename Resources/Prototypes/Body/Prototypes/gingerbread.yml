@@ -3,6 +3,7 @@
 # SPDX-FileCopyrightText: 2023 Flareguy <78941145+Flareguy@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 otokonoko-dev <248204705+otokonoko-dev@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
@@ -17,8 +18,8 @@
       connections:
       - torso
       organs:
-        brain: OrganHumanBrain
-        eyes: OrganHumanEyes
+        brain: OrganGingerbreadBrain
+        eyes: OrganGingerbreadEyes
     torso:
       part: TorsoGingerbread
       connections:
@@ -28,11 +29,11 @@
       - left leg
       - head # Shitmed
       organs:
-        heart: OrganHumanHeart
-        lungs: OrganHumanLungs
-        stomach: OrganHumanStomach
-        liver: OrganHumanLiver
-        kidneys: OrganHumanKidneys
+        heart: OrganGingerbreadHeart
+        lungs: OrganGingerbreadLungs
+        stomach: OrganGingerbreadStomach
+        liver: OrganGingerbreadLiver
+        kidneys: OrganGingerbreadKidneys
     right arm:
       part: RightArmGingerbread
       connections:

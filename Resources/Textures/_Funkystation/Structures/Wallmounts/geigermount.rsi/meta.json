@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "license": "CC0-1.0",
+  "license": "CC-BY-SA-3.0",
   "copyright": "By AraiMaia for FunkyStation",
   "size": {
     "x": 32,
@@ -8,16 +8,20 @@
   },
   "states": [
     {
-      "name": "closed"
+      "name": "closed",
+      "directions": 4
     },
     {
-      "name": "fill"
+      "name": "fill",
+      "directions": 4
     },
     {
-      "name": "frame"
+      "name": "frame",
+      "directions": 4
     },
     {
-      "name": "open"
+      "name": "open",
+      "directions": 4
     }
   ]
 }

@@ -5,9 +5,9 @@
   description: A small wall mounted geiger counter. Warranty void if opened.
   placement:
     mode: SnapgridCenter
+    snap:
+    - Wallmount
   components:
-  - type: WallMount
-    arc: 175
   - type: Transform
     anchored: true
   - type: Clickable
@@ -48,6 +48,9 @@
       - !type:PlaySoundBehavior
         sound:
           collection: MetalGlassBreak
+  - type: Tag
+    tags:
+    - WallMount
 
 - type: entity
   parent: GeigerMount

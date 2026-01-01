@@ -1,0 +1,44 @@
+﻿- type: entity
+  id: MedicalCurtains
+  parent: [BaseStructureDynamic, StructureWheeled]
+  name: medical curtains
+  description: Give your patients a little privacy, or partition off some rooms.
+  components:
+  - type: BedWheels
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.49,-0.49,0.49,0.49"
+        density: 100
+        mask:
+        - FullTileMask
+        layer:
+        - Opaque
+  - type: Sprite
+    noRot: true
+    sprite: _Funkystation/Objects/Specific/Medical/medicalcurtains.rsi
+    layers:
+    - state: closed
+      map: ["enum.DoorVisualLayers.Base"]
+  - type: Appearance
+  - type: Rotatable
+  - type: InteractionOutline
+  - type: Transform
+    anchored: false
+  - type: Anchorable
+  - type: Pullable
+  - type: Door
+    canCrush: false
+    performCollisionCheck: false
+    bumpOpen: false
+    clickOpen: true
+    closeTimeOne: 0.5
+    closeTimeTwo: 0.1
+    openTimeOne: 0.5
+    openTimeTwo: 0.1
+    openSound:
+      path: /Audio/Effects/curtain_openclose.ogg
+    closeSound:
+      path: /Audio/Effects/curtain_openclose.ogg

@@ -217,6 +217,19 @@
   equipment:
     id: SeniorOfficerPDA
 
+# Service Weapon
+- type: loadout
+  id: SecurityOfficerEnergyGun
+  storage:
+    back:
+    - WeaponEnergyGunEnergyPistol
+    
+- type: loadout
+  id: SecurityOfficerPistol
+  storage:
+    back:
+    - WeaponPistolMk58
+
 # Misc
 - type: loadout
   id: SecStar

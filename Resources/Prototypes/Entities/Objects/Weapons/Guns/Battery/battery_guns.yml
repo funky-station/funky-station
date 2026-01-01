@@ -311,10 +311,10 @@
       - SpecialWeapon
 
 - type: entity
-  name: practice laser carbine
+  name: practice laser bolt carbine
   parent: [BaseWeaponBattery, BaseGunWieldable]
   id: WeaponLaserCarbinePractice
-  description: This modified carbine rifle fires nearly harmless beams in the 40-watt range, for target practice.
+  description: This modified carbine rifle fires nearly harmless bolts in the 40-watt range, for target practice.
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Battery/laser_gun.rsi
@@ -346,23 +346,23 @@
     availableModes:
     - SemiAuto
     - Burst
-  - type: HitscanBatteryAmmoProvider
-    proto: RedLaserPractice
-    fireCost: 80
+  - type: ProjectileBatteryAmmoProvider
+    proto: BulletPracticeEnergyGunLaser
+    fireCost: 100
   - type: StaticPrice
     price: 300
 
 - type: entity
-  name: laser carbine
+  name: laser bolt carbine
   parent: [WeaponLaserCarbinePractice, BaseGunWieldable, BaseSecurityContraband]
   id: WeaponLaserCarbine
   description: Favoured by Nanotrasen Security for being cheap and easy to use.
   components:
   - type: StaticPrice
     price: 420
-  - type: HitscanBatteryAmmoProvider
-    proto: RedMediumLaser
-    fireCost: 80
+  - type: ProjectileBatteryAmmoProvider
+    proto: BulletEnergyGunLaser
+    fireCost: 100
   - type: Tag
     tags:
       - Rifle

@@ -94,7 +94,7 @@
   equipment:
   # eyes: ClothingEyesGlassesSecurity
     ears: ClothingHeadsetAltSecurityRegular # Goobstation
-    pocket1: WeaponEnergyGunEnergyPistol # funkystation
+    pocket1: FlashlightSeclite # funkystation
   storage:
     back:
     - Flash

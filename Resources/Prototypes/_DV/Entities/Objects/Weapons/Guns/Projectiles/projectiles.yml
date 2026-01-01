@@ -44,9 +44,21 @@
     soundHit:
       collection: MeatLaserImpact
 
+- type: entity #DeltaV, modified by Goobstation to work in this folder.
+  name: practice energy bolt
+  id: BulletPracticeEnergyGunLaser
+  parent: BulletEnergyGunLaser
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    impactEffect: BulletImpactEffectRedDisabler
+    damage:
+      types:
+        Heat: 5
+
 - type: entity #Goobstation, put here so the X-01 stuff isnt spread everywhere.
   name: ion bolt
-  id: BulletEnergyGunIon
+  id: BulletEenrgyGunIon
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
   components:

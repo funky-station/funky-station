@@ -1,4 +1,5 @@
 // SPDX-FileCopyrightText: 2024 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
 // SPDX-License-Identifier: MIT
@@ -21,6 +22,12 @@ public sealed partial class MobStateCondition : EntityEffectCondition
         {
             if (mobState.CurrentState == Mobstate)
                 return true;
+
+            if (Mobstate == MobState.Critical &&
+                (mobState.CurrentState == MobState.SoftCritical || mobState.CurrentState == MobState.HardCritical))
+            {
+                return true;
+            }
         }
 
         return false;

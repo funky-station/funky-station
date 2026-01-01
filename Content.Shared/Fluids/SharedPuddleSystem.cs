@@ -4,6 +4,7 @@
 // SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
 // SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 MaiaArai <158123176+YaraaraY@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
@@ -123,15 +124,17 @@ public abstract partial class SharedPuddleSystem : EntitySystem
         }
     }
 
-    public void OnPuddleBurn(Entity<PuddleComponent> ent, ref TileFireEvent args)
+    // made virtual so server can override it to add lights
+    public virtual void OnPuddleBurn(Entity<PuddleComponent> ent, ref TileFireEvent args)
     {
         if (!_solutionContainerSystem.ResolveSolution(ent.Owner,
                 ent.Comp.SolutionName,
                 ref ent.Comp.Solution,
                 out var solution))
             return;
-        _solutionContainerSystem.BurnFlammableReagents(ent.Comp.Solution.Value, 0.05f);
 
+        // Changed from 0.05f to 0.001f, fires will burn longer.
+        _solutionContainerSystem.BurnFlammableReagents(ent.Comp.Solution.Value, 0.001f);
     }
 
     #region Spill

@@ -1,21 +1,55 @@
 // SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
 // SPDX-License-Identifier: MIT
-
+using Content.Shared.CCVar;
 using Robust.Client.Graphics;
+using Robust.Shared.Configuration;
 
 namespace Content.Client.Light.EntitySystems;
 
 public sealed class PlanetLightSystem : EntitySystem
 {
+    [Dependency] private readonly IConfigurationManager _cfgManager = default!;
     [Dependency] private readonly IOverlayManager _overlayMan = default!;
+
+    /// <summary>
+    /// Enables / disables the ambient occlusion overlay.
+    /// </summary>
+    public bool AmbientOcclusion
+    {
+        get => _ambientOcclusion;
+        set
+        {
+            if (_ambientOcclusion == value)
+                return;
+
+            _ambientOcclusion = value;
+
+            if (value)
+            {
+                _overlayMan.AddOverlay(new AmbientOcclusionOverlay());
+            }
+            else
+            {
+                _overlayMan.RemoveOverlay<AmbientOcclusionOverlay>();
+            }
+        }
+    }
+
+    private bool _ambientOcclusion;
 
     public override void Initialize()
     {
         base.Initialize();
 
         SubscribeLocalEvent<GetClearColorEvent>(OnClearColor);
+
+        _cfgManager.OnValueChanged(CCVars.AmbientOcclusion, val =>
+        {
+            AmbientOcclusion = val;
+        }, true);
 
         _overlayMan.AddOverlay(new BeforeLightTargetOverlay());
         _overlayMan.AddOverlay(new RoofOverlay(EntityManager));

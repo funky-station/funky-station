@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "license": "CC-BY-SA-3.0",
-  "copyright": "Taken from tgstation at commit https://github.com/tgstation/tgstation/commit/4f6190e2895e09116663ef282d3ce1d8b35c032e. Vox states by Flareguy for Space Station 14 | vulpkanin state taken from https://github.com/DeltaV-Station/Delta-v/tree/3fbe5312c58a9edda6e1342f62d697482b6b8d48/Resources/Textures/Clothing/Head/Hardsuits/salvage.rsi added by Zephyrpak",
+  "license": "CC-BY-NC-SA-4.0",
+  "copyright": "Sprites created by Tea(d.d.tea on Discord, @teasq.bsky.social)",
   "size": {
     "x": 32,
     "y": 32

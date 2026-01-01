@@ -107,7 +107,7 @@
     - Nukeops
     - Traitor
     - Revolutionary
-    - Zombie
+    - medZombies
     - BlobGameMode # Goobstation antag
     - SubGamemodesRule
     - MeteorSwarmScheduler
@@ -131,7 +131,7 @@
     - Nukeops
     - Traitor
     - Revolutionary
-    - Zombie
+    - medZombies
     - Wizard
     - BlobGameMode # Goobstation antag
     - SubGamemodesRule
@@ -351,27 +351,57 @@
   - zombie
   - zombies
   - Zombies
-  - zz14
-  - zomber
   name: zombie-title
   description: zombie-description
   showInVote: false
   rules:
-  - Zombie
+  - medZombies
+  - CalmTraitor
   - BasicStationEventScheduler
   - MeteorSwarmScheduler
   - SpaceTrafficControlEventScheduler
   - BasicRoundstartVariation
 
 - type: gamePreset
-  id: SecretZombie
+  id: SecretZombieMedium
   alias:
   - secretzombie
   name: secret-title
   description: secret-description
   showInVote: false
   rules:
-  - Zombie
+  - medZombies
+  - CalmTraitor
+  - BasicStationEventScheduler
+  - MeteorSwarmScheduler
+  - SpaceTrafficControlEventScheduler
+  - BasicRoundstartVariation
+
+- type: gamePreset
+  id: SecretLowZombie
+  alias:
+  - secretZombieLow
+  name: secret-title
+  description: secret-description
+  showInVote: false
+  rules:
+  - lowZombies
+  - CalmTraitor
+  - BasicStationEventScheduler
+  - MeteorSwarmScheduler
+  - SpaceTrafficControlEventScheduler
+  - BasicRoundstartVariation
+
+- type: gamePreset
+  id: SecretZombieHigh
+  alias:
+  - secretZombieHigh
+  name: secret-title
+  description: secret-description
+  showInVote: false
+  rules:
+  - highZombies
+  - CalmTraitor
   - BasicStationEventScheduler
   - MeteorSwarmScheduler
   - SpaceTrafficControlEventScheduler
@@ -387,7 +417,7 @@
   description: zombieteors-description
   showInVote: false
   rules:
-  - Zombie
+  - medZombies
   - BasicStationEventScheduler
   - KesslerSyndromeScheduler
   - SpaceTrafficControlEventScheduler

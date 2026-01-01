@@ -4,6 +4,7 @@
 // SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2023 Morb <14136326+Morb0@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 beck-thompson <107373427+beck-thompson@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 maelines <genovedd.almn@gmail.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
 // SPDX-License-Identifier: MIT
@@ -17,13 +18,13 @@ namespace Content.Shared.Chat.TypingIndicator;
 ///     Show typing indicator icon when player typing text in chat box.
 ///     Added automatically when player poses entity.
 /// </summary>
-[RegisterComponent, NetworkedComponent]
-[Access(typeof(SharedTypingIndicatorSystem))]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState] //CD - AutoGenerateComponentState fixes a bug with synth trait
+//[Access(typeof(SharedTypingIndicatorSystem))] CD - Restricted access breaks synth trait because it rewrites the speech bubble over the default race indicator
 public sealed partial class TypingIndicatorComponent : Component
 {
     /// <summary>
     ///     Prototype id that store all visual info about typing indicator.
     /// </summary>
-    [DataField("proto")]
+    [DataField("proto"), AutoNetworkedField] // CD - AutoNetworkField fixes a bug in synth trait
     public ProtoId<TypingIndicatorPrototype> TypingIndicatorPrototype = "default";
 }

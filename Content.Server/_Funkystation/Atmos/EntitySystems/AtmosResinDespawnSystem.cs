@@ -1,3 +1,4 @@
+// SPDX-FileCopyrightText: 2025 MaiaArai <158123176+YaraaraY@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Steve <marlumpy@gmail.com>
 // SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 marc-pelletier <113944176+marc-pelletier@users.noreply.github.com>
@@ -39,6 +40,7 @@ public sealed class AtmosResinDespawnSystem : EntitySystem
 
         var gasesToRemove = new[]
         {
+            Gas.WaterVapor,
             Gas.CarbonDioxide,
             Gas.Plasma,
             Gas.Tritium,

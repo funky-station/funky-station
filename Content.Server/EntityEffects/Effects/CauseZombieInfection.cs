@@ -26,7 +26,8 @@ public sealed partial class CauseZombieInfection : EntityEffect
     {
         var entityManager = args.EntityManager;
         entityManager.EnsureComponent<ZombifyOnDeathComponent>(args.TargetEntity);
-        entityManager.EnsureComponent<PendingZombieComponent>(args.TargetEntity);
+        var zombieTumorSystem = args.EntityManager.System<ZombieTumorOrganSystem>();
+        zombieTumorSystem.InfectEntity(args.TargetEntity, ZombieTumorInfectionStage.Incubation);
     }
 }
 

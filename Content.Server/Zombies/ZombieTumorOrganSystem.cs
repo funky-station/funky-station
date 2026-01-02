@@ -77,6 +77,7 @@ public sealed class ZombieTumorOrganSystem : SharedZombieTumorOrganSystem
         SubscribeLocalEvent<ZombieTumorInfectionComponent, ComponentRemove>(OnInfectionRemoved);
         SubscribeLocalEvent<ZombieTumorInfectionComponent, BeingGibbedEvent>(OnEntityWithInfectionBeingGibbed);
         SubscribeLocalEvent<BodyComponent, BeingGibbedEvent>(OnBodyBeingGibbed);
+        SubscribeLocalEvent<BodyComponent, BodyPartRemovedEvent>(OnBodyPartRemoved);
         SubscribeLocalEvent<ZombieTumorOrganComponent, OrganRemovedFromBodyEvent>(OnTumorOrganRemoved);
         SubscribeLocalEvent<ZombieTumorSpawnerComponent, ComponentInit>(OnTumorSpawnerInit);
     }
@@ -393,6 +394,36 @@ public sealed class ZombieTumorOrganSystem : SharedZombieTumorOrganSystem
     }
 
     /// <summary>
+    /// Checks if an entity has animal body parts. Animals shouldn't get zombie tumors.
+    /// </summary>
+    private bool IsAnimalBody(EntityUid bodyUid, BodyComponent? body = null)
+    {
+        if (!Resolve(bodyUid, ref body, logMissing: false))
+            return false;
+
+        // Check if body has a root part (if no root part, body has no body parts)
+        if (body.RootContainer.ContainedEntity == null)
+            return false;
+
+        // Check if any body part is an animal part (animals use body parts that inherit from PartAnimal)
+        foreach (var part in _bodySystem.GetBodyChildren(bodyUid, body))
+        {
+            var protoId = MetaData(part.Id).EntityPrototype?.ID;
+            if (protoId != null)
+            {
+                // Check if this prototype or any parent is PartAnimal
+                foreach (var parent in _prototypeManager.EnumerateParents<EntityPrototype>(protoId))
+                {
+                    if (parent.ID == "PartAnimal")
+                        return true; // This is an animal
+                }
+            }
+        }
+
+        return false;
+    }
+
+    /// <summary>
     /// Spawns a zombie tumor organ in a random valid body part (torso, head, or arm). Returns true if successful.
     /// </summary>
     public bool SpawnTumorOrgan(EntityUid bodyUid)
@@ -409,21 +440,9 @@ public sealed class ZombieTumorOrganSystem : SharedZombieTumorOrganSystem
         if (HasTumorOrgan(bodyUid))
             return true;
 
-        // Check if any body part is an animal part (animals shouldn't get tumors)
-        // Animals use body parts that inherit from PartAnimal (e.g., TorsoAnimal, LegsAnimal)
-        foreach (var part in _bodySystem.GetBodyChildren(bodyUid, body))
-        {
-            var protoId = MetaData(part.Id).EntityPrototype?.ID;
-            if (protoId != null)
-            {
-                // Check if this prototype or any parent is PartAnimal
-                foreach (var parent in _prototypeManager.EnumerateParents<EntityPrototype>(protoId))
-                {
-                    if (parent.ID == "PartAnimal")
-                        return false; // Don't spawn tumors in animals
-                }
-            }
-        }
+        // Check if this is an animal (animals shouldn't get tumors)
+        if (IsAnimalBody(bodyUid, body))
+            return false;
 
         // Collect all valid body parts we can spawn tumors in
         // GetBodyChildrenOfType only returns attached parts
@@ -997,6 +1016,40 @@ public sealed class ZombieTumorOrganSystem : SharedZombieTumorOrganSystem
             _bodySystem.RemoveOrgan(organUid);
             // Immediate deletion to prevent state sync issues
             QueueDel(organUid);
+        }
+    }
+
+    private void OnBodyPartRemoved(Entity<BodyComponent> ent, ref BodyPartRemovedEvent args)
+    {
+        // Skip if entities are being deleted
+        if (TerminatingOrDeleted(ent.Owner) || TerminatingOrDeleted(args.Part))
+            return;
+
+        // Check if the removed part contains a zombie tumor organ
+        if (!_bodySystem.TryGetBodyPartOrgans(args.Part.Owner, typeof(ZombieTumorOrganComponent), out var tumorOrgans, args.Part.Comp) || tumorOrgans.Count == 0)
+            return;
+
+        // If the body is fully zombified, don't remove the infection component (zombies don't have it anyway)
+        if (HasComp<ZombieComponent>(ent.Owner))
+            return;
+
+        // If the body has a zombie tumor infection, remove it since the tumor is being removed with the limb
+        if (HasComp<ZombieTumorInfectionComponent>(ent.Owner))
+        {
+            // Check if the removed tumor was a RoboTumor
+            var wasRoboTumor = false;
+            foreach (var (organUid, _) in tumorOrgans)
+            {
+                if (MetaData(organUid).EntityPrototype?.ID == "ZombieRoboTumor")
+                {
+                    wasRoboTumor = true;
+                    break;
+                }
+            }
+
+            var removalMessage = wasRoboTumor ? "zombie-robotumor-removed" : "zombie-tumor-removed";
+            RemComp<ZombieTumorInfectionComponent>(ent.Owner);
+            _popup.PopupEntity(Loc.GetString(removalMessage), ent.Owner, ent.Owner);
         }
     }
 

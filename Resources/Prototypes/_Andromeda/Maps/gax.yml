@@ -37,8 +37,7 @@
             Librarian: [ 1, 1 ]
             #Engineering
             ChiefEngineer: [ 1, 1 ]
-            AtmosphericTechnician: [ 3, 4 ]
-            StationEngineer: [ 3, 4 ]
+            StationEngineer: [ 6, 8 ]
             TechnicalAssistant: [ 1, 2 ]
             #Medical
             ChiefMedicalOfficer: [ 1, 1 ]

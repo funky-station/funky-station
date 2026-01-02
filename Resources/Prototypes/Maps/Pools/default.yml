@@ -49,11 +49,11 @@
   id: DefaultMapPool
   maps: #funkystation
   # low pop
-  - Cluster
   - Eden
   - Amber
   - roid_outpost
   - Gax
+# - open slot
   # high pop
   - Bagel
   - Core

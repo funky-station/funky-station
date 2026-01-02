@@ -28,8 +28,7 @@
           BlueshieldOfficer: [ 1, 1 ]
           #engineering
           ChiefEngineer: [ 1, 1 ]
-          AtmosphericTechnician: [ 6, 6]
-          StationEngineer: [ 10, 10]
+          StationEngineer: [ 16, 16] # jesus fuck
           #medical
           ChiefMedicalOfficer: [ 1, 1 ]
           Chemist: [ 1, 1 ]

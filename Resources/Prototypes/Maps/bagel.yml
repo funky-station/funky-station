@@ -65,8 +65,8 @@
             ServiceWorker: [ 2, 2 ]
             #engineering
             ChiefEngineer: [ 1, 1 ]
-            AtmosphericTechnician: [ 3, 3 ]
-            StationEngineer: [ 4, 4 ]
+            AtmosphericTechnician:
+            StationEngineer: [ 7, 7 ]
             TechnicalAssistant: [ 4, 4 ]
             #medical
             ChiefMedicalOfficer: [ 1, 1 ]

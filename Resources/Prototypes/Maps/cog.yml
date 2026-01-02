@@ -56,10 +56,9 @@
             Reporter: [ 2, 2 ]
             Librarian: [ 1, 1 ]
             ServiceWorker: [ 3, 3 ]
-            Zookeeper: [ 1, 1 ] 
+            Zookeeper: [ 1, 1 ]
             #engineering
             ChiefEngineer: [ 1, 1 ]
-            AtmosphericTechnician: [ 3, 3 ]
             StationEngineer: [ 4, 4 ]
             TechnicalAssistant: [ 3, 3 ]
             #medical

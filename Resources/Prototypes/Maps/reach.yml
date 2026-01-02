@@ -43,8 +43,7 @@
             Chemist: [ 1, 1 ]
             Janitor: [ 1, 1 ]
             Musician: [ 1, 1 ]
-            AtmosphericTechnician: [ 1, 1 ]
-            StationEngineer: [ 1, 2 ]
+            StationEngineer: [ 2, 3 ]
             Scientist: [ 1, 1 ]
             Passenger: [ -1, -1 ]
 

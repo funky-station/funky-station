@@ -33,7 +33,7 @@
   id: Court
   mapName: 'Court Station'
   mapPath: /Maps/_Funkystation/court.yml
-  minPlayers: 30 
+  minPlayers: 30
   stations:
     Court:
       stationProto: StandardNanotrasenStation
@@ -63,8 +63,7 @@
             ServiceWorker: [ 2, 2 ]
             #engineering
             ChiefEngineer: [ 1, 1 ]
-            AtmosphericTechnician: [ 3, 4 ]
-            StationEngineer: [ 4, 5 ]
+            StationEngineer: [ 7, 9 ]
             TechnicalAssistant: [ 4, 5 ]
             #medical
             ChiefMedicalOfficer: [ 1, 1 ]

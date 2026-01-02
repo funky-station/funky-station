@@ -75,3 +75,19 @@
   components:
   - type: Stack
     count: 1
+
+- type: entity
+  parent: BaseItem
+  id: SpationautUpgradeKit 
+  name: spationaut upgrade kit 
+  description: A box containing various parts intended to modify and tweak a standard spationaut hardsuit. 
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Materials/spatio_upgrade_kit.rsi
+    state: icon
+  - type: Item
+    sprite: _Funkystation/Objects/Materials/spatio_upgrade_kit.rsi
+    size: Normal    
+  - type: Tag
+    tags:
+    - SpatioUpgradeKit 

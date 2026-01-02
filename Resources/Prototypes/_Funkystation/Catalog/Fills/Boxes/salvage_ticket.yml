@@ -46,7 +46,7 @@
   id: BoxSalvageMedicalKit
   parent: CardboardBoxLarge
   name: field medical kit
-  description: A box containing medical supplies, defibrillator,body bags and the materials needed to construct a medibot.
+  description: A box containing medical supplies, defibrillator,body bags and the materials needed to construct a medibot and medical bed.
   components:
   - type: StorageFill
     contents:
@@ -59,4 +59,8 @@
       amount: 2
     - id: ClothingEyesHudMedical
     - id: EmergencyMedipen
+      amount: 2
+    - id: SheetPlasteel1
+      amount: 2
+    - id: MaterialDurathread1
       amount: 2

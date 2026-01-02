@@ -10193,10 +10193,6 @@ entities:
       pos: -66.5,-19.5
       parent: 2
     - type: DeviceList
-      devices:
-      - 14766
-      - 14772
-      - 17953
   - uid: 951
     components:
     - type: Transform
@@ -10226,10 +10222,6 @@ entities:
       pos: -33.5,-26.5
       parent: 2
     - type: DeviceList
-      devices:
-      - 20098
-      - 21696
-      - 20097
   - uid: 6472
     components:
     - type: Transform
@@ -10271,9 +10263,6 @@ entities:
       parent: 2
     - type: DeviceList
       devices:
-      - 18799
-      - 11523
-      - 18792
   - uid: 13332
     components:
     - type: Transform

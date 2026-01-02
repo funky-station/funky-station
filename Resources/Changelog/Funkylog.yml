@@ -6976,3 +6976,9 @@ Entries:
       message: Added Gax to the map rotation
   id: 812
   time: '2026-01-02T02:59:06.0000000+00:00'
+- author: 88tv
+  changes:
+    - type: Tweak
+      message: Updated Packed for playtest feedback
+  id: 813
+  time: '2026-01-02T05:38:04.0000000+00:00'

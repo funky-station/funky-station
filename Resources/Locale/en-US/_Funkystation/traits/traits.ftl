@@ -52,11 +52,11 @@ trait-table-hider-name = Contortionist
 trait-table-hider-desc = You can sneak under objects like tables that no normal person should fit under, but you take extra damage.
 
 # NeuroAversion trait
-trait-neuro-aversion-name = NeuroAversion
+trait-neuro-aversion-name = Neuroaversion
 trait-neuro-aversion-desc = Your nervous system has an adverse reaction to MindShield implants. You experience migraines and rare seizures.
 
-trait-neuro-aversion-migraine-start = The Mindshield begins to throb painfully...
-trait-neuro-aversion-migraine-start-other = {THE($target)} winces and clutches {POSS-ADJ($target)}
+trait-neuro-aversion-migraine-start = Your Mindshield cascades begins to throb painfully...
+trait-neuro-aversion-migraine-start-other = {THE($target)} winces and clutches {POSS-ADJ($target)} their head.
 
 seizure-prodrome-self = You feel something terrible coming on...
 seizure-prodrome-others = {$target} stumbles and heaves.

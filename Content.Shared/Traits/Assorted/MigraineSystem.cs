@@ -4,6 +4,7 @@
 // SPDX-License-Identifier: MIT
 
 using Content.Shared.Movement.Systems;
+using Content.Shared.Mobs.Systems;
 
 namespace Content.Shared.Traits.Assorted;
 
@@ -13,6 +14,7 @@ namespace Content.Shared.Traits.Assorted;
 public sealed class MigraineSystem : EntitySystem
 {
     [Dependency] private readonly MovementSpeedModifierSystem _movementSpeed = default!;
+    [Dependency] private readonly MobStateSystem _mobState = default!;
 
     public override void Initialize()
     {
@@ -30,6 +32,10 @@ public sealed class MigraineSystem : EntitySystem
         var query = EntityQueryEnumerator<MigraineComponent>();
         while (query.MoveNext(out var uid, out var migraine))
         {
+            // dead people cant have migraines
+            if (_mobState.IsDead(uid))
+                continue;
+
             migraine.PulseAccumulator += frameTime;
 
             // Handle duration countdown

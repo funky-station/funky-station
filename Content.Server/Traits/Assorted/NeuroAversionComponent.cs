@@ -115,6 +115,11 @@ public sealed partial class NeuroAversionComponent : Component
     [ViewVariables(VVAccess.ReadOnly)]
     public bool StartedMindShielded;
 
+    /// <summary>
+    /// Whether the StartedMindShielded flag has been checked and set. Used to ensure it is only set once.
+    /// </summary>
+    [ViewVariables(VVAccess.ReadOnly)]
+    public bool StartedMindShieldedChecked;
 
     /// <summary>
     /// Time until next migraine episode (in seconds).
@@ -141,4 +146,3 @@ public sealed partial class NeuroAversionComponent : Component
 
 
 }
-

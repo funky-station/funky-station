@@ -6,6 +6,7 @@
 using Content.Shared.Popups;
 using Content.Shared.Traits.Assorted;
 using Content.Shared.Mindshield.Components;
+using Content.Shared.Mobs.Systems;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
 namespace Content.Server.Traits.Assorted;
@@ -17,6 +18,7 @@ public sealed class ChronicMigrainesSystem : EntitySystem
 {
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private readonly MobStateSystem _mobState = default!;
 
     private EntityQuery<NeuroAversionComponent> _neuroAversionQuery;
     private EntityQuery<MindShieldComponent> _mindShieldQuery;
@@ -54,6 +56,10 @@ public sealed class ChronicMigrainesSystem : EntitySystem
         var query = EntityQueryEnumerator<ChronicMigrainesComponent>();
         while (query.MoveNext(out var uid, out var migraines))
         {
+            // dead people cant have migraines
+            if (_mobState.IsDead(uid))
+                continue;
+
             // Skip chronic migraines processing if entity has the NeuroAversion trait and is Mindshielded
             // In this case, NeuroAversionSystem handles all migraine scheduling with trait interaction
             if (_neuroAversionQuery.HasComponent(uid) && _mindShieldQuery.HasComponent(uid))

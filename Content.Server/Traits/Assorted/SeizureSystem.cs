@@ -9,6 +9,7 @@ using Content.Shared.Traits.Assorted;
 using Content.Shared.Movement.Systems;
 using Content.Shared.IdentityManagement;
 using Content.Server.Speech.Components;
+using Content.Shared.Mobs.Systems;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Random;
@@ -27,6 +28,7 @@ public sealed class SeizureSystem : EntitySystem
     [Dependency] private readonly MovementSpeedModifierSystem _movementSpeed = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly MobStateSystem _mobState = default!;
 
     public override void Initialize()
     {
@@ -45,6 +47,10 @@ public sealed class SeizureSystem : EntitySystem
         var query = EntityQueryEnumerator<SeizureComponent>();
         while (query.MoveNext(out var uid, out var seizure))
         {
+            // dead people cant have seizures
+            if (_mobState.IsDead(uid))
+                continue;
+
             seizure.RemainingTime -= frameTime;
 
             UpdateMovementSpeed(uid, seizure, frameTime);
@@ -140,8 +146,8 @@ public sealed class SeizureSystem : EntitySystem
         var overlayQuery = EntityQueryEnumerator<SeizureOverlayComponent>();
         while (overlayQuery.MoveNext(out var overlayUid, out var overlay))
         {
-            // Skip if this overlay is already being handled by a seizure component
-            if (HasComp<SeizureComponent>(overlayUid))
+            // dead people still cant have seizures
+            if (_mobState.IsDead(overlayUid))
                 continue;
 
             overlay.PulseAccumulator += frameTime;

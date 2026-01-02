@@ -6970,3 +6970,9 @@ Entries:
       message: Fixed Box's evac not docking.
   id: 811
   time: '2026-01-01T23:13:20.0000000+00:00'
+- author: EmillyCoelho
+  changes:
+    - type: Add
+      message: Added Gax to the map rotation
+  id: 812
+  time: '2026-01-02T02:59:06.0000000+00:00'

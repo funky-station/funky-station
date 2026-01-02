@@ -13876,8 +13876,6 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -26.5,-27.5
       parent: 2
-    - type: DeviceNetwork
-      - 17450
   - uid: 14654
     components:
     - type: Transform

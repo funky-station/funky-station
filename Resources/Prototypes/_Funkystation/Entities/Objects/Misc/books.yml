@@ -1,5 +1,6 @@
 # SPDX-FileCopyrightText: 2025 Komoni <131829655+Komonighub@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2026 Notarin Steele <424c414e4b@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -43,6 +44,7 @@
     - LegalSOP
     - MedicalSOP
     - ServiceSOP
+    - SecuritySOP
     - EngineeringSOP
     - CargoSOP
     - ScienceSOP

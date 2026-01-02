@@ -7010,3 +7010,11 @@ Entries:
       message: Merged Atmos SOP into Station Engineer SOP
   id: 815
   time: '2026-01-02T21:16:29.0000000+00:00'
+- author: mkanke-real
+  changes:
+    - type: Add
+      message: Added missing Reactor Fabricator to Bagel
+    - type: Fix
+      message: Bagel reactor room now has proper rad blocking walls
+  id: 816
+  time: '2026-01-02T21:28:11.0000000+00:00'

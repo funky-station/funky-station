@@ -346,6 +346,8 @@
   - type: ContainerFill
     containers:
       board: [ DoorElectronicsMedicalResearch ]
+  - type: Sprite
+    sprite: Structures/Doors/Airlocks/Standard/medsci.rsi
 
 - type: entity
   parent: AirlockCentralCommand
@@ -749,6 +751,8 @@
   - type: ContainerFill
     containers:
       board: [ DoorElectronicsMedicalResearch ]
+  - type: Sprite
+    sprite: Structures/Doors/Airlocks/Glass/medsci.rsi
 
 - type: entity
   parent: AirlockCentralCommandGlass
@@ -1114,11 +1118,14 @@
 - type: entity
   parent: AirlockMaintRnDLocked
   id: AirlockMaintRnDMedLocked
+  name: medsci maintenance access
   suffix: Medical/Science, Locked
   components:
   - type: ContainerFill
     containers:
       board: [ DoorElectronicsMedicalResearch ]
+  - type: Sprite
+    sprite: _Funkystation/Structures/Doors/Airlocks/Standard/maint_medsci.rsi
 
 - type: entity
   parent: AirlockMaintSec # Funkystation

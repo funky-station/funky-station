@@ -6982,3 +6982,9 @@ Entries:
       message: Updated Packed for playtest feedback
   id: 813
   time: '2026-01-02T05:38:04.0000000+00:00'
+- author: Tea
+  changes:
+    - type: Tweak
+      message: Magboots have a new sprite!
+  id: 814
+  time: '2026-01-02T06:49:33.0000000+00:00'

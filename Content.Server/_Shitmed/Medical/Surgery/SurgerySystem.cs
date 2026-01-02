@@ -25,6 +25,7 @@ using Content.Shared.FixedPoint;
 using Content.Shared.Forensics.Components;
 using Content.Shared.Damage.Prototypes;
 // End DeltaV Additions
+using Content.Shared.Traits.Assorted;
 using Content.Shared._Shitmed.Medical.Surgery;
 using Content.Shared._Shitmed.Medical.Surgery.Conditions;
 using Content.Shared._Shitmed.Medical.Surgery.Effects.Step;
@@ -268,6 +269,9 @@ public sealed class SurgerySystem : SharedSurgerySystem
     private void OnStepScreamComplete(Entity<SurgeryStepEmoteEffectComponent> ent, ref SurgeryStepEvent args)
     {
         if (HasComp<AnesthesiaComponent>(args.Body)) // DeltaV
+            return;
+
+        if (HasComp<PainNumbnessComponent>(args.Body))
             return;
 
         _chat.TryEmoteWithChat(args.Body, ent.Comp.Emote);

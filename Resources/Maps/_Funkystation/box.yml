@@ -72,7 +72,7 @@ meta:
   engineVersion: 268.0.0
   forkId: ""
   forkVersion: ""
-  time: 12/27/2025 17:54:43
+  time: 12/29/2025 17:33:16
   entityCount: 29836
 maps:
 - 11906
@@ -11922,22 +11922,26 @@ entities:
   - uid: 548
     components:
     - type: Transform
-      pos: 95.5,-23.5
+      rot: 1.5707963267948966 rad
+      pos: 95.5,-21.5
       parent: 8364
   - uid: 19287
     components:
     - type: Transform
-      pos: 95.5,-31.5
+      rot: 1.5707963267948966 rad
+      pos: 95.5,-29.5
       parent: 8364
   - uid: 19979
     components:
     - type: Transform
-      pos: 95.5,-29.5
+      rot: 1.5707963267948966 rad
+      pos: 95.5,-31.5
       parent: 8364
   - uid: 20042
     components:
     - type: Transform
-      pos: 95.5,-21.5
+      rot: 1.5707963267948966 rad
+      pos: 95.5,-23.5
       parent: 8364
 - proto: AirlockExternalGlassShuttleEscape
   entities:
@@ -12250,7 +12254,7 @@ entities:
       pos: 24.5,16.5
       parent: 8364
     - type: Door
-      secondsUntilStateChange: -129607.945
+      secondsUntilStateChange: -129658.28
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -12415,7 +12419,7 @@ entities:
       pos: 74.5,-14.5
       parent: 8364
     - type: Door
-      secondsUntilStateChange: -30270.877
+      secondsUntilStateChange: -30321.21
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -91545,7 +91549,7 @@ entities:
       pos: 27.5,-15.5
       parent: 8364
     - type: Door
-      secondsUntilStateChange: -20248.475
+      secondsUntilStateChange: -20298.809
       state: Closing
   - uid: 14342
     components:
@@ -91583,7 +91587,7 @@ entities:
       pos: -34.5,-14.5
       parent: 8364
     - type: Door
-      secondsUntilStateChange: -123796.484
+      secondsUntilStateChange: -123846.82
       state: Closing
   - uid: 15010
     components:
@@ -92108,7 +92112,7 @@ entities:
       pos: -4.5,-71.5
       parent: 8364
     - type: Door
-      secondsUntilStateChange: -115544.22
+      secondsUntilStateChange: -115594.555
       state: Closing
   - uid: 27600
     components:
@@ -184538,7 +184542,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -2859.5857
+      secondsUntilStateChange: -2909.9192
       state: Opening
     - type: Airlock
       autoClose: False

@@ -43,6 +43,7 @@
     - LegalSOP
     - MedicalSOP
     - ServiceSOP
+    - SecuritySOP
     - EngineeringSOP
     - CargoSOP
     - ScienceSOP

@@ -47,6 +47,9 @@
       - state: green
       - sprite: Clothing/Head/Hats/cowboyhatbountyhunter.rsi
         state: icon
+  - type: GuideHelp
+    guides:
+    - MinorAntagonists
 
 - type: entity
   id: SpawnPointGhostMiniDragon
@@ -59,7 +62,7 @@
     description: ghost-role-information-mini-dragon-description
     rules: ghost-role-information-mini-dragon-rules
     mindRoles:
-    - MindRoleGhostRoleFreeAgent
+    - MindRoleGhostRoleSoloAntagonist
     raffle:
       settings: default
   - type: GhostRoleMobSpawner
@@ -70,3 +73,6 @@
       - state: green
       - sprite: _Funkystation/Mobs/Pets/minidragon.rsi
         state: icon
+  - type: GuideHelp
+    guides:
+    - MinorAntagonists

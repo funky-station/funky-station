@@ -6912,3 +6912,129 @@ Entries:
         names for AI and borgs
   id: 802
   time: '2025-12-28T20:42:27.0000000+00:00'
+- author: mkanke-real
+  changes:
+    - type: Tweak
+      message: Roid medbay swapped to be individual rooms
+    - type: Tweak
+      message: Defrosted Roid until next year, Merry Christmas!
+  id: 803
+  time: '2025-12-29T02:18:36.0000000+00:00'
+- author: 2DSiggy
+  changes:
+    - type: Remove
+      message: Thieving gloves are no longer available in the syndicate uplink.
+  id: 804
+  time: '2025-12-29T03:15:13.0000000+00:00'
+- author: otokonoko-dev
+  changes:
+    - type: Add
+      message: >-
+        Gingerbreads now have their own organs. Animals should be careful eating
+        the brain, it may contain toxins.
+  id: 805
+  time: '2025-12-29T03:49:26.0000000+00:00'
+- author: Ven
+  changes:
+    - type: Fix
+      message: Removed pill type from gingerbread brain
+  id: 806
+  time: '2025-12-29T04:11:28.0000000+00:00'
+- author: zergologist
+  changes:
+    - type: Add
+      message: Existing facepaints extended to Vox. Glowing blush included.
+  id: 807
+  time: '2025-12-29T04:23:32.0000000+00:00'
+- author: Alecksohs
+  changes:
+    - type: Tweak
+      message: Resprites Fire Alarms, Air Alarms, Light Tubes, and Auth Scanners.
+  id: 808
+  time: '2025-12-29T04:24:37.0000000+00:00'
+- author: Alecksohs
+  changes:
+    - type: Fix
+      message: Fixed Air Alarms glowing.
+  id: 809
+  time: '2025-12-29T20:27:15.0000000+00:00'
+- author: Tea
+  changes:
+    - type: Tweak
+      message: NanoTrasen got a killer deal on new designer satchel bags!
+  id: 810
+  time: '2025-12-30T10:46:33.0000000+00:00'
+- author: KittyCat432
+  changes:
+    - type: Fix
+      message: Fixed Box's evac not docking.
+  id: 811
+  time: '2026-01-01T23:13:20.0000000+00:00'
+- author: EmillyCoelho
+  changes:
+    - type: Add
+      message: Added Gax to the map rotation
+  id: 812
+  time: '2026-01-02T02:59:06.0000000+00:00'
+- author: 88tv
+  changes:
+    - type: Tweak
+      message: Updated Packed for playtest feedback
+  id: 813
+  time: '2026-01-02T05:38:04.0000000+00:00'
+- author: Tea
+  changes:
+    - type: Tweak
+      message: Magboots have a new sprite!
+  id: 814
+  time: '2026-01-02T06:49:33.0000000+00:00'
+- author: AraiMaia
+  changes:
+    - type: Remove
+      message: Removed Atmospheric Technician.
+    - type: Add
+      message: >-
+        New cosmetic titles for Station Engineer: Atmospheric Technician and
+        Fire Suppression Specialist
+    - type: Tweak
+      message: Changed the fills of Atmos and Engineering lockers
+    - type: Tweak
+      message: Added the Atmos clothes to Station Engineer loadout
+    - type: Tweak
+      message: Station Engineers and TAs now get Atmos Access
+    - type: Tweak
+      message: >-
+        Chief Engineer job requirement is now 25 hours in the Engineering
+        department
+    - type: Tweak
+      message: Merged Atmos SOP into Station Engineer SOP
+  id: 815
+  time: '2026-01-02T21:16:29.0000000+00:00'
+- author: mkanke-real
+  changes:
+    - type: Add
+      message: Added missing Reactor Fabricator to Bagel
+    - type: Fix
+      message: Bagel reactor room now has proper rad blocking walls
+  id: 816
+  time: '2026-01-02T21:28:11.0000000+00:00'
+- author: AraiMaia
+  changes:
+    - type: Add
+      message: Brand new sprites for Generic, Derelict, Medical & Engineering borgs.
+  id: 817
+  time: '2026-01-03T01:38:31.0000000+00:00'
+- author: 88tv
+  changes:
+    - type: Add
+      message: Added unique sprites for medical/science airlocks.
+  id: 818
+  time: '2026-01-03T01:46:21.0000000+00:00'
+- author: willowzeta
+  changes:
+    - type: Remove
+      message: Removed atmos tech slots from all the map prototypes
+    - type: Tweak
+      message: Derotated Cluster
+  id: 819
+  time: '2026-01-03T02:06:07.0000000+00:00'

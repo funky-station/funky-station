@@ -1,0 +1,35 @@
+uniform sampler2D noise;
+uniform highp float alpha;
+uniform highp float seed;
+uniform highp vec2 direction;
+
+const highp float NOISE_INTENSITY = 0.8;
+const highp float NOISE_SCALE = 4096.0;
+
+const highp float GRADIENT_AMPLITUDE = 0.5;
+const highp float GRADIENT_FREQUENCY = 0.2;
+
+const highp vec3 COLOR_A = vec3(0.0, 0.0, 1.0);
+const highp vec3 COLOR_B = vec3(0.5, 0.0, 0.5);
+const highp float ALPHA_SCALE = 0.2;
+
+highp float rand(highp float x) {
+    return fract(sin(x) * seed * 43758.5453123);
+}
+
+void fragment() {
+    highp vec2 viewportSize = vec2(1.0) / SCREEN_PIXEL_SIZE;
+    highp vec2 uv = FRAGCOORD.xy / viewportSize;
+    highp vec2 centeredUV = uv - 0.5;
+
+    highp vec2 perpendicular = vec2(direction.y, -direction.x);
+    highp float gradientOffset = sin(TIME * GRADIENT_FREQUENCY) * GRADIENT_AMPLITUDE;
+    highp vec2 movedUV = centeredUV + perpendicular * gradientOffset;
+
+    highp float gradientFactor = dot(movedUV, perpendicular);
+    gradientFactor += rand(gradientFactor * NOISE_SCALE) * NOISE_INTENSITY;
+    gradientFactor = fract(gradientFactor);
+
+    highp vec4 texColor = zTextureSpec(noise, UV);
+    COLOR = vec4(mix(COLOR_A, COLOR_B, gradientFactor), texColor.a * alpha * ALPHA_SCALE);
+}

@@ -55,9 +55,9 @@
   description: Nanotrasen-issue Security combat boots for combat scenarios or combat situations. All combat, all the time.
   components:
   - type: Sprite
-    sprite: Clothing/Shoes/Boots/jackboots.rsi
+    sprite: _Funkystation/Clothing/Shoes/Boots/jackboots.rsi
   - type: Clothing
-    sprite: Clothing/Shoes/Boots/jackboots.rsi
+    sprite: _Funkystation/Clothing/Shoes/Boots/jackboots.rsi
   - type: ClothingSlowOnDamageModifier
     modifier: 0.5
   - type: ClothingModifyStunTime # Goobstation
@@ -66,13 +66,13 @@
 - type: entity
   parent: ClothingShoesBaseButcherable
   id: ClothingShoesBootsSalvage
-  name: salvage boots
-  description: Steel-toed salvage boots for salvaging in hazardous environments.
+  name: steel-toed boots
+  description: Robust steel-toed boots for working in hazardous environments. Reinforced with real steel!
   components:
   - type: Sprite
-    sprite: Clothing/Shoes/Boots/explorer.rsi
+    sprite: _Funkystation/Clothing/Shoes/Boots/steeltoeboots.rsi
   - type: Clothing
-    sprite: Clothing/Shoes/Boots/explorer.rsi
+    sprite: _Funkystation/Clothing/Shoes/Boots/steeltoeboots.rsi
   - type: Matchbox
 
 - type: entity
@@ -93,9 +93,9 @@
   description: Robust combat boots for combat scenarios or combat situations. All combat, all the time.
   components:
   - type: Sprite
-    sprite: Clothing/Shoes/Boots/combatboots.rsi
+    sprite: _Funkystation/Clothing/Shoes/Boots/combatboots.rsi
   - type: Clothing
-    sprite: Clothing/Shoes/Boots/combatboots.rsi
+    sprite: _Funkystation/Clothing/Shoes/Boots/combatboots.rsi
   - type: ClothingSlowOnDamageModifier # Goobstation
     modifier: 0.5
   - type: ClothingModifyStunTime # Goobstation
@@ -105,21 +105,25 @@
   parent: ClothingShoesMilitaryBase
   id: ClothingShoesHighheelBoots
   name: high-heeled boots
-  description: Snazy boots for when you want to be stylish, yet prepared.
+  description: Snazy boots for when you want to be stylish, yet prepared. Truly the height of fashion.
   components:
   - type: MeleeWeapon
     damage:
       types:
         Piercing: 6
   - type: Sprite
-    sprite: Clothing/Shoes/Boots/highheelboots.rsi
+    sprite: _Funkystation/Clothing/Shoes/Boots/highheelboots.rsi
   - type: Clothing
-    sprite: Clothing/Shoes/Boots/highheelboots.rsi
+    sprite: _Funkystation/Clothing/Shoes/Boots/highheelboots.rsi
   - type: FootstepModifier
     footstepSoundCollection:
       collection: FootstepHighHeels
       params:
         variation: 0.09
+    clothingVisuals:
+      head:
+      - state: equipped-FEET
+        offset: "0, -0.03125"
 
 - type: entity
   parent: [ ClothingShoesMilitaryBase, BaseSecurityCargoContraband ]
@@ -128,9 +132,9 @@
   description: Boots that have gone through many conflicts and that have proven their combat reliability.
   components:
   - type: Sprite
-    sprite: Clothing/Shoes/Boots/mercboots.rsi
+    sprite: _Funkystation/Clothing/Shoes/Boots/mercboots.rsi
   - type: Clothing
-    sprite: Clothing/Shoes/Boots/mercboots.rsi
+    sprite: _Funkystation/Clothing/Shoes/Boots/mercboots.rsi
   - type: ClothingSlowOnDamageModifier # Goobstation
     modifier: 0.5
   - type: ClothingModifyStunTime # Goobstation
@@ -160,53 +164,57 @@
 - type: entity
   parent: ClothingShoesBaseWinterBoots
   id: ClothingShoesBootsWinterCargo
-  name: cargo winter boots
+  name: insulated steel-toed boots
+  description: A pair of insulated steel-toed boots great for working in cold and otherwise hazardous environments.
   components:
   - type: Sprite
-    sprite: Clothing/Shoes/Boots/winterbootscargo.rsi
+    sprite: _Funkystation/Clothing/Shoes/Boots/insulatedsteeltoeboots.rsi
   - type: Clothing
-    sprite: Clothing/Shoes/Boots/winterbootscargo.rsi
+    sprite: _Funkystation/Clothing/Shoes/Boots/insulatedsteeltoeboots.rsi
 
 - type: entity
   parent: ClothingShoesBaseWinterBoots
   id: ClothingShoesBootsWinterEngi
-  name: engineering winter boots
+  name: insulated boots
+  description: Insulated steel-toed boots great for protecting against the elements and not much else. Comes with weather-proof rubber soles for what it's worth.
   components:
   - type: Sprite
-    sprite: Clothing/Shoes/Boots/winterbootsengi.rsi
+    sprite: _Funkystation/Clothing/Shoes/Boots/insulatedboots.rsi
   - type: Clothing
-    sprite: Clothing/Shoes/Boots/winterbootsengi.rsi
+    sprite: _Funkystation/Clothing/Shoes/Boots/insulatedboots.rsi
 
 - type: entity
   parent: ClothingShoesBaseWinterBoots
   id: ClothingShoesBootsWinterMed
-  name: medical winter boots
+  name: covered boots
+  description: Plastic-covered boots that are easy to clean from any patient "accidents" that may occur. Try not to overheat in them.
   components:
   - type: Sprite
-    sprite: Clothing/Shoes/Boots/winterbootsmed.rsi
+    sprite: _Funkystation/Clothing/Shoes/Boots/coveredboots.rsi
   - type: Clothing
-    sprite: Clothing/Shoes/Boots/winterbootsmed.rsi
+    sprite: _Funkystation/Clothing/Shoes/Boots/coveredboots.rsi
 
 - type: entity
   parent: ClothingShoesBaseWinterBoots
   id: ClothingShoesBootsWinterSci
-  name: science winter boots
+  name: designer winter boots
+  description: White and stylish winter boots that you just know are walking home with scuff marks.
   components:
   - type: Sprite
-    sprite: Clothing/Shoes/Boots/winterbootssci.rsi
+    sprite: _Funkystation/Clothing/Shoes/Boots/winterbootsdesigner.rsi
   - type: Clothing
-    sprite: Clothing/Shoes/Boots/winterbootssci.rsi
+    sprite: _Funkystation/Clothing/Shoes/Boots/winterbootsdesigner.rsi
 
 - type: entity
   parent: [ClothingShoesBaseWinterBoots, ClothingShoesMilitaryBase, BaseSecurityContraband]
   id: ClothingShoesBootsWinterSec
-  name: security winter boots
+  name: insulated jackboots
   description: Nanotrasen-issue Security winter boots for cold combat scenarios or cold combat situations. All cold combat, all the time.
   components:
   - type: Sprite
-    sprite: Clothing/Shoes/Boots/winterbootssec.rsi
+    sprite: _Funkystation/Clothing/Shoes/Boots/insulatedjackboots.rsi
   - type: Clothing
-    sprite: Clothing/Shoes/Boots/winterbootssec.rsi
+    sprite: _Funkystation/Clothing/Shoes/Boots/insulatedjackboots.rsi
   - type: ClothingSlowOnDamageModifier # Goobstation
     modifier: 0.55
   - type: ClothingModifyStunTime # Goobstation
@@ -219,9 +227,9 @@
   description: Durable heavy boots, looks like merch from "Syndieland".
   components:
   - type: Sprite
-    sprite: Clothing/Shoes/Boots/winterbootssyndicate.rsi
+    sprite: _Funkystation/Clothing/Shoes/Boots/winterbootssyndicate.rsi
   - type: Clothing
-    sprite: Clothing/Shoes/Boots/winterbootssyndicate.rsi
+    sprite: _Funkystation/Clothing/Shoes/Boots/winterbootssyndicate.rsi
 
 - type: entity
   parent: ClothingShoesBaseWinterBoots
@@ -230,9 +238,9 @@
   description: Boots made out of dense webbing to help survive even the coldest of winters.
   components:
   - type: Sprite
-    sprite: Clothing/Shoes/Boots/winterbootsweb.rsi
+    sprite: _Funkystation/Clothing/Shoes/Boots/winterbootsweb.rsi
   - type: Clothing
-    sprite: Clothing/Shoes/Boots/winterbootsweb.rsi
+    sprite: _Funkystation/Clothing/Shoes/Boots/winterbootsweb.rsi
   - type: FlavorProfile
     flavors:
       - cobwebs

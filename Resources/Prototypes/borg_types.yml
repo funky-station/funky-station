@@ -227,6 +227,7 @@
 
   defaultModules:
   - BorgModuleTool
+  - BorgModuleBartending
   - BorgModuleMusique
   - BorgModuleService
   - BorgModuleClowning

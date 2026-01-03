@@ -1,0 +1,19 @@
+- type: entity
+  id: BorgModuleBartending
+  parent: [ BaseBorgModuleService, BaseProviderBorgModule ]
+  name: Bartending cyborg module
+  components:
+  - type: Sprite
+    layers:
+    - state: service
+    - state: icon-beer
+  - type: ItemBorgModule
+    items:
+    - DrinkShaker
+    - DrinkJigger
+    - BarSpoon
+    - BorgDropper
+    - DrinkGlass
+    - FlippoLighter
+  - type: BorgModuleIcon
+    icon: { sprite: _Impstation/Interface/Actions/actions_borg.rsi, state: bartender-module }

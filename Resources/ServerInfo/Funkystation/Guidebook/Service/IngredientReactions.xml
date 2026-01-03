@@ -1,0 +1,96 @@
+<!--
+SPDX-FileCopyrightText: 2025 Goomson <GoomsonCode@proton.me>
+SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+
+SPDX-License-Identifier: MIT
+-->
+
+<Document>
+  # Ingredient Reactions
+  Here are the ingredient creation reactions that any chef should be able to learn and use.
+
+
+  #Essential Ingredients
+
+  Though kitchens start out well-stocked with a variety of reagent ingredients already, it may not be clear how those reagents turn into solid ingredients you can cook with.
+
+  For any normal, Nanotrasen-approved kitchen, these are the most commonly used ingredients that a chef will likely need to make.
+
+
+  ##Dough
+  <Box>
+    <GuideEntityEmbed Entity="FoodDough" Caption="Regular Dough"/>
+  </Box>
+  Regular dough can be made with the following reagents:
+
+  -15u Flour
+  -10u Water
+
+  If you replace the flour with cornmeal, see what happens to the end dough!
+  <Box>
+    <GuideEntityEmbed Entity="FoodDoughCotton" Caption="Cotton Dough"/>
+  </Box>
+  For the station's fiber-eating personnel, cotton dough can be made with the following reagents:
+
+  -10u Fiber
+  -5u Flour
+  -10u Water
+
+  All of these doughs can be cut and rolled, not necessarily in that order. 
+
+  ##Meat
+  <Box>
+    <GuideEntityEmbed Entity="FoodMeat" Caption="Meat"/>
+  </Box>
+  You can make synthetic meat with:
+  -25u Fat
+  -5u Nutriment
+  -10u Blood
+  -10u Carbon
+
+  ##Plastic
+  <Box>
+    <GuideEntityEmbed Entity="SheetPlastic" Caption="Plastic"/>
+  </Box>
+  You can make plastic by heating the following reagents to 374K:
+
+  -5u Oil
+  -3u Ash
+  -2u Sulfuric Acid
+
+  ##Crystals
+
+  <Box>
+    <GuideEntityEmbed Entity="ShardCrystalGreen" Caption="Green Crystal"/>
+    <GuideEntityEmbed Entity="ShardCrystalCyan" Caption="Cyan Crystal"/>
+    <GuideEntityEmbed Entity="ShardCrystalPink" Caption="Pink Crystal"/>
+    <GuideEntityEmbed Entity="ShardCrystalRed" Caption="Red Crystal"/>
+    <GuideEntityEmbed Entity="ShardCrystalOrange" Caption="Orange Crystal"/>
+  </Box>
+  You can create synthetic crystals for decoration by mixing and heating to 374k:
+
+  -15u Sugar
+  -15u Water
+  -5u Ethanol
+
+  ##Gunpowder
+  <Box>
+    <GuideEntityEmbed Entity="MaterialGunpowder" Caption="Gunpowder"/>
+  </Box>
+  You can create gunpowder, a component used in improvised explosives, by mixing:
+  -6u Potassium
+  -2u Sulfur
+  -2u Charcoal
+
+  ##Solidification
+  <Box>
+    <GuideEntityEmbed Entity="IngotGold1" Caption="Gold"/>
+    <GuideEntityEmbed Entity="IngotSilver1" Caption="Silver"/>
+  </Box>
+  You can solidify reagents such as silver and gold into bars by using:
+  -10u Metal (silver or gold)
+  -5u Frost Oil
+
+
+
+</Document>

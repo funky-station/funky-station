@@ -43,6 +43,7 @@
   - OtherRecipes
   - MedicinalRecipes
   - SecretRecipes
+  - IngredientReactions # Funk
 
 - type: guideEntry
   id: PizzaRecipes
@@ -139,4 +140,7 @@
   name: guide-entry-writing
   text: "/ServerInfo/Guidebook/Writing.xml"
 
-
+- type: guideEntry # Funk
+  id: IngredientReactions
+  name: guide-entry-ingredient-reactions
+  text: "/ServerInfo/Funkystation/Guidebook/Service/IngredientReactions.xml"

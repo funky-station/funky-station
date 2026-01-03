@@ -541,7 +541,9 @@ namespace Content.Server.Atmos.EntitySystems
 
                     _damageableSystem.TryChangeDamage(uid, flammable.Damage * flammable.FireStacks * ev.DamageCoefficient, interruptsDoAfters: false);
 
-                    AdjustFireStacks(uid, flammable.FirestackFade * (flammable.Resisting ? 10f : 1f), flammable, flammable.OnFire);
+                    // Check again in case component was removed during damage processing
+                    if (TryComp(uid, out FlammableComponent? flammableStill))
+                        AdjustFireStacks(uid, flammableStill.FirestackFade * (flammableStill.Resisting ? 10f : 1f), flammableStill, flammableStill.OnFire);
                 }
                 else
                 {

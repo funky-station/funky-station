@@ -59,7 +59,7 @@ public sealed partial class ZombieComponent : Component
     /// being invincible by bundling up.
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
-    public float MinZombieInfectionChance = 0.25f;
+    public float MinZombieInfectionChance = 0.10f;
 
     [ViewVariables(VVAccess.ReadWrite)]
     public float ZombieMovementSpeedDebuff = 0.70f;

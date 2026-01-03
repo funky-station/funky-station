@@ -795,6 +795,91 @@
               min: 10
 
 - type: reagent
+  id: AmbuzolI
+  name: reagent-name-ambuzol-1
+  group: Medicine
+  desc: reagent-desc-ambuzol-1
+  physicalDesc: reagent-physical-desc-crisp
+  flavor: medicine
+  color: "#a8d8ff"
+  metabolisms:
+    Medicine:
+      effects:
+        - !type:CureZombieInfection
+          immunityLevel: 1
+          conditions:
+            - !type:ReagentThreshold
+              min: 10
+
+- type: reagent
+  id: AmbuzolII
+  name: reagent-name-ambuzol-2
+  group: Medicine
+  desc: reagent-desc-ambuzol-2
+  physicalDesc: reagent-physical-desc-crisp
+  flavor: medicine
+  color: "#86caf7"
+  metabolisms:
+    Medicine:
+      effects:
+        - !type:CureZombieInfection
+          immunityLevel: 2
+          conditions:
+            - !type:ReagentThreshold
+              min: 10
+
+- type: reagent
+  id: AmbuzolIII
+  name: reagent-name-ambuzol-3
+  group: Medicine
+  desc: reagent-desc-ambuzol-3
+  physicalDesc: reagent-physical-desc-crisp
+  flavor: medicine
+  color: "#64a8ef"
+  metabolisms:
+    Medicine:
+      effects:
+        - !type:CureZombieInfection
+          immunityLevel: 3
+          conditions:
+            - !type:ReagentThreshold
+              min: 10
+
+- type: reagent
+  id: AmbuzolIV
+  name: reagent-name-ambuzol-4
+  group: Medicine
+  desc: reagent-desc-ambuzol-4
+  physicalDesc: reagent-physical-desc-crisp
+  flavor: medicine
+  color: "#4288e7"
+  metabolisms:
+    Medicine:
+      effects:
+        - !type:CureZombieInfection
+          immunityLevel: 4
+          conditions:
+            - !type:ReagentThreshold
+              min: 10
+
+- type: reagent
+  id: AmbuzolV
+  name: reagent-name-ambuzol-5
+  group: Medicine
+  desc: reagent-desc-ambuzol-5
+  physicalDesc: reagent-physical-desc-crisp
+  flavor: medicine
+  color: "#1274b5"
+  metabolisms:
+    Medicine:
+      effects:
+        - !type:CureZombieInfection
+          immunityLevel: 5
+          conditions:
+            - !type:ReagentThreshold
+              min: 10
+
+- type: reagent
   id: AmbuzolPlus
   name: reagent-name-ambuzol-plus
   group: Medicine
@@ -807,6 +892,7 @@
       effects:
         - !type:CureZombieInfection
           innoculate: true
+          immunityLevel: 5
           conditions:
             - !type:ReagentThreshold
               min: 5

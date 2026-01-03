@@ -6,6 +6,7 @@ using System.Linq;
 using System.Numerics;
 using Content.Server.GameTicking.Rules.Components;
 using Content.Server.Ghost.Roles.Components;
+using Content.Server.Humanoid.Systems;
 using Content.Shared.GameTicking.Components;
 using Content.Shared.Ghost;
 using Content.Shared.Mind.Components;
@@ -15,6 +16,7 @@ using Content.Shared.Mobs.Systems;
 using Content.Shared.Zombies;
 using Robust.Server.GameObjects;
 using Robust.Server.Player;
+using Robust.Shared.EntitySerialization;
 using Robust.Shared.EntitySerialization.Systems;
 using Robust.Shared.Map;
 using Robust.Shared.Serialization.Markdown.Mapping;
@@ -28,12 +30,12 @@ namespace Content.Server.Zombies;
 /// <summary>
 /// System that monitors zombie infection percentage and spawns CBURN shuttles when 55% of players are dead/zombified.
 /// </summary>
-public sealed class CBurnShuttleSpawnSystem : EntitySystem
+public sealed partial class CBurnShuttleSpawnSystem : EntitySystem
 {
     [Dependency] private readonly IPlayerManager _playerManager = default!;
     [Dependency] private readonly MapSystem _mapSystem = default!;
     [Dependency] private readonly MapLoaderSystem _mapLoader = default!;
-    [Dependency] private readonly TransformSystem _transform = default!;
+    [Dependency] private readonly RandomHumanoidSystem _randomHumanoid = default!;
 
     private const int PlayersPerShuttle = 10;
     private static readonly ResPath ShuttlePath = new("/Maps/_Funkystation/Shuttles/ERTShuttles/ERTBurnWagonV2.yml");
@@ -41,6 +43,7 @@ public sealed class CBurnShuttleSpawnSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
+        InitializeCommands();
     }
 
     // No Update loop needed - spawning is triggered by ZombieRuleSystem
@@ -163,21 +166,37 @@ public sealed class CBurnShuttleSpawnSystem : EntitySystem
     /// Spawns CBURN shuttles and adds ghost roles at paper positions.
     /// Called by ZombieRuleSystem when 55% threshold is reached.
     /// </summary>
-    public void SpawnCBurnShuttles(CBurnShuttleSpawnComponent spawnComp)
+    /// <param name="spawnComp">The spawn component to track spawned shuttles</param>
+    /// <param name="shuttleCount">Optional count. If null, auto-calculates based on player count.</param>
+    /// <param name="maxGhostRoles">Optional maximum number of ghost roles to spawn. If null, spawns roles for all paper positions.</param>
+    public void SpawnCBurnShuttles(CBurnShuttleSpawnComponent spawnComp, int? shuttleCount = null, int? maxGhostRoles = null)
     {
-        var shuttleCount = CalculateShuttleCount();
         var paperPositions = ParsePaperPositions();
 
         if (paperPositions.Count == 0)
         {
             Log.Warning("No paper positions found in CBURN shuttle file, cannot spawn ghost roles");
+            return;
         }
 
-        Log.Info($"Spawning {shuttleCount} CBURN shuttle(s) with {paperPositions.Count} paper position(s)");
+        int count;
+        if (maxGhostRoles.HasValue)
+        {
+            // Calculate number of shuttles needed to accommodate the desired number of ghost roles
+            count = Math.Max(1, (int)Math.Ceiling(maxGhostRoles.Value / (float)paperPositions.Count));
+        }
+        else
+        {
+            // Use shuttle count (default: auto-calculate based on player count)
+            count = shuttleCount ?? CalculateShuttleCount();
+        }
+
+        Log.Info($"Spawning {count} CBURN shuttle(s) with {paperPositions.Count} paper position(s) per shuttle{(maxGhostRoles.HasValue ? $" (targeting {maxGhostRoles.Value} ghost roles)" : "")}");
 
         var usedPositions = new HashSet<Vector2>(); // Track used positions across all shuttles
+        var totalGhostRolesAdded = 0;
 
-        for (int i = 0; i < shuttleCount; i++)
+        for (int i = 0; i < count; i++)
         {
             // Create new map for this shuttle
             _mapSystem.CreateMap(out var mapId);
@@ -185,100 +204,75 @@ public sealed class CBurnShuttleSpawnSystem : EntitySystem
 
             if (!_mapLoader.TryLoadGrid(mapId, ShuttlePath, out var grid, opts))
             {
-                Log.Error($"Failed to load CBURN shuttle grid {i + 1}/{shuttleCount}");
+                Log.Error($"Failed to load CBURN shuttle grid {i + 1}/{count}");
                 continue;
             }
 
             var shuttleUid = grid.Value.Owner;
             spawnComp.SpawnedShuttles.Add(shuttleUid);
-            Dirty(spawnComp);
 
-            Log.Info($"Spawned CBURN shuttle {i + 1}/{shuttleCount} at {ToPrettyString(shuttleUid)}");
+            Log.Info($"Spawned CBURN shuttle {i + 1}/{count} at {ToPrettyString(shuttleUid)}");
 
+            // Calculate how many ghost roles we still need
+            int? remainingRoles = maxGhostRoles.HasValue ? maxGhostRoles.Value - totalGhostRolesAdded : null;
+            
             // Add ghost roles at paper positions
-            AddGhostRolesToShuttle(shuttleUid, paperPositions, usedPositions);
+            var added = AddGhostRolesToShuttle(shuttleUid, paperPositions, usedPositions, remainingRoles);
+            totalGhostRolesAdded += added;
+
+            // Stop if we've reached the target number of ghost roles
+            if (maxGhostRoles.HasValue && totalGhostRolesAdded >= maxGhostRoles.Value)
+                break;
         }
+
+        Log.Info($"Spawned {totalGhostRolesAdded} CBURN ghost role(s) across {spawnComp.SpawnedShuttles.Count} shuttle(s)");
     }
 
     /// <summary>
-    /// Adds ghost roles to entities at paper positions in the spawned shuttle.
+    /// Spawns CBURN agent entities at paper positions in the spawned shuttle.
     /// </summary>
-    private void AddGhostRolesToShuttle(EntityUid shuttleUid, List<Vector2> paperPositions, HashSet<Vector2> usedPositions)
+    /// <param name="shuttleUid">The shuttle entity to spawn agents in</param>
+    /// <param name="paperPositions">List of paper positions from the YAML file</param>
+    /// <param name="usedPositions">Set of positions already used (to prevent duplicates across shuttles)</param>
+    /// <param name="maxRoles">Maximum number of agents to spawn on this shuttle. If null, spawns agents at all available positions.</param>
+    /// <returns>Number of agents actually spawned</returns>
+    private int AddGhostRolesToShuttle(EntityUid shuttleUid, List<Vector2> paperPositions, HashSet<Vector2> usedPositions, int? maxRoles = null)
     {
-        if (!TryComp<TransformComponent>(shuttleUid, out var shuttleXform))
-            return;
-
         var shuttleGrid = shuttleUid;
         var addedCount = 0;
 
-        // Find all paper entities in the shuttle
-        var paperQuery = EntityQueryEnumerator<MetaDataComponent, TransformComponent>();
-        var paperEntities = new List<(EntityUid Uid, Vector2 Position)>();
-        
-        while (paperQuery.MoveNext(out var uid, out var meta, out var xform))
-        {
-            // Only look for entities on this shuttle grid
-            if (xform.GridUid != shuttleGrid)
-                continue;
-
-            // Check if it's a paper entity
-            if (meta.EntityPrototype?.ID == "PaperNanoTaskItem")
-            {
-                paperEntities.Add((uid, xform.LocalPosition));
-            }
-        }
-
-        // Match paper positions to entities
+        // Match paper positions and spawn agents
         foreach (var paperPos in paperPositions)
         {
+            // Stop if we've reached the maximum for this shuttle
+            if (maxRoles.HasValue && addedCount >= maxRoles.Value)
+                break;
+
             // Skip if this position was already used
             if (usedPositions.Contains(paperPos))
                 continue;
 
-            EntityUid? targetEntity = null;
-            float closestDistance = float.MaxValue;
-
-            // Find the closest paper entity to this position
-            foreach (var (uid, entityPos) in paperEntities)
+            // Convert local grid position to EntityCoordinates
+            var localCoords = new EntityCoordinates(shuttleGrid, paperPos);
+            
+            try
             {
-                // Skip if this entity already has a ghost role
-                if (HasComp<GhostRoleComponent>(uid))
-                    continue;
+                // Spawn CBURN agent at this position using RandomHumanoidSystem
+                // The "CBURNAgent" settings prototype includes the GhostRole component
+                var agentEntity = _randomHumanoid.SpawnRandomHumanoid("CBURNAgent", localCoords, "CBURN Agent");
+                
+                usedPositions.Add(paperPos);
+                addedCount++;
 
-                var distance = (entityPos - paperPos).Length();
-                if (distance < 0.5f && distance < closestDistance)
-                {
-                    targetEntity = uid;
-                    closestDistance = distance;
-                }
+                Log.Debug($"Spawned CBURN agent at position {paperPos} in shuttle {ToPrettyString(shuttleUid)}");
             }
-
-            // If no paper entity found at this position, skip it
-            // (We only add ghost roles to existing papers, as per user requirement)
-            if (targetEntity == null)
+            catch (Exception ex)
             {
-                Log.Debug($"No paper entity found at position {paperPos} in shuttle {ToPrettyString(shuttleUid)}, skipping");
-                continue;
+                Log.Error($"Failed to spawn CBURN agent at position {paperPos} in shuttle {ToPrettyString(shuttleUid)}: {ex.Message}");
             }
-
-            // Add ghost role components
-            var ghostRole = EnsureComp<GhostRoleComponent>(targetEntity.Value);
-            EnsureComp<GhostTakeoverAvailableComponent>(targetEntity.Value);
-
-            // Set ghost role properties
-            ghostRole.RoleName = "CBURN Team Member";
-            ghostRole.RoleDescription = "A member of the Central Command Burn Response Unit, sent to assist with the zombie outbreak.";
-            ghostRole.RoleRules = "ghost-role-component-default-rules";
-            ghostRole.JobProto = "CBURN";
-            ghostRole.MakeSentient = true;
-            ghostRole.ReregisterOnGhost = true;
-
-            usedPositions.Add(paperPos);
-            addedCount++;
-
-            Log.Debug($"Added ghost role at position {paperPos} in shuttle {ToPrettyString(shuttleUid)}");
         }
 
-        Log.Info($"Added {addedCount} ghost role(s) to CBURN shuttle {ToPrettyString(shuttleUid)}");
+        Log.Info($"Spawned {addedCount} CBURN agent(s) on shuttle {ToPrettyString(shuttleUid)}");
+        return addedCount;
     }
 }

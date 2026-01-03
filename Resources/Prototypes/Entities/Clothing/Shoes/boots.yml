@@ -38,11 +38,11 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
-- type: entity
+- type: entity # Thorouhgly funked, comments will point out non-funked boots.
   parent: ClothingShoesBaseButcherable
   id: ClothingShoesBootsWork
   name: workboots
-  description: Engineering lace-up work boots for the especially blue-collar.
+  description: Lace-up work boots for the especially blue-collar.
   components:
   - type: Sprite
     sprite: Clothing/Shoes/Boots/workboots.rsi
@@ -77,7 +77,7 @@
     sprite: _Funkystation/Clothing/Shoes/Boots/steeltoeboots.rsi
   - type: Matchbox
 
-- type: entity
+- type: entity # Non-funked
   parent: ClothingShoesBaseButcherable
   id: ClothingShoesBootsPerformer
   name: performer's boots
@@ -117,15 +117,15 @@
     sprite: _Funkystation/Clothing/Shoes/Boots/highheelboots.rsi
   - type: Clothing
     sprite: _Funkystation/Clothing/Shoes/Boots/highheelboots.rsi
+    clothingVisuals:
+      shoes:
+      - state: equipped-FEET
+        offset: "0, -0.03125"
   - type: FootstepModifier
     footstepSoundCollection:
       collection: FootstepHighHeels
       params:
         variation: 0.09
-    clothingVisuals:
-      head:
-      - state: equipped-FEET
-        offset: "0, -0.03125"
 
 - type: entity
   parent: [ ClothingShoesMilitaryBase, BaseSecurityCargoContraband ]
@@ -142,7 +142,7 @@
   - type: ClothingModifyStunTime # Goobstation
     modifier: 0.8
 
-- type: entity
+- type: entity # Non-funked
   parent: ClothingShoesBaseButcherable
   id: ClothingShoesBootsLaceup
   name: laceup shoes
@@ -225,7 +225,7 @@
 - type: entity
   parent: [ClothingShoesBaseWinterBoots, BaseSyndicateContraband]
   id: ClothingShoesBootsWinterSyndicate
-  name: syndicate's winter boots
+  name: syndicate winter boots
   description: Durable heavy boots, looks like merch from "Syndieland".
   components:
   - type: Sprite

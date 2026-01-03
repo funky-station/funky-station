@@ -7024,3 +7024,9 @@ Entries:
       message: Brand new sprites for Generic, Derelict, Medical & Engineering borgs.
   id: 817
   time: '2026-01-03T01:38:31.0000000+00:00'
+- author: 88tv
+  changes:
+    - type: Add
+      message: Added unique sprites for medical/science airlocks.
+  id: 818
+  time: '2026-01-03T01:46:21.0000000+00:00'

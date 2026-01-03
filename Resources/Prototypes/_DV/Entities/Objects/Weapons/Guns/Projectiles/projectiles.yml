@@ -59,7 +59,7 @@
 
 - type: entity #Goobstation, put here so the X-01 stuff isnt spread everywhere.
   name: ion bolt
-  id: BulletEenrgyGunIon
+  id: BulletEnergyGunIon
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
   components:

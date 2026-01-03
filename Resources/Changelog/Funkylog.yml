@@ -7030,3 +7030,17 @@ Entries:
       message: Added unique sprites for medical/science airlocks.
   id: 818
   time: '2026-01-03T01:46:21.0000000+00:00'
+- author: willowzeta
+  changes:
+    - type: Remove
+      message: Removed atmos tech slots from all the map prototypes
+    - type: Tweak
+      message: Derotated Cluster
+  id: 819
+  time: '2026-01-03T02:06:07.0000000+00:00'
+- author: mkanke-real
+  changes:
+    - type: Tweak
+      message: Converted Bagels atmos spawns into regular engi spawns
+  id: 820
+  time: '2026-01-03T05:59:49.0000000+00:00'

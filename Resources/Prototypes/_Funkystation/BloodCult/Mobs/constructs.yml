@@ -71,11 +71,8 @@
     - type: Damageable
       damageContainer: BloodCultConstruct
       damageModifierSet: CultJuggernaut
+    - type: IgnoreSlowOnDamage
     - type: BloodCultConstruct
-    - type: Bloodstream
-      bloodMaxVolume: 0
-      bloodReagent: Blood
-      maxBleedAmount: 0
     - type: Reactive
       groups:
         Flammable: [ Touch ]
@@ -113,12 +110,19 @@
         - Alive
         - Critical
         - Dead
+    - type: StatusEffects
+      allowed:
+        - Stun
+        - KnockedDown
+        - SlowedDown
+        # Electrocution is intentionally excluded - juggernauts are immune to electrical shocks
     - type: MobStateActions
       actions:
         Critical: []  # Juggernauts should not have critical state actions (suicide, last words)
     - type: MeleeWeapon
       hidden: true
       canWideSwing: true
+      altDisarm: false
       soundHit:
         path: /Audio/Effects/wood_destroy2.ogg
       angle: 60
@@ -183,6 +187,8 @@
     - type: GuideHelp
       guides:
       - Blob
+    - type: Body
+      # No prototype - juggernauts have no organs or limbs, like borgs
 
 - type: entity
   id: MobBloodCultShade
@@ -225,6 +231,7 @@
     - type: MeleeWeapon
       hidden: true
       canWideSwing: true
+      altDisarm: false
       soundHit:
         path: /Audio/Effects/guardian_warn.ogg
       angle: 60

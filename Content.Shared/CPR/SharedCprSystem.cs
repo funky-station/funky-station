@@ -1,5 +1,6 @@
 // SPDX-FileCopyrightText: 2025 MaiaArai <158123176+YaraaraY@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 otokonoko-dev <248204705+otokonoko-dev@users.noreply.github.com>
 //
 // SPDX-License-Identifier: MIT
 
@@ -20,6 +21,9 @@ using Robust.Shared.Utility;
 using Robust.Shared.Random;
 using Robust.Shared.Configuration;
 using Content.Shared.Traits.Assorted;
+using Content.Shared._Shitmed.Targeting;
+// Shitmed forced me to add this to apply damage to only the torso
+using Content.Shared.Damage.Prototypes;
 
 namespace Content.Shared.Cpr;
 
@@ -47,6 +51,10 @@ public abstract partial class SharedCprSystem : EntitySystem
     public const float CprManualEffectDuration = 5f;
     public const float CprManualThreshold = 1.5f;
     public const float CprReviveChance = 0.05f;
+
+    public const float CprAirlossHealThreshold = 190f; // The damage threshold above which CPR will start healing airloss on a dead patient
+    public const float CprAirlossHealAmount = 1f; // The amount of airloss to heal per CPR pump
+    public const string AirlossDamageType = "Asphyxiation";
 
     private bool _cprRepeat;
 
@@ -86,12 +94,6 @@ public abstract partial class SharedCprSystem : EntitySystem
         if (_mobState.IsIncapacitated(giver))
             return false;
 
-        if (TryComp<CprComponent>(recipient, out var cpr) &&
-            cpr.LastCaretaker.HasValue &&
-            !CprCaretakerOutdated(cpr) &&
-            cpr.LastCaretaker.Value != giver)
-            return false;
-
         return true;
     }
 
@@ -102,8 +104,16 @@ public abstract partial class SharedCprSystem : EntitySystem
 
     public void OnCprDoAfter(Entity<CprComponent> ent, ref CprDoAfterEvent args)
     {
-        if (args.Handled || args.Cancelled)
+        if (args.Handled)
             return;
+
+        if (args.Cancelled)
+        {
+            ent.Comp.LastCaretaker = null;
+            ent.Comp.LastTimeGivenCare = TimeSpan.Zero;
+            Dirty(ent, ent.Comp);
+            return;
+        }
 
         if (!CanDoCpr(ent, args.User))
             return;
@@ -120,16 +130,37 @@ public abstract partial class SharedCprSystem : EntitySystem
         // if the patient is dead, roll for a revive chance
         if (_mobState.IsDead(ent.Owner, mobState))
         {
+            // heal airloss if the patient is dead and has high total damage
+            if (damage.TotalDamage > CprAirlossHealThreshold)
+            {
+                var airlossHeal = new DamageSpecifier();
+                airlossHeal.DamageDict.Add(AirlossDamageType, -CprAirlossHealAmount);
+
+                _damage.TryChangeDamage(ent.Owner, airlossHeal, interruptsDoAfters: false, ignoreResistances: true, damageable: damage);
+            }
+
+            // try to get the dead threshold, if it's missing, we just proceed anyways
+            bool hasDeadThreshold = _mobThreshold.TryGetThresholdForState(ent.Owner, MobState.Dead, out var threshold);
+            bool isHealedEnough = !hasDeadThreshold || damage.TotalDamage < threshold;
+
             if (!HasComp<UnrevivableComponent>(ent) &&
-                _mobThreshold.TryGetThresholdForState(ent.Owner, MobState.Dead, out var threshold) &&
-                damage.TotalDamage < threshold &&
+                isHealedEnough &&
                 _random.Prob(CprReviveChance))
             {
-                // we revive them into standard Critical.
-                // they should transition to SoftCritical automatically if their damage is low enough
-                _mobState.ChangeMobState(ent.Owner, MobState.Critical, mobState);
+                // determine the state to revive into based on current damage
+                // defaults to alive
+                var targetState = MobState.Alive;
 
-                if (_mobState.IsCritical(ent.Owner, mobState))
+                // only go to critical if they actually have enough damage to be critical
+                if (_mobThreshold.TryGetThresholdForState(ent.Owner, MobState.Critical, out var critThreshold) &&
+                    damage.TotalDamage > critThreshold)
+                {
+                    targetState = MobState.Critical;
+                }
+
+                _mobState.ChangeMobState(ent.Owner, targetState, mobState);
+
+                if (_mobState.IsCritical(ent.Owner, mobState) || _mobState.IsAlive(ent.Owner, mobState))
                 {
                     _popup.PopupPredicted(Loc.GetString("cpr-revive-success", ("target", ent.Owner)), args.User, args.User);
                 }
@@ -141,8 +172,7 @@ public abstract partial class SharedCprSystem : EntitySystem
             ? cpr.Change
             : cpr.Change * ((CprManualEffectDuration - CprManualThreshold) / CprDoAfterDelay);
 
-        _damage.TryChangeDamage(ent.Owner, scaledDamage, interruptsDoAfters: false, ignoreResistances: true, damageable: damage);
-
+            _damage.TryChangeDamage(ent.Owner, scaledDamage, interruptsDoAfters: false, ignoreResistances: true, damageable: damage, targetPart: TargetBodyPart.Torso);
         var assist = EnsureComp<AssistedRespirationComponent>(ent);
 
         var newUntil = _cprRepeat
@@ -163,6 +193,7 @@ public abstract partial class SharedCprSystem : EntitySystem
 
         cpr.LastCaretaker = args.User;
         cpr.LastTimeGivenCare = Timing.CurTime;
+        Dirty(ent, cpr);
 
         // repeat if the mob is still in any crit state or dead
         args.Repeat = _mobState.IsIncapacitated(ent.Owner, mobState) && _cprRepeat;
@@ -173,25 +204,55 @@ public abstract partial class SharedCprSystem : EntitySystem
 
     public void TryStartCpr(EntityUid recipient, EntityUid giver)
     {
+        if (!TryComp<CprComponent>(recipient, out var cpr))
+            return;
+
+        if (!CanDoCpr(recipient, giver) || !InRangeForCpr(recipient, giver))
+            return;
+
+        // Check if someone else is already performing a DoAfter on this target
+        var interactingEntities = new HashSet<EntityUid>();
+        _interactionSystem.GetEntitiesInteractingWithTarget(recipient, interactingEntities);
+
+        // Remove self from the set (we're allowed to start CPR on someone we're already doing CPR on)
+        interactingEntities.Remove(giver);
+
+        if (interactingEntities.Count > 0)
+        {
+            _popup.PopupClient(Loc.GetString("cpr-already-in-progress"), recipient, giver);
+            return;
+        }
+
+        // Set LastCaretaker immediately for client-side prediction and interaction tracking
+        cpr.LastCaretaker = giver;
+        cpr.LastTimeGivenCare = Timing.CurTime;
+        Dirty(recipient, cpr);
+
         var doAfterEventArgs = new DoAfterArgs(
             EntityManager,
             giver,
             TimeSpan.FromSeconds(CprDoAfterDelay),
             new CprDoAfterEvent(),
             recipient,
-            giver
+            recipient
             )
         {
             BreakOnMove = true,
+            DistanceThreshold = SharedInteractionSystem.InteractionRange * CprInteractionRangeMultiplier,
             BlockDuplicate = true,
+            DuplicateCondition = DuplicateConditions.SameTarget,
             RequireCanInteract = true,
             NeedHand = true
         };
 
-        if (!CanDoCpr(recipient, giver)
-            || !InRangeForCpr(recipient, giver)
-            || !_doAfter.TryStartDoAfter(doAfterEventArgs))
+        if (!_doAfter.TryStartDoAfter(doAfterEventArgs))
+        {
+            // DoAfter failed to start - reset LastCaretaker
+            cpr.LastCaretaker = null;
+            cpr.LastTimeGivenCare = TimeSpan.Zero;
+            Dirty(recipient, cpr);
             return;
+        }
 
         var timeLeft = TimeSpan.Zero;
         if (TryComp<AssistedRespirationComponent>(recipient, out var comp))

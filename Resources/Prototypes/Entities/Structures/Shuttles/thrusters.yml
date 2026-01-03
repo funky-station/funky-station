@@ -55,7 +55,7 @@
     - type: Thruster
       damage:
         types:
-          Heat: 40
+          Heat: 4
     - type: InteractionOutline
     - type: Sprite
     - type: Appearance

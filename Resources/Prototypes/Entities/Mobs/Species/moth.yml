@@ -155,12 +155,45 @@
         shader: unshaded
         visible: false
   - type: Inventory
+    displacements:
+      gloves:
+        sizeMaps:
+          32:
+            sprite: _Funkystation/Mobs/Species/Moth/displacement.rsi
+            state: gloves
+      shoes:
+        sizeMaps:
+          32:
+            sprite: _Funkystation/Mobs/Species/Moth/displacement.rsi
+            state: shoes
+      # ears:
+      #   sizeMaps:
+      #     32:
+      #       sprite: _Funkystation/Mobs/Species/Moth/displacement.rsi
+      #       state: ears
     femaleDisplacements:
       jumpsuit:
         sizeMaps:
           32:
-            sprite: Mobs/Species/Human/displacement.rsi
-            state: jumpsuit-female
+            sprite: _Funkystation/Mobs/Species/Moth/displacement.rsi
+            state: jumpsuit_female
+    maleDisplacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: _Funkystation/Mobs/Species/Moth/displacement.rsi
+            state: jumpsuit_male
+  - type: Hands
+    leftHandDisplacement:
+      sizeMaps:
+        32:
+          sprite: _Funkystation/Mobs/Species/Moth/displacement.rsi
+          state: inhand_left
+    rightHandDisplacement:
+      sizeMaps:
+        32:
+          sprite: _Funkystation/Mobs/Species/Moth/displacement.rsi
+          state: inhand_right
 
 
 - type: entity
@@ -171,10 +204,32 @@
   - type: HumanoidAppearance
     species: Moth
   - type: Inventory
+    displacements:
+      gloves:
+        sizeMaps:
+          32:
+            sprite: _Funkystation/Mobs/Species/Moth/displacement.rsi
+            state: gloves
+      shoes:
+        sizeMaps:
+          32:
+            sprite: _Funkystation/Mobs/Species/Moth/displacement.rsi
+            state: shoes
+      # ears:
+      #   sizeMaps:
+      #     32:
+      #       sprite: _Funkystation/Mobs/Species/Moth/displacement.rsi
+      #       state: ears
     femaleDisplacements:
       jumpsuit:
         sizeMaps:
           32:
-            sprite: Mobs/Species/Human/displacement.rsi
-            state: jumpsuit-female
-
+            sprite: _Funkystation/Mobs/Species/Moth/displacement.rsi
+            state: jumpsuit_female
+    maleDisplacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: _Funkystation/Mobs/Species/Moth/displacement.rsi
+            state: jumpsuit_male
+    

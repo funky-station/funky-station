@@ -54,6 +54,8 @@ public sealed partial class TraitPreferenceSelector : Control
 
         _checkbox.OnToggled += OnCheckBoxToggled;
         UpdateCostLabel();
+
+        if (Container.Parent is PanelContainer panel)
         {
             panel.PanelOverride = new StyleBoxFlat
             {

@@ -70,7 +70,7 @@ public sealed partial class AdminVerbSystem
     private const string DefaultTraitorRule = "Traitor";
 
     [ValidatePrototypeId<EntityPrototype>]
-    private const string DefaultInitialInfectedRule = "Zombie";
+    private const string DefaultInitialInfectedRule = "medZombies";
 
     [ValidatePrototypeId<EntityPrototype>]
     private const string DefaultNukeOpRule = "LoneOpsSpawn";

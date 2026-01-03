@@ -42,4 +42,7 @@ public sealed partial class BedInternalsComponent : Component
 
     public Dictionary<EntityUid, EntityUid> TempMasks = new();
     public Dictionary<EntityUid, EntityUid> StoredMasks = new();
+    public Dictionary<EntityUid, bool> OriginalInternalsState = new();
+    public Dictionary<EntityUid, EntityUid?> OriginalGasTank = new();
+    public Dictionary<EntityUid, bool> BedProvidedTank = new();
 }

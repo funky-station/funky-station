@@ -1,5 +1,6 @@
 # SPDX-FileCopyrightText: 2025 mkanke-real <mikekanke@gmail.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2026 wilowzeta <willowzeta632146@proton.me>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -28,8 +29,7 @@
           BlueshieldOfficer: [ 1, 1 ]
           #engineering
           ChiefEngineer: [ 1, 1 ]
-          AtmosphericTechnician: [ 6, 6]
-          StationEngineer: [ 10, 10]
+          StationEngineer: [ 16, 16] # jesus fuck
           #medical
           ChiefMedicalOfficer: [ 1, 1 ]
           Chemist: [ 1, 1 ]

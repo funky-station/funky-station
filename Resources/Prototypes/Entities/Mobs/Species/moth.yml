@@ -166,11 +166,11 @@
           32:
             sprite: _Funkystation/Mobs/Species/Moth/displacement.rsi
             state: shoes
-      # ears:
-      #   sizeMaps:
-      #     32:
-      #       sprite: _Funkystation/Mobs/Species/Moth/displacement.rsi
-      #       state: ears
+      ears:
+        sizeMaps:
+          32:
+            sprite: _Funkystation/Mobs/Species/Moth/displacement.rsi
+            state: ears
     femaleDisplacements:
       jumpsuit:
         sizeMaps:
@@ -215,11 +215,11 @@
           32:
             sprite: _Funkystation/Mobs/Species/Moth/displacement.rsi
             state: shoes
-      # ears:
-      #   sizeMaps:
-      #     32:
-      #       sprite: _Funkystation/Mobs/Species/Moth/displacement.rsi
-      #       state: ears
+      ears:
+        sizeMaps:
+          32:
+            sprite: _Funkystation/Mobs/Species/Moth/displacement.rsi
+            state: ears
     femaleDisplacements:
       jumpsuit:
         sizeMaps:

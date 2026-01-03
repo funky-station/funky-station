@@ -44,3 +44,33 @@
   sprites:
   - sprite: _Funkystation/Mobs/Customization/Moth/moth_parts.rsi
     state: motheyeshadow
+
+- type: marking
+  id: MothTailless
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Moth]
+  followSkinColor: false
+  sprites:
+  - sprite: _Funkystation/Mobs/Customization/Moth/moth_parts.rsi
+    state: tailless
+
+- type: marking
+  id: MothAntennaWeevil
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Moth]
+  followSkinColor: false
+  sprites:
+  - sprite: _Funkystation/Mobs/Customization/Moth/moth_parts.rsi
+    state: weevil
+
+- type: marking
+  id: MothWeevil
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Moth]
+  followSkinColor: false
+  sprites:
+  - sprite: _Funkystation/Mobs/Customization/Moth/moth_parts.rsi
+    state: weevil_head

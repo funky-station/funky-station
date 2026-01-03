@@ -229,10 +229,9 @@
   - BorgModuleTool
   - BorgModuleBartending
   - BorgModuleMusique
-  - BorgModuleService
-  - BorgModuleClowning
+  - BorgModulePaper
   - BorgModuleGardening
-  - BorgModuleHarvesting
+  - BorgModuleClowning
   radioChannels:
   - Science
   - Service

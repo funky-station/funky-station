@@ -1,7 +1,8 @@
+# service modules
 - type: entity
   id: BorgModuleBartending
   parent: [ BaseBorgModuleService, BaseProviderBorgModule ]
-  name: Bartending cyborg module
+  name: bartending cyborg module
   components:
   - type: Sprite
     layers:
@@ -13,7 +14,47 @@
     - DrinkJigger
     - BarSpoon
     - BorgDropper
-    - DrinkGlass
+    - BaseChemistryEmptyVial
     - FlippoLighter
   - type: BorgModuleIcon
     icon: { sprite: _Impstation/Interface/Actions/actions_borg.rsi, state: bartender-module }
+
+- type: entity
+  id: BorgModulePaper
+  parent: [ BaseBorgModuleService, BaseProviderBorgModule ]
+  name: bureaucracy cyborg module
+  components:
+  - type: Sprite
+    layers:
+    - state: service
+    - state: icon-pen
+  - type: ItemBorgModule
+    items:
+    - Pen
+    - BooksBag
+    - HandLabeler
+    - RubberStampApproved
+    - RubberStampDenied
+  - type: BorgModuleIcon
+    icon: { sprite: _Impstation/Interface/Actions/actions_borg.rsi, state: bureaucracy-module }
+
+- type: entity
+  id: BorgModuleGardening
+  parent: [ BaseBorgModuleService, BaseProviderBorgModule ]
+  name: gardening cyborg module
+  components:
+  - type: Sprite
+    layers:
+    - state: service
+    - state: icon-gardening
+  - type: ItemBorgModule
+    items:
+    - HydroponicsToolMiniHoe
+    - HydroponicsToolSpade
+    - HydroponicsToolClippers
+    - HydroponicsToolScythe
+    - HydroponicsToolHatchet
+    - Bucket
+    - PlantBag
+  - type: BorgModuleIcon
+    icon: { sprite: Interface/Actions/actions_borg.rsi, state: gardening-module }

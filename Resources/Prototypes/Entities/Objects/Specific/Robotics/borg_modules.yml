@@ -741,27 +741,6 @@
 
 # service modules
 - type: entity
-  id: BorgModuleService
-  parent: [ BaseBorgModuleService, BaseProviderBorgModule ]
-  name: service cyborg module
-  components:
-  - type: Sprite
-    layers:
-    - state: service
-    - state: icon-pen
-  - type: ItemBorgModule
-    items:
-    - Pen
-    #- BooksBag (Add back when hand whitelisting exists, at the moment they can only use it like an orebag.)
-    - HandLabeler
-    - RubberStampApproved
-    - RubberStampDenied
-    - BorgDropper
-    - BorgVial
-  - type: BorgModuleIcon
-    icon: { sprite: Interface/Actions/actions_borg.rsi, state: service-module }
-
-- type: entity
   id: BorgModuleMusique
   parent: [ BaseBorgModuleService, BaseProviderBorgModule ]
   name: musique cyborg module
@@ -777,41 +756,6 @@
     - SaxophoneInstrument
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: musical-module }
-
-- type: entity
-  id: BorgModuleGardening
-  parent: [ BaseBorgModuleService, BaseProviderBorgModule ]
-  name: gardening cyborg module
-  components:
-  - type: Sprite
-    layers:
-    - state: service
-    - state: icon-gardening
-  - type: ItemBorgModule
-    items:
-    - HydroponicsToolMiniHoe
-    - HydroponicsToolSpade
-    - HydroponicsToolClippers
-    - Bucket
-  - type: BorgModuleIcon
-    icon: { sprite: Interface/Actions/actions_borg.rsi, state: gardening-module }
-
-- type: entity
-  id: BorgModuleHarvesting
-  parent: [ BaseBorgModuleService, BaseProviderBorgModule ]
-  name: harvesting cyborg module
-  components:
-  - type: Sprite
-    layers:
-    - state: service
-    - state: icon-harvesting
-  - type: ItemBorgModule
-    items:
-    - HydroponicsToolScythe
-    - HydroponicsToolHatchet
-    - PlantBag
-  - type: BorgModuleIcon
-    icon: { sprite: Interface/Actions/actions_borg.rsi, state: harvesting-module }
 
 - type: entity
   id: BorgModuleClowning

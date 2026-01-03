@@ -85,5 +85,5 @@
   - type: Insulated
   - type: Fiber
     fiberMaterial: fibers-insulative
-  - type: Thieving
+  - type: Thieving #Funky change - Make combat gloves have unique value
     stripTimeReduction: 1

@@ -345,7 +345,7 @@
   - type: Insulated
   - type: Fiber
     fiberMaterial: fibers-insulative
-  - type: Thieving
+  - type: Thieving #Funky change - Make combat gloves have unique value
     stripTimeReduction: 1
 
 # can't parent combat gloves since they are butcherable
@@ -364,7 +364,7 @@
     maxSiemensThreshold: 4
   - type: Fiber
     fiberColor: fibers-black
-  - type: Thieving
+  - type: Thieving #Funky change - Make combat gloves have unique value
     stripTimeReduction: 1
 
 - type: entity

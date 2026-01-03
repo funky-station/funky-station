@@ -106,3 +106,87 @@
         weight: 1
       - id: CrowbarCutePink
         weight: 1
+
+#Reactor Parts
+- type: entityTable
+  id: RandomFuelRodTable
+  table: !type:GroupSelector
+    children:
+    - id: CerenkiteReactorFuelRod
+      weight: 1
+    - id: UraniumReactorFuelRod
+      weight: 0.5
+    - id: PlasmaReactorFuelRod
+      weight: 0.2
+    - id: UraniumGlassReactorFuelRod
+      weight: 0.1
+    - id: BananiumReactorFuelRod
+      weight: 0.05
+    - id: PlutoniumReactorFuelRod
+      weight: 0.01
+
+- type: entityTable
+  id: RandomControlRodTable
+  table: !type:GroupSelector
+    children:
+    - id: SteelReactorControlRod
+      weight: 1
+    - id: BohrumReactorControlRod
+      weight: 0.9
+    - id: PlasteelReactorControlRod
+      weight: 0.75
+    - id: GlassReactorControlRod
+      weight: 0.5
+    - id: BrassReactorControlRod
+      weight: 0.5
+    - id: SilverReactorControlRod
+      weight: 0.25
+    - id: PlasmaGlassReactorControlRod
+      weight: 0.25
+    - id: GoldReactorControlRod
+      weight: 0.125
+    - id: DiamondReactorControlRod
+      weight: 0.1
+
+- type: entityTable
+  id: RandomGasChannelTable
+  table: !type:GroupSelector
+    children:
+    - id: SteelReactorGasChannel
+      weight: 1
+    - id: PlasteelReactorGasChannel
+      weight: 0.3
+    - id: BrassReactorGasChannel
+      weight: 0.2
+    - id: GlassReactorGasChannel
+      weight: 0.2
+    - id: SilverReactorGasChannel
+      weight: 0.1
+    - id: PlasmaGlassReactorGasChannel
+      weight: 0.1
+    - id: GoldReactorGasChannel
+      weight: 0.05
+    - id: DiamondReactorGasChannel
+      weight: 0.02
+
+- type: entityTable
+  id: RandomHeatExchangerTable
+  table: !type:GroupSelector
+    children:
+    - id: SteelReactorHeatExchanger
+      weight: 1
+    - id: PlasteelReactorHeatExchanger
+      weight: 0.3
+    - id: BrassReactorHeatExchanger
+      weight: 0.2
+    - id: GlassReactorHeatExchanger
+      weight: 0.2
+    - id: SilverReactorHeatExchanger
+      weight: 0.1
+    - id: PlasmaGlassReactorHeatExchanger
+      weight: 0.1
+    - id: GoldReactorHeatExchanger
+      weight: 0.05
+    - id: DiamondReactorHeatExchanger
+      weight: 0.02
+#Reactor Parts End

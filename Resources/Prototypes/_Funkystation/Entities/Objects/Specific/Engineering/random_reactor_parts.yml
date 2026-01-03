@@ -1,0 +1,61 @@
+- type: entity
+  name: Random Fuel Rod Spawner
+  id: RandomFuelRodSpawner
+  parent: MarkerBase
+  placement:
+    mode: PlaceFree
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Funkystation/Structures/Power/Generation/FissionGenerator/random_reactor_part.rsi
+      state: icon
+  - type: EntityTableSpawner
+    offset: 0.2
+    table: !type:NestedSelector
+      tableId: RandomFuelRodTable
+
+- type: entity
+  name: Random Control Rod Spawner
+  id: RandomControlRodSpawner
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Funkystation/Structures/Power/Generation/FissionGenerator/random_reactor_part.rsi
+      state: icon
+  - type: EntityTableSpawner
+    offset: 0.2
+    table: !type:NestedSelector
+      tableId: RandomControlRodTable
+
+- type: entity
+  name: Random Gas Channel Spawner
+  id: RandomGasChannelSpawner
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Funkystation/Structures/Power/Generation/FissionGenerator/random_reactor_part.rsi
+      state: icon
+  - type: EntityTableSpawner
+    offset: 0.2
+    table: !type:NestedSelector
+      tableId: RandomGasChannelTable
+
+- type: entity
+  name: Random Heat Exchange Spawner
+  id: RandomHeatExchangerSpawner
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Funkystation/Structures/Power/Generation/FissionGenerator/random_reactor_part.rsi
+      state: icon
+  - type: EntityTableSpawner
+    offset: 0.2
+    table: !type:NestedSelector
+      tableId: RandomHeatExchangerTable

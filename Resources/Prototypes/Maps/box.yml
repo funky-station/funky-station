@@ -64,7 +64,6 @@
             Reporter: [ 1, 1 ] # Funkystation
             #engineering
             ChiefEngineer: [ 1, 1 ]
-            AtmosphericTechnician:
             StationEngineer: [ 8, 8 ]
             TechnicalAssistant: [ 4, 4 ]
             #medical

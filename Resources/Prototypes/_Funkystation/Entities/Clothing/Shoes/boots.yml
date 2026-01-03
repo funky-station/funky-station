@@ -42,7 +42,7 @@
 # Chem Boots!
 
 - type: entity
-  parent: [ ClothingShoesBase, BaseMedicalContraband ]
+  parent: ClothingShoesBase
   id: ClothingShoesChemistryBoots
   name: heavy-duty chemistry boots
   description: Heavy-duty PPE worn by Chemists. For when some intern spills your entire jug of diphenhydramine, and you don't want to get your clothing dirty.

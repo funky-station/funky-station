@@ -16,18 +16,20 @@ job-name-alt-cargotech-3 = Logistics Clerk
 
 job-name-alt-salvage-1 = Shaft Miner
 
-job-name-alt-atmos-1 = Fire Suppression Specialist
-
 job-name-alt-engineer-1 = Maintenance Technician
 job-name-alt-engineer-2 = Mechanic
 job-name-alt-engineer-3 = Electrician
 job-name-alt-engineer-4 = Engine Operator
+job-name-alt-atmos-1 = Fire Suppression Specialist
+job-name-alt-atmos-2 = Atmospheric Technician
 
 job-name-alt-scientist-1 = Xenoarchaeologist
 job-name-alt-scientist-2 = Anomaly Researcher
 job-name-alt-scientist-3 = Hardware Technician
 
-job-name-alt-secoff-1 = Hall Monitor
+job-name-alt-secoff-1 = Regulatory Control Officer
+job-name-alt-secoff-2 = Community Outreach Officer
+job-name-alt-secoff-3 = Desk Officer
 
 job-name-alt-warden-1 = Dispatcher
 
@@ -51,7 +53,7 @@ job-name-alt-chaplain-3 = Shrine Guardian
 
 job-name-alt-chef-1 = Sous-chef
 job-name-alt-chef-2 = Line Cook
-job-name-alt-chef-3 = Lunch Lady
+job-name-alt-chef-3 = Caterer
 
 job-name-alt-clown-1 = Jester
 job-name-alt-clown-2 = Bouffon
@@ -70,7 +72,7 @@ job-name-alt-librarian-3 = Professor
 job-name-alt-librarian-4 = Curator
 
 job-name-alt-musician-1 = Radio DJ
-job-name-alt-musician-2 = Visiting Celebrity
+job-name-alt-musician-2 = Busker
 job-name-alt-musician-3 = Performer
 
 job-name-alt-serviceworker-1 = Waiter

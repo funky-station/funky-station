@@ -139,17 +139,10 @@
       - id: ClothingMaskGasAtmos
       - id: ClothingOuterSuitAtmosFire
       - id: ClothingHeadHelmetAtmosFire
-      - id: GasAnalyzer
       - id: MedkitOxygenFilled
       - id: HolofanProjector
-      - id: RPD #funkystation
       - id: DoorRemoteFirefight # Goobstation - re adding fire door remote
-      - id: HolotapeProjector #funky!
-      - id: RCD
-      - id: RCDAmmo
       - id: ClothingBackpackFirefighterTank
-      - id: MaterialBag #funky!
-      - id: MetalFoamGrenade #funky!
 
 - type: entity
   id: LockerAtmosphericsFilled
@@ -161,17 +154,12 @@
       - id: ClothingMaskGasAtmos
       - id: ClothingOuterSuitAtmosFire
       - id: ClothingHeadHelmetAtmosFire
-      - id: GasAnalyzer
+      - id: OxygenTankFilled
+      - id: NitrogenTankFilled
       - id: MedkitOxygenFilled
       - id: HolofanProjector
-      - id: RPD #funkystation
       - id: DoorRemoteFirefight # Goobstation - re adding fire door remote
-      - id: HolotapeProjector #funky!
-      - id: RCD
-      - id: RCDAmmo
       - id: ClothingBackpackFirefighterTank
-      - id: MaterialBag #funky!
-      - id: MetalFoamGrenade #funky!
 
 - type: entity
   id: LockerEngineerFilledHardsuit
@@ -188,6 +176,7 @@
       - id: ClothingMaskGas
       - id: ClothingShoesBootsMag
       - id: RCD
+      - id: RPD #funkystation
       - id: RCDAmmo
       - id: BoxInflatable # funky
       - id: MaterialBag #funky!
@@ -205,6 +194,7 @@
       - id: ClothingMaskGas
       - id: trayScanner
       - id: RCD
+      - id: RPD #funkystation
       - id: RCDAmmo
       - id: BoxInflatable # funky
       - id: MaterialBag #funky!

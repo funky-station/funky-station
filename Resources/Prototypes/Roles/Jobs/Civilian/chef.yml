@@ -28,6 +28,7 @@
 # SPDX-FileCopyrightText: 2024 Errant <35878406+Errant-4@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Mr. 27 <45323883+Dutch-VanDerLinde@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 MaiaArai <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
@@ -51,7 +52,7 @@
   alternateTitles:
   - ChefSousChef
   - ChefLineCook
-  - ChefNutritionist
+  - ChefCaterer
 
 - type: startingGear
   id: ChefGear
@@ -72,5 +73,5 @@
   name: job-name-alt-chef-2
 
 - type: jobAlternateTitle
-  id: ChefNutritionist
+  id: ChefCaterer
   name: job-name-alt-chef-3

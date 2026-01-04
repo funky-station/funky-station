@@ -38,11 +38,15 @@ SPDX-License-Identifier: MIT
 
   Any prisoner in custody can be subjected to implantation or implant removal procedures, so long as it's within reason. The process of adding an implant should not prolong the detainees sentence, meaning you can not hold them longer to administer the implant, unless stated otherwise. A prisoner can still receive implantation procedures without meeting the circumstances if they give their clear permission.
 
-  [bold]Mind Shields[/bold]: Mind Shields can be administered to any inmate who is clearly brainwashed. Unlike standard implantation, you may hold a prisoner until they are issued a Mind Shield, so long as it's done in a timely fashion. If a suspect refuses to cooperate or the implant fails to function they can be charged with Refusal of Mental Shielding.
+  [bold]Neuroaversion Considerations[/bold]: Certain individuals experience Neuroaversion, a neurological sensitivity to MindShields which may cause adverse effects including migraines and seizures. This does not exempt them from mandatory shielding during confirmed brainwashing/mind control threats or bypass any other MindShielding protocol, but special provisions apply:
 
-  Under normal circumstances, a crewmate can refuse a Mind Shield if they are not imprisoned for committing a crime.
+  [bold]1. Mandatory Protocol for Neuroaversion Cases:[/bold]
+  - Medical personnel [bold]must[/bold] be notified prior to implanting individuals with known Neuroaversion.
+  - Neuroaversion sufferers may request immediate symptom management (Psicodine) during emergency shielding.
 
-  [bold]However, when there is a known threat to the station that utilizes mass brainwashing or mind control, crewmates must submit to a Mind Shield if ordered by Security. Failure to comply is to be treated as Refusal of Mental Shielding.[/bold]
+  [bold]2. Post-Threat Removal Requirement:[/bold]
+  - MindShields [bold]must[/bold] be removed from Neuroaversion sufferers when the individual requests it once the threat has been [bold]CONFIRMED[/bold] to have passed.
+  - Failure to remove shields after threat resolution may constitute [bold]Medical Negligence[/bold] under [bold]Endangerment[/bold] charges.
 
   # Removal
 
@@ -61,8 +65,8 @@ SPDX-License-Identifier: MIT
 
   [bold]Executions:[/bold] Executions may be authorized by the presiding judge after a trial has been conducted. Executions may also be approved by Central Command, following formal contact.
 
-  # Repeat Offenses 
-  Offenses repeated again after having been detained for the same crime can have more time added to the recommended maximum sentencing. The general guideline is as follows: 
+  # Repeat Offenses
+  Offenses repeated again after having been detained for the same crime can have more time added to the recommended maximum sentencing. The general guideline is as follows:
 
   ## Second Offenses
   [bold]Recommended Increase:[/bold] Recommended to increase sentencing time by 1.5x for the same crime only.
@@ -198,7 +202,7 @@ SPDX-License-Identifier: MIT
 
   ## Battery
   [bold]Description[/bold]: The actual act of physical force used against someone without consent.
-  
+
   [bold]Recommended Minimum Punishment:[/bold] 1:00
   [bold]Recommended Maximum Punishment:[/bold] 3:00
 
@@ -322,12 +326,12 @@ SPDX-License-Identifier: MIT
 
   ## Refusal of Mental Shielding
 
-  [bold]Description[/bold]: To refuse to comply with a reasonable Mind Shielding procedure.
+  [bold]Description[/bold]: To refuse to comply with a reasonable MindShielding procedure.
 
   [bold]Recommended Minimum Punishment:[/bold] Permanent, pending acceptance of shielding
   [bold]Recommended Maximum Punishment:[/bold] Permanent
 
-  [bold]Notes:[/bold] Applies if the suspect is excessively uncooperative or the implant fails to function due to the mental state of the prisoner already being too far gone. If the implant fails the Recommended Maximum Punishment is upped to Expedited Execution.
+  [bold]Notes:[/bold] Applies if the suspect is excessively uncooperative or the implant fails to function due to the mental state of the prisoner already being too far gone. If the implant fails the Recommended Maximum Punishment is upped to Expedited Execution. Note that individuals with Neuroaversion cannot refuse MindShielding during confirmed brainwashing/mind control threats, but must have implants removed when the threat passes. Refusing to allow removal of MindShields from Neuroaversion sufferers after threat resolution may constitute Medical Negligence under Endangerment charges.
 
   ## Terrorism
 

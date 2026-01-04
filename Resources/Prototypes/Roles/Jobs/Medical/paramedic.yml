@@ -66,6 +66,7 @@
   alternateTitles:
   - ParamedicTraumaSpecialist
   - ParamedicEmergencyMedicalTechnician
+  - ParamedicEmergencySearchAndRescueTechnician
 
 - type: startingGear
   id: ParamedicGear
@@ -85,3 +86,7 @@
 - type: jobAlternateTitle
   id: ParamedicEmergencyMedicalTechnician
   name: job-name-alt-paramedic-2
+
+- type: jobAlternateTitle
+  id: ParamedicEmergencySearchAndRescueTechnician
+  name: job-name-alt-paramedic-3

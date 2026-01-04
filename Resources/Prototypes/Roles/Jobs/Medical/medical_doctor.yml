@@ -60,6 +60,8 @@
   - MedicalDoctorPhysician
   - MedicalDoctorNurse
   - MedicalDoctorSurgeon
+  - MedicalDoctorGeneralPractitioner
+  - MedicalDoctorMedicalResident
 
 - type: startingGear
   id: DoctorGear
@@ -81,3 +83,11 @@
 - type: jobAlternateTitle
   id: MedicalDoctorPhysician
   name: job-name-alt-medical-3
+
+- type: jobAlternateTitle
+  id: MedicalDoctorGeneralPractitioner
+  name: job-name-alt-medical-4
+
+- type: jobAlternateTitle
+  id: MedicalDoctorMedicalResident
+  name: job-name-alt-medical-5

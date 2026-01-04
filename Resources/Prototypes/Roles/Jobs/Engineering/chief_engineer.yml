@@ -79,6 +79,9 @@
   - !type:AddComponentSpecial
     components:
       - type: CommandStaff
+  alternateTitles:
+  - ChiefEngineerEngineeringForeman
+  - ChiefEngineerHeadOfEngineering
 
 - type: startingGear
   id: ChiefEngineerGear
@@ -89,3 +92,11 @@
   storage:
     back:
     - Flash
+
+- type: jobAlternateTitle
+  id: ChiefEngineerEngineeringForeman
+  name: job-name-alt-ce-1
+
+- type: jobAlternateTitle
+  id: ChiefEngineerHeadOfEngineering
+  name: job-name-alt-ce-2

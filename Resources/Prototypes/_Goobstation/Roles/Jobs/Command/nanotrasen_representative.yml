@@ -56,6 +56,10 @@
   - !type:AddComponentSpecial
     components:
       - type: CommandStaff
+  alternateTitles:
+  - NanotransenRepresentativeCorporateLiaison
+  - NanotransenRepresentativeNanotransenInformant
+  - NanotransenRepresentativeNanotransenAdvisor
 
 - type: startingGear
   id: NanotrasenRepresentativeGear
@@ -69,3 +73,15 @@
     - Flash
     - BluespaceLifelineImplanter
     - BoxFolderCentComClipboard
+
+- type: jobAlternateTitle
+  id: NanotransenRepresentativeCorporateLiaison
+  name: job-name-alt-ntr-1
+
+- type: jobAlternateTitle
+  id: NanotransenRepresentativeNanotransenInformant
+  name: job-name-alt-ntr-2
+
+- type: jobAlternateTitle
+  id: NanotransenRepresentativeNanotransenAdvisor
+  name: job-name-alt-ntr-3

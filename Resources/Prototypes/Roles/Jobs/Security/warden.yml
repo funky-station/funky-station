@@ -87,6 +87,8 @@
     implants: [ MindShieldImplant ]
   alternateTitles:
   - WardenDispatch
+  - WardenBrigSergeant
+  - WardenBrigJailer
 
 - type: startingGear
   id: WardenGear
@@ -105,3 +107,11 @@
 - type: jobAlternateTitle
   id: WardenDispatch
   name: job-name-alt-warden-1
+
+- type: jobAlternateTitle
+  id: WardenBrigSergeant
+  name: job-name-alt-warden-2
+
+- type: jobAlternateTitle
+  id: WardenBrigJailer
+  name: job-name-alt-warden-3

@@ -60,6 +60,10 @@
   - CargoTechnicianCourier
   - CargoTechnicianPilot
   - CargoTechnicianClerk
+  - CargoTechnicianWarehouseTechnician
+  - CargoTechnicianDeckWorker
+  - CargoTechnicianInventoryAssociate
+  - CargoTechnicianDeliveryAssociate
 
 - type: startingGear
   id: CargoTechGear
@@ -81,3 +85,19 @@
 - type: jobAlternateTitle
   id: CargoTechnicianClerk
   name: job-name-alt-cargotech-3
+
+- type: jobAlternateTitle
+  id: CargoTechnicianWarehouseTechnician
+  name: job-name-alt-cargotech-4
+
+- type: jobAlternateTitle
+  id: CargoTechnicianDeckWorker
+  name: job-name-alt-cargotech-5
+
+- type: jobAlternateTitle
+  id: CargoTechnicianInventoryAssociate
+  name: job-name-alt-cargotech-6
+
+- type: jobAlternateTitle
+  id: CargoTechnicianDeliveryAssociate
+  name: job-name-alt-cargotech-7

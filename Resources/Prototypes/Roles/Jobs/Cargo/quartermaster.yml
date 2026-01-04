@@ -85,6 +85,12 @@
   - !type:AddComponentSpecial
     components:
       - type: CommandStaff
+  alternateTitles:
+  - QuartermasterRequisitionsOfficer
+  - QuartermasterDeckChief
+  - QuartermasterWarehouseSupervisor
+  - QuartermasterSupplyForeman
+  - QuartermasterLogisticsCoordinator
 
 - type: startingGear
   id: QuartermasterGear
@@ -96,3 +102,23 @@
   storage:
     back:
     - Flash
+
+- type: jobAlternateTitle
+  id: QuartermasterRequisitionsOfficer
+  name: job-name-alt-qm-1
+
+- type: jobAlternateTitle
+  id: QuartermasterDeckChief
+  name: job-name-alt-qm-2
+
+- type: jobAlternateTitle
+  id: QuartermasterWarehouseSupervisor
+  name: job-name-alt-qm-3
+
+- type: jobAlternateTitle
+  id: QuartermasterSupplyForeman
+  name: job-name-alt-qm-4
+
+- type: jobAlternateTitle
+  id: QuartermasterLogisticsCoordinator
+  name: job-name-alt-qm-5

@@ -82,6 +82,13 @@
   - !type:AddComponentSpecial
     components:
       - type: CommandStaff
+  alternateTitles:
+  - CaptainStationCommander
+  - CaptainCommandingOfficer
+  - CaptainSiteManager
+  - CaptainHeadOfCommand
+  - CaptainSiteDirector
+  - CaptainSiteAdministrator
 
 - type: startingGear
   id: CaptainGear
@@ -95,3 +102,28 @@
     back:
     - Flash
     # - StationCharter
+
+- type: jobAlternateTitle
+  id: CaptainStationCommander
+  name: job-name-alt-captain-1
+
+- type: jobAlternateTitle
+  id: CaptainCommandingOfficer
+  name: job-name-alt-captain-2
+
+- type: jobAlternateTitle
+  id: CaptainSiteManager
+  name: job-name-alt-captain-3
+
+- type: jobAlternateTitle
+  id: CaptainHeadOfCommand
+  name: job-name-alt-captain-4
+
+- type: jobAlternateTitle
+  id: CaptainSiteDirector
+  name: job-name-alt-captain-5
+
+- type: jobAlternateTitle
+  id: CaptainSiteAdministrator
+  name: job-name-alt-captain-6
+

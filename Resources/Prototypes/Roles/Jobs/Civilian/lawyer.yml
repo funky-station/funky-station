@@ -52,6 +52,10 @@
   - LawyerAttorney
   - LawyerLegalRepresentative
   - LawyerCounsel
+  - LawyerProsecutor
+  - LawyerLegalClerk
+  - LawyerPublicDefender
+  - LawyerBarrister
 
 - type: startingGear
   id: LawyerGear
@@ -76,3 +80,19 @@
 - type: jobAlternateTitle
   id: LawyerCounsel
   name: job-name-alt-lawyer-3
+
+- type: jobAlternateTitle
+  id: LawyerProsecutor
+  name: job-name-alt-lawyer-4
+
+- type: jobAlternateTitle
+  id: LawyerLegalClerk
+  name: job-name-alt-lawyer-5
+
+- type: jobAlternateTitle
+  id: LawyerPublicDefender
+  name: job-name-alt-lawyer-6
+
+- type: jobAlternateTitle
+  id: LawyerBarrister
+  name: job-name-alt-lawyer-7

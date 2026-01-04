@@ -48,6 +48,8 @@
   - JanitorMaid
   - JanitorMaintenanceWorker
   - JanitorCustodialTechnician
+  - JanitorSanitationSpecialist
+  - JanitorCustodian
 
 - type: startingGear
   id: JanitorGear
@@ -80,3 +82,11 @@
 - type: jobAlternateTitle
   id: JanitorCustodialTechnician
   name: job-name-alt-janitor-3
+
+- type: jobAlternateTitle
+  id: JanitorSanitationSpecialist
+  name: job-name-alt-janitor-4
+
+- type: jobAlternateTitle
+  id: JanitorCustodian
+  name: job-name-alt-janitor-5

@@ -65,6 +65,8 @@
   alternateTitles:
   - ClownJester
   - ClownBouffon
+  - ClownJoker
+  - ClownComedian
 
 - type: startingGear
   id: ClownGear
@@ -86,3 +88,11 @@
 - type: jobAlternateTitle
   id: ClownBouffon
   name: job-name-alt-clown-2
+
+- type: jobAlternateTitle
+  id: ClownJoker
+  name: job-name-alt-clown-3
+
+- type: jobAlternateTitle
+  id: ClownComedian
+  name: job-name-alt-clown-4

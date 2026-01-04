@@ -86,6 +86,8 @@
   - SecurityOfficerRegulatoryControlOfficer
   - SecurityOfficerCommunityOutreachOfficer
   - SecurityOfficerDeskOfficer
+  - SecurityOfficerPeacekeeper
+  - SecurityOfficerSecurityOperative
 
 - type: startingGear
   id: SecurityOfficerGear
@@ -111,3 +113,11 @@
 - type: jobAlternateTitle
   id: SecurityOfficerDeskOfficer
   name: job-name-alt-secoff-3
+
+- type: jobAlternateTitle
+  id: SecurityOfficerPeacekeeper
+  name: job-name-alt-secoff-4
+
+- type: jobAlternateTitle
+  id: SecurityOfficerSecurityOperative
+  name: job-name-alt-secoff-5

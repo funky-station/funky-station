@@ -44,6 +44,10 @@
   - AssistantVisitor
   - AssistantEntrepreneur
   - AssistantOffDuty
+  - AssistantSightseer
+  - AssistantFreelancer
+  - AssistantVagabond
+  - AssistantVacationer
 
 - type: startingGear
   id: PassengerGear
@@ -69,3 +73,19 @@
 - type: jobAlternateTitle
   id: AssistantOffDuty
   name: job-name-alt-assistant-4
+
+- type: jobAlternateTitle
+  id: AssistantSightseer
+  name: job-name-alt-assistant-5
+
+- type: jobAlternateTitle
+  id: AssistantFreelancer
+  name: job-name-alt-assistant-6
+
+- type: jobAlternateTitle
+  id: AssistantVagabond
+  name: job-name-alt-assistant-7
+
+- type: jobAlternateTitle
+  id: AssistantVacationer
+  name: job-name-alt-assistant-8

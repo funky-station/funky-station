@@ -116,6 +116,10 @@
   - !type:AddComponentSpecial
     components:
       - type: CommandStaff
+  alternateTitles:
+  - HeadOfPersonnelExecutiveOfficer
+  - HeadOfPersonnelEmploymentOfficer
+  - HeadOfPersonnelCrewSupervisor
 
 - type: startingGear
   id: HoPGear
@@ -128,3 +132,15 @@
     back:
     - Flash
     - BoxFolderClipboard
+
+- type: jobAlternateTitle
+  id: HeadOfPersonnelExecutiveOfficer
+  name: job-name-alt-hop-1
+
+- type: jobAlternateTitle
+  id: HeadOfPersonnelEmploymentOfficer
+  name: job-name-alt-hop-2
+
+- type: jobAlternateTitle
+  id: HeadOfPersonnelCrewSupervisor
+  name: job-name-alt-hop-3

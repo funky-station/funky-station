@@ -101,6 +101,11 @@
   - !type:AddComponentSpecial
     components:
       - type: CommandStaff
+  alternateTitles:
+  - HeadOfSecuritySecurityCommander
+  - HeadOfSecurityChiefConstable
+  - HeadOfSecurityChiefOfSecurity
+  - HeadOfSecuritySheriff
 
 - type: startingGear
   id: HoSGear
@@ -116,3 +121,19 @@
     - MagazinePistol
     - SecHypo # Goobstation
     - CartridgeEmergency
+
+- type: jobAlternateTitle
+  id: HeadOfSecuritySecurityCommander
+  name: job-name-alt-hos-1
+
+- type: jobAlternateTitle
+  id: HeadOfSecurityChiefConstable
+  name: job-name-alt-hos-2
+
+- type: jobAlternateTitle
+  id: HeadOfSecurityChiefOfSecurity
+  name: job-name-alt-hos-3
+
+- type: jobAlternateTitle
+  id: HeadOfSecuritySheriff
+  name: job-name-alt-hos-4

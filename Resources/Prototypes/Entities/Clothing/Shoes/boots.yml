@@ -159,9 +159,9 @@
   name: winter boots
   components:
   - type: Sprite
-    sprite: Clothing/Shoes/Boots/winterboots.rsi
+    sprite: _Funkystation/Clothing/Shoes/Boots/winterboots.rsi
   - type: Clothing
-    sprite: Clothing/Shoes/Boots/winterboots.rsi
+    sprite: _Funkystation/Clothing/Shoes/Boots/winterboots.rsi
 
 - type: entity
   parent: ClothingShoesBaseWinterBoots

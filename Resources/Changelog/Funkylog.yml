@@ -7132,3 +7132,9 @@ Entries:
       message: Changed the way Proto-Nitrate reacts with Hydrogen and Tritium.
   id: 830
   time: '2026-01-04T18:34:52.0000000+00:00'
+- author: Xcybitt
+  changes:
+    - type: Add
+      message: Added cloak punching to the game!
+  id: 831
+  time: '2026-01-04T18:41:02.0000000+00:00'

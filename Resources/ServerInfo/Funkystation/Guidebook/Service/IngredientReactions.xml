@@ -130,7 +130,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
   #Miscellaneous Reactions
 
-  While a vast majority of the reactions a chef may need to use have been covered earlier, there are still a couple of reactions that aren't listed anywhere else.
+  While a vast majority of the reactions a chef may need to use are covered above, there are still a couple of reactions that aren't listed anywhere else.
 
   <Box>
     <GuideEntityEmbed Entity="FoodMeatMeatball" Caption="Meatball"/>

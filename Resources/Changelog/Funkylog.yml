@@ -7190,3 +7190,9 @@ Entries:
       message: Neuroaversion Considerations under Space Law
   id: 835
   time: '2026-01-04T22:11:12.0000000+00:00'
+- author: TrixxedHeart
+  changes:
+    - type: Tweak
+      message: Signature fonts now display the font in the trait tab
+  id: 836
+  time: '2026-01-04T23:34:52.0000000+00:00'

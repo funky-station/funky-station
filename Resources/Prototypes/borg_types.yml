@@ -108,10 +108,17 @@
   - Supply
   - Science
 
+  addComponents:
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 1.9
+    baseSprintSpeed: 3.9
+
+  footstepCollection:
+    collection: FootstepHeavySuit
+
   # Visual
   inventoryTemplateId: borgTall
   spriteBodyState: miner
-  spriteBodyMovementState: miner_moving
   spriteHasMindState: miner_e
   spriteNoMindState: miner_e_r
   spriteToggleLightState: miner_l
@@ -147,7 +154,6 @@
   # Visual
   inventoryTemplateId: borgShort
   spriteBodyState: janitor
-  spriteBodyMovementState: janitor_moving
   spriteHasMindState: janitor_e
   spriteNoMindState: janitor_e_r
   spriteToggleLightState: janitor_l
@@ -182,6 +188,22 @@
   - Medical
 
   addComponents:
+  - type: Physics
+    bodyStatus: InAir
+    bodyType: KinematicController
+  - type: MovementAlwaysTouching
+  - type: CanMoveInAir
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 155
+        mask:
+        - FlyingMobMask
+        layer:
+        - FlyingMobLayer
   - type: SolutionScanner
   - type: ShowHealthBars
     damageContainers:

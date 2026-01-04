@@ -1,31 +1,11 @@
-# SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Scribbles0 <91828755+Scribbles0@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 TsjipTsjip <19798667+TsjipTsjip@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 DevilishMilk <bluscout78@yahoo.com>
-# SPDX-FileCopyrightText: 2024 Kara <lunarautomaton6@gmail.com>
-# SPDX-FileCopyrightText: 2024 Mr. 27 <45323883+Dutch-VanDerLinde@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
-# SPDX-FileCopyrightText: 2024 QueerNB <176353696+QueerNB@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
-# SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Spanky <180730777+spanky-spanky@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Spanky <scott@wearejacob.com>
-# SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
-# SPDX-FileCopyrightText: 2025 TheHolyAegis <sanderkamphuis719@gmail.com>
-# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 meta:
   format: 7
   category: Grid
   engineVersion: 268.0.0
   forkId: ""
   forkVersion: ""
-  time: 12/27/2025 19:18:35
-  entityCount: 1701
+  time: 01/04/2026 14:56:41
+  entityCount: 1710
 maps: []
 grids:
 - 1
@@ -3162,6 +3142,51 @@ entities:
     components:
     - type: Transform
       pos: -9.5,-3.5
+      parent: 1
+  - uid: 1702
+    components:
+    - type: Transform
+      pos: -1.5,-3.5
+      parent: 1
+  - uid: 1703
+    components:
+    - type: Transform
+      pos: -1.5,-4.5
+      parent: 1
+  - uid: 1704
+    components:
+    - type: Transform
+      pos: -27.5,-4.5
+      parent: 1
+  - uid: 1705
+    components:
+    - type: Transform
+      pos: -6.5,-15.5
+      parent: 1
+  - uid: 1706
+    components:
+    - type: Transform
+      pos: -6.5,-14.5
+      parent: 1
+  - uid: 1707
+    components:
+    - type: Transform
+      pos: -22.5,-15.5
+      parent: 1
+  - uid: 1708
+    components:
+    - type: Transform
+      pos: -22.5,-14.5
+      parent: 1
+  - uid: 1709
+    components:
+    - type: Transform
+      pos: -20.5,-9.5
+      parent: 1
+  - uid: 1710
+    components:
+    - type: Transform
+      pos: -8.5,-9.5
       parent: 1
 - proto: CableHV
   entities:

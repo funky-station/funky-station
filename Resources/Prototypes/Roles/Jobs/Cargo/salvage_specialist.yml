@@ -48,10 +48,10 @@
   - Logistics #Imp
   alternateTitles:
   - SalvageSpecialistMiner
-  - SalvageSpecialistExcavator
-  - SalvageSpecialistSpelunker
+  - SalvageSpecialistBlastingSpecialist
+  - SalvageSpecialistFieldGeologist
   - SalvageSpecialistDrillTechnician
-  - SalvageSpecialistProspector
+  - SalvageSpecialistShipbreakingSpecialist
 
 - type: startingGear
   id: SalvageSpecialistGear
@@ -67,11 +67,11 @@
   name: job-name-alt-salvage-1
 
 - type: jobAlternateTitle
-  id: SalvageSpecialistExcavator
+  id: SalvageSpecialistBlastingSpecialist
   name: job-name-alt-salvage-2
 
 - type: jobAlternateTitle
-  id: SalvageSpecialistSpelunker
+  id: SalvageSpecialistFieldGeologist
   name: job-name-alt-salvage-3
 
 - type: jobAlternateTitle
@@ -79,5 +79,6 @@
   name: job-name-alt-salvage-4
 
 - type: jobAlternateTitle
-  id: SalvageSpecialistProspector
+  id: SalvageSpecialistShipbreakingSpecialist
   name: job-name-alt-salvage-5
+

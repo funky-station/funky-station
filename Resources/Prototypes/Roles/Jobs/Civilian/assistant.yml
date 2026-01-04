@@ -46,9 +46,8 @@
   - AssistantVisitor
   - AssistantEntrepreneur
   - AssistantOffDuty
-  - AssistantSightseer
+  - AssistantIndependentContractor
   - AssistantFreelancer
-  - AssistantVagabond
   - AssistantVacationer
 
 - type: startingGear
@@ -77,7 +76,7 @@
   name: job-name-alt-assistant-4
 
 - type: jobAlternateTitle
-  id: AssistantSightseer
+  id: AssistantIndependentContractor
   name: job-name-alt-assistant-5
 
 - type: jobAlternateTitle
@@ -85,9 +84,5 @@
   name: job-name-alt-assistant-6
 
 - type: jobAlternateTitle
-  id: AssistantVagabond
-  name: job-name-alt-assistant-7
-
-- type: jobAlternateTitle
   id: AssistantVacationer
-  name: job-name-alt-assistant-8
+  name: job-name-alt-assistant-7

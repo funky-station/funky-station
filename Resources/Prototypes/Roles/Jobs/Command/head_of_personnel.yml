@@ -122,6 +122,7 @@
   - HeadOfPersonnelExecutiveOfficer
   - HeadOfPersonnelEmploymentOfficer
   - HeadOfPersonnelCrewSupervisor
+  - HeadOfPersonnelHeadOfHospitality
 
 - type: startingGear
   id: HoPGear
@@ -146,3 +147,7 @@
 - type: jobAlternateTitle
   id: HeadOfPersonnelCrewSupervisor
   name: job-name-alt-hop-3
+
+- type: jobAlternateTitle
+  id: HeadOfPersonnelHeadOfHospitality
+  name: job-name-alt-hop-4

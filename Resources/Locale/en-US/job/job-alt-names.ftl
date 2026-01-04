@@ -34,10 +34,10 @@ job-name-alt-cargotech-6 = Inventory Associate
 job-name-alt-cargotech-7 = Delivery Associate
 
 job-name-alt-salvage-1 = Shaft Miner
-job-name-alt-salvage-2 = Excavator
-job-name-alt-salvage-3 = Spelunker
+job-name-alt-salvage-2 = Blasting Specialist
+job-name-alt-salvage-3 = Field Geologist
 job-name-alt-salvage-4 = Drill Technician
-job-name-alt-salvage-5 = Prospector
+job-name-alt-salvage-5 = Shipbreaking Specialist
 
 job-name-alt-ce-1 = Head of Engineering
 job-name-alt-ce-2 = Engineering Foreman
@@ -73,35 +73,32 @@ job-name-alt-roboticist-3 = Cybertronic Technician
 job-name-alt-hos-1 = Security Commander
 job-name-alt-hos-2 = Chief Constable
 job-name-alt-hos-3 = Chief of Security
-job-name-alt-hos-4 = Sheriff
 
 job-name-alt-secoff-1 = Regulatory Control Officer
 job-name-alt-secoff-2 = Community Outreach Officer
 job-name-alt-secoff-3 = Desk Officer
-job-name-alt-secoff-4 = Peacekeeper
-job-name-alt-secoff-5 = Security Operative
+job-name-alt-secoff-4 = Night Watchman
 
 job-name-alt-warden-1 = Dispatcher
 job-name-alt-warden-2 = Brig Sergeant
-job-name-alt-warden-3 = Jailer
+job-name-alt-warden-3 = Surveillance Operator
 
 job-name-alt-detective-1 = Forensic Investigator
-job-name-alt-detective-2 = Private Investigator
-job-name-alt-detective-3 = Inspector
-job-name-alt-detective-4 = Paranormal Investigator
+job-name-alt-detective-2 = Inspector
+job-name-alt-detective-3 = Lead Investigator
 
 job-name-alt-assistant-1 = Passenger
 job-name-alt-assistant-2 = Visitor
 job-name-alt-assistant-3 = Entrepreneur
 job-name-alt-assistant-4 = Off-duty Crew
-job-name-alt-assistant-5 = Sightseer
+job-name-alt-assistant-5 = Independent Contractor
 job-name-alt-assistant-6 = Freelancer
-job-name-alt-assistant-7 = Vagabond
-job-name-alt-assistant-8 = Vacationer
+job-name-alt-assistant-7 =Vacationer
 
 job-name-alt-hop-1 = Executive Officer
 job-name-alt-hop-2 = Employment Officer
 job-name-alt-hop-3 = Crew Supervisor
+job-name-alt-hop-4 = Head of Hospitality
 
 job-name-alt-bartender-1 = Mixologist
 job-name-alt-bartender-2 = Hydration Equipment Operator

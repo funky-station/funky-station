@@ -90,7 +90,7 @@
   alternateTitles:
   - WardenDispatch
   - WardenBrigSergeant
-  - WardenBrigJailer
+  - WardenSurveillanceOperator
 
 - type: startingGear
   id: WardenGear
@@ -115,5 +115,5 @@
   name: job-name-alt-warden-2
 
 - type: jobAlternateTitle
-  id: WardenBrigJailer
+  id: WardenSurveillanceOperator
   name: job-name-alt-warden-3

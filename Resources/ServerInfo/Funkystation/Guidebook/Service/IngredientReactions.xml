@@ -7,90 +7,146 @@ SPDX-License-Identifier: MIT
 
 <Document>
   # Ingredient Reactions
-  Here are the ingredient creation reactions that any chef should be able to learn and use.
+  Here are the ingredient creation reactions that, by and large, any chef should be able to use in their kitchen.
 
+  Though kitchens start out well-stocked with a variety of reagent ingredients already, it may not be clear how those reagents turn into some of the ingredients that you can cook with.
 
-  #Essential Ingredients
+  #Doughs
+  
+  Quite almost literally the bread of the chef's kitchen, dough comes in quite a few varieties - all of them made in a reaction!
 
-  Though kitchens start out well-stocked with a variety of reagent ingredients already, it may not be clear how those reagents turn into solid ingredients you can cook with.
-
-  For any normal, Nanotrasen-approved kitchen, these are the most commonly used ingredients that a chef will likely need to make.
-
-
-  ##Dough
+  ##Standard Doughs
   <Box>
     <GuideEntityEmbed Entity="FoodDough" Caption="Regular Dough"/>
   </Box>
-  Regular dough can be made with the following reagents:
+  You can make regular dough by combining the following reagents:
 
   -15u Flour
   -10u Water
 
-  If you replace the flour with cornmeal, see what happens to the end dough!
+  <Box>
+    <GuideEntityEmbed Entity="FoodDoughTortilla" Caption="Tortilla Dough"/>
+  </Box>
+  You can make tortilla dough by combining the following reagents:
+
+  -15u Cornmeal
+  -10u Water
+
   <Box>
     <GuideEntityEmbed Entity="FoodDoughCotton" Caption="Cotton Dough"/>
   </Box>
-  For the station's fiber-eating personnel, cotton dough can be made with the following reagents:
+  For the station's fiber-eating personnel, you can make cotton dough by combining the following reagents:
 
   -10u Fiber
   -5u Flour
   -10u Water
 
-  All of these doughs can be cut and rolled, not necessarily in that order. 
-
-  ##Meat
   <Box>
-    <GuideEntityEmbed Entity="FoodMeat" Caption="Meat"/>
+    <GuideEntityEmbed Entity="FoodDoughCornmeal" Caption="Cornmeal Dough"/>
   </Box>
-  You can make synthetic meat with:
-  -25u Fat
-  -5u Nutriment
-  -10u Blood
-  -10u Carbon
+  You can make cornmeal dough by combining the following reagents:
 
-  ##Plastic
+  -15u Cornmeal
+  -10u Milk
+  -6u Raw Egg
+
+  You can generally cut and roll these doughs.
+
+  ##Specialty Doughs
   <Box>
-    <GuideEntityEmbed Entity="SheetPlastic" Caption="Plastic"/>
+    <GuideEntityEmbed Entity="FoodDoughPie" Caption="Pie Dough"/>
   </Box>
-  You can make plastic by heating the following reagents to 374K:
+  You can make pie dough, the consumable part of a pie, by combining with the following reagents:
 
-  -5u Oil
-  -3u Ash
-  -2u Sulfuric Acid
-
-  ##Crystals
+  -15u Flour
+  -12u Raw Egg
+  -5u Table Salt
 
   <Box>
-    <GuideEntityEmbed Entity="ShardCrystalGreen" Caption="Green Crystal"/>
-    <GuideEntityEmbed Entity="ShardCrystalCyan" Caption="Cyan Crystal"/>
-    <GuideEntityEmbed Entity="ShardCrystalPink" Caption="Pink Crystal"/>
-    <GuideEntityEmbed Entity="ShardCrystalRed" Caption="Red Crystal"/>
-    <GuideEntityEmbed Entity="ShardCrystalOrange" Caption="Orange Crystal"/>
+    <GuideEntityEmbed Entity="FoodCakeBatter" Caption="Cake Batter"/>
   </Box>
-  You can create synthetic crystals for decoration by mixing and heating to 374k:
+  You can make cake batter by combining one of the following sets of reagents:
 
-  -15u Sugar
-  -15u Water
-  -5u Ethanol
+  -15u Flour
+  -12u Raw Egg
+  -5u Sugar
+  -5u Milk
+  
+  OR:
+  
+  -15u Flour
+  -15u Soy Milk
+  -5u Sugar
 
-  ##Gunpowder
+  While the end result may be the same regardless of the recipe you use, those with milk and egg allergies will thank you for using the soy recipe.
+
+  #Catalyzed Reactions
+
+  Though every ingredient does consume reagents to be made, not every reaction will consume all of the reagents that go into making them.
+
+  Catalysts are the names for those reagents which will not be used up when making an ingredient. They will react so long as a minimum amount of them is present.
+
   <Box>
-    <GuideEntityEmbed Entity="MaterialGunpowder" Caption="Gunpowder"/>
+    <GuideEntityEmbed Entity="FoodButter" Caption="Butter"/>
   </Box>
-  You can create gunpowder, a component used in improvised explosives, by mixing:
-  -6u Potassium
-  -2u Sulfur
-  -2u Charcoal
+  You can make a stick of butter by combining the following reagents:
 
-  ##Solidification
+  -30u Milk
+  -5u Table Salt as a catalyst
+
+  ##Enzyme Reactions
   <Box>
-    <GuideEntityEmbed Entity="IngotGold1" Caption="Gold"/>
-    <GuideEntityEmbed Entity="IngotSilver1" Caption="Silver"/>
+    <GuideEntityEmbed Entity="FoodCheese" Caption="Cheese"/>
   </Box>
-  You can solidify reagents such as silver and gold into bars by using:
-  -10u Metal (silver or gold)
-  -5u Frost Oil
+  You can make a wheel of cheese by combining the following reagents:
 
+  -40u Milk
+  -5u Universal Enzyme as a catalyst
 
+  <Box>
+    <GuideEntityEmbed Entity="FoodChevre" Caption="Chèvre"/>
+  </Box>
+  You can make a log of chèvre, goats' milk cheese, by combining the following reagents:
+
+  -10u Goats Milk
+  -5u Universal Enzyme as a catalyst
+
+  <Box>
+    <GuideEntityEmbed Entity="FoodTofu" Caption="Tofu"/>
+  </Box>
+  You can make a block of tofu by combining the following reagents:
+
+  -30u Soy Milk
+  -5u Universal Enzyme as a catalyst
+
+  <Box>
+    <GuideEntityEmbed Entity="FoodMysteryMeat" Caption="Mystery meat...?"/>
+  </Box>
+  You can reconstitute a slab of mystery meat by combining the following reagents:
+
+  -10u Uncooked Animal Proteins
+  -5u Universal Enzyme as a catalyst
+
+  #Miscellaneous Reactions
+
+  While a vast majority of the reactions a chef may need to use have been covered earlier, there are still a couple of reactions that aren't listed anywhere else.
+
+  <Box>
+    <GuideEntityEmbed Entity="FoodMeatMeatball" Caption="Meatball"/>
+  </Box>
+  You can make a singular meatball by combining the following reagents:
+
+  -5u Uncooked Animal Proteins
+  -5u Flour
+  -6u Raw Egg
+
+  <Box>
+    <GuideEntityEmbed Entity="FoodSnackChocolateBar" Caption="Chocolate."/>
+  </Box>
+  You can make a bar of chocolate by combining the following reagents:
+
+  -4u Cocoa Powder
+  -2u Milk
+  -2u Sugar
 
 </Document>

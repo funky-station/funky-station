@@ -53,6 +53,7 @@ medical-info-familyhistory-kidneystones = Kidney Stones
 medical-info-familyhistory-liverdisease = Liver Disease
 medical-info-familyhistory-lungdisease = Lung Disease
 medical-info-familyhistory-migraines = Migraines
+medical-info-familyhistory-neuroaversion = Neuroaversion
 medical-info-familyhistory-osteoporosis = Osteoporosis
 medical-info-familyhistory-seizures = Seizures
 medical-info-familyhistory-sleepapnea = Sleep Apnea

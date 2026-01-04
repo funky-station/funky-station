@@ -7072,3 +7072,21 @@ Entries:
       message: New sprites for the Stasis Beds!
   id: 824
   time: '2026-01-04T05:48:57.0000000+00:00'
+- author: zergologist
+  changes:
+    - type: Add
+      message: funky new sprites for a vast majority of the boots
+    - type: Add
+      message: loadout groups for boots and shoes
+    - type: Tweak
+      message: 'departmental winter boots have been reworked to be largely generic '
+    - type: Tweak
+      message: >-
+        the vast majority of roles have been given alternative boots to start
+        off with
+    - type: Tweak
+      message: the -drobes have been adjusted to reflect these boots changes
+    - type: Fix
+      message: the high heel boots give you height now
+  id: 825
+  time: '2026-01-04T07:31:05.0000000+00:00'

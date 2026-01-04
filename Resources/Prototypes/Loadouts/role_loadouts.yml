@@ -51,6 +51,7 @@
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 vectorassembly <vectorassembly@icloud.com>
 # SPDX-FileCopyrightText: 2025 w.xyz() <84605679+pirakaplant@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2026 Zergologist <114537969+Chedd-Error@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -63,6 +64,7 @@
   - CaptainJumpsuit
   - CaptainBackpack
   - CaptainOuterClothing
+  - CaptainShoes
   - Survival
   - Trinkets
   - CaptainJobTrinkets
@@ -76,7 +78,7 @@
   - HoPJumpsuit
   - HoPBackpack
   - HoPOuterClothing
-  - GenericShoes
+  - HoPShoes
   - Glasses
   - Survival
   - Trinkets
@@ -219,6 +221,7 @@
   - BotanistJumpsuit
   - BotanistBackpack
   - BotanistOuterClothing
+  - GenericShoes
   - Glasses
   - Survival
   - Trinkets
@@ -593,6 +596,7 @@
   id: JobZookeeper
   groups:
   - CommonBackpack
+  - GenericShoes
   - Glasses
   - Survival
   - Trinkets

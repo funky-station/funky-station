@@ -7196,3 +7196,27 @@ Entries:
       message: Signature fonts now display the font in the trait tab
   id: 836
   time: '2026-01-04T23:34:52.0000000+00:00'
+- author: SigmaTheDragon
+  changes:
+    - type: Fix
+      message: >-
+        Made the nullrod menu descripitions of the Aureole Arc and the Annabelle
+        more accurate.
+    - type: Add
+      message: 'Added a new melee chaplain weapon: the Star Rapier'
+    - type: Add
+      message: 'Added a new support chaplain weapon: the Staff of Nature'
+    - type: Add
+      message: 'Added a new melee chaplain weapon: the Crooked Crucifix'
+    - type: Add
+      message: 'Added a new ranged chaplain weapon: the N1984H'
+    - type: Add
+      message: 'Added a new ranged chaplain weapon: the Honkmother''s Honkannon'
+    - type: Add
+      message: 'Added a new support chaplain weapon: the Enchanted Toolbox'
+    - type: Add
+      message: 'Added a new melee chaplain weapon: the Bloody Chainsword'
+    - type: Add
+      message: 'Added a new melee chaplain weapon: the Haunted Sword'
+  id: 837
+  time: '2026-01-04T23:39:21.0000000+00:00'

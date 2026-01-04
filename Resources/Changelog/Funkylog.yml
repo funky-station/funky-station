@@ -7050,3 +7050,13 @@ Entries:
       message: Slightly tweaked the Engineering hardsuit sprite.
   id: 821
   time: '2026-01-04T02:41:54.0000000+00:00'
+- author: AraiMaia, Thlrd
+  changes:
+    - type: Add
+      message: New sprites for Salvage Janitor borgs!
+    - type: Add
+      message: New sprite for Service borg!
+    - type: Tweak
+      message: Mediborg now flies, Salvage borg now has big stompy footstep sounds
+  id: 822
+  time: '2026-01-04T03:26:38.0000000+00:00'

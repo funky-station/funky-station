@@ -41,7 +41,7 @@ public sealed partial class TraitPreferenceSelector : Control
         set => _checkbox.Pressed = value;
     }
 
-    public TraitPreferenceSelector(string name, int cost, string? description = null)
+    public TraitPreferenceSelector(string name, int cost, string? description = null, VectorFont? customFont = null)
     {
         RobustXamlLoader.Load(this);
         _checkbox = Checkbox;
@@ -52,6 +52,12 @@ public sealed partial class TraitPreferenceSelector : Control
 
         if (description != null)
             _checkbox.ToolTip = description;
+
+        // Apply custom font if specified
+        if (customFont != null)
+        {
+            _checkbox.Label.FontOverride = customFont;
+        }
 
         _checkbox.OnToggled += OnCheckBoxToggled;
         UpdateCostLabel();

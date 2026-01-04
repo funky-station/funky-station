@@ -7116,3 +7116,13 @@ Entries:
       message: Made current PDAs and IDs into departemental contraband.
   id: 828
   time: '2026-01-04T18:21:07.0000000+00:00'
+- author: sowelipililimute, AraiMaia
+  changes:
+    - type: Add
+      message: >-
+        Station AI can now choose from a selection of programs roundstart to
+        expand its abilities, ranging from deploying metal foam on hull
+        breaches, to making honk noises from holopads, to remotely repairing
+        borgs a small amount.
+  id: 829
+  time: '2026-01-04T18:31:50.0000000+00:00'

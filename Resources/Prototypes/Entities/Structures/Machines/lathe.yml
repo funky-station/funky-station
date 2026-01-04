@@ -521,6 +521,7 @@
     - InflatableWall #funky inflatables
     - InflatableDoor #funk
     - SmallPinboard #funky
+    - BarberScissors #funk
     dynamicRecipes:
     - BoomboxRed
     - BoomboxGreen
@@ -1223,6 +1224,7 @@
     - autoInjectorCartridgeCaseSoft
     - SurveillanceWirelessCameraBodySecurity #funk
     - ClothingHandsSecurityKnuckleDusters #funk
+    - Tourniquet
     dynamicRecipes:
     - BoxBeanbag
     - BoxShotgunIncendiary
@@ -1464,6 +1466,7 @@
     - DeskBell #ringringring #funk
     - ScalpelAdvanced #funk
     - ScalpelLaser #funk
+    - Tourniquet #funk
     dynamicRecipes:
     - ChemicalPayload
     - CryostasisBeaker

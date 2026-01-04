@@ -199,5 +199,5 @@ job-name-alt-magistrate-1 = Judge
 job-name-alt-magistrate-2 = Arbitrator
 
 job-name-alt-ntr-1 = Corporate Liaison
-job-name-alt-ntr-2 = Nanotransen Informant
-job-name-alt-ntr-3 = Nanotransen Advisor
+job-name-alt-ntr-2 = Nanotrasen Informant
+job-name-alt-ntr-3 = Nanotrasen Advisor

@@ -47,10 +47,10 @@
 # SPDX-FileCopyrightText: 2024 rottenheadphones <juaelwe@outlook.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 salpphie <53307242+salpphie@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
-# SPDX-FileCopyrightText: 2026 salpphie <alyssa.thomas51@gmail.com>
+# SPDX-FileCopyrightText: 2026 salpphie <53307242+salpphie@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2026 wilowzeta <willowzeta632146@proton.me>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -60,7 +60,7 @@ meta:
   engineVersion: 268.0.0
   forkId: ""
   forkVersion: ""
-  time: 01/02/2026 22:08:19
+  time: 01/04/2026 03:13:20
   entityCount: 24690
 maps:
 - 1
@@ -10205,6 +10205,11 @@ entities:
       rot: 3.141592653589793 rad
       pos: -66.5,-19.5
       parent: 2
+    - type: DeviceList
+      devices:
+      - 17953
+      - 14772
+      - 14766
   - uid: 951
     components:
     - type: Transform
@@ -11953,7 +11958,7 @@ entities:
       pos: -55.5,-9.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -347974.94
+      secondsUntilStateChange: -348031.7
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -12569,7 +12574,7 @@ entities:
       pos: 29.5,-41.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -329407.25
+      secondsUntilStateChange: -329464
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -13024,7 +13029,7 @@ entities:
       pos: -34.5,5.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -12069.151
+      secondsUntilStateChange: -12125.8955
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -13792,7 +13797,7 @@ entities:
       pos: 5.5,17.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -3396193
+      secondsUntilStateChange: -3396249.8
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -156681,7 +156686,7 @@ entities:
       pos: 28.5,-9.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -1939397.9
+      secondsUntilStateChange: -1939454.6
       state: Opening
   - uid: 10484
     components:

@@ -7090,3 +7090,13 @@ Entries:
       message: the high heel boots give you height now
   id: 825
   time: '2026-01-04T07:31:05.0000000+00:00'
+- author: TheHolyAegis
+  changes:
+    - type: Remove
+      message: Removed atmospheric technician spawns
+    - type: Add
+      message: Replaced the spawns with station engineer spawns
+    - type: Fix
+      message: Fixed the unpowered engineering airlocks on the evacuation shuttle
+  id: 826
+  time: '2026-01-04T17:41:38.0000000+00:00'

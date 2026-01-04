@@ -1,0 +1,13 @@
+<Document>
+  # Medical SOP
+
+  - [textlink="Chief Medical Officer" link="CMOSOP"]
+  - [textlink="Medical Doctor" link="DoctorSOP"]
+  - [textlink="Chemist" link="ChemistSOP"]
+  - [textlink="Paramedic" link="ParamedicSOP"]
+  - [textlink="Psychologist" link="PsychologistSOP"]
+  
+<Box>
+    [color=#999999][italic]"The Chemist is [bolditalic]not[/bolditalic] permitted to experiment with explosive mixtures;"[/italic] - Chemist SOP {1}[/color]
+</Box>
+</Document>

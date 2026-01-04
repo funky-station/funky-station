@@ -162,7 +162,7 @@ public abstract partial class SharedMoverController : VirtualController
         var canMove = mover.CanMove;
         if (RelayTargetQuery.TryGetComponent(uid, out var relayTarget))
         {
-            if (_mobState.IsIncapacitated(relayTarget.Source) ||
+            if (_mobState.IsImmobile(relayTarget.Source) ||
                 TryComp<SleepingComponent>(relayTarget.Source, out _) ||
                 !MoverQuery.TryGetComponent(relayTarget.Source, out var relayedMover))
             {

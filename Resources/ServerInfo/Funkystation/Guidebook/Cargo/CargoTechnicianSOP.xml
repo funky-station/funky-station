@@ -1,0 +1,33 @@
+<!--
+SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
+SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+
+SPDX-License-Identifier: MIT
+-->
+<Document>
+# Cargo Technician SOP
+
+[bold]1.[/bold] Cargo Technicians must ensure that every approved order is delivered within 15 minutes of having been placed and approved;
+
+[bold]2.[/bold] Cargo Technicians are bound to the same rules as the [color=#1b67a5]Quartermaster[/color] regarding restricted crates;
+
+[bold]3.[/bold] Cargo Technicians are [bold]not[/bold] permitted to order items for sole personal use with the supply department account without express consent from the [color=#1b67a5]Quartermaster[/color]. Exception is made if there are more than 10,000 spesos available and no outstanding orders. Cargo Technicians may not deplete the entire department account balance for this;
+<!-- maybe make this 15k?-->
+
+[bold]4.[/bold] Cargo Technicians are [bold]not[/bold] permitted to order non-essential items using the supply account (such as cats, or clothing) without express consent from the [color=#1b67a5]Quartermaster[/color];
+
+[bold]5.[/bold] Cargo Technicians are [bold]not[/bold] permitted to force and/or break open locked crates. The same applies to the [color=#1b67a5]Quartermaster[/color]. Exception is made for Abandoned Crates found by Salvage Specialists;
+
+[bold]6.[/bold] Cargo Technicians are [bold]not[/bold] permitted to authorize non-departmental orders (such as a Medical Doctor asking for Insulated Gloves) without express permission from the [color=#1b67a5]Quartermaster[/color];
+
+[bold]7.[/bold] Cargo Technicians must ensure at least one copy of every Order Form (ie, the forms produced by the Requests Console) is kept inside Cargo;
+
+[bold]8.[/bold] Cargo Technicians must ensure resources brought by salvagers are distributed to the rest of the station.
+
+[bold]9.[/bold] Cargo Technicians are [bold]not[/bold] permitted to ask for spesos in exchange for legal cargo crate orders or autolathe requests from crew members;
+
+[bold]10.[/bold] Cargo Technicians are [bold]not[/bold] permitted to trade items and/or favors in exchange for items with regular personnel without express consent from the [color=#1b67a5]Quartermaster[/color];
+
+[bold]11.[/bold] Cargo Technicians should ensure that at least one person is handling mail delivery, should the mail teleporter be turned on and functioning.
+</Document>

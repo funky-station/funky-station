@@ -68,7 +68,9 @@
 # SPDX-FileCopyrightText: 2025 ScarKy0 <scarky0@onet.eu>
 # SPDX-FileCopyrightText: 2025 Steve <marlumpy@gmail.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
 # SPDX-FileCopyrightText: 2025 Toaster <mrtoastymyroasty@gmail.com>
+# SPDX-FileCopyrightText: 2025 Toastermeister <215405651+Toastermeister@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 UtopiOne <110351290+UtopiOne@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 marc-pelletier <113944176+marc-pelletier@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
@@ -403,6 +405,9 @@
       Cable: 5
       PlasmaGlass: 15
       MetalRod: 4
+  - type: Tag
+    tags:
+    - ExperimentalVesselMachineBoard
 
 - type: entity
   parent: BaseMachineCircuitboard
@@ -419,6 +424,9 @@
         Capacitor: 5
         PlasmaGlass: 5
         Cable: 5
+    - type: Tag
+      tags:
+      - AnomalySyncronizerCircuitBoard
 
 - type: entity
   parent: BaseMachineCircuitboard

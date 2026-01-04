@@ -68,13 +68,16 @@
 # SPDX-FileCopyrightText: 2024 reverie collection <revsys413@gmail.com>
 # SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 88tv <131759102+88tv@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Amethyst <52829582+jackel234@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Crude Oil <124208219+CroilBird@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Drywink <43855731+Drywink@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Drywink <hugogrethen@gmail.com>
 # SPDX-FileCopyrightText: 2025 Ekpy <33184056+Ekpy@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Errant <35878406+Errant-4@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 PurpleTranStar <purpletranstars@gmail.com>
 # SPDX-FileCopyrightText: 2025 Starry <202317940+PurpleTranStar@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 Zergologist <114537969+Chedd-Error@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 jackel234 <jackel234@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
@@ -972,24 +975,30 @@
   id: MobCrabAtmos
   description: The noble and stalwart defender of Atmosia. Viva!
   components:
-  #  - type: GhostRole
-  #    prob: 1
-  #    makeSentient: true
-  #    allowSpeech: true
-  #    allowMovement: true
-  #    name: ghost-role-information-tropico-name
-  #    description: ghost-role-information-tropico-description
-  #    rules: ghost-role-information-nonantagonist-rules
-  #  - type: GhostTakeoverAvailable
+  - type: GhostRole
+    prob: 1
+    makeSentient: true
+    allowSpeech: true
+    allowMovement: true
+    name: ghost-role-information-tropico-name
+    description: ghost-role-information-tropico-description
+    rules: ghost-role-information-nonantagonist-rules
+    requirements:
+    - !type:DepartmentTimeRequirement
+      department: Engineering
+      time: 18000 #5 hrs
+  - type: GhostTakeoverAvailable
   - type: Tag
     tags:
     - VimPilot
     - CannotSuicide
+    - DoorBumpOpener
+    - FootstepSound
   - type: Grammar
     attributes:
       proper: true
       gender: male
-  #  - type: AlwaysRevolutionaryConvertible
+  - type: AlwaysRevolutionaryConvertible
   - type: StealTarget
     stealGroup: AnimalTropico
 

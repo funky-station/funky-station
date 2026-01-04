@@ -80,9 +80,11 @@
 # SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 2DSiggy <siggymaxwell@gmail.com>
 # SPDX-FileCopyrightText: 2025 Gansu <68031780+GansuLalan@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Nox <nebulousnox38@gmail.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
@@ -375,7 +377,7 @@
 - type: entity
   name: cryostasis beaker
   parent: BaseBeakerMetallic
-  description: Used to contain chemicals or solutions without reactions.
+  description: Used to contain chemicals or solutions without reactions
   id: CryostasisBeaker
   components:
   - type: Spillable
@@ -629,19 +631,21 @@
   - type: Injector
     delay: 1 # Goobstation - buffing cryo syringe cause its currently pointless and buffing bluespace syringe to make it more useful.
     injectOnly: false
+    minTransferAmount: 5
+    maxTransferAmount: 20
+    transferAmount: 20
   - type: SolutionContainerVisuals
     maxFillLevels: 2
     fillBaseName: syringe
   - type: Tag
     tags:
     - Syringe
-    - Trash
 
 - type: entity
   id: SyringeCryostasis
   parent: BaseSyringe
-  name: cryostasis syringe
-  description: An improved syringe used to contain chemicals or solutions without reactions. # Goobstation - buffing cryo syringe cause its currently pointless and buffing bluespace syringe to make it more useful.
+  name: advanced syringe
+  description: An advanced syringe with a larger capacity that can also draw or inject faster, contain chemicals or solutions without reactions. # Goobstation - buffing cryo syringe cause its currently pointless and buffing bluespace syringe to make it more useful.
   components:
   - type: Sprite
     layers:
@@ -667,7 +671,7 @@
   - type: Tag
     tags:
     - Syringe
-    - Trash
+    - Cryosyringe
 
 
 - type: entity

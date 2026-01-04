@@ -7126,3 +7126,9 @@ Entries:
         borgs a small amount.
   id: 829
   time: '2026-01-04T18:31:50.0000000+00:00'
+- author: Homingpenguins
+  changes:
+    - type: Tweak
+      message: Changed the way Proto-Nitrate reacts with Hydrogen and Tritium.
+  id: 830
+  time: '2026-01-04T18:34:52.0000000+00:00'

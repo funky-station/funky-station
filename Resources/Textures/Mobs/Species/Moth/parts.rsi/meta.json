@@ -11,6 +11,9 @@
       "name": "full"
     },
     {
+      "name": "urist"
+    },
+    {
       "name": "head_f",
       "directions": 4
     },
@@ -60,6 +63,10 @@
     },
     {
       "name": "eyes",
+      "directions": 4
+    },
+    {
+      "name": "mothbiggereyes",
       "directions": 4
     }
   ]

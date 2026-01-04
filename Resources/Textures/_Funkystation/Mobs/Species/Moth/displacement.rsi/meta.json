@@ -33,6 +33,10 @@
         {
             "name": "shoes",
             "directions": 4
+        },
+        {
+            "name": "ears",
+            "directions": 4
         }
     ]
 }

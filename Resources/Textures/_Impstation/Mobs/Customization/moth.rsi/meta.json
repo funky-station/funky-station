@@ -163,6 +163,14 @@
       {
         "name": "torso_incision_moth",
         "directions": 4
+      },
+      {
+        "name": "fan_r_leg",
+        "directions": 4
+      },
+      {
+        "name": "fan_l_leg",
+        "directions": 4
       }
     ]
   }

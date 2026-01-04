@@ -120,7 +120,7 @@
       wideAnimationRotation: -135
       damage:
         types:
-          Blunt: 10
+          Blunt: 8
       soundHit:
         path: "/Audio/Weapons/smash.ogg"
       attackRate: 0.5
@@ -151,7 +151,7 @@
       wideAnimationRotation: -135
       damage:
         types:
-          Blunt: 10
+          Blunt: 8
       soundHit:
         path: "/Audio/Weapons/smash.ogg"
       attackRate: 0.5
@@ -183,7 +183,7 @@
       wideAnimationRotation: -135
       damage:
         types:
-          Blunt: 10
+          Blunt: 8
       soundHit:
         path: "/Audio/Weapons/smash.ogg"
       attackRate: 0.5

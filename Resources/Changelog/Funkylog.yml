@@ -7060,3 +7060,9 @@ Entries:
       message: Mediborg now flies, Salvage borg now has big stompy footstep sounds
   id: 822
   time: '2026-01-04T03:26:38.0000000+00:00'
+- author: GnarpGnarp
+  changes:
+    - type: Fix
+      message: Crew Monitor now shows the "Unknown" tab properly
+  id: 823
+  time: '2026-01-04T05:19:36.0000000+00:00'

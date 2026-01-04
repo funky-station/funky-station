@@ -6,6 +6,7 @@
 
 using Content.Server.Atmos;
 using Content.Server.Atmos.EntitySystems;
+using Content.Server.Database.Migrations.Postgres;
 using Content.Shared.Atmos;
 using Content.Shared.Atmos.Reactions;
 using JetBrains.Annotations;
@@ -13,7 +14,7 @@ using JetBrains.Annotations;
 namespace Content.Server._Funkystation.Atmos.Reactions;
 
 [UsedImplicitly]
-public sealed partial class ProtoNitrateTritiumConversionReaction : IGasReactionEffect
+public sealed partial class ProtoNitrateConversionReaction : IGasReactionEffect
 {
     public ReactionResult React(GasMixture mixture, IGasMixtureHolder? holder, AtmosphereSystem atmosphereSystem, float heatScale)
     {
@@ -22,18 +23,27 @@ public sealed partial class ProtoNitrateTritiumConversionReaction : IGasReaction
 
         var initPN = mixture.GetMoles(Gas.ProtoNitrate);
         var initTrit = mixture.GetMoles(Gas.Tritium);
+        var initH2 = mixture.GetMoles(Gas.Hydrogen);
 
         var temperature = mixture.Temperature;
-        var producedAmount = Math.Min(temperature / 34f * initTrit * initPN / (initTrit + 10f * initPN), Math.Min(initTrit, initPN * 100f));
 
-        if (initTrit - producedAmount < 0 || initPN - producedAmount * 0.01f < 0)
+        //Equal amounts of Trit and H2 will slowly gravitate twards certain tempertures. Imbalance in the mix will lean it endo or exo.
+        var burnedH2 = initH2 * (.25f * float.Sin(temperature / 250f - 1.2f) + .25f);
+        var burnedTrit = initTrit * (-.25f * float.Sin(temperature / 250f - 1.2f) + .25f);
+        var producedAmount = burnedH2 + burnedTrit;
+
+        if (initTrit - burnedTrit < 0 && initH2 - burnedH2 < 0 || initPN - producedAmount * 0.01f < 0)
             return ReactionResult.NoReaction;
 
-        mixture.AdjustMoles(Gas.ProtoNitrate, -producedAmount * 0.01f);
-        mixture.AdjustMoles(Gas.Tritium, -producedAmount);
-        mixture.AdjustMoles(Gas.Hydrogen, producedAmount);
 
-        var energyReleased = producedAmount * Atmospherics.ProtoNitrateTritiumConversionEnergy;
+        mixture.AdjustMoles(Gas.ProtoNitrate, -producedAmount * 0.01f);
+        mixture.AdjustMoles(Gas.Plasma, producedAmount * .05f);
+        mixture.AdjustMoles(Gas.Tritium, burnedH2 * .95f - burnedTrit);
+        mixture.AdjustMoles(Gas.Hydrogen, burnedTrit * .95f - burnedH2);
+
+        var energyReleased = (burnedTrit * .95f - burnedH2 * .95f) * Atmospherics.ProtoNitrateConversionEnergy + producedAmount * 2.5f;
+
+        //This reaction was planned to emit .025 rads per mol of H2 and Trit burned. Unfortunatly it seems that is far above my skillset. Perhaps one day.
 
         var heatCap = atmosphereSystem.GetHeatCapacity(mixture, true);
         if (heatCap > Atmospherics.MinimumHeatCapacity)

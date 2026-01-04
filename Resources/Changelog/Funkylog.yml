@@ -7090,3 +7090,69 @@ Entries:
       message: the high heel boots give you height now
   id: 825
   time: '2026-01-04T07:31:05.0000000+00:00'
+- author: TheHolyAegis
+  changes:
+    - type: Remove
+      message: Removed atmospheric technician spawns
+    - type: Add
+      message: Replaced the spawns with station engineer spawns
+    - type: Fix
+      message: Fixed the unpowered engineering airlocks on the evacuation shuttle
+  id: 826
+  time: '2026-01-04T17:41:38.0000000+00:00'
+- author: Mariiibo
+  changes:
+    - type: Add
+      message: Enabled the Taboo words Thaven mood.
+    - type: Tweak
+      message: Fixed a typo in the Dry Skin mood description.
+  id: 827
+  time: '2026-01-04T18:17:56.0000000+00:00'
+- author: Xcybitt
+  changes:
+    - type: Add
+      message: Added syndicate IDs and PDAs to the uplink.
+    - type: Tweak
+      message: Made current PDAs and IDs into departemental contraband.
+  id: 828
+  time: '2026-01-04T18:21:07.0000000+00:00'
+- author: sowelipililimute, AraiMaia
+  changes:
+    - type: Add
+      message: >-
+        Station AI can now choose from a selection of programs roundstart to
+        expand its abilities, ranging from deploying metal foam on hull
+        breaches, to making honk noises from holopads, to remotely repairing
+        borgs a small amount.
+  id: 829
+  time: '2026-01-04T18:31:50.0000000+00:00'
+- author: Homingpenguins
+  changes:
+    - type: Tweak
+      message: Changed the way Proto-Nitrate reacts with Hydrogen and Tritium.
+  id: 830
+  time: '2026-01-04T18:34:52.0000000+00:00'
+- author: Xcybitt
+  changes:
+    - type: Add
+      message: Added cloak punching to the game!
+  id: 831
+  time: '2026-01-04T18:41:02.0000000+00:00'
+- author: ferynn
+  changes:
+    - type: Tweak
+      message: >-
+        Fleshmend and Anatomic Panacea now cost biomass instead of chemicals.
+        Cooldown reduced.
+    - type: Tweak
+      message: >-
+        Regenerative Stasis costs more biomass to use. Chemical cost to rise
+        again is slightly lowered.
+    - type: Tweak
+      message: Several changeling abilities had their evolution point cost changed.
+    - type: Tweak
+      message: Changelings must lose more biomass to display visible signs to others.
+    - type: Fix
+      message: Changelings can no longer rot
+  id: 832
+  time: '2026-01-04T18:43:36.0000000+00:00'

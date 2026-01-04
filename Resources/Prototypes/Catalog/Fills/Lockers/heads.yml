@@ -488,7 +488,7 @@
     - id: WantedListCartridge
     - id: DrinkHosFlask
     - id: RadioHandheldCommand #funkystation, no sec radio since they start with one
-    - id: HandheldStationMap #funk, all HoS' must find their way
+    - id: HandheldStationMapTactical #funk, all HoS' must find their way
     - id: BreachingCharge #funkystation knock knock, sec's here
     - id: BreachingCharge #funkystation knock knock, sec's here
 

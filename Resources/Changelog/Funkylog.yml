@@ -7066,3 +7066,9 @@ Entries:
       message: Crew Monitor now shows the "Unknown" tab properly
   id: 823
   time: '2026-01-04T05:19:36.0000000+00:00'
+- author: AraiMaia
+  changes:
+    - type: Add
+      message: New sprites for the Stasis Beds!
+  id: 824
+  time: '2026-01-04T05:48:57.0000000+00:00'

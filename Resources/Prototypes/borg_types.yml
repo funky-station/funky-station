@@ -259,7 +259,7 @@
   - Service
 
   # Visual
-  inventoryTemplateId: borgTall
+  inventoryTemplateId: borgShort
   spriteBodyState: service
   spriteHasMindState: service_e
   spriteNoMindState: service_e_r

@@ -93,10 +93,19 @@
     back:
     - Flash
 
-- type: jobAlternateTitle
-  id: ChiefEngineerEngineeringForeman
-  name: job-name-alt-ce-1
 
 - type: jobAlternateTitle
   id: ChiefEngineerHeadOfEngineering
+  name: job-name-alt-ce-1
+
+- type: jobAlternateTitle
+  id: ChiefEngineerEngineeringForeman
   name: job-name-alt-ce-2
+
+- type: jobAlternateTitle
+  id: ChiefEngineerEngineeringForewoman
+  name: job-name-alt-ce-3
+
+- type: jobAlternateTitle
+  id: ChiefEngineerEngineeringForeperson
+  name: job-name-alt-ce-4

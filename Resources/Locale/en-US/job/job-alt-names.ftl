@@ -39,8 +39,10 @@ job-name-alt-salvage-3 = Spelunker
 job-name-alt-salvage-4 = Drill Technician
 job-name-alt-salvage-5 = Prospector
 
-job-name-alt-ce-1 = Engineering Foreman
-job-name-alt-ce-2 = Head of Engineering
+job-name-alt-ce-1 = Head of Engineering
+job-name-alt-ce-2 = Engineering Foreman
+job-name-alt-ce-3 = Engineering Forewoman
+job-name-alt-ce-4 = Engineering Foreperson
 
 job-name-alt-engineer-1 = Maintenance Technician
 job-name-alt-engineer-2 = Mechanic

@@ -276,6 +276,7 @@
   id: MedicalWinterBoots
   equipment:
     shoes: ClothingShoesBootsWinterMed
+  groupBy: "boots"
 
 # ID
 - type: loadout

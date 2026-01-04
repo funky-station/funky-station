@@ -34,6 +34,9 @@
     ClothingOuterWinterColorGray: 2
     ClothingOuterWinterColorWhite: 2 #funky
     ClothingShoesBootsWinter: 6
+    ClothingShoesBootsWinterCargo: 2 # funk
+    ClothingShoesBootsWinterEngi: 2 # funk
+    ClothingShoesBootsWinterSci: 1 # funk, limited availability designer boots (not actually for science)
     ClothingOuterFlannelRed: 2
     ClothingOuterFlannelBlue: 2
     ClothingOuterFlannelGreen: 2

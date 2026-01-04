@@ -77,8 +77,10 @@
   id: BlueShoes
   equipment:
     shoes: ClothingShoesColorBlue
+  groupBy: "shoes"
 
 - type: loadout
   id: LaceupShoes
   equipment:
     shoes: ClothingShoesBootsLaceup
+  groupBy: "shoes"

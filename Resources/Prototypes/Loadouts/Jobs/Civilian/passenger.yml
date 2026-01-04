@@ -121,8 +121,10 @@
   id: BlackShoes
   equipment:
     shoes: ClothingShoesColorBlack
+  groupBy: "shoes"
 
 - type: loadout
   id: WinterBoots
   equipment:
     shoes: ClothingShoesBootsWinter
+  groupBy: "boots"

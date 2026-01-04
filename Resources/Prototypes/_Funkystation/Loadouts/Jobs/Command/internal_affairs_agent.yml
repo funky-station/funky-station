@@ -102,3 +102,10 @@
   id: InternalAffairsAgentWaistbag
   equipment:
     belt: ClothingBeltStorageWaistbag
+
+# Shoes
+- type: loadout
+  id: DesignerWinterBoots
+  equipment:
+    shoes: ClothingShoesBootsWinterSci
+  groupBy: "boots"

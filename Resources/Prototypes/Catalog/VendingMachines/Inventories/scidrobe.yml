@@ -28,12 +28,12 @@
     ClothingUniformJumpsuitScientistFormal: 3
     ClothingOuterCoatRnd: 3
     ClothingShoesColorWhite: 3
+    ClothingShoesBootsLaceup: 3 # Funk
     ClothingNeckTieSci: 3
     ClothingHeadsetScience: 3
     ClothingMaskGas: 3
     ClothingOuterWinterSci: 2
     ClothingNeckScarfStripedPurple: 3
-    ClothingShoesBootsWinterSci: 2
   emaggedInventory:
     ClothingUniformJumpsuitScientistSyndicate: 1
     ClothingUniformJumpsuitScientistWhiteSyndicate: 1

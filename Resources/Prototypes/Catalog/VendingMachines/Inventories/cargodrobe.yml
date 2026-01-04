@@ -39,6 +39,7 @@
     ClothingHeadCargoPilotHelmet: 1 # Funky Station
     ClothingShoesColorBlack: 3
     ClothingShoesBootsSalvage: 3
+    ClothingShoesBootsWork: 3 # funk
     ClothingHandsGlovesFingerless: 3
     ClothingHeadHatCargosoft: 3
     ClothingHeadBandBrown: 3
@@ -49,6 +50,7 @@
     ClothingNeckScarfStripedBrown: 3
     ClothingNeckScarfStripedPurple: 3
     ClothingShoesBootsWinterCargo: 2
+    ClothingShoesBootsWinterEngi: 2 # funk
     MaterialBag: 3 # Funky Station
   emaggedInventory:
     ClothingUniformJumpsuitWSMSyndicate: 1

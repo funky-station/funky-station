@@ -132,6 +132,7 @@
   id: CargoWinterBoots
   equipment:
     shoes: ClothingShoesBootsWinterCargo
+  groupBy: "boots"
 
 # ID
 - type: loadout

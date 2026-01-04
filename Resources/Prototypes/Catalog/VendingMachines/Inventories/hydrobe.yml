@@ -26,6 +26,8 @@
     ClothingUniformOveralls: 3
     ClothingUniformJumpsuitHydroponics: 3
     ClothingUniformJumpskirtHydroponics: 3
+    ClothingShoesBootsWork: 3 # funk
+    ClothingShoesBootsSalvage: 3 # funk
     ClothingNeckScarfStripedGreen: 3
     ClothingHeadBandGreen: 3
     ClothingHeadsetService: 2

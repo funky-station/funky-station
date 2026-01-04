@@ -68,3 +68,4 @@
   id: WhiteShoes
   equipment:
     shoes: ClothingShoesColorWhite
+  groupBy: "shoes"

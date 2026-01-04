@@ -185,12 +185,6 @@
   equipment:
     gloves: ClothingHandsGlovesRobohands
 
-# Shoes
-- type: loadout
-  id: ScienceWinterBoots
-  equipment:
-    shoes: ClothingShoesBootsWinterSci
-
 # ID
 - type: loadout
   id: ScientistPDA

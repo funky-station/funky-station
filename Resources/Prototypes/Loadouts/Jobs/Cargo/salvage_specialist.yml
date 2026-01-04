@@ -22,7 +22,6 @@
     jumpsuit: ClothingUniformJumpsuitSeniorSalvage
   groupBy: "jumpsuit"
 
-
 # Back
 - type: loadout
   id: SalvageSpecialistBackpack
@@ -50,3 +49,4 @@
   id: SalvageBoots
   equipment:
     shoes: ClothingShoesBootsSalvage
+  groupBy: "boots"

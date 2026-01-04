@@ -48,6 +48,14 @@
   - NanotrasenRepresentativePaperworkGloves
 
 - type: loadoutGroup
+  id: InternalAffairsAgentShoes
+  name: loadout-group-iaa-shoes
+  loadouts:
+  - NanotrasenRepresentativeBoots
+  - NanotrasenRepresentativeShoes
+  - DesignerWinterBoots
+
+- type: loadoutGroup
   id: InternalAffairsAgentBackpack
   name: loadout-group-iaa-backpack
   loadouts:
@@ -123,6 +131,7 @@
   - NanotrasenRepresentativeBoots
   - NanotrasenRepresentativeShoes
   - NanotrasenRepresentativeHeels
+  - DesignerWinterBoots
 
 - type: loadoutGroup
   id: MagistrateBackpack

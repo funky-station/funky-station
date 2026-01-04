@@ -216,11 +216,13 @@
   id: WorkBoots
   equipment:
     shoes: ClothingShoesBootsWork
+  groupBy: "boots"
 
 - type: loadout
   id: EngineeringWinterBoots
   equipment:
     shoes: ClothingShoesBootsWinterEngi
+  groupBy: "boots"
 
 # ID
 - type: loadout

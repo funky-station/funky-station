@@ -7162,3 +7162,9 @@ Entries:
       message: Removed chemist roundstart galoshes from the game.
   id: 833
   time: '2026-01-04T18:56:18.0000000+00:00'
+- author: Xcybitt
+  changes:
+    - type: Add
+      message: Added the nuclear fabricator and centrifuge boards into the CE's locker.
+  id: 834
+  time: '2026-01-04T19:12:00.0000000+00:00'

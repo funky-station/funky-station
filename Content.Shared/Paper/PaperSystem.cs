@@ -207,10 +207,15 @@ public sealed class PaperSystem : EntitySystem
     /// </summary>
     public bool TryStamp(Entity<PaperComponent> entity, StampDisplayInfo stampInfo, string spriteStampState)
     {
-        if (!entity.Comp.StampedBy.Contains(stampInfo))
+        // _Funkystation: Count how many times this specific stamp has been applied
+        var stampCount = entity.Comp.StampedBy.Count(s => s.StampedName == stampInfo.StampedName);
+
+        // Only track up to 10 of each stamp type, but allow stamping to continue
+        if (stampCount < 10)
         {
             entity.Comp.StampedBy.Add(stampInfo);
             Dirty(entity);
+
             if (entity.Comp.StampState == null && TryComp<AppearanceComponent>(entity, out var appearance))
             {
                 entity.Comp.StampState = spriteStampState;

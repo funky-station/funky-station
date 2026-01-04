@@ -4,8 +4,8 @@ meta:
   engineVersion: 268.0.0
   forkId: ""
   forkVersion: ""
-  time: 01/04/2026 22:32:23
-  entityCount: 20820
+  time: 01/04/2026 22:45:59
+  entityCount: 20821
 maps:
 - 1
 grids:
@@ -14541,7 +14541,7 @@ entities:
       pos: -10.5,-40.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -176441.27
+      secondsUntilStateChange: -176471.31
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -14718,7 +14718,7 @@ entities:
       pos: -7.5,-7.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -355984.56
+      secondsUntilStateChange: -356014.6
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -15238,7 +15238,7 @@ entities:
       pos: -27.5,10.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -534387.5
+      secondsUntilStateChange: -534417.56
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -90974,6 +90974,13 @@ entities:
     components:
     - type: Transform
       pos: -64.16931,32.54505
+      parent: 2
+- proto: PillCanisterMutadone
+  entities:
+  - uid: 20821
+    components:
+    - type: Transform
+      pos: -20.458422,-26.168768
       parent: 2
 - proto: PillCanisterRandom
   entities:

@@ -20,7 +20,7 @@
   - type: Clothing
     sprite: _Funkystation/Clothing/Shoes/Boots/redperformer.rsi
 
-# Forsaken Boots (Blood Cult themed no-slip boots), same sprite as done by Middleson
+# Forsaken Boots (Blood Cult themed no-slip boots)
 
 - type: entity
   parent: [ClothingShoesBaseButcherable, BaseMinorContraband]
@@ -29,10 +29,15 @@
   description: Cursed boots that grip the ground with an unnatural tenacity. The blood cult's dark magic ensures you'll never slip.
   components:
   - type: Sprite
-    sprite: _Funkystation/Clothing/Shoes/Boots/redperformer.rsi
+    sprite: _Funkystation/BloodCult/Clothing/cult_boots.rsi
   - type: Clothing
-    sprite: _Funkystation/Clothing/Shoes/Boots/redperformer.rsi
-  - type: NoSlip
+    sprite: _Funkystation/BloodCult/Clothing/cult_boots.rsi
+#  - type: NoSlip
+  - type: SlowedOverSlippery
+    slowdownModifier: 0.7
+  - type: SpeedModifierContactCapClothing
+    maxContactSprintSlowdown: 0.7
+    maxContactWalkSlowdown: 0.7
 # Chem Boots!
 
 - type: entity

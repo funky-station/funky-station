@@ -55,8 +55,10 @@
 // SPDX-FileCopyrightText: 2024 dffdff2423 <dffdff2423@gmail.com>
 // SPDX-FileCopyrightText: 2024 eoineoineoin <github@eoinrul.es>
 // SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Amethyst <52829582+jackel234@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Janet Blackquill <uhhadd@gmail.com>
 // SPDX-FileCopyrightText: 2025 Lyndomen <49795619+Lyndomen@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 MaiaArai <158123176+YaraaraY@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Mish <bluscout78@yahoo.com>
 // SPDX-FileCopyrightText: 2025 Mora <46364955+TrixxedHeart@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Quantum-cross <7065792+Quantum-cross@users.noreply.github.com>
@@ -64,12 +66,15 @@
 // SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 // SPDX-FileCopyrightText: 2025 Tobias Berger <toby@tobot.dev>
 // SPDX-FileCopyrightText: 2025 W.xyz() <tptechteam@gmail.com>
+// SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 maelines <amae.tones@gmail.com>
 // SPDX-FileCopyrightText: 2025 maelines <genovedd.almn@gmail.com>
 // SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
 // SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 // SPDX-FileCopyrightText: 2025 w.xyz() <84605679+pirakaplant@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2026 TrixxedHeart <46364955+TrixxedBit@users.noreply.github.com>
 //
 // SPDX-License-Identifier: MIT
 
@@ -109,6 +114,8 @@ using Robust.Shared.Utility;
 // Begin CD - Character Records
 using Content.Client._Funkystation.Medical.Records.UI;
 using Content.Shared._Funkystation.Records;
+using Robust.Client.Utility;
+
 // End CD - Character Records
 
 namespace Content.Client.Lobby.UI
@@ -618,22 +625,17 @@ namespace Content.Client.Lobby.UI
             foreach (var (categoryId, categoryTraits) in traitGroups)
             {
                 TraitCategoryPrototype? category = null;
+                string headerText = string.Empty;
+                int selectionCount = 0;
 
                 if (categoryId != TraitCategoryPrototype.Default)
                 {
                     category = _prototypeManager.Index<TraitCategoryPrototype>(categoryId);
-                    // Label
-                    TraitsList.AddChild(new Label
-                    {
-                        Text = Loc.GetString(category.Name),
-                        Margin = new Thickness(0, 10, 0, 0),
-                        StyleClasses = { StyleClass.LabelHeading },
-                    });
+                    headerText = Loc.GetString(category.Name);
                 }
 
-                List<TraitPreferenceSelector?> selectors = new();
-                var selectionCount = 0;
-
+                // Collect selectors and count points
+                List<(Control container, TraitPreferenceSelector selector, bool isSelected, bool isDisabled, int cost)> selectors = new();
                 foreach (var traitProto in categoryTraits)
                 {
                     var trait = _prototypeManager.Index<TraitPrototype>(traitProto);
@@ -646,10 +648,13 @@ namespace Content.Client.Lobby.UI
                     if (selector.Preference)
                         selectionCount += trait.Cost;
 
+                    var isDisabled = false;
+
                     // Check species restrictions
                     if (trait.SpeciesRestrictions != null && Profile?.Species != null && trait.SpeciesRestrictions.Contains<string>(Profile.Species))
                     {
                         selector.Checkbox.Disabled = true;
+                        isDisabled = true;
                         selector.Checkbox.Label.FontColorOverride = Color.Orange;
                         var tooltip = new PanelContainer
                         {
@@ -669,28 +674,46 @@ namespace Content.Client.Lobby.UI
                         Profile = Profile?.WithoutTraitPreference(trait.ID, _prototypeManager);
                     }
 
-                    // Check if required traits have not been chosen - Funky
-                    if (trait.Prerequisite != null && (!Profile?.TraitPreferences.Contains(trait.Prerequisite) ?? false))
+                    // _Funkystation: Check if this trait has a prerequisite
+                    if (trait.Prerequisite != null)
                     {
-                        selector.Checkbox.Disabled = true;
-                        selector.Checkbox.Label.FontColorOverride = Color.Orange;
-                        var tooltip = new PanelContainer
+                        var prerequisiteMet = Profile?.TraitPreferences.Contains(trait.Prerequisite) ?? false;
+
+                        if (!prerequisiteMet)
                         {
-                            StyleClasses = { StyleNano.StyleClassTooltipPanel },
-                            Children =
+                            // Prerequisite NOT met - grey it out but keep normal color
+                            var tooltip = new PanelContainer
                             {
-                                new Label
+                                StyleClasses = { StyleNano.StyleClassTooltipPanel },
+                                Children =
                                 {
-                                    Text = Loc.GetString("trait-prerequisite-required", ("prerequisite", trait.Prerequisite)),
-                                    HorizontalAlignment = HAlignment.Center,
-                                    FontColorOverride = Color.FromHex("#C8C8C8")
+                                    new Label
+                                    {
+                                        Text = Loc.GetString("trait-prerequisite-required", ("prerequisite", trait.Prerequisite)),
+                                        HorizontalAlignment = HAlignment.Center,
+                                        FontColorOverride = Color.FromHex("#C8C8C8")
+                                    }
                                 }
+                            };
+                            selector.Checkbox.TooltipSupplier = _ => tooltip;
+                            selector.Preference = false;
+                            Profile = Profile?.WithoutTraitPreference(trait.ID, _prototypeManager);
+
+                            // Grey it out to show it's not currently available
+                            selector.Modulate = new Color(0.5f, 0.5f, 0.5f, 1.0f);
+                            if (selector.Checkbox.Label != null)
+                            {
+                                selector.Checkbox.Label.Modulate = new Color(0.5f, 0.5f, 0.5f, 1.0f);
                             }
-                        };
-                        selector.Checkbox.TooltipSupplier = _ => tooltip;
-                        selector.Preference = false;
-                        Profile = Profile?.WithoutTraitPreference(trait.ID, _prototypeManager);
+                        }
+                        else
+                        {
+                            // Prerequisite IS met - make it cyan to show it's special/available
+                            selector.Checkbox.Label.FontColorOverride = Color.Cyan;
+                        }
                     }
+
+                    var isSelected = selector.Preference;
 
                     selector.PreferenceChanged += preference =>
                     {
@@ -703,34 +726,163 @@ namespace Content.Client.Lobby.UI
                             Profile = Profile?.WithoutTraitPreference(trait.ID, _prototypeManager);
                         }
 
-                        SetDirty();
-                        RefreshTraits(); // If too many traits are selected, they will be reset to the real value.
+                        setDirty();
+                        RefreshTraits();
                     };
-                    selectors.Add(selector);
+
+                    // _Funkystation: Wrap selector in a clickable container button
+                    var clickableButton = new ContainerButton
+                    {
+                        HorizontalExpand = true,
+                        VerticalExpand = false,
+                        Margin = new Thickness(2, 2, 2, 2)
+                    };
+
+                    // _Funkystation: panel :3
+                    var blockPanel = new PanelContainer
+                    {
+                        PanelOverride = new StyleBoxFlat
+                        {
+                            BackgroundColor = Color.FromHex("#202028"),
+                            ContentMarginLeftOverride = 4,
+                            ContentMarginRightOverride = 4,
+                            ContentMarginTopOverride = 2,
+                            ContentMarginBottomOverride = 2,
+                            BorderThickness = new Thickness(0)
+                        },
+                        HorizontalExpand = true,
+                        VerticalExpand = false
+                    };
+                    blockPanel.AddChild(selector);
+                    clickableButton.AddChild(blockPanel);
+
+                    // Funkystation: Make the entire button clickable to toggle the checkbox
+                    clickableButton.OnPressed += _ =>
+                    {
+                        if (!selector.Checkbox.Disabled)
+                        {
+                            var newState = !selector.Checkbox.Pressed;
+                            selector.Checkbox.Pressed = newState;
+
+                            // _Manually trigger the preference change since we're bypassing the checkbox's normal event
+                            if (newState)
+                            {
+                                Profile = Profile?.WithTraitPreference(trait.ID, _prototypeManager);
+                            }
+                            else
+                            {
+                                Profile = Profile?.WithoutTraitPreference(trait.ID, _prototypeManager);
+                            }
+
+                            setDirty();
+                            RefreshTraits();
+                        }
+                    };
+
+                    selectors.Add((clickableButton, selector, isSelected, isDisabled, trait.Cost));
                 }
 
-                // Selection counter
-                if (category is { MaxTraitPoints: >= 0 })
-                {
-                    TraitsList.AddChild(new Label
-                    {
-                        Text = Loc.GetString("humanoid-profile-editor-trait-count-hint", ("current", selectionCount), ("max", category.MaxTraitPoints)),
-                        FontColorOverride = Color.Gray
-                    });
-                }
+                // _Funkystation: Check if points are maxed out
+                var pointsMaxedOut = category is { MaxTraitPoints: >= 0 } && selectionCount >= category.MaxTraitPoints;
 
-                foreach (var selector in selectors)
+                // _Funkystation: Apply grey out effect to unselected traits if points are maxed (but not to zerocost traits)
+                if (pointsMaxedOut)
                 {
-                    if (selector == null)
-                        continue;
-
-                    if (category is { MaxTraitPoints: >= 0 } &&
-                        selector.Cost + selectionCount > category.MaxTraitPoints)
+                    foreach (var (container, selector, isSelected, isDisabled, cost) in selectors)
                     {
-                        selector.Checkbox.Label.FontColorOverride = Color.Red;
+                        // Don't grey out if: selected, disabled, or has 0 cost (free traits should always be selectable)
+                        if (!isSelected && !isDisabled && cost != 0)
+                        {
+                            selector.Modulate = new Color(0.5f, 0.5f, 0.5f, 1.0f);
+                            // Also modulate the label color to ensure overridden colors get greyed out
+                            if (selector.Checkbox.Label != null)
+                            {
+                                selector.Checkbox.Label.Modulate = new Color(0.5f, 0.5f, 0.5f, 1.0f);
+                            }
+                        }
                     }
+                }
 
-                    TraitsList.AddChild(selector);
+                // _Funkystation: collapsible header
+                BoxContainer? counterAndGridContainer = null;
+                if (categoryId != TraitCategoryPrototype.Default)
+                {
+                    var headerButton = new ContainerButton
+                    {
+                        HorizontalExpand = true,
+                        Margin = new Thickness(0, 10, 0, 5)
+                    };
+
+                    // _Funkystation: header panel
+                    var headerPanel = new PanelContainer
+                    {
+                        PanelOverride = new StyleBoxFlat
+                        {
+                            BackgroundColor = Color.FromHex("#202028"),
+                            ContentMarginLeftOverride = 8,
+                            ContentMarginRightOverride = 8,
+                            ContentMarginTopOverride = 4,
+                            ContentMarginBottomOverride = 4,
+                            BorderThickness = new Thickness(0)
+                        },
+                        HorizontalExpand = true
+                    };
+                    headerPanel.AddChild(new Label
+                    {
+                        Text = headerText,
+                        HorizontalAlignment = HAlignment.Center,
+                    });
+                    headerButton.AddChild(headerPanel);
+                    TraitsList.AddChild(headerButton);
+
+                    // _Funkystation: container grid shit
+                    counterAndGridContainer = new BoxContainer
+                    {
+                        Orientation = LayoutOrientation.Vertical,
+                        HorizontalExpand = true
+                    };
+
+                    // _Funkystation: available points counter
+                    if (category is { MaxTraitPoints: >= 0 })
+                    {
+                        var counterText = Loc.GetString("humanoid-profile-editor-trait-count-hint", ("current", selectionCount), ("max", category.MaxTraitPoints));
+                        var counterColor = pointsMaxedOut ? Color.FromHex("#FF4040") : Color.Gray;
+                        counterAndGridContainer.AddChild(new Label
+                        {
+                            Text = counterText,
+                            FontColorOverride = counterColor,
+                            Margin = new Thickness(0, 0, 0, 5),
+                            HorizontalAlignment = HAlignment.Center
+                        });
+                    }
+                    headerButton.OnPressed += _ =>
+                    {
+                        if (counterAndGridContainer != null)
+                        {
+                            counterAndGridContainer.Visible = !counterAndGridContainer.Visible;
+                        }
+                    };
+                }
+
+                // _Funkystation: aligns the traits in a grid
+                var grid = new GridContainer
+                {
+                    Columns = 3,
+                    HorizontalExpand = true,
+                    Margin = new Thickness(0, 0, 0, 10)
+                };
+                foreach (var (container, _, _, _, _) in selectors)
+                {
+                    grid.AddChild(container);
+                }
+                if (counterAndGridContainer != null)
+                {
+                    counterAndGridContainer.AddChild(grid);
+                    TraitsList.AddChild(counterAndGridContainer);
+                }
+                else
+                {
+                    TraitsList.AddChild(grid);
                 }
             }
         }
@@ -804,7 +956,7 @@ namespace Content.Client.Lobby.UI
                 {
                     selector.LockRequirements(reason);
                     Profile = Profile?.WithAntagPreference(antag.ID, false);
-                    SetDirty();
+                    setDirty();
                 }
                 else
                 {
@@ -815,7 +967,7 @@ namespace Content.Client.Lobby.UI
                 {
                     Profile = Profile?.WithAntagPreference(antag.ID, preference == 0);
                     ReloadPreview();
-                    SetDirty();
+                    setDirty();
                 };
 
                 antagContainer.AddChild(selector);
@@ -832,7 +984,7 @@ namespace Content.Client.Lobby.UI
             }
         }
 
-        private void SetDirty()
+        private void setDirty()
         {
             // If it equals default then reset the button.
             if (Profile == null || _savedProfile?.MemberwiseEquals(Profile) == true)
@@ -863,7 +1015,7 @@ namespace Content.Client.Lobby.UI
         {
             Preview.ReloadPreview();
             // Check and set the dirty flag to enable the save/reset buttons as appropriate.
-            SetDirty();
+            setDirty();
         }
 
         /// <summary>
@@ -936,7 +1088,7 @@ namespace Content.Client.Lobby.UI
         {
             Preview.ReloadProfilePreview();
             // Check and set the dirty flag to enable the save/reset buttons as appropriate.
-            SetDirty();
+            setDirty();
         }
 
         private void OnSpeciesInfoButtonPressed(BaseButton.ButtonEventArgs args)
@@ -1038,6 +1190,8 @@ namespace Content.Client.Lobby.UI
 
                 Array.Sort(jobs, JobUIComparer.Instance);
 
+                var altJobTitlesEnable = _cfgManager.GetCVar(CCVars.ICAlternateJobTitlesEnable);
+
                 foreach (var job in jobs)
                 {
                     var jobContainer = new BoxContainer()
@@ -1048,6 +1202,7 @@ namespace Content.Client.Lobby.UI
                     var selector = new RequirementsSelector()
                     {
                         Margin = new Thickness(3f, 3f, 3f, 0f),
+                        HorizontalExpand = true,
                     };
                     selector.OnOpenGuidebook += OnOpenGuidebook;
 
@@ -1057,19 +1212,58 @@ namespace Content.Client.Lobby.UI
                         VerticalAlignment = VAlignment.Center
                     };
                     var jobIcon = _prototypeManager.Index(job.Icon);
-                    icon.Texture = _sprite.Frame0(jobIcon.Icon);
-                    selector.Setup(items, job.LocalizedName, 200, job.LocalizedDescription, icon, job.Guides);
+                    icon.Texture = jobIcon.Icon.Frame0();
+                    var hasDefaultAltTitle = Profile?.JobAlternateTitles.ContainsKey(job.ID);
+
+                    List<(ProtoId<JobAlternateTitlePrototype> Id, bool Locked)>? altTitleInfo = null;
+                    ProtoId<JobAlternateTitlePrototype>? currentAlt = null;
+
+                    if (altJobTitlesEnable)
+                    {
+                        if (hasDefaultAltTitle.HasValue && hasDefaultAltTitle.Value)
+                        {
+                            currentAlt = Profile?.JobAlternateTitles[job.ID];
+                        }
+
+                        if (job.AlternateTitles != null)
+                        {
+                            altTitleInfo = new List<(ProtoId<JobAlternateTitlePrototype>, bool)>();
+                            foreach (var titleId in job.AlternateTitles)
+                            {
+                                var isLocked = false;
+                                if (_prototypeManager.TryIndex(titleId, out var titleProto) &&
+                                    titleProto.Requirements != null)
+                                {
+                                    if (!_requirements.CheckRoleRequirements(titleProto.Requirements, Profile, out _))
+                                    {
+                                        isLocked = true;
+                                    }
+                                }
+                                altTitleInfo.Add((titleId, isLocked));
+                            }
+                        }
+                    }
+
+                    selector.Setup(items, job.LocalizedName, 280, job.LocalizedDescription, icon, job.Guides, altTitleInfo, currentAlt, _prototypeManager);
 
                     if (!_requirements.IsAllowed(job, Profile, out var reason))
                     {
                         selector.LockRequirements(reason);
                         Profile = Profile?.WithoutJob(job);
-                        SetDirty();
+                        setDirty();
                     }
                     else
                     {
                         selector.UnlockRequirements();
                     }
+
+                    selector.OnSelectedTitle += selectedTitle =>
+                    {
+                        if (!altJobTitlesEnable)
+                            return;
+                        Profile = Profile?.WithJobAltTitle(job.ID, selectedTitle);
+                        setDirty();
+                    };
 
                     selector.OnSelected += selection =>
                     {
@@ -1078,7 +1272,7 @@ namespace Content.Client.Lobby.UI
 
                         UpdateJobPreferences();
                         ReloadPreview();
-                        SetDirty();
+                        setDirty();
                     };
 
                     var loadoutWindowBtn = new Button()
@@ -1153,7 +1347,7 @@ namespace Content.Client.Lobby.UI
             {
                 roleLoadout.EntityName = name;
                 Profile = Profile.WithLoadout(roleLoadout);
-                SetDirty();
+                setDirty();
             };
 
             _loadoutWindow.OnLoadoutPressed += (loadoutGroup, loadoutProto) =>
@@ -1203,7 +1397,7 @@ namespace Content.Client.Lobby.UI
                 return;
 
             Profile = Profile.WithFlavorText(content);
-            SetDirty();
+            setDirty();
         }
 
         private void OnMarkingChange(MarkingSet markings)
@@ -1302,7 +1496,7 @@ namespace Content.Client.Lobby.UI
         private void SetBorgName(string newBName)
         {
             Profile = Profile?.WithBorgName(newBName);
-            SetDirty();
+            setDirty();
 
             if (!IsDirty)
                 return;
@@ -1353,7 +1547,7 @@ namespace Content.Client.Lobby.UI
         private void SetName(string newName)
         {
             Profile = Profile?.WithName(newName);
-            SetDirty();
+            setDirty();
 
             if (!IsDirty)
                 return;
@@ -1364,7 +1558,7 @@ namespace Content.Client.Lobby.UI
         private void SetSpawnPriority(SpawnPriorityPreference newSpawnPriority)
         {
             Profile = Profile?.WithSpawnPriorityPreference(newSpawnPriority);
-            SetDirty();
+            setDirty();
         }
 
         public bool IsDirty
@@ -1679,7 +1873,7 @@ namespace Content.Client.Lobby.UI
         {
             Profile = HumanoidCharacterProfile.Random();
             SetProfile(Profile, CharacterSlot);
-            SetDirty();
+            setDirty();
         }
 
         private void RandomizeName()

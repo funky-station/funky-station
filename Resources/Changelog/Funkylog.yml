@@ -7108,3 +7108,11 @@ Entries:
       message: Fixed a typo in the Dry Skin mood description.
   id: 827
   time: '2026-01-04T18:17:56.0000000+00:00'
+- author: Xcybitt
+  changes:
+    - type: Add
+      message: Added syndicate IDs and PDAs to the uplink.
+    - type: Tweak
+      message: Made current PDAs and IDs into departemental contraband.
+  id: 828
+  time: '2026-01-04T18:21:07.0000000+00:00'

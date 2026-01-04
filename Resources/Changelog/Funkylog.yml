@@ -7138,3 +7138,21 @@ Entries:
       message: Added cloak punching to the game!
   id: 831
   time: '2026-01-04T18:41:02.0000000+00:00'
+- author: ferynn
+  changes:
+    - type: Tweak
+      message: >-
+        Fleshmend and Anatomic Panacea now cost biomass instead of chemicals.
+        Cooldown reduced.
+    - type: Tweak
+      message: >-
+        Regenerative Stasis costs more biomass to use. Chemical cost to rise
+        again is slightly lowered.
+    - type: Tweak
+      message: Several changeling abilities had their evolution point cost changed.
+    - type: Tweak
+      message: Changelings must lose more biomass to display visible signs to others.
+    - type: Fix
+      message: Changelings can no longer rot
+  id: 832
+  time: '2026-01-04T18:43:36.0000000+00:00'

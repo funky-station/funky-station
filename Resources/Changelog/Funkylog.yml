@@ -7168,3 +7168,25 @@ Entries:
       message: Added the nuclear fabricator and centrifuge boards into the CE's locker.
   id: 834
   time: '2026-01-04T19:12:00.0000000+00:00'
+- author: TrixxedHeart
+  changes:
+    - type: Fix
+      message: Migraine overlay now fades out properly
+    - type: Fix
+      message: Dead people can no longer have migraines
+    - type: Tweak
+      message: Migraine durations have been adjusted
+    - type: Add
+      message: >-
+        Added trait Neuroaversion. When enabled, individuals with it enabled
+        will experience side effects when implanted with Mindshields, such as
+        migraines and seizures.
+    - type: Add
+      message: >-
+        Added Neuroaversion to the records medical history list, this is
+        separate and does NOT enable when you have the Neuroaversion trait
+        enabled.
+    - type: Add
+      message: Neuroaversion Considerations under Space Law
+  id: 835
+  time: '2026-01-04T22:11:12.0000000+00:00'

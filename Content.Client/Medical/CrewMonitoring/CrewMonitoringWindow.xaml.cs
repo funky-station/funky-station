@@ -166,7 +166,7 @@ public sealed partial class CrewMonitoringWindow : FancyWindow
                 HorizontalExpand = true,
             };
 
-            deparmentLabel.SetMessage(Loc.GetString("crew-monitoring-ui-no-department-label"));
+            deparmentLabel.SetMessage(Loc.GetString("crew-monitoring-user-interface-no-department"));
 
             SensorsTable.AddChild(deparmentLabel);
 

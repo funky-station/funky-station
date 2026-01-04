@@ -7044,3 +7044,9 @@ Entries:
       message: Converted Bagels atmos spawns into regular engi spawns
   id: 820
   time: '2026-01-03T05:59:49.0000000+00:00'
+- author: AraiMaia
+  changes:
+    - type: Tweak
+      message: Slightly tweaked the Engineering hardsuit sprite.
+  id: 821
+  time: '2026-01-04T02:41:54.0000000+00:00'

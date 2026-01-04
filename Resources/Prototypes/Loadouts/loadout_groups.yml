@@ -1870,7 +1870,7 @@
   id: ChiefMedicalOfficerShoes
   name: loadout-group-chief-medical-officer-shoes
   loadouts:
-  - ChemistShoes
+  - ChemistBoots
   - BlueShoes
   - BlackShoes
   - WhiteShoes

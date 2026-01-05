@@ -7254,3 +7254,13 @@ Entries:
       message: banana bread now visible in the guidebook under the bread section
   id: 841
   time: '2026-01-05T02:02:14.0000000+00:00'
+- author: mkanke
+  changes:
+    - type: Remove
+      message: Removed atmos spawn points from Roid
+    - type: Add
+      message: Reworked Roid sci to add a genetics room
+    - type: Fix
+      message: Fixed Roid Botany windows and AI control panels
+  id: 842
+  time: '2026-01-05T02:39:46.0000000+00:00'

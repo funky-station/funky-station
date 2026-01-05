@@ -7168,3 +7168,63 @@ Entries:
       message: Added the nuclear fabricator and centrifuge boards into the CE's locker.
   id: 834
   time: '2026-01-04T19:12:00.0000000+00:00'
+- author: TrixxedHeart
+  changes:
+    - type: Fix
+      message: Migraine overlay now fades out properly
+    - type: Fix
+      message: Dead people can no longer have migraines
+    - type: Tweak
+      message: Migraine durations have been adjusted
+    - type: Add
+      message: >-
+        Added trait Neuroaversion. When enabled, individuals with it enabled
+        will experience side effects when implanted with Mindshields, such as
+        migraines and seizures.
+    - type: Add
+      message: >-
+        Added Neuroaversion to the records medical history list, this is
+        separate and does NOT enable when you have the Neuroaversion trait
+        enabled.
+    - type: Add
+      message: Neuroaversion Considerations under Space Law
+  id: 835
+  time: '2026-01-04T22:11:12.0000000+00:00'
+- author: TrixxedHeart
+  changes:
+    - type: Tweak
+      message: Signature fonts now display the font in the trait tab
+  id: 836
+  time: '2026-01-04T23:34:52.0000000+00:00'
+- author: SigmaTheDragon
+  changes:
+    - type: Fix
+      message: >-
+        Made the nullrod menu descripitions of the Aureole Arc and the Annabelle
+        more accurate.
+    - type: Add
+      message: 'Added a new melee chaplain weapon: the Star Rapier'
+    - type: Add
+      message: 'Added a new support chaplain weapon: the Staff of Nature'
+    - type: Add
+      message: 'Added a new melee chaplain weapon: the Crooked Crucifix'
+    - type: Add
+      message: 'Added a new ranged chaplain weapon: the N1984H'
+    - type: Add
+      message: 'Added a new ranged chaplain weapon: the Honkmother''s Honkannon'
+    - type: Add
+      message: 'Added a new support chaplain weapon: the Enchanted Toolbox'
+    - type: Add
+      message: 'Added a new melee chaplain weapon: the Bloody Chainsword'
+    - type: Add
+      message: 'Added a new melee chaplain weapon: the Haunted Sword'
+  id: 837
+  time: '2026-01-04T23:39:21.0000000+00:00'
+- author: AraiMaia
+  changes:
+    - type: Add
+      message: >-
+        New sprites for Gas Filters, Gas Mixers, Pressure pumps, Volumetric
+        pumps, manifolds and all pipes.
+  id: 838
+  time: '2026-01-05T00:40:19.0000000+00:00'

@@ -85,6 +85,8 @@
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]
+  alternateTitles:
+  - WardenDispatch
 
 - type: startingGear
   id: WardenGear
@@ -99,3 +101,7 @@
     - MagazinePistol
     - SecHypo # Goobstation
     - autoInjectorCartridgeCaseSoft
+
+- type: jobAlternateTitle
+  id: WardenDispatch
+  name: job-name-alt-warden-1

@@ -18,6 +18,7 @@ using Robust.Client.UserInterface.XAML;
 using Robust.Shared.GameObjects;
 using Robust.Shared.Graphics;
 using Robust.Shared.Graphics.RSI;
+using Robust.Shared.IoC;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations;
@@ -42,7 +43,9 @@ public sealed partial class RuneRadialMenu : RadialMenu
 
     public RuneRadialMenu()
     {
-        IoCManager.InjectDependencies(this);
+        var dependencies = IoCManager.Instance;
+        if (dependencies != null)
+            dependencies.InjectDependencies(this);
         RobustXamlLoader.Load(this);
         _spriteSystem = _entitySystem.GetEntitySystem<SpriteSystem>();
     }

@@ -11,43 +11,70 @@ SPDX-License-Identifier: MIT
 
 ## Code Green
 
-[bold]1.[/bold] Security Officers are encouraged to act in accordance with the [textlink="Security Rules of Conduct" link="RulesOfConduct"] before engaging with any member of the public.
+[bold]1.[/bold] Security Officers are required to act in accordance with the [textlink="Security Rules of Conduct" link="RulesOfConduct"] before engaging with any member of the public.
 
-[bold]2.[/bold] Security Officers are required to state the reasons behind an arrest before any further action is taken. Exception is made if the suspect refuses to stop;
+[bold]2.[/bold] Security Officers are required to state the reasons behind an arrest, prior to an arrest, before any further action is taken. An exception is made if the suspect flees valid questioning or other special circumstances; however, the reason should be given as soon as circumstances return to normal.
 
-[bold]3.[/bold] Security Officers must attempt to bring all suspects or witnesses to the Brig without handcuffing or incapacitating them. Should the suspect not cooperate, the officer may proceed as usual;
+[bold]3.[/bold] Security Officers must attempt to bring all suspects or witnesses to the Brig for interrogation or witness statements without handcuffing or incapacitating them. Should the suspect not cooperate, the officer may proceed as usual.
 
-[bold]4.[/bold] No weapons are to be brandished until the suspect attempts to run away or becomes actively hostile;
+[bold]4.[/bold] No weapons, including non-lethal weapons such as batons and disablers, are to be brandished until the suspect attempts to run away or becomes actively hostile;
 
-[bold]5.[/bold] Security Officers may [bold]not[/bold] demand access to the interior of other Departments during regular patrols. However, asking for access from the [color=#9fed58]Head of Personnel[/color] is still acceptable;
+[bold]5.[/bold] Security Officers may [bold]not[/bold] demand access to the interior of other Departments during regular patrols, or enter through security checkpoints. However, asking for access from the relevant department head is permitted.
 
-[bold]6.[/bold] Security Officers are [bold]not[/bold] permitted to have weapons drawn during regular patrols;
+[bold]6.[/bold] Security Officers are [bold]not[/bold] permitted to have weapons drawn during regular patrols, including non-lethal weapons such as batons and disablers;
 
-[bold]7.[/bold] Security Officers are [bold]not[/bold] permitted to conduct searches, unless there is reasonable evidence/suspicion that the person in question has committed a crime. Any further searches require a warrant from the [color=#1b67a5]Head of Security[/color] or [color=#1b67a5]Captain[/color];
+[bold]7.[/bold] Security Officers are required to wear their uniform visibly in accordance with the [textlink="Security Rules of Conduct" link="RulesOfConduct"].
 
-[bold]8.[/bold] Security Officers are required to wear their uniform in accordance with the [textlink="Security Rules of Conduct" link="RulesOfConduct"].
+[bold]8.[/bold] Searches have a statute of limitations for the circumstances that allow it, and must be for one of the following reasons. The statute of limitations is twenty minutes unless otherwise stated. The reason for the search must be timely and relevant. Should a person subject to a search be inside their department, entry may be requested, with refusal being Failure to Comply.
 
+1. The suspect is, or was previously seen as supported by tangible evidence or eyewitness account, brandishing, wearing, using, or otherwise in possession of a contraband item of any level, including stolen items or tampered with IDs
+2. The suspect is or was, through tangible evidence or eyewitness account, present at the scene of a relevant crime
+3. The suspect is or was trespassing, as shown by tangible evidence or an eyewitness account, in an area where they do not have prior approved access from the relevant authority
+4. The suspect is not on station records, or station records display contradictory information to their appearance
+5. The suspect has verbally voiced intent to commit a crime, admitted to having committed a crime, or stated they are in possession of a contraband item of any level, including stolen items or tampered with IDs
+6. The suspect verbally consented to a search at the time of searching
+7. The suspect is or was observed fleeing from a lawful security interaction, such as questioning, without cause
+8. The suspect has been convicted previously for a crime
+  
+[bold]9.[/bold] All searches must be approved by the Warden or Head of Security over coms or in paper. Should the Warden or Head of Security not approve the request, or an unreasonable duration has passed without approval, the search is void. The reason must also be provided upon searching to the suspect.
 ## Code Blue
 
-[bold]1.[/bold] Guidelines 1, 2, 4 and 8 are carried over from [color=green]Code Green[/color];
+[bold]1.[/bold] Guidelines 1, 2, 5, 7, and 8 are carried over from [color=green]Code Green[/color];
 
-[bold]2.[/bold] Security Officers are permitted to carry around any weapons or equipment available in the Armory, at the [color=#cb0000]Warden[/color]'s discretion, but never more than one at a time. Exception is made for severe emergencies, such as terrorism;
+[bold]2.[/bold] Security Officers are permitted to carry weapons in hand during regular patrols, although this is not advised;
 
-[bold]3.[/bold] Security Officers are permitted to carry weapons in hand during regular patrols, although this is not advised;
+[bold]3.[/bold] Security Officers are permitted to present weapons during arrests prior to the suspect attempting to run away or becoming actively hostile at their discretion;
 
-[bold]4.[/bold] Security Officers are permitted to present weapons during arrests;
-
-[bold]5.[/bold] Security Officers may demand entry to specific Departments during regular patrols;
-
-[bold]6.[/bold] Security Officers may randomly search crewmembers, but are not allowed to apply any degree of force unless said crewmember acts overtly hostile. Crew who refuse to be searched may be stunned and cuffed for the search;
-
-[bold]7.[/bold] Security Officers are permitted to leave prisoners cuffed should they act hostile.
+[bold]4.[/bold] Security Officers are permitted to conduct a search without waiting for approval; however, they should still state the reason to the suspect, and over radio.
 
 ## Code Red
 
-[bold]1.[/bold] Guidelines 2, 3, 4, 5, 6, and 7 are carried over from Code Blue. Guideline 8 is carried over from [color=green]Code Green[/color];
+[bold]1.[/bold] Guidelines 2 and 3 are carried over from Code Blue. Guidelines 1 and 7 are carried over from [color=green]Code Green[/color];
 
 [bold]2.[/bold] Security Officers may arrest crewmembers with no stated reason if there is evidence they are involved in criminal activities;
 
-[bold]3.[/bold] Security Officers may forcefully relocate crewmembers to their respective Departments if necessary.
-</Document>
+[bold]3.[/bold] Security Officers may forcefully, yet reasonably, relocate crewmembers to their respective departments or a public area if necessary to maintain order or to secure an area.
+
+[bold]4.[/bold] Security Officers are permitted to carry on their person any weapons or equipment available in the Armory, at the [color=#cb0000]Warden's and HOS[/color]'s discretion, but never more than one longarm at a time. 
+
+[bold]5.[/bold] Security Officers may search crewmembers with no stated reason if there is evidence they are involved in criminal activities, and with refusal being Failure to Comply.
+
+[bold]6.[/bold] Security Officers may use their allocated breaching charges and hacking tools to gain entry into areas as needed without the act being considered Destruction of Property.
+
+## Code Violet 
+
+[bold]1.[/bold] Guidelines 2 and 3 are carried over from Code Blue. Guidelines 1 and 7 are carried over from [color=green]Code Green[/color]. Guidelines 1, 2, 3, 4, 5, and 6 are carried over from Code Red
+  
+[bold]2.[/bold] All Security Officers are required to don their Security Gas Mask, or any other breath mask. 
+  
+[bold]3.[/bold] All Security Officers are required to enable internals and keep internals on at all times when not eating or drinking.
+  
+[bold]4.[/bold] All Security Officers should consider any person not wearing a facial covering in violation of Failure to Comply and Endangerment. The same is true for any person discouraging the wearing of facial coverings.
+  
+[bold]5.[/bold] All Security Officers should ensure the brig is equipped with basic surgical tools and a bed
+
+[bold]5.[/bold] All Security Officers must provide a facial covering to prisoners, and enforce their wearing of this covering per guideline 4. 
+
+[bold]5.[/bold] All Security Officers must ensure that medical personnel correctly dispose of infected zombies, and that they are actively disposing of zombie tumors.
+
+

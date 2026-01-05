@@ -32,11 +32,11 @@ public sealed class LizardAccentSystem : EntitySystem
         // hiSSS
         message = RegexUpperS.Replace(message, "SSS");
         // ekssit
-        message = RegexInternalX.Replace(message, "$1kss");
+        message = RegexInternalX.Replace(message, "$1ssh");
         // ecks
-        message = RegexLowerEndX.Replace(message, "ecks$1");
+        message = RegexLowerEndX.Replace(message, "essh$1");
         // eckS
-        message = RegexUpperEndX.Replace(message, "ECKS$1");
+        message = RegexUpperEndX.Replace(message, "ESSH$1");
 
         args.Message = message;
     }

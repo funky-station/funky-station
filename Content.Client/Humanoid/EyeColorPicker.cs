@@ -31,7 +31,10 @@ public sealed class EyeColorPicker : Control
         };
         AddChild(vBox);
 
-        vBox.AddChild(_colorSelectors = new ColorSelectorSliders());
+        vBox.AddChild(_colorSelectors = new ColorSelectorSliders
+        {
+            SelectorType = ColorSelectorSliders.ColorSelectorType.Hsv // Default to HSV
+        });
 
         _colorSelectors.OnColorChanged += ColorValueChanged;
     }

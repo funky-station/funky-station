@@ -7238,3 +7238,9 @@ Entries:
       message: mice can't squeak under emitters anymore
   id: 839
   time: '2026-01-05T01:09:20.0000000+00:00'
+- author: carccborg
+  changes:
+    - type: Tweak
+      message: Characters with the Numb trait no longer scream during surgery.
+  id: 840
+  time: '2026-01-05T01:58:22.0000000+00:00'

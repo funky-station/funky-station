@@ -7220,3 +7220,11 @@ Entries:
       message: 'Added a new melee chaplain weapon: the Haunted Sword'
   id: 837
   time: '2026-01-04T23:39:21.0000000+00:00'
+- author: AraiMaia
+  changes:
+    - type: Add
+      message: >-
+        New sprites for Gas Filters, Gas Mixers, Pressure pumps, Volumetric
+        pumps, manifolds and all pipes.
+  id: 838
+  time: '2026-01-05T00:40:19.0000000+00:00'

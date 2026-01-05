@@ -7072,3 +7072,185 @@ Entries:
       message: New sprites for the Stasis Beds!
   id: 824
   time: '2026-01-04T05:48:57.0000000+00:00'
+- author: zergologist
+  changes:
+    - type: Add
+      message: funky new sprites for a vast majority of the boots
+    - type: Add
+      message: loadout groups for boots and shoes
+    - type: Tweak
+      message: 'departmental winter boots have been reworked to be largely generic '
+    - type: Tweak
+      message: >-
+        the vast majority of roles have been given alternative boots to start
+        off with
+    - type: Tweak
+      message: the -drobes have been adjusted to reflect these boots changes
+    - type: Fix
+      message: the high heel boots give you height now
+  id: 825
+  time: '2026-01-04T07:31:05.0000000+00:00'
+- author: TheHolyAegis
+  changes:
+    - type: Remove
+      message: Removed atmospheric technician spawns
+    - type: Add
+      message: Replaced the spawns with station engineer spawns
+    - type: Fix
+      message: Fixed the unpowered engineering airlocks on the evacuation shuttle
+  id: 826
+  time: '2026-01-04T17:41:38.0000000+00:00'
+- author: Mariiibo
+  changes:
+    - type: Add
+      message: Enabled the Taboo words Thaven mood.
+    - type: Tweak
+      message: Fixed a typo in the Dry Skin mood description.
+  id: 827
+  time: '2026-01-04T18:17:56.0000000+00:00'
+- author: Xcybitt
+  changes:
+    - type: Add
+      message: Added syndicate IDs and PDAs to the uplink.
+    - type: Tweak
+      message: Made current PDAs and IDs into departemental contraband.
+  id: 828
+  time: '2026-01-04T18:21:07.0000000+00:00'
+- author: sowelipililimute, AraiMaia
+  changes:
+    - type: Add
+      message: >-
+        Station AI can now choose from a selection of programs roundstart to
+        expand its abilities, ranging from deploying metal foam on hull
+        breaches, to making honk noises from holopads, to remotely repairing
+        borgs a small amount.
+  id: 829
+  time: '2026-01-04T18:31:50.0000000+00:00'
+- author: Homingpenguins
+  changes:
+    - type: Tweak
+      message: Changed the way Proto-Nitrate reacts with Hydrogen and Tritium.
+  id: 830
+  time: '2026-01-04T18:34:52.0000000+00:00'
+- author: Xcybitt
+  changes:
+    - type: Add
+      message: Added cloak punching to the game!
+  id: 831
+  time: '2026-01-04T18:41:02.0000000+00:00'
+- author: ferynn
+  changes:
+    - type: Tweak
+      message: >-
+        Fleshmend and Anatomic Panacea now cost biomass instead of chemicals.
+        Cooldown reduced.
+    - type: Tweak
+      message: >-
+        Regenerative Stasis costs more biomass to use. Chemical cost to rise
+        again is slightly lowered.
+    - type: Tweak
+      message: Several changeling abilities had their evolution point cost changed.
+    - type: Tweak
+      message: Changelings must lose more biomass to display visible signs to others.
+    - type: Fix
+      message: Changelings can no longer rot
+  id: 832
+  time: '2026-01-04T18:43:36.0000000+00:00'
+- author: Xcybitt
+  changes:
+    - type: Remove
+      message: Removed chemist roundstart galoshes from the game.
+  id: 833
+  time: '2026-01-04T18:56:18.0000000+00:00'
+- author: Xcybitt
+  changes:
+    - type: Add
+      message: Added the nuclear fabricator and centrifuge boards into the CE's locker.
+  id: 834
+  time: '2026-01-04T19:12:00.0000000+00:00'
+- author: TrixxedHeart
+  changes:
+    - type: Fix
+      message: Migraine overlay now fades out properly
+    - type: Fix
+      message: Dead people can no longer have migraines
+    - type: Tweak
+      message: Migraine durations have been adjusted
+    - type: Add
+      message: >-
+        Added trait Neuroaversion. When enabled, individuals with it enabled
+        will experience side effects when implanted with Mindshields, such as
+        migraines and seizures.
+    - type: Add
+      message: >-
+        Added Neuroaversion to the records medical history list, this is
+        separate and does NOT enable when you have the Neuroaversion trait
+        enabled.
+    - type: Add
+      message: Neuroaversion Considerations under Space Law
+  id: 835
+  time: '2026-01-04T22:11:12.0000000+00:00'
+- author: TrixxedHeart
+  changes:
+    - type: Tweak
+      message: Signature fonts now display the font in the trait tab
+  id: 836
+  time: '2026-01-04T23:34:52.0000000+00:00'
+- author: SigmaTheDragon
+  changes:
+    - type: Fix
+      message: >-
+        Made the nullrod menu descripitions of the Aureole Arc and the Annabelle
+        more accurate.
+    - type: Add
+      message: 'Added a new melee chaplain weapon: the Star Rapier'
+    - type: Add
+      message: 'Added a new support chaplain weapon: the Staff of Nature'
+    - type: Add
+      message: 'Added a new melee chaplain weapon: the Crooked Crucifix'
+    - type: Add
+      message: 'Added a new ranged chaplain weapon: the N1984H'
+    - type: Add
+      message: 'Added a new ranged chaplain weapon: the Honkmother''s Honkannon'
+    - type: Add
+      message: 'Added a new support chaplain weapon: the Enchanted Toolbox'
+    - type: Add
+      message: 'Added a new melee chaplain weapon: the Bloody Chainsword'
+    - type: Add
+      message: 'Added a new melee chaplain weapon: the Haunted Sword'
+  id: 837
+  time: '2026-01-04T23:39:21.0000000+00:00'
+- author: AraiMaia
+  changes:
+    - type: Add
+      message: >-
+        New sprites for Gas Filters, Gas Mixers, Pressure pumps, Volumetric
+        pumps, manifolds and all pipes.
+  id: 838
+  time: '2026-01-05T00:40:19.0000000+00:00'
+- author: zergologist
+  changes:
+    - type: Fix
+      message: SM eats emitter beams again and bullets more consistently
+    - type: Tweak
+      message: emitters no longer eat emitter beams, or really any laser beams
+    - type: Tweak
+      message: mice can't squeak under emitters anymore
+  id: 839
+  time: '2026-01-05T01:09:20.0000000+00:00'
+- author: carccborg
+  changes:
+    - type: Tweak
+      message: Characters with the Numb trait no longer scream during surgery.
+  id: 840
+  time: '2026-01-05T01:58:22.0000000+00:00'
+- author: zergologist
+  changes:
+    - type: Add
+      message: >-
+        Ingredient reactions section to the guidebook. Contains all existing
+        food reactions.
+    - type: Fix
+      message: banana bread now visible in the guidebook under the bread section
+  id: 841
+  time: '2026-01-05T02:02:14.0000000+00:00'

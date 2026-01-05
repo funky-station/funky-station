@@ -511,9 +511,7 @@
     lowPressureMultiplier: 1000
   - type: NightVision
     isEquipment: true
-    coverage: HEAD
     toggleAction: ToggleNightVision
-    lightRadius: 15
 
 #Head of Security's hardsuit
 - type: entity

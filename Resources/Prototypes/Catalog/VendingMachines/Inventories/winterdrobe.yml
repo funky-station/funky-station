@@ -7,6 +7,7 @@
 # SPDX-FileCopyrightText: 2025 Aineias1 <142914808+Aineias1@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Fr0goo <frogoofrog@outlook.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2026 Zergologist <114537969+Chedd-Error@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -35,6 +36,9 @@
     ClothingOuterWinterColorGray: 2
     ClothingOuterWinterColorWhite: 2 #funky
     ClothingShoesBootsWinter: 6
+    ClothingShoesBootsWinterCargo: 2 # funk
+    ClothingShoesBootsWinterEngi: 2 # funk
+    ClothingShoesBootsWinterSci: 1 # funk, limited availability designer boots (not actually for science)
     ClothingOuterFlannelRed: 2
     ClothingOuterFlannelBlue: 2
     ClothingOuterFlannelGreen: 2

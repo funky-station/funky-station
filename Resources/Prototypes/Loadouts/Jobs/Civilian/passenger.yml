@@ -7,6 +7,7 @@
 # SPDX-FileCopyrightText: 2025 Mora <46364955+TrixxedHeart@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 TrixxedHeart <46364955+TrixxedBit@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2026 Zergologist <114537969+Chedd-Error@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -136,8 +137,10 @@
   id: BlackShoes
   equipment:
     shoes: ClothingShoesColorBlack
+  groupBy: "shoes"
 
 - type: loadout
   id: WinterBoots
   equipment:
     shoes: ClothingShoesBootsWinter
+  groupBy: "boots"

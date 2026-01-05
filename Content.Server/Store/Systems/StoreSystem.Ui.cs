@@ -20,6 +20,8 @@
 // SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
 // SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 Tyranex <bobthezombie4@gmail.com>
+// SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
 // SPDX-License-Identifier: MIT
@@ -244,7 +246,7 @@ public sealed partial class StoreSystem
             var existingActionFound = false;
 
             // Check if buyer already has this action and add charges instead of creating duplicate
-            if (!_mind.TryGetMind(buyer, out var mind, out _))
+            if (!_mind.TryGetMind(buyer, out var mind, out _) || !component.GrantActionsToMind) // DeltaV - allow forcing actions to be on the entity
             {
                 // Check buyer's actions directly
                 if (TryComp<ActionsComponent>(buyer, out var buyerActions))

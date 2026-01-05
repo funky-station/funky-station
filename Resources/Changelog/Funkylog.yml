@@ -7244,3 +7244,13 @@ Entries:
       message: Characters with the Numb trait no longer scream during surgery.
   id: 840
   time: '2026-01-05T01:58:22.0000000+00:00'
+- author: zergologist
+  changes:
+    - type: Add
+      message: >-
+        Ingredient reactions section to the guidebook. Contains all existing
+        food reactions.
+    - type: Fix
+      message: banana bread now visible in the guidebook under the bread section
+  id: 841
+  time: '2026-01-05T02:02:14.0000000+00:00'

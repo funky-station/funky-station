@@ -1,5 +1,5 @@
 // SPDX-FileCopyrightText: 2026 Terkala <appleorange64@gmail.com>
-//
+// 
 // SPDX-License-Identifier: MIT
 
 using Content.Shared.Atmos;

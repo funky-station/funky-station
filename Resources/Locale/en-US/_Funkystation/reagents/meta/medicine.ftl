@@ -70,3 +70,7 @@ reagent-desc-silver-sulfadiazine = An antibacterial compound used topically on b
 
 reagent-name-hivelord-essence = hivelord essence
 reagent-desc-hivelord-essence = A gloopy substance produced by the hivelord helmet while worn, seems to contain a small fraction of their healing abilities.
+
+# Genetics
+reagent-name-mutadone = mutadone
+reagent-desc-mutadone = A powerful compound that is used to purge genetic mutations and stabilize DNA.

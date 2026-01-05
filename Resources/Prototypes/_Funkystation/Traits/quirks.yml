@@ -1,5 +1,6 @@
 # SPDX-FileCopyrightText: 2025 SaffronFennec <firefoxwolf2020@protonmail.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 TrixxedHeart <46364955+TrixxedBit@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 vectorassembly <vectorassembly@icloud.com>
 #
@@ -19,7 +20,7 @@
 #  - IPC
 #  - Vox
 #  description: trait-nitrogen-breathing-desc
-  
+
 #- type: trait
 #  id: NaturalRegeneration
 #  name: trait-natural-regeneration-name
@@ -185,3 +186,28 @@
 #    weightlessAcceleration: 1.75 # 50% of a moth's buff
 #  speciesRestrictions:
 #  - Moth
+
+- type: trait
+  id: ChronicMigraines
+  name: trait-chronic-migraines-name
+  description: trait-chronic-migraines-desc
+  category: Quirks
+  cost: 0
+  components:
+    - type: ChronicMigraines
+      timeBetweenIncidents: 600, 1800
+      durationOfIncident: 8, 12
+      fadeOutDuration: 0.5
+
+- type: trait
+  id: NeuroAversion
+  name: trait-neuro-aversion-name
+  description: trait-neuro-aversion-desc
+  category: Quirks
+  cost: 0
+  components:
+    - type: NeuroAversion
+      timeBetweenMigraines: 480, 1200
+      migraineDuration: 12, 15
+      startedMindShieldedMultiplier: 1.0
+      midRoundMindShieldedMultiplier: 2.5

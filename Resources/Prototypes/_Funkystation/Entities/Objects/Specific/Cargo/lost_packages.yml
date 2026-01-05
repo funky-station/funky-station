@@ -1,0 +1,9 @@
+- type: entity
+  id: LostPackageMedical
+  parent: ToolboxEmergency
+  name: Lost Medical Package 
+  description: A carefully synthesized brick designed to contain the highest ratio of nutriment to volume. Tastes like shit.
+  components:
+  - type: Lock  
+  - type: AccessReader
+    access: [ [ "CentralCommand" ] ]

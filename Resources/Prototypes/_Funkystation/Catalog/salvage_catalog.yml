@@ -307,14 +307,14 @@
   name: vendor-salvage-emergency-pen-name
   description: vendor-salvage-emergency-pen-desc
   icon: { sprite:  Objects/Specific/Medical/medipen.rsi, state: medipen}
-  productEntity: EmergencyMedipen
+  productEntity: BoxEmergencyMedipens
   cost:
-    SalvageTicket: 75
+    SalvageTicket: 300
   categories:
   - SalvageVendorSupplies
   conditions:
   - !type:ListingLimitedStockCondition
-    stock: 6
+    stock: 3
 
 - type: listing
   id: SalvageVendorVodka
@@ -362,7 +362,7 @@
   icon: { sprite: Objects/Specific/Medical/firstaidkits.rsi, state: brutekit}
   productEntity: MedkitBruteFilled
   cost:
-    SalvageTicket: 300
+    SalvageTicket: 150
   categories:
   - SalvageVendorSupplies
   conditions:

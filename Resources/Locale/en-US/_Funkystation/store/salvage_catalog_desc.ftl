@@ -55,7 +55,7 @@ vendor-salvage-premium-mre-name = Premium M.R.E
 vendor-salvage-premium-mre-desc = A box of standard NT ERT rations. Filled with everything you want in a balanced meal after a hard day's work.
 
 vendor-salvage-emergency-pen-name = Emergency Medipen
-vendor-salvage-emergency-pen-desc = A rapid and safe way to stabilize patients in critical condition for personnel without advanced medical knowledge.
+vendor-salvage-emergency-pen-desc = A box containing six Emergency Medipens.
 
 vendor-salvage-vodka-name = Vodka Bottle
 vendor-salvage-vodka-desc = Aah, vodka. Prime choice of drink AND fuel by Russians worldwide.
@@ -114,7 +114,7 @@ vendor-salvage-shuttle-kit-name = Shuttle Boards Kit
 vendor-salvage-shuttle-kit-desc = A box filled with all the necessary boards needed to create a new shuttle, or repair an existing one. You didn't crash into something, right?
 
 vendor-salvage-medical-kit-name = Field Medical Kit
-vendor-salvage-medical-kit-desc = A box containing medical supplies, defibrillator,body bags and the materials needed to construct a medibot and medical bed.
+vendor-salvage-medical-kit-desc = A box containing medical supplies, defibrillator,body bags, roller bed and the materials needed to construct a medibot.
 
 vendor-salvage-cookout-name = Field Cookout Kit
 vendor-salvage-cookout-desc = A box containing a electric grill and freezer board, skewers, 6 pack of beer, and assorted condiments.

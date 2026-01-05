@@ -1,4 +1,5 @@
 # SPDX-FileCopyrightText: 2025 AtlasHD <99688062+AtlasHDD@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Idem778 <fromidemland@gmail.com>
 # SPDX-FileCopyrightText: 2025 Josh Hilsberg <thejoulesberg@gmail.com>
 # SPDX-FileCopyrightText: 2025 JoulesBerg <104539820+JoulesBerg@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 MaiaArai <158123176+YaraaraY@users.noreply.github.com>
@@ -78,6 +79,7 @@
   minLimit: 0
   loadouts:
   - CommandLighter
+  - CentralCommandLighter
 
 - type: loadoutGroup
   id: ChaplainBible

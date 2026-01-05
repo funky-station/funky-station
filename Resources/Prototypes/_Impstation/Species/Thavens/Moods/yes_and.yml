@@ -1,5 +1,7 @@
 # SPDX-FileCopyrightText: 2025 ATDoop <bug@bug.bug>
+# SPDX-FileCopyrightText: 2025 Aurelai <81323207+ItsAurelai@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 ItsAurelai <81323207+ItsAurelai@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Mariiibo <45979212+Mariiibo@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 ferynn <117872973+ferynn@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
@@ -423,7 +425,7 @@
   jobConflicts:
   - Security
 
-# Your skin is sensitive and will painful dry out without frequent contact with water. Total immersion is best, but anything is better than nothing.
+# Your skin is sensitive and will painfully dry out without frequent contact with water. Total immersion is best, but anything is better than nothing.
 - type: thavenMood
   id: DrySkin
   moodName: thaven-mood-dryskin-name

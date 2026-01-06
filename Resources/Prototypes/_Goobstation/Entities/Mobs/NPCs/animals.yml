@@ -126,25 +126,42 @@
   - type: Perishable
 
 - type: entity
-  name: syndiroach
-  id: MobMothSyndy
+  name: bombroach
+  id: MobMothBomb
   parent: MobMothroach
   description: Explosive moth.
   components:
   - type: Sprite
-    sprite: _Goobstation/Mobs/Animals/syndiroach.rsi
+    sprite: _Goobstation/Mobs/Animals/bombroach.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base", "movement"]
+      state: bombroach
+  - type: SpriteMovement
+    movementLayers:
+      movement:
+        state: bombroach_moving
+    noMovementLayers:
+      movement:
+        state: bombroach
   - type: Clothing
     quickEquip: false
-    sprite: _Goobstation/Mobs/Animals/syndiroach.rsi
-    equippedPrefix: 0
+    sprite: _Goobstation/Mobs/Animals/bombroach.rsi
     slots:
     - HEAD
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: bombroach
+      Critical:
+        Base: bombroach_dead
+      Dead:
+        Base: bombroach_dead
   - type: GhostRole
     prob: 1
-    name: ghost-role-information-SyndiRoach-name
+    name: ghost-role-information-Bombroach-name
     allowMovement: true
-    description: ghost-role-information-SyndiRoach-description
-    rules: ghost-role-information-SyndiRoach-rules
+    description: ghost-role-information-Bombroach-description
+    rules: ghost-role-information-Bombroach-rules
     raffle:
       settings: default
   - type: GhostTakeoverAvailable

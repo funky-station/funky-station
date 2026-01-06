@@ -49,7 +49,7 @@ uplink-hardlight-bow-desc = A modern bow that can fabricate hardlight arrows, de
 uplink-pie-cannon-name = Regenerating Pie Cannon
 uplink-pie-cannon-desc = A pie cannon that automatically regenerates pies, one every ten seconds.
 
-uplink-mobroach-microbomb-name = SyndiRoach Teleporter
+uplink-mobroach-microbomb-name = Bombroach Teleporter
 uplink-mobroach-microbomb-desc = Call in a handy mothroach equipped with a microbomb implant. Explodes when seriously injured.
 
 uplink-advanced-combat-medipen-name = Advanced Combat Medipen

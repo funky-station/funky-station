@@ -7,17 +7,17 @@
 
 - type: entity
   parent: ReinforcementRadio
-  id: ReinforcementRadioSyndicateSyndiRoach
-  name: syndiroach reinforcement radio
+  id: ReinforcementRadioSyndicateBombroach
+  name: bombroach reinforcement radio
   description: Calls in a faithfully trained mothroach with a microbomb to assist you.
   components:
   - type: GhostRole
-    name: ghost-role-information-SyndiRoach-name
-    description: ghost-role-information-SyndiRoach-description
-    rules: ghost-role-information-SyndiRoach-rules
+    name: ghost-role-information-Bombroach-name
+    description: ghost-role-information-Bombroach-description
+    rules: ghost-role-information-Bombroach-rules
     raffle:
       settings: default
   - type: GhostRoleMobSpawner
-    prototype: MobMothSyndy
+    prototype: MobMothBomb
   - type: EmitSoundOnUse
     sound: /Audio/Animals/mouse_squeak.ogg

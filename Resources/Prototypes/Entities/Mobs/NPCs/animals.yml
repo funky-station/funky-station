@@ -664,7 +664,7 @@
   - type: SpriteMovement
     movementLayers:
       movement:
-        state: mothroach-moving
+        state: mothroach_moving
     noMovementLayers:
       movement:
         state: mothroach
@@ -673,7 +673,6 @@
   - type: Clothing
     quickEquip: false
     sprite: Mobs/Animals/mothroach/mothroach.rsi
-    equippedPrefix: 0
     slots:
     - HEAD
   - type: Appearance

@@ -91,6 +91,10 @@
                   max: 2
     - type: StaticPrice
       price: 100
+    - type: Clothing
+      quickEquip: false
+      slots:
+      - backStorage
 
 #Security Shields
 
@@ -100,10 +104,6 @@
   id: RiotShield
   description: A large tower shield. Good for controlling crowds.
   components:
-    - type: Clothing
-      quickEquip: false
-      slots:
-      - backStorage
     - type: StaticPrice
       price: 90
     - type: Blocking
@@ -125,10 +125,6 @@
   id: RiotLaserShield
   description: A shield built for withstanding lasers, but not much else.
   components:
-    - type: Clothing
-      quickEquip: false
-      slots:
-      - backStorage
     - type: Sprite
       state: riot_laser-icon
     - type: Item
@@ -149,10 +145,6 @@
   id: RiotBulletShield
   description: A shield built for protecting against ballistics, but not much else.
   components:
-    - type: Clothing
-      quickEquip: false
-      slots:
-      - backStorage
     - type: Sprite
       sprite: Objects/Weapons/Melee/shields.rsi
       state: riot_bullet-icon

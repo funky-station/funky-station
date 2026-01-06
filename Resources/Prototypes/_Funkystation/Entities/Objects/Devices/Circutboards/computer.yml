@@ -70,3 +70,15 @@
     - type: ComputerBoard
       prototype: MedicalComputerComms
 
+- type: entity
+  parent: BaseComputerCircuitboard
+  id: CargoRequestAtmosphericsComputerCircuitboard
+  name: atmospherics reserves computer board
+  description: A computer printed circuit board for an atmospherics reserves computer.
+  components:
+  - type: Sprite
+    state: cpu_engineering
+  - type: ComputerBoard
+    prototype: ComputerCargoOrdersAtmospherics
+  - type: StaticPrice
+    price: 750

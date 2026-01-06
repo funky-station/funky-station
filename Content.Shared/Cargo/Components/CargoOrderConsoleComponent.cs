@@ -136,6 +136,13 @@ public sealed partial class CargoOrderConsoleComponent : Component
     /// </summary>
     [DataField]
     public SoundSpecifier ScanSound = new SoundCollectionSpecifier("CargoBeep");
+
+    /// <summary>
+    /// Funkystation - Atmos
+    /// Whether to show the atmos gas tab in the UI.
+    /// </summary>
+    [DataField, ViewVariables(VVAccess.ReadWrite)]
+    public bool ShowGasMinerTab { get; set; } = false;
 }
 
 /// <summary>

@@ -32,7 +32,7 @@ public sealed partial class GasMinerComponent : Component
     ///      If the pressure (in kPA) of the external environment exceeds this number, no gas will be mined.
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
-    [DataField]
+    [DataField, AutoNetworkedField] // Funkystation - Networked for console
     public float MaxExternalPressure = Atmospherics.GasMinerDefaultMaxExternalPressure;
 
     /// <summary>
@@ -53,7 +53,7 @@ public sealed partial class GasMinerComponent : Component
     ///     Number of moles created per second when the miner is working.
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
-    [DataField]
+    [DataField, AutoNetworkedField] // Funkystation - Networked for console
     public float SpawnAmount = Atmospherics.MolesCellStandard * 20f;
 }
 

@@ -43,6 +43,7 @@
         Science: [ ]
         Security: [ ]
         Service: [ ]
+        Atmospherics: [ ] # Funkystation
     - type: StationCargoBountyDatabase
 
 - type: entity

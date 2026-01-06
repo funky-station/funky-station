@@ -36,6 +36,7 @@ using Robust.Client.Player;
 using Robust.Shared.Utility;
 using Robust.Shared.Prototypes;
 using static Robust.Client.UserInterface.Controls.BaseButton;
+using Content.Shared._Funkystation.Cargo.Components;
 
 namespace Content.Client.Cargo.BUI
 {
@@ -135,6 +136,23 @@ namespace Content.Client.Cargo.BUI
             {
                 SendMessage(new CargoConsoleToggleLimitMessage());
             };
+
+            // Funkystation: Gas miner controls
+            _menu.OnGasMinerSetSettings += (index, rate, pressure) =>
+            {
+                SendMessage(new GasMinerSetSettingsMessage(index, rate, pressure));
+            };
+
+            _menu.OnBuyGasCredits += amount =>
+            {
+                SendMessage(new BuyGasCreditsMessage(amount));
+            };
+
+            _menu.OnToggleAutoBuy += enabled =>
+            {
+                SendMessage(new AutoBuyToggleMessage(enabled));
+            };
+            // End of Funky changes
 
             _menu.OpenCentered();
         }

@@ -1,0 +1,7 @@
+- type: cargoAccount
+  id: Atmospherics
+  name: cargo-account-atmospherics-name
+  code: cargo-account-atmospherics-code
+  color: "#00AFAF"
+  radioChannel: Engineering
+  acquisitionSlip: PaperAcquisitionSlipEngineering

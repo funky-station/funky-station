@@ -288,6 +288,7 @@
     - id: ClothingHeadsetAltEngineering
     - id: DoorRemoteEngineering
     - id: CargoRequestEngineeringComputerCircuitboard
+    - id: CargoRequestAtmosphericsComputerCircuitboard #funkystation
     - id: RCDRecharging
     - id: RubberStampCE
     - id: BaseHandheldStationMapPowerCe

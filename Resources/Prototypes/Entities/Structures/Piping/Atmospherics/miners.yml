@@ -60,6 +60,9 @@
     - type: GuideHelp
       guides:
       - GasMiningAndStorage
+    - type: DeviceLinkSink # Funkystation - Atmos reserves computer
+      ports:
+      - GasMinerControl
 
 - type: entity
   name: O2 gas miner

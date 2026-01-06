@@ -151,6 +151,7 @@
 # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 CalicoDragon <110030310+CalicoDragon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Gansu <68031780+GansuLalan@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Gosera <goseru@gmail.com>
 # SPDX-FileCopyrightText: 2025 IronDragoon <8961391+IronDragoon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 IronDragoon <you@example.com>
 # SPDX-FileCopyrightText: 2025 Komoni <131829655+Komonighub@users.noreply.github.com>
@@ -184,7 +185,6 @@
 # SPDX-FileCopyrightText: 2025 Toastermeister <215405651+Toastermeister@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 TrixxedHeart <46364955+TrixxedBit@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 V <97265903+formlessnameless@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Xcybitt <197952719+Xcybitt@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Xcybitt <xcybitt@gmail.com>
 # SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Zergologist <114537969+Chedd-Error@users.noreply.github.com>
@@ -205,6 +205,7 @@
 # SPDX-FileCopyrightText: 2025 vectorassembly <vectorassembly@icloud.com>
 # SPDX-FileCopyrightText: 2025 willow <willowzeta632146@proton.me>
 # SPDX-FileCopyrightText: 2025 wilowzeta <willowzeta632146@proton.me>
+# SPDX-FileCopyrightText: 2026 Xcybitt <197952719+Xcybitt@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -519,6 +520,8 @@
     - TowelColorWhite #funk towel
     - InflatableWall #funky inflatables
     - InflatableDoor #funk
+    - SmallPinboard #funky
+    - BarberScissors #funk
     dynamicRecipes:
     - BoomboxRed
     - BoomboxGreen
@@ -1228,6 +1231,7 @@
     - GrenadeBaton #funk
     - GrenadeTearGas #funk
     - TearGasGrenade #funk
+    - Tourniquet
     dynamicRecipes:
     - BoxBeanbag
     - BoxShotgunIncendiary
@@ -1237,7 +1241,7 @@
     - ClothingBackpackElectropack
     - ExplosivePayload
     - FlashPayload
-    #- GrenadeBlast
+    - GrenadeBlast
     - GrenadeEMP
     - GrenadeFlash
     - HoloprojectorSecurity
@@ -1282,7 +1286,7 @@
     - VoiceTrigger
     - WeaponAdvancedLaser
     - WeaponDisabler
-    - WeaponDisablerSMG
+#    - WeaponDisablerSMG
     - WeaponLaserCannon
     - WeaponLaserCarbine
     - WeaponXrayCannon
@@ -1470,6 +1474,7 @@
     - UtilityKnife #if you don't have scalpels ig #funk
     - CandyBowl #pill(pill that pills you) #funk
     - DeskBell #ringringring #funk
+    - Tourniquet #funk
     dynamicRecipes:
     - ChemicalPayload
     - CryostasisBeaker

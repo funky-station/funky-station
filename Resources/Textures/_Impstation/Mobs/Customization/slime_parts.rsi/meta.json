@@ -70,6 +70,22 @@
     {
       "name": "bonelegright",
       "directions": 4
+    },
+    {
+      "name": "cyclops",
+      "directions": 4
+    },
+    {
+      "name": "cyclopsglow",
+      "directions": 4
+    },
+    {
+      "name": "droopy",
+      "directions": 4
+    },
+    {
+      "name": "droopyglow",
+      "directions": 4
     }
   ]
 }

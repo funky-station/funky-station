@@ -1513,6 +1513,7 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 
 				// Announcement will be handled in ActiveTick
 				AnnounceStatus(ruleComp, cultists);
+				ruleComp.VeilWeakenedAnnouncementPlayed = true; // Prevent duplicate announcement in ActiveTick
 			}
 			return;
 		}

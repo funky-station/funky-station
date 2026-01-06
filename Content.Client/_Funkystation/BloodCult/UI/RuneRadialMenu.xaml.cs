@@ -32,10 +32,10 @@ public sealed partial class RuneRadialMenu : RadialMenu
 {
     [Dependency] private readonly EntityManager _entityManager = default!;
     [Dependency] private readonly IEntitySystemManager _entitySystem = default!;
-    //[Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly ISharedPlayerManager _playerManager = default!;
     [Dependency] private readonly IResourceCache _resourceCache = default!;
-    private readonly SpriteSystem _spriteSystem;
+    private SpriteSystem _spriteSystem = default!;
 
 	public event Action<string>? SendRunesMessageAction;
 
@@ -43,10 +43,12 @@ public sealed partial class RuneRadialMenu : RadialMenu
 
     public RuneRadialMenu()
     {
-        var dependencies = IoCManager.Instance;
-        if (dependencies != null)
-            dependencies.InjectDependencies(this);
         RobustXamlLoader.Load(this);
+    }
+
+    public void InitializeDependencies(IDependencyCollection dependencies)
+    {
+        dependencies.InjectDependencies(this);
         _spriteSystem = _entitySystem.GetEntitySystem<SpriteSystem>();
     }
 
@@ -72,8 +74,12 @@ public sealed partial class RuneRadialMenu : RadialMenu
 
         foreach (var rune in BloodCultRuneCarverComponent.ValidRunes)//runes)
 		{
-            //if (!_prototypeManager.TryIndex(ritual, out var ritualPrototype))
-            //    continue;
+            // Get the prototype name for the tooltip
+            var tooltipText = rune;
+            if (_prototypeManager.TryIndex<EntityPrototype>(rune, out var runePrototype))
+            {
+                tooltipText = runePrototype.Name;
+            }
 
 			if (rune != "TearVeilRune")
 			{
@@ -81,8 +87,8 @@ public sealed partial class RuneRadialMenu : RadialMenu
 				{
 					StyleClasses = { "RadialMenuButton" },
 					SetSize = new Vector2(64, 64),
-					ToolTip = rune,//Loc.GetString(ritualPrototype.LocName),
-					ProtoId = rune//ritualPrototype.ID
+					ToolTip = tooltipText,
+					ProtoId = rune
 				};
 
 				var texture = new TextureRect
@@ -101,8 +107,8 @@ public sealed partial class RuneRadialMenu : RadialMenu
 				{
 					StyleClasses = { "RadialMenuButton" },
 					SetSize = new Vector2(96, 96),
-					ToolTip = rune,//Loc.GetString(ritualPrototype.LocName),
-					ProtoId = rune//ritualPrototype.ID
+					ToolTip = tooltipText,
+					ProtoId = rune
 				};
 
 				var texture = new TextureRect

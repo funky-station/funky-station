@@ -79,6 +79,14 @@ public sealed partial class BloodCultConstructSystem : EntitySystem
 		SubscribeLocalEvent<JuggernautComponent, MobStateChangedEvent>(OnJuggernautStateChanged);
 		SubscribeLocalEvent<JuggernautComponent, DragDropTargetEvent>(OnJuggernautDragDropTarget);
 		
+		// Remove StaminaComponent from any existing juggernauts (in case they were spawned before this system was added)
+		// Juggernauts can't be stunned, so stamina damage is meaningless
+		var query = AllEntityQuery<JuggernautComponent, StaminaComponent>();
+		while (query.MoveNext(out var uid, out _, out _))
+		{
+			RemComp<StaminaComponent>(uid);
+		}
+		
 		// Handle alt-fire (right-click) attack to find nearest enemy for juggernauts and shades
 		// With AltDisarm = false, right-clicking sends HeavyAttackEvent instead of DisarmAttackEvent
 		SubscribeNetworkEvent<HeavyAttackEvent>(OnHeavyAttack, before: new[] { typeof(SharedMeleeWeaponSystem) });
@@ -139,6 +147,9 @@ public sealed partial class BloodCultConstructSystem : EntitySystem
 		
 		// Spawn the juggernaut at the exact map coordinates (not anchored, so it won't snap to grid)
 		var juggernaut = Spawn("MobBloodCultJuggernaut", shellMapCoords, rotation: shellRotation);
+		
+		// Remove StaminaComponent - juggernauts can't be stunned so stamina damage is meaningless
+		RemComp<StaminaComponent>(juggernaut);
 		
 		// Ensure the juggernaut is not anchored (mobs shouldn't be anchored)
 		var juggernautTransform = Transform(juggernaut);
@@ -282,6 +293,9 @@ public sealed partial class BloodCultConstructSystem : EntitySystem
 		// Spawn the juggernaut BEFORE deleting the shell to ensure proper setup
 		// Spawn at the exact map coordinates (not anchored, so it won't snap to grid)
 		var juggernaut = Spawn("MobBloodCultJuggernaut", shellMapCoords, rotation: shellRotation);
+		
+		// Remove StaminaComponent - juggernauts can't be stunned so stamina damage is meaningless
+		RemComp<StaminaComponent>(juggernaut);
 		
 		// Ensure the juggernaut is not anchored (mobs shouldn't be anchored)
 		var juggernautTransform = Transform(juggernaut);

@@ -12,12 +12,16 @@
     Radiation: 0
     Asphyxiation: 0
     Bloodloss: 0
+    Ion: 0
+    Shock: 0
+    Cellular: 0
+    Caustic: 0
+    Cold: 0
   flatReductions:
-    Blunt: 10.0
-    Slash: 10.0
-    Piercing: 10.0
-    Shock: 10.0
-    Heat: 10.0
+    Blunt: 8.0
+    Slash: 8.0
+    Piercing: 8.0
+    Heat: 8.0
 
 - type: damageModifierSet
   id: CultShade

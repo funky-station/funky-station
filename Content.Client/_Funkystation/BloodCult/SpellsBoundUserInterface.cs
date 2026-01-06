@@ -8,6 +8,8 @@ using Robust.Client.Graphics;
 using Robust.Client.Input;
 using Robust.Client.UserInterface;
 using Robust.Shared.Prototypes;
+using Robust.Shared.GameObjects;
+using Robust.Shared.IoC;
 using Content.Shared.BloodCult;
 using Content.Shared.BloodCult.Components;
 using Content.Shared.BloodCult.Prototypes;
@@ -19,12 +21,12 @@ public sealed class SpellsBoundUserInterface : BoundUserInterface
 {
 	[Dependency] private readonly IClyde _displayManager = default!;
 	[Dependency] private readonly IInputManager _inputManager = default!;
+	[Dependency] private readonly IEntitySystemManager _entitySystemManager = default!;
 
 	private SpellRadialMenu? _spellRitualMenu;
 
 	public SpellsBoundUserInterface(EntityUid owner, Enum uiKey) : base(owner, uiKey)
 	{
-		IoCManager.InjectDependencies(this);
 	}
 
 	protected override void Open()
@@ -32,6 +34,7 @@ public sealed class SpellsBoundUserInterface : BoundUserInterface
 		base.Open();
 
 		_spellRitualMenu = this.CreateWindow<SpellRadialMenu>();
+		_spellRitualMenu.InitializeDependencies(_entitySystemManager.DependencyCollection);
 		_spellRitualMenu.SetEntity(Owner);
 		_spellRitualMenu.SendSpellsMessageAction += SendSpellsMessage;
 

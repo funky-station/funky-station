@@ -135,6 +135,9 @@
     damage:
       types:
         Radiation: -5.0
+  - type: Food
+    transferAmount: 10
+  - type: BadFood
   - type: Stack
     stackType: Plasma
     baseLayer: base
@@ -156,10 +159,10 @@
     heldPrefix: plasma
   - type: Appearance
   - type: Extractable
-    grindableSolutionName: plasma
+    grindableSolutionName: food
   - type: SolutionContainerManager
     solutions:
-      plasma:
+      food:
         reagents:
         - ReagentId: Plasma
           Quantity: 10

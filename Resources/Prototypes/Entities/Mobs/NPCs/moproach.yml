@@ -14,12 +14,29 @@
     description: ghost-role-information-moproach-description
   - type: Sprite
     sprite: Mobs/Animals/mothroach/moproach.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base", "movement"]
+      state: moproach
+  - type: SpriteMovement
+    movementLayers:
+      movement:
+        state: moproach_moving
+    noMovementLayers:
+      movement:
+        state: moproach
   - type: Clothing
     quickEquip: false
     sprite: Mobs/Animals/mothroach/moproach.rsi
-    equippedPrefix: 0
     slots:
     - HEAD
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: moproach
+      Critical:
+        Base: moproach_dead
+      Dead:
+        Base: moproach_dead
   - type: MobThresholds
     thresholds:
       0: Alive

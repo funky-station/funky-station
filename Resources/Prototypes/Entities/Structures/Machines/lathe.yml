@@ -522,6 +522,7 @@
     - InflatableDoor #funk
     - SmallPinboard #funky
     - BarberScissors #funk
+    - CassetteTapeHigh #funk
     dynamicRecipes:
     - BoomboxRed
     - BoomboxGreen
@@ -726,6 +727,7 @@
     - SadTromboneImplanter
     - LightImplanter
     - BikeHornImplanter
+    - CassetteTapeHyper #funk
   - type: EmagLatheRecipes
     emagDynamicRecipes:
     - BoxBeanbag

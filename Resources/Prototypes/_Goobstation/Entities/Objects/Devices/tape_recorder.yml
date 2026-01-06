@@ -104,6 +104,78 @@
         tape_greyscale: Rainbow
 
 - type: entity
+  parent: BaseItem
+  id: CassetteTapeHigh
+  name: extended cassette tape
+  description: A magnetic tape that can hold up to four minutes of content on either side. Seems to have been wound with more tape.
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Devices/cassette_tapes.rsi
+    layers:
+    - state: tape_greyscale
+      map: [ "enum.DamageStateVisualLayers.Base" ]
+    - state: tape_ribbonoverlay
+      map: [ "enum.ToggleVisuals.Layer" ]
+      visible: false
+  - type: Item
+    size: Tiny
+  - type: Damageable
+  - type: TapeCassette
+    maxCapacity: 360
+    repairWhitelist:
+      tags:
+      - Screwdriver
+      - Write
+  - type: FitsInTapeRecorder
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.ToggleVisuals.Toggled:
+        enum.ToggleVisuals.Layer:
+          True: { visible: true }
+          False: { visible: false }
+  - type: RandomSprite
+    available:
+    - enum.DamageStateVisualLayers.Base:
+        tape_greyscale: Rainbow
+
+- type: entity
+  parent: BaseItem
+  id: CassetteTapeHyper
+  name: hyper extended cassette tape
+  description: A magnetic tape that can hold up to eight minutes of content on either side. Seems to have been designed with tight tolerances and a lot of tape in mind.
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Devices/cassette_tapes.rsi
+    layers:
+    - state: tape_greyscale
+      map: [ "enum.DamageStateVisualLayers.Base" ]
+    - state: tape_ribbonoverlay
+      map: [ "enum.ToggleVisuals.Layer" ]
+      visible: false
+  - type: Item
+    size: Tiny
+  - type: Damageable
+  - type: TapeCassette
+    maxCapacity: 720
+    repairWhitelist:
+      tags:
+      - Screwdriver
+      - Write
+  - type: FitsInTapeRecorder
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.ToggleVisuals.Toggled:
+        enum.ToggleVisuals.Layer:
+          True: { visible: true }
+          False: { visible: false }
+  - type: RandomSprite
+    available:
+    - enum.DamageStateVisualLayers.Base:
+        tape_greyscale: Rainbow
+
+- type: entity
   suffix: Interview with Garry Smosh
   parent: CassetteTape
   id: CassetteTapeInterview

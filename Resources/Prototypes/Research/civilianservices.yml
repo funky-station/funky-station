@@ -85,6 +85,7 @@
   - SurveillanceWirelessCameraMonitorCircuitboard
   - TelecomServerCircuitboard
   - HolopadMachineCircuitboard
+  - CassetteTapeHyper
 
 - type: technology
   id: AdvancedEntertainment

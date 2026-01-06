@@ -19,3 +19,20 @@
   materials:
     Steel: 250
     Plastic: 250
+
+- type: latheRecipe
+  id: CassetteTapeHigh
+  result: CassetteTapeHigh
+  completetime: 2
+  materials:
+    Steel: 100
+    Plastic: 300
+
+- type: latheRecipe
+  id: CassetteTapeHyper
+  result: CassetteTapeHyper
+  completetime: 2
+  materials:
+    Steel: 200
+    Plastic: 600
+    Glass: 200

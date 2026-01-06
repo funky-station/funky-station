@@ -89,6 +89,9 @@
   parent: BaseGrenade
   description: A grenade cartridge made to subdue one unruly crewmember.
   components:
+  - type: Tag
+    tags:
+    - GrenadeNonLethal
   - type: CartridgeAmmo
     proto: BulletGrenadeBaton
   - type: Sprite
@@ -125,6 +128,9 @@
   parent: BaseGrenade
   description: A nonlethal grenade cartridge made to subdue unruly crewmembers.
   components:
+  - type: Tag
+    tags:
+    - GrenadeNonLethal
   - type: CartridgeAmmo
     proto: BulletGrenadeFlash
   - type: Sprite
@@ -161,6 +167,9 @@
   description: A nonlethal grenade cartridge made to kill electronics.
   parent: BaseGrenade
   components:
+  - type: Tag
+    tags:
+    - GrenadeNonLethal
   - type: CartridgeAmmo
     proto: BulletGrenadeEMP
   - type: Sprite
@@ -179,6 +188,9 @@
   description: A nonlethal grenade cartridge made for riot control.
   parent: BaseGrenade
   components:
+  - type: Tag
+    tags:
+    - GrenadeNonLethal
   - type: CartridgeAmmo
     proto: BulletGrenadeTear
   - type: Sprite

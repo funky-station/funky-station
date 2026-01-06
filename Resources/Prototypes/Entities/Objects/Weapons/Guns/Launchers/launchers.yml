@@ -436,12 +436,12 @@
     proto: ImmovableRodSlow
 
 #funkstart
-#literally just a chinalake but it can't fit some projectiles  #FUCK MY STUPID CONTRIB LIFE I CAN'T FOR THE LIFE OF ME MAKE IT BLACKLISTED OR MAKE THE FUCKING CARTRIDGES TAGGED
+#literally just a chinalake but it can't fit some projectiles
 - type: entity
   name: security riot grenade launcher
   parent: [BaseWeaponLauncher, BaseGunWieldable, BaseSecurityContraband]
   id: WeaponLauncherRiot
-  description: A grenade launcher reverse engineered from rival corporation technology, it has "We're the good guys, honest!" scratched into the wood stock of the launcher. The launcher seems to have been modified to also fit bolas.
+  description: A grenade launcher reverse engineered from rival corporation technology, it has "We're the good guys, honest!" scratched into the wood stock of the launcher. The launcher seems to have been modified to also fit bolas, but now is unable to fit lethal shells as a result.
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Launchers/china_lake.rsi
@@ -462,10 +462,10 @@
       - SemiAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/grenade_launcher.ogg
-  - type: BallisticAmmoProvider  #someone more code literate than me, PLEASE somehow make this fuckin thing not be able to insert fucking lethal rounds
+  - type: BallisticAmmoProvider
     whitelist:
       tags:
-      - Grenade
+      - GrenadeNonLethal
       - BolaEnergy
       - MakeshiftBola
     capacity: 3

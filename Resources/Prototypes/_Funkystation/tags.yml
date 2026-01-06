@@ -95,3 +95,6 @@
 
 - type: Tag
   id: ListeningBug
+
+- type: Tag
+  id: GrenadeNonLethal

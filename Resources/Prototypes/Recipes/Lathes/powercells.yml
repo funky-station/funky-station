@@ -87,6 +87,17 @@
 
 #funkstart
 - type: latheRecipe
+  id: PowerCellMediumSingle
+  result: PowerCellMediumSingle
+  categories:
+  - Parts
+  completetime: 10
+  materials:
+    Steel: 100
+    Glass: 100
+    Plastic: 100
+
+- type: latheRecipe
   id: PowerCellHighSingle
   result: PowerCellHighSingle
   categories:

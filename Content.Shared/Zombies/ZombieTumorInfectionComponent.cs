@@ -59,6 +59,18 @@ public sealed partial class ZombieTumorInfectionComponent : Component
     public TimeSpan? AutoZombifyTime;
 
     /// <summary>
+    /// Time when the TumorFormed stage started. Used to track the initial 2-minute grace period where no damage is dealt.
+    /// </summary>
+    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoNetworkedField, AutoPausedField]
+    public TimeSpan? TumorFormedTime;
+
+    /// <summary>
+    /// Duration of the grace period after tumor formation where no damage is dealt but infection can still spread.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public TimeSpan TumorFormedGracePeriod = TimeSpan.FromMinutes(2);
+
+    /// <summary>
     /// Damage dealt per tick for each infection stage.
     /// </summary>
     [DataField, AutoNetworkedField]
@@ -113,14 +125,14 @@ public sealed partial class ZombieTumorInfectionComponent : Component
     /// Time to progress from early to tumor formation stage.
     /// </summary>
     [DataField, AutoNetworkedField]
-    public TimeSpan EarlyToTumorTime = TimeSpan.FromMinutes(10); //final version
+    public TimeSpan EarlyToTumorTime = TimeSpan.FromMinutes(17); //final version
     //public TimeSpan EarlyToTumorTime = TimeSpan.FromSeconds(10); //test version
 
     /// <summary>
     /// Time to progress from tumor to advanced stage.
     /// </summary>
     [DataField, AutoNetworkedField]
-    public TimeSpan TumorToAdvancedTime = TimeSpan.FromSeconds(60);
+    public TimeSpan TumorToAdvancedTime = TimeSpan.FromMinutes(10);
 
     /// <summary>
     /// Amount of oil to drain per tick for IPCs in Early stage.

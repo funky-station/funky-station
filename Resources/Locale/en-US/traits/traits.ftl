@@ -81,3 +81,4 @@ trait-impaired-mobility-name = Impaired Mobility
 trait-impaired-mobility-desc = You have difficulty moving without a mobility aid.
 
 trait-prerequisite-required = This trait requires the {$prerequisite} trait.
+

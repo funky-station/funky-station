@@ -522,6 +522,7 @@
     - InflatableDoor #funk
     - PowerCellHighSingle #funk
     - SmallPinboard #funky
+    - BarberScissors #funk
     dynamicRecipes:
     - BoomboxRed
     - BoomboxGreen
@@ -1225,6 +1226,7 @@
     - autoInjectorCartridgeCaseSoft
     - SurveillanceWirelessCameraBodySecurity #funk
     - ClothingHandsSecurityKnuckleDusters #funk
+    - Tourniquet
     dynamicRecipes:
     - BoxBeanbag
     - BoxShotgunIncendiary
@@ -1279,7 +1281,7 @@
     - VoiceTrigger
     - WeaponAdvancedLaser
     - WeaponDisabler
-    - WeaponDisablerSMG
+#    - WeaponDisablerSMG
     - WeaponLaserCannon
     - WeaponLaserCarbine
     - WeaponXrayCannon
@@ -1464,6 +1466,7 @@
     - UtilityKnife #if you don't have scalpels ig #funk
     - CandyBowl #pill(pill that pills you) #funk
     - DeskBell #ringringring #funk
+    - Tourniquet #funk
     dynamicRecipes:
     - ChemicalPayload
     - CryostasisBeaker

@@ -262,7 +262,6 @@
   cost: 15000
   recipeUnlocks:
   - GrenadeEMP
-  - GrenadeBlast  
   - PowerCageHigh
   - ShuttleGunDusterCircuitboard
   technologyPrerequisites:

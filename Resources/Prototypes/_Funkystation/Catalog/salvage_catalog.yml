@@ -23,7 +23,7 @@
   icon: { sprite:  Clothing/OuterClothing/Hardsuits/salvage.rsi, state: icon}
   productEntity: ClothingOuterHardsuitSalvage
   cost:
-    SalvageTicket: 1000 
+    SalvageTicket: 1000
   categories:
   - SalvageVendorWearables
   conditions:
@@ -51,7 +51,7 @@
   icon: { sprite:  Clothing/OuterClothing/Hardsuits/maxim.rsi, state: icon}
   productEntity: ClothingOuterHardsuitMaxim
   cost:
-    SalvageTicket: 9999 
+    SalvageTicket: 9999
   categories:
   - SalvageVendorWearables
   conditions:
@@ -158,7 +158,7 @@
   - !type:ListingLimitedStockCondition
     stock: 2
 
-# Equipment 
+# Equipment
 
 - type: listing
   id: SalvageVendorCrusherAxe
@@ -253,7 +253,7 @@
   - SalvageVendorEquipment
 
 
-# Supplies 
+# Supplies
 
 - type: listing
   id: SalvageVendorCarpPocket
@@ -325,7 +325,7 @@
   cost:
     SalvageTicket: 250
   categories:
-  - SalvageVendorSupplies  
+  - SalvageVendorSupplies
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 3
@@ -339,7 +339,7 @@
   cost:
     SalvageTicket: 300
   categories:
-  - SalvageVendorSupplies  
+  - SalvageVendorSupplies
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 2
@@ -355,7 +355,7 @@
   categories:
   - SalvageVendorSupplies
 
-# Misc. 
+# Misc.
 
 - type: listing
   id: SalvageVendorGoliathCloak
@@ -412,7 +412,7 @@
   categories:
   - SalvageVendorMisc
 
-# Standard Equipment 
+# Standard Equipment
 
 - type: listing
   id: SalvageVendorMaterialBag
@@ -493,7 +493,7 @@
   icon: { sprite:  Objects/Weapons/Guns/Launchers/grappling_gun.rsi, state: base}
   productEntity: WeaponGrapplingGun
   categories:
-  - SalvageVendorStandard    
+  - SalvageVendorStandard
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 4
@@ -505,7 +505,7 @@
   icon: { sprite:  Objects/Weapons/Bombs/seismic.rsi, state: icon}
   productEntity: SeismicCharge
   categories:
-  - SalvageVendorStandard    
+  - SalvageVendorStandard
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 2
@@ -517,7 +517,7 @@
   icon: { sprite:  Objects/Tools/fulton.rsi, state: folded_extraction}
   productEntity: FultonBeacon
   categories:
-  - SalvageVendorStandard  
+  - SalvageVendorStandard
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 2
@@ -529,7 +529,7 @@
   icon: { sprite:  Objects/Tools/fulton.rsi, state: extraction_pack}
   productEntity: Fulton
   categories:
-  - SalvageVendorStandard  
+  - SalvageVendorStandard
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 3
@@ -545,3 +545,15 @@
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 4
+
+- type: listing
+  id: SalvageVendorTourniquet
+  name: vendor-salvage-tourniquet
+  description: vendor-salvage-tourniquet-desc
+  icon: { sprite:  Textures/Objects/Specific/Medical/medical.rsi/tourniquet.png, state: tourniquet}
+  productEntity: Tourniquet
+  categories:
+  - SalvageVendorStandard
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 8

@@ -48,6 +48,8 @@
         amount: 2
       - id: WeaponFlareGun
       - id: BoxShotgunFlare
+      - id: Tourniquet
+        amount: 2
 
 - type: entity
   id: LockerSalvageSpecialistFilled
@@ -65,3 +67,5 @@
         amount: 2
       - id: WeaponFlareGun
       - id: BoxShotgunFlare
+      - id: Tourniquet
+        amount: 2

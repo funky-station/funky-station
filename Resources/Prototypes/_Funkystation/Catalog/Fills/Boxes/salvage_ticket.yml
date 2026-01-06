@@ -1,3 +1,4 @@
+# SPDX-FileCopyrightText: 2025 ThatOneMoon <91613003+ThatOneMoon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -21,13 +22,12 @@
 
 - type: entity
   id: BoxSalvageCookoutKit
-  parent: CardboardBoxLarge
+  parent: CrateFreezer
   name: field cookout kit
-  description: A box containing a electric grill and freezer board, skewers, 6 pack of beer, and assorted condiments.
+  description: A box containing a freezer and electric grill board, skewers, 6 pack of beer, and assorted condiments.
   components:
   - type: StorageFill
     contents:
-    - id: FreezerElectronics
     - id: ElectricGrillMachineCircuitboard
     - id: DrinkBeerCan
       amount: 6

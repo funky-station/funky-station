@@ -19,8 +19,10 @@
 # SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 spanky-spanky <scott@wearejacob.com>
 # SPDX-FileCopyrightText: 2025 Huhm-1 <cameronhillard40@gmail.com>
+# SPDX-FileCopyrightText: 2025 Huhm-1 <huhmgithub@outlook.com>
 # SPDX-FileCopyrightText: 2025 kbarkevich <24629810+kbarkevich@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2026 wilowzeta <willowzeta632146@proton.me>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -28,7 +30,7 @@
   id: Amber
   mapName: 'Amber'
   mapPath: /Maps/_Funkystation/amber.yml #Funkystatin - Robotics
-  minPlayers: 5
+  minPlayers: 8
   maxPlayers: 50
   stations:
     Amber:
@@ -59,8 +61,7 @@
             Reporter: [ 1, 1 ]
             #engineering
             ChiefEngineer: [ 1, 1 ]
-            AtmosphericTechnician: [ 2, 2 ]
-            StationEngineer: [ 2, 4 ]
+            StationEngineer: [ 4, 6 ]
             TechnicalAssistant: [ 1, 1 ]
             #medical
             ChiefMedicalOfficer: [ 1, 1 ]

@@ -968,3 +968,11 @@
   materials:
     Steel: 400
     Plastic: 100
+    
+- type: latheRecipe    
+  id: Tourniquet
+  result: Tourniquet
+  completetime: 2
+  materials:
+    Cloth: 50
+    Steel: 50

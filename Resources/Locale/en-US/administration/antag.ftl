@@ -20,7 +20,7 @@
 verb-categories-antag = Antag ctrl
 admin-verb-make-traitor = Make the target into a traitor.
 admin-verb-make-initial-infected = Make the target into an Initial Infected.
-admin-verb-make-zombie = Zombifies the target immediately.
+admin-verb-make-zombie = Gives the target the airborne zombie tumor infection, which will progress through stages and eventually zombify them.
 admin-verb-make-nuclear-operative = Make target into a lone Nuclear Operative.
 admin-verb-make-pirate = Make the target into a pirate. Note this doesn't configure the game rule.
 admin-verb-make-head-rev = Make the target into a Head Revolutionary.

@@ -233,6 +233,8 @@ bounty-item-Sigynate = Sigynate
 bounty-item-Natusixadone = Natusixadone
 bounty-item-Doxarubixadone = Doxarubixadone
 bounty-item-Ichor = Ichor
+bounty-item-Robust-Harvest = Robust Harvest
+bounty-item-Left-4-Zed = Left 4 Zed
 
 bounty-item-super-bite-burger = Super Bite Burger
 bounty-item-sloppy-joe = Sloppy Joe Burger

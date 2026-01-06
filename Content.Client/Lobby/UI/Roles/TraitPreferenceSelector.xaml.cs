@@ -2,6 +2,7 @@
 // SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 SaffronFennec <firefoxwolf2020@protonmail.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2026 Mora <46364955+TrixxedHeart@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2026 TrixxedHeart <46364955+TrixxedBit@users.noreply.github.com>
 //
 // SPDX-License-Identifier: MIT
@@ -41,7 +42,7 @@ public sealed partial class TraitPreferenceSelector : Control
         set => _checkbox.Pressed = value;
     }
 
-    public TraitPreferenceSelector(string name, int cost, string? description = null)
+    public TraitPreferenceSelector(string name, int cost, string? description = null, VectorFont? customFont = null)
     {
         RobustXamlLoader.Load(this);
         _checkbox = Checkbox;
@@ -52,6 +53,12 @@ public sealed partial class TraitPreferenceSelector : Control
 
         if (description != null)
             _checkbox.ToolTip = description;
+
+        // Apply custom font if specified
+        if (customFont != null)
+        {
+            _checkbox.Label.FontOverride = customFont;
+        }
 
         _checkbox.OnToggled += OnCheckBoxToggled;
         UpdateCostLabel();

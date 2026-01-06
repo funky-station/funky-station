@@ -4,6 +4,9 @@
 // SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Drywink <hugogrethen@gmail.com>
+// SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+princess-cheeseballs@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Princess-Cheeseballs <https://github.com/Princess-Cheeseballs>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
 // SPDX-License-Identifier: MIT
@@ -13,6 +16,4 @@ using Robust.Shared.GameStates;
 namespace Content.Shared.Stunnable;
 
 [RegisterComponent, NetworkedComponent, Access(typeof(SharedStunSystem))]
-public sealed partial class StunnedComponent : Component
-{
-}
+public sealed partial class StunnedComponent : Component;

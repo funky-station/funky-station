@@ -26,6 +26,7 @@
 # SPDX-FileCopyrightText: 2024 GitHubUser53123 <110841413+GitHubUser53123@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Mr. 27 <45323883+Dutch-VanDerLinde@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 MaiaArai <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Mish <bluscout78@yahoo.com>
 # SPDX-FileCopyrightText: 2025 Teasq <Xerithin@gmail.com>
 # SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
@@ -49,8 +50,14 @@
   - Maintenance
   - Engineering
   - External
-  extendedAccess:
   - Atmospherics
+  alternateTitles:
+  - StationEngineerMaintenanceTechnician
+  - StationEngineerFirefighter
+  - StationEngineerMechanic
+  - StationEngineerElectrician
+  - StationEngineerAtmosphericTechnician
+  - StationEngineerEngineOperator
 
 - type: startingGear
   id: StationEngineerGear
@@ -60,3 +67,27 @@
   #storage:
     #back:
     #- Stuff
+
+- type: jobAlternateTitle
+  id: StationEngineerMaintenanceTechnician
+  name: job-name-alt-engineer-1
+
+- type: jobAlternateTitle
+  id: StationEngineerMechanic
+  name: job-name-alt-engineer-2
+
+- type: jobAlternateTitle
+  id: StationEngineerElectrician
+  name: job-name-alt-engineer-3
+
+- type: jobAlternateTitle
+  id: StationEngineerEngineOperator
+  name: job-name-alt-engineer-4
+
+- type: jobAlternateTitle
+  id: StationEngineerFirefighter
+  name: job-name-alt-atmos-1
+
+- type: jobAlternateTitle
+  id: StationEngineerAtmosphericTechnician
+  name: job-name-alt-atmos-2

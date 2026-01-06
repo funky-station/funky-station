@@ -16,6 +16,7 @@
 # SPDX-FileCopyrightText: 2024 Mr. 27 <45323883+Dutch-VanDerLinde@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 MaiaArai <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
@@ -36,6 +37,10 @@
   - !type:GiveItemOnHolidaySpecial
     holiday: MikuDay
     prototype: BoxPerformer
+  alternateTitles:
+  - MusicianRadioDJ
+  - MusicianBusker
+  - MusicianPerformer
 
 - type: startingGear
   id: MusicianGear
@@ -46,3 +51,15 @@
   #storage:
     #back:
     #- Stuff
+
+- type: jobAlternateTitle
+  id: MusicianRadioDJ
+  name: job-name-alt-musician-1
+
+- type: jobAlternateTitle
+  id: MusicianBusker
+  name: job-name-alt-musician-2
+
+- type: jobAlternateTitle
+  id: MusicianPerformer
+  name: job-name-alt-musician-3

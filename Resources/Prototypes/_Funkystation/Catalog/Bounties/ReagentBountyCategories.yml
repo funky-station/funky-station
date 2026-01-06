@@ -130,7 +130,7 @@
     minAmount: 100
     maxAmount: 100
     rewardPer: 15
-    reagent: Oil
+    reagent: Hydroxide
   - name: bounty-item-Fersilicite
     minAmount: 100
     maxAmount: 100

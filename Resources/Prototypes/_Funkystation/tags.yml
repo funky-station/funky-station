@@ -116,3 +116,6 @@
 
 - type: Tag
   id: ExtendedEmergencyNitrogenTank
+
+- type: Tag
+  id: CartridgeAntiHumanoid

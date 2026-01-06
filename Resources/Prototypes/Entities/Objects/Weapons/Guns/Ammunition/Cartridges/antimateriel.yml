@@ -35,3 +35,24 @@
   - type: SpentAmmoVisuals
   - type: StaticPrice
     price: 20
+
+- type: entity
+  parent: [ BaseCartridge, BaseMajorContraband ]
+  id: CartridgeAntiHumanoid
+  name: cartridge (.60 anti-humanoid)
+  components:
+  - type: Tag
+    tags:
+    - Cartridge
+    - CartridgeAntiHumanoid
+  - type: CartridgeAmmo
+    proto: BulletAntiHumanoid
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Ammunition/Casings/large_casing.rsi
+    layers:
+    - state: base
+      map: ["enum.AmmoVisualLayers.Base"]
+  - type: Appearance
+  - type: SpentAmmoVisuals
+  - type: StaticPrice
+    price: 20

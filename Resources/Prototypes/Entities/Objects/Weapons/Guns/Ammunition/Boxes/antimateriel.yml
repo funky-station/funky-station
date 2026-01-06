@@ -46,6 +46,32 @@
     zeroVisible: false
   - type: Appearance
 
+- type: entity
+  abstract: true
+  parent: BaseItem
+  id: BaseMagazineBoxAntiHumanoid
+  name: ammunition box (.60 anti-humanoid)
+  components:
+  - type: BallisticAmmoProvider
+    mayTransfer: true
+    whitelist:
+      tags:
+        - CartridgeAntiHumanoid
+    proto: CartridgeAntiHumanoid
+    capacity: 12 # Goobstation
+  - type: Item
+    size: Small
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Ammunition/Boxes/anti_materiel.rsi
+  - type: MagazineVisuals
+    magState: mag
+    steps: 4
+    zeroVisible: false
+  - type: Appearance
+
 # Boxes
 - type: entity
   parent: BaseMagazineBoxAntiMateriel
@@ -74,6 +100,20 @@
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeAntiMateriel
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+
+- type: entity
+  parent: BaseMagazineBoxAntiMateriel
+  id: MagazineBoxAntiHumanoid
+  name: ammunition box (.60 anti-humanoid)
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeAntiHumanoid
   - type: Sprite
     layers:
     - state: base

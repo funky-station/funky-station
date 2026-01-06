@@ -28,10 +28,24 @@
   - type: Projectile
     damage:
       types:
-        Piercing: 75
+        Piercing: 50 #from 75 to 50, functionally still the same if we focus on critting someone, but the target can live a little bit more now
         Structural: 226
+    ignoreResistances: true #AP because nobody fucking uses these, nerf if necessary
     penetrationThreshold: 360
     penetrationDamageTypeRequirement:
     - Structural
+  - type: StaminaDamageOnCollide
+    damage: 60
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseBullet
+  id: BulletAntiHumanoid
+  name: bullet (.60 anti-humanoid)
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 75
   - type: StaminaDamageOnCollide
     damage: 60

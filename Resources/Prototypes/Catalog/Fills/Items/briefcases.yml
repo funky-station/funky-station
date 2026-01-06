@@ -62,7 +62,7 @@
   - type: StorageFill
     contents:
       - id: WeaponRevolverHristov
-      - id: MagazineBoxAntiMateriel
+      - id: MagazineBoxAntiHumanoid
       - id: ClothingMaskGoldenCursed
       - id: ClothingUniformJumpsuitSyndieFormal
       - id: ClothingNeckTieRed

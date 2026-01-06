@@ -228,7 +228,7 @@
   name: Millionaire's Holiday
   parent: [BaseWeaponRevolver, BaseSyndicateContraband]
   id: WeaponRevolverHristov
-  description: An enormous, deafeningly loud revolver that fires armor piercing 14.5mm shells. Uses .60 anti-materiel ammo.
+  description: An enormous, deafeningly loud revolver that fires flesh piercing 14.5mm shells. Uses .60 anti-humanoid ammo, as the frame cannot handle the specialized anti-materiel ammo.
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Revolvers/hristov_revolver.rsi
@@ -250,10 +250,10 @@
     capacity: 6
     chambers: [ True, True, True, True, True, True ]
     ammoSlots: [ null, null, null, null, null, null ]
-    proto: CartridgeAntiMateriel
+    proto: CartridgeAntiHumanoid
     whitelist:
       tags:
-        - CartridgeAntiMateriel
+        - CartridgeAntiHumanoid
 
 - type: entity
   name: pirate revolver

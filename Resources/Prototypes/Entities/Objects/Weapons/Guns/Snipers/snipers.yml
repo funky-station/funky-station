@@ -183,6 +183,7 @@
     whitelist:
       tags:
       - CartridgeAntiMateriel
+      - CartridgeAntiHumanoid #if you get the humanoid ammo, yes you can use it in the hristov
     capacity: 6 # Goobstation
     proto: CartridgeAntiMateriel
   - type: SpeedModifiedOnWield

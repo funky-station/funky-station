@@ -100,6 +100,10 @@
   id: RiotShield
   description: A large tower shield. Good for controlling crowds.
   components:
+    - type: Clothing
+      quickEquip: false
+      slots:
+      - backStorage
     - type: StaticPrice
       price: 90
     - type: Blocking
@@ -121,6 +125,10 @@
   id: RiotLaserShield
   description: A shield built for withstanding lasers, but not much else.
   components:
+    - type: Clothing
+      quickEquip: false
+      slots:
+      - backStorage
     - type: Sprite
       state: riot_laser-icon
     - type: Item
@@ -141,6 +149,10 @@
   id: RiotBulletShield
   description: A shield built for protecting against ballistics, but not much else.
   components:
+    - type: Clothing
+      quickEquip: false
+      slots:
+      - backStorage
     - type: Sprite
       sprite: Objects/Weapons/Melee/shields.rsi
       state: riot_bullet-icon
@@ -164,9 +176,9 @@
   id: WoodenBuckler
   description: A small round wooden makeshift shield.
   components:
-    - type: Tag 
+    - type: Tag
       tags:
-      - WoodenBuckler    
+      - WoodenBuckler
     - type: Sprite
       state: buckler-icon
     - type: Item
@@ -223,9 +235,9 @@
   id: MakeshiftShield
   description: A rundown looking shield, not good for much.
   components:
-    - type: Tag 
+    - type: Tag
       tags:
-      - MakeshiftShield  
+      - MakeshiftShield
     - type: Sprite
       state: makeshift-icon
     - type: Item

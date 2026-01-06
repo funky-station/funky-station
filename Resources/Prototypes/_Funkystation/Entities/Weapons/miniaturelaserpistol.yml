@@ -82,6 +82,7 @@
   - type: Item
     sprite: _Funkystation/Objects/Weapons/miniature_laser_pistol_inhands_64x.rsi
     heldPrefix: energy
+
 - type: entity
   name: disabler plus
   description: A sophisticated disabler with additional capacity and integrated flashlight. Intended for self defense situations only.
@@ -102,6 +103,7 @@
     slots:
       - backStorage
       - Belt
+  - type: PacifismAllowedGun
   - type: ProjectileBatteryAmmoProvider
     proto: BulletDisabler
     fireCost: 50

@@ -580,6 +580,8 @@
     quickEquip: false
     slots:
     - Belt
+    - backStorage
+  - type: PacifismAllowedGun
   - type: Appearance
   - type: MagazineVisuals
     magState: mag
@@ -616,6 +618,7 @@
     slots:
       - backStorage
       - Belt
+  - type: PacifismAllowedGun
   - type: ProjectileBatteryAmmoProvider
     proto: BulletDisabler
     fireCost: 50

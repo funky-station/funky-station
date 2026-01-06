@@ -350,7 +350,7 @@
     impactEffect: BulletImpactEffectDisabler
     damage:
       types:
-        Ion: 10 #Goobstation
+        #Ion: 10 #Goobstation
         Heat: 0
     soundHit:
       collection: WeakHit
@@ -394,12 +394,12 @@
         hard: false
   - type: Ammo
   - type: StaminaDamageOnCollide
-    damage: 1
+    damage: 1 #yes this is the one disabler that exists and works. Go firing line an antag to stun them, surely this will go well :godo:
   - type: Projectile
     impactEffect: BulletImpactEffectDisabler
     damage:
       types:
-        Ion: 5 #Goobstation
+        #Ion: 5 #Goobstation
         Heat: 0
     soundHit:
       collection: WeakHit
@@ -1031,7 +1031,7 @@
 
 - type: entity
   name : disabler bolt smg
-  id: BulletDisablerSmg
+  id: BulletDisablerSmg  #these no longer exist normally so leaving it be
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
   components:

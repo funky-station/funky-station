@@ -446,7 +446,7 @@
 #unrechargeable batteries
 
 - type: entity
-  name: medium-capacity power cell
+  name: medium-capacity single-use power cell
   description: An unrechargeable power cell. This is the popular and cheap version. The cell isn't worth the time it takes to throw it away.
   id: PowerCellMediumSingle
   suffix: Full, Single Use

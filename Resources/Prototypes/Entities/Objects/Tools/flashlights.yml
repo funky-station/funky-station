@@ -88,7 +88,7 @@
     slots:
       cell_slot:
         name: power-cell-slot-component-slot-name-default
-        startingItem: PowerCellMedium
+        startingItem: PowerCellMediumSingle
   - type: Sprite
     sprite: Objects/Tools/flashlight.rsi
     layers:

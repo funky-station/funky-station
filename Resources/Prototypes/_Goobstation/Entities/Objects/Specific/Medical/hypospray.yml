@@ -123,7 +123,7 @@
 
 - type: entity
   name: syndicate cartridge autoinjector
-  parent: [ BaseSyndicateCartridgeAutoinjector , BaseMedicalContraband ]
+  parent: [ BaseSyndicateCartridgeAutoinjector , BaseSyndicateContraband ]
   description: Used for rapid administration of medicine. Requires disposable cartridges to function. Has a sinister red finish to it. Seems to be manufactured with speed in mind.
   id: SyndicateHypo
   components:

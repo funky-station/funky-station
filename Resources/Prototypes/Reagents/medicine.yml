@@ -1518,7 +1518,7 @@
         - "psicodine-effect-at-peace"
         probability: 0.2
       - !type:ReduceSeizureBuild
-        reductionAmount: 0.01
+        reductionAmount: 0.1
         probability: 1.0
 
 - type: reagent

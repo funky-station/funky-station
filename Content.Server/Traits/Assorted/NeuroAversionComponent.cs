@@ -32,11 +32,9 @@ public sealed partial class NeuroAversionComponent : Component
 
     /// <summary>
     /// Base seizure build gain per second (0-1 scale).
-    /// Takes ~10 hours to reach 100% build in good health.
-    /// Targets 1 seizure every 5 rounds on average.
     /// </summary>
     [DataField]
-    public float BaseSeizurePassivePerSec { get; private set; } = 0.000028f;
+    public float BaseSeizurePassivePerSec { get; private set; } = 0.00001f;
 
     /// <summary>
     /// Seizure meter threshold for triggering seizures.
@@ -62,18 +60,16 @@ public sealed partial class NeuroAversionComponent : Component
     /// Build multiplier for okay health condition.
     /// </summary>
     [DataField]
-    public float ConditionOkayMultiplier { get; private set; } = 2.0f;
+    public float ConditionOkayMultiplier { get; private set; } = 1.2f;
 
     /// <summary>
     /// Build multiplier for bad health condition.
-    /// Results in ~1 seizure every 3 rounds.
     /// </summary>
     [DataField]
-    public float ConditionBadMultiplier { get; private set; } = 3.33f;
+    public float ConditionBadMultiplier { get; private set; } = 2.0f;
 
     /// <summary>
     /// Build multiplier for critical health condition.
-    /// Results in near-guaranteed seizure after 1 hour critical.
     /// </summary>
     [DataField]
     public float ConditionCriticalMultiplier { get; private set; } = 10.0f;
@@ -90,7 +86,7 @@ public sealed partial class NeuroAversionComponent : Component
     /// Severity multiplier for entities that got mindshielded mid-round (more severe effects).
     /// </summary>
     [DataField]
-    public float MidRoundMindShieldedMultiplier { get; private set; } = 2.5f;
+    public float MidRoundMindShieldedMultiplier { get; private set; } = 3f;
 
     // =| EVERYTHING ELSE |=
 

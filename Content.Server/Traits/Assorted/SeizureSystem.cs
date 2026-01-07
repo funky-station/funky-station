@@ -345,6 +345,9 @@ public sealed class SeizureSystem : EntitySystem
 
         // Remove stuttering accent if still present
         RemComp<StutteringAccentComponent>(uid);
+        
+        component.MovementSpeedMultiplier = 1.0f;
+        _movementSpeed.RefreshMovementSpeedModifiers(uid);
     }
 
     private void UpdateMovementSpeed(EntityUid uid, SeizureComponent seizure, float frameTime)

@@ -7272,3 +7272,9 @@ Entries:
       message: Removed atmos spawnpoints and the second QM hardsuit
   id: 843
   time: '2026-01-07T18:59:30.0000000+00:00'
+- author: Terkala
+  changes:
+    - type: Tweak
+      message: Salvage Ruins now contain more loot and fewer carp.
+  id: 844
+  time: '2026-01-07T20:20:44.0000000+00:00'

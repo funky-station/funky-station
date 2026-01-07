@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "By AraiMaia for Funky Station",
+  "copyright": "Taken from https://github.com/tgstation/tgstation at commit 57cd1d59ca019dd0e7811ac451f0.295f818e573da",
   "size": {
     "x": 32,
     "y": 32
@@ -17,11 +17,13 @@
     },
     {
       "name": "gasFilterOn",
-      "directions": 4
+      "directions": 4,
+      "delays": [ [ 0.2, 0.2, 0.2, 0.2 ], [ 0.2, 0.2, 0.2, 0.2 ], [ 0.2, 0.2, 0.2, 0.2 ], [ 0.2, 0.2, 0.2, 0.2 ] ]
     },
     {
       "name": "gasFilterFOn",
-      "directions": 4
+      "directions": 4,
+      "delays": [ [ 0.2, 0.2, 0.2, 0.2 ], [ 0.2, 0.2, 0.2, 0.2 ], [ 0.2, 0.2, 0.2, 0.2 ], [ 0.2, 0.2, 0.2, 0.2 ] ]
     }
   ]
 }

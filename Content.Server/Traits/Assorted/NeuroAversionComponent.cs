@@ -34,7 +34,7 @@ public sealed partial class NeuroAversionComponent : Component
     /// Base seizure build gain per second (0-1 scale).
     /// </summary>
     [DataField]
-    public float BaseSeizurePassivePerSec { get; private set; } = 0.00001f;
+    public float BaseSeizurePassivePerSec { get; private set; } = 0.00000694f;
 
     /// <summary>
     /// Seizure meter threshold for triggering seizures.
@@ -60,21 +60,19 @@ public sealed partial class NeuroAversionComponent : Component
     /// Build multiplier for okay health condition.
     /// </summary>
     [DataField]
-    public float ConditionOkayMultiplier { get; private set; } = 1.2f;
+    public float ConditionOkayMultiplier { get; private set; } = 1.4f;
 
     /// <summary>
     /// Build multiplier for bad health condition.
     /// </summary>
     [DataField]
-    public float ConditionBadMultiplier { get; private set; } = 2.0f;
+    public float ConditionBadMultiplier { get; private set; } = 4.0f;
 
     /// <summary>
     /// Build multiplier for critical health condition.
     /// </summary>
     [DataField]
-    public float ConditionCriticalMultiplier { get; private set; } = 10.0f;
-
-    // =| MIND SHIELD MULTIPLIERS |=
+    public float ConditionCriticalMultiplier { get; private set; } = 14.0f;
 
     /// <summary>
     /// Severity multiplier for entities that started with mindshields (normal severity).

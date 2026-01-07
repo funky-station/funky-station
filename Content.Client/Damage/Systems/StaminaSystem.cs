@@ -111,13 +111,51 @@ public sealed partial class StaminaSystem : SharedStaminaSystem
 
     private void PlayAnimation(Entity<StaminaComponent, SpriteComponent> entity)
     {
-        var step = Math.Clamp((entity.Comp1.StaminaDamage - entity.Comp1.AnimationThreshold) /
-                              (entity.Comp1.CritThreshold - entity.Comp1.AnimationThreshold),
-            0f,
-            1f); // The things I do for project 0 warnings
+        // Validate values to prevent NaN/Infinity propagation
+        var staminaDamage = entity.Comp1.StaminaDamage;
+        var critThreshold = entity.Comp1.CritThreshold;
+        var animationThreshold = entity.Comp1.AnimationThreshold;
+
+        // If any critical values are invalid, skip animation to prevent NaN errors
+        if (float.IsNaN(staminaDamage) || float.IsInfinity(staminaDamage) ||
+            float.IsNaN(critThreshold) || float.IsInfinity(critThreshold) ||
+            float.IsNaN(animationThreshold) || float.IsInfinity(animationThreshold))
+        {
+            return;
+        }
+
+        var denominator = critThreshold - animationThreshold;
+        
+        // Prevent division by zero - if thresholds are equal, use max step
+        float step;
+        if (MathF.Abs(denominator) < float.Epsilon)
+        {
+            step = 1f;
+        }
+        else
+        {
+            step = Math.Clamp((staminaDamage - animationThreshold) / denominator,
+                0f,
+                1f);
+        }
+
+        // Validate step isn't NaN before using it in calculations
+        if (float.IsNaN(step) || float.IsInfinity(step))
+        {
+            return;
+        }
+
         var frequency = entity.Comp1.FrequencyMin + step * entity.Comp1.FrequencyMod;
         var jitter = entity.Comp1.JitterAmplitudeMin + step * entity.Comp1.JitterAmplitudeMod;
         var breathing = entity.Comp1.BreathingAmplitudeMin + step * entity.Comp1.BreathingAmplitudeMod;
+
+        // Final validation of calculated values before passing to animation system
+        if (float.IsNaN(frequency) || float.IsInfinity(frequency) ||
+            float.IsNaN(jitter) || float.IsInfinity(jitter) ||
+            float.IsNaN(breathing) || float.IsInfinity(breathing))
+        {
+            return;
+        }
 
         _animation.Play(entity.Owner,
             _stun.GetFatigueAnimation(entity.Comp2,

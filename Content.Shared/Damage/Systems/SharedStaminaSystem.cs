@@ -290,7 +290,34 @@ public abstract partial class SharedStaminaSystem : EntitySystem
         if (!Resolve(uid, ref component, false) || component.Deleted)
             return;
 
-        var severity = ContentHelpers.RoundToLevels(MathF.Max(0f, component.CritThreshold - component.StaminaDamage), component.CritThreshold, 7);
+        // Alerts should only be shown for player-controlled entities.
+        if (!HasComp<AlertsComponent>(uid))
+            return;
+
+        // Prevent division by zero or NaN from propagating to UI
+        // If CritThreshold is invalid (0, NaN, or Infinity), default to maximum severity (all stamina depleted)
+        if (component.CritThreshold <= 0f || float.IsNaN(component.CritThreshold) || float.IsInfinity(component.CritThreshold))
+        {
+            _alerts.ShowAlert(uid, component.StaminaAlert, 6);
+            return;
+        }
+
+        // Check if StaminaDamage is NaN or Infinity, which would cause issues in calculation
+        if (float.IsNaN(component.StaminaDamage) || float.IsInfinity(component.StaminaDamage))
+        {
+            _alerts.ShowAlert(uid, component.StaminaAlert, 6);
+            return;
+        }
+
+        var remainingStamina = component.CritThreshold - component.StaminaDamage;
+        // Double-check the calculated value isn't NaN before passing to RoundToLevels
+        if (float.IsNaN(remainingStamina) || float.IsInfinity(remainingStamina))
+        {
+            _alerts.ShowAlert(uid, component.StaminaAlert, 6);
+            return;
+        }
+
+        var severity = ContentHelpers.RoundToLevels(MathF.Max(0f, remainingStamina), component.CritThreshold, 7);
         _alerts.ShowAlert(uid, component.StaminaAlert, (short) severity);
     }
 

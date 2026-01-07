@@ -7278,3 +7278,9 @@ Entries:
       message: Salvage Ruins now contain more loot and fewer carp.
   id: 844
   time: '2026-01-07T20:20:44.0000000+00:00'
+- author: TrixxedHeart
+  changes:
+    - type: Remove
+      message: Technical Assistants no longer have Atmospherics access by default
+  id: 845
+  time: '2026-01-07T20:39:02.0000000+00:00'

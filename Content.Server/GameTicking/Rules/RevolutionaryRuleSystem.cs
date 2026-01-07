@@ -601,7 +601,7 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
                     {
                         gone++;
                     }
-                    else if (checkOffStation && _stationSystem.IsEntityOnStationGrid(entity) && !_emergencyShuttle.EmergencyShuttleArrived)
+                    else if (checkOffStation && !_stationSystem.IsEntityOnStationGrid(entity) && !_emergencyShuttle.EmergencyShuttleArrived)
                     {
                         gone++;
                     }

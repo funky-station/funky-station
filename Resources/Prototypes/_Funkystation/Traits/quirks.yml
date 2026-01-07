@@ -210,4 +210,4 @@
       timeBetweenMigraines: 480, 1200
       migraineDuration: 12, 15
       startedMindShieldedMultiplier: 1.0
-      midRoundMindShieldedMultiplier: 2.5
+      midRoundMindShieldedMultiplier: 3

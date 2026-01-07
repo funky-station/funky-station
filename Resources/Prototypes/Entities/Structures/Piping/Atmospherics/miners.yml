@@ -51,6 +51,7 @@
       - Anchorable
     - type: Pullable
     - type: Sprite
+      noRot: true
       sprite: Structures/Piping/Atmospherics/miners.rsi
       state: miner
     - type: AtmosDevice

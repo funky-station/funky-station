@@ -454,6 +454,7 @@
       visibleLayers:
       - enum.SubfloorLayers.FirstLayer
     - type: Sprite
+      noRot: true
       sprite: Structures/Piping/Atmospherics/gascanisterport.rsi
       layers:
         - sprite: Structures/Piping/Atmospherics/pipe.rsi

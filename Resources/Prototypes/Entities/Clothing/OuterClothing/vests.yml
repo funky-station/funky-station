@@ -77,7 +77,7 @@
   - type: ExplosionResistance
     damageCoefficient: 0.5
   - type: FireResistance
-    damageCoefficient: 0.85
+    damageCoefficient: 0.15
 
 #Mercenary web vest
 - type: entity

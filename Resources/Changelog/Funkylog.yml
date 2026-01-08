@@ -7306,3 +7306,9 @@ Entries:
         Technician playtime.
   id: 847
   time: '2026-01-08T00:38:54.0000000+00:00'
+- author: Terkala
+  changes:
+    - type: Fix
+      message: Fixed game crashes on using a disabler on flesh mobs.
+  id: 848
+  time: '2026-01-08T00:50:14.0000000+00:00'

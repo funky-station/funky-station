@@ -7272,3 +7272,43 @@ Entries:
       message: Removed atmos spawnpoints and the second QM hardsuit
   id: 843
   time: '2026-01-07T18:59:30.0000000+00:00'
+- author: Terkala
+  changes:
+    - type: Tweak
+      message: Salvage Ruins now contain more loot and fewer carp.
+  id: 844
+  time: '2026-01-07T20:20:44.0000000+00:00'
+- author: TrixxedHeart
+  changes:
+    - type: Remove
+      message: Technical Assistants no longer have Atmospherics access by default
+  id: 845
+  time: '2026-01-07T20:39:02.0000000+00:00'
+- author: TrixxedHeart
+  changes:
+    - type: Tweak
+      message: >-
+        Neuroaversion has been made less overactive on roundstart MindShielded
+        roles.
+    - type: Tweak
+      message: >-
+        Psicodine is now more properly effective in treating severe cases of
+        Neuroaversion.
+    - type: Fix
+      message: Seizures now properly reset movement speed.
+  id: 846
+  time: '2026-01-08T00:34:23.0000000+00:00'
+- author: AraiMaia
+  changes:
+    - type: Fix
+      message: >-
+        Senior Engineer no longer requires the non-existant Atmospheric
+        Technician playtime.
+  id: 847
+  time: '2026-01-08T00:38:54.0000000+00:00'
+- author: Terkala
+  changes:
+    - type: Fix
+      message: Fixed game crashes on using a disabler on flesh mobs.
+  id: 848
+  time: '2026-01-08T00:50:14.0000000+00:00'

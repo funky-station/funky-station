@@ -30,10 +30,13 @@
 // SPDX-FileCopyrightText: 2024 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Drywink <43855731+Drywink@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+Pronana@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Princess-Cheeseballs <https://github.com/Princess-Cheeseballs>
 // SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 // SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
-// SPDX-FileCopyrightText: 2025 Princess-Cheeseballs <https://github.com/Princess-Cheeseballs>
+// SPDX-FileCopyrightText: 2026 Terkala <appleorange64@gmail.com>
 //
 // SPDX-License-Identifier: MIT
 
@@ -290,7 +293,34 @@ public abstract partial class SharedStaminaSystem : EntitySystem
         if (!Resolve(uid, ref component, false) || component.Deleted)
             return;
 
-        var severity = ContentHelpers.RoundToLevels(MathF.Max(0f, component.CritThreshold - component.StaminaDamage), component.CritThreshold, 7);
+        // Alerts should only be shown for player-controlled entities.
+        if (!HasComp<AlertsComponent>(uid))
+            return;
+
+        // Prevent division by zero or NaN from propagating to UI
+        // If CritThreshold is invalid (0, NaN, or Infinity), default to maximum severity (all stamina depleted)
+        if (component.CritThreshold <= 0f || float.IsNaN(component.CritThreshold) || float.IsInfinity(component.CritThreshold))
+        {
+            _alerts.ShowAlert(uid, component.StaminaAlert, 6);
+            return;
+        }
+
+        // Check if StaminaDamage is NaN or Infinity, which would cause issues in calculation
+        if (float.IsNaN(component.StaminaDamage) || float.IsInfinity(component.StaminaDamage))
+        {
+            _alerts.ShowAlert(uid, component.StaminaAlert, 6);
+            return;
+        }
+
+        var remainingStamina = component.CritThreshold - component.StaminaDamage;
+        // Double-check the calculated value isn't NaN before passing to RoundToLevels
+        if (float.IsNaN(remainingStamina) || float.IsInfinity(remainingStamina))
+        {
+            _alerts.ShowAlert(uid, component.StaminaAlert, 6);
+            return;
+        }
+
+        var severity = ContentHelpers.RoundToLevels(MathF.Max(0f, remainingStamina), component.CritThreshold, 7);
         _alerts.ShowAlert(uid, component.StaminaAlert, (short) severity);
     }
 

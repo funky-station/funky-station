@@ -7298,3 +7298,11 @@ Entries:
       message: Seizures now properly reset movement speed.
   id: 846
   time: '2026-01-08T00:34:23.0000000+00:00'
+- author: AraiMaia
+  changes:
+    - type: Fix
+      message: >-
+        Senior Engineer no longer requires the non-existant Atmospheric
+        Technician playtime.
+  id: 847
+  time: '2026-01-08T00:38:54.0000000+00:00'

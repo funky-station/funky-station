@@ -34,5 +34,5 @@ public sealed partial class CosmicMalignRiftComponent : Component
     public TimeSpan ChaplainTime = TimeSpan.FromSeconds(20);
 
     [DataField]
-    public TimeSpan AbsorbTime = TimeSpan.FromSeconds(35);
+    public TimeSpan AbsorbTime = TimeSpan.FromSeconds(20);
 }

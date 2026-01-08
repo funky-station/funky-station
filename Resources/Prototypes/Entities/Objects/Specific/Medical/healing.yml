@@ -49,6 +49,7 @@
 # SPDX-FileCopyrightText: 2025 McBosserson <148172569+McBosserson@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Nox <nebulousnox38@gmail.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 Xcybitt <197952719+Xcybitt@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
@@ -262,7 +263,7 @@
     damage:
       groups:
         Brute: -45 # 15 for each type in the group
-    bloodlossModifier: -10 # a suture should stop ongoing bleeding
+    bloodlossModifier: -10 # a suture should stop ongoing bleeding  #we still let these exist because it's rare that these exist in round genuinely
     healingBeginSound:
       path: "/Audio/Items/Medical/brutepack_begin.ogg"
     healingEndSound:
@@ -350,6 +351,7 @@
   components:
     - type: Tag
       tags:
+        - Tourniquet
         - SecBeltEquip
     - type: Sprite
       state: tourniquet
@@ -396,7 +398,7 @@
       types:
         Slash: -7.5
         Piercing: -15
-    bloodlossModifier: -10
+    bloodlossModifier: -2 #a LOT less bleeding stopped with these, go use tourniquets for massive bleeds #also, means you can use heat damage to cauterize wounds!
     healingBeginSound:
       path: "/Audio/Items/Medical/brutepack_begin.ogg"
     healingEndSound:

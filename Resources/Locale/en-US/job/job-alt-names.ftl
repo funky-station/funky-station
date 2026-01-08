@@ -16,12 +16,12 @@ job-name-alt-cargotech-3 = Logistics Clerk
 
 job-name-alt-salvage-1 = Shaft Miner
 
-job-name-alt-atmos-1 = Fire Suppression Specialist
-
 job-name-alt-engineer-1 = Maintenance Technician
 job-name-alt-engineer-2 = Mechanic
 job-name-alt-engineer-3 = Electrician
 job-name-alt-engineer-4 = Engine Operator
+job-name-alt-atmos-1 = Fire Suppression Specialist
+job-name-alt-atmos-2 = Atmospheric Technician
 
 job-name-alt-scientist-1 = Xenoarchaeologist
 job-name-alt-scientist-2 = Anomaly Researcher

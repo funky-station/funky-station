@@ -16,6 +16,10 @@
   antagonist: true
   setPreference: true
   objective: roles-antag-initial-infected-objective
+  category: Team
+  icon:
+    sprite: Interface/Misc/job_icons.rsi
+    state: Virologist
   requirements:
   - !type:SpeciesRequirement
     inverted: true
@@ -31,6 +35,9 @@
   antagonist: true
   setPreference: false
   objective: roles-antag-zombie-objective
+  icon:
+    sprite: Interface/Misc/job_icons.rsi
+    state: Virologist
   requirements:
   - !type:SpeciesRequirement
     inverted: true

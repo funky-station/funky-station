@@ -18,6 +18,10 @@
   setPreference: true
   objective: roles-antag-space-ninja-objective
   guides: [ SpaceNinja ]
+  category: Solo
+  icon:
+    sprite: Objects/Weapons/Melee/katana.rsi
+    state: icon
   previewStartingGear: SpaceNinjaGear
 
 #Ninja Gear

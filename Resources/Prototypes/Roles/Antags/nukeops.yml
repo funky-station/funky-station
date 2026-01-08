@@ -31,6 +31,10 @@
   antagonist: true
   setPreference: true
   objective: roles-antag-nuclear-operative-objective
+  category: Team
+  icon:
+    sprite: _Funkystation/Interface/Lobby/AntagCards.rsi
+    state: nuclearoperative
   requirements:
   - !type:OverallPlaytimeRequirement
     time: 36000 # 10h
@@ -43,6 +47,10 @@
   antagonist: true
   setPreference: true
   objective: roles-antag-nuclear-operative-agent-objective
+  category: Team
+  icon:
+    sprite: _Funkystation/Interface/Lobby/AntagCards.rsi
+    state: nuclearoperative
   requirements:
   - !type:OverallPlaytimeRequirement
     time: 36000 # 10h
@@ -58,6 +66,10 @@
   antagonist: true
   setPreference: true
   objective: roles-antag-nuclear-operative-commander-objective
+  category: Team
+  icon:
+    sprite: _Funkystation/Interface/Lobby/AntagCards.rsi
+    state: nuclearoperativecommander
   requirements:
   - !type:OverallPlaytimeRequirement
     time: 180000 # 50h

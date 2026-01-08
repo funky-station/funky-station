@@ -12,6 +12,10 @@
   setPreference: true
   objective: roles-antag-blob-objective
   guides: [ Blob ]
+  category: Solo
+  icon:
+    sprite: _Goobstation/Blob/Mobs/blob.rsi
+    state: blob_core
   requirements:
   - !type:OverallPlaytimeRequirement
     time: 54000 # 15h

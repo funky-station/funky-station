@@ -22,6 +22,11 @@
 #
 # SPDX-License-Identifier: MIT
 
+# Antag Categories
+antag-category-solo = Solo Antagonists
+antag-category-team = Team Antagonists
+antag-category-other = Other
+
 roles-antag-generic-solo-antagonist-name = Solo Antagonist
 
 roles-antag-generic-free-agent-name = Free Agent
@@ -30,14 +35,19 @@ roles-antag-generic-team-antagonist-name = Team Antagonist
 
 roles-antag-generic-silicon-antagonist-name = Silicon Antagonist
 ## goob edited
-roles-antag-syndicate-agent-name = Traitor
-roles-antag-syndicate-agent-objective = Complete your objectives without being caught.
+roles-antag-syndicate-agent-name = Syndicate agent
+roles-antag-syndicate-agent-objective = You are an agent for the Syndicate. Infiltrate, adapt, and execute your mission parameters with precision.
+    Keep your cover intact, leave no evidence, and eliminate any loose ends.
 
-roles-antag-syndicate-agent-sleeper-name = Syndicate sleeper agent
-roles-antag-syndicate-agent-sleeper-objective = A form of traitor that can activate at any point in the middle of the shift.
+roles-antag-syndicate-agent-sleeper-name = Syndicate Sleeper Agent
+roles-antag-syndicate-agent-sleeper-objective = You are an ordinary crewmember...until the signal arrives.
+
+    When it does, your Syndicate Agent status activates, and your objectives will be revealed.
 
 roles-antag-initial-infected-name = Initial Infected
-roles-antag-initial-infected-objective = Once you turn, infect as many other crew members as possible.
+roles-antag-initial-infected-objective = You've been infected with a mysterious virus... Spread your infection and convert the station into the undead.
+
+    Bite, infect, and overwhelm the living.
 
 roles-antag-zombie-name = Zombie
 roles-antag-zombie-objective = Turn as many humans as possible into zombies.
@@ -48,26 +58,29 @@ roles-antag-suspicion-innocent-objective = Discover and eliminate all traitors.
 roles-antag-suspicion-suspect-name = Suspect
 roles-antag-suspicion-suspect-objective = Kill the innocents.
 
-roles-antag-nuclear-operative-commander-name = Nuclear operative commander
-roles-antag-nuclear-operative-commander-objective = Lead your team to the destruction of the station.
+roles-antag-nuclear-operative-commander-name = Nuclear Operative Commander
+roles-antag-nuclear-operative-commander-objective = Command your team with ruthless efficiency. Your mission is absolute: acquire the nuclear authentication disk and reduce the station to atoms.
 
-roles-antag-nuclear-operative-agent-name = Nuclear operative agent
-roles-antag-nuclear-operative-agent-objective = Like default operative, the team's treatment will have priority.
+roles-antag-nuclear-operative-agent-name = Nuclear Operative Corpsman
+roles-antag-nuclear-operative-agent-objective = You are the team's lifeline: chemist, field medic, and combat support. While your fellow operatives breach and clear, you ensure they stay in the fight.
 
-roles-antag-nuclear-operative-name = Nuclear operative
-roles-antag-nuclear-operative-objective = Find the nuke disk and blow up the station.
+roles-antag-nuclear-operative-name = Nuclear Operative
+roles-antag-nuclear-operative-objective = You are a highly trained Gorlex Marauder.
+    Your objective is simple: locate the nuclear authentication disk and annihilate the station.
 
 roles-antag-subverted-silicon-name = Subverted silicon
 roles-antag-subverted-silicon-objective = Follow your new laws and do bad unto the station.
 
 roles-antag-space-ninja-name = Space Ninja
-roles-antag-space-ninja-objective = Use your stealth to sabotage the station, nom on electrical wires.
+roles-antag-space-ninja-objective = You are a shadow in the halls, a ghost in the machine. Strike from darkness, sabotage station systems, and feast on the power coursing through their own wires.
+    Hack, slice, and vanish before they even know you were there.
 
 roles-antag-paradox-clone-name = Paradox Clone
 roles-antag-paradox-clone-objective = A freak space-time anomaly has teleported you into another reality! Now you have to find your counterpart and kill and replace them.
 
 roles-antag-thief-name = Thief
-roles-antag-thief-objective = Add some NT property to your personal collection without using violence.
+roles-antag-thief-objective = You're criminal scum, a kleptomaniac with an itch you can't scratch. After your last arrest, you were slapped with a pacifism implant.
+    But that won't stop you. Corporate property looks so much better in your hands anyway.
 
 roles-antag-dragon-name = Space Dragon
 roles-antag-dragon-objective = Create a carp army to take over this quadrant.

@@ -27,6 +27,10 @@
   setPreference: true
   objective: roles-antag-syndicate-agent-objective
   guides: [ Traitors ]
+  category: Solo
+  icon:
+    sprite: Objects/Weapons/Melee/e_sword.rsi
+    state: e_sword
   requirements:
   - !type:OverallPlaytimeRequirement
     time: 3600 # 1h
@@ -38,6 +42,10 @@
   setPreference: true
   objective: roles-antag-syndicate-agent-sleeper-objective
   guides: [ Traitors ]
+  category: Solo
+  icon:
+    sprite: Objects/Weapons/Melee/e_sword.rsi
+    state: e_sword
   requirements:
   - !type:OverallPlaytimeRequirement
     time: 3600 # 1h

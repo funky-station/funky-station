@@ -19,6 +19,10 @@
   setPreference: true
   objective: roles-antag-rev-head-objective
   guides: [ Revolutionaries ]
+  category: Team
+  icon:
+    sprite: Objects/Weapons/Melee/flash.rsi
+    state: flash
   requirements:
   - !type:OverallPlaytimeRequirement
     time: 36000 # 10hours

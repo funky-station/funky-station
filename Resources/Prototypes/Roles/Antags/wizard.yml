@@ -20,6 +20,10 @@
   antagonist: true
   setPreference: true
   objective: roles-antag-wizard-objective # TODO: maybe give random objs and stationary ones from AntagObjectives and AntagRandomObjectives
+  category: Solo
+  icon:
+    sprite: Objects/Weapons/Melee/wizard_staff.rsi
+    state: staffanimation
   requirements: # I hate time locked roles but this should be enough time for someone to be acclimated
   - !type:OverallPlaytimeRequirement
     time: 18000 # 5h

@@ -1,0 +1,12 @@
+- type: antagCategory
+  id: Solo
+  name: antag-category-solo
+
+- type: antagCategory
+  id: Team
+  name: antag-category-team
+
+- type: antagCategory
+  id: Other
+  name: antag-category-other
+

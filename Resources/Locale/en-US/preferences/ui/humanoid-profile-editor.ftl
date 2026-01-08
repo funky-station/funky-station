@@ -58,6 +58,7 @@ humanoid-profile-editor-preference-jumpskirt = Jumpskirt
 humanoid-profile-editor-preference-backpack = Backpack
 humanoid-profile-editor-preference-satchel = Satchel
 humanoid-profile-editor-preference-duffelbag = Duffelbag
+humanoid-profile-editor-guidebook-button = Guidebook Entry
 humanoid-profile-editor-guidebook-button-tooltip = Click for more info
 
 # Spawn priority
@@ -68,8 +69,8 @@ humanoid-profile-editor-preference-spawn-priority-cryosleep = Cryosleep
 humanoid-profile-editor-jobs-amount-in-department-tooltip = Jobs in the {$departmentName} department
 humanoid-profile-editor-department-jobs-label = {$departmentName} jobs
 humanoid-profile-editor-antags-tab = Antags
-humanoid-profile-editor-antag-preference-yes-button = Yes
-humanoid-profile-editor-antag-preference-no-button = No
+humanoid-profile-editor-antag-preference-yes-button = Enabled
+humanoid-profile-editor-antag-preference-no-button = Disabled
 
 humanoid-profile-editor-job-priority-high-button = High
 humanoid-profile-editor-job-priority-medium-button = Medium

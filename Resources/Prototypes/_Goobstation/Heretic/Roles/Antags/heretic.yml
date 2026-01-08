@@ -12,7 +12,11 @@
   antagonist: true
   setPreference: true
   objective: roles-antag-heretic-description
+  category: Solo
   guides: [ Heretics ]
+  icon:
+    sprite: _Goobstation/Heretic/mansus_grasp.rsi
+    state: icon
 
 - type: startingGear
   id: HereticGear

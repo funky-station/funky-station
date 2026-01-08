@@ -1,0 +1,56 @@
+<PanelContainer xmlns="https://spacestation14.io"
+                xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
+                Margin="1"
+                MinWidth="340"
+                HorizontalExpand="True">
+    <PanelContainer.PanelOverride>
+        <gfx:StyleBoxFlat BackgroundColor="#202028"
+                          BorderColor="#202028"
+                          BorderThickness="2 2 2 2"
+                          ContentMarginLeftOverride="4"
+                          ContentMarginTopOverride="4"
+                          ContentMarginRightOverride="4"
+                          ContentMarginBottomOverride="4" />
+    </PanelContainer.PanelOverride>
+
+    <BoxContainer Orientation="Vertical">
+        <!-- Top Section: Icon on left, Name + Buttons on right -->
+        <BoxContainer Orientation="Horizontal" Margin="0 0 0 2">
+            <Control Name="IconWrapper" Margin="4 4 8 4" MinSize="64 64">
+                <PanelContainer Name="IconPanel" StyleClasses="PanelDark">
+                    <TextureRect Name="Icon"
+                                 Stretch="KeepAspectCentered"
+                                 MinSize="64 64"/>
+                </PanelContainer>
+            </Control>
+
+            <!-- Name and Buttons -->
+            <BoxContainer Name="ButtonsContainer" Orientation="Vertical" VerticalAlignment="Center" HorizontalExpand="True" MinWidth="180">
+                <!-- Antag Name Header -->
+                <Label Name="AntagName"
+                       StyleClasses="LabelHeadingBigger"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       Margin="0 0 0 0"
+                       HorizontalExpand="True"
+                       MinHeight="32"/>
+
+                <!-- Toggle Button -->
+                <Control Name="PreferenceSelector" MinWidth="0" Margin="0 0 0 1" HorizontalExpand="True"/>
+
+                <!-- Guidebook Button -->
+                <Button Name="GuidebookButton" Text="{Loc 'humanoid-profile-editor-guidebook-button'}" MinWidth="80" HorizontalExpand="True"/>
+            </BoxContainer>
+        </BoxContainer>
+
+        <!-- Description -->
+        <PanelContainer Margin="2 2 2 2" HorizontalExpand="True" VerticalExpand="True">
+            <PanelContainer.PanelOverride>
+                    <!-- please dont hate me for the way i state the background color here i couldnt be assed -->
+                <gfx:StyleBoxFlat BackgroundColor="#2F2F3B" ContentMarginLeftOverride="6" ContentMarginTopOverride="6" ContentMarginRightOverride="6" ContentMarginBottomOverride="6" />
+            </PanelContainer.PanelOverride>
+            <RichTextLabel Name="AntagDescription" MaxWidth="360" HorizontalExpand="True" VerticalExpand="True" VerticalAlignment="Top" />
+        </PanelContainer>
+    </BoxContainer>
+</PanelContainer>

@@ -23,6 +23,7 @@
 using Content.Shared.Guidebook;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
+using Robust.Shared.Utility;
 
 namespace Content.Shared.Roles;
 
@@ -48,6 +49,12 @@ public sealed partial class AntagPrototype : IPrototype
     /// </summary>
     [DataField("objective", required: true)]
     public string Objective { get; private set; } = "";
+
+    /// <summary>
+    ///     Icon to display in the antag preference menu.
+    /// </summary>
+    [DataField]
+    public SpriteSpecifier? Icon { get; private set; }
 
     /// <summary>
     ///     Whether or not the antag role is one of the bad guys.
@@ -83,4 +90,22 @@ public sealed partial class AntagPrototype : IPrototype
     /// </summary>
     [DataField]
     public ProtoId<StartingGearPrototype>? PreviewStartingGear;
+
+    /// <summary>
+    /// Category for organizing antags in the UI (e.g. "Solo", "Team")
+    /// </summary>
+    [DataField("categoryId")]
+    public string? CategoryId { get; private set; }
+
+    /// <summary>
+    /// Name of the antag category displayed in the UI
+    /// </summary>
+    [DataField("categoryName")]
+    public LocId CategoryName { get; private set; } = string.Empty;
+
+    /// <summary>
+    ///     The category prototype ID for this antag.
+    /// </summary>
+    [DataField("category")]
+    public string? Category { get; private set; }
 }

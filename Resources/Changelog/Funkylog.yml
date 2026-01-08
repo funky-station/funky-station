@@ -7284,3 +7284,17 @@ Entries:
       message: Technical Assistants no longer have Atmospherics access by default
   id: 845
   time: '2026-01-07T20:39:02.0000000+00:00'
+- author: TrixxedHeart
+  changes:
+    - type: Tweak
+      message: >-
+        Neuroaversion has been made less overactive on roundstart MindShielded
+        roles.
+    - type: Tweak
+      message: >-
+        Psicodine is now more properly effective in treating severe cases of
+        Neuroaversion.
+    - type: Fix
+      message: Seizures now properly reset movement speed.
+  id: 846
+  time: '2026-01-08T00:34:23.0000000+00:00'

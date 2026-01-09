@@ -125,6 +125,7 @@ using Content.Shared.Changeling;
 using Content.Shared.FixedPoint;
 using Content.Shared.Zombies;
 using Content.Shared.Atmos.Rotting;
+using Content.Shared.Jittering;
 using Content.Shared.StatusEffect;
 
 namespace Content.Goobstation.Server.Changeling;
@@ -168,10 +169,12 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
     [Dependency] private readonly StunSystem _stun = default!;
     [Dependency] private readonly ExplosionSystem _explosionSystem = default!;
     [Dependency] private readonly IComponentFactory _compFactory = default!;
+    [Dependency] private readonly SharedJitteringSystem _jitter = default!;
     [Dependency] private readonly RejuvenateSystem _rejuv = default!;
     [Dependency] private readonly TagSystem _tag = default!;
     [Dependency] private readonly ChangelingRuleSystem _changelingRuleSystem = default!;
     [Dependency] private readonly SharedRottingSystem _rottingSystem = default!;
+    [Dependency] private readonly MovementModStatusSystem _movementMod = default!;
 
     public EntProtoId ArmbladePrototype = "ArmBladeChangeling";
     public EntProtoId FakeArmbladePrototype = "FakeArmBladeChangeling";
@@ -283,7 +286,11 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
     public void Cycle(EntityUid uid, ChangelingIdentityComponent comp)
     {
         UpdateChemicals(uid, comp, manualAdjust: false);
-        UpdateAbilities(uid, comp);
+        if (TryComp<ChangelingComponent>(uid, out var changeling))
+        {
+            // We pass both components now to satisfy the internal logic requirements
+            UpdateAbilities(uid, changeling, comp);
+        }
     }
 
     private void UpdateChemicals(EntityUid uid, ChangelingIdentityComponent comp, float? amount = null, bool manualAdjust = true)
@@ -322,7 +329,7 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
             if (random == 1)
             {
                 if (TryComp<StatusEffectsComponent>(uid, out var status))
-                    _stun.TrySlowdown(uid, TimeSpan.FromSeconds(1.5f), true, 0.5f, 0.5f, status);
+                    _movementMod.TryUpdateMovementSpeedModDuration(uid, MovementModStatusSystem.VomitingSlowdown, TimeSpan.FromSeconds(1.5f), 0.5f);
 
                 var solution = new Solution();
 
@@ -348,7 +355,7 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
         }
         else comp.BonusChemicalRegen = 0f;
     }
-    private void UpdateAbilities(EntityUid uid, ChangelingComponent comp)
+    private void UpdateAbilities(EntityUid uid, ChangelingComponent comp, ChangelingIdentityComponent identity)
     {
         _speed.RefreshMovementSpeedModifiers(uid);
         if (comp.StrainedMusclesActive)
@@ -356,12 +363,14 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
             var stamina = EnsureComp<StaminaComponent>(uid);
             _stamina.TakeStaminaDamage(uid, 7.5f, visual: false, immediate: false);
             if (stamina.StaminaDamage >= stamina.CritThreshold || _gravity.IsWeightless(uid))
-                ToggleStrainedMuscles(uid, comp);
+                ToggleStrainedMuscles(uid, identity);
         }
 
-        if (comp.IsInStasis && comp.StasisTime > 0f)
-            comp.StasisTime -= 1f;
-
+        if (identity.IsInStasis && identity.StasisTime > 0f)
+        {
+            identity.StasisTime -= 1f;
+            Dirty(uid, identity);
+        }
     }
 
     private void RegenerateChemicals(EntityUid uid, ChangelingIdentityComponent comp, float amount) // this happens passively

@@ -10,8 +10,11 @@ using Content.Shared.Damage;
 using Content.Shared.IdentityManagement;
 using Content.Server.Mind;
 using Content.Server.Jobs;
+using Content.Shared.Damage.Components;
+using Content.Shared.Mind;
 using Content.Shared.Roles;
 using Content.Shared.Mobs.Systems;
+using Content.Shared.Roles.Components;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server.Traits.Assorted;
@@ -25,7 +28,7 @@ public sealed class NeuroAversionSystem : EntitySystem
     [Dependency] private readonly StatusEffectsSystem _statusEffects = default!;
     [Dependency] private readonly SeizureSystem _seizure = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly MindSystem _mindSystem = default!;
+    [Dependency] private readonly SharedMindSystem _mindSystem = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
 
@@ -60,53 +63,51 @@ public sealed class NeuroAversionSystem : EntitySystem
     /// Checks if the entity's job prototype (from MindRoleComponent) includes MindShieldComponent or MindShieldImplant.
     /// </summary>
     private bool JobHasMindshieldComponent(EntityUid uid)
-    {
-        if (!_mindSystem.TryGetMind(uid, out var mindEntity, out var mindComponent))
         {
-            return false;
-        }
+            if (!_mindSystem.TryGetMind(uid, out _, out var mindComponent))
+            {
+                return false;
+            }
 
-        foreach (var roleUid in mindComponent.MindRoles)
-        {
-            if (!EntityManager.EntityExists(roleUid))
+            foreach (var roleUid in mindComponent.MindRoleContainer.ContainedEntities)
             {
-                continue;
-            }
-            if (!EntityManager.TryGetComponent(roleUid, out MindRoleComponent? role) || role is null)
-            {
-                continue;
-            }
-            if (role.JobPrototype is { } jobProtoId)
-            {
-                if (!_prototypeManager.TryIndex(jobProtoId, out JobPrototype? jobProto) || jobProto == null)
+                if (!EntityManager.TryGetComponent<MindRoleComponent>(roleUid, out var role))
                 {
                     continue;
                 }
-                foreach (var special in jobProto.Special)
+
+                if (role.JobPrototype is { } jobProtoId)
                 {
-                    switch (special)
+                    if (!_prototypeManager.TryIndex(jobProtoId, out JobPrototype? jobProto))
                     {
-                        case AddComponentSpecial addCompSpecial:
-                            if (addCompSpecial.Components.ContainsKey("MindShield"))
-                            {
-                                return true;
-                            }
-                            break;
-                        case AddImplantSpecial implantSpecial:
-                            foreach (var implantId in implantSpecial.Implants)
-                            {
-                                if (implantId.Equals("MindShieldImplant", StringComparison.OrdinalIgnoreCase))
+                        continue;
+                    }
+
+                    foreach (var special in jobProto.Special)
+                    {
+                        switch (special)
+                        {
+                            case AddComponentSpecial addCompSpecial:
+                                if (addCompSpecial.Components.ContainsKey("MindShield"))
                                 {
                                     return true;
                                 }
-                            }
-                            break;
+                                break;
+                            case AddImplantSpecial implantSpecial:
+                                foreach (var implantId in implantSpecial.Implants)
+                                {
+                                    if (string.Equals(implantId, "MindShieldImplant", StringComparison.OrdinalIgnoreCase))
+                                    {
+                                        return true;
+                                    }
+                                }
+                                break;
+                        }
                     }
                 }
             }
+            return false;
         }
-        return false;
-    }
 
 
     public override void Initialize()

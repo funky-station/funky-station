@@ -130,7 +130,7 @@ public sealed class SurgerySystem : SharedSurgerySystem
         if (Status.HasEffectComp<ForcedSleepingStatusEffectComponent>(args.Body))
             return;
 
-        if (HasComp<PainNumbnessComponent>(args.Body))
+        if (HasComp<PainNumbnessStatusEffectComponent>(args.Body))
             return;
 
         _chat.TryEmoteWithChat(args.Body, ent.Comp.Emote, forceEmote: true);

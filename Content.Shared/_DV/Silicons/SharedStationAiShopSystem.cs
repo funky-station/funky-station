@@ -4,6 +4,7 @@
 
 using Content.Shared.Actions;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Systems;
 using Content.Shared.Light.Components;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Timing;
@@ -38,7 +39,7 @@ public abstract class SharedStationAiShopSystem : EntitySystem
 
     private void OnShutdown(Entity<StationAiShopComponent> ent, ref ComponentShutdown args)
     {
-        _actions.RemoveAction(ent, ent.Comp.ShopAction);
+        _actions.RemoveAction(ent.Owner, ent.Comp.ShopAction);
     }
 
     private void OnRgbLighting(Entity<StationAiShopComponent> ent, ref StationAiRgbLightingActionEvent args)

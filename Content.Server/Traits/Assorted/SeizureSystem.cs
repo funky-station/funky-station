@@ -281,7 +281,7 @@ public sealed class SeizureSystem : EntitySystem
         }
 
         // Apply stun and knockdown for the seizure duration
-        _stun.TryParalyze(uid, TimeSpan.FromSeconds(component.RemainingTime), true);
+        _stun.TryAddParalyzeDuration(uid, TimeSpan.FromSeconds(component.RemainingTime));
         _jittering.DoJitter(uid, TimeSpan.FromSeconds(component.RemainingTime), true,
             component.JitterAmplitude, component.JitterFrequency, true);
 
@@ -346,7 +346,7 @@ public sealed class SeizureSystem : EntitySystem
 
         // Remove stuttering accent if still present
         RemComp<StutteringAccentComponent>(uid);
-        
+
         component.MovementSpeedMultiplier = 1.0f;
         _movementSpeed.RefreshMovementSpeedModifiers(uid);
     }

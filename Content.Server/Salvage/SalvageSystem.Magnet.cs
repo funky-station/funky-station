@@ -294,7 +294,9 @@ public sealed partial class SalvageSystem
         }
     }
 
-    private async Task TakeMagnetOffer(Entity<SalvageMagnetDataComponent> data, int index, Entity<SalvageMagnetComponent> magnet)
+    private async Task TakeMagnetOffer(Entity<SalvageMagnetDataComponent> data,
+        int index,
+        Entity<SalvageMagnetComponent> magnet)
     {
         var seed = data.Comp.Offered[index];
 
@@ -329,7 +331,11 @@ public sealed partial class SalvageSystem
             case DebrisOffering debris:
                 var debrisProto = _prototypeManager.Index<DungeonConfigPrototype>(debris.Id);
                 var debrisGrid = _mapManager.CreateGridEntity(salvMap);
-                await _dungeon.GenerateDungeonAsync(debrisProto, debrisGrid.Owner, debrisGrid.Comp, Vector2i.Zero, seed);
+                await _dungeon.GenerateDungeonAsync(debrisProto,
+                    debrisGrid.Owner,
+                    debrisGrid.Comp,
+                    Vector2i.Zero,
+                    seed);
                 break;
             case SalvageOffering wreck:
                 var salvageProto = wreck.SalvageMap;
@@ -397,7 +403,9 @@ public sealed partial class SalvageSystem
                         // SpawnAttachedTo may already anchor some entities
                         if (!windowXform.Anchored)
                         {
-                            var anchored = _transform.AnchorEntity((windowEntity, windowXform), (ruinGrid.Owner, ruinGrid.Comp), windowPos);
+                            var anchored = _transform.AnchorEntity((windowEntity, windowXform),
+                                (ruinGrid.Owner, ruinGrid.Comp),
+                                windowPos);
                             isAnchored = anchored && windowXform.Anchored;
                         }
                         else
@@ -406,7 +414,8 @@ public sealed partial class SalvageSystem
                             isAnchored = windowXform.GridUid == ruinGrid.Owner;
                             if (!isAnchored)
                             {
-                                Log.Warning($"[SalvageSystem] Window {windowProto} at {windowPos} is anchored to wrong grid {windowXform.GridUid}, expected {ruinGrid.Owner}");
+                                Log.Warning(
+                                    $"[SalvageSystem] Window {windowProto} at {windowPos} is anchored to wrong grid {windowXform.GridUid}, expected {ruinGrid.Owner}");
                             }
                         }
                     }
@@ -414,7 +423,8 @@ public sealed partial class SalvageSystem
                     // If window couldn't be anchored, delete it to prevent stray unanchored windows
                     if (!isAnchored)
                     {
-                        Log.Warning($"[SalvageSystem] Failed to anchor window {windowProto} at {windowPos} on grid {ruinGrid.Owner}, deleting it");
+                        Log.Warning(
+                            $"[SalvageSystem] Failed to anchor window {windowProto} at {windowPos} on grid {ruinGrid.Owner}, deleting it");
                         Del(windowEntity);
                         continue;
                     }
@@ -533,7 +543,13 @@ public sealed partial class SalvageSystem
             }
 
             // Plan clustered placements
-            if (!PlanRuinPlacements(magnet, mapId, attachedBounds, ruinGridList, worldAngle, ruinConfig, out var placements))
+            if (!PlanRuinPlacements(magnet,
+                    mapId,
+                    attachedBounds,
+                    ruinGridList,
+                    worldAngle,
+                    ruinConfig,
+                    out var placements))
             {
                 Report(magnet.Owner, MagnetChannel, "salvage-system-announcement-spawn-no-debris-available");
                 _mapSystem.DeleteMap(salvMapXform.MapID);
@@ -557,7 +573,10 @@ public sealed partial class SalvageSystem
                 var localPos = salvXForm.LocalPosition;
 
                 _transform.SetParent(grid.Owner, salvXForm, spawnUid.Value);
-                _transform.SetWorldPositionRotation(grid.Owner, placementPos.Position + localPos, placementAngle, salvXForm);
+                _transform.SetWorldPositionRotation(grid.Owner,
+                    placementPos.Position + localPos,
+                    placementAngle,
+                    salvXForm);
 
                 data.Comp.ActiveEntities ??= new List<EntityUid>();
                 data.Comp.ActiveEntities.Add(grid.Owner);
@@ -576,56 +595,66 @@ public sealed partial class SalvageSystem
         else
         {
             // Standard placement for other offerings
-            if (!TryGetSalvagePlacementLocation(magnet, mapId, attachedBounds, bounds!.Value, worldAngle, out var spawnLocation, out var spawnAngle))
+            if (!TryGetSalvagePlacementLocation(magnet,
+                    mapId,
+                    attachedBounds,
+                    bounds!.Value,
+                    worldAngle,
+                    out var spawnLocation,
+                    out var spawnAngle))
             {
                 Report(magnet.Owner, MagnetChannel, "salvage-system-announcement-spawn-no-debris-available");
                 _mapSystem.DeleteMap(salvMapXform.MapID);
                 return;
             }
 
-        // I have no idea if we want to return on failure or not
-        // but I assume trying to set the parent with a null value wouldn't have worked out anyways
-        if (!_mapSystem.TryGetMap(spawnLocation.MapId, out var spawnUid))
-            return;
+            // I have no idea if we want to return on failure or not
+            // but I assume trying to set the parent with a null value wouldn't have worked out anyways
+            if (!_mapSystem.TryGetMap(spawnLocation.MapId, out var spawnUid))
+                return;
 
-        data.Comp.ActiveEntities = null;
-        mapChildren = salvMapXform.ChildEnumerator;
+            data.Comp.ActiveEntities = null;
+            mapChildren = salvMapXform.ChildEnumerator;
 
-        // It worked, move it into position and cleanup values.
-        while (mapChildren.MoveNext(out var mapChild))
-        {
-            var salvXForm = _xformQuery.GetComponent(mapChild);
-            var localPos = salvXForm.LocalPosition;
-
-            _transform.SetParent(mapChild, salvXForm, spawnUid.Value);
-            _transform.SetWorldPositionRotation(mapChild, spawnLocation.Position + localPos, spawnAngle, salvXForm);
-
-            data.Comp.ActiveEntities ??= new List<EntityUid>();
-            data.Comp.ActiveEntities?.Add(mapChild);
-
-            // Handle mob restrictions
-            var children = salvXForm.ChildEnumerator;
-
-            while (children.MoveNext(out var child))
+            // It worked, move it into position and cleanup values.
+            while (mapChildren.MoveNext(out var mapChild))
             {
-                if (!_salvMobQuery.TryGetComponent(child, out var salvMob))
-                    continue;
+                var salvXForm = _xformQuery.GetComponent(mapChild);
+                var localPos = salvXForm.LocalPosition;
 
-                salvMob.LinkedEntity = mapChild;
+                _transform.SetParent(mapChild, salvXForm, spawnUid.Value);
+                _transform.SetWorldPositionRotation(mapChild, spawnLocation.Position + localPos, spawnAngle, salvXForm);
+
+                data.Comp.ActiveEntities ??= new List<EntityUid>();
+                data.Comp.ActiveEntities?.Add(mapChild);
+
+                // Handle mob restrictions
+                var children = salvXForm.ChildEnumerator;
+
+                while (children.MoveNext(out var child))
+                {
+                    if (!_salvMobQuery.TryGetComponent(child, out var salvMob))
+                        continue;
+
+                    salvMob.LinkedEntity = mapChild;
+                }
             }
+
+            Report(magnet.Owner,
+                MagnetChannel,
+                "salvage-system-announcement-arrived",
+                ("timeLeft", data.Comp.ActiveTime.TotalSeconds));
+            _mapSystem.DeleteMap(salvMapXform.MapID);
+
+            data.Comp.Announced = false;
+
+            var active = new SalvageMagnetActivatedEvent()
+            {
+                Magnet = magnet,
+            };
+
+            RaiseLocalEvent(ref active);
         }
-
-        Report(magnet.Owner, MagnetChannel, "salvage-system-announcement-arrived", ("timeLeft", data.Comp.ActiveTime.TotalSeconds));
-        _mapSystem.DeleteMap(salvMapXform.MapID);
-
-        data.Comp.Announced = false;
-
-        var active = new SalvageMagnetActivatedEvent()
-        {
-            Magnet = magnet,
-        };
-
-        RaiseLocalEvent(ref active);
     }
 
     private bool PlanRuinPlacements(

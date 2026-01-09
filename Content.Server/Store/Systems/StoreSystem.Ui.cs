@@ -33,6 +33,7 @@ using Content.Server.Stack;
 using Content.Server.Store.Components;
 using Content.Shared.Actions;
 using Content.Shared.Actions.Components;
+using Content.Shared.Charges.Systems;
 using Content.Shared.Database;
 using Content.Shared.FixedPoint;
 using Content.Shared.Hands.EntitySystems;
@@ -53,6 +54,7 @@ public sealed partial class StoreSystem
     [Dependency] private readonly IAdminLogManager _admin = default!;
     [Dependency] private readonly SharedHandsSystem _hands = default!;
     [Dependency] private readonly ActionsSystem _actions = default!;
+    [Dependency] private readonly SharedChargesSystem _charges = default!;
     [Dependency] private readonly ActionContainerSystem _actionContainer = default!;
     [Dependency] private readonly ActionUpgradeSystem _actionUpgrade = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
@@ -245,7 +247,7 @@ public sealed partial class StoreSystem
                             // Found existing action, add charges to it using existing method
                             if (listing.ProductActionCharges.HasValue && listing.ProductActionCharges > 0)
                             {
-                                _actions.AddCharges(existingAction, listing.ProductActionCharges.Value);
+                                _charges.AddCharges(existingAction, listing.ProductActionCharges.Value);
                             }
                             actionId = existingAction;
                             existingActionFound = true;

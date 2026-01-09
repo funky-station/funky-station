@@ -91,3 +91,50 @@
         whitelist:
           tags:
             - CartridgePistolLarge
+  - type: Multishot # Goobstation
+    spreadMultiplier: 1.5
+
+- type: entity
+  name: N1984H
+  parent: [BaseWeaponPistol, BaseChaplainContraband]
+  id: WeaponChaplainPistol
+  description: A N1984 made of pure silver with NT propaganda and SOP quotes engraved throughout it's surfaces. You're pretty sure one of the engravings is a security officer beating a clown.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Weapons/Guns/Pistols/N1984H.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Clothing
+    sprite: _Funkystation/Objects/Weapons/Guns/Pistols/N1984H.rsi
+  - type: Gun
+    minAngle: 5
+    maxAngle: 40
+    angleIncrease: 10
+    angleDecay: 5
+    fireRate: 2
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/mk58.ogg
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MagazineMagnumSilver
+        insertSound: /Audio/Weapons/Guns/MagIn/pistol_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/pistol_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+            - MagazineMagnum
+        whitelistFailPopup: gun-magazine-whitelist-fail
+      gun_chamber:
+        name: Chamber
+        startingItem: CartridgeMagnumSilver
+        priority: 1
+        whitelist:
+          tags:
+            - CartridgeMagnum

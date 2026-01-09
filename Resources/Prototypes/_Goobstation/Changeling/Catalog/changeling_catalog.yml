@@ -6,6 +6,7 @@
 # SPDX-FileCopyrightText: 2025 Mish <bluscout78@yahoo.com>
 # SPDX-FileCopyrightText: 2025 TheSecondLord <88201625+TheSecondLord@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 V <97265903+formlessnameless@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 ferynn <117872973+ferynn@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 ferynn <witchy.girl.me@gmail.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
@@ -190,7 +191,7 @@
   icon: { sprite: _Goobstation/Changeling/changeling_abilities.rsi, state: sting_armblade }
   productAction: ActionStingFakeArmblade
   cost:
-    EvolutionPoint: 5
+    EvolutionPoint: 4
   categories:
   - ChangelingAbilitySting
   conditions:
@@ -236,7 +237,7 @@
   productEvent: !type:AugmentedEyesightPurchasedEvent
   raiseProductEventOnUser: true
   cost:
-    EvolutionPoint: 4
+    EvolutionPoint: 6
   categories:
   - ChangelingAbilityUtility
   conditions:
@@ -292,7 +293,7 @@
   icon: { sprite: _Goobstation/Changeling/changeling_abilities.rsi, state: fleshmend }
   productAction: ActionFleshmend
   cost:
-    EvolutionPoint: 5
+    EvolutionPoint: 4
   categories:
   - ChangelingAbilityUtility
   conditions:
@@ -327,19 +328,19 @@
   - !type:ListingLimitedStockCondition
     stock: 1
 
-#- type: listing
- # id: EvolutionMenuUtilitySpacesuit
- # name: evolutionmenu-utility-spacesuit-name
- # description: evolutionmenu-utility-spacesuit-desc
- # icon: { sprite: _Goobstation/Changeling/changeling_abilities.rsi, state: space_adaptation }
- # productAction: ActionToggleSpacesuit
- # cost:
- #   EvolutionPoint: 4
- # categories:
- # - ChangelingAbilityUtility
- # conditions:
-#  - !type:ListingLimitedStockCondition
-#    stock: 1
+- type: listing
+  id: EvolutionMenuUtilitySpacesuit
+  name: evolutionmenu-utility-spacesuit-name
+  description: evolutionmenu-utility-spacesuit-desc
+  icon: { sprite: _Goobstation/Changeling/changeling_abilities.rsi, state: space_adaptation }
+  productAction: ActionToggleSpacesuit
+  cost:
+    EvolutionPoint: 2
+  categories:
+  - ChangelingAbilityUtility
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
 
 #- type: listing
 #  id: EvolutionMenuUtilityHivemindAccess

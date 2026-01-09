@@ -10,6 +10,7 @@
 # SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2024 BeeRobynn <robynthewarcrime@proton.me>
 # SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 Homingpenguins <asadellace4@gmail.com>
 # SPDX-FileCopyrightText: 2025 Steve <marlumpy@gmail.com>
 # SPDX-FileCopyrightText: 2025 marc-pelletier <113944176+marc-pelletier@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
@@ -374,7 +375,7 @@
   - !type:ProtoNitrateProductionReaction {}
 
 - type: gasReaction
-  id: ProtoNitrateHydrogenConversion
+  id: ProtoNitrateConversion
   priority: 12
   minimumRequirements:
   - 0     # oxygen
@@ -390,48 +391,19 @@
   - 0     # healium
   - 0     # nitrium
   - 0     # pluox
-  - 150   # hydrogen
-  - 0     # hypernob
-  - 0.01  # protonitrate
-  - 0     # zauker
-  - 0     # halon
-  - 0     # helium
-  - 0     # antinob
-  effects:
-  - !type:ProtoNitrateHydrogenConversionReaction {}
-
-- type: gasReaction
-  id: ProtoNitrateTritiumConversion
-  priority: 13
-  minimumTemperature: 150
-  maximumTemperature: 340
-  minimumRequirements:
-  - 0     # oxygen
-  - 0     # nitrogen
-  - 0     # carbon dioxide
-  - 0     # plasma
-  - 0.01  # tritium
-  - 0     # vapor
-  - 0     # miasma
-  - 0     # n2o
-  - 0     # frezon
-  - 0     # bz
-  - 0     # healium
-  - 0     # nitrium
-  - 0     # pluox
   - 0     # hydrogen
   - 0     # hypernob
-  - 0.01  # protonitrate
+  - 100   # protonitrate
   - 0     # zauker
   - 0     # halon
   - 0     # helium
   - 0     # antinob
   effects:
-  - !type:ProtoNitrateTritiumConversionReaction {}
+  - !type:ProtoNitrateConversionReaction {}
 
 - type: gasReaction
   id: ProtoNitrateBZConversionReaction
-  priority: 14
+  priority: 13
   minimumTemperature: 260
   maximumTemperature: 280
   minimumRequirements:

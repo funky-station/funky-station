@@ -372,4 +372,20 @@
   completetime: 2
   materials:
     Plastic: 100
-    Steel: 25
+
+- type: latheRecipe
+  id: SurveillanceWirelessCameraBodyEntertainment
+  result: SurveillanceWirelessCameraBodyEntertainment
+  completetime: 3
+  materials:
+    Cloth: 200
+    Steel: 100
+    Plastic: 100
+
+- type: latheRecipe
+  id: BarberScissors  #thavens can finally stop scouring maints for the barber scissors gamerloot
+  result: BarberScissors
+  completetime: 2
+  materials:
+    Steel: 100
+    Plastic: 100

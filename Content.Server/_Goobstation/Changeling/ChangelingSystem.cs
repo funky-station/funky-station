@@ -1,6 +1,8 @@
 // SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
 // SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
 // SPDX-FileCopyrightText: 2024 Fishbait <Fishbait@git.ml>
+// SPDX-FileCopyrightText: 2024 John Space <bigdumb421@gmail.com>
+// SPDX-FileCopyrightText: 2024 PJBot <pieterjan.briers+bot@gmail.com>
 // SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
 // SPDX-FileCopyrightText: 2024 TGRCDev <tgrc@tgrc.dev>
 // SPDX-FileCopyrightText: 2024 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
@@ -25,6 +27,15 @@
 // SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 // SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
+// SPDX-FileCopyrightText: 2025 Drywink <43855731+Drywink@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Drywink <hugogrethen@gmail.com>
+// SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+Pronana@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Skye <57879983+Rainbeon@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 TheSecondLord <88201625+TheSecondLord@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 V <97265903+formlessnameless@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 ferynn <117872973+ferynn@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 ferynn <witchy.girl.me@gmail.com>
 // SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 the biggest bruh <199992874+thebiggestbruh@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 thebiggestbruh <199992874+thebiggestbruh@users.noreply.github.com>
@@ -113,6 +124,8 @@ using Content.Shared.Atmos.Components;
 using Content.Shared.Changeling;
 using Content.Shared.FixedPoint;
 using Content.Shared.Zombies;
+using Content.Shared.Atmos.Rotting;
+using Content.Shared.StatusEffect;
 
 namespace Content.Goobstation.Server.Changeling;
 
@@ -158,6 +171,7 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
     [Dependency] private readonly RejuvenateSystem _rejuv = default!;
     [Dependency] private readonly TagSystem _tag = default!;
     [Dependency] private readonly ChangelingRuleSystem _changelingRuleSystem = default!;
+    [Dependency] private readonly SharedRottingSystem _rottingSystem = default!;
 
     public EntProtoId ArmbladePrototype = "ArmBladeChangeling";
     public EntProtoId FakeArmbladePrototype = "FakeArmBladeChangeling";
@@ -282,8 +296,59 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
         Dirty(uid, comp);
         _alerts.ShowAlert(uid, "ChangelingChemicals");
     }
+    private void UpdateBiomass(EntityUid uid, ChangelingComponent comp, float? amount = null)
+    {
+        comp.Biomass += amount ?? comp.BiomassDrain; // funky station - changeling biomass no longer drains
+        comp.Biomass = Math.Clamp(comp.Biomass, 0, comp.MaxBiomass);
+        Dirty(uid, comp);
+        _alerts.ShowAlert(uid, "ChangelingBiomass");
 
-    private void UpdateAbilities(EntityUid uid, ChangelingIdentityComponent comp)
+        var random = (int) _rand.Next(1, 3);
+
+        if (comp.Biomass <= 0)
+            // game over, man
+            _damage.TryChangeDamage(uid, new DamageSpecifier(_proto.Index(AbsorbedDamageGroup), 50), true);
+
+        if (comp.Biomass <= comp.MaxBiomass / 10)
+        {
+            // THE FUNNY ITCH IS REAL!!
+            comp.BonusChemicalRegen = 3f;
+            _popup.PopupEntity(Loc.GetString("popup-changeling-biomass-deficit-high"), uid, uid, PopupType.LargeCaution);
+            _jitter.DoJitter(uid, TimeSpan.FromSeconds(comp.BiomassUpdateCooldown), true, amplitude: 5, frequency: 10);
+        }
+        else if (comp.Biomass <= comp.MaxBiomass / 5)
+        {
+            // vomit (funkystation) VOMIT LIKE ITS A HUGE GIVEAWAY IF ITS BLOOD VRO LIKE WTF???
+            if (random == 1)
+            {
+                if (TryComp<StatusEffectsComponent>(uid, out var status))
+                    _stun.TrySlowdown(uid, TimeSpan.FromSeconds(1.5f), true, 0.5f, 0.5f, status);
+
+                var solution = new Solution();
+
+                var vomitAmount = 10f;
+                solution.AddReagent("Vomit", vomitAmount);
+
+                _puddle.TrySplashSpillAt(uid, Transform(uid).Coordinates, solution, out _);
+
+                _popup.PopupEntity(Loc.GetString("disease-vomit", ("person", Identity.Entity(uid, EntityManager))), uid);
+            }
+
+            // the funny itch is not real
+            if (random == 3)
+            {
+                _popup.PopupEntity(Loc.GetString("popup-changeling-biomass-deficit-medium"), uid, uid, PopupType.MediumCaution);
+                _jitter.DoJitter(uid, TimeSpan.FromSeconds(.5f), true, amplitude: 5, frequency: 10);
+            }
+        }
+        else if (comp.Biomass <= comp.MaxBiomass / 3 && random == 3)
+        {
+            if (random == 1)
+                _popup.PopupEntity(Loc.GetString("popup-changeling-biomass-deficit-low"), uid, uid, PopupType.SmallCaution);
+        }
+        else comp.BonusChemicalRegen = 0f;
+    }
+    private void UpdateAbilities(EntityUid uid, ChangelingComponent comp)
     {
         _speed.RefreshMovementSpeedModifiers(uid);
         if (comp.StrainedMusclesActive)
@@ -829,6 +894,7 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
         RemComp<ThirstComponent>(uid);
         RemComp<CanHostGuardianComponent>(uid);
         EnsureComp<ZombieImmuneComponent>(uid);
+        _rottingSystem.TrySetPerishableTime(uid, TimeSpan.MaxValue);
 
         // add actions
         foreach (var actionId in comp.BaseChangelingActions)

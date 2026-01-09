@@ -1,25 +1,20 @@
-// SPDX-FileCopyrightText: 2025 TrixxedHeart <46364955+TrixxedBit@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Mora <46364955+TrixxedHeart@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2026 TrixxedHeart <46364955+TrixxedBit@users.noreply.github.com>
 //
 // SPDX-License-Identifier: MIT
 
 using Content.Shared.Movement.Systems;
-using Content.Shared.StatusEffect;
-using Content.Shared.Stunnable;
-using Robust.Shared.Timing;
+using Content.Shared.Mobs.Systems;
 
 namespace Content.Shared.Traits.Assorted;
 
 /// <summary>
-/// Handles the vision and movement effects of migraines.
+/// Handles visual effects and movement penalties for migraines.
 /// </summary>
 public sealed class MigraineSystem : EntitySystem
 {
-    [Dependency] private readonly SharedStunSystem _stun = default!;
-    [Dependency] private readonly StatusEffectsSystem _statusEffects = default!;
-    [Dependency] private readonly MovementSpeedModifierSystem _movement = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-
-
+    [Dependency] private readonly MovementSpeedModifierSystem _movementSpeed = default!;
+    [Dependency] private readonly MobStateSystem _mobState = default!;
 
     public override void Initialize()
     {
@@ -27,6 +22,7 @@ public sealed class MigraineSystem : EntitySystem
 
         SubscribeLocalEvent<MigraineComponent, ComponentInit>(OnMigraineInit);
         SubscribeLocalEvent<MigraineComponent, ComponentShutdown>(OnMigraineShutdown);
+        SubscribeLocalEvent<MigraineComponent, RefreshMovementSpeedModifiersEvent>(OnRefreshMovementSpeed);
     }
 
     public override void Update(float frameTime)
@@ -36,9 +32,13 @@ public sealed class MigraineSystem : EntitySystem
         var query = EntityQueryEnumerator<MigraineComponent>();
         while (query.MoveNext(out var uid, out var migraine))
         {
+            // dead people cant have migraines
+            if (_mobState.IsDead(uid))
+                continue;
+
             migraine.PulseAccumulator += frameTime;
 
-            // Handle duration countdown if set
+            // Handle duration countdown
             if (migraine.Duration > 0)
             {
                 migraine.Duration -= frameTime;
@@ -46,14 +46,14 @@ public sealed class MigraineSystem : EntitySystem
                 {
                     migraine.IsFading = true;
                     migraine.Duration = -1f;
-
-                    _statusEffects.TryRemoveStatusEffect(uid, "SlowedDown");
+                    _movementSpeed.RefreshMovementSpeedModifiers(uid);
                 }
             }
 
-            // If this is a fading component, fade to zero instead of target magnitude
+            // Calculate target blur value
             var targetBlur = migraine.IsFading ? 0f : migraine.BlurryMagnitude;
 
+            // Handle fade-out effects
             if (migraine.IsFading)
             {
                 var fadeSpeed = 1.0f / migraine.FadeOutDuration;
@@ -61,25 +61,22 @@ public sealed class MigraineSystem : EntitySystem
 
                 migraine.BlurryMagnitude = MathHelper.Lerp(migraine.BlurryMagnitude, 0f, fadeAmount);
                 migraine.PulseAmplitude = MathHelper.Lerp(migraine.PulseAmplitude, 0f, fadeAmount);
-
                 targetBlur = migraine.BlurryMagnitude;
 
-                // Remove the component when fade is complete or very close
+                // Remove component when fade is complete
                 if (migraine.BlurryMagnitude <= 0.01f && migraine.PulseAmplitude <= 0.01f)
                 {
-
                     RemComp<MigraineComponent>(uid);
                     continue;
                 }
             }
 
-            // Always apply normal interpolation for CurrentBlur (whether fading or not)
+            // Apply blur interpolation
             var rampSpeed = targetBlur > migraine.CurrentBlur
                 ? migraine.RampUpSpeed
                 : (migraine.RampDownSpeed > 0f ? migraine.RampDownSpeed : migraine.RampUpSpeed);
 
             migraine.CurrentBlur = MathHelper.Lerp(migraine.CurrentBlur, targetBlur, frameTime * rampSpeed);
-
             Dirty(uid, migraine);
         }
     }
@@ -94,24 +91,30 @@ public sealed class MigraineSystem : EntitySystem
 
         migraine.IsFading = true;
 
-        // Remove the slowdown immediately when starting fade
-        _statusEffects.TryRemoveStatusEffect(uid, "SlowedDown");
-
+        _movementSpeed.RefreshMovementSpeedModifiers(uid);
 
         Dirty(uid, migraine);
     }
 
+    private void OnRefreshMovementSpeed(EntityUid uid, MigraineComponent component, RefreshMovementSpeedModifiersEvent args)
+    {
+        // Only apply slowdown if component is active and not fading
+        if (!component.IsFading && component.ApplySlowdown)
+        {
+            args.ModifySpeed(component.SlowdownFactor, component.SlowdownFactor);
+        }
+    }
+
     private void OnMigraineInit(EntityUid uid, MigraineComponent component, ComponentInit args)
     {
+        // Initialize visual state
         component.CurrentBlur = MathF.Min(0.01f, component.BlurryMagnitude);
-        component.PulseAccumulator =
-            (float) (DateTime.UtcNow.TimeOfDay.TotalSeconds % 1000.0);
+        component.PulseAccumulator = (float)(DateTime.UtcNow.TimeOfDay.TotalSeconds % 1000.0);
 
-        // Apply movement slowdown if enabled
+        // Refresh movement speed modifiers to apply slowdown if enabled
         if (component.ApplySlowdown)
         {
-            EnsureComp<MigraineSlowdownComponent>(uid).Modifier =
-                component.SlowdownFactor;
+            _movementSpeed.RefreshMovementSpeedModifiers(uid);
         }
 
         Dirty(uid, component);
@@ -122,18 +125,12 @@ public sealed class MigraineSystem : EntitySystem
         if (TerminatingOrDeleted(uid))
             return;
 
+        _movementSpeed.RefreshMovementSpeedModifiers(uid);
+
+        // Start fade if not already fading
         if (!component.IsFading)
         {
             component.IsFading = true;
-
-            // Remove the slowdown immediately
-            RemComp<MigraineSlowdownComponent>(uid);
-
-            // let update handle fade
-            return;
         }
-
-        // If we're already fading and this is called again, remove the slowdown
-        RemComp<MigraineSlowdownComponent>(uid);
     }
 }

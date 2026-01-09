@@ -47,6 +47,7 @@
 # SPDX-FileCopyrightText: 2025 BuildTools <unconfigured@null.spigotmc.org>
 # SPDX-FileCopyrightText: 2025 DevilishMilk <michaellapjr@gmail.com>
 # SPDX-FileCopyrightText: 2025 Dragon232347 <122056448+Dragon232347@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Ilya Mikheev <me@ilyamikcoder.com>
 # SPDX-FileCopyrightText: 2025 IronDragoon <8961391+IronDragoon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 MaiaArai <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Mish <bluscout78@yahoo.com>
@@ -324,6 +325,8 @@
         - id: MaterialCloth10
           weight: 0.25
         - id: MaterialWoodPlank10
+          weight: 0.25
+        - id: SheetBrass10 # Funkystation
           weight: 0.25
       - id: Plunger
       - id: PowerCellMedium

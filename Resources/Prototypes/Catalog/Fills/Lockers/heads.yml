@@ -286,6 +286,8 @@
     - id: RPD # RPD
     - id: RadioHandheldEngineering #funkystation
     - id: RadioHandheldCommand #funkystation
+    - id: NuclearCentrifugeMachineCircuitboard #finally existent
+    - id: NuclearFabricatorMachineCircuitboard #why did it not exist in the locker as a failsafe
 # Hardsuit table, used for suit storage as well
 - type: entityTable
   id: FillChiefEngineerHardsuit
@@ -475,6 +477,9 @@
     - id: WantedListCartridge
     - id: DrinkHosFlask
     - id: RadioHandheldCommand #funkystation, no sec radio since they start with one
+    - id: HandheldStationMapTactical #funk, all HoS' must find their way
+    - id: BreachingCharge #funkystation knock knock, sec's here
+    - id: BreachingCharge #funkystation knock knock, sec's here
 
 # Hardsuit table, used for suit storage as well
 - type: entityTable

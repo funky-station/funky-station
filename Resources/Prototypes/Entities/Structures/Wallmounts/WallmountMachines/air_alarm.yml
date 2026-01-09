@@ -71,9 +71,10 @@
     layerMap: "airAlarmState"
     alarmStates:
       Normal: alarm0
-      Warning: alarm1
-      Danger: alarm2
-    hideOnDepowered: [ "airAlarmState" ]
+      Warning: alarm2
+      Danger: alarm1
+    setOnDepowered:
+      airAlarmDisplay: fire_off
   - type: Tag
     tags:
       - AirAlarm

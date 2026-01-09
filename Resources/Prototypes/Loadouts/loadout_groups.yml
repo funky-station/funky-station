@@ -40,7 +40,6 @@
 # SPDX-FileCopyrightText: 2025 Icepick <122653407+Icepicked@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 IronDragoon <8961391+IronDragoon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Lyndomen <49795619+lyndomen@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 MaiaArai <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Max_Power <1493889+FeelFlows@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 McBosserson <148172569+McBosserson@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Milon <milonpl.git@proton.me>
@@ -69,6 +68,8 @@
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 tea <xerithin@gmail.com>
 # SPDX-FileCopyrightText: 2025 w.xyz() <84605679+pirakaplant@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2026 MaiaArai <158123176+YaraaraY@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2026 Zergologist <114537969+Chedd-Error@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -239,6 +240,22 @@
   - CaptainWintercoat
 
 - type: loadoutGroup
+  id: CaptainShoes
+  name: loadout-group-captain-shoes
+  loadouts:
+  - LaceupShoes
+  - DesignerWinterBoots
+
+- type: loadoutGroup #WizDen Weh Job Plush
+  id: CaptainJobTrinkets
+  name: loadout-group-jobtrinkets
+  minLimit: 0
+  maxLimit: 2
+  loadouts:
+  - LizardPlushieCaptain
+  - CommandLighter # Funky Change
+
+- type: loadoutGroup
   id: HoPHead
   name: loadout-group-hop-head
   minLimit: 0
@@ -276,6 +293,29 @@
   loadouts:
   - HoPWintercoat
 
+- type: loadoutGroup
+  id: HoPShoes
+  name: loadout-group-hop-shoes
+  loadouts:
+  - BlackShoes
+  - WhiteShoes
+  - BrownShoes
+  - LaceupShoes
+  - WinterBoots
+  - SalvageBoots
+  - CargoWinterBoots
+  - WorkBoots
+  - EngineeringWinterBoots
+  - DesignerWinterBoots
+
+- type: loadoutGroup #WizDen Weh Job Plush
+  id: HoPJobTrinkets
+  name: loadout-group-jobtrinkets
+  minLimit: 0
+  maxLimit: 2
+  loadouts:
+  - LizardPlushieHeadOfPersonnel
+  - CommandLighter # Funky Change
 
 # Civilian
 - type: loadoutGroup
@@ -361,6 +401,45 @@
 - type: loadoutGroup
   id: BartenderGoldenShaker
   name: loadout-group-bartender-shaker
+
+- type: loadoutGroup
+  id: ServiceJumpsuit
+  name: loadout-group-service_jumpsuit
+  minLimit: 1
+  loadouts:
+  - ServiceJumpsuitDressWhite
+  - ServiceJumpsuitDressBlue
+  - ServiceJumpsuitDressTied
+  - ServiceJumpsuitServiceCoat
+  - ServiceJumpskirtDressWhite
+  - ServiceJumpskirtDressBlue
+  - ServiceJumpskirtDressTied
+
+- type: loadoutGroup
+  id: GenericShoes
+  name: loadout-group-generic-shoes
+  minLimit: 1
+  loadouts:
+  - BlackShoes
+  - WhiteShoes
+  - BrownShoes
+  - LaceupShoes
+  - WinterBoots
+  - SalvageBoots
+  - CargoWinterBoots
+  - WorkBoots
+  - EngineeringWinterBoots
+
+- type: loadoutGroup #WizDen Weh Job Plush
+  id: BartenderJobTrinkets
+  name: loadout-group-jobtrinkets
+  minLimit: 0
+  loadouts:
+  - LizardPlushieBartender
+
+- type: loadoutGroup #WizDen Weh Job Plush
+  id: ServiceWorkerJobTrinkets
+  name: loadout-group-jobtrinkets
   minLimit: 0
   loadouts:
   - BartenderGoldenShaker
@@ -799,7 +878,25 @@
   name: loadout-group-quartermaster-shoes
   loadouts:
   - BrownShoes
+  - LaceupShoes
+  - WinterBoots
+  - SalvageBoots
   - CargoWinterBoots
+  - WorkBoots
+  - EngineeringWinterBoots
+  - BrownCowboyBoots
+  - WhiteCowboyBoots
+  - BlackCowboyBoots
+  - DesignerWinterBoots
+
+- type: loadoutGroup #WizDen Weh Job Plush
+  id: QuartermasterJobTrinkets
+  name: loadout-group-jobtrinkets
+  minLimit: 0
+  maxLimit: 2
+  loadouts:
+  - LizardPlushieQuartermaster
+  - CommandLighter # Funky Change
 
 - type: loadoutGroup
   id: CargoTechnicianHead
@@ -849,7 +946,34 @@
   name: loadout-group-cargo-technician-shoes
   loadouts:
   - BlackShoes
+  - LaceupShoes
+  - WinterBoots
+  - SalvageBoots
   - CargoWinterBoots
+  - WorkBoots
+  - EngineeringWinterBoots
+
+- type: loadoutGroup #WizDen Weh Job Plush
+  id: CargoTechnicianJobTrinkets
+  name: loadout-group-jobtrinkets
+  minLimit: 0
+  loadouts:
+  - LizardPlushieCargoTechnician
+
+- type: loadoutGroup
+  id: SalvageSpecialistHead
+  name: loadout-group-salvage-specialist-head
+  minLimit: 0
+  loadouts:
+  - CargoTechnicianHead
+  - SeniorCargoTechnicianBeret #Funky!
+
+- type: loadoutGroup
+  id: SalvageSpecialistJumpsuit
+  name: loadout-group-salvage-specialist-jumpsuit
+  loadouts:
+  - SalvageSpecialistJumpsuit
+  - SeniorSalvageSpecialistJumpsuit
 
 - type: loadoutGroup
   id: SalvageSpecialistBackpack
@@ -872,6 +996,9 @@
   loadouts:
   - SalvageBoots
   - CargoWinterBoots
+  - WorkBoots
+  - EngineeringWinterBoots
+  - WinterBoots
 
 # Engineering
 - type: loadoutGroup
@@ -911,7 +1038,13 @@
   name: loadout-group-chief-engineer-shoes
   loadouts:
   - BrownShoes
+  - LaceupShoes
+  - WinterBoots
+  - SalvageBoots
+  - CargoWinterBoots
+  - WorkBoots
   - EngineeringWinterBoots
+  - DesignerWinterBoots
 
 - type: loadoutGroup
   id: TechnicalAssistantJumpsuit
@@ -947,6 +1080,8 @@
   - StationEngineerHazardsuit
   - SeniorEngineerJumpsuit
   - SeniorEngineerJumpskirt
+  - AtmosphericTechnicianJumpsuit
+  - AtmosphericTechnicianJumpskirt
 
 - type: loadoutGroup
   id: StationEngineerBackpack
@@ -963,6 +1098,7 @@
   loadouts:
   - StationEngineerOuterVest
   - StationEngineerWintercoat
+  - AtmosphericTechnicianWintercoat
 
 - type: loadoutGroup
   id: StationEngineerShoes
@@ -970,6 +1106,9 @@
   loadouts:
   - WorkBoots
   - EngineeringWinterBoots
+  - SalvageBoots
+  - CargoWinterBoots
+  - WinterBoots
 
 - type: loadoutGroup
   id: StationEngineerID
@@ -1015,7 +1154,11 @@
   name: loadout-group-atmospheric-technician-shoes
   loadouts:
   - WhiteShoes
+  - SalvageBoots
+  - CargoWinterBoots
+  - WorkBoots
   - EngineeringWinterBoots
+  - WinterBoots
 
 - type: loadoutGroup
   id: SurvivalExtended
@@ -1064,7 +1207,13 @@
   name: loadout-group-research-director-shoes
   loadouts:
   - BrownShoes
-  - ScienceWinterBoots
+  - LaceupShoes
+  - WinterBoots
+  - SalvageBoots
+  - CargoWinterBoots
+  - WorkBoots
+  - EngineeringWinterBoots
+  - DesignerWinterBoots
 
 - type: loadoutGroup
   id: ScientistHead
@@ -1128,7 +1277,12 @@
   loadouts:
   - WhiteShoes
   - BlackShoes
-  - ScienceWinterBoots
+  - LaceupShoes
+  - WinterBoots
+  - SalvageBoots
+  - CargoWinterBoots
+  - WorkBoots
+  - EngineeringWinterBoots
 
 - type: loadoutGroup
   id: ScientistGloves
@@ -1299,6 +1453,7 @@
   id: SecurityShoes
   name: loadout-group-security-shoes
   loadouts:
+  - CombatBoots
   - JackBoots
   - SecurityWinterBoots
 
@@ -1427,8 +1582,18 @@
   id: ChiefMedicalOfficerShoes
   name: loadout-group-chief-medical-officer-shoes
   loadouts:
-  - BrownShoes
+  - ChemistBoots
+  - BlueShoes
+  - BlackShoes
+  - WhiteShoes
+  - LaceupShoes
   - MedicalWinterBoots
+  - WinterBoots
+  - SalvageBoots
+  - CargoWinterBoots
+  - WorkBoots
+  - EngineeringWinterBoots
+  - DesignerWinterBoots
 
 - type: loadoutGroup
   id: MedicalDoctorHead
@@ -1493,7 +1658,15 @@
   name: loadout-group-medical-doctor-shoes
   loadouts:
   - WhiteShoes
+  - BlackShoes
+  - BlueShoes
+  - LaceupShoes
   - MedicalWinterBoots
+  - WinterBoots
+  - SalvageBoots
+  - CargoWinterBoots
+  - WorkBoots
+  - EngineeringWinterBoots
 
 - type: loadoutGroup
   id: MedicalDoctorPDA
@@ -1555,6 +1728,31 @@
   - ChemistLabCoat
   - ChemistWintercoat
   - SeniorPhysicianLabCoat
+  - SeniorPhysicianWinterLabCoat
+
+- type: loadoutGroup
+  id: ChemistGloves
+  name: loadout-group-chemist-gloves
+  loadouts:
+  - ChemistGloves
+  - LatexGloves
+  - NitrileGloves
+
+- type: loadoutGroup
+  id: ChemistShoes
+  name: loadout-group-chemist-shoes
+  loadouts:
+  - ChemistBoots
+  - WhiteShoes
+  - BlackShoes
+  - BrownShoes
+  - LaceupShoes
+  - WinterBoots
+  - MedicalWinterBoots
+  - SalvageBoots
+  - CargoWinterBoots
+  - WorkBoots
+  - EngineeringWinterBoots
 
 - type: loadoutGroup
   id: ChemistBackpack
@@ -1592,7 +1790,20 @@
   loadouts:
   - BlueShoes
   - WhiteShoes
+  - LaceupShoes
+  - WinterBoots
   - MedicalWinterBoots
+  - SalvageBoots
+  - CargoWinterBoots
+  - WorkBoots
+  - EngineeringWinterBoots
+
+- type: loadoutGroup #WizDen Weh Job Plush
+  id: ParamedicJobTrinkets
+  name: loadout-group-jobtrinkets
+  minLimit: 0
+  loadouts:
+  - LizardPlushieParamedic
 
 - type: loadoutGroup
   id: SurvivalMedical

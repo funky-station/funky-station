@@ -7336,3 +7336,11 @@ Entries:
       message: Updated Packed for playtest feedback.
   id: 851
   time: '2026-01-09T23:11:21.0000000+00:00'
+- author: ferynn
+  changes:
+    - type: Tweak
+      message: >-
+        The cooldown of the ghost haunt action is changed from 2 minutes to 1
+        minute.
+  id: 852
+  time: '2026-01-09T23:12:07.0000000+00:00'

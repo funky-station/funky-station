@@ -7322,3 +7322,11 @@ Entries:
       message: 'Reworked hops office. '
   id: 849
   time: '2026-01-09T00:01:56.0000000+00:00'
+- author: JoulesBerg
+  changes:
+    - type: Remove
+      message: >-
+        Removed redundant / isolationist roles from all departments and added
+        their accesses to the base department roles.
+  id: 850
+  time: '2026-01-09T05:13:11.0000000+00:00'

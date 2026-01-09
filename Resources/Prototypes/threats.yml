@@ -12,8 +12,10 @@
   id: NinjaThreats
   weights:
     Dragon: 5
-    Revenant: 4
+    Revenant: 8
     Wizard: 1
+    Colossus: 5
+    Nukie: 1
 
 - type: ninjaHackingThreat
   id: Dragon
@@ -29,3 +31,13 @@
   id: Wizard
   announcement: terror-wizard
   rule: WizardSpawn
+
+- type: ninjaHackingThreat
+  id: Colossus
+  announcement: terror-colossus
+  rule: ColossusSpawn
+
+- type: ninjaHackingThreat
+  id: Nukie
+  announcement: terror-nukie
+  rule: LoneOpsSpawn

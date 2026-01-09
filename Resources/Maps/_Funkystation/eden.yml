@@ -1,67 +1,11 @@
-# SPDX-FileCopyrightText: 2021 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021 E F R <602406+Efruit@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021 Elijahrane <60792108+Elijahrane@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021 Mith-randalf <84274729+Mith-randalf@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021 Paul Ritter <ritter.paul1@googlemail.com>
-# SPDX-FileCopyrightText: 2021 buletsponge <96000213+buletsponge@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021 wrexbe <81056464+wrexbe@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 0x6273 <0x40@keemail.me>
-# SPDX-FileCopyrightText: 2022 20kdc <asdd2808@gmail.com>
-# SPDX-FileCopyrightText: 2022 Cheackraze <71046427+Cheackraze@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Kara <lunarautomaton6@gmail.com>
-# SPDX-FileCopyrightText: 2022 Moony <moonheart08@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Morbo <14136326+Morb0@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Myctai <108953437+Myctai@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Peptide90 <78795277+Peptide90@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 TaralGit <76408146+TaralGit@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 TimrodDX <timrod@gmail.com>
-# SPDX-FileCopyrightText: 2022 Veritius <veritiusgaming@gmail.com>
-# SPDX-FileCopyrightText: 2022 and_a <and_a@DESKTOP-RJENGIR>
-# SPDX-FileCopyrightText: 2022 corentt <36075110+corentt@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 metalgearsloth <comedian_vs_clown@hotmail.com>
-# SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-# SPDX-FileCopyrightText: 2022 moonheart08 <moonheart08@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Checkraze <71046427+Cheackraze@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Emisse <99158783+Emisse@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Eoin Mcloughlin <helloworld@eoinrul.es>
-# SPDX-FileCopyrightText: 2023 Kevin Zheng <kevinz5000@gmail.com>
-# SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Scribbles0 <91828755+Scribbles0@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 WIN-AOO91TUKDC7\geniy <bogdanilchev@yandex.ru>
-# SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 deltanedas <@deltanedas:kde.org>
-# SPDX-FileCopyrightText: 2023 eoineoineoin <github@eoinrul.es>
-# SPDX-FileCopyrightText: 2023 not-gavnaed <114421346+not-gavnaed@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
-# SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
-# SPDX-FileCopyrightText: 2024 Brandon Hu <103440971+Brandon-Huu@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Krunklehorn <42424291+Krunklehorn@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 MilenVolf <63782763+MilenVolf@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 PJBot <pieterjan.briers+bot@gmail.com>
-# SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
-# SPDX-FileCopyrightText: 2024 Preston Smith <92108534+thetolbean@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
-# SPDX-FileCopyrightText: 2024 Ubaser <134914314+UbaserB@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Verm <32827189+Vermidia@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 rottenheadphones <juaelwe@outlook.com>
-# SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
-# SPDX-FileCopyrightText: 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
-# SPDX-FileCopyrightText: 2026 salpphie <53307242+salpphie@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2026 wilowzeta <willowzeta632146@proton.me>
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 meta:
   format: 7
   category: Map
   engineVersion: 268.0.0
   forkId: ""
   forkVersion: ""
-  time: 01/04/2026 03:13:20
-  entityCount: 24690
+  time: 01/09/2026 02:46:20
+  entityCount: 24697
 maps:
 - 1
 grids:
@@ -261,7 +205,7 @@ entities:
           version: 7
         1,1:
           ind: 1,1
-          tiles: PgAAAAAAAD4AAAAAAAA+AAAAAAAAPgAAAAAAAAIAAAAAAABBAAAAAAEAQQAAAAACAAIAAAAAAAAEAAAAAAEABAAAAAADAAQAAAAAAAAEAAAAAAAABAAAAAACAAIAAAAAAAACAAAAAAAAAgAAAAAAAD4AAAAAAAA+AAAAAAAAPgAAAAAAAD4AAAAAAAACAAAAAAAAQQAAAAABAEEAAAAAAgACAAAAAAAABAAAAAABAAQAAAAAAAAEAAAAAAIABAAAAAADAAQAAAAAAwACAAAAAAAAAAAAAAADAAAAAAAAAQACAAAAAAAAPgAAAAAAAAIAAAAAAAACAAAAAAAAAgAAAAAAAEEAAAAAAABBAAAAAAMAAgAAAAAAADsAAAAAAwA7AAAAAAAABAAAAAADAAQAAAAAAwAEAAAAAAIAAgAAAAAAAAAAAAAAAAAJAAAAAAMALAAAAAACACwAAAAAAAAsAAAAAAEALAAAAAABACwAAAAAAABBAAAAAAAAQQAAAAAAAAIAAAAAAAACAAAAAAAAAgAAAAAAAAIAAAAAAAAEAAAAAAMAAgAAAAAAAAIAAAAAAAAAAAAAAAAACQAAAAADAAIAAAAAAAA9AAAAAAAAAgAAAAAAAAIAAAAAAAACAAAAAAAAQQAAAAAAAEEAAAAAAQAsAAAAAAEALAAAAAADACwAAAAAAgAsAAAAAAEALAAAAAABACwAAAAAAgACAAAAAAAAAAAAAAAAAAkAAAAAAgA9AAAAAAAAPQAAAAAAAD4AAAAABgA9AAAAAAAAAgAAAAAAAEEAAAAAAwBBAAAAAAIAAgAAAAAAAAIAAAAAAAACAAAAAAAAAgAAAAAAAAQAAAAAAAACAAAAAAAAAgAAAAAAAAAAAAAAAgAJAAAAAAAAPQAAAAAIAD0AAAAABgA9AAAAAAAAPwAAAAAAAAIAAAAAAABBAAAAAAIAQQAAAAABAAIAAAAAAAAEAAAAAAIABAAAAAACAAQAAAAAAAAEAAAAAAAAPAAAAAACAAIAAAAAAAAAAAAAAAMAAAAAAAACAD0AAAAAAAA9AAAAAAAAPwAAAAAAAD8AAAAAAAACAAAAAAAAQQAAAAAAAEEAAAAAAQACAAAAAAAABAAAAAABAAQAAAAAAgAEAAAAAAIABAAAAAADADwAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAA/AAAAAAAAPwAAAAAAAD8AAAAAAAA/AAAAAAAAAgAAAAAAAEEAAAAAAwBBAAAAAAAAAgAAAAAAADwAAAAAAgA8AAAAAAMAPAAAAAAAADwAAAAAAQA8AAAAAAEAAgAAAAAAAAAAAAAAAwAAAAAAAAIAAgAAAAAAAAIAAAAAAAACAAAAAAAAAgAAAAAAAAIAAAAAAAAWAAAAAAMAFgAAAAADAAIAAAAAAAACAAAAAAAAAgAAAAAAAAIAAAAAAAACAAAAAAAAAgAAAAAAAAIAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAgAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAACAAAAAAAAAAAAAAAAAAIAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAADAAAAAAAAAQAAAAAAAAIAAAAAAAADAAAAAAAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAwAAAAAAAAIAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAACAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAABAAAAAAAAAQAAAAAAAAAAAAAAAAADAAAAAAAAAwAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAACABYAAAAAAQAWAAAAAAEAAgAAAAAAAAIAAAAAAAACAAAAAAAAAgAAAAAAAAIAAAAAAAACAAAAAAAAAgAAAAAAAAIAAAAAAAACAAAAAAAAAgAAAAAAAAIAAAAAAAACAAAAAAAAAgAAAAAAAAIAAAAAAAACAAAAAAAAAgAAAAAAAAIAAAAAAAACAAAAAAAAGgAAAAABAAIAAAAAAAABAAAAAAIAAQAAAAABAAEAAAAAAgABAAAAAAEAAQAAAAAAAAAAAAAAAgAAAAAAAAEAAAAAAAACAAAAAAAAAAAAAAAAAAEAGgAAAAACABoAAAAAAQAaAAAAAAIAAgAAAAAAABoAAAAAAAACAAAAAAAAAQAAAAACAAEAAAAAAQABAAAAAAEAAQAAAAABAAIAAAAAAAAAAAAAAAIAAAAAAAABAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA==
+          tiles: PgAAAAAAAD0AAAAAAAA+AAAAAAAAPgAAAAAAAAIAAAAAAABBAAAAAAEAQQAAAAACAAIAAAAAAAAEAAAAAAEABAAAAAADAAQAAAAAAAAEAAAAAAAABAAAAAACAAIAAAAAAAACAAAAAAAAAgAAAAAAAD4AAAAAAAA9AAAAAAAAPQAAAAAAAD4AAAAAAAACAAAAAAAAQQAAAAABAEEAAAAAAgACAAAAAAAABAAAAAABAAQAAAAAAAAEAAAAAAIABAAAAAADAAQAAAAAAwACAAAAAAAAAAAAAAADAAAAAAAAAQACAAAAAAAAPQAAAAAAAAIAAAAAAAACAAAAAAAAAgAAAAAAAEEAAAAAAABBAAAAAAMAAgAAAAAAADsAAAAAAwA7AAAAAAAABAAAAAADAAQAAAAAAwAEAAAAAAIAAgAAAAAAAAAAAAAAAAAJAAAAAAMALAAAAAACACwAAAAAAAAsAAAAAAEALAAAAAABACwAAAAAAABBAAAAAAAAQQAAAAAAAAIAAAAAAAACAAAAAAAAAgAAAAAAAAIAAAAAAAAEAAAAAAMAAgAAAAAAAAIAAAAAAAAAAAAAAAAACQAAAAADAAIAAAAAAAA9AAAAAAAAAgAAAAAAAAIAAAAAAAACAAAAAAAAQQAAAAAAAEEAAAAAAQAsAAAAAAEALAAAAAADACwAAAAAAgAsAAAAAAEALAAAAAABACwAAAAAAgACAAAAAAAAAAAAAAAAAAkAAAAAAgA9AAAAAAAAPQAAAAAAAD4AAAAABgA9AAAAAAAAAgAAAAAAAEEAAAAAAwBBAAAAAAIAAgAAAAAAAAIAAAAAAAACAAAAAAAAAgAAAAAAAAQAAAAAAAACAAAAAAAAAgAAAAAAAAAAAAAAAgAJAAAAAAAAPQAAAAAIAD0AAAAABgA9AAAAAAAAPwAAAAAAAAIAAAAAAABBAAAAAAIAQQAAAAABAAIAAAAAAAAEAAAAAAIABAAAAAACAAQAAAAAAAAEAAAAAAAAPAAAAAACAAIAAAAAAAAAAAAAAAMAAAAAAAACAD0AAAAAAAA9AAAAAAAAPwAAAAAAAD8AAAAAAAACAAAAAAAAQQAAAAAAAEEAAAAAAQACAAAAAAAABAAAAAABAAQAAAAAAgAEAAAAAAIABAAAAAADADwAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAA/AAAAAAAAPwAAAAAAAD8AAAAAAAA/AAAAAAAAAgAAAAAAAEEAAAAAAwBBAAAAAAAAAgAAAAAAADwAAAAAAgA8AAAAAAMAPAAAAAAAADwAAAAAAQA8AAAAAAEAAgAAAAAAAAAAAAAAAwAAAAAAAAIAAgAAAAAAAAIAAAAAAAACAAAAAAAAAgAAAAAAAAIAAAAAAAAWAAAAAAMAFgAAAAADAAIAAAAAAAACAAAAAAAAAgAAAAAAAAIAAAAAAAACAAAAAAAAAgAAAAAAAAIAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAgAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAACAAAAAAAAAAAAAAAAAAIAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAADAAAAAAAAAQAAAAAAAAIAAAAAAAADAAAAAAAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAwAAAAAAAAIAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAACAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAABAAAAAAAAAQAAAAAAAAAAAAAAAAADAAAAAAAAAwAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAACABYAAAAAAQAWAAAAAAEAAgAAAAAAAAIAAAAAAAACAAAAAAAAAgAAAAAAAAIAAAAAAAACAAAAAAAAAgAAAAAAAAIAAAAAAAACAAAAAAAAAgAAAAAAAAIAAAAAAAACAAAAAAAAAgAAAAAAAAIAAAAAAAACAAAAAAAAAgAAAAAAAAIAAAAAAAACAAAAAAAAGgAAAAABAAIAAAAAAAABAAAAAAIAAQAAAAABAAEAAAAAAgABAAAAAAEAAQAAAAAAAAAAAAAAAgAAAAAAAAEAAAAAAAACAAAAAAAAAAAAAAAAAAEAGgAAAAACABoAAAAAAQAaAAAAAAIAAgAAAAAAABoAAAAAAAACAAAAAAAAAQAAAAACAAEAAAAAAQABAAAAAAEAAQAAAAABAAIAAAAAAAAAAAAAAAIAAAAAAAABAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA==
           version: 7
         1,2:
           ind: 1,2
@@ -11958,7 +11902,7 @@ entities:
       pos: -55.5,-9.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -348031.7
+      secondsUntilStateChange: -348501.66
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -12574,7 +12518,7 @@ entities:
       pos: 29.5,-41.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -329464
+      secondsUntilStateChange: -329933.97
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -13029,7 +12973,7 @@ entities:
       pos: -34.5,5.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -12125.8955
+      secondsUntilStateChange: -12595.87
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -13797,7 +13741,7 @@ entities:
       pos: 5.5,17.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -3396249.8
+      secondsUntilStateChange: -3396719.8
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -15863,6 +15807,11 @@ entities:
     - type: Transform
       pos: 0.8528483,39.826675
       parent: 2
+  - uid: 20649
+    components:
+    - type: Transform
+      pos: 5.74051,0.6416917
+      parent: 2
   - uid: 22320
     components:
     - type: Transform
@@ -15872,6 +15821,36 @@ entities:
     components:
     - type: Transform
       pos: 30.264893,-7.5254
+      parent: 2
+  - uid: 24692
+    components:
+    - type: Transform
+      pos: 7.02176,-3.3114333
+      parent: 2
+  - uid: 24693
+    components:
+    - type: Transform
+      pos: 5.70926,-1.0145583
+      parent: 2
+  - uid: 24694
+    components:
+    - type: Transform
+      pos: -4.7367525,1.1216066
+      parent: 2
+  - uid: 24695
+    components:
+    - type: Transform
+      pos: 1.2292863,-5.542587
+      parent: 2
+  - uid: 24696
+    components:
+    - type: Transform
+      pos: -0.7394637,6.478846
+      parent: 2
+  - uid: 24697
+    components:
+    - type: Transform
+      pos: 9.540491,6.744471
       parent: 2
 - proto: AsimovCircuitBoard
   entities:
@@ -71012,6 +70991,11 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 3.5,-10.5
       parent: 2
+  - uid: 24691
+    components:
+    - type: Transform
+      pos: 41.5,29.5
+      parent: 2
 - proto: DisposalJunction
   entities:
   - uid: 6402
@@ -74107,7 +74091,7 @@ entities:
       parent: 2
     - type: DisposalUnit
       recentlyEjected:
-      - 20649
+      - invalid
   - uid: 693
     components:
     - type: Transform
@@ -110860,16 +110844,6 @@ entities:
     - type: Transform
       pos: 16.645985,9.976275
       parent: 2
-  - uid: 20649
-    components:
-    - type: Transform
-      pos: -6.3735,41.632706
-      parent: 2
-    - type: NetworkConfigurator
-      linkModeActive: False
-    - type: Physics
-      angularDamping: 0
-      linearDamping: 0
   - uid: 22166
     components:
     - type: Transform
@@ -125137,19 +125111,6 @@ entities:
         21564:
         - - Pressed
           - Toggle
-  - uid: 21578
-    components:
-    - type: MetaData
-      name: Janitorial Light
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -41.5,15.5
-      parent: 2
-    - type: DeviceLinkSource
-      linkedPorts:
-        21569:
-        - - Pressed
-          - Toggle
   - uid: 21579
     components:
     - type: MetaData
@@ -125238,6 +125199,17 @@ entities:
         - - Pressed
           - Toggle
         820:
+        - - Pressed
+          - Toggle
+  - uid: 21578
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -41.5,15.5
+      parent: 2
+    - type: DeviceLinkSource
+      linkedPorts:
+        21569:
         - - Pressed
           - Toggle
   - uid: 22324
@@ -156686,7 +156658,7 @@ entities:
       pos: 28.5,-9.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -1939454.6
+      secondsUntilStateChange: -1939924.6
       state: Opening
   - uid: 10484
     components:

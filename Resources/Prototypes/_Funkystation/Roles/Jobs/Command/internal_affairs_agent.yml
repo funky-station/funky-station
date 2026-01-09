@@ -41,7 +41,7 @@
   - Lawyer
   special:
   - !type:AddImplantSpecial
-    implants: [ MindShieldImplant, RadioImplanterCentcomm ]
+    implants: [ MindShieldImplant ]
 
 - type: startingGear
   id: InternalAffairsAgentGear
@@ -58,4 +58,5 @@
   storage:
     back:
     - Flash
+    - RadioImplanterCentcomm
     - BoxFolderCentComClipboard

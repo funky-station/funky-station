@@ -49,7 +49,7 @@
   - Service
   special:
   - !type:AddImplantSpecial
-    implants: [ MindShieldImplant, RadioImplanterCentcomm ]
+    implants: [ MindShieldImplant ]
 
 - type: startingGear
   id: MagistrateGear
@@ -65,4 +65,5 @@
     back:
     - Flash
     - BookSpaceLaw
+    - RadioImplanterCentcomm
     - BoxFolderCentComClipboard

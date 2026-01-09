@@ -52,7 +52,7 @@
   - Cargo #funkystation
   special:
   - !type:AddImplantSpecial
-    implants: [ MindShieldImplant, RadioImplanterCentcomm ]
+    implants: [ MindShieldImplant ]
   - !type:AddComponentSpecial
     components:
       - type: CommandStaff
@@ -67,4 +67,5 @@
   storage:
     back:
     - Flash
+    - RadioImplanterCentcomm
     - BoxFolderCentComClipboard

@@ -49,7 +49,7 @@
   roles:
   - CargoTechnician
   - Quartermaster
-  - SalvageSpecialist
+# - SalvageSpecialist - Funky, Goodbye forever salvage :wave:
 
 - type: department
   id: Civilian
@@ -165,7 +165,7 @@
   description: department-Medical-description
   color: "#52B4E9"
   roles:
-  - Chemist
+# - Chemist - Funky, Goodbye forever chemistry :wave:
   - ChiefMedicalOfficer
   - MedicalDoctor
   - MedicalIntern
@@ -194,7 +194,7 @@
   roles:
   - ResearchDirector
   - Scientist
-  - Roboticist # funkystation
+# - Roboticist - Funky, Goodby forever robotics :wave:
   - ResearchAssistant
 
 - type: department

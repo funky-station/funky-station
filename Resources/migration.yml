@@ -638,3 +638,9 @@ CentcomPDA: CentcomOfficialPDA
 
 # 2025-10-28
 DrinkKiraSpecial: DrinkOrangeLimeSodaGlass
+
+# 2026-1-8
+SpawnPointSalvageSpecialist: SpawnPointCargoTechnician
+SpawnPointAtmos: SpawnPointStationEngineer
+SpawnPointChemist: SpawnPointMedicalDoctor
+SpawnPointRoboticist: SpawnPointScientist

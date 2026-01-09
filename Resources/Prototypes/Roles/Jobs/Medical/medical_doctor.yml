@@ -49,9 +49,8 @@
   supervisors: job-supervisors-cmo
   access:
   - Medical
-  - Maintenance
-  extendedAccess:
   - Chemistry
+  - Maintenance
   special:
   - !type:GiveItemOnHolidaySpecial
     holiday: DoctorDay

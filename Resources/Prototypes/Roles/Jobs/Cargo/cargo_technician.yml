@@ -48,10 +48,9 @@
   access:
   - Cargo
   - Maintenance
-  - Logistics #Imp
-  extendedAccess:
   - Salvage
-  - External # goobstation
+  - Logistics #Imp
+  - External # goobstation  
   special:
   - !type:GiveItemOnHolidaySpecial
     holiday: BoxingDay

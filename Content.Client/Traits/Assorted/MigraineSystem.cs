@@ -1,3 +1,4 @@
+// SPDX-FileCopyrightText: 2025 Mora <46364955+TrixxedHeart@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 TrixxedHeart <46364955+TrixxedBit@users.noreply.github.com>
 //
 // SPDX-License-Identifier: MIT
@@ -13,6 +14,9 @@ using Content.Shared.Traits.Assorted;
 
 namespace Content.Client.Traits.Assorted
 {
+    /// <summary>
+    /// Client system for migraine visual overlay and audio effects.
+    /// </summary>
     public sealed class MigraineSystem : EntitySystem
     {
         [Dependency] private readonly IOverlayManager _overlayMan = default!;
@@ -33,6 +37,7 @@ namespace Content.Client.Traits.Assorted
             SubscribeLocalEvent<LocalPlayerAttachedEvent>(OnPlayerAttached);
             SubscribeLocalEvent<LocalPlayerDetachedEvent>(OnPlayerDetached);
 
+            // Add overlay if player is already attached
             if (_playerManager.LocalSession?.AttachedEntity != null)
             {
                 _overlayMan.AddOverlay(_overlay);
@@ -47,19 +52,19 @@ namespace Content.Client.Traits.Assorted
                 return;
 
             var localEntity = _playerManager.LocalSession?.AttachedEntity;
-
             if (localEntity == null)
             {
                 _playedStartSound = false;
                 return;
             }
 
-            // Play the migraine start sound only for the player
+            // Play migraine start sound for the player
             if (_entityManager.TryGetComponent<MigraineComponent>(localEntity, out var _))
             {
                 if (!_playedStartSound)
                 {
-                    _audio.PlayPredicted(new SoundPathSpecifier("/Audio/_Funkystation/Effects/migraine.ogg"), localEntity.Value, localEntity.Value);
+                    _audio.PlayPredicted(new SoundPathSpecifier("/Audio/_Funkystation/Effects/Migraine/migraine.ogg"),
+                        localEntity.Value, localEntity.Value);
                     _playedStartSound = true;
                 }
             }

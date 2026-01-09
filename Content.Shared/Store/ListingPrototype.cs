@@ -30,6 +30,7 @@ public partial class ListingData : IEquatable<ListingData>
         other.Priority,
         other.ProductEntity,
         other.ProductAction,
+        other.ProductActionCharges,
         other.ProductUpgradeId,
         other.ProductActionEntity,
         other.ProductEvent,
@@ -55,6 +56,7 @@ public partial class ListingData : IEquatable<ListingData>
         int priority,
         EntProtoId? productEntity,
         EntProtoId? productAction,
+        int? productActionCharges,
         ProtoId<ListingPrototype>? productUpgradeId,
         EntityUid? productActionEntity,
         object? productEvent,
@@ -76,6 +78,7 @@ public partial class ListingData : IEquatable<ListingData>
         Priority = priority;
         ProductEntity = productEntity;
         ProductAction = productAction;
+        ProductActionCharges = productActionCharges;
         ProductUpgradeId = productUpgradeId;
         ProductActionEntity = productActionEntity;
         ProductEvent = productEvent;
@@ -155,6 +158,13 @@ public partial class ListingData : IEquatable<ListingData>
     /// </summary>
     [DataField]
     public EntProtoId? ProductAction;
+
+    /// <summary>
+    /// The number of charges to grant when purchasing an action if applicable.
+    /// If null or 0, no charges are granted to existing actions.
+    /// </summary>
+    [DataField]
+    public int? ProductActionCharges;
 
     /// <summary>
     /// The listing ID of the related upgrade listing. Can be used to link a <see cref="ProductAction"/> to an
@@ -286,6 +296,7 @@ public sealed partial class ListingDataWithCostModifiers : ListingData
             listingData.Priority,
             listingData.ProductEntity,
             listingData.ProductAction,
+            listingData.ProductActionCharges,
             listingData.ProductUpgradeId,
             listingData.ProductActionEntity,
             listingData.ProductEvent,

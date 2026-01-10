@@ -67,5 +67,4 @@
   storage:
     back:
     - Flash
-    - RadioImplanterCentcomm
     - BoxFolderCentComClipboard

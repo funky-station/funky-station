@@ -7344,3 +7344,9 @@ Entries:
         minute.
   id: 852
   time: '2026-01-09T23:12:07.0000000+00:00'
+- author: zergologist
+  changes:
+    - type: Tweak
+      message: redid the magboot sprites again so that the icon isn't massive
+  id: 853
+  time: '2026-01-10T04:57:54.0000000+00:00'

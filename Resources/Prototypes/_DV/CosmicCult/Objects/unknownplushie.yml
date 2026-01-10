@@ -17,3 +17,26 @@
   - type: Sprite
     sprite: _DV/CosmicCult/Objects/unknownplushie.rsi
     state: plushie_cosmic
+  - type: EmitSoundOnUse
+    sound:
+      collection: CosmicToySqueak
+  - type: EmitSoundOnLand
+    sound:
+      collection: CosmicToySqueak
+  - type: EmitSoundOnActivate
+    sound:
+      collection: CosmicToySqueak
+  - type: EmitSoundOnTrigger
+    sound:
+      collection: CosmicToySqueak
+  - type: EmitSoundOnCollide
+    sound:
+      collection: CosmicToySqueak
+  - type: Food
+    requiresSpecialDigestion: true
+    useSound:
+      collection: CosmicToySqueak
+  - type: MeleeWeapon
+    wideAnimationRotation: 180
+    soundHit:
+      collection: CosmicToySqueak

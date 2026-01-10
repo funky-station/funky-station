@@ -11,3 +11,10 @@
   - /Audio/Items/Toys/toysqueak1.ogg
   - /Audio/Items/Toys/toysqueak2.ogg
   - /Audio/Items/Toys/toysqueak3.ogg
+
+- type: soundCollection
+  id: CosmicToySqueak
+  files:
+  - /Audio/_Funkystation/Items/Toys/cosmictoysqueak1.ogg
+  - /Audio/_Funkystation/Items/Toys/cosmictoysqueak2.ogg
+  - /Audio/_Funkystation/Items/Toys/cosmictoysqueak3.ogg

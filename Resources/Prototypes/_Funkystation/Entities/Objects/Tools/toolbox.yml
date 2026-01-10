@@ -27,7 +27,7 @@
     storageRemoveSound: /Audio/Items/toolbox_remove.ogg
     maxItemSize: Normal
     grid:
-    - 0,0,5,3
+    - 0,0,5,2
   - type: Item
     size: Normal
     sprite: _Funkystation/Objects/Tools/toolbox_enchanted.rsi

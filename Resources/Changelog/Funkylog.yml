@@ -7322,3 +7322,41 @@ Entries:
       message: 'Reworked hops office. '
   id: 849
   time: '2026-01-09T00:01:56.0000000+00:00'
+- author: JoulesBerg
+  changes:
+    - type: Remove
+      message: >-
+        Removed redundant / isolationist roles from all departments and added
+        their accesses to the base department roles.
+  id: 850
+  time: '2026-01-09T05:13:11.0000000+00:00'
+- author: 88tv
+  changes:
+    - type: Tweak
+      message: Updated Packed for playtest feedback.
+  id: 851
+  time: '2026-01-09T23:11:21.0000000+00:00'
+- author: ferynn
+  changes:
+    - type: Tweak
+      message: >-
+        The cooldown of the ghost haunt action is changed from 2 minutes to 1
+        minute.
+  id: 852
+  time: '2026-01-09T23:12:07.0000000+00:00'
+- author: zergologist
+  changes:
+    - type: Tweak
+      message: redid the magboot sprites again so that the icon isn't massive
+  id: 853
+  time: '2026-01-10T04:57:54.0000000+00:00'
+- author: AraiMaia
+  changes:
+    - type: Add
+      message: >-
+        Resprited: Gas Miners, Thermomachines, Radiators, Air Injectors, Manual
+        Valves, Signal Valves, Digital Valves, Inlet Pressure Regulators,
+        Pneumatic Valves, Volumetric & Pressure Pumps, Gas Filters, Gas Mixers,
+        Gas Pipe Sensors, and Gas Canister Connector ports.
+  id: 854
+  time: '2026-01-10T04:59:26.0000000+00:00'

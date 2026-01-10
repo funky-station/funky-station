@@ -45,6 +45,7 @@
 # SPDX-FileCopyrightText: 2023 lzk <124214523+lzk228@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2023 vanx <61917534+Vaaankas@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2023 vanx <vanx#5477>
+# SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2024 Arendian <137322659+Arendian@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Aviu00 <93730715+Aviu00@users.noreply.github.com>
@@ -63,9 +64,13 @@
 # SPDX-FileCopyrightText: 2024 PoTeletubby <ajcraigaz@gmail.com>
 # SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 DrSmugleaf <10968691+DrSmugleaf@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 JoulesBerg <104539820+JoulesBerg@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 ThatOneMoon <91613003+ThatOneMoon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
+# SPDX-FileCopyrightText: 2025 Toaster <mrtoastymyroasty@gmail.com>
+# SPDX-FileCopyrightText: 2025 Toastermeister <215405651+Toastermeister@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 kbarkevich <24629810+kbarkevich@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
@@ -128,7 +133,6 @@
   abstract: true
   components:
   - type: Reflective
-  - type: FlyBySound
   - type: Clickable
   - type: Sprite
     noRot: false
@@ -150,15 +154,6 @@
         mask:
         - Impassable
         - BulletImpassable
-      fly-by: &flybyfixture
-        shape: !type:PhysShapeCircle
-          radius: 1.5
-        layer:
-        - Impassable
-        - MidImpassable
-        - HighImpassable
-        - LowImpassable
-        hard: False
   - type: Projectile
     impactEffect: BulletImpactEffect
     damage:
@@ -168,6 +163,7 @@
       path: /Audio/Weapons/Guns/Hits/bullet_hit.ogg
   - type: TimedDespawn
     lifetime: 10
+  - type: LagCompensation
 
 - type: entity
   id: BaseBulletTrigger # Trigger-on-collide bullets
@@ -190,7 +186,6 @@
         mask:
         - Impassable
         - BulletImpassable
-      fly-by: *flybyfixture
 
 - type: entity
   id: BaseBulletPractice
@@ -286,7 +281,6 @@
         mask:
           - Impassable
           - BulletImpassable
-      fly-by: *flybyfixture
   - type: Ammo
   - type: Projectile
     damage:
@@ -314,6 +308,7 @@
       params:
         volume: 5
   - type: Sprite
+    noRot: false
     sprite: Objects/Weapons/Guns/Projectiles/projectiles_tg.rsi
     layers:
     - state: omnilaser
@@ -327,8 +322,16 @@
           bounds: "-0.15,-0.3,0.15,0.3"
         hard: false
         mask:
-        - Opaque # Goobstation
-      fly-by: *flybyfixture
+        - Opaque
+      fly-by: # Inlined definition to avoid anchor issues
+        shape: !type:PhysShapeCircle
+          radius: 0.6
+        layer:
+        - Impassable
+        - MidImpassable
+        - HighImpassable
+        - LowImpassable
+        hard: false
   - type: Ammo
   - type: StaminaDamageOnCollide
     damage: 33
@@ -354,6 +357,7 @@
       params:
         volume: 5
   - type: Sprite
+    noRot: false
     sprite: Objects/Weapons/Guns/Projectiles/projectiles_tg.rsi
     layers:
     - state: omnilaser
@@ -367,8 +371,16 @@
           bounds: "-0.15,-0.3,0.15,0.3"
         hard: false
         mask:
-        - Opaque # Goobstation
-      fly-by: *flybyfixture
+        - Opaque
+      fly-by: # Inlined definition to avoid anchor issues
+        shape: !type:PhysShapeCircle
+          radius: 0.6
+        layer:
+        - Impassable
+        - MidImpassable
+        - HighImpassable
+        - LowImpassable
+        hard: false
   - type: Ammo
   - type: StaminaDamageOnCollide
     damage: 1
@@ -405,7 +417,6 @@
         hard: false
         mask:
         - Opaque
-      fly-by: *flybyfixture
   - type: Projectile
 #   soundHit:  Waiting on serv3
     damage:
@@ -447,7 +458,6 @@
         hard: false
         mask:
         - Opaque
-      fly-by: *flybyfixture
   - type: Projectile
     #   soundHit:  Waiting on serv3
     impactEffect: BulletImpactEffectDisabler
@@ -598,7 +608,6 @@
         hard: false
         mask:
         - Opaque
-      fly-by: *flybyfixture
   - type: Projectile
     damage:
       types:
@@ -1024,6 +1033,7 @@
       params:
         volume: 5
   - type: Sprite
+    noRot: false
     sprite: Objects/Weapons/Guns/Projectiles/projectiles_tg.rsi
     layers:
     - state: omnilaser
@@ -1037,8 +1047,16 @@
           bounds: "-0.15,-0.3,0.15,0.3"
         hard: false
         mask:
-        - Opaque # Goobstation
-      fly-by: *flybyfixture
+        - Opaque
+      fly-by: # Inlined definition to avoid anchor issues
+        shape: !type:PhysShapeCircle
+          radius: 0.6
+        layer:
+        - Impassable
+        - MidImpassable
+        - HighImpassable
+        - LowImpassable
+        hard: false
   - type: Ammo
   - type: StaminaDamageOnCollide
     damage: 15
@@ -1081,7 +1099,15 @@
         hard: false
         mask:
         - Opaque
-      fly-by: *flybyfixture
+      fly-by:
+        shape: !type:PhysShapeCircle
+          radius: 0.6
+        layer:
+        - Impassable
+        - MidImpassable
+        - HighImpassable
+        - LowImpassable
+        hard: false
   - type: Ammo
 
 - type: entity
@@ -1190,7 +1216,6 @@
         mask:
         - Impassable
         - BulletImpassable
-      fly-by: *flybyfixture
   - type: Ammo
   - type: Projectile
     impactEffect: BulletImpactEffectOrangeDisabler

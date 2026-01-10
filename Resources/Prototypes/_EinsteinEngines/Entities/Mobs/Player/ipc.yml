@@ -87,9 +87,9 @@
   - type: SiliconDownOnDead
   - type: Inventory
     templateId: ipc
-  - type: GuideHelp
-    guides:
-      - IPC
+  # - type: GuideHelp dont need this no more!
+  #   guides:
+  #     - IPC
   - type: Silicon
     entityType: enum.SiliconType.Player
     batteryPowered: true

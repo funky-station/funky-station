@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Taken from tgstation at commit https://github.com/tgstation/tgstation/commit/4f6190e2895e09116663ef282d3ce1d8b35c032e. equipped-HELMET-vox state taken from /vg/station at commit https://github.com/vgstation-coders/vgstation13/commit/31d6576ba8102135d058ef49c3cb6ecbe8db8a79 | vulpkanin state taken from https://github.com/DeltaV-Station/Delta-v/tree/82d627f58e632d7764be33c4418c88907d667b42/Resources/Textures/Clothing/Head/Hoods/Bio/virology.rsi added by Zephyrpak",
+  "copyright": "Sprites from TG Station, edited by AraiMaia for Funky Station",
   "size": {
     "x": 32,
     "y": 32

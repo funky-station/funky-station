@@ -1,8 +1,225 @@
+# SPDX-FileCopyrightText: 2025 McBosserson <148172569+McBosserson@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 McBosserson <mcbosserson@hotmail.com>
+# SPDX-FileCopyrightText: 2025 Milon <milonpl.git@proton.me>
 # SPDX-FileCopyrightText: 2025 Mish <bluscout78@yahoo.com>
+# SPDX-FileCopyrightText: 2025 SharkSnake98 <sharksnake87@gmail.com>
+# SPDX-FileCopyrightText: 2025 Terkala <appleorange64@gmail.com>
+# SPDX-FileCopyrightText: 2025 W.xyz() <tptechteam@gmail.com>
+# SPDX-FileCopyrightText: 2025 Zergologist <114537969+Chedd-Error@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 w.xyz() <84605679+pirakaplant@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
+- type: flavor
+  id: amaretto
+  flavorType: Complex
+  description: flavor-complex-amaretto
+
+- type: flavor
+  id: applejack
+  flavorType: Complex
+  description: flavor-complex-applejack
+
+- type: flavor
+  id: bitters
+  flavorType: Complex
+  description: flavor-complex-bitters
+
+- type: flavor
+  id: cremedecacao
+  flavorType: Complex
+  description: flavor-complex-creme-de-cacao
+
+- type: flavor
+  id: cremedementhe
+  flavorType: Complex
+  description: flavor-complex-creme-de-menthe
+
+- type: flavor
+  id: fernet
+  flavorType: Complex
+  description: flavor-complex-fernet
+
+- type: flavor
+  id: hakkamate
+  flavorType: Complex
+  description: flavor-complex-hakka-mate
+
+- type: flavor
+  id: melonsoda
+  flavorType: Complex
+  description: flavor-complex-melon-soda
+
+- type: flavor
+  id: navyrum
+  flavorType: Complex
+  description: flavor-complex-navy-rum
+
+- type: flavor
+  id: ricebeer
+  flavorType: Complex
+  description: flavor-complex-rice-beer
+
+- type: flavor
+  id: shochu
+  flavorType: Complex
+  description: flavor-complex-shochu
+
+- type: flavor
+  id: triplesec
+  flavorType: Complex
+  description: flavor-complex-triple-sec
+
+- type: flavor
+  id: 24voltenergy
+  flavorType: Complex
+  description: flavor-complex-24-volt-energy
+
+- type: flavor
+  id: voltaicyellowwine
+  flavorType: Complex
+  description: flavor-complex-voltaic-yellow-wine
+
+- type: flavor
+  id: alexander
+  flavorType: Complex
+  description: flavor-complex-alexander
+
+- type: flavor
+  id: amarettoalexander
+  flavorType: Complex
+  description: flavor-complex-amaretto-alexander
+
+- type: flavor
+  id: amarettosour
+  flavorType: Complex
+  description: flavor-complex-amaretto-sour
+
+- type: flavor
+  id: amaterasu
+  flavorType: Complex
+  description: flavor-complex-amaterasu
+
+- type: flavor
+  id: triplecitrus
+  flavorType: Complex
+  description: flavor-complex-triple-citrus
+
+- type: flavor
+  id: banzaiti
+  flavorType: Complex
+  description: flavor-complex-banzai-ti
+
+- type: flavor
+  id: rootmintbrew
+  flavorType: Complex
+  description: flavor-complex-root-mint-brew
+
+- type: flavor
+  id: betweenthesheets
+  flavorType: Complex
+  description: flavor-complex-between-the-sheets
+
+- type: flavor
+  id: bittersandsoda
+  flavorType: Complex
+  description: flavor-complex-bitters-and-soda
+
+- type: flavor
+  id: blankpaper
+  flavorType: Complex
+  description: flavor-complex-blank-paper
+
+- type: flavor
+  id: blueblazer
+  flavorType: Complex
+  description: flavor-complex-blue-blazer
+
+- type: flavor
+  id: bosozoku
+  flavorType: Complex
+  description: flavor-complex-bosozoku
+
+- type: flavor
+  id: brancamenta
+  flavorType: Complex
+  description: flavor-complex-branca-menta
+
+- type: flavor
+  id: bugspray
+  flavorType: Complex
+  description: flavor-complex-bug-spray
+
+- type: flavor
+  id: crevicespike
+  flavorType: Complex
+  description: flavor-complex-crevice-spike
+
+- type: flavor
+  id: fringeweaver
+  flavorType: Complex
+  description: flavor-complex-fringe-weaver
+
+- type: flavor
+  id: fourbit
+  flavorType: Complex
+  description: flavor-complex-four-bit
+
+- type: flavor
+  id: mauisunrise
+  flavorType: Complex
+  description: flavor-complex-maui-sunrise
+
+- type: flavor
+  id: quadruplesec
+  flavorType: Complex
+  description: flavor-complex-quadruple-sec
+
+- type: flavor
+  id: nekomimosa
+  flavorType: Complex
+  description: flavor-complex-nekomimosa
+
+- type: flavor
+  id: redcityam
+  flavorType: Complex
+  description: flavor-complex-red-city-am
+
+- type: flavor
+  id: sentaiquencha
+  flavorType: Complex
+  description: flavor-complex-sentai-quencha
+
+- type: flavor
+  id: utilitypole
+  flavorType: Complex
+  description: flavor-complex-utility-pole
+
+- type: flavor
+  id: wizzfizz
+  flavorType: Complex
+  description: flavor-complex-wizz-fizz
+
+- type: flavor
+  id: admiralty
+  flavorType: Complex
+  description: flavor-complex-admiralty
+
+- type: flavor
+  id: longjohnsilver
+  flavorType: Complex
+  description: flavor-complex-long-john-silver
+
+- type: flavor
+  id: longhaul
+  flavorType: Complex
+  description: flavor-complex-long-haul
+
+- type: flavor
+  id: tropicalstorm
+  flavorType: Complex
+  description: flavor-complex-tropical-storm
 
 - type: flavor
   id: eggnog
@@ -38,8 +255,23 @@
   id: pineapple-margherita
   flavorType: Complex
   description: flavor-complex-pineapple-margherita
-  
+
 - type: flavor
   id: shrimp
   flavorType: Complex
   description: flavor-complex-shrimp
+
+- type: flavor
+  id: fresh
+  flavorType: Base
+  description: flavor-base-fresh
+
+- type: flavor
+  id: forbidden
+  flavorType: Complex
+  description: flavor-complex-forbidden
+
+- type: flavor
+  id: barratry
+  flavorType: Complex
+  description: flavor-complex-barratry

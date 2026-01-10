@@ -1,5 +1,8 @@
+# SPDX-FileCopyrightText: 2025 SigmaTheDragon <162711378+SigmaTheDragon@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Teasq <Xerithin@gmail.com>
 # SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 tea <xerithin@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -42,7 +45,7 @@
     state: nullrod_bow
   content:
   - NullRodBow
-  - NullRodArrowQuiver
+#  - NullRodArrowQuiver
 
 # begin funky
 - type: chaplainGearMenuSet
@@ -54,5 +57,91 @@
     state: icon
   content:
   - WeaponSniperChaplainAnnabelle
+  - ClothingOuterDusterCoat
+
+- type: chaplainGearMenuSet
+  id: ChaplainGearRapier
+  name: chaplain-gearset-category-rapier-name
+  description: chaplain-gearset-category-rapier-description
+  sprite:
+    sprite: _Funkystation/Objects/Weapons/Melee/star_rapier.rsi
+    state: icon
+  content:
+  - SwordChaplainCosmic
+
+- type: chaplainGearMenuSet
+  id: ChaplainGearCrucifix
+  name: chaplain-gearset-category-crucifix-name
+  description: chaplain-gearset-category-crucifix-description
+  sprite:
+    sprite: _Funkystation/Objects/Weapons/Melee/crooked_cross.rsi
+    state: icon
+  content:
+  - CrossChaplainCrooked
+  
+- type: chaplainGearMenuSet
+  id: ChaplainGearPistol
+  name: chaplain-gearset-category-pistol-name
+  description: chaplain-gearset-category-pistol-description
+  sprite:
+    sprite: _Funkystation/Objects/Weapons/Guns/Pistols/N1984H.rsi
+    state: icon
+  content:
+  - WeaponChaplainPistol
+  - ClothingEyesGlassesChaplainSunglasses
+  
+- type: chaplainGearMenuSet
+  id: ChaplainGearStaff
+  name: chaplain-gearset-category-staff-name
+  description: chaplain-gearset-category-staff-description
+  sprite:
+    sprite: _Funkystation/Objects/Weapons/Melee/staff_of_nature.rsi
+    state: icon
+  content:
+  - WeaponChaplainNatureStaff
+
+- type: chaplainGearMenuSet
+  id: ChaplainGearLauncher
+  name: chaplain-gearset-category-launcher-name
+  description: chaplain-gearset-category-launcher-description
+  sprite:
+    sprite: _Funkystation/Objects/Weapons/Guns/Cannons/honkannon.rsi
+    state: piecannon
+  content:
+  - WeaponChaplainLauncher
+  - FoodPieBananium
+  - FoodPieBananium
+  - ClothingShoesClown
+  
+- type: chaplainGearMenuSet
+  id: ChaplainGearToolbox
+  name: chaplain-gearset-category-toolbox-name
+  description: chaplain-gearset-category-toolbox-description
+  sprite:
+    sprite: _Funkystation/Objects/Tools/toolbox_enchanted.rsi
+    state: icon
+  content:
+  - WeaponChaplainToolboxFilled
+
+  
+- type: chaplainGearMenuSet
+  id: ChaplainGearChainsword
+  name: chaplain-gearset-category-chainsword-name
+  description: chaplain-gearset-category-chainsword-description
+  sprite:
+    sprite: _Funkystation/Objects/Weapons/Melee/chainsword.rsi
+    state: icon
+  content:
+  - WeaponChaplainChainsword
+
+- type: chaplainGearMenuSet
+  id: ChaplainGearHauntedSword
+  name: chaplain-gearset-category-haunted-sword-name
+  description: chaplain-gearset-category-haunted-sword-description
+  sprite:
+    sprite: _Funkystation/Objects/Weapons/Melee/haunted_sword.rsi
+    state: icon
+  content:
+  - WeaponChaplainHauntedSword
 # end funky
 

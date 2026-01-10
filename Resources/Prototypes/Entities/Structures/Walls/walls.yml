@@ -72,7 +72,11 @@
 # SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Ed <96445749+TheShuEd@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Mish <bluscout78@yahoo.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 ThatOneMoon <91613003+ThatOneMoon@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
+# SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
@@ -570,6 +574,7 @@
   name: plastitanium wall
   suffix: indestructible
   components:
+    - type: MeltImmune
     - type: Tag
       tags:
         - Wall
@@ -603,6 +608,7 @@
   name: plastitanium wall
   suffix: ""
   components:
+    - type: MeltImmune
     - type: Tag
       tags:
         - Wall
@@ -630,6 +636,7 @@
     snap:
     - Wall
   components:
+  - type: MeltImmune
   - type: Sprite
     drawdepth: Walls
     sprite: Structures/Walls/plastitanium_diagonal.rsi
@@ -674,6 +681,7 @@
     snap:
     - Wall
   components:
+  - type: MeltImmune
   - type: Transform
     anchored: true
   - type: Clickable
@@ -726,6 +734,7 @@
   - type: Construction
     graph: Girder
     node: reinforcedWall
+  - type: MeltImmune
   - type: Damageable
     damageContainer: StructuralInorganic
     damageModifierSet: StructuralMetallicStrong
@@ -857,6 +866,7 @@
   id: WallRiveted
   name: riveted wall
   components:
+  - type: MeltImmune
   - type: Tag
     tags:
       - Wall
@@ -977,6 +987,7 @@
     snap:
     - Wall
   components:
+  - type: MeltImmune
   - type: Transform
     anchored: true
   - type: Clickable
@@ -1054,6 +1065,7 @@
   name: shuttle wall
   suffix: Reinforced, Exterior
   components:
+  - type: MeltImmune
   - type: Damageable
     damageContainer: StructuralInorganic
     damageModifierSet: StructuralMetallicStrong
@@ -1128,6 +1140,7 @@
   name: shuttle wall
   suffix: Interior
   components:
+  - type: MeltImmune
   - type: RCDDeconstructable
     cost: 6
     delay: 8
@@ -1285,6 +1298,7 @@
   id: WallUranium
   name: uranium wall
   components:
+  - type: MeltImmune
   - type: Sprite
     sprite: Structures/Walls/uranium.rsi
   - type: Icon
@@ -1448,10 +1462,11 @@
     convertTo: WallCosmicCult
 
 - type: entity
-  parent: BaseWall
+  parent: WallShuttle
   id: WallMining
-  name: mining wall
+  name: mining shuttle wall
   components:
+  - type: MeltImmune
   - type: Tag
     tags:
       - Wall
@@ -1481,7 +1496,7 @@
 - type: entity
   parent: WallShuttleDiagonal
   id: WallMiningDiagonal
-  name: mining wall
+  name: mining shuttle wall
   suffix: diagonal
   placement:
     mode: SnapgridCenter

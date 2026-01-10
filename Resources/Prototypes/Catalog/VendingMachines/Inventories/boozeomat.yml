@@ -28,7 +28,11 @@
 # SPDX-FileCopyrightText: 2024 RiceMar1244 <138547931+RiceMar1244@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 RumiTiger <154005209+RumiTiger@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Ubaser <134914314+UbaserB@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Mora <46364955+TrixxedHeart@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 SharkSnake98 <sharksnake87@gmail.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 TrixxedHeart <46364955+TrixxedBit@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 delorphin <delorphin@gmail.com>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
@@ -39,14 +43,16 @@
   startingInventory:
     DrinkGlass: 20 #Kept glasses at top for ease to differentiate from booze.
     DrinkShotGlass: 10
+    DrinkGlassCollinsShaped: 10
     DrinkGlassCoupeShaped: 10
+    DrinkGlassLowballShaped: 10
     DrinkVacuumFlask: 5
     DrinkFlaskBar: 5
     DrinkShaker: 5
     DrinkJigger: 5
     DrinkIceBucket: 2
     BarSpoon: 3
-    CustomDrinkJug: 2 #to allow for custom drinks in the soda/booze dispensers
+    CustomDrinkJug: 6 #to allow for custom drinks in the soda/booze dispensers
     DrinkAbsintheBottleFull: 2
     DrinkAleBottleFull: 5
     DrinkBeerBottleFull: 5
@@ -80,10 +86,24 @@
     DrinkWineBottleFull: 5
     DrinkChampagneBottleFull: 2 #because the premium drink
     DrinkSakeBottleFull: 3
+    DrinkAmarettoBottleFull: 3
+    DrinkApplejackBottleFull: 3
+    DrinkBittersBottleFull: 3
+    DrinkCreamOfCoconutBottleFull: 3
+    DrinkCremeDeCacaoBottleFull: 3
+    DrinkCremeDeMentheBottleFull: 3
+    DrinkNavyRumBottleFull: 3
+    DrinkRiceBeerBottleFull: 3
+    DrinkShochuBottleFull: 3
+    DrinkTripleSecBottleFull: 3
+    DrinkVoltaicYellowWineBottleFull: 3
+    DrinkHakkaMateCan: 5
+    DrinkMelonSodaCan: 5
     DrinkBeerCan: 5
     DrinkWineCan: 5
   contrabandInventory:
     EthanolChemistryBottle: 3
     DrinkBottleOfNothingFull: 1
+    DrinkFernetBottleFull: 3
   emaggedInventory:
     DrinkPoisonWinebottleFull: 2

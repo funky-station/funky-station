@@ -1,34 +1,3 @@
-# SPDX-FileCopyrightText: 2022 Moony <moony@hellomouse.net>
-# SPDX-FileCopyrightText: 2023 Morb <14136326+Morb0@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 OctoRocket <88291550+OctoRocket@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Raitononai <136900466+Raitononai@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Vasilis <vasilis@pikachu.systems>
-# SPDX-FileCopyrightText: 2023 dahnte <70238020+dahnte@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
-# SPDX-FileCopyrightText: 2024 CMDR-Piboy314 <92357316+CMDR-Piboy314@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Dae <60460608+ZeroDayDaemon@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 John Space <bigdumb421@gmail.com>
-# SPDX-FileCopyrightText: 2024 Moomoobeef <62638182+Moomoobeef@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Piras314 <92357316+Piras314@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 PixeltheAertistContrib <Novachild123@outlook.com>
-# SPDX-FileCopyrightText: 2024 Psychpsyo <60073468+Psychpsyo@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Rouge2t7 <81053047+Sarahon@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Scribbles0 <91828755+Scribbles0@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
-# SPDX-FileCopyrightText: 2024 TakoDragon <69509841+BackeTako@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 UBlueberry <161545003+UBlueberry@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Ubaser <134914314+UbaserB@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 deathride58 <deathride58@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 SaffronFennec <firefoxwolf2020@protonmail.com>
-# SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
-# SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
-#
-# SPDX-License-Identifier: MIT
-
 trait-blindness-name = Blindness
 trait-blindness-desc = You are legally blind, and can't see clearly past a few meters in front of you.
 
@@ -56,19 +25,19 @@ trait-unrevivable-name = Unrevivable
 trait-unrevivable-desc = You are unable to be revived by defibrillators.
 
 trait-pirate-accent-name = Pirate accent
-trait-pirate-accent-desc = You can't stop speaking like a pirate!
+trait-pirate-accent-desc = Arrgh crack open yere coffer of booty and sing a shanty, for ya arrr a pirate!
 
 trait-accentless-name = Accentless
-trait-accentless-desc = You don't have the accent that your species would usually have
+trait-accentless-desc = You don't have the accent that your species would usually have.
 
 trait-frontal-lisp-name = Frontal lisp
 trait-frontal-lisp-desc = You thpeak with a lithp.
 
 trait-socialanxiety-name = Stutter
-trait-socialanxiety-desc = You speak with a stutter.
+trait-socialanxiety-desc = Y-You speak with a st-tutter.
 
 trait-southern-name = Southern drawl
-trait-southern-desc = You have a different way of speakin'.
+trait-southern-desc = You have a different way of speakin', an' it ain't subtle!
 
 trait-snoring-name = Snoring
 trait-snoring-desc = You will snore while sleeping.
@@ -76,14 +45,14 @@ trait-snoring-desc = You will snore while sleeping.
 trait-liar-name = Pathological liar
 trait-liar-desc = You can hardly bring yourself to tell the truth. Sometimes you lie anyway.
 
-trait-cowboy-name = Cowboy accent
-trait-cowboy-desc = You speak with a distinct cowboy accent!
+trait-cowboy-name = Cowboy vernacular
+trait-cowboy-desc = By gum, your mighty slick words make everyone reckon you're the sheriff!
 
 trait-german-name = German accent
-trait-german-desc = You seem to come from space Germany.
+trait-german-desc = You seem to cöme from ze distant land of space Germany.
 
 trait-italian-name = Italian accent
-trait-italian-desc = Mamma mia! You seem to have lived in space Italy!
+trait-italian-desc = Your molto bene Italian accent could-a wow even the capitano!
 
 trait-atheist-name = Atheist
 trait-atheist-desc = You are an Atheist. You cannot pray.
@@ -95,15 +64,21 @@ trait-christian-name = Christian
 trait-christian-desc = You are a Christian.
 
 trait-french-name = French accent
-trait-french-desc = Your accent seems to have a certain «je ne sais quoi».
+trait-french-desc = Your gentleur accent seems to 'af a certain iconique «je ne sais quoi».
 
 trait-spanish-name = Spanish accent
-trait-spanish-desc = Hola señor, donde esta la biblioteca.
+trait-spanish-desc = ¿You espeak with a noticeable Espanish accent, can't you hear?
 
 trait-painnumbness-name = Numb
 trait-painnumbness-desc = You lack any sense of feeling pain, being unaware of how hurt you may be.
 
 trait-russian-name = Russian accent
-trait-russian-desc = Niko, it's Roman! Let's go bowling!
+trait-russian-desc = Oy blin! You speak vith strong Russian accent!
 
 trait-species-restricted = Your species cannot take this trait.
+
+trait-impaired-mobility-name = Impaired Mobility
+trait-impaired-mobility-desc = You have difficulty moving without a mobility aid.
+
+trait-prerequisite-required = This trait requires the {$prerequisite} trait.
+

@@ -24,9 +24,8 @@ evolutionmenu-combat-boneshard-desc =
 evolutionmenu-combat-armor-name = Chitinous Armor
 evolutionmenu-combat-armor-desc =
     Inflate your body into an all-consuming chitinous mass of armor.
-    Provides extensive protection against physical damage, but less against other types.
-    It massively slows your movement, and maintaining its shape slows chemical generation.
-    WARNING: Requires you to absorb at least 2 organics to use the ability.
+    Provides protection from space and damage, though is weaker against burns and acid. Maintaining its shape slows chemical generation.
+    WARNING: Requires you to absorb at least 3 organics to use the ability.
     Costs 25 chemicals.
 
 evolutionmenu-combat-shield-name = Organic Shield
@@ -99,7 +98,7 @@ evolutionmenu-sting-armblade-desc =
 evolutionmenu-utility-panacea-name = Anatomic Panacea
 evolutionmenu-utility-panacea-desc =
     Cure yourself of diseases, disabilities, radiation, toxins, drunkenness, and brain damage. Generally covers the things that fleshmend doesn't.
-    Costs 30 chemicals.
+    Costs a small amount of biomass.
 
 evolutionmenu-utility-eyesight-name = Augmented Eyesight
 evolutionmenu-utility-eyesight-desc =
@@ -126,7 +125,7 @@ evolutionmenu-utility-stims-desc =
 evolutionmenu-utility-fleshmend-name = Fleshmend
 evolutionmenu-utility-fleshmend-desc =
     Rapidly heal yourself of all bruises and burns.
-    Costs 35 chemicals.
+    Costs a moderate amount of biomass.
 
 evolutionmenu-utility-lastresort-name = Last Resort
 evolutionmenu-utility-lastresort-desc =

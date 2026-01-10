@@ -4,6 +4,9 @@
 // SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
 // SPDX-FileCopyrightText: 2024 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Janet Blackquill <uhhadd@gmail.com>
+// SPDX-FileCopyrightText: 2025 Tojo <32783144+Alecksohs@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
 // SPDX-License-Identifier: MIT
@@ -11,6 +14,7 @@
 using System.Linq;
 using System.Numerics;
 using JetBrains.Annotations;
+using Robust.Client.Graphics;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
 using Robust.Shared.Input;
@@ -23,6 +27,7 @@ public class ListContainer : Control
 {
     public const string StylePropertySeparation = "separation";
     public const string StyleClassListContainerButton = "list-container-button";
+
 
     public int? SeparationOverride { get; set; }
 
@@ -37,7 +42,7 @@ public class ListContainer : Control
     /// Called when creating a button on the UI.
     /// The provided <see cref="ListContainerButton"/> is the generated button that Controls should be parented to.
     /// </summary>
-    public Action<ListData, ListContainerButton>? GenerateItem;
+    public Action<ListData, IListEntry>? GenerateItem;
 
     /// <inheritdoc cref="BaseButton.OnPressed"/>
     public Action<BaseButton.ButtonEventArgs, ListData>? ItemPressed;
@@ -57,15 +62,15 @@ public class ListContainer : Control
     private const int DefaultSeparation = 3;
 
     private readonly VScrollBar _vScrollBar;
-    private readonly Dictionary<ListData, ListContainerButton> _buttons = new();
+    private readonly Dictionary<ListData, IListEntry> _buttons = new();
 
     private List<ListData> _data = new();
     private ListData? _selected;
-    private float _itemHeight = 0;
-    private float _totalHeight = 0;
-    private int _topIndex = 0;
-    private int _bottomIndex = 0;
-    private bool _updateChildren = false;
+    private float _itemHeight;
+    private float _totalHeight;
+    private int _topIndex;
+    private int _bottomIndex;
+    private bool _updateChildren;
     private bool _suppressScrollValueChanged;
     private ButtonGroup? _buttonGroup;
 
@@ -104,11 +109,11 @@ public class ListContainer : Control
     {
         if ((_itemHeight == 0 || _data is {Count: 0}) && data.Count > 0)
         {
-            ListContainerButton control = new(data[0], 0);
+            var control = InitializeControl(data[0], 0);
             GenerateItem?.Invoke(data[0], control);
-            control.Measure(Vector2Helpers.Infinity);
-            _itemHeight = control.DesiredSize.Y;
-            control.Dispose();
+            control.ControlRoot.Measure(Vector2Helpers.Infinity);
+            _itemHeight = control.ControlRoot.DesiredSize.Y;
+            control.ControlRoot.Dispose();
         }
 
         // Ensure buttons are re-generated.
@@ -129,6 +134,11 @@ public class ListContainer : Control
         }
     }
 
+    public virtual IListEntry InitializeControl(ListData data, int index)
+    {
+        return new ListContainerButton(data, index);
+    }
+
     public void DirtyList()
     {
         _updateChildren = true;
@@ -142,12 +152,16 @@ public class ListContainer : Control
         if (!_data.Contains(data))
             return;
         if (_buttons.TryGetValue(data, out var button) && Toggle)
-            button.Pressed = true;
+            button.ButtonRef.Pressed = true;
         _selected = data;
         button ??= new ListContainerButton(data, _data.IndexOf(data));
-        OnItemPressed(new BaseButton.ButtonEventArgs(button,
-            new GUIBoundKeyEventArgs(EngineKeyFunctions.UIClick, BoundKeyState.Up,
-                new ScreenCoordinates(0, 0, WindowId.Main), true, Vector2.Zero, Vector2.Zero)));
+        OnItemPressed(new BaseButton.ButtonEventArgs(button.ButtonRef,
+            new GUIBoundKeyEventArgs(EngineKeyFunctions.UIClick,
+                BoundKeyState.Up,
+                new ScreenCoordinates(0, 0, WindowId.Main),
+                true,
+                Vector2.Zero,
+                Vector2.Zero)));
     }
 
     /*
@@ -158,13 +172,13 @@ public class ListContainer : Control
 
     private void OnItemPressed(BaseButton.ButtonEventArgs args)
     {
-        if (args.Button is not ListContainerButton button)
+        if (args.Button is not IListEntry button)
             return;
         _selected = button.Data;
         ItemPressed?.Invoke(args, button.Data);
     }
 
-    private void OnItemKeyBindDown(ListContainerButton button, GUIBoundKeyEventArgs args)
+    private void OnItemKeyBindDown(IListEntry button, GUIBoundKeyEventArgs args)
     {
         ItemKeyBindDown?.Invoke(args, button.Data);
     }
@@ -270,7 +284,7 @@ public class ListContainer : Control
         {
             _updateChildren = false;
 
-            var toRemove = new Dictionary<ListData, ListContainerButton>(_buttons);
+            var toRemove = new Dictionary<ListData, IListEntry>(_buttons);
             foreach (var child in Children.ToArray())
             {
                 if (child == _vScrollBar)
@@ -288,20 +302,20 @@ public class ListContainer : Control
                         toRemove.Remove(data);
                     else
                     {
-                        button = new ListContainerButton(data, i);
-                        button.OnPressed += OnItemPressed;
-                        button.OnKeyBindDown += args => OnItemKeyBindDown(button, args);
-                        button.ToggleMode = Toggle;
-                        button.Group = _buttonGroup;
+                        button = InitializeControl(data, i);
+                        button.ButtonRef.OnPressed += OnItemPressed;
+                        button.ButtonRef.OnKeyBindDown += args => OnItemKeyBindDown(button, args);
+                        button.ButtonRef.ToggleMode = Toggle;
+                        button.ButtonRef.Group = _buttonGroup;
 
                         GenerateItem?.Invoke(data, button);
                         _buttons.Add(data, button);
 
                         if (Toggle && data == _selected)
-                            button.Pressed = true;
+                            button.ButtonRef.Pressed = true;
                     }
-                    AddChild(button);
-                    button.Measure(finalSize);
+                    AddChild(button.ControlRoot);
+                    button.ControlRoot.Measure(finalSize);
                 }
             }
 
@@ -385,26 +399,35 @@ public class ListContainer : Control
     }
 }
 
-public sealed class ListContainerButton : ContainerButton, IEntityControl
+public sealed class ListContainerButton : ContainerButton, IListEntry
 {
-    public readonly ListData Data;
-
-    public readonly int Index;
-    // public PanelContainer Background;
-
     public ListContainerButton(ListData data, int index)
     {
         Data = data;
         Index = index;
-        // AddChild(Background = new PanelContainer
-        // {
-        //     HorizontalExpand = true,
-        //     VerticalExpand = true,
-        //     PanelOverride = new StyleBoxFlat {BackgroundColor = new Color(55, 55, 68)}
-        // });
+        StyleBoxOverride = new StyleBoxFlat(Color.White);
     }
 
+    public ListData Data { get; }
+    public int Index { get; }
+    public Control ControlRoot => this;
+    public BaseButton ButtonRef => this;
     public EntityUid? UiEntity => (Data as EntityListData)?.Uid;
+
+    [Obsolete("Obsolete")]
+    public new void Dispose() => base.Dispose();
+}
+
+public interface IListEntry : IEntityControl
+{
+    ListData Data { get; }
+    int Index { get; }
+
+    Control ControlRoot { get; }
+    BaseButton ButtonRef { get; }
+
+    void Dispose();
+
 }
 
 #region Data

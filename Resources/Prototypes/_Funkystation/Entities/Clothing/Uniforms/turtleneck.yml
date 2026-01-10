@@ -1,3 +1,4 @@
+# SPDX-FileCopyrightText: 2025 MaiaArai <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -37,3 +38,58 @@
     sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/iaaturtleneckblue.rsi
   - type: Clothing
     sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/iaaturtleneckblue.rsi
+
+- type: entity
+  parent: [ClothingUniformBase, BaseCentcommContraband]
+  id: ClothingUniformJumpskirtIAATurtleneckBlack
+  name: black internal affairs agent turtleneck
+  description: An imposing turtleneck and suit worn only by the most loyal little agents. Now in an intimidating black.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/iaaturtleneckblack.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/iaaturtleneckblack.rsi
+
+- type: entity
+  parent: [ClothingUniformBase, BaseCentcommContraband]
+  id: ClothingUniformJumpskirtIAATurtleneckRed
+  name: red internal affairs agent turtleneck
+  description: An imposing turtleneck and suit worn only by the most loyal little agents. Now in a confusing red.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/iaaturtleneckred.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/iaaturtleneckred.rsi
+
+- type: entity
+  parent: [ClothingUniformBase, BaseCentcommContraband]
+  id: ClothingUniformJumpskirtIAATurtleneckBlue
+  name: blue internal affairs agent turtleneck
+  description: An imposing turtleneck and suit worn only by the most loyal little agents. Now in a reassuring blue.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/iaaturtleneckblue.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/iaaturtleneckblue.rsi
+
+- type: entity
+  parent: [ClothingUniformBase, BaseMedicalContraband]
+  id: ClothingUniformJumpskirtPhysicianTurtleneck
+  name: senior physician turtleskirt
+  description: A comfortable turtleneck, worn by experienced physicians who don't care that much about sterility.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/seniorphysicianturtleneck.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/seniorphysicianturtleneck.rsi
+
+- type: entity
+  parent: [ClothingUniformBase, BaseMedicalContraband]
+  id: ClothingUniformJumpsuitPhysicianTurtleneck
+  name: senior physician turtleneck
+  description: A comfortable turtleneck, worn by experienced physicians who don't care that much about sterility.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/seniorphysicianturtleneck.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/seniorphysicianturtleneck.rsi

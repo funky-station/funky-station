@@ -20,6 +20,8 @@
 # SPDX-FileCopyrightText: 2024 PJBot <pieterjan.briers+bot@gmail.com>
 # SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 mkanke-real <mikekanke@gmail.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
@@ -35,11 +37,16 @@
   access:
   - Service
   - Maintenance
+  - Library
+  alternateTitles:
+  - LibrarianClerk
+  - LibrarianWriter
+  - LibrarianProfessor
+  - LibrarianCurator
 
 - type: startingGear
   id: LibrarianGear
   equipment:
-    shoes: ClothingShoesBootsLaceup
     id: LibrarianPDA
     ears: ClothingHeadsetService
     pocket1: d20Dice
@@ -47,3 +54,19 @@
   storage:
     back:
     - BookRandom
+
+- type: jobAlternateTitle
+  id: LibrarianClerk
+  name: job-name-alt-librarian-1
+
+- type: jobAlternateTitle
+  id: LibrarianWriter
+  name: job-name-alt-librarian-2
+
+- type: jobAlternateTitle
+  id: LibrarianProfessor
+  name: job-name-alt-librarian-3
+
+- type: jobAlternateTitle
+  id: LibrarianCurator
+  name: job-name-alt-librarian-4

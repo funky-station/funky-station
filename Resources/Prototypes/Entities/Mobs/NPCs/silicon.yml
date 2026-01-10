@@ -48,8 +48,11 @@
 # SPDX-FileCopyrightText: 2025 88tv <131759102+88tv@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 AsnDen <75905158+AsnDen@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Herostar898 <askherostar2@gmail.com>
+# SPDX-FileCopyrightText: 2025 Ilya Mikheev <me@ilyamikcoder.com>
+# SPDX-FileCopyrightText: 2025 Mish <bluscout78@yahoo.com>
 # SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+pronana@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 ilyamikcoder <me@ilyamikcoder.com>
 # SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
@@ -57,35 +60,23 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
 - type: entity
+  parent: BaseMob # Funkystation: make bots actual mobs
   save: false
   abstract: true
   id: MobSiliconBase
   components:
-  - type: LagCompensation
   - type: Reactive
     groups:
       Acidic: [Touch]
   - type: Clickable
   - type: Damageable
-    damageContainer: Inorganic
-  - type: InteractionOutline
-  - type: Fixtures
-    fixtures:
-      fix1:
-        shape:
-          !type:PhysShapeCircle
-          radius: 0.35
-        density: 50
-        mask:
-        - MobMask
-        layer:
-        - MobLayer
+    # Funkystation: make bots not instantly disappear on death
+    damageContainer: Silicon
+    damageModifierSet: Silicon #Goobstation - Iondamage
+    # end Funkystation
   - type: MovementSpeedModifier
     baseWalkSpeed : 3
     baseSprintSpeed : 4
-  - type: Sprite
-    noRot: true
-    drawdepth: Mobs
   - type: NpcFactionMember
     factions:
     - SimpleNeutral
@@ -109,8 +100,6 @@
     - Shock
     locPrefix: silicon
   - type: MovedByPressure
-  - type: Physics
-    bodyType: KinematicController # Same for all inheritors
   - type: StatusEffects
     allowed:
     - Stun
@@ -129,17 +118,27 @@
     - DoorBumpOpener
     - Bot
     - Unimplantable
+    - ForceStandOnRevive # Funkystation
   - type: MobState
     allowedStates:
       - Alive
+      - Critical
       - Dead
   - type: MobThresholds
     thresholds:
       0: Alive
-      120: Dead
+      # begin Funkystation: make bots not instantly disappear on death
+      100: Critical
+      150: Dead
+      # end Funkystation
     stateAlertDict:
+      # Funkystation: allow bots to see their health and other alerts
       Alive: BorgHealth
+      Critical: BorgCrit
+      Dead: BorgDead
+      # end Funkystation
     showOverlays: false
+    allowRevives: true # Funkystation: make bots not instantly disappear on death
   - type: Stamina
     critThreshold: 120
   - type: Destructible
@@ -151,14 +150,10 @@
       - !type:TriggerBehavior
     - trigger:
         !type:DamageTrigger
-        damage: 120
+        damage: 200 # Funkystation: make bots not instantly disappear on death
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
-  - type: Input
-    context: "human"
-  - type: InputMover
-  - type: MobMover
   - type: Body
     prototype: Bot
   - type: GuideHelp
@@ -173,6 +168,22 @@
   - type: ProtectedFromStepTriggers
   - type: NoSlip
   - type: Insulated
+  # begin Funkystation: give bots emotes
+  - type: Emoting
+  - type: BodyEmotes
+    soundsId: UnisexSilicon
+  - type: AnimatedEmotes
+  - type: Vocal
+    sounds:
+      Unsexed: UnisexSilicon
+  # end Funkystation
+  - type: DamagedSiliconAccent # Funkystation: give bots cyborg-style damaged accent
+    enableChargeCorruption: false
+  - type: UnblockableSpeech # Funkystation: cyborg-type behavior on death (can still talk)
+  - type: StandingState # Funkystation: needed for bots to be able to fall on death
+  - type: RotationVisuals # Funkystation: needed for bots to be able to fall on death
+    defaultRotation: 0
+    horizontalRotation: 90
 
 - type: entity
   parent: MobSiliconBase
@@ -377,6 +388,18 @@
     size: Large
   - type: StationAiVision # Goobstation - AI can see through NT silicon
     range: 0
+  - type: GhostRole # Funkystation: make cleanbots ghost roles
+    makeSentient: true
+    name: ghost-role-information-cleanbot-name
+    description: ghost-role-information-cleanbot-description
+    rules: ghost-role-information-cleanbot-rules
+    raffle:
+      settings: default
+  - type: GhostTakeoverAvailable
+  - type: RotationVisuals # Funkystation: make cleanbots dramatically lay on their backs upon death
+    defaultRotation: 0
+    horizontalRotation: 180
+  - type: CombatMode # Funkystation: it's spinning time (for bots with rotational sprites)
 
 - type: entity
   parent:
@@ -447,6 +470,14 @@
   - type: DoAfter
   - type: StationAiVision # Goobstation - AI can see through NT silicon
     range: 1
+  - type: GhostRole # Funkystation: make medibot ghost roles
+    makeSentient: true
+    name: ghost-role-information-medibot-name
+    description: ghost-role-information-medibot-description
+    rules: ghost-role-information-medibot-rules
+    raffle:
+      settings: default
+  - type: GhostTakeoverAvailable
 
 - type: entity
   parent:
@@ -480,6 +511,7 @@
     interactFailureString: petting-failure-mimebot
   - type: Inventory
     templateId: head
+  - type: CombatMode # Funkystation: it's spinning time (for bots with rotational sprites)
 
 - type: entity
   parent: MobSiliconBase
@@ -544,6 +576,7 @@
     - FootstepSound
     - Bot
     - Unimplantable
+    - ForceStandOnRevive # Funkystation
   - type: ActiveRadio
     channels:
     - Binary
@@ -553,3 +586,4 @@
     range: 1
   - type: Puller
     needsHands: false
+  - type: CombatMode # Funkystation: it's spinning time (for bots with rotational sprites)

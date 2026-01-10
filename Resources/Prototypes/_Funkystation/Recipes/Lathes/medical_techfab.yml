@@ -1,0 +1,46 @@
+# SPDX-FileCopyrightText: 2025 ThatOneMoon <91613003+ThatOneMoon@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
+# SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: latheRecipe
+  id: MedHUD
+  result: ClothingEyesHudMedical
+  completetime: 3
+  materials:
+    Steel: 300
+    Glass: 200
+
+- type: latheRecipe
+  id: CompactDefib
+  result: DefibrillatorCompactEmpty
+  completetime: 3
+  materials:
+    Steel: 500
+    Plastic: 300
+    Silver: 100
+    Plasma: 200
+
+- type: latheRecipe
+  id: Vial
+  result: BaseChemistryEmptyVial
+  completetime: 1
+  materials:
+    Glass: 50
+
+- type: latheRecipe
+  id: CMBloodPack
+  result: CMBloodPack
+  completetime: 1
+  materials:
+    Plastic: 500
+
+- type: latheRecipe
+  id: CMIV
+  result: CMIV
+  completetime: 1
+  materials:
+    Plastic: 500
+    Steel: 500
+    Glass: 200

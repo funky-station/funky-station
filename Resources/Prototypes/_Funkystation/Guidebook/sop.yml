@@ -1,7 +1,13 @@
 # SPDX-FileCopyrightText: 2024 DevilishMilk <bluscout78@yahoo.com>
 # SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 CMM <funkycmm>
+# SPDX-FileCopyrightText: 2025 Colin Moore <funkycmm>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 ferynn <117872973+ferynn@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 ferynn <witchy.girl.me@gmail.com>
+# SPDX-FileCopyrightText: 2025 funkycmm <cmmaccounts@protonmail.com>
 # SPDX-FileCopyrightText: 2025 kbarkevich <24629810+kbarkevich@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
@@ -13,21 +19,22 @@
   text: "/ServerInfo/Funkystation/Guidebook/SOP/SOP101.xml"
   children:
   - CommandSOP
-  - SecuritySOP
+  - CentralCommandSOP
   - LegalSOP
-  - MedicalSOP
   - ServiceSOP
+  - SecuritySOP
+  - ScienceSOP
+  - MedicalSOP
   - EngineeringSOP
   - CargoSOP
-  - ScienceSOP
   - AlertLevelsSOP
 
 - type: guideEntry
-  id: CommandSOP
-  name: guide-entry-command-sop
-  text: "/ServerInfo/Funkystation/Guidebook/Command/CommandStandardOperatingProcedure.xml"
-  children:
-  - CommandTrainingManual
+  id: LegalSOP
+  name: LegalSOP
+  text: "/ServerInfo/Funkystation/Guidebook/Legal/LegalSOP.xml"
+
+# ALERT LEVELS
 
 - type: guideEntry
   id: AlertLevelsSOP
@@ -39,46 +46,9 @@
   - BlueAlertSOP
   - RedAlertSOP
   - VioletAlertSOP
-  - DeltaAlertSOP
   - GammaAlertSOP
+  - DeltaAlertSOP
   - OctarineAlertSOP
-
-- type: guideEntry
-  id: SecuritySOP
-  name: guide-entry-security-sop
-  text: "/ServerInfo/Funkystation/Guidebook/Security/SecurityStandardOperatingProcedure.xml"
-  children:
-  - SecurityTrainingManual
-
-- type: guideEntry
-  id: LegalSOP
-  name: guide-entry-legal-sop
-  text: "/ServerInfo/Funkystation/Guidebook/Legal/LegalSOP.xml"
-
-- type: guideEntry
-  id: EngineeringSOP
-  name: guide-entry-engineering-sop
-  text: "/ServerInfo/Funkystation/Guidebook/Engineering/EngineeringSOP.xml"
-
-- type: guideEntry
-  id: CargoSOP
-  name: guide-entry-cargo-sop
-  text: "/ServerInfo/Funkystation/Guidebook/Cargo/CargoSOP.xml"
-
-- type: guideEntry
-  id: MedicalSOP
-  name: guide-entry-medical-sop
-  text: "/ServerInfo/Funkystation/Guidebook/Medical/MedicalStandardOperatingProcedure.xml"
-
-- type: guideEntry
-  id: ServiceSOP
-  name: guide-entry-service-sop
-  text: "/ServerInfo/Funkystation/Guidebook/Service/ServiceStandardOperatingProcedure.xml"
-
-- type: guideEntry
-  id: ScienceSOP
-  name: guide-entry-science-sop
-  text: "/ServerInfo/Funkystation/Guidebook/Science/ScienceStandardOperatingProcedure.xml"
 
 - type: guideEntry
   id: GreenAlertSOP
@@ -128,3 +98,255 @@
   name: alert-level-octarine
   priority: 70
   text: "/ServerInfo/Funkystation/Guidebook/AlertLevel/OctarineAlert.xml"
+
+# COMMAND
+
+- type: guideEntry
+  id: CommandSOP
+  name: guide-entry-command-sop
+  text: "/ServerInfo/Funkystation/Guidebook/Command/GeneralCommandSOP.xml"
+  children:
+  - CommandTrainingManual
+  - OrderOfSuccession
+  - CaptainSOP
+
+- type: guideEntry
+  id: CaptainSOP
+  name: guide-entry-captain-sop
+  text: "/ServerInfo/Funkystation/Guidebook/Command/CaptainSOP.xml"
+
+- type: guideEntry
+  id: OrderOfSuccession
+  name: guide-entry-order-of-succession
+  text: "/ServerInfo/Funkystation/Guidebook/Command/OrderOfSuccession.xml"
+
+# CC
+
+- type: guideEntry
+  id: CentralCommandSOP
+  name: guide-entry-central-command-sop
+  text: "/ServerInfo/Funkystation/Guidebook/CentralCommand/CCSOP.xml"
+  children:
+  - IAASOP
+  - NTRSOP
+  - MagistrateSOP
+
+- type: guideEntry
+  id: IAASOP
+  name: guide-entry-iaa-sop
+  text: "/ServerInfo/Funkystation/Guidebook/CentralCommand/IAASOP.xml"
+
+- type: guideEntry
+  id: NTRSOP
+  name: guide-entry-ntr-sop
+  text: "/ServerInfo/Funkystation/Guidebook/CentralCommand/NTRSOP.xml"
+
+- type: guideEntry
+  id: MagistrateSOP
+  name: guide-entry-magistrate-sop
+  text: "/ServerInfo/Funkystation/Guidebook/CentralCommand/MagistrateSOP.xml"
+
+# SERVICE
+
+- type: guideEntry
+  id: ServiceSOP
+  name: guide-entry-service-sop
+  text: "/ServerInfo/Funkystation/Guidebook/Service/ServiceSOP.xml"
+  children:
+  - HoPSOP
+  - BartenderSOP
+  - BotanistSOP
+  - ChaplainSOP
+  - ChefSOP
+  - ClownSOP
+  - JanitorSOP
+  - MimeSOP
+  - ReporterSOP
+
+- type: guideEntry
+  id: HoPSOP
+  name: guide-entry-hop-sop
+  text: "/ServerInfo/Funkystation/Guidebook/Service/HoPSOP.xml"
+
+- type: guideEntry
+  id: BartenderSOP
+  name: guide-entry-bartender-sop
+  text: "/ServerInfo/Funkystation/Guidebook/Service/BartenderSOP.xml"
+
+- type: guideEntry
+  id: BotanistSOP
+  name: guide-entry-botanist-sop
+  text: "/ServerInfo/Funkystation/Guidebook/Service/BotanistSOP.xml"
+
+- type: guideEntry
+  id: ChaplainSOP
+  name: guide-entry-chaplain-sop
+  text: "/ServerInfo/Funkystation/Guidebook/Service/ChaplainSOP.xml"
+
+- type: guideEntry
+  id: ChefSOP
+  name: guide-entry-chef-sop
+  text: "/ServerInfo/Funkystation/Guidebook/Service/ChefSOP.xml"
+
+- type: guideEntry
+  id: ClownSOP
+  name: guide-entry-clown-sop
+  text: "/ServerInfo/Funkystation/Guidebook/Service/ClownSOP.xml"
+
+- type: guideEntry
+  id: JanitorSOP
+  name: guide-entry-janitor-sop
+  text: "/ServerInfo/Funkystation/Guidebook/Service/JanitorSOP.xml"
+
+- type: guideEntry
+  id: MimeSOP
+  name: guide-entry-mime-sop
+  text: "/ServerInfo/Funkystation/Guidebook/Service/MimeSOP.xml"
+
+- type: guideEntry
+  id: ReporterSOP
+  name: guide-entry-reporter-sop
+  text: "/ServerInfo/Funkystation/Guidebook/Service/ReporterSOP.xml"
+
+# SEC
+
+- type: guideEntry
+  id: SecuritySOP
+  name: guide-entry-security-sop
+  text: "/ServerInfo/Funkystation/Guidebook/Security/SecuritySOP.xml"
+  children:
+  - HoSSOP
+  - SecurityOfficerSOP
+  - WardenSOP
+  - DetectiveSOP
+  - SecurityTrainingManual
+
+- type: guideEntry
+  id: HoSSOP
+  name: guide-entry-hos-sop
+  text: "/ServerInfo/Funkystation/Guidebook/Security/HoSSOP.xml"
+
+- type: guideEntry
+  id: SecurityOfficerSOP
+  name: guide-entry-securityofficer-sop
+  text: "/ServerInfo/Funkystation/Guidebook/Security/SecurityOfficerSOP.xml"
+
+- type: guideEntry
+  id: WardenSOP
+  name: guide-entry-warden-sop
+  text: "/ServerInfo/Funkystation/Guidebook/Security/WardenSOP.xml"
+
+- type: guideEntry
+  id: DetectiveSOP
+  name: guide-entry-detective-sop
+  text: "/ServerInfo/Funkystation/Guidebook/Security/DetectiveSOP.xml"
+
+# SCI
+
+- type: guideEntry
+  id: ScienceSOP
+  name: guide-entry-science-sop
+  text: "/ServerInfo/Funkystation/Guidebook/Science/ScienceSOP.xml"
+  children:
+  - RDSOP
+  - ScientistSOP
+  - RoboticistSOP
+
+- type: guideEntry
+  id: RDSOP
+  name: guide-entry-rd-sop
+  text: "/ServerInfo/Funkystation/Guidebook/Science/RDSOP.xml"
+
+- type: guideEntry
+  id: ScientistSOP
+  name: guide-entry-scientist-sop
+  text: "/ServerInfo/Funkystation/Guidebook/Science/ScientistSOP.xml"
+
+- type: guideEntry
+  id: RoboticistSOP
+  name: guide-entry-roboticist-sop
+  text: "/ServerInfo/Funkystation/Guidebook/Science/RoboticistSOP.xml"
+
+# MED
+
+- type: guideEntry
+  id: MedicalSOP
+  name: guide-entry-medical-sop
+  text: "/ServerInfo/Funkystation/Guidebook/Medical/MedicalSOP.xml"
+  children:
+  - CMOSOP
+  - DoctorSOP
+  - ChemistSOP
+  - ParamedicSOP
+  - PsychologistSOP
+
+- type: guideEntry
+  id: CMOSOP
+  name: guide-entry-cmo-sop
+  text: "/ServerInfo/Funkystation/Guidebook/Medical/CMOSOP.xml"
+
+- type: guideEntry
+  id: DoctorSOP
+  name: guide-entry-doctor-sop
+  text: "/ServerInfo/Funkystation/Guidebook/Medical/DoctorSOP.xml"
+
+- type: guideEntry
+  id: ChemistSOP
+  name: guide-entry-chemist-sop
+  text: "/ServerInfo/Funkystation/Guidebook/Medical/ChemistSOP.xml"
+
+- type: guideEntry
+  id: ParamedicSOP
+  name: guide-entry-paramedic-sop
+  text: "/ServerInfo/Funkystation/Guidebook/Medical/ParamedicSOP.xml"
+
+- type: guideEntry
+  id: PsychologistSOP
+  name: guide-entry-psychologist-sop
+  text: "/ServerInfo/Funkystation/Guidebook/Medical/PsychologistSOP.xml"
+
+# ENGI
+
+- type: guideEntry
+  id: EngineeringSOP
+  name: guide-entry-engineering-sop
+  text: "/ServerInfo/Funkystation/Guidebook/Engineering/EngineeringSOP.xml"
+  children:
+  - CESOP
+  - StationEngineerSOP
+
+- type: guideEntry
+  id: CESOP
+  name: guide-entry-ce-sop
+  text: "/ServerInfo/Funkystation/Guidebook/Engineering/CESOP.xml"
+
+- type: guideEntry
+  id: StationEngineerSOP
+  name: guide-entry-stationengineer-sop
+  text: "/ServerInfo/Funkystation/Guidebook/Engineering/StationEngineerSOP.xml"
+
+# CARGO
+
+- type: guideEntry
+  id: CargoSOP
+  name: guide-entry-cargo-sop
+  text: "/ServerInfo/Funkystation/Guidebook/Cargo/CargoSOP.xml"
+  children:
+  - QMSOP
+  - CargoTechnicianSOP
+  - SalvageSOP
+
+- type: guideEntry
+  id: QMSOP
+  name: guide-entry-qm-sop
+  text: "/ServerInfo/Funkystation/Guidebook/Cargo/QMSOP.xml"
+
+- type: guideEntry
+  id: CargoTechnicianSOP
+  name: guide-entry-cargotechnician-sop
+  text: "/ServerInfo/Funkystation/Guidebook/Cargo/CargoTechnicianSOP.xml"
+
+- type: guideEntry
+  id: SalvageSOP
+  name: guide-entry-salvage-sop
+  text: "/ServerInfo/Funkystation/Guidebook/Cargo/SalvageSOP.xml"

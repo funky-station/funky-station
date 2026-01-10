@@ -33,6 +33,8 @@
 // SPDX-FileCopyrightText: 2024 Verm <32827189+Vermidia@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 blueDev2 <89804215+blueDev2@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 MaiaArai <158123176+YaraaraY@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
 // SPDX-License-Identifier: MIT
@@ -882,6 +884,40 @@ namespace Content.Shared.Chemistry.Components
                 mixColor = Color.InterpolateBetween(mixColor, proto.SubstanceColor, interpolateValue);
             }
             return mixColor;
+        }
+
+        public int GetSolutionFlammability(IPrototypeManager? protoMan)
+        {
+            IoCManager.Resolve(ref protoMan);
+
+            if (Volume <= FixedPoint2.Zero)
+                return 0;
+
+            float solutionFlammability = 0;
+            foreach (var (reagent, quantity) in Contents)
+            {
+                solutionFlammability += protoMan.Index<ReagentPrototype>(reagent.Prototype).Flammability * (float)quantity;
+            }
+
+            // normalize by volume to get average flammability
+            // 20u napalm (flam 5) -> (5 * 20) / 20 = 5
+            return (int)MathF.Floor(solutionFlammability / (float)Volume);
+        }
+
+        public void BurnFlammableReagents(float fraction, IPrototypeManager? protoMan)
+        {
+            IoCManager.Resolve(ref protoMan);
+            var newSoln = new Solution(this);
+            foreach (var (reagent, quantity) in Contents)
+            {
+                var quantityToBurn = Math.Ceiling(((float)quantity *
+                                                   (fraction * protoMan.Index<ReagentPrototype>(reagent.Prototype)
+                                                       .Flammability)) / 0.5) * 0.5; // Ceiling to nearest 0.5u
+                newSoln.RemoveReagent(reagent, quantityToBurn);
+            }
+            Contents = newSoln.Contents;
+            DebugTools.Assert(Volume >= newSoln.Volume);
+            Volume = newSoln.Volume;
         }
 
         public Color GetColor(IPrototypeManager? protoMan)

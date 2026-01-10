@@ -5,6 +5,7 @@ using Content.Shared.Weapons.Ranged;
 using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Events;
 using Content.Shared.Weapons.Ranged.Systems;
+using Robust.Shared.Audio.Systems;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server._Funkystation.Genetics.Mutations.Systems;
@@ -14,6 +15,7 @@ public sealed class MutationOpticEnergizerSystem : EntitySystem
     [Dependency] private readonly SharedActionsSystem _actions = default!;
     [Dependency] private readonly SharedGunSystem _gun = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
+    [Dependency] private readonly SharedAudioSystem _audio = default!;
 
     public override void Initialize()
     {
@@ -51,6 +53,11 @@ public sealed class MutationOpticEnergizerSystem : EntitySystem
 
         if (direction.LengthSquared() <= 0)
             return;
+
+        if (comp.GrantedAction is { Valid: true } action)
+        {
+            _audio.PlayPvs(EntityManager.GetComponentOrNull<WorldTargetActionComponent>(action)?.Sound, uid);
+        }
 
         var hitscanProto = _proto.Index<HitscanPrototype>("RedMediumLaser");
 

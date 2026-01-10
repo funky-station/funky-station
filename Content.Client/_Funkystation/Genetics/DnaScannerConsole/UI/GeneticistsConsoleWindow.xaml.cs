@@ -106,14 +106,14 @@ public sealed partial class GeneticistsConsoleWindow : FancyWindow
         StorageTabButton.Pressed = true;
     }
 
-    public void UpdateSubjectInfo(string? name, string? health, float? geneticDamage, int instability, TimeSpan? scrambleCooldownEnd)
+    public void UpdateSubjectInfo(string? name, string? health, float? radiationDamage, int instability, TimeSpan? scrambleCooldownEnd)
     {
         var hasSubject = name != null;
         SubjectNameLabel.Text = hasSubject ? name : "";
         SubjectInfoBox.Visible = hasSubject;
 
         HealthLabel.Text = health ?? "--";
-        GeneticDamageLabel.Text = geneticDamage?.ToString() ?? "--";
+        RadiationDamageLabel.Text = radiationDamage?.ToString() ?? "--";
         GeneticInstabilityLabel.Text = instability.ToString();
 
         bool isNowDead = health == "Dead";

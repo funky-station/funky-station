@@ -601,7 +601,7 @@
     baseMutations:
     - id: RadiationResistance
       chance: 0.8
-      startActive: true
+      startActive: 0.8
 
 - type: entity
   name: glockroach

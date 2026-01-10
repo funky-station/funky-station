@@ -65,7 +65,7 @@ public sealed class GeneticistsConsoleBoundUserInterfaceState : BoundUserInterfa
 {
     public string? SubjectName { get; init; }
     public string? HealthStatus { get; init; }
-    public float? GeneticDamage { get; init; }
+    public float? RadiationDamage { get; init; }
     public int SubjectGeneticInstability { get; init; }
     public TimeSpan? ScrambleCooldownEnd { get; init; }
     public List<MutationEntry>? Mutations { get; init; }
@@ -81,7 +81,7 @@ public sealed class GeneticistsConsoleBoundUserInterfaceState : BoundUserInterfa
     public GeneticistsConsoleBoundUserInterfaceState(
         string? subjectName = null,
         string? healthStatus = null,
-        float? geneticDamage = null,
+        float? radiationDamage = null,
         int subjectGeneticInstability = 0,
         TimeSpan? scrambleCooldownEnd = null,
         List<MutationEntry>? mutations = null,
@@ -96,7 +96,7 @@ public sealed class GeneticistsConsoleBoundUserInterfaceState : BoundUserInterfa
     {
         SubjectName = subjectName;
         HealthStatus = healthStatus;
-        GeneticDamage = geneticDamage;
+        RadiationDamage = radiationDamage;
         SubjectGeneticInstability = subjectGeneticInstability;
         ScrambleCooldownEnd = scrambleCooldownEnd;
         Mutations = mutations;

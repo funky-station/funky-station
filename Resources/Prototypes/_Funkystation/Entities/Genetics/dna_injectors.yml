@@ -204,6 +204,17 @@
     isMutator: true
   - type: Item
 
+- type: entity
+  parent: BaseDNAInjectorSyringe
+  id: DNAMutatorFirebreath
+  name: "dna mutator (Firebreath)"
+  components:
+  - type: DnaSequenceInjector
+    mutationId: Firebreath
+    isMutator: true
+  - type: Item
+
+
 
 - type: entity
   id: MutadoneChemistryBottle

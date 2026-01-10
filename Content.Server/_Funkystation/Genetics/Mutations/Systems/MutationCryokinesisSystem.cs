@@ -2,6 +2,7 @@ using Content.Server._Funkystation.Genetics.Mutations.Components;
 using Content.Shared.Actions;
 using Content.Shared.Magic.Events;
 using Content.Shared.Weapons.Ranged.Systems;
+using Robust.Shared.Audio.Systems;
 using Robust.Shared.Map;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Prototypes;
@@ -18,6 +19,7 @@ public sealed class MutationCryokinesisSystem : EntitySystem
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly IMapManager _mapManager = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
+    [Dependency] private readonly SharedAudioSystem _audio = default!;
 
     public override void Initialize()
     {
@@ -63,6 +65,11 @@ public sealed class MutationCryokinesisSystem : EntitySystem
         var userVelocity = _physics.GetMapLinearVelocity(uid);
 
         _gun.ShootProjectile(fireball, direction, userVelocity, uid, uid);
+
+        if (comp.GrantedAction is { Valid: true } action)
+        {
+            _audio.PlayPvs(EntityManager.GetComponentOrNull<WorldTargetActionComponent>(action)?.Sound, uid);
+        }
 
         comp.NextUse = curTime + TimeSpan.FromSeconds(comp.Cooldown);
         args.Handled = true;

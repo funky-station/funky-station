@@ -92,21 +92,24 @@ public sealed partial class GeneticsSystem : EntitySystem
             if (slot.Block <= 0)
                 continue;
 
-            var revealed = forced.StartActive ? slot.Sequence : RandomizeSequence(slot.Sequence);
+            // Second roll: should it start active?
+            bool startsActive = _random.Prob(forced.StartActive);
+
+            var revealed = startsActive ? slot.Sequence : RandomizeSequence(slot.Sequence);
             var entry = CreateMutationEntry(
                 mutationId: forced.Id,
                 proto: proto,
                 block: slot.Block,
                 originalSequence: slot.Sequence,
                 revealedSequence: revealed,
-                enabled: forced.StartActive
+                enabled: startsActive
             );
 
             mutationsToAdd.Add(entry);
             component.BaseMutationIds.Add(forced.Id);
 
             // Apply components if it starts active. Skips all checks.
-            if (forced.StartActive)
+            if (startsActive)
                 ApplyMutationComponents(uid, component, proto);
 
             addedForcedCount++;

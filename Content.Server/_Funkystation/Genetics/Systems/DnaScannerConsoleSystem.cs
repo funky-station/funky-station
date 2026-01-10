@@ -11,6 +11,7 @@ using Content.Shared._Funkystation.Genetics.Systems;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.DeviceLinking;
+using Content.Shared.FixedPoint;
 using Content.Shared.Interaction;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
@@ -36,8 +37,8 @@ public sealed class DnaScannerConsoleSystem : EntitySystem
     [Dependency] private readonly SharedUserInterfaceSystem _ui = default!;
     [Dependency] private readonly MutationUnlockTriggerSystem _unlockTrigger = default!;
 
-    private const float SequencerButtonCellularDamage = 0.2f;
-    private const float ScrambleCellularDamage = 15f;
+    private const float SequencerButtonRadiationDamage = 0.2f;
+    private const float ScrambleRadiationDamage = 15f;
     private const float ScrambleCooldownSeconds = 30f;
     private const int MaxActiveResearchSlots = 5;
     private const int ResearchDurationSeconds = 180;
@@ -260,8 +261,8 @@ public sealed class DnaScannerConsoleSystem : EntitySystem
         else if (!isCorrect && mutation.Enabled)
             _genetics.TryDeactivateMutation(subject, genetics, msg.MutationId);
 
-        // Apply cellular damage
-        var damage = new DamageSpecifier(_proto.Index<DamageTypePrototype>("Cellular"), SequencerButtonCellularDamage);
+        // Apply radiation damage
+        var damage = new DamageSpecifier(_proto.Index<DamageTypePrototype>("Radiation"), SequencerButtonRadiationDamage);
         if (TryComp<DamageableComponent>(subject, out var damageable))
             _damageable.TryChangeDamage(subject, damage, ignoreResistances: true, damageable: damageable);
 
@@ -322,7 +323,7 @@ public sealed class DnaScannerConsoleSystem : EntitySystem
         // Massive cellular damage - or is it supposed to be radiation? TODO: Find out
         if (TryComp<DamageableComponent>(subject, out var damageable))
         {
-            var damage = new DamageSpecifier(_proto.Index<DamageTypePrototype>("Cellular"), ScrambleCellularDamage);
+            var damage = new DamageSpecifier(_proto.Index<DamageTypePrototype>("Radiation"), ScrambleRadiationDamage);
             _damageable.TryChangeDamage(subject, damage, ignoreResistances: true, damageable: damageable);
         }
 
@@ -421,7 +422,7 @@ public sealed class DnaScannerConsoleSystem : EntitySystem
     {
         string? subjectName = null;
         string? healthStatus = null;
-        float? geneticDamage = null;
+        float? radiationDamage = null;
         int instability = 0;
         List<MutationEntry>? mutations = null;
         var discovered = new HashSet<string>();
@@ -431,7 +432,7 @@ public sealed class DnaScannerConsoleSystem : EntitySystem
         {
             subjectName = Name(subject);
             healthStatus = GetHealthString(subject);
-            geneticDamage = GetGeneticDamage(subject);
+            radiationDamage = GetRadiationDamage(subject);
 
             if (TryComp<GeneticsComponent>(subject, out var genetics))
             {
@@ -467,7 +468,7 @@ public sealed class DnaScannerConsoleSystem : EntitySystem
         return new GeneticistsConsoleBoundUserInterfaceState(
             subjectName: subjectName,
             healthStatus: healthStatus,
-            geneticDamage: geneticDamage,
+            radiationDamage: radiationDamage,
             subjectGeneticInstability: instability,
             scrambleCooldownEnd: comp.ScrambleCooldownEnd,
             mutations: fullUpdate ? mutations : null,
@@ -497,15 +498,13 @@ public sealed class DnaScannerConsoleSystem : EntitySystem
         };
     }
 
-    private float? GetGeneticDamage(EntityUid uid)
+    private float? GetRadiationDamage(EntityUid uid)
     {
-        if (!TryComp<DamageableComponent>(uid, out var damageable) || damageable.Damage is not { } damage)
+        if (!TryComp<DamageableComponent>(uid, out var damageable))
             return null;
 
-        var groups = damage.GetDamagePerGroup(_proto);
-        return groups.TryGetValue("Genetic", out var val)
-            ? MathF.Round(val.Float(), 2)
-            : null;
+        var rad = damageable.Damage["Radiation"];
+        return MathF.Round(rad.Float(), 2);
     }
 
     private void ProcessResearchTick(EntityUid uid, DnaScannerConsoleComponent console, ResearchPointSourceComponent source)

@@ -1366,7 +1366,7 @@
   entityWhitelist:
     - BaseMobReptilian
     - MobBaseKobold
-  probabilityWeight: 2.5
+  probabilityWeight: 3
   researchPoints: 2500
   components:
   - type: MutationFirebreath
@@ -1445,8 +1445,8 @@
     useDelay: 60
     cooldown: 60
     icon:
-      sprite: Objects/Magic/magicactions.rsi
-      state: fireball
+      sprite: Objects/Misc/books.rsi
+      state: icon_lightning
     event: !type:AdrenalineRushActionEvent
 
 - type: geneticMutation
@@ -1455,7 +1455,7 @@
   desc: "Allows the subject to control ice and cold."
   popupText: "You notice a strange cold tingle in your fingertips."
   instability: 15
-  probabilityWeight: 4
+  probabilityWeight: 2
   researchPoints: 1000
   components:
   - type: MutationCryokinesis
@@ -1465,6 +1465,8 @@
   description: "Fire a bolt of ice from your fingertips."
   components:
   - type: WorldTargetAction
+    useDelay: 30
+    cooldown: 30
     itemIconStyle: BigAction
     checkCanAccess: false
     raiseOnUser: true
@@ -1472,8 +1474,8 @@
     sound: !type:SoundPathSpecifier
       path: /Audio/Weapons/bladeslice.ogg
     icon:
-      sprite: Objects/Magic/magicactions.rsi
-      state: fireball
+      sprite: Structures/Specific/Anomalies/ice_anom.rsi
+      state: bullet
     event: !type:ProjectileSpellEvent
       prototype: ProjectileIcicle
 
@@ -1494,11 +1496,11 @@
   description: "Spurt a puddle of slippery black ink behind you."
   components:
   - type: InstantAction
-    useDelay: 60
-    cooldown: 60
+    useDelay: 45
+    cooldown: 45
     icon:
-      sprite: Objects/Magic/magicactions.rsi
-      state: fireball
+      sprite: Objects/Misc/pens.rsi
+      state: pen_centcom
     event: !type:InkSpurtActionEvent
 - type: reagent
   id: Ink
@@ -1531,8 +1533,8 @@
   desc: "Fire a beam of pure energy from your eyes."
   components:
   - type: WorldTargetAction
-    Cooldown: 30
-    useDelay: 30
+    cooldown: 8
+    useDelay: 8
     itemIconStyle: BigAction
     checkCanAccess: false
     raiseOnUser: true
@@ -1540,8 +1542,8 @@
     sound: !type:SoundPathSpecifier
       path: /Audio/Weapons/Guns/Gunshots/laser3.ogg
     icon:
-      sprite: Objects/Magic/magicactions.rsi
-      state: fireball
+      sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
+      state: bolt
     event: !type:OpticBlastActionEvent
 
 - type: geneticMutation
@@ -1561,11 +1563,11 @@
   description: "Shift your hair to a random color."
   components:
   - type: InstantAction
-    Cooldown: 30
-    useDelay: 30
+    useDelay: 5
+    cooldown: 5
     icon:
-      sprite: Objects/Magic/magicactions.rsi
-      state: fireball
+      sprite: _Funkystation/Clothing/Head/Hats/pwig.rsi
+      state: icon
     event: !type:TrichochromaticShiftActionEvent
 
 # Instability Mutations

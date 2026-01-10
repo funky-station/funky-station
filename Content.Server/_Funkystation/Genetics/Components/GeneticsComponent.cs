@@ -41,7 +41,7 @@ public sealed partial class ForcedMutation
     public string Id { get; set; } = default!;
 
     [DataField("startActive")]
-    public bool StartActive { get; set; } = false;
+    public float StartActive { get; set; } = 1f;
     [DataField("chance")]
     public float Chance { get; set; } = 1f;
 }

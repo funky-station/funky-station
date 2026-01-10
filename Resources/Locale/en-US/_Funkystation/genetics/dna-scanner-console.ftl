@@ -1,6 +1,6 @@
 # UI
 dna-scanner-total-damage = Total Damage:
-dna-scanner-genetic-damage = Genetic Damage:
+dna-scanner-genetic-damage = Radiation Damage:
 dna-scanner-genetic-instability = Genetic Instability:
 dna-scanner-scramble-dna = Scramble DNA
 dna-scanner-scramble-cooldown = Scramble DNA ({ $seconds }s)

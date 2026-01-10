@@ -24,7 +24,7 @@
                 </BoxContainer>
                 <BoxContainer Orientation="Horizontal" Margin="0 0 0 4">
                     <Label Text="{Loc 'dna-scanner-genetic-damage'}" Margin="0 0 10 0" />
-                    <Label Name="GeneticDamageLabel" Text="--" HorizontalExpand="True" />
+                    <Label Name="RadiationDamageLabel" Text="--" HorizontalExpand="True" />
                 </BoxContainer>
                 <BoxContainer Orientation="Horizontal">
                     <Label Text="{Loc 'dna-scanner-genetic-instability'}" Margin="0 0 10 0" />

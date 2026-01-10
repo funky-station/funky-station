@@ -80,7 +80,7 @@
       Warning: alarm2
       Danger: alarm1
     setOnDepowered:
-      airAlarmDisplay: alarmp
+      airAlarmDisplay: fire_off
   - type: Tag
     tags:
       - AirAlarm

@@ -309,7 +309,7 @@
   icon:
     sprite: Objects/Specific/Service/vending_machine_restock.rsi
     state: base
-  product: BoxVendingMachineRestockDonutFilled #Funky station,Boxification
+  product: CrateVendingMachineRestockDonutFilled #You win for now donuts
   cost: 1200
   category: cargoproduct-category-name-vending #Swap from cargo to vending
   group: market

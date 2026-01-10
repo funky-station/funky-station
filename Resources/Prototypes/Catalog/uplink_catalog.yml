@@ -1677,8 +1677,8 @@
 
 - type: listing
   id: UplinkClothingOuterVestWebElite
-  name: uplink-clothing-outer-vest-web-elite-name
-  description: uplink-clothing-outer-vest-web-elite-desc
+  name: uplink-clothing-outer-vest-web-aramid-name
+  description: uplink-clothing-outer-vest-web-aramid-desc
   productEntity: ClothingOuterVestWebElite
   cost:
     Telecrystal: 25 #FUNKY EDIT

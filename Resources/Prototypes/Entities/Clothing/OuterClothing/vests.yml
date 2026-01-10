@@ -55,7 +55,7 @@
 - type: entity
   parent: [ClothingOuterStorageBase, AllowBackStorageClothingCombat, BaseSyndicateContraband]
   id: ClothingOuterVestWebElite
-  name: elite web vest
+  name: aramid web vest #Funky Change, elite to aramid
   description: A synthetic armor vest. This one has added webbing and heat resistant fibers.
   components:
   - type: Sprite

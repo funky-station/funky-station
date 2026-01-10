@@ -40,6 +40,7 @@
     sprite: Objects/Weapons/Melee/pickaxe.rsi
     state: pickaxe
   - type: MeleeWeapon
+    autoAttack: true # Funky change
     attackRate: 0.5
     wideAnimationRotation: -135
     soundHit:
@@ -169,7 +170,8 @@
     capacity: 1
     count: 1
   - type: MeleeWeapon
-    attackRate: 1.6
+    autoAttack: true
+    attackRate: 1.4
     wideAnimationRotation: -135
     damage:
       types:
@@ -243,6 +245,7 @@
       groups:
         Brute: -15
   - type: MeleeWeapon
+    autoAttack: true
   - type: Tag
     tags:
      - Pickaxe

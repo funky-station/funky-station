@@ -8,7 +8,14 @@
 # SPDX-FileCopyrightText: 2024 Firewatch <54725557+musicmanvr@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Hanz <41141796+Hanzdegloker@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Ubaser <134914314+UbaserB@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Noah Leach <77765510+BearWithMe18@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 RedBookcase <crazykid1590@gmail.com>
+# SPDX-FileCopyrightText: 2025 SharkSnake98 <peanutbuttersharky@gmail.com>
+# SPDX-FileCopyrightText: 2025 SharkSnake98 <sharksnake87@gmail.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 Zergologist <114537969+Chedd-Error@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 kosticia <kosticia46@gmail.com>
+# SPDX-FileCopyrightText: 2025 maelines <genovedd.almn@gmail.com>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
@@ -32,6 +39,7 @@
     prototypes:
       - DrinkAbsintheGlass
       - DrinkAleGlass
+      - DrinkAlienBrainHemorrhage
       - DrinkAloe
       - DrinkAndalusia
       - DrinkAntifreeze
@@ -39,7 +47,7 @@
       - DrinkB52Glass
       - DrinkBahamaMama
       - DrinkBananaHonkGlass
-      - DrinkBarefootGlass
+      - DrinkBigfootGlass
       - DrinkBeerglass
       - DrinkBerryJuice
       - DrinkBlackRussianGlass
@@ -48,17 +56,21 @@
       - DrinkBloodyMaryGlass
       - DrinkBooger
       - DrinkBraveBullGlass
+      - DrinkBronxGlass
       - BudgetInsulsDrinkGlass
       - DrinkCarrotJuice
       - DrinkCoconutRum
       - DrinkChocolateGlass
       - DrinkCognacGlass
       - DrinkCosmopolitan
+      - DrinkCrushDepthGlass
       - DrinkCubaLibreGlass
+      - DrinkDarkandStormyGlass
       - DrinkDeadRumGlass
       - DrinkDevilsKiss
       - DrinkDriestMartiniGlass
       - DrinkDrGibbGlass
+      - DrinkElectricSharkGlass
       - DrinkErikaSurprise
       - DrinkFourteenLokoGlass
       - DrinkGargleBlasterGlass
@@ -78,7 +90,10 @@
       - DrinkIrishSlammer
       - DrinkIrishCoffeeGlass
       - DrinkLemonadeGlass
-      - DrinkKiraSpecial
+      - DrinkJackRoseGlass
+      - DrinkJungleBirdGlass
+      - DrinkKalimotxoGlass
+      - DrinkOrangeLimeSodaGlass
       - DrinkLongIslandIcedTeaGlass
       - DrinkManhattanGlass
       - DrinkManlyDorfGlass
@@ -87,11 +102,13 @@
       - DrinkMeadGlass
       - DrinkMilkshake
       - DrinkMojito
+      - DrinkMonkeyBusinessGlass
       - DrinkNTCahors
       - DrinkPainkillerGlass
       - DrinkPatronGlass
       - DrinkPinaColadaGlass
       - DrinkPoscaGlass
+      - DrinkRadlerGlass
       - DrinkRedMeadGlass
       - DrinkRewriter
       - DrinkRoyRogersGlass
@@ -108,7 +125,9 @@
       - DrinkSyndicatebomb
       - DrinkTequilaSunriseGlass
       - DrinkThreeMileIslandGlass
+      - DrinkTortugaGlass
       - DrinkToxinsSpecialGlass
+      - DrinkVampiroGlass
       - DrinkVodkaMartiniGlass
       - DrinkVodkaRedBool
       - DrinkVodkaTonicGlass
@@ -123,6 +142,47 @@
       - DrinkShakeWhite
       - DrinkTheMartinez
       - DrinkMoonshineGlass
+      - DrinkGlassAmaretto
+      - DrinkGlassApplejack
+      - DrinkGlassBitters
+      - DrinkGlassCremeDeCacao
+      - DrinkGlassCremeDeMenthe
+      - DrinkGlassFernet
+      - DrinkGlassHakkaMate
+      - DrinkGlassMelonSoda
+      - DrinkGlassNavyRum
+      - DrinkGlassRiceBeer
+      - DrinkGlassShochu
+      - DrinkGlassTripleSec
+      - DrinkGlass24VoltEnergy
+      - DrinkGlassVoltaicYellowWine
+      - DrinkGlassAlexander
+      - DrinkGlassAmarettoAlexander
+      - DrinkGlassAmarettoSour
+      - DrinkGlassAmaterasu
+      - DrinkGlassBanzaiTi
+      - DrinkGlassTripleCitrus
+      - DrinkGlassRootMintBrew
+      - DrinkGlassBetweenTheSheets
+      - DrinkGlassBittersAndSoda
+      - DrinkGlassBlueBlazer
+      - DrinkGlassBosozoku
+      - DrinkGlassBrancaMenta
+      - DrinkGlassBugSpray
+      - DrinkGlassCreviceSpike
+      - DrinkGlassFringeWeaver
+      - DrinkGlassFourBit
+      - DrinkGlassMauiSunrise
+      - DrinkGlassRedCityAM
+      - DrinkGlassSentaiQuencha
+      - DrinkGlassUtilityPole
+      - DrinkGlassAdmiralty
+      - DrinkGlassLongJohnSilver
+      - DrinkGlassLonghaul
+      - DrinkGlassTropicalStorm
+      - DrinkGlassQuadrupleSec
+      - DrinkGlassNekomimosa
+      - DrinkGlassWizzFizz
     chance: 0.8
     offset: 0.0
     #rare
@@ -140,4 +200,7 @@
       - DrinkShakeRobo
       - DrinkHoochGlass
       - DrinkBeepskySmashGlass
+      - DrinkGlassBlankPaper
+      - DrinkBatteryAcidGlass
+      - DrinkAngelsKissGlass
     rareChance: 0.05

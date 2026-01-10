@@ -1,5 +1,6 @@
 # SPDX-FileCopyrightText: 2025 Catazeus <200477155+Catazeus@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 Xcybitt <197952719+Xcybitt@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 heree <79546981+hereelabs@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 hereelabs <hahmorm@gmail.com>
 # SPDX-FileCopyrightText: 2025 kbarkevich <24629810+kbarkevich@users.noreply.github.com>
@@ -9,9 +10,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
 - type: entity
-  parent: IDCardStandard
+  parent: [IDCardStandard, BaseCommandContraband]
   id: InternalAffairsAgentIDCard
   name: internal affairs agent ID card
+  description: You wouldn't lose this, would you?
   components:
   - type: Sprite
     layers:
@@ -24,19 +26,17 @@
     job: InternalAffairsAgent
 
 - type: entity
-  parent: IDCardStandard
+  parent: [IDCardStandard, BaseCommandContraband]
   id: MagistrateIDCard
   name: magistrate ID card
   components:
   - type: Sprite
     layers:
-    - state: cc #base
+    - state: default #base
     - state: decal-stripe-cc #decal
     - sprite: _Funkystation/Interface/Misc/job_icons.rsi #icon
       offset: "-0.125, 0.09375"
       state: Magistrate
-  - type: Item
-    heldPrefix: cc
   - type: PresetIdCard
     job: Magistrate
 
@@ -56,14 +56,13 @@
     job: BlueshieldOfficer
 
 - type: entity
-  parent: IDCardStandard
+  parent: [IDCardStandard, BaseCommandContraband]
   id: NanotrasenRepresentativeIDCard
   name: nanotrasen representative ID card
   components:
   - type: Sprite
     layers:
     - state: cc #base
-    - state: decal-stripe-cc #decal
     - sprite: _Goobstation/Interface/Misc/job_icons.rsi #icon
       offset: "-0.125, 0.09375"
       state: nanotrasenrepresentative
@@ -151,6 +150,7 @@
   parent: IDCardStandard
   id: SpaceCowboyIDCard
   name: space cowboy ID card
+  description: To the Space Station rode a stranger one fine day.
   components:
   - type: Sprite
     layers:

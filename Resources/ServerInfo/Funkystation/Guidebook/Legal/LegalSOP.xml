@@ -6,51 +6,64 @@ SPDX-License-Identifier: MIT
 -->
 
 <Document>
-  # Lawyer
+  # Lawyer SOP
 
-  [bold]1.[/bold] Lawyers are only to provide legal representation during interrogation to personnel facing charges of Tier III or greater. Lawyers are only permitted to provide legal representation in a court of law to personnel facing a Tier IV sentence or greater. They should, however, ensure that all timed sentences are applied correctly, and alert Security if it is not. In addition, Lawyers are permitted to provide legal advice to prisoners, as well as investigating whether or not arrests were done properly;
+  [bold]1.[/bold] Lawyers are to provide legal representation to any crew who requests it. They may not represent or speak on behalf of crew who have not retained them;
 
-  [bold]2.[/bold] Lawyers must request permission from any potential client before serving as their legal representative, as said client may choose to either represent themselves, or request someone else;
+  [bold]2.[/bold] Lawyers are to ensure clients are informed that while consulting a lawyer or during a trial, their sentence does not progress. It should always be emphasized that in the case of many sentences, seeking legal counsel and pursuing a trial will take more time than just serving out the sentence;
 
-  [bold]3.[/bold] Lawyers are not to deliberately halt or slow down prisoner processing or ongoing investigations. If Security is acting in a demonstrably incompetent manner, Lawyers should contact the Head of Security or the Captain. If more information about the crime in question is needed, Lawyers should wait until the person in question is brigged;
+  [bold]3.[/bold] Lawyers are not to interfere with the processing of prisoners unless a prisoner has requested to retain them. If the collecting of contradictory evidence or testimony for a trial is necessary lawyers are encouraged to seek such evidence or testimony while their client is being processed or serving their sentence;
 
-  [bold]4.[/bold] Lawyers are permitted to confidentially speak with their clients prior to any interrogation. Time spent conferring with a Lawyer may not be counted as time served during a timed sentence. If a client wishes to speak confidentially with their Lawyer during a timed sentence, the time remaining on their sentence must be frozen and may only resumed once the client has re-entered their cell. Lawyers may not divulge the contents of these confidential meetings without the explicit permission of their clients, except in cases where there are reasons to believe that their silence may endanger the lives and safety of other station personnel. If a Lawyer fails to divulge information that was found to later directly lead to the injury or death of personnel, the Lawyer should be charged as an accessory to the resulting crimes;
+  [bold]4.[/bold] Lawyers are expected to keep information obtained in meetings from their clients in strict confidentiality. Should a client reveal information that would indicate they have intent to harm the station in a manner that would lead to an early evacuation lawyers are expected not to represent a client, but are still not permitted to reveal information divulged within a confidential interview;
 
-  # Trials
+  [bold]5.[/bold] Lawyers are encouraged to have a personal code of conduct, and to only represent clients in cases where this personal code of ethics will not be compromised. For this reason, lawyers may refuse to represent a client for any reason, unless ordered by the Magistrate to represent them. In the event that a lawyer has refused to represent a client, but is subsequently ordered to do so, lawyers are expected to represent the client fairly and not purposefully incriminate them or lose the trial in any way.
 
-  [bold]1.[/bold] Only Tier IV (if the ranking Judge on the station consents) crimes and Tier V (if the defendant and their legal representative demand it) crimes should be brought to trial;
+  ## Lawyer OOC Rules
+  [textlink="Act and behave within the spirit of the Job you have been assigned" link="RuleC15"]
 
-  [bold]2.[/bold] Expedient application of Space Law is preferred over a trial process, trials should be reserved for when the defendant and their legal representative can reasonably claim that the justification for a sentence is objectionable and the station is not currently in a state of emergency;
+  # Circumstances for a Trial
 
-  [bold]3.[/bold] Only the Magistrate, Captain, or Nanotrasen Representative may assume the role of Judge and convene a trial. The Magistrate can overrule the Captain and the Nanotrasen Representative, while the Captain may only overrule the Nanotrasen Representative;
+  [bold]1.[/bold] Trials may occur to exonerate an individual from a crime or convict them of the same. Conviction of a crime can lead to enforcement of the original punishment, or a lessened punishment at the discretion of the judge;
 
-  [bold]4.[/bold] Security may, but is not required to act as legal representation or attend a trial, even as witnesses;
+  [bold]2.[/bold] Trials may occur to force an investigation of misconduct and impose punitive measures;
 
-  [bold]5.[/bold] When provided by defendants, legal representation must be permitted in the trial to speak on their behalf. Though Lawyers may be the most suited for the role, there are no restrictions on who may represent a defendant;
+  [bold]3.[/bold] Trials may occur to dispute or show proof of renewed compliance with the statutes which led to a previously imposed punitive measure, and subsequently have confiscated property or a staff position returned to the plaintiff;
 
-  [bold]6.[/bold] Before beginning a trial, the Judge should obtain a statement or "affidivat" with a full recount of the defendant's and any relevant witnesses' testimony of the events from their perspective;
+  # Standard Trial Procedures
 
-  [bold]7.[/bold] The Judge must ensure that decorum is kept during a trial and that the proceedings are timely;
+  [bold]1.[/bold] Only the presiding judge on station has the right to refuse a trial once requested, and may do so following the Standard Operating Procedure of the Magistrate;
 
-  ## Official Courtroom Proceedings
+  [bold]2.[/bold] In the absense of a Magistrate the NanoTrasen Representative is the presiding judge on station. In the absense of both a Magistrate and a NanoTrasen Representative, the Captain is the presiding judge on station.
 
-  Judges must strictly enforce the following procedure during a trial. The Judge should be mindful of the time and set time limits for each part of the proceeds. The gavel may be struck when a party goes beyond their time limit;
+  [bold]3.[/bold] With the approval of the presiding judge, the defendants counsel and the plaintiffs counsel may subpoena any member of the crew or Central Command Staff on station to act as a witness for a trial. Witnesses may not be forced to stay in the witness box for more than 5 total minutes, however the presiding judge may alot this time between the two parties for examination and cross examination as they see fit. An opportunity for cross examination is not required to be given to the party that did not originally subpoena the witness. Witnesses may volunteer more of their time to provide testimony if they wish, but must not be coerced into doing so. In the case of an extended testimony, the total testimony and cross examination may not exceed 10 minutes in length;
 
-  [bold]1.[/bold] The Prosecution presents its opening statement;
+  [bold]4.[/bold] Legal representation must be permitted in the trial to speak on the behalf of each party in a trial. Though Lawyers may be the most suited for the role, there are no restrictions on who may represent a party. It is the duty of the presiding judge to determine if an individual acting as counsel is qualified to do so;
 
-  [bold]2.[/bold] The Defense presents its opening statement;
+  [bold]5.[/bold] Before beginning a trial, the Judge should obtain a statement or "affidivat" with a full recount of all partiess and relevant witnesses' testimony of the events from their perspective. These documents should be prepared ahead of time by the respective counsel of the parties;
 
-  [bold]3.[/bold] The Defendant is questioned first by the defense and then cross-examined by the Prosecution;
+  [bold]6.[/bold] The presiding judge must ensure that decorum is kept during a trial and that the proceedings are timely;
 
-  [bold]4.[/bold] Any relevant witnesses are questioned. The party that introduced the witness gets to examine them first, after which the other side is given a chance to cross-examine the witness;
+  ## Official Courtroom Process
 
-  [bold]5.[/bold] The Prosecution presents its closing statement;
+  The presiding judge must strictly enforce the following procedure during a trial. The presiding judge should be mindful of the time and set time limits for each part of the proceeding. The gavel may be struck when a party goes beyond their time limit;
 
-  [bold]6.[/bold] The Defense presents its closing statement;
+  [bold]1.[/bold] The prosecution presents its opening statement. This should be no longer than 60 seconds;
 
-  [bold]7.[/bold] The Judge issues a verdict, which should be considered the final sentence in regards to the defendant. Only Central Command may override this verdict;
+  [bold]2.[/bold] The defense presents its opening statement. This should be no longer than 60 seconds;
+
+  [bold]3.[/bold] The defendant is questioned first by the defense and then cross-examined by the Prosecution. This should take no longer than 8 minutes;
+
+  [bold]4.[/bold] Any relevant witnesses are questioned. The party that introduced the witness gets to examine them first, after which the other side may be given a chance to cross-examine the witness. See 'Standard Trial Procedures', rule 5 for guidelines on time;
+
+  [bold]5.[/bold] The prosecution presents its closing statement. This should be no longer than 150 seconds;
+
+  [bold]6.[/bold] The defense presents its closing statement. This should be no longer than 150 seconds;
+
+  [bold]7.[/bold] The presiding judge issues a verdict. Only Central Command or a higher authority who arrives on station after the trial proceedings may override this verdict;
 
   ## Contempt of Court
 
-  It is required that all parties inside the courtroom, and during the court proceedings, must act with dignity and respect. This includes, but is not limited to, recognizing the authority of the Judge, maintaining an appropriate level of verbal control, and generally acting in a civilized manner. Should a person inside the courtroom act in such a way as to disturb/disrupt court proceedings, the Judge may hold them in Contempt of Court and have them forcefully removed from the courtroom. The decision on whether or not a person is in Contempt of Court rests with the presiding Judge.
+  All parties present in the courtroom and during court proceedings are required to act with dignity and respect. This includes recognizing the authority of the presiding judge, maintaining appropriate verbal control, and generally behaving in a civilized manner.
+
+  Should any person in the courtroom act in a way that disturbs or disrupts the proceedings, the presiding judge may hold that person in contempt of court and have them removed by force if necessary. The presiding judge may also summarily impose a punitive measure appropriate to the severity of the contempt. The determination of whether a person is in contempt of court rests solely with the presiding judge.
 </Document>

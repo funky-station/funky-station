@@ -12,11 +12,14 @@
 // SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 jhrushbe <capnmerry@gmail.com>
 // SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
+// SPDX-FileCopyrightText: 2025 rottenheadphones <juaelwe@outlook.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
 // SPDX-License-Identifier: MIT
 
+using Content.Shared._FarHorizons.Materials;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.Array;
 using Robust.Shared.Utility;
@@ -75,5 +78,17 @@ namespace Content.Shared.Materials
         /// </summary>
         [DataField(required: true)]
         public double Price = 0;
+
+        // Far Horizons Edit
+        /// <summary>
+        /// The physical properties of this material.
+        /// </summary>
+        [DataField("properties")]
+        public MaterialProperties Properties { get; private set; } = new MaterialProperties
+      {
+        Hardness = 1,
+        Density = 1.0f,
+      };
+
     }
 }

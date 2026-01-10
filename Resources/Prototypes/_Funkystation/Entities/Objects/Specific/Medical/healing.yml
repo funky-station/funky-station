@@ -1,0 +1,36 @@
+# SPDX-FileCopyrightText: 2025 Steve <marlumpy@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  name: pill canister
+  parent: PillCanister
+  id: PillCanisterMutadone
+  suffix: Mutadone 15u
+  components:
+  - type: Label
+    currentLabel: mutadone 15u
+  - type: StorageFill
+    contents:
+    - id: PillMutadone
+      amount: 8
+
+- type: entity
+  name: pill
+  suffix: Mutadone 15u
+  parent: Pill
+  id: PillMutadone
+  components:
+  - type: Pill
+    pillType: 8
+  - type: Sprite
+    state: pill17
+  - type: Label
+    currentLabel: mutadone 15u
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: Mutadone
+          Quantity: 15

@@ -1,12 +1,20 @@
 # SPDX-FileCopyrightText: 2025 AtlasHD <99688062+AtlasHDD@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Idem778 <fromidemland@gmail.com>
 # SPDX-FileCopyrightText: 2025 Josh Hilsberg <thejoulesberg@gmail.com>
 # SPDX-FileCopyrightText: 2025 JoulesBerg <104539820+JoulesBerg@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 MaiaArai <158123176+YaraaraY@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 PurpleTranStar <purpletranstar@gmail.com>
 # SPDX-FileCopyrightText: 2025 SaffronFennec <firefoxwolf2020@protonmail.com>
+# SPDX-FileCopyrightText: 2025 Smugman <85798843+Smugman@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Starry <tehevilduckiscoming@gmail.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 Teasq <Xerithin@gmail.com>
+# SPDX-FileCopyrightText: 2025 ThatOneMoon <91613003+ThatOneMoon@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
 # SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 kbarkevich <24629810+kbarkevich@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2026 Zergologist <114537969+Chedd-Error@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -23,6 +31,9 @@
   - InternalAffairsAgentTurtleneckBlack
   - InternalAffairsAgentTurtleneckRed
   - InternalAffairsAgentTurtleneckBlue
+  - InternalAffairsAgentTurtleneckBlackSkirt
+  - InternalAffairsAgentTurtleneckRedSkirt
+  - InternalAffairsAgentTurtleneckBlueSkirt
 
 - type: loadoutGroup
   id: InternalAffairsAgentOuterClothing
@@ -38,6 +49,15 @@
   loadouts:
   - InternalAffairsAgentGlovesBlack
   - InternalAffairsAgentGlovesRed
+  - NanotrasenRepresentativePaperworkGloves
+
+- type: loadoutGroup
+  id: InternalAffairsAgentShoes
+  name: loadout-group-iaa-shoes
+  loadouts:
+  - NanotrasenRepresentativeBoots
+  - NanotrasenRepresentativeShoes
+  - DesignerWinterBoots
 
 - type: loadoutGroup
   id: InternalAffairsAgentBackpack
@@ -54,6 +74,14 @@
   - InternalAffairsAgentWaistbag
 
 - type: loadoutGroup
+  id: InternalAffairsJobTrinkets
+  name: loadout-group-jobtrinkets
+  minLimit: 0
+  loadouts:
+  - CommandLighter
+  - CentralCommandLighter
+
+- type: loadoutGroup
   id: ChaplainBible
   name: loadout-group-bible
   minLimit: 1
@@ -61,18 +89,54 @@
   loadouts:
   - ChaplainBibleChristian
   - ChaplainBibleAtheist
-  - ChaplainBibleBhuddhist
+
+- type: loadoutGroup
+  id: MagistrateHead
+  name: loadout-group-magistrate-head
+  minLimit: 0
+  loadouts:
+  - MagistrateOfficerBeret
+  - NanotrasenRepresentativeMAA
 
 - type: loadoutGroup
   id: MagistrateJumpsuit
   name: loadout-group-magistrate-jumpsuit
   loadouts:
+  - MagistrateSuit
+  - MagistrateTurtleneck
   - LawyerJumpsuit
   - LawyerJumpskirt
   - LawyerJumpsuitBlue
   - LawyerJumpskirtBlue
   - LawyerJumpsuitPurple
   - LawyerJumpskirtPurple
+
+- type: loadoutGroup
+  id: MagistrateOuterClothing
+  name: loadout-group-magistrate-outer
+  minLimit: 0
+  maxLimit: 1
+  loadouts:
+  - MagistrateCoat
+  - MagistrateWinterCoat
+
+- type: loadoutGroup
+  id: MagistrateGloves
+  name: loadout-group-magistrate-gloves
+  minLimit: 0
+  maxLimit: 1
+  loadouts:
+  - NanotrasenRepresentativePaperworkGloves
+  - NanotrasenRepresentativeBlackGloves
+
+- type: loadoutGroup
+  id: MagistrateShoes
+  name: loadout-group-magistrate-shoes
+  loadouts:
+  - NanotrasenRepresentativeBoots
+  - NanotrasenRepresentativeShoes
+  - NanotrasenRepresentativeHeels
+  - DesignerWinterBoots
 
 - type: loadoutGroup
   id: MagistrateBackpack
@@ -96,6 +160,15 @@
   loadouts:
     - MagistrateGavel
     - MagistratePwig
+
+- type: loadoutGroup
+  id: MagistrateJobTrinkets
+  name: loadout-group-jobtrinkets
+  minLimit: 0
+  maxLimit: 2
+  loadouts:
+  - CommandLighter
+  - CentralCommandLighter
 
 - type: loadoutGroup
   id: ScienceRoboticistGlasses

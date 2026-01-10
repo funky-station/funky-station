@@ -1,0 +1,27 @@
+# SPDX-FileCopyrightText: 2025 MaiaArai <158123176+YaraaraY@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Xcybitt <197952719+Xcybitt@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+# Ball and Chain for Funky Station!
+- type: entity
+  parent: ClothingBeltBase
+  id: ClothingBeltBallandChain
+  name: ball and chain
+  description: Also known as the wife.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Belt/ballandchain.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Belt/ballandchain.rsi
+  - type: ClothingSpeedModifier
+    walkModifier: 0.6
+    sprintModifier: 0.7
+  - type: SelfUnremovableClothing
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Blunt: 15
+  - type: StaminaDamageOnCollide
+    damage: 40

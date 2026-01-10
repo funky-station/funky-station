@@ -9,6 +9,7 @@
 # SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2024 lapatison <100279397+lapatison@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Komoni <131829655+Komonighub@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
 # SPDX-FileCopyrightText: 2025 mkanke-real <mikekanke@gmail.com>
@@ -23,7 +24,7 @@
     # Randomly generated books
     - id: BookRandomStory
       amount: !type:RangeNumberSelector
-        range: 0, 3
+        range: 0, 1
     # Guidebooks
     - !type:GroupSelector
       children:
@@ -40,8 +41,10 @@
       - id: BookSecurity
       - id: BookSpaceEncyclopedia
       - id: BookSpaceLaw
+      - id: BookSOP
       - id: BookTheBookOfControl
       - id: BookCookbookPie #Funky
+      - id: FolderStandardForms #Funky
     # Handwritten books
     - !type:GroupSelector
       rolls: !type:RangeNumberSelector
@@ -84,6 +87,12 @@
       - id: ZeroSumSymphonyVol1 #Funky
       - id: ZeroSumSymphonyVol2 #Funky
       - id: BookCosmicCult # imp
+      - id: AshySlashy1 #Funky
+      - id: AshySlashy2 #Funky
+      - id: AshySlashy3 #Funky
+      - id: FrontierMathematician1 #Funky
+      - id: FrontierMathematician2 #Funky
+      - id: how2clown #Funky
     # if you add more books please consider organizing them into a new group selector
 
 - type: entity

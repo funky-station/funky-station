@@ -87,17 +87,22 @@
 # SPDX-FileCopyrightText: 2025 DevilishMilk <michaellapjr@gmail.com>
 # SPDX-FileCopyrightText: 2025 Josh Hilsberg <thejoulesberg@gmail.com>
 # SPDX-FileCopyrightText: 2025 JoulesBerg <104539820+JoulesBerg@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 MaiaArai <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Mish <bluscout78@yahoo.com>
 # SPDX-FileCopyrightText: 2025 PurpleTranStar <tehevilduckiscoming@gmail.com>
 # SPDX-FileCopyrightText: 2025 Rainbow <ev0lvkitten@gmail.com>
 # SPDX-FileCopyrightText: 2025 Skye <57879983+Rainbeon@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Sophia Rustfield <gitlab@catwolf.xyz>
+# SPDX-FileCopyrightText: 2025 SpaceCat~Chan <49094338+SpaceCat-Chan@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 Xcybitt <197952719+Xcybitt@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 empty0set <16693552+empty0set@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 empty0set <empty0set@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 mqole <113324899+mqole@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
+# SPDX-FileCopyrightText: 2025 rex1431ify <r.l@live.se>
 # SPDX-FileCopyrightText: 2025 rosieposie <52761126+rosieposieeee@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
@@ -190,6 +195,7 @@
       - NewsReaderCartridge
       - NanoChatCartridge # DeltaV
       - SOSCartridge # Imp
+      - WordleCartridge
     cartridgeSlot:
       priority: -1
       name: device-pda-slot-component-slot-name-cartridge
@@ -204,6 +210,7 @@
   - type: UserInterface
     interfaces:
       enum.PdaUiKey.Key:
+        requireInputValidation: false
         type: PdaBoundUserInterface
       enum.StoreUiKey.Key:
         type: StoreBoundUserInterface
@@ -263,6 +270,7 @@
     - WantedListCartridge
     - NanoChatCartridge # DeltaV
     - SOSCartridge # Imp
+    - WordleCartridge
 
 - type: entity
   parent: BasePDA
@@ -279,6 +287,7 @@
       - MedTekCartridge
       - NanoChatCartridge # DeltaV
       - SOSCartridge # Imp
+      - WordleCartridge
 
 - type: entity
   parent: BasePDA
@@ -292,7 +301,7 @@
     borderColor: "#717059"
 
 - type: entity
-  parent: BasePDA
+  parent: [BasePDA, BaseEngineeringContraband]
   id: TechnicalAssistantPDA
   name: technical assistant PDA
   description: Why isn't it yellow?
@@ -333,7 +342,7 @@
     - MedicalDoctor
 
 - type: entity
-  parent: BaseSecurityPDA
+  parent: [BaseSecurityPDA, BaseSecurityContraband]
   id: SecurityCadetPDA
   name: security cadet PDA
   description: Why isn't it red?
@@ -352,7 +361,7 @@
     state: pda-interncadet
 
 - type: entity
-  parent: BasePDA
+  parent: [BasePDA, BaseScienceContraband]
   id: ResearchAssistantPDA
   name: research assistant PDA
   description: Why isn't it purple?
@@ -371,7 +380,7 @@
     state: pda-internsci
 
 - type: entity
-  parent: BasePDA
+  parent: [BasePDA, BaseCivilianContraband]
   id: ServiceWorkerPDA
   name: service worker PDA
   description: Why isn't it gray?
@@ -390,7 +399,7 @@
     state: pda-internservice
 
 - type: entity
-  parent: BasePDA
+  parent: [BasePDA, BaseCivilianContraband]
   id: ChefPDA
   name: chef PDA
   description: Covered in grease and flour.
@@ -410,7 +419,7 @@
     accent: italian
 
 - type: entity
-  parent: BasePDA
+  parent: [BasePDA, BaseCivilianContraband]
   id: BotanistPDA
   name: botanist PDA
   description: Has an earthy scent.
@@ -429,7 +438,7 @@
     state: pda-hydro
 
 - type: entity
-  parent: BasePDA
+  parent: [BasePDA, BaseCivilianContraband]
   id: ClownPDA
   name: clown PDA
   description: Looks can be deceiving.
@@ -492,7 +501,7 @@
     - DoorBumpOpener
 
 - type: entity
-  parent: BasePDA
+  parent: [BasePDA, BaseCivilianContraband]
   id: MimePDA
   name: mime PDA
   description: Suprisingly not on mute.
@@ -542,7 +551,7 @@
 
 - type: entity
   name: chaplain PDA
-  parent: BasePDA
+  parent: [BasePDA, BaseCivilianContraband]
   id: ChaplainPDA
   description: God's chosen PDA.
   components:
@@ -571,7 +580,7 @@
 
 - type: entity
   name: quartermaster PDA
-  parent: BasePDA
+  parent: [BasePDA, BaseCommandContraband]
   id: QuartermasterPDA
   description: PDA for the guy that orders the guns.
   components:
@@ -595,9 +604,10 @@
       - MailMetricsCartridge
       - NanoChatCartridge # DeltaV
       - SOSCartridge # Imp
+      - WordleCartridge
 
 - type: entity
-  parent: BasePDA
+  parent: [BasePDA, BaseCargoContraband]
   id: CargoPDA
   name: cargo PDA
   description: PDA for the guys that order the pizzas.
@@ -620,9 +630,10 @@
     - NewsReaderCartridge
     - NanoChatCartridge # DeltaV
     - SOSCartridge # Imp
+    - WordleCartridge
 
 - type: entity
-  parent: BasePDA
+  parent: [BasePDA, BaseCargoContraband]
   id: SalvagePDA
   name: salvage PDA
   description: Smells like ash.
@@ -649,9 +660,10 @@
       - AstroNavCartridge
       - NanoChatCartridge # DeltaV
       - SOSCartridge # Imp
+      - WordleCartridge
 
 - type: entity
-  parent: BasePDA
+  parent: [BasePDA, BaseCivilianContraband]
   id: BartenderPDA
   name: bartender PDA
   description: Smells like beer.
@@ -669,7 +681,7 @@
     state: pda-bartender
 
 - type: entity
-  parent: BaseWidePDA
+  parent: [BaseWidePDA, BaseCivilianContraband]
   id: LibrarianPDA
   name: librarian PDA
   description: Smells like books.
@@ -704,7 +716,7 @@
     - DoorBumpOpener
 
 - type: entity
-  parent: BaseSecurityPDA
+  parent: [BaseSecurityPDA, BaseSecurityLawyerContraband]
   id: LawyerPDA
   name: lawyer PDA
   description: For lawyers to poach dubious clients.
@@ -739,7 +751,7 @@
     - DoorBumpOpener
 
 - type: entity
-  parent: BasePDA
+  parent: [BasePDA, BaseJanitorContraband]
   id: JanitorPDA
   name: janitor PDA
   description: Smells like bleach.
@@ -757,7 +769,7 @@
     state: pda-janitor
 
 - type: entity
-  parent: BasePDA
+  parent: [BasePDA, BaseCommandContraband]
   id: CaptainPDA
   name: captain PDA
   description: Surprisingly no different from your PDA.
@@ -781,7 +793,7 @@
     state: pda-captain
 
 - type: entity
-  parent: BasePDA
+  parent: [BasePDA, BaseCommandContraband]
   id: HoPPDA
   name: head of personnel PDA
   description: Looks like it's been chewed on.
@@ -806,7 +818,7 @@
     state: pda-hop
 
 - type: entity
-  parent: BasePDA
+  parent: [BasePDA, BaseCommandContraband]
   id: CEPDA
   name: chief engineer PDA
   description: Looks like it's barely been used.
@@ -825,7 +837,7 @@
     state: pda-ce
 
 - type: entity
-  parent: BasePDA
+  parent: [BasePDA, BaseEngineeringContraband]
   id: EngineerPDA
   name: engineer PDA
   description: Rugged and well-worn.
@@ -844,7 +856,7 @@
     state: pda-engineer
 
 - type: entity
-  parent: BaseMedicalPDA
+  parent: [BaseMedicalPDA, BaseCommandContraband]
   id: CMOPDA
   name: chief medical officer PDA
   description: Extraordinarily shiny and sterile.
@@ -864,7 +876,7 @@
     state: pda-cmo
 
 - type: entity
-  parent: BaseMedicalPDA
+  parent: [BaseMedicalPDA, BaseMedicalContraband]
   id: MedicalPDA
   name: medical PDA
   description: Shiny and sterile.
@@ -897,7 +909,7 @@
     - DoorBumpOpener
 
 - type: entity
-  parent: BaseMedicalPDA
+  parent: [BaseMedicalPDA, BaseMedicalContraband]
   id: ParamedicPDA
   name: paramedic PDA
   description: Shiny and sterile.
@@ -916,7 +928,7 @@
     state: pda-paramedic
 
 - type: entity
-  parent: BaseMedicalPDA
+  parent: [BaseMedicalPDA, BaseMedicalContraband]
   id: ChemistryPDA
   name: chemistry PDA
   description: It has a few discolored blotches here and there.
@@ -935,7 +947,7 @@
     state: pda-chemistry
 
 - type: entity
-  parent: BasePDA
+  parent: [BasePDA, BaseCommandContraband]
   id: RnDPDA
   name: research director PDA
   description: It appears surprisingly ordinary.
@@ -960,9 +972,10 @@
       - NewsReaderCartridge
       - NanoChatCartridge # DeltaV
       - SOSCartridge # Imp
+      - WordleCartridge
 
 - type: entity
-  parent: BasePDA
+  parent: [BasePDA, BaseScienceContraband]
   id: SciencePDA
   name: science PDA
   description: It's covered with an unknown gooey substance.
@@ -981,7 +994,7 @@
     state: pda-science
 
 - type: entity
-  parent: BasePDA
+  parent: [BasePDA, BaseScienceContraband]
   id: RoboticsPDA
   name: robotics PDA
   description: It's covered with scratches all over it.
@@ -1000,9 +1013,10 @@
       - NewsReaderCartridge
       - NanoChatCartridge # DeltaV
       - SOSCartridge # Imp
+      - WordleCartridge
 
 - type: entity
-  parent: BaseSecurityPDA
+  parent: [BaseSecurityPDA, BaseCommandContraband]
   id: HoSPDA
   name: head of security PDA
   description: Whosoever bears this PDA is the law.
@@ -1029,9 +1043,10 @@
     - LogProbeCartridge
     - NanoChatCartridge # DeltaV
     - SOSCartridge # Imp
+    - WordleCartridge
 
 - type: entity
-  parent: BaseSecurityPDA
+  parent: [BaseSecurityPDA, BaseSecurityContraband]
   id: WardenPDA
   name: warden PDA
   description: The OS appears to have been jailbroken.
@@ -1050,7 +1065,7 @@
     state: pda-warden
 
 - type: entity
-  parent: BaseSecurityPDA
+  parent: [BaseSecurityPDA, BaseSecurityContraband]
   id: SecurityPDA
   name: security PDA
   description: Red to hide the stains of passenger blood.
@@ -1068,7 +1083,7 @@
     state: pda-security
 
 - type: entity
-  parent: BaseSecurityPDA
+  parent: [BaseSecurityPDA, BaseCentcommContraband]
   id: BaseCentcomPDA
   name: CentComm PDA
   description: Light green sign of walking bureaucracy.
@@ -1101,7 +1116,7 @@
 - type: entity
   parent: BaseCentcomPDA
   id: CentcomOfficialPDA
-  name: CentComm Officials PDA
+  name: CentComm officials PDA
   description: Light green sign of walking authoritative bureaucracy.
   components:
   - type: Pda
@@ -1133,6 +1148,7 @@
       - AstroNavCartridge
       - NanoChatCartridge # DeltaV
       - SOSCartridge # Imp
+      - WordleCartridge
 
 - type: entity
   parent: CentcomOfficialPDA
@@ -1162,6 +1178,7 @@
       - AstroNavCartridge
       - NanoChatCartridge # DeltaV
       - SOSCartridge # Imp
+      - WordleCartridge
   - type: Tag #  Ignore Chameleon tags
     tags:
     - DoorBumpOpener
@@ -1178,7 +1195,7 @@
     - DoorBumpOpener
 
 - type: entity
-  parent: BasePDA
+  parent: [BasePDA, BaseCivilianContraband]
   id: MusicianPDA
   name: musician PDA
   description: It fills you with inspiration.
@@ -1212,7 +1229,7 @@
     - DoorBumpOpener
 
 - type: entity
-  parent: BasePDA
+  parent: [BasePDA, BaseEngineeringContraband]
   id: AtmosPDA
   name: atmos PDA
   description: Still smells like plasma.
@@ -1259,7 +1276,7 @@
     - DoorBumpOpener
 
 - type: entity
-  parent: BasePDA
+  parent: [BasePDA, BaseSyndicateContraband]
   id: SyndiPDA
   name: syndicate PDA
   description: Ok, time to be a productive member of- oh cool I'm a bad guy time to kill people!
@@ -1283,7 +1300,7 @@
       - NanoTaskCartridge
 
 - type: entity
-  parent: BaseSecurityPDA
+  parent: [BaseSecurityPDA, BaseCentcommContraband]
   id: ERTLeaderPDA
   name: ERT Leader PDA
   suffix: Leader
@@ -1367,7 +1384,7 @@
     id: ERTSecurityIDCard
 
 - type: entity
-  parent: ERTLeaderPDA
+  parent: [ERTLeaderPDA, BaseCentcommContraband]
   id: CBURNPDA
   name: CBURN PDA
   description: Smells like rotten flesh.
@@ -1380,7 +1397,7 @@
     accentVColor: "#447987"
 
 - type: entity
-  parent: BasePDA
+  parent: [BasePDA, BaseCivilianContraband]
   id: PsychologistPDA
   name: psychologist PDA
   description: Looks immaculately cleaned.
@@ -1399,7 +1416,7 @@
     state: pda-medical
 
 - type: entity
-  parent: BasePDA
+  parent: [BasePDA, BaseCivilianContraband]
   id: ReporterPDA
   name: reporter PDA
   description: Smells like freshly printed press.
@@ -1428,9 +1445,10 @@
     - NewsReaderCartridge
     - NanoChatCartridge # DeltaV
     - SOSCartridge # Imp
+    - WordleCartridge
 
 - type: entity
-  parent: BasePDA
+  parent: [BasePDA, BaseCivilianContraband]
   id: ZookeeperPDA
   name: zookeeper PDA
   description: Made with genuine synthetic leather. Crikey!
@@ -1448,7 +1466,7 @@
     state: pda-zookeeper
 
 - type: entity
-  parent: BasePDA
+  parent: [BasePDA, BaseCivilianContraband]
   id: BoxerPDA
   name: boxer PDA
   description: Float like a butterfly, ringtone like a bee.
@@ -1467,7 +1485,7 @@
     state: pda-boxer
 
 - type: entity
-  parent: BaseSecurityPDA
+  parent: [BaseSecurityPDA, BaseSecurityContraband]
   id: DetectivePDA
   name: detective PDA
   description: Smells like rain... pouring down the rooftops...
@@ -1493,9 +1511,10 @@
     - LogProbeCartridge
     - NanoChatCartridge # DeltaV
     - SOSCartridge # Imp
+    - WordleCartridge
 
 - type: entity
-  parent: BaseMedicalPDA
+  parent: [BaseMedicalPDA, BaseSecurityContraband]
   id: BrigmedicPDA
   name: brigmedic PDA
   description: I wonder whose pulse is on the screen? I hope it doesn't stop...
@@ -1523,6 +1542,7 @@
     - MedTekCartridge
     - NanoChatCartridge # DeltaV
     - SOSCartridge # Imp
+    - WordleCartridge
 
 - type: entity
   parent: ClownPDA
@@ -1552,7 +1572,7 @@
   - type: Unremoveable
 
 - type: entity
-  parent: BasePDA
+  parent: [BasePDA, BaseEngineeringContraband]
   id: SeniorEngineerPDA
   name: senior engineer PDA
   description: Seems to have been taken apart and put back together several times.
@@ -1571,7 +1591,7 @@
     state: pda-seniorengineer
 
 - type: entity
-  parent: BasePDA
+  parent: [BasePDA, BaseCargoContraband]
   id: SeniorCargoPDA
   name: senior cargo PDA
   description: Upgraded with all the latest in expensive, useless PDA accessories.
@@ -1588,9 +1608,18 @@
     accentVColor: "#F7BA6A"
   - type: Icon
     state: pda-cargo
+  - type: CartridgeLoader # DeltaV - MailMetrics courier tracker
+    preinstalled:
+      - CrewManifestCartridge
+      - NotekeeperCartridge
+      - NewsReaderCartridge
+      - NanoChatCartridge # DeltaV
+      - SOSCartridge # Imp
+      - WordleCartridge
+      - AstroNavCartridge #because there's no salv senior PDA YET, giving the cargonians astronav
 
 - type: entity
-  parent: BasePDA
+  parent: [BasePDA, BaseScienceContraband]
   id: SeniorResearcherPDA
   name: senior researcher PDA
   description: Looks like it's been through years of chemical burns and explosions.
@@ -1610,7 +1639,7 @@
     state: pda-seniorresearcher
 
 - type: entity
-  parent: BaseMedicalPDA
+  parent: [BaseMedicalPDA, BaseMedicalContraband]
   id: SeniorPhysicianPDA
   name: senior physician PDA
   description: Smells faintly like iron and chemicals.
@@ -1630,7 +1659,7 @@
     state: pda-seniorphysician
 
 - type: entity
-  parent: BaseSecurityPDA
+  parent: [BaseSecurityPDA, BaseCivilianContraband]
   id: SeniorOfficerPDA
   name: senior officer PDA
   description: Beaten, battered and broken, but just barely useable.
@@ -1665,7 +1694,7 @@
     state: pda-pirate
 
 - type: entity
-  parent: BaseMedicalPDA
+  parent: [BaseMedicalPDA, BaseSyndicateContraband]
   id: SyndiAgentPDA
   name: syndicate agent PDA
   description: For those days when healing normal syndicates aren't enough, try healing nuclear operatives instead!
@@ -1749,7 +1778,7 @@
         type: ChameleonBoundUserInterface
 
 - type: entity
-  parent: BaseWidePDA
+  parent: [BaseWidePDA, BaseMagicalContraband]
   id: WizardPDA
   name: wizard PDA
   description: You hear faint whispers coming from it.

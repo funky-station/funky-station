@@ -1,6 +1,8 @@
 # SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 AftrLite
+# SPDX-FileCopyrightText: 2025 Janet Blackquill <uhhadd@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -196,3 +198,68 @@
       sprite: _DV/CosmicCult/Icons/cosmiccult_abilities.rsi
       state: corruption
     event: !type:EventCosmicFragmentation {}
+
+## COLOSSUS ACTIONS
+
+- type: entity
+  id: ActionCosmicColossusSunder
+  name: Entropic Sunder
+  description: Warp to the target location and unleash a cascading detonation of malign energy.
+  components:
+  - type: WorldTargetAction
+    useDelay: 18
+    range: 7
+    itemIconStyle: NoItem
+    icon:
+      sprite: _DV/CosmicCult/Icons/cosmiccult_abilities.rsi
+      state: sunder
+    event: !type:EventCosmicColossusSunder
+
+- type: entity
+  id: ActionCosmicColossusIngress
+  name: Colossal Ingress
+  description: Use your colossal strength to force open a doorway.
+  components:
+  - type: EntityTargetAction
+    useDelay: 8
+    range: 2
+    whitelist:
+      components:
+        - Door
+    itemIconStyle: NoItem
+    icon:
+      sprite: _DV/CosmicCult/Icons/cosmiccult_abilities.rsi
+      state: ingress
+    event: !type:EventCosmicColossusIngress
+
+- type: entity
+  id: ActionCosmicColossusHibernate
+  name: Slumber Shell
+  description: Slumber your body for a period of time to regenerate integrity. Must be done on stable ground.
+  components:
+  - type: LimitedCharges
+    maxCharges: 2
+  - type: ConfirmableAction
+    popup: cosmicability-hibernate-confirm
+    primeTime: 2 #increased to give you more time to figure out where you want to put it
+  - type: InstantAction
+    useDelay: 120
+    checkCanInteract: false
+    itemIconStyle: NoItem
+    icon:
+      sprite: _DV/CosmicCult/Icons/cosmiccult_abilities.rsi
+      state: slumber
+    event: !type:EventCosmicColossusHibernate {}
+
+- type: entity
+  id: ActionCosmicColossusEffigy
+  name: Beckon an Effigy
+  description: Draw out an Effigy of Entropy into realspace.
+  components:
+  - type: InstantAction
+    useDelay: 999
+    itemIconStyle: NoItem
+    icon:
+      sprite: _DV/CosmicCult/Icons/cosmiccult_abilities.rsi
+      state: nova
+    event: !type:EventCosmicColossusEffigy {}

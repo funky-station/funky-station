@@ -1,4 +1,6 @@
+// SPDX-FileCopyrightText: 2025 MaiaArai <158123176+YaraaraY@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Steve <marlumpy@gmail.com>
+// SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 marc-pelletier <113944176+marc-pelletier@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
@@ -14,7 +16,7 @@ namespace Content.Server._Funkystation.Atmos.EntitySystems;
 
 /// <summary>
 /// Assmos - Extinguisher Nozzle
-/// Sets atmospheric temperature to 20C and removes all toxins. 
+/// Sets atmospheric temperature to 20C and removes all toxins.
 /// </summary>
 public sealed class AtmosResinDespawnSystem : EntitySystem
 {
@@ -38,6 +40,7 @@ public sealed class AtmosResinDespawnSystem : EntitySystem
 
         var gasesToRemove = new[]
         {
+            Gas.WaterVapor,
             Gas.CarbonDioxide,
             Gas.Plasma,
             Gas.Tritium,
@@ -70,8 +73,7 @@ public sealed class AtmosResinDespawnSystem : EntitySystem
 
         if (totalMolesRemoved > 0)
         {
-            tempMix.AdjustMoles(Gas.Oxygen, totalMolesRemoved * 0.3f);
-            tempMix.AdjustMoles(Gas.Nitrogen, totalMolesRemoved * 0.7f);
+            tempMix.AdjustMoles(Gas.WaterVapor, totalMolesRemoved * 1.0f);
         }
 
         _atmo.Merge(mix, tempMix);

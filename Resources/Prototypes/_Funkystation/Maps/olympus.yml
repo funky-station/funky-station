@@ -1,3 +1,4 @@
+# SPDX-FileCopyrightText: 2025 willow <willowzeta632146@proton.me>
 # SPDX-FileCopyrightText: 2025 wilowzeta <willowzeta632146@proton.me>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -6,8 +7,7 @@
   id: Olympus
   mapName: 'Olympus'
   mapPath: /Maps/_Funkystation/olympus.yml
-  minPlayers: 50
-  maxPlayers: 100 # maybe good for events
+  minPlayers: 75
   stations:
     Olympus:
       stationProto: StandardNanotrasenStation
@@ -38,8 +38,7 @@
           Reporter: [ 2, 2 ]
           #engineering
           ChiefEngineer: [ 1, 1 ]
-          AtmosphericTechnician: [ 2, 2 ]
-          StationEngineer: [ 4, 4 ]
+          StationEngineer: [ 6, 6 ]
           TechnicalAssistant: [ 4, 4 ]
           #medical
           ChiefMedicalOfficer: [ 1, 1 ]
@@ -69,7 +68,7 @@
           Passenger: [ -1, -1 ]
           Clown: [ 1, 1 ]
           Mime: [ 1, 1 ]
-          Musician: [ 5, 5 ]
+          Musician: [ 2, 2 ]
           Boxer: [ 1, 1 ]
       - type: StationBlobConfig
         stageBegin: 75

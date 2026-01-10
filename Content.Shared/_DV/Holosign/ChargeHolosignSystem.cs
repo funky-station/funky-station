@@ -1,6 +1,11 @@
+// SPDX-FileCopyrightText: 2025 Amethyst <52829582+jackel234@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
 // SPDX-FileCopyrightText: 2025 Steve <marlumpy@gmail.com>
+// SPDX-FileCopyrightText: 2025 Tobias Berger <toby@tobot.dev>
+// SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 jackel234 <jackel234@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 marc-pelletier <113944176+marc-pelletier@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -30,8 +35,6 @@ public sealed class ChargeHolosignSystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
 
-    private HashSet<Entity<IComponent>> _signs = new();
-
     public override void Initialize()
     {
         base.Initialize();
@@ -57,7 +60,6 @@ public sealed class ChargeHolosignSystem : EntitySystem
         if (!TryComp<LimitedChargesComponent>(ent, out var charges))
             return;
 
-        var containers = Comp<ContainerManagerComponent>(ent);
         for (var i = 0; i < charges.MaxCharges; i++)
         {
             if (!TrySpawnInContainer(ent.Comp.SignProto, ent, ent.Comp.ContainerId, out var signUid))
@@ -68,8 +70,6 @@ public sealed class ChargeHolosignSystem : EntitySystem
 
             ent.Comp.Signs.Add(signUid.Value);
         }
-
-        DirtyField(ent, ent.Comp, nameof(ChargeHolosignProjectorComponent.Signs));
     }
 
     private void OnBeforeInteract(Entity<ChargeHolosignProjectorComponent> ent, ref BeforeRangedInteractEvent args)
@@ -83,12 +83,14 @@ public sealed class ChargeHolosignSystem : EntitySystem
         // first check if there's any existing holofans to clear
         var coords = args.ClickLocation.SnapToGrid(EntityManager);
         var mapCoords = _transform.ToMapCoordinates(coords);
-        _signs.Clear();
-        _lookup.GetEntitiesInRange(ent.Comp.SignComponent, mapCoords, 0.25f, _signs);
-        if (_signs.Count == 0)
+
+        var signs = new HashSet<Entity<IComponent>>();
+        
+        _lookup.GetEntitiesInRange(ent.Comp.SignComponent, mapCoords, 0.25f, signs);
+        if (signs.Count == 0)
             TryPlaceSign((ent, ent, charges), coords, args.User);
         else
-            TryRemoveSign((ent, ent, charges), _signs.First(), args.User);
+            TryRemoveSign((ent, ent, charges), signs.First(), args.User);
 
         args.Handled = true;
     }
@@ -125,7 +127,9 @@ public sealed class ChargeHolosignSystem : EntitySystem
         }
 
         foreach (var signUid in remQueue)
+        {
             ent.Comp.Signs.Remove(signUid);
+        }
 
         // spawn replacements for holosigns we couldn't recall
         for (var i = count; i < charges.MaxCharges; i++)
@@ -139,8 +143,6 @@ public sealed class ChargeHolosignSystem : EntitySystem
             _charges.AddCharges(ent.Owner, 1, charges);
             ent.Comp.Signs.Add(signUid.Value);
         }
-
-        DirtyField(ent, ent.Comp, nameof(ChargeHolosignProjectorComponent.Signs));
     }
 
     public bool TryPlaceSign(Entity<ChargeHolosignProjectorComponent?, LimitedChargesComponent?> ent, EntityCoordinates coords, EntityUid user)

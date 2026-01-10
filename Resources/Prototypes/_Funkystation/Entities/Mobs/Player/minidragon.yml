@@ -1,0 +1,230 @@
+# SPDX-FileCopyrightText: 2025 SigmaTheDragon <162711378+SigmaTheDragon@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  name: mini dragon
+  id: BaseMobMiniDragon
+  parent: [ SimpleSpaceMobBase, FlyingMobBase ]
+  description: It's a mini dragon, sometimes also known as a poodle dragon. These small and suprisingly hardy space dragons are not actually baby dragons, but are closely related to full sized dragons. While friendlier than your average dragon, they tend to have eccentric personalities and a penchant for greed to match their draconic ancestry.
+  abstract: true
+  components:
+    - type: InputMover
+    - type: MobMover
+    - type: HTN
+      rootTask:
+        task: XenoCompound
+      blackboard:
+        NavSmash: !type:Bool
+          true
+    - type: Sprite
+      drawdepth: Mobs
+      sprite: _Funkystation/Mobs/Pets/minidragon.rsi
+      layers:
+      - map: [ "enum.DamageStateVisualLayers.Base" ]
+        state: alive
+    - type: CombatMode
+    - type: Physics
+    - type: Fixtures
+      fixtures:
+        fix1:
+          shape:
+            !type:PhysShapeCircle
+            radius: 0.3
+          density: 60
+          mask:
+            - FlyingMobMask
+          layer:
+            - FlyingMobLayer
+    - type: MobThresholds
+      thresholds:
+        0: Alive
+        200: Critical
+        250: Dead
+    - type: Stamina
+      critThreshold: 200
+    - type: DamageStateVisuals
+      states:
+        Alive:
+          Base: alive
+          BaseUnshaded: mouth
+        Critical:
+          Base: crit
+          BaseUnshaded: crit_mouth
+        Dead:
+          Base: dead
+          BaseUnshaded: dead_mouth
+    - type: Butcherable
+      spawned:
+        - id: FoodMeatDragon
+          amount: 1
+        - id: MaterialToothSpaceCarp1
+          amount: 4
+        - id: MaterialCarpScale1 # Funky 
+          amount: 5    
+    - type: MeleeWeapon
+      altDisarm: false
+      soundHit:
+        path: /Audio/Weapons/Xeno/alien_claw_flesh3.ogg
+      damage:
+        types:
+          Piercing: 10
+          Slash: 10
+    - type: TypingIndicator
+      proto: lizard
+    - type: Tag
+      tags:
+        - DoorBumpOpener
+        - CannotSuicide
+    - type: LizardAccent
+    - type: Speech
+      speechSounds: Lizard
+      speechVerb: Reptilian
+      allowedEmotes: ['Thump', 'Chirp', 'Gurgle', 'Weh']
+    - type: InteractionPopup
+      successChance: 0.5 
+      interactSuccessString: petting-success-minidragon
+      interactFailureString: petting-failure-minidragon
+      interactFailureSound:
+        path: /Audio/Effects/bite.ogg
+    - type: Body # Shitmed: Special carp organs
+      prototype: Carp
+    - type: SurgeryTarget # Shitmed
+    - type: UserInterface # Shitmed
+      interfaces:
+        enum.SurgeryUIKey.Key:
+          type: SurgeryBui
+    - type: NightVision # EE edit
+      isActive: true
+      toggleAction: null
+      color: "#50595C"
+      activateSound: null
+      deactivateSound: null
+    - type: CombatPower
+      factor: 4
+    - type: Puller
+      needsHands: false
+    - type: MovementSpeedModifier
+      baseWalkSpeed: 3
+      baseSprintSpeed: 4
+      weightlessModifier: 1.5
+    - type: MobState
+    - type: MobStateActions
+      actions:
+        Critical:
+        - ActionCritSuccumb
+        - ActionCritLastWords 
+    - type: SlowOnDamage
+      speedModifierThresholds:
+        75: 0.8
+        100: 0.6 
+    - type: StatusEffects
+      allowed:
+      - SlowedDown
+      - Electrocution
+      - ForcedSleep
+      - TemporaryBlindness
+      - Pacified
+      - RadiationProtection
+      - Drowsiness
+      - Adrenaline
+    - type: Metabolizer
+      solutionOnBody: false
+      updateInterval: 0.25
+      metabolizerTypes: [ Dragon ]
+      groups:
+      - id: Medicine
+      - id: Poison
+    - type: Flammable
+      damage:
+        types: {}
+    - type: Temperature
+      heatDamageThreshold: 1200
+    - type: Prying # Open door from xeno.yml.
+      pryPowered: true
+      force: true
+      speedModifier: 3
+      useSound:
+        path: /Audio/Items/crowbar.ogg
+    - type: PassiveDamage
+      allowedStates:
+      - Alive
+      - Critical
+      damageCap: 250
+      damage:
+        groups:
+          Brute: -0.4
+          Burn: -0.4
+          Toxin: -0.4
+
+- type: entity
+  name: mini dragon
+  parent: BaseMobMiniDragon
+  id: MobMiniDragon
+  components:
+    - type: Sprite
+      layers:
+      - map: [ "enum.DamageStateVisualLayers.Base" ]
+        state: alive
+      - map: [ "enum.DamageStateVisualLayers.BaseUnshaded" ]
+        state: mouth
+        shader: unshaded
+    - type: RandomSprite
+      available:
+      - enum.DamageStateVisualLayers.Base:
+          alive: Rainbow
+        enum.DamageStateVisualLayers.BaseUnshaded:
+          mouth: ""
+    - type: GhostRole
+      prob: 1
+      makeSentient: true
+      allowSpeech: true
+      allowMovement: true
+      name: ghost-role-information-mini-dragon-name
+      description: ghost-role-information-mini-dragon-description
+      rules: ghost-role-information-mini-dragon-rules
+      raffle:
+        settings: default
+      mindRoles:
+      - MindRoleGhostRoleSoloAntagonist
+    - type: GhostTakeoverAvailable
+    - type: NpcFactionMember
+      factions:
+      - Passive
+    - type: FactionException
+
+- type: entity
+  name: domesticated mini dragon
+  parent: BaseMobMiniDragon
+  id: MobMiniDragonFriendly
+  components:
+    - type: Sprite
+      layers:
+      - map: [ "enum.DamageStateVisualLayers.Base" ]
+        state: alive
+      - map: [ "enum.DamageStateVisualLayers.BaseUnshaded" ]
+        state: mouth
+        shader: unshaded
+    - type: RandomSprite
+      available:
+      - enum.DamageStateVisualLayers.Base:
+          alive: Rainbow
+        enum.DamageStateVisualLayers.BaseUnshaded:
+          mouth: ""
+    - type: GhostRole
+      prob: 1
+      makeSentient: true
+      allowSpeech: true
+      allowMovement: true
+      name: ghost-role-information-mini-dragon-friendly-name
+      description: ghost-role-information-mini-dragon-friendly-description
+      rules: ghost-role-information-mini-dragon-friendly-rules
+      raffle:
+        settings: default
+      mindRoles:
+      - MindRoleGhostRoleNeutral
+    - type: GhostTakeoverAvailable
+    - type: NpcFactionMember
+      factions:
+      - Passive
+    - type: FactionException

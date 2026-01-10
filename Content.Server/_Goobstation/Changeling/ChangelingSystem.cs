@@ -7,10 +7,14 @@
 // SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
 // SPDX-FileCopyrightText: 2024 yglop <95057024+yglop@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Drywink <43855731+Drywink@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Drywink <hugogrethen@gmail.com>
+// SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+Pronana@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Skye <57879983+Rainbeon@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 // SPDX-FileCopyrightText: 2025 TheSecondLord <88201625+TheSecondLord@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 V <97265903+formlessnameless@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 ferynn <117872973+ferynn@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 ferynn <witchy.girl.me@gmail.com>
 // SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
@@ -32,6 +36,7 @@ using Content.Server.Objectives.Components;
 using Content.Server.Polymorph.Components;
 using Content.Server.Polymorph.Systems;
 using Content.Server.Popups;
+using Content.Server.Species.Arachnid;
 using Content.Server.Store.Systems;
 using Content.Server.Stunnable;
 using Content.Server.Zombies;
@@ -47,6 +52,7 @@ using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Cuffs;
 using Content.Shared.Cuffs.Components;
+using Content.Server.Damage.Systems;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Systems;
@@ -71,8 +77,10 @@ using Content.Shared.Nutrition.Components;
 using Content.Shared.Polymorph;
 using Content.Shared.Popups;
 using Content.Shared.Revolutionary.Components;
+using Content.Shared.Species.Arachnid;
 using Content.Shared.StatusEffect;
 using Content.Shared.Store.Components;
+using Robust.Shared.Containers;
 using Robust.Server.Audio;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
@@ -83,6 +91,7 @@ using Robust.Shared.Serialization.Manager;
 using Robust.Shared.Timing;
 using System.Linq;
 using System.Numerics;
+using Content.Shared.Atmos.Rotting;
 
 namespace Content.Server.Changeling;
 
@@ -125,14 +134,17 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
     [Dependency] private readonly SharedCuffableSystem _cuffs = default!;
     [Dependency] private readonly SharedPuddleSystem _puddle = default!;
     [Dependency] private readonly StunSystem _stun = default!;
+    [Dependency] private readonly CocoonSystem _cocoon = default!;
+    [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly SharedJitteringSystem _jitter = default!;
     [Dependency] private readonly ExplosionSystem _explosionSystem = default!;
     [Dependency] private readonly BodySystem _bodySystem = default!;
     [Dependency] private readonly IComponentFactory _compFactory = default!;
+    [Dependency] private readonly SharedRottingSystem _rottingSystem = default!;
 
     public EntProtoId ArmbladePrototype = "ArmBladeChangeling";
     public EntProtoId FakeArmbladePrototype = "FakeArmBladeChangeling";
-    
+
     public EntProtoId BoneShardPrototype = "ThrowingStarChangeling";
 
     public EntProtoId ArmorPrototype = "ChangelingClothingOuterArmor";
@@ -140,6 +152,8 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
 
     public EntProtoId SpacesuitPrototype = "ChangelingClothingOuterHardsuit";
     public EntProtoId SpacesuitHelmetPrototype = "ChangelingClothingHeadHelmetHardsuit";
+
+    private System.Random RandomNumberGenerator = default!;
 
     private readonly List<TargetBodyPart> _bodyPartBlacklist =
     [
@@ -164,6 +178,8 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
     public override void Initialize()
     {
         base.Initialize();
+
+        RandomNumberGenerator = new System.Random();
 
         SubscribeLocalEvent<ChangelingComponent, ComponentStartup>(OnStartup);
         SubscribeLocalEvent<ChangelingComponent, MobStateChangedEvent>(OnMobStateChange);
@@ -274,7 +290,7 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
             _popup.PopupEntity(Loc.GetString("popup-changeling-biomass-deficit-high"), uid, uid, PopupType.LargeCaution);
             _jitter.DoJitter(uid, TimeSpan.FromSeconds(comp.BiomassUpdateCooldown), true, amplitude: 5, frequency: 10);
         }
-        else if (comp.Biomass <= comp.MaxBiomass / 3)
+        else if (comp.Biomass <= comp.MaxBiomass / 5)
         {
             // vomit (funkystation) VOMIT LIKE ITS A HUGE GIVEAWAY IF ITS BLOOD VRO LIKE WTF???
             if (random == 1)
@@ -299,7 +315,7 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
                 _jitter.DoJitter(uid, TimeSpan.FromSeconds(.5f), true, amplitude: 5, frequency: 10);
             }
         }
-        else if (comp.Biomass <= comp.MaxBiomass / 2 && random == 3)
+        else if (comp.Biomass <= comp.MaxBiomass / 3 && random == 3)
         {
             if (random == 1)
                 _popup.PopupEntity(Loc.GetString("popup-changeling-biomass-deficit-low"), uid, uid, PopupType.SmallCaution);
@@ -740,6 +756,7 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
         RemComp<HungerComponent>(uid);
         RemComp<ThirstComponent>(uid);
         EnsureComp<ZombieImmuneComponent>(uid);
+        _rottingSystem.TrySetPerishableTime(uid, TimeSpan.MaxValue);
 
         // add actions
         foreach (var actionId in comp.BaseChangelingActions)
@@ -754,7 +771,7 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
         UpdateBiomass(uid, comp, 0);
         // make their blood unreal
         _blood.ChangeBloodReagent(uid, "BloodChangeling");
-        
+
         // funky - give changelings roundstart hivemind
         GrantHivemindAccess(uid);
     }

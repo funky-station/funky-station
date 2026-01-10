@@ -21,11 +21,14 @@
 # SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
 # SPDX-FileCopyrightText: 2024 yglop <95057024+yglop@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Eris <erisfiregamer1@gmail.com>
+# SPDX-FileCopyrightText: 2025 Kit <nikkiestes0@gmail.com>
 # SPDX-FileCopyrightText: 2025 Rainbow <ev0lvkitten@gmail.com>
 # SPDX-FileCopyrightText: 2025 Skye <57879983+Rainbeon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 TheSecondLord <88201625+TheSecondLord@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 V <97265903+formlessnameless@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 ferynn <117872973+ferynn@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 ferynn <witchy.girl.me@gmail.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
@@ -40,6 +43,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
+    checkCanInteract: false
     itemIconStyle: NoItem
     icon:
       sprite: _Goobstation/Changeling/changeling_abilities.rsi
@@ -127,6 +131,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
+    checkCanInteract: false
     itemIconStyle: NoItem
     icon:
       sprite: _Goobstation/Changeling/changeling_abilities.rsi
@@ -143,6 +148,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
+    checkCanInteract: false
     useDelay: 5
     itemIconStyle: NoItem
     icon:
@@ -155,8 +161,9 @@
 
 - type: entity
   id: ActionEnterStasis
+  parent: BaseSuicideAction
   name: Enter regenerative stasis
-  description: Fake your death and start regenerating. Drains all your chemicals. Consumes biomass.
+  description: Fake your death and start regenerating. Drains all your chemicals. Consumes a small amount of biomass.
   categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
@@ -168,14 +175,14 @@
       state: stasis_enter
     event: !type:EnterStasisEvent {}
   - type: ChangelingAction
-    biomassCost: 1
+    biomassCost: 4
     useInLesserForm: true
     useInLastResort: true
 
 - type: entity
   id: ActionExitStasis
   name: Exit stasis
-  description: Rise from the dead with full health. Costs 60 chemicals.
+  description: Rise from the dead with full health. Costs 50 chemicals.
   categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
@@ -187,7 +194,7 @@
       state: stasis_exit
     event: !type:ExitStasisEvent {}
   - type: ChangelingAction
-    chemicalCost: 60
+    chemicalCost: 50
     useInLesserForm: true
     useInLastResort: true
 
@@ -199,6 +206,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
+    checkCanInteract: false
     useDelay: 2
     itemIconStyle: NoItem
     icon:
@@ -231,6 +239,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
+    checkCanInteract: false
     useDelay: 2
     itemIconStyle: NoItem
     icon:
@@ -239,7 +248,7 @@
     event: !type:ToggleChitinousArmorEvent {}
   - type: ChangelingAction
     chemicalCost: 25
-    requireAbsorbed: 2
+    requireAbsorbed: 3
 
 - type: entity
   id: ActionToggleOrganicShield
@@ -248,6 +257,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
+    checkCanInteract: false
     useDelay: 2
     itemIconStyle: NoItem
     icon:
@@ -265,6 +275,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
+    checkCanInteract: false
     useDelay: 10
     itemIconStyle: NoItem
     icon:
@@ -283,6 +294,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
+    checkCanInteract: false
     useDelay: 10
     itemIconStyle: NoItem
     icon:
@@ -301,6 +313,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
+    checkCanInteract: false
     useDelay: 1
     itemIconStyle: NoItem
     icon:
@@ -463,11 +476,11 @@
 - type: entity
   id: ActionAnatomicPanacea
   name: Anatomic Panacea
-  description: Cure yourself of diseases, disabilities, radiation, toxins, drunkedness and brain damage. Costs 30 chemicals.
+  description: Cure yourself of diseases, disabilities, radiation, toxins, drunkedness and brain damage. Costs a small amount of biomass.
   categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
-    useDelay: 30
+    useDelay: 10
     checkCanInteract: false
     checkConsciousness: false
     itemIconStyle: NoItem
@@ -476,8 +489,9 @@
       state: anatomic_panacea
     event: !type:ActionAnatomicPanaceaEvent {}
   - type: ChangelingAction
-    chemicalCost: 30
     useInLesserForm: true
+    requireBiomass: false
+    biomassCost: 4
 
 - type: entity
   id: ActionAugmentedEyesight
@@ -551,11 +565,11 @@
 - type: entity
   id: ActionFleshmend
   name: Fleshmend
-  description: Rapidly heal yourself. Costs 35 chemicals.
+  description: Rapidly heal yourself. Costs a moderate amount of biomass.
   categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
-    useDelay: 30
+    useDelay: 10
     checkCanInteract: false
     itemIconStyle: NoItem
     icon:
@@ -563,8 +577,9 @@
       state: fleshmend
     event: !type:ActionFleshmendEvent {}
   - type: ChangelingAction
-    chemicalCost: 35
     useInLesserForm: true
+    requireBiomass: true
+    biomassCost: 8
 
 - type: entity
   id: ActionLastResort
@@ -609,6 +624,7 @@
   components:
   - type: InstantAction
     useDelay: 2
+    checkCanInteract: false
     itemIconStyle: NoItem
     icon:
       sprite: _Goobstation/Changeling/changeling_abilities.rsi

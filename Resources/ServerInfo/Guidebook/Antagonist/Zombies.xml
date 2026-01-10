@@ -4,6 +4,8 @@ SPDX-FileCopyrightText: 2023 DerbyX <50932435+DerbyX@users.noreply.github.com>
 SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
 SPDX-FileCopyrightText: 2024 UBlueberry <161545003+UBlueberry@users.noreply.github.com>
 SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+SPDX-FileCopyrightText: 2026 harro <foxthingsemail@gmail.com>
+
 
 SPDX-License-Identifier: MIT
 -->
@@ -12,7 +14,7 @@ SPDX-License-Identifier: MIT
   # Zombies
   
   <Box>
-    [color=#999999][italic]"They're coming to get you, Barbara!"[/italic][/color]
+    [color=#999999][bold]Zombies [/bold]are a team-based cooperative conversion antagonist. Zombies may be encountered during the initial infected game mode or through exposure to the drug Romerol, which can be purchased by Syndicate nuclear operatives or potentially discovered in maintenance pills[/color]
   </Box>
   <Box>
     <GuideEntityEmbed Entity="SignBiohazard" Caption=""/>
@@ -20,43 +22,60 @@ SPDX-License-Identifier: MIT
 
   Zombies are conversion antagonists that infect all beings that they bite with [color=#7e916e]Romerol[/color], a deadly, contagious virus that can easily spread if not contained.
 
-  <Box>
-    <GuideReagentEmbed Reagent="Romerol"></GuideReagentEmbed>
-  </Box>
+## Infection Progression
 
-  ## Inital Infected
-  You are patient zero. You have [color=#7e916e]Romerol[/color] coursing through your veins and you have a grand desire to share it with every single flesh being you see.
+Zombie infection progresses through several distinct stages. [bold]If the patient dies at any stage, they will instantly become a walking dead![/bold]
 
-  Upon learning of your infection, [italic]all bets are off[/italic]. You have only so much time before you turn, and you want to [bold]maximize your chances of taking over the station.[/bold]
-  Use this time to prepare weapons, gear, and traps. [italic]Space Law means nothing to you now.[/italic]
+### Stage 1; Asymptomatic
+For approximately the first 15 minutes following infection, the patient will display [bold]no visible symptoms[/bold] or ill effects. [bold]During this stage, Ambuzol can be used[/bold] to cure the infection before symptoms appear completely. 
 
-  ## Transmission
-  Zombies only know how to shamble, bite and throw themselves against barricades. Their bite [bold]may not always transmit [color=#7e916e]Romerol[/color][/bold] through heavy layers of clothing, but it'll definitely hurt.
+### Stage 2; Early
+At roughly 15 minutes after infection,[bold] visible coughing and sneezing will begin, marking the onset of airborne transmission to those around the infected.[/bold] Wearing a face covering, such as a surgical mask or gas mask, reduces the chance of catching airborne infection by 90 percent. Activating internals, such as using an emergency oxygen tank, reduces your chance of contracting airborne transmission by 100 percent. Around this time, patients will begin to experience very slight poison damage. This damage is easily identifiable using a health HUD or medical scanner. Gradual poison damage with no identifiable source is often sufficient to indicate early infection, provided the examining medical personnel are paying adequate attention. By this stage, patients likely will report feelings of paranoia.
 
-  The undead can also chomp on a crit or dead body to [bold]instantly convert[/bold] it to a zombie.
+### Stage 3; Advanced
+45 minutes after infection, [bold]zombie blood will begin replacing the patient’s normal blood[/bold]. This causes the patient to take [bold]significantly increased damage[/bold]. Drawing blood and placing it in a chemmaster will definitely confirm infection at this stage.
 
-  ## Zombie Attributes
-  A zombie can be identified by dark green skin, red eyes, slow movement, rotting smell, and lack of motor functions. They'll drop their headset and gloves upon turning, and cuffs don't work against their vicious bite.
+### Stage 4; Terminal
+55 minutes after infection, the patient will enter Stage 4. Poison damage becomes extremely severe, making survival difficult. Patients will begin to show aggression by this point.[bold]If the patient survives 5 minutes in Stage 4, zombification will occur automatically.[/bold]
 
-  Zombies are known for their [bold]resilience to slashes, bruises, poison and cold.[/bold] They can survive in a vacuum and do not require food, water, air, or sleep. The undead do, however, [italic]take increased burn and shock damage.[/italic]
 
-  ## Survival
-  When the infection sweeps and [color=#cb0000]Security[/color] falls, it's up to the [bold]survivors[/bold] to try and make it to Central Command.
+## Surgical Treatment
 
-  [bold]Constructing barricades[/bold] around departments or [bold]bolting doors[/bold] can buy enough time to make weapons, save lives or make a plan.
+[bold]The infection is caused by a physical tumor located on a random part of the patient’s body. If this tumor is surgically removed before zombification, all symptoms immediately cease, and the patient is fully cured.[/bold] A health analyzer can identify the tumor’s location for surgery. This procedure does not require the use of a surgical bed; any bed or roller bed will do. Once the tumor is removed, it must be ground or burnt to prevent cross-contamination.
 
-  Remember that when it really hits the fan, [italic]you've gotta do what you gotta do[/italic], as long as it's not at the expense of fellow survivors. Scavenge what you need from those who haven't made it.
+## Chemical Treatment
 
-  ## Cure
-  [bold]Those who are already undead can only be cured by [color=red]death.[/color][/bold]
+The drug [bold]Ambuzol [/bold]may be used to treat infected patients. In its base form, Ambuzol functions as a weak antibiotic and is only capable of curing zombie infection during Stage 1; Asymptomatic. Due to Ambuzol having no overdose threshold, it may be administered freely as a preventative measure. This is especially recommended for medbay personnel, who are at increased risk due to frequent proximity to infected individuals and potential carriers. Ambuzol becomes ineffective once the infection progresses beyond the first stage. In these cases, an enhanced formulation known as Ambuzol Plus is required. [bold]Ambuzol Plus will instantly cure zombie infection at any stage[/bold], provided the patient has not already undergone full zombification. A[bold]dditionally, it permanently makes the taker immune to all further infection[/bold]! Ambuzol Plus is difficult to manufacture and requires cooperation with the Botany department to obtain the necessary components. Its synthesis requires the chemical Omnizine and the rare reagent Hypotium.
 
-  If you're infected but not zombified yet, using [color=#86caf7]Ambuzol[/color] will cure you but won't prevent re-infection. [color=#1274b5]Ambuzol Plus[/color] will cure and prevent re-infection only while alive.
+## Post Zombification
 
-  <Box>
-    <GuideReagentEmbed Reagent="Ambuzol"></GuideReagentEmbed>
-  </Box>
-  <Box>
-    <GuideReagentEmbed Reagent="AmbuzolPlus"></GuideReagentEmbed>
-  </Box>
+Once an individual has undergone full zombification, curing is no longer possible except through cloning procedures. Infected individuals remain highly viral even while dead. As such, dispatched zombies must either be ejected into space or cremated immediately, unless they can be securely quarantined and transported to Central Command for cloning, or borged.
+
+## Bite-Based Transmission
+
+Zombie infection may also be transmitted through physical bites. Fully zombified individuals possess a powerful bite attack. When biting a victim, the zombie will partially heal itself and has a chance to transmit infection to the bitten individual. If the victim is unclothed, each bite carries an 80 percent chance of infection. [bold]Wearing clothing reduces this chance progressively[/bold], down to 25 percent at maximum coverage. Use of a bio-suit or some kinds of hardsuits can reduce infection chances further. Each bite calculates infection chance independently. Multiple bites significantly increase the likelihood of infection, even when substantial protective equipment is worn. [bold]Any critical or dead lifeform bit by an infected will instantly reanimate the victim.[/bold] This includes animals, or even other antagonists like slimes, spiders, carp or even rat kings and dragons!
+
+## How to Combat Zombies
+
+Once zombified, zombies lose the ability to communicate verbally, reason in complex structures, and utilize equipment. Upon transformation, they drop gloves and medical items and rely entirely on their bite for offense. This makes zombies extremely dangerous at close range but ineffective at distance. The most reliable method of survival is to prevent zombies from closing distance. Zombies are slow-moving [bold]but take reduced damage from nearly all conventional sources, with the notable exception of heat-based damage[/bold]. The following countermeasures are considered highly effective:
+• Incendiary ammunition  
+• Laser weaponry  
+• Welding tools, including emergency welders found in standard emergency toolboxes  
+• Electric grills and electric fencing, which cause severe damage and can quickly neutralize groups  
+• Engaging through windows with lasers to maintain distance while dealing sustained damage  
+Due to their resistance to most brute and ballistic damage and immunity to space, keeping distance and utilizing grills and windows is imperative.
+
+## Playing a Zombie
+
+Playing a zombie differs significantly from nearly all other antagonist roles. Zombies are, by nature, unintelligent and operate on simple instincts rather than complex reasoning. Because of this, [bold]zombies are only permitted to attack for one of the following purposes[/bold]:
+• Gaining additional infections  
+• Destroying obstacles directly blocking the path to infecting others  
+Zombies should ignore silicons entirely unless those entities actively interfere. If a silicon becomes hostile, it may be incapacitated only and [bold]must not be destroyed[/bold]. [bold]If an individual has been killed and does not convert after sustained biting, such as cases involving changelings or individuals treated with Ambuzol Plus, zombies must cease biting immediately and move on. Corpses that can not be converted should be ignored entirely.[/bold] Zombies are not permitted to guard bodies to prevent recovery, [bolditalic]nor are they allowed to intentionally destroy critical infrastructure.[/bolditalic] This includes telecommunications systems, communications consoles, and deliberate spacing or sabotage of rooms solely to render them uninhabitable for non-zombified crew. Zombie bites cause significant structural damage. This capability should be used exclusively to clear paths toward living targets. Zombies may chew through walls, doors, windows, and other obstructions that impede movement toward potential infections. Zombies may also use alt-click interactions to pry open doors, including bolted doors, functioning similarly to a Jaws of Life.
+
+## Initial Infected
+
+The Initial Infected game mode is the standard zombies game mode. In Initial Infected, a small number of individuals [bold]begin the round already carrying the zombie virus.[/bold] These individuals may succumb at any point and immediately begin their zombified rampage. To zombies, the Initial Infected are clearly identifiable by a purple icon. [bold]For all intents and purposes, Initial Infected are to be treated as already converted zombies.[/bold] Initial Infected must be completely ignored and [bold]should not be attacked under any circumstances[/bold]. They are considered allied entities regardless of their current appearance or behavior. The only exception is self-defense. If an Initial Infected directly attacks a zombie, retaliation is permitted within reason.
+
+
 
 </Document>

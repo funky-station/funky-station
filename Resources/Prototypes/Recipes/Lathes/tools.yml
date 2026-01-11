@@ -269,3 +269,11 @@
   materials:
     Plastic: 250
     Glass: 150
+
+- type: latheRecipe
+  id: Floodlight
+  result: FloodlightEmpty
+  completetime: 3
+  materials:
+    Steel: 400
+    Glass: 400

@@ -277,6 +277,18 @@
         acts: [ "Destruction" ]
 
 - type: entity
+  name: floodlight
+  id: FloodlightEmpty
+  suffix: Empty
+  parent: Floodlight
+  description: A pole with powerful mounted lights on it.
+  components:
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+
+- type: entity
   name: broken floodlight
   id: FloodlightBroken
   parent: BaseItem

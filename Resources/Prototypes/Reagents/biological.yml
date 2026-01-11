@@ -418,7 +418,11 @@
         factor: 1.5
     Poison:
       effects:
+      - !type:AdjustReagent
+        conditions:
+        reagent: GreyMatter  #prion disease
+        amount: 0.5
       - !type:HealthChange
         damage:
           types:
-            Cellular: 2
+            Cellular: 0.5

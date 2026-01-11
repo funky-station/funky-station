@@ -88,21 +88,33 @@
   id: PolyFleshJared
   suffix: "Polymorph"
   components:
-  - type: ReplacementAccent
+  - type: StutteringAccent
+    matchRandomProb: 0.1
+    fourRandomProb: 0
+    threeRandomProb: 0
+    cutRandomProb: 0
 
 - type: entity
   parent: MobFleshClamp
   id: PolyFleshClamp
   suffix: "Polymorph"
   components:
-  - type: ReplacementAccent
+  - type: StutteringAccent
+    matchRandomProb: 0.1
+    fourRandomProb: 0
+    threeRandomProb: 0
+    cutRandomProb: 0
 
 - type: entity
   parent: MobFleshLover
   id: PolyFleshLover
   suffix: "Polymorph"
   components:
-  - type: ReplacementAccent
+  - type: StutteringAccent
+    matchRandomProb: 0.1
+    fourRandomProb: 0
+    threeRandomProb: 0
+    cutRandomProb: 0
 
 - type: entity
   parent:
@@ -118,7 +130,11 @@
   id: PolyFleshGolem
   suffix: "Polymorph"
   components:
-  - type: ReplacementAccent
+  - type: StutteringAccent
+    matchRandomProb: 0.1
+    fourRandomProb: 0
+    threeRandomProb: 0
+    cutRandomProb: 0
   - type: DamageStateVisuals
     states:
       Alive:

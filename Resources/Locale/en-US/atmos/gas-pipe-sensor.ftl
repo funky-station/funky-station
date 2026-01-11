@@ -11,4 +11,4 @@ gas-pipe-sensor-teg-hot-loop = TEG hot loop
 gas-pipe-sensor-teg-cold-loop = TEG cold loop
 
 # Funkystation sensor UI
-gas-pipe-sensor-window-title = pipe sensor
+gas-pipe-sensor-window-title = Pipe Sensor

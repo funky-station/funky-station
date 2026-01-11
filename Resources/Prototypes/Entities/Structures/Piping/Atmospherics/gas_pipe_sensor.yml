@@ -67,7 +67,6 @@
     - Unstackable
   - type: ActivatableUI # Funkystation: Pipe sensor analyzer
     key: enum.GasPipeSensorUiKey.Key
-    interactRange: 2.5
   - type: UserInterface # Funkystation: Pipe sensor analyzer
     interfaces:
       enum.GasPipeSensorUiKey.Key:

@@ -1,6 +1,6 @@
 using Content.Server._Funkystation.Genetics.Mutations.Components;
+using Content.Server.Damage.Systems;
 using Content.Shared.Damage.Components;
-using Content.Shared.Damage.Systems;
 
 namespace Content.Server._Funkystation.Genetics.Mutations.Systems;
 

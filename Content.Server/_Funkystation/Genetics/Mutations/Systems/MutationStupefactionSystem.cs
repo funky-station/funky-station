@@ -1,8 +1,8 @@
 using Content.Server._Funkystation.Genetics.Mutations.Components;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
-using Content.Shared.Damage.Systems;
 using Content.Shared.Damage.Components;
+using Content.Server.Damage.Systems;
 
 namespace Content.Server._Funkystation.Genetics.Mutations.Systems;
 

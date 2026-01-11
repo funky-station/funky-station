@@ -1,7 +1,8 @@
 {
     "version": 1,
     "license": "CC-BY-SA-3.0",
-    "copyright": "Taken from vgstation at commit https://github.com/vgstation-coders/vgstation13/commit/cdbcb1e858b11f083994a7a269ed67ef5b452ce9, Module actions by Scarky0. chem, adv-chem, and adv-mining by mubururu_, xenoborg actions by Samuka-C (github), advclown by ThatGuyUSA",
+    "copyright": "Taken from vgstation at commit https://github.com/vgstation-coders/vgstation13/commit/cdbcb1e858b11f083994a7a269ed67ef5b452ce9. atmos-module created by @acalicodragon.itch.io (bluesky).",
+    "copyright": "Taken from vgstation at commit https://github.com/vgstation-coders/vgstation13/commit/cdbcb1e858b11f083994a7a269ed67ef5b452ce9, Module actions by Scarky0. chem, adv-chem, and adv-mining by mubururu_",
     "size": {
         "x": 32,
         "y": 32
@@ -50,6 +51,9 @@
             "name":"mining-module"
         },
         {
+            "name":"adv-mining-module"
+        },
+        {
             "name":"light-replacer-module"
         },
         {
@@ -69,6 +73,12 @@
         },
         {
             "name":"adv-surgery-module"
+        },
+        {
+            "name":"chem-module"
+        },
+        {
+            "name":"adv-chem-module"
         },
         {
             "name":"adv-diagnosis-module"

@@ -5,6 +5,7 @@
 # SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 ThatOneMoon <91613003+ThatOneMoon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
@@ -106,6 +107,7 @@
   - type: PhysicalComposition
     materialComposition:
       Steel: 3000 # 30 sheets
+      RewardTicket: 3000 
 
 - type: entity
   parent: BaseScrap
@@ -135,7 +137,7 @@
     materialComposition:
       Plastic: 1500 # 15 sheets
       Glass: 500 # 5 sheets
-
+      RewardTicket: 2000
 - type: entity
   parent: BaseScrap
   id: ScrapAirlock1
@@ -160,6 +162,7 @@
   - type: PhysicalComposition
     materialComposition:
       Steel: 1500 # 15 sheets
+      RewardTicket: 1500
 
 - type: entity
   parent: BaseScrap
@@ -178,6 +181,7 @@
     materialComposition:
       Steel: 200 # 2 sheets
       Glass: 500 # 5 sheets
+      RewardTicket: 700
 
 - type: entity
   parent: BaseScrap
@@ -191,6 +195,7 @@
   - type: PhysicalComposition
     materialComposition:
       Plastic: 500 # 3 sheets
+      RewardTicket: 500
 
 - type: entity
   parent: BaseScrap
@@ -203,9 +208,10 @@
     - state: junk-camera
   - type: PhysicalComposition
     materialComposition:
-      Steel: 100 # 1 sheets
+      Steel: 200 # 1 sheets
       Plastic: 200 # 2 sheets
-      Glass: 300 # 3 sheets
+      Glass: 400 # 3 sheets
+      RewardTicket: 800
 
 - type: entity
   parent: BaseScrap
@@ -220,6 +226,7 @@
     materialComposition:
       Steel: 300 # 3 sheets
       Plastic: 300 # 3 sheets
+      RewardTicket: 600
 
 - type: entity
   parent: BaseScrap
@@ -236,6 +243,7 @@
     materialComposition:
       Steel: 200 # 2 sheets
       Plastic: 200 # 2 sheets
+      RewardTicket: 400
 
 - type: entity
   parent: BaseScrap
@@ -255,6 +263,7 @@
   - type: PhysicalComposition
     materialComposition:
       Steel: 1500 # 15 sheets
+      RewardTicket: 1500
 
 - type: entity
   parent: BaseScrap
@@ -271,6 +280,7 @@
     materialComposition:
       Plastic: 800 # 8 sheets
       Steel: 200 # 2 sheets
+      RewardTicket: 1000
 
 - type: entity
   parent: BaseScrap
@@ -285,6 +295,7 @@
     materialComposition:
       Steel: 400 # 4 sheets
       Plastic: 200 # 2 sheets
+      RewardTicket: 600
 
 - type: entity
   parent: BaseScrap
@@ -304,6 +315,7 @@
   - type: PhysicalComposition
     materialComposition:
       Steel: 2000 # 20 sheets
+      RewardTicket: 2000
 
 - type: entity
   parent: BaseScrap
@@ -323,6 +335,7 @@
   - type: PhysicalComposition
     materialComposition:
       Steel: 2000 # 20 sheets
+      RewardTicket: 2000
 
 - type: entity
   parent: BaseScrap
@@ -338,6 +351,7 @@
     materialComposition:
       Steel: 300 # 3 sheets
       Plastic: 400 # 4 sheets
+      RewardTicket: 700
 
 - type: entity
   parent: BaseScrap
@@ -360,6 +374,7 @@
     materialComposition:
       Steel: 200 # 2 sheets
       Plastic: 600 # 6 sheets
+      RewardTicket: 800
 
 - type: entity
   parent: BaseScrap
@@ -377,6 +392,7 @@
     materialComposition:
       Steel: 500 # 5 sheets
       Plastic: 500 # 5 sheets
+      RewardTicket: 1000
 
 - type: entity
   parent: BaseScrap
@@ -398,6 +414,7 @@
   - type: PhysicalComposition
     materialComposition:
       Plastic: 500 # 5 sheets
+      RewardTicket: 500  
 
 - type: entity
   parent: BaseScrap
@@ -413,6 +430,7 @@
   - type: PhysicalComposition
     materialComposition:
       Plastic: 1500 # 15 sheets
+      RewardTicket: 1500
 
 - type: entity
   parent: BaseScrap
@@ -429,6 +447,7 @@
     materialComposition:
       Steel: 500 # 5 sheets
       Plastic: 400 # 4 sheets
+      RewardTicket: 900
 
 - type: entity
   parent: BaseScrap
@@ -445,6 +464,7 @@
     materialComposition:
       Gold: 500 # 5 ingots
       Plastic: 400 # 4 sheets
+      RewardTicket: 1400
 
 - type: entity
   parent: BaseScrap
@@ -471,6 +491,7 @@
     materialComposition:
       Glass: 500 # 5 sheets
       Plastic: 100 # 1 sheet
+      RewardTicket: 600
 
 - type: entity
   parent: BaseScrapLarge
@@ -486,9 +507,10 @@
       - state: old_generator_plasma_fuel_leak
   - type: PhysicalComposition
     materialComposition:
-      Steel: 4000 # 40 sheets
+      Steel: 3000 # 30 sheets
       Plasma: 2500 # 25 sheets
       Plastic: 500 # 5 sheets
+      RewardTicket: 6000
 
 - type: entity
   parent: BaseScrapLarge
@@ -502,9 +524,10 @@
       - state: old_generator_plasma
   - type: PhysicalComposition
     materialComposition:
-      Steel: 4000 # 40 sheets
+      Steel: 3000 # 30 sheets
       Plasma: 1000 # 10 sheets
       Plastic: 500 # 5 sheets
+      RewardTicket: 4500
 
 - type: entity
   parent: BaseScrapLarge
@@ -529,11 +552,13 @@
   - type: MultiHandedItem
   - type: PhysicalComposition
     materialComposition:
-      Steel: 4000 # 40 sheets
+      Steel: 3000 # 30 sheets
       Uranium: 2500 # 25 sheets
       Plastic: 500 # 5 sheets
+      RewardTicket: 8500
   - type: RadiationSource
     intensity: 1.0
+
 
 - type: entity
   parent: BaseScrapLarge
@@ -553,9 +578,10 @@
         nothing: ""
   - type: PhysicalComposition
     materialComposition:
-      Steel: 4000 # 40 sheets
+      Steel: 3000 # 30 sheets
       Uranium: 1000 # 10 sheets
       Plastic: 500 # 5 sheets
+      RewardTicket: 5500
   - type: RadiationSource
     intensity: 0.5
 
@@ -572,6 +598,7 @@
   - type: PhysicalComposition
     materialComposition:
       Steel: 1500 # 15 sheets
+      RewardTicket: 1500
 
 - type: entity
   parent: BaseScrap
@@ -587,3 +614,4 @@
     materialComposition:
       Steel: 200 # 2 sheets
       Uranium: 500 # 5 sheets
+      RewardTicket: 1200

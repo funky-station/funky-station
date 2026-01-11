@@ -61,15 +61,19 @@
 # SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 strO0pwafel <153459934+strO0pwafel@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Amethyst <52829582+jackel234@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Catazeus <200477155+Catazeus@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Icepick <122653407+Icepicked@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 JoulesBerg <104539820+JoulesBerg@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 MaiaArai <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 W.xyz() <tptechteam@gmail.com>
+# SPDX-FileCopyrightText: 2025 Xcybitt <197952719+Xcybitt@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 empty0set <16693552+empty0set@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 empty0set <empty0set@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 jackel234 <jackel234@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
@@ -105,6 +109,9 @@
   - type: StealTarget
     stealGroup: IDCard
   - type: NanoChatCard # DeltaV
+  - type: Utensil # Funky - for eating mystery scran
+    types:
+    - Fork
 
 #IDs with layers
 
@@ -112,6 +119,7 @@
   parent: IDCardStandard
   id: PassengerIDCard
   name: assistant ID card
+  description: Surprisingly, actually gray.
   components:
   - type: Sprite
     layers:
@@ -124,9 +132,10 @@
     job: Passenger
 
 - type: entity
-  parent: PassengerIDCard
+  parent: [IDCardStandard, BaseEngineeringContraband]
   id: TechnicalAssistantIDCard
   name: technical assistant ID card
+  description: Still in mint condition, as if just printed.
   components:
   - type: PresetIdCard
     job: TechnicalAssistant
@@ -139,9 +148,10 @@
       state: TechnicalAssistant
 
 - type: entity
-  parent: PassengerIDCard
+  parent: [IDCardStandard, BaseMedicalContraband]
   id: MedicalInternIDCard
   name: medical intern ID card
+  description: Seems to be very sterile. You could eat food with this and not worry about cleanliness.
   components:
   - type: PresetIdCard
     job: MedicalIntern
@@ -154,9 +164,10 @@
       state: MedicalIntern
 
 - type: entity
-  parent: PassengerIDCard
+  parent: [IDCardStandard, BaseScienceContraband]
   id: ResearchAssistantIDCard
   name: research assistant ID card
+  description: Seems clean for a researcher's ID card.
   components:
   - type: PresetIdCard
     job: ResearchAssistant
@@ -169,9 +180,10 @@
       state: ResearchAssistant
 
 - type: entity
-  parent: PassengerIDCard
+  parent: [IDCardStandard, BaseSecurityContraband]
   id: SecurityCadetIDCard
   name: security cadet ID card
+  description: Oddly, hasn't been stained in blood.
   components:
   - type: PresetIdCard
     job: SecurityCadet
@@ -184,9 +196,10 @@
       state: SecurityCadet
 
 - type: entity
-  parent: PassengerIDCard
+  parent: [IDCardStandard, BaseCivilianContraband]
   id: ServiceWorkerIDCard
   name: service worker ID card
+  description: Seems to be well worn.
   components:
   - type: PresetIdCard
     job: ServiceWorker
@@ -202,6 +215,7 @@
   parent: [IDCardStandard, BaseGrandTheftContraband]
   id: CaptainIDCard
   name: captain ID card
+  description: Gold plated with blue accents. Now this is a true display of wealth. Ignore that the gold plating is just gold foil.
   components:
   - type: Sprite
     layers:
@@ -224,9 +238,10 @@
     stealGroup: CaptainIDCard
 
 - type: entity
-  parent: IDCardStandard
+  parent: [IDCardStandard, BaseSecurityContraband]
   id: SecurityIDCard
   name: security ID card
+  description: Seems to be somewhat stained by blood.
   components:
   - type: Sprite
     layers:
@@ -239,9 +254,10 @@
     job: SecurityOfficer
 
 - type: entity
-  parent: IDCardStandard
+  parent: [IDCardStandard, BaseSecurityContraband]
   id: WardenIDCard
   name: warden ID card
+  description: The ID seems to have been cloned off a previous ID card.
   components:
   - type: Sprite
     layers:
@@ -254,9 +270,10 @@
     job: Warden
 
 - type: entity
-  parent: IDCardStandard
+  parent: [IDCardStandard, BaseEngineeringContraband]
   id: EngineeringIDCard
   name: engineer ID card
+  description: Seems to have a lot of scratches. Surprising that it actually works.
   components:
   - type: Sprite
     layers:
@@ -269,9 +286,10 @@
     job: StationEngineer
 
 - type: entity
-  parent: IDCardStandard
+  parent: [IDCardStandard, BaseMedicalContraband]
   id: MedicalIDCard
   name: medical ID card
+  description: Not as shiny, still as sterile.
   components:
   - type: Sprite
     layers:
@@ -284,9 +302,10 @@
     job: MedicalDoctor
 
 - type: entity
-  parent: IDCardStandard
+  parent: [IDCardStandard, BaseMedicalContraband]
   id: ParamedicIDCard
   name: paramedic ID card
+  description: Not as shiny, still as sterile.
   components:
   - type: Sprite
     layers:
@@ -299,9 +318,10 @@
     job: Paramedic
 
 - type: entity
-  parent: IDCardStandard
+  parent: [IDCardStandard, BaseMedicalContraband]
   id: ChemistIDCard
   name: chemist ID card
+  description: Also has discoloured blotches. You didn't use this as a stirring tool, right?
   components:
   - type: Sprite
     layers:
@@ -314,9 +334,10 @@
     job: Chemist
 
 - type: entity
-  parent: IDCardStandard
+  parent: [IDCardStandard, BaseCargoContraband]
   id: CargoIDCard
   name: cargo ID card
+  description: Seems to be well used.
   components:
   - type: Sprite
     layers:
@@ -329,9 +350,10 @@
     job: CargoTechnician
 
 - type: entity
-  parent: IDCardStandard
+  parent: [IDCardStandard, BaseCargoContraband]
   id: SalvageIDCard
   name: salvage ID card
+  description: Also smells like ash.
   components:
   - type: Sprite
     layers:
@@ -344,9 +366,10 @@
     job: SalvageSpecialist
 
 - type: entity
-  parent: IDCardStandard
+  parent: [IDCardStandard, BaseCommandContraband]
   id: QuartermasterIDCard
   name: quartermaster ID card
+  description: Used, yet still polished.
   components:
   - type: Sprite
     layers:
@@ -362,9 +385,10 @@
     job: Quartermaster
 
 - type: entity
-  parent: IDCardStandard
+  parent: [IDCardStandard, BaseScienceContraband]
   id: ResearchIDCard
   name: research ID card
+  description: Seems to have residue of an unknown gooey substance.
   components:
   - type: Sprite
     layers:
@@ -377,9 +401,10 @@
     job: Scientist
 
 - type: entity # funkystation
-  parent: IDCardStandard
+  parent: [IDCardStandard, BaseScienceContraband]
   id: RoboticsIDCard
   name: robotics ID card
+  description: Seems to have been scratched up.
   components:
   - type: Sprite
     layers:
@@ -392,9 +417,10 @@
     job: Roboticist
 
 - type: entity
-  parent: IDCardStandard
+  parent: [IDCardStandard, BaseCivilianContraband]
   id: ClownIDCard
   name: clown ID card
+  description: Surprisingly, not as slippery as the PDA.
   components:
   - type: Sprite
     layers:
@@ -407,9 +433,10 @@
     job: Clown
 
 - type: entity
-  parent: IDCardStandard
+  parent: [IDCardStandard, BaseCivilianContraband]
   id: MimeIDCard
   name: mime ID card
+  description: ...
   components:
   - type: Sprite
     layers:
@@ -422,9 +449,10 @@
     job: Mime
 
 - type: entity
-  parent: IDCardStandard
+  parent: [IDCardStandard, BaseCivilianContraband]
   id: ChaplainIDCard
   name: chaplain ID card
+  description: Smells like holy water and incense.
   components:
   - type: Sprite
     layers:
@@ -437,9 +465,10 @@
     job: Chaplain
 
 - type: entity
-  parent: IDCardStandard
+  parent: [IDCardStandard, BaseJanitorContraband]
   id: JanitorIDCard
   name: janitor ID card
+  description: Not as clean as you'd expect.
   components:
   - type: Sprite
     layers:
@@ -452,9 +481,10 @@
     job: Janitor
 
 - type: entity
-  parent: IDCardStandard
+  parent: [IDCardStandard, BaseCivilianContraband]
   id: BartenderIDCard
   name: bartender ID card
+  description: Smells like wood.
   components:
   - type: Sprite
     layers:
@@ -467,9 +497,10 @@
     job: Bartender
 
 - type: entity
-  parent: IDCardStandard
+  parent: [IDCardStandard, BaseCivilianContraband]
   id: PunPunIDCard
   name: pun pun ID card
+  description: Smells like monkey fur.
   components:
   - type: Sprite
     layers:
@@ -486,9 +517,10 @@
     - DoorBumpOpener
 
 - type: entity
-  parent: IDCardStandard
+  parent: [IDCardStandard, BaseCivilianContraband]
   id: ChefIDCard
   name: chef ID card
+  description: Smells like good food.
   components:
   - type: Sprite
     layers:
@@ -500,10 +532,33 @@
   - type: PresetIdCard
     job: Chef
 
+#Funkystation start
 - type: entity
-  parent: IDCardStandard
+  parent: [IDCardStandard, BaseCivilianContraband]
+  id: YipYapIDCard
+  name: yip-yap ID card
+  description: Smells like kobold.
+  components:
+    - type: Sprite
+      layers:
+        - state: default #base
+        - state: decal-stripe-service #decal
+        - sprite: Interface/Misc/job_icons.rsi #icon
+          offset: "-0.125, 0.09375"
+          state: Chef
+    - type: PresetIdCard
+      job: Chef
+      name: Yip-Yap
+    - type: Tag #  Ignore Chameleon tags
+      tags:
+        - DoorBumpOpener
+#Funkystation end
+
+- type: entity
+  parent: [IDCardStandard, BaseCivilianContraband]
   id: BotanistIDCard
   name: botanist ID card
+  description: Smells like plants.
   components:
   - type: Sprite
     layers:
@@ -516,9 +571,10 @@
     job: Botanist
 
 - type: entity
-  parent: IDCardStandard
+  parent: [IDCardStandard, BaseCivilianContraband]
   id: LibrarianIDCard
   name: librarian ID card
+  description: Smells like books.
   components:
   - type: Sprite
     layers:
@@ -531,9 +587,10 @@
     job: Librarian
 
 - type: entity
-  parent: IDCardStandard
+  parent: [IDCardStandard, BaseCivilianContraband]
   id: LawyerIDCard
   name: lawyer ID card
+  description: Seems to have a layer of dried up coffee.
   components:
   - type: Sprite
     layers:
@@ -546,9 +603,10 @@
     job: Lawyer
 
 - type: entity
-  parent: IDCardStandard
+  parent: [IDCardStandard, BaseCommandContraband]
   id: HoPIDCard
   name: head of personnel ID card
+  description: Smells of corgi fur.
   components:
   - type: Sprite
     layers:
@@ -564,9 +622,10 @@
     job: HeadOfPersonnel
 
 - type: entity
-  parent: IDCardStandard
+  parent: [IDCardStandard, BaseCommandContraband]
   id: CEIDCard
   name: chief engineer ID card
+  description: Polished and cared for, yet seems to be rarely used.
   components:
   - type: Sprite
     layers:
@@ -582,9 +641,10 @@
     job: ChiefEngineer
 
 - type: entity
-  parent: IDCardStandard
+  parent: [IDCardStandard, BaseCommandContraband]
   id: CMOIDCard
   name: chief medical officer ID card
+  description: Seems to be surgically cleaned every shift. You really shouldn't dirty it.
   components:
   - type: Sprite
     layers:
@@ -600,9 +660,10 @@
     job: ChiefMedicalOfficer
 
 - type: entity
-  parent: IDCardStandard
+  parent: [IDCardStandard, BaseCommandContraband]
   id: RDIDCard
   name: research director ID card
+  description: If it isn't for the markings, you would probably mix this up with other ID cards.
   components:
   - type: Sprite
     layers:
@@ -618,9 +679,10 @@
     job: ResearchDirector
 
 - type: entity
-  parent: IDCardStandard
+  parent: [IDCardStandard, BaseCommandContraband]
   id: HoSIDCard
   name: head of security ID card
+  description: Smells of gunpowder and iron.
   components:
   - type: Sprite
     layers:
@@ -639,6 +701,7 @@
   parent: IDCardStandard
   id: VisitorIDCard
   name: visitor ID card
+  description: Smells like nothing on station.
   components:
   - type: Sprite
     layers:
@@ -654,9 +717,10 @@
     job: Visitor
 
 - type: entity
-  parent: IDCardStandard
+  parent: [IDCardStandard, BaseSecurityContraband]
   id: BrigmedicIDCard
   name: brigmedic ID card
+  description: Smells like medical supplies and iron.
   components:
   - type: Sprite
     layers:
@@ -667,9 +731,10 @@
       state: Brigmedic
 
 - type: entity
-  parent: IDCardStandard
+  parent: [IDCardStandard, BaseCentcommContraband]
   id: CentcomIDCard
   name: command officer ID card
+  description: Smells of bureaucracy and money.
   components:
   - type: Sprite
     layers:
@@ -685,9 +750,10 @@
     listNumber: false
 
 - type: entity
-  parent: IDCardStandard
+  parent: [IDCardStandard, BaseCentcommContraband]
   id: ERTLeaderIDCard
   name: ERT leader ID card
+  description: Green for control.
   components:
   - type: Sprite
     layers:
@@ -703,9 +769,10 @@
     listNumber: false
 
 - type: entity
-  parent: IDCardStandard
+  parent: [IDCardStandard, BaseCentcommContraband]
   id: ERTChaplainIDCard
   name: ERT chaplain ID card
+  description: Green for sanctity.
   components:
   - type: Sprite
     layers:
@@ -721,9 +788,10 @@
     listNumber: false
 
 - type: entity
-  parent: IDCardStandard
+  parent: [IDCardStandard, BaseCentcommContraband]
   id: ERTEngineerIDCard
   name: ERT engineer ID card
+  description: Green for repairs.
   components:
   - type: Sprite
     layers:
@@ -739,9 +807,10 @@
     listNumber: false
 
 - type: entity
-  parent: IDCardStandard
+  parent: [IDCardStandard, BaseCentcommContraband]
   id: ERTJanitorIDCard
   name: ERT janitor ID card
+  description: Green for cleanliness.
   components:
   - type: Sprite
     layers:
@@ -757,9 +826,10 @@
     listNumber: false
 
 - type: entity
-  parent: IDCardStandard
+  parent: [IDCardStandard, BaseCentcommContraband]
   id: ERTMedicIDCard
   name: ERT medic ID card
+  description: Green for health.
   components:
   - type: Sprite
     layers:
@@ -775,9 +845,10 @@
     listNumber: false
 
 - type: entity
-  parent: IDCardStandard
+  parent: [IDCardStandard, BaseCentcommContraband]
   id: ERTSecurityIDCard
   name: ERT security ID card
+  description: Green for safety.
   components:
   - type: Sprite
     layers:
@@ -793,9 +864,10 @@
     listNumber: false
 
 - type: entity
-  parent: IDCardStandard
+  parent: [IDCardStandard, BaseCivilianContraband]
   id: MusicianIDCard
   name: musician ID card
+  description: Musically inspiring.
   components:
   - type: Sprite
     layers:
@@ -808,9 +880,10 @@
     job: Musician
 
 - type: entity
-  parent: IDCardStandard
+  parent: [IDCardStandard, BaseCentcommContraband]
   id: CentcomIDCardDeathsquad
   name: death squad ID card
+  description: Smells of laser burns and death.
   components:
   - type: Sprite
     layers:
@@ -879,9 +952,10 @@
     listNumber: false
 
 - type: entity
-  parent: IDCardStandard
+  parent: [IDCardStandard, BaseEngineeringContraband]
   id: AtmosIDCard
   name: atmospheric technician ID card
+  description: Smells of exotic gases.
   components:
   - type: Sprite
     layers:
@@ -894,9 +968,10 @@
     job: AtmosphericTechnician
 
 - type: entity
-  parent: IDCardStandard
+  parent: [IDCardStandard, BaseSyndicateContraband]
   id: SyndicateIDCard
   name: syndicate ID card
+  description: Death and destruction will happen. Whose, is another matter.
   components:
   - type: Sprite
     layers:
@@ -915,9 +990,10 @@
     listNumber: false
 
 - type: entity
-  parent: IDCardStandard
+  parent: [IDCardStandard, BaseMajorContraband]
   id: PirateIDCard
   name: pirate ID card
+  description: Yarr!
   components:
   - type: Sprite
     layers:
@@ -936,9 +1012,10 @@
     listNumber: false
 
 - type: entity
-  parent: IDCardStandard
+  parent: [IDCardStandard, BaseMedicalContraband]
   id: PsychologistIDCard
   name: psychologist ID card
+  description: Seems emotionally stabilizing.
   components:
   - type: Sprite
     layers:
@@ -951,9 +1028,10 @@
     job: Psychologist
 
 - type: entity
-  parent: IDCardStandard
+  parent: [IDCardStandard, BaseCivilianContraband]
   id: ReporterIDCard
   name: reporter ID card
+  description: Smells of ink on paper.
   components:
   - type: Sprite
     layers:
@@ -966,9 +1044,10 @@
     job: Reporter
 
 - type: entity
-  parent: IDCardStandard
+  parent: [IDCardStandard, BaseCivilianContraband]
   id: BoxerIDCard
   name: boxer ID card
+  description: Smells of sweat.
   components:
   - type: Sprite
     layers:
@@ -981,9 +1060,10 @@
     job: Boxer
 
 - type: entity
-  parent: IDCardStandard
+  parent: [IDCardStandard, BaseCivilianContraband]
   id: ZookeeperIDCard
   name: zookeeper ID card
+  description: Smells of animals.
   components:
   - type: Sprite
     layers:
@@ -996,9 +1076,10 @@
     job: Zookeeper
 
 - type: entity
-  parent: IDCardStandard
+  parent: [IDCardStandard, BaseSecurityContraband]
   id: DetectiveIDCard
   name: detective ID card
+  description: Smells of forensic paper and... crayons?
   components:
   - type: Sprite
     layers:
@@ -1053,6 +1134,7 @@
   id: CBURNIDcard
   name: CBURN ID card
   suffix: CBURN
+  description: Smells of burnt flesh.
   components:
   - type: Sprite
     layers:
@@ -1071,6 +1153,7 @@
   id: CluwneIDCard
   name: cluwne ID card
   suffix: Unremoveable
+  description: An accursed ID card.
   components:
   - type: Sprite
     layers:
@@ -1089,6 +1172,7 @@
   parent: EngineeringIDCard
   id: SeniorEngineerIDCard
   name: senior engineer ID card
+  description: This ID seems to have been soldered back together so skillfully that it's almost impossible to see the soldering work.
   components:
   - type: Sprite
     layers:
@@ -1102,6 +1186,7 @@
   parent: CargoIDCard
   id: SeniorCargoIDCard
   name: senior cargo ID card
+  description: Surprisingly, hasn't been sold off for profit.
   components:
   - type: Sprite
     layers:
@@ -1115,6 +1200,7 @@
   parent: ResearchIDCard
   id: SeniorResearcherIDCard
   name: senior researcher ID card
+  description: Surprisingly, hasn't been blown up in an accident.
   components:
   - type: Sprite
     layers:
@@ -1128,6 +1214,7 @@
   parent: MedicalIDCard
   id: SeniorPhysicianIDCard
   name: senior physician ID card
+  description: Surgery, treatment, hellish shifts. This ID card has been with you through thick and thin.
   components:
   - type: Sprite
     layers:
@@ -1141,6 +1228,7 @@
   parent: SecurityIDCard
   id: SeniorOfficerIDCard
   name: senior officer ID card
+  description: Smells faintly of gunpowder and iron.
   components:
   - type: Sprite
     layers:
@@ -1151,9 +1239,10 @@
       state: SeniorOfficer
 
 - type: entity
-  parent: IDCardStandard
+  parent: [IDCardStandard, BaseMagicalContraband]
   id: WizardIDCard
   name: wizard ID card
+  description: Surprisingly, not as magical as you'd expect.
   components:
   - type: Sprite
     layers:
@@ -1173,7 +1262,7 @@
     listNumber: false
 
 - type: entity
-  parent: IDCardStandard
+  parent: [IDCardStandard, BaseCentcommContraband]
   id: UniversalIDCard
   name: universal ID card
   suffix: Admin
@@ -1220,9 +1309,10 @@
 # event-restricted jobs
 
 - type: entity
-  parent: IDCardStandard
+  parent: [IDCardStandard, BaseSecurityContraband]
   id: SecurityClownIDCard
   name: security clown ID card
+  description: An oxymoronic ID card.
   components:
   - type: Sprite
     layers:
@@ -1236,9 +1326,10 @@
     job: SecurityClown
 
 - type: entity
-  parent: IDCardStandard
+  parent: [IDCardStandard, BaseCommandContraband]
   id: CommandMaidIDCard
   name: command maid ID card
+  description: Seems squeaky clean.
   components:
   - type: Sprite
     layers:
@@ -1251,9 +1342,10 @@
     job: CommandMaid
 
 - type: entity
-  parent: IDCardStandard
+  parent: [IDCardStandard, BaseCivilianContraband]
   id: PartyMakerIDCard
   name: party maker ID card
+  description: Let's part-ay!
   components:
   - type: Sprite
     layers:

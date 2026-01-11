@@ -27,18 +27,25 @@
 // SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
 // SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
 // SPDX-FileCopyrightText: 2024 mr-bo-jangles <mr-bo-jangles@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 MaiaArai <158123176+YaraaraY@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Mish <bluscout78@yahoo.com>
 // SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+pronana@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
 // SPDX-License-Identifier: MIT
 
 using System.Linq;
 using Content.Server.Administration.Logs;
+using Content.Server.Atmos.Components;
+using Content.Server.Atmos.EntitySystems;
 using Content.Server.Chemistry.TileReactions;
 using Content.Server.DoAfter;
 using Content.Server.Fluids.Components;
 using Content.Server.Spreader;
+using Content.Shared.Atmos;
+using Content.Shared.Atmos.Components;
 using Content.Shared.Chemistry;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Components.SolutionManager;
@@ -67,6 +74,9 @@ using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
+using Robust.Server.GameObjects;
+using Content.Shared.Audio;
+using Robust.Shared.Audio;
 
 namespace Content.Server.Fluids.EntitySystems;
 
@@ -91,6 +101,9 @@ public sealed partial class PuddleSystem : SharedPuddleSystem
     [Dependency] private readonly StepTriggerSystem _stepTrigger = default!;
     [Dependency] private readonly SpeedModifierContactsSystem _speedModContacts = default!;
     [Dependency] private readonly TileFrictionController _tile = default!;
+    [Dependency] private readonly AtmosphereSystem _atmos = default!;
+    [Dependency] private readonly SharedPointLightSystem _pointLight = default!;
+    [Dependency] private readonly SharedAmbientSoundSystem _ambientSound = default!;
 
     [ValidatePrototypeId<ReagentPrototype>]
     private const string Blood = "Blood";
@@ -108,6 +121,7 @@ public sealed partial class PuddleSystem : SharedPuddleSystem
     private HashSet<EntityUid> _deletionQueue = [];
 
     private EntityQuery<PuddleComponent> _puddleQuery;
+    private EntityQuery<TransformComponent> _xformQuery;
 
     /*
      * TODO: Need some sort of way to do blood slash / vomit solution spill on its own
@@ -120,13 +134,14 @@ public sealed partial class PuddleSystem : SharedPuddleSystem
         base.Initialize();
 
         _puddleQuery = GetEntityQuery<PuddleComponent>();
+        _xformQuery = GetEntityQuery<TransformComponent>();
 
         // Shouldn't need re-anchoring.
         SubscribeLocalEvent<PuddleComponent, AnchorStateChangedEvent>(OnAnchorChanged);
         SubscribeLocalEvent<PuddleComponent, SolutionContainerChangedEvent>(OnSolutionUpdate);
         SubscribeLocalEvent<PuddleComponent, SpreadNeighborsEvent>(OnPuddleSpread);
         SubscribeLocalEvent<PuddleComponent, SlipEvent>(OnPuddleSlip);
-
+        SubscribeLocalEvent<PuddleFireLightComponent, ComponentShutdown>(OnFireLightShutdown);
         SubscribeLocalEvent<EvaporationComponent, MapInitEvent>(OnEvaporationMapInit);
 
         InitializeTransfers();
@@ -342,18 +357,112 @@ public sealed partial class PuddleSystem : SharedPuddleSystem
         _reactive.DoEntityReaction(args.Slipped, splitSol, ReactionMethod.Touch);
     }
 
+    private float _ignitionTimer;
+
     /// <inheritdoc/>
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
         foreach (var ent in _deletionQueue)
         {
+            UpdateFlammability(ent, null);
             Del(ent);
         }
 
         _deletionQueue.Clear();
 
         TickEvaporation();
+
+        // Check for auto-ignition from hot air
+        _ignitionTimer += frameTime;
+        if (_ignitionTimer >= 1.0f)
+        {
+            _ignitionTimer -= 1.0f;
+            var query = EntityQueryEnumerator<PuddleComponent, TransformComponent>();
+            while (query.MoveNext(out var uid, out var puddle, out var xform))
+            {
+                if (xform.GridUid is not { } gridUid)
+                    continue;
+
+                // Optimization: Don't check empty puddles
+                if (puddle.Solution == null || puddle.Solution.Value.Comp.Solution.Volume <= FixedPoint2.Zero)
+                    continue;
+
+                if (!TryComp(gridUid, out MapGridComponent? mapGrid))
+                    continue;
+
+
+                if (!TryComp(gridUid, out GridAtmosphereComponent? gridAtmos))
+                    continue;
+
+                var tileIndices = _map.TileIndicesFor(gridUid, mapGrid, xform.Coordinates);
+
+                var gridEnt = (gridUid, gridAtmos, (GasTileOverlayComponent?)null);
+                var mixture = _atmos.GetTileMixture(gridEnt, null, tileIndices);
+
+                if (mixture == null || mixture.Temperature < 373.15f)
+                    continue;
+
+                _atmos.HotspotExpose((gridUid, gridAtmos), tileIndices, mixture.Temperature, mixture.Volume, null, true);
+            }
+        }
+
+        // fire lights and sound
+        var lightQuery = EntityQueryEnumerator<PuddleFireLightComponent>();
+        var curTime = _timing.CurTime;
+        while (lightQuery.MoveNext(out var uid, out var fireLight))
+        {
+            if (curTime > fireLight.ExtinguishTime)
+            {
+                RemComp<PuddleFireLightComponent>(uid);
+            }
+            else
+            {
+                if (fireLight.LightEntity.HasValue && TryComp(fireLight.LightEntity.Value, out PointLightComponent? lightComp))
+                {
+                    var energy = 2.0f + _random.NextFloat(-0.5f, 0.5f);
+                    _pointLight.SetEnergy(fireLight.LightEntity.Value, energy, lightComp);
+                }
+            }
+        }
+    }
+
+    /// <summary>
+    /// when the component is removed we ensure the dummy light entity is also deleted
+    /// </summary>
+    private void OnFireLightShutdown(Entity<PuddleFireLightComponent> ent, ref ComponentShutdown args)
+    {
+        if (ent.Comp.LightEntity.HasValue && !TerminatingOrDeleted(ent.Comp.LightEntity.Value))
+        {
+            QueueDel(ent.Comp.LightEntity.Value);
+            ent.Comp.LightEntity = null;
+        }
+    }
+    public override void OnPuddleBurn(Entity<PuddleComponent> entity, ref TileFireEvent args)
+    {
+        base.OnPuddleBurn(entity, ref args);
+
+        var fireLight = EnsureComp<PuddleFireLightComponent>(entity);
+
+        fireLight.ExtinguishTime = _timing.CurTime + TimeSpan.FromSeconds(3.0f);
+
+        if (fireLight.LightEntity == null || TerminatingOrDeleted(fireLight.LightEntity.Value))
+        {
+            var coords = Transform(entity).Coordinates;
+            fireLight.LightEntity = Spawn(null, coords);
+
+            var light = EnsureComp<PointLightComponent>(fireLight.LightEntity.Value);
+            _pointLight.SetColor(fireLight.LightEntity.Value, Color.FromHex("#FF6600"), light);
+            _pointLight.SetRadius(fireLight.LightEntity.Value, 3.0f, light);
+            _pointLight.SetCastShadows(fireLight.LightEntity.Value, false, light);
+            _pointLight.SetEnabled(fireLight.LightEntity.Value, true, light);
+
+            var ambient = EnsureComp<AmbientSoundComponent>(fireLight.LightEntity.Value);
+            _ambientSound.SetSound(fireLight.LightEntity.Value, new SoundPathSpecifier("/Audio/Effects/fire.ogg"), ambient);
+            _ambientSound.SetRange(fireLight.LightEntity.Value, 5f, ambient);
+            _ambientSound.SetVolume(fireLight.LightEntity.Value, -5f, ambient);
+            _ambientSound.SetAmbience(fireLight.LightEntity.Value, true, ambient);
+        }
     }
 
     private void OnSolutionUpdate(Entity<PuddleComponent> entity, ref SolutionContainerChangedEvent args)
@@ -368,10 +477,24 @@ public sealed partial class PuddleSystem : SharedPuddleSystem
         }
 
         _deletionQueue.Remove(entity);
+        UpdateFlammability((entity.Owner, entity.Comp), args.Solution);
         UpdateSlip((entity, entity.Comp), args.Solution);
         UpdateSlow(entity, args.Solution);
         UpdateEvaporation(entity, args.Solution);
         UpdateAppearance(entity, entity.Comp);
+    }
+
+    private void UpdateFlammability(Entity<PuddleComponent?> entity, Solution? solution)
+    {
+        if (solution is null)
+        {
+            _atmos.SetPuddleFlammabilityAtTile(entity.Owner, 0);
+            return;
+        }
+
+        var flammability = solution.GetSolutionFlammability(_prototypeManager);
+        _atmos.SetPuddleFlammabilityAtTile(entity.Owner, flammability);
+
     }
 
     private void UpdateAppearance(EntityUid uid, PuddleComponent? puddleComponent = null,

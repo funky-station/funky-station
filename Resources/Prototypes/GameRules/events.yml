@@ -117,6 +117,7 @@
     - !type:NestedSelector
       tableId: DerelictBorgEventTable
     - id: WizardSpawn
+    - id: ColossusSpawn # Funky
 
 - type: entityTable
   id: DerelictBorgEventTable #For Derelict Borg spawns

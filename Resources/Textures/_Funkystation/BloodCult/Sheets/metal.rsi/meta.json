@@ -1,80 +1,29 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Taken from Paradise Station",
+  "copyright": "Sprited by Tea(d.d.tea on Discord, @teasq.bsky.social) and zergologst (discord) for Funky",
   "size": {
     "x": 32,
     "y": 32
   },
   "states": [
     {
-      "name": "runedmetal",
-      "delays": [
-        [
-          0.40,
-          0.10,
-          0.10,
-          0.10,
-          0.10,
-          0.10,
-          0.10,
-          0.10,
-          0.10,
-          0.10,
-          0.10,
-          0.10,
-          0.10,
-          0.10,
-          0.10,
-		  0.40
-        ]
-      ]
+      "name": "runedmetal"
     },
     {
-      "name": "runedmetal_2",
-      "delays": [
-        [
-          0.40,
-          0.10,
-          0.10,
-          0.10,
-          0.10,
-          0.10,
-          0.10,
-          0.10,
-          0.10,
-          0.10,
-          0.10,
-          0.10,
-          0.10,
-          0.10,
-          0.10,
-		  0.40
-        ]
-      ]
+      "name": "runedmetal_2"
     },
     {
-      "name": "runedmetal_3",
-      "delays": [
-        [
-          0.40,
-          0.10,
-          0.10,
-          0.10,
-          0.10,
-          0.10,
-          0.10,
-          0.10,
-          0.10,
-          0.10,
-          0.10,
-          0.10,
-          0.10,
-          0.10,
-          0.10,
-		  0.40
-        ]
-      ]
+      "name": "runedmetal_3"
+    },
+    {
+      "name": "runedmetal-unshaded"
+    },
+    {
+      "name": "runedmetal_2-unshaded"
+    },
+    {
+      "name": "runedmetal_3-unshaded"
     },
     {
       "name": "runedmetal-inhand-left",

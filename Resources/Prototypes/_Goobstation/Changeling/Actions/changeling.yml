@@ -163,7 +163,7 @@
   id: ActionEnterStasis
   parent: BaseSuicideAction
   name: Enter regenerative stasis
-  description: Fake your death and start regenerating. Drains all your chemicals. Consumes biomass.
+  description: Fake your death and start regenerating. Drains all your chemicals. Consumes a small amount of biomass.
   categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
@@ -175,14 +175,14 @@
       state: stasis_enter
     event: !type:EnterStasisEvent {}
   - type: ChangelingAction
-    biomassCost: 1
+    biomassCost: 4
     useInLesserForm: true
     useInLastResort: true
 
 - type: entity
   id: ActionExitStasis
   name: Exit stasis
-  description: Rise from the dead with full health. Costs 60 chemicals.
+  description: Rise from the dead with full health. Costs 50 chemicals.
   categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
@@ -194,7 +194,7 @@
       state: stasis_exit
     event: !type:ExitStasisEvent {}
   - type: ChangelingAction
-    chemicalCost: 60
+    chemicalCost: 50
     useInLesserForm: true
     useInLastResort: true
 
@@ -476,11 +476,11 @@
 - type: entity
   id: ActionAnatomicPanacea
   name: Anatomic Panacea
-  description: Cure yourself of diseases, disabilities, radiation, toxins, drunkedness and brain damage. Costs 30 chemicals.
+  description: Cure yourself of diseases, disabilities, radiation, toxins, drunkedness and brain damage. Costs a small amount of biomass.
   categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
-    useDelay: 30
+    useDelay: 10
     checkCanInteract: false
     checkConsciousness: false
     itemIconStyle: NoItem
@@ -489,8 +489,9 @@
       state: anatomic_panacea
     event: !type:ActionAnatomicPanaceaEvent {}
   - type: ChangelingAction
-    chemicalCost: 30
     useInLesserForm: true
+    requireBiomass: false
+    biomassCost: 4
 
 - type: entity
   id: ActionAugmentedEyesight
@@ -564,11 +565,11 @@
 - type: entity
   id: ActionFleshmend
   name: Fleshmend
-  description: Rapidly heal yourself. Costs 35 chemicals.
+  description: Rapidly heal yourself. Costs a moderate amount of biomass.
   categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
-    useDelay: 30
+    useDelay: 10
     checkCanInteract: false
     itemIconStyle: NoItem
     icon:
@@ -576,8 +577,9 @@
       state: fleshmend
     event: !type:ActionFleshmendEvent {}
   - type: ChangelingAction
-    chemicalCost: 35
     useInLesserForm: true
+    requireBiomass: true
+    biomassCost: 8
 
 - type: entity
   id: ActionLastResort

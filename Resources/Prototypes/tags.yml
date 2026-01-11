@@ -124,6 +124,8 @@
 # SPDX-FileCopyrightText: 2024 wafehling <wafehling@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
 # SPDX-FileCopyrightText: 2025 88tv <131759102+88tv@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 AftrLite
+# SPDX-FileCopyrightText: 2025 AftrLite <61218133+AftrLite@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Amethyst <52829582+jackel234@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 ArionGekkota <58326140+ArionGekkota@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Dani <57107055+wgreen84@users.noreply.github.com>
@@ -143,12 +145,15 @@
 # SPDX-FileCopyrightText: 2025 Sparlight <twiksparlight@gmail.com>
 # SPDX-FileCopyrightText: 2025 Steve <marlumpy@gmail.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 ThatOneMoon <91613003+ThatOneMoon@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
 # SPDX-FileCopyrightText: 2025 Tiniest Shark <head.rebel@yahoo.com>
 # SPDX-FileCopyrightText: 2025 Toaster <mrtoastymyroasty@gmail.com>
 # SPDX-FileCopyrightText: 2025 Toastermeister <215405651+Toastermeister@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tyranex <bobthezombie4@gmail.com>
 # SPDX-FileCopyrightText: 2025 V <97265903+formlessnameless@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 chromiumboy <50505512+chromiumboy@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 ilyamikcoder <me@ilyamikcoder.com>
 # SPDX-FileCopyrightText: 2025 marc-pelletier <113944176+marc-pelletier@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 mkanke-real <mikekanke@gmail.com>
 # SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
@@ -158,6 +163,12 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
 # PUT YOUR TAGS IN ALPHABETICAL ORDER
+
+- type: Tag
+  id: AnomalySyncronizerCircuitBoard
+
+- type: Tag
+  id: AnomalyLocator
 
 - type: Tag
   id: AccessBreakerImmune
@@ -382,6 +393,12 @@
   id: CableCoil
 
 - type: Tag
+  id: CubanNachos
+
+- type: Tag
+  id: ChowMein
+
+- type: Tag
   id: Candle
 
 - type: Tag
@@ -582,6 +599,12 @@
   id: Cryobeaker
 
 - type: Tag
+  id: Cryosyringe
+
+- type: Tag
+  id: ChimpHandcannon
+
+- type: Tag
   id: CrystalBlack
 
 - type: Tag
@@ -690,6 +713,9 @@
   id: Ectoplasm
 
 - type: Tag
+  id: Enchiladas
+
+- type: Tag
   id: Egg
 
 - type: Tag
@@ -704,8 +730,14 @@
 - type: Tag
   id: ExplosivePassable
 
+- type: Tag
+  id: ExperimentalVesselMachineBoard
+
 - type: Tag # goob edit
   id: Eyes
+
+- type: Tag
+  id: FruitSalad
 
 - type: Tag
   id: Figurine
@@ -718,6 +750,9 @@
 
 - type: Tag
   id: FireAxe
+
+- type: Tag
+  id: ForceFieldProjector
 
 - type: Tag
   id: FirelockElectronics
@@ -773,6 +808,8 @@
 - type: Tag
   id: FlashPayload
 
+- type: Tag
+  id: Gyro
 
 - type: Tag
   id: Galaxythistle
@@ -828,6 +865,9 @@
 
 - type: Tag
   id: GuideEmbeded
+
+- type: Tag
+  id: GorillaGauntlet
 
 - type: Tag
   id: Hamster
@@ -1175,7 +1215,13 @@
   id: MedicalAutoinjector
 
 - type: Tag
+  id: NinjaBombingTargetBlocker # Ninjas will not target this warp point
+
+- type: Tag
   id: NoBlockAnchoring
+
+- type: Tag
+  id: NightVisionGoggles
 
 - type: Tag
   id: NoConsoleSound
@@ -1224,6 +1270,9 @@
 
 - type: Tag
   id: Pancake
+
+- type: Tag
+  id: ParticleDecelerator
 
 - type: Tag
   id: Payload # for grenade/bomb crafting
@@ -1342,6 +1391,9 @@
 - type: Tag
   id: RawMaterial
 
+- type: Tag
+  id: ReactorPart #FarHorizons
+
 # Give this to something that doesn't need any special recycler behavior and just needs deleting.
 - type: Tag
   id: Recyclable
@@ -1387,6 +1439,18 @@
 
 - type: Tag
   id: RollingPin
+
+- type: Tag
+  id: SuperBiteBurger
+
+- type: Tag
+  id: SloppyJoe
+
+- type: Tag
+  id: SlopBowl
+
+- type: Tag
+  id: Stew
 
 - type: Tag
   id: SaltShaker
@@ -1567,6 +1631,8 @@
 - type: Tag
   id: SecurityCyberneticEyes
 
+- type: Tag
+  id: TechDiskTerminalCircuitBoard
 
 - type: Tag # goob edit
   id: Table
@@ -1650,6 +1716,9 @@
   id: Vegetable
 
 - type: Tag
+  id: ValidSalad
+
+- type: Tag
   id: VGRoidInterior
 
 - type: Tag
@@ -1663,6 +1732,9 @@
 
 - type: Tag
   id: Wall
+
+- type: Tag
+  id: Waffle
 
 - type: Tag
   id: WallmountGeneratorAPUElectronics
@@ -1750,5 +1822,8 @@
 
 - type: Tag
   id: XrayCannon
+
+- type: Tag
+  id: XrayVisible
 
 # ALPHABETICAL

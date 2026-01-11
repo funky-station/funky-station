@@ -1,4 +1,7 @@
 # SPDX-FileCopyrightText: 2024 Flareguy <78941145+Flareguy@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 ThatOneMoon <91613003+ThatOneMoon@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
+# SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
 # SPDX-License-Identifier: MIT
@@ -30,12 +33,31 @@
         prob: 0.4
       - id: ClothingUniformJumpsuitOperative
         prob: 0.4
-      - id: ClothingHandsGlovesCombat
+      - id: ClothingHandsGlovesCombatBloodred
         prob: 0.2
       - id: ClothingBeltMilitaryWebbing
         prob: 0.2
-        
-#Garunteed chameleon kit spawn, for the syndicate dropship
+
+#Garunteed nukie meal spawn, for the syndicate dropship # Funky Change, replaced the chameleon kit with a nukie meal, because its such a fucking headache
+- type: entity
+  id: LockerSyndicateShipGearBasicNukieMeal
+  parent: LockerSyndicateShipGearBasic
+  suffix: Basic ship gear, Random, Nukie meal
+  components:
+  - type: StorageFill
+    contents:
+      - id: HappyHonkNukieSnacks
+      - id: CrowbarRed
+        prob: 0.6
+      - id: ClothingShoesBootsCombat
+        prob: 0.4
+      - id: ClothingUniformJumpsuitOperative
+        prob: 0.4
+      - id: ClothingHandsGlovesCombatBloodred
+        prob: 0.2
+      - id: ClothingBeltMilitaryWebbing
+        prob: 0.2
+
 - type: entity
   id: LockerSyndicateShipGearBasicChameleonKit
   parent: LockerSyndicateShipGearBasic
@@ -43,14 +65,14 @@
   components:
   - type: StorageFill
     contents:
-      - id: ClothingBackpackChameleonFill
-      - id: CrowbarRed
-        prob: 0.6
-      - id: ClothingShoesBootsCombat
-        prob: 0.4
-      - id: ClothingUniformJumpsuitOperative
-        prob: 0.4
-      - id: ClothingHandsGlovesCombat
-        prob: 0.2
-      - id: ClothingBeltMilitaryWebbing
-        prob: 0.2
+    - id: ClothingBackpackChameleonFill
+    - id: CrowbarRed
+      prob: 0.6
+    - id: ClothingShoesBootsCombat
+      prob: 0.4
+    - id: ClothingUniformJumpsuitOperative
+      prob: 0.4
+    - id: ClothingHandsGlovesCombatBloodred
+      prob: 0.2
+    - id: ClothingBeltMilitaryWebbing
+      prob: 0.2

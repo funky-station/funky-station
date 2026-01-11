@@ -151,8 +151,32 @@ bounty-item-multiver = Multiver
 bounty-item-dexalin = Dexalin
 bounty-item-space-cleaner = Space Cleaner
 
-bounty-item-scrap-plate = Scrap Plate
-bounty-item-scrap-helmet = Scrap Helmet
+bounty-item-super-bite-burger = Super Bite Burger
+bounty-item-sloppy-joe = Sloppy Joe Burger
+bounty-item-slop-bowl = Slop Bowl
+bounty-item-waffles = Waffles
+bounty-item-cuban-nachos = Cuban Nachos
+bounty-item-valid-salad = Valid Salad
+bounty-item-enchiladas = Enchiladas
+bounty-item-fruit-salad = Fruit Salad
+bounty-item-chow-mein = Chow Mein
+bounty-item-gyros = Gyros
+bounty-item-stew = Stew
+
+bounty-item-tech-disk-terminal = Tech Disk Terminal Circuitboard
+bounty-item-artifact-crusher = Artifact Crusher Circuitboard
+bounty-item-anomaly-syncronizer = Anomaly Syncronizer Circuitboard
+bounty-item-experimental-vessel-machine-board = Experimental Anomaly Vessel Circuitboard
+bounty-item-advanced-syringe = Advanced Syringe 
+bounty-item-chimp-handcannon = C.H.I.M.P. Handcannon 
+bounty-item-force-field-projector = Force Field Projector 
+bounty-item-particle-decelerator = Portable Particle Decelerator 
+bounty-item-night-vision-goggles = Night Vision Goggles
+bounty-item-anomaly-locator = Amomaly Locator
+bounty-item-gorilla-gauntlet = G.O.R.I.L.L.A. Gauntlet
+
+bounty-item-scrap-plate = Scrap Armor Plate
+bounty-item-scrap-helmet = Scrap Armor Helmet
 bounty-item-fire-bomb = Fire Bomb
 bounty-item-improvised-bow = Improvised Bow
 bounty-item-improvised-shotgun = Improvised Shotgun

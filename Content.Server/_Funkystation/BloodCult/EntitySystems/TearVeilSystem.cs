@@ -1,7 +1,7 @@
 // SPDX-FileCopyrightText: 2025 Skye <57879983+Rainbeon@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Terkala <appleorange64@gmail.com>
 // SPDX-FileCopyrightText: 2025 kbarkevich <24629810+kbarkevich@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
-// SPDX-FileCopyrightText: 2025 Terkala <appleorange64@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later OR MIT
 
@@ -25,6 +25,7 @@ using Content.Server.AlertLevel;
 using Content.Server.Station.Systems;
 using Content.Server.Station.Components;
 using Content.Shared.Mind.Components;
+using Content.Server.Chat.Systems;
 
 namespace Content.Server.BloodCult.EntitySystems
 {
@@ -39,8 +40,9 @@ namespace Content.Server.BloodCult.EntitySystems
 		[Dependency] private readonly BloodCultRuleSystem _bloodCultRule = default!;
 		[Dependency] private readonly EntityLookupSystem _lookup = default!;
         [Dependency] private readonly AlertLevelSystem _alertLevel = default!;
-        [Dependency] private readonly StationSystem _station = default!;
+        //[Dependency] private readonly StationSystem _station = default!;
         [Dependency] private readonly SharedTransformSystem _transform = default!;
+		[Dependency] private readonly ChatSystem _chat = default!;
 
 		public override void Initialize()
 		{
@@ -399,6 +401,14 @@ namespace Content.Server.BloodCult.EntitySystems
 			{
 				_alertLevel.SetLevel(stationUid, "delta", true, true, true);
 			}
+
+			// Central Command announcement briefing the crew
+			_chat.DispatchGlobalAnnouncement(
+				Loc.GetString("cult-veil-ritual-central-command-announcement"),
+				"Central Command",
+				playSound: false,
+				colorOverride: Color.FromHex("#cae8e8")
+			);
 		}
 	}
 }

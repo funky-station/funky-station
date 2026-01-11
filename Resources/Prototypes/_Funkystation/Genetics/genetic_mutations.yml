@@ -457,7 +457,7 @@
   id: KeratinHyperplasiaArmor
   coefficients:
     Slash: 90.0
-    Pierce: 90.0
+    Piercing: 90.0
 
 - type: geneticMutation
   id: OssifiedExoskeleton
@@ -614,7 +614,6 @@
   - type: MutationBloodRegeneration
     regenRatePerSecond: 1
     targetPercentage: .75
-    worn: false
 
 - type: geneticMutation
   id: LateralUndulation
@@ -1072,7 +1071,6 @@
   - type: MutationParanoia
     interval: 20.0
     emoteChance: 0.6
-    emoteId: "Scream"
 
 - type: geneticMutation
   id: PhysicallyUnfit
@@ -1443,7 +1441,6 @@
   components:
   - type: InstantAction
     useDelay: 60
-    cooldown: 60
     icon:
       sprite: Objects/Misc/books.rsi
       state: icon_lightning
@@ -1466,7 +1463,6 @@
   components:
   - type: WorldTargetAction
     useDelay: 30
-    cooldown: 30
     itemIconStyle: BigAction
     checkCanAccess: false
     raiseOnUser: true
@@ -1497,15 +1493,14 @@
   components:
   - type: InstantAction
     useDelay: 45
-    cooldown: 45
     icon:
       sprite: Objects/Misc/pens.rsi
       state: pen_centcom
     event: !type:InkSpurtActionEvent
 - type: reagent
   id: Ink
-  name: ink
-  desc: "A thick, dark, viscous liquid"
+  name: reagent-name-ink
+  desc: reagent-desc-ink
   physicalDesc: reagent-physical-desc-viscous
   flavor: bitter
   color: "#000000"
@@ -1530,10 +1525,8 @@
 - type: entity
   id: ActionOpticBlast
   name: "Optic Blast"
-  desc: "Fire a beam of pure energy from your eyes."
   components:
   - type: WorldTargetAction
-    cooldown: 8
     useDelay: 8
     itemIconStyle: BigAction
     checkCanAccess: false
@@ -1564,7 +1557,6 @@
   components:
   - type: InstantAction
     useDelay: 5
-    cooldown: 5
     icon:
       sprite: _Funkystation/Clothing/Head/Hats/pwig.rsi
       state: icon

@@ -29,5 +29,7 @@ loadout-group-magistrate-flavor = Magistrate extras
 loadout-group-geneticist-backpack = Geneticist backpack
 loadout-group-geneticist-head = Geneticist head
 loadout-group-geneticist-jumpsuit = Geneticist jumpsuit
+loadout-group-magistrate-gloves = Geneticist gloves
+loadout-group-magistrate-shoes = Geneticist shoes
 loadout-group-geneticist-outer = Geneticist outer clothing
 loadout-group-geneticist-flavor = Geneticist extras

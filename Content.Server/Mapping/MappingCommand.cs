@@ -15,6 +15,7 @@
 // SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Vasilis <vasilis@pikachu.systems>
 // SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 Terkala <appleorange64@gmail.com>
 // SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
@@ -38,7 +39,7 @@ namespace Content.Server.Mapping
     sealed class MappingCommand : IConsoleCommand
     {
         [Dependency] private readonly IEntityManager _entities = default!;
-        [Dependency] private readonly IMapManager _map = default!;
+        [Dependency] private readonly IResourceManager _resourceManager = default!;
 
         public string Command => "mapping";
         public string Description => Loc.GetString("cmd-mapping-desc");
@@ -51,9 +52,8 @@ namespace Content.Server.Mapping
                 case 1:
                     return CompletionResult.FromHint(Loc.GetString("cmd-hint-mapping-id"));
                 case 2:
-                    var res = IoCManager.Resolve<IResourceManager>();
-                    var opts = CompletionHelper.UserFilePath(args[1], res.UserData)
-                        .Concat(CompletionHelper.ContentFilePath(args[1], res));
+                    var opts = CompletionHelper.UserFilePath(args[1], _resourceManager.UserData)
+                        .Concat(CompletionHelper.ContentFilePath(args[1], _resourceManager));
                     return CompletionResult.FromHintOptions(opts, Loc.GetString("cmd-hint-mapping-path"));
                 case 3:
                     return CompletionResult.FromHintOptions(["false", "true"], Loc.GetString("cmd-mapping-hint-grid"));
@@ -171,10 +171,14 @@ namespace Content.Server.Mapping
             }
 
             // map successfully created. run misc helpful mapping commands
-            if (player.AttachedEntity is { Valid: true } playerEntity &&
-                _entities.GetComponent<MetaDataComponent>(playerEntity).EntityPrototype?.ID != GameTicker.AdminObserverPrototypeName)
+            if (player.AttachedEntity is { Valid: true } playerEntity)
             {
-                shell.ExecuteCommand("aghost");
+                var metaData = _entities.GetComponent<MetaDataComponent>(playerEntity);
+                if (metaData.EntityPrototype?.ID is not null &&
+                    metaData.EntityPrototype.ID != GameTicker.AdminObserverPrototypeName)
+                {
+                    shell.ExecuteCommand("aghost");
+                }
             }
 
             // don't interrupt mapping with events or auto-shuttle

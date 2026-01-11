@@ -108,6 +108,27 @@
     coolingCoefficient: 0.005
   - type: FireResistance
     damageCoefficient: 0.01
+  - type: HeadToggle
+    cooldown: 2
+    invertLogic: true
+    soundToggleOn:
+      path: /Audio/Mecha/mechmove03.ogg
+    soundToggleOff:
+      path: /Audio/Mecha/mechmove03.ogg
+  - type: ComponentToggler
+    components:
+    - type: IngestionBlocker
+    - type: EyeProtection
+    - type: FlashImmunity
+    - type: IdentityBlocker
+    - type: ImageOverlay
+      pathToOverlayImage: "/Textures/Clothing/Head/Welding/weldingTexture.png"
+      additionalColorOverlay: "#000000A0"
+  - type: MultiVisualState
+    prefixVisorOffLightOff: "off"
+    prefixVisorOffLightOn: "on"
+    prefixVisorOnLightOff: "up"
+    prefixVisorOnLightOn: "up-on"
 
 #Engineering Hardsuit
 - type: entity
@@ -133,6 +154,27 @@
         Piercing: 0.9
         Shock: 0.8
         Radiation: 0.5
+  - type: HeadToggle
+    cooldown: 2
+    invertLogic: true
+    soundToggleOn:
+      path: /Audio/Mecha/mechmove03.ogg
+    soundToggleOff:
+      path: /Audio/Mecha/mechmove03.ogg
+  - type: ComponentToggler
+    components:
+    - type: IngestionBlocker
+    - type: EyeProtection
+    - type: FlashImmunity
+    - type: IdentityBlocker
+    - type: ImageOverlay
+      pathToOverlayImage: "/Textures/Clothing/Head/Welding/weldingTexture.png"
+      additionalColorOverlay: "#000000A0"
+  - type: MultiVisualState
+    prefixVisorOffLightOff: "off"
+    prefixVisorOffLightOn: "on"
+    prefixVisorOnLightOff: "up"
+    prefixVisorOnLightOn: "up-on"
 
 #Spationaut Hardsuit
 - type: entity
@@ -412,6 +454,27 @@
     lowPressureMultiplier: 1000
   - type: FireResistance
     damageCoefficient: 0.6
+  - type: HeadToggle
+    cooldown: 2
+    invertLogic: true
+    soundToggleOn:
+      path: /Audio/Mecha/mechmove03.ogg
+    soundToggleOff:
+      path: /Audio/Mecha/mechmove03.ogg
+  - type: ComponentToggler
+    components:
+    - type: IngestionBlocker
+    - type: EyeProtection
+    - type: FlashImmunity
+    - type: IdentityBlocker
+    - type: ImageOverlay
+      pathToOverlayImage: "/Textures/Clothing/Head/Welding/weldingTextureWeak.png"
+      additionalColorOverlay: "#000000A0"
+  - type: MultiVisualState
+    prefixVisorOffLightOff: "off"
+    prefixVisorOffLightOn: "on"
+    prefixVisorOnLightOff: "up"
+    prefixVisorOnLightOn: "up-on"
 
 #Chief Medical Officer's Hardsuit
 - type: entity

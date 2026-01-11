@@ -146,6 +146,7 @@
 # SPDX-FileCopyrightText: 2024 youtissoum <51883137+youtissoum@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 88tv <131759102+88tv@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Crude Oil <124208219+CroilBird@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Drywink <43855731+Drywink@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Drywink <hugogrethen@gmail.com>
 # SPDX-FileCopyrightText: 2025 Dusty-Plant <34702649+Dusty-Plant@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Dusty_Plant <34702649+Dusty-Plant@users.noreply.github.com>
@@ -162,6 +163,7 @@
 # SPDX-FileCopyrightText: 2025 TheSecondLord <88201625+TheSecondLord@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Toaster <mrtoastymyroasty@gmail.com>
 # SPDX-FileCopyrightText: 2025 Toastermeister <215405651+Toastermeister@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 TrixxedHeart <46364955+TrixxedBit@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 V <97265903+formlessnameless@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
@@ -1709,6 +1711,13 @@
         Burn: 3
     clumsySound:
       path: /Audio/Animals/monkey_scream.ogg
+  - type: Inventory
+    displacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: Mobs/Animals/displacements.rsi
+            state: jumpsuit-monkey
 
 
 - type: entity
@@ -1838,6 +1847,13 @@
     name: ghost-role-information-kobold-name
     description: ghost-role-information-kobold-description
     rules: ghost-role-information-nonantagonist-rules
+  - type: Inventory
+    displacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: Mobs/Animals/displacements.rsi
+            state: jumpsuit-kobold
   - type: Genetics # Funkystation - Genetics
     mutationSlots: 4
 
@@ -2874,6 +2890,12 @@
     wrapAction: ActionWrap
     wrapDuration: 10
     hungerCost: 30
+  - type: Bite
+    biteAction: ActionBite
+    cooldown: 90
+    actionDescription: bite-action-description-sleep
+    injectedReagents:
+      ChloralHydrate: 10
 
 - type: entity
   parent:

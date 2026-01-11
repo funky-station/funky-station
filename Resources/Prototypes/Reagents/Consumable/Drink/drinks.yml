@@ -71,22 +71,10 @@
         reagent: Theobromine
         amount: 0.05
       - !type:AdjustTemperature
+        conditions:
+        - !type:Temperature
+          max: 343.15
         amount: 5000 # thermal energy, not temperature!
-  reactiveEffects:
-    Acidic:
-      methods: [ Touch ]
-      effects:
-      - !type:HealthChange
-        scaleByQuantity: true
-        ignoreResistances: false
-        damage:
-          types:
-            Heat: 0.1
-      - !type:Emote
-        emote: Scream
-        probability: 0.1
-      - !type:AdjustTemperature
-        amount: 1000 # thermal energy, not temperature!
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
@@ -118,6 +106,21 @@
         conditions:
         - !type:ReagentThreshold
           min: 30
+  reactiveEffects:
+    Acidic:
+      methods: [ Touch ]
+      effects:
+      - !type:HealthChange
+        scaleByQuantity: true
+        ignoreResistances: false
+        damage:
+          types:
+            Heat: 0.1
+      - !type:Emote
+        emote: Scream
+        probability: 0.1
+      - !type:AdjustTemperature
+        amount: 1000 # thermal energy, not temperature!
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/coffeeglass.rsi
     state: icon_empty
@@ -143,6 +146,9 @@
         reagent: Theobromine
         amount: 0.05
       - !type:AdjustTemperature
+        conditions:
+        - !type:Temperature
+          max: 343.15
         amount: 5000 # thermal energy, not temperature!
   reactiveEffects:
     Acidic:
@@ -226,6 +232,9 @@
         time: 2.0
         type: Remove
       - !type:AdjustTemperature
+        conditions:
+        - !type:Temperature
+          max: 343.15
         amount: 5000 # thermal energy, not temperature!
   reactiveEffects:
     Acidic:
@@ -263,6 +272,9 @@
       - !type:SatiateThirst
         factor: 2
       - !type:AdjustTemperature
+        conditions:
+        - !type:Temperature
+          max: 343.15
         amount: 5000 # thermal energy, not temperature!
       - !type:GenericStatusEffect
         key: Drowsiness
@@ -592,6 +604,26 @@
         key: Drowsiness
         time: 2.0
         type: Remove
+      - !type:AdjustTemperature
+        conditions:
+        - !type:Temperature
+          max: 343.15
+        amount: 5000 # thermal energy, not temperature!
+  reactiveEffects:
+    Acidic:
+      methods: [ Touch ]
+      effects:
+      - !type:HealthChange
+        scaleByQuantity: true
+        ignoreResistances: false
+        damage:
+          types:
+            Heat: 0.1
+      - !type:Emote
+        emote: Scream
+        probability: 0.1
+      - !type:AdjustTemperature
+        amount: 1000 # thermal energy, not temperature!
 
 - type: reagent
   id: Tea
@@ -611,6 +643,9 @@
         reagent: Theobromine
         amount: 0.05
       - !type:AdjustTemperature
+        conditions:
+        - !type:Temperature
+          max: 343.15
         amount: 5000 # thermal energy, not temperature!
       - !type:GenericStatusEffect
         key: Drowsiness
@@ -698,6 +733,11 @@
   meltingPoint: 0.0
   boilingPoint: 100.0
   friction: 0.05 #Copied from Ice Crust
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 3 # ice is no longer useless; rejoice
   plantMetabolism:
   - !type:PlantAdjustWater
     amount: 1

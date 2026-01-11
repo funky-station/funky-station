@@ -124,6 +124,8 @@
 # SPDX-FileCopyrightText: 2024 wafehling <wafehling@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
 # SPDX-FileCopyrightText: 2025 88tv <131759102+88tv@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 AftrLite
+# SPDX-FileCopyrightText: 2025 AftrLite <61218133+AftrLite@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Amethyst <52829582+jackel234@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 ArionGekkota <58326140+ArionGekkota@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Dani <57107055+wgreen84@users.noreply.github.com>
@@ -161,6 +163,12 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
 # PUT YOUR TAGS IN ALPHABETICAL ORDER
+
+- type: Tag
+  id: AnomalySyncronizerCircuitBoard
+
+- type: Tag
+  id: AnomalyLocator
 
 - type: Tag
   id: AccessBreakerImmune
@@ -591,6 +599,12 @@
   id: Cryobeaker
 
 - type: Tag
+  id: Cryosyringe
+
+- type: Tag
+  id: ChimpHandcannon
+
+- type: Tag
   id: CrystalBlack
 
 - type: Tag
@@ -716,6 +730,9 @@
 - type: Tag
   id: ExplosivePassable
 
+- type: Tag
+  id: ExperimentalVesselMachineBoard
+
 - type: Tag # goob edit
   id: Eyes
 
@@ -733,6 +750,9 @@
 
 - type: Tag
   id: FireAxe
+
+- type: Tag
+  id: ForceFieldProjector
 
 - type: Tag
   id: FirelockElectronics
@@ -845,6 +865,9 @@
 
 - type: Tag
   id: GuideEmbeded
+
+- type: Tag
+  id: GorillaGauntlet
 
 - type: Tag
   id: Hamster
@@ -1192,7 +1215,13 @@
   id: MedicalAutoinjector
 
 - type: Tag
+  id: NinjaBombingTargetBlocker # Ninjas will not target this warp point
+
+- type: Tag
   id: NoBlockAnchoring
+
+- type: Tag
+  id: NightVisionGoggles
 
 - type: Tag
   id: NoConsoleSound
@@ -1241,6 +1270,9 @@
 
 - type: Tag
   id: Pancake
+
+- type: Tag
+  id: ParticleDecelerator
 
 - type: Tag
   id: Payload # for grenade/bomb crafting
@@ -1358,6 +1390,9 @@
 
 - type: Tag
   id: RawMaterial
+
+- type: Tag
+  id: ReactorPart #FarHorizons
 
 # Give this to something that doesn't need any special recycler behavior and just needs deleting.
 - type: Tag
@@ -1596,6 +1631,8 @@
 - type: Tag
   id: SecurityCyberneticEyes
 
+- type: Tag
+  id: TechDiskTerminalCircuitBoard
 
 - type: Tag # goob edit
   id: Table
@@ -1785,5 +1822,8 @@
 
 - type: Tag
   id: XrayCannon
+
+- type: Tag
+  id: XrayVisible
 
 # ALPHABETICAL

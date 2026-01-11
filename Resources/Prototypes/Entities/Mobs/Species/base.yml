@@ -109,7 +109,11 @@
 # SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
+# SPDX-FileCopyrightText: 2025 Drywink <hugogrethen@gmail.com>
 # SPDX-FileCopyrightText: 2025 Jemtamird <krzysstepien7@gmail.com>
+# SPDX-FileCopyrightText: 2025 Mora <46364955+TrixxedHeart@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+princess-cheeseballs@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Princess-Cheeseballs <https://github.com/Princess-Cheeseballs>
 # SPDX-FileCopyrightText: 2025 Skye <57879983+Rainbeon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 TrixxedHeart <46364955+TrixxedBit@users.noreply.github.com>
@@ -393,6 +397,18 @@
   - type: MobPrice
     price: 1500 # Kidnapping a living person and selling them for cred is a good move.
     deathPenalty: 0.01 # However they really ought to be living and intact, otherwise they're worth 100x less.
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      100: SoftCritical
+      150: HardCritical
+      200: Dead
+  - type: MobState
+    allowedStates:
+    - Alive
+    - SoftCritical
+    - HardCritical
+    - Dead
   - type: Tag
     tags:
     - CanPilot
@@ -475,6 +491,7 @@
   - type: FireVisuals
     alternateState: Standing
   - type: Carriable # Goobstation
+  - type: StunVisuals
   - type: Genetics # Funkystation - Genetics
     mutationSlots: 8
 

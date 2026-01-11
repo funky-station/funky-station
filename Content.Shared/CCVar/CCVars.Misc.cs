@@ -1,6 +1,7 @@
 // SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
 // SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Mish <bluscout78@yahoo.com>
+// SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 deathride58 <deathride58@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
@@ -117,4 +118,11 @@ public sealed partial class CCVars
     /// </summary>
     public static readonly CVarDef<float> PlaytimeMinutesToday =
         CVarDef.Create("playtime.minutes_today", 0f, CVar.CLIENTONLY | CVar.ARCHIVE);
+
+    /// <summary>
+    ///     Enabled: CPR action will auto-repeat as long as the target is still crit
+    ///     Disabled: CPR has to be performed by repeated manual interaction
+    /// </summary>
+    public static readonly CVarDef<bool> CprRepeat =
+        CVarDef.Create("cpr.repeat", true, CVar.SERVER);
 }

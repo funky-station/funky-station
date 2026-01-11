@@ -1,3 +1,4 @@
+// SPDX-FileCopyrightText: 2025 Drywink <hugogrethen@gmail.com>
 // SPDX-FileCopyrightText: 2025 Terkala <appleorange64@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later OR MIT
@@ -12,6 +13,7 @@ using Content.Shared.BloodCult.Components;
 using Content.Shared.Chemistry;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Reagent;
+using Content.Server.Damage.Systems;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Systems;
 using Content.Shared.FixedPoint;

@@ -2,9 +2,12 @@
 # SPDX-FileCopyrightText: 2025 Josh Hilsberg <thejoulesberg@gmail.com>
 # SPDX-FileCopyrightText: 2025 JoulesBerg <104539820+JoulesBerg@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 MaiaArai <158123176+YaraaraY@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 PurpleTranStar <purpletranstar@gmail.com>
 # SPDX-FileCopyrightText: 2025 SaffronFennec <firefoxwolf2020@protonmail.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 Teasq <Xerithin@gmail.com>
+# SPDX-FileCopyrightText: 2025 ThatOneMoon <91613003+ThatOneMoon@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
 # SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 kbarkevich <24629810+kbarkevich@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
@@ -59,6 +62,13 @@
   - InternalAffairsAgentWaistbag
 
 - type: loadoutGroup
+  id: InternalAffairsJobTrinkets
+  name: loadout-group-jobtrinkets
+  minLimit: 0
+  loadouts:
+  - CommandLighter
+
+- type: loadoutGroup
   id: ChaplainBible
   name: loadout-group-bible
   minLimit: 1
@@ -66,7 +76,6 @@
   loadouts:
   - ChaplainBibleChristian
   - ChaplainBibleAtheist
-  - ChaplainBibleBhuddhist
 
 - type: loadoutGroup
   id: MagistrateHead
@@ -137,6 +146,15 @@
   loadouts:
     - MagistrateGavel
     - MagistratePwig
+
+- type: loadoutGroup
+  id: MagistrateJobTrinkets
+  name: loadout-group-jobtrinkets
+  minLimit: 0
+  maxLimit: 2
+  loadouts:
+  - CommandLighter
+  - CentralCommandLighter
 
 - type: loadoutGroup
   id: ScienceRoboticistGlasses

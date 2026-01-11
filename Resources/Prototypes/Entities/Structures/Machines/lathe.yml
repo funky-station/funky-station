@@ -423,6 +423,7 @@
     - Signaller
     - Screwdriver
     - Welder
+    - WelderIndustrial #funk
     - Wrench
     - CrowbarGreen
     - Multitool
@@ -726,6 +727,7 @@
     - SadTromboneImplanter
     - LightImplanter
     - BikeHornImplanter
+    - WelderIndustrialAdvanced #funk
   - type: EmagLatheRecipes
     emagDynamicRecipes:
     - BoxBeanbag

@@ -269,3 +269,20 @@
   materials:
     Plastic: 250
     Glass: 150
+
+- type: latheRecipe
+  parent: BaseToolRecipe
+  id: WelderIndustrial
+  result: WelderIndustrial
+  materials:
+    Steel: 800
+
+- type: latheRecipe
+  parent: BaseToolRecipe
+  id: WelderIndustrialAdvanced
+  result: WelderIndustrialAdvanced
+  completetime: 6
+  materials:
+    Steel: 800
+    Plastic: 200
+    Glass: 200

@@ -198,6 +198,7 @@
   tier: 2
   cost: 10000
   recipeUnlocks:
+    - WelderIndustrialAdvanced
     - WelderExperimental
     - PowerDrill
     - JawsOfLife

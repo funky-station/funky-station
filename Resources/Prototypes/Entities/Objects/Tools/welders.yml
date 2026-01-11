@@ -210,7 +210,7 @@
   name: advanced industrial welding tool
   parent: WelderIndustrial
   id: WelderIndustrialAdvanced
-  description: "An advanced industrial welder with over double the fuel capacity and hotter flame."
+  description: "An advanced industrial welder with over double the fuel capacity and a twice as hot flame, built for real work."
   components:
   - type: Sprite
     sprite: Objects/Tools/welder_industrialadv.rsi
@@ -224,13 +224,13 @@
           Quantity: 250
         maxVol: 250
   - type: Tool
-    speedModifier: 1.3
+    speedModifier: 2 # Tradeoff for needing weld pro and fuel is that you get to do work quick
 
 - type: entity
   name: experimental welding tool
   parent: Welder
   id: WelderExperimental
-  description: "An experimental welder capable of self-fuel generation and less harmful to the eyes."
+  description: "An experimental welder capable of self-fuel generation and has a flame that is not at harmful to the eyes, certified by real Nanotrasen workers!"
   components:
   - type: Sprite
     sprite: Objects/Tools/welder_experimental.rsi
@@ -241,8 +241,8 @@
       Welder:
         reagents:
         - ReagentId: WeldingFuel
-          Quantity: 1000
-        maxVol: 1000
+          Quantity: 100
+        maxVol: 100
   - type: PointLight
     enabled: false
     radius: 1.5
@@ -255,8 +255,8 @@
       reagents:
       - ReagentId: WeldingFuel
         Quantity: 1
-  - type: RequiresEyeProtection
-    statusEffectTime: 5 # less harmful; sunglasses can block it
+  - type: RequiresEyeProtection   #killing the eyepro requirement, this now is a sidegrade to the better welders
+    statusEffectTime: 0 # less harmful; sunglasses can block it #welding is safe now yay
 
 - type: entity
   name: emergency welding tool

@@ -15,10 +15,15 @@
 # SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2024 Ubaser <134914314+UbaserB@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 MaiaArai <158123176+YaraaraY@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Rainbow <ev0lvkitten@gmail.com>
+# SPDX-FileCopyrightText: 2025 Skye <57879983+Rainbeon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Zergologist <114537969+Chedd-Error@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 vectorassembly <vectorassembly@icloud.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -26,14 +31,16 @@
   id: EngiVendInventory
   startingInventory:
     ClothingEyesGlassesMeson: 4
+    ClothingHandsGlovesArcGloves: 1
     ClothingHeadHatWelding: 6
+    HolotapeProjector: 6
     CrowbarYellow: 8
     Multitool: 4
     NetworkConfigurator: 5
     PowerCellMedium: 5
     ClothingHandsGlovesColorYellow: 6
-    BoxInflatable: 4 # 2 < 4 Funky change
-    BoxInflatableFloor: 2 # Funky change
+    BoxInflatable: 4 # 4 < 2 Funky
+    MetalFoamGrenade: 4 #funky!
     ClothingHeadHatCone: 4
   contrabandInventory:
     CowToolboxFilled: 1

@@ -32,8 +32,13 @@
 # SPDX-FileCopyrightText: 2024 a_person <alexanderbeaumont05@hotmail.com>
 # SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 marc-pelletier <113944176+marc-pelletier@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 MaiaArai <158123176+YaraaraY@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Rainbow <ev0lvkitten@gmail.com>
+# SPDX-FileCopyrightText: 2025 Skye <57879983+Rainbeon@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Zergologist <114537969+Chedd-Error@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 vectorassembly <vectorassembly@icloud.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -78,6 +83,8 @@
         prob: 0.3
       - id: SprayPainter
         prob: 0.7
+      - id: MetalFoamGrenade #funky!
+        prob: 0.1
 
 - type: entity
   id: LockerElectricalSuppliesFilled
@@ -132,13 +139,9 @@
       - id: ClothingMaskGasAtmos
       - id: ClothingOuterSuitAtmosFire
       - id: ClothingHeadHelmetAtmosFire
-      - id: GasAnalyzer
       - id: MedkitOxygenFilled
       - id: HolofanProjector
-      - id: RPD #funkystation
       - id: DoorRemoteFirefight # Goobstation - re adding fire door remote
-      - id: RCD
-      - id: RCDAmmo
       - id: ClothingBackpackFirefighterTank
 
 - type: entity
@@ -151,13 +154,11 @@
       - id: ClothingMaskGasAtmos
       - id: ClothingOuterSuitAtmosFire
       - id: ClothingHeadHelmetAtmosFire
-      - id: GasAnalyzer
+      - id: OxygenTankFilled
+      - id: NitrogenTankFilled
       - id: MedkitOxygenFilled
       - id: HolofanProjector
-      - id: RPD #funkystation
       - id: DoorRemoteFirefight # Goobstation - re adding fire door remote
-      - id: RCD
-      - id: RCDAmmo
       - id: ClothingBackpackFirefighterTank
 
 - type: entity
@@ -171,11 +172,15 @@
       - id: OxygenTankFilled
       - id: NitrogenTankFilled
       - id: ClothingHandsGlovesColorYellow
+      - id: HolotapeProjector #funky!
       - id: ClothingMaskGas
       - id: ClothingShoesBootsMag
       - id: RCD
+      - id: RPD #funkystation
       - id: RCDAmmo
-      - id: BoxInflatable # Funky change
+      - id: BoxInflatable # funky
+      - id: MaterialBag #funky!
+      - id: MetalFoamGrenade #funky!
 
 - type: entity
   id: LockerEngineerFilled
@@ -185,11 +190,15 @@
   - type: StorageFill
     contents:
       - id: ClothingHandsGlovesColorYellow
+      - id: HolotapeProjector #funky!
       - id: ClothingMaskGas
       - id: trayScanner
       - id: RCD
+      - id: RPD #funkystation
       - id: RCDAmmo
-      - id: BoxInflatable # Funky change
+      - id: BoxInflatable # funky
+      - id: MaterialBag #funky!
+      - id: MetalFoamGrenade #funky!
 
 - type: entity
   id: ClosetRadiationSuitFilled

@@ -9,12 +9,16 @@
 # SPDX-FileCopyrightText: 2023 OctoRocket <88291550+OctoRocket@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 heree <79546981+hereelabs@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 hereelabs <hahmorm@gmail.com>
+# SPDX-FileCopyrightText: 2025 CalicoDragon <110030310+CalicoDragon@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 MaiaArai <158123176+YaraaraY@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Sofia Gilsanz <softie.gd@gmail.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 V <97265903+formlessnameless@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2026 Zergologist <114537969+Chedd-Error@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -32,17 +36,21 @@
     ClothingUniformJumpsuitEngineeringBaggyHazard: 3
     ClothingUniformJumpsuitEngineeringUndersuit: 3
     ClothingUniformJumpsuitEngineering: 3
-    ClothingUniformJumpskirtEngineering: 3
-    ClothingUniformJumpsuitEngineeringHazard: 3
+    ClothingUniformJumpsuitEngineeringOveralls: 2
+    ClothingUniformJumpsuitEngineeringCoveralls: 2
+    ClothingUniformJumpsuitEngineeringRipley: 1
+    ClothingUniformJumpsuitEngineeringShirt: 2
     ClothingShoesColorBlack: 3
     ClothingOuterVestHazard: 3
     ClothingShoesBootsWork: 3
+    ClothingShoesBootsSalvage: 3 # funk
     ClothingHeadHatHardhatYellow: 3
     ClothingHeadHatHardhatOrange: 3
     ClothingHeadsetEngineering: 3
     ClothingOuterWinterEngi: 2
     ClothingNeckScarfStripedOrange: 3
     ClothingShoesBootsWinterEngi: 2
+    ClothingShoesBootsWinterCargo: 2 # funk
   emaggedInventory:
     ClothingUniformJumpsuitCHESyndicate: 1
     ClothingUniformCybersunHazard: 1 # DeltaV

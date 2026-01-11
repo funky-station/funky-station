@@ -29,6 +29,7 @@
 # SPDX-FileCopyrightText: 2025 McBosserson <148172569+McBosserson@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Milon <milonpl.git@proton.me>
 # SPDX-FileCopyrightText: 2025 MissKay1994 <15877268+MissKay1994@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 ThatOneMoon <91613003+ThatOneMoon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
 # SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
@@ -75,6 +76,15 @@
     flavors:
       - cheesy
       - potatoes
+  - type: SolutionContainerManager         
+    solutions:
+      food:
+        maxVol: 30
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 10
+        - ReagentId: Vitamin
+          Quantity: 8
   - type: Sprite
     state: loadedbakedpotato
 # Tastes like potato.
@@ -104,6 +114,15 @@
       - potatoes
       - salty
       - cheesy
+  - type: SolutionContainerManager      
+    solutions:
+      food:
+        maxVol: 30
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 10
+        - ReagentId: Vitamin
+          Quantity: 10
   - type: Sprite
     state: fries-cheesy
 # Tastes like fries, cheese.
@@ -126,10 +145,14 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 26
+        maxVol: 30
         reagents:
         - ReagentId: JuiceCarrot
-          Quantity: 20
+          Quantity: 5
+        - ReagentId: Nutriment
+          Quantity: 5
+        - ReagentId: Vitamin
+          Quantity: 10
 # Tastes like carrots, salt.
 
 - type: entity
@@ -149,12 +172,12 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 11
+        maxVol: 30
         reagents:
         - ReagentId: Nutriment
-          Quantity: 4
+          Quantity: 14
         - ReagentId: Vitamin
-          Quantity: 1
+          Quantity: 5
         - ReagentId: TableSalt
           Quantity: 1
 # Tastes like nachos.
@@ -206,13 +229,15 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 25
+        maxVol: 50
         reagents:
         - ReagentId: Nutriment
-          Quantity: 8
+          Quantity: 20
         - ReagentId: CapsaicinOil
-          Quantity: 7
+          Quantity: 10
         - ReagentId: Vitamin
+          Quantity: 5
+        - ReagentId: Ketchup
           Quantity: 5
   - type: Tag
     tags:
@@ -296,12 +321,18 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 15
+        maxVol: 65
         reagents:
         - ReagentId: Nutriment
-          Quantity: 6
+          Quantity: 20
         - ReagentId: CarpoToxin
-          Quantity: 3
+          Quantity: 2
+        - ReagentId: Vitamin
+          Quantity: 10
+        - ReagentId: Protein
+          Quantity: 10
+        - ReagentId: CapsaicinOil
+          Quantity: 10
   - type: Tag
     tags:
     - CubanCarp
@@ -404,14 +435,14 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 25
+        maxVol: 50
         reagents:
         - ReagentId: Nutriment
-          Quantity: 3
+          Quantity: 10
         - ReagentId: Protein
-          Quantity: 10
+          Quantity: 25
         - ReagentId: BbqSauce
-          Quantity: 10
+          Quantity: 5
   - type: Tag
     tags:
     - Meat
@@ -544,11 +575,15 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 25
+        maxVol: 100 # You can always make it worse
         reagents:
         - ReagentId: Nutriment
-          Quantity: 9
-        - ReagentId: Water
+          Quantity: 10
+        - ReagentId: Protein
+          Quantity: 10
+        - ReagentId: Vitamin
+          Quantity: 10
+        - ReagentId: Cola
           Quantity: 10
         - ReagentId: Blackpepper
           Quantity: 3
@@ -581,12 +616,15 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 25
+        maxVol: 50
         reagents:
         - ReagentId: Nutriment
-          Quantity: 6
+          Quantity: 25
         - ReagentId: CarpoToxin
           Quantity: 15
+        - ReagentId: Soysauce
+          Quantity: 10
+
   - type: Tag
     tags:
     - Meat
@@ -606,12 +644,16 @@
     - type: SolutionContainerManager
       solutions:
         food:
-          maxVol: 15
+          maxVol: 70
           reagents:
           - ReagentId: Nutriment
-            Quantity: 8
+            Quantity: 20
           - ReagentId: CapsaicinOil
-            Quantity: 6
+            Quantity: 10
+          - ReagentId: Protein
+            Quantity: 10
+          - ReagentId: Vitamin
+            Quantity: 10
     - type: Tag
       tags:
       - Meat
@@ -636,15 +678,19 @@
         maxVol: 65
         reagents:
         - ReagentId: Nutriment
-          Quantity: 30
+          Quantity: 10
         - ReagentId: Vitamin
-          Quantity: 15
-        - ReagentId: Water
-          Quantity: 5
-        - ReagentId: Libital
-          Quantity: 5
-        - ReagentId: Aiuri
-          Quantity: 5
+          Quantity: 30
+        - ReagentId: JuiceWatermelon
+          Quantity: 2
+        - ReagentId: JuiceApple
+          Quantity: 2
+        - ReagentId: JuiceBanana
+          Quantity: 2
+        - ReagentId: JuiceLemon
+          Quantity: 2
+        - ReagentId: JuiceOrange
+          Quantity: 2
   - type: Tag
     tags:
     - Fruit
@@ -667,10 +713,10 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 10
+        maxVol: 40
         reagents:
         - ReagentId: Nutriment
-          Quantity: 4
+          Quantity: 15
         - ReagentId: Vitamin
-          Quantity: 4
+          Quantity: 15
 

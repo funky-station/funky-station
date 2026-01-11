@@ -7368,3 +7368,9 @@ Entries:
         gap between max operatives and server max pop.
   id: 855
   time: '2026-01-11T00:32:49.0000000+00:00'
+- author: 88tv
+  changes:
+    - type: Add
+      message: The TEG is now purchasable from the request computers for 20,000 spesos!
+  id: 856
+  time: '2026-01-11T04:05:31.0000000+00:00'

@@ -1,0 +1,57 @@
+# SPDX-FileCopyrightText: 2025 Steve <marlumpy@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  parent: BaseComputerAiAccess
+  id: ComputerDnaScanner
+  name: geneticists console
+  description: A console used with the medical scanner for DNA research.
+  components:
+  - type: Sprite
+    layers:
+    - map: ["computerLayerBody"]
+      state: computer
+    - map: ["computerLayerKeyboard"]
+      state: generic_keyboard
+    - map: ["computerLayerScreen"]
+      state: dna
+    - map: ["computerLayerKeys"]
+      state: med_key
+    - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
+      state: generic_panel_open
+  - type: Computer
+    board: DnaScannerConsoleComputerCircuitboard
+  - type: UserInterface
+    interfaces:
+      enum.WiresUiKey.Key:
+        type: WiresBoundUserInterface
+  - type: DeviceLinkSource
+    range: 4
+    ports:
+      - DnaConsole
+  - type: ResearchPointSource
+    pointspersecond: 0
+    active: true
+  - type: ResearchClient
+
+- type: sourcePort
+  id: DnaConsole
+  name: signal-port-name-dna-scanner
+  description: signal-port-description-dna-scanner
+
+- type: entity
+  parent: BaseComputerCircuitboard
+  id: DnaScannerConsoleComputerCircuitboard
+  name: geneticists console board
+  description: A computer printed circuit board for the dna scanner console.
+  components:
+    - type: Sprite
+      state: cpu_medical
+    - type: ComputerBoard
+      prototype: ComputerDnaScanner
+
+- type: latheRecipe
+  parent: BaseCircuitboardRecipe
+  id: DnaScannerConsoleComputerCircuitboard
+  result: DnaScannerConsoleComputerCircuitboard

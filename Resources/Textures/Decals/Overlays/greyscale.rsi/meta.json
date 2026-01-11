@@ -207,6 +207,9 @@
     },
     {
       "name": "quartertile_center_overlay"
+    },
+    {
+      "name":"halftile_center_overlay_90"
     }
   ]
 }

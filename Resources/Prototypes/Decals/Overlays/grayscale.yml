@@ -536,6 +536,14 @@
     state: halftile_center_overlay
 
 - type: decal
+  id: HalfTileCenterOverlayGreyscale90
+  tags: ["station", "overlay"]
+  defaultCustomColor: true
+  sprite:
+    sprite: Decals/Overlays/greyscale.rsi
+    state: halftile_center_overlay_90
+
+- type: decal
   id: QuarterTileCenterOverlayGreyscale
   tags: ["station", "overlay"]
   defaultCustomColor: true

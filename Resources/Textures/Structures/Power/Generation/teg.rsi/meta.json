@@ -277,9 +277,6 @@
     {
       "name": "circ-0-light",
       "directions": 4
-    },
-    {
-      "name": "circulator_section"
     }
   ]
 }

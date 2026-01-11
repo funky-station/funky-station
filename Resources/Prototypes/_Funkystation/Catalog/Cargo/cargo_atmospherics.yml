@@ -13,23 +13,3 @@
   cost: 10000
   category: cargoproduct-category-name-atmospherics
   group: market
-
-- type: cargoProduct
-  id: EngineeringTEGCenterOrder
-  icon:
-    sprite: Structures/Power/Generation/teg.rsi
-    state: static
-  product: TegCenter
-  cost: 10000
-  category: cargoproduct-category-name-atmospherics
-  group: market
-
-- type: cargoProduct
-  id: EngineeringTEGCirculatorOrder
-  icon:
-    sprite: Structures/Power/Generation/teg.rsi
-    state: circulator_section
-  product: TegCirculator
-  cost: 10000
-  category: cargoproduct-category-name-atmospherics
-  group: market

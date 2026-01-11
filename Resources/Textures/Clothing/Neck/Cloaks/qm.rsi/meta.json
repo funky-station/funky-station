@@ -1,7 +1,7 @@
 {
     "version": 1,
-    "license": "CC-BY-SA-3.0",
-    "copyright": "Taken from tgstation at commit https://github.com/tgstation/tgstation/commit/5a73e8f825ff279e82949b9329783a9e3070e2da, sprites in hand by PuroSlavKing (Github) and RudeyCoolLeet#3875, revamped by wurnt(discord) for FunkyStation.org, Resprited by AraiMaia for Funky Station",
+    "license": "CC-BY-NC-SA-4.0",
+    "copyright": "Revamped by wurnt(discord) for FunkyStation.org, Resprited by AraiMaia for Funky Station, Sprites created by Tea(d.d.tea on Discord, @teasq.bsky.social) ",
     "size": {
         "x": 32,
         "y": 32
@@ -12,6 +12,10 @@
         },
         {
             "name": "equipped-NECK",
+            "directions": 4
+        },
+        {
+            "name": "equipped-NECK-vox",
             "directions": 4
         },
         {

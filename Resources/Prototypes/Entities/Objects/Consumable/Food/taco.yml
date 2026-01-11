@@ -7,6 +7,8 @@
 # SPDX-FileCopyrightText: 2025 Ed <96445749+TheShuEd@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Toastermeister <215405651+Toastermeister@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Xcybitt <197952719+Xcybitt@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
+# SPDX-FileCopyrightText: 2025 Toastermeister <215405651+Toastermeister@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
@@ -99,6 +101,17 @@
           Quantity: 4
   - type: Sprite
     state: beeftaco
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 40
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 20
+        - ReagentId: Vitamin
+          Quantity: 5
+        - ReagentId: Protein
+          Quantity: 5
 
 - type: entity
   name: chicken taco
@@ -120,9 +133,20 @@
           Quantity: 4
   - type: Sprite
     state: chickentaco
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 40
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 20
+        - ReagentId: Vitamin
+          Quantity: 5
+        - ReagentId: Protein
+          Quantity: 5
 
 - type: entity
-  name: fish taco
+  name: seafood taco
   parent: FoodTacoBase
   id: FoodTacoFish
   description: Sounds kinda gross, but it's actually not that bad.
@@ -137,12 +161,16 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 20
+        maxVol: 60
         reagents:
         - ReagentId: Nutriment
-          Quantity: 10
+          Quantity: 18
         - ReagentId: Vitamin
-          Quantity: 6
+          Quantity: 15
+        - ReagentId: Protein
+          Quantity: 15
+        - ReagentId: Allicin
+          Quantity: 2
 
 - type: entity
   name: rat taco
@@ -156,14 +184,16 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 15
+        maxVol: 40
         reagents:
         - ReagentId: Nutriment
-          Quantity: 4
-        - ReagentId: Cheesium
-          Quantity: 2
+          Quantity: 15
         - ReagentId: Vitamin
-          Quantity: 4
+          Quantity: 5
+        - ReagentId: Protein
+          Quantity: 5
+        - ReagentId: Cheesium
+          Quantity: 2          
 
 - type: entity
   name: beef taco supreme
@@ -177,14 +207,18 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 26
+        maxVol: 60
         reagents:
         - ReagentId: Nutriment
-          Quantity: 10
-        - ReagentId: Cheesium
-          Quantity: 4
+          Quantity: 33
         - ReagentId: Vitamin
-          Quantity: 6
+          Quantity: 10
+        - ReagentId: Allicin
+          Quantity: 2
+        - ReagentId: Protein
+          Quantity: 5
+        - ReagentId: Cheesium
+          Quantity: 4          
 
 - type: entity
   name: chicken taco supreme
@@ -198,14 +232,18 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 26
+        maxVol: 60
         reagents:
         - ReagentId: Nutriment
-          Quantity: 10
-        - ReagentId: Cheesium
-          Quantity: 4
+          Quantity: 33
         - ReagentId: Vitamin
-          Quantity: 6
+          Quantity: 10
+        - ReagentId: Allicin
+          Quantity: 2
+        - ReagentId: Protein
+          Quantity: 5
+        - ReagentId: Cheesium
+          Quantity: 4          
 
 - type: entity
   name: soft taco

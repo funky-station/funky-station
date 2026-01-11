@@ -1,3 +1,4 @@
+# SPDX-FileCopyrightText: 2025 MaiaArai <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -70,3 +71,25 @@
     sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/iaaturtleneckblue.rsi
   - type: Clothing
     sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/iaaturtleneckblue.rsi
+
+- type: entity
+  parent: [ClothingUniformBase, BaseMedicalContraband]
+  id: ClothingUniformJumpskirtPhysicianTurtleneck
+  name: senior physician turtleskirt
+  description: A comfortable turtleneck, worn by experienced physicians who don't care that much about sterility.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/seniorphysicianturtleneck.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/seniorphysicianturtleneck.rsi
+
+- type: entity
+  parent: [ClothingUniformBase, BaseMedicalContraband]
+  id: ClothingUniformJumpsuitPhysicianTurtleneck
+  name: senior physician turtleneck
+  description: A comfortable turtleneck, worn by experienced physicians who don't care that much about sterility.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/seniorphysicianturtleneck.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/seniorphysicianturtleneck.rsi

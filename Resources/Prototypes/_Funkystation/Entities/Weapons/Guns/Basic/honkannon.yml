@@ -1,0 +1,111 @@
+# SPDX-FileCopyrightText: 2025 SigmaTheDragon <162711378+SigmaTheDragon@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  name: Honkmother's Honkannon
+  parent: [BaseStorageItem, BaseChaplainContraband]
+  id: WeaponChaplainLauncher
+  description: Blesed by the Honkmother, this holy pie cannon fires Bananium Pies to smite those that are unfunny.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Weapons/Guns/Cannons/honkannon.rsi
+    layers:
+      - state: piecannon
+  - type: Gun
+    fireRate: 5
+    selectedMode: SemiAuto
+    availableModes:
+      - SemiAuto
+    soundGunshot:
+      path: /Audio/Effects/thunk.ogg
+    soundEmpty:
+      path: /Audio/Items/hiss.ogg
+    clumsyProof: true
+  - type: RechargeBasicEntityAmmo
+    rechargeCooldown: 12
+    rechargeSound:
+      path: /Audio/Items/bikehorn.ogg
+  - type: BasicEntityAmmoProvider
+    proto: FoodPieBananium
+    capacity: 1
+    count: 1
+  - type: Item
+    size: Large
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+        ents: []
+
+- type: entity
+  name: bananium cream pie
+  parent: FoodPieBase
+  id: FoodPieBananium
+  description: By the Honkmother, I HONK THEE!!
+  components:
+  - type: FlavorProfile
+    flavors:
+      - sweet
+      - banana
+      - creamy
+  - type: Sprite
+    sprite: _Funkystation/Objects/Consumable/Food/Baked/bananiumpie.rsi
+    layers:
+    - state: tin
+    - state: plain
+  - type: CreamPie
+  - type: ThrowingAngle
+    angle: 180
+  - type: LandAtCursor
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Piercing: 5
+        Holy: 10
+  - type: ContainerContainer
+    containers:
+      payloadSlot: !type:ContainerSlot
+  - type: ItemSlots
+    slots:
+      payloadSlot:
+        whitelist:
+          components:
+          - OnUseTimerTrigger
+        insertSound:
+          path: /Audio/Weapons/Guns/Empty/empty.ogg
+        ejectSound:
+          path: /Audio/Weapons/Guns/Empty/empty.ogg
+        swap: false
+        disableEject: true
+  - type: Tag
+    tags:
+    - Fruit
+    - Pie
+  - type: SliceableFood
+    slice: FoodPieBanananiumSlice
+
+- type: entity
+  name: slice of bananium cream pie
+  parent: FoodPieSliceBase
+  id: FoodPieBanananiumSlice
+  description: A little piece of honk heaven.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - sweet
+      - banana
+      - creamy
+  - type: Sprite
+    sprite: _Funkystation/Objects/Consumable/Food/Baked/bananiumpie.rsi
+    state: bananapie-slice
+  - type: Tag
+    tags:
+    - Fruit
+    - Pie
+    - Slice
+  - type: Extractable  
+    grindableSolutionName: food 
+    juiceSolution:  
+      reagents:  
+      - ReagentId: LiquidPie  
+        Quantity: 2 

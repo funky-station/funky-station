@@ -13,7 +13,14 @@ using Content.Shared.BloodCult;
 using Content.Shared.BloodCult.Components;
 using Content.Shared.SubFloor;
 using Content.Shared.Fluids.Components;
+using Content.Shared.Clothing.Components;
+using Content.Shared.Inventory;
+using Content.Shared.Hands.Components;
+using Content.Shared.Hands.EntitySystems;
+using Content.Shared.Mind.Components;
 using Robust.Server.GameObjects;
+using Robust.Shared.Audio;
+using Robust.Shared.Audio.Systems;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Physics.Components;
@@ -30,6 +37,8 @@ public sealed class SummonOnTriggerSystem : EntitySystem
 	[Dependency] private readonly StackSystem _stackSystem = default!;
 	[Dependency] private readonly SharedTransformSystem _transform = default!;
 	[Dependency] private readonly MapSystem _mapSystem = default!;
+	[Dependency] private readonly SharedAudioSystem _audioSystem = default!;
+	[Dependency] private readonly SharedHandsSystem _handsSystem = default!;
 	//[Dependency] private readonly IPrototypeManager _protoMan = default!;
 	[Dependency] private readonly IMapManager _mapManager = default!;
 
@@ -37,6 +46,10 @@ public sealed class SummonOnTriggerSystem : EntitySystem
 
 	private const int JuggernautMetalRequired = 30;
 	private const int PylonGlassRequired = 10;
+	private const int ForsakenBootsPlasticRequired = 5;
+	private const int ForsakenBootsClothRequired = 5;
+	private const int ForsakenBootsDurathreadRequired = 5;
+	private const int AcolyteArmorPlasteelRequired = 10;
 
 	public override void Initialize()
 	{
@@ -56,52 +69,91 @@ public sealed class SummonOnTriggerSystem : EntitySystem
 		if (!TryComp<BloodCultistComponent>(user, out var bloodCultist))
 			return;
 
+		// Check if the user is a player (has a mind) - only show popup messages to players
+		// This prevents messages from appearing when the rune self-activates from materials being placed
+		bool isPlayer = TryComp<MindContainerComponent>(user, out var mindContainer) && mindContainer.Mind != null;
+
 		var runeCoords = Transform(uid).Coordinates;
 
-		// Get all stacks in range - use Uncontained flag to exclude items in containers
-		// Use a range that covers the entire tile plus a bit extra to catch all items on the rune
-		var summonLookup = _lookup.GetEntitiesInRange(uid, component.SummonRange, LookupFlags.Uncontained);
-
-		// Also check for anchored entities on the same tile (stacks shouldn't be anchored, but be thorough)
+		// Get all entities on the same tile as the rune - this ensures we check all resources
+		// even if they're just placed on the floor (like a stack of runed glass)
+		var summonLookup = new HashSet<EntityUid>();
+		
 		var gridUid = _transform.GetGrid(runeCoords);
 		if (gridUid != null && TryComp<MapGridComponent>(gridUid, out var grid))
 		{
 			var tileIndices = _mapSystem.TileIndicesFor(gridUid.Value, grid, runeCoords);
-			var anchoredEntities = _mapSystem.GetAnchoredEntities(gridUid.Value, grid, tileIndices);
-			foreach (var anchoredEntity in anchoredEntities)
+			
+			// Get all entities on this tile (both anchored and unanchored)
+			// Use Uncontained flag to exclude items in containers
+			_lookup.GetLocalEntitiesIntersecting(gridUid.Value, tileIndices, summonLookup, flags: LookupFlags.Uncontained, gridComp: grid);
+			
+			// Also include entities from range-based lookup as a fallback (in case something is slightly off-tile)
+			var rangeLookup = _lookup.GetEntitiesInRange(uid, component.SummonRange, LookupFlags.Uncontained);
+			foreach (var entity in rangeLookup)
 			{
-				if (TryComp<StackComponent>(anchoredEntity, out var anchoredStack))
+				summonLookup.Add(entity);
+			}
+		}
+		else
+		{
+			// Fallback to range-based lookup if we're not on a grid. Should never happen
+			var rangeLookup = _lookup.GetEntitiesInRange(uid, component.SummonRange, LookupFlags.Uncontained);
+			foreach (var entity in rangeLookup)
+			{
+				summonLookup.Add(entity);
+			}
+		}
+
+		// Also check for items in the user's hands (if they're holding resources or outerwear)
+		// This allows materials to be combined from both the tile and the player's hands
+		// (e.g., 5 plastic on tile + 5 cloth in hands = forsaken boots)
+		if (TryComp<HandsComponent>(user, out var handsComp))
+		{
+			foreach (var heldItem in _handsSystem.EnumerateHeld(user, handsComp))
+			{
+				// Add items that have a StackComponent (resources) or ClothingComponent (for outerwear)
+				if (TryComp<StackComponent>(heldItem, out _) || TryComp<ClothingComponent>(heldItem, out _))
 				{
-					// Add anchored stacks to the lookup results
-					summonLookup.Add(anchoredEntity);
+					summonLookup.Add(heldItem);
 				}
 			}
 		}
 
-		// Find all stacks in range
-		List<EntityUid> runedMetalStacks = new List<EntityUid>();
+		// Categorize all stacks from both tile and hands into material type lists
+		// Materials from both sources are combined (e.g., plastic from tile + cloth from hands)
+		List<EntityUid> runedSteelStacks = new List<EntityUid>();
 		List<EntityUid> runedGlassStacks = new List<EntityUid>();
-		//List<EntityUid> runedPlasteelStacks = new List<EntityUid>(); // Future use
+		List<EntityUid> plasticStacks = new List<EntityUid>();
+		List<EntityUid> clothStacks = new List<EntityUid>();
+		List<EntityUid> durathreadStacks = new List<EntityUid>();
+		List<EntityUid> runedPlasteelStacks = new List<EntityUid>();
 
 		foreach (var entity in summonLookup)
 		{
 			if (!TryComp<StackComponent>(entity, out var stack))
 				continue;
 
-			if (stack.StackTypeId == "RunedMetal")
-				runedMetalStacks.Add(entity);
+			if (stack.StackTypeId == "RunedSteel")
+				runedSteelStacks.Add(entity);
 			else if (stack.StackTypeId == "RunedGlass")
 				runedGlassStacks.Add(entity);
-			//else if (stack.StackTypeId == "RunedPlasteel")
-			//	runedPlasteelStacks.Add(entity);
+			else if (stack.StackTypeId == "Plastic")
+				plasticStacks.Add(entity);
+			else if (stack.StackTypeId == "Cloth")
+				clothStacks.Add(entity);
+			else if (stack.StackTypeId == "Durathread")
+				durathreadStacks.Add(entity);
+			else if (stack.StackTypeId == "RunedPlasteel")
+				runedPlasteelStacks.Add(entity);
 		}
 
-		// Check for 30 runedmetal - spawn Juggernaut shell
+		// Check for 30 runed steel - spawn Juggernaut shell
 		// First check if enough materials exist (without consuming)
-		if (HasEnoughMaterials(runedMetalStacks, JuggernautMetalRequired))
+		if (HasEnoughMaterials(runedSteelStacks, JuggernautMetalRequired))
 		{
 			// Only consume materials AFTER validation passes
-			if (TryConsumeMaterials(runedMetalStacks, JuggernautMetalRequired, user))
+			if (TryConsumeMaterials(runedSteelStacks, JuggernautMetalRequired, user))
 			{
 				var juggernautShell = Spawn("CultJuggernautShell", runeCoords);
 				
@@ -116,9 +168,143 @@ public sealed class SummonOnTriggerSystem : EntitySystem
 					Loc.GetString("cult-summoning-juggernaut-shell"),
 					user, user, PopupType.Large
 				);
+				
+				// Delete the rune after successful summoning
+				QueueDel(uid);
 				args.Handled = true;
 				return;
 			}
+		}
+
+		// Check for 10 runedplasteel + outerwear item - spawn Acolyte Armor and Cult Helmet
+		// First check if enough plasteel materials exist (without consuming)
+		if (HasEnoughMaterials(runedPlasteelStacks, AcolyteArmorPlasteelRequired))
+		{
+			// Find outerwear items in range (similar to cosmic cult transmute logic)
+			EntityUid? outerwearItem = null;
+			foreach (var entity in summonLookup)
+			{
+				// Check if it's an outerwear item (has ClothingComponent with OUTERCLOTHING slot flag)
+				// summonLookup already excludes items in containers via LookupFlags.Uncontained
+				if (TryComp<ClothingComponent>(entity, out var clothing) && 
+				    clothing.Slots.HasFlag(SlotFlags.OUTERCLOTHING))
+				{
+					// Found a valid outerwear item
+					outerwearItem = entity;
+					break;
+				}
+			}
+
+			// Need both plasteel and outerwear item
+			if (outerwearItem != null && Exists(outerwearItem.Value))
+			{
+				// Only consume materials AFTER validation passes
+				if (TryConsumeMaterials(runedPlasteelStacks, AcolyteArmorPlasteelRequired, user))
+				{
+					// Delete the outerwear item (it's being transformed into acolyte armor)
+					QueueDel(outerwearItem.Value);
+
+				// Spawn bloodcult robes at the rune coordinates
+				var bloodcultRobes = Spawn("ClothingOuterRobesBloodCult", runeCoords);
+					
+					_popupSystem.PopupEntity(
+						Loc.GetString("cult-summoning-acolyte-armor"),
+						user, user, PopupType.Large
+					);
+					
+					// Delete the rune after successful summoning
+					QueueDel(uid);
+					args.Handled = true;
+					return;
+				}
+			}
+			else
+			{
+				// We have enough plasteel but no outerwear item found
+				// Only show message if activated by a player (not automatic activation)
+				if (isPlayer)
+				{
+					_popupSystem.PopupEntity(
+						Loc.GetString("cult-summoning-need-outerwear"),
+						user, user, PopupType.MediumCaution
+					);
+				}
+				args.Handled = true;
+				return;
+			}
+		}
+
+		// Check for Forsaken Boots - can use either 5 plastic + 5 cloth OR 5 durathread
+		// First check if enough materials exist (without consuming)
+		if (HasEnoughMaterials(plasticStacks, ForsakenBootsPlasticRequired) && 
+		    HasEnoughMaterials(clothStacks, ForsakenBootsClothRequired))
+		{
+			// Primary method: 5 plastic + 5 cloth
+			if (TryConsumeMaterials(plasticStacks, ForsakenBootsPlasticRequired, user) &&
+			    TryConsumeMaterials(clothStacks, ForsakenBootsClothRequired, user))
+			{
+				var forsakenBoots = Spawn("ClothingShoesBootsForsaken", runeCoords);
+				
+				_popupSystem.PopupEntity(
+					Loc.GetString("cult-summoning-forsaken-boots"),
+					user, user, PopupType.Large
+				);
+				
+				// Delete the rune after successful summoning
+				QueueDel(uid);
+				args.Handled = true;
+				return;
+			}
+		}
+		else if (HasEnoughMaterials(durathreadStacks, ForsakenBootsDurathreadRequired) &&
+		         !HasEnoughMaterials(plasticStacks, ForsakenBootsPlasticRequired) &&
+		         !HasEnoughMaterials(clothStacks, ForsakenBootsClothRequired))
+		{
+			// Alternative method: 5 durathread (only if no plastic/cloth available)
+			if (TryConsumeMaterials(durathreadStacks, ForsakenBootsDurathreadRequired, user))
+			{
+				var forsakenBoots = Spawn("ClothingShoesBootsForsaken", runeCoords);
+				
+				_popupSystem.PopupEntity(
+					Loc.GetString("cult-summoning-forsaken-boots"),
+					user, user, PopupType.Large
+				);
+				
+				// Delete the rune after successful summoning
+				QueueDel(uid);
+				args.Handled = true;
+				return;
+			}
+		}
+		else if (HasEnoughMaterials(plasticStacks, ForsakenBootsPlasticRequired))
+		{
+			// We have enough plastic but not enough cloth - calculate cloth count
+			// Only show message if activated by a player (not automatic activation)
+			if (isPlayer)
+			{
+				int clothCount = GetTotalStackCount(clothStacks);
+				_popupSystem.PopupEntity(
+					Loc.GetString("cult-summoning-need-more-cloth", ("needed", ForsakenBootsClothRequired), ("have", clothCount)),
+					user, user, PopupType.MediumCaution
+				);
+			}
+			args.Handled = true;
+			return;
+		}
+		else if (HasEnoughMaterials(clothStacks, ForsakenBootsClothRequired))
+		{
+			// We have enough cloth but not enough plastic - calculate plastic count
+			// Only show message if activated by a player (not automatic activation)
+			if (isPlayer)
+			{
+				int plasticCount = GetTotalStackCount(plasticStacks);
+				_popupSystem.PopupEntity(
+					Loc.GetString("cult-summoning-need-more-plastic", ("needed", ForsakenBootsPlasticRequired), ("have", plasticCount)),
+					user, user, PopupType.MediumCaution
+				);
+			}
+			args.Handled = true;
+			return;
 		}
 
 		// Check for 10 runedglass - spawn Pylon anchored
@@ -236,6 +422,8 @@ public sealed class SummonOnTriggerSystem : EntitySystem
 							// Consume materials for unanchored pylon
 							if (TryConsumeMaterials(runedGlassStacks, PylonGlassRequired, user))
 							{
+								// Play the same activation sound that other cult runes use
+								_audioSystem.PlayPvs(new SoundPathSpecifier("/Audio/Effects/inneranomaly.ogg"), nearbyLocation);
 								_popupSystem.PopupEntity(
 									Loc.GetString("cult-summoning-pylon"),
 									user, user, PopupType.Large
@@ -297,6 +485,8 @@ public sealed class SummonOnTriggerSystem : EntitySystem
 				}
 
 				// Success - pylon is spawned and anchored
+				// Play the same activation sound that other cult runes use
+				_audioSystem.PlayPvs(new SoundPathSpecifier("/Audio/Effects/inneranomaly.ogg"), runeCoordsForPylon);
 				_popupSystem.PopupEntity(
 					Loc.GetString("cult-summoning-pylon"),
 					user, user, PopupType.Large
@@ -319,60 +509,133 @@ public sealed class SummonOnTriggerSystem : EntitySystem
 			}
 		}
 
-		// TODO: Add runedplasteel handling here
-		//if (TryConsumeMaterials(runedPlasteelStacks, requiredAmount, user))
-		//{
-		//	// Spawn something for runedplasteel
-		//	args.Handled = true;
-		//	return;
-		//}
-
 		// No valid materials found
-		if (runedMetalStacks.Count == 0 && runedGlassStacks.Count == 0)
+		if (runedSteelStacks.Count == 0 && runedGlassStacks.Count == 0 && plasticStacks.Count == 0 && clothStacks.Count == 0 && durathreadStacks.Count == 0 && runedPlasteelStacks.Count == 0)
 		{
-			_popupSystem.PopupEntity(
-				Loc.GetString("cult-summoning-no-materials"),
-				user, user, PopupType.MediumCaution
-			);
+			// Only show message if activated by a player (not automatic activation)
+			if (isPlayer)
+			{
+				_popupSystem.PopupEntity(
+					Loc.GetString("cult-summoning-no-materials"),
+					user, user, PopupType.MediumCaution
+				);
+			}
 		}
 		else
 		{
 			// Calculate what materials are present and what's missing
-			int totalMetal = 0;
+			int totalSteel = 0;
 			int totalGlass = 0;
-			foreach (var stack in runedMetalStacks)
+			int totalPlastic = 0;
+			int totalCloth = 0;
+			int totalDurathread = 0;
+			int totalPlasteel = 0;
+			foreach (var stack in runedSteelStacks)
 			{
 				if (TryComp<StackComponent>(stack, out var stackComp))
-					totalMetal += stackComp.Count;
+					totalSteel += stackComp.Count;
 			}
 			foreach (var stack in runedGlassStacks)
 			{
 				if (TryComp<StackComponent>(stack, out var stackComp))
 					totalGlass += stackComp.Count;
 			}
+			foreach (var stack in plasticStacks)
+			{
+				if (TryComp<StackComponent>(stack, out var stackComp))
+					totalPlastic += stackComp.Count;
+			}
+			foreach (var stack in clothStacks)
+			{
+				if (TryComp<StackComponent>(stack, out var stackComp))
+					totalCloth += stackComp.Count;
+			}
+			foreach (var stack in durathreadStacks)
+			{
+				if (TryComp<StackComponent>(stack, out var stackComp))
+					totalDurathread += stackComp.Count;
+			}
+			foreach (var stack in runedPlasteelStacks)
+			{
+				if (TryComp<StackComponent>(stack, out var stackComp))
+					totalPlasteel += stackComp.Count;
+			}
 
-			if (totalMetal < JuggernautMetalRequired && totalGlass < PylonGlassRequired)
+			// Only show insufficient materials messages if activated by a player (not automatic activation)
+			if (isPlayer)
 			{
-				_popupSystem.PopupEntity(
-					Loc.GetString("cult-summoning-insufficient-materials"),
-					user, user, PopupType.MediumCaution
-				);
-			}
-			else if (totalMetal < JuggernautMetalRequired)
-			{
-				_popupSystem.PopupEntity(
-					Loc.GetString("cult-summoning-need-more-metal", ("needed", JuggernautMetalRequired), ("have", totalMetal)),
-					user, user, PopupType.MediumCaution
-				);
-			}
-			else if (totalGlass < PylonGlassRequired)
-			{
-				_popupSystem.PopupEntity(
-					Loc.GetString("cult-summoning-need-more-glass", ("needed", PylonGlassRequired), ("have", totalGlass)),
-					user, user, PopupType.MediumCaution
-				);
+				if (totalSteel < JuggernautMetalRequired && totalGlass < PylonGlassRequired && totalPlastic < ForsakenBootsPlasticRequired && totalCloth < ForsakenBootsClothRequired && totalDurathread < ForsakenBootsDurathreadRequired && totalPlasteel < AcolyteArmorPlasteelRequired)
+				{
+					_popupSystem.PopupEntity(
+						Loc.GetString("cult-summoning-insufficient-materials"),
+						user, user, PopupType.MediumCaution
+					);
+				}
+				else if (totalSteel < JuggernautMetalRequired && totalGlass < PylonGlassRequired)
+				{
+					_popupSystem.PopupEntity(
+						Loc.GetString("cult-summoning-need-more-plastic", ("needed", ForsakenBootsPlasticRequired), ("have", totalPlastic)),
+						user, user, PopupType.MediumCaution
+					);
+				}
+				else if (totalSteel < JuggernautMetalRequired && totalPlastic < ForsakenBootsPlasticRequired)
+				{
+					_popupSystem.PopupEntity(
+						Loc.GetString("cult-summoning-need-more-glass", ("needed", PylonGlassRequired), ("have", totalGlass)),
+						user, user, PopupType.MediumCaution
+					);
+				}
+				else if (totalGlass < PylonGlassRequired && totalPlastic < ForsakenBootsPlasticRequired)
+				{
+					_popupSystem.PopupEntity(
+						Loc.GetString("cult-summoning-need-more-steel", ("needed", JuggernautMetalRequired), ("have", totalSteel)),
+						user, user, PopupType.MediumCaution
+					);
+				}
+				else if (totalSteel < JuggernautMetalRequired)
+				{
+					_popupSystem.PopupEntity(
+						Loc.GetString("cult-summoning-need-more-steel", ("needed", JuggernautMetalRequired), ("have", totalSteel)),
+						user, user, PopupType.MediumCaution
+					);
+				}
+				else if (totalGlass < PylonGlassRequired)
+				{
+					_popupSystem.PopupEntity(
+						Loc.GetString("cult-summoning-need-more-glass", ("needed", PylonGlassRequired), ("have", totalGlass)),
+						user, user, PopupType.MediumCaution
+					);
+				}
+				else if (totalPlastic < ForsakenBootsPlasticRequired)
+				{
+					_popupSystem.PopupEntity(
+						Loc.GetString("cult-summoning-need-more-plastic", ("needed", ForsakenBootsPlasticRequired), ("have", totalPlastic)),
+						user, user, PopupType.MediumCaution
+					);
+				}
+				else if (totalCloth < ForsakenBootsClothRequired)
+				{
+					_popupSystem.PopupEntity(
+						Loc.GetString("cult-summoning-need-more-cloth", ("needed", ForsakenBootsClothRequired), ("have", totalCloth)),
+						user, user, PopupType.MediumCaution
+					);
+				}
 			}
 		}
+	}
+
+	/// <summary>
+	/// Gets the total count from a list of stack entities.
+	/// </summary>
+	private int GetTotalStackCount(List<EntityUid> stacks)
+	{
+		int totalCount = 0;
+		foreach (var stackUid in stacks)
+		{
+			if (TryComp<StackComponent>(stackUid, out var stackComp))
+				totalCount += stackComp.Count;
+		}
+		return totalCount;
 	}
 
 	/// <summary>
@@ -381,14 +644,7 @@ public sealed class SummonOnTriggerSystem : EntitySystem
 	/// </summary>
 	private bool HasEnoughMaterials(List<EntityUid> stacks, int requiredAmount)
 	{
-		int totalCount = 0;
-		foreach (var stackUid in stacks)
-		{
-			if (TryComp<StackComponent>(stackUid, out var stackComp))
-				totalCount += stackComp.Count;
-		}
-
-		return totalCount >= requiredAmount;
+		return GetTotalStackCount(stacks) >= requiredAmount;
 	}
 
 	/// <summary>

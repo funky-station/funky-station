@@ -48,6 +48,7 @@
 # SPDX-FileCopyrightText: 2025 MisterImp <101299120+MisterImp@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Starry <202317940+PurpleTranStar@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
 # SPDX-FileCopyrightText: 2025 Toaster <mrtoastymyroasty@gmail.com>
 # SPDX-FileCopyrightText: 2025 Toastermeister <215405651+Toastermeister@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Wolfkey-SomeoneElseTookMyUsername <wolfkey75@gmail.com>
@@ -615,6 +616,8 @@
     count: 3
     slice: FoodCroissantRaw
 
+
+
 - type: entity
   name: flat cotton dough
   parent: FoodBakingBase
@@ -629,6 +632,15 @@
   - type: SliceableFood
     count: 3
     slice: FoodCroissantRawCotton
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 18
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 5
+        - ReagentId: Fiber
+          Quantity: 10
 
 - type: entity
   name: pizza bread
@@ -986,10 +998,10 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 4
+        maxVol: 5
         reagents:
         - ReagentId: Nutriment
-          Quantity: 3
+          Quantity: 5
 
 - type: entity
   name: raw cotton croissant
@@ -1003,3 +1015,12 @@
     - cotton
   - type: Sprite
     state: croissant-raw-cotton
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 1.5
+        - ReagentId: Fiber
+          Quantity: 3.5

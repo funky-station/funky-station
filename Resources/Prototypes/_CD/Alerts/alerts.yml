@@ -1,0 +1,17 @@
+# SPDX-FileCopyrightText: 2025 dffdff2423 <dffdff2423@gmail.com>
+# SPDX-FileCopyrightText: 2025 jackel234 <jackel234@users.noreply.github.com>
+#
+# SPDX-License-Identifier: MIT
+
+- type: alert
+  id: ToggleInteraction
+  clickEvent: !type:ToggleInteractionEvent
+  icons:
+  - sprite: /Textures/Clothing/Hands/Gloves/forensic.rsi
+    state: icon
+  - sprite: /Textures/Interface/Alerts/pacified.rsi
+    state: icon
+  name: cd-aghost-toggle-interaction
+  description: cd-aghost-toggle-interaction-desc
+  minSeverity: 0
+  maxSeverity: 1

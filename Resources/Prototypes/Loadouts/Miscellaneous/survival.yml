@@ -6,6 +6,9 @@
 # SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 ATDoop <bug@bug.bug>
+# SPDX-FileCopyrightText: 2025 McBosserson <148172569+McBosserson@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Milon <milonpl.git@proton.me>
+# SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 ZarathushtraSpitama <bloodcunt@protonmail.com>
 # SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 kosticia <kosticia46@gmail.com>
@@ -150,6 +153,26 @@
   storage:
     back:
     - BoxSurvivalSlotsEngineeringNitrogen # Goobstation - Slots Based Survival Boxes
+
+# Salvage / Extended
+
+- type: loadout
+  id: EmergencyOxygenExtendedSalvage
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: OxygenBreather
+  storage:
+    back:
+    - BoxSurvivalSlotsSalvage # Goobstation - Slots Based Survival Boxes
+
+- type: loadout
+  id: EmergencyNitrogenExtendedSalvage
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: NitrogenBreather
+  storage:
+    back:
+    - BoxSurvivalSlotsSalvageNitrogen # Goobstation - Slots Based Survival Boxes
 
 # Medical
 - type: loadout

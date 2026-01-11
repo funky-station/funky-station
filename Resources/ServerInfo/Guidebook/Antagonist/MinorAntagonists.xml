@@ -27,7 +27,7 @@ SPDX-License-Identifier: MIT
     <GuideEntityEmbed Entity="ParadoxCloneDummy"/>
   </Box>
 
-  A perfect copy of a random crewmember that was thrown into our universe by a space-time anomaly. To fix the paradox and survive they have to find and kill their original counterpart. They have no special abilities, but have identical physical appearance, DNA, fingerprints, clothing, equipment and IDs, making it hard to figure out who is the orginal and who is the clone, unless you know your fellow crewmembers well.
+  A perfect copy of a random crewmember that was thrown into our universe by a space-time anomaly. To fix the paradox and survive they have to find and kill their original counterpart. They have no special abilities, but have identical physical appearance, DNA, fingerprints, clothing, equipment and IDs, making it hard to figure out who is the original and who is the clone, unless you know your fellow crewmembers well.
 
   # Revenant
 
@@ -89,4 +89,18 @@ SPDX-License-Identifier: MIT
   Slimes and spiders have no remarkable features, but will [color=cyan]infest the station[/color] from time to time regardless. Both will give chase and attack anything they see.
   - Slimes may [bold]deal extra cellular or poison damage[/bold], based upon their color. Water hurts them just as it would hurt a slime person.
   - Spiders have a venomous bite and can [bold]create webs[/bold] that are hard to move though. Webs are easily destroyed with a blade. They can also pry open airlocks.
+
+  # Mini Dragon
+  
+  <Box>
+    <GuideEntityEmbed Entity="MobMiniDragon" Scale="2.4"/>
+  </Box>
+
+  Mini Dragons are small dragon-like creatures that enjoy making hoards and gathering wealth.
+  - Despite being an antagonist, you are [bold]not[/bold] directly hostile to the crew, but [bold]should[/bold] attack and kill them if they threaten or harm you or your hoard.
+  - You are at liberty to choose what you wish to hoard! Plushies, gold, guns, cash, and more, all up for you to choose!
+  - You posess relatively fast health regeneration! The ichor that flows in your veins will help keep you alive, but don't forget you aren't immortal!
+  - Be careful not to be hunted! You can be butchered into dragon flesh that provides valuable [bold]ichor[/bold] to the crew, so try to stay alive!
+  - Your sharp claws and powerful muscles allow you to [bold]pry doors[/bold] quickly. You are able to even pry [bold]bolted[/bold] doors!
+  - Your draconic descent means you can fly and survive in space. When hurt, you can always retreat to the safety of the cosmos!
 </Document>

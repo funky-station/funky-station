@@ -31,13 +31,16 @@
 # SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 shamp <140359015+shampunj@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 GumshoeWorm <thelunaman365@gmail.com>
+# SPDX-FileCopyrightText: 2025 MaiaArai <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 Teasq <Xerithin@gmail.com>
+# SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 willowzeta <willowzeta632146@proton.me>
+# SPDX-FileCopyrightText: 2026 Zergologist <114537969+Chedd-Error@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -85,6 +88,13 @@
     ClothingUniformJumpskirtColorDarkGreen: 2
     ClothingUniformJumpsuitColorTeal: 2
     ClothingUniformJumpskirtColorTeal: 2
+    ClothingUniformJumpsuitDressShirtWhite: 4 #Funky!
+    ClothingUniformJumpsuitDressShirtBlue: 4 #Funky!
+    ClothingUniformJumpsuitDressShirtTied: 4 #Funky!
+    ClothingUniformJumpsuitServiceCoat: 4 #Funky!
+    ClothingUniformJumpskirtDressShirtWhite: 4 #Funky!
+    ClothingUniformJumpskirtDressShirtBlue: 4 #Funky!
+    ClothingUniformJumpskirtDressShirtTied: 4 #Funky!
     ClothingUniformJumpsuitHawaiBlack: 2
     ClothingUniformJumpsuitHawaiBlue: 2
     ClothingUniformJumpsuitHawaiRed: 2
@@ -116,6 +126,8 @@
     ClothingHeadHatGreensoft: 2
     ClothingHeadHatOrangesoft: 2
     ClothingHeadHatRedsoft: 2
+    ClothingShoesBootsWork: 2 # funk
+    ClothingShoesBootsSalvage: 2 # funk
     # DO NOT ADD MORE, USE UNIFORM DYING
     ClothingHeadHatBlacksoft: 2
     ClothingHeadHatPurplesoft: 2

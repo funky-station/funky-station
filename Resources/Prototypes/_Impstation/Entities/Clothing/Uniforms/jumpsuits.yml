@@ -1,4 +1,6 @@
+# SPDX-FileCopyrightText: 2025 MaiaArai <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 delorphin <delorphin@gmail.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
@@ -33,9 +35,9 @@
   description: ID please?
   components:
   - type: Sprite
-    sprite: _Impstation/Clothing/Uniforms/Jumpsuit/nightclubsuit.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/nightclubsuit.rsi
   - type: Clothing
-    sprite: _Impstation/Clothing/Uniforms/Jumpsuit/nightclubsuit.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/nightclubsuit.rsi
 
 - type: entity
   parent: [ClothingUniformBase]
@@ -44,9 +46,9 @@
   description: The unspoken attire for any hotel, motel, or branded inn activities.
   components:
   - type: Sprite
-    sprite: _Impstation/Clothing/Uniforms/Jumpsuit/mrspacewide.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/mrspacewide.rsi
   - type: Clothing
-    sprite: _Impstation/Clothing/Uniforms/Jumpsuit/mrspacewide.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/mrspacewide.rsi
 
 - type: entity
   parent: [ClothingUniformBase]
@@ -55,9 +57,9 @@
   description: Not even the worst coffee spills will show up on this puppy, guaranteed.
   components:
   - type: Sprite
-    sprite: _Impstation/Clothing/Uniforms/Jumpsuit/brownsuit.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/brownsuit.rsi
   - type: Clothing
-    sprite: _Impstation/Clothing/Uniforms/Jumpsuit/brownsuit.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/brownsuit.rsi
 
 - type: entity
   parent: [ClothingUniformBase]
@@ -66,9 +68,9 @@
   description: A suit fit for a humble, small town gentleman with something to say.
   components:
   - type: Sprite
-    sprite: _Impstation/Clothing/Uniforms/Jumpsuit/creamsuit.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/creamsuit.rsi
   - type: Clothing
-    sprite: _Impstation/Clothing/Uniforms/Jumpsuit/creamsuit.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/creamsuit.rsi
 
 - type: entity
   parent: [ClothingUniformBase]
@@ -99,9 +101,9 @@
   description: But you are the bartender, you've always been the bartender.
   components:
   - type: Sprite
-    sprite: _Impstation/Clothing/Uniforms/Jumpsuit/senior_bartender.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/senior_bartender.rsi
   - type: Clothing
-    sprite: _Impstation/Clothing/Uniforms/Jumpsuit/senior_bartender.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/senior_bartender.rsi
 
 - type: entity
   parent: [ClothingUniformBase]
@@ -110,6 +112,6 @@
   description: BROS... Two!
   components:
   - type: Sprite
-    sprite: _Impstation/Clothing/Uniforms/Jumpsuit/brosblazer.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/brosblazer.rsi
   - type: Clothing
-    sprite: _Impstation/Clothing/Uniforms/Jumpsuit/brosblazer.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/brosblazer.rsi

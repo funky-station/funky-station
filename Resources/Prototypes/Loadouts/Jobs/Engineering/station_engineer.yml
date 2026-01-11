@@ -3,9 +3,15 @@
 # SPDX-FileCopyrightText: 2024 Mr. 27 <45323883+Dutch-VanDerLinde@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Pancake <Pangogie@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 CalicoDragon <110030310+CalicoDragon@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Mora <46364955+TrixxedHeart@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Sofia Gilsanz <softie.gd@gmail.com>
 # SPDX-FileCopyrightText: 2025 Teasq <Xerithin@gmail.com>
 # SPDX-FileCopyrightText: 2025 TrixxedHeart <46364955+TrixxedBit@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2026 MaiaArai <158123176+YaraaraY@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2026 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2026 Zergologist <114537969+Chedd-Error@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -13,11 +19,6 @@
 - type: loadoutEffectGroup
   id: SeniorEngineering
   effects:
-  - !type:JobRequirementLoadoutEffect
-    requirement:
-      !type:RoleTimeRequirement
-      role: JobAtmosphericTechnician
-      time: 21600 #6 hrs
   - !type:JobRequirementLoadoutEffect
     requirement:
       !type:RoleTimeRequirement
@@ -69,9 +70,9 @@
 
 # Jumpsuit
 - type: loadout
-  id: StationEngineerJumpsuit
+  id: StationEngineerJumpsuitWhite
   equipment:
-    jumpsuit: ClothingUniformJumpsuitEngineering
+    jumpsuit: ClothingUniformJumpsuitEngineeringJumpsuit
   groupBy: "jumpsuit"
 
 - type: loadout
@@ -83,8 +84,71 @@
 - type: loadout
   id: StationEngineerHazardsuit
   equipment:
-    jumpsuit: ClothingUniformJumpsuitEngineeringHazard
+      jumpsuit: ClothingUniformJumpsuitEngineeringBaggyHazard
   groupBy: "jumpsuit"
+
+- type: loadout
+  id: StationEngineerJumpsuitElectrician
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitEngineeringElectrician
+  groupBy: "jumpsuit"
+
+- type: loadout
+  id: StationEngineerJumpsuitElectricianTied
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtEngineeringElectricianTied
+  groupBy: "jumpsuit"
+
+- type: loadout
+  id: StationEngineerJumpsuitTankTop
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitEngineeringTankTop
+  groupBy: "jumpsuit"
+
+- type: loadout
+  id: StationEngineerJumpsuitUndersuit
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitEngineeringUndersuit
+  groupBy: "jumpsuit"
+
+- type: loadout
+  id: SeniorEngineerJumpsuitArmored
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SeniorEngineering
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitEngineeringSeniorArmored
+  groupBy: "jumpsuit"
+
+- type: loadout
+  id: StationEngineerJumpsuit
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitEngineering
+  groupBy: "coveralls"
+
+- type: loadout
+  id: StationEngineerOveralls
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitEngineeringOveralls
+  groupBy: "coveralls"
+
+- type: loadout
+  id: StationEngineerCoveralls
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitEngineeringCoveralls
+  groupBy: "coveralls"
+
+- type: loadout
+  id: StationEngineerRipley
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitEngineeringRipley
+  groupBy: "coveralls"
+
+- type: loadout
+  id: StationEngineerShirt
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitEngineeringShirt
+  groupBy: "coveralls"
 
 - type: loadout
   id: SeniorEngineerJumpsuit
@@ -93,7 +157,7 @@
     proto: SeniorEngineering
   equipment:
     jumpsuit: ClothingUniformJumpsuitSeniorEngineer
-  groupBy: "jumpsuit"
+  groupBy: "senior"
 
 - type: loadout
   id: SeniorEngineerJumpskirt
@@ -102,7 +166,7 @@
     proto: SeniorEngineering
   equipment:
     jumpsuit: ClothingUniformJumpskirtSeniorEngineer
-  groupBy: "jumpskirt"
+  groupBy: "senior"
 
 # Back
 - type: loadout
@@ -126,21 +190,35 @@
   equipment:
     outerClothing: ClothingOuterVestHazard
 
+
 - type: loadout
   id: StationEngineerWintercoat
   equipment:
     outerClothing: ClothingOuterWinterEngi
+
+# Belts (Funky!)
+- type: loadout
+  id: EngineerUtilityBelt
+  equipment:
+    belt: ClothingBeltUtilityEngineering
+
+- type: loadout
+  id: EngineerHarness
+  equipment:
+    belt: ClothingBeltEngineeringHarnessFilled
 
 # Shoes
 - type: loadout
   id: WorkBoots
   equipment:
     shoes: ClothingShoesBootsWork
+  groupBy: "boots"
 
 - type: loadout
   id: EngineeringWinterBoots
   equipment:
     shoes: ClothingShoesBootsWinterEngi
+  groupBy: "boots"
 
 # ID
 - type: loadout

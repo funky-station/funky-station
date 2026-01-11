@@ -74,25 +74,25 @@ accent-french-words-replace-19 = merde
 
 accent-french-words-20 = command
 accent-french-words-20-2 = commander
-accent-french-words-replace-20 = commandement
-
+accent-french-words-replace-20 = commandant
+    
 accent-french-words-21 = commanders
-accent-french-words-replace-21 = commandements
+accent-french-words-replace-21 = commandants
 
 accent-french-words-22 = captain
-accent-french-words-replace-22 = captaine
+accent-french-words-replace-22 = capitaine
 
 accent-french-words-23 = captains
-accent-french-words-replace-23 = captaines
+accent-french-words-replace-23 = capitaines
 
 accent-french-words-24 = security
 accent-french-words-replace-24 = sécurité
 
 accent-french-words-25 = head of security
-accent-french-words-replace-25 = chef du sécurité
+accent-french-words-replace-25 = chef de sécurité
 
 accent-french-words-26 = heads of security
-accent-french-words-replace-26 = chefs du sécurité
+accent-french-words-replace-26 = chefs de sécurité
 
 accent-french-words-27 = officer
 accent-french-words-replace-27 = officier
@@ -104,7 +104,7 @@ accent-french-words-29 = supply
 accent-french-words-replace-29 = approvisionnement
 
 accent-french-words-30 = cargo
-accent-french-words-replace-30 = cargaison
+accent-french-words-replace-30 = logistique
 
 accent-french-words-31 = salvage
 accent-french-words-replace-31 = sauvetage
@@ -165,10 +165,10 @@ accent-french-words-49 = chemists
 accent-french-words-replace-49 = chimistes
 
 accent-french-words-50 = research director
-accent-french-words-replace-50 = directeur de la recherche
+accent-french-words-replace-50 = directeur de recherche
 
 accent-french-words-51 = research directors
-accent-french-words-replace-51 = directeurs de la recherche
+accent-french-words-replace-51 = directeurs de recherche
 
 accent-french-words-52 = research
 accent-french-words-replace-52 = recherche
@@ -246,13 +246,13 @@ accent-french-words-72 = the deathsquad
 accent-french-words-72-2 = the death squad
 accent-french-words-72-3 = deathsquad
 accent-french-words-72-4 = death squad
-accent-french-words-replace-72 = le escadron de mort
+accent-french-words-replace-72 = l'escadrille de la mort
 
 accent-french-words-73 = the deathsquads
 accent-french-words-73-4 = the death squads
-accent-french-words-73-5 = deathsquad
-accent-french-words-73-7 = death squad
-accent-french-words-replace-73 = les escadrons de mort
+accent-french-words-73-5 = deathsquads
+accent-french-words-73-7 = death squads
+accent-french-words-replace-73 = les escadrilles de la mort
 
 accent-french-words-74 = army
 accent-french-words-74-2 = armies
@@ -276,10 +276,10 @@ accent-french-words-79 = snail
 accent-french-words-replace-79 = escargots
 
 accent-french-words-80 = quarter pounder
-accent-french-words-replace-80 = royale with cheese
+accent-french-words-replace-80 = royale avec fromage
 
 accent-french-words-81 = quarter pounders
-accent-french-words-replace-81 = royales with cheese
+accent-french-words-replace-81 = royales avec fromage
 
 accent-french-words-82 = very
 accent-french-words-replace-82 = très
@@ -293,3 +293,23 @@ accent-french-words-replace-84 = charismeurs
 accent-french-words-85 = yea
 accent-french-words-85-2 = yeah
 accent-french-words-replace-85 = ouais
+
+accent-french-words-86 = emergency response team
+accent-french-words-86-2 = ert
+accent-french-words-replace-86 = gendarmerie
+
+accent-french-words-87 = emergency response teams
+accent-french-words-87-2 = erts
+accent-french-words-replace-87 = gendarmeries
+
+accent-french-words-88 = I'm sorry
+accent-french-words-88-2 = im sorry
+accent-french-words-88-3 = sorry
+accent-french-words-replace-88 = désolé
+
+accent-french-words-89 = you're welcome
+accent-french-words-89-2 = youre welcome
+accent-french-words-replace-89 = de rien
+
+accent-french-words-90 = perfect
+accent-french-words-replace-90 = parfait

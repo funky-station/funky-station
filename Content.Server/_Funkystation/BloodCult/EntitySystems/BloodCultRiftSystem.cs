@@ -61,7 +61,7 @@ public sealed partial class BloodCultRiftSystem : EntitySystem
 	[Dependency] private readonly IRobustRandom _random = default!;
 	[Dependency] private readonly ExplosionSystem _explosionSystem = default!;
 	[Dependency] private readonly BodySystem _bodySystem = default!;
-	[Dependency] private readonly MindSystem _mindSystem = default!;
+	//[Dependency] private readonly MindSystem _mindSystem = default!;
 	[Dependency] private readonly OfferOnTriggerSystem _offerSystem = default!;
 	[Dependency] private readonly IGameTiming _timing = default!;
 	[Dependency] private readonly SharedAudioSystem _audio = default!;
@@ -73,7 +73,9 @@ public sealed partial class BloodCultRiftSystem : EntitySystem
 	{
 		base.Initialize();
 
-		SubscribeLocalEvent<FinalSummoningRuneComponent, TriggerEvent>(OnTriggerRitual);
+		// Run before OfferOnTriggerSystem so ritual check happens first
+		SubscribeLocalEvent<FinalSummoningRuneComponent, TriggerEvent>(OnTriggerRitual, before: new[] { typeof(OfferOnTriggerSystem) });
+		SubscribeLocalEvent<BloodCultRiftComponent, TriggerEvent>(OnTriggerRitualFromRift, before: new[] { typeof(OfferOnTriggerSystem) });
 	}
 
 	public override void Update(float frameTime)
@@ -94,14 +96,7 @@ public sealed partial class BloodCultRiftSystem : EntitySystem
 				riftComp.TimeUntilNextPulse = riftComp.PulseInterval;
 			}
 
-			// Refresh the summoning runes flag.
-			// This only happens if someone cleaned the original runes, and cultists have replace runes.
-			riftComp.TimeUntilRuneRefresh -= frameTime;
-			if (riftComp.TimeUntilRuneRefresh <= 0f)
-			{
-				RefreshSummoningRunes(riftUid, riftComp, xform);
-				riftComp.TimeUntilRuneRefresh = riftComp.RuneRefreshInterval;
-			}
+			// No longer needed - FinalRiftRune is permanent and always in range
 
 			// Handle active ritual chanting
 			if (riftComp.RitualInProgress)
@@ -205,7 +200,7 @@ public sealed partial class BloodCultRiftSystem : EntitySystem
 		}
 
 		// If the person who has the pending sacrifice flag doesn't exist, restart the chant.
-		if (!TryComp<TransformComponent>(component.PendingSacrifice.Value, out var victimXform))
+		if (!TryComp(component.PendingSacrifice.Value, out TransformComponent? victimXform))
 		{
 			component.ChantsCompletedInCycle = SacrificeChantDelays.Length;
 			component.TimeUntilNextChant = 1f;
@@ -231,6 +226,17 @@ public sealed partial class BloodCultRiftSystem : EntitySystem
 			return;
 		}
 
+		// Gib the body after the brain has been removed
+		// Use the explode smite approach: queue an explosion and gib without organs
+		// This prevents issues with organs that don't have ContainerManagerComponent
+		if (Exists(victim))
+		{
+			var coords = _transformSystem.GetMapCoordinates(victim);
+			_explosionSystem.QueueExplosion(coords, ExplosionSystem.DefaultExplosionPrototypeId,
+				4, 1, 2, victim, maxTileBreak: 0);
+			_bodySystem.GibBody(victim, gibOrgans: false);
+		}
+
 		//Increment the sacrifices, play an announcement, and reset the chant.
 		component.SacrificesCompleted++;
 		component.RequiredCultistsForChant = Math.Max(1, component.RequiredCultistsForChant - 1);
@@ -245,6 +251,97 @@ public sealed partial class BloodCultRiftSystem : EntitySystem
 		{
 			component.FinalSacrificeDone = true;
 		}
+	}
+
+	/// <summary>
+	/// When a cultist clicks on the BloodCultRift itself, start the ritual.
+	/// </summary>
+	private void OnTriggerRitualFromRift(EntityUid uid, BloodCultRiftComponent component, TriggerEvent args)
+	{
+		// Only cultists can trigger the ritual
+		if (args.User == null || !TryComp<BloodCultistComponent>(args.User, out var cultist))
+		{
+			args.Handled = true;
+			return;
+		}
+
+		var user = args.User.Value;
+		var riftUid = uid;
+
+		// Don't start if ritual is already in progress
+		if (component.RitualInProgress)
+		{
+			_popupSystem.PopupEntity(
+				Loc.GetString("cult-final-ritual-already-in-progress"),
+				user, user, PopupType.MediumCaution
+			);
+			args.Handled = true;
+			return;
+		}
+
+		// Ensure the cult has weakened the veil (blood collected plus ritual)
+		//Should never happen, since the rift spawns "after" the veil is weakened. But this covers weird use cases of admin-spawned rifts.
+		if (!_bloodCultRule.TryGetActiveRule(out var ruleComp) || !ruleComp.VeilWeakened || ruleComp.BloodCollected < ruleComp.BloodRequiredForVeil)
+		{
+			_popupSystem.PopupEntity(
+				Loc.GetString("cult-final-ritual-too-early",
+					("collected", Math.Round(ruleComp.BloodCollected, 1)),
+					("required", Math.Round(ruleComp.BloodRequiredForVeil, 1))),
+				user, user, PopupType.LargeCaution
+			);
+			args.Handled = true;
+			return;
+		}
+
+		component.RequiredCultistsForChant = 3;
+
+		// Check if enough runes have cultists on them
+		var cultistsOnRunes = GetCultistsOnSummoningRunes(component);
+		if (cultistsOnRunes.Count < component.RequiredCultistsForChant)
+		{
+			var allowPopup = component.LastNotEnoughCultistsPopup == TimeSpan.Zero ||
+				(_timing.CurTime - component.LastNotEnoughCultistsPopup) > TimeSpan.FromSeconds(1);
+
+			if (allowPopup)
+			{
+				component.LastNotEnoughCultistsPopup = _timing.CurTime;
+				_popupSystem.PopupEntity(
+					Loc.GetString("cult-final-ritual-not-enough-cultists",
+						("current", cultistsOnRunes.Count),
+						("required", component.RequiredCultistsForChant)),
+					user, user, PopupType.LargeCaution
+				);
+			}
+			args.Handled = true;
+			return;
+		}
+
+		// Ritual can begin
+		component.RitualInProgress = true;
+		component.LastNotEnoughCultistsPopup = _timing.CurTime;
+		component.CurrentChantStep = 0;
+		component.SacrificesCompleted = 0;
+		component.RequiredSacrifices = 3;
+		component.FinalSacrificeDone = false;
+		component.TotalChantSteps = (SacrificeChantDelays.Length + 1) * component.RequiredSacrifices;
+		component.ChantsCompletedInCycle = 0;
+		component.PendingSacrifice = null;
+		component.TimeUntilNextChant = 0f;
+		component.FinalSacrificePending = false;
+		component.TimeUntilNextShake = 0f;
+		component.NextShakeIndex = 0;
+
+		// Uses placeholder music for now.
+		// todo: find better bloodcult music
+		StartRitualMusic(riftUid, component);
+
+		// Announce to all cultists
+		AnnounceRitualStart();
+
+		// Immediately perform first chant
+		ProcessChantStep(riftUid, component, Transform(riftUid));
+
+		args.Handled = true;
 	}
 
 	/// <summary>
@@ -269,8 +366,6 @@ public sealed partial class BloodCultRiftSystem : EntitySystem
 		}
 
 		var riftUid = finalRune.RiftUid.Value;
-		var riftXform = Transform(riftUid);
-		RefreshSummoningRunes(riftUid, component, riftXform);
 
 		// Don't start if ritual is already in progress
 		if (component.RitualInProgress)
@@ -493,11 +588,14 @@ public sealed partial class BloodCultRiftSystem : EntitySystem
 
 		foreach (var runeUid in riftComp.SummoningRunes)
 		{
-			if (!Exists(runeUid) || !TryComp<TransformComponent>(runeUid, out var runeXform))
+			if (!Exists(runeUid) || !TryComp(runeUid, out TransformComponent? runeXform))
 				continue;
 
 			// Look for cultists near this rune
-			var nearbyEntities = _lookup.GetEntitiesInRange(runeXform.Coordinates, 0.5f);
+			// The FinalRiftRune is 3x3 tiles, so we need a range that covers from center to corner
+			// 3 tiles = 3 meters, so diagonal distance from center to corner is ~2.12 meters
+			// Using 2.0f to ensure we cover the entire 3x3 area with some margin
+			var nearbyEntities = _lookup.GetEntitiesInRange(runeXform.Coordinates, 2.0f);
 			foreach (var entity in nearbyEntities)
 			{
 				if (!IsValidSummoningParticipant(entity))
@@ -512,48 +610,6 @@ public sealed partial class BloodCultRiftSystem : EntitySystem
 		return result;
 	}
 
-	// Only used if someone has cleaned up the original runes, and cultists have replaced them.
-	private void RefreshSummoningRunes(EntityUid riftUid, BloodCultRiftComponent component, TransformComponent riftXform)
-	{
-		var runesInRange = new HashSet<EntityUid>();
-		var nearbyEntities = _lookup.GetEntitiesInRange(riftXform.Coordinates, SummoningRuneDetectionRange);
-
-		foreach (var entity in nearbyEntities)
-		{
-			if (!TryComp<OfferOnTriggerComponent>(entity, out _) || Deleted(entity))
-				continue;
-
-			runesInRange.Add(entity);
-
-			var finalRune = EnsureComp<FinalSummoningRuneComponent>(entity);
-			if (finalRune.RiftUid != riftUid)
-			{
-				finalRune.RiftUid = riftUid;
-				Dirty(entity, finalRune);
-			}
-
-			if (!component.SummoningRunes.Contains(entity))
-				component.SummoningRunes.Add(entity);
-
-			if (!component.OfferingRunes.Contains(entity))
-				component.OfferingRunes.Add(entity);
-		}
-
-		component.SummoningRunes.RemoveAll(uid =>
-		{
-			if (!Exists(uid) || !runesInRange.Contains(uid))
-			{
-				if (TryComp<FinalSummoningRuneComponent>(uid, out var runeComp) && runeComp.RiftUid == riftUid)
-					RemComp<FinalSummoningRuneComponent>(uid);
-
-				return true;
-			}
-
-			return false;
-		});
-
-		component.OfferingRunes.RemoveAll(uid => !Exists(uid) || !runesInRange.Contains(uid));
-	}
 
 	private void EnsurePendingSacrifice(BloodCultRiftComponent component, List<EntityUid> cultists)
 	{
@@ -595,7 +651,7 @@ public sealed partial class BloodCultRiftSystem : EntitySystem
 		if (message == null)
 			return;
 
-		_chatSystem.DispatchGlobalAnnouncement(message, "Unknown", playSound: true);
+		_chatSystem.DispatchGlobalAnnouncement(message, "Unknown", playSound: true, colorOverride: Color.DarkRed);
 	}
 
 	private bool IsValidSummoningParticipant(EntityUid entity)

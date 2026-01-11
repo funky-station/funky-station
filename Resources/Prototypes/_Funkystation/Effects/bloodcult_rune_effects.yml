@@ -7,7 +7,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
-    drawdepth: FloorObjects
+    drawdepth: HighFloorObjects
     sprite: _Funkystation/Structures/BloodCult/bloodrune.rsi
     layers:
       - map: ["enum.EffectLayers.Unshaded"]
@@ -35,7 +35,7 @@
 
 - type: entity
   id: FxBloodCultRuneOffering
-  name: offering rune
+  name: conversion rune
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite

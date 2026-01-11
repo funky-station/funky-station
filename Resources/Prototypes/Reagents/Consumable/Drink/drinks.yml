@@ -42,6 +42,7 @@
 # SPDX-FileCopyrightText: 2025 RedBookcase <crazykid1590@gmail.com>
 # SPDX-FileCopyrightText: 2025 SharkSnake98 <peanutbuttersharky@gmail.com>
 # SPDX-FileCopyrightText: 2025 Xcybitt <197952719+Xcybitt@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Zergologist <114537969+Chedd-Error@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 kosticia <kosticia46@gmail.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
@@ -69,6 +70,11 @@
       - !type:AdjustReagent
         reagent: Theobromine
         amount: 0.05
+      - !type:AdjustTemperature
+        conditions:
+        - !type:Temperature
+          max: 343.15
+        amount: 5000 # thermal energy, not temperature!
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
@@ -100,6 +106,21 @@
         conditions:
         - !type:ReagentThreshold
           min: 30
+  reactiveEffects:
+    Acidic:
+      methods: [ Touch ]
+      effects:
+      - !type:HealthChange
+        scaleByQuantity: true
+        ignoreResistances: false
+        damage:
+          types:
+            Heat: 0.1
+      - !type:Emote
+        emote: Scream
+        probability: 0.1
+      - !type:AdjustTemperature
+        amount: 1000 # thermal energy, not temperature!
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/coffeeglass.rsi
     state: icon_empty
@@ -124,6 +145,26 @@
       - !type:AdjustReagent
         reagent: Theobromine
         amount: 0.05
+      - !type:AdjustTemperature
+        conditions:
+        - !type:Temperature
+          max: 343.15
+        amount: 5000 # thermal energy, not temperature!
+  reactiveEffects:
+    Acidic:
+      methods: [ Touch ]
+      effects:
+      - !type:HealthChange
+        scaleByQuantity: true
+        ignoreResistances: false
+        damage:
+          types:
+            Heat: 0.1
+      - !type:Emote
+        emote: Scream
+        probability: 0.1
+      - !type:AdjustTemperature
+        amount: 1000 # thermal energy, not temperature!
 
 - type: reagent
   id: Cream
@@ -190,6 +231,26 @@
         key: Drowsiness
         time: 2.0
         type: Remove
+      - !type:AdjustTemperature
+        conditions:
+        - !type:Temperature
+          max: 343.15
+        amount: 5000 # thermal energy, not temperature!
+  reactiveEffects:
+    Acidic:
+      methods: [ Touch ]
+      effects:
+      - !type:HealthChange
+        scaleByQuantity: true
+        ignoreResistances: false
+        damage:
+          types:
+            Heat: 0.1
+      - !type:Emote
+        emote: Scream
+        probability: 0.1
+      - !type:AdjustTemperature
+        amount: 1000 # thermal energy, not temperature!
 
 - type: reagent
   id: GreenTea
@@ -205,6 +266,35 @@
   metamorphicMaxFillLevels: 4
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 2
+      - !type:AdjustTemperature
+        conditions:
+        - !type:Temperature
+          max: 343.15
+        amount: 5000 # thermal energy, not temperature!
+      - !type:GenericStatusEffect
+        key: Drowsiness
+        time: 2.0
+        type: Remove
+  reactiveEffects:
+    Acidic:
+      methods: [ Touch ]
+      effects:
+      - !type:HealthChange
+        scaleByQuantity: true
+        ignoreResistances: false
+        damage:
+          types:
+            Heat: 0.1
+      - !type:Emote
+        emote: Scream
+        probability: 0.1
+      - !type:AdjustTemperature
+        amount: 1000 # thermal energy, not temperature!
 
 - type: reagent
   id: Grenadine
@@ -294,6 +384,15 @@
   metamorphicMaxFillLevels: 5
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 2
+      - !type:GenericStatusEffect
+        key: Drowsiness
+        time: 2.0
+        type: Remove
 
 - type: reagent
   id: IcedTea
@@ -317,6 +416,10 @@
       - !type:AdjustReagent
         reagent: Theobromine
         amount: 0.05
+      - !type:GenericStatusEffect
+        key: Drowsiness
+        time: 2.0
+        type: Remove
 
 - type: reagent
   id: JuiceBerryPoison
@@ -501,6 +604,26 @@
         key: Drowsiness
         time: 2.0
         type: Remove
+      - !type:AdjustTemperature
+        conditions:
+        - !type:Temperature
+          max: 343.15
+        amount: 5000 # thermal energy, not temperature!
+  reactiveEffects:
+    Acidic:
+      methods: [ Touch ]
+      effects:
+      - !type:HealthChange
+        scaleByQuantity: true
+        ignoreResistances: false
+        damage:
+          types:
+            Heat: 0.1
+      - !type:Emote
+        emote: Scream
+        probability: 0.1
+      - !type:AdjustTemperature
+        amount: 1000 # thermal energy, not temperature!
 
 - type: reagent
   id: Tea
@@ -519,6 +642,30 @@
       - !type:AdjustReagent
         reagent: Theobromine
         amount: 0.05
+      - !type:AdjustTemperature
+        conditions:
+        - !type:Temperature
+          max: 343.15
+        amount: 5000 # thermal energy, not temperature!
+      - !type:GenericStatusEffect
+        key: Drowsiness
+        time: 2.0
+        type: Remove
+  reactiveEffects:
+    Acidic:
+      methods: [ Touch ]
+      effects:
+      - !type:HealthChange
+        scaleByQuantity: true
+        ignoreResistances: false
+        damage:
+          types:
+            Heat: 0.1
+      - !type:Emote
+        emote: Scream
+        probability: 0.1
+      - !type:AdjustTemperature
+        amount: 1000 # thermal energy, not temperature!
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/teaglass.rsi
     state: icon_empty
@@ -586,6 +733,11 @@
   meltingPoint: 0.0
   boilingPoint: 100.0
   friction: 0.05 #Copied from Ice Crust
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 3 # ice is no longer useless; rejoice
   plantMetabolism:
   - !type:PlantAdjustWater
     amount: 1

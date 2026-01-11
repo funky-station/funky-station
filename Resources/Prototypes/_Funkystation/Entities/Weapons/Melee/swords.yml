@@ -1,0 +1,325 @@
+# SPDX-FileCopyrightText: 2025 SigmaTheDragon <162711378+SigmaTheDragon@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 mkanke-real <mikekanke@gmail.com>
+#
+# SPDX-License-Identifier: MIT
+
+- type: entity
+  id: ImprovisedEnergySword
+  name: improvised energy sword
+  description: A energy sword cobbled together from random parts. Burns through power like no other.
+  parent: [BaseItem, BaseMajorContraband]
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Weapons/Melee/improvised_esword.rsi
+    layers:
+    - state: icon
+    - state: icon-ON
+      visible: false
+      shader: unshaded
+      map: [ "blade" ]
+  - type: ToggleCellDraw
+  - type: PowerCellDraw
+    drawRate: 35
+  - type: PowerCellSlot
+    cellSlotId: cell_slot
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+  - type: ContainerContainer
+    containers:
+      cell_slot: !type:ContainerSlot
+  - type: ItemToggle
+    soundActivate:
+      path: /Audio/Weapons/ebladeon.ogg
+    soundDeactivate:
+      path: /Audio/Weapons/ebladeoff.ogg
+  - type: ItemToggleActiveSound
+    activeSound:
+      path: /Audio/Weapons/ebladehum.ogg
+  - type: ComponentToggler
+    components:
+    - type: Sharp
+    - type: DisarmMalus
+      malus: 0.6
+    - type: Execution
+      doAfterDuration: 4.0
+  - type: ItemToggleHot
+  - type: ItemTogglePointLight
+  - type: ItemToggleSize
+    activatedSize: Ginormous
+  - type: ItemToggleMeleeWeapon
+    activatedSoundOnHit:
+      path: /Audio/Weapons/eblade1.ogg
+      params:
+        variation: 0.250
+    activatedSoundOnHitNoDamage:
+      path: /Audio/Weapons/eblade1.ogg
+      params:
+        variation: 0.250
+        volume: -10
+    activatedSoundOnSwing:
+      path: /Audio/Weapons/eblademiss.ogg
+      params:
+        variation: 0.125
+    activatedDamage:
+      types:
+        Slash: 6
+        Heat: 10
+        Structural: 5
+  - type: MeleeWeapon
+    wideAnimationRotation: -135
+    attackRate: 1
+    damage:
+      types:
+        Blunt: 4.5
+  - type: Item
+    size: Huge
+    sprite: _Funkystation/Objects/Weapons/Melee/improvised_esword.rsi
+  - type: UseDelay
+    delay: 1.0
+  - type: PointLight
+    enabled: false
+    radius: 2
+    energy: 2
+    color: "#42BFC8"
+    netsync: false
+  - type: Appearance
+  - type: ToggleableLightVisuals # Add support for multiple layers
+    spriteLayer: blade
+    inhandVisuals:
+      left:
+      - state: inhand-left-ON
+        shader: unshaded
+      right:
+      - state: inhand-right-ON
+        shader: unshaded
+  - type: Clothing
+    sprite: _Funkystation/Objects/Weapons/Melee/improvised_esword.rsi
+    quickEquip: false
+    slots:
+    - Back
+    - backStorage
+  - type: IgnitionSource
+    temperature: 700
+  - type: Construction
+    graph: Tsword
+    node: tsword
+
+- type: entity
+  name: star rapier
+  parent: [BaseSword, BaseChaplainContraband]
+  id: SwordChaplainCosmic
+  description: An etherial rapier that feels as cold as winter when you touch it. It is said that wielding this blade too long drains the soul of those not touched by the truth.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Weapons/Melee/star_rapier.rsi
+    layers:
+      - state: icon
+      - state: icon-overlay
+        shader: unshaded
+  - type: MeleeWeapon
+    resistanceBypass: true
+    angle: 90
+    animation: WeaponArcCosmic
+    attackRate: 0.5
+    clickDamageModifier: 1.5
+    damage:
+      types:
+        Slash: 4
+        Asphyxiation: 4
+        Cold: 4
+        Holy: 15
+    soundHit:
+      path: /Audio/_DV/CosmicCult/cosmicsword_hit.ogg
+      params:
+        variation: 0.2
+        volume: 1
+    soundSwing:
+      path: /Audio/_DV/CosmicCult/cosmicweapon_swing.ogg
+      params:
+        variation: 0.125
+        volume: -4
+    soundNoDamage:
+      path: /Audio/_DV/CosmicCult/cosmicsword_glance.ogg
+      params:
+        variation: 0.2
+        volume: -11
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Slash: 6
+        Asphyxiation: 6
+        Cold: 6
+        Holy: 20
+  - type: Reflect
+    reflectProb: .5
+    spread: 60
+    soundOnReflect:
+      path: /Audio/_DV/CosmicCult/cosmicsword_glance.ogg
+      params:
+        variation: 0.2
+        volume: -6
+  - type: DisarmMalus
+  - type: Item
+    size: Huge
+    sprite: _Funkystation/Objects/Weapons/Melee/star_rapier.rsi
+    inhandVisuals:
+      left:
+      - state: inhand-left
+      right:
+      - state: inhand-right
+  - type: EmbeddableProjectile
+    removalTime: 2
+    sound: /Audio/_DV/CosmicCult/cosmiclance_impact.ogg
+  - type: ThrowingAngle
+    angle: 225
+  - type: LandAtCursor
+  - type: Sharp
+  - type: Clothing
+    quickEquip: false
+    slots:
+    - backStorage
+    
+- type: entity
+  name: crooked crucifix
+  parent: [ BaseItem, BaseChaplainContraband]
+  id: CrossChaplainCrooked
+  description: An inverted and deformed crucifix carved out of ancient wood and coated in poison. The origins of this (un?)holy artifact are unknown, but it may be older than nanotransen itself.
+  components:
+  - type: Sprite
+    state: icon
+    sprite: _Funkystation/Objects/Weapons/Melee/crooked_cross.rsi
+  - type: MeleeWeapon
+    wideAnimationRotation: -135
+    angle: 0
+    attackRate: 1
+    damage:
+      types:
+        Piercing: 6
+        Poison: 8
+        Holy: 15
+    soundHit:
+        path: /Audio/Weapons/bladeslice.ogg
+  - type: DisarmMalus
+  - type: Sharp
+  - type: Execution
+    doAfterDuration: 1.5
+  - type: Item
+    size: Normal
+
+- type: entity
+  name: bloody chainsword
+  parent: [BaseItem, BaseChaplainContraband]
+  id: WeaponChaplainChainsword
+  description: A brutal mix of chainsaw and sword, covered in blood stains. Blood for the blood god!
+  components:
+  - type: Wieldable
+    wieldSound: !type:SoundPathSpecifier
+      path: /Audio/Weapons/chainsawwield.ogg
+      params:
+        volume: -3
+  - type: Sharp
+  - type: Sprite
+    sprite: _Funkystation/Objects/Weapons/Melee/chainsword.rsi
+    state: icon
+  - type: MeleeWeapon
+    autoAttack: true
+    angle: 0
+    wideAnimationRotation: -135
+    attackRate: 3
+    damage:
+      types:
+        Slash: 2
+        Blunt: 1
+        Structural: 5
+        Holy: 5
+    soundHit:
+      path: /Audio/Weapons/chainsaw.ogg
+      params:
+        volume: -3
+  - type: IncreaseDamageOnWield
+    damage:
+      types:
+        Slash: 1
+        Blunt: 1
+        Structural: 5
+  - type: Item
+    size: Normal
+    sprite: _Funkystation/Objects/Weapons/Melee/chainsword.rsi
+  - type: DisarmMalus
+  - type: UseDelay
+    delay: 1
+  - type: BoneSaw # Shitmed
+    speed: 0.9
+  - type: SurgeryTool # Shitmed
+    startSound:
+      path: /Audio/Weapons/chainsawwield.ogg
+    endSound:
+      path: /Audio/Weapons/chainsaw.ogg
+  - type: Clothing
+    sprite: _Funkystation/Objects/Weapons/Melee/chainsword.rsi
+    quickEquip: false
+    slots:
+    - Back
+    - backStorage
+
+- type: entity
+  name: haunted sword
+  parent: [ BaseSword, BaseChaplainContraband ]
+  id: WeaponChaplainHauntedSword
+  description: An ancient weapon haunted by spirits unknown, it harnesses this powerful spiritual power to harm foes (and for occasional jokes).
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Weapons/Melee/haunted_sword.rsi
+  - type: MeleeWeapon
+    attackRate: 0.75
+    damage:
+      types:
+        Slash: 10
+        Heat: 5
+        Holy: 15
+    soundHit:
+        path: /Audio/Weapons/bladeslice.ogg
+  - type: Item
+    shape:
+    - 0,0,1,3
+  - type: Clothing
+    sprite: _Funkystation/Objects/Weapons/Melee/haunted_sword.rsi
+    slots:
+    - back
+    - backStorage
+  - type: DisarmMalus
+  - type: Reflect
+    reflectProb: .15
+    spread: 120
+    soundOnReflect:
+      path: /Audio/Weapons/bladeslice.ogg
+      params:
+        variation: 0.2
+        volume: -6
+  - type: GhostRole
+    makeSentient: true
+    allowSpeech: true
+    allowMovement: false
+    name: ghost-role-information-haunted-sword-name
+    description: ghost-role-information-haunted-sword-description
+    rules: ghost-role-information-familiar-rules
+  - type: BlockMovement
+  - type: Speech
+    speechVerb: Default
+    speechSounds: Tenor
+  - type: GhostTakeoverAvailable
+  - type: Vocal
+    sounds:
+      Unsexed: MaleHuman
+  - type: Grammar
+    attributes:
+      proper: false
+      gender: male
+  - type: NightVision
+    isActive: true
+    toggleAction: null
+    color: "#50595C"
+    activateSound: null
+    deactivateSound: null

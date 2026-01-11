@@ -31,6 +31,12 @@ public sealed partial class MindshieldBreakRitualComponent : Component
 	public EntityCoordinates RuneLocation;
 
 	/// <summary>
+	/// The offering rune entity
+	/// </summary>
+	[DataField]
+	public EntityUid RuneEntity;
+
+	/// <summary>
 	/// When the ritual started
 	/// </summary>
 	[DataField]

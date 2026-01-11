@@ -190,7 +190,7 @@
   id: CrateServiceBureaucracy
   parent: CrateGenericSteel
   name: bureaucracy crate
-  description: Several stacks of paper, a few pens and an office toy. What more could you ask for?
+  description: Several stacks of paper, sticky notes, a few pens and an office toy. What more could you ask for?
   components:
   - type: StorageFill
     contents:

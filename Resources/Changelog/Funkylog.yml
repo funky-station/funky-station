@@ -5882,3 +5882,1489 @@ Entries:
       message: Ported stencil decals from WizDen
   id: 696
   time: '2025-11-25T23:34:36.0000000+00:00'
+- author: mkanke-real
+  changes:
+    - type: Add
+      message: Added Yip-Yap and more floor decals to Roid
+    - type: Fix
+      message: Various minor Roid fixes
+  id: 697
+  time: '2025-11-26T14:54:14.0000000+00:00'
+- author: willowzeta
+  changes:
+    - type: Tweak
+      message: 'Map rotation updates: Add Olympus (on a trial period), remove Elkridge'
+  id: 698
+  time: '2025-11-27T18:19:55.0000000+00:00'
+- author: pirakaplant
+  changes:
+    - type: Add
+      message: Added mystery scran, which can be found in maints.
+    - type: Tweak
+      message: >-
+        ID cards, HOPfruit, and syndicate business cards can now be used as
+        utensils.
+  id: 699
+  time: '2025-11-27T18:40:48.0000000+00:00'
+- author: willowzeta
+  changes:
+    - type: Tweak
+      message: More Olympus changes.
+  id: 700
+  time: '2025-11-27T20:59:03.0000000+00:00'
+- author: TheHolyAegis
+  changes:
+    - type: Tweak
+      message: Changed Fland Installation's minimum player requirement from 40 to 55
+  id: 701
+  time: '2025-11-28T01:58:47.0000000+00:00'
+- author: Dusty-Plant
+  changes:
+    - type: Tweak
+      message: Updated Court Station for the sixth week of playtests
+  id: 702
+  time: '2025-11-28T17:44:37.0000000+00:00'
+- author: ThatOneMoon
+  changes:
+    - type: Add
+      message: >-
+        Salvage Reward Tickets and the Ticket exchange, tickets are earned from
+        resource gathering and redeemed inside of the ticket exchange machine
+        within cargo (ticket sprites made by Frogoo). 
+    - type: Tweak
+      message: >-
+        most salvage related hardsuit (Spatio,Mining,Luxury,Goliath) have been
+        given a minor rebalance, mostly to give all of them a small bit of extra
+        explosive resistnace. 
+    - type: Tweak
+      message: >-
+        The Salvage Vendor has been replaced/renamed by the Salvage ticket
+        exchange, and the machine can no longer be unanchored and moved. 
+    - type: Tweak
+      message: >-
+        The Chameleon kit bag from the Syndicate Dropship ruin has been replaced
+        by a syndicate snack box, the gun turrets have been replaced with broken
+        ones.
+    - type: Tweak
+      message: >-
+        The gun turrests from the Empty Flagship ruin have been removed and
+        instead replaced by a swarm of carp. 
+  id: 703
+  time: '2025-11-29T07:58:45.0000000+00:00'
+- author: salpphie
+  changes:
+    - type: Add
+      message: >-
+        Added Yip-Yap to kitchen, Added Detdrobe to Dectives room, Added the SM
+        to Engineering
+    - type: Tweak
+      message: Tweaked the layout of Engineering to fit the SM
+  id: 704
+  time: '2025-11-29T15:08:09.0000000+00:00'
+- author: Xcybitt
+  changes:
+    - type: Tweak
+      message: Made Stabilized Stims give adrenaline.
+  id: 705
+  time: '2025-11-29T23:44:57.0000000+00:00'
+- author: Drywink
+  changes:
+    - type: Fix
+      message: Fire spreading when entities are colliding now works properly.
+  id: 706
+  time: '2025-11-30T00:03:58.0000000+00:00'
+- author: Joana
+  changes:
+    - type: Add
+      message: >-
+        Added the british accent, speak stereotypically like you came from space
+        england!
+  id: 707
+  time: '2025-11-30T01:54:25.0000000+00:00'
+- author: AraiMaia
+  changes:
+    - type: Add
+      message: New markings for Thaven! Arm, leg, and dorsal fins.
+    - type: Add
+      message: Three new tails for Thaven made by trixxedheart!
+    - type: Tweak
+      message: Increased the amount of slots for Thaven arm, leg and chest markings
+  id: 708
+  time: '2025-11-30T02:33:30.0000000+00:00'
+- author: Komonighub
+  changes:
+    - type: Add
+      message: >-
+        Added SOP book ingame, can be found in the Library and your local IAA
+        will have one.
+    - type: Tweak
+      message: >-
+        Command training manual has Line of Succession and Command SOP added,
+        and the Security book has Security SOP in place of the Antagonists list.
+  id: 709
+  time: '2025-11-30T04:01:29.0000000+00:00'
+- author: Terkala
+  changes:
+    - type: Fix
+      message: Second round of Bloodcult Bugfixes from playtesting.
+  id: 710
+  time: '2025-11-30T22:41:43.0000000+00:00'
+- author: BrightNibbleston
+  changes:
+    - type: Tweak
+      message: how long holo fans last!
+  id: 711
+  time: '2025-11-30T22:44:10.0000000+00:00'
+- author: zergologist
+  changes:
+    - type: Tweak
+      message: >-
+        Inflatable barricades and doors have new sprites and are quicker to
+        deploy
+    - type: Tweak
+      message: >-
+        Inflatable barricades and doors are now tiny items in the inventory that
+        stack up to five
+    - type: Tweak
+      message: >-
+        Inflatable walls box is now a 2x2, holds 15 inflatable walls and 5
+        inflatable doors. Emergency inflatable walls crate renamed inflatables
+        crate, holds a box of walls and inflatable floors; now 550 spesos
+        instead of 500
+    - type: Add
+      message: >-
+        Inflatable docks, currently only latheable at a normal lathe for 1
+        durathread and 0.5 silver. They act like inflatable doors that can be
+        docked to.
+    - type: Add
+      message: >-
+        Inflatable floors, tiny items that stack up to 8, must be placed on
+        empty space, and can be pryed up.
+    - type: Add
+      message: Two boxes of inflatable floors to the engivend
+    - type: Tweak
+      message: Station engineer lockers now have a box of inflatable walls roundstart
+    - type: Tweak
+      message: Engivend has 4 boxes of inflatable walls instead of 2
+    - type: Add
+      message: recipes for all inflatables in the normal lathe
+    - type: Tweak
+      message: maintenance lockers can now have inflatable doors and floors as well
+  id: 712
+  time: '2025-12-01T04:02:58.0000000+00:00'
+- author: coolbloxxie
+  changes:
+    - type: Tweak
+      message: >-
+        Rewrote and adjusted all species guidebook entries to account for
+        inconsistencies, misinformation, and omitted information.
+  id: 713
+  time: '2025-12-01T06:37:28.0000000+00:00'
+- author: AraiMaia
+  changes:
+    - type: Fix
+      message: Fixed new Thaven tails clipping into body
+    - type: Fix
+      message: Fixed Draconic Tail's localization
+  id: 714
+  time: '2025-12-02T01:12:07.0000000+00:00'
+- author: zergologist
+  changes:
+    - type: Tweak
+      message: >-
+        Inflatable barricades and doors have new sprites and are quicker to
+        deploy
+    - type: Tweak
+      message: >-
+        Inflatable barricades and doors are now tiny items in the inventory that
+        stack up to five
+    - type: Tweak
+      message: >-
+        Inflatable walls box is now a 2x2, holds 15 inflatable walls and 5
+        inflatable doors. Emergency inflatable walls crate renamed inflatables
+        crate, holds a box of walls and inflatable floors; now 550 spesos
+        instead of 500
+    - type: Add
+      message: >-
+        Inflatable docks, currently only latheable at a normal lathe for 1
+        durathread and 0.5 silver. They act like inflatable doors that can be
+        docked to.
+    - type: Add
+      message: >-
+        Inflatable floors, tiny items that stack up to 8, must be placed on
+        empty space, and can be pryed up.
+    - type: Add
+      message: Two boxes of inflatable floors to the engivend
+    - type: Tweak
+      message: Station engineer lockers now have a box of inflatable walls roundstart
+    - type: Tweak
+      message: Engivend has 4 boxes of inflatable walls instead of 2
+    - type: Add
+      message: recipes for all inflatables in the normal lathe
+    - type: Tweak
+      message: maintenance lockers can now have inflatable doors and floors as well
+  id: 715
+  time: '2025-12-02T01:16:22.0000000+00:00'
+- author: amethystowo
+  changes:
+    - type: Tweak
+      message: >-
+        The holofans have been reverted to the old system. They now use power
+        cells, and are timed.
+  id: 716
+  time: '2025-12-02T06:19:10.0000000+00:00'
+- author: TrixxedHeart
+  changes:
+    - type: Fix
+      message: IPCs can now also have sticky notes placed on them
+  id: 717
+  time: '2025-12-02T06:22:07.0000000+00:00'
+- author: Huhm-1
+  changes:
+    - type: Add
+      message: Added CargoTechfab and other crew pets on Amber
+    - type: Remove
+      message: Removed Box from rotation
+    - type: Remove
+      message: Removed most Christmas Decorations from Amber but the food stays
+    - type: Fix
+      message: Fixed power issues within Amber
+    - type: Tweak
+      message: Now supports two IAA on Amber
+  id: 718
+  time: '2025-12-02T19:03:40.0000000+00:00'
+- author: AraiMaia
+  changes:
+    - type: Fix
+      message: Re-added some Holofan related code.
+  id: 719
+  time: '2025-12-02T21:15:05.0000000+00:00'
+- author: Drywink
+  changes:
+    - type: Add
+      message: New bite ability for arachnids and giant spiders.
+    - type: Tweak
+      message: Reduce cocoon doafter time on incapacitated target.
+  id: 720
+  time: '2025-12-04T19:32:57.0000000+00:00'
+- author: Teasq
+  changes:
+    - type: Tweak
+      message: Resprited the luxury mining hardsuit
+  id: 721
+  time: '2025-12-05T12:45:36.0000000+00:00'
+- author: CalicoDragon
+  changes:
+    - type: Add
+      message: new engineering jumpsuits
+    - type: Remove
+      message: engineering jumpskirt and hazard suit
+    - type: Tweak
+      message: resprited wrench, flashlights, and other tools
+  id: 722
+  time: '2025-12-05T12:46:17.0000000+00:00'
+- author: mkanke-real
+  changes:
+    - type: Tweak
+      message: HoHoHo Roid has preped for Santas apperance
+  id: 723
+  time: '2025-12-05T17:08:29.0000000+00:00'
+- author: AraiMaia
+  changes:
+    - type: Add
+      message: New sprites for almost EVERY Medical clothing item
+    - type: Add
+      message: >-
+        A few new outfits and accessories for Medical, like sleeveless scrubs, a
+        faceshield, and a magnifying monocle
+    - type: Tweak
+      message: Tweaked medical loadouts to allow access to a wider variety of clothing
+    - type: Tweak
+      message: Tweak MedDrobe to dispense even more types of clothes
+  id: 724
+  time: '2025-12-05T21:55:38.0000000+00:00'
+- author: Teasq
+  changes:
+    - type: Tweak
+      message: Resprited the mining hardsuit
+  id: 725
+  time: '2025-12-06T08:57:29.0000000+00:00'
+- author: Terkala
+  changes:
+    - type: Fix
+      message: Fixed a number of bloodcult bugs found in the playtests.
+  id: 726
+  time: '2025-12-07T00:52:56.0000000+00:00'
+- author: Drywink
+  changes:
+    - type: Fix
+      message: Cocooned victim cannot attack.
+    - type: Fix
+      message: Hypospray can be used on cocoon.
+  id: 727
+  time: '2025-12-07T00:54:41.0000000+00:00'
+- author: dotCatshark
+  changes:
+    - type: Tweak
+      message: >-
+        Made french vernacular slightly more french and therefore slightly more
+        stupid sounding.
+  id: 728
+  time: '2025-12-07T00:57:31.0000000+00:00'
+- author: zergologist
+  changes:
+    - type: Tweak
+      message: Ice actually restores thirst now
+  id: 729
+  time: '2025-12-07T01:46:09.0000000+00:00'
+- author: Kreamator
+  changes:
+    - type: Add
+      message: Added a section to Rule 1 for treatment of AFK players
+  id: 730
+  time: '2025-12-07T01:47:28.0000000+00:00'
+- author: Terkala
+  changes:
+    - type: Tweak
+      message: Allowed more maps to roll at highpop
+  id: 731
+  time: '2025-12-07T01:48:20.0000000+00:00'
+- author: Sadie
+  changes:
+    - type: Add
+      message: 'Added Rule 14: Be Mindful of Other''s Roleplay'
+  id: 732
+  time: '2025-12-07T04:49:29.0000000+00:00'
+- author: Xcybitt
+  changes:
+    - type: Tweak
+      message: 'The fire-ier axe now can axe up tiles. '
+  id: 733
+  time: '2025-12-07T04:56:53.0000000+00:00'
+- author: salpphie
+  changes:
+    - type: Add
+      message: Added Argocyte spawners
+  id: 734
+  time: '2025-12-07T05:00:27.0000000+00:00'
+- author: Terkala
+  changes:
+    - type: Tweak
+      message: Zombie Blood poisons infected carriers more slowly.
+  id: 735
+  time: '2025-12-07T05:01:50.0000000+00:00'
+- author: delorphin
+  changes:
+    - type: Fix
+      message: Fixed file paths for night club suit
+  id: 736
+  time: '2025-12-07T05:12:28.0000000+00:00'
+- author: AraiMaia
+  changes:
+    - type: Add
+      message: New Salvage survival box, including extended tanks and flares
+    - type: Tweak
+      message: Survival boxes now have glowsticks instead of flares
+    - type: Fix
+      message: Returned Salvage's AstroNav PDA instead of the Cargo Tech ones.
+  id: 737
+  time: '2025-12-07T05:14:39.0000000+00:00'
+- author: Xcybitt
+  changes:
+    - type: Tweak
+      message: 'Hot drinks are now not as hot. '
+  id: 738
+  time: '2025-12-07T05:18:31.0000000+00:00'
+- author: mkanke-real
+  changes:
+    - type: Add
+      message: >-
+        Added improvised esword (Tider Esword) as a craftable item. Sprites made
+        by Tea!
+  id: 739
+  time: '2025-12-07T05:19:09.0000000+00:00'
+- author: lolmatdi, kipdotnet
+  changes:
+    - type: Add
+      message: Holobell Projector to MailDrobe, a holosign that projects a doorbell!
+  id: 740
+  time: '2025-12-07T05:23:04.0000000+00:00'
+- author: BramvanZijp, ported by amethystowo
+  changes:
+    - type: Add
+      message: >-
+        Added the custom door remote, it does not have any built-in access,
+        instead inheriting the ID access that the user has.
+    - type: Tweak
+      message: >-
+        The captain's locker now comes with a custom door remote instead of a
+        command door remote.
+    - type: Tweak
+      message: >-
+        The Super Door Remote can now effect doors that the user's ID card has
+        access to, even if the remote itself somehow cannot access them.
+  id: 741
+  time: '2025-12-07T05:28:04.0000000+00:00'
+- author: selvamoonbell
+  changes:
+    - type: Add
+      message: Soap and analyzers to surgery and advanced surgery modules
+  id: 742
+  time: '2025-12-07T05:30:11.0000000+00:00'
+- author: TrixxedHeart
+  changes:
+    - type: Tweak
+      message: >-
+        The Russian accent has been tweaked to be more in line with other
+        similar accents, removing Cyrillic homoglyphs and making it
+        significantly more readable.
+  id: 743
+  time: '2025-12-07T21:33:08.0000000+00:00'
+- author: zergologist
+  changes:
+    - type: Add
+      message: New sprites for every towel. So many new sprites.
+    - type: Add
+      message: Towels can now be unfolded.
+    - type: Add
+      message: >-
+        Towels can now be whipped with. They deal a bit of blunt and a decent
+        amount of stamina damage.
+    - type: Add
+      message: >-
+        White towels can now be printed at a uniform printer and lathe for 3
+        cloth
+    - type: Add
+      message: >-
+        Syndicate towels can be bought at a syndicate uplink for 3 TC or printed
+        at an emagged uniform printer/lathe for 3 cloth and 1 durathread
+    - type: Add
+      message: Towels can now be found as uncommon maintenance loot
+    - type: Tweak
+      message: Towels now have distinct descriptions
+    - type: Fix
+      message: >-
+        Deploy foldables no longer deploy if clicked into an inventory or item
+        that it would not make sense for them to deploy onto. Original fix by
+        Winkarst-cpu on Wizden
+  id: 744
+  time: '2025-12-07T21:43:09.0000000+00:00'
+- author: Terkala
+  changes:
+    - type: Tweak
+      message: >-
+        Reworked Zombies gamemode. Still in testing. Core design by oBerry, new
+        Art by Sigma Draconis, Code by Terkala
+  id: 745
+  time: '2025-12-07T22:39:33.0000000+00:00'
+- author: JoulesBerg
+  changes:
+    - type: Tweak
+      message: Core is christmas
+  id: 746
+  time: '2025-12-07T23:46:19.0000000+00:00'
+- author: AraiMaia
+  changes:
+    - type: Add
+      message: >-
+        New monkey variants for chef clothes - Yip-Yap will no longer look
+        weird.
+  id: 747
+  time: '2025-12-07T23:59:42.0000000+00:00'
+- author: salpphie
+  changes:
+    - type: Tweak
+      message: Changed Eden Map to be festive for funkmas.
+  id: 748
+  time: '2025-12-08T00:00:57.0000000+00:00'
+- author: Xcybitt
+  changes:
+    - type: Add
+      message: Added stomachs to the biofab!
+  id: 749
+  time: '2025-12-08T00:03:40.0000000+00:00'
+- author: Xcybitt
+  changes:
+    - type: Remove
+      message: 'Removed gibbing from the emagged recyclers. '
+  id: 750
+  time: '2025-12-08T00:04:45.0000000+00:00'
+- author: ThatOneMoon
+  changes:
+    - type: Add
+      message: >-
+        Added a number of new bounties for the Science category, now asking for
+        a number of items that mostly come from Experimental research
+    - type: Remove
+      message: >-
+        Removed Janitor Bounties, some of the specific targets have been moved
+        into other categories.
+    - type: Tweak
+      message: >-
+        The Cryostasis Syringe has been renamed into the Advanced Syringe and
+        given a updated description, otherwise it functions identical as it does
+        currently
+    - type: Tweak
+      message: >-
+        The Bluespace Syringe is now able to draw/inject up to 20u at a time
+        instead of 15u 
+    - type: Fix
+      message: Autoinjector Cartridge bounties should now all work properly
+  id: 751
+  time: '2025-12-08T00:54:01.0000000+00:00'
+- author: jhrushbe, rottenheadphones
+  changes:
+    - type: Add
+      message: Added the Nuclear Reactor, Gas Turbine, and supporting components.
+  id: 752
+  time: '2025-12-08T02:20:18.0000000+00:00'
+- author: AftrLite
+  changes:
+    - type: Tweak
+      message: >-
+        The Entropic Colossus now has the same spawn chance as other antags on
+        Funky.
+  id: 753
+  time: '2025-12-08T22:07:57.0000000+00:00'
+- author: Rainbeon
+  changes:
+    - type: Remove
+      message: Reverted this week's inflatable changes.
+  id: 754
+  time: '2025-12-08T23:48:30.0000000+00:00'
+- author: TrixxedHeart
+  changes:
+    - type: Tweak
+      message: Resprited Mime clothes
+    - type: Add
+      message: Added odd mime mask as a roundstart mime mask
+    - type: Add
+      message: >-
+        Added security mime mask, can be found in the secdrobe by hacking the
+        manager wire
+  id: 755
+  time: '2025-12-09T22:17:56.0000000+00:00'
+- author: TrixxedHeart
+  changes:
+    - type: Tweak
+      message: Resprited lizard plushie slippers
+  id: 756
+  time: '2025-12-09T22:19:04.0000000+00:00'
+- author: jhrushbe, rottenheadphones
+  changes:
+    - type: Add
+      message: Nuclear Fission!
+  id: 757
+  time: '2025-12-10T06:54:54.0000000+00:00'
+- author: Drywink
+  changes:
+    - type: Fix
+      message: cocoon no longer immune to explosions.
+    - type: Fix
+      message: >-
+        cocoon no longer destroy its content if the victim was gibbed through
+        acidifier.
+  id: 758
+  time: '2025-12-10T20:21:57.0000000+00:00'
+- author: Essnato
+  changes:
+    - type: Add
+      message: >-
+        Changed the sound of cyan alert to something creepy and not illegal to
+        broadcast!
+  id: 759
+  time: '2025-12-10T22:42:00.0000000+00:00'
+- author: Fr0goo
+  changes:
+    - type: Add
+      message: Added cowboy boots to QM loudout!
+    - type: Add
+      message: Added pirate hat to QM loudout!
+    - type: Tweak
+      message: Resprited cowboy boots!
+    - type: Tweak
+      message: Resprited pirate hat!
+    - type: Tweak
+      message: >-
+        Resprited QM's formal clothes, military clothes, knuckle dusters, beret,
+        and mantle!
+  id: 760
+  time: '2025-12-12T04:26:23.0000000+00:00'
+- author: willowzeta
+  changes:
+    - type: Tweak
+      message: 'Map rotation update: -Olympus +Court'
+  id: 761
+  time: '2025-12-13T01:56:51.0000000+00:00'
+- author: gaesnek
+  changes:
+    - type: Add
+      message: >-
+        The apex predator of the galaxy has arrived to funky station, available
+        from cargo and at random. Make sure to like. comment. share. and
+        subscribe.
+  id: 762
+  time: '2025-12-13T08:57:56.0000000+00:00'
+- author: ThatOneMoon
+  changes:
+    - type: Add
+      message: >-
+        Many new lighters can now be found in both Maints loot and the Syndicate
+        Uplink. (Originaly by Smugman from Wizden)
+    - type: Add
+      message: >-
+        Command and Central Command roles (and clowns) can unlock specific
+        lighters as a job trinket under a playtime requirement.
+  id: 763
+  time: '2025-12-13T21:55:43.0000000+00:00'
+- author: Dusty-Plant
+  changes:
+    - type: Tweak
+      message: Updated Court station for its trial period.
+  id: 764
+  time: '2025-12-13T23:12:21.0000000+00:00'
+- author: zergologist
+  changes:
+    - type: Add
+      message: funky sprites for inflatables to replace the old ones
+  id: 765
+  time: '2025-12-14T01:39:16.0000000+00:00'
+- author: salpphie
+  changes:
+    - type: Add
+      message: 'Boxer role to Eden map. '
+    - type: Tweak
+      message: Changed Eden's max pop from 45 to 55.
+  id: 766
+  time: '2025-12-14T01:52:41.0000000+00:00'
+- author: zergologist
+  changes:
+    - type: Tweak
+      message: inflatables are now quicker to deploy
+    - type: Tweak
+      message: >-
+        inflatable barricades and doors are now tiny items in the inventory that
+        stack up to 5
+    - type: Tweak
+      message: >-
+        inflatables crate and box adjusted accordingly for change, inflatables
+        box is a 2x2 that holds up to 4 stacks and crate has 2 of these boxes
+    - type: Tweak
+      message: engivend now has 4 boxes of inflatables
+    - type: Add
+      message: station engineers get a box of inflatables in their roundstart lockers
+    - type: Add
+      message: >-
+        regular lathes can now print inflatable barricades and doors at the cost
+        of durathread
+  id: 767
+  time: '2025-12-14T05:17:33.0000000+00:00'
+- author: Terkala
+  changes:
+    - type: Tweak
+      message: >-
+        Changed the salvage magnet to bring in the ruined debris from nearby
+        spacestations.
+  id: 768
+  time: '2025-12-14T19:46:58.0000000+00:00'
+- author: Xcybitt
+  changes:
+    - type: Add
+      message: Added more descriptions to winter vests!
+    - type: Remove
+      message: >-
+        Removed the sec winter vest and captain winter vest from the uniform
+        fab, as they are actually armor.
+    - type: Tweak
+      message: Gave the captain's winter vest armor, but slightly worse.
+  id: 769
+  time: '2025-12-14T23:32:49.0000000+00:00'
+- author: mycobiota
+  changes:
+    - type: Tweak
+      message: >-
+        The basic RCD and RPD can be worn in place of a backpack, and the RPD
+        can be slung on the back of all engineering hardsuits. They can no
+        longer be worn on the belt.
+  id: 770
+  time: '2025-12-14T23:36:47.0000000+00:00'
+- author: vivry
+  changes:
+    - type: Tweak
+      message: Accent tooltips in the character creation menu now demo the accents
+  id: 771
+  time: '2025-12-15T01:16:26.0000000+00:00'
+- author: Alecksohs
+  changes:
+    - type: Tweak
+      message: Resprites various chairs.
+  id: 772
+  time: '2025-12-15T02:01:12.0000000+00:00'
+- author: ferynn
+  changes:
+    - type: Remove
+      message: Inserting a heart no longer removes rot from a body.
+  id: 773
+  time: '2025-12-15T02:06:03.0000000+00:00'
+- author: Alecksohs
+  changes:
+    - type: Add
+      message: Added Ambient Occlusion from Upstream.
+  id: 774
+  time: '2025-12-15T04:22:20.0000000+00:00'
+- author: taydeo
+  changes:
+    - type: Add
+      message: Emagged Recyclers now gib living beings
+  id: 775
+  time: '2025-12-15T06:34:55.0000000+00:00'
+- author: RosySaturniidae
+  changes:
+    - type: Tweak
+      message: >-
+        paramedic's entire kit is now palette and style consistent. (aka the
+        greenening)
+    - type: Tweak
+      message: updated the handheld crew monitor.
+    - type: Fix
+      message: >-
+        did you know that there were sprites for an unzipped PM windbreaker that
+        were just never used? 
+    - type: Add
+      message: paramedic-styled hud options.
+    - type: Add
+      message: paramedic speedsuit/skirt, just in case of any super-science accidents.
+  id: 776
+  time: '2025-12-15T22:28:00.0000000+00:00'
+- author: otokonoko-dev
+  changes:
+    - type: Fix
+      message: Annabelle pump no longer crashes client
+  id: 777
+  time: '2025-12-16T22:57:41.0000000+00:00'
+- author: AraiMaia, Orsoniks, ciaran
+  changes:
+    - type: Add
+      message: >-
+        Added CPR! Helps people in critical condition breathe, keeping them from
+        dying of airloss.
+    - type: Tweak
+      message: >-
+        Defibrillators no longer revive, instead only healing 100 airloss on
+        CRITICAL mobs. Instead, CPR now has a 5% chance to revive each pump.
+  id: 778
+  time: '2025-12-17T01:47:37.0000000+00:00'
+- author: PurpleTranStar
+  changes:
+    - type: Remove
+      message: The Tripitaka has been removed.
+  id: 779
+  time: '2025-12-17T02:17:24.0000000+00:00'
+- author: AraiMaia, gusxyz, QuietlyWhisper, DrSmugleaf
+  changes:
+    - type: Add
+      message: >-
+        New IV bags & IV stands, replacing the old blood packs; you can finally
+        IV drip patients!
+    - type: Tweak
+      message: Tweaked Medical belt fills & NanoMed inventories
+  id: 780
+  time: '2025-12-17T02:18:16.0000000+00:00'
+- author: KittyCat432
+  changes:
+    - type: Add
+      message: Added Box back into the map pool.
+    - type: Tweak
+      message: Box's science department has received a massive overhaul.
+    - type: Tweak
+      message: Box's sec maints has received some touch ups.
+    - type: Tweak
+      message: Box's Evac has been moved south.
+  id: 781
+  time: '2025-12-17T11:06:52.0000000+00:00'
+- author: JoulesBerg
+  changes:
+    - type: Add
+      message: >-
+        Added a reactor to core - accessible via the nuclear trashcan in
+        engineering, or via a space walk.
+    - type: Tweak
+      message: >-
+        Moved chapel and chaplain offices and replaced the old location with
+        maints
+    - type: Add
+      message: Added more maints near cargo
+  id: 782
+  time: '2025-12-17T19:20:13.0000000+00:00'
+- author: Terkala
+  changes:
+    - type: Fix
+      message: Fixed issues identified in last zombie rework playtest
+  id: 783
+  time: '2025-12-17T23:34:01.0000000+00:00'
+- author: AraiMaia
+  changes:
+    - type: Add
+      message: Added new Funky original sprites for the IV stand
+    - type: Tweak
+      message: >-
+        IV stand now properly draws the tubing from the bag rather than the
+        middle of the sprite
+  id: 784
+  time: '2025-12-18T05:16:34.0000000+00:00'
+- author: Drywink
+  changes:
+    - type: Add
+      message: Bullets can fly over cocoon.
+  id: 785
+  time: '2025-12-18T21:07:58.0000000+00:00'
+- author: RosySaturniidae
+  changes:
+    - type: Add
+      message: new slime eye markings. blyump
+  id: 786
+  time: '2025-12-19T20:38:56.0000000+00:00'
+- author: Gosera
+  changes:
+    - type: Add
+      message: >-
+        Added a small pinboard that lets you view a piece of paper of
+        information at inspect for your menu/front desk needs, craftable in the
+        autolathe.
+  id: 787
+  time: '2025-12-20T00:11:53.0000000+00:00'
+- author: zergologist
+  changes:
+    - type: Add
+      message: truly funky sprites for the base thaven
+    - type: Add
+      message: truly funky sprites for many thaven markings
+    - type: Tweak
+      message: existing thaven tails touched up
+    - type: Tweak
+      message: 'sharkminnow eyeliner is now light before the multiply layer '
+    - type: Fix
+      message: fixed thaven neck, eye, ear, mask, and head offsets to be pixel perfect
+  id: 788
+  time: '2025-12-20T12:46:16.0000000+00:00'
+- author: TheHolyAegis
+  changes:
+    - type: Add
+      message: Added an air tank dispenser to the salvage area.
+    - type: Fix
+      message: >-
+        The Nanotrasen Representative office shutters are now linked to the
+        button by default.
+    - type: Add
+      message: >-
+        Added shutters to the lawyer room, so they can have conversations with
+        confidential information without anyone eavesdropping.
+    - type: Fix
+      message: >-
+        Moved the exosuit fabricators, now the cyborg endoskeletons won't get
+        stuck between it and the wall.
+    - type: Fix
+      message: >-
+        Added a vent and scrubber to the zoo, now the animals won't slowly
+        suffocate.
+    - type: Fix
+      message: >-
+        AI core fixes, the APCs are now separated, and AI sentry turret control
+        panels were added.
+    - type: Add
+      message: Added a ton of intercoms, you no longer have to search for one.
+    - type: Tweak
+      message: >-
+        Added and moved some cameras so the Station AI doesn't have weird
+        blindspots in the middle of the hallway.
+    - type: Tweak
+      message: >-
+        Medical has been redesigned to promote smaller room treatment, and added
+        IVs.
+    - type: Add
+      message: >-
+        Added a long-range holopad to the bridge, for potential roleplay with CC
+        or maybe the cargo shuttle got lost.
+    - type: Tweak
+      message: >-
+        Replaced brigmed with a temporary cell, for if the warden is taking a
+        while...
+    - type: Add
+      message: Added a cyborg recharger and cryogenic sleep unit to genpop.
+    - type: Tweak
+      message: >-
+        Replaced the TEG with a Nuclear Reactor. (This is a test, and will be
+        reverted if it doesn't work out nicely)
+  id: 789
+  time: '2025-12-20T12:47:16.0000000+00:00'
+- author: JoulesBerg
+  changes:
+    - type: Add
+      message: Added iv stands to the treatment rooms in medical
+    - type: Add
+      message: Added some additional safety features to the reactor
+    - type: Tweak
+      message: Changed the medical area in security to a dedicated briefing room
+    - type: Add
+      message: Gave the warden a single, basic first aid kit.
+    - type: Tweak
+      message: Medical now has a working way for non staff to exit the treatment area
+    - type: Tweak
+      message: The medical front desk isn't shitty any more
+    - type: Add
+      message: Added ai turret controls in appropriate locations
+    - type: Tweak
+      message: >-
+        Fixed some areas that did not have cameras, that should have had
+        cameras.
+    - type: Remove
+      message: Removed most of the wall lockers that shouldn't be wall mounts >:(
+  id: 790
+  time: '2025-12-20T21:55:53.0000000+00:00'
+- author: Doctor-Cpu, AraiMaia
+  changes:
+    - type: Add
+      message: >-
+        Added a new Soft Critical system, active when between 100 and 150 total
+        damage. It allows you to crawl and whisper, and not much else.
+    - type: Tweak
+      message: >-
+        CPR DoAfter has been changed to 0.5 seconds, mimicking a 120bpm rhythm
+        for CPR.
+  id: 791
+  time: '2025-12-22T00:53:49.0000000+00:00'
+- author: Xcybitt
+  changes:
+    - type: Tweak
+      message: Det's bug is now buggier.
+  id: 792
+  time: '2025-12-22T02:20:31.0000000+00:00'
+- author: taydeo
+  changes:
+    - type: Remove
+      message: IPCs are no longer a round-start species.
+  id: 793
+  time: '2025-12-22T02:37:32.0000000+00:00'
+- author: AraiMaia, Ven
+  changes:
+    - type: Tweak
+      message: Reagent slimes are now unrevivable
+    - type: Fix
+      message: CPR no longer hurts entire body, only the torso. no more delimbs
+    - type: Fix
+      message: CPR now works on animals
+  id: 794
+  time: '2025-12-23T21:46:23.0000000+00:00'
+- author: AraiMaia
+  changes:
+    - type: Fix
+      message: Electrolyzer no longer melts. Oops.
+  id: 795
+  time: '2025-12-23T23:09:29.0000000+00:00'
+- author: AraiMaia
+  changes:
+    - type: Tweak
+      message: >-
+        Tweaked values for nicotine poisoning; coughing will happen only after a
+        significant amount of cigarettes back to back, and you'll cough less
+        often.
+  id: 796
+  time: '2025-12-24T00:22:47.0000000+00:00'
+- author: Tea
+  changes:
+    - type: Tweak
+      message: >-
+        The satchel, smuggler satchel and leather satchel got a new coat of
+        paint!
+  id: 797
+  time: '2025-12-24T23:24:04.0000000+00:00'
+- author: ToNy025
+  changes:
+    - type: Fix
+      message: Fixed a typo on the SoP Guidebook
+  id: 798
+  time: '2025-12-25T09:18:49.0000000+00:00'
+- author: AraiMaia
+  changes:
+    - type: Tweak
+      message: >-
+        Made it so firelocks actually shut when they detect a major temperature
+        difference.
+  id: 799
+  time: '2025-12-26T23:54:08.0000000+00:00'
+- author: BrightNibbleston
+  changes:
+    - type: Tweak
+      message: Updated the iv bag sprite!
+  id: 800
+  time: '2025-12-27T22:32:28.0000000+00:00'
+- author: CrimeMoot, AraiMaia
+  changes:
+    - type: Add
+      message: Added new cosmetic job titles, selectable from the jobs menu.
+  id: 801
+  time: '2025-12-28T09:30:45.0000000+00:00'
+- author: ika6163
+  changes:
+    - type: Fix
+      message: >-
+        Removed the ported goobstation AI preferred name PR, allowing seperate
+        names for AI and borgs
+  id: 802
+  time: '2025-12-28T20:42:27.0000000+00:00'
+- author: mkanke-real
+  changes:
+    - type: Tweak
+      message: Roid medbay swapped to be individual rooms
+    - type: Tweak
+      message: Defrosted Roid until next year, Merry Christmas!
+  id: 803
+  time: '2025-12-29T02:18:36.0000000+00:00'
+- author: 2DSiggy
+  changes:
+    - type: Remove
+      message: Thieving gloves are no longer available in the syndicate uplink.
+  id: 804
+  time: '2025-12-29T03:15:13.0000000+00:00'
+- author: otokonoko-dev
+  changes:
+    - type: Add
+      message: >-
+        Gingerbreads now have their own organs. Animals should be careful eating
+        the brain, it may contain toxins.
+  id: 805
+  time: '2025-12-29T03:49:26.0000000+00:00'
+- author: Ven
+  changes:
+    - type: Fix
+      message: Removed pill type from gingerbread brain
+  id: 806
+  time: '2025-12-29T04:11:28.0000000+00:00'
+- author: zergologist
+  changes:
+    - type: Add
+      message: Existing facepaints extended to Vox. Glowing blush included.
+  id: 807
+  time: '2025-12-29T04:23:32.0000000+00:00'
+- author: Alecksohs
+  changes:
+    - type: Tweak
+      message: Resprites Fire Alarms, Air Alarms, Light Tubes, and Auth Scanners.
+  id: 808
+  time: '2025-12-29T04:24:37.0000000+00:00'
+- author: Alecksohs
+  changes:
+    - type: Fix
+      message: Fixed Air Alarms glowing.
+  id: 809
+  time: '2025-12-29T20:27:15.0000000+00:00'
+- author: Tea
+  changes:
+    - type: Tweak
+      message: NanoTrasen got a killer deal on new designer satchel bags!
+  id: 810
+  time: '2025-12-30T10:46:33.0000000+00:00'
+- author: KittyCat432
+  changes:
+    - type: Fix
+      message: Fixed Box's evac not docking.
+  id: 811
+  time: '2026-01-01T23:13:20.0000000+00:00'
+- author: EmillyCoelho
+  changes:
+    - type: Add
+      message: Added Gax to the map rotation
+  id: 812
+  time: '2026-01-02T02:59:06.0000000+00:00'
+- author: 88tv
+  changes:
+    - type: Tweak
+      message: Updated Packed for playtest feedback
+  id: 813
+  time: '2026-01-02T05:38:04.0000000+00:00'
+- author: Tea
+  changes:
+    - type: Tweak
+      message: Magboots have a new sprite!
+  id: 814
+  time: '2026-01-02T06:49:33.0000000+00:00'
+- author: AraiMaia
+  changes:
+    - type: Remove
+      message: Removed Atmospheric Technician.
+    - type: Add
+      message: >-
+        New cosmetic titles for Station Engineer: Atmospheric Technician and
+        Fire Suppression Specialist
+    - type: Tweak
+      message: Changed the fills of Atmos and Engineering lockers
+    - type: Tweak
+      message: Added the Atmos clothes to Station Engineer loadout
+    - type: Tweak
+      message: Station Engineers and TAs now get Atmos Access
+    - type: Tweak
+      message: >-
+        Chief Engineer job requirement is now 25 hours in the Engineering
+        department
+    - type: Tweak
+      message: Merged Atmos SOP into Station Engineer SOP
+  id: 815
+  time: '2026-01-02T21:16:29.0000000+00:00'
+- author: mkanke-real
+  changes:
+    - type: Add
+      message: Added missing Reactor Fabricator to Bagel
+    - type: Fix
+      message: Bagel reactor room now has proper rad blocking walls
+  id: 816
+  time: '2026-01-02T21:28:11.0000000+00:00'
+- author: AraiMaia
+  changes:
+    - type: Add
+      message: Brand new sprites for Generic, Derelict, Medical & Engineering borgs.
+  id: 817
+  time: '2026-01-03T01:38:31.0000000+00:00'
+- author: 88tv
+  changes:
+    - type: Add
+      message: Added unique sprites for medical/science airlocks.
+  id: 818
+  time: '2026-01-03T01:46:21.0000000+00:00'
+- author: willowzeta
+  changes:
+    - type: Remove
+      message: Removed atmos tech slots from all the map prototypes
+    - type: Tweak
+      message: Derotated Cluster
+  id: 819
+  time: '2026-01-03T02:06:07.0000000+00:00'
+- author: mkanke-real
+  changes:
+    - type: Tweak
+      message: Converted Bagels atmos spawns into regular engi spawns
+  id: 820
+  time: '2026-01-03T05:59:49.0000000+00:00'
+- author: AraiMaia
+  changes:
+    - type: Tweak
+      message: Slightly tweaked the Engineering hardsuit sprite.
+  id: 821
+  time: '2026-01-04T02:41:54.0000000+00:00'
+- author: AraiMaia, Thlrd
+  changes:
+    - type: Add
+      message: New sprites for Salvage Janitor borgs!
+    - type: Add
+      message: New sprite for Service borg!
+    - type: Tweak
+      message: Mediborg now flies, Salvage borg now has big stompy footstep sounds
+  id: 822
+  time: '2026-01-04T03:26:38.0000000+00:00'
+- author: GnarpGnarp
+  changes:
+    - type: Fix
+      message: Crew Monitor now shows the "Unknown" tab properly
+  id: 823
+  time: '2026-01-04T05:19:36.0000000+00:00'
+- author: AraiMaia
+  changes:
+    - type: Add
+      message: New sprites for the Stasis Beds!
+  id: 824
+  time: '2026-01-04T05:48:57.0000000+00:00'
+- author: zergologist
+  changes:
+    - type: Add
+      message: funky new sprites for a vast majority of the boots
+    - type: Add
+      message: loadout groups for boots and shoes
+    - type: Tweak
+      message: 'departmental winter boots have been reworked to be largely generic '
+    - type: Tweak
+      message: >-
+        the vast majority of roles have been given alternative boots to start
+        off with
+    - type: Tweak
+      message: the -drobes have been adjusted to reflect these boots changes
+    - type: Fix
+      message: the high heel boots give you height now
+  id: 825
+  time: '2026-01-04T07:31:05.0000000+00:00'
+- author: TheHolyAegis
+  changes:
+    - type: Remove
+      message: Removed atmospheric technician spawns
+    - type: Add
+      message: Replaced the spawns with station engineer spawns
+    - type: Fix
+      message: Fixed the unpowered engineering airlocks on the evacuation shuttle
+  id: 826
+  time: '2026-01-04T17:41:38.0000000+00:00'
+- author: Mariiibo
+  changes:
+    - type: Add
+      message: Enabled the Taboo words Thaven mood.
+    - type: Tweak
+      message: Fixed a typo in the Dry Skin mood description.
+  id: 827
+  time: '2026-01-04T18:17:56.0000000+00:00'
+- author: Xcybitt
+  changes:
+    - type: Add
+      message: Added syndicate IDs and PDAs to the uplink.
+    - type: Tweak
+      message: Made current PDAs and IDs into departemental contraband.
+  id: 828
+  time: '2026-01-04T18:21:07.0000000+00:00'
+- author: sowelipililimute, AraiMaia
+  changes:
+    - type: Add
+      message: >-
+        Station AI can now choose from a selection of programs roundstart to
+        expand its abilities, ranging from deploying metal foam on hull
+        breaches, to making honk noises from holopads, to remotely repairing
+        borgs a small amount.
+  id: 829
+  time: '2026-01-04T18:31:50.0000000+00:00'
+- author: Homingpenguins
+  changes:
+    - type: Tweak
+      message: Changed the way Proto-Nitrate reacts with Hydrogen and Tritium.
+  id: 830
+  time: '2026-01-04T18:34:52.0000000+00:00'
+- author: Xcybitt
+  changes:
+    - type: Add
+      message: Added cloak punching to the game!
+  id: 831
+  time: '2026-01-04T18:41:02.0000000+00:00'
+- author: ferynn
+  changes:
+    - type: Tweak
+      message: >-
+        Fleshmend and Anatomic Panacea now cost biomass instead of chemicals.
+        Cooldown reduced.
+    - type: Tweak
+      message: >-
+        Regenerative Stasis costs more biomass to use. Chemical cost to rise
+        again is slightly lowered.
+    - type: Tweak
+      message: Several changeling abilities had their evolution point cost changed.
+    - type: Tweak
+      message: Changelings must lose more biomass to display visible signs to others.
+    - type: Fix
+      message: Changelings can no longer rot
+  id: 832
+  time: '2026-01-04T18:43:36.0000000+00:00'
+- author: Xcybitt
+  changes:
+    - type: Remove
+      message: Removed chemist roundstart galoshes from the game.
+  id: 833
+  time: '2026-01-04T18:56:18.0000000+00:00'
+- author: Xcybitt
+  changes:
+    - type: Add
+      message: Added the nuclear fabricator and centrifuge boards into the CE's locker.
+  id: 834
+  time: '2026-01-04T19:12:00.0000000+00:00'
+- author: TrixxedHeart
+  changes:
+    - type: Fix
+      message: Migraine overlay now fades out properly
+    - type: Fix
+      message: Dead people can no longer have migraines
+    - type: Tweak
+      message: Migraine durations have been adjusted
+    - type: Add
+      message: >-
+        Added trait Neuroaversion. When enabled, individuals with it enabled
+        will experience side effects when implanted with Mindshields, such as
+        migraines and seizures.
+    - type: Add
+      message: >-
+        Added Neuroaversion to the records medical history list, this is
+        separate and does NOT enable when you have the Neuroaversion trait
+        enabled.
+    - type: Add
+      message: Neuroaversion Considerations under Space Law
+  id: 835
+  time: '2026-01-04T22:11:12.0000000+00:00'
+- author: TrixxedHeart
+  changes:
+    - type: Tweak
+      message: Signature fonts now display the font in the trait tab
+  id: 836
+  time: '2026-01-04T23:34:52.0000000+00:00'
+- author: SigmaTheDragon
+  changes:
+    - type: Fix
+      message: >-
+        Made the nullrod menu descripitions of the Aureole Arc and the Annabelle
+        more accurate.
+    - type: Add
+      message: 'Added a new melee chaplain weapon: the Star Rapier'
+    - type: Add
+      message: 'Added a new support chaplain weapon: the Staff of Nature'
+    - type: Add
+      message: 'Added a new melee chaplain weapon: the Crooked Crucifix'
+    - type: Add
+      message: 'Added a new ranged chaplain weapon: the N1984H'
+    - type: Add
+      message: 'Added a new ranged chaplain weapon: the Honkmother''s Honkannon'
+    - type: Add
+      message: 'Added a new support chaplain weapon: the Enchanted Toolbox'
+    - type: Add
+      message: 'Added a new melee chaplain weapon: the Bloody Chainsword'
+    - type: Add
+      message: 'Added a new melee chaplain weapon: the Haunted Sword'
+  id: 837
+  time: '2026-01-04T23:39:21.0000000+00:00'
+- author: AraiMaia
+  changes:
+    - type: Add
+      message: >-
+        New sprites for Gas Filters, Gas Mixers, Pressure pumps, Volumetric
+        pumps, manifolds and all pipes.
+  id: 838
+  time: '2026-01-05T00:40:19.0000000+00:00'
+- author: zergologist
+  changes:
+    - type: Fix
+      message: SM eats emitter beams again and bullets more consistently
+    - type: Tweak
+      message: emitters no longer eat emitter beams, or really any laser beams
+    - type: Tweak
+      message: mice can't squeak under emitters anymore
+  id: 839
+  time: '2026-01-05T01:09:20.0000000+00:00'
+- author: carccborg
+  changes:
+    - type: Tweak
+      message: Characters with the Numb trait no longer scream during surgery.
+  id: 840
+  time: '2026-01-05T01:58:22.0000000+00:00'
+- author: zergologist
+  changes:
+    - type: Add
+      message: >-
+        Ingredient reactions section to the guidebook. Contains all existing
+        food reactions.
+    - type: Fix
+      message: banana bread now visible in the guidebook under the bread section
+  id: 841
+  time: '2026-01-05T02:02:14.0000000+00:00'
+- author: mkanke
+  changes:
+    - type: Remove
+      message: Removed atmos spawn points from Roid
+    - type: Add
+      message: Reworked Roid sci to add a genetics room
+    - type: Fix
+      message: Fixed Roid Botany windows and AI control panels
+  id: 842
+  time: '2026-01-05T02:39:46.0000000+00:00'
+- author: EmillyCoelho
+  changes:
+    - type: Tweak
+      message: Added more maints arround science and arrivals, and an old genetics lab
+    - type: Tweak
+      message: Removed atmos spawnpoints and the second QM hardsuit
+  id: 843
+  time: '2026-01-07T18:59:30.0000000+00:00'
+- author: Terkala
+  changes:
+    - type: Tweak
+      message: Salvage Ruins now contain more loot and fewer carp.
+  id: 844
+  time: '2026-01-07T20:20:44.0000000+00:00'
+- author: TrixxedHeart
+  changes:
+    - type: Remove
+      message: Technical Assistants no longer have Atmospherics access by default
+  id: 845
+  time: '2026-01-07T20:39:02.0000000+00:00'
+- author: TrixxedHeart
+  changes:
+    - type: Tweak
+      message: >-
+        Neuroaversion has been made less overactive on roundstart MindShielded
+        roles.
+    - type: Tweak
+      message: >-
+        Psicodine is now more properly effective in treating severe cases of
+        Neuroaversion.
+    - type: Fix
+      message: Seizures now properly reset movement speed.
+  id: 846
+  time: '2026-01-08T00:34:23.0000000+00:00'
+- author: AraiMaia
+  changes:
+    - type: Fix
+      message: >-
+        Senior Engineer no longer requires the non-existant Atmospheric
+        Technician playtime.
+  id: 847
+  time: '2026-01-08T00:38:54.0000000+00:00'
+- author: Terkala
+  changes:
+    - type: Fix
+      message: Fixed game crashes on using a disabler on flesh mobs.
+  id: 848
+  time: '2026-01-08T00:50:14.0000000+00:00'
+- author: KittyCat432
+  changes:
+    - type: Add
+      message: Added genetics room to box
+    - type: Remove
+      message: Removed the vox box from Box
+    - type: Tweak
+      message: 'Reworked hops office. '
+  id: 849
+  time: '2026-01-09T00:01:56.0000000+00:00'
+- author: JoulesBerg
+  changes:
+    - type: Remove
+      message: >-
+        Removed redundant / isolationist roles from all departments and added
+        their accesses to the base department roles.
+  id: 850
+  time: '2026-01-09T05:13:11.0000000+00:00'
+- author: 88tv
+  changes:
+    - type: Tweak
+      message: Updated Packed for playtest feedback.
+  id: 851
+  time: '2026-01-09T23:11:21.0000000+00:00'
+- author: ferynn
+  changes:
+    - type: Tweak
+      message: >-
+        The cooldown of the ghost haunt action is changed from 2 minutes to 1
+        minute.
+  id: 852
+  time: '2026-01-09T23:12:07.0000000+00:00'
+- author: zergologist
+  changes:
+    - type: Tweak
+      message: redid the magboot sprites again so that the icon isn't massive
+  id: 853
+  time: '2026-01-10T04:57:54.0000000+00:00'
+- author: AraiMaia
+  changes:
+    - type: Add
+      message: >-
+        Resprited: Gas Miners, Thermomachines, Radiators, Air Injectors, Manual
+        Valves, Signal Valves, Digital Valves, Inlet Pressure Regulators,
+        Pneumatic Valves, Volumetric & Pressure Pumps, Gas Filters, Gas Mixers,
+        Gas Pipe Sensors, and Gas Canister Connector ports.
+  id: 854
+  time: '2026-01-10T04:59:26.0000000+00:00'
+- author: Ralkern
+  changes:
+    - type: Tweak
+      message: >-
+        Reduced NukeOp population ratio from 10% to 8%, to bridge some of the
+        gap between max operatives and server max pop.
+  id: 855
+  time: '2026-01-11T00:32:49.0000000+00:00'

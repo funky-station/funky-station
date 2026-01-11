@@ -18,8 +18,11 @@
 # SPDX-FileCopyrightText: 2024 Ubaser <134914314+UbaserB@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Josh Hilsberg <thejoulesberg@gmail.com>
 # SPDX-FileCopyrightText: 2025 JoulesBerg <104539820+JoulesBerg@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Terkala <appleorange64@gmail.com>
 # SPDX-FileCopyrightText: 2025 kbarkevich <24629810+kbarkevich@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 terkala <appleorange64@gmail.com>
+# SPDX-FileCopyrightText: 2026 wilowzeta <willowzeta632146@proton.me>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -28,7 +31,7 @@
   mapName: 'Core'
   mapPath: /Maps/_Funkystation/core.yml #Funkystatin - Robotics
   minPlayers: 30
-  maxPlayers: 80
+  maxPlayers: 90
   stations:
     Core:
       stationProto: StandardNanotrasenStation
@@ -56,8 +59,7 @@
             ServiceWorker: [ 4, 4 ]
             #engineering
             ChiefEngineer: [ 1, 1 ]
-            StationEngineer: [ 3, 4 ]
-            AtmosphericTechnician: [ 3, 3 ]
+            StationEngineer: [ 6, 7 ]
             TechnicalAssistant: [ 2, 2 ]
             #medical
             ChiefMedicalOfficer: [ 1, 1 ]

@@ -40,6 +40,7 @@ loadout-group-backpack = Backpack
 loadout-group-instruments = Instruments
 loadout-group-survival-basic = Survival Box
 loadout-group-survival-extended = Extended Survival Box
+loadout-group-survival-salvage-extended = Extended Survival Box
 loadout-group-survival-clown = Clown Survival Box
 loadout-group-survival-medical = Medical Survival Box
 loadout-group-survival-security = Security Survival Box
@@ -57,12 +58,14 @@ loadout-group-captain-jumpsuit = Captain jumpsuit
 loadout-group-captain-neck = Captain neck
 loadout-group-captain-backpack = Captain backpack
 loadout-group-captain-outerclothing = Captain outer clothing
+loadout-group-captain-shoes = Captain shoes
 
 loadout-group-hop-head = Head of Personnel head
 loadout-group-hop-jumpsuit = Head of Personnel jumpsuit
 loadout-group-hop-neck = Head of Personnel neck
 loadout-group-hop-backpack = Head of Personnel backpack
 loadout-group-hop-outerclothing = Head of Personnel outer clothing
+loadout-group-hop-shoes = Head of Personnel shoes
 
 # Civilian
 loadout-group-passenger-jumpsuit = Passenger jumpsuit
@@ -75,6 +78,9 @@ loadout-group-passenger-neck = Passenger neck
 loadout-group-bartender-head = Bartender head
 loadout-group-bartender-jumpsuit = Bartender jumpsuit
 loadout-group-bartender-outerclothing = Bartender outer clothing
+
+loadout-group-service_jumpsuit = Service jumpsuit
+loadout-group-generic-shoes = Shoes
 
 loadout-group-chef-head = Chef head
 loadout-group-chef-mask = Chef mask
@@ -244,11 +250,14 @@ loadout-group-medical-intern-jumpsuit = Medical intern jumpsuit
 
 loadout-group-chemist-jumpsuit = Chemist jumpsuit
 loadout-group-chemist-outerclothing = Chemist outer clothing
+loadout-group-chemist-gloves = Chemist gloves
+loadout-group-chemist-shoes = Chemist shoes
 loadout-group-chemist-backpack = Chemist backpack
 loadout-group-medical-chemist-glasses = Chemist glasses
 loadout-group-medical-chemist-head = Chemist head
 
 loadout-group-paramedic-head = Paramedic head
+loadout-group-paramedic-glasses = Paramedic glasses
 loadout-group-paramedic-jumpsuit = Paramedic jumpsuit
 loadout-group-paramedic-outerclothing = Paramedic outer clothing
 loadout-group-paramedic-shoes = Paramedic shoes

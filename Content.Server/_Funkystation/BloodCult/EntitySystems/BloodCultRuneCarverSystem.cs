@@ -38,11 +38,15 @@ using Content.Server.Body.Components;
 using Content.Server.Body.Systems;
 using Content.Shared.BloodCult;
 using Content.Shared.BloodCult.Components;
+using Content.Shared.UserInterface;
 
 namespace Content.Server.BloodCult.EntitySystems;
 
 public sealed partial class BloodCultRuneCarverSystem : EntitySystem
 {
+	private static readonly ProtoId<DamageTypePrototype> IonDamageType = "Ion";
+	private static readonly ProtoId<DamageTypePrototype> SlashDamageType = "Slash";
+
 	[Dependency] private readonly UserInterfaceSystem _uiSystem = default!;
 	[Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
 	[Dependency] private readonly SharedTransformSystem _transform = default!;
@@ -53,9 +57,9 @@ public sealed partial class BloodCultRuneCarverSystem : EntitySystem
 	[Dependency] private readonly SharedAudioSystem _audioSystem = default!;
 	[Dependency] private readonly PopupSystem _popupSystem = default!;
 	[Dependency] private readonly BloodstreamSystem _bloodstream = default!;
+	[Dependency] private readonly SharedInteractionSystem _interaction = default!;
 
 	private EntityQuery<BloodCultRuneComponent> _runeQuery;
-	private uint _nextEffectId = 1;
 
 	public override void Initialize()
 	{
@@ -65,7 +69,7 @@ public sealed partial class BloodCultRuneCarverSystem : EntitySystem
 
 		SubscribeLocalEvent<BloodCultRuneCarverComponent, AfterInteractEvent>(OnTryDrawRune);
 		SubscribeLocalEvent<DamageableComponent, DrawRuneDoAfterEvent>(OnRuneDoAfter);
-		SubscribeLocalEvent<BloodCultRuneCarverComponent, UseInHandEvent>(OnUseInHand);
+		SubscribeLocalEvent<BloodCultRuneCarverComponent, UseInHandEvent>(OnUseInHand, before: new[] { typeof(ActivatableUISystem) });
 		//SubscribeLocalEvent<HereticRitualRuneComponent, InteractHandEvent>(OnInteract);
 
 		SubscribeLocalEvent<BloodCultRuneCarverComponent, GetVerbsEvent<InteractionVerb>>(OnVerb);
@@ -98,18 +102,29 @@ public sealed partial class BloodCultRuneCarverSystem : EntitySystem
 
 	private void OnRuneChosenMessage(Entity<BloodCultRuneCarverComponent> ent, ref RunesMessage args)
 	{
-		//var user = args.Actor;
 		if (!BloodCultRuneCarverComponent.ValidRunes.Contains(args.ProtoId))
 			return;
 		ent.Comp.Rune = args.ProtoId;
         ent.Comp.InProgress = args.ProtoId + "_drawing";
+
+		// Immediately start drawing the rune under the user
+		var user = args.Actor;
+		if (user == EntityUid.Invalid || !TryComp<BloodCultistComponent>(user, out var cultist))
+			return;
+
+		// Get the user's position
+		var userCoords = Transform(user).Coordinates;
+		
+		// Start drawing the rune at the user's location
+		StartDrawingRuneAtLocation(ent, user, userCoords, cultist);
     }
 
 	private void TryOpenUi(EntityUid uid, EntityUid user, BloodCultRuneCarverComponent? component = null)
 	{
 		if (!HasComp<BloodCultistComponent>(user) || !Resolve(uid, ref component) || !TryComp(user, out ActorComponent? actor))
 			return;
-		_uiSystem.TryToggleUi(uid, RunesUiKey.Key, actor.PlayerSession);
+		// Use OpenUi instead of TryToggleUi to ensure the menu always opens (doesn't close if already open)
+		_uiSystem.OpenUi(uid, RunesUiKey.Key, actor.PlayerSession);
 	}
 
 	private void UpdateUi(EntityUid uid, BloodCultRuneCarverComponent? component = null)
@@ -136,16 +151,43 @@ public sealed partial class BloodCultRuneCarverSystem : EntitySystem
 
 		var target = (EntityUid) args.Target;
 
-		// Second, check to see if we are using the carver to delete a rune.
+		// Second, if clicking on a rune, trigger its normal interaction (same as clicking with open hand)
 		if (_runeQuery.HasComponent(target))
         {
-            QueueDel(target);
+            // Raise InteractHandEvent to simulate clicking with an open hand
+            var interactHandEvent = new InteractHandEvent(args.User, target);
+            RaiseLocalEvent(target, interactHandEvent, true);
+            
+            // If the hand interaction didn't handle it, also try activation (for TriggerOnActivate components)
+            if (!interactHandEvent.Handled)
+            {
+                _interaction.InteractionActivate(
+                    args.User,
+                    target,
+                    checkCanInteract: false,
+                    checkUseDelay: true,
+                    checkAccess: false,
+                    complexInteractions: true,
+                    checkDeletion: false
+                );
+            }
+            
+            args.Handled = true;
             return;
         }
 
-		// Third, if clicking on yourself and no rune is selected, open the selection UI
-		if (args.User == target && string.IsNullOrEmpty(ent.Comp.Rune))
+		// Third, if clicking on yourself, open the selection UI or start drawing if rune is selected
+		if (args.User == target)
 		{
+			// If a rune is already selected, start drawing it under the user
+			if (!string.IsNullOrEmpty(ent.Comp.Rune))
+			{
+				var userCoords = Transform(args.User).Coordinates;
+				StartDrawingRuneAtLocation(ent, args.User, userCoords, cultist);
+				return;
+			}
+
+			// Otherwise, open the rune selection menu
 			TryOpenUi(ent, args.User, ent.Comp);
 			return;
 		}
@@ -154,7 +196,12 @@ public sealed partial class BloodCultRuneCarverSystem : EntitySystem
 		if (args.User != target
 			|| !args.ClickLocation.IsValid(EntityManager)
 			|| !CanPlaceRuneAt(args.ClickLocation, out var location))
+		{
+			// Clear rune selection on failure
+			ent.Comp.Rune = "";
+			ent.Comp.InProgress = "";
 			return;
+		}
 
 		var timeToCarve = ent.Comp.TimeToCarve;
 
@@ -167,6 +214,9 @@ public sealed partial class BloodCultRuneCarverSystem : EntitySystem
 					Loc.GetString("cult-veil-drawing-toostrong"),
 					args.User, args.User, PopupType.MediumCaution
 				);
+				// Clear rune selection on failure
+				ent.Comp.Rune = "";
+				ent.Comp.InProgress = "";
 				return;
 			}
 
@@ -184,6 +234,9 @@ public sealed partial class BloodCultRuneCarverSystem : EntitySystem
 						Loc.GetString("cult-veil-drawing-alreadyexists-location", ("name", locationForSummon.Name)),
 						args.User, args.User, PopupType.MediumCaution
 					);
+					// Clear rune selection on failure
+					ent.Comp.Rune = "";
+					ent.Comp.InProgress = "";
 					return;
 				}
 			}
@@ -191,17 +244,23 @@ public sealed partial class BloodCultRuneCarverSystem : EntitySystem
 			timeToCarve = 45.0f;
 		}
 
-		// Fourth, raise an effect event to place a rune here.
-		uint? effectId = null;
-		var duration = TimeSpan.FromSeconds(timeToCarve);
-		if (TryGetRuneEffectPrototype(ent.Comp.Rune, out var effectPrototype))
+		// Fourth, spawn the drawing rune directly
+		EntityUid? drawingRune = null;
+		if (TryGetRuneDrawingPrototype(ent.Comp.Rune, out var drawingPrototype))
 		{
-			effectId = _nextEffectId++;
-			RaiseEffectEvent(effectId.Value, effectPrototype, location, RuneEffectAction.Start, duration);
+			drawingRune = Spawn(drawingPrototype, location);
+			// Anchor the drawing rune if we're on a grid
+			var gridUid = _transform.GetGrid(location);
+			if (gridUid != null && TryComp<MapGridComponent>(gridUid, out var grid))
+			{
+				var targetTile = _mapSystem.GetTileRef(gridUid.Value, grid, location);
+				var drawingRuneTransform = Transform(drawingRune.Value);
+				_transform.AnchorEntity((drawingRune.Value, drawingRuneTransform), ((EntityUid)gridUid, grid), targetTile.GridIndices);
+			}
 		}
 
 		var dargs = new DoAfterArgs(EntityManager, args.User, timeToCarve, new DrawRuneDoAfterEvent(
-			ent, EntityUid.Invalid, location, ent.Comp.Rune, ent.Comp.BleedOnCarve, ent.Comp.CarveSound, effectId, duration), args.User
+			ent, drawingRune ?? EntityUid.Invalid, location, ent.Comp.Rune, ent.Comp.BleedOnCarve, ent.Comp.CarveSound, null, TimeSpan.Zero), args.User
 		)
         {
             BreakOnDamage = true,
@@ -225,6 +284,108 @@ public sealed partial class BloodCultRuneCarverSystem : EntitySystem
 			);
 		_doAfter.TryStartDoAfter(dargs);
     }
+
+	/// <summary>
+	/// Starts drawing a rune at the specified location. Handles all validation, special cases, and DoAfter setup.
+	/// </summary>
+	private void StartDrawingRuneAtLocation(Entity<BloodCultRuneCarverComponent> ent, EntityUid user, EntityCoordinates targetCoords, BloodCultistComponent cultist)
+	{
+		// Check if user has an active DoAfter (can't draw while already drawing)
+		if (HasComp<ActiveDoAfterComponent>(user))
+			return;
+
+		// Verify that a rune can be placed at the target location
+		if (!CanPlaceRuneAt(targetCoords, out var location))
+		{
+			// Clear rune selection on failure
+			ent.Comp.Rune = "";
+			ent.Comp.InProgress = "";
+			return;
+		}
+
+		var timeToCarve = ent.Comp.TimeToCarve;
+
+		// Special handling for TearVeilRune - requires valid veil location
+		if (ent.Comp.Rune == "TearVeilRune")
+		{
+			// Use targetCoords for validation (where the rune will be placed)
+			if (!TryGetValidVeilLocation(targetCoords, out var locationForSummon))
+			{
+				_popupSystem.PopupEntity(
+					Loc.GetString("cult-veil-drawing-toostrong"),
+					user, user, PopupType.MediumCaution
+				);
+				// Clear rune selection on failure
+				ent.Comp.Rune = "";
+				ent.Comp.InProgress = "";
+				return;
+			}
+
+			cultist.LocationForSummon = locationForSummon;
+
+			// Allow multiple tear veil runes to exist (one per location)
+			// Check if a rune already exists at this specific location
+			var summonRunes = AllEntityQuery<TearVeilComponent, BloodCultRuneComponent, TransformComponent>();
+			while (summonRunes.MoveNext(out var existingRuneUid, out _, out var _, out var runeXform))
+			{
+				// Check if this existing rune is in range of the current location we're trying to draw at
+				if (_transform.InRange(runeXform.Coordinates, locationForSummon.Coordinates, locationForSummon.ValidRadius))
+				{
+					_popupSystem.PopupEntity(
+						Loc.GetString("cult-veil-drawing-alreadyexists-location", ("name", locationForSummon.Name)),
+						user, user, PopupType.MediumCaution
+					);
+					// Clear rune selection on failure
+					ent.Comp.Rune = "";
+					ent.Comp.InProgress = "";
+					return;
+				}
+			}
+
+			timeToCarve = 45.0f;
+		}
+
+		// Spawn the drawing rune
+		EntityUid? drawingRune = null;
+		if (TryGetRuneDrawingPrototype(ent.Comp.Rune, out var drawingPrototype))
+		{
+			drawingRune = Spawn(drawingPrototype, location);
+			// Anchor the drawing rune if we're on a grid
+			var gridUid = _transform.GetGrid(location);
+			if (gridUid != null && TryComp<MapGridComponent>(gridUid, out var grid))
+			{
+				var targetTile = _mapSystem.GetTileRef(gridUid.Value, grid, location);
+				var drawingRuneTransform = Transform(drawingRune.Value);
+				_transform.AnchorEntity((drawingRune.Value, drawingRuneTransform), ((EntityUid)gridUid, grid), targetTile.GridIndices);
+			}
+		}
+
+		var dargs = new DoAfterArgs(EntityManager, user, timeToCarve, new DrawRuneDoAfterEvent(
+			ent, drawingRune ?? EntityUid.Invalid, location, ent.Comp.Rune, ent.Comp.BleedOnCarve, ent.Comp.CarveSound, null, TimeSpan.Zero), user
+		)
+		{
+			BreakOnDamage = true,
+			BreakOnHandChange = true,
+			BreakOnMove = true,
+			BreakOnDropItem = true,
+			CancelDuplicate = false,
+		};
+
+		if (_protoMan.TryIndex(ent.Comp.Rune, out var ritualPrototype))
+			_popupSystem.PopupEntity(
+				Loc.GetString("cult-rune-drawing-vowel-first") +
+				("aeiou".Contains(ritualPrototype.Name.ToLower()[0]) ? "n" : "") +
+				" " + ritualPrototype.Name + " " + Loc.GetString("cult-rune-drawing-vowel-second"),
+				user, user, PopupType.MediumCaution
+			);
+		else
+			_popupSystem.PopupEntity(
+				Loc.GetString("cult-rune-drawing-novowel"),
+				user, user, PopupType.MediumCaution
+			);
+
+		_doAfter.TryStartDoAfter(dargs);
+	}
 
 	private bool TryGetValidVeilLocation(EntityCoordinates placement, out WeakVeilLocation location)
 	{
@@ -266,8 +427,9 @@ public sealed partial class BloodCultRuneCarverSystem : EntitySystem
 
 	private void OnRuneDoAfter(Entity<DamageableComponent> ent, ref DrawRuneDoAfterEvent ev)
     {
-		// Delete the animation
-        QueueDel(ev.Rune);
+		// Delete the drawing rune
+		if (ev.Rune != EntityUid.Invalid && Exists(ev.Rune))
+			QueueDel(ev.Rune);
 
 		// Apply bloodloss damage + bleeding + slashing damage when drawing runes
 		DamageSpecifier appliedDamageSpecifier;
@@ -284,13 +446,10 @@ public sealed partial class BloodCultRuneCarverSystem : EntitySystem
 				_bloodstream.TryModifyBleedAmount(ent, ev.BleedOnCarve / 10f, bloodstream);
 			}
 		}
-		else if (ent.Comp.Damage.DamageDict.ContainsKey("Ion"))
-			appliedDamageSpecifier = new DamageSpecifier(_protoMan.Index<DamageTypePrototype>("Ion"), FixedPoint2.New(ev.BleedOnCarve));
+		else if (ent.Comp.Damage.DamageDict.ContainsKey(IonDamageType.Id))
+			appliedDamageSpecifier = new DamageSpecifier(_protoMan.Index(IonDamageType), FixedPoint2.New(ev.BleedOnCarve));
 		else
-			appliedDamageSpecifier = new DamageSpecifier(_protoMan.Index<DamageTypePrototype>("Slash"), FixedPoint2.New(ev.BleedOnCarve));
-
-        if (ev.EffectId.HasValue)
-            RaiseEffectEvent(ev.EffectId.Value, null, ev.Coords, RuneEffectAction.Stop, TimeSpan.Zero);
+			appliedDamageSpecifier = new DamageSpecifier(_protoMan.Index(SlashDamageType), FixedPoint2.New(ev.BleedOnCarve));
 
         if (!ev.Cancelled)
 		{
@@ -303,8 +462,9 @@ public sealed partial class BloodCultRuneCarverSystem : EntitySystem
 
 			var rune = Spawn(ev.EntityId, ev.Coords);  // Spawn the final rune
 
-			if (gridUid != null && TryComp<TransformComponent>(rune, out var runeTransform))
+			if (gridUid != null)
 			{
+				var runeTransform = Transform(rune);
 				_transform.AnchorEntity((rune, runeTransform), ((EntityUid)gridUid, grid), targetTile.GridIndices);
 				_damageableSystem.TryChangeDamage(ent, appliedDamageSpecifier, true, origin: ent);
 				_audioSystem.PlayPvs(ev.CarveSound, ent);
@@ -323,12 +483,32 @@ public sealed partial class BloodCultRuneCarverSystem : EntitySystem
 		}
         else
         {
-            return;
+			// DoAfter was cancelled - clear the selected rune so the UI opens automatically next time
+			if (TryComp<BloodCultRuneCarverComponent>(ev.CarverUid, out var carverComp))
+			{
+				carverComp.Rune = "";
+				carverComp.InProgress = "";
+			}
         }
     }
 
 	private void OnUseInHand(Entity<BloodCultRuneCarverComponent> ent, ref UseInHandEvent ev)
 	{
+		if (!TryComp<BloodCultistComponent>(ev.User, out var cultist))
+			return;
+
+		ev.Handled = true;
+
+		// If a rune is already selected, start drawing it under the user
+		if (!string.IsNullOrEmpty(ent.Comp.Rune))
+		{
+			var userCoords = Transform(ev.User).Coordinates;
+			StartDrawingRuneAtLocation(ent, ev.User, userCoords, cultist);
+			return;
+		}
+
+		// Otherwise, open the rune selection menu
+		TryOpenUi(ent, ev.User, ent.Comp);
 	}
 
 	private void OnEquipped(EntityUid uid, BloodCultRuneCarverComponent component, GotEquippedHandEvent args)
@@ -369,44 +549,32 @@ public sealed partial class BloodCultRuneCarverSystem : EntitySystem
 		return true;
 	}
 
-    private bool TryGetRuneEffectPrototype(string runePrototype, out string? effectPrototype)
+    private bool TryGetRuneDrawingPrototype(string runePrototype, out string? drawingPrototype)
     {
         switch (runePrototype)
         {
             case "BarrierRune":
-                effectPrototype = "FxBloodCultRuneBarrier";
+                drawingPrototype = "BarrierRune_drawing";
                 return true;
             case "EmpoweringRune":
-                effectPrototype = "FxBloodCultRuneEmpowering";
+                drawingPrototype = "EmpoweringRune_drawing";
                 return true;
             case "OfferingRune":
-                effectPrototype = "FxBloodCultRuneOffering";
+                drawingPrototype = "OfferingRune_drawing";
                 return true;
             case "ReviveRune":
-                effectPrototype = "FxBloodCultRuneRevive";
+                drawingPrototype = "ReviveRune_drawing";
                 return true;
 		case "TearVeilRune":
-				effectPrototype = "TearVeilRune_drawing";
+				drawingPrototype = "TearVeilRune_drawing";
                 return true;
 		case "SummoningRune":
-				effectPrototype = "SummoningRune_drawing";
+				drawingPrototype = "SummoningRune_drawing";
                 return true;
             default:
-                effectPrototype = null;
+                drawingPrototype = null;
                 return false;
         }
     }
 
-    private void RaiseEffectEvent(uint effectId, string? prototype, EntityCoordinates coords, RuneEffectAction action, TimeSpan duration)
-    {
-        var netCoords = GetNetCoordinates(coords);
-        var ev = new RuneDrawingEffectEvent(effectId, prototype, netCoords, action, duration);
-        RaiseNetworkEvent(ev, Filter.Pvs(coords, entityMan: EntityManager));
-    }
-
-    private NetCoordinates GetNetCoordinates(EntityCoordinates coords)
-    {
-        var netEntity = EntityManager.GetNetEntity(coords.EntityId);
-        return new NetCoordinates(netEntity, coords.Position);
-    }
 }

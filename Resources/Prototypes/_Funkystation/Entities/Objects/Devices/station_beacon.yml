@@ -1,5 +1,7 @@
 # SPDX-FileCopyrightText: 2025 Icepick <122653407+Icepicked@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Steve <marlumpy@gmail.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 willow <willowzeta632146@proton.me>
 # SPDX-FileCopyrightText: 2025 wilowzeta <willowzeta632146@proton.me>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
@@ -101,6 +103,14 @@
     defaultText: station-beacon-infirmary
     color: "#52B4E9"
 
+- type: entity
+  parent: DefaultStationBeacon
+  id: DefaultStationBeaconMedicalGenetics
+  suffix: Genetics
+  components:
+  - type: NavMapBeacon
+    color: "#52B4E9"
+
 # Science
 
 - type: entity
@@ -145,7 +155,7 @@
   suffix: Supermatter
   components:
   - type: NavMapBeacon
-    defaultText: station-beacon-ce
+    defaultText: station-beacon-supermatter
 
 - type: entity
   parent: DefaultStationBeaconEngineering

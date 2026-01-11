@@ -1,0 +1,13 @@
+# SPDX-FileCopyrightText: 2025 mycobiota <154991750+mycobiota@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+# for clothing that allows you to wear the big RCD/RPD on your back.
+- type: entity
+  abstract: true
+  id: AllowBackStorageClothingEngineering
+  components:
+  - type: AllowBackStorage
+    whitelist:
+      components:
+      - RCD

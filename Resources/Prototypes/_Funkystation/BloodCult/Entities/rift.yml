@@ -50,6 +50,8 @@
   - type: BloodCultRift
     pulseInterval: 30.0
     bloodPerPulse: 50.0
+  - type: Clickable
+  - type: TriggerOnActivate
   - type: SolutionContainerManager
     solutions:
       sanguine_pool:
@@ -58,16 +60,4 @@
     solution: sanguine_pool
   - type: RefillableSolution
     solution: sanguine_pool
-  - type: Damageable
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 500
-      behaviors:
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-      - !type:PlaySoundBehavior
-        sound:
-          collection: MetalBreak
 

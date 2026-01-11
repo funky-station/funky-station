@@ -11,162 +11,293 @@ SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 SPDX-FileCopyrightText: 2025 sleepyyapril <123355664+sleepyyapril@users.noreply.github.com>
 SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 
-SPDX-License-Identifier: MIT
--->
+SPDX-License-Identifier: MIT-->
 
-<controls:FancyWindow xmlns="https://spacestation14.io"
-                xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
-                xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
-                MinSize="800 00"
-                Title="{Loc 'chem-master-bound-user-interface-title'}">
-    <BoxContainer Orientation="Horizontal" VerticalExpand="true" MinSize="0 200">
-        <TabContainer Name="Tabs" Margin="5 5 7 5" HorizontalExpand="True">
-            <BoxContainer Orientation="Vertical" HorizontalExpand="True" Margin="5" SeparationOverride="10">
-                <!-- Buffer -->
+<controls:FancyWindow
+    MinSize="800 00"
+    Title="{Loc 'chem-master-bound-user-interface-title'}"
+    xmlns="https://spacestation14.io"
+    xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+    xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <BoxContainer
+        MinSize="0 200"
+        Orientation="Horizontal"
+        VerticalExpand="true">
+        <TabContainer
+            HorizontalExpand="True"
+            Margin="5,5,7,5"
+            Name="Tabs">
+            <BoxContainer
+                HorizontalExpand="True"
+                Margin="5"
+                Orientation="Vertical"
+                SeparationOverride="10">
+                <!--  Buffer  -->
                 <BoxContainer Orientation="Horizontal">
                     <Label Text="{Loc 'chem-master-window-buffer-text'}" />
                     <Control HorizontalExpand="True" />
-                    <Button MinSize="80 0" Name="BufferTransferButton" Access="Public" Text="{Loc 'chem-master-window-transfer-button'}" ToggleMode="True" StyleClasses="OpenRight" />
-                    <OptionButton Name="SortMethod" Access="Public" ToolTip="{Loc 'chem-master-window-sort-method-tooltip'}" StyleClasses="OpenBoth" />
-                    <Button MinSize="80 0" Name="BufferDiscardButton" Access="Public" Text="{Loc 'chem-master-window-discard-button'}" ToggleMode="True" StyleClasses="OpenLeft" />
+                    <Button
+                        Access="Public"
+                        MinSize="80 0"
+                        Name="BufferTransferButton"
+                        StyleClasses="OpenRight"
+                        Text="{Loc 'chem-master-window-transfer-button'}"
+                        ToggleMode="True" />
+                    <OptionButton
+                        Access="Public"
+                        Name="SortMethod"
+                        StyleClasses="OpenBoth"
+                        ToolTip="{Loc 'chem-master-window-sort-method-tooltip'}" />
+                    <Button
+                        Access="Public"
+                        MinSize="80 0"
+                        Name="BufferDiscardButton"
+                        StyleClasses="OpenLeft"
+                        Text="{Loc 'chem-master-window-discard-button'}"
+                        ToggleMode="True" />
                 </BoxContainer>
 
-                <!-- Buffer info -->
-                <PanelContainer VerticalExpand="True" HorizontalExpand="True" MinSize="0 300">
+                <!--  Buffer info  -->
+                <PanelContainer
+                    HorizontalExpand="True"
+                    MinSize="0 300"
+                    VerticalExpand="True">
                     <PanelContainer.PanelOverride>
                         <gfx:StyleBoxFlat BackgroundColor="#1B1B1E" />
                     </PanelContainer.PanelOverride>
 
                     <ScrollContainer HorizontalExpand="True" MinSize="0 300">
-                        <!-- Buffer reagent list -->
-                        <BoxContainer Name="BufferInfo" Orientation="Vertical" Margin="4" HorizontalExpand="True">
+                        <!--  Buffer reagent list  -->
+                        <BoxContainer
+                            HorizontalExpand="True"
+                            Margin="4"
+                            Name="BufferInfo"
+                            Orientation="Vertical">
                             <Label Text="{Loc 'chem-master-window-buffer-empty-text'}" />
                         </BoxContainer>
                     </ScrollContainer>
                 </PanelContainer>
             </BoxContainer>
 
-            <BoxContainer Orientation="Vertical" HorizontalExpand="True" Margin="5" SeparationOverride="10">
-                <!-- Pill Buffer -->
+            <BoxContainer
+                HorizontalExpand="True"
+                Margin="5"
+                Orientation="Vertical"
+                SeparationOverride="10">
+                <!--  Pill Buffer  -->
                 <BoxContainer Orientation="Horizontal">
                     <Label Text="{Loc 'chem-master-window-pill-buffer-text'}" />
                     <Control HorizontalExpand="True" />
-                    <Button MinSize="80 0" Name="PillBufferTransferButton" Access="Public" Text="{Loc 'chem-master-window-transfer-button'}" ToggleMode="True" StyleClasses="OpenRight" />
-                    <OptionButton Name="PillSortMethod" Access="Public" ToolTip="{Loc 'chem-master-window-sort-method-tooltip'}" StyleClasses="OpenBoth" />
-                    <Button MinSize="80 0" Name="PillBufferDiscardButton" Access="Public" Text="{Loc 'chem-master-window-discard-button'}" ToggleMode="True" StyleClasses="OpenLeft" />
+                    <Button
+                        Access="Public"
+                        MinSize="80 0"
+                        Name="PillBufferTransferButton"
+                        StyleClasses="OpenRight"
+                        Text="{Loc 'chem-master-window-transfer-button'}"
+                        ToggleMode="True" />
+                    <OptionButton
+                        Access="Public"
+                        Name="PillSortMethod"
+                        StyleClasses="OpenBoth"
+                        ToolTip="{Loc 'chem-master-window-sort-method-tooltip'}" />
+                    <Button
+                        Access="Public"
+                        MinSize="80 0"
+                        Name="PillBufferDiscardButton"
+                        StyleClasses="OpenLeft"
+                        Text="{Loc 'chem-master-window-discard-button'}"
+                        ToggleMode="True" />
                 </BoxContainer>
 
-                <!-- Pill Buffer info -->
-                <PanelContainer VerticalExpand="True" HorizontalExpand="True" MinSize="0 300">
+                <!--  Pill Buffer info  -->
+                <PanelContainer
+                    HorizontalExpand="True"
+                    MinSize="0 300"
+                    VerticalExpand="True">
                     <PanelContainer.PanelOverride>
                         <gfx:StyleBoxFlat BackgroundColor="#1B1B1E" />
                     </PanelContainer.PanelOverride>
 
                     <ScrollContainer HorizontalExpand="True" MinSize="0 300">
-                        <!-- Pill Buffer reagent list -->
-                        <BoxContainer Name="PillBufferInfo" Orientation="Vertical" Margin="4" HorizontalExpand="True">
+                        <!--  Pill Buffer reagent list  -->
+                        <BoxContainer
+                            HorizontalExpand="True"
+                            Margin="4"
+                            Name="PillBufferInfo"
+                            Orientation="Vertical">
                             <Label Text="{Loc 'chem-master-window-pill-buffer-empty-text'}" />
                         </BoxContainer>
                     </ScrollContainer>
                 </PanelContainer>
 
-                <!-- Padding -->
+                <!--  Padding  -->
                 <Control MinSize="0 10" />
 
-                <!-- Packaging -->
+                <!--  Packaging  -->
                 <BoxContainer Orientation="Horizontal">
                     <Label Text="{Loc 'chem-master-window-packaging-text'}" />
-                    <Control HorizontalExpand="True"/>
+                    <Control HorizontalExpand="True" />
                     <Label Text="{Loc 'chem-master-window-buffer-label'}" />
-                    <Label Name="BufferCurrentVolume" StyleClasses="LabelSecondaryColor" />
+                    <Label Name="BufferCurrentVolume" StyleClasses="LabelWeak" />
                 </BoxContainer>
 
-                <!-- Wrap the packaging info-->
+                <!--  Wrap the packaging info  -->
                 <PanelContainer>
                     <PanelContainer.PanelOverride>
                         <gfx:StyleBoxFlat BackgroundColor="#1B1B1E" />
                     </PanelContainer.PanelOverride>
 
-                    <!-- Packaging Info -->
-                    <BoxContainer Orientation="Vertical" Margin="4" HorizontalExpand="True" VerticalExpand="True" SeparationOverride="5">
-                        <!-- Label for output -->
+                    <!--  Packaging Info  -->
+                    <BoxContainer
+                        HorizontalExpand="True"
+                        Margin="4"
+                        Orientation="Vertical"
+                        SeparationOverride="5"
+                        VerticalExpand="True">
+                        <!--  Label for output  -->
                         <BoxContainer Orientation="Horizontal">
                             <Label Text="{Loc 'chem-master-current-text-label'}" />
-                            <Control HorizontalExpand="True" MinSize="50 0"/>
-                            <LineEdit Name="LabelLineEdit" SetWidth="455"/>
+                            <Control HorizontalExpand="True" MinSize="50 0" />
+                            <LineEdit Name="LabelLineEdit" SetWidth="455" />
                         </BoxContainer>
 
-                        <!-- Pills Type Buttons -->
+                        <!--  Pills Type Buttons  -->
                         <BoxContainer Orientation="Horizontal">
-                            <Label Text="{Loc 'chem-master-window-pill-type-label'}"/>
-                            <Control HorizontalExpand="True" MinSize="50 0"/>
-                            <GridContainer Name="Grid" Columns="10">
-                                <!-- Pills type buttons are generated in the code -->
+                            <Label Text="{Loc 'chem-master-window-pill-type-label'}" />
+                            <Control HorizontalExpand="True" MinSize="50 0" />
+                            <GridContainer Columns="10" Name="Grid">
+                                <!--  Pills type buttons are generated in the code  -->
                             </GridContainer>
                         </BoxContainer>
 
                         <BoxContainer Orientation="Horizontal">
                             <Label Text="{Loc 'chem-master-window-pills-label'}" />
                             <Control HorizontalExpand="True" MinSize="50 0" />
-                            <Label Text="{Loc 'chem-master-window-number-label'}" Margin="5 0 0 0" StyleClasses="LabelSecondaryColor" />
-                            <SpinBox MinSize="100 0" Name="PillNumber" Access="Public" Value="0" />
-                            <Label Text="{Loc 'chem-master-window-dose-label'}" Margin="5 0 0 0" StyleClasses="LabelSecondaryColor" />
-                            <SpinBox MinSize="100 0" Name="PillDosage" Access="Public" Value="1" />
-                            <Button MinSize="80 0" Name="CreatePillButton" Access="Public" Text="{Loc 'chem-master-window-create-button'}" />
+                            <Label
+                                Margin="5,0,0,0"
+                                StyleClasses="LabelWeak"
+                                Text="{Loc 'chem-master-window-number-label'}" />
+                            <SpinBox
+                                Access="Public"
+                                MinSize="100 0"
+                                Name="PillNumber"
+                                Value="0" />
+                            <Label
+                                Margin="5,0,0,0"
+                                StyleClasses="LabelWeak"
+                                Text="{Loc 'chem-master-window-dose-label'}" />
+                            <SpinBox
+                                Access="Public"
+                                MinSize="100 0"
+                                Name="PillDosage"
+                                Value="1" />
+                            <Button
+                                Access="Public"
+                                MinSize="80 0"
+                                Name="CreatePillButton"
+                                Text="{Loc 'chem-master-window-create-button'}" />
                         </BoxContainer>
 
                         <BoxContainer Orientation="Horizontal">
                             <Label Text="{Loc 'chem-master-window-bottles-label'}" />
                             <Control HorizontalExpand="True" MinSize="50 0" />
-                            <Label Text="{Loc 'chem-master-window-number-label'}" Margin="5 0 0 0" StyleClasses="LabelSecondaryColor" />
-                            <SpinBox MinSize="100 0" Name="BottleNumber" Access="Public" Value="0" />
-                            <Label Text="{Loc 'chem-master-window-dose-label'}" Margin="5 0 0 0" StyleClasses="LabelSecondaryColor" />
-                            <SpinBox MinSize="100 0" Name="BottleDosage" Access="Public" Value="0" />
-                            <Button MinSize="80 0" Name="CreateBottleButton" Access="Public" Text="{Loc 'chem-master-window-create-button'}" />
+                            <Label
+                                Margin="5,0,0,0"
+                                StyleClasses="LabelWeak"
+                                Text="{Loc 'chem-master-window-number-label'}" />
+                            <SpinBox
+                                Access="Public"
+                                MinSize="100 0"
+                                Name="BottleNumber"
+                                Value="0" />
+                            <Label
+                                Margin="5,0,0,0"
+                                StyleClasses="LabelWeak"
+                                Text="{Loc 'chem-master-window-dose-label'}" />
+                            <SpinBox
+                                Access="Public"
+                                MinSize="100 0"
+                                Name="BottleDosage"
+                                Value="0" />
+                            <Button
+                                Access="Public"
+                                MinSize="80 0"
+                                Name="CreateBottleButton"
+                                Text="{Loc 'chem-master-window-create-button'}" />
                         </BoxContainer>
                     </BoxContainer>
                 </PanelContainer>
             </BoxContainer>
         </TabContainer>
-        <BoxContainer Orientation="Vertical" Margin="5 5 7 5" MinSize="300 0">
-            <!-- Input container info -->
+        <BoxContainer
+            Margin="5,5,7,5"
+            MinSize="300 0"
+            Orientation="Vertical">
+            <!--  Input container info  -->
             <BoxContainer Orientation="Horizontal">
                 <Label Text="{Loc 'chem-master-window-container-label'}" />
                 <Control HorizontalExpand="True" />
-                <Button MinSize="80 0" Name="InputEjectButton" Access="Public" Text="{Loc 'chem-master-window-eject-button'}" StyleClasses="OpenLeft" />
+                <Button
+                    Access="Public"
+                    MinSize="80 0"
+                    Name="InputEjectButton"
+                    StyleClasses="OpenLeft"
+                    Text="{Loc 'chem-master-window-eject-button'}" />
             </BoxContainer>
-            <!-- Padding -->
+            <!--  Padding  -->
             <Control MinSize="0 5" />
 
-            <PanelContainer VerticalExpand="True" HorizontalExpand="True" MinSize="0 300">
+            <PanelContainer
+                HorizontalExpand="True"
+                MinSize="0 300"
+                VerticalExpand="True">
                 <PanelContainer.PanelOverride>
                     <gfx:StyleBoxFlat BackgroundColor="#1B1B1E" />
                 </PanelContainer.PanelOverride>
 
                 <BoxContainer>
                     <ScrollContainer HorizontalExpand="True" MinSize="0 20">
-                        <!-- Initially empty, when server sends state data this will have container contents and fill volume.-->
-                        <BoxContainer Name="ContainerInfoContainer" Orientation="Vertical" Margin="4" HorizontalExpand="True">
+                        <!--  Initially empty, when server sends state data this will have container contents and fill volume.  -->
+                        <BoxContainer
+                            HorizontalExpand="True"
+                            Margin="4"
+                            Name="ContainerInfoContainer"
+                            Orientation="Vertical">
                             <Label Text="{Loc 'chem-master-window-no-container-loaded-text'}" />
                         </BoxContainer>
                     </ScrollContainer>
                 </BoxContainer>
             </PanelContainer>
-            <RichTextLabel Name="AmountLabel" Text="{Loc 'chem-master-window-transferring-default-label'}"  Margin="0 0 7 0" />
-            <LineEdit MinSize="140 0" Name="AmountLineEdit" Access="Public" PlaceHolder="{Loc 'chem-master-window-amount-placeholder'}" />
-            <BoxContainer Orientation="Horizontal" HorizontalExpand="True">
-                <Button Name="SetAmountButton" Text="{Loc 'chem-master-window-set-amount-label'}" HorizontalExpand="True" StyleClasses="OpenRight"/>
-                <Button Name="SaveAsFrequentButton" Text="{Loc 'chem-master-window-save-as-frequent-label'}" HorizontalExpand="True" StyleClasses="OpenLeft"/>
+            <RichTextLabel
+                Margin="0,0,7,0"
+                Name="AmountLabel"
+                Text="{Loc 'chem-master-window-transferring-default-label'}" />
+            <LineEdit
+                Access="Public"
+                MinSize="140 0"
+                Name="AmountLineEdit"
+                PlaceHolder="{Loc 'chem-master-window-amount-placeholder'}" />
+            <BoxContainer HorizontalExpand="True" Orientation="Horizontal">
+                <Button
+                    HorizontalExpand="True"
+                    Name="SetAmountButton"
+                    StyleClasses="OpenRight"
+                    Text="{Loc 'chem-master-window-set-amount-label'}" />
+                <Button
+                    HorizontalExpand="True"
+                    Name="SaveAsFrequentButton"
+                    StyleClasses="OpenLeft"
+                    Text="{Loc 'chem-master-window-save-as-frequent-label'}" />
             </BoxContainer>
             <RichTextLabel Text="Both of the above buttons use the textbox" />
             <Control MinSize="0 5" />
             <GridContainer
-                Name="AmountButtons"
-                VerticalExpand="True"
+                Columns="4"
                 HorizontalExpand="True"
-                Margin="2 2 2 2"
-                Columns="4" />
+                Margin="2,2,2,2"
+                Name="AmountButtons"
+                VerticalExpand="True" />
         </BoxContainer>
     </BoxContainer>
 </controls:FancyWindow>

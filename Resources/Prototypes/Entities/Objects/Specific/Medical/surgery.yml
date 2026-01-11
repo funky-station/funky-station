@@ -506,25 +506,25 @@
     startSound:
       path: /Audio/_Shitmed/Medical/Surgery/saw.ogg
   - type: Hemostat
-    speed: 1.5  # funkystation #nobody ever uses these cause of the speed malus, bumping up to 1.5 from 0.75, they're T3 for god's sake, it should just be better.
+    speed: 1.25  # funkystation #nobody ever uses these cause of the speed malus, bumping up to 1.5 from 0.75, they're T3 for god's sake, it should just be better. #now in 1.25 mode
   - type: Scalpel
-    speed: 1.5  # funkystation
+    speed: 1.25  # funkystation
   - type: Drill
-    speed: 1.5  # funkystation
+    speed: 1.25  # funkystation
   - type: BoneSetter
-    speed: 1.5  # funkystation
+    speed: 1.25  # funkystation
   - type: Retractor
-    speed: 1.5  # funkystation
+    speed: 1.25  # funkystation
   - type: Cautery
-    speed: 1.5  # funkystation
+    speed: 1.25  # funkystation
   - type: BoneGel
-    speed: 1.5  # funkystation
+    speed: 1.25  # funkystation
   - type: BoneSaw
-    speed: 1.5  # funkystation
+    speed: 1.25  # funkystation
   - type: Tweezers
-    speed: 1.5  # funkystation
+    speed: 1.25  # funkystation
   - type: Tending
-    speed: 1.5  # funkystation
+    speed: 1.25  # funkystation
   - type: Tag
     tags:
     - AdvancedSurgeryTool

@@ -369,6 +369,8 @@
     # Shitmed
     - id: MedicalBiofabMachineBoard
     - id: AutoclaveFlatpack # DV
+    - id: MedkitCombatFilled #funk  # lotta maps map the CMO with these, might as well put it in the locker so it's more consistent
+    - id: ClothingHandsGlovesCMO
 
 # Hardsuit table, used for suit storage as well
 - type: entityTable

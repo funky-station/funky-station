@@ -226,6 +226,40 @@
     component:
     - type: SurgerySpeedModifier
       speedModifier: 1.75
+
+- type: entity
+  parent: [ClothingHandsButcherable, BaseCommandContraband]
+  id: ClothingHandsGlovesCMO
+  name: CMO's surgical grade gloves
+  description: High-quality surgical grade gloves made of nitrile and some other proprietary mixture of fabrics. The tight tolerances of the gloves make it easier to do surgery in them than normally possible with typical medical grade gloves.
+  components:
+  - type: Sprite
+    sprite: Clothing/Hands/Gloves/Color/color.rsi
+    layers:
+    - state: icon
+      color: "#3CB57C"
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#3CB57C"
+      right:
+      - state: inhand-right
+        color: "#3CB57C"
+  - type: Clothing
+    sprite: Clothing/Hands/Gloves/Color/color.rsi
+    clothingVisuals:
+      gloves:
+      - state: equipped-HAND
+        color: "#3CB57C"
+  - type: Fiber
+    fiberMaterial: fibers-nitrile
+  - type: FingerprintMask
+  - type: SurgeryDirtiness # DeltaV - gloves that are likely to be used for surgery should have their bar visible from the getgo
+  - type: ClothingGrantComponent # funky - tie surgery speed to gloves
+    component:
+    - type: SurgerySpeedModifier
+      speedModifier: 2.5  #nyoom
 ####
 - type: entity
   parent: ClothingHandsButcherable

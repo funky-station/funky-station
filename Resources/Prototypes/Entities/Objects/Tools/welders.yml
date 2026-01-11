@@ -232,7 +232,7 @@
   name: experimental welding tool
   parent: Welder
   id: WelderExperimental
-  description: "An experimental welder capable of self-fuel generation and has a flame that is not at harmful to the eyes, certified by real Nanotrasen workers!"
+  description: "An experimental welder capable of self-fuel generation and has a flame that is not at harmful to the eyes, certified by real Nanotrasen workers! Keep in mind that Nanotrasen does not recommend the use of experimental welders, as its use has decreased crew productivity by 4%."
   components:
   - type: Sprite
     sprite: Objects/Tools/welder_experimental.rsi

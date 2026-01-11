@@ -526,3 +526,19 @@
   sprite:
     sprite: Decals/Overlays/greyscale.rsi
     state: pavement_vertical_checker_b
+
+- type: decal
+  id: HalfTileCenterOverlayGreyscale
+  tags: ["station", "overlay"]
+  defaultCustomColor: true
+  sprite:
+    sprite: Decals/Overlays/greyscale.rsi
+    state: halftile_center_overlay
+
+- type: decal
+  id: QuarterTileCenterOverlayGreyscale
+  tags: ["station", "overlay"]
+  defaultCustomColor: true
+  sprite:
+    sprite: Decals/Overlays/greyscale.rsi
+    state: quartertile_center_overlay

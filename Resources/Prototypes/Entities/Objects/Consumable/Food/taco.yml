@@ -88,17 +88,6 @@
   description: A very basic and run of the mill beef taco, now with cheese!
   components:
   - type: Food
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 15
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 4
-        - ReagentId: Cheesium
-          Quantity: 2
-        - ReagentId: Vitamin
-          Quantity: 4
   - type: Sprite
     state: beeftaco
   - type: SolutionContainerManager
@@ -112,6 +101,8 @@
           Quantity: 5
         - ReagentId: Protein
           Quantity: 5
+        - ReagentId: Cheesium
+          Quantity: 2          
 
 - type: entity
   name: chicken taco
@@ -120,17 +111,6 @@
   description: A very basic and run of the mill chicken taco, now with cheese!
   components:
   - type: Food
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 15
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 4
-        - ReagentId: Cheesium
-          Quantity: 2
-        - ReagentId: Vitamin
-          Quantity: 4
   - type: Sprite
     state: chickentaco
   - type: SolutionContainerManager
@@ -144,6 +124,8 @@
           Quantity: 5
         - ReagentId: Protein
           Quantity: 5
+        - ReagentId: Cheesium
+          Quantity: 2          
 
 - type: entity
   name: seafood taco

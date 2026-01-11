@@ -259,6 +259,8 @@
         Quantity: 1
   - type: RequiresEyeProtection   #killing the eyepro requirement, this now is a sidegrade to the better welders
     statusEffectTime: 0 # less harmful; sunglasses can block it #welding is safe now yay
+  - type: Tool
+    speedModifier: 0.5 #ease of use vs efficiency, go stare at a wall deconning it lol
 
 - type: entity
   name: emergency welding tool

@@ -24,8 +24,8 @@
       state: pipeStraight
     - map: ["base"]
       state: base
-    - map: [ "enum.PowerDeviceVisualLayers.Powered" ]
-      state: lights
+    - map: ["lights"] # Funkystation: Pipe sensor analyzer
+      state: blank
       shader: unshaded
   - type: AtmosPipeLayers
     spriteRsiPaths:
@@ -37,12 +37,14 @@
       Secondary: GasPipeSensorAlt1
       Tertiary: GasPipeSensorAlt2
   - type: Appearance
-  - type: GenericVisualizer
+  - type: GenericVisualizer # Funkystation: Pipe sensor analyzer and pressure indication
     visuals:
-      enum.PowerDeviceVisuals.Powered:
-        enum.PowerDeviceVisualLayers.Powered:
-          False: { state: blank }
-          True: { state: lights }
+      enum.GasPipeSensorVisuals.LightsState:
+        lights:
+          Off:             { state: blank }
+          normalPressure:    { state: lights_normalpressure }
+          OverPressure:    { state: lights_overpressure }
+          ExtremePressure: { state: lights_extremepressure }
   - type: AtmosMonitor
     monitorsPipeNet: true
   - type: GasPipeSensor
@@ -63,6 +65,14 @@
     tags:
     - AirSensor
     - Unstackable
+  - type: ActivatableUI # Funkystation: Pipe sensor analyzer
+    key: enum.GasPipeSensorUiKey.Key
+    interactRange: 2.5
+  - type: UserInterface # Funkystation: Pipe sensor analyzer
+    interfaces:
+      enum.GasPipeSensorUiKey.Key:
+        type: GasPipeSensorBoundUserInterface
+  - type: InteractionOutline # Funkystation: Pipe sensor analyzer
   - type: GuideHelp
     guides:
     - AtmosphericNetworkMonitor

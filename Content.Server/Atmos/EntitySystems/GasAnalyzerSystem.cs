@@ -271,7 +271,7 @@ public sealed class GasAnalyzerSystem : EntitySystem
     /// <summary>
     /// Generates a GasEntry array for a given GasMixture
     /// </summary>
-    private GasEntry[] GenerateGasEntryArray(GasMixture? mixture)
+    public GasEntry[] GenerateGasEntryArray(GasMixture? mixture)
     {
         var gases = new List<GasEntry>();
 

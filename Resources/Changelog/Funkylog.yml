@@ -7264,3 +7264,107 @@ Entries:
       message: Fixed Roid Botany windows and AI control panels
   id: 842
   time: '2026-01-05T02:39:46.0000000+00:00'
+- author: EmillyCoelho
+  changes:
+    - type: Tweak
+      message: Added more maints arround science and arrivals, and an old genetics lab
+    - type: Tweak
+      message: Removed atmos spawnpoints and the second QM hardsuit
+  id: 843
+  time: '2026-01-07T18:59:30.0000000+00:00'
+- author: Terkala
+  changes:
+    - type: Tweak
+      message: Salvage Ruins now contain more loot and fewer carp.
+  id: 844
+  time: '2026-01-07T20:20:44.0000000+00:00'
+- author: TrixxedHeart
+  changes:
+    - type: Remove
+      message: Technical Assistants no longer have Atmospherics access by default
+  id: 845
+  time: '2026-01-07T20:39:02.0000000+00:00'
+- author: TrixxedHeart
+  changes:
+    - type: Tweak
+      message: >-
+        Neuroaversion has been made less overactive on roundstart MindShielded
+        roles.
+    - type: Tweak
+      message: >-
+        Psicodine is now more properly effective in treating severe cases of
+        Neuroaversion.
+    - type: Fix
+      message: Seizures now properly reset movement speed.
+  id: 846
+  time: '2026-01-08T00:34:23.0000000+00:00'
+- author: AraiMaia
+  changes:
+    - type: Fix
+      message: >-
+        Senior Engineer no longer requires the non-existant Atmospheric
+        Technician playtime.
+  id: 847
+  time: '2026-01-08T00:38:54.0000000+00:00'
+- author: Terkala
+  changes:
+    - type: Fix
+      message: Fixed game crashes on using a disabler on flesh mobs.
+  id: 848
+  time: '2026-01-08T00:50:14.0000000+00:00'
+- author: KittyCat432
+  changes:
+    - type: Add
+      message: Added genetics room to box
+    - type: Remove
+      message: Removed the vox box from Box
+    - type: Tweak
+      message: 'Reworked hops office. '
+  id: 849
+  time: '2026-01-09T00:01:56.0000000+00:00'
+- author: JoulesBerg
+  changes:
+    - type: Remove
+      message: >-
+        Removed redundant / isolationist roles from all departments and added
+        their accesses to the base department roles.
+  id: 850
+  time: '2026-01-09T05:13:11.0000000+00:00'
+- author: 88tv
+  changes:
+    - type: Tweak
+      message: Updated Packed for playtest feedback.
+  id: 851
+  time: '2026-01-09T23:11:21.0000000+00:00'
+- author: ferynn
+  changes:
+    - type: Tweak
+      message: >-
+        The cooldown of the ghost haunt action is changed from 2 minutes to 1
+        minute.
+  id: 852
+  time: '2026-01-09T23:12:07.0000000+00:00'
+- author: zergologist
+  changes:
+    - type: Tweak
+      message: redid the magboot sprites again so that the icon isn't massive
+  id: 853
+  time: '2026-01-10T04:57:54.0000000+00:00'
+- author: AraiMaia
+  changes:
+    - type: Add
+      message: >-
+        Resprited: Gas Miners, Thermomachines, Radiators, Air Injectors, Manual
+        Valves, Signal Valves, Digital Valves, Inlet Pressure Regulators,
+        Pneumatic Valves, Volumetric & Pressure Pumps, Gas Filters, Gas Mixers,
+        Gas Pipe Sensors, and Gas Canister Connector ports.
+  id: 854
+  time: '2026-01-10T04:59:26.0000000+00:00'
+- author: Ralkern
+  changes:
+    - type: Tweak
+      message: >-
+        Reduced NukeOp population ratio from 10% to 8%, to bridge some of the
+        gap between max operatives and server max pop.
+  id: 855
+  time: '2026-01-11T00:32:49.0000000+00:00'

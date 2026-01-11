@@ -468,6 +468,16 @@
         prob: 0.2
       - id: Paper
         prob: 0.2
+  - type: ContainerContainer
+    containers:
+      pen_slot: !type:ContainerSlot
+  - type: ItemSlots
+    slots:
+      pen_slot:
+        name: pen_slot
+        whitelist:
+          tags:
+          - Write
 
 - type: entity
   id: BoxFolderRed

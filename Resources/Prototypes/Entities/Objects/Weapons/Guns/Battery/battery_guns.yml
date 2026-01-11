@@ -1000,6 +1000,7 @@
   - type: Tag
     tags:
     - HighRiskItem
+    - Multiphase
   - type: BatterySelfRecharger
     autoRecharge: true
     autoRechargeRate: 40

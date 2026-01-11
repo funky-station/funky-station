@@ -134,6 +134,16 @@
     damageCoefficient: 0.8
   - type: StaminaResistance
     damageCoefficient: 0.8
+  - type: ContainerContainer
+    containers:
+      multiphase_slot: !type:ContainerSlot
+  - type: ItemSlots
+    slots:
+      multiphase_slot:
+        name: multiphase_HoS
+        whitelist:
+          tags:
+          - Multiphase
 
 - type: entity
   abstract: true
@@ -155,7 +165,7 @@
   parent: [ClothingOuterArmorHoS, ClothingOuterStorageBase, BaseSecurityCommandContraband]
   id: ClothingOuterCoatHoSTrench
   name: head of security's armored trenchcoat
-  description: A greatcoat enhanced with a special alloy for some extra protection and style for those with a commanding presence.
+  description: A greatcoat enhanced with a special alloy for some extra protection and style for those with a commanding presence. Seems to have a holster built specifically for the X-01 Multiphase.
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Coats/hos_trenchcoat.rsi

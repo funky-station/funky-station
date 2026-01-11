@@ -699,10 +699,10 @@
     - Kangaroo
 
 - type: entity
-  parent: ClothingBeltStorageBase
+  parent: [ClothingBeltStorageBase, BaseSecurityContraband]
   id: ClothingBeltHolster
   name: shoulder holster
-  description: 'A holster to carry a handgun and ammo. WARNING: Badasses only.'
+  description: 'A holster to carry a handgun, ammo and other essentials. WARNING: Badasses only.'
   components:
   - type: Sprite
     sprite: Clothing/Belt/holster.rsi
@@ -710,7 +710,17 @@
     sprite: Clothing/Belt/holster.rsi
   - type: Storage
     grid:
-    - 0,0,3,1
+    - 0,0,6,1
+  - type: ContainerContainer
+    containers:
+      sidearm_slot: !type:ContainerSlot
+  - type: ItemSlots
+    slots:
+      sidearm_slot:
+        name: clothing-boots-sidearm
+        whitelist:
+          tags:
+          - Sidearm
 
 - type: entity
   parent: [ClothingBeltStorageBase, BaseSyndicateContraband]

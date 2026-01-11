@@ -95,18 +95,6 @@
   groupBy: "jumpskirt"
 
 - type: loadout
-  id: SecurityJumpsuitGrey
-  equipment:
-    jumpsuit: ClothingUniformJumpsuitSecGrey
-  groupBy: "jumpsuit"
-
-- type: loadout
-  id: SecurityJumpskirtGrey
-  equipment:
-    jumpsuit: ClothingUniformJumpskirtSecGrey
-  groupBy: "jumpskirt"
-
-- type: loadout
   id: TrooperUniform
   equipment:
     jumpsuit: ClothingUniformSecurityTrooper
@@ -162,12 +150,6 @@
   id: ArmorVest
   equipment:
     outerClothing: ClothingOuterArmorBasic
-  groupBy: "armor"
-
-- type: loadout
-  id: ArmorVestSlim
-  equipment:
-    outerClothing: ClothingOuterArmorBasicSlim
   groupBy: "armor"
 
 - type: loadout

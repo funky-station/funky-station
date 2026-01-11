@@ -135,7 +135,7 @@
       - id: FlashlightSeclite
         prob: 0.8
       - id: WeaponDisabler
-      - id: ClothingUniformJumpsuitSecGrey
+      - id: ClothingUniformJumpsuitSec
         prob: 0.3
       - id: ClothingHeadHelmetBasic
       - id: ClothingOuterArmorBasic

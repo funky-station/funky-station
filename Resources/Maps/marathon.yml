@@ -53943,7 +53943,7 @@ entities:
     - type: Transform
       pos: -53.391655,-53.3106
       parent: 30
-- proto: ClothingUniformJumpsuitSecBlue
+- proto: ClothingUniformJumpsuitSec
   entities:
   - uid: 19622
     components:

@@ -33622,7 +33622,7 @@ entities:
     - type: Transform
       pos: -36.533836,29.489151
       parent: 2
-- proto: ClothingUniformJumpsuitSecBlue
+- proto: ClothingUniformJumpsuitSec
   entities:
   - uid: 5126
     components:

@@ -43,14 +43,10 @@
     ClothingHandsGlovesColorBlack: 3
     ClothingHandsGlovesFingerless: 3
     ClothingUniformJumpskirtSec: 3
-    ClothingUniformJumpsuitSecGrey: 3
-    ClothingUniformJumpskirtSecGrey: 3
-    ClothingUniformJumpsuitSecBlue: 3
     ClothingHeadsetAltSecurityRegular: 3 # Goobstation
     ClothingOuterWinterSec: 2
-    ClothingOuterArmorBasic: 2
+    ClothingOuterArmorBasic: 4
     ClothingNeckScarfStripedRed: 3
-    ClothingOuterArmorBasicSlim: 2
     SurveillanceWirelessCameraBodySecurity: 3 # funkystation - add sec body cam
     ClothingEyesBlindfold: 1
     ClothingShoesBootsCombat: 1

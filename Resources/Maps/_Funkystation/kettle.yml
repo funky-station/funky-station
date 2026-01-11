@@ -66583,7 +66583,7 @@ entities:
     - type: Transform
       pos: -14.379087,-29.473778
       parent: 82
-- proto: ClothingUniformJumpsuitSecBlue
+- proto: ClothingUniformJumpsuitSec
   entities:
   - uid: 3449
     components:

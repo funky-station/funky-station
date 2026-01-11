@@ -33830,7 +33830,7 @@ entities:
     - type: Transform
       pos: -36.533836,29.489151
       parent: 4812
-- proto: ClothingUniformJumpsuitSecBlue
+- proto: ClothingUniformJumpsuitSec
   entities:
   - uid: 10923
     components:

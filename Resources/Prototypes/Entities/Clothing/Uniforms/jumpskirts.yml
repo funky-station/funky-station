@@ -230,31 +230,6 @@
 
 - type: entity
   parent: [ClothingUniformSkirtBase, BaseCommandContraband]
-  id: ClothingUniformJumpskirtHoS
-  name: head of security's jumpskirt
-  description: It's bright red and rather crisp, much like security's victims tend to be.
-  components:
-  - type: Sprite
-    sprite: Clothing/Uniforms/Jumpskirt/hos.rsi
-  - type: Clothing
-    sprite: Clothing/Uniforms/Jumpskirt/hos.rsi
-  - type: Item
-    inhandVisuals:
-      left:
-      - state: inhand-left
-        color: "#C12D30"
-        sprite: Clothing/Uniforms/Jumpskirt/color.rsi
-      - state: overlay-inhand-left
-        sprite: Clothing/Uniforms/Jumpsuit/hos.rsi
-      right:
-      - state: inhand-right
-        color: "#C12D30"
-        sprite: Clothing/Uniforms/Jumpskirt/color.rsi
-      - state: overlay-inhand-right
-        sprite: Clothing/Uniforms/Jumpsuit/hos.rsi
-
-- type: entity
-  parent: [ClothingUniformSkirtBase, BaseCommandContraband]
   id: ClothingUniformJumpskirtHoSAlt
   name: head of security's turtleneck
   description: It's a turtleneck worn by those strong and disciplined enough to achieve the position of Head of Security.
@@ -263,17 +238,6 @@
     sprite: Clothing/Uniforms/Jumpskirt/hos_alt.rsi
   - type: Clothing
     sprite: Clothing/Uniforms/Jumpskirt/hos_alt.rsi
-
-- type: entity
-  parent: [ClothingUniformSkirtBase, BaseCommandContraband]
-  id: ClothingUniformJumpskirtHoSParadeMale
-  name: head of security's parade uniform
-  description: A head of security's luxury-wear, for special occasions.
-  components:
-  - type: Sprite
-    sprite: Clothing/Uniforms/Jumpskirt/hos_parade.rsi
-  - type: Clothing
-    sprite: Clothing/Uniforms/Jumpskirt/hos_parade.rsi
 
 - type: entity
   parent: ClothingUniformSkirtBase
@@ -742,17 +706,6 @@
     sprite: Clothing/Uniforms/Jumpskirt/senior_officer.rsi
   - type: Clothing
     sprite: Clothing/Uniforms/Jumpskirt/senior_officer.rsi
-
-- type: entity
-  parent: [ClothingUniformSkirtBase, BaseSecurityContraband]
-  id: ClothingUniformJumpskirtSecGrey
-  name: grey security jumpskirt
-  description: A tactical relic of years past before Nanotrasen decided it was cheaper to dye the suits red instead of washing out the blood.
-  components:
-  - type: Sprite
-    sprite: Clothing/Uniforms/Jumpskirt/security_grey.rsi
-  - type: Clothing
-    sprite: Clothing/Uniforms/Jumpskirt/security_grey.rsi
 
 - type: entity
   parent: ClothingUniformSkirtBase

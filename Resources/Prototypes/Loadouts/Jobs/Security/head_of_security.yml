@@ -27,12 +27,6 @@
   groupBy: "jumpsuit"
 
 - type: loadout
-  id: HeadofSecurityJumpskirt
-  equipment:
-    jumpsuit: ClothingUniformJumpskirtHoS
-  groupBy: "jumpskirt"
-
-- type: loadout
   id: HeadofSecurityTurtleneck
   equipment:
     jumpsuit: ClothingUniformJumpsuitHoSAlt
@@ -101,8 +95,3 @@
   id: HeadofSecurityArmorVest
   equipment:
     outerClothing: ClothingOuterArmorBasic
-
-- type: loadout
-  id: HeadofSecurityArmorVestSlim
-  equipment:
-    outerClothing: ClothingOuterArmorBasicSlim

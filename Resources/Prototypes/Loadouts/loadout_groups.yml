@@ -1107,7 +1107,7 @@
   - CargoWinterBoots
   - WorkBoots
   - EngineeringWinterBoots
-  
+
 - type: loadoutGroup #WizDen Weh Job Plush
   id: CargoTechnicianJobTrinkets
   name: loadout-group-jobtrinkets
@@ -1584,7 +1584,6 @@
   name: loadout-group-head-of-security-jumpsuit
   loadouts:
   - HeadofSecurityJumpsuit
-  - HeadofSecurityJumpskirt
   - HeadofSecurityTurtleneck
   - HeadofSecurityTurtleneckSkirt
   - HeadofSecurityFormalSuit
@@ -1606,7 +1605,6 @@
   - HeadofSecurityCoat
   - HeadofSecurityWinterCoat
   - HeadofSecurityArmorVest
-  - HeadofSecurityArmorVestSlim
 
 - type: loadoutGroup #WizDen Weh Job Plush
   id: HeadofSecurityJobTrinkets
@@ -1630,8 +1628,11 @@
   id: WardenJumpsuit
   name: loadout-group-warden-jumpsuit
   loadouts:
-  - WardenJumpsuit
-  - WardenJumpskirt
+  - SecurityJumpsuit
+  - SecurityJumpskirt
+  - SeniorOfficerJumpsuit
+  - SeniorOfficerJumpskirt
+  - TrooperUniform
 
 - type: loadoutGroup
   id: WardenNeck
@@ -1645,6 +1646,7 @@
   name: loadout-group-warden-outerclothing
   loadouts:
   - WardenCoat
+  - ArmorVest
   - WardenArmoredWinterCoat
 
 - type: loadoutGroup #WizDen Weh Job Plush
@@ -1680,8 +1682,6 @@
   loadouts:
   - SecurityJumpsuit
   - SecurityJumpskirt
-  - SecurityJumpsuitGrey
-  - SecurityJumpskirtGrey
   - SeniorOfficerJumpsuit
   - SeniorOfficerJumpskirt
   - TrooperUniform
@@ -1713,7 +1713,6 @@
   name: loadout-group-security-outerclothing
   loadouts:
   - ArmorVest
-  - ArmorVestSlim
   - SecurityOfficerWintercoat
 
 #Funky
@@ -1802,8 +1801,7 @@
   id: SecurityCadetJumpsuit
   name: loadout-group-security-cadet-jumpsuit
   loadouts:
-  - RedJumpsuit
-  - RedJumpskirt
+  - CadetJumpsuit
 
 - type: loadoutGroup
   id: SurvivalSecurity

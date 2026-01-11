@@ -269,7 +269,7 @@
 - type: startingGear
   id: VisitorSecurityCadetAlt
   equipment:
-    jumpsuit: ClothingUniformJumpsuitSecGrey
+    jumpsuit: ClothingUniformSecurityTrooper
     shoes: ClothingShoesBootsCombatFilled
     head: ClothingHeadHelmetBasic
     neck: SecurityWhistle
@@ -278,7 +278,7 @@
     back: ClothingBackpackSatchelSecurity
     ears: ClothingHeadsetAltSecurityRegular # Goobstation
     eyes: ClothingEyesGlassesSecurity
-    outerClothing: ClothingOuterArmorBasicSlim
+    outerClothing: ClothingOuterArmorBasic
     pocket1: WeaponPistolMk58
     pocket2: MagazinePistol
   inhand:
@@ -304,7 +304,7 @@
 - type: startingGear
   id: VisitorSecurityOfficerAlt
   equipment:
-    jumpsuit: ClothingUniformJumpsuitSecGrey
+    jumpsuit: ClothingUniformSecurityTrooper
     shoes: ClothingShoesBootsCombatFilled
     head: ClothingHeadHatCorpsoft
     neck: SecurityWhistle
@@ -313,7 +313,7 @@
     back: ClothingBackpackSatchelSecurity
     ears: ClothingHeadsetAltSecurityRegular # Goobstation
     eyes: ClothingEyesGlassesSecurity
-    outerClothing: ClothingOuterArmorBasicSlim
+    outerClothing: ClothingOuterArmorBasic
     pocket1: WeaponPistolMk58
     pocket2: MagazinePistol
   inhand:
@@ -969,7 +969,7 @@
     suitstorage: WeaponShotgunDoubleBarreledRubber
     ears: ClothingHeadsetService
     eyes: ClothingEyesGlassesSunglasses
-    outerClothing: ClothingOuterArmorBasicSlim
+    outerClothing: ClothingOuterVest
     pocket1: DrinkVodkaBottleFull
     pocket2: BarSpoon
 

@@ -129,7 +129,7 @@
   equipment:
     jumpsuit: ClothingUniformJumpsuitSyndieFormal
     head: ClothingHeadHatOutlawHat
-    outerClothing: ClothingOuterArmorBasicSlim
+    outerClothing: ClothingOuterArmorBasic
     back: ClothingBackpackSatchel
     pocket1: BaseUplinkRadio125TC
     pocket2: EnergySword
@@ -144,7 +144,7 @@
     eyes: ClothingEyesGlassesSecurity
     head: ClothingHeadHelmetSwat
     mask: ClothingMaskGasSwat
-    outerClothing: ClothingOuterArmorBasicSlim
+    outerClothing: ClothingOuterArmorBasic
     ears: ClothingHeadsetAltSecurityRegular # Goobstation
     gloves: ClothingHandsGlovesCombatBloodred
   storage:

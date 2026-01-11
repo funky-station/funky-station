@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 Steve <marlumpy@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
 using Robust.Shared.Input;

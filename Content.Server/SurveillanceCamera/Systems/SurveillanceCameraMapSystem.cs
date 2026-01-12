@@ -1,8 +1,10 @@
 using System.Numerics;
 using Content.Server.DeviceNetwork.Components;
 using Content.Server.Power.Components;
+using Content.Shared.Hands;
 using Content.Shared.Inventory.Events;
 using Content.Shared.SurveillanceCamera.Components;
+using Robust.Shared.Containers;
 
 namespace Content.Server.SurveillanceCamera;
 
@@ -14,8 +16,17 @@ public sealed class SurveillanceCameraMapSystem : EntitySystem
     {
         SubscribeLocalEvent<SurveillanceCameraComponent, MoveEvent>(OnCameraMoved);
         SubscribeLocalEvent<SurveillanceCameraComponent, EntityUnpausedEvent>(OnCameraUnpaused);
-        SubscribeLocalEvent<SurveillanceCameraComponent, GotEquippedEvent>(OnCameraEquipped);
-        SubscribeLocalEvent<SurveillanceCameraComponent, GotUnequippedEvent>(OnCameraUnequipped);
+
+        // _Funkystation Changes Start
+        // Hide bodycams from map when equipped or stored in containers
+        SubscribeLocalEvent<SurveillanceCameraComponent, GotEquippedEvent>(OnCameraContained);
+        SubscribeLocalEvent<SurveillanceCameraComponent, GotEquippedHandEvent>(OnCameraContained);
+        SubscribeLocalEvent<SurveillanceCameraComponent, EntInsertedIntoContainerMessage>(OnCameraContained);
+        // Show bodycams on map when unequipped or removed from containers
+        SubscribeLocalEvent<SurveillanceCameraComponent, GotUnequippedEvent>(OnCameraFreed);
+        SubscribeLocalEvent<SurveillanceCameraComponent, GotUnequippedHandEvent>(OnCameraFreed);
+        SubscribeLocalEvent<SurveillanceCameraComponent, EntRemovedFromContainerMessage>(OnCameraFreed);
+        // _Funkystation Changes End
 
         SubscribeNetworkEvent<RequestCameraMarkerUpdateMessage>(OnRequestCameraMarkerUpdate);
     }
@@ -25,13 +36,15 @@ public sealed class SurveillanceCameraMapSystem : EntitySystem
     // Having them visible would provide a rather wild benefit to effectively being a second set of coords.
     // So instead of making people have to search someone for a bodycam hidden in their bag or pocket
     // We just hide it entirely from the map, because fuck you, you are going to die in maints alone.
-    private void OnCameraEquipped(EntityUid uid, SurveillanceCameraComponent comp, GotEquippedEvent args)
+    private void OnCameraContained(EntityUid uid, SurveillanceCameraComponent comp, EntityEventArgs args)
     {
+        // Hide camera from map when equipped or put in any container
         SetCameraVisibility(uid, false);
     }
 
-    private void OnCameraUnequipped(EntityUid uid, SurveillanceCameraComponent comp, GotUnequippedEvent args)
+    private void OnCameraFreed(EntityUid uid, SurveillanceCameraComponent comp, EntityEventArgs args)
     {
+        // Show camera on map when unequipped or removed from container
         SetCameraVisibility(uid, true);
         UpdateCameraMarker((uid, comp));
     }

@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2026 AftrLite <61218133+AftrLite@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Server.Actions;
 using Content.Server.BloodCult.EntitySystems;
 using Content.Server.Chat.Systems;

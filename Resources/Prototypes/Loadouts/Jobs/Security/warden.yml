@@ -26,25 +26,25 @@
 
 # Jumpsuit
 - type: loadout
-  id: SecurityJumpsuit
+  id: WardenSecurityJumpsuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitSec
   groupBy: "jumpsuit"
 
 - type: loadout
-  id: SecurityJumpskirt
+  id: WardenSecurityJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtSec
   groupBy: "jumpskirt"
 
 - type: loadout
-  id: TrooperUniform
+  id: WardenTrooperUniform
   equipment:
     jumpsuit: ClothingUniformSecurityTrooper
   groupBy: "jumpsuit"
 
 - type: loadout
-  id: SeniorOfficerJumpsuit
+  id: WardenSeniorOfficerJumpsuit
   effects:
   - !type:GroupLoadoutEffect
     proto: SeniorOfficer
@@ -53,7 +53,7 @@
   groupBy: "jumpsuit"
 
 - type: loadout
-  id: SeniorOfficerJumpskirt
+  id: WardenSeniorOfficerJumpskirt
   effects:
   - !type:GroupLoadoutEffect
     proto: SeniorOfficer
@@ -68,7 +68,7 @@
     outerClothing: ClothingOuterCoatWarden
 
 - type: loadout
-  id: ArmorVest
+  id: WardenArmorVest
   equipment:
     outerClothing: ClothingOuterArmorBasic
 

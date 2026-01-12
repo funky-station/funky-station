@@ -1629,11 +1629,11 @@
   id: WardenJumpsuit
   name: loadout-group-warden-jumpsuit
   loadouts:
-  - SecurityJumpsuit
-  - SecurityJumpskirt
-  - SeniorOfficerJumpsuit
-  - SeniorOfficerJumpskirt
-  - TrooperUniform
+  - WardenSecurityJumpsuit
+  - WardenSecurityJumpskirt
+  - WardenSeniorOfficerJumpsuit
+  - WardenSeniorOfficerJumpskirt
+  - WardenTrooperUniform
 
 - type: loadoutGroup
   id: WardenNeck
@@ -1647,7 +1647,7 @@
   name: loadout-group-warden-outerclothing
   loadouts:
   - WardenCoat
-  - ArmorVest
+  - WardenArmorVest
   - WardenArmoredWinterCoat
 
 - type: loadoutGroup #WizDen Weh Job Plush

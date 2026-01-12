@@ -116,3 +116,9 @@
 
 - type: Tag
   id: ExtendedEmergencyNitrogenTank
+
+- type: Tag
+  id: UraniumSheet
+
+- type: Tag
+  id: PlasmaSheet

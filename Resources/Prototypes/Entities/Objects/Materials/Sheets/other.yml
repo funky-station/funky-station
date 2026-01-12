@@ -167,6 +167,7 @@
   - type: Tag
     tags:
     - Sheet
+    - PlasmaSheet
 
 - type: entity
   parent: SheetPlasma
@@ -327,6 +328,9 @@
     energy: 0.8
     castShadows: false
     color: "#9be792"
+  - type: Tag # Funkystation - Electrolyzer fuel
+    tags:
+    - UraniumSheet
 
 - type: entity
   parent: SheetUranium

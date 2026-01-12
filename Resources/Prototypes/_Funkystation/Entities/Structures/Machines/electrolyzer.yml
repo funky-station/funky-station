@@ -13,8 +13,6 @@
   - type: Electrolyzer
   - type: AtmosDevice
   - type: MeltImmune
-  - type: ApcPowerReceiver
-    powerDisabled: true
   - type: Sprite
     sprite: _Funkystation/Structures/Machines/electrolyzer.rsi
     noRot: true
@@ -31,3 +29,21 @@
   - type: Machine
     board: ElectrolyzerMachineCircuitboard
   - type: WiresPanel
+  - type: ItemSlots
+    slots:
+      fuel:
+        name: fuel slot
+        insertOnInteract: false
+        ejectOnInteract: false
+        insertSound: { path: "/Audio/Weapons/click.ogg" }
+        ejectSound: { path: "/Audio/Weapons/click.ogg" }
+        whitelist:
+          tags:
+          - PlasmaSheet
+          - UraniumSheet
+        swap: false
+  - type: DeviceLinkSink
+    ports:
+      - On
+      - Off
+      - Toggle

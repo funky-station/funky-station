@@ -77,7 +77,7 @@
   name: Trapped Wisp
   components:
   - type: Sprite
-    sprite: _ST/CosmicCult/Mobs/wisp.rsi
+    sprite: _DV/CosmicCult/Mobs/wisp.rsi
     layers:
       - state: wisp
         shader: unshaded

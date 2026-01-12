@@ -82,14 +82,14 @@ public sealed class ElectrolyzerSystem : EntitySystem
         if (comp.IsPowered)
         {
             comp.IsPowered = false;
-            _popup.PopupEntity("electrolyzer-turned-off", uid, args.User);
+            _popup.PopupEntity(Loc.GetString("electrolyzer-turned-off"), uid, args.User);
         }
         else
         {
             // Turn on only if anchored and has fuel (or fuel in slot)
             if (!Transform(uid).Anchored)
             {
-                _popup.PopupEntity("electrolyzer-must-be-anchored", uid, args.User);
+                _popup.PopupEntity(Loc.GetString("electrolyzer-must-be-anchored"), uid, args.User);
                 return;
             }
 
@@ -99,12 +99,12 @@ public sealed class ElectrolyzerSystem : EntitySystem
 
             if (!hasFuel)
             {
-                _popup.PopupEntity("electrolyzer-no-fuel", uid, args.User);
+                _popup.PopupEntity(Loc.GetString("electrolyzer-no-fuel"), uid, args.User);
                 return;
             }
 
             comp.IsPowered = true;
-            _popup.PopupEntity("electrolyzer-turned-on", uid, args.User);
+            _popup.PopupEntity(Loc.GetString("electrolyzer-turned-on"), uid, args.User);
         }
 
         UpdateAppearance(uid);
@@ -131,7 +131,7 @@ public sealed class ElectrolyzerSystem : EntitySystem
             {
                 electrolyzer.IsPowered = false; // auto-shutdown if no more fuel possible
                 UpdateAppearance(uid);
-                _popup.PopupEntity("electrolyzer-no-fuel", uid);
+                _popup.PopupEntity(Loc.GetString("electrolyzer-no-fuel"), uid);
                 return;
             }
 
@@ -139,7 +139,7 @@ public sealed class ElectrolyzerSystem : EntitySystem
             {
                 electrolyzer.IsPowered = false;
                 UpdateAppearance(uid);
-                _popup.PopupEntity("electrolyzer-no-fuel", uid);
+                _popup.PopupEntity(Loc.GetString("electrolyzer-no-fuel"), uid);
                 return;
             }
 
@@ -253,7 +253,7 @@ public sealed class ElectrolyzerSystem : EntitySystem
             // Empty: insert normally
             if (_itemSlots.TryInsert(uid, "fuel", heldItem, args.User))
             {
-                _popup.PopupEntity("electrolyzer-fuel-inserted", uid, args.User);
+                _popup.PopupEntity(Loc.GetString("electrolyzer-fuel-inserted"), uid, args.User);
             }
             return;
         }
@@ -267,7 +267,7 @@ public sealed class ElectrolyzerSystem : EntitySystem
             if (!TryComp<StackComponent>(heldItem, out var heldStack) ||
                 !TryComp<StackComponent>(existingItem.Value, out var existingStack))
             {
-                _popup.PopupEntity("electrolyzer-cannot-merge-invalid-stack", uid, args.User); // Should never happen
+                _popup.PopupEntity(Loc.GetString("electrolyzer-cannot-merge-invalid-stack"), uid, args.User); // Should never happen
                 return;
             }
 
@@ -296,7 +296,7 @@ public sealed class ElectrolyzerSystem : EntitySystem
             // Insert the new held item first
             if (_itemSlots.TryInsert(uid, "fuel", heldItem, args.User))
             {
-                _popup.PopupEntity("electrolyzer-fuel-swapped", uid, args.User);
+                _popup.PopupEntity(Loc.GetString("electrolyzer-fuel-swapped"), uid, args.User);
 
                 if (ejected != null && args.User != null && TryComp<HandsComponent>(args.User, out var hands))
                 {

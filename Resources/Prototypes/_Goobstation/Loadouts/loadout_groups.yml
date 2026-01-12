@@ -67,14 +67,6 @@
   - NanotrasenRepresentativeBlackGloves
 
 - type: loadoutGroup
-  id: NanotrasenRepresentativeBelt
-  name: loadout-group-ntr-belt
-  minLimit: 0
-  loadouts:
-  - NanotrasenRepresentativeClipboard
-  - NanotrasenRepresentativeWaistbag
-
-- type: loadoutGroup
   id: NanotrasenRepresentativeShoes
   name: loadout-group-ntr-shoes
   loadouts:

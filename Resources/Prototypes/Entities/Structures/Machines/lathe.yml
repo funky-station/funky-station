@@ -907,6 +907,7 @@
     - AnomalyVesselExperimentalCircuitboard
     - AnomalySynchronizerCircuitboard
     - APECircuitboard
+    - OublietteCircuitBoard # Funky
     - ArtifactAnalyzerMachineCircuitboard
     - ArtifactCrusherMachineCircuitboard
     - TelecomServerCircuitboard

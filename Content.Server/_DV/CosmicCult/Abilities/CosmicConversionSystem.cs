@@ -4,16 +4,16 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
-using Content.Server._DV.CosmicCult.Components;
-using Content.Server.Bible.Components;
 using Content.Server.Popups;
 using Content.Shared._DV.CosmicCult.Components;
 using Content.Shared._DV.CosmicCult;
 using Content.Shared.Damage;
 using Content.Shared.Mindshield.Components;
 using Content.Shared.Mobs.Systems;
-using Content.Shared.Popups;
 using Content.Shared.Stunnable;
+using Content.Shared.Changeling;
+using Content.Shared.Heretic;
+using Content.Shared.BloodCult;
 
 namespace Content.Server._DV.CosmicCult.Abilities;
 
@@ -57,9 +57,9 @@ public sealed class CosmicConversionSystem : EntitySystem
                 _popup.PopupEntity(Loc.GetString("cult-glyph-target-dead"), uid, args.User);
                 args.Cancel();
             }
-            else if (uid.Comp.NegateProtection == false && HasComp<BibleUserComponent>(target))
+            else if (HasComp<ChangelingComponent>(target) || HasComp<HereticComponent>(target) || HasComp<BloodCultistComponent>(target)) // don't convert other antags
             {
-                _popup.PopupEntity(Loc.GetString("cult-glyph-target-chaplain"), uid, args.User);
+                _popup.PopupEntity(Loc.GetString("cult-glyph-target-otherantag"), uid, args.User);
                 args.Cancel();
             }
             else if (uid.Comp.NegateProtection == false && HasComp<MindShieldComponent>(target))
@@ -72,12 +72,6 @@ public sealed class CosmicConversionSystem : EntitySystem
                 _stun.TryStun(target, TimeSpan.FromSeconds(4f), false);
                 _damageable.TryChangeDamage(target, uid.Comp.ConversionHeal * -1);
                 _cultRule.CosmicConversion(uid, target);
-                var finaleQuery = EntityQueryEnumerator<CosmicFinaleComponent>(); // Enumerator for The Monument's Finale
-                while (finaleQuery.MoveNext(out var monument, out var comp) && comp.CurrentState == FinaleState.ActiveBuffer)
-                {
-                    comp.BufferTimer -= TimeSpan.FromSeconds(45);
-                    _popup.PopupCoordinates(Loc.GetString("cosmiccult-finale-speedup"), Transform(monument).Coordinates, PopupType.Large);
-                }
             }
         }
     }

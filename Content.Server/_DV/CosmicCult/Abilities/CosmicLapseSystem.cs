@@ -35,7 +35,7 @@ public sealed class CosmicLapseSystem : EntitySystem
 
     private void OnCosmicLapse(Entity<CosmicCultComponent> uid, ref EventCosmicLapse action)
     {
-        if (action.Handled || HasComp<CosmicBlankComponent>(action.Target) || HasComp<CleanseCultComponent>(action.Target) || HasComp<BibleUserComponent>(action.Target))
+        if (action.Handled || HasComp<CosmicBlankComponent>(action.Target))
         {
             _popup.PopupEntity(Loc.GetString("cosmicability-generic-fail"), uid, uid);
             return;

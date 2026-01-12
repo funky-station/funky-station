@@ -34,14 +34,13 @@
   id: CrateServiceReligious
   parent: CrateChaplain
   name: religious supplies crate
-  description: Contains holy water, a bible, and a spare censer.
+  description: Contains holy water and a bible.
   components:
     - type: StorageFill
       contents:
         - id: Bible
         - id: JugHolywater
           amount: 2
-        - id: CosmicCenser # funky - we should be able to deconvert even if the roundstart censer goes missing
 
 - type: cargoProduct
   id: ServiceReligiousSupplies

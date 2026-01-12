@@ -23,6 +23,7 @@
 // SPDX-License-Identifier: MIT
 
 using System.Linq;
+using Content.Server._DV.Objectives.Events;
 using Content.Server.Administration;
 using Content.Server.Chat.Managers;
 using Content.Server.Radio.Components;
@@ -335,6 +336,10 @@ public sealed class SiliconLawSystem : SharedSiliconLawSystem
         while (query.MoveNext(out var update))
         {
             SetLaws(lawset, update, provider.LawUploadSound);
+            // Start Stellar - AILawUpdatedEvent
+            var evt = new AILawUpdatedEvent(update, provider.Laws);
+            RaiseLocalEvent(ref evt);
+            // End Stellar - AILawUpdatedEvent
         }
     }
 }

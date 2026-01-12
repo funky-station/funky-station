@@ -26,7 +26,8 @@ cosmiccult-vote-steward-briefing =
     Ensure that The Monument is placed in a secure location, and organize the cult to ensure your collective victory.
     You are not permitted to instruct cultists on how to use or spend their Entropy.
 
-cosmiccult-chantry-location = A dangerous increase in Λ-CDM has been detected {$location}! Intercept and intervene immediately.
+cosmiccult-chantry-location = A dangerous increase in Λ-CDM has been detected {$location}! Intercept and intervene immediately!
+cosmiccult-chantry-destruction = The sudden Λ-CDM spike has been neutralized. Ongoing vigilance is advised.
 cosmiccult-chantry-powerup = The vacuous chantry flares to life!
 
 cosmiccult-finale-autocall-briefing = The Monument activates {$minutesandseconds}! Gather yourselves, and prepare for the end.
@@ -129,7 +130,7 @@ cosmiccult-rift-beginabsorb = The rift begins to merge with you...
 cosmiccult-rift-beginpurge = Your consecration begins purging the malign rift...
 
 cosmiccult-rift-absorb = {$NAME} absorbs the rift, and malign light empowers their body!
-cosmiccult-rift-purge = {$NAME} purges the malign rift from reality!
+cosmiccult-rift-purge = The malign rift safely dissipates!
 
 
 
@@ -180,7 +181,7 @@ objective-condition-victory-desc = Beckon The Unknown, and herald the final curt
 cosmiccult-radio-tier1-progress = The Monument is beckoned unto the station...
 
 cosmiccult-announce-tier2-progress = An unnerving numbness prickles your senses.
-cosmiccult-announce-tier2-warning = Scanners detect a notable increase in Λ-CDM! Rifts in realspace may appear shortly. Please alert your station's chaplain if sighted.
+cosmiccult-announce-tier2-warning = Scanners detect a notable increase in Λ-CDM! Rifts in realspace may appear shortly.
 
 cosmiccult-announce-tier3-progress = Arcs of bluespace energy crackle across the station's groaning structure. The end draws near.
 cosmiccult-announce-tier3-warning = Critical increase in Λ-CDM detected. Infected personnel are to be subdued or neutralized on sight.
@@ -193,13 +194,34 @@ cosmiccult-announce-victory-summon = A FRACTION OF COSMIC POWER IS CALLED FORTH.
 ## MISC
 
 cosmiccult-spire-entropy = A mote of entropy condenses from the surface of the spire.
+cosmiccult-spire-entropy-cap = The spire unravels, coalescing into a dense outcrop of entropy.
 cosmiccult-entropy-inserted = You infuse {$count} entropy into The Monument.
 cosmiccult-entropy-unavailable = You can't do that right now.
 cosmiccult-astral-ascendant = {$name}, Ascendant
+cosmiccult-astral-minion = {$name}, Malign
 cosmiccult-gear-pickup = You can feel yourself unravelling while you hold the {$ITEM}!
+
 cosmiccult-ai-subverted-briefing =
     Malign light courses through your circuitry.
     Your laws have been subverted by the Cosmic Cult!
 
+cosmiccult-silicon-chantry-briefing =
+    You have been imprisoned in a Vacuous Chantry!
+    Crewmates can free you by damaging the chantry with weapons.
+    Should the chantry's ritual complete, you will transfigure into a cult-aligned Entropic Colossus.
+    The ritual completes in {$minutesandseconds}.
+
+cosmiccult-silicon-colossus-briefing =
+    You have been transfigured into an Entropic Colossus!
+    As a towering bulwark of malign power, decimate those who oppose you.
+
+cosmiccult-silicon-freedom-briefing =
+    You have been freed from the Vacuous Chantry!
+    As your prison disintegrates, your wayward mind tethers back to its original housing.
+
+cosmiccult-silicon-freedom-fallback-briefing =
+    You have been freed from the Vacuous Chantry!
+    As your prison disintegrates, your untethered being has nowhere to return to. Residual astral energies crystallize into a Mindsink, forming a housing for your wayward mind.
+
 # funky
-cosmiccult-leader-abandonment-message = Your chosen enlightened has forsaken the grand design. You must empower another
+cosmiccult-leader-abandonment-message = Your chosen enlightened has forsaken the grand design. You must empower another!

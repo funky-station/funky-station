@@ -69,3 +69,17 @@
        enabled: true
        isLooped: true
        reverseWhenFinished: true
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  # parent: BaseStructure
+  id: CosmicChantryWisp
+  name: Trapped Wisp
+  components:
+  - type: Sprite
+    sprite: _ST/CosmicCult/Mobs/wisp.rsi
+    layers:
+      - state: wisp
+        shader: unshaded
+  - type: Speech
+  - type: Transform

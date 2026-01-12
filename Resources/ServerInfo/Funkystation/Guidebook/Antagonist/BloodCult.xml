@@ -74,7 +74,7 @@ The [bold][color=#ff6666]empowering rune[/color][/bold] allows a cultist standin
     <GuideEntityEmbed Entity="ReviveRune" Caption="revive rune"/>
   </Box>
 
-The [bold][color=#ff6666]revive rune[/color][/bold] may be used by cultists to ask [color=#ff3333]Nar'Sie[/color] to restore the soul of a lost acolyte. A dead cultist may be dragged on top of this rune, and the rune subsequently activated, to make this request. However, [color=#ff3333]She[/color] may demand further sacrifices be made before deigning [color=#ff3333]herself[/color] to fetch this lost soul. 
+The [bold][color=#ff6666]revive rune[/color][/bold] may be used by cultists to ask [color=#ff3333]Nar'Sie[/color] to restore the soul of a lost acolyte. A dead cultist may be dragged on top of this rune, and the rune subsequently activated, to make this request. However, [color=#ff3333]She[/color] may demand further sacrifices be made before deigning [color=#ff3333]herself[/color] to fetch this lost soul.
 - [color=#ff6666]revive rune[/color] can also revive non worshippers of [color=#ff3333]Nar'Sie[/color]. She demands a tithe of blood for this service, and will not heal them fully until their souls have been offered to her.
 
 
@@ -195,9 +195,8 @@ As the cult expands, the situation aboard the station will pass through several 
 Deconverting a blood cultist can happen in four ways
 1. Is through the forced imbibement of [color=#4466ff]holy water[/color] (at least 40u).
 2. Is by implanting a [color=#4466ff]mindshield[/color] into the cultist.
-3. Is by using a [color=#4466ff]censer[/color] on the cultist.
-4. Is by throwing a container of holy water onto the blood spilled by a cult. This will form a holy fog that will burn and purify cultists.
-5. By spraying a cultist with holy water from a spray bottle or extinguisher. Or splashing a container of holy water on them. It will burn and eventually purify them.
+3. Is by throwing a container of holy water onto the blood spilled by a cult. This will form a holy fog that will burn and purify cultists.
+4. By spraying a cultist with holy water from a spray bottle or extinguisher. Or splashing a container of holy water on them. It will burn and eventually purify them.
 
 Your Chaplain, a holy being, is largely immune to the more [italic]persuasive[/italic] aspects of the blood cult's methods, and is the only crewmember who may be trusted absolutely once the cult's presence is known. Chaplains are also resistant to blood magic and cult-manufactured weaponry, rendering the offensive abilities of most cultists useless against them -- unless the cultists resort to more traditional methods of attack.
 

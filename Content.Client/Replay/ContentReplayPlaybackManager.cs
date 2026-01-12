@@ -198,7 +198,7 @@ public sealed class ContentReplayPlaybackManager
             case PopupEvent:
             case PickupAnimationEvent:
             case MeleeLungeEvent:
-            case SharedGunSystem.HitscanEvent:
+            case HitscanEvent: // Funky
             case ImpactEffectEvent:
             case MuzzleFlashEvent:
             case ColorFlashEffectEvent:

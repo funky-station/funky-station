@@ -112,17 +112,6 @@
   equipment:
     jumpsuit: ClothingUniformJumpskirtNanotrasenRepresentative
 
-# Belt
-- type: loadout
-  id: NanotrasenRepresentativeClipboard
-  equipment:
-    belt: BoxFolderCentComClipboard
-
-- type: loadout
-  id: NanotrasenRepresentativeWaistbag
-  equipment:
-    belt: ClothingBeltStorageWaistbag
-
 # Shoes
 - type: loadout
   id: NanotrasenRepresentativeBoots

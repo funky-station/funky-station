@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 B_Kirill <153602297+B-Kirill@users.noreply.github.com>
+//
+// SPDX-License-Identifier: MIT
+
 using System.Numerics;
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization;

@@ -44,7 +44,7 @@
       - HEVSuit
 
 - type: entity
-  parent: ClothingNeckBase # funkystation - bodycams should take up a neckslot
+  parent: BaseItem # funkystation - bodycams now attach to armor vest slots
   id: SurveillanceWirelessCameraBodyEntertainment
   name: nopro camera
   description: A body mounted camera. It's watching you.
@@ -72,9 +72,12 @@
       range: 4
     - type: Sprite
       sprite: _Goobstation/Clothing/OuterClothing/Misc/nopro.rsi
-    - type: Clothing
-      sprite: _Goobstation/Clothing/OuterClothing/Misc/nopro.rsi
-      quickEquip: true
+      state: icon
+    - type: Item
+      size: Tiny
+    - type: Tag
+      tags:
+        - BodyCamera
 
 - type: entity
   parent: SurveillanceWirelessCameraBodyEntertainment

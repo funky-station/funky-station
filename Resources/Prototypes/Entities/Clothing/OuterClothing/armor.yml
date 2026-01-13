@@ -84,6 +84,17 @@
 - type: entity
   parent: [ BaseSecurityBartenderContraband, ClothingOuterArmorBase]
   id: ClothingOuterArmorBasic
+  components:
+  - type: ItemSlots
+    slots:
+      bodycam_slot:
+        name: Bodycam
+        whitelist:
+          tags:
+            - BodyCamera
+  - type: ContainerContainer
+    containers:
+      bodycam_slot: !type:ContainerSlot {}
 
 #Alternate / slim basic armor vest
 - type: entity

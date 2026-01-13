@@ -70,7 +70,6 @@
             MedicalDoctor: [ 6, 6 ]
             Psychologist: [ 1, 1 ]
             MedicalIntern: [ 1, 2 ]
-            Geneticist: [ 1, 2 ]
             #science
             ResearchDirector: [ 1, 1 ]
             Scientist: [ 5, 5 ]

@@ -48,7 +48,6 @@
             MedicalDoctor: [ 12, 12 ]
             MedicalIntern: [ 8, 8 ]
             Paramedic: [ 2, 2 ]
-            Geneticist: [ 1, 2 ]
             #science
             ResearchDirector: [ 1, 1 ]
             Scientist: [ 10, 10 ]

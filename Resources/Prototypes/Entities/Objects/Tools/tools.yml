@@ -553,6 +553,7 @@
     - VolumetricPump
     - PressurePump
     - HeatPump
+    - TemperatureGate
     - VentScrubber
     - PressureValve
     - PressureRegulator

@@ -789,3 +789,75 @@
         Primary: HeatPump
         Secondary: HeatPumpAlt1
         Tertiary: HeatPumpAlt2
+
+# Funkystation - temperature gate
+- type: entity
+  parent: GasBinaryBase
+  id: GasTemperatureGate
+  name: temperature gate
+  description: A pump that moves heat from one side to the other.
+  placement:
+    mode: AlignAtmosPipeLayers
+  components:
+    - type: ExtensionCableReceiver
+    - type: LightningTarget
+      priority: 1
+    - type: ApcPowerReceiver
+      powerLoad: 200
+    - type: SubFloorHide
+      visibleLayers:
+      - enum.SubfloorLayers.FirstLayer
+    - type: Sprite
+      sprite: Structures/Piping/Atmospherics/pump.rsi
+      layers:
+        - sprite: Structures/Piping/Atmospherics/pipe.rsi
+          state: pipeStraight
+          map: [ "enum.PipeVisualLayers.Pipe" ]
+        - state: tgateOff
+          map: [ "enum.SubfloorLayers.FirstLayer", "enabled" ]
+    - type: Appearance
+    - type: GenericVisualizer
+      visuals:
+        enum.TemperatureGateVisuals.State:
+          enabled:
+            Off:  { state: tgateOff }
+            On:   { state: tgateOn }
+            Flow: { state: tgateFlow }
+    - type: PipeColorVisuals
+    - type: TemperatureGate
+    - type: NodeContainer
+      nodes:
+        inlet:
+          !type:PipeNode
+          nodeGroupID: Pipe
+          pipeDirection: North
+          volume: 100
+        outlet:
+          !type:PipeNode
+          nodeGroupID: Pipe
+          pipeDirection: South
+          volume: 100
+    - type: UserInterface
+      interfaces:
+        enum.TemperatureGateUiKey.Key:
+          type: TemperatureGateBoundUserInterface
+    - type: Construction
+      graph: GasBinary
+      node: tgate
+    - type: AmbientSound
+      enabled: false
+      volume: -9
+      range: 5
+      sound:
+        path: /Audio/Ambience/Objects/gas_hiss.ogg
+    - type: AtmosMonitoringConsoleDevice
+      navMapBlip: Thermoregulator
+    - type: GuideHelp
+      guides:
+      - ManualValve
+    - type: AtmosPipeLayers
+      alternativePrototypes:
+        Primary: GasTemperatureGate
+        Secondary: GasTemperatureGateAlt1
+        Tertiary: GasTemperatureGateAlt2
+

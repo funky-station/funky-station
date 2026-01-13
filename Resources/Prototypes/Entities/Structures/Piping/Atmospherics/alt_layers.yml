@@ -718,6 +718,39 @@
   - type: Construction
     node: heatpumpAlt2
 
+# Funky - Temperature Gate
+- type: entity
+  parent: [GasPipeLayerAlt1, GasTemperatureGate]
+  id: GasTemperatureGateAlt1
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Structures/Piping/Atmospherics/pump_alt1.rsi
+    layers:
+    - sprite: Structures/Piping/Atmospherics/pipe_alt1.rsi
+      state: pipeStraight
+      map: [ "enum.PipeVisualLayers.Pipe" ]
+    - state: tgateOff
+      map: [ "enum.SubfloorLayers.FirstLayer", "enabled" ]
+  - type: Construction
+    node: tgateAlt1
+
+- type: entity
+  parent: [GasPipeLayerAlt2, GasTemperatureGate]
+  id: GasTemperatureGateAlt2
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Structures/Piping/Atmospherics/pump_alt2.rsi
+    layers:
+    - sprite: Structures/Piping/Atmospherics/pipe_alt2.rsi
+      state: pipeStraight
+      map: [ "enum.PipeVisualLayers.Pipe" ]
+    - state: tgateOff
+      map: [ "enum.SubfloorLayers.FirstLayer", "enabled" ]
+  - type: Construction
+    node: tgateAlt2
+
 # Gas Trinary Devices
 - type: entity
   parent: [GasPipeLayerAlt1, GasFilter]

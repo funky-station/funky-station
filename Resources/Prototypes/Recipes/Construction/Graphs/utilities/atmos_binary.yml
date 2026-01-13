@@ -221,6 +221,25 @@
         amount: 2
         doAfter: 1
 
+# Funky - temperature gate
+    - to: tgate
+      steps:
+      - material: Steel
+        amount: 2
+        doAfter: 1
+
+    - to: tgateAlt1
+      steps:
+      - material: Steel
+        amount: 2
+        doAfter: 1
+
+    - to: tgateAlt2
+      steps:
+      - material: Steel
+        amount: 2
+        doAfter: 1
+
   - node: pressurepump
     entity: GasPressurePump
     edges:
@@ -767,3 +786,53 @@
       steps:
       - tool: Welding
         doAfter: 1
+
+# Funky - temperature gate
+  - node: tgate
+    entity: GasTemperatureGate
+    edges:
+    - to: start
+      conditions:
+      - !type:EntityAnchored
+        anchored: false
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetSteel1
+        amount: 2
+      - !type:DeleteEntity
+      steps:
+      - tool: Welding
+        doAfter: 1
+
+  - node: tgateAlt1
+    entity: GasTemperatureGateAlt1
+    edges:
+    - to: start
+      conditions:
+      - !type:EntityAnchored
+        anchored: false
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetSteel1
+        amount: 2
+      - !type:DeleteEntity
+      steps:
+      - tool: Welding
+        doAfter: 1
+
+  - node: tgateAlt2
+    entity: GasTemperatureGateAlt2
+    edges:
+    - to: start
+      conditions:
+      - !type:EntityAnchored
+        anchored: false
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetSteel1
+        amount: 2
+      - !type:DeleteEntity
+      steps:
+      - tool: Welding
+        doAfter: 1
+

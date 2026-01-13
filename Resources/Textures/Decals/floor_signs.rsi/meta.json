@@ -1,0 +1,203 @@
+{
+    "version": 1,
+    "license": "CC0-1.0",
+    "copyright": "sprited by willowzeta (github)",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "ai"
+        },
+        {
+            "name": "anchor"
+        },
+        {
+            "name": "anomlab"
+        },
+        {
+            "name": "armory"
+        },
+        {
+            "name": "atmos"
+        },
+        {
+            "name": "bar"
+        },
+        {
+            "name": "botany"
+        },
+        {
+            "name": "bridge"
+        },
+        {
+            "name": "brig"
+        },
+        {
+            "name": "cargo"
+        },
+        {
+            "name": "cco"
+        },
+        {
+            "name": "clown"
+        },
+        {
+            "name": "chapel"
+        },
+        {
+            "name": "chem"
+        },
+        {
+            "name": "comms"
+        },
+        {
+            "name": "court"
+        },
+        {
+            "name": "cryogenics"
+        },
+        {
+            "name": "cryosleep"
+        },
+        {
+            "name": "det"
+        },
+        {
+            "name": "disposals"
+        },
+        {
+            "name": "engi"
+        },
+        {
+            "name": "eva"
+        },
+        {
+            "name": "evac"
+        },
+        {
+            "name": "genetics"
+        },
+        {
+            "name": "grav"
+        },
+        {
+            "name": "hop"
+        },
+        {
+            "name": "ia"
+        },
+        {
+            "name": "jani"
+        },
+        {
+            "name": "kitchen"
+        },
+        {
+            "name": "law"
+        },
+        {
+            "name": "library"
+        },
+        {
+            "name": "magi"
+        },
+        {
+            "name": "mats"
+        },
+        {
+            "name": "med"
+        },
+        {
+            "name": "mime"
+        },
+        {
+            "name": "morgue"
+        },
+        {
+            "name": "musician"
+        },
+        {
+            "name": "news"
+        },
+        {
+            "name": "ordnance"
+        },
+        {
+            "name": "pointer"
+        },
+        {
+            "name": "power"
+        },
+        {
+            "name": "psych"
+        },
+        {
+            "name": "reactor"
+        },
+        {
+            "name": "robo"
+        },
+        {
+            "name": "salvage"
+        },
+        {
+            "name": "satellite"
+        },
+        {
+            "name": "sci"
+        },
+        {
+            "name": "security"
+        },
+        {
+            "name": "service"
+        },
+        {
+            "name": "singularity"
+        },
+        {
+            "name": "solars"
+        },
+        {
+            "name": "spicyrock"
+        },
+        {
+            "name": "surgery"
+        },
+        {
+            "name": "tech"
+        },
+        {
+            "name": "teg"
+        },
+        {
+            "name": "telesci"
+        },
+        {
+            "name": "tesla"
+        },
+        {
+            "name": "theater"
+        },
+        {
+            "name": "tools"
+        },
+        {
+            "name": "vault"
+        },
+        {
+            "name": "viro"
+        },
+        {
+            "name": "xenoarch"
+        },
+        {
+            "name": "xenobio"
+        },
+        {
+            "name": "zoo"
+        }
+    ]
+}

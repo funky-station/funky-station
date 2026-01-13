@@ -17,7 +17,13 @@
             "name": "anomlab"
         },
         {
+            "name": "arcade"
+        },
+        {
             "name": "armory"
+        },
+        {
+            "name": "arrivals"
         },
         {
             "name": "atmos"
@@ -201,6 +207,9 @@
         },
         {
             "name": "viro"
+        },
+        {
+            "name": "voxbox"
         },
         {
             "name": "warden"

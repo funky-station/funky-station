@@ -22,10 +22,22 @@
     state: anomlab
 
 - type: decal
+  id: FloorSignArcade
+  sprite:
+    sprite: Decals/floor_signs.rsi
+    state: arcade
+
+- type: decal
   id: FloorSignArmory
   sprite:
     sprite: Decals/floor_signs.rsi
     state: armory
+
+- type: decal
+  id: FloorSignArrivals
+  sprite:
+    sprite: Decals/floor_signs.rsi
+    state: arrivals
 
 - type: decal
   id: FloorSignAtmos
@@ -398,6 +410,12 @@
   sprite:
     sprite: Decals/floor_signs.rsi
     state: viro
+
+- type: decal
+  id: FloorSignVoxBox
+  sprite:
+    sprite: Decals/floor_signs.rsi
+    state: voxbox
 
 - type: decal
   id: FloorSignXenoarch

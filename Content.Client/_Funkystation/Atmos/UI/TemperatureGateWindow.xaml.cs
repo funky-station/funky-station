@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2026 Steve <marlumpy@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using System;
 using System.Globalization;
 using Content.Shared.Atmos;

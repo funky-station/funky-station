@@ -52,6 +52,12 @@
     state: bridge
 
 - type: decal
+  id: FloorSignBriefing
+  sprite:
+    sprite: Decals/floor_signs.rsi
+    state: briefing
+
+- type: decal
   id: FloorSignBrig
   sprite:
     sprite: Decals/floor_signs.rsi
@@ -124,6 +130,12 @@
     state: disposals
 
 - type: decal
+  id: FloorSignDorms
+  sprite:
+    sprite: Decals/floor_signs.rsi
+    state: dorms
+
+- type: decal
   id: FloorSignEngi
   sprite:
     sprite: Decals/floor_signs.rsi
@@ -166,6 +178,12 @@
     state: ia
 
 - type: decal
+  id: FloorSignInterrogation
+  sprite:
+    sprite: Decals/floor_signs.rsi
+    state: inter
+
+- type: decal
   id: FloorSignJani
   sprite:
     sprite: Decals/floor_signs.rsi
@@ -194,6 +212,12 @@
   sprite:
     sprite: Decals/floor_signs.rsi
     state: magi
+
+- type: decal
+  id: FloorSignMail
+  sprite:
+    sprite: Decals/floor_signs.rsi
+    state: mail
 
 - type: decal
   id: FloorSignMats
@@ -356,6 +380,12 @@
   sprite:
     sprite: Decals/floor_signs.rsi
     state: tools
+
+- type: decal
+  id: FloorSignWarden
+  sprite:
+    sprite: Decals/floor_signs.rsi
+    state: warden
 
 - type: decal
   id: FloorSignVault

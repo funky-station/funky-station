@@ -32,6 +32,9 @@
             "name": "bridge"
         },
         {
+            "name": "briefing"
+        },
+        {
             "name": "brig"
         },
         {
@@ -68,6 +71,9 @@
             "name": "disposals"
         },
         {
+            "name": "dorms"
+        },
+        {
             "name": "engi"
         },
         {
@@ -89,6 +95,9 @@
             "name": "ia"
         },
         {
+            "name": "inter"
+        },
+        {
             "name": "jani"
         },
         {
@@ -102,6 +111,9 @@
         },
         {
             "name": "magi"
+        },
+        {
+            "name": "mail"
         },
         {
             "name": "mats"
@@ -189,6 +201,9 @@
         },
         {
             "name": "viro"
+        },
+        {
+            "name": "warden"
         },
         {
             "name": "xenoarch"

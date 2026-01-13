@@ -27,7 +27,7 @@
   components:
   - type: Sprite
     noRot: true
-    sprite: Structures/Machines/artifact_analyzer.rsi
+    sprite: _Funkystation/Structures/Machines/artifact_analyzer.rsi # Funky
     drawdepth: HighFloorObjects
     layers:
     - state: icon

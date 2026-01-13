@@ -50,7 +50,7 @@
   id: BasicXenoArcheology
   name: research-technology-basic-xenoarcheology
   icon:
-    sprite: Structures/Machines/artifact_analyzer.rsi
+    sprite: _Funkystation/Structures/Machines/artifact_analyzer.rsi # Funky
     state: display
   discipline: Experimental
   tier: 1

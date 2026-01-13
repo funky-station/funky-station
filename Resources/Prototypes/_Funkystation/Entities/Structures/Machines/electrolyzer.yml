@@ -47,3 +47,6 @@
       - On
       - Off
       - Toggle
+  - type: ContainerContainer
+    containers:
+      fuel: !type: ContainerSlot

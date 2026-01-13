@@ -11,6 +11,8 @@
   name: electrolyzer
   components:
   - type: Electrolyzer
+    onSound:
+      path: /Audio/Weapons/click.ogg
   - type: AtmosDevice
   - type: MeltImmune
   - type: Sprite
@@ -35,8 +37,6 @@
         name: fuel slot
         insertOnInteract: false
         ejectOnInteract: false
-        insertSound: { path: "/Audio/Weapons/click.ogg" }
-        ejectSound: { path: "/Audio/Weapons/click.ogg" }
         whitelist:
           tags:
           - PlasmaSheet
@@ -49,4 +49,4 @@
       - Toggle
   - type: ContainerContainer
     containers:
-      fuel: !type: ContainerSlot
+      fuel: !type:ContainerSlot {}

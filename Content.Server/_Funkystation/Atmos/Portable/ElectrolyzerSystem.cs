@@ -19,6 +19,8 @@ using Content.Shared.Tag;
 using Content.Shared.Hands.Components;
 using Content.Shared.DeviceLinking;
 using Content.Shared.DeviceLinking.Events;
+using Robust.Server.Audio;
+using Robust.Shared.Audio;
 
 namespace Content.Server._Funkystation.Atmos.Portable;
 
@@ -32,6 +34,7 @@ public sealed class ElectrolyzerSystem : EntitySystem
     [Dependency] private readonly StackSystem _stackSystem = default!;
     [Dependency] private readonly HandsSystem _handsSystem = default!;
     [Dependency] private readonly TagSystem _tagSystem = default!;
+    [Dependency] private readonly AudioSystem _audio = default!;
     private const float WorkingPower = 2f;
     private const float PowerEfficiency = 1f;
 
@@ -50,7 +53,7 @@ public sealed class ElectrolyzerSystem : EntitySystem
         if (!TryComp<DeviceLinkSinkComponent>(uid, out _))
             return;
 
-        bool? newState = null;
+        bool? newState;
 
         switch (args.Port)
         {
@@ -70,9 +73,15 @@ public sealed class ElectrolyzerSystem : EntitySystem
         if (newState == comp.IsPowered)
             return;
 
-        comp.IsPowered = newState.Value;
-
-        UpdateAppearance(uid);
+        if (newState == true)
+        {
+            TryTurnOn(uid, comp);
+        }
+        else
+        {
+            comp.IsPowered = false;
+            UpdateAppearance(uid);
+        }
     }
 
     private void OnActivate(EntityUid uid, ElectrolyzerComponent comp, ActivateInWorldEvent args)
@@ -83,28 +92,11 @@ public sealed class ElectrolyzerSystem : EntitySystem
         {
             comp.IsPowered = false;
             _popup.PopupEntity(Loc.GetString("electrolyzer-turned-off"), uid, args.User);
+            UpdateAppearance(uid);
         }
         else
         {
-            // Turn on only if anchored and has fuel (or fuel in slot)
-            if (!Transform(uid).Anchored)
-            {
-                _popup.PopupEntity(Loc.GetString("electrolyzer-must-be-anchored"), uid, args.User);
-                return;
-            }
-
-            bool hasFuel = comp.CurrentFuel > 0f ||
-                           (_itemSlots.TryGetSlot(uid, "fuel", out var slot) &&
-                            slot.ContainerSlot?.ContainedEntity != null);
-
-            if (!hasFuel)
-            {
-                _popup.PopupEntity(Loc.GetString("electrolyzer-no-fuel"), uid, args.User);
-                return;
-            }
-
-            comp.IsPowered = true;
-            _popup.PopupEntity(Loc.GetString("electrolyzer-turned-on"), uid, args.User);
+            TryTurnOn(uid, comp, args.User);
         }
 
         UpdateAppearance(uid);
@@ -312,5 +304,41 @@ public sealed class ElectrolyzerSystem : EntitySystem
                 }
             }
         }
+    }
+
+    private void TryTurnOn(EntityUid uid, ElectrolyzerComponent comp, EntityUid? user = null)
+    {
+        if (comp.IsPowered)
+            return;
+
+        if (!Transform(uid).Anchored)
+        {
+            if (user != null)
+            {
+                _popup.PopupEntity(Loc.GetString("electrolyzer-must-be-anchored"), uid, user.Value);
+            }
+            return;
+        }
+
+        bool hasFuel = comp.CurrentFuel > 0f ||
+                       (_itemSlots.TryGetSlot(uid, "fuel", out var slot) &&
+                       slot.ContainerSlot?.ContainedEntity != null);
+
+        if (!hasFuel)
+        {
+            _popup.PopupEntity(Loc.GetString("electrolyzer-no-fuel"), uid);
+            return;
+        }
+
+        comp.IsPowered = true;
+
+        _popup.PopupEntity(Loc.GetString("electrolyzer-turned-on"), uid);
+
+        if (comp.OnSound != null)
+        {
+            _audio.PlayPvs(comp.OnSound, uid, AudioParams.Default.WithVolume(-4f));
+        }
+
+        UpdateAppearance(uid);
     }
 }

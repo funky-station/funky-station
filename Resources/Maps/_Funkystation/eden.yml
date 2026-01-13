@@ -74220,8 +74220,6 @@ entities:
       pos: -8.5,2.5
       parent: 2
     - type: DisposalUnit
-      recentlyEjected:
-      - invalid
   - uid: 693
     components:
     - type: Transform

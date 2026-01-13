@@ -795,7 +795,7 @@
   parent: GasBinaryBase
   id: GasTemperatureGate
   name: temperature gate
-  description: A pump that moves heat from one side to the other.
+  description: A passive gate that opens when temperature is above or below it's set threshold.
   placement:
     mode: AlignAtmosPipeLayers
   components:

@@ -21,8 +21,24 @@
   - Research
   - Robotics
   - Maintenance
+  alternateTitles:
+  - RoboticistBiomechanicalEngineer
+  - RoboticistMechatronicSpecialist
+  - RoboticistCybertronicTechnician
 
 - type: startingGear
   id: RoboticistGear
   equipment:
     ears: ClothingHeadsetRobotics
+
+- type: jobAlternateTitle
+  id: RoboticistBiomechanicalEngineer
+  name: job-name-alt-roboticist-1
+
+- type: jobAlternateTitle
+  id: RoboticistMechatronicSpecialist
+  name: job-name-alt-roboticist-2
+
+- type: jobAlternateTitle
+  id: RoboticistCybertronicTechnician
+  name: job-name-alt-roboticist-3

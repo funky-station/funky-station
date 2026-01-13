@@ -51,6 +51,7 @@
   - BartenderMixologist
   - BartenderBarista
   - BartenderHydrationEquipmentOperator
+  - BartenderBarkeeper
 
 - type: startingGear
   id: BartenderGear
@@ -72,3 +73,7 @@
 - type: jobAlternateTitle
   id: BartenderBarista
   name: job-name-alt-bartender-3
+
+- type: jobAlternateTitle
+  id: BartenderBarkeeper
+  name: job-name-alt-bartender-4

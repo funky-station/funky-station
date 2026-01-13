@@ -50,6 +50,9 @@
   alternateTitles:
   - BotanistHydroponicsSpecialist
   - BotanistHerbologist
+  - BotanistHydroponicist
+  - BotanistGardener
+  - BotanistBotanicalResearch
 
 - type: startingGear
   id: BotanistGear
@@ -68,3 +71,15 @@
 - type: jobAlternateTitle
   id: BotanistHerbologist
   name: job-name-alt-botanist-2
+
+- type: jobAlternateTitle
+  id: BotanistHydroponicist
+  name: job-name-alt-botanist-3
+
+- type: jobAlternateTitle
+  id: BotanistGardener
+  name: job-name-alt-botanist-4
+
+- type: jobAlternateTitle
+  id: BotanistBotanicalResearch
+  name: job-name-alt-botanist-5

@@ -71,6 +71,8 @@
     implants: [ MindShieldImplant ]
   alternateTitles:
   - DetectiveForensicInvestigator
+  - DetectiveInspector
+  - DetectiveLeadInvestigator
 
 - type: startingGear
   id: DetectiveGear
@@ -89,3 +91,11 @@
 - type: jobAlternateTitle
   id: DetectiveForensicInvestigator
   name: job-name-alt-detective-1
+
+- type: jobAlternateTitle
+  id: DetectiveInspector
+  name: job-name-alt-detective-2
+
+- type: jobAlternateTitle
+  id: DetectiveLeadInvestigator
+  name: job-name-alt-detective-3

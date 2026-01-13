@@ -51,6 +51,12 @@
   - ChaplainPreacher
   - ChaplainSpiritualAdvisor
   - ChaplainShrineGuardian
+  - ChaplainReverend
+  - ChaplainPriest
+  - ChaplainOracle
+  - ChaplainPointifex
+  - ChaplainMagister
+  - ChaplainMonk
 
 - type: startingGear
   id: ChaplainGear
@@ -75,3 +81,27 @@
 - type: jobAlternateTitle
   id: ChaplainShrineGuardian
   name: job-name-alt-chaplain-3
+
+- type: jobAlternateTitle
+  id: ChaplainReverend
+  name: job-name-alt-chaplain-4
+
+- type: jobAlternateTitle
+  id: ChaplainPriest
+  name: job-name-alt-chaplain-5
+
+- type: jobAlternateTitle
+  id: ChaplainOracle
+  name: job-name-alt-chaplain-6
+
+- type: jobAlternateTitle
+  id: ChaplainPointifex
+  name: job-name-alt-chaplain-7
+
+- type: jobAlternateTitle
+  id: ChaplainMagister
+  name: job-name-alt-chaplain-8
+
+- type: jobAlternateTitle
+  id: ChaplainMonk
+  name: job-name-alt-chaplain-9

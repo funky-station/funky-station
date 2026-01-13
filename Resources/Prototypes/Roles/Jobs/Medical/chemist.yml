@@ -46,6 +46,7 @@
   alternateTitles:
   - ChemistPharmacist
   - ChemistLabTechnician
+  - ChemistLabPharmacologist
 
 - type: startingGear
   id: ChemistGear
@@ -66,3 +67,7 @@
 - type: jobAlternateTitle
   id: ChemistLabTechnician
   name: job-name-alt-chemist-2
+
+- type: jobAlternateTitle
+  id: ChemistLabPharmacologist
+  name: job-name-alt-chemist-3

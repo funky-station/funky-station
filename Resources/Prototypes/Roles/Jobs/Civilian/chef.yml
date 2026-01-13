@@ -53,6 +53,8 @@
   - ChefSousChef
   - ChefLineCook
   - ChefCaterer
+  - ChefButcher
+  - ChefCulinaryArtist
 
 - type: startingGear
   id: ChefGear
@@ -75,3 +77,11 @@
 - type: jobAlternateTitle
   id: ChefCaterer
   name: job-name-alt-chef-3
+
+- type: jobAlternateTitle
+  id: ChefButcher
+  name: job-name-alt-chef-4
+
+- type: jobAlternateTitle
+  id: ChefCulinaryArtist
+  name: job-name-alt-chef-5

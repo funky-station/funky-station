@@ -43,6 +43,7 @@
   - LibrarianWriter
   - LibrarianProfessor
   - LibrarianCurator
+  - LibrarianArchivist
 
 - type: startingGear
   id: LibrarianGear
@@ -70,3 +71,7 @@
 - type: jobAlternateTitle
   id: LibrarianCurator
   name: job-name-alt-librarian-4
+
+- type: jobAlternateTitle
+  id: LibrarianArchivist
+  name: job-name-alt-librarian-5

@@ -50,6 +50,8 @@
     - type: FrenchAccent
     - type: ReplacementAccent
       accent: french
+  alternateTitles:
+  - MimePantomimist
 
 - type: startingGear
   id: MimeGear
@@ -76,3 +78,7 @@
       sprite: Structures/Walls/solid.rsi
       state: full
     event: !type:InvisibleWallActionEvent
+
+- type: jobAlternateTitle
+  id: MimePantomimist
+  name: job-name-alt-mime-1

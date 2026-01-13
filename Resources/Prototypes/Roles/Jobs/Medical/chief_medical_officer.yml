@@ -86,6 +86,11 @@
   - !type:AddComponentSpecial
     components:
       - type: CommandStaff
+  alternateTitles:
+  - ChiefMedicalOfficerMedicalDirector
+  - ChiefMedicalOfficerHeadOfMedical
+  - ChiefMedicalOfficerChiefPhysician
+  - ChiefMedicalOfficerHeadPhysician
 
 - type: startingGear
   id: CMOGear
@@ -96,3 +101,19 @@
   storage:
     back:
     - Flash
+
+- type: jobAlternateTitle
+  id: ChiefMedicalOfficerMedicalDirector
+  name: job-name-alt-cmo-1
+
+- type: jobAlternateTitle
+  id: ChiefMedicalOfficerHeadOfMedical
+  name: job-name-alt-cmo-2
+
+- type: jobAlternateTitle
+  id: ChiefMedicalOfficerChiefPhysician
+  name: job-name-alt-cmo-3
+
+- type: jobAlternateTitle
+  id: ChiefMedicalOfficerHeadPhysician
+  name: job-name-alt-cmo-4

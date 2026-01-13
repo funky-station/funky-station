@@ -1,4 +1,9 @@
-﻿using Content.Server.Atmos.EntitySystems;
+// SPDX-FileCopyrightText: 2025 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+//
+// SPDX-License-Identifier: MIT
+
+using Content.Server.Atmos.EntitySystems;
 using Content.Shared.Explosion.Components.OnTrigger;
 using Content.Shared.Explosion.EntitySystems;
 using Robust.Shared.Timing;

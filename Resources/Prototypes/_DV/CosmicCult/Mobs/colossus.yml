@@ -282,6 +282,10 @@
       0: Alive
       350: Dead
   - type: CosmicColossus
+  - type: CosmicCorrupting
+    mobile: true
+    autoDisable: false
+    corruptionReduction: 0
 
 - type: speechSounds
   id: ColossusSpeech

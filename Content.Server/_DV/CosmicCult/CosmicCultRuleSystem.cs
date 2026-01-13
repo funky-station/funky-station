@@ -750,7 +750,6 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
 
         if (cosmicGamerule.CurrentTier == 3)
         {
-            _damage.SetDamageContainerID(uid, "BiologicalMetaphysical");
             cultComp.EntropyBudget = 48; // pity balance
             cultComp.Respiration = false;
 

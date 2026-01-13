@@ -115,7 +115,7 @@
 - type: entity
   id: ActionCosmicGlare
   name: Null Glare
-  description: Emit a horrific pulse of cosmic light, slowing and disorienting everyone around you.
+  description: Emit a horrific pulse of cosmic light, slowing and disorienting everyone around you. Paralyzes robotics!
   components:
   - type: ConfirmableAction
     popup: cosmicability-glare-confirm
@@ -258,3 +258,22 @@
       sprite: _DV/CosmicCult/Icons/cosmiccult_abilities.rsi
       state: nova
     event: !type:EventCosmicColossusEffigy {}
+
+#### MISC ACTIONS
+
+- type: entity
+  id: ActionCosmicAnomalyIngress
+  name: Force Ingress
+  description: Direct the energies from your Anomaly Infection to force a secure doorway open.
+  components:
+  - type: EntityTargetAction
+    useDelay: 60
+    range: 2
+    whitelist:
+      components:
+        - Door
+    itemIconStyle: NoItem
+    icon:
+      sprite: _DV/CosmicCult/Icons/cosmiccult_abilities.rsi
+      state: ingress
+    event: !type:EventCosmicAnomalyIngress

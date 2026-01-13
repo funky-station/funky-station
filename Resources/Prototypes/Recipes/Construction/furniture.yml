@@ -147,6 +147,261 @@
     - !type:TileNotBlocked
 
 - type: construction
+  name: comfy grey chair
+  id: ChairComfyGrey
+  graph: Seat
+  startNode: start
+  targetNode: chairComfyGrey
+  category: construction-category-furniture
+  description: It looks comfy.
+  icon:
+    sprite: Structures/Furniture/chairs.rsi
+    state: comfy_grey_icon
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+  - !type:TileNotBlocked
+
+- type: construction
+  name: comfy black chair
+  id: ChairComfyBlack
+  graph: Seat
+  startNode: start
+  targetNode: chairComfyBlack
+  category: construction-category-furniture
+  description: It looks comfy.
+  icon:
+    sprite: Structures/Furniture/chairs.rsi
+    state: comfy_black_icon
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+  - !type:TileNotBlocked
+
+- type: construction
+  name: comfy blue chair
+  id: ChairComfyBlue
+  graph: Seat
+  startNode: start
+  targetNode: chairComfyBlue
+  category: construction-category-furniture
+  description: It looks comfy.
+  icon:
+    sprite: Structures/Furniture/chairs.rsi
+    state: comfy_blue_icon
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+  - !type:TileNotBlocked
+
+- type: construction
+  name: comfy dark blue chair
+  id: ChairComfyDarkBlue
+  graph: Seat
+  startNode: start
+  targetNode: chairComfyDarkBlue
+  category: construction-category-furniture
+  description: It looks comfy.
+  icon:
+    sprite: Structures/Furniture/chairs.rsi
+    state: comfy_dark_blue_icon
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+  - !type:TileNotBlocked
+
+- type: construction
+  name: comfy teal chair
+  id: ChairComfyTeal
+  graph: Seat
+  startNode: start
+  targetNode: chairComfyTeal
+  category: construction-category-furniture
+  description: It looks comfy.
+  icon:
+    sprite: Structures/Furniture/chairs.rsi
+    state: comfy_teal_icon
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+  - !type:TileNotBlocked
+
+- type: construction
+  name: comfy green chair
+  id: ChairComfyGreen
+  graph: Seat
+  startNode: start
+  targetNode: chairComfyGreen
+  category: construction-category-furniture
+  description: It looks comfy.
+  icon:
+    sprite: Structures/Furniture/chairs.rsi
+    state: comfy_green_icon
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+  - !type:TileNotBlocked
+
+- type: construction
+  name: comfy dark green chair
+  id: ChairComfyDarkGreen
+  graph: Seat
+  startNode: start
+  targetNode: chairComfyDarkGreen
+  category: construction-category-furniture
+  description: It looks comfy.
+  icon:
+    sprite: Structures/Furniture/chairs.rsi
+    state: comfy_dark_green_icon
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+  - !type:TileNotBlocked
+
+- type: construction
+  name: comfy orange chair
+  id: ChairComfyOrange
+  graph: Seat
+  startNode: start
+  targetNode: chairComfyOrange
+  category: construction-category-furniture
+  description: It looks comfy.
+  icon:
+    sprite: Structures/Furniture/chairs.rsi
+    state: comfy_orange_icon
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+  - !type:TileNotBlocked
+
+- type: construction
+  name: comfy pink chair
+  id: ChairComfyPink
+  graph: Seat
+  startNode: start
+  targetNode: chairComfyPink
+  category: construction-category-furniture
+  description: It looks comfy.
+  icon:
+    sprite: Structures/Furniture/chairs.rsi
+    state: comfy_pink_icon
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+  - !type:TileNotBlocked
+
+- type: construction
+  name: comfy red chair
+  id: ChairComfyRed
+  graph: Seat
+  startNode: start
+  targetNode: chairComfyRed
+  category: construction-category-furniture
+  description: It looks comfy.
+  icon:
+    sprite: Structures/Furniture/chairs.rsi
+    state: comfy_red_icon
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+  - !type:TileNotBlocked
+
+- type: construction
+  name: comfy yellow chair
+  id: ChairComfyYellow
+  graph: Seat
+  startNode: start
+  targetNode: chairComfyYellow
+  category: construction-category-furniture
+  description: It looks comfy.
+  icon:
+    sprite: Structures/Furniture/chairs.rsi
+    state: comfy_yellow_icon
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+  - !type:TileNotBlocked
+
+- type: construction
+  name: comfy purple chair
+  id: ChairComfyPurple
+  graph: Seat
+  startNode: start
+  targetNode: chairComfyPurple
+  category: construction-category-furniture
+  description: It looks comfy.
+  icon:
+    sprite: Structures/Furniture/chairs.rsi
+    state: comfy_purple_icon
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+  - !type:TileNotBlocked
+
+- type: construction
+  name: comfy brown chair
+  id: ChairComfyBrown
+  graph: Seat
+  startNode: start
+  targetNode: chairComfyBrown
+  category: construction-category-furniture
+  description: It looks comfy.
+  icon:
+    sprite: Structures/Furniture/chairs.rsi
+    state: comfy_brown_icon
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+  - !type:TileNotBlocked
+
+- type: construction
+  name: comfy light brown chair
+  id: ChairComfyLightBrown
+  graph: Seat
+  startNode: start
+  targetNode: chairComfyLightBrown
+  category: construction-category-furniture
+  description: It looks comfy.
+  icon:
+    sprite: Structures/Furniture/chairs.rsi
+    state: comfy_light_brown_icon
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+  - !type:TileNotBlocked
+
+- type: construction
+  name: comfy maroon chair
+  id: ChairComfyMaroon
+  graph: Seat
+  startNode: start
+  targetNode: chairComfyMaroon
+  category: construction-category-furniture
+  description: It looks comfy.
+  icon:
+    sprite: Structures/Furniture/chairs.rsi
+    state: comfy_maroon_icon
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+  - !type:TileNotBlocked
+
+- type: construction
   name: pilots chair
   id: chairPilotSeat
   graph: Seat
@@ -760,7 +1015,7 @@
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: true
-    
+
 - type: construction
   id: CurtainsBlack
   name: black curtains
@@ -790,7 +1045,7 @@
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: true
-    
+
 - type: construction
   id: CurtainsCyan
   name: cyan curtains
@@ -805,7 +1060,7 @@
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: true
-    
+
 - type: construction
   id: CurtainsGreen
   name: green curtains
@@ -820,7 +1075,7 @@
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: true
-    
+
 - type: construction
   id: CurtainsOrange
   name: orange curtains
@@ -835,7 +1090,7 @@
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: true
-    
+
 - type: construction
   id: CurtainsPink
   name: pink curtains
@@ -850,7 +1105,7 @@
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: true
-    
+
 - type: construction
   id: CurtainsPurple
   name: purple curtains
@@ -865,7 +1120,7 @@
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: true
-    
+
 - type: construction
   id: CurtainsRed
   name: red curtains

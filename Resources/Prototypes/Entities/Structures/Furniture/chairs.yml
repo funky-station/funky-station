@@ -252,6 +252,7 @@
     graph: Seat
     node: chairOfficeDark
 
+# White comfy chair
 - type: entity
   name: comfy chair
   id: ComfyChair
@@ -263,6 +264,231 @@
   - type: Construction
     graph: Seat
     node: chairComfy
+  - type: CosmicCorruptible # DeltaV - Cosmic Cult
+    convertTo: CosmicChair
+# Grey comfy chair
+- type: entity
+  name: comfy grey chair
+  id: ComfyChairGrey
+  parent: ChairBase
+  description: It looks comfy.
+  components:
+  - type: Sprite
+    state: comfy
+    color: "#b3b3b3"
+  - type: Construction
+    graph: Seat
+    node: chairComfyGrey
+  - type: CosmicCorruptible # DeltaV - Cosmic Cult
+    convertTo: CosmicChair
+# Black comfy chair
+- type: entity
+  name: comfy black chair
+  id: ComfyChairBlack
+  parent: ChairBase
+  description: It looks comfy.
+  components:
+  - type: Sprite
+    state: comfy
+    color: "#3f3f3f"
+  - type: Construction
+    graph: Seat
+    node: chairComfyBlack
+  - type: CosmicCorruptible # DeltaV - Cosmic Cult
+    convertTo: CosmicChair
+# Blue comfy chair
+- type: entity
+  name: comfy blue chair
+  id: ComfyChairBlue
+  parent: ChairBase
+  description: It looks comfy.
+  components:
+  - type: Sprite
+    state: comfy
+    color: "#52aecc"
+  - type: Construction
+    graph: Seat
+    node: chairComfyBlue
+  - type: CosmicCorruptible # DeltaV - Cosmic Cult
+    convertTo: CosmicChair
+# Dark Blue comfy chair
+- type: entity
+  name: comfy dark blue chair
+  id: ComfyChairDarkBlue
+  parent: ChairBase
+  description: It looks comfy.
+  components:
+  - type: Sprite
+    state: comfy
+    color: "#3285ba"
+  - type: Construction
+    graph: Seat
+    node: chairComfyDarkBlue
+  - type: CosmicCorruptible # DeltaV - Cosmic Cult
+    convertTo: CosmicChair
+# Teal comfy chair
+- type: entity
+  name: comfy teal chair
+  id: ComfyChairTeal
+  parent: ChairBase
+  description: It looks comfy.
+  components:
+  - type: Sprite
+    state: comfy
+    color: "#77f3b7"
+  - type: Construction
+    graph: Seat
+    node: chairComfyTeal
+  - type: CosmicCorruptible # DeltaV - Cosmic Cult
+    convertTo: CosmicChair
+# Green comfy chair
+- type: entity
+  name: comfy green chair
+  id: ComfyChairGreen
+  parent: ChairBase
+  description: It looks comfy.
+  components:
+  - type: Sprite
+    state: comfy
+    color: "#9ed63a"
+  - type: Construction
+    graph: Seat
+    node: chairComfyGreen
+  - type: CosmicCorruptible # DeltaV - Cosmic Cult
+    convertTo: CosmicChair
+# Dark Green comfy chair
+- type: entity
+  name: comfy dark green chair
+  id: ComfyChairDarkGreen
+  parent: ChairBase
+  description: It looks comfy.
+  components:
+  - type: Sprite
+    state: comfy
+    color: "#007923"
+  - type: Construction
+    graph: Seat
+    node: chairComfyDarkGreen
+  - type: CosmicCorruptible # DeltaV - Cosmic Cult
+    convertTo: CosmicChair
+# Orange comfy chair
+- type: entity
+  name: comfy orange chair
+  id: ComfyChairOrange
+  parent: ChairBase
+  description: It looks comfy.
+  components:
+  - type: Sprite
+    state: comfy
+    color: "#ff8c19"
+  - type: Construction
+    graph: Seat
+    node: chairComfyOrange
+  - type: CosmicCorruptible # DeltaV - Cosmic Cult
+    convertTo: CosmicChair
+# Pink comfy chair
+- type: entity
+  name: comfy pink chair
+  id: ComfyChairPink
+  parent: ChairBase
+  description: It looks comfy.
+  components:
+  - type: Sprite
+    state: comfy
+    color: "#ffa69b"
+  - type: Construction
+    graph: Seat
+    node: chairComfyPink
+  - type: CosmicCorruptible # DeltaV - Cosmic Cult
+    convertTo: CosmicChair
+# Red comfy chair
+- type: entity
+  name: comfy red chair
+  id: ComfyChairRed
+  parent: ChairBase
+  description: It looks comfy.
+  components:
+  - type: Sprite
+    state: comfy
+    color: "#eb0c07"
+  - type: Construction
+    graph: Seat
+    node: chairComfyRed
+  - type: CosmicCorruptible # DeltaV - Cosmic Cult
+    convertTo: CosmicChair
+# Yellow comfy chair
+- type: entity
+  name: comfy yellow chair
+  id: ComfyChairYellow
+  parent: ChairBase
+  description: It looks comfy.
+  components:
+  - type: Sprite
+    state: comfy
+    color: "#ffe14d"
+  - type: Construction
+    graph: Seat
+    node: chairComfyYellow
+  - type: CosmicCorruptible # DeltaV - Cosmic Cult
+    convertTo: CosmicChair
+# Purple comfy chair
+- type: entity
+  name: comfy purple chair
+  id: ComfyChairPurple
+  parent: ChairBase
+  description: It looks comfy.
+  components:
+  - type: Sprite
+    state: comfy
+    color: "#9f70cc"
+  - type: Construction
+    graph: Seat
+    node: chairComfyPurple
+  - type: CosmicCorruptible # DeltaV - Cosmic Cult
+    convertTo: CosmicChair
+# Light Brown comfy chair
+- type: entity
+  name: comfy light brown chair
+  id: ComfyChairLightBrown
+  parent: ChairBase
+  description: It looks comfy.
+  components:
+  - type: Sprite
+    state: comfy
+    color: "#c59431"
+  - type: Construction
+    graph: Seat
+    node: chairComfyLightBrown
+  - type: CosmicCorruptible # DeltaV - Cosmic Cult
+    convertTo: CosmicChair
+# Brown comfy chair
+- type: entity
+  name: comfy brown chair
+  id: ComfyChairBrown
+  parent: ChairBase
+  description: It looks comfy.
+  components:
+  - type: Sprite
+    state: comfy
+    color: "#a17229"
+  - type: Construction
+    graph: Seat
+    node: chairComfyBrown
+  - type: CosmicCorruptible # DeltaV - Cosmic Cult
+    convertTo: CosmicChair
+# Maroon comfy chair
+- type: entity
+  name: comfy maroon chair
+  id: ComfyChairMaroon
+  parent: ChairBase
+  description: It looks comfy.
+  components:
+  - type: Sprite
+    state: comfy
+    color: "#cc295f"
+  - type: Construction
+    graph: Seat
+    node: chairComfyMaroon
   - type: CosmicCorruptible # DeltaV - Cosmic Cult
     convertTo: CosmicChair
 

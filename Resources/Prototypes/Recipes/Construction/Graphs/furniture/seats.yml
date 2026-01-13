@@ -101,6 +101,81 @@
               doAfter: 1
             - material: Cloth
               amount: 1
+        - to: chairComfyGrey
+          steps:
+          - material: Steel
+            amount: 2
+            doAfter: 1
+        - to: chairComfyBlack
+          steps:
+          - material: Steel
+            amount: 2
+            doAfter: 1
+        - to: chairComfyBlue
+          steps:
+          - material: Steel
+            amount: 2
+            doAfter: 1
+        - to: chairComfyDarkBlue
+          steps:
+          - material: Steel
+            amount: 2
+            doAfter: 1
+        - to: chairComfyTeal
+          steps:
+          - material: Steel
+            amount: 2
+            doAfter: 1
+        - to: chairComfyGreen
+          steps:
+          - material: Steel
+            amount: 2
+            doAfter: 1
+        - to: chairComfyDarkGreen
+          steps:
+          - material: Steel
+            amount: 2
+            doAfter: 1
+        - to: chairComfyOrange
+          steps:
+          - material: Steel
+            amount: 2
+            doAfter: 1
+        - to: chairComfyPink
+          steps:
+          - material: Steel
+            amount: 2
+            doAfter: 1
+        - to: chairComfyRed
+          steps:
+          - material: Steel
+            amount: 2
+            doAfter: 1
+        - to: chairComfyYellow
+          steps:
+          - material: Steel
+            amount: 2
+            doAfter: 1
+        - to: chairComfyPurple
+          steps:
+          - material: Steel
+            amount: 2
+            doAfter: 1
+        - to: chairComfyLightBrown
+          steps:
+          - material: Steel
+            amount: 2
+            doAfter: 1
+        - to: chairComfyBrown
+          steps:
+          - material: Steel
+            amount: 2
+            doAfter: 1
+        - to: chairComfyMaroon
+          steps:
+          - material: Steel
+            amount: 2
+            doAfter: 1
 
     - node: chair
       entity: Chair
@@ -290,3 +365,195 @@
               doAfter: 1
             - tool: Screwing
               doAfter: 1
+
+    - node: chairComfyGrey
+      entity: ComfyChairGrey
+      edges:
+      - to: start
+        completed:
+        - !type:SpawnPrototype
+          prototype: SheetSteel1
+          amount: 2
+        steps:
+        - tool: Screwing
+          doAfter: 1
+
+    - node: chairComfyBlack
+      entity: ComfyChairBlack
+      edges:
+      - to: start
+        completed:
+        - !type:SpawnPrototype
+          prototype: SheetSteel1
+          amount: 2
+        steps:
+        - tool: Screwing
+          doAfter: 1
+
+    - node: chairComfyBlue
+      entity: ComfyChairBlue
+      edges:
+      - to: start
+        completed:
+        - !type:SpawnPrototype
+          prototype: SheetSteel1
+          amount: 2
+        steps:
+        - tool: Screwing
+          doAfter: 1
+
+    - node: chairComfyDarkBlue
+      entity: ComfyChairDarkBlue
+      edges:
+      - to: start
+        completed:
+        - !type:SpawnPrototype
+          prototype: SheetSteel1
+          amount: 2
+        steps:
+        - tool: Screwing
+          doAfter: 1
+
+    - node: chairComfyTeal
+      entity: ComfyChairTeal
+      edges:
+      - to: start
+        completed:
+        - !type:SpawnPrototype
+          prototype: SheetSteel1
+          amount: 2
+        steps:
+        - tool: Screwing
+          doAfter: 1
+
+    - node: chairComfyGreen
+      entity: ComfyChairGreen
+      edges:
+      - to: start
+        completed:
+        - !type:SpawnPrototype
+          prototype: SheetSteel1
+          amount: 2
+        steps:
+        - tool: Screwing
+          doAfter: 1
+
+    - node: chairComfyDarkGreen
+      entity: ComfyChairDarkGreen
+      edges:
+      - to: start
+        completed:
+        - !type:SpawnPrototype
+          prototype: SheetSteel1
+          amount: 2
+        steps:
+        - tool: Screwing
+          doAfter: 1
+
+    - node: chairComfyOrange
+      entity: ComfyChairOrange
+      edges:
+      - to: start
+        completed:
+        - !type:SpawnPrototype
+          prototype: SheetSteel1
+          amount: 2
+        steps:
+        - tool: Screwing
+          doAfter: 1
+
+    - node: chairComfyOrange
+      entity: ComfyChairOrange
+      edges:
+      - to: start
+        completed:
+        - !type:SpawnPrototype
+          prototype: SheetSteel1
+          amount: 2
+        steps:
+        - tool: Screwing
+          doAfter: 1
+
+    - node: chairComfyPink
+      entity: ComfyChairPink
+      edges:
+      - to: start
+        completed:
+        - !type:SpawnPrototype
+          prototype: SheetSteel1
+          amount: 2
+        steps:
+        - tool: Screwing
+          doAfter: 1
+
+    - node: chairComfyRed
+      entity: ComfyChairRed
+      edges:
+      - to: start
+        completed:
+        - !type:SpawnPrototype
+          prototype: SheetSteel1
+          amount: 2
+        steps:
+        - tool: Screwing
+          doAfter: 1
+
+    - node: chairComfyYellow
+      entity: ComfyChairYellow
+      edges:
+      - to: start
+        completed:
+        - !type:SpawnPrototype
+          prototype: SheetSteel1
+          amount: 2
+        steps:
+        - tool: Screwing
+          doAfter: 1
+
+    - node: chairComfyPurple
+      entity: ComfyChairPurple
+      edges:
+      - to: start
+        completed:
+        - !type:SpawnPrototype
+          prototype: SheetSteel1
+          amount: 2
+        steps:
+        - tool: Screwing
+          doAfter: 1
+
+    - node: chairComfyBrown
+      entity: ComfyChairBrown
+      edges:
+      - to: start
+        completed:
+        - !type:SpawnPrototype
+          prototype: SheetSteel1
+          amount: 2
+        steps:
+        - tool: Screwing
+          doAfter: 1
+
+    - node: chairComfyLightBrown
+      entity: ComfyChairLightBrown
+      edges:
+      - to: start
+        completed:
+        - !type:SpawnPrototype
+          prototype: SheetSteel1
+          amount: 2
+        steps:
+        - tool: Screwing
+          doAfter: 1
+
+    - node: chairComfyMaroon
+      entity: ComfyChairMaroon
+      edges:
+      - to: start
+        completed:
+        - !type:SpawnPrototype
+          prototype: SheetSteel1
+          amount: 2
+        steps:
+        - tool: Screwing
+          doAfter: 1

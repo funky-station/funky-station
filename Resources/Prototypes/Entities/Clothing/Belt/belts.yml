@@ -714,15 +714,15 @@
     grid:
     - 0,0,6,1
   - type: ContainerContainer
-      containers:
-        sidearm_slot: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: null
-      storagebase: !type:Container
+    containers:
+      sidearm_slot: !type:ContainerSlot
         showEnts: False
         occludes: True
-        ents: []
+        ent: null
+    storagebase: !type:Container
+      showEnts: False
+      occludes: True
+      ents: []
   - type: ItemSlots
     slots:
       sidearm_slot:

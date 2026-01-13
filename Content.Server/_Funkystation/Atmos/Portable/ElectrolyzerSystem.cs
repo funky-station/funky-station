@@ -99,7 +99,6 @@ public sealed class ElectrolyzerSystem : EntitySystem
             TryTurnOn(uid, comp, args.User);
         }
 
-        UpdateAppearance(uid);
         args.Handled = true;
     }
 

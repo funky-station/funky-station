@@ -1218,7 +1218,7 @@
 - type: entity
   parent: [ClothingUniformBase, BaseSecurityContraband]
   id: ClothingUniformJumpsuitSeniorOfficer
-  name: senior officer jumpsuit
+  name: senior officer uniform
   description: A sign of skill and prestige within the security department.
   components:
   - type: Sprite

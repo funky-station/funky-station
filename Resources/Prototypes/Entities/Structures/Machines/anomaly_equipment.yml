@@ -144,8 +144,6 @@
   name: A.P.E.
   description: An Anomalous Particle Emitter, capable of shooting out unstable particles which can interface with anomalies.
   components:
-  - type: CosmicLambdaParticleSource # funky
-  - type: DoAfter # Funky
   - type: Sprite
     noRot: true
     sprite: _Funkystation/Structures/Machines/ape.rsi # Funky
@@ -196,7 +194,6 @@
     - AnomalousParticleEpsilon
     - AnomalousParticleZeta
     - AnomalousParticleSigma
-    - CosmicLambdaParticle # Funky
     setTypePorts:
       SetParticleDelta: AnomalousParticleDelta
       SetParticleEpsilon: AnomalousParticleEpsilon

@@ -31,7 +31,7 @@ public sealed partial class DeconversionJailSystem : SharedDeconversionJailSyste
     {
         base.Initialize();
 
-        // SubscribeLocalEvent<BloodCultistComponent, OubliettePurgeAttemptEvent>(PurgeBloodCult); // BLOOD CULT - this allows the oubliette to purge blood cultists! Uncomment if needed.
+        SubscribeLocalEvent<BloodCultistComponent, OubliettePurgeAttemptEvent>(PurgeBloodCult);
         SubscribeLocalEvent<HereticComponent, OubliettePurgeAttemptEvent>(PurgeHeretic); // HERETIC CODE
     }
 
@@ -52,14 +52,13 @@ public sealed partial class DeconversionJailSystem : SharedDeconversionJailSyste
         }
     }
 
-    // BLOOD CULT - this allows the oubliette to purge blood cultists! Uncomment if needed.
-    // private void PurgeBloodCult(Entity<BloodCultistComponent> ent, ref OubliettePurgeAttemptEvent args)
-    // {
-    //     _bloodCult.TryDeconvert(args.Target);
-    //     OublietteSuccess(args.Oubliette, args.Target);
+    private void PurgeBloodCult(Entity<BloodCultistComponent> ent, ref OubliettePurgeAttemptEvent args)
+    {
+        _bloodCult.TryDeconvert(args.Target);
+        OublietteSuccess(args.Oubliette, args.Target);
 
-    //     args.Handled = true;
-    // }
+        args.Handled = true;
+    }
 
     // BEGIN HERETIC CODE - Wow, it's dogshit. This surprises nobody.
     private void PurgeHeretic(Entity<HereticComponent> ent, ref OubliettePurgeAttemptEvent args)

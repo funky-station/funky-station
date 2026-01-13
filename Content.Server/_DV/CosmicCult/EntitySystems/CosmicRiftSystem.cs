@@ -100,6 +100,7 @@ public sealed class CosmicRiftSystem : EntitySystem
             RequireCanInteract = false,
             DistanceThreshold = 10
         };
+        _popup.PopupEntity(Loc.GetString("cosmiccult-rift-lambda-charging"), apeBullet.Shooter.Value);
         _doAfter.TryStartDoAfter(doAfterArgs, out var doAfterId);
         ent.Comp.DoAfterId = doAfterId;
 

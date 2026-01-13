@@ -125,7 +125,6 @@
   - type: FlashImmunity
   - type: Puller
     needsHands: false
-    applySpeedModifier: false
   - type: Prying
     pryPowered: true
     force: true
@@ -236,10 +235,6 @@
     prototype: Replicator2
   - type: ItemSlots
   - type: Inventory
-  - type: Hands
-    sortedHands:
-    - hand 1
-    - hand 2
 
 # Tier 3: These guys are tanks. Their job is to tear shit apart and kill things. They're slow, tanky, and have a weapon that does 25 blunt 30 struct.
 - type: entity
@@ -278,6 +273,3 @@
   - type: Damageable
     damageContainer: Inorganic
     damageModifierSet: Replicator3
-  - type: Hands
-    sortedHands:
-    - hand 1

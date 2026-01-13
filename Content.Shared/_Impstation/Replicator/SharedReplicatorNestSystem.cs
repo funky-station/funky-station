@@ -277,7 +277,9 @@ public abstract class SharedReplicatorNestSystem : EntitySystem
             var ReplicatorWelder = Spawn("WelderExperimentalUnremoveable");
             _handsSystem.AddHand(upgradedUid, "Left Tool Slot", HandLocation.Left);
             _handsSystem.AddHand(upgradedUid, "Right Tool Slot", HandLocation.Right);
+            _handsSystem.TrySetActiveHand(upgradedUid, "Right Tool Slot");
             _handsSystem.TryPickupAnyHand(upgradedUid, ReplicatorOmnitool);
+             _handsSystem.TrySetActiveHand(upgradedUid, "Left Tool Slot");
             _handsSystem.TryPickupAnyHand(upgradedUid, ReplicatorWelder);
 
         };

@@ -58,6 +58,8 @@
       map: [ "overlay" ]
   - type: Paper
     contentSize: 12000
+  - type: BookPagination # Funky Station - Book pages instead of scrolling
+    linesPerPage: 19
   - type: ActivatableUI
     key: enum.PaperUiKey.Key
     requiresComplex: false

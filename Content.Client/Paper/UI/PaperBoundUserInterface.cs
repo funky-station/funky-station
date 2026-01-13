@@ -29,6 +29,7 @@ using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
 using Robust.Shared.Utility;
 using Content.Shared.Paper;
+using Content.Shared._Funkystation.Paper;
 using static Content.Shared.Paper.PaperComponent;
 
 namespace Content.Client.Paper.UI;
@@ -38,6 +39,10 @@ public sealed class PaperBoundUserInterface : BoundUserInterface
 {
     [ViewVariables]
     private PaperWindow? _window;
+
+    private bool _isPaginated;
+    private int _currentPage;
+    private int _linesPerPage = 20;
 
     public PaperBoundUserInterface(EntityUid owner, Enum uiKey) : base(owner, uiKey)
     {
@@ -58,12 +63,33 @@ public sealed class PaperBoundUserInterface : BoundUserInterface
         {
             _window.InitVisuals(Owner, visuals);
         }
+
+        if (EntMan.TryGetComponent<BookPaginationComponent>(Owner, out var pagination))
+        {
+            _isPaginated = true;
+            _currentPage = pagination.CurrentPage;
+            _linesPerPage = pagination.LinesPerPage;
+            _window.OnPageChanged += OnPageChanged;
+        }
     }
 
     protected override void UpdateState(BoundUserInterfaceState state)
     {
         base.UpdateState(state);
-        _window?.Populate((PaperBoundUserInterfaceState) state);
+
+        if (state is not PaperBoundUserInterfaceState paperState)
+            return;
+
+        // Funky Station - Book Pagination: Update current page from component if it changed
+        if (_isPaginated && EntMan.TryGetComponent<BookPaginationComponent>(Owner, out var pagination))
+        {
+            _currentPage = pagination.CurrentPage;
+            _window?.PopulatePaginated(paperState, _currentPage, _linesPerPage);
+        }
+        else
+        {
+            _window?.Populate(paperState);
+        }
     }
 
     private void InputOnTextEntered(string text)
@@ -75,5 +101,12 @@ public sealed class PaperBoundUserInterface : BoundUserInterface
             _window.Input.TextRope = Rope.Leaf.Empty;
             _window.Input.CursorPosition = new TextEdit.CursorPos(0, TextEdit.LineBreakBias.Top);
         }
+    }
+
+    // Funky Station - Book Pagination
+    private void OnPageChanged(int newPage)
+    {
+        _currentPage = newPage;
+        SendMessage(new BookPageChangeMessage(newPage));
     }
 }

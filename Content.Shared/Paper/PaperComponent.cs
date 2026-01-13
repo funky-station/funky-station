@@ -104,4 +104,15 @@ public sealed partial class PaperComponent : Component
         Blank,
         Written
     }
+
+    [Serializable, NetSerializable]
+    public sealed class BookPageChangeMessage : BoundUserInterfaceMessage
+    {
+        public readonly int NewPage;
+
+        public BookPageChangeMessage(int newPage)
+        {
+            NewPage = newPage;
+        }
+    }
 }

@@ -95,9 +95,9 @@ public sealed class GasPipeSensorSystem : EntitySystem
         {
             var pressureKpa = pipe.Air.Pressure;
 
-            if (pressureKpa > 9000f)
+            if (pressureKpa >= 9000f)
                 lightsState = PipeLightsState.ExtremePressure;
-            else if (pressureKpa > 4500f)
+            else if (pressureKpa >= 4500f)
                 lightsState = PipeLightsState.OverPressure;
             else
                 lightsState = PipeLightsState.NormalPressure;

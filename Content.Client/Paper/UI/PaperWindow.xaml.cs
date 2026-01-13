@@ -19,6 +19,7 @@
 // SPDX-FileCopyrightText: 2025 jackel234 <52829582+jackel234@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 pathetic meowmeow <uhhadd@gmail.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2026 otokonoko-dev <248204705+otokonoko-dev@users.noreply.github.com>
 //
 // SPDX-License-Identifier: MIT
 

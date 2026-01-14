@@ -57,9 +57,9 @@
     components:
       - type: CommandStaff
   alternateTitles:
-  - NanotransenRepresentativeCorporateLiaison
-  - NanotransenRepresentativeNanotransenInformant
-  - NanotransenRepresentativeNanotransenAdvisor
+  - NanotrasenRepresentativeCorporateLiaison
+  - NanotrasenRepresentativeNanotrasenComplianceExecutive
+  - NanotrasenRepresentativeNanotrasenAdvisor
 
 - type: startingGear
   id: NanotrasenRepresentativeGear
@@ -75,13 +75,13 @@
     - BoxFolderCentComClipboard
 
 - type: jobAlternateTitle
-  id: NanotransenRepresentativeCorporateLiaison
+  id: NanotrasenRepresentativeCorporateLiaison
   name: job-name-alt-ntr-1
 
 - type: jobAlternateTitle
-  id: NanotransenRepresentativeNanotransenInformant
+  id: NanotrasenRepresentativeNanotrasenComplianceExecutive
   name: job-name-alt-ntr-2
 
 - type: jobAlternateTitle
-  id: NanotransenRepresentativeNanotransenAdvisor
+  id: NanotrasenRepresentativeNanotrasenAdvisor
   name: job-name-alt-ntr-3

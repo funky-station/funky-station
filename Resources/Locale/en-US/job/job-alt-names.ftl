@@ -41,8 +41,7 @@ job-name-alt-salvage-5 = Shipbreaking Specialist
 
 job-name-alt-ce-1 = Head of Engineering
 job-name-alt-ce-2 = Engineering Foreman
-job-name-alt-ce-3 = Engineering Forewoman
-job-name-alt-ce-4 = Engineering Foreperson
+job-name-alt-ce-3 = Engineering Supervisor
 
 job-name-alt-engineer-1 = Maintenance Technician
 job-name-alt-engineer-2 = Mechanic
@@ -93,7 +92,7 @@ job-name-alt-assistant-3 = Entrepreneur
 job-name-alt-assistant-4 = Off-duty Crew
 job-name-alt-assistant-5 = Independent Contractor
 job-name-alt-assistant-6 = Freelancer
-job-name-alt-assistant-7 =Vacationer
+job-name-alt-assistant-7 = Vacationer
 
 job-name-alt-hop-1 = Executive Officer
 job-name-alt-hop-2 = Employment Officer
@@ -197,7 +196,10 @@ job-name-alt-iaa-2 = Corporate Compliance Officer
 
 job-name-alt-magistrate-1 = Judge
 job-name-alt-magistrate-2 = Arbitrator
+job-name-alt-magistrate-3 = Nanotrasen Chief Adjudicator
+job-name-alt-magistrate-4 = Judicial Administrator
+job-name-alt-magistrate-5 = Chief Legal Officer
 
 job-name-alt-ntr-1 = Corporate Liaison
-job-name-alt-ntr-2 = Nanotrasen Informant
+job-name-alt-ntr-2 = Nanotrasen Compliance Executive
 job-name-alt-ntr-3 = Nanotrasen Advisor

@@ -82,6 +82,7 @@
   alternateTitles:
   - ChiefEngineerEngineeringForeman
   - ChiefEngineerHeadOfEngineering
+  - ChiefEngineerEngineeringSupervisor
 
 - type: startingGear
   id: ChiefEngineerGear
@@ -102,5 +103,5 @@
   name: job-name-alt-ce-2
 
 - type: jobAlternateTitle
-  id: ChiefEngineerEngineeringForewoman
+  id: ChiefEngineerEngineeringSupervisor
   name: job-name-alt-ce-3

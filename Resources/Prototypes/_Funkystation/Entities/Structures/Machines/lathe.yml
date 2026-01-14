@@ -132,6 +132,9 @@
     - CargoTelepadMachineCircuitboard
     - WeaponLaserSvalinn
     - OreProcessorIndustrialMachineCircuitboard
+    - PKAUpgradeDamage
+    - PKAUpgradeRange
+    - PKAUpgradeFireRate
   - type: EmagLatheRecipes
     emagStaticRecipes:
     - ToolboxSyndicate

@@ -133,11 +133,11 @@
         map: [ "enum.DisposalUnitVisualLayers.OverlayFlush" ]
       - state: dispover-charge
         map: [ "enum.DisposalUnitVisualLayers.OverlayCharging" ]
-      - state: dispover-ready
+      - state: mailover-holo
         map: [ "enum.DisposalUnitVisualLayers.OverlayReady" ]
       - state: dispover-full
         map: [ "enum.DisposalUnitVisualLayers.OverlayFull" ]
-      - state: mailover-handle
+      - state: dispover-handle
         map: [ "enum.DisposalUnitVisualLayers.OverlayEngaged" ]
   - type: Construction
     graph: DisposalMachine

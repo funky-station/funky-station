@@ -529,6 +529,10 @@
   parent: [ BaseRockGibtonite, AsteroidRock ]
   id: AsteroidRockGibtonite
   components:
+  - type: Gatherable    # Goobstation
+    toolWhitelist:
+      tags:
+      - Drill
   - type: Sprite
     layers:
     - state: rock_asteroid

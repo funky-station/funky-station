@@ -200,7 +200,6 @@
 
 - type: entity
   id: CrateVendingMachineRestockDonutFilled
-  abstract: true
   parent: CratePlastic
   name: Donut restock crate
   description: Contains a restock box for a Monkin' Donuts dispenser.

@@ -361,10 +361,6 @@
     size: Normal
   - type: StaticPrice
     price: 500
-  - type: Tag
-    tags:
-    - HivelordRemains
-
 
 - type: entity
   id: MobBasilisk

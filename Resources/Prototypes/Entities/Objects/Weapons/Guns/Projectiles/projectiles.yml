@@ -496,11 +496,11 @@
   name: basilisk ray
   categories: [ HideSpawnMenu ]
   components:
-  - type: FlyBySound
-    sound:
-      collection: EnergyMiss
-      params:
-        volume: 5
+# - type: FlyBySound
+#   sound:
+#      collection: EnergyMiss
+#      params:
+#        volume: 5
   - type: Sprite
     sprite: Objects/Weapons/Guns/Projectiles/projectiles_tg.rsi
     layers:
@@ -509,16 +509,16 @@
   - type: Ammo
     muzzleFlash: null
   - type: Physics
-  - type: Fixtures
-    fixtures:
-      projectile:
-        shape:
-          !type:PhysShapeAabb
-          bounds: "-0.2,-0.2,0.2,0.2"
-        hard: false
-        mask:
-        - Opaque
-      fly-by: *flybyfixture
+#  - type: Fixtures
+#    fixtures:
+#      projectile:
+#        shape:
+#          !type:PhysShapeAabb
+#          bounds: "-0.2,-0.2,0.2,0.2"
+#        hard: false
+#        mask:
+#        - Opaque
+#      fly-by: *flybyfixture
   - type: Projectile
     impactEffect: BulletImpactEffectDisabler
     damage:

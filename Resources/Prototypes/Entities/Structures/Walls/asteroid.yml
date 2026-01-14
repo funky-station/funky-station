@@ -532,7 +532,7 @@
   - type: Gatherable    # Goobstation
     toolWhitelist:
       tags:
-      - Drill
+      - Ore
   - type: Sprite
     layers:
     - state: rock_asteroid
@@ -835,7 +835,7 @@
   - type: Gatherable    # Goobstation
     toolWhitelist:
       tags:
-      - Drill
+      - Ore
   - type: Sprite
     layers:
     - state: ironrock

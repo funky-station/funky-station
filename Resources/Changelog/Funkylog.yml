@@ -7374,3 +7374,17 @@ Entries:
       message: The TEG is now purchasable from the request computers for 20,000 spesos!
   id: 856
   time: '2026-01-11T04:05:31.0000000+00:00'
+- author: willowzeta
+  changes:
+    - type: Tweak
+      message: Redid those floor signage decals to be less ass
+    - type: Add
+      message: Added a handful of floor signage decals
+  id: 857
+  time: '2026-01-13T18:54:19.0000000+00:00'
+- author: marc-pelletier
+  changes:
+    - type: Fix
+      message: 'Tritium fires no longer break conservation of mass. '
+  id: 858
+  time: '2026-01-14T18:27:57.0000000+00:00'

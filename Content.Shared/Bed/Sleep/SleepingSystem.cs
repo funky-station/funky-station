@@ -96,8 +96,13 @@ public sealed partial class SleepingSystem : EntitySystem
 
     private void OnWakeAction(Entity<MobStateComponent> ent, ref WakeActionEvent args)
     {
-        if (TryWakeWithCooldown(ent.Owner))
+        if (HasComp<SleepingComponent>(ent) && TryWakeWithCooldown(ent.Owner))
             args.Handled = true;
+        else if (!HasComp<SleepingComponent>(ent))
+        {
+            Dirty(ent);
+            args.Handled = true;
+        }
     }
 
     private void OnSleepAction(Entity<MobStateComponent> ent, ref SleepActionEvent args)

@@ -8,15 +8,19 @@ SPDX-License-Identifier: MIT
 <Document>
 # Quartermaster SOP
 
-[bold]1.[/bold] The Quartermaster must ensure that every approved order is delivered within 15 minutes of having been placed and approved;
+[bold]1.[/bold] [color=#F52900]🟥[/color] The Quartermaster is part of command must also follow the Command SOP;
 
-[bold]2.[/bold] In the event of a major crisis, such as terrorism, expediency is to be favored over paperwork, as excessive bureaucracy may be detrimental to the well-being of the station;
+  [bold]2.[/bold][color=#F52900]🟥[/color] The Quartermaster is responsible for ensuring all departments have their needs met. This includes making sure that salvaged materials are distributed amongst all departments, as well as making sure that orders are being handled in a timely manner. Salvaged materials are to be distributed proactively especially to Medical, Security, and Engineering;
 
-[bold]3.[/bold] The Quartermaster is [bold]not[/bold] permitted to authorize the ordering of [color=#cb0000]Security[/color] equipment and/or gear without express permission from the [color=#cb0000]Head of Security[/color] and/or [color=#1b67a5]Captain[/color]. An exception is made during station ending emergencies or terrorism, where said equipment is to be delivered to [color=#cb0000]Security[/color], post-haste;
+[bold]3.[/bold][color=#F52900]🟥[/color] The Quartermaster is responsible for making sure no security items are ordered except by security staff, except during red alert when command has authorized the crew to arm. If the QM determines there to be sufficient threat to the station during red alert but before crew is authorized to arm, the QM may order security items as long as they are delivered directly to security immediately after pickup;
 
-[bold]4.[/bold] The Quartermaster is permitted to authorize non-departmental orders (such as a [color=#5b97bc]Medical Doctor[/color] asking for Insulated Gloves) without express permission from the respective [color=#1b67a5]Head of Staff[/color] (in this example, the [color=#f39f27]Chief Engineer[/color]), utilizing their best judgement, although they may still request a stamped form. However, any breach of Standard Operating Procedure and/or [textlink="Space Law" link="SpaceLaw"] that results from said order will also implicate the Quartermaster;
+  [bold]4.[/bold][color=#F52900]🟥[/color] The Quartermaster is responsible for ensuring that any orders involving security or command items are not lost in transit. Delegating pickup and delivery is fine, but the QM should know who is picking up the items in addition to staying up to date on the progress of the delivery;
 
-[bold]5.[/bold] The Quartermaster is [bold]not[/bold] permitted to authorize the purchase of an HFR Crate without express permission from the [color=#f39f27]Chief Engineer[/color];
+  [bold]5.[/bold] [color=#F52900]🟥[/color] The Quartermaster is responsible for all gambling. Any gamble crates are to be ordered by the QM, and opened by the QM. Any non departmental gambling crates must be brought to their respective departments, before being unlocked. If the QM is not available, another command member must be assigned to this responsibility;
 
-[bold]6.[/bold] The Quartermaster is required to follow the guidelines put in place for [color=#b18644]Cargo Technicians[/color];
+  [bold]6.[/bold][color=#0066F5]🔶[/color] The Quartermaster is responsible for making sure all employees in the department are following SOP. If authorizing an SOP deviation, the QM should write an explanation, stamp it, and keep it in a folder in their office in case of an audit;
+
+  [bold]6.[/bold][color=#0066F5]🔶[/color]The Quartermaster is able to authorize SOP deviations for their department as long as the deviation is made in order to maintain standards and has been made with proper safety considerations. This could include delaying deliveries of radioactive material until there is proper radiation protection available, for example. All deviations should be documented on paper, stamped or signed, and kept on the QM or in their office. Destruction of the documents counts as failure to fulfill this responsibility;
+
+  [bold]7.[/bold][color=#0CBF00]⚙[/color] The Quartermaster is responsible for ensuring that confirmed orders reach their intended recipient within 15 minutes of the order arriving on the Automated Trade Station
 </Document>

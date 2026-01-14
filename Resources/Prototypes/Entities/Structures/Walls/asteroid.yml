@@ -115,6 +115,7 @@
         - WallLayer
         density: 2000
 
+
 - type: entity
   abstract: true
   id: BaseRockGibtonite
@@ -827,6 +828,10 @@
   parent: [ BaseRockGibtonite, IronRock ]
   id: IronRockGibtonite
   components:
+  - type: Gatherable    # Goobstation
+    toolWhitelist:
+      tags:
+      - Drill
   - type: Sprite
     layers:
     - state: ironrock

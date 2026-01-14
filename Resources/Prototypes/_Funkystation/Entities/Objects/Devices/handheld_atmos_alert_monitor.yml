@@ -1,0 +1,107 @@
+- type: entity
+  id: HandheldAtmosAlerts
+  parent: HandheldStationMap
+  name: atmospheric alerts monitor
+  description: A portable device displaying the station's atmospheric alarm status.
+  suffix: Handheld, Powered
+  components:
+  - type: AtmosAlertsComputer
+  - type: ActivatableUI
+    inHandsOnly: true
+    singleUser: true
+    key: enum.AtmosAlertsComputerUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.AtmosAlertsComputerUiKey.Key:
+        type: AtmosAlertsComputerBoundUserInterface
+  - type: Sprite
+    sprite: _Funkystation/Objects/Devices/atmostablet.rsi
+    layers:
+      - state: tablet
+      - state: alert-0
+        shader: unshaded
+        map: ["screen"]
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.AtmosAlertsComputerVisuals.ComputerLayerScreen:
+        screen:
+          0: { state: alert-0 }
+          1: { state: alert-0 }
+          2: { state: alert-1 }
+          3: { state: alert-2 }
+          4: { state: alert-2 }
+  - type: ContainerContainer
+    containers:
+      cell_slot: !type:ContainerSlot
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+        startingItem: PowerCellMedium
+
+- type: entity
+  id: HandheldAtmosAlertsEmpty
+  parent: HandheldStationMapEmpty
+  name: atmospheric alerts monitor
+  suffix: Handheld, Empty
+  components:
+  - type: AtmosAlertsComputer
+  - type: ActivatableUI
+    inHandsOnly: true
+    singleUser: true
+    key: enum.AtmosAlertsComputerUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.AtmosAlertsComputerUiKey.Key:
+        type: AtmosAlertsComputerBoundUserInterface
+  - type: Sprite
+    sprite: _Funkystation/Objects/Devices/atmostablet.rsi
+    layers:
+      - state: tablet
+      - state: alert-0
+        shader: unshaded
+        map: ["screen"]
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.AtmosAlertsComputerVisuals.ComputerLayerScreen:
+        screen:
+          0: { state: alert-0 }
+          1: { state: alert-0 }
+          2: { state: alert-1 }
+          3: { state: alert-2 }
+          4: { state: alert-2 }
+
+- type: entity
+  id: HandheldAtmosAlertsUnpowered
+  parent: HandheldStationMapUnpowered
+  name: atmospheric alerts monitor
+  suffix: Handheld, Unpowered
+  components:
+  - type: AtmosAlertsComputer
+  - type: ActivatableUI
+    inHandsOnly: true
+    singleUser: true
+    key: enum.AtmosAlertsComputerUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.AtmosAlertsComputerUiKey.Key:
+        type: AtmosAlertsComputerBoundUserInterface
+  - type: Sprite
+    sprite: _Funkystation/Objects/Devices/atmostablet.rsi
+    layers:
+      - state: tablet
+      - state: alert-0
+        shader: unshaded
+        map: ["screen"]
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.AtmosAlertsComputerVisuals.ComputerLayerScreen:
+        screen:
+          0: { state: alert-0 }
+          1: { state: alert-0 }
+          2: { state: alert-1 }
+          3: { state: alert-2 }
+          4: { state: alert-2 }

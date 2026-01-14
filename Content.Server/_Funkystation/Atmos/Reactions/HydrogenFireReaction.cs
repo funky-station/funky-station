@@ -15,6 +15,7 @@ namespace Content.Server._Funkystation.Atmos.Reactions;
 /// <summary>
 ///     Assmos - /tg/ gases
 ///     The ignition of hydrogen in the presence of oxygen at temperatures above 373.15K.
+///     Copies the tritium burn reaction almost exactly, but without the radiation pulse.
 /// </summary>
 [UsedImplicitly]
 [DataDefinition]
@@ -25,37 +26,54 @@ public sealed partial class HydrogenFireReaction : IGasReactionEffect
         if (mixture.Temperature > 20f && mixture.GetMoles(Gas.HyperNoblium) >= 5f)
             return ReactionResult.NoReaction;
 
+        var energyReleased = 0f;
         var oldHeatCapacity = atmosphereSystem.GetHeatCapacity(mixture, true);
         var temperature = mixture.Temperature;
-        var initHydrogen = mixture.GetMoles(Gas.Hydrogen);
-        var initOxygen = mixture.GetMoles(Gas.Oxygen);
-        var burnRateDelta = Atmospherics.HydrogenBurnRateDelta;
-        var hydrogenOxygenFullBurn = Atmospherics.PlasmaOxygenFullburn;
-        var burnedFuel = Math.Min(
-            initHydrogen / burnRateDelta, Math.Min(
-            initOxygen / (burnRateDelta * hydrogenOxygenFullBurn), Math.Min(
-            initHydrogen,
-            initOxygen * 2f))
-        );
+        var location = holder as TileAtmosphere;
+        mixture.ReactionResults[(byte)GasReaction.Fire] = 0f;
+        var burnedFuel = 0f;
+        var initialH2 = mixture.GetMoles(Gas.Hydrogen);
+        var initialO2 = mixture.GetMoles(Gas.Oxygen);
 
-        mixture.ReactionResults[(byte) GasReaction.Fire] = 0f;
+        if (initialO2 < initialH2 || Atmospherics.MinimumHydrogenOxyburnEnergy > (temperature * oldHeatCapacity * heatScale))
+        {
+            burnedFuel = initialO2 / Atmospherics.HydrogenBurnOxyFactor;
+            if (burnedFuel > initialH2)
+                burnedFuel = initialH2;
+        }
+        else
+        {
+            burnedFuel = Math.Min(initialH2, initialO2 / Atmospherics.TritiumBurnFuelRatio) / Atmospherics.TritiumBurnTritFactor;
+        }
 
-        if (burnedFuel <= 0 || initHydrogen - burnedFuel < 0 || initOxygen - (burnedFuel * 0.5f) < 0)
+        if (burnedFuel <= 0f)
+            return ReactionResult.NoReaction;
+
+        var oxygenConsumed = burnedFuel / Atmospherics.TritiumBurnFuelRatio;
+        if (initialH2 - burnedFuel < 0f || initialO2 - oxygenConsumed < 0f)
             return ReactionResult.NoReaction;
 
         mixture.AdjustMoles(Gas.Hydrogen, -burnedFuel);
-        mixture.AdjustMoles(Gas.Oxygen, -(burnedFuel * 0.5f));
-        mixture.AdjustMoles(Gas.WaterVapor, burnedFuel);
+        mixture.AdjustMoles(Gas.Oxygen, -oxygenConsumed);
 
-        var energyReleased = burnedFuel * Atmospherics.FireHydrogenEnergyReleased;
-        var newHeatCapacity = atmosphereSystem.GetHeatCapacity(mixture, true);
-
-        if (energyReleased > 0)
+        if (burnedFuel > 0)
         {
-            mixture.Temperature = Math.Max((mixture.Temperature * oldHeatCapacity + energyReleased) / newHeatCapacity, Atmospherics.TCMB);
+            energyReleased += (Atmospherics.FireHydrogenEnergyReleased * burnedFuel);
+
+            // Conservation of mass is important.
+            mixture.AdjustMoles(Gas.WaterVapor, burnedFuel);
+
+            mixture.ReactionResults[(byte)GasReaction.Fire] += burnedFuel;
         }
 
-        if (holder is TileAtmosphere location)
+        energyReleased /= heatScale; // adjust energy to make sure speedup doesn't cause mega temperature rise
+        if (energyReleased > 0)
+        {
+            var newHeatCapacity = atmosphereSystem.GetHeatCapacity(mixture, true);
+            if (newHeatCapacity > Atmospherics.MinimumHeatCapacity) mixture.Temperature = ((temperature * oldHeatCapacity + energyReleased) / newHeatCapacity);
+        }
+
+        if (location != null)
         {
             temperature = mixture.Temperature;
             if (temperature > Atmospherics.FireMinimumTemperatureToExist)
@@ -64,6 +82,6 @@ public sealed partial class HydrogenFireReaction : IGasReactionEffect
             }
         }
 
-        return mixture.ReactionResults[(byte) GasReaction.Fire] != 0 ? ReactionResult.Reacting : ReactionResult.NoReaction;
+        return mixture.ReactionResults[(byte)GasReaction.Fire] != 0 ? ReactionResult.Reacting : ReactionResult.NoReaction;
     }
 }

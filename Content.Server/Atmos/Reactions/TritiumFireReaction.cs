@@ -37,7 +37,7 @@ namespace Content.Server.Atmos.Reactions
         {
             if (mixture.Temperature > 20f && mixture.GetMoles(Gas.HyperNoblium) >= 5f)
                 return ReactionResult.NoReaction;
-                
+
             var energyReleased = 0f;
             var oldHeatCapacity = atmosphereSystem.GetHeatCapacity(mixture, true);
             var temperature = mixture.Temperature;
@@ -58,7 +58,7 @@ namespace Content.Server.Atmos.Reactions
             }
             else
             {
-                burnedFuel = Math.Max(initialTrit, mixture.GetMoles(Gas.Oxygen) / Atmospherics.TritiumBurnFuelRatio) / Atmospherics.TritiumBurnTritFactor;
+                burnedFuel = Math.Min(initialTrit, mixture.GetMoles(Gas.Oxygen) / Atmospherics.TritiumBurnFuelRatio) / Atmospherics.TritiumBurnTritFactor;
                 mixture.AdjustMoles(Gas.Tritium, -burnedFuel);
                 mixture.AdjustMoles(Gas.Oxygen, -burnedFuel / Atmospherics.TritiumBurnFuelRatio);
                 energyReleased += (Atmospherics.FireHydrogenEnergyReleased * burnedFuel * (Atmospherics.TritiumBurnTritFactor - 1));

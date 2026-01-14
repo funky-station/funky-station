@@ -555,7 +555,6 @@
   - type: Sprite
     layers:
     - state: folder-centcom
-    - state: folder-base
 
 - type: entity
   id: BoxFolderClipboard

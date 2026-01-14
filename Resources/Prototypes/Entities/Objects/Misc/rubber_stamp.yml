@@ -33,7 +33,7 @@
     stampState: "paper_stamp-generic"
     stampedColor: "#a23e3e"
     sound:
-      path: /Audio/Items/Stamp/thick_stamp_sub.ogg
+      path: /Audio/Items/Stamp/automatic_stamp.ogg
       params:
         volume: -2
         maxDistance: 5

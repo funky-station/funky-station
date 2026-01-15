@@ -23,8 +23,8 @@
 
             <Control HorizontalExpand="True" />
 
-            <RichTextLabel Name="CostLabel"
-                           Text="[color=#fbbf24]0.00 c/s[/color]"
+            <RichTextLabel Name="RemainingMolesLabel"
+                           Text="[color=#fbbf24]0.00 mols[/color]"
                            VerticalAlignment="Center"
                            Access="Public" />
         </BoxContainer>
@@ -70,7 +70,22 @@
                     Margin="6 0 0 0" />
         </BoxContainer>
 
-        <Control MinHeight="5" />
+        <Control MinHeight="10" />
+
+        <BoxContainer Orientation="Horizontal" Margin="0 5 0 0">
+            <Label Text="{Loc 'gas-miner-buy'}" VerticalAlignment="Center" MinWidth="40" />
+            <Label Text="$" VerticalAlignment="Center" Margin="5 0" />
+            <SpinBox Name="BuySpinBox" Value="100" HorizontalExpand="True" MinWidth="120" Access="Public" />
+            <Button Name="BuyButton" Text="{Loc 'gas-miner-buy-button'}" MinWidth="80" Margin="10 0 0 0" Access="Public" />
+        </BoxContainer>
+
+
+        <BoxContainer Orientation="Horizontal" Margin="0 5 0 0">
+            <Control HorizontalExpand="True" />
+            <RichTextLabel Name="BuyPreviewLabel" Text="" StyleClasses="LabelSubText" Margin="0 5 0 0" Access="Public" />
+            <Control HorizontalExpand="True" />
+            <CheckBox Name="AutoBuyCheckBox" Text="{Loc 'gas-miner-auto-buy-enable'}" Margin="0 5 0 0" Access="Public" />
+        </BoxContainer>
 
         <!-- Set button -->
     </BoxContainer>

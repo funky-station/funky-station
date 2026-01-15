@@ -16,16 +16,10 @@ public sealed partial class GasMinerConsoleComponent : Component
     public List<EntityUid> LinkedMiners = new();
 
     /// <summary>
-    /// Current amount of gas mining credits available on this console.
+    /// Multiplier applied to gas purchases made through the console.
     /// </summary>
-    [DataField, AutoNetworkedField]
-    public float Credits = 10000f;
-
-    /// <summary>
-    /// Whether or not to automatically purchase gas credits when they run low.
-    /// </summary>
-    [DataField, AutoNetworkedField]
-    public bool AutoBuy = true;
+    [DataField]
+    public float PriceMultiplier = 1.0f;
 }
 
 [Serializable, NetSerializable]
@@ -44,22 +38,25 @@ public sealed class GasMinerSetSettingsMessage : BoundUserInterfaceMessage
 }
 
 [Serializable, NetSerializable]
-public sealed class BuyGasCreditsMessage : BoundUserInterfaceMessage
+public sealed class BuyMolesForMinerMessage : BoundUserInterfaceMessage
 {
-    public int Amount { get; }
-
-    public BuyGasCreditsMessage(int amount)
+    public int MinerIndex { get; }
+    public int SpecoAmount { get; }
+    public BuyMolesForMinerMessage(int minerIndex, int specoAmount)
     {
-        Amount = amount;
+        MinerIndex = minerIndex;
+        SpecoAmount = specoAmount;
     }
 }
 
 [Serializable, NetSerializable]
-public sealed class AutoBuyToggleMessage : BoundUserInterfaceMessage
+public sealed class ToggleAutoBuyMinerMessage : BoundUserInterfaceMessage
 {
+    public int MinerIndex { get; }
     public bool Enabled { get; }
-    public AutoBuyToggleMessage(bool enabled)
+    public ToggleAutoBuyMinerMessage(int minerIndex, bool enabled)
     {
+        MinerIndex = minerIndex;
         Enabled = enabled;
     }
 }

@@ -5,84 +5,8 @@
               Orientation="Vertical">
 
     <!-- Main scrollable content -->
-    <ScrollContainer VerticalExpand="True"
-                     HorizontalExpand="True"
-                     HScrollEnabled="False">
-
-        <BoxContainer Orientation="Vertical"
-                      HorizontalExpand="True"
-                      VerticalExpand="True">
-
-            <!-- Gas Credits Purchase Panel -->
-            <PanelContainer HorizontalExpand="True"
-                            Margin="15">
-                <BoxContainer Orientation="Vertical"
-                              Margin="10">
-
-                    <BoxContainer Orientation="Horizontal"
-                                  Margin="0 5 0 10">
-                        <Label Text="{Loc 'gas-miner-credits-current'}"
-                               StyleClasses="LabelKeyText" />
-
-                        <Control HorizontalExpand="True" />
-
-                        <RichTextLabel Name="CurrentGasCreditsLabel"
-                                       Text="[color=#4ade80]0[/color]"
-                                       VerticalAlignment="Center"
-                                       Margin="0 0 5 0" />
-                    </BoxContainer>
-
-                    <BoxContainer Orientation="Horizontal"
-                                  Margin="0 5 0 10">
-                        <Label Text="{Loc 'gas-miner-buy-amount'}"
-                               StyleClasses="LabelKeyText"
-                               VerticalAlignment="Center"
-                               Margin="0 0 10 0" />
-
-                        <Label Text="$" VerticalAlignment="Center" />
-
-                        <SpinBox Name="BuyAmountSpinBox"
-                                 Value="10"
-                                 MinWidth="120"
-                                 MaxWidth="120" />
-
-                        <Control HorizontalExpand="True" />
-
-                        <Button Name="BuyCreditsButton"
-                                Text="{Loc 'gas-miner-buy-button'}"
-                                MinWidth="120"
-                                Margin="10 0 0 0" />
-                    </BoxContainer>
-
-                    <BoxContainer Orientation="Horizontal"
-                                  Margin="0 5 0 0">
-                        <Label Text="{Loc 'gas-miner-auto-buy'}"
-                               StyleClasses="LabelKeyText"
-                               VerticalAlignment="Center"
-                               Margin="0 0 10 0" />
-
-                        <Control HorizontalExpand="True" />
-
-                        <Button Name="AutoBuyToggleButton"
-                                Text=""
-                                MinWidth="80"
-                                Margin="10 0 0 0"
-                                StyleClasses="Positive" />
-                    </BoxContainer>
-
-                    <!-- Conversion rate -->
-                    <BoxContainer Orientation="Horizontal" Margin="0 10 0 0">
-                        <Control HorizontalExpand="True" />
-
-                        <Label Name="ConversionRateLabel"
-                               Text="$1 = 100 credits"
-                               StyleClasses="LabelSubText"
-                               VerticalAlignment="Center" />
-
-                        <Control HorizontalExpand="True" />
-                    </BoxContainer>
-                </BoxContainer>
-            </PanelContainer>
+    <ScrollContainer VerticalExpand="True" HorizontalExpand="True" HScrollEnabled="False">
+        <BoxContainer Orientation="Vertical" HorizontalExpand="True" VerticalExpand="True">
 
             <!-- Gas Miners Configuration List -->
             <PanelContainer HorizontalExpand="True">
@@ -90,6 +14,7 @@
                     <BoxContainer Name="GasMinersListContainer" Orientation="Vertical" HorizontalExpand="True" />
                 </BoxContainer>
             </PanelContainer>
+
         </BoxContainer>
     </ScrollContainer>
 </BoxContainer>

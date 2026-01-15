@@ -22,7 +22,7 @@
     sprite: Structures/Storage/canister.rsi
     state: grey
   product: AirCanister
-  cost: 600 # Funky
+  cost: 615 # Funky
   category: cargoproduct-category-name-atmospherics
   group: market
 
@@ -32,7 +32,7 @@
     sprite: Structures/Storage/canister.rsi
     state: blue
   product: OxygenCanister
-  cost: 600 # Funky
+  cost: 800 # Funky
   category: cargoproduct-category-name-atmospherics
   group: market
 
@@ -42,7 +42,7 @@
     sprite: Structures/Storage/canister.rsi
     state: blue
   product: LiquidOxygenCanister
-  cost: 2000 # Funky
+  cost: 2750 # Funky
   category: cargoproduct-category-name-atmospherics
   group: market
 
@@ -52,7 +52,7 @@
     sprite: Structures/Storage/canister.rsi
     state: red
   product: NitrogenCanister
-  cost: 600 # Funky
+  cost: 550 # Funky
   category: cargoproduct-category-name-atmospherics
   group: market
 
@@ -62,7 +62,7 @@
     sprite: Structures/Storage/canister.rsi
     state: red
   product: LiquidNitrogenCanister
-  cost: 2000 # Funky
+  cost: 1000 # Funky
   category: cargoproduct-category-name-atmospherics
   group: market
 
@@ -72,7 +72,7 @@
     sprite: Structures/Storage/canister.rsi
     state: black
   product: CarbonDioxideCanister
-  cost: 1700 # Until someone fixes it co2 can be used to oneshot people so it's more expensive
+  cost: 680 # Funky - trusting players not to one shot each other with co2. We'll see how it goes.
   category: cargoproduct-category-name-atmospherics
   group: market
 
@@ -82,7 +82,7 @@
     sprite: Structures/Storage/canister.rsi
     state: black
   product: LiquidCarbonDioxideCanister
-  cost: 3500 # Funky
+  cost: 1950 # Funky
   category: cargoproduct-category-name-atmospherics
   group: market
 
@@ -102,7 +102,7 @@
     sprite: Structures/Storage/canister.rsi
     state: water_vapor
   product: WaterVaporCanister
-  cost: 2100
+  cost: 600
   category: cargoproduct-category-name-atmospherics
   group: market
 
@@ -112,7 +112,7 @@
     sprite: Structures/Storage/canister.rsi
     state: orange
   product: PlasmaCanister
-  cost: 3500 # Funky
+  cost: 2500 # Funky
   category: cargoproduct-category-name-atmospherics
   group: market
 
@@ -133,6 +133,6 @@
     sprite: Structures/Storage/canister.rsi
     state: purple
   product: BZCanister
-  cost: 6000
+  cost: 3250
   category: cargoproduct-category-name-atmospherics
   group: market

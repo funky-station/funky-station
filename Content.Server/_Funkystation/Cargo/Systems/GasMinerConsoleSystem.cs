@@ -17,6 +17,7 @@ using Content.Shared.Cargo;
 using Content.Server.Radio.EntitySystems;
 using Content.Shared.IdentityManagement;
 using Robust.Shared.Prototypes;
+using Content.Shared.Atmos.Prototypes;
 
 namespace Content.Server._Funkystation.Cargo.Systems;
 
@@ -37,123 +38,172 @@ public sealed partial class GasMinerConsoleSystem : SharedCargoSystem
         SubscribeLocalEvent<GasMinerConsoleComponent, ComponentStartup>(OnStartup);
         SubscribeLocalEvent<GasMinerConsoleComponent, NewLinkEvent>(OnNewLink);
         SubscribeLocalEvent<CargoOrderConsoleComponent, GasMinerSetSettingsMessage>(OnSetSettings);
-        SubscribeLocalEvent<GasMinerConsoleComponent, BuyGasCreditsMessage>(OnBuyGasCredits);
-        SubscribeLocalEvent<GasMinerConsoleComponent, AutoBuyToggleMessage>(OnAutoBuyToggle);
+        SubscribeLocalEvent<CargoOrderConsoleComponent, BuyMolesForMinerMessage>(OnBuyMolesForMiner);
+        SubscribeLocalEvent<CargoOrderConsoleComponent, ToggleAutoBuyMinerMessage>(OnToggleAutoBuyMiner);
     }
 
-    private void OnAutoBuyToggle(Entity<GasMinerConsoleComponent> ent, ref AutoBuyToggleMessage args)
+    private void OnToggleAutoBuyMiner(Entity<CargoOrderConsoleComponent> ent, ref ToggleAutoBuyMinerMessage args)
     {
-        if (args.Actor == null)
+        if (args.Actor is not { Valid: true } actor)
             return;
 
-        var actor = args.Actor;
+        if (!TryComp<GasMinerConsoleComponent>(ent, out var gasConsole))
+            return;
+
+        if (args.MinerIndex < 0 || args.MinerIndex >= gasConsole.LinkedMiners.Count)
+            return;
+
+        var minerUid = gasConsole.LinkedMiners[args.MinerIndex];
+        if (!TryComp<GasMinerComponent>(minerUid, out var miner))
+            return;
 
         // Access check
-        if (!EntityManager.TryGetComponent<CargoOrderConsoleComponent>(ent, out var orderConsole) || !_accessReader.IsAllowed(actor, ent))
+        if (!_accessReader.IsAllowed(actor, ent.Owner))
         {
             _popup.PopupEntity(Loc.GetString("cargo-console-order-not-allowed"), actor, actor);
-            _audio.PlayPredicted(orderConsole?.ErrorSound ?? default, ent, actor);
+            _audio.PlayPredicted(ent.Comp.ErrorSound ?? default, ent, actor);
             return;
         }
 
-        ent.Comp.AutoBuy = args.Enabled;
-        Dirty(ent);
+        miner.AutoBuyEnabled = args.Enabled;
+        Dirty(minerUid, miner);
 
         var tryGetIdentity = new TryGetIdentityShortInfoEvent(ent, actor);
         RaiseLocalEvent(tryGetIdentity);
 
         var playerName = tryGetIdentity.Title ?? Loc.GetString("cargo-console-fund-transfer-user-unknown");
-        var accountProto = _proto.Index(orderConsole.Account);
+        var accountProto = _proto.Index(ent.Comp.Account);
 
         var key = args.Enabled
-            ? "gas-miner-autobuy-enabled-broadcast"
-            : "gas-miner-autobuy-disabled-broadcast";
+            ? "gas-miner-miner-autobuy-enabled"
+            : "gas-miner-miner-autobuy-disabled";
 
-        var msg = Loc.GetString(key, ("name", playerName));
+        var msg = Loc.GetString(key,
+            ("name", playerName),
+            ("gas", Loc.GetString(_proto.Index<GasPrototype>(((int)miner.SpawnGas).ToString()).Name)));
 
         _radio.SendRadioMessage(ent, msg, accountProto.RadioChannel, ent, escapeMarkup: false);
 
         _adminLog.Add(LogType.Action, LogImpact.Low,
-            $"{ToPrettyString(actor):player} {(args.Enabled ? "enabled" : "disabled")} auto-buy on gas miner console {ToPrettyString(ent)}");
+            $"{ToPrettyString(actor):player} {(args.Enabled ? "enabled" : "disabled")} auto-buy on miner {ToPrettyString(minerUid)} (gas: {miner.SpawnGas}) at console {ToPrettyString(ent)}");
     }
 
-    private void OnBuyGasCredits(Entity<GasMinerConsoleComponent> ent, ref BuyGasCreditsMessage args)
+    private void OnBuyMolesForMiner(Entity<CargoOrderConsoleComponent> ent, ref BuyMolesForMinerMessage args)
     {
-        if (args.Actor == null)
+        if (args.Actor is not { Valid: true } actor)
             return;
 
-        var actor = args.Actor;
+        if (!TryComp<GasMinerConsoleComponent>(ent, out var gasConsole))
+            return;
+
+        if (args.MinerIndex < 0 || args.MinerIndex >= gasConsole.LinkedMiners.Count)
+            return;
+
+        var minerUid = gasConsole.LinkedMiners[args.MinerIndex];
+        if (!TryComp<GasMinerComponent>(minerUid, out var miner))
+            return;
 
         // Access check
-        if (!EntityManager.TryGetComponent<CargoOrderConsoleComponent>(ent, out var orderConsole) || !_accessReader.IsAllowed(actor, ent))
+        if (!_accessReader.IsAllowed(actor, ent.Owner))
         {
-            _popup.PopupEntity(Loc.GetString("cargo-console-order-not-allowed"), ent);
-            _audio.PlayPredicted(orderConsole?.ErrorSound ?? default, ent, actor);
+            _popup.PopupEntity(Loc.GetString("cargo-console-order-not-allowed"), actor, actor);
+            _audio.PlayPredicted(ent.Comp.ErrorSound ?? default, ent, actor);
             return;
         }
 
-        int specoAmount = args.Amount;
+        int specoAmount = args.SpecoAmount;
+        if (specoAmount <= 0)
+            return;
 
-        // Attempt the purchase
-        bool success = TryPurchaseGasCredits(ent, orderConsole, specoAmount, actor);
-
-        if (!success)
+        var station = _station.GetOwningStation(ent);
+        if (station == null || !TryComp<StationBankAccountComponent>(station, out var bank))
         {
-            _popup.PopupEntity(Loc.GetString("cargo-no-funds"), ent);
-            _audio.PlayPredicted(orderConsole?.ErrorSound ?? default, ent, actor);
             return;
         }
 
-        float gasCreditsAdded = specoAmount * 100f;
+        var accountId = ent.Comp.Account;
+        var currentBalance = _cargo.GetBalanceFromAccount((station.Value, bank), accountId);
+        if (currentBalance < specoAmount)
+        {
+            _popup.PopupEntity(Loc.GetString("cargo-console-insufficient-funds", ("cost", specoAmount)), actor, actor);
+            _audio.PlayPredicted(ent.Comp.ErrorSound ?? default, ent, actor);
+            return;
+        }
+
+        // Get price per mole for this gas
+        string gasId = ((int)miner.SpawnGas).ToString();
+        if (!_proto.TryIndex<GasPrototype>(gasId, out var gasProto) || gasProto.PricePerMole <= 0)
+        {
+            _popup.PopupEntity("Gas has no valid price!", actor, actor); // free gases cannot be purchased, use miners instead
+            return;
+        }
+
+        float costPerMole = gasProto.PricePerMole * gasConsole.PriceMultiplier;
+
+        // Calculate moles received
+        float molesToAdd = specoAmount / costPerMole;
+
+        // Apply transaction
+        _cargo.WithdrawFunds((station.Value, bank), -specoAmount, accountId);
+
+        miner.RemainingMoles += molesToAdd;
+        Dirty(minerUid, miner);
 
         _audio.PlayPvs(ApproveSound, ent);
-        _popup.PopupEntity(Loc.GetString("gas-miner-purchase-success", ("amount", args.Amount), ("credits", gasCreditsAdded)), ent);
+        _popup.PopupEntity(Loc.GetString("gas-miner-moles-purchase-success",
+            ("moles", molesToAdd.ToString("F1")),
+            ("gas", Loc.GetString(gasProto.Name)),
+            ("spesos", specoAmount)), actor, actor);
 
         _adminLog.Add(LogType.Action, LogImpact.Medium,
-            $"{ToPrettyString(actor):player} purchased {gasCreditsAdded} gas mining credits for {args.Amount} spesos at {ToPrettyString(ent)}");
+            $"{ToPrettyString(actor):player} purchased {molesToAdd:F1} moles of {miner.SpawnGas} for {specoAmount} spesos at console {ToPrettyString(ent)} (miner: {ToPrettyString(minerUid)})");
 
         var tryGetIdentity = new TryGetIdentityShortInfoEvent(ent, actor);
         RaiseLocalEvent(tryGetIdentity);
 
         var playerName = tryGetIdentity.Title ?? Loc.GetString("cargo-console-fund-transfer-user-unknown");
-        var accountProto = _proto.Index(orderConsole.Account);
+        var accountProto = _proto.Index(accountId);
 
-        var msg = Loc.GetString("gas-miner-purchase-broadcast",
+        var msg = Loc.GetString("gas-miner-moles-purchase-broadcast",
             ("name", playerName),
-            ("credits", gasCreditsAdded),
-            ("amount", args.Amount),
+            ("moles", molesToAdd.ToString("F1")),
+            ("gas", Loc.GetString(gasProto.Name)),
+            ("spesos", specoAmount),
             ("accountName", Loc.GetString(accountProto.Name)),
             ("accountCode", Loc.GetString(accountProto.Code)));
 
         _radio.SendRadioMessage(ent, msg, accountProto.RadioChannel, ent, escapeMarkup: false);
     }
 
-    public bool TryPurchaseGasCredits(Entity<GasMinerConsoleComponent> ent, CargoOrderConsoleComponent orderConsole, int specoAmount, EntityUid? actor = null)
+    public bool TryAutoPurchaseMoles(EntityUid consoleUid, CargoOrderConsoleComponent orderConsole, EntityUid minerUid, float desiredMoles)
     {
-        if (specoAmount <= 0)
+        if (!TryComp<GasMinerComponent>(minerUid, out var miner))
             return false;
 
-        // Get station & bank account
-        var station = _station.GetOwningStation(ent);
+        if (!TryComp<GasMinerConsoleComponent>(consoleUid, out var gasConsole))
+            return false;
+
+        string gasId = ((int)miner.SpawnGas).ToString();
+        if (!_proto.TryIndex<GasPrototype>(gasId, out var gasProto) || gasProto.PricePerMole <= 0)
+            return false;
+
+        float costPerMole = gasProto.PricePerMole * gasConsole.PriceMultiplier;
+        int spesosNeeded = (int)Math.Ceiling(desiredMoles * costPerMole);
+
+        var station = _station.GetOwningStation(consoleUid);
         if (station == null || !TryComp<StationBankAccountComponent>(station, out var bank))
             return false;
 
         var accountId = orderConsole.Account;
-
-        // Balance check
-        var currentBalance = _cargo.GetBalanceFromAccount((station.Value, bank), accountId);
-        if (currentBalance < specoAmount)
-        {
+        if (_cargo.GetBalanceFromAccount((station.Value, bank), accountId) < spesosNeeded)
             return false;
-        }
 
-        // Apply transaction
-        _cargo.WithdrawFunds((station.Value, bank), -specoAmount, accountId);
+        // Withdraw
+        _cargo.WithdrawFunds((station.Value, bank), -spesosNeeded, accountId);
 
-        // Convert to gas credits
-        float gasCreditsToAdd = specoAmount * 100f;
-        ent.Comp.Credits += gasCreditsToAdd;
-        Dirty(ent);
+        // Add moles directly to this miner
+        miner.RemainingMoles += desiredMoles;
+        Dirty(minerUid, miner);
 
         return true;
     }
@@ -168,10 +218,11 @@ public sealed partial class GasMinerConsoleSystem : SharedCargoSystem
         if (args.Source != ent.Owner)
             return;
 
+        if (!TryComp<DeviceLinkSourceComponent>(ent.Owner, out _))
+            return;
+
         if (HasComp<GasMinerComponent>(args.Sink))
-        {
             SyncLinkedMiners(ent);
-        }
     }
 
     private void OnSetSettings(Entity<CargoOrderConsoleComponent> ent, ref GasMinerSetSettingsMessage args)
@@ -195,7 +246,8 @@ public sealed partial class GasMinerConsoleSystem : SharedCargoSystem
 
     private void SyncLinkedMiners(Entity<GasMinerConsoleComponent> ent)
     {
-        var sourceComp = Comp<DeviceLinkSourceComponent>(ent.Owner);
+        if (!TryComp<DeviceLinkSourceComponent>(ent.Owner, out var sourceComp))
+            return;
 
         var newMiners = sourceComp.LinkedPorts.Keys
             .Where(sink => HasComp<GasMinerComponent>(sink))

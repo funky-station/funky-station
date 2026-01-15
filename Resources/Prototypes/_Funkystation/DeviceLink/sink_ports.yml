@@ -10,6 +10,6 @@
   description: Gas dispensing vendor
 
 - type: sinkPort
-  id: GasMinerControl
-  name: signal-port-name-gas-miner-control
-  description: signal-port-description-gas-miner-control
+  id: GasExtractorControl
+  name: signal-port-name-gas-extractor-control
+  description: signal-port-description-gas-extractor-control

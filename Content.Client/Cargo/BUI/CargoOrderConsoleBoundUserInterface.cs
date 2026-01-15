@@ -143,14 +143,14 @@ namespace Content.Client.Cargo.BUI
                 SendMessage(new GasMinerSetSettingsMessage(index, rate, pressure));
             };
 
-            _menu.OnBuyGasCredits += amount =>
+            _menu.OnToggleAutoBuyMiner += (index, enabled) =>
             {
-                SendMessage(new BuyGasCreditsMessage(amount));
+                SendMessage(new ToggleAutoBuyMinerMessage(index, enabled));
             };
 
-            _menu.OnToggleAutoBuy += enabled =>
+            _menu.OnBuyMolesForMiner += (index, spesos) =>
             {
-                SendMessage(new AutoBuyToggleMessage(enabled));
+                SendMessage(new BuyMolesForMinerMessage(index, spesos));
             };
             // End of Funky changes
 

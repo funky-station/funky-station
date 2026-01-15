@@ -55,6 +55,20 @@ public sealed partial class GasMinerComponent : Component
     [ViewVariables(VVAccess.ReadWrite)]
     [DataField, AutoNetworkedField] // Funkystation - Networked for console
     public float SpawnAmount = Atmospherics.MolesCellStandard * 20f;
+
+    /// <summary>
+    ///     Moles remaining in the miner.
+    /// </summary>
+    [ViewVariables(VVAccess.ReadWrite)]
+    [DataField, AutoNetworkedField]
+    public float RemainingMoles = 0f; // Funkystation
+
+    /// <summary>
+    ///     Whether the miner will automatically buy gas.
+    /// </summary>
+    [ViewVariables(VVAccess.ReadWrite)]
+    [DataField, AutoNetworkedField]
+    public bool AutoBuyEnabled = false; // Funkystation
 }
 
 [Serializable, NetSerializable]

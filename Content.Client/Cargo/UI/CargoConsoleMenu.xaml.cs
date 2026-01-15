@@ -64,8 +64,8 @@ namespace Content.Client.Cargo.UI
         public event Action<ButtonEventArgs>? OnToggleUnboundedLimit;
 
         public event Action<int, float, float>? OnGasMinerSetSettings; // Funkystation: Gas miner controls
-        public event Action<int>? OnBuyGasCredits; // Funkystation: Gas miner controls
-        public event Action<bool>? OnToggleAutoBuy; // Funkystation: Gas miner controls
+        public event Action<int, bool>? OnToggleAutoBuyMiner; // Funkystation: Gas miner controls
+        public event Action<int, int>? OnBuyMolesForMiner; // Funkystation: Gas miner controls
         public GasMinerTabContent? GasTabContent { get; private set; } // Funkystation: Gas miner controls
 
         private readonly List<string> _categoryStrings = new();
@@ -113,14 +113,14 @@ namespace Content.Client.Cargo.UI
                     OnGasMinerSetSettings?.Invoke(index, rate, pressure);
                 };
 
-                gasTab.OnBuyGasCredits += amount =>
+                gasTab.OnToggleAutoBuyMiner += (index, enabled) =>
                 {
-                    OnBuyGasCredits?.Invoke(amount);
+                    OnToggleAutoBuyMiner?.Invoke(index, enabled);
                 };
 
-                gasTab.OnToggleAutoBuy += enabled =>
+                gasTab.OnBuyMolesForMiner += (index, spesos) =>
                 {
-                    OnToggleAutoBuy?.Invoke(enabled);
+                    OnBuyMolesForMiner?.Invoke(index, spesos);
                 };
 
                 GasTabContent = gasTab;

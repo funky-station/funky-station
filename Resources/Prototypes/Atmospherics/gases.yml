@@ -32,7 +32,7 @@
   molarMass: 32
   color: 2887E8
   reagent: Oxygen
-  pricePerMole: 0.1
+  pricePerMole: 0.1 #funkystation
   dangerLevel: 3 # Funkystation - UI update
 
 - type: gas
@@ -43,7 +43,7 @@
   molarMass: 28
   color: DA1010
   reagent: Nitrogen
-  pricePerMole: 0.07
+  pricePerMole: 0.01 #funkystation
   dangerLevel: 2 # Funkystation - UI update
 
 - type: gas
@@ -54,7 +54,7 @@
   molarMass: 44
   color: 4e4e4e
   reagent: CarbonDioxide
-  pricePerMole: 0.065
+  pricePerMole: 0.04 #funkystation
   dangerLevel: 4 # Funkystation - UI update
 
 - type: gas
@@ -67,7 +67,7 @@
   gasOverlayState: plasma
   color: FF3300
   reagent: Plasma
-  pricePerMole: 0.5
+  pricePerMole: 0.35 #funkystation
   dangerLevel: 5 # Funkystation - UI update
 
 - type: gas
@@ -80,7 +80,7 @@
   gasOverlayState: tritium
   color: 13FF4B
   reagent: Tritium
-  pricePerMole: 0.8 #funkystation
+  pricePerMole: 0.7 #funkystation
   dangerLevel: 5 # Funkystation - UI update
 
 - type: gas
@@ -93,7 +93,7 @@
   gasOverlayState: water_vapor
   color: bffffd
   reagent: Water
-  pricePerMole: 0.05
+  pricePerMole: 0.06
   dangerLevel: 5 # Funkystation - UI update
 
 - type: gas

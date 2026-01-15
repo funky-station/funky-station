@@ -62,81 +62,49 @@ public sealed class GasMinerSystem : SharedGasMinerSystem
         {
             miner.MinerState = GasMinerState.Working;
 
-            // Funkystation - Deduct gas credits from linked consoles.
+            // Funkystation - Deduct gas funds from linked consoles.
+            // If not an extractor, miners work as normal.
+            float originalToSpawn = toSpawn;
+
+            // Budget and auto-buy for linked extractors
             if (TryComp<DeviceLinkSinkComponent>(ent, out var sink) && sink.LinkedSources.Count > 0)
             {
-                const float targetCredits = 10000f;
-                const float creditsPerSpeco = 100f;
-
-                bool foundPayableConsole = false;
-                float costPerMole = 0f;
-
-                string gasId = ((int)miner.SpawnGas).ToString();
-                if (_proto.TryIndex<GasPrototype>(gasId, out var gasProto))
-                    costPerMole = gasProto.PricePerMole;
-
-                // We reduce this value as we go until we either pay fully or run out of payable consoles
-                float remainingToSpawn = toSpawn;
-
-                if (costPerMole > 0)
+                // Auto-buy attempt if enabled and deficit
+                if (miner.AutoBuyEnabled && originalToSpawn > 0)
                 {
-                    foreach (var sourceUid in sink.LinkedSources)
+                    float deficit = originalToSpawn - miner.RemainingMoles;
+
+                    if (deficit > 0)
                     {
-                        if (!TryComp<GasMinerConsoleComponent>(sourceUid, out var console) ||
-                            !TryComp<CargoOrderConsoleComponent>(sourceUid, out var orderConsole))
-                            continue;
+                        var consoleUid = sink.LinkedSources.First();
 
-                        // Auto-buy credits if enabled and we're below the target amount
-                        if (console.AutoBuy && console.Credits < targetCredits)
+                        if (TryComp<GasMinerConsoleComponent>(consoleUid, out var console) &&
+                            TryComp<CargoOrderConsoleComponent>(consoleUid, out var orderConsole))
                         {
-                            float neededCredits = targetCredits - console.Credits;
-                            int maxSpecoWeWant = (int)Math.Ceiling(neededCredits / creditsPerSpeco);
+                            float buyMoles = deficit * 1.05f;
 
-                            var station = _station.GetOwningStation(sourceUid);
-                            if (station != null && TryComp<StationBankAccountComponent>(station, out var bank))
-                            {
-                                var currentBalance = _cargo.GetBalanceFromAccount((station.Value, bank), orderConsole.Account);
-                                int specoToBuy = Math.Min(maxSpecoWeWant, currentBalance);
-
-                                if (specoToBuy > 0)
-                                {
-                                    _gasMinerConsole.TryPurchaseGasCredits((sourceUid, console), orderConsole, specoToBuy);
-                                }
-                            }
-                        }
-
-                        if (console.Credits <= 0)
-                            continue;
-
-                        foundPayableConsole = true;
-
-                        float affordableMoles = console.Credits / costPerMole;
-
-                        // Determine how much we can actually afford from this console
-                        if (affordableMoles >= remainingToSpawn)
-                        {
-                            // This console can pay for everything that's left to spawn
-                            float costCredits = remainingToSpawn * costPerMole * 100f;
-                            console.Credits -= costCredits;
-                            remainingToSpawn = 0f;
-                            Dirty(sourceUid, console);
-                            break;
-                        }
-                        else
-                        {
-                            // Drain this console completely, reduce what's left to spawn
-                            float costCredits = console.Credits;
-                            console.Credits = 0f;
-                            remainingToSpawn -= affordableMoles;
-                            Dirty(sourceUid, console);
-                            // continue to next console
+                            _gasMinerConsole.TryAutoPurchaseMoles(
+                                consoleUid,
+                                orderConsole,
+                                ent,
+                                buyMoles);
                         }
                     }
+                }
 
-                    if (!foundPayableConsole || remainingToSpawn >= toSpawn) // couldn't find any console to pay
-                        toSpawn = 0f;
-                    else
-                        toSpawn = toSpawn - remainingToSpawn;
+                // Deduct from budget
+                float canAfford = Math.Min(originalToSpawn, miner.RemainingMoles);
+
+                if (canAfford < Atmospherics.GasMinMoles)
+                {
+                    miner.MinerState = GasMinerState.Idle;
+                    toSpawn = 0f;
+                }
+                else
+                {
+                    miner.RemainingMoles -= canAfford;
+                    toSpawn = canAfford;
+                    Dirty(ent);
                 }
             }
             // End of Funkystation changes

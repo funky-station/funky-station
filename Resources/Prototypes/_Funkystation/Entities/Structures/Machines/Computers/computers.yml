@@ -198,7 +198,7 @@
 - type: entity
   id: ComputerCargoOrdersAtmospherics
   parent: ComputerCargoOrders
-  name: atmospherics reserves computer
+  name: atmospheric reserves computer
   description: Used by the atmospherics department to manage gases and order supplies.
   components:
   - type: Sprite
@@ -208,7 +208,7 @@
     - map: ["computerLayerKeyboard"]
       state: generic_keyboard
     - map: ["computerLayerScreen"]
-      state: request-sci
+      state: request-eng
     - map: ["computerLayerKeys"]
       state: generic_keys
     - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
@@ -230,6 +230,6 @@
     access: [["Atmospherics"]]
   - type: DeviceLinkSource
     ports:
-    - GasMinerConsole
+    - GasExtractorConsole
     - OrderSender
   - type: GasMinerConsole

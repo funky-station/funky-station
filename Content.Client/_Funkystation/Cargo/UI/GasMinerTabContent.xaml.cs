@@ -22,8 +22,8 @@ namespace Content.Client._Funkystation.Cargo.UI
 
         private EntityUid? _consoleUid;
         public event Action<int, float, float>? OnGasMinerSetSettings;
-        public event Action<int>? OnBuyGasCredits;
-        public event Action<bool>? OnToggleAutoBuy;
+        public event Action<int, bool>? OnToggleAutoBuyMiner;
+        public event Action<int, int>? OnBuyMolesForMiner;
         private static readonly string[] GasLocalizedNames = new[]
         {
             Loc.GetString("gases-oxygen"),        // 0 - Oxygen
@@ -51,53 +51,17 @@ namespace Content.Client._Funkystation.Cargo.UI
         public GasMinerTabContent()
         {
             RobustXamlLoader.Load(this);
-            BuyCreditsButton.OnPressed += OnBuyCreditsPressed;
-            AutoBuyToggleButton.OnPressed += OnAutoBuyTogglePressed;
-        }
-
-        private void OnAutoBuyTogglePressed(BaseButton.ButtonEventArgs args)
-        {
-            if (_consoleUid is not { Valid: true } uid)
-                return;
-
-            if (!_entMan.TryGetComponent<GasMinerConsoleComponent>(uid, out var console))
-                return;
-
-            bool newValue = !console.AutoBuy;
-
-            AutoBuyToggleButton.Pressed = newValue;
-            AutoBuyToggleButton.Text = newValue
-                ? Loc.GetString("gas-miner-auto-buy-on")
-                : Loc.GetString("gas-miner-auto-buy-off");
-
-            OnToggleAutoBuy?.Invoke(newValue);
-        }
-
-        private void OnBuyCreditsPressed(BaseButton.ButtonEventArgs args)
-        {
-            if (_consoleUid == null)
-                return;
-
-            var amount = BuyAmountSpinBox.Value;
-
-            if (amount <= 0)
-                return;
-
-            OnBuyGasCredits?.Invoke(amount);
         }
 
         public void SetConsole(EntityUid consoleUid)
         {
             _consoleUid = consoleUid;
             RefreshMiners();
-            UpdateCreditsDisplay();
-            UpdateAutoBuyButton();
         }
 
         protected override void FrameUpdate(FrameEventArgs args)
         {
             base.FrameUpdate(args);
-            UpdateCreditsDisplay();
 
             // Update all miner row statuses
             for (int i = 0; i < GasMinersListContainer.ChildCount; i++)
@@ -110,36 +74,15 @@ namespace Content.Client._Funkystation.Cargo.UI
                     {
                         var minerUid = console.LinkedMiners[i];
                         UpdateMinerRowStatus(row, minerUid);
+
+                        if (_entMan.TryGetComponent<GasMinerComponent>(minerUid, out var miner))
+                        {
+                            row.RemainingMolesLabel.Text = Loc.GetString("gas-miner-remaining-moles",
+                                ("amount", miner.RemainingMoles.ToString("N1")));
+                        }
                     }
                 }
             }
-        }
-
-        private void UpdateCreditsDisplay()
-        {
-            if (!_consoleUid.HasValue || !_entMan.EntityExists(_consoleUid.Value))
-                return;
-
-            if (!_entMan.TryGetComponent<GasMinerConsoleComponent>(_consoleUid.Value, out var console))
-                return;
-
-            CurrentGasCreditsLabel.Text = $"[color=#4ade80]{console.Credits:F2}[/color]";
-        }
-
-        private void UpdateAutoBuyButton()
-        {
-            if (!_consoleUid.HasValue || !_entMan.EntityExists(_consoleUid.Value))
-                return;
-
-            if (!_entMan.TryGetComponent<GasMinerConsoleComponent>(_consoleUid.Value, out var console))
-                return;
-
-            bool enabled = console.AutoBuy;
-
-            AutoBuyToggleButton.Pressed = enabled;
-            AutoBuyToggleButton.Text = enabled
-                ? Loc.GetString("gas-miner-auto-buy-on")
-                : Loc.GetString("gas-miner-auto-buy-off");
         }
 
         public void RefreshMiners()
@@ -179,11 +122,8 @@ namespace Content.Client._Funkystation.Cargo.UI
                 row.RateSpinBox.Value = (int)miner.SpawnAmount;
                 row.MaxPressureSpinBox.Value = (int)miner.MaxExternalPressure;
 
-                // Live cost preview when rate changes
                 row.RateSpinBox.ValueChanged += args =>
                 {
-                    float creditsPerSecond = args.Value * pricePerMole;
-                    row.CostLabel.Text = $"[color=#fbbf24]{creditsPerSecond:F1} c/s[/color]";
                     row.ApplyButton.Disabled = false;
                 };
 
@@ -192,9 +132,9 @@ namespace Content.Client._Funkystation.Cargo.UI
                     row.ApplyButton.Disabled = false;
                 };
 
-                // Initial cost display
-                float initialCredits = row.RateSpinBox.Value * pricePerMole;
-                row.CostLabel.Text = $"[color=#fbbf24]{initialCredits:F1} c/s[/color]";
+                row.BuyPreviewLabel.Text = $"[color=#a0d0ff]{Loc.GetString("gas-miner-price-per-mol", ("price", pricePerMole.ToString("F2")))}[/color]";
+
+                row.RemainingMolesLabel.Text = Loc.GetString("gas-miner-remaining-moles", ("amount", miner.RemainingMoles.ToString("N1")));
 
                 // Apply button sends final values to server
                 int currentIndex = minerIndex;
@@ -211,8 +151,23 @@ namespace Content.Client._Funkystation.Cargo.UI
                     row.MaxPressureSpinBox.Value = pressureToSend;
 
                     float finalCredits = rateToSend * pricePerMole;
-                    row.CostLabel.Text = $"[color=#fbbf24]{finalCredits:F1} c/s[/color]";
                     row.ApplyButton.Disabled = true;
+                };
+
+                row.AutoBuyCheckBox.Pressed = miner.AutoBuyEnabled;
+                row.AutoBuyCheckBox.OnToggled += (args) =>
+                {
+                    OnToggleAutoBuyMiner?.Invoke(currentIndex, args.Pressed);
+                };
+
+                row.BuySpinBox.Value = 100;
+                row.BuyButton.OnPressed += _ =>
+                {
+                    var spesos = (int)Math.Max(0, row.BuySpinBox.Value);
+                    if (spesos > 0)
+                    {
+                        OnBuyMolesForMiner?.Invoke(currentIndex, spesos);
+                    }
                 };
 
                 UpdateMinerRowStatus(row, sinkUid);

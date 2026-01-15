@@ -4,6 +4,7 @@
 # SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 terkala <appleorange64@gmail.com>
+# SPDX-FileCopyrightText: 2026 Xcybitt <197952719+Xcybitt@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -41,18 +42,19 @@
 # Chem Boots!
 
 - type: entity
-  parent: [ ClothingShoesBase, BaseMedicalContraband ]
+  parent: ClothingShoesBase
   id: ClothingShoesChemistryBoots
   name: heavy-duty chemistry boots
-  description: Heavy-duty PPE worn by Chemists. For when some intern spills your entire jug of diphenhydramine.
+  description: Heavy-duty PPE worn by Chemists. For when some intern spills your entire jug of diphenhydramine, and you don't want to get your clothing dirty.
   components:
   - type: Sprite
     sprite: _Funkystation/Clothing/Shoes/Misc/chemistry.rsi
   - type: Clothing
     sprite: _Funkystation/Clothing/Shoes/Misc/chemistry.rsi
-  - type: NoSlip
-  - type: SlowedOverSlippery
-    slowdownModifier: 0.7
-  - type: SpeedModifierContactCapClothing
-    maxContactSprintSlowdown: 0.7
-    maxContactWalkSlowdown: 0.7
+#  - type: NoSlip
+#  - type: SlowedOverSlippery
+#    slowdownModifier: 0.7
+#  - type: SpeedModifierContactCapClothing
+#    maxContactSprintSlowdown: 0.7
+#    maxContactWalkSlowdown: 0.7
+#highkey this is a mald PR but like this is genuinely unneeded. You can already just buy noslips for 10TC, but you get it for free I guess. Yay. Genuinely if you want free noslips go shoot the janitor.

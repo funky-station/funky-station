@@ -3,6 +3,7 @@
 // SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2026 Carcc <225926381+carccborg@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -25,6 +26,7 @@ using Content.Shared.FixedPoint;
 using Content.Shared.Forensics.Components;
 using Content.Shared.Damage.Prototypes;
 // End DeltaV Additions
+using Content.Shared.Traits.Assorted;
 using Content.Shared._Shitmed.Medical.Surgery;
 using Content.Shared._Shitmed.Medical.Surgery.Conditions;
 using Content.Shared._Shitmed.Medical.Surgery.Effects.Step;
@@ -268,6 +270,9 @@ public sealed class SurgerySystem : SharedSurgerySystem
     private void OnStepScreamComplete(Entity<SurgeryStepEmoteEffectComponent> ent, ref SurgeryStepEvent args)
     {
         if (HasComp<AnesthesiaComponent>(args.Body)) // DeltaV
+            return;
+
+        if (HasComp<PainNumbnessComponent>(args.Body))
             return;
 
         _chat.TryEmoteWithChat(args.Body, ent.Comp.Emote);

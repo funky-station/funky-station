@@ -27,6 +27,7 @@
 // SPDX-FileCopyrightText: 2024 Piras314 <92357316+Piras314@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
 // SPDX-FileCopyrightText: 2024 router <messagebus@vk.com>
+// SPDX-FileCopyrightText: 2025 Homingpenguins <asadellace4@gmail.com>
 // SPDX-FileCopyrightText: 2025 LaCumbiaDelCoronavirus <90893484+LaCumbiaDelCoronavirus@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Mish <bluscout78@yahoo.com>
 // SPDX-FileCopyrightText: 2025 ReconPangolin <67752926+ReconPangolin@users.noreply.github.com>
@@ -36,6 +37,8 @@
 // SPDX-FileCopyrightText: 2025 rottenheadphones <juaelwe@outlook.com>
 // SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2026 Homingpenguins <59744509+Homingpenguins@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2026 Sarah C <93578146+SapphicOverload@users.noreply.github.com>
 //
 // SPDX-License-Identifier: MIT
 
@@ -318,6 +321,7 @@ namespace Content.Shared.Atmos
 
         public const float TritiumBurnOxyFactor = 100f;
         public const float TritiumBurnTritFactor = 10f;
+        public const float TritiumBurnFuelRatio = 2f;
 
         public const float FrezonCoolLowerTemperature = 23.15f;
 
@@ -442,19 +446,9 @@ namespace Content.Shared.Atmos
         public const float ProtoNitrateTemperatureScale = 5e-3f;
 
         /// <summary>
-        /// The maximum number of moles of hydrogen that can be converted into proto-nitrate in a single reaction tick.
+        /// The amount of energy converting a mole of Trit or Hydrogen into the other produces or Takes.
         /// </summary>
-        public const float ProtoNitrateHydrogenConversionMaxRate = 5f;
-
-        /// <summary>
-        /// The amount of energy converting a mole of hydrogen into half a mole of proto-nitrate consumes.
-        /// </summary>
-        public const float ProtoNitrateHydrogenConversionEnergy = -2500f;
-
-        /// <summary>
-        /// The amount of energy proto-nitrate converting a mole of tritium into hydrogen releases.
-        /// </summary>
-        public const float ProtoNitrateTritiumConversionEnergy = 10000f;
+        public const float ProtoNitrateConversionEnergy = 2000f;
 
         /// <summary>
         /// The amount of energy proto-nitrate breaking down a mole of BZ releases.

@@ -7402,3 +7402,9 @@ Entries:
         on the map Eden.
   id: 859
   time: '2026-01-15T01:33:37.0000000+00:00'
+- author: marc-pelletier
+  changes:
+    - type: Fix
+      message: 'Tritium and hydrogen fires no longer overproduce water vapor or energy. '
+  id: 860
+  time: '2026-01-15T02:27:50.0000000+00:00'

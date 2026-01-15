@@ -69,8 +69,6 @@ public sealed class DnaScannerConsoleSystem : EntitySystem
 
     private void OnComponentInit(EntityUid uid, DnaScannerConsoleComponent comp, ComponentInit args)
     {
-        comp.NextHealthUpdate = _timing.CurTime + UpdateTickInterval;
-        comp.JokerCooldownEnd = _timing.CurTime + TimeSpan.FromSeconds(JokerCooldownSeconds);
         EnsureDiscoveryTracker(uid);
     }
 
@@ -646,7 +644,7 @@ public sealed class DnaScannerConsoleSystem : EntitySystem
         while (query.MoveNext(out var uid, out var console, out var source))
         {
             // Health UI update
-            if (console.NextHealthUpdate <= now)
+            if (console.NextHealthUpdate is null || console.NextHealthUpdate <= now)
             {
                 console.NextHealthUpdate = now + UpdateTickInterval;
                 SendUiUpdate(uid, console, false);

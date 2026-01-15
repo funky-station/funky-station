@@ -88,7 +88,7 @@
   - Weapons
   completetime: 5
   materials:
-    Steel: 1500
+    Plasteel: 1000
     Gold: 500
     Silver: 500
 
@@ -99,7 +99,7 @@
   - Weapons
   completetime: 5
   materials:
-    Steel: 1500
+    Plasteel: 1000
     Gold: 500
     Silver: 500
 
@@ -110,7 +110,7 @@
   - Weapons
   completetime: 5
   materials:
-    Steel: 1500
+    Plasteel: 1000
     Gold: 500
     Silver: 500
 

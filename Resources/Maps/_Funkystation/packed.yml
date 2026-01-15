@@ -65,8 +65,8 @@ meta:
   engineVersion: 268.0.0
   forkId: ""
   forkVersion: ""
-  time: 01/09/2026 00:37:14
-  entityCount: 16911
+  time: 01/13/2026 23:54:50
+  entityCount: 16914
 maps:
 - 4480
 grids:
@@ -9695,7 +9695,7 @@ entities:
       pos: 33.5,6.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -79013.51
+      secondsUntilStateChange: -80657.48
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -10645,7 +10645,7 @@ entities:
       pos: 39.5,7.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -60212.508
+      secondsUntilStateChange: -61856.473
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -11110,7 +11110,7 @@ entities:
       pos: 24.5,27.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -62483.258
+      secondsUntilStateChange: -64127.223
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -13736,12 +13736,6 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 39.5,24.5
-      parent: 2
-  - uid: 11149
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 71.5,-4.5
       parent: 2
   - uid: 15792
     components:
@@ -38758,6 +38752,7 @@ entities:
   - uid: 3531
     components:
     - type: Transform
+      rot: 3.141592653589793 rad
       pos: 71.5,8.5
       parent: 2
   - uid: 3532
@@ -43657,16 +43652,6 @@ entities:
     - type: Physics
       angularDamping: 0
       linearDamping: 0
-- proto: ClothingOuterWinterGen
-  entities:
-  - uid: 11347
-    components:
-    - type: Transform
-      pos: 71.638016,-1.5971546
-      parent: 2
-    - type: Physics
-      angularDamping: 0
-      linearDamping: 0
 - proto: ClothingOuterWinterSci
   entities:
   - uid: 14886
@@ -44214,6 +44199,14 @@ entities:
       rot: 3.141592653589793 rad
       pos: 37.5,24.5
       parent: 2
+- proto: ComputerDnaScanner
+  entities:
+  - uid: 3000
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 71.5,-4.5
+      parent: 2
 - proto: ComputerFundingAllocation
   entities:
   - uid: 15964
@@ -44651,6 +44644,13 @@ entities:
     components:
     - type: Transform
       pos: 1.6795578,39.386856
+      parent: 2
+- proto: CrashCartFilled
+  entities:
+  - uid: 16914
+    components:
+    - type: Transform
+      pos: 63.5,0.5
       parent: 2
 - proto: CrateArtifactContainer
   entities:
@@ -45231,6 +45231,11 @@ entities:
     - type: Transform
       pos: -23.5,-5.5
       parent: 2
+  - uid: 13129
+    components:
+    - type: Transform
+      pos: 70.5,-5.5
+      parent: 2
   - uid: 16878
     components:
     - type: Transform
@@ -45335,6 +45340,16 @@ entities:
     components:
     - type: Transform
       pos: 31.5,46.5
+      parent: 2
+  - uid: 16912
+    components:
+    - type: Transform
+      pos: 56.5,-4.5
+      parent: 2
+  - uid: 16913
+    components:
+    - type: Transform
+      pos: 61.5,-6.5
       parent: 2
 - proto: DecalSpawnerDirtSingle
   entities:
@@ -45934,11 +45949,6 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 43.5,4.5
-      parent: 2
-  - uid: 3000
-    components:
-    - type: Transform
-      pos: 63.5,5.5
       parent: 2
   - uid: 10661
     components:
@@ -75382,6 +75392,16 @@ entities:
     - type: Transform
       pos: 25.512451,48.501656
       parent: 2
+- proto: HandheldGeneticAnalyzer
+  entities:
+  - uid: 11347
+    components:
+    - type: Transform
+      pos: 71.47125,-1.9352088
+      parent: 2
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
 - proto: HandheldHealthAnalyzer
   entities:
   - uid: 12368
@@ -78083,6 +78103,32 @@ entities:
       angularDamping: 0
       linearDamping: 0
       canCollide: False
+  - uid: 13128
+    components:
+    - type: Transform
+      pos: 40.504204,-45.510857
+      parent: 2
+    - type: Paper
+      content: >-
+        [head=2]    ──────═════  [color=#1b487e][/head]◥[head=2]N[/head]◣[/color][head=2]  ═════──────[/head]
+
+        [head=2] ────════  [color=#009100][/head][head=3]Central Command[/head][/color][head=2]  ════────[/head]
+
+            To Whom It May Concern:
+
+        Due to the increasing spesos deficit incurred by this station in prior shifts, [color=#009100]Central Command[/color] has made the executive decision to liquidate the [color=#f39f27]Engineering[/color] department's Thermo-electric Generator. 
+
+
+        Should [color=#f39f27]Engineering[/color] wish to make use of a Thermo-electric Generator in the future, consider purchasing one through your request computer.
+
+
+        ══──══──══──══──══──══──══──══──══──══──══
+
+
+        Regards,
+
+
+        [color=#009100]Central Command[/color]
   - uid: 13551
     components:
     - type: Transform
@@ -78490,6 +78536,16 @@ entities:
     - type: Transform
       pos: -10.371484,6.6507306
       parent: 2
+- proto: PillCanisterMutadone
+  entities:
+  - uid: 11149
+    components:
+    - type: Transform
+      pos: 71.71975,-2.3968573
+      parent: 2
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
 - proto: PillCanisterRandom
   entities:
   - uid: 15341
@@ -79552,6 +79608,16 @@ entities:
     - type: Transform
       pos: 15.5,24.5
       parent: 2
+- proto: PowerCellSmall
+  entities:
+  - uid: 3774
+    components:
+    - type: Transform
+      pos: 71.360374,-2.4281292
+      parent: 2
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
 - proto: PowerDrill
   entities:
   - uid: 9512
@@ -79649,7 +79715,7 @@ entities:
   - uid: 10371
     components:
     - type: Transform
-      pos: 74.5,8.5
+      pos: 73.5,8.5
       parent: 2
   - uid: 10670
     components:
@@ -79708,6 +79774,11 @@ entities:
     components:
     - type: Transform
       pos: 39.5,-19.5
+      parent: 2
+  - uid: 13127
+    components:
+    - type: Transform
+      pos: 78.5,8.5
       parent: 2
   - uid: 13495
     components:
@@ -91970,14 +92041,6 @@ entities:
       parent: 2
 - proto: Syringe
   entities:
-  - uid: 3774
-    components:
-    - type: Transform
-      pos: 71.200516,-1.5658827
-      parent: 2
-    - type: Physics
-      angularDamping: 0
-      linearDamping: 0
   - uid: 10709
     components:
     - type: Transform
@@ -93873,31 +93936,6 @@ entities:
     - type: Transform
       pos: 27.5,8.5
       parent: 2
-- proto: TegCenter
-  entities:
-  - uid: 13127
-    components:
-    - type: Transform
-      pos: 40.5,-46.5
-      parent: 2
-- proto: TegCirculator
-  entities:
-  - uid: 13128
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 40.5,-47.5
-      parent: 2
-    - type: PointLight
-      color: '#FF3300FF'
-  - uid: 13129
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 40.5,-45.5
-      parent: 2
-    - type: PointLight
-      color: '#FF3300FF'
 - proto: TelecomServer
   entities:
   - uid: 533
@@ -94721,8 +94759,11 @@ entities:
   - uid: 5712
     components:
     - type: Transform
-      pos: 71.513016,-2.300768
+      pos: 71.5025,-1.5418266
       parent: 2
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
   - uid: 13431
     components:
     - type: Transform

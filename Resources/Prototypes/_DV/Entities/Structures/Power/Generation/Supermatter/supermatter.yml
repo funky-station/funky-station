@@ -34,7 +34,6 @@
         - InteractImpassable
         - Opaque
         layer:
-        - WallLayer
         - MidImpassable
         - HighImpassable
         - BulletImpassable

@@ -7388,3 +7388,17 @@ Entries:
       message: 'Tritium fires no longer break conservation of mass. '
   id: 858
   time: '2026-01-14T18:27:57.0000000+00:00'
+- author: salpphie
+  changes:
+    - type: Add
+      message: >-
+        Added proper geneticist minus the role and a single pipe bend to the map
+        Eden. 
+    - type: Remove
+      message: Removed TEG from atmos on the map Eden.
+    - type: Tweak
+      message: >-
+        Fixed Minor walls, doors, flooring, button, and connections to the silo
+        on the map Eden.
+  id: 859
+  time: '2026-01-15T01:33:37.0000000+00:00'

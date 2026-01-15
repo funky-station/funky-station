@@ -7408,3 +7408,13 @@ Entries:
       message: 'Tritium and hydrogen fires no longer overproduce water vapor or energy. '
   id: 860
   time: '2026-01-15T02:27:50.0000000+00:00'
+- author: KittyCat432
+  changes:
+    - type: Tweak
+      message: Reporter nolonger has access to all cameras on box.
+    - type: Tweak
+      message: AI turret controllers are now present on box
+    - type: Fix
+      message: Fixed box's windows not having hull plating underneath it.
+  id: 861
+  time: '2026-01-15T20:21:05.0000000+00:00'

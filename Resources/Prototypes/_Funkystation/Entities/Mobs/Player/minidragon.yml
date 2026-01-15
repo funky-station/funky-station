@@ -116,8 +116,8 @@
         - ActionCritLastWords 
     - type: SlowOnDamage
       speedModifierThresholds:
-        75: 0.8
-        100: 0.6 
+        125: 0.85
+        175: 0.7 
     - type: StatusEffects
       allowed:
       - SlowedDown
@@ -156,6 +156,7 @@
           Brute: -0.4
           Burn: -0.4
           Toxin: -0.4
+          Airloss: -0.4
 
 - type: entity
   name: mini dragon

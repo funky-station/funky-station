@@ -43,6 +43,9 @@
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]
+  alternateTitles:
+  - InternalAffairsAgentSapientResourcesAgent
+  - InternalAffairsAgentCorporateComplianceOfficer
 
 - type: startingGear
   id: InternalAffairsAgentGear
@@ -60,3 +63,11 @@
     - Flash
     - BluespaceLifelineImplanter
     - BoxFolderCentComClipboard
+
+- type: jobAlternateTitle
+  id: InternalAffairsAgentSapientResourcesAgent
+  name: job-name-alt-iaa-1
+
+- type: jobAlternateTitle
+  id: InternalAffairsAgentCorporateComplianceOfficer
+  name: job-name-alt-iaa-2

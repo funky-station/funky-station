@@ -24,7 +24,9 @@
 # SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Fr0goo <153249069+Fr0goo@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Fr0goo <frogoofrog@outlook.com>
+# SPDX-FileCopyrightText: 2025 MaiaArai <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2026 SharkSnake98 <sharksnake87@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -48,6 +50,8 @@
   - JanitorMaid
   - JanitorMaintenanceWorker
   - JanitorCustodialTechnician
+  - JanitorSanitationSpecialist
+  - JanitorCustodian
 
 - type: startingGear
   id: JanitorGear
@@ -80,3 +84,11 @@
 - type: jobAlternateTitle
   id: JanitorCustodialTechnician
   name: job-name-alt-janitor-3
+
+- type: jobAlternateTitle
+  id: JanitorSanitationSpecialist
+  name: job-name-alt-janitor-4
+
+- type: jobAlternateTitle
+  id: JanitorCustodian
+  name: job-name-alt-janitor-5

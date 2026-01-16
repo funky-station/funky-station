@@ -50,6 +50,12 @@
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]
+  alternateTitles:
+  - MagistrateJudge
+  - MagistrateArbitrator
+  - MagistrateNanotrasenChiefAdjudicator
+  - MagistrateJudicialAdministrator
+  - MagistrateChiefLegalOfficer
 
 - type: startingGear
   id: MagistrateGear
@@ -67,3 +73,23 @@
     - BookSpaceLaw
     - BluespaceLifelineImplanter
     - BoxFolderCentComClipboard
+
+- type: jobAlternateTitle
+  id: MagistrateJudge
+  name: job-name-alt-magistrate-1
+
+- type: jobAlternateTitle
+  id: MagistrateArbitrator
+  name: job-name-alt-magistrate-2
+
+- type: jobAlternateTitle
+  id: MagistrateNanotrasenChiefAdjudicator
+  name: job-name-alt-magistrate-3
+
+- type: jobAlternateTitle
+  id: MagistrateJudicialAdministrator
+  name: job-name-alt-magistrate-4
+
+- type: jobAlternateTitle
+  id: MagistrateChiefLegalOfficer
+  name: job-name-alt-magistrate-5

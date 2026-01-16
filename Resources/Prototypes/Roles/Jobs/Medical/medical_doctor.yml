@@ -27,11 +27,14 @@
 # SPDX-FileCopyrightText: 2024 Mr. 27 <45323883+Dutch-VanDerLinde@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 MaiaArai <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Mish <bluscout78@yahoo.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2026 JoulesBerg <104539820+JoulesBerg@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2026 SharkSnake98 <sharksnake87@gmail.com>
+# SPDX-FileCopyrightText: 2026 taydeo <td12233a@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -60,6 +63,8 @@
   - MedicalDoctorPhysician
   - MedicalDoctorNurse
   - MedicalDoctorSurgeon
+  - MedicalDoctorGeneralPractitioner
+  - MedicalDoctorMedicalResident
 
 - type: startingGear
   id: DoctorGear
@@ -81,3 +86,11 @@
 - type: jobAlternateTitle
   id: MedicalDoctorPhysician
   name: job-name-alt-medical-3
+
+- type: jobAlternateTitle
+  id: MedicalDoctorGeneralPractitioner
+  name: job-name-alt-medical-4
+
+- type: jobAlternateTitle
+  id: MedicalDoctorMedicalResident
+  name: job-name-alt-medical-5

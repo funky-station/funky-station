@@ -46,6 +46,7 @@
 # SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2026 Tea <Xerithin@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -80,23 +81,10 @@
       - Armor
       - WhitelistChameleon
 
-#Standard armor vest, allowed for security and bartenders
+#Standard armor vest, allowed for security
 - type: entity
   parent: [ BaseSecurityBartenderContraband, ClothingOuterArmorBase]
   id: ClothingOuterArmorBasic
-
-#Alternate / slim basic armor vest
-- type: entity
-  parent: ClothingOuterArmorBasic
-  id: ClothingOuterArmorBasicSlim
-  name: armor vest
-  suffix: slim
-  description: A slim Type I armored vest that provides decent protection against most types of damage.
-  components:
-  - type: Sprite
-    sprite: Clothing/OuterClothing/Armor/security_slim.rsi
-  - type: Clothing
-    sprite: Clothing/OuterClothing/Armor/security_slim.rsi
 
 - type: entity
   parent: [ClothingOuterBaseLarge, AllowBackStorageClothingCombat, BaseSecurityContraband]

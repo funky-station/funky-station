@@ -4,11 +4,13 @@
 # SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 CalicoDragon <110030310+CalicoDragon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Fenn <162015305+TooSillyFennec@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Smugman <85798843+Smugman@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Sofia Gilsanz <softie.gd@gmail.com>
 # SPDX-FileCopyrightText: 2025 ThatOneMoon <91613003+ThatOneMoon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
 # SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2026 Tea <Xerithin@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -145,7 +147,7 @@
 - type: startingGear
   id: VisitorHOS
   equipment:
-    jumpsuit: ClothingUniformJumpsuitHoSParadeMale
+    jumpsuit: ClothingUniformJumpsuitHosFormal
     shoes: ClothingShoesBootsCowboyBlackFilled
     gloves: ClothingHandsGlovesCombat
     head: ClothingHeadHatHoshat
@@ -269,7 +271,7 @@
 - type: startingGear
   id: VisitorSecurityCadetAlt
   equipment:
-    jumpsuit: ClothingUniformJumpsuitSecGrey
+    jumpsuit: ClothingUniformSecurityTrooper
     shoes: ClothingShoesBootsCombatFilled
     head: ClothingHeadHelmetBasic
     neck: SecurityWhistle
@@ -278,7 +280,7 @@
     back: ClothingBackpackSatchelSecurity
     ears: ClothingHeadsetAltSecurityRegular # Goobstation
     eyes: ClothingEyesGlassesSecurity
-    outerClothing: ClothingOuterArmorBasicSlim
+    outerClothing: ClothingOuterArmorBasic
     pocket1: WeaponPistolMk58
     pocket2: MagazinePistol
   inhand:
@@ -304,7 +306,7 @@
 - type: startingGear
   id: VisitorSecurityOfficerAlt
   equipment:
-    jumpsuit: ClothingUniformJumpsuitSecGrey
+    jumpsuit: ClothingUniformSecurityTrooper
     shoes: ClothingShoesBootsCombatFilled
     head: ClothingHeadHatCorpsoft
     neck: SecurityWhistle
@@ -313,7 +315,7 @@
     back: ClothingBackpackSatchelSecurity
     ears: ClothingHeadsetAltSecurityRegular # Goobstation
     eyes: ClothingEyesGlassesSecurity
-    outerClothing: ClothingOuterArmorBasicSlim
+    outerClothing: ClothingOuterArmorBasic
     pocket1: WeaponPistolMk58
     pocket2: MagazinePistol
   inhand:
@@ -969,7 +971,7 @@
     suitstorage: WeaponShotgunDoubleBarreledRubber
     ears: ClothingHeadsetService
     eyes: ClothingEyesGlassesSunglasses
-    outerClothing: ClothingOuterArmorBasicSlim
+    outerClothing: ClothingOuterVest
     pocket1: DrinkVodkaBottleFull
     pocket2: BarSpoon
 
@@ -1764,7 +1766,7 @@
 - type: startingGear
   id: ChallengeVictimHOS
   equipment:
-    jumpsuit: ClothingUniformJumpsuitHoSParadeMale
+    jumpsuit: ClothingUniformJumpsuitHosFormal
     shoes: ClothingShoesBootsCowboyBlackFilled
     gloves: ClothingHandsGlovesCombat
     head: ClothingHeadHatHoshat

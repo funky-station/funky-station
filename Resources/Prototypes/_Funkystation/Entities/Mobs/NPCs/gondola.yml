@@ -4,6 +4,11 @@
 # SPDX-FileCopyrightText: 2024 John Space <bigdumb421@gmail.com>
 # SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
 # SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 Dragon232347 <122056448+Dragon232347@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Ed <96445749+TheShuEd@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Mish <bluscout78@yahoo.com>
+# SPDX-FileCopyrightText: 2025 Toaster <mrtoastymyroasty@gmail.com>
+# SPDX-FileCopyrightText: 2025 Toastermeister <215405651+Toastermeister@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2026 DimFlower <157099920+DimFlower@users.noreply.github.com>
 #
@@ -17,7 +22,7 @@
     - BaseSimpleMob
     - MobBloodstream
     - MobFlammable
-  id: MobGondolaOLD
+  id: MobGondola
   description: Having no hands he embodies the Taoist principle of wu-wei (non-action) while his smiling facial expression shows his utter and complete acceptance of the world as it is.
   components:
   - type: Hunger
@@ -114,7 +119,7 @@
     rootTask:
       task: IdleCompound
   - type: Body
-    prototype: Animal
+    prototype: Primate
   - type: Climbing
   - type: NameIdentifier
     group: GenericNumber
@@ -125,59 +130,3 @@
   - type: MobPrice
     price: 1000 # Living critters are valuable in space.
   - type: Perishable
-
-- type: entity
-  name: syndiroach
-  id: MobMothSyndy
-  parent: MobMothroach
-  description: Explosive moth.
-  components:
-  - type: Sprite
-    sprite: _Goobstation/Mobs/Animals/syndiroach.rsi
-  - type: Clothing
-    quickEquip: false
-    sprite: _Goobstation/Mobs/Animals/syndiroach.rsi
-    equippedPrefix: 0
-    slots:
-    - HEAD
-  - type: GhostRole
-    prob: 1
-    name: ghost-role-information-SyndiRoach-name
-    allowMovement: true
-    description: ghost-role-information-SyndiRoach-description
-    rules: ghost-role-information-SyndiRoach-rules
-    raffle:
-      settings: default
-  - type: GhostTakeoverAvailable
-  - type: AutoImplant
-    implants:
-    - MicroBombImplant
-  - type: ExplosionResistance
-    damageCoefficient: 0.2
-  - type: NpcFactionMember
-    factions:
-    - Syndicate
-
-- type: entity
-  name: syndie bee
-  suffix: Angry, syndicate
-  parent: [ MobAngryBee ]
-  id: MobSyndieAngryBee
-  description: How nice a bee. Oh no, it looks angry and wants my pizza.
-  components:
-  - type: NpcFactionMember
-    factions:
-    - SimpleHostile
-    - Syndicate
-
-- type: entity
-  suffix: Angry, weak
-  id: MobAngryBeeWeak
-  parent: MobAngryBee
-  components:
-  - type: MeleeWeapon
-    damage:
-      types:
-        Piercing: 1.5
-  - type: TimedDespawn
-    lifetime: 5

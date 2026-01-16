@@ -1,4 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Smugman <85798843+Smugman@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 ThatOneMoon <91613003+ThatOneMoon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
+# SPDX-FileCopyrightText: 2025 Xcybitt <197952719+Xcybitt@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Xcybitt <lenazheng88@gmail.com>
 # SPDX-FileCopyrightText: 2025 Xcybitt <xcybitt@gmail.com>
 # SPDX-FileCopyrightText: 2025 mkanke-real <mikekanke@gmail.com>
@@ -577,9 +580,217 @@
     - id: ClothingHandsGlovesColorYellow
 
 - type: entity
+  parent: BaseMailLarge
+  id: MailBowKit
+  suffix: Bow Kit
+  components:
+  - type: Mail
+    contents:
+    - id: BowImprovised
+    - id: ClothingBeltQuiver
+    - id: ArrowRegular
+      amount: 3
+
+- type: entity
+  parent: BaseMailLarge
+  id: MailMedibot
+  suffix: Medibot
+  components:
+  - type: Mail
+    contents:
+    - id: MobMedibot
+
+- type: entity
+  parent: BaseMailLarge
+  id: MailFireBot
+  suffix: FireBot
+  components:
+  - type: Mail
+    contents:
+    - id: MobFireBot
+
+- type: entity
+  parent: BaseMailLarge
+  id: MailCleanBot
+  suffix: Cleanbot
+  components:
+  - type: Mail
+    contents:
+    - id: MobCleanBot
+
+- type: entity
+  parent: BaseMailLarge
+  id: MailMimeBot
+  suffix: Mime Bot
+  components:
+  - type: Mail
+    contents:
+    - id: MobMimeBot
+
+- type: entity
+  parent: BaseMailLarge
+  id: MailSupplyBot
+  suffix: Supply Bot
+  components:
+  - type: Mail
+    contents:
+    - id: MobSupplyBot
+
+- type: entity
+  parent: BaseMailSmall
+  id: MailAgentDecoy
+  suffix: Agent Decoy
+  components:
+  - type: Mail
+    contents:
+    - id: BalloonAgent
+
+- type: entity
+  parent: BaseMailSmall
+  id: MailCommanderDecoy
+  suffix: Commander Decoy
+  components:
+  - type: Mail
+    contents:
+    - id: BalloonCommander
+
+- type: entity
+  parent: BaseMailSmall
+  id: MailEliteDecoy
+  suffix: Elite Decoy
+  components:
+  - type: Mail
+    contents:
+    - id: BalloonElite
+
+- type: entity
+  parent: BaseMailSmall
+  id: MailJuggernautDecoy
+  suffix: Juggernaut Decoy
+  components:
+  - type: Mail
+    contents:
+    - id: BalloonJuggernaut
+
+- type: entity
+  parent: BaseMailSmall
+  id: MailOperativeDecoy
+  suffix: Operative Decoy
+  components:
+  - type: Mail
+    contents:
+    - id: BalloonOperative
+
+- type: entity
+  parent: BaseMailSmall
+  id: MailLandMine
+  suffix: Land Mine
+  components:
+  - type: Mail
+    contents:
+    - id: LandMineModular
+
+- type: entity
+  parent: BaseMailLarge
+  id: MailLightImplant
+  suffix: Light Implant
+  components:
+  - type: Mail
+    contents:
+    - id: LightImplanter
+      amount: 3
+
+- type: entity
+  parent: BaseMailLarge
+  id: MailSadTromboneImplant
+  suffix: Sad Trombone Implanter
+  components:
+  - type: Mail
+    contents:
+    - id: SadTromboneImplanter
+      amount: 3
+
+- type: entity
+  parent: BaseMailLarge
+  id: MailBikeHornImplant
+  suffix: Bike Horn Implant
+  components:
+  - type: Mail
+    contents:
+    - id: BikeHornImplanter
+      amount: 3
+
+- type: entity
+  parent: BaseMail
+  id: MailSyndicateBusinessCard
+  suffix: Syndicate Business Card
+  components:
+  - type: Mail
+    contents:
+    - id: SyndicateBusinessCard
+
+- type: entity
+  parent: BaseMailSmall
+  id: MailBloodRedBrewPair
+  suffix: Blood Red Brew Pair
+  components:
+  - type: Mail
+    contents:
+    - id: DrinkNukieCan
+      amount: 2
+
+- type: entity
+  parent: BaseMailSmall
+  id: MailChangelingStingPair
+  suffix: Changeling Sting Pair
+  components:
+  - type: Mail
+    contents:
+    - id: DrinkChangelingStingCan
+      amount: 2
+
+- type: entity
+  parent: BaseMailSmall
+  id: MailClownFood
+  suffix: Clown Food
+  components:
+  - type: Mail
+    contents:
+    - id: FoodMealHappyHonkBigBite
+
+- type: entity
+  parent: BaseMailLarge
+  id: MailBloodRedBrewPack
+  suffix: Blood Red Brew Pack
+  components:
+  - type: Mail
+    contents:
+    - id: DrinkNukieCan
+      amount: 6
+
+- type: entity
+  parent: BaseMailLarge
+  id: MailChangelingStingPack
+  suffix: Changeling Sting Pack
+  components:
+  - type: Mail
+    contents:
+    - id: DrinkChangelingStingCan
+      amount: 6
+
+- type: entity
+  parent: BaseMailLarge
+  id: MailCarpBundle
+  suffix: Carp Bundle
+  components:
+  - type: Mail
+    contents:
+    - id: ClothingBackpackDuffelSyndicateCarpSuit
+    
+- type: entity
   parent: BaseMail
   id: MailMysteryLighterBox
-  suffix: Ligher Mystery Box 
+  suffix: Lighter Mystery Box 
   components:
   - type: Mail
     contents:
@@ -588,7 +799,7 @@
 - type: entity
   parent: BaseMail
   id: MailUplinkLighterBox
-  suffix: Uplink Ligher Mystery Box 
+  suffix: Uplink Lighter Mystery Box 
   components:
   - type: Mail
     contents:

@@ -630,3 +630,10 @@
   plantMetabolism:
   - !type:PlantAdjustMutationLevel
     amount: -1
+  metabolisms:
+    Medicine:
+      effects:
+      - !type:MutationRemoval
+        chance: 0.6
+        minRemovals: 1
+        maxRemovals: 2

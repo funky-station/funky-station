@@ -139,6 +139,8 @@ guide-entry-defusal = Large Bomb Defusal
 guide-entry-criminal-records = Criminal Records
 guide-entry-command = Command
 guide-entry-service = Service
+# Funkystaion - Genetics
+guide-entry-genetics = Genetics
 
 guide-entry-newplayer = New? Start here!
 guide-entry-charactercreation = Creating Characters

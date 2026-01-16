@@ -1,0 +1,7 @@
+<ui:UniqueEnzymeButton xmlns="https://spacestation14.io"
+                       xmlns:ui="clr-namespace:Content.Client._Funkystation.Genetics.DnaScannerConsole.UI"
+                       xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+                       MaxWidth="70"
+                       MinHeight="41"
+                       HorizontalExpand="False"
+                       VerticalExpand="False" />

@@ -71,3 +71,4 @@ reagent-desc-silver-sulfadiazine = An antibacterial compound used topically on b
 # Genetics
 reagent-name-mutadone = mutadone
 reagent-desc-mutadone = A powerful compound that is used to purge genetic mutations and stabilize DNA.
+

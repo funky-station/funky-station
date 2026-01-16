@@ -19,3 +19,6 @@
 
 - type: playTimeTracker
   id: JobSpaceCowboy
+
+- type: playTimeTracker
+  id: JobGeneticist

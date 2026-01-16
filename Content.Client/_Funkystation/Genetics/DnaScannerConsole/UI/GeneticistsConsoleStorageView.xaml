@@ -1,0 +1,131 @@
+<Control xmlns="https://spacestation14.io"
+         xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+         xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client">
+
+    <BoxContainer Orientation="Horizontal" VerticalExpand="True" HorizontalExpand="True">
+
+        <!-- Left - Inventory style list -->
+        <BoxContainer Orientation="Vertical" Margin="0 0 15 0" >
+            <Label Text="{Loc 'dna-scanner-sequences'}" />
+            <PanelContainer StyleClasses="LowDivider"/>
+            <PanelContainer MinSize="280 0" VerticalExpand="True">
+                <PanelContainer.PanelOverride>
+                    <gfx:StyleBoxFlat BackgroundColor="#202025" />
+                </PanelContainer.PanelOverride>
+                    <ScrollContainer>
+                        <BoxContainer Orientation="Vertical" Margin="8">
+                            <Label Text="{Loc 'dna-scanner-no-saved-sequences'}" Name="NoSavedSequencesLabel" StyleClasses="LabelSubText" Margin="0 10" Access="Public" />
+                            <BoxContainer Name="StoredSequencesContainer" Orientation="Vertical" Visible="False">
+
+                                <!-- Researching Mutations -->
+                                <BoxContainer Orientation="Horizontal" Name="ResearchingCollapsible">
+                                    <Label Text="{Loc 'dna-scanner-researching-mutations'}" StyleClasses="LabelSubText" Access="Public" />
+                                    <BoxContainer Orientation="Vertical" HorizontalExpand="True">
+                                        <PanelContainer StyleClasses="LowDivider" Margin="0 14 0 0"/>
+                                    </BoxContainer>
+                                    <Label Text="0/5" Name="ResearchCountLabel" StyleClasses="LabelSubText" Access="Public" />
+                                </BoxContainer>
+
+                                <BoxContainer Name="ResearchingContainer" Orientation="Vertical" VerticalExpand="True" HorizontalExpand="True" />
+
+                                <!-- Unresearched Mutations -->
+                                <BoxContainer Orientation="Horizontal" Name="UnresearchedCollapsible">
+                                    <Label Text="{Loc 'dna-scanner-unresearched-mutations'}" StyleClasses="LabelSubText" Access="Public" />
+                                    <BoxContainer Orientation="Vertical" HorizontalExpand="True">
+                                        <PanelContainer StyleClasses="LowDivider" Margin="1 14 0 0"/>
+                                    </BoxContainer>
+                                </BoxContainer>
+
+                                <BoxContainer Name="UnresearchedContainer" Orientation="Vertical" VerticalExpand="True" HorizontalExpand="True" />
+
+                                <!-- Researched Mutations -->
+                                <BoxContainer Orientation="Horizontal" Name="ResearchedCollapsible">
+                                    <Label Text="{Loc 'dna-scanner-researched-mutations'}" StyleClasses="LabelSubText" Access="Public" />
+                                    <BoxContainer Orientation="Vertical" HorizontalExpand="True">
+                                        <PanelContainer StyleClasses="LowDivider" Margin="1 14 0 0"/>
+                                    </BoxContainer>
+                                </BoxContainer>
+
+                                <BoxContainer Name="ResearchedContainer" Orientation="Vertical" VerticalExpand="True" HorizontalExpand="True" />
+
+                            </BoxContainer>
+                        </BoxContainer>
+                    </ScrollContainer>
+            </PanelContainer>
+        </BoxContainer>
+
+        <BoxContainer Orientation="Vertical" VerticalExpand="True" HorizontalExpand="True">
+
+            <!-- Right - Only info + relevant actions -->
+            <BoxContainer Orientation="Vertical" VerticalExpand="True" HorizontalExpand="True" Margin="0 0 0 0">
+                <Label Text="{Loc 'dna-scanner-sequence-info'}" />
+                <PanelContainer StyleClasses="LowDivider" Margin="0 0 0 0"/>
+                <PanelContainer VerticalExpand="True" HorizontalExpand="True">
+                    <PanelContainer.PanelOverride>
+                        <gfx:StyleBoxFlat BackgroundColor="#1B1B1E" />
+                    </PanelContainer.PanelOverride>
+                    <ScrollContainer Name="StorageInfoContainer" HScrollEnabled="False" HorizontalExpand="True" VerticalExpand="True">
+                        <BoxContainer Orientation="Vertical" Margin="10 10 10 10" VerticalExpand="True" HorizontalExpand="True" >
+
+                            <BoxContainer Orientation="Horizontal" Margin="0 0 0 4">
+                                <Label Text="{Loc 'dna-scanner-info-name'}" Margin="0 0 10 0" VerticalExpand="False" MinWidth="94" VerticalAlignment="Top" />
+                                <RichTextLabel Name="StorageInfoNameLabel" Text="" Access="Public" />
+                            </BoxContainer>
+
+                            <BoxContainer Orientation="Horizontal" Margin="0 0 0 4">
+                                <Label Text="{Loc 'dna-scanner-info-description'}" Margin="0 0 10 0" VerticalExpand="False" MinWidth="94" VerticalAlignment="Top" />
+                                <RichTextLabel Name="StorageInfoDescLabel" Text="" Access="Public" />
+                            </BoxContainer>
+
+                            <BoxContainer Orientation="Horizontal" Margin="0 0 0 4">
+                                <Label Text="{Loc 'dna-scanner-info-instability'}" Margin="0 0 10 0" MinWidth="94" VerticalAlignment="Top" />
+                                <RichTextLabel Name="StorageInfoInstabilityLabel" Text="" Access="Public" />
+                            </BoxContainer>
+
+                            <BoxContainer Orientation="Horizontal" Margin="0 0 0 4">
+                                <Label Text="{Loc 'dna-scanner-info-research'}" Margin="0 0 10 0" MinWidth="94" VerticalAlignment="Top" />
+                                <RichTextLabel Name="StorageInfoResearchLabel" Text="" Access="Public" />
+                            </BoxContainer>
+
+                            <BoxContainer Orientation="Horizontal" Name="StorageConflictsLabelContainer" Visible="False" Margin="0 0 0 4">
+                                <Label Text="{Loc 'dna-scanner-info-conflicts'}" Margin="0 0 10 0" MinWidth="94" VerticalAlignment="Top" />
+                                <RichTextLabel Name="StorageConflictsLabel" Text="" Access="Public" />
+                            </BoxContainer>
+
+                            <Control VerticalExpand="True" />
+
+                        </BoxContainer>
+                    </ScrollContainer>
+                </PanelContainer>
+            </BoxContainer>
+
+            <BoxContainer Orientation="Horizontal" Margin="0 12 0 0">
+                <Button Name="StoragePrintActivatorButton"
+                        Text="{Loc 'dna-scanner-print-activator'}"
+                        Disabled="True"
+                        HorizontalExpand="True"
+                        Margin="0 0 2 0"
+                        Access="Public" />
+                <Button Name="StoragePrintMutatorButton"
+                        Text="{Loc 'dna-scanner-print-mutator'}"
+                        Disabled="True"
+                        HorizontalExpand="True"
+                        Margin="2 0 0 0"
+                        Access="Public" />
+            </BoxContainer>
+
+            <Button Name="DeleteMutationButton"
+                    Text="{Loc 'dna-scanner-delete-mutation'}"
+                    HorizontalExpand="True"
+                    Margin="0 8 0 0"
+                    Access="Public" />
+
+            <Button Name="StorageResearchMutationButton"
+                    Text="{Loc 'dna-scanner-research-mutation'}"
+                    HorizontalExpand="True"
+                    Margin="0 8 0 0"
+                    Access="Public" />
+
+        </BoxContainer>
+    </BoxContainer>
+</Control>

@@ -26,6 +26,7 @@ job-name-alt-atmos-2 = Atmospheric Technician
 job-name-alt-scientist-1 = Xenoarchaeologist
 job-name-alt-scientist-2 = Anomaly Researcher
 job-name-alt-scientist-3 = Hardware Technician
+job-name-alt-scientist-4 = Geneticist
 
 job-name-alt-secoff-1 = Regulatory Control Officer
 job-name-alt-secoff-2 = Community Outreach Officer

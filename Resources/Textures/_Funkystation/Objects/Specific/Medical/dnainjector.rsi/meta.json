@@ -1,0 +1,33 @@
+{
+  "version": 1,
+  "license": "CC-BY-NC-3.0",
+  "copyright": "https://github.com/tgstation/tgstation/",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "dnainjector-full"
+    },
+    {
+      "name": "dnainjector-empty"
+    },
+    {
+      "name": "dnainjector-empty-inhand-left",
+        "directions": 4
+    },
+    {
+      "name": "dnainjector-inhand-left",
+        "directions": 4
+    },
+    {
+      "name": "dnainjector-empty-inhand-right",
+        "directions": 4
+    },
+    {
+      "name": "dnainjector-inhand-right",
+        "directions": 4
+    }
+  ]
+}

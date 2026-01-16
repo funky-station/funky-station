@@ -1,5 +1,5 @@
 # SPDX-FileCopyrightText: 2025 ThatOneMoon <91613003+ThatOneMoon@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
+# SPDX-FileCopyrightText: 2026 ThatOneMoon <juozas.dringelis@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -46,12 +46,12 @@
   id: BoxSalvageMedicalKit
   parent: CardboardBoxLarge
   name: field medical kit
-  description: A box containing medical supplies, defibrillator,body bags and the materials needed to construct a medibot.
+  description: A box containing medical supplies, defibrillator,body bags, roller bed and the materials needed to construct a medibot
   components:
   - type: StorageFill
     contents:
     - id: Defibrillator
-    - id: MedkitAdvancedFilled
+    - id: MedkitFilled
     - id: LeftArmBorg
     - id: ProximitySensor
     - id: Jug
@@ -60,3 +60,4 @@
     - id: ClothingEyesHudMedical
     - id: EmergencyMedipen
       amount: 2
+    - id: RollerBedSpawnFolded

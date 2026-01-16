@@ -411,7 +411,7 @@
 - type: entity
   parent: [ClothingUniformBase, BaseCommandContraband]
   id: ClothingUniformJumpsuitHoS
-  name: head of security's trooper uniform
+  name: head of security's service uniform
   description: The head of security's service uniform, for when you anticipate a war against mothroaches.
   components:
   - type: Sprite
@@ -422,24 +422,13 @@
 - type: entity
   parent: [ClothingUniformBase, BaseCommandContraband]
   id: ClothingUniformJumpsuitHoSAlt
-  name: head of security's uniform
-  description: The head of security's service dress uniform, the perfect fusion of fancy and functional.
+  name: head of security's dress uniform
+  description: The head of security's dress uniform, the perfect fusion of fancy and functional.
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpsuit/hos_alt.rsi
   - type: Clothing
     sprite: Clothing/Uniforms/Jumpsuit/hos_alt.rsi
-
-- type: entity
-  parent: [ClothingUniformBase, BaseCommandContraband]
-  id: ClothingUniformJumpsuitHoSParadeMale
-  name: head of security's parade uniform
-  description: A male head of security's luxury-wear, for special occasions.
-  components:
-  - type: Sprite
-    sprite: Clothing/Uniforms/Jumpsuit/hos_parade.rsi
-  - type: Clothing
-    sprite: Clothing/Uniforms/Jumpsuit/hos_parade.rsi
 
 - type: entity
   parent: ClothingUniformBase
@@ -648,8 +637,8 @@
 - type: entity
   parent: [ClothingUniformBase, BaseSecurityContraband]
   id: ClothingUniformJumpsuitSec
-  name: security uniform
-  description: A uniform made of strong material, providing robust protection.
+  name: security dress uniform
+  description: A uniform made of strong material, for day to day wear.
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpsuit/security.rsi
@@ -659,8 +648,8 @@
 - type: entity
   parent: [ClothingUniformBase, BaseSecurityContraband]
   id: ClothingUniformSecurityTrooper
-  name: trooper uniform
-  description: A formal uniform issued to the Nanotrasen Troopers, usually it comes with a car.
+  name: security service  uniform
+  description: A uniform issued to the Nanotrasen troops, usually it comes with a car.
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpsuit/security_trooper.rsi

@@ -66515,7 +66515,7 @@ entities:
     - type: Transform
       pos: 24.465298,46.585842
       parent: 82
-- proto: ClothingUniformJumpskirtHoSParadeMale
+- proto: ClothingUniformJumpsuitHosFormal
   entities:
   - uid: 7066
     components:
@@ -66564,7 +66564,7 @@ entities:
     - type: Transform
       pos: 9.562717,53.351437
       parent: 82
-- proto: ClothingUniformJumpsuitHoSParadeMale
+- proto: ClothingUniformJumpsuitHosFormal
   entities:
   - uid: 25163
     components:

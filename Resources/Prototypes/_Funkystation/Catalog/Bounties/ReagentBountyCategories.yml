@@ -1,0 +1,495 @@
+# SPDX-FileCopyrightText: 2026 Homingpenguins <asadellace4@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+# Bar
+- type: cargoBountyCategory
+  id: barCategory
+  name: bounty-category-bar
+  entries:
+  - name: bounty-item-bahama-mama
+    minAmount: 90
+    maxAmount: 90
+    rewardPer: 65
+    reagent: BahamaMama
+  - name: bounty-item-erika-suprise
+    minAmount: 90
+    maxAmount: 90
+    rewardPer: 65
+    reagent: ErikaSurprise
+  - name: bounty-item-bloody-mary
+    minAmount: 90
+    maxAmount: 90
+    rewardPer: 65
+    reagent: BloodyMary
+  - name: bounty-item-blue-hawaiian
+    minAmount: 60
+    maxAmount: 60
+    rewardPer: 65
+    reagent: BlueHawaiian
+  - name: bounty-item-andalusia
+    minAmount: 60
+    maxAmount: 60
+    rewardPer: 65
+    reagent: Andalusia
+  - name: bounty-item-watermelon-wakeup
+    minAmount: 60
+    maxAmount: 60
+    rewardPer: 75
+    reagent: WatermelonWakeup
+  - name: bounty-item-xeno-basher
+    minAmount: 120
+    maxAmount: 120
+    rewardPer: 65
+    reagent: XenoBasher
+  - name: bounty-item-cogchamp
+    minAmount: 60
+    maxAmount: 60
+    rewardPer: 75
+    reagent: CogChamp
+  - name: bounty-item-demons-blood
+    minAmount: 60
+    maxAmount: 60
+    rewardPer: 75
+    reagent: DemonsBlood
+  - name: bounty-item-cosmopolitan
+    minAmount: 60
+    maxAmount: 60
+    rewardPer: 75
+    reagent: Cosmopolitan
+  - name: bounty-item-beepsky-smash
+    minAmount: 60
+    maxAmount: 60
+    rewardPer: 75
+    reagent: BeepskySmash
+  - name: bounty-item-classic-martini
+    minAmount: 60
+    maxAmount: 60
+    rewardPer: 65
+    reagent: Martini
+  - name: bounty-item-posca
+    minAmount: 60
+    maxAmount: 60
+    rewardPer: 65
+    reagent: Posca
+  - name: bounty-item-the-martinez
+    minAmount: 90
+    maxAmount: 90
+    rewardPer: 70
+    reagent: TheMartinez
+  - name: bounty-item-doctors-delight
+    minAmount: 60
+    maxAmount: 60
+    rewardPer: 100
+    reagent: DoctorsDelight
+  - name: bounty-item-tayquila
+    minAmount: 60
+    maxAmount: 60
+    rewardPer: 100
+    reagent: Tayquila
+  - name: bounty-item-fever-dream
+    minAmount: 60
+    maxAmount: 60
+    rewardPer: 100
+    reagent: FeverDream
+  - name: bounty-item-gargle-blaster
+    minAmount: 60
+    maxAmount: 60
+    rewardPer: 100
+    reagent: GargleBlaster
+
+# Chem
+- type: cargoBountyCategory
+  id: chemistryCategory
+  name: bounty-category-chemistry
+  entries:
+# Basics
+# Ingredients
+  - name: bounty-item-Oil
+    minAmount: 100
+    maxAmount: 100
+    rewardPer: 15
+    reagent: Oil
+  - name: bounty-item-Table-Salt
+    minAmount: 50
+    maxAmount: 50
+    rewardPer: 15
+    reagent: TableSalt
+  - name: bounty-item-Acetone
+    minAmount: 150
+    maxAmount: 150
+    rewardPer: 18
+    reagent: Acetone
+  - name: bounty-item-Ash
+    minAmount: 100
+    maxAmount: 100
+    rewardPer: 15
+    reagent: Ash
+  - name: bounty-item-Benzene
+    minAmount: 100
+    maxAmount: 100
+    rewardPer: 18
+    reagent: Benzene
+  - name: bounty-item-Hydroxide
+    minAmount: 100
+    maxAmount: 100
+    rewardPer: 15
+    reagent: Hydroxide
+  - name: bounty-item-Fersilicite
+    minAmount: 100
+    maxAmount: 100
+    rewardPer: 15
+    reagent: Fersilicite
+#Notable Simples
+  - name: bounty-item-Sodium-Polyacrylate
+    minAmount: 100
+    maxAmount: 100
+    rewardPer: 20
+    reagent: SodiumPolyacrylate
+  - name: bounty-item-Mannitol
+    minAmount: 120
+    maxAmount: 120
+    rewardPer: 20
+    reagent: Mannitol
+  - name: bounty-item-Impedrezene
+    minAmount: 120
+    maxAmount: 120
+    rewardPer: 20
+    reagent: Impedrezene
+  - name: bounty-item-Space-Mirage
+    minAmount: 120
+    maxAmount: 120
+    rewardPer: 20
+    reagent: SpaceDrugs
+  - name: bounty-item-Synaptizine
+    minAmount: 120
+    maxAmount: 120
+    rewardPer: 20
+    reagent: Synaptizine
+  - name: bounty-item-Foaming-Agent
+    minAmount: 100
+    maxAmount: 100
+    rewardPer: 20
+    reagent: FoamingAgent
+  - name: bounty-item-Saline
+    minAmount: 100
+    maxAmount: 100
+    rewardPer: 20
+    reagent: Saline
+  - name: bounty-item-Space-Cleaner
+    minAmount: 100
+    maxAmount: 100
+    rewardPer: 20
+    reagent: SpaceCleaner
+  - name: bounty-item-Sodium-Carbonate
+    minAmount: 100
+    maxAmount: 100
+    rewardPer: 20
+    reagent: SodiumCarbonate
+  - name: bounty-item-Sodium-Hydroxide
+    minAmount: 100
+    maxAmount: 100
+    rewardPer: 20
+    reagent: SodiumHydroxide
+  - name: bounty-item-Sulfuric-Acid
+    minAmount: 120
+    maxAmount: 120
+    rewardPer: 20
+    reagent: SulfuricAcid
+  - name: bounty-item-Phenol
+    minAmount: 100
+    maxAmount: 100
+    rewardPer: 20
+    reagent: Phenol
+# More Important Basics
+  - name: bounty-item-Dexalin
+    minAmount: 75
+    maxAmount: 75
+    rewardPer: 50
+    reagent: Dexalin
+  - name: bounty-item-Hyronalin
+    minAmount: 50
+    maxAmount: 50
+    rewardPer: 50
+    reagent: Hyronalin
+  - name: bounty-item-Ipecac
+    minAmount: 50
+    maxAmount: 50
+    rewardPer: 50
+    reagent: Ipecac
+  - name: bounty-item-Libital
+    minAmount: 60
+    maxAmount: 60
+    rewardPer: 60
+    reagent: Libital
+  - name: bounty-item-Aiuri
+    minAmount: 60
+    maxAmount: 60
+    rewardPer: 60
+    reagent: Aiuri
+  - name: bounty-item-Multiver
+    minAmount: 60
+    maxAmount: 60
+    rewardPer: 60
+    reagent: Multiver
+  - name: bounty-item-Inaprovaline
+    minAmount: 60
+    maxAmount: 60
+    rewardPer: 60
+    reagent: Inaprovaline
+  - name: bounty-item-Cryoxadone
+    minAmount: 200
+    maxAmount: 200
+    rewardPer: 35
+    reagent: Cryoxadone
+  - name: bounty-item-Napalm
+    minAmount: 60
+    maxAmount: 60
+    rewardPer: 50
+    reagent: Napalm
+  - name: bounty-item-Thermite
+    minAmount: 60
+    maxAmount: 60
+    rewardPer: 50
+    reagent: Thermite
+  - name: bounty-item-Charcoal
+    minAmount: 50
+    maxAmount: 50
+    rewardPer: 65
+    reagent: Charcoal
+  - name: bounty-item-Cryptobiolin
+    minAmount: 60
+    maxAmount: 60
+    rewardPer: 50
+    reagent: Cryptobiolin
+  - name: bounty-item-Convermol
+    minAmount: 60
+    maxAmount: 60
+    rewardPer: 60
+    reagent: Convermol
+  - name: bounty-item-ChloralHydrate
+    minAmount: 60
+    maxAmount: 60
+    rewardPer: 65
+    reagent: ChloralHydrate
+# Mediums
+# Basic Sulfuric Acids
+  - name: bounty-item-Lenturi
+    minAmount: 60
+    maxAmount: 60
+    rewardPer: 65
+    reagent: Lenturi
+  - name: bounty-item-Fluorosurfactant
+    minAmount: 50
+    maxAmount: 50
+    rewardPer: 65
+    reagent: Fluorosurfactant
+  - name: bounty-item-Fluorosulfuric-Acid
+    minAmount: 50
+    maxAmount: 50
+    rewardPer: 65
+    reagent: FluorosulfuricAcid
+  - name: bounty-item-Probital
+    minAmount: 60
+    maxAmount: 60
+    rewardPer: 65
+    reagent: Probital
+  - name: bounty-item-Tranexamic-Acid
+    minAmount: 60
+    maxAmount: 60
+    rewardPer: 65
+    reagent: TranexamicAcid
+  - name: bounty-item-Styptic-Powder
+    minAmount: 50
+    maxAmount: 50
+    rewardPer: 65
+    reagent: StypticPowder
+# Less Complex Mediums
+  - name: bounty-item-Fat
+    minAmount: 45
+    maxAmount: 45
+    rewardPer: 65
+    reagent: Fat
+  - name: bounty-item-Lipozine
+    minAmount: 60
+    maxAmount: 60
+    rewardPer: 65
+    reagent: Lipozine
+  - name: bounty-item-Heparin
+    minAmount: 50
+    maxAmount: 50
+    rewardPer: 65
+    reagent: Heparin
+  - name: bounty-item-Granibitulari
+    minAmount: 60
+    maxAmount: 60
+    rewardPer: 75
+    reagent: Granibitulari
+  - name: bounty-item-Haloperidol
+    minAmount: 50
+    maxAmount: 50
+    rewardPer: 75
+    reagent: Haloperidol
+  - name: bounty-item-Pyroxadone
+    minAmount: 100
+    maxAmount: 100
+    rewardPer: 40
+    reagent: Pyroxadone
+  - name: bounty-item-Bleach
+    minAmount: 50
+    maxAmount: 50
+    rewardPer: 65
+    reagent: Bleach
+  - name: bounty-item-Space-Lube
+    minAmount: 200
+    maxAmount: 200
+    rewardPer: 20
+    reagent: SpaceLube
+  - name: bounty-item-Unstable-Mutagen
+    minAmount: 60
+    maxAmount: 60
+    rewardPer: 70
+    reagent: UnstableMutagen
+  - name: bounty-item-Oculine
+    minAmount: 50
+    maxAmount: 50
+    rewardPer: 75
+    reagent: Oculine
+# 3 Steps
+  - name: bounty-item-Ethylredoxrazine
+    minAmount: 60
+    maxAmount: 60
+    rewardPer: 80
+    reagent: Ethylredoxrazine
+  - name: bounty-item-Bruizine
+    minAmount: 50
+    maxAmount: 50
+    rewardPer: 80
+    reagent: Bruizine
+  - name: bounty-item-Ephedrine
+    minAmount: 60
+    maxAmount: 60
+    rewardPer: 80
+    reagent: Ephedrine
+  - name: bounty-item-Arithrazine
+    minAmount: 50
+    maxAmount: 50
+    rewardPer: 80
+    reagent: Arithrazine
+  - name: bounty-item-Phalanximine
+    minAmount: 60
+    maxAmount: 60
+    rewardPer: 80
+    reagent: Phalanximine
+  - name: bounty-item-Leporazine
+    minAmount: 50
+    maxAmount: 50
+    rewardPer: 80
+    reagent: Leporazine
+  - name: bounty-item-Tricordrazine
+    minAmount: 50
+    maxAmount: 50
+    rewardPer: 80
+    reagent: Tricordrazine
+  - name: bounty-item-Hemoxadone
+    minAmount: 100
+    maxAmount: 100
+    rewardPer: 50
+    reagent: Hemoxadone
+  - name: bounty-item-Cyanoxadone
+    minAmount: 100
+    maxAmount: 100
+    rewardPer: 50
+    reagent: Cyanoxadone
+  - name: bounty-item-soap
+    minAmount: 2
+    maxAmount: 4
+    rewardPer: 2000
+    whitelist:
+      tags:
+      - Soap
+# Botany Basics
+  - name: bounty-item-Stellibinin
+    minAmount: 25
+    maxAmount: 25
+    rewardPer: 170
+    reagent: Stellibinin
+  - name: bounty-item-Aloe
+    minAmount: 25
+    maxAmount: 25
+    rewardPer: 170
+    reagent: Aloe
+  - name: bounty-item-Siderlac
+    minAmount: 50
+    maxAmount: 50
+    rewardPer: 90
+    reagent: Siderlac
+  - name: bounty-item-Histamine
+    minAmount: 25
+    maxAmount: 25
+    rewardPer: 180
+    reagent: Histamine
+  - name: bounty-item-THC
+    minAmount: 25
+    maxAmount: 25
+    rewardPer: 180
+    reagent: THC
+  - name: bounty-item-Desoxyephedrine
+    minAmount: 50
+    maxAmount: 50
+    rewardPer: 90
+    reagent: Desoxyephedrine
+# Advanced
+# 4 Steps ish
+  - name: bounty-item-Licoxide
+    minAmount: 50
+    maxAmount: 50
+    rewardPer: 100
+    reagent: Licoxide
+  - name: bounty-item-Razorium
+    minAmount: 50
+    maxAmount: 50
+    rewardPer: 100
+    reagent: Razorium
+  - name: bounty-item-Oxandrolone
+    minAmount: 50
+    maxAmount: 50
+    rewardPer: 100
+    reagent: Oxandrolone
+  - name: bounty-item-Salicylic-Acid
+    minAmount: 50
+    maxAmount: 50
+    rewardPer: 100
+    reagent: SalicylicAcid
+  - name: bounty-item-Anodynafil
+    minAmount: 50
+    maxAmount: 50
+    rewardPer: 110
+    reagent: Anodynafil
+  - name: bounty-item-Diphenhydramine
+    minAmount: 50
+    maxAmount: 50
+    rewardPer: 110
+    reagent: Diphenhydramine
+  - name: bounty-item-Sigynate
+    minAmount: 50
+    maxAmount: 50
+    rewardPer: 110
+    reagent: Diphenhydramine
+  - name: bounty-item-Natusixadone
+    minAmount: 100
+    maxAmount: 100
+    rewardPer: 60
+    reagent: Natusixadone
+  - name: bounty-item-Doxarubixadone
+    minAmount: 100
+    maxAmount: 100
+    rewardPer: 60
+    reagent: Doxarubixadone
+# Leaving this just in case someone wants to push the delete button on the #s
+# Ichor
+#  - name: bounty-item-Ichor
+#    minAmount: 10
+#    maxAmount: 10
+#    rewardPer: 10000
+#    reagent: Ichor

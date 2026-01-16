@@ -50,6 +50,7 @@
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 vectorassembly <vectorassembly@icloud.com>
 # SPDX-FileCopyrightText: 2025 w.xyz() <84605679+pirakaplant@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2026 Frogoo <153249069+Fr0goo@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2026 Zergologist <114537969+Chedd-Error@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
@@ -99,13 +100,14 @@
 - type: roleLoadout
   id: JobPassenger
   groups:
+  - GenericHats
   - PassengerJumpsuit
   - CommonBackpack
   - PassengerNeck
   - PassengerFace
   - PassengerGloves
   - PassengerOuterClothing
-  - PassengerShoes
+  - GenericShoes
   - Glasses
   - Survival
   - Trinkets
@@ -118,6 +120,7 @@
   - BartenderHead
   - BartenderJumpsuit
   - CommonBackpack
+  - Gloves
   - BartenderOuterClothing
   - GenericShoes
   - Glasses
@@ -129,8 +132,10 @@
 - type: roleLoadout
   id: JobServiceWorker
   groups:
+  - GenericHats
   - ServiceJumpsuit
   - CommonBackpack
+  - Gloves
   - GenericShoes
   - Glasses
   - Survival
@@ -145,6 +150,7 @@
   - ChefMask
   - ChefJumpsuit
   - CommonBackpack
+  - Gloves
   - ChefOuterClothing
   - GenericShoes
   - Glasses
@@ -158,6 +164,7 @@
   groups:
   - LibrarianJumpsuit
   - CommonBackpack
+  - Gloves
   - GenericShoes
   - Glasses
   - Survival
@@ -171,6 +178,7 @@
   - LawyerNeck
   - LawyerJumpsuit
   - CommonBackpack
+  - Gloves
   - GenericShoes
   - Glasses
   - Survival
@@ -216,9 +224,10 @@
 - type: roleLoadout
   id: JobBotanist
   groups:
-  - BotanistHead
+  - GenericHats
   - BotanistJumpsuit
   - BotanistBackpack
+  - Gloves
   - BotanistOuterClothing
   - GenericShoes
   - Glasses
@@ -235,6 +244,7 @@
   - ClownMask
   - ClownJumpsuit
   - ClownBackpack
+  - Gloves
   - ClownOuterClothing
   - ClownShoes
   - Glasses
@@ -250,6 +260,7 @@
   - MimeMask
   - MimeJumpsuit
   - MimeBackpack
+  - Gloves
   - MimeOuterClothing
   - MimeBelt
   - Glasses
@@ -263,6 +274,7 @@
   groups:
   - MusicianJumpsuit
   - CommonBackpack
+  - Gloves
   - MusicianOuterClothing
   - GenericShoes
   - Glasses
@@ -295,6 +307,7 @@
   - CargoTechnicianNeck
   - CargoTechnicianJumpsuit
   - CargoTechnicianBackpack
+  - Gloves
   - CargoTechnicianOuterClothing
   - CargoTechnicianShoes
   - CargoPDA
@@ -603,9 +616,11 @@
 - type: roleLoadout
   id: JobReporter
   groups:
+  - GenericHats
   - ReporterJumpsuit
   - ReporterOuterClothing # Goobstation - Bodycams
   - CommonBackpack
+  - Gloves
   - GenericShoes
   - Glasses
   - Survival

@@ -1,4 +1,5 @@
 # SPDX-FileCopyrightText: 2023 LankLTE <135308300+LankLTE@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 W.xyz() <tptechteam@gmail.com>
 # SPDX-FileCopyrightText: 2025 mkanke-real <mikekanke@gmail.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
@@ -9,7 +10,7 @@
 - type: entity
   id: PartMoth
   parent: [BaseItem, BasePart]
-  name: "moth body part"
+  name: "lümala body part"
   abstract: true
   components:
   - type: Extractable
@@ -22,7 +23,7 @@
 
 - type: entity
   id: TorsoMoth
-  name: "moth torso"
+  name: "lümala torso"
   parent: [PartMoth, BaseTorso]
   components:
   - type: Item
@@ -43,7 +44,7 @@
 
 - type: entity
   id: HeadMoth
-  name: "moth head"
+  name: "lümala head"
   parent: [PartMoth, BaseHead]
   components:
   - type: Item
@@ -64,7 +65,7 @@
 
 - type: entity
   id: LeftArmMoth
-  name: "left moth arm"
+  name: "left lümala arm"
   parent: [PartMoth, BaseLeftArm]
   components:
   - type: Item
@@ -78,7 +79,7 @@
 
 - type: entity
   id: RightArmMoth
-  name: "right moth arm"
+  name: "right lümala arm"
   parent: [PartMoth, BaseRightArm]
   components:
   - type: Item
@@ -92,7 +93,7 @@
 
 - type: entity
   id: LeftHandMoth
-  name: "left moth hand"
+  name: "left lümala hand"
   parent: [PartMoth, BaseLeftHand]
   components:
   - type: Item
@@ -104,7 +105,7 @@
 
 - type: entity
   id: RightHandMoth
-  name: "right moth hand"
+  name: "right lümala hand"
   parent: [PartMoth, BaseRightHand]
   components:
   - type: Item
@@ -116,7 +117,7 @@
 
 - type: entity
   id: LeftLegMoth
-  name: "left moth leg"
+  name: "left lümala leg"
   parent: [PartMoth, BaseLeftLeg]
   components:
   - type: Item
@@ -130,7 +131,7 @@
 
 - type: entity
   id: RightLegMoth
-  name: "right moth leg"
+  name: "right lümala leg"
   parent: [PartMoth, BaseRightLeg]
   components:
   - type: Item
@@ -144,7 +145,7 @@
 
 - type: entity
   id: LeftFootMoth
-  name: "left moth foot"
+  name: "left lümala foot"
   parent: [PartMoth, BaseLeftFoot]
   components:
   - type: Item
@@ -156,7 +157,7 @@
 
 - type: entity
   id: RightFootMoth
-  name: "right moth foot"
+  name: "right lümala foot"
   parent: [PartMoth, BaseRightFoot]
   components:
   - type: Item

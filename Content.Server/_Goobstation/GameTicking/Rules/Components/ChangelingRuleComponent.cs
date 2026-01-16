@@ -3,6 +3,7 @@
 // SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
 // SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
+// SPDX-FileCopyrightText: 2025 ALooseGoose <ALooseGoosey@gmail.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
@@ -10,6 +11,7 @@
 using Content.Shared.NPC.Prototypes;
 using Content.Shared.Roles;
 using Content.Shared.Store;
+using Content.Shared.Dataset;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 
@@ -19,6 +21,9 @@ namespace Content.Server.GameTicking.Rules.Components;
 public sealed partial class ChangelingRuleComponent : Component
 {
     public readonly List<EntityUid> ChangelingMinds = new();
+
+    [DataField]
+    public ProtoId<DatasetPrototype> ChangelingHive = "ChangelingFlavor";
 
     public readonly List<ProtoId<StoreCategoryPrototype>> StoreCategories = new()
     {

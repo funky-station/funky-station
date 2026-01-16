@@ -1,3 +1,4 @@
+# SPDX-FileCopyrightText: 2025 Dragon232347 <122056448+Dragon232347@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Icepick <122653407+Icepicked@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
@@ -62,3 +63,16 @@
     price: 300
   - type: RadiationBlocker
     resistance: 25
+
+- type: entity
+  parent: BaseWall
+  id: WallChangelingReinforced
+  name: reinforced resin wall
+  description: A strange, sickly looking reinforced wall coated in some thick goopy substance.
+  components:
+  - type: sprite
+    sprite: Resources\Textures\Structures\Walls\meat.rsi #placeholder
+  - type: icon
+    sprite: Resources\Textures\Structures\Walls\meat.rsi #placeholder
+    state: full
+

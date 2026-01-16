@@ -6,6 +6,7 @@
 // SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
 // SPDX-FileCopyrightText: 2024 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2026 Terkala <appleorange64@gmail.com>
 //
 // SPDX-License-Identifier: MIT
 
@@ -26,7 +27,8 @@ public sealed partial class CauseZombieInfection : EntityEffect
     {
         var entityManager = args.EntityManager;
         entityManager.EnsureComponent<ZombifyOnDeathComponent>(args.TargetEntity);
-        entityManager.EnsureComponent<PendingZombieComponent>(args.TargetEntity);
+        var zombieTumorSystem = args.EntityManager.System<ZombieTumorOrganSystem>();
+        zombieTumorSystem.InfectEntity(args.TargetEntity, ZombieTumorInfectionStage.Incubation);
     }
 }
 

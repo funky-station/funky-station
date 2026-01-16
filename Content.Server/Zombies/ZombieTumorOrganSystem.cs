@@ -1,14 +1,19 @@
-// SPDX-FileCopyrightText: 2025 Terkala <appleorange64@gmail.com>
+// SPDX-FileCopyrightText: 2026 Terkala <appleorange64@gmail.com>
 //
 // SPDX-License-Identifier: MIT
 
+using Content.Server.Atmos;
+using Content.Server.Atmos.Components;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Body.Components;
 using Content.Server.Body.Systems;
 using Content.Server.Chat.Systems;
+using Content.Server.Destructible;
+using Content.Server.Destructible.Thresholds.Triggers;
 using Content.Server.GameTicking.Rules.Components;
 using Content.Shared.Actions;
 using Content.Shared.Atmos;
+using Content.Shared.Atmos.Components;
 using Content.Shared.Body.Components;
 using Content.Shared.Body.Events;
 using Content.Shared.Body.Organ;
@@ -20,6 +25,7 @@ using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
+using Content.Shared.Destructible;
 using Content.Shared.FixedPoint;
 using Content.Shared.GameTicking.Components;
 using Content.Shared.Inventory;
@@ -66,6 +72,8 @@ public sealed class ZombieTumorOrganSystem : SharedZombieTumorOrganSystem
     [Dependency] private readonly ChatSystem _chat = default!;
     [Dependency] private readonly SharedActionsSystem _actions = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
+    [Dependency] private readonly FlammableSystem _flammable = default!;
 
     private readonly TimeSpan _updateInterval = TimeSpan.FromSeconds(1); // Check every second for distance-based infection
 
@@ -77,8 +85,11 @@ public sealed class ZombieTumorOrganSystem : SharedZombieTumorOrganSystem
         SubscribeLocalEvent<ZombieTumorInfectionComponent, ComponentRemove>(OnInfectionRemoved);
         SubscribeLocalEvent<ZombieTumorInfectionComponent, BeingGibbedEvent>(OnEntityWithInfectionBeingGibbed);
         SubscribeLocalEvent<BodyComponent, BeingGibbedEvent>(OnBodyBeingGibbed);
+        // BodyPartRemovedEvent subscription removed - handled by SharedBodySystem.PartAppearance
+        // Tumor organ removal is handled by OnTumorOrganRemoved when organs are removed from body parts
         SubscribeLocalEvent<ZombieTumorOrganComponent, OrganRemovedFromBodyEvent>(OnTumorOrganRemoved);
         SubscribeLocalEvent<ZombieTumorSpawnerComponent, ComponentInit>(OnTumorSpawnerInit);
+        SubscribeLocalEvent<ZombieTumorOrganComponent, DamageThresholdReached>(OnTumorDamageThresholdReached);
     }
 
     public override void Update(float frameTime)
@@ -101,6 +112,9 @@ public sealed class ZombieTumorOrganSystem : SharedZombieTumorOrganSystem
 
         // Heal zombie IPCs with robot tumors
         UpdateZombieIPChealing(curTime);
+
+        // Remove expired tiered immunity
+        UpdateExpiredTieredImmunity(curTime);
     }
 
     private void UpdateInfectionProgression(TimeSpan curTime)
@@ -393,6 +407,36 @@ public sealed class ZombieTumorOrganSystem : SharedZombieTumorOrganSystem
     }
 
     /// <summary>
+    /// Checks if an entity has animal body parts. Animals shouldn't get zombie tumors.
+    /// </summary>
+    private bool IsAnimalBody(EntityUid bodyUid, BodyComponent? body = null)
+    {
+        if (!Resolve(bodyUid, ref body, logMissing: false))
+            return false;
+
+        // Check if body has a root part (if no root part, body has no body parts)
+        if (body.RootContainer.ContainedEntity == null)
+            return false;
+
+        // Check if any body part is an animal part (animals use body parts that inherit from PartAnimal)
+        foreach (var part in _bodySystem.GetBodyChildren(bodyUid, body))
+        {
+            var protoId = MetaData(part.Id).EntityPrototype?.ID;
+            if (protoId != null)
+            {
+                // Check if this prototype or any parent is PartAnimal
+                foreach (var parent in _prototypeManager.EnumerateParents<EntityPrototype>(protoId))
+                {
+                    if (parent.ID == "PartAnimal")
+                        return true; // This is an animal
+                }
+            }
+        }
+
+        return false;
+    }
+
+    /// <summary>
     /// Spawns a zombie tumor organ in a random valid body part (torso, head, or arm). Returns true if successful.
     /// </summary>
     public bool SpawnTumorOrgan(EntityUid bodyUid)
@@ -409,21 +453,9 @@ public sealed class ZombieTumorOrganSystem : SharedZombieTumorOrganSystem
         if (HasTumorOrgan(bodyUid))
             return true;
 
-        // Check if any body part is an animal part (animals shouldn't get tumors)
-        // Animals use body parts that inherit from PartAnimal (e.g., TorsoAnimal, LegsAnimal)
-        foreach (var part in _bodySystem.GetBodyChildren(bodyUid, body))
-        {
-            var protoId = MetaData(part.Id).EntityPrototype?.ID;
-            if (protoId != null)
-            {
-                // Check if this prototype or any parent is PartAnimal
-                foreach (var parent in _prototypeManager.EnumerateParents<EntityPrototype>(protoId))
-                {
-                    if (parent.ID == "PartAnimal")
-                        return false; // Don't spawn tumors in animals
-                }
-            }
-        }
+        // Check if this is an animal (animals shouldn't get tumors)
+        if (IsAnimalBody(bodyUid, body))
+            return false;
 
         // Collect all valid body parts we can spawn tumors in
         // GetBodyChildrenOfType only returns attached parts
@@ -561,6 +593,14 @@ public sealed class ZombieTumorOrganSystem : SharedZombieTumorOrganSystem
         var organQuery = EntityQueryEnumerator<ZombieTumorOrganComponent, OrganComponent, TransformComponent>();
         while (organQuery.MoveNext(out var uid, out var organ, out var organComp, out var xform))
         {
+            // Skip dead tumors - they no longer spread infection
+            if (_appearance.TryGetData<bool>(uid, ZombieTumorBurningVisuals.Dead, out var isDead) && isDead)
+                continue;
+
+            // Skip burning tumors - they no longer spread infection
+            if (_appearance.TryGetData<bool>(uid, FireVisuals.OnFire, out var onFire) && onFire)
+                continue;
+
             // Check if it's time to update (now every 1 second)
             if (organ.NextUpdate > curTime)
                 continue;
@@ -685,6 +725,10 @@ public sealed class ZombieTumorOrganSystem : SharedZombieTumorOrganSystem
                 if (HasComp<ZombieTumorInfectionComponent>(entity.Owner) || HasComp<ZombieTumorImmuneComponent>(entity.Owner) || HasComp<ZombieImmuneComponent>(entity.Owner))
                     continue;
 
+                // Check for tiered immunity (airborne infections always start at Incubation)
+                if (TryComp<ZombieTumorTieredImmuneComponent>(entity.Owner, out var tieredImmuneFallback) && tieredImmuneFallback.ImmunityLevel >= 1)
+                    continue;
+
                 // Calculate actual distance
                 var targetMapPos = _transform.GetMapCoordinates(entity.Owner);
                 var distance = (targetMapPos.Position - sourceMapPos.Position).Length();
@@ -730,6 +774,10 @@ public sealed class ZombieTumorOrganSystem : SharedZombieTumorOrganSystem
                 if (HasComp<ZombieTumorInfectionComponent>(ent) || HasComp<ZombieTumorImmuneComponent>(ent))
                     continue;
 
+                // Check for tiered immunity (airborne infections always start at Incubation)
+                if (TryComp<ZombieTumorTieredImmuneComponent>(ent, out var tieredImmuneAnchored) && tieredImmuneAnchored.ImmunityLevel >= 1)
+                    continue;
+
                 // Calculate actual world distance
                 var targetMapPos = _transform.GetMapCoordinates(ent.Value);
                 var actualDistance = (targetMapPos.Position - sourceMapPos.Position).Length();
@@ -756,6 +804,10 @@ public sealed class ZombieTumorOrganSystem : SharedZombieTumorOrganSystem
 
                 // Check for existing infection, tumor immunity, or zombie immunity
                 if (HasComp<ZombieTumorInfectionComponent>(entity.Owner) || HasComp<ZombieTumorImmuneComponent>(entity.Owner) || HasComp<ZombieImmuneComponent>(entity.Owner))
+                    continue;
+
+                // Check for tiered immunity (airborne infections always start at Incubation)
+                if (TryComp<ZombieTumorTieredImmuneComponent>(entity.Owner, out var tieredImmuneNonAnchored) && tieredImmuneNonAnchored.ImmunityLevel >= 1)
                     continue;
 
                 // Calculate actual world distance
@@ -803,12 +855,58 @@ public sealed class ZombieTumorOrganSystem : SharedZombieTumorOrganSystem
     /// <param name="initialStage">The initial stage of infection. Defaults to Incubation for airborne infections.</param>
     public void InfectEntity(EntityUid target, ZombieTumorInfectionStage initialStage = ZombieTumorInfectionStage.Incubation)
     {
-        if (HasComp<ZombieTumorInfectionComponent>(target))
+        // Handle already-infected entities: reduce timer by 3 minutes if bitten again
+        if (TryComp<ZombieTumorInfectionComponent>(target, out var existingInfection))
+        {
+            // Reduce NextStageAt by 3 minutes
+            existingInfection.NextStageAt = existingInfection.NextStageAt - TimeSpan.FromMinutes(3);
+            
+            // If timer is now in the past, progress immediately
+            if (existingInfection.NextStageAt <= _timing.CurTime)
+            {
+                ProgressInfectionStage(target, existingInfection);
+            }
+            
+            Dirty(target, existingInfection);
             return;
+        }
 
         // Don't infect if immune to tumor infection (from Ambuzol Plus)
         if (HasComp<ZombieTumorImmuneComponent>(target))
             return;
+
+        // Check for tiered immunity
+        if (TryComp<ZombieTumorTieredImmuneComponent>(target, out var tieredImmune))
+        {
+            // Check if the tiered immunity protects against this infection stage
+            bool isProtected = false;
+            switch (tieredImmune.ImmunityLevel)
+            {
+                case 1:
+                    // Level 1: Block only Incubation (airborne)
+                    isProtected = initialStage == ZombieTumorInfectionStage.Incubation;
+                    break;
+                case 2:
+                    // Level 2: Block Incubation and Early
+                    isProtected = initialStage <= ZombieTumorInfectionStage.Early;
+                    break;
+                case 3:
+                    // Level 3: Block Incubation, Early, and TumorFormed (includes bites)
+                    isProtected = initialStage <= ZombieTumorInfectionStage.TumorFormed;
+                    break;
+                case 4:
+                    // Level 4: Block all stages up to Advanced
+                    isProtected = initialStage <= ZombieTumorInfectionStage.Advanced;
+                    break;
+                case 5:
+                    // Level 5: Block all infection attempts
+                    isProtected = true;
+                    break;
+            }
+
+            if (isProtected)
+                return;
+        }
 
         // Only infect entities that have bodies with organs (tumor requires a body structure)
         if (!TryComp<BodyComponent>(target, out var body) || body.RootContainer.ContainedEntity == null)
@@ -844,7 +942,7 @@ public sealed class ZombieTumorOrganSystem : SharedZombieTumorOrganSystem
             infection.NextCough = _timing.CurTime + TimeSpan.FromSeconds(_random.Next(15, 46));
             
             // Spawn the tumor organ immediately since we're starting at TumorFormed stage
-            SpawnTumorOrgan(target);
+            // SpawnTumorOrgan(target); // Commented out - initial bites now start at Early stage, tumor spawns when progressing to TumorFormed
         }
         // Advanced stage doesn't progress further
         
@@ -1006,6 +1104,10 @@ public sealed class ZombieTumorOrganSystem : SharedZombieTumorOrganSystem
         if (TerminatingOrDeleted(ent.Owner) || args.OldBody == EntityUid.Invalid || TerminatingOrDeleted(args.OldBody))
             return;
 
+        // If the body is fully zombified, don't remove the infection component (zombies don't have it anyway)
+        if (HasComp<ZombieComponent>(args.OldBody))
+            return;
+
         // When tumor is removed, cure the infection
         if (HasComp<ZombieTumorInfectionComponent>(args.OldBody))
         {
@@ -1032,6 +1134,28 @@ public sealed class ZombieTumorOrganSystem : SharedZombieTumorOrganSystem
         {
             RemComp<ZombieTumorSpawnerComponent>(ent.Owner);
         }
+    }
+
+    private void OnTumorDamageThresholdReached(Entity<ZombieTumorOrganComponent> ent, ref DamageThresholdReached args)
+    {
+        // Check if this is the 15 damage threshold (dead state)
+        if (args.Threshold.Trigger is not DamageTrigger trigger || trigger.Damage != 15)
+            return;
+
+        // Extinguish any existing fire first (before removing FlammableComponent)
+        if (TryComp<FlammableComponent>(ent.Owner, out var flammable))
+        {
+            _flammable.Extinguish(ent.Owner, flammable);
+        }
+
+        // Remove OnFireComponent if present
+        RemComp<OnFireComponent>(ent.Owner);
+
+        // Remove Flammable component so it can no longer be set on fire
+        RemComp<FlammableComponent>(ent.Owner);
+
+        // Set dead state in appearance (client visualizer will handle sprite change)
+        _appearance.SetData(ent.Owner, ZombieTumorBurningVisuals.Dead, true);
     }
 
     private void UpdateTumorSpawners(TimeSpan curTime)
@@ -1112,6 +1236,39 @@ public sealed class ZombieTumorOrganSystem : SharedZombieTumorOrganSystem
 
             // Heal the zombie IPC at the same rate as normal zombies
             _damageable.TryChangeDamage(uid, zombie.PassiveHealing * multiplier, true, false, damageable);
+        }
+    }
+
+    private void UpdateExpiredTieredImmunity(TimeSpan curTime)
+    {
+        var immunityQuery = EntityQueryEnumerator<ZombieTumorTieredImmuneComponent>();
+        var toRemove = new List<EntityUid>();
+
+        while (immunityQuery.MoveNext(out var uid, out var immunity))
+        {
+            // Skip if entity is being deleted
+            if (TerminatingOrDeleted(uid))
+                continue;
+
+            // Skip if immunity is permanent (ExpiresAt is MaxValue) or if entity has complete immunity (Ambuzol Plus)
+            if (immunity.ExpiresAt >= TimeSpan.MaxValue || HasComp<ZombieTumorImmuneComponent>(uid))
+                continue;
+
+            // Check if immunity has expired
+            if (curTime >= immunity.ExpiresAt)
+            {
+                toRemove.Add(uid);
+            }
+        }
+
+        // Remove expired immunity components
+        foreach (var uid in toRemove)
+        {
+            // Double-check entity still exists and component still present before removing
+            if (!TerminatingOrDeleted(uid) && HasComp<ZombieTumorTieredImmuneComponent>(uid))
+            {
+                RemComp<ZombieTumorTieredImmuneComponent>(uid);
+            }
         }
     }
 }

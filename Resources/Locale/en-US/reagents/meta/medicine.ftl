@@ -98,6 +98,21 @@ reagent-desc-polypyrylium-oligomers = A purple mixture of short polyelectrolyte 
 reagent-name-ambuzol = ambuzol
 reagent-desc-ambuzol = A highly engineered substance able to halt the progression of a zombie infection.
 
+reagent-name-ambuzol-1 = ambuzol I
+reagent-desc-ambuzol-1 = The ambuzol seems perfectly adept at wiping out the infection before it takes hold.
+
+reagent-name-ambuzol-2 = ambuzol II
+reagent-desc-ambuzol-2 = Ambuzol two, prevents bites from forming infections.
+
+reagent-name-ambuzol-3 = ambuzol III
+reagent-desc-ambuzol-3 = Ambuzol three, for those patients already suffering from a rampant zombie tumor.
+
+reagent-name-ambuzol-4 = ambuzol IV
+reagent-desc-ambuzol-4 = Ambuzol four, for those deeply infected.
+
+reagent-name-ambuzol-5 = ambuzol V
+reagent-desc-ambuzol-5 = Complete immunity from the Zombie Virus, no matter the strength of the infection.
+
 reagent-name-ambuzol-plus = ambuzol plus
 reagent-desc-ambuzol-plus = Further engineered with omnizine, inoculates the living against the infection.
 

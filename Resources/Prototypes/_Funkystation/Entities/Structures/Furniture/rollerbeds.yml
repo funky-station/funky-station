@@ -1,4 +1,5 @@
 # SPDX-FileCopyrightText: 2025 Catazeus <200477155+Catazeus@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2026 Terkala <appleorange64@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -28,6 +29,68 @@
 - type: entity
   parent: SyndicateSurgeryRollerBed
   id: SyndicateSurgeryRollerBedSpawnFolded
+  suffix: folded
+  components:
+  - type: Foldable
+    folded: true
+  - type: Strap
+    enabled: False
+
+- type: entity
+  id: CburnRollerBed
+  name: CBURN rollerbed
+  parent: RollerBed
+  description: A CBURN rollerbed. Used to carry patients around without damaging them.
+  components:
+  - type: Item
+    heldPrefix: cburn_rollerbed
+  - type: Sprite
+    sprite: _Funkystation/Objects/Medical/cburn_rollerbed.rsi
+    layers:
+    - state: surgery_rollerbed
+      map: ["unfoldedLayer"]
+    - state: surgery_rollerbed_folded
+      map: ["foldedLayer"]
+      visible: false
+    - state: surgery_rollerbed_buckled
+      map: ["buckledLayer"]
+      visible: false
+  - type: Appearance
+
+- type: entity
+  parent: CburnRollerBed
+  id: CburnRollerBedSpawnFolded
+  suffix: folded
+  components:
+  - type: Foldable
+    folded: true
+  - type: Strap
+    enabled: False
+
+- type: entity
+  id: NTSurgeryRollerBed
+  name: NT surgery rollerbed
+  parent: RollerBed
+  description: A Nanotrasen surgery rollerbed. Used to carry patients around without damaging them.
+  components:
+  - type: Item
+    heldPrefix: nt_surgery_rollerbed
+  - type: Sprite
+    sprite: _Funkystation/Objects/Medical/nt_surgery_rollerbed.rsi
+    layers:
+    - state: surgery_rollerbed
+      map: ["unfoldedLayer"]
+    - state: surgery_rollerbed_folded
+      map: ["foldedLayer"]
+      visible: false
+    - state: surgery_rollerbed_buckled
+      map: ["buckledLayer"]
+      visible: false
+  - type: Appearance
+
+- type: entity
+  parent: NTSurgeryRollerBed
+  id: NTSurgeryRollerBedSpawnFolded
   suffix: folded
   components:
   - type: Foldable

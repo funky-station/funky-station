@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 Steve <marlumpy@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Shared.Body.Prototypes;
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.FixedPoint;

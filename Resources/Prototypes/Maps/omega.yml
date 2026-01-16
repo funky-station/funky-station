@@ -73,7 +73,6 @@
             Paramedic: [ 1, 1 ]
             Psychologist: [ 1, 1 ]
             MedicalIntern: [ 2, 2 ]
-            Geneticist: [ 1, 2 ]
             #science
             ResearchDirector: [ 1, 1 ]
             Scientist: [ 3, 3 ]

@@ -18,9 +18,11 @@
 # SPDX-FileCopyrightText: 2025 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 McBosserson <148172569+McBosserson@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Milon <milonpl.git@proton.me>
+# SPDX-FileCopyrightText: 2025 ThatOneMoon <91613003+ThatOneMoon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
 # SPDX-FileCopyrightText: 2025 kosticia <kosticia46@gmail.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2026 Xcybitt <197952719+Xcybitt@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -213,7 +215,9 @@
       food:
         reagents:
         - ReagentId: Nutriment
-          Quantity: 10
+          Quantity: 9
+        - ReagentId: Cheesium
+          Quantity: 1
   - type: Sprite
     state: pizza
 
@@ -234,7 +238,9 @@
       food:
         reagents:
         - ReagentId: Nutriment
-          Quantity: 15
+          Quantity: 14
+        - ReagentId: Cheesium
+          Quantity: 1
         - ReagentId: Omnizine
           Quantity: 2
 

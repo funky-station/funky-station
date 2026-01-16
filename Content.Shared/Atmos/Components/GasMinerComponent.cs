@@ -1,6 +1,7 @@
 // SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
 // SPDX-FileCopyrightText: 2024 Mervill <mervills.email@gmail.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2026 Steve <marlumpy@gmail.com>
 //
 // SPDX-License-Identifier: MIT
 
@@ -32,7 +33,7 @@ public sealed partial class GasMinerComponent : Component
     ///      If the pressure (in kPA) of the external environment exceeds this number, no gas will be mined.
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
-    [DataField]
+    [DataField, AutoNetworkedField] // Funkystation - Networked for console
     public float MaxExternalPressure = Atmospherics.GasMinerDefaultMaxExternalPressure;
 
     /// <summary>
@@ -53,8 +54,22 @@ public sealed partial class GasMinerComponent : Component
     ///     Number of moles created per second when the miner is working.
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
-    [DataField]
+    [DataField, AutoNetworkedField] // Funkystation - Networked for console
     public float SpawnAmount = Atmospherics.MolesCellStandard * 20f;
+
+    /// <summary>
+    ///     Moles remaining in the miner.
+    /// </summary>
+    [ViewVariables(VVAccess.ReadWrite)]
+    [DataField, AutoNetworkedField]
+    public float RemainingMoles = 0f; // Funkystation
+
+    /// <summary>
+    ///     Whether the miner will automatically buy gas.
+    /// </summary>
+    [ViewVariables(VVAccess.ReadWrite)]
+    [DataField, AutoNetworkedField]
+    public bool AutoBuyEnabled = false; // Funkystation
 }
 
 [Serializable, NetSerializable]

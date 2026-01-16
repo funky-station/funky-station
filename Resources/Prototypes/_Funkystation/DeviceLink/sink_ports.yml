@@ -1,6 +1,6 @@
-# SPDX-FileCopyrightText: 2025 Steve <marlumpy@gmail.com>
 # SPDX-FileCopyrightText: 2025 marc-pelletier <113944176+marc-pelletier@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2026 Steve <marlumpy@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -8,3 +8,8 @@
   id: BluespaceGasUtilizer
   name: Bluespace gas vendor
   description: Gas dispensing vendor
+
+- type: sinkPort
+  id: GasExtractorControl
+  name: signal-port-name-gas-extractor-control
+  description: signal-port-description-gas-extractor-control

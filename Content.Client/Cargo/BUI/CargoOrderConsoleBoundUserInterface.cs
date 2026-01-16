@@ -21,6 +21,7 @@
 // SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 // SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2026 Steve <marlumpy@gmail.com>
 //
 // SPDX-License-Identifier: MIT
 
@@ -36,6 +37,7 @@ using Robust.Client.Player;
 using Robust.Shared.Utility;
 using Robust.Shared.Prototypes;
 using static Robust.Client.UserInterface.Controls.BaseButton;
+using Content.Shared._Funkystation.Cargo.Components;
 
 namespace Content.Client.Cargo.BUI
 {
@@ -135,6 +137,23 @@ namespace Content.Client.Cargo.BUI
             {
                 SendMessage(new CargoConsoleToggleLimitMessage());
             };
+
+            // Funkystation: Gas miner controls
+            _menu.OnGasMinerSetSettings += (index, rate, pressure) =>
+            {
+                SendMessage(new GasMinerSetSettingsMessage(index, rate, pressure));
+            };
+
+            _menu.OnToggleAutoBuyMiner += (index, enabled) =>
+            {
+                SendMessage(new ToggleAutoBuyMinerMessage(index, enabled));
+            };
+
+            _menu.OnBuyMolesForMiner += (index, spesos) =>
+            {
+                SendMessage(new BuyMolesForMinerMessage(index, spesos));
+            };
+            // End of Funky changes
 
             _menu.OpenCentered();
         }

@@ -1,0 +1,47 @@
+- type: entity
+  parent: FireAxeCabinet
+  id: MoneyCabinet
+  name: money cabinet
+  description: There is a small label that reads "For Emergency use only".
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Structures/Wallmounts/money_cabinet.rsi
+    layers:
+    - state: cabinet
+    - state: cash
+      map: ["enum.ItemCabinetVisuals.Layer"]
+      visible: true
+    - state: glass
+      map: ["enum.OpenableVisuals.Layer"]
+  - type: ItemSlots
+    slots:
+      ItemCabinet:
+        ejectOnInteract: true
+        whitelist:
+          tags:
+          - Cash
+
+- type: entity
+  parent: MoneyCabinet
+  id: MoneyCabinetOpen
+  suffix: Open
+  components:
+  - type: Openable
+    opened: true
+  - type: Lock
+    locked: false
+
+- type: entity
+  parent: MoneyCabinet
+  id: MoneyCabinetFilled
+  suffix: Filled
+  components:
+  - type: ContainerFill
+    containers:
+      ItemCabinet:
+      - SpaceCash2500
+
+- type: entity
+  parent: [MoneyCabinetFilled, MoneyCabinetOpen]
+  id: MoneyCabinetFilledOpen
+  suffix: Filled, Open

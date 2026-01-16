@@ -19,6 +19,9 @@
   id: DawInstrumentMachineCircuitboard
 
 - type: Tag
+  id: Cash
+
+- type: Tag
   id: ChitinSharkminnow
 
 - type: Tag

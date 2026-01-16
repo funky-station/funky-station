@@ -1,6 +1,7 @@
 # SPDX-FileCopyrightText: 2025 mkanke-real <mikekanke@gmail.com>
 # SPDX-FileCopyrightText: 2025 pathetic meowmeow <uhhadd@gmail.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2026 Xcybitt <197952719+Xcybitt@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -25,7 +26,7 @@
   id: PaperStickyNote
   name: sticky note
   suffix: yellow
-  description: A sticky note, for when you want your reminders to stick
+  description: A sticky note, for when you want your reminders to stick. On objects, on people, anywhere you can think of!
   components:
   - type: Sprite
     sprite: _DV/Objects/Misc/stickies.rsi
@@ -136,6 +137,7 @@
   parent: BaseItem
   id: PaperStickyNoteStack
   name: sticky note stack
+  description: A stack of sticky notes, best used for keeping track of things and of course, pranks.
   suffix: yellow
   components:
   - type: Sprite

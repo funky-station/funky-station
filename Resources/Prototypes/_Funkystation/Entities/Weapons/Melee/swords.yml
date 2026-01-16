@@ -1,5 +1,5 @@
-# SPDX-FileCopyrightText: 2025 SigmaTheDragon <162711378+SigmaTheDragon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 mkanke-real <mikekanke@gmail.com>
+# SPDX-FileCopyrightText: 2026 SigmaTheDragon <162711378+SigmaTheDragon@users.noreply.github.com>
 #
 # SPDX-License-Identifier: MIT
 
@@ -129,7 +129,7 @@
         Slash: 4
         Asphyxiation: 4
         Cold: 4
-        Holy: 15
+        Holy: 10
     soundHit:
       path: /Audio/_DV/CosmicCult/cosmicsword_hit.ogg
       params:
@@ -197,7 +197,7 @@
     damage:
       types:
         Piercing: 6
-        Poison: 8
+        Poison: 6
         Holy: 15
     soundHit:
         path: /Audio/Weapons/bladeslice.ogg
@@ -305,6 +305,10 @@
     name: ghost-role-information-haunted-sword-name
     description: ghost-role-information-haunted-sword-description
     rules: ghost-role-information-familiar-rules
+    mindRoles:
+    - MindRoleGhostRoleFamiliar
+  - type: MindContainer
+    showExamineInfo: true
   - type: BlockMovement
   - type: Speech
     speechVerb: Default
@@ -323,3 +327,4 @@
     color: "#50595C"
     activateSound: null
     deactivateSound: null
+  - type: Familiar

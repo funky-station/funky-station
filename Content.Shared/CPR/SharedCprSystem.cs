@@ -14,6 +14,7 @@ using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Verbs;
 using Content.Shared.Interaction;
+using Content.Shared.Atmos.Rotting;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Serialization;
 using Robust.Shared.Timing;
@@ -43,6 +44,7 @@ public abstract partial class SharedCprSystem : EntitySystem
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly MobThresholdSystem _mobThreshold = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
+    [Dependency] private readonly SharedRottingSystem _rotting = default!;
 
     public const float CprInteractionRangeMultiplier = 0.25f;
     public const float CprDoAfterDelay = 0.5f;
@@ -143,7 +145,9 @@ public abstract partial class SharedCprSystem : EntitySystem
             bool hasDeadThreshold = _mobThreshold.TryGetThresholdForState(ent.Owner, MobState.Dead, out var threshold);
             bool isHealedEnough = !hasDeadThreshold || damage.TotalDamage < threshold;
 
+            // only revive if they don't have the revivable component, aren't rotting, are above 200 damage, and have rolled lucky on the revive chance
             if (!HasComp<UnrevivableComponent>(ent) &&
+                !_rotting.IsRotten(ent) &&
                 isHealedEnough &&
                 _random.Prob(CprReviveChance))
             {

@@ -35,16 +35,19 @@
 # SPDX-FileCopyrightText: 2025 Dani <57107055+wgreen84@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Dani Green <wgreen84gamergame@gmail.com>
 # SPDX-FileCopyrightText: 2025 Nox <nebulousnox38@gmail.com>
+# SPDX-FileCopyrightText: 2025 Selva <140060182+selvamoonbell@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 SpaceCat~Chan <49094338+SpaceCat-Chan@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 W.xyz() <tptechteam@gmail.com>
 # SPDX-FileCopyrightText: 2025 beef42 <bjarketp@gmail.com>
+# SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 empty0set <16693552+empty0set@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 empty0set <empty0set@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 w.xyz() <84605679+pirakaplant@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2026 ClocksAreWorthy <andrearbastochbella@gmail.com>
 #
 # SPDX-License-Identifier: MIT
 
@@ -741,27 +744,6 @@
 
 # service modules
 - type: entity
-  id: BorgModuleService
-  parent: [ BaseBorgModuleService, BaseProviderBorgModule ]
-  name: service cyborg module
-  components:
-  - type: Sprite
-    layers:
-    - state: service
-    - state: icon-pen
-  - type: ItemBorgModule
-    items:
-    - Pen
-    #- BooksBag (Add back when hand whitelisting exists, at the moment they can only use it like an orebag.)
-    - HandLabeler
-    - RubberStampApproved
-    - RubberStampDenied
-    - BorgDropper
-    - BorgVial
-  - type: BorgModuleIcon
-    icon: { sprite: Interface/Actions/actions_borg.rsi, state: service-module }
-
-- type: entity
   id: BorgModuleMusique
   parent: [ BaseBorgModuleService, BaseProviderBorgModule ]
   name: musique cyborg module
@@ -777,41 +759,6 @@
     - SaxophoneInstrument
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: musical-module }
-
-- type: entity
-  id: BorgModuleGardening
-  parent: [ BaseBorgModuleService, BaseProviderBorgModule ]
-  name: gardening cyborg module
-  components:
-  - type: Sprite
-    layers:
-    - state: service
-    - state: icon-gardening
-  - type: ItemBorgModule
-    items:
-    - HydroponicsToolMiniHoe
-    - HydroponicsToolSpade
-    - HydroponicsToolClippers
-    - Bucket
-  - type: BorgModuleIcon
-    icon: { sprite: Interface/Actions/actions_borg.rsi, state: gardening-module }
-
-- type: entity
-  id: BorgModuleHarvesting
-  parent: [ BaseBorgModuleService, BaseProviderBorgModule ]
-  name: harvesting cyborg module
-  components:
-  - type: Sprite
-    layers:
-    - state: service
-    - state: icon-harvesting
-  - type: ItemBorgModule
-    items:
-    - HydroponicsToolScythe
-    - HydroponicsToolHatchet
-    - PlantBag
-  - type: BorgModuleIcon
-    icon: { sprite: Interface/Actions/actions_borg.rsi, state: harvesting-module }
 
 - type: entity
   id: BorgModuleClowning

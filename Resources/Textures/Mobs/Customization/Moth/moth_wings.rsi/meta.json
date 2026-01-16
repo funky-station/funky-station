@@ -8,11 +8,19 @@
   },
   "states": [
     {
-      "name": "default",
+      "name": "default_primary",
       "directions": 4
     },
     {
-      "name": "charred",
+      "name": "default_secondary",
+      "directions": 4
+    },
+    {
+      "name": "charred_primary",
+      "directions": 4
+    },
+    {
+      "name": "charred_secondary",
       "directions": 4
     },
     {
@@ -24,6 +32,10 @@
       "directions": 4
     },
     {
+      "name": "dbushy_tertiary",
+      "directions": 4
+    },
+    {
       "name": "deathhead_primary",
       "directions": 4
     },
@@ -32,15 +44,19 @@
       "directions": 4
     },
     {
-      "name": "fan",
+      "name": "dfan_primary",
       "directions": 4
     },
     {
-      "name": "dfan",
+      "name": "dfan_secondary",
       "directions": 4
     },
     {
-      "name": "feathery",
+      "name": "feathery_primary",
+      "directions": 4
+    },
+    {
+      "name": "feathery_secondary",
       "directions": 4
     },
     {
@@ -52,15 +68,43 @@
       "directions": 4
     },
     {
-      "name": "gothic",
+      "name": "firewatch_tertiary",
       "directions": 4
     },
     {
-      "name": "jungle",
+      "name": "gothic_primary",
       "directions": 4
     },
     {
-      "name": "ladybug",
+      "name": "gothic_secondary",
+      "directions": 4
+    },
+    {
+      "name": "gothic_tertiary",
+      "directions": 4
+    },
+    {
+      "name": "jungle_primary",
+      "directions": 4
+    },
+    {
+      "name": "jungle_secondary",
+      "directions": 4
+    },
+    {
+      "name": "jungle_tertiary",
+      "directions": 4
+    },
+    {
+      "name": "ladybug_primary",
+      "directions": 4
+    },
+    {
+      "name": "ladybug_secondary",
+      "directions": 4
+    },
+    {
+      "name": "ladybug_tertiary",
       "directions": 4
     },
     {
@@ -72,6 +116,10 @@
       "directions": 4
     },
     {
+      "name": "maple_tertiary",
+      "directions": 4
+    },
+    {
       "name": "moffra_primary",
       "directions": 4
     },
@@ -80,7 +128,19 @@
       "directions": 4
     },
     {
-      "name": "oakworm",
+      "name": "moffra_tertiary",
+      "directions": 4
+    },
+    {
+      "name": "oakworm_primary",
+      "directions": 4
+    },
+    {
+      "name": "oakworm_secondary",
+      "directions": 4
+    },
+    {
+      "name": "oakworm_tertiary",
       "directions": 4
     },
     {
@@ -92,7 +152,19 @@
       "directions": 4
     },
     {
-      "name": "pointy",
+      "name": "plasmafire_tertiary",
+      "directions": 4
+    },
+    {
+      "name": "pointy_primary",
+      "directions": 4
+    },
+    {
+      "name": "pointy_secondary",
+      "directions": 4
+    },
+    {
+      "name": "pointy_tertiary",
       "directions": 4
     },
     {
@@ -104,23 +176,55 @@
       "directions": 4
     },
     {
-      "name": "stellar",
+      "name": "royal_tertiary",
       "directions": 4
     },
     {
-      "name": "striped",
+      "name": "stellar_primary",
       "directions": 4
     },
     {
-      "name": "swirly",
+      "name": "stellar_secondary",
       "directions": 4
     },
     {
-      "name": "whitefly",
+      "name": "stellar_tertiary",
       "directions": 4
     },
     {
-      "name": "witchwing",
+      "name": "swirly_primary",
+      "directions": 4
+    },
+    {
+      "name": "swirly_secondary",
+      "directions": 4
+    },
+    {
+      "name": "swirly_tertiary",
+      "directions": 4
+    },
+    {
+      "name": "whitefly_primary",
+      "directions": 4
+    },
+    {
+      "name": "whitefly_secondary",
+      "directions": 4
+    },
+    {
+      "name": "whitefly_tertiary",
+      "directions": 4
+    },
+    {
+      "name": "witchwing_primary",
+      "directions": 4
+    },
+    {
+      "name": "witchwing_secondary",
+      "directions": 4
+    },
+    {
+      "name": "witchwing_tertiary",
       "directions": 4
     },
     {
@@ -129,6 +233,22 @@
     },
     {
       "name": "underwing_secondary",
+      "directions": 4
+    },
+    {
+      "name": "underwing_tertiary",
+      "directions": 4
+    },
+    {
+      "name": "origins_primary",
+      "directions": 4
+    },
+    {
+      "name": "origins_secondary",
+      "directions": 4
+    },
+    {
+      "name": "origins_tertiary",
       "directions": 4
     }
   ]

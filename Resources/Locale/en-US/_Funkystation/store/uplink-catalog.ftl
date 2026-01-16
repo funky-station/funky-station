@@ -25,3 +25,6 @@ uplink-PDA-agent-desc = A spare PDA from an agent, this can be used to show your
 # Pointless
 uplink-towel-syndicate-name = Syndicate Towel
 uplink-towel-syndicate-desc = A highly versatile, malicious-looking black towel. Has a meaner whip than most other towels. For the Syndicates's strongest shower warriors.
+
+uplink-fakesuit-syndicate-name= Unarmored Blood Red Hardsuit
+uplink-fakesuit-syndicate-desc= A suit you can give your kids to play with! Let them pretend to be a raider without worrying about them dying from spacing!

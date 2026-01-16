@@ -101,6 +101,51 @@
 	},
     {
       "name": "rainbow_chair"
+    },
+	{
+      "name": "comfy_grey_icon"
+    },
+	{
+      "name": "comfy_black_icon"
+    },
+	{
+      "name": "comfy_blue_icon"
+    },
+	{
+      "name": "comfy_dark_blue_icon"
+    },
+	{
+      "name": "comfy_brown_icon"
+    },
+	{
+      "name": "comfy_light_brown_icon"
+    },
+	{
+      "name": "comfy_orange_icon"
+    },
+	{
+      "name": "comfy_pink_icon"
+    },
+	{
+      "name": "comfy_red_icon"
+    },
+	{
+      "name": "comfy_maroon_icon"
+    },
+	{
+      "name": "comfy_green_icon"
+    },
+	{
+      "name": "comfy_dark_green_icon"
+    },
+	{
+      "name": "comfy_teal_icon"
+    },
+	{
+      "name": "comfy_yellow_icon"
+    },
+	{
+      "name": "comfy_purple_icon"
     }
   ]
 }

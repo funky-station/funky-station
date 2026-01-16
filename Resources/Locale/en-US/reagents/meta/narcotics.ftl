@@ -71,3 +71,6 @@ reagent-desc-nitrosyl-plasmide = A powerful stimulant that can prevent drowsines
 ## can't put it in a new file...
 nicotine-effect-dull-ache = You feel a dull ache in your chest.
 nicotine-effect-sharp-pain = You feel a sharp pain in your chest.
+
+reagent-name-disabler-mix = disabler mix
+reagent-desc-disabler-mix = A proprietary mixture of chemicals designed to slow a target enough to be able to take them down with other tools, yet cheap enough to be produced from energy and air alone.

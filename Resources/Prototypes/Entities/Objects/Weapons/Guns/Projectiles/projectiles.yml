@@ -75,6 +75,7 @@
 # SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2026 Xcybitt <197952719+Xcybitt@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -333,13 +334,23 @@
         - LowImpassable
         hard: false
   - type: Ammo
-  - type: StaminaDamageOnCollide
-    damage: 33
+  #- type: StaminaDamageOnCollide   #kill
+  #  damage: 33
+  - type: SolutionContainerManager
+    solutions:
+      ammo:
+        maxVol: 5
+        reagents:
+        - ReagentId: DisablerMix
+          Quantity: 5
+  - type: SolutionInjectOnEmbed
+    transferAmount: 5
+    solution: ammo
   - type: Projectile
     impactEffect: BulletImpactEffectDisabler
     damage:
       types:
-        Ion: 10 #Goobstation
+        #Ion: 10 #Goobstation
         Heat: 0
     soundHit:
       collection: WeakHit
@@ -383,12 +394,12 @@
         hard: false
   - type: Ammo
   - type: StaminaDamageOnCollide
-    damage: 1
+    damage: 1 #yes this is the one disabler that exists and works. Go firing line an antag to stun them, surely this will go well :godo:
   - type: Projectile
     impactEffect: BulletImpactEffectDisabler
     damage:
       types:
-        Ion: 5 #Goobstation
+        #Ion: 5 #Goobstation
         Heat: 0
     soundHit:
       collection: WeakHit
@@ -1020,7 +1031,7 @@
 
 - type: entity
   name : disabler bolt smg
-  id: BulletDisablerSmg
+  id: BulletDisablerSmg  #these no longer exist normally so leaving it be
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
   components:

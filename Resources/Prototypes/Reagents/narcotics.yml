@@ -36,6 +36,7 @@
 # SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 takemysoult <143123247+takemysoult@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 LucasTheDrgn <kirbyfan.95@gmail.com>
+# SPDX-FileCopyrightText: 2025 MaiaArai <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 PurpleTranStar <purpletranstars@gmail.com>
 # SPDX-FileCopyrightText: 2025 Starry <202317940+PurpleTranStar@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Starry <tehevilduckiscoming@gmail.com>
@@ -100,6 +101,9 @@
         key: Adrenaline
         component: IgnoreSlowOnDamage
         time: 5
+      - !type:AdjustReagent
+        reagent: DisablerMix
+        amount: -5
     Medicine:
       effects:
       - !type:ResetNarcolepsy
@@ -157,6 +161,9 @@
         key: Adrenaline
         component: IgnoreSlowOnDamage
         time: 5
+      - !type:AdjustReagent
+        reagent: DisablerMix
+        amount: -5
     Medicine:
       effects:
       - !type:ResetNarcolepsy
@@ -224,6 +231,9 @@
         key: Adrenaline
         component: IgnoreSlowOnDamage
         time: 5
+      - !type:AdjustReagent
+        reagent: DisablerMix
+        amount: -5
     Medicine:
       metabolismRate: 1.0
       effects:
@@ -542,6 +552,33 @@
         conditions:
         - !type:ReagentThreshold
           min: 20
+
+- type: reagent
+  id: DisablerMix
+  name: reagent-name-disabler-mix
+  group: Narcotics
+  desc: reagent-desc-disabler-mix
+  physicalDesc: reagent-physical-desc-frosty
+  flavor: cold
+  color: "#b3f1ff"
+  boilingPoint: 255.0
+  meltingPoint: 36.0
+  metabolisms:
+    Narcotic:
+      metabolismRate : 2.00
+      effects:
+      - !type:MovespeedModifier
+        conditions:
+        - !type:ReagentThreshold
+          min: 15
+        walkSpeedModifier: 0.9
+        sprintSpeedModifier: 0.9
+      - !type:MovespeedModifier
+        conditions:
+        - !type:ReagentThreshold
+          min: 25
+        walkSpeedModifier: 0.75
+        sprintSpeedModifier: 0.75
 
 - type: reagent
   id: TearGas

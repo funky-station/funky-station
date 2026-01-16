@@ -4,6 +4,7 @@
 // SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
 // SPDX-FileCopyrightText: 2024 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 TheHolyAegis <sanderkamphuis719@gmail.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
 // SPDX-License-Identifier: MIT
@@ -70,10 +71,10 @@ public sealed class TipsSystem : EntitySystem
         {
             1 => CompletionResult.FromHintOptions(CompletionHelper.SessionNames(), Loc.GetString("cmd-tippy-auto-1")),
             2 => CompletionResult.FromHint(Loc.GetString("cmd-tippy-auto-2")),
-            3 => CompletionResult.FromHintOptions(CompletionHelper.PrototypeIDs<EntityPrototype>(), Loc.GetString("cmd-tippy-auto-3")),
-            4 => CompletionResult.FromHint(Loc.GetString("cmd-tippy-auto-4")),
-            5 => CompletionResult.FromHint(Loc.GetString("cmd-tippy-auto-5")),
-            6 => CompletionResult.FromHint(Loc.GetString("cmd-tippy-auto-6")),
+            3 => CompletionResult.FromHint(Loc.GetString("cmd-tippy-auto-4")),
+            4 => CompletionResult.FromHint(Loc.GetString("cmd-tippy-auto-5")),
+            5 => CompletionResult.FromHint(Loc.GetString("cmd-tippy-auto-6")),
+            6 => CompletionResult.FromHintOptions(CompletionHelper.PrototypeIDs<EntityPrototype>(), Loc.GetString("cmd-tippy-auto-3")),
             _ => CompletionResult.Empty
         };
     }
@@ -126,23 +127,23 @@ public sealed class TipsSystem : EntitySystem
         var ev = new TippyEvent(args[1]);
 
         if (args.Length > 2)
+            ev.SpeakTime = float.Parse(args[2]);
+
+        if (args.Length > 3)
+            ev.SlideTime = float.Parse(args[3]);
+
+        if (args.Length > 4)
+            ev.WaddleInterval = float.Parse(args[4]);
+
+        if (args.Length > 5)
         {
-            ev.Proto = args[2];
-            if (!_prototype.HasIndex<EntityPrototype>(args[2]))
+            ev.Proto = args[5];
+            if (!_prototype.HasIndex<EntityPrototype>(args[5]))
             {
-                shell.WriteError(Loc.GetString("cmd-tippy-error-no-prototype", ("proto", args[2])));
+                shell.WriteError(Loc.GetString("cmd-tippy-error-no-prototype", ("proto", args[5])));
                 return;
             }
         }
-
-        if (args.Length > 3)
-            ev.SpeakTime = float.Parse(args[3]);
-
-        if (args.Length > 4)
-            ev.SlideTime = float.Parse(args[4]);
-
-        if (args.Length > 5)
-            ev.WaddleInterval = float.Parse(args[5]);
 
         if (actor != null)
             RaiseNetworkEvent(ev, actor.PlayerSession);

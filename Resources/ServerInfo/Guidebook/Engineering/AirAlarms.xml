@@ -56,7 +56,7 @@ SPDX-License-Identifier: MIT
   This is useful for monitoring areas that you don't have an air vent or scrubber in already.
 
   ## Operating Modes
-  To control connected devices quickly, air alarms feature operating modes, which quickly changes the behavior of all linked devices to achieve a desired effect.
+  To control connected devices quickly, air alarms feature operating modes, which quickly change the behavior of all linked devices to achieve a desired effect.
   - None: Disables all devices linked to the air alarm.
   - Filtering: [textlink="Air Vents" link="AirVent"] will be enabled with their external bound set to standard atmospheric pressure. [textlink="Air Scrubbers" link="AirScrubber"] will be enabled and scrub all waste gasses normally.
   - Filtering (Wide): Same as Filtering, but all linked [textlink="Air Scrubbers" link="AirScrubber"] will enable their WideNet mode.

@@ -57,7 +57,7 @@ You can swap which hand is currently active using [color=yellow][bold][keybind="
 You can [color=cyan]drop[/color] the item you are holding using [color=yellow][bold][keybind="Drop"][/bold][/color] or alternatively [color=cyan]throw it[/color] to your cursor with [color=yellow][bold][keybind="ThrowItemInHand"][/bold][/color].
 
 ## Inventory
-You can [color=cyan]open[/color] you inventory using [color=yellow][bold][keybind="OpenInventoryMenu"][/bold][/color].
+You can [color=cyan]open[/color] your inventory using [color=yellow][bold][keybind="OpenInventoryMenu"][/bold][/color].
 Each slot on your HUD can be filled with an appropriate [bold]item[/bold] or [bold]piece of clothing[/bold].
 
 Two of the slots on the hotbar correspond to your [bold]bag and belt[/bold].

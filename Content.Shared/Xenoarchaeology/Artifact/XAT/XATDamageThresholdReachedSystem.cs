@@ -1,6 +1,7 @@
 // SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 // SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2026 JustAnName <119609879+JustAnName@users.noreply.github.com>
 //
 // SPDX-License-Identifier: MIT
 
@@ -28,7 +29,11 @@ public sealed class XATDamageThresholdReachedSystem : BaseXATSystem<XATDamageThr
 
     private void OnDamageChanged(Entity<XenoArtifactComponent> artifact, Entity<XATDamageThresholdReachedComponent, XenoArtifactNodeComponent> node, ref DamageChangedEvent args)
     {
-        if (!args.DamageIncreased || args.DamageDelta == null || args.Origin == artifact.Owner)
+        if (!args.DamageIncreased || args.DamageDelta == null)
+			return;
+
+        // Allow radiation to pass through because radiation damage is ALWAYS attributed to the receiver instead of the source.
+        if (args.Origin == artifact.Owner && !args.DamageDelta.DamageDict.ContainsKey("Radiation"))
             return;
 
         var damageTriggerComponent = node.Comp1;

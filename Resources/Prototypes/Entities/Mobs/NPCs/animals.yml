@@ -145,6 +145,7 @@
 # SPDX-FileCopyrightText: 2024 timur2011 <16829159+timurjavid@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 youtissoum <51883137+youtissoum@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 88tv <131759102+88tv@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 8tv <eightev@gmail.com>
 # SPDX-FileCopyrightText: 2025 Crude Oil <124208219+CroilBird@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Drywink <43855731+Drywink@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Drywink <hugogrethen@gmail.com>
@@ -166,7 +167,6 @@
 # SPDX-FileCopyrightText: 2025 Toastermeister <215405651+Toastermeister@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 TrixxedHeart <46364955+TrixxedBit@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 V <97265903+formlessnameless@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Zergologist <114537969+Chedd-Error@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
 # SPDX-FileCopyrightText: 2025 empty0set <empty0set@users.noreply.github.com>
@@ -175,6 +175,7 @@
 # SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2026 Zergologist <114537969+Chedd-Error@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -3989,16 +3990,16 @@
   - type: Sprite
     drawdepth: Mobs
     layers:
-    - map: ["enum.DamageStateVisualLayers.Base"]
+    - map: ["enum.DamageStateVisualLayers.Base", "movement"]
       state: reindeer_buck
       sprite: Mobs/Animals/reindeer_buck.rsi
-#  - type: SpriteMovement  # One day when this shit isnt broken as hell. For now they hoppity hop.
-#    movementLayers:
-#      movement:
-#        state: reindeer_buck
-#    noMovementLayers:
-#      movement:
-#        state: reindeer_buck_still
+  - type: SpriteMovement
+    movementLayers:
+      movement:
+        state: reindeer_buck
+    noMovementLayers:
+      movement:
+        state: reindeer_buck_still
   - type: Physics
   - type: Fixtures
     fixtures:
@@ -4025,11 +4026,13 @@
       amount: 4
   - type: Bloodstream
     bloodMaxVolume: 300
-    # Horns though
+    # Horns though 
+    # funky: what the fuck do you mean "horns though" do NOT give a mob 22 piercing melee!!
   - type: MeleeWeapon
     damage:
       types:
-        Piercing: 22
+        # Piercing: 22
+        Piercing: 8
     animation: WeaponArcFist
   - type: NPCRetaliation
   - type: FactionException
@@ -4061,16 +4064,16 @@
   - type: Sprite
     drawdepth: Mobs
     layers:
-    - map: ["enum.DamageStateVisualLayers.Base"]
+    - map: ["enum.DamageStateVisualLayers.Base", "movement"]
       state: reindeer_doe
       sprite: Mobs/Animals/reindeer_doe.rsi
-#  - type: SpriteMovement  # One day when this shit isnt broken as hell. For now they hoppity hop.
-#    movementLayers:
-#      movement:
-#        state: reindeer_doe
-#    noMovementLayers:
-#      movement:
-#        state: reindeer_doe_still
+  - type: SpriteMovement 
+    movementLayers:
+      movement:
+        state: reindeer_doe
+    noMovementLayers:
+      movement:
+        state: reindeer_doe_still
   - type: DamageStateVisuals
     states:
       Alive:

@@ -48,3 +48,6 @@ ghost-role-information-meowl-description = A highly invasive apex predator. The 
 
 ghost-role-information-haunted-sword-name = Haunted Swords
 ghost-role-information-haunted-sword-description = A mysterious weapon of old, haunted with spirits both ancient and powerful.
+
+ghost-role-information-reindeer-name = Atmospheric Reindeer
+ghost-role-information-reindeer-description = A reindeer adapted to life within and around the engineering department. Holds many complaints regarding atmospheric pipenets.

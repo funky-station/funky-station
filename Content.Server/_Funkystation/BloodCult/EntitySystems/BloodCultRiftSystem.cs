@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2025 Terkala <appleorange64@gmail.com>
+// SPDX-FileCopyrightText: 2026 Terkala <appleorange64@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later OR MIT
 
@@ -88,6 +88,8 @@ public sealed partial class BloodCultRiftSystem : EntitySystem
 		var riftQuery = EntityQueryEnumerator<BloodCultRiftComponent, TransformComponent>();
 		while (riftQuery.MoveNext(out var riftUid, out var riftComp, out var xform))
 		{
+			// Track if we've already processed a sacrifice this frame to prevent multiple sacrifices
+			var sacrificeProcessedThisFrame = false;
 			// Handle pulsing (adding Sanguine Perniculate)
 			riftComp.TimeUntilNextPulse -= frameTime;
 			if (riftComp.TimeUntilNextPulse <= 0)
@@ -101,11 +103,225 @@ public sealed partial class BloodCultRiftSystem : EntitySystem
 			// Handle active ritual chanting
 			if (riftComp.RitualInProgress)
 			{
-				riftComp.TimeUntilNextChant -= frameTime;
-				if (riftComp.TimeUntilNextChant <= 0f)
+				// Check if enough living cultists are present
+				// GetCultistsOnSummoningRunes filters out soulstones, juggernauts, shades, ghosts, dead, and critical entities
+				var cultistsOnRunes = GetCultistsOnSummoningRunes(riftComp);
+				
+				// RequiredCultistsForChant decreases after each sacrifice (3 -> 2 -> 1)
+				// This allows the ritual to continue with fewer cultists as it progresses
+				if (cultistsOnRunes.Count < riftComp.RequiredCultistsForChant)
 				{
-					ProcessChantStep(riftUid, riftComp, xform);
+					// Not enough living cultists, pause the ritual (don't fail)
+					// Stop music and pause timers, but keep RitualInProgress true so it can resume
+					if (riftComp.RitualMusicPlaying)
+					{
+						_sound.StopStationEventMusic(riftUid, StationEventMusicType.BloodCult);
+						riftComp.RitualMusicPlaying = false;
+					}
+					
+					// Clear pending sacrifice if it's no longer valid (e.g., became soulstone, juggernaut, shade, died, or left)
+					if (riftComp.PendingSacrifice is { } pending)
+					{
+						if (!cultistsOnRunes.Contains(pending) || !IsValidSummoningParticipant(pending))
+						{
+							riftComp.PendingSacrifice = null;
+						}
+					}
+					// The ritual will automatically resume if or when enough living cultists return (next frame)
+					continue;
 				}
+
+				// Ensure we have a pending sacrifice
+				EnsurePendingSacrifice(riftComp, cultistsOnRunes);
+
+				// If we were paused (music stopped) and now have enough cultists, resume the music
+				if (!riftComp.RitualMusicPlaying && riftComp.RitualMusicDuration > 0f)
+				{
+					// Restart music at the correct offset based on sacrifices completed
+					// This handles the case where ritual was paused due to not enough cultists
+					var resolved = _audio.ResolveSound(riftComp.RitualMusic);
+					if (!ResolvedSoundSpecifier.IsNullOrEmpty(resolved))
+					{
+						// Calculate playback offset based on sacrifice progress
+						float offset = 0f;
+						if (riftComp.RequiredSacrifices > 0 && riftComp.SacrificesCompleted > 0)
+						{
+							var progress = (float)riftComp.SacrificesCompleted / riftComp.RequiredSacrifices;
+							offset = riftComp.RitualMusicDuration * progress;
+							offset = Math.Clamp(offset, 0f, riftComp.RitualMusicDuration);
+						}
+
+						// Reset ritual start time to now (so elapsed time calculation works correctly)
+						// The music offset ensures we're at the right point in the track
+						riftComp.RitualStartTime = _timing.CurTime;
+
+						var audioParams = AudioParams.Default.WithVolume(-8).WithPlayOffset(offset);
+						_sound.DispatchStationEventMusic(riftUid, resolved, StationEventMusicType.BloodCult, audioParams);
+						riftComp.RitualMusicPlaying = true;
+					}
+				}
+
+				// Handle music-synced sacrifices
+				// Only process one sacrifice per frame to prevent all three from triggering simultaneously
+				if (riftComp.RitualMusicDuration > 0f && riftComp.RitualStartTime != TimeSpan.Zero && !sacrificeProcessedThisFrame)
+				{
+					// Only check for the NEXT sacrifice, not all of them
+					// This prevents multiple sacrifices from triggering in the same frame
+					if (riftComp.SacrificesCompleted < riftComp.RequiredSacrifices)
+					{
+						// Store the current sacrifice index to prevent race conditions
+						// If SacrificesCompleted changes during this check, we'll catch it
+						var currentSacrificeIndex = riftComp.SacrificesCompleted;
+						
+						// Elapsed time since RitualStartTime was set
+						var elapsed = (_timing.CurTime - riftComp.RitualStartTime).TotalSeconds;
+						
+						// Calculate the actual position in the music track
+						// If music was resumed, RitualStartTime was reset and music plays from an offset
+						var currentMusicPosition = elapsed;
+						if (riftComp.RequiredSacrifices > 0 && currentSacrificeIndex > 0)
+						{
+							// Expected minimum position if playing continuously
+							var minExpectedPosition = (riftComp.RitualMusicDuration / riftComp.RequiredSacrifices) * currentSacrificeIndex;
+							
+							// If elapsed is less than the minimum expected, music was resumed
+							// Add the offset to get the actual position in the track
+							if (elapsed < minExpectedPosition - 1.0f) // 1 second tolerance for timing variations
+							{
+								var progress = (float)currentSacrificeIndex / riftComp.RequiredSacrifices;
+								var musicOffset = riftComp.RitualMusicDuration * progress;
+								currentMusicPosition = musicOffset + elapsed;
+							}
+						}
+						
+						// Validate that elapsed time is reasonable (not negative or impossibly large)
+						// This prevents issues if RitualStartTime is set incorrectly
+						if (elapsed < 0f || elapsed > riftComp.RitualMusicDuration * 2f)
+						{
+							// Timing is invalid, skip this frame
+							continue;
+						}
+						
+						// Calculate target time for the NEXT sacrifice (currentSacrificeIndex + 1)
+						// Each sacrifice should happen at: (duration / requiredSacrifices) * sacrificeNumber
+						// For 3 sacrifices: at duration/3, 2*duration/3, and duration
+						var targetMusicTime = (riftComp.RitualMusicDuration / riftComp.RequiredSacrifices) * (currentSacrificeIndex + 1);
+						
+						// CRITICAL SAFETY: Enforce minimum 5-second cooldown between sacrifices
+						// This prevents multiple sacrifices from triggering in rapid succession
+						var timeSinceLastSacrifice = (_timing.CurTime - riftComp.TimeSinceLastSacrifice).TotalSeconds;
+						if (timeSinceLastSacrifice < 5.0f && riftComp.TimeSinceLastSacrifice != TimeSpan.Zero)
+						{
+							// Not enough time has passed since last sacrifice, skip
+							continue;
+						}
+						
+						// Check if it's time for the next sacrifice
+						// Use a small tolerance (0.1s) to account for frame timing
+						// Also check that we're not too far past the target time (max 0.5s tolerance)
+						// This ensures we only trigger sacrifices at the right time, not way too early or late
+						if (!sacrificeProcessedThisFrame && currentMusicPosition >= targetMusicTime - 0.1f && currentMusicPosition <= targetMusicTime + 0.5f)
+						{
+							// Double-check that SacrificesCompleted hasn't changed (prevent race condition)
+							if (riftComp.SacrificesCompleted != currentSacrificeIndex)
+							{
+								// Another sacrifice happened this frame, skip
+								continue;
+							}
+							
+							// Re-check cultist count right before sacrifice to prevent sync issues
+							var currentCultistsOnRunes = GetCultistsOnSummoningRunes(riftComp);
+							if (currentCultistsOnRunes.Count >= riftComp.RequiredCultistsForChant)
+							{
+								// Mark that we're processing a sacrifice this frame
+								// This prevents multiple sacrifices from being processed in the same frame
+								sacrificeProcessedThisFrame = true;
+								
+								// Final validation: ensure SacrificesCompleted hasn't changed
+								// This is a critical safety check to prevent duplicate sacrifices
+								if (riftComp.SacrificesCompleted != currentSacrificeIndex)
+								{
+									// State changed, abort and reset flag
+									sacrificeProcessedThisFrame = false;
+									continue;
+								}
+								
+								// Time for this sacrifice
+								TryPerformFinalSacrifice(riftUid, riftComp, xform);
+								
+								// After a sacrifice, immediately check if ritual is complete
+								// This prevents any further processing in this frame
+								// CRITICAL: Check both SacrificesCompleted and FinalSacrificeDone to ensure summoning happens
+								if (riftComp.SacrificesCompleted >= riftComp.RequiredSacrifices)
+								{
+									// Final sacrifice completed - summon Nar'Sie
+									if (!riftComp.FinalSacrificeDone)
+									{
+										riftComp.FinalSacrificeDone = true;
+									}
+									
+									// SUCCESS! Summon Nar'Sie
+									SummonNarsie(riftUid, xform);
+									AnnounceRitualSuccess();
+									if (riftComp.RitualMusicPlaying)
+									{
+										_sound.StopStationEventMusic(riftUid, StationEventMusicType.BloodCult);
+										riftComp.RitualMusicPlaying = false;
+									}
+									riftComp.RitualInProgress = false;
+									riftComp.SacrificesCompleted = 0; // Reset on successful completion
+									riftComp.TimeSinceLastSacrifice = TimeSpan.Zero; // Reset cooldown
+									continue;
+								}
+							}
+						}
+					}
+				}
+
+				// Check if ritual is complete (all sacrifices done)
+				// This is a fallback check
+				if (riftComp.SacrificesCompleted >= riftComp.RequiredSacrifices)
+				{
+					// Final sacrifice completed - summon Nar'Sie
+					if (!riftComp.FinalSacrificeDone)
+					{
+						riftComp.FinalSacrificeDone = true;
+						// SUCCESS! Summon Nar'Sie
+						SummonNarsie(riftUid, xform);
+						AnnounceRitualSuccess();
+						if (riftComp.RitualMusicPlaying)
+						{
+							_sound.StopStationEventMusic(riftUid, StationEventMusicType.BloodCult);
+							riftComp.RitualMusicPlaying = false;
+						}
+						riftComp.RitualInProgress = false;
+						riftComp.SacrificesCompleted = 0; // Reset on successful completion
+						riftComp.TimeSinceLastSacrifice = TimeSpan.Zero; // Reset cooldown
+						continue;
+					}
+				}
+
+				// Handle "Nar'Sie" chants every 5 seconds (from non-sacrifice cultists)
+				riftComp.TimeUntilNextNarsieChant -= frameTime;
+				if (riftComp.TimeUntilNextNarsieChant <= 0f)
+				{
+					//Backup chanters
+					DoNarsieChant(riftUid, riftComp, cultistsOnRunes);
+					//Swapping to combine long shake with the chanting
+					riftComp.TimeUntilNextNarsieChant = 5f;
+					DoShakeWithLongChant(riftUid, riftComp, xform, cultistsOnRunes);
+				}
+
+				/* Commenting out separate shake and chant intervals, they should be synced
+				// Handle shake-synced longer phrase chanting
+				riftComp.TimeUntilNextShakeForChant -= frameTime;
+				if (riftComp.TimeUntilNextShakeForChant <= 0f)
+				{
+					DoShakeWithLongChant(riftUid, riftComp, xform, cultistsOnRunes);
+					// Schedule next shake - use a consistent interval (e.g., every 5 seconds)
+					riftComp.TimeUntilNextShakeForChant = 5f;
+				}
+				*/
 			}
 		}
 	}
@@ -178,15 +394,22 @@ public sealed partial class BloodCultRiftSystem : EntitySystem
 	private void TryPerformFinalSacrifice(EntityUid riftUid, BloodCultRiftComponent component, TransformComponent xform)
 	{
 		// Make sure it actually needs to be done.
+		// This is a critical guard to prevent multiple sacrifices in the same frame
 		if (component.FinalSacrificeDone || component.SacrificesCompleted >= component.RequiredSacrifices)
 			return;
 
+		// Re-check cultist count to prevent sync issues
+		// This ensures we have enough cultists right before the sacrifice
 		var cultistsOnRunes = GetCultistsOnSummoningRunes(component);
+		
+		// Ensure we still have enough cultists for the ritual
+		if (cultistsOnRunes.Count < component.RequiredCultistsForChant)
+		{
+			return;
+		}
 			
 		if (cultistsOnRunes.Count == 0)
 		{
-			component.ChantsCompletedInCycle = SacrificeChantDelays.Length;
-			component.TimeUntilNextChant = 1f;
 			return;
 		}
 
@@ -194,35 +417,36 @@ public sealed partial class BloodCultRiftSystem : EntitySystem
 		// Whoever gets the fancy chant is the next to die. Hopefully that's spooky and ominous.
 		// I want people thinking "Why am I saying something different from everyone else?"
 		// Foreshadowing is fun *evil laugh*
-		if (component.PendingSacrifice is not { } pending || !cultistsOnRunes.Contains(pending))
+		if (component.PendingSacrifice is not { } pending || !cultistsOnRunes.Contains(pending) || !IsValidSummoningParticipant(pending))
 		{
-			component.PendingSacrifice = _random.Pick(cultistsOnRunes);
+			component.PendingSacrifice = cultistsOnRunes.Count > 0 ? _random.Pick(cultistsOnRunes) : null;
 		}
 
-		// If the person who has the pending sacrifice flag doesn't exist, restart the chant.
-		if (!TryComp(component.PendingSacrifice.Value, out TransformComponent? victimXform))
+		// If we don't have a valid pending sacrifice, abort
+		if (component.PendingSacrifice is not { } validPending)
 		{
-			component.ChantsCompletedInCycle = SacrificeChantDelays.Length;
-			component.TimeUntilNextChant = 1f;
 			return;
 		}
 
-		// If the person who has the pending sacrifice flag isn't on a rune, restart the chant.
-		if (!cultistsOnRunes.Contains(component.PendingSacrifice.Value))
+		// If the person who has the pending sacrifice flag doesn't exist, pick a new one.
+		if (!TryComp(validPending, out TransformComponent? victimXform))
 		{
-			component.PendingSacrifice = null;
-			component.ChantsCompletedInCycle = SacrificeChantDelays.Length;
-			component.TimeUntilNextChant = 1f;
+			component.PendingSacrifice = cultistsOnRunes.Count > 0 ? _random.Pick(cultistsOnRunes) : null;
 			return;
 		}
 
-		// Kill the sacrifice and soulstone them. If it can't kill them, restart the chant.
+		// If the person who has the pending sacrifice flag isn't on a rune or is no longer valid, pick a new one.
+		if (!cultistsOnRunes.Contains(validPending) || !IsValidSummoningParticipant(validPending))
+		{
+			component.PendingSacrifice = cultistsOnRunes.Count > 0 ? _random.Pick(cultistsOnRunes) : null;
+			return;
+		}
+
+		// Kill the sacrifice and soulstone them. If it can't kill them, skip this attempt.
 		// This should never happen, because if the code gets this far it should be able to kill them.
 		var victim = component.PendingSacrifice.Value;
 		if (!_offerSystem.TryForceSoulstoneCreation(victim, victimXform.Coordinates))
 		{
-			component.ChantsCompletedInCycle = SacrificeChantDelays.Length;
-			component.TimeUntilNextChant = 1f;
 			return;
 		}
 
@@ -237,20 +461,23 @@ public sealed partial class BloodCultRiftSystem : EntitySystem
 			_bodySystem.GibBody(victim, gibOrgans: false);
 		}
 
-		//Increment the sacrifices, play an announcement, and reset the chant.
+		//Increment the sacrifices, play an announcement.
 		component.SacrificesCompleted++;
+		// Decrease the required cultist count after each sacrifice
+		// This allows the ritual to continue with fewer cultists as it progresses (3 -> 2 -> 1)
+		// Minimum is 1 to ensure at least one cultist remains for the final sacrifice
 		component.RequiredCultistsForChant = Math.Max(1, component.RequiredCultistsForChant - 1);
 		component.PendingSacrifice = null;
 		component.FinalSacrificePending = false;
-		component.ChantsCompletedInCycle = 0;
-		component.TimeUntilNextChant = 0f;
+		
+		// Record the time of this sacrifice to enforce 5-second cooldown
+		component.TimeSinceLastSacrifice = _timing.CurTime;
 
 		AnnounceSacrificeProgress(component.SacrificesCompleted);
 
-		if (component.SacrificesCompleted >= component.RequiredSacrifices)
-		{
-			component.FinalSacrificeDone = true;
-		}
+		// Note: Don't set FinalSacrificeDone here - let the Update loop handle it
+		// This ensures the summoning logic in Update runs properly
+		// The Update loop will check SacrificesCompleted and summon Nar'Sie
 	}
 
 	/// <summary>
@@ -268,13 +495,35 @@ public sealed partial class BloodCultRiftSystem : EntitySystem
 		var user = args.User.Value;
 		var riftUid = uid;
 
-		// Don't start if ritual is already in progress
-		if (component.RitualInProgress)
+		// If ritual is in progress but paused (music not playing), allow resuming
+		if (component.RitualInProgress && component.RitualMusicPlaying)
 		{
 			_popupSystem.PopupEntity(
 				Loc.GetString("cult-final-ritual-already-in-progress"),
 				user, user, PopupType.MediumCaution
 			);
+			args.Handled = true;
+			return;
+		}
+
+		// If ritual is paused (in progress but music stopped), resume it
+		if (component.RitualInProgress && !component.RitualMusicPlaying)
+		{
+			// Check if enough cultists are present to resume
+			var cultistsOnRunesForResume = GetCultistsOnSummoningRunes(component);
+			if (cultistsOnRunesForResume.Count < component.RequiredCultistsForChant)
+			{
+				_popupSystem.PopupEntity(
+					Loc.GetString("cult-final-ritual-not-enough-cultists",
+						("current", cultistsOnRunesForResume.Count),
+						("required", component.RequiredCultistsForChant)),
+					user, user, PopupType.LargeCaution
+				);
+				args.Handled = true;
+				return;
+			}
+
+			// Resume the ritual - music will be restarted in Update loop at correct offset
 			args.Handled = true;
 			return;
 		}
@@ -320,7 +569,7 @@ public sealed partial class BloodCultRiftSystem : EntitySystem
 		component.RitualInProgress = true;
 		component.LastNotEnoughCultistsPopup = _timing.CurTime;
 		component.CurrentChantStep = 0;
-		component.SacrificesCompleted = 0;
+		// Don't reset SacrificesCompleted - preserve it across ritual attempts for music offset
 		component.RequiredSacrifices = 3;
 		component.FinalSacrificeDone = false;
 		component.TotalChantSteps = (SacrificeChantDelays.Length + 1) * component.RequiredSacrifices;
@@ -331,15 +580,10 @@ public sealed partial class BloodCultRiftSystem : EntitySystem
 		component.TimeUntilNextShake = 0f;
 		component.NextShakeIndex = 0;
 
-		// Uses placeholder music for now.
-		// todo: find better bloodcult music
 		StartRitualMusic(riftUid, component);
 
 		// Announce to all cultists
 		AnnounceRitualStart();
-
-		// Immediately perform first chant
-		ProcessChantStep(riftUid, component, Transform(riftUid));
 
 		args.Handled = true;
 	}
@@ -367,13 +611,35 @@ public sealed partial class BloodCultRiftSystem : EntitySystem
 
 		var riftUid = finalRune.RiftUid.Value;
 
-		// Don't start if ritual is already in progress
-		if (component.RitualInProgress)
+		// If ritual is in progress but paused (music not playing), allow resuming
+		if (component.RitualInProgress && component.RitualMusicPlaying)
 		{
 			_popupSystem.PopupEntity(
 				Loc.GetString("cult-final-ritual-already-in-progress"),
 				user, user, PopupType.MediumCaution
 			);
+			args.Handled = true;
+			return;
+		}
+
+		// If ritual is paused (in progress but music stopped), resume it
+		if (component.RitualInProgress && !component.RitualMusicPlaying)
+		{
+			// Check if enough cultists are present to resume
+			var cultistsOnRunesForResume = GetCultistsOnSummoningRunes(component);
+			if (cultistsOnRunesForResume.Count < component.RequiredCultistsForChant)
+			{
+				_popupSystem.PopupEntity(
+					Loc.GetString("cult-final-ritual-not-enough-cultists",
+						("current", cultistsOnRunesForResume.Count),
+						("required", component.RequiredCultistsForChant)),
+					user, user, PopupType.LargeCaution
+				);
+				args.Handled = true;
+				return;
+			}
+
+			// Resume the ritual - music will be restarted in Update loop at correct offset
 			args.Handled = true;
 			return;
 		}
@@ -418,7 +684,7 @@ public sealed partial class BloodCultRiftSystem : EntitySystem
 		component.RitualInProgress = true;
 		component.LastNotEnoughCultistsPopup = _timing.CurTime;
 		component.CurrentChantStep = 0;
-		component.SacrificesCompleted = 0;
+		// Don't reset SacrificesCompleted - preserve it across ritual attempts for music offset
 		component.RequiredSacrifices = 3;
 		component.FinalSacrificeDone = false;
 		component.TotalChantSteps = (SacrificeChantDelays.Length + 1) * component.RequiredSacrifices;
@@ -429,15 +695,10 @@ public sealed partial class BloodCultRiftSystem : EntitySystem
 		component.TimeUntilNextShake = 0f;
 		component.NextShakeIndex = 0;
 
-		// Uses placeholder music for now.
-		// todo: find better bloodcult music
 		StartRitualMusic(riftUid, component);
 
 		// Announce to all cultists
 		AnnounceRitualStart();
-
-		// Immediately perform first chant
-		ProcessChantStep(riftUid, component, Transform(riftUid));
 
 		args.Handled = true;
 	}
@@ -465,7 +726,7 @@ public sealed partial class BloodCultRiftSystem : EntitySystem
 
 			if (component.RitualMusicPlaying)
 			{
-				_sound.StopStationEventMusic(runeUid, StationEventMusicType.CosmicCult);
+				_sound.StopStationEventMusic(runeUid, StationEventMusicType.BloodCult);
 				component.RitualMusicPlaying = false;
 			}
 
@@ -477,7 +738,7 @@ public sealed partial class BloodCultRiftSystem : EntitySystem
 			component.TimeUntilNextShake = 0f;
 			component.FinalSacrificePending = false;
 			component.FinalSacrificeDone = false;
-			component.SacrificesCompleted = 0;
+			// Don't reset SacrificesCompleted - preserve it across ritual attempts for music offset
 			component.PendingSacrifice = null;
 			component.ChantsCompletedInCycle = 0;
 			// Don't reset the required cultists for chant. If people are dead let them keep the counter going.
@@ -533,7 +794,7 @@ public sealed partial class BloodCultRiftSystem : EntitySystem
 				// The shake and chanting should stop on their own when Nar'Sie eats them, but just incase.
 				if (component.RitualMusicPlaying)
 				{
-					_sound.StopStationEventMusic(runeUid, StationEventMusicType.CosmicCult);
+					_sound.StopStationEventMusic(runeUid, StationEventMusicType.BloodCult);
 					component.RitualMusicPlaying = false;
 				}
 
@@ -545,6 +806,7 @@ public sealed partial class BloodCultRiftSystem : EntitySystem
 				component.TimeUntilNextShake = 0f;
 				component.FinalSacrificePending = false;
 				component.FinalSacrificeDone = false;
+				component.SacrificesCompleted = 0; // Reset on successful completion
 				component.PendingSacrifice = null;
 				component.ChantsCompletedInCycle = 0;
 			}
@@ -581,6 +843,8 @@ public sealed partial class BloodCultRiftSystem : EntitySystem
 
 	/// <summary>
 	/// Gets a list of all live cultists currently standing on the summoning runes.
+	/// This excludes soulstones, juggernauts, shades, ghosts, dead, and critical entities.
+	/// Only living blood cultists with minds count towards the ritual requirement.
 	/// </summary>
 	private List<EntityUid> GetCultistsOnSummoningRunes(BloodCultRiftComponent riftComp)
 	{
@@ -598,6 +862,13 @@ public sealed partial class BloodCultRiftSystem : EntitySystem
 			var nearbyEntities = _lookup.GetEntitiesInRange(runeXform.Coordinates, 2.0f);
 			foreach (var entity in nearbyEntities)
 			{
+				// IsValidSummoningParticipant filters out:
+				// - Non-cultists
+				// - Soulstones (SoulStoneComponent)
+				// - Juggernauts (JuggernautComponent)
+				// - Shades (ShadeComponent)
+				// - Dead or critical entities
+				// - Entities without minds
 				if (!IsValidSummoningParticipant(entity))
 					continue;
 
@@ -605,6 +876,7 @@ public sealed partial class BloodCultRiftSystem : EntitySystem
 			}
 		}
 
+		// Additional safety check: remove any ghosts that might have slipped through
 		var result = cultists.ToList();
 		result.RemoveAll(uid => HasComp<GhostComponent>(uid));
 		return result;
@@ -613,8 +885,16 @@ public sealed partial class BloodCultRiftSystem : EntitySystem
 
 	private void EnsurePendingSacrifice(BloodCultRiftComponent component, List<EntityUid> cultists)
 	{
-		if (component.PendingSacrifice is { } pending && cultists.Contains(pending))
-			return;
+		// Check if current pending sacrifice is still valid
+		if (component.PendingSacrifice is { } pending)
+		{
+			// If pending sacrifice is still in the list and is still a valid participant, keep it
+			if (cultists.Contains(pending) && IsValidSummoningParticipant(pending))
+				return;
+			
+			// Otherwise, clear it (entity may have become invalid - e.g., soulstone, juggernaut, shade, or died)
+			component.PendingSacrifice = null;
+		}
 
 		if (cultists.Count == 0)
 		{
@@ -633,9 +913,73 @@ public sealed partial class BloodCultRiftSystem : EntitySystem
 		var resolved = _audio.ResolveSound(component.RitualMusic);
 		if (ResolvedSoundSpecifier.IsNullOrEmpty(resolved))
 			return;
-        // todo: fix this. It's not the right music. But I don't know of better music.
-		_sound.DispatchStationEventMusic(riftUid, resolved, StationEventMusicType.Nuke);
+
+		// Get audio length and store it for music-synced sacrifices
+		var audioLength = _audio.GetAudioLength(resolved);
+		component.RitualMusicDuration = (float)audioLength.TotalSeconds;
+		component.RitualStartTime = _timing.CurTime;
+		
+		// Initialize sacrifice cooldown to allow first sacrifice immediately
+		// This will be updated after each sacrifice to enforce 5-second minimum
+		component.TimeSinceLastSacrifice = TimeSpan.Zero;
+
+		// Calculate playback offset based on sacrifice progress
+		float offset = 0f;
+		if (component.RequiredSacrifices > 0 && component.SacrificesCompleted > 0)
+		{
+			var progress = (float)component.SacrificesCompleted / component.RequiredSacrifices;
+			offset = component.RitualMusicDuration * progress;
+			// Clamp offset to valid range
+			offset = Math.Clamp(offset, 0f, component.RitualMusicDuration);
+		}
+
+		var audioParams = AudioParams.Default.WithVolume(-8).WithPlayOffset(offset);
+		_sound.DispatchStationEventMusic(riftUid, resolved, StationEventMusicType.BloodCult, audioParams);
 		component.RitualMusicPlaying = true;
+
+		// Initialize timing for "Nar'Sie" chants and shake-synced chants
+		component.TimeUntilNextNarsieChant = 3f;
+		component.TimeUntilNextShakeForChant = 5f;
+	}
+
+	/// <summary>
+	/// Makes non-sacrifice cultists chant "Nar'Sie!" every 3 seconds.
+	/// </summary>
+	private void DoNarsieChant(EntityUid riftUid, BloodCultRiftComponent component, List<EntityUid> cultistsOnRunes)
+	{
+		foreach (var cultist in cultistsOnRunes)
+		{
+			if (!Exists(cultist))
+				continue;
+
+			// Only non-sacrifice cultists chant "Nar'Sie"
+			if (component.PendingSacrifice != cultist)
+			{
+				_bloodCultRule.Speak(cultist, "Nar'Sie!", forceLoud: true);
+			}
+		}
+	}
+
+	/// <summary>
+	/// Performs a shake effect and makes the sacrifice victim chant a longer phrase, synced with the shake.
+	/// </summary>
+	private void DoShakeWithLongChant(EntityUid riftUid, BloodCultRiftComponent component, TransformComponent xform, List<EntityUid> cultistsOnRunes)
+	{
+		// Perform the shake effect
+		DoShake(riftUid, xform, FinalRitualShakeIntensity);
+
+		// Only the sacrifice victim chants the longer phrase
+		if (component.PendingSacrifice is { } pending && cultistsOnRunes.Contains(pending))
+		{
+			var chant = _bloodCultRule.GenerateChant(wordCount: 4); // Longer chants for final ritual
+			_bloodCultRule.Speak(pending, chant, forceLoud: true);
+		}
+		else if (cultistsOnRunes.Count == 1)
+		{
+			// If only one cultist, they get the longer chant
+			var chant = _bloodCultRule.GenerateChant(wordCount: 4);
+			_bloodCultRule.Speak(cultistsOnRunes[0], chant, forceLoud: true);
+		}
 	}
 
 	private void AnnounceSacrificeProgress(int completed)
@@ -654,14 +998,27 @@ public sealed partial class BloodCultRiftSystem : EntitySystem
 		_chatSystem.DispatchGlobalAnnouncement(message, "Unknown", playSound: true, colorOverride: Color.DarkRed);
 	}
 
+	/// <summary>
+	/// Determines if an entity is a valid participant for the final summoning ritual.
+	/// Only living blood cultists with minds are valid. Soulstones, juggernauts, shades,
+	/// ghosts, dead entities, and critical entities are excluded.
+	/// </summary>
 	private bool IsValidSummoningParticipant(EntityUid entity)
 	{
+		// Must be a blood cultist
 		if (!HasComp<BloodCultistComponent>(entity))
 			return false;
 
+		// Cannot be a soulstone, juggernaut, or shade - only living cultists count
+		// These constructs are created from sacrificed cultists and should not count
+		if (HasComp<SoulStoneComponent>(entity) || HasComp<JuggernautComponent>(entity) || HasComp<ShadeComponent>(entity))
+			return false;
+
+		// Must be alive and not critical
 		if (_mobState.IsDead(entity) || _mobState.IsCritical(entity))
 			return false;
 
+		// Must have a mind (ensures it's a player-controlled entity, not an NPC or construct)
 		if (!TryComp<MindContainerComponent>(entity, out var mind) || mind.Mind == null)
 			return false;
 

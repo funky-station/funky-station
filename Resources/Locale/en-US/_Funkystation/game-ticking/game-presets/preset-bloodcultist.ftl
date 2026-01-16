@@ -47,7 +47,7 @@ cult-veil-ritual-already-completed = The Tear the Veil ritual has already been c
 cult-veil-ritual-central-command-announcement = Attention all personnel: Reality-distorting anomalies have been detected. The veil between dimensions has been compromised. All security personnel are to arm immediately. Avoid, arrest, or stop any crew exhibiting extradimensional abilities. The station is now operating under maximum alert protocols.
 
 cult-final-ritual-already-in-progress = The final summoning ritual is already in progress!
-cult-final-ritual-not-enough-cultists = Not enough cultists stand upon the summoning runes! {$current} present, {$required} required. All three runes must be occupied!
+cult-final-ritual-not-enough-cultists = Not enough cultists stand upon the summoning runes! {$current} present, {$required} required.
 cult-final-ritual-started = THE FINAL RITUAL BEGINS! All cultists must remain on the summoning runes! Nar'Sie's arrival is at hand!
 cult-final-ritual-not-enough-at-end = The summoning fails! Not enough cultists remained on the runes. {$current} cultists present, {$required} required.
 cult-final-ritual-failed = The final summoning has failed! Nar'Sie's wrath will be terrible!
@@ -124,7 +124,7 @@ cult-status-veil-strong = [italic]The Veil needs to be weakened before we are ab
 
 cult-status-veil-weak = [italic]You and your acolytes have succeeded in preparing the station for the ultimate ritual![/italic]
 cult-status-veil-weak-pending = [italic]A blood anomaly will manifest soon—ready your conversion runes and prepare sacrifices.[/italic]
-cult-status-veil-weak-anomaly = [italic]The blood anomaly has manifested! Feed it with sacrifices to empower the final summoning ritual.[/italic]
+cult-status-veil-weak-anomaly = [italic][color=red]The blood anomaly has manifested![/color] Feed it with sacrifices to empower the final summoning ritual.[/italic]
 cult-veil-torn = The veil... is... torn!
 cult-rift-spawn-soon = The veil screams. A blood anomaly will manifest in two minutes—prepare your offerings!
 
@@ -133,7 +133,7 @@ cult-status-veil-strong-goal = [italic]Current goal: Sacrifice {$targetName}, th
 cult-status-veil-weak-goal = [italic]Current goal: Summon Nar'Sie by invoking the rune 'Tear Veil' with 9 cultists, constructs, or summoned ghosts on it.
     The summoning can only be accomplished in the {$firstLoc} area, the {$secondLoc} area, or the {$thirdLoc} area - where the veil is weak enough for the ritual to begin.[/italic]
 cult-status-veil-weak-goal-pending = [italic]Current goal: Await the arrival of the holy blood of Nar'Sie as you spill more blood in her name![/italic]
-cult-status-veil-weak-rift-location = [italic]The final rift coalesces around {$location}. The ritual must be completed there.[/italic]
+cult-status-veil-weak-rift-location = [italic]The final rift coalesces around [bold][color=#FF3333]{$location}[/color][/bold]. The ritual must be completed there.[/italic]
 cult-status-veil-weak-direction = [italic]{$location} lies to your {$direction}. Follow the call of the rift.[/italic]
 cult-status-veil-weak-direction-here = [italic]You stand at {$location}; the rift is within reach.[/italic]
 cult-status-veil-weak-direction-nosense = [italic]The rift is beyond your senses; you must find a better vantage point.[/italic]
@@ -150,7 +150,7 @@ cult-blood-progress-tear-veil = [italic]Next objective: Perform the Tear Veil ri
 cult-blood-progress-final-summon = [italic]Next objective: Find the reality rift and perform the final summoning ritual with 9 cultists.[/italic]
 cult-blood-progress-final-summon-pending = [italic]Next objective: Await the manifestation of the blood rift.[/italic]
 cult-blood-progress-final-summon-ready = [italic]Next objective: Chant the final summoning ritual to bring Nar'Sie into this reality![/italic]
-cult-blood-progress-final-summon-location = [italic]Final summoning site: {$location}.[/italic]
+cult-blood-progress-final-summon-location = [italic]Final summoning site: [bold][color=#FF3333]{$location}[/color][/bold].[/italic]
 cult-blood-progress-complete = [italic]Blood Spilled: {$bloodCollected}u. All blood thresholds have been met![/italic]
 
 cult-narsie-sacrifice-accept = "I accept your sacrifice."

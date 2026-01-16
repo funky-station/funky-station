@@ -12,6 +12,9 @@ trait-funky-desc = Puh sahme fuhky flaahr ahn yahuh inflecshuns.
 trait-british-name = British Accent
 trait-british-desc = Oi you soun'like someone a'a Bri'ish pub, ea'ing chips an'wa'ching the telly with your chums.
 
+trait-boston-name = Boston accent
+trait-boston-desc = You sound like you need to pahk your cah in the yahd.
+
 trait-scandinavian-name = Scandinavian accent
 trait-scandinavian-desc = Yøu sound like yøu cöme frøm søme nondescript norðern Euröpæän nation. Ör you'ræ a Viking!
 

@@ -24,6 +24,7 @@
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 willowzeta <willowzeta632146@proton.me>
 # SPDX-FileCopyrightText: 2025 wilowzeta <willowzeta632146@proton.me>
+# SPDX-FileCopyrightText: 2026 Xcybitt <197952719+Xcybitt@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -48,6 +49,8 @@
         amount: 2
       - id: WeaponFlareGun
       - id: BoxShotgunFlare
+      - id: Tourniquet
+        amount: 2
 
 - type: entity
   id: LockerSalvageSpecialistFilled
@@ -65,3 +68,5 @@
         amount: 2
       - id: WeaponFlareGun
       - id: BoxShotgunFlare
+      - id: Tourniquet
+        amount: 2

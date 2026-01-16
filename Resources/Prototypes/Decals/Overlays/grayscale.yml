@@ -4,6 +4,7 @@
 # SPDX-FileCopyrightText: 2024 Ko4ergaPunk <62609550+Ko4ergaPunk@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2026 ClocksAreWorthy <andrearbastochbella@gmail.com>
 #
 # SPDX-License-Identifier: MIT
 
@@ -526,3 +527,27 @@
   sprite:
     sprite: Decals/Overlays/greyscale.rsi
     state: pavement_vertical_checker_b
+
+- type: decal
+  id: HalfTileCenterOverlayGreyscale
+  tags: ["station", "overlay"]
+  defaultCustomColor: true
+  sprite:
+    sprite: Decals/Overlays/greyscale.rsi
+    state: halftile_center_overlay
+
+- type: decal
+  id: HalfTileCenterOverlayGreyscale90
+  tags: ["station", "overlay"]
+  defaultCustomColor: true
+  sprite:
+    sprite: Decals/Overlays/greyscale.rsi
+    state: halftile_center_overlay_90
+
+- type: decal
+  id: QuarterTileCenterOverlayGreyscale
+  tags: ["station", "overlay"]
+  defaultCustomColor: true
+  sprite:
+    sprite: Decals/Overlays/greyscale.rsi
+    state: quartertile_center_overlay

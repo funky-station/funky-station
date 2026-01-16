@@ -4,7 +4,7 @@
         "x": 32,
         "y": 32
     },
-    "copyright": "Base sprites taken from tgstation, splitted to display on two layers (machinebody/panel) by Menshin, for SS14, edited by chromiumboy",
+    "copyright": "By AraiMaia for Funky Station",
     "license": "CC-BY-SA-3.0",
     "states": [
         {
@@ -20,10 +20,6 @@
             "directions": 1,
             "delays": [
                 [
-                    0.1,
-                    0.1,
-                    0.1,
-                    0.1,
                     0.1,
                     0.1,
                     0.1,
@@ -46,10 +42,6 @@
             "directions": 1,
             "delays": [
                 [
-                    0.1,
-                    0.1,
-                    0.1,
-                    0.1,
                     0.1,
                     0.1,
                     0.1,

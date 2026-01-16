@@ -23,6 +23,7 @@
 # SPDX-FileCopyrightText: 2025 kbarkevich <24629810+kbarkevich@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2026 wilowzeta <willowzeta632146@proton.me>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -68,8 +69,7 @@
             Mime: [ 1, 1 ]
             Musician: [ 1, 1 ]
             #engineering - 8-12
-            AtmosphericTechnician: [ 4, 4 ]
-            StationEngineer: [ 4, 4 ]
+            StationEngineer: [ 8, 8 ]
             TechnicalAssistant: [ 4, 4 ]
             #medical - 9-13
             Chemist: [ 2, 2 ]

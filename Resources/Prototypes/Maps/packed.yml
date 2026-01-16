@@ -20,11 +20,14 @@
 # SPDX-FileCopyrightText: 2024 Pissachu <161140558+Pissachu@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2024 fishbait <gnesse@gmail.com>
-# SPDX-FileCopyrightText: 2025 8tv <eightev@gmail.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 kbarkevich <24629810+kbarkevich@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2026 88tv <131759102+88tv@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2026 8tv <eightev@gmail.com>
+# SPDX-FileCopyrightText: 2026 willow <willowzeta632146@proton.me>
+# SPDX-FileCopyrightText: 2026 wilowzeta <willowzeta632146@proton.me>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -61,10 +64,11 @@
             Chaplain: [ 1, 1 ]
             Librarian: [ 1, 1 ]
             ServiceWorker: [ 2, 2 ]
+            Lawyer: [ 1, 1 ]
             #engineering
             ChiefEngineer: [ 1, 1 ]
-            AtmosphericTechnician: [ 2, 2 ]
-            StationEngineer: [ 4, 4 ]
+            # AtmosphericTechnician: [ 2, 2 ]
+            StationEngineer: [ 6, 6 ]
             TechnicalAssistant: [ 3, 3 ]
             #medical
             ChiefMedicalOfficer: [ 1, 1 ]
@@ -84,11 +88,10 @@
             SecurityOfficer: [ 3, 3 ]
             Detective: [ 1, 1 ]
             SecurityCadet: [ 2, 2 ]
-            Lawyer: [ 1, 1 ]
             #supply
             Quartermaster: [ 1, 1 ]
             SalvageSpecialist: [ 2, 2 ]
-            CargoTechnician: [ 2, 2 ]
+            CargoTechnician: [ 3, 3 ]
             #civilian
             Passenger: [ -1, -1 ]
             Clown: [ 1, 1 ]
@@ -100,9 +103,9 @@
             StationAi: [ 1, 1 ]
             Borg: [ 2, 2 ]
 
-        # Goobstation blob-config-start SMALL+
+        # Goobstation blob-config-start (FUNKY TESTING)
         - type: StationBlobConfig
-          stageBegin: 25
+          stageBegin: 60
           stageCritical: 350
-          stageTheEnd: 700
+          stageTheEnd: 650
         # Goobstation blob-config-end

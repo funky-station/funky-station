@@ -32,6 +32,7 @@
 # SPDX-FileCopyrightText: 2025 JoulesBerg <104539820+JoulesBerg@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Quantum-cross <7065792+Quantum-cross@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 empty0set <16693552+empty0set@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 empty0set <empty0set@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 kbarkevich <24629810+kbarkevich@users.noreply.github.com>
@@ -153,7 +154,7 @@
   description: department-Engineering-description
   color: "#EFB341"
   roles:
-  - AtmosphericTechnician
+# - AtmosphericTechnician - Funky, Goodbye forever Atmos :wave:
   - ChiefEngineer
   - StationEngineer
   - TechnicalAssistant

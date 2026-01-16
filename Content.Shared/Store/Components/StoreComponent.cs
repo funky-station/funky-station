@@ -7,6 +7,7 @@
 // SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
 // SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
@@ -88,6 +89,12 @@ public sealed partial class StoreComponent : Component
     /// </summary>
     [ViewVariables, DataField]
     public bool RefundAllowed;
+
+    /// <summary>
+    /// DeltaV: Should the store grant actions to the mind?
+    /// </summary>
+    [DataField]
+    public bool GrantActionsToMind = true;
 
     /// <summary>
     ///     Checks if store can be opened by the account owner only.

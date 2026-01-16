@@ -65,7 +65,6 @@
             Reporter: [ 3, 3 ]
             #engineering
             ChiefEngineer: [ 1, 1 ]
-            AtmosphericTechnician: [ 5, 5 ]
             StationEngineer: [ 8, 8 ]
             TechnicalAssistant: [ -1, -1 ]
             #medical

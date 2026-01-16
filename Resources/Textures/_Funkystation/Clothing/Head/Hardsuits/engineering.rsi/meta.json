@@ -18,11 +18,19 @@
       "directions": 4
     },
     {
+      "name": "off-equipped-HELMET-thaven",
+      "directions": 4
+    },
+    {
       "name": "off-equipped-HELMET-vox",
       "directions": 4
     },
     {
       "name": "on-equipped-HELMET",
+      "directions": 4
+    },
+    {
+      "name": "on-equipped-HELMET-thaven",
       "directions": 4
     },
     {
@@ -42,7 +50,15 @@
       "directions": 4
     },
     {
+      "name": "up-equipped-HELMET-thaven",
+      "directions": 4
+    },
+    {
       "name": "up-on-equipped-HELMET",
+      "directions": 4
+    },
+    {
+      "name": "up-on-equipped-HELMET-thaven",
       "directions": 4
     },
     {

@@ -871,6 +871,19 @@ public sealed partial class SalvageSystem
             return;
         }
         
+        // Calculate total chance for normalization
+        var totalChance = 0f;
+        foreach (var (_, chance) in debrisEntities)
+        {
+            totalChance += chance;
+        }
+        
+        if (totalChance <= 0f)
+        {
+            Log.Warning("[SalvageSystem] Total chance is zero or negative for ruin debris");
+            return;
+        }
+        
         // Build hashsets for quick position lookups
         var wallPositions = new HashSet<Vector2i>();
         foreach (var (wallPos, _) in ruinResult.WallEntities)
@@ -900,8 +913,8 @@ public sealed partial class SalvageSystem
             if (debrisRandom.NextDouble() > 0.25f) // 25% chance to spawn something
                 continue;
             
-            // Pick a random debris entity
-            var roll = debrisRandom.NextSingle();
+            // Pick a random debris entity - roll directly from 0 to totalChance
+            var roll = debrisRandom.NextSingle() * totalChance;
             var cumulativeChance = 0f;
             
             foreach (var (proto, chance) in debrisEntities)

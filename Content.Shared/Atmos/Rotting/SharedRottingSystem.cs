@@ -3,6 +3,7 @@
 // SPDX-FileCopyrightText: 2024 Kara <lunarautomaton6@gmail.com>
 // SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 ferynn <witchy.girl.me@gmail.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
 // SPDX-License-Identifier: MIT
@@ -180,5 +181,16 @@ public abstract class SharedRottingSystem : EntitySystem
             return 0;
 
         return (int) (comp.TotalRotTime.TotalSeconds / perishable.RotAfter.TotalSeconds);
+    }
+
+    //Funky. Allows for a different value than the default of 10 minutes to be set for a default rot time period
+    public bool TrySetPerishableTime(EntityUid uid, TimeSpan time)
+    {
+        if(!TryComp<PerishableComponent>(uid,out var perishable))
+        {
+            return false; //return false if method failed.
+        }
+        perishable.RotAfter = time;
+        return true;
     }
 }

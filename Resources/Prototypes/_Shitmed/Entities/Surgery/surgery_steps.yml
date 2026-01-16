@@ -1,5 +1,7 @@
 # SPDX-FileCopyrightText: 2025 Tadeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 Xcybitt <197952719+Xcybitt@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 ferynn <117872973+ferynn@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 ferynn <witchy.girl.me@gmail.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
@@ -386,7 +388,7 @@
       groups:
         Brute: -5
   - type: SurgeryRepeatableStep
-  - type: SurgeryOperatingTableCondition # funkystation - fuck you
+  #- type: SurgeryOperatingTableCondition # funkystation - fuck you  #hoping this isn't gonna be too bad, but i so want tending someone's wounds with shitty tools to be a thing for fucked amounts of emergency
   - type: SurgeryStepDirtiness # DeltaV - surgery cross contamination
     toolDirtiness: 0.5
     gloveDirtiness: 0.5
@@ -414,7 +416,7 @@
       types:
         Slash: 2
   - type: SurgeryRepeatableStep
-  - type: SurgeryOperatingTableCondition # funkystation - fuck you
+  #- type: SurgeryOperatingTableCondition # funkystation - fuck you
   - type: SurgeryStepDirtiness # DeltaV - surgery cross contamination
     toolDirtiness: 0.5
     gloveDirtiness: 0.5

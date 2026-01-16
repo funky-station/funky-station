@@ -24,6 +24,9 @@ trait-german-vernacular-desc = Mein gott, your ability to sprinkle words like "S
 trait-russian-vernacular-name = Russian vernacular
 trait-russian-vernacular-desc = Vhen you speak, you add in more Russian vords with ochen zick accent.
 
+trait-euphemist-name = Euphemist
+trait-euphemist-desc = You tend to beat around the bush and avoid being negative.
+
 trait-extra-lightweight-name = Extreme Lightweight
 trait-extra-lightweight-desc = You are the lightest of lightweights. Even a shot will hit you the same as a glass.
 

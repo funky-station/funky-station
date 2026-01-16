@@ -162,14 +162,14 @@
 
 # Genetics
 
-- type: entity
-  id: SpawnPointGeneticist
-  parent: SpawnPointJobBase
-  name: geneticist
-  components:
-  - type: SpawnPoint
-    job_id: Geneticist
-  - type: Sprite
-    layers:
-    - state: green
-    - state: geneticist
+# - type: entity
+#   id: SpawnPointGeneticist
+#   parent: SpawnPointJobBase
+#   name: geneticist
+#   components:
+#   - type: SpawnPoint
+#     job_id: Geneticist
+#   - type: Sprite
+#     layers:
+#     - state: green
+#     - state: geneticist

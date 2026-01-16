@@ -76,6 +76,5 @@ public sealed class MutationChronicReagentVomitSystem : EntitySystem
     {
         var delay = TimeSpan.FromSeconds(_random.NextFloat(comp.MinInterval, comp.MaxInterval));
         comp.NextVomitTime = _timing.CurTime + delay;
-        Dirty(uid, comp);
     }
 }

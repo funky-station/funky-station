@@ -171,7 +171,7 @@
   - MedicalIntern
   - Psychologist
   - Paramedic
-  - Geneticist # Funkystation - Genetics
+  # - Geneticist # Funkystation - Genetics
 
 - type: department
   id: Security

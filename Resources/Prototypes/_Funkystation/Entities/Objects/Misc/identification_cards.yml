@@ -83,8 +83,8 @@
     - sprite: Interface/Misc/job_icons.rsi #icon
       offset: "-0.125, 0.09375"
       state: Geneticist
-  - type: PresetIdCard
-    job: Geneticist
+  # - type: PresetIdCard
+  #   job: Geneticist
 
 # Charlie Station / Ancient ID Cards
 

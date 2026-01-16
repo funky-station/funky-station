@@ -1,0 +1,85 @@
+<Document>
+# Genetics
+
+Genetics is a medical/science subdepartment focused on analyzing, sequencing, and applying genetic mutations in living beings. It is an extremely powerful, but dangerous, tool that can grant superhuman abilities or cause catastrophic genetic instability and cellular breakdown.
+
+## Core Equipment
+
+<Box>
+<GuideEntityEmbed Entity="MedicalScanner" Caption="medical scanner" Rotation="0"/>
+<GuideEntityEmbed Entity="ComputerDnaScanner" Caption="geneticist console" Rotation="0"/>
+</Box>
+
+The medical scanner is the pod-like machine that holds the subject (drag & drop or use the "eject occupant" verb).
+
+The geneticists console (placed nearby) provides the full interface, must be powered, and needs to be linked to the scanner.
+
+<Box>
+<GuideEntityEmbed Entity="HandheldGeneticAnalyzer" Caption="handheld genetic analyzer" Rotation="0"/>
+</Box>
+
+The handheld genetic analyzer is a portable scanner that quickly reads a target's current mutations and genetic instability. It requires a power cell and can print results for later reference.
+
+## The Basics
+
+Place a living subject into the DNA scanner.
+
+Sit at the DNA console and access the UI.
+
+Use the sequencer to guess/reveal the correct base sequence (A, C, G, T) for each mutation block.
+
+Left-click a base to cycle forwards. Right-click to cycle backwards.
+
+Activate useful mutations and save them to storage.
+
+Research saved mutations to accumulate research points and unlock injector printing.
+
+Print DNA activators or DNA mutators to inject mutations into others.
+
+Use the handheld analyzer for fast, non-invasive checks and find unrevealed sections of sequences.
+
+## Using the Console
+
+The console UI has several key panels:
+
+- Subject Info - Displays name, total damage, [color=#a4885c]genetic instability[/color], and radiation damage.
+- Mutation List - Lists all detected mutations in the subject's DNA.
+- Revealed Sequence - Shows currently known bases (X = unknown).
+- Sequencer - Click bases to cycle them (each change deals 0.2 radiation damage). Match the hidden original sequence to activate the mutation.
+- Saved Mutations - Store discovered mutations here for later printing.
+- Print Activator / Print Mutator - Creates a single-use injector from a saved mutation.
+- Scramble DNA - Randomly resets the subject's DNA (30 s cooldown, inflicts 15 radiation damage).
+
+## DNA Injectors
+
+<Box>
+<GuideEntityEmbed Entity="DNAInjectorGenericActivator" Caption="DNA activator" Rotation="0"/>
+<GuideEntityEmbed Entity="DNAInjectorGenericMutator" Caption="DNA mutator" Rotation="0"/>
+<GuideEntityEmbed Entity="DNAInjectorEmpty" Caption="empty DNA injector" Rotation="0"/>
+</Box>
+
+- Activators - Activate a mutation already present in the target's DNA.
+- Mutators - Insert and immediately activate a new mutation (if the target can accept it).
+- Both are single-use; after injection, they leave behind an empty injector. Reinsert it back into the console to be filled.
+
+## Mutations & Genetic Instability
+
+Mutations occupy fixed blocks with unique sequences of bases (A, C, G, T). Revealing the correct sequence activates the mutation.
+
+Adding mutations increases the subject's [color=#a4885c]genetic instability[/color] by the mutation's instability value.
+
+Instability thresholds:
+- >100 - After 60–90 seconds, risk of a random dangerous mutation. The effects cannot be undone.
+- >150 - Constant ongoing cellular damage.
+
+Scramble DNA resets most mutations (except scramble-resistant ones) but deals heavy radiation damage.
+
+## Tips & Safety
+
+- Sequencing and scrambling both inflict radiation damage - monitor subject health closely and treat damage as needed.
+- Mutadone removes most unwanted mutations (some powerful ones are resistant).
+- Radiation exposure can randomly trigger mutations - both good and bad.
+- Some mutations are species-specific or cannot appear naturally.
+
+With careful sequencing and testing, Genetics can turn crew into near-superhumans - or accidentally create genetic horrors. Experiment responsibly!
+</Document>

@@ -5,6 +5,8 @@ using Content.Server._Funkystation.Genetics.Systems;
 using Content.Server.Polymorph.Components;
 using Content.Server.Polymorph.Systems;
 using Content.Shared._Funkystation.Genetics.Prototypes;
+using Content.Shared.Buckle.Components;
+using Content.Shared.Humanoid;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server._Funkystation.Genetics.Mutations.Systems;
@@ -20,11 +22,16 @@ public sealed class MutationInstabilityPolymorphSystem : EntitySystem
         base.Initialize();
 
         // Trigger polymorph when the component is added
-        SubscribeLocalEvent<MutationInstabilityPolymorphComponent, ComponentInit>(OnInit);
+        SubscribeLocalEvent<MutationInstabilityPolymorphComponent, ComponentStartup>(OnStartup);
     }
 
-    private void OnInit(EntityUid oldUid, MutationInstabilityPolymorphComponent component, ComponentInit args)
+    private void OnStartup(EntityUid oldUid, MutationInstabilityPolymorphComponent component, ComponentStartup args)
     {
+        if (!TryComp<BuckleComponent>(oldUid, out _)) // Fails tests without this.
+        {
+            return;
+        }
+
         // If no genetics, just try to polymorph and bail. This should never happen outside of testing.
         if (!TryComp<GeneticsComponent>(oldUid, out var oldGenetics))
         {

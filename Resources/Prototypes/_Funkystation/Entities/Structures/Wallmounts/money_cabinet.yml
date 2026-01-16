@@ -20,8 +20,6 @@
         whitelist:
           tags:
           - Cash
-  - type: AccessReader
-    access: [["Atmospherics"]]
 
 - type: entity
   parent: MoneyCabinet

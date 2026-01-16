@@ -27,6 +27,7 @@
 # SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
 # SPDX-FileCopyrightText: 2025 mycobiota <154991750+mycobiota@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2026 Xcybitt <197952719+Xcybitt@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -399,8 +400,8 @@
 - type: entity
   parent: [FlippoLighter, BaseMinorContraband]
   id: SyndicateFlippo
-  name: Blood-red flippo
-  description: "A 'Valid' choice in lighters. Contains no copper."
+  name: blood-red flippo
+  description: "A 'valid' choice in lighters. Contains no copper."
   components:
   - type: Sprite
     sprite: Objects/Tools/Lighters/syndielighter.rsi
@@ -447,8 +448,8 @@
 - type: entity
   parent: [FlippoLighter, BaseMinorContraband]
   id: CybersunFlippo
-  name: CyberSun Flippo
-  description: "A Sleek black and magenta flippo lighter, bearing the logo and iconography of CyberSun Industries."
+  name: CyberSun flippo
+  description: "A sleek black and magenta flippo lighter, bearing the logo and iconography of CyberSun Industries."
   components:
   - type: Sprite
     sprite: Objects/Tools/Lighters/cybersun.rsi
@@ -495,7 +496,7 @@
 - type: entity
   parent: [FlippoLighter, BaseMinorContraband]
   id: InterdyneFlippo
-  name: Interdyne Flippo
+  name: Interdyne flippo
   description: "A deep blue flippo lighter, decorated with the logo of Interdyne Pharmaceuticals' 'Gene Clean' clinics. Become the master of your own cigarette."
   components:
   - type: Sprite
@@ -547,8 +548,8 @@
 - type: entity
   parent: FlippoLighter
   id: NanotrasenFlippo
-  name: Nanotrasen Flippo
-  description: "A navy blue luxury flippo, generally handed out to loyal heads of staff instead of a payraise. Fueled with liquid plasma"
+  name: Nanotrasen flippo
+  description: "A navy blue luxury flippo, generally handed out to loyal heads of staff instead of a payraise. Fueled with liquid plasma."
   components:
   - type: Sprite
     sprite: Objects/Tools/Lighters/nanotrasen.rsi
@@ -605,8 +606,8 @@
 - type: entity
   parent: [FlippoLighter, BaseCentcommContraband]
   id: CentCommFlippo
-  name: Gilded CentComm Flippo
-  description: "An Ornate, jade embossed and gilded flippo frame containing a bluespace powered jet. The latch is secured by a miniature access reader that only responds to CentComm officials. The nicest lighter known to man."
+  name: gilded CentComm flippo
+  description: "An ornate, jade embossed and gilded flippo frame containing a bluespace powered jet. The latch is secured by a miniature access reader that only responds to CentComm officials. The nicest lighter known to man."
 #  suffix: DO NOT MAP
   components:
   - type: Sprite
@@ -834,7 +835,7 @@
   parent: [FlippoLighter]
   id: DonkcoLighter
   name: Donk Co. flippo
-  description: "A Breaded novelty lighter made by Donk Co. Somehow edible while lit."
+  description: "A breaded novelty lighter made by Donk Co. Somehow edible while lit."
   components:
   - type: Sprite
     sprite: Objects/Tools/Lighters/donkco.rsi

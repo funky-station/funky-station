@@ -1,12 +1,14 @@
+# SPDX-FileCopyrightText: 2025 ThatOneMoon <91613003+ThatOneMoon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
 # SPDX-FileCopyrightText: 2025 mkanke-real <mikekanke@gmail.com>
+# SPDX-FileCopyrightText: 2026 Xcybitt <197952719+Xcybitt@users.noreply.github.com>
 #
 # SPDX-License-Identifier: MIT
 
 - type: entity
   parent: BaseItem
   id: CardboardBoxLarge
-  name: Large Cardboard Box
+  name: large cardboard box
   components:
   - type: Item
     size: Ginormous

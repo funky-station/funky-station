@@ -9,6 +9,7 @@
 # SPDX-FileCopyrightText: 2025 MaiaArai <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2026 TheHolyAegis <sanderkamphuis719@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -111,17 +112,6 @@
   id: NanotrasenRepresentativeJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtNanotrasenRepresentative
-
-# Belt
-- type: loadout
-  id: NanotrasenRepresentativeClipboard
-  equipment:
-    belt: BoxFolderCentComClipboard
-
-- type: loadout
-  id: NanotrasenRepresentativeWaistbag
-  equipment:
-    belt: ClothingBeltStorageWaistbag
 
 # Shoes
 - type: loadout

@@ -21,6 +21,7 @@ using Content.Shared.Movement.Systems;
 using Content.Shared.Nutrition.Components;
 using Content.Shared.Rejuvenate;
 using Content.Shared.StatusIcon;
+using Content.Shared.Traits.Assorted;
 using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
@@ -166,7 +167,18 @@ public sealed class HungerSystem : EntitySystem
             _movementSpeedModifier.RefreshMovementSpeedModifiers(uid);
         }
 
-        if (component.HungerThresholdAlerts.TryGetValue(component.CurrentThreshold, out var alertId))
+        if (HasComp<IgnoreMinorBodilyAlertsComponent>(uid)) //funk intercept, not currently aware of a better way
+        {
+            if (IgnoreMinorBodilyAlertsComponent.HungerThresholdAlerts.TryGetValue(component.CurrentThreshold, out var alertId))
+            {
+                _alerts.ShowAlert(uid, alertId);
+            }
+            else
+            {
+                _alerts.ClearAlertCategory(uid, component.HungerAlertCategory);
+            }
+        }
+        else if (component.HungerThresholdAlerts.TryGetValue(component.CurrentThreshold, out var alertId))
         {
             _alerts.ShowAlert(uid, alertId);
         }

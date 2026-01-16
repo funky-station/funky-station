@@ -212,3 +212,12 @@
       migraineDuration: 12, 15
       startedMindShieldedMultiplier: 1.0
       midRoundMindShieldedMultiplier: 3
+
+- type: trait
+  id: IgnoreMinorBodilyAlerts
+  name: trait-ignorebodilyalerts-minor-name
+  description: trait-ignorebodilyalerts-minor-desc
+  category: Quirks
+  cost: 0
+  components:
+  - type: IgnoreMinorBodilyAlerts

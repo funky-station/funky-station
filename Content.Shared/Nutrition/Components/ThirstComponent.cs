@@ -73,15 +73,21 @@ public sealed partial class ThirstComponent : Component
         {ThirstThreshold.Dead, 0.0f},
     };
 
-    [DataField]
-    public ProtoId<AlertCategoryPrototype> ThirstyCategory = "Thirst";
-
-    public static readonly Dictionary<ThirstThreshold, ProtoId<AlertPrototype>> ThirstThresholdAlertTypes = new()
+    /// <summary>
+    /// A dictionary relating thirst thresholds to corresponding alerts.
+    /// </summary>
+    [DataField("thirstThresholdAlerts")]
+    [AutoNetworkedField]
+    public Dictionary<ThirstThreshold, ProtoId<AlertPrototype>> ThirstThresholdAlertTypes = new()
     {
         {ThirstThreshold.Thirsty, "Thirsty"},
         {ThirstThreshold.Parched, "Parched"},
         {ThirstThreshold.Dead, "Parched"},
     };
+
+    [DataField]
+    public ProtoId<AlertCategoryPrototype> ThirstyCategory = "Thirst";
+
 }
 
 [Flags]

@@ -14,6 +14,7 @@
 // SPDX-FileCopyrightText: 2025 maelines <amae.tones@gmail.com>
 // SPDX-FileCopyrightText: 2025 maelines <genovedd.almn@gmail.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2026 mycobiota <154991750+mycobiota@users.noreply.github.com>
 //
 // SPDX-License-Identifier: MIT
 

@@ -33,7 +33,10 @@
 # SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 plykiya <plykiya@protonmail.com>
 # SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 88tv <131759102+88tv@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 8tv <eightev@gmail.com>
+# SPDX-FileCopyrightText: 2025 ALooseGoose <ALooseGoosey@gmail.com>
+# SPDX-FileCopyrightText: 2025 ALooseGoose <aloosegoosey@gmail.com>
 # SPDX-FileCopyrightText: 2025 Ilya Mikheev <me@ilyamikcoder.com>
 # SPDX-FileCopyrightText: 2025 Kittygyat <202250949+Kittygyat@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 PurpleTranStar <purpletranstars@gmail.com>
@@ -51,6 +54,7 @@
 # SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2026 A-Loose-Goose <237446272+A-Loose-Goose@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -392,6 +396,7 @@
     - Syndicate
   - type: ActiveRadio
     channels:
+    - Binary
     - Syndicate
   - type: ShowSyndicateIcons
   - type: MovementAlwaysTouching
@@ -425,6 +430,19 @@
     - AllAccess #Randomized access would be fun. AllAccess is the best i can think of right now that does make it too hard for it to enter the station or navigate it..
   - type: AccessReader
     access: [["Command"], ["Research"]]
+  - type: StartIonStormed
+    ionStormAmount: 3
+  - type: IonStormTarget
+    chance: 1
+  - type: ShowJobIcons
+
+- type: entity
+  id: BaseBorgChassisSyndicateDerelict #For assault borg and maybe others in time
+  parent: BaseBorgChassisSyndicate
+  abstract: true
+  components:
+  - type: SiliconLawProvider
+    laws: SyndicateStatic #Non-subverted version so they can still be changed
   - type: StartIonStormed
     ionStormAmount: 3
   - type: IonStormTarget

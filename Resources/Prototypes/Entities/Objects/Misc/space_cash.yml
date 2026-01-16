@@ -86,6 +86,9 @@
         reagents:
         - ReagentId: Fiber
           Quantity: 1
+  - type: Tag
+    tags:
+    - Cash
 
 - type: material
   id: Credit

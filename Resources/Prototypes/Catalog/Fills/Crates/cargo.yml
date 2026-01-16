@@ -502,6 +502,7 @@
     - id: CrateAdvTools
     - id: Omnitool
     - id: EncryptionKeyStationMaster
+    - id: MobMiniDragonFriendly
       weight: 0.1
     - !type:AllSelector
       weight: 0.1

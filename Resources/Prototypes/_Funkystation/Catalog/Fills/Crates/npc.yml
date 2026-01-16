@@ -12,3 +12,14 @@
     contents:
       - id: MobMeowl
         amount: 3
+
+- type: entity
+  id: CrateNPCMiniDragonFriendly
+  parent: CrateLivestock
+  name: domesticated mini dragon crate
+  description: A crate containing an incredibly rare domesticated mini dragon.
+  components:
+  - type: StorageFill
+    contents:
+      - id: MobMiniDragonFriendly
+        amount: 1

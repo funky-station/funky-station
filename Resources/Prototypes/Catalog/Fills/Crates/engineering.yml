@@ -19,6 +19,7 @@
 # SPDX-FileCopyrightText: 2024 eoineoineoin <github@eoinrul.es>
 # SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 marc-pelletier <113944176+marc-pelletier@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 ThatOneMoon <91613003+ThatOneGuy227@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
@@ -200,7 +201,7 @@
     contents:
       - id: ClothingHeadHelmetEVA
       - id: ClothingOuterHardsuitEVA
-      - id: NitrogenTankFilled 
+      - id: NitrogenTankFilled
       - id: OxygenTankFilled
 
 
@@ -273,6 +274,17 @@
         tableId: RandomTechBoardTable
         rolls: !type:RangeNumberSelector
           range: 3, 7
+
+- type: entity
+  id: CrateAirGrenade
+  parent: CrateEngineering
+  name: air grenade crate
+  description: A crate containing 3 air grenades.
+  components:
+  - type: StorageFill
+    contents:
+    - id: AirGrenade
+      amount: 3
 
 # RPD
 - type: entity

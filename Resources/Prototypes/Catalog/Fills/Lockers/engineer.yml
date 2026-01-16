@@ -32,13 +32,14 @@
 # SPDX-FileCopyrightText: 2024 a_person <alexanderbeaumont05@hotmail.com>
 # SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 marc-pelletier <113944176+marc-pelletier@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 MaiaArai <158123176+YaraaraY@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Rainbow <ev0lvkitten@gmail.com>
 # SPDX-FileCopyrightText: 2025 Skye <57879983+Rainbeon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Zergologist <114537969+Chedd-Error@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 vectorassembly <vectorassembly@icloud.com>
+# SPDX-FileCopyrightText: 2026 MaiaArai <158123176+YaraaraY@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -143,6 +144,7 @@
       - id: HolofanProjector
       - id: DoorRemoteFirefight # Goobstation - re adding fire door remote
       - id: ClothingBackpackFirefighterTank
+      - id: AirGrenade
 
 - type: entity
   id: LockerAtmosphericsFilled
@@ -160,6 +162,7 @@
       - id: HolofanProjector
       - id: DoorRemoteFirefight # Goobstation - re adding fire door remote
       - id: ClothingBackpackFirefighterTank
+      - id: AirGrenade
 
 - type: entity
   id: LockerEngineerFilledHardsuit

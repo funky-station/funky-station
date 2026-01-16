@@ -33,6 +33,7 @@
 # SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 strO0pwafel <153459934+strO0pwafel@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 MaiaArai <158123176+YaraaraY@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Mingewhinge <theartistjul07@gmail.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 Xcybitt <197952719+Xcybitt@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Xcybitt <xcybitt@gmail.com>
@@ -120,10 +121,11 @@
     size: Normal
 
 - type: entity
-  parent: [ClothingOuterWinterCoatToggleable, BaseCommandContraband, AllowBackStorageClothingCombat]
+  parent: [ClothingOuterWinterCoat, BaseCommandContraband, AllowBackStorageClothingCombat]
   id: ClothingOuterWinterCap
   description: It's one of your spare carapace sewn into a durathread winter coat specially made for you. Or so they say. It's comfortable enough, at least.
   name: captain's winter coat
+  description: the luxurious coat belonging to the captain. armor not included*
   components:
   - type: Armor
     modifiers:
@@ -138,22 +140,12 @@
   - type: StaminaResistance
     damageCoefficient: 0.8
   - type: Sprite
-    sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
-    layers:
-    - state: CAP-icon
-  - type: Item
-    inhandVisuals:
-      left:
-      - state: CAP-inhand-left
-      right:
-      - state: CAP-inhand-right
+    sprite: _Funkystation/Clothing/OuterClothing/WinterCoats/cap_coat.rsi
   - type: Clothing
-    sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
-    clothingVisuals:
-      outerClothing:
-      - state: CAP-equipped-OUTERCLOTHING
+    sprite: _Funkystation/Clothing/OuterClothing/WinterCoats/cap_coat.rsi
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodWinterCaptain
+
 
 - type: entity
   parent: ClothingOuterWinterCoatToggleable

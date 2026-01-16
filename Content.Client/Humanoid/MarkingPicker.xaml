@@ -8,39 +8,69 @@ SPDX-License-Identifier: MIT
 -->
 
 <Control xmlns="https://spacestation14.io">
-    <!-- Primary container -->
-    <BoxContainer Orientation="Vertical" HorizontalExpand="True">
-        <!-- Marking lists -->
-        <BoxContainer Orientation="Horizontal" SeparationOverride="5" HorizontalExpand="True">
-            <!-- Unused markings -->
-            <BoxContainer Orientation="Vertical" HorizontalExpand="True">
-                <BoxContainer Orientation="Horizontal" HorizontalExpand="True">
-                    <Label Text="{Loc 'markings-unused'}" HorizontalAlignment="Stretch" HorizontalExpand="True" />
-                    <Label Name="CMarkingPoints" Text="uwu" HorizontalAlignment="Right" />
-                </BoxContainer>
+    <!-- _Funkystation: Basically entirely redone for Funky -->
+    <BoxContainer Orientation="Vertical" HorizontalExpand="True" SeparationOverride="8">
 
-                <OptionButton Name="CMarkingCategoryButton" StyleClasses="OpenLeft" />
-                <LineEdit Name="CMarkingSearch" PlaceHolder="{Loc 'markings-search'}" />
+        <!-- Top section with category dropdown -->
+        <BoxContainer Orientation="Vertical" SeparationOverride="4">
+            <!-- Category dropdown -->
+            <OptionButton Name="CMarkingCategoryButton" HorizontalExpand="True" />
+        </BoxContainer>
 
-                <ItemList Name="CMarkingsUnused" VerticalExpand="True" MinSize="300 250" />
-                <Button Name="CMarkingAdd" Text="{Loc 'markings-add'}" StyleClasses="OpenRight" />
+        <!-- Main content area with improved layout -->
+        <BoxContainer Orientation="Horizontal" SeparationOverride="8" HorizontalExpand="True" VerticalExpand="True">
+
+            <!-- Marking Selection (Left panel) -->
+            <BoxContainer Orientation="Vertical" HorizontalExpand="True" VerticalExpand="True" SeparationOverride="4">
+                <PanelContainer StyleClasses="AngleRect">
+                    <BoxContainer Orientation="Horizontal" Margin="8 4">
+                        <Label Text="{Loc 'markings-unused'}" StyleClasses="LabelBig" HorizontalExpand="True" />
+                        <Label Name="CMarkingPoints" Text="Points: 0" StyleClasses="LabelBig" />
+                    </BoxContainer>
+                </PanelContainer>
+
+                <!-- Search bar -->
+                <LineEdit Name="CMarkingSearch" PlaceHolder="{Loc 'markings-search'}" HorizontalExpand="True" />
+
+                <!-- Marking List  -->
+                <ScrollContainer VerticalExpand="True" HorizontalExpand="True" StyleClasses="AngleRect">
+                    <ItemList Name="CMarkingsUnused" VerticalExpand="True" HorizontalExpand="True" SelectMode="Multiple" ItemSeparation="4" />
+                </ScrollContainer>
             </BoxContainer>
 
-            <!-- Used markings -->
-            <BoxContainer Orientation="Vertical" HorizontalExpand="True">
-                <Label Text="{Loc 'markings-used'}" />
+            <!-- Applied Markings & Customization (Right panel) -->
+            <BoxContainer Orientation="Vertical" HorizontalExpand="True" VerticalExpand="True" SeparationOverride="4">
+                <PanelContainer StyleClasses="AngleRect">
+                    <Label Text="{Loc 'markings-used'}" StyleClasses="LabelBig" Margin="8 4" />
+                </PanelContainer>
 
-                <ItemList Name="CMarkingsUsed" VerticalExpand="True" MinSize="300 250" />
+                <ScrollContainer VerticalExpand="True" HorizontalExpand="True" StyleClasses="AngleRect">
+                    <ItemList Name="CMarkingsUsed" VerticalExpand="True" HorizontalExpand="True" ItemSeparation="4" />
+                </ScrollContainer>
 
-                <BoxContainer Orientation="Horizontal">
-                    <Button Name="CMarkingRankUp" Text="{Loc 'markings-rank-up'}" StyleClasses="OpenBoth" HorizontalExpand="True" />
-                    <Button Name="CMarkingRankDown" Text="{Loc 'markings-rank-down'}" StyleClasses="OpenBoth" HorizontalExpand="True" />
+                <!-- Control buttons Up/Down for layering -->
+                <BoxContainer Orientation="Horizontal" SeparationOverride="4">
+                    <Button Name="CMarkingRankUp" HorizontalExpand="True">
+                        <Label Text="{Loc 'markings-rank-up'}" HorizontalAlignment="Center" />
+                    </Button>
+                    <Button Name="CMarkingRankDown" HorizontalExpand="True">
+                        <Label Text="{Loc 'markings-rank-down'}" HorizontalAlignment="Center" />
+                    </Button>
                 </BoxContainer>
-                <Button Name="CMarkingRemove" Text="{Loc 'markings-remove'}" StyleClasses="OpenRight" />
+
+                <!-- Color customization panel -->
+                <PanelContainer Name="CMarkingColorPanel" Visible="True" StyleClasses="AngleRect" VerticalExpand="True">
+                    <ScrollContainer VerticalExpand="True">
+                        <BoxContainer Orientation="Vertical" Margin="8" SeparationOverride="6">
+                            <Label Text="{Loc 'marking-customize-colors'}" StyleClasses="LabelBig" />
+                            <BoxContainer Name="CMarkingColors" Orientation="Vertical" SeparationOverride="8">
+                                <Label Text="{Loc 'marking-select-to-customize'}" StyleClasses="LabelSubText" />
+                            </BoxContainer>
+                        </BoxContainer>
+                    </ScrollContainer>
+                </PanelContainer>
             </BoxContainer>
         </BoxContainer>
 
-        <!-- Colors -->
-        <BoxContainer Name="CMarkingColors" Orientation="Vertical" Visible="False" />
     </BoxContainer>
 </Control>

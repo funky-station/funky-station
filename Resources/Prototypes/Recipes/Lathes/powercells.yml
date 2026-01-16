@@ -8,6 +8,7 @@
 # SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2026 Xcybitt <197952719+Xcybitt@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -84,3 +85,39 @@
     Glass: 800
     Plastic: 400
     Gold: 100
+
+#funkstart
+- type: latheRecipe
+  id: PowerCellMediumSingle
+  result: PowerCellMediumSingle
+  categories:
+  - Parts
+  completetime: 10
+  materials:
+    Steel: 100
+    Glass: 100
+    Plastic: 100
+
+- type: latheRecipe
+  id: PowerCellHighSingle
+  result: PowerCellHighSingle
+  categories:
+  - Parts
+  completetime: 10
+  materials:
+    Steel: 300
+    Glass: 300
+    Plastic: 300
+
+- type: latheRecipe
+  id: PowerCellHyperSingle
+  result: PowerCellHyperSingle
+  categories:
+  - Parts
+  completetime: 10
+  materials:
+    Steel: 400
+    Glass: 400
+    Plastic: 400
+    Gold: 100
+#funkend

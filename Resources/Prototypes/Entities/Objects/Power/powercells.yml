@@ -45,6 +45,7 @@
 # SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2026 Xcybitt <197952719+Xcybitt@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -441,3 +442,96 @@
       visible: false
   - type: Battery
     startingCharge: 0
+
+#funkystart
+#unrechargeable batteries
+
+- type: entity
+  name: medium-capacity single-use power cell
+  description: An unrechargeable power cell. This is the popular and cheap version. The cell isn't worth the time it takes to throw it away.
+  id: PowerCellMediumSingle
+  suffix: Full, Single Use
+  parent: BasePowerCell
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      battery:
+        maxVol: 5
+  - type: Extractable
+    juiceSolution:
+      reagents:
+        - ReagentId: Licoxide
+          Quantity: 1
+  - type: Sprite
+    layers:
+    - map: [ "enum.PowerCellVisualLayers.Base" ]
+      state: medium
+    - map: [ "enum.PowerCellVisualLayers.Unshaded" ]
+      state: o2
+      shader: unshaded
+  - type: Battery
+    maxCharge: 720
+    startingCharge: 720
+  - type: Tag
+    tags:
+      - NoRecharge
+
+- type: entity
+  name: high-capacity single-use power cell
+  description: An unrechargeable standardized power cell. This subpar brand stores up to 50% more energy than the competition with cost cutting measures to compensate.
+  id: PowerCellHighSingle
+  suffix: Full, Single Use
+  parent: BasePowerCell
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      battery:
+        maxVol: 5
+  - type: Extractable
+    juiceSolution:
+      reagents:
+        - ReagentId: Licoxide
+          Quantity: 5
+  - type: Sprite
+    layers:
+    - map: [ "enum.PowerCellVisualLayers.Base" ]
+      state: high
+    - map: [ "enum.PowerCellVisualLayers.Unshaded" ]
+      state: o2
+      shader: unshaded
+  - type: Battery
+    maxCharge: 1080
+    startingCharge: 1080
+  - type: Tag
+    tags:
+      - NoRecharge
+
+- type: entity
+  name: hyper-capacity single-use power cell
+  description: An unrechargeable standardized power cell. This one looks like an imitation of a prototype.
+  id: PowerCellHyperSingle
+  suffix: Full, Single Use
+  parent: BasePowerCell
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      battery:
+        maxVol: 5
+  - type: Extractable
+    juiceSolution:
+      reagents:
+        - ReagentId: Tazinide
+          Quantity: 5
+  - type: Sprite
+    layers:
+    - map: [ "enum.PowerCellVisualLayers.Base" ]
+      state: hyper
+    - map: [ "enum.PowerCellVisualLayers.Unshaded" ]
+      state: o2
+      shader: unshaded
+  - type: Battery
+    maxCharge: 1800
+    startingCharge: 1800
+  - type: Tag
+    tags:
+      - NoRecharge

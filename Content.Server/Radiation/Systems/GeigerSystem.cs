@@ -5,6 +5,7 @@
 // SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
 // SPDX-License-Identifier: MIT
@@ -166,16 +167,17 @@ public sealed class GeigerSystem : SharedGeigerSystem
         if (!component.Sounds.TryGetValue(component.DangerLevel, out var sounds))
             return;
 
-        if (component.User == null)
-            return;
-
-        if (!_player.TryGetSessionByEntity(component.User.Value, out var session))
-            return;
-
         var sound = _audio.ResolveSound(sounds);
-        var param = sounds.Params.WithLoop(true).WithVolume(-4f);
+        var param = sounds.Params.WithLoop(true).WithVolume(component.Volume);
 
-        component.Stream = _audio.PlayGlobal(sound, session, param)?.Entity;
+        if (component.BroadcastAudio)
+        {
+            // For some reason PlayPvs sounds quieter even at distance 0, so we need to boost the volume a bit for consistency
+            param = sounds.Params.WithLoop(true).WithVolume(component.Volume + 1.5f).WithMaxDistance(component.BroadcastRange);
+            component.Stream = _audio.PlayPvs(sound, uid, param)?.Entity;
+        }
+        else if(component.User is not null && _player.TryGetSessionByEntity(component.User.Value, out var session))
+            component.Stream = _audio.PlayGlobal(sound, session, param)?.Entity;
     }
 
     public static GeigerDangerLevel RadsToLevel(float rads)

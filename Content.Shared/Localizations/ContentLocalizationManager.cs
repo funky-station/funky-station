@@ -15,6 +15,7 @@
 // SPDX-FileCopyrightText: 2025 McBosserson <148172569+McBosserson@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
 // SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 rotty <juaelwe@outlook.com>
 // SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
@@ -61,6 +62,7 @@ namespace Content.Shared.Localizations
             _loc.AddFunction(culture, "NATURALFIXED", FormatNaturalFixed);
             _loc.AddFunction(culture, "NATURALPERCENT", FormatNaturalPercent);
             _loc.AddFunction(culture, "PLAYTIME", FormatPlaytime);
+            _loc.AddFunction(culture, "GASQUANTITY", FormatGasQuantity); // Frontier
 
 
             /*
@@ -238,6 +240,13 @@ namespace Content.Shared.Localizations
 
             return FormatUnitsGeneric(args, "zzzz-fmt-energy-watt-hours", joules => joules * joulesToWattHours);
         }
+
+        // Frontier: gas quantity
+        private static ILocValue FormatGasQuantity(LocArgs args)
+        {
+            return FormatUnitsGeneric(args, "zzzz-fmt-gas-quantity");
+        }
+        // End Frontier
 
         private static ILocValue FormatUnits(LocArgs args)
         {

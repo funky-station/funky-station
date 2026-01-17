@@ -27,7 +27,9 @@ using Content.Shared.Forensics;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Implants.Components;
 using Content.Shared.Interaction.Events;
+using Content.Shared.Mindshield.Components;
 using Content.Shared.Popups;
+using Content.Shared.Tag;
 using Content.Shared.Verbs;
 using Content.Shared.Whitelist;
 using Robust.Shared.Containers;
@@ -50,7 +52,8 @@ public abstract class SharedImplanterSystem : EntitySystem
     [Dependency] private readonly SharedUserInterfaceSystem _uiSystem = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly SharedSolutionContainerSystem _solution = default!; // Funky
-
+    [Dependency] private readonly TagSystem _tags = default!; // Funky
+    [DataField] private ProtoId<TagPrototype> _fragileTag = "FragileImplant"; // Funky (THIS IS LAZY)
     public override void Initialize()
     {
         base.Initialize();
@@ -306,7 +309,12 @@ public abstract class SharedImplanterSystem : EntitySystem
         _container.Remove(implant, implantContainer);
         implantComp.ImplantedEntity = null;
 
-        if (!implanterComp.DeimplantCrushes)
+        // BEGIN FUNKYSTATION EDIT
+        if (_tags.HasTag(implant, _fragileTag))
+        {
+            _popup.PopupEntity(Loc.GetString("fragile-implant-extraction"), implanter, PopupType.MediumCaution);
+        }
+        else if (!implanterComp.DeimplantCrushes) // END FUNKYSTATION EDIT
             _container.Insert(implant, implanterContainer);
 
         var ev = new TransferDnaEvent { Donor = target, Recipient = implanter };

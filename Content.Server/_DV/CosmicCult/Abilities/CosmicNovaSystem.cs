@@ -1,6 +1,7 @@
 // SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2026 AftrLite <61218133+AftrLite@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -66,7 +67,7 @@ public sealed class CosmicNovaSystem : EntitySystem
 
     private void OnNovaCollide(Entity<CosmicAstralNovaComponent> uid, ref StartCollideEvent args)
     {
-        if (_cosmicCult.EntityIsCultist(args.OtherEntity) || HasComp<BibleUserComponent>(args.OtherEntity) || !HasComp<MobStateComponent>(args.OtherEntity))
+        if (_cosmicCult.EntityIsCultist(args.OtherEntity) || !HasComp<MobStateComponent>(args.OtherEntity))
             return;
         if (uid.Comp.DoStun)
             _stun.TryParalyze(args.OtherEntity, TimeSpan.FromSeconds(2f), false);

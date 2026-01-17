@@ -1,12 +1,13 @@
 // SPDX-FileCopyrightText: 2025 AftrLite
-// SPDX-FileCopyrightText: 2025 AftrLite <61218133+AftrLite@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Janet Blackquill <uhhadd@gmail.com>
+// SPDX-FileCopyrightText: 2026 AftrLite <61218133+AftrLite@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
 using Content.Server.Popups;
 using Content.Shared._DV.CosmicCult;
 using Content.Shared._DV.CosmicCult.Components;
+using Content.Shared.Actions;
 using Content.Shared.Popups;
 using Content.Shared.Stunnable;
 using Robust.Shared.Timing;
@@ -17,6 +18,7 @@ public sealed class CosmicHibernateSystem : EntitySystem
 {
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly SharedActionsSystem _actions = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly SharedStunSystem _stun = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
@@ -35,6 +37,7 @@ public sealed class CosmicHibernateSystem : EntitySystem
         args.Handled = true;
         var comp = ent.Comp;
 
+        comp.TimesHibernated++;
         comp.Hibernating = true;
         comp.HibernationTimer = comp.HibernationWait + _timing.CurTime;
         _appearance.SetData(ent, ColossusVisuals.Status, ColossusStatus.Action);
@@ -44,5 +47,10 @@ public sealed class CosmicHibernateSystem : EntitySystem
             Loc.GetString("ghost-role-colossus-hibernate"),
             Transform(ent).Coordinates,
             PopupType.LargeCaution);
+
+        if (comp.TimesHibernated >= 2) // i can't believe i'm hardcoding action removal because ActionCharges are broken on FunkyStation.
+        {
+            _actions.RemoveAction(ent, ent.Comp.HibernateActionEntity);
+        }
     }
 }

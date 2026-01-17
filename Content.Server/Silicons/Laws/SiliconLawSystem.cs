@@ -17,12 +17,15 @@
 // SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
 // SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 Tyranex <bobthezombie4@gmail.com>
 // SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2026 AftrLite <61218133+AftrLite@users.noreply.github.com>
 //
 // SPDX-License-Identifier: MIT
 
 using System.Linq;
+using Content.Server._DV.Objectives.Events;
 using Content.Server.Administration;
 using Content.Server.Chat.Managers;
 using Content.Server.Radio.Components;
@@ -335,6 +338,10 @@ public sealed class SiliconLawSystem : SharedSiliconLawSystem
         while (query.MoveNext(out var update))
         {
             SetLaws(lawset, update, provider.LawUploadSound);
+            // Start Stellar - AILawUpdatedEvent
+            var evt = new AILawUpdatedEvent(update, provider.Laws);
+            RaiseLocalEvent(ref evt);
+            // End Stellar - AILawUpdatedEvent
         }
     }
 }

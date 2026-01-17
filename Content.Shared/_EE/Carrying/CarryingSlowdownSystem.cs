@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 mq <113324899+mqole@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Shared.Movement.Systems;
 
 namespace Content.Shared._EE.Carrying;

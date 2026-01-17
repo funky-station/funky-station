@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2025 ImpstationBot <irismessage+bot@protonmail.com>
+// SPDX-FileCopyrightText: 2025 mq <113324899+mqole@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using System.Threading;
 using Robust.Shared.GameStates;
 

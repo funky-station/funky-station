@@ -70,6 +70,6 @@
     sprite: Structures/Storage/Crates/science.rsi
     state: icon
   product: CrateScienceAnomalousContainment
-  cost: 4000
+  cost: 8000
   category: cargoproduct-category-name-science
   group: market

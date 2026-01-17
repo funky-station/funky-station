@@ -218,7 +218,7 @@
     announcementChannel: Engineering
     removeLimitAccess: [ "ChiefEngineer" ]
     slipPrinter: true
-    showGasMinerTab: true
+    showGasExtractorTab: true
   - type: ActiveRadio
     channels:
     - Engineering
@@ -232,4 +232,4 @@
     ports:
     - GasExtractorConsole
     - OrderSender
-  - type: GasMinerConsole
+  - type: GasExtractorConsole

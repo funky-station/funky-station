@@ -7,13 +7,13 @@ namespace Content.Shared._Funkystation.Cargo.Components;
 
 [RegisterComponent, NetworkedComponent]
 [AutoGenerateComponentState]
-public sealed partial class GasMinerConsoleComponent : Component
+public sealed partial class GasExtractorConsoleComponent : Component
 {
     /// <summary>
-    /// List of all currently linked gas miners.
+    /// List of all currently linked gas extractors.
     /// </summary>
     [DataField, AutoNetworkedField]
-    public List<EntityUid> LinkedMiners = new();
+    public List<EntityUid> LinkedExtractors = new();
 
     /// <summary>
     /// Multiplier applied to gas purchases made through the console.
@@ -23,40 +23,40 @@ public sealed partial class GasMinerConsoleComponent : Component
 }
 
 [Serializable, NetSerializable]
-public sealed class GasMinerSetSettingsMessage : BoundUserInterfaceMessage
+public sealed class GasExtractorSetSettingsMessage : BoundUserInterfaceMessage
 {
-    public readonly int MinerIndex;
+    public readonly int ExtractorIndex;
     public readonly float NewSpawnAmount;
     public readonly float NewMaxExternalPressure;
 
-    public GasMinerSetSettingsMessage(int minerIndex, float newSpawnAmount, float newMaxExternalPressure)
+    public GasExtractorSetSettingsMessage(int extractorIndex, float newSpawnAmount, float newMaxExternalPressure)
     {
-        MinerIndex = minerIndex;
+        ExtractorIndex = extractorIndex;
         NewSpawnAmount = newSpawnAmount;
         NewMaxExternalPressure = newMaxExternalPressure;
     }
 }
 
 [Serializable, NetSerializable]
-public sealed class BuyMolesForMinerMessage : BoundUserInterfaceMessage
+public sealed class BuyMolesForExtractorMessage : BoundUserInterfaceMessage
 {
-    public int MinerIndex { get; }
+    public int ExtractorIndex { get; }
     public int SpecoAmount { get; }
-    public BuyMolesForMinerMessage(int minerIndex, int specoAmount)
+    public BuyMolesForExtractorMessage(int extractorIndex, int specoAmount)
     {
-        MinerIndex = minerIndex;
+        ExtractorIndex = extractorIndex;
         SpecoAmount = specoAmount;
     }
 }
 
 [Serializable, NetSerializable]
-public sealed class ToggleAutoBuyMinerMessage : BoundUserInterfaceMessage
+public sealed class ToggleAutoBuyExtractorMessage : BoundUserInterfaceMessage
 {
-    public int MinerIndex { get; }
+    public int ExtractorIndex { get; }
     public bool Enabled { get; }
-    public ToggleAutoBuyMinerMessage(int minerIndex, bool enabled)
+    public ToggleAutoBuyExtractorMessage(int extractorIndex, bool enabled)
     {
-        MinerIndex = minerIndex;
+        ExtractorIndex = extractorIndex;
         Enabled = enabled;
     }
 }

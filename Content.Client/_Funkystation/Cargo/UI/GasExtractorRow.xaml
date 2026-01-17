@@ -33,7 +33,7 @@
 
         <!-- Middle line: Rate + Pressure -->
         <BoxContainer Orientation="Horizontal">
-            <Label Text="{Loc 'gas-miner-rate-label'}"
+            <Label Text="{Loc 'gas-extractor-rate-label'}"
                    VerticalAlignment="Center"
                    MinWidth="60" />
             <SpinBox Name="RateSpinBox"
@@ -47,7 +47,7 @@
 
             <Control MinWidth="20" HorizontalExpand="True" />
 
-            <Label Text="{Loc 'gas-miner-max-pressure-label'}"
+            <Label Text="{Loc 'gas-extractor-max-pressure-label'}"
                    VerticalAlignment="Center"
                    MinWidth="60" />
             <SpinBox Name="MaxPressureSpinBox"
@@ -62,7 +62,7 @@
             <Control MinWidth="20" HorizontalExpand="True" />
 
             <Button Name="ApplyButton"
-                    Text="{Loc 'gas-miner-apply-button'}"
+                    Text="{Loc 'gas-extractor-apply-button'}"
                     MinWidth="80"
                     HorizontalAlignment="Right"
                     Disabled="True"
@@ -73,10 +73,10 @@
         <Control MinHeight="10" />
 
         <BoxContainer Orientation="Horizontal" Margin="0 5 0 0">
-            <Label Text="{Loc 'gas-miner-buy'}" VerticalAlignment="Center" MinWidth="40" />
+            <Label Text="{Loc 'gas-extractor-buy'}" VerticalAlignment="Center" MinWidth="40" />
             <Label Text="$" VerticalAlignment="Center" Margin="5 0" />
             <SpinBox Name="BuySpinBox" Value="100" HorizontalExpand="True" MinWidth="120" Access="Public" />
-            <Button Name="BuyButton" Text="{Loc 'gas-miner-buy-button'}" MinWidth="80" Margin="10 0 0 0" Access="Public" />
+            <Button Name="BuyButton" Text="{Loc 'gas-extractor-buy-button'}" MinWidth="80" Margin="10 0 0 0" Access="Public" />
         </BoxContainer>
 
 
@@ -84,7 +84,7 @@
             <Control HorizontalExpand="True" />
             <RichTextLabel Name="BuyPreviewLabel" Text="" StyleClasses="LabelSubText" Margin="0 5 0 0" Access="Public" />
             <Control HorizontalExpand="True" />
-            <CheckBox Name="AutoBuyCheckBox" Text="{Loc 'gas-miner-auto-buy-enable'}" Margin="0 5 0 0" Access="Public" />
+            <CheckBox Name="AutoBuyCheckBox" Text="{Loc 'gas-extractor-auto-buy-enable'}" Margin="0 5 0 0" Access="Public" />
         </BoxContainer>
 
         <!-- Set button -->

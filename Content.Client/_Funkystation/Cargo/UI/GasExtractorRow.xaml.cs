@@ -7,9 +7,9 @@ using Content.Client.Cargo.UI;
 namespace Content.Client._Funkystation.Cargo.UI
 {
     [GenerateTypedNameReferences]
-    public sealed partial class GasMinerRow : PanelContainer
+    public sealed partial class GasExtractorRow : PanelContainer
     {
-        public GasMinerRow()
+        public GasExtractorRow()
         {
             RobustXamlLoader.Load(this);
         }

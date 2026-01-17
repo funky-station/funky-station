@@ -1,17 +1,44 @@
 - type: entity
   abstract: true
-  parent: GasMinerBase
-  id: GasExtractorBase
   name: gas extractor
   description: Controlled extractor for gases from an external source. Requires configuration via console.
+  id: GasExtractorBase
+  placement:
+    mode: SnapgridCenter
   components:
+    - type: Clickable
+    - type: InteractionOutline
+    - type: Physics
+      canCollide: false
+    - type: Fixtures
+      fixtures:
+        fix1:
+          shape:
+            !type:PhysShapeCircle
+            radius: .4
+          density: 190
+          mask:
+            - MachineMask
+    - type: Transform
+      anchored: true
+    - type: Anchorable
+      flags:
+      - Anchorable
+    - type: Pullable
+    - type: Sprite
+      sprite: Structures/Piping/Atmospherics/miners.rsi
+      state: miner
+    - type: AtmosDevice
+    - type: GasExtractor
+      spawnAmount: 400
+      maxExternalPressure: 300
+      remainingMoles: 18717
     - type: DeviceLinkSink
       ports:
         - GasExtractorControl
-    - type: GasMiner
-      spawnAmount: 0
-      maxExternalPressure: 0
-      remainingMoles: 18717
+    - type: GuideHelp
+      guides:
+      - GasMiningAndStorage
 
 # Oxygen
 - type: entity
@@ -20,7 +47,7 @@
   name: oxygen extractor
   suffix: Shuttle
   components:
-    - type: GasMiner
+    - type: GasExtractor
       spawnGas: Oxygen
 
 - type: entity
@@ -28,9 +55,8 @@
   id: GasExtractorOxygenStation
   suffix: Station
   components:
-    - type: GasMiner
-      spawnAmount: 300
-      maxExternalPressure: 300
+    - type: GasExtractor
+      maxExternalPressure: 1000
       remainingMoles: 46792
 
 - type: entity
@@ -38,8 +64,7 @@
   id: GasExtractorOxygenStationLarge
   suffix: Large Station
   components:
-    - type: GasMiner
-      spawnAmount: 300
+    - type: GasExtractor
       maxExternalPressure: 2500
       remainingMoles: 93585
 
@@ -50,7 +75,7 @@
   name: nitrogen extractor
   suffix: Shuttle
   components:
-    - type: GasMiner
+    - type: GasExtractor
       spawnGas: Nitrogen
 
 - type: entity
@@ -58,9 +83,8 @@
   id: GasExtractorNitrogenStation
   suffix: Station
   components:
-    - type: GasMiner
-      spawnAmount: 300
-      maxExternalPressure: 300
+    - type: GasExtractor
+      maxExternalPressure: 1000
       remainingMoles: 46792
 
 - type: entity
@@ -68,8 +92,7 @@
   id: GasExtractorNitrogenStationLarge
   suffix: Large Station
   components:
-    - type: GasMiner
-      spawnAmount: 300
+    - type: GasExtractor
       maxExternalPressure: 2500
       remainingMoles: 93585
 
@@ -79,7 +102,7 @@
   id: GasExtractorCarbonDioxide
   name: carbon dioxide extractor
   components:
-    - type: GasMiner
+    - type: GasExtractor
       spawnGas: CarbonDioxide
 
 # Plasma
@@ -88,7 +111,7 @@
   id: GasExtractorPlasma
   name: plasma extractor
   components:
-    - type: GasMiner
+    - type: GasExtractor
       spawnGas: Plasma
 
 # Tritium
@@ -97,7 +120,7 @@
   id: GasExtractorTritium
   name: tritium extractor
   components:
-    - type: GasMiner
+    - type: GasExtractor
       spawnGas: Tritium
 
 # Frezon
@@ -106,7 +129,7 @@
   id: GasExtractorFrezon
   name: frezon extractor
   components:
-    - type: GasMiner
+    - type: GasExtractor
       spawnGas: Frezon
 
 # Water Vapor
@@ -115,7 +138,7 @@
   id: GasExtractorWaterVapor
   name: water vapor extractor
   components:
-    - type: GasMiner
+    - type: GasExtractor
       spawnGas: WaterVapor
 
 # Ammonia
@@ -124,7 +147,7 @@
   id: GasExtractorAmmonia
   name: ammonia extractor
   components:
-    - type: GasMiner
+    - type: GasExtractor
       spawnGas: Ammonia
 
 # Nitrous Oxide
@@ -133,7 +156,7 @@
   id: GasExtractorNitrousOxide
   name: nitrous oxide extractor
   components:
-    - type: GasMiner
+    - type: GasExtractor
       spawnGas: NitrousOxide
 
 # BZ
@@ -142,7 +165,7 @@
   id: GasExtractorBZ
   name: BZ extractor
   components:
-    - type: GasMiner
+    - type: GasExtractor
       spawnGas: BZ
 
 # Healium
@@ -151,7 +174,7 @@
   id: GasExtractorHealium
   name: healium extractor
   components:
-    - type: GasMiner
+    - type: GasExtractor
       spawnGas: Healium
 
 # Nitrium
@@ -160,7 +183,7 @@
   id: GasExtractorNitrium
   name: nitrium extractor
   components:
-    - type: GasMiner
+    - type: GasExtractor
       spawnGas: Nitrium
 
 # Pluoxium
@@ -169,7 +192,7 @@
   id: GasExtractorPluoxium
   name: pluoxium extractor
   components:
-    - type: GasMiner
+    - type: GasExtractor
       spawnGas: Pluoxium
 
 # Hydrogen
@@ -178,7 +201,7 @@
   id: GasExtractorHydrogen
   name: hydrogen extractor
   components:
-    - type: GasMiner
+    - type: GasExtractor
       spawnGas: Hydrogen
 
 # Hyper-Noblium
@@ -187,7 +210,7 @@
   id: GasExtractorHyperNoblium
   name: hyper-noblium extractor
   components:
-    - type: GasMiner
+    - type: GasExtractor
       spawnGas: HyperNoblium
 
 # Proto-Nitrate
@@ -196,7 +219,7 @@
   id: GasExtractorProtoNitrate
   name: proto-nitrate extractor
   components:
-    - type: GasMiner
+    - type: GasExtractor
       spawnGas: ProtoNitrate
 
 # Zauker
@@ -205,7 +228,7 @@
   id: GasExtractorZauker
   name: zauker extractor
   components:
-    - type: GasMiner
+    - type: GasExtractor
       spawnGas: Zauker
 
 # Halon
@@ -214,7 +237,7 @@
   id: GasExtractorHalon
   name: halon extractor
   components:
-    - type: GasMiner
+    - type: GasExtractor
       spawnGas: Halon
 
 # Helium
@@ -223,7 +246,7 @@
   id: GasExtractorHelium
   name: helium extractor
   components:
-    - type: GasMiner
+    - type: GasExtractor
       spawnGas: Helium
 
 # Anti-Noblium
@@ -232,5 +255,5 @@
   id: GasExtractorAntiNoblium
   name: anti-noblium extractor
   components:
-    - type: GasMiner
+    - type: GasExtractor
       spawnGas: AntiNoblium

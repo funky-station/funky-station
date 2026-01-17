@@ -137,20 +137,20 @@ namespace Content.Client.Cargo.BUI
                 SendMessage(new CargoConsoleToggleLimitMessage());
             };
 
-            // Funkystation: Gas miner controls
-            _menu.OnGasMinerSetSettings += (index, rate, pressure) =>
+            // Funkystation: Gas extractor controls
+            _menu.OnGasExtractorSetSettings += (index, rate, pressure) =>
             {
-                SendMessage(new GasMinerSetSettingsMessage(index, rate, pressure));
+                SendMessage(new GasExtractorSetSettingsMessage(index, rate, pressure));
             };
 
-            _menu.OnToggleAutoBuyMiner += (index, enabled) =>
+            _menu.OnToggleAutoBuyExtractor += (index, enabled) =>
             {
-                SendMessage(new ToggleAutoBuyMinerMessage(index, enabled));
+                SendMessage(new ToggleAutoBuyExtractorMessage(index, enabled));
             };
 
-            _menu.OnBuyMolesForMiner += (index, spesos) =>
+            _menu.OnBuyMolesForExtractor += (index, spesos) =>
             {
-                SendMessage(new BuyMolesForMinerMessage(index, spesos));
+                SendMessage(new BuyMolesForExtractorMessage(index, spesos));
             };
             // End of Funky changes
 

@@ -5,22 +5,12 @@
 // SPDX-License-Identifier: MIT
 
 using System.Diagnostics.CodeAnalysis;
-using System.Linq;
-using Content.Server._Funkystation.Cargo.Systems;
 using Content.Server.Atmos.Piping.Components;
-using Content.Server.Cargo.Systems;
-using Content.Server.Station.Systems;
-using Content.Shared._Funkystation.Cargo.Components;
 using Content.Shared.Atmos;
 using Content.Shared.Atmos.Components;
 using Content.Shared.Atmos.EntitySystems;
-using Content.Shared.Atmos.Prototypes;
-using Content.Shared.Cargo.Components;
-using Content.Shared.DeviceLinking;
-using Content.Shared.DeviceLinking.Events;
 using JetBrains.Annotations;
 using Robust.Server.GameObjects;
-using Robust.Shared.Prototypes;
 
 namespace Content.Server.Atmos.EntitySystems;
 
@@ -29,17 +19,12 @@ public sealed class GasMinerSystem : SharedGasMinerSystem
 {
     [Dependency] private readonly AtmosphereSystem _atmosphereSystem = default!;
     [Dependency] private readonly TransformSystem _transformSystem = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!; // Funkystation
-    [Dependency] private readonly GasMinerConsoleSystem _gasMinerConsole = default!; // Funkystation
-    [Dependency] private readonly StationSystem _station = default!; // Funkystation
-    [Dependency] private readonly CargoSystem _cargo = default!; // Funkystation
 
     public override void Initialize()
     {
         base.Initialize();
 
         SubscribeLocalEvent<GasMinerComponent, AtmosDeviceUpdateEvent>(OnMinerUpdated);
-        SubscribeLocalEvent<GasMinerComponent, PortDisconnectedEvent>(OnPortDisconnected); // Funkystation
     }
 
     private void OnMinerUpdated(Entity<GasMinerComponent> ent, ref AtmosDeviceUpdateEvent args)
@@ -62,53 +47,6 @@ public sealed class GasMinerSystem : SharedGasMinerSystem
         {
             miner.MinerState = GasMinerState.Working;
 
-            // Funkystation - Deduct gas funds from linked consoles.
-            // If not an extractor, miners work as normal.
-            float originalToSpawn = toSpawn;
-
-            // Budget and auto-buy for linked extractors
-            if (TryComp<DeviceLinkSinkComponent>(ent, out var sink) && sink.LinkedSources.Count > 0)
-            {
-                // Auto-buy attempt if enabled and deficit
-                if (miner.AutoBuyEnabled && originalToSpawn > 0)
-                {
-                    float deficit = originalToSpawn - miner.RemainingMoles;
-
-                    if (deficit > 0)
-                    {
-                        var consoleUid = sink.LinkedSources.First();
-
-                        if (TryComp<GasMinerConsoleComponent>(consoleUid, out var console) &&
-                            TryComp<CargoOrderConsoleComponent>(consoleUid, out var orderConsole))
-                        {
-                            float buyMoles = deficit * 1.05f;
-
-                            _gasMinerConsole.TryAutoPurchaseMoles(
-                                consoleUid,
-                                orderConsole,
-                                ent,
-                                buyMoles);
-                        }
-                    }
-                }
-
-                // Deduct from budget
-                float canAfford = Math.Min(originalToSpawn, miner.RemainingMoles);
-
-                if (canAfford < Atmospherics.GasMinMoles)
-                {
-                    miner.MinerState = GasMinerState.Idle;
-                    toSpawn = 0f;
-                }
-                else
-                {
-                    miner.RemainingMoles -= canAfford;
-                    toSpawn = canAfford;
-                    Dirty(ent);
-                }
-            }
-            // End of Funkystation changes
-
             // Time to mine some gas.
             var merger = new GasMixture(1) { Temperature = miner.SpawnTemperature };
             merger.SetMoles(miner.SpawnGas, toSpawn);
@@ -120,29 +58,6 @@ public sealed class GasMinerSystem : SharedGasMinerSystem
             Dirty(ent);
         }
     }
-
-    // Funkstation - disable disconnected miners
-    private void OnPortDisconnected(Entity<GasMinerComponent> ent, ref PortDisconnectedEvent args)
-    {
-        ent.Comp.SpawnAmount = 0f;
-        ent.Comp.MaxExternalPressure = 0f;
-        ent.Comp.MinerState = GasMinerState.Disabled;
-
-        Dirty(ent);
-
-        if (TryComp<DeviceLinkSinkComponent>(ent, out var sink))
-        {
-            foreach (var consoleUid in sink.LinkedSources.ToList())
-            {
-                if (!TryComp<GasMinerConsoleComponent>(consoleUid, out var console))
-                    continue;
-
-                if (console.LinkedMiners.Remove(ent))
-                    Dirty(consoleUid, console);
-            }
-        }
-    }
-    // End of Funkystation changes
 
     private bool GetValidEnvironment(Entity<GasMinerComponent> ent, [NotNullWhen(true)] out GasMixture? environment)
     {

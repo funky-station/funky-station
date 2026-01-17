@@ -39,4 +39,12 @@ public sealed class CCVars_Funky
     /// </summary>
     public static readonly CVarDef<int> DefaultLoocBudget =
         CVarDef.Create("funky.looc_budget_default", 20, CVar.SERVER | CVar.REPLICATED);
+
+    /// <summary>
+    ///     If true, gas extractors linked to a console require payment/budget (deduct RemainingMoles, allow auto-buy).
+    ///     If false, linked extractors behave like normal miners (spawn full amount regardless of budget).
+    ///     Defaults to true.
+    /// </summary>
+    public static readonly CVarDef<bool> GasExtractorsRequirePayment =
+        CVarDef.Create("funky.gas_extractors_require_payment", true, CVar.SERVER | CVar.REPLICATED);
 }

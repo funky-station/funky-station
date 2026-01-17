@@ -63,10 +63,10 @@ namespace Content.Client.Cargo.UI
 
         public event Action<ButtonEventArgs>? OnToggleUnboundedLimit;
 
-        public event Action<int, float, float>? OnGasMinerSetSettings; // Funkystation: Gas miner controls
-        public event Action<int, bool>? OnToggleAutoBuyMiner; // Funkystation: Gas miner controls
-        public event Action<int, int>? OnBuyMolesForMiner; // Funkystation: Gas miner controls
-        public GasMinerTabContent? GasTabContent { get; private set; } // Funkystation: Gas miner controls
+        public event Action<int, float, float>? OnGasExtractorSetSettings; // Funkystation: Gas extractor controls
+        public event Action<int, bool>? OnToggleAutoBuyExtractor; // Funkystation: Gas extractor controls
+        public event Action<int, int>? OnBuyMolesForExtractor; // Funkystation: Gas extractor controls
+        public GasExtractorTabContent? GasTabContent { get; private set; } // Funkystation: Gas extractor controls
 
         private readonly List<string> _categoryStrings = new();
         private string? _category;
@@ -101,26 +101,26 @@ namespace Content.Client.Cargo.UI
             TabContainer.SetTabTitle(0, Loc.GetString("cargo-console-menu-tab-title-orders"));
             TabContainer.SetTabTitle(1, Loc.GetString("cargo-console-menu-tab-title-funds"));
 
-            // Funkystation: Add Gas Miner tab to atmos request console
-            if (_orderConsoleQuery.TryComp(_owner, out var console) && console.ShowGasMinerTab)
+            // Funkystation: Add Gas Extractor tab to atmos request console
+            if (_orderConsoleQuery.TryComp(_owner, out var console) && console.ShowGasExtractorTab)
             {
-                var gasTab = new GasMinerTabContent();
+                var gasTab = new GasExtractorTabContent();
                 IoCManager.InjectDependencies(gasTab);
                 gasTab.SetConsole(_owner);
 
-                gasTab.OnGasMinerSetSettings += (index, rate, pressure) =>
+                gasTab.OnGasExtractorSetSettings += (index, rate, pressure) =>
                 {
-                    OnGasMinerSetSettings?.Invoke(index, rate, pressure);
+                    OnGasExtractorSetSettings?.Invoke(index, rate, pressure);
                 };
 
-                gasTab.OnToggleAutoBuyMiner += (index, enabled) =>
+                gasTab.OnToggleAutoBuyExtractor += (index, enabled) =>
                 {
-                    OnToggleAutoBuyMiner?.Invoke(index, enabled);
+                    OnToggleAutoBuyExtractor?.Invoke(index, enabled);
                 };
 
-                gasTab.OnBuyMolesForMiner += (index, spesos) =>
+                gasTab.OnBuyMolesForExtractor += (index, spesos) =>
                 {
-                    OnBuyMolesForMiner?.Invoke(index, spesos);
+                    OnBuyMolesForExtractor?.Invoke(index, spesos);
                 };
 
                 GasTabContent = gasTab;
@@ -136,7 +136,7 @@ namespace Content.Client.Cargo.UI
 
                 // add new gas tab first
                 TabContainer.AddChild(gasTab);
-                TabContainer.SetTabTitle(0, Loc.GetString("cargo-console-menu-tab-title-gas-miner"));
+                TabContainer.SetTabTitle(0, Loc.GetString("cargo-console-menu-tab-title-gas-extractor"));
 
                 // re-add original tabs in original order
                 foreach (var tab in existingTabs)

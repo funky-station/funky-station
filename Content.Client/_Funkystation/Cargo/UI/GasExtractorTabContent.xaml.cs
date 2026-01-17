@@ -11,19 +11,20 @@ using Content.Shared.Atmos.Prototypes;
 using Content.Shared.Cargo.Components;
 using Content.Shared._Funkystation.Cargo.Components;
 using Content.Client.Cargo.UI;
+using Content.Shared._Funkystation.Atmos.Components;
 
 namespace Content.Client._Funkystation.Cargo.UI
 {
     [GenerateTypedNameReferences]
-    public sealed partial class GasMinerTabContent : BoxContainer
+    public sealed partial class GasExtractorTabContent : BoxContainer
     {
         [Dependency] private readonly IEntityManager _entMan = default!;
         [Dependency] private readonly IPrototypeManager _proto = default!;
 
         private EntityUid? _consoleUid;
-        public event Action<int, float, float>? OnGasMinerSetSettings;
-        public event Action<int, bool>? OnToggleAutoBuyMiner;
-        public event Action<int, int>? OnBuyMolesForMiner;
+        public event Action<int, float, float>? OnGasExtractorSetSettings;
+        public event Action<int, bool>? OnToggleAutoBuyExtractor;
+        public event Action<int, int>? OnBuyMolesForExtractor;
         private static readonly string[] GasLocalizedNames = new[]
         {
             Loc.GetString("gases-oxygen"),        // 0 - Oxygen
@@ -48,7 +49,7 @@ namespace Content.Client._Funkystation.Cargo.UI
             Loc.GetString("gases-anti-noblium")   // 19 - Anti-Noblium
         };
 
-        public GasMinerTabContent()
+        public GasExtractorTabContent()
         {
             RobustXamlLoader.Load(this);
         }
@@ -56,58 +57,58 @@ namespace Content.Client._Funkystation.Cargo.UI
         public void SetConsole(EntityUid consoleUid)
         {
             _consoleUid = consoleUid;
-            RefreshMiners();
+            RefreshExtractors();
         }
 
         protected override void FrameUpdate(FrameEventArgs args)
         {
             base.FrameUpdate(args);
 
-            // Update all miner row statuses
-            for (int i = 0; i < GasMinersListContainer.ChildCount; i++)
+            // Update all extractor row statuses
+            for (int i = 0; i < GasExtractorsListContainer.ChildCount; i++)
             {
-                if (GasMinersListContainer.Children[i] is GasMinerRow row &&
+                if (GasExtractorsListContainer.Children[i] is GasExtractorRow row &&
                     _consoleUid.HasValue &&
-                    _entMan.TryGetComponent<GasMinerConsoleComponent>(_consoleUid.Value, out var console))
+                    _entMan.TryGetComponent<GasExtractorConsoleComponent>(_consoleUid.Value, out var console))
                 {
-                    if (i < console.LinkedMiners.Count)
+                    if (i < console.LinkedExtractors.Count)
                     {
-                        var minerUid = console.LinkedMiners[i];
-                        UpdateMinerRowStatus(row, minerUid);
+                        var extractorUid = console.LinkedExtractors[i];
+                        UpdateExtractorRowStatus(row, extractorUid);
 
-                        if (_entMan.TryGetComponent<GasMinerComponent>(minerUid, out var miner))
+                        if (_entMan.TryGetComponent<GasExtractorComponent>(extractorUid, out var extractor))
                         {
-                            row.RemainingMolesLabel.Text = Loc.GetString("gas-miner-remaining-moles",
-                                ("amount", miner.RemainingMoles.ToString("N1")));
+                            row.RemainingMolesLabel.Text = Loc.GetString("gas-extractor-remaining-moles",
+                                ("amount", extractor.RemainingMoles.ToString("N1")));
                         }
                     }
                 }
             }
         }
 
-        public void RefreshMiners()
+        public void RefreshExtractors()
         {
-            GasMinersListContainer.RemoveAllChildren();
+            GasExtractorsListContainer.RemoveAllChildren();
 
             if (!_consoleUid.HasValue || !_entMan.EntityExists(_consoleUid.Value))
                 return;
 
-            if (!_entMan.TryGetComponent<GasMinerConsoleComponent>(_consoleUid.Value, out var gasConsole))
+            if (!_entMan.TryGetComponent<GasExtractorConsoleComponent>(_consoleUid.Value, out var gasConsole))
                 return;
 
-            var currentLinkedMiners = new HashSet<EntityUid>(gasConsole.LinkedMiners);
-            int minerIndex = 0;
+            var currentLinkedExtractors = new HashSet<EntityUid>(gasConsole.LinkedExtractors);
+            int extractorIndex = 0;
 
-            foreach (var sinkUid in currentLinkedMiners)
+            foreach (var sinkUid in currentLinkedExtractors)
             {
                 if (!_entMan.EntityExists(sinkUid))
                     continue;
 
-                if (!_entMan.TryGetComponent<GasMinerComponent>(sinkUid, out var miner))
+                if (!_entMan.TryGetComponent<GasExtractorComponent>(sinkUid, out var extractor))
                     continue;
 
-                string protoId = ((int)miner.SpawnGas).ToString();
-                string gasName = $"Unknown Gas ({miner.SpawnGas})";
+                string protoId = ((int)extractor.SpawnGas).ToString();
+                string gasName = $"Unknown Gas ({extractor.SpawnGas})";
                 float pricePerMole = 0f;
 
                 if (_proto.TryIndex<GasPrototype>(protoId, out var gasProto))
@@ -116,11 +117,11 @@ namespace Content.Client._Funkystation.Cargo.UI
                     pricePerMole = gasProto.PricePerMole;
                 }
 
-                var row = new GasMinerRow();
+                var row = new GasExtractorRow();
                 row.GasNameLabel.Text = gasName;
 
-                row.RateSpinBox.Value = (int)miner.SpawnAmount;
-                row.MaxPressureSpinBox.Value = (int)miner.MaxExternalPressure;
+                row.RateSpinBox.Value = (int)extractor.SpawnAmount;
+                row.MaxPressureSpinBox.Value = (int)extractor.MaxExternalPressure;
 
                 row.RateSpinBox.ValueChanged += args =>
                 {
@@ -132,19 +133,19 @@ namespace Content.Client._Funkystation.Cargo.UI
                     row.ApplyButton.Disabled = false;
                 };
 
-                row.BuyPreviewLabel.Text = $"[color=#a0d0ff]{Loc.GetString("gas-miner-price-per-mol", ("price", pricePerMole.ToString("F2")))}[/color]";
+                row.BuyPreviewLabel.Text = $"[color=#a0d0ff]{Loc.GetString("gas-extractor-price-per-mol", ("price", pricePerMole.ToString("F2")))}[/color]";
 
-                row.RemainingMolesLabel.Text = Loc.GetString("gas-miner-remaining-moles", ("amount", miner.RemainingMoles.ToString("N1")));
+                row.RemainingMolesLabel.Text = Loc.GetString("gas-extractor-remaining-moles", ("amount", extractor.RemainingMoles.ToString("N1")));
 
                 // Apply button sends final values to server
-                int currentIndex = minerIndex;
+                int currentIndex = extractorIndex;
                 row.ApplyButton.OnPressed += _ =>
                 {
                     int rateToSend = GetClampedValue(row.RateSpinBox);
                     int pressureToSend = GetClampedValue(row.MaxPressureSpinBox);
 
                     // Send to server
-                    OnGasMinerSetSettings?.Invoke(currentIndex, rateToSend, pressureToSend);
+                    OnGasExtractorSetSettings?.Invoke(currentIndex, rateToSend, pressureToSend);
 
                     // Immediately update UI to match what was sent
                     row.RateSpinBox.Value = rateToSend;
@@ -154,10 +155,10 @@ namespace Content.Client._Funkystation.Cargo.UI
                     row.ApplyButton.Disabled = true;
                 };
 
-                row.AutoBuyCheckBox.Pressed = miner.AutoBuyEnabled;
+                row.AutoBuyCheckBox.Pressed = extractor.AutoBuyEnabled;
                 row.AutoBuyCheckBox.OnToggled += (args) =>
                 {
-                    OnToggleAutoBuyMiner?.Invoke(currentIndex, args.Pressed);
+                    OnToggleAutoBuyExtractor?.Invoke(currentIndex, args.Pressed);
                 };
 
                 row.BuySpinBox.Value = 100;
@@ -166,37 +167,37 @@ namespace Content.Client._Funkystation.Cargo.UI
                     var spesos = (int)Math.Max(0, row.BuySpinBox.Value);
                     if (spesos > 0)
                     {
-                        OnBuyMolesForMiner?.Invoke(currentIndex, spesos);
+                        OnBuyMolesForExtractor?.Invoke(currentIndex, spesos);
                     }
                 };
 
-                UpdateMinerRowStatus(row, sinkUid);
+                UpdateExtractorRowStatus(row, sinkUid);
 
-                GasMinersListContainer.AddChild(row);
-                minerIndex++;
+                GasExtractorsListContainer.AddChild(row);
+                extractorIndex++;
             }
         }
 
-        private void UpdateMinerRowStatus(GasMinerRow row, EntityUid minerUid)
+        private void UpdateExtractorRowStatus(GasExtractorRow row, EntityUid extractorUid)
         {
-            if (!_entMan.TryGetComponent<GasMinerComponent>(minerUid, out var miner))
+            if (!_entMan.TryGetComponent<GasExtractorComponent>(extractorUid, out var extractor))
                 return;
 
             string text;
             Color color;
 
-            switch (miner.MinerState)
+            switch (extractor.ExtractorState)
             {
-                case GasMinerState.Disabled:
-                    text = Loc.GetString("gas-miner-state-disabled");
+                case GasExtractorState.Disabled:
+                    text = Loc.GetString("gas-extractor-state-disabled");
                     color = Color.Red;
                     break;
-                case GasMinerState.Idle:
-                    text = Loc.GetString("gas-miner-state-idle");
+                case GasExtractorState.Idle:
+                    text = Loc.GetString("gas-extractor-state-idle");
                     color = Color.Orange;
                     break;
-                case GasMinerState.Working:
-                    text = Loc.GetString("gas-miner-state-working");
+                case GasExtractorState.Working:
+                    text = Loc.GetString("gas-extractor-state-working");
                     color = Color.Green;
                     break;
                 default:

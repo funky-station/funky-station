@@ -142,7 +142,7 @@ public sealed partial class CargoOrderConsoleComponent : Component
     /// Whether to show the atmos gas tab in the UI.
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadWrite)]
-    public bool ShowGasMinerTab { get; set; } = false;
+    public bool ShowGasExtractorTab { get; set; } = false;
 }
 
 /// <summary>

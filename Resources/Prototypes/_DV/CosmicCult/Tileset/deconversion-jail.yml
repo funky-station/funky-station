@@ -136,9 +136,6 @@
   - type: Construction
     graph: Machine
     node: machine
-    containers:
-    - machine_parts
-    - machine_board
 
 - type: entity
   parent: BaseMachineCircuitboard

@@ -3,8 +3,6 @@ using Content.Shared._DV.CosmicCult.Components;
 using Content.Shared.Anomaly;
 using Content.Shared.Anomaly.Components;
 using Content.Shared.Audio;
-using Content.Shared.BloodCult;
-using Content.Shared.Chat;
 using Content.Shared.DoAfter;
 using Content.Shared.Examine;
 using Content.Shared.Explosion.EntitySystems;

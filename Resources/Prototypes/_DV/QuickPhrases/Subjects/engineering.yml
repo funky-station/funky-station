@@ -26,7 +26,7 @@
 - type: quickPhrase
   id: FrezonPhrase
   parent: BaseEngineeringSubjectPhrase
-  text: phrase-frezon
+  text: gases-frezon # Funky - consistency with the new gases capitals-wise, plus just a bit more efficient
 
 - type: quickPhrase
   id: GravityPhrase
@@ -56,12 +56,12 @@
 - type: quickPhrase
   id: NitrogenPhrase
   parent: BaseEngineeringSubjectPhrase
-  text: phrase-nitrogen
+  text: gases-nitrogen # Funky - consistency with the new gases capitals-wise, plus just a bit more efficient
 
 - type: quickPhrase
   id: OxygenPhrase
   parent: BaseEngineeringSubjectPhrase
-  text: phrase-oxygen
+  text: gases-oxygen # Funky - consistency with the new gases capitals-wise, plus just a bit more efficient
 
 - type: quickPhrase
   id: RCDPhrase
@@ -111,7 +111,7 @@
 - type: quickPhrase
   id: TritiumPhrase
   parent: BaseEngineeringSubjectPhrase
-  text: phrase-tritium
+  text: gases-tritium # Funky - consistency with the new gases capitals-wise, plus just a bit more efficient
 
 - type: quickPhrase
   id: MagbootsPhrase

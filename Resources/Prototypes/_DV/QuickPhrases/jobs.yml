@@ -43,7 +43,7 @@
 - type: quickPhrase
   parent: BaseCivilianJobPhrase
   id: PassengerPhrase
-  text: job-name-passenger
+  text: job-name-passenger # Funky - This actually refers to "assistant"
 
 - type: quickPhrase
   parent: BaseCivilianJobPhrase
@@ -62,10 +62,10 @@
   id: CentralCommandOfficialPhrase
   text: job-name-centcomoff
 
-- type: quickPhrase
-  parent: BaseCommandJobPhrase
-  id: AdminAssistantPhrase
-  text: job-name-admin-assistant
+#- type: quickPhrase
+#  parent: BaseCommandJobPhrase
+#  id: AdminAssistantPhrase
+#  text: job-name-admin-assistant
 
 - type: quickPhrase
   parent: BaseCommandJobPhrase
@@ -79,10 +79,10 @@
   id: ChiefEngineerPhrase
   text: job-name-ce
 
-- type: quickPhrase
-  parent: BaseEngineeringJobPhrase
-  id: AtmosTechPhrase
-  text: job-name-atmostech
+#- type: quickPhrase
+#  parent: BaseEngineeringJobPhrase
+#  id: AtmosTechPhrase
+#  text: job-name-atmostech
 
 - type: quickPhrase
   parent: BaseEngineeringJobPhrase
@@ -138,10 +138,10 @@
   id: SalvageSpecialistPhrase
   text: job-name-salvagespec
 
-- type: quickPhrase
-  parent: BaseCargoJobPhrase
-  id: CourierPhrase
-  text: job-name-courier
+#- type: quickPhrase
+#  parent: BaseCargoJobPhrase
+#  id: CourierPhrase
+#  text: job-name-courier
 
 # Medical
 

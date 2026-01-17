@@ -1,0 +1,16 @@
+# (Central) Command
+
+- type: quickPhrase
+  parent: BaseCommandJobPhrase
+  id: InternalAffairsAgentPhrase
+  text: job-name-internal-affairs-agent
+
+- type: quickPhrase
+  parent: BaseCommandJobPhrase
+  id: NanotrasenRepresentativePhrase
+  text: job-name-ntr
+
+- type: quickPhrase
+  parent: BaseCommandJobPhrase
+  id: MagistratePhrase
+  text: job-name-magistrate

@@ -48,35 +48,35 @@
   parent: BaseDamageTypePhrase
   text: damage-type-radiation
 
-- type: quickPhrase
-  id: ChemDylovenePhrase
-  parent: BaseMedicinePhrase
-  text: reagent-name-dylovene
+#- type: quickPhrase
+#  id: ChemDylovenePhrase
+#  parent: BaseMedicinePhrase
+#  text: reagent-name-dylovene
 
 - type: quickPhrase
   id: ChemArithrazinePhrase
   parent: BaseMedicinePhrase
   text: reagent-name-arithrazine
 
-- type: quickPhrase
-  id: ChemBicaridinePhrase
-  parent: BaseMedicinePhrase
-  text: reagent-name-bicaridine
+#- type: quickPhrase
+#  id: ChemBicaridinePhrase
+#  parent: BaseMedicinePhrase
+#  text: reagent-name-bicaridine
 
-- type: quickPhrase
-  id: ChemDermalinePhrase
-  parent: BaseMedicinePhrase
-  text: reagent-name-dermaline
+#- type: quickPhrase
+#  id: ChemDermalinePhrase
+#  parent: BaseMedicinePhrase
+#  text: reagent-name-dermaline
 
 - type: quickPhrase
   id: ChemDexalinPhrase
   parent: BaseMedicinePhrase
   text: reagent-name-dexalin
 
-- type: quickPhrase
-  id: ChemKelotanePhrase
-  parent: BaseMedicinePhrase
-  text: reagent-name-kelotane
+#- type: quickPhrase
+#  id: ChemKelotanePhrase
+#  parent: BaseMedicinePhrase
+#  text: reagent-name-kelotane
 
 - type: quickPhrase
   id: ChemTricordrazinePhrase

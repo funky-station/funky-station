@@ -148,6 +148,7 @@
   - TowelColorWhite
   - TowelColorYellow
   # Begin DeltaV Additions
+  - AACTablet
   - TapeRecorder
   # End DeltaV Additions
 
@@ -1107,7 +1108,7 @@
   - CargoWinterBoots
   - WorkBoots
   - EngineeringWinterBoots
-  
+
 - type: loadoutGroup #WizDen Weh Job Plush
   id: CargoTechnicianJobTrinkets
   name: loadout-group-jobtrinkets

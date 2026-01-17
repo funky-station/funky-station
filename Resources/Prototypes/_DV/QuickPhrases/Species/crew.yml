@@ -34,20 +34,20 @@
   parent: BaseCrewSpeciesPhrase
   text: species-name-slime
 
-- type: quickPhrase
-  id: SpeciesGrayPhrase
-  parent: BaseCrewSpeciesPhrase
-  text: species-name-gray
+#- type: quickPhrase
+#  id: SpeciesGrayPhrase
+#  parent: BaseCrewSpeciesPhrase
+#  text: species-name-gray
 
-- type: quickPhrase
-  id: SpeciesGastropoidPhrase
-  parent: BaseCrewSpeciesPhrase
-  text: species-name-gastropoid
+#- type: quickPhrase
+#  id: SpeciesGastropoidPhrase
+#  parent: BaseCrewSpeciesPhrase
+#  text: species-name-gastropoid
 
-- type: quickPhrase
-  id: SpeciesKodepiiaPhrase
-  parent: BaseCrewSpeciesPhrase
-  text: species-name-kodepiia
+#- type: quickPhrase
+#  id: SpeciesKodepiiaPhrase
+#  parent: BaseCrewSpeciesPhrase
+#  text: species-name-kodepiia
 
 - type: quickPhrase
   id: SpeciesThavenPhrase
@@ -64,17 +64,17 @@
   parent: BaseCrewSpeciesPhrase
   text: species-name-vox
 
-- type: quickPhrase
-  id: SpeciesDecapoidPhrase
-  parent: BaseCrewSpeciesPhrase
-  text: species-name-decapoid
+#- type: quickPhrase
+#  id: SpeciesDecapoidPhrase
+#  parent: BaseCrewSpeciesPhrase
+#  text: species-name-decapoid
 
-- type: quickPhrase
-  id: SpeciesApidPhrase
-  parent: BaseCrewSpeciesPhrase
-  text: species-name-apid
+#- type: quickPhrase
+#  id: SpeciesApidPhrase
+#  parent: BaseCrewSpeciesPhrase
+#  text: species-name-apid
 
-- type: quickPhrase
-  id: SpeciesGoblinPhrase
-  parent: BaseCrewSpeciesPhrase
-  text: species-name-goblin
+#- type: quickPhrase
+#  id: SpeciesGoblinPhrase
+#  parent: BaseCrewSpeciesPhrase
+#  text: species-name-goblin

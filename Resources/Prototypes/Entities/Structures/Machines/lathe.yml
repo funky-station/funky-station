@@ -1465,6 +1465,7 @@
     - CandyBowl #pill(pill that pills you) #funk
     - DeskBell #ringringring #funk
     - Tourniquet #funk
+    - AACTablet # Delta-V
     dynamicRecipes:
     - ChemicalPayload
     - CryostasisBeaker

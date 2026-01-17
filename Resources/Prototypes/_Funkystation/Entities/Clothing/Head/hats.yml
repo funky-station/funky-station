@@ -104,3 +104,20 @@
     sprite: _Funkystation/Clothing/Head/Hats/surgcap_black.rsi
   - type: Clothing
     sprite: _Funkystation/Clothing/Head/Hats/surgcap_black.rsi
+
+# Cadet hat
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatCadetSecurity
+  name: cadet's white sailor hat
+  description: A clean, white hat for the newly enlisted! Here's hoping it stays clean.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Head/Hats/cadethat.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Head/Hats/cadethat.rsi
+  - type: Tag
+    tags:
+    - ClothMade
+    - WhitelistChameleon

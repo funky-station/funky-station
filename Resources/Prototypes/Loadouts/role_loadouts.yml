@@ -494,6 +494,7 @@
 - type: roleLoadout
   id: JobSecurityCadet
   groups:
+  - SecurityCadetHat
   - SecurityCadetJumpsuit
   - SecurityGlasses #Funky
   - SecurityBackpack

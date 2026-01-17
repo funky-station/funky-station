@@ -224,6 +224,7 @@ loadout-group-detective-outerclothing = Detective outer clothing
 loadout-group-detective-id = Detective ID
 loadout-group-detective-weapon = Detective Weapon
 
+loadout-group-security-cadet-hat = Security cadet hat
 loadout-group-security-cadet-jumpsuit = Security cadet jumpsuit
 loadout-group-security-star = Security Star
 

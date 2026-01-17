@@ -5,6 +5,12 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
+# Head
+- type: loadout
+  id: CadetHat
+  equipment:
+    head: ClothingHeadHatCadetSecurity
+
 # Jumpsuit
 - type: loadout
   id: CadetJumpsuit

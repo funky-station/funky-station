@@ -330,6 +330,7 @@
     color: "#9be792"
   - type: Tag # Funkystation - Electrolyzer fuel
     tags:
+    - Sheet
     - UraniumSheet
 
 - type: entity

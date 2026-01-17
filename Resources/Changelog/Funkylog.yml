@@ -7344,3 +7344,87 @@ Entries:
         minute.
   id: 852
   time: '2026-01-09T23:12:07.0000000+00:00'
+- author: zergologist
+  changes:
+    - type: Tweak
+      message: redid the magboot sprites again so that the icon isn't massive
+  id: 853
+  time: '2026-01-10T04:57:54.0000000+00:00'
+- author: AraiMaia
+  changes:
+    - type: Add
+      message: >-
+        Resprited: Gas Miners, Thermomachines, Radiators, Air Injectors, Manual
+        Valves, Signal Valves, Digital Valves, Inlet Pressure Regulators,
+        Pneumatic Valves, Volumetric & Pressure Pumps, Gas Filters, Gas Mixers,
+        Gas Pipe Sensors, and Gas Canister Connector ports.
+  id: 854
+  time: '2026-01-10T04:59:26.0000000+00:00'
+- author: Ralkern
+  changes:
+    - type: Tweak
+      message: >-
+        Reduced NukeOp population ratio from 10% to 8%, to bridge some of the
+        gap between max operatives and server max pop.
+  id: 855
+  time: '2026-01-11T00:32:49.0000000+00:00'
+- author: 88tv
+  changes:
+    - type: Add
+      message: The TEG is now purchasable from the request computers for 20,000 spesos!
+  id: 856
+  time: '2026-01-11T04:05:31.0000000+00:00'
+- author: willowzeta
+  changes:
+    - type: Tweak
+      message: Redid those floor signage decals to be less ass
+    - type: Add
+      message: Added a handful of floor signage decals
+  id: 857
+  time: '2026-01-13T18:54:19.0000000+00:00'
+- author: marc-pelletier
+  changes:
+    - type: Fix
+      message: 'Tritium fires no longer break conservation of mass. '
+  id: 858
+  time: '2026-01-14T18:27:57.0000000+00:00'
+- author: salpphie
+  changes:
+    - type: Add
+      message: >-
+        Added proper geneticist minus the role and a single pipe bend to the map
+        Eden. 
+    - type: Remove
+      message: Removed TEG from atmos on the map Eden.
+    - type: Tweak
+      message: >-
+        Fixed Minor walls, doors, flooring, button, and connections to the silo
+        on the map Eden.
+  id: 859
+  time: '2026-01-15T01:33:37.0000000+00:00'
+- author: marc-pelletier
+  changes:
+    - type: Fix
+      message: 'Tritium and hydrogen fires no longer overproduce water vapor or energy. '
+  id: 860
+  time: '2026-01-15T02:27:50.0000000+00:00'
+- author: KittyCat432
+  changes:
+    - type: Tweak
+      message: Reporter nolonger has access to all cameras on box.
+    - type: Tweak
+      message: AI turret controllers are now present on box
+    - type: Fix
+      message: Fixed box's windows not having hull plating underneath it.
+  id: 861
+  time: '2026-01-15T20:21:05.0000000+00:00'
+- author: Huhm-1
+  changes:
+    - type: Add
+      message: Added Cameras to medical on Amber
+    - type: Add
+      message: Added Medical Requests Console on Amber
+    - type: Add
+      message: Added Crew Monitoring for warden on Amber
+  id: 862
+  time: '2026-01-16T01:19:09.0000000+00:00'

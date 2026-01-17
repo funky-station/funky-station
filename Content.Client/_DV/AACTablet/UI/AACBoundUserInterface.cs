@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 AirFryerBuyOneGetOneFree <airfryerbuyonegetonefree@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Shared._DV.AACTablet;
 using Content.Shared._DV.QuickPhrase;
 using Robust.Client.UserInterface;

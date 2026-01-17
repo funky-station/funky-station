@@ -1,3 +1,9 @@
+// SPDX-FileCopyrightText: 2025 12rabbits <53499656+12rabbits@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 AirFryerBuyOneGetOneFree <airfryerbuyonegetonefree@gmail.com>
+// SPDX-FileCopyrightText: 2026 W.xyz() <tptechteam@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Server.Abilities.Mime;
 using Content.Server.Chat.Systems;
 using Content.Server.Speech.Components;

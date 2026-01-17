@@ -27,33 +27,33 @@ public abstract class SharedGasExtractorSystem : EntitySystem
 
         using (args.PushGroup(nameof(GasExtractorComponent)))
         {
-            args.PushMarkup(Loc.GetString("gas-miner-mines-text",
+            args.PushMarkup(Loc.GetString("gas-extractor-extracts-text",
                 ("gas", Loc.GetString(_sharedAtmosphereSystem.GetGas(component.SpawnGas).Name))));
 
-            args.PushText(Loc.GetString("gas-miner-amount-text",
+            args.PushText(Loc.GetString("gas-extractor-amount-text",
                 ("moles", $"{component.SpawnAmount:0.#}")));
 
-            args.PushText(Loc.GetString("gas-miner-temperature-text",
+            args.PushText(Loc.GetString("gas-extractor-temperature-text",
                 ("tempK", $"{component.SpawnTemperature:0.#}"),
                 ("tempC", $"{TemperatureHelpers.KelvinToCelsius(component.SpawnTemperature):0.#}")));
 
             if (component.MaxExternalAmount < float.PositiveInfinity)
             {
-                args.PushText(Loc.GetString("gas-miner-moles-cutoff-text",
+                args.PushText(Loc.GetString("gas-extractor-moles-cutoff-text",
                     ("moles", $"{component.MaxExternalAmount:0.#}")));
             }
 
             if (component.MaxExternalPressure < float.PositiveInfinity)
             {
-                args.PushText(Loc.GetString("gas-miner-pressure-cutoff-text",
+                args.PushText(Loc.GetString("gas-extractor-pressure-cutoff-text",
                     ("pressure", $"{component.MaxExternalPressure:0.#}")));
             }
 
             args.AddMarkup(component.ExtractorState switch
             {
-                GasExtractorState.Disabled => Loc.GetString("gas-miner-state-disabled-text"),
-                GasExtractorState.Idle => Loc.GetString("gas-miner-state-idle-text"),
-                GasExtractorState.Working => Loc.GetString("gas-miner-state-working-text"),
+                GasExtractorState.Disabled => Loc.GetString("gas-extractor-state-disabled-text"),
+                GasExtractorState.Idle => Loc.GetString("gas-extractor-state-idle-text"),
+                GasExtractorState.Working => Loc.GetString("gas-extractor-state-working-text"),
                 // C# pattern matching is not exhaustive for enums
                 _ => throw new IndexOutOfRangeException(nameof(component.ExtractorState)),
             });

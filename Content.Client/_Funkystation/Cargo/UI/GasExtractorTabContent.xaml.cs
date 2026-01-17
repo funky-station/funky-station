@@ -194,7 +194,7 @@ namespace Content.Client._Funkystation.Cargo.UI
                     break;
                 case GasExtractorState.Idle:
                     text = Loc.GetString("gas-extractor-state-idle");
-                    color = Color.Orange;
+                    color = Color.Yellow;
                     break;
                 case GasExtractorState.Working:
                     text = Loc.GetString("gas-extractor-state-working");

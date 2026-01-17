@@ -1,4 +1,4 @@
-cargo-console-menu-tab-title-gas-extractor = Gas Extractors
+cargo-console-menu-tab-title-gas-extractor = Gas Reserves
 
 gas-extractor-rate-label = Rate:
 gas-extractor-max-pressure-label = Max:

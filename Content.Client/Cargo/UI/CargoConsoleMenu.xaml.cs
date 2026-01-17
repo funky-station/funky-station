@@ -37,6 +37,8 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Content.Client._Funkystation.Cargo.UI;
 using static Robust.Client.UserInterface.Controls.BaseButton;
+using Content.Shared._Funkystation.CCVars;
+using Robust.Shared.Configuration;
 
 namespace Content.Client.Cargo.UI
 {
@@ -44,6 +46,7 @@ namespace Content.Client.Cargo.UI
     public sealed partial class CargoConsoleMenu : FancyWindow
     {
         [Dependency] private readonly IGameTiming _timing = default!;
+        [Dependency] private readonly IConfigurationManager _cfg = default!;
 
         private readonly IEntityManager _entityManager;
         private readonly IPrototypeManager _protoManager;
@@ -102,7 +105,7 @@ namespace Content.Client.Cargo.UI
             TabContainer.SetTabTitle(1, Loc.GetString("cargo-console-menu-tab-title-funds"));
 
             // Funkystation: Add Gas Extractor tab to atmos request console
-            if (_orderConsoleQuery.TryComp(_owner, out var console) && console.ShowGasExtractorTab)
+            if (_orderConsoleQuery.TryComp(_owner, out var console) && console.ShowGasExtractorTab && _cfg.GetCVar(CCVars_Funky.GasExtractorsRequirePayment))
             {
                 var gasTab = new GasExtractorTabContent();
                 IoCManager.InjectDependencies(gasTab);

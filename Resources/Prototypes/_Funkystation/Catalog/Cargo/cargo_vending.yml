@@ -1,33 +1,269 @@
+# SPDX-FileCopyrightText: 2025 ThatOneMoon <91613003+ThatOneMoon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
+# SPDX-FileCopyrightText: 2025 mkanke-real <mikekanke@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
+
+#Restocks
 - type: cargoProduct
-  id: CrateVendingMachineRestockNippon
+  id: BoxVendingMachineRestockNippon
   icon:
     sprite: Objects/Specific/Service/vending_machine_restock.rsi
     state: base
-  product: CrateVendingMachineRestockNipponFilled
+  product: BoxVendingMachineRestockNipponFilled
   cost: 1200
-  category: cargoproduct-category-name-service
+  category: cargoproduct-category-name-vending
   group: market
 
 - type: cargoProduct
-  id: CrateVendingMachineRestockSol
+  id: BoxVendingMachineRestockSol
   icon:
     sprite: Objects/Specific/Service/vending_machine_restock.rsi
     state: base
-  product: CrateVendingMachineRestocSolFilled
+  product: BoxVendingMachineRestocSolFilled
   cost: 1200
-  category: cargoproduct-category-name-service
+  category: cargoproduct-category-name-vending
   group: market
 
 - type: cargoProduct
-  id: CrateVendingMachineRestockFitness
+  id: BoxVendingMachineRestockFitness
   icon:
     sprite: Objects/Specific/Service/vending_machine_restock.rsi
     state: base
-  product: CrateVendingMachineRestockFitnessFilled
+  product: BoxVendingMachineRestockFitnessFilled
   cost: 1000
-  category: cargoproduct-category-name-service
-  group: market    
+  category: cargoproduct-category-name-vending
+  group: market
+
+#Vending Machines
+
+- type: cargoProduct
+  id: OrderVendingMachineBODA
+  icon:
+    sprite: Structures/Machines/VendingMachines/sodasoviet.rsi
+    state: icon
+  product: VendingMachineSovietSoda
+  cost: 7500
+  category: cargoproduct-category-name-vending
+  group: market
+
+- type: cargoProduct
+  id: OrderVendingMachineBooze
+  icon:
+    sprite: Structures/Machines/VendingMachines/boozeomat.rsi
+    state: off
+  product: VendingMachineBooze
+  cost: 10000
+  category: cargoproduct-category-name-vending
+  group: market
+
+- type: cargoProduct
+  id: OrderVendingMachineChefvend
+  icon:
+    sprite: Structures/Machines/VendingMachines/chefvend.rsi
+    state: off
+  product: VendingMachineChefvend
+  cost: 7500
+  category: cargoproduct-category-name-vending
+  group: market
+
+- type: cargoProduct
+  id: OrderVendingMachineDiscountDan
+  icon:
+    sprite: Structures/Machines/VendingMachines/discount.rsi
+    state: off
+  product: VendingMachineDiscount
+  cost: 7500
+  category: cargoproduct-category-name-vending
+  group: market
+
+- type: cargoProduct
+  id: OrderVendingMachineDrGibb
+  icon:
+    sprite: Structures/Machines/VendingMachines/gib.rsi
+    state: off
+  product: VendingMachineDrGibb
+  cost: 7500
+  category: cargoproduct-category-name-vending
+  group: market
+
+- type: cargoProduct
+  id: OrderVendingMachineGames
+  icon:
+    sprite: Structures/Machines/VendingMachines/games.rsi
+    state: icon
+  product: VendingMachineGames
+  cost: 7500
+  category: cargoproduct-category-name-vending
+  group: market
+
+- type: cargoProduct
+  id: OrderVendingMachineHappyHonk
+  icon:
+    sprite: Structures/Machines/VendingMachines/happyhonk.rsi
+    state: off
+  product: VendingMachineHappyHonk
+  cost: 7500
+  category: cargoproduct-category-name-vending
+  group: market
+
+- type: cargoProduct
+  id: OrderVendingMachineSolsnack
+  icon:
+    sprite: _Goobstation/Structures/Machines/VendingMachines/solsnack.rsi
+    state: off
+  product: VendingMachineSolsnack
+  cost: 7500
+  category: cargoproduct-category-name-vending
+  group: market
+
+- type: cargoProduct
+  id: OrderVendingMachineDonut
+  icon:
+    sprite: Structures/Machines/VendingMachines/donut.rsi
+    state: off
+  product: VendingMachineDonut
+  cost: 7500
+  category: cargoproduct-category-name-vending
+  group: market
+
+- type: cargoProduct
+  id: OrderVendingMachineChang
+  icon:
+    sprite: Structures/Machines/VendingMachines/snix.rsi
+    state: icon
+  product: VendingMachineChang
+  cost: 7500
+  category: cargoproduct-category-name-vending
+  group: market
+
+- type: cargoProduct
+  id: OrderVendingMachineWeeb
+  icon:
+    sprite: _Goobstation/Structures/Machines/VendingMachines/weeb.rsi
+    state: off
+  product: VendingMachineWeeb
+  cost: 7500
+  category: cargoproduct-category-name-vending
+  group: market
+
+- type: cargoProduct
+  id: OrderVendingMachineDinnerware
+  icon:
+    sprite: Structures/Machines/VendingMachines/dinnerware.rsi
+    state: off
+  product: VendingMachineDinnerware
+  cost: 7500
+  category: cargoproduct-category-name-vending
+  group: market
+
+- type: cargoProduct
+  id: OrderVendingMachinePride
+  icon:
+    sprite: Structures/Machines/VendingMachines/pride.rsi
+    state: off
+  product: VendingMachinePride
+  cost: 7500
+  category: cargoproduct-category-name-vending
+  group: market
+
+- type: cargoProduct
+  id: OrderVendingMachinePwrGame
+  icon:
+    sprite: Structures/Machines/VendingMachines/pwrgame.rsi
+    state: off
+  product: VendingMachinePwrGame
+  cost: 7500
+  category: cargoproduct-category-name-vending
+  group: market
+
+- type: cargoProduct
+  id: OrderVendingMachineCigs
+  icon:
+    sprite: Structures/Machines/VendingMachines/cigs.rsi
+    state: icon
+  product: VendingMachineCigs
+  cost: 7500
+  category: cargoproduct-category-name-vending
+  group: market
+
+- type: cargoProduct
+  id: OrderVendingMachineShamblersJuice
+  icon:
+    sprite: Structures/Machines/VendingMachines/shamblersjuice.rsi
+    state: off
+  product: VendingMachineShamblersJuice
+  cost: 7500
+  category: cargoproduct-category-name-vending
+  group: market
+
+- type: cargoProduct
+  id: OrderVendingMachineSmite
+  icon:
+    sprite: Structures/Machines/VendingMachines/smite.rsi
+    state: off
+  product: VendingMachineSmite
+  cost: 7500
+  category: cargoproduct-category-name-vending
+  group: market
+
+- type: cargoProduct
+  id: OrderVendingMachineCoffee
+  icon:
+    sprite: Structures/Machines/VendingMachines/coffee.rsi
+    state: icon
+  product: VendingMachineCoffee
+  cost: 7500
+  category: cargoproduct-category-name-vending
+  group: market
+
+- type: cargoProduct
+  id: OrderVendingMachineColaRed
+  icon:
+    sprite: Structures/Machines/VendingMachines/cola.rsi
+    state: normal
+  product: VendingMachineColaRed
+  cost: 7500
+  category: cargoproduct-category-name-vending
+  group: market
+
+- type: cargoProduct
+  id: OrderVendingMachineSpaceUp
+  icon:
+    sprite: Structures/Machines/VendingMachines/spaceup.rsi
+    state: normal
+  product: VendingMachineSpaceUp
+  cost: 7500
+  category: cargoproduct-category-name-vending
+  group: market
+
+- type: cargoProduct
+  id: OrderVendingMachineStarkist
+  icon:
+    sprite: Structures/Machines/VendingMachines/starkist.rsi
+    state: normal
+  product: VendingMachineStarkist
+  cost: 7500
+  category: cargoproduct-category-name-vending
+  group: market
+
+- type: cargoProduct
+  id: OrderVendingMachineSustenance
+  icon:
+    sprite: Structures/Machines/VendingMachines/sustenance.rsi
+    state: off
+  product: VendingMachineSustenance
+  cost: 7500
+  category: cargoproduct-category-name-vending
+  group: market
+
+- type: cargoProduct
+  id: OrderVendingMachineFitness
+  icon:
+    sprite: _Goobstation/Structures/Machines/VendingMachines/fitness.rsi
+    state: normal
+  product: VendingMachineFitness
+  cost: 7500
+  category: cargoproduct-category-name-vending
+  group: market

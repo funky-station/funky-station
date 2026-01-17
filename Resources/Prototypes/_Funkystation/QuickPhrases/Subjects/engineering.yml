@@ -1,0 +1,68 @@
+# /tg/ gases (plus BZ)
+
+- type: quickPhrase
+  id: BZPhrase
+  parent: BaseEngineeringSubjectPhrase
+  text: gases-bz
+
+- type: quickPhrase
+  id: HalonPhrase
+  parent: BaseEngineeringSubjectPhrase
+  text: gases-halon
+
+- type: quickPhrase
+  id: HealiumPhrase
+  parent: BaseEngineeringSubjectPhrase
+  text: gases-healium
+
+- type: quickPhrase
+  id: HeliumPhrase
+  parent: BaseEngineeringSubjectPhrase
+  text: gases-helium
+
+- type: quickPhrase
+  id: HydrogenPhrase
+  parent: BaseEngineeringSubjectPhrase
+  text: gases-hydrogen
+
+- type: quickPhrase
+  id: HyperNobiliumPhrase
+  parent: BaseEngineeringSubjectPhrase
+  text: gases-hyper-noblium
+
+- type: quickPhrase
+  id: NitriumPhrase
+  parent: BaseEngineeringSubjectPhrase
+  text: gases-nitrium
+
+- type: quickPhrase
+  id: ProtoNitratePhrase
+  parent: BaseEngineeringSubjectPhrase
+  text: gases-proto-nitrate
+
+- type: quickPhrase
+  id: PluoxiumPhrase
+  parent: BaseEngineeringSubjectPhrase
+  text: gases-pluoxium
+
+- type: quickPhrase
+  id: ZaukerPhrase
+  parent: BaseEngineeringSubjectPhrase
+  text: gases-zauker
+
+# Engines
+
+- type: quickPhrase
+  id: ReactorPhrase
+  parent: BaseEngineeringSubjectPhrase
+  text: phrase-reactor
+
+- type: quickPhrase
+  id: SupermatterPhrase
+  parent: BaseEngineeringSubjectPhrase
+  text: phrase-supermatter
+
+- type: quickPhrase
+  id: TurbinePhrase
+  parent: BaseEngineeringSubjectPhrase
+  text: phrase-turbine

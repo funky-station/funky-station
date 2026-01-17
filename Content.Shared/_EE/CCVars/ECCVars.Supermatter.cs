@@ -1,5 +1,7 @@
+// SPDX-FileCopyrightText: 2025 ImpstationBot <irismessage+bot@protonmail.com>
 // SPDX-FileCopyrightText: 2025 VMSolidus <evilexecutive@gmail.com>
 // SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 mq <113324899+mqole@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
@@ -14,6 +16,7 @@ namespace Content.Shared._EE.CCVars;
 // ReSharper disable once InconsistentNaming
 public sealed partial class ECCVars
 {
+    #region Supermatter System
     /// <summary>
     ///     With completely default supermatter values, Singuloose delamination will occur if engineers inject at least 900 moles of coolant per tile
     ///     in the crystal chamber. For reference, a gas canister contains 1800 moles of air. This Cvar directly multiplies the amount of moles required to singuloose.
@@ -182,4 +185,62 @@ public sealed partial class ECCVars
     /// </summary>
     public static readonly CVarDef<float> SupermatterYellTimer =
         CVarDef.Create("supermatter.yell_timer", 60f, CVar.SERVER);
+
+    #endregion
+
+    #region Contests System
+
+    /// <summary>
+    ///     The MASTER TOGGLE for the entire Contests System.
+    ///     ALL CONTESTS BELOW, regardless of type or setting will output 1f when false.
+    /// </summary>
+    public static readonly CVarDef<bool> DoContestsSystem =
+        CVarDef.Create("contests.do_contests_system", true, CVar.REPLICATED | CVar.SERVER);
+
+    /// <summary>
+    ///     Toggles all MassContest functions. All mass contests output 1f when false
+    /// </summary>
+    public static readonly CVarDef<bool> DoMassContests =
+        CVarDef.Create("contests.do_mass_contests", true, CVar.REPLICATED | CVar.SERVER);
+
+    /// <summary>
+    ///     Toggles all StaminaContest functions. All stamina contests output 1f when false
+    /// </summary>
+    public static readonly CVarDef<bool> DoStaminaContests =
+        CVarDef.Create("contests.do_stamina_contests", true, CVar.REPLICATED | CVar.SERVER);
+
+    /// <summary>
+    ///     The maximum amount that Contests can modify a physics multiplier, given as a +/- percentage
+    ///     Default of 0.25f outputs between * 0.75f and 1.25f
+    /// </summary>
+    public static readonly CVarDef<float> ContestsMaxPercentage =
+        CVarDef.Create("contests.max_percentage", 0.25f, CVar.REPLICATED | CVar.SERVER);
+
+    // FRONTIER EDITS:
+    /// <summary>
+    /// base throwing speed reduction
+    /// </summary>
+    public static readonly CVarDef<float> BaseDistanceCoeff =
+        CVarDef.Create("contests.base_distance_coeff", 0.5f, CVar.REPLICATED | CVar.SERVER);
+
+    /// <summary>
+    /// max throwing speed reduction
+    /// </summary>
+    public static readonly CVarDef<float> MaxDistanceCoeff =
+        CVarDef.Create("contests.max_distance_coeff", 1.0f, CVar.REPLICATED | CVar.SERVER);
+
+    /// <summary>
+    /// max throw distance
+    /// </summary>
+    public static readonly CVarDef<float> DefaultMaxThrowDistance =
+        CVarDef.Create("contests.default_max_throw_distance", 4.0f, CVar.REPLICATED | CVar.SERVER);
+
+    // imp add
+    /// <summary>
+    ///     Coefficient to modify the speed at which entities escape from being carried
+    /// </summary>
+    public static readonly CVarDef<float> CarryEscapeCoeff =
+        CVarDef.Create("contests.carry_escape_coeff", 0.5f, CVar.REPLICATED | CVar.SERVER);
+
+    #endregion
 }

@@ -19,6 +19,7 @@
 // SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 JoulesBerg <104539820+JoulesBerg@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 mq <113324899+mqole@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
 // SPDX-License-Identifier: MIT
@@ -30,7 +31,7 @@ using Robust.Shared.GameStates;
 
 // funky - fuck crawl meta
 using Content.Shared.Interaction.Events;
-using Content.Server.Carrying;
+using Content.Shared._EE.Carrying;
 // funky - end
 
 namespace Content.Server.Cuffs

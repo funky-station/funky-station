@@ -75,7 +75,7 @@
 
 - type: quickPhrase
   id: DrillPhrase
-  parent: [BaseCargoSubjectPhrase, BaseMedicinePhrase] # surgeons use drills too!
+  parent: BaseMedicinePhrase
   text: phrase-drill
 
 - type: quickPhrase

@@ -249,7 +249,7 @@
 - type: quickPhrase
   parent: BaseCargoLocationPhrase
   id: LocationMailPhrase
-  text: station-beacon-mailroom
+  text: phrase-location-mailroom
 
 - type: quickPhrase
   parent: BaseCargoLocationPhrase

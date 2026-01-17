@@ -49,4 +49,7 @@
       - Toggle
   - type: ContainerContainer
     containers:
-      fuel: !type:ContainerSlot {}
+      fuel: !type:ContainerSlot
+      machine_board: !type:Container
+      machine_parts: !type:Container
+      hidden_slot: !type:ContainerSlot

@@ -48,7 +48,7 @@ public sealed class PipeRestrictOverlapSystem : EntitySystem
     // Goobstation - Allow device-on-pipe stacking
     private EntityQuery<PipeRestrictOverlapComponent> _restrictOverlapQuery;
 
-    public bool StrictPipeStacking = false;
+    public bool StrictPipeStacking = true;
 
     /// <inheritdoc/>
     public override void Initialize()

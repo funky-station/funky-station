@@ -13,12 +13,12 @@
 // SPDX-FileCopyrightText: 2024 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Jezithyr <jezithyr@gmail.com>
 // SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Steve <marlumpy@gmail.com>
 // SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
-// SPDX-FileCopyrightText: 2025 marc-pelletier <113944176+marc-pelletier@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 // SPDX-FileCopyrightText: 2026 Sarah C <93578146+SapphicOverload@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2026 Steve <marlumpy@gmail.com>
+// SPDX-FileCopyrightText: 2026 marc-pelletier <113944176+marc-pelletier@users.noreply.github.com>
 //
 // SPDX-License-Identifier: MIT
 
@@ -37,7 +37,7 @@ namespace Content.Server.Atmos.Reactions
         {
             if (mixture.Temperature > 20f && mixture.GetMoles(Gas.HyperNoblium) >= 5f)
                 return ReactionResult.NoReaction;
-                
+
             var energyReleased = 0f;
             var oldHeatCapacity = atmosphereSystem.GetHeatCapacity(mixture, true);
             var temperature = mixture.Temperature;
@@ -58,7 +58,7 @@ namespace Content.Server.Atmos.Reactions
             }
             else
             {
-                burnedFuel = Math.Max(initialTrit, mixture.GetMoles(Gas.Oxygen) / Atmospherics.TritiumBurnFuelRatio) / Atmospherics.TritiumBurnTritFactor;
+                burnedFuel = Math.Min(initialTrit, mixture.GetMoles(Gas.Oxygen) / Atmospherics.TritiumBurnFuelRatio) / Atmospherics.TritiumBurnTritFactor;
                 mixture.AdjustMoles(Gas.Tritium, -burnedFuel);
                 mixture.AdjustMoles(Gas.Oxygen, -burnedFuel / Atmospherics.TritiumBurnFuelRatio);
                 energyReleased += (Atmospherics.FireHydrogenEnergyReleased * burnedFuel * (Atmospherics.TritiumBurnTritFactor - 1));

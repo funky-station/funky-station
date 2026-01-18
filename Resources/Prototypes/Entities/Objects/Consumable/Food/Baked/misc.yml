@@ -37,6 +37,7 @@
 # SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2026 Xcybitt <197952719+Xcybitt@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -1248,6 +1249,8 @@
           Quantity: 5
         - ReagentId: Vitamin
           Quantity: 10
+        - ReagentId: Cheesium
+          Quantity: 2          
 
 - type: entity
   parent: FoodBakedBase
@@ -1281,3 +1284,5 @@
           Quantity: 5
         - ReagentId: Vitamin
           Quantity: 5
+        - ReagentId: Cheesium
+          Quantity: 2          

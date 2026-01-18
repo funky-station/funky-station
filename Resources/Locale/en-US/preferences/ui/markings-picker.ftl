@@ -9,19 +9,22 @@
 #
 # SPDX-License-Identifier: MIT
 
-markings-used = Used Markings
-markings-unused = Unused Markings
+markings-used = Applied Markings & Customization
+markings-unused = Marking Selection
 markings-add = Add Marking
 markings-remove = Remove Marking
-markings-rank-up = Up
-markings-rank-down = Down
-markings-search = Search
-marking-points-remaining = Markings left: {$points}
+markings-rank-up = ▲
+markings-rank-down = ▼
+markings-search = Search markings...
+marking-points-remaining = Markings Left: [{$current}/{$max}]
 marking-used = {$marking-name}
 marking-used-forced = {$marking-name} (Forced)
 marking-slot-add = Add
 marking-slot-remove = Remove
 marking-slot = Slot {$number}
+marking-forced-colors = This marking has forced colors and cannot be customized.
+marking-select-to-customize = Select a marking from the right panel to customize its colors.
+marking-customize-colors = Coloring
 
 # Categories
 

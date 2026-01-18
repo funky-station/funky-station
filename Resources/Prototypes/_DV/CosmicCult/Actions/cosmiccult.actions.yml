@@ -19,7 +19,6 @@
     blacklist:
       components:
       - CosmicCult
-      - BibleUser
     itemIconStyle: NoItem
     icon:
       sprite: _DV/CosmicCult/Icons/cosmiccult_abilities.rsi
@@ -40,7 +39,6 @@
     blacklist:
       components:
       - CosmicCult
-      - BibleUser
     itemIconStyle: NoItem
     icon:
       sprite: _DV/CosmicCult/Icons/cosmiccult_abilities.rsi
@@ -108,9 +106,6 @@
     whitelist:
       components:
       - HumanoidAppearance
-    blacklist:
-      components:
-      - BibleUser
     itemIconStyle: NoItem
     icon:
       sprite: _DV/CosmicCult/Icons/cosmiccult_abilities.rsi
@@ -120,7 +115,7 @@
 - type: entity
   id: ActionCosmicGlare
   name: Null Glare
-  description: Emit a horrific pulse of cosmic light, slowing and disorienting everyone around you.
+  description: Emit a horrific pulse of cosmic light, slowing and disorienting everyone around you. Paralyzes robotics!
   components:
   - type: ConfirmableAction
     popup: cosmicability-glare-confirm
@@ -182,7 +177,7 @@
 
 - type: entity
   id: ActionCosmicFragmentation
-  name: Malign Fragmentation
+  name: Null Fragmentation
   description: Transfer your malign empowerment into a digital system, such as an AI Upload Console, corrupting it in the process. Doing so will expend your empowerment.
   components:
   - type: LimitedCharges
@@ -191,7 +186,7 @@
     useDelay: 25
     whitelist:
       components:
-      # - BorgChassisComponent // Commented out for now
+      - BorgChassis
       - SiliconLawUpdater
     itemIconStyle: NoItem
     icon:
@@ -263,3 +258,22 @@
       sprite: _DV/CosmicCult/Icons/cosmiccult_abilities.rsi
       state: nova
     event: !type:EventCosmicColossusEffigy {}
+
+#### MISC ACTIONS
+
+- type: entity
+  id: ActionCosmicAnomalyIngress
+  name: Force Ingress
+  description: Direct the energies from your Anomaly Infection to force a secure doorway open.
+  components:
+  - type: EntityTargetAction
+    useDelay: 60
+    range: 2
+    whitelist:
+      components:
+        - Door
+    itemIconStyle: NoItem
+    icon:
+      sprite: _DV/CosmicCult/Icons/cosmiccult_abilities.rsi
+      state: ingress
+    event: !type:EventCosmicAnomalyIngress

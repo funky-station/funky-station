@@ -32,6 +32,7 @@
 # SPDX-FileCopyrightText: 2025 Toastermeister <215405651+Toastermeister@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2026 Xcybitt <197952719+Xcybitt@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -236,6 +237,8 @@
           Quantity: 15
         - ReagentId: Protein
           Quantity: 10
+        - ReagentId: Cheesium
+          Quantity: 4          
   - type: Tag
     tags:
     - Meat
@@ -333,7 +336,9 @@
         - ReagentId: Vitamin
           Quantity: 20
         - ReagentId: Protein
-          Quantity: 20          
+          Quantity: 20      
+        - ReagentId: Cheesium
+          Quantity: 2          
   - type: Sprite
     state: bigbite
   - type: Tag
@@ -417,6 +422,8 @@
           Quantity: 15
         - ReagentId: Protein
           Quantity: 10
+        - ReagentId: Cheesium
+          Quantity: 2          
   - type: Tag
     tags:
     - Meat
@@ -597,6 +604,8 @@
           Quantity: 10
         - ReagentId: Vitamin
           Quantity: 18
+        - ReagentId: Cheesium
+          Quantity: 4          
   - type: Tag
     tags:
     - Meat
@@ -628,6 +637,8 @@
           Quantity: 10
         - ReagentId: Protein
           Quantity: 15
+        - ReagentId: Cheesium
+          Quantity: 2          
   - type: Tag
     tags:
     - Meat
@@ -688,6 +699,17 @@
     flavors:
       - bun
       - fishy
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 15
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 5
+        - ReagentId: Cheesium
+          Quantity: 2
+        - ReagentId: Vitamin
+          Quantity: 3
   - type: Sprite
     state: fish
   - type: Tag
@@ -832,6 +854,8 @@
           Quantity: 10
         - ReagentId: Protein
           Quantity: 15
+        - ReagentId: Cheesium
+          Quantity: 2          
   - type: Tag
     tags:
     - Meat
@@ -1056,6 +1080,8 @@
           Quantity: 10
         - ReagentId: Protein
           Quantity: 15
+        - ReagentId: Cheesium
+          Quantity: 4          
   - type: Item
     inhandVisuals:
       left:
@@ -1120,7 +1146,9 @@
         maxVol: 90
         reagents:
         - ReagentId: Nutriment
-          Quantity: 25
+          Quantity: 21
+        - ReagentId: Cheesium
+          Quantity: 4
         - ReagentId: Vitamin
           Quantity: 25
         - ReagentId: Protein

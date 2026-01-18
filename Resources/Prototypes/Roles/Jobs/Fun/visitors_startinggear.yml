@@ -281,7 +281,7 @@
     ears: ClothingHeadsetAltSecurityRegular # Goobstation
     eyes: ClothingEyesGlassesSecurity
     outerClothing: ClothingOuterArmorBasic
-    pocket1: WeaponEnergyGunEnergyPistol
+    pocket1: WeaponEnergyGunEnergyPistol # funkystation
     pocket2: BolaEnergy
   inhand:
   - FlashlightSeclite

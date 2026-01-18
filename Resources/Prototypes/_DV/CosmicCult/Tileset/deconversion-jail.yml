@@ -6,6 +6,7 @@
 
 - type: entity
   id: CosmicDeconversionJail
+  parent: ConstructibleMachine
   name: containment oubliette
   description: An advanced mobile containment cell. When powered, its interior space is actively caustic towards anomalous influences.
   placement:
@@ -58,10 +59,6 @@
   - type: Damageable
     damageContainer: StructuralInorganic
     damageModifierSet: StructuralMetallic
-  - type: ContainerContainer
-    containers:
-      machine_board: !type:Container
-      machine_parts: !type:Container
   - type: Sprite
     drawdepth: Mobs
     sprite: _DV/CosmicCult/Tileset/containmentjail.rsi
@@ -132,12 +129,16 @@
       path: /Audio/_DV/CosmicCult/oubliette-loop.ogg
   - type: Machine
     board: OublietteCircuitBoard
-  - type: Construction
-    graph: Machine
-    node: machine
-    containers:
-    - machine_parts
-    - machine_board
+  # - type: Construction
+  #   graph: Machine
+  #   node: machine
+  #   containers:
+  #   - machine_parts
+  #   - machine_board
+  # - type: ContainerContainer
+  #   containers:
+  #     machine_board: !type:Container
+  #     machine_parts: !type:Container
 
 - type: entity
   parent: BaseMachineCircuitboard

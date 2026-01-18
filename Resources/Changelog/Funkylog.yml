@@ -7428,3 +7428,9 @@ Entries:
       message: Added Crew Monitoring for warden on Amber
   id: 862
   time: '2026-01-16T01:19:09.0000000+00:00'
+- author: zergologist
+  changes:
+    - type: Fix
+      message: CPR does not revive rotten patients.
+  id: 863
+  time: '2026-01-18T01:34:17.0000000+00:00'

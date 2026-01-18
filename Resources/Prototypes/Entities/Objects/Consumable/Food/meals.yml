@@ -33,6 +33,7 @@
 # SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
 # SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2026 Xcybitt <197952719+Xcybitt@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -85,6 +86,8 @@
           Quantity: 10
         - ReagentId: Vitamin
           Quantity: 8
+        - ReagentId: Cheesium
+          Quantity: 2          
   - type: Sprite
     state: loadedbakedpotato
 # Tastes like potato.
@@ -123,6 +126,8 @@
           Quantity: 10
         - ReagentId: Vitamin
           Quantity: 10
+        - ReagentId: Cheesium
+          Quantity: 2          
   - type: Sprite
     state: fries-cheesy
 # Tastes like fries, cheese.
@@ -203,7 +208,9 @@
         maxVol: 15
         reagents:
         - ReagentId: Nutriment
-          Quantity: 6
+          Quantity: 4
+        - ReagentId: Cheesium
+          Quantity: 2
         - ReagentId: Vitamin
           Quantity: 3
         - ReagentId: TableSalt
@@ -333,6 +340,8 @@
           Quantity: 10
         - ReagentId: CapsaicinOil
           Quantity: 10
+        - ReagentId: Cheesium
+          Quantity: 4          
   - type: Tag
     tags:
     - CubanCarp
@@ -598,6 +607,15 @@
     - type: FlavorProfile
       flavors:
         - cheesy
+    - type: SolutionContainerManager
+      solutions:
+        food:
+          maxVol: 26
+          reagents:
+          - ReagentId: Nutriment
+            Quantity: 16
+          - ReagentId: Cheesium
+            Quantity: 4
     - type: Sprite
       state: queso
 # Its queso! Everyone loves queso... Right?.

@@ -11,13 +11,12 @@ using Content.Shared.Inventory;
 using Content.Shared.Item;
 using Content.Shared.Slippery;
 using Content.Shared.WashingMachine.Events;
-using Robust.Shared.GameObjects; // Gaby
-using Content.Shared.Clothing.Components; // Gaby
 using Robust.Shared.Containers; // Gaby
 using Content.Shared.Stains.Components; // Gaby
 using Content.Shared.Verbs; // Gaby
 using Content.Shared.DoAfter; // Gaby
 using Content.Shared.Popups; // Gaby
+using Content.Shared.FixedPoint;
 using Robust.Shared.Utility; // Gaby
 
 namespace Content.Shared.Stains;
@@ -71,7 +70,8 @@ public abstract partial class SharedStainableSystem : EntitySystem
         if (!ev.Handled || ev.Solution == null)
             return;
 
-        Solution.TryTransferSolution(target.Value, ev.Solution, ent.Comp.StainVolume);
+        // Gaby - Pass target.Value because TryGetSolution returns a nullable struct
+        TransferStain(target.Value, ev.Solution, ent.Comp.StainVolume);
 
         UpdateVisuals(ent);
         StainForensics(ent, target.Value);
@@ -87,12 +87,35 @@ public abstract partial class SharedStainableSystem : EntitySystem
         if (!Solution.TryGetSolution(ent.Owner, ent.Comp.SolutionId, out var target))
             return;
 
-        Solution.TryTransferSolution(target.Value, args.Args.Solution, ent.Comp.StainVolume);
+        // Gaby - Pass target.Value because TryGetSolution returns a nullable struct
+        TransferStain(target.Value, args.Args.Solution, ent.Comp.StainVolume);
 
         UpdateVisuals(ent);
         StainForensics(ent, target.Value);
 
         DirtyOwnerAppearance(ent.Owner); // Gaby
+    }
+
+    private void TransferStain(Entity<SolutionComponent> target, Solution source, FixedPoint2 amount)
+    {
+        // Call SplitSolution on the solution object directly, not the system.
+        var taken = source.SplitSolution(amount);
+
+        // Filter out water
+        // Iterate backwards to remove items while iterating
+        for (var i = taken.Contents.Count - 1; i >= 0; i--)
+        {
+            if (taken.Contents[i].Reagent.Prototype == "Water")
+            {
+                taken.RemoveReagent(taken.Contents[i].Reagent, taken.Contents[i].Quantity);
+            }
+        }
+
+        // Transfer the remaining reagents to the target
+        if (taken.Volume > 0)
+        {
+            Solution.TryAddSolution(target, taken);
+        }
     }
 
     private bool IsStainBlocked(Entity<StainableComponent> item) // Gaby
@@ -101,11 +124,14 @@ public abstract partial class SharedStainableSystem : EntitySystem
             return false;
         var wearer = container.Owner;
 
-        if (!TryComp<ClothingComponent>(item.Owner, out var clothing) || clothing.InSlotFlag == null)
-            return false;
-
         if (!TryComp<InventoryComponent>(wearer, out var inventory))
             return false;
+
+        // Get the flags of the slot the item is currently in
+        if (!_inventory.TryGetSlot(wearer, container.ID, out var slotDef, inventory))
+            return false;
+
+        var inSlotFlag = slotDef.SlotFlags;
 
         foreach (var slot in inventory.Slots)
         {
@@ -114,7 +140,7 @@ public abstract partial class SharedStainableSystem : EntitySystem
 
             if (TryComp<StainBlockerComponent>(slotItem, out var blocker))
             {
-                if ((blocker.Slots & clothing.InSlotFlag) != 0)
+                if ((blocker.Slots & inSlotFlag) != 0)
                 {
                     return true;
                 }

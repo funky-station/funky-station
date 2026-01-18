@@ -195,14 +195,6 @@ public abstract partial class SharedWashingMachineSystem : EntitySystem
         foreach (var item in items)
         {
             RaiseLocalEvent(item, itemEv);
-
-            if (TryComp<ToggleableClothingComponent>(item, out var toggleableComp)) // Gaby
-            {
-                foreach (var attachedClothingUid in toggleableComp.ClothingUids.Keys)
-                {
-                    RaiseLocalEvent(attachedClothingUid, itemEv);
-                }
-            }
         }
     }
 

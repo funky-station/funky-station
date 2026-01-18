@@ -7,10 +7,9 @@
 using Content.Client.Clothing;
 using Content.Client.Items.Systems;
 using Content.Shared.Clothing;
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.FixedPoint;
 using Content.Shared.Hands;
 using Content.Shared.Stains;
-using Content.Shared.Forensics;
 using Robust.Client.GameObjects;
 using Robust.Shared.Reflection;
 using Robust.Shared.Prototypes;

@@ -18,6 +18,7 @@ using Content.Shared.Chemistry.Components;
 using Content.Shared.DragDrop;
 using Content.Shared.FixedPoint;
 using Content.Shared.Fluids;
+using Content.Shared.Nutrition.EntitySystems;
 
 namespace Content.Server.Fluids.EntitySystems;
 

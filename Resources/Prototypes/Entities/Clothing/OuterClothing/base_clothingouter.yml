@@ -254,11 +254,6 @@
       flatReductions:
         Heat: 10 # the average lightbulb only does around four damage!
     slots: OUTERCLOTHING
-  - type: HideClothingLayerClothing # Goobstation
-    hiddenSlots:
-    - jumpsuit
-  - type: Tag
-    tags:
   - type: StainBlocker
     slots: [INNERCLOTHING, FEET, GLOVES]
 

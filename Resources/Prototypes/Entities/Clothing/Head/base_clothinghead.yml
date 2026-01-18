@@ -91,7 +91,6 @@
     iconVisuals:
     - sprite: _Gabystation/Effects/blood.rsi
       state: helmetbloodicon
-      - ClothMade
 
 - type: entity
   abstract: true

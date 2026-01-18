@@ -136,16 +136,9 @@ public sealed class SlipperySystem : EntitySystem
                 && _statusEffects.CanApplyEffect(toSlip, "Stun"); //Should be KnockedDown instead?
     }
 
-    public void TrySlip(EntityUid uid, SlipperyComponent component, EntityUid other, bool requiresContact = true)
+    public void TrySlip(EntityUid uid, SlipperyComponent component, EntityUid other, bool requiresContact = true, bool force = false)
     {
-        if (HasComp<KnockedDownComponent>(other) && !component.SlipData.SuperSlippery)
-            return;
-
-        var attemptEv = new SlipAttemptEvent();
-        RaiseLocalEvent(other, attemptEv);
-        if (attemptEv.SlowOverSlippery)
-            _speedModifier.AddModifiedEntity(other);
-        if ((HasComp<KnockedDownComponent>(other) || HasComp<StunnedComponent>(other)) && !component.SlipData.SuperSlippery)
+        if (HasComp<KnockedDownComponent>(other) && !component.SlipData.SuperSlippery && !force)
             return;
 
         if (!force)
@@ -158,8 +151,9 @@ public sealed class SlipperySystem : EntitySystem
             if (attemptEv.SlowOverSlippery)
                 _speedModifier.AddModifiedEntity(other);
 
-        if (attemptEv.NoSlip)
-            return;
+            if (attemptEv.NoSlip)
+                return;
+        }
 
         var attemptCausingEv = new SlipCausingAttemptEvent();
         RaiseLocalEvent(uid, ref attemptCausingEv);
@@ -210,10 +204,7 @@ public sealed class SlipAttemptEvent : EntityEventArgs, IInventoryRelayEvent
 
     public SlotFlags TargetSlots { get; } = SlotFlags.FEET;
 
-    public SlipAttemptEvent(EntityUid? slipCausingEntity)
-    {
-        SlipCausingEntity = slipCausingEntity;
-    }
+    public EntityUid? SlipCausingEntity;
 
     public bool SuperSlippery;
 

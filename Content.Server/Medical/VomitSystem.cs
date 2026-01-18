@@ -36,6 +36,7 @@ using Content.Server.Stunnable;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Reagent;
+using Content.Shared.Fluids;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Nutrition.Components;
 using Content.Shared.Nutrition.EntitySystems;
@@ -122,6 +123,10 @@ namespace Content.Server.Medical
                 // Makes a vomit solution the size of 90% of the chemicals removed from the chemstream
                 solution.AddReagent(new ReagentId("Vomit", _bloodstream.GetEntityBloodData(uid)), vomitAmount); // TODO: Dehardcode vomit prototype
             }
+
+            // stain clothes on vomit
+            var stainEv = new SpilledOnEvent(uid, solution.Clone());
+            RaiseLocalEvent(uid, stainEv);
 
             if (_puddle.TrySpillAt(uid, solution, out var puddle, false))
             {

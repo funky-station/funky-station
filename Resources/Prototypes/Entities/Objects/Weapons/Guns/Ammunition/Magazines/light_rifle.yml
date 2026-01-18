@@ -82,6 +82,56 @@
     proto: null
 
 - type: entity
+  id: MagazineLightRifleBoxFoam
+  name: "L6 SAW magazine box (.30 foam)"
+  parent: BaseMagazineLightRifle
+  description: A magazine built for endless fun! Shoot at your friends!
+  components:
+  - type: Tag
+    tags:
+      - MagazineLightRifleBoxFoam
+  - type: BallisticAmmoProvider
+    mayTransfer: true
+    whitelist:
+      tags:
+        - BulletFoam
+    proto: BulletFoam
+    capacity: 100
+  - type: Item
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Ammunition/Magazine/LightRifle/light_rifle_box.rsi
+  - type: MagazineVisuals
+    magState: mag
+    steps: 8
+    zeroVisible: false
+  - type: Appearance
+
+- type: entity
+  id: MagazineLightRifleBoxFoamMaints
+  name: "foam dispenser magazine box (.30 foam)"
+  parent: BaseMagazineLightRifle
+  description: A magazine built for endless fun! Shoot at your friends! Never mind the stickiness of the magazine, or the plasticy material it's made of!
+  components:
+  - type: Tag
+    tags:
+      - MagazineLightRifleBoxFoam
+  - type: BallisticAmmoProvider
+    mayTransfer: true
+    whitelist:
+      tags:
+        - BulletFoam
+    proto: BulletFoam
+    capacity: 100
+  - type: Item
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Ammunition/Magazine/LightRifle/light_rifle_box.rsi
+  - type: MagazineVisuals
+    magState: mag
+    steps: 8
+    zeroVisible: false
+  - type: Appearance
+
+- type: entity
   id: MagazineLightRifle
   name: "magazine (.30 rifle)"
   parent: BaseMagazineLightRifle

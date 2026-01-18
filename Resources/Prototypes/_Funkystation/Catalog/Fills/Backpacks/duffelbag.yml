@@ -200,3 +200,14 @@
       - id: DrinkPoisonWinebottleFull
       - id: ClothingEyesGlassesChemical
       - id: ClothingOuterCoatLab
+
+- type: entity
+  parent: ClothingBackpackDuffelSyndicateBundle
+  id: ClothingBackpackDuffelSyndicateFilledFakeL6
+  name: toy L6 bundle
+  description: "Made from real metal and wood, every other kid would think that it's real! Shock the others with the interactable trigger, handle, magazine, bolt, and toy that's made of the high quality that Gorlex offers! Comes with safety-rated flashpowder to be expelled at every shot to increase the realism by 2000%!"
+  components:
+  - type: StorageFill
+    contents:
+      - id: WeaponLightMachineGunL6Foam
+      - id: MagazineLightRifleBoxFoam

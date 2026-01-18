@@ -425,6 +425,8 @@
         weight: 0.05
       - id: CommemorativeFlippoLighter
         weight: 0.05
+      - id: WeaponLightMachineGunL6FoamMaints
+        weight: 0.05
       - id: BoomboxSlav
       - id: BoomboxPink
       - id: BoomboxPurple

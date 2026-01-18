@@ -170,3 +170,92 @@
       autoRecharge: true
       autoRechargeRate: 25
     - type: AmmoCounter
+
+- type: entity
+  name: L6 SAW
+  id: WeaponLightMachineGunL6Foam
+  parent: [BaseWeaponLightMachineGun, BaseSyndicateContraband]
+  description: A rather traditionally made LMG with a pleasantly lacquered wooden pistol grip. Uses .30 foam ammo. With this weapon, you can dominate the play battleground.
+  suffix: Fake, Foam
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/LMGs/l6.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-3
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MagazineLightRifleBoxFoam
+        insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/batrifle_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+            - MagazineLightRifleBoxFoam
+      gun_chamber:
+        name: Chamber
+        startingItem: BulletFoam
+        priority: 1
+        whitelist:
+          tags:
+            - BulletFoam
+  - type: MagazineVisuals
+    magState: mag
+    steps: 4
+    zeroVisible: true
+  - type: Appearance
+
+- type: entity
+  name: foam dispenser
+  id: WeaponLightMachineGunL6FoamMaints
+  parent: [BaseWeaponLightMachineGun]
+  description: An awful shoddily manufactured foam toy with an uncomfortably sticky grip made of the cheapest plastic imaginable. Uses .30 foam ammo. With this weapon, you can dominate the play battleground. But with this kind of quality, who is going to play with you?
+  suffix: Fake, Foam, Maints
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/LMGs/l6.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-3
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Gun
+    minAngle: 24
+    maxAngle: 45
+    angleIncrease: 4
+    angleDecay: 16
+    fireRate: 8
+    selectedMode: FullAuto
+    availableModes:
+      - FullAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
+    soundEmpty:
+      path: /Audio/Weapons/Guns/Empty/lmg_empty.ogg
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MagazineLightRifleBoxFoamMaints
+        insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/batrifle_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+            - MagazineLightRifleBoxFoam
+      gun_chamber:
+        name: Chamber
+        startingItem: BulletFoam
+        priority: 1
+        whitelist:
+          tags:
+            - BulletFoam
+  - type: MagazineVisuals
+    magState: mag
+    steps: 4
+    zeroVisible: true
+  - type: Appearance

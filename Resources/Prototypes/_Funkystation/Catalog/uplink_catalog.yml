@@ -217,4 +217,14 @@
     Telecrystal: 3 # gives a towel with a mean whip, three TC is probably a good cost for it
   categories:
   - UplinkPointless
-  saleBlacklist: true 
+  saleBlacklist: true
+
+- type: listing
+  id: UplinkSyndicateFakeL6
+  name: uplink-fake-L6-name
+  description: uplink-fake-L6-desc
+  productEntity: ClothingBackpackDuffelSyndicateFilledFakeL6
+  cost:
+    Telecrystal: 20
+  categories:
+  - UplinkPointless

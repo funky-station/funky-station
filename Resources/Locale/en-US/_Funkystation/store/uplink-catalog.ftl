@@ -25,3 +25,6 @@ uplink-PDA-agent-desc = A spare PDA from an agent, this can be used to show your
 # Pointless
 uplink-towel-syndicate-name = Syndicate Towel
 uplink-towel-syndicate-desc = A highly versatile, malicious-looking black towel. Has a meaner whip than most other towels. For the Syndicates's strongest shower warriors.
+
+uplink-fake-L6-name = Toy L6 Bundle
+uplink-fake-L6-desc = Now you'd be the biggest kid in the playgrounds! Comes with realistic action, model and sounds! Cock the toy and hold down the trigger as you tag all the other kids!

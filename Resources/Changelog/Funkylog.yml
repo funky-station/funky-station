@@ -7454,3 +7454,9 @@ Entries:
       message: Fixed sleeping-forever bug
   id: 865
   time: '2026-01-18T02:38:15.0000000+00:00'
+- author: mycobiota
+  changes:
+    - type: Fix
+      message: Characters with the synth trait actually can't detect ion storms now.
+  id: 866
+  time: '2026-01-18T02:42:22.0000000+00:00'

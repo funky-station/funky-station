@@ -7418,3 +7418,19 @@ Entries:
       message: Fixed box's windows not having hull plating underneath it.
   id: 861
   time: '2026-01-15T20:21:05.0000000+00:00'
+- author: Huhm-1
+  changes:
+    - type: Add
+      message: Added Cameras to medical on Amber
+    - type: Add
+      message: Added Medical Requests Console on Amber
+    - type: Add
+      message: Added Crew Monitoring for warden on Amber
+  id: 862
+  time: '2026-01-16T01:19:09.0000000+00:00'
+- author: zergologist
+  changes:
+    - type: Fix
+      message: CPR does not revive rotten patients.
+  id: 863
+  time: '2026-01-18T01:34:17.0000000+00:00'

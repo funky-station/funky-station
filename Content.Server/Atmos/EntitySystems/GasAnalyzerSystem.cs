@@ -19,6 +19,7 @@
 // SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2026 Steve <marlumpy@gmail.com>
 //
 // SPDX-License-Identifier: MIT
 
@@ -271,7 +272,7 @@ public sealed class GasAnalyzerSystem : EntitySystem
     /// <summary>
     /// Generates a GasEntry array for a given GasMixture
     /// </summary>
-    private GasEntry[] GenerateGasEntryArray(GasMixture? mixture)
+    public GasEntry[] GenerateGasEntryArray(GasMixture? mixture)
     {
         var gases = new List<GasEntry>();
 

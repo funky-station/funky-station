@@ -4,5 +4,11 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
+trait-archaic-name = Archaic speech
+trait-archaic-desc = Thy language is quite outdated, and thou still hold thyself to some manner of chivalry
+
 trait-nocontractions-name = No contractions
 trait-nocontractions-desc = You are (mostly) incapable of using contractions.
+
+trait-milbrat-name = Military Jargon
+trait-milbrat-desc = You make subtle references to a past stint in the military by using strange terminology and acronyms.

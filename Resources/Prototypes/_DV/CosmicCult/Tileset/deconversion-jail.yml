@@ -129,16 +129,6 @@
       path: /Audio/_DV/CosmicCult/oubliette-loop.ogg
   - type: Machine
     board: OublietteCircuitBoard
-  # - type: Construction
-  #   graph: Machine
-  #   node: machine
-  #   containers:
-  #   - machine_parts
-  #   - machine_board
-  # - type: ContainerContainer
-  #   containers:
-  #     machine_board: !type:Container
-  #     machine_parts: !type:Container
 
 - type: entity
   parent: BaseMachineCircuitboard

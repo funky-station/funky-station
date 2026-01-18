@@ -1,6 +1,7 @@
 // SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2026 AftrLite <61218133+AftrLite@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -32,9 +33,9 @@ public sealed class CosmicReturnSystem : EntitySystem
     {
         _damageable.TryChangeDamage(args.User, uid.Comp.ProjectionDamage, true);
         var projectionEnt = Spawn(uid.Comp.SpawnProjection, Transform(uid).Coordinates);
+        EnsureComp<CosmicBlankComponent>(args.User);
         if (_mind.TryGetMind(args.User, out var mindId, out var _))
             _mind.TransferTo(mindId, projectionEnt);
-        EnsureComp<CosmicBlankComponent>(args.User);
         EnsureComp<CosmicAstralBodyComponent>(projectionEnt, out var astralComp);
         var mind = Comp<MindComponent>(mindId);
         mind.PreventGhosting = true;

@@ -71,7 +71,6 @@
       - id: Holoprojector
       - id: WireBrush
         amount: 2
-      - id: FlatpackWashingMachine
 
 - type: entity
   id: CrateServiceCleanerGrenades

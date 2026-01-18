@@ -124,6 +124,7 @@
         amount: 2
       - id: WireBrush
         amount: 2
+      - id: FlatpackWashingMachine
 
 - type: entity
   id: ClosetLegalFilled

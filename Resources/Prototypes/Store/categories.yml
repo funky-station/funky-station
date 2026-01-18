@@ -109,21 +109,6 @@
   name: store-category-pointless
   priority: 10
 
-- type: storeCategory
-  id: UplinkChemicals
-  name: store-category-chemicals
-  priority: 11
-
-- type: storeCategory
-  id: UplinkDisruption
-  name: store-category-disruption
-  priority: 12
-
-- type: storeCategory
-  id: UplinkSales
-  name: Sales
-  priority: 10
-
 #revenant
 - type: storeCategory
   id: RevenantAbilities

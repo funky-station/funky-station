@@ -137,6 +137,7 @@
       enum.ThavenMoodsUiKey.Key: # impstation edit
         type: ThavenMoodsBoundUserInterface
         requireInputValidation: false
+  - type: FootPrints
 
 
 - type: entity

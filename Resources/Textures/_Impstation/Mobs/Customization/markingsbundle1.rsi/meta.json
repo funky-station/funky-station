@@ -1,7 +1,7 @@
 {
     "version": 1,
     "license": "CC-BY-SA-3.0",
-    "copyright": "Drawn by Carousel for Impstation, thaven body stripes, gills, all scales, big fin and fish ears, thavenheadcap1, nonaturals, and eyeliner resproten by zergologist (discord) for Funky",
+    "copyright": "Drawn by Carousel for Impstation, thaven body stripes, gills, all scales, big fin and fish ears, thavenheadcap1, nonaturals, and eyeliner resproten by zergologist (discord) for Funky, all moth markings resprited by https://github.com/The3rdsideofthings",
     "size": {
         "x": 32,
         "y": 32
@@ -68,7 +68,19 @@
             "directions": 4
         },
         {
+            "name": "mothfirefly1",
+            "directions": 4
+        },
+        {
             "name": "mothfirefly2",
+            "directions": 4
+        },
+        {
+            "name": "mothfirefly3",
+            "directions": 4
+        },
+        {
+            "name": "mothfirefly4",
             "directions": 4
         },
         {
@@ -280,6 +292,10 @@
             "directions": 4
         },
         {
+            "name": "snoth3",
+            "directions": 4
+        },
+        {
             "name": "vitiligoheadl",
             "directions": 4
         },
@@ -349,10 +365,6 @@
         },
         {
             "name": "rhinobeetle2",
-            "directions": 4
-        },
-        {
-            "name": "rhinobeetle3",
             "directions": 4
         },
         {

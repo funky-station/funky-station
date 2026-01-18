@@ -211,5 +211,5 @@ public sealed partial class CCVars
     ///     If false, allows you to stack pipes as long as new directions are added (i.e. in a new pipe rotation, layer or multi-Z link), otherwise unanchoring them.
     /// </summary>
     public static readonly CVarDef<bool> StrictPipeStacking =
-        CVarDef.Create("atmos.strict_pipe_stacking", false, CVar.SERVERONLY);
+        CVarDef.Create("atmos.strict_pipe_stacking", true, CVar.SERVERONLY);
 }

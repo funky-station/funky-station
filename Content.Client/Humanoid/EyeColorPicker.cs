@@ -1,5 +1,6 @@
 // SPDX-FileCopyrightText: 2022 Flipp Syder <76629141+vulppine@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2026 TrixxedHeart <46364955+TrixxedBit@users.noreply.github.com>
 //
 // SPDX-License-Identifier: MIT
 
@@ -31,7 +32,10 @@ public sealed class EyeColorPicker : Control
         };
         AddChild(vBox);
 
-        vBox.AddChild(_colorSelectors = new ColorSelectorSliders());
+        vBox.AddChild(_colorSelectors = new ColorSelectorSliders
+        {
+            SelectorType = ColorSelectorSliders.ColorSelectorType.Hsv // Default to HSV
+        });
 
         _colorSelectors.OnColorChanged += ColorValueChanged;
     }

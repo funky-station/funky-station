@@ -35,7 +35,10 @@ public sealed partial class HereticKnowledgeSystem : EntitySystem
 
         if (data.ActionPrototypes != null && data.ActionPrototypes.Count > 0)
             foreach (var act in data.ActionPrototypes)
-                _action.AddAction(uid, act);
+            { // BEGIN FUNKY CHANGES - Record actions to a hashset
+                var actionEnt = _action.AddAction(uid, act);
+                comp.ActionEntities.Add(actionEnt);
+            } // END FUNKY CHANGES
 
         if (data.RitualPrototypes != null && data.RitualPrototypes.Count > 0)
             foreach (var ritual in data.RitualPrototypes)

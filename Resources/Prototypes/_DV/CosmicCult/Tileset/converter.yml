@@ -11,7 +11,7 @@
   parent: BaseStructure
   id: CosmicBorgChantry
   name: Vacuous Chantry
-  description: Lorem Ipsum
+  description: Malign energies gather within, coalescing something yet-to-be.
   placement:
     mode: AlignTileAny
   components:

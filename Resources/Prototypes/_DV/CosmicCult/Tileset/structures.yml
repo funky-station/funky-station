@@ -287,7 +287,7 @@
   id: CosmicVacuousSpire
   parent: BaseStructure
   name: vacuous spire
-  description: Also known as the "chuuni fork".
+  description: Its surface shifts and moves strangely, despite no visible power source...
   components:
   - type: Pullable
   - type: Anchorable

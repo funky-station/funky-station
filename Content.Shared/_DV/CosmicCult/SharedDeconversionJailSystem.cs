@@ -3,6 +3,7 @@ using Content.Shared._DV.CosmicCult.Components;
 using Content.Shared.Anomaly;
 using Content.Shared.Anomaly.Components;
 using Content.Shared.Audio;
+using Content.Shared.Construction;
 using Content.Shared.DoAfter;
 using Content.Shared.Examine;
 using Content.Shared.Explosion.EntitySystems;
@@ -47,6 +48,7 @@ public abstract partial class SharedDeconversionJailSystem : EntitySystem
         SubscribeLocalEvent<DeconversionOublietteComponent, StorageOpenAttemptEvent>(OnOpenAttempt);
         SubscribeLocalEvent<DeconversionOublietteComponent, StorageCloseAttemptEvent>(OnCloseAttempt);
 
+        SubscribeLocalEvent<DeconversionOublietteComponent, ConstructionInteractDoAfterEvent>(OnConstruction);
         SubscribeLocalEvent<DeconversionOublietteComponent, PowerChangedEvent>(OnPowerChanged);
         SubscribeLocalEvent<DeconversionOublietteComponent, DeconversionJailDoAfter>(OnDoAfter);
         SubscribeLocalEvent<DeconversionOublietteComponent, ExaminedEvent>(OnExamined);
@@ -97,6 +99,11 @@ public abstract partial class SharedDeconversionJailSystem : EntitySystem
             ent.Comp.CanInteract = false;
             Dirty(ent);
         }
+    }
+
+    private void OnConstruction(Entity<DeconversionOublietteComponent> ent, ref ConstructionInteractDoAfterEvent args)
+    {
+        _storage.OpenStorage(ent); // EJECT PLAYER BEFORE THEY GET DELETED
     }
 
     private void OnEntityInserted(Entity<DeconversionOublietteComponent> ent, ref EntInsertedIntoContainerMessage args)

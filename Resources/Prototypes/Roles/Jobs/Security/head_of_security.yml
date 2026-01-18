@@ -59,6 +59,7 @@
 # SPDX-FileCopyrightText: 2025 kbarkevich <24629810+kbarkevich@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 mkanke-real <mikekanke@gmail.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2026 SharkSnake98 <sharksnake87@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -103,6 +104,10 @@
   - !type:AddComponentSpecial
     components:
       - type: CommandStaff
+  alternateTitles:
+  - HeadOfSecuritySecurityCommander
+  - HeadOfSecurityChiefConstable
+  - HeadOfSecurityChiefOfSecurity
 
 - type: startingGear
   id: HoSGear
@@ -117,3 +122,15 @@
     - Flash
     - SecHypo # Goobstation
     - CartridgeEmergency
+
+- type: jobAlternateTitle
+  id: HeadOfSecuritySecurityCommander
+  name: job-name-alt-hos-1
+
+- type: jobAlternateTitle
+  id: HeadOfSecurityChiefConstable
+  name: job-name-alt-hos-2
+
+- type: jobAlternateTitle
+  id: HeadOfSecurityChiefOfSecurity
+  name: job-name-alt-hos-3

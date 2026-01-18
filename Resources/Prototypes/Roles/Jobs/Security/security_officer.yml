@@ -50,6 +50,7 @@
 # SPDX-FileCopyrightText: 2025 kbarkevich <24629810+kbarkevich@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 mkanke-real <mikekanke@gmail.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2026 SharkSnake98 <sharksnake87@gmail.com>
 # SPDX-FileCopyrightText: 2026 ThatOneMoon <91613003+ThatOneMoon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2026 ThatOneMoon <juozas.dringelis@gmail.com>
 #
@@ -88,6 +89,7 @@
   - SecurityOfficerRegulatoryControlOfficer
   - SecurityOfficerCommunityOutreachOfficer
   - SecurityOfficerDeskOfficer
+  - SecurityOfficerNightWatchman
 
 - type: startingGear
   id: SecurityOfficerGear
@@ -112,3 +114,7 @@
 - type: jobAlternateTitle
   id: SecurityOfficerDeskOfficer
   name: job-name-alt-secoff-3
+
+- type: jobAlternateTitle
+  id: SecurityOfficerNightWatchman
+  name: job-name-alt-secoff-4

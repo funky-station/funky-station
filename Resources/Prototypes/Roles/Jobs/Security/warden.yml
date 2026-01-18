@@ -57,6 +57,7 @@
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 willowzeta <willowzeta632146@proton.me>
 # SPDX-FileCopyrightText: 2025 wilowzeta <willowzeta632146@proton.me>
+# SPDX-FileCopyrightText: 2026 SharkSnake98 <sharksnake87@gmail.com>
 # SPDX-FileCopyrightText: 2026 ThatOneMoon <91613003+ThatOneMoon@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
@@ -90,6 +91,8 @@
     implants: [ MindShieldImplant ]
   alternateTitles:
   - WardenDispatch
+  - WardenBrigSergeant
+  - WardenSurveillanceOperator
 
 - type: startingGear
   id: WardenGear
@@ -107,3 +110,11 @@
 - type: jobAlternateTitle
   id: WardenDispatch
   name: job-name-alt-warden-1
+
+- type: jobAlternateTitle
+  id: WardenBrigSergeant
+  name: job-name-alt-warden-2
+
+- type: jobAlternateTitle
+  id: WardenSurveillanceOperator
+  name: job-name-alt-warden-3

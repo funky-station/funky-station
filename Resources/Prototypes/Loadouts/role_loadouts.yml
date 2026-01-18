@@ -51,7 +51,10 @@
 # SPDX-FileCopyrightText: 2025 vectorassembly <vectorassembly@icloud.com>
 # SPDX-FileCopyrightText: 2025 w.xyz() <84605679+pirakaplant@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2026 Frogoo <153249069+Fr0goo@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2026 ThatOneMoon <91613003+ThatOneMoon@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2026 ThatOneMoon <juozas.dringelis@gmail.com>
 # SPDX-FileCopyrightText: 2026 Zergologist <114537969+Chedd-Error@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2026 zergologist <114537969+Chedd-Error@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -485,6 +488,7 @@
   - SecurityJobTrinkets
   - SecurityStar
   - GroupSpeciesBreathToolSecurity
+  - LoadoutSecurityOfficerWeapon
 
 - type: roleLoadout
   id: JobDetective
@@ -529,7 +533,7 @@
   - MedicalBackpack
   - ChiefMedicalOfficerOuterClothing
   - ChiefMedicalOfficerNeck
-  - ChemistShoes
+  - ChiefMedicalOfficerShoes
   - Glasses
   - SurvivalMedical
   - Trinkets

@@ -1,0 +1,100 @@
+# Reagents (Cobbychems & advanced brutes plus the other two advanced burns because for some reason the DV version has pyrazine but not the other two)
+
+- type: quickPhrase
+  id: ChemAiuriPhrase
+  parent: BaseMedicinePhrase
+  text: reagent-name-aiuri
+
+- type: quickPhrase
+  id: ChemBruizinePhrase
+  parent: BaseMedicinePhrase
+  text: reagent-name-bruizine
+
+- type: quickPhrase
+  id: ChemInsuzinePhrase
+  parent: BaseMedicinePhrase
+  text: reagent-name-insuzine
+
+- type: quickPhrase
+  id: ChemLacerinolPhrase
+  parent: BaseMedicinePhrase
+  text: reagent-name-lacerinol
+
+- type: quickPhrase
+  id: ChemLeporazinePhrase
+  parent: BaseMedicinePhrase
+  text: reagent-name-leporazine
+
+- type: quickPhrase
+  id: ChemLenturiPhrase
+  parent: BaseMedicinePhrase
+  text: reagent-name-lenturi
+
+- type: quickPhrase
+  id: ChemLibitalPhrase
+  parent: BaseMedicinePhrase
+  text: reagent-name-libital
+
+- type: quickPhrase
+  id: ChemMultiverPhrase
+  parent: BaseMedicinePhrase
+  text: reagent-name-multiver
+
+- type: quickPhrase
+  id: ChemProbitalPhrase
+  parent: BaseMedicinePhrase
+  text: reagent-name-probital
+
+- type: quickPhrase
+  id: ChemPuncturasePhrase
+  parent: BaseMedicinePhrase
+  text: reagent-name-puncturase
+
+# Shitmed (drill is excluded because it's already included under cargo)
+
+- type: quickPhrase
+  id: BoneGelPhrase
+  parent: BaseMedicinePhrase
+  text: phrase-bone-gel
+
+- type: quickPhrase
+  id: CauteryPhrase
+  parent: BaseMedicinePhrase
+  text: phrase-cautery
+
+- type: quickPhrase
+  id: HemostatPhrase
+  parent: BaseMedicinePhrase
+  text: phrase-hemostat
+
+- type: quickPhrase
+  id: SawPhrase
+  parent: BaseMedicinePhrase
+  text: phrase-saw
+
+- type: quickPhrase
+  id: RetractorPhrase
+  parent: BaseMedicinePhrase
+  text: phrase-retractor
+
+- type: quickPhrase
+  id: ScalpelPhrase
+  parent: BaseMedicinePhrase
+  text: phrase-scalpel
+
+- type: quickPhrase
+  id: SurgeryPhrase
+  parent: BaseMedicinePhrase
+  text: phrase-surgery
+
+# RMCmed
+
+- type: quickPhrase
+  id: CPRPhrase
+  parent: BaseMedicinePhrase
+  text: phrase-cpr
+
+- type: quickPhrase
+  id: IntravenousPhrase
+  parent: BaseMedicinePhrase
+  text: phrase-intravenous

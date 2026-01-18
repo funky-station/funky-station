@@ -773,7 +773,7 @@
     - MagazineBoxPistolLargeUranium # Funkystation
     - MagazineBoxPistolLargeIncendiary # Funkystation
     - WeaponEnergyGunEnergyPistol # Funkystation
-    - WeaponTeslaGun # Funkystation 
+    - WeaponTeslaGun # Funkystation
     - MindShieldImplanter
     - TrackingImplanter
     - ClothingHandsTruncheonKnuckleDusters # funk
@@ -1264,7 +1264,7 @@
     - MagazineBoxPistolLargeUranium # Funkystation
     - MagazineBoxPistolLargeIncendiary # Funkystation
     - WeaponEnergyGunEnergyPistol # Funkystation
-    - WeaponTeslaGun # Funkystation 
+    - WeaponTeslaGun # Funkystation
     - PortableRecharger
     - PowerCageHigh
     - PowerCageMedium
@@ -1564,6 +1564,7 @@
     - ClothingUniformJumpskirtChiefEngineer
     - ClothingUniformJumpsuitChiefEngineerTurtle
     - ClothingUniformJumpskirtChiefEngineerTurtle
+    - ClothingHeadHatCEConductor # Funky!
     - ClothingUniformJumpsuitChaplain
     - ClothingUniformJumpskirtChaplain
     - ClothingUniformJumpsuitChef

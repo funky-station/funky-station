@@ -56,6 +56,11 @@
   id: ChiefEngineerBeret
   startingGear: EngineeringBeret
 
+- type: loadout
+  id: ChiefEngineerConductorHat
+  equipment:
+    head: ClothingHeadHatCEConductor # Funky
+
 # Neck
 - type: loadout
   id: ChiefEngineerCloak

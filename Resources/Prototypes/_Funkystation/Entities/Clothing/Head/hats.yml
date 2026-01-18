@@ -104,3 +104,19 @@
     sprite: _Funkystation/Clothing/Head/Hats/surgcap_black.rsi
   - type: Clothing
     sprite: _Funkystation/Clothing/Head/Hats/surgcap_black.rsi
+
+# Chief engineer's conductor hat
+
+- type: entity
+  parent: [ClothingHeadBase]
+  id: ClothingHeadHatCEConductor
+  name: chief engineer's conductor hat
+  description: A conductor can either mean a leader or something that large amounts of electricity course through. Chief engineers tend to be both.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Head/Hats/ce_conductor_hat.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Head/Hats/ce_conductor_hat.rsi
+  - type: Tag
+    tags:
+    - WhitelistChameleon

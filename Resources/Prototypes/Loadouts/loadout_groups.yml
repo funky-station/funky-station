@@ -1107,7 +1107,7 @@
   - CargoWinterBoots
   - WorkBoots
   - EngineeringWinterBoots
-  
+
 - type: loadoutGroup #WizDen Weh Job Plush
   id: CargoTechnicianJobTrinkets
   name: loadout-group-jobtrinkets
@@ -1181,6 +1181,7 @@
   loadouts:
   - ChiefEngineerHead
   - ChiefEngineerBeret
+  - ChiefEngineerConductorHat # Funky
 
 - type: loadoutGroup
   id: ChiefEngineerJumpsuit

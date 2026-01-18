@@ -37,7 +37,7 @@
 - type: latheRecipe
   parent: BaseCommandHatRecipe
   id: ClothingHeadHatQMFormal
-  result: ClothingHeadHatQMFormal  
+  result: ClothingHeadHatQMFormal
 
 - type: latheRecipe
   parent: BaseJumpsuitRecipe
@@ -52,7 +52,7 @@
 - type: latheRecipe
   parent: BaseCoatRecipe
   id: ClothingOuterWinterSeniorCargo
-  result: ClothingOuterWinterSeniorCargo      
+  result: ClothingOuterWinterSeniorCargo
 
 - type: latheRecipe
   parent: BaseJumpsuitRecipe
@@ -62,12 +62,12 @@
 - type: latheRecipe
   parent: BaseJumpsuitRecipe
   id: ClothingUniformJumpsuitMailCarrier
-  result: ClothingUniformMailCarrier  
+  result: ClothingUniformMailCarrier
 
 - type: latheRecipe
   parent: BaseCoatRecipe
   id: ClothingOuterWinterMailCarrier
-  result: ClothingOuterWinterCoatMail      
+  result: ClothingOuterWinterCoatMail
 
 - type: latheRecipe
   parent: BaseHatRecipe
@@ -77,4 +77,9 @@
 - type: latheRecipe
   parent: BaseHatRecipe
   id: ClothingHeadHatCargoCap
-  result: ClothingHeadHatCargosoft  
+  result: ClothingHeadHatCargosoft
+
+- type: latheRecipe
+  parent: BaseCommandHatRecipe
+  id: ClothingHeadHatCEConductor
+  result: ClothingHeadHatCEConductor

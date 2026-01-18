@@ -60,16 +60,6 @@
   - ClothingOuterDusterCoat
 
 - type: chaplainGearMenuSet
-  id: ChaplainGearRapier
-  name: chaplain-gearset-category-rapier-name
-  description: chaplain-gearset-category-rapier-description
-  sprite:
-    sprite: _Funkystation/Objects/Weapons/Melee/star_rapier.rsi
-    state: icon
-  content:
-  - SwordChaplainCosmic
-
-- type: chaplainGearMenuSet
   id: ChaplainGearCrucifix
   name: chaplain-gearset-category-crucifix-name
   description: chaplain-gearset-category-crucifix-description
@@ -78,7 +68,7 @@
     state: icon
   content:
   - CrossChaplainCrooked
-  
+
 - type: chaplainGearMenuSet
   id: ChaplainGearPistol
   name: chaplain-gearset-category-pistol-name
@@ -89,7 +79,7 @@
   content:
   - WeaponChaplainPistol
   - ClothingEyesGlassesChaplainSunglasses
-  
+
 - type: chaplainGearMenuSet
   id: ChaplainGearStaff
   name: chaplain-gearset-category-staff-name
@@ -112,7 +102,7 @@
   - FoodPieBananium
   - FoodPieBananium
   - ClothingShoesClown
-  
+
 - type: chaplainGearMenuSet
   id: ChaplainGearToolbox
   name: chaplain-gearset-category-toolbox-name
@@ -123,7 +113,7 @@
   content:
   - WeaponChaplainToolboxFilled
 
-  
+
 - type: chaplainGearMenuSet
   id: ChaplainGearChainsword
   name: chaplain-gearset-category-chainsword-name

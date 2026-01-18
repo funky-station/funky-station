@@ -7434,3 +7434,43 @@ Entries:
       message: CPR does not revive rotten patients.
   id: 863
   time: '2026-01-18T01:34:17.0000000+00:00'
+- author: Delta, Thlrd, TrixxedHeart
+  changes:
+    - type: Add
+      message: New marking options for moths
+    - type: Remove
+      message: Duplicate moth markings
+    - type: Tweak
+      message: Resprote funkier base moth sprites
+    - type: Tweak
+      message: Resprote funkier moth markings
+    - type: Tweak
+      message: Separated wings into more layers for colors
+  id: 864
+  time: '2026-01-18T01:43:31.0000000+00:00'
+- author: Terkala
+  changes:
+    - type: Fix
+      message: Fixed sleeping-forever bug
+  id: 865
+  time: '2026-01-18T02:38:15.0000000+00:00'
+- author: mycobiota
+  changes:
+    - type: Fix
+      message: Characters with the synth trait actually can't detect ion storms now.
+  id: 866
+  time: '2026-01-18T02:42:22.0000000+00:00'
+- author: AftrLite
+  changes:
+    - type: Add
+      message: Cosmic Cult 2.5 is here, with exclusive FunkyStation content!
+  id: 867
+  time: '2026-01-18T04:09:15.0000000+00:00'
+- author: AftrLite
+  changes:
+    - type: Fix
+      message: >-
+        The description of the Vacuous Spire is now more sauceful, and the
+        Vacuous Chantry has had its description corrected.
+  id: 868
+  time: '2026-01-18T06:43:46.0000000+00:00'

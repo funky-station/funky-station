@@ -24,12 +24,6 @@ public sealed partial class CosmicCultLeadComponent : Component
     [DataField]
     public ProtoId<FactionIconPrototype> StatusIcon = "CosmicCultLeadIcon";
 
-    /// <summary>
-    /// How long the stun will last after the user is converted.
-    /// </summary>
-    [DataField]
-    public TimeSpan StunTime = TimeSpan.FromSeconds(3);
-
     [DataField]
     public EntProtoId MonumentPrototype = "MonumentCosmicCultSpawnIn";
 

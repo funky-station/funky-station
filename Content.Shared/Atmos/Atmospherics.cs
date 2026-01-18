@@ -37,6 +37,8 @@
 // SPDX-FileCopyrightText: 2025 rottenheadphones <juaelwe@outlook.com>
 // SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2026 Homingpenguins <59744509+Homingpenguins@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2026 Sarah C <93578146+SapphicOverload@users.noreply.github.com>
 //
 // SPDX-License-Identifier: MIT
 
@@ -319,6 +321,7 @@ namespace Content.Shared.Atmos
 
         public const float TritiumBurnOxyFactor = 100f;
         public const float TritiumBurnTritFactor = 10f;
+        public const float TritiumBurnFuelRatio = 2f;
 
         public const float FrezonCoolLowerTemperature = 23.15f;
 

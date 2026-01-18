@@ -60,6 +60,7 @@
           nodeGroupID: Pipe
           pipeDirection: South
     - type: DeviceRestrictOverlap # Funky
+    - type: PipeRestrictOverlap # Funky
 
 - type: entity
   parent: GasTrinaryBase

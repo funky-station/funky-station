@@ -83,6 +83,7 @@
           pipeDirection: South
     - type: CollideOnAnchor
     - type: DeviceRestrictOverlap # Funky
+    - type: PipeRestrictOverlap
 
 - type: entity
   parent: [GasUnaryBase, AirSensorBase]

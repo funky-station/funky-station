@@ -72,6 +72,7 @@
       Secondary: Structures/Piping/Atmospherics/pump_alt1.rsi
       Tertiary: Structures/Piping/Atmospherics/pump_alt2.rsi
   - type: BinaryDeviceRestrictOverlap # Funky
+  - type: PipeRestrictOverlap # Funky
 
 - type: entity
   parent: GasBinaryBase

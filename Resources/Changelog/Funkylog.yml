@@ -7448,3 +7448,9 @@ Entries:
       message: Separated wings into more layers for colors
   id: 864
   time: '2026-01-18T01:43:31.0000000+00:00'
+- author: Terkala
+  changes:
+    - type: Fix
+      message: Fixed sleeping-forever bug
+  id: 865
+  time: '2026-01-18T02:38:15.0000000+00:00'

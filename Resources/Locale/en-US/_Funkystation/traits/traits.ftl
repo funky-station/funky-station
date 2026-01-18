@@ -12,6 +12,9 @@ trait-funky-desc = Puh sahme fuhky flaahr ahn yahuh inflecshuns.
 trait-british-name = British Accent
 trait-british-desc = Oi you soun'like someone a'a Bri'ish pub, ea'ing chips an'wa'ching the telly with your chums.
 
+trait-boston-name = Boston accent
+trait-boston-desc = You sound like you need to pahk your cah in the yahd.
+
 trait-scandinavian-name = Scandinavian accent
 trait-scandinavian-desc = Yøu sound like yøu cöme frøm søme nondescript norðern Euröpæän nation. Ör you'ræ a Viking!
 
@@ -23,6 +26,9 @@ trait-german-vernacular-desc = Mein gott, your ability to sprinkle words like "S
 
 trait-russian-vernacular-name = Russian vernacular
 trait-russian-vernacular-desc = Vhen you speak, you add in more Russian vords with ochen zick accent.
+
+trait-euphemist-name = Euphemist
+trait-euphemist-desc = You tend to beat around the bush and avoid being negative.
 
 trait-extra-lightweight-name = Extreme Lightweight
 trait-extra-lightweight-desc = You are the lightest of lightweights. Even a shot will hit you the same as a glass.

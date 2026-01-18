@@ -1,0 +1,132 @@
+# SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2024 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 John Space <bigdumb421@gmail.com>
+# SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 Dragon232347 <122056448+Dragon232347@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Ed <96445749+TheShuEd@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Mish <bluscout78@yahoo.com>
+# SPDX-FileCopyrightText: 2025 Toaster <mrtoastymyroasty@gmail.com>
+# SPDX-FileCopyrightText: 2025 Toastermeister <215405651+Toastermeister@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2026 DimFlower <157099920+DimFlower@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
+- type: entity
+  name: gondola
+  parent:
+    - MobRespirator
+    - MobAtmosStandard
+    - BaseSimpleMob
+    - MobBloodstream
+    - MobFlammable
+  id: MobGondola
+  description: Having no hands he embodies the Taoist principle of wu-wei (non-action) while his smiling facial expression shows his utter and complete acceptance of the world as it is.
+  components:
+  - type: Hunger
+    thresholds:
+      Overfed: 100
+      Okay: 50
+      Peckish: 25
+      Starving: 10
+      Dead: 0
+    baseDecayRate: 0.00925925925926
+  - type: Thirst
+    thresholds:
+      OverHydrated: 200
+      Okay: 150
+      Thirsty: 100
+      Parched: 50
+      Dead: 0
+    baseDecayRate: 0.04
+  - type: StatusEffects
+    allowed:
+      - Stun
+      - KnockedDown
+      - SlowedDown
+      - Stutter
+      - Electrocution
+      - ForcedSleep
+      - TemporaryBlindness
+      - Pacified
+      - StaminaModifier
+  - type: FloatingVisuals
+  - type: NpcFactionMember
+    factions:
+    - Passive
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 1
+    baseSprintSpeed: 2
+  - type: RandomSprite
+    available:
+        - enum.DamageStateVisualLayers.Base:
+            gondola_body_long: GondolaBrowns
+            gondola_body_medium: GondolaBrowns
+          enum.DamageStateVisualLayers.BaseUnshaded:
+            gondola_moustache_large: ""
+            gondola_moustache_small: ""
+        - enum.DamageStateVisualLayers.Base:
+            gondola_body_medium: GondolaBrowns
+            gondola_body_short: GondolaBrowns
+          enum.DamageStateVisualLayers.BaseUnshaded:
+            gondola_moustache_large_short: ""
+            gondola_moustache_small_short: ""
+  - type: Sprite
+    sprite: _Goobstation/Mobs/Animals/gondola.rsi
+    layers:
+      - state: gondola_body_medium
+        map: [ "enum.DamageStateVisualLayers.Base" ]
+      - state: gondola_moustache_large
+        map: [ "enum.DamageStateVisualLayers.BaseUnshaded" ]
+  - type: Physics
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.2
+        density: 50
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: DamageStateVisuals
+    states:
+      Critical:
+        Base: gondola_dead
+      Dead:
+        Base: gondola_dead
+  - type: Butcherable
+    spawned:
+    - id: FoodMeatGondola
+      amount: 3
+  - type: Bloodstream
+    bloodMaxVolume: 150
+  - type: Damageable
+    damageContainer: Biological
+    damageModifierSet: Scale
+  - type: Tag
+    tags:
+    - VimPilot
+  - type: Speech
+    speechVerb: Gondola
+    speechSounds: Bass
+  - type: ReplacementAccent
+    accent: gondola
+  - type: HTN
+    rootTask:
+      task: IdleCompound
+  - type: Body
+    prototype: Primate
+  - type: Climbing
+  - type: NameIdentifier
+    group: GenericNumber
+  - type: SlowOnDamage
+    speedModifierThresholds:
+      60: 0.7
+      80: 0.5
+  - type: MobPrice
+    price: 1000 # Living critters are valuable in space.
+  - type: Perishable

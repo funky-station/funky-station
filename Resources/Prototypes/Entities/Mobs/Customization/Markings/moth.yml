@@ -6,6 +6,9 @@
 # SPDX-FileCopyrightText: 2024 Ubaser <134914314+UbaserB@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 W.xyz() <tptechteam@gmail.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 unknown <daniel.thomas.staal@gmail.com>
+# SPDX-FileCopyrightText: 2025 unknown <kit.ds.kat@gmail.com>
+# SPDX-FileCopyrightText: 2025 w.xyz() <84605679+pirakaplant@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -284,7 +287,9 @@
   speciesRestriction: [Moth]
   sprites:
   - sprite: Mobs/Customization/Moth/moth_wings.rsi
-    state: default
+    state: default_primary
+  - sprite: Mobs/Customization/Moth/moth_wings.rsi
+    state: default_secondary
 
 - type: marking
   id: MothWingsCharred
@@ -293,7 +298,9 @@
   speciesRestriction: [Moth]
   sprites:
   - sprite: Mobs/Customization/Moth/moth_wings.rsi
-    state: charred
+    state: charred_primary
+  - sprite: Mobs/Customization/Moth/moth_wings.rsi
+    state: charred_secondary
 
 - type: marking
   id: MothWingsDbushy
@@ -305,6 +312,8 @@
     state: dbushy_primary
   - sprite: Mobs/Customization/Moth/moth_wings.rsi
     state: dbushy_secondary
+  - sprite: Mobs/Customization/Moth/moth_wings.rsi
+    state: dbushy_tertiary
 
 - type: marking
   id: MothWingsDeathhead
@@ -318,22 +327,15 @@
     state: deathhead_secondary
 
 - type: marking
-  id: MothWingsFan
-  bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: [Moth]
-  sprites:
-  - sprite: Mobs/Customization/Moth/moth_wings.rsi
-    state: fan
-
-- type: marking
   id: MothWingsDfan
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Moth]
   sprites:
   - sprite: Mobs/Customization/Moth/moth_wings.rsi
-    state: dfan
+    state: dfan_primary
+  - sprite: Mobs/Customization/Moth/moth_wings.rsi
+    state: dfan_secondary
 
 - type: marking
   id: MothWingsFeathery
@@ -342,7 +344,9 @@
   speciesRestriction: [Moth]
   sprites:
   - sprite: Mobs/Customization/Moth/moth_wings.rsi
-    state: feathery
+    state: feathery_primary
+  - sprite: Mobs/Customization/Moth/moth_wings.rsi
+    state: feathery_secondary
 
 - type: marking
   id: MothWingsFirewatch
@@ -354,6 +358,8 @@
     state: firewatch_primary
   - sprite: Mobs/Customization/Moth/moth_wings.rsi
     state: firewatch_secondary
+  - sprite: Mobs/Customization/Moth/moth_wings.rsi
+    state: firewatch_tertiary
 
 - type: marking
   id: MothWingsGothic
@@ -362,7 +368,11 @@
   speciesRestriction: [Moth]
   sprites:
   - sprite: Mobs/Customization/Moth/moth_wings.rsi
-    state: gothic
+    state: gothic_primary
+  - sprite: Mobs/Customization/Moth/moth_wings.rsi
+    state: gothic_secondary
+  - sprite: Mobs/Customization/Moth/moth_wings.rsi
+    state: gothic_tertiary
 
 - type: marking
   id: MothWingsJungle
@@ -371,7 +381,11 @@
   speciesRestriction: [Moth]
   sprites:
   - sprite: Mobs/Customization/Moth/moth_wings.rsi
-    state: jungle
+    state: jungle_primary
+  - sprite: Mobs/Customization/Moth/moth_wings.rsi
+    state: jungle_secondary
+  - sprite: Mobs/Customization/Moth/moth_wings.rsi
+    state: jungle_tertiary
 
 - type: marking
   id: MothWingsLadybug
@@ -380,7 +394,11 @@
   speciesRestriction: [Moth]
   sprites:
   - sprite: Mobs/Customization/Moth/moth_wings.rsi
-    state: ladybug
+    state: ladybug_primary
+  - sprite: Mobs/Customization/Moth/moth_wings.rsi
+    state: ladybug_secondary
+  - sprite: Mobs/Customization/Moth/moth_wings.rsi
+    state: ladybug_tertiary
 
 - type: marking
   id: MothWingsMaple
@@ -392,6 +410,8 @@
     state: maple_primary
   - sprite: Mobs/Customization/Moth/moth_wings.rsi
     state: maple_secondary
+  - sprite: Mobs/Customization/Moth/moth_wings.rsi
+    state: maple_tertiary
 
 - type: marking
   id: MothWingsMoffra
@@ -403,6 +423,8 @@
     state: moffra_primary
   - sprite: Mobs/Customization/Moth/moth_wings.rsi
     state: moffra_secondary
+  - sprite: Mobs/Customization/Moth/moth_wings.rsi
+    state: moffra_tertiary
 
 - type: marking
   id: MothWingsOakworm
@@ -411,7 +433,11 @@
   speciesRestriction: [Moth]
   sprites:
   - sprite: Mobs/Customization/Moth/moth_wings.rsi
-    state: oakworm
+    state: oakworm_primary
+  - sprite: Mobs/Customization/Moth/moth_wings.rsi
+    state: oakworm_secondary
+  - sprite: Mobs/Customization/Moth/moth_wings.rsi
+    state: oakworm_tertiary
 
 - type: marking
   id: MothWingsPlasmafire
@@ -423,6 +449,8 @@
     state: plasmafire_primary
   - sprite: Mobs/Customization/Moth/moth_wings.rsi
     state: plasmafire_secondary
+  - sprite: Mobs/Customization/Moth/moth_wings.rsi
+    state: plasmafire_tertiary
 
 - type: marking
   id: MothWingsPointy
@@ -431,7 +459,11 @@
   speciesRestriction: [Moth]
   sprites:
   - sprite: Mobs/Customization/Moth/moth_wings.rsi
-    state: pointy
+    state: pointy_primary
+  - sprite: Mobs/Customization/Moth/moth_wings.rsi
+    state: pointy_secondary
+  - sprite: Mobs/Customization/Moth/moth_wings.rsi
+    state: pointy_tertiary
 
 - type: marking
   id: MothWingsRoyal
@@ -443,6 +475,8 @@
     state: royal_primary
   - sprite: Mobs/Customization/Moth/moth_wings.rsi
     state: royal_secondary
+  - sprite: Mobs/Customization/Moth/moth_wings.rsi
+    state: royal_tertiary
 
 - type: marking
   id: MothWingsStellar
@@ -451,16 +485,11 @@
   speciesRestriction: [Moth]
   sprites:
   - sprite: Mobs/Customization/Moth/moth_wings.rsi
-    state: stellar
-
-- type: marking
-  id: MothWingsStriped
-  bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: [Moth]
-  sprites:
+    state: stellar_primary
   - sprite: Mobs/Customization/Moth/moth_wings.rsi
-    state: striped
+    state: stellar_secondary
+  - sprite: Mobs/Customization/Moth/moth_wings.rsi
+    state: stellar_tertiary
 
 - type: marking
   id: MothWingsSwirly
@@ -469,7 +498,11 @@
   speciesRestriction: [Moth]
   sprites:
   - sprite: Mobs/Customization/Moth/moth_wings.rsi
-    state: swirly
+    state: swirly_primary
+  - sprite: Mobs/Customization/Moth/moth_wings.rsi
+    state: swirly_secondary
+  - sprite: Mobs/Customization/Moth/moth_wings.rsi
+    state: swirly_tertiary
 
 - type: marking
   id: MothWingsWhitefly
@@ -478,7 +511,11 @@
   speciesRestriction: [Moth]
   sprites:
   - sprite: Mobs/Customization/Moth/moth_wings.rsi
-    state: whitefly
+    state: whitefly_primary
+  - sprite: Mobs/Customization/Moth/moth_wings.rsi
+    state: whitefly_secondary
+  - sprite: Mobs/Customization/Moth/moth_wings.rsi
+    state: whitefly_tertiary
 
 - type: marking
   id: MothWingsWitchwing
@@ -487,7 +524,11 @@
   speciesRestriction: [Moth]
   sprites:
   - sprite: Mobs/Customization/Moth/moth_wings.rsi
-    state: witchwing
+    state: witchwing_primary
+  - sprite: Mobs/Customization/Moth/moth_wings.rsi
+    state: witchwing_secondary
+  - sprite: Mobs/Customization/Moth/moth_wings.rsi
+    state: witchwing_tertiary
 
 - type: marking
   id: MothWingsUnderwing
@@ -499,6 +540,21 @@
     state: underwing_primary
   - sprite: Mobs/Customization/Moth/moth_wings.rsi
     state: underwing_secondary
+  - sprite: Mobs/Customization/Moth/moth_wings.rsi
+    state: underwing_tertiary
+
+- type: marking
+  id: MothWingsOrigins
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: Mobs/Customization/Moth/moth_wings.rsi
+    state: origins_primary
+  - sprite: Mobs/Customization/Moth/moth_wings.rsi
+    state: origins_secondary
+  - sprite: Mobs/Customization/Moth/moth_wings.rsi
+    state: origins_tertiary
 
 # Chitinid Wings - Delta-V
 - type: marking
@@ -549,6 +605,8 @@
     state: bee_primary
   - sprite: _DV/Mobs/Customization/Chitinid/chitinid_wings.rsi
     state: bee_secondary
+  - sprite: _DV/Mobs/Customization/Chitinid/chitinid_wings.rsi
+    state: bee_tertiary
 
 - type: marking
   id: ChitinidWingsFirefly

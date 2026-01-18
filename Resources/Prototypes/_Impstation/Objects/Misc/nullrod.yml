@@ -1,5 +1,6 @@
 # SPDX-FileCopyrightText: 2025 Lukas <lukadosa02@gmail.com>
 # SPDX-FileCopyrightText: 2025 QueerCats <jansencheng3@gmail.com>
+# SPDX-FileCopyrightText: 2025 SigmaTheDragon <162711378+SigmaTheDragon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Skye <57879983+Rainbeon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 Teasq <Xerithin@gmail.com>
@@ -34,11 +35,18 @@
   components:
   - type: ChaplainGearMenu
     possibleSets:
-    #- ChaplainGearRosary # DeltaV -- turned into the Censer, now roundstart and unlocked
+    #- ChaplainGearRosary # DeltaV
     - ChaplainGearGrail
     - ChaplainGearGlove
     - ChaplainGearBow
     - ChaplainGearGun # funky
+    - ChaplainGearCrucifix #funky
+    - ChaplainGearPistol # funky
+    - ChaplainGearStaff # funky
+    - ChaplainGearLauncher # funky
+    - ChaplainGearToolbox # funky
+    - ChaplainGearChainsword # funky
+    - ChaplainGearHauntedSword # funky
   - type: ActivatableUI
     key: enum.ChaplainGearMenuUIKey.Key
   - type: UserInterface
@@ -68,7 +76,6 @@
   components:
   - type: UseDelay
     delay: 5.0
-  - type: CleanseOnUse
   - type: Prayable
     bibleUserOnly: true
   - type: Sprite
@@ -163,9 +170,6 @@
     - Holy
     - Shake
     mixMessage: "null-grail-mix-success"
-  - type: CleanseOnUse
-    enabled: false
-    canPurge: true
 
 - type: entity
   name: divine grasp

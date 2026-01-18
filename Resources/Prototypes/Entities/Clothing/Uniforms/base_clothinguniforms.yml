@@ -54,6 +54,10 @@
         reagents:
         - ReagentId: Fiber
           Quantity: 30
+      stain:
+        canReact: True
+        maxVol: 10
+        name: stain
   - type: TemperatureProtection
     heatingCoefficient: 1
     coolingCoefficient: 0.9

@@ -171,6 +171,11 @@
   equipment:
     gloves: ClothingHandsGlovesFingerless
 
+- type: loadout
+  id: WhiteGloves
+  equipment:
+    gloves: ClothingHandsGlovesColorWhite
+
 # Shoes
 - type: loadout
   id: CombatBoots

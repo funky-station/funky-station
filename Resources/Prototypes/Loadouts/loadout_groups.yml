@@ -1722,6 +1722,7 @@
   name: loadout-group-security-gloves
   loadouts:
   - BlackGloves
+  - WhiteGloves
 
 - type: loadoutGroup
   id: SecurityShoes

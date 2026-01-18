@@ -119,6 +119,9 @@
   id: ExtendedEmergencyNitrogenTank
 
 - type: Tag
+  id: FragileImplant
+  
+- type: Tag
   id: UraniumSheet
 
 - type: Tag

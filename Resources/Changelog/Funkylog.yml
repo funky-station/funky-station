@@ -7434,3 +7434,17 @@ Entries:
       message: CPR does not revive rotten patients.
   id: 863
   time: '2026-01-18T01:34:17.0000000+00:00'
+- author: Delta, Thlrd, TrixxedHeart
+  changes:
+    - type: Add
+      message: New marking options for moths
+    - type: Remove
+      message: Duplicate moth markings
+    - type: Tweak
+      message: Resprote funkier base moth sprites
+    - type: Tweak
+      message: Resprote funkier moth markings
+    - type: Tweak
+      message: Separated wings into more layers for colors
+  id: 864
+  time: '2026-01-18T01:43:31.0000000+00:00'

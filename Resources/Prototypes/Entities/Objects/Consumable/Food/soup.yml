@@ -37,6 +37,7 @@
 # SPDX-FileCopyrightText: 2025 funnyfurby <furbyb772@gmail.com>
 # SPDX-FileCopyrightText: 2025 funnyfurby <furbyfunny44@gmail.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2026 Xcybitt <197952719+Xcybitt@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -302,6 +303,8 @@
           Quantity: 1
         - ReagentId: OilOlive
           Quantity: 5
+        - ReagentId: Cheesium
+          Quantity: 2          
 
 - type: entity
   name: kimchi salad
@@ -1275,6 +1278,8 @@
             Quantity: 5
           - ReagentId: Water
             Quantity: 10
+          - ReagentId: Cheesium
+            Quantity: 2            
 
 - type: entity
   name: bisque

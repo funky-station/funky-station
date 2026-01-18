@@ -60,7 +60,6 @@
     damageModifierSet: StructuralMetallic
   - type: ContainerContainer
     containers:
-      entity_storage: !type:Container
       machine_board: !type:Container
       machine_parts: !type:Container
   - type: Sprite
@@ -136,6 +135,9 @@
   - type: Construction
     graph: Machine
     node: machine
+    containers:
+    - machine_parts
+    - machine_board
 
 - type: entity
   parent: BaseMachineCircuitboard

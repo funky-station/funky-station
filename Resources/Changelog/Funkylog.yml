@@ -7460,3 +7460,17 @@ Entries:
       message: Characters with the synth trait actually can't detect ion storms now.
   id: 866
   time: '2026-01-18T02:42:22.0000000+00:00'
+- author: AftrLite
+  changes:
+    - type: Add
+      message: Cosmic Cult 2.5 is here, with exclusive FunkyStation content!
+  id: 867
+  time: '2026-01-18T04:09:15.0000000+00:00'
+- author: AftrLite
+  changes:
+    - type: Fix
+      message: >-
+        The description of the Vacuous Spire is now more sauceful, and the
+        Vacuous Chantry has had its description corrected.
+  id: 868
+  time: '2026-01-18T06:43:46.0000000+00:00'

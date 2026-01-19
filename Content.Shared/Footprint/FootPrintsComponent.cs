@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 VMSolidus <evilexecutive@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using System.Numerics;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.FixedPoint;

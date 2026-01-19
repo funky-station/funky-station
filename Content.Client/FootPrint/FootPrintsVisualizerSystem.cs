@@ -1,4 +1,8 @@
-﻿using Content.Shared.FootPrint;
+// SPDX-FileCopyrightText: 2025 VMSolidus <evilexecutive@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
+using Content.Shared.FootPrint;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
 using Robust.Shared.GameStates;

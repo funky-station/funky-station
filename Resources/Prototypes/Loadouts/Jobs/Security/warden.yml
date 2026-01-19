@@ -61,6 +61,18 @@
     jumpsuit: ClothingUniformJumpskirtSeniorOfficer
   groupBy: "jumpskirt"
 
+- type: loadout
+  id: WardenMessUniform
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitSecMess
+  groupBy: "jumpsuit"
+
+- type: loadout
+  id: WardenMessUniformSkirt
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtSecMess
+  groupBy: "jumpskirt"
+
 # OuterClothing
 - type: loadout
   id: WardenCoat

@@ -1634,6 +1634,8 @@
   - WardenSeniorOfficerJumpsuit
   - WardenSeniorOfficerJumpskirt
   - WardenTrooperUniform
+  - WardenMessUniform
+  - WardenMessUniformSkirt
 
 - type: loadoutGroup
   id: WardenNeck
@@ -1641,6 +1643,7 @@
   minLimit: 0
   loadouts:
   - Bodycam # Goobstation - Body cameras
+  - MessTie
 
 - type: loadoutGroup
   id: WardenOuterClothing
@@ -1686,6 +1689,8 @@
   - SeniorOfficerJumpsuit
   - SeniorOfficerJumpskirt
   - TrooperUniform
+  - MessUniform
+  - MessUniformSkirt
 
 - type: loadoutGroup
   id: SecurityBackpack
@@ -1708,6 +1713,7 @@
   minLimit: 0
   loadouts:
   - Bodycam # Goobstation - Body cameras
+  - MessTie
 
 - type: loadoutGroup
   id: SecurityOuterClothing

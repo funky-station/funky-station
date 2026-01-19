@@ -12,3 +12,14 @@
   components:
   - type: Sprite
     sprite: _Funkystation/Clothing/Neck/Misc/liftbelt.rsi
+
+# Security mess bowtie
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckSecurityBowtie
+  name: formal bowtie
+  description: A slightly oversized clip-on bowtie. Officers used to be issued classic bowties, but too many showed up without one reportedly saying "I couldn't tie it".
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Neck/Misc/mess_bowtie.rsi

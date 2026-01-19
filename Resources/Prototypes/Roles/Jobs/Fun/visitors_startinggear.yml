@@ -315,7 +315,7 @@
     back: ClothingBackpackSatchelSecurity
     ears: ClothingHeadsetAltSecurityRegular # Goobstation
     eyes: ClothingEyesGlassesSecurity
-    outerClothing: ClothingOuterArmorBasicSlim
+    outerClothing: ClothingOuterArmorBasic
     pocket1: WeaponEnergyGunEnergyPistol # funkystation
     pocket2: BolaEnergy
   inhand:

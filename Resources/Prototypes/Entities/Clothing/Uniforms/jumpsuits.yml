@@ -836,7 +836,7 @@
 - type: entity
   parent: [ClothingUniformBase, BaseCommandContraband]
   id: ClothingUniformJumpsuitHosFormal
-  name: hos's formal suit
+  name: head of security's mess suit
   description: A suit for special occasions.
   components:
   - type: Sprite

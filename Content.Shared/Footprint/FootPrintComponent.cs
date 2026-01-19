@@ -1,29 +1,15 @@
-using Content.Shared.Chemistry.Components;
+using System.Numerics;
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization;
 
-namespace Content.Shared.FootPrint;
+namespace Content.Shared.Footprint;
 
-/// <summary>
-///     This is used for marking footsteps, handling footprint drawing.
-/// </summary>
-[RegisterComponent, NetworkedComponent]
-public sealed partial class FootPrintComponent : Component
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
+public sealed partial class FootprintComponent : Component
 {
-    /// <summary>
-    ///     Owner (with <see cref="FootPrintsComponent"/>) of a print (this component).
-    /// </summary>
-    public EntityUid PrintOwner;
-
-    [DataField]
-    public string SolutionName = "step";
-
-    [ViewVariables]
-    public Entity<SolutionComponent>? Solution;
+    [AutoNetworkedField, ViewVariables]
+    public List<Footprint> Footprints = new();
 }
 
 [Serializable, NetSerializable]
-public sealed class FootPrintState(NetEntity netEntity) : ComponentState
-{
-    public NetEntity PrintOwner { get; private set; } = netEntity;
-}
+public readonly record struct Footprint(Vector2 Offset, Angle Rotation, Color Color, string State);

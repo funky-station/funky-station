@@ -66,6 +66,7 @@ using Content.Shared.Popups;
 using Content.Shared.Slippery;
 using Content.Shared.StepTrigger.Components;
 using Content.Shared.StepTrigger.Systems;
+using Content.Shared.Footprint; // Added reference
 using Robust.Server.Audio;
 using Robust.Shared.Collections;
 using Robust.Shared.Map;
@@ -479,7 +480,7 @@ public sealed partial class PuddleSystem : SharedPuddleSystem
         _deletionQueue.Remove(entity);
         UpdateFlammability((entity.Owner, entity.Comp), args.Solution);
         UpdateSlip((entity, entity.Comp), args.Solution);
-        UpdateSlow(entity, args.Solution);
+        UpdateSlow(entity, args.Solution, entity.Comp); // Changed: pass component
         UpdateEvaporation(entity, args.Solution);
         UpdateAppearance(entity, entity.Comp);
     }
@@ -621,7 +622,7 @@ public sealed partial class PuddleSystem : SharedPuddleSystem
         Dirty(entity, slipComp);
     }
 
-    private void UpdateSlow(EntityUid uid, Solution solution)
+    private void UpdateSlow(EntityUid uid, Solution solution, PuddleComponent puddle) // Changed: accepts component
     {
         var maxViscosity = 0f;
         foreach (var (reagent, _) in solution.Contents)
@@ -869,6 +870,7 @@ public sealed partial class PuddleSystem : SharedPuddleSystem
         var anchored = _map.GetAnchoredEntitiesEnumerator(gridId, mapGrid, tileRef.GridIndices);
         var puddleQuery = GetEntityQuery<PuddleComponent>();
         var sparklesQuery = GetEntityQuery<EvaporationSparkleComponent>();
+        var footprintQuery = GetEntityQuery<FootprintComponent>(); // Added: Query for footprints
 
         while (anchored.MoveNext(out var ent))
         {
@@ -880,6 +882,10 @@ public sealed partial class PuddleSystem : SharedPuddleSystem
             }
 
             if (!puddleQuery.TryGetComponent(ent, out var puddle))
+                continue;
+
+            // Added: Do not merge spills into footprints
+            if (footprintQuery.HasComp(ent))
                 continue;
 
             if (TryAddSolution(ent.Value, solution, sound, puddleComponent: puddle))
@@ -930,10 +936,15 @@ public sealed partial class PuddleSystem : SharedPuddleSystem
 
         var anc = _map.GetAnchoredEntitiesEnumerator(tile.GridUid, grid, tile.GridIndices);
         var puddleQuery = GetEntityQuery<PuddleComponent>();
+        var footprintQuery = GetEntityQuery<FootprintComponent>(); // Added: Query for footprints
 
         while (anc.MoveNext(out var ent))
         {
             if (!puddleQuery.HasComponent(ent.Value))
+                continue;
+
+            // Added: Do not return footprints as puddles
+            if (footprintQuery.HasComponent(ent.Value))
                 continue;
 
             puddleUid = ent.Value;

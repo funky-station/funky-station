@@ -153,9 +153,7 @@
     whitelist:
       types:
       - Shard
-  - type: FootPrints
-    leftBarePrint: "footprint-left-bare-diona"
-    rightBarePrint: "footprint-right-bare-diona"
+  - type: FootprintOwner
 
 - type: entity
   parent: BaseSpeciesDummy

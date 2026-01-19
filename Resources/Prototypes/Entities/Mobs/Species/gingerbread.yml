@@ -112,7 +112,7 @@
         reagents:
         - ReagentId: Sugar
           Quantity: 200
-  - type: FootPrints
+  - type: FootprintOwner
 
 - type: entity
   parent: BaseSpeciesDummy

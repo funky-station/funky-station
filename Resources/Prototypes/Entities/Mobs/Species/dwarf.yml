@@ -96,9 +96,7 @@
           32:
             sprite: Mobs/Species/Human/displacement.rsi
             state: jumpsuit-female
-  - type: FootPrints
-    leftBarePrint: "footprint-left-bare-dwarf"
-    rightBarePrint: "footprint-right-bare-dwarf"
+  - type: FootprintOwner
 
 - type: entity
   parent: BaseSpeciesDummy

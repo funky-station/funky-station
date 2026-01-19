@@ -31,6 +31,7 @@ using Content.Shared.FixedPoint;
 using Content.Shared.BloodCult;
 using Content.Shared.Fluids;
 using Content.Shared.Fluids.Components;
+using Content.Shared.Footprint;
 using Content.Shared.Interaction;
 using Content.Shared.Timing;
 using Content.Shared.Weapons.Melee;
@@ -153,7 +154,6 @@ public sealed partial class AbsorbentSystem : SharedAbsorbentSystem
                 return;
         }
 
-        TryCleanNearbyFootprints(user, used, (used, component), absorberSoln.Value);
     }
 
     /// <summary>
@@ -357,6 +357,8 @@ public sealed partial class AbsorbentSystem : SharedAbsorbentSystem
         localPos = userXform.LocalRotation.RotateVec(localPos);
 
         _melee.DoLunge(user, used, Angle.Zero, localPos, null, false);
+
+        RaiseLocalEvent(target, new FootprintCleanEvent());
 
         return true;
     }

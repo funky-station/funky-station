@@ -57,7 +57,11 @@ public abstract partial class SharedStainableSystem : EntitySystem
             return;
         }
 
-        if (!Solution.EnsureSolution(ent.Owner, ent.Comp.SolutionId, out var solution, ent.Comp.MaxVolume))
+        var volume = ent.Comp.MaxVolume;
+        if (volume <= FixedPoint2.Zero)
+            volume = FixedPoint2.New(50);
+
+        if (!Solution.EnsureSolution(ent.Owner, ent.Comp.SolutionId, out var solution, volume))
             return;
 
         solution.CanReact = false;

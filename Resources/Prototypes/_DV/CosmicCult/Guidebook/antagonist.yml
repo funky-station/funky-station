@@ -10,6 +10,7 @@
   text: "/ServerInfo/_DV/Guidebook/Antagonist/CosmicCult.xml"
   children:
   - CosmicCultMonument
+  - CosmicCultMalignRifts
   - CosmicCultInfluences
   - CosmicCultDeconversion
   - CosmicColossus
@@ -18,6 +19,11 @@
   id: CosmicCultMonument
   name: guide-entry-cosmiccult-monument
   text: "/ServerInfo/_DV/Guidebook/Antagonist/CosmicCultMonument.xml"
+
+- type: guideEntry
+  id: CosmicCultMalignRifts
+  name: guide-entry-cosmiccult-rifts
+  text: "/ServerInfo/_DV/Guidebook/Antagonist/CosmicCultMalignRifts.xml"
 
 - type: guideEntry
   id: CosmicCultInfluences

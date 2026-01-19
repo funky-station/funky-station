@@ -493,7 +493,9 @@ public sealed partial class ThavenMoodsSystem : SharedThavenMoodSystem
         if (!ent.Comp.IonStormable)
             return;
 
-
+        // mindshield protect chance
+        if (HasComp<MindShieldComponent>(ent.Owner) && _random.Prob(ent.Comp.IonStormMindshieldProtectChance))
+            return;
 
         // remove mood
         if (_random.Prob(ent.Comp.IonStormRemoveChance) && ent.Comp.Moods.Count > 1)
@@ -504,7 +506,7 @@ public sealed partial class ThavenMoodsSystem : SharedThavenMoodSystem
         }
 
         // add mood
-        else if (_random.Prob(ent.Comp.IonStormAddChance) && ent.Comp.Moods.Count <= ent.Comp.MaxIonMoods)
+        else if (_random.Prob(ent.Comp.IonStormAddChance) && ent.Comp.Moods.Count < ent.Comp.MaxIonMoods)
         {
             if (_random.Prob(ent.Comp.IonStormWildcardChance))
                 AddWildcardMood(ent);

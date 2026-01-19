@@ -24,6 +24,42 @@ public sealed partial class ThavenMoodsBoundComponent : Component
     [DataField, ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
     public bool CanBeEmagged = true;
 
+    /// <summary>
+    /// Whether to allow ion storms to add a random mood.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public bool IonStormable = true;
+
+    /// <summary>
+    /// The probability that an ion storm will remove a mood.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public float IonStormRemoveChance = 0.25f;
+
+    /// <summary>
+    /// The probability that an ion storm will add a mood.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public float IonStormAddChance = 0.25f;
+
+    /// <summary>
+    /// The probability that an ion storm will pull a mood from the wildcard dataset.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public float IonStormWildcardChance = 0.2f;
+
+    /// <summary>
+    /// The probability that a mindshield will negate an ion storm.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public float IonStormMindshieldProtectChance = 0.5f;
+
+    /// <summary>
+    /// The maximum number of moods that en entity can be given by ion storms.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public int MaxIonMoods = 4;
+
     [DataField, ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
     public SoundSpecifier? MoodsChangedSound = new SoundPathSpecifier("/Audio/_Impstation/Thaven/moods_changed.ogg");
 

@@ -57,6 +57,15 @@
     iconVisuals:
     - sprite: _Gabystation/Effects/blood.rsi
       state: outerclothing
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 30
+        reagents:
+        - ReagentId: Fiber
+          Quantity: 30
+      stain:
+        maxVol: 5
   - type: StainBlocker
     slots: [INNERCLOTHING]
 

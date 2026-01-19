@@ -20,7 +20,7 @@ public sealed partial class StainableComponent : Component
     public string SolutionId = "stain";
 
     [DataField]
-    public FixedPoint2 MaxVolume = 10f;
+    public FixedPoint2 MaxVolume = FixedPoint2.New(5);
 
     [DataField]
     public FixedPoint2 StainVolume = 0.5f;

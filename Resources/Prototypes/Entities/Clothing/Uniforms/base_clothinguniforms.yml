@@ -50,20 +50,10 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        temperature: 293.15
-        canReact: True
-        maxVol: 10
-        name: null
+        maxVol: 30
         reagents:
-        - data: [ ]
-          ReagentId: Fiber
+        - ReagentId: Fiber
           Quantity: 30
-      stain:
-        temperature: 293.15
-        canReact: False
-        maxVol: 5
-        name: stain
-        reagents: [ ]
   - type: TemperatureProtection
     heatingCoefficient: 1
     coolingCoefficient: 0.9

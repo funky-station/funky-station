@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2026 Komoni <131829655+Komonighub@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 name: "Approval"
 
 on: 

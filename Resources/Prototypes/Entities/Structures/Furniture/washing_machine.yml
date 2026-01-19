@@ -62,10 +62,12 @@
       machine_board: !type:Container
       machine_parts: !type:Container
       entity_storage: !type:Container
+      hidden_slot: !type:ContainerSlot
   - type: Construction
     graph: Machine
     node: machine
     containers:
     - machine_parts
     - machine_board
+    - entity_storage
   - type: PlaceableSurface

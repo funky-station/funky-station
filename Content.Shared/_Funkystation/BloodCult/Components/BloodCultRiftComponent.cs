@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2025 Terkala <appleorange64@gmail.com>
+// SPDX-FileCopyrightText: 2026 Terkala <appleorange64@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later OR MIT
 
@@ -151,10 +151,10 @@ public sealed partial class BloodCultRiftComponent : Component
 	public int ChantsCompletedInCycle = 0;
 
 	/// <summary>
-	/// Music played during the final ritual. TODO: Replace with a better Blood Cult track.
+	/// Music played during the final ritual.
 	/// </summary>
 	[DataField]
-	public SoundSpecifier RitualMusic = new SoundCollectionSpecifier("NukeMusic");
+	public SoundSpecifier RitualMusic = new SoundCollectionSpecifier("BloodCultRitualMusic");
 
 	/// <summary>
 	/// Tracks whether the ritual music is currently active.
@@ -168,5 +168,36 @@ public sealed partial class BloodCultRiftComponent : Component
 	/// </summary>
 	[DataField]
 	public int RequiredCultistsForChant = 3;
+
+	/// <summary>
+	/// Time when the ritual started, used to calculate elapsed time for music-synced sacrifices.
+	/// </summary>
+	[DataField]
+	public TimeSpan RitualStartTime = TimeSpan.Zero;
+
+	/// <summary>
+	/// Time until the next "Nar'Sie" chant from non-sacrifice cultists (every 3 seconds).
+	/// </summary>
+	[DataField]
+	public float TimeUntilNextNarsieChant = 0f;
+
+	/// <summary>
+	/// Time until the next shake effect, used to sync longer phrase chanting.
+	/// </summary>
+	[DataField]
+	public float TimeUntilNextShakeForChant = 0f;
+
+	/// <summary>
+	/// Duration of the ritual music in seconds, calculated when ritual starts.
+	/// </summary>
+	[DataField]
+	public float RitualMusicDuration = 0f;
+
+	/// <summary>
+	/// Time when the last sacrifice was performed.
+	/// Used to enforce a minimum 5-second cooldown between sacrifices.
+	/// </summary>
+	[DataField]
+	public TimeSpan TimeSinceLastSacrifice = TimeSpan.Zero;
 }
 

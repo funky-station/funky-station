@@ -7,12 +7,14 @@
 # SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Mora <46364955+TrixxedHeart@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Teasq <Xerithin@gmail.com>
 # SPDX-FileCopyrightText: 2025 TrixxedHeart <46364955+TrixxedBit@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 W.xyz() <tptechteam@gmail.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 w.xyz() <84605679+pirakaplant@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2026 Tea <Xerithin@gmail.com>
+# SPDX-FileCopyrightText: 2026 Teasq <Xerithin@gmail.com>
+# SPDX-FileCopyrightText: 2026 ThatOneMoon <91613003+ThatOneMoon@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2026 ThatOneMoon <juozas.dringelis@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -217,6 +219,19 @@
     proto: SeniorOfficer
   equipment:
     id: SeniorOfficerPDA
+
+# Service Weapon
+- type: loadout
+  id: SecurityOfficerEnergyGun
+  storage:
+    back:
+    - WeaponEnergyGunEnergyPistol
+    
+- type: loadout
+  id: SecurityOfficerPistol
+  storage:
+    back:
+    - WeaponPistolMk58
 
 # Misc
 - type: loadout

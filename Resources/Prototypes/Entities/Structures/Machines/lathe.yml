@@ -178,7 +178,6 @@
 # SPDX-FileCopyrightText: 2025 Steve <marlumpy@gmail.com>
 # SPDX-FileCopyrightText: 2025 Tadeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
-# SPDX-FileCopyrightText: 2025 ThatOneMoon <91613003+ThatOneMoon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
 # SPDX-FileCopyrightText: 2025 TheSecondLord <88201625+TheSecondLord@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Toaster <mrtoastymyroasty@gmail.com>
@@ -205,7 +204,10 @@
 # SPDX-FileCopyrightText: 2025 vectorassembly <vectorassembly@icloud.com>
 # SPDX-FileCopyrightText: 2025 willow <willowzeta632146@proton.me>
 # SPDX-FileCopyrightText: 2025 wilowzeta <willowzeta632146@proton.me>
+# SPDX-FileCopyrightText: 2026 AftrLite <61218133+AftrLite@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2026 Tea <Xerithin@gmail.com>
+# SPDX-FileCopyrightText: 2026 Teasq <Xerithin@gmail.com>
+# SPDX-FileCopyrightText: 2026 ThatOneMoon <91613003+ThatOneMoon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2026 Xcybitt <197952719+Xcybitt@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
@@ -773,6 +775,8 @@
     - MagazinePistolLargeIncendiary # Funkystation
     - MagazineBoxPistolLargeUranium # Funkystation
     - MagazineBoxPistolLargeIncendiary # Funkystation
+    - WeaponEnergyGunEnergyPistol # Funkystation
+    - WeaponTeslaGun # Funkystation 
     - MindShieldImplanter
     - TrackingImplanter
     - ClothingHandsTruncheonKnuckleDusters # funk
@@ -908,6 +912,7 @@
     - AnomalyVesselExperimentalCircuitboard
     - AnomalySynchronizerCircuitboard
     - APECircuitboard
+    - OublietteCircuitBoard # Funky
     - ArtifactAnalyzerMachineCircuitboard
     - ArtifactCrusherMachineCircuitboard
     - TelecomServerCircuitboard
@@ -1262,6 +1267,8 @@
     - MagazinePistolLargeIncendiary # Funkystation
     - MagazineBoxPistolLargeUranium # Funkystation
     - MagazineBoxPistolLargeIncendiary # Funkystation
+    - WeaponEnergyGunEnergyPistol # Funkystation
+    - WeaponTeslaGun # Funkystation 
     - PortableRecharger
     - PowerCageHigh
     - PowerCageMedium

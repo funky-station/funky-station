@@ -54,6 +54,8 @@
         reagents:
         - ReagentId: Fiber
           Quantity: 30
+      stain:
+        maxVol: 5
   - type: TemperatureProtection
     heatingCoefficient: 1
     coolingCoefficient: 0.9

@@ -50,18 +50,7 @@ public abstract partial class SharedStainableSystem : EntitySystem
 
     private void OnMapInit(Entity<StainableComponent> ent, ref MapInitEvent args)
     {
-        if (Solution.TryGetSolution(ent.Owner, ent.Comp.SolutionId, out _, out var existingSolution))
-        {
-            existingSolution.CanReact = false;
-            UpdateVisuals(ent);
-            return;
-        }
-
-        var volume = ent.Comp.MaxVolume;
-        if (volume <= FixedPoint2.Zero)
-            volume = FixedPoint2.New(50);
-
-        if (!Solution.EnsureSolution(ent.Owner, ent.Comp.SolutionId, out var solution, volume))
+        if (!Solution.EnsureSolution(ent.Owner, ent.Comp.SolutionId, out var solution, ent.Comp.MaxVolume))
             return;
 
         solution.CanReact = false;

@@ -68,6 +68,8 @@
         reagents:
         - ReagentId: Fiber
           Quantity: 10
+      stain:
+        maxVol: 5
   - type: ContainerContainer
     containers:
       hidden_slot: !type:ContainerSlot

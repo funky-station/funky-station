@@ -51,14 +51,12 @@ public abstract partial class SharedStainableSystem : EntitySystem
     private void OnMapInit(Entity<StainableComponent> ent, ref MapInitEvent args)
     {
         if (string.IsNullOrEmpty(ent.Comp.SolutionId))
-        {
-            return;
-        }
-
-        if (!Solution.EnsureSolution(ent.Owner, ent.Comp.SolutionId, out var solution, ent.Comp.MaxVolume))
             return;
 
-        solution.CanReact = false;
+        if (!Solution.TryGetSolution(ent.Owner, ent.Comp.SolutionId, out var solution))
+            return;
+
+        solution.Value.Comp.Solution.CanReact = false;
         UpdateVisuals(ent);
     }
 

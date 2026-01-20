@@ -924,8 +924,9 @@
     - ThermomachineAdvancedFreezerMachineCircuitBoard # Assmos
     - MusicTechFabCircuitboard # Funky Station
     - ElectrolyzerMachineCircuitboard # Assmos - /tg/ gases
-    - NuclearFabricatorMachineCircuitboard
-    - NuclearCentrifugeMachineCircuitboard
+    - NuclearFabricatorMachineCircuitboard #FH
+    - NuclearCentrifugeMachineCircuitboard #FH
+    - NuclearReactorMonitorComputerCircuitboard #FH
 
   - type: EmagLatheRecipes
     emagDynamicRecipes:

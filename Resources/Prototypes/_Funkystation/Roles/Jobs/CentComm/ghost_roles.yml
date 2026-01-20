@@ -26,10 +26,10 @@
   joinNotifyCrew: false
   supervisors: job-supervisors-central-commanders
   canBeAntag: false
+  accessGroups:
+  - AllAccess
   access:
   - CentralCommand
-  - Maintenance
-  - Lawyer
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]

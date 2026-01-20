@@ -1,0 +1,17 @@
+- type: trait
+  id: UnionLeader
+  name: trait-union-leader-name
+  description: trait-union-leader-desc
+  category: Leadership
+  cost: 1 
+  components:
+  - type: UnionLeader
+    
+- type: trait
+  id: UnionMember
+  name: trait-union-member-name
+  description: trait-union-member-desc
+  category: Leadership
+  cost: 1
+  components:
+  - type: UnionMember

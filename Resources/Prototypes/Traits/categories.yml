@@ -29,3 +29,8 @@
   id: Vision
   name: trait-category-vision-tolerance
   maxTraitPoints: 1
+  
+- type: traitCategory # Funky Station
+  id: Leadership
+  name: trait-category-leadership
+  maxTraitPoints: 2

@@ -91,6 +91,7 @@
   loadouts:
   - CommandLighter
   - CentralCommandLighter
+  - CentComPersonalAI
 
 # BSO
 - type: loadoutGroup

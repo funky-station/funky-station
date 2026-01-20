@@ -513,3 +513,15 @@
   storage:
     back:
     - PlushieLizardJobRoboticist
+
+- type: loadout
+  id: CentComPersonalAI
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:DepartmentTimeRequirement
+      department: CentralCommand
+      time: 180000 #50 hrs      
+  storage:
+    back:
+    - CentcommPersonalAI

@@ -12,3 +12,40 @@
     checkConsciousness: false
     icon: Interface/Actions/pda.png
     event: !type:PAIOpenPdaActionEvent
+
+- type: entity
+  parent: [ PersonalAI, BaseCentcommContraband]
+  id: CentcommPersonalAI
+  name: central command personal ai device
+  description: Your CC pal who's fun to be with!
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Fun/ccpai.rsi
+    layers:
+    - state: icon-off
+    - state: off-overlay
+      shader: unshaded
+      map: ["screen"]
+  - type: ToggleableGhostRole
+    roleName: pai-system-role-name-cc
+    roleDescription: pai-system-role-description-cc
+    roleRules: ghost-role-information-familiar-rules
+    mindRoles:
+    - MindRoleGhostRoleFamiliar
+  - type: IntrinsicRadioTransmitter
+    intrinsicChannels:
+    - CentCom
+  - type: ActiveRadio
+    intrinsicChannels:
+    - CentCom
+    - Common
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.ToggleableGhostRoleVisuals.Status:
+        screen:
+          Off: { state: off-overlay }
+          Searching: { state: searching-overlay }
+          On: { state: on-overlay }
+  - type: StationAiVision # Goobstation - AI can see through NT silicon
+    enabled: false

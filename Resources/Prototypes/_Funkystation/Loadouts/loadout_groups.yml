@@ -80,6 +80,7 @@
   loadouts:
   - CommandLighter
   - CentralCommandLighter
+  - CentComPersonalAI
 
 - type: loadoutGroup
   id: ChaplainBible
@@ -169,6 +170,7 @@
   loadouts:
   - CommandLighter
   - CentralCommandLighter
+  - CentComPersonalAI
 
 - type: loadoutGroup
   id: ScienceRoboticistGlasses

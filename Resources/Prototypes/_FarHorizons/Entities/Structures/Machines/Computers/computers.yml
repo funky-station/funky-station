@@ -36,8 +36,3 @@
       - NuclearReactorDataReceiver
   - type: Computer
     board: NuclearReactorMonitorComputerCircuitboard
-  - type: ContainerContainer
-    containers:
-      board: !type:Container
-      machine_board: !type:Container
-      machine_parts: !type:Container

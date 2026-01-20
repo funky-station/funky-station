@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 jhrushbe <capnmerry@gmail.com>
+//
+// SPDX-License-Identifier: CC-BY-NC-SA-3.0
+
 using Content.Shared.DeviceLinking;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;

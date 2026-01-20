@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 jhrushbe <capnmerry@gmail.com>
+//
+// SPDX-License-Identifier: CC-BY-NC-SA-3.0
+
 using System.Diagnostics.CodeAnalysis;
 using Content.Server.Administration.Logs;
 using Content.Shared._FarHorizons.Power.Generation.FissionGenerator;

@@ -843,7 +843,7 @@ public sealed class GhostRoleSystem : EntitySystem
             }
             else
             {
-                // Fallback:  create random character
+                // Fallback: create random character
                 profile = HumanoidCharacterProfile.Random();
                 Log.Debug($"No profile with job enabled, using selected character or random for {component.Job.Value.Id}");
             }

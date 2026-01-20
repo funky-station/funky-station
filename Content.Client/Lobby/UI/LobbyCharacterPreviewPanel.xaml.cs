@@ -108,6 +108,8 @@ public sealed partial class LobbyCharacterPreviewPanel : Control
         {
             if (!job.SetPreference)
                 continue;
+            if (!job.VisibleInLobby)
+                continue;
             if (!_requirements.IsAllowed(job, null, out _))
                 continue;
 

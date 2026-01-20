@@ -89,12 +89,24 @@ public sealed partial class JobPriorityEditor : BoxContainer
         JobList.DisposeAllChildren();
         _jobCategories.Clear();
         _jobPriorities.Clear();
+
+        // Filter out jobs that are not visible in lobby
+        var visibleJobIds = _prototypeManager.EnumeratePrototypes<JobPrototype>()
+            .Where(job => job.VisibleInLobby)
+            .Select(job => job.ID)
+            .ToHashSet();
+
+        SelectedJobPriorities = SelectedJobPriorities
+            .Where(kvp => visibleJobIds.Contains(kvp.Key))
+            .ToDictionary(kvp => kvp.Key, kvp => kvp.Value);
+
         var firstCategory = true;
 
         // Get all displayed departments
         var departments = _prototypeManager.EnumeratePrototypes<DepartmentPrototype>()
             .Where(dep => !dep.EditorHidden)
             .ToList();
+
 
         departments.Sort(DepartmentUIComparer.Instance);
 
@@ -151,7 +163,7 @@ public sealed partial class JobPriorityEditor : BoxContainer
             }
 
             var jobs = department.Roles.Select(jobId => _prototypeManager.Index(jobId))
-                .Where(job => job is { SetPreference: true, VisibleInLobby: true })
+                .Where(job => job.SetPreference && job.VisibleInLobby)
                 .ToList();
 
             jobs.Sort(JobUIComparer.Instance);

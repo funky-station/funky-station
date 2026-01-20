@@ -43,10 +43,10 @@
     heatDamageThreshold: 325
     coldDamageThreshold: 285
     currentTemperature: 310.15
-    specificHeat: 46
+    specificHeat: 36
     coldDamage:
       types:
-        Cold: 0.5 #per second, scales with temperature & other constants
+        Cold: 0.75 #per second, scales with temperature & other constants
   # Funkystation - same as lizard for now, could probably work on a rebalance
   - type: TemperatureSpeed
     thresholds:
@@ -56,7 +56,7 @@
   # Funkystation - cars get thirsty!
   # TODO make it so felinids are only able to drink from sinks since cars irl do not drink still water
   - type: Thirst
-    baseDecayRate: 0.12
+    baseDecayRate: 0.15
   # Goobstation - Siouxcide, felinids have standard slow on damage numbers
 # - type: SlowOnDamage
 #   speedModifierThresholds:
@@ -69,7 +69,7 @@
     damage:
       types:
         Slash: 4
-        Piercing: 1
+        Piercing: 0.5
 #  - type: DiseaseCarrier
 #    naturalImmunities:
 #    - OwOnavirus

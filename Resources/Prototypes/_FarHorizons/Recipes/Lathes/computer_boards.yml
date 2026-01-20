@@ -1,4 +1,4 @@
 - type: latheRecipe
-  parent: [ BaseCircuitboardRecipe, BaseEngineeringComputerRecipeCategory ]
+  parent: [ BaseCircuitboardRecipe ]
   id: NuclearReactorMonitorComputerCircuitboard
   result: NuclearReactorMonitorComputerCircuitboard

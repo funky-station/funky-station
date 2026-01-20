@@ -107,7 +107,6 @@ public sealed class GhostRoleSystem : EntitySystem
     [Dependency] private readonly IServerPreferencesManager _prefsManager = default!;
     [Dependency] private readonly StationSpawningSystem _stationSpawning = default!;
     [Dependency] private readonly StationSystem _stationSystem = default!;
-    [Dependency] private readonly IServerPreferencesManager _preferences = default!;
 
     private uint _nextRoleIdentifier;
     private bool _needsUpdateGhostRoleCount = true;
@@ -835,7 +834,7 @@ public sealed class GhostRoleSystem : EntitySystem
         if (component.Job != null)
         {
             // Try to get a profile that has the job enabled from player preferences
-            var prefs = _preferences.GetPreferences(args.Player.UserId);
+            var prefs = _prefsManager.GetPreferences(args.Player.UserId);
             var selectedProfile = prefs.SelectProfileForJob(component.Job.Value.Id);
 
             if (selectedProfile != null)

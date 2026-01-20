@@ -12,7 +12,8 @@
   name: Central Command Intern
   description: ghost-role-information-centcom-intern-description
   playTimeTracker: JobCentralCommandIntern
-  setPreference: false
+  setPreference: true
+  visibleInLobby: false
   requirements:
   - !type:OverallPlaytimeRequirement
     time: 360000 #100 hrs

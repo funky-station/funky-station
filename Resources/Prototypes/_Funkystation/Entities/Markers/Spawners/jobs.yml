@@ -64,7 +64,6 @@
     layers:
       - state: centcom
       - state: green
-  - type: CentralCommandIntern
 
 - type: entity
   id: SpawnPointGhostERTSecurity

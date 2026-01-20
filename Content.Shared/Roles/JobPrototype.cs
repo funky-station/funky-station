@@ -109,6 +109,9 @@ namespace Content.Shared.Roles
         [DataField("setPreference")]
         public bool SetPreference { get; private set; } = true;
 
+        [DataField("visibleInLobby")]
+        public bool VisibleInLobby { get; private set; } = true;
+
         /// <summary>
         ///     Should the selected traits be applied for this job?
         /// </summary>

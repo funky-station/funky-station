@@ -96,18 +96,6 @@
   editorHidden: true
   weight: 120
 
-# Funky - centcom ghostjobs
-- type: department
-  id: CentralCommandGhost
-  name: department-CentralCommand
-  description: department-CentralCommand-description
-  color: "#0c344d"
-  roles:
-  - CentralCommandIntern
-  editorHidden: True
-  weight: -100
-# end funky
-
 - type: department
   id: CentralCommand
   name: department-CentralCommand
@@ -214,6 +202,6 @@
   color: "#D381C9"
   roles:
   - SpaceCowboy
-  editorHidden: True
+  - CentralCommandIntern
   weight: -100
 #End Funky

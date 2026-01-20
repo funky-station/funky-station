@@ -151,7 +151,7 @@ public sealed partial class JobPriorityEditor : BoxContainer
             }
 
             var jobs = department.Roles.Select(jobId => _prototypeManager.Index(jobId))
-                .Where(job => job.SetPreference)
+                .Where(job => job is { SetPreference: true, VisibleInLobby: true })
                 .ToList();
 
             jobs.Sort(JobUIComparer.Instance);

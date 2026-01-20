@@ -103,6 +103,7 @@ public sealed class GhostRoleSystem : EntitySystem
     [Dependency] private readonly IServerPreferencesManager _prefsManager = default!;
     [Dependency] private readonly StationSpawningSystem _stationSpawning = default!;
     [Dependency] private readonly StationSystem _stationSystem = default!;
+    [Dependency] private readonly IServerPreferencesManager _preferences = default!;
 
     private uint _nextRoleIdentifier;
     private bool _needsUpdateGhostRoleCount = true;
@@ -823,12 +824,39 @@ public sealed class GhostRoleSystem : EntitySystem
         var spawnLoc = xform.Coordinates;
         var station = _stationSystem.GetOwningStation(uid, xform);
 
-        // its possible to do loadouts for this, but not worth the effort rn
-        // spawn the role
+        // Funky - centcomm ghostjobs
+
+        HumanoidCharacterProfile profile;
+
+        if (component.Job != null)
+        {
+            // Try to get a profile that has the job enabled from player preferences
+            var prefs = _preferences.GetPreferences(args.Player.UserId);
+            var selectedProfile = prefs.SelectProfileForJob(component.Job. Value.Id);
+
+            if (selectedProfile != null)
+            {
+                profile = selectedProfile;
+                Log.Debug($"Selected character profile '{profile.Name}' for ghost job {component.Job.Value.Id}");
+            }
+            else
+            {
+                // Fallback:  create random character
+                profile = HumanoidCharacterProfile.Random();
+                Log.Debug($"No profile with job enabled, using selected character or random for {component.Job.Value.Id}");
+            }
+        }
+        else
+        {
+            // No job specified, create random character
+            profile = HumanoidCharacterProfile.Random();
+        }
+
+        // spawn the role with the chosen profile
         var newCharacter = _stationSpawning.SpawnPlayerMob(
             spawnLoc,
             component.Job,
-            HumanoidCharacterProfile.Random(),
+            profile,
             station);
 
         // create a new ghostRoleComponent in the entity that we just spawned - this way if they ghost, it can be taken again instead of spawning a new one.

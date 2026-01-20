@@ -7474,3 +7474,9 @@ Entries:
         Vacuous Chantry has had its description corrected.
   id: 868
   time: '2026-01-18T06:43:46.0000000+00:00'
+- author: Delta
+  changes:
+    - type: Remove
+      message: Central Command Intern as a ghostrole at the start of the round
+  id: 869
+  time: '2026-01-20T23:37:19.0000000+00:00'

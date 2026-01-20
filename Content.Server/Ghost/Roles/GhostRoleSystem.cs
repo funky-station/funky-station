@@ -834,7 +834,7 @@ public sealed class GhostRoleSystem : EntitySystem
         {
             // Try to get a profile that has the job enabled from player preferences
             var prefs = _preferences.GetPreferences(args.Player.UserId);
-            var selectedProfile = prefs.SelectProfileForJob(component.Job. Value.Id);
+            var selectedProfile = prefs.SelectProfileForJob(component.Job.Value.Id);
 
             if (selectedProfile != null)
             {

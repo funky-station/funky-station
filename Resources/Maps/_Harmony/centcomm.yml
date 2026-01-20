@@ -37317,18 +37317,6 @@ entities:
     - type: Transform
       pos: 41.5,81.5
       parent: 1
-#- proto: SpawnPointGhostCentCommIntern # Funky - Commented out to temporarily remove CentCommIntern roundstart
-#  entities:
-#  - uid: 6700
-#    components:
-#    - type: Transform
-#      pos: 35.5,56.5
-#      parent: 1
-#  - uid: 6701
-#    components:
-#    - type: Transform
-#      pos: 78.5,48.5
-#      parent: 1
 - proto: SpoonPlastic
   entities:
   - uid: 2659

@@ -824,7 +824,7 @@ public sealed class GhostRoleSystem : EntitySystem
         var spawnLoc = xform.Coordinates;
         var station = _stationSystem.GetOwningStation(uid, xform);
 
-        // Funky - centcomm ghostjobs
+        // Funky - ghostjobs
 
         HumanoidCharacterProfile profile;
 

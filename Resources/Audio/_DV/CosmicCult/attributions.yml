@@ -16,11 +16,13 @@
 - files:
   - a_new_dawn.ogg
   - premonition.ogg
+  - finale.ogg
   license: "CC-BY-SA-3.0"
   copyright: "Custom music composed by Nahu Pyrope for Cosmic Cult."
   source: "https://linktr.ee/nahupyrope"
 
 - files:
+  - oubliette-loop.ogg
   - projectile_razor_hit.ogg
   - projectile_razor_reload.ogg
   - projectile_razor.ogg

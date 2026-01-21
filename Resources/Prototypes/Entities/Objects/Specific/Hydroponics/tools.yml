@@ -148,6 +148,11 @@
     sprite: Objects/Tools/Hydroponics/spade.rsi
   - type: Shovel
     speedModifier: 0.75 # slower at digging than a full-sized shovel
+  - type: Tool
+    qualities:
+    - Digging
+    useSound:
+      path: /Audio/Items/shovel_dig.ogg
 
 - type: entity
   name: plant bag

@@ -129,6 +129,11 @@
         Blunt: 1
   - type: Shovel
     speedModifier: 0.1 # you can try
+  - type: Tool
+    qualities:
+    - Digging
+    useSound:
+      path: /Audio/Items/shovel_dig.ogg
   - type: ReactionMixer
     mixMessage: "spoon-mixing-success"
     timeToMix: 0.5
@@ -150,6 +155,11 @@
     - Spoon
   - type: Shovel
     speedModifier: 0.1 # you can try
+  - type: Tool
+    qualities:
+    - Digging
+    useSound:
+      path: /Audio/Items/shovel_dig.ogg
   - type: ReactionMixer
     mixMessage: "spoon-mixing-success"
     timeToMix: 0.5
@@ -203,3 +213,8 @@
         Blunt: 2
   - type: Shovel
     speedModifier: 0.05 # nah
+  - type: Tool
+    qualities:
+    - Digging
+    useSound:
+      path: /Audio/Items/shovel_dig.ogg

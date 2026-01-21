@@ -287,7 +287,7 @@
   - type: Sprite
     sprite: Structures/Storage/Crates/privatecrate_secure.rsi
   - type: AccessReader
-    access: [["Cargo"]] # Funky station, Cargo itself dosent have its own secure crate. 
+    access: [["Cargo"]] # Funky station, Cargo itself dosent have its own secure crate.
 
 - type: entity
   parent: CrateBaseSecure
@@ -761,7 +761,7 @@
 - type: entity
   parent: CrateGeneric
   id: CrateWoodenGrave
-  name: grave
+  name: wood marked grave
   suffix: wooden
   description: Someone died here...
   components:
@@ -809,7 +809,7 @@
 - type: entity
   parent: CrateWoodenGrave
   id: CrateStoneGrave
-  name: grave
+  name: stone marked grave
   suffix: stone
   description: Someone died here...
   components:
@@ -826,6 +826,43 @@
   - type: Icon
     sprite: Structures/Storage/Crates/stone_grave.rsi
     state: base
+
+- type: entity
+  parent: CrateWoodenGrave
+  id: CrateSteelGrave
+  name: steel marked grave
+  suffix: steel
+  description: Someone died here...
+  components:
+  - type: Sprite
+    sprite: Structures/Storage/Crates/stone_grave.rsi
+    layers:
+    - state: base
+    - state: closed
+      map: ["enum.StorageVisualLayers.Door"]
+    - state: paper
+      sprite: Structures/Storage/Crates/labels.rsi
+      offset: "-0.3125,0.5625"
+      map: ["enum.PaperLabelVisuals.Layer"]
+  - type: Icon
+    sprite: Structures/Storage/Crates/stone_grave.rsi
+    state: base
+#  - type: Destructible   #this crashes the fucking game, sob, so yes, you can transmog steel into wood REALLY SLOWLY
+#    thresholds:
+#    - trigger:
+#        !type:DamageTrigger
+#        damage: 200 # discourage just beating the grave to break it open
+#      behaviors:
+#      - !type:PlaySoundBehavior
+#        sound:
+#          collection: WoodDestroy
+#      - !type:SpawnEntitiesBehavior
+#        spawn:
+#          MaterialSheetSteel1:
+#            min: 1
+#            max: 4
+#      - !type:DoActsBehavior
+#        acts: [ "Destruction" ]
 
 - type: entity
   parent: CrateGenericSteel

@@ -85,6 +85,7 @@
     Urn: 5
     SpectralLocator: 1 # goobstation
     Bible: 1
+    Shovel: 1
   contrabandInventory:
     FoodBakedBunHotX: 2
     DrinkWineBottleFull: 1

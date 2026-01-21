@@ -845,6 +845,12 @@
   - type: StaticPrice
     price: 25
   - type: Shovel
+  - type: Tool
+    qualities:
+    - Digging
+    useSound:
+      path: /Audio/Items/shovel_dig.ogg
+
 
 - type: entity
   parent: BaseItem

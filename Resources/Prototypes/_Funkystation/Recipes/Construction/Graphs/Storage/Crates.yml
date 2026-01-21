@@ -186,4 +186,63 @@
               prototype: CableApcStack1
               amount: 2
             - !type:EmptyAllContainers
-            - !type:DeleteEntity           
+            - !type:DeleteEntity
+
+- type: constructionGraph
+  id: CrateWoodenGrave
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: grave
+          steps:
+            - material: WoodPlank
+              amount: 5
+              doAfter: 30
+
+    - node: grave #SOB YOU CAN'T DECON THESE
+      entity: CrateWoodenGrave
+      edges:
+        - to: start
+          steps:
+            - tool: Screwing
+              doAfter: 30
+          conditions:
+            - !type:StorageWelded
+              welded: false
+          completed:
+            - !type:SpawnPrototype
+              prototype: WoodPlank
+              amount: 5
+            - !type:EmptyAllContainers
+            - !type:DeleteEntity
+
+- type: constructionGraph
+  id: CrateSteelGrave
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: grave
+          steps:
+            - material: Steel
+              amount: 5
+              doAfter: 30
+
+
+    - node: grave #Go beat these up dummy
+      entity: CrateSteelGrave
+      edges:
+        - to: start
+          steps:
+            - tool: Screwing
+              doAfter: 30
+          conditions:
+            - !type:StorageWelded
+              welded: false
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetSteel1
+              amount: 5
+            - !type:EmptyAllContainers
+            - !type:DeleteEntity

@@ -214,7 +214,7 @@
               welded: false
           completed:
             - !type:SpawnPrototype
-              prototype: WoodPlank
+              prototype: MaterialWoodPlank1
               amount: 5
             - !type:EmptyAllContainers
             - !type:DeleteEntity

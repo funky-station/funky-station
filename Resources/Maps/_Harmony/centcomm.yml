@@ -1,16 +1,16 @@
 meta:
   format: 7
-  category: Map
+  category: Grid
   engineVersion: 268.0.0
   forkId: ""
   forkVersion: ""
-  time: 01/21/2026 21:17:24
-  entityCount: 7010
-maps:
-- 6507
+  time: 01/21/2026 22:07:32
+  entityCount: 7009
+maps: []
 grids:
 - 1
-orphans: []
+orphans:
+- 1
 nullspace: []
 tilemap:
   0: Space
@@ -49,7 +49,7 @@ entities:
     - type: MetaData
       name: Central Command
     - type: Transform
-      parent: 6507
+      parent: invalid
     - type: MapGrid
       chunks:
         0,2:
@@ -3520,16 +3520,6 @@ entities:
       id: centcomm
     - type: NavMap
     - type: ImplicitRoof
-  - uid: 6507
-    components:
-    - type: MetaData
-      name: Map Entity
-    - type: Transform
-    - type: Map
-      mapPaused: True
-    - type: GridTree
-    - type: Broadphase
-    - type: OccluderTree
 - proto: ActionStethoscope
   entities:
   - uid: 1447

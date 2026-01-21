@@ -1,9 +1,12 @@
-// SPDX-FileCopyrightText: 2025 TrixxedHeart <46364955+TrixxedBit@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Mora <46364955+TrixxedHeart@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2026 TrixxedHeart <46364955+TrixxedBit@users.noreply.github.com>
 //
 // SPDX-License-Identifier: MIT
 
 using Content.Shared.Popups;
 using Content.Shared.Traits.Assorted;
+using Content.Shared.Mindshield.Components;
+using Content.Shared.Mobs.Systems;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
 namespace Content.Server.Traits.Assorted;
@@ -15,12 +18,19 @@ public sealed class ChronicMigrainesSystem : EntitySystem
 {
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private readonly MobStateSystem _mobState = default!;
+
+    private EntityQuery<NeuroAversionComponent> _neuroAversionQuery;
+    private EntityQuery<MindShieldComponent> _mindShieldQuery;
 
     public override void Initialize()
     {
         base.Initialize();
         SubscribeLocalEvent<ChronicMigrainesComponent, ComponentStartup>(SetupChronicMigraines);
         SubscribeLocalEvent<ActorComponent, ComponentStartup>(OnActorStartup);
+
+        _neuroAversionQuery = GetEntityQuery<NeuroAversionComponent>();
+        _mindShieldQuery = GetEntityQuery<MindShieldComponent>();
     }
 
     private void OnActorStartup(EntityUid uid, ActorComponent component, ComponentStartup args)
@@ -46,6 +56,15 @@ public sealed class ChronicMigrainesSystem : EntitySystem
         var query = EntityQueryEnumerator<ChronicMigrainesComponent>();
         while (query.MoveNext(out var uid, out var migraines))
         {
+            // dead people cant have migraines
+            if (_mobState.IsDead(uid))
+                continue;
+
+            // Skip chronic migraines processing if entity has the NeuroAversion trait and is Mindshielded
+            // In this case, NeuroAversionSystem handles all migraine scheduling with trait interaction
+            if (_neuroAversionQuery.HasComponent(uid) && _mindShieldQuery.HasComponent(uid))
+                continue;
+
             migraines.NextMigraineTime -= frameTime;
 
             if (migraines.NextMigraineTime >= 0)

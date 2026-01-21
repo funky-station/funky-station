@@ -805,6 +805,8 @@
       path: /Audio/Items/shovel_dig.ogg
     openSound:
       path: /Audio/Items/shovel_dig.ogg
+  - type: Climbable
+    delay: 2.5
 
 - type: entity
   parent: CrateWoodenGrave

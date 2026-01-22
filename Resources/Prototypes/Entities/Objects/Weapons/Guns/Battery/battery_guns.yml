@@ -67,8 +67,6 @@
 # SPDX-FileCopyrightText: 2025 QueerCats <jansencheng3@gmail.com>
 # SPDX-FileCopyrightText: 2025 SigmaTheDragon <162711378+SigmaTheDragon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
-# SPDX-FileCopyrightText: 2025 ThatOneMoon <91613003+ThatOneMoon@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
 # SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 jackel234 <52829582+jackel234@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 kbarkevich <24629810+kbarkevich@users.noreply.github.com>
@@ -78,6 +76,8 @@
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2026 Xcybitt <197952719+Xcybitt@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2026 ThatOneMoon <91613003+ThatOneMoon@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2026 ThatOneMoon <juozas.dringelis@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -290,14 +290,18 @@
         map: ["enum.GunVisualLayers.MagUnshaded"]
         shader: unshaded
   - type: Gun
-    projectileSpeed: 10
+    projectileSpeed: 8
     soundGunshot:
       path: /Audio/Effects/Lightning/lightningshock.ogg
       params:
         variation: 0.2
+    fireRate: 0.5
+  - type: Battery
+    maxCharge: 3000
+    startingCharge: 3000
   - type: ProjectileBatteryAmmoProvider
     proto: TeslaGunBullet
-    fireCost: 300
+    fireCost: 1000
   - type: MagazineVisuals
     magState: mag
     steps: 5
@@ -308,10 +312,10 @@
       - SpecialWeapon
 
 - type: entity
-  name: practice laser rifle
+  name: practice laser bolt carbine
   parent: [BaseWeaponBattery, BaseGunWieldable]
   id: WeaponLaserCarbinePractice
-  description: This modified laser rifle fires nearly harmless beams in the 40-watt range, for target practice.
+  description: This modified carbine rifle fires nearly harmless bolts in the 40-watt range, for target practice.
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Battery/laser_gun.rsi
@@ -325,30 +329,41 @@
     magState: mag
     steps: 5
     zeroVisible: false
+  - type: Battery
+    maxCharge: 2000
+    startingCharge: 2000
+  - type: Item
+    size: Huge
+    shape:
+    - 0,0,3,1
   - type: Appearance
   - type: Clothing
     sprite: Objects/Weapons/Guns/Battery/laser_gun.rsi
   - type: Gun
+    fireRate: 2
     selectedMode: SemiAuto
+    shotsPerBurst: 3
+    burstFireRate: 2
     availableModes:
     - SemiAuto
-  - type: HitscanBatteryAmmoProvider
-    proto: RedLaserPractice
-    fireCost: 62.5
+    - Burst
+  - type: ProjectileBatteryAmmoProvider
+    proto: BulletPracticeEnergyGunLaser
+    fireCost: 100
   - type: StaticPrice
     price: 300
 
 - type: entity
-  name: laser rifle
+  name: laser bolt carbine
   parent: [WeaponLaserCarbinePractice, BaseGunWieldable, BaseSecurityContraband]
   id: WeaponLaserCarbine
   description: Favoured by Nanotrasen Security for being cheap and easy to use.
   components:
   - type: StaticPrice
     price: 420
-  - type: HitscanBatteryAmmoProvider
-    proto: RedLaser
-    fireCost: 62.5
+  - type: ProjectileBatteryAmmoProvider
+    proto: BulletEnergyGunLaser
+    fireCost: 100
   - type: Tag
     tags:
       - Rifle

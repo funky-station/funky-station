@@ -1,11 +1,15 @@
 // SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2026 AftrLite <61218133+AftrLite@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
+using Content.Server._DV.CosmicCult.EntitySystems;
 using Content.Server.RoundEnd;
 using Content.Shared._DV.CosmicCult.Components;
+using Robust.Shared.Audio;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
 namespace Content.Server._DV.CosmicCult.Components;
@@ -13,7 +17,7 @@ namespace Content.Server._DV.CosmicCult.Components;
 /// <summary>
 /// Component for the CosmicCultRuleSystem that should store gameplay info.
 /// </summary>
-[RegisterComponent, Access(typeof(CosmicCultRuleSystem))]
+[RegisterComponent, Access(typeof(CosmicCultRuleSystem), typeof(CosmicSpireSystem))]
 [AutoGenerateComponentPause]
 public sealed partial class CosmicCultRuleComponent : Component
 {
@@ -42,6 +46,23 @@ public sealed partial class CosmicCultRuleComponent : Component
     public LocId RoundEndTextAnnouncement = "cosmiccult-elimination-announcement";
 
     /// <summary>
+    /// List of entities non-cultists are turned into at the end of the round.
+    /// </summary>
+    [DataField]
+    public List<EntProtoId> CosmicMobs =
+    [
+        "MobCosmicCustodian",
+        "MobCosmicOracle",
+        "MobCosmicLodestar",
+    ];
+
+    /// <summary>
+    /// The entity cultists are turned into at the end of the round.
+    /// </summary>
+    [DataField]
+    public EntProtoId CosmicAscended = "MobCosmicAstralAscended";
+
+    /// <summary>
     /// Time for emergency shuttle arrival.
     /// </summary>
     [DataField]
@@ -50,8 +71,17 @@ public sealed partial class CosmicCultRuleComponent : Component
     [DataField]
     public HashSet<EntityUid> Cultists = [];
 
+    /// <summary>
+    /// When true, prevents the wincondition state of Cosmic Cult from being changed.
+    /// </summary>
     [DataField]
     public bool WinLocked;
+
+    /// <summary>
+    /// When true, Malign Rifts are unable to spawn.
+    /// </summary>
+    [DataField]
+    public bool RiftStop;
 
     [DataField]
     public WinType WinType = WinType.CrewMinor;
@@ -111,6 +141,10 @@ public sealed partial class CosmicCultRuleComponent : Component
 
     [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoPausedField]
     public TimeSpan? ExtraRiftTimer;
+
+    [DataField] public SoundSpecifier WarpSFX = new SoundPathSpecifier("/Audio/_DV/CosmicCult/ability_blank.ogg");
+
+    [DataField] public EntProtoId WarpVFX = "CosmicBlankAbilityVFX";
 }
 
 public enum WinType : byte

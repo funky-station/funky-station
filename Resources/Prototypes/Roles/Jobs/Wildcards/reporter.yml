@@ -39,6 +39,7 @@
   - ReporterInfluencer
   - ReporterDocumentarian
   - ReporterMediaCoordinator
+  - ReporterJournalist
 
 - type: startingGear
   id: ReporterGear
@@ -64,3 +65,7 @@
 - type: jobAlternateTitle
   id: ReporterMediaCoordinator
   name: job-name-alt-reporter-3
+
+- type: jobAlternateTitle
+  id: ReporterJournalist
+  name: job-name-alt-reporter-4

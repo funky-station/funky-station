@@ -1,7 +1,8 @@
-# SPDX-FileCopyrightText: 2025 Steve <marlumpy@gmail.com>
+# SPDX-FileCopyrightText: 2025 MaiaArai <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 marc-pelletier <113944176+marc-pelletier@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2026 Steve <marlumpy@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -11,10 +12,10 @@
   name: electrolyzer
   components:
   - type: Electrolyzer
+    onSound:
+      path: /Audio/Weapons/click.ogg
   - type: AtmosDevice
   - type: MeltImmune
-  - type: ApcPowerReceiver
-    powerDisabled: true
   - type: Sprite
     sprite: _Funkystation/Structures/Machines/electrolyzer.rsi
     noRot: true
@@ -31,3 +32,25 @@
   - type: Machine
     board: ElectrolyzerMachineCircuitboard
   - type: WiresPanel
+  - type: ItemSlots
+    slots:
+      fuel:
+        name: fuel slot
+        insertOnInteract: false
+        ejectOnInteract: false
+        whitelist:
+          tags:
+          - PlasmaSheet
+          - UraniumSheet
+        swap: false
+  - type: DeviceLinkSink
+    ports:
+      - On
+      - Off
+      - Toggle
+  - type: ContainerContainer
+    containers:
+      fuel: !type:ContainerSlot
+      machine_board: !type:Container
+      machine_parts: !type:Container
+      hidden_slot: !type:ContainerSlot

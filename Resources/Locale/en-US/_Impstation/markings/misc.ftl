@@ -86,9 +86,10 @@ marking-MothTrueButterfly-mothtruebutterfly3 = Wings
 marking-MothGlowAntenna = Antennae (Glowing)
 marking-MothGlowAntenna-mothglowantenna = Antennae (Glowing)
 marking-MothFireflyOverlay = Firefly Overlay
-marking-MothFireflyOverlay-mothfirefly1 = Firefly Overlay
+marking-MothFireflyOverlay-mothfirefly4 = Firefly Overlay
 marking-MothFirefly = Wings (Firefly)
-marking-MothFirefly-mothfirefly2 = Firefly Wings
+marking-MothFirefly-mothfirefly1 = Firefly Primary
+marking-MothFirefly-mothfirefly3 = Firefly Tertiary
 marking-MothBee = Wings (Bumblebee)
 # Frontier: stripes < Stripes
 marking-MothBee-bee1 = Outer Stripes
@@ -96,9 +97,9 @@ marking-MothBee-bee2 = Wings
 # Frontier: stripe < Stripe
 marking-MothBee-bee3 = Inner Stripe
 marking-MothBeetleTail = Beetle Wings (Junebug)
-marking-MothBeetleTail-beetle1 = Outline
-marking-MothBeetleTail-beetle2 = Wings
-marking-MothBeetleTail-beetle3 = Shine
+marking-MothBeetleTail-beetle1 = Wings
+marking-MothBeetleTail-beetle2 = Shell
+marking-MothBeetleTail-beetle3 = Top
 marking-MothBeetleHorn1 = Beetle Horn (Pronged)
 marking-MothBeetleHorn1-mothbeetlehorn1 = Beetle Horn (Pronged)
 marking-MothBeetleHorn2 = Beetle Horn (Lance)
@@ -106,16 +107,16 @@ marking-MothBeetleHorn2-mothbeetlehorn2 = Beetle Horn (Lance)
 marking-MothBiggerEyes = Bigger Eyes
 marking-MothBiggerEyes-mothbiggereyes = Bigger Eyes
 marking-MothSnoth = Wings (Snoth)
-marking-MothSnoth-snoth1 = Wings
-marking-MothSnoth-snoth2 = Shell
+marking-MothSnoth-snoth1 = Primary
+marking-MothSnoth-snoth2 = Secondary
+marking-MothSnoth-snoth3 = Tertiary
 marking-MothGlasswing = Wings (Glasswing)
 marking-MothGlasswing-glasswing1 = Outer
 marking-MothGlasswing-glasswing2 = Inner
 marking-MothGlasswing-glasswing3 = Stripe
 marking-MothRhinoBeetle = Beetle Wings (Rhino)
-marking-MothRhinoBeetle-rhinobeetle1 = Outline
-marking-MothRhinoBeetle-rhinobeetle2 = Shine
-marking-MothRhinoBeetle-rhinobeetle3 = Wings
+marking-MothRhinoBeetle-rhinobeetle1 = Primary
+marking-MothRhinoBeetle-rhinobeetle2 = Secondary
 
 # slimes
 marking-fizz = Fizz

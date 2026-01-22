@@ -44,6 +44,7 @@ namespace Content.Server.Stunnable
                 _stunSystem.TryStun(target, TimeSpan.FromSeconds(component.StunAmount), true, status);
                 _stunSystem.TryKnockdown(target, TimeSpan.FromSeconds(component.KnockdownAmount), true, status);
 
+                // _Funkystation Start: Apply slowdown only if it doesn't exceed the cap
                 if (component.SlowdownCap.HasValue)
                 {
                     var slowed = CompOrNull<Content.Shared.Stunnable.SlowedDownComponent>(target);
@@ -56,6 +57,7 @@ namespace Content.Server.Stunnable
                             return;
                     }
                 }
+                // _Funkystation End
                 _stunSystem.TrySlowdown(target, TimeSpan.FromSeconds(component.SlowdownAmount), true,
                     component.WalkSpeedMultiplier, component.RunSpeedMultiplier, status);
             }

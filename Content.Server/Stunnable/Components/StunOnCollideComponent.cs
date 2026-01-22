@@ -40,6 +40,9 @@ namespace Content.Server.Stunnable.Components
         /// </summary>
         [DataField("fixture")] public string FixtureID = "projectile";
 
+        /// <summary>
+        /// Optional cap for slowdown effects applied by this component.
+        /// </summary>
         [DataField("slowdownCap")]
         public float? SlowdownCap;
     }

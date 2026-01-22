@@ -38,5 +38,8 @@ namespace Content.Server.Stunnable.Components
         /// Fixture we track for the collision.
         /// </summary>
         [DataField("fixture")] public string FixtureID = "projectile";
+
+        [DataField("slowdownCap")]
+        public float? SlowdownCap;
     }
 }

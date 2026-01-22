@@ -41,10 +41,20 @@ namespace Content.Server.Stunnable
             if (EntityManager.TryGetComponent<StatusEffectsComponent>(target, out var status))
             {
                 _stunSystem.TryStun(target, TimeSpan.FromSeconds(component.StunAmount), true, status);
+                _stunSystem.TryKnockdown(target, TimeSpan.FromSeconds(component.KnockdownAmount), true, status);
 
-                _stunSystem.TryKnockdown(target, TimeSpan.FromSeconds(component.KnockdownAmount), true,
-                    status);
-
+                if (component.SlowdownCap.HasValue)
+                {
+                    var slowed = CompOrNull<Content.Shared.Stunnable.SlowedDownComponent>(target);
+                    if (slowed != null)
+                    {
+                        float newWalk = slowed.WalkSpeedModifier * component.WalkSpeedMultiplier;
+                        float newRun = slowed.SprintSpeedModifier * component.RunSpeedMultiplier;
+                        float cap = component.SlowdownCap.Value;
+                        if (newWalk < cap && newRun < cap)
+                            return;
+                    }
+                }
                 _stunSystem.TrySlowdown(target, TimeSpan.FromSeconds(component.SlowdownAmount), true,
                     component.WalkSpeedMultiplier, component.RunSpeedMultiplier, status);
             }

@@ -6,6 +6,7 @@
 // SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 // SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2026 TrixxedHeart <46364955+TrixxedBit@users.noreply.github.com>
 //
 // SPDX-License-Identifier: MIT
 
@@ -239,7 +240,8 @@ public sealed partial class SingleMarkingPicker : BoxContainer
         {
             var selector = new ColorSelectorSliders
             {
-                HorizontalExpand = true
+                HorizontalExpand = true,
+                SelectorType = ColorSelectorSliders.ColorSelectorType.Hsv // Default to HSV
             };
             selector.Color = marking.MarkingColors[i];
 

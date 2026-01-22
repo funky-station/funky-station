@@ -373,7 +373,6 @@
     - type: Targeting
     - type: SurgeryTarget
     - type: LayingDown
-    - type: CosmicCenserTarget # Funky - coscult fix
     - type: ContainerContainer # Funky - put sticky notes on those IPCs
       containers:
         paper_label: !type:ContainerSlot

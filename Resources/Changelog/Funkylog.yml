@@ -7480,3 +7480,17 @@ Entries:
       message: Central Command Intern as a ghostrole at the start of the round
   id: 869
   time: '2026-01-20T23:37:19.0000000+00:00'
+- author: 88tv
+  changes:
+    - type: Tweak
+      message: Updated Packed for playtest feedback.
+  id: 870
+  time: '2026-01-22T09:00:15.0000000+00:00'
+- author: mkanke-real
+  changes:
+    - type: Add
+      message: Added more radiation lockers near the Roid SM
+    - type: Add
+      message: Roid now has new power devices in Engi
+  id: 871
+  time: '2026-01-22T09:00:56.0000000+00:00'

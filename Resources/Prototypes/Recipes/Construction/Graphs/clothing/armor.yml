@@ -72,7 +72,7 @@
       - tag: MetalHydrogenArmor
         name: metal hydrogen armor
         icon:
-          sprite: _Funkystation/Clothing/OuterClothing/Armor/metal_hydrogen_armor.rsi
+          sprite: Clothing/OuterClothing/Armor/metal_hydrogen_armor.rsi
           state: icon
         doAfter: 1
       - tag: AtmosFireSuit

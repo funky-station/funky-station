@@ -886,7 +886,7 @@
         ignoreResistances: true
         damage:
           types:
-            Asphyxiation: 1
+            Asphyxiation: 15
 
 - type: reagent
   id: Pluoxium

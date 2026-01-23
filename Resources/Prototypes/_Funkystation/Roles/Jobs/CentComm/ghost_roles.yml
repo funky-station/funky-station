@@ -13,7 +13,7 @@
   name: Central Command Intern
   description: ghost-role-information-centcom-intern-description
   playTimeTracker: JobCentralCommandIntern
-  setPreference: true
+  setPreference: false
   visibleInLobby: false
   requirements:
   - !type:OverallPlaytimeRequirement
@@ -21,6 +21,12 @@
   - !type:DepartmentTimeRequirement
     department: CentralCommand
     time: 72000 #20 hours
+  - !type:RoleTimeRequirement
+    role: JobMagistrate
+    time: 108000 #30 hours
+  - !type:RoleTimeRequirement
+    role: JobNanotrasenRepresentative
+    time: 108000 #30 hours
   weight: 0
   startingGear: CentralCommandInternGear
   icon: JobIconCentralCommandIntern

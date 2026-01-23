@@ -60,6 +60,7 @@
     job_id: CentralCommandIntern
     ## There is an endless stream of applicants for this position since it "looks good on resumes"
     respawn: true
+    forceRandomCharacter: true
   - type: Sprite
     layers:
       - state: centcom

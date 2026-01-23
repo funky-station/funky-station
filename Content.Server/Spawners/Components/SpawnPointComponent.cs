@@ -42,6 +42,9 @@ public sealed partial class SpawnPointComponent : Component, ISpawnPoint
     [DataField("respawn")]
     [Access(typeof(GhostRoleSystem), Other = AccessPermissions.Read)]
     public bool Respawn = false;
+
+    [DataField("forceRandomCharacter")]
+    public bool ForceRandomCharacter;
 }
 
 public enum SpawnPointType

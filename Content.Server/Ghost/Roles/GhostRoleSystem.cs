@@ -831,7 +831,7 @@ public sealed class GhostRoleSystem : EntitySystem
 
         HumanoidCharacterProfile profile;
 
-        if (component.Job != null)
+        if (component.Job != null && !component.ForceRandomCharacter)
         {
             // Try to get a profile that has the job enabled from player preferences
             var prefs = _prefsManager.GetPreferences(args.Player.UserId);

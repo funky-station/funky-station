@@ -44,10 +44,10 @@ public sealed class CCVars_Funky
     /// <summary>
     ///     If true, gas extractors linked to a console require payment/budget (deduct RemainingMoles, allow auto-buy).
     ///     If false, linked extractors behave like normal miners (spawn full amount regardless of budget).
-    ///     Defaults to true.
+    ///     Defaults to false while testing.
     /// </summary>
     public static readonly CVarDef<bool> GasExtractorsRequirePayment =
-        CVarDef.Create("funky.gas_extractors_require_payment", true, CVar.SERVER | CVar.REPLICATED);
+        CVarDef.Create("funky.gas_extractors_require_payment", false, CVar.SERVER | CVar.REPLICATED);
 
     /// <summary>
     /// If objectives show up as completed or failed (green or red) on the round end summary.

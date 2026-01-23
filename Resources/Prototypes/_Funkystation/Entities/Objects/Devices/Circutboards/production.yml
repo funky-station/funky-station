@@ -40,3 +40,19 @@
       GlassBeaker:
         amount: 2
         defaultPrototype: Beaker
+
+- type: entity
+  id: PipeScrubberMachineCircuitBoard
+  parent: BaseMachineCircuitboard
+  name: pipe scrubber machine board
+  description: A machine printed circuit board for a pipe scrubber.
+  components:
+  - type: Sprite
+    state: engineering
+  - type: MachineBoard
+    prototype: PipeScrubber
+    stackRequirements:
+      MatterBin: 1
+      Manipulator: 2
+      Cable: 5
+      Glass: 2

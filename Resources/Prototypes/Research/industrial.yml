@@ -182,6 +182,7 @@
   recipeUnlocks:
   - ThermomachineAdvancedFreezerMachineCircuitBoard # Assmos
   - PortableScrubberMachineCircuitBoard
+  - PipeScrubberMachineCircuitBoard # Funkystation
   - HolofanProjector
   - CrystallizerMachineCircuitboard
   - ElectrolyzerMachineCircuitboard # Assmos - /tg/ gases

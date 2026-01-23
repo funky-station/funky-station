@@ -8,3 +8,8 @@
   parent: BaseCircuitboardRecipe
   id: MusicTechFabCircuitboard
   result: MusicTechFabCircuitboard
+
+- type: latheRecipe
+  parent: BaseCircuitboardRecipe
+  id: PipeScrubberMachineCircuitBoard
+  result: PipeScrubberMachineCircuitBoard

@@ -1,0 +1,55 @@
+# SPDX-FileCopyrightText: 2025 mkanke-real <mikekanke@gmail.com>
+#
+# SPDX-License-Identifier: MIT
+
+- type: entity
+  parent: BookBase
+  id: how2clown
+  name: "Guide 2 Clowning!!!!"
+  description: Upon closer inspection, the book's cover seems to be made out of banana peels with a plastic banana glued onto it..
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/books.rsi
+    layers:
+    - state: paper
+    - state: cover_base
+      color: "#f3cb00"
+    - state: decor_bottom
+      color: "#f657a8"
+    - state: decor_wingette
+      color: "#e64659"
+    - state: icon_banana
+    - state: icon_text2
+      color: "#000000"
+  - type: OocAuthorship
+    oocAuthor: Gloobmaster
+  - type: Paper
+    stampedBy:
+    - stampedColor: '#134975'
+      stampedName: "NT APPROVED"
+    content: |2
+      [head=2]Guide 2 Clowning!!!!
+      BY ███████████!!!
+      MASTER OF GLOOBING!![/head]
+
+      1. If the clown is the only one laughing, they aren't a good clown. Sure, slipping someone and taking their stuff might be funny to you, but it feels really bad for the person being slipped. Refer to step 2 for viable targets!
+
+      2. Punch up! Security, the captain, and/or command in general are all solid targets, as they usually have power on the station. However, remember that these positions are very stressful! Major threats to the station are much better targets, as they expect to get pranked the least, and deserve it the most! Do not target regular departments unless they ABSOLUTELY DESERVE IT!!! They're just trying to do their job!!!
+
+      3. Always pray to the Honkmother, she's awesome.
+
+      4. Being a clown isn't just about making people laugh, it's about making the time spent on the station a better experience for everyone. Don't just play pranks or crack jokes, actively help out when possible and do your best to make other people happy! Everyone loves a helpful clown!
+
+      5. Innovate. Constantly look for new jokes and expand your roster of bits. It's good to keep a few tried and true jokes in your back pocket for regular use, but expanding the list is what makes a good clown great!
+
+      6. Partner with friendly departments for an increased arsenal of joke material! Bananium from salvage is a great example of this!
+
+      7. You don't have to always be funny, sometimes you just have bad days. Feel free to take a break if you need to.
+
+      8. Subvert expectations.
+
+      9. Never remove your clown mask unless alone and replacing it with a possibly cooler clown mask. It's disrespectful to the Honkmother!
+
+      10. Mimes are not to be trusted. They may seem friendly, but they are ALWAYS plotting on your downfall. Keep an eye on them at all times
+
+

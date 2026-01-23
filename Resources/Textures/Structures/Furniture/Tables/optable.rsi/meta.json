@@ -1,14 +1,74 @@
 {
-    "version": 1,
-    "license": "CC-BY-SA-3.0",
-    "copyright": "Taken from tgstation at https://github.com/tgstation/tgstation/commit/b7c1c31bf867b8548d882e49a852eb5b26d713e9",
-    "size": {
-        "x": 32,
-        "y": 32
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Sprites by AraiMaia for https://github.com/funky-station/funky-station",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "operating_table"
     },
-    "states": [
-        {
-            "name": "operating_table"
-        }
-    ]
+    {
+      "name": "operating_table_on"
+    },
+    {
+      "name": "tank_1"
+    },
+    {
+      "name": "tank_2"
+    },
+    {
+      "name": "tank_3"
+    },
+    {
+      "name": "tank_4"
+    },
+    {
+      "name": "tank_5"
+    },
+    {
+      "name": "vitals_1",
+      "delays": [
+        [
+          0.154,
+          0.154,
+          0.154,
+          0.154,
+          0.154,
+          0.154
+        ]
+      ]
+    },
+    {
+      "name": "vitals_2",
+      "delays": [
+        [
+          0.111,
+          0.111,
+          0.111,
+          0.111,
+          0.111,
+          0.111
+        ]
+      ]
+    },
+    {
+      "name": "vitals_3",
+      "delays": [
+        [
+          0.074,
+          0.074,
+          0.074,
+          0.074,
+          0.074,
+          0.074
+        ]
+      ]
+    },
+    {
+      "name": "vitals_4"
+    }
+  ]
 }

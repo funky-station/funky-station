@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Based on sprites from CEV-Eris at https://github.com/discordia-space/CEV-Eris/blob/8009c1d3db5ca5244f14899ffafaae93be0e318d/icons/obj/items.dmi,https://github.com/discordia-space/CEV-Eris/blob/df81fe2d0ba5f541bafffbb73554f3f44289dd76/icons/mob/items/righthand.dmi,https://github.com/discordia-space/CEV-Eris/blob/df81fe2d0ba5f541bafffbb73554f3f44289dd76/icons/mob/items/righthand.dmi, modified into a large RPD by AraiMaia",
+  "copyright": "Based on sprites from CEV-Eris at https://github.com/discordia-space/CEV-Eris/blob/8009c1d3db5ca5244f14899ffafaae93be0e318d/icons/obj/items.dmi,https://github.com/discordia-space/CEV-Eris/blob/df81fe2d0ba5f541bafffbb73554f3f44289dd76/icons/mob/items/righthand.dmi,https://github.com/discordia-space/CEV-Eris/blob/df81fe2d0ba5f541bafffbb73554f3f44289dd76/icons/mob/items/righthand.dmi, modified into a large RPD by AraiMaia, given backpack slot sprites by mycobiota",
   "size": {
     "x": 32,
     "y": 32
@@ -16,6 +16,14 @@
     },
     {
       "name": "inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "equipped-BACKPACK",
+      "directions": 4
+    },
+    {
+      "name": "equipped-BACKSTORAGE",
       "directions": 4
     }
   ]

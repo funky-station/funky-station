@@ -3,9 +3,12 @@
 // SPDX-FileCopyrightText: 2024 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
 // SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
+// SPDX-FileCopyrightText: 2025 Carcc <225926381+carccborg@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Carccborg <225926381+carccborg@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 // SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2026 Terkala <appleorange64@gmail.com>
 //
 // SPDX-License-Identifier: MIT
 
@@ -95,8 +98,13 @@ public sealed partial class SleepingSystem : EntitySystem
 
     private void OnWakeAction(Entity<MobStateComponent> ent, ref WakeActionEvent args)
     {
-        if (TryWakeWithCooldown(ent.Owner))
+        if (HasComp<SleepingComponent>(ent) && TryWakeWithCooldown(ent.Owner))
             args.Handled = true;
+        else if (!HasComp<SleepingComponent>(ent))
+        {
+            Dirty(ent);
+            args.Handled = true;
+        }
     }
 
     private void OnSleepAction(Entity<MobStateComponent> ent, ref SleepActionEvent args)
@@ -116,8 +124,11 @@ public sealed partial class SleepingSystem : EntitySystem
             _statusEffectsSystem.TryRemoveStatusEffect(ent.Owner, "KnockedDown");
 
             EnsureComp<StunnedComponent>(ent);
-            EnsureComp<KnockedDownComponent>(ent);
-
+            // The entity will not fall over  if they are buckled. I think this could be written better.
+            if (!EntityManager.TryGetComponent(ent, out BuckleComponent? buckleComp) || !buckleComp.Buckled)
+            {
+                EnsureComp<KnockedDownComponent>(ent);
+            }
             if (TryComp<SleepEmitSoundComponent>(ent, out var sleepSound))
             {
                 var emitSound = EnsureComp<SpamEmitSoundComponent>(ent);

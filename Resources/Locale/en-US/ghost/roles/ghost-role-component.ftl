@@ -207,7 +207,6 @@ ghost-role-information-supplybot-description = Deliver goods around the station.
 ghost-role-information-space-bear-name = Space Bear
 ghost-role-information-space-bear-description = Your tummy rumbles, and these people look really yummy... What a feast!
 
-# Still exists as a commented out reference for Tropico. Keeping it around. -TsjipTsjip, 2024-06-20
 ghost-role-information-tropico-name = Tropico
 ghost-role-information-tropico-description = The noble companion of Atmosia, and its most stalwart defender. Viva!
 

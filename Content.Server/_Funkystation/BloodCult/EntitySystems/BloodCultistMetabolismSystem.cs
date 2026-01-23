@@ -6,7 +6,6 @@ using Content.Server.Body.Components;
 using Content.Server.Body.Systems;
 using Content.Shared.BloodCult;
 using Robust.Shared.GameObjects;
-using Robust.Shared.IoC;
 
 namespace Content.Server.BloodCult.EntitySystems;
 
@@ -16,6 +15,7 @@ namespace Content.Server.BloodCult.EntitySystems;
 public sealed class BloodCultistMetabolismSystem : EntitySystem
 {
     [Dependency] private readonly BloodstreamSystem _bloodstream = default!;
+    [Dependency] private readonly IComponentFactory _componentFactory = default!;
 
     public override void Initialize()
     {
@@ -150,8 +150,7 @@ public sealed class BloodCultistMetabolismSystem : EntitySystem
 			if (meta.EntityPrototype == null)
 				return false;
 
-			var componentFactory = IoCManager.Resolve<IComponentFactory>();
-			if (!meta.EntityPrototype.TryGetComponent(componentFactory.GetComponentName<BloodstreamComponent>(), out BloodstreamComponent? prototypeBloodstream))
+			if (!meta.EntityPrototype.TryGetComponent(_componentFactory.GetComponentName<BloodstreamComponent>(), out BloodstreamComponent? prototypeBloodstream))
 				return false;
 
 			// Only return the prototype blood reagent if it's not null or empty

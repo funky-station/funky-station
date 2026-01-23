@@ -4,6 +4,7 @@
 # SPDX-FileCopyrightText: 2025 Mish <bluscout78@yahoo.com>
 # SPDX-FileCopyrightText: 2025 PresentAJ <Ajdpersonalemail@gmail.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
 # SPDX-FileCopyrightText: 2025 TheSecondLord <88201625+TheSecondLord@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Zergologist <114537969+Chedd-Error@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
@@ -23,15 +24,16 @@
 - type: microwaveMealRecipe
   id: RecipeMuffinCloth
   name: moffin recipe
-  result: FoodBakedMuffinCloth
+  result: FoodBakedMuffinClothSix
   time: 15
   group: Moth
   solids:
     FoodPlateMuffinTin: 1
     FoodDoughCottonSlice: 1
+    CottonBol: 1
   reagents:
     Sugar: 10
-    
+
 - type: microwaveMealRecipe
   id: RecipepIED
   name: pIED recipe

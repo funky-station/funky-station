@@ -1,0 +1,27 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Created by Sigma Draconis for Funkystation",
+
+    "size": {
+        "x": 8,
+        "y": 8
+    },
+    "states": [
+        {
+            "name": "Stage1"
+        },
+		{
+            "name": "Stage2"
+        },
+		{
+            "name": "Stage3"
+        },
+		{
+            "name": "Stage4"
+        },
+		{
+            "name": "Stage5"
+        }
+    ]
+}

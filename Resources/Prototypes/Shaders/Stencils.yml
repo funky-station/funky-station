@@ -1,6 +1,7 @@
 # SPDX-FileCopyrightText: 2020 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2020 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
 # SPDX-FileCopyrightText: 2020 Víctor Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
 # SPDX-License-Identifier: MIT
@@ -14,6 +15,7 @@
     op: Replace
     func: Always
 
+# Draws to the stencil buffer if the alpha is not set to 0.
 - type: shader
   id: StencilMask
   kind: source
@@ -23,6 +25,7 @@
     op: Replace
     func: Always
 
+# Draws if the texture in the stencil buffer is not equal to white.
 - type: shader
   id: StencilDraw
   kind: canvas
@@ -30,3 +33,12 @@
     ref: 1
     op: Keep
     func: NotEqual
+
+# Draws if the texture in the stencil buffer is equal to white.
+- type: shader
+  id: StencilEqualDraw
+  kind: canvas
+  stencil:
+    ref: 1
+    op: Keep
+    func: Equal

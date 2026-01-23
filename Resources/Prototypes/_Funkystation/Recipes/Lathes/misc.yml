@@ -1,0 +1,10 @@
+# SPDX-FileCopyrightText: 2025 Gosera <goseru@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: latheRecipe
+  id: SmallPinboard
+  result: SmallPinboard
+  completetime: 1
+  materials:
+    Wood: 25

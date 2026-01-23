@@ -13,10 +13,12 @@
 # SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 2DSiggy <siggymaxwell@gmail.com>
+# SPDX-FileCopyrightText: 2025 MaiaArai <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 ThatOneMoon <91613003+ThatOneMoon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
 # SPDX-FileCopyrightText: 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 mkanke-real <mikekanke@gmail.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
@@ -55,7 +57,7 @@
     - type: Defibrillator
       zapHeal:
         types:
-          Asphyxiation: -40
+          Asphyxiation: -100
     - type: DoAfter
     - type: UseDelay
     - type: StaticPrice
@@ -95,7 +97,7 @@
   suffix: One-Handed, Unpowered
 
 - type: entity
-  id: DefibrillatorCompact 
+  id: DefibrillatorCompact
   parent: [ BaseDefibrillator, PowerCellSlotMediumItem ]
   name: compact defibrillator
   description: Now in fun size!
@@ -126,6 +128,7 @@
   - type: Tag
     tags:
     - Defibrillator
+    - DefibrillatorCompact
 
 - type: entity
   id: DefibrillatorCompactEmpty
@@ -139,6 +142,7 @@
   - type: Tag
     tags:
     - Defibrillator
+    - DefibrillatorCompact
 
 - type: entity
   id: DefibrillatorSyndicate

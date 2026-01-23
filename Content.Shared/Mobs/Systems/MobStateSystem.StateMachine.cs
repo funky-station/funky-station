@@ -6,6 +6,7 @@
 // SPDX-FileCopyrightText: 2024 DrSmugleaf <10968691+DrSmugleaf@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
 // SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
@@ -116,11 +117,31 @@ public partial class MobStateSystem
     {
         var oldState = component.CurrentState;
         //make sure we are allowed to enter the new state
-        if (oldState == newState || !component.AllowedStates.Contains(newState))
+        if (oldState == newState)
             return;
 
-        if (oldState == MobState.Dead && HasComp<DebrainedComponent>(target)) // Shitmed Change
-            return;
+        if (!component.AllowedStates.Contains(newState))
+        {
+            if (newState != MobState.Critical)
+                return;
+
+            if (!component.AllowedStates.Contains(MobState.SoftCritical) || !component.AllowedStates.Contains(MobState.HardCritical))
+                return;
+
+            switch (oldState)
+            {
+                case MobState.Alive:
+                {
+                    newState = MobState.SoftCritical;
+                    break;
+                }
+                case MobState.Dead:
+                {
+                    newState = MobState.HardCritical;
+                    break;
+                }
+            }
+        }
 
         OnExitState(target, component, oldState);
         component.CurrentState = newState;

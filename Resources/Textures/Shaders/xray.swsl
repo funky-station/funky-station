@@ -6,6 +6,8 @@ uniform lowp float scanlineSpeed;
 uniform lowp float alpha;
 
 void fragment() {
+    precision highp float;
+
     lowp vec4 tex = texture2D(TEXTURE, UV);
     tex.a *= alpha;
     lowp vec3 base = tex.rgb * color.rgb;

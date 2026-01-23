@@ -3,7 +3,7 @@
 // SPDX-FileCopyrightText: 2025 kbarkevich <24629810+kbarkevich@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
-// SPDX-License-Identifier: AGPL-3.0-or-later OR MIT
+// SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
 using Robust.Shared.Random;
 using Robust.Shared.Prototypes;
@@ -427,6 +427,14 @@ public sealed partial class CultistSpellSystem : EntitySystem
 			// Apply EMP damage directly to the borg's battery
 			_emp.DoEmpEffects((EntityUid)borgBatteryUid, empDamage, empDuration);
 			_statusEffect.TryAddStatusEffect<MutedComponent>(target, "Muted", TimeSpan.FromSeconds(empDuration), false);
+		}
+		else if (HasComp<JuggernautComponent>(target))
+		{
+			// Juggernauts are immune to sanguine dream (they have no bloodstream)
+			_popup.PopupEntity(
+				Loc.GetString("cult-spell-fail"),
+				ent, ent, PopupType.MediumCaution
+			);
 		}
 		else if (TryComp<BloodstreamComponent>(target, out var bloodstream))
 		{

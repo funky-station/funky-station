@@ -58,12 +58,14 @@ loadout-group-captain-jumpsuit = Captain jumpsuit
 loadout-group-captain-neck = Captain neck
 loadout-group-captain-backpack = Captain backpack
 loadout-group-captain-outerclothing = Captain outer clothing
+loadout-group-captain-shoes = Captain shoes
 
 loadout-group-hop-head = Head of Personnel head
 loadout-group-hop-jumpsuit = Head of Personnel jumpsuit
 loadout-group-hop-neck = Head of Personnel neck
 loadout-group-hop-backpack = Head of Personnel backpack
 loadout-group-hop-outerclothing = Head of Personnel outer clothing
+loadout-group-hop-shoes = Head of Personnel shoes
 
 # Civilian
 loadout-group-passenger-jumpsuit = Passenger jumpsuit
@@ -214,6 +216,7 @@ loadout-group-security-outerclothing = Security outer clothing
 loadout-group-security-gloves = Security gloves
 loadout-group-security-shoes = Security shoes
 loadout-group-security-id = Security ID
+loadout-group-security-weapon = Security Weapon
 
 loadout-group-detective-head = Detective head
 loadout-group-detective-neck = Detective neck
@@ -255,6 +258,7 @@ loadout-group-medical-chemist-glasses = Chemist glasses
 loadout-group-medical-chemist-head = Chemist head
 
 loadout-group-paramedic-head = Paramedic head
+loadout-group-paramedic-glasses = Paramedic glasses
 loadout-group-paramedic-jumpsuit = Paramedic jumpsuit
 loadout-group-paramedic-outerclothing = Paramedic outer clothing
 loadout-group-paramedic-shoes = Paramedic shoes

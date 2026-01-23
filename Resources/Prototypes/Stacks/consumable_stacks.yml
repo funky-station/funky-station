@@ -10,6 +10,7 @@
 # SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 potato1234_x <79580518+potato1234x@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
@@ -34,6 +35,71 @@
   spawn: FoodBakedPancakeCc
   maxCount: 9
 
+- type: stack
+  id: Muffin
+  name: muffin
+  spawn: FoodBakedMuffin
+  maxCount: 6
+
+- type: stack
+  id: MuffinBanana
+  name: banana muffin
+  spawn: FoodBakedMuffinBanana
+  maxCount: 6
+
+- type: stack
+  id: MuffinBerry
+  name: berry muffin
+  spawn: FoodBakedMuffinBerry
+  maxCount: 6
+
+- type: stack
+  id: MuffinBluecherry
+  name: bluecherry muffin
+  spawn: FoodBakedMuffinBluecherry
+  maxCount: 6
+
+- type: stack
+  id: MuffinCherry
+  name: cherry muffin
+  spawn: FoodBakedMuffinCherry
+  maxCount: 6
+
+- type: stack
+  id: MuffinChocolate
+  name: chocolate muffin
+  spawn: FoodBakedMuffinChocolate
+  maxCount: 6
+
+- type: stack
+  id: MuffinCloth
+  name: moffin
+  spawn: FoodBakedMuffinCloth
+  maxCount: 6
+
+- type: stack
+  id: Cookie
+  name: Cookie
+  spawn: FoodBakedCookie
+  maxCount: 6
+
+- type: stack
+  id: CookieSugar
+  name: Sugar Cookie
+  spawn: FoodBakedCookieSugar
+  maxCount: 6
+
+- type: stack
+  id: CookieOatmeal
+  name: Oatmeal Cookie
+  spawn: FoodBakedCookieOatmeal
+  maxCount: 6
+
+- type: stack
+  id: CookieRaisin
+  name: Raisin Cookie
+  spawn: FoodBakedCookieRaisin
+  maxCount: 6
 # Food Containers
 
 - type: stack

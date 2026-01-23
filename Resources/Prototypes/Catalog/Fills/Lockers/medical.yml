@@ -22,8 +22,10 @@
 # SPDX-FileCopyrightText: 2024 PoorMansDreams <150595537+PoorMansDreams@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2024 Ubaser <134914314+UbaserB@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 DESKTOP-0V0K4HQ\Rosy <rosysaturniidae@gmail.com>
 # SPDX-FileCopyrightText: 2025 QueerCats <jansencheng3@gmail.com>
 # SPDX-FileCopyrightText: 2025 Rainbow <ev0lvkitten@gmail.com>
+# SPDX-FileCopyrightText: 2025 Skye <57879983+Rainbeon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
@@ -178,9 +180,9 @@
       - id: ClothingOuterWinterPara
       - id: ClothingUniformJumpsuitParamedic
       - id: ClothingUniformJumpskirtParamedic
-      - id: ClothingEyesHudMedical
+      - id: ClothingEyesHudParamedic # funky
       - id: ClothingHandsGlovesLatex
-      - id: ClothingHeadsetMedical
+#      - id: ClothingHeadsetMedical - funky, why is this still here
       - id: ClothingMaskSterile
       - id: HandheldGPSBasic
       - id: MedkitFilled

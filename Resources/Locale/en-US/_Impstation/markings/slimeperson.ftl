@@ -13,8 +13,23 @@ marking-SlimeMouth = Mouth
 marking-SlimeBrain-brain = Brain
 marking-SlimeBrain = Brain
 
-marking-SlimeEyeglow-eyeglow = Eye Glow
-marking-SlimeEyeglow = Eye Glow
+marking-SlimeEyesDefault = Eyes
+marking-SlimeEyesDefault-eyes = Eyes (Default)
+
+marking-SlimeEyeDefaultGlow = Glowing Eyes
+marking-SlimeEyeDefaultGlow-glow = Glowing Eyes
+
+marking-SlimeEyesDroopy = Droopy Eyes
+marking-SlimeEyesDroopy-droopy = Droopy Eyes
+
+marking-SlimeEyesDroopyGlow = Droopy Glowing Eyes
+marking-SlimeEyesDroopyGlow-droopyglow = Droopy Glowing Eyes
+
+marking-SlimeEyesCyclops = Cyclops Eye
+marking-SlimeEyesCyclops-cyclops = Cyclops Eye
+
+marking-SlimeEyesCyclopsGlow = Cyclops Glowing Eye
+marking-SlimeEyesCyclopsGlow-cyclopsglow = Cyclops Glowing Eye
 
 marking-SlimeCore-core = Core
 marking-SlimeCore = Core

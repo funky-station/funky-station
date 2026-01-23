@@ -31,8 +31,20 @@ ghost-role-information-mini-dragon-rules = You are a Mini Dragon. You want to ga
                                         You are allowed to remember knowledge about the game in general, such as how to cook, how to use objects, etc.
                                         You are absolutely [color=red]NOT[/color] allowed to remember, say, the name, appearance, etc. of your previous character.
 
+ghost-role-information-mini-dragon-friendly-name = Domesticated Mini Dragon
+ghost-role-information-mini-dragon-friendly-description = A small dragon-like creature that likes to create hoards. This one seems to have been domesticated!
+ghost-role-information-mini-dragon-friendly-rules = You are a Domesticated Mini Dragon. Help the crew gather wealth!
+                                        You are [color=red]not[/color] hostile to crew-aligned crewmembers.
+
+                                        You don't remember any of your previous life, and you don't remember anything you learned as a ghost.
+                                        You are allowed to remember knowledge about the game in general, such as how to cook, how to use objects, etc.
+                                        You are absolutely [color=red]NOT[/color] allowed to remember, say, the name, appearance, etc. of your previous character.
+
 ghost-role-information-horrific-necktie-name = Horrific Necktie
 ghost-role-information-horrific-necktie-description = A horribly garish necktie which, through the power of Disco, drinking, and divorce, has gained the ability to speak!
 
 ghost-role-information-meowl-name = Meowl
 ghost-role-information-meowl-description = A highly invasive apex predator. The sole cause of the rapid decline of mothroaches.
+
+ghost-role-information-haunted-sword-name = Haunted Swords
+ghost-role-information-haunted-sword-description = A mysterious weapon of old, haunted with spirits both ancient and powerful.

@@ -539,6 +539,42 @@
 
 - type: entity
   parent: SurgeryBase
+  id: SurgeryRemoveZombieTumorHead
+  name: Remove Zombie Tumor
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Surgery
+    requirement: SurgeryOpenIncision
+    steps:
+    - SurgeryStepSawBones
+    - SurgeryStepClampInternalBleeders
+    - SurgeryStepRemoveOrgan
+    - SurgeryStepSealOrganWound
+  - type: SurgeryPartCondition
+    part: Head
+  - type: SurgeryOrganPrototypeCondition
+    prototypeId: ZombieTumorOrgan
+
+- type: entity
+  parent: SurgeryBase
+  id: SurgeryRemoveZombieTumorArm
+  name: Remove Zombie Tumor
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Surgery
+    requirement: SurgeryOpenIncision
+    steps:
+    - SurgeryStepSawBones
+    - SurgeryStepClampInternalBleeders
+    - SurgeryStepRemoveOrgan
+    - SurgeryStepSealOrganWound
+  - type: SurgeryPartCondition
+    part: Arm
+  - type: SurgeryOrganPrototypeCondition
+    prototypeId: ZombieTumorOrgan
+
+- type: entity
+  parent: SurgeryBase
   id: SurgeryRemoveZombieRoboTumor
   name: Remove Zombie Robot Tumor
   categories: [ HideSpawnMenu ]
@@ -551,6 +587,46 @@
     - SurgeryStepSealOrganWound
   - type: SurgeryPartCondition
     part: Torso
+  - type: SurgeryOrganCondition
+    organ:
+    - type: ZombieTumorOrgan
+  - type: SurgeryOrganPrototypeCondition
+    prototypeId: ZombieRoboTumor
+
+- type: entity
+  parent: SurgeryBase
+  id: SurgeryRemoveZombieRoboTumorHead
+  name: Remove Zombie Robot Tumor
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Surgery
+    requirement: SurgeryOpenIncision
+    steps:
+    - SurgeryStepSawBones
+    - SurgeryStepRemoveOrgan
+    - SurgeryStepSealOrganWound
+  - type: SurgeryPartCondition
+    part: Head
+  - type: SurgeryOrganCondition
+    organ:
+    - type: ZombieTumorOrgan
+  - type: SurgeryOrganPrototypeCondition
+    prototypeId: ZombieRoboTumor
+
+- type: entity
+  parent: SurgeryBase
+  id: SurgeryRemoveZombieRoboTumorArm
+  name: Remove Zombie Robot Tumor
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Surgery
+    requirement: SurgeryOpenIncision
+    steps:
+    - SurgeryStepSawBones
+    - SurgeryStepRemoveOrgan
+    - SurgeryStepSealOrganWound
+  - type: SurgeryPartCondition
+    part: Arm
   - type: SurgeryOrganCondition
     organ:
     - type: ZombieTumorOrgan

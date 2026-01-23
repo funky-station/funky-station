@@ -1,0 +1,153 @@
+<!--
+SPDX-FileCopyrightText: 2025 Goomson <GoomsonCode@proton.me>
+SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+SPDX-FileCopyrightText: 2026 zergologist <114537969+Chedd-Error@users.noreply.github.com>
+
+SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+-->
+
+<Document>
+  # Ingredient Reactions
+  Here are the ingredient creation reactions that, by and large, any chef should be able to use in their kitchen.
+
+  Though kitchens start out well-stocked with a variety of reagent ingredients already, it may not be clear how those reagents turn into some of the ingredients that you can cook with.
+
+  #Doughs
+  
+  Quite literally the bread of a chef's kitchen, dough comes in quite a few varieties - all of them made in a reaction!
+
+  ##Standard Doughs
+  <Box>
+    <GuideEntityEmbed Entity="FoodDough" Caption="Regular Dough"/>
+  </Box>
+  You can make regular dough by combining the following reagents:
+
+  -15u Flour
+  -10u Water
+
+  <Box>
+    <GuideEntityEmbed Entity="FoodDoughTortilla" Caption="Tortilla Dough"/>
+  </Box>
+  You can make tortilla dough by combining the following reagents:
+
+  -15u Cornmeal
+  -10u Water
+
+  <Box>
+    <GuideEntityEmbed Entity="FoodDoughCotton" Caption="Cotton Dough"/>
+  </Box>
+  For the station's fiber-eating personnel, you can make cotton dough by combining the following reagents:
+
+  -10u Fiber
+  -5u Flour
+  -10u Water
+
+  <Box>
+    <GuideEntityEmbed Entity="FoodDoughCornmeal" Caption="Cornmeal Dough"/>
+  </Box>
+  You can make cornmeal dough by combining the following reagents:
+
+  -15u Cornmeal
+  -10u Milk
+  -6u Raw Egg
+
+  You can generally cut and roll these doughs.
+
+  ##Specialty Doughs
+  <Box>
+    <GuideEntityEmbed Entity="FoodDoughPie" Caption="Pie Dough"/>
+  </Box>
+  You can make pie dough, the consumable part of a pie, by combining with the following reagents:
+
+  -15u Flour
+  -12u Raw Egg
+  -5u Table Salt
+
+  <Box>
+    <GuideEntityEmbed Entity="FoodCakeBatter" Caption="Cake Batter"/>
+  </Box>
+  You can make cake batter by combining one of the following sets of reagents:
+
+  -15u Flour
+  -12u Raw Egg
+  -5u Sugar
+  -5u Milk
+  
+  OR:
+  
+  -15u Flour
+  -15u Soy Milk
+  -5u Sugar
+
+  While the end result may be the same regardless of the recipe you use, those with milk and egg allergies will thank you for using the soy recipe.
+
+  #Catalyzed Reactions
+
+  Though every ingredient does consume reagents to be made, not every reaction will consume all of the reagents that go into making them.
+
+  Catalysts are the names for those reagents which will not be used up when making an ingredient. They will react so long as a minimum amount of them is present.
+
+  <Box>
+    <GuideEntityEmbed Entity="FoodButter" Caption="Butter"/>
+  </Box>
+  You can make a stick of butter by combining the following reagents:
+
+  -30u Milk
+  -5u Table Salt as a catalyst
+
+  ##Enzyme Reactions
+  <Box>
+    <GuideEntityEmbed Entity="FoodCheese" Caption="Cheese"/>
+  </Box>
+  You can make a wheel of cheese by combining the following reagents:
+
+  -40u Milk
+  -5u Universal Enzyme as a catalyst
+
+  <Box>
+    <GuideEntityEmbed Entity="FoodChevre" Caption="Chèvre"/>
+  </Box>
+  You can make a log of chèvre, goats' milk cheese, by combining the following reagents:
+
+  -10u Goats Milk
+  -5u Universal Enzyme as a catalyst
+
+  <Box>
+    <GuideEntityEmbed Entity="FoodTofu" Caption="Tofu"/>
+  </Box>
+  You can make a block of tofu by combining the following reagents:
+
+  -30u Soy Milk
+  -5u Universal Enzyme as a catalyst
+
+  <Box>
+    <GuideEntityEmbed Entity="FoodMysteryMeat" Caption="Mystery meat...?"/>
+  </Box>
+  You can reconstitute a slab of mystery meat by combining the following reagents:
+
+  -10u Uncooked Animal Proteins
+  -5u Universal Enzyme as a catalyst
+
+  #Miscellaneous Reactions
+
+  While a vast majority of the reactions a chef may need to use are covered above, there are still a couple of reactions that aren't listed anywhere else.
+
+  <Box>
+    <GuideEntityEmbed Entity="FoodMeatMeatball" Caption="Meatball"/>
+  </Box>
+  You can make a singular meatball by combining the following reagents:
+
+  -5u Uncooked Animal Proteins
+  -5u Flour
+  -6u Raw Egg
+
+  <Box>
+    <GuideEntityEmbed Entity="FoodSnackChocolateBar" Caption="Chocolate."/>
+  </Box>
+  You can make a bar of chocolate by combining the following reagents:
+
+  -4u Cocoa Powder
+  -2u Milk
+  -2u Sugar
+
+</Document>

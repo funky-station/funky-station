@@ -140,7 +140,7 @@
   - Truncheon
   - TelescopicShield
   - HoloprojectorSecurity
-  - WeaponDisablerSMG
+#  - WeaponDisablerSMG
   - ClothingHandsTruncheonKnuckleDusters
 
 - type: technology

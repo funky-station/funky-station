@@ -6,5 +6,5 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
 trait-scottish-name = Scottish accent
-trait-scottish-desc = Your scottish pride is as strong as your accent!
+trait-scottish-desc = Your Dorf pride be as strong as tha accent ye blather wi!
 

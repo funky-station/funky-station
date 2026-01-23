@@ -1,17 +1,19 @@
 // SPDX-FileCopyrightText: 2024 PJBot <pieterjan.briers+bot@gmail.com>
 // SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
 // SPDX-FileCopyrightText: 2025 Skye <57879983+Rainbeon@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Terkala <appleorange64@gmail.com>
 // SPDX-FileCopyrightText: 2025 kbarkevich <24629810+kbarkevich@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2026 Terkala <appleorange64@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later or MIT
 
 using Content.Client.UserInterface.Controls;
 using Content.Shared.BloodCult;
 using Robust.Client.GameObjects;
+using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.XAML;
+using Robust.Shared.IoC;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
@@ -27,7 +29,7 @@ public sealed partial class SpellRadialMenu : RadialMenu
     [Dependency] private readonly IEntitySystemManager _entitySystem = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly ISharedPlayerManager _playerManager = default!;
-    private readonly SpriteSystem _spriteSystem;
+    private SpriteSystem _spriteSystem = default!;
 
 	public event Action<ProtoId<CultAbilityPrototype>>? SendSpellsMessageAction;
 
@@ -35,8 +37,12 @@ public sealed partial class SpellRadialMenu : RadialMenu
 
     public SpellRadialMenu()
     {
-        IoCManager.InjectDependencies(this);
         RobustXamlLoader.Load(this);
+    }
+
+    public void InitializeDependencies(IDependencyCollection dependencies)
+    {
+        dependencies.InjectDependencies(this);
         _spriteSystem = _entitySystem.GetEntitySystem<SpriteSystem>();
     }
 

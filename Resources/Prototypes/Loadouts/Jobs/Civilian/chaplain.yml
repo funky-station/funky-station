@@ -3,6 +3,7 @@
 # SPDX-FileCopyrightText: 2024 Mr. 27 <45323883+Dutch-VanDerLinde@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 PurpleTranStar <purpletranstar@gmail.com>
 # SPDX-FileCopyrightText: 2025 SaffronFennec <firefoxwolf2020@protonmail.com>
 # SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
@@ -94,17 +95,11 @@
 - type: loadout
   id: ChaplainBibleChristian
   storage:
-     back: 
+     back:
      - Bible
 
 - type: loadout
   id: ChaplainBibleAtheist
   storage:
-     back: 
+     back:
      - BibleAtheist
-
-- type: loadout
-  id: ChaplainBibleBhuddhist
-  storage:
-     back: 
-     - BibleBhuddhist # The item's not even spelt correctly

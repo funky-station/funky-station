@@ -97,7 +97,8 @@ blob-chem-electromagneticweb-info = Electromagnetic Web
 blob-alert-out-off-station = The blob was removed because it was found outside the station!
 
 # Announcment
-blob-alert-recall-shuttle = The emergency shuttle can not be sent while there is a level 5 biohazard present on the station.
+blob-alert-recall-shuttle = The emergency shuttle can not be sent until the biohazard is eliminated.
+blob-alert-recall-shuttle-expanded = The emergency shuttle has been recalled. The emergency shuttle can not be sent while there is a level 5 biohazard present on station.
 blob-alert-detect = Confirmed outbreak of level 5 biohazard aboard the station. All personnel must contain the outbreak.
 blob-alert-critical = Biohazard level critical, nuclear authentication codes have been sent to the station. Central Command orders any remaining personnel to activate the self-destruction mechanism.
 blob-alert-critical-NoNukeCode = Biohazard level critical. Central Command orders any remaining personnel to seek shelter, and await rescue.

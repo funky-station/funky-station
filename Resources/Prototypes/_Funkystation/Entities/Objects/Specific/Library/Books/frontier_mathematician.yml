@@ -1,0 +1,88 @@
+# SPDX-FileCopyrightText: 2025 mkanke-real <mikekanke@gmail.com>
+#
+# SPDX-License-Identifier: MIT
+
+- type: entity
+  parent: BookBase
+  id: FrontierMathematician1
+  name: "Frontier Mathematician!: The History of Calculus, Book 1: Newton and Gottfried Enter the Ring"
+  description: An older book filled with mathematical scribbles.
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/books.rsi
+    layers:
+    - state: paper
+    - state: cover_base
+      color: "#2d96b8"
+    - state: decor_diagonal
+      color: "#ef4307"
+    - state: icon_time
+      color: "#000000"
+    - state: icon_text
+      color: "#000000"
+  - type: OocAuthorship
+    oocAuthor: AlDente
+  - type: Paper
+    stampedBy:
+    - stampedColor: '#134975'
+      stampedName: "NT APPROVED"
+    content: |2
+      [head=2]The History of Calculus[/head]
+      [head=3]Book 1: Newton and Gottfried Enter the Ring[/head]
+      A book by Eats-the-Homework
+      ================================================
+            Sir Isaac Newton, one of the fathers of what can be considered modern science. Born in 1642 on Christmas Day in a small village of Woolsthorpe in England, he is the father of astronomy. He was the genius who brought knowledge with the law of universal gravitation, the law that says that "all objects attract each other with a force directly proportional to the product of their masses and inversely proportional to the square of the distance separating their centers.". He can be considered the father of science and mathematics. Did I say math? Yes, he also contributed to mathematics, specifically to a very important topic that is the sole focus of this essay, the infinitesimal calculus.
+
+            He was not the only one who dedicated himself to working with infinitesimal calculus, there is another scientist who is said to have discovered infinitesimal calculus, Gottfried Wilhelm Leibniz. He was born at a time similar to Newton, specifically on January 1, 1646, in Leipzig, Germany. He also considers himself a German philosopher, jurist, historian, diplomat and theologian, but we want to focus on his discoveries and work in mathematics.
+
+        	So far the only thing we can extract that the two have in common is mathematics, but why? They worked on the infinitesimal calculus, yes, but that's interesting about that. The controversy, or in cruder words, the drama. But in order to understand the controversy between the two scientists, we have to understand what infinitesimal calculus is. considers it the most powerful and effective tool for the study of nature and says that it intervenes in a wide variety of processes of all kinds. It is the union of the fundamental concepts of the derivative and the integral and the bridge that unites them; The fundamental theorem of calculus (p. 1). A derivative is the instantaneous rate of change of a function with respect to its independent variable, conversely, integrals are the inverse operation to the derivation and represent a continuous sum of infinite infinitesimal elements.  In short, the infinitesimal calculus studies what is change and continuity in mathematics, it can be compared to geometry in one way or another, since geometry is the study of space.
+
+        	Now, back to what's most interesting in this essay, the controversy. There is a controversy in the two figures mentioned above, Wilhelm and Newton. All the controversy is focused on what is a case of plagiarism. Newton began working on calculus in 1666, but never published it. Wilhelm, on the other hand, began to work with calculus in 1674 and published his work in 1684. No one knows who discovered it by this point, the two have different points in their lives where they supposedly worked on calculus, but no one is sure who the discoverer of infinitesimal calculus is. Newton's formulas were more complicated compared to Wilhelm's. L'Hopital brought this argument to an end in 1696 with his publication "Analyse des infiniment petits pour l'intelligence des lignes'" and "Principia" by Newton. than a notation, dy/dx. This notation was in one form or another revolutionary and was the easiest way to be able to write the derivative.
+
+        	After a long and interesting controversy we can extract a question and its conclusion, who discovered the infinitesimal calculus? Technically by definition it was Newton who discovered the infinitesimal calculus, but Wilhelm also falls as the discoverer in this case. The best way to separate them is by saying who is the discoverer and who is the publisher, so that they can be separated into a chronological form. And in this way it can be concluded that Newton was the discoverer of calculus, but he did not publish it in time to be considered the publisher, the title of publisher falls to Wilhelm. If we follow the timeline this is true, Newton says that he discovered, but he did NOT publish his discoveries in 1666. Wilhelm says he began working on calculus in 1674 and the SI published his discoveries in 1684, 22 years after Newton supposedly discovered infinitesimal calculus.
+
+        	From this conclusion we come to the end of this essay. And from this solution comes my professional and educational opinion on infinitesimal calculus. My opinion after this point is different from what my information and essay says. I think and will always believe that Wilhelm was the discoverer of infinitesimal calculus. He was the one who published first, he was the one who made an easy way to understand this topic, he was the one who worked more deeply on the subject. By working more deeply he earns the title of discoverer, Newton only had it as a "footnote" in another publication of his, he did not work with intention in the calculation, Wilhelm on the other hand, he did work with the intention to solve the problem of the tangent.
+
+- type: entity
+  parent: BookBase
+  id: FrontierMathematician2
+  name: "Frontier Mathematician!: The History of Calculus, Book 2: The Great Bribe"
+  description: An older book filled with mathematical scribbles.
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/books.rsi
+    layers:
+    - state: paper
+    - state: cover_base
+      color: "#2d96b8"
+    - state: decor_diagonal
+      color: "#2db639"
+    - state: icon_time
+      color: "#000000"
+    - state: icon_text
+      color: "#000000"
+  - type: OocAuthorship
+    oocAuthor: AlDente
+  - type: Paper
+    stampedBy:
+    - stampedColor: '#134975'
+      stampedName: "NT APPROVED"
+    content: |2
+      [head=2]Frontier Mathematician!: The History of Calculus[/head]
+      [head=3]Book 2: The Great Bribe[/head]
+      A book by Eats-the-Homework
+      ================================================
+            In the last instalment of this series of essays we learnt about the origins and the absolute drama and controversy that happened between the discoverers/publishers of calculus. Now in that one if you read around the final couple paragraphs you will find an especially important name that will now be talked about, l’Hôpital. Guillaume l’Hôpital was a particularly important French mathematician; most know a little something called BERNOUILLI’S RULE. Back on topic, L’Hôpital was born on the seventh of June of 1661, and died on the second of February 1704. Born to a military family he tried to pursue a career in the military but gave up due to his poor eyesight, which made him pursue his passion in mathematics. After a little filler we can get to the important part, and that is that by 1691 in Paris he met a young Johann Bernoulli.
+
+            Of Swiss origin, Johann Bernoulli is one of the many important Bernoulli’s, being a great mathematician that taught his ways to Leonhard Euler (this will be important for later down the line). He was born in Basel, Switzerland on the sixth of August of 1667, while dying in his hometown on the first of January 1748. He spent pretty much most of his life with his brother, or at least his early life, after graduation and a dissertation he spent his adult life teaching differential calculus.
+
+            To understand one of the many controversies of the calculus world we need to understand thie specific controversies . This time it's revolving around indeterminate forms of limits. The indeterminate forms of limits are quite simple frankly; they are the quotient of two functions each of which equals a total number of zero (0). To solve these indeterminate forms, they must be divided by their corresponding infinite to find out which infinite they lean towards. Now, I did mention earlier Bernoulli’s rule (Also known as l’Hôpital’s rule) which is incredibly important to indeterminate forms, as this rule is the one rule that solves these problems. Now, these are just the indeterminate forms, there are distinct types of indeterminate forms. There are around seven of the indeterminate forms, starting simple from 0/0, an undeniable classic. Ramping it up to ∞/∞, then 0*∞ (zero multiplied by infinity), ∞-∞ (infinity minus infinity), 0^0 (zero elevated to zero), 1^∞ (one elevated to infinity) and ∞^0 (infinity elevated to zero).
+
+            Now let’s get back to the story. So, Bernoulli and l’Hôpital meet in Paris in 1691 as they met being a part of Nicolas Malebranche’s circle. Time kept progressing and l’Hôpital was elected to the French academy of sciences and served as its vice president twice, meanwhile he discovered the arc length of the logarithmic graph and a solution to the brachistochrone problem. Side note, the brachistochrone problem is the curve of fastest descent, in other words, the mathematical problem of why a cycloid and not a polygonal line. Side notes over, he is also acclaimed with finding the turning point singularity of the involution of a plane curve near the inflection point. These are all incredible discoveries I’ll happily admit, btu were here for indeterminate forms of calculus, so let’s jump to 1696, the publishing of his book “Analyse des infiniment Petits pour l’intelligence des Lignes Courbes”. This was the first textbook ever written on infinitesimal calculus for its time, as infinitesimal calculus stayed as a relative footnote in Newton’s and Gottfried’s work. This book presented the ideas of differential calculus and how it could be applied to the differential geometry of curves, although interestingly, it didn’t consider integrals as a part of the equation.
+
+            Now the indeterminate forms were talked about in both chapter nine article 28 of his book but the solutions were front and center chapter one section two. This was supposed to be front and center and it was obvious, since it was the newest and hottest discovery of infinitesimal calculus at the time. But the interesting bits of this book aren’t in its words, they’re in the publishing of the book. The publishing was riddled with what I would call greed and corruption on l’Hôpital’s part. This is because by around 17 of March 1694 Johann Bernoulli received a letter in the mail, this letter was a proposal. For an exchange of 300 Francs annually (around 4222 USD in modern money), Johann Bernoulli would inform l’Hôpital of his latest mathematical discoveries and barring him from sharing them to other mathematicians. This is what I can only describe as a weird hostage situation motivated by greed, since Bernoulli couldn’t tell anyone else. Now you can guess how this ends up, Bernoulli agreed in some subsequent letter we don’t have preserved and later in his book he talked about acknowledging and dedicating his book to both Leibniz and both Bernoulli brothers, specifically Johann. He even mentioned in his words “I have made free use of their discoveries, so that I frankly return to them whatever they please to claim as their own” (Bernoulli, 1694) in the preface of the book.
+
+            For obvious reasons, Johann was not happy, complaining about being sidelined by l’Hôpital in private correspondence. After l’Hôpital’s death, Johann revealed to the public their deal and claimed credit to some parts of the book which were mentioned in letters to l’Hôpital. This all kept getting increasingly stronger until he published his own work in 1742, which he talked about not publishing them since he was already overshadowed as these writings were already in l’Hôpital’s, frankly, more famous book. These claims of plagiarism were not taken seriously by historians and mathematicians until around 1921 when manuscripts of Bernoulli’s lecture on differential calculus from 1691 through 1692 were discovered. Suspiciously enough, Bernoulli’s words had very similarities to l’Hôpital’s writing in Analyse, thus theoretically proving Johann's accusations.
+
+            This was a wild ride; it’s the only way to describe it. So, in summary, l’Hôpital pretty much extorted knowledge from Bernoulli, Bernoulli was plagiarized in his book, he was unhappy about it and controversy ensued. And that’s how I’m going to describe it, it’s the only way to describe it, l’Hôpital was a plagiarist. There's no denying that l’Hôpital was a great researcher of calculus, but we can’t deny as well that he was a plagiarist. This makes me come to my conclusion, that conclusion being that the real discoverer was Johann Bernoulli, not l’Hôpital. I consider l’Hôpital to be somewhat of a fraud for what he did, restricting Johann from sharing his discoveries to other mathematicians just so he can keep all the glory. Thus, why I feel like l’Hôpital’s rule shouldn’t be a form of talking about that rule, it should only be referred to Bernoulli’s rule, as he did the majority of the work and l’Hôpital only really published it in a book, which mind you, was published in anonymity because he didn’t want to be credited. So, I guess the guilt of plagiarism caught up to him somewhat, huh?
+

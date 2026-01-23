@@ -1,3 +1,4 @@
+# SPDX-FileCopyrightText: 2025 DESKTOP-0V0K4HQ\Rosy <rosysaturniidae@gmail.com>
 # SPDX-FileCopyrightText: 2025 DevilishMilk <michaellapjr@gmail.com>
 # SPDX-FileCopyrightText: 2025 Mish <bluscout78@yahoo.com>
 # SPDX-FileCopyrightText: 2025 Xcybitt <xcybitt@gmail.com>
@@ -12,13 +13,14 @@
   name: paramedic headset
   description: A headset for paramedics that receives emergency frequencies in addition to regular medical radio.
   components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Ears/Headsets/paramedic.rsi
   - type: ContainerFill
     containers:
       key_slots:
       - EncryptionKeyMedical
       - EncryptionKeyEmergency
       - EncryptionKeyCommon
-
 
 - type: entity
   parent: ClothingHeadsetAltSecurity

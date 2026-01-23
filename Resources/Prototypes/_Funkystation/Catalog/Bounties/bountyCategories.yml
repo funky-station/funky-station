@@ -1,6 +1,7 @@
 # SPDX-FileCopyrightText: 2025 2DSiggy <siggymaxwell@gmail.com>
 # SPDX-FileCopyrightText: 2025 Gansu <68031780+GansuLalan@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 GreyMario <mariomister541@gmail.com>
+# SPDX-FileCopyrightText: 2025 Homingpenguins <asadellace4@gmail.com>
 # SPDX-FileCopyrightText: 2025 Nox <nebulousnox38@gmail.com>
 # SPDX-FileCopyrightText: 2025 Patrycja <github@ptrcnull.me>
 # SPDX-FileCopyrightText: 2025 ThatOneMoon <91613003+ThatOneMoon@users.noreply.github.com>
@@ -147,6 +148,16 @@
     whitelist:
       tags:
       - MonkeyCube
+  - name: bounty-item-Robust-Harvest
+    minAmount: 60
+    maxAmount: 60
+    rewardPer: 30
+    reagent: RobustHarvest
+  - name: bounty-item-Left-4-Zed
+    minAmount: 60
+    maxAmount: 60
+    rewardPer: 30
+    reagent: Left4Zed
 
 # Science
 - type: cargoBountyCategory
@@ -170,7 +181,7 @@
       components:
       - TechnologyDisk
     requiredResearch:
-      - AlternativeResearch      
+      - AlternativeResearch
   - name: bounty-item-anomaly-syncronizer
     minAmount: 1
     maxAmount: 3
@@ -179,7 +190,7 @@
       tags:
       - AnomalySyncronizerCircuitBoard
     requiredResearch:
-      - AdvancedAnomalyResearch          
+      - AdvancedAnomalyResearch
   - name: bounty-item-tech-disk
     minAmount: 3
     maxAmount: 8
@@ -204,7 +215,7 @@
       tags:
       - AnomalyLocator
     requiredResearch:
-      - BasicAnomalousResearch      
+      - BasicAnomalousResearch
   - name: bounty-item-gorilla-gauntlet
     minAmount: 1
     maxAmount: 3
@@ -213,7 +224,7 @@
       tags:
       - GorillaGauntlet
     requiredResearch:
-      - AnomalyCoreHarnessing            
+      - AnomalyCoreHarnessing
   - name: bounty-item-experimental-vessel-machine-board
     minAmount: 1
     maxAmount: 3
@@ -222,7 +233,7 @@
       tags:
       - ExperimentalVesselMachineBoard
     requiredResearch:
-      - AdvancedAnomalyResearch        
+      - AdvancedAnomalyResearch
   - name: bounty-item-cryobeaker
     minAmount: 1
     maxAmount: 8
@@ -1139,102 +1150,6 @@
 #    requiredResearch:
 #      - Instruments
 
-# Bar
-- type: cargoBountyCategory
-  id: barCategory
-  name: bounty-category-bar
-  entries:
-  - name: bounty-item-bahama-mama
-    minAmount: 90
-    maxAmount: 90
-    rewardPer: 65
-    reagent: BahamaMama
-  - name: bounty-item-erika-suprise
-    minAmount: 90
-    maxAmount: 90
-    rewardPer: 65
-    reagent: ErikaSurprise
-  - name: bounty-item-bloody-mary
-    minAmount: 90
-    maxAmount: 90
-    rewardPer: 65
-    reagent: BloodyMary
-  - name: bounty-item-blue-hawaiian
-    minAmount: 60
-    maxAmount: 60
-    rewardPer: 65
-    reagent: BlueHawaiian
-  - name: bounty-item-andalusia
-    minAmount: 60
-    maxAmount: 60
-    rewardPer: 65
-    reagent: Andalusia
-  - name: bounty-item-watermelon-wakeup
-    minAmount: 60
-    maxAmount: 60
-    rewardPer: 75
-    reagent: WatermelonWakeup
-  - name: bounty-item-xeno-basher
-    minAmount: 120
-    maxAmount: 120
-    rewardPer: 65
-    reagent: XenoBasher
-  - name: bounty-item-cogchamp
-    minAmount: 60
-    maxAmount: 60
-    rewardPer: 75
-    reagent: CogChamp
-  - name: bounty-item-demons-blood
-    minAmount: 60
-    maxAmount: 60
-    rewardPer: 75
-    reagent: DemonsBlood
-  - name: bounty-item-cosmopolitan
-    minAmount: 60
-    maxAmount: 60
-    rewardPer: 75
-    reagent: Cosmopolitan
-  - name: bounty-item-beepsky-smash
-    minAmount: 60
-    maxAmount: 60
-    rewardPer: 75
-    reagent: BeepskySmash
-  - name: bounty-item-classic-martini
-    minAmount: 60
-    maxAmount: 60
-    rewardPer: 65
-    reagent: Martini
-  - name: bounty-item-posca
-    minAmount: 60
-    maxAmount: 60
-    rewardPer: 65
-    reagent: Posca
-  - name: bounty-item-the-martinez
-    minAmount: 90
-    maxAmount: 90
-    rewardPer: 70
-    reagent: TheMartinez
-  - name: bounty-item-doctors-delight
-    minAmount: 60
-    maxAmount: 60
-    rewardPer: 100
-    reagent: DoctorsDelight
-  - name: bounty-item-tayquila
-    minAmount: 60
-    maxAmount: 60
-    rewardPer: 100
-    reagent: Tayquila
-  - name: bounty-item-fever-dream
-    minAmount: 60
-    maxAmount: 60
-    rewardPer: 100
-    reagent: FeverDream
-  - name: bounty-item-gargle-blaster
-    minAmount: 60
-    maxAmount: 60
-    rewardPer: 100
-    reagent: GargleBlaster
-
 # Engineering
 - type: cargoBountyCategory
   id: EngineeringCategory
@@ -1288,40 +1203,3 @@
     whitelist:
       tags:
       - HiViz
-
-- type: cargoBountyCategory
-  id: chemistryCategory
-  name: bounty-category-chemistry
-  entries:
-  - name: bounty-item-saline
-    minAmount: 50
-    maxAmount: 50
-    rewardPer: 60
-    reagent: Saline
-  - name: bounty-item-arithrazine
-    minAmount: 50
-    maxAmount: 50
-    rewardPer: 100
-    reagent: Arithrazine
-  - name: bounty-item-multiver
-    minAmount: 50
-    maxAmount: 50
-    rewardPer: 90
-    reagent: Multiver
-  - name: bounty-item-dexalin
-    minAmount: 50
-    maxAmount: 50
-    rewardPer: 70
-    reagent: Dexalin
-  - name: bounty-item-space-cleaner
-    minAmount: 50
-    maxAmount: 50
-    rewardPer: 60
-    reagent: SpaceCleaner
-  - name: bounty-item-soap
-    minAmount: 2
-    maxAmount: 4
-    rewardPer: 2000
-    whitelist:
-      tags:
-      - Soap

@@ -2,6 +2,8 @@
 // SPDX-FileCopyrightText: 2023 Jezithyr <jezithyr@gmail.com>
 // SPDX-FileCopyrightText: 2025 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
 // SPDX-FileCopyrightText: 2025 Steve <marlumpy@gmail.com>
+// SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 marc-pelletier <113944176+marc-pelletier@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
@@ -179,7 +181,7 @@ public sealed class DamageOverlay : Overlay
             _oldBruteLevel = BruteLevel;
         }
 
-        level = State != MobState.Critical ? _oldOxygenLevel : 1f;
+        level = State != MobState.Critical && State != MobState.HardCritical ? _oldOxygenLevel : 1f;
 
         if (level > 0f)
         {

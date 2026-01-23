@@ -9,6 +9,7 @@
 loadout-group-iaa-outer = Internal Affairs Agent outer clothing
 loadout-group-iaa-gloves = Internal Affairs Agent gloves
 loadout-group-iaa-jumpsuit = Internal Affairs Agent jumpsuit
+loadout-group-iaa-shoes = Internal Affairs Agent shoes
 loadout-group-iaa-backpack = Internal Affairs Agent backpack
 loadout-group-iaa-belt = Internal Affairs Agent belt
 

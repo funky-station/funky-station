@@ -23,6 +23,7 @@
 # SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 BuildTools <unconfigured@null.spigotmc.org>
 # SPDX-FileCopyrightText: 2025 Smugman <85798843+Smugman@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 ThatOneMoon <91613003+ThatOneMoon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
 # SPDX-FileCopyrightText: 2025 mycobiota <154991750+mycobiota@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
@@ -50,6 +51,10 @@
   - type: ItemToggleSize
     activatedSize: Small
   - type: ItemToggleHot
+  - type: CheapLighter
+    failChance: 0.1
+    soundFail:
+      collection: lighterFailSounds
   - type: Sprite
     sprite: Objects/Tools/Lighters/lighters.rsi
     layers:
@@ -144,6 +149,10 @@
       visible: false
       shader: unshaded
       map: [ "flame" ]
+  - type: CheapLighter
+    failChance: 0.4
+    soundFail:
+      collection: lighterFailSounds
   - type: RandomSprite
     available:
       - skin:
@@ -298,9 +307,10 @@
     predictable: false
     soundDeactivate:
       path: /Audio/Items/Lighters/zippo_fancy_close.ogg
-  - type: FancyLighter
+  - type: CheapLighter
     soundActivate:
       path: /Audio/Items/Lighters/zippo_fancy_open.ogg
+    failChance: 0
   - type: SolutionContainerManager
     solutions:
       Welder:
@@ -310,7 +320,7 @@
         maxVol: 11
 
 
-# Funky Changes, the BaseBrandedLighter was removed and all the branded flippos were instead parented off the regular flipo lighter 
+# Funky Changes, the BaseBrandedLighter was removed and all the branded flippos were instead parented off the regular flipo lighter
 #- type: entity
 #  abstract: true
 #  parent: BaseItem
@@ -408,14 +418,14 @@
       visible: false
       shader: unshaded
   - type: Item
-    sprite: Objects/Tools/Lighters/syndielighter.rsi  
+    sprite: Objects/Tools/Lighters/syndielighter.rsi
     inhandVisuals:
       left:
       - state: inhand-left
       right:
       - state: inhand-right
   - type: ToggleableLightVisuals
-    sprite: Objects/Tools/Lighters/syndielighter.rsi    
+    sprite: Objects/Tools/Lighters/syndielighter.rsi
     spriteLayer: lighter_flame
     inhandVisuals:
       left:
@@ -423,7 +433,7 @@
         shader: unshaded
       right:
       - state: inhand-right-lit
-        shader: unshaded    
+        shader: unshaded
   - type: Welder
     fuelConsumption: 0.005
     fuelLitCost: 0.01
@@ -471,7 +481,7 @@
         shader: unshaded
       right:
       - state: inhand-right-lit
-        shader: unshaded          
+        shader: unshaded
   - type: Welder #
     fuelConsumption: 0.005
     fuelLitCost: 0.01
@@ -519,7 +529,7 @@
         shader: unshaded
       right:
       - state: inhand-right-lit
-        shader: unshaded           
+        shader: unshaded
   - type: Welder #
     fuelConsumption: 0.005
     fuelLitCost: 0.01
@@ -571,7 +581,7 @@
         shader: unshaded
       right:
       - state: inhand-right-lit
-        shader: unshaded         
+        shader: unshaded
   - type: Welder #
     fuelConsumption: 0.005
     fuelLitCost: 0.01
@@ -630,7 +640,7 @@
         shader: unshaded
       right:
       - state: inhand-right-lit
-        shader: unshaded           
+        shader: unshaded
   - type: ItemToggleRequiresLock
     requireLocked: false
   - type: Welder #
@@ -687,7 +697,7 @@
         shader: unshaded
       right:
       - state: inhand-right-lit
-        shader: unshaded           
+        shader: unshaded
   - type: Welder #
     fuelConsumption: 0
     fuelLitCost: 0
@@ -735,7 +745,7 @@
         shader: unshaded
       right:
       - state: inhand-right-lit
-        shader: unshaded         
+        shader: unshaded
   - type: ComponentToggler
     components:
     - type: Slippery
@@ -809,7 +819,7 @@
         shader: unshaded
       right:
       - state: inhand-right-lit
-        shader: unshaded         
+        shader: unshaded
   - type: Welder #
     fuelConsumption: 0.005
     fuelLitCost: 0.05
@@ -857,7 +867,7 @@
         shader: unshaded
       right:
       - state: inhand-right-lit
-        shader: unshaded        
+        shader: unshaded
   - type: Welder #
     fuelConsumption: 0.02
     fuelLitCost: 0.1
@@ -915,6 +925,10 @@
     fuelConsumption: 0.2
     fuelLitCost: 0.1
     tankSafe: false
+  - type: CheapLighter
+    failChance: 0.6
+    soundFail:
+      collection: lighterFailSounds
   - type: Item
     sprite: Objects/Tools/Lighters/lighters.rsi
   - type: ToggleableVisuals

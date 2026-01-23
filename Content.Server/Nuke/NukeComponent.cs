@@ -24,7 +24,7 @@
 // SPDX-FileCopyrightText: 2025 88tv <131759102+88tv@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
-// SPDX-FileCopyrightText: 2025 ferynn <witchy.girl.me@gmail.com>
+// SPDX-FileCopyrightText: 2025 ferynn <117872973+ferynn@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
@@ -145,7 +145,7 @@ namespace Content.Server.Nuke
         /// </summary>
         [ViewVariables(VVAccess.ReadWrite)]
         [DataField("intensitySlope")]
-        public float IntensitySlope = 2.5f;
+        public float IntensitySlope = 5;
 
         /// <summary>
         ///     The total intensity of this explosion. The radius of the explosion scales like the cube root of this

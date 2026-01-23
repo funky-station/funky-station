@@ -1,3 +1,4 @@
+# SPDX-FileCopyrightText: 2025 DESKTOP-0V0K4HQ\Rosy <rosysaturniidae@gmail.com>
 # SPDX-FileCopyrightText: 2025 MaiaArai <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Middleson5 <Chance@thethiers.com>
 # SPDX-FileCopyrightText: 2025 ThatOneMoon <91613003+ThatOneMoon@users.noreply.github.com>
@@ -225,3 +226,16 @@
     sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/engineerelectrician.rsi
   - type: Clothing
     sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/engineerelectrician.rsi
+
+# paramedic speedskirt (AraiMaia and RosySaturniidae)
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpskirtParamedicSpeedskirt
+  name: paramedic speedskirt
+  description: Why do you think these things are like, 95% polyester? You can clean off blood and vomit with a wet nap!
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/paramedic_speedskirt.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/paramedic_speedskirt.rsi

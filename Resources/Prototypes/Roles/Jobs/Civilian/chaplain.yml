@@ -21,12 +21,14 @@
 # SPDX-FileCopyrightText: 2024 Mr. 27 <45323883+Dutch-VanDerLinde@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 MaiaArai <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Skye <57879983+Rainbeon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
 # SPDX-FileCopyrightText: 2025 kbarkevich <24629810+kbarkevich@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2026 SharkSnake98 <sharksnake87@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -46,6 +48,16 @@
     components:
     - type: BibleUser #Lets them heal with bibles and transform null rods.
     - type: CultResistant # Funky cult
+  alternateTitles:
+  - ChaplainPreacher
+  - ChaplainSpiritualAdvisor
+  - ChaplainShrineGuardian
+  - ChaplainReverend
+  - ChaplainPriest
+  - ChaplainOracle
+  - ChaplainPointifex
+  - ChaplainMagister
+  - ChaplainMonk
 
 - type: startingGear
   id: ChaplainGear
@@ -57,4 +69,39 @@
     - Bible
     - RubberStampChaplain
     - NullRodDefault
-    - CosmicCenser # DeltaV - Cosmic Cult
+
+- type: jobAlternateTitle
+  id: ChaplainPreacher
+  name: job-name-alt-chaplain-1
+
+- type: jobAlternateTitle
+  id: ChaplainSpiritualAdvisor
+  name: job-name-alt-chaplain-2
+
+- type: jobAlternateTitle
+  id: ChaplainShrineGuardian
+  name: job-name-alt-chaplain-3
+
+- type: jobAlternateTitle
+  id: ChaplainReverend
+  name: job-name-alt-chaplain-4
+
+- type: jobAlternateTitle
+  id: ChaplainPriest
+  name: job-name-alt-chaplain-5
+
+- type: jobAlternateTitle
+  id: ChaplainOracle
+  name: job-name-alt-chaplain-6
+
+- type: jobAlternateTitle
+  id: ChaplainPointifex
+  name: job-name-alt-chaplain-7
+
+- type: jobAlternateTitle
+  id: ChaplainMagister
+  name: job-name-alt-chaplain-8
+
+- type: jobAlternateTitle
+  id: ChaplainMonk
+  name: job-name-alt-chaplain-9

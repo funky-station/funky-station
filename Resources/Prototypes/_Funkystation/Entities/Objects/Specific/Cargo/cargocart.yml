@@ -6,7 +6,7 @@
   id: CargoCart
   parent: [BaseStructureDynamic, StructureWheeled]
   name: cargo cart
-  description: SUpplies, where you need them.
+  description: Supplies, where you need them.
   components:
   - type: Sprite
     noRot: true

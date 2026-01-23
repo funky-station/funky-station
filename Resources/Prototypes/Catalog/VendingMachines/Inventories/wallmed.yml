@@ -8,6 +8,7 @@
 # SPDX-FileCopyrightText: 2022 Andreas Kämper <andreas@kaemper.tech>
 # SPDX-FileCopyrightText: 2023 Whisper <121047731+QuietlyWhisper@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
@@ -18,7 +19,7 @@
   startingInventory:
     Brutepack: 3
     Ointment: 3
-    Bloodpack: 3
+    CMBloodPackFull: 5
     EpinephrineChemistryBottle: 3
     Syringe: 3
   contrabandInventory:

@@ -21,6 +21,7 @@
 // SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
@@ -51,6 +52,7 @@ using Content.Shared.Timing;
 using Content.Shared.Toggleable;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Player;
+using Content.Shared.Movement.Pulling.Components;
 
 namespace Content.Server.Medical;
 
@@ -73,6 +75,7 @@ public sealed class DefibrillatorSystem : EntitySystem
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly UseDelaySystem _useDelay = default!;
+    [Dependency] private readonly SharedInteractionSystem _interactionSystem = default!;
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -107,16 +110,6 @@ public sealed class DefibrillatorSystem : EntitySystem
     /// <summary>
     ///     Checks if you can actually defib a target.
     /// </summary>
-    /// <param name="uid">Uid of the defib</param>
-    /// <param name="target">Uid of the target getting defibbed</param>
-    /// <param name="user">Uid of the entity using the defibrillator</param>
-    /// <param name="component">Defib component</param>
-    /// <param name="targetCanBeAlive">
-    ///     If true, the target can be alive. If false, the function will check if the target is alive and will return false if they are.
-    /// </param>
-    /// <returns>
-    ///     Returns true if the target is valid to be defibed, false otherwise.
-    /// </returns>
     public bool CanZap(EntityUid uid, EntityUid target, EntityUid? user = null, DefibrillatorComponent? component = null, bool targetCanBeAlive = false)
     {
         if (!Resolve(uid, ref component))
@@ -138,9 +131,19 @@ public sealed class DefibrillatorSystem : EntitySystem
         if (!_powerCell.HasActivatableCharge(uid, user: user))
             return false;
 
+        // Prevent usage on dead people
+        if (_mobState.IsDead(target, mobState))
+        {
+            if (user != null)
+                _popup.PopupEntity(Loc.GetString("defibrillator-dead"), uid, user.Value); // Optional: Define this string in Loc or remove popup
+            return false;
+        }
+
+        // Prevent usage on alive people
         if (!targetCanBeAlive && _mobState.IsAlive(target, mobState))
             return false;
 
+        // Ensure we can zap Critical people
         if (!targetCanBeAlive && !component.CanDefibCrit && _mobState.IsCritical(target, mobState))
             return false;
 
@@ -150,13 +153,6 @@ public sealed class DefibrillatorSystem : EntitySystem
     /// <summary>
     ///     Tries to start defibrillating the target. If the target is valid, will start the defib do-after.
     /// </summary>
-    /// <param name="uid">Uid of the defib</param>
-    /// <param name="target">Uid of the target getting defibbed</param>
-    /// <param name="user">Uid of the entity using the defibrillator</param>
-    /// <param name="component">Defib component</param>
-    /// <returns>
-    ///     Returns true if the defibrillation do-after started, otherwise false.
-    /// </returns>
     public bool TryStartZap(EntityUid uid, EntityUid target, EntityUid user, DefibrillatorComponent? component = null)
     {
         if (!Resolve(uid, ref component))
@@ -207,65 +203,42 @@ public sealed class DefibrillatorSystem : EntitySystem
             return;
 
         _audio.PlayPvs(component.ZapSound, uid);
+
+        // Apply shock damage
         _electrocution.TryDoElectrocution(target, null, component.ZapDamage, component.WritheDuration, true, ignoreInsulation: true);
+
+                var interacters = new HashSet<EntityUid>();
+        _interactionSystem.GetEntitiesInteractingWithTarget(target, interacters);
+        foreach (var other in interacters)
+        {
+            if (other == user)
+                continue;
+
+            // Anyone else still operating on the target gets zapped too
+            _electrocution.TryDoElectrocution(other, null, component.ZapDamage, component.WritheDuration, true);
+        }
+
         if (!TryComp<UseDelayComponent>(uid, out var useDelay))
             return;
         _useDelay.SetLength((uid, useDelay), component.ZapDelay, component.DelayId);
         _useDelay.TryResetDelay((uid, useDelay), id: component.DelayId);
 
-        ICommonSession? session = null;
-
-        var dead = true;
-        if (_rotting.IsRotten(target))
+        // Apply Healing (AirLoss reduction) ONLY if Critical
+        if (_mobState.IsCritical(target, mob))
         {
-            _chatManager.TrySendInGameICMessage(uid, Loc.GetString("defibrillator-rotten"),
-                InGameICChatType.Speak, true);
-        }
-        else if (TryComp<UnrevivableComponent>(target, out var unrevivable))
-        {
-            _chatManager.TrySendInGameICMessage(uid, Loc.GetString(unrevivable.ReasonMessage),
-                InGameICChatType.Speak, true);
+            _damageable.TryChangeDamage(target, component.ZapHeal, true, origin: uid);
+            _audio.PlayPvs(component.SuccessSound, uid);
         }
         else
         {
-            if (_mobState.IsDead(target, mob))
-                _damageable.TryChangeDamage(target, component.ZapHeal, true, origin: uid);
-
-            if (_mobThreshold.TryGetThresholdForState(target, MobState.Dead, out var threshold) &&
-                TryComp<DamageableComponent>(target, out var damageableComponent) &&
-                damageableComponent.TotalDamage < threshold)
-            {
-                _mobState.ChangeMobState(target, MobState.Critical, mob, uid);
-                dead = false;
-            }
-
-            if (_mind.TryGetMind(target, out _, out var mind) &&
-                mind.Session is { } playerSession)
-            {
-                session = playerSession;
-                // notify them they're being revived.
-                if (mind.CurrentEntity != target)
-                {
-                    _euiManager.OpenEui(new ReturnToBodyEui(mind, _mind), session);
-                }
-            }
-            else
-            {
-                _chatManager.TrySendInGameICMessage(uid, Loc.GetString("defibrillator-no-mind"),
-                    InGameICChatType.Speak, true);
-            }
+            // Fallback for weird edge cases
+            _audio.PlayPvs(component.FailureSound, uid);
         }
-
-        var sound = dead || session == null
-            ? component.FailureSound
-            : component.SuccessSound;
-        _audio.PlayPvs(sound, uid);
 
         // if we don't have enough power left for another shot, turn it off
         if (!_powerCell.HasActivatableCharge(uid))
             _toggle.TryDeactivate(uid);
 
-        // TODO clean up this clown show above
         var ev = new TargetDefibrillatedEvent(user, (uid, component));
         RaiseLocalEvent(target, ref ev);
     }

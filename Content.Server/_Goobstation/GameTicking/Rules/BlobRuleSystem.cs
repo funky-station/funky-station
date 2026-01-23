@@ -2,6 +2,7 @@
 // SPDX-FileCopyrightText: 2024 fishbait <gnesse@gmail.com>
 // SPDX-FileCopyrightText: 2025 QueerCats <jansencheng3@gmail.com>
 // SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 ferynn <witchy.girl.me@gmail.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
@@ -23,6 +24,7 @@ using Content.Server.Objectives;
 using Content.Server.RoundEnd;
 using Content.Server.Station.Components;
 using Content.Server.Station.Systems;
+using Content.Server.Communications;
 using Content.Shared._Goobstation.Blob.Components;
 using Content.Shared.GameTicking.Components;
 using Content.Shared.Objectives.Components;
@@ -48,6 +50,7 @@ public sealed class BlobRuleSystem : GameRuleSystem<BlobRuleComponent>
         base.Initialize();
 
         SubscribeLocalEvent<BlobRuleComponent, AfterAntagEntitySelectedEvent>(AfterAntagSelected);
+        SubscribeLocalEvent<CommunicationConsoleCallShuttleAttemptEvent>(OnShuttleCallAttempt);
     }
 
     protected override void Started(EntityUid uid, BlobRuleComponent component, GameRuleComponent gameRule, GameRuleStartedEvent args)
@@ -86,6 +89,20 @@ public sealed class BlobRuleSystem : GameRuleSystem<BlobRuleComponent>
             check.TryAdd(stationUid.Value, 0);
 
             check[stationUid.Value] += comp.BlobTiles.Count;
+            if(stationUid == _roundEndSystem.GetStation() && (component.Stage != BlobStage.Default)) //if blob is on station and discovered/delta
+            {
+                if (_roundEndSystem.IsRoundEndRequested() && component.RecallCount < 3) //Here to still recall if something bypasses normal
+                {
+                    component.RecallCount += 1; //sanity check in case of some looping evac calling condition, so it eventually ceases.
+                    _roundEndSystem.CancelRoundEndCountdown(null,false,false);
+                    _chatSystem.DispatchGlobalAnnouncement(
+                        Loc.GetString("blob-alert-recall-shuttle-expanded"),
+                        null,
+                        false,
+                        null,
+                        Color.Red);
+                }
+            }
         }
 
         foreach (var (station, length) in check.AsParallel())
@@ -134,7 +151,16 @@ public sealed class BlobRuleSystem : GameRuleSystem<BlobRuleComponent>
                     Color.Red);
 
                 _alertLevelSystem.SetLevel(stationUid, StationAlertDetected, true, true, true, true);
-
+                if (_roundEndSystem.IsRoundEndRequested())
+                {
+                    _roundEndSystem.CancelRoundEndCountdown(null,false,false);
+                    _chatSystem.DispatchGlobalAnnouncement(
+                        Loc.GetString("blob-alert-recall-shuttle-expanded"),
+                        stationName,
+                        false,
+                        null,
+                        Color.Red);
+                }
                 RaiseLocalEvent(stationUid,
                     new BlobChangeLevelEvent
                 {
@@ -296,4 +322,33 @@ public sealed class BlobRuleSystem : GameRuleSystem<BlobRuleComponent>
     {
         MakeBlob(args.EntityUid);
     }
+    //funky
+    private void OnShuttleCallAttempt( ref CommunicationConsoleCallShuttleAttemptEvent ev)
+    {
+        var blobCoreQuery = EntityQueryEnumerator<BlobCoreComponent, MetaDataComponent, TransformComponent>();
+        bool blobOnStation = false;
+        while (blobCoreQuery.MoveNext(out var ent, out var comp, out var md, out var xform))
+        {
+            if (CheckBlobInStation(ent, xform, out var stationUid))
+            {
+                blobOnStation = blobOnStation || (stationUid == _stationSystem.GetOwningStation(ev.Sender)); //check if the blob core is on the station sending for evac
+            }
+        }
+
+        if (!blobOnStation)//if no blob is on station, evac is fine.
+        {
+            return;
+        }
+        var query = QueryActiveRules();
+        while (query.MoveNext(out _, out _, out var blob, out _))
+        {
+            if (blobOnStation && (blob.Stage != BlobStage.Default))
+            {
+                ev.Cancelled = true;
+                ev.Reason.Add(Loc.GetString("blob-alert-recall-shuttle"));
+            }
+        }
+    }
+
+
 }

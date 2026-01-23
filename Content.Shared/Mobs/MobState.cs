@@ -1,4 +1,5 @@
 // SPDX-FileCopyrightText: 2023 Jezithyr <jezithyr@gmail.com>
+// SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
 // SPDX-License-Identifier: MIT
@@ -21,7 +22,9 @@ public enum MobState : byte
     Invalid = 0,
     Alive = 1,
     Critical = 2,
-    Dead = 3
+    SoftCritical = 3,
+    HardCritical = 4,
+    Dead = 5
 }
 
 /// <summary>

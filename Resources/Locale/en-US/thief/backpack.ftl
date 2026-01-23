@@ -79,3 +79,40 @@ thief-backpack-category-smuggler-description =
     Don't forget to link your fulton.
     Includes: Fulton beacon, 10 fultons, smoke implanter,
     a Smuggler's Satchel, and an invisible crate to hide valuable loot.
+
+thief-backpack-category-extrovert-name = extrovert kit
+thief-backpack-category-extrovert-description =
+    Learn the ways of making friends! If you consider forceful mind
+    control as making friends...
+    Includes: A Mind Control Implant, a spare pair of thieving gloves,
+    2 Radio implants and a sedative autoinjector cartridge with a syndicate
+    cartridge autoinjector.
+
+thief-backpack-category-electromagnetic-name = electromagnetic kit
+thief-backpack-category-electromagnetic-description =
+    Who needs power when you could have pitch darkness?
+    Includes: A set of Arc Gloves, an EMP implant, an EMP Flashlight,
+    some loose EMP grenades and Night Vision Goggles with a recharging power
+    cell.
+
+thief-backpack-category-getaway-name = getaway kit
+thief-backpack-category-getaway-description =
+    Thief is my name, speed is my game!
+    Includes: A set of Speed boots, an antique power cell, 3 Hyperzine Injectors,
+    A Scram Implanter, and a bar of Slipocalypse Syndiesoap for those that need
+    more than just running from.
+
+thief-backpack-category-demolitionist-name = demolitionist kit
+thief-backpack-category-demolitionist-description =
+    The breacher kits younger, quieter brother. If you want to look at it that
+    way, I guess.
+    Includes: A Diamond Tipped Mining drill, a full NTSRA suit, and a Syndicate Toolbox
+    full of all the tools you'll ever need!
+
+thief-backpack-category-ninja-name = ninja kit
+thief-backpack-category-ninja-description =
+    Taking some inspiration from the Spider Clan, why not just hide yourself? You
+    will need someone to surgery the gland into you though...
+    Includes: A Space Cobra Gland, a Camera Bug, 2 Syndicate listening bugs, a
+    syndicate encryption key and a binary translator key.
+

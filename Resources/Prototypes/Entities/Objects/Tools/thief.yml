@@ -64,6 +64,11 @@
     - SleeperSet
     - CommunicatorSet
     - SmugglerSet
+    - ExtrovertSet
+    - ElectromagneticSet
+    - GetawaySet
+    - DemolitionistSet
+    - StalkerSet
   - type: ActivatableUI
     key: enum.ThiefBackpackUIKey.Key
   - type: UserInterface

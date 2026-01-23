@@ -35,5 +35,5 @@
   id: JobIconCentralCommandIntern
   icon:
     sprite: /Textures/_Funkystation/Interface/Misc/job_icons.rsi
-    state: CentralCommandOfficial
-  jobName: central-command-intern
+    state: CentralCommandIntern
+  jobName: job-name-central-command-intern

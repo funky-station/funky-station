@@ -9,6 +9,7 @@ using Content.Shared.Examine;
 using Content.Shared.Explosion.EntitySystems;
 using Content.Shared.Humanoid;
 using Content.Shared.Interaction;
+using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Power;
 using Content.Shared.Power.EntitySystems;
@@ -30,6 +31,7 @@ public abstract partial class SharedDeconversionJailSystem : EntitySystem
     [Dependency] protected readonly SharedPopupSystem PopUp = default!;
 
     [Dependency] private readonly INetManager _netManager = default!;
+    [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly SharedAnomalySystem _anomaly = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
@@ -110,7 +112,7 @@ public abstract partial class SharedDeconversionJailSystem : EntitySystem
     {
         if (_netManager.IsClient) // don't predict this function.
             return;
-        if (ent.Comp.OublietteState == OublietteStates.Cooldown || !_power.IsPowered(ent.Owner) || !HasComp<HumanoidAppearanceComponent>(args.Entity))
+        if (ent.Comp.OublietteState == OublietteStates.Cooldown || !_power.IsPowered(ent.Owner) || !_mobState.IsAlive(args.Entity) || !HasComp<HumanoidAppearanceComponent>(args.Entity))
             return;
 
         ent.Comp.CanInteract = false;

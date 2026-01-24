@@ -6,3 +6,6 @@
 
 trait-nocontractions-name = No contractions
 trait-nocontractions-desc = You are (mostly) incapable of using contractions.
+
+trait-milbrat-name = Military Jargon
+trait-milbrat-desc = You make subtle references to a past stint in the military by using strange terminology and acronyms.

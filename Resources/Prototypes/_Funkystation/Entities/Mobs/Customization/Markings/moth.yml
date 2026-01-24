@@ -1,6 +1,7 @@
 # SPDX-FileCopyrightText: 2025 BuildTools <unconfigured@null.spigotmc.org>
 # SPDX-FileCopyrightText: 2025 oLykos <211734292+oLykos-star@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2026 unknown <kit.ds.kat@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -34,3 +35,43 @@
   sprites:
   - sprite: _Funkystation/Mobs/Customization/Moth/moth_parts.rsi
     state: eyes_heterochromia_soft
+
+- type: marking
+  id: MothEyeshadow
+  bodyPart: Eyes
+  markingCategory: Head
+  speciesRestriction: [Moth]
+  followSkinColor: false
+  sprites:
+  - sprite: _Funkystation/Mobs/Customization/Moth/moth_parts.rsi
+    state: motheyeshadow
+
+- type: marking
+  id: MothTailless
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Moth]
+  followSkinColor: false
+  sprites:
+  - sprite: _Funkystation/Mobs/Customization/Moth/moth_parts.rsi
+    state: tailless
+
+- type: marking
+  id: MothAntennaWeevil
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Moth]
+  followSkinColor: false
+  sprites:
+  - sprite: _Funkystation/Mobs/Customization/Moth/moth_parts.rsi
+    state: weevil
+
+- type: marking
+  id: MothWeevil
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Moth]
+  followSkinColor: false
+  sprites:
+  - sprite: _Funkystation/Mobs/Customization/Moth/moth_parts.rsi
+    state: weevil_head

@@ -19,7 +19,7 @@ namespace Content.Server._Funkystation.Atmos.Portable
         /// Maximum internal pressure before it stops accepting more gas.
         /// </summary>
         [DataField, ViewVariables(VVAccess.ReadWrite)]
-        public float MaxPressure = 2500f;
+        public float MaxPressure = 9000f;
 
         /// <summary>
         /// The rate (L/s) at which gas is transferred from the pipe network.

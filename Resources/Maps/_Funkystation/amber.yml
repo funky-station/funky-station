@@ -50,7 +50,7 @@
 # SPDX-FileCopyrightText: 2025 Aineias1 <142914808+Aineias1@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Huhm-1 <180088676+Huhm-1@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Huhm-1 <cameronhillard40@gmail.com>
+# SPDX-FileCopyrightText: 2025 Huhm-1 <huhmgithub@outlook.com>
 # SPDX-FileCopyrightText: 2025 Icepick <122653407+Icepicked@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Mish <bluscout78@yahoo.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
@@ -60,6 +60,7 @@
 # SPDX-FileCopyrightText: 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 rottenheadphones <juaelwe@outlook.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2026 Huhm-1 <cameronhillard40@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -69,8 +70,8 @@ meta:
   engineVersion: 268.0.0
   forkId: ""
   forkVersion: ""
-  time: 12/19/2025 17:05:35
-  entityCount: 20520
+  time: 01/15/2026 23:02:02
+  entityCount: 20539
 maps:
 - 1
 grids:
@@ -246,7 +247,7 @@ entities:
           version: 7
         -4,-3:
           ind: -4,-3
-          tiles: LAAAAAAAAC4AAAAAAAAuAAAAAAAALgAAAAAAACwAAAAAAAAuAAAAAAAALAAAAAAAACwAAAAAAAAsAAAAAAAALAAAAAAAAA4AAAAAAAAOAAAAAAAAHAAAAAAAABwAAAAAAAAOAAAAAAAADgAAAAAAACwAAAAAAAAsAAAAAAAALAAAAAAAACwAAAAAAAAsAAAAAAAALAAAAAAAACwAAAAAAAAsAAAAAAAALgAAAAAAAC4AAAAAAAAOAAAAAAAAHAAAAAAAABwAAAAAAAAcAAAAAAAAHAAAAAAAAA4AAAAAAAAsAAAAAAAALAAAAAAAACwAAAAAAAAsAAAAAAAALAAAAAAAACwAAAAAAAAsAAAAAAAALgAAAAAAACwAAAAAAAAsAAAAAAAADgAAAAAAABwAAAAAAAAcAAAAAAAAHAAAAAAAABwAAAAAAAAOAAAAAAAALAAAAAAAACwAAAAAAAAuAAAAAAAALAAAAAAAACwAAAAAAAAsAAAAAAAALAAAAAAAACwAAAAAAAAsAAAAAAAALAAAAAAAAA4AAAAAAAAcAAAAAAAAHAAAAAAAABwAAAAAAAAcAAAAAAAADgAAAAAAAC4AAAAAAAAuAAAAAAAALgAAAAAAAC4AAAAAAAAsAAAAAAAALAAAAAAAACwAAAAAAAAuAAAAAAAALAAAAAAAACwAAAAAAAAOAAAAAAAAHAAAAAAAABwAAAAAAAAcAAAAAAAAHAAAAAAAAAkAAAAAAAAuAAAAAAAALgAAAAAAAC4AAAAAAAAuAAAAAAAALgAAAAAAAC4AAAAAAAAsAAAAAAAALgAAAAAAAC4AAAAAAAAsAAAAAAAADgAAAAAAABwAAAAAAAAcAAAAAAAAHAAAAAAAABwAAAAAAAAJAAAAAAAALgAAAAAAAC4AAAAAAAAuAAAAAAAALgAAAAAAAC4AAAAAAAAuAAAAAAAALAAAAAAAACwAAAAAAAAsAAAAAAAALAAAAAAAAA4AAAAAAAAcAAAAAAAAHAAAAAAAABwAAAAAAAAcAAAAAAAADgAAAAAAAC4AAAAAAAAuAAAAAAAALgAAAAAAAC4AAAAAAAAuAAAAAAAALgAAAAAAAC4AAAAAAAAsAAAAAAAALAAAAAAAACwAAAAAAAAOAAAAAAAAHAAAAAAAABwAAAAAAAAcAAAAAAAAHAAAAAAAAA4AAAAAAAAuAAAAAAAALgAAAAAAAC4AAAAAAAAuAAAAAAAALgAAAAAAAC4AAAAAAAAuAAAAAAAALgAAAAAAACwAAAAAAAAsAAAAAAAADgAAAAAAAA4AAAAAAAAcAAAAAAAAHAAAAAAAAA4AAAAAAAAOAAAAAAAALgAAAAAAAC4AAAAAAAAuAAAAAAAALgAAAAAAAC4AAAAAAAAuAAAAAAAALgAAAAAAAC4AAAAAAAAuAAAAAAAALAAAAAAAACwAAAAAAAAOAAAAAAAADgAAAAAAAA4AAAAAAAAOAAAAAAAALAAAAAAAAC4AAAAAAAAuAAAAAAAALgAAAAAAAC4AAAAAAAAuAAAAAAAALgAAAAAAAC4AAAAAAAAuAAAAAAAALgAAAAAAACwAAAAAAAAuAAAAAAAALAAAAAAAAC4AAAAAAAAuAAAAAAAALAAAAAAAACwAAAAAAAAuAAAAAAAALgAAAAAAAC4AAAAAAAAuAAAAAAAALgAAAAAAAC4AAAAAAAAuAAAAAAAALgAAAAAAAC4AAAAAAAAuAAAAAAAALAAAAAAAACwAAAAAAAAsAAAAAAAALgAAAAAAACwAAAAAAAAsAAAAAAAALgAAAAAAAC4AAAAAAAAuAAAAAAAALgAAAAAAAC4AAAAAAAAuAAAAAAAALgAAAAAAAC4AAAAAAAAuAAAAAAAALgAAAAAAAC4AAAAAAAAsAAAAAAAALgAAAAAAACwAAAAAAAAuAAAAAAAALAAAAAAAAC4AAAAAAAAuAAAAAAAALgAAAAAAAC4AAAAAAAAuAAAAAAAALgAAAAAAAC4AAAAAAAAuAAAAAAAALgAAAAAAAC4AAAAAAAAsAAAAAAAALAAAAAAAACwAAAAAAAAsAAAAAAAALAAAAAAAACwAAAAAAAAuAAAAAAAALgAAAAAAAC4AAAAAAAAuAAAAAAAALgAAAAAAAC4AAAAAAAAuAAAAAAAALgAAAAAAAC4AAAAAAAAuAAAAAAAALAAAAAAAAC4AAAAAAAAsAAAAAAAALgAAAAAAACwAAAAAAAAsAAAAAAAALgAAAAAAAC4AAAAAAAAuAAAAAAAALgAAAAAAAC4AAAAAAAAuAAAAAAAALgAAAAAAAC4AAAAAAAAuAAAAAAAALgAAAAAAACwAAAAAAAAuAAAAAAAALAAAAAAAAC4AAAAAAAAsAAAAAAAALAAAAAAAAA==
+          tiles: LAAAAAAAAC4AAAAAAAAuAAAAAAAALgAAAAAAACwAAAAAAAAuAAAAAAAALAAAAAAAACwAAAAAAAAsAAAAAAAALAAAAAAAAA4AAAAAAAAOAAAAAAAAHAAAAAAAABwAAAAAAAAOAAAAAAAADgAAAAAAACwAAAAAAAAsAAAAAAAALAAAAAAAACwAAAAAAAAsAAAAAAAALAAAAAAAACwAAAAAAAAsAAAAAAAALgAAAAAAAC4AAAAAAAAOAAAAAAAAHAAAAAAAABwAAAAAAAAcAAAAAAAAHAAAAAAAAA4AAAAAAAAsAAAAAAAALAAAAAAAACwAAAAAAAAsAAAAAAAALAAAAAAAACwAAAAAAAAsAAAAAAAALgAAAAAAACwAAAAAAAAsAAAAAAAADgAAAAAAABwAAAAAAAAcAAAAAAAAHAAAAAAAABwAAAAAAAAOAAAAAAAALAAAAAAAACwAAAAAAAAuAAAAAAAALAAAAAAAACwAAAAAAAAsAAAAAAAALAAAAAAAACwAAAAAAAAsAAAAAAAALAAAAAAAAA4AAAAAAAAcAAAAAAAAHAAAAAAAABwAAAAAAAAcAAAAAAAADgAAAAAAAC4AAAAAAAAuAAAAAAAALgAAAAAAAC4AAAAAAAAsAAAAAAAALAAAAAAAACwAAAAAAAAuAAAAAAAALAAAAAAAACwAAAAAAAAOAAAAAAAAHAAAAAAAABwAAAAAAAAcAAAAAAAAHAAAAAAAAAkAAAAAAAAuAAAAAAAALgAAAAAAAC4AAAAAAAAuAAAAAAAALgAAAAAAACwAAAAAAAAsAAAAAAAALgAAAAAAAC4AAAAAAAAsAAAAAAAADgAAAAAAABwAAAAAAAAcAAAAAAAAHAAAAAAAABwAAAAAAAAJAAAAAAAALgAAAAAAAC4AAAAAAAAuAAAAAAAALgAAAAAAAC4AAAAAAAAuAAAAAAAALAAAAAAAACwAAAAAAAAsAAAAAAAALAAAAAAAAA4AAAAAAAAcAAAAAAAAHAAAAAAAABwAAAAAAAAcAAAAAAAADgAAAAAAAC4AAAAAAAAuAAAAAAAALgAAAAAAAC4AAAAAAAAuAAAAAAAALgAAAAAAAC4AAAAAAAAsAAAAAAAALAAAAAAAACwAAAAAAAAOAAAAAAAAHAAAAAAAABwAAAAAAAAcAAAAAAAAHAAAAAAAAA4AAAAAAAAuAAAAAAAALgAAAAAAAC4AAAAAAAAuAAAAAAAALgAAAAAAAC4AAAAAAAAuAAAAAAAALAAAAAAAACwAAAAAAAAsAAAAAAAADgAAAAAAAA4AAAAAAAAcAAAAAAAAHAAAAAAAAA4AAAAAAAAOAAAAAAAALgAAAAAAAC4AAAAAAAAuAAAAAAAALgAAAAAAAC4AAAAAAAAuAAAAAAAALgAAAAAAACwAAAAAAAAsAAAAAAAALAAAAAAAACwAAAAAAAAOAAAAAAAADgAAAAAAAA4AAAAAAAAOAAAAAAAALAAAAAAAAC4AAAAAAAAuAAAAAAAALgAAAAAAAC4AAAAAAAAuAAAAAAAALgAAAAAAAC4AAAAAAAAuAAAAAAAALgAAAAAAACwAAAAAAAAsAAAAAAAALAAAAAAAACwAAAAAAAAuAAAAAAAALAAAAAAAACwAAAAAAAAuAAAAAAAALgAAAAAAAC4AAAAAAAAuAAAAAAAALgAAAAAAAC4AAAAAAAAuAAAAAAAALgAAAAAAACwAAAAAAAAsAAAAAAAALAAAAAAAACwAAAAAAAAsAAAAAAAALAAAAAAAACwAAAAAAAAsAAAAAAAALgAAAAAAAC4AAAAAAAAuAAAAAAAALgAAAAAAAC4AAAAAAAAuAAAAAAAALgAAAAAAAC4AAAAAAAAuAAAAAAAALgAAAAAAACwAAAAAAAAsAAAAAAAALAAAAAAAACwAAAAAAAAuAAAAAAAALAAAAAAAAC4AAAAAAAAuAAAAAAAALgAAAAAAAC4AAAAAAAAuAAAAAAAALgAAAAAAAC4AAAAAAAAuAAAAAAAALgAAAAAAAC4AAAAAAAAsAAAAAAAALAAAAAAAACwAAAAAAAAsAAAAAAAALAAAAAAAACwAAAAAAAAuAAAAAAAALgAAAAAAAC4AAAAAAAAuAAAAAAAALgAAAAAAAC4AAAAAAAAuAAAAAAAALgAAAAAAAC4AAAAAAAAuAAAAAAAALAAAAAAAAC4AAAAAAAAsAAAAAAAALgAAAAAAACwAAAAAAAAsAAAAAAAALgAAAAAAAC4AAAAAAAAuAAAAAAAALgAAAAAAAC4AAAAAAAAuAAAAAAAALgAAAAAAAC4AAAAAAAAuAAAAAAAALgAAAAAAACwAAAAAAAAuAAAAAAAALAAAAAAAAC4AAAAAAAAsAAAAAAAALAAAAAAAAA==
           version: 7
         -4,-4:
           ind: -4,-4
@@ -13646,7 +13647,7 @@ entities:
       pos: 6.5,-12.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -32826.508
+      secondsUntilStateChange: -34100.445
       state: Opening
     - type: DeviceLinkSink
       invokeCounter: 1
@@ -23040,36 +23041,6 @@ entities:
     - type: Transform
       pos: 21.5,-59.5
       parent: 2
-  - uid: 3518
-    components:
-    - type: Transform
-      pos: -39.5,-36.5
-      parent: 2
-  - uid: 6099
-    components:
-    - type: Transform
-      pos: -39.5,-33.5
-      parent: 2
-  - uid: 11049
-    components:
-    - type: Transform
-      pos: -39.5,-39.5
-      parent: 2
-  - uid: 11601
-    components:
-    - type: Transform
-      pos: -46.5,-39.5
-      parent: 2
-  - uid: 16764
-    components:
-    - type: Transform
-      pos: -46.5,-36.5
-      parent: 2
-  - uid: 16765
-    components:
-    - type: Transform
-      pos: -46.5,-33.5
-      parent: 2
 - proto: BedsheetMime
   entities:
   - uid: 1896
@@ -23143,19 +23114,12 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -32.5,-24.5
       parent: 2
-- proto: BenchSofaCorpMiddle
+- proto: BenchSofaCorpRight
   entities:
-  - uid: 14698
+  - uid: 6099
     components:
     - type: Transform
       pos: -33.5,-23.5
-      parent: 2
-- proto: BenchSofaCorpRight
-  entities:
-  - uid: 15974
-    components:
-    - type: Transform
-      pos: -34.5,-23.5
       parent: 2
 - proto: BikeHorn
   entities:
@@ -54794,6 +54758,13 @@ entities:
       rot: 3.141592653589793 rad
       pos: -13.5,-15.5
       parent: 2
+- proto: ComputerCargoOrdersMedical
+  entities:
+  - uid: 3518
+    components:
+    - type: Transform
+      pos: -34.5,-23.5
+      parent: 2
 - proto: ComputerCargoOrdersScience
   entities:
   - uid: 20506
@@ -54843,6 +54814,12 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -12.5,-46.5
+      parent: 2
+  - uid: 7932
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -19.5,-4.5
       parent: 2
   - uid: 8415
     components:
@@ -55088,12 +55065,6 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -20.5,-56.5
-      parent: 2
-  - uid: 7932
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -19.5,-4.5
       parent: 2
 - proto: ComputerSurveillanceCameraMonitor
   entities:
@@ -65459,7 +65430,7 @@ entities:
       pos: -16.5,-17.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -70061.1
+      secondsUntilStateChange: -71335.04
       state: Closing
     - type: DeviceNetwork
       deviceLists:
@@ -92306,6 +92277,12 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -18.5,-7.5
       parent: 2
+  - uid: 16765
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -55.5,-36.5
+      parent: 2
   - uid: 16832
     components:
     - type: Transform
@@ -92369,6 +92346,48 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -16.5,-68.5
+      parent: 2
+  - uid: 20339
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -56.5,-38.5
+      parent: 2
+  - uid: 20340
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -56.5,-39.5
+      parent: 2
+  - uid: 20341
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -57.5,-41.5
+      parent: 2
+  - uid: 20342
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -55.5,-38.5
+      parent: 2
+  - uid: 20343
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -53.5,-34.5
+      parent: 2
+  - uid: 20344
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -53.5,-35.5
+      parent: 2
+  - uid: 20345
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -54.5,-36.5
       parent: 2
   - uid: 20428
     components:
@@ -93879,7 +93898,7 @@ entities:
       pos: -39.5,-35.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -10416.25
+      secondsUntilStateChange: -11690.187
       state: Closing
   - uid: 13639
     components:
@@ -112855,6 +112874,124 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -50.5,-24.5
       parent: 2
+    - type: SurveillanceCamera
+      id: Virology
+  - uid: 11049
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -27.5,-25.5
+      parent: 2
+    - type: SurveillanceCamera
+      id: Front Desk
+  - uid: 11601
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -35.5,-18.5
+      parent: 2
+    - type: SurveillanceCamera
+      id: Cryopods
+  - uid: 14698
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -43.5,-26.5
+      parent: 2
+    - type: SurveillanceCamera
+      id: Surgery
+  - uid: 20346
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -27.5,-35.5
+      parent: 2
+    - type: SurveillanceCamera
+      id: Chemistry
+  - uid: 20356
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -36.5,-34.5
+      parent: 2
+    - type: SurveillanceCamera
+      id: Hallway Middle
+  - uid: 20361
+    components:
+    - type: Transform
+      pos: -31.5,-31.5
+      parent: 2
+    - type: SurveillanceCamera
+      id: Hallway Right
+  - uid: 20362
+    components:
+    - type: Transform
+      pos: -41.5,-40.5
+      parent: 2
+    - type: SurveillanceCamera
+      id: Exam Back
+  - uid: 20363
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -44.5,-33.5
+      parent: 2
+    - type: SurveillanceCamera
+      id: Exam Front
+  - uid: 20364
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -49.5,-41.5
+      parent: 2
+    - type: SurveillanceCamera
+      id: Morgue
+  - uid: 20365
+    components:
+    - type: Transform
+      pos: -41.5,-48.5
+      parent: 2
+    - type: SurveillanceCamera
+      id: ICU
+  - uid: 20380
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -37.5,-41.5
+      parent: 2
+    - type: SurveillanceCamera
+      id: South Hallway
+  - uid: 20381
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -46.5,-42.5
+      parent: 2
+    - type: SurveillanceCamera
+      id: Back Hallway 2
+  - uid: 20386
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -44.5,-15.5
+      parent: 2
+    - type: SurveillanceCamera
+      id: CMO's Office
+  - uid: 20387
+    components:
+    - type: Transform
+      pos: -46.5,-31.5
+      parent: 2
+    - type: SurveillanceCamera
+      id: Hallway Left
+  - uid: 20388
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -36.5,-23.5
+      parent: 2
+    - type: SurveillanceCamera
+      id: Breakroom
 - proto: SurveillanceCameraRouterCommand
   entities:
   - uid: 16770
@@ -112981,6 +113118,22 @@ entities:
       id: Artifact Scanner
 - proto: SurveillanceCameraSecurity
   entities:
+  - uid: 15974
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -24.5,-3.5
+      parent: 2
+    - type: SurveillanceCamera
+      id: Warden
+  - uid: 16764
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -19.5,-7.5
+      parent: 2
+    - type: SurveillanceCamera
+      id: Prison Lockers
   - uid: 16787
     components:
     - type: Transform

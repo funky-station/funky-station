@@ -108,6 +108,17 @@
   - NanotrasenRepresentative # Goobstation
   - Magistrate
   - InternalAffairsAgent # FunkyStation
+  - CentralCommandIntern
+  - CentralCommandOfficial
+  - CBURN
+  - ERTLeader
+  - ERTChaplain
+  - ERTJanitor
+  - ERTMedical
+  - ERTSecurity
+  - ERTEngineer
+  - DeathSquad
+  - HecuOperative
   editorHidden: false
   weight: 120
 
@@ -124,16 +135,6 @@
   - HeadOfSecurity
   - ResearchDirector
   - Quartermaster
-  - CentralCommandOfficial
-  - CBURN
-  - ERTLeader
-  - ERTChaplain
-  - ERTJanitor
-  - ERTMedical
-  - ERTSecurity
-  - ERTEngineer
-  - DeathSquad
-  - HecuOperative
   - CommandMaid # event-restricted
   primary: false
   weight: 100
@@ -204,6 +205,5 @@
   color: "#D381C9"
   roles:
   - SpaceCowboy
-  - CentralCommandIntern
   weight: -100
 #End Funky

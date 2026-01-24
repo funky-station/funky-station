@@ -112,6 +112,7 @@ public sealed class GhostRoleSystem : EntitySystem
     private bool _needsUpdateGhostRoleCount = true;
 
     private readonly Dictionary<uint, Entity<GhostRoleComponent>> _ghostRoles = new();
+    private readonly Dictionary<uint, Entity<CentCommRoleComponent>> _centCommRoles = new();
     private readonly Dictionary<uint, Entity<GhostRoleRaffleComponent>> _ghostRoleRaffles = new();
 
     private readonly Dictionary<ICommonSession, GhostRolesEui> _openUis = new();
@@ -184,7 +185,7 @@ public sealed class GhostRoleSystem : EntitySystem
         return unchecked(_nextRoleIdentifier++);
     }
 
-    public void OpenEui(ICommonSession session)
+    public void OpenGhostRoleEui(ICommonSession session)
     {
         if (session.AttachedEntity is not { Valid: true } attached ||
             !EntityManager.HasComponent<GhostComponent>(attached))
@@ -259,6 +260,22 @@ public sealed class GhostRoleSystem : EntitySystem
 
         _needsUpdateGhostRoleCount = false;
         var response = new GhostUpdateGhostRoleCountEvent(GetGhostRoleCount());
+        foreach (var player in _playerManager.Sessions)
+        {
+            RaiseNetworkEvent(response, player.Channel);
+        }
+    }
+
+    /// <summary>
+    /// Handles sending count update for the centcomm role button in ghost UI, if ghost role count changed.
+    /// </summary>
+    private void UpdateCentCommRoleCount()
+    {
+        if (!_needsUpdateGhostRoleCount)
+            return;
+
+        _needsUpdateGhostRoleCount = false;
+        var response = new GhostUpdateGhostRoleCountEvent(GetCentCommRoleCount());
         foreach (var player in _playerManager.Sessions)
         {
             RaiseNetworkEvent(response, player.Channel);
@@ -590,6 +607,15 @@ public sealed class GhostRoleSystem : EntitySystem
     {
         var metaQuery = GetEntityQuery<MetaDataComponent>();
         return _ghostRoles.Count(pair => metaQuery.GetComponent(pair.Value.Owner).EntityPaused == false);
+    }
+
+    /// <summary>
+    /// Returns the number of available ghost roles.
+    /// </summary>
+    public int GetCentCommRoleCount()
+    {
+        var metaQuery = GetEntityQuery<MetaDataComponent>();
+        return _centCommRoles.Count(pair => metaQuery.GetComponent(pair.Value.Owner).EntityPaused == false);
     }
 
     /// <summary>
@@ -995,6 +1021,20 @@ public sealed class GhostRoleSystem : EntitySystem
 
         SetMode(entity.Owner, ghostRoleProto, ghostRoleProto.Name, entity.Comp);
     }
+
+    public void OpenCentCommRoleEui(ICommonSession session)
+    {
+        if (session.AttachedEntity is not { Valid: true } attached ||
+            !EntityManager.HasComponent<GhostComponent>(attached))
+            return;
+
+        if (_openUis.ContainsKey(session))
+            CloseEui(session);
+
+        var eui = _openUis[session] = new GhostRolesEui();
+        _euiManager.OpenEui(eui, session);
+        eui.StateDirty();
+    }
 }
 
 [AnyCommand]
@@ -1008,8 +1048,25 @@ public sealed class GhostRoles : IConsoleCommand
     public void Execute(IConsoleShell shell, string argStr, string[] args)
     {
         if (shell.Player != null)
-            _e.System<GhostRoleSystem>().OpenEui(shell.Player);
+            _e.System<GhostRoleSystem>().OpenGhostRoleEui(shell.Player);
         else
             shell.WriteLine("You can only open the ghost roles UI on a client.");
+    }
+}
+
+[AnyCommand]
+public sealed class CentCommRoles : IConsoleCommand
+{
+    [Dependency] private readonly IEntityManager _e = default!;
+
+    public string Command => "centcommroles";
+    public string Description => "Opens the centcomm role request window.";
+    public string Help => $"{Command}";
+    public void Execute(IConsoleShell shell, string argStr, string[] args)
+    {
+        if (shell.Player != null)
+            _e.System<GhostRoleSystem>().OpenCentCommRoleEui(shell.Player);
+        else
+            shell.WriteLine("You can only open the centcomm roles UI on a client.");
     }
 }

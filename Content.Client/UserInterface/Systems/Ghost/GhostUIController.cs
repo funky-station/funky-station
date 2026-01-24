@@ -56,7 +56,8 @@ public sealed class GhostUIController : UIController, IOnSystemChanged<GhostSyst
         system.PlayerAttached += OnPlayerAttached;
         system.PlayerDetached += OnPlayerDetached;
         system.GhostWarpsResponse += OnWarpsResponse;
-        system.GhostRoleCountUpdated += OnRoleCountUpdated;
+        system.GhostRoleCountUpdated += OnGhostRoleCountUpdated;
+        system.CentCommRoleCountUpdated += OnCentCommRoleCountUpdated; // Funky - Centcomm Roles
     }
 
     public void OnSystemUnloaded(GhostSystem system)
@@ -66,7 +67,8 @@ public sealed class GhostUIController : UIController, IOnSystemChanged<GhostSyst
         system.PlayerAttached -= OnPlayerAttached;
         system.PlayerDetached -= OnPlayerDetached;
         system.GhostWarpsResponse -= OnWarpsResponse;
-        system.GhostRoleCountUpdated -= OnRoleCountUpdated;
+        system.GhostRoleCountUpdated -= OnGhostRoleCountUpdated;
+        system.CentCommRoleCountUpdated -= OnCentCommRoleCountUpdated; // Funky - Centcomm Roles
     }
 
     public void UpdateGui()
@@ -77,7 +79,7 @@ public sealed class GhostUIController : UIController, IOnSystemChanged<GhostSyst
         }
 
         Gui.Visible = _system?.IsGhost ?? false;
-        Gui.Update(_system?.AvailableGhostRoleCount, _system?.Player?.CanReturnToBody);
+        Gui.Update(_system?.AvailableGhostRoleCount, _system?.AvailableCentCommRoleCount, _system?.Player?.CanReturnToBody);
     }
 
     private void OnPlayerRemoved(GhostComponent component)
@@ -113,7 +115,12 @@ public sealed class GhostUIController : UIController, IOnSystemChanged<GhostSyst
         window.Populate();
     }
 
-    private void OnRoleCountUpdated(GhostUpdateGhostRoleCountEvent msg)
+    private void OnGhostRoleCountUpdated(GhostUpdateGhostRoleCountEvent msg)
+    {
+        UpdateGui();
+    }
+
+    private void OnCentCommRoleCountUpdated(GhostUpdateGhostRoleCountEvent msg)
     {
         UpdateGui();
     }
@@ -138,8 +145,8 @@ public sealed class GhostUIController : UIController, IOnSystemChanged<GhostSyst
         Gui.RequestWarpsPressed += RequestWarps;
         Gui.ReturnToBodyPressed += ReturnToBody;
         Gui.GhostRolesPressed += GhostRolesPressed;
-        Gui.GhostBarPressed += GhostBarPressed; // Goobstation - Ghost Bar
-        Gui.GhostBarWindow.SpawnButtonPressed += GhostBarSpawnPressed; // Goobstation - Ghost Bar
+        Gui.CentCommRolePressed += CentCommRolesPressed; // Funky - Centcomm Roles
+        // Gui.GhostBarWindow.SpawnButtonPressed += GhostBarSpawnPressed; // Goobstation - Ghost Bar
         Gui.TargetWindow.WarpClicked += OnWarpClicked;
         Gui.TargetWindow.OnGhostnadoClicked += OnGhostnadoClicked;
 
@@ -154,8 +161,8 @@ public sealed class GhostUIController : UIController, IOnSystemChanged<GhostSyst
         Gui.RequestWarpsPressed -= RequestWarps;
         Gui.ReturnToBodyPressed -= ReturnToBody;
         Gui.GhostRolesPressed -= GhostRolesPressed;
-        Gui.GhostBarPressed -= GhostBarPressed; // Goobstation - Ghost Bar
-        Gui.GhostBarWindow.SpawnButtonPressed -= GhostBarSpawnPressed; // Goobstation - Ghost Bar
+        Gui.CentCommRolePressed -= CentCommRolesPressed; // Funky - Centcomm Roles
+        // Gui.GhostBarWindow.SpawnButtonPressed -= GhostBarSpawnPressed; // Goobstation - Ghost Bar
         Gui.TargetWindow.WarpClicked -= OnWarpClicked;
 
         Gui.Hide();
@@ -178,13 +185,13 @@ public sealed class GhostUIController : UIController, IOnSystemChanged<GhostSyst
         _system?.OpenGhostRoles();
     }
 
-    private void GhostBarPressed() // Goobstation - Ghost Bar
+    private void CentCommRolesPressed() // Funky - Centcomm Roles
     {
-        Gui?.GhostBarWindow.OpenCentered();
+        _system?.OpenCentCommRoles();
     }
 
-    private void GhostBarSpawnPressed() // Goobstation - Ghost Bar
-    {
-        _system?.GhostBarSpawn();
-    }
+    // private void GhostBarSpawnPressed() // Goobstation - Ghost Bar
+    // {
+    //     _system?.GhostBarSpawn();
+    // }
 }

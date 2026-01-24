@@ -29,7 +29,7 @@ public sealed partial class GhostGui : UIWidget
     public event Action? RequestWarpsPressed;
     public event Action? ReturnToBodyPressed;
     public event Action? GhostRolesPressed;
-    public event Action? GhostBarPressed; // Goobstation - Ghost Bar
+    public event Action? CentCommRolePressed; // Goobstation - Ghost Bar
     private int _prevNumberRoles;
 
     public GhostGui()
@@ -45,7 +45,7 @@ public sealed partial class GhostGui : UIWidget
         GhostWarpButton.OnPressed += _ => RequestWarpsPressed?.Invoke();
         ReturnToBodyButton.OnPressed += _ => ReturnToBodyPressed?.Invoke();
         GhostRolesButton.OnPressed += _ => GhostRolesPressed?.Invoke();
-        GhostBarButton.OnPressed += _ => GhostBarPressed?.Invoke(); // Goobstation - Ghost Bar
+        CentCommRolesButton.OnPressed += _ => CentCommRolePressed?.Invoke(); // Funky - CentComm Roles
         GhostRolesButton.OnPressed += _ => GhostRolesButton.StyleClasses.Remove(StyleClass.Negative);
     }
 
@@ -56,20 +56,32 @@ public sealed partial class GhostGui : UIWidget
         Visible = false;
     }
 
-    public void Update(int? roles, bool? canReturnToBody)
+    public void Update(int? ghostRoles, int? centCommRoles, bool? canReturnToBody)
     {
         ReturnToBodyButton.Disabled = !canReturnToBody ?? true;
 
-        if (roles != null)
+        if (ghostRoles != null)
         {
-            GhostRolesButton.Text = Loc.GetString("ghost-gui-ghost-roles-button", ("count", roles));
+            GhostRolesButton.Text = Loc.GetString("ghost-gui-ghost-roles-button", ("count", ghostRoles));
 
-            if (roles > _prevNumberRoles)
+            if (ghostRoles > _prevNumberRoles)
             {
                 GhostRolesButton.StyleClasses.Add(StyleClass.Negative);
             }
 
-            _prevNumberRoles = (int)roles;
+            _prevNumberRoles = (int)ghostRoles;
+        }
+
+        if (centCommRoles != null)
+        {
+            CentCommRolesButton.Text = Loc.GetString("ghost-gui-centcomm-roles-button", ("count", centCommRoles));
+
+            if (centCommRoles > _prevNumberRoles)
+            {
+                CentCommRolesButton.StyleClasses.Add(StyleClass.Negative);
+            }
+
+            _prevNumberRoles = (int)centCommRoles;
         }
 
         TargetWindow.Populate();

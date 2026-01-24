@@ -48,6 +48,7 @@ namespace Content.Client.Ghost
         [Dependency] private readonly SpriteSystem _sprite = default!;
 
         public int AvailableGhostRoleCount { get; private set; }
+        public int AvailableCentCommRoleCount { get; private set; }
 
         private bool _ghostVisibility = true;
 
@@ -80,6 +81,7 @@ namespace Content.Client.Ghost
         public event Action? PlayerDetached;
         public event Action<GhostWarpsResponseEvent>? GhostWarpsResponse;
         public event Action<GhostUpdateGhostRoleCountEvent>? GhostRoleCountUpdated;
+        public event Action<GhostUpdateGhostRoleCountEvent>? CentCommRoleCountUpdated;
 
         public override void Initialize()
         {
@@ -228,6 +230,12 @@ namespace Content.Client.Ghost
             GhostRoleCountUpdated?.Invoke(msg);
         }
 
+        private void OnUpdateCentCommRoleCount(GhostUpdateGhostRoleCountEvent msg)
+        {
+            AvailableCentCommRoleCount = msg.AvailableGhostRoles;
+            GhostRoleCountUpdated?.Invoke(msg);
+        }
+
         public void RequestWarps()
         {
             RaiseNetworkEvent(new GhostWarpsRequestEvent());
@@ -242,6 +250,11 @@ namespace Content.Client.Ghost
         public void OpenGhostRoles()
         {
             _console.RemoteExecuteCommand(null, "ghostroles");
+        }
+
+        public void OpenCentCommRoles()
+        {
+            _console.RemoteExecuteCommand(null, "centcommroles");
         }
 
         public void GhostBarSpawn() // Goobstation - Ghost Bar

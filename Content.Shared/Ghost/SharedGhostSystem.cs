@@ -181,4 +181,18 @@ namespace Content.Shared.Ghost
             AvailableGhostRoles = availableGhostRoleCount;
         }
     }
+
+    /// <summary>
+    /// A server to client update with the available ghost role count
+    /// </summary>
+    [Serializable, NetSerializable]
+    public sealed class GhostUpdateCentCommRoleCountEvent : EntityEventArgs
+    {
+        public int AvailableCentCommRoles { get; }
+
+        public GhostUpdateCentCommRoleCountEvent(int availableCentCommRoleCount)
+        {
+            AvailableCentCommRoles = availableCentCommRoleCount;
+        }
+    }
 }

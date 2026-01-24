@@ -41,6 +41,8 @@
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 wilowzeta <willowzeta632146@proton.me>
+# SPDX-FileCopyrightText: 2026 unknown <kit.ds.kat@gmail.com>
+# SPDX-FileCopyrightText: 2026 willow <willowzeta632146@proton.me>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -37316,18 +37318,6 @@ entities:
     components:
     - type: Transform
       pos: 41.5,81.5
-      parent: 1
-- proto: SpawnPointGhostCentCommIntern
-  entities:
-  - uid: 6700
-    components:
-    - type: Transform
-      pos: 35.5,56.5
-      parent: 1
-  - uid: 6701
-    components:
-    - type: Transform
-      pos: 78.5,48.5
       parent: 1
 - proto: SpoonPlastic
   entities:

@@ -208,6 +208,7 @@
 # SPDX-FileCopyrightText: 2026 Tea <Xerithin@gmail.com>
 # SPDX-FileCopyrightText: 2026 Teasq <Xerithin@gmail.com>
 # SPDX-FileCopyrightText: 2026 ThatOneMoon <91613003+ThatOneMoon@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2026 W.xyz() <tptechteam@gmail.com>
 # SPDX-FileCopyrightText: 2026 Xcybitt <197952719+Xcybitt@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
@@ -776,7 +777,7 @@
     - MagazineBoxPistolLargeUranium # Funkystation
     - MagazineBoxPistolLargeIncendiary # Funkystation
     - WeaponEnergyGunEnergyPistol # Funkystation
-    - WeaponTeslaGun # Funkystation 
+    - WeaponTeslaGun # Funkystation
     - MindShieldImplanter
     - TrackingImplanter
     - ClothingHandsTruncheonKnuckleDusters # funk
@@ -1268,7 +1269,7 @@
     - MagazineBoxPistolLargeUranium # Funkystation
     - MagazineBoxPistolLargeIncendiary # Funkystation
     - WeaponEnergyGunEnergyPistol # Funkystation
-    - WeaponTeslaGun # Funkystation 
+    - WeaponTeslaGun # Funkystation
     - PortableRecharger
     - PowerCageHigh
     - PowerCageMedium
@@ -1568,6 +1569,7 @@
     - ClothingUniformJumpskirtChiefEngineer
     - ClothingUniformJumpsuitChiefEngineerTurtle
     - ClothingUniformJumpskirtChiefEngineerTurtle
+    - ClothingHeadHatCEConductor # Funky!
     - ClothingUniformJumpsuitChaplain
     - ClothingUniformJumpskirtChaplain
     - ClothingUniformJumpsuitChef

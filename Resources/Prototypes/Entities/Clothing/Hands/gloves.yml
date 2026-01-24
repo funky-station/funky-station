@@ -259,7 +259,7 @@
   - type: ClothingGrantComponent # funky - tie surgery speed to gloves
     component:
     - type: SurgerySpeedModifier
-      speedModifier: 2.5  #nyoom
+      speedModifier: 2  #nyoom
 ####
 - type: entity
   parent: ClothingHandsButcherable

@@ -7494,3 +7494,11 @@ Entries:
       message: Roid now has new power devices in Engi
   id: 871
   time: '2026-01-22T09:00:56.0000000+00:00'
+- author: AftrLite
+  changes:
+    - type: Add
+      message: >-
+        Resprited: A.P.Es, Anomaly Vessels, Advanced Anomaly Vessels, Artifact
+        Analyzer
+  id: 872
+  time: '2026-01-24T00:55:27.0000000+00:00'

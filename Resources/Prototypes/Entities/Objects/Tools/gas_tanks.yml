@@ -305,6 +305,23 @@
     - AirTank
 
 - type: entity
+  parent: AirTank
+  id: BigAirTank
+  name: big air tank
+  description: A typical air tank built with more capacity, it can hold 10 L of gas.
+  components:
+  - type: GasTank
+    air:
+      volume: 10
+      temperature: 293.15
+  - type: BedTankVisual
+    visual: Generic
+  - type: Tag
+    tags:
+    - GasTank
+    - AirTank
+
+- type: entity
   parent: GasTankRoundBase
   id: NitrousOxideTank
   name: nitrous oxide tank

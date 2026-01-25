@@ -186,6 +186,13 @@
     Steel: 300
 
 - type: latheRecipe
+  id: BigAirTank
+  result: BigAirTank
+  completetime: 4
+  materials:
+    Steel: 600
+
+- type: latheRecipe
   id: DoubleEmergencyOxygenTank
   result: DoubleEmergencyOxygenTank
   completetime: 4

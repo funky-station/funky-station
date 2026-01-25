@@ -133,6 +133,7 @@
   recipeUnlocks:
   - ThermomachineUpgradedFreezerMachineCircuitBoard # Assmos
   - GasRecyclerMachineCircuitboard
+  - BigAirTank
 
 - type: technology
   id: RipleyAPLU

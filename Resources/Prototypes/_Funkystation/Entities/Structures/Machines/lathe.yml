@@ -132,6 +132,7 @@
     - CargoTelepadMachineCircuitboard
     - WeaponLaserSvalinn
     - OreProcessorIndustrialMachineCircuitboard
+    - BigAirTank
   - type: EmagLatheRecipes
     emagStaticRecipes:
     - ToolboxSyndicate

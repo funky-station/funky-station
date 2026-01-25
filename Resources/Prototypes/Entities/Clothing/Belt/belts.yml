@@ -719,10 +719,10 @@
         showEnts: False
         occludes: True
         ent: null
-    storagebase: !type:Container
-      showEnts: False
-      occludes: True
-      ents: []
+      storagebase: !type:Container
+        showEnts: False
+        occludes: True
+        ents: []  
   - type: ItemSlots
     slots:
       sidearm_slot:

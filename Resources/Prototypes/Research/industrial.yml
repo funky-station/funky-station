@@ -199,6 +199,7 @@
   cost: 10000
   recipeUnlocks:
     - WelderExperimental
+    - WelderIndustrialAdvanced
     - PowerDrill
     - JawsOfLife
     - BorgModuleAdvancedTool

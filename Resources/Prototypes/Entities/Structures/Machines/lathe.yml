@@ -335,7 +335,7 @@
     - Igniter
     - Signaller
     - Screwdriver
-    - Welder
+#    - Welder  #why are there two welders
     - Wrench
     - CrowbarGreen
     - Multitool
@@ -424,6 +424,7 @@
     - Signaller
     - Screwdriver
     - Welder
+    - WelderIndustrial #funk
     - Wrench
     - CrowbarGreen
     - Multitool
@@ -705,6 +706,7 @@
     - ClothingBackpackSatchelHolding
     - ClothingBackpackDuffelHolding
     - WelderExperimental
+    - WelderIndustrialAdvanced #funk
     - JawsOfLife
     - FauxTileAstroGrass
     - FauxTileMowedAstroGrass

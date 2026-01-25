@@ -241,8 +241,8 @@
       Welder:
         reagents:
         - ReagentId: WeldingFuel
-          Quantity: 1000
-        maxVol: 1000
+          Quantity: 100
+        maxVol: 100 #making it from 1000 into 100, why do you need infinite fuel
   - type: PointLight
     enabled: false
     radius: 1.5

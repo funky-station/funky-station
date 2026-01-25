@@ -96,3 +96,61 @@
   components:
   - type: ReagentDispenser
     pack: EmptyInventory
+
+- type: entity
+  id: ChemDispenserMedical
+  name: medical chemical dispenser
+  description: A medical grade chemical dispenser. Built for the medbay, it has an access lock but the spout's too low to fit things other than vials or bottles. However, because of the simplified nature of the machine compared to the industrial counterpart, this medical chemical dispenser can work without power.
+  suffix: Empty, Medical, Powered
+  parent: ReagentDispenserBaseMedical
+  components:
+  - type: Sprite
+    sprite: Structures/dispensers.rsi
+    state: industrial-working
+    snapCardinals: true
+  - type: ReagentDispenser
+    storageWhitelist:
+      tags:
+      - ChemDispensable
+    pack: EmptyInventory
+  - type: ApcPowerReceiver
+  - type: ExtensionCableReceiver
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalGlassBreak
+      - !type:ChangeConstructionNodeBehavior
+        node: machineFrame
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+  - type: Machine
+    board: ChemDispenserMachineCircuitboard
+  - type: GuideHelp
+    guides:
+    - Chemicals
+    - Chemist
+  - type: StealTarget
+    stealGroup: ChemDispenser
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.25, -0.4, 0.25, 0.4"
+        density: 190
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+  - type: Lock
+  - type: LockVisuals
+  - type: AccessReader
+    access: [["Medical"]]
+  - type: ItemSlotsLock
+    slots:
+    - beakerSlot

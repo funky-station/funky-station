@@ -369,6 +369,7 @@
     # Shitmed
     - id: MedicalBiofabMachineBoard
     - id: AutoclaveFlatpack # DV
+    - id: ChemDispenserMedicalMachineCircuitboard #funk
 
 # Hardsuit table, used for suit storage as well
 - type: entityTable

@@ -7524,3 +7524,9 @@ Entries:
       message: The previous change left enough room to create a psychologist office.
   id: 874
   time: '2026-01-25T06:30:43.0000000+00:00'
+- author: Dusty-Plant
+  changes:
+    - type: Tweak
+      message: small Court station changes
+  id: 875
+  time: '2026-01-25T06:32:17.0000000+00:00'

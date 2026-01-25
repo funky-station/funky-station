@@ -94,6 +94,7 @@
     sprite: /Textures/Interface/Misc/job_icons.rsi
     state: Nanotrasen
   jobName: job-name-centcomoff
+  allowSelection: false
 
 - type: jobIcon
   parent: JobIcon
@@ -102,7 +103,6 @@
     sprite: /Textures/_Funkystation/Interface/Misc/job_icons.rsi
     state: CentralCommandOfficial
   jobName: job-name-centcomoff
-  allowSelection: false
 
 - type: jobIcon
   parent: JobIcon
@@ -159,6 +159,7 @@
     sprite: /Textures/_Funkystation/Interface/Misc/job_icons.rsi
     state: DeathSquad
   jobName: job-name-deathsquad
+  allowSelection: false
 
 - type: jobIcon
   parent: JobIcon

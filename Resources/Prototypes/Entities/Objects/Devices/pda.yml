@@ -1151,6 +1151,43 @@
       - WordleCartridge
 
 - type: entity
+  parent: BaseCentcomPDA
+  id: CentcomInternPDA
+  name: CentComm intern PDA
+  description: Light green sign of walking authoritative bureaucracy.
+  components:
+  - type: Pda
+    id: CentcomInternIDCard
+    penSlot:
+      startingItem: PenCentcom
+      whitelist:
+        tags:
+        - Write
+  - type: Appearance
+    appearanceDataInit:
+     enum.PdaVisuals.PdaType:
+       !type:String
+       pda-centcom
+  - type: PdaBorderColor
+    borderColor: "#b8ac04"
+  - type: Icon
+    state: pda-centcom
+  - type: CartridgeLoader
+    uiKey: enum.PdaUiKey.Key
+    preinstalled:
+      - CrewManifestCartridge
+      - NotekeeperCartridge
+      - NanoTaskCartridge
+      - NewsReaderCartridge
+      - MedTekCartridge
+      - WantedListCartridge
+      - LogProbeCartridge
+      - AstroNavCartridge
+      # - NanoChatCartridge | Commented out so they can't communicate with the station directly
+      # - SOSCartridge | CCIs won't just die, right?
+      - WordleCartridge
+
+- type: entity
   parent: CentcomOfficialPDA
   id: AdminPDA
   name: Admin PDA

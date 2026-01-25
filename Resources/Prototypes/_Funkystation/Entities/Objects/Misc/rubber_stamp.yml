@@ -9,7 +9,7 @@
 
 - type: entity
   name: internal affairs agent's rubber stamp
-  parent: [RubberStampBase, BaseCommandContraband]
+  parent: [RubberStampBase, BaseCentcommContraband]
   id: RubberStampIAA
   suffix: DO NOT MAP
   components:
@@ -24,7 +24,7 @@
 
 - type: entity
   name: magistrate's rubber stamp
-  parent: [RubberStampBase, BaseCommandContraband]
+  parent: [RubberStampBase, BaseCentcommContraband]
   id: RubberStampMagistrate
   suffix: DO NOT MAP
   components:

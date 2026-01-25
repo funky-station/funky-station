@@ -284,3 +284,19 @@
     - state: flatpack
   - type: Flatpack
     entity: CMIV
+
+#medical chem dispenser
+- type: entity
+  parent: BaseFlatpack
+  id: ChemDispenserMedicalFlatpack
+  name: medical chemical dispenser flatpack
+  description: A flatpack used for constructing a medical chemical dispenser.
+  components:
+  - type: Flatpack
+    entity: ChemDispenserMedical
+  - type: Sprite
+    layers:
+    - state: base
+    - state: overlay
+      color: "#52B4E9"
+    - state: icon-default

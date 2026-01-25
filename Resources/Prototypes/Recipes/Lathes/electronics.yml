@@ -261,6 +261,11 @@
 
 - type: latheRecipe
   parent: BaseGoldCircuitboardRecipe
+  id: ChemDispenserMedicalMachineCircuitboard
+  result: ChemDispenserMedicalMachineCircuitboard
+
+- type: latheRecipe
+  parent: BaseGoldCircuitboardRecipe
   id: BiomassReclaimerMachineCircuitboard
   result: BiomassReclaimerMachineCircuitboard
 

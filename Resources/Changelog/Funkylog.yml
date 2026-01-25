@@ -7530,3 +7530,15 @@ Entries:
       message: small Court station changes
   id: 875
   time: '2026-01-25T06:32:17.0000000+00:00'
+- author: mkanke-real
+  changes:
+    - type: Add
+      message: Bagel now has a genetics lab
+    - type: Add
+      message: Added new power devices to Bagel
+    - type: Tweak
+      message: Bagel reactor rods are now randomized per shift
+    - type: Tweak
+      message: Med curtains swapped for new ones on Bagel
+  id: 876
+  time: '2026-01-25T06:33:10.0000000+00:00'

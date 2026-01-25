@@ -118,6 +118,17 @@
   - NanotrasenRepresentative # Goobstation
   - Magistrate
   - InternalAffairsAgent # FunkyStation
+  - CentralCommandOfficial
+  - CBURN
+  - ERTLeader
+  - ERTChaplain
+  - ERTJanitor
+  - ERTMedical
+  - ERTSecurity
+  - ERTEngineer
+  - DeathSquad
+  - HecuOperative
+  - CentralCommandIntern
   editorHidden: false
   weight: 120
 
@@ -134,16 +145,6 @@
   - HeadOfSecurity
   - ResearchDirector
   - Quartermaster
-  - CentralCommandOfficial
-  - CBURN
-  - ERTLeader
-  - ERTChaplain
-  - ERTJanitor
-  - ERTMedical
-  - ERTSecurity
-  - ERTEngineer
-  - DeathSquad
-  - HecuOperative
   - CommandMaid # event-restricted
   primary: false
   weight: 100

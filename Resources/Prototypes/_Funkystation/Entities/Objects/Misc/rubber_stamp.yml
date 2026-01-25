@@ -65,4 +65,4 @@
     stampLargeIcon: "large_stamp-centcomintern"
   - type: Sprite
     sprite: _Funkystation/Objects/Misc/stamps.rsi
-    state: stamp-cci
+    state: stamp-centcomintern

@@ -4,8 +4,8 @@ meta:
   engineVersion: 268.0.0
   forkId: ""
   forkVersion: ""
-  time: 01/21/2026 03:07:24
-  entityCount: 28589
+  time: 01/25/2026 02:19:37
+  entityCount: 28590
 maps:
 - 3201
 grids:
@@ -14643,7 +14643,7 @@ entities:
       pos: -29.5,37.5
       parent: 60
     - type: Door
-      secondsUntilStateChange: -236862.22
+      secondsUntilStateChange: -236942.6
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -133765,6 +133765,13 @@ entities:
     components:
     - type: Transform
       pos: -68.308075,-28.439987
+      parent: 60
+- proto: PillCanisterMutadone
+  entities:
+  - uid: 28590
+    components:
+    - type: Transform
+      pos: 20.937529,-4.5202017
       parent: 60
 - proto: PlantBGoneSpray
   entities:

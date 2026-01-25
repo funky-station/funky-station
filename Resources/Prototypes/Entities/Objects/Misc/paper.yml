@@ -472,13 +472,20 @@
   - type: ContainerContainer
     containers:
       pen_slot: !type:ContainerSlot
+        showEnts: False
+        occludes: True
+        ent: null
+      storagebase: !type:Container
+        showEnts: False
+        occludes: True
+        ents: []      
   - type: ItemSlots
     slots:
       pen_slot:
         name: pen_slot
         whitelist:
           tags:
-          - Write
+          - Write  
 
 - type: entity
   id: BoxFolderRed

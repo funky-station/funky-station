@@ -220,6 +220,7 @@
       - id: CrayonBox
       - id: RadioHandheldSecurityListening
         amount: 3
+      - id: BoxBodyBag #go bag up corpses so they don't rot while you think on what killed them
 
 - type: entity
   id: ClosetBombFilled

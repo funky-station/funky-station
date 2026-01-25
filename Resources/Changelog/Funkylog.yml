@@ -7480,3 +7480,65 @@ Entries:
       message: Central Command Intern as a ghostrole at the start of the round
   id: 869
   time: '2026-01-20T23:37:19.0000000+00:00'
+- author: 88tv
+  changes:
+    - type: Tweak
+      message: Updated Packed for playtest feedback.
+  id: 870
+  time: '2026-01-22T09:00:15.0000000+00:00'
+- author: mkanke-real
+  changes:
+    - type: Add
+      message: Added more radiation lockers near the Roid SM
+    - type: Add
+      message: Roid now has new power devices in Engi
+  id: 871
+  time: '2026-01-22T09:00:56.0000000+00:00'
+- author: AftrLite
+  changes:
+    - type: Add
+      message: >-
+        Resprited: A.P.Es, Anomaly Vessels, Advanced Anomaly Vessels, Artifact
+        Analyzer
+  id: 872
+  time: '2026-01-24T00:55:27.0000000+00:00'
+- author: pirakaplant
+  changes:
+    - type: Add
+      message: Added the chief engineer's conductor hat.
+  id: 873
+  time: '2026-01-24T00:56:12.0000000+00:00'
+- author: TheHolyAegis
+  changes:
+    - type: Remove
+      message: Removed the extra Experimental RCD from the CE office
+    - type: Fix
+      message: >-
+        Swapped the survival kit box with a normal one, was an syndicate one
+        before, oops.
+    - type: Tweak
+      message: Changed some camera names to something else than "camera"
+    - type: Tweak
+      message: Destroyed the northwest medical entrance to create a genetics lab.
+    - type: Add
+      message: The previous change left enough room to create a psychologist office.
+  id: 874
+  time: '2026-01-25T06:30:43.0000000+00:00'
+- author: Dusty-Plant
+  changes:
+    - type: Tweak
+      message: small Court station changes
+  id: 875
+  time: '2026-01-25T06:32:17.0000000+00:00'
+- author: mkanke-real
+  changes:
+    - type: Add
+      message: Bagel now has a genetics lab
+    - type: Add
+      message: Added new power devices to Bagel
+    - type: Tweak
+      message: Bagel reactor rods are now randomized per shift
+    - type: Tweak
+      message: Med curtains swapped for new ones on Bagel
+  id: 876
+  time: '2026-01-25T06:33:10.0000000+00:00'

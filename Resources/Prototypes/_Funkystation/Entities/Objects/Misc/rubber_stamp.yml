@@ -9,7 +9,7 @@
 
 - type: entity
   name: internal affairs agent's rubber stamp
-  parent: RubberStampBase
+  parent: [RubberStampBase, BaseCommandContraband]
   id: RubberStampIAA
   suffix: DO NOT MAP
   components:
@@ -24,7 +24,7 @@
 
 - type: entity
   name: magistrate's rubber stamp
-  parent: RubberStampBase
+  parent: [RubberStampBase, BaseCommandContraband]
   id: RubberStampMagistrate
   suffix: DO NOT MAP
   components:
@@ -51,3 +51,18 @@
   - type: Sprite
     sprite: _Funkystation/Objects/Misc/stamps.rsi
     state: stamp-borg
+
+- type: entity
+  name: CentComm intern rubber stamp
+  parent: RubberStampBase
+  id: RubberStampCentComIntern
+  suffix: DO NOT MAP
+  components:
+  - type: Stamp
+    stampedName: stamp-component-stamped-name-cci
+    stampedColor: "#496600"
+    stampState: "paper_stamp-cci"
+    stampLargeIcon: "large_stamp-centcomintern"
+  - type: Sprite
+    sprite: _Funkystation/Objects/Misc/stamps.rsi
+    state: stamp-cci

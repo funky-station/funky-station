@@ -17,6 +17,7 @@
 - type: roleLoadout
   id: JobNanotrasenRepresentative
   groups:
+  - NanotrasenRepresentativeEyes
   - NanotrasenRepresentativeHead
   - NanotrasenRepresentativeNeck
   - NanotrasenRepresentativeOuter
@@ -27,7 +28,7 @@
   - NanotrasenRepresentativeBelt
   - Glasses
   - Trinkets
-  - NanotrasenRepresentativeJobTrinkets # Funky   
+  - NanotrasenRepresentativeJobTrinkets # Funky
   - GroupSpeciesBreathTool
   - Survival
 

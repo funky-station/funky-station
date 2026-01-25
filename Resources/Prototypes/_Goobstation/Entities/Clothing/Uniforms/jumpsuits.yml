@@ -31,13 +31,13 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitNanotrasenRepresentative
-  name: nanotrasen representative suit
-  description: A black suit worn by officials.
+  name: nanotrasen representative's officer shirt
+  description: A black military-style tunic shirt worn by Nanotrasen officials. The expensive materials make it one-of-a-kind aboard most stations.
   components:
   - type: Sprite
-    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/nanotrasen_representative.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/nanotrasen_representative.rsi
   - type: Clothing
-    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/nanotrasen_representative.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/nanotrasen_representative.rsi
 
 - type: entity
   parent: ClothingUniformBase

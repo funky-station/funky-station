@@ -611,8 +611,6 @@
   - type: ProjectileBatteryAmmoProvider
     proto: BulletDisablerPractice
     fireCost: 50
-  - type: Multishot
-    spreadMultiplier: 1.25 #hope this isn't too strong, but since I gave the RG-2 dual wielding, might as well here. Almost the same anyway.
 
 - type: entity
   name: disabler

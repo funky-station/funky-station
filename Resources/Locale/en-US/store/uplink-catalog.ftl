@@ -134,7 +134,7 @@ uplink-gloves-knuckleduster-name = Syndicate Knuckle Dusters
 uplink-gloves-knuckleduster-desc = A pair of plastitanium knuckle dusters that let you punch hard enough to break the captains jaw into pieces.
 
 uplink-hushpup-name = Hushpup Bundle
-uplink-hushpup-desc = A powerful silenced shotgun with a low magazine capacity. Comes with a spare box of buckshot. Uses .50 shotgun ammo.
+uplink-hushpup-desc = A powerful silenced shotgun with a low magazine capacity. Comes with a spare box of buckshot. Uses 12 gauge shotgun ammo.
 
 # Explosives
 uplink-explosive-grenade-name = Explosive Grenade

@@ -371,6 +371,7 @@
     Telecrystal: 90
   categories:
   - UplinkWeaponry
+  saleLimit: 1 # WD EDIT
 
 - type: listing
   id: UplinkBulldogBundle

@@ -264,15 +264,12 @@
       path: /Audio/Weapons/Guns/Gunshots/estocshot.ogg
     minAngle: 30
     maxAngle: 43
-    shotsPerBurst: 3
-    selectedMode: Burst
+    selectedMode: SemiAuto
     availableModes:
-    - Burst
     - SemiAuto
-    burstFireRate: 14
   - type: GunWieldBonus
     minAngle: -28
-    maxAngle: -25
+    maxAngle: -28
   - type: ItemSlots
     slots:
       gun_magazine:

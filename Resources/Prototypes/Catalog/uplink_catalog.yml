@@ -343,13 +343,11 @@
   description: uplink-hushpup-desc
   icon: { sprite: /Textures/Objects/Weapons/Guns/Shotguns/hushpup.rsi, state: icon }
   productEntity: ClothingBackpackDuffelSyndicateFilledHushpup
-  discountCategory: rareDiscounts
-  discountDownTo:
-    Telecrystal: 8
   cost:
-    Telecrystal: 10
+    Telecrystal: 50
   categories:
   - UplinkWeaponry
+  saleLimit: 1 # WD EDIT
 
 - type: listing
   id: UplinkC20RBundle
@@ -369,11 +367,8 @@
   description: uplink-estoc-bundle-desc
   icon: { sprite: /Textures/Objects/Weapons/Guns/Rifles/estoc.rsi, state: icon }
   productEntity: ClothingBackpackDuffelSyndicateFilledRifle
-  discountCategory: veryRareDiscounts
-  discountDownTo:
-    Telecrystal: 11
   cost:
-    Telecrystal: 18
+    Telecrystal: 90
   categories:
   - UplinkWeaponry
 

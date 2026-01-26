@@ -10,7 +10,7 @@
 # Operative Balloons, looks just like the real thing!
 
 - type: entity
-  parent: [BaseItem, BaseFoldable]
+  parent: [BaseItem, BaseFoldable, BasePlushie]
   id: BaseDecoy
   abstract: true
   components:

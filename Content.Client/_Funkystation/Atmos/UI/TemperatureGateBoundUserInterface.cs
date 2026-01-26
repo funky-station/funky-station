@@ -30,12 +30,12 @@ public sealed class TemperatureGateBoundUserInterface : BoundUserInterface
 
         _window.OnStatusToggled += (bool enabled) =>
         {
-            SendMessage(new TemperatureGateToggleEnabledMessage(!enabled));
+            SendMessage(new TemperatureGateToggleEnabledMessage { Enabled = !enabled });
         };
 
         _window.OnThresholdAndModeSet += (threshold, isMinMode) =>
         {
-            SendMessage(new TemperatureGateSetThresholdAndModeMessage(threshold, isMinMode));
+            SendMessage(new TemperatureGateSetThresholdAndModeMessage { Threshold = threshold, IsMinMode = isMinMode });
         };
     }
 

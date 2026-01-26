@@ -73,23 +73,12 @@ public sealed class TemperatureGateSetThresholdAndModeMessage : BoundUserInterfa
 {
     public float Threshold;
     public bool IsMinMode;
-
-    public TemperatureGateSetThresholdAndModeMessage(float threshold, bool isMinMode)
-    {
-        Threshold = threshold;
-        IsMinMode = isMinMode;
-    }
 }
 
 [Serializable, NetSerializable]
 public sealed class TemperatureGateToggleEnabledMessage : BoundUserInterfaceMessage
 {
     public bool Enabled;
-
-    public TemperatureGateToggleEnabledMessage(bool enabled)
-    {
-        Enabled = enabled;
-    }
 }
 
 [Serializable, NetSerializable]

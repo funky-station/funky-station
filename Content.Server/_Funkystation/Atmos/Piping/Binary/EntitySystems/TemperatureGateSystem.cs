@@ -1,4 +1,3 @@
-using Content.Server._Funkystation.Atmos.Piping.Binary.Components;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Atmos.Piping.Components;
 using Content.Server.NodeContainer.EntitySystems;
@@ -30,7 +29,7 @@ public sealed class TemperatureGateSystem : EntitySystem
         SubscribeLocalEvent<TemperatureGateComponent, ActivateInWorldEvent>(OnActivate);
         SubscribeLocalEvent<TemperatureGateComponent, AtmosDeviceUpdateEvent>(OnAtmosUpdate);
 
-        // UI messages
+        // UI interaction messages
         SubscribeLocalEvent<TemperatureGateComponent, TemperatureGateSetThresholdAndModeMessage>(OnSetThresholdAndMode);
         SubscribeLocalEvent<TemperatureGateComponent, TemperatureGateToggleEnabledMessage>(OnToggleEnabled);
     }
@@ -45,11 +44,11 @@ public sealed class TemperatureGateSystem : EntitySystem
         if (!Transform(uid).Anchored || !args.IsInDetailsRange)
             return;
 
-        var mode = comp.Inverted ? "≥" : "≤";
-        var status = comp.Enabled ? "Enabled" : "Disabled";
+        var mode = comp.Inverted ? "temperature-gate-status-greater" : "temperature-gate-status-lesser";
+        var statusLocId = comp.Enabled ? "temperature-gate-status-enabled" : "temperature-gate-status-disabled";
 
         args.PushMarkup(Loc.GetString("temperature-gate-examined",
-            ("status", status),
+            ("status", Loc.GetString(statusLocId)),
             ("mode", mode),
             ("threshold", comp.Threshold.ToString("F2"))));
     }
@@ -66,15 +65,18 @@ public sealed class TemperatureGateSystem : EntitySystem
         }
 
         if (TryComp<ActorComponent>(args.User, out var actor))
+        {
+            DirtyUI(uid, comp);
             _ui.OpenUi(uid, TemperatureGateUiKey.Key, actor.PlayerSession);
+        }
 
         args.Handled = true;
     }
 
     private void OnAtmosUpdate(EntityUid uid, TemperatureGateComponent comp, ref AtmosDeviceUpdateEvent args)
     {
-        if (!comp.Enabled ||
-            (TryComp<ApcPowerReceiverComponent>(uid, out var power) && !power.Powered))
+        // Device must be enabled and powered to do anything
+        if (!comp.Enabled || (TryComp<ApcPowerReceiverComponent>(uid, out var power) && !power.Powered))
         {
             UpdateAppearance(uid, comp);
             _ambientSoundSystem.SetAmbience(uid, false);
@@ -88,9 +90,8 @@ public sealed class TemperatureGateSystem : EntitySystem
             return;
         }
 
-        comp.LastInputTemperature = inlet.Air.Temperature;
-
-        bool shouldOpen = comp.Inverted
+        // Check if temperature condition allows flow
+        var shouldOpen = comp.Inverted
             ? inlet.Air.Temperature >= comp.Threshold
             : inlet.Air.Temperature <= comp.Threshold;
 
@@ -101,24 +102,30 @@ public sealed class TemperatureGateSystem : EntitySystem
             return;
         }
 
-        var n1 = inlet.Air.TotalMoles;
-        var n2 = outlet.Air.TotalMoles;
-        var P1 = inlet.Air.Pressure;
-        var P2 = outlet.Air.Pressure;
+        var p1 = inlet.Air.Pressure;
+        var p2 = outlet.Air.Pressure;
 
-        if (P1 <= P2)
+        // No flow if pressure is not pushing from inlet to outlet
+        if (p1 <= p2)
         {
             UpdateAppearance(uid, comp, isOpen: true, isFlowing: false);
             _ambientSoundSystem.SetAmbience(uid, false);
             return;
         }
 
-        var T1 = inlet.Air.Temperature;
-        var T2 = outlet.Air.Temperature;
-        var V1 = inlet.Air.Volume;
-        var V2 = outlet.Air.Volume;
 
-        var denom = T1 * V2 + T2 * V1;
+        var n1 = inlet.Air.TotalMoles;
+        var n2 = outlet.Air.TotalMoles;
+        var t1 = inlet.Air.Temperature;
+        var t2 = outlet.Air.Temperature;
+        var v1 = inlet.Air.Volume;
+        var v2 = outlet.Air.Volume;
+
+        // Denominator weighting each side to achieve pressure equilibrium:
+        // derived from PV=nT when solving (n1 - x) T1 / V1 = (n2 + x) T2 / V2, so it becomes T1 V2 + T2 V1
+        var denom = t1 * v2 + t2 * v1;
+
+        // Avoid division by zero or negative (invalid gas mix state)
         if (denom <= 0f)
         {
             UpdateAppearance(uid, comp, isOpen: true, isFlowing: false);
@@ -126,7 +133,9 @@ public sealed class TemperatureGateSystem : EntitySystem
             return;
         }
 
-        var transferMoles = n1 - (n1 + n2) * T2 * V1 / denom;
+        // This is the exact number of moles that would equalize pressure between the two sides
+        // if transferred all at once, accounting for their different temperatures and volumes.
+        var transferMoles = n1 - (n1 + n2) * t2 * v1 / denom;
 
         if (transferMoles <= 0f)
         {
@@ -135,38 +144,40 @@ public sealed class TemperatureGateSystem : EntitySystem
             return;
         }
 
+        // Remove transfer amount from inlet and merge into outlet
         var removed = inlet.Air.Remove(transferMoles);
         _atmosphere.Merge(outlet.Air, removed);
 
         UpdateAppearance(uid, comp, isOpen: true, isFlowing: true);
-        _ambientSoundSystem.SetAmbience(uid, removed.TotalMoles > 0.001f);
+        _ambientSoundSystem.SetAmbience(uid, true);
     }
 
     private void OnSetThresholdAndMode(EntityUid uid, TemperatureGateComponent comp, TemperatureGateSetThresholdAndModeMessage msg)
     {
-        comp.Threshold = Math.Clamp(msg.Threshold, 2.7f, 12000f);
+        comp.Threshold = Math.Clamp(msg.Threshold, comp.MinThreshold, comp.MaxThreshold);
         comp.Inverted = msg.IsMinMode;
-
+        Dirty(uid, comp);
         DirtyUI(uid, comp);
+        UpdateAppearance(uid, comp);
     }
 
     private void OnToggleEnabled(EntityUid uid, TemperatureGateComponent comp, TemperatureGateToggleEnabledMessage msg)
     {
         comp.Enabled = msg.Enabled;
-        UpdateAppearance(uid, comp);
+        Dirty(uid, comp);
         DirtyUI(uid, comp);
+        UpdateAppearance(uid, comp);
     }
 
     private void DirtyUI(EntityUid uid, TemperatureGateComponent comp)
     {
-        var deviceName = Name(uid);
+        var state = new TemperatureGateBoundUserInterfaceState(
+            Name(uid),
+            comp.Threshold,
+            comp.Inverted,
+            comp.Enabled);
 
-        _ui.SetUiState(uid, TemperatureGateUiKey.Key,
-            new TemperatureGateBoundUserInterfaceState(
-                deviceName,
-                comp.Threshold,
-                comp.Inverted,
-                comp.Enabled));
+        _ui.SetUiState(uid, TemperatureGateUiKey.Key, state);
     }
 
     private void UpdateAppearance(EntityUid uid, TemperatureGateComponent comp, bool isOpen = false, bool isFlowing = false)
@@ -176,7 +187,7 @@ public sealed class TemperatureGateSystem : EntitySystem
 
         TemperatureGateState state;
 
-        if (!comp.Enabled || TryComp<ApcPowerReceiverComponent>(uid, out var power) && !power.Powered)
+        if (!comp.Enabled || (TryComp<ApcPowerReceiverComponent>(uid, out var power) && !power.Powered))
         {
             state = TemperatureGateState.Off;
         }

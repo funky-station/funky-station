@@ -2,41 +2,55 @@ using Content.Shared._Funkystation.Atmos.Piping.Binary.Components;
 using JetBrains.Annotations;
 using Robust.Client.UserInterface;
 
-namespace Content.Client._Funkystation.Atmos.UI
+namespace Content.Client._Funkystation.Atmos.UI;
+
+/// <summary>
+/// Bound user interface handler for the temperature gate device.
+/// Manages opening the UI window and syncing state from server.
+/// </summary>
+
+[UsedImplicitly]
+public sealed class TemperatureGateBoundUserInterface : BoundUserInterface
 {
-    [UsedImplicitly]
-    public sealed class TemperatureGateBoundUserInterface : BoundUserInterface
+    private TemperatureGateWindow? _window;
+
+    public TemperatureGateBoundUserInterface(EntityUid owner, Enum uiKey) : base(owner, uiKey)
     {
-        private TemperatureGateWindow? _window;
+    }
 
-        public TemperatureGateBoundUserInterface(EntityUid owner, Enum uiKey) : base(owner, uiKey)
+    protected override void Open()
+    {
+        base.Open();
+
+        _window = this.CreateWindow<TemperatureGateWindow>();
+
+        _window.OnStatusToggled += (bool enabled) =>
         {
-        }
+            SendMessage(new TemperatureGateToggleEnabledMessage(!enabled));
+        };
 
-        protected override void Open()
+        _window.OnThresholdAndModeSet += (threshold, isMinMode) =>
         {
-            base.Open();
+            SendMessage(new TemperatureGateSetThresholdAndModeMessage(threshold, isMinMode));
+        };
+    }
 
-            _window = this.CreateWindow<TemperatureGateWindow>();
+    protected override void UpdateState(BoundUserInterfaceState state)
+    {
+        base.UpdateState(state);
 
-            _window.OnStatusToggled += () =>
-                SendMessage(new TemperatureGateToggleEnabledMessage(_window.Enabled));
+        if (_window == null || state is not TemperatureGateBoundUserInterfaceState castState)
+            return;
 
-            _window.OnThresholdAndModeSet += (threshold, isMin) =>
-                SendMessage(new TemperatureGateSetThresholdAndModeMessage(threshold, isMin));
-        }
+        _window.Title = castState.DeviceName;
 
-        protected override void UpdateState(BoundUserInterfaceState state)
-        {
-            base.UpdateState(state);
+        _window.UpdateUI(castState.Enabled, castState.Threshold, castState.IsMinMode);
+    }
 
-            if (_window == null || state is not TemperatureGateBoundUserInterfaceState cast)
-                return;
-
-            _window.Title = cast.DeviceName;
-            _window.SetStatus(cast.Enabled);
-            _window.SetThreshold(cast.Threshold);
-            _window.SetMode(cast.IsMinMode);
-        }
+    protected override void Dispose(bool disposing)
+    {
+        base.Dispose(disposing);
+        _window?.Dispose();
+        _window = null;
     }
 }

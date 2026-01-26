@@ -12,4 +12,9 @@ temperature-gate-ui-mode-min = Min
 
 temperature-gate-ui-set = Set
 
-temperature-gate-examined = {$status} - will open when inlet temperature is {$mode} {$threshold} K
+# Examined text
+temperature-gate-examined = {$status} - opens when inlet temp is {$mode} {$threshold} K
+temperature-gate-status-enabled = Enabled
+temperature-gate-status-disabled = Disabled
+temperature-gate-status-greater = more than
+temperature-gate-status-lesser = less than

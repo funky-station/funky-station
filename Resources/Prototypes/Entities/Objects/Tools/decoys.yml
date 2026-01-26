@@ -70,6 +70,16 @@
     tags:
     - Balloon
     - Flashlight
+  - type: ContainerContainer    
+    containers:
+      cell_slot: !type:ContainerSlot
+        showEnts: False
+        occludes: True
+        ent: null
+      stash: !type:ContainerSlot
+        showEnts: False
+        occludes: True
+        ent: null
 
 - type: entity
   parent: BaseDecoy

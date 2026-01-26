@@ -344,7 +344,7 @@
   icon: { sprite: /Textures/Objects/Weapons/Guns/Shotguns/hushpup.rsi, state: icon }
   productEntity: ClothingBackpackDuffelSyndicateFilledHushpup
   cost:
-    Telecrystal: 50 # goob
+    Telecrystal: 50 # goob#
   categories:
   - UplinkWeaponry
   saleLimit: 1 # WD EDIT

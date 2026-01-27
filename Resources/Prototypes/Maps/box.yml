@@ -33,7 +33,7 @@
   id: Box
   mapName: 'Box Station'
   mapPath: /Maps/_Funkystation/box.yml #Funkystatin - Robotics
-  minPlayers: 30 # Goobstation return minPlayers requirement for maps
+  minPlayers: 35 # Goobstation return minPlayers requirement for maps
   maxPlayers: 90 # Goobstation - Limit mappool to highpop versions of maps only
   stations:
     Boxstation:
@@ -70,7 +70,7 @@
             ChiefMedicalOfficer: [ 1, 1 ]
             Chemist: [ 2, 2 ]
             MedicalDoctor: [ 4, 4 ]
-            Paramedic: [ 1, 1 ]
+            Paramedic: [ 2, 2 ]
             MedicalIntern: [ 4, 4 ]
             Psychologist: [ 1, 1 ]
             #science

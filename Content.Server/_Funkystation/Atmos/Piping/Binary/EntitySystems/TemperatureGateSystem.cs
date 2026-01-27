@@ -88,7 +88,7 @@ public sealed class TemperatureGateSystem : EntitySystem
         }
 
         if (!_nodeContainer.TryGetNodes<PipeNode, PipeNode>(
-            uid, comp.InletName, comp.OutletName,
+            uid, comp.Inlet, comp.Outlet,
             out var inlet, out var outlet))
         {
             return;

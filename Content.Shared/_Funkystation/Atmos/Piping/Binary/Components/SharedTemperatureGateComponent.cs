@@ -40,14 +40,14 @@ public sealed partial class TemperatureGateComponent : Component
     /// <summary>
     ///     Identifier of the inlet pipe node in the node's container.
     /// </summary>
-    [DataField("inlet")]
-    public string InletName = "inlet";
+    [DataField]
+    public string Inlet = "inlet";
 
     /// <summary>
     ///     Identifier of the outlet pipe node in the node's container.
     /// </summary>
-    [DataField("outlet")]
-    public string OutletName = "outlet";
+    [DataField]
+    public string Outlet = "outlet";
 
     /// <summary>
     ///     Minimum allowed value for <see cref="Threshold"/> in Kelvin.

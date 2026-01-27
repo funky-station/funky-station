@@ -773,7 +773,7 @@
     - MagazineBoxPistolLargeUranium # Funkystation
     - MagazineBoxPistolLargeIncendiary # Funkystation
     - WeaponEnergyGunEnergyPistol # Funkystation
-    - WeaponTeslaGun # Funkystation 
+    - WeaponTeslaGun # Funkystation
     - MindShieldImplanter
     - TrackingImplanter
     - ClothingHandsTruncheonKnuckleDusters # funk
@@ -1014,7 +1014,7 @@
     #- BorgModuleArtifact
     #- BorgModuleAnomaly
     #- BorgModuleGardening
-    #- BorgModuleHarvesting
+    #- BorgModuleCooking
     #- BorgModuleDefibrillator
     - BorgModuleAdvancedChemical
     - RipleyHarness
@@ -1265,7 +1265,7 @@
     - MagazineBoxPistolLargeUranium # Funkystation
     - MagazineBoxPistolLargeIncendiary # Funkystation
     - WeaponEnergyGunEnergyPistol # Funkystation
-    - WeaponTeslaGun # Funkystation 
+    - WeaponTeslaGun # Funkystation
     - PortableRecharger
     - PowerCageHigh
     - PowerCageMedium

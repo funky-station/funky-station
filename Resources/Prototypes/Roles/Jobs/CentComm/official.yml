@@ -61,7 +61,7 @@
     head: ClothingHeadHatCentcom
     eyes: ClothingEyesGlassesSunglasses
     gloves: ClothingHandsGlovesColorBlack
-    outerClothing: ClothingOuterArmorCorporateCarapace
+    outerClothing: ClothingOuterArmorCorporateCarapace # funky - dans first real change
     id: CentcomOfficialPDA     # funky - centcomm ghostjobs
     ears: ClothingHeadsetAltCentCom
     belt: WeaponPistolN1984

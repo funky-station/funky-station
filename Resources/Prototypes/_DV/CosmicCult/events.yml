@@ -47,7 +47,7 @@
   parent: BaseStationEvent
   components:
   - type: StationEvent
-    weight: 6
+    weight: 5.5
     reoccurrenceDelay: 50
     minimumPlayers: 25
     duration: 20

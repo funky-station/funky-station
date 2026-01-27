@@ -44,6 +44,7 @@ public abstract partial class SharedDeconversionJailSystem : EntitySystem
     [Dependency] private readonly SharedExplosionSystem _explosion = default!;
     [Dependency] private readonly SharedEntityStorageSystem _storage = default!;
     [Dependency] private readonly SharedPowerReceiverSystem _power = default!;
+
     public override void Initialize()
     {
         base.Initialize();

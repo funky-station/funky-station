@@ -65,8 +65,8 @@ meta:
   engineVersion: 268.0.0
   forkId: ""
   forkVersion: ""
-  time: 01/13/2026 23:54:50
-  entityCount: 16914
+  time: 01/22/2026 01:31:34
+  entityCount: 16918
 maps:
 - 4480
 grids:
@@ -9695,7 +9695,7 @@ entities:
       pos: 33.5,6.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -80657.48
+      secondsUntilStateChange: -80940.805
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -10645,7 +10645,7 @@ entities:
       pos: 39.5,7.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -61856.473
+      secondsUntilStateChange: -62139.797
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -11110,7 +11110,7 @@ entities:
       pos: 24.5,27.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -64127.223
+      secondsUntilStateChange: -64410.547
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -25009,6 +25009,11 @@ entities:
     - type: Transform
       pos: 18.5,18.5
       parent: 2
+  - uid: 14987
+    components:
+    - type: Transform
+      pos: 19.5,-24.5
+      parent: 2
   - uid: 15008
     components:
     - type: Transform
@@ -38348,6 +38353,16 @@ entities:
     - type: Transform
       pos: 20.5,-2.5
       parent: 2
+- proto: CartridgeEmergency
+  entities:
+  - uid: 12493
+    components:
+    - type: Transform
+      parent: 12168
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
+      canCollide: False
 - proto: Catwalk
   entities:
   - uid: 8
@@ -45088,15 +45103,13 @@ entities:
     - type: Transform
       pos: 29.5,17.5
       parent: 2
-- proto: CryogenicSleepUnitSpawner
+- proto: CryogenicSleepUnitSpawnerLateJoin
   entities:
   - uid: 6935
     components:
     - type: Transform
       pos: 22.5,18.5
       parent: 2
-- proto: CryogenicSleepUnitSpawnerLateJoin
-  entities:
   - uid: 6936
     components:
     - type: Transform
@@ -52148,6 +52161,20 @@ entities:
     components:
     - type: Transform
       pos: 44.5,22.5
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
+  - uid: 16916
+    components:
+    - type: Transform
+      pos: 65.5,-4.5
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
+  - uid: 16917
+    components:
+    - type: Transform
+      pos: 66.5,-9.5
       parent: 2
     - type: Fixtures
       fixtures: {}
@@ -77159,30 +77186,36 @@ entities:
     - type: Transform
       pos: 15.5,22.5
       parent: 2
-  - uid: 14987
-    components:
-    - type: Transform
-      pos: 14.5,-23.5
-      parent: 2
   - uid: 15174
     components:
     - type: Transform
       pos: 53.5,21.5
       parent: 2
+    - type: MaterialSilo
+      range: 16
   - uid: 15175
     components:
     - type: Transform
       pos: 40.5,26.5
       parent: 2
+    - type: MaterialSilo
+      range: 10
   - uid: 16113
     components:
     - type: Transform
       pos: 70.5,4.5
       parent: 2
+    - type: MaterialSilo
+      range: 8
   - uid: 16114
     components:
     - type: Transform
       pos: 39.5,36.5
+      parent: 2
+  - uid: 16915
+    components:
+    - type: Transform
+      pos: 22.5,-30.5
       parent: 2
 - proto: MachineParticleAcceleratorEmitterForeCircuitboard
   entities:
@@ -78306,6 +78339,22 @@ entities:
     - type: Transform
       pos: 0.5,4.5
       parent: 2
+- proto: ParamedHypo
+  entities:
+  - uid: 12168
+    components:
+    - type: Transform
+      pos: 11.453493,-11.276755
+      parent: 2
+    - type: ContainerContainer
+      containers:
+        item: !type:ContainerSlot
+          showEnts: False
+          occludes: True
+          ent: 12493
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
 - proto: PartRodMetal
   entities:
   - uid: 2896
@@ -90212,13 +90261,6 @@ entities:
       rot: 3.141592653589793 rad
       pos: 33.5,12.5
       parent: 2
-- proto: Stimpack
-  entities:
-  - uid: 12493
-    components:
-    - type: Transform
-      pos: 11.490012,-11.457567
-      parent: 2
 - proto: Stool
   entities:
   - uid: 172
@@ -90599,6 +90641,11 @@ entities:
     - type: Transform
       pos: 12.5,-8.5
       parent: 2
+  - uid: 16918
+    components:
+    - type: Transform
+      pos: 49.5,-15.5
+      parent: 2
 - proto: SuitStorageEVAAlternate
   entities:
   - uid: 10297
@@ -90643,13 +90690,6 @@ entities:
     components:
     - type: Transform
       pos: 46.5,38.5
-      parent: 2
-- proto: SuitStorageNTSRA
-  entities:
-  - uid: 12168
-    components:
-    - type: Transform
-      pos: 49.5,-15.5
       parent: 2
 - proto: SuitStorageRD
   entities:

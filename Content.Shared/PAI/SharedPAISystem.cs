@@ -81,4 +81,5 @@ public sealed partial class PAIShopActionEvent : InstantActionEvent;
 
 public sealed partial class PAIOpenPdaActionEvent : InstantActionEvent;
 
+[DataDefinition]
 public sealed partial class PAIEnableEncryptionEvent : EntityEventArgs;

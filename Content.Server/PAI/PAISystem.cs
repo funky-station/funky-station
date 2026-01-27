@@ -179,6 +179,17 @@ public sealed class PAISystem : SharedPAISystem
             _instrumentSystem.ToggleInstrumentUi(uid, uid);
         }
 
+        //Reset store
+        if (TryComp<StoreComponent>(uid, out var store)) //Basically just remove and re-add the store component to the pAI, then call ResetPAI from Content.Shared.PAI to remove the encryption key component
+        {
+            RemComp<StoreComponent>(uid);
+            store = EnsureComp<StoreComponent>(uid);
+            store.Categories = new() {"PAIAbilities"};
+            store.CurrencyWhitelist.Add("SiliconMemory");
+            store.Balance["SiliconMemory"] = 30;
+            ResetPAI(uid);
+        }
+
         //  Stop instrument
         if (TryComp<InstrumentComponent>(uid, out var instrument))
             _instrumentSystem.Clean(uid, instrument);

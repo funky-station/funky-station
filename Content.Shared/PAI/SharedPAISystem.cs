@@ -18,6 +18,8 @@
 
 using Content.Shared.Actions;
 using Content.Shared.Radio.Components;
+using Robust.Shared.Containers;
+using System.Linq;
 
 namespace Content.Shared.PAI;
 
@@ -33,6 +35,7 @@ namespace Content.Shared.PAI;
 public abstract class SharedPAISystem : EntitySystem
 {
     [Dependency] private readonly SharedActionsSystem _actions = default!;
+    [Dependency] private readonly SharedContainerSystem _container = default!;
 
     public override void Initialize()
     {
@@ -61,13 +64,21 @@ public abstract class SharedPAISystem : EntitySystem
         EnsureComp<EncryptionKeyHolderComponent>(ent, out var holder);
         holder.KeySlots = 4;
     }
-}
-public sealed partial class PAIShopActionEvent : InstantActionEvent
-{
-}
-public sealed partial class PAIOpenPdaActionEvent : InstantActionEvent
-{
+
+
+    protected void ResetPAI(EntityUid uid){
+        if (TryComp<EncryptionKeyHolderComponent>(uid, out var holder)){ //Drop all keys, then remove Encryption key holder.
+            foreach (var key in holder.KeyContainer.ContainedEntities.ToArray()){
+                _container.Remove(key, holder.KeyContainer);  
+            }
+            RemComp<EncryptionKeyHolderComponent>(uid);
+        }
+    }
+
 }
 
-[DataDefinition]
+public sealed partial class PAIShopActionEvent : InstantActionEvent;
+
+public sealed partial class PAIOpenPdaActionEvent : InstantActionEvent;
+
 public sealed partial class PAIEnableEncryptionEvent : EntityEventArgs;

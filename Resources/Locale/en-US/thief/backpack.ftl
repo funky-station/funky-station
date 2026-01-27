@@ -96,9 +96,8 @@ thief-backpack-category-electromagnetic-description =
 thief-backpack-category-getaway-name = getaway kit
 thief-backpack-category-getaway-description =
     Thief is my name, speed is my game!
-    Includes: A set of Speed boots, a hyper power cell, 3 Hyperzine Injectors,
-    A Scram Implanter, and a bar of Slipocalypse Syndiesoap for those that need
-    more than just running from.
+    Includes: A set of Speed boots, a hyper power cell, A Scram Implanter,
+    and a bar of Slipocalypse Syndiesoap.
 
 thief-backpack-category-demolitionist-name = demolitionist kit
 thief-backpack-category-demolitionist-description =

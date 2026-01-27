@@ -101,7 +101,7 @@
 - type: entity
   id: ChemDispenserMedical
   name: medical chemical dispenser
-  description: A medical grade chemical dispenser. Built for the medbay, it has an access lock but the spout is too low to fit things other than vials or bottles. However, because of the simplified nature of the machine compared to the industrial counterpart, this medical chemical dispenser can work without power.
+  description: A medical grade chemical dispenser. Built for the medbay, it has an access lock but the spout is too low to fit things other than vials or bottles. However, because of the simplified nature of the machine compared to the industrial counterpart, this medical chemical dispenser can work almost indefinitely using an internal power source.
   suffix: Empty, Medical, Powered
   parent: ReagentDispenserBaseMedical
   components:

@@ -757,7 +757,7 @@
     - RubberStampApproved
     - RubberStampDenied
     - RubberStampCyborg
-    - Shaker
+    - DrinkShaker
     - BarSpoon
     - Syringe
   - type: BorgModuleIcon

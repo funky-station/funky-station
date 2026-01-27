@@ -85,20 +85,18 @@ thief-backpack-category-extrovert-description =
     Learn the ways of making friends! If you consider forceful mind
     control as making friends...
     Includes: A Mind Control Implant, a spare pair of thieving gloves,
-    2 Radio implants and a sedative autoinjector cartridge with a syndicate
-    cartridge autoinjector.
+    and 2 Radio Implants.
 
 thief-backpack-category-electromagnetic-name = electromagnetic kit
 thief-backpack-category-electromagnetic-description =
     Who needs power when you could have pitch darkness?
     Includes: A set of Arc Gloves, an EMP implant, an EMP Flashlight,
-    some loose EMP grenades and Night Vision Goggles with a recharging power
-    cell.
+    and Night Vision Goggles.
 
 thief-backpack-category-getaway-name = getaway kit
 thief-backpack-category-getaway-description =
     Thief is my name, speed is my game!
-    Includes: A set of Speed boots, an antique power cell, 3 Hyperzine Injectors,
+    Includes: A set of Speed boots, a hyper power cell, 3 Hyperzine Injectors,
     A Scram Implanter, and a bar of Slipocalypse Syndiesoap for those that need
     more than just running from.
 
@@ -111,8 +109,7 @@ thief-backpack-category-demolitionist-description =
 
 thief-backpack-category-ninja-name = ninja kit
 thief-backpack-category-ninja-description =
-    Taking some inspiration from the Spider Clan, why not just hide yourself? You
-    will need someone to surgery the gland into you though...
-    Includes: A Space Cobra Gland, a Camera Bug, 2 Syndicate listening bugs, a
-    syndicate encryption key and a binary translator key.
+    Taking some inspiration from the Spider Clan, why not just hide yourself?
+    Includes: A Stealth Cardboard box, a Camera Bug, 2 Syndicate listening bugs, a
+    syndicate encryption key.
 

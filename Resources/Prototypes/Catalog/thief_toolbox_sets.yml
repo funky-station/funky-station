@@ -139,8 +139,6 @@
   - ThievingGloves
   - RadioImplanter
   - RadioImplanter
-  - CartridgeSedativeSyndicate
-  - SyndicateHypo
 
 - type: thiefBackpackSet
   id: ElectromagneticSet
@@ -153,9 +151,6 @@
   - ClothingHandsGlovesArcGloves
   - EmpImplanter
   - EmpFlashlight
-  - EmpGrenade
-  - EmpGrenade
-  - EmpGrenade
   - ClothingEyesNightVisionGoggles
 
 - type: thiefBackpackSet
@@ -167,8 +162,7 @@
     state: icon-on
   content:
   - ClothingShoesBootsSpeed
-  - PowerCellAntiqueProto
-  - Stimpack
+  - PowerCellHyper
   - Stimpack
   - Stimpack
   - ScramImplanter
@@ -195,9 +189,8 @@
     sprite: Objects/Weapons/Melee/energykatana.rsi
     state: icon
   content:
-  - OrganCobraHeart
   - CameraBug
-  - EncryptionKeyBinarySyndicate
   - RadioHandheldSyndicate
   - RadioHandheldSyndicate
   - EncryptionKeySyndie
+  - StealthBox

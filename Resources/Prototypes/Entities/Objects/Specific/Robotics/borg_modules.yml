@@ -687,14 +687,13 @@
     - state: medical
     - state: icon-chemist
   - type: ItemBorgModule
-    hands:
-     - items: LargeBeaker
-       hand:
-         emptyRepresentative: LargeBeaker
-         emptyLabel: borg-slot-cables-empty
-         whitelist:
-           tags:
-            - GlassBeaker
+    items:
+    - HandheldHealthAnalyzerUnpowered
+    - BorgHypo
+    - Syringe
+    - BorgDropper
+    - BorgBeaker
+    - BorgBeaker
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: adv-chem-module }
 

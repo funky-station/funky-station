@@ -420,7 +420,6 @@
   - type: SurgeryTarget # Shitmed Change
   - type: CanEscapeInventory # GoobStation - Escape being picked up by players
   - type: SurgeryContaminable # DeltaV - surgery cross contamination
-  - type: CosmicCenserTarget # DeltaV - Cosmic Cult
 
 - type: entity
   save: false

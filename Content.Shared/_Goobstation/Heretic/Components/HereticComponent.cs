@@ -28,6 +28,9 @@ public sealed partial class HereticComponent : Component
         "CodexCicatrix",
     };
 
+    // BEGIN FUNKY CHANGES - HashSet to record actions to.
+    public HashSet<EntityUid?> ActionEntities = [];
+    // END FUNKY CHANGES
     #endregion
 
     [DataField, AutoNetworkedField] public List<ProtoId<HereticRitualPrototype>> KnownRituals = new();

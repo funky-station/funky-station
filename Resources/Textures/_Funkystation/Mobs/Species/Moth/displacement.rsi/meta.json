@@ -1,0 +1,42 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Made by TrixxedHeart",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "load": {
+        "srgb": false
+    },
+    "states": [
+        {
+            "name": "jumpsuit_female",
+            "directions": 4
+        },
+        {
+            "name": "jumpsuit_male",
+            "directions": 4
+        },
+        {
+            "name": "gloves",
+            "directions": 4
+        },
+        {
+            "name": "inhand_left",
+            "directions": 4
+        },
+        {
+            "name": "inhand_right",
+            "directions": 4
+        },
+        {
+            "name": "shoes",
+            "directions": 4
+        },
+        {
+            "name": "ears",
+            "directions": 4
+        }
+    ]
+}

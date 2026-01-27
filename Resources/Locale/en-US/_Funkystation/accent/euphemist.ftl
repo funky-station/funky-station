@@ -214,7 +214,7 @@ accent-euphemist-words-107 = cyborg
 accent-euphemist-replacement-107 = metal friend
 accent-euphemist-words-108 = revenge
 accent-euphemist-replacement-108 = success
-# reminder that euphemist is made with the idea that the person is tone-deaf to how bad their word choices might be. reminder that euphemist is made with the idea that the person is tone-deaf to how bad their word choices might be.
+# reminder that euphemist is made with the idea that the person is tone-deaf to how bad their word choices might be.
 accent-euphemist-words-109 = insane
 accent-euphemist-replacement-109 = quirky
 accent-euphemist-words-110 = call evac

@@ -31,6 +31,7 @@ public sealed partial class CosmicColossusComponent : Component
     [AutoPausedField, DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
     public TimeSpan DeathTimer = default!;
 
+    [DataField] public int TimesHibernated = 0;
     [DataField] public SoundSpecifier ReawakenSfx = new SoundPathSpecifier("/Audio/_DV/CosmicCult/colossus_spawn.ogg");
 
     [DataField] public SoundSpecifier DeathSfx = new SoundPathSpecifier("/Audio/_DV/CosmicCult/colossus_death.ogg");
@@ -54,6 +55,10 @@ public sealed partial class CosmicColossusComponent : Component
     [DataField] public EntProtoId EffigyPlaceAction = "ActionCosmicColossusEffigy";
 
     [DataField] public EntityUid? EffigyPlaceActionEntity;
+
+    [DataField] public EntProtoId HibernateAction = "ActionCosmicColossusHibernate";
+
+    [DataField] public EntityUid? HibernateActionEntity;
 
     [DataField] public TimeSpan IngressDoAfter = TimeSpan.FromSeconds(4);
 

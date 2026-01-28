@@ -63,7 +63,6 @@
 # SPDX-FileCopyrightText: 2025 Smugman <85798843+Smugman@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Sofia Gilsanz <softie.gd@gmail.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
-# SPDX-FileCopyrightText: 2025 Teasq <Xerithin@gmail.com>
 # SPDX-FileCopyrightText: 2025 TheHolyAegis <76066612+TheHolyAegis@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 TheHolyAegis <sanderkamphuis719@gmail.com>
 # SPDX-FileCopyrightText: 2025 Xcybitt <xcybitt@gmail.com>
@@ -78,12 +77,14 @@
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 tea <xerithin@gmail.com>
 # SPDX-FileCopyrightText: 2025 vectorassembly <vectorassembly@icloud.com>
-# SPDX-FileCopyrightText: 2025 w.xyz() <84605679+pirakaplant@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2026 MaiaArai <158123176+YaraaraY@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2026 Tea <Xerithin@gmail.com>
+# SPDX-FileCopyrightText: 2026 Teasq <Xerithin@gmail.com>
 # SPDX-FileCopyrightText: 2026 ThatOneMoon <91613003+ThatOneMoon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2026 ThatOneMoon <juozas.dringelis@gmail.com>
 # SPDX-FileCopyrightText: 2026 W.xyz() <tptechteam@gmail.com>
 # SPDX-FileCopyrightText: 2026 Zergologist <114537969+Chedd-Error@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2026 w.xyz() <84605679+pirakaplant@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -1585,7 +1586,6 @@
   name: loadout-group-head-of-security-jumpsuit
   loadouts:
   - HeadofSecurityJumpsuit
-  - HeadofSecurityJumpskirt
   - HeadofSecurityTurtleneck
   - HeadofSecurityTurtleneckSkirt
   - HeadofSecurityFormalSuit
@@ -1607,7 +1607,6 @@
   - HeadofSecurityCoat
   - HeadofSecurityWinterCoat
   - HeadofSecurityArmorVest
-  - HeadofSecurityArmorVestSlim
 
 - type: loadoutGroup #WizDen Weh Job Plush
   id: HeadofSecurityJobTrinkets
@@ -1631,8 +1630,13 @@
   id: WardenJumpsuit
   name: loadout-group-warden-jumpsuit
   loadouts:
-  - WardenJumpsuit
-  - WardenJumpskirt
+  - WardenSecurityJumpsuit
+  - WardenSecurityJumpskirt
+  - WardenSeniorOfficerJumpsuit
+  - WardenSeniorOfficerJumpskirt
+  - WardenTrooperUniform
+  - WardenMessUniform
+  - WardenMessUniformSkirt
 
 - type: loadoutGroup
   id: WardenNeck
@@ -1640,12 +1644,14 @@
   minLimit: 0
   loadouts:
   - Bodycam # Goobstation - Body cameras
+  - MessTie
 
 - type: loadoutGroup
   id: WardenOuterClothing
   name: loadout-group-warden-outerclothing
   loadouts:
   - WardenCoat
+  - WardenArmorVest
   - WardenArmoredWinterCoat
 
 - type: loadoutGroup #WizDen Weh Job Plush
@@ -1681,11 +1687,11 @@
   loadouts:
   - SecurityJumpsuit
   - SecurityJumpskirt
-  - SecurityJumpsuitGrey
-  - SecurityJumpskirtGrey
   - SeniorOfficerJumpsuit
   - SeniorOfficerJumpskirt
   - TrooperUniform
+  - MessUniform
+  - MessUniformSkirt
 
 - type: loadoutGroup
   id: SecurityBackpack
@@ -1708,13 +1714,13 @@
   minLimit: 0
   loadouts:
   - Bodycam # Goobstation - Body cameras
+  - MessTie
 
 - type: loadoutGroup
   id: SecurityOuterClothing
   name: loadout-group-security-outerclothing
   loadouts:
   - ArmorVest
-  - ArmorVestSlim
   - SecurityOfficerWintercoat
 
 #Funky
@@ -1723,6 +1729,7 @@
   name: loadout-group-security-gloves
   loadouts:
   - BlackGloves
+  - WhiteGloves
 
 - type: loadoutGroup
   id: SecurityShoes
@@ -1800,11 +1807,16 @@
   - LizardPlushieDetective
 
 - type: loadoutGroup
+  id: SecurityCadetHat
+  name: loadout-group-security-cadet-hat
+  loadouts:
+  - CadetHat
+
+- type: loadoutGroup
   id: SecurityCadetJumpsuit
   name: loadout-group-security-cadet-jumpsuit
   loadouts:
-  - RedJumpsuit
-  - RedJumpskirt
+  - CadetJumpsuit
 
 - type: loadoutGroup
   id: SurvivalSecurity

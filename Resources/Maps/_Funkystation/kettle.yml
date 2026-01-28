@@ -46,6 +46,7 @@
 # SPDX-FileCopyrightText: 2024 eoineoineoin <github@eoinrul.es>
 # SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 CalicoDragon <110030310+CalicoDragon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Huhm-1 <cameronhillard40@gmail.com>
 # SPDX-FileCopyrightText: 2025 Icepick <122653407+Icepicked@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 OrangeMoronage9622 <whyteterry0092@gmail.com>
@@ -55,6 +56,7 @@
 # SPDX-FileCopyrightText: 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 rottenheadphones <juaelwe@outlook.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2026 Tea <Xerithin@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -66513,7 +66515,7 @@ entities:
     - type: Transform
       pos: 24.465298,46.585842
       parent: 82
-- proto: ClothingUniformJumpskirtHoSParadeMale
+- proto: ClothingUniformJumpsuitHosFormal
   entities:
   - uid: 7066
     components:
@@ -66562,7 +66564,7 @@ entities:
     - type: Transform
       pos: 9.562717,53.351437
       parent: 82
-- proto: ClothingUniformJumpsuitHoSParadeMale
+- proto: ClothingUniformJumpsuitHosFormal
   entities:
   - uid: 25163
     components:
@@ -66583,7 +66585,7 @@ entities:
     - type: Transform
       pos: -14.379087,-29.473778
       parent: 82
-- proto: ClothingUniformJumpsuitSecBlue
+- proto: ClothingUniformJumpsuitSec
   entities:
   - uid: 3449
     components:

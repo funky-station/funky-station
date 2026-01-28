@@ -629,3 +629,16 @@
     sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/paramedic_speedsuit.rsi
   - type: Clothing
     sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/paramedic_speedsuit.rsi
+
+# Security mess uniform (tea)
+
+- type: entity
+  parent: [ClothingUniformBase, BaseSecurityContraband]
+  id: ClothingUniformJumpsuitSecMess
+  name: security mess uniform
+  description: A uniform made of strong material, for special occasions.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/secmess.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/secmess.rsi

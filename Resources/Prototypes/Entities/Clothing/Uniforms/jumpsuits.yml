@@ -73,6 +73,7 @@
 # SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2026 Tea <Xerithin@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -410,69 +411,24 @@
 - type: entity
   parent: [ClothingUniformBase, BaseCommandContraband]
   id: ClothingUniformJumpsuitHoS
-  name: head of security's jumpsuit
-  description: It's bright red and rather crisp, much like security's victims tend to be.
+  name: head of security's service uniform
+  description: The head of security's service uniform, for when you anticipate a war against mothroaches.
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpsuit/hos.rsi
   - type: Clothing
     sprite: Clothing/Uniforms/Jumpsuit/hos.rsi
-  - type: Item
-    inhandVisuals:
-      left:
-      - state: inhand-left
-        color: "#C12D30"
-        sprite: Clothing/Uniforms/Jumpsuit/color.rsi
-      - state: overlay-inhand-left
-      right:
-      - state: inhand-right
-        color: "#C12D30"
-        sprite: Clothing/Uniforms/Jumpsuit/color.rsi
-      - state: overlay-inhand-right
 
 - type: entity
   parent: [ClothingUniformBase, BaseCommandContraband]
   id: ClothingUniformJumpsuitHoSAlt
-  name: head of security's turtleneck
-  description: It's a turtleneck worn by those strong and disciplined enough to achieve the position of Head of Security.
+  name: head of security's dress uniform
+  description: The head of security's dress uniform, the perfect fusion of fancy and functional.
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpsuit/hos_alt.rsi
   - type: Clothing
     sprite: Clothing/Uniforms/Jumpsuit/hos_alt.rsi
-
-- type: entity
-  parent: [ClothingUniformBase, BaseCommandContraband]
-  id: ClothingUniformJumpsuitHoSBlue
-  name: head of security's blue jumpsuit
-  description: A blue jumpsuit of Head of Security.
-  components:
-  - type: Sprite
-    sprite: Clothing/Uniforms/Jumpsuit/hos_blue.rsi
-  - type: Clothing
-    sprite: Clothing/Uniforms/Jumpsuit/hos_blue.rsi
-
-- type: entity
-  parent: [ClothingUniformBase, BaseCommandContraband]
-  id: ClothingUniformJumpsuitHoSGrey
-  name: head of security's grey jumpsuit
-  description: A grey jumpsuit of Head of Security, which make him look somewhat like a passenger.
-  components:
-  - type: Sprite
-    sprite: Clothing/Uniforms/Jumpsuit/hos_grey.rsi
-  - type: Clothing
-    sprite: Clothing/Uniforms/Jumpsuit/hos_grey.rsi
-
-- type: entity
-  parent: [ClothingUniformBase, BaseCommandContraband]
-  id: ClothingUniformJumpsuitHoSParadeMale
-  name: head of security's parade uniform
-  description: A male head of security's luxury-wear, for special occasions.
-  components:
-  - type: Sprite
-    sprite: Clothing/Uniforms/Jumpsuit/hos_parade.rsi
-  - type: Clothing
-    sprite: Clothing/Uniforms/Jumpsuit/hos_parade.rsi
 
 - type: entity
   parent: ClothingUniformBase
@@ -669,54 +625,31 @@
 
 - type: entity
   parent: [ClothingUniformBase, BaseSecurityContraband]
-  id: ClothingUniformJumpsuitSec
-  name: security jumpsuit
-  description: A jumpsuit made of strong material, providing robust protection.
+  id: ClothingUniformJumpsuitSecCadet
+  name: cadet uniform
+  description: A uniform made of strong material, providing robust protection.
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpsuit/security.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/cadet.rsi
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpsuit/security.rsi
-  - type: Item
-    inhandVisuals:
-      left:
-      - state: inhand-left
-        color: "#C12D30"
-        sprite: Clothing/Uniforms/Jumpsuit/color.rsi
-      - state: overlay-inhand-left
-      right:
-      - state: inhand-right
-        color: "#C12D30"
-        sprite: Clothing/Uniforms/Jumpsuit/color.rsi
-      - state: overlay-inhand-right
-
-- type: entity
-  parent: ClothingUniformBase
-  id: ClothingUniformJumpsuitSecBlue
-  name: blue shirt and tie
-  description: I'm a little busy right now, Calhoun.
-  components:
-  - type: Sprite
-    sprite: Clothing/Uniforms/Jumpsuit/security_blue.rsi
-  - type: Clothing
-    sprite: Clothing/Uniforms/Jumpsuit/security_blue.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/cadet.rsi
 
 - type: entity
   parent: [ClothingUniformBase, BaseSecurityContraband]
-  id: ClothingUniformJumpsuitSecGrey
-  name: grey security jumpsuit
-  description: A tactical relic of years past before Nanotrasen decided it was cheaper to dye the suits red instead of washing out the blood.
+  id: ClothingUniformJumpsuitSec
+  name: security dress uniform
+  description: A uniform made of strong material, for day to day wear.
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpsuit/security_grey.rsi
+    sprite: Clothing/Uniforms/Jumpsuit/security.rsi
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpsuit/security_grey.rsi
+    sprite: Clothing/Uniforms/Jumpsuit/security.rsi
 
 - type: entity
   parent: [ClothingUniformBase, BaseSecurityContraband]
   id: ClothingUniformSecurityTrooper
-  name: trooper uniform
-  description: A formal uniform issued to the Nanotrasen Troopers, usually it comes with a car.
+  name: security service  uniform
+  description: A uniform issued to the Nanotrasen troops, usually it comes with a car.
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpsuit/security_trooper.rsi
@@ -903,7 +836,7 @@
 - type: entity
   parent: [ClothingUniformBase, BaseCommandContraband]
   id: ClothingUniformJumpsuitHosFormal
-  name: hos's formal suit
+  name: head of security's mess suit
   description: A suit for special occasions.
   components:
   - type: Sprite
@@ -1274,7 +1207,7 @@
 - type: entity
   parent: [ClothingUniformBase, BaseSecurityContraband]
   id: ClothingUniformJumpsuitSeniorOfficer
-  name: senior officer jumpsuit
+  name: senior officer uniform
   description: A sign of skill and prestige within the security department.
   components:
   - type: Sprite

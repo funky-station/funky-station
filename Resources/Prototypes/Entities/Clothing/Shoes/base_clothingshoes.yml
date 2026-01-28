@@ -46,6 +46,8 @@
         reagents:
         - ReagentId: Fiber
           Quantity: 10
+      stain:
+        maxVol: 5
   - type: TemperatureProtection
     heatingCoefficient: 1
     coolingCoefficient: 0.95
@@ -54,6 +56,15 @@
     - ClothMade
     - WhitelistChameleon
   - type: ProtectedFromStepTriggers
+  - type: Appearance
+  - type: Stainable
+    clothingVisuals:
+      shoes:
+      - sprite: _Gabystation/Effects/blood.rsi
+        state: shoeblood
+    iconVisuals:
+    - sprite: _Gabystation/Effects/blood.rsi
+      state: shoebloodicon
 
 - type: entity
   abstract: true

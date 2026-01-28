@@ -31,12 +31,16 @@
 // SPDX-FileCopyrightText: 2024 poeMota <142114334+poeMota@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Josh Hilsberg <thejoulesberg@gmail.com>
 // SPDX-FileCopyrightText: 2025 JoulesBerg <104539820+JoulesBerg@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 MaiaArai <158123176+YaraaraY@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 // SPDX-FileCopyrightText: 2025 V <97265903+formlessnameless@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2026 Copilot <175728472+Copilot@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2026 TheHolyAegis <76066612+TheHolyAegis@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2026 TheHolyAegis <sanderkamphuis719@gmail.com>
 //
 // SPDX-License-Identifier: MIT
 
@@ -108,6 +112,7 @@ public sealed class GhostRoleSystem : EntitySystem
     private bool _needsUpdateGhostRoleCount = true;
 
     private readonly Dictionary<uint, Entity<GhostRoleComponent>> _ghostRoles = new();
+    private readonly Dictionary<uint, Entity<CentCommRoleComponent>> _centCommRoles = new();
     private readonly Dictionary<uint, Entity<GhostRoleRaffleComponent>> _ghostRoleRaffles = new();
 
     private readonly Dictionary<ICommonSession, GhostRolesEui> _openUis = new();
@@ -180,7 +185,7 @@ public sealed class GhostRoleSystem : EntitySystem
         return unchecked(_nextRoleIdentifier++);
     }
 
-    public void OpenEui(ICommonSession session)
+    public void OpenGhostRoleEui(ICommonSession session)
     {
         if (session.AttachedEntity is not { Valid: true } attached ||
             !EntityManager.HasComponent<GhostComponent>(attached))
@@ -255,6 +260,22 @@ public sealed class GhostRoleSystem : EntitySystem
 
         _needsUpdateGhostRoleCount = false;
         var response = new GhostUpdateGhostRoleCountEvent(GetGhostRoleCount());
+        foreach (var player in _playerManager.Sessions)
+        {
+            RaiseNetworkEvent(response, player.Channel);
+        }
+    }
+
+    /// <summary>
+    /// Handles sending count update for the centcomm role button in ghost UI, if ghost role count changed.
+    /// </summary>
+    private void UpdateCentCommRoleCount()
+    {
+        if (!_needsUpdateGhostRoleCount)
+            return;
+
+        _needsUpdateGhostRoleCount = false;
+        var response = new GhostUpdateGhostRoleCountEvent(GetCentCommRoleCount());
         foreach (var player in _playerManager.Sessions)
         {
             RaiseNetworkEvent(response, player.Channel);
@@ -589,6 +610,15 @@ public sealed class GhostRoleSystem : EntitySystem
     }
 
     /// <summary>
+    /// Returns the number of available ghost roles.
+    /// </summary>
+    public int GetCentCommRoleCount()
+    {
+        var metaQuery = GetEntityQuery<MetaDataComponent>();
+        return _centCommRoles.Count(pair => metaQuery.GetComponent(pair.Value.Owner).EntityPaused == false);
+    }
+
+    /// <summary>
     /// Returns information about all available ghost roles.
     /// </summary>
     /// <param name="player">
@@ -823,12 +853,39 @@ public sealed class GhostRoleSystem : EntitySystem
         var spawnLoc = xform.Coordinates;
         var station = _stationSystem.GetOwningStation(uid, xform);
 
-        // its possible to do loadouts for this, but not worth the effort rn
-        // spawn the role
+        // Funky - ghostjobs
+
+        HumanoidCharacterProfile profile;
+
+        if (component.Job != null && !component.ForceRandomCharacter)
+        {
+            // Try to get a profile that has the job enabled from player preferences
+            var prefs = _prefsManager.GetPreferences(args.Player.UserId);
+            var selectedProfile = prefs.SelectProfileForJob(component.Job.Value.Id);
+
+            if (selectedProfile != null)
+            {
+                profile = selectedProfile;
+                Log.Debug($"Selected character profile '{profile.Name}' for ghost job {component.Job.Value.Id}");
+            }
+            else
+            {
+                // Fallback: create random character
+                profile = HumanoidCharacterProfile.Random();
+                Log.Debug($"No profile with job enabled, using selected character or random for {component.Job.Value.Id}");
+            }
+        }
+        else
+        {
+            // No job specified, create random character
+            profile = HumanoidCharacterProfile.Random();
+        }
+
+        // spawn the role with the chosen profile
         var newCharacter = _stationSpawning.SpawnPlayerMob(
             spawnLoc,
             component.Job,
-            HumanoidCharacterProfile.Random(),
+            profile,
             station);
 
         // create a new ghostRoleComponent in the entity that we just spawned - this way if they ghost, it can be taken again instead of spawning a new one.
@@ -964,6 +1021,20 @@ public sealed class GhostRoleSystem : EntitySystem
 
         SetMode(entity.Owner, ghostRoleProto, ghostRoleProto.Name, entity.Comp);
     }
+
+    public void OpenCentCommRoleEui(ICommonSession session)
+    {
+        if (session.AttachedEntity is not { Valid: true } attached ||
+            !EntityManager.HasComponent<GhostComponent>(attached))
+            return;
+
+        if (_openUis.ContainsKey(session))
+            CloseEui(session);
+
+        var eui = _openUis[session] = new GhostRolesEui();
+        _euiManager.OpenEui(eui, session);
+        eui.StateDirty();
+    }
 }
 
 [AnyCommand]
@@ -977,8 +1048,25 @@ public sealed class GhostRoles : IConsoleCommand
     public void Execute(IConsoleShell shell, string argStr, string[] args)
     {
         if (shell.Player != null)
-            _e.System<GhostRoleSystem>().OpenEui(shell.Player);
+            _e.System<GhostRoleSystem>().OpenGhostRoleEui(shell.Player);
         else
             shell.WriteLine("You can only open the ghost roles UI on a client.");
+    }
+}
+
+[AnyCommand]
+public sealed class CentCommRoles : IConsoleCommand
+{
+    [Dependency] private readonly IEntityManager _e = default!;
+
+    public string Command => "centcommroles";
+    public string Description => "Opens the centcomm role request window.";
+    public string Help => $"{Command}";
+    public void Execute(IConsoleShell shell, string argStr, string[] args)
+    {
+        if (shell.Player != null)
+            _e.System<GhostRoleSystem>().OpenCentCommRoleEui(shell.Player);
+        else
+            shell.WriteLine("You can only open the centcomm roles UI on a client.");
     }
 }

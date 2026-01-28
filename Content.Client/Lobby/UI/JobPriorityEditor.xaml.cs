@@ -1,4 +1,5 @@
 // SPDX-FileCopyrightText: 2025 Quantum-cross <7065792+Quantum-cross@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2026 TheHolyAegis <sanderkamphuis719@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -89,12 +90,24 @@ public sealed partial class JobPriorityEditor : BoxContainer
         JobList.DisposeAllChildren();
         _jobCategories.Clear();
         _jobPriorities.Clear();
+
+        // Filter out jobs that are not visible in lobby
+        var visibleJobIds = _prototypeManager.EnumeratePrototypes<JobPrototype>()
+            .Where(job => job.VisibleInLobby)
+            .Select(job => job.ID)
+            .ToHashSet();
+
+        SelectedJobPriorities = SelectedJobPriorities
+            .Where(kvp => visibleJobIds.Contains(kvp.Key))
+            .ToDictionary(kvp => kvp.Key, kvp => kvp.Value);
+
         var firstCategory = true;
 
         // Get all displayed departments
         var departments = _prototypeManager.EnumeratePrototypes<DepartmentPrototype>()
             .Where(dep => !dep.EditorHidden)
             .ToList();
+
 
         departments.Sort(DepartmentUIComparer.Instance);
 
@@ -151,7 +164,7 @@ public sealed partial class JobPriorityEditor : BoxContainer
             }
 
             var jobs = department.Roles.Select(jobId => _prototypeManager.Index(jobId))
-                .Where(job => job.SetPreference)
+                .Where(job => job.SetPreference && job.VisibleInLobby)
                 .ToList();
 
             jobs.Sort(JobUIComparer.Instance);

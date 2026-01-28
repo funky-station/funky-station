@@ -22,9 +22,12 @@
 // SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
 // SPDX-FileCopyrightText: 2024 tosatur <63034378+tosatur@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
+// SPDX-FileCopyrightText: 2025 Toastermeister <215405651+Toastermeister@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 duston <66768086+dch-GH@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2026 TheHolyAegis <sanderkamphuis719@gmail.com>
 //
 // SPDX-License-Identifier: MIT
 
@@ -48,6 +51,7 @@ namespace Content.Client.Ghost
         [Dependency] private readonly SpriteSystem _sprite = default!;
 
         public int AvailableGhostRoleCount { get; private set; }
+        public int AvailableCentCommRoleCount { get; private set; }
 
         private bool _ghostVisibility = true;
 
@@ -80,6 +84,7 @@ namespace Content.Client.Ghost
         public event Action? PlayerDetached;
         public event Action<GhostWarpsResponseEvent>? GhostWarpsResponse;
         public event Action<GhostUpdateGhostRoleCountEvent>? GhostRoleCountUpdated;
+        public event Action<GhostUpdateGhostRoleCountEvent>? CentCommRoleCountUpdated;
 
         public override void Initialize()
         {
@@ -228,6 +233,12 @@ namespace Content.Client.Ghost
             GhostRoleCountUpdated?.Invoke(msg);
         }
 
+        private void OnUpdateCentCommRoleCount(GhostUpdateGhostRoleCountEvent msg)
+        {
+            AvailableCentCommRoleCount = msg.AvailableGhostRoles;
+            GhostRoleCountUpdated?.Invoke(msg);
+        }
+
         public void RequestWarps()
         {
             RaiseNetworkEvent(new GhostWarpsRequestEvent());
@@ -242,6 +253,11 @@ namespace Content.Client.Ghost
         public void OpenGhostRoles()
         {
             _console.RemoteExecuteCommand(null, "ghostroles");
+        }
+
+        public void OpenCentCommRoles()
+        {
+            _console.RemoteExecuteCommand(null, "centcommroles");
         }
 
         public void GhostBarSpawn() // Goobstation - Ghost Bar

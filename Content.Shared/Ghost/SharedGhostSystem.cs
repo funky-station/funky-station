@@ -10,6 +10,7 @@
 // SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2026 TheHolyAegis <sanderkamphuis719@gmail.com>
 //
 // SPDX-License-Identifier: MIT
 
@@ -179,6 +180,20 @@ namespace Content.Shared.Ghost
         public GhostUpdateGhostRoleCountEvent(int availableGhostRoleCount)
         {
             AvailableGhostRoles = availableGhostRoleCount;
+        }
+    }
+
+    /// <summary>
+    /// A server to client update with the available ghost role count
+    /// </summary>
+    [Serializable, NetSerializable]
+    public sealed class GhostUpdateCentCommRoleCountEvent : EntityEventArgs
+    {
+        public int AvailableCentCommRoles { get; }
+
+        public GhostUpdateCentCommRoleCountEvent(int availableCentCommRoleCount)
+        {
+            AvailableCentCommRoles = availableCentCommRoleCount;
         }
     }
 }

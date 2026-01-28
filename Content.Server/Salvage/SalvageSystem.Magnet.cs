@@ -1,14 +1,14 @@
 // SPDX-FileCopyrightText: 2024 Emisse <99158783+Emisse@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
 // SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
-// SPDX-FileCopyrightText: 2025 Terkala <appleorange64@gmail.com>
 // SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
 // SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 // SPDX-FileCopyrightText: 2025 terkala <appleorange64@gmail.com>
+// SPDX-FileCopyrightText: 2026 Terkala <appleorange64@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later or MIT
 
@@ -148,11 +148,11 @@ public sealed partial class SalvageSystem
         if (data.Comp.ActiveEntities != null)
         {
             // Handle mobrestrictions getting deleted
-            var query = AllEntityQuery<SalvageMobRestrictionsComponent>();
+            var query = AllEntityQuery<SalvageMobRestrictionsComponent, MobStateComponent>();
 
-            while (query.MoveNext(out var salvUid, out var salvMob))
+            while (query.MoveNext(out var salvUid, out var salvMob, out var salvMobState))
             {
-                if (data.Comp.ActiveEntities.Contains(salvMob.LinkedEntity))
+                if (data.Comp.ActiveEntities.Contains(salvMob.LinkedEntity) && _mobState.IsAlive(salvUid, salvMobState))
                 {
                     QueueDel(salvUid);
                 }
@@ -177,8 +177,7 @@ public sealed partial class SalvageSystem
                         uid = _transform.GetParentUid(uid);
                         if (_mobStateQuery.HasComp(uid))
                             return true;
-                    }
-                    while (uid != xform.GridUid && uid != EntityUid.Invalid);
+                    } while (uid != xform.GridUid && uid != EntityUid.Invalid);
                     return false;
                 }
 
@@ -871,6 +870,19 @@ public sealed partial class SalvageSystem
             return;
         }
         
+        // Calculate total chance for normalization
+        var totalChance = 0f;
+        foreach (var (_, chance) in debrisEntities)
+        {
+            totalChance += chance;
+        }
+        
+        if (totalChance <= 0f)
+        {
+            Log.Warning("[SalvageSystem] Total chance is zero or negative for ruin debris");
+            return;
+        }
+        
         // Build hashsets for quick position lookups
         var wallPositions = new HashSet<Vector2i>();
         foreach (var (wallPos, _) in ruinResult.WallEntities)
@@ -900,8 +912,8 @@ public sealed partial class SalvageSystem
             if (debrisRandom.NextDouble() > 0.25f) // 25% chance to spawn something
                 continue;
             
-            // Pick a random debris entity
-            var roll = debrisRandom.NextSingle();
+            // Pick a random debris entity - roll directly from 0 to totalChance
+            var roll = debrisRandom.NextSingle() * totalChance;
             var cumulativeChance = 0f;
             
             foreach (var (proto, chance) in debrisEntities)

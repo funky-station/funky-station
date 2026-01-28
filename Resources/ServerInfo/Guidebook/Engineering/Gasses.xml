@@ -63,7 +63,7 @@ SPDX-License-Identifier: MIT
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-      Combustable
+        Combustable
       </Box>
     </ColorBox>
     <ColorBox Color="#7b68ee">
@@ -83,7 +83,7 @@ SPDX-License-Identifier: MIT
     </ColorBox>
     <ColorBox Color="#acacac">
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-	  Hydrogen
+	    Hydrogen
       </Box>
     </ColorBox>
     <ColorBox>
@@ -107,12 +107,12 @@ SPDX-License-Identifier: MIT
     </ColorBox>
     <ColorBox Color="#DA1010">
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-	  Nitrogen
+	   Nitrogen
       </Box>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-      Endothermic
+        Endothermic
       </Box>
     </ColorBox>
     <ColorBox Color="#2e422e">
@@ -122,7 +122,7 @@ SPDX-License-Identifier: MIT
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-      Above 23k
+        Above 23k
       </Box>
     </ColorBox>
     <ColorBox Color="#3a758c">
@@ -136,7 +136,7 @@ SPDX-License-Identifier: MIT
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-	  Strongly Endothermic
+	    Strongly Endothermic
       </Box>
     </ColorBox>
     <ColorBox Color="#9370db">
@@ -146,7 +146,7 @@ SPDX-License-Identifier: MIT
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-	  Under 310k
+	    Under 310k
       </Box>
     </ColorBox>
     <ColorBox Color="#59563a">
@@ -160,17 +160,17 @@ SPDX-License-Identifier: MIT
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-	  Exothermic, Pressure and Volume Dependent
+	    Exothermic, Pressure and Volume Dependent
       </Box>
     </ColorBox>
     <ColorBox Color="#fa8072">
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-	  Healium
+	    Healium
       </Box>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-      Under 300k
+        Under 300k
       </Box>
     </ColorBox>
     <ColorBox Color="#3a758c">
@@ -194,7 +194,7 @@ SPDX-License-Identifier: MIT
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-	  Electrolyze
+	    Electrolyze
       </Box>
     </ColorBox>
     <ColorBox Color="#9370db">
@@ -204,7 +204,7 @@ SPDX-License-Identifier: MIT
     </ColorBox>
     <ColorBox Color="#2887E8">
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-	  Oxygen
+	    Oxygen
       </Box>
     </ColorBox>
     <ColorBox>
@@ -214,12 +214,12 @@ SPDX-License-Identifier: MIT
     </ColorBox>
     <ColorBox Color="#a52a2a">
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-	  Nitrium
+	    Nitrium
       </Box>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-	  1,500k
+	    1,500k
       </Box>
     </ColorBox>
     <ColorBox Color="#9370db">
@@ -253,7 +253,7 @@ SPDX-License-Identifier: MIT
     </ColorBox>
     <ColorBox Color="#2887E8">
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-	  Oxygen
+	    Oxygen
       </Box>
     </ColorBox>
     <ColorBox>
@@ -268,7 +268,7 @@ SPDX-License-Identifier: MIT
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-	  5,000-10,000k
+	    5,000-10,000k
       </Box>
     </ColorBox>
     <ColorBox Color="#9c8ee9">
@@ -282,6 +282,7 @@ SPDX-License-Identifier: MIT
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Catalyzes Tritium, Hydrogen, and BZ
       </Box>
     </ColorBox>
     <ColorBox Color="#005959">
@@ -291,7 +292,7 @@ SPDX-License-Identifier: MIT
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-	  270k
+	    270k
       </Box>
     </ColorBox>
     <ColorBox Color="#9370db">
@@ -314,7 +315,7 @@ SPDX-License-Identifier: MIT
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-	  15k
+	    15k
       </Box>
     </ColorBox>
     <ColorBox Color="#13FF4B">
@@ -328,7 +329,7 @@ SPDX-License-Identifier: MIT
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-	  Stops Reactions
+	    Stops Reactions
       </Box>
     </ColorBox>
     <ColorBox Color="#525151">
@@ -338,7 +339,7 @@ SPDX-License-Identifier: MIT
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-	  Electrolyze-100k
+	    Electrolyze-100k
       </Box>
     </ColorBox>
     <ColorBox Color="#33cccc">
@@ -568,10 +569,10 @@ SPDX-License-Identifier: MIT
     <GuideEntityEmbed Entity="HydrogenCanister"/>
   </Box>
 
-  When mixed with BZ at temperatures below 273 Kelvin and pressures above 10 MPa, Hydrogen can form metal hydrogen, a rare material. Handle Hydrogen carefully to prevent fires or explosions, and store canisters securely.
+  When mixed with BZ at temperatures below 273 K and pressures above 10 MPa, hydrogen can form metal hydrogen, a rare material. Handle hydrogen carefully to prevent fires or explosions, and store canisters securely.
 
   ##Proto-Nitrate
-  Proto-Nitrate is a highly reactive, non-toxic gas. Combine 1 mole Hydrogen with 0.1 moles Pluoxium to yield 1.1 moles Proto-Nitrate exothermically, between 5,000 and 10,000 Kelvin. It reacts with Hydrogen or Tritium to adjust Proto-Nitrate or produce Hydrogen, and with BZ at 260-280K to yield Nitrogen, Helium, and Plasma. Handle carefully to avoid leaks.
+  Proto-Nitrate is a highly reactive, non-toxic gas. Combine 1 moles Hydrogen with 0.1 moles Pluoxium to yield 1.1 moles Proto-Nitrate exothermically, best at 5,000-10,000 Kelvin.
 
   <Box>
     <GuideEntityEmbed Entity="HydrogenCanister"/>
@@ -579,6 +580,9 @@ SPDX-License-Identifier: MIT
     <GuideEntityEmbed Entity="GasVentScrubber"/>
     <GuideEntityEmbed Entity="ProtoNitrateCanister"/>
   </Box>
+
+  Exposing PN to Tritium or Hydrogen turns one into the other in a Plasma-producing reaction that is respectively exo- or endo-thermic.
+  It will also react with BZ between 260 to 280 Kelvin to yield Nitrogen, Helium, and Plasma. Handle carefully to avoid leaks.
 
   ##Helium
   Helium is an inert, invisible gas produced via the decay of BZ. This decay can be caused by exposing BZ and Proto Nitrate together at just under room temperature (260-280 Kelvin). It has minimal use in atmospherics, so scrub it to avoid diluting other gases.

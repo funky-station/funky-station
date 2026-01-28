@@ -1,3 +1,4 @@
+# SPDX-FileCopyrightText: 2025 8tv <eightev@gmail.com>
 # SPDX-FileCopyrightText: 2025 AtlasHD <99688062+AtlasHDD@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 ThatOneMoon <91613003+ThatOneGuy227@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
@@ -42,5 +43,16 @@
     state: icon
   product: CrateEngineeringHEV
   cost: 5000
+  category: cargoproduct-category-name-engineering
+  group: market
+
+# funky station
+- type: cargoProduct
+  id: EngineeringTEGCrate
+  icon:
+    sprite: Structures/Power/Generation/teg.rsi
+    state: static
+  product: CrateEngineeringTEG
+  cost: 20000
   category: cargoproduct-category-name-engineering
   group: market

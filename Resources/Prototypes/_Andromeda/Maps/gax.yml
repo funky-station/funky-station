@@ -1,5 +1,6 @@
 # SPDX-FileCopyrightText: 2025 EmillyCoelho <167008606+Ichaie@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Ichaie <ichaicoelho@gmail.com>
+# SPDX-FileCopyrightText: 2026 wilowzeta <willowzeta632146@proton.me>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -37,8 +38,7 @@
             Librarian: [ 1, 1 ]
             #Engineering
             ChiefEngineer: [ 1, 1 ]
-            AtmosphericTechnician: [ 3, 4 ]
-            StationEngineer: [ 3, 4 ]
+            StationEngineer: [ 6, 8 ]
             TechnicalAssistant: [ 1, 2 ]
             #Medical
             ChiefMedicalOfficer: [ 1, 1 ]

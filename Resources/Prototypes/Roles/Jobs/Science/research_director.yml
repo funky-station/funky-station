@@ -49,6 +49,7 @@
 # SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Mish <bluscout78@yahoo.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2026 SharkSnake98 <sharksnake87@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -89,6 +90,12 @@
   - !type:AddComponentSpecial
     components:
       - type: CommandStaff
+  alternateTitles:
+  - ResearchDirectorLeadResearcher
+  - ResearchDirectorResearchSupervisor
+  - ResearchDirectorChiefScienceOfficer
+  - ResearchDirectorHeadOfScience
+  - ResearchDirectorSystemsAdministrator
 
 - type: startingGear
   id: ResearchDirectorGear
@@ -98,3 +105,23 @@
   storage:
     back:
     - Flash
+
+- type: jobAlternateTitle
+  id: ResearchDirectorLeadResearcher
+  name: job-name-alt-rd-1
+
+- type: jobAlternateTitle
+  id: ResearchDirectorResearchSupervisor
+  name: job-name-alt-rd-2
+
+- type: jobAlternateTitle
+  id: ResearchDirectorChiefScienceOfficer
+  name: job-name-alt-rd-3
+
+- type: jobAlternateTitle
+  id: ResearchDirectorHeadOfScience
+  name: job-name-alt-rd-4
+
+- type: jobAlternateTitle
+  id: ResearchDirectorSystemsAdministrator
+  name: job-name-alt-rd-5

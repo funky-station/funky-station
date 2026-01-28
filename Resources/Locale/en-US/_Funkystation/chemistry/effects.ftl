@@ -8,3 +8,10 @@ reagent-effect-guidebook-cure-changeling =
         [1] Removes any
         *[other] remove any
     } parasitic infection
+
+reagent-effect-guidebook-reduce-seizure-build =
+    { $chance ->
+        [1] Reduces
+        *[other] reduce
+    } neurological seizure buildup by {NATURALFIXED($amount, 2)} points
+

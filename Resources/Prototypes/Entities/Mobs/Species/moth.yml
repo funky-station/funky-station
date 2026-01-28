@@ -74,6 +74,7 @@
       Burn:
         sprite: Mobs/Effects/burn_damage.rsi
   - type: MothAccent
+  - type: Carriable
   - type: Vocal
     sounds:
       Male: UnisexMoth

@@ -171,6 +171,8 @@
         visible: false
   - type: Inventory
     templateId: arachnid
+    speciesId: arachnid
+  - type: Carriable # Carrying system from nyanotrasen.
 
 
 - type: entity

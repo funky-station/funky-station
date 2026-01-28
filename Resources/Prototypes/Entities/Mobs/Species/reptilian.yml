@@ -134,7 +134,7 @@
     - DoorBumpOpener
     - AnomalyHost
     - LizardEmotes
-
+  - type: Carriable # Carrying system from nyanotrasen.
 
 - type: entity
   parent: BaseSpeciesDummy

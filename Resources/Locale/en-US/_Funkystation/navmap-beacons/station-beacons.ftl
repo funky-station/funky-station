@@ -18,6 +18,7 @@ station-beacon-infirmary = Infirmary
 
 station-beacon-cans-sci = Science Canister Storage
 station-beacon-xenobio = Xenobiology Lab
+station-beacon-genetics = Genetics
 
 station-beacon-cargo-docks = Cargo Docks
 station-beacon-salv-docks = Salvage Docks

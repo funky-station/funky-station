@@ -64,6 +64,7 @@ job-name-alt-scientist-2 = Anomaly Researcher
 job-name-alt-scientist-3 = Hardware Technician
 job-name-alt-scientist-4 = Lab Technician
 job-name-alt-scientist-5 = Theoretical Physicist
+job-name-alt-scientist-6 = Geneticist
 
 job-name-alt-roboticist-1 = Biomechanical Engineer
 job-name-alt-roboticist-2 = Mechatronic Specialist

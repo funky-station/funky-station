@@ -1,0 +1,28 @@
+# - type: job
+#   id: Geneticist
+#   name: id-card-job-geneticist
+#   description: job-description-geneticist
+#   playTimeTracker: JobGeneticist
+#   # requirements:
+#   #   - !type:DepartmentTimeRequirement
+#   #     department: Medical
+#   #     time: 18000  # 5 hrs total med
+#   weight: 30  # Medium availability
+#   startingGear: GeneticistGear
+#   icon: "JobIconGeneticist"
+#   requireAdminNotify: false
+#   joinNotifyCrew: true
+#   supervisors: job-supervisors-medical
+#   canBeAntag: true
+#   access:
+#     - Maintenance
+#     - Medical
+#     - Research
+#   special: []
+
+- type: startingGear
+  id: GeneticistGear
+  equipment:
+    id: GeneticistPDA
+    ears: ClothingHeadsetMedical
+    pocket2: HandheldGeneticAnalyzer

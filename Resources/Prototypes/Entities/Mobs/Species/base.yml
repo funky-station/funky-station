@@ -491,6 +491,8 @@
     alternateState: Standing
   - type: Carriable # Goobstation
   - type: StunVisuals
+  - type: Genetics # Funkystation - Genetics
+    mutationSlots: 8
 
 - type: entity
   save: false

@@ -5,3 +5,6 @@
 
 reagent-name-catextract = catberry extract
 reagent-desc-catextract = An unusual liquid extracted from a catberry.
+
+reagent-name-ink = ink
+reagent-desc-ink = A thick, dark, viscous liquid

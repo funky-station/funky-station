@@ -1,0 +1,79 @@
+<controls:FancyWindow xmlns="https://spacestation14.io"
+                      xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+                      xmlns:ui="clr-namespace:Content.Client._Funkystation.Genetics.DnaScannerConsole.UI"
+                      xmlns:system="clr-namespace:System;assembly=System.Runtime"
+                      MinSize="806 640" SetSize="860 740"
+                      Title="{Loc 'dna-scanner-console-title'}">
+
+    <BoxContainer Orientation="Vertical" Margin="10">
+
+        <!-- Top -->
+        <BoxContainer Orientation="Vertical" Name="SubjectInfoBox" Visible="False" Access="Public">
+            <BoxContainer Orientation="Horizontal" Margin="0 0 0 5">
+                <Label Name="SubjectNameLabel" StyleClasses="LabelBig" Access="Public" />
+                <Control HorizontalExpand="True" />
+                <Button Name="ScrambleDnaButton" Text="{Loc 'dna-scanner-scramble-dna'}" Disabled="True" MinSize="120 0" Access="Public" />
+            </BoxContainer>
+
+
+            <BoxContainer Orientation="Vertical" Margin="0 0 0 10">
+                <PanelContainer StyleClasses="LowDivider" Margin="0 0 0 10"/>
+                <BoxContainer Orientation="Horizontal" Margin="0 0 0 4">
+                    <Label Text="{Loc 'dna-scanner-total-damage'}" Margin="0 0 10 0" />
+                    <Label Name="HealthLabel" Text="--" HorizontalExpand="True" />
+                </BoxContainer>
+                <BoxContainer Orientation="Horizontal" Margin="0 0 0 4">
+                    <Label Text="{Loc 'dna-scanner-genetic-damage'}" Margin="0 0 10 0" />
+                    <Label Name="RadiationDamageLabel" Text="--" HorizontalExpand="True" />
+                </BoxContainer>
+                <BoxContainer Orientation="Horizontal">
+                    <Label Text="{Loc 'dna-scanner-genetic-instability'}" Margin="0 0 10 0" />
+                    <Label Name="GeneticInstabilityLabel" Text="--" HorizontalExpand="True" />
+                </BoxContainer>
+            </BoxContainer>
+        </BoxContainer>
+
+        <!-- Tab switcher -->
+        <BoxContainer Orientation="Horizontal" Margin="0 10 0 0">
+            <Button Name="UniqueEnzymesTabButton" Text="{Loc 'dna-scanner-unique-enzymes-tab'}" ToggleMode="True" Pressed="True" StyleClasses="ButtonOpenLeft" HorizontalExpand="True">
+                <Button.StyleClasses>
+                    <system:String>ButtonSquare</system:String>
+                </Button.StyleClasses>
+            </Button>
+
+            <Button Name="StorageTabButton" Text="{Loc 'dna-scanner-storage-tab'}" ToggleMode="True" StyleClasses="ButtonOpenLeft" HorizontalExpand="True">
+                <Button.StyleClasses>
+                    <system:String>ButtonSquare</system:String>
+                </Button.StyleClasses>
+            </Button>
+        </BoxContainer>
+        <PanelContainer StyleClasses="LowDivider" Margin="0 0 0 20"/>
+
+        <!-- Active view -->
+        <PanelContainer Name="ViewContainer" VerticalExpand="True" HorizontalExpand="True" Margin="0 0 0 10" />
+
+        <!--  Footer  -->
+        <BoxContainer Orientation="Vertical">
+            <PanelContainer StyleClasses="LowDivider" />
+            <BoxContainer
+                Margin="10,2,5,0"
+                Orientation="Horizontal"
+                VerticalAlignment="Bottom">
+                <Label StyleClasses="WindowFooterText" Text="{Loc 'dna-scanner-console-footer-flavor-left'}" />
+                <Label
+                    HorizontalAlignment="Right"
+                    HorizontalExpand="True"
+                    Margin="0,0,5,0"
+                    StyleClasses="WindowFooterText"
+                    Text="{Loc 'supermatter-console-window-flavor-right'}" />
+                <TextureRect
+                    HorizontalAlignment="Right"
+                    SetSize="19 19"
+                    Stretch="KeepAspectCentered"
+                    StyleClasses="NTLogoDark"
+                    VerticalAlignment="Center" />
+            </BoxContainer>
+        </BoxContainer>
+
+    </BoxContainer>
+</controls:FancyWindow>

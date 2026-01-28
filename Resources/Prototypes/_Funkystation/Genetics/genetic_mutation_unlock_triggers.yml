@@ -1,0 +1,32 @@
+- type: mutationUnlockTrigger
+  id: UnlockThermalResistance
+  requiredMutations:
+    - FireResistance
+    - ColdResistance
+  unlockMutations:
+    - ThermalResistance
+
+- type: mutationUnlockTrigger
+  id: UnlockOssifiedExoskeleton
+  requiredMutations:
+    - ChitinoarmisDurescutis
+    - DermalKeratinHyperplasia
+  unlockMutations:
+    - OssifiedExoskeleton
+
+- type: mutationUnlockTrigger
+  id: UnlockReinforcedFromChitinKeratinCrystal
+  requiredMutations:
+    - ChitinoarmisDurescutis
+    - DermalKeratinHyperplasia
+    - CrystallineDermalLattice
+  unlockMutations:
+    - ComprehensiveDermalFortification
+
+- type: mutationUnlockTrigger
+  id: UnlockReinforcedFromOssifiedAblative
+  requiredMutations:
+    - OssifiedExoskeleton
+    - AblativeCuticle
+  unlockMutations:
+    - ComprehensiveDermalFortification

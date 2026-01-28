@@ -15,3 +15,15 @@ reagent-effect-guidebook-reduce-seizure-build =
         *[other] reduce
     } neurological seizure buildup by {NATURALFIXED($amount, 2)} points
 
+
+reagent-effect-guidebook-mutation =
+    { $chance ->
+        [1] Causes a random genetic mutation.
+        *[other] { $chance } chance to cause a random genetic mutation.
+    }
+
+reagent-effect-guidebook-mutation-removal =
+    { $chance ->
+        [1] Removes a random genetic mutation.
+        *[other] { $chance } chance to remove a random genetic mutation.
+    }

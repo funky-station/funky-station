@@ -38,4 +38,10 @@ public sealed partial class CargoBountyCategoryPrototype : IPrototype
     /// </summary>
     [DataField]
     public string IdPrefix = "NT";
+
+    /// <summary>
+    /// The maximum number of targets a bounty category can have.
+    /// </summary>
+    [DataField]
+    public int MaxTargets = 0;
 }

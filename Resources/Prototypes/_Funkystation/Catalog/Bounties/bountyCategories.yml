@@ -1204,13 +1204,46 @@
     whitelist:
       tags:
       - HiViz
-      
+
+
+#  So the max amount you can get into a can at 23K is a bit above 40,000 mols. That's using a volume pump to overfill it though.
+#  I would say your absolute max should be somewhere in the 15,000 to 18,000 range, which forces atmos techs to cool it.
+#  At normal room temps, they can hold somewhere around 1800 mols in a can at 4500kpa.
+#
+#  So 1500 to 15,000 is probably a good range for them.
+
 - type: cargoBountyCategory
   id: AtmosCategory
-  name: AtmosTest
+  name: bounty-category-atmospherics
+  maxTargets: 1
   entries:
-  - name: Oxygen
-    minAmount: 90
-    maxAmount: 90
-    rewardPer: 65
-    gas: Oxygen
+  - name: bounty-item-tritium
+    minAmount: 5000
+    maxAmount: 10000
+    amountStep: 1000
+    rewardPer: 1 # Real 0.53
+    gas: Tritium
+  - name: bounty-item-frezon
+    minAmount: 5000
+    maxAmount: 10000
+    amountStep: 1000
+    rewardPer: 3 # Real 1.3
+    gas: Frezon
+  - name: bounty-item-healium
+    minAmount: 1500
+    maxAmount: 8000
+    amountStep: 1000
+    rewardPer: 4 # Real 2.8
+    gas: Healium
+  - name: bounty-item-nitrium
+    minAmount: 5000
+    maxAmount: 15000
+    amountStep: 1500
+    rewardPer: 6 # Real 4.1
+    gas: Nitrium
+  - name: bounty-item-pluoxium
+    minAmount: 10000
+    maxAmount: 15000
+    amountStep: 1000
+    rewardPer: 1 # Real 0.53
+    gas: Pluoxium

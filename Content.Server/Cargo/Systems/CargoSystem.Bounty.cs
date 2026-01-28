@@ -22,6 +22,7 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Content.Server.Atmos.Components;
+using Content.Server.Atmos.Piping.Unary.Components;
 using Content.Server.Cargo.Components;
 using Content.Server.Labels;
 using Content.Server.NameIdentifier;
@@ -434,13 +435,19 @@ public sealed partial class CargoSystem
 
     public bool IsValidBountyEntry(EntityUid entity, CargoGasBountyItemData gasBounty)
     {
-        if (!TryComp<GasTankComponent>(entity, out var gasTank))
-            return false;
+        if (TryComp<GasTankComponent>(entity, out var gasTank))
+        {
+            var gases = gasTank.Air;
 
-        var gases = gasTank.Air;
+            return gases.GetMoles(gasBounty.Gas) > 0;
+        }
 
-        return gases.GetMoles(gasBounty.Gas) > 0;
+        if (TryComp<GasCanisterComponent>(entity, out var gasCan))
+        {
+            var gases = gasCan.Air;
 
+            return gases.GetMoles(gasBounty.Gas) > 0;
+        }
         return false;
     }
 
@@ -546,15 +553,29 @@ public sealed partial class CargoSystem
                     }
                     break;
                 case CargoGasBountyItemData bountyItem:
-                    if (!TryComp<GasTankComponent>(entity, out var gasTank))
-                        return false;
-
-                    var gases = gasTank.Air;
-
-                    foreach (var cargoBountyItemData in possibleEntries)
+                    if (TryComp<GasTankComponent>(entity, out var gasTank))
                     {
-                        var cargoBountyGasData = (CargoGasBountyItemData)cargoBountyItemData;
-                        remaining[cargoBountyGasData] -= (int)Math.Floor(gases.GetMoles(cargoBountyGasData.Gas));
+                        var gases = gasTank.Air;
+
+                        foreach (var cargoBountyItemData in possibleEntries)
+                        {
+                            var cargoBountyGasData = (CargoGasBountyItemData) cargoBountyItemData;
+                            remaining[cargoBountyGasData] -= (int) Math.Floor(gases.GetMoles(cargoBountyGasData.Gas));
+                        }
+
+                        break;
+                    }
+                    if (TryComp<GasCanisterComponent>(entity, out var gasCan))
+                    {
+                        var gases = gasCan.Air;
+
+                        foreach (var cargoBountyItemData in possibleEntries)
+                        {
+                            var cargoBountyGasData = (CargoGasBountyItemData) cargoBountyItemData;
+                            remaining[cargoBountyGasData] -= (int) Math.Floor(gases.GetMoles(cargoBountyGasData.Gas));
+                        }
+
+                        break;
                     }
                     break;
             }
@@ -657,7 +678,7 @@ public sealed partial class CargoSystem
             bountyCategory = _random.Pick(allBounties);
         }
 
-        var totalItems = bountyItems.Count;
+        var totalItems = bountyCategory.MaxTargets == 0 ? bountyItems.Count : bountyCategory.MaxTargets;
 
         // Smaller number means that there will be on average less item per bounty
         const double itemNumberWeight = 0.9;

@@ -65,6 +65,11 @@
       noRot: true
       layers:
         - state: grey
+        - state: paper
+          sprite: Structures/Storage/Crates/labels.rsi
+          offset: "-0.2,0.03"
+          map: [ "enum.PaperLabelVisuals.Layer" ]
+          visible: false
     - type: Appearance
     - type: GenericVisualizer
       visuals:
@@ -86,6 +91,16 @@
             1: { state: can-o1, shader: "unshaded" }
             2: { state: can-o2, shader: "unshaded" }
             3: { state: can-o3, shader: "unshaded" }
+        enum.PaperLabelVisuals.HasLabel:
+          enum.PaperLabelVisuals.Layer:
+            True: { visible: true }
+            False: { visible: false }
+        enum.PaperLabelVisuals.LabelType:
+          enum.PaperLabelVisuals.Layer:
+            Paper: { state: paper }
+            Bounty: { state: bounty }
+            CaptainsPaper: { state: captains_paper }
+            Invoice: { state: invoice }
     - type: UserInterface
       interfaces:
         enum.GasCanisterUiKey.Key:
@@ -162,6 +177,16 @@
     - type: GuideHelp
       guides:
       - GasCanisters
+    - type: PaperLabel
+      labelSlot:
+        insertVerbText: comp-paper-label-insert
+        ejectVerbText: comp-paper-label-eject
+        whitelist:
+          components:
+          - Paper
+        blacklist:
+          tags:
+          - Book
 
 - type: entity
   parent: GasCanister
@@ -171,6 +196,10 @@
     - type: Sprite
       layers:
         - state: yellow
+        - state: paper
+          sprite: Structures/Storage/Crates/labels.rsi
+          offset: "-0.2,0.03"
+          map: [ "enum.PaperLabelVisuals.Layer" ]
     - type: GasCanister
       gasMixture:
         volume: 1000
@@ -220,6 +249,10 @@
   - type: Sprite
     layers:
       - state: grey
+      - state: paper
+        sprite: Structures/Storage/Crates/labels.rsi
+        offset: "-0.2,0.03"
+        map: [ "enum.PaperLabelVisuals.Layer" ]
   - type: GasCanister
     gasMixture:
       volume: 1000
@@ -260,6 +293,10 @@
   - type: Sprite
     layers:
       - state: blue
+      - state: paper
+        sprite: Structures/Storage/Crates/labels.rsi
+        offset: "-0.2,0.03"
+        map: [ "enum.PaperLabelVisuals.Layer" ]
   - type: GasCanister
     gasMixture:
       volume: 1000
@@ -314,6 +351,10 @@
     - type: Sprite
       layers:
         - state: red
+        - state: paper
+          sprite: Structures/Storage/Crates/labels.rsi
+          offset: "-0.2,0.03"
+          map: [ "enum.PaperLabelVisuals.Layer" ]
     - type: GasCanister
       gasMixture:
         volume: 1000
@@ -370,6 +411,10 @@
     - type: Sprite
       layers:
         - state: black
+        - state: paper
+          sprite: Structures/Storage/Crates/labels.rsi
+          offset: "-0.2,0.03"
+          map: [ "enum.PaperLabelVisuals.Layer" ]
     - type: GasCanister
       gasMixture:
         volume: 1000
@@ -430,6 +475,10 @@
     - type: Sprite
       layers:
         - state: orange
+        - state: paper
+          sprite: Structures/Storage/Crates/labels.rsi
+          offset: "-0.2,0.03"
+          map: [ "enum.PaperLabelVisuals.Layer" ]
     - type: GasCanister
       gasMixture:
         volume: 1000
@@ -474,6 +523,10 @@
     - type: Sprite
       layers:
         - state: green
+        - state: paper
+          sprite: Structures/Storage/Crates/labels.rsi
+          offset: "-0.2,0.03"
+          map: [ "enum.PaperLabelVisuals.Layer" ]
     - type: GasCanister
       gasMixture:
         volume: 1000
@@ -519,6 +572,10 @@
     - type: Sprite
       layers:
         - state: water_vapor
+        - state: paper
+          sprite: Structures/Storage/Crates/labels.rsi
+          offset: "-0.2,0.03"
+          map: [ "enum.PaperLabelVisuals.Layer" ]
     - type: GasCanister
       gasMixture:
         volume: 1000
@@ -563,6 +620,10 @@
     - type: Sprite
       layers:
         - state: greenys
+        - state: paper
+          sprite: Structures/Storage/Crates/labels.rsi
+          offset: "-0.2,0.03"
+          map: [ "enum.PaperLabelVisuals.Layer" ]
     - type: GasCanister
       gasMixture:
         volume: 1000
@@ -610,6 +671,10 @@
     - type: Sprite
       layers:
         - state: redws
+        - state: paper
+          sprite: Structures/Storage/Crates/labels.rsi
+          offset: "-0.2,0.03"
+          map: [ "enum.PaperLabelVisuals.Layer" ]
     - type: GasCanister
       gasMixture:
         volume: 1000
@@ -656,6 +721,10 @@
   - type: Sprite
     layers:
     - state: frezon
+    - state: paper
+      sprite: Structures/Storage/Crates/labels.rsi
+      offset: "-0.2,0.03"
+      map: [ "enum.PaperLabelVisuals.Layer" ]
   - type: GasCanister
     gasMixture:
       volume: 1000
@@ -705,6 +774,10 @@
   - type: Sprite
     layers:
     - state: purple
+    - state: paper
+      sprite: Structures/Storage/Crates/labels.rsi
+      offset: "-0.2,0.03"
+      map: [ "enum.PaperLabelVisuals.Layer" ]
   - type: GasCanister
     gasMixture:
       volume: 1000
@@ -754,6 +827,10 @@
   - type: Sprite
     layers:
     - state: healium
+    - state: paper
+      sprite: Structures/Storage/Crates/labels.rsi
+      offset: "-0.2,0.03"
+      map: [ "enum.PaperLabelVisuals.Layer" ]
   - type: GasCanister
     gasMixture:
       volume: 1000
@@ -804,6 +881,10 @@
   - type: Sprite
     layers:
     - state: brown
+    - state: paper
+      sprite: Structures/Storage/Crates/labels.rsi
+      offset: "-0.2,0.03"
+      map: [ "enum.PaperLabelVisuals.Layer" ]
   - type: GasCanister
     gasMixture:
       volume: 1000
@@ -855,6 +936,10 @@
   - type: Sprite
     layers:
     - state: darkblue
+    - state: paper
+      sprite: Structures/Storage/Crates/labels.rsi
+      offset: "-0.2,0.03"
+      map: [ "enum.PaperLabelVisuals.Layer" ]
   - type: GasCanister
     gasMixture:
       volume: 1000
@@ -907,6 +992,10 @@
   - type: Sprite
     layers:
     - state: white
+    - state: paper
+      sprite: Structures/Storage/Crates/labels.rsi
+      offset: "-0.2,0.03"
+      map: [ "enum.PaperLabelVisuals.Layer" ]
   - type: GasCanister
     gasMixture:
       volume: 1000
@@ -960,6 +1049,10 @@
   - type: Sprite
     layers:
     - state: nob
+    - state: paper
+      sprite: Structures/Storage/Crates/labels.rsi
+      offset: "-0.2,0.03"
+      map: [ "enum.PaperLabelVisuals.Layer" ]
   - type: GasCanister
     gasMixture:
       volume: 1000
@@ -1014,6 +1107,10 @@
   - type: Sprite
     layers:
     - state: proto_nitrate
+    - state: paper
+      sprite: Structures/Storage/Crates/labels.rsi
+      offset: "-0.2,0.03"
+      map: [ "enum.PaperLabelVisuals.Layer" ]
   - type: GasCanister
     gasMixture:
       volume: 1000
@@ -1069,6 +1166,10 @@
   - type: Sprite
     layers:
     - state: zauker
+    - state: paper
+      sprite: Structures/Storage/Crates/labels.rsi
+      offset: "-0.2,0.03"
+      map: [ "enum.PaperLabelVisuals.Layer" ]
   - type: GasCanister
     gasMixture:
       volume: 1000
@@ -1125,6 +1226,10 @@
   - type: Sprite
     layers:
     - state: halon
+    - state: paper
+      sprite: Structures/Storage/Crates/labels.rsi
+      offset: "-0.2,0.03"
+      map: [ "enum.PaperLabelVisuals.Layer" ]
   - type: GasCanister
     gasMixture:
       volume: 1000
@@ -1182,6 +1287,10 @@
   - type: Sprite
     layers:
     - state: helium
+    - state: paper
+      sprite: Structures/Storage/Crates/labels.rsi
+      offset: "-0.2,0.03"
+      map: [ "enum.PaperLabelVisuals.Layer" ]
   - type: GasCanister
     gasMixture:
       volume: 1000
@@ -1240,6 +1349,10 @@
   - type: Sprite
     layers:
     - state: antinob
+    - state: paper
+      sprite: Structures/Storage/Crates/labels.rsi
+      offset: "-0.2,0.03"
+      map: [ "enum.PaperLabelVisuals.Layer" ]
   - type: GasCanister
     gasMixture:
       volume: 1000
@@ -1304,6 +1417,10 @@
     - state: red
     - sprite: Structures/Storage/canister.rsi
       state: can-rainbow
+    - state: paper
+      sprite: Structures/Storage/Crates/labels.rsi
+      offset: "-0.2,0.03"
+      map: [ "enum.PaperLabelVisuals.Layer" ]
   - type: EntityTableSpawner
     offset: 0
     table: !type:NestedSelector

@@ -1,8 +1,10 @@
+# SPDX-FileCopyrightText: 2025 2DSiggy <siggymaxwell@gmail.com>
 # SPDX-FileCopyrightText: 2025 Nox <nebulousnox38@gmail.com>
 # SPDX-FileCopyrightText: 2025 SpaceCat~Chan <49094338+SpaceCat-Chan@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2026 DoovyADeer <256158135+DoovyADeer@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -119,7 +121,7 @@
     - BorgModuleAdvancedCleaning
     - BorgModuleClowning
     - BorgModuleGardening
-    - BorgModuleHarvesting
+    - BorgModuleCooking
     - BorgModuleAtmos
     - BorgModuleAdvancedTool
 

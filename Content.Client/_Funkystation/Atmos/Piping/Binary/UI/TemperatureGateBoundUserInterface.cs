@@ -6,7 +6,7 @@ using Content.Shared._Funkystation.Atmos.Piping.Binary.Components;
 using JetBrains.Annotations;
 using Robust.Client.UserInterface;
 
-namespace Content.Client._Funkystation.Atmos.UI;
+namespace Content.Client._Funkystation.Atmos.Piping.Binary.UI;
 
 /// <summary>
 /// Bound user interface handler for the temperature gate device.

@@ -1,5 +1,4 @@
 # SPDX-FileCopyrightText: 2025 2DSiggy <siggymaxwell@gmail.com>
-# SPDX-FileCopyrightText: 2025 Gansu <68031780+GansuLalan@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 GreyMario <mariomister541@gmail.com>
 # SPDX-FileCopyrightText: 2025 Homingpenguins <asadellace4@gmail.com>
 # SPDX-FileCopyrightText: 2025 Nox <nebulousnox38@gmail.com>
@@ -8,6 +7,9 @@
 # SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
 # SPDX-FileCopyrightText: 2025 aa5g21 <aa5g21@soton.ac.uk>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2026 Gansu <68031780+GansuLalan@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2026 Gansu <peat.allan13@gmail.com>
+# SPDX-FileCopyrightText: 2026 Homingpenguins <59744509+Homingpenguins@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -1203,3 +1205,46 @@
     whitelist:
       tags:
       - HiViz
+
+
+#  So the max amount you can get into a can at 23K is a bit above 40,000 mols. That's using a volume pump to overfill it though.
+#  I would say your absolute max should be somewhere in the 15,000 to 18,000 range, which forces atmos techs to cool it.
+#  At normal room temps, they can hold somewhere around 1800 mols in a can at 4500kpa.
+#
+#  So 1500 to 15,000 is probably a good range for them.
+
+- type: cargoBountyCategory
+  id: AtmosCategory
+  name: bounty-category-atmospherics
+  maxTargets: 1
+  entries:
+  - name: bounty-item-tritium
+    minAmount: 5000
+    maxAmount: 10000
+    amountStep: 1000
+    rewardPer: 1 # Real 0.53
+    gas: Tritium
+  - name: bounty-item-frezon
+    minAmount: 5000
+    maxAmount: 10000
+    amountStep: 1000
+    rewardPer: 3 # Real 1.3
+    gas: Frezon
+  - name: bounty-item-healium
+    minAmount: 1500
+    maxAmount: 8000
+    amountStep: 1000
+    rewardPer: 4 # Real 2.8
+    gas: Healium
+  - name: bounty-item-nitrium
+    minAmount: 5000
+    maxAmount: 15000
+    amountStep: 1500
+    rewardPer: 6 # Real 4.1
+    gas: Nitrium
+  - name: bounty-item-pluoxium
+    minAmount: 10000
+    maxAmount: 15000
+    amountStep: 1000
+    rewardPer: 1 # Real 0.53
+    gas: Pluoxium

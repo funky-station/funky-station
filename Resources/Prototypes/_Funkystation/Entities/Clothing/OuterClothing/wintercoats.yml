@@ -1,5 +1,5 @@
 # SPDX-FileCopyrightText: 2025 MaiaArai <158123176+YaraaraY@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2026 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -86,3 +86,18 @@
         Heat: 0.90
         Caustic: 0.9
     priceMultiplier: 0.15
+
+# NTR Fur-Collar Wool Coat
+
+- type: entity
+  parent: [ClothingOuterWinterCoat, BaseCentcommContraband]
+  id: ClothingOuterWinterNTRFurCollar
+  name: nanotrasen representative's fur-follar coat
+  description: A fur-collar wool coat, made of extremely high-quality materials, built to withstand the toughest weather; like when your office's heater isn't working.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/OuterClothing/WinterCoats/ntr_furcollar_coat.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/OuterClothing/WinterCoats/ntr_furcollar_coat.rsi
+  - type: Item
+    size: Normal

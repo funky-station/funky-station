@@ -7508,3 +7508,37 @@ Entries:
       message: Added the chief engineer's conductor hat.
   id: 873
   time: '2026-01-24T00:56:12.0000000+00:00'
+- author: TheHolyAegis
+  changes:
+    - type: Remove
+      message: Removed the extra Experimental RCD from the CE office
+    - type: Fix
+      message: >-
+        Swapped the survival kit box with a normal one, was an syndicate one
+        before, oops.
+    - type: Tweak
+      message: Changed some camera names to something else than "camera"
+    - type: Tweak
+      message: Destroyed the northwest medical entrance to create a genetics lab.
+    - type: Add
+      message: The previous change left enough room to create a psychologist office.
+  id: 874
+  time: '2026-01-25T06:30:43.0000000+00:00'
+- author: Dusty-Plant
+  changes:
+    - type: Tweak
+      message: small Court station changes
+  id: 875
+  time: '2026-01-25T06:32:17.0000000+00:00'
+- author: mkanke-real
+  changes:
+    - type: Add
+      message: Bagel now has a genetics lab
+    - type: Add
+      message: Added new power devices to Bagel
+    - type: Tweak
+      message: Bagel reactor rods are now randomized per shift
+    - type: Tweak
+      message: Med curtains swapped for new ones on Bagel
+  id: 876
+  time: '2026-01-25T06:33:10.0000000+00:00'

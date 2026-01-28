@@ -154,7 +154,6 @@ public sealed class NeuroAversionSystem : SharedNeuroAversionSystem
         float interval = (float)comp.SeizureCheckInterval.TotalSeconds;
         float probability = 1f - MathF.Exp(-hazard * interval);
 
-        // Debug logging for seizure hazard calculation
         double roll = Random.NextDouble();
         bool triggered = roll < probability;
         if (triggered)

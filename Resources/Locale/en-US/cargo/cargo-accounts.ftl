@@ -16,7 +16,8 @@ cargo-account-medical-code = MED
 cargo-account-science-name = Interstellar Development Funding
 cargo-account-science-code = RND
 
-cargo-account-security-name = Station Defense Reserves
+# funkystation - changed from Station Defense Reserves to Station Defense Allocation
+cargo-account-security-name = Station Defense Allocation
 cargo-account-security-code = SEC
 
 cargo-account-service-name = Collective Service Holdings

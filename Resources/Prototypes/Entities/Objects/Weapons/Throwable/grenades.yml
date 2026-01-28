@@ -49,7 +49,9 @@
 # SPDX-FileCopyrightText: 2024 deathride58 <deathride58@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 plykiya <plykiya@protonmail.com>
+# SPDX-FileCopyrightText: 2025 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 IronDragoon <8961391+IronDragoon@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 MaiaArai <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 misghast <51974455+misterghast@users.noreply.github.com>
@@ -516,6 +518,38 @@
     delay: 1.5
   - type: StaticPrice
     price: 350
+
+- type: entity
+  parent: [ BaseEngineeringContraband, GrenadeBase ] # Prevent inheriting DeleteOnTrigger from SmokeGrenade
+  id: AirGrenade
+  name: air grenade
+  description: A special solid state chemical grenade used for quickly releasing standard air into a spaced area. Fills up to 30 tiles!
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Grenades/airboom.rsi
+  - type: SoundOnTrigger
+    sound: /Audio/Items/smoke_grenade_smoke.ogg
+  - type: TimerTriggerVisuals
+    primingSound:
+      path: /Audio/Items/smoke_grenade_prime.ogg
+  - type: OnUseTimerTrigger
+    delay: 3
+  - type: ReleaseGasOnTrigger
+    removeFraction: 0.25
+    air:
+      volume: 1000
+      moles: # Target is 3117.84 mols total for filling 30 tiles (goal is 101.325 kPa @ 20C)
+      - 654.7464 # oxygen
+      - 2463.0936 # nitrogen
+      temperature: 293.15
+  - type: StaticPrice
+    price: 350
+  - type: GenericVisualizer
+    visuals:
+      enum.ReleaseGasOnTriggerVisuals.Key:
+        enabled:
+          True: { state: active }
+          False: { state: spent }
 
 # Non-explosive "dummy" grenades to use as a distraction.
 

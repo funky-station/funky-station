@@ -34,6 +34,7 @@
 # SPDX-FileCopyrightText: 2025 2DSiggy <siggymaxwell@gmail.com>
 # SPDX-FileCopyrightText: 2025 Dani <57107055+wgreen84@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Dani Green <wgreen84gamergame@gmail.com>
+# SPDX-FileCopyrightText: 2025 Maeve <MangoMaeve1129@gmail.com>
 # SPDX-FileCopyrightText: 2025 Nox <nebulousnox38@gmail.com>
 # SPDX-FileCopyrightText: 2025 SpaceCat~Chan <49094338+SpaceCat-Chan@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
@@ -381,7 +382,9 @@
     - WelderIndustrial
     - Multitool
     - GasAnalyzer
+    - SprayPainter
     - RubberStampCyborg # Funkystation
+    
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: tool-module }
 
@@ -478,6 +481,7 @@
     - PowerDrill
     - WelderExperimental
     - Multitool
+    - GasAnalyzer
     - RemoteSignallerAdvanced
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: adv-tools-module }
@@ -519,6 +523,7 @@
     - RCDRecharging
     - BorgFireExtinguisher
     - BorgHandheldGPSBasic
+    - trayscanner
     - GasAnalyzer
     - GeigerCounter
   - type: BorgModuleIcon
@@ -538,6 +543,8 @@
     - RPDRecharging
     - HolofanProjectorRecharging
     - BorgFirefighterTank
+    - GasAnalyzer
+    - trayscanner
     - FirefighterNozzle
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: atmos-module }

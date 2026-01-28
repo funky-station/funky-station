@@ -329,8 +329,8 @@
     steps: 5
     zeroVisible: false
   - type: Battery
-    maxCharge: 2000
-    startingCharge: 2000
+    maxCharge: 2200
+    startingCharge: 2200
   - type: Item
     size: Huge
     shape:
@@ -342,7 +342,7 @@
     fireRate: 2
     selectedMode: SemiAuto
     shotsPerBurst: 3
-    burstFireRate: 2
+    burstFireRate: 3
     availableModes:
     - SemiAuto
     - Burst
@@ -981,23 +981,23 @@
     soundEmpty:
       path: /Audio/_DV/Weapons/Guns/Empty/dry_fire.ogg
   - type: Battery
-    maxCharge: 2000
-    startingCharge: 2000
+    maxCharge: 1600
+    startingCharge: 1600
   - type: ProjectileBatteryAmmoProvider
     proto: BulletDisabler
     fireCost: 100
   - type: EnergyGun
     fireModes:
     - proto: BulletDisabler
-      fireCost: 100
+      fireCost: 80
       name: disabling
       state: disabler
     - proto: BulletEnergyGunLaser
-      fireCost: 200
+      fireCost: 100
       name: lethal
       state: lethal
     - proto: BulletEnergyGunIon
-      fireCost: 200
+      fireCost: 100
       name: ion
       state: special
   - type: MagazineVisuals
@@ -1017,7 +1017,7 @@
     - HighRiskItem
   - type: BatterySelfRecharger
     autoRecharge: true
-    autoRechargeRate: 40
+    autoRechargeRate: 15
   - type: StaticPrice
     price: 750
 

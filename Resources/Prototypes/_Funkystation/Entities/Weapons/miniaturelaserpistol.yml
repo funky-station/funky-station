@@ -1,9 +1,10 @@
 # SPDX-FileCopyrightText: 2025 Cthyga <41489382+Cthyga@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 QueerCats <jansencheng3@gmail.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
-# SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
 # SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2026 ThatOneMoon <91613003+ThatOneMoon@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2026 ThatOneMoon <juozas.dringelis@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -38,20 +39,10 @@
       path: /Audio/_DV/Weapons/Guns/Empty/dry_fire.ogg
   - type: Battery
     maxCharge: 1500
-    startingCharge: 1500
+    startingCharge: 1400
   - type: ProjectileBatteryAmmoProvider
     proto: BulletEnergyGunLaser
     fireCost: 100
-  - type: EnergyGun
-    fireModes:
-    - proto: BulletDisabler
-      fireCost: 80
-      name: disabling
-      state: disabler
-    - proto: BulletEnergyGunLaser
-      fireCost: 100
-      name: lethal
-      state: lethal
   - type: MagazineVisuals
     magState: mag
     steps: 5

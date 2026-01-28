@@ -1,0 +1,40 @@
+# SPDX-FileCopyrightText: 2025 ElusiveCoin
+# SPDX-FileCopyrightText: 2025 ImpstationBot <irismessage+bot@protonmail.com>
+# SPDX-FileCopyrightText: 2025 Jakumba
+# SPDX-FileCopyrightText: 2025 Rosycup
+# SPDX-FileCopyrightText: 2025 Tabitha
+# SPDX-FileCopyrightText: 2025 TheOneTrueWolfio
+# SPDX-FileCopyrightText: 2025 foxcurl
+# SPDX-FileCopyrightText: 2025 juniwoofs
+# SPDX-FileCopyrightText: 2025 portfiend
+# SPDX-FileCopyrightText: 2025 sleepyyapril
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
+# originally a floof trait, lightweight, remixed on den and remixed again for impstation
+
+- type: trait
+  id: Hefty #based on ultra heavyweight
+  name: trait-hefty-name
+  description: trait-hefty-desc
+  category: Weight # _Funky change
+  cost: 1 # default character has 2 points, they can pick their weight if they want
+  exclusive: [Slight] # _Funky change
+  components:
+    - type: FixtureDensityModifier #keep in mind the minimum species density and the maximum species density when editing
+      min: 30
+      max: 1000
+      factor: 1.5 # original: 2
+
+- type: trait
+  id: Slight # based on ultra lightweight. lightweight is already taken sooo...
+  name: trait-slight-name
+  description: trait-slight-desc
+  category: Weight # _Funky change
+  cost: 1 # default character has 2 points, they can pick their weight if they want
+  exclusive: [Hefty] # _Funky change
+  components:
+    - type: FixtureDensityModifier #keep in mind the minimum species density and the maximum species density when editing
+      min: 30
+      max: 1000
+      factor: 0.75 # original: .33

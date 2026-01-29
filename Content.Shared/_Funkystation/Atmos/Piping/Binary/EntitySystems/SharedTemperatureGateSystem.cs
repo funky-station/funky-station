@@ -41,7 +41,7 @@ public abstract class SharedTemperatureGateSystem : EntitySystem
 
         args.PushMarkup(Loc.GetString("temperature-gate-examined",
             ("status", Loc.GetString(statusLocId)),
-            ("mode", mode),
+            ("mode", Loc.GetString(mode)),
             ("threshold", comp.Threshold.ToString("F2"))));
     }
 

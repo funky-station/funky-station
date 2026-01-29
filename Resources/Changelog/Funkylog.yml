@@ -7560,3 +7560,9 @@ Entries:
       message: Box now comes with a second paramedic.
   id: 877
   time: '2026-01-28T19:53:54.0000000+00:00'
+- author: salpphie
+  changes:
+    - type: Add
+      message: Added engineering power transfer machine and AME fuel maker.
+  id: 878
+  time: '2026-01-29T10:20:04.0000000+00:00'

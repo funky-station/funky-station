@@ -7542,3 +7542,27 @@ Entries:
       message: Med curtains swapped for new ones on Bagel
   id: 876
   time: '2026-01-25T06:33:10.0000000+00:00'
+- author: KittyCat432
+  changes:
+    - type: Add
+      message: Added the power transmission point and anti-matter fabricator to Box.
+    - type: Remove
+      message: Removed roundstart ghostrole antags from Box.
+    - type: Tweak
+      message: IAA's office on Box is now a smoking room.
+    - type: Tweak
+      message: IAA's office on Box has been moved towards security.
+    - type: Tweak
+      message: NTR's office on Box has been made fancier.
+    - type: Tweak
+      message: Box is now a 35 minimum population map.
+    - type: Tweak
+      message: Box now comes with a second paramedic.
+  id: 877
+  time: '2026-01-28T19:53:54.0000000+00:00'
+- author: salpphie
+  changes:
+    - type: Add
+      message: Added engineering power transfer machine and AME fuel maker.
+  id: 878
+  time: '2026-01-29T10:20:04.0000000+00:00'

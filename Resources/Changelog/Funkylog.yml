@@ -7566,3 +7566,39 @@ Entries:
       message: Added engineering power transfer machine and AME fuel maker.
   id: 878
   time: '2026-01-29T10:20:04.0000000+00:00'
+- author: JoulesBerg
+  changes:
+    - type: Add
+      message: Added genetics room to core as a shared medical and science area
+    - type: Add
+      message: Added a fourth security officer spawn to core
+    - type: Tweak
+      message: >-
+        Tweaked the max number of certain roles on core to better accommodate
+        the potential of 90 population.
+    - type: Remove
+      message: Removed christmas
+    - type: Tweak
+      message: >-
+        changed nuclear reactor to use the new empty reactor and random rod
+        spawner prototypes
+    - type: Add
+      message: Added intercomms to genpop
+    - type: Fix
+      message: Fixed wiring and atmos in the chapel
+    - type: Add
+      message: Added roboticist locker
+    - type: Fix
+      message: Fixed some missing floor tiles under certain doors
+    - type: Add
+      message: >-
+        Added a stasis bed machine board to CMO office. So power gamers can make
+        it if they want it so badly :godo:
+    - type: Add
+      message: >-
+        added some small maints rooms in a couple places just as minor maints
+        expansions
+    - type: Remove
+      message: Removed the old atmos spawners and replaced them with engineer spawners
+  id: 879
+  time: '2026-01-30T10:19:50.0000000+00:00'

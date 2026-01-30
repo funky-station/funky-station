@@ -247,7 +247,8 @@ public sealed partial class DungeonSystem : SharedDungeonSystem
         EntityUid gridUid,
         MapGridComponent grid,
         Vector2i position,
-        int seed)
+        int seed,
+        bool shouldAnchorEntities = true)
     {
         var cancelToken = new CancellationTokenSource();
         var job = new DungeonJob.DungeonJob(
@@ -268,6 +269,7 @@ public sealed partial class DungeonSystem : SharedDungeonSystem
             seed,
             position,
             null,
+            shouldAnchorEntities,
             cancelToken.Token);
 
         _dungeonJobs.Add(job, cancelToken);

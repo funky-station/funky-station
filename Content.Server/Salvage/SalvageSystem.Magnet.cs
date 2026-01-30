@@ -301,8 +301,6 @@ public sealed partial class SalvageSystem
 
         // Set values while awaiting asteroid dungeon if relevant so we can't double-take offers.
         data.Comp.ActiveSeed = seed;
-        data.Comp.EndTime = _timing.CurTime + data.Comp.ActiveTime;
-        data.Comp.NextOffer = data.Comp.EndTime.Value;
         UpdateMagnetUIs(data);
 
         // Get ruin configuration if this is a ruin offering (needed for placement later)
@@ -326,7 +324,7 @@ public sealed partial class SalvageSystem
             case DebrisOffering debris:
                 var debrisProto = _prototypeManager.Index<DungeonConfigPrototype>(debris.Id);
                 var debrisGrid = _mapManager.CreateGridEntity(salvMap);
-                await _dungeon.GenerateDungeonAsync(debrisProto, debrisGrid.Owner, debrisGrid.Comp, Vector2i.Zero, seed);
+                await _dungeon.GenerateDungeonAsync(debrisProto, debrisGrid.Owner, debrisGrid.Comp, Vector2i.Zero, seed, shouldAnchorEntities: false);
                 break;
             case SalvageOffering wreck:
                 var salvageProto = wreck.SalvageMap;
@@ -612,6 +610,11 @@ public sealed partial class SalvageSystem
                 }
             }
         }
+
+        // Set EndTime after debris is successfully placed so the timer starts from when debris is actually available
+        data.Comp.EndTime = _timing.CurTime + data.Comp.ActiveTime;
+        data.Comp.NextOffer = data.Comp.EndTime.Value;
+        UpdateMagnetUIs(data);
 
         Report(magnet.Owner, MagnetChannel, "salvage-system-announcement-arrived", ("timeLeft", data.Comp.ActiveTime.TotalSeconds));
         _mapSystem.DeleteMap(salvMapXform.MapID);

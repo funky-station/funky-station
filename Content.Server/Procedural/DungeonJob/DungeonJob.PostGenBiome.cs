@@ -72,13 +72,14 @@ public sealed partial class DungeonJob
                 var ent = _entManager.SpawnEntity(entityProto, new EntityCoordinates(_gridUid, node + _grid.TileSizeHalfVector));
                 var xform = xformQuery.Get(ent);
 
-                if (!xform.Comp.Anchored)
+                if (_shouldAnchorEntities && !xform.Comp.Anchored)
                 {
                     _transform.AnchorEntity(ent, xform);
                 }
 
                 // TODO: Engine bug with SpawnAtPosition
-                DebugTools.Assert(xform.Comp.Anchored);
+                if (_shouldAnchorEntities)
+                    DebugTools.Assert(xform.Comp.Anchored);
             }
 
             await SuspendDungeon();

@@ -20,8 +20,6 @@ public sealed class BostonAccentSystem : EntitySystem
     private static readonly Regex RegexUppercaseEndingEr = new(@"\BER(?=(s\b|\b))");
     private static readonly Regex RegexLowercaseEndingOr = new(@"\Bor(?=(s\b|\b))");
     private static readonly Regex RegexUppercaseEndingOr = new(@"\BOR(?=(s\b|\b))");
-    private static readonly Regex RegexLowercaseEndingA = new(@"\Ba(?=(s\b|\b))");
-    private static readonly Regex RegexUppercaseEndingA = new(@"\BA(?=(s\b|\b))");
     private static readonly Regex RegexLowercaseNty = new(@"\Bnt(?=(y|ie))");
     private static readonly Regex RegexUppercaseNty = new(@"\BNT(?=(Y|IE))");
     private static readonly Regex RegexApostropheT = new(@"'t", RegexOptions.IgnoreCase);
@@ -52,10 +50,6 @@ public sealed class BostonAccentSystem : EntitySystem
         // reactor -> reactah
         msg = RegexLowercaseEndingOr.Replace(msg, "ah");
         msg = RegexUppercaseEndingOr.Replace(msg, "AH");
-
-        // pizza -> pizzer
-        msg = RegexLowercaseEndingA.Replace(msg, "er");
-        msg = RegexUppercaseEndingA.Replace(msg, "ER");
 
         // bounty -> bounny
         msg = RegexLowercaseNty.Replace(msg, "nn");

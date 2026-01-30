@@ -17,6 +17,7 @@ using Content.Shared.Chemistry.Components;
 using Content.Shared.Weapons.Ranged.Events;
 using Content.Shared.Chemistry.EntitySystems;
 using System.Linq;
+using Content.Shared.FixedPoint;
 
 namespace Content.Server.Weapons.Ranged.Systems
 {
@@ -49,7 +50,7 @@ namespace Content.Server.Weapons.Ranged.Systems
             if (!projectileSolutionContainers.Any())
                 return;
 
-            var solutionPerProjectile = ammoSolution.Volume * (1 / projectileSolutionContainers.Count);
+            var solutionPerProjectile = ammoSolution.Volume * (FixedPoint2.New(1)/projectileSolutionContainers.Count);
 
             foreach (var (_, projectileSolution) in projectileSolutionContainers)
             {

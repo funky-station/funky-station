@@ -60,6 +60,7 @@ namespace Content.Client.Atmos.Overlays
 
         // Fire overlays
         private const int FireStates = 6;
+        private const int FireTemperatureVariations = 3;
         private const string FireRsiPath = "/Textures/Effects/fire.rsi";
 
         private readonly float[] _fireTimer = new float[FireStates];
@@ -163,7 +164,7 @@ namespace Content.Client.Atmos.Overlays
 
                 if (_fireTimer[i] < time) continue;
                 _fireTimer[i] -= time;
-                _fireFrameCounter[i] = (frameCount + 1) % _fireFrames[i].Length;
+                _fireFrameCounter[i] = (frameCount + 1) % (_fireFrames[i].Length / FireTemperatureVariations);
             }
         }
 
@@ -267,8 +268,18 @@ namespace Content.Client.Atmos.Overlays
                             if (!localBounds.Contains(index))
                                 continue;
 
+                            //There are currently 12 frames in the fire spritesheets, a subset of 4 is played depending on the tile temperature.
+                            //4 is the standard 'average temperature' offset, resulting in frames 4-8 of the spritesheet being played.
+                            var temperatureTextureOffset = 4;
+
+                            if (gas.Temperature < 1273.15f) { //<1000C
+                                temperatureTextureOffset = 0;
+                            } else if (gas.Temperature > 2273.15f) { //>2000C
+                                temperatureTextureOffset = 8;
+                            }
+
                             var fireState = gas.FireState - 1 + gas.FireType * 3;
-                            var texture = state.fireFrames[fireState][state.fireFrameCounter[fireState]];
+                            var texture = state.fireFrames[fireState][state.fireFrameCounter[fireState]+temperatureTextureOffset];
                             state.drawHandle.DrawTexture(texture, index);
                         }
                     }

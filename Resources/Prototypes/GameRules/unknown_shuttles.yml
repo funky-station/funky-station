@@ -53,6 +53,7 @@
       tableId: UnknownShuttlesFreelanceTableDV
     - id: UnknownShuttleSyndieEvacPod
     - id: UnknownShuttleSkeletonMafia #Funkystation custom shuttle
+    - id: UnknownShuttleSpaceCowboy #Funkystation custom shuttle
 
 - type: entityTable
   id: UnknownShuttlesHostileTable

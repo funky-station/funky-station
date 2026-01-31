@@ -97,7 +97,7 @@ namespace Content.Server.Salvage
             InitializeRunner();
         }
 
-        private void Report(EntityUid source, string channelName, string messageKey, params (string, object)[] args)
+        private void Report(EntityUid source, ProtoId<RadioChannelPrototype> channelName, string messageKey, params (string, object)[] args)
         {
             var message = args.Length == 0 ? Loc.GetString(messageKey) : Loc.GetString(messageKey, args);
             var channel = _prototypeManager.Index<RadioChannelPrototype>(channelName);

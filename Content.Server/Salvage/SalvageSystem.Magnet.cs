@@ -12,6 +12,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later or MIT
 
+using System;
 using System.Linq;
 using System.Numerics;
 using System.Threading.Tasks;
@@ -20,6 +21,7 @@ using Content.Shared.Damage;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Parallax.Biomes;
+using Content.Shared.Physics;
 using Content.Shared.Procedural;
 using Content.Shared.Radio;
 using Content.Shared.Salvage;
@@ -72,7 +74,18 @@ public sealed partial class SalvageSystem
         var index = args.Index;
         // Fire-and-forget async call - this is intentional for event handlers
         // The async work needs to run on the main thread with entity context
-        _ = TakeMagnetOffer((station.Value, dataComp), index, (uid, component));
+        async void TryTakeMagnetOffer()
+        {
+            try
+            {
+                await TakeMagnetOffer((station.Value, dataComp), index, (uid, component));
+            }
+            catch (Exception e)
+            {
+                Log.Error($"[SalvageSystem] Exception in TakeMagnetOffer: {e}");
+            }
+        }
+        TryTakeMagnetOffer();
     }
 
     private void OnMagnetStartup(EntityUid uid, SalvageMagnetComponent component, ComponentStartup args)
@@ -331,7 +344,7 @@ public sealed partial class SalvageSystem
 
                 if (!_loader.TryLoadGrid(salvMapXform.MapID, salvageProto.MapPath, out _))
                 {
-                    Report(magnet, MagnetChannel, "salvage-system-announcement-spawn-debris-disintegrated");
+                    Report(magnet.Owner, MagnetChannel, "salvage-system-announcement-spawn-debris-disintegrated");
                     _mapSystem.DeleteMap(salvMapXform.MapID);
                     return;
                 }
@@ -342,7 +355,7 @@ public sealed partial class SalvageSystem
                 var ruinResult = _ruinGenerator.GenerateRuin(ruin.RuinMap.MapPath, seed, ruinConfig);
                 if (ruinResult == null)
                 {
-                    Report(magnet, MagnetChannel, "salvage-system-announcement-spawn-no-debris-available");
+                    Report(magnet.Owner, MagnetChannel, "salvage-system-announcement-spawn-no-debris-available");
                     _mapSystem.DeleteMap(salvMapXform.MapID);
                     return;
                 }
@@ -537,6 +550,7 @@ public sealed partial class SalvageSystem
 
             if (placements.Count == 0 || !_mapSystem.TryGetMap(placements[0].Position.MapId, out var spawnUid))
             {
+                Report(magnet.Owner, MagnetChannel, "salvage-system-announcement-spawn-no-debris-available");
                 _mapSystem.DeleteMap(salvMapXform.MapID);
                 return;
             }
@@ -567,6 +581,45 @@ public sealed partial class SalvageSystem
                     salvMob.LinkedEntity = grid.Owner;
                 }
             }
+            
+            // For ruin offerings, un-anchor scrap items after moving to final location
+            // Scrap items should spawn un-anchored so they can be wrenched
+            // (We're already inside the RuinOffering block, so no need to check again)
+            if (data.Comp.ActiveEntities != null)
+            {
+                    foreach (var gridUid in data.Comp.ActiveEntities)
+                    {
+                        if (!_gridQuery.TryGetComponent(gridUid, out var grid))
+                            continue;
+                            
+                        // Get all entities on this grid and un-anchor scrap items
+                        var gridChildren = _xformQuery.GetComponent(gridUid).ChildEnumerator;
+                        while (gridChildren.MoveNext(out var child))
+                        {
+                            // Skip the grid itself and mobs
+                            if (child == gridUid || _salvMobQuery.HasComp(child))
+                                continue;
+                            
+                            // Un-anchor scrap items (check by prototype ID starting with "Scrap")
+                            if (_xformQuery.TryGetComponent(child, out var childXform) && childXform.Anchored)
+                            {
+                                var meta = MetaData(child);
+                                var protoId = meta.EntityPrototype?.ID ?? string.Empty;
+                                
+                                // Check if it's a scrap item by prototype ID
+                                if (protoId.StartsWith("Scrap", StringComparison.OrdinalIgnoreCase))
+                                {
+                                    // Unanchor scrap items
+                                    // Note: Unanchor should automatically set physics body type to Dynamic via TrySetBodyType,
+                                    // but this can fail silently if PhysicsComponent or FixturesComponent aren't initialized yet.
+                                    // If scrap items remain Static after un-anchoring, it may be due to component initialization timing
+                                    // or the entity being re-anchored by another system.
+                                    _transform.Unanchor(child, childXform);
+                                }
+                            }
+                        }
+                    }
+                }
         }
         else
         {
@@ -609,6 +662,48 @@ public sealed partial class SalvageSystem
                     salvMob.LinkedEntity = mapChild;
                 }
             }
+            
+            // For debris offerings, un-anchor scrap items after moving to final location
+            // Scrap items should spawn un-anchored so they can be wrenched
+            // Note: RuinOffering is handled separately above
+            if (offering is DebrisOffering)
+            {
+                if (data.Comp.ActiveEntities != null)
+                {
+                    foreach (var gridUid in data.Comp.ActiveEntities)
+                    {
+                        if (!_gridQuery.TryGetComponent(gridUid, out var grid))
+                            continue;
+                            
+                        // Get all entities on this grid and un-anchor scrap items
+                        var gridChildren = _xformQuery.GetComponent(gridUid).ChildEnumerator;
+                        while (gridChildren.MoveNext(out var child))
+                        {
+                            // Skip the grid itself and mobs
+                            if (child == gridUid || _salvMobQuery.HasComp(child))
+                                continue;
+                            
+                            // Un-anchor scrap items (check by prototype ID starting with "Scrap")
+                            if (_xformQuery.TryGetComponent(child, out var childXform) && childXform.Anchored)
+                            {
+                                var meta = MetaData(child);
+                                var protoId = meta.EntityPrototype?.ID ?? string.Empty;
+                                
+                                // Check if it's a scrap item by prototype ID
+                                if (protoId.StartsWith("Scrap", StringComparison.OrdinalIgnoreCase))
+                                {
+                                    // Unanchor scrap items
+                                    // Note: Unanchor should automatically set physics body type to Dynamic via TrySetBodyType,
+                                    // but this can fail silently if PhysicsComponent or FixturesComponent aren't initialized yet.
+                                    // If scrap items remain Static after un-anchoring, it may be due to component initialization timing
+                                    // or the entity being re-anchored by another system.
+                                    _transform.Unanchor(child, childXform);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
 
         // Set EndTime after debris is successfully placed so the timer starts from when debris is actually available
@@ -616,7 +711,15 @@ public sealed partial class SalvageSystem
         data.Comp.NextOffer = data.Comp.EndTime.Value;
         UpdateMagnetUIs(data);
 
-        Report(magnet.Owner, MagnetChannel, "salvage-system-announcement-arrived", ("timeLeft", data.Comp.ActiveTime.TotalSeconds));
+        try
+        {
+            Report(magnet.Owner, MagnetChannel, "salvage-system-announcement-arrived", ("timeLeft", data.Comp.ActiveTime.TotalSeconds));
+        }
+        catch (Exception e)
+        {
+            Log.Error($"[SalvageSystem] Failed to send arrival announcement: {e}");
+        }
+        
         _mapSystem.DeleteMap(salvMapXform.MapID);
 
         data.Comp.Announced = false;
@@ -928,11 +1031,21 @@ public sealed partial class SalvageSystem
                     var coords = new EntityCoordinates(grid.Owner, tilePos);
                     var debris = SpawnAtPosition(proto, coords);
                     
-                    // Try to anchor it
+                    // Only anchor non-scrap items - scrap items should remain un-anchored
                     var xform = Transform(debris);
                     if (xform != null && !xform.Anchored)
                     {
-                        _transform.AnchorEntity((debris, xform), (grid.Owner, grid.Comp), tilePos);
+                        var meta = MetaData(debris);
+                        var protoId = meta.EntityPrototype?.ID ?? string.Empty;
+                        
+                        // Check if it's a scrap item by prototype ID - don't anchor scrap items
+                        // Using only prototype ID check to avoid potential tag system issues
+                        var isScrap = protoId.StartsWith("Scrap", StringComparison.OrdinalIgnoreCase);
+                        
+                        if (!isScrap)
+                        {
+                            _transform.AnchorEntity((debris, xform), (grid.Owner, grid.Comp), tilePos);
+                        }
                     }
                     
                     break;

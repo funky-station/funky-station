@@ -51,6 +51,12 @@ public sealed partial class DungeonJob
                     _entManager.RemoveComponent<GhostRoleComponent>(uid);
                     _entManager.RemoveComponent<GhostTakeoverAvailableComponent>(uid);
                     npcs.SleepNPC(uid);
+                    
+                    // Respect shouldAnchorEntities flag - un-anchor if needed
+                    if (!_shouldAnchorEntities && _xformQuery.TryGetComponent(uid, out var xform) && xform.Anchored)
+                    {
+                        _transform.Unanchor(uid, xform);
+                    }
                 }
 
                 break;

@@ -235,8 +235,8 @@ public sealed partial class DungeonSystem : SharedDungeonSystem
             gridUid,
             seed,
             position,
-            coordinates,
-            cancelToken.Token);
+            targetCoordinates: coordinates,
+            cancellation: cancelToken.Token);
 
         _dungeonJobs.Add(job, cancelToken);
         _dungeonJobQueue.EnqueueJob(job);
@@ -268,9 +268,9 @@ public sealed partial class DungeonSystem : SharedDungeonSystem
             gridUid,
             seed,
             position,
-            null,
-            shouldAnchorEntities,
-            cancelToken.Token);
+            targetCoordinates: null,
+            shouldAnchorEntities: shouldAnchorEntities,
+            cancellation: cancelToken.Token);
 
         _dungeonJobs.Add(job, cancelToken);
         _dungeonJobQueue.EnqueueJob(job);

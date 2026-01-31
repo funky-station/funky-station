@@ -19,6 +19,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 using Content.Shared.Roles;
 using System.Linq;
+using Robust.Shared.Enums;
 
 namespace Content.Client.Lobby.UI.Roles;
 
@@ -97,7 +98,8 @@ public sealed partial class RequirementsSelector : BoxContainer
         List<ProtoId<GuideEntryPrototype>>? guides = null,
         List<(ProtoId<JobAlternateTitlePrototype> Id, bool Locked)>? altTitles = null,
         ProtoId<JobAlternateTitlePrototype>? defaultAltTitle = null,
-        IPrototypeManager? protoMan = null)
+        IPrototypeManager? protoMan = null,
+        Gender? gender = null)
     {
         foreach (var (text, value) in items)
         {
@@ -133,7 +135,7 @@ public sealed partial class RequirementsSelector : BoxContainer
             foreach (var (id, locked) in altTitles)
             {
                 var altTitle = protoMan.Index(id);
-                var name = altTitle.LocalizedName;
+                var name = altTitle.LocalizedName(gender);
 
                 titleOptions.AddItem(name);
 

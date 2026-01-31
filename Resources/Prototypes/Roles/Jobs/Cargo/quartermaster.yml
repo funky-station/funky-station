@@ -119,6 +119,8 @@
 - type: jobAlternateTitle
   id: QuartermasterSupplyForeman
   name: job-name-alt-qm-4
+  femaleName: job-name-alt-qm-4-f
+  maleName: job-name-alt-qm-4-m
 
 - type: jobAlternateTitle
   id: QuartermasterLogisticsCoordinator

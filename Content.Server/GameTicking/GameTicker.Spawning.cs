@@ -338,7 +338,7 @@ namespace Content.Server.GameTicking
             {
                 if (_prototypeManager.TryIndex<JobAlternateTitlePrototype>(altTitleId, out var altTitle))
                 {
-                    jobName = altTitle.LocalizedName;
+                    jobName = altTitle.LocalizedName(character.Gender);
                 }
             }
 

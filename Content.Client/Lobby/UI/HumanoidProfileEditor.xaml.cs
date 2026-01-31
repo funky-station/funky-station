@@ -1271,7 +1271,7 @@ namespace Content.Client.Lobby.UI
                         }
                     }
 
-                    selector.Setup(items, job.LocalizedName, 280, job.LocalizedDescription, icon, job.Guides, altTitleInfo, currentAlt, _prototypeManager);
+                    selector.Setup(items, job.LocalizedName, 280, job.LocalizedDescription, icon, job.Guides, altTitleInfo, currentAlt, _prototypeManager, Profile?.Gender);
 
                     if (!_requirements.IsAllowed(job, Profile, out var reason))
                     {
@@ -1555,6 +1555,7 @@ namespace Content.Client.Lobby.UI
         {
             Profile = Profile?.WithGender(newGender);
             ReloadPreview();
+            RefreshJobs(); // So gender-specific job titles get corrected without having to save your character.
         }
 
         private void SetSpecies(string newSpecies)

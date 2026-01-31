@@ -211,7 +211,7 @@ public sealed class StationRecordsSystem : SharedStationRecordsSystem
         if (string.IsNullOrEmpty(jobTitle) && profile.AlternateJobTitle != null &&
             _prototypeManager.TryIndex<JobAlternateTitlePrototype>(profile.AlternateJobTitle, out var altTitle))
         {
-            jobTitle = altTitle.LocalizedName;
+            jobTitle = altTitle.LocalizedName(gender);
         }
 
         if (string.IsNullOrEmpty(jobTitle))

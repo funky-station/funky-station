@@ -102,6 +102,8 @@
 - type: jobAlternateTitle
   id: ChiefEngineerEngineeringForeman
   name: job-name-alt-ce-2
+  femaleName: job-name-alt-ce-2-f
+  maleName: job-name-alt-ce-2-m
 
 - type: jobAlternateTitle
   id: ChiefEngineerEngineeringSupervisor

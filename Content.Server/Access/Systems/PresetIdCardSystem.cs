@@ -24,6 +24,7 @@ using Content.Server.Station.Systems;
 using Content.Shared.Access.Components;
 using Content.Shared.Access.Systems;
 using Content.Shared.Roles;
+using Robust.Shared.Enums;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server.Access.Systems;
@@ -108,7 +109,7 @@ public sealed class PresetIdCardSystem : EntitySystem
         if (id.AlternateTitleId != null &&
             _prototypeManager.TryIndex(id.AlternateTitleId.Value, out JobAlternateTitlePrototype? altTitle))
         {
-            titleToSet = altTitle.LocalizedName;
+            titleToSet = altTitle.LocalizedName(Gender.Neuter);
         }
         else if (job.AlternateTitles != null && job.AlternateTitles.Count > 0)
         {
@@ -122,7 +123,7 @@ public sealed class PresetIdCardSystem : EntitySystem
                 }
             }
 
-            titleToSet = altFromJob?.LocalizedName ?? job.LocalizedName;
+            titleToSet = altFromJob?.LocalizedName(Gender.Neuter) ?? job.LocalizedName;
         }
         else
         {

@@ -78,7 +78,8 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
 using Content.Server._EinsteinEngines.Silicon.IPC; // Goobstation
-using Content.Server.Access.Components; // Funkystation
+using Content.Server.Access.Components;
+using Robust.Shared.Enums; // Funkystation
 
 namespace Content.Server.Station.Systems;
 
@@ -254,7 +255,7 @@ public sealed class StationSpawningSystem : SharedStationSpawningSystem
         if (profile != null)
         {
             if (prototype != null)
-                SetPdaAndIdCardData(entity.Value, profile.Name, prototype, station, altTitle);
+                SetPdaAndIdCardData(entity.Value, profile.Name, prototype, station, profile.Gender, altTitle);
 
             _humanoidSystem.LoadProfile(entity.Value, profile);
             _metaSystem.SetEntityName(entity.Value, profile.Name);
@@ -287,7 +288,7 @@ public sealed class StationSpawningSystem : SharedStationSpawningSystem
     /// <param name="characterName">Character name to use for the ID.</param>
     /// <param name="jobPrototype">Job prototype to use for the PDA and ID.</param>
     /// <param name="station">The station this player is being spawned on.</param>
-    public void SetPdaAndIdCardData(EntityUid entity, string characterName, JobPrototype jobPrototype, EntityUid? station, JobAlternateTitlePrototype? jobAltTitle = null)
+    public void SetPdaAndIdCardData(EntityUid entity, string characterName, JobPrototype jobPrototype, EntityUid? station, Gender gender, JobAlternateTitlePrototype? jobAltTitle = null)
     {
         if (!InventorySystem.TryGetSlotEntity(entity, "id", out var idUid))
             return;
@@ -301,7 +302,7 @@ public sealed class StationSpawningSystem : SharedStationSpawningSystem
 
         _cardSystem.TryChangeFullName(cardId, characterName, card);
         if (jobAltTitle != null)
-            _cardSystem.TryChangeJobTitle(cardId, jobAltTitle.LocalizedName, card);
+            _cardSystem.TryChangeJobTitle(cardId, jobAltTitle.LocalizedName(gender), card);
         else
             _cardSystem.TryChangeJobTitle(cardId, jobPrototype.LocalizedName, card);
 

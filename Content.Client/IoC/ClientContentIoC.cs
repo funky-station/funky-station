@@ -56,6 +56,7 @@ using Content.Client.Voting;
 using Content.Shared.Administration.Logs;
 using Content.Client.Lobby;
 using Content.Client.Players.RateLimiting;
+using Content.Shared._Starlight.DocumentManager;
 using Content.Shared.Administration.Managers;
 using Content.Shared.Chat;
 using Content.Shared.Players.PlayTimeTracking;
@@ -96,6 +97,8 @@ namespace Content.Client.IoC
             collection.Register<SharedPlayerRateLimitManager, PlayerRateLimitManager>();
             collection.Register<TitleWindowManager>();
             collection.Register<ClientsidePlaytimeTrackingManager>();
+
+            collection.Register<PreWrittenDocumentManager>(); // Starlight
         }
     }
 }

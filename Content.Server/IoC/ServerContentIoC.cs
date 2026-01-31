@@ -71,6 +71,7 @@ using Content.Server.ServerInfo;
 using Content.Server.ServerUpdates;
 using Content.Server.Voting.Managers;
 using Content.Server.Worldgen.Tools;
+using Content.Shared._Starlight.DocumentManager;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Administration.Managers;
 using Content.Shared.Chat;
@@ -125,6 +126,8 @@ namespace Content.Server.IoC
             IoCManager.Register<ConnectionManager>();
             IoCManager.Register<MultiServerKickManager>();
             IoCManager.Register<CVarControlManager>();
+
+            IoCManager.Register<PreWrittenDocumentManager>(); // Starlight
         }
     }
 }

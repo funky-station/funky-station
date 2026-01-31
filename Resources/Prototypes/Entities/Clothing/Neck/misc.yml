@@ -81,9 +81,9 @@
     sprite: Clothing/Neck/Misc/bling.rsi
   - type: PhysicalComposition
     materialComposition:
-      Plastic: 200  
+      Plastic: 200
   - type: StaticPrice
-    price: 45         
+    price: 45
 
 - type: entity
   parent: ClothingNeckBase

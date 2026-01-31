@@ -51,6 +51,28 @@ trait-temperature-tolerance-desc = You can withstand both higher and lower tempe
 trait-table-hider-name = Contortionist
 trait-table-hider-desc = You can sneak under objects like tables that no normal person should fit under, but you take extra damage.
 
+# NeuroAversion trait
+trait-neuro-aversion-name = Neuroaversion
+trait-neuro-aversion-desc = Your nervous system has an adverse reaction to MindShield implants. You experience migraines and rare seizures.
+
+trait-neuro-aversion-migraine-start = Your Mindshield cascades begins to throb painfully...
+trait-neuro-aversion-migraine-start-other = {THE($target)} winces and clutches {POSS-ADJ($target)} their head.
+
+seizure-prodrome-self = You feel something terrible coming on...
+seizure-prodrome-others = {$target} stumbles and heaves.
+seizure-self = Your body convulses uncontrollably!
+seizure-others = {$target} collapses and convulses uncontrollably!
+seizure-end-self = The world fades back in as the episode dies down.
+seizure-end-others = {$target}'s convulsions subside.
+
+# ChronicMigraines trait
+trait-chronic-migraines-name = Chronic Migraines
+trait-chronic-migraines-desc = You experience occasional episodes of debilitating migraines that impair your vision and movement.
+
+trait-chronic-migraines-start = Your head begins to throb painfully...
+trait-chronic-migraines-end = The migraine subsides.
+trait-chronic-migraines-others = {THE($target)} rubs {POSS-ADJ($target)} temples in pain.
+
 trait-strengthened-immunity-name = Strengthened Immunity
 trait-strengthened-immunity-desc = You can handle much larger doses of poison than average people.
 

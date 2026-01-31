@@ -15,6 +15,7 @@
 // SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 // SPDX-FileCopyrightText: 2025 beck-thompson <107373427+beck-thompson@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
 // SPDX-License-Identifier: MIT
@@ -33,10 +34,13 @@ using Robust.Shared.Random;
 using System.Linq;
 using System.Text;
 using Content.Server.Objectives.Commands;
-using Content.Shared._DV.CustomObjectiveSummary; // DeltaV
+using Content.Shared._DV.CustomObjectiveSummary;
+using Content.Shared._Funkystation.CCVars;
+using Content.Shared.CCVar; // DeltaV
 using Content.Shared.Prototypes;
 using Content.Shared.Roles.Jobs;
 using Robust.Server.Player;
+using Robust.Shared.Configuration;
 using Robust.Shared.Utility;
 
 namespace Content.Server.Objectives;
@@ -51,6 +55,7 @@ public sealed class ObjectivesSystem : SharedObjectivesSystem
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly EmergencyShuttleSystem _emergencyShuttle = default!;
     [Dependency] private readonly SharedJobSystem _job = default!;
+    [Dependency] private readonly IConfigurationManager _cfg = default!; // funky
 
     private IEnumerable<string>? _objectives;
 
@@ -193,38 +198,43 @@ public sealed class ObjectivesSystem : SharedObjectivesSystem
                     totalObjectives++;
 
                     agentSummary.Append("- ");
-                    /* Begin DeltaV removal - Removed greentext
-                    if (progress > 0.99f)
+
+                    // begin funky -- use cvars to configure custom objectives
+                    if (_cfg.GetCVar(CCVars_Funky.GreentextEnabled))
+                    {
+                        if (progress > 0.99f)
+                        {
+                            agentSummary.AppendLine(Loc.GetString(
+                                "objectives-objective-success",
+                                ("objective", objectiveTitle),
+                                ("markupColor", "green")
+                            ));
+                            completedObjectives++;
+                        }
+                        else
+                        {
+                            agentSummary.AppendLine(Loc.GetString(
+                                "objectives-objective-fail",
+                                ("objective", objectiveTitle),
+                                ("progress", (int) (progress * 100)),
+                                ("markupColor", "red")
+                            ));
+                        }
+                    }
+                    else // "pinktext" (no objectives green/red) becomes the default in case we accidentally disable both objective cvars
                     {
                         agentSummary.AppendLine(Loc.GetString(
-                            "objectives-objective-success",
-                            ("objective", objectiveTitle),
-                            ("markupColor", "green")
-                        ));
-                        completedObjectives++;
-                    }
-                    else
-                    {
-                        agentSummary.AppendLine(Loc.GetString(
-                            "objectives-objective-fail",
-                            ("objective", objectiveTitle),
-                            ("progress", (int) (progress * 100)),
-                            ("markupColor", "red")
+                            "objectives-objective",
+                            ("objective", objectiveTitle)
                         ));
                     }
-                    End DeltaV removal */
-                    // Begin DeltaV Additions - Generic objective
-                    agentSummary.AppendLine(Loc.GetString(
-                        "objectives-objective",
-                        ("objective", objectiveTitle)
-                    ));
-                    // End DeltaV Additions
+                    // end funky
                 }
             }
 
             var successRate = totalObjectives > 0 ? (float) completedObjectives / totalObjectives : 0f;
             // Begin DeltaV Additions - custom objective response.
-            if (TryComp<CustomObjectiveSummaryComponent>(mindId, out var customComp))
+            if (TryComp<CustomObjectiveSummaryComponent>(mindId, out var customComp) && _cfg.GetCVar(CCVars_Funky.PinktextEnabled)) // funky -- configure objectives with cvars
             {
                 // We have to spit it like this to make it readable. Yeah, it sucks but for some reason the entire thing
                 // is just one long string...

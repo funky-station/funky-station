@@ -1,4 +1,5 @@
 # SPDX-FileCopyrightText: 2024 Killerqu00 <47712032+Killerqu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Mora <46364955+TrixxedHeart@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 SaffronFennec <firefoxwolf2020@protonmail.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 Terkala <appleorange64@gmail.com>
@@ -107,15 +108,3 @@
   cost: 0
   components:
     - type: SupermatterHallucinationImmune
-
-- type: trait
-  id: ChronicMigraines
-  name: trait-chronic-migraines-name
-  description: trait-chronic-migraines-desc
-  category: Quirks
-  cost: 0
-  components:
-    - type: ChronicMigraines
-      timeBetweenIncidents: 600, 1800
-      durationOfIncident: 8, 12
-      fadeOutDuration: 0.5

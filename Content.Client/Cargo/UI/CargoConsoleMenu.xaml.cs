@@ -19,6 +19,7 @@
 // SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
 // SPDX-FileCopyrightText: 2025 pathetic meowmeow <uhhadd@gmail.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2026 Steve <marlumpy@gmail.com>
 //
 // SPDX-License-Identifier: MIT
 
@@ -37,6 +38,8 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Content.Client._Funkystation.Cargo.UI;
 using static Robust.Client.UserInterface.Controls.BaseButton;
+using Content.Shared._Funkystation.CCVars;
+using Robust.Shared.Configuration;
 
 namespace Content.Client.Cargo.UI
 {
@@ -44,6 +47,7 @@ namespace Content.Client.Cargo.UI
     public sealed partial class CargoConsoleMenu : FancyWindow
     {
         [Dependency] private readonly IGameTiming _timing = default!;
+        [Dependency] private readonly IConfigurationManager _cfg = default!;
 
         private readonly IEntityManager _entityManager;
         private readonly IPrototypeManager _protoManager;
@@ -63,10 +67,10 @@ namespace Content.Client.Cargo.UI
 
         public event Action<ButtonEventArgs>? OnToggleUnboundedLimit;
 
-        public event Action<int, float, float>? OnGasMinerSetSettings; // Funkystation: Gas miner controls
-        public event Action<int>? OnBuyGasCredits; // Funkystation: Gas miner controls
-        public event Action<bool>? OnToggleAutoBuy; // Funkystation: Gas miner controls
-        public GasMinerTabContent? GasTabContent { get; private set; } // Funkystation: Gas miner controls
+        public event Action<int, float, float>? OnGasExtractorSetSettings; // Funkystation: Gas extractor controls
+        public event Action<int, bool>? OnToggleAutoBuyExtractor; // Funkystation: Gas extractor controls
+        public event Action<int, int>? OnBuyMolesForExtractor; // Funkystation: Gas extractor controls
+        public GasExtractorTabContent? GasTabContent { get; private set; } // Funkystation: Gas extractor controls
 
         private readonly List<string> _categoryStrings = new();
         private string? _category;
@@ -101,26 +105,26 @@ namespace Content.Client.Cargo.UI
             TabContainer.SetTabTitle(0, Loc.GetString("cargo-console-menu-tab-title-orders"));
             TabContainer.SetTabTitle(1, Loc.GetString("cargo-console-menu-tab-title-funds"));
 
-            // Funkystation: Add Gas Miner tab to atmos request console
-            if (_orderConsoleQuery.TryComp(_owner, out var console) && console.ShowGasMinerTab)
+            // Funkystation: Add Gas Extractor tab to atmos request console
+            if (_orderConsoleQuery.TryComp(_owner, out var console) && console.ShowGasExtractorTab && _cfg.GetCVar(CCVars_Funky.GasExtractorsRequirePayment))
             {
-                var gasTab = new GasMinerTabContent();
+                var gasTab = new GasExtractorTabContent();
                 IoCManager.InjectDependencies(gasTab);
                 gasTab.SetConsole(_owner);
 
-                gasTab.OnGasMinerSetSettings += (index, rate, pressure) =>
+                gasTab.OnGasExtractorSetSettings += (index, rate, pressure) =>
                 {
-                    OnGasMinerSetSettings?.Invoke(index, rate, pressure);
+                    OnGasExtractorSetSettings?.Invoke(index, rate, pressure);
                 };
 
-                gasTab.OnBuyGasCredits += amount =>
+                gasTab.OnToggleAutoBuyExtractor += (index, enabled) =>
                 {
-                    OnBuyGasCredits?.Invoke(amount);
+                    OnToggleAutoBuyExtractor?.Invoke(index, enabled);
                 };
 
-                gasTab.OnToggleAutoBuy += enabled =>
+                gasTab.OnBuyMolesForExtractor += (index, spesos) =>
                 {
-                    OnToggleAutoBuy?.Invoke(enabled);
+                    OnBuyMolesForExtractor?.Invoke(index, spesos);
                 };
 
                 GasTabContent = gasTab;
@@ -136,7 +140,7 @@ namespace Content.Client.Cargo.UI
 
                 // add new gas tab first
                 TabContainer.AddChild(gasTab);
-                TabContainer.SetTabTitle(0, Loc.GetString("cargo-console-menu-tab-title-gas-miner"));
+                TabContainer.SetTabTitle(0, Loc.GetString("cargo-console-menu-tab-title-gas-extractor"));
 
                 // re-add original tabs in original order
                 foreach (var tab in existingTabs)

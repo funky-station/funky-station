@@ -1,19 +1,21 @@
-gas-miner-tab-title = Gas Miners
-gas-miner-credits-current = Current Gas Credits:
-gas-miner-buy-amount = Buy Gas Credits:
-gas-miner-buy-button = Purchase
-cargo-console-menu-tab-title-gas-miner = Gas Miners
-gas-miner-rate-label = Rate:
-gas-miner-max-pressure-label = Max:
-gas-miner-apply-button = Set
-gas-miner-auto-buy = Auto Purchase:
-gas-miner-auto-buy-on = On
-gas-miner-auto-buy-off = Off
+cargo-console-menu-tab-title-gas-extractor = Gas Reserves
 
-gas-miner-state-disabled = Disabled
-gas-miner-state-idle = Idle
-gas-miner-state-working = Working
+gas-extractor-rate-label = Rate:
+gas-extractor-max-pressure-label = Max:
+gas-extractor-apply-button = Set
 
-gas-miner-purchase-broadcast = {$name} purchased ${$amount} worth of gas credits.
-gas-miner-autobuy-enabled-broadcast = {$name} enabled automatic gas credit purchases on the atmospherics reserves computer.
-gas-miner-autobuy-disabled-broadcast = {$name} disabled automatic gas credit purchases on the atmospherics reserves computer.
+gas-extractor-state-disabled = Disabled
+gas-extractor-state-idle = Idle
+gas-extractor-state-working = Working
+
+gas-extractor-auto-buy-enable = Auto-buy
+gas-extractor-buy = Buy:
+gas-extractor-buy-button = Purchase
+gas-extractor-buy-preview = ≈ {$moles} mol of {$gas}
+gas-extractor-remaining-moles = [color=#4ade80]{$amount} mols[/color]
+gas-extractor-price-per-mol = ${$price} per mol
+
+gas-extractor-moles-purchase-success = Purchased {$moles} mol of {$gas} for {$spesos} spesos.
+gas-extractor-extractor-autobuy-enabled = {$name} enabled auto-buy on {$gas} extractor.
+gas-extractor-extractor-autobuy-disabled = {$name} disabled auto-buy on {$gas} extractor.
+gas-extractor-moles-purchase-broadcast = {$name} purchased {$moles} mol of {$gas} for {$spesos} spesos on account {$accountName} ({$accountCode}).

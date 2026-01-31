@@ -11,7 +11,7 @@
   defaultLinks: [ BluespaceGasUtilizer ]
 
 - type: sourcePort
-  id: GasMinerConsole
-  name: signal-port-name-gas-miner-console
-  description: signal-port-description-gas-miner-console
-  defaultLinks: [ GasMinerControl ]
+  id: GasExtractorConsole
+  name: signal-port-name-gas-extractor-console
+  description: signal-port-description-gas-extractor-console
+  defaultLinks: [ GasExtractorControl ]

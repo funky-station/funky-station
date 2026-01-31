@@ -13,7 +13,9 @@
 # SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2024 wafehling <wafehling@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
+# SPDX-FileCopyrightText: 2025 MaiaArai <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 McBosserson <148172569+McBosserson@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Minemoder5000 <minemoder50000@gmail.com>
 # SPDX-FileCopyrightText: 2025 QueerCats <jansencheng3@gmail.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 Teasq <Xerithin@gmail.com>
@@ -27,6 +29,7 @@
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 starch <starchpersonal@gmail.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2026 2DSiggy <siggymaxwell@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -50,6 +53,34 @@
         Heat: 0.8 # Goob edit - match regular vest
   - type: ExplosionResistance
     damageCoefficient: 0.9
+
+#Elite web vest
+- type: entity
+  parent: [ClothingOuterStorageBase, AllowBackStorageClothingCombat, BaseSyndicateContraband]
+  id: ClothingOuterVestWebElite
+  name: aramid web vest #Funky Change, elite to aramid
+  description: A synthetic armor vest. This one has added webbing and heat resistant fibers.
+  components:
+  - type: Sprite
+    sprite: Clothing/OuterClothing/Vests/elitevest.rsi
+  - type: Clothing
+    sprite: Clothing/OuterClothing/Vests/elitevest.rsi
+  - type: TemperatureProtection
+    heatingCoefficient: 0.1
+    coolingCoefficient: 0.1
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.5
+        Slash: 0.5
+        Piercing: 0.7
+        Heat: 0.3
+        Radiation: 0.5
+        Caustic: 0.5
+  - type: ExplosionResistance
+    damageCoefficient: 0.5
+  - type: FireResistance
+    damageCoefficient: 0.15
 
 #Mercenary web vest
 - type: entity

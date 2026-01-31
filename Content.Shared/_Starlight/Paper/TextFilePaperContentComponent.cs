@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2026 beck-thompson <beck314159@hotmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Robust.Shared.GameStates;
 
 namespace Content.Shared._Starlight.Paper;

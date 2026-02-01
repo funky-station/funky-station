@@ -522,6 +522,8 @@
     - TowelColorWhite #funk towel
     - InflatableWall #funky inflatables
     - InflatableDoor #funk
+    - PowerCellMediumSingle #funk
+    - PowerCellHighSingle #funk
     - SmallPinboard #funky
     - BarberScissors #funk
     - CassetteTapeHigh #funk
@@ -729,6 +731,7 @@
     - SadTromboneImplanter
     - LightImplanter
     - BikeHornImplanter
+    - PowerCellHyperSingle #funk
     - CassetteTapeHyper #funk
   - type: EmagLatheRecipes
     emagDynamicRecipes:

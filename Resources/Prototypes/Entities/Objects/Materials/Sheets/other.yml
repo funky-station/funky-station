@@ -37,6 +37,8 @@
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2026 Steve <marlumpy@gmail.com>
+# SPDX-FileCopyrightText: 2026 Xcybitt <197952719+Xcybitt@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2026 marc-pelletier <113944176+marc-pelletier@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -137,6 +139,9 @@
     damage:
       types:
         Radiation: -5.0
+  - type: Food
+    transferAmount: 10
+  - type: BadFood
   - type: Stack
     stackType: Plasma
     baseLayer: base
@@ -158,10 +163,10 @@
     heldPrefix: plasma
   - type: Appearance
   - type: Extractable
-    grindableSolutionName: plasma
+    grindableSolutionName: food
   - type: SolutionContainerManager
     solutions:
-      plasma:
+      food:
         reagents:
         - ReagentId: Plasma
           Quantity: 10

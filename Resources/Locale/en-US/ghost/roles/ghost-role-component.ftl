@@ -175,7 +175,7 @@ ghost-role-information-kobold-description = Be the little gremlin you are, yell 
 
 ghost-role-information-rat-king-name = Rat King
 
-ghost-role-information-rat-king-description = You are the Rat King, your interests are food, food, and more food. Cooperate with or fight against the station for food. Did I say food interests you?
+ghost-role-information-rat-king-description = You are the Rat King, your interests are food, food, and more food. Fight against the station for food. Did I say food interests you?
 
 # funkystation
 ghost-role-information-neanderthal-description = You are a freshly unfrozen neanderthal. You have no idea what is going on, where this is, what anything is, or who anyone else is.

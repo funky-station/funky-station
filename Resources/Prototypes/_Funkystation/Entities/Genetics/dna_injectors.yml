@@ -1,0 +1,239 @@
+- type: entity
+  id: BaseDNAInjectorSyringe
+  name: "DNA injector"
+  parent: BaseItem
+  abstract: true
+  description: "A single-use syringe containing a pre-loaded genetic sequence."
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Specific/Medical/dnainjector.rsi
+    layers:
+      - state: dnainjector-full
+  - type: Icon
+    sprite: _Funkystation/Objects/Specific/Medical/dnainjector.rsi
+    state: dnainjector-full
+  - type: Item
+    size: Tiny
+    sprite: _Funkystation/Objects/Specific/Medical/dnainjector.rsi
+  - type: Appearance
+  - type: DnaSequenceInjector
+  - type: GuideHelp
+    guides:
+    - Genetics
+
+- type: entity
+  id: DNAInjectorEmpty
+  name: "dna injector (empty)"
+  parent: BaseDNAInjectorSyringe
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Specific/Medical/dnainjector.rsi
+    layers:
+      - state: dnainjector-empty
+  - type: Icon
+    sprite: _Funkystation/Objects/Specific/Medical/dnainjector.rsi
+    state: dnainjector-empty
+  - type: Item
+    size: Tiny
+  - type: Tag
+    tags:
+    - Trash
+
+- type: entity
+  parent: BaseDNAInjectorSyringe
+  id: DNAInjectorGenericActivator
+  name: "dna activator"
+  components:
+  - type: DnaSequenceInjector
+    isMutator: false
+
+- type: entity
+  parent: BaseDNAInjectorSyringe
+  id: DNAInjectorGenericMutator
+  name: "dna mutator"
+  components:
+  - type: DnaSequenceInjector
+    isMutator: true
+
+- type: entity
+  parent: BaseDNAInjectorSyringe
+  id: DNAActivatorPacifist
+  name: "dna activator (pacifist)"
+  components:
+  - type: DnaSequenceInjector
+    mutationId: Pacifist
+  - type: Item
+
+- type: entity
+  parent: BaseDNAInjectorSyringe
+  id: DNAMutatorPacifist
+  name: "dna mutator (pacifist)"
+  components:
+  - type: DnaSequenceInjector
+    mutationId: Pacifist
+    isMutator: true
+  - type: Item
+
+- type: entity
+  parent: BaseDNAInjectorSyringe
+  id: DNAMutatorFrontalGyrusSuspension
+  name: "dna mutator (FrontalGyrusSuspension)"
+  components:
+  - type: DnaSequenceInjector
+    mutationId: FrontalGyrusSuspension
+    isMutator: true
+  - type: Item
+
+- type: entity
+  parent: BaseDNAInjectorSyringe
+  id: DNAMutatorFleshJaredCurse
+  name: "dna mutator (FleshJaredCurse)"
+  components:
+  - type: DnaSequenceInjector
+    mutationId: FleshJaredCurse
+    isMutator: true
+  - type: Item
+
+- type: entity
+  parent: BaseDNAInjectorSyringe
+  id: DNAMutatorAdrenalineRush
+  name: "dna mutator (AdrenalineRush)"
+  components:
+  - type: DnaSequenceInjector
+    mutationId: AdrenalineRush
+    isMutator: true
+  - type: Item
+
+- type: entity
+  parent: BaseDNAInjectorSyringe
+  id: DNAMutatorCryokinesis
+  name: "dna mutator (Cryokinesis)"
+  components:
+  - type: DnaSequenceInjector
+    mutationId: Cryokinesis
+    isMutator: true
+  - type: Item
+
+- type: entity
+  parent: BaseDNAInjectorSyringe
+  id: DNAMutatorInkGlands
+  name: "dna mutator (InkGlands)"
+  components:
+  - type: DnaSequenceInjector
+    mutationId: InkGlands
+    isMutator: true
+  - type: Item
+
+- type: entity
+  parent: BaseDNAInjectorSyringe
+  id: DNAMutatorOpticEnergizer
+  name: "dna mutator (OpticEnergizer)"
+  components:
+  - type: DnaSequenceInjector
+    mutationId: OpticEnergizer
+    isMutator: true
+  - type: Item
+
+- type: entity
+  parent: BaseDNAInjectorSyringe
+  id: DNAMutatorApianHoneyGlands
+  name: "dna mutator (ApianHoneyGlands)"
+  components:
+  - type: DnaSequenceInjector
+    mutationId: ApianHoneyGlands
+    isMutator: true
+  - type: Item
+
+- type: entity
+  parent: BaseDNAInjectorSyringe
+  id: DNAMutatorAdaptiveIridophores
+  name: "dna mutator (AdaptiveIridophores)"
+  components:
+  - type: DnaSequenceInjector
+    mutationId: AdaptiveIridophores
+    isMutator: true
+  - type: Item
+
+- type: entity
+  parent: BaseDNAInjectorSyringe
+  id: DNAMutatorBioluminescentDermalGlands
+  name: "dna mutator (BioluminescentDermalGlands)"
+  components:
+  - type: DnaSequenceInjector
+    mutationId: BioluminescentDermalGlands
+    isMutator: true
+  - type: Item
+
+- type: entity
+  parent: BaseDNAInjectorSyringe
+  id: DNAMutatorFleshGolemCurse
+  name: "dna mutator (FleshGolemCurse)"
+  components:
+  - type: DnaSequenceInjector
+    mutationId: FleshGolemCurse
+    isMutator: true
+  - type: Item
+
+- type: entity
+  parent: BaseDNAInjectorSyringe
+  id: DNAMutatorFleshClampCurse
+  name: "dna mutator (Flesh Clamp)"
+  components:
+  - type: DnaSequenceInjector
+    mutationId: FleshClampCurse
+    isMutator: true
+  - type: Item
+
+- type: entity
+  parent: BaseDNAInjectorSyringe
+  id: DNAMutatorFleshLoverCurse
+  name: "dna mutator (Flesh Lover)"
+  components:
+  - type: DnaSequenceInjector
+    mutationId: FleshLoverCurse
+    isMutator: true
+  - type: Item
+
+- type: entity
+  parent: BaseDNAInjectorSyringe
+  id: DNAMutatorTrichochromaticShift
+  name: "dna mutator (TrichochromaticShift)"
+  components:
+  - type: DnaSequenceInjector
+    mutationId: TrichochromaticShift
+    isMutator: true
+  - type: Item
+
+- type: entity
+  parent: BaseDNAInjectorSyringe
+  id: DNAMutatorFirebreath
+  name: "dna mutator (Firebreath)"
+  components:
+  - type: DnaSequenceInjector
+    mutationId: Firebreath
+    isMutator: true
+  - type: Item
+
+
+
+- type: entity
+  id: MutadoneChemistryBottle
+  suffix: mutadone
+  parent: BaseChemistryBottleFilled
+  components:
+  - type: Label
+    currentLabel: reagent-name-mutadone
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Mutadone
+          Quantity: 30
+
+- type: latheRecipe
+  id: DNAInjector
+  result: DNAInjectorEmpty
+  completetime: 1
+  materials:
+    Plastic: 50

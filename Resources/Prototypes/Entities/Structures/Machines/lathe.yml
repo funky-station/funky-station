@@ -205,6 +205,7 @@
 # SPDX-FileCopyrightText: 2025 willow <willowzeta632146@proton.me>
 # SPDX-FileCopyrightText: 2025 wilowzeta <willowzeta632146@proton.me>
 # SPDX-FileCopyrightText: 2026 AftrLite <61218133+AftrLite@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2026 DoovyADeer <256158135+DoovyADeer@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2026 ThatOneMoon <91613003+ThatOneMoon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2026 W.xyz() <tptechteam@gmail.com>
 # SPDX-FileCopyrightText: 2026 Xcybitt <197952719+Xcybitt@users.noreply.github.com>
@@ -1021,7 +1022,7 @@
     #- BorgModuleArtifact
     #- BorgModuleAnomaly
     #- BorgModuleGardening
-    #- BorgModuleHarvesting
+    #- BorgModuleCooking
     #- BorgModuleDefibrillator
     - BorgModuleAdvancedChemical
     - RipleyHarness

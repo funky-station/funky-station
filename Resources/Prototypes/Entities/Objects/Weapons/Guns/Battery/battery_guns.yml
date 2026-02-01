@@ -78,6 +78,7 @@
 # SPDX-FileCopyrightText: 2026 Mora <46364955+TrixxedHeart@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2026 ThatOneMoon <91613003+ThatOneMoon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2026 ThatOneMoon <juozas.dringelis@gmail.com>
+# SPDX-FileCopyrightText: 2026 Xcybitt <197952719+Xcybitt@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -1016,6 +1017,7 @@
   - type: Tag
     tags:
     - HighRiskItem
+    - Multiphase
   - type: BatterySelfRecharger
     autoRecharge: true
     autoRechargeRate: 15

@@ -1010,6 +1010,7 @@
     preinstalled:
       - CrewManifestCartridge
       - NotekeeperCartridge
+      - NanoTaskCartridge
       - NewsReaderCartridge
       - NanoChatCartridge # DeltaV
       - SOSCartridge # Imp

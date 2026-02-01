@@ -436,8 +436,16 @@ public sealed class SuitSensorSystem : EntitySystem
 
         // Get mob total damage crit threshold
         int? totalDamageThreshold = null;
-        if (_mobThresholdSystem.TryGetThresholdForState(sensor.User.Value, MobState.Critical, out var critThreshold))
+
+        // check for softcrit first, then fall back to crit
+        if (_mobThresholdSystem.TryGetThresholdForState(sensor.User.Value, MobState.SoftCritical, out var softThreshold))
+        {
+            totalDamageThreshold = softThreshold.Value.Int();
+        }
+        else if (_mobThresholdSystem.TryGetThresholdForState(sensor.User.Value, MobState.Critical, out var critThreshold))
+        {
             totalDamageThreshold = critThreshold.Value.Int();
+        }
 
         // finally, form suit sensor status
         var status = new SuitSensorStatus(GetNetEntity(uid), userName, userJob, userJobIcon, userJobDepartments);

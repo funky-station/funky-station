@@ -67,6 +67,7 @@
 # SPDX-FileCopyrightText: 2025 JoulesBerg <104539820+JoulesBerg@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
 # SPDX-FileCopyrightText: 2025 Toaster <mrtoastymyroasty@gmail.com>
 # SPDX-FileCopyrightText: 2025 Toastermeister <215405651+Toastermeister@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 kbarkevich <24629810+kbarkevich@users.noreply.github.com>
@@ -75,6 +76,7 @@
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2026 ThatOneMoon <91613003+ThatOneMoon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2026 ThatOneMoon <juozas.dringelis@gmail.com>
+# SPDX-FileCopyrightText: 2026 TrixxedHeart <46364955+TrixxedBit@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -333,8 +335,8 @@
         - LowImpassable
         hard: false
   - type: Ammo
-  - type: StaminaDamageOnCollide
-    damage: 33
+#  - type: StaminaDamageOnCollide # _Funkystation removed stamina damage from disablers
+#    damage: 33
   - type: Projectile
     impactEffect: BulletImpactEffectDisabler
     damage:
@@ -344,6 +346,13 @@
     soundHit:
       collection: WeakHit
     forceSound: true
+  - type: StunOnCollide # _Funkystation change
+    stunAmount: 0 # NO STUN
+    knockdownAmount: 0 # NO KNOCKDOWN
+    slowdownAmount: 1 # YOU WILL CHASE TIDERS WITH YOUR BATON LIKE A REAL SECOFF
+    walkSpeedMultiplier: 0.8
+    runSpeedMultiplier: 0.8
+    slowdownCap: 0.5 # Prevents from being able to be locked into a stand-still
 
 - type: entity
   name : disabler bolt practice

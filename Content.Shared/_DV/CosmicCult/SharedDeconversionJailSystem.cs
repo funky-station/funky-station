@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2026 AftrLite <61218133+AftrLite@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 
 using Content.Shared._DV.CosmicCult.Components;
 using Content.Shared.Anomaly;
@@ -9,6 +13,7 @@ using Content.Shared.Examine;
 using Content.Shared.Explosion.EntitySystems;
 using Content.Shared.Humanoid;
 using Content.Shared.Interaction;
+using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Power;
 using Content.Shared.Power.EntitySystems;
@@ -30,6 +35,7 @@ public abstract partial class SharedDeconversionJailSystem : EntitySystem
     [Dependency] protected readonly SharedPopupSystem PopUp = default!;
 
     [Dependency] private readonly INetManager _netManager = default!;
+    [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly SharedAnomalySystem _anomaly = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
@@ -38,6 +44,7 @@ public abstract partial class SharedDeconversionJailSystem : EntitySystem
     [Dependency] private readonly SharedExplosionSystem _explosion = default!;
     [Dependency] private readonly SharedEntityStorageSystem _storage = default!;
     [Dependency] private readonly SharedPowerReceiverSystem _power = default!;
+
     public override void Initialize()
     {
         base.Initialize();
@@ -110,7 +117,7 @@ public abstract partial class SharedDeconversionJailSystem : EntitySystem
     {
         if (_netManager.IsClient) // don't predict this function.
             return;
-        if (ent.Comp.OublietteState == OublietteStates.Cooldown || !_power.IsPowered(ent.Owner) || !HasComp<HumanoidAppearanceComponent>(args.Entity))
+        if (ent.Comp.OublietteState == OublietteStates.Cooldown || !_power.IsPowered(ent.Owner) || !_mobState.IsAlive(args.Entity) || !HasComp<HumanoidAppearanceComponent>(args.Entity))
             return;
 
         ent.Comp.CanInteract = false;

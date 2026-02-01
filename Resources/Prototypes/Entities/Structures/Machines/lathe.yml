@@ -175,7 +175,6 @@
 # SPDX-FileCopyrightText: 2025 Sofia Gilsanz <softie.gd@gmail.com>
 # SPDX-FileCopyrightText: 2025 SpaceCat~Chan <49094338+SpaceCat-Chan@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Speebro <speebro@notreal.com>
-# SPDX-FileCopyrightText: 2025 Steve <marlumpy@gmail.com>
 # SPDX-FileCopyrightText: 2025 Tadeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
@@ -204,9 +203,14 @@
 # SPDX-FileCopyrightText: 2025 vectorassembly <vectorassembly@icloud.com>
 # SPDX-FileCopyrightText: 2025 willow <willowzeta632146@proton.me>
 # SPDX-FileCopyrightText: 2025 wilowzeta <willowzeta632146@proton.me>
+# SPDX-FileCopyrightText: 2026 AftrLite <61218133+AftrLite@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2026 Steve <marlumpy@gmail.com>
+# SPDX-FileCopyrightText: 2026 DoovyADeer <256158135+DoovyADeer@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2026 ThatOneMoon <91613003+ThatOneMoon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2026 W.xyz() <tptechteam@gmail.com>
 # SPDX-FileCopyrightText: 2026 Xcybitt <197952719+Xcybitt@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2026 rotty <juaelwe@outlook.com>
+# SPDX-FileCopyrightText: 2026 w.xyz() <84605679+pirakaplant@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -335,7 +339,7 @@
     - Igniter
     - Signaller
     - Screwdriver
-    - Welder
+#    - Welder  #why are there two welders
     - Wrench
     - CrowbarGreen
     - Multitool
@@ -424,6 +428,7 @@
     - Signaller
     - Screwdriver
     - Welder
+    - WelderIndustrial #funk
     - Wrench
     - CrowbarGreen
     - Multitool
@@ -521,8 +526,12 @@
     - TowelColorWhite #funk towel
     - InflatableWall #funky inflatables
     - InflatableDoor #funk
+    - PowerCellMediumSingle #funk
+    - PowerCellHighSingle #funk
     - SmallPinboard #funky
     - BarberScissors #funk
+    - Floodlight #funk
+    - CassetteTapeHigh #funk
     dynamicRecipes:
     - BoomboxRed
     - BoomboxGreen
@@ -705,6 +714,7 @@
     - ClothingBackpackSatchelHolding
     - ClothingBackpackDuffelHolding
     - WelderExperimental
+    - WelderIndustrialAdvanced #funk
     - JawsOfLife
     - FauxTileAstroGrass
     - FauxTileMowedAstroGrass
@@ -727,6 +737,8 @@
     - SadTromboneImplanter
     - LightImplanter
     - BikeHornImplanter
+    - PowerCellHyperSingle #funk
+    - CassetteTapeHyper #funk
   - type: EmagLatheRecipes
     emagDynamicRecipes:
     - BoxBeanbag
@@ -841,9 +853,11 @@
     - OperatingTableCircuitboard # Shitmed Change
     - BorgChargerCircuitboard
     - ThermomachineFreezerMachineCircuitBoard # Assmos - Moved to staticRecipes from dynamicRecipes
+    - DnaScannerConsoleComputerCircuitboard # Funkystation - Genetics
     dynamicRecipes:
     - HellfireFreezerMachineCircuitBoard
     - PortableScrubberMachineCircuitBoard
+    - PipeScrubberMachineCircuitBoard # Funkystation
     - CloningPodMachineCircuitboard
     - MedicalScannerMachineCircuitboard
     - CryoPodMachineCircuitboard
@@ -925,8 +939,9 @@
     - ThermomachineAdvancedFreezerMachineCircuitBoard # Assmos
     - MusicTechFabCircuitboard # Funky Station
     - ElectrolyzerMachineCircuitboard # Assmos - /tg/ gases
-    - NuclearFabricatorMachineCircuitboard
-    - NuclearCentrifugeMachineCircuitboard
+    - NuclearFabricatorMachineCircuitboard #FH
+    - NuclearCentrifugeMachineCircuitboard #FH
+    - NuclearReactorMonitorComputerCircuitboard #FH
 
   - type: EmagLatheRecipes
     emagDynamicRecipes:
@@ -1015,7 +1030,7 @@
     #- BorgModuleArtifact
     #- BorgModuleAnomaly
     #- BorgModuleGardening
-    #- BorgModuleHarvesting
+    #- BorgModuleCooking
     #- BorgModuleDefibrillator
     - BorgModuleAdvancedChemical
     - RipleyHarness
@@ -1471,6 +1486,8 @@
     - CandyBowl #pill(pill that pills you) #funk
     - DeskBell #ringringring #funk
     - Tourniquet #funk
+    - HandheldGeneticAnalyzer # Funkystation - Genetics
+    - DNAInjector # Funkystation - Genetics
     dynamicRecipes:
     - ChemicalPayload
     - CryostasisBeaker

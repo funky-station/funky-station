@@ -4,7 +4,6 @@
 # SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
-# SPDX-FileCopyrightText: 2026 ALooseGoose <ALooseGoosey@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -13,10 +12,8 @@
   id: NinjaThreats
   weights:
     Dragon: 5
-    Revenant: 8
+    Revenant: 4
     Wizard: 1
-    Colossus: 5
-    Nukie: 1
 
 - type: ninjaHackingThreat
   id: Dragon
@@ -32,13 +29,3 @@
   id: Wizard
   announcement: terror-wizard
   rule: WizardSpawn
-
-- type: ninjaHackingThreat
-  id: Colossus
-  announcement: terror-colossus
-  rule: ColossusSpawn
-
-- type: ninjaHackingThreat
-  id: Nukie
-  announcement: terror-nukie
-  rule: LoneOpsSpawn

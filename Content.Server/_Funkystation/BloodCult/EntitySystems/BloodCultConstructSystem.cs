@@ -1,7 +1,7 @@
 // SPDX-FileCopyrightText: 2025 Skye <57879983+Rainbeon@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Terkala <appleorange64@gmail.com>
 // SPDX-FileCopyrightText: 2025 kbarkevich <24629810+kbarkevich@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2026 Terkala <appleorange64@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later OR MIT
 
@@ -33,6 +33,10 @@ using Content.Shared.NPC.Components;
 using Content.Server.GameTicking.Rules;
 using Content.Shared.Actions;
 using Content.Shared.Mobs.Components;
+using Content.Shared.Weapons.Melee;
+using Content.Shared.Weapons.Melee.Events;
+using Robust.Shared.Player;
+using Content.Shared.Damage.Components;
 
 namespace Content.Server.BloodCult.EntitySystems;
 
@@ -48,6 +52,7 @@ public sealed partial class BloodCultConstructSystem : EntitySystem
 	[Dependency] private readonly SharedTransformSystem _transform = default!;
 	[Dependency] private readonly NpcFactionSystem _npcFaction = default!;
 	[Dependency] private readonly SharedActionsSystem _actions = default!;
+	[Dependency] private readonly SharedMeleeWeaponSystem _melee = default!;
 
 	/// <summary>
 	/// Grants the Commune action to a juggernaut
@@ -73,6 +78,18 @@ public sealed partial class BloodCultConstructSystem : EntitySystem
 		SubscribeLocalEvent<BloodCultConstructShellComponent, DragDropTargetEvent>(OnDragDropTarget);
 		SubscribeLocalEvent<JuggernautComponent, MobStateChangedEvent>(OnJuggernautStateChanged);
 		SubscribeLocalEvent<JuggernautComponent, DragDropTargetEvent>(OnJuggernautDragDropTarget);
+		
+		// Remove StaminaComponent from any existing juggernauts (in case they were spawned before this system was added)
+		// Juggernauts can't be stunned, so stamina damage is meaningless
+		var query = AllEntityQuery<JuggernautComponent, StaminaComponent>();
+		while (query.MoveNext(out var uid, out _, out _))
+		{
+			RemComp<StaminaComponent>(uid);
+		}
+		
+		// Handle alt-fire (right-click) attack to find nearest enemy for juggernauts and shades
+		// With AltDisarm = false, right-clicking sends HeavyAttackEvent instead of DisarmAttackEvent
+		SubscribeNetworkEvent<HeavyAttackEvent>(OnHeavyAttack, before: new[] { typeof(SharedMeleeWeaponSystem) });
 	}
 
 	public void TryApplySoulStone(Entity<SoulStoneComponent> ent, ref AfterInteractEvent args)
@@ -131,6 +148,9 @@ public sealed partial class BloodCultConstructSystem : EntitySystem
 		// Spawn the juggernaut at the exact map coordinates (not anchored, so it won't snap to grid)
 		var juggernaut = Spawn("MobBloodCultJuggernaut", shellMapCoords, rotation: shellRotation);
 		
+		// Remove StaminaComponent - juggernauts can't be stunned so stamina damage is meaningless
+		RemComp<StaminaComponent>(juggernaut);
+		
 		// Ensure the juggernaut is not anchored (mobs shouldn't be anchored)
 		var juggernautTransform = Transform(juggernaut);
 		if (juggernautTransform.Anchored)
@@ -153,6 +173,17 @@ public sealed partial class BloodCultConstructSystem : EntitySystem
 		
 		// Transfer mind from soulstone to juggernaut
 		_mind.TransferTo((EntityUid)mindId, juggernaut, mind:mindComp);
+		
+		// Preserve speech component from soulstone only if it's a Hamlet soulstone
+		if (TryComp<SoulStoneComponent>(soulstone, out var soulstoneComp) && 
+		    soulstoneComp.OriginalEntityPrototype == "MobHamsterHamlet" &&
+		    TryComp<SpeechComponent>(soulstone, out var soulstoneSpeech))
+		{
+			// Remove existing speech component if present, then copy from soulstone
+			if (HasComp<SpeechComponent>(juggernaut))
+				RemComp<SpeechComponent>(juggernaut);
+			CopyComp(soulstone, juggernaut, soulstoneSpeech);
+		}
 		
 		// Ensure juggernaut is in the BloodCultist faction (remove any crew alignment)
 		// Use ClearFactions and AddFaction to ensure proper faction alignment after mind transfer
@@ -201,6 +232,15 @@ public sealed partial class BloodCultConstructSystem : EntitySystem
 
 		// Transfer mind from soulstone to juggernaut
 		_mind.TransferTo((EntityUid)mindId, juggernaut, mind: mindComp);
+		
+		// Preserve speech component from soulstone (e.g., Hamlet's squeak sounds)
+		if (TryComp<SpeechComponent>(soulstone, out var soulstoneSpeech))
+		{
+			// Remove existing speech component if present, then copy from soulstone
+			if (HasComp<SpeechComponent>(juggernaut))
+				RemComp<SpeechComponent>(juggernaut);
+			CopyComp(soulstone, juggernaut, soulstoneSpeech);
+		}
 		
 		// Ensure juggernaut is in the BloodCultist faction (remove any crew alignment)
 		// Use ClearFactions and AddFaction to ensure proper faction alignment after mind transfer
@@ -253,6 +293,9 @@ public sealed partial class BloodCultConstructSystem : EntitySystem
 		// Spawn the juggernaut BEFORE deleting the shell to ensure proper setup
 		// Spawn at the exact map coordinates (not anchored, so it won't snap to grid)
 		var juggernaut = Spawn("MobBloodCultJuggernaut", shellMapCoords, rotation: shellRotation);
+		
+		// Remove StaminaComponent - juggernauts can't be stunned so stamina damage is meaningless
+		RemComp<StaminaComponent>(juggernaut);
 		
 		// Ensure the juggernaut is not anchored (mobs shouldn't be anchored)
 		var juggernautTransform = Transform(juggernaut);
@@ -487,5 +530,77 @@ public sealed partial class BloodCultConstructSystem : EntitySystem
 
 		// Notify the user
 		_popup.PopupEntity(Loc.GetString("cult-juggernaut-reactivated"), user, user, PopupType.Large);
+	}
+
+	/// <summary>
+	/// Handles alt-fire (right-click) attacks for juggernauts and shades.
+	/// When right-clicking without a target, finds the nearest hostile enemy and performs a light attack.
+	/// Similar to how zombies bite the nearest enemy on right-click.
+	/// </summary>
+	private void OnHeavyAttack(HeavyAttackEvent ev, EntitySessionEventArgs args)
+	{
+		if (args.SenderSession.AttachedEntity is not { } user)
+			return;
+
+		// Only handle for juggernauts and shades
+		if (!HasComp<JuggernautComponent>(user) && !HasComp<ShadeComponent>(user))
+			return;
+
+		// Only handle if there's no specific target (right-click without clicking on an entity)
+		// HeavyAttackEvent.Entities contains the entities the client thinks it hit.
+		// If there are valid targets (not the user, damageable), let the normal heavy attack handle it.
+		// Otherwise, we'll find the nearest enemy below.
+		if (ev.Entities != null && ev.Entities.Count > 0)
+		{
+			foreach (var netEntity in ev.Entities)
+			{
+				if (TryGetEntity(netEntity, out var entity) && entity != user && HasComp<DamageableComponent>(entity))
+				{
+					// Valid target exists - let the normal heavy attack system handle this event
+					return;
+				}
+			}
+		}
+
+		// No valid target found (or Entities was null/empty) - find the nearest enemy and attack them
+
+		// Get the weapon (should be the entity itself for unarmed attacks)
+		if (!_melee.TryGetWeapon(user, out var weaponUid, out var weapon))
+			return;
+
+		// Get the melee range
+		var range = weapon.Range;
+
+		// Find nearest hostile enemy within range
+		EntityUid? nearestEnemy = null;
+		float nearestDistance = float.MaxValue;
+
+		var userXform = Transform(user);
+		var userPos = _transform.GetWorldPosition(userXform);
+
+		// Get nearby hostiles using faction system
+		if (TryComp<NpcFactionMemberComponent>(user, out var factionComp))
+		{
+			foreach (var hostile in _npcFaction.GetNearbyHostiles((user, factionComp, null), range))
+			{
+				if (!TryComp<DamageableComponent>(hostile, out _))
+					continue;
+
+				var hostilePos = _transform.GetWorldPosition(hostile);
+				var distance = (hostilePos - userPos).LengthSquared();
+
+				if (distance < nearestDistance)
+				{
+					nearestDistance = distance;
+					nearestEnemy = hostile;
+				}
+			}
+		}
+
+		// If we found a nearest enemy, perform a light attack on them
+		if (nearestEnemy != null && nearestEnemy.Value.IsValid())
+		{
+			_melee.AttemptLightAttack(user, weaponUid, weapon, nearestEnemy.Value);
+		}
 	}
 }

@@ -27,10 +27,13 @@ using Content.Shared.Atmos;
 using Content.Shared.Atmos.Components;
 using Content.Shared.Atmos.Reactions;
 using Content.Shared.Database;
+using Content.Shared.Damage;
 using Robust.Shared.Audio;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Random;
+using Robust.Server.GameObjects;
+using Content.Shared.Audio;
 
 namespace Content.Server.Atmos.EntitySystems
 {
@@ -38,10 +41,18 @@ namespace Content.Server.Atmos.EntitySystems
     {
         [Dependency] private readonly DecalSystem _decalSystem = default!;
         [Dependency] private readonly IRobustRandom _random = default!;
+        [Dependency] private readonly DamageableSystem _damageable = default!;
+        [Dependency] private readonly SharedPointLightSystem _pointLight = default!;
+        [Dependency] private readonly SharedAmbientSoundSystem _ambientSound = default!; // Added
 
         private const int HotspotSoundCooldownCycles = 200;
 
         private int _hotspotSoundCooldown = 0;
+        private int _decalCheckCooldown = 0;
+
+        // reusable objects to prevent allocation in hot loops
+        private readonly List<EntityUid> _meltTargets = new();
+        private readonly DamageSpecifier _meltDamageSpec = new();
 
         [ViewVariables(VVAccess.ReadWrite)]
         public string? HotspotSound { get; private set; } = "/Audio/Effects/fire.ogg";
@@ -54,6 +65,7 @@ namespace Content.Server.Atmos.EntitySystems
             if (!tile.Hotspot.Valid)
             {
                 gridAtmosphere.HotspotTiles.Remove(tile);
+                UpdateFireLight(ent.Owner, tile.GridIndices, false);
                 return;
             }
 
@@ -68,14 +80,17 @@ namespace Content.Server.Atmos.EntitySystems
             if(tile.ExcitedGroup != null)
                 ExcitedGroupResetCooldowns(tile.ExcitedGroup);
 
+            bool isSuperHeated = tile.Hotspot.Temperature > 5000f;
+
             if ((tile.Hotspot.Temperature < Atmospherics.FireMinimumTemperatureToExist) || (tile.Hotspot.Volume <= 1f)
-               || (tile.Air == null || tile.Air.GetMoles(Gas.Oxygen) < 0.5f || (tile.Air.GetMoles(Gas.Plasma) < 0.5f
+               || (!isSuperHeated && (tile.Air == null || tile.Air.GetMoles(Gas.Oxygen) < 0.5f || (tile.Air.GetMoles(Gas.Plasma) < 0.5f
                && tile.Air.GetMoles(Gas.Tritium) < 0.5f && tile.Air.GetMoles(Gas.Hydrogen) < 0.5f)
-               || tile.Air.GetMoles(Gas.HyperNoblium) > 5f) && tile.PuddleSolutionFlammability == 0)  // Assmos - /tg/ gases
+               || tile.Air.GetMoles(Gas.HyperNoblium) > 5f) && tile.PuddleSolutionFlammability == 0))  // Assmos - /tg/ gases
             {
                 tile.Hotspot = new Hotspot();
                 tile.Hotspot.Type = tile.PuddleSolutionFlammability > 0 ? HotspotType.Puddle : HotspotType.Gas;
                 InvalidateVisuals(ent, tile);
+                UpdateFireLight(ent.Owner, tile.GridIndices, false);
                 return;
             }
 
@@ -83,33 +98,41 @@ namespace Content.Server.Atmos.EntitySystems
 
             tile.Hotspot.Type = tile.PuddleSolutionFlammability > 0 ? HotspotType.Puddle : HotspotType.Gas;
 
+            bool shouldHaveLight = tile.Hotspot.Type == HotspotType.Gas;
+            UpdateFireLight(ent.Owner, tile.GridIndices, shouldHaveLight);
+
             if (tile.Hotspot.Bypassing || tile.PuddleSolutionFlammability > 0)
             {
                 tile.Hotspot.State = 3;
 
-                var gridUid = ent.Owner;
-                var tilePos = tile.GridIndices;
-
-                // Get the existing decals on the tile
-                var tileDecals = _decalSystem.GetDecalsInRange(gridUid, tilePos);
-
-                // Count the burnt decals on the tile
-                var tileBurntDecals = 0;
-
-                foreach (var set in tileDecals)
+                // don't check every single tick for every tile
+                if (_decalCheckCooldown++ > 20)
                 {
-                    if (Array.IndexOf(_burntDecals, set.Decal.Id) == -1)
-                        continue;
+                    _decalCheckCooldown = 0;
+                    var gridUid = ent.Owner;
+                    var tilePos = tile.GridIndices;
 
-                    tileBurntDecals++;
+                    // Get the existing decals on the tile
+                    var tileDecals = _decalSystem.GetDecalsInRange(gridUid, tilePos);
 
-                    if (tileBurntDecals > 4)
-                        break;
+                    // Count the burnt decals on the tile
+                    var tileBurntDecals = 0;
+
+                    foreach (var set in tileDecals)
+                    {
+                        if (Array.IndexOf(_burntDecals, set.Decal.Id) == -1)
+                            continue;
+
+                        tileBurntDecals++;
+
+                        if (tileBurntDecals > 4)
+                            break;
+                    }
+
+                    // Add a random burned decal to the tile only if there are less than 4 of them
+                    if (tileBurntDecals < 4)
+                        _decalSystem.TryAddDecal(_burntDecals[_random.Next(_burntDecals.Length)], new EntityCoordinates(gridUid, tilePos), out _, cleanable: true);
                 }
-
-                // Add a random burned decal to the tile only if there are less than 4 of them
-                if (tileBurntDecals < 4)
-                    _decalSystem.TryAddDecal(_burntDecals[_random.Next(_burntDecals.Length)], new EntityCoordinates(gridUid, tilePos), out _, cleanable: true);
 
                 if (tile.Air != null && tile.Air.Temperature > Atmospherics.FireMinimumTemperatureToSpread)
                 {
@@ -130,54 +153,127 @@ namespace Content.Server.Atmos.EntitySystems
                 tile.Hotspot.State = (byte) (tile.Hotspot.Volume > Atmospherics.CellVolume * 0.4f ? 2 : 1);
             }
 
+            // Wall melting logic
+            var meltingTemp = Math.Max(tile.Hotspot.Temperature, tile.Air?.Temperature ?? 0f);
+
+            if (meltingTemp > 5000f)
+            {
+                    MeltStructures(ent.Owner, ent.Comp3, tile.GridIndices, meltingTemp);
+            }
+
             if (tile.Hotspot.Temperature > tile.MaxFireTemperatureSustained)
                 tile.MaxFireTemperatureSustained = tile.Hotspot.Temperature;
 
             if (_hotspotSoundCooldown++ == 0 && !string.IsNullOrEmpty(HotspotSound))
             {
                 var coordinates = _mapSystem.ToCenterCoordinates(tile.GridIndex, tile.GridIndices);
-
-                // A few details on the audio parameters for fire.
-                // The greater the fire state, the lesser the pitch variation.
-                // The greater the fire state, the greater the volume.
                 _audio.PlayPvs(HotspotSound, coordinates, AudioParams.Default.WithVariation(0.15f/tile.Hotspot.State).WithVolume(-5f + 5f * tile.Hotspot.State));
             }
 
             if (_hotspotSoundCooldown > HotspotSoundCooldownCycles)
                 _hotspotSoundCooldown = 0;
+        }
 
-            // TODO ATMOS Maybe destroy location here?
+        private void UpdateFireLight(EntityUid gridUid, Vector2i indices, bool active)
+        {
+            var fireLights = EnsureComp<GridFireLightsComponent>(gridUid);
+
+            if (active)
+            {
+                if (!fireLights.ActiveLights.TryGetValue(indices, out var lightUid) || TerminatingOrDeleted(lightUid))
+                {
+                    var coords = _mapSystem.ToCenterCoordinates(gridUid, indices);
+                    lightUid = Spawn(null, coords);
+
+                    var light = EnsureComp<PointLightComponent>(lightUid);
+                    _pointLight.SetColor(lightUid, Color.Orange, light);
+                    _pointLight.SetRadius(lightUid, 3.5f, light);
+                    _pointLight.SetCastShadows(lightUid, false, light);
+
+                    fireLights.ActiveLights[indices] = lightUid;
+
+                    // Add ambient sound to entity
+                    var ambient = EnsureComp<AmbientSoundComponent>(lightUid);
+                    _ambientSound.SetSound(lightUid, new SoundPathSpecifier("/Audio/_Funkystation/Effects/Fire/bigfire.ogg"), ambient);
+                    _ambientSound.SetRange(lightUid, 5f, ambient);
+                    _ambientSound.SetVolume(lightUid, -5f, ambient);
+                    _ambientSound.SetAmbience(lightUid, true, ambient);
+                }
+
+                if (TryComp(lightUid, out PointLightComponent? lightComp))
+                {
+                    var energy = 1.5f + _random.NextFloat(-0.5f, 0.5f);
+                    _pointLight.SetEnergy(lightUid, energy, lightComp);
+                }
+            }
+            else
+            {
+                if (fireLights.ActiveLights.Remove(indices, out var lightUid))
+                {
+                    QueueDel(lightUid);
+                }
+            }
+        }
+
+        private void MeltStructures(EntityUid gridUid, MapGridComponent grid, Vector2i indices, float temperature)
+        {
+            var tempDiff = temperature - 5000f;
+            var damageAmount = tempDiff * 0.001f;
+            damageAmount = System.Math.Min(damageAmount, 10f);
+
+            // reuse cached DamageSpecifier and List to avoid even more allocations
+            _meltDamageSpec.DamageDict.Clear();
+            _meltDamageSpec.DamageDict.Add("Structural", damageAmount);
+
+            _meltTargets.Clear();
+
+            for (var i = 0; i < 4; i++)
+            {
+                var dir = (Direction) (i * 2);
+                var neighborIndices = indices + dir.ToIntVec();
+                var anchored = _mapSystem.GetAnchoredEntitiesEnumerator(gridUid, grid, neighborIndices);
+                while (anchored.MoveNext(out var uid))
+                {
+                    if (uid.HasValue) _meltTargets.Add(uid.Value);
+                }
+            }
+
+            foreach (var uid in _meltTargets)
+            {
+                if (TerminatingOrDeleted(uid)) continue;
+
+                // Check for MeltImmuneComponent
+                if (HasComp<MeltImmuneComponent>(uid))
+                    continue;
+
+                _damageable.TryChangeDamage(uid, _meltDamageSpec, ignoreResistances: true);
+            }
         }
 
         private void HotspotExpose(GridAtmosphereComponent gridAtmosphere, TileAtmosphere tile,
             float exposedTemperature, float exposedVolume, bool soh = false, EntityUid? sparkSourceUid = null)
         {
-            if (tile.Air == null)
-                return;
+            if (tile.Air == null) return;
 
             var oxygen = tile.Air.GetMoles(Gas.Oxygen);
-
-            if (oxygen < 0.5f)
-                return;
+            if (oxygen < 0.5f) return;
 
             var plasma = tile.Air.GetMoles(Gas.Plasma);
             var tritium = tile.Air.GetMoles(Gas.Tritium);
             var hydrogen = tile.Air.GetMoles(Gas.Hydrogen); // Assmos - /tg/ gases
             var hypernob = tile.Air.GetMoles(Gas.HyperNoblium); // Assmos - /tg/ gases
 
-            // Clamp effective flammability so super-dense puddles don't create heat death of the universe temperatures
             var rawFlammability = (float)tile.PuddleSolutionFlammability;
-            var effectiveFlammability = Math.Min(rawFlammability, 20f);
+            var effectiveFlammability = rawFlammability;
+            var capFlammability = rawFlammability;
 
-            // Use the higher of the exposed temp neighbor or the tile's own air temp.
-            // This ensures hot ambient gas ignites the puddle
             var ignitionTemperature = Math.Max(exposedTemperature, tile.Air.Temperature);
 
             if (tile.Hotspot.Valid)
             {
                 if (soh)
                 {
-                    if (plasma > 0.5f && hypernob < 5f || tritium > 0.5f && hypernob < 5f || hydrogen > 0.5f && hypernob < 5f || rawFlammability > 0) // Assmos - /tg/ gases
+                    if (plasma > 0.5f && hypernob < 5f || tritium > 0.5f && hypernob < 5f || hydrogen > 0.5f && hypernob < 5f || rawFlammability > 0)
                     {
                         if (tile.Hotspot.Temperature < ignitionTemperature)
                             tile.Hotspot.Temperature = ignitionTemperature;
@@ -186,31 +282,32 @@ namespace Content.Server.Atmos.EntitySystems
                     }
                 }
 
-                // Linear scaling
                 tile.Hotspot.Temperature = AddClampedTemperature(
                     tile.Hotspot.Temperature,
-                    10 * effectiveFlammability,
-                    (float)(Atmospherics.T0C + 100 * effectiveFlammability));
+                    200 * effectiveFlammability,
+                    (float)(Atmospherics.T0C + 53.5f * MathF.Pow(capFlammability, 2.5f)));
 
                 return;
             }
 
             // Ignition threshold
-            var ignitionThreshold = Math.Max(373.15f, 573.15f - (10 * effectiveFlammability));
+            var ignitionThreshold = System.Math.Max(373.15f, 573.15f - (50 * effectiveFlammability));
 
+            // added || ignitionTemperature > 5000f to allow inert superheated gas to trigger a hotspot
             if ((ignitionTemperature > Atmospherics.PlasmaMinimumBurnTemperature && (plasma > 0.5f && hypernob < 5f || tritium > 0.5f && hypernob < 5f || hydrogen > 0.5f && hypernob < 5f))
-                || (rawFlammability > 0 && ignitionTemperature > ignitionThreshold) ) // Assmos - /tg/ gases
+                || (rawFlammability > 0 && ignitionTemperature > ignitionThreshold)
+                || (ignitionTemperature > 5000f))
             {
                 if (sparkSourceUid.HasValue)
-                    _adminLog.Add(LogType.Flammable, LogImpact.High, $"Heat/spark of {ToPrettyString(sparkSourceUid.Value)} caused atmos ignition of gas: {tile.Air.Temperature.ToString():temperature}K - {oxygen}mol Oxygen, {plasma}mol Plasma, {tritium}mol Tritium, {hydrogen}mol Hydrogen"); //Assmos - /tg/ gases
+                    _adminLog.Add(LogType.Flammable, LogImpact.High, $"Heat/spark of {ToPrettyString(sparkSourceUid.Value)} caused atmos ignition of gas: {tile.Air.Temperature.ToString():temperature}K - {oxygen}mol Oxygen, {plasma}mol Plasma, {tritium}mol Tritium, {hydrogen}mol Hydrogen");
 
                 var temperature = ignitionTemperature;
                 if(rawFlammability > 0)
                 {
                     temperature = AddClampedTemperature(
                         temperature,
-                        10 * effectiveFlammability,
-                        (float)(Atmospherics.T0C + 100 * effectiveFlammability));
+                        200 * effectiveFlammability,
+                        (float)(Atmospherics.T0C + 53.5f * MathF.Pow(capFlammability, 2.5f)));
                 }
 
                 tile.Hotspot = new Hotspot
@@ -230,8 +327,7 @@ namespace Content.Server.Atmos.EntitySystems
 
         private void PerformHotspotExposure(TileAtmosphere tile)
         {
-            if (tile.Air == null || !tile.Hotspot.Valid)
-                return;
+            if (tile.Air == null || !tile.Hotspot.Valid) return;
 
             tile.Hotspot.Bypassing = tile.Hotspot.SkippedFirstProcess && tile.Hotspot.Volume > tile.Air.Volume*0.95f && tile.PuddleSolutionFlammability == 0;
 
@@ -244,16 +340,16 @@ namespace Content.Server.Atmos.EntitySystems
             {
                 var affected = tile.Air.RemoveVolume(tile.Hotspot.Volume);
 
-                var effectiveFlammability = Math.Min((float)tile.PuddleSolutionFlammability, 20f);
-                affected.Temperature = MathF.Max(tile.Hotspot.Temperature, Atmospherics.T0C + 25 * effectiveFlammability);
+                var effectiveFlammability = (float)tile.PuddleSolutionFlammability;
+                affected.Temperature = MathF.Max(tile.Hotspot.Temperature, Atmospherics.T0C + 53.5f * MathF.Pow(effectiveFlammability, 2.5f));
 
                 // Gas consumption and production
                 if (effectiveFlammability > 0)
                 {
                     // Enough to impact the room, but slow enough to allow the fire to propagate before suffocating
-                    var burnAmount = 0.10f * effectiveFlammability;
+                    var burnAmount = 1.0f * effectiveFlammability;
                     var oxygen = affected.GetMoles(Gas.Oxygen);
-                    var actualBurn = Math.Min(burnAmount, oxygen);
+                    var actualBurn = System.Math.Min(burnAmount, oxygen);
 
                     if (actualBurn > 0)
                     {

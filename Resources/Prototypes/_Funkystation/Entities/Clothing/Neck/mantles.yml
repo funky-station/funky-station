@@ -1,4 +1,5 @@
 # SPDX-FileCopyrightText: 2024 Sage <sagefacepants@gmail.com>
+# SPDX-FileCopyrightText: 2025 Xcybitt <197952719+Xcybitt@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
@@ -13,3 +14,8 @@
     sprite: _Funkystation/Clothing/Neck/Mantle/ntrmantle.rsi
   - type: Clothing
     sprite: _Funkystation/Clothing/Neck/Mantle/ntrmantle.rsi
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 5
+    bluntStaminaDamageFactor: 2

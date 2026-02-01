@@ -1,5 +1,6 @@
 # SPDX-FileCopyrightText: 2025 Evaisa <evagiacosa1@gmail.com>
 # SPDX-FileCopyrightText: 2025 EvaisaDev <mail@evaisa.dev>
+# SPDX-FileCopyrightText: 2025 ToNy025 <ToNy-6025@hotmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -346,3 +347,10 @@
   id: floorgoblin
   category: Misc
   sprite: /Textures/_Funkystation/Interface/NanoChat/Emotes/floorgoblin.png
+
+- type: nanoChatEmoji
+  id: brick
+  category: Misc
+  sprite: 
+    sprite: /Textures/_Funkystation/Objects/Misc/brick.rsi
+    state: brick

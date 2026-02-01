@@ -55,6 +55,7 @@
 # SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 wafehling <wafehling@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 SharkSnake98 <sharksnake87@gmail.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
@@ -208,6 +209,71 @@
 
 - type: entity
   parent: [DrinkBottleVisualsAll, DrinkBottleGlassBaseFull]
+  id: DrinkAmarettoBottleFull
+  name: Mancini Amaretto
+  description: A bottle of Mancini Amaretto. Don't worry, the almond taste isn't from cyanide. Hopefully.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        reagents:
+        - ReagentId: Amaretto
+          Quantity: 100
+  - type: Label
+    currentLabel: reagent-name-amaretto
+  - type: Sprite
+    sprite: Objects/Consumable/Drinks/amarettobottle.rsi
+  - type: Sealable
+  - type: SolutionContainerVisuals
+    maxFillLevels: 4
+    fillBaseName: fill-
+
+- type: entity
+  parent: [DrinkBottleVisualsAll, DrinkBottleGlassBaseFull]
+  id: DrinkApplejackBottleFull
+  name: Buckin' Bronco's Applejack
+  description: A bottle of apple brandy. Not as sweet as you might expect.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        reagents:
+        - ReagentId: Applejack
+          Quantity: 100
+  - type: Label
+    currentLabel: reagent-name-applejack
+  - type: Sprite
+    sprite: Objects/Consumable/Drinks/alco-bottle.rsi
+    layers:
+      - state: icon_red
+        map: ["enum.OpenableVisuals.Layer"]
+      - state: fill-1
+        map: ["enum.SolutionContainerLayers.Fill"]
+        visible: false
+  - type: SolutionContainerVisuals
+    maxFillLevels: 6
+    fillBaseName: fill-
+
+- type: entity
+  parent: [DrinkBottleVisualsOpenable, DrinkBottleGlassBaseFull]
+  id: DrinkBittersBottleFull
+  name: Epiolos' Old-Fashioned Authentic bitters
+  description: A bottle which, despite being produced in the past month, looks like it was made in 1904.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        reagents:
+        - ReagentId: Bitters
+          Quantity: 100
+  - type: Sprite
+    sprite: Objects/Consumable/Drinks/bittersbottle.rsi
+  - type: Sealable
+  - type: Label
+    currentLabel: reagent-name-creme-bitters
+
+- type: entity
+  parent: [DrinkBottleVisualsAll, DrinkBottleGlassBaseFull]
   id: DrinkBlueCuracaoBottleFull
   name: Miss Blue Curaçao
   description: A fruity, exceptionally azure drink. Does not allow the imbiber to use the fifth magic.
@@ -286,6 +352,186 @@
   - type: Sprite
     sprite: Objects/Consumable/Drinks/cognacbottle.rsi
   - type: Sealable
+
+- type: entity
+  parent: [DrinkBottleVisualsAll, DrinkBottleGlassBaseFull]
+  id: DrinkCreamOfCoconutBottleFull
+  name: Andromeda Creme de Coconut
+  description: A coconut liqueur for smooth, creamy, tropical drinks.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        reagents:
+        - ReagentId: CreamOfCoconut
+          Quantity: 100
+  - type: Label
+    currentLabel: reagent-name-cream-of-coconut
+  - type: Sprite
+    sprite: Objects/Consumable/Drinks/cremedecoconutbottle.rsi
+  - type: Sealable
+
+- type: entity
+  parent: [DrinkBottleVisualsAll, DrinkBottleGlassBaseFull]
+  id: DrinkCremeDeCacaoBottleFull
+  name: Andromeda Creme de Cacao
+  description: A bottle of Andromeda chocolate liqueur. Despite the chocolate it contains no dairy.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        reagents:
+        - ReagentId: CremeDeCacao
+          Quantity: 100
+  - type: Label
+    currentLabel: reagent-name-creme-de-cacao
+  - type: Sprite
+    sprite: Objects/Consumable/Drinks/cremedecacaobottle.rsi
+  - type: Sealable
+
+- type: entity
+  parent: [DrinkBottleVisualsAll, DrinkBottleGlassBaseFull]
+  id: DrinkCremeDeMentheBottleFull
+  name: Andromeda Creme de Menthe
+  description: A bottle of Andromeda mint liqueur, legally guaranteed to put a spring in your step as per the Andromeda Corporation Code of Conduct.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        reagents:
+        - ReagentId: CremeDeMenthe
+          Quantity: 100
+  - type: Label
+    currentLabel: reagent-name-creme-de-menthe
+  - type: Sprite
+    sprite: Objects/Consumable/Drinks/cremedementhebottle.rsi
+  - type: Sealable
+
+- type: entity
+  parent: [DrinkBottleVisualsAll, DrinkBottleGlassBaseFull]
+  id: DrinkFernetBottleFull
+  name: Rossi Fernet
+  description: A bottle of power, jaw-punching Fernet so bitter it feels like it's stabbing your tongue. Drinking this by itself isn't advised by at least several drink agencies.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        reagents:
+        - ReagentId: Fernet
+          Quantity: 100
+  - type: Label
+    currentLabel: reagent-name-fernet
+  - type: Sprite
+    sprite: Objects/Consumable/Drinks/fernetbottle.rsi
+  - type: Sealable
+  - type: SolutionContainerVisuals
+    maxFillLevels: 4
+    fillBaseName: fill-
+
+- type: entity
+  parent: [DrinkBottleVisualsAll, DrinkBottleGlassBaseFull]
+  id: DrinkNavyRumBottleFull
+  name: Pride of the Empire navy-strength rum
+  description: By King George, this must be the finest bottle of white-rum that the seven seas, no, the galaxy has ever seen! One glass, and you'll be screaming 'Tally ho!' and "By Ceaser's Ghost!'.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        reagents:
+        - ReagentId: NavyRum
+          Quantity: 100
+  - type: Label
+    currentLabel: reagent-name-navy-rum
+  - type: Sprite
+    sprite: Objects/Consumable/Drinks/navyrumbottle.rsi
+  - type: Sealable
+  - type: SolutionContainerVisuals
+    maxFillLevels: 4
+    fillBaseName: fill-
+
+- type: entity
+  parent: [DrinkBottleVisualsAll, DrinkBottleGlassBaseFull]
+  id: DrinkRiceBeerBottleFull
+  name: Kaze rice beer
+  description: A bottle of rice beer made from rice, as opposed to all the other grains and crops they could've used. When will this beer-making stop!?
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        reagents:
+        - ReagentId: RiceBeer
+          Quantity: 100
+  - type: Label
+    currentLabel: reagent-name-rice-beer
+  - type: Sprite
+    sprite: Objects/Consumable/Drinks/ricebeerbottle.rsi
+  - type: Sealable
+  - type: SolutionContainerVisuals
+    maxFillLevels: 5
+    fillBaseName: fill-
+
+- type: entity
+  parent: [DrinkBottleVisualsAll, DrinkBottleGlassBaseFull]
+  id: DrinkShochuBottleFull
+  name: "Hādohittā Premium shochu"
+  description: Similar to sake, but a lot stronger. This particular brand appears to be rice shochu.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        reagents:
+        - ReagentId: Shochu
+          Quantity: 100
+  - type: Label
+    currentLabel: reagent-name-shochu
+  - type: Sprite
+    sprite: Objects/Consumable/Drinks/shochubottle.rsi
+  - type: Sealable
+  - type: SolutionContainerVisuals
+    maxFillLevels: 3
+    fillBaseName: fill-
+
+- type: entity
+  parent: [DrinkBottleVisualsAll, DrinkBottleGlassBaseFull]
+  id: DrinkTripleSecBottleFull
+  name: "Wernon triple sec"
+  description: You don't need to be a member of security to enjoy this bottle of Wernon triple sec. May or may not be triple-distilled, depending on who you ask.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        reagents:
+        - ReagentId: TripleSec
+          Quantity: 100
+  - type: Label
+    currentLabel: reagent-name-triple-sec
+  - type: Sprite
+    sprite: Objects/Consumable/Drinks/triplesecbottle.rsi
+  - type: Sealable
+  - type: SolutionContainerVisuals
+    maxFillLevels: 5
+    fillBaseName: fill-
+
+- type: entity
+  parent: [DrinkBottleVisualsAll, DrinkBottleGlassBaseFull]
+  id: DrinkVoltaicYellowWineBottleFull
+  name: "Arc-Flash voltaic yellow wine"
+  description: Arc-Flash yellow wine, to put a zap in your step. Is it you, or does the air feel statically charged?
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        reagents:
+        - ReagentId: VoltaicYellowWine
+          Quantity: 100
+  - type: Label
+    currentLabel: reagent-name-voltaic-yellow-wine
+  - type: Sprite
+    sprite: Objects/Consumable/Drinks/voltaicyellowwinebottle.rsi
+  - type: Sealable
+  - type: SolutionContainerVisuals
+    maxFillLevels: 4
+    fillBaseName: fill-
 
 - type: entity
   parent: [DrinkBottleVisualsAll, DrinkBottlePlasticBaseFull]

@@ -5,6 +5,7 @@
 # SPDX-FileCopyrightText: 2023 Sailor <109166122+Equivocateur@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2023 Velcroboy <107660393+IamVelcroboy@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Ubaser <134914314+UbaserB@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 SharkSnake98 <sharksnake87@gmail.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
@@ -48,6 +49,19 @@
       - DrinkAleBottleFull
       - DrinkAleBottleFullGrowler
       - DrinkChampagneBottleFull
+      - DrinkAmarettoBottleFull
+      - DrinkApplejackBottleFull
+      - DrinkBittersBottleFull
+      - DrinkCreamOfCoconutBottleFull
+      - DrinkCremeDeCacaoBottleFull
+      - DrinkCremeDeMentheBottleFull
+      - DrinkNavyRumBottleFull
+      - DrinkRiceBeerBottleFull
+      - DrinkShochuBottleFull
+      - DrinkTripleSecBottleFull
+      - DrinkVoltaicYellowWineBottleFull
+      - DrinkHakkaMateCan
+      - DrinkMelonSodaCan
     chance: 0.8
     offset: 0.0
     #rare

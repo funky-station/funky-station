@@ -4,7 +4,11 @@
 # SPDX-FileCopyrightText: 2024 Boaz1111 <149967078+Boaz1111@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2024 Ubaser <134914314+UbaserB@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 W.xyz() <tptechteam@gmail.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 unknown <daniel.thomas.staal@gmail.com>
+# SPDX-FileCopyrightText: 2025 unknown <kit.ds.kat@gmail.com>
+# SPDX-FileCopyrightText: 2025 w.xyz() <84605679+pirakaplant@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -182,6 +186,99 @@
   - sprite: Mobs/Customization/Moth/moth_antennas.rsi
     state: underwing_secondary
 
+# Chitinid Antennas - Delta-V
+- type: marking
+  id: ChitinidAntennasDefault
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: _DV/Mobs/Customization/Chitinid/chitinid_antennas.rsi
+    state: default
+
+- type: marking
+  id: ChitinidAntennasCurly
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: _DV/Mobs/Customization/Chitinid/chitinid_antennas.rsi
+    state: curly
+
+- type: marking
+  id: ChitinidAntennasGray
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: _DV/Mobs/Customization/Chitinid/chitinid_antennas.rsi
+    state: gray
+
+- type: marking
+  id: ChitinidAntennasSlick
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: _DV/Mobs/Customization/Chitinid/chitinid_antennas.rsi
+    state: slick
+
+- type: marking
+  id: ChitinidAntennasLong
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: _DV/Mobs/Customization/Chitinid/chitinid_antennas.rsi
+    state: long
+
+- type: marking
+  id: ChitinidAntennasBee
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: _DV/Mobs/Customization/Chitinid/chitinid_antennas.rsi
+    state: bee
+
+- type: marking
+  id: ChitinidAntennasShort
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: _DV/Mobs/Customization/Chitinid/chitinid_antennas.rsi
+    state: short
+
+- type: marking
+  id: ChitinidAntennasFirefly
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: _DV/Mobs/Customization/Chitinid/chitinid_antennas.rsi
+    state: firefly_primary
+  - sprite: _DV/Mobs/Customization/Chitinid/chitinid_antennas.rsi
+    state: firefly_secondary
+
+- type: marking
+  id: ChitinidAntennasRadar
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: _DV/Mobs/Customization/Chitinid/chitinid_antennas.rsi
+    state: radar
+
+- type: marking
+  id: ChitinidAntennasSpeed
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: _DV/Mobs/Customization/Chitinid/chitinid_antennas.rsi
+    state: speed
+
 # Wings
 - type: marking
   id: MothWingsDefault
@@ -190,7 +287,9 @@
   speciesRestriction: [Moth]
   sprites:
   - sprite: Mobs/Customization/Moth/moth_wings.rsi
-    state: default
+    state: default_primary
+  - sprite: Mobs/Customization/Moth/moth_wings.rsi
+    state: default_secondary
 
 - type: marking
   id: MothWingsCharred
@@ -199,7 +298,9 @@
   speciesRestriction: [Moth]
   sprites:
   - sprite: Mobs/Customization/Moth/moth_wings.rsi
-    state: charred
+    state: charred_primary
+  - sprite: Mobs/Customization/Moth/moth_wings.rsi
+    state: charred_secondary
 
 - type: marking
   id: MothWingsDbushy
@@ -211,6 +312,8 @@
     state: dbushy_primary
   - sprite: Mobs/Customization/Moth/moth_wings.rsi
     state: dbushy_secondary
+  - sprite: Mobs/Customization/Moth/moth_wings.rsi
+    state: dbushy_tertiary
 
 - type: marking
   id: MothWingsDeathhead
@@ -224,22 +327,15 @@
     state: deathhead_secondary
 
 - type: marking
-  id: MothWingsFan
-  bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: [Moth]
-  sprites:
-  - sprite: Mobs/Customization/Moth/moth_wings.rsi
-    state: fan
-
-- type: marking
   id: MothWingsDfan
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Moth]
   sprites:
   - sprite: Mobs/Customization/Moth/moth_wings.rsi
-    state: dfan
+    state: dfan_primary
+  - sprite: Mobs/Customization/Moth/moth_wings.rsi
+    state: dfan_secondary
 
 - type: marking
   id: MothWingsFeathery
@@ -248,7 +344,9 @@
   speciesRestriction: [Moth]
   sprites:
   - sprite: Mobs/Customization/Moth/moth_wings.rsi
-    state: feathery
+    state: feathery_primary
+  - sprite: Mobs/Customization/Moth/moth_wings.rsi
+    state: feathery_secondary
 
 - type: marking
   id: MothWingsFirewatch
@@ -260,6 +358,8 @@
     state: firewatch_primary
   - sprite: Mobs/Customization/Moth/moth_wings.rsi
     state: firewatch_secondary
+  - sprite: Mobs/Customization/Moth/moth_wings.rsi
+    state: firewatch_tertiary
 
 - type: marking
   id: MothWingsGothic
@@ -268,7 +368,11 @@
   speciesRestriction: [Moth]
   sprites:
   - sprite: Mobs/Customization/Moth/moth_wings.rsi
-    state: gothic
+    state: gothic_primary
+  - sprite: Mobs/Customization/Moth/moth_wings.rsi
+    state: gothic_secondary
+  - sprite: Mobs/Customization/Moth/moth_wings.rsi
+    state: gothic_tertiary
 
 - type: marking
   id: MothWingsJungle
@@ -277,7 +381,11 @@
   speciesRestriction: [Moth]
   sprites:
   - sprite: Mobs/Customization/Moth/moth_wings.rsi
-    state: jungle
+    state: jungle_primary
+  - sprite: Mobs/Customization/Moth/moth_wings.rsi
+    state: jungle_secondary
+  - sprite: Mobs/Customization/Moth/moth_wings.rsi
+    state: jungle_tertiary
 
 - type: marking
   id: MothWingsLadybug
@@ -286,7 +394,11 @@
   speciesRestriction: [Moth]
   sprites:
   - sprite: Mobs/Customization/Moth/moth_wings.rsi
-    state: ladybug
+    state: ladybug_primary
+  - sprite: Mobs/Customization/Moth/moth_wings.rsi
+    state: ladybug_secondary
+  - sprite: Mobs/Customization/Moth/moth_wings.rsi
+    state: ladybug_tertiary
 
 - type: marking
   id: MothWingsMaple
@@ -298,6 +410,8 @@
     state: maple_primary
   - sprite: Mobs/Customization/Moth/moth_wings.rsi
     state: maple_secondary
+  - sprite: Mobs/Customization/Moth/moth_wings.rsi
+    state: maple_tertiary
 
 - type: marking
   id: MothWingsMoffra
@@ -309,6 +423,8 @@
     state: moffra_primary
   - sprite: Mobs/Customization/Moth/moth_wings.rsi
     state: moffra_secondary
+  - sprite: Mobs/Customization/Moth/moth_wings.rsi
+    state: moffra_tertiary
 
 - type: marking
   id: MothWingsOakworm
@@ -317,7 +433,11 @@
   speciesRestriction: [Moth]
   sprites:
   - sprite: Mobs/Customization/Moth/moth_wings.rsi
-    state: oakworm
+    state: oakworm_primary
+  - sprite: Mobs/Customization/Moth/moth_wings.rsi
+    state: oakworm_secondary
+  - sprite: Mobs/Customization/Moth/moth_wings.rsi
+    state: oakworm_tertiary
 
 - type: marking
   id: MothWingsPlasmafire
@@ -329,6 +449,8 @@
     state: plasmafire_primary
   - sprite: Mobs/Customization/Moth/moth_wings.rsi
     state: plasmafire_secondary
+  - sprite: Mobs/Customization/Moth/moth_wings.rsi
+    state: plasmafire_tertiary
 
 - type: marking
   id: MothWingsPointy
@@ -337,7 +459,11 @@
   speciesRestriction: [Moth]
   sprites:
   - sprite: Mobs/Customization/Moth/moth_wings.rsi
-    state: pointy
+    state: pointy_primary
+  - sprite: Mobs/Customization/Moth/moth_wings.rsi
+    state: pointy_secondary
+  - sprite: Mobs/Customization/Moth/moth_wings.rsi
+    state: pointy_tertiary
 
 - type: marking
   id: MothWingsRoyal
@@ -349,6 +475,8 @@
     state: royal_primary
   - sprite: Mobs/Customization/Moth/moth_wings.rsi
     state: royal_secondary
+  - sprite: Mobs/Customization/Moth/moth_wings.rsi
+    state: royal_tertiary
 
 - type: marking
   id: MothWingsStellar
@@ -357,16 +485,11 @@
   speciesRestriction: [Moth]
   sprites:
   - sprite: Mobs/Customization/Moth/moth_wings.rsi
-    state: stellar
-
-- type: marking
-  id: MothWingsStriped
-  bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: [Moth]
-  sprites:
+    state: stellar_primary
   - sprite: Mobs/Customization/Moth/moth_wings.rsi
-    state: striped
+    state: stellar_secondary
+  - sprite: Mobs/Customization/Moth/moth_wings.rsi
+    state: stellar_tertiary
 
 - type: marking
   id: MothWingsSwirly
@@ -375,7 +498,11 @@
   speciesRestriction: [Moth]
   sprites:
   - sprite: Mobs/Customization/Moth/moth_wings.rsi
-    state: swirly
+    state: swirly_primary
+  - sprite: Mobs/Customization/Moth/moth_wings.rsi
+    state: swirly_secondary
+  - sprite: Mobs/Customization/Moth/moth_wings.rsi
+    state: swirly_tertiary
 
 - type: marking
   id: MothWingsWhitefly
@@ -384,7 +511,11 @@
   speciesRestriction: [Moth]
   sprites:
   - sprite: Mobs/Customization/Moth/moth_wings.rsi
-    state: whitefly
+    state: whitefly_primary
+  - sprite: Mobs/Customization/Moth/moth_wings.rsi
+    state: whitefly_secondary
+  - sprite: Mobs/Customization/Moth/moth_wings.rsi
+    state: whitefly_tertiary
 
 - type: marking
   id: MothWingsWitchwing
@@ -393,7 +524,11 @@
   speciesRestriction: [Moth]
   sprites:
   - sprite: Mobs/Customization/Moth/moth_wings.rsi
-    state: witchwing
+    state: witchwing_primary
+  - sprite: Mobs/Customization/Moth/moth_wings.rsi
+    state: witchwing_secondary
+  - sprite: Mobs/Customization/Moth/moth_wings.rsi
+    state: witchwing_tertiary
 
 - type: marking
   id: MothWingsUnderwing
@@ -405,6 +540,84 @@
     state: underwing_primary
   - sprite: Mobs/Customization/Moth/moth_wings.rsi
     state: underwing_secondary
+  - sprite: Mobs/Customization/Moth/moth_wings.rsi
+    state: underwing_tertiary
+
+- type: marking
+  id: MothWingsOrigins
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: Mobs/Customization/Moth/moth_wings.rsi
+    state: origins_primary
+  - sprite: Mobs/Customization/Moth/moth_wings.rsi
+    state: origins_secondary
+  - sprite: Mobs/Customization/Moth/moth_wings.rsi
+    state: origins_tertiary
+
+# Chitinid Wings - Delta-V
+- type: marking
+  id: ChitinidWingsDefault
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: _DV/Mobs/Customization/Chitinid/chitinid_wings.rsi
+    state: default
+
+- type: marking
+  id: ChitinidWingsSmooth
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: _DV/Mobs/Customization/Chitinid/chitinid_wings.rsi
+    state: smooth
+
+- type: marking
+  id: ChitinidWingsHoneypot
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: _DV/Mobs/Customization/Chitinid/chitinid_wings.rsi
+    state: honeypot_primary
+  - sprite: _DV/Mobs/Customization/Chitinid/chitinid_wings.rsi
+    state: honeypot_secondary
+
+- type: marking
+  id: ChitinidWingsStubby
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: _DV/Mobs/Customization/Chitinid/chitinid_wings.rsi
+    state: stubby
+
+- type: marking
+  id: ChitinidWingsBee
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: _DV/Mobs/Customization/Chitinid/chitinid_wings.rsi
+    state: bee_primary
+  - sprite: _DV/Mobs/Customization/Chitinid/chitinid_wings.rsi
+    state: bee_secondary
+  - sprite: _DV/Mobs/Customization/Chitinid/chitinid_wings.rsi
+    state: bee_tertiary
+
+- type: marking
+  id: ChitinidWingsFirefly
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: _DV/Mobs/Customization/Chitinid/chitinid_wings.rsi
+    state: firefly_primary
+  - sprite: _DV/Mobs/Customization/Chitinid/chitinid_wings.rsi
+    state: firefly_secondary
 
 # Body markings:
 # Charred
@@ -1121,3 +1334,251 @@
   sprites:
   - sprite: Mobs/Customization/Moth/moth_parts.rsi
     state: witchwing_r_arm
+
+# Plated - Delta-V
+- type: marking
+  id: ChitinidChestPlated
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: _DV/Mobs/Customization/Chitinid/chitinid_parts.rsi
+    state: plated_chest
+
+- type: marking
+  id: ChitinidLArmPlated
+  bodyPart: LArm
+  markingCategory: Arms
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: _DV/Mobs/Customization/Chitinid/chitinid_parts.rsi
+    state: plated_l_arm
+
+- type: marking
+  id: ChitinidRArmPlated
+  bodyPart: RArm
+  markingCategory: Arms
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: _DV/Mobs/Customization/Chitinid/chitinid_parts.rsi
+    state: plated_r_arm
+
+# Stripes - Delta-V
+- type: marking
+  id: ChitinidChestStripes
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: _DV/Mobs/Customization/Chitinid/chitinid_parts.rsi
+    state: stripes_chest
+
+- type: marking
+  id: ChitinidHeadStripes
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: _DV/Mobs/Customization/Chitinid/chitinid_parts.rsi
+    state: stripes_head
+
+- type: marking
+  id: ChitinidLLegStripes
+  bodyPart: LLeg
+  markingCategory: Legs
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: _DV/Mobs/Customization/Chitinid/chitinid_parts.rsi
+    state: stripes_l_leg
+
+- type: marking
+  id: ChitinidRLegStripes
+  bodyPart: RLeg
+  markingCategory: Legs
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: _DV/Mobs/Customization/Chitinid/chitinid_parts.rsi
+    state: stripes_r_leg
+
+- type: marking
+  id: ChitinidLArmStripes
+  bodyPart: LArm
+  markingCategory: Arms
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: _DV/Mobs/Customization/Chitinid/chitinid_parts.rsi
+    state: stripes_l_arm
+
+- type: marking
+  id: ChitinidRArmStripes
+  bodyPart: RArm
+  markingCategory: Arms
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: _DV/Mobs/Customization/Chitinid/chitinid_parts.rsi
+    state: stripes_r_arm
+
+# Radiant - Delta-V
+- type: marking
+  id: ChitinidChestRadiant
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: _DV/Mobs/Customization/Chitinid/chitinid_parts.rsi
+    state: radiant_chest
+
+- type: marking
+  id: ChitinidHeadRadiant
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: _DV/Mobs/Customization/Chitinid/chitinid_parts.rsi
+    state: radiant_head
+
+- type: marking
+  id: ChitinidLLegRadiant
+  bodyPart: LLeg
+  markingCategory: Legs
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: _DV/Mobs/Customization/Chitinid/chitinid_parts.rsi
+    state: radiant_l_leg
+
+- type: marking
+  id: ChitinidRLegRadiant
+  bodyPart: RLeg
+  markingCategory: Legs
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: _DV/Mobs/Customization/Chitinid/chitinid_parts.rsi
+    state: radiant_r_leg
+
+- type: marking
+  id: ChitinidLArmRadiant
+  bodyPart: LArm
+  markingCategory: Arms
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: _DV/Mobs/Customization/Chitinid/chitinid_parts.rsi
+    state: radiant_l_arm
+
+- type: marking
+  id: ChitinidRArmRadiant
+  bodyPart: RArm
+  markingCategory: Arms
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: _DV/Mobs/Customization/Chitinid/chitinid_parts.rsi
+    state: radiant_r_arm
+
+# Toxic - Delta-V
+- type: marking
+  id: ChitinidChestToxic
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: _DV/Mobs/Customization/Chitinid/chitinid_parts.rsi
+    state: toxic_chest
+
+- type: marking
+  id: ChitinidHeadToxic
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: _DV/Mobs/Customization/Chitinid/chitinid_parts.rsi
+    state: toxic_head
+
+- type: marking
+  id: ChitinidLLegToxic
+  bodyPart: LLeg
+  markingCategory: Legs
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: _DV/Mobs/Customization/Chitinid/chitinid_parts.rsi
+    state: toxic_l_leg
+
+- type: marking
+  id: ChitinidRLegToxic
+  bodyPart: RLeg
+  markingCategory: Legs
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: _DV/Mobs/Customization/Chitinid/chitinid_parts.rsi
+    state: toxic_r_leg
+
+- type: marking
+  id: ChitinidLArmToxic
+  bodyPart: LArm
+  markingCategory: Arms
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: _DV/Mobs/Customization/Chitinid/chitinid_parts.rsi
+    state: toxic_l_arm
+
+- type: marking
+  id: ChitinidRArmToxic
+  bodyPart: RArm
+  markingCategory: Arms
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: _DV/Mobs/Customization/Chitinid/chitinid_parts.rsi
+    state: toxic_r_arm
+
+# Spotted - Delta-V
+- type: marking
+  id: ChitinidChestSpotted
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: _DV/Mobs/Customization/Chitinid/chitinid_parts.rsi
+    state: spotted_chest
+
+- type: marking
+  id: ChitinidHeadSpotted
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: _DV/Mobs/Customization/Chitinid/chitinid_parts.rsi
+    state: spotted_head
+
+- type: marking
+  id: ChitinidLLegSpotted
+  bodyPart: LLeg
+  markingCategory: Legs
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: _DV/Mobs/Customization/Chitinid/chitinid_parts.rsi
+    state: spotted_l_leg
+
+- type: marking
+  id: ChitinidRLegSpotted
+  bodyPart: RLeg
+  markingCategory: Legs
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: _DV/Mobs/Customization/Chitinid/chitinid_parts.rsi
+    state: spotted_r_leg
+
+- type: marking
+  id: ChitinidLArmSpotted
+  bodyPart: LArm
+  markingCategory: Arms
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: _DV/Mobs/Customization/Chitinid/chitinid_parts.rsi
+    state: spotted_l_arm
+
+- type: marking
+  id: ChitinidRArmSpotted
+  bodyPart: RArm
+  markingCategory: Arms
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: _DV/Mobs/Customization/Chitinid/chitinid_parts.rsi
+    state: spotted_r_arm

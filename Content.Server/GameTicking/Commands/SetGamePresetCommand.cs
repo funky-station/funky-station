@@ -8,6 +8,7 @@
 // SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Errant <35878406+Errant-4@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Terkala <appleorange64@gmail.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
 // SPDX-License-Identifier: MIT
@@ -16,6 +17,7 @@ using System.Linq;
 using Content.Server.Administration;
 using Content.Server.GameTicking.Presets;
 using Content.Shared.Administration;
+using Linguini.Shared.Util;
 using Robust.Shared.Console;
 using Robust.Shared.Prototypes;
 
@@ -33,9 +35,9 @@ namespace Content.Server.GameTicking.Commands
 
         public void Execute(IConsoleShell shell, string argStr, string[] args)
         {
-            if (args.Length != 1)
+            if (!args.Length.InRange(1, 2))
             {
-                shell.WriteError(Loc.GetString("shell-wrong-arguments-number-need-specific", ("properAmount", 1), ("currentAmount", args.Length)));
+                shell.WriteError(Loc.GetString("shell-need-between-arguments", ("lower", 1), ("upper", 2), ("currentAmount", args.Length)));
                 return;
             }
 
@@ -47,8 +49,16 @@ namespace Content.Server.GameTicking.Commands
                 return;
             }
 
-            ticker.SetGamePreset(preset);
-            shell.WriteLine(Loc.GetString("set-game-preset-preset-set", ("preset", preset.ID)));
+            var rounds = 1;
+
+            if (args.Length == 2 && !int.TryParse(args[1], out rounds))
+            {
+                shell.WriteError(Loc.GetString("set-game-preset-optional-argument-not-integer"));
+                return;
+            }
+
+            ticker.SetGamePreset(preset, false, rounds);
+            shell.WriteLine(Loc.GetString("set-game-preset-preset-set-finite", ("preset", preset.ID), ("rounds", rounds.ToString())));
         }
 
         public CompletionResult GetCompletion(IConsoleShell shell, string[] args)

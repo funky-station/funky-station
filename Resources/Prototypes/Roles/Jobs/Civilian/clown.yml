@@ -32,7 +32,9 @@
 # SPDX-FileCopyrightText: 2024 fishbait <gnesse@gmail.com>
 # SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Icepick <122653407+Icepicked@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 MaiaArai <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2026 SharkSnake98 <sharksnake87@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -62,6 +64,11 @@
       interval: 10
   - !type:AddImplantSpecial
     implants: [ SadTromboneImplant ]
+  alternateTitles:
+  - ClownJester
+  - ClownBouffon
+  - ClownJoker
+  - ClownComedian
 
 - type: startingGear
   id: ClownGear
@@ -75,3 +82,19 @@
     back:
     - RubberStampClown
     - CrayonRainbow
+
+- type: jobAlternateTitle
+  id: ClownJester
+  name: job-name-alt-clown-1
+
+- type: jobAlternateTitle
+  id: ClownBouffon
+  name: job-name-alt-clown-2
+
+- type: jobAlternateTitle
+  id: ClownJoker
+  name: job-name-alt-clown-3
+
+- type: jobAlternateTitle
+  id: ClownComedian
+  name: job-name-alt-clown-4

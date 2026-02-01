@@ -30,7 +30,7 @@
     - Vox
     - Vulpkanin
     - Rodentia
-    - IPC
+    # - IPC
     # ImpStation additions
     - Thaven
 
@@ -100,7 +100,7 @@
   name: species-name-rodentia
   text: "/ServerInfo/Guidebook/Mobs/DeltaV/Rodentia.xml"
 
-- type: guideEntry
-  id: IPC
-  name: species-name-ipc
-  text: "/ServerInfo/Guidebook/Mobs/IPCs.xml"
+#- type: guideEntry
+#  id: IPC
+#  name: species-name-ipc
+#  text: "/ServerInfo/Guidebook/Mobs/IPCs.xml"

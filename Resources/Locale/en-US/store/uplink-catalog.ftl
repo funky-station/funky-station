@@ -457,6 +457,9 @@ uplink-clothing-thieving-gloves-desc = Discreetly steal from pockets and improve
 uplink-clothing-outer-vest-web-name = Web Vest
 uplink-clothing-outer-vest-web-desc = A synthetic armor vest. This one has added webbing and ballistic plates.
 
+uplink-clothing-outer-vest-web-aramid-name = Aramid Web Vest
+uplink-clothing-outer-vest-web-aramid-desc = A synthetic armor vest. This one has added webbing and heat resistant fibers.
+
 uplink-clothing-shoes-boots-mag-syndie-name = Blood-red Magboots
 uplink-clothing-shoes-boots-mag-syndie-desc = A pair of boots that prevent slipping and, in zero gravity, allow you to move normally, at the cost of a slight slowdown. Additionally, they have jetpack functionality and come fueled, but don't last for long.
 
@@ -641,3 +644,6 @@ uplink-emp-flashlight-desc = Looks and functions like a regular flashlight, with
 
 uplink-reagent-implanter-name = Empty Reagent Implanter
 uplink-reagent-implanter-desc = Can be filled with up to 45 units of any chemical. Once implanted, you can activate the implant to inject up to 15 units of the stored chemical into your bloodstream. Has 3 uses, and cannot be refilled.
+
+uplink-revolver-python-bundle-name = Python Bundle
+uplink-revolver-python-bundle-desc = When you need to down a lot of armored targets. Comes with a loaded AP Python and two speedloaders. Aim true.

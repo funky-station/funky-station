@@ -1,3 +1,4 @@
+# SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
 # SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
@@ -67,7 +68,7 @@
         - ReagentId: Nutriment
           Quantity: 5
         - ReagentId: Sugar
-          Quantity: 10
+          Quantity: 15
 
 - type: entity
   name: cloth lollipop
@@ -98,8 +99,6 @@
       food:
         maxVol: 30
         reagents:
-        - ReagentId: Nutriment
-          Quantity: 5
         - ReagentId: Sugar
           Quantity: 10
         - ReagentId: Fiber
@@ -170,9 +169,9 @@
       food:
         maxVol: 30
         reagents:
-        - ReagentId: Nutriment
-          Quantity: 5
+        - ReagentId: Fat
+          Quantity: 10
         - ReagentId: Sugar
           Quantity: 10
-        - ReagentId: Blood
-          Quantity: 5
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 10

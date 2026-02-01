@@ -212,6 +212,7 @@ guide-entry-rules-c11 = C11
 guide-entry-rules-c12 = C12
 guide-entry-rules-c13 = C13
 guide-entry-rules-c14 = C14
+guide-entry-rules-c15 = C15
 guide-entry-rules-roleplay = Roleplay Rules
 guide-entry-rules-r1 = R1
 guide-entry-rules-r2 = R2

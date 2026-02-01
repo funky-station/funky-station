@@ -39,8 +39,8 @@
     - type: MobThresholds
       thresholds:
         0: Alive
-        125: Critical
-        150: Dead
+        200: Critical
+        250: Dead
     - type: Stamina
       critThreshold: 200
     - type: DamageStateVisuals
@@ -68,8 +68,8 @@
         path: /Audio/Weapons/Xeno/alien_claw_flesh3.ogg
       damage:
         types:
-          Piercing: 7.5
-          Slash: 7.5
+          Piercing: 10
+          Slash: 10
     - type: TypingIndicator
       proto: lizard
     - type: Tag
@@ -100,8 +100,8 @@
       color: "#50595C"
       activateSound: null
       deactivateSound: null
-    - type: CombatPower # Funky
-      factor: 2
+    - type: CombatPower
+      factor: 4
     - type: Puller
       needsHands: false
     - type: MovementSpeedModifier
@@ -143,19 +143,19 @@
     - type: Prying # Open door from xeno.yml.
       pryPowered: true
       force: true
-      speedModifier: 2.5
+      speedModifier: 3
       useSound:
         path: /Audio/Items/crowbar.ogg
     - type: PassiveDamage
       allowedStates:
       - Alive
       - Critical
-      damageCap: 150
+      damageCap: 250
       damage:
         groups:
-          Brute: -0.15
-          Burn: -0.15
-          Toxin: -0.15
+          Brute: -0.4
+          Burn: -0.4
+          Toxin: -0.4
 
 - type: entity
   name: mini dragon
@@ -186,7 +186,43 @@
       raffle:
         settings: default
       mindRoles:
-      - MindRoleGhostRoleFreeAgent
+      - MindRoleGhostRoleSoloAntagonist
+    - type: GhostTakeoverAvailable
+    - type: NpcFactionMember
+      factions:
+      - Passive
+    - type: FactionException
+
+- type: entity
+  name: domesticated mini dragon
+  parent: BaseMobMiniDragon
+  id: MobMiniDragonFriendly
+  components:
+    - type: Sprite
+      layers:
+      - map: [ "enum.DamageStateVisualLayers.Base" ]
+        state: alive
+      - map: [ "enum.DamageStateVisualLayers.BaseUnshaded" ]
+        state: mouth
+        shader: unshaded
+    - type: RandomSprite
+      available:
+      - enum.DamageStateVisualLayers.Base:
+          alive: Rainbow
+        enum.DamageStateVisualLayers.BaseUnshaded:
+          mouth: ""
+    - type: GhostRole
+      prob: 1
+      makeSentient: true
+      allowSpeech: true
+      allowMovement: true
+      name: ghost-role-information-mini-dragon-friendly-name
+      description: ghost-role-information-mini-dragon-friendly-description
+      rules: ghost-role-information-mini-dragon-friendly-rules
+      raffle:
+        settings: default
+      mindRoles:
+      - MindRoleGhostRoleNeutral
     - type: GhostTakeoverAvailable
     - type: NpcFactionMember
       factions:

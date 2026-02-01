@@ -27,9 +27,11 @@
 // SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
 // SPDX-FileCopyrightText: 2024 Verm <32827189+Vermidia@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 MaiaArai <158123176+YaraaraY@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
+// SPDX-FileCopyrightText: 2025 otokonoko-dev <248204705+otokonoko-dev@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
 // SPDX-License-Identifier: MIT
@@ -103,11 +105,14 @@ public sealed class RespiratorSystem : EntitySystem
     {
         base.Update(frameTime);
 
-        var query = EntityQueryEnumerator<RespiratorComponent, BodyComponent>();
-        while (query.MoveNext(out var uid, out var respirator, out var body))
+        var query = EntityQueryEnumerator<RespiratorComponent>();
+        while (query.MoveNext(out var uid, out var respirator))
         {
             if (_gameTiming.CurTime < respirator.NextUpdate)
                 continue;
+
+            // resolve body optionally to support simple mobs
+            TryComp<BodyComponent>(uid, out var body);
 
             respirator.NextUpdate += respirator.UpdateInterval;
 
@@ -115,13 +120,18 @@ public sealed class RespiratorSystem : EntitySystem
                 continue;
 
             // Begin DeltaV Additions
-            var organs = _bodySystem.GetBodyOrganEntityComps<LungComponent>((uid, body));
-            var multiplier = -1f;
-            foreach (var (_, lung, _) in organs)
+            var multiplier = 0f; // default to 0 for bodiless mobs so they don't suffocate automatically
+            if (body != null)
             {
-                multiplier *= lung.SaturationLoss;
+                multiplier = -1f;
+                var organs = _bodySystem.GetBodyOrganEntityComps<LungComponent>((uid, body));
+                foreach (var (_, lung, _) in organs)
+                {
+                    multiplier *= lung.SaturationLoss;
+                }
             }
             // End DeltaV Additions
+
             UpdateSaturation(uid, multiplier * (float) respirator.UpdateInterval.TotalSeconds, respirator); // DeltaV: use multiplier instead of negating
 
             var breathe = false;

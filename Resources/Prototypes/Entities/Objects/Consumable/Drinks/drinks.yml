@@ -72,6 +72,7 @@
 # SPDX-FileCopyrightText: 2025 Noah Leach <77765510+BearWithMe18@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 RedBookcase <crazykid1590@gmail.com>
 # SPDX-FileCopyrightText: 2025 SharkSnake98 <peanutbuttersharky@gmail.com>
+# SPDX-FileCopyrightText: 2025 SharkSnake98 <sharksnake87@gmail.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 Zergologist <114537969+Chedd-Error@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 delorphin <delorphin@gmail.com>
@@ -504,15 +505,15 @@
 
 - type: entity
   parent: DrinkGlass
-  id: DrinkBarefootGlass
-  suffix: barefoot
+  id: DrinkBigfootGlass
+  suffix: bigfoot
   components:
     - type: SolutionContainerManager
       solutions:
         drink:
           maxVol: 30
           reagents:
-            - ReagentId: Barefoot
+            - ReagentId: Bigfoot
               Quantity: 30
     - type: Icon
       sprite: Objects/Consumable/Drinks/b&p.rsi

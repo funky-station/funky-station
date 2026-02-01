@@ -24,9 +24,9 @@
 // SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
 // SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
 // SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
-// SPDX-FileCopyrightText: 2025 Terkala <appleorange64@gmail.com>
 // SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2026 Terkala <appleorange64@gmail.com>
 //
 // SPDX-License-Identifier: MIT
 
@@ -51,6 +51,7 @@ using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.NameModifier.EntitySystems;
 using Content.Shared.Popups;
+using Content.Shared.StatusIcon.Components;
 using Content.Shared.Weapons.Melee.Events;
 using Content.Shared.Zombies;
 using Content.Shared._EinsteinEngines.Silicon.Components;
@@ -289,18 +290,31 @@ namespace Content.Server.Zombies
                 {
                     if (!HasComp<ZombieImmuneComponent>(entity) && !HasComp<NonSpreaderZombieComponent>(args.User) && _random.Prob(GetZombieInfectionChance(entity, component)))
                     {
-                        // For alive (non-crit, non-dead) players, give them zombie tumor infection
-                        // Crit/dead players will be zombified immediately in the block below
-                        if (mobState.CurrentState == MobState.Alive)
+                        // Check for tiered immunity (bite infections start at Early stage)
+                        bool protectedByTiered = false;
+                        if (TryComp<ZombieTumorTieredImmuneComponent>(entity, out var tieredImmune))
                         {
-                            // Bite infections immediately skip to stage 2 (TumorFormed)
-                            _zombieTumor.InfectEntity(entity, ZombieTumorInfectionStage.TumorFormed);
+                            // Level 2-5 should block bite infections (Early stage)
+                            protectedByTiered = tieredImmune.ImmunityLevel >= 2;
+                        }
+
+                        if (!protectedByTiered)
+                        {
+                            // For alive (non-crit, non-dead) players, give them zombie tumor infection
+                            // Crit/dead players will be zombified immediately in the block below
+                            if (mobState.CurrentState == MobState.Alive)
+                            {
+                                // Bite infections start at stage 1 (Early)
+                                _zombieTumor.InfectEntity(entity, ZombieTumorInfectionStage.Early);
+                            }
                         }
                         else
                         {
                             // For crit/dead players, keep the old behavior
                             EnsureComp<PendingZombieComponent>(entity);
                             EnsureComp<ZombifyOnDeathComponent>(entity);
+                            // Ensure StatusIconComponent exists so infection status can be displayed in UI
+                            EnsureComp<StatusIconComponent>(entity);
                         }
                     }
                 }

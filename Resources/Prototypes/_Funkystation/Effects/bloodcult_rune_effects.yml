@@ -35,7 +35,7 @@
 
 - type: entity
   id: FxBloodCultRuneOffering
-  name: offering rune
+  name: conversion rune
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite

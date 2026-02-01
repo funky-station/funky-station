@@ -1,0 +1,57 @@
+light_mode unshaded;
+
+uniform highp float seed;
+uniform highp float alpha;
+uniform highp vec2 offset;
+
+const highp float NOISE_OFFSET = 57.0;
+const highp float FALLOFF = 1.5;
+const highp float NOISE_SCALE = 8.0;
+const highp float FLICKER_NOISE = 0.2;
+const highp float FLICKER_SPEED = 3.0;
+const highp float FLICKER_SINE = 0.1;
+const highp float FLARE_RADIUS = 1.4;
+
+const highp float MIN_ALPHA = 0.1;
+const highp float MAX_ALPHA = 0.6;
+const highp float AURA_INTENSITY = 0.2;
+
+const highp vec3 COLOR_START = vec3(0.6, 0.0, 1.0);
+const highp vec3 COLOR_CENTER = vec3(0.0, 1.0, 0.0);
+const highp vec3 COLOR_END = vec3(0.0, 1.0, 0.5);
+
+const highp float FLARE_SMOOTHNESS = 0.2;
+
+const highp float CENTER_SIZE = 2.0;
+
+highp float rand(highp float x) {
+    return fract(sin(x) * seed * 43758.5453123);
+}
+
+highp float noise(highp vec2 uv) {
+    return rand(uv.x + uv.y * NOISE_OFFSET + TIME * 2.0);
+}
+
+void fragment() {
+    highp vec2 uv = (UV - vec2(0.5)) * 2.0;
+    uv -= offset;
+
+    highp float dist = length(uv);
+
+    highp float flareEffect = smoothstep(FLARE_RADIUS - FLARE_SMOOTHNESS, FLARE_RADIUS + FLARE_SMOOTHNESS, dist);
+
+    highp float aura = exp(-dist * FALLOFF);
+
+    highp float flicker = noise(uv * NOISE_SCALE) * FLICKER_NOISE + sin(TIME * FLICKER_SPEED) * FLICKER_SINE;
+    aura += flicker;
+
+    aura *= AURA_INTENSITY;
+
+    highp float transparency = mix(MAX_ALPHA, MIN_ALPHA, flareEffect);
+
+    highp vec3 color = mix(COLOR_START, COLOR_END, aura);
+
+    color = mix(color, COLOR_CENTER, smoothstep(0.0, CENTER_SIZE, dist));
+
+    COLOR = vec4(color, alpha * aura * transparency);
+}

@@ -12,8 +12,11 @@
 // SPDX-FileCopyrightText: 2024 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
 // SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 Terkala <appleorange64@gmail.com>
+// SPDX-FileCopyrightText: 2025 Xcybitt <197952719+Xcybitt@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 willow <willowzeta632146@proton.me>
 // SPDX-FileCopyrightText: 2025 wilowzeta <willowzeta632146@proton.me>
 //
 // SPDX-License-Identifier: MIT
@@ -39,7 +42,7 @@ namespace Content.Shared.Materials;
 
 /// <summary>
 /// Handles interactions and logic related to <see cref="MaterialReclaimerComponent"/>,
-/// <see cref="CollideMaterialReclaimerComponent"/>, and <see cref="ActiveMaterialReclaimerComponent"/>.
+/// and <see cref="CollideMaterialReclaimerComponent"/>.
 /// </summary>
 public abstract class SharedMaterialReclaimerSystem : EntitySystem
 {
@@ -51,8 +54,6 @@ public abstract class SharedMaterialReclaimerSystem : EntitySystem
     [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
     [Dependency] private readonly EmagSystem _emag = default!;
 
-    public const string ActiveReclaimerContainerId = "active-material-reclaimer-container";
-
     /// <inheritdoc/>
     public override void Initialize()
     {
@@ -61,7 +62,6 @@ public abstract class SharedMaterialReclaimerSystem : EntitySystem
         SubscribeLocalEvent<MaterialReclaimerComponent, GotEmaggedEvent>(OnEmagged);
         SubscribeLocalEvent<MaterialReclaimerComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<CollideMaterialReclaimerComponent, StartCollideEvent>(OnCollide);
-        SubscribeLocalEvent<ActiveMaterialReclaimerComponent, ComponentStartup>(OnActiveStartup);
     }
 
     private void OnMapInit(EntityUid uid, MaterialReclaimerComponent component, MapInitEvent args)
@@ -96,20 +96,20 @@ public abstract class SharedMaterialReclaimerSystem : EntitySystem
             return;
         if (!TryComp<MaterialReclaimerComponent>(uid, out var reclaimer))
             return;
-        TryStartProcessItem(uid, args.OtherEntity, reclaimer);
-    }
-
-    private void OnActiveStartup(EntityUid uid, ActiveMaterialReclaimerComponent component, ComponentStartup args)
-    {
-        component.ReclaimingContainer = Container.EnsureContainer<Container>(uid, ActiveReclaimerContainerId);
+        TryQueueItem(uid, args.OtherEntity, reclaimer);
     }
 
     /// <summary>
-    /// Tries to start processing an item via a <see cref="MaterialReclaimerComponent"/>.
+    /// Tries to queue an item for processing via a <see cref="MaterialReclaimerComponent"/>.
     /// </summary>
-    public bool TryStartProcessItem(EntityUid uid, EntityUid item, MaterialReclaimerComponent? component = null, EntityUid? user = null)
+    public bool TryQueueItem(EntityUid uid, EntityUid item, MaterialReclaimerComponent? component = null, EntityUid? user = null)
     {
         if (!Resolve(uid, ref component))
+            return false;
+
+        // Duplication prevention: check if item is already in the container
+        var queueContainer = Container.EnsureContainer<Container>(uid, MaterialReclaimerComponent.QueueContainerId);
+        if (queueContainer.Contains(item))
             return false;
 
         if (!CanStart(uid, component))
@@ -141,38 +141,13 @@ public abstract class SharedMaterialReclaimerSystem : EntitySystem
         var reclaimedEvent = new GotReclaimedEvent(Transform(uid).Coordinates);
         RaiseLocalEvent(item, ref reclaimedEvent);
 
-        var duration = GetReclaimingDuration(uid, item, component);
-        // if it's instant, don't bother with all the active comp stuff.
-        /*if (duration == TimeSpan.Zero)
-        {
-            Reclaim(uid, item, 1, component);
-            return true;
-        }*/
-        // funkystation fix dupe bug
+        Container.Insert(item, queueContainer);
+        component.ProcessingQueue.Add(item);
+        Dirty(uid, component);
 
-        var active = EnsureComp<ActiveMaterialReclaimerComponent>(uid);
-        active.Duration = duration;
-        active.EndTime = Timing.CurTime + duration;
-        Container.Insert(item, active.ReclaimingContainer);
         return true;
     }
 
-    /// <summary>
-    /// Finishes processing an item, freeing up the the reclaimer.
-    /// </summary>
-    /// <remarks>
-    /// This doesn't reclaim the entity itself, but rather ends the formal
-    /// process started with <see cref="ActiveMaterialReclaimerComponent"/>.
-    /// The actual reclaiming happens in <see cref="Reclaim"/>
-    /// </remarks>
-    public virtual bool TryFinishProcessItem(EntityUid uid, MaterialReclaimerComponent? component = null, ActiveMaterialReclaimerComponent? active = null)
-    {
-        if (!Resolve(uid, ref component, ref active, false))
-            return false;
-
-        RemCompDeferred(uid, active);
-        return true;
-    }
 
     /// <summary>
     /// Spawns the materials and chemicals associated
@@ -219,9 +194,6 @@ public abstract class SharedMaterialReclaimerSystem : EntitySystem
     /// </summary>
     public bool CanStart(EntityUid uid, MaterialReclaimerComponent component)
     {
-        if (HasComp<ActiveMaterialReclaimerComponent>(uid))
-            return false;
-
         return component.Powered && component.Enabled && !component.Broken;
     }
 
@@ -263,17 +235,13 @@ public abstract class SharedMaterialReclaimerSystem : EntitySystem
         return duration;
     }
 
-    /// <inheritdoc/>
-    public override void Update(float frameTime)
+    /// <summary>
+    /// Legacy method name for backwards compatibility.
+    /// </summary>
+    [Obsolete("Use TryQueueItem instead")]
+    public bool TryStartProcessItem(EntityUid uid, EntityUid item, MaterialReclaimerComponent? component = null, EntityUid? user = null)
     {
-        base.Update(frameTime);
-        var query = EntityQueryEnumerator<ActiveMaterialReclaimerComponent, MaterialReclaimerComponent>();
-        while (query.MoveNext(out var uid, out var active, out var reclaimer))
-        {
-            if (Timing.CurTime < active.EndTime)
-                continue;
-            TryFinishProcessItem(uid, reclaimer, active);
-        }
+        return TryQueueItem(uid, item, component, user);
     }
 }
 

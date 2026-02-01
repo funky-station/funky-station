@@ -8,7 +8,6 @@ using Content.Shared.EntityEffects;
 using Content.Shared.FixedPoint;
 using Robust.Shared.Prototypes;
 using Robust.Shared.GameObjects;
-using Robust.Shared.IoC;
 using Content.Shared.Chemistry.Reagent;
 
 namespace Content.Server.BloodCult.EntityEffects;
@@ -54,7 +53,7 @@ public sealed partial class BleedSanguinePerniculate : EntityEffect
         if (!entityManager.TryGetComponent<MetaDataComponent>(uid, out var meta) || meta.EntityPrototype == null)
             return false;
 
-        var componentFactory = IoCManager.Resolve<IComponentFactory>();
+        var componentFactory = entityManager.ComponentFactory;
         if (!meta.EntityPrototype.TryGetComponent(componentFactory.GetComponentName<BloodstreamComponent>(), out BloodstreamComponent? prototypeBloodstream))
             return false;
 

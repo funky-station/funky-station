@@ -30,6 +30,7 @@
 # SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 qwerltaz <69696513+qwerltaz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 ashley <vectorassembly@icloud.com>
 # SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
@@ -138,6 +139,8 @@
     range: 2
     sound:
       path: /Audio/Ambience/Objects/emf_buzz.ogg
+  - type: Electrified
+    siemensCoefficient: 3
 
 - type: entity
   id: CableHVUncuttable
@@ -192,6 +195,8 @@
   - type: CableVisualizer
     statePrefix: mvcable_
     extraLayerPrefix: mvstripes_
+  - type: Electrified
+    siemensCoefficient: 2
 
 - type: entity
   id: CableMVUncuttable

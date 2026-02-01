@@ -4,6 +4,7 @@
 // SPDX-FileCopyrightText: 2023 metalgearsloth <comedian_vs_clown@hotmail.com>
 // SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
 // SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
 // SPDX-License-Identifier: MIT
@@ -39,6 +40,8 @@ public sealed partial class MobThresholdsComponent : Component
     {
         {MobState.Alive, "HumanHealth"},
         {MobState.Critical, "HumanCrit"},
+        {MobState.SoftCritical, "HumanCrit"},
+        {MobState.HardCritical, "HumanCrit"},
         {MobState.Dead, "HumanDead"},
     };
 

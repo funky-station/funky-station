@@ -44,6 +44,7 @@ using Content.Server.Chemistry.TileReactions;
 using Content.Server.DoAfter;
 using Content.Server.Fluids.Components;
 using Content.Server.Spreader;
+using Content.Shared.Atmos;
 using Content.Shared.Atmos.Components;
 using Content.Shared.Chemistry;
 using Content.Shared.Chemistry.Components;
@@ -73,6 +74,9 @@ using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
+using Robust.Server.GameObjects;
+using Content.Shared.Audio;
+using Robust.Shared.Audio;
 
 namespace Content.Server.Fluids.EntitySystems;
 
@@ -98,6 +102,8 @@ public sealed partial class PuddleSystem : SharedPuddleSystem
     [Dependency] private readonly SpeedModifierContactsSystem _speedModContacts = default!;
     [Dependency] private readonly TileFrictionController _tile = default!;
     [Dependency] private readonly AtmosphereSystem _atmos = default!;
+    [Dependency] private readonly SharedPointLightSystem _pointLight = default!;
+    [Dependency] private readonly SharedAmbientSoundSystem _ambientSound = default!;
 
     [ValidatePrototypeId<ReagentPrototype>]
     private const string Blood = "Blood";
@@ -135,7 +141,7 @@ public sealed partial class PuddleSystem : SharedPuddleSystem
         SubscribeLocalEvent<PuddleComponent, SolutionContainerChangedEvent>(OnSolutionUpdate);
         SubscribeLocalEvent<PuddleComponent, SpreadNeighborsEvent>(OnPuddleSpread);
         SubscribeLocalEvent<PuddleComponent, SlipEvent>(OnPuddleSlip);
-
+        SubscribeLocalEvent<PuddleFireLightComponent, ComponentShutdown>(OnFireLightShutdown);
         SubscribeLocalEvent<EvaporationComponent, MapInitEvent>(OnEvaporationMapInit);
 
         InitializeTransfers();
@@ -378,12 +384,13 @@ public sealed partial class PuddleSystem : SharedPuddleSystem
                 if (xform.GridUid is not { } gridUid)
                     continue;
 
-                // don't check empty puddles
+                // Optimization: Don't check empty puddles
                 if (puddle.Solution == null || puddle.Solution.Value.Comp.Solution.Volume <= FixedPoint2.Zero)
                     continue;
 
                 if (!TryComp(gridUid, out MapGridComponent? mapGrid))
                     continue;
+
 
                 if (!TryComp(gridUid, out GridAtmosphereComponent? gridAtmos))
                     continue;
@@ -398,6 +405,63 @@ public sealed partial class PuddleSystem : SharedPuddleSystem
 
                 _atmos.HotspotExpose((gridUid, gridAtmos), tileIndices, mixture.Temperature, mixture.Volume, null, true);
             }
+        }
+
+        // fire lights and sound
+        var lightQuery = EntityQueryEnumerator<PuddleFireLightComponent>();
+        var curTime = _timing.CurTime;
+        while (lightQuery.MoveNext(out var uid, out var fireLight))
+        {
+            if (curTime > fireLight.ExtinguishTime)
+            {
+                RemComp<PuddleFireLightComponent>(uid);
+            }
+            else
+            {
+                if (fireLight.LightEntity.HasValue && TryComp(fireLight.LightEntity.Value, out PointLightComponent? lightComp))
+                {
+                    var energy = 2.0f + _random.NextFloat(-0.5f, 0.5f);
+                    _pointLight.SetEnergy(fireLight.LightEntity.Value, energy, lightComp);
+                }
+            }
+        }
+    }
+
+    /// <summary>
+    /// when the component is removed we ensure the dummy light entity is also deleted
+    /// </summary>
+    private void OnFireLightShutdown(Entity<PuddleFireLightComponent> ent, ref ComponentShutdown args)
+    {
+        if (ent.Comp.LightEntity.HasValue && !TerminatingOrDeleted(ent.Comp.LightEntity.Value))
+        {
+            QueueDel(ent.Comp.LightEntity.Value);
+            ent.Comp.LightEntity = null;
+        }
+    }
+    public override void OnPuddleBurn(Entity<PuddleComponent> entity, ref TileFireEvent args)
+    {
+        base.OnPuddleBurn(entity, ref args);
+
+        var fireLight = EnsureComp<PuddleFireLightComponent>(entity);
+
+        fireLight.ExtinguishTime = _timing.CurTime + TimeSpan.FromSeconds(3.0f);
+
+        if (fireLight.LightEntity == null || TerminatingOrDeleted(fireLight.LightEntity.Value))
+        {
+            var coords = Transform(entity).Coordinates;
+            fireLight.LightEntity = Spawn(null, coords);
+
+            var light = EnsureComp<PointLightComponent>(fireLight.LightEntity.Value);
+            _pointLight.SetColor(fireLight.LightEntity.Value, Color.FromHex("#FF6600"), light);
+            _pointLight.SetRadius(fireLight.LightEntity.Value, 3.0f, light);
+            _pointLight.SetCastShadows(fireLight.LightEntity.Value, false, light);
+            _pointLight.SetEnabled(fireLight.LightEntity.Value, true, light);
+
+            var ambient = EnsureComp<AmbientSoundComponent>(fireLight.LightEntity.Value);
+            _ambientSound.SetSound(fireLight.LightEntity.Value, new SoundPathSpecifier("/Audio/Effects/fire.ogg"), ambient);
+            _ambientSound.SetRange(fireLight.LightEntity.Value, 5f, ambient);
+            _ambientSound.SetVolume(fireLight.LightEntity.Value, -5f, ambient);
+            _ambientSound.SetAmbience(fireLight.LightEntity.Value, true, ambient);
         }
     }
 

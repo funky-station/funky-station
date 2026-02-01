@@ -44,11 +44,9 @@
 # SPDX-FileCopyrightText: 2025 FeelFlows <1493889+FeelFlows@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Fr0goo <153249069+Fr0goo@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Fr0goo <frogoofrog@outlook.com>
-# SPDX-FileCopyrightText: 2025 Frogoo <153249069+Fr0goo@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Icepick <122653407+Icepicked@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 IronDragoon <8961391+IronDragoon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Lyndomen <49795619+lyndomen@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 MaiaArai <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Max_Power <1493889+FeelFlows@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 McBosserson <148172569+McBosserson@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Milon <milonpl.git@proton.me>
@@ -65,11 +63,8 @@
 # SPDX-FileCopyrightText: 2025 Sofia Gilsanz <softie.gd@gmail.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 Teasq <Xerithin@gmail.com>
-# SPDX-FileCopyrightText: 2025 ThatOneMoon <91613003+ThatOneMoon@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
 # SPDX-FileCopyrightText: 2025 TheHolyAegis <76066612+TheHolyAegis@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 TheHolyAegis <sanderkamphuis719@gmail.com>
-# SPDX-FileCopyrightText: 2025 W.xyz() <tptechteam@gmail.com>
 # SPDX-FileCopyrightText: 2025 Xcybitt <xcybitt@gmail.com>
 # SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
@@ -83,6 +78,12 @@
 # SPDX-FileCopyrightText: 2025 tea <xerithin@gmail.com>
 # SPDX-FileCopyrightText: 2025 vectorassembly <vectorassembly@icloud.com>
 # SPDX-FileCopyrightText: 2025 w.xyz() <84605679+pirakaplant@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2026 Frogoo <153249069+Fr0goo@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2026 MaiaArai <158123176+YaraaraY@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2026 ThatOneMoon <91613003+ThatOneMoon@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2026 ThatOneMoon <juozas.dringelis@gmail.com>
+# SPDX-FileCopyrightText: 2026 W.xyz() <tptechteam@gmail.com>
+# SPDX-FileCopyrightText: 2026 Zergologist <114537969+Chedd-Error@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -156,6 +157,7 @@
   minLimit: 0
   loadouts:
   - Glasses
+  - CheapSunglasses
   - GlassesJamjar
   - GlassesJensen
 
@@ -245,6 +247,13 @@
   - CaptainOuterClothing
   - CaptainWintercoat
 
+- type: loadoutGroup
+  id: CaptainShoes
+  name: loadout-group-captain-shoes
+  loadouts:
+  - LaceupShoes
+  - DesignerWinterBoots
+
 - type: loadoutGroup #WizDen Weh Job Plush
   id: CaptainJobTrinkets
   name: loadout-group-jobtrinkets
@@ -298,6 +307,21 @@
   loadouts:
   - HoPWintercoat
 
+- type: loadoutGroup
+  id: HoPShoes
+  name: loadout-group-hop-shoes
+  loadouts:
+  - BlackShoes
+  - WhiteShoes
+  - BrownShoes
+  - LaceupShoes
+  - WinterBoots
+  - SalvageBoots
+  - CargoWinterBoots
+  - WorkBoots
+  - EngineeringWinterBoots
+  - DesignerWinterBoots
+
 - type: loadoutGroup #WizDen Weh Job Plush
   id: HoPJobTrinkets
   name: loadout-group-jobtrinkets
@@ -316,6 +340,29 @@
   - GreyJumpskirt
   - AncientJumpsuit
   - RainbowJumpsuit
+  - ServiceJumpsuitDressWhite
+  - ServiceJumpsuitDressBlue
+  - ServiceJumpsuitDressTied
+  - ServiceJumpsuitServiceCoat
+  - ServiceJumpskirtDressWhite
+  - ServiceJumpskirtDressBlue
+  - ServiceJumpskirtDressTied
+  - WhiteJumpsuit
+  - WhiteJumpskirt
+  - BlackJumpsuit
+  - BlackJumpskirt
+  - BlueJumpsuit
+  - BlueJumpskirt
+  - GreenJumpsuit
+  - GreenJumpskirt
+  - YellowJumpsuit
+  - YellowJumpskirt
+  - OrangeJumpsuit
+  - OrangeJumpskirt
+  - RedJumpsuit
+  - RedJumpskirt
+  - PinkJumpsuit
+  - PinkJumpskirt
 
 - type: loadoutGroup
   id: PassengerFace
@@ -323,6 +370,7 @@
   minLimit: 0
   loadouts:
   - PassengerFace
+  - BandanaGrey
 
 - type: loadoutGroup
   id: PassengerGloves
@@ -330,6 +378,16 @@
   minLimit: 0
   loadouts:
   - PassengerGloves
+  - GreyGloves
+  - WhiteGloves
+  - BlackGloves
+  - BrownGloves
+  - OrangeGloves
+  - RedGloves
+  - GreenGloves
+  - TealGloves
+  - BlueGloves
+  - PurpleGloves
 
 - type: loadoutGroup
   id: CommonBackpack
@@ -352,6 +410,7 @@
   minLimit: 0
   loadouts:
   - PassengerWintercoat
+  - BikerJacket
 
 - type: loadoutGroup
   id: PassengerShoes
@@ -426,7 +485,54 @@
   - BlackShoes
   - WhiteShoes
   - BrownShoes
-  - NanotrasenRepresentativeBoots #These are just laceup shoes.
+  - LaceupShoes
+  - WinterBoots
+  - SalvageBoots
+  - CargoWinterBoots
+  - WorkBoots
+  - EngineeringWinterBoots
+
+- type: loadoutGroup
+  id: GenericHats
+  name: loadout-group-generic-hats
+  minLimit: 1
+  loadouts:
+  - BandanaBlack
+  - BandanaBlue
+  - BandanaGold
+  - BandanaGreen
+  - BandanaRed
+  - BandanaSkull
+  - BandanaBrown
+  - softwhite
+  - softgrey
+  - softblack
+  - softCorp
+  - softblue
+  - softpurple
+  - softyellow
+  - softgreen
+  - orangesoft
+  - redsoft
+  - redtrucker
+  - RedBeret
+  - BlackBeret
+
+- type: loadoutGroup
+  id: Gloves
+  name: loadout-group-gloves
+  minLimit: 0
+  loadouts:
+  - GreyGloves
+  - WhiteGloves
+  - BlackGloves
+  - BrownGloves
+  - OrangeGloves
+  - RedGloves
+  - GreenGloves
+  - TealGloves
+  - BlueGloves
+  - PurpleGloves
 
 - type: loadoutGroup #WizDen Weh Job Plush
   id: BartenderJobTrinkets
@@ -639,10 +745,27 @@
   name: loadout-group-janitor-head
   minLimit: 0
   loadouts:
-  - JanitorHead
-  - YellowJanitorHead
-  - OrangeJanitorHead
   - RainHat
+  - BandanaBlack
+  - BandanaBlue
+  - BandanaGold
+  - BandanaGreen
+  - BandanaRed
+  - BandanaSkull
+  - BandanaBrown
+  - softwhite
+  - softgrey
+  - softblack
+  - softCorp
+  - softblue
+  - softpurple
+  - softyellow
+  - softgreen
+  - orangesoft
+  - redsoft
+  - redtrucker
+  - RedBeret
+  - BlackBeret
 
 - type: loadoutGroup
   id: JanitorJumpsuit
@@ -665,7 +788,15 @@
   - JanitorBlueRubberGloves
   - JanitorOrangeRubberGloves
   - JanitorPurpleRubberGloves
+  - GreyGloves
+  - WhiteGloves
+  - BlackGloves
+  - BrownGloves
   - OrangeGloves
+  - RedGloves
+  - GreenGloves
+  - TealGloves
+  - BlueGloves
   - PurpleGloves
 
 - type: loadoutGroup
@@ -711,14 +842,26 @@
   name: loadout-group-botanist-head
   minLimit: 0
   loadouts:
-  - BotanistHead
-  - BotanistBandanaBlack
-  - BotanistBandanaBlue
-  - BotanistBandanaGold
-  - BotanistBandanaGreen
-  - BotanistBandanaRed
-  - BotanistBandanaSkull
-  - BotanistBandanaBrown
+  - BandanaBlack
+  - BandanaBlue
+  - BandanaGold
+  - BandanaGreen
+  - BandanaRed
+  - BandanaSkull
+  - BandanaBrown
+  - softwhite
+  - softgrey
+  - softblack
+  - softCorp
+  - softblue
+  - softpurple
+  - softyellow
+  - softgreen
+  - orangesoft
+  - redsoft
+  - redtrucker
+  - RedBeret
+  - BlackBeret
 
 - type: loadoutGroup
   id: BotanistJumpsuit
@@ -993,13 +1136,16 @@
   name: loadout-group-quartermaster-shoes
   loadouts:
   - BrownShoes
-  - NanotrasenRepresentativeBoots #These are just laceup shoes.
-  - WorkBoots
+  - LaceupShoes
+  - WinterBoots
   - SalvageBoots
   - CargoWinterBoots
+  - WorkBoots
+  - EngineeringWinterBoots
   - BrownCowboyBoots
   - WhiteCowboyBoots
   - BlackCowboyBoots
+  - DesignerWinterBoots
 
 - type: loadoutGroup #WizDen Weh Job Plush
   id: QuartermasterJobTrinkets
@@ -1015,9 +1161,29 @@
   name: loadout-group-cargo-technician-head
   minLimit: 0
   loadouts:
-  - CargoTechnicianHead
   - CargoTechnicianHeadMail # Goob/DeltaV - Mail
+  - CargoTechnicianHead
+  - BandanaBlack
+  - BandanaBlue
+  - BandanaGold
+  - BandanaGreen
+  - BandanaRed
+  - BandanaSkull
+  - BandanaBrown
+  - softwhite
+  - softgrey
+  - softblack
+  - softCorp
+  - softblue
+  - softpurple
+  - softyellow
+  - softgreen
+  - orangesoft
+  - redsoft
+  - redtrucker
   - SeniorCargoTechnicianBeret #Funky!
+  - RedBeret
+  - BlackBeret
 
 - type: loadoutGroup
   id: CargoTechnicianNeck
@@ -1070,10 +1236,12 @@
   name: loadout-group-cargo-technician-shoes
   loadouts:
   - BlackShoes
-  - NanotrasenRepresentativeBoots #These are just laceup shoes.
+  - LaceupShoes
+  - WinterBoots
   - SalvageBoots
-  - WorkBoots
   - CargoWinterBoots
+  - WorkBoots
+  - EngineeringWinterBoots
 
 - type: loadoutGroup #WizDen Weh Job Plush
   id: CargoTechnicianJobTrinkets
@@ -1118,6 +1286,9 @@
   loadouts:
   - SalvageBoots
   - CargoWinterBoots
+  - WorkBoots
+  - EngineeringWinterBoots
+  - WinterBoots
 
 - type: loadoutGroup #WizDen Weh Job Plush
   id: SalvageSpecialistJobTrinkets
@@ -1145,6 +1316,7 @@
   loadouts:
   - ChiefEngineerHead
   - ChiefEngineerBeret
+  - ChiefEngineerConductorHat # Funky
 
 - type: loadoutGroup
   id: ChiefEngineerJumpsuit
@@ -1183,9 +1355,13 @@
   name: loadout-group-chief-engineer-shoes
   loadouts:
   - BrownShoes
-  - NanotrasenRepresentativeBoots #These are just laceup shoes.
+  - LaceupShoes
+  - WinterBoots
+  - SalvageBoots
+  - CargoWinterBoots
   - WorkBoots
   - EngineeringWinterBoots
+  - DesignerWinterBoots
 
 - type: loadoutGroup #WizDen Weh Job Plush
   id: ChiefEngineerJobTrinkets
@@ -1238,6 +1414,8 @@
   - SeniorEngineerJumpsuitArmored
   - SeniorEngineerJumpsuit
   - SeniorEngineerJumpskirt
+  - AtmosphericTechnicianJumpsuit
+  - AtmosphericTechnicianJumpskirt
 
 - type: loadoutGroup
   id: StationEngineerBackpack
@@ -1254,6 +1432,7 @@
   loadouts:
   - StationEngineerOuterVest
   - StationEngineerWintercoat
+  - AtmosphericTechnicianWintercoat
 
 - type: loadoutGroup
   id: StationEngineerBelt
@@ -1269,6 +1448,9 @@
   loadouts:
   - WorkBoots
   - EngineeringWinterBoots
+  - SalvageBoots
+  - CargoWinterBoots
+  - WinterBoots
 
 - type: loadoutGroup
   id: StationEngineerID
@@ -1334,8 +1516,11 @@
   name: loadout-group-atmospheric-technician-shoes
   loadouts:
   - WhiteShoes
+  - SalvageBoots
+  - CargoWinterBoots
   - WorkBoots
   - EngineeringWinterBoots
+  - WinterBoots
 
 - type: loadoutGroup #WizDen Weh Job Plush
   id: AtmosphericTechnicianJobTrinkets
@@ -1390,8 +1575,16 @@
   id: ResearchDirectorShoes
   name: loadout-group-research-director-shoes
   loadouts:
+  - BlackShoes
+  - WhiteShoes
   - BrownShoes
-  - ScienceWinterBoots
+  - LaceupShoes
+  - WinterBoots
+  - SalvageBoots
+  - CargoWinterBoots
+  - WorkBoots
+  - EngineeringWinterBoots
+  - DesignerWinterBoots
 
 - type: loadoutGroup #WizDen Weh Job Plush
   id: ResearchDirectorJobTrinkets
@@ -1407,8 +1600,26 @@
   name: loadout-group-scientist-head
   minLimit: 0
   loadouts:
-  - RoboticistCap
-  - SkullBandana
+  - BandanaBlack
+  - BandanaBlue
+  - BandanaGold
+  - BandanaGreen
+  - BandanaRed
+  - BandanaSkull
+  - BandanaBrown
+  - softwhite
+  - softgrey
+  - softblack
+  - softCorp
+  - softblue
+  - softpurple
+  - softyellow
+  - softgreen
+  - orangesoft
+  - redsoft
+  - redtrucker
+  - RedBeret
+  - BlackBeret
   - ScientistHardhatWhite # Funky
   - ScientificBeret
 
@@ -1454,6 +1665,7 @@
   - RegularLabCoat
   - ScienceLabCoat
   - ScienceWintercoat
+  - BikerJacket
   - RoboticistLabCoat
   - RoboticistWintercoat
   - SeniorResearcherLabCoat
@@ -1462,9 +1674,13 @@
   id: ScientistShoes
   name: loadout-group-scientist-shoes
   loadouts:
-  - WhiteShoes
   - BlackShoes
-  - ScienceWinterBoots
+  - LaceupShoes
+  - WinterBoots
+  - SalvageBoots
+  - CargoWinterBoots
+  - WorkBoots
+  - EngineeringWinterBoots
 
 - type: loadoutGroup
   id: ScientistGloves
@@ -1472,8 +1688,17 @@
   minLimit: 0
   loadouts:
   - LatexGloves
-  - PurpleGloves
   - RobohandsGloves
+  - PurpleGloves
+  - GreyGloves
+  - WhiteGloves
+  - BlackGloves
+  - BrownGloves
+  - OrangeGloves
+  - RedGloves
+  - GreenGloves
+  - TealGloves
+  - BlueGloves
 
 - type: loadoutGroup
   id: ScientistPDA
@@ -1667,6 +1892,7 @@
   id: SecurityShoes
   name: loadout-group-security-shoes
   loadouts:
+  - CombatBoots
   - JackBoots
   - SecurityWinterBoots
 
@@ -1770,6 +1996,14 @@
     - DetectiveEnergyRevolver
     - DetectiveRevolver
 
+- type: loadoutGroup
+  id: LoadoutSecurityOfficerWeapon
+  name: loadout-group-security-weapon
+  minLimit: 1
+  loadouts:
+  - SecurityOfficerEnergyGun
+  - SecurityOfficerPistol
+
 # Medical
 - type: loadoutGroup
   id: ChiefMedicalOfficerHead
@@ -1809,11 +2043,18 @@
   id: ChiefMedicalOfficerShoes
   name: loadout-group-chief-medical-officer-shoes
   loadouts:
-  - BrownShoes
+  - ChemistBoots
+  - BlueShoes
   - BlackShoes
   - WhiteShoes
-  - NanotrasenRepresentativeBoots #These are just laceup shoes.
+  - LaceupShoes
   - MedicalWinterBoots
+  - WinterBoots
+  - SalvageBoots
+  - CargoWinterBoots
+  - WorkBoots
+  - EngineeringWinterBoots
+  - DesignerWinterBoots
 
 - type: loadoutGroup #WizDen Weh Job Plush
   id: ChiefMedicalOfficerJobTrinkets
@@ -1907,9 +2148,14 @@
   loadouts:
   - WhiteShoes
   - BlackShoes
-  - BrownShoes
-  - NanotrasenRepresentativeBoots #These are just laceup shoes.
+  - BlueShoes
+  - LaceupShoes
   - MedicalWinterBoots
+  - WinterBoots
+  - SalvageBoots
+  - CargoWinterBoots
+  - WorkBoots
+  - EngineeringWinterBoots
 
 - type: loadoutGroup
   id: MedicalDoctorPDA
@@ -2010,8 +2256,13 @@
   - WhiteShoes
   - BlackShoes
   - BrownShoes
-  - NanotrasenRepresentativeBoots #These are just laceup shoes.
+  - LaceupShoes
+  - WinterBoots
   - MedicalWinterBoots
+  - SalvageBoots
+  - CargoWinterBoots
+  - WorkBoots
+  - EngineeringWinterBoots
 
 - type: loadoutGroup
   id: ChemistBackpack
@@ -2068,8 +2319,13 @@
   loadouts:
   - BlueShoes
   - WhiteShoes
-  - MedicalWinterBoots
   - LaceupShoes
+  - WinterBoots
+  - MedicalWinterBoots
+  - SalvageBoots
+  - CargoWinterBoots
+  - WorkBoots
+  - EngineeringWinterBoots
 
 - type: loadoutGroup #WizDen Weh Job Plush
   id: ParamedicJobTrinkets

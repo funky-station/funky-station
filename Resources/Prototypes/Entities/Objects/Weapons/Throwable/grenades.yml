@@ -51,6 +51,7 @@
 # SPDX-FileCopyrightText: 2024 plykiya <plykiya@protonmail.com>
 # SPDX-FileCopyrightText: 2025 IronDragoon <8961391+IronDragoon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 misghast <51974455+misterghast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
@@ -503,14 +504,16 @@
   parent: [ BaseEngineeringContraband, SmokeGrenade ]
   id: MetalFoamGrenade
   name: metal foam grenade
-  description: An emergency tool used for patching up holes. Almost as good as real walls.
+  description: An emergency tool used for quickly patching hull breaches. Rather brittle; make sure to replace them with real walls when possible.
   components:
   - type: Sprite
     sprite: Objects/Weapons/Grenades/metalfoam.rsi
   - type: SmokeOnTrigger
-    duration: 10
-    spreadAmount: 13
+    duration: 2
+    spreadAmount: 5
     smokePrototype: AluminiumMetalFoam
+  - type: OnUseTimerTrigger
+    delay: 1.5
   - type: StaticPrice
     price: 350
 

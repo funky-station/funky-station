@@ -1,4 +1,6 @@
 # SPDX-FileCopyrightText: 2025 Binbag <124107163+Binbagg@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Dragon232347 <122056448+Dragon232347@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 ThatOneMoon <91613003+ThatOneMoon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
@@ -9,4 +11,11 @@
   name: carp scale
   icon: { sprite: _Funkystation/Objects/Materials/Mob/carpscale.rsi, state: scale}
   spawn: MaterialCarpScale1
+  maxCount: 30
+
+- type: stack
+  id: ChangelingResin
+  name: resin
+  icon: { sprite: Resources\Textures\Objects\Consumable\Food\meat.rsi, state: clump} #placeholder
+  spawn: ChangelingResin1
   maxCount: 30

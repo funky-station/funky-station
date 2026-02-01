@@ -1,0 +1,109 @@
+# SPDX-FileCopyrightText: 2025 Fr0goo <frogoofrog@outlook.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+# gaint mass of diffrent colors of the jumpsuits and jumpskirt
+
+# White
+- type: loadout
+  id: WhiteJumpsuit
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitColorWhite
+  groupBy: "colorjumpsuit"
+
+- type: loadout
+  id: WhiteJumpskirt
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtColorWhite
+  groupBy: "colorjumpskirt"
+
+# Black
+- type: loadout
+  id: BlackJumpsuit
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitColorBlack
+  groupBy: "colorjumpsuit"
+
+- type: loadout
+  id: BlackJumpskirt
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtColorBlack
+  groupBy: "colorjumpskirt"
+
+# Blue
+- type: loadout
+  id: BlueJumpsuit
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitColorBlue
+  groupBy: "colorjumpsuit"
+
+- type: loadout
+  id: BlueJumpskirt
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtColorBlue
+  groupBy: "colorjumpskirt"
+
+# Green
+- type: loadout
+  id: GreenJumpsuit
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitColorGreen
+  groupBy: "colorjumpsuit"
+
+- type: loadout
+  id: GreenJumpskirt
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtColorGreen
+  groupBy: "colorjumpskirt"
+
+# Yellow
+- type: loadout
+  id: YellowJumpsuit
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitColorYellow
+  groupBy: "colorjumpsuit"
+
+- type: loadout
+  id: YellowJumpskirt
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtColorYellow
+  groupBy: "colorjumpskirt"
+
+# Orange
+- type: loadout
+  id: OrangeJumpsuit
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitColorOrange
+  groupBy: "colorjumpsuit"
+
+- type: loadout
+  id: OrangeJumpskirt
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtColorOrange
+  groupBy: "colorjumpskirt"
+
+# Red
+
+- type: loadout
+  id: RedJumpsuit
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitColorRed
+  groupBy: "colorjumpsuit"
+- type: loadout
+  id: RedJumpskirt
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtColorRed
+  groupBy: "colorjumpskirt"
+
+# Pink
+- type: loadout
+  id: PinkJumpsuit
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitColorPink
+  groupBy: "colorjumpsuit"
+
+- type: loadout
+  id: PinkJumpskirt
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtColorPink
+  groupBy: "colorjumpskirt"

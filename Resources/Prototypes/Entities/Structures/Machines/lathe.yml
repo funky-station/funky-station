@@ -209,6 +209,7 @@
 # SPDX-FileCopyrightText: 2026 ThatOneMoon <91613003+ThatOneMoon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2026 W.xyz() <tptechteam@gmail.com>
 # SPDX-FileCopyrightText: 2026 Xcybitt <197952719+Xcybitt@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2026 rotty <juaelwe@outlook.com>
 # SPDX-FileCopyrightText: 2026 w.xyz() <84605679+pirakaplant@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
@@ -936,8 +937,9 @@
     - ThermomachineAdvancedFreezerMachineCircuitBoard # Assmos
     - MusicTechFabCircuitboard # Funky Station
     - ElectrolyzerMachineCircuitboard # Assmos - /tg/ gases
-    - NuclearFabricatorMachineCircuitboard
-    - NuclearCentrifugeMachineCircuitboard
+    - NuclearFabricatorMachineCircuitboard #FH
+    - NuclearCentrifugeMachineCircuitboard #FH
+    - NuclearReactorMonitorComputerCircuitboard #FH
 
   - type: EmagLatheRecipes
     emagDynamicRecipes:

@@ -7602,3 +7602,13 @@ Entries:
       message: Removed the old atmos spawners and replaced them with engineer spawners
   id: 879
   time: '2026-01-30T10:19:50.0000000+00:00'
+- author: Huhm-1
+  changes:
+    - type: Add
+      message: Added Packed to the map pool
+    - type: Remove
+      message: Removed Amber from the map pool
+    - type: Remove
+      message: Removed Gax from the map pool
+  id: 880
+  time: '2026-01-30T20:17:13.0000000+00:00'

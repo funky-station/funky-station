@@ -120,6 +120,17 @@
         flatReductions:
           Blunt: 1
           Slash: 1
+    - type: MeleeWeapon
+      wideAnimationRotation: -135
+      damage:
+        types:
+          Blunt: 8
+      soundHit:
+        path: "/Audio/Weapons/smash.ogg"
+      attackRate: 0.5
+    - type: MeleeThrowOnHit
+      speed: 10
+      distance: 2
 
 - type: entity
   name: laser shield
@@ -140,6 +151,17 @@
           Heat: 0.5
         flatReductions:
           Heat: 1
+    - type: MeleeWeapon
+      wideAnimationRotation: -135
+      damage:
+        types:
+          Blunt: 8
+      soundHit:
+        path: "/Audio/Weapons/smash.ogg"
+      attackRate: 0.5
+    - type: MeleeThrowOnHit
+      speed: 10
+      distance: 2
 
 - type: entity
   name: ballistic shield
@@ -161,6 +183,17 @@
           Piercing: 0.5
         flatReductions:
           Piercing: 1
+    - type: MeleeWeapon
+      wideAnimationRotation: -135
+      damage:
+        types:
+          Blunt: 8
+      soundHit:
+        path: "/Audio/Weapons/smash.ogg"
+      attackRate: 0.5
+    - type: MeleeThrowOnHit
+      speed: 10
+      distance: 2
 
 #Craftable shields
 

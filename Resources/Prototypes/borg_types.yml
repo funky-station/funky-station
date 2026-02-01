@@ -67,6 +67,7 @@
   - BorgModuleTool
   - BorgModuleConstruction
   - BorgModuleRCD
+  - BorgModuleAtmos
   - BorgModuleCable
 
   radioChannels:

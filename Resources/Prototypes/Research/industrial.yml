@@ -202,7 +202,6 @@
     - PowerDrill
     - JawsOfLife
     - BorgModuleAdvancedTool
-    - BorgModuleAtmos
 
 - type: technology
   id: MassExcavation

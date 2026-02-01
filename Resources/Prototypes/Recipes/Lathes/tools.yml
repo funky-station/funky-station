@@ -226,6 +226,24 @@
 
 - type: latheRecipe
   parent: BaseToolRecipe
+  id: WelderIndustrial
+  result: WelderIndustrial
+  completetime: 6
+  materials:
+    Steel: 800
+
+- type: latheRecipe
+  parent: BaseToolRecipe
+  id: WelderIndustrialAdvanced
+  result: WelderIndustrialAdvanced
+  completetime: 6
+  materials:
+    Steel: 800
+    Glass: 200
+    Plastic: 200
+
+- type: latheRecipe
+  parent: BaseToolRecipe
   id: WelderExperimental
   result: WelderExperimental
   completetime: 6

@@ -79,7 +79,9 @@ loadout-group-bartender-head = Bartender head
 loadout-group-bartender-jumpsuit = Bartender jumpsuit
 loadout-group-bartender-outerclothing = Bartender outer clothing
 
+loadout-group-generic-hats = Hats
 loadout-group-service_jumpsuit = Service jumpsuit
+loadout-group-gloves = Gloves
 loadout-group-generic-shoes = Shoes
 
 loadout-group-chef-head = Chef head
@@ -216,6 +218,7 @@ loadout-group-security-outerclothing = Security outer clothing
 loadout-group-security-gloves = Security gloves
 loadout-group-security-shoes = Security shoes
 loadout-group-security-id = Security ID
+loadout-group-security-weapon = Security Weapon
 
 loadout-group-detective-head = Detective head
 loadout-group-detective-neck = Detective neck

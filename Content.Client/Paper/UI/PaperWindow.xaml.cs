@@ -19,6 +19,7 @@
 // SPDX-FileCopyrightText: 2025 jackel234 <52829582+jackel234@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 pathetic meowmeow <uhhadd@gmail.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2026 TrixxedHeart <46364955+TrixxedBit@users.noreply.github.com>
 //
 // SPDX-License-Identifier: MIT
 
@@ -300,9 +301,14 @@ namespace Content.Client.Paper.UI
                 Input.InsertAtCursor(state.Text);
             }
 
-            for (var i = 0; i <= state.StampedBy.Count * 3 + 1; i++)
+            // Add spacing for stamps at the bottom.
+            // _Funkystation: Adjusted to make it so new stamps don't just keep adding lines when we've already made room for stamps.
+            if (state.StampedBy.Count > 0)
             {
-                msg.AddMarkupPermissive("\r\n");
+                for (var i = 0; i < 5; i++)
+                {
+                    msg.AddMarkupPermissive("\r\n");
+                }
             }
             WrittenTextLabel.SetMessage(msg, _allowedTags, DefaultTextColor);
 

@@ -153,7 +153,16 @@ public abstract class SharedTurbineSystem : EntitySystem
         audioStream = stream?.Entity is { } entity ? entity : null;
     }
 
-    protected static void AdjustStatorLoad(TurbineComponent turbine, float change) => turbine.StatorLoad = Math.Clamp(turbine.StatorLoad + change, 1000f, 500000f);
+    protected static bool AdjustStatorLoad(TurbineComponent turbine, float change)
+    { 
+        var newSet = Math.Clamp(turbine.StatorLoad + change, 1000f, turbine.StatorLoadMax);
+        if (turbine.StatorLoad != newSet)
+        {
+            turbine.StatorLoad = newSet;
+            return true;
+        }
+        return false; 
+    }
 
     #region User Interface
     private void OnTurbineFlowRateChanged(EntityUid uid, TurbineComponent turbine, TurbineChangeFlowRateMessage args)
@@ -167,7 +176,7 @@ public abstract class SharedTurbineSystem : EntitySystem
 
     private void OnTurbineStatorLoadChanged(EntityUid uid, TurbineComponent turbine, TurbineChangeStatorLoadMessage args)
     {
-        turbine.StatorLoad = Math.Clamp(args.StatorLoad, 1000f, 500000f);
+        turbine.StatorLoad = Math.Clamp(args.StatorLoad, 1000f, turbine.StatorLoadMax);
         Dirty(uid, turbine);
         UpdateUI(uid, turbine);
         _adminLogger.Add(LogType.AtmosDeviceSetting, LogImpact.Medium,

@@ -33,6 +33,8 @@ ghost-gui-toggle-self-ghost-visibility-popup-off = Disabled visibility of your g
 
 ghost-gui-toggle-other-ghosts-visibility-popup-on = Enabled visibility of other ghosts.
 ghost-gui-toggle-other-ghosts-visibility-popup-off = Disabled visibility of other ghosts.
+
+ghost-gui-centcomm-roles-button = CentComm Roles ({$count})
 #end Funkystation
 
 ghost-gui-toggle-lighting-manager-popup-normal = Lighting normal.

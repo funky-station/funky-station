@@ -13,8 +13,11 @@
         {
             "name": "stamp-magi"
         },
-	{
-	    "name": "stamp-borg"
-	}
+        {
+            "name": "stamp-borg"
+        },
+        {
+            "name": "stamp-cci"
+        }
     ]
 }

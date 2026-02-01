@@ -21,6 +21,22 @@
             ]
         },
         {
+            "name": "organ_burning",
+            "delays": [
+                [
+                    0.15,
+                    0.15,
+                    0.15,
+                    0.15,
+                    0.15,
+                    0.15
+                ]
+            ]
+        },
+        {
+            "name": "dead"
+        },
+        {
             "name": "zombietumor-inhand-right",
             "directions": 4
         },

@@ -6,6 +6,7 @@
 # SPDX-FileCopyrightText: 2024 TsjipTsjip <19798667+TsjipTsjip@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2026 Komoni <131829655+Komonighub@users.noreply.github.com>
 #
 # SPDX-License-Identifier: MIT
 
@@ -27,6 +28,6 @@ jobs:
       - name: Check for Merge Conflicts
         uses: eps1lon/actions-label-merge-conflict@v3.0.0
         with:
-          dirtyLabel: "S: Merge Conflict"
+          dirtyLabel: "Status: Merge Conflict"
           repoToken: "${{ secrets.GITHUB_TOKEN }}"
           commentOnDirty: "This pull request has conflicts, please resolve those before we can evaluate the pull request."

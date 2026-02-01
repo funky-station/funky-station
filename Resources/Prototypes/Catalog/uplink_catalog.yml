@@ -156,6 +156,8 @@
 # SPDX-FileCopyrightText: 2026 2DSiggy <siggymaxwell@gmail.com>
 # SPDX-FileCopyrightText: 2026 ALooseGoose <ALooseGoosey@gmail.com>
 # SPDX-FileCopyrightText: 2026 Minemoder5000 <minemoder50000@gmail.com>
+# SPDX-FileCopyrightText: 2026 Minemoder5000 <minemoder50000@gmail.com>
+# SPDX-FileCopyrightText: 2026 Xcybitt <197952719+Xcybitt@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -192,6 +194,17 @@
   productEntity: WeaponRevolverPythonAP
   cost:
     Telecrystal: 24 # goob - Originally was 65 TC but was not used due to high cost. and the same happened at 40 TC. +2 mags = 34 TC.
+  categories:
+  - UplinkWeaponry
+  saleLimit: 1 # WD EDIT
+
+- type: listing
+  id: UplinkRevolverPythonBundle
+  name: uplink-revolver-python-bundle-name
+  description: uplink-revolver-python-bundle-desc
+  productEntity: ClothingBackpackDuffelSyndicateFilledRevolver
+  cost:
+    Telecrystal: 34 # goob - Originally was 65 TC but was not used due to high cost. and the same happened at 40 TC. +2 mags = 34 TC.
   categories:
   - UplinkWeaponry
   saleLimit: 1 # WD EDIT
@@ -715,17 +728,17 @@
   saleBlacklist: true
 
 # For the Python
-- type: listing
-  id: UplinkSpeedLoaderMagnumAP
-  name: uplink-speedloader-magnum-name
-  description: uplink-speedloader-magnu-desc
-  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/SpeedLoaders/Magnum/magnum_speed_loader.rsi, state: icon }
-  productEntity: SpeedLoaderMagnumAP
-  cost:
-    Telecrystal: 10 # goob - AP, but only 6 bullets in speedloader
-  categories:
-  - UplinkAmmo
-  saleBlacklist: true
+#- type: listing   #kill, making you need to buy the bundle or a python for more ammo, this can easily be used for the rattler for a 1 second kill on god himself(probably unhealthy) or into the chaplain's NT gun.
+#  id: UplinkSpeedLoaderMagnumAP
+#  name: uplink-speedloader-magnum-name
+#  description: uplink-speedloader-magnu-desc
+#  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/SpeedLoaders/Magnum/magnum_speed_loader.rsi, state: icon }
+#  productEntity: SpeedLoaderMagnumAP
+#  cost:
+#    Telecrystal: 10 # goob - AP, but only 6 bullets in speedloader
+#  categories:
+#  - UplinkAmmo
+#  saleBlacklist: true
 
 # For the mosin
 - type: listing

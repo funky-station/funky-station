@@ -114,7 +114,7 @@
     impactEffect: BulletImpactEffectRedDisabler
     damage:
       types:
-        Blunt: 10
-        Heat: 35
+        Blunt: 5
+        Heat: 20
     soundHit:
       collection: MeatLaserImpact

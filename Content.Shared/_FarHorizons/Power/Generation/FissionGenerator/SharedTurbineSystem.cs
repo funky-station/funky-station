@@ -1,3 +1,4 @@
+// SPDX-FileCopyrightText: 2025 Kyle Tyo <36606155+VerinSenpai@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 jhrushbe <capnmerry@gmail.com>
 // SPDX-FileCopyrightText: 2025 rottenheadphones <juaelwe@outlook.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
@@ -42,7 +43,7 @@ public abstract class SharedTurbineSystem : EntitySystem
         SubscribeLocalEvent<TurbineComponent, TurbineChangeStatorLoadMessage>(OnTurbineStatorLoadChanged);
 
         SubscribeLocalEvent<TurbineComponent, InteractUsingEvent>(RepairTurbine);
-        SubscribeLocalEvent<TurbineComponent, SharedRepairableSystem.RepairFinishedEvent>(OnRepairTurbineFinished);
+        SubscribeLocalEvent<TurbineComponent, RepairFinishedEvent>(OnRepairTurbineFinished);
     }
 
     private void OnExamined(Entity<TurbineComponent> ent, ref ExaminedEvent args)
@@ -195,14 +196,14 @@ public abstract class SharedTurbineSystem : EntitySystem
         if (comp.BladeHealth >= comp.BladeHealthMax && !comp.Ruined)
             return;
 
-        args.Handled = _toolSystem.UseTool(args.Used, args.User, uid, comp.RepairDelay, comp.RepairTool, new SharedRepairableSystem.RepairFinishedEvent()
+        args.Handled = _toolSystem.UseTool(args.Used, args.User, uid, comp.RepairDelay, comp.RepairTool, new RepairFinishedEvent()
 , comp.RepairFuelCost);
     }
 
     //Gotta love server/client desync
     protected virtual void OnRepairTurbineFinished(
     Entity<TurbineComponent> ent, 
-    ref SharedRepairableSystem.RepairFinishedEvent args)
+    ref RepairFinishedEvent args)
     {
         if (args.Cancelled)
             return;

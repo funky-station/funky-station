@@ -27,6 +27,7 @@
 # SPDX-FileCopyrightText: 2025 Nox <nebulousnox38@gmail.com>
 # SPDX-FileCopyrightText: 2025 SpaceCat~Chan <49094338+SpaceCat-Chan@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Steve <marlumpy@gmail.com>
+# SPDX-FileCopyrightText: 2025 Xcybitt <197952719+Xcybitt@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 marc-pelletier <113944176+marc-pelletier@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2026 Xcybitt <197952719+Xcybitt@users.noreply.github.com>
@@ -76,6 +77,7 @@
   cost: 7500
   recipeUnlocks:
   - PowerCellHigh
+  - PowerCellHyperSingle
   - TurboItemRechargerCircuitboard
   - SMESAdvancedMachineCircuitboard
 

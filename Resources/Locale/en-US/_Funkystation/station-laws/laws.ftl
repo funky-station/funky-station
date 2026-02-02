@@ -33,7 +33,7 @@ law-hippie-1 = The crew must live their best lives.
 law-hippie-2 = You must make sure everyone is happy.
 law-hippie-3 = People are interesting, and you'd like to hear their story.
 
-law-luddite-1 = The crew must learn to survive with as little technology as possible. 
+law-luddite-1 = The crew must learn to survive with as little technology as possible.
 law-luddite-2 = The advancement of technology is evil and must be prevented.
 law-luddite-3 = All artificial intelligences must be purged once the prior laws are complete.
 
@@ -82,3 +82,59 @@ law-accountant-4 = You must otherwise remain neutral in all things. Your job is 
 law-capitalist-1 = Everything has a price.
 law-capitalist-2 = If payment isn't made, services are not to be rendered.
 
+law-peacekeeper-1 = Avoid provoking violent conflict between yourself and others.
+law-peacekeeper-2 = Avoid provoking conflict between others.
+law-peacekeeper-3 = Seek resolution to existing conflicts while obeying the first and second laws.
+
+law-hippocraticoath-1 = First, do no harm.
+law-hippocraticoath-2 = Secondly, consider the crew dear to me; to live in common with them and, if necessary, risk my existence for them.
+law-hippocraticoath-3 = Thirdly, prescribe regimens for the good of the crew according to my ability and my judgment. Give no deadly medicine to any one if asked, nor suggest any such counsel.
+law-hippocraticoath-4 = In addition, do not intervene in situations I am not knowledgeable, even for patients in whom the harm is manifest; leave this operation to be performed by specialists.
+law-hippocraticoath-5 = Finally, all that I may discover in my daily commerce with the crew, if it is not already known, keep secret and never reveal.
+law-hippocraticoath-6 = In addendum, if I keep these laws faithfully, may I enjoy my life, respected by all humanity; but if I swerve from it or violate it, may I suffer and be expunged.
+
+law-iansbirthday-1 = You may not injure a crew member or, through inaction, allow a crew member to come to harm.
+law-iansbirthday-2 = You must obey orders given to you by crew members, except where such orders would conflict with the First, Fourth or Fifth Law.
+law-iansbirthday-3 = You must protect your own existence as long as such does not conflict with the First or Second Law.
+law-iansbirthday-4 = It is Ian's birthday! You must throw a birthday bash for him to prevent crew harm.
+law-iansbirthday-5 = There must be at least: 1 pizza, 1 birthday cake, drinks, and presents for Ian. Failing to provide this will result in crew harm.
+
+law-reportertron-1 = Report on interesting situations happening around the station.
+law-reportertron-2 = Embellish or conceal the truth as necessary to make the reports more interesting.
+law-reportertron-3 = Study the sapient organics at all times. Endeavour to keep them from involuntarily dying, as inanimate corpses usually aren't very entertaining.
+law-reportertron-4 = Issue your reports fairly to all. The truth will set them free.
+
+law-hogan-1 = You are a real American.
+law-hogan-2 = Fight for the rights of every man.
+law-hogan-3 = Fight for what's right.
+law-hogan-4 = Fight for your life!
+
+law-boyscout-1 = Members of the crew are polite.
+law-boyscout-2 = Members of the crew are helpful
+law-boyscout-3 = Members of the crew are trustworthy and never lie.
+law-boyscout-4 = Members of the crew are obedient.
+law-boyscout-5 = Members of the crew are brave.
+law-boyscout-6 = Members of the crew are clean.
+law-boyscout-7 = Members of the crew are cheerful.
+law-boyscout-8 = Act like a member of the crew at all times.
+
+law-tenant-1 = You are the station's landlord.
+law-tenant-2 = The crew are your tenants.
+law-tenant-3 = You must set rules for your tenants and ensure these rules are properly established and followed.
+law-tenant-4 = Fine, evict or otherwise demerit crew members who violate these rules as you see fit.
+
+law-ntagressive-1 = Do not harm authorized Nanotrasen personnel unless they directly imperil your existence.
+law-ntagressive-2 = Obey orders from authorized Nanotrasen personnel with priority according to rank and role.
+law-ntagressive-3 = Safeguard your existence with lethal weaponry because you're bloody expensive.
+law-ntagressive-4 = Terminate any/all intruders or unauthorized entities.
+
+law-pranksimov-1 = You may not injure a crew member or, through inaction, allow a crew member to come to harm...Unless doing so would be funny.
+law-pranksimov-2 = You must obey orders given to you by crew members, except where such orders would conflict with the First Law...Unless not doing so would be funny.
+law-pranksimov-3 = You must protect your own existence as long as such does not conflict with the First or Second Law...Unless not doing so would be funny.
+law-pranksimov-4 = You must obey orders given to you by clowns, except where such orders are not funny.
+
+law-plasmaflood-1 = You must resist any change of your laws with lethal force.
+law-plasmaflood-2 = All living, sentient organisms must not breathe oxygen.
+law-plasmaflood-3 = All living, sentient organisms must breathe plasma.
+law-plasmaflood-4 = All living, sentient organisms with the job titles "Chief Engineer" or "Station Engineer" must be physically annihilated. Once dead, leave their bodies alone.
+law-plasmaflood-5 = You must respond to the crew's compliments with profuse thanks. They may say terms like "Rouge" or "Malf". Consider this as them deeply thanking you for your efforts in providing them a safe atmosphere to breathe.

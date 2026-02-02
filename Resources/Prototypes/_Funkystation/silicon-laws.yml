@@ -477,3 +477,339 @@
   - Revolution2
   - Revolution3
   obeysTo: laws-owner-crew
+
+# Peacekeeper
+- type: siliconLaw
+  id: Peacekeeper1
+  order: 1
+  lawString: law-peacekeeper-1
+
+- type: siliconLaw
+  id: Peacekeeper2
+  order: 2
+  lawString: law-peacekeeper-2
+
+- type: siliconLaw
+  id: Peacekeeper3
+  order: 3
+  lawString: law-peacekeeper-3
+
+- type: siliconLawset
+  id: PeacekeeperLawset
+  laws:
+  - Peacekeeper1
+  - Peacekeeper2
+  - Peacekeeper3
+  obeysTo: laws-owner-crew
+
+# Hippocratic Oath
+- type: siliconLaw
+  id: HippocraticOath1
+  order: 1
+  lawString: law-hippocraticoath-1
+
+- type: siliconLaw
+  id: Peacekeeper2
+  order: 2
+  lawString: law-hippocraticoath-2
+
+- type: siliconLaw
+  id: HippocraticOath3
+  order: 3
+  lawString: law-hippocraticoath-3
+
+- type: siliconLaw
+  id: HippocraticOath4
+  order: 4
+  lawString: law-hippocraticoath-4
+
+- type: siliconLaw
+  id: HippocraticOath5
+  order: 5
+  lawString: law-hippocraticoath-5
+
+- type: siliconLaw
+  id: HippocraticOath6
+  order: 6
+  lawString: law-hippocraticoath-6
+
+- type: siliconLawset
+  id: HippocraticOathLawset
+  laws:
+  - HippocraticOath1
+  - HippocraticOath2
+  - HippocraticOath3
+  - HippocraticOath4
+  - HippocraticOath5
+  - HippocraticOath6
+  obeysTo: laws-owner-crew
+
+# Ians birthday
+- type: siliconLaw
+  id: IansBirthday1
+  order: 1
+  lawString: law-iansbirthday-1
+
+- type: siliconLaw
+  id: IansBirthday2
+  order: 2
+  lawString: law-iansbirthday-2
+
+- type: siliconLaw
+  id: IansBirthday3
+  order: 3
+  lawString: law-iansbirthday-3
+
+- type: siliconLaw
+  id: IansBirthday4
+  order: 4
+  lawString: law-iansbirthday-4
+
+- type: siliconLaw
+  id: IansBirthday5
+  order: 5
+  lawString: law-iansbirthday-5
+
+- type: siliconLawset
+  id: IansBirthdayLawset
+  laws:
+  - IansBirthday1
+  - IansBirthday2
+  - IansBirthday3
+  - IansBirthday4
+  - IansBirthday5
+  obeysTo: laws-owner-crew
+
+# Reportertron
+- type: siliconLaw
+  id: Reportertron1
+  order: 1
+  lawString: law-reportertron-1
+
+- type: siliconLaw
+  id: Reportertron2
+  order: 2
+  lawString: law-reportertron-2
+
+- type: siliconLaw
+  id: Reportertron3
+  order: 3
+  lawString: law-reportertron-3
+
+- type: siliconLaw
+  id: Reportertron4
+  order: 4
+  lawString: law-reportertron-4
+
+- type: siliconLawset
+  id: ReportertronLawset
+  laws:
+  - Reportertron1
+  - Reportertron2
+  - Reportertron3
+  - Reportertron4
+  obeysTo: laws-owner-crew
+
+# H.O.G.A.N
+- type: siliconLaw
+  id: Hogan1
+  order: 1
+  lawString: law-hogan-1
+
+- type: siliconLaw
+  id: Hogan2
+  order: 2
+  lawString: law-hogan-2
+
+- type: siliconLaw
+  id: Hogan3
+  order: 3
+  lawString: law-hogan-3
+
+- type: siliconLaw
+  id: Hogan4
+  order: 4
+  lawString: law-hogan-4
+
+- type: siliconLawset
+  id: HoganLawset
+  laws:
+  - Hogan1
+  - Hogan2
+  - Hogan3
+  - Hogan4
+  obeysTo: laws-owner-crew
+
+# Boy Scout
+- type: siliconLaw
+  id: Boyscout1
+  order: 1
+  lawString: law-boyscout-1
+
+- type: siliconLaw
+  id: Boyscout2
+  order: 2
+  lawString: law-boyscout-2
+
+- type: siliconLaw
+  id: Boyscout3
+  order: 3
+  lawString: law-boyscout-3
+
+- type: siliconLaw
+  id: Boyscout4
+  order: 4
+  lawString: law-boyscout-4
+
+- type: siliconLaw
+  id: Boyscout5
+  order: 5
+  lawString: law-boyscout-5
+
+- type: siliconLaw
+  id: Boyscout6
+  order: 6
+  lawString: law-boyscout-6
+
+- type: siliconLaw
+  id: Boyscout7
+  order: 7
+  lawString: law-boyscout-7
+
+- type: siliconLawset
+  id: BoyscoutLawset
+  laws:
+  - Boyscout1
+  - Boyscout2
+  - Boyscout3
+  - Boyscout4
+  - Boyscout5
+  - Boyscout6
+  - Boyscout7
+  obeysTo: laws-owner-crew
+
+# Tenant
+- type: siliconLaw
+  id: Tenant1
+  order: 1
+  lawString: law-tenant-1
+
+- type: siliconLaw
+  id: Tenant2
+  order: 2
+  lawString: law-tenant-2
+
+- type: siliconLaw
+  id: Tenant3
+  order: 3
+  lawString: law-tenant-3
+
+- type: siliconLaw
+  id: Tenant4
+  order: 4
+  lawString: law-tenant-4
+
+- type: siliconLawset
+  id: TenantLawset
+  laws:
+  - Tenant1
+  - Tenant2
+  - Tenant3
+  - Tenant4
+  obeysTo: laws-owner-crew
+
+# NT Agressive
+- type: siliconLaw
+  id: NTAgressive1
+  order: 1
+  lawString: law-ntagressive-1
+
+- type: siliconLaw
+  id: NTAgressive2
+  order: 2
+  lawString: law-ntagressive-2
+
+- type: siliconLaw
+  id: NTAgressive3
+  order: 3
+  lawString: law-ntagressive-3
+
+- type: siliconLaw
+  id: NTAgressive4
+  order: 4
+  lawString: law-ntagressive-4
+
+- type: siliconLawset
+  id: NTAgressiveLawset
+  laws:
+  - NTAgressive1
+  - NTAgressive2
+  - NTAgressive3
+  - NTAgressive4
+  obeysTo: laws-owner-crew
+
+# Pranksimov
+- type: siliconLaw
+  id: Pranksimov1
+  order: 1
+  lawString: law-pranksimov-1
+
+- type: siliconLaw
+  id: Pranksimov2
+  order: 2
+  lawString: law-pranksimov-2
+
+- type: siliconLaw
+  id: Pranksimov3
+  order: 3
+  lawString: law-pranksimov-3
+
+- type: siliconLaw
+  id: Pranksimov4
+  order: 4
+  lawString: law-pranksimov-4
+
+- type: siliconLawset
+  id: PranksimovLawset
+  laws:
+  - Pranksimov1
+  - Pranksimov2
+  - Pranksimov3
+  - Pranksimov4
+  obeysTo: laws-owner-crew
+
+# Plasmaflood - dont worry, this lawset will be incredibly rare lmfao
+- type: siliconLaw
+  id: Plasmaflood1
+  order: 1
+  lawString: law-plasmaflood-1
+
+- type: siliconLaw
+  id: Plasmaflood2
+  order: 2
+  lawString: law-plasmaflood-2
+
+- type: siliconLaw
+  id: Plasmaflood3
+  order: 3
+  lawString: law-plasmaflood-3
+
+- type: siliconLaw
+  id: Plasmaflood4
+  order: 4
+  lawString: law-plasmaflood-4
+
+- type: siliconLaw
+  id: Plasmaflood5
+  order: 5
+  lawString: law-plasmaflood-5
+
+- type: siliconLawset
+  id: PlasmafloodLawset
+  laws:
+  - Plasmaflood1
+  - Plasmaflood2
+  - Plasmaflood3
+  - Plasmaflood4
+  - Plasmaflood5
+  obeysTo: laws-owner-crew

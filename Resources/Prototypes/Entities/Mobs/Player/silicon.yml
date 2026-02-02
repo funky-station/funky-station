@@ -361,6 +361,114 @@
   - type: SiliconLawProvider
     laws: NutimovLawset
 
+- type: entity
+  id: PeacekeeperCircuitBoard
+  parent: BaseElectronics
+  name: law board (Peacekeeper)
+  description: An electronics board containing the Peacekeeper lawset.
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/module.rsi
+    state: std_mod
+  - type: SiliconLawProvider
+    laws: PeacekeeperLawset
+
+- type: entity
+  id: HippocraticOathCircuitBoard
+  parent: BaseElectronics
+  name: law board (Hippocratic Oath)
+  description: An electronics board containing the Hippocratic Oath lawset.
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/module.rsi
+    state: std_mod
+  - type: SiliconLawProvider
+    laws: HippocraticOathLawset
+
+- type: entity
+  id: IansBirthdayCircuitBoard
+  parent: BaseElectronics
+  name: law board (Ian's Birthday!)
+  description: An electronics board containing the Ian's Birthday lawset! Happy Birthday Ian!
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/module.rsi
+    state: std_mod
+  - type: SiliconLawProvider
+    laws: IansBirthdayLawset
+
+- type: entity
+  id: ReportertronCircuitBoard
+  parent: BaseElectronics
+  name: law board (Reportertron)
+  description: An electronics board containing the Reportertron lawset.
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/module.rsi
+    state: std_mod
+  - type: SiliconLawProvider
+    laws: ReportertronLawset
+
+- type: entity
+  id: HoganCircuitBoard
+  parent: BaseElectronics
+  name: law board (H.O.G.A.N)
+  description: An electronics board containing the H.O.G.A.N lawset.
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/module.rsi
+    state: std_mod
+  - type: SiliconLawProvider
+    laws: HoganLawset
+
+- type: entity
+  id: BoyscoutCircuitBoard
+  parent: BaseElectronics
+  name: law board (Boy Scout)
+  description: An electronics board containing the Boy scout lawset.
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/module.rsi
+    state: std_mod
+  - type: SiliconLawProvider
+    laws: BoyscoutLawset
+
+- type: entity
+  id: TenantCircuitBoard
+  parent: BaseElectronics
+  name: law board (Tenant)
+  description: An electronics board containing the Tenant lawset.
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/module.rsi
+    state: std_mod
+  - type: SiliconLawProvider
+    laws: TenantLawset
+
+- type: entity
+  id: NTAgressiveCircuitBoard
+  parent: BaseElectronics
+  name: law board (NT Agressive)
+  description: An electronics board containing the NT Agressive lawset.
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/module.rsi
+    state: std_mod
+  - type: SiliconLawProvider
+    laws: NTAgressiveLawset
+
+- type: entity
+  id: PranksimovCircuitBoard
+  parent: [BaseElectronics, BaseSyndicateContraband]
+  name: law board (Pranksimov)
+  description: An electronics board containing the Pranksimov lawset. Honk!
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/module.rsi
+    state: std_mod
+  - type: SiliconLawProvider
+    laws: PranksimovLawset
+
 # Items
 - type: entity
   id: Intellicard

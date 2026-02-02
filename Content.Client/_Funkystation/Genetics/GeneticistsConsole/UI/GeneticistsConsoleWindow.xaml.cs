@@ -19,7 +19,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.Manager.Exceptions;
 using Robust.Shared.Timing;
 
-namespace Content.Client._Funkystation.Genetics.DnaScannerConsole.UI;
+namespace Content.Client._Funkystation.Genetics.GeneticistsConsole.UI;
 
 [GenerateTypedNameReferences]
 public sealed partial class GeneticistsConsoleWindow : FancyWindow

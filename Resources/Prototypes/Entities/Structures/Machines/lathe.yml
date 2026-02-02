@@ -854,7 +854,7 @@
     - OperatingTableCircuitboard # Shitmed Change
     - BorgChargerCircuitboard
     - ThermomachineFreezerMachineCircuitBoard # Assmos - Moved to staticRecipes from dynamicRecipes
-    - DnaScannerConsoleComputerCircuitboard # Funkystation - Genetics
+    - GeneticistsConsoleComputerCircuitboard # Funkystation - Genetics
     dynamicRecipes:
     - HellfireFreezerMachineCircuitBoard
     - PortableScrubberMachineCircuitBoard

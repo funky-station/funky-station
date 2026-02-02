@@ -40,5 +40,5 @@ uplink-echioncell-desc = A special power cell made with Echion. While not the mo
 uplink-mixed-rejects-name = Dan's Soaked Smokes Rejects
 uplink-mixed-rejects-desc = Dan worked with Interdyne chemistry to dispose of excess chemicals, ENJOY CAUTIOUSLY.
 
-uplink-mixed-rejects-carton-name = Dan's Soaked Smokes Rejects Carton
-uplink-mixed-rejects-carton-desc = A carton containing 6 packets of Dan's Soaked Smokes: Rejects, plus an exclusive Syndicate-branded flippo.
+uplink-taipan-name = Taipan bundle
+uplink-taipan-desc = One "Taipan" Echion crossbow, bundled with a canister of its proprietary liquid ammo.

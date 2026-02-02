@@ -1,11 +1,11 @@
 - type: entity
-  name: Adder
-  parent: [BaseItem, BaseSecurityContraband]
+  name: Jackal # Funky change, rename from the Adder into the Jackal
+  parent: [BaseWeaponEchion, BaseSecurityContraband]
   id: WeaponPlasmaAdder
   description: The future of stellar warfare in the palm of your hand. Uses Echion, produced from advanced synthesizers.
   components:
   - type: Sprite
-    sprite: _Impstation/Objects/Weapons/Guns/Special/adder.rsi
+    sprite: _Impstation/Objects/Weapons/Guns/FuelGuns/adder.rsi
     layers:
       - state: base
         map: ["enum.GunVisualLayers.Base"]
@@ -13,7 +13,7 @@
         map: ["enum.GunVisualLayers.MagUnshaded"]
         shader: unshaded
   - type: Clothing
-    sprite: _Impstation/Objects/Weapons/Guns/Special/adder.rsi
+    sprite: _Impstation/Objects/Weapons/Guns/FuelGuns/adder.rsi
     quickEquip: false
     slots:
       - backStorage
@@ -25,7 +25,7 @@
     steps: 5
     zeroVisible: true
   - type: Item
-    sprite: _Impstation/Objects/Weapons/Guns/Special/adder.rsi
+    sprite: _Impstation/Objects/Weapons/Guns/FuelGuns/adder.rsi
     size: Small
     shape:
     - 0,0,1,1
@@ -82,13 +82,13 @@
         Blunt: 5
 
 - type: entity
-  name: Akurra
-  parent: [WeaponPlasmaAdder, BaseGunWieldable]
+  name: Medina # Funky change, rename from the Akurra into the Medina
+  parent: [BaseWeaponEchion, BaseGunWieldable]
   id: WeaponPlasmaAkurra
   description: A beautiful marriage of technology and malice in a single package. Uses Echion, produced from advanced synthesizers.
   components:
   - type: Sprite
-    sprite: _Impstation/Objects/Weapons/Guns/Special/akurra.rsi
+    sprite: _Impstation/Objects/Weapons/Guns/FuelGuns/akurra.rsi
     layers:
       - state: base
         map: ["enum.GunVisualLayers.Base"]
@@ -160,3 +160,55 @@
   - type: MeleeThrowOnHit
     distance: 0.8
     speed: 5
+
+- type: entity
+  name: Taipan
+  parent: [BaseWeaponEchion, BaseMajorContraband]
+  id: WeaponEnergyCrossbow
+  description: An experimental crossbow that launches shards of crystalized Echion, poisoning its targets and making them more volatile to combustables.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Weapons/Guns/FuelGuns/energy_crossbow.rsi
+    state: icon
+  - type: Item
+    sprite: _Impstation/Objects/Weapons/Guns/FuelGuns/energy_crossbow.rsi
+    size: Small
+  - type: Clothing
+    sprite: _Impstation/Objects/Weapons/Guns/FuelGuns/energy_crossbow.rsi
+    quickEquip: false
+    slots:
+      - backStorage
+      - Belt
+  - type: Gun
+    fireRate: 1
+    selectedMode: SemiAuto
+    minAngle: 0
+    maxAngle: 5
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/energycrossbow_shoot.ogg
+  - type: SolutionContainerManager
+    solutions:
+      chamber:
+        reagents:
+        - ReagentId: Echion
+          Quantity: 37.5
+        maxVol: 37.5 #3 shots
+  - type: SolutionAmmoProvider
+    solutionId: chamber
+    proto: EnergyCrossbowBolt
+    fireCost: 12.5
+  - type: Appearance
+  - type: Tag
+    tags:
+    - EchionGun
+    - Sidearm
+  - type: StaticPrice
+    price: 2500
+  - type: GenericVisualizer
+    visuals:
+      enum.AmmoVisuals.HasAmmo:
+        empty-icon:
+          True: { visible: False }
+          False: { visible: True }

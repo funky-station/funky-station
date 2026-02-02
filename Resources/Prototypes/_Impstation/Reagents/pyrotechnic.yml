@@ -20,8 +20,10 @@
       - !type:HealthChange
         damage:
           types:
-            Poison: 1
-            Heat: 1
-            Radiation: 3
-      - !type:FlammableReaction
-        multiplier: 0.3
+            Poison: 0.7
+            Radiation: 0.5
+      - !type:MovespeedModifier
+        walkSpeedModifier: 0.7
+        sprintSpeedModifier: 0.7
+#      - !type:Flammable
+#        multiplier: 0.17

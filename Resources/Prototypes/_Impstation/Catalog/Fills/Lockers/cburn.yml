@@ -1,6 +1,6 @@
-- type: entity
-  id: LockerCBURNFilled
-  suffix: Filled
+ - type: entity
+ id: LockerCBURNFilled
+ suffix: Filled
   parent: LockerCBURN
   components:
   - type: StorageFill

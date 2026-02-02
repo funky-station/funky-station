@@ -47,19 +47,20 @@
       - state: syndicaterocketbox
 
 - type: entity
-  parent: [BoxCardboard, BaseSecurityContraband]
-  id: AdderBox
-  name: Adder bundle box
-  description: A state-of-the-art plasma pistol, bundled with 2 canisters of its proprietary fuel.
+  parent: [BoxCardboard, BaseSyndicateContraband]
+  id: TaipanBox
+  name: Taipan bundle box
+  description: An Echion Crossbow, bundled with 1 canister of its proprietary fuel.
   components:
   - type: Storage
     grid:
     - 0,0,3,1
-  - type: StorageFill
-    contents:
-      - id: WeaponPlasmaAdder
-      - id: EchionCanister
-        amount: 2
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: WeaponEnergyCrossbow
+        - id: EchionCanister
   - type: Sprite
     sprite: /Textures/_Impstation/Objects/Storage/boxes.rsi
     layers:

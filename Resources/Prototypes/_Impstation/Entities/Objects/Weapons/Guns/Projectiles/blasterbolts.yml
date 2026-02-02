@@ -37,3 +37,38 @@
       types:
         Heat: 7.5
         Piercing: 7.5
+
+- type: entity
+  parent: BaseBullet
+  id: EnergyCrossbowBolt
+  categories: [ HideSpawnMenu ]
+  name: energy bolt
+  description: This'll hurt.
+  components:
+  - type: Reflective
+    reflective:
+    - NonEnergy
+  - type: Ammo
+    muzzleFlash: null
+  - type: Sprite
+    sprite: _Funkystation/Objects/Weapons/Projectiles/energybolts.rsi
+    layers:
+    - state: syndcrossbolt
+      shader: unshaded
+  - type: Projectile
+    damage:
+      types:
+        Heat: 1
+        Piercing: 2
+  - type: StaminaDamageOnCollide
+    damage: 10
+  - type: SolutionContainerManager
+    solutions:
+      bolt:
+        maxVol: 5
+        reagents:
+        - ReagentId: Echion
+          Quantity: 5
+  - type: SolutionInjectOnProjectileHit
+    transferAmount: 5
+    solution: bolt

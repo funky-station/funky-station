@@ -1,11 +1,11 @@
 - type: entity
   name: FG13 Xiuhcoatl
-  parent: [WeaponPlasmaAdder, BaseGunWieldable]
+  parent: [BaseWeaponFlamer, BaseGunWieldable, BaseSyndicateContraband]
   id: WeaponFlamerXiuhcoatl
   description: Simple as it is deadly, the Xiuhcoatl fulfills a long-standing craving of the Gorlex Marauders for Nanotrasen Barbeque. Uses welding fuel.
   components:
   - type: Sprite
-    sprite: _Impstation/Objects/Weapons/Guns/Special/xiuhcoatl.rsi
+    sprite: _Impstation/Objects/Weapons/Guns/FuelGuns/xiuhcoatl.rsi
     layers:
       - state: base
         map: ["enum.GunVisualLayers.Base"]
@@ -13,7 +13,7 @@
         map: ["enum.GunVisualLayers.MagUnshaded"]
         shader: unshaded
   - type: Clothing
-    sprite: _Impstation/Objects/Weapons/Guns/Special/xiuhcoatl.rsi
+    sprite: _Impstation/Objects/Weapons/Guns/FuelGuns/xiuhcoatl.rsi
     quickEquip: false
     slots:
       - backStorage
@@ -21,7 +21,7 @@
   - type: Appearance
   - type: AmmoCounter
   - type: Item
-    sprite: _Impstation/Objects/Weapons/Guns/Special/xiuhcoatl.rsi
+    sprite: _Impstation/Objects/Weapons/Guns/FuelGuns/xiuhcoatl.rsi
     size: Ginormous
   - type: GunRequiresWield
   - type: Gun
@@ -80,12 +80,12 @@
 
 - type: entity
   name: FG10 Olympus
-  parent: [BaseItem, BaseGunWieldable]
+  parent: BaseWeaponFlamer
   id: WeaponFlamerOlympus
   description: An effective and efficient decontamination tool used by CBURN crews. Requires a proprietary fuel tank equipped to the back.
   components:
   - type: Sprite
-    sprite: _Impstation/Objects/Weapons/Guns/Special/olympus.rsi
+    sprite: _Impstation/Objects/Weapons/Guns/FuelGuns/olympus.rsi
     layers:
       - state: base
         map: ["enum.GunVisualLayers.Base"]
@@ -93,7 +93,7 @@
         shader: unshaded
   - type: Appearance
   - type: Item
-    sprite: _Impstation/Objects/Weapons/Guns/Special/olympus.rsi
+    sprite: _Impstation/Objects/Weapons/Guns/FuelGuns/olympus.rsi
     size: Large
   - type: GunRequiresWield
   - type: Gun
@@ -122,7 +122,7 @@
   - type: SolutionAmmoProvider
     solutionId: tank
     proto: BulletFlamethrower
-    fireCost: 3        
+    fireCost: 3
   - type: SolutionRefuel
     fuelSolutionName: tank
     fuelReagent: WeldingFuel

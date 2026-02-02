@@ -52,6 +52,7 @@
   - FairyRings
   - AfraidDark
   - WordBad
+  - ClothingHygiene
 
 
 
@@ -350,6 +351,12 @@
   id: AfraidDark
   moodName: thaven-mood-afraiddark-name
   moodDesc: thaven-mood-afraiddark-desc
+
+# You value the comfort of clean clothes very highly. It is greatly distressing to have your clothes stained or to see others wearing dirty clothing.
+- type: thavenMood
+  id: ClothingHygiene
+  moodName: thaven-mood-clothinghygiene-name
+  moodDesc: thaven-mood-clothinghygiene-desc
 
 # [ITEM]s are an abomination. You must avoid them at all costs, and destroy them if necessary.
 #- type: thavenMood

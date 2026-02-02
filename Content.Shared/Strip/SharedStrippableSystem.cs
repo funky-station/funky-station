@@ -70,7 +70,7 @@ public abstract class SharedStrippableSystem : EntitySystem
 
         SubscribeLocalEvent<StrippingComponent, CanDropTargetEvent>(OnCanDropOn);
         SubscribeLocalEvent<StrippableComponent, CanDropDraggedEvent>(OnCanDrop);
-        SubscribeLocalEvent<StrippableComponent, DragDropDraggedEvent>(OnDragDrop);
+        // SubscribeLocalEvent<StrippableComponent, DragDropDraggedEvent>(OnDragDrop); // _Funkystation: replaced dragdrop to carrying
         SubscribeLocalEvent<StrippableComponent, ActivateInWorldEvent>(OnActivateInWorld);
     }
 
@@ -642,6 +642,8 @@ public abstract class SharedStrippableSystem : EntitySystem
         return (targetEv.Time, targetEv.Stealth);
     }
 
+    // _Funkystation: replaced dragdrop to carrying
+    /*
     private void OnDragDrop(EntityUid uid, StrippableComponent component, ref DragDropDraggedEvent args)
     {
         // If the user drags a strippable thing onto themselves.
@@ -651,6 +653,7 @@ public abstract class SharedStrippableSystem : EntitySystem
         if (TryOpenStrippingUi(args.User, (uid, component)))
             args.Handled = true;
     }
+    */
 
     public bool TryOpenStrippingUi(EntityUid user, Entity<StrippableComponent> target, bool openInCombat = false)
     {

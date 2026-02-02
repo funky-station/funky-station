@@ -9,6 +9,7 @@ using Content.Shared.ActionBlocker;
 using Content.Shared.Buckle.Components;
 using Content.Shared.Climbing.Events;
 using Content.Shared.DoAfter;
+using Content.Shared.DragDrop;
 using Content.Shared.Hands;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Inventory.VirtualItem;
@@ -72,6 +73,7 @@ public sealed partial class CarryingSystem : EntitySystem
         Subs.CVar(_cfg, ECCVars.DefaultMaxThrowDistance, value => _defaultMaxThrowDistance = value, true);
 
         SubscribeLocalEvent<CarriableComponent, GetVerbsEvent<AlternativeVerb>>(AddCarryVerb);
+        SubscribeLocalEvent<CarriableComponent, DragDropDraggedEvent>(OnDragDropCarry); // _Funkystation
         SubscribeLocalEvent<CarryingComponent, VirtualItemDeletedEvent>(OnVirtualItemDeleted);
         SubscribeLocalEvent<CarryingComponent, BeforeThrowEvent>(OnThrow);
         SubscribeLocalEvent<CarryingComponent, EntParentChangedMessage>(OnParentChanged);
@@ -114,6 +116,20 @@ public sealed partial class CarryingSystem : EntitySystem
             Text = Loc.GetString("carry-verb"),
             Priority = 2
         });
+    }
+
+    // _Funkystation: dragging a carriable entity onto yourself triggers carry verb, replacing strip functionality
+    private void OnDragDropCarry(Entity<CarriableComponent> ent, ref DragDropDraggedEvent args)
+    {
+        if (args.Handled || args.Target != args.User)
+            return;
+        if (!TryComp<CarriableComponent>(ent.Owner, out var carriable))
+            return;
+        var carriedEntity = new Entity<CarriableComponent>(ent.Owner, carriable);
+        if (!CanCarry(args.User, carriedEntity))
+            return;
+        StartCarryDoAfter(args.User, carriedEntity);
+        args.Handled = true;
     }
 
     /// <summary>

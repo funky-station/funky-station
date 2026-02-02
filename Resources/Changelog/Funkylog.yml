@@ -7612,3 +7612,21 @@ Entries:
       message: Removed Gax from the map pool
   id: 880
   time: '2026-01-30T20:17:13.0000000+00:00'
+- author: Doctor-CPU, Will-Oliver-Br, AraiMaia
+  changes:
+    - type: Add
+      message: >-
+        Added a Clothing stain system; your clothes can now get dirty with
+        reagents
+    - type: Add
+      message: >-
+        A washing machine with which to wash your clothes; there's a Flatpack in
+        the custodial closets
+  id: 881
+  time: '2026-02-01T23:59:45.0000000+00:00'
+- author: Fr0goo
+  changes:
+    - type: Fix
+      message: you are no longer forced to wear a hat!
+  id: 882
+  time: '2026-02-02T02:39:01.0000000+00:00'

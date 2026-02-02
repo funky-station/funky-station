@@ -594,9 +594,9 @@
   description: A superb helmet made with the toughest and rarest materials available to man.
   components:
   - type: Sprite
-    sprite: _Funkystation/Clothing/Head/Helmets/metal_hydrogen_helmet.rsi
+    sprite: Clothing/Head/Helmets/metal_hydrogen_helmet.rsi
   - type: Clothing
-    sprite: _Funkystation/Clothing/Head/Helmets/metal_hydrogen_helmet.rsi
+    sprite: Clothing/Head/Helmets/metal_hydrogen_helmet.rsi
   - type: IngestionBlocker
   - type: ExplosionResistance
     damageCoefficient: 0.9

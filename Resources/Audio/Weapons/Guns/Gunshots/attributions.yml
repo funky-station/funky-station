@@ -9,6 +9,8 @@
 # SPDX-FileCopyrightText: 2024 RealFakeSoof <william_r_dunn@yahoo.com>
 # SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 August Sun <45527070+august-sun@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 halycon <104782767+kleinerstation13@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
@@ -47,3 +49,13 @@
   license: "CC-BY-SA-3.0"
   copyright: "Taken from vgstation"
   source: "https://github.com/vgstation-coders/vgstation13/commit/23303188abe6fe31b114a218a1950d7325a23730"
+
+- files: ["estocshot.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "machinegun-one-shot.wav by DeltaCode. Converted to .OGG and MONO by august-sun"
+  source: "https://freesound.org/people/DeltaCode/sounds/668347/"
+
+- files: ["hushpup.ogg"]
+  license: "CC-BY-4.0"
+  copyright: "Created by UnderlinedDesigns and DrinkingWindGames (https://freesound.org/people/DrinkingWindGames/sounds/789647), modified by Halycon"
+  source: "https://freesound.org/people/UnderlinedDesigns/sounds/188499/"

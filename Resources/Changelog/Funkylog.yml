@@ -7630,3 +7630,11 @@ Entries:
       message: you are no longer forced to wear a hat!
   id: 882
   time: '2026-02-02T02:39:01.0000000+00:00'
+- author: AraiMaia
+  changes:
+    - type: Fix
+      message: >-
+        Crew monitor now correctly displays the unfortunate crew's health
+        condition.
+  id: 883
+  time: '2026-02-02T03:20:25.0000000+00:00'

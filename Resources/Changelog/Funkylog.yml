@@ -7638,3 +7638,11 @@ Entries:
         condition.
   id: 883
   time: '2026-02-02T03:20:25.0000000+00:00'
+- author: marc-pelletier
+  changes:
+    - type: Fix
+      message: >-
+        Mutations applied to subjects inside scanners will now properly show
+        details in the console. 
+  id: 884
+  time: '2026-02-02T07:55:35.0000000+00:00'

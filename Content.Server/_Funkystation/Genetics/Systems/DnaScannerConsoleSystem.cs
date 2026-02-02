@@ -11,7 +11,6 @@ using Content.Shared._Funkystation.Genetics.Systems;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.DeviceLinking;
-using Content.Shared.FixedPoint;
 using Content.Shared.Interaction;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
@@ -355,6 +354,7 @@ public sealed class DnaScannerConsoleSystem : EntitySystem
 
         comp.SavedMutations.Add(entry);
         Dirty(uid, comp);
+        _discovery.DiscoverMutation(uid, entry.Id);
         _unlockTrigger.OnMutationSaved(uid, comp, entry.Id);
 
         if (_proto.TryIndex<GeneticMutationPrototype>(entry.Id, out var proto) && proto.ResearchPoints > 0)

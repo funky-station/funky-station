@@ -1,5 +1,6 @@
 // SPDX-FileCopyrightText: 2025 ImpstationBot <irismessage+bot@protonmail.com>
 // SPDX-FileCopyrightText: 2025 mq <113324899+mqole@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2026 TrixxedHeart <46364955+TrixxedBit@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 

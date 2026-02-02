@@ -8,7 +8,7 @@ using Robust.Client.UserInterface.XAML;
 using Robust.Shared.Input;
 using System.Numerics;
 
-namespace Content.Client._Funkystation.Genetics.DnaScannerConsole.UI;
+namespace Content.Client._Funkystation.Genetics.GeneticistsConsole.UI;
 
 public sealed partial class UniqueEnzymeButton : Button
 {

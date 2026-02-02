@@ -13,7 +13,7 @@ using Robust.Client.UserInterface.XAML;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 
-namespace Content.Client._Funkystation.Genetics.DnaScannerConsole.UI;
+namespace Content.Client._Funkystation.Genetics.GeneticistsConsole.UI;
 
 [GenerateTypedNameReferences]
 public sealed partial class GeneticistsConsoleUniqueEnzymesView : Control

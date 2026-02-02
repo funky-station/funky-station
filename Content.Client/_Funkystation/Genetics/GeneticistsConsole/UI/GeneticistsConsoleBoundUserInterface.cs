@@ -9,7 +9,7 @@ using Content.Shared._Funkystation.Genetics.Components;
 using Content.Shared._Funkystation.Genetics.Events;
 using Robust.Shared.Serialization;
 
-namespace Content.Client._Funkystation.Genetics.DnaScannerConsole.UI;
+namespace Content.Client._Funkystation.Genetics.GeneticistsConsole.UI;
 
 public sealed class GeneticistsConsoleBoundUserInterface : BoundUserInterface
 {

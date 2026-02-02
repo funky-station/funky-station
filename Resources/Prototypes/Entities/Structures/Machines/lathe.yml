@@ -855,6 +855,7 @@
     - ThermomachineFreezerMachineCircuitBoard # Assmos - Moved to staticRecipes from dynamicRecipes
     - ChemDispenserMedicalMachineCircuitboard #funk
     - DnaScannerConsoleComputerCircuitboard # Funkystation - Genetics
+    - GeneticistsConsoleComputerCircuitboard # Funkystation - Genetics
     dynamicRecipes:
     - HellfireFreezerMachineCircuitBoard
     - PortableScrubberMachineCircuitBoard

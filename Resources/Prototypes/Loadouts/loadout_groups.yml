@@ -495,7 +495,7 @@
 - type: loadoutGroup
   id: GenericHats
   name: loadout-group-generic-hats
-  minLimit: 1
+  minLimit: 0
   loadouts:
   - BandanaBlack
   - BandanaBlue

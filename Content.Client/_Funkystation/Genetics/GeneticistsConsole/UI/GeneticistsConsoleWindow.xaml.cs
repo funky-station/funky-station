@@ -10,7 +10,7 @@ using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.XAML;
 using Robust.Shared.Timing;
 
-namespace Content.Client._Funkystation.Genetics.DnaScannerConsole.UI;
+namespace Content.Client._Funkystation.Genetics.GeneticistsConsole.UI;
 
 [GenerateTypedNameReferences]
 public sealed partial class GeneticistsConsoleWindow : FancyWindow

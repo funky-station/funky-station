@@ -166,7 +166,7 @@
   targetNode: armor
   category: construction-category-clothing
   description: A superb armor made with the toughest and rarest materials available to man.
-  icon: { sprite: Clothing/OuterClothing/Armor/metal_hydrogen_armor.rsi, state: icon }
+  icon: { sprite: _Funkystation/Clothing/OuterClothing/Armor/metal_hydrogen_armor.rsi, state: icon }
   objectType: Item
 
 - type: construction
@@ -177,7 +177,7 @@
   targetNode: helmet
   category: construction-category-clothing
   description: A superb helmet made with the toughest and rarest materials available to man.
-  icon: { sprite: Clothing/Head/Helmets/metal_hydrogen_helmet.rsi, state: icon }
+  icon: { sprite: _Funkystation/Clothing/Head/Helmets/metal_hydrogen_helmet.rsi, state: icon }
   objectType: Item
 
 - type: construction

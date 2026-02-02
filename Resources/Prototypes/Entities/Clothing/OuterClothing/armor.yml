@@ -501,9 +501,9 @@
   description: A superb armor made with the toughest and rarest materials available to man.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Armor/metal_hydrogen_armor.rsi
+    sprite: _Funkystation/Clothing/OuterClothing/Armor/metal_hydrogen_armor.rsi
   - type: Clothing
-    sprite: Clothing/OuterClothing/Armor/metal_hydrogen_armor.rsi
+    sprite: _Funkystation/Clothing/OuterClothing/Armor/metal_hydrogen_armor.rsi
   - type: Armor
     modifiers:
       coefficients:

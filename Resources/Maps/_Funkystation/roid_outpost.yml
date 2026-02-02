@@ -4,8 +4,8 @@ meta:
   engineVersion: 268.0.0
   forkId: ""
   forkVersion: ""
-  time: 02/02/2026 01:11:19
-  entityCount: 20862
+  time: 02/02/2026 05:29:19
+  entityCount: 20867
 maps:
 - 1
 grids:
@@ -14590,7 +14590,7 @@ entities:
       pos: -10.5,-40.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -181497.25
+      secondsUntilStateChange: -181685.81
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -14767,7 +14767,7 @@ entities:
       pos: -7.5,-7.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -361040.53
+      secondsUntilStateChange: -361229.1
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -15288,7 +15288,7 @@ entities:
       pos: -27.5,10.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -539443.5
+      secondsUntilStateChange: -539632.06
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -22602,6 +22602,11 @@ entities:
     - type: Transform
       pos: -12.5,-1.5
       parent: 2
+  - uid: 1203
+    components:
+    - type: Transform
+      pos: -20.5,-31.5
+      parent: 2
   - uid: 1214
     components:
     - type: Transform
@@ -25550,7 +25555,7 @@ entities:
   - uid: 2022
     components:
     - type: Transform
-      pos: -21.5,-32.5
+      pos: -28.5,-26.5
       parent: 2
   - uid: 2025
     components:
@@ -25565,7 +25570,7 @@ entities:
   - uid: 2028
     components:
     - type: Transform
-      pos: -27.5,-26.5
+      pos: -29.5,-26.5
       parent: 2
   - uid: 2029
     components:
@@ -25575,12 +25580,7 @@ entities:
   - uid: 2030
     components:
     - type: Transform
-      pos: -28.5,-26.5
-      parent: 2
-  - uid: 2031
-    components:
-    - type: Transform
-      pos: -29.5,-26.5
+      pos: -27.5,-26.5
       parent: 2
   - uid: 2032
     components:
@@ -25600,7 +25600,7 @@ entities:
   - uid: 2036
     components:
     - type: Transform
-      pos: -25.5,-28.5
+      pos: -19.5,-31.5
       parent: 2
   - uid: 2037
     components:
@@ -25626,11 +25626,6 @@ entities:
     components:
     - type: Transform
       pos: -26.5,-32.5
-      parent: 2
-  - uid: 2042
-    components:
-    - type: Transform
-      pos: -25.5,-32.5
       parent: 2
   - uid: 2043
     components:
@@ -27401,6 +27396,11 @@ entities:
     components:
     - type: Transform
       pos: 15.5,-14.5
+      parent: 2
+  - uid: 6872
+    components:
+    - type: Transform
+      pos: -22.5,-31.5
       parent: 2
   - uid: 6933
     components:
@@ -33706,6 +33706,26 @@ entities:
     components:
     - type: Transform
       pos: 9.5,12.5
+      parent: 2
+  - uid: 20863
+    components:
+    - type: Transform
+      pos: -23.5,-31.5
+      parent: 2
+  - uid: 20864
+    components:
+    - type: Transform
+      pos: -24.5,-31.5
+      parent: 2
+  - uid: 20865
+    components:
+    - type: Transform
+      pos: -25.5,-31.5
+      parent: 2
+  - uid: 20866
+    components:
+    - type: Transform
+      pos: -18.5,-31.5
       parent: 2
 - proto: CableApcStack
   entities:
@@ -54122,11 +54142,6 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -9.5,7.5
       parent: 2
-  - uid: 1203
-    components:
-    - type: Transform
-      pos: 13.5,4.5
-      parent: 2
   - uid: 1916
     components:
     - type: Transform
@@ -54178,6 +54193,11 @@ entities:
       rot: 3.141592653589793 rad
       pos: -16.5,-16.5
       parent: 2
+  - uid: 20867
+    components:
+    - type: Transform
+      pos: -3.5,4.5
+      parent: 2
 - proto: ClosetWallFireFilledRandom
   entities:
   - uid: 252
@@ -54191,6 +54211,11 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 32.5,0.5
+      parent: 2
+  - uid: 2031
+    components:
+    - type: Transform
+      pos: -1.5,4.5
       parent: 2
   - uid: 5048
     components:
@@ -54212,11 +54237,6 @@ entities:
     components:
     - type: Transform
       pos: 22.5,24.5
-      parent: 2
-  - uid: 6872
-    components:
-    - type: Transform
-      pos: 14.5,4.5
       parent: 2
   - uid: 13359
     components:
@@ -101531,6 +101551,11 @@ entities:
       parent: 2
 - proto: SignLaundromat
   entities:
+  - uid: 2042
+    components:
+    - type: Transform
+      pos: 13.5,4.5
+      parent: 2
   - uid: 19351
     components:
     - type: Transform

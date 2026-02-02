@@ -82,11 +82,16 @@ public sealed partial class CarryingSystem : EntitySystem
         SubscribeLocalEvent<BeingCarriedComponent, StandAttemptEvent>(OnStandAttempt);
         SubscribeLocalEvent<BeingCarriedComponent, GettingInteractedWithAttemptEvent>(OnInteractedWith);
         SubscribeLocalEvent<BeingCarriedComponent, PullAttemptEvent>(OnPullAttempt);
+        // Todo: For some ungodly reason trying to call OnDrop on these events causes a server crash due to the RemComp<KnockedDownComponent>(carried); in Drop()
+        // how to fix this is beyond me, its likely due to the way KnockedDown is being applied in the first place that its causing issues here.
+        // So for now I decided to just comment these out, this causes minor janky behavior but better than crashing the server or deleting people's hands (requiring admin intervention to fix)
+        /*
         SubscribeLocalEvent<BeingCarriedComponent, StartClimbEvent>(OnDrop);
         SubscribeLocalEvent<BeingCarriedComponent, BuckledEvent>(OnDrop);
         SubscribeLocalEvent<BeingCarriedComponent, UnbuckledEvent>(OnDrop);
         SubscribeLocalEvent<BeingCarriedComponent, StrappedEvent>(OnDrop);
         SubscribeLocalEvent<BeingCarriedComponent, UnstrappedEvent>(OnDrop);
+        */
         SubscribeLocalEvent<BeingCarriedComponent, EscapeInventoryEvent>(OnDrop);
         SubscribeLocalEvent<BeingCarriedComponent, ComponentRemove>(OnRemoved);
         SubscribeLocalEvent<CarriableComponent, CarryDoAfterEvent>(OnDoAfter);
@@ -249,7 +254,7 @@ public sealed partial class CarryingSystem : EntitySystem
             * _contests.MassContest(carried.Owner, carrier, carried.Comp.PickupContestPotential)
             * _contests.StaminaContest(carrier, carried.Owner); // Frontier: replace !HasComp<KnockedDownComponent> with IsDown
 
-        if (_standingState.IsDown(carried))
+        if (_standingState.IsDown(carried.Owner))
             length *= carried.Comp.PickupKnockdownMultiplier;
 
         // Frontier: sanitize time duration regardless of CVars - no near-instant pickups.
@@ -327,7 +332,6 @@ public sealed partial class CarryingSystem : EntitySystem
         // imp TODO: dont stand if we've been buckled
         //if (!TryComp<BuckleComponent>(carried, out var buckle) || buckle.Buckled == false) // <- THIS DOESNT WORK! FUCK!!!
         _transform.AttachToGridOrMap(carried);
-        _standingState.Stand(carried);
     }
 
     private void ApplyCarrySlowdown(EntityUid carrier, Entity<CarriableComponent?> carried)

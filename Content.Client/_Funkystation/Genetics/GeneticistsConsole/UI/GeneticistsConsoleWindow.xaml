@@ -1,6 +1,6 @@
 <controls:FancyWindow xmlns="https://spacestation14.io"
                       xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
-                      xmlns:ui="clr-namespace:Content.Client._Funkystation.Genetics.DnaScannerConsole.UI"
+                      xmlns:ui="clr-namespace:Content.Client._Funkystation.Genetics.GeneticistsConsole.UI"
                       xmlns:system="clr-namespace:System;assembly=System.Runtime"
                       MinSize="806 640" SetSize="860 740"
                       Title="{Loc 'dna-scanner-console-title'}">

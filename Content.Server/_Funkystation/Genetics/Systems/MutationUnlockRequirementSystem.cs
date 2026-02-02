@@ -36,7 +36,7 @@ public sealed class MutationUnlockTriggerSystem : EntitySystem
     /// <summary>
     /// Call this every time a mutation is successfully saved to a console.
     /// </summary>
-    public void OnMutationSaved(EntityUid consoleUid, DnaScannerConsoleComponent console, string savedMutationId)
+    public void OnMutationSaved(EntityUid consoleUid, GeneticistsConsoleComponent console, string savedMutationId)
     {
         var savedIds = console.SavedMutations.Select(m => m.Id).ToHashSet();
 

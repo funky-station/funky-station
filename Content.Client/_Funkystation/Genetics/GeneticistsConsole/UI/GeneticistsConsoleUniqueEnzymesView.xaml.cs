@@ -1,4 +1,5 @@
-// SPDX-FileCopyrightText: 2025 Steve <marlumpy@gmail.com>
+// SPDX-FileCopyrightText: 2026 Steve <marlumpy@gmail.com>
+// SPDX-FileCopyrightText: 2026 marc-pelletier <113944176+marc-pelletier@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -368,17 +369,19 @@ public sealed partial class GeneticistsConsoleUniqueEnzymesView : Control
 
     private void UpdateMutationDetails(MutationEntry mutation)
     {
-        var isDiscovered = ParentWindow?.DiscoveredMutationIds?.Contains(mutation.Id) ?? false;
+        var isKnown = IsMutationKnown(mutation);
         var isActive = mutation.Enabled;
-        string displayName = isDiscovered ? mutation.Name : $"Mutation {mutation.Block:00}";
+
+        string displayName = isKnown ? mutation.Name : $"Mutation {mutation.Block:00}";
 
         if (isActive && !_isSelectedMutationStored)
             InfoNameLabel.Text = $"{displayName} (Active)";
         else
             InfoNameLabel.Text = displayName;
 
-        InfoDescLabel.Text = isDiscovered ? (mutation.Description ?? "No description.") : "Undiscovered mutation.";
-        InfoInstabilityLabel.Text = isDiscovered ? mutation.Instability.ToString() : "Unknown";
+        InfoDescLabel.Text = isKnown ? (mutation.Description ?? "No description.") : "Undiscovered mutation.";
+        InfoInstabilityLabel.Text = isKnown ? mutation.Instability.ToString() : "Unknown";
+
         UpdateConflictsDisplay(mutation);
         RefreshResearchLabel();
         UpdateResearchButtonState();
@@ -386,9 +389,9 @@ public sealed partial class GeneticistsConsoleUniqueEnzymesView : Control
 
     private void UpdateConflictsDisplay(MutationEntry mutation)
     {
-        var isDiscovered = ParentWindow?.DiscoveredMutationIds?.Contains(mutation.Id) ?? false;
+        var isKnown = IsMutationKnown(mutation);
 
-        if (!isDiscovered || mutation.Conflicts is not { Count: > 0 } conflicts || ParentWindow?.DiscoveredMutationIds is null)
+        if (!isKnown || mutation.Conflicts is not { Count: > 0 } conflicts || ParentWindow?.DiscoveredMutationIds is null)
         {
             ConflictsLabelContainer.Visible = false;
             return;
@@ -427,9 +430,17 @@ public sealed partial class GeneticistsConsoleUniqueEnzymesView : Control
             return;
         }
 
-        var isDiscovered = ParentWindow?.DiscoveredMutationIds?.Contains(_selectedMutationId) ?? false;
+        // Get the current mutation entry from the subject
+        var mutation = ParentWindow?.CurrentMutations?.Find(m => m.Id == _selectedMutationId);
+        if (mutation == null)
+        {
+            InfoResearchLabel.Text = "Unknown";
+            return;
+        }
 
-        if (!isDiscovered)
+        var isKnown = IsMutationKnown(mutation);
+
+        if (!isKnown)
         {
             InfoResearchLabel.Text = "Unknown";
             return;
@@ -644,5 +655,16 @@ public sealed partial class GeneticistsConsoleUniqueEnzymesView : Control
             button.Pressed = true;
             _currentlyPressedButton = button;
         }
+    }
+
+    private bool IsMutationKnown(MutationEntry mutation)
+    {
+        // Primary: server-confirmed discovery
+        var isDiscovered = ParentWindow?.DiscoveredMutationIds?.Contains(mutation.Id) ?? false;
+
+        // Fallback: sequence is fully revealed
+        var isFullyRevealed = mutation.RevealedSequence == mutation.OriginalSequence;
+
+        return isDiscovered || isFullyRevealed;
     }
 }

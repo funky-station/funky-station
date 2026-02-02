@@ -356,6 +356,7 @@ public sealed class GeneticistsConsoleSystem : EntitySystem
 
         comp.SavedMutations.Add(entry);
         Dirty(uid, comp);
+        _discovery.DiscoverMutation(uid, entry.Id);
         _unlockTrigger.OnMutationSaved(uid, comp, entry.Id);
 
         if (_proto.TryIndex<GeneticMutationPrototype>(entry.Id, out var proto) && proto.ResearchPoints > 0)

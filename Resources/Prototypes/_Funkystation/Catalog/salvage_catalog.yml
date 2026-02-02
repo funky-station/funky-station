@@ -1,18 +1,29 @@
 # SPDX-FileCopyrightText: 2025 ThatOneMoon <91613003+ThatOneMoon@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
+# SPDX-FileCopyrightText: 2026 ThatOneMoon <juozas.dringelis@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 # Hardsuits
 
 - type: listing
-  id: SalvageVendorSpationaught
-  name: vendor-salvage-spationaught-name
-  description: vendor-salvage-spationaught-desc
+  id: SalvageVendorSpationaut
+  name: vendor-salvage-spationaut-name
+  description: vendor-salvage-spationaut-desc
   icon: { sprite:  Clothing/OuterClothing/Hardsuits/spatio.rsi, state: icon}
   productEntity: ClothingOuterHardsuitSpatio
   cost:
-    SalvageTicket: 200
+    SalvageTicket: 150
+  categories:
+  - SalvageVendorWearables
+
+- type: listing
+  id: SalvageVendorSpationautUpgradeKit
+  name: vendor-salvage-spationaut-upgrade-kit-name
+  description: vendor-salvage-spationaut-upgrade-kit-desc
+  icon: { sprite:  _Funkystation/Objects/Materials/spatio_upgrade_kit.rsi, state: icon}
+  productEntity: SpationautUpgradeKit
+  cost:
+    SalvageTicket: 500
   categories:
   - SalvageVendorWearables
 
@@ -23,7 +34,7 @@
   icon: { sprite:  Clothing/OuterClothing/Hardsuits/salvage.rsi, state: icon}
   productEntity: ClothingOuterHardsuitSalvage
   cost:
-    SalvageTicket: 1000 
+    SalvageTicket: 1250
   categories:
   - SalvageVendorWearables
   conditions:
@@ -51,7 +62,7 @@
   icon: { sprite:  Clothing/OuterClothing/Hardsuits/maxim.rsi, state: icon}
   productEntity: ClothingOuterHardsuitMaxim
   cost:
-    SalvageTicket: 9999 
+    SalvageTicket: 9999
   categories:
   - SalvageVendorWearables
   conditions:
@@ -67,7 +78,7 @@
   icon: { sprite:  Clothing/Belt/salvagewebbing.rsi, state: icon}
   productEntity: ClothingBeltSalvageWebbing
   cost:
-    SalvageTicket: 250
+    SalvageTicket: 150
   categories:
   - SalvageVendorWearables
   conditions:
@@ -81,7 +92,7 @@
   icon: { sprite:  Clothing/Belt/mercwebbing.rsi, state: icon}
   productEntity: ClothingBeltMercWebbing
   cost:
-    SalvageTicket: 250
+    SalvageTicket: 150
   categories:
   - SalvageVendorWearables
   conditions:
@@ -95,7 +106,7 @@
   icon: { sprite: Clothing/Mask/merc.rsi, state: icon}
   productEntity: ClothingMaskGasMerc
   cost:
-    SalvageTicket: 350
+    SalvageTicket: 200
   categories:
   - SalvageVendorWearables
   conditions:
@@ -109,7 +120,7 @@
   icon: { sprite: Clothing/OuterClothing/Vests/mercwebvest.rsi, state: icon}
   productEntity: ClothingOuterVestWebMerc
   cost:
-    SalvageTicket: 750
+    SalvageTicket: 450
   categories:
   - SalvageVendorWearables
   conditions:
@@ -123,7 +134,7 @@
   icon: { sprite: Clothing/Back/Backpacks/merc.rsi, state: icon}
   productEntity: ClothingBackpackMerc
   cost:
-    SalvageTicket: 500
+    SalvageTicket: 350
   categories:
   - SalvageVendorWearables
   conditions:
@@ -137,7 +148,7 @@
   icon: { sprite: Clothing/Head/Helmets/merc_helmet.rsi, state: icon}
   productEntity: ClothingHeadHelmetMerc
   cost:
-    SalvageTicket: 300
+    SalvageTicket: 150
   categories:
   - SalvageVendorWearables
   conditions:
@@ -151,14 +162,14 @@
   icon: { sprite: Clothing/Shoes/Boots/mercboots.rsi, state: icon}
   productEntity: ClothingShoesBootsMerc
   cost:
-    SalvageTicket: 250
+    SalvageTicket: 150
   categories:
   - SalvageVendorWearables
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 2
 
-# Equipment 
+# Equipment
 
 - type: listing
   id: SalvageVendorCrusherAxe
@@ -195,12 +206,12 @@
   icon: { sprite:  Objects/Weapons/Melee/crusher_dagger.rsi, state: icon}
   productEntity: WeaponCrusherDagger
   cost:
-    SalvageTicket: 750
+    SalvageTicket: 500
   categories:
   - SalvageVendorEquipment
   conditions:
   - !type:ListingLimitedStockCondition
-    stock: 2
+    stock: 3
 
 - type: listing
   id: SalvageVendorMosin
@@ -209,7 +220,7 @@
   icon: { sprite:  Objects/Weapons/Guns/Snipers/bolt_gun_wood.rsi, state: base}
   productEntity: WeaponSniperMosin
   cost:
-    SalvageTicket: 1500
+    SalvageTicket: 500
   categories:
   - SalvageVendorEquipment
   conditions:
@@ -223,12 +234,26 @@
   icon: { sprite:  Objects/Power/power_cells.rsi, state: antique}
   productEntity: PowerCellAntiqueProto
   cost:
+    SalvageTicket: 2000
+  categories:
+  - SalvageVendorEquipment
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 3
+
+- type: listing
+  id: SalvageVendorEnergyCutlass
+  name: vendor-salvage-energy-cutlass-name
+  description: vendor-salvage-energy-cutlass-desc
+  icon: { sprite:  Objects/Weapons/Melee/e_cutlass.rsi, state: e_cutlass}
+  productEntity: EnergyCutlass
+  cost:
     SalvageTicket: 3000
   categories:
   - SalvageVendorEquipment
   conditions:
   - !type:ListingLimitedStockCondition
-    stock: 1
+    stock: 2
 
 - type: listing
   id: SalvageVendorMiniJetpack
@@ -248,12 +273,12 @@
   icon: { sprite:  Objects/Weapons/Guns/Ammunition/Casings/shotgun_shell.rsi, state: flare}
   productEntity: BoxShotgunFlare
   cost:
-    SalvageTicket: 50
+    SalvageTicket: 25
   categories:
   - SalvageVendorEquipment
 
 
-# Supplies 
+# Supplies
 
 - type: listing
   id: SalvageVendorCarpPocket
@@ -262,7 +287,7 @@
   icon: { sprite:  Objects/Consumable/Food/Baked/donkpocket.rsi, state: carp-box}
   productEntity: FoodBoxDonkpocketCarp
   cost:
-    SalvageTicket: 100
+    SalvageTicket: 75
   categories:
   - SalvageVendorSupplies
 
@@ -282,14 +307,14 @@
   name: vendor-salvage-emergency-pen-name
   description: vendor-salvage-emergency-pen-desc
   icon: { sprite:  Objects/Specific/Medical/medipen.rsi, state: medipen}
-  productEntity: EmergencyMedipen
+  productEntity: BoxEmergencyMedipens
   cost:
-    SalvageTicket: 75
+    SalvageTicket: 300
   categories:
   - SalvageVendorSupplies
   conditions:
   - !type:ListingLimitedStockCondition
-    stock: 6
+    stock: 3
 
 - type: listing
   id: SalvageVendorVodka
@@ -309,7 +334,7 @@
   icon: { sprite:  Objects/Tanks/emergency_double_red.rsi, state: icon}
   productEntity: DoubleEmergencyNitrogenTankFilled
   cost:
-    SalvageTicket: 250
+    SalvageTicket: 150
   categories:
   - SalvageVendorSupplies
   conditions:
@@ -323,9 +348,9 @@
   icon: { sprite: Objects/Tanks/emergency_double.rsi, state: icon}
   productEntity: DoubleEmergencyOxygenTankFilled
   cost:
-    SalvageTicket: 250
+    SalvageTicket: 150
   categories:
-  - SalvageVendorSupplies  
+  - SalvageVendorSupplies
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 3
@@ -337,25 +362,14 @@
   icon: { sprite: Objects/Specific/Medical/firstaidkits.rsi, state: brutekit}
   productEntity: MedkitBruteFilled
   cost:
-    SalvageTicket: 300
+    SalvageTicket: 150
   categories:
-  - SalvageVendorSupplies  
+  - SalvageVendorSupplies
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 2
 
-- type: listing
-  id: SalvageVendorOilPack
-  name: vendor-salvage-oil-pack-name
-  description: vendor-salvage-oil-pack-desc
-  icon: { sprite:  _DV/Objects/Medical/Oilpack.rsi, state: icon}
-  productEntity: Oilpack
-  cost:
-    SalvageTicket: 50
-  categories:
-  - SalvageVendorSupplies
-
-# Misc. 
+# Misc.
 
 - type: listing
   id: SalvageVendorGoliathCloak
@@ -386,7 +400,7 @@
   icon: { sprite:  Structures/Shuttles/thruster.rsi, state: base}
   productEntity: BoxSalvageVendShuttleKit
   cost:
-    SalvageTicket: 750
+    SalvageTicket: 500
   categories:
   - SalvageVendorMisc
 
@@ -397,7 +411,7 @@
   icon: { sprite:  Structures/Furniture/furniture.rsi, state: bed-MED}
   productEntity: BoxSalvageMedicalKit
   cost:
-    SalvageTicket: 750
+    SalvageTicket: 500
   categories:
   - SalvageVendorMisc
 
@@ -408,11 +422,11 @@
   icon: { sprite:  Structures/Machines/electric_grill.rsi, state: icon}
   productEntity: BoxSalvageCookoutKit
   cost:
-    SalvageTicket: 500
+    SalvageTicket: 300
   categories:
   - SalvageVendorMisc
 
-# Standard Equipment 
+# Standard Equipment
 
 - type: listing
   id: SalvageVendorMaterialBag
@@ -493,7 +507,7 @@
   icon: { sprite:  Objects/Weapons/Guns/Launchers/grappling_gun.rsi, state: base}
   productEntity: WeaponGrapplingGun
   categories:
-  - SalvageVendorStandard    
+  - SalvageVendorStandard
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 4
@@ -505,7 +519,7 @@
   icon: { sprite:  Objects/Weapons/Bombs/seismic.rsi, state: icon}
   productEntity: SeismicCharge
   categories:
-  - SalvageVendorStandard    
+  - SalvageVendorStandard
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 2
@@ -517,7 +531,7 @@
   icon: { sprite:  Objects/Tools/fulton.rsi, state: folded_extraction}
   productEntity: FultonBeacon
   categories:
-  - SalvageVendorStandard  
+  - SalvageVendorStandard
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 2
@@ -529,7 +543,7 @@
   icon: { sprite:  Objects/Tools/fulton.rsi, state: extraction_pack}
   productEntity: Fulton
   categories:
-  - SalvageVendorStandard  
+  - SalvageVendorStandard
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 3

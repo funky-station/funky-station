@@ -40,8 +40,8 @@
 # SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
-# SPDX-FileCopyrightText: 2025 wilowzeta <willowzeta632146@proton.me>
-# SPDX-FileCopyrightText: 2026 unknown <kit.ds.kat@gmail.com>
+# SPDX-FileCopyrightText: 2026 Delta <112193783+DeltaDnDsolutions@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2026 TheHolyAegis <sanderkamphuis719@gmail.com>
 # SPDX-FileCopyrightText: 2026 willow <willowzeta632146@proton.me>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -49,11 +49,11 @@
 meta:
   format: 7
   category: Grid
-  engineVersion: 266.0.0
+  engineVersion: 268.0.0
   forkId: ""
   forkVersion: ""
-  time: 11/20/2025 13:21:55
-  entityCount: 7011
+  time: 01/25/2026 15:01:02
+  entityCount: 7008
 maps: []
 grids:
 - 1
@@ -3567,6 +3567,7 @@ entities:
     - type: BecomesStation
       id: centcomm
     - type: NavMap
+    - type: ImplicitRoof
 - proto: ActionStethoscope
   entities:
   - uid: 1447
@@ -36256,13 +36257,6 @@ entities:
     components:
     - type: Transform
       pos: 27.42305,56.152065
-      parent: 1
-- proto: RubberStampCentcom
-  entities:
-  - uid: 2346
-    components:
-    - type: Transform
-      pos: 79.705666,49.046703
       parent: 1
 - proto: RubberStampDenied
   entities:

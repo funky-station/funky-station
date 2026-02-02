@@ -152,16 +152,17 @@ public sealed partial class GeneticistsConsoleStorageView : Control
 
     private void UpdateMutationDetails(MutationEntry mutation)
     {
-        var isDiscovered = ParentWindow?.DiscoveredMutationIds?.Contains(mutation.Id) ?? false;
-        string displayName = isDiscovered ? mutation.Name : $"Mutation {mutation.Block:00}";
+        var isKnown = IsMutationKnown(mutation);
+
+        string displayName = isKnown ? mutation.Name : $"Mutation {mutation.Block:00}";
 
         StorageInfoNameLabel.Text = displayName;
 
-        StorageInfoDescLabel.Text = isDiscovered
+        StorageInfoDescLabel.Text = isKnown
             ? (mutation.Description ?? "No description.")
             : "Undiscovered mutation.";
 
-        StorageInfoInstabilityLabel.Text = isDiscovered
+        StorageInfoInstabilityLabel.Text = isKnown
             ? mutation.Instability.ToString()
             : "Unknown";
 
@@ -171,9 +172,9 @@ public sealed partial class GeneticistsConsoleStorageView : Control
 
     private void UpdateConflictsDisplay(MutationEntry mutation)
     {
-        var isDiscovered = ParentWindow?.DiscoveredMutationIds?.Contains(mutation.Id) ?? false;
+        var isKnown = IsMutationKnown(mutation);
 
-        if (!isDiscovered || mutation.Conflicts is not { Count: > 0 } conflicts || ParentWindow?.DiscoveredMutationIds is null)
+        if (!isKnown || mutation.Conflicts is not { Count: > 0 } conflicts || ParentWindow?.DiscoveredMutationIds is null)
         {
             StorageConflictsLabelContainer.Visible = false;
             return;
@@ -183,6 +184,7 @@ public sealed partial class GeneticistsConsoleStorageView : Control
 
         foreach (var conflictId in conflicts)
         {
+            // Keep conflicts gated behind real discovery
             if (!ParentWindow.DiscoveredMutationIds.Contains(conflictId))
                 continue;
 
@@ -212,9 +214,17 @@ public sealed partial class GeneticistsConsoleStorageView : Control
             return;
         }
 
-        var isDiscovered = ParentWindow?.DiscoveredMutationIds?.Contains(_selectedMutationId) ?? false;
+        // Get the mutation from saved list
+        var mutation = _savedMutations.FirstOrDefault(m => m.Id == _selectedMutationId);
+        if (mutation == null)
+        {
+            StorageInfoResearchLabel.Text = "Unknown";
+            return;
+        }
 
-        if (!isDiscovered)
+        var isKnown = IsMutationKnown(mutation);
+
+        if (!isKnown)
         {
             StorageInfoResearchLabel.Text = "Unknown";
             return;
@@ -357,5 +367,16 @@ public sealed partial class GeneticistsConsoleStorageView : Control
         StorageInfoInstabilityLabel.Text = "";
         StorageInfoResearchLabel.Text = "";
         StorageConflictsLabelContainer.Visible = false;
+    }
+
+    private bool IsMutationKnown(MutationEntry mutation)
+    {
+        // Primary: server-confirmed discovery
+        var isDiscovered = ParentWindow?.DiscoveredMutationIds?.Contains(mutation.Id) ?? false;
+
+        // Fallback: sequence is fully revealed
+        var isFullyRevealed = mutation.RevealedSequence == mutation.OriginalSequence;
+
+        return isDiscovered || isFullyRevealed;
     }
 }

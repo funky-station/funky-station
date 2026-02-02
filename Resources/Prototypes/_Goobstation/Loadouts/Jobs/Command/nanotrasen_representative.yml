@@ -7,8 +7,8 @@
 # SPDX-FileCopyrightText: 2025 88tv <131759102+88tv@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 8tv <eightev@gmail.com>
 # SPDX-FileCopyrightText: 2025 MaiaArai <158123176+YaraaraY@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2026 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -29,6 +29,18 @@
       !type:DepartmentTimeRequirement
       department: CentralCommand
       time: 72000 #20 hrs
+
+#eyes
+
+- type: loadout
+  id: NanotrasenRepresentativeAdminHud
+  equipment:
+    eyes: ClothingEyesHudCommand
+
+- type: loadout
+  id: NanotrasenRepresentativeAdminGlasses
+  equipment:
+    eyes: ClothingEyesGlassesCommand
 
 #hat
 - type: loadout
@@ -65,6 +77,14 @@
   - !type:GroupLoadoutEffect
     proto: SeniorNanotrasenRepresentative
 
+- type: loadout
+  id: NanotrasenRepresentativeOffcoat
+  equipment:
+    neck: ClothingNeckCloakNTR
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SeniorNanotrasenRepresentative
+
 # Backpacks
 - type: loadout
   id: NanotrasenRepresentativeBackpack
@@ -72,12 +92,12 @@
     back: ClothingBackpack
 
 - type: loadout
-  id: NanotrasenRepresentativeDuffel
+  id: NanotrasenRepresentativeSatchel
   equipment:
-    back: ClothingBackpackDuffel
+    back: ClothingBackpackSatchel
 
 - type: loadout
-  id: NanotrasenRepresentativeSatchel
+  id: NanotrasenRepresentativeLeatherSatchel
   equipment:
     back: ClothingBackpackSatchelLeather
 
@@ -86,6 +106,16 @@
   id: NanotrasenRepresentativeWinterCoat
   equipment:
     outerClothing: ClothingOuterWinterNTR
+
+- type: loadout
+  id: NanotrasenRepresentativeFurCollarCoat
+  equipment:
+    outerClothing: ClothingOuterWinterNTRFurCollar
+
+- type: loadout
+  id: NanotrasenRepresentativeCoat
+  equipment:
+    outerClothing: ClothingOuterNTRCoat
 
 # Gloves
 - type: loadout
@@ -108,9 +138,19 @@
     jumpsuit: ClothingUniformJumpsuitNanotrasenRepresentative
 
 - type: loadout
+  id: NanotrasenRepresentativeTurtleneck
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitNTRTurtleneck
+
+- type: loadout
   id: NanotrasenRepresentativeJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtNanotrasenRepresentative
+
+- type: loadout
+  id: NanotrasenRepresentativeTurtleskirt
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitNTRTurtleskirt
 
 # Belt
 - type: loadout
@@ -137,4 +177,4 @@
 - type: loadout
   id: NanotrasenRepresentativeHeels
   equipment:
-    shoes: ClothingShoesHighheelBoots
+    shoes: ClothingShoesHighheelBootsNanotrasen

@@ -5,6 +5,7 @@
 // SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 VMSolidus <evilexecutive@gmail.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
 // SPDX-License-Identifier: MIT
@@ -49,4 +50,13 @@ public sealed partial class AbsorbentComponent : Component
         {
             Params = AudioParams.Default.WithVariation(SharedContentAudioSystem.DefaultVariation).WithVolume(-3f),
         };
+
+    [DataField]
+    public float FootprintCleaningRange = 0.2f;
+
+    /// <summary>
+    ///     How many footprints within <see cref="FootprintCleaningRange"/> can be cleaned at once.
+    /// </summary>
+    [DataField]
+    public int MaxCleanedFootprints = 5;
 }

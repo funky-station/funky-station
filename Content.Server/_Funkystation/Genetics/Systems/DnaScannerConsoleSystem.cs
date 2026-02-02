@@ -510,10 +510,8 @@ public sealed class DnaScannerConsoleSystem : EntitySystem
         if (console.ActiveResearchQueue.Count == 0)
         {
             if (source.PointsPerSecond != 0)
-            {
                 source.PointsPerSecond = 0;
-                Dirty(uid, source);
-            }
+
             return;
         }
 
@@ -584,10 +582,7 @@ public sealed class DnaScannerConsoleSystem : EntitySystem
         }
 
         if (source.PointsPerSecond != totalPps)
-        {
             source.PointsPerSecond = totalPps;
-            Dirty(uid, source);
-        }
     }
 
     public bool TryStartResearchingMutation(EntityUid uid, string mutationId, DnaScannerConsoleComponent? console = null)

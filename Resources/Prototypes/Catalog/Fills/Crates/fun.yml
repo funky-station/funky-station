@@ -456,6 +456,17 @@
         amount: 3
 
 - type: entity
+  id: CrateFunIansBirthdayLawboard
+  parent: CrateCommandSecure
+  name: ian's birthday lawboard crate
+  description: Contains a single lawboard that has the Ian's Birthday lawset! Throw a party for our favourite pup! Requires command access to open.
+  components:
+  - type: StorageFill
+    contents:
+    - id: IansBirthdayCircuitBoard
+      amount: 1
+
+- type: entity
   id: CrateFunMysteryFigurines
   parent: CratePlastic
   name: mystery figure crate

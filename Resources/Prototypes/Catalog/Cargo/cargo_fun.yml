@@ -234,6 +234,16 @@
   group: market
 
 - type: cargoProduct
+  id: FunIansBirthdayLawboard
+  icon:
+    sprite: Objects/Misc/module.rsi
+    state: std_mod
+  product: CrateFunIansBirthdayLawboard
+  cost: 5000
+  category: cargoproduct-category-name-fun
+  group: market
+
+- type: cargoProduct
   id: FunMysteryFigurines
   icon:
     sprite: Objects/Fun/figurines.rsi

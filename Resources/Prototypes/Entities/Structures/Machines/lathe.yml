@@ -191,10 +191,7 @@
 # SPDX-FileCopyrightText: 2025 delorphin <delorphin@gmail.com>
 # SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 ferynn <117872973+ferynn@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 jhrushbe <capnmerry@gmail.com>
-# SPDX-FileCopyrightText: 2025 marc-pelletier <113944176+marc-pelletier@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 mkanke-real <mikekanke@gmail.com>
-# SPDX-FileCopyrightText: 2025 rottenheadphones <juaelwe@outlook.com>
 # SPDX-FileCopyrightText: 2025 salpphie <53307242+salpphie@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 salpphie <alyssa.thomas51@gmail.com>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
@@ -204,11 +201,14 @@
 # SPDX-FileCopyrightText: 2025 willow <willowzeta632146@proton.me>
 # SPDX-FileCopyrightText: 2025 wilowzeta <willowzeta632146@proton.me>
 # SPDX-FileCopyrightText: 2026 AftrLite <61218133+AftrLite@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2026 Steve <marlumpy@gmail.com>
 # SPDX-FileCopyrightText: 2026 DoovyADeer <256158135+DoovyADeer@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2026 Steve <marlumpy@gmail.com>
 # SPDX-FileCopyrightText: 2026 ThatOneMoon <91613003+ThatOneMoon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2026 W.xyz() <tptechteam@gmail.com>
 # SPDX-FileCopyrightText: 2026 Xcybitt <197952719+Xcybitt@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2026 jhrushbe <capnmerry@gmail.com>
+# SPDX-FileCopyrightText: 2026 marc-pelletier <113944176+marc-pelletier@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2026 rottenheadphones <juaelwe@outlook.com>
 # SPDX-FileCopyrightText: 2026 rotty <juaelwe@outlook.com>
 # SPDX-FileCopyrightText: 2026 w.xyz() <84605679+pirakaplant@users.noreply.github.com>
 #
@@ -853,7 +853,7 @@
     - OperatingTableCircuitboard # Shitmed Change
     - BorgChargerCircuitboard
     - ThermomachineFreezerMachineCircuitBoard # Assmos - Moved to staticRecipes from dynamicRecipes
-    - DnaScannerConsoleComputerCircuitboard # Funkystation - Genetics
+    - GeneticistsConsoleComputerCircuitboard # Funkystation - Genetics
     dynamicRecipes:
     - HellfireFreezerMachineCircuitBoard
     - PortableScrubberMachineCircuitBoard

@@ -7652,3 +7652,11 @@ Entries:
       message: 'Fixed issue with genetics console crashing on research point change. '
   id: 885
   time: '2026-02-02T19:22:09.0000000+00:00'
+- author: marc-pelletier
+  changes:
+    - type: Fix
+      message: >-
+        Geneticist console will no longer crash when printing injectors in debug
+        builds
+  id: 886
+  time: '2026-02-02T23:08:22.0000000+00:00'

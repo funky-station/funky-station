@@ -1,12 +1,13 @@
 # SPDX-FileCopyrightText: 2024 Alzore <140123969+Blackern5000@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
 # SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 deltanedas <@deltanedas:kde.org>
 # SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2026 ThatOneMoon <juozas.dringelis@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -80,3 +81,37 @@
     Plastic: 200
     Silver: 200
     Diamond: 100
+
+- type: latheRecipe
+  id: PKAUpgradeDamage
+  result: PKAUpgradeDamage
+  categories:
+  - Weapons
+  completetime: 5
+  materials:
+    Plasteel: 1000
+    Gold: 500
+    Silver: 500
+
+- type: latheRecipe
+  id: PKAUpgradeRange
+  result: PKAUpgradeRange
+  categories:
+  - Weapons
+  completetime: 5
+  materials:
+    Plasteel: 1000
+    Gold: 500
+    Silver: 500
+
+- type: latheRecipe
+  id: PKAUpgradeFireRate
+  result: PKAUpgradeFireRate
+  categories:
+  - Weapons
+  completetime: 5
+  materials:
+    Plasteel: 1000
+    Gold: 500
+    Silver: 500
+

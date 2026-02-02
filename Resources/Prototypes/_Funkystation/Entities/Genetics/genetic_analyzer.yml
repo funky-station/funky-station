@@ -1,7 +1,3 @@
-# SPDX-FileCopyrightText: 2025 Steve <marlumpy@gmail.com>
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: entity
   id: HandheldGeneticAnalyzerUnpowered
   parent: BaseItem
@@ -22,8 +18,17 @@
   - type: Item
     heldPrefix: analyzer
     storedRotation: -90
+  - type: ActivatableUI
+    key: enum.GeneticAnalyzerUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.GeneticAnalyzerUiKey.Key:
+        type: GeneticAnalyzerBoundUserInterface
   - type: ItemToggle
     onUse: false
+  - type: GeneticAnalyzer
+    scanningEndSound:
+      path: "/Audio/Items/Medical/healthscanner.ogg"
   - type: Appearance
   - type: GenericVisualizer
     visuals:
@@ -31,6 +36,9 @@
         enum.PowerDeviceVisualLayers.Powered:
           True: { visible: true }
           False: { visible: false }
+  - type: GuideHelp
+    guides:
+    - Genetics
 
 - type: entity
   id: HandheldGeneticAnalyzer
@@ -40,6 +48,7 @@
   - type: PowerCellDraw
     drawRate: .5
   - type: ToggleCellDraw
+  - type: ActivatableUIRequiresPowerCell
 
 - type: entity
   id: HandheldGeneticAnalyzerEmpty
@@ -85,3 +94,6 @@
     backgroundPatchMargin: 0.0, 6.0, 0.0, 6.0
     contentMargin: 12.0, 0.0, 6.0, 0.0
     maxWritableArea: 378.0, 256.0
+  - type: GuideHelp
+    guides:
+    - Genetics

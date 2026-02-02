@@ -1,0 +1,92 @@
+<PanelContainer xmlns="https://spacestation14.io"
+                StyleClasses="BackgroundPanel"
+                HorizontalExpand="True"
+                Margin="0 0 0 6"
+                Access="Public">
+
+    <BoxContainer Orientation="Vertical"
+                  Margin="8">
+
+        <!-- Top line: Gas name + cost -->
+        <BoxContainer Orientation="Horizontal"
+                      Margin="0 0 4 0">
+            <Label Name="GasNameLabel"
+                   Text="Gas Name"
+                   Margin="0 0 4 0"
+                   VerticalAlignment="Center"
+                   Access="Public" />
+            <Label Name="StatusLabel"
+                   Text=""
+                   VerticalAlignment="Center"
+                   Margin="0 0 10 0"
+                   StyleClasses="LabelSubText" />
+
+            <Control HorizontalExpand="True" />
+
+            <RichTextLabel Name="RemainingMolesLabel"
+                           Text="[color=#fbbf24]0.00 mols[/color]"
+                           VerticalAlignment="Center"
+                           Access="Public" />
+        </BoxContainer>
+
+        <Control MinHeight="10" />
+
+        <!-- Middle line: Rate + Pressure -->
+        <BoxContainer Orientation="Horizontal">
+            <Label Text="{Loc 'gas-extractor-rate-label'}"
+                   VerticalAlignment="Center"
+                   MinWidth="60" />
+            <SpinBox Name="RateSpinBox"
+                     Value="0"
+                     HorizontalExpand="True"
+                     MinWidth="80"
+                     Access="Public" />
+            <Label Text="mol/s"
+                   VerticalAlignment="Center"
+                   Margin="6 0 0 0" />
+
+            <Control MinWidth="20" HorizontalExpand="True" />
+
+            <Label Text="{Loc 'gas-extractor-max-pressure-label'}"
+                   VerticalAlignment="Center"
+                   MinWidth="60" />
+            <SpinBox Name="MaxPressureSpinBox"
+                     Value="0"
+                     HorizontalExpand="True"
+                     MinWidth="80"
+                     Access="Public" />
+            <Label Text="kPa"
+                   VerticalAlignment="Center"
+                   Margin="6 0 0 0" />
+
+            <Control MinWidth="20" HorizontalExpand="True" />
+
+            <Button Name="ApplyButton"
+                    Text="{Loc 'gas-extractor-apply-button'}"
+                    MinWidth="80"
+                    HorizontalAlignment="Right"
+                    Disabled="True"
+                    Access="Public"
+                    Margin="6 0 0 0" />
+        </BoxContainer>
+
+        <Control MinHeight="10" />
+
+        <BoxContainer Orientation="Horizontal" Margin="0 5 0 0">
+            <Label Text="{Loc 'gas-extractor-buy'}" VerticalAlignment="Center" MinWidth="40" />
+            <Label Text="$" VerticalAlignment="Center" Margin="5 0" />
+            <SpinBox Name="BuySpinBox" Value="100" HorizontalExpand="True" MinWidth="120" Access="Public" />
+            <Button Name="BuyButton" Text="{Loc 'gas-extractor-buy-button'}" MinWidth="80" Margin="10 0 0 0" Access="Public" />
+        </BoxContainer>
+
+
+        <BoxContainer Orientation="Horizontal" Margin="0 5 0 0">
+            <Control HorizontalExpand="True" />
+            <RichTextLabel Name="BuyPreviewLabel" Text="" StyleClasses="LabelSubText" Margin="0 5 0 0" Access="Public" />
+            <Control HorizontalExpand="True" />
+            <CheckBox Name="AutoBuyCheckBox" Text="{Loc 'gas-extractor-auto-buy-enable'}" Margin="0 5 0 0" Access="Public" />
+        </BoxContainer>
+
+        <!-- Set button -->
+    </BoxContainer>
+</PanelContainer>

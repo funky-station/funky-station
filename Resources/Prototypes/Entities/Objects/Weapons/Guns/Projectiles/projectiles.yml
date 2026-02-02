@@ -562,7 +562,7 @@
         Structural: 30
   # Short lifespan
   - type: TimedDespawn
-    lifetime: 0.4
+    lifetime: 0.3
 #  - type: GatheringProjectile # Funky Station
 
 - type: entity

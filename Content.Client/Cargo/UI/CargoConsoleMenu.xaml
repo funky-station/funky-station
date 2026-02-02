@@ -33,7 +33,7 @@ SPDX-License-Identifier: MIT
                    Text="$0" />
         </BoxContainer>
         <Control MinHeight="10"/>
-        <TabContainer Name="TabContainer" VerticalExpand="True">
+        <TabContainer Name="TabContainer" VerticalExpand="True" Access="Public">
             <BoxContainer Orientation="Vertical" VerticalExpand="True">
                 <BoxContainer Orientation="Horizontal">
                     <OptionButton Name="Categories"

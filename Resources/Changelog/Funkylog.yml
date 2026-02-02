@@ -7494,3 +7494,155 @@ Entries:
       message: Roid now has new power devices in Engi
   id: 871
   time: '2026-01-22T09:00:56.0000000+00:00'
+- author: AftrLite
+  changes:
+    - type: Add
+      message: >-
+        Resprited: A.P.Es, Anomaly Vessels, Advanced Anomaly Vessels, Artifact
+        Analyzer
+  id: 872
+  time: '2026-01-24T00:55:27.0000000+00:00'
+- author: pirakaplant
+  changes:
+    - type: Add
+      message: Added the chief engineer's conductor hat.
+  id: 873
+  time: '2026-01-24T00:56:12.0000000+00:00'
+- author: TheHolyAegis
+  changes:
+    - type: Remove
+      message: Removed the extra Experimental RCD from the CE office
+    - type: Fix
+      message: >-
+        Swapped the survival kit box with a normal one, was an syndicate one
+        before, oops.
+    - type: Tweak
+      message: Changed some camera names to something else than "camera"
+    - type: Tweak
+      message: Destroyed the northwest medical entrance to create a genetics lab.
+    - type: Add
+      message: The previous change left enough room to create a psychologist office.
+  id: 874
+  time: '2026-01-25T06:30:43.0000000+00:00'
+- author: Dusty-Plant
+  changes:
+    - type: Tweak
+      message: small Court station changes
+  id: 875
+  time: '2026-01-25T06:32:17.0000000+00:00'
+- author: mkanke-real
+  changes:
+    - type: Add
+      message: Bagel now has a genetics lab
+    - type: Add
+      message: Added new power devices to Bagel
+    - type: Tweak
+      message: Bagel reactor rods are now randomized per shift
+    - type: Tweak
+      message: Med curtains swapped for new ones on Bagel
+  id: 876
+  time: '2026-01-25T06:33:10.0000000+00:00'
+- author: KittyCat432
+  changes:
+    - type: Add
+      message: Added the power transmission point and anti-matter fabricator to Box.
+    - type: Remove
+      message: Removed roundstart ghostrole antags from Box.
+    - type: Tweak
+      message: IAA's office on Box is now a smoking room.
+    - type: Tweak
+      message: IAA's office on Box has been moved towards security.
+    - type: Tweak
+      message: NTR's office on Box has been made fancier.
+    - type: Tweak
+      message: Box is now a 35 minimum population map.
+    - type: Tweak
+      message: Box now comes with a second paramedic.
+  id: 877
+  time: '2026-01-28T19:53:54.0000000+00:00'
+- author: salpphie
+  changes:
+    - type: Add
+      message: Added engineering power transfer machine and AME fuel maker.
+  id: 878
+  time: '2026-01-29T10:20:04.0000000+00:00'
+- author: JoulesBerg
+  changes:
+    - type: Add
+      message: Added genetics room to core as a shared medical and science area
+    - type: Add
+      message: Added a fourth security officer spawn to core
+    - type: Tweak
+      message: >-
+        Tweaked the max number of certain roles on core to better accommodate
+        the potential of 90 population.
+    - type: Remove
+      message: Removed christmas
+    - type: Tweak
+      message: >-
+        changed nuclear reactor to use the new empty reactor and random rod
+        spawner prototypes
+    - type: Add
+      message: Added intercomms to genpop
+    - type: Fix
+      message: Fixed wiring and atmos in the chapel
+    - type: Add
+      message: Added roboticist locker
+    - type: Fix
+      message: Fixed some missing floor tiles under certain doors
+    - type: Add
+      message: >-
+        Added a stasis bed machine board to CMO office. So power gamers can make
+        it if they want it so badly :godo:
+    - type: Add
+      message: >-
+        added some small maints rooms in a couple places just as minor maints
+        expansions
+    - type: Remove
+      message: Removed the old atmos spawners and replaced them with engineer spawners
+  id: 879
+  time: '2026-01-30T10:19:50.0000000+00:00'
+- author: Huhm-1
+  changes:
+    - type: Add
+      message: Added Packed to the map pool
+    - type: Remove
+      message: Removed Amber from the map pool
+    - type: Remove
+      message: Removed Gax from the map pool
+  id: 880
+  time: '2026-01-30T20:17:13.0000000+00:00'
+- author: Doctor-CPU, Will-Oliver-Br, AraiMaia
+  changes:
+    - type: Add
+      message: >-
+        Added a Clothing stain system; your clothes can now get dirty with
+        reagents
+    - type: Add
+      message: >-
+        A washing machine with which to wash your clothes; there's a Flatpack in
+        the custodial closets
+  id: 881
+  time: '2026-02-01T23:59:45.0000000+00:00'
+- author: Fr0goo
+  changes:
+    - type: Fix
+      message: you are no longer forced to wear a hat!
+  id: 882
+  time: '2026-02-02T02:39:01.0000000+00:00'
+- author: AraiMaia
+  changes:
+    - type: Fix
+      message: >-
+        Crew monitor now correctly displays the unfortunate crew's health
+        condition.
+  id: 883
+  time: '2026-02-02T03:20:25.0000000+00:00'
+- author: marc-pelletier
+  changes:
+    - type: Fix
+      message: >-
+        Mutations applied to subjects inside scanners will now properly show
+        details in the console. 
+  id: 884
+  time: '2026-02-02T07:55:35.0000000+00:00'

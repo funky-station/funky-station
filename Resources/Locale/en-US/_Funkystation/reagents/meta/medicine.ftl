@@ -68,6 +68,10 @@ reagent-desc-styptic-powder = A powder that helps to control bleeding and heal p
 reagent-name-silver-sulfadiazine = silver sulfadiazine
 reagent-desc-silver-sulfadiazine = An antibacterial compound used topically on burn victims.
 
+reagent-name-hivelord-essence = hivelord essence
+reagent-desc-hivelord-essence = A gloopy substance produced by the hivelord helmet while worn, seems to contain a small fraction of their healing abilities.
+
 # Genetics
 reagent-name-mutadone = mutadone
 reagent-desc-mutadone = A powerful compound that is used to purge genetic mutations and stabilize DNA.
+

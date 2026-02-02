@@ -23,11 +23,17 @@
 # SPDX-FileCopyrightText: 2024 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 yglop <95057024+yglop@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 2DSiggy <siggymaxwell@gmail.com>
 # SPDX-FileCopyrightText: 2025 Nox <nebulousnox38@gmail.com>
 # SPDX-FileCopyrightText: 2025 SpaceCat~Chan <49094338+SpaceCat-Chan@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Steve <marlumpy@gmail.com>
 # SPDX-FileCopyrightText: 2025 marc-pelletier <113944176+marc-pelletier@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2026 Steve <marlumpy@gmail.com>
+# SPDX-FileCopyrightText: 2025 Steve <marlumpy@gmail.com>
+# SPDX-FileCopyrightText: 2025 Xcybitt <197952719+Xcybitt@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 marc-pelletier <113944176+marc-pelletier@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2026 Xcybitt <197952719+Xcybitt@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -74,6 +80,7 @@
   cost: 7500
   recipeUnlocks:
   - PowerCellHigh
+  - PowerCellHyperSingle
   - TurboItemRechargerCircuitboard
   - SMESAdvancedMachineCircuitboard
 
@@ -182,6 +189,7 @@
   recipeUnlocks:
   - ThermomachineAdvancedFreezerMachineCircuitBoard # Assmos
   - PortableScrubberMachineCircuitBoard
+  - PipeScrubberMachineCircuitBoard # Funkystation
   - HolofanProjector
   - CrystallizerMachineCircuitboard
   - ElectrolyzerMachineCircuitboard # Assmos - /tg/ gases
@@ -199,6 +207,7 @@
   cost: 10000
   recipeUnlocks:
     - WelderExperimental
+    - WelderIndustrialAdvanced
     - PowerDrill
     - JawsOfLife
     - BorgModuleAdvancedTool

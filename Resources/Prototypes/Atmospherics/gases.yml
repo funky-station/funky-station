@@ -17,10 +17,10 @@
 # SPDX-FileCopyrightText: 2024 end <72604018+laok233@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Sage <sagefacepants@gmail.com>
-# SPDX-FileCopyrightText: 2025 Steve <marlumpy@gmail.com>
 # SPDX-FileCopyrightText: 2025 marc-pelletier <113944176+marc-pelletier@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 rottenheadphones <juaelwe@outlook.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2026 Steve <marlumpy@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -32,7 +32,7 @@
   molarMass: 32
   color: 2887E8
   reagent: Oxygen
-  pricePerMole: 0
+  pricePerMole: 0.1 #funkystation
   dangerLevel: 3 # Funkystation - UI update
 
 - type: gas
@@ -43,7 +43,7 @@
   molarMass: 28
   color: DA1010
   reagent: Nitrogen
-  pricePerMole: 0
+  pricePerMole: 0.01 #funkystation
   dangerLevel: 2 # Funkystation - UI update
 
 - type: gas
@@ -54,7 +54,7 @@
   molarMass: 44
   color: 4e4e4e
   reagent: CarbonDioxide
-  pricePerMole: 0
+  pricePerMole: 0.04 #funkystation
   dangerLevel: 4 # Funkystation - UI update
 
 - type: gas
@@ -67,7 +67,7 @@
   gasOverlayState: plasma
   color: FF3300
   reagent: Plasma
-  pricePerMole: 0
+  pricePerMole: 0.35 #funkystation
   dangerLevel: 5 # Funkystation - UI update
 
 - type: gas
@@ -80,7 +80,7 @@
   gasOverlayState: tritium
   color: 13FF4B
   reagent: Tritium
-  pricePerMole: 0.4 #funkystation
+  pricePerMole: 0.7 #funkystation
   dangerLevel: 5 # Funkystation - UI update
 
 - type: gas
@@ -93,7 +93,7 @@
   gasOverlayState: water_vapor
   color: bffffd
   reagent: Water
-  pricePerMole: 0
+  pricePerMole: 0.06
   dangerLevel: 5 # Funkystation - UI update
 
 - type: gas
@@ -119,7 +119,7 @@
   molarMass: 44
   color: 8F00FF
   reagent: NitrousOxide
-  pricePerMole: 0.1
+  pricePerMole: 0.12
   dangerLevel: 2 # Funkystation - UI update
 
 - type: gas
@@ -133,7 +133,7 @@
   gasMolesVisible: 0.6
   color: 3a758c
   reagent: Frezon
-  pricePerMole: 1.2 #funkystation
+  pricePerMole: 1.5 #funkystation
   dangerLevel: 1 # Funkystation - UI update
 
 # Assmos - /tg/ gases
@@ -159,7 +159,7 @@
   gasOverlayState: healium
   color: fa8072
   reagent: Healium
-  pricePerMole: 2.7 #funkystation
+  pricePerMole: 3 #funkystation
   dangerLevel: 3 # Funkystation - UI update
 
 - type: gas
@@ -172,7 +172,7 @@
   molarMass: 8
   color: a52a2a
   reagent: Nitrium
-  pricePerMole: 4
+  pricePerMole: 5
   dangerLevel: 2 # Funkystation - UI update
 
 - type: gas
@@ -183,7 +183,7 @@
   molarMass: 32
   color: 7b68ee
   reagent: Pluoxium
-  pricePerMole: 0.4
+  pricePerMole: 0.5
   dangerLevel: 2 # Funkystation - UI update
 
 - type: gas
@@ -194,7 +194,7 @@
   molarMass: 32
   color: fffaf0
   reagent: Hydrogen
-  pricePerMole: 1.2
+  pricePerMole: 0.8
   dangerLevel: 5 # Funkystation - UI update
 
 - type: gas
@@ -207,7 +207,7 @@
   molarMass: 8
   color: 33cccc
   reagent: Hyper-Noblium
-  pricePerMole: 5
+  pricePerMole: 6
   dangerLevel: 0 # Funkystation - UI update
 
 - type: gas
@@ -221,7 +221,7 @@
   molarMass: 120
   color: 009933
   reagent: Proto-Nitrate
-  pricePerMole: 0.6
+  pricePerMole: 1
   dangerLevel: 1 # Funkystation - UI update
 
 - type: gas
@@ -235,7 +235,7 @@
   molarMass: 110
   color: 1c1a1a
   reagent: Zauker
-  pricePerMole: 6
+  pricePerMole: 8
   dangerLevel: 4 # Funkystation - UI update
 
 - type: gas
@@ -274,7 +274,7 @@
   molarMass: 200
   color: 525151
   reagent: Anti-Noblium
-  pricePerMole: 8
+  pricePerMole: 10
   dangerLevel: 6 # Funkystation - UI update
 
 # Assmos - /tg/ gases end

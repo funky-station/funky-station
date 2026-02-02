@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2025 Terkala <appleorange64@gmail.com>
+// SPDX-FileCopyrightText: 2026 Terkala <appleorange64@gmail.com>
 //
 // SPDX-License-Identifier: MIT
 
@@ -118,14 +118,14 @@ public sealed partial class ZombieTumorInfectionComponent : Component
     /// Time to progress from incubation to early stage (when symptoms begin).
     /// </summary>
     [DataField, AutoNetworkedField]
-    public TimeSpan IncubationToEarlyTime = TimeSpan.FromMinutes(10); //final version
+    public TimeSpan IncubationToEarlyTime = TimeSpan.FromMinutes(15); //final version
     //public TimeSpan IncubationToEarlyTime = TimeSpan.FromSeconds(5); //test version
 
     /// <summary>
     /// Time to progress from early to tumor formation stage.
     /// </summary>
     [DataField, AutoNetworkedField]
-    public TimeSpan EarlyToTumorTime = TimeSpan.FromMinutes(17); //final version
+    public TimeSpan EarlyToTumorTime = TimeSpan.FromMinutes(15); //final version
     //public TimeSpan EarlyToTumorTime = TimeSpan.FromSeconds(10); //test version
 
     /// <summary>

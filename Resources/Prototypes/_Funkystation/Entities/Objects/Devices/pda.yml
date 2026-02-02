@@ -177,3 +177,22 @@
   - type: Icon
     sprite: _Funkystation/Objects/Devices/pda.rsi
     state: pda-ntr
+
+- type: entity
+  parent: BasePDA
+  id: GeneticistPDA
+  name: geneticist PDA
+  description: Looks pretty dirty.
+  components:
+  - type: Pda
+    id: GeneticistIDCard
+  - type: Appearance
+    appearanceDataInit:
+     enum.PdaVisuals.PdaType:
+       !type:String
+       pda-medical
+  - type: PdaBorderColor
+    borderColor: "#d7d7d0"
+    accentVColor: "#447987"
+  - type: Icon
+    state: pda-medical

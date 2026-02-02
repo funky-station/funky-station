@@ -1,4 +1,4 @@
-# SPDX-FileCopyrightText: 2025 Terkala <appleorange64@gmail.com>
+# SPDX-FileCopyrightText: 2026 Terkala <appleorange64@gmail.com>
 #
 # SPDX-License-Identifier: MIT
 
@@ -36,6 +36,27 @@
           Quantity: 5
         - ReagentId: ZombieBlood
           Quantity: 10
+  - type: Appearance
+  - type: ZombieTumorBurningVisuals
+    normalState: zombietumor
+    burningState: organ_burning
+    deadState: dead
+  - type: Flammable
+    fireSpread: true
+    alwaysCombustible: true
+    damage:
+      types:
+        Heat: 1
+  - type: Damageable
+    damageModifierSet: Wood
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 15
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Breakage" ]
 
 - type: entity
   id: ZombieRoboTumor
@@ -71,3 +92,24 @@
           Quantity: 5
         - ReagentId: ZombieBlood
           Quantity: 10
+  - type: Appearance
+  - type: ZombieTumorBurningVisuals
+    normalState: zombierobotumor
+    burningState: organ_burning
+    deadState: dead
+  - type: Flammable
+    fireSpread: true
+    alwaysCombustible: true
+    damage:
+      types:
+        Heat: 1
+  - type: Damageable
+    damageModifierSet: Wood
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 15
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Breakage" ]

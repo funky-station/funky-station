@@ -2279,6 +2279,22 @@
   saleLimit: 1 # WD EDIT
 
 - type: listing
+  id: uplinkPranksimovCircuitBoard
+  name: uplink-pranksimov-circuitboard-name
+  description: uplink-pranksimov-circuitboard-name
+  icon: { sprite: Objects/Misc/module.rsi, state: std_mod }
+  productEntity: PranksimovCircuitBoard
+  cost:
+    Telecrystal: 50 # goob
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:BuyerJobCondition
+    whitelist:
+    - Clown
+  saleLimit: 1 # WD EDIT
+
+- type: listing
   id: UplinkClusterBananaPeel
   name: uplink-cluster-banana-peel-name
   description: uplink-cluster-banana-peel-desc

@@ -778,7 +778,7 @@
   - Pranksimov4
   obeysTo: laws-owner-crew
 
-# Plasmaflood - dont worry, this lawset will be incredibly rare lmfao
+# Plasmaflood - dont worry, this lawset will be incredibly rare lmfao, doesnt have a law board dw
 - type: siliconLaw
   id: Plasmaflood1
   order: 1

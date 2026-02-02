@@ -415,6 +415,9 @@ uplink-revolver-cap-gun-fake-desc = Fool your enemy! It can use both cap and mag
 uplink-banana-peel-explosive-name = Explosive Banana Peel
 uplink-banana-peel-explosive-desc = They will burst into laughter when they slip on it!
 
+uplink-pranksimov-circuitboard-name = Pranksimov law circuit
+uplink-pranksimov-circuitboard-desc = Makes the AI or a different Silicon friend very silly! They'll always listen to you with this so long as you're funny!
+
 uplink-hot-potato-name = Hot Potato
 uplink-hot-potato-desc = Once activated, this time bomb can't be dropped - only passed to someone else!
 

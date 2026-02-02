@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2026 Steve <marlumpy@gmail.com>
+// SPDX-FileCopyrightText: 2026 marc-pelletier <113944176+marc-pelletier@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using System.Linq;
 using Content.Server._Funkystation.Genetics.Components;
 using Content.Server.Medical.Components;
@@ -11,7 +16,6 @@ using Content.Shared._Funkystation.Genetics.Systems;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.DeviceLinking;
-using Content.Shared.FixedPoint;
 using Content.Shared.Interaction;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
@@ -355,6 +359,7 @@ public sealed class DnaScannerConsoleSystem : EntitySystem
 
         comp.SavedMutations.Add(entry);
         Dirty(uid, comp);
+        _discovery.DiscoverMutation(uid, entry.Id);
         _unlockTrigger.OnMutationSaved(uid, comp, entry.Id);
 
         if (_proto.TryIndex<GeneticMutationPrototype>(entry.Id, out var proto) && proto.ResearchPoints > 0)
@@ -510,10 +515,8 @@ public sealed class DnaScannerConsoleSystem : EntitySystem
         if (console.ActiveResearchQueue.Count == 0)
         {
             if (source.PointsPerSecond != 0)
-            {
                 source.PointsPerSecond = 0;
-                Dirty(uid, source);
-            }
+
             return;
         }
 
@@ -584,10 +587,7 @@ public sealed class DnaScannerConsoleSystem : EntitySystem
         }
 
         if (source.PointsPerSecond != totalPps)
-        {
             source.PointsPerSecond = totalPps;
-            Dirty(uid, source);
-        }
     }
 
     public bool TryStartResearchingMutation(EntityUid uid, string mutationId, DnaScannerConsoleComponent? console = null)

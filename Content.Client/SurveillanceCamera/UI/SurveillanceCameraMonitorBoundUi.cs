@@ -3,6 +3,7 @@
 // SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
 // SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 B_Kirill <153602297+B-Kirill@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
 // SPDX-License-Identifier: MIT
@@ -43,11 +44,17 @@ public sealed class SurveillanceCameraMonitorBoundUserInterface : BoundUserInter
         _window.SubnetRefresh += OnSubnetRefresh;
         _window.CameraSwitchTimer += OnCameraSwitchTimer;
         _window.CameraDisconnect += OnCameraDisconnect;
+
+        var xform = EntMan.GetComponent<TransformComponent>(Owner);
+        var gridUid = xform.GridUid ?? xform.MapUid;
+
+        if (gridUid is not null)
+            _window?.SetMap(gridUid.Value);
     }
 
-    private void OnCameraSelected(string address)
+    private void OnCameraSelected(string address, string? subnet)
     {
-        SendMessage(new SurveillanceCameraMonitorSwitchMessage(address));
+        SendMessage(new SurveillanceCameraMonitorSwitchMessage(address, subnet));
     }
 
     private void OnSubnetRequest(string subnet)

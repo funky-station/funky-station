@@ -7624,3 +7624,9 @@ Entries:
         the custodial closets
   id: 881
   time: '2026-02-01T23:59:45.0000000+00:00'
+- author: Fr0goo
+  changes:
+    - type: Fix
+      message: you are no longer forced to wear a hat!
+  id: 882
+  time: '2026-02-02T02:39:01.0000000+00:00'

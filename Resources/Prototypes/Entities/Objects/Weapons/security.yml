@@ -69,6 +69,8 @@
   parent: [BaseItem, BaseSecurityContraband]
   id: Stunbaton
   description: A stun baton for incapacitating people with. Actively harming with this is considered bad tone.
+  suffix: DO NOT MAP # Funky
+  categories: [ DoNotMap ] # Funky
   components:
   - type: Tag # goob edit
     tags:
@@ -178,7 +180,7 @@
     wideAnimationRotation: -135
     damage:
       types:
-        Blunt: 20
+        Blunt: 10 # Funky
     soundHit:
       collection: MetalThud
     bluntStaminaDamageFactor: 1.5

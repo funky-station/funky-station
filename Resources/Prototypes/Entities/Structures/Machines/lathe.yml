@@ -1223,7 +1223,7 @@
     - RiotShield
     - SpeedLoaderMagnum
     - SpeedLoaderMagnumEmpty
-    - Stunbaton
+    #- Stunbaton # Funky - Replacing with truncheons
     - TargetClown
     - TargetHuman
     - TargetSyndicate

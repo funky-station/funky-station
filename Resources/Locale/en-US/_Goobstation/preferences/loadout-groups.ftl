@@ -10,6 +10,7 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
+loadout-group-ntr-eyes = Nanotrasen Representative glasses
 loadout-group-ntr-head = Nanotrasen Representative head
 loadout-group-ntr-neck = Nanotrasen Representative neck
 loadout-group-ntr-backpack = Nanotrasen Representative backpack

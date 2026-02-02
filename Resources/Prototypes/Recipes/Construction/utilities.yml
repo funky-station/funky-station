@@ -41,11 +41,11 @@
 # SPDX-FileCopyrightText: 2025 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 McBosserson <148172569+McBosserson@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 McBosserson <mcbosserson@hotmail.com>
-# SPDX-FileCopyrightText: 2025 Steve <marlumpy@gmail.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 marc-pelletier <113944176+marc-pelletier@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2026 Steve <marlumpy@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -1964,6 +1964,83 @@
   - HeatPump
   - HeatPumpAlt1
   - HeatPumpAlt2
+
+- type: construction
+  id: GasTemperatureGate
+  name: temperature gate
+  description: A passive gate that opens when temperature is above or below set threshold.
+  graph: GasBinary
+  startNode: start
+  targetNode: tgate
+  category: construction-category-utilities
+  placementMode: AlignAtmosPipeLayers
+  canBuildInImpassable: false
+  icon:
+    sprite: Structures/Piping/Atmospherics/pump.rsi
+    state: tgateOff
+  layers:
+  - sprite: Structures/Piping/Atmospherics/pipe.rsi
+    state: pipeStraight
+  - sprite: Structures/Piping/Atmospherics/pump.rsi
+    state: tgateOff
+  # conditions:
+  #   - !type:NoUnstackableInTile Funky - Handled by DeviceRestrictOverlap and BinaryDeviceRestrictOverlap
+  alternativePrototypes:
+  - GasTemperatureGate
+  - GasTemperatureGateAlt1
+  - GasTemperatureGateAlt2
+
+- type: construction
+  name: temperature gate
+  id: GasTemperatureGateAlt1
+  hide: true
+  graph: GasBinary
+  startNode: start
+  targetNode: tgateAlt1
+  category: construction-category-utilities
+  description: A passive gate that opens when temperature is above or below set threshold.
+  placementMode: AlignAtmosPipeLayers
+  canBuildInImpassable: false
+  icon:
+    sprite: Structures/Piping/Atmospherics/pump.rsi
+    state: tgateOff
+  layers:
+  - sprite: Structures/Piping/Atmospherics/pipe_alt1.rsi
+    state: pipeStraight
+  - sprite: Structures/Piping/Atmospherics/pump_alt1.rsi
+    state: tgateOff
+  # conditions:
+  #   - !type:NoUnstackableInTile Funky - Handled by DeviceRestrictOverlap and BinaryDeviceRestrictOverlap
+  alternativePrototypes:
+  - GasTemperatureGate
+  - GasTemperatureGateAlt1
+  - GasTemperatureGateAlt2
+
+- type: construction
+  name: temperature gate
+  id: GasTemperatureGateAlt2
+  hide: true
+  graph: GasBinary
+  startNode: start
+  targetNode: tgateAlt2
+  category: construction-category-utilities
+  description: A passive gate that opens when temperature is above or below set threshold.
+  placementMode: AlignAtmosPipeLayers
+  canBuildInImpassable: false
+  icon:
+    sprite: Structures/Piping/Atmospherics/pump.rsi
+    state: tgateOff
+  layers:
+  - sprite: Structures/Piping/Atmospherics/pipe_alt2.rsi
+    state: pipeStraight
+  - sprite: Structures/Piping/Atmospherics/pump_alt2.rsi
+    state: tgateOff
+  # conditions:
+  #   - !type:NoUnstackableInTile Funky - Handled by DeviceRestrictOverlap and BinaryDeviceRestrictOverlap
+  alternativePrototypes:
+  - GasTemperatureGate
+  - GasTemperatureGateAlt1
+  - GasTemperatureGateAlt2
 
 # ATMOS TRINARY
 - type: construction

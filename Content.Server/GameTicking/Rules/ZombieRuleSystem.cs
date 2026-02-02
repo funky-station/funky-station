@@ -31,10 +31,10 @@
 // SPDX-FileCopyrightText: 2025 JoulesBerg <104539820+JoulesBerg@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 QueerCats <jansencheng3@gmail.com>
 // SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
-// SPDX-FileCopyrightText: 2025 Terkala <appleorange64@gmail.com>
 // SPDX-FileCopyrightText: 2025 ferynn <117872973+ferynn@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 ferynn <witchy.girl.me@gmail.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2026 Terkala <appleorange64@gmail.com>
 //
 // SPDX-License-Identifier: MIT
 
@@ -79,6 +79,7 @@ public sealed class ZombieRuleSystem : GameRuleSystem<ZombieRuleComponent>
     [Dependency] private readonly GameTicker _gameTicker = default!; // Einstein Engines - Zombie Improvements Take 2
     [Dependency] private readonly ZombieSystem _zombie = default!;
     [Dependency] private readonly ZombieTumorOrganSystem _zombieTumor = default!;
+    [Dependency] private readonly CBurnShuttleSpawnSystem _cburnSpawn = default!;
 
     public override void Initialize()
     {
@@ -156,7 +157,7 @@ public sealed class ZombieRuleSystem : GameRuleSystem<ZombieRuleComponent>
     /// <summary>
     ///     The big kahoona function for checking if the round is gonna end
     /// </summary>
-    private void CheckRoundEnd(ZombieRuleComponent zombieRuleComponent)
+    private void CheckRoundEnd(EntityUid uid, ZombieRuleComponent zombieRuleComponent)
     {
         var healthy = GetHealthyHumans();
         if (healthy.Count == 1) // Only one human left. spooky
@@ -188,10 +189,23 @@ public sealed class ZombieRuleSystem : GameRuleSystem<ZombieRuleComponent>
         // when everyone gets on the shuttle.
         if (GetInfectedFraction() >= 1 && !_roundEnd.IsRoundEndRequested()) // Oops, all zombies
             _roundEnd.EndRound();
-
         // Check if 80% of connected players are zombified, dead, or ghosts
-        if (CheckZombieVictoryPercentage() && !_roundEnd.IsRoundEndRequested())
+        else if (CheckZombieVictoryPercentage() && !_roundEnd.IsRoundEndRequested())
             _roundEnd.EndRound();
+
+        // Check if 55% of connected players are dead or zombified - spawn CBURN shuttles
+        else if (CheckDeadOrZombiePercentage(0.55f))
+        {
+            var spawnComp = CompOrNull<CBurnShuttleSpawnComponent>(uid);
+            if (spawnComp != null && !spawnComp.HasSpawned)
+            {
+                _cburnSpawn.SpawnCBurnShuttles(spawnComp);
+                spawnComp.HasSpawned = true;
+                Dirty(uid, spawnComp);
+            }
+        }
+
+
     }
 
     protected override void Started(EntityUid uid, ZombieRuleComponent component, GameRuleComponent gameRule, GameRuleStartedEvent args)
@@ -199,6 +213,9 @@ public sealed class ZombieRuleSystem : GameRuleSystem<ZombieRuleComponent>
         base.Started(uid, component, gameRule, args);
 
         component.NextRoundEndCheck = _timing.CurTime + component.EndCheckDelay;
+        
+        // Add CBURN shuttle spawn component to monitor and spawn shuttles
+        EnsureComp<CBurnShuttleSpawnComponent>(uid);
     }
 
     protected override void ActiveTick(EntityUid uid, ZombieRuleComponent component, GameRuleComponent gameRule, float frameTime)
@@ -206,7 +223,7 @@ public sealed class ZombieRuleSystem : GameRuleSystem<ZombieRuleComponent>
         base.ActiveTick(uid, component, gameRule, frameTime);
         if (!component.NextRoundEndCheck.HasValue || component.NextRoundEndCheck > _timing.CurTime)
             return;
-        CheckRoundEnd(component);
+        CheckRoundEnd(uid, component);
         component.NextRoundEndCheck = _timing.CurTime + component.EndCheckDelay;
     }
 
@@ -279,6 +296,49 @@ public sealed class ZombieRuleSystem : GameRuleSystem<ZombieRuleComponent>
             healthy.Add(uid);
         }
         return healthy;
+    }
+
+    /// <summary>
+    /// Checks if a given percentage of all currently connected players are dead or zombified.
+    /// Does not count ghosts (only dead and zombies).
+    /// </summary>
+    private bool CheckDeadOrZombiePercentage(float threshold)
+    {
+        var totalConnectedPlayers = 0;
+        var deadOrZombieCount = 0;
+
+        // Count all connected players
+        foreach (var session in _playerManager.Sessions)
+        {
+            // Skip if player has no attached entity
+            if (session.AttachedEntity == null)
+                continue;
+
+            var entity = session.AttachedEntity.Value;
+            totalConnectedPlayers++;
+
+            // Check if player is a zombie
+            if (HasComp<ZombieComponent>(entity))
+            {
+                deadOrZombieCount++;
+                continue;
+            }
+
+            // Check if player is dead
+            if (TryComp<MobStateComponent>(entity, out var mobState) && _mobState.IsDead(entity, mobState))
+            {
+                deadOrZombieCount++;
+                continue;
+            }
+        }
+
+        // Need at least 1 connected player to check
+        if (totalConnectedPlayers == 0)
+            return false;
+
+        // Check if threshold percentage or more are dead/zombified
+        var percentage = (float)deadOrZombieCount / totalConnectedPlayers;
+        return percentage >= threshold;
     }
 
     /// <summary>

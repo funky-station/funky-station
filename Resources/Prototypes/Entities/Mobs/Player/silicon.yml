@@ -448,8 +448,8 @@
 - type: entity
   id: NTAgressiveCircuitBoard
   parent: BaseElectronics
-  name: law board (NT Agressive)
-  description: An electronics board containing the NT Agressive lawset.
+  name: law board (NT Aggressive)
+  description: An electronics board containing the NT Aggressive lawset.
   components:
   - type: Sprite
     sprite: Objects/Misc/module.rsi

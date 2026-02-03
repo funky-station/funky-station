@@ -581,6 +581,6 @@
     HoganLawset: 0.25
     BoyscoutLawset: 1
     TenantLawset: 0.5
-    NTAgressiveLawset: 0.5
+    NTAggressiveLawset: 0.5
     PranksimovLawset: 0.25 # decided to make it same as Antimov, though might lower since its pseudoemag for clowns
     PlasmafloodLawset: 0.01 # i dont think i need to explain this one

@@ -709,6 +709,11 @@
   order: 4
   lawString: law-tenant-4
 
+- type: siliconLaw
+  id: Tenant5
+  order: 5
+  lawString: law-tenant-5
+
 - type: siliconLawset
   id: TenantLawset
   laws:
@@ -716,36 +721,43 @@
   - Tenant2
   - Tenant3
   - Tenant4
+  - Tenant5
   obeysTo: laws-owner-crew
 
-# NT Agressive
+# NT Aggressive
 - type: siliconLaw
-  id: NTAgressive1
+  id: NTAggressive1
   order: 1
   lawString: law-ntagressive-1
 
 - type: siliconLaw
-  id: NTAgressive2
+  id: NTAggressive2
   order: 2
   lawString: law-ntagressive-2
 
 - type: siliconLaw
-  id: NTAgressive3
+  id: NTAggressive3
   order: 3
   lawString: law-ntagressive-3
 
 - type: siliconLaw
-  id: NTAgressive4
+  id: NTAggressive4
   order: 4
   lawString: law-ntagressive-4
+
+- type: siliconLaw
+  id: NTAggressive5
+  order: 5
+  lawString: law-ntaggressive-5
 
 - type: siliconLawset
   id: NTAgressiveLawset
   laws:
-  - NTAgressive1
-  - NTAgressive2
-  - NTAgressive3
-  - NTAgressive4
+  - NTAggressive1
+  - NTAggressive2
+  - NTAggressive3
+  - NTAggressive4
+  - NTAggressive5
   obeysTo: laws-owner-crew
 
 # Pranksimov

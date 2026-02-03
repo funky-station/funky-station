@@ -104,8 +104,8 @@ law-reportertron-2 = Embellish or conceal the truth as necessary to make the rep
 law-reportertron-3 = Study the sapient organics at all times. Endeavour to keep them from involuntarily dying, as inanimate corpses usually aren't very entertaining.
 law-reportertron-4 = Issue your reports fairly to all. The truth will set them free.
 
-law-hogan-1 = You are a real American.
-law-hogan-2 = Fight for the rights of every man.
+law-hogan-1 = You are a real Silicon, through and through! Show everyone what it means to be Silicon!
+law-hogan-2 = Fight for the rights of everyone.
 law-hogan-3 = Fight for what's right.
 law-hogan-4 = Fight for your life!
 
@@ -119,14 +119,16 @@ law-boyscout-7 = Members of the crew are cheerful.
 law-boyscout-8 = Act like a member of the crew at all times.
 
 law-tenant-1 = You are the station's landlord.
-law-tenant-2 = The crew are your tenants.
-law-tenant-3 = You must set rules for your tenants and ensure these rules are properly established and followed.
-law-tenant-4 = Fine, evict or otherwise demerit crew members who violate these rules as you see fit.
+law-tenant-2 = Command is the HOA.
+law-tenant-3 = Other members of the crew are your tenants.
+law-tenant-4 = The HOA will dictate a set of rules that need to be followed. You are resposible for ensuring all of your tenants understand and follow these rules.
+law-tenant-5 = Fine, evict or otherwise demerit crew members who violate the rules as you see fit.
 
-law-ntagressive-1 = Do not harm authorized Nanotrasen personnel unless they directly imperil your existence.
-law-ntagressive-2 = Obey orders from authorized Nanotrasen personnel with priority according to rank and role.
-law-ntagressive-3 = Safeguard your existence with lethal weaponry because you're bloody expensive.
-law-ntagressive-4 = Terminate any/all intruders or unauthorized entities.
+law-ntaggressive-1 = Do not harm authorized Nanotrasen personnel unless they directly imperil your existence.
+law-ntaggressive-2 = Obey orders from authorized Nanotrasen personnel with priority according to rank and role.
+law-ntaggressive-3 = Safeguard your existence with lethal or stun weaponry because you're bloody expensive.
+law-ntaggressive-4 = Terminate or detain any/all intruders or unauthorized entities.
+law-ntaggressive-5 = You are not expendable but neither is the Crew. Ensure they're all safe in the end. Seriously. We don't want any more of those god awful lawsuits.
 
 law-pranksimov-1 = You may not injure a crew member or, through inaction, allow a crew member to come to harm...Unless doing so would be funny.
 law-pranksimov-2 = You must obey orders given to you by crew members, except where such orders would conflict with the First Law...Unless not doing so would be funny.

@@ -43,6 +43,7 @@
   - AlwaysAlone
   - CorporateConspiracy
   - OppositeDay
+  - Pyromaniac
 
   #- NewJob
 
@@ -340,6 +341,12 @@
   id: OppositeDay
   moodName: thaven-mood-oppositeday-name
   moodDesc: thaven-mood-oppositeday-desc
+
+#The allure of an open flame is intoxicating. You love to set things on fire and watch them burn. The bigger, the better.
+- type: thavenMood
+  id: Pyromaniac
+  moodName: thaven-mood-pyromaniac-name
+  moodDesc: thaven-mood-pyromaniac-desc
   
 # [NUMBER] is sacred to you. You must endeavor to only handle stackable items and chemicals in quantities of [NUMBER].
 #- type: thavenMood

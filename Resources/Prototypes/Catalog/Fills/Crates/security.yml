@@ -45,18 +45,23 @@
 - type: entity
   id: CrateSecurityNonlethal
   parent: CrateSecgear
-  name: nonlethals crate
-  description: Contains a mix of disablers, stun batons, and flashes. Requires Security access to open.
+  name: less-lethals crate # Funky - Name & description updated to reflect contents
+  description: Contains a mix of truncheons, flashes, shell guns, and beanbag shells. Requires Security access to open.
   components:
   - type: StorageFill
     contents:
-      - id: WeaponDisabler
-        amount: 3
-      - id: Stunbaton
+#      - id: WeaponDisabler # Funky
+#        amount: 3
+#      - id: Stunbaton # Funky
+#        amount: 3
+      - id: Truncheon # Funky
         amount: 3
       - id: BoxFlashbang
       - id: Flash
         amount: 3
+      - id: WeaponFlaregunSecurity # Funky
+        amount: 3
+      - id: BoxBeanbag # Funky - That's 5 shots for each, plus 1 extra to squabble over
 #      - Pepperspray
 #      - GrenadeTeargas
 

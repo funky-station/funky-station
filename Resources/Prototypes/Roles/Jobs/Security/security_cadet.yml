@@ -80,7 +80,7 @@
     id: SecurityCadetPDA
     ears: ClothingHeadsetAltSecurityRegular # Goobstation
     belt: ClothingBeltSecurityFilled
-    pocket1: WeaponDisabler
+#    pocket1: WeaponDisabler # Funky
     pocket2: BookSecurity
   storage:
     back:

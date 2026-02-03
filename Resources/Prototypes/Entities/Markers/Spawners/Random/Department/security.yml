@@ -48,7 +48,8 @@
         - BoxFlashbang
         - TearGasGrenade
         - WeaponDisabler
-        - Stunbaton
+#        - Stunbaton # Funky
+        - Truncheon
       rareChance: 0.05
       prototypes:
         - Flash
@@ -91,7 +92,7 @@
         - ClothingOuterArmorRiot
         - ClothingOuterArmorBulletproof
 #        - WeaponSubMachineGunWt550
-#        - WeaponDisabler
+#        - WeaponDisabler # Funky
         - WeaponPistolMk58
         - WeaponRifleLecter
         - WeaponSubMachineGunDrozd
@@ -118,7 +119,7 @@
       rareChance: 0.05
       prototypes:
 #        - WeaponSubMachineGunWt550
-        - WeaponDisabler
+#        - WeaponDisabler # Funky
         - WeaponPistolMk58
         - WeaponRifleLecter
         - WeaponSubMachineGunDrozd

@@ -579,10 +579,10 @@
       - XrayCannon
 
 - type: entity
-  name: practice disabler
+  name: practice blaster # Funky - Name & description changed to no longer reference the disabler
   parent: BaseWeaponBatterySmall
   id: WeaponDisablerPractice
-  description: A self-defense weapon that exhausts organic targets, slowing them to a crawl. This one has been undertuned for cadets making it mostly harmless.
+  description: A prop blaster, designed specifically to emulate firing a real energy weapon.
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Battery/practice_disabler.rsi
@@ -618,6 +618,8 @@
   parent: [ WeaponDisablerPractice, BaseSecurityCommandContraband ]
   id: WeaponDisabler
   description: A self-defense weapon that exhausts organic targets, slowing them to a crawl.
+  suffix: DO NOT MAP # Funky
+  categories: [ DoNotMap ] # Funky
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Battery/disabler.rsi

@@ -16,7 +16,7 @@ using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.XAML;
 using Robust.Shared.Prototypes;
 
-namespace Content.Client._Funkystation.Genetics.DnaScannerConsole.UI;
+namespace Content.Client._Funkystation.Genetics.GeneticistsConsole.UI;
 
 [GenerateTypedNameReferences]
 public sealed partial class GeneticistsConsoleStorageView : Control

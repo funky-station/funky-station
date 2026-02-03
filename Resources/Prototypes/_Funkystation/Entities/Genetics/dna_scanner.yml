@@ -1,3 +1,8 @@
+# SPDX-FileCopyrightText: 2026 Steve <marlumpy@gmail.com>
+# SPDX-FileCopyrightText: 2026 marc-pelletier <113944176+marc-pelletier@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: entity
   parent: BaseComputerAiAccess
   id: ComputerDnaScanner
@@ -17,13 +22,13 @@
     - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
       state: generic_panel_open
   - type: Computer
-    board: DnaScannerConsoleComputerCircuitboard
+    board: GeneticistsConsoleComputerCircuitboard
   - type: ActivatableUI
     singleUser: true
-    key: enum.DnaScannerConsoleUiKey.Key
+    key: enum.GeneticistsConsoleUiKey.Key
   - type: UserInterface
     interfaces:
-      enum.DnaScannerConsoleUiKey.Key:
+      enum.GeneticistsConsoleUiKey.Key:
         type: GeneticistsConsoleBoundUserInterface
       enum.WiresUiKey.Key:
         type: WiresBoundUserInterface
@@ -35,7 +40,7 @@
     pointspersecond: 0
     active: true
   - type: ResearchClient
-  - type: DnaScannerConsole
+  - type: GeneticistsConsole
   - type: GuideHelp
     guides:
     - Genetics
@@ -48,9 +53,9 @@
 
 - type: entity
   parent: BaseComputerCircuitboard
-  id: DnaScannerConsoleComputerCircuitboard
-  name: dna scanner console board
-  description: A computer printed circuit board for the dna scanner console.
+  id: GeneticistsConsoleComputerCircuitboard
+  name: geneticists console board
+  description: A computer printed circuit board for the geneticists console.
   components:
     - type: Sprite
       state: cpu_medical
@@ -59,8 +64,8 @@
 
 - type: latheRecipe
   parent: BaseCircuitboardRecipe
-  id: DnaScannerConsoleComputerCircuitboard
-  result: DnaScannerConsoleComputerCircuitboard
+  id: GeneticistsConsoleComputerCircuitboard
+  result: GeneticistsConsoleComputerCircuitboard
 
 
 - type: entity

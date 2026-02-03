@@ -18,7 +18,6 @@
   description: trait-hefty-desc
   category: Weight # _Funky change
   cost: 1 # default character has 2 points, they can pick their weight if they want
-  exclusive: [Slight] # _Funky change
   components:
     - type: FixtureDensityModifier #keep in mind the minimum species density and the maximum species density when editing
       min: 30
@@ -31,7 +30,6 @@
   description: trait-slight-desc
   category: Weight # _Funky change
   cost: 1 # default character has 2 points, they can pick their weight if they want
-  exclusive: [Hefty] # _Funky change
   components:
     - type: FixtureDensityModifier #keep in mind the minimum species density and the maximum species density when editing
       min: 30

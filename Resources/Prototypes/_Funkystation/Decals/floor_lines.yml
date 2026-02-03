@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2026 willow <willowzeta632146@proton.me>
+#
+# SPDX-License-Identifier: MIT
+
 - type: decal
   id: FloorLineCenterArrow1
   sprite:

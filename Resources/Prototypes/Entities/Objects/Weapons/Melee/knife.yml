@@ -414,7 +414,13 @@
     tags:
     - Knife
     - UtilityKnife
-  - type: ToggleableVisuals
+  - type: ItemTogglePointLight
+  - type: PointLight
+    enabled: false
+    radius: 0
+    energy: 0
+    netsync: false
+  - type: ToggleableLightVisuals
     spriteLayer: blade
     inhandVisuals:
       left:

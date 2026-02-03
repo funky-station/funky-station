@@ -435,8 +435,8 @@
 - type: damageModifierSet
   id: ChitinoarmisDurescutisArmor
   coefficients:
-    Blunt: .85
-    Slash: .85
+    Blunt: 0.85
+    Slash: 0.85
 
 - type: geneticMutation
   id: KeratinHyperplasia
@@ -456,8 +456,8 @@
 - type: damageModifierSet
   id: KeratinHyperplasiaArmor
   coefficients:
-    Slash: .9
-    Piercing: .9
+    Slash: 0.9
+    Piercing: 0.9
 
 - type: geneticMutation
   id: OssifiedExoskeleton
@@ -477,9 +477,9 @@
 - type: damageModifierSet
   id: OssifiedExoskeletonArmor
   coefficients:
-    Piercing: .85
-    Slash: .85
-    Blunt: .8
+    Piercing: 0.85
+    Slash: 0.85
+    Blunt: 0.8
 
 - type: geneticMutation
   id: CrystallineDermalLattice
@@ -501,9 +501,9 @@
 - type: damageModifierSet
   id: CrystallineDermalLatticeArmor
   coefficients:
-    Heat: .85
-    Cold: .85
-    Shock: .85
+    Heat: 0.85
+    Cold: 0.85
+    Shock: 0.85
 
 - type: geneticMutation
   id: AblativeCuticle
@@ -525,8 +525,8 @@
 - type: damageModifierSet
   id: AblativeCuticleArmor
   coefficients:
-    Heat: .85
-    Caustic: .85
+    Heat: 0.85
+    Caustic: 0.85
 
 - type: geneticMutation
   id: ComprehensiveDermalFortification
@@ -548,13 +548,13 @@
 - type: damageModifierSet
   id: ComprehensiveDermalFortificationArmor
   coefficients:
-    Blunt: .85
-    Slash: .9
-    Piercing: .9
-    Heat: .85
-    Cold: .85
-    Caustic: .85
-    Shock: .8
+    Blunt: 0.85
+    Slash: 0.9
+    Piercing: 0.9
+    Heat: 0.85
+    Cold: 0.85
+    Caustic: 0.85
+    Shock: 0.8
 
 - type: geneticMutation
   id: ColdResistance

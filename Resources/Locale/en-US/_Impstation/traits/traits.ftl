@@ -12,8 +12,6 @@ trait-milbrat-desc = You make subtle references to a past stint in the military 
 
 trait-hefty-name = Hefty
 trait-hefty-desc = You're heavier than average.
-                       Incompatible with Slight.
-					   
+
 trait-slight-name = Slight
 trait-slight-desc = You're lighter than average.
-                       Incompatible with Hefty.

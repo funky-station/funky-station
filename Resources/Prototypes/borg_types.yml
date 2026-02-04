@@ -257,7 +257,7 @@
   - BorgModuleService
   - BorgModuleClowning
   - BorgModuleGardening
-  - BorgModuleHarvesting
+  - BorgModuleCooking
   radioChannels:
   - Science
   - Service

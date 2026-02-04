@@ -1,0 +1,89 @@
+{
+    "version": 1,
+    "license": "CC0-1.0",
+    "copyright": "sprited by willowzeta (github)",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "center_arrow1"
+        },
+        {
+            "name": "center_arrow2"
+        },
+        {
+            "name": "center_arrow3"
+        },
+        {
+            "name": "center_bend"
+        },
+        {
+            "name": "center_bendarrowccw"
+        },
+        {
+            "name": "center_bendarrowcw"
+        },
+        {
+            "name": "center_box1"
+        },
+        {
+            "name": "center_box2"
+        },
+        {
+            "name": "center_box3"
+        },
+        {
+            "name": "center_connectorlong"
+        },
+        {
+            "name": "center_connectorshort"
+        },
+        {
+            "name": "center_straight"
+        },
+        {
+            "name": "duo_arrowleft1"
+        },
+        {
+            "name": "duo_arrowleft2"
+        },
+        {
+            "name": "duo_arrowright1"
+        },
+        {
+            "name": "duo_arrowright2"
+        },
+        {
+            "name": "duo_bendarrowccw"
+        },
+        {
+            "name": "duo_bendarrowcw"
+        },
+        {
+            "name": "duo_bendinner"
+        },
+        {
+            "name": "duo_bendouter"
+        },
+        {
+            "name": "duo_boxleft"
+        },
+        {
+            "name": "duo_boxright"
+        },
+        {
+            "name": "duo_connectorleft"
+        },
+        {
+            "name": "duo_connectorright"
+        },
+        {
+            "name": "duo_straightleft"
+        },
+        {
+            "name": "duo_straightright"
+        }
+    ]
+}

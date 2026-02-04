@@ -10,6 +10,7 @@
 // SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2026 TrixxedHeart <46364955+TrixxedBit@users.noreply.github.com>
 //
 // SPDX-License-Identifier: MIT
 
@@ -41,10 +42,22 @@ namespace Content.Server.Stunnable
             if (EntityManager.TryGetComponent<StatusEffectsComponent>(target, out var status))
             {
                 _stunSystem.TryStun(target, TimeSpan.FromSeconds(component.StunAmount), true, status);
+                _stunSystem.TryKnockdown(target, TimeSpan.FromSeconds(component.KnockdownAmount), true, status);
 
-                _stunSystem.TryKnockdown(target, TimeSpan.FromSeconds(component.KnockdownAmount), true,
-                    status);
-
+                // _Funkystation Start: Apply slowdown only if it doesn't exceed the cap
+                if (component.SlowdownCap.HasValue)
+                {
+                    var slowed = CompOrNull<Content.Shared.Stunnable.SlowedDownComponent>(target);
+                    if (slowed != null)
+                    {
+                        float newWalk = slowed.WalkSpeedModifier * component.WalkSpeedMultiplier;
+                        float newRun = slowed.SprintSpeedModifier * component.RunSpeedMultiplier;
+                        float cap = component.SlowdownCap.Value;
+                        if (newWalk < cap && newRun < cap)
+                            return;
+                    }
+                }
+                // _Funkystation End
                 _stunSystem.TrySlowdown(target, TimeSpan.FromSeconds(component.SlowdownAmount), true,
                     component.WalkSpeedMultiplier, component.RunSpeedMultiplier, status);
             }

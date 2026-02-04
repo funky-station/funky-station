@@ -135,8 +135,8 @@
         orGroup: Guns
       - id: WeaponDisablerPractice
         orGroup: Guns
-      - id: WeaponDisabler
-        orGroup: Guns
+#      - id: WeaponDisabler # Funky
+#        orGroup: Guns
 #      - id: WeaponDisablerSMG
 #        orGroup: Guns
       - id: WeaponTaser
@@ -180,7 +180,7 @@
       - id: WeaponPlasmaRifle #Funky
         orGroup: Guns
       - id: WeaponEnergyRevolver #Funky
-        orGroup: Guns        
+        orGroup: Guns
       speech: action-speech-spell-summon-guns
 
 - type: entity

@@ -75,7 +75,7 @@
     pocket2: FlashlightSeclite
   storage:
     back:
-    - WeaponDisabler
+#    - WeaponDisabler # Funky - ERT already gets an N1984
     - MedicatedSuture
     - RegenerativeMesh
     - BoxZiptie
@@ -99,7 +99,7 @@
     pocket2: FlashlightSeclite
   storage:
     back:
-    - WeaponDisabler
+#    - WeaponDisabler # Funky
     - MedicatedSuture
     - RegenerativeMesh
     - BoxZiptie
@@ -125,7 +125,7 @@
   - WeaponRifleLecter
   storage:
     back:
-    - WeaponDisabler
+#    - WeaponDisabler # Funky
     - MedicatedSuture
     - RegenerativeMesh
     - BoxZiptie
@@ -343,7 +343,7 @@
     pocket2: FlashlightSeclite
   storage:
     back:
-    - WeaponDisabler
+#    - WeaponDisabler # Funky
     - MedicatedSuture
     - RegenerativeMesh
     - BoxZiptie
@@ -367,7 +367,7 @@
     pocket2: FlashlightSeclite
   storage:
     back:
-    - WeaponDisabler
+#    - WeaponDisabler # Funky
     - MedicatedSuture
     - RegenerativeMesh
     - BoxZiptie
@@ -393,7 +393,7 @@
     - WeaponRifleLecter
   storage:
     back:
-    - WeaponDisabler
+#    - WeaponDisabler # Funky
     - MedicatedSuture
     - RegenerativeMesh
     - BoxZiptie

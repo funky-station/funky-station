@@ -47,7 +47,7 @@
         - BoxHandcuff
         - BoxFlashbang
         - TearGasGrenade
-        - WeaponDisabler
+#        - WeaponDisabler # Funky
 #        - Stunbaton # Funky
         - Truncheon
       rareChance: 0.05

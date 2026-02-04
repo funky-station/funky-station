@@ -42,7 +42,9 @@
     maxAmount: 5
   - id: CrowbarRed
     maxAmount: 5
-  - id: Stunbaton
+#  - id: Stunbaton # Funky
+#    maxAmount: 10
+  - id: Truncheon # Funky
     maxAmount: 10
 
   - id: WeaponRevolverDeckard
@@ -99,9 +101,9 @@
   - id: WeaponXrayCannon
     amount: 0
     maxAmount: 2
-  - id: WeaponDisabler
-    amount: 0
-    maxAmount: 4
+#  - id: WeaponDisabler # funky
+#    amount: 0
+#    maxAmount: 4
 
   - id: WeaponLauncherChinaLake
     prob: 0.30

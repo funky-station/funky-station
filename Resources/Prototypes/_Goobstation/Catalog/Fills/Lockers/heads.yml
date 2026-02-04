@@ -14,7 +14,8 @@
   table: !type:AllSelector
     children:
     - id: BoxFolderCentCom
-    - id: WeaponDisabler
+#    - id: WeaponDisabler # Funky
+    - id: WeaponEnergyGunEnergyPistol # Funky
     - id: BriefcaseBrownFilled
     - id: BookSpaceLaw
     - id: BedsheetCentcom

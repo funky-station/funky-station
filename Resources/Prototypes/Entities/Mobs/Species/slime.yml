@@ -202,6 +202,7 @@
             sprite: Mobs/Species/Human/displacement.rsi
             state: jumpsuit-female
   - type: FootprintOwner
+  - type: Carriable # Carrying system from nyanotrasen.
 
 - type: entity
   parent: MobHumanDummy

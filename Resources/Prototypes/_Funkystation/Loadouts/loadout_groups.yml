@@ -78,6 +78,8 @@
   id: InternalAffairsJobTrinkets
   name: loadout-group-jobtrinkets
   minLimit: 0
+  maxLimit: 3
+  # Please change the max limit to match how many items are in this catagory
   loadouts:
   - CommandLighter
   - CentralCommandLighter

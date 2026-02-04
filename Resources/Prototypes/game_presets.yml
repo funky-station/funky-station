@@ -357,7 +357,7 @@
   rules:
   - medZombies
   - CalmTraitor
-  - BasicStationEventScheduler
+  - BasicStationEventSchedulerNoAntag
   - MeteorSwarmScheduler
   - SpaceTrafficControlEventScheduler
   - BasicRoundstartVariation
@@ -372,7 +372,7 @@
   rules:
   - medZombies
   - CalmTraitor
-  - BasicStationEventScheduler
+  - BasicStationEventSchedulerNoAntag
   - MeteorSwarmScheduler
   - SpaceTrafficControlEventScheduler
   - BasicRoundstartVariation
@@ -387,7 +387,7 @@
   rules:
   - lowZombies
   - CalmTraitor
-  - BasicStationEventScheduler
+  - BasicStationEventSchedulerNoAntag
   - MeteorSwarmScheduler
   - SpaceTrafficControlEventScheduler
   - BasicRoundstartVariation
@@ -402,7 +402,7 @@
   rules:
   - highZombies
   - CalmTraitor
-  - BasicStationEventScheduler
+  - BasicStationEventSchedulerNoAntag
   - MeteorSwarmScheduler
   - SpaceTrafficControlEventScheduler
   - BasicRoundstartVariation
@@ -418,7 +418,7 @@
   showInVote: false
   rules:
   - medZombies
-  - BasicStationEventScheduler
+  - BasicStationEventSchedulerNoAntag
   - KesslerSyndromeScheduler
   - SpaceTrafficControlEventScheduler
   - BasicRoundstartVariation

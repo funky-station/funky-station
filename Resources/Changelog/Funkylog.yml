@@ -7660,3 +7660,15 @@ Entries:
         builds
   id: 886
   time: '2026-02-02T23:08:22.0000000+00:00'
+- author: marc-pelletier
+  changes:
+    - type: Fix
+      message: Armor mutations will no longer cause you to explode from a punch.
+  id: 887
+  time: '2026-02-03T02:46:38.0000000+00:00'
+- author: TrixxedHeart
+  changes:
+    - type: Fix
+      message: Vox are now poisoned by oxygen again
+  id: 888
+  time: '2026-02-04T01:32:11.0000000+00:00'

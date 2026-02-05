@@ -43,8 +43,6 @@
 # SPDX-FileCopyrightText: 2025 Dani <57107055+wgreen84@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 FeelFlows <1493889+FeelFlows@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Fr0goo <153249069+Fr0goo@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Fr0goo <frogoofrog@outlook.com>
-# SPDX-FileCopyrightText: 2025 Frogoo <153249069+Fr0goo@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Icepick <122653407+Icepicked@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 IronDragoon <8961391+IronDragoon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Lyndomen <49795619+lyndomen@users.noreply.github.com>
@@ -64,8 +62,6 @@
 # SPDX-FileCopyrightText: 2025 Sofia Gilsanz <softie.gd@gmail.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 Teasq <Xerithin@gmail.com>
-# SPDX-FileCopyrightText: 2025 ThatOneMoon <91613003+ThatOneMoon@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
 # SPDX-FileCopyrightText: 2025 TheHolyAegis <76066612+TheHolyAegis@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 TheHolyAegis <sanderkamphuis719@gmail.com>
 # SPDX-FileCopyrightText: 2025 Xcybitt <xcybitt@gmail.com>
@@ -80,10 +76,13 @@
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 tea <xerithin@gmail.com>
 # SPDX-FileCopyrightText: 2025 vectorassembly <vectorassembly@icloud.com>
-# SPDX-FileCopyrightText: 2025 w.xyz() <84605679+pirakaplant@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2026 Fr0goo <frogoofrog@outlook.com>
+# SPDX-FileCopyrightText: 2026 Frogoo <153249069+Fr0goo@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2026 MaiaArai <158123176+YaraaraY@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2026 W.xyz() <tptechteam@gmail.com>
+# SPDX-FileCopyrightText: 2026 ThatOneMoon <91613003+ThatOneMoon@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2026 ThatOneMoon <juozas.dringelis@gmail.com>
 # SPDX-FileCopyrightText: 2026 Zergologist <114537969+Chedd-Error@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2026 w.xyz() <84605679+pirakaplant@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -158,6 +157,7 @@
   minLimit: 0
   loadouts:
   - Glasses
+  - CheapSunglasses
   - GlassesJamjar
   - GlassesJensen
 
@@ -340,6 +340,29 @@
   - GreyJumpskirt
   - AncientJumpsuit
   - RainbowJumpsuit
+  - ServiceJumpsuitDressWhite
+  - ServiceJumpsuitDressBlue
+  - ServiceJumpsuitDressTied
+  - ServiceJumpsuitServiceCoat
+  - ServiceJumpskirtDressWhite
+  - ServiceJumpskirtDressBlue
+  - ServiceJumpskirtDressTied
+  - WhiteJumpsuit
+  - WhiteJumpskirt
+  - BlackJumpsuit
+  - BlackJumpskirt
+  - BlueJumpsuit
+  - BlueJumpskirt
+  - GreenJumpsuit
+  - GreenJumpskirt
+  - YellowJumpsuit
+  - YellowJumpskirt
+  - OrangeJumpsuit
+  - OrangeJumpskirt
+  - RedJumpsuit
+  - RedJumpskirt
+  - PinkJumpsuit
+  - PinkJumpskirt
 
 - type: loadoutGroup
   id: PassengerFace
@@ -347,6 +370,7 @@
   minLimit: 0
   loadouts:
   - PassengerFace
+  - BandanaGrey
 
 - type: loadoutGroup
   id: PassengerGloves
@@ -354,6 +378,16 @@
   minLimit: 0
   loadouts:
   - PassengerGloves
+  - GreyGloves
+  - WhiteGloves
+  - BlackGloves
+  - BrownGloves
+  - OrangeGloves
+  - RedGloves
+  - GreenGloves
+  - TealGloves
+  - BlueGloves
+  - PurpleGloves
 
 - type: loadoutGroup
   id: CommonBackpack
@@ -376,6 +410,7 @@
   minLimit: 0
   loadouts:
   - PassengerWintercoat
+  - BikerJacket
 
 - type: loadoutGroup
   id: PassengerShoes
@@ -456,6 +491,48 @@
   - CargoWinterBoots
   - WorkBoots
   - EngineeringWinterBoots
+
+- type: loadoutGroup
+  id: GenericHats
+  name: loadout-group-generic-hats
+  minLimit: 0
+  loadouts:
+  - BandanaBlack
+  - BandanaBlue
+  - BandanaGold
+  - BandanaGreen
+  - BandanaRed
+  - BandanaSkull
+  - BandanaBrown
+  - softwhite
+  - softgrey
+  - softblack
+  - softCorp
+  - softblue
+  - softpurple
+  - softyellow
+  - softgreen
+  - orangesoft
+  - redsoft
+  - redtrucker
+  - RedBeret
+  - BlackBeret
+
+- type: loadoutGroup
+  id: Gloves
+  name: loadout-group-gloves
+  minLimit: 0
+  loadouts:
+  - GreyGloves
+  - WhiteGloves
+  - BlackGloves
+  - BrownGloves
+  - OrangeGloves
+  - RedGloves
+  - GreenGloves
+  - TealGloves
+  - BlueGloves
+  - PurpleGloves
 
 - type: loadoutGroup #WizDen Weh Job Plush
   id: BartenderJobTrinkets
@@ -668,10 +745,27 @@
   name: loadout-group-janitor-head
   minLimit: 0
   loadouts:
-  - JanitorHead
-  - YellowJanitorHead
-  - OrangeJanitorHead
   - RainHat
+  - BandanaBlack
+  - BandanaBlue
+  - BandanaGold
+  - BandanaGreen
+  - BandanaRed
+  - BandanaSkull
+  - BandanaBrown
+  - softwhite
+  - softgrey
+  - softblack
+  - softCorp
+  - softblue
+  - softpurple
+  - softyellow
+  - softgreen
+  - orangesoft
+  - redsoft
+  - redtrucker
+  - RedBeret
+  - BlackBeret
 
 - type: loadoutGroup
   id: JanitorJumpsuit
@@ -694,7 +788,15 @@
   - JanitorBlueRubberGloves
   - JanitorOrangeRubberGloves
   - JanitorPurpleRubberGloves
+  - GreyGloves
+  - WhiteGloves
+  - BlackGloves
+  - BrownGloves
   - OrangeGloves
+  - RedGloves
+  - GreenGloves
+  - TealGloves
+  - BlueGloves
   - PurpleGloves
 
 - type: loadoutGroup
@@ -740,14 +842,26 @@
   name: loadout-group-botanist-head
   minLimit: 0
   loadouts:
-  - BotanistHead
-  - BotanistBandanaBlack
-  - BotanistBandanaBlue
-  - BotanistBandanaGold
-  - BotanistBandanaGreen
-  - BotanistBandanaRed
-  - BotanistBandanaSkull
-  - BotanistBandanaBrown
+  - BandanaBlack
+  - BandanaBlue
+  - BandanaGold
+  - BandanaGreen
+  - BandanaRed
+  - BandanaSkull
+  - BandanaBrown
+  - softwhite
+  - softgrey
+  - softblack
+  - softCorp
+  - softblue
+  - softpurple
+  - softyellow
+  - softgreen
+  - orangesoft
+  - redsoft
+  - redtrucker
+  - RedBeret
+  - BlackBeret
 
 - type: loadoutGroup
   id: BotanistJumpsuit
@@ -1047,9 +1161,29 @@
   name: loadout-group-cargo-technician-head
   minLimit: 0
   loadouts:
-  - CargoTechnicianHead
   - CargoTechnicianHeadMail # Goob/DeltaV - Mail
+  - CargoTechnicianHead
+  - BandanaBlack
+  - BandanaBlue
+  - BandanaGold
+  - BandanaGreen
+  - BandanaRed
+  - BandanaSkull
+  - BandanaBrown
+  - softwhite
+  - softgrey
+  - softblack
+  - softCorp
+  - softblue
+  - softpurple
+  - softyellow
+  - softgreen
+  - orangesoft
+  - redsoft
+  - redtrucker
   - SeniorCargoTechnicianBeret #Funky!
+  - RedBeret
+  - BlackBeret
 
 - type: loadoutGroup
   id: CargoTechnicianNeck
@@ -1182,6 +1316,7 @@
   loadouts:
   - ChiefEngineerHead
   - ChiefEngineerBeret
+  - ChiefEngineerConductorHat # Funky
 
 - type: loadoutGroup
   id: ChiefEngineerJumpsuit
@@ -1440,6 +1575,8 @@
   id: ResearchDirectorShoes
   name: loadout-group-research-director-shoes
   loadouts:
+  - BlackShoes
+  - WhiteShoes
   - BrownShoes
   - LaceupShoes
   - WinterBoots
@@ -1463,8 +1600,26 @@
   name: loadout-group-scientist-head
   minLimit: 0
   loadouts:
-  - RoboticistCap
-  - SkullBandana
+  - BandanaBlack
+  - BandanaBlue
+  - BandanaGold
+  - BandanaGreen
+  - BandanaRed
+  - BandanaSkull
+  - BandanaBrown
+  - softwhite
+  - softgrey
+  - softblack
+  - softCorp
+  - softblue
+  - softpurple
+  - softyellow
+  - softgreen
+  - orangesoft
+  - redsoft
+  - redtrucker
+  - RedBeret
+  - BlackBeret
   - ScientistHardhatWhite # Funky
   - ScientificBeret
 
@@ -1510,6 +1665,7 @@
   - RegularLabCoat
   - ScienceLabCoat
   - ScienceWintercoat
+  - BikerJacket
   - RoboticistLabCoat
   - RoboticistWintercoat
   - SeniorResearcherLabCoat
@@ -1518,7 +1674,6 @@
   id: ScientistShoes
   name: loadout-group-scientist-shoes
   loadouts:
-  - WhiteShoes
   - BlackShoes
   - LaceupShoes
   - WinterBoots
@@ -1533,8 +1688,17 @@
   minLimit: 0
   loadouts:
   - LatexGloves
-  - PurpleGloves
   - RobohandsGloves
+  - PurpleGloves
+  - GreyGloves
+  - WhiteGloves
+  - BlackGloves
+  - BrownGloves
+  - OrangeGloves
+  - RedGloves
+  - GreenGloves
+  - TealGloves
+  - BlueGloves
 
 - type: loadoutGroup
   id: ScientistPDA
@@ -1831,6 +1995,14 @@
   loadouts:
     - DetectiveEnergyRevolver
     - DetectiveRevolver
+
+- type: loadoutGroup
+  id: LoadoutSecurityOfficerWeapon
+  name: loadout-group-security-weapon
+  minLimit: 1
+  loadouts:
+  - SecurityOfficerEnergyGun
+  - SecurityOfficerPistol
 
 # Medical
 - type: loadoutGroup

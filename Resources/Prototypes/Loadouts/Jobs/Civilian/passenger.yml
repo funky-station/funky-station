@@ -3,9 +3,11 @@
 # SPDX-FileCopyrightText: 2024 Mr. 27 <45323883+Dutch-VanDerLinde@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 pigeonpeas <147350443+pigeonpeas@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Fr0goo <frogoofrog@outlook.com>
 # SPDX-FileCopyrightText: 2025 Mora <46364955+TrixxedHeart@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 TrixxedHeart <46364955+TrixxedBit@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2026 Frogoo <153249069+Fr0goo@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2026 Zergologist <114537969+Chedd-Error@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
@@ -39,6 +41,14 @@
   equipment:
     mask: ClothingMaskGas
 
+- type: loadout
+  id: BandanaGrey
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: GreyTider
+  equipment:
+   mask: ClothingMaskBandGrey
+
 # Jumpsuits
 # Grey
 - type: loadout
@@ -53,16 +63,6 @@
     jumpsuit: ClothingUniformJumpskirtColorGrey
   groupBy: "jumpskirt"
 
-# Rainbow
-- type: loadout
-  id: RainbowJumpsuit
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: GreyTider
-  equipment:
-    jumpsuit: ClothingUniformColorRainbow
-  groupBy: "jumpsuit"
-
 # Ancient
 - type: loadout
   id: AncientJumpsuit
@@ -71,6 +71,16 @@
     proto: GreyTider
   equipment:
     jumpsuit: ClothingUniformJumpsuitAncient
+  groupBy: "jumpsuit"
+
+# Rainbow
+- type: loadout
+  id: RainbowJumpsuit
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: GreyTider
+  equipment:
+    jumpsuit: ClothingUniformColorRainbow
   groupBy: "jumpsuit"
 
 # Neck
@@ -117,6 +127,11 @@
   id: PassengerWintercoat
   equipment:
     outerClothing: ClothingOuterWinterCoat
+
+- type: loadout
+  id: BikerJacket
+  equipment:
+    outerClothing: ClothingOuterCoatBiker
 
 # Shoes
 - type: loadout

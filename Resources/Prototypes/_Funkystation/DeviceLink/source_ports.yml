@@ -9,3 +9,9 @@
   name: Bluespace gas sender
   description: Sends gas to bluespace
   defaultLinks: [ BluespaceGasUtilizer ]
+
+- type: sourcePort
+  id: GasExtractorConsole
+  name: signal-port-name-gas-extractor-console
+  description: signal-port-description-gas-extractor-console
+  defaultLinks: [ GasExtractorControl ]

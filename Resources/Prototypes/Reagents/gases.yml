@@ -69,6 +69,12 @@
         - !type:OrganType
           type: Vox
           shouldHave: false
+        - !type:OrganType
+          type: Thaven
+          shouldHave: false
+        - !type:OrganType
+          type: PlasmaBreather
+          shouldHave: false
         ratios:
           CarbonDioxide: 1.0
           Oxygen: -1.0
@@ -92,14 +98,6 @@
         clear: true
         time: 5
       # Funkystation - Genetics Plasma breather lungs
-      - !type:ModifyLungGas
-        conditions:
-        - !type:OrganType # Funkystation - Genetics
-          type: PlasmaBreather
-          shouldHave: false
-        ratios:
-          CarbonDioxide: 1.0
-          Oxygen: -1.0
       - !type:HealthChange
         conditions:
         - !type:OrganType # Funkystation - Genetics
@@ -148,6 +146,12 @@
         - !type:OrganType
           type: Vox
           shouldHave: false
+        - !type:OrganType #imp, thaven lungs don't do chemical reactions
+          type: Thaven
+          shouldHave: false
+        - !type:OrganType
+          type: PlasmaBreather
+          shouldHave: false
         ratios:
           CarbonDioxide: 1.0
           Oxygen: -1.0
@@ -170,25 +174,7 @@
             type: Vox
         clear: true
         time: 5
-      # Thaven lungs don't do chemical reactions
-      - !type:ModifyLungGas
-        conditions:
-        - !type:OrganType #imp, thaven lungs don't do chemical reactions
-          type: Thaven
-          shouldHave: false
-        ratios:
-          CarbonDioxide: 1.0
-          Oxygen: -1.0
-      # Thaven lungs don't do chemical reactions end
       # Funkystation - Genetics Plasma breather lungs
-      - !type:ModifyLungGas
-        conditions:
-        - !type:OrganType # Funkystation - Genetics
-          type: PlasmaBreather
-          shouldHave: false
-        ratios:
-          CarbonDioxide: 1.0
-          Oxygen: -1.0
       - !type:HealthChange
         conditions:
         - !type:OrganType # Funkystation - Genetics

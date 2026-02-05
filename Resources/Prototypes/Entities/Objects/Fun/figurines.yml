@@ -186,7 +186,7 @@
   parent: BaseFigurine
   id: ToyFigurineSecurity
   name: security officer figure
-  description: A figurine depicting a Security Officer holding a stunbaton, ready to defend the station.
+  description: A figurine depicting a Security Officer holding a stunbaton, ready to defend the station. # Funky - When the sprite is updated, make sure it's got a truncheon instead and update the description accordingly
   components:
   - type: Sprite
     state: security

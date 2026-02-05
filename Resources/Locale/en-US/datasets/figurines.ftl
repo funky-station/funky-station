@@ -24,7 +24,7 @@ figurines-passenger-4 = I'm no tider.
 figurines-passenger-5 = How much for a toolbelt?
 
 figurines-greytider-1 = Man, this party stinks. I fucking hate these people.
-figurines-greytider-2 = Uh-oh, who's lost their stunbaton?
+figurines-greytider-2 = Uh-oh, who's lost their truncheon?
 figurines-greytider-3 = Robust.
 figurines-greytider-4 = I'm not me without a toolbox.
 figurines-greytider-5 = Grey tide station wide!

@@ -7,7 +7,7 @@ SPDX-License-Identifier: MIT
 -->
 
 <Document>
-  # Rule 12 - Play Antagonists Responsibly
+  # Rule 10 - Play Antagonists Responsibly
   The goal of an antagonist is above all else to create conflict (fun!!) within the station.
 
   Generally, you should be following your objectives and avoiding just racking up a kill count as an undercover agent. Murderboning is only fun for the person doing it. Certain antagonists (Nuclear Operatives, space dragons) are exempt from this.
@@ -20,6 +20,13 @@ SPDX-License-Identifier: MIT
 
   Pre-turned Initial Infected are permitted to take any actions that increase the chances of taking over the station and may aid in spreading the zombie virus. Actions that cause overt damage to the station and crew are not allowed if they do not aid in the spread of the virus post-turn. (Loosing of the main engines, Atmos-flooding, etc.)
 
-  Post-turned Zombies are not allowed under any circumstance to break vital station components such as power sources, electronics, distribution pipes, or wiring. 
+  Post-turned Zombies are not allowed under any circumstance to break vital station components such as power sources, electronics, distribution pipes, or wiring.
+
+  ## End-Of-Round Guidelines
+  Antagonists should not continue antagonistic actions once the evacuation shuttle has arrived at Central Command and the End-Round Summary screen appears.
+
+  Note that this rule does not apply to round-ending or rule-skirting antagonists such as: Zombies, Space Dragons and their carps, Blobs, Ascended Heretics, or Nuclear Operatives.
+
+  Attacking someone at CentComm because they were your kill objective, or because you found out they killed your friend through the post-game results screen, will still be seen as EORG.
 
 </Document>

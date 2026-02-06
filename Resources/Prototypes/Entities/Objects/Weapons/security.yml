@@ -181,7 +181,7 @@
     wideAnimationRotation: -135
     damage:
       types:
-        Blunt: 10 # Funky
+        Blunt: 12 # Funky
     soundHit:
       collection: MetalThud
     bluntStaminaDamageFactor: 1.5

@@ -7672,3 +7672,9 @@ Entries:
       message: Vox are now poisoned by oxygen again
   id: 888
   time: '2026-02-04T01:32:11.0000000+00:00'
+- author: marc-pelletier
+  changes:
+    - type: Fix
+      message: Fixed issue with entities modifying lung gas more than once.
+  id: 889
+  time: '2026-02-05T18:42:31.0000000+00:00'

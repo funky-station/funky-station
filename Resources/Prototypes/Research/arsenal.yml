@@ -132,7 +132,7 @@
   id: AdvancedRiotControl
   name: research-technology-advanced-riot-control
   icon:
-    sprite: Objects/Weapons/Melee/teleriot-icon.rsi # Funky - Truncheons are no longer included in this tech
+    sprite: Objects/Weapons/Melee/teleriot_shield.rsi # Funky - Truncheons are no longer included in this tech
     state: teleriot-icon
   discipline: Arsenal
   tier: 1

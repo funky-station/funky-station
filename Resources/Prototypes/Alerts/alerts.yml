@@ -187,7 +187,7 @@
 - type: alert
   id: Stun
   icons:
-  - sprite: /Textures/Objects/Weapons/Melee/truncheon.rsi # Funky - These aren't used to stun anymore. Original comment suggested making a separate icon so that's another alternative
+  - sprite: /Textures/Objects/Weapons/Melee/truncheon.rsi # Funky - Stun batons aren't used to stun anymore. Original comment suggested making a separate icon so that's another alternative
     state: icon
   name: alerts-stunned-name
   description: alerts-stunned-desc

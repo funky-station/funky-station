@@ -1301,7 +1301,7 @@
 #    - Truncheon # Funky - Making truncheons roundstart
     - VoiceTrigger
     - WeaponAdvancedLaser
-    - WeaponDisabler
+#    - WeaponDisabler # Funky
 #    - WeaponDisablerSMG
     - WeaponLaserCannon
     - WeaponLaserCarbine

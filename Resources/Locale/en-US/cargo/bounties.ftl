@@ -140,6 +140,7 @@ bounty-item-tooth-space-carp = Space Carp Tooth
 bounty-item-torch = Torch
 bounty-item-toy-sidearm = Toy Sidearm
 bounty-item-trash = Trash
+bounty-item-truncheon = Truncheon # Funky
 bounty-item-vegetable = Vegetable
 bounty-item-warm-cloth = Warm clothes
 bounty-item-wheat = Wheat

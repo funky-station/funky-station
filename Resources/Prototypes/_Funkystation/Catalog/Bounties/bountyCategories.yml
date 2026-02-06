@@ -792,13 +792,20 @@
     whitelist:
       components:
       - Flashbang
-  - name: bounty-item-stun-baton
+#  - name: bounty-item-stun-baton # Funky
+#    minAmount: 3
+#    maxAmount: 5
+#    rewardPer: 1250
+#    whitelist:
+#      tags:
+#      - Stunbaton
+  - name: bounty-item-truncheon # Funky
     minAmount: 3
     maxAmount: 5
     rewardPer: 1250
     whitelist:
       tags:
-      - Stunbaton
+      - Truncheon
 
 # Makeshift Weapons
 - type: cargoBountyCategory

@@ -102,8 +102,8 @@
   - MagazineShotgunBeanbag
   - BoxShellTranquilizer
   - BoxBeanbag
-  - WeaponDisabler
-  - WeaponMechCombatDisabler # Goobstation
+#  - WeaponDisabler # Funky
+#  - WeaponMechCombatDisabler # Goobstation # Funky - Removed
 
 - type: technology
   id: UraniumMunitions

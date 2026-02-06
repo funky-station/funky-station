@@ -59,7 +59,7 @@
       - id: BoxFlashbang
       - id: Flash
         amount: 3
-      - id: WeaponFlaregunSecurity # Funky
+      - id: WeaponFlareGunSecurity # Funky
         amount: 3
       - id: BoxBeanbag # Funky - That's 5 shots for each, plus 1 extra to squabble over
 #      - Pepperspray

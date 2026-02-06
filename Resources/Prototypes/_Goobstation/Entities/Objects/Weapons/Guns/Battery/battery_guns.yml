@@ -97,14 +97,14 @@
   name: EG-4 energy revolver
   parent: [ BaseWeaponBatterySmall, BaseSecurityContraband ]
   id: WeaponEnergyRevolver
-  description: A highly advanced energy revolver capable of firing both lethal and disabling bullets.
+  description: A highly advanced energy revolver. # Funky - Updated description
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Guns/Battery/erevolver.rsi
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
-    - state: mode-disabler
+    - state: mode-lethal
       shader: unshaded
       map: [ "Firemode" ]
     - state: mag-unshaded-4
@@ -124,19 +124,19 @@
     soundEmpty:
       path: /Audio/_DV/Weapons/Guns/Empty/dry_fire.ogg
   - type: Battery
-    maxCharge: 2400
-    startingCharge: 2400
+    maxCharge: 1200 # Funky - Lethal weapon only now so recosting everything around lethal fire being 100
+    startingCharge: 1200
   - type: ProjectileBatteryAmmoProvider
-    proto: BulletDisabler
+    proto: BulletEnergyGunRevolver
     fireCost: 100
   - type: EnergyGun
     fireModes:
-    - proto: BulletDisabler
-      fireCost: 100
-      name: disabling
-      state: disabler
+#    - proto: BulletDisabler # Funky
+#      fireCost: 100
+#      name: disabling
+#      state: disabler
     - proto: BulletEnergyGunRevolver
-      fireCost: 200
+      fireCost: 100 # Funky
       name: lethal
       state: lethal
   - type: MagazineVisuals
@@ -144,12 +144,12 @@
     steps: 5
     zeroVisible: true
   - type: Appearance
-  - type: GenericVisualizer
-    visuals:
-      enum.EnergyGunFireModeVisuals.State:
-        Firemode:
-          Disabler: { state: mode-disabler }
-          Lethal: { state: mode-lethal }
+#  - type: GenericVisualizer # Funky
+#    visuals:
+#      enum.EnergyGunFireModeVisuals.State:
+#        Firemode:
+#          Disabler: { state: mode-disabler }
+#          Lethal: { state: mode-lethal }
   - type: Tag
     tags:
     - Sidearm

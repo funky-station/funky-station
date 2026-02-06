@@ -1223,10 +1223,11 @@
     - RiotShield
     - SpeedLoaderMagnum
     - SpeedLoaderMagnumEmpty
-    #- Stunbaton # Funky - Replacing with truncheons
+#   - Stunbaton # Funky - Replacing with truncheons
     - TargetClown
     - TargetHuman
     - TargetSyndicate
+    - Truncheon # Funky
     - WeaponDisablerPractice
     - WeaponFlareGunSecurity
     - WeaponLaserCarbinePractice
@@ -1296,7 +1297,7 @@
     - SpeedLoaderMagnumUranium
     - TelescopicShield
     - TimerTrigger
-    - Truncheon
+#    - Truncheon # Funky - Making truncheons roundstart
     - VoiceTrigger
     - WeaponAdvancedLaser
     - WeaponDisabler

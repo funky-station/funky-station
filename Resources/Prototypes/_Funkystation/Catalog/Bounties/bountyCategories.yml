@@ -728,8 +728,8 @@
     whitelist:
       tags:
       - Truncheon
-    requiredResearch:
-      - AdvancedRiotControl
+#    requiredResearch: # Funky
+#      - AdvancedRiotControl
   - name: bounty-item-xray-cannon
     minAmount: 2
     maxAmount: 6
@@ -801,13 +801,6 @@
 #    whitelist:
 #      tags:
 #      - Stunbaton
-  - name: bounty-item-truncheon # Funky
-    minAmount: 3
-    maxAmount: 5
-    rewardPer: 1250
-    whitelist:
-      tags:
-      - Truncheon
 
 # Makeshift Weapons
 - type: cargoBountyCategory

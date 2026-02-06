@@ -71,6 +71,10 @@
     - !type:RoleTimeRequirement
       role: JobSecurityOfficer
       time: 36000 #10 hrs
+    - !type:TraitsRequirement # Funky
+      inverted: true
+      traits:
+      - Pacifist
   startingGear: WardenGear
   icon: "JobIconWarden"
   supervisors: job-supervisors-hos

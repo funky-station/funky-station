@@ -52,6 +52,10 @@
   - !type:RoleTimeRequirement
     role: JobSecurityOfficer
     time: 18000 #5 hrs
+  - !type:TraitsRequirement # Funky
+    inverted: true
+    traits:
+    - Pacifist
   startingGear: DetectiveGear
   icon: "JobIconDetective"
   supervisors: job-supervisors-hos

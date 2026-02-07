@@ -224,12 +224,6 @@
     back:
     - WeaponEnergyGunEnergyPistol
 
-- type: loadout
-  id: SecurityOfficerPistol
-  storage:
-    back:
-    - WeaponDisabler
-
 # Misc
 - type: loadout
   id: SecStar

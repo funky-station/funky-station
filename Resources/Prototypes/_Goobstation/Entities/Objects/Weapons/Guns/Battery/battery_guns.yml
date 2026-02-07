@@ -97,7 +97,7 @@
   name: EG-4 energy revolver
   parent: [ BaseWeaponBatterySmall, BaseSecurityContraband ]
   id: WeaponEnergyRevolver
-  description: A highly advanced energy revolver capable of firing both lethal and disabling bullets.
+  description: A advanced high powered energy revolver.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Guns/Battery/erevolver.rsi
@@ -127,18 +127,8 @@
     maxCharge: 2400
     startingCharge: 2400
   - type: ProjectileBatteryAmmoProvider
-    proto: BulletDisabler
-    fireCost: 100
-  - type: EnergyGun
-    fireModes:
-    - proto: BulletDisabler
-      fireCost: 100
-      name: disabling
-      state: disabler
-    - proto: BulletEnergyGunRevolver
-      fireCost: 200
-      name: lethal
-      state: lethal
+    proto: BulletEnergyGunRevolver
+    fireCost: 200
   - type: MagazineVisuals
     magState: mag
     steps: 5

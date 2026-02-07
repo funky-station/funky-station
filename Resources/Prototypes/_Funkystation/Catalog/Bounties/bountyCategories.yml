@@ -710,15 +710,6 @@
   id: securityCategory
   name: bounty-category-security
   entries:
-  - name: bounty-item-disabler-smg
-    minAmount: 2
-    maxAmount: 6
-    rewardPer: 3500
-    whitelist:
-      tags:
-      - DisablerSMG
-    requiredResearch:
-      - AdvancedRiotControl
   - name: bounty-item-truncheon
     minAmount: 4
     maxAmount: 8
@@ -726,8 +717,6 @@
     whitelist:
       tags:
       - Truncheon
-    requiredResearch:
-      - AdvancedRiotControl
   - name: bounty-item-xray-cannon
     minAmount: 2
     maxAmount: 6
@@ -799,6 +788,8 @@
     whitelist:
       tags:
       - Stunbaton
+    requiredResearch:
+      - AdvancedRiotControl
 
 # Makeshift Weapons
 - type: cargoBountyCategory

@@ -93,7 +93,7 @@
     Mask: 1
     Candle: 4
     # Stunbaton: 1 # Funky
-    Stunprod: 1 # Funky
+    MakeshiftStunprod: 1 # Funky
   output:
     ClothingMaskMadHeretic: 1
 

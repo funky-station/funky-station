@@ -340,6 +340,10 @@
   - GreyJumpskirt
   - AncientJumpsuit
   - RainbowJumpsuit
+  - HawaiBlack
+  - HawaiBlue
+  - HawaiRed
+  - HawaiYellow
   - ServiceJumpsuitDressWhite
   - ServiceJumpsuitDressBlue
   - ServiceJumpsuitDressTied
@@ -868,6 +872,7 @@
   name: loadout-group-botanist-head
   minLimit: 0
   loadouts:
+  - StrawHat
   - BandanaBlack
   - BandanaBlue
   - BandanaGold

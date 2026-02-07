@@ -82,12 +82,6 @@
   equipment:
     head: ClothingHeadHatQMFormal
 
-- type: loadout
-  id: PirateTricord
-  equipment:
-    head: ClothingHeadHatPirateTricord
-
-
 # Neck
 - type: loadout
   id: QuartermasterCloak

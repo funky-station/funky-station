@@ -125,8 +125,185 @@
   equipment:
     head: ClothingHeadHatBeretFrench
   groupBy: "berets"
+
+# Misc
+- type: loadout
+  id: XmasCrown
+  equipment:
+    head: ClothingHeadHatXmasCrown
+
+- type: loadout
+  id: Sombrero
+  equipment:
+    head: ClothingHeadHatSombrero
+
+- type: loadout
+  id: MaidenWig
+  equipment:
+    head: ClothingHeadHatShrineMaidenWig
+
+- type: loadout
+  id: CakeHat
+  equipment:
+    head: ClothingHeadHatCake
+
+- type: loadout
+  id: SkubHead
+  equipment:
+    head: ClothingHeadHatSkub
+
+- type: loadout
+  id: ConeHead
+  equipment:
+    head: ClothingHeadHatCone
+
+- type: loadout
+  id: FakeWizard
+  equipment:
+    head: ClothingHeadHatWizardFake
+
+- type: loadout
+  id: SantaHat
+  equipment:
+    head: ClothingHeadHatSantahat
+
+- type: loadout
+  id: BunnyEars
+  equipment:
+    head: ClothingHeadHatBunny
+
+- type: loadout
+  id: PartyHatRed
+  equipment:
+    head: ClothingHeadHatPartyRed
+
+- type: loadout
+  id: PartyHatBlue
+  equipment:
+    head: ClothingHeadHatPartyBlue
+
+- type: loadout
+  id: PartyHatGreen
+  equipment:
+    head: ClothingHeadHatPartyGreen
+
+- type: loadout
+  id: PropellerHat
+  equipment:
+    head: ClothingHeadPropellerHat
+
+- type: loadout
+  id: GladiatorHat
+  equipment:
+    head: ClothingHeadHatGladiator
+
+- type: loadout
+  id: ChickenHead
+  equipment:
+    head: ClothingHeadHatChickenhead
+
+- type: loadout
+  id: DoYouLikeHurtingPeople
+  equipment:
+    head: ClothingHeadHatRichard
+
+- type: loadout
+  id: RedRacoonHead
+  equipment:
+    head: ClothingHeadHatRedRacoon
+
+- type: loadout
+  id: CarborgHead
+  equipment:
+    head: ClothingHeadHatCardborg
+
+- type: loadout
+  id: PaperSack
+  equipment:
+    head: ClothingHeadPaperSack
+
+- type: loadout
+  id: PaperSackSmile
+  equipment:
+    head: ClothingHeadPaperSackSmile
+
+- type: loadout
+  id: PumpkinHead
+  equipment:
+    head: ClothingHeadHatPumpkin
+
+- type: loadout
+  id: SquidHead
+  equipment:
+    head: ClothingHeadHatSquid
+
+- type: loadout
+  id: LooongTopHat
+  equipment:
+    head: ClothingHeadHatMagician
+
+- type: loadout
+  id: FedoraBrown
+  equipment:
+    head: ClothingHeadHatFedoraBrown
+
+- type: loadout
+  id: FedoraGrey
+  equipment:
+    head: ClothingHeadHatFedoraGrey
+
+- type: loadout
+  id: OutlawHat
+  equipment:
+    head: ClothingHeadHatOutlawHat
+
+- type: loadout
+  id: PirateHat
+  equipment:
+    head: ClothingHeadHatPirate
+
+- type: loadout
+  id: PirateTricord
+  equipment:
+    head: ClothingHeadHatPirateTricord
+
+- type: loadout
+  id: CowboyWhite
+  equipment:
+    head: ClothingHeadHatCowboyWhite
+
+- type: loadout
+  id: CowboyGrey
+  equipment:
+    head: ClothingHeadHatCowboyGrey
+
+- type: loadout
+  id: CowboyBlack
+  equipment:
+    head: ClothingHeadHatCowboyBlack
+
+- type: loadout
+  id: CowboyBrown
+  equipment:
+    head: ClothingHeadHatCowboyBrown
+
+- type: loadout
+  id: CowboyRed
+  equipment:
+    head: ClothingHeadHatCowboyRed
+
 - type: loadout
   id: StrawHat
   equipment:
     head: ClothingHeadHatStrawHat
+
+
+
+
+
+
+
+
+
+
 

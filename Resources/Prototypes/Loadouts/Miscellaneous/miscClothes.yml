@@ -133,3 +133,38 @@
     jumpsuit: ClothingUniformJumpsuitHawaiYellow
   groupBy: "jumpsuit"
 
+- type: loadout
+  id: PirateSuit
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitPirate
+  groupBy: "jumpsuit"
+
+- type: loadout
+  id: TacticoolSuit
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitTacticool
+  groupBy: "jumpsuit"
+
+- type: loadout
+  id: ContractKillerSuit
+  equipment:
+    jumpsuit: ClothingUniformHitmanSuit
+  groupBy: "jumpsuit"
+
+- type: loadout
+  id: Yakuza
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitDameDane
+  groupBy: "jumpsuit"
+
+- type: loadout
+  id: TacticoolSkirt
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtTacticool
+  groupBy: "jumpskirt"
+
+- type: loadout
+  id: ContractKillerSkirt
+  equipment:
+    jumpsuit: ClothingUniformHitmanSuitSkirt
+  groupBy: "jumpskirt"

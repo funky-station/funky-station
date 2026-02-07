@@ -50,10 +50,34 @@
     - WhoopieCushion
 
 - type: loadout
+  id: SnapPopBox
+  storage:
+    back:
+    - SnapPopBox
+
+- type: loadout
   id: RubberChicken
   storage:
     back:
     - RubberChicken
+
+- type: loadout
+  id: Skub
+  storage:
+    back:
+    - Skub
+
+- type: loadout
+  id: MrChips
+  storage:
+    back:
+    - MrChips
+
+- type: loadout
+  id: MrDips
+  storage:
+    back:
+    - MrDips
 
 - type: loadout
   id: PonderingOrb

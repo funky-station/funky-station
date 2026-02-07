@@ -30,14 +30,9 @@
     finishedSound:
       path: /Audio/Machines/washing_open.ogg
   - type: EntityStorage
-    isCollidableWhenOpen: true
+    isCollidableWhenOpen: false
     open: true
-    capacity: 8
-    whitelist:
-      components:
-      - Clothing
-      sizes:
-      - Tiny
+    capacity: 4
   - type: Forensics
     canDnaBeCleaned: false
   - type: Appearance

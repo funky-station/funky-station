@@ -5,19 +5,25 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Shared.Damage;
+using Content.Shared.Damage.Prototypes;
 using Content.Shared.Destructible;
 using Content.Shared.Interaction;
 using Content.Shared.Power.EntitySystems;
+using Content.Shared.StatusEffect;
 using Content.Shared.Storage.Components;
 using Content.Shared.Storage.EntitySystems;
+using Content.Shared.Traits.Assorted;
 using Content.Shared.Verbs;
 using Content.Shared.WashingMachine.Events;
+using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Network;
+using Robust.Shared.Prototypes;
+using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 using System.Linq;
-using Content.Shared.Clothing.Components; // Gaby
 
 namespace Content.Shared.WashingMachine;
 
@@ -29,6 +35,12 @@ public abstract partial class SharedWashingMachineSystem : EntitySystem
     [Dependency] private readonly SharedEntityStorageSystem _storage = default!;
     [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly DamageableSystem _damageable = default!;
+    [Dependency] private readonly IPrototypeManager _proto = default!;
+    [Dependency] private readonly IRobustRandom _random = default!;
+
+    private const float DamagePerSecond = 6.0f; // 30 damage over 5 seconds
+    private static readonly SoundSpecifier HitSound = new SoundCollectionSpecifier("MetalThud");
 
     public override void Initialize()
     {
@@ -48,16 +60,37 @@ public abstract partial class SharedWashingMachineSystem : EntitySystem
     {
         base.Update(frameTime);
 
+        var blunt = _proto.Index<DamageTypePrototype>("Blunt");
+
         var query = EntityQueryEnumerator<WashingMachineActiveComponent, WashingMachineComponent>();
         while (query.MoveNext(out var uid, out var _, out var component))
         {
-            if (component.WashingFinished > _timing.CurTime)
+            if (component.WashingFinished <= _timing.CurTime)
+            {
+                if (_net.IsServer)
+                    FinishWashing(uid, component);
                 continue;
+            }
 
-            if (!_net.IsServer)
-                continue;
+            if (_net.IsServer)
+            {
+                SharedEntityStorageComponent? storage = null;
 
-            FinishWashing(uid, component);
+                if (_storage.ResolveStorage(uid, ref storage) && storage.Contents.ContainedEntities.Count > 0)
+                {
+                    var damage = new DamageSpecifier(blunt, DamagePerSecond * frameTime);
+
+                    foreach (var item in storage.Contents.ContainedEntities)
+                    {
+                        _damageable.TryChangeDamage(item, damage, true);
+                    }
+
+                    if (_random.Prob(0.9f * frameTime))
+                    {
+                        _audio.PlayPvs(HitSound, uid);
+                    }
+                }
+            }
         }
     }
 
@@ -84,7 +117,30 @@ public abstract partial class SharedWashingMachineSystem : EntitySystem
 
         var itemEv = new WashingMachineWashedEvent(uid, items);
         foreach (var item in items)
+        {
             RaiseLocalEvent(item, itemEv);
+
+            if (HasComp<StatusEffectsComponent>(item))
+            {
+                if (TryComp<MigraineComponent>(item, out var migraine))
+                {
+                    if (migraine.Duration != -1)
+                    {
+                        migraine.Duration = Math.Max(migraine.Duration, 30.0f);
+                        migraine.BlurryMagnitude = Math.Max(migraine.BlurryMagnitude, 5.0f);
+                        Dirty(item, migraine);
+                    }
+                }
+                else
+                {
+                    migraine = AddComp<MigraineComponent>(item);
+                    migraine.Duration = 30.0f;
+                    migraine.BlurryMagnitude = 5.0f;
+                    migraine.ApplySlowdown = true;
+                    Dirty(item, migraine);
+                }
+            }
+        }
 
         // update again incase forensics changed
         // such as dyeing

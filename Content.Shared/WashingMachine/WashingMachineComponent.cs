@@ -28,4 +28,7 @@ public sealed partial class WashingMachineComponent : Component
 
     [ViewVariables, AutoNetworkedField, Access(typeof(SharedWashingMachineSystem))]
     public WashingMachineState WashingMachineState;
+
+    [DataField, AutoNetworkedField]
+    public float BluntDamagePerSecond = 6.0f;
 }

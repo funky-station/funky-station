@@ -5,9 +5,11 @@
 # SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 AtlasHD <99688062+AtlasHDD@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 FeelFlows <1493889+FeelFlows@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Fr0goo <frogoofrog@outlook.com>
 # SPDX-FileCopyrightText: 2025 Max_Power <1493889+FeelFlows@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Teasq <Xerithin@gmail.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2026 Frogoo <153249069+Fr0goo@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2026 Zergologist <114537969+Chedd-Error@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
@@ -34,16 +36,7 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: SeniorResearcher
-
-- type: loadout
-  id: RoboticistCap
-  equipment:
-    head: ClothingHeadHatCorpsoft
-
-- type: loadout
-  id: SkullBandana
-  equipment:
-    head: ClothingHeadBandSkull
+  groupBy: "berets"
 
 # Head - Funky
 - type: loadout
@@ -180,6 +173,12 @@
   id: LatexGloves
   equipment:
     gloves: ClothingHandsGlovesLatex
+
+- type: loadout
+  id: PurpleGloves
+  equipment:
+    gloves: ClothingHandsGlovesColorPurple
+  groupBy: "gloves"
 
 - type: loadout
   id: RobohandsGloves

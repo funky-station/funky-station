@@ -1,10 +1,10 @@
 # SPDX-FileCopyrightText: 2025 MaiaArai <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Middleson5 <Chance@thethiers.com>
 # SPDX-FileCopyrightText: 2025 Terkala <appleorange64@gmail.com>
-# SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 terkala <appleorange64@gmail.com>
 # SPDX-FileCopyrightText: 2026 Xcybitt <197952719+Xcybitt@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2026 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -58,3 +58,27 @@
 #    maxContactSprintSlowdown: 0.7
 #    maxContactWalkSlowdown: 0.7
 #highkey this is a mald PR but like this is genuinely unneeded. You can already just buy noslips for 10TC, but you get it for free I guess. Yay. Genuinely if you want free noslips go shoot the janitor.
+
+- type: entity
+  parent: [ ClothingShoesMilitaryBase, BaseCentcommContraband ]
+  id: ClothingShoesHighheelBootsNanotrasen
+  name: nanotrasen official's heel boots
+  description: An EXPENSIVE pair of black suede platform ankle boots, with block heels. Arguably a deadly weapon.
+  components:
+  - type: MeleeWeapon
+    damage:
+      types:
+        Piercing: 6
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Shoes/Boots/heelboots.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Shoes/Boots/heelboots.rsi
+    clothingVisuals:
+      shoes:
+      - state: equipped-FEET
+        offset: "0, -0.03125"
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: FootstepHighHeels
+      params:
+        variation: 0.09

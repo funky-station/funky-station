@@ -50,3 +50,4 @@
   id: BotanistWintercoat
   equipment:
     outerClothing: ClothingOuterWinterHydro
+  groupBy: "Wintercoat"

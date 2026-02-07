@@ -122,17 +122,6 @@
   equipment:
     gloves: ClothingHandsGlovesFingerlessInsulated
 
-# Outerclothing
-- type: loadout
-  id: PassengerWintercoat
-  equipment:
-    outerClothing: ClothingOuterWinterCoat
-
-- type: loadout
-  id: BikerJacket
-  equipment:
-    outerClothing: ClothingOuterCoatBiker
-
 # Shoes
 - type: loadout
   id: BlackShoes

@@ -410,7 +410,6 @@
   minLimit: 0
   loadouts:
   - PassengerWintercoat
-  - BikerJacket
 
 - type: loadoutGroup
   id: PassengerShoes
@@ -533,6 +532,33 @@
   - TealGloves
   - BlueGloves
   - PurpleGloves
+
+- type: loadoutGroup
+  id: GenericOuterClothing
+  name: loadout-group-generic-outerclothing
+  minLimit: 0
+  loadouts:
+  - WintercoatGray
+  - WintercoatWhite
+  - WintercoatBlack
+  - WintercoatRed
+  - WintercoatOrange
+  - WintercoatYellow
+  - WintercoatGreen
+  - WintercoatBlue
+  - WintercoatPurple
+  - WintercoatLightBrown
+  - WintercoatBrown
+  - GreyHoodie
+  - BlackHoodie
+  - BomberJacket
+  - BikerJacket
+  - TrenchCoat
+  - GentleCoat
+  - JensenCoat
+  - FlannelRed
+  - FlannelBlue
+  - FlannelGreen
 
 - type: loadoutGroup #WizDen Weh Job Plush
   id: BartenderJobTrinkets
@@ -884,8 +910,16 @@
   name: loadout-group-botanist-outerclothing
   minLimit: 0
   loadouts:
-  - BotanistApron
   - BotanistWintercoat
+  - WintercoatGreen
+  - WintercoatLightBrown
+  - WintercoatBrown
+  - WintercoatBlue
+  - WintercoatPurple
+  - BotanistApron
+  - FlannelRed
+  - FlannelBlue
+  - FlannelGreen
 
 - type: loadoutGroup #WizDen Weh Job Plush
   id: BotanistJobTrinkets
@@ -1049,6 +1083,9 @@
   minLimit: 0
   loadouts:
   - MusicianWintercoat
+  - BikerJacket
+  - GentleCoat
+  - JensenCoat
 
 - type: loadoutGroup
   id: Instruments
@@ -1227,6 +1264,9 @@
   name: loadout-group-cargo-technician-outerclothing
   minLimit: 0
   loadouts:
+  - WintercoatLightBrown
+  - WintercoatBrown
+  - WintercoatBlue
   - CargoTechnicianWindbreaker #Funky!
   - SeniorCargoTechnicianWindbreaker #Funky!
   - CargoTechnicianWintercoatMail # Goob/DeltaV - Mail
@@ -1278,6 +1318,9 @@
   name: loadout-group-salvage-specialist-outerclothing
   minLimit: 0
   loadouts:
+  - WintercoatPurple
+  - WintercoatLightBrown
+  - WintercoatBrown
   - SalvageSpecialistWindbreaker
 
 - type: loadoutGroup
@@ -1662,13 +1705,18 @@
   name: loadout-group-scientist-outerclothing
   minLimit: 0
   loadouts:
+  - ScienceWintercoat
+  - RoboticistWintercoat
+  - WintercoatWhite
+  - WintercoatBlack
+  - WintercoatPurple
   - RegularLabCoat
   - ScienceLabCoat
-  - ScienceWintercoat
-  - BikerJacket
   - RoboticistLabCoat
-  - RoboticistWintercoat
   - SeniorResearcherLabCoat
+  - BikerJacket
+  - GentleCoat
+  - JensenCoat
 
 - type: loadoutGroup
   id: ScientistShoes

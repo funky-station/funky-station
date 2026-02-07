@@ -109,7 +109,7 @@
   - PassengerNeck
   - PassengerFace
   - PassengerGloves
-  - PassengerOuterClothing
+  - GenericOuterClothing
   - GenericShoes
   - Glasses
   - Survival
@@ -139,6 +139,7 @@
   - ServiceJumpsuit
   - CommonBackpack
   - Gloves
+  - GenericOuterClothing
   - GenericShoes
   - Glasses
   - Survival
@@ -625,6 +626,7 @@
   - ReporterOuterClothing # Goobstation - Bodycams
   - CommonBackpack
   - Gloves
+  - GenericOuterClothing
   - GenericShoes
   - Glasses
   - Survival

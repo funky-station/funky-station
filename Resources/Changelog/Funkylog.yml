@@ -7630,3 +7630,51 @@ Entries:
       message: you are no longer forced to wear a hat!
   id: 882
   time: '2026-02-02T02:39:01.0000000+00:00'
+- author: AraiMaia
+  changes:
+    - type: Fix
+      message: >-
+        Crew monitor now correctly displays the unfortunate crew's health
+        condition.
+  id: 883
+  time: '2026-02-02T03:20:25.0000000+00:00'
+- author: marc-pelletier
+  changes:
+    - type: Fix
+      message: >-
+        Mutations applied to subjects inside scanners will now properly show
+        details in the console. 
+  id: 884
+  time: '2026-02-02T07:55:35.0000000+00:00'
+- author: marc-pelletier
+  changes:
+    - type: Fix
+      message: 'Fixed issue with genetics console crashing on research point change. '
+  id: 885
+  time: '2026-02-02T19:22:09.0000000+00:00'
+- author: marc-pelletier
+  changes:
+    - type: Fix
+      message: >-
+        Geneticist console will no longer crash when printing injectors in debug
+        builds
+  id: 886
+  time: '2026-02-02T23:08:22.0000000+00:00'
+- author: marc-pelletier
+  changes:
+    - type: Fix
+      message: Armor mutations will no longer cause you to explode from a punch.
+  id: 887
+  time: '2026-02-03T02:46:38.0000000+00:00'
+- author: TrixxedHeart
+  changes:
+    - type: Fix
+      message: Vox are now poisoned by oxygen again
+  id: 888
+  time: '2026-02-04T01:32:11.0000000+00:00'
+- author: marc-pelletier
+  changes:
+    - type: Fix
+      message: Fixed issue with entities modifying lung gas more than once.
+  id: 889
+  time: '2026-02-05T18:42:31.0000000+00:00'

@@ -976,6 +976,7 @@
   - ClownMaskDevil
   - ClownMaskGamble
   - ClownMaskJuggle
+  - ClownMaskBanana
 
 - type: loadoutGroup
   id: ClownJumpsuit
@@ -984,6 +985,7 @@
   - ClownSuit
   - JesterSuit
   - JesterAltSuit
+  - BananaClownSuit
   - HawaiBlack
   - HawaiBlue
   - HawaiRed
@@ -1048,6 +1050,15 @@
   loadouts:
   - ClownShoes
   - JesterShoes
+  - Sandals
+  - YakuzaShoes
+  - BrownCowboyBoots
+  - WhiteCowboyBoots
+  - BlackCowboyBoots
+  - Flippers
+  - Slippers
+  - DuckSlippers
+  - LizardSlippers
   - BlackShoes
   - WhiteShoes
   - BrownShoes

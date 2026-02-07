@@ -42,27 +42,42 @@
   equipment:
     mask: ClothingMaskClownJuggle
 
+- type: loadout
+  id: ClownMaskBanana
+  equipment:
+    mask: ClothingMaskClownBanana
+
 # Jumpsuit
 - type: loadout
   id: ClownSuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitClown
   groupBy: "jumpsuit"
+
+- type: loadout
+  id: BananaClownSuit
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitClownBanana
+  groupBy: "jumpsuit"
+
 - type: loadout
   id: ClownSkirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtClown
   groupBy: "jumpskirt"
+
 - type: loadout
   id: JesterSuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitJester
   groupBy: "jumpsuit"
+
 - type: loadout
   id: JesterAltSuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitJesterAlt
   groupBy: "jumpsuit"
+
 # Back
 - type: loadout
   id: ClownBackpack

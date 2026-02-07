@@ -858,6 +858,7 @@
     - HellfireFreezerMachineCircuitBoard
     - PortableScrubberMachineCircuitBoard
     - PipeScrubberMachineCircuitBoard # Funkystation
+    - WashingMachineCircuitboard #Funkystation
     - CloningPodMachineCircuitboard
     - MedicalScannerMachineCircuitboard
     - CryoPodMachineCircuitboard

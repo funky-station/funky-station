@@ -103,7 +103,7 @@
 
 - type: entity
   id: HandheldStationMapTactical
-  parent: [HandheldStationMapUnpowered, BaseSecurityContraband]
+  parent: [HandheldStationMapUnpowered, BaseSecurityParamedicContraband]
   name: tactical station map
   description: Displays a readout of the current station, without needing power to do so.
   components:

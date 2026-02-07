@@ -940,6 +940,38 @@
   loadouts:
   - JesterHat
   - JesterAltHat
+  - XmasCrown
+  - Sombrero
+  - MaidenWig
+  - CakeHat
+  - SkubHead
+  - ConeHead
+  - FakeWizard
+  - SantaHat
+  - BunnyEars
+  - PartyHatRed
+  - PartyHatBlue
+  - PartyHatGreen
+  - PropellerHat
+  - ChickenHead
+  - DoYouLikeHurtingPeople
+  - RedRacoonHead
+  - CarborgHead
+  - PaperSack
+  - PaperSackSmile
+  - PumpkinHead
+  - SquidHead
+  - LooongTopHat
+  - FedoraBrown
+  - FedoraGrey
+  - OutlawHat
+  - PirateHat
+  - PirateTricord
+  - CowboyWhite
+  - CowboyGrey
+  - CowboyBlack
+  - CowboyBrown
+  - CowboyRed
 
 - type: loadoutGroup # - Funkystation
   id: ClownMask
@@ -955,9 +987,19 @@
   name: loadout-group-clown-jumpsuit
   loadouts:
   - ClownSuit
-  - ClownSkirt
   - JesterSuit
   - JesterAltSuit
+  - HawaiBlack
+  - HawaiBlue
+  - HawaiRed
+  - HawaiYellow
+  - PirateSuit
+  - TacticoolSuit
+  - ContractKillerSuit
+  - Yakuza
+  - ClownSkirt
+  - TacticoolSkirt
+  - ContractKillerSkirt
 
 - type: loadoutGroup
   id: ClownBackpack
@@ -974,6 +1016,32 @@
   loadouts:
   - ClownRobes
   - ClownWintercoat
+  - PonchoClassic
+  - Poncho
+  - ChickenSuit
+  - GhostSheet
+  - SkubSuit
+  - CarBorgBody
+  - SantaSuit
+  - MonkeySuit
+  - CarpSuit
+  - ShrineMaiden
+  - WitchRobes
+  - BlueWizardRobes
+  - PirateCoat
+  - YakuzaCoat
+  - HopsitalGown
+  - HighVisVest
+  - GreyHoodie
+  - BlackHoodie
+  - BomberJacket
+  - BikerJacket
+  - TrenchCoat
+  - GentleCoat
+  - JensenCoat
+  - FlannelRed
+  - FlannelBlue
+  - FlannelGreen
 
 - type: loadoutGroup
   id: ClownShoes
@@ -981,6 +1049,15 @@
   loadouts:
   - ClownShoes
   - JesterShoes
+  - BlackShoes
+  - WhiteShoes
+  - BrownShoes
+  - LaceupShoes
+  - WinterBoots
+  - SalvageBoots
+  - CargoWinterBoots
+  - WorkBoots
+  - EngineeringWinterBoots
 
 - type: loadoutGroup
   id: SurvivalClown

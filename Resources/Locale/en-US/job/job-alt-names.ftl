@@ -131,6 +131,7 @@ job-name-alt-clown-1 = Jester
 job-name-alt-clown-2 = Bouffon
 job-name-alt-clown-3 = Joker
 job-name-alt-clown-4 = Comedian
+job-name-alt-clown-5 = Entertainer
 
 job-name-alt-mime-1 = Pantomimist
 

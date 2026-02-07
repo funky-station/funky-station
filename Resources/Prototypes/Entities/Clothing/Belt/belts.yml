@@ -290,7 +290,8 @@
         - CigPack
         - Taser
       components:
-        - Stunbaton
+#        - Stunbaton # Funky
+        - Truncheon # Funky
         - FlashOnTrigger
         - SmokeOnTrigger
         - Flash
@@ -722,7 +723,7 @@
       storagebase: !type:Container
         showEnts: False
         occludes: True
-        ents: []  
+        ents: []
   - type: ItemSlots
     slots:
       sidearm_slot:

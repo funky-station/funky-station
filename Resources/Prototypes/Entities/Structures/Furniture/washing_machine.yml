@@ -31,7 +31,7 @@
       path: /Audio/Machines/washing_open.ogg
   - type: EntityStorage
     isCollidableWhenOpen: false
-    open: true
+    open: false
     capacity: 4
   - type: Forensics
     canDnaBeCleaned: false
@@ -66,3 +66,20 @@
     - machine_board
     - entity_storage
   - type: PlaceableSurface
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Metallic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 50
+      behaviors:
+      - !type:ExplodeBehavior
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:ChangeConstructionNodeBehavior
+        node: machineFrame
+      - !type:DoActsBehavior
+        acts: ["Destruction"]

@@ -5,10 +5,12 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Shared.Chemistry.Components;
+using Content.Shared.Clothing.Components;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
-using Content.Shared.Destructible;
 using Content.Shared.Interaction;
+using Content.Shared.Popups;
 using Content.Shared.Power.EntitySystems;
 using Content.Shared.StatusEffect;
 using Content.Shared.Storage.Components;
@@ -18,12 +20,14 @@ using Content.Shared.Verbs;
 using Content.Shared.WashingMachine.Events;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
+using Robust.Shared.Containers;
 using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 using System.Linq;
+using Content.Shared.Chemistry;
 
 namespace Content.Shared.WashingMachine;
 
@@ -38,8 +42,10 @@ public abstract partial class SharedWashingMachineSystem : EntitySystem
     [Dependency] private readonly DamageableSystem _damageable = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly ReactiveSystem _reactive = default!;
+    [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private readonly SharedContainerSystem _container = default!;
 
-    private const float DamagePerSecond = 6.0f; // 30 damage over 5 seconds
     private static readonly SoundSpecifier HitSound = new SoundCollectionSpecifier("MetalThud");
 
     public override void Initialize()
@@ -49,7 +55,6 @@ public abstract partial class SharedWashingMachineSystem : EntitySystem
         SubscribeLocalEvent<WashingMachineComponent, ComponentInit>(OnInit);
         SubscribeLocalEvent<WashingMachineComponent, ComponentRemove>(OnRemoved);
 
-        SubscribeLocalEvent<WashingMachineComponent, BreakageEventArgs>(OnBreak);
         SubscribeLocalEvent<WashingMachineComponent, StorageOpenAttemptEvent>(OnStorageOpenAttempt);
 
         SubscribeLocalEvent<WashingMachineComponent, ActivateInWorldEvent>(OnActivateInWorld, before: [typeof(SharedEntityStorageSystem)]);
@@ -78,16 +83,38 @@ public abstract partial class SharedWashingMachineSystem : EntitySystem
 
                 if (_storage.ResolveStorage(uid, ref storage) && storage.Contents.ContainedEntities.Count > 0)
                 {
-                    var damage = new DamageSpecifier(blunt, DamagePerSecond * frameTime);
+                    var damage = new DamageSpecifier(blunt, component.BluntDamagePerSecond * frameTime);
+
+                    var waterSpray = new Solution();
+                    waterSpray.AddReagent(component.WaterSprayReagent, component.WaterSprayAmount);
+                    var sprayWater = _random.Prob(component.WaterSprayChance * frameTime);
+
+                    bool hasHeavyItems = false;
 
                     foreach (var item in storage.Contents.ContainedEntities)
                     {
                         _damageable.TryChangeDamage(item, damage, true);
+
+                        if (sprayWater)
+                        {
+                            _reactive.DoEntityReaction(item, waterSpray, ReactionMethod.Touch);
+                        }
+
+                        if (!hasHeavyItems && !HasComp<ClothingComponent>(item))
+                        {
+                            hasHeavyItems = true;
+                        }
                     }
 
-                    if (_random.Prob(0.9f * frameTime))
+                    if (hasHeavyItems)
                     {
-                        _audio.PlayPvs(HitSound, uid);
+                        if (_random.Prob(component.ThumpSoundChance * frameTime))
+                        {
+                            _audio.PlayPvs(HitSound, uid);
+                        }
+
+                        component.AccumulatedSelfDamage += component.SelfDamagePerSecond * frameTime;
+                        DirtyField(uid, component, nameof(WashingMachineComponent.AccumulatedSelfDamage));
                     }
                 }
             }
@@ -101,6 +128,9 @@ public abstract partial class SharedWashingMachineSystem : EntitySystem
         component.WashingMachineState = WashingMachineState.Idle;
         DirtyField(uid, component, nameof(WashingMachineComponent.WashingMachineState));
         _appearance.SetData(uid, WashingMachineVisuals.State, component.WashingMachineState);
+
+        component.NextWashAllowed = _timing.CurTime + component.Cooldown;
+        DirtyField(uid, component, nameof(WashingMachineComponent.NextWashAllowed));
 
         HashSet<EntityUid> items = new();
 
@@ -126,16 +156,16 @@ public abstract partial class SharedWashingMachineSystem : EntitySystem
                 {
                     if (migraine.Duration != -1)
                     {
-                        migraine.Duration = Math.Max(migraine.Duration, 30.0f);
-                        migraine.BlurryMagnitude = Math.Max(migraine.BlurryMagnitude, 5.0f);
+                        migraine.Duration = Math.Max(migraine.Duration, component.MigraineDuration);
+                        migraine.BlurryMagnitude = Math.Max(migraine.BlurryMagnitude, component.MigraineMagnitude);
                         Dirty(item, migraine);
                     }
                 }
                 else
                 {
                     migraine = AddComp<MigraineComponent>(item);
-                    migraine.Duration = 30.0f;
-                    migraine.BlurryMagnitude = 5.0f;
+                    migraine.Duration = component.MigraineDuration;
+                    migraine.BlurryMagnitude = component.MigraineMagnitude;
                     migraine.ApplySlowdown = true;
                     Dirty(item, migraine);
                 }
@@ -147,6 +177,16 @@ public abstract partial class SharedWashingMachineSystem : EntitySystem
         UpdateForensics((uid, component), items);
 
         _storage.OpenStorage(uid);
+
+        if (component.AccumulatedSelfDamage > 0)
+        {
+            var blunt = _proto.Index<DamageTypePrototype>("Blunt");
+            var selfDamage = new DamageSpecifier(blunt, component.AccumulatedSelfDamage);
+            _damageable.TryChangeDamage(uid, selfDamage, origin: uid, ignoreResistances: true);
+
+            component.AccumulatedSelfDamage = 0;
+            DirtyField(uid, component, nameof(WashingMachineComponent.AccumulatedSelfDamage));
+        }
     }
 
     private void OnInit(Entity<WashingMachineComponent> ent, ref ComponentInit args)
@@ -157,15 +197,6 @@ public abstract partial class SharedWashingMachineSystem : EntitySystem
     private void OnRemoved(Entity<WashingMachineComponent> ent, ref ComponentRemove args)
     {
         _audio.Stop(ent.Comp.WashingSoundStream);
-    }
-
-    private void OnBreak(Entity<WashingMachineComponent> ent, ref BreakageEventArgs args)
-    {
-        ent.Comp.WashingMachineState = WashingMachineState.Broken;
-        DirtyField(ent.Owner, ent.Comp, nameof(WashingMachineComponent.WashingMachineState));
-        _appearance.SetData(ent.Owner, WashingMachineVisuals.State, ent.Comp.WashingMachineState);
-
-        RemComp<WashingMachineActiveComponent>(ent.Owner);
     }
 
     private void OnStorageOpenAttempt(Entity<WashingMachineComponent> ent, ref StorageOpenAttemptEvent args)
@@ -184,6 +215,17 @@ public abstract partial class SharedWashingMachineSystem : EntitySystem
         if (!CanActivate(ent))
             return;
 
+        SharedEntityStorageComponent? storage = null;
+        if (!_storage.ResolveStorage(ent.Owner, ref storage) || storage.Contents.ContainedEntities.Count == 0)
+            return;
+
+        if (_timing.CurTime < ent.Comp.NextWashAllowed)
+        {
+            _popup.PopupClient(Loc.GetString("washing-machine-cooldown"), ent.Owner, args.User);
+            args.Handled = true;
+            return;
+        }
+
         args.Handled = true;
         Activate(ent);
     }
@@ -196,11 +238,24 @@ public abstract partial class SharedWashingMachineSystem : EntitySystem
         if (!CanActivate(ent))
             return;
 
+        SharedEntityStorageComponent? storage = null;
+        if (!_storage.ResolveStorage(ent.Owner, ref storage) || storage.Contents.ContainedEntities.Count == 0)
+            return;
+
+        var user = args.User;
         var verb = new ActivationVerb()
         {
             Text = Loc.GetString("washing-machine-start"),
             Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/Spare/poweronoff.svg.192dpi.png")),
-            Act = () => Activate(ent)
+            Act = () =>
+            {
+                if (_timing.CurTime < ent.Comp.NextWashAllowed)
+                {
+                    _popup.PopupClient(Loc.GetString("washing-machine-cooldown"), ent.Owner, user);
+                    return;
+                }
+                Activate(ent);
+            }
         };
 
         args.Verbs.Add(verb);

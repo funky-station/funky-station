@@ -38,6 +38,7 @@ loadout-group-jobtrinkets = Job trinkets
 loadout-group-glasses = Glasses
 loadout-group-backpack = Backpack
 loadout-group-instruments = Instruments
+loadout-group-jobtoys = Toys
 loadout-group-survival-basic = Survival Box
 loadout-group-survival-extended = Extended Survival Box
 loadout-group-survival-salvage-extended = Extended Survival Box

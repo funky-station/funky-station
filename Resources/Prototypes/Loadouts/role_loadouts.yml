@@ -255,6 +255,7 @@
   - SurvivalClown
   - Trinkets
   - ClownJobTrinkets
+  - Toys
 
 - type: roleLoadout
   id: JobMime

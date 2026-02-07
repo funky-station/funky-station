@@ -1080,6 +1080,31 @@
   - ClownLighter # Funky Change
 
 - type: loadoutGroup
+  id: Toys
+  name: loadout-group-jobtoys
+  minLimit: 0
+  maxLimit: 2
+  loadouts:
+  - FoamCutlass
+  - FoamBlade
+  - ToySword
+  - FoamCrossbow
+  - Capgun
+  - ToyHammer
+  - WhoopieCushion
+  - RubberChicken
+  - PonderingOrb
+  - Basketball
+  - Football
+  - BeachBall
+  - BalloonSyn
+  - BalloonNT
+  - BalloonCorgi
+  - CarpPlush
+  - SnakePlushie
+  - RubberDuckToy
+
+- type: loadoutGroup
   id: MimeHead
   name: loadout-group-mime-head
   minLimit: 0

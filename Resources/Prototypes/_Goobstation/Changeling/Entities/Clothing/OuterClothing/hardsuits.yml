@@ -64,6 +64,7 @@
         Slash: 0.4
         Piercing: 0.4
         Heat: 0.6
+        Shock: 0.4 # Funky
         Radiation: 0.5
         Caustic: 0.6
   - type: ClothingSpeedModifier

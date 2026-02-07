@@ -223,12 +223,12 @@
   storage:
     back:
     - WeaponEnergyGunEnergyPistol
-    
+
 - type: loadout
   id: SecurityOfficerPistol
   storage:
     back:
-    - WeaponPistolMk58
+    - WeaponDisabler
 
 # Misc
 - type: loadout

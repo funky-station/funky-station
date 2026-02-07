@@ -100,7 +100,7 @@
   id: BeltSecurityEntityTable
   table: !type:AllSelector
     children:
-    - id: Stunbaton
+    - id: Truncheon
     - id: Handcuffs
     - id: Handcuffs
     - id: HoloprojectorSecurity

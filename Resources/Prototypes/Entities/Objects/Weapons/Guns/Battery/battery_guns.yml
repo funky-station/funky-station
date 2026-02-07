@@ -617,7 +617,7 @@
   name: disabler
   parent: [ WeaponDisablerPractice, BaseSecurityCommandContraband ]
   id: WeaponDisabler
-  description: A self-defense weapon that exhausts organic targets, slowing them to a crawl.
+  description: A self-defense weapon that shocks targets, making movement difficult.
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Battery/disabler.rsi

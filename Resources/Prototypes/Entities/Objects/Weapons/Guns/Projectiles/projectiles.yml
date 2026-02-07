@@ -342,7 +342,7 @@
     damage:
       types:
         Ion: 10 #Goobstation
-        Heat: 0
+        Shock: 5 # Funky change
     soundHit:
       collection: WeakHit
     forceSound: true
@@ -350,9 +350,9 @@
     stunAmount: 0 # NO STUN
     knockdownAmount: 0 # NO KNOCKDOWN
     slowdownAmount: 1 # YOU WILL CHASE TIDERS WITH YOUR BATON LIKE A REAL SECOFF
-    walkSpeedMultiplier: 0.8
-    runSpeedMultiplier: 0.8
-    slowdownCap: 0.5 # Prevents from being able to be locked into a stand-still
+    walkSpeedMultiplier: 0.9
+    runSpeedMultiplier: 0.9
+    slowdownCap: 0.9 # Prevents from being able to be locked into a stand-still
 
 - type: entity
   name : disabler bolt practice

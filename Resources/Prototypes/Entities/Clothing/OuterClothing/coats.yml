@@ -132,6 +132,7 @@
         Slash: 0.65
         Piercing: 0.6
         Heat: 0.7
+        Shock: 0.8
         Caustic: 0.75 # not the full 90% from ss13 because of the head
   - type: ExplosionResistance
     damageCoefficient: 0.8
@@ -157,7 +158,7 @@
         name: multiphase_HoS
         whitelist:
           tags:
-          - Multiphase   
+          - Multiphase
 
 - type: entity
   abstract: true
@@ -171,6 +172,7 @@
         Slash: 0.6
         Piercing: 0.65
         Heat: 0.7
+        Shock: 0.8
   - type: ExplosionResistance
     damageCoefficient: 0.9
   - type: StaminaResistance

@@ -131,13 +131,14 @@
   id: AdvancedRiotControl
   name: research-technology-advanced-riot-control
   icon:
-    sprite: Objects/Weapons/Melee/truncheon.rsi
-    state: icon
+    sprite: Objects/Weapons/Melee/stunbaton.rsi
+    state: stunbaton_off
   discipline: Arsenal
   tier: 1
   cost: 8000
   recipeUnlocks:
-  - Truncheon
+  - Stunbaton
+ # - Truncheon
   - TelescopicShield
   - HoloprojectorSecurity
 #  - WeaponDisablerSMG

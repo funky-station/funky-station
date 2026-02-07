@@ -74,6 +74,7 @@
         Slash: 0.65
         Piercing: 0.65 #Can save you, but bullets will still hurt. Will take about 10 shots from a Viper before critting, as opposed to 7 while unarmored and 16~ with a bulletproof vest.
         Heat: 0.80
+        Shock: 0.9 # Funky
   - type: ExplosionResistance
     damageCoefficient: 0.90
   - type: StaminaResistance
@@ -400,6 +401,7 @@
         Slash: 0.5
         Piercing: 0.6
         Heat: 0.5
+        Shock: 0.7
         Caustic: 0.9
   - type: ExplosionResistance
     damageCoefficient: 0.65

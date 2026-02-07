@@ -1223,7 +1223,8 @@
     - RiotShield
     - SpeedLoaderMagnum
     - SpeedLoaderMagnumEmpty
-    - Stunbaton
+   # - Stunbaton # Funkystation
+    - Truncheon # Funkystation
     - TargetClown
     - TargetHuman
     - TargetSyndicate
@@ -1296,7 +1297,8 @@
     - SpeedLoaderMagnumUranium
     - TelescopicShield
     - TimerTrigger
-    - Truncheon
+   # - Truncheon  # Funkystation
+    - Stunbaton # Funkystation
     - VoiceTrigger
     - WeaponAdvancedLaser
     - WeaponDisabler

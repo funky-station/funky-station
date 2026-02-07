@@ -68,7 +68,7 @@
   name: stun baton
   parent: [BaseItem, BaseSecurityContraband]
   id: Stunbaton
-  description: A stun baton for incapacitating people with. Actively harming with this is considered bad tone.
+  description: A stun baton for shocking people with. Ensures someone gets knocked down and stays down.
   components:
   - type: Tag # goob edit
     tags:
@@ -79,7 +79,7 @@
     - state: stunbaton_off
       map: [ "enum.ToggleVisuals.Layer" ]
   - type: Stunbaton
-    energyPerUse: 50
+    energyPerUse: 100
   - type: ItemToggle
     predictable: false
     soundActivate:
@@ -100,25 +100,26 @@
   - type: ItemToggleMeleeWeapon
     activatedDamage:
       types:
-        Blunt: 0
+        Shock: 10
+        Blunt: 10
     deactivatedSoundOnHit:
       collection: MetalThud #fs - Thwack
   - type: MeleeWeapon
     wideAnimationRotation: -135
     damage:
       types:
-        Blunt: 12 #fs - Thwack
-    bluntStaminaDamageFactor: 2.0
+        Blunt: 10 #fs - Thwack
+    bluntStaminaDamageFactor: 1.5
     angle: 60
     animation: WeaponArcThrust
     soundHit:
       collection: MetalThud #fs - Thwack
   - type: StaminaDamageOnHit
-    damage: 40 #fs - Stunbaton 2-hit stun
-    sound: /Audio/Weapons/egloves.ogg
+    damage: 10 # Funky Station - Stunbaton 5/6-hit stun
+    sound: /Audio/Weapons/star_hit.ogg
   - type: StaminaDamageOnCollide
-    damage: 40 #fs - Stunbaton 2-hit stun
-    sound: /Audio/Weapons/egloves.ogg
+    damage: 10 #fs - Funky Station 5/6-hit stun
+    sound: /Audio/Weapons/star_hit.ogg
   - type: LandAtCursor # it deals stamina damage when thrown
   - type: Battery
     maxCharge: 1000
@@ -178,7 +179,7 @@
     wideAnimationRotation: -135
     damage:
       types:
-        Blunt: 20
+        Blunt: 12 # Funkystation, from 20 to 12 damage
     soundHit:
       collection: MetalThud
     bluntStaminaDamageFactor: 1.5

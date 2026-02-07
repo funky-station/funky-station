@@ -409,13 +409,6 @@
   - Mantle
 
 - type: loadoutGroup
-  id: PassengerOuterClothing
-  name: loadout-group-passenger-outerclothing
-  minLimit: 0
-  loadouts:
-  - PassengerWintercoat
-
-- type: loadoutGroup
   id: PassengerShoes
   name: loadout-group-passenger-shoes
   loadouts:

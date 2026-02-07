@@ -141,6 +141,12 @@
   groupBy: "jumpsuit"
 
 - type: loadout
+  id: GladiatorSuit
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitGladiator
+  groupBy: "jumpsuit"
+
+- type: loadout
   id: TacticoolSuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitTacticool

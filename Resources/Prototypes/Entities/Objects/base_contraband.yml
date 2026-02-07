@@ -244,6 +244,15 @@
   - type: Contraband
     allowedDepartments: [ Science, Engineering ]
     allowedJobs: [ SalvageSpecialist ]
+- type: entity
+
+  id: BaseSecurityParamedicContraband
+  parent: BaseRestrictedContraband
+  abstract: true
+  components:
+  - type: Contraband
+    allowedDepartments: [ Security ]
+    allowedJobs: [ Paramedic ]
 
 # for ~objective items
 - type: entity

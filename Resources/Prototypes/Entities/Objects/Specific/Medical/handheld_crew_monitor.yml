@@ -22,7 +22,7 @@
 
 - type: entity
   name: handheld crew monitor
-  parent: [ BaseHandheldComputer, BaseCMOParamedicContraband ]
+  parent: [ BaseHandheldComputer, BaseCommandContraband ]
   id: HandheldCrewMonitor
   description: A hand-held crew monitor displaying the status of suit sensors.
   components:

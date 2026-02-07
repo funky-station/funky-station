@@ -45,12 +45,14 @@
 - type: entity
   id: CrateSecurityNonlethal
   parent: CrateSecgear
-  name: nonlethals crate
-  description: Contains a mix of disablers, truncheons, and flashes. Requires Security access to open.
+  name: less-lethals crate
+  description: Contains a mix of security shell guns, beanbag rounds, truncheons, and flashes. Requires Security access to open.
   components:
   - type: StorageFill
     contents:
-      - id: WeaponDisabler
+      - id: WeaponFlareGunSecurity
+        amount: 3
+      - id: BoxBeanbag
         amount: 3
       - id: Truncheon
         amount: 3

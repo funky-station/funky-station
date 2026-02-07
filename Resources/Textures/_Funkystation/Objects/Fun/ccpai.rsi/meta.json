@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Sprites by Sigma Draconis",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "icon-off"
+    },
+    {
+      "name": "off-overlay"
+    },
+    {
+      "name": "on-overlay",
+      "delays": [
+        [
+          0.8,
+          0.8
+        ]
+      ]
+    },
+    {
+      "name": "searching-overlay",
+      "delays": [
+        [
+          0.8,
+          0.8
+        ]
+      ]
+    }
+  ]
+}

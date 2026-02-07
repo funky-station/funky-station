@@ -33,6 +33,7 @@
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2026 Xcybitt <197952719+Xcybitt@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -275,6 +276,18 @@
             max: 1
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+
+- type: entity
+  name: floodlight
+  id: FloodlightEmpty
+  suffix: Empty
+  parent: Floodlight
+  description: A pole with powerful mounted lights on it.
+  components:
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
 
 - type: entity
   name: broken floodlight

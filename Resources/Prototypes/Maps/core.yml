@@ -22,6 +22,8 @@
 # SPDX-FileCopyrightText: 2025 kbarkevich <24629810+kbarkevich@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 terkala <appleorange64@gmail.com>
+# SPDX-FileCopyrightText: 2026 JoulesBerg <thejoulesberg@gmail.com>
+# SPDX-FileCopyrightText: 2026 willow <willowzeta632146@proton.me>
 # SPDX-FileCopyrightText: 2026 wilowzeta <willowzeta632146@proton.me>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
@@ -29,7 +31,7 @@
 - type: gameMap
   id: Core
   mapName: 'Core'
-  mapPath: /Maps/_Funkystation/core.yml #Funkystatin - Robotics
+  mapPath: /Maps/_Funkystation/core.yml
   minPlayers: 30
   maxPlayers: 90
   stations:
@@ -56,33 +58,33 @@
             HeadOfPersonnel: [ 1, 1 ]
             Chaplain: [ 1, 1 ]
             Librarian: [ 1, 1 ]
-            ServiceWorker: [ 4, 4 ]
+            ServiceWorker: [ 4, 5 ]
             #engineering
             ChiefEngineer: [ 1, 1 ]
-            StationEngineer: [ 6, 7 ]
+            StationEngineer: [ 6, 8 ]
             TechnicalAssistant: [ 2, 2 ]
             #medical
             ChiefMedicalOfficer: [ 1, 1 ]
-            MedicalDoctor: [ 3, 4 ]
+            MedicalDoctor: [ 3, 5 ]
             Chemist: [ 2, 2 ]
             MedicalIntern: [ 2, 2 ]
             Paramedic: [ 2, 2 ]
             #science
             ResearchDirector: [ 1, 1 ]
-            Scientist: [ 3, 3 ]
+            Scientist: [ 3, 5 ]
             Roboticist: [ 1, 1 ]
             ResearchAssistant: [ 1, 1 ]
             #security
             HeadOfSecurity: [ 1, 1 ]
-            SecurityOfficer: [ 3, 3 ]
+            SecurityOfficer: [ 4, 5 ]
             Warden: [ 1, 1 ]
             Lawyer: [ 2, 2 ]
             SecurityCadet: [ 2, 2 ]
             Detective: [ 1, 1 ]
             #supply
-            CargoTechnician: [ 4, 4 ]
+            CargoTechnician: [ 4, 5 ]
             Quartermaster: [ 1, 1 ]
-            SalvageSpecialist: [ 3, 3 ]
+            SalvageSpecialist: [ 3, 4 ]
             #civilian
             Passenger: [ -1, -1 ]
             Clown: [ 1, 1 ]
@@ -92,10 +94,10 @@
             Reporter: [ 2, 2 ]
             # silicon
             StationAi: [ 1, 1 ]
-            Borg: [ 3, 3 ]
+            Borg: [ 3, 5 ]
             # Funky
             # central command
             NanotrasenRepresentative: [ 1, 1 ]
-            InternalAffairsAgent: [ 2, 2 ]
+            InternalAffairsAgent: [ 2, 3 ]
             Magistrate: [ 1, 1 ]
             # end Funky

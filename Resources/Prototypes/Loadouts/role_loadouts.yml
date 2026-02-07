@@ -623,10 +623,10 @@
   groups:
   - GenericHats
   - ReporterJumpsuit
-  - ReporterOuterClothing # Goobstation - Bodycams
   - CommonBackpack
   - Gloves
-  - ReporterOuterClothing
+  - ReporterOuterClothing # Goobstation - Bodycams
+  - GenericShoes
   - Glasses
   - Survival
   - Trinkets

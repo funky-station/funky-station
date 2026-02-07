@@ -152,4 +152,25 @@
   name: loadout-group-reporter-outerclothing
   loadouts:
   - NoPro
+  - WintercoatGray
+  - WintercoatWhite
+  - WintercoatBlack
+  - WintercoatRed
+  - WintercoatOrange
+  - WintercoatYellow
+  - WintercoatGreen
+  - WintercoatBlue
+  - WintercoatPurple
+  - WintercoatLightBrown
+  - WintercoatBrown
+  - GreyHoodie
+  - BlackHoodie
+  - BomberJacket
+  - BikerJacket
+  - TrenchCoat
+  - GentleCoat
+  - JensenCoat
+  - FlannelRed
+  - FlannelBlue
+  - FlannelGreen
 

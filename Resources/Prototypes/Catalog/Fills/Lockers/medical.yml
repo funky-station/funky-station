@@ -189,4 +189,4 @@
         prob: 0.3
       - id: SoapNT # DV
       - id: ClothingHeadsetParamedic #funkystation
-      - id: HandheldCrewMonitor #funkystation
+      - id: HandheldStationMapTactical #funk, paramedic must search for corpses

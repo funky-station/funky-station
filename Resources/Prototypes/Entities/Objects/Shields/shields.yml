@@ -24,9 +24,11 @@
 # SPDX-FileCopyrightText: 2024 liltenhead <104418166+liltenhead@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 ThatOneMoon <91613003+ThatOneMoon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2026 Xcybitt <197952719+Xcybitt@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -91,6 +93,10 @@
                   max: 2
     - type: StaticPrice
       price: 100
+    - type: Clothing
+      quickEquip: false
+      slots:
+      - backStorage
 
 #Security Shields
 
@@ -114,6 +120,17 @@
         flatReductions:
           Blunt: 1
           Slash: 1
+    - type: MeleeWeapon
+      wideAnimationRotation: -135
+      damage:
+        types:
+          Blunt: 8
+      soundHit:
+        path: "/Audio/Weapons/smash.ogg"
+      attackRate: 0.5
+    - type: MeleeThrowOnHit
+      speed: 10
+      distance: 2
 
 - type: entity
   name: laser shield
@@ -134,6 +151,17 @@
           Heat: 0.5
         flatReductions:
           Heat: 1
+    - type: MeleeWeapon
+      wideAnimationRotation: -135
+      damage:
+        types:
+          Blunt: 8
+      soundHit:
+        path: "/Audio/Weapons/smash.ogg"
+      attackRate: 0.5
+    - type: MeleeThrowOnHit
+      speed: 10
+      distance: 2
 
 - type: entity
   name: ballistic shield
@@ -155,6 +183,17 @@
           Piercing: 0.5
         flatReductions:
           Piercing: 1
+    - type: MeleeWeapon
+      wideAnimationRotation: -135
+      damage:
+        types:
+          Blunt: 8
+      soundHit:
+        path: "/Audio/Weapons/smash.ogg"
+      attackRate: 0.5
+    - type: MeleeThrowOnHit
+      speed: 10
+      distance: 2
 
 #Craftable shields
 
@@ -164,9 +203,9 @@
   id: WoodenBuckler
   description: A small round wooden makeshift shield.
   components:
-    - type: Tag 
+    - type: Tag
       tags:
-      - WoodenBuckler    
+      - WoodenBuckler
     - type: Sprite
       state: buckler-icon
     - type: Item
@@ -223,9 +262,9 @@
   id: MakeshiftShield
   description: A rundown looking shield, not good for much.
   components:
-    - type: Tag 
+    - type: Tag
       tags:
-      - MakeshiftShield  
+      - MakeshiftShield
     - type: Sprite
       state: makeshift-icon
     - type: Item

@@ -1,7 +1,7 @@
 ﻿- type: reaction
   id: PeanutNapalm
   reactants:
-    PackingPeanutJuice:
+    PolystaticAmylostyronate:
       amount: 1
     WeldingFuel:
       amount: 1

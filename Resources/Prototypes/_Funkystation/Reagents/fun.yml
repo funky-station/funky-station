@@ -41,7 +41,7 @@
   group: Others
   desc: reagent-desc-polystatic-amylostyronate
   physicalDesc: reagent-physical-desc-gloopy
-  flavor: packed
+  flavor: chalky
   color: "#f9f2eb"
   boilingPoint: 100.0
   meltingPoint: 0.0

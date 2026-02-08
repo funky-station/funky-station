@@ -166,7 +166,7 @@
 #Ideally, there should be a weak radius around the bomb outside of its gibbing / spacing range capable of dealing fair damage to players / structures.
 - type: entity
   name: syndicate minibomb
-  description: A syndicate-manufactured explosive used to stow destruction and cause chaos.
+  description: A deceptively small syndicate-manufactured explosive, which protracts upon being armed in order to cause localized chaos and destruction.
   parent: [GrenadeBase, BaseSyndicateContraband]
   id: SyndieMiniBomb
   components:

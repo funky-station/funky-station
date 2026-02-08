@@ -512,7 +512,7 @@
   - type: BlockMovement
     blockInteraction: false
   - type: SiliconLawProvider
-    laws: Crewsimov
+    laws: NTDefault
   - type: SiliconLawBound
   - type: IonStormTarget
   - type: ActionGrant

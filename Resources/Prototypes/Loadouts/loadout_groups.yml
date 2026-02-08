@@ -1713,9 +1713,6 @@
   - ScienceLabCoat
   - RoboticistLabCoat
   - SeniorResearcherLabCoat
-  - BikerJacket
-  - GentleCoat
-  - JensenCoat
 
 - type: loadoutGroup
   id: ScientistShoes
@@ -2176,8 +2173,6 @@
   name: loadout-group-medical-doctor-outerclothing
   minLimit: 0
   loadouts:
-  - WintercoatWhite
-  - WintercoatBlue
   - RegularLabCoat
   - MedicalDoctorWintercoat
   - SeniorPhysicianLabCoat
@@ -2282,9 +2277,6 @@
   name: loadout-group-chemist-outerclothing
   minLimit: 0
   loadouts:
-  - WintercoatOrange
-  - WintercoatWhite
-  - WintercoatBlue
   - RegularLabCoat
   - ChemistLabCoat
   - ChemistWintercoat
@@ -2363,9 +2355,6 @@
   minLimit: 0
   loadouts:
   - ParamedicWintercoat
-  - WintercoatGreen
-  - WintercoatWhite
-  - WintercoatBlue
   - ParamedicWindbreaker
 
 - type: loadoutGroup

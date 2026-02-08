@@ -19,7 +19,7 @@
     - id: SmokingPipe
     - id: Matchbox
     - id: FoodPackingPeanut
-      amount: 31
+      amount: 28
 
 - type: entity
   id: BoxServiceBlankBooks

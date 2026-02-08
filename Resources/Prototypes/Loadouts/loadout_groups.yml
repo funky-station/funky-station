@@ -1831,9 +1831,6 @@
   - ScienceLabCoat
   - RoboticistLabCoat
   - SeniorResearcherLabCoat
-  - BikerJacket
-  - GentleCoat
-  - JensenCoat
 
 - type: loadoutGroup
   id: ScientistShoes
@@ -2475,6 +2472,7 @@
   name: loadout-group-paramedic-outerclothing
   minLimit: 0
   loadouts:
+  - ParamedicWintercoat
   - ParamedicWindbreaker
   - ParamedicWintercoat
 

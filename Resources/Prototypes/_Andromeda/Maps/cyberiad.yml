@@ -6,7 +6,7 @@
   id: Cyberiad
   mapName: 'Cyberiad Station'
   mapPath: /Maps/_Andromeda/cyberiad.yml 
-  minPlayers: 65
+  minPlayers: 75
   stations:
     Cyberiad:
       stationProto: StandardNanotrasenStation
@@ -25,41 +25,40 @@
             NanotrasenRepresentative: [ 1, 1 ]
             HeadOfPersonnel: [ 1, 1 ]
             Magistrate: [ 1, 1 ]
-            InternalAffairsAgent: [ 4, 4 ]
+            InternalAffairsAgent: [ 3, 3 ]
             Bartender: [ 2, 2 ]
-            Botanist: [ 5, 5 ]
+            Botanist: [ 3, 4 ]
             Chaplain: [ 1, 1 ]
             Librarian: [ 1, 1 ]
-            Chef: [ 4, 4 ]
-            Janitor: [ 5, 5 ]
+            Chef: [ 2, 3 ]
+            Janitor: [ 2, 3 ]
             #engineering
             ChiefEngineer: [ 1, 1 ]
-            AtmosphericTechnician: [ 5, 5 ]
-            StationEngineer: [ 10, 10 ]
+            StationEngineer: [ 5, 8 ]
             TechnicalAssistant: [ 5, 5 ]
             #medical
             ChiefMedicalOfficer: [ 1, 1 ]
-            Chemist: [ 4, 4 ]
+            Chemist: [ 2, 2 ]
             MedicalDoctor: [ 8, 8 ]
-            Paramedic: [ 3, 3 ]
+            Paramedic: [ 2, 2 ]
             MedicalIntern: [ 5, 5 ]
-            Psychologist: [ 2, 2 ]
+            Psychologist: [ 1, 1 ]
             #science
             ResearchDirector: [ 1, 1 ]
-            Scientist: [ 10, 10 ]
-            Roboticist: [ 4, 4 ]
+            Scientist: [ 6, 6 ]
+            Roboticist: [ 2, 2 ]
             ResearchAssistant: [ 5, 5 ]
             #security
             HeadOfSecurity: [ 1, 1 ]
             Warden: [ 1, 1 ]
-            SecurityOfficer: [ 10, 10 ]
+            SecurityOfficer: [ 6, 6 ]
             Detective: [ 1, 1 ]
             SecurityCadet: [ 5, 5 ]
-            Lawyer: [ 5, 5 ]
+            Lawyer: [ 3, 3 ]
             #supply
             Quartermaster: [ 1, 1 ]
-            SalvageSpecialist: [ 5, 5 ]
-            CargoTechnician: [ 10, 10 ]
+            SalvageSpecialist: [ 4, 4 ]
+            CargoTechnician: [ 7, 7 ]
             #civilian
             Passenger: [ -1, -1 ]
             Clown: [ 1, 1 ]

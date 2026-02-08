@@ -1004,15 +1004,6 @@
   - ClownLighter # Funky Change
 
 - type: loadoutGroup
-  id: MimeHead
-  name: loadout-group-mime-head
-  minLimit: 0
-  loadouts:
-  - MimeHead
-  - MimeFrenchBeret
-  - MimeCap
-
-- type: loadoutGroup
   id: MimeMask
   name: loadout-group-mime-mask
   loadouts:

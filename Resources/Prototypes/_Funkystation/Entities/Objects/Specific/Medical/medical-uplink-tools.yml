@@ -1,0 +1,28 @@
+- type: entity
+  parent: BaseChemistryEmptyVial
+  suffix: Lead
+  id: LeadChemistryVial
+  name: vial
+  description: A small vial.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 30
+        reagents:
+        - ReagentId: Lead
+          Quantity: 15
+
+- type: entity
+  parent: ClothingHeadFaceshield
+  suffix: Syndi
+  id: ClothingHeadFaceshieldFlashProtection
+  name: face shield
+  description: A medical face shield meant to further impede infection vectors. It seems to be highly reflective.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Head/Misc/faceshield.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Head/Misc/faceshield.rsi
+  - type: IngestionBlocker
+  - type: FlashImmunity

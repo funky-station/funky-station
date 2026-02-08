@@ -1,0 +1,117 @@
+#botany
+
+- type: entity
+  parent: BaseUplinkRadio
+  id: HiddenUplinkRadioBotany
+  name: plant analyzer
+  description: A handheld device that allows you to scan seeds and plants to get detailed information about their genes.
+  suffix: Uplink
+  components:
+  - type: Sprite
+    sprite: _NF/Objects/Devices/plant_analyzer.rsi
+    layers:
+    - state: plantanalyzer
+    - state: unlit
+      map: [ "enum.PowerDeviceVisualLayers.Powered" ]
+      shader: unshaded
+
+#chef
+
+- type: entity
+  parent: FoodShakerPepper
+  suffix: Syndi
+  id: FoodShakerPepperLead
+  name: pepper shaker
+  description: Often used to flavor food or make people sneeze.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: Lead
+          Quantity: 15
+
+- type: entity
+  parent: Pitcher
+  suffix: Syndi
+  id: PitcherNapalm
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        reagents:
+        - ReagentId: Napalm
+          Quantity: 50
+        maxVol: 60
+
+#librarian
+
+- type: entity
+  parent: BaseDice
+  suffix: Syndi
+  id: d4DiceSharp
+  name: d4
+  description: A die with four sides. The nerd's caltrop.
+  components:
+  - type: Dice
+    sides: 4
+    currentValue: 4
+  - type: Sprite
+    state: d4_4
+  - type: CollisionWake
+    enabled: false
+  - type: Fixtures
+    fixtures:
+      slips:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.2,-0.2,0.2,0.2"
+        hard: false
+        layer:
+        - LowImpassable
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.2,-0.2,0.2,0.2"
+        density: 30
+        mask:
+        - ItemMask
+  - type: StepTrigger
+    intersectRatio: 0.2
+    triggerGroups: # Goobstation
+      types:
+      - Shard
+  - type: TriggerOnStepTrigger
+  - type: Slippery
+    slipSound:
+      path: /Audio/Effects/glass_step.ogg
+    slipData:
+      launchForwardsMultiplier: 0
+  - type: DamageUserOnTrigger
+    damage:
+      types:
+        Piercing: 5
+
+#mime
+
+- type: entity
+  parent: EmergencyMedipen
+  suffix: Syndi
+  id: EmergencyMedipenMute
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      pen:
+        maxVol: 15
+        reagents:
+        - ReagentId: MuteToxin
+          Quantity: 15
+
+- type: entity
+  parent: ClothingShoesColorWhite
+  suffix: Syndi
+  id: ClothingShoesColorWhiteNoSound
+  components:
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: FootstepSilence

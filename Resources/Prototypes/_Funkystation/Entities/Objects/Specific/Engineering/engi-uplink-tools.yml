@@ -1,0 +1,39 @@
+- type: entity
+  parent: ClothingHeadHatCone
+  id: ClothingSyndiHeadHatCone
+  name: warning cone
+  description: This cone is trying to warn you of something!
+  suffix: Syndi
+  components:
+  - type: Storage
+    grid:
+    - 0,0,2,1
+    maxItemSize: Normal
+  - type: UserInterface
+    interfaces:
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+
+- type: entity
+  parent: NetworkConfigurator
+  id: NetworkConfiguratorWithTrigger
+  name: network configurator
+  description: A tool for linking devices together. Has two modes, a list mode for mass linking devices and a linking mode for advanced device linking.
+  suffix: Syndi
+  components:
+  - type: Signaller
+  - type: UseDelay
+  - type: DeviceLinkSource
+    ports:
+    - Pressed
+  - type: Tag
+    tags:
+    - Payload
+  - type: DeviceNetwork
+    deviceNetId: Wireless
+    receiveFrequencyId: BasicDevice
+  - type: WirelessNetworkConnection
+    range: 50

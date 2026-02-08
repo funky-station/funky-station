@@ -43,7 +43,6 @@
 // SPDX-FileCopyrightText: 2025 Dusty_Plant <ytsur2001@gmail.com>
 // SPDX-FileCopyrightText: 2025 EmillyCoelho <167008606+Ichaie@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Evaisa <mail@evaisa.dev>
-// SPDX-FileCopyrightText: 2025 Ichaie <ichaicoelho@gmail.com>
 // SPDX-FileCopyrightText: 2025 LaCumbiaDelCoronavirus <90893484+LaCumbiaDelCoronavirus@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Spanky <180730777+spanky-spanky@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Spanky <scott@wearejacob.com>
@@ -58,6 +57,7 @@
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 // SPDX-FileCopyrightText: 2025 willow <willowzeta632146@proton.me>
 // SPDX-FileCopyrightText: 2025 wilowzeta <willowzeta632146@proton.me>
+// SPDX-FileCopyrightText: 2026 Ichaie <ichaicoelho@gmail.com>
 //
 // SPDX-License-Identifier: MIT
 

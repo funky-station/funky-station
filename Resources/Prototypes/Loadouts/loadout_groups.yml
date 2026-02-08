@@ -577,6 +577,13 @@
   minLimit: 0
   loadouts:
   - ChefHead
+  - BandanaBlack
+  - BandanaBlue
+  - BandanaGold
+  - BandanaGreen
+  - BandanaRed
+  - BandanaSkull
+  - BandanaBrown
 
 - type: loadoutGroup
   id: ChefMask
@@ -828,6 +835,7 @@
   minLimit: 0
   loadouts:
   - JanitorWintercoat
+  - WintercoatPurple
   - RainCoat
 
 - type: loadoutGroup
@@ -1033,6 +1041,8 @@
   minLimit: 0
   loadouts:
   - MimeWintercoat
+  - WintercoatBlack
+  - WintercoatWhite
 
 - type: loadoutGroup
   id: MimeBelt
@@ -2175,6 +2185,8 @@
   name: loadout-group-medical-doctor-outerclothing
   minLimit: 0
   loadouts:
+  - WintercoatWhite
+  - WintercoatBlue
   - RegularLabCoat
   - MedicalDoctorWintercoat
   - SeniorPhysicianLabCoat
@@ -2279,6 +2291,9 @@
   name: loadout-group-chemist-outerclothing
   minLimit: 0
   loadouts:
+  - WintercoatOrange
+  - WintercoatWhite
+  - WintercoatBlue
   - RegularLabCoat
   - ChemistLabCoat
   - ChemistWintercoat
@@ -2356,8 +2371,11 @@
   name: loadout-group-paramedic-outerclothing
   minLimit: 0
   loadouts:
-  - ParamedicWindbreaker
   - ParamedicWintercoat
+  - WintercoatGreen
+  - WintercoatWhite
+  - WintercoatBlue
+  - ParamedicWindbreaker
 
 - type: loadoutGroup
   id: ParamedicShoes

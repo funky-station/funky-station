@@ -190,6 +190,7 @@
   id: JanitorWintercoat
   equipment:
     outerClothing: ClothingOuterWinterJani
+  groupBy: "Wintercoat"
 
 - type: loadout
   id: RainCoat

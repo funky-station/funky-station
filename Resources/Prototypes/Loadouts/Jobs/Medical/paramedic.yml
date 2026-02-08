@@ -73,6 +73,7 @@
   id: ParamedicWintercoat
   equipment:
     outerClothing: ClothingOuterWinterPara
+  groupBy: "Wintercoat"
 
 # Shoes
 - type: loadout

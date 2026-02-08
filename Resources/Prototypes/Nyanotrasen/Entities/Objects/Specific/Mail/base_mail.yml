@@ -112,6 +112,9 @@
         reagents:
         - ReagentId: Nothing
           Quantity: 1
+  - type: Tag
+    tags:
+    - MailEnvelope
 
 # This empty parcel is allowed to exist and evade the tests for the admin
 # mailto command.

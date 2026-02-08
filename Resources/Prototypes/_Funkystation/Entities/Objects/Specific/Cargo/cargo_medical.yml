@@ -12,3 +12,5 @@
     contents:
     - id: EmergencyMedipen
       amount: 6
+    - id: FoodPackingPeanut
+      amount: 39

@@ -34,3 +34,25 @@
         conditions:
         - !type:ReagentThreshold
           min: 50
+
+- type: reagent
+  id: PolystaticAmylostyronate
+  name: reagent-name-polystatic-amylostyronate
+  group: Others
+  desc: reagent-desc-polystatic-amylostyronate
+  physicalDesc: reagent-physical-desc-gloopy
+  flavor: packed
+  color: "#f9f2eb"
+  boilingPoint: 100.0
+  meltingPoint: 0.0
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateHunger
+        factor: 1.5
+    Poison:
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Cellular: 2

@@ -1,0 +1,50 @@
+#trash
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseItem
+  id: FoodTrashNoRecycle
+  description: This is rubbish.
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: Objects/Consumable/Food/snacks.rsi
+  - type: Item
+    size: Tiny
+  - type: Tag
+    tags:
+    - Trash
+  - type: SpaceGarbage
+  - type: StaticPrice
+    price: 0
+
+- type: entity
+  parent: FoodTrashNoRecycle
+  id: FoodPackingPeanut
+  name: packing peanut
+  description: Trash that keeps your packages safe. Best left uneaten.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Consumable/Food/packing_peanut.rsi
+    layers:
+    - state: peanut
+      map: ["random"]
+  - type: RandomSprite
+    available:
+      - random:
+          peanut: ""
+          peanut_1: ""
+          peanut_2: ""
+          peanut_3: ""
+          peanut_4: ""
+          peanut_5: ""
+  - type: Food
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: PolystaticAmylostyronate
+          Quantity: 0.2
+  - type: Extractable
+    grindableSolutionName: food

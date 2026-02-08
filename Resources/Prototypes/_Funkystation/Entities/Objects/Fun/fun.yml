@@ -18,6 +18,8 @@
       amount: 3
     - id: UniformShortsRedWithTop
       amount: 3
+    - id: FoodPackingPeanut
+      amount: 13
 
 - type: entity
   parent: BaseItem

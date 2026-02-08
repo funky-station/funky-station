@@ -17,6 +17,8 @@
       amount: 4
     - id: SmokingPipe
     - id: Matchbox
+    - id: FoodPackingPeanut
+      amount: 31
 
 - type: entity
   id: BoxServiceBlankBooks
@@ -28,6 +30,8 @@
     contents:
     - id: BookRandom
       amount: 10
+    - id: FoodPackingPeanut
+      amount: 25
 
 - type: entity
   id: BoxServiceGuidebooks
@@ -51,3 +55,5 @@
     - id: BookHowToSurvive
     - id: BookChemicalCompendium
     - id: BookSpaceLaw
+    - id: FoodPackingPeanut
+      amount: 17

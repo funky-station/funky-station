@@ -12,6 +12,8 @@
     contents:
     - id: FoodMealHappyHonkBigBite
       amount: 2
+    - id: FoodPackingPeanut
+      amount: 27
 
 - type: entity
   id: BoxFoodSoftdrinks
@@ -35,3 +37,5 @@
       amount: 2
     - id: DrinkFourteenLokoCan
       amount: 2
+    - id: FoodPackingPeanut
+      amount: 13

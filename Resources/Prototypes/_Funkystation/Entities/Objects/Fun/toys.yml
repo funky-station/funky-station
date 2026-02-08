@@ -91,6 +91,8 @@
       amount: 3
     - id: PlushieSpaceLizard
       amount: 3
+    - id: FoodPackingPeanut
+      amount: 33
 
 - type: entity
   id: BoxFunSharkPlushieBulk
@@ -106,6 +108,8 @@
       amount: 2
     - id: PlushieSharkGrey
       amount: 2
+    - id: FoodPackingPeanut
+      amount: 33
 
 - type: entity
   id: BoxFunArtSupplies
@@ -116,6 +120,8 @@
   - type: StorageFill
     contents:
     - id: CrayonBox
+    - id: FoodPackingPeanut
+      amount: 36
 
 - type: entity
   parent: BasePlushieLizardJob

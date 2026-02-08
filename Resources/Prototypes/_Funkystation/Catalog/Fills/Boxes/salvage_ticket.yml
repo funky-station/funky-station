@@ -19,6 +19,8 @@
     - id: GyroscopeMachineCircuitboard
     - id: APCElectronics
     - id: WallmountSubstationElectronics
+    - id: FoodPackingPeanut
+      amount: 25
 
 - type: entity
   id: BoxSalvageCookoutKit
@@ -61,3 +63,5 @@
     - id: EmergencyMedipen
       amount: 2
     - id: RollerBedSpawnFolded
+    - id: FoodPackingPeanut
+      amount: 9

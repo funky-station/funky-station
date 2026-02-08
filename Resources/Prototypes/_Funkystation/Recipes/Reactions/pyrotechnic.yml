@@ -1,0 +1,12 @@
+﻿- type: reaction
+  id: PeanutNapalm
+  reactants:
+    PackingPeanutJuice:
+      amount: 1
+    WeldingFuel:
+      amount: 1
+  effects:
+  - !type:CreateGas
+    gas: WaterVapor
+  products:
+    Napalm: 2

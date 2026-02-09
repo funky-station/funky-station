@@ -55,3 +55,13 @@
     sprite: _Goobstation/Objects/Weapons/Guns/ChronoLegionnaire/stasisgun.rsi
     state: icon
   - type: StasisGun
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 5
+  - type: AltFireMelee
+    attackType: Light
+  - type: IncreaseDamageOnWield
+    damage:
+      types:
+        Blunt: 5

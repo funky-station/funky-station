@@ -49,3 +49,15 @@
   - type: Appearance
   - type: Gun
     fireRate: 6
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 5
+    soundHit:
+      collection: MetalThud
+  - type: AltFireMelee
+    attackType: Heavy
+  - type: IncreaseDamageOnWield
+    damage:
+      types:
+        Blunt: 7

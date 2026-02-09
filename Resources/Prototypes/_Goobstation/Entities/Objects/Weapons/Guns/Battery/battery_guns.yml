@@ -43,6 +43,14 @@
     zeroVisible: true
   - type: Multishot
     spreadMultiplier: 1.2
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 8
+    soundHit:
+      collection: MetalThud
+  - type: AltFireMelee
+    attackType: Light
 
 - type: entity
   name: Plasma Rifle
@@ -83,6 +91,14 @@
     steps: 5
     zeroVisible: false
   - type: Appearance
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 8
+    soundHit:
+      collection: MetalThud
+  - type: AltFireMelee
+    attackType: Light
 
 - type: entity
   parent: WeaponPlasmaRifle
@@ -153,3 +169,11 @@
   - type: Tag
     tags:
     - Sidearm
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 8
+    soundHit:
+      collection: MetalThud
+  - type: AltFireMelee
+    attackType: Light

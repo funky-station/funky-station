@@ -221,6 +221,7 @@
     damage:
       types:
         Blunt: 8
+    soundHit:
       collection: MetalThud
   - type: AltFireMelee
     attackType: Light
@@ -257,6 +258,7 @@
     damage:
       types:
         Blunt: 8
+    soundHit:
       collection: MetalThud
   - type: AltFireMelee
     attackType: Light
@@ -293,6 +295,7 @@
     damage:
       types:
         Blunt: 8
+    soundHit:
       collection: MetalThud
   - type: AltFireMelee
     attackType: Light
@@ -336,6 +339,7 @@
     damage:
       types:
         Blunt: 8
+    soundHit:
       collection: MetalThud
   - type: AltFireMelee
     attackType: Light
@@ -443,6 +447,14 @@
     maxCharge: 2000
     startingCharge: 2000
   - type: Multishot # Goobstation
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 8
+    soundHit:
+      collection: MetalThud
+  - type: AltFireMelee
+    attackType: Light
 
 - type: entity
   name: pulse carbine
@@ -620,6 +632,14 @@
     - type: Tag
       tags:
         - ParticleDecelerator
+    - type: MeleeWeapon
+      damage:
+        types:
+          Blunt: 15 #heavy
+      soundHit:
+        collection: MetalThud
+    - type: AltFireMelee
+      attackType: Light
 
 
 - type: entity
@@ -704,6 +724,7 @@
     damage:
       types:
         Blunt: 8
+    soundHit:
       collection: MetalThud
   - type: AltFireMelee
     attackType: Light
@@ -781,6 +802,7 @@
     damage:
       types:
         Blunt: 8
+    soundHit:
       collection: MetalThud
   - type: AltFireMelee
     attackType: Light
@@ -824,6 +846,7 @@
     damage:
       types:
         Blunt: 8
+    soundHit:
       collection: MetalThud
   - type: AltFireMelee
     attackType: Light
@@ -878,6 +901,7 @@
     damage:
       types:
         Blunt: 8
+    soundHit:
       collection: MetalThud
   - type: AltFireMelee
     attackType: Light
@@ -924,6 +948,7 @@
     damage:
       types:
         Blunt: 8
+    soundHit:
       collection: MetalThud
   - type: AltFireMelee
     attackType: Light
@@ -981,6 +1006,7 @@
     damage:
       types:
         Blunt: 8
+    soundHit:
       collection: MetalThud
   - type: AltFireMelee
     attackType: Light
@@ -1175,6 +1201,7 @@
     damage:
       types:
         Blunt: 8
+    soundHit:
       collection: MetalThud
   - type: AltFireMelee
     attackType: Light

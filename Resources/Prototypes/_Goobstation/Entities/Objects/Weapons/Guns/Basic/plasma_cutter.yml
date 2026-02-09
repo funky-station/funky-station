@@ -35,6 +35,14 @@
   - type: Appearance
   - type: Multishot
     spreadMultiplier: 1.2
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 8
+    soundHit:
+      collection: MetalThud
+  - type: AltFireMelee
+    attackType: Light
 
 - type: entity
   parent: WeaponPlasmaCutter

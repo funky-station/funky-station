@@ -52,6 +52,7 @@
     damage:
       types:
         Blunt: 8
+    soundHit:
       collection: MetalThud
   - type: AltFireMelee
     attackType: Light
@@ -106,6 +107,7 @@
     damage:
       types:
         Blunt: 8
+    soundHit:
       collection: MetalThud
   - type: AltFireMelee
     attackType: Light
@@ -160,6 +162,7 @@
     damage:
       types:
         Blunt: 8
+    soundHit:
       collection: MetalThud
   - type: AltFireMelee
     attackType: Light

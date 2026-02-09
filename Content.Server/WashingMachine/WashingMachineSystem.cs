@@ -25,7 +25,7 @@ public sealed partial class WashingMachineSystem : SharedWashingMachineSystem
         foreach (var item in items)
         {
             //Remove all possible evidence from the item and add detergent residue
-            if (TryComp<ForensicsComponent>(item, out var forensics)) //ForensicsComponent for an item inside the washing machine
+            if (!TryComp<ForensicsComponent>(item, out var forensics)) //ForensicsComponent for an item inside the washing machine
                 return;
             
             forensics.Fibers = new();

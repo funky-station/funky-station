@@ -2779,21 +2779,6 @@
   saleLimit: 5
 
 - type: listing
-  id: UplinkClothingSyndiHeadHatCone
-  name: uplink-clothing-syndi-head-cone-name
-  description: uplink-clothing-syndi-head-cone-desc
-  productEntity: ClothingSyndiHeadHatCone
-  cost:
-    Telecrystal: 2
-  categories:
-  - UplinkJob
-  conditions:
-  - !type:BuyerDepartmentCondition
-    whitelist:
-    - Engineering
-  saleLimit: 5
-
-- type: listing
   id: UplinkNetworkConfiguratorWithTrigger
   name: uplink-network-configurator-with-trigger-name
   description: uplink-network-configurator-with-trigger-desc

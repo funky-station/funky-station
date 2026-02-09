@@ -1,3 +1,8 @@
+# SPDX-FileCopyrightText: 2026 Steve <marlumpy@gmail.com>
+# SPDX-FileCopyrightText: 2026 marc-pelletier <113944176+marc-pelletier@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 # Speech mutations
 - type: geneticMutation
   id: CowboyAccent
@@ -435,8 +440,8 @@
 - type: damageModifierSet
   id: ChitinoarmisDurescutisArmor
   coefficients:
-    Blunt: 85.0
-    Slash: 85.0
+    Blunt: 0.85
+    Slash: 0.85
 
 - type: geneticMutation
   id: KeratinHyperplasia
@@ -456,8 +461,8 @@
 - type: damageModifierSet
   id: KeratinHyperplasiaArmor
   coefficients:
-    Slash: 90.0
-    Piercing: 90.0
+    Slash: 0.9
+    Piercing: 0.9
 
 - type: geneticMutation
   id: OssifiedExoskeleton
@@ -477,9 +482,9 @@
 - type: damageModifierSet
   id: OssifiedExoskeletonArmor
   coefficients:
-    Piercing: 85.0
-    Slash: 85.0
-    Blunt: 80.0
+    Piercing: 0.85
+    Slash: 0.85
+    Blunt: 0.8
 
 - type: geneticMutation
   id: CrystallineDermalLattice
@@ -501,9 +506,9 @@
 - type: damageModifierSet
   id: CrystallineDermalLatticeArmor
   coefficients:
-    Heat: 85.0
-    Cold: 85.0
-    Shock: 80.0
+    Heat: 0.85
+    Cold: 0.85
+    Shock: 0.85
 
 - type: geneticMutation
   id: AblativeCuticle
@@ -525,8 +530,8 @@
 - type: damageModifierSet
   id: AblativeCuticleArmor
   coefficients:
-    Heat: 85.0
-    Caustic: 85.0
+    Heat: 0.85
+    Caustic: 0.85
 
 - type: geneticMutation
   id: ComprehensiveDermalFortification
@@ -548,13 +553,13 @@
 - type: damageModifierSet
   id: ComprehensiveDermalFortificationArmor
   coefficients:
-    Blunt: 85.0
-    Slash: 90.0
-    Piercing: 90.0
-    Heat: 85.0
-    Cold: 85.0
-    Caustic: 85.0
-    Shock: 80.0
+    Blunt: 0.85
+    Slash: 0.9
+    Piercing: 0.9
+    Heat: 0.85
+    Cold: 0.85
+    Caustic: 0.85
+    Shock: 0.8
 
 - type: geneticMutation
   id: ColdResistance

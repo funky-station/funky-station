@@ -7660,3 +7660,69 @@ Entries:
         builds
   id: 886
   time: '2026-02-02T23:08:22.0000000+00:00'
+- author: marc-pelletier
+  changes:
+    - type: Fix
+      message: Armor mutations will no longer cause you to explode from a punch.
+  id: 887
+  time: '2026-02-03T02:46:38.0000000+00:00'
+- author: TrixxedHeart
+  changes:
+    - type: Fix
+      message: Vox are now poisoned by oxygen again
+  id: 888
+  time: '2026-02-04T01:32:11.0000000+00:00'
+- author: marc-pelletier
+  changes:
+    - type: Fix
+      message: Fixed issue with entities modifying lung gas more than once.
+  id: 889
+  time: '2026-02-05T18:42:31.0000000+00:00'
+- author: 88tv
+  changes:
+    - type: Add
+      message: >-
+        Added the Power Transmission Point and Compressed Matter Fabricator to
+        Packed.
+    - type: Fix
+      message: Fixed direction of evacuation signage in Packed.
+    - type: Tweak
+      message: Reworked the washroom to a laundromat in Packed.
+    - type: Add
+      message: >-
+        Added atmospheric reserves items (AIR computer, gas extractors, money
+        cabinet) to atmospherics in Packed.
+    - type: Add
+      message: Added Geiger counters to various locations in Packed.
+    - type: Remove
+      message: >-
+        Removed excess materials and loot within the Engineering department in
+        Packed.
+    - type: Add
+      message: Added a pipe scrubber to the atmospherics bay in Packed.
+    - type: Fix
+      message: >-
+        Linked a previously unlinked medical scanner and genetics console in
+        Packed.
+    - type: Fix
+      message: Fixed a previously unnamed science fax machine in Packed.
+    - type: Add
+      message: >-
+        Added a station beacon to Genetics and Secondary Evac (Docking Arm) in
+        Packed.
+    - type: Add
+      message: Added extra firelocks in northern maintenance in Packed.
+    - type: Fix
+      message: >-
+        Made the security entrance brig-locked instead of security-locked in
+        Packed.
+    - type: Fix
+      message: Connected the science department's pipenet to distro in Packed.
+    - type: Fix
+      message: Reorganized the chemistry room to move the sink in Packed.
+    - type: Add
+      message: Added a weakness to Captain's room in Packed.
+    - type: Add
+      message: Added a funny door to genpop in Packed.
+  id: 890
+  time: '2026-02-07T19:27:10.0000000+00:00'

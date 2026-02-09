@@ -20,9 +20,6 @@ marking-LizardFrillsSimple = Lizard Frills (Simple)
 marking-LizardFrillsAquatic-frills_aquatic = Lizard Frills (Aquatic)
 marking-LizardFrillsAquatic = Lizard Frills (Aquatic)
 
-marking-LizardHornsAngler-horns_angler = Lizard Horns (Angler)
-marking-LizardHornsAngler = Lizard Horns (Angler)
-
 marking-LizardHornsCurled-horns_curled = Lizard Horns (Curled)
 marking-LizardHornsCurled = Lizard Horns (Curled)
 

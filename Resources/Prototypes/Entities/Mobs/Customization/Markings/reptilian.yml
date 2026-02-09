@@ -90,15 +90,6 @@
     state: frills_neckfull
 
 - type: marking
-  id: LizardHornsAngler
-  bodyPart: HeadTop
-  markingCategory: HeadTop
-  speciesRestriction: [Reptilian]
-  sprites:
-  - sprite: Mobs/Customization/reptilian_parts.rsi
-    state: horns_angler
-
-- type: marking
   id: LizardHornsCurled
   bodyPart: HeadTop
   markingCategory: HeadTop

@@ -478,15 +478,7 @@
       "directions": 4
     },
     {
-      "name": "snout_roundlight",
-      "directions": 4
-    },
-    {
       "name": "snout_sharp",
-      "directions": 4
-    },
-    {
-      "name": "snout_sharplight",
       "directions": 4
     },
     {
@@ -503,10 +495,6 @@
     },
     {
       "name": "horns_ram",
-      "directions": 4
-    },
-    {
-      "name": "horns_angler",
       "directions": 4
     },
     {

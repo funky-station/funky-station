@@ -1381,9 +1381,6 @@
   name: loadout-group-cargo-technician-outerclothing
   minLimit: 0
   loadouts:
-  - WintercoatLightBrown
-  - WintercoatBrown
-  - WintercoatBlue
   - CargoTechnicianWindbreaker #Funky!
   - SeniorCargoTechnicianWindbreaker #Funky!
   - CargoTechnicianWintercoatMail # Goob/DeltaV - Mail
@@ -1435,9 +1432,6 @@
   name: loadout-group-salvage-specialist-outerclothing
   minLimit: 0
   loadouts:
-  - WintercoatPurple
-  - WintercoatLightBrown
-  - WintercoatBrown
   - SalvageSpecialistWindbreaker
 
 - type: loadoutGroup

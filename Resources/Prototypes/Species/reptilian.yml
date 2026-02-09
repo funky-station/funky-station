@@ -36,7 +36,7 @@
     HeadTop: MobHumanoidAnyMarking
     HeadSide: MobHumanoidAnyMarking
     Tail: MobHumanoidAnyMarking
-    Eyes: MobHumanoidEyes
+    Eyes: MobReptilianEyes
     LArm: MobReptilianLArm
     RArm: MobReptilianRArm
     LHand: MobReptilianLHand
@@ -163,3 +163,9 @@
   baseSprite:
     sprite: Mobs/Species/Reptilian/parts.rsi
     state: r_foot
+
+- type: humanoidBaseSprite
+  id: MobReptilianEyes
+  baseSprite:
+    sprite: Mobs/Species/Reptilian/parts.rsi
+    state: eyes

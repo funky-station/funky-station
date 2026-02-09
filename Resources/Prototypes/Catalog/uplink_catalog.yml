@@ -2852,5 +2852,4 @@
   - !type:BuyerDepartmentCondition
     whitelist:
     - Medical
-    - Chemist
   saleLimit: 1

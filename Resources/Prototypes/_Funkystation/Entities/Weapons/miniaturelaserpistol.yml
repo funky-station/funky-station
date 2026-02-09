@@ -62,7 +62,13 @@
   - type: Item
     sprite: _Funkystation/Objects/Weapons/miniature_laser_pistol_inhands_64x.rsi
     heldPrefix: energy
-
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 8
+      collection: MetalThud
+  - type: AltFireMelee
+    attackType: Light
 
 - type: entity
   name: disabler plus

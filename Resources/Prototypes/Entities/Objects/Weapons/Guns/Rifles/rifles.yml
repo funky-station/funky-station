@@ -101,6 +101,7 @@
   - type: Tag
     tags:
       - Rifle
+
 - type: entity
   name: AKMS
   parent: [BaseWeaponRifle, BaseSecurityContraband]
@@ -153,6 +154,18 @@
     steps: 1
     zeroVisible: true
   - type: Appearance
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 5
+    soundHit:
+      collection: MetalThud
+  - type: AltFireMelee
+    attackType: Heavy
+  - type: IncreaseDamageOnWield
+    damage:
+      types:
+        Blunt: 7
 
 - type: entity
   name: M-90gl
@@ -199,6 +212,18 @@
   - type: Appearance
   - type: Gun
     fireRate: 6
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 5
+    soundHit:
+      collection: MetalThud
+  - type: AltFireMelee
+    attackType: Heavy
+  - type: IncreaseDamageOnWield
+    damage:
+      types:
+        Blunt: 7
 
 - type: entity
   name: Lecter
@@ -246,6 +271,18 @@
     steps: 1
     zeroVisible: true
   - type: Appearance
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 5
+    soundHit:
+      collection: MetalThud
+  - type: AltFireMelee
+    attackType: Heavy
+  - type: IncreaseDamageOnWield
+    damage:
+      types:
+        Blunt: 7
 
 - type: entity
   name: Estoc DMR
@@ -308,6 +345,18 @@
     steps: 1
     zeroVisible: true
   - type: Appearance
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 5
+    soundHit:
+      collection: MetalThud
+  - type: AltFireMelee
+    attackType: Heavy
+  - type: IncreaseDamageOnWield
+    damage:
+      types:
+        Blunt: 7
 
 - type: entity
   name: Foam Force Astro Ace
@@ -339,3 +388,9 @@
       path: /Audio/Weapons/Guns/Empty/empty.ogg
     clumsyProof: true
   - type: PacifismAllowedGun
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 0
+  - type: AltFireMelee
+    attackType: Heavy

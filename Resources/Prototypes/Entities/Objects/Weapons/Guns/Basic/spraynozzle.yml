@@ -35,3 +35,9 @@
     providerWhitelist:
       tags:
       - NozzleBackTank
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 4
+  - type: AltFireMelee
+    attackType: Light

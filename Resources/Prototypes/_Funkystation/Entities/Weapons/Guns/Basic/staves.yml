@@ -57,6 +57,13 @@
       - state: inhand-left
       right:
       - state: inhand-right
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 8
+  - type: AltFireMelee
+    attackType: Light
+
 
 - type: entity
   id: ProjectileNatureBolt

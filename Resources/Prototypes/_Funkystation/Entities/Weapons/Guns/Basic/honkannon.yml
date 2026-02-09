@@ -36,6 +36,13 @@
     containers:
       storagebase: !type:Container
         ents: []
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 8
+      collection: MetalThud
+  - type: AltFireMelee
+    attackType: Light
 
 - type: entity
   name: bananium cream pie
@@ -103,9 +110,9 @@
     - Fruit
     - Pie
     - Slice
-  - type: Extractable  
-    grindableSolutionName: food 
-    juiceSolution:  
-      reagents:  
-      - ReagentId: LiquidPie  
-        Quantity: 2 
+  - type: Extractable
+    grindableSolutionName: food
+    juiceSolution:
+      reagents:
+      - ReagentId: LiquidPie
+        Quantity: 2

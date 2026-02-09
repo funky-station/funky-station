@@ -42,3 +42,10 @@
   - type: Tag
     tags:
       - RevolverSalamander
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 8
+      collection: MetalThud
+  - type: AltFireMelee
+    attackType: Light

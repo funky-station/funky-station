@@ -27,3 +27,10 @@
   - type: ContainerContainer
     containers:
       upgrades: !type:Container
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 8
+      collection: MetalThud
+  - type: AltFireMelee
+    attackType: Light

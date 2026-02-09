@@ -131,6 +131,13 @@
   - type: Appearance
   - type: StaticPrice
     price: 1500
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 8
+      collection: MetalThud
+  - type: AltFireMelee
+    attackType: Light
 
 - type: entity
   name: Inspector
@@ -146,6 +153,13 @@
     capacity: 6
     chambers: [ True, True, True, True, True, True ]
     ammoSlots: [ null, null, null, null, null, null ]
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 8
+      collection: MetalThud
+  - type: AltFireMelee
+    attackType: Light
 
 - type: entity
   name: Rattler
@@ -168,6 +182,13 @@
     capacity: 6
     chambers: [ True, True, True, True, True, True ]
     ammoSlots: [ null, null, null, null, null, null ]
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 8
+      collection: MetalThud
+  - type: AltFireMelee
+    attackType: Light
 
 - type: entity
   name: Mateba
@@ -183,6 +204,13 @@
     fireRate: 3
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/mateba.ogg
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 8
+      collection: MetalThud
+  - type: AltFireMelee
+    attackType: Light
 
 - type: entity
   parent: WeaponRevolverMateba
@@ -211,6 +239,13 @@
       path: /Audio/Weapons/Guns/Gunshots/revolver.ogg
       params:
         volume: 2.25
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 8
+      collection: MetalThud
+  - type: AltFireMelee
+    attackType: Light
 
 - type: entity
   parent: WeaponRevolverPython
@@ -242,7 +277,6 @@
         volume: 3
         pitch: 1
         maxDistance: 30
-
   - type: ContainerContainer
     containers:
       revolver-ammo: !type:Container
@@ -254,6 +288,13 @@
     whitelist:
       tags:
         - CartridgeAntiMateriel
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 8
+      collection: MetalThud
+  - type: AltFireMelee
+    attackType: Light
 
 - type: entity
   name: pirate revolver
@@ -274,3 +315,10 @@
     capacity: 5
     chambers: [ True, True, True, True, True ]
     ammoSlots: [ null, null, null, null, null ]
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 8
+      collection: MetalThud
+  - type: AltFireMelee
+    attackType: Light

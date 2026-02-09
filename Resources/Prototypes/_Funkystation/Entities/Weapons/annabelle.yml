@@ -35,12 +35,24 @@
   - type: PumpAction
     sound:
       path: /Audio/_RMC14/Weapons/Guns/Pump/gunlevering.ogg
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 5
+    soundHit:
+      collection: MetalThud
+  - type: AltFireMelee
+    attackType: Heavy
+  - type: IncreaseDamageOnWield
+    damage:
+      types:
+        Blunt: 7
 
 - type: entity
   parent: [ClothingOuterStorageBase, AllowBackStorageClothingCombat, BaseChaplainContraband]
   id: ClothingOuterDusterCoat
   name: Duster
-  description: An 18th-century duster trenchcoat, emblazoned with religious imagery
+  description: An 18th-century duster trenchcoat, emblazoned with religious imagery.
   components:
   - type: Sprite
     sprite: _Funkystation/Clothing/OuterClothing/Coats/annabellecoat.rsi

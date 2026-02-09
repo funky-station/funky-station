@@ -114,3 +114,13 @@
   - type: Construction
     graph: ImprovisedBow
     node: ImprovisedBow
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 5
+  - type: AltFireMelee
+    attackType: Light
+  - type: IncreaseDamageOnWield
+    damage:
+      types:
+        Blunt: 5

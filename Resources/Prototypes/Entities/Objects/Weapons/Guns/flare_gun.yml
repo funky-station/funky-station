@@ -63,6 +63,12 @@
       - SemiAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/flaregun.ogg
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 4
+  - type: AltFireMelee
+    attackType: Light
 
 
 - type: entity

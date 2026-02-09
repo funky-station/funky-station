@@ -28,4 +28,10 @@
   - type: Tag
     tags:
     - WizardStaff
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 8
+  - type: AltFireMelee
+    attackType: Light
 

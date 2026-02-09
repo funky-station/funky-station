@@ -121,6 +121,13 @@
     fireRate: 10
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/atreides.ogg
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 8
+      collection: MetalThud
+  - type: AltFireMelee
+    attackType: Light
   - type: MagazineVisuals
     magState: mag
     steps: 1
@@ -163,6 +170,18 @@
     magState: mag
     steps: 6
     zeroVisible: true
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 5
+    soundHit:
+      collection: MetalThud
+  - type: AltFireMelee
+    attackType: Heavy
+  - type: IncreaseDamageOnWield
+    damage:
+      types:
+        Blunt: 7
   - type: Appearance
 
 - type: entity
@@ -222,6 +241,18 @@
       steps: 1
       zeroVisible: true
     - type: Appearance
+    - type: MeleeWeapon
+      damage:
+        types:
+          Blunt: 5
+      soundHit:
+        collection: MetalThud
+    - type: AltFireMelee
+      attackType: Heavy
+    - type: IncreaseDamageOnWield
+      damage:
+        types:
+          Blunt: 7
 
 - type: entity
   name: WT550
@@ -279,6 +310,13 @@
         whitelist:
           tags:
             - CartridgePistol
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 8
+      collection: MetalThud
+  - type: AltFireMelee
+    attackType: Light
   - type: MagazineVisuals
     magState: mag
     steps: 6

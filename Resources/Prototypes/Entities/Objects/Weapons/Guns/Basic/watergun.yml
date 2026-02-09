@@ -76,6 +76,12 @@
     available:
       - enum.DamageStateVisualLayers.Base:
           icon: Rainbow
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 4
+  - type: AltFireMelee
+    attackType: Light
 
 - type: entity
   id: WeaponWaterBlaster
@@ -113,6 +119,12 @@
           icon: Rainbow
       - enum.PowerDeviceVisualLayers.Powered:
           detail2: Sixteen
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 4
+  - type: AltFireMelee
+    attackType: Light
 
 - type: entity
   id: WeaponWaterBlasterSuper
@@ -150,3 +162,9 @@
           icon: Rainbow
       - enum.PowerDeviceVisualLayers.Powered:
           detail2: Sixteen
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 4
+  - type: AltFireMelee
+    attackType: Light

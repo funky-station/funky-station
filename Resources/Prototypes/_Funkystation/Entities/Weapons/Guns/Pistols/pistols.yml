@@ -48,6 +48,13 @@
             - CartridgePistolLarge
   - type: Multishot # Goobstation
     spreadMultiplier: 1.5
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 8
+      collection: MetalThud
+  - type: AltFireMelee
+    attackType: Light
 
 - type: entity
   name: Wyvern
@@ -95,6 +102,13 @@
             - CartridgePistolLarge
   - type: Multishot # Goobstation
     spreadMultiplier: 1.5
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 8
+      collection: MetalThud
+  - type: AltFireMelee
+    attackType: Light
 
 - type: entity
   name: N1984H
@@ -142,3 +156,10 @@
             - CartridgeMagnum
   - type: Multishot # Goobstation
     spreadMultiplier: 1.25
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 8
+      collection: MetalThud
+  - type: AltFireMelee
+    attackType: Light

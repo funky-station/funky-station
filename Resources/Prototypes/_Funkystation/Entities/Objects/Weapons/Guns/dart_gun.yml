@@ -23,3 +23,11 @@
       - DartGunAmmo
   - type: Gun
     fireRate: 2 # Can shoot faster because eh why not
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 8
+      collection: MetalThud
+  - type: AltFireMelee
+    attackType: Light
+

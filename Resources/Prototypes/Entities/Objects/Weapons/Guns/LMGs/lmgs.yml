@@ -128,6 +128,18 @@
     steps: 4
     zeroVisible: true
   - type: Appearance
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 5
+    soundHit:
+      collection: MetalThud
+  - type: AltFireMelee
+    attackType: Heavy
+  - type: IncreaseDamageOnWield
+    damage:
+      types:
+        Blunt: 10
 
 - type: entity
   name: L6C ROW
@@ -170,3 +182,15 @@
       autoRecharge: true
       autoRechargeRate: 25
     - type: AmmoCounter
+    - type: MeleeWeapon
+      damage:
+        types:
+          Blunt: 5
+      soundHit:
+        collection: MetalThud
+    - type: AltFireMelee
+      attackType: Heavy
+    - type: IncreaseDamageOnWield
+      damage:
+        types:
+          Blunt: 10

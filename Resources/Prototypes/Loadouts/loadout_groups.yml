@@ -970,7 +970,6 @@
 - type: loadoutGroup # - Funkystation
   id: ClownMask
   name: loadout-group-clown-mask
-  minLimit: 0
   loadouts:
   - ClownMask
   - ClownMaskDevil
@@ -1006,9 +1005,6 @@
   - ClownBackpack
   - ClownSatchel
   - ClownDuffel
-  - CommonBackpack
-  - CommonSatchel
-  - CommonDuffel
 
 - type: loadoutGroup
   id: ClownOuterClothing

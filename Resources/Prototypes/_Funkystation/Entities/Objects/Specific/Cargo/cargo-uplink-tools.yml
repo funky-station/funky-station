@@ -21,7 +21,6 @@
   - type: InjectableSolution
     solution: melee
   - type: SolutionTransfer
-    minimumTransferAmount: 5
 
 - type: entity
   parent: AppraisalTool

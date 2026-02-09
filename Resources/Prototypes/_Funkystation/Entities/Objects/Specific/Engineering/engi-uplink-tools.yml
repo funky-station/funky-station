@@ -11,7 +11,7 @@
   components:
   - type: Storage
     grid:
-    - 0,0,2,1
+    - 0,0,0,1
     maxItemSize: Normal
   - type: UserInterface
     interfaces:
@@ -20,6 +20,14 @@
   - type: ContainerContainer
     containers:
       storagebase: !type:Container
+      hidden_slot: !type:ContainerSlot
+  - type: ItemSlots
+    slots:
+      hidden_slot:
+        name: computer_slot_accessory
+        whitelist:
+          tags:
+          - ListeningBug
 
 - type: entity
   parent: NetworkConfigurator

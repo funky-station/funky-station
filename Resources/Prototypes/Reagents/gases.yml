@@ -28,6 +28,7 @@
 # SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2026 Mora <46364955+TrixxedHeart@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2026 Steve <marlumpy@gmail.com>
 # SPDX-FileCopyrightText: 2026 TrixxedHeart <46364955+TrixxedBit@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2026 marc-pelletier <113944176+marc-pelletier@users.noreply.github.com>
@@ -69,6 +70,12 @@
         - !type:OrganType
           type: Vox
           shouldHave: false
+        - !type:OrganType
+          type: Thaven
+          shouldHave: false
+        - !type:OrganType
+          type: PlasmaBreather
+          shouldHave: false
         ratios:
           CarbonDioxide: 1.0
           Oxygen: -1.0
@@ -92,14 +99,6 @@
         clear: true
         time: 5
       # Funkystation - Genetics Plasma breather lungs
-      - !type:ModifyLungGas
-        conditions:
-        - !type:OrganType # Funkystation - Genetics
-          type: PlasmaBreather
-          shouldHave: false
-        ratios:
-          CarbonDioxide: 1.0
-          Oxygen: -1.0
       - !type:HealthChange
         conditions:
         - !type:OrganType # Funkystation - Genetics
@@ -148,6 +147,12 @@
         - !type:OrganType
           type: Vox
           shouldHave: false
+        - !type:OrganType #imp, thaven lungs don't do chemical reactions
+          type: Thaven
+          shouldHave: false
+        - !type:OrganType
+          type: PlasmaBreather
+          shouldHave: false
         ratios:
           CarbonDioxide: 1.0
           Oxygen: -1.0
@@ -170,25 +175,7 @@
             type: Vox
         clear: true
         time: 5
-      # Thaven lungs don't do chemical reactions
-      - !type:ModifyLungGas
-        conditions:
-        - !type:OrganType #imp, thaven lungs don't do chemical reactions
-          type: Thaven
-          shouldHave: false
-        ratios:
-          CarbonDioxide: 1.0
-          Oxygen: -1.0
-      # Thaven lungs don't do chemical reactions end
       # Funkystation - Genetics Plasma breather lungs
-      - !type:ModifyLungGas
-        conditions:
-        - !type:OrganType # Funkystation - Genetics
-          type: PlasmaBreather
-          shouldHave: false
-        ratios:
-          CarbonDioxide: 1.0
-          Oxygen: -1.0
       - !type:HealthChange
         conditions:
         - !type:OrganType # Funkystation - Genetics

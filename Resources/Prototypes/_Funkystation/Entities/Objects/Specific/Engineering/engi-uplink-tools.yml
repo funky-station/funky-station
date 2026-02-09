@@ -12,7 +12,7 @@
   - type: Storage
     grid:
     - 0,0,0,1
-    maxItemSize: Normal
+    maxItemSize: Small
   - type: UserInterface
     interfaces:
       enum.StorageUiKey.Key:

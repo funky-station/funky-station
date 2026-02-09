@@ -19,11 +19,24 @@ public sealed partial class WashingMachineSystem : SharedWashingMachineSystem
 
     protected override void UpdateForensics(Entity<WashingMachineComponent> ent, HashSet<EntityUid> items)
     {
-        if (!TryComp<ForensicsComponent>(ent.Owner, out var forensics))
+        if (!TryComp<ForensicsComponent>(ent.Owner, out var forensicsWashingMachine)) //ForensicsComponent for the washing machine
             return;
-
+        
         foreach (var item in items)
         {
+            //Remove all possible evidence from the item and add detergent residue
+            if (TryComp<ForensicsComponent>(item, out var forensics)) //ForensicsComponent for an item inside the washing machine
+                return;
+            
+            forensics.Fibers = new();
+            forensics.Fingerprints = new();
+
+            if(forensics.CanDnaBeCleaned)
+                forensics.DNAs = new();
+
+            forensics.Residues.Add(Loc.GetString("forensic-residue-colored", ("color", "residue-white"), ("adjective", "residue-powdered")));
+
+            //If the item is capable of leaving fibers, add them to the washing machine itself
             if (!TryComp<FiberComponent>(item, out var fiber))
                 continue;
 
@@ -31,7 +44,7 @@ public sealed partial class WashingMachineSystem : SharedWashingMachineSystem
                 ? Loc.GetString("forensic-fibers", ("material", fiber.FiberMaterial))
                 : Loc.GetString("forensic-fibers-colored", ("color", fiber.FiberColor), ("material", fiber.FiberMaterial));
 
-            forensics.Fibers.Add(fiberText);
+            forensicsWashingMachine.Fibers.Add(fiberText);
         }
     }
 }

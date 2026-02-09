@@ -13,12 +13,11 @@
 //
 // SPDX-License-Identifier: MIT
 
-using Content.Server.StationEvents.Components;
+using Content.Server.StationEvents.Events;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Database;
 using Content.Shared.Dataset;
 using Content.Shared.FixedPoint;
-using Content.Shared.GameTicking.Components;
 using Content.Shared.Random;
 using Content.Shared.Random.Helpers;
 using Content.Shared.Silicons.Laws;
@@ -35,6 +34,20 @@ public sealed class IonStormSystem : EntitySystem
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
     [Dependency] private readonly SiliconLawSystem _siliconLaw = default!;
     [Dependency] private readonly IRobustRandom _robustRandom = default!;
+
+    public override void Initialize()
+    {
+        base.Initialize();
+        SubscribeLocalEvent<IonStormTargetComponent, IonStormEvent>(OnIonStorm);
+    }
+
+    private void OnIonStorm(EntityUid uid, IonStormTargetComponent component, ref IonStormEvent args)
+    {
+        if (!TryComp<SiliconLawBoundComponent>(uid, out var lawBound))
+            return;
+
+        IonStormTarget((uid, lawBound, component), args.Adminlog);
+    }
 
     // funny
     [ValidatePrototypeId<DatasetPrototype>]

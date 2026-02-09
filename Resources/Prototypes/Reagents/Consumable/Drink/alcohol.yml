@@ -367,6 +367,18 @@
           shouldHave: false
       - !type:Drunk
         boozePower: 2
+      - !type:GenericStatusEffect
+        key: Anesthesia
+        component: Anesthesia
+        refresh: true
+        time: 1.0
+        type: Add
+      - !type:GenericStatusEffect
+        key: PainNumbness
+        component: PainNumbness
+        refresh: true
+        time: 1.0
+        type: Add
 
 - type: reagent
   id: Fernet

@@ -55,3 +55,5 @@
   - type: SolutionSpiker
     sourceSolution: food
     ignoreEmpty: true
+  - type: ScoopableSolution
+    solution: food

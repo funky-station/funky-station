@@ -152,7 +152,9 @@
   speciesRestriction: [Reptilian]
   sprites:
   - sprite: Mobs/Customization/reptilian_parts.rsi
-    state: tail_large
+    state: tail_large_primary
+  - sprite: Mobs/Customization/reptilian_parts.rsi
+    state: tail_large_secondary
 
 - type: marking
   id: LizardTailSpikes
@@ -161,7 +163,11 @@
   speciesRestriction: [Reptilian]
   sprites:
   - sprite: Mobs/Customization/reptilian_parts.rsi
-    state: tail_spikes
+    state: tail_spikes_primary
+  - sprite: Mobs/Customization/reptilian_parts.rsi
+    state: tail_spikes_secondary
+  - sprite: Mobs/Customization/reptilian_parts.rsi
+    state: tail_spikes_tertiary
 
 - type: marking
   id: LizardTailLTiger
@@ -189,7 +195,9 @@
   speciesRestriction: [Reptilian]
   sprites:
   - sprite: Mobs/Customization/reptilian_parts.rsi
-    state: snout_round
+    state: snout_round_primary
+  - sprite: Mobs/Customization/reptilian_parts.rsi
+    state: snout_round_secondary
 
 - type: marking
   id: LizardSnoutSharp
@@ -199,7 +207,9 @@
   speciesRestriction: [Reptilian]
   sprites:
   - sprite: Mobs/Customization/reptilian_parts.rsi
-    state: snout_sharp
+    state: snout_sharp_primary
+  - sprite: Mobs/Customization/reptilian_parts.rsi
+    state: snout_sharp_secondary
 
 - type: marking
   id: LizardSnoutSplotch
@@ -346,42 +356,3 @@
   sprites:
   - sprite: Mobs/Customization/reptilian_parts.rsi
     state: body_backspikes
-
-# Animated
-- type: marking
-  id: LizardTailSmoothAnimated
-  bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: []
-  sprites:
-    - sprite: Mobs/Customization/reptilian_parts.rsi
-      state: tail_smooth_wagging_primary
-    - sprite: Mobs/Customization/reptilian_parts.rsi
-      state: tail_smooth_wagging_secondary
-
-- type: marking
-  id: LizardTailSpikesAnimated
-  bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: []
-  sprites:
-    - sprite: Mobs/Customization/reptilian_parts.rsi
-      state: tail_spikes_wagging
-
-- type: marking
-  id: LizardTailLTigerAnimated
-  bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: []
-  sprites:
-    - sprite: Mobs/Customization/reptilian_parts.rsi
-      state: tail_ltiger_wagging
-
-- type: marking
-  id: LizardTailDTigerAnimated
-  bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: []
-  sprites:
-    - sprite: Mobs/Customization/reptilian_parts.rsi
-      state: tail_dtiger_wagging

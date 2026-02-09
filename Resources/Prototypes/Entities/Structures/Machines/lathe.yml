@@ -657,6 +657,7 @@
     - Dropper
     - ClothingEyesGlassesChemical
     - MaterialBSCrystal # Goobstation
+    - HandheldGeneticAnalyzer #funk
     dynamicRecipes:
     - PowerDrill
     - MiningDrill

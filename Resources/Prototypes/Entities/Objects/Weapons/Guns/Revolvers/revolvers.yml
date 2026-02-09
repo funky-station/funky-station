@@ -132,6 +132,7 @@
   - type: StaticPrice
     price: 1500
 
+
 - type: entity
   name: Inspector
   parent: [BaseWeaponRevolver, BaseSecurityContraband]
@@ -146,6 +147,7 @@
     capacity: 6
     chambers: [ True, True, True, True, True, True ]
     ammoSlots: [ null, null, null, null, null, null ]
+
 
 - type: entity
   name: Rattler
@@ -169,6 +171,7 @@
     chambers: [ True, True, True, True, True, True ]
     ammoSlots: [ null, null, null, null, null, null ]
 
+
 - type: entity
   name: Mateba
   parent: [BaseWeaponRevolver, BaseMajorContraband]
@@ -183,6 +186,7 @@
     fireRate: 3
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/mateba.ogg
+
 
 - type: entity
   parent: WeaponRevolverMateba
@@ -211,6 +215,7 @@
       path: /Audio/Weapons/Guns/Gunshots/revolver.ogg
       params:
         volume: 2.25
+
 
 - type: entity
   parent: WeaponRevolverPython
@@ -255,6 +260,7 @@
       tags:
         - CartridgeAntiMateriel
 
+
 - type: entity
   name: pirate revolver
   parent: [BaseWeaponRevolver, BaseMinorContraband]
@@ -274,3 +280,4 @@
     capacity: 5
     chambers: [ True, True, True, True, True ]
     ammoSlots: [ null, null, null, null, null ]
+

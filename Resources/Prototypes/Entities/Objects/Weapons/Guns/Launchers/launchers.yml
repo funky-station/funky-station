@@ -138,6 +138,7 @@
     zeroVisible: false
   - type: Appearance
 
+
 - type: entity
   name: multiple rocket launcher
   parent: BaseWeaponLauncher
@@ -172,6 +173,7 @@
     steps: 2
     zeroVisible: true
   - type: Appearance
+
 
 - type: entity
   name: pirate cannon

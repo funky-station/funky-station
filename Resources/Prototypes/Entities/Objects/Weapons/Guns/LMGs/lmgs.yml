@@ -129,6 +129,7 @@
     zeroVisible: true
   - type: Appearance
 
+
 - type: entity
   name: L6C ROW
   id: WeaponLightMachineGunL6C

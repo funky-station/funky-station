@@ -22,11 +22,11 @@ public sealed partial class WashingMachineSystem : SharedWashingMachineSystem
         if (!TryComp<ForensicsComponent>(ent.Owner, out var forensicsWashingMachine)) //ForensicsComponent for the washing machine
             return;
         
+        //Remove all possible evidence from the item and add detergent residue
         foreach (var item in items)
         {
-            //Remove all possible evidence from the item and add detergent residue
             if (!TryComp<ForensicsComponent>(item, out var forensics)) //ForensicsComponent for an item inside the washing machine
-                return;
+                continue;
             
             forensics.Fibers = new();
             forensics.Fingerprints = new();
@@ -35,8 +35,11 @@ public sealed partial class WashingMachineSystem : SharedWashingMachineSystem
                 forensics.DNAs = new();
 
             forensics.Residues.Add(Loc.GetString("forensic-residue-colored", ("color", "residue-white"), ("adjective", "residue-powdered")));
+        }
 
-            //If the item is capable of leaving fibers, add them to the washing machine itself
+        //If the item is capable of leaving fibers, add them to the washing machine itself
+        foreach (var item in items)
+        {
             if (!TryComp<FiberComponent>(item, out var fiber))
                 continue;
 

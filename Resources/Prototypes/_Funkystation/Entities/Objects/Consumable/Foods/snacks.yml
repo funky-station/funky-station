@@ -52,3 +52,6 @@
           Quantity: 0.2
   - type: Extractable
     grindableSolutionName: food
+  - type: SolutionSpiker
+    sourceSolution: food
+    ignoreEmpty: true

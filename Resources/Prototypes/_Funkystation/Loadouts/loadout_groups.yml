@@ -1,5 +1,4 @@
 # SPDX-FileCopyrightText: 2025 AtlasHD <99688062+AtlasHDD@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Idem778 <fromidemland@gmail.com>
 # SPDX-FileCopyrightText: 2025 Josh Hilsberg <thejoulesberg@gmail.com>
 # SPDX-FileCopyrightText: 2025 JoulesBerg <104539820+JoulesBerg@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 MaiaArai <158123176+YaraaraY@users.noreply.github.com>
@@ -14,6 +13,8 @@
 # SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 kbarkevich <24629810+kbarkevich@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2026 Idem778 <fromidemland@gmail.com>
+# SPDX-FileCopyrightText: 2026 SigmaTheDragon <162711378+SigmaTheDragon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2026 Zergologist <114537969+Chedd-Error@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
@@ -80,6 +81,7 @@
   loadouts:
   - CommandLighter
   - CentralCommandLighter
+  - CentComPersonalAI
 
 - type: loadoutGroup
   id: ChaplainBible
@@ -169,6 +171,7 @@
   loadouts:
   - CommandLighter
   - CentralCommandLighter
+  - CentComPersonalAI
 
 - type: loadoutGroup
   id: ScienceRoboticistGlasses
@@ -177,3 +180,43 @@
   - ScienceRoboNormGlasses
   - ScienceRoboJamjarGlasses
   - ScienceRoboGlasses
+
+- type: loadoutGroup
+  id: GeneticistJumpsuit
+  name: loadout-group-geneticist-jumpsuit
+  loadouts:
+    - GeneticistJumpsuit
+    - GeneticistJumpskirt
+
+- type: loadoutGroup
+  id: GeneticistOuterClothing
+  name: loadout-group-geneticist-outer
+  minLimit: 0
+  maxLimit: 1
+  loadouts:
+    - GeneticistLabcoat
+    - GeneticistWintercoat
+
+- type: loadoutGroup
+  id: GeneticistBackpack
+  name: loadout-group-geneticist-backpack
+  loadouts:
+    - GeneticistBackpack
+    - GeneticistSatchel
+    - GeneticistDuffel
+
+- type: loadoutGroup
+  id: GeneticistGloves
+  name: loadout-group-geneticist-gloves
+  minLimit: 0
+  maxLimit: 1
+  loadouts:
+    - GeneticistGlovesLatex
+    - GeneticistGlovesNitrile
+
+- type: loadoutGroup
+  id: GeneticistShoes
+  name: loadout-group-geneticist-shoes
+  loadouts:
+    - GeneticistShoesWhite
+    - GeneticistShoesBlue

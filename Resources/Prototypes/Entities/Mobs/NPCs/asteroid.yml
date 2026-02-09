@@ -1,6 +1,7 @@
 # SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tadeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 ThatOneMoon <91613003+ThatOneMoon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
 # SPDX-FileCopyrightText: 2025 TheSecondLord <88201625+TheSecondLord@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 V <97265903+formlessnameless@users.noreply.github.com>
@@ -259,6 +260,8 @@
   - type: Butcherable
     spawned:
     - id: FoodHivelordRemains
+    - id: MaterialHivelordTendril1 # Funkystation
+      amount: 2
 
 - type: entity
   id: MobHivelordBrood
@@ -313,16 +316,18 @@
 
 - type: entity
   id: FoodHivelordRemains
-  parent: FoodBase
-  name: hivelord remains
-  description: All that remains of a hivelord, it seems to be what allows it to break pieces of itself off without being hurt... its healing properties will soon become inert if not used quickly. Try not to think about what you're eating.
+  parent: FoodMeatRawBase
+  name: hivelord core
+  description: The core of a hivelord, it seems to be what allows it to break pieces of itself off without being hurt... its healing properties will soon become inert if not used quickly. Try not to think about what you're eating.
   components:
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 5
+        maxVol: 10
         reagents:
         - ReagentId: Rororium
+          Quantity: 5
+        - ReagentId: Protein
           Quantity: 5
   - type: Sprite
     sprite: Objects/Consumable/Food/rorocore.rsi

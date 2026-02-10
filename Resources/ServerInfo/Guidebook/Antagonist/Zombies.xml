@@ -29,13 +29,13 @@ Zombie infection progresses through several distinct stages over time. [bold]If 
 During the early period following infection, the patient will display [bold]no visible symptoms[/bold] or ill effects. [bold]Ambuzol 1 can be used[/bold] to cure the infection during this stage before symptoms begin to appear.
 
 ### Stage 2; Early
-As the infection progresses, [bold]persistent coughing will begin, marking the onset of airborne transmission to those around the infected.[/bold] Wearing a face covering, such as a surgical mask or gas mask, significantly reduces the chance of contracting an airborne infection. Activating internals, such as using an emergency oxygen tank, effectively prevents airborne transmission. Around this stage, patients will begin to experience mild poison damage. This damage is easily identifiable using a health HUD or medical scanner. Gradual poison damage with no identifiable source is often sufficient to indicate early infection, provided the examining medical personnel are paying adequate attention.
+As the infection progresses, [bold]persistent coughing will begin, marking the onset of airborne transmission to those around the infected.[/bold] Wearing a face covering, such as a surgical mask or gas mask, significantly reduces the chance of contracting an airborne infection. Activating internals, such as using an emergency oxygen tank, effectively prevents catching the disease. Wearing a mask or using internals will never stop you from transmiting, however. Around this stage, patients will begin to experience mild poison damage. This damage is easily identifiable using a health HUD or medical scanner. Gradual poison damage with no identifiable source is often sufficient to indicate early infection, provided the examining medical personnel are paying adequate attention.
 
 ### Stage 3; Advanced
 As the infection advances further, [bold]zombie blood will begin replacing the patient’s normal blood[/bold]. This causes the patient to take [bold]significantly increased damage[/bold]. Drawing blood and placing it in a chem master will confirm infection at this stage. Patients will also begin to experience feelings of paranoia during this stage.
 
 ### Stage 4; Terminal
-In the final stage of infection, poison damage becomes extremely severe, making survival difficult. Patients will begin to display aggressive behavior by this point. [bold]If the patient remains alive long enough in this stage, full zombification will occur automatically.[/bold]
+In the final stage of infection, poison damage becomes extremely severe, making survival difficult. Patients will begin to display aggressive behavior by this point. At this point, the patient is also allowed to succumb to the mental effects of Romerol. [bold]If the patient remains alive long enough in this stage, full zombification will occur automatically.[/bold]
 
 ## Surgical Treatment
 
@@ -43,15 +43,15 @@ In the final stage of infection, poison damage becomes extremely severe, making 
 
 ## Chemical Treatment
 
-The drug [bold]Ambuzol[/bold] is used to treat zombie infections in graded formulations. Each tier of Ambuzol corresponds to a specific infection stage:
+The drug [bold]Ambuzol[/bold] is used to treat zombie infections in graded formulations. Each tier of Ambuzol corresponds to a specific infection stage, however also treats levels below it:
 
-Ambuzol 1 cures Stage 1 infections  
+Ambuzol 1 cures up to Stage 1 infections  
 
-Ambuzol 2 cures Stage 2 infections  
+Ambuzol 2 cures up to Stage 2 infections  
 
-Ambuzol 3 cures Stage 3 infections  
+Ambuzol 3 cures up to Stage 3 infections  
 
-Ambuzol 4 cures Stage 4 infections  
+Ambuzol 4 cures up to Stage 4 infections  
 
 
 [bold]Ambuzol 5 will cure zombie infection at any stage[/bold], provided the patient has not already undergone full zombification. Additionally, Ambuzol 5 permanently immunizes the patient against all future zombie infections. Ambuzol has no overdose threshold and may be administered freely. 
@@ -60,7 +60,7 @@ Once an individual has undergone full zombification, curing is no longer possibl
 
 ## Bite-Based Transmission
 
-Zombie infection may also be transmitted through physical bites. Fully zombified individuals possess a powerful bite attack. When biting a victim, the zombie will partially heal itself and has a chance to transmit infection to the bitten individual. Unclothed victims face a very high likelihood of infection per bite. [bold]Wearing clothing reduces this chance progressively[/bold], down to a minimal chance when maximum coverage is worn. Use of a bio-suit or some kinds of hardsuits, such as CBURN gear, can reduce infection chances further. Each bite calculates infection chance independently. Multiple bites greatly increase the likelihood of infection, even when substantial protective equipment is worn. [bold]Any critical or dead lifeform bit by an infected will instantly reanimate the victim.[/bold] This includes animals or other antagonists such as slimes, spiders, carp, rat kings, or dragons.
+Zombie infection may also be transmitted through physical bites. Fully zombified individuals possess a powerful bite attack. When biting a victim, the zombie will partially heal itself and has a chance to transmit infection to the bitten individual. Unclothed victims face a very high likelihood of infection per bite. [bold]Wearing clothing reduces this chance progressively[/bold], down to a minimal chance when maximum coverage is worn. Each bite calculates infection chance independently. Multiple bites greatly increase the likelihood of infection, even when substantial protective equipment is worn. [bold]Any critical or dead lifeform bit by an infected will instantly reanimate the victim.[/bold] This includes animals or other antagonists such as slimes, spiders, carp, rat kings, or dragons.
 
 ## How to Combat Zombies
 
@@ -76,7 +76,7 @@ Once zombified, zombies lose the ability to communicate verbally, reason in comp
 
 • Engaging through windows with lasers to maintain distance while dealing sustained damage  
 
-Due to their resistance to most brute and ballistic damage and immunity to space, maintaining distance and utilizing grills and windows is imperative.
+Due to their resistance to most brute damage and immunity to space, maintaining distance and utilizing grills and windows is imperative.
 
 ## Playing a Zombie
 
@@ -84,11 +84,11 @@ Playing a zombie differs significantly from nearly all other antagonist roles. Z
 
 • Gaining additional infections  
 
-• Destroying obstacles directly blocking the path to infecting others  
+• Destroying obstacles that are between them and a uninfected they can see or know is there
 
-Zombies should ignore silicons entirely unless those entities actively interfere. If a silicon becomes hostile, it may be incapacitated only and [bold]must not be destroyed[/bold]. [bold]If an individual has been killed and does not convert after sustained biting, zombies must cease biting immediately and move on. Corpses that cannot be converted should be ignored entirely.[/bold] Zombies are not permitted to guard bodies to prevent recovery, [bolditalic]nor are they allowed to intentionally destroy critical infrastructure.[/bolditalic] This includes telecommunications systems, communications consoles, and deliberate spacing or sabotage of rooms solely to render them uninhabitable for non-zombified crew. Zombie bites cause significant structural damage and should be used exclusively to clear paths toward living targets. Zombies may chew through walls, doors, windows, and other obstructions that impede movement toward potential infections. Zombies may also use alt-click interactions to pry open doors, including bolted doors, functioning similarly to a Jaws of Life.
+Zombies should ignore silicons entirely unless those entities actively interfere. If a silicon becomes hostile, it may be incapacitated only and [bold]must not be destroyed[/bold]. [bold]If an individual has been killed and does not convert after sustained biting, zombies must cease biting immediately and move on. Corpses that cannot be converted should be ignored entirely.[/bold] Zombies are not permitted to guard bodies to prevent recovery, [bolditalic]nor are they allowed to intentionally destroy critical infrastructure.[/bolditalic] This includes telecommunications systems, communications consoles, and deliberate spacing or sabotage of rooms solely to render them uninhabitable for non-zombified crew. Zombie bites cause significant structural damage and should be used exclusively to clear paths toward living targets. Zombies may chew through walls, doors, windows, and other obstructions that impede movement. Zombies may also use alt-click interactions to pry open doors, including bolted doors, functioning similarly to a Jaws of Life. This also funtions on bolted doors, though very slow.
 
-## Patients Zero
+## Patient Zero
 
 The Patient Zero game mode is the standard zombie game mode. In this mode, several individuals are randomly selected partway into the round to become infected, starting at Stage 1. Patients Zero are not informed of their status and must not act as antagonists prior to zombification.
 </Document>

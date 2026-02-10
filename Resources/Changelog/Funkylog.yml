@@ -7742,3 +7742,15 @@ Entries:
       message: Changed genetics to be in science on Eden map
   id: 892
   time: '2026-02-10T21:47:39.0000000+00:00'
+- author: mkanke-real
+  changes:
+    - type: Add
+      message: Adds laundry to Roid
+    - type: Fix
+      message: Fixed Roids missing lv wire to RnD server
+    - type: Tweak
+      message: >-
+        Roids atmos miners switched to extractors and supplies adjusted for gas
+        purchasing
+  id: 893
+  time: '2026-02-10T21:50:04.0000000+00:00'

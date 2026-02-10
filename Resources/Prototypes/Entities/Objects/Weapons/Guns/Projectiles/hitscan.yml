@@ -104,7 +104,7 @@
   id: XrayLaser
   damage:
     types:
-      Heat: 10
+      Heat: 12
       Radiation: 10
       Ion: 15 #Goobstation
   muzzleFlash:

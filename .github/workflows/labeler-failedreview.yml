@@ -1,0 +1,23 @@
+# SPDX-FileCopyrightText: 2026 Komoni <131829655+Komonighub@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+name: "Labels: Changes Requested"
+
+on:
+  pull_request_review:
+    types: [submitted]
+
+jobs:
+  labelling:
+    if: github.event.review.state == 'changes_requested'
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions-ecosystem/action-add-labels@v1
+      with:
+        github_token: ${{ secrets.BOT_TOKEN }}
+        labels: "Status: Awaiting Changes"
+    - uses: actions-ecosystem/action-remove-labels@v1
+      with:
+        github_token: ${{ secrets.BOT_TOKEN }}
+        labels: "Status: Needs Review"

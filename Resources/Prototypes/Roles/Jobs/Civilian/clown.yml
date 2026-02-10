@@ -71,7 +71,6 @@
   - ClownBouffon
   - ClownJoker
   - ClownComedian
-  - ClownEntertainer
 
 - type: startingGear
   id: ClownGear
@@ -101,8 +100,4 @@
 - type: jobAlternateTitle
   id: ClownComedian
   name: job-name-alt-clown-4
-
-- type: jobAlternateTitle
-  id: ClownEntertainer
-  name: job-name-alt-clown-5
 

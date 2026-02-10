@@ -170,28 +170,22 @@
     state: tail_spikes_tertiary
 
 - type: marking
-  id: LizardTailLTiger
+  id: LizardTailTiger
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Reptilian]
   sprites:
   - sprite: Mobs/Customization/reptilian_parts.rsi
-    state: tail_ltiger
-
-- type: marking
-  id: LizardTailDTiger
-  bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: [Reptilian]
-  sprites:
+    state: tail_tiger_primary
   - sprite: Mobs/Customization/reptilian_parts.rsi
-    state: tail_dtiger
+    state: tail_tiger_secondary
+  - sprite: Mobs/Customization/reptilian_parts.rsi
+    state: tail_tiger_tertiary
 
 - type: marking
   id: LizardSnoutRound
   bodyPart: Snout
   markingCategory: Snout
-  forcedColoring: true
   speciesRestriction: [Reptilian]
   sprites:
   - sprite: Mobs/Customization/reptilian_parts.rsi
@@ -203,7 +197,6 @@
   id: LizardSnoutSharp
   bodyPart: Snout
   markingCategory: Snout
-  forcedColoring: true
   speciesRestriction: [Reptilian]
   sprites:
   - sprite: Mobs/Customization/reptilian_parts.rsi
@@ -356,3 +349,42 @@
   sprites:
   - sprite: Mobs/Customization/reptilian_parts.rsi
     state: body_backspikes
+
+# Animated
+- type: marking
+  id: LizardTailSmoothAnimated
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: []
+  sprites:
+    - sprite: Mobs/Customization/reptilian_parts.rsi
+      state: tail_smooth_wagging_primary
+    - sprite: Mobs/Customization/reptilian_parts.rsi
+      state: tail_smooth_wagging_secondary
+
+- type: marking
+  id: LizardTailSpikesAnimated
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: []
+  sprites:
+    - sprite: Mobs/Customization/reptilian_parts.rsi
+      state: tail_spikes_wagging
+
+- type: marking
+  id: LizardTailLTigerAnimated
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: []
+  sprites:
+    - sprite: Mobs/Customization/reptilian_parts.rsi
+      state: tail_ltiger_wagging
+
+- type: marking
+  id: LizardTailDTigerAnimated
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: []
+  sprites:
+    - sprite: Mobs/Customization/reptilian_parts.rsi
+      state: tail_dtiger_wagging

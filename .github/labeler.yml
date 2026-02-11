@@ -35,10 +35,3 @@
 - changed-files:
   # Equiv to any-glob-to-all as long as this has one matcher. If ALL changed files are not C# files, then apply label.
   - all-globs-to-all-files: "!**/*.cs"
-
-# komoni - this only exists as a bugfix so that this labeler stops removing the untriaged label. technically it could remove others as well but realistically this is the only one it affects that I'm aware of.
-
-'Status: Untriaged':
-  - all:
-      - changed-files:
-          - all-globs-to-all-files: ['DUMMY-FILENAME-THAT-NOBODY-WILL-USE']

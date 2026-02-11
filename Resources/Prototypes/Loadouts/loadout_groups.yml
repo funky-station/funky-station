@@ -2468,7 +2468,6 @@
   loadouts:
   - ParamedicWintercoat
   - ParamedicWindbreaker
-  - ParamedicWintercoat
 
 - type: loadoutGroup
   id: ParamedicShoes

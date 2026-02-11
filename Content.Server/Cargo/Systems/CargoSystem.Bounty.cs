@@ -406,7 +406,7 @@ public sealed partial class CargoSystem
     }
 
     /// <summary>
-    /// Determines whether the <paramref name="entity"/> meets the criteria for the bounty <paramref name="entry"/>.
+    /// Determines whether the <paramref name="entity"/> meets the criteria for the bounty <paramref name="reagentBounty"/>.
     /// </summary>
     /// <param name="entity">Some given entity to be checked against criteria</param>
     /// <param name="reagentBounty">The specific bounty reagent item that is being checked against</param>
@@ -433,8 +433,16 @@ public sealed partial class CargoSystem
         return false;
     }
 
+    /// <summary>
+    /// Determines whether the <paramref name="entity"/> meets the criteria for the bounty <paramref name="gasBounty"/>.
+    /// </summary>
+    /// <param name="entity">Some given entity to be checked against criteria</param>
+    /// <param name="gasBounty">The specific bounty gas that is being checked against</param>
+    /// <returns>true if <paramref name="entity"/> is a valid item for the bounty entry, otherwise false</returns>
     public bool IsValidBountyEntry(EntityUid entity, CargoGasBountyItemData gasBounty)
     {
+        // Currently checking components separately since I don't know a method to query for interfaces.
+        // Please replace if a better method is made / found
         if (TryComp<GasTankComponent>(entity, out var gasTank))
         {
             var gases = gasTank.Air;
@@ -553,6 +561,8 @@ public sealed partial class CargoSystem
                     }
                     break;
                 case CargoGasBountyItemData bountyItem:
+                    // Currently checking components separately since I don't know a method to query for interfaces.
+                    // Please replace if a better method is made / found
                     if (TryComp<GasTankComponent>(entity, out var gasTank))
                     {
                         var gases = gasTank.Air;

@@ -256,7 +256,7 @@
     # - id: WeaponDisabler
     - id: WeaponDisablerPlus # funkystation adding unique hop weapon
     - id: ClothingEyesHudCommand
-    - id: SOSCartridge # DeltaV - adds SOS app https://github.com/DeltaV-Station/Delta-v/pull/2812
+#    - id: SOSCartridge # DeltaV - adds SOS app https://github.com/DeltaV-Station/Delta-v/pull/2812 #moved into PDA cartridge case
     - id: PDA_cartridge_case
     - id: RadioHandheldService #funkystation
     - id: RadioHandheldCommand #funkystation
@@ -366,7 +366,8 @@
     - id: MedicalScannerMachineCircuitboard
     #- id: CloningConsoleComputerCircuitboard
     - id: BiomassReclaimerMachineCircuitboard
-    - id: MedTekCartridge
+#    - id: MedTekCartridge #bye
+    - id: HandheldHealthAnalyzer #CMO has the handheld guaranteed
     # Shitmed
     - id: MedicalBiofabMachineBoard
     - id: AutoclaveFlatpack # DV

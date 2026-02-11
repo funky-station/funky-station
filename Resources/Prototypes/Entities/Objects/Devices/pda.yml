@@ -285,7 +285,7 @@
       - NotekeeperCartridge
       - NanoTaskCartridge
       - NewsReaderCartridge
-      - MedTekCartridge
+#      - MedTekCartridge
       - NanoChatCartridge # DeltaV
       - SOSCartridge # Imp
       - WordleCartridge
@@ -1143,7 +1143,7 @@
       - NotekeeperCartridge
       - NanoTaskCartridge
       - NewsReaderCartridge
-      - MedTekCartridge
+      - MedTekCartridge #admeme
       - WantedListCartridge
       - LogProbeCartridge
       - AstroNavCartridge
@@ -1180,7 +1180,7 @@
       - NotekeeperCartridge
       - NanoTaskCartridge
       - NewsReaderCartridge
-      - MedTekCartridge
+      - MedTekCartridge #admeme
       - WantedListCartridge
       - LogProbeCartridge
       - AstroNavCartridge
@@ -1212,7 +1212,7 @@
       - NewsReaderCartridge
       - LogProbeCartridge
       - WantedListCartridge
-      - MedTekCartridge
+      - MedTekCartridge #admin so...
       - AstroNavCartridge
       - NanoChatCartridge # DeltaV
       - SOSCartridge # Imp
@@ -1364,7 +1364,7 @@
       - NotekeeperCartridge
       - NanoTaskCartridge
       - NewsReaderCartridge
-      - MedTekCartridge
+      - MedTekCartridge #ert so it's fine
       - WantedListCartridge
       - LogProbeCartridge
       - AstroNavCartridge
@@ -1577,7 +1577,7 @@
     - NanoTaskCartridge
     - NewsReaderCartridge
     - WantedListCartridge
-    - MedTekCartridge
+#    - MedTekCartridge  #doesn't exist but whatever, killing this prematurely
     - NanoChatCartridge # DeltaV
     - SOSCartridge # Imp
     - WordleCartridge
@@ -1753,7 +1753,7 @@
     preinstalled:
       - NotekeeperCartridge
       - NanoTaskCartridge
-      - MedTekCartridge
+      - MedTekCartridge #leaving this because how the fuck else are they supposed to do their job lol
       - NanoChatCartridge # DeltaV
 
 # event-restricted jobs

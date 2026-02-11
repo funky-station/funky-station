@@ -854,6 +854,7 @@
     - BorgChargerCircuitboard
     - ThermomachineFreezerMachineCircuitBoard # Assmos - Moved to staticRecipes from dynamicRecipes
     - GeneticistsConsoleComputerCircuitboard # Funkystation - Genetics
+    - BodyScannerComputerCircuitboard #funk #scanner kill
     dynamicRecipes:
     - HellfireFreezerMachineCircuitBoard
     - PortableScrubberMachineCircuitBoard
@@ -1429,7 +1430,7 @@
     - CMBloodPack
     - HandLabeler
     - Defibrillator
-    - HandheldHealthAnalyzer
+#    - HandheldHealthAnalyzer #bye
     - ClothingHandsGlovesLatex
     - ClothingHandsGlovesNitrile
     - ClothingMaskSterile

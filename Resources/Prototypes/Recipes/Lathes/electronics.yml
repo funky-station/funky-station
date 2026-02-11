@@ -707,3 +707,9 @@
   parent: BaseCircuitboardRecipe
   id: CrystallizerMachineCircuitboard
   result: CrystallizerMachineCircuitboard
+
+#body scanners for well, medical
+- type: latheRecipe
+  parent: BaseCircuitboardRecipe
+  id: BodyScannerComputerCircuitboard
+  result: BodyScannerComputerCircuitboard

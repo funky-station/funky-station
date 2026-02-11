@@ -797,7 +797,7 @@
   parent: BaseComputerAiAccess
   id: computerBodyScanner
   name: body scanner computer
-  description: A body scanner.
+  description: A body scanner. If this is linked to an operating table, it shows the lifesigns of the patient on it.
   components:
   - type: ApcPowerReceiver
     powerLoad: 500

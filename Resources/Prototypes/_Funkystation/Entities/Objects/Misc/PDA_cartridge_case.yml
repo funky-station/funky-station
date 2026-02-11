@@ -34,9 +34,10 @@
   - type: StorageFill
     contents:
     - id: AstroNavCartridge
-    - id: MedTekCartridge
+#    - id: MedTekCartridge #bye
     - id: WantedListCartridge
     - id: LogProbeCartridge
     - id: NetProbeCartridge
     - id: NanoChatCartridge
     - id: MailMetricsCartridge
+    - id: SOSCartridge #hi

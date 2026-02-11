@@ -597,6 +597,13 @@
           min: 20
         walkSpeedModifier: 0.35
         sprintSpeedModifier: 0.35
+      - !type:HealthChange
+        damage:
+          types:
+            Asphyxiation: 1
+      - !type:Emote
+        emote: Gasp
+        probability: 0.08
 
 - type: reagent
   id: Happiness

@@ -168,30 +168,65 @@
     - Security
     - Antagonists
 
+# Funky - Turning the truncheon into a nightstick
 - type: entity
-  name: truncheon
+  name: nightstick
   parent: [BaseItem, BaseSecurityContraband]
   id: Truncheon
-  description: A rigid, steel-studded baton, meant to harm.
+  description: A collapsible baton designed to beat troublemakers into submission.
   components:
   - type: Sprite
-    sprite: Objects/Weapons/Melee/truncheon.rsi
-    state: icon
+    sprite: _Funkystation/Objects/Weapons/Melee/nightstick.rsi
+    layers:
+    - state: nightstick_handle
+    - state: nightstick_extend
+      visible: false
+      map: [ "extend" ]
   - type: MeleeWeapon
     wideAnimationRotation: -135
     damage:
       types:
-        Blunt: 12 # Funky
+        Blunt: 5
     soundHit:
       collection: MetalThud
-    bluntStaminaDamageFactor: 1.5
+    bluntStaminaDamageFactor: 2.5
   - type: Item
-    size: Normal
+    size: Small
+  - type: ItemToggle
+    soundActivate:
+      path: /Audio/_Funkystation/Weapons/nightstick_extend.ogg
+    soundDeactivate:
+      path: /Audio/_Funkystation/Weapons/nightstick_retract.ogg
+  - type: ItemToggleSize
+    activatedSize: Normal
+    activatedShape:
+    - 0,0,0,3
+  - type: ItemToggleMeleeWeapon
+    activatedDamage:
+      types:
+        Blunt: 12
+    activatedSoundOnHit:
+      collection: Nightstick
+  - type: ItemTogglePointLight
+  - type: PointLight
+    enabled: false
+    radius: 0
+    energy: 0
+    netsync: false
+  - type: ToggleableLightVisuals
+    spriteLayer: extend
+    inhandVisuals:
+      left:
+      - state: inhand-left-extend
+      right:
+      - state: inhand-right-extend
+  - type: UseDelay
+    delay: 0.2
   - type: Tag
     tags:
     - Truncheon
   - type: Clothing
-    sprite: Objects/Weapons/Melee/truncheon.rsi
+    sprite: _Funkystation/Objects/Weapons/Melee/nightstick.rsi
     quickEquip: false
     slots:
     - Belt

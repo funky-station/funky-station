@@ -29,7 +29,7 @@ They face [textlink="Syndicate Agents" link="Traitors"], [textlink="Nuclear Oper
   </Box>
 
 ## Gear
-First we have less-lethals. These tools are a step above simply telling someone to cooperate with instructions. A truncheon is capable of limiting the movement of an assailant, whereas handcuffs can be applied to deny a criminal free movement and access to their hands. Cuffs will also shove the person down if your [color=red]harm mode[/color] is active during uncuff.
+First we have less-lethals. These tools are a step above simply telling someone to cooperate with instructions. A nightstick is capable of limiting the movement of an assailant, whereas handcuffs can be applied to deny a criminal free movement and access to their hands. Cuffs will also shove the person down if your [color=red]harm mode[/color] is active during uncuff.
   <Box>
     <GuideEntityEmbed Entity="Truncheon"/>
     <GuideEntityEmbed Entity="Handcuffs"/>

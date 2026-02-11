@@ -129,13 +129,6 @@
   components:
   - type: Sprite
     sprite: Objects/Weapons/Grenades/flashbang.rsi
-  - type: ExplodeOnTrigger #less lethal wahoo
-  - type: Explosive
-    explosionType: Default
-    maxIntensity: 1
-    intensitySlope: 3
-    totalIntensity: 12
-    canCreateVacuum: false
   - type: FlashOnTrigger
     range: 7
   - type: SoundOnTrigger

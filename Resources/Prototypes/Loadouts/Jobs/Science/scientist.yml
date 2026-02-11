@@ -149,7 +149,6 @@
   id: ScienceWintercoat
   equipment:
     outerClothing: ClothingOuterWinterSci
-  groupBy: "Wintercoat"
 
 - type: loadout
   id: RoboticistLabCoat
@@ -160,7 +159,6 @@
   id: RoboticistWintercoat
   equipment:
     outerClothing: ClothingOuterWinterRobo
-  groupBy: "Wintercoat"
 
 - type: loadout
   id: SeniorResearcherLabCoat

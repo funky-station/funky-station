@@ -7754,3 +7754,9 @@ Entries:
         purchasing
   id: 893
   time: '2026-02-10T21:50:04.0000000+00:00'
+- author: ParadoxumOfficial
+  changes:
+    - type: Fix
+      message: Hopefully fixed the broken Github Labeler
+  id: 894
+  time: '2026-02-11T05:40:13.0000000+00:00'

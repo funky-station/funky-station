@@ -7,7 +7,6 @@
 #   #   - !type:DepartmentTimeRequirement
 #   #     department: Medical
 #   #     time: 18000  # 5 hrs total med
-#   weight: 30  # Medium availability
 #   startingGear: GeneticistGear
 #   icon: "JobIconGeneticist"
 #   requireAdminNotify: false

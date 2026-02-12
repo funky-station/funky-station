@@ -22,7 +22,6 @@
     - !type:RoleTimeRequirement
       role: JobLawyer
       time: 18000 #5 hrs
-  weight: 20
   startingGear: InternalAffairsAgentGear
   icon: "JobIconInternalAffairsAgent"
   requireAdminNotify: false

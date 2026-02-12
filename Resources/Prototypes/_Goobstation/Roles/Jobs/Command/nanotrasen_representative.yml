@@ -32,7 +32,6 @@
     - !type:RoleTimeRequirement
       role: JobInternalAffairsAgent
       time: 36000 #10 hrs
-  weight: 20
   startingGear: NanotrasenRepresentativeGear
   icon: "JobIconNanotrasenRepresentative"
   requireAdminNotify: true

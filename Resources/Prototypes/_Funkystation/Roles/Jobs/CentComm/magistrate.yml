@@ -24,7 +24,6 @@
   - !type:DepartmentTimeRequirement
     department: Security
     time: 270000 #75 hrs - to demand 25 hours of security in addition to the 20 hour HOS requirement, which implies 50 total hours in security roles once complete.
-  weight: 20
   startingGear: MagistrateGear
   icon: "JobIconMagistrate"
   requireAdminNotify: true

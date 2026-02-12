@@ -60,7 +60,6 @@
       time: 90000 #25 hrs
     - !type:OverallPlaytimeRequirement
       time: 90000 #25 hrs
-  weight: 10
   startingGear: ChiefEngineerGear
   icon: "JobIconChiefEngineer"
   supervisors: job-supervisors-captain

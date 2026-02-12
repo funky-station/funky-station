@@ -67,7 +67,6 @@
       time: 72000 #20 hrs
     - !type:OverallPlaytimeRequirement
       time: 90000 #25 hrs
-  weight: 10
   startingGear: CMOGear
   icon: "JobIconChiefMedicalOfficer"
   supervisors: job-supervisors-captain

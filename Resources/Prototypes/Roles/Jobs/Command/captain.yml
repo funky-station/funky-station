@@ -70,7 +70,6 @@
       time: 72000 #20 hrs
     - !type:OverallPlaytimeRequirement
       time: 144000 #40 hrs
-  weight: 20
   startingGear: CaptainGear
   icon: "JobIconCaptain"
   joinNotifyCrew: true

@@ -72,7 +72,6 @@
     - !type:DepartmentTimeRequirement
       department: Security
       time: 18000 #5 hrs
-  weight: 20
   startingGear: HoPGear
   icon: "JobIconHeadOfPersonnel"
   supervisors: job-supervisors-captain

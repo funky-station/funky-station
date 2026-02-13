@@ -178,9 +178,6 @@
       - id: HolotapeProjector #funky!
       - id: ClothingMaskGas
       - id: ClothingShoesBootsMag
-      - id: RCD
-      - id: RPD #funkystation
-      - id: RCDAmmo
       - id: BoxInflatable # funky
       - id: MaterialBag #funky!
       - id: MetalFoamGrenade #funky!
@@ -196,9 +193,6 @@
       - id: HolotapeProjector #funky!
       - id: ClothingMaskGas
       - id: trayScanner
-      - id: RCD
-      - id: RPD #funkystation
-      - id: RCDAmmo
       - id: BoxInflatable # funky
       - id: MaterialBag #funky!
       - id: MetalFoamGrenade #funky!

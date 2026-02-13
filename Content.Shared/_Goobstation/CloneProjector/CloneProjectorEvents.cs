@@ -5,6 +5,6 @@
 
 using Content.Shared.Actions;
 
-namespace Content.Goobstation.Shared.CloneProjector;
+namespace Content.Shared._Goobstation.CloneProjector;
 
 public sealed partial class CloneProjectorActivatedEvent : InstantActionEvent;

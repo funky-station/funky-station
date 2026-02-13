@@ -3,7 +3,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Shared.CloneProjector.Clone;
+using Content.Shared._Goobstation.CloneProjector.Clone;
 using Content.Server.Emp;
 using Content.Shared.Body.Systems;
 using Content.Shared.Examine;
@@ -11,7 +11,7 @@ using Content.Shared.Mobs;
 using Content.Shared.Popups;
 using Content.Shared.Rejuvenate;
 
-namespace Content.Goobstation.Server.CloneProjector;
+namespace Content.Server._Goobstation.CloneProjector;
 
 public partial class CloneProjectorSystem
 {

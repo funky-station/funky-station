@@ -10,7 +10,7 @@ using Robust.Shared.Containers;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
-namespace Content.Goobstation.Shared.CloneProjector;
+namespace Content.Shared._Goobstation.CloneProjector;
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class CloneProjectorComponent : Component

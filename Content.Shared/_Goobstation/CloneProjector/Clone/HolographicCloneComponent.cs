@@ -5,7 +5,7 @@
 
 using Robust.Shared.GameStates;
 
-namespace Content.Goobstation.Shared.CloneProjector.Clone;
+namespace Content.Shared._Goobstation.CloneProjector.Clone;
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class HolographicCloneComponent : Component

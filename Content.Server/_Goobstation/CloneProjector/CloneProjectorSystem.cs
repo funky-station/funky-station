@@ -4,15 +4,13 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
-using Content.Goobstation.Shared.CloneProjector;
-using Content.Goobstation.Shared.CloneProjector.Clone;
-using Content.Server.Emp;
+using Content.Shared._Goobstation.CloneProjector;
+using Content.Shared._Goobstation.CloneProjector.Clone;
 using Content.Shared._EE.Carrying;
 using Content.Shared.Actions;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Damage;
 using Content.Shared.Hands.EntitySystems;
-using Content.Shared.Holopad;
 using Content.Shared.Humanoid;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction.Components;
@@ -23,20 +21,20 @@ using Content.Shared.Mobs;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Storage;
-using Content.Shared.Strip.Components;
 using Content.Shared.Stunnable;
 using Content.Shared.Throwing;
 using Content.Shared.Verbs;
 using Content.Shared.Whitelist;
 using Robust.Shared.Containers;
-using Robust.Shared.Network;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 using Content.Shared.Overlays;
+using Content.Shared.Electrocution;
+using Content.Shared.Eye.Blinding.Components;
 
-namespace Content.Goobstation.Server.CloneProjector;
+namespace Content.Server._Goobstation.CloneProjector;
 
 public sealed partial class CloneProjectorSystem : SharedCloneProjectorSystem
 {
@@ -207,6 +205,8 @@ public sealed partial class CloneProjectorSystem : SharedCloneProjectorSystem
         EnsureComp<ShowJobIconsComponent>(clone);
         EnsureComp<ShowMindShieldIconsComponent>(clone);
         EnsureComp<ShowCriminalRecordIconsComponent>(clone);
+        EnsureComp<InsulatedComponent>(clone);
+        EnsureComp<EyeProtectionComponent>(clone);
 
         if (projector.Comp.CloneUid is { } oldClone)
         {

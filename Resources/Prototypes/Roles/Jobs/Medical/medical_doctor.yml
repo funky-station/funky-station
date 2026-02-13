@@ -65,6 +65,7 @@
   - MedicalDoctorSurgeon
   - MedicalDoctorGeneralPractitioner
   - MedicalDoctorMedicalResident
+  - MedicalDoctorNursePractitioner
 
 - type: startingGear
   id: DoctorGear
@@ -94,3 +95,7 @@
 - type: jobAlternateTitle
   id: MedicalDoctorMedicalResident
   name: job-name-alt-medical-5
+
+- type: jobAlternateTitle
+  id: MedicalDoctorNursePractitioner
+  name: job-name-alt-medical-6

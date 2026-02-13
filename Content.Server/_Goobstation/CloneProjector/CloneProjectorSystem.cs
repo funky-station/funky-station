@@ -34,6 +34,7 @@ using Robust.Shared.Physics.Systems;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
+using Content.Shared.Overlays;
 
 namespace Content.Goobstation.Server.CloneProjector;
 
@@ -200,6 +201,12 @@ public sealed partial class CloneProjectorSystem : SharedCloneProjectorSystem
         }
 
         var clone = Spawn(species.Prototype, Transform(performer).Coordinates);
+
+        EnsureComp<ShowHealthIconsComponent>(clone);
+        EnsureComp<ShowHealthBarsComponent>(clone);
+        EnsureComp<ShowJobIconsComponent>(clone);
+        EnsureComp<ShowMindShieldIconsComponent>(clone);
+        EnsureComp<ShowCriminalRecordIconsComponent>(clone);
 
         if (projector.Comp.CloneUid is { } oldClone)
         {

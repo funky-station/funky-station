@@ -10,6 +10,6 @@
     checkConsciousness: true
     itemIconStyle: NoItem
     icon:
-      sprite: Mobs/Silicon/station_ai.rsi
-      state: default
+      sprite: Objects/Magic/magicactions.rsi
+      state: blink
     event: !type:CloneProjectorActivatedEvent {}

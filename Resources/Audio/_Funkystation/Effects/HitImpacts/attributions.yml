@@ -6,4 +6,4 @@
 - files: ["nightstick1.ogg", "nightstick2.ogg"]
   license: "CC0-1.0"
   copyright: "Created by @IamJustHereYknow (GitHub), sourced from CC0 sounds by SnowfightStudios, WasabiWielder, and User391915396 (all Freesound)."
-  source: "https://freesound.org/people/SnowFightStudios/sounds/669883/"# and https://freesound.org/people/WasabiWielder/sounds/323375/ and https://freesound.org/people/User391915396/sounds/370238/ but this YAML template only lets you list one source at a time
+  source: "https://freesound.org/people/SnowFightStudios/sounds/669883/" # and https://freesound.org/people/WasabiWielder/sounds/323375/ and https://freesound.org/people/User391915396/sounds/370238/ but this YAML template only lets you list one source at a time

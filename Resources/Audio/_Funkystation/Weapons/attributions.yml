@@ -5,10 +5,10 @@
 
 - files: ["nightstick_extend.ogg"]
   license: "CC-BY-4.0"
-  copyright: "Clipped from two sounds by @pirakaplant (GitHub): one by Tairblenn on Freesound.org under CC0 (see the attribution for nightstick_retract.ogg), the other by Brsjak."
-  source: "https://freesound.org/people/Brsjak/sounds/482880/"
+  copyright: "Clipped from two sounds by @pirakaplant (GitHub): one by Tairblenn (Freesound) under CC0, the other by Brsjak (Freesound) under CC-BY-4.0."
+  source: ["https://freesound.org/people/Tairblenn/sounds/538019/", "https://freesound.org/people/Brsjak/sounds/482880/"]
 
 - files: ["nightstick_retract.ogg"]
-  license: "CC-0"
-  copyright: "Clipped from a sound from Tairblenn on Freesound.org, also under CC0, by @pirakaplant (GitHub)."
+  license: "CC0-1.0"
+  copyright: "Clipped from a sound from Tairblenn (Freesound), also under CC0, by @pirakaplant (GitHub)."
   source: "https://freesound.org/people/Tairblenn/sounds/538019/"

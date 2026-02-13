@@ -1,4 +1,5 @@
-# SPDX-FileCopyrightText: 2025 Steve <marlumpy@gmail.com>
+# SPDX-FileCopyrightText: 2026 Steve <marlumpy@gmail.com>
+# SPDX-FileCopyrightText: 2026 marc-pelletier <113944176+marc-pelletier@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -21,9 +22,14 @@
     - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
       state: generic_panel_open
   - type: Computer
-    board: DnaScannerConsoleComputerCircuitboard
+    board: GeneticistsConsoleComputerCircuitboard
+  - type: ActivatableUI
+    singleUser: true
+    key: enum.GeneticistsConsoleUiKey.Key
   - type: UserInterface
     interfaces:
+      enum.GeneticistsConsoleUiKey.Key:
+        type: GeneticistsConsoleBoundUserInterface
       enum.WiresUiKey.Key:
         type: WiresBoundUserInterface
   - type: DeviceLinkSource
@@ -34,17 +40,22 @@
     pointspersecond: 0
     active: true
   - type: ResearchClient
+  - type: GeneticistsConsole
+  - type: GuideHelp
+    guides:
+    - Genetics
 
 - type: sourcePort
   id: DnaConsole
   name: signal-port-name-dna-scanner
   description: signal-port-description-dna-scanner
+  defaultLinks: [ MedicalScannerReceiver ]
 
 - type: entity
   parent: BaseComputerCircuitboard
-  id: DnaScannerConsoleComputerCircuitboard
+  id: GeneticistsConsoleComputerCircuitboard
   name: geneticists console board
-  description: A computer printed circuit board for the dna scanner console.
+  description: A computer printed circuit board for the geneticists console.
   components:
     - type: Sprite
       state: cpu_medical
@@ -53,5 +64,33 @@
 
 - type: latheRecipe
   parent: BaseCircuitboardRecipe
-  id: DnaScannerConsoleComputerCircuitboard
-  result: DnaScannerConsoleComputerCircuitboard
+  id: GeneticistsConsoleComputerCircuitboard
+  result: GeneticistsConsoleComputerCircuitboard
+
+
+- type: entity
+  id: DnaDiscoveredIcon
+  name: "dna discovered icon"
+  components:
+  - type: Sprite
+    sprite: /Textures/_Funkystation/Interface/Genetics/dna_seq.rsi
+    layers:
+    - state: dna_discovered
+
+- type: entity
+  id: DnaUndiscoveredIcon
+  name: "dna undiscovered icon"
+  components:
+  - type: Sprite
+    sprite: /Textures/_Funkystation/Interface/Genetics/dna_seq.rsi
+    layers:
+    - state: dna_undiscovered
+
+- type: entity
+  id: DnaExtraIcon
+  name: "dna extra icon"
+  components:
+  - type: Sprite
+    sprite: /Textures/_Funkystation/Interface/Genetics/dna_seq.rsi
+    layers:
+    - state: dna_extra

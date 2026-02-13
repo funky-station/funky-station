@@ -62,3 +62,109 @@
         Radiation: 0.55
   - type: ExplosionResistance
     damageCoefficient: 0.9
+
+# Carp Scale 
+
+- type: entity
+  parent: [ ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase ]
+  id: ClothingHeadHelmetHardsuitCarpScale
+  name: carp scale hardsuit helmet
+  description: A hardsuit fitted with a striking vissage. 
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Head/Hardsuits/carp_scale.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Head/Hardsuits/carp_scale.rsi
+    clothingVisuals:
+      head:
+      - state: off-equipped-HELMET
+      - state: equipped-head-unshaded
+        shader: unshaded        
+  - type: PressureProtection
+    highPressureMultiplier: 0.525
+    lowPressureMultiplier: 1000
+  - type: PointLight
+    radius: 6
+    energy: 3
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.95
+        Heat: 0.9
+        Radiation: 0.55
+  - type: ExplosionResistance
+    damageCoefficient: 0.9
+
+# Hivelord    
+
+- type: entity
+  parent: [ ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase ]
+  id: ClothingHeadHelmetHardsuitHivelord
+  name: hivelord hardsuit helmet
+  description: A hardsuit fitted with a striking vissage. 
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Head/Hardsuits/hivelord.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Head/Hardsuits/hivelord.rsi
+    clothingVisuals:
+      head:
+      - state: off-equipped-HELMET
+      - state: equipped-head-unshaded
+        shader: unshaded    
+  - type: PressureProtection
+    highPressureMultiplier: 0.525
+    lowPressureMultiplier: 1000
+  - type: PointLight
+    radius: 7
+    energy: 3
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.90
+        Radiation: 0.40
+  - type: ExplosionResistance
+    damageCoefficient: 0.9
+  - type: SolutionContainerManager
+    solutions:
+      leaky:
+        maxVol: 20
+  - type: SolutionRegeneration
+    solution: leaky
+    generated:
+      reagents:
+      - ReagentId: HivelordEssence
+        Quantity: 0.5   
+  - type: LeakyObject        
+
+# This is a very jank way to make the healing effect and could probably be replaced by something else, but it works,
+# Because only this helmet is meant to produce this regent, the proto ID is being kept here. 
+
+- type: reagent
+  id: HivelordEssence
+  name: reagent-name-hivelord-essence
+  group: Medicine
+  desc: reagent-desc-hivelord-essence
+  physicalDesc: reagent-physical-desc-gloopy
+  flavor: medicine
+  color: "#c7e4e8"
+  metabolisms:
+    Medicine:
+      metabolismRate: 0.05
+      effects:
+      - !type:HealthChange
+        damage:
+          groups:
+            Brute: -0.4
+          types:
+            Poison: -0.1
+            Heat: -0.1
+            Shock: -0.1
+            Cold: -0.1
+      # Helps you stop bleeding to an extent.
+      - !type:ModifyBleedAmount
+        amount: -0.25  

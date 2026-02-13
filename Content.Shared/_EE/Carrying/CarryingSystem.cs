@@ -315,6 +315,12 @@ public sealed partial class CarryingSystem : EntitySystem
         CleanupCarrier(carrier, carried);
     }
 
+    public void ForceDrop(EntityUid carrier, EntityUid carried)
+    {
+        Drop(carried);
+        CleanupCarrier(carrier, carried);
+    }
+
     private void CleanupCarrier(EntityUid carrier, EntityUid carried)
     {
         RemComp<CarryingComponent>(carrier); //get rid of this first so we don't recursively fire that event

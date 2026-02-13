@@ -5,7 +5,6 @@
 
 using Content.Goobstation.Shared.CloneProjector.Clone;
 using Content.Server.Emp;
-using Content.Shared._Shitmed.Medical.Surgery.Wounds.Components;
 using Content.Shared.Body.Systems;
 using Content.Shared.Examine;
 using Content.Shared.Mobs;
@@ -28,17 +27,7 @@ public partial class CloneProjectorSystem
 
     private void OnInit(Entity<HolographicCloneComponent> clone, ref MapInitEvent args)
     {
-        foreach (var part in _body.GetBodyChildren(clone))
-        {
-            if (!TryComp(part.Id, out WoundableComponent? woundable))
-                continue;
 
-            woundable.CanRemove = false;
-            woundable.CanBleed = false;
-            woundable.AllowWounds = false;
-
-            Dirty(part.Id, woundable);
-        }
     }
     private void OnCloneStateChanged(Entity<HolographicCloneComponent> clone, ref MobStateChangedEvent args)
     {
@@ -47,7 +36,7 @@ public partial class CloneProjectorSystem
             return;
 
         TryInsertClone(projector, true);
-        RaiseLocalEvent(clone, new RejuvenateEvent(true, false));
+        RaiseLocalEvent(clone, new RejuvenateEvent());
 
         if (clone.Comp.HostEntity is not { } host)
             return;

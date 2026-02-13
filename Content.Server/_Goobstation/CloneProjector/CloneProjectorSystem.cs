@@ -7,7 +7,7 @@ using System.Linq;
 using Content.Goobstation.Shared.CloneProjector;
 using Content.Goobstation.Shared.CloneProjector.Clone;
 using Content.Server.Emp;
-using Content.Shared._DV.Carrying;
+using Content.Shared._EE.Carrying;
 using Content.Shared.Actions;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Damage;
@@ -240,7 +240,7 @@ public sealed partial class CloneProjectorSystem : SharedCloneProjectorSystem
             return false;
         }
 
-        Dirty(clone, projector.Comp);
+        Dirty(projector);
         return true;
     }
 
@@ -274,7 +274,7 @@ public sealed partial class CloneProjectorSystem : SharedCloneProjectorSystem
             Dirty(actionEntity, actionComp);
         }
 
-        Dirty(clone, projector.Comp);
+        Dirty(projector, projector.Comp);
         return true;
     }
 
@@ -284,7 +284,7 @@ public sealed partial class CloneProjectorSystem : SharedCloneProjectorSystem
             || !_container.IsEntityOrParentInContainer(clone))
             return false;
 
-        Dirty(clone, projector);
+        Dirty(projector.Owner, projector);
 
         return _container.TryRemoveFromContainer(clone);
     }
@@ -354,7 +354,7 @@ public sealed partial class CloneProjectorSystem : SharedCloneProjectorSystem
 
         // Drop held entities.
         if (TryComp<CarryingComponent>(clone, out var carrying))
-            _carrying.DropCarried(clone, carrying.Carried);
+            _carrying.ForceDrop(clone, carrying.Carried);
 
         // Drop all items inside of items equipped or held.
         var equippedItems = _inventory.GetSlotEnumerator(clone, SlotFlags.WITHOUT_POCKET);

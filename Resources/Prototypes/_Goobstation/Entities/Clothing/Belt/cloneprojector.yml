@@ -42,7 +42,6 @@
     - type: Vocal
       sounds:
         Unsexed: UnisexSilicon
-    - type: DamagedSiliconAccent
     - type: UnblockableSpeech
     - type: ProtectedFromStepTriggers
     - type: MobThresholds

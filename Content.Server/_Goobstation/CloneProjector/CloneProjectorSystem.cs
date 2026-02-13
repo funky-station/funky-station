@@ -33,6 +33,8 @@ using Robust.Shared.Utility;
 using Content.Shared.Overlays;
 using Content.Shared.Electrocution;
 using Content.Shared.Eye.Blinding.Components;
+using Content.Shared.Speech.Components;
+using Content.Shared.Traits.Assorted;
 
 namespace Content.Server._Goobstation.CloneProjector;
 
@@ -95,7 +97,6 @@ public sealed partial class CloneProjectorSystem : SharedCloneProjectorSystem
             Act = () => { TryGenerateClone(projector, host, true); },
             Text = Loc.GetString("gemini-projector-regenerate-verb"),
             Message = Loc.GetString("gemini-projector-regenerate-verb-text"),
-            Icon = new SpriteSpecifier.Rsi(new("Mobs/Silicon/station_ai.rsi"), "default"),
             Priority = 2
         };
 
@@ -104,7 +105,6 @@ public sealed partial class CloneProjectorSystem : SharedCloneProjectorSystem
             Act = () => { TryGenerateClone(projector, host, true, true); },
             Text = Loc.GetString("gemini-projector-reboot-verb"),
             Message = Loc.GetString("gemini-projector-reboot-verb-text"),
-            Icon = new SpriteSpecifier.Rsi(new("_Goobstation/Actions/modsuit.rsi"), "activate"),
             Priority = 2
         };
 
@@ -207,6 +207,14 @@ public sealed partial class CloneProjectorSystem : SharedCloneProjectorSystem
         EnsureComp<ShowCriminalRecordIconsComponent>(clone);
         EnsureComp<InsulatedComponent>(clone);
         EnsureComp<EyeProtectionComponent>(clone);
+        EnsureComp<AccentlessComponent>(clone);
+
+        if (TryComp<DamagedSiliconAccentComponent>(clone, out var comp))
+        {
+            comp.EnableDamageCorruption = false;
+            comp.EnableChargeCorruption = false;
+            Dirty(clone, comp);
+        }
 
         if (projector.Comp.CloneUid is { } oldClone)
         {
@@ -294,6 +302,7 @@ public sealed partial class CloneProjectorSystem : SharedCloneProjectorSystem
         Dirty(projector.Owner, projector);
 
         return _container.TryRemoveFromContainer(clone);
+
     }
 
     private bool TryEquipItems(CloneProjectorComponent projector)

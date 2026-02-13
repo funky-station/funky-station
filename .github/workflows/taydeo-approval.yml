@@ -4,7 +4,7 @@
 
 name: "Approval"
 
-on: 
+on:
   pull_request_review:
     types:
       - submitted
@@ -17,6 +17,7 @@ jobs:
     runs-on: ubuntu-latest
     if: github.event.review.user.login == 'taydeo' && github.event.review.state == 'approved'
     steps:
-    - uses: actions-ecosystem/action-add-labels@v1
-      with:
-        labels: "Status: Approved"
+      - uses: actions-ecosystem/action-add-labels@v1
+        with:
+          github_token: ${{ secrets.BOT_TOKEN }}
+          labels: "Status: Approved"

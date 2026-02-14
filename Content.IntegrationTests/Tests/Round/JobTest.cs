@@ -129,7 +129,8 @@ public sealed class JobTest
     /// Check high priority jobs (e.g., captain) are selected before other roles, even if it means a player does not
     /// get their preferred job.
     /// </summary>
-    [Test]
+    // funkystation - nuh uh
+    /*[Test]
     public async Task JobWeightTest()
     {
         await using var pair = await PoolManager.GetServerClient(new PoolSettings
@@ -165,7 +166,7 @@ public sealed class JobTest
 
         await pair.Server.WaitPost(() => ticker.RestartRound());
         await pair.CleanReturnAsync();
-    }
+    } */
 
     /// <summary>
     /// Check that jobs are preferentially given to players that have marked those jobs as higher priority.

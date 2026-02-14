@@ -65,6 +65,7 @@
       department: Cargo
       time: 54000 #15 hrs
     - !type:OverallPlaytimeRequirement
+      time: 72000 #20 hrs
   startingGear: QuartermasterGear
   icon: "JobIconQuarterMaster"
   supervisors: job-supervisors-captain

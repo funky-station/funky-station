@@ -50,6 +50,7 @@
 # SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2026 amauralex <185717397+alex-infdev@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -116,7 +117,7 @@
   parent: [ClothingEyesBase, BaseEngineeringSalvageContraband]
   id: ClothingEyesGlassesMeson
   name: meson goggles # Changed back to Meson because it sounds cooler.
-  description: Green-tinted goggles using a proprietary polymer that provides protection from flying debris and sparks, alongside containing an integrated t-ray projector and scanner.
+  description: Green-tinted goggles using a proprietary polymer that include an integrated t-ray projector and scanner.
   components:
   - type: Sprite
     sprite: Clothing/Eyes/Glasses/meson.rsi

@@ -28,7 +28,9 @@
 # SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2026 Mora <46364955+TrixxedHeart@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2026 Steve <marlumpy@gmail.com>
+# SPDX-FileCopyrightText: 2026 TrixxedHeart <46364955+TrixxedBit@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2026 marc-pelletier <113944176+marc-pelletier@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
@@ -68,7 +70,10 @@
         - !type:OrganType
           type: Vox
           shouldHave: false
-        - !type:OrganType # Funkystation - Genetics
+        - !type:OrganType
+          type: Thaven
+          shouldHave: false
+        - !type:OrganType
           type: PlasmaBreather
           shouldHave: false
         ratios:
@@ -78,8 +83,6 @@
         conditions:
         - !type:OrganType
           type: Vox
-        - !type:OrganType # Funkystation - Genetics
-          type: PlasmaBreather
         scaleByQuantity: true
         ignoreResistances: true
         damage:
@@ -93,10 +96,29 @@
             min: 0.5
           - !type:OrganType
             type: Vox
-          - !type:OrganType # Funkystation - Genetics
-            type: PlasmaBreather
         clear: true
         time: 5
+      # Funkystation - Genetics Plasma breather lungs
+      - !type:HealthChange
+        conditions:
+        - !type:OrganType # Funkystation - Genetics
+          type: PlasmaBreather
+        scaleByQuantity: true
+        ignoreResistances: true
+        damage:
+          types:
+            Poison:
+              3
+      - !type:AdjustAlert
+        alertType: Toxins
+        conditions:
+        - !type:ReagentThreshold
+          min: 0.5
+        - !type:OrganType # Funkystation - Genetics
+          type: PlasmaBreather
+        clear: true
+        time: 5
+        # end Funkystation - Genetics Plasma breather lungs
     Gas:
       effects:
       - !type:Oxygenate
@@ -128,7 +150,7 @@
         - !type:OrganType #imp, thaven lungs don't do chemical reactions
           type: Thaven
           shouldHave: false
-        - !type:OrganType # Funkystation - Genetics
+        - !type:OrganType
           type: PlasmaBreather
           shouldHave: false
         ratios:
@@ -138,8 +160,6 @@
         conditions:
         - !type:OrganType
           type: Vox
-        - !type:OrganType # Funkystation - Genetics
-          type: PlasmaBreather
         scaleByQuantity: true
         ignoreResistances: true
         damage:
@@ -153,10 +173,29 @@
             min: 0.5
           - !type:OrganType
             type: Vox
-          - !type:OrganType # Funkystation - Genetics
-            type: PlasmaBreather
         clear: true
         time: 5
+      # Funkystation - Genetics Plasma breather lungs
+      - !type:HealthChange
+        conditions:
+        - !type:OrganType # Funkystation - Genetics
+          type: PlasmaBreather
+        scaleByQuantity: true
+        ignoreResistances: true
+        damage:
+          types:
+            Poison:
+              7
+      - !type:AdjustAlert
+        alertType: Toxins
+        conditions:
+        - !type:ReagentThreshold
+          min: 0.5
+        - !type:OrganType # Funkystation - Genetics
+          type: PlasmaBreather
+        clear: true
+        time: 5
+        # end Funkystation - Genetics Plasma breather lungs
 
 - type: reagent
   id: Plasma
@@ -211,15 +250,24 @@
           - !type:OrganType #imp, thaven can breathe all gases safely
             type: Thaven
             shouldHave: false
-          - !type:OrganType # Funkystation - Genetics Plasma breather lungs
-            type: PlasmaBreather
-            shouldHave: false
+        clear: True
+        time: 5
+      # Funkystation - Genetics Plasma breather lungs
+      - !type:AdjustAlert
+        alertType: Toxins
+        conditions:
+        - !type:ReagentThreshold
+          min: 1.5
+        - !type:OrganType # Funkystation - Genetics Plasma breather lungs
+          type: PlasmaBreather
+          shouldHave: false
         clear: True
         time: 5
       - !type:Oxygenate # Funkystation - Genetics Plasma breather lungs
         conditions:
         - !type:OrganType
           type: PlasmaBreather
+        # end Funkystation - Genetics Plasma breather lungs
   reactiveEffects:
     Flammable:
       methods: [ Touch ]

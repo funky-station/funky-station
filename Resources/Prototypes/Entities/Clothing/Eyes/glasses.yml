@@ -59,39 +59,39 @@
   name: gar glasses
   description: Go beyond impossible and kick reason to the curb!
   components:
-  - type: Sprite
-    sprite: Clothing/Eyes/Glasses/gar.rsi
-  - type: Clothing
-    sprite: Clothing/Eyes/Glasses/gar.rsi
-  - type: MeleeWeapon
-    attackRate: 1.5
-    damage:
-      types:
-        Blunt: 7
-  - type: Tag
-    tags:
-    - GarBase
+    - type: Sprite
+      sprite: Clothing/Eyes/Glasses/gar.rsi
+    - type: Clothing
+      sprite: Clothing/Eyes/Glasses/gar.rsi
+    - type: MeleeWeapon
+      attackRate: 1.5
+      damage:
+        types:
+          Blunt: 7
+    - type: Tag
+      tags:
+        - GarBase
 - type: entity
   parent: ClothingEyesBase
   id: ClothingEyesGlassesGarOrange
   name: orange gar glasses
   description: Just who the hell do you think I am?!
   components:
-  - type: Sprite
-    sprite: Clothing/Eyes/Glasses/gar.rsi
-    state: icon-alt
-  - type: Clothing
-    sprite: Clothing/Eyes/Glasses/gar.rsi
-    equippedPrefix: alt
-  - type: Item
-    heldPrefix: alt
-  - type: MeleeWeapon
-    damage:
-      types:
-        Blunt: 10
-  - type: Tag
-    tags:
-    - GarBase #Funky - jamjarrening
+    - type: Sprite
+      sprite: Clothing/Eyes/Glasses/gar.rsi
+      state: icon-alt
+    - type: Clothing
+      sprite: Clothing/Eyes/Glasses/gar.rsi
+      equippedPrefix: alt
+    - type: Item
+      heldPrefix: alt
+    - type: MeleeWeapon
+      damage:
+        types:
+          Blunt: 10
+    - type: Tag
+      tags:
+        - GarBase #Funky - jamjarrening
 
 - type: entity
   parent: ClothingEyesBase
@@ -99,41 +99,41 @@
   name: giga gar glasses
   description: We evolve past the person we were a minute before. Little by little we advance with each turn. That's how a drill works!
   components:
-  - type: Sprite
-    sprite: Clothing/Eyes/Glasses/gar.rsi
-    state: icon-super
-  - type: Clothing
-    sprite: Clothing/Eyes/Glasses/gar.rsi
-    equippedPrefix: super
-  - type: Item
-    heldPrefix: super
-  - type: MeleeWeapon
-    damage:
-      types:
-        Blunt: 10
+    - type: Sprite
+      sprite: Clothing/Eyes/Glasses/gar.rsi
+      state: icon-super
+    - type: Clothing
+      sprite: Clothing/Eyes/Glasses/gar.rsi
+      equippedPrefix: super
+    - type: Item
+      heldPrefix: super
+    - type: MeleeWeapon
+      damage:
+        types:
+          Blunt: 10
 
 - type: entity
   parent: [ClothingEyesBase, BaseEngineeringSalvageContraband]
   id: ClothingEyesGlassesMeson
   name: meson goggles # Changed back to Meson because it sounds cooler.
-  description: Green-tinted goggles using a proprietary polymer that provides protection from flying debris and sparks, alongside containing an integrated t-ray projector and scanner.
+  description: Green-tinted goggles using a proprietary polymer that include an integrated t-ray projector and scanner.
   components:
-  - type: Sprite
-    sprite: Clothing/Eyes/Glasses/meson.rsi
-  - type: Clothing
-    sprite: Clothing/Eyes/Glasses/meson.rsi
-  - type: IdentityBlocker
-    coverage: EYES
-  - type: TrayScanner
-    range: 3
-    enabled: false
-  - type: Tag
-    tags:
-    - EngiVision #Funky - jamjarrening
-  - type: GlassesOverlay
-    shader: Goggles
-    color: '#5AB43CCC'
-    enabled: false
+    - type: Sprite
+      sprite: Clothing/Eyes/Glasses/meson.rsi
+    - type: Clothing
+      sprite: Clothing/Eyes/Glasses/meson.rsi
+    - type: IdentityBlocker
+      coverage: EYES
+    - type: TrayScanner
+      range: 3
+      enabled: false
+    - type: Tag
+      tags:
+        - EngiVision #Funky - jamjarrening
+    - type: GlassesOverlay
+      shader: Goggles
+      color: "#5AB43CCC"
+      enabled: false
 #  This section enables the meson-style X-Ray vision. It's disabled for now; but
 #  can be re-enabled very easily if/when it wouldn't be a balancing nightmare.
 #  - type: ShowXRay
@@ -154,8 +154,8 @@
   name: Toggle T-Ray
   description: Toggles the T-Ray scanner functionality.
   components:
-  - type: InstantAction
-    event: !type:ToggleTrayScannerEvent
+    - type: InstantAction
+      event: !type:ToggleTrayScannerEvent
 
 - type: entity
   parent: ClothingEyesBase
@@ -163,16 +163,16 @@
   name: glasses
   description: A pair of spectacular spectacles with prescription lenses.
   components:
-  - type: Sprite
-    sprite: Clothing/Eyes/Glasses/glasses.rsi
-  - type: Clothing
-    sprite: Clothing/Eyes/Glasses/glasses.rsi
-  - type: VisionCorrection
-  - type: Tag
-    tags:
-    - HamsterWearable
-    - WhitelistChameleon
-    - GlassesBase #Funky - Med/Diag glasses
+    - type: Sprite
+      sprite: Clothing/Eyes/Glasses/glasses.rsi
+    - type: Clothing
+      sprite: Clothing/Eyes/Glasses/glasses.rsi
+    - type: VisionCorrection
+    - type: Tag
+      tags:
+        - HamsterWearable
+        - WhitelistChameleon
+        - GlassesBase #Funky - Med/Diag glasses
 
 - type: entity
   parent: ClothingEyesBase
@@ -180,13 +180,13 @@
   name: jensen glasses
   description: A pair of yellow tinted folding glasses. You never asked for these.
   components:
-  - type: Sprite
-    sprite: Clothing/Eyes/Glasses/jensen.rsi
-  - type: Clothing
-    sprite: Clothing/Eyes/Glasses/jensen.rsi
-  - type: Tag
-    tags:
-    - WhitelistChameleon
+    - type: Sprite
+      sprite: Clothing/Eyes/Glasses/jensen.rsi
+    - type: Clothing
+      sprite: Clothing/Eyes/Glasses/jensen.rsi
+    - type: Tag
+      tags:
+        - WhitelistChameleon
 
 - type: entity
   parent: ClothingEyesBase
@@ -194,16 +194,16 @@
   name: jamjar glasses
   description: These retro glasses remind you of a simpler time.
   components:
-  - type: Sprite
-    sprite: Clothing/Eyes/Glasses/jamjar.rsi
-  - type: Clothing
-    sprite: Clothing/Eyes/Glasses/jamjar.rsi
-  - type: VisionCorrection
-  - type: Tag
-    tags:
-    - HamsterWearable
-    - WhitelistChameleon
-    - JamjarBase #Funky - jamjarrening
+    - type: Sprite
+      sprite: Clothing/Eyes/Glasses/jamjar.rsi
+    - type: Clothing
+      sprite: Clothing/Eyes/Glasses/jamjar.rsi
+    - type: VisionCorrection
+    - type: Tag
+      tags:
+        - HamsterWearable
+        - WhitelistChameleon
+        - JamjarBase #Funky - jamjarrening
 
 - type: entity
   parent: ClothingEyesBase
@@ -211,12 +211,12 @@
   name: outlaw glasses
   description: A must for every self-respecting undercover agent.
   components:
-  - type: Sprite
-    sprite: Clothing/Eyes/Glasses/outlawglasses.rsi
-  - type: Clothing
-    sprite: Clothing/Eyes/Glasses/outlawglasses.rsi
-  - type: VisionCorrection
-  - type: IdentityBlocker
+    - type: Sprite
+      sprite: Clothing/Eyes/Glasses/outlawglasses.rsi
+    - type: Clothing
+      sprite: Clothing/Eyes/Glasses/outlawglasses.rsi
+    - type: VisionCorrection
+    - type: IdentityBlocker
 
 - type: entity
   parent: ClothingEyesBase
@@ -224,17 +224,17 @@
   name: cheap sunglasses
   description: A pair of black sunglasses. Doesn't block light well, more of an accessory than something useful.
   components:
-  - type: Sprite
-    sprite: Clothing/Eyes/Glasses/sunglasses.rsi
-  - type: Clothing
-    sprite: Clothing/Eyes/Glasses/sunglasses.rsi
-  - type: Tag
-    tags:
-    - HamsterWearable
-    - WhitelistChameleon
-    - CheapSunglasses #Funky - jamjarrening
-  - type: IdentityBlocker
-    coverage: EYES
+    - type: Sprite
+      sprite: Clothing/Eyes/Glasses/sunglasses.rsi
+    - type: Clothing
+      sprite: Clothing/Eyes/Glasses/sunglasses.rsi
+    - type: Tag
+      tags:
+        - HamsterWearable
+        - WhitelistChameleon
+        - CheapSunglasses #Funky - jamjarrening
+    - type: IdentityBlocker
+      coverage: EYES
 
 - type: entity
   parent: ClothingEyesGlassesCheapSunglasses
@@ -242,14 +242,14 @@
   name: sun glasses
   description: A pair of black sunglasses.
   components:
-  - type: FlashImmunity
-  - type: EyeProtection
-    protectionTime: 5
-  - type: Tag
-    tags:
-    - Sunglasses
-    - HamsterWearable
-    - WhitelistChameleon
+    - type: FlashImmunity
+    - type: EyeProtection
+      protectionTime: 5
+    - type: Tag
+      tags:
+        - Sunglasses
+        - HamsterWearable
+        - WhitelistChameleon
 
 - type: entity
   parent: [ClothingEyesBase, ShowSecurityIcons, BaseSecurityContraband]
@@ -257,26 +257,26 @@
   name: security glasses
   description: Upgraded sunglasses that provide flash immunity and a security HUD.
   components:
-  - type: Sprite
-    sprite: Clothing/Eyes/Glasses/secglasses.rsi
-  - type: Clothing
-    sprite: Clothing/Eyes/Glasses/secglasses.rsi
-  - type: FlashImmunity
-  - type: EyeProtection
-    protectionTime: 5
-  - type: Construction
-    graph: GlassesSecHUD
-    node: glassesSec
-  - type: Tag
-    tags:
-    - HamsterWearable
-    - WhitelistChameleon
-  - type: GuideHelp
-    guides:
-    - Security
-    - Antagonists
-  - type: IdentityBlocker
-    coverage: EYES
+    - type: Sprite
+      sprite: Clothing/Eyes/Glasses/secglasses.rsi
+    - type: Clothing
+      sprite: Clothing/Eyes/Glasses/secglasses.rsi
+    - type: FlashImmunity
+    - type: EyeProtection
+      protectionTime: 5
+    - type: Construction
+      graph: GlassesSecHUD
+      node: glassesSec
+    - type: Tag
+      tags:
+        - HamsterWearable
+        - WhitelistChameleon
+    - type: GuideHelp
+      guides:
+        - Security
+        - Antagonists
+    - type: IdentityBlocker
+      coverage: EYES
 
 - type: entity
   parent: [ClothingEyesBase, BaseCommandContraband]
@@ -284,20 +284,20 @@
   name: administration glasses
   description: Upgraded sunglasses that provide flash immunity and show ID card status.
   components:
-  - type: Sprite
-    sprite: Clothing/Eyes/Glasses/commandglasses.rsi
-  - type: Clothing
-    sprite: Clothing/Eyes/Glasses/commandglasses.rsi
-  - type: FlashImmunity
-  - type: EyeProtection
-    protectionTime: 5
-  - type: Tag
-    tags:
-    - HamsterWearable
-    - WhitelistChameleon
-  - type: IdentityBlocker
-    coverage: EYES
-  - type: ShowJobIcons
+    - type: Sprite
+      sprite: Clothing/Eyes/Glasses/commandglasses.rsi
+    - type: Clothing
+      sprite: Clothing/Eyes/Glasses/commandglasses.rsi
+    - type: FlashImmunity
+    - type: EyeProtection
+      protectionTime: 5
+    - type: Tag
+      tags:
+        - HamsterWearable
+        - WhitelistChameleon
+    - type: IdentityBlocker
+      coverage: EYES
+    - type: ShowJobIcons
 
 - type: entity
   parent: ClothingEyesBase
@@ -305,15 +305,15 @@
   name: mercenary glasses
   description: Glasses made for combat, to protect the eyes from bright blinding flashes.
   components:
-  - type: Sprite
-    sprite: Clothing/Eyes/Glasses/mercglasses.rsi
-  - type: Clothing
-    sprite: Clothing/Eyes/Glasses/mercglasses.rsi
-  - type: FlashImmunity
-  - type: EyeProtection
-    protectionTime: 5
-  - type: IdentityBlocker
-    coverage: EYES
+    - type: Sprite
+      sprite: Clothing/Eyes/Glasses/mercglasses.rsi
+    - type: Clothing
+      sprite: Clothing/Eyes/Glasses/mercglasses.rsi
+    - type: FlashImmunity
+    - type: EyeProtection
+      protectionTime: 5
+    - type: IdentityBlocker
+      coverage: EYES
 
 #Make a scanner category when these actually function and we get the trayson
 - type: entity
@@ -322,17 +322,17 @@
   name: optical thermal scanner
   description: Thermals in the shape of glasses.
   components:
-  - type: Sprite
-    sprite: Clothing/Eyes/Glasses/thermal.rsi
-  - type: Clothing
-    sprite: Clothing/Eyes/Glasses/thermal.rsi
-  - type: Armor
-    modifiers:
-      coefficients:
-        Heat: 0.95
-  - type: GroupExamine
-  - type: IdentityBlocker
-    coverage: EYES
+    - type: Sprite
+      sprite: Clothing/Eyes/Glasses/thermal.rsi
+    - type: Clothing
+      sprite: Clothing/Eyes/Glasses/thermal.rsi
+    - type: Armor
+      modifiers:
+        coefficients:
+          Heat: 0.95
+    - type: GroupExamine
+    - type: IdentityBlocker
+      coverage: EYES
 
 - type: entity
   parent: ClothingEyesBase
@@ -349,7 +349,7 @@
       coverage: EYES
     - type: Tag
       tags:
-      - ChemVision #Funky - jamjarrening
+        - ChemVision #Funky - jamjarrening
 
 - type: entity
   parent: [ClothingEyesBase, BaseMajorContraband]
@@ -357,13 +357,13 @@
   name: ninja visor
   description: An advanced visor protecting a ninja's eyes from flashing lights.
   components:
-  - type: Sprite
-    sprite: Clothing/Eyes/Glasses/ninjavisor.rsi
-  - type: Clothing
-    sprite: Clothing/Eyes/Glasses/ninjavisor.rsi
-  - type: FlashImmunity
-  - type: NightVision # EE edit
-    isEquipment: true
+    - type: Sprite
+      sprite: Clothing/Eyes/Glasses/ninjavisor.rsi
+    - type: Clothing
+      sprite: Clothing/Eyes/Glasses/ninjavisor.rsi
+    - type: FlashImmunity
+    - type: NightVision # EE edit
+      isEquipment: true
 
 - type: entity
   parent: ClothingEyesBase
@@ -371,17 +371,17 @@
   name: Dealbreakers
   description: Now YOUR chance to be a LEGALLY DISTINCT [[HYPERLINK BLOCKED]] for ONLY [[9.99]]!
   components:
-  - type: Sprite
-    sprite: Clothing/Eyes/Glasses/dealbreakers.rsi
-  - type: Clothing
-    sprite: Clothing/Eyes/Glasses/dealbreakers.rsi
-  - type: Tag
-    tags:
-    - HamsterWearable
-    - WhitelistChameleon
-  - type: IdentityBlocker
-    coverage: EYES
-  - type: VisionCorrection
+    - type: Sprite
+      sprite: Clothing/Eyes/Glasses/dealbreakers.rsi
+    - type: Clothing
+      sprite: Clothing/Eyes/Glasses/dealbreakers.rsi
+    - type: Tag
+      tags:
+        - HamsterWearable
+        - WhitelistChameleon
+    - type: IdentityBlocker
+      coverage: EYES
+    - type: VisionCorrection
 
 - type: entity
   parent: [ClothingEyesBase, ShowSecurityIcons, BaseSecurityContraband]
@@ -389,17 +389,17 @@
   name: noir-tech glasses
   description: A pair of glasses that simulate what the world looked like before the invention of color.
   components:
-  - type: Sprite
-    sprite: Clothing/Eyes/Glasses/noir.rsi
-  - type: Clothing
-    sprite: Clothing/Eyes/Glasses/sunglasses.rsi
-  - type: IdentityBlocker
-    coverage: EYES
-  - type: FlashImmunity
-  - type: EyeProtection
-    protectionTime: 5
-  - type: NoirOverlay
-  - type: Tag
-    tags:
-    - HamsterWearable
-    - WhitelistChameleon
+    - type: Sprite
+      sprite: Clothing/Eyes/Glasses/noir.rsi
+    - type: Clothing
+      sprite: Clothing/Eyes/Glasses/sunglasses.rsi
+    - type: IdentityBlocker
+      coverage: EYES
+    - type: FlashImmunity
+    - type: EyeProtection
+      protectionTime: 5
+    - type: NoirOverlay
+    - type: Tag
+      tags:
+        - HamsterWearable
+        - WhitelistChameleon

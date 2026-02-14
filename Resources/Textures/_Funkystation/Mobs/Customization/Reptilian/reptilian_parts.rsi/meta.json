@@ -8,6 +8,14 @@
   },
   "states": [
     {
+      "name": "back_sail",
+      "directions": 4
+    },
+    {
+      "name": "back_spikes",
+      "directions": 4
+    },
+    {
       "name": "heterochromia",
       "directions": 4
     },

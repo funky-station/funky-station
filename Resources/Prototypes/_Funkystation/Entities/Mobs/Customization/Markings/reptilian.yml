@@ -1,4 +1,22 @@
 - type: marking
+  id: LizardBackSail
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [Reptilian]
+  sprites:
+  - sprite: _Funkystation/Mobs/Customization/Reptilian/reptilian_parts.rsi
+    state: back_sail
+
+- type: marking
+  id: LizardBackSpikes
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [Reptilian]
+  sprites:
+  - sprite: _Funkystation/Mobs/Customization/Reptilian/reptilian_parts.rsi
+    state: back_spikes
+
+- type: marking
   id: LizardHeterochromia
   bodyPart: Eyes
   markingCategory: Head
@@ -104,7 +122,7 @@
     state: horns_triceratops
 
 - type: marking
-  id: LizardLargeEyeliner
+  id: LizardLargeEyeshadow
   bodyPart: Eyes
   markingCategory: Head
   speciesRestriction: [Reptilian]
@@ -114,7 +132,7 @@
     state: large_eyeshadow
 
 - type: marking
-  id: LizardSmallEyeliner
+  id: LizardSmallEyeshadow
   bodyPart: Eyes
   markingCategory: Head
   speciesRestriction: [Reptilian]

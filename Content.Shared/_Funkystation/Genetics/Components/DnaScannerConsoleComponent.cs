@@ -6,7 +6,7 @@ using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 namespace Content.Shared._Funkystation.Genetics.Components;
 
 [RegisterComponent, NetworkedComponent]
-public sealed partial class GeneticistsConsoleComponent : Component
+public sealed partial class DnaScannerConsoleComponent : Component
 {
     /// <summary>
     /// Currently scanned entity
@@ -112,7 +112,7 @@ public sealed class GeneticistsConsoleBoundUserInterfaceState : BoundUserInterfa
 }
 
 [Serializable, NetSerializable]
-public enum GeneticistsConsoleUiKey : byte
+public enum DnaScannerConsoleUiKey : byte
 {
     Key
 }

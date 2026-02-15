@@ -853,7 +853,6 @@
     - OperatingTableCircuitboard # Shitmed Change
     - BorgChargerCircuitboard
     - ThermomachineFreezerMachineCircuitBoard # Assmos - Moved to staticRecipes from dynamicRecipes
-    - DnaScannerConsoleComputerCircuitboard # Funkystation - Genetics
     dynamicRecipes:
     - HellfireFreezerMachineCircuitBoard
     - PortableScrubberMachineCircuitBoard
@@ -1486,8 +1485,6 @@
     - CandyBowl #pill(pill that pills you) #funk
     - DeskBell #ringringring #funk
     - Tourniquet #funk
-    - HandheldGeneticAnalyzer # Funkystation - Genetics
-    - DNAInjector # Funkystation - Genetics
     dynamicRecipes:
     - ChemicalPayload
     - CryostasisBeaker

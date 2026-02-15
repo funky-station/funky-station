@@ -68,9 +68,6 @@
         - !type:OrganType
           type: Vox
           shouldHave: false
-        - !type:OrganType # Funkystation - Genetics
-          type: PlasmaBreather
-          shouldHave: false
         ratios:
           CarbonDioxide: 1.0
           Oxygen: -1.0
@@ -78,8 +75,6 @@
         conditions:
         - !type:OrganType
           type: Vox
-        - !type:OrganType # Funkystation - Genetics
-          type: PlasmaBreather
         scaleByQuantity: true
         ignoreResistances: true
         damage:
@@ -93,8 +88,6 @@
             min: 0.5
           - !type:OrganType
             type: Vox
-          - !type:OrganType # Funkystation - Genetics
-            type: PlasmaBreather
         clear: true
         time: 5
     Gas:
@@ -128,9 +121,6 @@
         - !type:OrganType #imp, thaven lungs don't do chemical reactions
           type: Thaven
           shouldHave: false
-        - !type:OrganType # Funkystation - Genetics
-          type: PlasmaBreather
-          shouldHave: false
         ratios:
           CarbonDioxide: 1.0
           Oxygen: -1.0
@@ -138,8 +128,6 @@
         conditions:
         - !type:OrganType
           type: Vox
-        - !type:OrganType # Funkystation - Genetics
-          type: PlasmaBreather
         scaleByQuantity: true
         ignoreResistances: true
         damage:
@@ -153,8 +141,6 @@
             min: 0.5
           - !type:OrganType
             type: Vox
-          - !type:OrganType # Funkystation - Genetics
-            type: PlasmaBreather
         clear: true
         time: 5
 
@@ -195,9 +181,6 @@
         - !type:OrganType #imp, thaven can breathe all gases safely
           type: Thaven
           shouldHave: false
-        - !type:OrganType # Funkystation - Genetics Plasma breather lungs
-          type: PlasmaBreather
-          shouldHave: false
       - !type:Oxygenate #imp, thaven can breathe all gases safely
         conditions:
         - !type:OrganType
@@ -211,15 +194,8 @@
           - !type:OrganType #imp, thaven can breathe all gases safely
             type: Thaven
             shouldHave: false
-          - !type:OrganType # Funkystation - Genetics Plasma breather lungs
-            type: PlasmaBreather
-            shouldHave: false
         clear: True
         time: 5
-      - !type:Oxygenate # Funkystation - Genetics Plasma breather lungs
-        conditions:
-        - !type:OrganType
-          type: PlasmaBreather
   reactiveEffects:
     Flammable:
       methods: [ Touch ]

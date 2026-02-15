@@ -1,5 +1,4 @@
-// SPDX-FileCopyrightText: 2026 Steve <marlumpy@gmail.com>
-// SPDX-FileCopyrightText: 2026 marc-pelletier <113944176+marc-pelletier@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Steve <marlumpy@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -153,17 +152,16 @@ public sealed partial class GeneticistsConsoleStorageView : Control
 
     private void UpdateMutationDetails(MutationEntry mutation)
     {
-        var isKnown = IsMutationKnown(mutation);
-
-        string displayName = isKnown ? mutation.Name : $"Mutation {mutation.Block:00}";
+        var isDiscovered = ParentWindow?.DiscoveredMutationIds?.Contains(mutation.Id) ?? false;
+        string displayName = isDiscovered ? mutation.Name : $"Mutation {mutation.Block:00}";
 
         StorageInfoNameLabel.Text = displayName;
 
-        StorageInfoDescLabel.Text = isKnown
+        StorageInfoDescLabel.Text = isDiscovered
             ? (mutation.Description ?? "No description.")
             : "Undiscovered mutation.";
 
-        StorageInfoInstabilityLabel.Text = isKnown
+        StorageInfoInstabilityLabel.Text = isDiscovered
             ? mutation.Instability.ToString()
             : "Unknown";
 
@@ -173,9 +171,9 @@ public sealed partial class GeneticistsConsoleStorageView : Control
 
     private void UpdateConflictsDisplay(MutationEntry mutation)
     {
-        var isKnown = IsMutationKnown(mutation);
+        var isDiscovered = ParentWindow?.DiscoveredMutationIds?.Contains(mutation.Id) ?? false;
 
-        if (!isKnown || mutation.Conflicts is not { Count: > 0 } conflicts || ParentWindow?.DiscoveredMutationIds is null)
+        if (!isDiscovered || mutation.Conflicts is not { Count: > 0 } conflicts || ParentWindow?.DiscoveredMutationIds is null)
         {
             StorageConflictsLabelContainer.Visible = false;
             return;
@@ -185,7 +183,6 @@ public sealed partial class GeneticistsConsoleStorageView : Control
 
         foreach (var conflictId in conflicts)
         {
-            // Keep conflicts gated behind real discovery
             if (!ParentWindow.DiscoveredMutationIds.Contains(conflictId))
                 continue;
 
@@ -215,17 +212,9 @@ public sealed partial class GeneticistsConsoleStorageView : Control
             return;
         }
 
-        // Get the mutation from saved list
-        var mutation = _savedMutations.FirstOrDefault(m => m.Id == _selectedMutationId);
-        if (mutation == null)
-        {
-            StorageInfoResearchLabel.Text = "Unknown";
-            return;
-        }
+        var isDiscovered = ParentWindow?.DiscoveredMutationIds?.Contains(_selectedMutationId) ?? false;
 
-        var isKnown = IsMutationKnown(mutation);
-
-        if (!isKnown)
+        if (!isDiscovered)
         {
             StorageInfoResearchLabel.Text = "Unknown";
             return;
@@ -368,16 +357,5 @@ public sealed partial class GeneticistsConsoleStorageView : Control
         StorageInfoInstabilityLabel.Text = "";
         StorageInfoResearchLabel.Text = "";
         StorageConflictsLabelContainer.Visible = false;
-    }
-
-    private bool IsMutationKnown(MutationEntry mutation)
-    {
-        // Primary: server-confirmed discovery
-        var isDiscovered = ParentWindow?.DiscoveredMutationIds?.Contains(mutation.Id) ?? false;
-
-        // Fallback: sequence is fully revealed
-        var isFullyRevealed = mutation.RevealedSequence == mutation.OriginalSequence;
-
-        return isDiscovered || isFullyRevealed;
     }
 }

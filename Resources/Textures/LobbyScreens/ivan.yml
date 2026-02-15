@@ -1,0 +1,5 @@
+# SPDX-FileCopyrightText: 2026 cdb0499 <cdb0499@gmail.com>
+# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
+sample:
+  filter: true

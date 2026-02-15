@@ -129,3 +129,7 @@
 - type: lobbyBackground
   id: ratburgers
   background: /Textures/LobbyScreens/ratburgers.webp
+
+- type: lobbyBackground
+  id: ivan
+  background: /Textures/LobbyScreens/ivan.webp

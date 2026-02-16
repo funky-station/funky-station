@@ -292,8 +292,9 @@ accent-british-replacement-70 = peckish
 accent-british-words-71 = tired
 accent-british-replacement-71 = knackered
 
-accent-british-words-72-1 = want
-accent-british-words-72-2 = wanna
+accent-british-words-72-1 = want to
+accent-british-words-72-2 = want
+accent-british-words-72-3 = wanna
 accent-british-replacement-72 = fancy
 
 accent-british-words-73 = jerk
@@ -393,10 +394,9 @@ accent-british-words-97-2 = chaplain
 accent-british-words-97-3 = priest
 accent-british-replacement-97 = reverand
 
-accent-british-words-98-1 = stab
-accent-british-words-98-2 = knife
-accent-british-words-98-3 = sword
-accent-british-words-98-4 = blade
+accent-british-words-98-1 = knife
+accent-british-words-98-2 = sword
+accent-british-words-98-3 = blade
 accent-british-replacement-98 = shank 
 
 accent-british-words-99 = stabbed me
@@ -429,8 +429,6 @@ accent-british-words-106-2 = train
 accent-british-words-106-3 = the evac shuttle
 accent-british-words-106-4 = evac shuttle
 accent-british-words-106-5 = evac
-accent-british-words-106-6 = the train
-accent-british-words-106-7 = train
 accent-british-replacement-106 = the tube
 
 accent-british-words-107-1 = contraband
@@ -467,16 +465,22 @@ accent-british-replacement-112 = a pint
 accent-british-words-113 = drinks
 accent-british-replacement-113 = pints
 
-accent-british-words-114-1 = drinking
-accent-british-words-114-2 = slurping
+accent-british-words-114-1 = drinking up
+accent-british-words-114-2 = slurping up
+accent-british-words-114-3 = drinking
+accent-british-words-114-4 = slurping
 accent-british-replacement-114 = necking down
 
-accent-british-words-115-1 = drink
-accent-british-words-115-2 = slurp
+accent-british-words-115-1 = drink up
+accent-british-words-115-2 = slurp up
+accent-british-words-115-3 = drink
+accent-british-words-115-4 = slurp
 accent-british-replacement-115 = neck down
 
-accent-british-words-116-1 = drank
-accent-british-words-116-2 = slurped
+accent-british-words-116-1 = drank up
+accent-british-words-116-2 = slurped up
+accent-british-words-116-3 = drank
+accent-british-words-116-4 = slurped
 accent-british-replacement-116 = necked down
 
 accent-british-words-117-1 = assistant
@@ -492,6 +496,7 @@ accent-british-words-118-2 = barista
 accent-british-words-118-3 = barkeep
 accent-british-words-118-4 = mixologist
 accent-british-words-118-5 = barman
+accent-british-words-118-6 = barkeeper
 accent-british-replacement-118 = bossman
 
 accent-british-words-119-1 = cook
@@ -503,6 +508,7 @@ accent-british-words-120-1 = food
 accent-british-words-120-2 = grub
 accent-british-words-120-3 = meal
 accent-british-words-120-4 = mre
+accent-british-words-120-5 = slop
 accent-british-replacement-120 = scran
 
 accent-british-words-121-1 = janitor
@@ -536,10 +542,12 @@ accent-british-words-126-1 = researcher
 accent-british-words-126-2 = researchers
 accent-british-words-126-3 = genius
 accent-british-words-126-4 = lab technician
-accent-british-words-126-5 = lab tech
-accent-british-words-126-6 = expert
-accent-british-words-126-7 = geneticist
-accent-british-words-126-8 = geneticists
+accent-british-words-126-5 = lab technicians
+accent-british-words-126-6 = lab tech
+accent-british-words-126-7 = expert
+accent-british-words-126-8 = experts
+accent-british-words-126-9 = geneticist
+accent-british-words-126-10 = geneticists
 accent-british-replacement-126 = clever clogs
 
 accent-british-words-127-1 = borg
@@ -595,7 +603,9 @@ accent-british-replacement-136 = persian rug dealer
 accent-british-words-137-1 = therapist
 accent-british-words-137-2 = psychologist
 accent-british-words-137-3 = psychiatrist
-accent-british-words-137-4 = psych
+accent-british-words-137-4 = psych office
+accent-british-words-137-5 = psych
+accent-british-words-137-6 = psychology
 accent-british-replacement-137 = substitute pub
 
 accent-british-words-138-1 = chief medical officer
@@ -604,8 +614,8 @@ accent-british-words-138-3 = head of medical
 accent-british-words-138-4 = head doctor
 accent-british-replacement-138 = Minister for Elf and Safety
 
-accent-british-words-139-1 = med
-accent-british-words-139-2 = med bay
+accent-british-words-139-1 = med bay
+accent-british-words-139-2 = med
 accent-british-words-139-3 = medbay
 accent-british-words-139-4 = medical
 accent-british-replacement-139 = doctor's
@@ -660,8 +670,13 @@ accent-british-replacement-148 = Royal Mail
 
 accent-british-words-149-1 = the detective
 accent-british-words-149-2 = detective
-accent-british-words-149-3 = investigator
-accent-british-words-149-4 = forensics
+accent-british-words-149-3 = the detectives
+accent-british-words-149-4 = detectives
+accent-british-words-149-5 = the investigator
+accent-british-words-149-6 = investigator
+accent-british-words-149-7 = the investigators
+accent-british-words-149-8 = investigators
+accent-british-words-149-9 = forensics
 accent-british-replacement-149 = Scotland Yard
 
 accent-british-words-150-1 = warden
@@ -703,8 +718,9 @@ accent-british-words-155-2 = sec
 accent-british-replacement-155 = peelers
 
 accent-british-words-156-1 = internal affairs agent
-accent-british-words-156-2 = ia agent
-accent-british-words-156-3 = iaa
+accent-british-words-156-2 = internal affairs
+accent-british-words-156-3 = ia agent
+accent-british-words-156-4 = iaa
 accent-british-replacement-156 = grass
 
 accent-british-words-157-1 = representative
@@ -724,10 +740,10 @@ accent-british-words-158-4 = arbitrator
 accent-british-words-158-5 = adjudicator
 accent-british-replacement-158 = Right Honourable Justice
 
-accent-british-words-159-1 = executive
-accent-british-words-159-2 = ceo
-accent-british-words-159-3 = director
-accent-british-words-159-4 = chief executive officer
+accent-british-words-159-1 = ceo
+accent-british-words-159-2 = chief executive officer
+accent-british-words-159-3 = board member
+accent-british-words-159-4 = boardmember
 accent-british-replacement-159 = Prime Minister
 
 accent-british-words-160-1 = the nanotrasen
@@ -775,7 +791,8 @@ accent-british-words-167-3 = robots
 accent-british-words-167-4 = bots
 accent-british-replacement-167 = toasters
 
-accent-british-words-168 = intercom
+accent-british-words-168-1 = intercom
+accent-british-words-168-2 = intercoms
 accent-british-replacement-168 = landline
 
 accent-british-words-169-1 = assistants
@@ -802,6 +819,7 @@ accent-british-replacement-174 = give a hand
 
 accent-british-words-175-1 = peak
 accent-british-words-175-2 = peam
+accent-british-words-175-3 = cool
 accent-british-replacement-175 = lovely jubbly
 
 accent-british-words-176-1 = solve
@@ -971,9 +989,12 @@ accent-british-words-214-3 = shortsighted
 accent-british-words-214-4 = nerdy
 accent-british-replacement-214 = speccy
 
-accent-british-words-215-1 = cburn
-accent-british-words-215-2 = deathsquad
-accent-british-words-215-3 = death squad
+accent-british-words-215-1 = the cburn
+accent-british-words-215-2 = the deathsquad
+accent-british-words-215-3 = the death squad
+accent-british-words-215-4 = cburn
+accent-british-words-215-5 = deathsquad
+accent-british-words-215-6 = death squad
 accent-british-replacement-215 = the SAS
 
 accent-british-words-216 = station
@@ -988,7 +1009,6 @@ accent-british-words-218-2 = disciplinary measure
 accent-british-words-218-3 = punitive measure
 accent-british-words-218-4 = punitive action
 accent-british-words-218-5 = restraining order
-accent-british-words-218-6 = punitive measures
 accent-british-replacement-218 = Anti-Social Behaviour Order
 
 accent-british-words-219-1 = bitch
@@ -1022,12 +1042,13 @@ accent-british-replacement-223 = sozzers
 accent-british-words-224 = sry
 accent-british-replacement-224 = soz
 
-accent-british-words-225 = bleak
+accent-british-words-225-1 = bleak
+accent-british-words-225-2 = awful
 accent-british-replacement-225 = grim
 
 accent-british-words-226-1 = tider
 accent-british-words-226-2 = greytider
-accent-british-words-226-2 = greytide
+accent-british-words-226-3 = greytide
 accent-british-replacement-226 = roadman
 
 accent-british-words-227-1 = tiders
@@ -1047,11 +1068,11 @@ accent-british-replacement-229 = solicitors
 
 accent-british-words-230-1 = root beer
 accent-british-words-230-2 = rootbeer
-accent-british-replacement-230 = lager
+accent-british-replacement-230 = ginger beer
 
 accent-british-words-231-1 = root beers
 accent-british-words-231-2 = rootbeers
-accent-british-replacement-231 = lagers
+accent-british-replacement-231 = ginger beers
 
 accent-british-words-232 = health
 accent-british-replacement-232 = elf
@@ -1061,6 +1082,7 @@ accent-british-replacement-233 = elfy
 
 accent-british-words-234-1 = engineers
 accent-british-words-234-2 = mechanics
+accent-british-words-234-3 = engis
 accent-british-replacement-234 = builders
 
 accent-british-words-235-1 = roboticists
@@ -1070,6 +1092,175 @@ accent-british-words-235-4 = cybertronic technicians
 accent-british-replacement-235 = toaster repairmen
 
 accent-british-words-236-1 = anomaly
-accent-british-words-236-2 = anomalies
-accent-british-words-236-3 = anom
+accent-british-words-236-2 = anom
 accent-british-replacement-236 = malarkey
+
+accent-british-words-237-1 = anomalies
+accent-british-words-237-2 = anoms
+accent-british-replacement-237 = loads of malarkey
+
+accent-british-words-238 = ass
+accent-british-replacement-238 = arse
+
+accent-british-words-239 = asses
+accent-british-replacement-239 = arses
+
+accent-british-words-240 = aluminum
+accent-british-replacement-240 = aluminium
+
+accent-british-words-241-1 = archaeologists
+accent-british-words-241-2 = archeologists
+accent-british-words-241-3 = xenoarchaeologists
+accent-british-words-241-4 = xenoarcheologists
+accent-british-words-241-5 = xenoarchs
+accent-british-words-241-6 = explorers
+accent-british-replacement-241 = museum contributors
+
+accent-british-words-242-1 = artifact
+accent-british-words-242-2 = artefact
+accent-british-words-242-3 = arti
+accent-british-replacement-242 = museum piece
+
+accent-british-words-243-1 = artifacts
+accent-british-words-243-2 = artefacts
+accent-british-words-243-3 = artis
+accent-british-replacement-243 = museum pieces
+
+accent-british-words-244-1 = internal affairs agents
+accent-british-words-244-2 = ia agents
+accent-british-words-244-3 = iaas
+accent-british-replacement-244 = grasses
+
+accent-british-words-245-1 = engines
+accent-british-words-245-2 = reactors
+accent-british-words-245-3 = generators
+accent-british-replacement-245 = kettles
+
+accent-british-words-246-1 = nuclear
+accent-british-words-246-2 = nuke
+accent-british-replacement-246 = glowy bugger
+
+accent-british-words-247-1 = nukeops
+accent-british-words-247-2 = nukies
+accent-british-replacement-247 = glowy bugger bastards
+
+accent-british-words-248 = armored
+accent-british-replacement-248 = armoured
+
+accent-british-words-249-1 = old person
+accent-british-words-249-2 = old man
+accent-british-words-249-3 = old woman
+accent-british-words-249-4 = senior
+accent-british-words-249-5 = elder
+accent-british-words-249-6 = veteran
+accent-british-replacement-249 = geezer
+
+accent-british-words-250-1 = foot ball
+accent-british-words-250-2 = football
+accent-british-replacement-250 = rugby
+
+accent-british-words-251-1 = soccer
+accent-british-words-251-2 = sports
+accent-british-words-251-3 = sport
+accent-british-words-251-4 = basketball
+accent-british-replacement-251 = footy
+
+accent-british-words-252 = store
+accent-british-replacement-252 = shop
+
+accent-british-words-253 = zucchini
+accent-british-replacement-253 = courgette
+
+accent-british-words-254 = eggplant
+accent-british-replacement-254 = aubergine
+
+accent-british-words-255 = fall
+accent-british-replacement-255 = autumn
+
+accent-british-words-256 = marauder
+accent-british-replacement-256 = marauder? I 'ardly know 'er!
+
+accent-british-words-257 = raider
+accent-british-replacement-257 = raider? I 'ardly know 'er!
+
+accent-british-words-258 = juice
+accent-british-replacement-258 = squash
+
+accent-british-words-259-1 = beet
+accent-british-words-259-2 = beets
+accent-british-replacement-259 = beetroot
+
+accent-british-words-260-1 = dessert
+accent-british-words-260-2 = desserts
+accent-british-replacement-260 = pudding
+
+accent-british-words-261 = couch
+accent-british-replacement-261 = sofa
+
+accent-british-words-262 = couches
+accent-british-replacement-262 = sofas
+
+accent-british-words-263 = sweater
+accent-british-replacement-263 = jumper
+
+accent-british-words-264 = sweaters
+accent-british-replacement-264 = jumpers
+
+accent-british-words-265 = eraser
+accent-british-replacement-265 = rubber
+
+accent-british-words-266 = erasers
+accent-british-replacement-266 = rubbers
+
+accent-british-words-267 = cart
+accent-british-replacement-267 = trolley
+
+accent-british-words-268 = carts
+accent-british-replacement-268 = trolleys
+
+accent-british-words-269-1 = brothers
+accent-british-words-269-2 = bros
+accent-british-replacement-269 = bruvs
+
+accent-british-words-270-1 = running
+accent-british-words-270-2 = retreating
+accent-british-replacement-270 = legging it
+
+accent-british-words-271-1 = department
+accent-british-words-271-2 = departmental
+accent-british-replacement-271 = ministry
+
+accent-british-words-272 = departments
+accent-british-replacement-272 = ministries
+
+accent-british-words-273-1 = what the fuck
+accent-british-words-273-2 = wtf
+accent-british-replacement-273 = blummin' 'eck
+
+accent-british-words-274-1 = old people
+accent-british-words-274-2 = old men
+accent-british-words-274-3 = old women
+accent-british-words-274-4 = seniors
+accent-british-words-274-5 = elders
+accent-british-words-274-6 = veterans
+accent-british-replacement-274 = geezers
+
+accent-british-words-275-1 = nukeop
+accent-british-words-275-2 = nukie
+accent-british-replacement-275 = glowy bugger bastard
+
+accent-british-words-276-1 = knifes
+accent-british-words-276-2 = knives
+accent-british-words-276-3 = swords
+accent-british-words-276-4 = blades
+accent-british-words-276-5 = stabs
+accent-british-replacement-276 = shanks
+
+accent-british-words-277 = stab me
+accent-british-replacement-277 = send me to London
+
+accent-british-words-278 = stab you
+accent-british-replacement-278 = send you to London
+
+accent-british-words-279 = stab
+accent-british-replacement-279 = send to London

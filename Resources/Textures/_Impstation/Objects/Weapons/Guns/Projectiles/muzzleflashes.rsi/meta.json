@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "by DVD Player for Impstation.",
+  "copyright": "by DVDPlayerOfDiscordFame (Github) for Impstation.",
   "size": {
     "x": 32,
     "y": 32
@@ -20,6 +20,17 @@
     },
     {
       "name": "kineticsmall",
+      "delays": [
+        [
+          0.05,
+          0.05,
+          0.05,
+          1.00
+        ]
+      ]
+    },
+    {
+      "name": "kineticstun",
       "delays": [
         [
           0.05,
@@ -96,6 +107,17 @@
       ]
     },
     {
+      "name": "proto",
+      "delays": [
+        [
+          0.05,
+          0.05,
+          0.05,
+          1.00
+        ]
+      ]
+    },
+    {
       "name": "tempcold",
       "delays": [
         [
@@ -108,6 +130,17 @@
     },
     {
       "name": "temphot",
+      "delays": [
+        [
+          0.05,
+          0.05,
+          0.05,
+          1.00
+        ]
+      ]
+    },
+    {
+      "name": "toybolt",
       "delays": [
         [
           0.05,

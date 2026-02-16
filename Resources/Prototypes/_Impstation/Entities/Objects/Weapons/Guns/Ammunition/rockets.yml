@@ -1,7 +1,7 @@
 - type: entity
   id: CartridgeBazookaExp
   name: Leviathan explosive rocket
-  parent: [BaseItem, Tier3Contraband]
+  parent: [BaseItem, BaseSyndicateContraband]
   description: Guaranteed to ruin someone's day.
   components:
   - type: Tag
@@ -18,7 +18,6 @@
     - state: explosive
   - type: StaticPrice
     price: 20
-  - type: Engraveable
 
 - type: entity
   id: CartridgeBazookaCon
@@ -40,7 +39,6 @@
     - state: concussion
   - type: StaticPrice
     price: 20
-  - type: Engraveable
 
 - type: entity
   id: CartridgeBazookaInc
@@ -62,4 +60,3 @@
     - state: incendiary
   - type: StaticPrice
     price: 20
-  - type: Engraveable

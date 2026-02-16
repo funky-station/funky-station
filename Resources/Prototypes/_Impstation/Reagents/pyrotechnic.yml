@@ -8,8 +8,7 @@
     requiredSlipSpeed: 3.5
   flavor: radiation
   flavorMinimum: 0.01
-  color: "#83db2b"
-  contraband: Major
+  color: "#ceaaed"
   recognizable: true
   boilingPoint: -127.3
   meltingPoint: -186.4

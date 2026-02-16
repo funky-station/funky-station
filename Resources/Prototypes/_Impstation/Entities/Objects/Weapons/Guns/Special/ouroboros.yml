@@ -1,6 +1,6 @@
 - type: entity
   name: Ouroboros
-  parent: [BaseItem, BaseGunWieldable, Tier3Contraband]
+  parent: [BaseItem, BaseGunWieldable, BaseSyndicateContraband]
   id: WeaponSpecialOuroboros
   description: You can feel a murderous hunger buzzing from deep within the weapon's frame. Its contained creatures demands food for its services.
   components:
@@ -17,7 +17,7 @@
     quickEquip: false
     slots:
     - Back
-    - suitStorage
+    - backStorage
   - type: SolutionItemStatus
     solution: chamber
   - type: Item
@@ -43,9 +43,9 @@
     solutionId: chamber
     proto: BulletOuroboros
     fireCost: 3
-  - type: FoodReagentExtractor
-    solutionId: chamber
-    extractSound: /Audio/_Impstation/Weapons/Guns/Cock/beecharge.ogg
+#  - type: FoodReagentExtractor
+#    solutionId: chamber
+#    extractSound: /Audio/_Impstation/Weapons/Guns/Cock/beecharge.ogg
   - type: MagazineVisuals
     magState: mag
     steps: 7

@@ -1,12 +1,25 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "by DVD Player for Impstation.",
+  "copyright": "by DVDPlayerOfDiscordFame (Github) for Impstation",
   "size": {
     "x": 32,
     "y": 32
   },
   "states": [
+    {
+      "name": "impact_stun",
+      "delays": [
+        [
+          0.05,
+          0.05,
+          0.05,
+          0.05,
+		  0.05,
+		  0.05
+        ]
+      ]
+    },
     {
       "name": "red",
       "delays": [
@@ -75,6 +88,17 @@
     },
     {
       "name": "cold",
+      "delays": [
+        [
+          0.05,
+          0.05,
+          0.05,
+          0.05
+        ]
+      ]
+    },
+    {
+      "name": "toybolt",
       "delays": [
         [
           0.05,

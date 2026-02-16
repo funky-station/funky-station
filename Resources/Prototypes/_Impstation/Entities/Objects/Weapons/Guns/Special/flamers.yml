@@ -16,7 +16,7 @@
     sprite: _Impstation/Objects/Weapons/Guns/Special/xiuhcoatl.rsi
     quickEquip: false
     slots:
-      - suitStorage
+      - backStorage
       - Belt
   - type: Appearance
   - type: AmmoCounter

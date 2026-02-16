@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Internals box taken from tgstation at commit https://github.com/tgstation/tgstation/commit/cc65477c04f7403ca8a457bd5bae69a01abadbf0, Chef boxes modified from tgstation, overlay sprites by Darkmajia, tiny security box edited from tgstation. box2, boxofyuckyhugs and label by crocodilecarousel (Github). syndicateRoseBox by LandsharkRAWR, syndicaterocketbox and gunbox edits by DVD Player",
+  "copyright": "Internals box taken from tgstation at commit https://github.com/tgstation/tgstation/commit/cc65477c04f7403ca8a457bd5bae69a01abadbf0, Chef boxes modified from tgstation, overlay sprites by Darkmajia, tiny security box edited from tgstation. box2, boxofyuckyhugs and label by crocodilecarousel (Github). syndicateRoseBox by LandsharkRAWR, syndicaterocketbox and gunbox edits by DVD Player, soap by DinnerCalzone",
   "size": {
     "x": 32,
     "y": 32
@@ -9,58 +9,6 @@
     "states": [
         {
             "name": "america"
-        },
-        {
-            "name": "box2"
-        },
-        {
-            "name": "box_chef"
-        },
-        {
-            "name": "box_security_tiny"
-        },
-        {
-            "name": "boxofyuckyhugs"
-        },
-        {
-            "name": "carnivore"
-        },
-        {
-            "name": "emergencytankcommand"
-        },
-
-        {
-            "name": "emergencytankcommandnitrogen"
-        },
-        {
-            "name": "evidence_markers"
-        },
-        {
-            "name": "fiesta"
-        },
-        {
-            "name": "fruity"
-        },
-        {
-            "name": "grains"
-        },
-        {
-            "name": "internals"
-        },
-        {
-            "name": "italy"
-        },
-        {
-            "name": "label"
-        },
-        {
-            "name": "sweets"
-        },
-        {
-            "name": "vegetarian"
-        },
-        {
-            "name": "syndicaterosebox"
         },
         {
             "name": "syndicaterocketbox"

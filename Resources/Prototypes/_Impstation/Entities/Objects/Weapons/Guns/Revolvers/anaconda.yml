@@ -1,6 +1,6 @@
 - type: entity
   name: Anaconda
-  parent: [BaseWeaponRevolver, Tier3Contraband]
+  parent: [BaseWeaponRevolver, BaseSyndicateContraband]
   id: WeaponAnaconda
   description: A junior designer at Waffle Corp. swears they submitted this as a joke. Kicks like a blood-red horse if used without a hardsuit. Uses .60 anti-materiel ammo.
   components:
@@ -12,7 +12,7 @@
   - type: Clothing
     sprite: _Impstation/Objects/Weapons/Guns/Revolvers/anaconda.rsi
     slots:
-    - suitStorage
+    - backStorage
     - Belt
   - type: Item
     size: Normal

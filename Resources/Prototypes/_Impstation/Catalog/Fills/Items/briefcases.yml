@@ -1,16 +1,6 @@
 - type: entity
-  id: BriefcaseBlackFilled
-  parent: BriefcaseBlack
-  suffix: Filled, Paper
-  components:
-  - type: StorageFill
-    contents:
-      - id: Paper
-        amount: 3
-
-- type: entity
   id: BriefcaseSyndieAnacondaBundleFilled
-  parent: BriefcaseSyndie
+  parent: CybersunBriefcase
   suffix: Syndicate, Anaconda Bundle
   components:
   - type: Item

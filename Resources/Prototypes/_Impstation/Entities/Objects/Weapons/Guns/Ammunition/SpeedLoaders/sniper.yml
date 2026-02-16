@@ -2,7 +2,7 @@
   id: SpeedLoaderAnaconda
   name: "speed loader (.60 anti-materiel)"
   description: It's amazing that anyone thought this would be a good idea.
-  parent: [ BaseItem, Tier3Contraband ]
+  parent: [ BaseItem, BaseSyndicateContraband ]
   components:
   - type: Tag
     tags:

@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Taken and modified from cev-eris at https://github.com/discordia-space/CEV-Eris/tree/7ff8f28ea4de734f3cc3cb70f2d4e4b4263a988d, colours edited by DVDPlayerOfDiscordFame https://github.com/DVDPlayerOfDiscordFame",
+  "copyright": "_synd taken and modified from cev-eris at https://github.com/discordia-space/CEV-Eris/tree/7ff8f28ea4de734f3cc3cb70f2d4e4b4263a988d, laser_rifle by, and edits by DVDPlayerOfDiscordFame (github)",
   "size": {
     "x": 32,
     "y": 32
@@ -9,6 +9,21 @@
   "states": [
     {
       "name": "muzzle_synd",
+      "delays": [
+        [
+          0.060000002,
+          0.060000002,
+          0.060000002,
+          0.060000002,
+          0.060000002,
+          0.060000002,
+          0.060000002,
+          0.060000002
+        ]
+      ]
+    },
+    {
+      "name": "muzzle_laser_rifle",
       "delays": [
         [
           0.060000002,
@@ -38,7 +53,37 @@
       ]
     },
     {
+      "name": "impact_laser_rifle",
+      "delays": [
+        [
+          0.060000002,
+          0.060000002,
+          0.060000002,
+          0.060000002,
+          0.060000002,
+          0.060000002,
+          0.060000002,
+          0.060000002
+        ]
+      ]
+    },
+    {
       "name": "beam_synd",
+      "delays": [
+        [
+          0.060000002,
+          0.060000002,
+          0.060000002,
+          0.060000002,
+          0.060000002,
+          0.060000002,
+          0.060000002,
+          0.060000002
+        ]
+      ]
+    },
+    {
+      "name": "beam_laser_rifle",
       "delays": [
         [
           0.060000002,

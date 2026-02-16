@@ -61,8 +61,8 @@
     layers:
     - shader: unshaded
       map: ["enum.EffectLayers.Unshaded"]
-      sprite: _Impstation/Objects/Weapons/Guns/Projectiles/muzzleflashes.rsi
-      state: energypurp
+      sprite: _Funkystation/Objects/Weapons/Projectiles/muzzleflashes.rsi
+      state: energypurpsmall
 
 - type: entity
   parent: MuzzleFlashEffect

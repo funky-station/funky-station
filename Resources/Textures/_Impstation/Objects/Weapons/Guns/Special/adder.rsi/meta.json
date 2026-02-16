@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "by DVD Player for Impstation",
+  "copyright": "by DVD Player for Impstation, modified by ThatOneMoon and d.d.tea for Funkystation",
   "size": {
     "x": 32,
     "y": 32
@@ -47,7 +47,7 @@
 	  "directions": 4
 	},
 	{
-	  "name": "equipped-SUITSTORAGE",
+	  "name": "equipped-BACKSTORAGE",
 	  "directions": 4
 	}
   ]

@@ -72,14 +72,14 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
-    sprite: _Impstation/Objects/Weapons/Guns/Projectiles/energybolts.rsi
+    sprite: _Funkystation/Objects/Weapons/Projectiles/energybolts.rsi
     layers:
-    - state: mediumsynd
+    - state: mediumpurp
       shader: unshaded
   - type: Ammo
-    muzzleFlash: MuzzleFlashEffectSyndLaser
+    muzzleFlash: MuzzleFlashEffectPurpLaser
   - type: Projectile
-    impactEffect: BulletImpactEffectSyndicate
+    impactEffect: BulletImpactEffectPurple
     damage:
       types:
         Heat: 10
@@ -95,9 +95,9 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
-    sprite: _Impstation/Objects/Weapons/Guns/Projectiles/energybolts.rsi
+    sprite: _Funkystation/Objects/Weapons/Projectiles/energybolts.rsi
     layers:
-    - state: lightsynd
+    - state: lightpurp
       shader: unshaded
   - type: Projectile
     damage:

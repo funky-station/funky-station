@@ -3,7 +3,7 @@
   description: A rechargeable power cell made with an exotic reagent. Extremely potent when used with weapons, but not the most efficient power source.
   id: PowerCellEchion
   suffix: Full
-  parent: [ BasePowerCell, Tier3Contraband ]
+  parent: [ BasePowerCell, BaseSyndicateContraband ]
   components:
   - type: Sprite
     sprite: _Impstation/Objects/Power/echion_cell.rsi

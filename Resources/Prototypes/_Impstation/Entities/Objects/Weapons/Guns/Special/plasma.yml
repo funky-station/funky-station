@@ -1,6 +1,6 @@
 - type: entity
   name: Adder
-  parent: [BaseItem, Tier3Contraband]
+  parent: [BaseItem, BaseSecurityContraband]
   id: WeaponPlasmaAdder
   description: The future of stellar warfare in the palm of your hand. Uses Echion, produced from advanced synthesizers.
   components:
@@ -16,7 +16,7 @@
     sprite: _Impstation/Objects/Weapons/Guns/Special/adder.rsi
     quickEquip: false
     slots:
-      - suitStorage
+      - backStorage
       - Belt
   - type: Appearance
   - type: AmmoCounter
@@ -80,8 +80,7 @@
     sprite: _Impstation/Objects/Weapons/Guns/Special/akurra.rsi
     quickEquip: false
     slots:
-      - suitStorage
-      - Belt
+      - backStorage
   - type: Appearance
   - type: Item
     sprite: _Impstation/Objects/Weapons/Guns/Special/akurra.rsi

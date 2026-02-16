@@ -65,8 +65,8 @@ meta:
   engineVersion: 268.0.0
   forkId: ""
   forkVersion: ""
-  time: 02/07/2026 16:27:30
-  entityCount: 16964
+  time: 02/16/2026 02:01:23
+  entityCount: 16963
 maps:
 - 4480
 grids:
@@ -88063,10 +88063,10 @@ entities:
       parent: 2
 - proto: SignDirectionalEng
   entities:
-  - uid: 11817
+  - uid: 10700
     components:
     - type: Transform
-      pos: 28.5037,2.3089128
+      pos: 24.496798,2.29529
       parent: 2
 - proto: SignDirectionalEscapePod
   entities:
@@ -88103,14 +88103,14 @@ entities:
   - uid: 8120
     components:
     - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 7.4992805,2.2952788
+      rot: 1.5707963267948966 rad
+      pos: 7.4949784,2.2928648
       parent: 2
-  - uid: 16919
+  - uid: 10403
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
-      pos: 24.499573,2.311405
+      pos: 28.50466,2.2947354
       parent: 2
 - proto: SignDirectionalHop
   entities:
@@ -107966,13 +107966,6 @@ entities:
       parent: 2
     - type: WarpPoint
       location: Arrivals
-  - uid: 15123
-    components:
-    - type: Transform
-      pos: 4.5,6.5
-      parent: 2
-    - type: WarpPoint
-      location: Evac
 - proto: WashingMachine
   entities:
   - uid: 1217

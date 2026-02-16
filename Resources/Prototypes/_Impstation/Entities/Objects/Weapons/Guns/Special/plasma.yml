@@ -104,6 +104,8 @@
   - type: Item
     sprite: _Impstation/Objects/Weapons/Guns/Special/akurra.rsi
     size: Large
+    shape:
+    - 0,0,3,1
   - type: Gun
     clumsyProof: false
     cameraRecoilScalar: 1

@@ -33,13 +33,14 @@
     - Belt
     sprite: _Funkystation/Objects/Weapons/miniature_laser_pistol.rsi
   - type: Gun
+    fireRate: 3
     soundGunshot:
       path: /Audio/_DV/Weapons/Guns/Gunshots/laser.ogg
     soundEmpty:
       path: /Audio/_DV/Weapons/Guns/Empty/dry_fire.ogg
   - type: Battery
-    maxCharge: 1500
-    startingCharge: 1400
+    maxCharge: 1800
+    startingCharge: 1800
   - type: ProjectileBatteryAmmoProvider
     proto: BulletEnergyGunLaser
     fireCost: 100

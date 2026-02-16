@@ -313,7 +313,7 @@
       - SpecialWeapon
 
 - type: entity
-  name: practice laser bolt carbine
+  name: practice laser bolt carbine #Funky changes
   parent: [BaseWeaponBattery, BaseGunWieldable]
   id: WeaponLaserCarbinePractice
   description: This modified carbine rifle fires nearly harmless bolts in the 40-watt range, for target practice.
@@ -331,8 +331,8 @@
     steps: 5
     zeroVisible: false
   - type: Battery
-    maxCharge: 2200
-    startingCharge: 2200
+    maxCharge: 3000
+    startingCharge: 3000
   - type: Item
     size: Huge
     shape:
@@ -344,7 +344,7 @@
     fireRate: 2
     selectedMode: SemiAuto
     shotsPerBurst: 3
-    burstFireRate: 3
+    burstFireRate: 3.5
     availableModes:
     - SemiAuto
     - Burst
@@ -355,7 +355,7 @@
     price: 300
 
 - type: entity
-  name: laser bolt carbine
+  name: laser bolt carbine #Funky changes
   parent: [WeaponLaserCarbinePractice, BaseGunWieldable, BaseSecurityContraband]
   id: WeaponLaserCarbine
   description: Favoured by Nanotrasen Security for being cheap and easy to use.

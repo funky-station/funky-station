@@ -715,7 +715,7 @@ accent-british-replacement-154 = Minister for Peeling
 
 accent-british-words-155-1 = security
 accent-british-words-155-2 = sec
-accent-british-replacement-155 = peelers
+accent-british-replacement-155 = fuzz
 
 accent-british-words-156-1 = internal affairs agent
 accent-british-words-156-2 = internal affairs

@@ -2,9 +2,7 @@
 # SPDX-FileCopyrightText: 2025 majima-fan-420 <161394779+phmnsx@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 phmnsx <lynnwastinghertime@gmail.com>
 # SPDX-FileCopyrightText: 2025 w.xyz() <84605679+pirakaplant@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2026 Mora <46364955+TrixxedHeart@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2026 TrixxedHeart <46364955+TrixxedBit@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2026 hey-it-stev <stev.dominions@gmail.com>
 #
 # SPDX-License-Identifier: MIT
 
@@ -870,6 +868,8 @@
     accent-british-words-277: accent-british-replacement-277
     accent-british-words-278: accent-british-replacement-278
     accent-british-words-279: accent-british-replacement-279
+    accent-british-words-280: accent-british-replacement-280
+    accent-british-words-281: accent-british-replacement-281
 
 - type: accent
   id: cak0spaces

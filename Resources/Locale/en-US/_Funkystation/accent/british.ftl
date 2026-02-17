@@ -1264,3 +1264,9 @@ accent-british-replacement-278 = send you to London
 
 accent-british-words-279 = stab
 accent-british-replacement-279 = send to London
+
+accent-british-words-280 = sucker
+accent-british-replacement-280 = plonker
+
+accent-british-words-281 = suckers
+accent-british-replacement-281 = plonkers

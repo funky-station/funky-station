@@ -530,7 +530,7 @@
         - state: base
           map: ["enum.GunVisualLayers.Base"]
     - type: Gun
-      fireRate: 0.5
+      fireRate: 1
       soundGunshot:
         path: /Audio/Weapons/emitter.ogg
         params:

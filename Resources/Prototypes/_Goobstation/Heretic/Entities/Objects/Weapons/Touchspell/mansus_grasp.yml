@@ -26,3 +26,22 @@
     radius: 2
     energy: 1
     color: "#329a00"
+
+- type: entity
+  id: TouchSpellMansusFake
+  name: cursed hand
+  suffix: Fake, Admeme
+  description: A really weird hand. It seems cursed.
+  components:
+  - type: Unremoveable
+  - type: Item
+  - type: Sprite
+    sprite: _Goobstation/Heretic/mansus_grasp.rsi
+    state: icon
+  - type: Appearance
+  - type: UseDelay
+  - type: PointLight
+    enabled: true
+    radius: 2
+    energy: 1
+    color: "#329a00"

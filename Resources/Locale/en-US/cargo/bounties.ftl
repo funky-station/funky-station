@@ -272,7 +272,7 @@ bounty-item-makeshift-bola = Makeshift Bola
 bounty-item-svalinn-pistol = Svalinn Pistol
 
 bounty-item-disabler-smg = Disabler SMG
-bounty-item-truncheon = Truncheon
+bounty-item-truncheon = Nightstick
 bounty-item-xray-cannon = Xray Cannon
 bounty-item-laser-cannon = Laser Cannon
 bounty-item-security-hud = Security Hud

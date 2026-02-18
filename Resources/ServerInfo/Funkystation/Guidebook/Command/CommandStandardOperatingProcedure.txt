@@ -104,7 +104,7 @@ SPDX-License-Identifier: MIT
 
   [bold]5.[/bold] The NanoTrasen Representative must follow the directions of the Magistrate and defer to their judgement in matters not concerning standard operating procedure, but should advocate their stance firmly in the case of disagreements, and escalate to Central Command directly if they feel there has been wrongdoing;
 
-  [bold]6.[/bold] The NanoTrasen Representative is permitted to carry their flash and a blade-cane, or a stun baton if the blade-cane is lost;
+  [bold]6.[/bold] The NanoTrasen Representative is permitted to carry their flash and a blade-cane, or a truncheon if the blade-cane is lost;
 
   # Magistrate SOP
 

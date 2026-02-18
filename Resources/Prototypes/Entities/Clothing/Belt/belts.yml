@@ -97,6 +97,7 @@
 # SPDX-FileCopyrightText: 2025 puuupy <59433122+lolmatdi@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2026 W.xyz() <84605679+pirakaplant@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2026 Xcybitt <197952719+Xcybitt@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
@@ -290,7 +291,8 @@
         - CigPack
         - Taser
       components:
-        - Stunbaton
+#        - Stunbaton # Funky
+        - Truncheon # Funky
         - FlashOnTrigger
         - SmokeOnTrigger
         - Flash
@@ -722,7 +724,7 @@
       storagebase: !type:Container
         showEnts: False
         occludes: True
-        ents: []  
+        ents: []
   - type: ItemSlots
     slots:
       sidearm_slot:

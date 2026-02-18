@@ -123,7 +123,7 @@ SPDX-License-Identifier: MIT
     </ColorBox>
     <ColorBox Color="#fd6864">
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        [color=black]Assault/Battery (M)[/color]
+        [color=black]Battery (M)[/color]
       </Box>
     </ColorBox>
     <ColorBox Color="#fd6864">
@@ -216,6 +216,27 @@ SPDX-License-Identifier: MIT
     <ColorBox Color="#ffce93">
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
         [color=black]Grand Theft (G)[/color]
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+      </Box>
+    </ColorBox>
+	<ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Assault
       </Box>
     </ColorBox>
     <ColorBox>
@@ -459,17 +480,32 @@ SPDX-License-Identifier: MIT
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        Assault/Battery
+        Battery
       </Box>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        To threaten to or to use physical force against someone without the intent to kill.
+        To use physical force against someone without the intent to kill.
       </Box>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        Attempted murder and battery are different, make sure you've got it right.
+        Be careful about the difference between Assault and Battery
+      </Box>
+    </ColorBox>
+	<ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Assault
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        To threaten or attempt the use of physical force against someone with intent to cause fear or harm.
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Be careful about the difference between Assault and Battery
       </Box>
     </ColorBox>
     <ColorBox>

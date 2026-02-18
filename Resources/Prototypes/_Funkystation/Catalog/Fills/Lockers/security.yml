@@ -1,0 +1,13 @@
+# SPDX-FileCopyrightText: 2026 ThatOneMoon <juozas.dringelis@gmail.com>
+#
+# SPDX-License-Identifier: MIT
+
+- type: entity
+  parent: [GunSafeBaseSecure, BaseSecurityContraband]
+  id: GunSafeEnergyPistol
+  name: RG-2 safe
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponEnergyGunEnergyPistol
+      amount: 4

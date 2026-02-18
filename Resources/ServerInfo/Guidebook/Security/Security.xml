@@ -29,11 +29,12 @@ They face [textlink="Syndicate Agents" link="Traitors"], [textlink="Nuclear Oper
   </Box>
 
 ## Gear
-First we have non-lethals. These tools are a step above simply telling someone to cooperate with instructions. Both the stunbaton and disabler are capable of limiting the movement of an assailant, whereas handcuffs can be applied to deny a criminal free movement and access to their hands. Cuffs will also shove the person down if your [color=red]harm mode[/color] is active during uncuff.
+First we have non-lethals. These tools are a step above simply telling someone to cooperate with instructions. Both a truncheon is capable of limiting the movement of an assailant, whereas handcuffs can be applied to deny a criminal free movement and access to their hands. Cuffs will also shove the person down if your [color=red]harm mode[/color] is active during uncuff.
   <Box>
-    <GuideEntityEmbed Entity="Stunbaton"/>
+    <GuideEntityEmbed Entity="Truncheon"/>
     <GuideEntityEmbed Entity="Handcuffs"/>
-   <GuideEntityEmbed Entity="WeaponDisabler"/>
+   <GuideEntityEmbed Entity="WeaponFlareGunSecurity"/>
+   <GuideEntityEmbed Entity="BoxBeanbag"/>
   </Box>
 
 ## Flashes
@@ -51,7 +52,7 @@ Should the situation dictate, [color=#cb0000]Security[/color] have access to las
   <Box>
     <GuideEntityEmbed Entity="WeaponLaserCarbine"/>
     <GuideEntityEmbed Entity="WeaponShotgunKammerer"/>
-    <GuideEntityEmbed Entity="WeaponPistolMk58"/>
+    <GuideEntityEmbed Entity="WeaponEnergyGunEnergyPistol"/>
     <GuideEntityEmbed Entity="WeaponRifleLecter"/>
   </Box>
 

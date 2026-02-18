@@ -18,9 +18,10 @@
 // SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 jackel234 <52829582+jackel234@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 pathetic meowmeow <uhhadd@gmail.com>
-// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
-// SPDX-FileCopyrightText: 2026 otokonoko-dev <248204705+otokonoko-dev@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2026 Mora <46364955+TrixxedHeart@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2026 TrixxedHeart <46364955+TrixxedBit@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2026 otokonoko-dev <248204705+otokonoko-dev@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2026 taydeo <td12233a@gmail.com>
 //
 // SPDX-License-Identifier: MIT
 

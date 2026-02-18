@@ -7344,3 +7344,453 @@ Entries:
         minute.
   id: 852
   time: '2026-01-09T23:12:07.0000000+00:00'
+- author: zergologist
+  changes:
+    - type: Tweak
+      message: redid the magboot sprites again so that the icon isn't massive
+  id: 853
+  time: '2026-01-10T04:57:54.0000000+00:00'
+- author: AraiMaia
+  changes:
+    - type: Add
+      message: >-
+        Resprited: Gas Miners, Thermomachines, Radiators, Air Injectors, Manual
+        Valves, Signal Valves, Digital Valves, Inlet Pressure Regulators,
+        Pneumatic Valves, Volumetric & Pressure Pumps, Gas Filters, Gas Mixers,
+        Gas Pipe Sensors, and Gas Canister Connector ports.
+  id: 854
+  time: '2026-01-10T04:59:26.0000000+00:00'
+- author: Ralkern
+  changes:
+    - type: Tweak
+      message: >-
+        Reduced NukeOp population ratio from 10% to 8%, to bridge some of the
+        gap between max operatives and server max pop.
+  id: 855
+  time: '2026-01-11T00:32:49.0000000+00:00'
+- author: 88tv
+  changes:
+    - type: Add
+      message: The TEG is now purchasable from the request computers for 20,000 spesos!
+  id: 856
+  time: '2026-01-11T04:05:31.0000000+00:00'
+- author: willowzeta
+  changes:
+    - type: Tweak
+      message: Redid those floor signage decals to be less ass
+    - type: Add
+      message: Added a handful of floor signage decals
+  id: 857
+  time: '2026-01-13T18:54:19.0000000+00:00'
+- author: marc-pelletier
+  changes:
+    - type: Fix
+      message: 'Tritium fires no longer break conservation of mass. '
+  id: 858
+  time: '2026-01-14T18:27:57.0000000+00:00'
+- author: salpphie
+  changes:
+    - type: Add
+      message: >-
+        Added proper geneticist minus the role and a single pipe bend to the map
+        Eden. 
+    - type: Remove
+      message: Removed TEG from atmos on the map Eden.
+    - type: Tweak
+      message: >-
+        Fixed Minor walls, doors, flooring, button, and connections to the silo
+        on the map Eden.
+  id: 859
+  time: '2026-01-15T01:33:37.0000000+00:00'
+- author: marc-pelletier
+  changes:
+    - type: Fix
+      message: 'Tritium and hydrogen fires no longer overproduce water vapor or energy. '
+  id: 860
+  time: '2026-01-15T02:27:50.0000000+00:00'
+- author: KittyCat432
+  changes:
+    - type: Tweak
+      message: Reporter nolonger has access to all cameras on box.
+    - type: Tweak
+      message: AI turret controllers are now present on box
+    - type: Fix
+      message: Fixed box's windows not having hull plating underneath it.
+  id: 861
+  time: '2026-01-15T20:21:05.0000000+00:00'
+- author: Huhm-1
+  changes:
+    - type: Add
+      message: Added Cameras to medical on Amber
+    - type: Add
+      message: Added Medical Requests Console on Amber
+    - type: Add
+      message: Added Crew Monitoring for warden on Amber
+  id: 862
+  time: '2026-01-16T01:19:09.0000000+00:00'
+- author: zergologist
+  changes:
+    - type: Fix
+      message: CPR does not revive rotten patients.
+  id: 863
+  time: '2026-01-18T01:34:17.0000000+00:00'
+- author: Delta, Thlrd, TrixxedHeart
+  changes:
+    - type: Add
+      message: New marking options for moths
+    - type: Remove
+      message: Duplicate moth markings
+    - type: Tweak
+      message: Resprote funkier base moth sprites
+    - type: Tweak
+      message: Resprote funkier moth markings
+    - type: Tweak
+      message: Separated wings into more layers for colors
+  id: 864
+  time: '2026-01-18T01:43:31.0000000+00:00'
+- author: Terkala
+  changes:
+    - type: Fix
+      message: Fixed sleeping-forever bug
+  id: 865
+  time: '2026-01-18T02:38:15.0000000+00:00'
+- author: mycobiota
+  changes:
+    - type: Fix
+      message: Characters with the synth trait actually can't detect ion storms now.
+  id: 866
+  time: '2026-01-18T02:42:22.0000000+00:00'
+- author: AftrLite
+  changes:
+    - type: Add
+      message: Cosmic Cult 2.5 is here, with exclusive FunkyStation content!
+  id: 867
+  time: '2026-01-18T04:09:15.0000000+00:00'
+- author: AftrLite
+  changes:
+    - type: Fix
+      message: >-
+        The description of the Vacuous Spire is now more sauceful, and the
+        Vacuous Chantry has had its description corrected.
+  id: 868
+  time: '2026-01-18T06:43:46.0000000+00:00'
+- author: Delta
+  changes:
+    - type: Remove
+      message: Central Command Intern as a ghostrole at the start of the round
+  id: 869
+  time: '2026-01-20T23:37:19.0000000+00:00'
+- author: 88tv
+  changes:
+    - type: Tweak
+      message: Updated Packed for playtest feedback.
+  id: 870
+  time: '2026-01-22T09:00:15.0000000+00:00'
+- author: mkanke-real
+  changes:
+    - type: Add
+      message: Added more radiation lockers near the Roid SM
+    - type: Add
+      message: Roid now has new power devices in Engi
+  id: 871
+  time: '2026-01-22T09:00:56.0000000+00:00'
+- author: AftrLite
+  changes:
+    - type: Add
+      message: >-
+        Resprited: A.P.Es, Anomaly Vessels, Advanced Anomaly Vessels, Artifact
+        Analyzer
+  id: 872
+  time: '2026-01-24T00:55:27.0000000+00:00'
+- author: pirakaplant
+  changes:
+    - type: Add
+      message: Added the chief engineer's conductor hat.
+  id: 873
+  time: '2026-01-24T00:56:12.0000000+00:00'
+- author: TheHolyAegis
+  changes:
+    - type: Remove
+      message: Removed the extra Experimental RCD from the CE office
+    - type: Fix
+      message: >-
+        Swapped the survival kit box with a normal one, was an syndicate one
+        before, oops.
+    - type: Tweak
+      message: Changed some camera names to something else than "camera"
+    - type: Tweak
+      message: Destroyed the northwest medical entrance to create a genetics lab.
+    - type: Add
+      message: The previous change left enough room to create a psychologist office.
+  id: 874
+  time: '2026-01-25T06:30:43.0000000+00:00'
+- author: Dusty-Plant
+  changes:
+    - type: Tweak
+      message: small Court station changes
+  id: 875
+  time: '2026-01-25T06:32:17.0000000+00:00'
+- author: mkanke-real
+  changes:
+    - type: Add
+      message: Bagel now has a genetics lab
+    - type: Add
+      message: Added new power devices to Bagel
+    - type: Tweak
+      message: Bagel reactor rods are now randomized per shift
+    - type: Tweak
+      message: Med curtains swapped for new ones on Bagel
+  id: 876
+  time: '2026-01-25T06:33:10.0000000+00:00'
+- author: KittyCat432
+  changes:
+    - type: Add
+      message: Added the power transmission point and anti-matter fabricator to Box.
+    - type: Remove
+      message: Removed roundstart ghostrole antags from Box.
+    - type: Tweak
+      message: IAA's office on Box is now a smoking room.
+    - type: Tweak
+      message: IAA's office on Box has been moved towards security.
+    - type: Tweak
+      message: NTR's office on Box has been made fancier.
+    - type: Tweak
+      message: Box is now a 35 minimum population map.
+    - type: Tweak
+      message: Box now comes with a second paramedic.
+  id: 877
+  time: '2026-01-28T19:53:54.0000000+00:00'
+- author: salpphie
+  changes:
+    - type: Add
+      message: Added engineering power transfer machine and AME fuel maker.
+  id: 878
+  time: '2026-01-29T10:20:04.0000000+00:00'
+- author: JoulesBerg
+  changes:
+    - type: Add
+      message: Added genetics room to core as a shared medical and science area
+    - type: Add
+      message: Added a fourth security officer spawn to core
+    - type: Tweak
+      message: >-
+        Tweaked the max number of certain roles on core to better accommodate
+        the potential of 90 population.
+    - type: Remove
+      message: Removed christmas
+    - type: Tweak
+      message: >-
+        changed nuclear reactor to use the new empty reactor and random rod
+        spawner prototypes
+    - type: Add
+      message: Added intercomms to genpop
+    - type: Fix
+      message: Fixed wiring and atmos in the chapel
+    - type: Add
+      message: Added roboticist locker
+    - type: Fix
+      message: Fixed some missing floor tiles under certain doors
+    - type: Add
+      message: >-
+        Added a stasis bed machine board to CMO office. So power gamers can make
+        it if they want it so badly :godo:
+    - type: Add
+      message: >-
+        added some small maints rooms in a couple places just as minor maints
+        expansions
+    - type: Remove
+      message: Removed the old atmos spawners and replaced them with engineer spawners
+  id: 879
+  time: '2026-01-30T10:19:50.0000000+00:00'
+- author: Huhm-1
+  changes:
+    - type: Add
+      message: Added Packed to the map pool
+    - type: Remove
+      message: Removed Amber from the map pool
+    - type: Remove
+      message: Removed Gax from the map pool
+  id: 880
+  time: '2026-01-30T20:17:13.0000000+00:00'
+- author: Doctor-CPU, Will-Oliver-Br, AraiMaia
+  changes:
+    - type: Add
+      message: >-
+        Added a Clothing stain system; your clothes can now get dirty with
+        reagents
+    - type: Add
+      message: >-
+        A washing machine with which to wash your clothes; there's a Flatpack in
+        the custodial closets
+  id: 881
+  time: '2026-02-01T23:59:45.0000000+00:00'
+- author: Fr0goo
+  changes:
+    - type: Fix
+      message: you are no longer forced to wear a hat!
+  id: 882
+  time: '2026-02-02T02:39:01.0000000+00:00'
+- author: AraiMaia
+  changes:
+    - type: Fix
+      message: >-
+        Crew monitor now correctly displays the unfortunate crew's health
+        condition.
+  id: 883
+  time: '2026-02-02T03:20:25.0000000+00:00'
+- author: marc-pelletier
+  changes:
+    - type: Fix
+      message: >-
+        Mutations applied to subjects inside scanners will now properly show
+        details in the console. 
+  id: 884
+  time: '2026-02-02T07:55:35.0000000+00:00'
+- author: marc-pelletier
+  changes:
+    - type: Fix
+      message: 'Fixed issue with genetics console crashing on research point change. '
+  id: 885
+  time: '2026-02-02T19:22:09.0000000+00:00'
+- author: marc-pelletier
+  changes:
+    - type: Fix
+      message: >-
+        Geneticist console will no longer crash when printing injectors in debug
+        builds
+  id: 886
+  time: '2026-02-02T23:08:22.0000000+00:00'
+- author: marc-pelletier
+  changes:
+    - type: Fix
+      message: Armor mutations will no longer cause you to explode from a punch.
+  id: 887
+  time: '2026-02-03T02:46:38.0000000+00:00'
+- author: TrixxedHeart
+  changes:
+    - type: Fix
+      message: Vox are now poisoned by oxygen again
+  id: 888
+  time: '2026-02-04T01:32:11.0000000+00:00'
+- author: marc-pelletier
+  changes:
+    - type: Fix
+      message: Fixed issue with entities modifying lung gas more than once.
+  id: 889
+  time: '2026-02-05T18:42:31.0000000+00:00'
+- author: 88tv
+  changes:
+    - type: Add
+      message: >-
+        Added the Power Transmission Point and Compressed Matter Fabricator to
+        Packed.
+    - type: Fix
+      message: Fixed direction of evacuation signage in Packed.
+    - type: Tweak
+      message: Reworked the washroom to a laundromat in Packed.
+    - type: Add
+      message: >-
+        Added atmospheric reserves items (AIR computer, gas extractors, money
+        cabinet) to atmospherics in Packed.
+    - type: Add
+      message: Added Geiger counters to various locations in Packed.
+    - type: Remove
+      message: >-
+        Removed excess materials and loot within the Engineering department in
+        Packed.
+    - type: Add
+      message: Added a pipe scrubber to the atmospherics bay in Packed.
+    - type: Fix
+      message: >-
+        Linked a previously unlinked medical scanner and genetics console in
+        Packed.
+    - type: Fix
+      message: Fixed a previously unnamed science fax machine in Packed.
+    - type: Add
+      message: >-
+        Added a station beacon to Genetics and Secondary Evac (Docking Arm) in
+        Packed.
+    - type: Add
+      message: Added extra firelocks in northern maintenance in Packed.
+    - type: Fix
+      message: >-
+        Made the security entrance brig-locked instead of security-locked in
+        Packed.
+    - type: Fix
+      message: Connected the science department's pipenet to distro in Packed.
+    - type: Fix
+      message: Reorganized the chemistry room to move the sink in Packed.
+    - type: Add
+      message: Added a weakness to Captain's room in Packed.
+    - type: Add
+      message: Added a funny door to genpop in Packed.
+  id: 890
+  time: '2026-02-07T19:27:10.0000000+00:00'
+- author: AraiMaia
+  changes:
+    - type: Fix
+      message: Ion storms now actually scramble silicon laws as intended.
+  id: 891
+  time: '2026-02-09T18:19:07.0000000+00:00'
+- author: salpphie
+  changes:
+    - type: Add
+      message: >-
+        Added pipe scrubber, empty cloning room to medical in place of old
+        genetics area, and Laundry room to Eden map
+    - type: Tweak
+      message: Changed genetics to be in science on Eden map
+  id: 892
+  time: '2026-02-10T21:47:39.0000000+00:00'
+- author: mkanke-real
+  changes:
+    - type: Add
+      message: Adds laundry to Roid
+    - type: Fix
+      message: Fixed Roids missing lv wire to RnD server
+    - type: Tweak
+      message: >-
+        Roids atmos miners switched to extractors and supplies adjusted for gas
+        purchasing
+  id: 893
+  time: '2026-02-10T21:50:04.0000000+00:00'
+- author: ParadoxumOfficial
+  changes:
+    - type: Fix
+      message: Hopefully fixed the broken Github Labeler
+  id: 894
+  time: '2026-02-11T05:40:13.0000000+00:00'
+- author: TheHolyAegis
+  changes:
+    - type: Add
+      message: >-
+        Added decals on the floor to guide players to some of the further spots
+        on the station.
+    - type: Add
+      message: Added some wallmounted geiger counters in and around engineering.
+    - type: Add
+      message: Replaced one portable scrubber with a pipe scrubber.
+    - type: Add
+      message: Added the Atmospheric Reserves Computer.
+    - type: Tweak
+      message: >-
+        Replaced the standard gas minders with gas extractors, which are
+        connected to the Atmospheric Reserves Computer.
+    - type: Fix
+      message: Fixed the one blast door not being connected on the evacuation shuttle.
+    - type: Fix
+      message: >-
+        Connected the one APC in medical that didn't have an MV cable going to
+        it.
+    - type: Tweak
+      message: Changed some additional minor things to improve the player experience.
+  id: 895
+  time: '2026-02-17T21:58:26.0000000+00:00'
+- author: Terkala
+  changes:
+    - type: Fix
+      message: >-
+        The Revolution should now end once all command members are dead or
+        off-station now. 
+  id: 896
+  time: '2026-02-18T01:13:36.0000000+00:00'

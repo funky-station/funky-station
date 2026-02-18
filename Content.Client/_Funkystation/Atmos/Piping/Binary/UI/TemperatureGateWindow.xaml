@@ -1,0 +1,37 @@
+<DefaultWindow xmlns="https://spacestation14.io"
+               xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+               MinSize="260 140"
+               Title="{Loc temperature-gate-ui-window-title}">
+    <BoxContainer Orientation="Vertical"
+                  Margin="8 8 8 8"
+                  SeparationOverride="12">
+
+        <!-- On/Off toggle -->
+        <BoxContainer Orientation="Horizontal"
+                      HorizontalExpand="True">
+            <Label Text="{Loc temperature-gate-ui-status-label}" />
+            <Control MinSize="8 0" />
+            <Button Name="ToggleStatusButton"
+                    MinSize="8 0" />
+        </BoxContainer>
+
+        <!-- Threshold + Mode -->
+        <BoxContainer Orientation="Horizontal"
+                      HorizontalExpand="True">
+            <Label Text="{Loc temperature-gate-ui-threshold-label}" />
+            <Control MinSize="8 0" />
+            <LineEdit Name="ThresholdInput"
+                      MinSize="100 0" />
+            <Control MinSize="6 0" />
+            <Button Name="ToggleModeButton"
+                    MinSize="60 0"
+                    Text="{Loc temperature-gate-ui-mode-max}" />
+            <Control MinSize="8 0" />
+            <Button Name="SetButton"
+                    MinSize="60 0"
+                    Text="{Loc temperature-gate-ui-set}"
+                    Disabled="True" />
+        </BoxContainer>
+
+    </BoxContainer>
+</DefaultWindow>

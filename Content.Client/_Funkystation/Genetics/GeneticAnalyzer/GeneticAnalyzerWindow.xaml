@@ -1,0 +1,56 @@
+<controls:FancyWindow xmlns="https://spacestation14.io"
+                      xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+                      MinWidth="440"
+                      MaxWidth="520"
+                      MinHeight="540"
+                      Title="{Loc genetic-analyzer-window-title}">
+
+    <BoxContainer Orientation="Vertical" Margin="10 10 10 6">
+
+        <!-- No Patient Data -->
+        <Label Name="NoPatientDataText"
+               Text="{Loc genetic-analyzer-no-subject-data}"
+               Visible="True"
+               HorizontalAlignment="Center"
+               StyleClasses="LabelSubText"
+               Margin="0 20 0 20"/>
+
+        <BoxContainer Name="MainContainer" Orientation="Vertical" Visible="False" >
+
+            <!-- Header: Patient Name -->
+            <BoxContainer Orientation="Horizontal" Margin="0 0 0 6">
+                <Label Name="PatientNameLabel"
+                       Text="{Loc genetic-analyzer-scanning}"
+                       HorizontalExpand="True"
+                       StyleClasses="LabelBig"
+                       HorizontalAlignment="Left" />
+            </BoxContainer>
+
+            <!-- Genetic Instability -->
+            <BoxContainer Orientation="Horizontal"
+                          Margin="0 4 0 12"
+                          Name="InstabilityRow" >
+                <Label Text="{Loc genetic-analyzer-instability-label}"
+                       VerticalAlignment="Center"/>
+                <Label Name="StatsLabel"
+                       Text=""
+                       HorizontalExpand="True"
+                       Margin="4 0 0 0" />
+            </BoxContainer>
+
+            <PanelContainer StyleClasses="LowDivider" />
+
+        </BoxContainer>
+
+        <ScrollContainer Name="ScrollContainer"
+                         VerticalExpand="True"
+                         Visible="False"
+                         Margin="0 8 0 0" >
+            <BoxContainer Name="SequenceContainer"
+                          Orientation="Vertical" />
+        </ScrollContainer>
+
+        <Button Name="PrintButton" Text="{Loc 'genetic-analyzer-print-button'}" />
+
+    </BoxContainer>
+</controls:FancyWindow>

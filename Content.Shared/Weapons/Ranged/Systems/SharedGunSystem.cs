@@ -1184,16 +1184,18 @@ public abstract partial class SharedGunSystem : EntitySystem
     }
 
     protected abstract void CreateEffect(EntityUid gunUid, MuzzleFlashEvent message, EntityUid? user = null, EntityUid? player = null);
-
-    /// <summary>
-    /// Used for animated effects on the client.
-    /// </summary>
-    [Serializable, NetSerializable]
-    public sealed class HitscanEvent : EntityEventArgs
-    {
-        public List<(NetCoordinates coordinates, Angle angle, SpriteSpecifier Sprite, float Distance)> Sprites = new();
-    }
 }
+
+// BEGIN FUNKY CHANGES - exposed HitscanEvent for use elsewhere
+/// <summary>
+/// Used for animated effects on the client.
+/// </summary>
+[Serializable, NetSerializable]
+public sealed class HitscanEvent : EntityEventArgs
+{
+    public List<(NetCoordinates coordinates, Angle angle, SpriteSpecifier Sprite, float Distance)> Sprites = new();
+}
+// END FUNKY CHANGES
 
 /// <summary>
 ///     Raised directed on the gun before firing to see if the shot should go through.

@@ -1,3 +1,9 @@
+# SPDX-FileCopyrightText: 2026 Steve <marlumpy@gmail.com>
+# SPDX-FileCopyrightText: 2026 marc-pelletier <113944176+marc-pelletier@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2026 willow <willowzeta632146@proton.me>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 # - type: job
 #   id: Geneticist
 #   name: id-card-job-geneticist
@@ -7,7 +13,6 @@
 #   #   - !type:DepartmentTimeRequirement
 #   #     department: Medical
 #   #     time: 18000  # 5 hrs total med
-#   weight: 30  # Medium availability
 #   startingGear: GeneticistGear
 #   icon: "JobIconGeneticist"
 #   requireAdminNotify: false

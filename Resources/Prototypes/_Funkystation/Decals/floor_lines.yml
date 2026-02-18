@@ -1,0 +1,159 @@
+# SPDX-FileCopyrightText: 2026 willow <willowzeta632146@proton.me>
+#
+# SPDX-License-Identifier: MIT
+
+- type: decal
+  id: FloorLineCenterArrow1
+  sprite:
+    sprite: Decals/floor-lines.rsi
+    state: center_arrow1
+
+- type: decal
+  id: FloorLineCenterArrow2
+  sprite:
+    sprite: Decals/floor-lines.rsi
+    state: center_arrow2
+
+- type: decal
+  id: FloorLineCenterArrow3
+  sprite:
+    sprite: Decals/floor-lines.rsi
+    state: center_arrow3
+
+- type: decal
+  id: FloorLineCenterBend
+  sprite:
+    sprite: Decals/floor-lines.rsi
+    state: center_bend
+
+- type: decal
+  id: FloorLineCenterBendArrowCCW
+  sprite:
+    sprite: Decals/floor-lines.rsi
+    state: center_bendarrowccw
+
+- type: decal
+  id: FloorLineCenterBendArrowCW
+  sprite:
+    sprite: Decals/floor-lines.rsi
+    state: center_bendarrowcw
+
+- type: decal
+  id: FloorLineCenterBox1
+  sprite:
+    sprite: Decals/floor-lines.rsi
+    state: center_box1
+
+- type: decal
+  id: FloorLineCenterBox2
+  sprite:
+    sprite: Decals/floor-lines.rsi
+    state: center_box2
+
+- type: decal
+  id: FloorLineCenterBox3
+  sprite:
+    sprite: Decals/floor-lines.rsi
+    state: center_box3
+
+- type: decal
+  id: FloorLineCenterConnectorLong
+  sprite:
+    sprite: Decals/floor-lines.rsi
+    state: center_connectorlong
+
+- type: decal
+  id: FloorLineCenterConnectorShort
+  sprite:
+    sprite: Decals/floor-lines.rsi
+    state: center_connectorshort
+
+- type: decal
+  id: FloorLineCenterStraight
+  sprite:
+    sprite: Decals/floor-lines.rsi
+    state: center_straight
+
+- type: decal
+  id: FloorLineDoubleArrowLeft1
+  sprite:
+    sprite: Decals/floor-lines.rsi
+    state: duo_arrowleft1
+
+- type: decal
+  id: FloorLineDoubleArrowLeft2
+  sprite:
+    sprite: Decals/floor-lines.rsi
+    state: duo_arrowleft2
+
+- type: decal
+  id: FloorLineDoubleArrowRight1
+  sprite:
+    sprite: Decals/floor-lines.rsi
+    state: duo_arrowright1
+
+- type: decal
+  id: FloorLineDoubleArrowRight2
+  sprite:
+    sprite: Decals/floor-lines.rsi
+    state: duo_arrowright2
+
+- type: decal
+  id: FloorLineDoubleBendArrowCCW
+  sprite:
+    sprite: Decals/floor-lines.rsi
+    state: duo_bendarrowccw
+
+- type: decal
+  id: FloorLineDoubleBendArrowCW
+  sprite:
+    sprite: Decals/floor-lines.rsi
+    state: duo_bendarrowcw
+
+- type: decal
+  id: FloorLineDoubleBendInner
+  sprite:
+    sprite: Decals/floor-lines.rsi
+    state: duo_bendinner
+
+- type: decal
+  id: FloorLineDoubleBendOuter
+  sprite:
+    sprite: Decals/floor-lines.rsi
+    state: duo_bendouter
+
+- type: decal
+  id: FloorLineDoubleBoxLeft
+  sprite:
+    sprite: Decals/floor-lines.rsi
+    state: duo_boxleft
+
+- type: decal
+  id: FloorLineDoubleBoxRight
+  sprite:
+    sprite: Decals/floor-lines.rsi
+    state: duo_boxright
+
+- type: decal
+  id: FloorLineDoubleConnectorLeft
+  sprite:
+    sprite: Decals/floor-lines.rsi
+    state: duo_connectorleft
+
+- type: decal
+  id: FloorLineDoubleConnectRight
+  sprite:
+    sprite: Decals/floor-lines.rsi
+    state: duo_connectorright
+
+- type: decal
+  id: FloorLineDoubleStraightLeft
+  sprite:
+    sprite: Decals/floor-lines.rsi
+    state: duo_straightleft
+
+- type: decal
+  id: FloorLineDoubleStraightRight
+  sprite:
+    sprite: Decals/floor-lines.rsi
+    state: duo_straightright

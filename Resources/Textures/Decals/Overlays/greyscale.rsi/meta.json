@@ -201,6 +201,15 @@
     },
     {
       "name": "pavement_vertical_checker_b"
+    },
+    {
+      "name": "halftile_center_overlay"
+    },
+    {
+      "name": "quartertile_center_overlay"
+    },
+    {
+      "name":"halftile_center_overlay_90"
     }
   ]
 }

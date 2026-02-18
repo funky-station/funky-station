@@ -1,7 +1,7 @@
 # SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Zadeon <loldude9000@gmail.com>
 # SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
@@ -28,6 +28,12 @@
   # Generate biome
   - !type:BiomeDunGen
     biomeTemplate: Asteroid
+  - !type:OreDunGen
+    replacement: AsteroidRock
+    entity: AsteroidRockGibtonite
+    count: 8
+    minGroupSize: 0
+    maxGroupSize: 1
 
 # Multiple smaller asteroids
 # This is a pain so we generate fewer tiles
@@ -51,6 +57,12 @@
   # Generate biome
   - !type:BiomeDunGen
     biomeTemplate: Asteroid
+  - !type:OreDunGen
+    replacement: AsteroidRock
+    entity: AsteroidRockGibtonite
+    count: 8
+    minGroupSize: 0
+    maxGroupSize: 1
 
 # Long and spindly, less smooth than blob
 - type: dungeonConfig
@@ -74,6 +86,12 @@
   # Generate biome
   - !type:BiomeDunGen
     biomeTemplate: Asteroid
+  - !type:OreDunGen
+    replacement: AsteroidRock
+    entity: AsteroidRockGibtonite
+    count: 8
+    minGroupSize: 0
+    maxGroupSize: 1
 
 # Lots of holes in it
 - type: dungeonConfig
@@ -96,3 +114,9 @@
   # Generate biome
   - !type:BiomeDunGen
     biomeTemplate: Asteroid
+  - !type:OreDunGen
+    replacement: AsteroidRock
+    entity: AsteroidRockGibtonite
+    count: 8
+    minGroupSize: 0
+    maxGroupSize: 1

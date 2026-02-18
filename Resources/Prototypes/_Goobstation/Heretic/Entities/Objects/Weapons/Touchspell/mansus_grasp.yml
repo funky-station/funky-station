@@ -4,6 +4,7 @@
 # SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2026 Xcybitt <197952719+Xcybitt@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -16,6 +17,25 @@
   - type: Unremoveable
   - type: Item
   - type: MansusGrasp
+  - type: Sprite
+    sprite: _Goobstation/Heretic/mansus_grasp.rsi
+    state: icon
+  - type: Appearance
+  - type: UseDelay
+  - type: PointLight
+    enabled: true
+    radius: 2
+    energy: 1
+    color: "#329a00"
+
+- type: entity
+  id: TouchSpellMansusFake
+  name: cursed hand
+  suffix: Fake, Admeme
+  description: A really weird hand. It seems cursed.
+  components:
+  - type: Unremoveable
+  - type: Item
   - type: Sprite
     sprite: _Goobstation/Heretic/mansus_grasp.rsi
     state: icon

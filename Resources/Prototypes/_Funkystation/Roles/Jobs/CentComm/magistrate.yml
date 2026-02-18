@@ -18,9 +18,9 @@
   - !type:RoleTimeRequirement
     role: JobHeadOfSecurity
     time: 54000 #15 hrs - to unlock HOS, you need to play security for 35 hours (10 warden, 20 secoff, 5 cadet).
-  - !type:DepartmentTimeRequirement
-    department: CentralCommand
-    time: 72000 #20 hrs - not NT rep hours, as that requires command role time - too stringent. IAA will do.
+  - !type:RoleTimeRequirement
+    role: JobNanotrasenRepresentative
+    time: 72000 #20 hrs - NT rep hours, magistrates outrank NTRs and should be knowledgeable about the rest of the CC VIPs, this entails all of them
   - !type:DepartmentTimeRequirement
     department: Security
     time: 270000 #75 hrs - to demand 25 hours of security in addition to the 20 hour HOS requirement, which implies 50 total hours in security roles once complete.

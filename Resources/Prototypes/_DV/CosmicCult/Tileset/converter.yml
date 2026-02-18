@@ -1,6 +1,7 @@
 # SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2026 AftrLite <61218133+AftrLite@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -11,7 +12,7 @@
   parent: BaseStructure
   id: CosmicBorgChantry
   name: Vacuous Chantry
-  description: Lorem Ipsum
+  description: Malign energies gather within, coalescing something yet-to-be.
   placement:
     mode: AlignTileAny
   components:
@@ -21,13 +22,26 @@
         shape:
           !type:PhysShapeAabb
           bounds: "-0.4,-0.3,0.4,0.6"
+        density: 155
         mask:
         - LargeMobMask
         layer:
-        - WallLayer
-        density: 100
-        hard: true
-  - type: SpriteFade
+        - MachineLayer
+        - InteractImpassable
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Metallic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors: #excess damage, don't spawn entities.
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
   - type: Sprite
     sprite: _DV/CosmicCult/Tileset/cosmicconstructpylon.rsi
     layers:
@@ -76,6 +90,7 @@
     range: 20
     sound:
       path: /Audio/_DV/CosmicCult/god_ambient.ogg
+  - type: DoAfter
   - type: CosmicCultExamine
     cultistText: cosmic-examine-text-forthecult
     othersText: cosmic-examine-text-chantry
@@ -85,17 +100,3 @@
     floodFillStarting: true
     corruptionMaxTicks: 12
     corruptionSpeed: 1.25
-  - type: Damageable
-    damageContainer: StructuralInorganic
-    damageModifierSet: Metallic
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 100
-      behaviors: #excess damage, don't spawn entities.
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-      - !type:PlaySoundBehavior
-        sound:
-          collection: GlassBreak

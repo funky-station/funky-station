@@ -7786,3 +7786,11 @@ Entries:
       message: Changed some additional minor things to improve the player experience.
   id: 895
   time: '2026-02-17T21:58:26.0000000+00:00'
+- author: Terkala
+  changes:
+    - type: Fix
+      message: >-
+        The Revolution should now end once all command members are dead or
+        off-station now. 
+  id: 896
+  time: '2026-02-18T01:13:36.0000000+00:00'

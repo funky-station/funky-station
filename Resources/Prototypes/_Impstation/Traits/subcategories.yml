@@ -1,8 +1,0 @@
-# SPDX-FileCopyrightText: 2025 ImpstationBot <irismessage+bot@protonmail.com>
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
-
-- type: traitSubcategory
-  id: Weight
-  name: trait-subcategory-weight

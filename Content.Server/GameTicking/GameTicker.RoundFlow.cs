@@ -88,11 +88,11 @@ using Robust.Shared.Player;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
 // Goob Station - End of Round Screen
-using Content.Goobstation.Common.LastWords;
+using Content.Shared._Goobstation.LastWords;
 using Content.Shared.Damage;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.FixedPoint;
 
 namespace Content.Server.GameTicking
 {

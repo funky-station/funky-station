@@ -1,4 +1,7 @@
+# SPDX-FileCopyrightText: 2025 PurpleTranStar <tehevilduckiscoming@gmail.com>
+# SPDX-FileCopyrightText: 2025 mqole <113324899+mqole@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 rosieposie <52761126+rosieposieeee@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2026 Xcybitt <197952719+Xcybitt@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -22,3 +25,6 @@
         sprite: _Impstation/Objects/Devices/sos.rsi
         state: icon
     - type: SOSCartridge
+    - type: Tag #SOBBING WHY WAS THIS UNTAGGED
+      tags:
+      - PDACart

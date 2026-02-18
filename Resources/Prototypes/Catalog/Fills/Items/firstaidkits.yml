@@ -23,8 +23,10 @@
 # SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 DevilishMilk <michaellapjr@gmail.com>
 # SPDX-FileCopyrightText: 2025 Fenn <162015305+TooSillyFennec@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Mish <bluscout78@yahoo.com>
 # SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2026 Xcybitt <197952719+Xcybitt@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -37,11 +39,12 @@
   - type: StorageFill
     contents:
       - id: Brutepack
+        amount: 2 #shoould be fine
       - id: Ointment
       - id: Gauze
       - id: PillCanisterTricordrazine
       - id: PillCanisterGranibitulari # Funkychem
-      - id: HandheldHealthAnalyzer #funky
+#      - id: HandheldHealthAnalyzer #funky  #death
       # see https://github.com/tgstation/blob/master/code/game/objects/items/storage/firstaid.dm for example contents
 
 - type: entity
@@ -52,10 +55,10 @@
   - type: StorageFill
     contents:
       - id: Ointment
-        amount: 2
+        amount: 3 #this feels safe
       - id: PillCanisterAiuri # Funkychem
       - id: PillCanisterLenturi # funky
-      - id: HandheldHealthAnalyzer #funky
+#      - id: HandheldHealthAnalyzer #funky  #death
 
 - type: entity
   id: MedkitBruteFilled
@@ -65,12 +68,13 @@
   - type: StorageFill
     contents:
       - id: Brutepack
+        amount: 2 #this feels fine? maybe
       - id: Gauze
       - id: SyringeSaline # Funkychem - Handles the fact there's too many species blood types AND 10x more effective.
         amount: 2
       - id: PillCanisterLibital # Funkychem
       - id: PillCanisterProbital # funky
-      - id: HandheldHealthAnalyzer #funky
+#      - id: HandheldHealthAnalyzer #funky  #death
 
 - type: entity
   id: MedkitToxinFilled
@@ -80,12 +84,14 @@
   - type: StorageFill
     contents:
       - id: SyringeIpecac
+        amount: 2 #these both felt the best to add to fill
       - id: SyringeEthylredoxrazine
+        amount: 2
       - id: AntiPoisonMedipen
         amount: 2 # Funkychem
       - id: PillCanisterMultiver
       - id: PillCanisterCharcoal
-      - id: HandheldHealthAnalyzer #funky
+#      - id: HandheldHealthAnalyzer #funky  #death
 
 - type: entity
   id: MedkitOxygenFilled
@@ -98,11 +104,12 @@
       - id: EmergencyOxygenTankFilled
       - id: EmergencyMedipen
         amount: 2 # Funkychem
-   #   - id: SyringeInaprovaline
+      - id: SyringeInaprovaline
+        amount: 2 #inaprov does almost nothing, however it DOES stop bleeds sooo
       - id: SyringeConvermol # Funkychem - only kit to have 1 pill type, generally makes sense to have 2.
         amount: 2
       - id: PillCanisterDexalin
-      - id: HandheldHealthAnalyzer #funky
+#      - id: HandheldHealthAnalyzer #funky  #death
 
 - type: entity
   id: MedkitRadiationFilled
@@ -117,8 +124,8 @@
       - id: PillCanisterPotassiumIodide
       - id: PillCanisterHyronalin
       - id: MedicalPatchPrefilledAntiRad # Funkychem
-        amount: 2
-      - id: HandheldHealthAnalyzer #funky
+        amount: 3 #this felt the most appropriate one to add
+#      - id: HandheldHealthAnalyzer #funky  #death
 
 - type: entity
   id: MedkitAdvancedFilled
@@ -133,7 +140,7 @@
         amount: 1
       - id: SyringeSaline # Funky
         amount: 2
-      - id: HandheldHealthAnalyzer #funky
+      - id: HandheldHealthAnalyzer #funky  #leaving because there's more reason to fucking buy these now
 
 - type: entity
   id: MedkitCombatFilled
@@ -149,7 +156,7 @@
       - id: SyringeSaline
       - id: BruteAutoInjector
       - id: BurnAutoInjector
-      - id: HandheldHealthAnalyzer #funky
+      - id: HandheldHealthAnalyzer #funky  #yes nukies can get this, also CMOs, if they get one mapped
 
 - type: entity
   id: StimkitFilled

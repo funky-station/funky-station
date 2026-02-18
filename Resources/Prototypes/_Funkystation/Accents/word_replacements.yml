@@ -492,9 +492,6 @@
     accent-british-words-117-1: accent-british-replacement-117
     accent-british-words-117-2: accent-british-replacement-117
     accent-british-words-117-3: accent-british-replacement-117
-    accent-british-words-117-4: accent-british-replacement-117
-    accent-british-words-117-5: accent-british-replacement-117
-    accent-british-words-117-6: accent-british-replacement-117
     accent-british-words-118-1: accent-british-replacement-118
     accent-british-words-118-2: accent-british-replacement-118
     accent-british-words-118-3: accent-british-replacement-118
@@ -870,7 +867,8 @@
     accent-british-words-277: accent-british-replacement-277
     accent-british-words-278: accent-british-replacement-278
     accent-british-words-279: accent-british-replacement-279
-    accent-british-words-280: accent-british-replacement-280
+    accent-british-words-280-1: accent-british-replacement-280
+    accent-british-words-280-2: accent-british-replacement-280
     accent-british-words-281: accent-british-replacement-281
 
 - type: accent

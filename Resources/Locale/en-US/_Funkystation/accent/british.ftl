@@ -484,11 +484,8 @@ accent-british-words-116-4 = slurped
 accent-british-replacement-116 = necked down
 
 accent-british-words-117-1 = assistant
-accent-british-words-117-2 = greytider
-accent-british-words-117-3 = greytide
-accent-british-words-117-4 = visitor
-accent-british-words-117-5 = passenger
-accent-british-words-117-6 = tider
+accent-british-words-117-2 = visitor
+accent-british-words-117-3 = passenger
 accent-british-replacement-117 = chav
 
 accent-british-words-118-1 = bartender
@@ -1265,7 +1262,8 @@ accent-british-replacement-278 = send you to London
 accent-british-words-279 = stab
 accent-british-replacement-279 = send to London
 
-accent-british-words-280 = sucker
+accent-british-words-280-1 = sucker
+accent-british-words-280-2 = baka
 accent-british-replacement-280 = plonker
 
 accent-british-words-281 = suckers

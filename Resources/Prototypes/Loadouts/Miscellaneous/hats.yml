@@ -1,0 +1,129 @@
+# SPDX-FileCopyrightText: 2025 Fr0goo <frogoofrog@outlook.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+# softcaps
+
+- type: loadout
+  id: softgrey
+  equipment:
+    head: ClothingHeadHatGreysoft
+  groupBy: "caps"
+
+- type: loadout
+  id: softwhite
+  equipment:
+    head: ClothingHeadHatMimesoft
+  groupBy: "caps"
+
+- type: loadout
+  id: softblack
+  equipment:
+    head: ClothingHeadHatBlacksoft
+  groupBy: "caps"
+
+- type: loadout
+  id: softCorp
+  equipment:
+    head: ClothingHeadHatCorpsoft
+  groupBy: "caps"
+
+- type: loadout
+  id: softblue
+  equipment:
+    head: ClothingHeadHatBluesoft
+  groupBy: "caps"
+
+- type: loadout
+  id: softpurple
+  equipment:
+    head: ClothingHeadHatPurplesoft
+  groupBy: "caps"
+
+- type: loadout
+  id: softyellow
+  equipment:
+    head: ClothingHeadHatYellowsoft
+  groupBy: "caps"
+
+- type: loadout
+  id: softgreen
+  equipment:
+    head: ClothingHeadHatGreensoft
+  groupBy: "caps"
+
+- type: loadout
+  id: orangesoft
+  equipment:
+    head: ClothingHeadHatOrangesoft
+  groupBy: "caps"
+
+- type: loadout
+  id: redsoft
+  equipment:
+    head: ClothingHeadHatRedsoft
+  groupBy: "caps"
+
+- type: loadout
+  id: redtrucker
+  equipment:
+    head: ClothingHeadHatTrucker
+  groupBy: "caps"
+
+# Bandanas
+
+- type: loadout
+  id: BandanaBlack
+  equipment:
+    head: ClothingHeadBandBlack
+  groupBy: "bandanas"
+
+- type: loadout
+  id: BandanaBlue
+  equipment:
+    head: ClothingHeadBandBlue
+  groupBy: "bandanas"
+
+- type: loadout
+  id: BandanaGold
+  equipment:
+    head: ClothingHeadBandGold
+  groupBy: "bandanas"
+
+- type: loadout
+  id: BandanaGreen
+  equipment:
+    head: ClothingHeadBandGreen
+  groupBy: "bandanas"
+
+- type: loadout
+  id: BandanaRed
+  equipment:
+    head: ClothingHeadBandRed
+  groupBy: "bandanas"
+
+- type: loadout
+  id: BandanaSkull
+  equipment:
+    head: ClothingHeadBandSkull
+  groupBy: "bandanas"
+
+- type: loadout
+  id: BandanaBrown
+  equipment:
+    head: ClothingHeadBandBrown
+  groupBy: "bandanas"
+
+# Berets
+
+- type: loadout
+  id: RedBeret
+  equipment:
+    head: ClothingHeadHatBeret
+  groupBy: "berets"
+
+- type: loadout
+  id: BlackBeret
+  equipment:
+    head: ClothingHeadHatBeretFrench
+  groupBy: "berets"

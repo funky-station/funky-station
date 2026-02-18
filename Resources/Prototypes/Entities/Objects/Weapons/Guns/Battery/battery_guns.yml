@@ -75,8 +75,10 @@
 # SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2026 Mora <46364955+TrixxedHeart@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2026 ThatOneMoon <91613003+ThatOneMoon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2026 ThatOneMoon <juozas.dringelis@gmail.com>
+# SPDX-FileCopyrightText: 2026 Xcybitt <197952719+Xcybitt@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -329,8 +331,8 @@
     steps: 5
     zeroVisible: false
   - type: Battery
-    maxCharge: 2000
-    startingCharge: 2000
+    maxCharge: 2200
+    startingCharge: 2200
   - type: Item
     size: Huge
     shape:
@@ -342,7 +344,7 @@
     fireRate: 2
     selectedMode: SemiAuto
     shotsPerBurst: 3
-    burstFireRate: 2
+    burstFireRate: 3
     availableModes:
     - SemiAuto
     - Burst
@@ -580,7 +582,7 @@
   name: practice disabler
   parent: BaseWeaponBatterySmall
   id: WeaponDisablerPractice
-  description: A self-defense weapon that exhausts organic targets, weakening them until they collapse. This one has been undertuned for cadets making it mostly harmless.
+  description: A self-defense weapon that exhausts organic targets, slowing them to a crawl. This one has been undertuned for cadets making it mostly harmless.
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Battery/practice_disabler.rsi
@@ -615,7 +617,7 @@
   name: disabler
   parent: [ WeaponDisablerPractice, BaseSecurityCommandContraband ]
   id: WeaponDisabler
-  description: A self-defense weapon that exhausts organic targets, weakening them until they collapse.
+  description: A self-defense weapon that exhausts organic targets, slowing them to a crawl.
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Battery/disabler.rsi
@@ -981,23 +983,23 @@
     soundEmpty:
       path: /Audio/_DV/Weapons/Guns/Empty/dry_fire.ogg
   - type: Battery
-    maxCharge: 2000
-    startingCharge: 2000
+    maxCharge: 1600
+    startingCharge: 1600
   - type: ProjectileBatteryAmmoProvider
     proto: BulletDisabler
     fireCost: 100
   - type: EnergyGun
     fireModes:
     - proto: BulletDisabler
-      fireCost: 100
+      fireCost: 80
       name: disabling
       state: disabler
     - proto: BulletEnergyGunLaser
-      fireCost: 200
+      fireCost: 100
       name: lethal
       state: lethal
     - proto: BulletEnergyGunIon
-      fireCost: 200
+      fireCost: 100
       name: ion
       state: special
   - type: MagazineVisuals
@@ -1015,9 +1017,10 @@
   - type: Tag
     tags:
     - HighRiskItem
+    - Multiphase
   - type: BatterySelfRecharger
     autoRecharge: true
-    autoRechargeRate: 40
+    autoRechargeRate: 15
   - type: StaticPrice
     price: 750
 

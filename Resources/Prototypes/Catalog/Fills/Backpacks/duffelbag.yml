@@ -49,15 +49,19 @@
 # SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 strO0pwafel <153459934+strO0pwafel@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 August Sun <45527070+august-sun@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Catazeus <200477155+Catazeus@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 IronDragoon <8961391+IronDragoon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 IronDragoon <you@example.com>
+# SPDX-FileCopyrightText: 2025 MaiaArai <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 halycon <104782767+kleinerstation13@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2026 ALooseGoose <ALooseGoosey@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -123,6 +127,18 @@
       - id: MagazinePistolSubMachineGun
         amount: 2
 #     - id: SMGSuppressor
+
+- type: entity
+  parent: ClothingBackpackDuffelSyndicateBundle
+  id: ClothingBackpackDuffelSyndicateFilledRifle
+  name: Estoc DMR bundle
+  description: "For medium-range sharpshooting, the Estoc DMR. Bundled with three magazines."
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponRifleEstoc
+    - id: MagazineRifle
+      amount: 2
 
 - type: entity
   parent: ClothingBackpackDuffelSyndicateBundle
@@ -397,13 +413,27 @@
   components:
   - type: StorageFill
     contents:
-      - id: BalloonOperative
-      - id: BalloonAgent
-      - id: BalloonElite
-      - id: BalloonJuggernaut
-      - id: BalloonCommander
-      - id: SnapPopBox
-      - id: GrenadeDummy
-        amount: 2
-      - id: SyndieTrickyBomb
-        amount: 2
+    - id: BalloonOperative
+    - id: BalloonAgent
+    - id: BalloonElite
+    - id: BalloonJuggernaut
+    - id: BalloonCommander
+    - id: SnapPopBox
+    - id: GrenadeDummy
+      amount: 2
+    - id: SyndieTrickyBomb
+      amount: 2
+
+- type: entity
+  parent: ClothingBackpackDuffelSyndicateBundle
+  id: ClothingBackpackDuffelSyndicateFilledHushpup
+  name: Hushpup bundle
+  description: Contains the Hushpup, bundled with a box of buckshot. Quarter included.
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: WeaponShotgunHushpup
+        - id: BoxLethalshot
+        - id: TreasureCoinIron

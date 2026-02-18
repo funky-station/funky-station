@@ -26,7 +26,10 @@
 # SPDX-FileCopyrightText: 2024 youtissoum <51883137+youtissoum@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Fr0goo <153249069+Fr0goo@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 TheSecondLord <88201625+TheSecondLord@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 V <97265903+formlessnameless@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 misghast <51974455+misterghast@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 mq <113324899+mqole@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
@@ -45,6 +48,7 @@
     layers:
     - map: [ "enum.DamageStateVisualLayers.Base" ]
       state: blue_adult_slime
+  - type: Carriable #DeltaV
   - type: Fixtures
     fixtures:
       fix1:

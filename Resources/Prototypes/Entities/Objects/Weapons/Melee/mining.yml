@@ -21,9 +21,9 @@
 # SPDX-FileCopyrightText: 2025 QueerCats <jansencheng3@gmail.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 ThatOneMoon <91613003+ThatOneMoon@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
 # SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2026 ThatOneMoon <juozas.dringelis@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -40,6 +40,7 @@
     sprite: Objects/Weapons/Melee/pickaxe.rsi
     state: pickaxe
   - type: MeleeWeapon
+    autoAttack: true # Funky change
     attackRate: 0.5
     wideAnimationRotation: -135
     soundHit:
@@ -169,7 +170,8 @@
     capacity: 1
     count: 1
   - type: MeleeWeapon
-    attackRate: 1.6
+    autoAttack: true
+    attackRate: 1.4
     wideAnimationRotation: -135
     damage:
       types:
@@ -243,6 +245,7 @@
       groups:
         Brute: -15
   - type: MeleeWeapon
+    autoAttack: true
   - type: Tag
     tags:
      - Pickaxe

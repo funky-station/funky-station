@@ -1,16 +1,17 @@
 # SPDX-FileCopyrightText: 2025 Catazeus <200477155+Catazeus@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
-# SPDX-FileCopyrightText: 2025 Xcybitt <197952719+Xcybitt@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 heree <79546981+hereelabs@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 hereelabs <hahmorm@gmail.com>
 # SPDX-FileCopyrightText: 2025 kbarkevich <24629810+kbarkevich@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 mkanke-real <mikekanke@gmail.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2026 TheHolyAegis <sanderkamphuis719@gmail.com>
+# SPDX-FileCopyrightText: 2026 Xcybitt <197952719+Xcybitt@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
 - type: entity
-  parent: [IDCardStandard, BaseCommandContraband]
+  parent: [IDCardStandard, BaseCentcommContraband]
   id: InternalAffairsAgentIDCard
   name: internal affairs agent ID card
   description: You wouldn't lose this, would you?
@@ -26,7 +27,7 @@
     job: InternalAffairsAgent
 
 - type: entity
-  parent: [IDCardStandard, BaseCommandContraband]
+  parent: [IDCardStandard, BaseCentcommContraband]
   id: MagistrateIDCard
   name: magistrate ID card
   components:
@@ -39,6 +40,20 @@
       state: Magistrate
   - type: PresetIdCard
     job: Magistrate
+
+- type: entity
+  parent: [IDCardStandard, BaseCentcommContraband]
+  id: CentcomInternIDCard
+  name: central command intern ID card
+  components:
+  - type: Sprite
+    layers:
+    - state: cc #base
+    - sprite: _Funkystation/Interface/Misc/job_icons.rsi #icon
+      offset: "-0.125, 0.09375"
+      state: CentralCommandIntern
+  - type: PresetIdCard
+    job: CentralCommandIntern
 
 - type: entity
   parent: IDCardStandard
@@ -56,7 +71,7 @@
     job: BlueshieldOfficer
 
 - type: entity
-  parent: [IDCardStandard, BaseCommandContraband]
+  parent: [IDCardStandard, BaseCentcommContraband]
   id: NanotrasenRepresentativeIDCard
   name: nanotrasen representative ID card
   components:
@@ -70,6 +85,21 @@
     heldPrefix: cc
   - type: PresetIdCard
     job: NanotrasenRepresentative
+
+- type: entity
+  parent: IDCardStandard
+  id: GeneticistIDCard
+  name: geneticist ID card
+  components:
+  - type: Sprite
+    layers:
+    - state: default #base
+    - state: decal-stripe-medical #decal
+    - sprite: Interface/Misc/job_icons.rsi #icon
+      offset: "-0.125, 0.09375"
+      state: Geneticist
+  # - type: PresetIdCard
+  #   job: Geneticist
 
 # Charlie Station / Ancient ID Cards
 

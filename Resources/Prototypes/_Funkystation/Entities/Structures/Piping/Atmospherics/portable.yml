@@ -1,0 +1,107 @@
+# SPDX-FileCopyrightText: 2026 Steve <marlumpy@gmail.com>
+#
+# SPDX-License-Identifier: MIT
+
+- type: entity
+  id: PipeScrubber
+  parent: [BaseMachinePowered, SmallConstructibleMachine, StructureWheeled]
+  name: pipe scrubber
+  description: It scrubs, pipably!
+  components:
+  - type: Transform
+    anchored: false
+  - type: Physics
+    bodyType: Dynamic
+  - type: AtmosDevice
+    joinSystem: true
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.4
+        density: 100
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+  - type: Sprite
+    sprite: _Funkystation/Structures/Piping/Atmospherics/Portable/pipe_scrubber.rsi
+    noRot: true
+    layers:
+    - state: icon
+    - state: unlit
+      shader: unshaded
+      map: ["enum.PipeScrubberVisuals.IsEnabled"]
+      visible: false
+    - state: icon-running
+      shader: unshaded
+      map: ["enum.PipeScrubberVisuals.IsScrubbing"]
+      visible: false
+    - state: unlit-full
+      shader: unshaded
+      map: ["enum.PipeScrubberVisuals.IsFull"]
+      visible: false
+    - state: draining
+      shader: unshaded
+      visible: false
+      map: ["enum.PipeScrubberVisuals.IsDraining"]
+  - type: GasPortable
+  - type: PipeScrubber
+    gasMixture:
+      volume: 1000
+  - type: NodeContainer
+    nodes:
+      port:
+        !type:PortablePipeNode
+        nodeGroupID: Pipe
+        rotationsEnabled: false
+        volume: 1
+  - type: ApcPowerReceiver
+    powerLoad: 2000
+  - type: Appearance
+  - type: PipeScrubberVisuals
+    idleState: icon
+    enabledState: unlit
+    scrubbingState: icon-running
+    drainingState: draining
+    fullState: unlit-full
+  - type: AmbientSound
+    enabled: false
+    volume: -5
+    range: 5
+    sound:
+      path: /Audio/Ambience/Objects/portable_scrubber.ogg
+  - type: Machine
+    board: PipeScrubberMachineCircuitBoard
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Metallic
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 600
+        behaviors:
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
+      - trigger:
+          !type:DamageTrigger
+          damage: 300
+        behaviors:
+          - !type:PlaySoundBehavior
+            sound:
+              collection: MetalBreak
+          - !type:SpawnEntitiesBehavior
+            spawn:
+              SheetSteel1:
+                min: 1
+                max: 3
+              SheetGlass1:
+                min: 1
+                max: 2
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
+  - type: GuideHelp
+    guides:
+    - PortableScrubber

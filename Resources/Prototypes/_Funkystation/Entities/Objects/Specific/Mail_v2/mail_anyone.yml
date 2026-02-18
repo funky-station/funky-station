@@ -579,7 +579,7 @@
 - type: entity
   parent: BaseMail
   id: MailMysteryLighterBox
-  suffix: Ligher Mystery Box 
+  suffix: Ligher Mystery Box
   components:
   - type: Mail
     contents:
@@ -588,8 +588,27 @@
 - type: entity
   parent: BaseMail
   id: MailUplinkLighterBox
-  suffix: Uplink Ligher Mystery Box 
+  suffix: Uplink Ligher Mystery Box
   components:
   - type: Mail
     contents:
     - id: UplinkLighterBox
+
+- type: entity
+  parent: BaseMailSmall
+  id: MailGenie
+  suffix: Genie
+  components:
+  - type: Mail
+    isFragile: true
+    contents:
+    - id: ArabianLamp
+
+- type: entity
+  parent: BaseMailSmall
+  id: MailMultiweh
+  suffix: Multiweh
+  components:
+  - type: Mail
+    contents:
+    - id: PlushieLizardJobMultiweh

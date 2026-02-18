@@ -82,6 +82,7 @@ loadout-group-bartender-outerclothing = Bartender outer clothing
 loadout-group-generic-hats = Hats
 loadout-group-service_jumpsuit = Service jumpsuit
 loadout-group-gloves = Gloves
+loadout-group-generic-outerclothing = Outer clothing
 loadout-group-generic-shoes = Shoes
 
 loadout-group-chef-head = Chef head

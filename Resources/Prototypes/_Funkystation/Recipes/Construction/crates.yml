@@ -1,4 +1,6 @@
+# SPDX-FileCopyrightText: 2025 ThatOneMoon <91613003+ThatOneMoon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
+# SPDX-FileCopyrightText: 2026 Xcybitt <197952719+Xcybitt@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -55,4 +57,26 @@
   category: construction-category-storage
   description: A secure lock box. 75% of funds from its sale will be distributed back to the department while cargo takes the rest.
   icon: { sprite: Structures/Storage/Crates/lockbox.rsi, state: icon }
-  objectType: Structure      
+  objectType: Structure
+
+- type: construction
+  name: wood tombstone grave
+  id: CrateWoodenGrave
+  graph: CrateWoodenGrave
+  startNode: start
+  targetNode: grave
+  category: construction-category-storage
+  description: A wood-marked grave. Helps hasten rot. Remember to prepare a shovel to open the grave!
+  icon: { sprite: Structures/Storage/Crates/wooden_grave.rsi, state: base }
+  objectType: Structure
+
+- type: construction
+  name: steel tombstone grave
+  id: CrateSteelGrave
+  graph: CrateSteelGrave
+  startNode: start
+  targetNode: grave
+  category: construction-category-storage
+  description: A steel-marked grave. Helps hasten rot. Remember to prepare a shovel to open the grave!
+  icon: { sprite: Structures/Storage/Crates/stone_grave.rsi, state: base }
+  objectType: Structure

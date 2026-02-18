@@ -3,6 +3,7 @@
 // SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
 // SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2026 Terkala <appleorange64@gmail.com>
 //
 // SPDX-License-Identifier: MIT
 
@@ -61,6 +62,7 @@ public sealed partial class DungeonJob : Job<List<Dungeon>>
     private readonly MapGridComponent _grid;
 
     private readonly EntityCoordinates? _targetCoordinates;
+    private readonly bool _shouldAnchorEntities;
 
     private readonly ISawmill _sawmill;
 
@@ -82,6 +84,7 @@ public sealed partial class DungeonJob : Job<List<Dungeon>>
         int seed,
         Vector2i position,
         EntityCoordinates? targetCoordinates = null,
+        bool shouldAnchorEntities = true,
         CancellationToken cancellation = default) : base(maxTime, cancellation)
     {
         _sawmill = sawmill;
@@ -107,6 +110,7 @@ public sealed partial class DungeonJob : Job<List<Dungeon>>
         _seed = seed;
         _position = position;
         _targetCoordinates = targetCoordinates;
+        _shouldAnchorEntities = shouldAnchorEntities;
     }
 
     /// <summary>

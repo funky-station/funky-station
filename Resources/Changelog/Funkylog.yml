@@ -7794,3 +7794,9 @@ Entries:
         off-station now. 
   id: 896
   time: '2026-02-18T01:13:36.0000000+00:00'
+- author: Marigold
+  changes:
+    - type: Fix
+      message: Fixed a typo in Synthetic trait description
+  id: 897
+  time: '2026-02-18T01:24:37.0000000+00:00'

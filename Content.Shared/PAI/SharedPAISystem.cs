@@ -7,17 +7,20 @@
 // SPDX-FileCopyrightText: 2024 mr-bo-jangles <mr-bo-jangles@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 ArchRBX <5040911+ArchRBX@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Carrot <carpecarrot@gmail.com>
-// SPDX-FileCopyrightText: 2025 Currot <carpecarrot@gmail.com>
 // SPDX-FileCopyrightText: 2025 Sophia Rustfield <gitlab@catwolf.xyz>
+// SPDX-FileCopyrightText: 2025 SpaceCat~Chan <49094338+SpaceCat-Chan@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 // SPDX-FileCopyrightText: 2025 archrbx <punk.gear5260@fastmail.com>
 // SPDX-FileCopyrightText: 2025 jackel234 <52829582+jackel234@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2026 Currot <carpecarrot@gmail.com>
 //
 // SPDX-License-Identifier: MIT
 
 using Content.Shared.Actions;
 using Content.Shared.Radio.Components;
+using Robust.Shared.Containers;
+using System.Linq;
 
 namespace Content.Shared.PAI;
 
@@ -33,6 +36,7 @@ namespace Content.Shared.PAI;
 public abstract class SharedPAISystem : EntitySystem
 {
     [Dependency] private readonly SharedActionsSystem _actions = default!;
+    [Dependency] private readonly SharedContainerSystem _container = default!;
 
     public override void Initialize()
     {
@@ -61,13 +65,22 @@ public abstract class SharedPAISystem : EntitySystem
         EnsureComp<EncryptionKeyHolderComponent>(ent, out var holder);
         holder.KeySlots = 4;
     }
+
+
+    protected void ResetPAI(EntityUid uid){
+        if (TryComp<EncryptionKeyHolderComponent>(uid, out var holder)){ //Drop all keys, then remove Encryption key holder.
+            foreach (var key in holder.KeyContainer.ContainedEntities.ToArray()){
+                _container.Remove(key, holder.KeyContainer);  
+            }
+            RemComp<EncryptionKeyHolderComponent>(uid);
+        }
+    }
+
 }
-public sealed partial class PAIShopActionEvent : InstantActionEvent
-{
-}
-public sealed partial class PAIOpenPdaActionEvent : InstantActionEvent
-{
-}
+
+public sealed partial class PAIShopActionEvent : InstantActionEvent;
+
+public sealed partial class PAIOpenPdaActionEvent : InstantActionEvent;
 
 [DataDefinition]
 public sealed partial class PAIEnableEncryptionEvent : EntityEventArgs;

@@ -130,6 +130,7 @@
       paper_label: !type:ContainerSlot
   - type: StaticPrice
     price: 50
+  - type: Carriable # _Funkystation
 
 - type: entity
   id: BodyBagFolded

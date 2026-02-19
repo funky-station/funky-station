@@ -16,6 +16,7 @@ using Content.Server.Atmos.Piping.Trinary.Components;
 using Content.Server.NodeContainer;
 using Content.Server.NodeContainer.EntitySystems;
 using Content.Server.NodeContainer.Nodes;
+using Content.Shared.Atmos;
 using Content.Shared.Atmos.Piping;
 using Content.Shared.Atmos.Piping.Components;
 using Content.Shared.Audio;
@@ -63,7 +64,12 @@ namespace Content.Server.Atmos.Piping.Trinary.EntitySystems
 
             float control = (controlNode.Air.Pressure - outletNode.Air.Pressure) - comp.Threshold;
             float transferRate;
-            if (control < 0)
+            if (outletNode.Air.Pressure > Atmospherics.MaxOutputPressure || inletNode.Air.Pressure > Atmospherics.MaxOutputPressure)
+            {
+                comp.Enabled = false;
+                transferRate = 0;
+            }
+            else if (control < 0)
             {
                 comp.Enabled = false;
                 transferRate = 0;

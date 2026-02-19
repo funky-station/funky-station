@@ -99,3 +99,6 @@ trait-nitrogen-breathing-desc = You seem to have Vox relatives. Oxygen poisons y
 
 trait-supermatter-hallucination-immune-name = Supermatter Immunity
 trait-supermatter-hallucination-immune-desc = You are immune to hallucinations caused by supermatter exposure.
+
+trait-ignorebodilyalerts-minor-name = Suppressed Bodily Cues
+trait-ignorebodilyalerts-minor-desc = You have trouble feeling the subtle bodily cues for hunger and thirst.

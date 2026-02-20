@@ -70,6 +70,8 @@
   - type: MovementSpeedModifier
     baseWalkSpeed : 4
     baseSprintSpeed : 4
+  - type: StatusIcon
+    bounds: -0.5,-0.5,0.5,0.5
   - type: StatusEffects
     allowed:
     - SlowedDown

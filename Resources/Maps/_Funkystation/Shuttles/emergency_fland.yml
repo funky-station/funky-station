@@ -13,11 +13,11 @@
 # SPDX-FileCopyrightText: 2025 Spanky <180730777+spanky-spanky@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Spanky <scott@wearejacob.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
-# SPDX-FileCopyrightText: 2025 TheHolyAegis <76066612+TheHolyAegis@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2026 TheHolyAegis <76066612+TheHolyAegis@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2026 TheHolyAegis <sanderkamphuis719@gmail.com>
 #
-# SPDX-License-Identifier: AGPL-3.0-or-later
+# SPDX-License-Identifier: MIT
 
 meta:
   format: 7
@@ -25,7 +25,7 @@ meta:
   engineVersion: 268.0.0
   forkId: ""
   forkVersion: ""
-  time: 01/04/2026 14:56:41
+  time: 02/03/2026 09:55:30
   entityCount: 1710
 maps: []
 grids:
@@ -9683,6 +9683,9 @@ entities:
         - - Pressed
           - Toggle
         253:
+        - - Pressed
+          - Toggle
+        251:
         - - Pressed
           - Toggle
 - proto: SignalSwitchDirectional

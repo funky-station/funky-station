@@ -7726,3 +7726,77 @@ Entries:
       message: Added a funny door to genpop in Packed.
   id: 890
   time: '2026-02-07T19:27:10.0000000+00:00'
+- author: AraiMaia
+  changes:
+    - type: Fix
+      message: Ion storms now actually scramble silicon laws as intended.
+  id: 891
+  time: '2026-02-09T18:19:07.0000000+00:00'
+- author: salpphie
+  changes:
+    - type: Add
+      message: >-
+        Added pipe scrubber, empty cloning room to medical in place of old
+        genetics area, and Laundry room to Eden map
+    - type: Tweak
+      message: Changed genetics to be in science on Eden map
+  id: 892
+  time: '2026-02-10T21:47:39.0000000+00:00'
+- author: mkanke-real
+  changes:
+    - type: Add
+      message: Adds laundry to Roid
+    - type: Fix
+      message: Fixed Roids missing lv wire to RnD server
+    - type: Tweak
+      message: >-
+        Roids atmos miners switched to extractors and supplies adjusted for gas
+        purchasing
+  id: 893
+  time: '2026-02-10T21:50:04.0000000+00:00'
+- author: ParadoxumOfficial
+  changes:
+    - type: Fix
+      message: Hopefully fixed the broken Github Labeler
+  id: 894
+  time: '2026-02-11T05:40:13.0000000+00:00'
+- author: TheHolyAegis
+  changes:
+    - type: Add
+      message: >-
+        Added decals on the floor to guide players to some of the further spots
+        on the station.
+    - type: Add
+      message: Added some wallmounted geiger counters in and around engineering.
+    - type: Add
+      message: Replaced one portable scrubber with a pipe scrubber.
+    - type: Add
+      message: Added the Atmospheric Reserves Computer.
+    - type: Tweak
+      message: >-
+        Replaced the standard gas minders with gas extractors, which are
+        connected to the Atmospheric Reserves Computer.
+    - type: Fix
+      message: Fixed the one blast door not being connected on the evacuation shuttle.
+    - type: Fix
+      message: >-
+        Connected the one APC in medical that didn't have an MV cable going to
+        it.
+    - type: Tweak
+      message: Changed some additional minor things to improve the player experience.
+  id: 895
+  time: '2026-02-17T21:58:26.0000000+00:00'
+- author: Terkala
+  changes:
+    - type: Fix
+      message: >-
+        The Revolution should now end once all command members are dead or
+        off-station now. 
+  id: 896
+  time: '2026-02-18T01:13:36.0000000+00:00'
+- author: Marigold
+  changes:
+    - type: Fix
+      message: Fixed a typo in Synthetic trait description
+  id: 897
+  time: '2026-02-18T01:24:37.0000000+00:00'

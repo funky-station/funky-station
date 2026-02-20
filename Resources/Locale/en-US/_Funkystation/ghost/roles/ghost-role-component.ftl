@@ -48,3 +48,9 @@ ghost-role-information-meowl-description = A highly invasive apex predator. The 
 
 ghost-role-information-haunted-sword-name = Haunted Swords
 ghost-role-information-haunted-sword-description = A mysterious weapon of old, haunted with spirits both ancient and powerful.
+
+ghost-role-information-ert-lawyer-name = ERT Lawyer
+ghost-role-information-ert-lawyer-description = Assist with legal efforts to resolve the station's issues.
+
+ghost-role-information-cc-investigator-name = Central Command Investigator
+ghost-role-information-cc-investigator-description = Investigate, resolve and report issues aboard the station.

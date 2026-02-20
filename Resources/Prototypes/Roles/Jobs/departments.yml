@@ -93,6 +93,8 @@
   - ERTMedical
   - ERTSecurity
   - ERTEngineer
+  - ERTLawyer # Funky
+  - CCInvestigator # Funky
   - DeathSquad
   - HecuOperative
   editorHidden: true

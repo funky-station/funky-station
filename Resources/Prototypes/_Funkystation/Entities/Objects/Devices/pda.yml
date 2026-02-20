@@ -196,3 +196,74 @@
     accentVColor: "#447987"
   - type: Icon
     state: pda-medical
+
+- type: entity
+  parent: BaseCentcomPDA
+  id: ERTLawyerPDA
+  name: ERT lawyer PDA
+  description: Smells just like making a tider cry.
+  components:
+  - type: Pda
+    id: ERTLawyerIDCard
+    penSlot:
+      startingItem: PenCentcom
+      whitelist:
+        tags:
+        - Write
+  - type: Appearance
+    appearanceDataInit:
+     enum.PdaVisuals.PdaType:
+       !type:String
+       pda-centcom
+  - type: PdaBorderColor
+    borderColor: "#b8ac04"
+  - type: Icon
+    state: pda-centcom
+  - type: CartridgeLoader
+    uiKey: enum.PdaUiKey.Key
+    preinstalled:
+      - CrewManifestCartridge
+      - NotekeeperCartridge
+      - NanoTaskCartridge
+      - NewsReaderCartridge
+      - MedTekCartridge
+      - WantedListCartridge
+      - LogProbeCartridge
+      - AstroNavCartridge
+      - WordleCartridge
+      - NanoChatCartridge # DeltaV
+
+- type: entity
+  parent: BaseCentcomPDA
+  id: CCInvestigatorPDA
+  name: Central Command Investigator PDA
+  description: Smells like corruption.
+  components:
+  - type: Pda
+    id: CCInvestigatorIDCard
+    penSlot:
+      startingItem: PenCentcom
+      whitelist:
+        tags:
+        - Write
+  - type: Appearance
+    appearanceDataInit:
+     enum.PdaVisuals.PdaType:
+       !type:String
+       pda-centcom
+  - type: PdaBorderColor
+    borderColor: "#b8ac04"
+  - type: Icon
+    state: pda-centcom
+  - type: CartridgeLoader
+    uiKey: enum.PdaUiKey.Key
+    preinstalled:
+      - CrewManifestCartridge
+      - NotekeeperCartridge
+      - NanoTaskCartridge
+      - NewsReaderCartridge
+      - WantedListCartridge
+      - LogProbeCartridge
+      - AstroNavCartridge
+      - WordleCartridge
+      - NanoChatCartridge # DeltaV

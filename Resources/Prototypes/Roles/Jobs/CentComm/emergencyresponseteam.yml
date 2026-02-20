@@ -546,3 +546,80 @@
     - Soap
     - CrowbarRed
     - AdvMopItem
+
+# start funky
+# Lawyer
+- type: job
+  id: ERTLawyer
+  name: job-name-ertlawyer
+  description: job-description-ertlawyer
+  playTimeTracker: JobERTLawyer
+  setPreference: false
+  startingGear: ERTLawyerGear
+  icon: "JobIconERTLawyer"
+  supervisors: job-supervisors-centcom
+  canBeAntag: false
+  accessGroups:
+  - AllAccess
+  access:
+  - CentralCommand
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant, DeathRattleImplantCentcomm ]
+
+- type: startingGear
+  id: ERTLawyerGear
+  equipment:
+    id: ERTLawyerPDA
+    shoes: ClothingShoesBootsLaceup
+    eyes: ClothingEyesGlassesCommand
+    ears: ClothingHeadsetCentCom
+    pocket2: RubberStampLawyer
+    gloves: ClothingHandsGlovesHop
+    belt: BoxFolderCentComClipboard
+    back: ClothingBackpackSatchelNanorep
+    jumpsuit: ClothingUniformJumpsuitCentcomAgent
+  inhand:
+  - BriefcaseBrownFilled
+  storage:
+    back:
+    - BookSpaceLaw
+    
+# Investigator
+- type: job
+  id: CCInvestigator
+  name: job-name-ccinvestigator
+  description: job-description-ccinvestigator
+  playTimeTracker: JobERTLawyer
+  setPreference: false
+  startingGear: CCInvestigatorGear
+  icon: "JobIconCCInvestigator"
+  supervisors: job-supervisors-centcom
+  canBeAntag: false
+  accessGroups:
+  - AllAccess
+  access:
+  - CentralCommand
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant, DeathRattleImplantCentcomm ]
+
+- type: startingGear
+  id: CCInvestigatorGear
+  equipment:
+    id: CCInvestigatorPDA
+    shoes: ClothingShoesBootsLaceup
+    eyes: ClothingEyesGlassesCommand
+    ears: ClothingHeadsetCentCom
+    pocket2: RubberStampLawyer
+    gloves: ClothingHandsGlovesHop
+    belt: BoxFolderCentComClipboard
+    back: ClothingBackpackSatchelNanorep
+    jumpsuit: ClothingUniformJumpsuitCentcomAgent
+  inhand:
+  - BriefcaseBrownFilled
+  storage:
+    back:
+    - BookSpaceLaw
+
+# end funky

@@ -1,0 +1,69 @@
+- type: entity
+  id: RandomHumanoidSpawnerERTLawyer
+  name: ERT lawyer
+  suffix: ERTRole, Basic
+  components:
+    - type: Sprite
+      sprite: _Funkystation/Interface/Misc/job_icons.rsi
+      state: ERT-Lawyer
+    - type: RandomMetadata
+      nameSegments:
+      - NamesMilitaryFirst
+      - NamesMilitaryLast
+    - type: RandomHumanoidSpawner
+      settings: ERTLawyerSettings
+
+- type: randomHumanoidSettings
+  id: ERTLawyerSettings
+  parent: EventHumanoidCentcomm
+  randomizeName: false
+  components:
+    - type: GhostRole
+      name: ghost-role-information-ert-lawyer-name
+      description: ghost-role-information-ert-lawyer-description
+      rules: ghost-role-information-ert-rules
+      raffle:
+        settings: short
+      job: ERTLawyer
+    - type: Loadout
+      prototypes: [ ERTLawyerGear ]
+      roleLoadout: [ RoleSurvivalExtended ]
+    - type: RandomMetadata
+      nameSegments:
+      - NamesMilitaryFirst
+      - NamesMilitaryLast
+
+- type: entity
+  id: RandomHumanoidSpawnerCCLawyer
+  name: Central Command Investigator
+  suffix: ERTRole, Basic
+  components:
+    - type: Sprite
+      sprite: _Funkystation/Interface/Misc/job_icons.rsi
+      state: CC-Investigator
+    - type: RandomMetadata
+      nameSegments:
+      - NamesMilitaryFirst
+      - NamesMilitaryLast
+    - type: RandomHumanoidSpawner
+      settings: CCInvestigatorSettings
+
+- type: randomHumanoidSettings
+  id: CCInvestigatorSettings
+  parent: EventHumanoidCentcomm
+  randomizeName: false
+  components:
+    - type: GhostRole
+      name: ghost-role-information-cc-investigator-name
+      description: ghost-role-information-cc-investigator-description
+      rules: ghost-role-information-ert-rules
+      raffle:
+        settings: short
+      job: CCInvestigator
+    - type: Loadout
+      prototypes: [ CCInvestigatorGear ]
+      roleLoadout: [ RoleSurvivalExtended ]
+    - type: RandomMetadata
+      nameSegments:
+      - NamesMilitaryFirst
+      - NamesMilitaryLast

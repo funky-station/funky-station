@@ -39,3 +39,19 @@
     sprite: /Textures/_Funkystation/Interface/Misc/job_icons.rsi
     state: CentralCommandIntern
   jobName: central-command-intern
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconERTLawyer
+  icon:
+    sprite: /Textures/_Funkystation/Interface/Misc/job_icons.rsi
+    state: ERT-Lawyer
+  jobName: job-name-ertlawyer
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconCCInvestigator
+  icon:
+    sprite: /Textures/_Funkystation/Interface/Misc/job_icons.rsi
+    state: CC-Investigator
+  jobName: job-name-ccinvestigator

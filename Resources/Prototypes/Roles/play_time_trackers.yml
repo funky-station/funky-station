@@ -86,6 +86,12 @@
 
 - type: playTimeTracker
   id: JobERTSecurity
+  
+- type: playTimeTracker # funkystation
+  id: JobERTLawyer
+
+- type: playTimeTracker # funkystation
+  id: JobCCInvestigator
 
 - type: playTimeTracker
   id: JobDeathSquad

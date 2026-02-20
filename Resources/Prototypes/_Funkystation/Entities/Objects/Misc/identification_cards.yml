@@ -100,6 +100,36 @@
       state: Geneticist
   # - type: PresetIdCard
   #   job: Geneticist
+  
+- type: entity
+  parent: [IDCardStandard, BaseCentcommContraband]
+  id: ERTLawyerIDCard
+  name: ERT lawyer ID card
+  components:
+  - type: Sprite
+    layers:
+    - state: cc #base
+    - state: decal-stripe-security #decal
+    - sprite: _Funkystation/Interface/Misc/job_icons.rsi #icon
+      offset: "-0.125, 0.09375"
+      state: ERT-Lawyer
+  - type: PresetIdCard
+    job: ERTLawyer
+
+- type: entity
+  parent: [IDCardStandard, BaseCentcommContraband]
+  id: CCInvestigatorIDCard
+  name: CC Investigator ID card
+  components:
+  - type: Sprite
+    layers:
+    - state: cc #base
+    - state: decal-stripe-security #decal
+    - sprite: _Funkystation/Interface/Misc/job_icons.rsi #icon
+      offset: "-0.125, 0.09375"
+      state: CC-Investigator
+  - type: PresetIdCard
+    job: CCInvestigator
 
 # Charlie Station / Ancient ID Cards
 

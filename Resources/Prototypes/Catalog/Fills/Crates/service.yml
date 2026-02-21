@@ -172,7 +172,13 @@
     - id: ClothingHeadHatWizard
     - id: ClothingOuterWizard
     - id: ClothingShoesWizard
-    - id: ClothingMaskRaven
+    - id: ClothingMaskRaven # Animal masks!!
+    - id: ClothingMaskRat
+    - id: ClothingMaskFox
+    - id: ClothingMaskBee
+    - id: ClothingMaskBear
+    - id: ClothingMaskJackal
+    - id: ClothingMaskBat
 
 - type: entity
   id: CrateServiceCustomSmokable

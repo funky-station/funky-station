@@ -171,6 +171,7 @@
     - id: ClothingHeadHatWizard
     - id: ClothingOuterWizard
     - id: ClothingShoesWizard
+    - id: ClothingMaskRaven
 
 - type: entity
   id: CrateServiceCustomSmokable

@@ -34,7 +34,7 @@
       - NamesMilitaryLast
 
 - type: entity
-  id: RandomHumanoidSpawnerCCLawyer
+  id: RandomHumanoidSpawnerCCInvestigator
   name: Central Command Investigator
   suffix: ERTRole, Basic
   components:

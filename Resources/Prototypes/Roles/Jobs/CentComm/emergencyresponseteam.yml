@@ -590,7 +590,7 @@
   id: CCInvestigator
   name: job-name-ccinvestigator
   description: job-description-ccinvestigator
-  playTimeTracker: JobERTLawyer
+  playTimeTracker: JobCCInvestigator
   setPreference: false
   startingGear: CCInvestigatorGear
   icon: "JobIconCCInvestigator"
@@ -608,18 +608,20 @@
   id: CCInvestigatorGear
   equipment:
     id: CCInvestigatorPDA
-    shoes: ClothingShoesBootsLaceup
-    eyes: ClothingEyesGlassesCommand
+    shoes: ClothingShoesBootsCombatFilled
+    eyes: ClothingEyesGlassesSecurity
     ears: ClothingHeadsetCentCom
-    pocket2: RubberStampLawyer
-    gloves: ClothingHandsGlovesHop
-    belt: BoxFolderCentComClipboard
+    pocket1: WeaponDisabler
+    pocket2: RubberStampDetective
+    gloves: ClothingHandsGlovesCombat
+    belt: ClothingBeltSecurityFilled
     back: ClothingBackpackSatchelNanorep
-    jumpsuit: ClothingUniformJumpsuitCentcomAgent
-  inhand:
-  - BriefcaseBrownFilled
+    jumpsuit: ClothingUniformJumpsuitCentcomOfficer
+    outerClothing: CCInvestigatorCoat
   storage:
     back:
+    - WeaponPistolN1984
+    - MagazineMagnum
+    - MagazineMagnum
     - BookSpaceLaw
-
 # end funky

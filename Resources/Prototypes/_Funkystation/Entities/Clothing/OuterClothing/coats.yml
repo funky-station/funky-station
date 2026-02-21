@@ -150,3 +150,43 @@
     sprite: _Funkystation/Clothing/OuterClothing/Coats/ntr_coat.rsi
   - type: Item
     size: Normal
+
+
+ # CC Investigator Coat
+- type: entity
+  parent: [BaseCentcommContraband, ClothingOuterStorageBase, AllowBackStorageClothingCombat]
+  id: CCInvestigatorCoat
+  name: Central Command Trenchcoat
+  description: A reinforced trenchcoat used by Central Command experts.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/OuterClothing/Coats/cc_detective.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/OuterClothing/Coats/cc_detective.rsi
+  - type: StorageFill
+    contents:
+    - id: SmokingPipeFilledTobacco
+    - id: FlippoEngravedLighter
+  - type: Armor 
+    modifiers:
+      coefficients:
+        Blunt: 0.5
+        Slash: 0.5
+        Piercing: 0.5 
+        Heat: 0.6
+  - type: ExplosionResistance
+    damageCoefficient: 0.8
+  - type: StaminaResistance
+    damageCoefficient: 0.5
+  - type: Tag
+    tags:
+      - Armor
+      - WhitelistChameleon
+  - type: Stainable
+    clothingVisuals:
+      outerClothing:
+      - sprite: _Gabystation/Effects/blood.rsi
+        state: armorblood
+    iconVisuals:
+    - sprite: _Gabystation/Effects/blood.rsi
+      state: armorbloodicon

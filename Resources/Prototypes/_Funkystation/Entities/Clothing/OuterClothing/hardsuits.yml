@@ -165,3 +165,17 @@
   - type: Construction
     graph: HardsuitHivelord
     node: hardsuitHivelord 
+
+#CBURN Leader Hardsuit
+- type: entity
+  parent: ClothingOuterHardsuitCBURN
+  id: ClothingOuterHardsuitCBURNLeader
+  name: CBURN Leader's hardsuit
+  description: A lightweight yet strong exosuit used for special cleanup operations, showing veterancy in this deadly profession.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/OuterClothing/Hardsuits/cburnleader.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/OuterClothing/Hardsuits/cburnleader.rsi
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitCBURNLeader

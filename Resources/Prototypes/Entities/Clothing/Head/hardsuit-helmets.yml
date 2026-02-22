@@ -928,6 +928,51 @@
   - type: FlashImmunity # Goobstation
   - type: FlashSoundSuppression # Goobstation
 
+#CBURN Leader Hardsuit #funky
+- type: entity
+  parent: [ BaseCentcommContraband, ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase ]
+  id: ClothingHeadHelmetHardsuitCBURNLeader
+  name: CBURN Leader exosuit helmet
+  description: A pressure resistant and fireproof hood worn by special cleanup units, showing veterancy in this deadly profession.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Head/hardsuits/cburnleader.rsi
+    layers:
+    - state: icon
+    - state: icon-unshaded
+      shader: unshaded
+    - state: light-overlay
+      visible: false
+      shader: unshaded
+      map: [ "light" ]
+  - type: Clothing
+    clothingVisuals:
+      head:
+      - state: equipped-head
+      - state: equipped-head-unshaded
+        shader: unshaded
+      head-vulpkanin: # Funky - added vulpkanin state
+      - state: equipped-head-vulpkanin
+      - state: equipped-head-unshaded-vulpkanin
+        shader: unshaded
+  - type: PointLight
+    color: orange
+  - type: PressureProtection
+    highPressureMultiplier: 0.08
+    lowPressureMultiplier: 1000
+  - type: TemperatureProtection
+    heatingCoefficient: 0.005
+    coolingCoefficient: 0.005
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.9
+        Heat: 0.9
+  - type: FlashImmunity # Goobstation
+  - type: FlashSoundSuppression # Goobstation
+
 #Deathsquad Hardsuit
 - type: entity
   parent: [ BaseCentcommContraband, ClothingHeadHardsuitBase ]

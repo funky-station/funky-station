@@ -1149,6 +1149,25 @@
     listNumber: false
 
 - type: entity
+  parent: CentcomIDCard
+  id: CBURNLeaderIDcard
+  name: CBURN Leader ID card
+  suffix: CBURN
+  description: Smells of burnt flesh.
+  components:
+  - type: Sprite
+    layers:
+    - state: default #base
+    - state: decal-stripe-cc #decal
+    - sprite: _Funkystation/Interface/Misc/job_icons.rsi #icon
+      offset: "-0.125, 0.09375"
+      state: CBURN
+  - type: PresetIdCard
+    job: CBURNLeader
+  - type: NanoChatCard # DeltaV
+    listNumber: false
+
+- type: entity
   parent: IDCardStandard
   id: CluwneIDCard
   name: cluwne ID card

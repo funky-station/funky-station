@@ -58,6 +58,7 @@ job-name-captain = Captain
 job-name-serviceworker = Service Worker
 job-name-centcomoff = Central Command Official
 job-name-cburn = Central Command Quarantine Officer
+job-name-cburnleader = Central Command Quarantine Commander
 job-name-deathsquad = Central Command Agent
 job-name-reporter = Reporter
 job-name-roboticist = Roboticist

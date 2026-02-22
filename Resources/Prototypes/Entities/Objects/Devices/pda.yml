@@ -1435,6 +1435,19 @@
     accentVColor: "#447987"
 
 - type: entity
+  parent: [ERTLeaderPDA, BaseCentcommContraband]
+  id: CBURNLeaderPDA
+  name: CBURN Leader PDA
+  description: Smells like rotten flesh.
+  components:
+  - type: Pda
+    id: CBURNLeaderIDcard
+  - type: PdaBorderColor
+    borderColor: "#A32D26"
+    accentHColor: "#447987"
+    accentVColor: "#447987"
+
+- type: entity
   parent: [BasePDA, BaseCivilianContraband]
   id: PsychologistPDA
   name: psychologist PDA

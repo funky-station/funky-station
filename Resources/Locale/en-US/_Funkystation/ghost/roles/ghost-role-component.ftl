@@ -48,3 +48,6 @@ ghost-role-information-meowl-description = A highly invasive apex predator. The 
 
 ghost-role-information-haunted-sword-name = Haunted Swords
 ghost-role-information-haunted-sword-description = A mysterious weapon of old, haunted with spirits both ancient and powerful.
+
+ghost-role-information-cburn-leader-name = CBURN Commander
+ghost-role-information-cburn-leader-description = A highly trained CentComm leader, tasked with commanding CBURN units.

@@ -569,6 +569,45 @@
       - NamesMilitaryFirst
       - NamesMilitaryLast
 
+- type: entity
+  id: RandomHumanoidSpawnerCBURNLeaderUnit
+  name: CBURN Leader
+  suffix: ERTRole
+  components:
+    - type: Sprite
+      sprite: Markers/jobs.rsi
+      state: cburn
+    - type: RandomHumanoidSpawner
+      settings: CBURNLeader
+
+- type: randomHumanoidSettings
+  id: CBURNLeader
+  parent: EventHumanoidCentcomm
+  components:
+    - type: Loadout
+      prototypes: [CBURNLeaderGear]
+      roleLoadout: [ RoleSurvivalEVA ]
+    - type: GhostRole
+      name: ghost-role-information-cburn-leader-name
+      description: ghost-role-information-cburn-leader-description
+      rules: ghost-role-information-nonantagonist-rules
+      raffle:
+        settings: short
+      requirements:
+      - !type:DepartmentTimeRequirement
+        department: Security
+        time: 36000 #10 hrs
+      - !type:DepartmentTimeRequirement
+        department: Medical
+        time: 36000 #10 hrs
+      - !type:DepartmentTimeRequirement
+        department: Command
+        time: 36000 #10 hrs
+    - type: RandomMetadata
+      nameSegments:
+      - NamesMilitaryFirst
+      - NamesMilitaryLast
+
 ## Central Command
 
 - type: entity

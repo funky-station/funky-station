@@ -160,6 +160,35 @@
     raffle:
       settings: default
 
+- type: entity
+  id: SpawnPointGhostCBURNLeader
+  parent: SpawnPointGhostRoleJob
+  name: ghost role spawn point
+  suffix: CBURN Leader
+  components:
+  - type: SpawnPoint
+    job_id: CBURNLeader
+  - type: Sprite
+    layers:
+      - state: green
+      - state: cburn
+  - type: GhostRole
+    name: ghost-role-information-cburn-leader-name
+    description: ghost-role-information-cburn-leader-description
+    rules: ghost-role-information-nonantagonist-rules
+    raffle:
+      settings: default
+    requirements:
+      - !type:DepartmentTimeRequirement
+        department: Security
+        time: 36000 #10 hrs
+      - !type:DepartmentTimeRequirement
+        department: Medical
+        time: 36000 #10 hrs
+      - !type:DepartmentTimeRequirement
+        department: Command
+        time: 36000 #10 hrs
+
 # Genetics
 
 # - type: entity

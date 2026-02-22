@@ -316,7 +316,7 @@
 - type: marking
   id: LizardTongueFlick
   bodyPart: Head
-  markingCategory: Head
+  markingCategory: Overlay
   speciesRestriction: [Reptilian]
   followSkinColor: false
   sprites:
@@ -326,7 +326,7 @@
 - type: marking
   id: LizardTongueWeh
   bodyPart: Head
-  markingCategory: Head
+  markingCategory: Overlay
   speciesRestriction: [Reptilian]
   followSkinColor: false
   sprites:

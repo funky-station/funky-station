@@ -106,3 +106,27 @@ marking-LizardTongueFlick = Tongue Flick
 
 marking-LizardTongueWeh-tongue_weh = Tongue Weh
 marking-LizardTongueWeh = Tongue Weh
+
+marking-ProstehticLeftArmReptilian-arm_l_prosthetic = Reptilian Prosthetic Left Arm
+marking-ProstehticLeftArmReptilian = Reptilian Prosthetic Left Arm
+
+marking-ProstethicRightArmReptilian-arm_r_prosthetic = Reptilian Prosthetic Right Arm
+marking-ProstethicRightArmReptilian = Reptilian Prosthetic Right Arm
+
+marking-ProsthethicLeftFootReptilian-foot_l_prosthetic = Reptilian Prosthetic Left Foot
+marking-ProsthethicLeftFootReptilian = Reptilian Prosthetic Left Foot
+
+marking-ProsthethicRightFootReptilian-foot_r_prosthetic = Reptilian Prosthetic Right Foot
+marking-ProsthethicRightFootReptilian = Reptilian Prosthetic Right Foot
+
+marking-ProsthethicLeftHandReptilian-hand_l_prosthetic = Reptilian Prosthetic Left Hand
+marking-ProsthethicLeftHandReptilian = Reptilian Prosthetic Left Hand
+
+marking-ProsthethicRightHandReptilian-hand_r_prosthetic = Reptilian Prosthetic Right Hand
+marking-ProsthethicRightHandReptilian = Reptilian Prosthetic Right Hand
+
+marking-ProsthethicLeftLegReptilian-leg_l_prosthetic = Reptilian Prosthetic Left Leg
+marking-ProsthethicLeftLegReptilian = Reptilian Prosthetic Left Leg
+
+marking-ProsthethicRightLegReptilian-leg_r_prosthetic = Reptilian Prosthetic Right Leg
+marking-ProsthethicRightLegReptilian = Reptilian Prosthetic Right Leg

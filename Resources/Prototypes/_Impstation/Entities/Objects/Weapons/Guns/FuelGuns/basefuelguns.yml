@@ -108,12 +108,12 @@
       chamber:
         reagents:
         - ReagentId: Echion
-          Quantity: 75
-        maxVol: 75 #12 shots
+          Quantity: 15
+        maxVol: 15 #12 shots
   - type: SolutionAmmoProvider
     solutionId: chamber
     proto: BulletPlasmaAdder
-    fireCost: 6.25
+    fireCost: 1.25
   - type: SolutionItemStatus
     solution: chamber
   - type: SolutionRefuel
@@ -186,11 +186,11 @@
     solutionId: chamber
     proto: BulletOuroboros
     fireCost: 3
-#  - type: FoodReagentExtractor
-#    solutionId: chamber
-#    extractionReagents:
-#    - Nutriment
-#    extractSound: /Audio/_Impstation/Weapons/Guns/Cock/beecharge.ogg
+  - type: FoodReagentExtractor
+    solutionId: chamber
+    extractionReagents:
+    - Nutriment
+    extractSound: /Audio/_Impstation/Weapons/Guns/Cock/beecharge.ogg
   - type: MagazineVisuals
     magState: mag
     steps: 7

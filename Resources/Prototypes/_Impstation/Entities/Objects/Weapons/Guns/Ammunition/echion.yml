@@ -1,7 +1,7 @@
 - type: entity
   parent: [ BaseItem, BaseSyndicateContraband ]
   id: EchionCanister
-  name: Echion Canister
+  name: Phoron Canister
   description: A special, disposable containment device designed for quickly refueling Echion plasma weapons.
   components:
   - type: Sprite
@@ -35,8 +35,8 @@
       tank:
         reagents:
         - ReagentId: Echion
-          Quantity: 75
-        maxVol: 75
+          Quantity: 15
+        maxVol: 15
   - type: DrainableSolution
     solution: tank
   - type: PhysicalComposition

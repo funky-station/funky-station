@@ -7,7 +7,7 @@
     contents:
     - id: WeaponPlasmaAdder
       amount: 4
-    - id: PhoronCanister
+    - id: EchionCanister
       amount: 8
 
 - type: entity
@@ -19,5 +19,5 @@
     contents:
     - id: WeaponPlasmaAkurra
       amount: 4
-    - id: PhoronCanister
+    - id: EchionCanister
       amount: 12

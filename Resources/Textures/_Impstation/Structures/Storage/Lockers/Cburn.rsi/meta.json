@@ -24,6 +24,17 @@
       },
 	    {
           "name": "locked"
-      }      
+      },
+	    {
+          "name": "generic"
+      },
+	    {
+          "name": "generic_door"
+      },
+	    {
+          "name": "sparking"
+      }                                              
+
+
   ]
 }

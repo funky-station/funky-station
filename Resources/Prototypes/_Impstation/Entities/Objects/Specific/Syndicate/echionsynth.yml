@@ -1,8 +1,8 @@
 - type: entity
   parent: [ BaseItem, BaseSecurityCommandContraband ]
   id: EchionSynth
-  name: Echion Synthesizer
-  description: An exotic catalyst conveniently contained in a portable container. Fluctuates space-time on a microscopic scale when powered to generate Echion.
+  name: Phoron Synthesizer
+  description: An exotic catalyst conveniently stored in a portable container. Fluctuates space-time on a microscopic scale when powered to generate Phoron.
   components:
   - type: Sprite
     sprite: _Impstation/Objects/Specific/Syndicate/echionsynth.rsi
@@ -81,8 +81,8 @@
       tank:
         reagents:
         - ReagentId: Echion
-          Quantity: 150
-        maxVol: 150
+          Quantity: 30
+        maxVol: 30
   - type: DrainableSolution
     solution: tank
   - type: ItemToggle
@@ -120,4 +120,4 @@
       generated:
           reagents:
           - ReagentId: Echion
-            Quantity: 2.5
+            Quantity: 0.5

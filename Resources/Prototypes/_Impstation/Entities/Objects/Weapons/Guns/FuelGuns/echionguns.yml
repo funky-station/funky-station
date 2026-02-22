@@ -43,12 +43,12 @@
       chamber:
         reagents:
         - ReagentId: Echion
-          Quantity: 75
-        maxVol: 75 #12 shots
+          Quantity: 15
+        maxVol: 15 #12 shots
   - type: SolutionAmmoProvider
     solutionId: chamber
     proto: BulletPlasmaAdder
-    fireCost: 6.25
+    fireCost: 1.25
   - type: SolutionItemStatus
     solution: chamber
   - type: SolutionRefuel
@@ -128,12 +128,12 @@
       chamber:
         reagents:
         - ReagentId: Echion
-          Quantity: 150
-        maxVol: 150 #30 shots
+          Quantity: 30
+        maxVol: 30 #30 shots
   - type: SolutionAmmoProvider
     solutionId: chamber
     proto: BulletPlasmaAkurra
-    fireCost: 5
+    fireCost: 1
   - type: Tag
     tags:
     - EchionGun
@@ -196,12 +196,12 @@
       chamber:
         reagents:
         - ReagentId: Echion
-          Quantity: 37.5
-        maxVol: 37.5 #3 shots
+          Quantity: 7.5
+        maxVol: 7.5 #3 shots
   - type: SolutionAmmoProvider
     solutionId: chamber
     proto: EnergyCrossbowBolt
-    fireCost: 12.5
+    fireCost: 2.5
   - type: Appearance
   - type: Tag
     tags:

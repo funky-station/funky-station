@@ -25,19 +25,19 @@
       - SemiAuto
     soundGunshot:
       path: /Audio/_Impstation/Weapons/Guns/Gunshots/beecannon2.ogg
-#  - type: FoodReagentExtractor
-#    solutionId: chamber
-#    extractionReagents:
-#    - Nutriment
-#    - UncookedAnimalProteins
-#    - Protein
-#    - Vitamin
-#    - Slime
-#    edibleBlacklist:
-#      tags:
-#        - Pill
-#        - Bucket
-#        - GlassBeaker
+  - type: FoodReagentExtractor
+    solutionId: chamber
+    extractionReagents:
+    - Nutriment
+    - UncookedAnimalProteins
+    - Protein
+    - Vitamin
+    - Slime
+    edibleBlacklist:
+      tags:
+        - Pill
+        - Bucket
+        - GlassBeaker
     extractSound: /Audio/_Impstation/Weapons/Guns/Cock/beecharge.ogg
   - type: Appearance
 

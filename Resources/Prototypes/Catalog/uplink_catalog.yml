@@ -352,22 +352,22 @@
   - UplinkWeaponry
   saleLimit: 1 # WD EDIT
 
-- type: listing
-  id: UplinkRevolverBundle
-  name: uplink-revolver-bundle-name
-  description: uplink-revolver-bundle-desc
-  icon: { sprite: /Textures/Objects/Weapons/Guns/Revolvers/hristov_revolver.rsi, state: icon }
-  productEntity: BriefcaseSyndieRevolverBundleFilled
-  cost:
-    Telecrystal: 60
-  categories:
-  - UplinkWeaponry
-  conditions:
-  - !type:StoreWhitelistCondition
-    blacklist:
-      tags:
-      - NukeOpsUplink
-  saleLimit: 1 # WD EDIT
+#- type: listing
+#  id: UplinkRevolverBundle
+#  name: uplink-revolver-bundle-name
+#  description: uplink-revolver-bundle-desc
+#  icon: { sprite: /Textures/Objects/Weapons/Guns/Revolvers/hristov_revolver.rsi, state: icon }
+#  productEntity: BriefcaseSyndieRevolverBundleFilled
+#  cost:
+#    Telecrystal: 60
+#  categories:
+#  - UplinkWeaponry
+#  conditions:
+#  - !type:StoreWhitelistCondition
+#    blacklist:
+#      tags:
+#      - NukeOpsUplink
+#  saleLimit: 1 # WD EDIT
 
 - type: listing
   id: UplinkHushpup

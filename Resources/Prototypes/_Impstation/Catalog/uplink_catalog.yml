@@ -4,30 +4,16 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: listing
-  id: UplinkAdderBundle
-  name: uplink-adder-name
-  description: uplink-adder-desc
-  icon: { sprite: /Textures/_Impstation/Objects/Weapons/Guns/Special/adder.rsi, state: icon }
-  productEntity: AdderBox
-  discountCategory: rareDiscounts
-  discountDownTo:
-    Telecrystal: 3
-  cost:
-    Telecrystal: 5
-  categories:
-    - UplinkWeaponry
-
-- type: listing
   id: UplinkTaipanBundle
   name: uplink-taipan-name
   description: uplink-taipan-desc
   icon: { sprite: _Impstation/Objects/Weapons/Guns/FuelGuns/energy_crossbow.rsi, state: icon }
   discountCategory: rareDiscounts
   discountDownTo:
-    Telecrystal: 3
+    Telecrystal: 15
   productEntity: TaipanBox
   cost:
-    Telecrystal: 5
+    Telecrystal: 25
   categories:
   - UplinkWeaponry
 
@@ -39,9 +25,9 @@
   productEntity: BriefcaseSyndieAnacondaBundleFilled
   discountCategory: rareDiscounts
   discountDownTo:
-    Telecrystal: 6
+    Telecrystal: 30
   cost:
-    Telecrystal: 8
+    Telecrystal: 40
   categories:
     - UplinkWeaponry
 
@@ -52,9 +38,9 @@
   productEntity: WeaponFlamerXiuhcoatl
   discountCategory: veryRareDiscounts
   discountDownTo:
-    Telecrystal: 14
+    Telecrystal: 70
   cost:
-    Telecrystal: 16
+    Telecrystal: 80
   categories:
     - UplinkWeaponry
 
@@ -65,9 +51,9 @@
   productEntity: WeaponSpecialOuroboros
   discountCategory: veryRareDiscounts
   discountDownTo:
-    Telecrystal: 10
+    Telecrystal: 50
   cost:
-    Telecrystal: 12
+    Telecrystal: 60
   categories:
     - UplinkWeaponry
 
@@ -93,31 +79,20 @@
   productEntity: WeaponLauncherBazooka
   discountCategory: veryRareDiscounts
   discountDownTo:
-    Telecrystal: 17
+    Telecrystal: 85
   cost:
-    Telecrystal: 20
+    Telecrystal: 100
   categories:
     - UplinkWeaponry
 
 - type: listing
-  id: UplinkMagazineEchion
-  name: uplink-magazine-echion-name
-  description: uplink-magazine-echion-desc
+  id: UplinkMagazinePhoron
+  name: uplink-magazine-phoron-name
+  description: uplink-magazine-phoron-desc
   icon: { sprite: /Textures/_Impstation/Objects/Weapons/Guns/Ammunition/Magazine/Special/echioncanister.rsi, state: icon }
-  productEntity: EchionCanister
+  productEntity: PhoronCanister
   cost:
     Telecrystal: 2
-  categories:
-  - UplinkAmmo
-
-- type: listing
-  id: UplinkEchionSynth
-  name: uplink-echion-synth-name
-  description: uplink-echion-synth-desc
-  icon: { sprite: /Textures/_Impstation/Objects/Specific/Syndicate/echionsynth.rsi, state: icon }
-  productEntity: EchionSynth
-  cost:
-    Telecrystal: 5
   categories:
   - UplinkAmmo
 
@@ -128,7 +103,7 @@
   icon: { sprite: /Textures/_Impstation/Objects/Weapons/Guns/Ammunition/SpeedLoaders/Magnum/sniper.rsi, state: icon }
   productEntity: SpeedLoaderAnaconda
   cost:
-    Telecrystal: 1
+    Telecrystal: 5
   categories:
   - UplinkAmmo
 
@@ -139,7 +114,7 @@
   icon: { sprite: /Textures/_Impstation/Objects/Weapons/Guns/Projectiles/bazooka.rsi, state: explosive }
   productEntity: LeviathanExplosiveRocketBox
   cost:
-    Telecrystal: 5
+    Telecrystal: 25
   categories:
     - UplinkAmmo
 
@@ -150,7 +125,7 @@
   icon: { sprite: /Textures/_Impstation/Objects/Weapons/Guns/Projectiles/bazooka.rsi, state: incendiary }
   productEntity: LeviathanIncendiaryRocketBox
   cost:
-    Telecrystal: 5
+    Telecrystal: 25
   categories:
     - UplinkAmmo
 
@@ -161,35 +136,6 @@
   icon: { sprite: /Textures/_Impstation/Objects/Weapons/Guns/Projectiles/bazooka.rsi, state: concussion }
   productEntity: LeviathanConcussionRocketBox
   cost:
-    Telecrystal: 5
+    Telecrystal: 25
   categories:
     - UplinkAmmo
-
-- type: listing
-  id: uplinkEchionCell
-  name: uplink-echioncell-name
-  description: uplink-echioncell-desc
-  productEntity: PowerCellEchion
-  cost:
-    Telecrystal: 2
-  categories:
-    - UplinkAmmo
-
-- type: listing
-  id: UplinkMixedRejectsCarton
-  name: uplink-mixed-rejects-carton-name
-  description: uplink-mixed-rejects-carton-desc
-  productEntity: CigCartonMixedRejects
-  cost:
-    Telecrystal: 150
-  categories:
-  - UplinkChemicals
-  conditions:
-  - !type:StoreWhitelistCondition
-    whitelist:
-      tags:
-      - NukeOpsUplink
-  - !type:BuyerWhitelistCondition
-    blacklist:
-      components:
-        - SurplusBundle

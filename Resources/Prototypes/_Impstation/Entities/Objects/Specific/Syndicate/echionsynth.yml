@@ -1,5 +1,5 @@
 - type: entity
-  parent: [ BaseItem, BaseSecurityContraband ]
+  parent: [ BaseItem, BaseSecurityCommandContraband ]
   id: EchionSynth
   name: Echion Synthesizer
   description: An exotic catalyst conveniently contained in a portable container. Fluctuates space-time on a microscopic scale when powered to generate Echion.
@@ -60,7 +60,7 @@
     netsync: false
     radius: 1.5
     energy: 1.5
-    color: "#83db2b"
+    color: "#9c8bdb"
   - type: SolutionContainerVisuals
     maxFillLevels: 4
     fillBaseName: cap-

@@ -8,7 +8,6 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
-research-technology-weapon-plasma-rifle = Experimental plasma rifle
 research-technology-medical-defense = Medical Control Gear
 research-technology-ripley-mkii = Ripley MK-II
 research-technology-clarke = Clarke

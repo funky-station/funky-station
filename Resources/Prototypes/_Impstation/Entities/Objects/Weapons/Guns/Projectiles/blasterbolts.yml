@@ -11,12 +11,12 @@
       shader: unshaded
   - type: Ammo
     muzzleFlash: MuzzleFlashEffectPurpLaser
-  - type: Projectile
+  - type: Projectile  # Funky change, damage spread from heat/pierce into heat/corrosive
     impactEffect: BulletImpactEffectPurple
     damage:
       types:
-        Heat: 10
-        Piercing: 10
+        Heat: 15
+        Caustic: 5
     soundHit:
       collection: WeakHit
     forceSound: true
@@ -32,11 +32,11 @@
     layers:
     - state: lightpurp
       shader: unshaded
-  - type: Projectile
+  - type: Projectile # Funky change, damage spread from heat/pierce into heat/corrosive
     damage:
       types:
-        Heat: 7.5
-        Piercing: 7.5
+        Heat: 11.25
+        Caustic: 3.75
 
 - type: entity
   parent: BaseBullet

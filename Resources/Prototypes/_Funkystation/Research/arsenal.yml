@@ -18,8 +18,35 @@
   - WeaponizedLaserManipulation
   - NonlethalAmmunition
 
-# Tier 3
+- type: technology
+  id: WeaponPlasmaPistol
+  name: research-technology-weapon-plasma-pistol
+  icon:
+    sprite: _Impstation/Objects/Weapons/Guns/FuelGuns/adder.rsi
+    state: icon
+  discipline: Arsenal
+  tier: 1
+  cost: 7500
+  recipeUnlocks:
+  - WeaponPlasmaAdder
+  - EchionCanister
 
+# Tier 2
+- type: technology
+  id: WeaponPlasmaRifle
+  name: research-technology-weapon-plasma-rifle
+  icon:
+    sprite: _Impstation/Objects/Weapons/Guns/FuelGuns/akurra.rsi
+    state: icon
+  discipline: Arsenal
+  tier: 2
+  cost: 7500
+  recipeUnlocks:
+  - WeaponPlasmaAkurra
+  technologyPrerequisites:
+  - WeaponPlasmaPistol
+
+# Tier 3
 - type: technology
   id: WeaponExperimentalTeslaGun
   name: research-technology-experimental-tesla-gun
@@ -31,3 +58,4 @@
   cost: 15000
   recipeUnlocks:
   - WeaponTeslaGun
+

@@ -16,11 +16,8 @@ uplink-anaconda-desc = Waffle Corp. is not responsible for any injuries sustaine
 uplink-leviathan-name = Leviathan
 uplink-leviathan-desc = Sometimes, it really is the size that matters.
 
-uplink-magazine-echion-name = Echion canister
-uplink-magazine-echion-desc = A special refueling canister containing 75 units of Echion. Compatible with the Adder and Akurra.
-
-uplink-echion-synth-name = Echion synthesizer
-uplink-echion-synth-desc = An advanced catalyser that produces Echion at a steady rate while powered. Compatible with the Adder and Akurra.
+uplink-magazine-echion-name = Phoron canister
+uplink-magazine-echion-desc = A special refueling canister containing 75 units of Phoron. Compatible with the Taipan
 
 uplink-speedloader-sniper-name = Anaconda speedloader
 uplink-speedloader-sniper-desc = A 3-round .60 anti-materiel speedloader compatible with the Anaconda.
@@ -34,11 +31,8 @@ uplink-rocketinc-desc = A box containing 3 incendiary rockets compatible with th
 uplink-rocketcon-name = Leviathan concussion rocket bundle
 uplink-rocketcon-desc = A box containing 3 concussion rockets compatible with the Leviathan.
 
-uplink-echioncell-name = Echion power cell
-uplink-echioncell-desc = A special power cell made with Echion. While not the most efficient as a battery, it's especially useful when used with weapons.
-
 uplink-mixed-rejects-name = Dan's Soaked Smokes Rejects
 uplink-mixed-rejects-desc = Dan worked with Interdyne chemistry to dispose of excess chemicals, ENJOY CAUTIOUSLY.
 
 uplink-taipan-name = Taipan bundle
-uplink-taipan-desc = One "Taipan" Echion crossbow, bundled with a canister of its proprietary liquid ammo.
+uplink-taipan-desc = One "Taipan" Phoron crossbow, bundled with a canister of its proprietary liquid ammo.

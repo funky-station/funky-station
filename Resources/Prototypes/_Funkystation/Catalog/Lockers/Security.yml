@@ -1,0 +1,24 @@
+- type: entity
+  parent: [GunSafeBaseSecure, BaseSecurityContraband]
+  id: GunSafePistolPlasma
+  name: P-25 jackal safe
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponPlasmaJackal
+      amount: 4
+    - id: EchionCanister
+      amount: 8
+
+- type: entity
+  parent: [GunSafeBaseSecure, BaseSecurityContraband]
+  id: GunSafeRiflePlasma
+  name: P-106 medina safe
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponPlasmaMedina
+      amount: 4
+    - id: EchionCanister
+      amount: 12
+

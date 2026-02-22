@@ -73,13 +73,13 @@
       path: /Audio/_Impstation/Weapons/Guns/Melee/shove_foley.ogg
     resetOnHandSelected: false
     wideAnimationRotation: -80
-  - type: AltFireMelee
-    attackType: Heavy
-  - type: DamageOtherOnHit #for throwing
-    staminaCost: 6
-    damage:
-      types:
-        Blunt: 5
+#  - type: AltFireMelee
+#    attackType: Heavy
+#  - type: DamageOtherOnHit #for throwing
+#    staminaCost: 6
+#    damage:
+#      types:
+#        Blunt: 5
 
 - type: entity
   name: Medina # Funky change, rename from the Akurra into the Medina
@@ -96,28 +96,31 @@
         map: ["enum.GunVisualLayers.MagUnshaded"]
         shader: unshaded
   - type: Clothing
-    sprite: _Impstation/Objects/Weapons/Guns/Special/akurra.rsi
+    sprite: _Impstation/Objects/Weapons/Guns/FuelGuns/akurra.rsi
     quickEquip: false
     slots:
       - backStorage
   - type: Appearance
   - type: Item
-    sprite: _Impstation/Objects/Weapons/Guns/Special/akurra.rsi
+    sprite: _Impstation/Objects/Weapons/Guns/FuelGuns/akurra.rsi
     size: Large
     shape:
     - 0,0,3,1
-  - type: Gun
+  - type: Gun # Funky change, weapon made from full auto into a burst fire gun
     clumsyProof: false
     cameraRecoilScalar: 1
-    fireRate: 5.3
-    selectedMode: FullAuto
+    fireRate: 5
+    burstFireRate: 12
+    selectedMode: Burst
     availableModes:
     - SemiAuto
-    - FullAuto
+    - Burst
     minAngle: 21
     maxAngle: 39
     angleIncrease: 2
     angleDecay: 18
+    shotsPerBurst: 3
+    burstCooldown: 0.25
     soundGunshot:
       path: /Audio/_Impstation/Weapons/Guns/Gunshots/adder.ogg
   - type: SolutionContainerManager
@@ -147,25 +150,25 @@
     soundSwing:
       path: /Audio/_Impstation/Weapons/Guns/Melee/shove_foley.ogg
     resetOnHandSelected: false
-  - type: AltFireMelee
-    attackType: Heavy
-  - type: DamageOtherOnHit #for throwing
-    staminaCost: 10
-    damage:
-      types:
-        Blunt: 8
-  - type: StaminaDamageOnHit
-    damage: 10 #slight stagger, but still like 10 hits to stun completely
-  - type: MeleeRequiresWield
-  - type: MeleeThrowOnHit
-    distance: 0.8
-    speed: 5
+#  - type: AltFireMelee
+#    attackType: Heavy
+#  - type: DamageOtherOnHit #for throwing
+#    staminaCost: 10
+#    damage:
+#      types:
+#        Blunt: 8
+#  - type: StaminaDamageOnHit
+#    damage: 10 #slight stagger, but still like 10 hits to stun completely
+#  - type: MeleeRequiresWield
+#  - type: MeleeThrowOnHit
+#    distance: 0.8
+#    speed: 5
 
 - type: entity
   name: Taipan
   parent: [BaseWeaponEchion, BaseMajorContraband]
   id: WeaponEnergyCrossbow
-  description: An experimental crossbow that launches shards of crystalized Echion, poisoning its targets and making them more volatile to combustables.
+  description: An experimental crossbow made from designs stolen from Nanotrasen. Launches shards of crystalized Phoron, poisoning and slowing its targets.
   components:
   - type: Sprite
     sprite: _Impstation/Objects/Weapons/Guns/FuelGuns/energy_crossbow.rsi

@@ -50,7 +50,7 @@
   parent: [BoxCardboard, BaseSyndicateContraband]
   id: TaipanBox
   name: Taipan bundle box
-  description: An Echion Crossbow, bundled with 1 canister of its proprietary fuel.
+  description: A Phoron Crossbow, bundled with 1 canister of its proprietary fuel.
   components:
   - type: Storage
     grid:

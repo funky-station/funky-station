@@ -40,7 +40,7 @@
 - type: entity
   id: CrateSecurityEquipment
   parent: CrateSecgear
-  name: security equipment crate 
+  name: security equipment crate
   description: Supplies for protecting and serving, contains a armor vest, helmet, flash, disabler, security glasses and belt, holobarrier projector, jackboots, seclite and the security guidebooks. Requires Security access to open.
   components:
   - type: StorageFill
@@ -58,7 +58,7 @@
 - type: entity
   id: CrateSecurityBasicArmor
   parent: CrateSecgear
-  name: standard armor crate 
+  name: standard armor crate
   description: Contains three sets of standard issue security armor vests and helmets. Requires Security access to open.
   components:
   - type: StorageFill
@@ -67,3 +67,18 @@
       amount: 3
     - id: ClothingOuterArmorBasic
       amount: 3
+
+- type: entity
+  id: CrateSecurityPlasmaWeapons
+  parent: [ CrateWeaponSecure, BaseSecurityContraband ]
+  name: phoron weapon crate
+  description: Contains a Jackal pistol, Medina rifle and Phoron fuel cells.
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponPlasmaAdder
+      amount: 1
+    - id: WeaponPlasmaAkurra
+      amount: 1
+    - id: EchionCanister
+      amount: 5

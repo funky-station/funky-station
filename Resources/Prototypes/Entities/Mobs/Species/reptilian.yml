@@ -122,12 +122,54 @@
       285: 0.4
   - type: Inventory
     speciesId: reptilian
+    displacements: #funky start
+      gloves:
+        sizeMaps:
+          32:
+            sprite: _Funkystation/Mobs/Species/Lizard/displacement.rsi
+            state: gloves
+      shoes:
+        sizeMaps:
+          32:
+            sprite: _Funkystation/Mobs/Species/Lizard/displacement.rsi
+            state: shoes
+      ears:
+        sizeMaps:
+          32:
+            sprite: _Funkystation/Mobs/Species/Lizard/displacement.rsi
+            state: ears
+      neck:
+        sizeMaps:
+          32:
+            sprite: _Funkystation/Mobs/Species/Lizard/displacement.rsi
+            state: neck
+      outerClothing:
+        sizeMaps:
+          32:
+            sprite: _Funkystation/Mobs/Species/Lizard/displacement.rsi
+            state: outerclothing
     femaleDisplacements:
+      shoes:
+        sizeMaps:
+          32:
+            sprite: _Funkystation/Mobs/Species/Lizard/displacement.rsi
+            state: shoes
       jumpsuit:
         sizeMaps:
           32:
-            sprite: Mobs/Species/Human/displacement.rsi
-            state: jumpsuit-female
+            sprite: _Funkystation/Mobs/Species/Lizard/displacement.rsi
+            state: jumpsuit_female
+    maleDisplacements:
+      shoes:
+        sizeMaps:
+          32:
+            sprite: _Funkystation/Mobs/Species/Lizard/displacement.rsi
+            state: shoes
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: _Funkystation/Mobs/Species/Lizard/displacement.rsi
+            state: jumpsuit_male #funky end
   - type: Tag
     tags:
     - CanPilot
@@ -152,11 +194,48 @@
     - HeadSide
   - type: Inventory
     speciesId: reptilian
+    displacements: #funky start
+      gloves:
+        sizeMaps:
+          32:
+            sprite: _Funkystation/Mobs/Species/Lizard/displacement.rsi
+            state: gloves
+      ears:
+        sizeMaps:
+          32:
+            sprite: _Funkystation/Mobs/Species/Lizard/displacement.rsi
+            state: ears
+      neck:
+        sizeMaps:
+          32:
+            sprite: _Funkystation/Mobs/Species/Lizard/displacement.rsi
+            state: neck
+      outerClothing:
+        sizeMaps:
+          32:
+            sprite: _Funkystation/Mobs/Species/Lizard/displacement.rsi
+            state: outerclothing
     femaleDisplacements:
+      shoes:
+        sizeMaps:
+          32:
+            sprite: _Funkystation/Mobs/Species/Lizard/displacement.rsi
+            state: shoes
       jumpsuit:
         sizeMaps:
           32:
-            sprite: Mobs/Species/Human/displacement.rsi
-            state: jumpsuit-female
+            sprite: _Funkystation/Mobs/Species/Lizard/displacement.rsi
+            state: jumpsuit_female
+    maleDisplacements:
+      shoes:
+        sizeMaps:
+          32:
+            sprite: _Funkystation/Mobs/Species/Lizard/displacement.rsi
+            state: shoes
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: _Funkystation/Mobs/Species/Lizard/displacement.rsi
+            state: jumpsuit_male #funky end
 
 #Weh

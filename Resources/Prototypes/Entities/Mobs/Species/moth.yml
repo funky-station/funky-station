@@ -210,7 +210,7 @@
   - type: HumanoidAppearance
     species: Moth
   - type: Inventory
-    displacements:
+    femaleDisplacements:
       gloves:
         sizeMaps:
           32:
@@ -226,13 +226,27 @@
           32:
             sprite: _Funkystation/Mobs/Species/Moth/displacement.rsi
             state: ears
-    femaleDisplacements:
       jumpsuit:
         sizeMaps:
           32:
             sprite: _Funkystation/Mobs/Species/Moth/displacement.rsi
             state: jumpsuit_female
     maleDisplacements:
+      gloves:
+        sizeMaps:
+          32:
+            sprite: _Funkystation/Mobs/Species/Moth/displacement.rsi
+            state: gloves
+      shoes:
+        sizeMaps:
+          32:
+            sprite: _Funkystation/Mobs/Species/Moth/displacement.rsi
+            state: shoes
+      ears:
+        sizeMaps:
+          32:
+            sprite: _Funkystation/Mobs/Species/Moth/displacement.rsi
+            state: ears
       jumpsuit:
         sizeMaps:
           32:

@@ -130,3 +130,6 @@ marking-ProsthethicLeftLegReptilian = Reptilian Prosthetic Left Leg
 
 marking-ProsthethicRightLegReptilian-leg_r_prosthetic = Reptilian Prosthetic Right Leg
 marking-ProsthethicRightLegReptilian = Reptilian Prosthetic Right Leg
+
+marking-HijabReptilian-hijabreptilian = Reptilian Hijab
+marking-HijabReptilian = Reptilian Hijbab

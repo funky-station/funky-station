@@ -319,8 +319,8 @@
 
 - type: marking
   id: LizardTongueFlick
-  bodyPart: Head
-  markingCategory: Overlay
+  bodyPart: HeadSide
+  markingCategory: HeadSide
   speciesRestriction: [Reptilian]
   followSkinColor: false
   sprites:
@@ -329,8 +329,8 @@
 
 - type: marking
   id: LizardTongueWeh
-  bodyPart: Head
-  markingCategory: Overlay
+  bodyPart: HeadSide
+  markingCategory: HeadSide
   speciesRestriction: [Reptilian]
   followSkinColor: false
   sprites:
@@ -456,3 +456,13 @@
   sprites:
   - sprite: _Funkystation/Mobs/Customization/Reptilian/reptilian_parts.rsi
     state: leg_r_prosthetic
+
+- type: marking
+  id: HijabReptilian
+  bodyPart: HeadSide
+  markingCategory: HeadSide
+  speciesRestriction: [Reptilian]
+  followSkinColor: false
+  sprites:
+  - sprite: _Funkystation/Mobs/Customization/Reptilian/reptilian_parts.rsi
+    state: hijabreptilian

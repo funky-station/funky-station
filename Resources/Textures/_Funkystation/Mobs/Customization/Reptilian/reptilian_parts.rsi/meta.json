@@ -252,6 +252,10 @@
     {
       "name": "leg_r_prosthetic",
       "directions": 4
+    },
+    {
+      "name": "hijabreptilian",
+      "directions": 4
     }
   ]
 }

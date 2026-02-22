@@ -144,6 +144,11 @@
           32:
             sprite: _Funkystation/Mobs/Species/Lizard/displacement.rsi
             state: outerclothing
+      mask:
+        sizeMaps:
+          32:
+            sprite: _Funkystation/Mobs/Species/Lizard/displacement.rsi
+            state: mask
       shoes:
         sizeMaps:
           32:
@@ -180,6 +185,11 @@
           32:
             sprite: _Funkystation/Mobs/Species/Lizard/displacement.rsi
             state: shoes
+      mask:
+        sizeMaps:
+          32:
+            sprite: _Funkystation/Mobs/Species/Lizard/displacement.rsi
+            state: mask
       jumpsuit:
         sizeMaps:
           32:
@@ -236,6 +246,11 @@
           32:
             sprite: _Funkystation/Mobs/Species/Lizard/displacement.rsi
             state: shoes
+      mask:
+        sizeMaps:
+          32:
+            sprite: _Funkystation/Mobs/Species/Lizard/displacement.rsi
+            state: mask
       jumpsuit:
         sizeMaps:
           32:
@@ -267,6 +282,11 @@
           32:
             sprite: _Funkystation/Mobs/Species/Lizard/displacement.rsi
             state: shoes
+      mask:
+        sizeMaps:
+          32:
+            sprite: _Funkystation/Mobs/Species/Lizard/displacement.rsi
+            state: mask
       jumpsuit:
         sizeMaps:
           32:

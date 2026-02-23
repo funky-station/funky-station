@@ -107,6 +107,8 @@ namespace Content.Server.Zombies
 
             SubscribeLocalEvent<ZombifyOnDeathComponent, MobStateChangedEvent>(OnDamageChanged);
 
+            SubscribeLocalEvent<ZombieComponent, DamageModifyEvent>(OnDamageModified);
+
         }
 
         private void OnBeforeRemoveAnomalyOnDeath(Entity<PendingZombieComponent> ent, ref BeforeRemoveAnomalyOnDeathEvent args)
@@ -263,6 +265,8 @@ namespace Content.Server.Zombies
             var min = component.MinZombieInfectionChance;
             //gets a value between the max and min based on how many items the entity is wearing
             var chance = (max - min) * ((total - items) / total) + min;
+            //multiplies infection chance by set multiplier
+            chance *= component.ZombieInfectionChanceMultiplier;
             return chance;
         }
 
@@ -322,14 +326,14 @@ namespace Content.Server.Zombies
                 if (_mobState.IsIncapacitated(entity, mobState) && !HasComp<ZombieComponent>(entity) && !HasComp<ZombieImmuneComponent>(entity))
                 {
                     // Check if this is a critical IPC (has Silicon component AND Bloodstream, is in critical state)
-                    if (_mobState.IsCritical(entity, mobState) && 
+                    if (_mobState.IsCritical(entity, mobState) &&
                         HasComp<SiliconComponent>(entity) &&
                         HasComp<BloodstreamComponent>(entity))
                     {
                         // Give IPC a robot tumor before zombifying
                         _zombieTumor.SpawnTumorOrgan(entity);
                     }
-                    
+
                     ZombifyEntity(entity);
                     args.BonusDamage = -args.BaseDamage;
                 }
@@ -374,6 +378,11 @@ namespace Content.Server.Zombies
         private void OnZombieCloning(Entity<ZombieComponent> ent, ref CloningEvent args)
         {
             UnZombify(ent.Owner, args.CloneUid, ent.Comp);
+        }
+
+        private void OnDamageModified(Entity<ZombieComponent> ent, ref DamageModifyEvent args)
+        {
+            args.Damage = DamageSpecifier.ApplyModifierSet(args.Damage, ent.Comp.DamageModifier);
         }
     }
 }

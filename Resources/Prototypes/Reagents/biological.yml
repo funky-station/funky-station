@@ -264,7 +264,7 @@
             Burn: -0.50
             Toxin: -0.10
     Poison:
-      metabolismRate: 0.2 # Funkyc
+      metabolismRate: 0.3 # Funkyc
       effects:
       - !type:HealthChange
         conditions:
@@ -273,7 +273,7 @@
           shouldHave: false
         damage:
           types:
-            Poison: 4
+            Poison: 6
       - !type:ChemVomit
         conditions:
         - !type:OrganType

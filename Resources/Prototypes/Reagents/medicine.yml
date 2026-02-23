@@ -879,7 +879,7 @@
           immunityLevel: 5
           conditions:
             - !type:ReagentThreshold
-              min: 10
+              min: 5
 
 - type: reagent
   id: AmbuzolPlus

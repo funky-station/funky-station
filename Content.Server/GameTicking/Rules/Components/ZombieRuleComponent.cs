@@ -46,7 +46,7 @@ public sealed partial class ZombieRuleComponent : Component
     /// Multiplier for airborne infection spread from zombie tumor organs.
     /// </summary>
     [DataField]
-    public float InfectionSpreadMultiplier = 1.0f;
+    public float InfectionSpreadMultiplier = 1.15f;
 
     // goob edit
     public bool StartAnnounced = false;

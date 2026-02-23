@@ -574,7 +574,7 @@
     shoes: ClothingShoesBootsLaceup
     eyes: ClothingEyesGlassesCommand
     ears: ClothingHeadsetCentCom
-    pocket2: RubberStampLawyer
+    pocket2: RubberStampERTLawyer
     gloves: ClothingHandsGlovesHop
     belt: BoxFolderCentComClipboard
     back: ClothingBackpackSatchelNanorep
@@ -612,7 +612,7 @@
     eyes: ClothingEyesGlassesSecurity
     ears: ClothingHeadsetCentCom
     pocket1: WeaponDisabler
-    pocket2: RubberStampDetective
+    pocket2: RubberStampCentComInvestigator
     gloves: ClothingHandsGlovesCombat
     belt: ClothingBeltSecurityFilled
     back: ClothingBackpackSatchelNanorep

@@ -15,7 +15,7 @@ namespace Content.Server._Impstation.FoodReagentExtractor;
 
 // TODO the only thing keeping this system in server is food.
 /// <summary>
-///     System for extracting reagents from <see cref="EdibleComponent">.
+///     System for extracting reagents from <see cref="FoodComponent">.
 /// </summary>
 /// <seealso cref="FoodReagentExtractorComponent"/>
 public sealed class FoodReagentExtractorSystem : EntitySystem
@@ -37,7 +37,7 @@ public sealed class FoodReagentExtractorSystem : EntitySystem
 
         args.Handled = true;
 
-        if (!TryComp<EdibleComponent>(args.Used, out var food))
+        if (!TryComp<FoodComponent>(args.Used, out var food))
             return;
 
         if (!_solutionContainer.TryGetSolution(args.Used, food.Solution, out var foodSol) ||

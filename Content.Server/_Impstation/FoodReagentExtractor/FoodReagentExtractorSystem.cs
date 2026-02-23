@@ -38,7 +38,7 @@ public sealed class FoodReagentExtractorSystem : EntitySystem
 
         args.Handled = true;
 
-        if (!TryComp<Food>(args.Used, out var food))
+        if (!TryComp<FoodComponent>(args.Used, out var food))
             return;
 
         if (!_solutionContainer.TryGetSolution(args.Used, food.Solution, out var foodSol) ||

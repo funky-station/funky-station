@@ -425,9 +425,10 @@ public sealed class ZombieTumorOrganSystem : SharedZombieTumorOrganSystem
             if (protoId != null)
             {
                 // Check if this prototype or any parent is PartAnimal
-                foreach (var parent in _prototypeManager.EnumerateParents<EntityPrototype>(protoId))
+                foreach (var parent in _prototypeManager.EnumerateParents<EntityPrototype>(protoId, true))
                 {
-                    if (parent.ID == "PartAnimal")
+                    // Incredibly hack, but works. EnumerateParents doesn't seem to work recursively
+                    if (parent.ID.Contains("Animal"))
                         return true; // This is an animal
                 }
             }

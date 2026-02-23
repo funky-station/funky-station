@@ -115,16 +115,6 @@ public sealed partial class ZombieSystem
 
     private static readonly ProtoId<TagPrototype> InvalidForGlobalSpawnSpellTag = "InvalidForGlobalSpawnSpell";
     private static readonly ProtoId<TagPrototype> CannotSuicideTag = "CannotSuicide";
-    /// <summary>
-    /// Handles an entity turning into a zombie when they die or go into crit
-    /// </summary>
-    private void OnDamageChanged(EntityUid uid, ZombifyOnDeathComponent component, MobStateChangedEvent args)
-    {
-        if (args.NewMobState == MobState.Dead)
-        {
-            ZombifyEntity(uid, args.Component);
-        }
-    }
 
     /// <summary>
     ///     This is the general purpose function to call if you want to zombify an entity.
@@ -313,7 +303,7 @@ public sealed partial class ZombieSystem
             _npc.WakeNPC(target, htn);
         }
 
-        if (!HasComp<GhostRoleMobSpawnerComponent>(target) && !hasMind) //this specific component gives build test trouble so pop off, ig
+        if (!hasMind) //this specific component gives build test trouble so pop off, ig
         {
             //yet more hardcoding. Visit zombie.ftl for more information.
             var ghostRole = EnsureComp<GhostRoleComponent>(target);

@@ -60,4 +60,22 @@ public sealed class CCVars_Funky
     /// </summary>
     public static readonly CVarDef<bool> PinktextEnabled =
         CVarDef.Create("objectives.pink_text_enabled", true, CVar.SERVER | CVar.REPLICATED);
+
+    /// <summary>
+    /// If the content warning should be displayed.
+    /// </summary>
+    public static readonly CVarDef<bool> ContentWarningDisplay =
+        CVarDef.Create("cw.display", false, CVar.SERVER | CVar.REPLICATED);
+
+    /// <summary>
+    /// If ignoring the content warning should kick you from the server.
+    /// </summary>
+    public static readonly CVarDef<bool> ContentWarningKickOnIgnore =
+        CVarDef.Create("cw.kick", true, CVar.SERVER | CVar.REPLICATED);
+
+    /// <summary>
+    /// If the content warning popup was acknowledged.
+    /// </summary>
+    public static readonly CVarDef<bool> ContentWarningAcknowledged =
+        CVarDef.Create("cw.acknowledged", false, CVar.CLIENTONLY | CVar.ARCHIVE);
 }

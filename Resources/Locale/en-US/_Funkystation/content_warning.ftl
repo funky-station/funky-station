@@ -17,9 +17,9 @@ content-warning-message =
     - Witnessing others dying
     - Brainwashing
     - Body horror
-    - Your characters gender, presentation or appearance changing
+    - You playing someone elses character, or parts of your characters appearance changing
     - Being framed for a crime that you did not do
 
-    Another reminder that you are not your character. Do not make a stand in for yourself. If you are not confident in your ability to distinguish what is part of the game and what isn't, do not play here.
+    Do not make a stand in for yourself. If you are not confident in your ability to distinguish what is part of the game and what isn't, do not play here.
 
 

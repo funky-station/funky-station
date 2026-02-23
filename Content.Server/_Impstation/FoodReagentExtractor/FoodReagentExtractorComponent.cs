@@ -1,4 +1,5 @@
 // SPDX-FileCopyrightText: 2025 āda <ss.adasts@gmail.com>
+// SPDX-FileCopyrightText: 2026 ThatOneMoon <juozas.dringelis@gmail.com>
 //
 // SPDX-License-Identifier: MIT
 

@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 DVDPlayerOfDiscordFame <drew.c.bergen@gmail.com>
+//
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Administration.Logs;
 using Content.Shared.Damage.Components;
 using Content.Shared.Database;

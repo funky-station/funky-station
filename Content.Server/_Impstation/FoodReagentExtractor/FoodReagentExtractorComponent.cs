@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 āda <ss.adasts@gmail.com>
+//
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Whitelist;
 using Robust.Shared.Audio;

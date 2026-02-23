@@ -4,6 +4,7 @@
 // SPDX-License-Identifier: MIT
 
 using System.Linq;
+using Content.Server.Nutrition.Components;
 using Content.Server.Popups;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.FixedPoint;

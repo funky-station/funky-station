@@ -1,7 +1,5 @@
 using Content.Client.Gameplay;
 using Content.Client.Lobby;
-using Content.Shared.GameTicking;
-using Content.Shared._DV.CCVars;
 using Content.Shared._Funkystation.CCVars;
 using Robust.Client.Console;
 using Robust.Client.UserInterface.Controllers;

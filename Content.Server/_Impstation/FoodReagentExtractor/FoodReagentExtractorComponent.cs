@@ -1,4 +1,5 @@
 using Content.Shared.Chemistry.Reagent;
+using Content.Shared.Whitelist;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 
@@ -10,6 +11,12 @@ namespace Content.Server._Impstation.FoodReagentExtractor;
 [RegisterComponent, Access(typeof(FoodReagentExtractorSystem))]
 public sealed partial class FoodReagentExtractorComponent : Component
 {
+    /// <summary>
+    ///  blacklist function so you can say "hey maybe don't eat that entire-ass bucket".
+    /// </summary>
+    [DataField]
+    public EntityWhitelist? EdibleBlacklist;
+
     /// <summary>
     ///     Solution to move the reagents to.
     /// </summary>

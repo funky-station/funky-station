@@ -43,10 +43,13 @@ public sealed partial class ContentWarningUIController : UIController, IOnStateE
 
         _window = new ContentWarningPopup();
         _window.OpenCentered();
-        _window.OnClose += () =>
+        _window.OnContentWarningReject += () =>
         {
+            _window.Close();
             _window = null;
-            _consoleHost.ExecuteCommand("quit");
+
+            if (_cfg.GetCVar(CCVars_Funky.ContentWarningKickOnIgnore))
+                _consoleHost.ExecuteCommand("quit");
         };
         _window.OnContentWarningAccept += () =>
         {

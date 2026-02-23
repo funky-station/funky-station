@@ -18,6 +18,7 @@ public sealed partial class ContentWarningPopup : FancyWindow
     [Dependency] private readonly IClientConsoleHost _consoleHost = default!;
 
     public event Action? OnContentWarningAccept;
+    public event Action? OnContentWarningReject;
 
     public ContentWarningPopup()
     {
@@ -33,7 +34,7 @@ public sealed partial class ContentWarningPopup : FancyWindow
 
         ContentWarningReject.OnPressed += _ =>
         {
-            _consoleHost.ExecuteCommand("quit");
+            OnContentWarningReject?.Invoke();
         };
 
         ContentWarningAccept.OnPressed += obj =>

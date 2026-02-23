@@ -6,7 +6,7 @@
   physicalDesc: reagent-physical-desc-ionizing
   slipData:
     requiredSlipSpeed: 3.5
-  flavor: radiation
+  flavor: tingly
   flavorMinimum: 0.01
   color: "#ceaaed"
   recognizable: true

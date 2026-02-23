@@ -144,11 +144,11 @@
     wideAnimationRotation: -90
     angle: 0
     animation: WeaponArcThrust
-    soundHit:
-      path: /Audio/Weapons/Guns/Hits/energy_meat1.ogg
-      params:
-        variation: 0.250
-        volume: -12
+#    soundHit:
+#      path: /Audio/Weapons/Guns/Hits/energy_meat1.ogg
+#      params:
+#        variation: 0.250
+#        volume: -12
   - type: StaminaDamageOnHit
     damage: 15 #slight stagger, but still like 7 hits to stun completely
   - type: MeleeRequiresWield

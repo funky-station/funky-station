@@ -876,6 +876,7 @@
     Medicine:
       effects:
         - !type:CureZombieInfection
+          innoculate: true
           immunityLevel: 5
           conditions:
             - !type:ReagentThreshold

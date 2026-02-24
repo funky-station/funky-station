@@ -173,7 +173,7 @@ namespace Content.Server.NPC.Systems
                 case MobState.Critical:
                 case MobState.HardCritical:
                 case MobState.Dead:
-                    // SleepNPC(uid, component); Funky Edit. Breaks Zombie AI for some reason. Someone smarter than me fix
+                    SleepNPC(uid, component);
                     break;
             }
         }

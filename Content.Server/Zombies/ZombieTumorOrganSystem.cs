@@ -1,3 +1,4 @@
+// SPDX-FileCopyrightText: 2026 QueerCats <jansencheng3@gmail.com>
 // SPDX-FileCopyrightText: 2026 Terkala <appleorange64@gmail.com>
 //
 // SPDX-License-Identifier: MIT

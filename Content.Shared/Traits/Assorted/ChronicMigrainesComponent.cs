@@ -25,7 +25,7 @@ public sealed partial class ChronicMigrainesComponent : Component
     /// Duration range for migraines (min, max).
     /// </summary>
     [DataField, AutoNetworkedField]
-    public (TimeSpan Min, TimeSpan Max) MigraineDuration = (TimeSpan.FromSeconds(30), TimeSpan.FromSeconds(60));
+    public (TimeSpan Min, TimeSpan Max) MigraineDuration = (TimeSpan.FromSeconds(25), TimeSpan.FromSeconds(55));
 
     /// <summary>
     /// How long the fadeout should take when migraines end (in seconds).

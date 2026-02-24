@@ -309,8 +309,7 @@ namespace Content.Server.Zombies
                         else
                         {
                             // For crit/dead players, keep the old behavior
-                            EnsureComp<PendingZombieComponent>(entity);
-                            EnsureComp<ZombifyOnDeathComponent>(entity);
+                            EnsureComp<ZombieTumorInfectionComponent>(entity);
                             // Ensure StatusIconComponent exists so infection status can be displayed in UI
                             EnsureComp<StatusIconComponent>(entity);
                         }
@@ -320,14 +319,14 @@ namespace Content.Server.Zombies
                 if (_mobState.IsIncapacitated(entity, mobState) && !HasComp<ZombieComponent>(entity) && !HasComp<ZombieImmuneComponent>(entity))
                 {
                     // Check if this is a critical IPC (has Silicon component AND Bloodstream, is in critical state)
-                    if (_mobState.IsCritical(entity, mobState) && 
+                    if (_mobState.IsCritical(entity, mobState) &&
                         HasComp<SiliconComponent>(entity) &&
                         HasComp<BloodstreamComponent>(entity))
                     {
                         // Give IPC a robot tumor before zombifying
                         _zombieTumor.SpawnTumorOrgan(entity);
                     }
-                    
+
                     ZombifyEntity(entity);
                     args.BonusDamage = -args.BaseDamage;
                 }

@@ -584,6 +584,8 @@
   storage:
     back:
     - BookSpaceLaw
+    - WeaponDisabler
+    - Flash
     
 # Investigator
 - type: job

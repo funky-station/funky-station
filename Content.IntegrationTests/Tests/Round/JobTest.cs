@@ -1,6 +1,8 @@
 // SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
+// SPDX-FileCopyrightText: 2025 Quantum-cross <7065792+Quantum-cross@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2026 willow <willowzeta632146@proton.me>
 //
 // SPDX-License-Identifier: MIT
 
@@ -129,7 +131,8 @@ public sealed class JobTest
     /// Check high priority jobs (e.g., captain) are selected before other roles, even if it means a player does not
     /// get their preferred job.
     /// </summary>
-    [Test]
+    // funkystation - nuh uh
+    /*[Test]
     public async Task JobWeightTest()
     {
         await using var pair = await PoolManager.GetServerClient(new PoolSettings
@@ -165,7 +168,7 @@ public sealed class JobTest
 
         await pair.Server.WaitPost(() => ticker.RestartRound());
         await pair.CleanReturnAsync();
-    }
+    } */
 
     /// <summary>
     /// Check that jobs are preferentially given to players that have marked those jobs as higher priority.

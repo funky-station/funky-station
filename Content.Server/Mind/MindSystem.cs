@@ -35,6 +35,7 @@
 // SPDX-License-Identifier: MIT
 
 using Content.Server.Administration.Logs;
+using Content.Server.Chat.Systems;
 using Content.Server.GameTicking;
 using Content.Server.Ghost;
 using Content.Server.Mind.Commands;
@@ -42,6 +43,7 @@ using Content.Shared.Database;
 using Content.Shared.Ghost;
 using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
+using Content.Shared.Mobs.Components;
 using Content.Shared.Players;
 using Robust.Server.GameStates;
 using Robust.Server.Player;
@@ -215,11 +217,14 @@ public sealed class MindSystem : SharedMindSystem
     public override void TransferTo(EntityUid mindId, EntityUid? entity, bool ghostCheckOverride = false, bool createGhost = true,
         MindComponent? mind = null)
     {
+
         if (mind == null && !Resolve(mindId, ref mind))
             return;
 
         if (entity == mind.OwnedEntity)
             return;
+
+        var src = mind.OwnedEntity;
 
         Dirty(mindId, mind);
         MindContainerComponent? component = null;
@@ -242,6 +247,8 @@ public sealed class MindSystem : SharedMindSystem
 
                 alreadyAttached = true;
             }
+            //Funky
+            RaiseLocalEvent(mindId, new TransferMindEvent(entity, src));
         }
         else if (createGhost)
         {
@@ -403,5 +410,23 @@ public sealed class MindSystem : SharedMindSystem
     internal bool TryGetMind(EntityUid mindId, out object mind)
     {
         throw new NotImplementedException();
+    }
+}
+
+//Funkystation
+/// <summary>
+///     Raised when a mind is transfered to another entity.
+/// </summary>
+/// <param name="Target">The new entity the mind will be on. Can be null.</param>
+/// <param name="Source">The previous entity the mind was on. Can be null.</param>
+
+public sealed class TransferMindEvent : EntityEventArgs
+{
+    public readonly EntityUid? Target;
+    public readonly EntityUid? Source;
+    public TransferMindEvent(EntityUid? target, EntityUid? source)
+    {
+        Target = target;
+        Source = source;
     }
 }

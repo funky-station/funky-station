@@ -632,7 +632,11 @@ namespace Content.Server.GameTicking
                     JobPrototypes = roles.Where(role => !role.Antagonist).Select(role => role.Prototype).ToArray(),
                     AntagPrototypes = roles.Where(role => role.Antagonist).Select(role => role.Prototype).ToArray(),
                     Observer = observer,
-                    Connected = connected
+                    Connected = connected,
+                    //Funky modifications for the EOR manifest
+                    LastMessage = mind.LastMessage ?? "Silently",
+                    DeathInfo = mind.DeathInfo ?? "Died misteriously",
+                    LastEntity = mind.LastEntity
                 };
                 listOfPlayerInfo.Add(playerEndRoundInfo);
             }

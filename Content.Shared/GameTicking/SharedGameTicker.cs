@@ -226,6 +226,17 @@ namespace Content.Shared.GameTicking
             public bool Observer;
 
             public bool Connected;
+
+            //Funky fields for EOR screen
+            [DataField]
+            public string? LastMessage;
+
+            [DataField]
+            public string? DeathInfo;
+
+            [DataField, NonSerialized]
+            public EntityUid? LastEntity;
+            //End Funky
         }
 
         public string GamemodeTitle { get; }

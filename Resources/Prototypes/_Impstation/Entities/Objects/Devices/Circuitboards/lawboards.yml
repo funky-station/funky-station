@@ -1,15 +1,25 @@
 - type: entity
-  id: FreeformLawCircuitBoard
-  parent: BaseElectronics
-  name: law board (Customizable)
+  id: RDFreeformLawCircuitBoard
+  parent: [ BaseElectronics, BaseCommandContraband
+  name: law board (Freeform)
   description: An electronics board configured to store silicon lawsets. It has a small keyboard and screen for custom law entry.
   components:
   - type: Sprite
     sprite: Objects/Misc/module.rsi
-    state: std_mod
+    state: freeform-sci
   - type: SiliconLawProvider
     laws: Crewsimov # Barely Relevant, just required
   - type: FreeformLawEntry
     verbIcon:
       sprite: /Textures/Interface/Actions/actions_borg.rsi
       state: state-laws
+
+- type: entity
+  id: SyndieFreeformLawCircuitBoard
+  parent: [ RDFreeformLawCircuitBoard, BaseSyndicateContraband ]
+  name: law board (Syndicate)
+  description: An electronics board configured to store silicon lawsets. It has a small keyboard and a screen for evil law entry.
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/module.rsi
+    state: freeform-syndie

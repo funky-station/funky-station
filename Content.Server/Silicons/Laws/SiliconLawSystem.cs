@@ -47,6 +47,8 @@ using Robust.Shared.Containers;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Toolshed;
+using Content.Server._Impstation.Borgs.FreeformLaws;
+using System.Linq;
 
 namespace Content.Server.Silicons.Laws;
 
@@ -219,11 +221,33 @@ public sealed class SiliconLawSystem : SharedSiliconLawSystem
 
     public SiliconLawset GetLaws(EntityUid uid, SiliconLawBoundComponent? component = null)
     {
+        // Resolve the lawbound component
         if (!Resolve(uid, ref component))
             return new SiliconLawset();
 
-        var ev = new GetSiliconLawsEvent(uid);
+        // --- NEW: Freeform override ---
+        if (EntityManager.HasComponent<FreeformLawEntryComponent>(uid))
+        {
+            // Use a separate variable to avoid conflict with the main ev
+            var freeformEv = new GetSiliconLawsEvent(uid);
+            RaiseLocalEvent(uid, ref freeformEv);
 
+            if (freeformEv.Handled)
+            {
+                return freeformEv.Laws;
+            }
+
+            // If no laws were set yet, return empty
+            return new SiliconLawset()
+            {
+                Laws = new List<SiliconLaw>(),
+                ObeysTo = "Freeform"
+            };
+        }
+        // --- END NEW ---
+
+        // Original logic: raise an event to fetch laws from providers
+        var ev = new GetSiliconLawsEvent(uid);
         RaiseLocalEvent(uid, ref ev);
         if (ev.Handled)
         {
@@ -328,20 +352,31 @@ public sealed class SiliconLawSystem : SharedSiliconLawSystem
 
     protected override void OnUpdaterInsert(Entity<SiliconLawUpdaterComponent> ent, ref EntInsertedIntoContainerMessage args)
     {
-        // TODO: Prediction dump this
         if (!TryComp(args.Entity, out SiliconLawProviderComponent? provider))
             return;
 
-        var lawset = GetLawset(provider.Laws).Laws;
-        var query = EntityManager.CompRegistryQueryEnumerator(ent.Comp.Components);
+        List<SiliconLaw> lawset;
 
+        // Just overrides regular laws with freeform if required
+        if (EntityManager.HasComponent<FreeformLawEntryComponent>(provider.Owner))
+        {
+            var lawEv = new GetSiliconLawsEvent(provider.Owner);
+            RaiseLocalEvent(provider.Owner, ref lawEv);
+
+            lawset = lawEv.Handled ? lawEv.Laws.Laws : new List<SiliconLaw>();
+        }
+        else
+        {
+            lawset = GetLawset(provider.Laws).Laws;
+        }
+
+        var query = EntityManager.CompRegistryQueryEnumerator(ent.Comp.Components);
         while (query.MoveNext(out var update))
         {
             SetLaws(lawset, update, provider.LawUploadSound);
-            // Start Stellar - AILawUpdatedEvent
+
             var evt = new AILawUpdatedEvent(update, provider.Laws);
             RaiseLocalEvent(ref evt);
-            // End Stellar - AILawUpdatedEvent
         }
     }
 }

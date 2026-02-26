@@ -1,28 +1,6 @@
-# jermov board
-# credit to moomoobeef (github) for the original pr, teensarlacc (discord) for the original text
-- type: entity
-  id: JermovCircuitBoard
-  parent: BaseSiliconLawboard
-  name: law board (Jermov)
-  description: An electronics board containing the Jermov lawset. Everyone and everything exists for the sake of Chat.
-  components:
-  - type: Sprite
-    sprite: Objects/Misc/module.rsi
-    state: std_mod
-  - type: SiliconLawProvider
-    laws: JermovLawset
-  - type: DetailedInspect
-    verbMessage: verbs-detailed-inspect-lawset
-    tickEntries: false
-    numberedEntries: true
-    examineText:
-      - law-jermov-1
-      - law-jermov-2
-      - law-jermov-3
-
 - type: entity
   id: FreeformLawCircuitBoard
-  parent: BaseSiliconLawboard
+  parent: BaseElectronics
   name: law board (Customizable)
   description: An electronics board configured to store silicon lawsets. It has a small keyboard and screen for custom law entry.
   components:
@@ -30,7 +8,7 @@
     sprite: Objects/Misc/module.rsi
     state: std_mod
   - type: SiliconLawProvider
-    laws: Crewsimov
+    laws: Crewsimov # Barely Relevant, just required
   - type: FreeformLawEntry
     verbIcon:
       sprite: /Textures/Interface/Actions/actions_borg.rsi

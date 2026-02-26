@@ -63,28 +63,27 @@ public sealed class LawSwapSystem : EntitySystem
 
     private void WhenFinishedLawboard(EntityUid entity, SiliconLawBoundComponent component, DoAfterEvent args)
     {
-        if (args.Handled || args.Cancelled || !args.Target.HasValue)
+        if (args.Handled || args.Cancelled || !args.Target.HasValue || !args.Used.HasValue)
             return;
 
-        TryComp<SiliconLawProviderComponent>(args.Used, out var lawBoardProvComp);
-        TryComp<WiresPanelComponent>(args.Target, out var wirePanelComp);
+        TryComp<SiliconLawProviderComponent>(args.Used.Value, out var lawBoardProvComp);
+        TryComp<WiresPanelComponent>(args.Target.Value, out var wirePanelComp);
         if (lawBoardProvComp == null || wirePanelComp == null)
             return;
 
-        if (wirePanelComp.Open)
-        {
-            _siliconLawSystem.SetLaws(_siliconLawSystem.GetLawset(lawBoardProvComp.Laws).Laws,
-                args.Target.Value,
-                lawBoardProvComp.LawUploadSound);
-            _popupSystem.PopupEntity("You finish reprogramming the borg's laws.",
-                args.User,
-                args.User);
-        }
-        else
+        if (!wirePanelComp.Open)
         {
             _popupSystem.PopupEntity("You have to open their panel to change their laws!",
                 args.User,
                 args.User);
+            return;
         }
+
+        var lawsToApply = _siliconLawSystem.GetLaws(args.Used.Value);
+        _siliconLawSystem.SetLaws(lawsToApply.Laws, args.Target.Value, lawBoardProvComp.LawUploadSound);
+
+        _popupSystem.PopupEntity("You finish reprogramming the borg's laws.",
+            args.User,
+            args.User);
     }
 }

@@ -241,8 +241,11 @@ namespace Content.Client.RoundEnd
                 };
                 if (playerInfo.IsDead && playerInfo.DamageMessage != null)
                     playerDeathText.SetMarkup(playerInfo.DamageMessage);
-                if (playerInfo.IsInvalid)
+                if (playerInfo.IsInvalid && !playerInfo.Observer)
                     playerDeathText.SetMarkup(Loc.GetString("round-end-manifest-missing-corpse"));
+                else
+                    playerDeathText.SetMarkup(string.Empty);
+
                 vBox.AddChild(playerDeathText);
                 hBox.AddChild(vBox);
                 panel.AddChild(hBox);

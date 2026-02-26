@@ -1,7 +1,8 @@
 using Content.Server.Chat.Systems;
 using Content.Server.Mind;
-using Content.Shared._Funkystation.Manifest;
+using Content.Shared.GameTicking;
 using Content.Shared.Ghost;
+using Content.Shared.HealthExaminable;
 using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
 using Content.Shared.Mobs;
@@ -15,11 +16,12 @@ public sealed class LastWordsSystem : EntitySystem
 {
     [Dependency] private readonly SharedMindSystem _mindSystem = default!;
     [Dependency] private readonly IServerNetManager _net = default!;
+    [Dependency] private readonly IEntityManager _entityManager = default!;
     public override void Initialize()
     {
         SubscribeLocalEvent<MobStateComponent, EntitySpokeEvent>(OnEntitySpoke);
         SubscribeLocalEvent<MindComponent, TransferMindEvent>(OnMindTransfered);
-        _net.RegisterNetMessage<DeathInformationMessage>(OnDeathInfoFeedback);
+        SubscribeLocalEvent<HealthExaminableComponent, RoundEndMessageEvent>(OnGod);
     }
 
     private void OnEntitySpoke(EntityUid uid, MobStateComponent _, EntitySpokeEvent args)
@@ -30,35 +32,19 @@ public sealed class LastWordsSystem : EntitySystem
         }
     }
 
-    //Handles when the mind changes entity
-    //If its a ghost, prompt the user (they died)
-    //if not, update LastEntity.
-    private void OnMindTransfered(EntityUid uid, MindComponent _, TransferMindEvent args)
+    private void OnMindTransfered(EntityUid uid, MindComponent mind, TransferMindEvent args)
     {
-        if (!TryComp<MindComponent>(uid, out var mind))
-            return;
-        //if the target is not a ghost ...
-        if (!TryComp<GhostComponent>(args.Target, out var _))
+        if (args.Target != null && !HasComp<GhostComponent>(args.Target))
         {
             mind.LastEntity = args.Target;
-            mind.DeathInfo = null;
-            return;
-        }
-        else
-        {
-            if (!_mindSystem.TryGetSession(uid, out var session))
-                return;
-            RaiseNetworkEvent(new DeathInfoOpenMessage(), session);
         }
     }
 
-    //Collect text from what the user inputs
-    private void OnDeathInfoFeedback(DeathInformationMessage msg)
+    private void OnGod(EntityUid uid, HealthExaminableComponent mind, RoundEndMessageEvent args)
     {
-        if (!_mindSystem.TryGetMind(msg.MsgChannel.UserId, out var mind))
-            return;
-        if (!TryComp<MindComponent>(mind, out var comp))
-            return;
-        comp.DeathInfo = msg.Description;
+        if (true)
+        {
+
+        }
     }
 }

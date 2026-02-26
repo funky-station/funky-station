@@ -61,8 +61,6 @@
 //
 // SPDX-License-Identifier: MIT
 
-using System.Linq;
-using System.Numerics;
 using Content.Server.Announcements;
 using Content.Server.Discord;
 using Content.Server.GameTicking.Events;
@@ -70,9 +68,15 @@ using Content.Server.Ghost;
 using Content.Server.Maps;
 using Content.Server.Roles;
 using Content.Shared.CCVar;
+using Content.Shared.Damage;
 using Content.Shared.Database;
+using Content.Shared.FixedPoint;
 using Content.Shared.GameTicking;
+using Content.Shared.HealthExaminable;
+using Content.Shared.IdentityManagement;
 using Content.Shared.Mind;
+using Content.Shared.Mobs;
+using Content.Shared.Mobs.Components;
 using Content.Shared.Players;
 using Content.Shared.Preferences;
 using JetBrains.Annotations;
@@ -81,12 +85,16 @@ using Robust.Shared.Asynchronous;
 using Robust.Shared.Audio;
 using Robust.Shared.EntitySerialization;
 using Robust.Shared.EntitySerialization.Systems;
+using Robust.Shared.Log;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
+using System.Linq;
+using System.Numerics;
+using static Content.Shared.Fax.AdminFaxEuiMsg;
 
 namespace Content.Server.GameTicking
 {
@@ -615,7 +623,46 @@ namespace Content.Server.GameTicking
                 }
 
                 var roles = _roles.MindGetAllRoleInfo(mindId);
+                //funky begin
+                var lastmessage = mind.LastMessage ?? "...";
+                var lastentity = (mind.LastEntity == null || mind.LastEntity.Equals(0)) ? null : mind.LastEntity;
+                //I dont know if having this kinda logic here is bad, i'm not sure where else i should've put it
+                //and i wanted it to be calculated ONLY at round end, since it could be weird otherwise.
+                //
+                var dmgMessage = string.Empty;
+                if (TryComp<HealthExaminableComponent>(mind.LastEntity, out var health)
+                    && TryComp<DamageableComponent>(mind.LastEntity, out var damage)
+                    && mind.LastEntity != null)
+                {
+                    var dmgDict = damage.Damage.DamageDict.MaxBy(entry => entry.Value);
+                    var maxDmg = dmgDict.Value;
+                    if (maxDmg != FixedPoint2.Zero)
+                    {
+                        var typeMaxDmg = dmgDict.Key;
+                        foreach (var threshold in health.Thresholds.Order())
+                        {
+                            var str = $"health-examinable-{health.LocPrefix}-{typeMaxDmg}-{threshold}";
+                            var tempLocStr = Loc.GetString($"health-examinable-{health.LocPrefix}-{typeMaxDmg}-{threshold}",
+                                ("target", Identity.Entity((EntityUid) mind.LastEntity, EntityManager)));
 
+                            if (tempLocStr == str)
+                                continue;
+
+                            if (maxDmg > threshold)
+                            {
+                                dmgMessage = tempLocStr;
+                            }
+                        }
+                    }
+                    else
+                        dmgMessage = string.Empty;
+                }
+                bool isdead = true;
+                if (TryComp<MobStateComponent>(mindId, out var comp))
+                {
+                    isdead = comp.CurrentState == MobState.Dead;
+                }
+                //funky end
                 var playerEndRoundInfo = new RoundEndMessageEvent.RoundEndPlayerInfo()
                 {
                     // Note that contentPlayerData?.Name sticks around after the player is disconnected.
@@ -634,9 +681,11 @@ namespace Content.Server.GameTicking
                     Observer = observer,
                     Connected = connected,
                     //Funky modifications for the EOR manifest
-                    LastMessage = mind.LastMessage ?? "Silently",
-                    DeathInfo = mind.DeathInfo ?? "Died misteriously",
-                    LastEntity = mind.LastEntity
+                    LastEntity = GetNetEntity(lastentity),
+                    LastMessage = lastmessage ?? "...",
+                    //Used to show how the person died, should work with other med systems.
+                    DamageMessage = dmgMessage,
+                    IsDead = isdead,
                 };
                 listOfPlayerInfo.Add(playerEndRoundInfo);
             }

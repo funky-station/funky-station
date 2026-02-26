@@ -48,6 +48,7 @@ using Robust.Shared.Serialization.Markdown.Mapping;
 using Robust.Shared.Serialization.Markdown.Value;
 using Robust.Shared.Timing;
 using Robust.Shared.Audio;
+using Content.Shared.Mind;
 
 namespace Content.Shared.GameTicking
 {
@@ -229,13 +230,15 @@ namespace Content.Shared.GameTicking
 
             //Funky fields for EOR screen
             [DataField]
-            public string? LastMessage;
+            public string LastMessage;
 
             [DataField]
-            public string? DeathInfo;
+            public NetEntity? LastEntity; //Should never be null, probably
 
-            [DataField, NonSerialized]
-            public EntityUid? LastEntity;
+            //[DataField]
+            public string? DamageMessage; //Generated upon round end, gets the highest damage and displays it like its the examine health feature
+
+            public bool IsDead;
             //End Funky
         }
 

@@ -48,7 +48,6 @@ using Robust.Shared.Serialization.Markdown.Mapping;
 using Robust.Shared.Serialization.Markdown.Value;
 using Robust.Shared.Timing;
 using Robust.Shared.Audio;
-using Content.Shared.Mind;
 
 namespace Content.Shared.GameTicking
 {
@@ -239,6 +238,8 @@ namespace Content.Shared.GameTicking
             public string? DamageMessage; //Generated upon round end, gets the highest damage and displays it like its the examine health feature
 
             public bool IsDead;
+
+            public bool IsInvalid;
             //End Funky
         }
 

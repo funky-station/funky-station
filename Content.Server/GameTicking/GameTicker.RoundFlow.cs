@@ -80,12 +80,12 @@ using Content.Shared.Mobs.Components;
 using Content.Shared.Players;
 using Content.Shared.Preferences;
 using JetBrains.Annotations;
+using Microsoft.Win32.SafeHandles;
 using Prometheus;
 using Robust.Shared.Asynchronous;
 using Robust.Shared.Audio;
 using Robust.Shared.EntitySerialization;
 using Robust.Shared.EntitySerialization.Systems;
-using Robust.Shared.Log;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Network;
@@ -94,7 +94,6 @@ using Robust.Shared.Random;
 using Robust.Shared.Utility;
 using System.Linq;
 using System.Numerics;
-using static Content.Shared.Fax.AdminFaxEuiMsg;
 
 namespace Content.Server.GameTicking
 {
@@ -657,10 +656,12 @@ namespace Content.Server.GameTicking
                     else
                         dmgMessage = string.Empty;
                 }
-                bool isdead = true;
-                if (TryComp<MobStateComponent>(mindId, out var comp))
+                bool isdead = false;
+                bool isinvalid = true;
+                if (TryComp<MobStateComponent>(mind.LastEntity, out var comp))
                 {
                     isdead = comp.CurrentState == MobState.Dead;
+                    isinvalid = comp.CurrentState == MobState.Invalid;
                 }
                 //funky end
                 var playerEndRoundInfo = new RoundEndMessageEvent.RoundEndPlayerInfo()
@@ -686,6 +687,7 @@ namespace Content.Server.GameTicking
                     //Used to show how the person died, should work with other med systems.
                     DamageMessage = dmgMessage,
                     IsDead = isdead,
+                    IsInvalid = isinvalid,
                 };
                 listOfPlayerInfo.Add(playerEndRoundInfo);
             }

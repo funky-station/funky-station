@@ -26,9 +26,8 @@
 using Content.Client.Message;
 using Content.Client.Stylesheets;
 using Content.Client.UserInterface.RichText; // DeltaV - Limit what tags can be used in custom objective summaries
-using Content.Shared.Atmos.Components;
 using Content.Shared.GameTicking;
-using Content.Shared.Mobs;
+using Content.Shared.IdentityManagement;
 using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.CustomControls;
 using Robust.Client.UserInterface.RichText; // DeltaV - Limit what tags can be used in custom objective summaries
@@ -238,12 +237,12 @@ namespace Content.Client.RoundEnd
                 {
                     VerticalAlignment = VAlignment.Bottom,
                     StyleClasses = { StyleClass.LabelSubText },
+                    Margin = new Thickness(6, 0, 0, 0),
                 };
                 if (playerInfo.IsDead && playerInfo.DamageMessage != null)
-                {
                     playerDeathText.SetMarkup(playerInfo.DamageMessage);
-                    playerDeathText.Margin = new Thickness(4, 0, 0, 0);
-                }
+                if (playerInfo.IsInvalid)
+                    playerDeathText.SetMarkup(Loc.GetString("round-end-manifest-missing-corpse"));
                 vBox.AddChild(playerDeathText);
                 hBox.AddChild(vBox);
                 panel.AddChild(hBox);

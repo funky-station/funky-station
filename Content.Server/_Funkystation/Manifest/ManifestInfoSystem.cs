@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2026 phmnsx <lynnwastinghertime@gmail.com>
+//
+// SPDX-License-Identifier: MIT
+
 using Content.Server.Chat.Systems;
 using Content.Server.Mind;
 using Content.Shared.Ghost;

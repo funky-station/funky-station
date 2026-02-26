@@ -21,19 +21,18 @@ public sealed class ManifestInfoSystem : EntitySystem
         SubscribeLocalEvent<MindComponent, TransferMindEvent>(OnMindTransfered);
     }
 
-    private void OnEntitySpeak(EntityUid uid, MindContainerComponent _, EntitySpokeEvent args)
+    private void OnEntitySpeak(EntityUid uid, MindContainerComponent comp, EntitySpokeEvent args)
     {
-        if (_mindSystem.TryGetMind(uid, out var _, out var mind))
-        {
-            mind.LastMessage = args.Message;
-        }
+        var mind = comp.Mind;
+        if (TryComp<ManifestInfoComponent>(mind, out var info))
+            info.LastMessage = args.Message;
     }
 
     private void OnMindTransfered(EntityUid uid, MindComponent mind, TransferMindEvent args)
     {
+        if (!TryComp<ManifestInfoComponent>(uid, out var info))
+            return;
         if (args.Target != null && !HasComp<GhostComponent>(args.Target))
-        {
-            mind.LastEntity = args.Target;
-        }
+            info.LastEntity = args.Target;
     }
 }

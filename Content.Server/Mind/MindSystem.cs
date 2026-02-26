@@ -415,7 +415,7 @@ public sealed class MindSystem : SharedMindSystem
 
 //Funkystation
 /// <summary>
-///     Raised when a mind is transfered to another entity.
+///     Raised when a mind is transfered to another entity. Sent with a mindId.
 /// </summary>
 /// <param name="Target">The new entity the mind will be on. Can be null.</param>
 /// <param name="Source">The previous entity the mind was on. Can be null.</param>

@@ -62,6 +62,7 @@
 //
 // SPDX-License-Identifier: MIT
 
+using Content.Server._Funkystation.Manifest;
 using Content.Server.Announcements;
 using Content.Server.Discord;
 using Content.Server.GameTicking.Events;
@@ -624,15 +625,19 @@ namespace Content.Server.GameTicking
 
                 var roles = _roles.MindGetAllRoleInfo(mindId);
                 //funky begin
-                var lastmessage = mind.LastMessage ?? "...";
-                var lastentity = (mind.LastEntity == null || mind.LastEntity.Equals(0)) ? null : mind.LastEntity;
+                if (!TryComp<ManifestInfoComponent>(mindId, out var info))
+                {
+                    throw new Exception("Should be impossible");
+                }
+                var lastmessage = info.LastMessage ?? "...";
+                var lastentity = (info.LastEntity == null || info.LastEntity.Equals(0)) ? null : info.LastEntity;
                 //I dont know if having this kinda logic here is bad, i'm not sure where else i should've put it
                 //and i wanted it to be calculated ONLY at round end, since it could be weird otherwise.
                 //
                 var dmgMessage = string.Empty;
-                if (TryComp<HealthExaminableComponent>(mind.LastEntity, out var health)
-                    && TryComp<DamageableComponent>(mind.LastEntity, out var damage)
-                    && mind.LastEntity != null)
+                if (TryComp<HealthExaminableComponent>(info.LastEntity, out var health)
+                    && TryComp<DamageableComponent>(info.LastEntity, out var damage)
+                    && info.LastEntity != null)
                 {
                     var dmgDict = damage.Damage.DamageDict.MaxBy(entry => entry.Value);
                     var maxDmg = dmgDict.Value;
@@ -643,7 +648,7 @@ namespace Content.Server.GameTicking
                         {
                             var str = $"health-examinable-{health.LocPrefix}-{typeMaxDmg}-{threshold}";
                             var tempLocStr = Loc.GetString($"health-examinable-{health.LocPrefix}-{typeMaxDmg}-{threshold}",
-                                ("target", Identity.Entity((EntityUid) mind.LastEntity, EntityManager)));
+                                ("target", Identity.Entity((EntityUid) info.LastEntity, EntityManager)));
 
                             if (tempLocStr == str)
                                 continue;
@@ -659,9 +664,9 @@ namespace Content.Server.GameTicking
                 }
                 bool isdead = false;
                 bool isinvalid = true;
-                if (mind.LastEntity != null)
+                if (info.LastEntity != null)
                 {
-                    if (TryComp<MobStateComponent>(mind.LastEntity, out var comp))
+                    if (TryComp<MobStateComponent>(info.LastEntity, out var comp))
                     {
                         isdead = comp.CurrentState == MobState.Dead;
                         isinvalid = comp.CurrentState == MobState.Invalid;
@@ -689,7 +694,7 @@ namespace Content.Server.GameTicking
                     LastEntity = GetNetEntity(lastentity),
                     LastMessage = lastmessage ?? "...",
                     //Used to show how the person died, should work with other med systems.
-                    DamageMessage = dmgMessage,
+                    DamageMessage = dmgMessage ?? string.Empty,
                     IsDead = isdead,
                     IsInvalid = isinvalid,
                 };

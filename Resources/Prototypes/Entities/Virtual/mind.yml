@@ -4,6 +4,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Mind
+  - type: ManifestInfo
   - type: ContainerContainer
     containers:
       mind_roles: !type:Container

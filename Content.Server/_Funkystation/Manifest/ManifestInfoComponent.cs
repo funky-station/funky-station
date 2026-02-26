@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2026 phmnsx <lynnwastinghertime@gmail.com>
+//
+// SPDX-License-Identifier: MIT
+
 using Robust.Shared.GameStates;
 
 namespace Content.Server._Funkystation.Manifest;

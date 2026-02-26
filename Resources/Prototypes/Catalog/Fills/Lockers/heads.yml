@@ -425,6 +425,7 @@
     - id: RubberStampRd
     - id: AnomalyLocator # GoobStation - adding anomaly locator to the RD locker to reduce the amount of anoms that crit
     - id: CigarCase
+    - id: RDFreeformLawCircuitBoard
       prob: 0.15 # GoobStation - RD needs cigs for uhh... science...
     - id: RadioHandheldScience #funkystation
     - id: RadioHandheldCommand #funkystation

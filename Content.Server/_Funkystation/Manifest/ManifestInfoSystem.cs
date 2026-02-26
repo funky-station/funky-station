@@ -8,7 +8,7 @@ using Robust.Shared.Network;
 
 namespace Content.Server._Funkystation.Manifest;
 
-public sealed class LastWordsSystem : EntitySystem
+public sealed class ManifestInfoSystem : EntitySystem
 {
     [Dependency] private readonly SharedMindSystem _mindSystem = default!;
     public override void Initialize()

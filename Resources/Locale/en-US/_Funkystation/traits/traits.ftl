@@ -62,7 +62,7 @@ trait-neuro-aversion-name = Neuroaversion
 trait-neuro-aversion-desc = Your nervous system has an adverse reaction to MindShield implants. You experience migraines and rare seizures.
 
 trait-neuro-aversion-migraine-start = Your Mindshield cascades begins to throb painfully...
-trait-neuro-aversion-migraine-start-other = {THE($target)} winces and clutches {POSS-ADJ($target)} their head.
+trait-neuro-aversion-migraine-start-other = {THE($target)} winces and clutches {POSS-ADJ($target)} head.
 
 seizure-prodrome-self = You feel something terrible coming on...
 seizure-prodrome-others = {$target} stumbles and heaves.

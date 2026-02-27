@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2025 Mora <46364955+TrixxedHeart@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2026 Mora <46364955+TrixxedHeart@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2026 TrixxedHeart <46364955+TrixxedBit@users.noreply.github.com>
 //
 // SPDX-License-Identifier: MIT
@@ -45,7 +45,8 @@ public sealed class ChronicMigrainesSystem : EntitySystem
 
     private void SetupChronicMigraines(EntityUid uid, ChronicMigrainesComponent component, ComponentStartup args)
     {
-        component.NextMigraineTime = _random.NextFloat(component.TimeBetweenMigraines.X, component.TimeBetweenMigraines.Y);
+        var seconds = _random.NextFloat((float)component.TimeBetweenMigraines.Min.TotalSeconds, (float)component.TimeBetweenMigraines.Max.TotalSeconds);
+        component.NextMigraineTime = TimeSpan.FromSeconds(seconds);
     }
 
 
@@ -65,22 +66,22 @@ public sealed class ChronicMigrainesSystem : EntitySystem
             if (_neuroAversionQuery.HasComponent(uid) && _mindShieldQuery.HasComponent(uid))
                 continue;
 
-            migraines.NextMigraineTime -= frameTime;
+            migraines.NextMigraineTime -= TimeSpan.FromSeconds(frameTime);
+            Dirty(uid, migraines);
 
-            if (migraines.NextMigraineTime >= 0)
+            if (migraines.NextMigraineTime > TimeSpan.Zero)
                 continue;
 
             // Don't start a new migraine if one is already active
             if (HasComp<MigraineComponent>(uid))
                 continue;
 
-            // Set the new time for next incident
-            migraines.NextMigraineTime += _random.NextFloat(migraines.TimeBetweenMigraines.X, migraines.TimeBetweenMigraines.Y);
-
-            var duration = _random.NextFloat(migraines.MigraineDuration.X, migraines.MigraineDuration.Y);
-
-            // Make sure the episode time doesn't cut into the time to next incident
-            migraines.NextMigraineTime += duration;
+            // Pick new migraine time
+            var nextMigraineSeconds = _random.NextFloat((float)migraines.TimeBetweenMigraines.Min.TotalSeconds, (float)migraines.TimeBetweenMigraines.Max.TotalSeconds);
+            migraines.NextMigraineTime = TimeSpan.FromSeconds(nextMigraineSeconds);
+            var durationSeconds = _random.NextFloat((float)migraines.MigraineDuration.Min.TotalSeconds, (float)migraines.MigraineDuration.Max.TotalSeconds);
+            var duration = TimeSpan.FromSeconds(durationSeconds);
+            Dirty(uid, migraines);
 
             var msg = Loc.GetString("trait-chronic-migraines-start");
             _popup.PopupEntity(msg, uid, uid, PopupType.MediumCaution);
@@ -90,8 +91,11 @@ public sealed class ChronicMigrainesSystem : EntitySystem
             _popup.PopupEntity(othersMsg, uid, Filter.PvsExcept(uid), true, PopupType.Medium);
 
             var migraineComp = AddComp<MigraineComponent>(uid);
-            migraineComp.Duration = duration;
+            migraineComp.Duration = (float)duration.TotalSeconds;
             migraineComp.FadeOutDuration = migraines.FadeOutDuration;
+
+            // Make sure the episode time doesn't cut into the time to next incident
+            migraines.NextMigraineTime += duration;
         }
     }
 }

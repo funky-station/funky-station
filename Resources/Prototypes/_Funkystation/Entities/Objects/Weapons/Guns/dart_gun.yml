@@ -1,5 +1,6 @@
 # SPDX-FileCopyrightText: 2025 Nictis <39938897+Nictis@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 TheSecondLord <88201625+TheSecondLord@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2026 Xcybitt <197952719+Xcybitt@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -23,3 +24,12 @@
       - DartGunAmmo
   - type: Gun
     fireRate: 2 # Can shoot faster because eh why not
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 8
+    soundHit:
+      collection: MetalThud
+  - type: AltFireMelee
+    attackType: Light
+

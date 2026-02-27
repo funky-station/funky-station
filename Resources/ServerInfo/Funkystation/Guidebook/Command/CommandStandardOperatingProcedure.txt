@@ -146,9 +146,9 @@ SPDX-License-Identifier: MIT
   [bold]Document document document![/bold]
   After action reports, calling CentCom on the fabled red phone, or even praying will be heard by CentCom and your actions may be excused if they were determined to be in the best interest of NanoTrasen.
 
-
   # Station Command and Central Command Staff OOC Rules
-  [textlink="Act and behave within the spirit of the Job you have been assigned" link="RuleC15"]
+
+  Station and Central Command members have OOC Rules and Expectations within their SOP entries.
 
   # I don't see my job listed here
 

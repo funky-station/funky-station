@@ -385,7 +385,7 @@
     sprite: Objects/Misc/module.rsi
     state: freeform-sci
   - type: SiliconLawProvider
-    laws: NTDefault # Sets the law board to start with NT Default
+    laws: NTDefault # Sets the law board to start with NT Default, doesn't actually apply this if edited
   - type: FreeformLawEntry
     verbIcon:
       sprite: /Textures/Interface/Actions/actions_borg.rsi
@@ -401,7 +401,7 @@
     sprite: Objects/Misc/module.rsi
     state: freeform-syndie
   - type: SiliconLawProvider
-    laws: DeathToNTDefault # Sets the law board to start with Death to NT Default
+    laws: DeathToNTDefault # Sets the law board to start with Death to NT Default, doesn't actually apply this if edited
   - type: FreeformLawEntry
     verbIcon:
       sprite: /Textures/Interface/Actions/actions_borg.rsi

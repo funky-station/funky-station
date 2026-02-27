@@ -373,7 +373,7 @@
     sprite: Objects/Misc/module.rsi
     state: freeform-sci
   - type: SiliconLawProvider
-    laws: Crewsimov # Sets the law board to start with Crewsimov
+    laws: NTDefault # Sets the law board to start with NT Default
   - type: FreeformLawEntry
     verbIcon:
       sprite: /Textures/Interface/Actions/actions_borg.rsi

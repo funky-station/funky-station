@@ -23,7 +23,9 @@ job-name-alt-paramedic-3 = Search & Rescue Technician
 job-name-alt-qm-1 = Requisitions Officer
 job-name-alt-qm-2 = Deck Chief
 job-name-alt-qm-3 = Warehouse Supervisor
-job-name-alt-qm-4 = Supply Foreman
+job-name-alt-qm-4 = Supply Foreperson
+job-name-alt-qm-4-f = Supply Forewoman
+job-name-alt-qm-4-m = Supply Foreman
 job-name-alt-qm-5 = Logistics Coordinator
 
 job-name-alt-cargotech-1 = Courier
@@ -41,7 +43,9 @@ job-name-alt-salvage-4 = Drill Technician
 job-name-alt-salvage-5 = Shipbreaking Specialist
 
 job-name-alt-ce-1 = Head of Engineering
-job-name-alt-ce-2 = Engineering Foreman
+job-name-alt-ce-2 = Engineering Foreperson
+job-name-alt-ce-2-f = Engineering Forewoman
+job-name-alt-ce-2-m = Engineering Foreman
 job-name-alt-ce-3 = Engineering Supervisor
 
 job-name-alt-engineer-1 = Maintenance Technician

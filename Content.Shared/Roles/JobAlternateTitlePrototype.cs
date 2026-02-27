@@ -1,7 +1,10 @@
+// SPDX-FileCopyrightText: 2025 MaiaArai <158123176+YaraaraY@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2026 W.xyz() <84605679+pirakaplant@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Robust.Shared.Enums;
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared.Roles;
@@ -15,7 +18,27 @@ public sealed partial class JobAlternateTitlePrototype : IPrototype
     [DataField]
     public string Name = default!;
 
-    public string LocalizedName => Loc.GetString(Name);
+    [DataField]
+    public string? FemaleName = default!;
+
+    [DataField]
+    public string? MaleName = default!;
+
+    public string LocalizedName(Gender? gender)
+    {
+        switch (gender)
+        {
+            case Gender.Female:
+                return Loc.GetString(FemaleName ?? Name);
+                break;
+            case Gender.Male:
+                return Loc.GetString(MaleName ?? Name);
+                break;
+            default:
+                return Loc.GetString(Name);
+                break;
+        }
+    }
 
     [DataField]
     public HashSet<JobRequirement>? Requirements;

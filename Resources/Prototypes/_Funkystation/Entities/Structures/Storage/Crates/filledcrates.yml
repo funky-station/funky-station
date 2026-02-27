@@ -1,0 +1,36 @@
+# SPDX-FileCopyrightText: 2025 mkanke-real <mikekanke@gmail.com>
+#
+# SPDX-License-Identifier: MIT
+
+- type: entity
+  id: CrateVendingMachineRestocSolFilled
+  abstract: true
+  parent: CratePlastic
+  name: Mars Mart restock crate
+  description: Contains a restock box for the Mars Mart.
+  components:
+  - type: StorageFill
+    contents:
+    - id: VendingMachineRestockSol
+
+- type: entity
+  id: CrateVendingMachineRestockNipponFilled
+  abstract: true
+  parent: CratePlastic
+  name: Nippon-tan restock crate
+  description: Contains a restock box for the Nippon-tan.
+  components:
+  - type: StorageFill
+    contents:
+      - id: VendingMachineRestockNippon
+
+- type: entity
+  id: CrateVendingMachineRestockFitnessFilled
+  abstract: true
+  parent: CratePlastic
+  name: SweatMAX restock crate
+  description: Contains a restock box for the SweatMAX.
+  components:
+  - type: StorageFill
+    contents:
+      - id: VendingMachineRestockFitness

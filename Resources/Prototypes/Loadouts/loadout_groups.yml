@@ -340,6 +340,10 @@
   - GreyJumpskirt
   - AncientJumpsuit
   - RainbowJumpsuit
+  - HawaiBlack
+  - HawaiBlue
+  - HawaiRed
+  - HawaiYellow
   - ServiceJumpsuitDressWhite
   - ServiceJumpsuitDressBlue
   - ServiceJumpsuitDressTied
@@ -403,14 +407,6 @@
   minLimit: 0
   loadouts:
   - Mantle
-
-- type: loadoutGroup
-  id: PassengerOuterClothing
-  name: loadout-group-passenger-outerclothing
-  minLimit: 0
-  loadouts:
-  - PassengerWintercoat
-  - BikerJacket
 
 - type: loadoutGroup
   id: PassengerShoes
@@ -534,6 +530,33 @@
   - BlueGloves
   - PurpleGloves
 
+- type: loadoutGroup
+  id: GenericOuterClothing
+  name: loadout-group-generic-outerclothing
+  minLimit: 0
+  loadouts:
+  - WintercoatGray
+  - WintercoatWhite
+  - WintercoatBlack
+  - WintercoatRed
+  - WintercoatOrange
+  - WintercoatYellow
+  - WintercoatGreen
+  - WintercoatBlue
+  - WintercoatPurple
+  - WintercoatLightBrown
+  - WintercoatBrown
+  - GreyHoodie
+  - BlackHoodie
+  - BomberJacket
+  - BikerJacket
+  - TrenchCoat
+  - GentleCoat
+  - JensenCoat
+  - FlannelRed
+  - FlannelBlue
+  - FlannelGreen
+
 - type: loadoutGroup #WizDen Weh Job Plush
   id: BartenderJobTrinkets
   name: loadout-group-jobtrinkets
@@ -554,6 +577,13 @@
   minLimit: 0
   loadouts:
   - ChefHead
+  - BandanaBlack
+  - BandanaBlue
+  - BandanaGold
+  - BandanaGreen
+  - BandanaRed
+  - BandanaSkull
+  - BandanaBrown
 
 - type: loadoutGroup
   id: ChefMask
@@ -805,6 +835,7 @@
   minLimit: 0
   loadouts:
   - JanitorWintercoat
+  - WintercoatPurple
   - RainCoat
 
 - type: loadoutGroup
@@ -842,6 +873,7 @@
   name: loadout-group-botanist-head
   minLimit: 0
   loadouts:
+  - StrawHat
   - BandanaBlack
   - BandanaBlue
   - BandanaGold
@@ -884,8 +916,16 @@
   name: loadout-group-botanist-outerclothing
   minLimit: 0
   loadouts:
-  - BotanistApron
   - BotanistWintercoat
+  - WintercoatGreen
+  - WintercoatLightBrown
+  - WintercoatBrown
+  - WintercoatBlue
+  - WintercoatPurple
+  - BotanistApron
+  - FlannelRed
+  - FlannelBlue
+  - FlannelGreen
 
 - type: loadoutGroup #WizDen Weh Job Plush
   id: BotanistJobTrinkets
@@ -964,15 +1004,6 @@
   - ClownLighter # Funky Change
 
 - type: loadoutGroup
-  id: MimeHead
-  name: loadout-group-mime-head
-  minLimit: 0
-  loadouts:
-  - MimeHead
-  - MimeFrenchBeret
-  - MimeCap
-
-- type: loadoutGroup
   id: MimeMask
   name: loadout-group-mime-mask
   loadouts:
@@ -1001,6 +1032,8 @@
   minLimit: 0
   loadouts:
   - MimeWintercoat
+  - WintercoatBlack
+  - WintercoatWhite
 
 - type: loadoutGroup
   id: MimeBelt
@@ -1049,6 +1082,9 @@
   minLimit: 0
   loadouts:
   - MusicianWintercoat
+  - BikerJacket
+  - GentleCoat
+  - JensenCoat
 
 - type: loadoutGroup
   id: Instruments
@@ -1662,12 +1698,11 @@
   name: loadout-group-scientist-outerclothing
   minLimit: 0
   loadouts:
+  - ScienceWintercoat
+  - RoboticistWintercoat
   - RegularLabCoat
   - ScienceLabCoat
-  - ScienceWintercoat
-  - BikerJacket
   - RoboticistLabCoat
-  - RoboticistWintercoat
   - SeniorResearcherLabCoat
 
 - type: loadoutGroup
@@ -2310,8 +2345,8 @@
   name: loadout-group-paramedic-outerclothing
   minLimit: 0
   loadouts:
-  - ParamedicWindbreaker
   - ParamedicWintercoat
+  - ParamedicWindbreaker
 
 - type: loadoutGroup
   id: ParamedicShoes

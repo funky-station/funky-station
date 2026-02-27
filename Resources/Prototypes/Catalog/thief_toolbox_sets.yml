@@ -11,6 +11,7 @@
 # SPDX-FileCopyrightText: 2024 Tristan <traynor123123@gmail.com>
 # SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Benjamin Velliquette <32338704+bVelliquette@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 MaiaArai <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Rainbow <ev0lvkitten@gmail.com>
 # SPDX-FileCopyrightText: 2025 Skye <57879983+Rainbeon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Smugman <85798843+Smugman@users.noreply.github.com>
@@ -21,6 +22,7 @@
 # SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2026 ALooseGoose <ALooseGoosey@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -126,3 +128,69 @@
   - Fulton
   - SmokeImplanter # Funky Edit
   - ClothingSatchelSmuggler # Goobstation
+
+- type: thiefBackpackSet
+  id: ExtrovertSet
+  name: thief-backpack-category-extrovert-name
+  description: thief-backpack-category-extrovert-description
+  sprite:
+    sprite: _Goobstation/Interface/Misc/job_icons.rsi
+    state: Mindcontrolled
+  content:
+  - MindcontrolImplanter
+  - ThievingGloves
+  - RadioImplanter
+  - RadioImplanter
+
+- type: thiefBackpackSet
+  id: ElectromagneticSet
+  name: thief-backpack-category-electromagnetic-name
+  description: thief-backpack-category-electromagnetic-description
+  sprite:
+    sprite: _Funkystation/Clothing/Hands/Gloves/arcgloves.rsi
+    state: icon
+  content:
+  - ClothingHandsGlovesArcGloves
+  - EmpImplanter
+  - EmpFlashlight
+  - ClothingEyesNightVisionGoggles
+
+- type: thiefBackpackSet
+  id: GetawaySet
+  name: thief-backpack-category-getaway-name
+  description: thief-backpack-category-getaway-description
+  sprite:
+    sprite: Clothing/Shoes/Boots/speedboots.rsi
+    state: icon-on
+  content:
+  - ClothingShoesBootsSpeed
+  - PowerCellHyper
+  - ScramImplanter
+  - SlipocalypseClusterSoap
+
+- type: thiefBackpackSet
+  id: DemolitionistSet
+  name: thief-backpack-category-demolitionist-name
+  description: thief-backpack-category-demolitionist-description
+  sprite:
+    sprite: Objects/Tools/handdrilldiamond.rsi
+    state: handdrill
+  content:
+  - MiningDrillDiamond
+  - ToolboxSyndicateFilled
+  - ClothingOuterHardsuitAncientEVA
+  - ClothingHeadHelmetAncient
+
+- type: thiefBackpackSet
+  id: StalkerSet
+  name: thief-backpack-category-ninja-name
+  description: thief-backpack-category-ninja-description
+  sprite:
+    sprite: Objects/Weapons/Melee/energykatana.rsi
+    state: icon
+  content:
+  - CameraBug
+  - RadioHandheldSyndicate
+  - RadioHandheldSyndicate
+  - EncryptionKeySyndie
+  - StealthBox

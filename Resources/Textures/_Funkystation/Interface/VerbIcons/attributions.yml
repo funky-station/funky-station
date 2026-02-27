@@ -1,0 +1,8 @@
+# SPDX-FileCopyrightText: 2026 Rainbow <ev0lvkitten@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- files: ["scalpel-icon.png"]
+  license: "CC-BY-SA-4.0"
+  copyright: "Created by github user @Rainbeon"
+  source: "https://github.com/Rainbeon"

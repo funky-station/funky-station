@@ -78,6 +78,7 @@
 # SPDX-FileCopyrightText: 2026 Mora <46364955+TrixxedHeart@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2026 ThatOneMoon <91613003+ThatOneMoon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2026 ThatOneMoon <juozas.dringelis@gmail.com>
+# SPDX-FileCopyrightText: 2026 TrixxedHeart <46364955+TrixxedBit@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2026 Xcybitt <197952719+Xcybitt@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
@@ -217,6 +218,14 @@
   - type: Tag
     tags:
     - SvalinnPistol
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 8
+    soundHit:
+      collection: MetalThud
+  - type: AltFireMelee
+    attackType: Light
 
 - type: entity
   name: retro laser blaster
@@ -246,6 +255,14 @@
   - type: Tag
     tags:
       - Rifle
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 8
+    soundHit:
+      collection: MetalThud
+  - type: AltFireMelee
+    attackType: Light
 
 - type: entity
   name: makeshift laser pistol
@@ -275,6 +292,14 @@
     maxCharge: 500
     startingCharge: 500
   - type: Multishot # Goobstation
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 8
+    soundHit:
+      collection: MetalThud
+  - type: AltFireMelee
+    attackType: Light
 
 - type: entity
   name: tesla gun
@@ -311,6 +336,14 @@
   - type: Tag
     tags:
       - SpecialWeapon
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 8
+    soundHit:
+      collection: MetalThud
+  - type: AltFireMelee
+    attackType: Light
 
 - type: entity
   name: practice laser bolt carbine
@@ -353,6 +386,18 @@
     fireCost: 100
   - type: StaticPrice
     price: 300
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 5
+    soundHit:
+      collection: MetalThud
+  - type: AltFireMelee
+    attackType: Heavy
+  - type: IncreaseDamageOnWield
+    damage:
+      types:
+        Blunt: 7
 
 - type: entity
   name: laser bolt carbine
@@ -403,6 +448,14 @@
     maxCharge: 2000
     startingCharge: 2000
   - type: Multishot # Goobstation
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 8
+    soundHit:
+      collection: MetalThud
+  - type: AltFireMelee
+    attackType: Light
 
 - type: entity
   name: pulse carbine
@@ -439,6 +492,18 @@
   - type: Battery
     maxCharge: 5000
     startingCharge: 5000
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 5
+    soundHit:
+      collection: MetalThud
+  - type: AltFireMelee
+    attackType: Heavy
+  - type: IncreaseDamageOnWield
+    damage:
+      types:
+        Blunt: 7
 
 
 - type: entity
@@ -472,6 +537,18 @@
   - type: Battery
     maxCharge: 40000
     startingCharge: 40000
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 5
+    soundHit:
+      collection: MetalThud
+  - type: AltFireMelee
+    attackType: Heavy
+  - type: IncreaseDamageOnWield
+    damage:
+      types:
+        Blunt: 7
 
 - type: entity
   name: laser cannon
@@ -510,6 +587,18 @@
       - SpecialWeapon
       - TurretCompatibleWeapon
       - LaserCannon
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 5
+    soundHit:
+      collection: MetalThud
+  - type: AltFireMelee
+    attackType: Heavy
+  - type: IncreaseDamageOnWield
+    damage:
+      types:
+        Blunt: 7
 
 - type: entity
   name: portable particle decelerator
@@ -544,6 +633,14 @@
     - type: Tag
       tags:
         - ParticleDecelerator
+    - type: MeleeWeapon
+      damage:
+        types:
+          Blunt: 15 #heavy
+      soundHit:
+        collection: MetalThud
+    - type: AltFireMelee
+      attackType: Light
 
 
 - type: entity
@@ -577,6 +674,18 @@
     tags:
       - SpecialWeapon
       - XrayCannon
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 5
+    soundHit:
+      collection: MetalThud
+  - type: AltFireMelee
+    attackType: Heavy
+  - type: IncreaseDamageOnWield
+    damage:
+      types:
+        Blunt: 7
 
 - type: entity
   name: practice disabler
@@ -612,6 +721,14 @@
   - type: ProjectileBatteryAmmoProvider
     proto: BulletDisablerPractice
     fireCost: 50
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 8
+    soundHit:
+      collection: MetalThud
+  - type: AltFireMelee
+    attackType: Light
 
 - type: entity
   name: disabler
@@ -682,6 +799,14 @@
   - type: Appearance
   - type: StaticPrice
     price: 260
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 8
+    soundHit:
+      collection: MetalThud
+  - type: AltFireMelee
+    attackType: Light
 
 - type: entity
   name: taser
@@ -718,6 +843,14 @@
     steps: 5
     zeroVisible: true
   - type: Appearance
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 8
+    soundHit:
+      collection: MetalThud
+  - type: AltFireMelee
+    attackType: Light
 
 - type: entity
   name: antique laser pistol
@@ -765,6 +898,14 @@
     weight: 0.0002 # 5,000 times less likely than 1 regular animal
     # not putting a BlockMovement component here cause that's funny.
   - type: Multishot # Goobstation
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 8
+    soundHit:
+      collection: MetalThud
+  - type: AltFireMelee
+    attackType: Light
 
 - type: entity
   name: advanced laser pistol
@@ -804,6 +945,14 @@
   - type: Tag
     tags:
       - SpecialWeapon
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 8
+    soundHit:
+      collection: MetalThud
+  - type: AltFireMelee
+    attackType: Light
 
 - type: entity
   name: C.H.I.M.P. handcannon
@@ -854,6 +1003,14 @@
   - type: Tag
     tags:
     - ChimpHandcannon
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 8
+    soundHit:
+      collection: MetalThud
+  - type: AltFireMelee
+    attackType: Light
 
 
 - type: entity
@@ -901,6 +1058,12 @@
     autoRechargeRate: 40
   - type: StaticPrice
     price: 750
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 8
+  - type: AltFireMelee
+    attackType: Light
 
 - type: entity
   name: energy shotgun
@@ -953,6 +1116,18 @@
   - type: Battery
     maxCharge: 1050 # Goobstation
     startingCharge: 1050
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 5
+    soundHit:
+      collection: MetalThud
+  - type: AltFireMelee
+    attackType: Heavy
+  - type: IncreaseDamageOnWield
+    damage:
+      types:
+        Blunt: 7
 
 - type: entity
   name: X-01 Multiphase # Goobstation - Changed the capitalization because it was annoying me.
@@ -1023,4 +1198,12 @@
     autoRechargeRate: 15
   - type: StaticPrice
     price: 750
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 8
+    soundHit:
+      collection: MetalThud
+  - type: AltFireMelee
+    attackType: Light
 

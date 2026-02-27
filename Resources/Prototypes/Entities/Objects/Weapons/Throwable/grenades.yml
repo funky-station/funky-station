@@ -57,6 +57,7 @@
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2026 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2026 alex-infdev <185717397+alex-infdev@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2026 Xcybitt <197952719+Xcybitt@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2026 marc-pelletier <113944176+marc-pelletier@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
@@ -128,8 +129,6 @@
   parent: [GrenadeBase, BaseSecurityContraband]
   id: GrenadeFlashBang
   components:
-    - type: Sprite
-      sprite: Objects/Weapons/Grenades/flashbang.rsi
     - type: FlashOnTrigger
       range: 7
     - type: SoundOnTrigger
@@ -150,6 +149,19 @@
     - type: Construction
       graph: RevolutionaryFlashbangGraph
       node: start
+  - type: Sprite
+    sprite: Objects/Weapons/Grenades/flashbang.rsi
+  - type: ExplodeOnTrigger #less lethal wahoo
+  - type: Explosive
+    explosionType: Default
+    maxIntensity: 1
+    intensitySlope: 3
+    totalIntensity: 12
+    canCreateVacuum: false
+  - type: GuideHelp
+    guides:
+    - Security
+    - Antagonists
 
 - type: entity
   id: GrenadeFlashEffect

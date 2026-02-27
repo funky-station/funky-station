@@ -1,5 +1,6 @@
 // SPDX-FileCopyrightText: 2025 Gansu <68031780+GansuLalan@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2026 Gansu <peat.allan13@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -38,4 +39,10 @@ public sealed partial class CargoBountyCategoryPrototype : IPrototype
     /// </summary>
     [DataField]
     public string IdPrefix = "NT";
+
+    /// <summary>
+    /// The maximum number of targets a bounty category can have.
+    /// </summary>
+    [DataField]
+    public int MaxTargets = 0;
 }

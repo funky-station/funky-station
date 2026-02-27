@@ -10,6 +10,7 @@ job-name-alt-medical-2 = Nurse
 job-name-alt-medical-3 = Physician
 job-name-alt-medical-4 = General Practitioner
 job-name-alt-medical-5 = Medical Resident
+job-name-alt-medical-6 = Nurse Practitioner
 
 job-name-alt-chemist-1 = Pharmacist
 job-name-alt-chemist-2 = Lab Technician

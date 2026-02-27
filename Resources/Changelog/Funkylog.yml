@@ -7754,3 +7754,75 @@ Entries:
         purchasing
   id: 893
   time: '2026-02-10T21:50:04.0000000+00:00'
+- author: ParadoxumOfficial
+  changes:
+    - type: Fix
+      message: Hopefully fixed the broken Github Labeler
+  id: 894
+  time: '2026-02-11T05:40:13.0000000+00:00'
+- author: TheHolyAegis
+  changes:
+    - type: Add
+      message: >-
+        Added decals on the floor to guide players to some of the further spots
+        on the station.
+    - type: Add
+      message: Added some wallmounted geiger counters in and around engineering.
+    - type: Add
+      message: Replaced one portable scrubber with a pipe scrubber.
+    - type: Add
+      message: Added the Atmospheric Reserves Computer.
+    - type: Tweak
+      message: >-
+        Replaced the standard gas minders with gas extractors, which are
+        connected to the Atmospheric Reserves Computer.
+    - type: Fix
+      message: Fixed the one blast door not being connected on the evacuation shuttle.
+    - type: Fix
+      message: >-
+        Connected the one APC in medical that didn't have an MV cable going to
+        it.
+    - type: Tweak
+      message: Changed some additional minor things to improve the player experience.
+  id: 895
+  time: '2026-02-17T21:58:26.0000000+00:00'
+- author: Terkala
+  changes:
+    - type: Fix
+      message: >-
+        The Revolution should now end once all command members are dead or
+        off-station now. 
+  id: 896
+  time: '2026-02-18T01:13:36.0000000+00:00'
+- author: Marigold
+  changes:
+    - type: Fix
+      message: Fixed a typo in Synthetic trait description
+  id: 897
+  time: '2026-02-18T01:24:37.0000000+00:00'
+- author: willowzeta
+  changes:
+    - type: Add
+      message: Redone pathfinding decals.
+  id: 898
+  time: '2026-02-21T21:39:07.0000000+00:00'
+- author: EmillyCoelho
+  changes:
+    - type: Add
+      message: NSS14 Cyberiad Station added to the game, waiting for playtests!
+  id: 899
+  time: '2026-02-23T20:00:13.0000000+00:00'
+- author: taydeo
+  changes:
+    - type: Add
+      message: New content warning pop-up when you first connect.
+  id: 900
+  time: '2026-02-24T21:19:38.0000000+00:00'
+- author: TheHolyAegis
+  changes:
+    - type: Remove
+      message: >-
+        Removed the belt loadout option from the NTR, due to it already spawning
+        with the waistbag and clipboard.
+  id: 901
+  time: '2026-02-27T22:57:15.0000000+00:00'

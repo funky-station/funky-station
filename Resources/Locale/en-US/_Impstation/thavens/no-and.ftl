@@ -120,6 +120,9 @@ thaven-mood-fairy-desc = You are allergic to iron, steel, and silver. You should
 thaven-mood-afraiddark-name = Afraid of the Dark
 thaven-mood-afraiddark-desc = Darkness is incredibly dangerous, and you won't enter a space without proper illumination.
 
+thaven-mood-clothinghygiene-name = Dirty Laundry
+thaven-mood-clothinghygiene-desc = You value the comfort of clean clothes very highly. It is greatly distressing to have your clothes stained or to see others wearing dirty clothing.
+
 # Testing Locales, only exist to shut up prototype tests
 DuplicateTest = You shouldn't see this
 DuplicateOverlapTest = Time, doctor freeman?

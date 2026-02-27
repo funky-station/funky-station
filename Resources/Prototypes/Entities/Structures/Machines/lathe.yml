@@ -1487,6 +1487,7 @@
     - CandyBowl #pill(pill that pills you) #funk
     - DeskBell #ringringring #funk
     - Tourniquet #funk
+    - AACTablet # Delta-V
     - HandheldGeneticAnalyzer # Funkystation - Genetics
     - DNAInjector # Funkystation - Genetics
     dynamicRecipes:

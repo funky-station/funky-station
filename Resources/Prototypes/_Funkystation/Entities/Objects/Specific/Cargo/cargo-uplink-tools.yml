@@ -1,0 +1,55 @@
+# SPDX-FileCopyrightText: 2026 mkanke-real <mikekanke@gmail.com>
+#
+# SPDX-License-Identifier: MIT
+
+- type: entity
+  name: utility knife
+  parent: UtilityKnife
+  suffix: Syndi
+  id: UtilityKnifeSyndi
+  description: A knife with a retractable, tiny blade. Useful as a box cutter and letter opener, among other things.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      melee:
+        maxVol: 10
+  - type: MeleeChemicalInjector
+    transferAmount: 5
+    solution: melee
+  - type: RefillableSolution
+    solution: melee
+  - type: InjectableSolution
+    solution: melee
+  - type: SolutionTransfer
+
+- type: entity
+  parent: AppraisalTool
+  suffix: Syndi
+  id: AppraisalToolRadioJammer
+  name: appraisal tool
+  description: A beancounter's best friend, with a quantum connection to the galactic market and the ability to appraise even the toughest items. It will also tell you if a crate contains a completed bounty.
+  components:
+  - type: RadioJammer
+    settings:
+    - wattage: 1
+      range: 2.5
+      message: radio-jammer-component-set-message-low
+      name: radio-jammer-component-setting-low
+    - wattage: 2
+      range: 6
+      message: radio-jammer-component-set-message-medium
+      name: radio-jammer-component-setting-medium
+    - wattage: 12
+      range: 12
+      message: radio-jammer-component-set-message-high
+      name: radio-jammer-component-setting-high
+  - type: PowerCellSlot
+    cellSlotId: cell_slot
+  - type: ContainerContainer
+    containers:
+      cell_slot: !type:ContainerSlot
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+        startingItem: PowerCellMedium

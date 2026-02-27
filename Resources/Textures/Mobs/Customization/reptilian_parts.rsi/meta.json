@@ -64,15 +64,23 @@
       "directions": 4
     },
     {
-      "name": "tail_smooth",
+      "name": "tail_large_primary",
       "directions": 4
     },
     {
-      "name": "tail_large",
+      "name": "tail_large_secondary",
       "directions": 4
     },
     {
-      "name": "tail_spikes",
+      "name": "tail_spikes_primary",
+      "directions": 4
+    },
+    {
+      "name": "tail_spikes_secondary",
+      "directions": 4
+    },
+    {
+      "name": "tail_spikes_tertiary",
       "directions": 4
     },
     {
@@ -80,7 +88,15 @@
       "directions": 4
     },
     {
-      "name": "tail_ltiger",
+      "name": "tail_tiger_primary",
+      "directions": 4
+    },
+    {
+      "name": "tail_tiger_secondary",
+      "directions": 4
+    },
+    {
+      "name": "tail_tiger_tertiary",
       "directions": 4
     },
     {
@@ -474,19 +490,19 @@
       ]
     },
     {
-      "name": "snout_round",
+      "name": "snout_round_primary",
       "directions": 4
     },
     {
-      "name": "snout_roundlight",
+      "name": "snout_round_secondary",
       "directions": 4
     },
     {
-      "name": "snout_sharp",
+      "name": "snout_sharp_primary",
       "directions": 4
     },
     {
-      "name": "snout_sharplight",
+      "name": "snout_sharp_secondary",
       "directions": 4
     },
     {
@@ -503,10 +519,6 @@
     },
     {
       "name": "horns_ram",
-      "directions": 4
-    },
-    {
-      "name": "horns_angler",
       "directions": 4
     },
     {

@@ -1,0 +1,25 @@
+﻿- type: entity
+  parent: BaseItem
+  id: StaticCamera
+  name: photo camera
+  description: A way to capture memories.
+  components:
+  - type: Item
+    size: Normal
+  - type: Sprite
+    sprite: Objects/Tools/rcd.rsi
+    state: icon
+  - type: PhotoCamera
+
+- type: entity
+  parent: BaseItem
+  id: Photo
+  name: photo
+  description: A memory of those you love or hate.
+  components:
+  - type: Item
+    size: Small
+  - type: Sprite
+    sprite: Objects/Tools/rcd.rsi
+    state: icon
+  - type: Photo

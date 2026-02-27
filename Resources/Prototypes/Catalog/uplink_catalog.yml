@@ -154,10 +154,11 @@
 # SPDX-FileCopyrightText: 2025 starch <starchpersonal@gmail.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2026 2DSiggy <siggymaxwell@gmail.com>
+# SPDX-FileCopyrightText: 2026 A-Loose-Goose <237446272+A-Loose-Goose@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2026 ALooseGoose <ALooseGoosey@gmail.com>
 # SPDX-FileCopyrightText: 2026 Minemoder5000 <minemoder50000@gmail.com>
-# SPDX-FileCopyrightText: 2026 Minemoder5000 <minemoder50000@gmail.com>
 # SPDX-FileCopyrightText: 2026 Xcybitt <197952719+Xcybitt@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2026 august-sun <45527070+august.sun@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -1203,11 +1204,41 @@
           - SurplusBundle
   saleLimit: 1 # WD EDIT
 
+#- type: listing
+#  id: UplinkAntimovCircuitBoard
+#  name: uplink-antimov-law-name
+#  description: uplink-antimov-law-desc
+#  productEntity: AntimovCircuitBoard
+#  cost:
+#    Telecrystal: 70 # Funky Price Change. Syndie variant
+#  categories:
+#  - UplinkDisruption
+#  conditions:
+#  - !type:StoreWhitelistCondition
+#     blacklist:
+#       tags:
+#       - NukeOpsUplink
+
+#- type: listing
+#  id: UplinkNukieAntimovCircuitBoard
+#  name: uplink-antimov-law-name
+#  description: uplink-antimov-law-desc
+#  productEntity: AntimovCircuitBoard
+#  cost:
+#    Telecrystal: 80 # Funky price change. Nukie variant
+#  categories:
+#  - UplinkDisruption
+#  conditions:
+#  - !type:StoreWhitelistCondition
+#    whitelist:
+#      tags:
+#      - NukeOpsUplink
+
 - type: listing
-  id: UplinkAntimovCircuitBoard
-  name: uplink-antimov-law-name
-  description: uplink-antimov-law-desc
-  productEntity: AntimovCircuitBoard
+  id: UplinkSyndieFreeformLawCircuitBoard
+  name: uplink-syndie-freeform-law-name
+  description: uplink-syndie-freeform-law-desc
+  productEntity: SyndieFreeformLawCircuitBoard
   cost:
     Telecrystal: 70 # Funky Price Change. Syndie variant
   categories:
@@ -1217,14 +1248,15 @@
      blacklist:
        tags:
        - NukeOpsUplink
+  saleLimit: 1 # WD EDIT
 
 - type: listing
-  id: UplinkNukieAntimovCircuitBoard
-  name: uplink-antimov-law-name
-  description: uplink-antimov-law-desc
-  productEntity: AntimovCircuitBoard
+  id: UplinkNukieFreeformLawCircuitBoard
+  name: uplink-syndie-freeform-law-name
+  description: uplink-syndie-freeform-law-desc
+  productEntity: SyndieFreeformLawCircuitBoard
   cost:
-    Telecrystal: 80 # Funky price change. Nukie variant
+    Telecrystal: 80 # Funky Price Change. Syndie variant
   categories:
   - UplinkDisruption
   conditions:
@@ -1232,6 +1264,7 @@
     whitelist:
       tags:
       - NukeOpsUplink
+  saleLimit: 1 # WD EDIT
 
 - type: listing
   id: UplinkSurplusBundle

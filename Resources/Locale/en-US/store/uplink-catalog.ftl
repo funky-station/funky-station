@@ -288,6 +288,9 @@ uplink-singularity-beacon-desc = A device that attracts singularities. Has to be
 uplink-antimov-law-name = Antimov Law Circuit
 uplink-antimov-law-desc = A very dangerous Lawset to use when you want to cause the A.I. to go haywire, use with caution.
 
+uplink-syndie-freeform-law-name = Syndicate Freeform Law Board
+uplink-syndie-freeform-law-desc = A highly advanced Law Board that can accept custom law entries, allowing you to easily make the A.I. go haywire. Be careful what laws you input, though.
+
 # Implants
 uplink-storage-implanter-name = Storage Implanter
 uplink-storage-implanter-desc = Hide goodies inside of yourself with new bluespace technology!

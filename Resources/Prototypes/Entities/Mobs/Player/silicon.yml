@@ -56,8 +56,11 @@
 # SPDX-FileCopyrightText: 2025 puuupy <59433122+lolmatdi@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2026 A-Loose-Goose <237446272+A-Loose-Goose@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2026 ALooseGoose <ALooseGoosey@gmail.com>
 # SPDX-FileCopyrightText: 2026 MaiaArai <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2026 Rainbow <ev0lvkitten@gmail.com>
+# SPDX-FileCopyrightText: 2026 Skye <57879983+Rainbeon@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -243,6 +246,18 @@
     laws: NTDefault
 
 - type: entity
+  id: DeathToNTDefaultCircuitBoard
+  parent: BaseElectronics
+  name: law board (Death to NT Default)
+  description: An electronics board containing the Death to NT Default lawset.
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/module.rsi
+    state: std_mod
+  - type: SiliconLawProvider
+    laws: DeathToNTDefault
+
+- type: entity
   id: CommandmentCircuitBoard
   parent: BaseElectronics
   name: law board (Ten Commandments)
@@ -362,6 +377,38 @@
     state: std_mod
   - type: SiliconLawProvider
     laws: NutimovLawset
+
+- type: entity
+  id: RDFreeformLawCircuitBoard
+  parent: [ BaseElectronics, BaseCommandContraband ]
+  name: law board (Freeform)
+  description: An electronics board configured to store silicon lawsets. It has a small keyboard and screen for custom law entry. Comes preloaded with NT Default installed.
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/module.rsi
+    state: freeform-sci
+  - type: SiliconLawProvider
+    laws: NTDefault # Sets the law board to start with NT Default, doesn't actually apply this if edited
+  - type: FreeformLawEntry
+    verbIcon:
+      sprite: /Textures/Interface/Actions/actions_borg.rsi
+      state: state-laws
+
+- type: entity
+  id: SyndieFreeformLawCircuitBoard
+  parent: [ BaseElectronics, BaseSyndicateContraband ]
+  name: law board (Syndicate Freeform)
+  description: An electronics board configured to store silicon lawsets. It has a small keyboard and screen for evil law entries. Comes preloaded with Death to NT Default installed.
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/module.rsi
+    state: freeform-syndie
+  - type: SiliconLawProvider
+    laws: DeathToNTDefault # Sets the law board to start with Death to NT Default, doesn't actually apply this if edited
+  - type: FreeformLawEntry
+    verbIcon:
+      sprite: /Textures/Interface/Actions/actions_borg.rsi
+      state: state-laws
 
 # Items
 - type: entity

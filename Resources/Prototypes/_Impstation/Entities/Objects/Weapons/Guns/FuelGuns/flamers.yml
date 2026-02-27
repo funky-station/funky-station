@@ -1,0 +1,165 @@
+- type: entity
+  name: FG13 Xiuhcoatl
+  parent: [BaseWeaponFlamer, BaseGunWieldable, BaseSyndicateContraband]
+  id: WeaponFlamerXiuhcoatl
+  description: Simple as it is deadly, the Xiuhcoatl fulfills a long-standing craving of the Gorlex Marauders for Nanotrasen Barbeque. Uses welding fuel.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Weapons/Guns/FuelGuns/xiuhcoatl.rsi
+    layers:
+      - state: base
+        map: ["enum.GunVisualLayers.Base"]
+      - state: mag-unshaded-4
+        map: ["enum.GunVisualLayers.MagUnshaded"]
+        shader: unshaded
+  - type: Clothing
+    sprite: _Impstation/Objects/Weapons/Guns/FuelGuns/xiuhcoatl.rsi
+    quickEquip: false
+    slots:
+      - backStorage
+      - Belt
+  - type: Appearance
+  - type: AmmoCounter
+  - type: Item
+    sprite: _Impstation/Objects/Weapons/Guns/FuelGuns/xiuhcoatl.rsi
+    size: Ginormous
+  - type: GunRequiresWield
+  - type: Gun
+    projectileSpeed: 16
+    clumsyProof: false
+    cameraRecoilScalar: 0
+    fireRate: 10
+    selectedMode: FullAuto
+    availableModes:
+    - FullAuto
+    soundGunshot:
+      path: /Audio/_Impstation/Weapons/Guns/Gunshots/flamethrower.ogg
+  - type: SolutionContainerManager
+    solutions:
+      chamber:
+        reagents:
+        - ReagentId: WeldingFuel
+          Quantity: 600
+        maxVol: 600 #25 seconds of flaming
+  - type: SolutionAmmoProvider
+    solutionId: chamber
+    proto: BulletFlamethrower
+    fireCost: 3
+  - type: SolutionItemStatus
+    solution: chamber
+  - type: SolutionRefuel
+    fuelSolutionName: chamber
+    fuelReagent: WeldingFuel
+  - type: Tag
+    tags:
+    - WeldingTool
+  - type: StaticPrice
+    price: 100
+  - type: PhysicalComposition
+    materialComposition:
+      Plastic: 100
+      Steel: 400
+  - type: IgnitionSource
+    temperature: 700
+  - type: MeleeWeapon
+    attackRate: 0.4 #slower, but hits harder; bigger object to shove with
+    damage:
+      types:
+        Blunt: 8
+  - type: StaminaDamageOnHit
+    damage: 15 #slight stagger, but still like 7 hits to stun completely
+  - type: MeleeRequiresWield
+  - type: MeleeThrowOnHit
+    distance: 0.8
+    speed: 5
+  - type: DamageOtherOnHit #for throwing
+#    staminaCost: 15
+    damage:
+      types:
+        Blunt: 12
+
+- type: entity
+  name: FG10 Olympus
+  parent: BaseWeaponFlamer
+  id: WeaponFlamerOlympus
+  description: An effective and efficient decontamination tool used by CBURN crews.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Weapons/Guns/FuelGuns/olympus.rsi
+    layers:
+      - state: base
+        map: ["enum.GunVisualLayers.Base"]
+      - state: torch
+        shader: unshaded
+  - type: Appearance
+  - type: Item
+    sprite: _Impstation/Objects/Weapons/Guns/FuelGuns/olympus.rsi
+    size: Large
+  - type: GunRequiresWield
+  - type: Gun
+    projectileSpeed: 16
+    clumsyProof: false
+    cameraRecoilScalar: 0
+    fireRate: 8
+    selectedMode: FullAuto
+    availableModes:
+    - FullAuto
+    soundGunshot:
+      path: /Audio/_Impstation/Weapons/Guns/Gunshots/flamethrower.ogg
+#  - type: ClothingSlotAmmoProvider
+#  - type: SlotBasedConnectedContainer
+#    targetSlot: SUITSTORAGE
+#    containerWhitelist:
+#      tags:
+#      - OlympusBackTank
+  - type: SolutionContainerManager
+    solutions:
+      tank:
+        reagents:
+        - ReagentId: WeldingFuel
+          Quantity: 600
+        maxVol: 600 #25 seconds of flaming
+  - type: SolutionAmmoProvider
+    solutionId: tank
+    proto: BulletFlamethrower
+    fireCost: 3
+  - type: SolutionRefuel
+    fuelSolutionName: tank
+    fuelReagent: WeldingFuel
+  - type: Tag
+    tags:
+    - WeldingTool
+    - OlympusFlamer
+  - type: StaticPrice
+    price: 100
+  - type: IgnitionSource
+    temperature: 700
+  - type: MeleeWeapon
+    range: 1.5
+    attackRate: 0.6 #lighter than a Xiuhcoatl but still burns
+    damage:
+      types:
+        Blunt: 2
+        Heat: 12
+    wideAnimationRotation: -90
+    angle: 0
+    animation: WeaponArcThrust
+#    soundHit:
+#      path: /Audio/Weapons/Guns/Hits/energy_meat1.ogg
+#      params:
+#        variation: 0.250
+#        volume: -12
+  - type: StaminaDamageOnHit
+    damage: 15 #slight stagger, but still like 7 hits to stun completely
+  - type: MeleeRequiresWield
+  - type: MeleeThrowOnHit
+    distance: 0.8
+    speed: 5
+  - type: DamageOtherOnHit #for throwing
+#    staminaCost: 15
+    damage:
+      types:
+        Blunt: 10
+        Heat: 4
+#    soundHit:
+#      path: /Audio/Effects/hit_kick.ogg

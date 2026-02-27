@@ -256,6 +256,22 @@
   - UplinkWeaponry
   saleLimit: 1 # WD EDIT
 
+# - type: listing #Imp - Replaced with the Taipan Bundle in the _Impstation Directory
+#   id: UplinkEnergyCrossbow
+#   name: uplink-energycrossbow-name
+#   description: uplink-energycrossbow-desc
+#   discountCategory: rareDiscounts
+#   discountDownTo:
+#     Telecrystal: 3
+#   productEntity: WeaponEnergyCrossbow
+#   cost:
+#     Telecrystal: 5
+#   categories:
+#   - UplinkWeaponry
+#   conditions:
+#   - !type:ListingLimitedStockCondition
+#     stock: 1
+
 - type: listing
   id: UplinkThrowingKnivesKit
   name: uplink-knives-kit-name
@@ -336,22 +352,22 @@
   - UplinkWeaponry
   saleLimit: 1 # WD EDIT
 
-- type: listing
-  id: UplinkRevolverBundle
-  name: uplink-revolver-bundle-name
-  description: uplink-revolver-bundle-desc
-  icon: { sprite: /Textures/Objects/Weapons/Guns/Revolvers/hristov_revolver.rsi, state: icon }
-  productEntity: BriefcaseSyndieRevolverBundleFilled
-  cost:
-    Telecrystal: 60
-  categories:
-  - UplinkWeaponry
-  conditions:
-  - !type:StoreWhitelistCondition
-    blacklist:
-      tags:
-      - NukeOpsUplink
-  saleLimit: 1 # WD EDIT
+#- type: listing
+#  id: UplinkRevolverBundle
+#  name: uplink-revolver-bundle-name
+#  description: uplink-revolver-bundle-desc
+#  icon: { sprite: /Textures/Objects/Weapons/Guns/Revolvers/hristov_revolver.rsi, state: icon }
+#  productEntity: BriefcaseSyndieRevolverBundleFilled
+#  cost:
+#    Telecrystal: 60
+#  categories:
+#  - UplinkWeaponry
+#  conditions:
+#  - !type:StoreWhitelistCondition
+#    blacklist:
+#      tags:
+#      - NukeOpsUplink
+#  saleLimit: 1 # WD EDIT
 
 - type: listing
   id: UplinkHushpup

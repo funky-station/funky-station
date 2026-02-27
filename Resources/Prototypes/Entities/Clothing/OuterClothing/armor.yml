@@ -202,6 +202,11 @@
         Piercing: 0.35
         Heat: 0.35
         Caustic: 0.5
+  - type: DamageOnShootProtection #imp
+    slots: OUTERCLOTHING
+    damageProtection:
+      flatReductions:
+        Blunt: 10
   - type: ExplosionResistance
     damageCoefficient: 0.35
   - type: StaminaResistance

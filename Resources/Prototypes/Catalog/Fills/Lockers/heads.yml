@@ -494,6 +494,8 @@
     - id: HandheldStationMapTactical #funk, all HoS' must find their way
     - id: BreachingCharge #funkystation knock knock, sec's here
     - id: BreachingCharge #funkystation knock knock, sec's here
+    - id: EchionSynth #funkystation, You call this resisting arrest? we call this a difficulty tweak
+    - id: WeaponPlasmaAdder #funkystation, PLACEHOLDER UNTIL PROPER HOS PLASMA WEAPON ADDED
 
 # Hardsuit table, used for suit storage as well
 - type: entityTable

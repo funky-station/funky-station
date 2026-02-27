@@ -1,0 +1,18 @@
+# SPDX-FileCopyrightText: 2025 DVDPlayerOfDiscordFame <drew.c.bergen@gmail.com>
+#
+# SPDX-License-Identifier: MIT
+
+- files: ["basic_cock.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Made by AvianMaiden for Impstation"
+  source: "https://github.com/impstation/imp-station-14/pull/1761"
+
+- files: ["beecharge"]
+  license: "CC-BY-3.0"
+  copyright: "made by Lee Barkovich on opengameart"
+  source: https://opengameart.org/content/robotic-mechanic-step-sounds
+
+- files: ["shotgun_cock.ogg"]
+  license: "Custom"
+  copyright: "Sourced from pre-existing files shotgun_open.ogg and shotgun_close.ogg; modified by AvianMaiden for Impstation"
+  source: "https://github.com/space-wizards/space-station-14/blob/master/Resources/Audio/Weapons/Guns/Cock/shotgun_close.ogg"

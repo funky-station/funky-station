@@ -30,7 +30,7 @@
   product: CrateSecurityEquipment
   cost: 3000
   category: cargoproduct-category-name-security
-  group: market    
+  group: market
 
 - type: cargoProduct
   id: SecurityBasicArmor
@@ -40,4 +40,14 @@
   product: CrateSecurityBasicArmor
   cost: 2000
   category: cargoproduct-category-name-security
+  group: market
+
+- type: cargoProduct
+  id: SecurityPlasmaWeapons
+  icon:
+    sprite: _Impstation/Objects/Weapons/Guns/FuelGuns/akurra.rsi
+    state: icon
+  product: CrateSecurityPlasmaWeapons
+  cost: 4500
+  category: cargoproduct-category-name-armory
   group: market

@@ -638,3 +638,8 @@ CentcomPDA: CentcomOfficialPDA
 
 # 2025-10-28
 DrinkKiraSpecial: DrinkOrangeLimeSodaGlass
+
+# 2026-02-26
+Stunbaton: Truncheon
+WeaponDisabler: null
+GunSafeDisabler: GunSafePistolRg2

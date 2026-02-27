@@ -207,6 +207,7 @@
 # SPDX-FileCopyrightText: 2026 Steve <marlumpy@gmail.com>
 # SPDX-FileCopyrightText: 2026 DoovyADeer <256158135+DoovyADeer@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2026 ThatOneMoon <91613003+ThatOneMoon@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2026 W.xyz() <84605679+pirakaplant@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2026 W.xyz() <tptechteam@gmail.com>
 # SPDX-FileCopyrightText: 2026 Xcybitt <197952719+Xcybitt@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2026 rotty <juaelwe@outlook.com>
@@ -1223,10 +1224,11 @@
     - RiotShield
     - SpeedLoaderMagnum
     - SpeedLoaderMagnumEmpty
-    - Stunbaton
+#   - Stunbaton # Funky - Replacing with truncheons
     - TargetClown
     - TargetHuman
     - TargetSyndicate
+    - Truncheon # Funky
     - WeaponDisablerPractice
     - WeaponFlareGunSecurity
     - WeaponLaserCarbinePractice
@@ -1296,10 +1298,10 @@
     - SpeedLoaderMagnumUranium
     - TelescopicShield
     - TimerTrigger
-    - Truncheon
+#    - Truncheon # Funky - Making truncheons roundstart
     - VoiceTrigger
     - WeaponAdvancedLaser
-    - WeaponDisabler
+#    - WeaponDisabler # Funky
 #    - WeaponDisablerSMG
     - WeaponLaserCannon
     - WeaponLaserCarbine

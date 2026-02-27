@@ -7,6 +7,8 @@
 # SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
 # SPDX-FileCopyrightText: 2025 aa5g21 <aa5g21@soton.ac.uk>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2026 Homingpenguins <59744509+Homingpenguins@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2026 W.xyz() <84605679+pirakaplant@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2026 Gansu <68031780+GansuLalan@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2026 Gansu <peat.allan13@gmail.com>
 # SPDX-FileCopyrightText: 2026 Homingpenguins <59744509+Homingpenguins@users.noreply.github.com>
@@ -734,8 +736,8 @@
     whitelist:
       tags:
       - Truncheon
-    requiredResearch:
-      - AdvancedRiotControl
+#    requiredResearch: # Funky
+#      - AdvancedRiotControl
   - name: bounty-item-xray-cannon
     minAmount: 2
     maxAmount: 6
@@ -800,13 +802,13 @@
     whitelist:
       components:
       - Flashbang
-  - name: bounty-item-stun-baton
-    minAmount: 3
-    maxAmount: 5
-    rewardPer: 1250
-    whitelist:
-      tags:
-      - Stunbaton
+#  - name: bounty-item-stun-baton # Funky
+#    minAmount: 3
+#    maxAmount: 5
+#    rewardPer: 1250
+#    whitelist:
+#      tags:
+#      - Stunbaton
 
 # Makeshift Weapons
 - type: cargoBountyCategory

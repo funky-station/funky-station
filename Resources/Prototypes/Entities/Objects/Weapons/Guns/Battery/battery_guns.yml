@@ -79,6 +79,7 @@
 # SPDX-FileCopyrightText: 2026 ThatOneMoon <91613003+ThatOneMoon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2026 ThatOneMoon <juozas.dringelis@gmail.com>
 # SPDX-FileCopyrightText: 2026 TrixxedHeart <46364955+TrixxedBit@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2026 W.xyz() <84605679+pirakaplant@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2026 Xcybitt <197952719+Xcybitt@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
@@ -688,10 +689,10 @@
         Blunt: 7
 
 - type: entity
-  name: practice disabler
+  name: practice blaster # Funky - Name & description changed to no longer reference the disabler
   parent: BaseWeaponBatterySmall
   id: WeaponDisablerPractice
-  description: A self-defense weapon that exhausts organic targets, slowing them to a crawl. This one has been undertuned for cadets making it mostly harmless.
+  description: A prop blaster, designed specifically to emulate firing a real energy weapon.
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Battery/practice_disabler.rsi
@@ -735,6 +736,8 @@
   parent: [ WeaponDisablerPractice, BaseSecurityCommandContraband ]
   id: WeaponDisabler
   description: A self-defense weapon that exhausts organic targets, slowing them to a crawl.
+  suffix: DO NOT MAP # Funky
+  categories: [ DoNotMap ] # Funky
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Battery/disabler.rsi
@@ -1069,7 +1072,7 @@
   name: energy shotgun
   parent: [BaseWeaponBattery, BaseGunWieldable, BaseGrandTheftContraband]
   id: WeaponEnergyShotgun
-  description: A one-of-a-kind prototype energy weapon that uses various shotgun configurations. It offers the possibility of both lethal and non-lethal shots, making it a versatile weapon.
+  description: A one-of-a-kind prototype energy weapon with a configurable beam spread. # Funky - Updated description
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Battery/energy_shotgun.rsi
@@ -1099,8 +1102,8 @@
       fireCost: 100
     - proto: BulletLaserSpreadNarrow
       fireCost: 100
-    - proto: BulletDisablerSmgSpread
-      fireCost: 100
+#    - proto: BulletDisablerSmgSpread # Funky
+#      fireCost: 100
   - type: Item
     size: Large
     shape:
@@ -1133,14 +1136,14 @@
   name: X-01 Multiphase # Goobstation - Changed the capitalization because it was annoying me.
   parent: [BaseWeaponBatterySmall, BaseCommandContraband] # Frontier: added BaseC2ContrabandUnredeemable. Goobstation: removed BaseC2ContrabandUnredeemable, added BaseCommandContraband
   id: WeaponEnergyGunMultiphase
-  description: This is an expensive, modern recreation of the antique laser gun. This gun has several unique firemodes and slowly recharges over time.
+  description: This is an expensive, modern recreation of the antique laser gun. This gun can fire both laser and ion beams and slowly recharges over time. # Funky - Updated description
   components:
   - type: Sprite
     sprite: _DV/Objects/Weapons/Guns/Battery/multiphase_energygun.rsi
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
-    - state: mode-disabler
+    - state: mode-lethal # Funky
       shader: unshaded
       map: [ "Firemode" ]
     - state: mag-unshaded-4
@@ -1161,14 +1164,14 @@
     maxCharge: 1600
     startingCharge: 1600
   - type: ProjectileBatteryAmmoProvider
-    proto: BulletDisabler
+    proto: BulletEnergyGunLaser # Funky
     fireCost: 100
   - type: EnergyGun
     fireModes:
-    - proto: BulletDisabler
-      fireCost: 80
-      name: disabling
-      state: disabler
+#    - proto: BulletDisabler # Funky
+#      fireCost: 80
+#      name: disabling
+#      state: disabler
     - proto: BulletEnergyGunLaser
       fireCost: 100
       name: lethal
@@ -1186,7 +1189,7 @@
     visuals:
       enum.EnergyGunFireModeVisuals.State:
         Firemode:
-          Disabler: { state: mode-disabler }
+#          Disabler: { state: mode-disabler } # Funky
           Lethal: { state: mode-lethal }
           Special: { state: mode-ion }
   - type: Tag

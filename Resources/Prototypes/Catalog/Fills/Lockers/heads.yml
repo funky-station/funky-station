@@ -165,7 +165,7 @@
       prob: 0.1
     - id: RubberStampCaptain
     - id: SpaceCash1000
-    - id: WeaponDisabler
+#    - id: WeaponDisabler # Funky
     - id: ClothingEyesGlassesCommand
     - id: BookCorporateSecrets # funky
     - id: RadioHandheldCommand #funkystation
@@ -255,7 +255,7 @@
     - id: RubberStampHop
     # funkystation: removing disabler and instead using energy pistol
     # - id: WeaponDisabler
-    # - id: WeaponDisablerPlus # funkystation adding unique hop weapon # Funky - Actually removing it again. LOL!
+    #- id: WeaponDisablerPlus # funkystation adding unique hop weapon # Funky - Actually removing it again. LOL!
     - id: HOPCane # Funky
     - id: ClothingEyesHudCommand
     - id: SOSCartridge # DeltaV - adds SOS app https://github.com/DeltaV-Station/Delta-v/pull/2812
@@ -489,7 +489,7 @@
     - id: RubberStampHos
     - id: SecurityTechFabCircuitboard
     - id: CargoRequestSecurityComputerCircuitboard
-    - id: WeaponDisabler
+#    - id: WeaponDisabler # Funky
     - id: WantedListCartridge
     - id: DrinkHosFlask
     - id: RadioHandheldCommand #funkystation, no sec radio since they start with one

@@ -42,6 +42,7 @@
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2026 A-Loose-Goose <237446272+A-Loose-Goose@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2026 ALooseGoose <ALooseGoosey@gmail.com>
+# SPDX-FileCopyrightText: 2026 Xcybitt <197952719+Xcybitt@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2026 ThatOneMoon <91613003+ThatOneMoon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2026 ThatOneMoon <juozas.dringelis@gmail.com>
 # SPDX-FileCopyrightText: 2026 august-sun <45527070+august.sun@users.noreply.github.com>
@@ -105,6 +106,7 @@
   - type: Tag
     tags:
       - Rifle
+
 - type: entity
   name: AKMS
   parent: [BaseWeaponRifle, BaseSecurityContraband]
@@ -157,6 +159,18 @@
     steps: 1
     zeroVisible: true
   - type: Appearance
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 5
+    soundHit:
+      collection: MetalThud
+  - type: AltFireMelee
+    attackType: Heavy
+  - type: IncreaseDamageOnWield
+    damage:
+      types:
+        Blunt: 7
 
 - type: entity
   name: M-90gl
@@ -203,6 +217,18 @@
   - type: Appearance
   - type: Gun
     fireRate: 6
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 5
+    soundHit:
+      collection: MetalThud
+  - type: AltFireMelee
+    attackType: Heavy
+  - type: IncreaseDamageOnWield
+    damage:
+      types:
+        Blunt: 7
 
 - type: entity
   name: Lecter # Funky change, swapped from .20 rifle to .30 rifle, made semi auto only, given a scope. 
@@ -254,6 +280,18 @@
     steps: 1
     zeroVisible: true
   - type: Appearance
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 5
+    soundHit:
+      collection: MetalThud
+  - type: AltFireMelee
+    attackType: Heavy
+  - type: IncreaseDamageOnWield
+    damage:
+      types:
+        Blunt: 7
   - type: CursorOffsetRequiresWield
   - type: EyeCursorOffset
     maxOffset: 2
@@ -321,6 +359,18 @@
     steps: 1
     zeroVisible: true
   - type: Appearance
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 5
+    soundHit:
+      collection: MetalThud
+  - type: AltFireMelee
+    attackType: Heavy
+  - type: IncreaseDamageOnWield
+    damage:
+      types:
+        Blunt: 7
 
 - type: entity
   name: Foam Force Astro Ace
@@ -352,3 +402,9 @@
       path: /Audio/Weapons/Guns/Empty/empty.ogg
     clumsyProof: true
   - type: PacifismAllowedGun
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 0
+  - type: AltFireMelee
+    attackType: Heavy

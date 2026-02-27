@@ -27,10 +27,12 @@
 // SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
 // SPDX-FileCopyrightText: 2024 Winkarst <74284083+Winkarst-cpu@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 MaiaArai <158123176+YaraaraY@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 // SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2026 phmnsx <lynnwastinghertime@gmail.com>
 //
 // SPDX-License-Identifier: MIT
 
@@ -215,11 +217,14 @@ public sealed class MindSystem : SharedMindSystem
     public override void TransferTo(EntityUid mindId, EntityUid? entity, bool ghostCheckOverride = false, bool createGhost = true,
         MindComponent? mind = null)
     {
+
         if (mind == null && !Resolve(mindId, ref mind))
             return;
 
         if (entity == mind.OwnedEntity)
             return;
+
+        var src = mind.OwnedEntity;
 
         Dirty(mindId, mind);
         MindContainerComponent? component = null;
@@ -242,6 +247,8 @@ public sealed class MindSystem : SharedMindSystem
 
                 alreadyAttached = true;
             }
+            //Funky
+            RaiseLocalEvent(mindId, new TransferMindEvent(entity, src));
         }
         else if (createGhost)
         {
@@ -403,5 +410,23 @@ public sealed class MindSystem : SharedMindSystem
     internal bool TryGetMind(EntityUid mindId, out object mind)
     {
         throw new NotImplementedException();
+    }
+}
+
+//Funkystation
+/// <summary>
+///     Raised when a mind is transfered to another entity. Sent with a mindId.
+/// </summary>
+/// <param name="Target">The new entity the mind will be on. Can be null.</param>
+/// <param name="Source">The previous entity the mind was on. Can be null.</param>
+
+public sealed class TransferMindEvent : EntityEventArgs
+{
+    public readonly EntityUid? Target;
+    public readonly EntityUid? Source;
+    public TransferMindEvent(EntityUid? target, EntityUid? source)
+    {
+        Target = target;
+        Source = source;
     }
 }

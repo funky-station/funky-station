@@ -33,9 +33,11 @@
 // SPDX-FileCopyrightText: 2024 Hannah Giovanna Dawson <karakkaraz@gmail.com>
 // SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Vasilis <vasilis@pikachu.systems>
+// SPDX-FileCopyrightText: 2025 Quantum-cross <7065792+Quantum-cross@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 // SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2026 phmnsx <lynnwastinghertime@gmail.com>
 //
 // SPDX-License-Identifier: MIT
 
@@ -226,6 +228,21 @@ namespace Content.Shared.GameTicking
             public bool Observer;
 
             public bool Connected;
+
+            //Funky fields for EOR screen
+            [DataField]
+            public string LastMessage;
+
+            [DataField]
+            public NetEntity? LastEntity; //Should never be null, probably
+
+            //[DataField]
+            public string? DamageMessage; //Generated upon round end, gets the highest damage and displays it like its the examine health feature
+
+            public bool IsDead;
+
+            public bool IsInvalid;
+            //End Funky
         }
 
         public string GamemodeTitle { get; }

@@ -32,12 +32,14 @@
 # SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 strO0pwafel <153459934+strO0pwafel@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 MaiaArai <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 Xcybitt <xcybitt@gmail.com>
 # SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 vectorassembly <vectorassembly@icloud.com>
+# SPDX-FileCopyrightText: 2026 Doctor-Cpu <77215380+Doctor-Cpu@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2026 Fr0goo <frogoofrog@outlook.com>
+# SPDX-FileCopyrightText: 2026 MaiaArai <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2026 Xcybitt <197952719+Xcybitt@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
@@ -828,17 +830,17 @@
     sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
     layers:
     - state: coatybits-icon
-      color: "#3f3f3f"
+      color: "#251F32"
     - state: winterbits-icon
   - type: Item
     inhandVisuals:
       left:
       - state: coatybits-inhand-left
-        color: "#3f3f3f"
+        color: "#251F32"
       - state: winterbits-inhand-left
       right:
       - state: coatybits-inhand-right
-        color: "#3f3f3f"
+        color: "#251F32"
       - state: winterbits-inhand-right
   - type: Clothing
     sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
@@ -859,24 +861,24 @@
     sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
     layers:
     - state: coatybits-icon
-      color: "#9C0DE1"
+      color: "#7864C6"
     - state: winterbits-icon
   - type: Item
     inhandVisuals:
       left:
       - state: coatybits-inhand-left
-        color: "#9C0DE1"
+        color: "#7864C6"
       - state: winterbits-inhand-left
       right:
       - state: coatybits-inhand-right
-        color: "#9C0DE1"
+        color: "#7864C6"
       - state: winterbits-inhand-right
   - type: Clothing
     sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
     clothingVisuals:
       outerClothing:
       - state: coatybits-equipped-OUTERCLOTHING
-        color: "#9C0DE1"
+        color: "#7864C6"
       - state: winterbits-equipped-OUTERCLOTHING
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodWinterColorPurple
@@ -890,24 +892,24 @@
     sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
     layers:
     - state: coatybits-icon
-      color: "#940000"
+      color: "#71111F"
     - state: winterbits-icon
   - type: Item
     inhandVisuals:
       left:
       - state: coatybits-inhand-left
-        color: "#940000"
+        color: "#71111F"
       - state: winterbits-inhand-left
       right:
       - state: coatybits-inhand-right
-        color: "#940000"
+        color: "#71111F"
       - state: winterbits-inhand-right
   - type: Clothing
     sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
     clothingVisuals:
       outerClothing:
       - state: coatybits-equipped-OUTERCLOTHING
-        color: "#940000"
+        color: "#71111F"
       - state: winterbits-equipped-OUTERCLOTHING
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodWinterColorRed
@@ -921,24 +923,24 @@
     sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
     layers:
     - state: coatybits-icon
-      color: "#0089EF"
+      color: "#4572E3"
     - state: winterbits-icon
   - type: Item
     inhandVisuals:
       left:
       - state: coatybits-inhand-left
-        color: "#0089EF"
+        color: "#4572E3"
       - state: winterbits-inhand-left
       right:
       - state: coatybits-inhand-right
-        color: "#0089EF"
+        color: "#4572E3"
       - state: winterbits-inhand-right
   - type: Clothing
     sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
     clothingVisuals:
       outerClothing:
       - state: coatybits-equipped-OUTERCLOTHING
-        color: "#0089EF"
+        color: "#4572E3"
       - state: winterbits-equipped-OUTERCLOTHING
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodWinterColorBlue
@@ -952,24 +954,24 @@
     sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
     layers:
     - state: coatybits-icon
-      color: "#723A02"
+      color: "#4F342F"
     - state: winterbits-icon
   - type: Item
     inhandVisuals:
       left:
       - state: coatybits-inhand-left
-        color: "#723A02"
+        color: "#4F342F"
       - state: winterbits-inhand-left
       right:
       - state: coatybits-inhand-right
-        color: "#723A02"
+        color: "#4F342F"
       - state: winterbits-inhand-right
   - type: Clothing
     sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
     clothingVisuals:
       outerClothing:
       - state: coatybits-equipped-OUTERCLOTHING
-        color: "#723A02"
+        color: "#4F342F"
       - state: winterbits-equipped-OUTERCLOTHING
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodWinterColorBrown
@@ -983,24 +985,24 @@
     sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
     layers:
     - state: coatybits-icon
-      color: "#999999"
+      color: "#9C9FAD"
     - state: winterbits-icon
   - type: Item
     inhandVisuals:
       left:
       - state: coatybits-inhand-left
-        color: "#999999"
+        color: "#9C9FAD"
       - state: winterbits-inhand-left
       right:
       - state: coatybits-inhand-right
-        color: "#999999"
+        color: "#9C9FAD"
       - state: winterbits-inhand-right
   - type: Clothing
     sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
     clothingVisuals:
       outerClothing:
       - state: coatybits-equipped-OUTERCLOTHING
-        color: "#999999"
+        color: "#9C9FAD"
       - state: winterbits-equipped-OUTERCLOTHING
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodWinterColorGray
@@ -1014,24 +1016,24 @@
     sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
     layers:
     - state: coatybits-icon
-      color: "#5ABF2F"
+      color: "#61A53F"
     - state: winterbits-icon
   - type: Item
     inhandVisuals:
       left:
       - state: coatybits-inhand-left
-        color: "#5ABF2F"
+        color: "#61A53F"
       - state: winterbits-inhand-left
       right:
       - state: coatybits-inhand-right
-        color: "#5ABF2F"
+        color: "#61A53F"
       - state: winterbits-inhand-right
   - type: Clothing
     sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
     clothingVisuals:
       outerClothing:
       - state: coatybits-equipped-OUTERCLOTHING
-        color: "#5ABF2F"
+        color: "#61A53F"
       - state: winterbits-equipped-OUTERCLOTHING
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodWinterColorGreen
@@ -1045,24 +1047,24 @@
     sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
     layers:
     - state: coatybits-icon
-      color: "#C09F72"
+      color: "#B28B78"
     - state: winterbits-icon
   - type: Item
     inhandVisuals:
       left:
       - state: coatybits-inhand-left
-        color: "#C09F72"
+        color: "#B28B78"
       - state: winterbits-inhand-left
       right:
       - state: coatybits-inhand-right
-        color: "#C09F72"
+        color: "#B28B78"
       - state: winterbits-inhand-right
   - type: Clothing
     sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
     clothingVisuals:
       outerClothing:
       - state: coatybits-equipped-OUTERCLOTHING
-        color: "#C09F72"
+        color: "#B28B78"
       - state: winterbits-equipped-OUTERCLOTHING
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodWinterColorLightBrown
@@ -1076,24 +1078,24 @@
     sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
     layers:
     - state: coatybits-icon
-      color: "#EF8100"
+      color: "#F1641F"
     - state: winterbits-icon
   - type: Item
     inhandVisuals:
       left:
       - state: coatybits-inhand-left
-        color: "#EF8100"
+        color: "#F1641F"
       - state: winterbits-inhand-left
       right:
       - state: coatybits-inhand-right
-        color: "#EF8100"
+        color: "#F1641F"
       - state: winterbits-inhand-right
   - type: Clothing
     sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
     clothingVisuals:
       outerClothing:
       - state: coatybits-equipped-OUTERCLOTHING
-        color: "#EF8100"
+        color: "#F1641F"
       - state: winterbits-equipped-OUTERCLOTHING
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodWinterColorOrange
@@ -1107,24 +1109,24 @@
     sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
     layers:
     - state: coatybits-icon
-      color: "#EAE8E8"
+      color: "#E6E7f0"
     - state: winterbits-icon
   - type: Item
     inhandVisuals:
       left:
       - state: coatybits-inhand-left
-        color: "#EAE8E8"
+        color: "#E6E7f0"
       - state: winterbits-inhand-left
       right:
       - state: coatybits-inhand-right
-        color: "#EAE8E8"
+        color: "#E6E7f0"
       - state: winterbits-inhand-right
   - type: Clothing
     sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
     clothingVisuals:
       outerClothing:
       - state: coatybits-equipped-OUTERCLOTHING
-        color: "#EAE8E8"
+        color: "#E6E7F0"
       - state: winterbits-equipped-OUTERCLOTHING
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodWinterColorWhite
@@ -1138,24 +1140,24 @@
     sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
     layers:
     - state: coatybits-icon
-      color: "#EBE216"
+      color: "#F8C53A"
     - state: winterbits-icon
   - type: Item
     inhandVisuals:
       left:
       - state: coatybits-inhand-left
-        color: "#EBE216"
+        color: "#F8C53A"
       - state: winterbits-inhand-left
       right:
       - state: coatybits-inhand-right
-        color: "#EBE216"
+        color: "#F8C53A"
       - state: winterbits-inhand-right
   - type: Clothing
     sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
     clothingVisuals:
       outerClothing:
       - state: coatybits-equipped-OUTERCLOTHING
-        color: "#EBE216"
+        color: "#F8C53A"
       - state: winterbits-equipped-OUTERCLOTHING
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodWinterColorYellow

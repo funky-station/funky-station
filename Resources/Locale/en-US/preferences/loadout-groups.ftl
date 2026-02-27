@@ -38,6 +38,7 @@ loadout-group-jobtrinkets = Job trinkets
 loadout-group-glasses = Glasses
 loadout-group-backpack = Backpack
 loadout-group-instruments = Instruments
+loadout-group-jobtoys = Toys
 loadout-group-survival-basic = Survival Box
 loadout-group-survival-extended = Extended Survival Box
 loadout-group-survival-salvage-extended = Extended Survival Box
@@ -82,6 +83,7 @@ loadout-group-bartender-outerclothing = Bartender outer clothing
 loadout-group-generic-hats = Hats
 loadout-group-service_jumpsuit = Service jumpsuit
 loadout-group-gloves = Gloves
+loadout-group-generic-outerclothing = Outer clothing
 loadout-group-generic-shoes = Shoes
 
 loadout-group-chef-head = Chef head

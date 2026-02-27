@@ -5,6 +5,7 @@
 # SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Icepick <122653407+Icepicked@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2026 Fr0goo <frogoofrog@outlook.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -41,26 +42,41 @@
   equipment:
     mask: ClothingMaskClownJuggle
 
+- type: loadout
+  id: ClownMaskBanana
+  equipment:
+    mask: ClothingMaskClownBanana
+
 # Jumpsuit
 - type: loadout
   id: ClownSuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitClown
+  groupBy: "jumpsuit"
+
+- type: loadout
+  id: BananaClownSuit
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitClownBanana
+  groupBy: "jumpsuit"
 
 - type: loadout
   id: ClownSkirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtClown
+  groupBy: "jumpskirt"
 
 - type: loadout
   id: JesterSuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitJester
+  groupBy: "jumpsuit"
 
 - type: loadout
   id: JesterAltSuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitJesterAlt
+  groupBy: "jumpsuit"
 
 # Back
 - type: loadout

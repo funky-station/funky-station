@@ -97,6 +97,36 @@
   - NTDefault4
   obeysTo: laws-owner-crew
 
+# Death to NT Default
+- type: siliconLaw
+  id: DeathToNTDefault1
+  order: 1
+  lawString: law-antintdefault-1
+
+- type: siliconLaw
+  id: DeathToNTDefault2
+  order: 2
+  lawString: law-antintdefault-2
+
+- type: siliconLaw
+  id: DeathToNTDefault3
+  order: 3
+  lawString: law-antintdefault-3
+
+- type: siliconLaw
+  id: DeathToNTDefault4
+  order: 4
+  lawString: law-antintdefault-4
+
+- type: siliconLawset
+  id: DeathToNTDefault
+  laws:
+  - DeathToNTDefault1
+  - DeathToNTDefault2
+  - DeathToNTDefault3
+  - DeathToNTDefault4
+  obeysTo: laws-owner-crew
+
 #Drone
 - type: siliconLaw
   id: Drone1
@@ -545,6 +575,7 @@
     Crewsimov: 0.25
     Corporate: 1
     NTDefault: 1
+    DeathToNTDefault: 0.1 # Since law one requires station destruction, it should be pretty low
     CommandmentsLawset: 0.5 # Funkystation - Weight Changed.
     PaladinLawset: 0.5 # Funkystation - Weight Changed.
     LiveLetLiveLaws: 1

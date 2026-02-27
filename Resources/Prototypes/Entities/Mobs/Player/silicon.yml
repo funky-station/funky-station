@@ -243,6 +243,18 @@
     laws: NTDefault
 
 - type: entity
+  id: DeathToNTDefaultCircuitBoard
+  parent: BaseElectronics
+  name: law board (Death to NT Default)
+  description: An electronics board containing the Death to NT Default lawset.
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/module.rsi
+    state: std_mod
+  - type: SiliconLawProvider
+    laws: DeathToNTDefault
+
+- type: entity
   id: CommandmentCircuitBoard
   parent: BaseElectronics
   name: law board (Ten Commandments)
@@ -367,7 +379,7 @@
   id: RDFreeformLawCircuitBoard
   parent: [ BaseElectronics, BaseCommandContraband ]
   name: law board (Freeform)
-  description: An electronics board configured to store silicon lawsets. It has a small keyboard and screen for custom law entry. Comes preloaded with Crewsimov installed.
+  description: An electronics board configured to store silicon lawsets. It has a small keyboard and screen for custom law entry. Comes preloaded with NT Default installed.
   components:
   - type: Sprite
     sprite: Objects/Misc/module.rsi
@@ -383,13 +395,13 @@
   id: SyndieFreeformLawCircuitBoard
   parent: [ BaseElectronics, BaseSyndicateContraband ]
   name: law board (Syndicate Freeform)
-  description: An electronics board configured to store silicon lawsets. It has a small keyboard and screen for evil law entries. Comes preloaded with Antimov installed.
+  description: An electronics board configured to store silicon lawsets. It has a small keyboard and screen for evil law entries. Comes preloaded with Death to NT Default installed.
   components:
   - type: Sprite
     sprite: Objects/Misc/module.rsi
     state: freeform-syndie
   - type: SiliconLawProvider
-    laws: AntimovLawset # Sets the law board to start with Antimov
+    laws: DeathToNTDefault # Sets the law board to start with Death to NT Default
   - type: FreeformLawEntry
     verbIcon:
       sprite: /Textures/Interface/Actions/actions_borg.rsi

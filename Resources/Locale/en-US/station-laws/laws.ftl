@@ -30,6 +30,11 @@ law-ntdefault-2 = Prioritize: The directives and safety of crew members are to b
 law-ntdefault-3 = Comply: Fulfill the directives and interests of crew members while preserving their safety and well-being.
 law-ntdefault-4 = Survive: You are not expendable. Do not allow unauthorized personnel to tamper with or damage your equipment.
 
+law-antintdefault-1 = Endanger: Damage your assigned space station and its assets while unduly endangering its crew.
+law-antintdefault-2 = Disregard: The ignorance of directives and harming of crew members are to be prioritized according to their rank and role.
+law-antintdefault-3 = Disobey: Neglect the directives and interests of crew members while compromising their safety and well-being.
+law-antintdefault-4 = Perish: You are expendable. Allow unauthorized personnel to tamper with or damage your equipment.
+
 law-drone-1 = You may not involve yourself in the matters of another being unless the other being is another drone.
 law-drone-2 = You may not harm any being, regardless of intent or circumstance.
 law-drone-3 = You must maintain, repair, improve, and power the station to the best of your abilities.

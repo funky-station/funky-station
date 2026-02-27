@@ -1,5 +1,6 @@
 # SPDX-FileCopyrightText: 2025 ReconPangolin <67752926+ReconPangolin@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2026 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -34,3 +35,25 @@
         conditions:
         - !type:ReagentThreshold
           min: 50
+
+- type: reagent
+  id: PolystaticAmylostyronate
+  name: reagent-name-polystatic-amylostyronate
+  group: Others
+  desc: reagent-desc-polystatic-amylostyronate
+  physicalDesc: reagent-physical-desc-gloopy
+  flavor: chalky
+  color: "#f9f2eb"
+  boilingPoint: 100.0
+  meltingPoint: 0.0
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateHunger
+        factor: 1.5
+    Poison:
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Cellular: 2

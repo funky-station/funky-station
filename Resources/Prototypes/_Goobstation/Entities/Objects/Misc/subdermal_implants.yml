@@ -6,6 +6,7 @@
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 starch <starchpersonal@gmail.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2026 DoovyADeer <256158135+DoovyADeer@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -13,7 +14,7 @@
   parent: BaseSubdermalImplant
   id: BluespaceLifelineImplant
   name: bluespace lifeline implant
-  description: This implants teleport user body to safe place, forcing him to leave current location so he won't be able to come back.
+  description: This implants teleport the user's body to a safe place far-far away. They probably won't be able to return.
   categories: [ HideSpawnMenu ]
   components:
   - type: SubdermalImplant

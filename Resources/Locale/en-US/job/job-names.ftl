@@ -1,3 +1,4 @@
+
 # SPDX-FileCopyrightText: 2022 Cheackraze <71046427+Cheackraze@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2022 Emisse <99158783+Emisse@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2022 Kara <lunarautomaton6@gmail.com>
@@ -55,9 +56,9 @@ job-name-atmostech = Atmospheric Technician
 job-name-hop = Head of Personnel
 job-name-captain = Captain
 job-name-serviceworker = Service Worker
-job-name-centcomoff = CentComm Official
-job-name-cburn = Centcomm Quarantine Officer
-job-name-deathsquad = Centcomm Agent
+job-name-centcomoff = Central Command Official
+job-name-cburn = Central Command Quarantine Officer
+job-name-deathsquad = Central Command Agent
 job-name-reporter = Reporter
 job-name-roboticist = Roboticist
 job-name-musician = Musician
@@ -160,3 +161,4 @@ JobTechnicalAssistant = Technical Assistant
 JobVisitor = Visitor
 JobWarden = Warden
 JobZookeeper = Zookeeper
+

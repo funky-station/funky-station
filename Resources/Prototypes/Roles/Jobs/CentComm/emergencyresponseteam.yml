@@ -28,6 +28,7 @@
 # SPDX-FileCopyrightText: 2024 mkanke-real <mikekanke@gmail.com>
 # SPDX-FileCopyrightText: 2025 Catazeus <200477155+Catazeus@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Josh Hilsberg <thejoulesberg@gmail.com>
+# SPDX-FileCopyrightText: 2025 JoulesBerg <104539820+JoulesBerg@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Skye <57879983+Rainbeon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
@@ -36,6 +37,8 @@
 # SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2026 AftrLite <61218133+AftrLite@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2026 W.xyz() <84605679+pirakaplant@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -75,7 +78,7 @@
     pocket2: FlashlightSeclite
   storage:
     back:
-    - WeaponDisabler
+#    - WeaponDisabler # Funky - ERT already gets an N1984
     - MedicatedSuture
     - RegenerativeMesh
     - BoxZiptie
@@ -99,7 +102,7 @@
     pocket2: FlashlightSeclite
   storage:
     back:
-    - WeaponDisabler
+#    - WeaponDisabler # Funky
     - MedicatedSuture
     - RegenerativeMesh
     - BoxZiptie
@@ -125,7 +128,7 @@
   - WeaponRifleLecter
   storage:
     back:
-    - WeaponDisabler
+#    - WeaponDisabler # Funky
     - MedicatedSuture
     - RegenerativeMesh
     - BoxZiptie
@@ -186,7 +189,6 @@
     - CrowbarRed
     - Lighter
     - NullRodDefault
-    - CosmicCenser
     # end funky
 
 - type: startingGear
@@ -214,7 +216,6 @@
     - CrowbarRed
     - Lighter
     - NullRodDefault
-    - CosmicCenser
     # end funky
 
 # Engineer
@@ -345,7 +346,7 @@
     pocket2: FlashlightSeclite
   storage:
     back:
-    - WeaponDisabler
+#    - WeaponDisabler # Funky
     - MedicatedSuture
     - RegenerativeMesh
     - BoxZiptie
@@ -369,7 +370,7 @@
     pocket2: FlashlightSeclite
   storage:
     back:
-    - WeaponDisabler
+#    - WeaponDisabler # Funky
     - MedicatedSuture
     - RegenerativeMesh
     - BoxZiptie
@@ -395,7 +396,7 @@
     - WeaponRifleLecter
   storage:
     back:
-    - WeaponDisabler
+#    - WeaponDisabler # Funky
     - MedicatedSuture
     - RegenerativeMesh
     - BoxZiptie

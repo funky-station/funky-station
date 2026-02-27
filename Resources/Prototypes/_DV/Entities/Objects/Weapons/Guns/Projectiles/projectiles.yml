@@ -3,6 +3,7 @@
 # SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2026 ThatOneMoon <juozas.dringelis@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -43,6 +44,18 @@
         Heat: 15 # Slightly more damage than the 17heat from the Captain's Hitscan lasgun - Goobstation: Nerfed to 15 damage, to keep it less powerful than caps Lasgun
     soundHit:
       collection: MeatLaserImpact
+
+- type: entity #DeltaV, modified by Goobstation to work in this folder.
+  name: practice energy bolt
+  id: BulletPracticeEnergyGunLaser
+  parent: BulletEnergyGunLaser
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    impactEffect: BulletImpactEffectRedDisabler
+    damage:
+      types:
+        Heat: 5
 
 - type: entity #Goobstation, put here so the X-01 stuff isnt spread everywhere.
   name: ion bolt

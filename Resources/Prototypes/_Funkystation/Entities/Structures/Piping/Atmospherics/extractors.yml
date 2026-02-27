@@ -1,0 +1,259 @@
+- type: entity
+  abstract: true
+  name: gas extractor
+  description: Controlled extractor for gases from an external source. Requires configuration via console.
+  id: GasExtractorBase
+  placement:
+    mode: SnapgridCenter
+  components:
+    - type: Clickable
+    - type: InteractionOutline
+    - type: Physics
+      canCollide: false
+    - type: Fixtures
+      fixtures:
+        fix1:
+          shape:
+            !type:PhysShapeCircle
+            radius: .4
+          density: 190
+          mask:
+            - MachineMask
+    - type: Transform
+      anchored: true
+    - type: Anchorable
+      flags:
+      - Anchorable
+    - type: Pullable
+    - type: Sprite
+      sprite: Structures/Piping/Atmospherics/miners.rsi
+      state: miner
+    - type: AtmosDevice
+    - type: GasExtractor
+      spawnAmount: 400
+      maxExternalPressure: 300
+      remainingMoles: 18717
+    - type: DeviceLinkSink
+      ports:
+        - GasExtractorControl
+    - type: GuideHelp
+      guides:
+      - GasMiningAndStorage
+
+# Oxygen
+- type: entity
+  parent: GasExtractorBase
+  id: GasExtractorOxygen
+  name: oxygen extractor
+  suffix: Shuttle
+  components:
+    - type: GasExtractor
+      spawnGas: Oxygen
+
+- type: entity
+  parent: GasExtractorOxygen
+  id: GasExtractorOxygenStation
+  suffix: Station
+  components:
+    - type: GasExtractor
+      maxExternalPressure: 1000
+      remainingMoles: 46792
+
+- type: entity
+  parent: GasExtractorOxygen
+  id: GasExtractorOxygenStationLarge
+  suffix: Large Station
+  components:
+    - type: GasExtractor
+      maxExternalPressure: 2500
+      remainingMoles: 93585
+
+# Nitrogen
+- type: entity
+  parent: GasExtractorBase
+  id: GasExtractorNitrogen
+  name: nitrogen extractor
+  suffix: Shuttle
+  components:
+    - type: GasExtractor
+      spawnGas: Nitrogen
+
+- type: entity
+  parent: GasExtractorNitrogen
+  id: GasExtractorNitrogenStation
+  suffix: Station
+  components:
+    - type: GasExtractor
+      maxExternalPressure: 1000
+      remainingMoles: 46792
+
+- type: entity
+  parent: GasExtractorNitrogen
+  id: GasExtractorNitrogenStationLarge
+  suffix: Large Station
+  components:
+    - type: GasExtractor
+      maxExternalPressure: 2500
+      remainingMoles: 93585
+
+# Carbon Dioxide
+- type: entity
+  parent: GasExtractorBase
+  id: GasExtractorCarbonDioxide
+  name: carbon dioxide extractor
+  components:
+    - type: GasExtractor
+      spawnGas: CarbonDioxide
+
+# Plasma
+- type: entity
+  parent: GasExtractorBase
+  id: GasExtractorPlasma
+  name: plasma extractor
+  components:
+    - type: GasExtractor
+      spawnGas: Plasma
+
+# Tritium
+- type: entity
+  parent: GasExtractorBase
+  id: GasExtractorTritium
+  name: tritium extractor
+  components:
+    - type: GasExtractor
+      spawnGas: Tritium
+
+# Frezon
+- type: entity
+  parent: GasExtractorBase
+  id: GasExtractorFrezon
+  name: frezon extractor
+  components:
+    - type: GasExtractor
+      spawnGas: Frezon
+
+# Water Vapor
+- type: entity
+  parent: GasExtractorBase
+  id: GasExtractorWaterVapor
+  name: water vapor extractor
+  components:
+    - type: GasExtractor
+      spawnGas: WaterVapor
+
+# Ammonia
+- type: entity
+  parent: GasExtractorBase
+  id: GasExtractorAmmonia
+  name: ammonia extractor
+  components:
+    - type: GasExtractor
+      spawnGas: Ammonia
+
+# Nitrous Oxide
+- type: entity
+  parent: GasExtractorBase
+  id: GasExtractorNitrousOxide
+  name: nitrous oxide extractor
+  components:
+    - type: GasExtractor
+      spawnGas: NitrousOxide
+
+# BZ
+- type: entity
+  parent: GasExtractorBase
+  id: GasExtractorBZ
+  name: BZ extractor
+  components:
+    - type: GasExtractor
+      spawnGas: BZ
+
+# Healium
+- type: entity
+  parent: GasExtractorBase
+  id: GasExtractorHealium
+  name: healium extractor
+  components:
+    - type: GasExtractor
+      spawnGas: Healium
+
+# Nitrium
+- type: entity
+  parent: GasExtractorBase
+  id: GasExtractorNitrium
+  name: nitrium extractor
+  components:
+    - type: GasExtractor
+      spawnGas: Nitrium
+
+# Pluoxium
+- type: entity
+  parent: GasExtractorBase
+  id: GasExtractorPluoxium
+  name: pluoxium extractor
+  components:
+    - type: GasExtractor
+      spawnGas: Pluoxium
+
+# Hydrogen
+- type: entity
+  parent: GasExtractorBase
+  id: GasExtractorHydrogen
+  name: hydrogen extractor
+  components:
+    - type: GasExtractor
+      spawnGas: Hydrogen
+
+# Hyper-Noblium
+- type: entity
+  parent: GasExtractorBase
+  id: GasExtractorHyperNoblium
+  name: hyper-noblium extractor
+  components:
+    - type: GasExtractor
+      spawnGas: HyperNoblium
+
+# Proto-Nitrate
+- type: entity
+  parent: GasExtractorBase
+  id: GasExtractorProtoNitrate
+  name: proto-nitrate extractor
+  components:
+    - type: GasExtractor
+      spawnGas: ProtoNitrate
+
+# Zauker
+- type: entity
+  parent: GasExtractorBase
+  id: GasExtractorZauker
+  name: zauker extractor
+  components:
+    - type: GasExtractor
+      spawnGas: Zauker
+
+# Halon
+- type: entity
+  parent: GasExtractorBase
+  id: GasExtractorHalon
+  name: halon extractor
+  components:
+    - type: GasExtractor
+      spawnGas: Halon
+
+# Helium
+- type: entity
+  parent: GasExtractorBase
+  id: GasExtractorHelium
+  name: helium extractor
+  components:
+    - type: GasExtractor
+      spawnGas: Helium
+
+# Anti-Noblium
+- type: entity
+  parent: GasExtractorBase
+  id: GasExtractorAntiNoblium
+  name: anti-noblium extractor
+  components:
+    - type: GasExtractor
+      spawnGas: AntiNoblium

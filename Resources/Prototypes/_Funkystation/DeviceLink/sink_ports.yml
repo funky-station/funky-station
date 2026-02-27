@@ -8,3 +8,8 @@
   id: BluespaceGasUtilizer
   name: Bluespace gas vendor
   description: Gas dispensing vendor
+
+- type: sinkPort
+  id: GasExtractorControl
+  name: signal-port-name-gas-extractor-control
+  description: signal-port-description-gas-extractor-control

@@ -13,7 +13,6 @@
 // SPDX-FileCopyrightText: 2023 PixelTK <85175107+PixelTheKermit@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2023 Psychpsyo <60073468+Psychpsyo@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2023 Slava0135 <40753025+Slava0135@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
 // SPDX-FileCopyrightText: 2023 Vasilis <vasilis@pikachu.systems>
 // SPDX-FileCopyrightText: 2023 brainfood1183 <113240905+brainfood1183@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
@@ -25,14 +24,46 @@
 // SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
 // SPDX-FileCopyrightText: 2024 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
-// SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
 // SPDX-FileCopyrightText: 2024 mr-bo-jangles <mr-bo-jangles@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 plykiya <plykiya@protonmail.com>
+// SPDX-FileCopyrightText: 2024 saintmuntzer <47153094+saintmuntzer@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 shamp <140359015+shampunj@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 strO0pwafel <153459934+strO0pwafel@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 stroopwafel <j.o.luijkx@student.tudelft.nl>
+// SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 to4no_fix <156101927+chavonadelal@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 voidnull000 <18663194+voidnull000@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
+// SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
+// SPDX-FileCopyrightText: 2025 Doctor-Cpu <77215380+Doctor-Cpu@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GabyChangelog <agentepanela2@gmail.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
+// SPDX-FileCopyrightText: 2025 J <billsmith116@gmail.com>
 // SPDX-FileCopyrightText: 2025 MaiaArai <158123176+YaraaraY@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 MilenVolf <63782763+MilenVolf@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Mish <bluscout78@yahoo.com>
+// SPDX-FileCopyrightText: 2025 Myra <vascreeper@yahoo.com>
+// SPDX-FileCopyrightText: 2025 Panela <107573283+AgentePanela@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+Pronana@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+pronana@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 RocketBoss360 <rocketboss360@gmail.com>
+// SPDX-FileCopyrightText: 2025 Rouden <149893554+Roudenn@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
-// SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
+// SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 TemporalOroboros <TemporalOroboros@gmail.com>
+// SPDX-FileCopyrightText: 2025 Will-Oliver-Br <164823659+Will-Oliver-Br@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Zachary Higgs <compgeek223@gmail.com>
+// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+// SPDX-FileCopyrightText: 2025 starch <starchpersonal@gmail.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2026 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
 //
 // SPDX-License-Identifier: MIT
 
@@ -40,10 +71,11 @@ using System.Linq;
 using Content.Server.Administration.Logs;
 using Content.Server.Atmos.Components;
 using Content.Server.Atmos.EntitySystems;
-using Content.Server.Chemistry.TileReactions;
-using Content.Server.DoAfter;
 using Content.Server.Fluids.Components;
+using Content.Server.Popups;
 using Content.Server.Spreader;
+using Content.Shared._White.Standing;
+using Content.Shared.ActionBlocker;
 using Content.Shared.Atmos;
 using Content.Shared.Atmos.Components;
 using Content.Shared.Chemistry;
@@ -66,6 +98,7 @@ using Content.Shared.Popups;
 using Content.Shared.Slippery;
 using Content.Shared.StepTrigger.Components;
 using Content.Shared.StepTrigger.Systems;
+using Content.Shared.Footprint; // Added reference
 using Robust.Server.Audio;
 using Robust.Shared.Collections;
 using Robust.Shared.Map;
@@ -77,6 +110,9 @@ using Robust.Shared.Timing;
 using Robust.Server.GameObjects;
 using Content.Shared.Audio;
 using Robust.Shared.Audio;
+using Content.Shared.Standing; // Gaby
+using Content.Shared.DoAfter; // Gaby
+using Content.Shared.Inventory;
 
 namespace Content.Server.Fluids.EntitySystems;
 
@@ -86,6 +122,7 @@ namespace Content.Server.Fluids.EntitySystems;
 public sealed partial class PuddleSystem : SharedPuddleSystem
 {
     [Dependency] private readonly IAdminLogManager _adminLogger = default!;
+    [Dependency] private readonly ActionBlockerSystem _actionBlocker = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly SharedMapSystem _map = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
@@ -96,7 +133,6 @@ public sealed partial class PuddleSystem : SharedPuddleSystem
     [Dependency] private readonly ReactiveSystem _reactive = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly SharedColorFlashEffectSystem _color = default!;
-    [Dependency] private readonly SharedPopupSystem _popups = default!;
     [Dependency] private readonly SharedSolutionContainerSystem _solutionContainerSystem = default!;
     [Dependency] private readonly StepTriggerSystem _stepTrigger = default!;
     [Dependency] private readonly SpeedModifierContactsSystem _speedModContacts = default!;
@@ -104,6 +140,11 @@ public sealed partial class PuddleSystem : SharedPuddleSystem
     [Dependency] private readonly AtmosphereSystem _atmos = default!;
     [Dependency] private readonly SharedPointLightSystem _pointLight = default!;
     [Dependency] private readonly SharedAmbientSoundSystem _ambientSound = default!;
+    [Dependency] private readonly StandingStateSystem _standing = default!; // Gaby
+    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!; // Gaby
+    [Dependency] private readonly PopupSystem _popup = default!;
+    [Dependency] private readonly InventorySystem _inventory = default!;
+
 
     [ValidatePrototypeId<ReagentPrototype>]
     private const string Blood = "Blood";
@@ -143,6 +184,9 @@ public sealed partial class PuddleSystem : SharedPuddleSystem
         SubscribeLocalEvent<PuddleComponent, SlipEvent>(OnPuddleSlip);
         SubscribeLocalEvent<PuddleFireLightComponent, ComponentShutdown>(OnFireLightShutdown);
         SubscribeLocalEvent<EvaporationComponent, MapInitEvent>(OnEvaporationMapInit);
+
+        SubscribeLocalEvent<LayingDownComponent, MoveEvent>(OnCrawlInPuddle); // Gaby
+        SubscribeLocalEvent<InventoryComponent, MoveEvent>(OnStepInPuddle);
 
         InitializeTransfers();
     }
@@ -349,7 +393,7 @@ public sealed partial class PuddleSystem : SharedPuddleSystem
                 out var solution))
             return;
 
-        _popups.PopupEntity(Loc.GetString("puddle-component-slipped-touch-reaction", ("puddle", entity.Owner)),
+        _popup.PopupEntity(Loc.GetString("puddle-component-slipped-touch-reaction", ("puddle", entity.Owner)),
             args.Slipped, args.Slipped, PopupType.SmallCaution);
 
         // Take 15% of the puddle solution
@@ -479,7 +523,7 @@ public sealed partial class PuddleSystem : SharedPuddleSystem
         _deletionQueue.Remove(entity);
         UpdateFlammability((entity.Owner, entity.Comp), args.Solution);
         UpdateSlip((entity, entity.Comp), args.Solution);
-        UpdateSlow(entity, args.Solution);
+        UpdateSlow(entity, args.Solution, entity.Comp); // Changed: pass component
         UpdateEvaporation(entity, args.Solution);
         UpdateAppearance(entity, entity.Comp);
     }
@@ -621,7 +665,7 @@ public sealed partial class PuddleSystem : SharedPuddleSystem
         Dirty(entity, slipComp);
     }
 
-    private void UpdateSlow(EntityUid uid, Solution solution)
+    private void UpdateSlow(EntityUid uid, Solution solution, PuddleComponent puddle) // Changed: accepts component
     {
         var maxViscosity = 0f;
         foreach (var (reagent, _) in solution.Contents)
@@ -782,8 +826,12 @@ public sealed partial class PuddleSystem : SharedPuddleSystem
             }
 
             targets.Add(owner);
+
+            var stainEv = new SpilledOnEvent(uid, splitSolution.Clone()); // Gaby
+            RaiseLocalEvent(owner, stainEv);
+
             _reactive.DoEntityReaction(owner, splitSolution, ReactionMethod.Touch);
-            _popups.PopupEntity(
+            _popup.PopupEntity(
                 Loc.GetString("spill-land-spilled-on-other", ("spillable", uid),
                     ("target", Identity.Entity(owner, EntityManager))), owner, PopupType.SmallCaution);
         }
@@ -869,6 +917,7 @@ public sealed partial class PuddleSystem : SharedPuddleSystem
         var anchored = _map.GetAnchoredEntitiesEnumerator(gridId, mapGrid, tileRef.GridIndices);
         var puddleQuery = GetEntityQuery<PuddleComponent>();
         var sparklesQuery = GetEntityQuery<EvaporationSparkleComponent>();
+        var footprintQuery = GetEntityQuery<FootprintComponent>(); // Added: Query for footprints
 
         while (anchored.MoveNext(out var ent))
         {
@@ -880,6 +929,10 @@ public sealed partial class PuddleSystem : SharedPuddleSystem
             }
 
             if (!puddleQuery.TryGetComponent(ent, out var puddle))
+                continue;
+
+            // Added: Do not merge spills into footprints
+            if (footprintQuery.HasComp(ent))
                 continue;
 
             if (TryAddSolution(ent.Value, solution, sound, puddleComponent: puddle))
@@ -930,10 +983,15 @@ public sealed partial class PuddleSystem : SharedPuddleSystem
 
         var anc = _map.GetAnchoredEntitiesEnumerator(tile.GridUid, grid, tile.GridIndices);
         var puddleQuery = GetEntityQuery<PuddleComponent>();
+        var footprintQuery = GetEntityQuery<FootprintComponent>(); // Added: Query for footprints
 
         while (anc.MoveNext(out var ent))
         {
             if (!puddleQuery.HasComponent(ent.Value))
+                continue;
+
+            // Added: Do not return footprints as puddles
+            if (footprintQuery.HasComponent(ent.Value))
                 continue;
 
             puddleUid = ent.Value;
@@ -941,5 +999,83 @@ public sealed partial class PuddleSystem : SharedPuddleSystem
         }
 
         return false;
+    }
+
+    // In case the entity is laying on a tile and moves to another tile, stain them
+    private void OnCrawlInPuddle(Entity<LayingDownComponent> ent, ref MoveEvent args) // Gaby
+    {
+        if (!_standing.IsDown(ent.Owner))
+            return;
+
+        var gridUid = args.NewPosition.GetGridUid(EntityManager);
+        if (!gridUid.HasValue || !TryComp<MapGridComponent>(gridUid, out var grid))
+            return;
+
+        if (args.OldPosition.GetGridUid(EntityManager) != gridUid ||
+            _map.CoordinatesToTile(gridUid.Value, grid, args.OldPosition) == _map.CoordinatesToTile(gridUid.Value, grid, args.NewPosition))
+            return;
+
+        var tile = _map.GetTileRef(gridUid.Value, grid, args.NewPosition);
+
+        if (!TryGetPuddle(tile, out var puddleUid) || !_puddleQuery.TryGetComponent(puddleUid, out var puddleComp))
+            return;
+
+        var isSuperSlippery = TryComp<SlipperyComponent>(puddleUid, out var slippery) && slippery.SlipData.SuperSlippery;
+        var slippedEv = new SlippedEvent(puddleUid, isSuperSlippery);
+        RaiseLocalEvent(ent.Owner, slippedEv);
+
+        // Copies a part of OnPuddleSlip
+        if (HasComp<ReactiveComponent>(ent.Owner) && !HasComp<SlidingComponent>(ent.Owner))
+        {
+            if (!_solutionContainerSystem.ResolveSolution(puddleUid, puddleComp.SolutionName, ref puddleComp.Solution, out var solution))
+                return;
+
+            _popup.PopupEntity(Loc.GetString("puddle-component-slipped-touch-reaction", ("puddle", puddleUid)),
+                ent.Owner, ent.Owner, PopupType.SmallCaution);
+
+            var splitSol = _solutionContainerSystem.SplitSolution(puddleComp.Solution.Value, solution.Volume * 0.15f);
+
+            _reactive.DoEntityReaction(ent.Owner, splitSol, ReactionMethod.Touch);
+        }
+    }
+
+    // Stain when stepping on puddles
+    private void OnStepInPuddle(Entity<InventoryComponent> ent, ref MoveEvent args)
+    {
+        // Only if upright
+        if (_standing.IsDown(ent.Owner))
+            return;
+
+        // Only on tile change
+        var gridUid = args.NewPosition.GetGridUid(EntityManager);
+        if (!gridUid.HasValue || !TryComp<MapGridComponent>(gridUid, out var grid))
+            return;
+
+        if (args.OldPosition.GetGridUid(EntityManager) != gridUid ||
+            _map.CoordinatesToTile(gridUid.Value, grid, args.OldPosition) == _map.CoordinatesToTile(gridUid.Value, grid, args.NewPosition))
+            return;
+
+        var tile = _map.GetTileRef(gridUid.Value, grid, args.NewPosition);
+
+        if (!TryGetPuddle(tile, out var puddleUid) || !_puddleQuery.TryGetComponent(puddleUid, out var puddleComp))
+            return;
+
+        // Logic to stain shoes
+        if (!_solutionContainerSystem.ResolveSolution(puddleUid, puddleComp.SolutionName, ref puddleComp.Solution, out var solution))
+            return;
+
+        if (solution.Volume <= FixedPoint2.Zero)
+            return;
+
+        var transferAmount = FixedPoint2.Min(FixedPoint2.New(1), solution.Volume);
+        var splitSol = _solutionContainerSystem.SplitSolution(puddleComp.Solution.Value, transferAmount);
+
+        // Target shoes using InventorySystem
+        if (_inventory.TryGetSlotEntity(ent.Owner, "shoes", out var shoes))
+        {
+            var spilledEvent = new SpilledOnEvent(puddleUid, splitSol);
+            var relayedEvent = new InventoryRelayedEvent<SpilledOnEvent>(spilledEvent);
+            RaiseLocalEvent(shoes.Value, relayedEvent);
+        }
     }
 }

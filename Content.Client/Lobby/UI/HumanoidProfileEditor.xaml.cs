@@ -75,6 +75,7 @@
 // SPDX-FileCopyrightText: 2025 w.xyz() <84605679+pirakaplant@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2026 Mora <46364955+TrixxedHeart@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2026 TrixxedHeart <46364955+TrixxedBit@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2026 W.xyz() <84605679+pirakaplant@users.noreply.github.com>
 //
 // SPDX-License-Identifier: MIT
 
@@ -333,7 +334,10 @@ namespace Content.Client.Lobby.UI
                 OnSkinColorOnValueChanged();
             };
 
-            RgbSkinColorContainer.AddChild(_rgbSkinColorSelector = new ColorSelectorSliders());
+            RgbSkinColorContainer.AddChild(_rgbSkinColorSelector = new ColorSelectorSliders
+            {
+                SelectorType = ColorSelectorSliders.ColorSelectorType.Hsv // Default to HSV
+            });
             _rgbSkinColorSelector.OnColorChanged += _ =>
             {
                 OnSkinColorOnValueChanged();
@@ -1268,7 +1272,7 @@ namespace Content.Client.Lobby.UI
                         }
                     }
 
-                    selector.Setup(items, job.LocalizedName, 280, job.LocalizedDescription, icon, job.Guides, altTitleInfo, currentAlt, _prototypeManager);
+                    selector.Setup(items, job.LocalizedName, 280, job.LocalizedDescription, icon, job.Guides, altTitleInfo, currentAlt, _prototypeManager, Profile?.Gender);
 
                     if (!_requirements.IsAllowed(job, Profile, out var reason))
                     {
@@ -1552,6 +1556,7 @@ namespace Content.Client.Lobby.UI
         {
             Profile = Profile?.WithGender(newGender);
             ReloadPreview();
+            RefreshJobs(); // So gender-specific job titles get corrected without having to save your character.
         }
 
         private void SetSpecies(string newSpecies)

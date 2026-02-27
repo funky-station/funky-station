@@ -13,6 +13,7 @@
 // SPDX-FileCopyrightText: 2025 jackel234 <jackel234@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 maelines <amae.tones@gmail.com>
 // SPDX-FileCopyrightText: 2025 maelines <genovedd.almn@gmail.com>
+// SPDX-FileCopyrightText: 2025 mq <113324899+mqole@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 // SPDX-FileCopyrightText: 2026 mycobiota <154991750+mycobiota@users.noreply.github.com>
 //
@@ -84,5 +85,10 @@ public sealed class IonStormRule : StationEventSystem<IonStormRuleComponent>
         }
     }
 }
+
+// imp add
+/// <summary>
+/// Event raised on an entity with <see cref="IonStormTargetComponent"/> when an ion storm occurs on the attached station.
+/// </summary>
 [ByRefEvent]
 public record struct IonStormEvent(bool Adminlog = true);

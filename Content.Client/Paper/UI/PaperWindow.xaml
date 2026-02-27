@@ -52,5 +52,11 @@ SPDX-License-Identifier: MIT
         <BoxContainer Name="EditButtons" Orientation="Horizontal" HorizontalAlignment="Right" Margin="6">
             <Button Name="SaveButton" />
         </BoxContainer>
+        <!-- Funky Station - Pagination controls for books (hidden by default) -->
+        <BoxContainer Name="PaginationControls" Orientation="Horizontal" HorizontalAlignment="Center" Margin="6" Visible="False">
+            <Button Name="PrevPageButton" MinWidth="80"/>
+            <Label Name="PageIndicator" Margin="10 0" VerticalAlignment="Center"/>
+            <Button Name="NextPageButton" MinWidth="80"/>
+        </BoxContainer>
     </BoxContainer>
 </paper:PaperWindow>

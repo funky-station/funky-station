@@ -19,6 +19,7 @@
 # SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 superjj18 <gagnonjake@gmail.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2026 Xcybitt <197952719+Xcybitt@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -85,6 +86,12 @@
       storagebase: !type:Container
         ents: []
       gas_tank: !type:ContainerSlot
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 8
+  - type: AltFireMelee
+    attackType: Light
 
 - type: entity
   name: pie cannon
@@ -127,7 +134,13 @@
     containers:
       storagebase: !type:Container
         ents: []
-        
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 8
+  - type: AltFireMelee
+    attackType: Light
+
 - type: entity
   name: syringe gun
   parent: BaseStorageItem
@@ -164,6 +177,12 @@
     containers:
       storagebase: !type:Container
         ents: []
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 8
+  - type: AltFireMelee
+    attackType: Light
 
 # shoots bullets instead of throwing them, no other changes
 - type: entity

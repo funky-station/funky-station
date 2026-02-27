@@ -1,4 +1,5 @@
 // SPDX-FileCopyrightText: 2025 Gansu <68031780+GansuLalan@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Gansu <peat.allan13@gmail.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
 // SPDX-License-Identifier: MIT
@@ -27,6 +28,11 @@ public sealed class CargoBountyItemEntryTypeSerializer : ITypeReader<CargoBounty
         if (node.Has("reagent"))
         {
             return typeof(CargoReagentBountyItemEntry);
+        }
+
+        if (node.Has("gas"))
+        {
+            return typeof(CargoGasBountyItemEntry);
         }
 
         return null;

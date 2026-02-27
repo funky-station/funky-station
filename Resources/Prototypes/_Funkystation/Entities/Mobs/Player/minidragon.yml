@@ -1,4 +1,4 @@
-# SPDX-FileCopyrightText: 2025 SigmaTheDragon <162711378+SigmaTheDragon@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2026 SigmaTheDragon <162711378+SigmaTheDragon@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -116,8 +116,8 @@
         - ActionCritLastWords 
     - type: SlowOnDamage
       speedModifierThresholds:
-        75: 0.8
-        100: 0.6 
+        125: 0.85
+        175: 0.7 
     - type: StatusEffects
       allowed:
       - SlowedDown
@@ -156,6 +156,7 @@
           Brute: -0.4
           Burn: -0.4
           Toxin: -0.4
+          Airloss: -0.4
 
 - type: entity
   name: mini dragon
@@ -197,6 +198,7 @@
   name: domesticated mini dragon
   parent: BaseMobMiniDragon
   id: MobMiniDragonFriendly
+  description: It's a domesticated mini dragon, sometimes also known as a poodle dragon. Even seeing a mini dragon that has been domesticated is a once in a lifetime opportunity, owning one is only reserved for the elite of the elite.
   components:
     - type: Sprite
       layers:

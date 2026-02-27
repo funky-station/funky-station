@@ -10,6 +10,7 @@ job-name-alt-medical-2 = Nurse
 job-name-alt-medical-3 = Physician
 job-name-alt-medical-4 = General Practitioner
 job-name-alt-medical-5 = Medical Resident
+job-name-alt-medical-6 = Nurse Practitioner
 
 job-name-alt-chemist-1 = Pharmacist
 job-name-alt-chemist-2 = Lab Technician
@@ -22,7 +23,9 @@ job-name-alt-paramedic-3 = Search & Rescue Technician
 job-name-alt-qm-1 = Requisitions Officer
 job-name-alt-qm-2 = Deck Chief
 job-name-alt-qm-3 = Warehouse Supervisor
-job-name-alt-qm-4 = Supply Foreman
+job-name-alt-qm-4 = Supply Foreperson
+job-name-alt-qm-4-f = Supply Forewoman
+job-name-alt-qm-4-m = Supply Foreman
 job-name-alt-qm-5 = Logistics Coordinator
 
 job-name-alt-cargotech-1 = Courier
@@ -40,7 +43,9 @@ job-name-alt-salvage-4 = Drill Technician
 job-name-alt-salvage-5 = Shipbreaking Specialist
 
 job-name-alt-ce-1 = Head of Engineering
-job-name-alt-ce-2 = Engineering Foreman
+job-name-alt-ce-2 = Engineering Foreperson
+job-name-alt-ce-2-f = Engineering Forewoman
+job-name-alt-ce-2-m = Engineering Foreman
 job-name-alt-ce-3 = Engineering Supervisor
 
 job-name-alt-engineer-1 = Maintenance Technician

@@ -70,7 +70,9 @@
             #Silicon
             StationAi: [ 1, 1 ]
             Borg: [ 2, 3 ]
-- type: StationBlobConfig
-  stageBegin: 75
-  stageCritical: 500
-  stageTheEnd: 1000
+        # Goobstation blob-config-start HUGE
+        - type: StationBlobConfig
+          stageBegin: 40
+          stageCritical: 450
+          stageTheEnd: 900
+        # Goobstation blob-config-end

@@ -44,6 +44,7 @@
 # SPDX-FileCopyrightText: 2025 pathetic meowmeow <uhhadd@gmail.com>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2026 LilHoss4k <109646874+LilHoss4k@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2026 Xcybitt <197952719+Xcybitt@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
@@ -171,6 +172,13 @@
     - id: ClothingHeadHatWizard
     - id: ClothingOuterWizard
     - id: ClothingShoesWizard
+    - id: ClothingMaskRaven # Animal masks!!
+    - id: ClothingMaskRat
+    - id: ClothingMaskFox
+    - id: ClothingMaskBee
+    - id: ClothingMaskBear
+    - id: ClothingMaskJackal
+    - id: ClothingMaskBat
 
 - type: entity
   id: CrateServiceCustomSmokable

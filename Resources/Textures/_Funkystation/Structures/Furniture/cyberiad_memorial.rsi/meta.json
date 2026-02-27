@@ -1,0 +1,14 @@
+{
+    "version":1,
+    "size":{
+        "x":96,
+        "y":96
+    },
+    "license":"CC-BY-NC-3.0",
+    "copyright":"Taken from Paradise",
+    "states":[
+        {
+            "name": "cyberiadmemo"
+        }
+    ]
+}

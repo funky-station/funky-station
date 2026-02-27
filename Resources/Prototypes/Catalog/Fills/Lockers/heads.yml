@@ -256,6 +256,7 @@
     # funkystation: removing disabler and instead using energy pistol
     # - id: WeaponDisabler
     #- id: WeaponDisablerPlus # funkystation adding unique hop weapon # Funky - Actually removing it again. LOL!
+    - id: HOPCane # Funky
     - id: ClothingEyesHudCommand
     - id: SOSCartridge # DeltaV - adds SOS app https://github.com/DeltaV-Station/Delta-v/pull/2812
     - id: PDA_cartridge_case

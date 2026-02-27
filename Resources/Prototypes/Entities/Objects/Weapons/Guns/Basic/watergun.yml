@@ -5,6 +5,7 @@
 # SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2026 Xcybitt <197952719+Xcybitt@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -76,6 +77,12 @@
     available:
       - enum.DamageStateVisualLayers.Base:
           icon: Rainbow
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 4
+  - type: AltFireMelee
+    attackType: Light
 
 - type: entity
   id: WeaponWaterBlaster
@@ -113,6 +120,12 @@
           icon: Rainbow
       - enum.PowerDeviceVisualLayers.Powered:
           detail2: Sixteen
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 4
+  - type: AltFireMelee
+    attackType: Light
 
 - type: entity
   id: WeaponWaterBlasterSuper
@@ -150,3 +163,9 @@
           icon: Rainbow
       - enum.PowerDeviceVisualLayers.Powered:
           detail2: Sixteen
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 4
+  - type: AltFireMelee
+    attackType: Light

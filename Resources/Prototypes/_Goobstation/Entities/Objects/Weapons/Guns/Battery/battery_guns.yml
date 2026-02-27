@@ -12,6 +12,7 @@
 # SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2026 W.xyz() <84605679+pirakaplant@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2026 Xcybitt <197952719+Xcybitt@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -44,6 +45,14 @@
     zeroVisible: true
   - type: Multishot
     spreadMultiplier: 1.2
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 8
+    soundHit:
+      collection: MetalThud
+  - type: AltFireMelee
+    attackType: Light
 
 - type: entity
   name: Plasma Rifle
@@ -84,6 +93,14 @@
     steps: 5
     zeroVisible: false
   - type: Appearance
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 8
+    soundHit:
+      collection: MetalThud
+  - type: AltFireMelee
+    attackType: Light
 
 - type: entity
   parent: WeaponPlasmaRifle
@@ -154,3 +171,11 @@
   - type: Tag
     tags:
     - Sidearm
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 8
+    soundHit:
+      collection: MetalThud
+  - type: AltFireMelee
+    attackType: Light

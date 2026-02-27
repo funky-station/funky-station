@@ -10145,9 +10145,6 @@ entities:
     - type: GasTileOverlay
     - type: RadiationGridResistance
     - type: ImplicitRoof
-    - type: DnaScannerDiscoveryTracker
-      gridDiscoveredMutations: []
-      gridResearchProgress: {}
 - proto: ActionStethoscope
   entities:
   - uid: 12161

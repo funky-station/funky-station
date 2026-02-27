@@ -12257,9 +12257,6 @@ entities:
     - type: RadiationGridResistance
     - type: NavMap
     - type: ImplicitRoof
-    - type: DnaScannerDiscoveryTracker
-      gridDiscoveredMutations: []
-      gridResearchProgress: {}
 - proto: AccordionInstrument
   entities:
   - uid: 12087

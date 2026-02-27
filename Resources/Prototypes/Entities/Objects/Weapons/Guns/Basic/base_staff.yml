@@ -3,6 +3,7 @@
 # SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2026 Xcybitt <197952719+Xcybitt@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -28,4 +29,10 @@
   - type: Tag
     tags:
     - WizardStaff
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 8
+  - type: AltFireMelee
+    attackType: Light
 

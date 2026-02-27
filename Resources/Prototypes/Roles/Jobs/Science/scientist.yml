@@ -56,7 +56,6 @@
   - ScientistHardwareTechnician
   - ScientistLabTechnician
   - ScientistTheoreticalPhysicist
-  - ScientistGeneticist
 
 - type: startingGear
   id: ScientistGear
@@ -85,7 +84,3 @@
 - type: jobAlternateTitle
   id: ScientistTheoreticalPhysicist
   name: job-name-alt-scientist-5
-
-- type: jobAlternateTitle
-  id: ScientistGeneticist
-  name: job-name-alt-scientist-6

@@ -147,8 +147,6 @@
     allowMovement: true
     description: ghost-role-information-SyndiRoach-description
     rules: ghost-role-information-familiar-rules
-    mindRules:
-    - MindRoleGhostRoleFamiliar
     raffle:
       settings: default
   - type: GhostTakeoverAvailable

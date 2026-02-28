@@ -149,19 +149,15 @@
     - type: Construction
       graph: RevolutionaryFlashbangGraph
       node: start
-  - type: Sprite
-    sprite: Objects/Weapons/Grenades/flashbang.rsi
-  - type: ExplodeOnTrigger #less lethal wahoo
-  - type: Explosive
-    explosionType: Default
-    maxIntensity: 1
-    intensitySlope: 3
-    totalIntensity: 12
-    canCreateVacuum: false
-  - type: GuideHelp
-    guides:
-    - Security
-    - Antagonists
+    - type: Sprite
+      sprite: Objects/Weapons/Grenades/flashbang.rsi
+    - type: ExplodeOnTrigger #less lethal wahoo
+    - type: Explosive
+      explosionType: Default
+      maxIntensity: 1
+      intensitySlope: 3
+      totalIntensity: 12
+      canCreateVacuum: false
 
 - type: entity
   id: GrenadeFlashEffect

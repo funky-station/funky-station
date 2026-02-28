@@ -1,0 +1,66 @@
+# SPDX-FileCopyrightText: 2026 W.xyz() <84605679+pirakaplant@users.noreply.github.com>
+#
+# SPDX-License-Identifier: MIT
+
+- type: entity
+  parent: Cane
+  id: HOPCane
+  name: head of personnel's mecha-cane
+  description: A motorized cane tastefully decorated with a Nanotrasen-blue flame decal. While wielding it in both hands, activating it gives you a brief window to reposition any intruder over to the correct side of the desk.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Weapons/Melee/hop_cane.rsi
+    layers:
+    - state: icon-off
+      map: [ "enum.ToggleVisuals.Layer" ]
+  - type: Item
+    size: Normal
+    sprite: _Funkystation/Objects/Weapons/Melee/hop_cane.rsi
+  - type: ToggleCellDraw
+  - type: PowerCellDraw
+    drawRate: 200
+  - type: PowerCellSlot
+    cellSlotId: cell_slot
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+        startingItem: PowerCellHigh
+  - type: ContainerContainer
+    containers:
+      cell_slot: !type:ContainerSlot
+  - type: ItemToggle
+    soundActivate:
+      path: /Audio/Machines/button.ogg
+      params:
+        variation: 0.250
+    soundDeactivate:
+      path: /Audio/Machines/button.ogg
+      params:
+        variation: 0.250
+    soundFailToActivate:
+      path: /Audio/Machines/button.ogg
+      params:
+        variation: 0.250
+  - type: ItemToggleActiveSound
+    activeSound:
+      path: /Audio/Ambience/Objects/engine_hum.ogg
+  - type: ComponentToggler
+    components:
+    - type: MeleeRequiresWield
+    - type: MeleeThrowOnHit
+      stunTime: .1
+      speed: 20
+      distance: 50
+  - type: ItemToggleMeleeWeapon
+    activatedSoundOnHit:
+      collection: ExplosionSmall
+    activatedDamage:
+      types:
+        Blunt: 12 # 20 total - It's not supposed to kill, but it should hurt!
+  - type: GenericVisualizer
+    visuals:
+      enum.ToggleVisuals.Toggled:
+        enum.ToggleVisuals.Layer:
+          True: { state: icon-on }
+          False: { state: icon-off }

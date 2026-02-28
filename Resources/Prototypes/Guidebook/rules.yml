@@ -9,12 +9,13 @@
 # SPDX-FileCopyrightText: 2024 basic pack <159909786+packmore@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Icepick <122653407+Icepicked@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Icepick <icepickedcyanide@gmail.com>
+# SPDX-FileCopyrightText: 2025 JoulesBerg <104539820+JoulesBerg@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 JoulesBerg <thejoulesberg@gmail.com>
 # SPDX-FileCopyrightText: 2025 Mish <bluscout78@yahoo.com>
 # SPDX-FileCopyrightText: 2025 PoquitoDondito <danielchristianstone@gmail.com>
-# SPDX-FileCopyrightText: 2025 Sadie <sadiecmstone@gmail.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2026 Sadie <sadiecmstone@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -57,9 +58,6 @@
   - RuleC9
   - RuleC10
   - RuleC11
-  - RuleC12
-  - RuleC13
-  - RuleC14
 
 - type: guideEntry
   id: RuleC1
@@ -115,56 +113,28 @@
   name: guide-entry-rules-c8
   ruleEntry: true
   priority: 8
-  text: "/ServerInfo/Guidebook/ServerRules/CoreRules/RuleC8Names.xml"
+  text: "/ServerInfo/Guidebook/ServerRules/CoreRules/RuleC8UseProperEscalation.xml"
 
 - type: guideEntry
   id: RuleC9
   name: guide-entry-rules-c9
   ruleEntry: true
   priority: 9
-  text: "/ServerInfo/Guidebook/ServerRules/CoreRules/RuleC9UseProperEscalation.xml"
+  text: "/ServerInfo/Guidebook/ServerRules/CoreRules/RuleC9SiliconPolicy.xml"
 
 - type: guideEntry
   id: RuleC10
   name: guide-entry-rules-c10
   ruleEntry: true
   priority: 10
-  text: "/ServerInfo/Guidebook/ServerRules/CoreRules/RuleC10SecandCommand.xml"
+  text: "/ServerInfo/Guidebook/ServerRules/CoreRules/RuleC10Antag.xml"
 
 - type: guideEntry
   id: RuleC11
   name: guide-entry-rules-c11
   ruleEntry: true
   priority: 11
-  text: "/ServerInfo/Guidebook/ServerRules/CoreRules/RuleC11SiliconPolicy.xml"
-
-- type: guideEntry
-  id: RuleC12
-  name: guide-entry-rules-c12
-  ruleEntry: true
-  priority: 12
-  text: "/ServerInfo/Guidebook/ServerRules/CoreRules/RuleC12Antag.xml"
-
-- type: guideEntry
-  id: RuleC13
-  name: guide-entry-rules-c13
-  ruleEntry: true
-  priority: 13
-  text: "/ServerInfo/Guidebook/ServerRules/CoreRules/RuleC13NoEORG.xml"
-
-- type: guideEntry
-  id: RuleC14
-  name: guide-entry-rules-c14
-  ruleEntry: true
-  priority: 14
-  text: "/ServerInfo/Guidebook/ServerRules/CoreRules/RuleC14LOOC.xml"
-
-- type: guideEntry
-  id: RuleC15
-  name: guide-entry-rules-c15
-  ruleEntry: true
-  priority: 15
-  text: "/ServerInfo/Guidebook/ServerRules/CoreRules/RuleC15Roles.xml"
+  text: "/ServerInfo/Guidebook/ServerRules/CoreRules/RuleC11LOOC.xml"
 
 - type: guideEntry
   id: Metashield

@@ -184,14 +184,16 @@
 # SPDX-FileCopyrightText: 2025 TrixxedHeart <46364955+TrixxedBit@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 V <97265903+formlessnameless@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Xcybitt <xcybitt@gmail.com>
-# SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Zergologist <114537969+Chedd-Error@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 aa5g21 <aa5g21@soton.ac.uk>
 # SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 delorphin <delorphin@gmail.com>
 # SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 ferynn <117872973+ferynn@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 jhrushbe <capnmerry@gmail.com>
+# SPDX-FileCopyrightText: 2025 marc-pelletier <113944176+marc-pelletier@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 mkanke-real <mikekanke@gmail.com>
+# SPDX-FileCopyrightText: 2025 rottenheadphones <juaelwe@outlook.com>
 # SPDX-FileCopyrightText: 2025 salpphie <53307242+salpphie@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 salpphie <alyssa.thomas51@gmail.com>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
@@ -201,11 +203,13 @@
 # SPDX-FileCopyrightText: 2025 willow <willowzeta632146@proton.me>
 # SPDX-FileCopyrightText: 2025 wilowzeta <willowzeta632146@proton.me>
 # SPDX-FileCopyrightText: 2026 AftrLite <61218133+AftrLite@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2026 DoovyADeer <256158135+DoovyADeer@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2026 Steve <marlumpy@gmail.com>
+# SPDX-FileCopyrightText: 2026 DoovyADeer <256158135+DoovyADeer@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2026 ThatOneMoon <91613003+ThatOneMoon@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2026 W.xyz() <84605679+pirakaplant@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2026 W.xyz() <tptechteam@gmail.com>
 # SPDX-FileCopyrightText: 2026 Xcybitt <197952719+Xcybitt@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2026 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2026 jhrushbe <capnmerry@gmail.com>
 # SPDX-FileCopyrightText: 2026 marc-pelletier <113944176+marc-pelletier@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2026 rottenheadphones <juaelwe@outlook.com>
@@ -530,6 +534,7 @@
     - PowerCellHighSingle #funk
     - SmallPinboard #funky
     - BarberScissors #funk
+    - Shovel #funk
     - Floodlight #funk
     - CassetteTapeHigh #funk
     dynamicRecipes:
@@ -860,6 +865,7 @@
     - HellfireFreezerMachineCircuitBoard
     - PortableScrubberMachineCircuitBoard
     - PipeScrubberMachineCircuitBoard # Funkystation
+    - WashingMachineCircuitboard #Funkystation
     - CloningPodMachineCircuitboard
     - MedicalScannerMachineCircuitboard
     - CryoPodMachineCircuitboard
@@ -1225,10 +1231,11 @@
     - RiotShield
     - SpeedLoaderMagnum
     - SpeedLoaderMagnumEmpty
-    - Stunbaton
+#   - Stunbaton # Funky - Replacing with truncheons
     - TargetClown
     - TargetHuman
     - TargetSyndicate
+    - Truncheon # Funky
     - WeaponDisablerPractice
     - WeaponFlareGunSecurity
     - WeaponLaserCarbinePractice
@@ -1298,10 +1305,10 @@
     - SpeedLoaderMagnumUranium
     - TelescopicShield
     - TimerTrigger
-    - Truncheon
+#    - Truncheon # Funky - Making truncheons roundstart
     - VoiceTrigger
     - WeaponAdvancedLaser
-    - WeaponDisabler
+#    - WeaponDisabler # Funky
 #    - WeaponDisablerSMG
     - WeaponLaserCannon
     - WeaponLaserCarbine
@@ -1487,9 +1494,10 @@
     - UtilityKnife #if you don't have scalpels ig #funk
     - CandyBowl #pill(pill that pills you) #funk
     - DeskBell #ringringring #funk
+    - ScalpelAdvanced #funk
+    - ScalpelLaser #funk
     - Tourniquet #funk
-    - HandheldGeneticAnalyzer # Funkystation - Genetics
-    - DNAInjector # Funkystation - Genetics
+    - AACTablet # Delta-V
     dynamicRecipes:
     - ChemicalPayload
     - CryostasisBeaker

@@ -272,7 +272,7 @@ bounty-item-makeshift-bola = Makeshift Bola
 bounty-item-svalinn-pistol = Svalinn Pistol
 
 bounty-item-disabler-smg = Disabler SMG
-bounty-item-truncheon = Truncheon
+bounty-item-truncheon = Nightstick
 bounty-item-xray-cannon = Xray Cannon
 bounty-item-laser-cannon = Laser Cannon
 bounty-item-security-hud = Security Hud
@@ -312,6 +312,11 @@ bounty-item-tayquila = Tayquila
 bounty-item-fever-dream = Fever Dream
 bounty-item-gargle-blaster = Gargle Blaster
 
+bounty-item-tritium = Tritium
+bounty-item-frezon = Frezon
+bounty-item-healium = Healium
+bounty-item-nitrium = Nitrium
+bounty-item-pluoxium = Pluoxium
 
 bounty-description-artifact = NanoTrasen is in some hot water for stealing artifacts from non-spacefaring planets. Return one and we'll compensate you for it.
 bounty-description-baseball-bat = Baseball fever is going on at CentComm! Be a dear and ship them some baseball bats, so that management can live out their childhood dream.
@@ -400,3 +405,4 @@ bounty-category-bar = Bar
 bounty-category-engineering = Engineering
 bounty-category-janitor = Janitorial
 bounty-category-chemistry = Chemistry
+bounty-category-atmospherics = Atmospherics

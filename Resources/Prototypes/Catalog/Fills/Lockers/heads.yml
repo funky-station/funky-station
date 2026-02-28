@@ -99,6 +99,7 @@
 # SPDX-FileCopyrightText: 2025 willowzeta <willowzeta632146@proton.me>
 # SPDX-FileCopyrightText: 2025 wilowzeta <willowzeta632146@proton.me>
 # SPDX-FileCopyrightText: 2026 Steve <marlumpy@gmail.com>
+# SPDX-FileCopyrightText: 2026 W.xyz() <84605679+pirakaplant@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2026 Xcybitt <197952719+Xcybitt@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2026 marc-pelletier <113944176+marc-pelletier@users.noreply.github.com>
 #
@@ -164,7 +165,7 @@
       prob: 0.1
     - id: RubberStampCaptain
     - id: SpaceCash1000
-    - id: WeaponDisabler
+#    - id: WeaponDisabler # Funky
     - id: ClothingEyesGlassesCommand
     - id: BookCorporateSecrets # funky
     - id: RadioHandheldCommand #funkystation
@@ -254,7 +255,8 @@
     - id: RubberStampHop
     # funkystation: removing disabler and instead using energy pistol
     # - id: WeaponDisabler
-    - id: WeaponDisablerPlus # funkystation adding unique hop weapon
+    #- id: WeaponDisablerPlus # funkystation adding unique hop weapon # Funky - Actually removing it again. LOL!
+    - id: HOPCane # Funky
     - id: ClothingEyesHudCommand
     - id: SOSCartridge # DeltaV - adds SOS app https://github.com/DeltaV-Station/Delta-v/pull/2812
     - id: PDA_cartridge_case
@@ -371,6 +373,7 @@
     - id: MedicalBiofabMachineBoard
     - id: AutoclaveFlatpack # DV
     - id: ChemDispenserMedicalFlatpack #funk
+    - id: ClothingHandsGlovesCMO
 
 # Hardsuit table, used for suit storage as well
 - type: entityTable
@@ -488,7 +491,7 @@
     - id: RubberStampHos
     - id: SecurityTechFabCircuitboard
     - id: CargoRequestSecurityComputerCircuitboard
-    - id: WeaponDisabler
+#    - id: WeaponDisabler # Funky
     - id: WantedListCartridge
     - id: DrinkHosFlask
     - id: RadioHandheldCommand #funkystation, no sec radio since they start with one

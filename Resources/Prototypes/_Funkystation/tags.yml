@@ -15,6 +15,7 @@
 # SPDX-FileCopyrightText: 2026 AftrLite <61218133+AftrLite@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2026 Steve <marlumpy@gmail.com>
 # SPDX-FileCopyrightText: 2026 Xcybitt <197952719+Xcybitt@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2026 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2026 marc-pelletier <113944176+marc-pelletier@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
@@ -126,8 +127,8 @@
 
 - type: Tag
   id: Multiphase
-  
-- type: Tag  
+
+- type: Tag
   id: FragileImplant
 
 - type: Tag
@@ -138,3 +139,6 @@
 
 - type: Tag
   id: FitsInMedDispenser
+  
+- type: Tag  
+  id: MailEnvelope

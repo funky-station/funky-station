@@ -58,6 +58,7 @@
     - Sheet
     - ConstructionMaterial
   - type: Damageable
+    damageContainer: Inorganic
   - type: Destructible
     thresholds:
     - trigger:
@@ -208,6 +209,10 @@
     - Plastic
     - Sheet
     - ConstructionMaterial
+  - type: Material
+  - type: PhysicalComposition
+    materialComposition:
+      Plastic: 100
   - type: Healing # DeltaV - plastic repairs stop bleeding
     delay: 3.0
     damageContainers:

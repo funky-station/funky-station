@@ -49,6 +49,9 @@
     - Sheet
     - Metal
     - ConstructionMaterial
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Metallic
   - type: Destructible
     thresholds:
     - trigger:

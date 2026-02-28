@@ -26,7 +26,8 @@ public sealed partial class ItemBorgModuleComponent : Component
 
     /// <summary>
     /// Maps hand IDs (created when the module is selected) to the item entity held in that hand.
-    /// Null until the first time items are provided.
+    /// Null means items have never been provided yet (first time). EntityUid.Invalid means the hand
+    /// has no item (either the <see cref="BorgHand.Item"/> was null, or the item was not found).
     /// </summary>
     [DataField]
     public Dictionary<string, EntityUid>? StoredItems;

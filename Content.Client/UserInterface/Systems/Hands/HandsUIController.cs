@@ -87,7 +87,16 @@ public sealed class HandsUIController : UIController, IOnStateEntered<GameplaySt
 
     private void OnAddHand(string name, HandLocation location)
     {
-        AddHand(name, location);
+        var handButton = AddHand(name, location);
+
+        // If the newly added hand has an EmptyRepresentative, show it immediately.
+        if (_playerHandsComponent != null &&
+            _player.LocalSession?.AttachedEntity is { } playerEntity &&
+            _handsSystem.TryGetHand(playerEntity, name, out var handData, _playerHandsComponent) &&
+            handData.EmptyRepresentative is { } representative)
+        {
+            handButton.SetPrototype(representative, fade: true);
+        }
     }
 
     private void HandPressed(GUIBoundKeyEventArgs args, SlotControl hand)

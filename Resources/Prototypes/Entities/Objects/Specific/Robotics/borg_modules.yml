@@ -755,14 +755,14 @@
   - type: ItemBorgModule
     hands:
     - item: Pen
-    #- BooksBag (Add back when hand whitelisting exists, at the moment they can only use it like an orebag.)
-    - HandLabeler
-    - RubberStampApproved
-    - RubberStampDenied
-    - RubberStampCyborg
-    - DrinkShaker
-    - BarSpoon
-    - Syringe
+    - item: BooksBag
+    - item: HandLabeler
+    - item: RubberStampApproved
+    - item: RubberStampDenied
+    - item: RubberStampCyborg
+    - item: DrinkShaker
+    - item: BarSpoon
+    - item: Syringe
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: service-module }
 

@@ -5,6 +5,9 @@
 # SPDX-FileCopyrightText: 2025 empty0set <empty0set@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 kbarkevich <24629810+kbarkevich@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2026 Copilot <175728472+Copilot@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2026 SigmaTheDragon <162711378+SigmaTheDragon@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2026 TheHolyAegis <76066612+TheHolyAegis@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2026 TheHolyAegis <sanderkamphuis719@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
@@ -68,3 +71,33 @@
   - type: Sprite
     sprite: _Funkystation/Objects/Misc/stamps.rsi
     state: stamp-centcomintern
+
+- type: entity
+  name: CentComm investigator rubber stamp
+  parent: RubberStampBase
+  id: RubberStampCentComInvestigator
+  suffix: DO NOT MAP
+  components:
+  - type: Stamp
+    stampedName: stamp-component-stamped-name-investigator
+    stampedColor: "#57853C"
+    stampState: "paper_stamp-investigator"
+    stampLargeIcon: "large_stamp-investigator"
+  - type: Sprite
+    sprite: _Funkystation/Objects/Misc/stamps.rsi
+    state: stamp-investigator
+    
+- type: entity
+  name: ERT lawyer rubber stamp
+  parent: RubberStampBase
+  id: RubberStampERTLawyer
+  suffix: DO NOT MAP
+  components:
+  - type: Stamp
+    stampedName: stamp-component-stamped-name-ert-lawyer
+    stampedColor: "#59873D"
+    stampState: "paper_stamp-ert-lawyer"
+    stampLargeIcon: "large_stamp-ert-lawyer"
+  - type: Sprite
+    sprite: _Funkystation/Objects/Misc/stamps.rsi
+    state: stamp-ert-lawyer

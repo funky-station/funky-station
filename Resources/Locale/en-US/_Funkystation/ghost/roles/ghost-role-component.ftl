@@ -40,6 +40,16 @@ ghost-role-information-mini-dragon-friendly-rules = You are a Domesticated Mini 
                                         You are allowed to remember knowledge about the game in general, such as how to cook, how to use objects, etc.
                                         You are absolutely [color=red]NOT[/color] allowed to remember, say, the name, appearance, etc. of your previous character.
 
+ghost-role-information-ert-cleanbot-name = ERT Cleanbot
+ghost-role-information-ert-cleanbot-description = You are an advanced cleanbot commisioned by CC. All puddles shall fall!
+ghost-role-information-ert-cleanbot-rules = You are [bold]CC Cleanbot[/bold], an advanced unit designed by CentCom for extreme cleaning!
+                                        Under no circumstance should you abandon your war on dirtiness, meaning DON'T IGNORE PUDDLES.
+                                        Outside that, however, you are to follow the orders of CC personell. If none are available, you may choose how to act.
+
+                                        You don't remember any of your previous life, and you don't remember anything you learned as a ghost.
+                                        You are allowed to remember knowledge about the game in general, such as how to cook, how to use objects, etc.
+                                        You are absolutely [color=red]NOT[/color] allowed to remember, say, the name, appearance, etc. of your previous character.
+
 ghost-role-information-horrific-necktie-name = Horrific Necktie
 ghost-role-information-horrific-necktie-description = A horribly garish necktie which, through the power of Disco, drinking, and divorce, has gained the ability to speak!
 
@@ -48,3 +58,9 @@ ghost-role-information-meowl-description = A highly invasive apex predator. The 
 
 ghost-role-information-haunted-sword-name = Haunted Swords
 ghost-role-information-haunted-sword-description = A mysterious weapon of old, haunted with spirits both ancient and powerful.
+
+ghost-role-information-ert-lawyer-name = ERT Lawyer
+ghost-role-information-ert-lawyer-description = Assist with legal efforts to resolve the station's issues.
+
+ghost-role-information-cc-investigator-name = Central Command Investigator
+ghost-role-information-cc-investigator-description = Investigate, resolve and report issues aboard the station.

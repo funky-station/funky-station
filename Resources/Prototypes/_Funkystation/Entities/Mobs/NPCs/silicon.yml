@@ -1,0 +1,88 @@
+# SPDX-FileCopyrightText: 2026 SigmaTheDragon <162711378+SigmaTheDragon@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  parent: MobSiliconBase
+  id: MobERTCleanBot
+  name: ERT cleanbot
+  description: An advanced cleanbot used by central command for dire janitorial emergencies.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Mobs/Silicon/Bots/ert_cleanbot.rsi
+    state: cleanbot
+  - type: Absorbent
+    pickupAmount: 20
+  - type: UseDelay
+    delay: 1
+  - type: SolutionRegeneration
+    solution: absorbed
+    generated:
+      reagents:
+        - ReagentId: Water
+          Quantity: 20
+  - type: SolutionPurge
+    solution: absorbed
+    preserve:
+      - Water
+    quantity: 20
+  - type: SolutionContainerManager
+    solutions:
+      absorbed:
+        maxVol: 100
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 3
+    baseSprintSpeed: 4
+  - type: HTN
+    rootTask:
+      task: CleanbotCompound
+  - type: DrainableSolution
+    solution: drainBuffer
+  - type: InteractionPopup
+    interactSuccessString: petting-success-cleanbot
+    interactFailureString: petting-failure-cleanbot
+    interactSuccessSound:
+      path: /Audio/Ambience/Objects/periodic_beep.ogg
+  - type: Item # Goobstation
+    size: Large
+  - type: StationAiVision # Goobstation - AI can see through NT silicon
+    range: 0
+  - type: GhostRole # Funkystation: make cleanbots ghost roles
+    makeSentient: true
+    name: ghost-role-information-ert-cleanbot-name
+    description: ghost-role-information-ert-cleanbot-description
+    rules: ghost-role-information-ert-cleanbot-rules
+    raffle:
+      settings: default
+  - type: GhostTakeoverAvailable
+  - type: RotationVisuals
+    defaultRotation: 0
+    horizontalRotation: 180
+  - type: CombatMode
+  - type: Puller
+    needsHands: false
+  - type: IntrinsicRadioTransmitter
+    intrinsicChannels:
+    - CentCom
+    - Common
+    - Binary
+    - Service
+  - type: ActiveRadio
+    intrinsicChannels:
+    - CentCom
+    - Common
+    - Binary
+    - Service
+  - type: UnpoweredFlashlight
+  - type: PointLight
+    enabled: false
+    radius: 3.5
+    softness: 2
+    mask: /Textures/Effects/LightMasks/cone.png
+    autoRot: true
+  - type: Access
+    tags:
+    - CentralCommand
+    - Maintenance
+    - Janitor
+    - External

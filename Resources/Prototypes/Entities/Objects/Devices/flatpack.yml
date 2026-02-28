@@ -11,10 +11,12 @@
 # SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 pigeonpeas <147350443+pigeonpeas@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 MaiaArai <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2026 Xcybitt <197952719+Xcybitt@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -284,3 +286,19 @@
     - state: flatpack
   - type: Flatpack
     entity: CMIV
+
+#medical chem dispenser
+- type: entity
+  parent: BaseFlatpack
+  id: ChemDispenserMedicalFlatpack
+  name: medical chemical dispenser flatpack
+  description: A flatpack used for constructing a medical chemical dispenser.
+  components:
+  - type: Flatpack
+    entity: ChemDispenserMedical
+  - type: Sprite
+    layers:
+    - state: base
+    - state: overlay
+      color: "#52B4E9"
+    - state: icon-default

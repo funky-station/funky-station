@@ -38,6 +38,7 @@
 # SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2026 Xcybitt <197952719+Xcybitt@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -52,6 +53,7 @@
     tags:
     - Bottle
     - Trash
+    - FitsInMedDispenser
   - type: PhysicalComposition
     materialComposition:
       Glass: 25
@@ -72,6 +74,8 @@
     solutions:
       drink: # This solution name and target volume is hard-coded in ChemMasterComponent
         maxVol: 30
+  - type: FitsInDispenser
+    solution: drink
   - type: MixableSolution
     solution: drink
   - type: RefillableSolution

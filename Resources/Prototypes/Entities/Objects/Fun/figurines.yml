@@ -13,6 +13,7 @@
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2026 W.xyz() <84605679+pirakaplant@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -186,7 +187,7 @@
   parent: BaseFigurine
   id: ToyFigurineSecurity
   name: security officer figure
-  description: A figurine depicting a Security Officer holding a stunbaton, ready to defend the station.
+  description: A figurine depicting a Security Officer holding a stunbaton, ready to defend the station. # Funky - When the sprite is updated, make sure it's got a truncheon instead and update the description accordingly
   components:
   - type: Sprite
     state: security

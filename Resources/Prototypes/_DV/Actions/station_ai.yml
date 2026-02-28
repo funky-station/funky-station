@@ -1,4 +1,6 @@
 # SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2026 8tv <eightev@gmail.com>
+# SPDX-FileCopyrightText: 2026 MaiaArai <158123176+YaraaraY@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -31,7 +33,8 @@
     range: -1
     checkCanAccess: false
     checkCanInteract: false
-    useDelay: 30
+    # funky - up from 30
+    useDelay: 180
     event: !type:StationAiRgbLightingActionEvent
 
 - type: entity
@@ -50,7 +53,8 @@
     range: -1
     checkCanAccess: false
     checkCanInteract: false
-    useDelay: 300
+    # funky - down from 300
+    useDelay: 150
     event: !type:StationAiLightSynthesizerActionEvent
       bulbPrototype: LightTube
 
@@ -151,7 +155,8 @@
     range: -1
     checkCanAccess: false
     checkCanInteract: false
-    useDelay: 300
+    # funky - down from 300
+    useDelay: 240
     event: !type:StationAiSmokeActionEvent
       duration: 2
       spreadAmount: 5

@@ -3448,7 +3448,7 @@
   name: syndicat
   id: MobCatSyndy
   parent: MobCatSpace
-  description: Explosive kitten.
+  description: Awwwww! so cute! You should pet it
   components:
   - type: Sprite
     layers:
@@ -3467,9 +3467,9 @@
     name: ghost-role-information-SyndiCat-name
     allowMovement: true
     description: ghost-role-information-SyndiCat-description
-    rules: ghost-role-information-SyndiCat-rules
+    rules: ghost-role-information-familiar-rules
     mindRoles:
-    - MindRoleGhostRoleTeamAntagonist
+    - MindRoleGhostRoleFamiliar
     raffle:
       settings: default
   - type: GhostTakeoverAvailable

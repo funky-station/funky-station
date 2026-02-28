@@ -131,7 +131,7 @@
   name: syndiroach
   id: MobMothSyndy
   parent: MobMothroach
-  description: Explosive moth.
+  description: Oh hey looks its a mothroach! wait... is that a bomb?
   components:
   - type: Sprite
     sprite: _Goobstation/Mobs/Animals/syndiroach.rsi

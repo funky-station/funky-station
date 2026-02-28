@@ -55,6 +55,7 @@
   - type: Tag
     tags:
     - Sheet
+    - ConstructionMaterial
   - type: Material
   - type: Damageable
     damageContainer: Inorganic

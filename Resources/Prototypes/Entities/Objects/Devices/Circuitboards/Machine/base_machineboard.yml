@@ -20,6 +20,7 @@
   suffix: Machine Board
   components:
     - type: MachineBoard
+    - type: Circuitboard
     - type: Sprite
       sprite: Objects/Misc/module.rsi
       state: generic

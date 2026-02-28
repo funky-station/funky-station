@@ -37,9 +37,7 @@
   - type: Tag
     tags:
     - Ingot
-  - type: Damageable
-    damageContainer: Inorganic
-    damageModifierSet: Metallic
+    - ConstructionMaterial
   - type: Destructible
     thresholds:
     - trigger:

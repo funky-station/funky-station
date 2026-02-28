@@ -40,8 +40,12 @@
 # SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2026 Copilot <175728472+Copilot@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2026 Delta <112193783+DeltaDnDsolutions@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2026 MaiaArai <158123176+YaraaraY@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2026 TheHolyAegis <76066612+TheHolyAegis@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2026 TheHolyAegis <sanderkamphuis719@gmail.com>
+# SPDX-FileCopyrightText: 2026 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2026 willow <willowzeta632146@proton.me>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -5876,18 +5880,6 @@ entities:
     components:
     - type: Transform
       pos: 65.5,75.5
-      parent: 1
-- proto: BedsheetMedical
-  entities:
-  - uid: 6507
-    components:
-    - type: Transform
-      pos: 74.5,30.5
-      parent: 1
-  - uid: 6986
-    components:
-    - type: Transform
-      pos: 74.5,27.5
       parent: 1
 - proto: Biogenerator
   entities:
@@ -31840,6 +31832,18 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 58.565445,27.661148
+      parent: 1
+- proto: LifelineMarker
+  entities:
+  - uid: 6700
+    components:
+    - type: Transform
+      pos: 74.5,30.5
+      parent: 1
+  - uid: 6701
+    components:
+    - type: Transform
+      pos: 74.5,27.5
       parent: 1
 - proto: LockableButtonCargo
   entities:

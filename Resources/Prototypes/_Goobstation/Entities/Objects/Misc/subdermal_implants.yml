@@ -7,6 +7,8 @@
 # SPDX-FileCopyrightText: 2025 starch <starchpersonal@gmail.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2026 DoovyADeer <256158135+DoovyADeer@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2026 MaiaArai <158123176+YaraaraY@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2026 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -14,7 +16,7 @@
   parent: BaseSubdermalImplant
   id: BluespaceLifelineImplant
   name: bluespace lifeline implant
-  description: This implants teleport the user's body to a safe place far-far away. They probably won't be able to return.
+  description: This implants teleports the user's body to Central Command, safe and sound. Medical treatment not included.
   categories: [ HideSpawnMenu ]
   components:
   - type: SubdermalImplant
@@ -24,7 +26,7 @@
     mobState:
     - Dead
   - type: TriggerImplantAction
-  - type: DeleteParentOnTrigger
+  - type: TeleportOnTrigger
   - type: SpawnOnTrigger
     proto: BluespaceLifeline
   - type: Tag

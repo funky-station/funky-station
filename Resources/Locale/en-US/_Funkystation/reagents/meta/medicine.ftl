@@ -74,4 +74,3 @@ reagent-desc-hivelord-essence = A gloopy substance produced by the hivelord helm
 # Genetics
 reagent-name-mutadone = mutadone
 reagent-desc-mutadone = A powerful compound that is used to purge genetic mutations and stabilize DNA.
-

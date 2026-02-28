@@ -1,4 +1,5 @@
 # SPDX-FileCopyrightText: 2025 mkanke-real <mikekanke@gmail.com>
+# SPDX-FileCopyrightText: 2026 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
 #
 # SPDX-License-Identifier: MIT
 
@@ -17,6 +18,8 @@
       amount: 4
     - id: SmokingPipe
     - id: Matchbox
+    - id: FoodPackingPeanut
+      amount: 28
 
 - type: entity
   id: BoxServiceBlankBooks
@@ -28,6 +31,8 @@
     contents:
     - id: BookRandom
       amount: 10
+    - id: FoodPackingPeanut
+      amount: 25
 
 - type: entity
   id: BoxServiceGuidebooks
@@ -51,3 +56,5 @@
     - id: BookHowToSurvive
     - id: BookChemicalCompendium
     - id: BookSpaceLaw
+    - id: FoodPackingPeanut
+      amount: 17

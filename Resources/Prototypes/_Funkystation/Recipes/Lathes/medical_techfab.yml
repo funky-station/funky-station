@@ -44,3 +44,11 @@
     Plastic: 500
     Steel: 500
     Glass: 200
+
+- type: latheRecipe
+  id: AACTablet
+  result: AACTablet
+  completetime: 2
+  materials:
+    Steel: 300
+    Glass: 100

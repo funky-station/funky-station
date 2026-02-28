@@ -7800,3 +7800,29 @@ Entries:
       message: Fixed a typo in Synthetic trait description
   id: 897
   time: '2026-02-18T01:24:37.0000000+00:00'
+- author: willowzeta
+  changes:
+    - type: Add
+      message: Redone pathfinding decals.
+  id: 898
+  time: '2026-02-21T21:39:07.0000000+00:00'
+- author: EmillyCoelho
+  changes:
+    - type: Add
+      message: NSS14 Cyberiad Station added to the game, waiting for playtests!
+  id: 899
+  time: '2026-02-23T20:00:13.0000000+00:00'
+- author: taydeo
+  changes:
+    - type: Add
+      message: New content warning pop-up when you first connect.
+  id: 900
+  time: '2026-02-24T21:19:38.0000000+00:00'
+- author: TheHolyAegis
+  changes:
+    - type: Remove
+      message: >-
+        Removed the belt loadout option from the NTR, due to it already spawning
+        with the waistbag and clipboard.
+  id: 901
+  time: '2026-02-27T22:57:15.0000000+00:00'

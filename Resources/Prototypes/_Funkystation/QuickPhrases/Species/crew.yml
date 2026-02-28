@@ -1,0 +1,29 @@
+- type: quickPhrase
+  id: SpeciesDwarfPhrase
+  parent: BaseCrewSpeciesPhrase
+  text: species-name-dwarf
+
+- type: quickPhrase
+  id: SpeciesFelinidPhrase
+  parent: BaseCrewSpeciesPhrase
+  text: species-name-felinid
+
+- type: quickPhrase
+  id: SpeciesGingerbreadPhrase
+  parent: BaseCrewSpeciesPhrase
+  text: species-name-gingerbread
+
+- type: quickPhrase
+  id: SpeciesHarpyPhrase
+  parent: BaseCrewSpeciesPhrase
+  text: species-name-harpy
+
+- type: quickPhrase
+  id: SpeciesRodentiaPhrase
+  parent: BaseCrewSpeciesPhrase
+  text: species-name-rodentia
+
+- type: quickPhrase
+  id: SpeciesVulpkaninPhrase
+  parent: BaseCrewSpeciesPhrase
+  text: species-name-vulpkanin

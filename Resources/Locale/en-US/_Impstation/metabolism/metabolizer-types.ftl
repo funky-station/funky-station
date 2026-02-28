@@ -6,4 +6,3 @@
 
 
 metabolizer-type-thaven = Thaven
-metabolizer-type-plasma = Plasma

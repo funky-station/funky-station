@@ -104,7 +104,7 @@ SPDX-License-Identifier: MIT
 
   [bold]5.[/bold] The NanoTrasen Representative must follow the directions of the Magistrate and defer to their judgement in matters not concerning standard operating procedure, but should advocate their stance firmly in the case of disagreements, and escalate to Central Command directly if they feel there has been wrongdoing;
 
-  [bold]6.[/bold] The NanoTrasen Representative is permitted to carry their flash and a blade-cane, or a stun baton if the blade-cane is lost;
+  [bold]6.[/bold] The NanoTrasen Representative is permitted to carry their flash and a blade-cane, or a truncheon if the blade-cane is lost;
 
   # Magistrate SOP
 
@@ -146,9 +146,9 @@ SPDX-License-Identifier: MIT
   [bold]Document document document![/bold]
   After action reports, calling CentCom on the fabled red phone, or even praying will be heard by CentCom and your actions may be excused if they were determined to be in the best interest of NanoTrasen.
 
-
   # Station Command and Central Command Staff OOC Rules
-  [textlink="Act and behave within the spirit of the Job you have been assigned" link="RuleC15"]
+
+  Station and Central Command members have OOC Rules and Expectations within their SOP entries.
 
   # I don't see my job listed here
 

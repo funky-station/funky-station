@@ -26,6 +26,7 @@
 # SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Teasq <Xerithin@gmail.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2026 Xcybitt <197952719+Xcybitt@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -129,6 +130,11 @@
         Blunt: 1
   - type: Shovel
     speedModifier: 0.1 # you can try
+  - type: Tool
+    qualities:
+    - Digging
+    useSound:
+      path: /Audio/Items/shovel_dig.ogg
   - type: ReactionMixer
     mixMessage: "spoon-mixing-success"
     timeToMix: 0.5
@@ -150,6 +156,11 @@
     - Spoon
   - type: Shovel
     speedModifier: 0.1 # you can try
+  - type: Tool
+    qualities:
+    - Digging
+    useSound:
+      path: /Audio/Items/shovel_dig.ogg
   - type: ReactionMixer
     mixMessage: "spoon-mixing-success"
     timeToMix: 0.5
@@ -203,3 +214,8 @@
         Blunt: 2
   - type: Shovel
     speedModifier: 0.05 # nah
+  - type: Tool
+    qualities:
+    - Digging
+    useSound:
+      path: /Audio/Items/shovel_dig.ogg

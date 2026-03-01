@@ -10,6 +10,7 @@
 # SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2026 ThatOneMoon <91613003+ThatOneMoon@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2026 W.xyz() <84605679+pirakaplant@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -27,11 +28,12 @@
     head: ClothingHeadHatCaptain
     neck: ClothingNeckCloakCap
     id: VisitorPDA
-    belt: WeaponDisabler
+#    belt: WeaponDisabler # Funky
+    belt: WeaponEnergyGunEnergyPistol # Funky
     back: ClothingBackpackCaptain
     ears: ClothingHeadsetAltCommand
     outerClothing: ClothingOuterArmorCaptainCarapace
-    pocket1: WeaponDisabler
+#    pocket1: WeaponDisabler # - Why the hell did these jobs get TWO disablers?
     pocket2: NanotrasenFlippo #Funky
 
 - type: startingGear
@@ -44,11 +46,12 @@
     head: ClothingHeadHatCapcap
     neck: ClothingNeckMantleCap
     id: VisitorPDA
-    belt: WeaponDisabler
+#    belt: WeaponDisabler # Funky
+    belt: WeaponEnergyGunEnergyPistol # Funky
     back: ClothingBackpackSatchelCaptain
     ears: ClothingHeadsetAltCommand
     outerClothing: ClothingOuterArmorCaptainCarapace
-    pocket1: WeaponDisabler
+#    pocket1: WeaponDisabler # Funky
     pocket2: NanotrasenFlippo #Funky
 
 - type: startingGear
@@ -63,7 +66,8 @@
     back: ClothingBackpackDuffelEngineering
     ears: ClothingHeadsetAltEngineering # Goobstation
     outerClothing: ClothingOuterVestHazard
-    pocket1: WeaponDisabler
+#    pocket1: WeaponDisabler # Funky
+    pocket1: WeaponEnergyGunEnergyPistol # Funky
     pocket2: NanotrasenFlippo #Funky
 
 - type: startingGear
@@ -78,7 +82,8 @@
     back: ClothingBackpackSatchelEngineering
     ears: ClothingHeadsetAltEngineering # Goobstation
     outerClothing: ClothingOuterWinterCE
-    pocket1: WeaponDisabler
+    #    pocket1: WeaponDisabler # Funky
+    pocket1: WeaponEnergyGunEnergyPistol # Funky
     pocket2: NanotrasenFlippo #Funky
 
 - type: startingGear
@@ -94,7 +99,8 @@
     ears: ClothingHeadsetAltMedical # Goobstation
     belt: ClothingBeltMedicalFilled
     outerClothing: ClothingOuterCoatLabCmo
-    pocket1: WeaponDisabler
+    #    pocket1: WeaponDisabler # Funky
+    pocket1: WeaponEnergyGunEnergyPistol # Funky
     pocket2: NanotrasenFlippo #Funky
 
 - type: startingGear
@@ -110,7 +116,8 @@
     ears: ClothingHeadsetAltMedical # Goobstation
     belt: ClothingBeltMedicalFilled
     outerClothing: ClothingOuterCoatLabCmo
-    pocket1: WeaponDisabler
+    #    pocket1: WeaponDisabler # Funky
+    pocket1: WeaponEnergyGunEnergyPistol # Funky
     pocket2: NanotrasenFlippo #Funky
 
 - type: startingGear
@@ -121,11 +128,12 @@
     head: ClothingHeadHatHopcap
     neck: ClothingNeckCloakHop
     id: VisitorPDA
-    belt: WeaponDisabler
+#    belt: WeaponDisabler
+    belt: WeaponEnergyGunEnergyPistol # Funky
     back: ClothingBackpackDebug
     ears: ClothingHeadsetAltCommand
     outerClothing: ClothingOuterWinterHoP
-    pocket1: WeaponDisabler
+#    pocket1: WeaponDisabler # Funky
     pocket2: NanotrasenFlippo #Funky
 
 - type: startingGear
@@ -136,11 +144,12 @@
     head: ClothingHeadHatHopcap
     neck: ClothingNeckMantleHOP
     id: VisitorPDA
-    belt: WeaponDisabler
+#    belt: WeaponDisabler
+    belt: WeaponEnergyGunEnergyPistol # Funky
     back: ClothingBackpackSatchelLeather
     ears: ClothingHeadsetAltCommand
     outerClothing: ClothingOuterWinterHoP
-    pocket1: WeaponDisabler
+#    pocket1: WeaponDisabler # Funky
     pocket2: NanotrasenFlippo #Funky
 
 - type: startingGear
@@ -157,7 +166,7 @@
     ears: ClothingHeadsetAltSecurity
     eyes: ClothingEyesGlassesSecurity
     outerClothing: ClothingOuterCoatHoSTrench
-    pocket1: WeaponDisabler
+#    pocket1: WeaponDisabler # Funky - No RG-2 since they already get a WT-550
     pocket2: MagazinePistolSubMachineGunTopMounted
   inhand:
   - WeaponSubMachineGunWt550
@@ -178,7 +187,7 @@
     back: ClothingBackpackSatchelLeather
     ears: ClothingHeadsetAltSecurity
     eyes: ClothingEyesGlassesSecurity
-    pocket1: WeaponDisabler
+#    pocket1: WeaponDisabler # Funky - No RG-2 since they already get a WT-550
     pocket2: MagazinePistolSubMachineGunTopMounted
   inhand:
   - WeaponSubMachineGunWt550
@@ -198,7 +207,8 @@
     back: ClothingBackpackScience
     ears: ClothingHeadsetAltScience # Goobstation
     outerClothing: ClothingOuterCoatRD
-    pocket1: WeaponDisabler
+    #    pocket1: WeaponDisabler # Funky
+    pocket1: WeaponEnergyGunEnergyPistol # Funky
     pocket2: NanotrasenFlippo #Funky
 
 - type: startingGear
@@ -213,7 +223,8 @@
     back: ClothingBackpackSatchelScience
     ears: ClothingHeadsetAltScience # Goobstation
     outerClothing: ClothingOuterCoatRD
-    pocket1: WeaponDisabler
+    #    pocket1: WeaponDisabler # Funky
+    pocket1: WeaponEnergyGunEnergyPistol # Funky
     pocket2: NanotrasenFlippo #Funky
 
 - type: startingGear
@@ -227,7 +238,8 @@
     back: ClothingBackpackCargo
     ears: ClothingHeadsetAltCargo # Goobstation
     outerClothing: ClothingOuterWinterQM
-    pocket1: WeaponDisabler
+    #    pocket1: WeaponDisabler # Funky
+    pocket1: WeaponEnergyGunEnergyPistol # Funky
     pocket2: NanotrasenFlippo #Funky
   inhand:
   - AppraisalTool
@@ -243,7 +255,8 @@
     back: ClothingBackpackSatchelCargo
     ears: ClothingHeadsetAltCargo # Goobstation
     outerClothing: ClothingOuterWinterQM
-    pocket1: WeaponDisabler
+    #    pocket1: WeaponDisabler # Funky
+    pocket1: WeaponEnergyGunEnergyPistol # Funky
     pocket2: NanotrasenFlippo #Funky
   inhand:
   - AppraisalTool
@@ -370,7 +383,7 @@
     ears: ClothingHeadsetAltSecurityRegular # Goobstation
     eyes: ClothingEyesGlassesSecurity
     outerClothing: ClothingOuterCoatWarden
-    pocket1: WeaponDisabler
+#    pocket1: WeaponDisabler # Funky - No RG-2 since they already get a Kammerer
     pocket2: Zipties
   inhand:
   - FlashlightSeclite
@@ -389,7 +402,7 @@
     ears: ClothingHeadsetAltSecurityRegular # Goobstation
     eyes: ClothingEyesGlassesSecurity
     outerClothing: ClothingOuterWinterWarden
-    pocket1: WeaponDisabler
+#    pocket1: WeaponDisabler # Funky
     pocket2: Zipties
   inhand:
   - FlashlightSeclite
@@ -1714,7 +1727,8 @@
     back: ClothingBackpackDuffelEngineering
     #ears: # No headsets.
     outerClothing: ClothingOuterVestHazard
-    pocket1: WeaponDisabler
+#    pocket1: WeaponDisabler # Funky
+    pocket1: WeaponEnergyGunEnergyPistol # Funky
 
 - type: startingGear
   id: ChallengeVictimCEAlt
@@ -1728,7 +1742,8 @@
     back: ClothingBackpackSatchelEngineering
     #ears: # No headsets.
     outerClothing: ClothingOuterWinterCE
-    pocket1: WeaponDisabler
+#    pocket1: WeaponDisabler # Funky
+    pocket1: WeaponEnergyGunEnergyPistol # Funky
 
 # CHALLENGE
 # carefully consider everything you add to these. These are meant for roles that are placed in survival situations where every item will be a resource.
@@ -1741,7 +1756,8 @@
     head: ClothingHeadHatHopcap
     neck: ClothingNeckCloakHop
     id: VisitorPDA
-    belt: WeaponDisabler
+#    belt: WeaponDisabler # Funky
+    belt: WeaponEnergyGunEnergyPistol # Funky
     back: ClothingBackpackDebug
     #ears: #No headsets.
     outerClothing: ClothingOuterWinterHoP
@@ -1754,7 +1770,8 @@
     head: ClothingHeadHatHopcap
     neck: ClothingNeckMantleHOP
     id: VisitorPDA
-    belt: WeaponDisabler
+    #    belt: WeaponDisabler # Funky
+    belt: WeaponEnergyGunEnergyPistol # Funky
     back: ClothingBackpackSatchelLeather
     #ears: #No headsets.
     outerClothing: ClothingOuterWinterHoP

@@ -401,6 +401,22 @@
     sprite: Objects/Misc/module.rsi
     state: freeform-syndie
   - type: SiliconLawProvider
+    laws: SyndicateStatic # Sets the law board to start with Syndiemov, doesn't actually apply this if edited
+  - type: FreeformLawEntry
+    verbIcon:
+      sprite: /Textures/Interface/Actions/actions_borg.rsi
+      state: state-laws
+
+- type: entity
+  id: NukieFreeformLawCircuitBoard
+  parent: [ BaseElectronics, BaseSyndicateContraband ]
+  name: law board (Syndicate Freeform)
+  description: An electronics board configured to store silicon lawsets. It has a small keyboard and screen for evil law entries. Comes preloaded with Death to NT Default installed.
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/module.rsi
+    state: freeform-syndie
+  - type: SiliconLawProvider
     laws: DeathToNTDefault # Sets the law board to start with Death to NT Default, doesn't actually apply this if edited
   - type: FreeformLawEntry
     verbIcon:

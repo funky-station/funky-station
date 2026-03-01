@@ -1254,7 +1254,7 @@
   id: UplinkNukieFreeformLawCircuitBoard
   name: uplink-syndie-freeform-law-name
   description: uplink-syndie-freeform-law-desc
-  productEntity: SyndieFreeformLawCircuitBoard
+  productEntity: NukieFreeformLawCircuitBoard
   cost:
     Telecrystal: 80 # Funky Price Change. Syndie variant
   categories:

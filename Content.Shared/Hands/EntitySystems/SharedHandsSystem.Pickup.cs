@@ -13,6 +13,8 @@
 // SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2026 TheHolyAegis <76066612+TheHolyAegis@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2026 copilot-swe-agent[bot] <198982749+Copilot@users.noreply.github.com>
 //
 // SPDX-License-Identifier: MIT
 

@@ -111,11 +111,18 @@ namespace Content.Client.Hands.Systems
                 List<Hand> addedHands = new();
                 foreach (var hand in state.Hands)
                 {
-                    if (component.Hands.ContainsKey(hand.Name))
+                    if (component.Hands.TryGetValue(hand.Name, out var existing))
+                    {
+                        // Update mutable display properties for existing hands.
+                        existing.EmptyRepresentative = hand.EmptyRepresentative;
+                        existing.EmptyLabel = hand.EmptyLabel;
                         continue;
+                    }
 
                     var container = _containerSystem.EnsureContainer<ContainerSlot>(uid, hand.Name, manager);
                     var newHand = new Hand(hand.Name, hand.Location, container);
+                    newHand.EmptyRepresentative = hand.EmptyRepresentative;
+                    newHand.EmptyLabel = hand.EmptyLabel;
                     component.Hands.Add(hand.Name, newHand);
                     addedHands.Add(newHand);
                 }

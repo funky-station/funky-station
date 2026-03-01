@@ -20,6 +20,7 @@ using Content.Shared.Clothing.Components;
 using Content.Shared.Database;
 using Content.Shared.Hands.Components;
 using Content.Shared.Item;
+using Content.Shared.Whitelist;
 using Robust.Shared.Containers;
 using Robust.Shared.Map;
 using Robust.Shared.Physics;
@@ -197,6 +198,9 @@ public abstract partial class SharedHandsSystem : EntitySystem
         if (checkActionBlocker && !_actionBlocker.CanPickup(uid, entity))
             return false;
 
+        if (!CheckHandWhitelists(hand, entity))
+            return false;
+
         if (ContainerSystem.TryGetContainingContainer((entity, null, null), out var container))
         {
             if (!ContainerSystem.CanRemove(entity, container))
@@ -267,5 +271,19 @@ public abstract partial class SharedHandsSystem : EntitySystem
 
         if (hand == hands.ActiveHand)
             RaiseLocalEvent(entity, new HandSelectedEvent(uid), false);
+    }
+
+    /// <summary>
+    /// Checks whether the hand's whitelist/blacklist allow the entity to be held.
+    /// </summary>
+    private bool CheckHandWhitelists(Hand hand, EntityUid entity)
+    {
+        if (_whitelistSystem.IsWhitelistFail(hand.Whitelist, entity))
+            return false;
+
+        if (_whitelistSystem.IsBlacklistPass(hand.Blacklist, entity))
+            return false;
+
+        return true;
     }
 }

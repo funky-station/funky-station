@@ -41,6 +41,9 @@
     contents:
       - id: CigPackGreen
         amount: 5
+    whitelist:
+      tags:
+        - Cigarette
   - type: Tag
     tags:
     - Trash

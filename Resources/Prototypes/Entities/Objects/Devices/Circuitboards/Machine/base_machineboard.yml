@@ -17,7 +17,6 @@
   parent: BaseItem
   name: machine board
   abstract: true
-  suffix: Machine Board
   components:
     - type: MachineBoard
     - type: Circuitboard

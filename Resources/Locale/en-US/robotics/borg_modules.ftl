@@ -1,5 +1,7 @@
 borg-slot-cables-empty = Cables
-borg-slot-construction-empty = Construction materials
+borg-slot-construction-empty = Construction 
+                                materials
+borg-slot-parts-empty = Machine parts
 borg-slot-circuitboards-empty = Circuitboards
 borg-slot-flatpacks-empty = Flatpacks
 borg-slot-tiles-empty = Floor tiles

@@ -27,7 +27,7 @@
       count: 1
     - type: Tag
       tags:
-      - ConstructionMaterial
+      - MachinePart
     # Goobstation - Custom stack splitting dialog
     - type: UserInterface
       interfaces:
@@ -46,6 +46,7 @@
     - type: Tag
       tags:
         - CapacitorStockPart
+        - MachinePart
     - type: Stack
       stackType: Capacitor
 

@@ -543,10 +543,10 @@
         components:
         - Circuitboard
     - emptyRepresentative: MicroManipulatorStockPart
-      emptyLabel: borg-slot-construction-empty
+      emptyLabel: borg-slot-parts-empty
       whitelist:
         tags:
-        - ConstructionMaterial
+        - MachinePart
     - emptyRepresentative: SpaceHeaterFlatpack
       emptyLabel: borg-slot-flatpacks-empty
       whitelist:

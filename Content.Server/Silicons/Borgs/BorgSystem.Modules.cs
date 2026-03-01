@@ -208,16 +208,16 @@ public sealed partial class BorgSystem
         component.StoredItems ??= new Dictionary<string, EntityUid>();
 
         var xform = Transform(chassis);
-        var handCounter = component.HandCounter;
 
-        foreach (var borgHand in component.Hands)
+        for (var i = 0; i < component.Hands.Count; i++)
         {
-            var handId = $"{uid}-item{handCounter}";
-            handCounter++;
+            var borgHand = component.Hands[i];
+            // Use index-based IDs so they are consistent across module (de)activations.
+            var handId = $"{uid}-hand-{i}";
 
             _hands.AddHand(chassis, handId, borgHand.Location, hands);
 
-            // Apply whitelist/blacklist/representative to the newly created Hand
+            // Apply whitelist/blacklist/representative to the newly created Hand.
             if (_hands.TryGetHand(chassis, handId, out var hand, hands))
             {
                 hand.Whitelist = borgHand.Whitelist;
@@ -226,39 +226,49 @@ public sealed partial class BorgSystem
                 hand.EmptyLabel = borgHand.EmptyLabel;
             }
 
-            if (borgHand.Item is not { } itemProto)
-            {
-                component.StoredItems[handId] = EntityUid.Invalid;
-                continue;
-            }
+            EntityUid? item = null;
 
-            EntityUid item;
             if (firstTime)
             {
-                item = Spawn(itemProto, xform.Coordinates);
-                _container.Insert(item, holdingContainer);
+                // First activation: spawn the default item if any.
+                if (borgHand.Item is { } itemProto)
+                    item = Spawn(itemProto, xform.Coordinates);
             }
-            else
+            else if (component.StoredItems.TryGetValue(handId, out var storedItem) && storedItem.IsValid())
             {
-                item = holdingContainer.ContainedEntities.FirstOrDefault(ent => Prototype(ent)?.ID == itemProto.Id);
-                if (!item.IsValid())
+                // Re-activation: restore the previously stored item (original or user-picked).
+                _container.Remove(storedItem, holdingContainer, force: true);
+                item = storedItem;
+            }
+            else if (borgHand.Item is { } defaultItemProto)
+            {
+                // Re-activation with no stored item: search holdingContainer by prototype.
+                var found = holdingContainer.ContainedEntities.FirstOrDefault(ent => Prototype(ent)?.ID == defaultItemProto.Id);
+                if (found.IsValid())
                 {
-                    Log.Debug($"no items found: {holdingContainer.ContainedEntities.Count}");
-                    component.StoredItems[handId] = EntityUid.Invalid;
-                    continue;
+                    _container.Remove(found, holdingContainer, force: true);
+                    item = found;
                 }
             }
 
-            _container.Remove(item, holdingContainer, force: true);
-            _hands.DoPickup(chassis, hands.Hands[handId], item, hands);
+            if (item is { } pickUp)
+            {
+                _hands.DoPickup(chassis, hands.Hands[handId], pickUp, hands);
 
-            if (!borgHand.ForceRemovable)
-                EnsureComp<UnremoveableComponent>(item);
+                if (!borgHand.ForceRemovable)
+                    EnsureComp<UnremoveableComponent>(pickUp);
 
-            component.StoredItems[handId] = item;
+                component.StoredItems[handId] = pickUp;
+            }
+            else
+            {
+                component.StoredItems[handId] = EntityUid.Invalid;
+            }
         }
 
-        component.HandCounter = handCounter;
+        // Mark the component dirty so the client receives updated hand properties
+        // (EmptyRepresentative, EmptyLabel, Whitelist, Blacklist).
+        Dirty(chassis, hands);
     }
 
     private void RemoveProvidedItems(EntityUid chassis, EntityUid uid, BorgChassisComponent? chassisComponent = null, ItemBorgModuleComponent? component = null)
@@ -286,16 +296,31 @@ public sealed partial class BorgSystem
             return;
         }
 
-        foreach (var (handId, item) in component.StoredItems)
+        for (var i = 0; i < component.Hands.Count; i++)
         {
-            if (item.IsValid() && LifeStage(item) <= EntityLifeStage.MapInitialized)
+            var handId = $"{uid}-hand-{i}";
+
+            // Use the actual held entity rather than StoredItems: the player may have
+            // manually picked up a different item into a whitelisted-but-initially-empty slot.
+            if (_hands.TryGetHand(chassis, handId, out var hand, hands)
+                && hand.HeldEntity is { } heldItem
+                && heldItem.IsValid()
+                && LifeStage(heldItem) <= EntityLifeStage.MapInitialized)
             {
-                RemComp<UnremoveableComponent>(item);
-                _container.Insert(item, holdingContainer);
+                RemComp<UnremoveableComponent>(heldItem);
+                _container.Insert(heldItem, holdingContainer);
+                // Update StoredItems so ProvideItems can restore this item on re-activation.
+                component.StoredItems[handId] = heldItem;
             }
+            else
+            {
+                // Nothing held: mark slot as empty so ProvideItems won't try to restore.
+                component.StoredItems.Remove(handId);
+            }
+
             _hands.RemoveHand(chassis, handId, hands);
         }
-        component.StoredItems.Clear();
+        // Do NOT clear StoredItems; it is needed by ProvideItems on re-activation.
     }
 
     /// <summary>

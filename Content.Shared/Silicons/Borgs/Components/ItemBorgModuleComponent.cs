@@ -33,12 +33,6 @@ public sealed partial class ItemBorgModuleComponent : Component
     public Dictionary<string, EntityUid>? StoredItems;
 
     /// <summary>
-    /// A counter used to generate unique hand IDs.
-    /// </summary>
-    [DataField]
-    public int HandCounter;
-
-    /// <summary>
     /// An ID for the container where provided items are stored when not in use.
     /// </summary>
     [DataField]

@@ -28,6 +28,7 @@ using Robust.Client.Player;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controllers;
 using Robust.Shared.Input;
+using Robust.Shared.Localization;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 
@@ -96,6 +97,7 @@ public sealed class HandsUIController : UIController, IOnStateEntered<GameplaySt
             handData.EmptyRepresentative is { } representative)
         {
             handButton.SetPrototype(representative, fade: true);
+            handButton.ToolTip = handData.EmptyLabel is { } label ? Loc.GetString(label) : null;
         }
     }
 
@@ -172,7 +174,10 @@ public sealed class HandsUIController : UIController, IOnStateEntered<GameplaySt
             else
             {
                 if (hand.EmptyRepresentative is { } representative)
+                {
                     handButton.SetPrototype(representative, fade: true);
+                    handButton.ToolTip = hand.EmptyLabel is { } label ? Loc.GetString(label) : null;
+                }
                 else
                     handButton.SetEntity(null);
                 handButton.Blocked = false;
@@ -218,6 +223,9 @@ public sealed class HandsUIController : UIController, IOnStateEntered<GameplaySt
         if (hand == null)
             return;
 
+        // Clear any empty-slot tooltip now that the hand is holding something.
+        hand.ToolTip = null;
+
         if (_entities.TryGetComponent(entity, out VirtualItemComponent? virt))
         {
             hand.SetEntity(virt.BlockingEntity);
@@ -245,10 +253,12 @@ public sealed class HandsUIController : UIController, IOnStateEntered<GameplaySt
             handData.EmptyRepresentative is { } representative)
         {
             hand.SetPrototype(representative, fade: true);
+            hand.ToolTip = handData.EmptyLabel is { } label ? Loc.GetString(label) : null;
         }
         else
         {
             hand.SetEntity(null);
+            hand.ToolTip = null;
         }
 
         UpdateHandStatus(hand, null);

@@ -29,14 +29,14 @@ public sealed partial class HotbarGui : UIWidget
         LayoutContainer.SetGrowVertical(this, LayoutContainer.GrowDirection.Begin);
     }
 
-    public void UpdatePanelEntityLeft(EntityUid? entity)
+    public void UpdatePanelEntityLeft(EntityUid? entity, string? noItemText = null)
     {
-        StatusPanelLeft.Update(entity);
+        StatusPanelLeft.Update(entity, noItemText);
     }
 
-    public void UpdatePanelEntityRight(EntityUid? entity)
+    public void UpdatePanelEntityRight(EntityUid? entity, string? noItemText = null)
     {
-        StatusPanelRight.Update(entity);
+        StatusPanelRight.Update(entity, noItemText);
     }
 
     public void SetHighlightHand(HandUILocation? hand)

@@ -319,16 +319,17 @@ public sealed class HandsUIController : UIController, IOnStateEntered<GameplaySt
             _handsSystem.TryGetHand(playerEntity, handName, out var hand, _playerHandsComponent))
         {
             var foldedLocation = hand.Location.GetUILocation();
+            var emptyLabel = GetHandEmptyLabel(handName);
             if (foldedLocation == HandUILocation.Left)
             {
                 _statusHandLeft = handControl;
-                HandsGui.UpdatePanelEntityLeft(hand.HeldEntity);
+                HandsGui.UpdatePanelEntityLeft(hand.HeldEntity, emptyLabel);
             }
             else
             {
                 // Middle or right
                 _statusHandRight = handControl;
-                HandsGui.UpdatePanelEntityRight(hand.HeldEntity);
+                HandsGui.UpdatePanelEntityRight(hand.HeldEntity, emptyLabel);
             }
 
             HandsGui.SetHighlightHand(foldedLocation);
@@ -339,6 +340,23 @@ public sealed class HandsUIController : UIController, IOnStateEntered<GameplaySt
     {
         _handLookup.TryGetValue(handName, out var handControl);
         return handControl;
+    }
+
+    /// <summary>
+    /// Returns the localized EmptyLabel for a hand if it has no held entity, otherwise null.
+    /// </summary>
+    private string? GetHandEmptyLabel(string handName)
+    {
+        if (_playerHandsComponent == null ||
+            _player.LocalSession?.AttachedEntity is not { } playerEntity ||
+            !_handsSystem.TryGetHand(playerEntity, handName, out var handData, _playerHandsComponent) ||
+            handData.HeldEntity != null ||
+            handData.EmptyLabel is not { } label)
+        {
+            return null;
+        }
+
+        return Loc.GetString(label);
     }
 
     private HandButton AddHand(string handName, HandLocation location)
@@ -527,10 +545,12 @@ public sealed class HandsUIController : UIController, IOnStateEntered<GameplaySt
 
     private void UpdateHandStatus(HandButton hand, EntityUid? entity)
     {
+        var emptyLabel = entity == null ? GetHandEmptyLabel(hand.SlotName) : null;
+
         if (hand == _statusHandLeft)
-            HandsGui?.UpdatePanelEntityLeft(entity);
+            HandsGui?.UpdatePanelEntityLeft(entity, emptyLabel);
 
         if (hand == _statusHandRight)
-            HandsGui?.UpdatePanelEntityRight(entity);
+            HandsGui?.UpdatePanelEntityRight(entity, emptyLabel);
     }
 }

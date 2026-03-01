@@ -49,13 +49,16 @@
 # SPDX-FileCopyrightText: 2024 deathride58 <deathride58@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 plykiya <plykiya@protonmail.com>
-# SPDX-FileCopyrightText: 2025 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 IronDragoon <8961391+IronDragoon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 MaiaArai <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 misghast <51974455+misterghast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2026 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2026 alex-infdev <185717397+alex-infdev@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2026 Xcybitt <197952719+Xcybitt@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2026 marc-pelletier <113944176+marc-pelletier@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -64,41 +67,40 @@
   parent: BaseItem
   id: GrenadeBase
   components:
-  - type: Sprite
-    sprite: Objects/Weapons/Grenades/grenade.rsi
-    layers:
-    - state: icon
-      map: ["enum.TriggerVisualLayers.Base"]
-  - type: Item
-    size: Small
-  - type: Clothing
-    quickEquip: false
-    slots:
-    - Belt
-  - type: OnUseTimerTrigger
-    delay: 3.5
-  - type: Damageable
-    damageContainer: Inorganic
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 10
-      behaviors:
-      - !type:TriggerBehavior
-      - !type:DoActsBehavior
-        acts: ["Destruction"]
-  - type: Appearance
-  - type: AnimationPlayer
-  - type: GenericVisualizer
-    visuals:
-      enum.Trigger.TriggerVisuals.VisualState:
-        enum.ConstructionVisuals.Layer:
-          Primed: { state: primed }
-          Unprimed: { state: icon }
-  - type: Tag # Goobstation
-    tags:
-    - Grenade
+    - type: Sprite
+      sprite: Objects/Weapons/Grenades/grenade.rsi
+      layers:
+        - state: icon
+          map: ["enum.TriggerVisualLayers.Base"]
+    - type: Item
+      size: Small
+    - type: Clothing
+      quickEquip: false
+      slots:
+        - Belt
+    - type: OnUseTimerTrigger
+      delay: 3.5
+    - type: Damageable
+      damageContainer: Inorganic
+    - type: Destructible
+      thresholds:
+        - trigger: !type:DamageTrigger
+            damage: 10
+          behaviors:
+            - !type:TriggerBehavior
+            - !type:DoActsBehavior
+              acts: ["Destruction"]
+    - type: Appearance
+    - type: AnimationPlayer
+    - type: GenericVisualizer
+      visuals:
+        enum.Trigger.TriggerVisuals.VisualState:
+          enum.ConstructionVisuals.Layer:
+            Primed: { state: primed }
+            Unprimed: { state: icon }
+    - type: Tag # Goobstation
+      tags:
+        - Grenade
 
 - type: entity
   name: explosive grenade
@@ -106,53 +108,64 @@
   parent: [GrenadeBase, BaseSyndicateContraband]
   id: ExGrenade
   components:
-  - type: ExplodeOnTrigger
-  - type: Explosive
-    explosionType: Default
-    maxIntensity: 10
-    intensitySlope: 3
-    totalIntensity: 120 # about a ~4 tile radius
-    canCreateVacuum: false
-  - type: OnUseTimerTrigger
-    beepSound:
-      path: "/Audio/Effects/beep1.ogg"
-      params:
-        volume: 5
-    initialBeepDelay: 0
-    beepInterval: 2 # 2 beeps total (at 0 and 2)
+    - type: ExplodeOnTrigger
+    - type: Explosive
+      explosionType: Default
+      maxIntensity: 10
+      intensitySlope: 3
+      totalIntensity: 120 # about a ~4 tile radius
+      canCreateVacuum: false
+    - type: OnUseTimerTrigger
+      beepSound:
+        path: "/Audio/Effects/beep1.ogg"
+        params:
+          volume: 5
+      initialBeepDelay: 0
+      beepInterval: 2 # 2 beeps total (at 0 and 2)
 
 - type: entity
   name: flashbang
   description: Eeeeeeeeeeeeeeeeeeeeee.
-  parent: [ GrenadeBase, BaseSecurityContraband ]
+  parent: [GrenadeBase, BaseSecurityContraband]
   id: GrenadeFlashBang
   components:
+    - type: FlashOnTrigger
+      range: 7
+    - type: SoundOnTrigger
+      sound:
+        path: "/Audio/Effects/flash_bang.ogg"
+    - type: DeleteOnTrigger
+    - type: SpawnOnTrigger
+      proto: GrenadeFlashEffect
+    - type: Appearance
+    - type: TimerTriggerVisuals
+      primingSound:
+        path: /Audio/Effects/countdown.ogg
+    - type: GuideHelp
+      guides:
+        - Security
+        - Antagonists
+    - type: Flashbang # Goobstation
+    - type: Construction
+      graph: RevolutionaryFlashbangGraph
+      node: start
   - type: Sprite
     sprite: Objects/Weapons/Grenades/flashbang.rsi
-  - type: FlashOnTrigger
-    range: 7
-  - type: SoundOnTrigger
-    sound:
-      path: "/Audio/Effects/flash_bang.ogg"
-  - type: DeleteOnTrigger
-  - type: SpawnOnTrigger
-    proto: GrenadeFlashEffect
-  - type: Appearance
-  - type: TimerTriggerVisuals
-    primingSound:
-      path: /Audio/Effects/countdown.ogg
+  - type: ExplodeOnTrigger #less lethal wahoo
+  - type: Explosive
+    explosionType: Default
+    maxIntensity: 1
+    intensitySlope: 3
+    totalIntensity: 12
+    canCreateVacuum: false
   - type: GuideHelp
     guides:
     - Security
     - Antagonists
-  - type: Flashbang # Goobstation
-  - type: Construction
-    graph: RevolutionaryFlashbangGraph
-    node: start
 
 - type: entity
   id: GrenadeFlashEffect
-  categories: [ HideSpawnMenu ]
+  categories: [HideSpawnMenu]
   components:
     - type: PointLight
       enabled: true
@@ -172,120 +185,117 @@
   parent: [GrenadeBase, BaseSyndicateContraband]
   id: SyndieMiniBomb
   components:
-  - type: Sprite
-    sprite: Objects/Weapons/Grenades/syndgrenade.rsi
-  - type: ExplosionResistance
-    damageCoefficient: 0.1
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 10
-      behaviors:
-      - !type:TimerStartBehavior
-    - trigger:
-        !type:DamageTrigger
-        damage: 45
-      behaviors:
-      - !type:TriggerBehavior
-      - !type:DoActsBehavior
-        acts: ["Destruction"]
-  - type: OnUseTimerTrigger
-    delay: 5
-  - type: ExplodeOnTrigger
-  - type: Explosive
-    explosionType: Minibomb
-    totalIntensity: 200
-    intensitySlope: 30 #Will destroy the tile under it reliably, space 1-2 more to rods. Only does any significant damage in a 5-tile cross.
-    maxIntensity: 60
-  - type: Appearance
-  - type: TimerTriggerVisuals
-    primingSound:
-      path: /Audio/Effects/minibombcountdown.ogg
-      params:
-        volume: 12
+    - type: Sprite
+      sprite: Objects/Weapons/Grenades/syndgrenade.rsi
+    - type: ExplosionResistance
+      damageCoefficient: 0.1
+    - type: Destructible
+      thresholds:
+        - trigger: !type:DamageTrigger
+            damage: 10
+          behaviors:
+            - !type:TimerStartBehavior
+        - trigger: !type:DamageTrigger
+            damage: 45
+          behaviors:
+            - !type:TriggerBehavior
+            - !type:DoActsBehavior
+              acts: ["Destruction"]
+    - type: OnUseTimerTrigger
+      delay: 5
+    - type: ExplodeOnTrigger
+    - type: Explosive
+      explosionType: Minibomb
+      totalIntensity: 200
+      intensitySlope: 30 #Will destroy the tile under it reliably, space 1-2 more to rods. Only does any significant damage in a 5-tile cross.
+      maxIntensity: 60
+    - type: Appearance
+    - type: TimerTriggerVisuals
+      primingSound:
+        path: /Audio/Effects/minibombcountdown.ogg
+        params:
+          volume: 12
 
 - type: entity
   name: self destruct
   description: Go out on your own terms!
   parent: GrenadeBase
   id: SelfDestructSeq
-  categories: [ HideSpawnMenu ]
+  categories: [HideSpawnMenu]
   components:
-  - type: ExplodeOnTrigger
-  - type: Explosive
-    explosionType: Minibomb
-    totalIntensity: 400
-    intensitySlope: 30
-    maxIntensity: 125
-    canCreateVacuum: true
-  - type: OnUseTimerTrigger
-    delay: 4.5
-    beepSound:
-      path: /Audio/Effects/Grenades/SelfDestruct/SDS_Charge2.ogg
-      params:
-        volume: 30
-    initialBeepDelay: 0
-    beepInterval: 16
-
+    - type: ExplodeOnTrigger
+    - type: Explosive
+      explosionType: Minibomb
+      totalIntensity: 400
+      intensitySlope: 30
+      maxIntensity: 125
+      canCreateVacuum: true
+    - type: OnUseTimerTrigger
+      delay: 4.5
+      beepSound:
+        path: /Audio/Effects/Grenades/SelfDestruct/SDS_Charge2.ogg
+        params:
+          volume: 30
+      initialBeepDelay: 0
+      beepInterval: 16
 
 - type: entity
-  parent: [ GrenadeBase, BaseSyndicateContraband ]
+  parent: [GrenadeBase, BaseSyndicateContraband]
   id: SingularityGrenade
   name: singularity grenade
   description: Grenade that simulates the power of a singularity, pulling things in a heap.
   components:
-  - type: Sprite
-    sprite: Objects/Weapons/Grenades/singularitygrenade.rsi
-  - type: OnUseTimerTrigger
-    delay: 3
-    beepInterval: 0.46
-    beepSound:
-      path: /Audio/Effects/Grenades/Supermatter/smbeep.ogg
-      params:
-        volume: -5
-  - type: TimerTriggerVisuals
-    primingSound:
-      path: /Audio/Effects/Grenades/Supermatter/smbeep.ogg
-      params:
-        volume: -5
-  - type: SoundOnTrigger
-    removeOnTrigger: true
-    sound:
-      path: /Audio/Effects/Grenades/Supermatter/supermatter_start.ogg
-      volume: 5
-  - type: AnchorOnTrigger
-    removeOnTrigger: true
-  - type: TwoStageTrigger
-    triggerDelay: 10.45
-    components:
-      - type: AmbientSound
-        enabled: true
-        volume: -5
-        range: 14
-        sound:
-          path: /Audio/Effects/Grenades/Supermatter/supermatter_loop.ogg
-      - type: GravityWell
-        maxRange: 10
-        baseRadialAcceleration: 5
-        baseTangentialAcceleration: .5
-        gravPulsePeriod: 0.03
-      - type: SingularityDistortion
-        intensity: 150
-        falloffPower: 1.5
-      - type: PointLight
-        enabled: true
-        color: "#ffaa44"
-        energy: 8
-        radius: 6
-        softness: 1
-        offset: "0, 0"
-      - type: SoundOnTrigger
-        sound:
-          path: /Audio/Effects/Grenades/Supermatter/supermatter_end.ogg
-          params:
-            volume: 5
-      - type: DeleteOnTrigger
+    - type: Sprite
+      sprite: Objects/Weapons/Grenades/singularitygrenade.rsi
+    - type: OnUseTimerTrigger
+      delay: 3
+      beepInterval: 0.46
+      beepSound:
+        path: /Audio/Effects/Grenades/Supermatter/smbeep.ogg
+        params:
+          volume: -5
+    - type: TimerTriggerVisuals
+      primingSound:
+        path: /Audio/Effects/Grenades/Supermatter/smbeep.ogg
+        params:
+          volume: -5
+    - type: SoundOnTrigger
+      removeOnTrigger: true
+      sound:
+        path: /Audio/Effects/Grenades/Supermatter/supermatter_start.ogg
+        volume: 5
+    - type: AnchorOnTrigger
+      removeOnTrigger: true
+    - type: TwoStageTrigger
+      triggerDelay: 10.45
+      components:
+        - type: AmbientSound
+          enabled: true
+          volume: -5
+          range: 14
+          sound:
+            path: /Audio/Effects/Grenades/Supermatter/supermatter_loop.ogg
+        - type: GravityWell
+          maxRange: 10
+          baseRadialAcceleration: 5
+          baseTangentialAcceleration: .5
+          gravPulsePeriod: 0.03
+        - type: SingularityDistortion
+          intensity: 150
+          falloffPower: 1.5
+        - type: PointLight
+          enabled: true
+          color: "#ffaa44"
+          energy: 8
+          radius: 6
+          softness: 1
+          offset: "0, 0"
+        - type: SoundOnTrigger
+          sound:
+            path: /Audio/Effects/Grenades/Supermatter/supermatter_end.ogg
+            params:
+              volume: 5
+        - type: DeleteOnTrigger
 
 - type: entity
   name: whitehole grenade
@@ -293,46 +303,46 @@
   parent: SingularityGrenade
   id: WhiteholeGrenade
   components:
-  - type: Sprite
-    sprite: Objects/Weapons/Grenades/whiteholegrenade.rsi
-  - type: OnUseTimerTrigger
-    delay: 3
-    beepInterval: 0.69
-  - type: SoundOnTrigger
-    removeOnTrigger: true
-    sound:
-      path: /Audio/Effects/Grenades/Supermatter/whitehole_start.ogg
-      volume: 5
-  - type: TwoStageTrigger
-    triggerDelay: 11.14
-    components:
-      - type: AmbientSound
-        enabled: true
-        volume: -5
-        range: 14
-        sound:
-          path: /Audio/Effects/Grenades/Supermatter/whitehole_loop.ogg
-      - type: GravityWell
-        maxRange: 10
-        baseRadialAcceleration: -180
-        baseTangentialAcceleration: -5
-        gravPulsePeriod: 0.01
-      - type: SingularityDistortion
-        intensity: -200
-        falloffPower: 1.5
-      - type: PointLight
-        enabled: true
-        color: "#ffffff"
-        energy: 8
-        radius: 6
-        softness: 1
-        offset: "0, 0"
-      - type: SoundOnTrigger
-        sound:
-          path: /Audio/Effects/Grenades/Supermatter/supermatter_end.ogg
-          params:
-            volume: 15
-      - type: DeleteOnTrigger
+    - type: Sprite
+      sprite: Objects/Weapons/Grenades/whiteholegrenade.rsi
+    - type: OnUseTimerTrigger
+      delay: 3
+      beepInterval: 0.69
+    - type: SoundOnTrigger
+      removeOnTrigger: true
+      sound:
+        path: /Audio/Effects/Grenades/Supermatter/whitehole_start.ogg
+        volume: 5
+    - type: TwoStageTrigger
+      triggerDelay: 11.14
+      components:
+        - type: AmbientSound
+          enabled: true
+          volume: -5
+          range: 14
+          sound:
+            path: /Audio/Effects/Grenades/Supermatter/whitehole_loop.ogg
+        - type: GravityWell
+          maxRange: 10
+          baseRadialAcceleration: -180
+          baseTangentialAcceleration: -5
+          gravPulsePeriod: 0.01
+        - type: SingularityDistortion
+          intensity: -200
+          falloffPower: 1.5
+        - type: PointLight
+          enabled: true
+          color: "#ffffff"
+          energy: 8
+          radius: 6
+          softness: 1
+          offset: "0, 0"
+        - type: SoundOnTrigger
+          sound:
+            path: /Audio/Effects/Grenades/Supermatter/supermatter_end.ogg
+            params:
+              volume: 15
+        - type: DeleteOnTrigger
 
 - type: entity
   name: the nuclear option
@@ -340,29 +350,28 @@
   parent: GrenadeBase
   id: NuclearGrenade
   components:
-  - type: Sprite
-    sprite: Objects/Weapons/Grenades/nukenade.rsi
-  - type: OnUseTimerTrigger
-    delay: 5
-  - type: ExplodeOnTrigger
-  - type: Explosive
-    explosionType: Default
-    totalIntensity: 20000 # ~15 tile radius.
-    intensitySlope: 5
-    maxIntensity: 50
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 50
-      behaviors:
-      - !type:TriggerBehavior
-      - !type:DoActsBehavior
-        acts: ["Destruction"]
-  - type: Appearance
-  - type: TimerTriggerVisuals
-    primingSound:
-      path: /Audio/Effects/countdown.ogg
+    - type: Sprite
+      sprite: Objects/Weapons/Grenades/nukenade.rsi
+    - type: OnUseTimerTrigger
+      delay: 5
+    - type: ExplodeOnTrigger
+    - type: Explosive
+      explosionType: Default
+      totalIntensity: 20000 # ~15 tile radius.
+      intensitySlope: 5
+      maxIntensity: 50
+    - type: Destructible
+      thresholds:
+        - trigger: !type:DamageTrigger
+            damage: 50
+          behaviors:
+            - !type:TriggerBehavior
+            - !type:DoActsBehavior
+              acts: ["Destruction"]
+    - type: Appearance
+    - type: TimerTriggerVisuals
+      primingSound:
+        path: /Audio/Effects/countdown.ogg
 
 - type: entity
   name: modular grenade
@@ -370,44 +379,47 @@
   parent: BaseItem
   id: ModularGrenade
   components:
-  - type: Sprite
-    sprite: Objects/Weapons/Grenades/modular.rsi
-    layers:
-    - state: empty
-      map: [ "enum.ConstructionVisuals.Layer" ]
-  - type: Item
-    size: Small
-  - type: PayloadCase
-  - type: Construction
-    graph: ModularGrenadeGraph
-    node: emptyCase
-  - type: Damageable
-    damageContainer: Inorganic
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 50
-      behaviors:
-      - !type:TriggerBehavior
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-  - type: Appearance
-  - type: GenericVisualizer
-    visuals:
-      enum.ConstructionVisuals.Key:
-        enum.ConstructionVisuals.Layer:
-          emptyCase: { state: empty }
-          wiredCase: { state: wired }
-          caseWithTrigger: { state: no-payload }
-          caseWithPayload: { state: no-trigger }
-          grenade: { state: complete }
-      enum.Trigger.TriggerVisuals.VisualState:
-        enum.ConstructionVisuals.Layer:
-          Primed: { state: primed }
-          # Unprimed: <Use state determined by enum.ConstructionVisuals.Layer>
-  - type: StaticPrice
-    price: 75
+    - type: Sprite
+      sprite: Objects/Weapons/Grenades/modular.rsi
+      layers:
+        - state: empty
+          map: ["enum.ConstructionVisuals.Layer"]
+    - type: SpawnOnTrigger
+      proto: GrenadeFlashEffect
+    - type: SoundOnTrigger
+      sound: /Audio/Effects/explosion_small1.ogg
+    - type: Item
+      size: Small
+    - type: PayloadCase
+    - type: Construction
+      graph: ModularGrenadeGraph
+      node: emptyCase
+    - type: Damageable
+      damageContainer: Inorganic
+    - type: Destructible
+      thresholds:
+        - trigger: !type:DamageTrigger
+            damage: 50
+          behaviors:
+            - !type:TriggerBehavior
+            - !type:DoActsBehavior
+              acts: ["Destruction"]
+    - type: Appearance
+    - type: GenericVisualizer
+      visuals:
+        enum.ConstructionVisuals.Key:
+          enum.ConstructionVisuals.Layer:
+            emptyCase: { state: empty }
+            wiredCase: { state: wired }
+            caseWithTrigger: { state: no-payload }
+            caseWithPayload: { state: no-trigger }
+            grenade: { state: complete }
+        enum.Trigger.TriggerVisuals.VisualState:
+          enum.ConstructionVisuals.Layer:
+            Primed: { state: primed }
+            # Unprimed: <Use state determined by enum.ConstructionVisuals.Layer>
+    - type: StaticPrice
+      price: 75
 
 - type: entity
   name: EMP grenade
@@ -415,16 +427,16 @@
   parent: [GrenadeBase, BaseSyndicateContraband]
   id: EmpGrenade
   components:
-  - type: Sprite
-    sprite: Objects/Weapons/Grenades/empgrenade.rsi
-  - type: EmpOnTrigger
-    range: 5.5
-    energyConsumption: 50000
-  - type: DeleteOnTrigger
-  - type: Appearance
-  - type: TimerTriggerVisuals
-    primingSound:
-      path: /Audio/Effects/countdown.ogg
+    - type: Sprite
+      sprite: Objects/Weapons/Grenades/empgrenade.rsi
+    - type: EmpOnTrigger
+      range: 5.5
+      energyConsumption: 50000
+    - type: DeleteOnTrigger
+    - type: Appearance
+    - type: TimerTriggerVisuals
+      primingSound:
+        path: /Audio/Effects/countdown.ogg
 
 - type: entity
   name: holy hand grenade
@@ -432,59 +444,59 @@
   parent: [GrenadeBase, BaseSyndicateContraband]
   id: HolyHandGrenade
   components:
-  - type: Sprite
-    sprite: Objects/Weapons/Grenades/holyhandgrenade.rsi
-  - type: ExplodeOnTrigger
-  - type: Explosive
-    explosionType: Default # same as macrobomb
-    totalIntensity: 3500
-    intensitySlope: 15
-    maxIntensity: 70
-    canCreateVacuum: true
-  - type: OnUseTimerTrigger
-    delay: 3 # by canon
-  - type: PointLight
-    radius: 7
-    energy: 3
-    netsync: false
-  - type: TimerTriggerVisuals
-    primingSound:
-      path: /Audio/Effects/hallelujah.ogg
+    - type: Sprite
+      sprite: Objects/Weapons/Grenades/holyhandgrenade.rsi
+    - type: ExplodeOnTrigger
+    - type: Explosive
+      explosionType: Default # same as macrobomb
+      totalIntensity: 3500
+      intensitySlope: 15
+      maxIntensity: 70
+      canCreateVacuum: true
+    - type: OnUseTimerTrigger
+      delay: 3 # by canon
+    - type: PointLight
+      radius: 7
+      energy: 3
+      netsync: false
+    - type: TimerTriggerVisuals
+      primingSound:
+        path: /Audio/Effects/hallelujah.ogg
 
 - type: entity
-  parent: [ GrenadeBase, BaseSecurityContraband ]
+  parent: [GrenadeBase, BaseSecurityContraband]
   id: SmokeGrenade
   name: smoke grenade
   description: A tactical grenade that releases a large, long-lasting cloud of smoke when used.
   components:
-  - type: Sprite
-    sprite: Objects/Weapons/Grenades/smoke.rsi
-  - type: SmokeOnTrigger
-    duration: 30
-    spreadAmount: 50
-  - type: SoundOnTrigger
-    sound: /Audio/Items/smoke_grenade_smoke.ogg
-  - type: DeleteOnTrigger
-  - type: TimerTriggerVisuals
-    primingSound:
-      path: /Audio/Items/smoke_grenade_prime.ogg
+    - type: Sprite
+      sprite: Objects/Weapons/Grenades/smoke.rsi
+    - type: SmokeOnTrigger
+      duration: 30
+      spreadAmount: 50
+    - type: SoundOnTrigger
+      sound: /Audio/Items/smoke_grenade_smoke.ogg
+    - type: DeleteOnTrigger
+    - type: TimerTriggerVisuals
+      primingSound:
+        path: /Audio/Items/smoke_grenade_prime.ogg
 
 - type: entity
-  parent: [ BaseCivilianContraband, SmokeGrenade ]
+  parent: [BaseCivilianContraband, SmokeGrenade]
   id: CleanerGrenade
   name: cleanade
   description: Special grenade for janitors, releasing large cloud of space cleaner foam.
   components:
-  - type: Sprite
-    sprite: Objects/Weapons/Grenades/janitor.rsi
-  - type: SmokeOnTrigger
-    duration: 15
-    spreadAmount: 50
-    smokePrototype: Foam
-    solution:
-      reagents:
-      - ReagentId: SpaceCleaner
-        Quantity: 30
+    - type: Sprite
+      sprite: Objects/Weapons/Grenades/janitor.rsi
+    - type: SmokeOnTrigger
+      duration: 15
+      spreadAmount: 50
+      smokePrototype: Foam
+      solution:
+        reagents:
+          - ReagentId: SpaceCleaner
+            Quantity: 30
 
 - type: entity
   parent: SmokeGrenade
@@ -492,64 +504,64 @@
   name: tear gas grenade
   description: A riot control tear gas grenade. Causes irritation, pain and makes you cry your eyes out.
   components:
-  - type: Sprite
-    sprite: Objects/Weapons/Grenades/tear_gas.rsi
-  - type: SmokeOnTrigger
-    duration: 10
-    spreadAmount: 30
-    solution:
-      reagents:
-      - ReagentId: TearGas
-        Quantity: 50
+    - type: Sprite
+      sprite: Objects/Weapons/Grenades/tear_gas.rsi
+    - type: SmokeOnTrigger
+      duration: 10
+      spreadAmount: 30
+      solution:
+        reagents:
+          - ReagentId: TearGas
+            Quantity: 50
 
 - type: entity
-  parent: [ BaseEngineeringContraband, SmokeGrenade ]
+  parent: [BaseEngineeringContraband, SmokeGrenade]
   id: MetalFoamGrenade
   name: metal foam grenade
   description: An emergency tool used for quickly patching hull breaches. Rather brittle; make sure to replace them with real walls when possible.
   components:
-  - type: Sprite
-    sprite: Objects/Weapons/Grenades/metalfoam.rsi
-  - type: SmokeOnTrigger
-    duration: 2
-    spreadAmount: 5
-    smokePrototype: AluminiumMetalFoam
-  - type: OnUseTimerTrigger
-    delay: 1.5
-  - type: StaticPrice
-    price: 350
+    - type: Sprite
+      sprite: Objects/Weapons/Grenades/metalfoam.rsi
+    - type: SmokeOnTrigger
+      duration: 2
+      spreadAmount: 5
+      smokePrototype: AluminiumMetalFoam
+    - type: OnUseTimerTrigger
+      delay: 1.5
+    - type: StaticPrice
+      price: 350
 
 - type: entity
-  parent: [ BaseEngineeringContraband, GrenadeBase ] # Prevent inheriting DeleteOnTrigger from SmokeGrenade
+  parent: [BaseEngineeringContraband, GrenadeBase] # Prevent inheriting DeleteOnTrigger from SmokeGrenade
   id: AirGrenade
   name: air grenade
   description: A special solid state chemical grenade used for quickly releasing standard air into a spaced area. Fills up to 30 tiles!
   components:
-  - type: Sprite
-    sprite: Objects/Weapons/Grenades/airboom.rsi
-  - type: SoundOnTrigger
-    sound: /Audio/Items/smoke_grenade_smoke.ogg
-  - type: TimerTriggerVisuals
-    primingSound:
-      path: /Audio/Items/smoke_grenade_prime.ogg
-  - type: OnUseTimerTrigger
-    delay: 3
-  - type: ReleaseGasOnTrigger
-    removeFraction: 0.25
-    air:
-      volume: 1000
-      moles: # Target is 3117.84 mols total for filling 30 tiles (goal is 101.325 kPa @ 20C)
-      - 654.7464 # oxygen
-      - 2463.0936 # nitrogen
-      temperature: 293.15
-  - type: StaticPrice
-    price: 350
-  - type: GenericVisualizer
-    visuals:
-      enum.ReleaseGasOnTriggerVisuals.Key:
-        enabled:
-          True: { state: active }
-          False: { state: spent }
+    - type: Sprite
+      sprite: Objects/Weapons/Grenades/airboom.rsi
+    - type: SoundOnTrigger
+      sound: /Audio/Items/smoke_grenade_smoke.ogg
+    - type: TimerTriggerVisuals
+      primingSound:
+        path: /Audio/Items/smoke_grenade_prime.ogg
+    - type: OnUseTimerTrigger
+      delay: 3
+    - type: ReleaseGasOnTrigger
+      removeFraction: 0.25
+      air:
+        volume: 1000
+        moles: # Target is 3117.84 mols total for filling 30 tiles (goal is 101.325 kPa @ 20C)
+          - 654.7464 # oxygen
+          - 2463.0936 # nitrogen
+        temperature: 293.15
+    - type: StaticPrice
+      price: 350
+    - type: GenericVisualizer
+      visuals:
+        enum.ReleaseGasOnTriggerVisuals.Key:
+          enabled:
+            True: { state: active }
+            False: { state: spent }
 
 # Non-explosive "dummy" grenades to use as a distraction.
 
@@ -559,18 +571,18 @@
   parent: GrenadeBase
   id: GrenadeDummy
   components:
-  - type: Sprite
-    sprite: Objects/Weapons/Grenades/grenade.rsi
-  - type: DeleteOnTrigger
-  - type: SpawnOnTrigger
-    proto: GrenadeFlashEffect
-  - type: SoundOnTrigger
-    sound:
-      path: /Audio/Effects/Emotes/parp1.ogg
-  - type: Appearance
-  - type: TimerTriggerVisuals
-    primingSound:
-      path: /Audio/Effects/countdown.ogg
+    - type: Sprite
+      sprite: Objects/Weapons/Grenades/grenade.rsi
+    - type: DeleteOnTrigger
+    - type: SpawnOnTrigger
+      proto: GrenadeFlashEffect
+    - type: SoundOnTrigger
+      sound:
+        path: /Audio/Effects/Emotes/parp1.ogg
+    - type: Appearance
+    - type: TimerTriggerVisuals
+      primingSound:
+        path: /Audio/Effects/countdown.ogg
 
 - type: entity
   name: syndicate trickybomb
@@ -578,39 +590,39 @@
   parent: [GrenadeDummy, BaseSyndicateContraband]
   id: SyndieTrickyBomb
   components:
-  - type: Sprite
-    sprite: Objects/Weapons/Grenades/syndgrenade.rsi
-  - type: SoundOnTrigger
-    sound:
-      path: /Audio/Effects/Emotes/parp1.ogg
-  - type: Appearance
-  - type: TimerTriggerVisuals
-    primingSound:
-      path: /Audio/Effects/minibombcountdown.ogg
-      params:
-        volume: 12
+    - type: Sprite
+      sprite: Objects/Weapons/Grenades/syndgrenade.rsi
+    - type: SoundOnTrigger
+      sound:
+        path: /Audio/Effects/Emotes/parp1.ogg
+    - type: Appearance
+    - type: TimerTriggerVisuals
+      primingSound:
+        path: /Audio/Effects/minibombcountdown.ogg
+        params:
+          volume: 12
 
 # fun items
 - type: entity
-  parent: [ BaseCivilianContraband, SmokeGrenade ]
+  parent: [BaseCivilianContraband, SmokeGrenade]
   id: WehNade
   name: weh-nade
   description: This lizard plushie seems to have a button to activate it?
   components:
-  - type: Sprite
-    sprite: Objects/Weapons/Grenades/wehnade.rsi
-  - type: SmokeOnTrigger
-    duration: 10
-    spreadAmount: 80
-    smokePrototype: Foam
-    solution:
-      reagents:
-      - ReagentId: JuiceThatMakesYouWeh
-        Quantity: 10 #not enough to turn people into lizards. If you put this higher you can absolutely do that, maybe too chaotic...
-  - type: SoundOnTrigger
-    sound:
-      path: /Audio/Items/Toys/weh.ogg
-  - type: Appearance
-  - type: TimerTriggerVisuals
-    primingSound:
-      path: /Audio/Effects/countdown.ogg
+    - type: Sprite
+      sprite: Objects/Weapons/Grenades/wehnade.rsi
+    - type: SmokeOnTrigger
+      duration: 10
+      spreadAmount: 80
+      smokePrototype: Foam
+      solution:
+        reagents:
+          - ReagentId: JuiceThatMakesYouWeh
+            Quantity: 10 #not enough to turn people into lizards. If you put this higher you can absolutely do that, maybe too chaotic...
+    - type: SoundOnTrigger
+      sound:
+        path: /Audio/Items/Toys/weh.ogg
+    - type: Appearance
+    - type: TimerTriggerVisuals
+      primingSound:
+        path: /Audio/Effects/countdown.ogg

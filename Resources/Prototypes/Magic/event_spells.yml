@@ -6,6 +6,7 @@
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 Terkala <appleorange64@gmail.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2026 W.xyz() <84605679+pirakaplant@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -135,8 +136,8 @@
         orGroup: Guns
       - id: WeaponDisablerPractice
         orGroup: Guns
-      - id: WeaponDisabler
-        orGroup: Guns
+#      - id: WeaponDisabler # Funky
+#        orGroup: Guns
 #      - id: WeaponDisablerSMG
 #        orGroup: Guns
       - id: WeaponTaser
@@ -180,7 +181,7 @@
       - id: WeaponPlasmaRifle #Funky
         orGroup: Guns
       - id: WeaponEnergyRevolver #Funky
-        orGroup: Guns        
+        orGroup: Guns
       speech: action-speech-spell-summon-guns
 
 - type: entity

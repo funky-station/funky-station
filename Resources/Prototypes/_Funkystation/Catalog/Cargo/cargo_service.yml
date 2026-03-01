@@ -1,6 +1,9 @@
+# SPDX-FileCopyrightText: 2025 McBosserson <148172569+McBosserson@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 McBosserson <mcbosserson@hotmail.com>
+# SPDX-FileCopyrightText: 2025 Milon <milonpl.git@proton.me>
 # SPDX-FileCopyrightText: 2025 ThatOneMoon <91613003+ThatOneGuy227@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
+# SPDX-FileCopyrightText: 2026 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -19,17 +22,17 @@
   icon:
     sprite: Objects/Weapons/Grenades/janitor.rsi
     state: icon
-  product: CrateServiceBulkCleanerGranades 
+  product: CrateServiceBulkCleanerGranades
   cost: 1250
   category: cargoproduct-category-name-service
   group: market
-  
+
 - type: cargoProduct
   id: ServiceColoredLightTubes
   icon:
     sprite: Objects/Power/light_tube.rsi
     state: normal
-  product: CrateServiceColoredLightTubes 
+  product: CrateServiceColoredLightTubes
   cost: 800
   category: cargoproduct-category-name-service
   group: market
@@ -39,7 +42,17 @@
   icon:
     sprite: Objects/Power/light_bulb.rsi
     state: normal
-  product: CrateServiceColoredLightBulb 
+  product: CrateServiceColoredLightBulb
   cost: 800
+  category: cargoproduct-category-name-service
+  group: market
+
+- type: cargoProduct
+  id: ServiceWashingMachineKit
+  icon:
+    sprite: Structures/Furniture/washing_machine.rsi
+    state: base
+  product: CrateServiceWashingMachineSet
+  cost: 1500
   category: cargoproduct-category-name-service
   group: market

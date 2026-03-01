@@ -120,6 +120,8 @@ namespace Content.Client.Hands.Systems
                         // Update mutable display properties for existing hands.
                         existing.EmptyRepresentative = hand.EmptyRepresentative;
                         existing.EmptyLabel = hand.EmptyLabel;
+                        existing.Whitelist = hand.Whitelist;
+                        existing.Blacklist = hand.Blacklist;
                         continue;
                     }
 
@@ -127,6 +129,8 @@ namespace Content.Client.Hands.Systems
                     var newHand = new Hand(hand.Name, hand.Location, container);
                     newHand.EmptyRepresentative = hand.EmptyRepresentative;
                     newHand.EmptyLabel = hand.EmptyLabel;
+                    newHand.Whitelist = hand.Whitelist;
+                    newHand.Blacklist = hand.Blacklist;
                     component.Hands.Add(hand.Name, newHand);
                     addedHands.Add(newHand);
                 }

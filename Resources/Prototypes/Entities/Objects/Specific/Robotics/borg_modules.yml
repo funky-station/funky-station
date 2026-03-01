@@ -524,46 +524,55 @@
     hands:
     - emptyRepresentative: BorgModuleConstructionMaterialPlaceholder
       emptyLabel: borg-slot-construction-empty
+      forceRemovable: true
       whitelist:
         tags:
         - ConstructionMaterial
     - emptyRepresentative: BorgModuleConstructionMaterialPlaceholder
       emptyLabel: borg-slot-construction-empty
+      forceRemovable: true
       whitelist:
         tags:
         - ConstructionMaterial
     - emptyRepresentative: BorgModuleConstructionMaterialPlaceholder
       emptyLabel: borg-slot-construction-empty
+      forceRemovable: true
       whitelist:
         tags:
         - ConstructionMaterial
     - emptyRepresentative: DoorElectronics
       emptyLabel: borg-slot-circuitboards-empty
+      forceRemovable: true
       whitelist:
         components:
         - Circuitboard
     - emptyRepresentative: MicroManipulatorStockPart
       emptyLabel: borg-slot-parts-empty
+      forceRemovable: true
       whitelist:
         tags:
         - MachinePart
     - emptyRepresentative: SpaceHeaterFlatpack
       emptyLabel: borg-slot-flatpacks-empty
+      forceRemovable: true
       whitelist:
         components:
         - Flatpack
     - emptyRepresentative: FloorTileItemSteel
       emptyLabel: borg-slot-tiles-empty
+      forceRemovable: true
       whitelist:
         components:
         - FloorTile
     - emptyRepresentative: FloorTileItemWhite
       emptyLabel: borg-slot-tiles-empty
+      forceRemovable: true
       whitelist:
         components:
         - FloorTile
     - emptyRepresentative: FloorTileItemDark
       emptyLabel: borg-slot-tiles-empty
+      forceRemovable: true
       whitelist:
         components:
         - FloorTile
@@ -623,11 +632,6 @@
     - item: BorgTrashBag
     - item: Plunger
     - item: SoapNT
-      emptyRepresentative: SoapNT
-      emptyLabel: borg-slot-soap-empty
-      whitelist:
-        tags:
-        - Soap
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: light-replacer-module }
 
@@ -668,6 +672,7 @@
     - item: Beaker
       emptyRepresentative: Beaker
       emptyLabel: borg-slot-beakers-empty
+      forceRemovable: true
       whitelist:
         tags:
         - GlassBeaker
@@ -706,24 +711,28 @@
     - item: Gauze
       emptyRepresentative: Gauze
       emptyLabel: borg-slot-topicals-empty
+      forceRemovable: true
       whitelist:
         components:
         - Healing
     - item: Brutepack
       emptyRepresentative: Brutepack
       emptyLabel: borg-slot-topicals-empty
+      forceRemovable: true
       whitelist:
         components:
         - Healing
     - item: Ointment
       emptyRepresentative: Ointment
       emptyLabel: borg-slot-topicals-empty
+      forceRemovable: true
       whitelist:
         components:
         - Healing
     - item: Bloodpack
       emptyRepresentative: Bloodpack
       emptyLabel: borg-slot-topicals-empty
+      forceRemovable: true
       whitelist:
         components:
         - Healing
@@ -766,18 +775,21 @@
     - item: BaseChemistryEmptyVial
       emptyRepresentative: BaseChemistryEmptyVial
       emptyLabel: borg-slot-small-containers-empty
+      forceRemovable: true
       whitelist:
         components:
         - FitsInDispenser
     - item: BaseChemistryEmptyVial
       emptyRepresentative: BaseChemistryEmptyVial
       emptyLabel: borg-slot-small-containers-empty
+      forceRemovable: true
       whitelist:
         components:
         - FitsInDispenser
     - item: BaseChemistryEmptyVial
       emptyRepresentative: BaseChemistryEmptyVial
       emptyLabel: borg-slot-small-containers-empty
+      forceRemovable: true
       whitelist:
         components:
         - FitsInDispenser
@@ -803,6 +815,7 @@
     - item: Beaker
       emptyRepresentative: Beaker
       emptyLabel: borg-slot-chemical-containers-empty
+      forceRemovable: true
       whitelist:
         components:
         - FitsInDispenser
@@ -811,6 +824,7 @@
     - item: Beaker
       emptyRepresentative: Beaker
       emptyLabel: borg-slot-chemical-containers-empty
+      forceRemovable: true
       whitelist:
         components:
         - FitsInDispenser
@@ -819,6 +833,7 @@
     - item: Beaker
       emptyRepresentative: Beaker
       emptyLabel: borg-slot-chemical-containers-empty
+      forceRemovable: true
       whitelist:
         components:
         - FitsInDispenser
@@ -847,6 +862,7 @@
     - item: BaseChemistryEmptyVial
       emptyRepresentative: BaseChemistryEmptyVial
       emptyLabel: borg-slot-small-containers-empty
+      forceRemovable: true
       whitelist:
         components:
         - FitsInDispenser
@@ -871,11 +887,13 @@
     - item: HandLabeler
     - emptyRepresentative: SheetRGlass
       emptyLabel: borg-slot-construction-empty
+      forceRemovable: true
       whitelist:
         tags:
         - ConstructionMaterial
     - emptyRepresentative: SheetRPGlass
       emptyLabel: borg-slot-construction-empty
+      forceRemovable: true
       whitelist:
         tags:
         - ConstructionMaterial
@@ -898,6 +916,7 @@
     - item: BooksBag
     - emptyRepresentative: BookBase
       emptyLabel: borg-slot-documents-empty
+      forceRemovable: true
       whitelist:
         tags:
         - Book
@@ -908,6 +927,7 @@
         - Write
     - emptyRepresentative: Paper
       emptyLabel: borg-slot-documents-empty
+      forceRemovable: true
       whitelist:
         tags:
         - Book
@@ -923,6 +943,7 @@
     - item: DrinkShaker
       emptyRepresentative: DrinkShaker
       emptyLabel: borg-slot-small-containers-empty
+      forceRemovable: true
       whitelist:
         components:
         - FitsInDispenser
@@ -963,18 +984,21 @@
     - item: SynthesizerInstrument
       emptyRepresentative: SynthesizerInstrument
       emptyLabel: borg-slot-instruments-empty
+      forceRemovable: true
       whitelist:
         components:
         - Instrument
     - item: ElectricGuitarInstrument
       emptyRepresentative: ElectricGuitarInstrument
       emptyLabel: borg-slot-instruments-empty
+      forceRemovable: true
       whitelist:
         components:
         - Instrument
     - item: SaxophoneInstrument
       emptyRepresentative: SaxophoneInstrument
       emptyLabel: borg-slot-instruments-empty
+      forceRemovable: true
       whitelist:
         components:
         - Instrument

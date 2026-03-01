@@ -35,6 +35,10 @@
   - type: Storage
     grid:
     - 0,0,6,1
+    whitelist:
+      tags:
+        - Matchstick
+        - Cigarette
   - type: Item
     size: Small
   - type: EmitSoundOnPickup

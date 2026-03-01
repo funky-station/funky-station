@@ -342,18 +342,21 @@
     - item: CableApcStack10
       emptyRepresentative: CableApcStack10
       emptyLabel: borg-slot-cables-empty
+      forceRemovable: true
       whitelist:
         tags:
         - CableCoil
     - item: CableMVStack10
       emptyRepresentative: CableMVStack10
       emptyLabel: borg-slot-cables-empty
+      forceRemovable: true
       whitelist:
         tags:
         - CableCoil
     - item: CableHVStack10
       emptyRepresentative: CableHVStack10
       emptyLabel: borg-slot-cables-empty
+      forceRemovable: true
       whitelist:
         tags:
         - CableCoil

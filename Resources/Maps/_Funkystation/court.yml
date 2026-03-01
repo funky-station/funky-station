@@ -9326,9 +9326,6 @@ entities:
     - type: BecomesStation
       id: Court
     - type: ImplicitRoof
-    - type: DnaScannerDiscoveryTracker
-      gridDiscoveredMutations: []
-      gridResearchProgress: {}
 - proto: AcousticGuitarInstrument
   entities:
   - uid: 10634
@@ -23054,12 +23051,12 @@ entities:
         This book details the long and fantastic history of the station known today as NT14 Court, which started out as the most daring project of its era.
 
 
-        Drafted by Donk.co in 2908, the station plans envisioned a grand space mall that would have attracted denizens of planets from all over the sector. 
+        Drafted by Donk.co in 2908, the station plans envisioned a grand space mall that would have attracted denizens of planets from all over the sector.
 
         Sporting multiple docking arms, a powerful and extremely modern (for its time) singularity engine, grand gardened hallways with real plants and insects and multiple sections dedicated to all types of stores, it was to be the gleaming space jewel of the Donk corporation.
 
 
-        Unfortunately for the consumers of the sector, however, the project proved much harder to complete than first imagined. 
+        Unfortunately for the consumers of the sector, however, the project proved much harder to complete than first imagined.
 
 
         Starting with 2910 when the project had barely started, the excavation team, mining the anchor asteroid for resources, came upon an old temple filled with space carp and containing multiple treasures. This attracted the attention of space pirates, and in 2912, taking advantage of some contract disputes between Donk.co and its security detail, two pirate shuttles attacked the station as it had been left undefended, breaching the atmosphere on multiple levels and sacking it for most of its riches.
@@ -127388,7 +127385,7 @@ entities:
       content: >-
         Hi boss!
 
-        Sorry I couldn't stay and show you this, had to go cryo early today, bladder issues. 
+        Sorry I couldn't stay and show you this, had to go cryo early today, bladder issues.
 
         Anyways, I prepared this room for a simple HFR setup, hopefully we can spend the next shift assembling the machine here and making cool gasses!
 
@@ -127846,7 +127843,7 @@ entities:
 
         Date of check out (shift time):
 
-        Expected borrowing duration (must not exceed 60 minutes): 
+        Expected borrowing duration (must not exceed 60 minutes):
 
 
         All checked out books must be checked back in before end of shift. Any and all books that have not been checked back in by shift end will result in a fine to the responsible party.
@@ -127882,7 +127879,7 @@ entities:
     - type: Paper
       content: >
         Dearest Commander Alpha,
-          Using the cover of a construction worker, I have established a foothold on station, it is a small room next to the detective's office. With a bit more work, the next operative you send in will be able to falsify criminal records easily. 
+          Using the cover of a construction worker, I have established a foothold on station, it is a small room next to the detective's office. With a bit more work, the next operative you send in will be able to falsify criminal records easily.
         Requesting bluespace extraction as I have run out of fuel in my welding tool and the air grows thin.
 
 
@@ -127908,7 +127905,7 @@ entities:
 
         Date of check in (shift time):
 
-        Actual borrowing duration (if exceeding 60 minutes, may result in a fine): 
+        Actual borrowing duration (if exceeding 60 minutes, may result in a fine):
 
         Book damages (if any):
 
@@ -128587,7 +128584,7 @@ entities:
       parent: 2
     - type: Paper
       content: >2-
-           
+
           These used to be commonplace but the chaplains association failed to negotiate a renewal of the initiative so I hope you feel lucky to have this surplus crate.
 
          -T.
@@ -128613,20 +128610,20 @@ entities:
       parent: 4003
     - type: Paper
       content: >2-
-         
-             it's    watc hing  me 
 
-         wr ite 
+             it's    watc hing  me
 
-         but it cann ot 
-           see t   e 
+         wr ite
+
+         but it cann ot
+           see t   e
                     h
 
                             text
 
 
-        the AI  
-         is                                      must   tur n 
+        the AI
+         is                                      must   tur n
          insane                    you                             it  of f
     - type: Physics
       angularDamping: 0

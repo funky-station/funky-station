@@ -8,7 +8,7 @@
   - type: Objective
     unique: false
     icon:
-      sprite: Objects/Weapons/Guns/Pistols/viper.rsi
+      sprite: Objects/Weapons/Melee/fireaxe.rsi
       state: icon
   - type: ObjectiveBlacklistRequirement
     blacklist:
@@ -21,7 +21,7 @@
   description: Kill them, and show everyone we mean business. They only need to die once.
   components:
   - type: Objective
-    difficulty: 1.75
+    difficulty: 1 # Lowered Since no Permakilling required
     unique: false
   - type: TargetObjective
     title: objective-condition-teach-person-title

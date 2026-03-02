@@ -28,6 +28,12 @@ public sealed partial class GrapplingGunComponent : Component
     [DataField, AutoNetworkedField]
     public EntityUid? Projectile;
 
+    /// <summary>
+    /// Tracks the client-side predicted projectile entity so it can be cleaned up cleanly on the client visually.
+    /// </summary>
+    [ViewVariables(VVAccess.ReadWrite)]
+    public EntityUid? ClientProjectile;
+
     [ViewVariables(VVAccess.ReadWrite), DataField("reeling"), AutoNetworkedField]
     public bool Reeling;
 

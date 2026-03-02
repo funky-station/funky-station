@@ -28,6 +28,7 @@ using Robust.Shared.Physics.Dynamics.Joints;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Serialization;
 using Robust.Shared.Timing;
+using Robust.Shared.GameObjects;
 
 namespace Content.Shared.Weapons.Misc;
 
@@ -54,12 +55,31 @@ public abstract class SharedGrapplingGunSystem : EntitySystem
         SubscribeLocalEvent<GrapplingGunComponent, GunShotEvent>(OnGrapplingShot);
         SubscribeLocalEvent<GrapplingGunComponent, ActivateInWorldEvent>(OnGunActivate);
         SubscribeLocalEvent<GrapplingGunComponent, HandDeselectedEvent>(OnGrapplingDeselected);
+
+        SubscribeLocalEvent<GrapplingProjectileComponent, EntityTerminatingEvent>(OnGrapplingProjectileTerminating);
+    }
+
+    private void OnGrapplingProjectileTerminating(EntityUid uid, GrapplingProjectileComponent component, ref EntityTerminatingEvent args)
+    {
+        if (TryComp<ProjectileComponent>(uid, out var projectile) &&
+            projectile.Weapon != null &&
+            TryComp<GrapplingGunComponent>(projectile.Weapon.Value, out var gun))
+        {
+            // If the server projectile terminates (e.g. embed breaks), clean up the client tracking projectile too
+            if (gun.ClientProjectile != null && gun.Projectile == uid)
+            {
+                QueueDel(gun.ClientProjectile.Value);
+                gun.ClientProjectile = null;
+            }
+        }
     }
 
     private void OnGrappleJointRemoved(EntityUid uid, GrapplingProjectileComponent component, JointRemovedEvent args)
     {
-        if (_netManager.IsServer)
-            QueueDel(uid);
+        if (IsClientSide(uid))
+            return;
+
+        QueueDel(uid);
     }
 
     private void OnGrapplingShot(EntityUid uid, GrapplingGunComponent component, ref GunShotEvent args)
@@ -68,6 +88,9 @@ public abstract class SharedGrapplingGunSystem : EntitySystem
         {
             if (!HasComp<GrapplingProjectileComponent>(shotUid))
                 continue;
+
+            if (IsClientSide(shotUid.Value))
+                component.ClientProjectile = shotUid.Value;
 
             //todo: this doesn't actually support multigrapple
             // At least show the visuals.
@@ -126,18 +149,22 @@ public abstract class SharedGrapplingGunSystem : EntitySystem
 
     private void OnGunActivate(EntityUid uid, GrapplingGunComponent component, ActivateInWorldEvent args)
     {
-        if (!Timing.IsFirstTimePredicted || args.Handled || !args.Complex || component.Projectile is not {} projectile)
+        if (!Timing.IsFirstTimePredicted || args.Handled || !args.Complex || component.Projectile is not { } projectile)
             return;
 
         _audio.PlayPredicted(component.CycleSound, uid, args.User);
         _appearance.SetData(uid, SharedTetherGunSystem.TetherVisualsStatus.Key, true);
 
-        if (_netManager.IsServer)
-            QueueDel(projectile);
+        QueueDel(projectile);
+        if (component.ClientProjectile != null)
+        {
+            QueueDel(component.ClientProjectile.Value);
+            component.ClientProjectile = null;
+        }
 
         component.Projectile = null;
         SetReeling(uid, component, false, args.User);
-        _gun.ChangeBasicEntityAmmoCount(uid,  1);
+        _gun.ChangeBasicEntityAmmoCount(uid, 1);
 
         args.Handled = true;
     }

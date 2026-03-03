@@ -58,6 +58,7 @@
       head:
       - state: equipped-HELMET
         offset: "0, 0.16"
+    sprite: _Funkystation/Clothing/Head/Hats/cake_hat.rsi
 
 - type: entity
   parent: ClothingHeadBase
@@ -66,9 +67,9 @@
   description: "It's a chicken head. Bok bok bok!"
   components:
   - type: Sprite
-    sprite: Clothing/Head/Misc/chickenhead.rsi
+    sprite: _Funkystation/Clothing/Head/Hats/chickenhead.rsi
   - type: Clothing
-    sprite: Clothing/Head/Misc/chickenhead.rsi
+    sprite: _Funkystation/Clothing/Head/Hats/chickenhead.rsi
   - type: IngestionBlocker
   - type: IdentityBlocker
 
@@ -156,9 +157,9 @@
   description: 'Best paired with the Skub Suit.'
   components:
   - type: Sprite
-    sprite: Clothing/Head/Misc/skubhead.rsi
+    sprite: _Funkystation/Clothing/Head/Hats/skub_hat.rsi
   - type: Clothing
-    sprite: Clothing/Head/Misc/skubhead.rsi
+    sprite: _Funkystation/Clothing/Head/Hats/skub_hat.rsi
   - type: IngestionBlocker
   - type: IdentityBlocker
 

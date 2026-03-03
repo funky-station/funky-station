@@ -259,9 +259,9 @@
   description: Bok bok bok!
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Suits/chicken.rsi
+    sprite: _Funkystation/Clothing/OuterClothing/Misc/chicken_suit.rsi
   - type: Clothing
-    sprite: Clothing/OuterClothing/Suits/chicken.rsi
+    sprite: _Funkystation/Clothing/OuterClothing/Misc/chicken_suit.rsi
   - type: ProtectedFromStepTriggers
     slots: WITHOUT_POCKET
 
@@ -283,9 +283,9 @@
   description: Magic is all about the spell power, ZE!
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Suits/witchrobe.rsi
+    sprite: _Funkystation/Clothing/OuterClothing/Suits/witch_robes.rsi
   - type: Clothing
-    sprite: Clothing/OuterClothing/Suits/witchrobe.rsi
+    sprite: _Funkystation/Clothing/OuterClothing/Suits/witch_robes.rsi
 
 - type: entity
   parent: ClothingOuterBase
@@ -294,9 +294,9 @@
   description: A suit that looks like a primate.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Suits/monkey.rsi
+    sprite: _Funkystation/Clothing/OuterClothing/Misc/monkey_suit.rsi
   - type: Clothing
-    sprite: Clothing/OuterClothing/Suits/monkey.rsi
+    sprite: _Funkystation/Clothing/OuterClothing/Misc/monkey_suit.rsi
   - type: ContainerContainer
     containers:
       toggleable-clothing: !type:ContainerSlot {}
@@ -334,11 +334,11 @@
   components:
   - type: AllowTankStorage
   - type: Sprite
-    sprite: Clothing/OuterClothing/Suits/carpsuit.rsi
+    sprite: _Funkystation/Clothing/OuterClothing/Misc/carp_suit.rsi
   - type: Item
     size: Normal
   - type: Clothing
-    sprite: Clothing/OuterClothing/Suits/carpsuit.rsi
+    sprite: _Funkystation/Clothing/OuterClothing/Misc/carp_suit.rsi
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodCarp
   - type: ContainerContainer

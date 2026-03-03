@@ -311,9 +311,9 @@
   description: A hat made out of a box.
   components:
   - type: Sprite
-    sprite: Clothing/Head/Hats/cardborg_h.rsi
+    sprite: _FunkystationClothing/Head/Hats/carborghat.rsi
   - type: Clothing
-    sprite: Clothing/Head/Hats/cardborg_h.rsi
+    sprite: _Funkystation/Clothing/Head/Hats/carborghat.rsi
   - type: TypingIndicatorClothing
     proto: robot
   - type: IdentityBlocker
@@ -520,9 +520,9 @@
   description: A festive hat worn by Santa Claus.
   components:
   - type: Sprite
-    sprite: Clothing/Head/Hats/santahat.rsi
+    sprite: _Funkystation/Clothing/Head/Hats/santahat.rsi
   - type: Clothing
-    sprite: Clothing/Head/Hats/santahat.rsi
+    sprite: _Funkystation/Clothing/Head/Hats/santahat.rsi
 
 - type: entity
   parent: ClothingHeadBase
@@ -531,9 +531,9 @@
   description: "Perfectly for Space Mexico, si?"
   components:
   - type: Sprite
-    sprite: Clothing/Head/Hats/sombrero.rsi
+    sprite: _Funkystation/Clothing/Head/Hats/sombrero.rsi
   - type: Clothing
-    sprite: Clothing/Head/Hats/sombrero.rsi
+    sprite: _Funkystation/Clothing/Head/Hats/sombrero.rsi
   - type: AddAccentClothing
     accent: SpanishAccent
 
@@ -648,9 +648,9 @@
   components:
   - type: WizardClothes #Yes this will count
   - type: Sprite
-    sprite: Clothing/Head/Hats/witch.rsi
+    sprite: _Funkystation/Clothing/Head/Hats/witch_hat.rsi
   - type: Clothing
-    sprite: Clothing/Head/Hats/witch.rsi
+    sprite: _Funkystaiton/Clothing/Head/Hats/witch_hat.rsi
   - type: Tag
     tags:
     - WhitelistChameleon
@@ -666,9 +666,9 @@
   description: It has WIZZARD written across it in sequins. Comes with a cool beard.
   components:
   - type: Sprite
-    sprite: Clothing/Head/Hats/wizard_fake.rsi
+    sprite: _Funkystation/Clothing/Head/Hats/fake_wizard_hat.rsi
   - type: Clothing
-    sprite: Clothing/Head/Hats/wizard_fake.rsi
+    sprite: _Funkystation/Clothing/Head/Hats/fake_wizard_hat.rsi
 
 - type: entity
   abstract: true
@@ -755,9 +755,9 @@
   description: A paper sack with crude holes cut out for eyes. Useful for hiding one's identity or ugliness.
   components:
   - type: Sprite
-    sprite: Clothing/Head/Hats/papersack.rsi
+    sprite: _Funkystation/Clothing/Head/Hats/paperbag.rsi
   - type: Clothing
-    sprite: Clothing/Head/Hats/papersack.rsi
+    sprite: _Funkystation/Clothing/Head/Hats/paperbag.rsi
   - type: IdentityBlocker
 
 - type: entity
@@ -767,9 +767,9 @@
   description: A paper sack with crude holes cut out for eyes and a sketchy smile drawn on the front. Not creepy at all.
   components:
   - type: Sprite
-    sprite: Clothing/Head/Hats/papersacksmile.rsi
+    sprite: _Funkystation/Clothing/Head/Hats/paperbag_smile.rsi
   - type: Clothing
-    sprite: Clothing/Head/Hats/papersacksmile.rsi
+    sprite: _Funkystation/Clothing/Head/Hats/paperbag_smile.rsi
   - type: IdentityBlocker
 
 - type: entity
@@ -839,18 +839,18 @@
   description: A hat with bells, to add some merriness to the suit.
   components:
     - type: Sprite
-      sprite: Clothing/Head/Hats/jester.rsi
+      sprite: _Funkystation/Clothing/Head/Hats/jester_hat1.rsi
     - type: Clothing
-      sprite: Clothing/Head/Hats/jester.rsi
+      sprite: _Funkystation/Clothing/Head/Hats/jester_hat1.rsi
 
 - type: entity
   parent: ClothingHeadHatJester
   id: ClothingHeadHatJesterAlt
   components:
     - type: Sprite
-      sprite: Clothing/Head/Hats/jester2.rsi
+      sprite: _Funkystation/Clothing/Head/Hats/jester_hat2.rsi
     - type: Clothing
-      sprite: Clothing/Head/Hats/jester2.rsi
+      sprite: _Funkystation/Clothing/Head/Hats/jester_hat2.rsi
 
 - type: entity
   parent: [ClothingHeadBase, BaseCommandContraband]
@@ -960,20 +960,21 @@
   description: "A magician's tophat."
   components:
   - type: Icon
-    sprite: Clothing/Head/Hats/magician.rsi
+    sprite: _Funkystation/Clothing/Head/Hats/magician_hat.rsi
     state: "icon"
   - type: Sprite
     state: "icon"
-    sprite: Clothing/Head/Hats/magician.rsi
+    sprite: _Funkystation/Clothing/Head/Hats/magician_hat.rsi
   - type: Clothing
     clothingVisuals:
       head:
       - state: equipped-HELMET
         offset: "0, 0.16"
     sprite: Clothing/Head/Hats/magician.rsi
+    sprite: _Funkystation/Clothing/Head/Hats/magician_hat.rsi
   - type: Item
     size: Small
-    sprite: Clothing/Head/Hats/magician.rsi
+    sprite: _Funkystation/Clothing/Head/Hats/magician_hat.rsi
     storedRotation: 0
   - type: Storage
     grid:
@@ -1042,9 +1043,9 @@
   description: Protects the head from harsh ash winds and toy spears.
   components:
   - type: Sprite
-    sprite: Clothing/Head/Hats/gladiator.rsi
+    sprite: _Funkystation/Clothing/Head/Hats/gladiator_helm.rsi
   - type: Clothing
-    sprite: Clothing/Head/Hats/gladiator.rsi
+    sprite: _Funkystation/Clothing/Head/Hats/gladiator_helm.rsi
 
 - type: entity
   parent: ClothingHeadBase

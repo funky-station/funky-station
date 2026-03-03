@@ -21,19 +21,19 @@ public abstract class SharedDrunkSystem : EntitySystem
 {
     [ValidatePrototypeId<StatusEffectPrototype>]
     public const string DrunkKey = "Drunk";
-    public const float maxDrunkTime = 1500; // Funky - caps drunk time to prevent permanent drunkeness. In seconds. 
+    public const float maxDrunkTime = 1500; // Funky - caps drunk time to prevent permanent drunkeness. In seconds.
 
     [Dependency] private readonly StatusEffectsSystem _statusEffectsSystem = default!;
     [Dependency] private readonly SharedSlurredSystem _slurredSystem = default!;
-    [Dependency] private readonly IGameTiming _timing = default!; // Funky - needed to calculate remaining status time. 
+    [Dependency] private readonly IGameTiming _timing = default!; // Funky - needed to calculate remaining status time.
 
     public void TryApplyDrunkenness(EntityUid uid, float boozePower, bool applySlur = true,
-        StatusEffectsComponent? status = null)
+        bool applyTolerance = true, StatusEffectsComponent? status = null)
     {
         if (!Resolve(uid, ref status, false))
             return;
 
-        if (TryComp<LightweightDrunkComponent>(uid, out var trait))
+        if (applyTolerance && TryComp<LightweightDrunkComponent>(uid, out var trait))
             boozePower *= trait.BoozeStrengthMultiplier;
 
         if (applySlur)
@@ -50,9 +50,9 @@ public abstract class SharedDrunkSystem : EntitySystem
         {
             var timeLeft = (float) (time.Value.Item2 - _timing.CurTime).TotalSeconds;
 
-            if (timeLeft + boozePower > maxDrunkTime) 
+            if (timeLeft + boozePower > maxDrunkTime)
                 _statusEffectsSystem.TrySetTime(uid, DrunkKey, TimeSpan.FromSeconds(maxDrunkTime), status);
-            else 
+            else
                 _statusEffectsSystem.TryAddTime(uid, DrunkKey, TimeSpan.FromSeconds(boozePower), status);
         }
         // Funky modification ends

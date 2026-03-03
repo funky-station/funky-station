@@ -46,14 +46,17 @@
 # SPDX-FileCopyrightText: 2025 DESKTOP-0V0K4HQ\Rosy <rosysaturniidae@gmail.com>
 # SPDX-FileCopyrightText: 2025 Fr0goo <153249069+Fr0goo@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Fr0goo <frogoofrog@outlook.com>
+# SPDX-FileCopyrightText: 2025 Frogoo <153249069+Fr0goo@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 MaiaArai <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 QueerCats <jansencheng3@gmail.com>
+# SPDX-FileCopyrightText: 2025 RosySaturniidae <rosysaturniidae@gmail.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 Xcybitt <xcybitt@gmail.com>
 # SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2026 Xcybitt <197952719+Xcybitt@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -134,6 +137,27 @@
     damageCoefficient: 0.8
   - type: StaminaResistance
     damageCoefficient: 0.8
+  - type: ContainerContainer
+    containers:
+      multiphase_slot: !type:ContainerSlot
+        showEnts: False
+        occludes: True
+        ent: null
+      toggleable-clothing: !type:ContainerSlot
+        showEnts: False
+        occludes: True
+        ent: null
+      storagebase: !type:Container
+        showEnts: False
+        occludes: True
+        ents: []
+  - type: ItemSlots
+    slots:
+      multiphase_slot:
+        name: multiphase_HoS
+        whitelist:
+          tags:
+          - Multiphase   
 
 - type: entity
   abstract: true
@@ -565,3 +589,14 @@
   parent: [ClothingOuterStorageFoldableBaseOpened, ClothingOuterCoatRain]
   id: ClothingOuterCoatRainOpened
   name: rain coat
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ClothingOuterCoatBiker
+  name: biker's jacket
+  description: a black leather jacket decorated with skulls and a big zipper, why? beacuse its badass!
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/OuterClothing/Coats/biker.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/OuterClothing/Coats/biker.rsi

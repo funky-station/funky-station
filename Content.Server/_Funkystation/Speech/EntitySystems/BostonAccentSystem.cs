@@ -1,4 +1,6 @@
+// SPDX-FileCopyrightText: 2026 W.xyz() <84605679+pirakaplant@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2026 W.xyz() <tptechteam@gmail.com>
+// SPDX-FileCopyrightText: 2026 w.xyz() <84605679+pirakaplant@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -14,14 +16,12 @@ public sealed class BostonAccentSystem : EntitySystem
     private static readonly Regex RegexLowercaseEr = new(@"er\B");
     private static readonly Regex RegexUppercaseEr = new(@"ER\B");
     private static readonly Regex RegexSentenceCaseEr = new(@"Er\B");
-    private static readonly Regex RegexLowercaseEndingEr = new(@"er(?=(s\b|\b))");
-    private static readonly Regex RegexUppercaseEndingEr = new(@"ER(?=(s\b|\b))");
-    private static readonly Regex RegexLowercaseEndingOr = new(@"or(?=(s\b|\b))");
-    private static readonly Regex RegexUppercaseEndingOr = new(@"OR(?=(s\b|\b))");
-    private static readonly Regex RegexLowercaseEndingA = new(@"a(?=(s\b|\b))");
-    private static readonly Regex RegexUppercaseEndingA = new(@"A(?=(s\b|\b))");
-    private static readonly Regex RegexLowercaseNty = new(@"nt(?=(y|ie))");
-    private static readonly Regex RegexUppercaseNty = new(@"NT(?=(Y|IE))");
+    private static readonly Regex RegexLowercaseEndingEr = new(@"\Ber(?=(s\b|\b))");
+    private static readonly Regex RegexUppercaseEndingEr = new(@"\BER(?=(s\b|\b))");
+    private static readonly Regex RegexLowercaseEndingOr = new(@"\Bor(?=(s\b|\b))");
+    private static readonly Regex RegexUppercaseEndingOr = new(@"\BOR(?=(s\b|\b))");
+    private static readonly Regex RegexLowercaseNty = new(@"\Bnt(?=(y|ie))");
+    private static readonly Regex RegexUppercaseNty = new(@"\BNT(?=(Y|IE))");
     private static readonly Regex RegexApostropheT = new(@"'t", RegexOptions.IgnoreCase);
 
     public override void Initialize()
@@ -50,10 +50,6 @@ public sealed class BostonAccentSystem : EntitySystem
         // reactor -> reactah
         msg = RegexLowercaseEndingOr.Replace(msg, "ah");
         msg = RegexUppercaseEndingOr.Replace(msg, "AH");
-
-        // pizza -> pizzer
-        msg = RegexLowercaseEndingA.Replace(msg, "er");
-        msg = RegexUppercaseEndingA.Replace(msg, "ER");
 
         // bounty -> bounny
         msg = RegexLowercaseNty.Replace(msg, "nn");

@@ -1,6 +1,7 @@
 # SPDX-FileCopyrightText: 2025 McBosserson <148172569+McBosserson@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 starch <starchpersonal@gmail.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2026 Xcybitt <197952719+Xcybitt@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -49,3 +50,15 @@
   - type: Appearance
   - type: Gun
     fireRate: 6
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 5
+    soundHit:
+      collection: MetalThud
+  - type: AltFireMelee
+    attackType: Heavy
+  - type: IncreaseDamageOnWield
+    damage:
+      types:
+        Blunt: 7

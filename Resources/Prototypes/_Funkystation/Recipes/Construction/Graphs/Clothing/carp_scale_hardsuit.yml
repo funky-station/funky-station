@@ -1,0 +1,43 @@
+# SPDX-FileCopyrightText: 2026 ThatOneMoon <juozas.dringelis@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: constructionGraph
+  id: HardsuitCarpScale
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: hardsuitCarpScale
+      steps:
+      - tag: HardsuitSpatio
+        icon:
+          sprite: Clothing/OuterClothing/Hardsuits/spatio.rsi
+          state: icon
+        name: spationaut hardsuit
+      - tag: SharkminnowShoes
+        icon:
+          sprite: _Funkystation/Clothing/Shoes/Misc/sharkminnow.rsi
+          state: icon
+        name: sharkminnow shoes
+      - tag: Jetpack
+        icon:
+          sprite: Objects/Tanks/Jetpacks/mini.rsi
+          state: icon
+        name: jetpack
+        doAfter: 5
+      - tag: SpatioUpgradeKit
+        icon:
+          sprite:  _Funkystation/Objects/Materials/spatio_upgrade_kit.rsi
+          state: icon
+        name: spationaut upgrade kit
+        doAfter: 5
+      - material: Durathread
+        amount: 5
+        doAfter: 5
+      - material: CarpScale
+        amount: 9
+        doAfter: 10
+  - node: hardsuitCarpScale
+    entity: ClothingOuterHardsuitCarpScale
+

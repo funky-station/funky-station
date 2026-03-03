@@ -3,19 +3,31 @@
 // SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
 // SPDX-FileCopyrightText: 2023 Topy <topy72.mine@gmail.com>
 // SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Doctor-Cpu <77215380+Doctor-Cpu@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GabyChangelog <agentepanela2@gmail.com>
+// SPDX-FileCopyrightText: 2025 MilenVolf <63782763+MilenVolf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Will-Oliver-Br <164823659+Will-Oliver-Br@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 Łukasz Lindert <lukasz.lindert@protonmail.com>
+// SPDX-FileCopyrightText: 2026 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
 //
 // SPDX-License-Identifier: MIT
 
+using Content.Server.Popups;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.DragDrop;
 using Content.Shared.FixedPoint;
 using Content.Shared.Fluids;
+using Content.Shared.Nutrition.EntitySystems;
 
 namespace Content.Server.Fluids.EntitySystems;
 
 public sealed partial class PuddleSystem
 {
+    [Dependency] private readonly OpenableSystem _openable = default!;
+    [Dependency] private readonly PopupSystem _popups = default!;
+
     private void InitializeTransfers()
     {
         SubscribeLocalEvent<RefillableSolutionComponent, DragDropDraggedEvent>(OnRefillableDragged);
@@ -25,7 +37,7 @@ public sealed partial class PuddleSystem
     {
         if (!_solutionContainerSystem.TryGetSolution(entity.Owner, entity.Comp.Solution, out var soln, out var solution) || solution.Volume == FixedPoint2.Zero)
         {
-            _popups.PopupEntity(Loc.GetString("mopping-system-empty", ("used", entity.Owner)), entity, args.User);
+            Popups.PopupEntity(Loc.GetString("mopping-system-empty", ("used", entity.Owner)), entity, args.User);
             return;
         }
 

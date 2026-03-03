@@ -5,6 +5,7 @@
 // SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
 // SPDX-FileCopyrightText: 2025 pathetic meowmeow <uhhadd@gmail.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2026 Steve <marlumpy@gmail.com>
 //
 // SPDX-License-Identifier: MIT
 
@@ -136,6 +137,13 @@ public sealed partial class CargoOrderConsoleComponent : Component
     /// </summary>
     [DataField]
     public SoundSpecifier ScanSound = new SoundCollectionSpecifier("CargoBeep");
+
+    /// <summary>
+    /// Funkystation - Atmos
+    /// Whether to show the atmos gas tab in the UI.
+    /// </summary>
+    [DataField, ViewVariables(VVAccess.ReadWrite)]
+    public bool ShowGasExtractorTab { get; set; } = false;
 }
 
 /// <summary>

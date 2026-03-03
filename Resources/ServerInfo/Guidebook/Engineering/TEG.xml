@@ -19,7 +19,7 @@ SPDX-License-Identifier: MIT
   On the station, hot gas is usually created by burning plasma, and an array of [textlink="heat-exchanging" link="Radiators"] pipes in space radiates away heat to cool down circulated gasses.
 
   The TEG relies heavily on [textlink="atmospherics" link="Atmospherics"] [textlink="piping." link="Pipes"]
-  The only truly special component about it is the generator core and circulators; the rest is all off-the-shelf atmospherics equipment.
+  The only truly special components about it are the generator core and circulators; the rest is all off-the-shelf atmospherics equipment.
   Note that while the exact layout may vary significantly depending on the station, the general components and setup are usually the same.
 
   ## Generator
@@ -200,7 +200,7 @@ SPDX-License-Identifier: MIT
     <GuideEntityEmbed Entity="GasPort" Rotation="180" Caption="" Margin="-1"/>
   </Box>
 
-  - Connector Port: Use this to input a gas with high heat capacity; most of the time, Plasma or Frezon is used to do so, as they both have very high specific heat capacities (although almost any gas will do). (Yes, Plasma =/= Hot. You can cool it down, and it acts as a excellent heat exchange medium.)
+  - Connector Port: Use this to input a gas with high heat capacity; most of the time, Plasma or Frezon is used to do so, as they both have very high specific heat capacities (although almost any gas will do). (Yes, Plasma =/= Hot. You can cool it down, and it acts as an excellent heat exchange medium.)
   - Input/Output Pumps: Used to make sure gas keeps flowing through both the Circulator and the radiator array. As the gas cools down and heats up (and as it flows through the Exchanger), pressure must be applied for it to keep flowing.
   - Radiator: Basically, just a bunch of radiators in space. Not much to say, besides the fact that it cools down the gas inside it. Make sure the radiators are [color=#a4885c]placed on lattice, not plating[/color]! Otherwise, the heat-exchange efficiency will be greatly reduced, as the radiators aren't directly exposed to space below them.
 

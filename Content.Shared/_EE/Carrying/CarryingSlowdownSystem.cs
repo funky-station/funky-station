@@ -1,0 +1,33 @@
+// SPDX-FileCopyrightText: 2025 mq <113324899+mqole@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
+using Content.Shared.Movement.Systems;
+
+namespace Content.Shared._EE.Carrying;
+
+public sealed class CarryingSlowdownSystem : EntitySystem
+{
+    [Dependency] private readonly MovementSpeedModifierSystem _movementSpeed = default!;
+
+    public override void Initialize()
+    {
+        base.Initialize();
+
+        SubscribeLocalEvent<CarryingSlowdownComponent, RefreshMovementSpeedModifiersEvent>(OnRefreshMoveSpeed);
+    }
+
+    public void SetModifier(Entity<CarryingSlowdownComponent?> ent, float modifier)
+    {
+        ent.Comp ??= EnsureComp<CarryingSlowdownComponent>(ent);
+        ent.Comp.Modifier = modifier;
+        Dirty(ent, ent.Comp);
+
+        _movementSpeed.RefreshMovementSpeedModifiers(ent);
+    }
+
+    private static void OnRefreshMoveSpeed(Entity<CarryingSlowdownComponent> ent, ref RefreshMovementSpeedModifiersEvent args)
+    {
+        args.ModifySpeed(ent.Comp.Modifier, ent.Comp.Modifier);
+    }
+}

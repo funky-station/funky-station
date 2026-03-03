@@ -1,5 +1,4 @@
 # SPDX-FileCopyrightText: 2025 AtlasHD <99688062+AtlasHDD@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Idem778 <fromidemland@gmail.com>
 # SPDX-FileCopyrightText: 2025 Josh Hilsberg <thejoulesberg@gmail.com>
 # SPDX-FileCopyrightText: 2025 JoulesBerg <104539820+JoulesBerg@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 MaiaArai <158123176+YaraaraY@users.noreply.github.com>
@@ -14,7 +13,12 @@
 # SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 kbarkevich <24629810+kbarkevich@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2026 Idem778 <fromidemland@gmail.com>
+# SPDX-FileCopyrightText: 2026 IdemFromidemland <fromidemland@gmail.com>
+# SPDX-FileCopyrightText: 2026 SigmaTheDragon <162711378+SigmaTheDragon@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2026 Steve <marlumpy@gmail.com>
 # SPDX-FileCopyrightText: 2026 Zergologist <114537969+Chedd-Error@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2026 marc-pelletier <113944176+marc-pelletier@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -77,9 +81,12 @@
   id: InternalAffairsJobTrinkets
   name: loadout-group-jobtrinkets
   minLimit: 0
+  maxLimit: 3
+  # Please change the max limit to match how many items are in this catagory
   loadouts:
   - CommandLighter
   - CentralCommandLighter
+  - CentComPersonalAI
 
 - type: loadoutGroup
   id: ChaplainBible
@@ -169,6 +176,7 @@
   loadouts:
   - CommandLighter
   - CentralCommandLighter
+  - CentComPersonalAI
 
 - type: loadoutGroup
   id: ScienceRoboticistGlasses

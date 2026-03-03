@@ -5,6 +5,7 @@
 // SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2026 TrixxedHeart <46364955+TrixxedBit@users.noreply.github.com>
 //
 // SPDX-License-Identifier: MIT
 
@@ -38,5 +39,11 @@ namespace Content.Server.Stunnable.Components
         /// Fixture we track for the collision.
         /// </summary>
         [DataField("fixture")] public string FixtureID = "projectile";
+
+        /// <summary>
+        /// Optional cap for slowdown effects applied by this component.
+        /// </summary>
+        [DataField("slowdownCap")]
+        public float? SlowdownCap;
     }
 }

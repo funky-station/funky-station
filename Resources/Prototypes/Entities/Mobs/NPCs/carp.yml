@@ -42,16 +42,19 @@
 # SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 no <165581243+pissdemon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Binbag <124107163+Binbagg@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Dani <57107055+wgreen84@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 PicklOH <62030853+PicklOH@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
-# SPDX-FileCopyrightText: 2025 ThatOneMoon <91613003+ThatOneMoon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
-# SPDX-FileCopyrightText: 2025 TheSecondLord <88201625+TheSecondLord@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 V <97265903+formlessnameless@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 misghast <51974455+misterghast@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 mq <113324899+mqole@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2026 ThatOneMoon <91613003+ThatOneMoon@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2026 TheSecondLord <88201625+TheSecondLord@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2026 TrixxedHeart <46364955+TrixxedBit@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -79,6 +82,7 @@
       layers:
       - map: [ "enum.DamageStateVisualLayers.Base" ]
         state: alive
+    - type: Carriable #DeltaV - this is for you, deltanedas o7
     - type: CombatMode
     - type: Physics
     - type: Fixtures
@@ -117,9 +121,9 @@
         - id: MaterialToothSpaceCarp1
           amount: 1
           maxAmount: 4
-        - id: MaterialCarpScale1 # Funky 
+        - id: MaterialCarpScale1 # Funky
           amount: 1
-          prob: 0.1          
+          prob: 0.5
     - type: MeleeWeapon
       altDisarm: false
       angle: 0
@@ -330,7 +334,7 @@
           amount: 1
           maxAmount: 3
         - id: MaterialCarpScale1 # Funky
-          amount: 2
+          amount: 3
           maxAmount: 4
     - type: MeleeWeapon
       damage:

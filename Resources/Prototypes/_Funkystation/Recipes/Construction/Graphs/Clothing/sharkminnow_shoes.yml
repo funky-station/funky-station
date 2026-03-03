@@ -1,4 +1,5 @@
 # SPDX-FileCopyrightText: 2025 Binbag <124107163+Binbagg@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 ThatOneMoon <91613003+ThatOneMoon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
@@ -13,7 +14,7 @@
     - to: sharkminnowShoes
       steps:
         - material: CarpScale
-          amount: 15
+          amount: 6
           doAfter: 8
         - tag: Magboots
           name: magboots

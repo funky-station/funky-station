@@ -5,9 +5,10 @@
 # SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
 # SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2024 a_person <40855173+a-person5660@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 MaiaArai <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Xcybitt <xcybitt@gmail.com>
-# SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2026 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -31,13 +32,13 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitNanotrasenRepresentative
-  name: nanotrasen representative suit
-  description: A black suit worn by officials.
+  name: nanotrasen representative's officer shirt
+  description: A black military-style tunic shirt worn by Nanotrasen officials. The expensive materials make it one-of-a-kind aboard most stations.
   components:
   - type: Sprite
-    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/nanotrasen_representative.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/nanotrasen_representative.rsi
   - type: Clothing
-    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/nanotrasen_representative.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/nanotrasen_representative.rsi
 
 - type: entity
   parent: ClothingUniformBase

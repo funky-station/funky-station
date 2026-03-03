@@ -1896,7 +1896,7 @@ entities:
     - type: Transform
       pos: -0.5419009,-8.289177
       parent: 2
-- proto: NuclearBomb
+- proto: NuclearBombUnanchored
   entities:
   - uid: 313
     components:

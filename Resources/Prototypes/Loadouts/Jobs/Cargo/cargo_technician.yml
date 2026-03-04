@@ -38,6 +38,11 @@
     head: ClothingHeadHatCargoSeniorBeret
   groupBy: "berets"
 
+- type: loadout
+  id: CargoTechnicianHardhat
+  equipment:
+    head: ClothingHeadHatHardhatWhite
+
 # Neck
 - type: loadout
   id: CargoTechnicianLiftBelt
@@ -130,6 +135,11 @@
   equipment:
     outerClothing: ClothingOuterCargoSeniorWindbreaker
   groupBy: "coat"
+
+- type: loadout
+  id: CargoTechnicianOuterVest
+  equipment:
+    outerClothing: ClothingOuterVestHazard
 
 # Shoes
 - type: loadout

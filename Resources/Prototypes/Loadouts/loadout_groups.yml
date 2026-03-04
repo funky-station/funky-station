@@ -1185,6 +1185,7 @@
   - SeniorCargoTechnicianBeret #Funky!
   - RedBeret
   - BlackBeret
+  - CargoTechnicianHardhat # Funky
 
 - type: loadoutGroup
   id: CargoTechnicianNeck
@@ -1231,6 +1232,7 @@
   - CargoTechnicianWindbreaker #Funky!
   - SeniorCargoTechnicianWindbreaker #Funky!
   - CargoTechnicianWintercoatMail # Goob/DeltaV - Mail
+  - CargoTechnicianOuterVest # Funky
 
 - type: loadoutGroup
   id: CargoTechnicianShoes

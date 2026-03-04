@@ -40,6 +40,15 @@ ghost-role-information-mini-dragon-friendly-rules = You are a Domesticated Mini 
                                         You are allowed to remember knowledge about the game in general, such as how to cook, how to use objects, etc.
                                         You are absolutely [color=red]NOT[/color] allowed to remember, say, the name, appearance, etc. of your previous character.
 
+ghost-role-information-terry-name = Terry
+ghost-role-information-terry-desc = It's Terry! Say hello to Terry!
+ghost-role-information-terry-rules = You are a [bold]Terry[/bold]. Help robotics, be a friend to borgs and aid the science team!
+                                        You are friendly to crew, especially to the science department.
+
+                                        You don't remember any of your previous life, and you don't remember anything you learned as a ghost.
+                                        You are allowed to remember knowledge about the game in general, such as how to cook, how to use objects, etc.
+                                        You are absolutely [color=red]NOT[/color] allowed to remember, say, the name, appearance, etc. of your previous character.
+                                        
 ghost-role-information-horrific-necktie-name = Horrific Necktie
 ghost-role-information-horrific-necktie-description = A horribly garish necktie which, through the power of Disco, drinking, and divorce, has gained the ability to speak!
 

@@ -409,10 +409,6 @@
     - SoftCritical
     - HardCritical
     - Dead
-      - Alive
-      - SoftCritical
-      - HardCritical
-      - Dead
   - type: MobStateActions
     actions:
       SoftCritical:

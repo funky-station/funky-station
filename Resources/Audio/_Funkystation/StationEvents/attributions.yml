@@ -17,3 +17,8 @@
   license: "MIT"
   copyright: "Created by Sola (mistsofnowh3r3 on Discord)"
   source: "https://noisyrejects.bandcamp.com/track/dft"
+
+- files: ["osc.ogg"]
+  license: "CC-BY-NC-4.0"
+  copyright: "vectorassembly"
+  source: "https://"vectorassembly.org"

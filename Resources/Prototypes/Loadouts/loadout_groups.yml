@@ -1232,7 +1232,7 @@
   - CargoTechnicianWindbreaker #Funky!
   - SeniorCargoTechnicianWindbreaker #Funky!
   - CargoTechnicianWintercoatMail # Goob/DeltaV - Mail
-  - CargoTechnicianOuterVest # Funky
+  - StationEngineerOuterVest # Funky
 
 - type: loadoutGroup
   id: CargoTechnicianShoes

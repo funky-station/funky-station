@@ -136,11 +136,6 @@
     outerClothing: ClothingOuterCargoSeniorWindbreaker
   groupBy: "coat"
 
-- type: loadout
-  id: CargoTechnicianOuterVest
-  equipment:
-    outerClothing: ClothingOuterVestHazard
-
 # Shoes
 - type: loadout
   id: CargoWinterBoots

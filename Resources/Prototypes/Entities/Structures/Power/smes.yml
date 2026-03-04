@@ -43,6 +43,7 @@
   placement:
     mode: SnapgridCenter
   components:
+    - type: StationAiWhitelist
     - type: AmbientSound
       volume: -7
       range: 3

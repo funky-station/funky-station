@@ -69,6 +69,7 @@
   placement:
     mode: AlignAtmosPipeLayers
   components:
+    - type: StationAiWhitelist
     - type: SubFloorHide
       visibleLayers:
       - enum.SubfloorLayers.FirstLayer
@@ -126,6 +127,7 @@
   placement:
     mode: AlignAtmosPipeLayers
   components:
+  - type: StationAiWhitelist
   - type: SubFloorHide
     visibleLayers:
     - enum.SubfloorLayers.FirstLayer
@@ -177,6 +179,7 @@
   placement:
     mode: AlignAtmosPipeLayers
   components:
+    - type: StationAiWhitelist
     - type: SubFloorHide
       visibleLayers:
       - enum.SubfloorLayers.FirstLayer
@@ -234,6 +237,7 @@
   placement:
     mode: AlignAtmosPipeLayers
   components:
+  - type: StationAiWhitelist
   - type: Sprite
     sprite: Structures/Piping/Atmospherics/gasmixer.rsi
     layers:

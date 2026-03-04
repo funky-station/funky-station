@@ -42,6 +42,7 @@
   abstract: true
   id: CoreSubstation
   components:
+  - type: StationAiWhitelist
   # Core power behavior
   - type: Battery
   - type: ExaminableBattery

@@ -81,6 +81,7 @@
   placement:
     mode: AlignAtmosPipeLayers
   components:
+  - type: StationAiWhitelist
   - type: ExtensionCableReceiver
   - type: LightningTarget
     priority: 1
@@ -145,6 +146,7 @@
   placement:
     mode: AlignAtmosPipeLayers
   components:
+    - type: StationAiWhitelist
     - type: ExtensionCableReceiver
     - type: LightningTarget
       priority: 1

@@ -110,7 +110,7 @@
   parent: HolofanProjector
   id: HolofanProjectorRecharging
   name: holofan projector
-  description: Stop suicidal passengers from killing everyone during atmos emergencies. Comes with a microreactor battery that you should not take out, because you aren't gonna be putting it back again
+  description: Stop suicidal passengers from killing everyone during atmos emergencies. Automatically self-charges.
   suffix: AutoRecharge
   components:
   - type: ItemSlots
@@ -118,6 +118,8 @@
       cell_slot:
         name: power-cell-slot-component-slot-name-default
         startingItem: PowerCellMicroreactor
+        disableEject: true
+        swap: false
 
 
 - type: entity

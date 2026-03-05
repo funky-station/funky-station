@@ -7826,3 +7826,9 @@ Entries:
         with the waistbag and clipboard.
   id: 901
   time: '2026-02-27T22:57:15.0000000+00:00'
+- author: pirakaplant
+  changes:
+    - type: Tweak
+      message: The British accent now changes "dick" to "knob".
+  id: 902
+  time: '2026-03-02T23:57:41.0000000+00:00'

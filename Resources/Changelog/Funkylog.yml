@@ -7832,3 +7832,9 @@ Entries:
       message: The British accent now changes "dick" to "knob".
   id: 902
   time: '2026-03-02T23:57:41.0000000+00:00'
+- author: ALooseGoose
+  changes:
+    - type: Fix
+      message: The Nukie's Nuke now starts unanchored
+  id: 903
+  time: '2026-03-05T13:28:06.0000000+00:00'

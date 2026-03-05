@@ -254,8 +254,8 @@
           - NukeOpsUplink # i guess we dont let nukies have this, they have to mutch TC
   saleLimit: 1
   
- - type: listing
-  id: UplinkMindcontrolImplanter
+- type: listing
+  id: UplinkMindcontrolImplanterNukie
   name: uplink-mindcontrol-implant-name
   description: uplink-mindcontrol-implant-desc
   icon: { sprite: /Textures/Objects/Specific/Medical/syndi_implanter.rsi, state: implanter0 }

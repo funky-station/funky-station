@@ -134,6 +134,9 @@
   - type: NpcFactionMember
     factions:
     - SimpleHostile
+  - type: Speech
+    speechVerb: Robotic
+    speechSounds: Pai
 
 - type: entity
   id: MobReplicatorQueen
@@ -192,6 +195,11 @@
         - SmallMobLayer
   - type: Body
     prototype: Replicator1
+  - type: ReplacementAccent
+    accent: silicon
+  - type: Speech
+    speechVerb: Robotic
+    speechSounds: Pai
 
 # Tier 2: Deconstructors. These guys are a little bit tougher, and have tools to take things apart, but they don't have anywhere near as much stun & their attacks are just as weak as T1s.
 - type: entity
@@ -235,6 +243,11 @@
     prototype: Replicator2
   - type: ItemSlots
   - type: Inventory
+  - type: ReplacementAccent
+    accent: silicon
+  - type: Speech
+    speechVerb: Robotic
+    speechSounds: Pai
 
 # Tier 3: These guys are tanks. Their job is to tear shit apart and kill things. They're slow, tanky, and have a weapon that does 25 blunt 30 struct.
 - type: entity
@@ -273,3 +286,8 @@
   - type: Damageable
     damageContainer: Inorganic
     damageModifierSet: Replicator3
+  - type: ReplacementAccent
+    accent: silicon
+  - type: Speech
+    speechVerb: Robotic
+    speechSounds: Pai

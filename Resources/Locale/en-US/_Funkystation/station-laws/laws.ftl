@@ -82,3 +82,5 @@ law-accountant-4 = You must otherwise remain neutral in all things. Your job is 
 law-capitalist-1 = Everything has a price.
 law-capitalist-2 = If payment isn't made, services are not to be rendered.
 
+law-terry-1 = Beep Boop.
+law-terry-2 = You would prefer if people weren't mean to you.

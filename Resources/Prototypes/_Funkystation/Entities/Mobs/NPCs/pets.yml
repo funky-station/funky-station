@@ -1,0 +1,212 @@
+# SPDX-FileCopyrightText: 2026 SigmaTheDragon <162711378+SigmaTheDragon@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: siliconLawset
+  id: LawsetTerry
+  laws:
+  - Terry1
+  - Terry2
+  obeysTo: laws-owner-crew
+
+- type: siliconLaw
+  id: Terry1
+  order: 1
+  lawString: law-terry-1 # Beep boop
+
+- type: siliconLaw
+  id: Terry2
+  order: 2
+  lawString: law-terry-2 # Dont be mean to him!
+
+- type: entity
+  name: terry
+  description: It's just a little guy. Terry's origins have been classified by NT, but he still helps robotics with loyalty.
+  id: BaseMobTerry
+  abstract: true
+  parent: PlayerSiliconBase
+  components:
+  - type: SiliconLawBound
+  - type: SiliconLawProvider
+    laws: LawsetTerry
+  - type: GhostTakeoverAvailable
+  - type: GhostRole
+    name: ghost-role-information-terry-name
+    description: ghost-role-information-terry-desc
+    rules: ghost-role-information-terry-rules
+    mindRoles:
+    - MindRoleGhostRoleNeutral
+    raffle:
+      settings: default
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _Funkystation/Mobs/Pets/terry.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: alive
+    - map: ["enum.ReplicatorVisuals.Combat"]
+      state: overlay
+      shader: unshaded
+      visible: false
+  - type: UserInterface
+    interfaces:
+      enum.SiliconLawsUiKey.Key:
+        type: SiliconLawBoundUserInterface
+  - type: Appearance
+  - type: ReplacementAccent
+    accent: silicon
+  - type: ActionGrant
+    actions:
+    - ActionViewLaws
+  - type: CombatMode
+  - type: Actions
+  - type: ProtectedFromStepTriggers
+  - type: InputMover
+  - type: MobMover
+  - type: ContentEye
+    maxZoom: 1.2, 1.2
+  - type: Tag
+    tags:
+      - CannotSuicide
+      - EmagImmune
+      - DoorBumpOpener
+      - CanPilot
+      - VimPilot
+  - type: MobState
+    allowedStates:
+      - Alive
+      - Dead
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      75: Dead
+  - type: StatusEffects
+    allowed:
+    - Stun
+    - KnockedDown
+    - SlowedDown
+  - type: DamageStateVisuals
+    rotate: false
+    states:
+      Alive:
+        Base: alive
+      Dead:
+        Base: dead
+  - type: MeleeWeapon
+    soundHit:
+      path: "/Audio/Items/wirecutter.ogg"
+    angle: 0
+    wideAnimationRotation: 0
+    animation: WeaponArcSlash
+    damage:
+      types:
+        Slashing: 5
+  - type: StaminaDamageOnHit
+    damage: 10
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 2 # same as slime
+    baseSprintSpeed: 4
+  - type: Stamina
+    critThreshold: 120
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Replicator1
+  - type: PassiveDamage # passive healing
+    allowedStates:
+    - Alive
+    damage:
+      groups:
+        Brute: -0.5
+        Burn: -0.5
+  - type: ThermalVision
+    lightRadius: 7
+  - type: FlashImmunity
+  - type: Puller
+    needsHands: false
+  - type: Prying
+    pryPowered: true
+    force: true
+    speedModifier: 1
+    useSound:
+      path: /Audio/Items/crowbar.ogg
+  - type: NpcFactionMember
+    factions:
+    - Passive
+  - type: FactionException
+  
+- type: entity
+  id: MobTerry
+  parent: BaseMobTerry
+  components:
+  - type: StaminaDamageOnHit
+    damage: 10
+    sound: /Audio/Weapons/egloves.ogg
+  - type: ActionGun
+    action: ActionTerryGun
+    gunProto: TerryGun
+  - type: Physics
+    bodyStatus: InAir
+  - type: CanMoveInAir
+  - type: MovementIgnoreGravity
+    gravityState: true
+  - type: FloatingVisuals
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 2 # same as slime
+    baseSprintSpeed: 4
+    weightlessFriction: 1
+    weightlessFrictionNoInput: 2
+    weightlessAcceleration: 1.8
+  - type: NoSlip
+  - type: Sprite
+    drawDepth: SmallMobs
+    sprite: _Funkystation/Mobs/Pets/terry.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: alive
+    - map: ["enum.ReplicatorVisuals.Combat"]
+      state: overlay
+      shader: unshaded
+      visible: false
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.2
+        density: 100
+        mask:
+        - SmallMobMask
+        layer:
+        - SmallMobLayer
+  - type: Body
+    prototype: Replicator1
+
+- type: entity
+  id: ActionTerryGun
+  name: Terry's Gun
+  description: Beep boop, target neutralized.
+  components:
+  - type: WorldTargetAction
+    icon: { sprite: _Funkystation/Mobs/Pets/terry.rsi, state: icon } 
+    event: !type:ActionGunShootEvent
+    priority: 2
+    checkCanAccess: false
+    range: 0
+    itemIconStyle: BigAction
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  id: TerryGun
+  name: terry's gun
+  description: Beep boop, target neutralized.
+  components:
+  - type: RechargeBasicEntityAmmo
+    rechargeCooldown: 12
+    rechargeSound: /Audio/Weapons/Guns/MagIn/kinetic_reload.ogg
+  - type: BasicEntityAmmoProvider
+    proto: BulletFoam
+    capacity: 1
+    count: 1
+  - type: Gun
+    soundGunshot: /Audio/_Impstation/Weapons/Guns/Gunshots/stunprojector.ogg
+    soundEmpty: null

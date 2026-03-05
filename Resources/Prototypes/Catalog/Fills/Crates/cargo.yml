@@ -153,6 +153,7 @@
     - id: MobKangarooWillow
     - id: MobSlimesPet
     - id: MobCrabAtmos
+    - id: MobTerry #funky
 
 - type: entity
   parent: CrateEngineering

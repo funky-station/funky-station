@@ -81,6 +81,7 @@
 # SPDX-FileCopyrightText: 2026 TrixxedHeart <46364955+TrixxedBit@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2026 W.xyz() <84605679+pirakaplant@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2026 Xcybitt <197952719+Xcybitt@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2026 w.xyz() <84605679+pirakaplant@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -620,7 +621,7 @@
         - state: base
           map: ["enum.GunVisualLayers.Base"]
     - type: Gun
-      fireRate: 0.5
+      fireRate: 1
       soundGunshot:
         path: /Audio/Weapons/emitter.ogg
         params:

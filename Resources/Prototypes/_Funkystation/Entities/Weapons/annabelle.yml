@@ -1,8 +1,10 @@
 # SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 Dragon232347 <122056448+Dragon232347@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Mish <bluscout78@yahoo.com>
+# SPDX-FileCopyrightText: 2025 Teasq <Xerithin@gmail.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 tea <xerithin@gmail.com>
+# SPDX-FileCopyrightText: 2026 Xcybitt <197952719+Xcybitt@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -35,12 +37,24 @@
   - type: PumpAction
     sound:
       path: /Audio/_RMC14/Weapons/Guns/Pump/gunlevering.ogg
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 5
+    soundHit:
+      collection: MetalThud
+  - type: AltFireMelee
+    attackType: Heavy
+  - type: IncreaseDamageOnWield
+    damage:
+      types:
+        Blunt: 7
 
 - type: entity
   parent: [ClothingOuterStorageBase, AllowBackStorageClothingCombat, BaseChaplainContraband]
   id: ClothingOuterDusterCoat
   name: Duster
-  description: An 18th-century duster trenchcoat, emblazoned with religious imagery
+  description: An 18th-century duster trenchcoat, emblazoned with religious imagery.
   components:
   - type: Sprite
     sprite: _Funkystation/Clothing/OuterClothing/Coats/annabellecoat.rsi

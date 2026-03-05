@@ -1,0 +1,29 @@
+{
+    "version": 1,
+    "license": "CC-BY-NC-4.0",
+    "copyright": "by AraiMaia for FunkyStation",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "peanut"
+        },
+        {
+            "name": "peanut_1"
+        },
+        {
+            "name": "peanut_2"
+        },
+        {
+            "name": "peanut_3"
+        },
+        {
+            "name": "peanut_4"
+        },
+        {
+            "name": "peanut_5"
+        }
+    ]
+}

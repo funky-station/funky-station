@@ -45,7 +45,7 @@
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2026 SharkSnake98 <peanutbuttersharky@gmail.com>
 # SPDX-FileCopyrightText: 2026 SharkSnake98 <sharksnake87@gmail.com>
-# SPDX-FileCopyrightText: 2026 willow <willowzeta632146@proton.me>
+# SPDX-FileCopyrightText: 2026 W.xyz() <84605679+pirakaplant@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -66,6 +66,7 @@
       time: 54000 #15 hrs
     - !type:OverallPlaytimeRequirement
       time: 72000 #20 hrs
+  weight: 10
   startingGear: QuartermasterGear
   icon: "JobIconQuarterMaster"
   supervisors: job-supervisors-captain
@@ -120,6 +121,8 @@
 - type: jobAlternateTitle
   id: QuartermasterSupplyForeman
   name: job-name-alt-qm-4
+  femaleName: job-name-alt-qm-4-f
+  maleName: job-name-alt-qm-4-m
 
 - type: jobAlternateTitle
   id: QuartermasterLogisticsCoordinator

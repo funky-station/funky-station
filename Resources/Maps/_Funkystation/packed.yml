@@ -8108,9 +8108,6 @@ entities:
     - type: RadiationGridResistance
     - type: SpreaderGrid
     - type: ImplicitRoof
-    - type: DnaScannerDiscoveryTracker
-      gridDiscoveredMutations: []
-      gridResearchProgress: {}
     - type: NavMap
   - uid: 4480
     components:
@@ -78408,7 +78405,7 @@ entities:
 
             To Whom It May Concern:
 
-        Due to the increasing spesos deficit incurred by this station in prior shifts, [color=#009100]Central Command[/color] has made the executive decision to liquidate the [color=#f39f27]Engineering[/color] department's Thermo-electric Generator. 
+        Due to the increasing spesos deficit incurred by this station in prior shifts, [color=#009100]Central Command[/color] has made the executive decision to liquidate the [color=#f39f27]Engineering[/color] department's Thermo-electric Generator.
 
 
         Should [color=#f39f27]Engineering[/color] wish to make use of a Thermo-electric Generator in the future, consider purchasing one through your request computer.

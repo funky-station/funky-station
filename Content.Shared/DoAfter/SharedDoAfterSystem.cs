@@ -21,7 +21,6 @@
 
 using System.Diagnostics.CodeAnalysis;
 using System.Threading.Tasks;
-using Content.Shared._Funkystation.Genetics.Mutations.Components;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Damage;
 using Content.Shared.Hands.Components;
@@ -238,15 +237,6 @@ public abstract partial class SharedDoAfterSystem : EntitySystem
         }
 
         id = new DoAfterId(args.User, comp.NextId++);
-
-        // Funkystation - Genetics DoAfter Modifier Mutation
-        if (TryComp<MutationDoAfterModifierComponent>(args.User, out var modComp))
-        {
-            var newSeconds = args.Delay.TotalSeconds * modComp.Multiplier;
-            args.Delay = TimeSpan.FromSeconds(newSeconds);
-        }
-        // End of Funkystation changes
-
         var doAfter = new DoAfter(id.Value.Index, args, GameTiming.CurTime);
 
         // Networking yay

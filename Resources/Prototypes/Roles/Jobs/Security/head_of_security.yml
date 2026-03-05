@@ -86,7 +86,6 @@
       inverted: true
       traits:
       - Pacifist
-  weight: 10
   startingGear: HoSGear
   icon: "JobIconHeadOfSecurity"
   supervisors: job-supervisors-captain

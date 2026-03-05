@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 mubururu_ <139181059+muburu@users.noreply.github.com>
+#
+# SPDX-License-Identifier: MIT
+
 - type: localizedDataset
   id: NamesDragon
   values:

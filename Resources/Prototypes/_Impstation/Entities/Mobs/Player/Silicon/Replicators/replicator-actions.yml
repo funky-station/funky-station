@@ -29,6 +29,26 @@
     useDelay: 20
 
 - type: entity
+  id: ReplicatorOmnitoolAction
+  name: Equip Omnitool
+  description: Equips an Omnitool into your hand.
+  components:
+  - type: InstantAction
+    itemIconStyle: NoItem
+    icon: Objects/Tools/omnitool.rsi/omnitool-prying.png
+    event: !type:ReplicatorOmnitoolActionEvent
+
+- type: entity
+  id: ReplicatorWelderAction
+  name: Equip Welder
+  description: Equips a Welder into your hand.
+  components:
+  - type: InstantAction
+    itemIconStyle: NoItem
+    icon: Objects/Tools/welder.rsi/icon.png
+    event: !type:ReplicatorWelderActionEvent
+
+- type: entity
   id: ActionReplicatorUpgrade3
   name: Upgrade (Tier 3)
   description: Gather nanites. Become stronger.

@@ -27,6 +27,7 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Network;
 using Robust.Shared.Timing;
 using Content.Shared.Hands.Components;
+using Content.Shared.Interaction.Components;
 
 namespace Content.Shared._Impstation.Replicator;
 
@@ -271,18 +272,17 @@ public abstract class SharedReplicatorNestSystem : EntitySystem
             if (!EntityManager.EntityExists(upgradedUid))
                 return;
 
-            TryComp<HandsComponent>(upgradedUid, out var hands);
+            if (!TryComp<HandsComponent>(upgradedUid, out var hands))
+                return;
 
-            var ReplicatorOmnitool = Spawn("OmnitoolUnremoveable");
-            var ReplicatorWelder = Spawn("WelderExperimentalUnremoveable");
-            _handsSystem.AddHand(upgradedUid, "Left Tool Slot", HandLocation.Left);
-            _handsSystem.AddHand(upgradedUid, "Right Tool Slot", HandLocation.Right);
-            _handsSystem.TrySetActiveHand(upgradedUid, "Right Tool Slot");
-            _handsSystem.TryPickupAnyHand(upgradedUid, ReplicatorOmnitool);
-             _handsSystem.TrySetActiveHand(upgradedUid, "Left Tool Slot");
-            _handsSystem.TryPickupAnyHand(upgradedUid, ReplicatorWelder);
+            _handsSystem.AddHand(upgradedUid, "ReplicatorHand", HandLocation.Middle);
+            var tool = Spawn("OmnitoolUnremoveable");
+            _handsSystem.DoPickup(upgradedUid, hands.Hands["ReplicatorHand"], tool);
+            EnsureComp<UnremoveableComponent>(tool);
 
-        };
+            _actions.AddAction(upgradedUid, "ReplicatorOmnitoolAction");
+            _actions.AddAction(upgradedUid, "ReplicatorWelderAction");
+        }
     }
 
     public void OnUpgrade3(Entity<ReplicatorComponent> ent, ref ReplicatorUpgrade3ActionEvent args)
@@ -302,12 +302,13 @@ public abstract class SharedReplicatorNestSystem : EntitySystem
             if (!EntityManager.EntityExists(upgradedUid))
                 return;
 
-            TryComp<HandsComponent>(upgradedUid, out var hands);
+            if (!TryComp<HandsComponent>(upgradedUid, out var hands))
+                return;
 
-            var ReplicatorArm = Spawn("ReplicatorT3Weapon");
-            _handsSystem.AddHand(upgradedUid, "Arm", HandLocation.Middle);
-            _handsSystem.TryPickupAnyHand(upgradedUid, ReplicatorArm);
-
+            _handsSystem.AddHand(upgradedUid, "ReplicatorHand", HandLocation.Middle);
+            var tool = Spawn("ReplicatorT3Weapon");
+            _handsSystem.DoPickup(upgradedUid, hands.Hands["ReplicatorHand"], tool);
+            EnsureComp<UnremoveableComponent>(tool);
         };
     }
 

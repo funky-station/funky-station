@@ -1372,6 +1372,7 @@
   loadouts:
   - LizardPlushieChiefEngineer
   - CommandLighter # Funky Change
+  - TrainWhistleChiefEngineer # Funky
 
 - type: loadoutGroup
   id: TechnicalAssistantJumpsuit

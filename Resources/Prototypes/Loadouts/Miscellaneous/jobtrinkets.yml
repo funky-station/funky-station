@@ -486,10 +486,10 @@
     requirement:
       !type:DepartmentTimeRequirement
       department: CentralCommand
-      time: 180000 #50 hrs      
+      time: 180000 #50 hrs
   storage:
     back:
-    - CentCommFlippo      
+    - CentCommFlippo
 
 - type: loadout
   id: ClownLighter
@@ -498,17 +498,17 @@
     requirement:
       !type:RoleTimeRequirement
       role: JobClown
-      time: 180000 #50 hrs      
+      time: 180000 #50 hrs
   storage:
     back:
     - HonkCoFlippo
 
 - type: loadout
   id: LizardPlushieRoboticist
-  effects: 
+  effects:
   - !type:JobRequirementLoadoutEffect
    requirement:
-     !type:RoleTimeRequirement 
+     !type:RoleTimeRequirement
       role: JobRoboticist
       time: 360000 # 100hr
   storage:
@@ -522,7 +522,20 @@
     requirement:
       !type:DepartmentTimeRequirement
       department: CentralCommand
-      time: 180000 #50 hrs      
+      time: 180000 #50 hrs
   storage:
     back:
     - CentcommPersonalAI
+
+# Funky
+- type: loadout
+  id: TrainWhistleChiefEngineer
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobChiefEngineer
+      time: 360000 # 100hr
+  storage:
+    back:
+    - TrainWhistle

@@ -1,8 +1,10 @@
 // SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2023 Jezithyr <jezithyr@gmail.com>
 // SPDX-FileCopyrightText: 2024 Alfred Baumann <93665570+CheesePlated@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 MaiaArai <158123176+YaraaraY@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2026 Jemtamird <224420336+Jemtamird@users.noreply.github.com>
 //
 // SPDX-License-Identifier: MIT
 
@@ -34,7 +36,7 @@ namespace Content.Shared.Mobs.Components
         public HashSet<MobState> AllowedStates = new()
             {
                 MobState.Alive,
-                MobState.HardCritical,
+                MobState.Critical,
                 MobState.Dead
             };
     }

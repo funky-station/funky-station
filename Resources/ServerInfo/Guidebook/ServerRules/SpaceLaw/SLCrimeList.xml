@@ -187,8 +187,9 @@ SPDX-License-Identifier: MIT
         [color=black]Trespass (T)[/color]
       </Box>
     </ColorBox>
-    <ColorBox>
+    <ColorBox Color="#e02894">
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+		[color=black]Fraud (F)[/color]
       </Box>
     </ColorBox>
     <ColorBox Color="#9698ED">
@@ -196,8 +197,9 @@ SPDX-License-Identifier: MIT
         [color=black]Secure Trespass (T)[/color]
       </Box>
     </ColorBox>
-    <ColorBox>
+    <ColorBox Color="#e02894">
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+		[color=black]Grand Fraud (F)[/color]
       </Box>
     </ColorBox>
     <ColorBox>
@@ -437,6 +439,21 @@ SPDX-License-Identifier: MIT
         Leaders of a riot can be charged with all crimes that happen under their lead.
       </Box>
     </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Fraud
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        To intentionally use deception or trickery for personal gain, or to harm.
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Includes topics such as cons, forgeries, and more. A catchall for deceptive, harmful, practices. See Grand Fraud for advanced cases.
+      </Box>
+    </ColorBox>
   </Table>
 
   ## III Degree Crimes
@@ -630,6 +647,21 @@ SPDX-License-Identifier: MIT
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
         This only changes from attempted to full on murder if the victim enters a state of being deceased, having to be resurrected.
+      </Box>
+    </ColorBox>
+	<ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Grand Fraud
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        To intentionally use deception or trickery for personal gain, or to harm, involving fabrication at a Command, Central Command, or other serious level.
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Meant for Fraud at a higher level. Forging CC commands, pretending to be a CC inspectors, playing telephone with Captain and HOP to get All Access, etc. If it requires impersonation of Command or CC credentials or approval, it is likely Grand Fraud.
       </Box>
     </ColorBox>
   </Table>

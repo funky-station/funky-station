@@ -166,7 +166,7 @@
 
 - type: entity
   id: LockerAtmosphericsFilledNoFireSuit # Funkystation - fire suit lockers without the fire suit, for more variety in atmospherics lockers
-  suffix: Filled
+  suffix: Filled, NoFireSuit
   parent: LockerAtmospherics
   components:
   - type: StorageFill
@@ -184,7 +184,7 @@
 
 - type: entity
   id: LockerEngineerFilledFireSuit # Funkystation - engineering lockers with the fire suit, for more variety in engineering lockers
-  suffix: Filled, Hardsuit
+  suffix: Filled, Hardsuit, FireSuit
   parent: LockerEngineer
   components:
   - type: StorageFill

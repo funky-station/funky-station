@@ -80,7 +80,7 @@
   objectType: Item
 
 - type: construction
-  name: chemical analysis jamjar glasses
+  name: chemical analysis jamjar goggles
   id: ClothingEyesGlassesChemjar
   graph: jamjarGlassesChem
   startNode: start
@@ -102,7 +102,7 @@
   objectType: Item
 
 - type: construction
-  name: engineering jamgoggles
+  name: meson jamgoggles
   id: ClothingEyesGlassesJamgog
   graph: jamjarGlassesEngi
   startNode: start
@@ -165,4 +165,26 @@
   category: construction-category-clothing
   description: Upgraded glasses that provide a medical HUD.
   icon: { sprite: _Funkystation/Clothing/Eyes/Glasses/medglasses.rsi, state: icon }
+  objectType: Item
+
+- type: construction
+  name: cheap sunjar glasses
+  id: ClothingEyesGlassesCheapSunjar
+  graph: JamjarGlassesCheapSun
+  startNode: start
+  targetNode: cheapSunjarGlasses
+  category: construction-category-clothing
+  description: These retro glasses remind you of the time you thought you had flash protection, but actually didn't.
+  icon: { sprite: _Funkystation/Clothing/Eyes/Jamjars/sunjar.rsi, state: icon }
+  objectType: Item
+
+- type: construction
+  name: sunjar glasses
+  id: ClothingEyesGlassesSunjar
+  graph: JamjarGlassesSun
+  startNode: start
+  targetNode: sunjarGlasses
+  category: construction-category-clothing
+  description: These retro glasses remind you of dork chic.
+  icon: { sprite: _Funkystation/Clothing/Eyes/Jamjars/sunjar.rsi, state: icon }
   objectType: Item

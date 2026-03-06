@@ -50,6 +50,15 @@
   equipment:
     eyes: ClothingEyesGlassesJamjar
 
+# Jamjar
+- type: loadout
+  id: GlassesCheapSunjar
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: JamjarTimer
+  equipment:
+    eyes: ClothingEyesGlassesCheapSunjar
+
 # Jensen
 - type: loadout
   id: GlassesJensen

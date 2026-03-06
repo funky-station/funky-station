@@ -118,7 +118,7 @@
               doAfter: 5
     - node: engijarGlasses
       entity: ClothingEyesGlassesJamgog
-  
+
 - type: constructionGraph
   id: glassesSungar
   start: start
@@ -216,3 +216,49 @@
               doAfter: 5
     - node: medGlasses
       entity: ClothingEyesGlassesMed
+
+- type: constructionGraph
+  id: JamjarGlassesCheapSun
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: cheapSunjarGlasses
+      steps:
+      - tag: JamjarBase
+        name: jamjar glasses
+        icon:
+          sprite: Clothing/Eyes/Glasses/jamjar.rsi
+          state: icon
+        doAfter: 5
+      - tag: CheapSunglasses
+        name: cheap sunglasses
+        icon:
+          sprite: Clothing/Eyes/Glasses/sunglasses.rsi
+          state: icon
+        doAfter: 5
+  - node: cheapSunjarGlasses
+    entity: ClothingEyesGlassesCheapSunjar
+
+- type: constructionGraph
+  id: JamjarGlassesSun
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: sunjarGlasses
+      steps:
+      - tag: JamjarBase
+        name: jamjar glasses
+        icon:
+          sprite: Clothing/Eyes/Glasses/jamjar.rsi
+          state: icon
+        doAfter: 5
+      - tag: Sunglasses
+        name: sun glasses
+        icon:
+          sprite: Clothing/Eyes/Glasses/sunglasses.rsi
+          state: icon
+        doAfter: 5
+  - node: sunjarGlasses
+    entity: ClothingEyesGlassesSunjar

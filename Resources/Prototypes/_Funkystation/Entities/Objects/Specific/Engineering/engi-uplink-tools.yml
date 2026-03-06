@@ -1,0 +1,51 @@
+# SPDX-FileCopyrightText: 2026 mkanke-real <mikekanke@gmail.com>
+#
+# SPDX-License-Identifier: MIT
+
+- type: entity
+  parent: ClothingHeadHatCone
+  id: ClothingSyndiHeadHatCone
+  name: warning cone
+  description: This cone is trying to warn you of something!
+  suffix: Syndi
+  components:
+  - type: Storage
+    grid:
+    - 0,0,0,1
+    maxItemSize: Small
+  - type: UserInterface
+    interfaces:
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+      hidden_slot: !type:ContainerSlot
+  - type: ItemSlots
+    slots:
+      hidden_slot:
+        name: computer_slot_accessory
+        whitelist:
+          tags:
+          - ListeningBug
+
+- type: entity
+  parent: NetworkConfigurator
+  id: NetworkConfiguratorWithTrigger
+  name: network configurator
+  description: A tool for linking devices together. Has two modes, a list mode for mass linking devices and a linking mode for advanced device linking.
+  suffix: Syndi
+  components:
+  - type: Signaller
+  - type: UseDelay
+  - type: DeviceLinkSource
+    ports:
+    - Pressed
+  - type: Tag
+    tags:
+    - Payload
+  - type: DeviceNetwork
+    deviceNetId: Wireless
+    receiveFrequencyId: BasicDevice
+  - type: WirelessNetworkConnection
+    range: 50

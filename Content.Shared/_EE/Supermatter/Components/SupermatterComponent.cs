@@ -9,6 +9,7 @@
 using Content.Shared.Atmos;
 using Content.Shared.DeviceLinking;
 using Content.Shared.DoAfter;
+using Content.Shared.Mobs.Components;
 using Content.Shared.Radio;
 using Content.Shared.Speech;
 using Robust.Shared.Audio;
@@ -236,6 +237,12 @@ public sealed partial class SupermatterComponent : Component
     /// </summary>
     [DataField]
     public float AnomalyPyroChance = 2500f;
+
+    /// <summary>
+    /// The Entities that are hallucinating because of the suppermatter.
+    /// </summary>
+    [DataField]
+    public HashSet<Entity<MobStateComponent>> Hallucinating = new();
 
     #endregion
 

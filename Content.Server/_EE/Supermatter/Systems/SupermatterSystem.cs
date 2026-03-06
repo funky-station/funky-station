@@ -75,8 +75,6 @@ public sealed partial class SupermatterSystem : EntitySystem
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
 
-    private readonly HashSet<Entity<MobStateComponent>> _hallucinating = new();
-
     public override void Initialize()
     {
         base.Initialize();

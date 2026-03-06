@@ -1,9 +1,11 @@
-# SPDX-FileCopyrightText: 2025 Fr0goo <frogoofrog@outlook.com>
+# SPDX-FileCopyrightText: 2026 Fr0goo <frogoofrog@outlook.com>
+# SPDX-FileCopyrightText: 2026 Frogoo <153249069+Fr0goo@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-# gaint mass of diffrent colors of the jumpsuits and jumpskirt
+# this is for clothes and other stuff that dont fit into any department and stuff so it doesnt take up space elsewhere
 
+#THE GAINT MASS OF COLORED JUMPSUITS AND JUMPSKIRTS
 # White
 - type: loadout
   id: WhiteJumpsuit
@@ -83,7 +85,6 @@
   groupBy: "colorjumpskirt"
 
 # Red
-
 - type: loadout
   id: RedJumpsuit
   equipment:
@@ -107,3 +108,29 @@
   equipment:
     jumpsuit: ClothingUniformJumpskirtColorPink
   groupBy: "colorjumpskirt"
+
+# jumpsuits/jumpskirts
+- type: loadout
+  id: HawaiBlack
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitHawaiBlack
+  groupBy: "jumpsuit"
+
+- type: loadout
+  id: HawaiBlue
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitHawaiBlue
+  groupBy: "jumpsuit"
+
+- type: loadout
+  id: HawaiRed
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitHawaiRed
+  groupBy: "jumpsuit"
+
+- type: loadout
+  id: HawaiYellow
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitHawaiYellow
+  groupBy: "jumpsuit"
+

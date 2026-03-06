@@ -10,6 +10,8 @@
 // SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2026 TheHolyAegis <76066612+TheHolyAegis@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2026 copilot-swe-agent[bot] <198982749+Copilot@users.noreply.github.com>
 //
 // SPDX-License-Identifier: MIT
 
@@ -47,6 +49,12 @@ public sealed partial class MachineBoardComponent : Component
     [DataField(required: true)]
     public EntProtoId Prototype;
 }
+
+/// <summary>
+/// Marker component for any item that's machine board-like without necessarily being a MachineBoardComponent
+/// </summary>
+[RegisterComponent, NetworkedComponent]
+public sealed partial class CircuitboardComponent : Component;
 
 [DataDefinition, Serializable]
 public partial struct GenericPartInfo

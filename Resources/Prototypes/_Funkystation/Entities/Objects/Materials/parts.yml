@@ -108,12 +108,3 @@
     state: rods
   - type: Stack
     count: 1
-
-- type: entity
-  parent: PartRodUranium
-  id: PartRodUraniumLingering0
-  suffix: Lingering, 0
-  components:
-  - type: Stack
-    lingering: true
-    count: 0

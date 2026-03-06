@@ -17,8 +17,13 @@
 // SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
 // SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
+// SPDX-FileCopyrightText: 2025 Toastermeister <215405651+Toastermeister@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2026 TheHolyAegis <76066612+TheHolyAegis@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2026 TheHolyAegis <sanderkamphuis719@gmail.com>
+// SPDX-FileCopyrightText: 2026 copilot-swe-agent[bot] <198982749+Copilot@users.noreply.github.com>
 //
 // SPDX-License-Identifier: MIT
 
@@ -111,11 +116,22 @@ namespace Content.Client.Hands.Systems
                 List<Hand> addedHands = new();
                 foreach (var hand in state.Hands)
                 {
-                    if (component.Hands.ContainsKey(hand.Name))
+                    if (component.Hands.TryGetValue(hand.Name, out var existing))
+                    {
+                        // Update mutable display properties for existing hands.
+                        existing.EmptyRepresentative = hand.EmptyRepresentative;
+                        existing.EmptyLabel = hand.EmptyLabel;
+                        existing.Whitelist = hand.Whitelist;
+                        existing.Blacklist = hand.Blacklist;
                         continue;
+                    }
 
                     var container = _containerSystem.EnsureContainer<ContainerSlot>(uid, hand.Name, manager);
                     var newHand = new Hand(hand.Name, hand.Location, container);
+                    newHand.EmptyRepresentative = hand.EmptyRepresentative;
+                    newHand.EmptyLabel = hand.EmptyLabel;
+                    newHand.Whitelist = hand.Whitelist;
+                    newHand.Blacklist = hand.Blacklist;
                     component.Hands.Add(hand.Name, newHand);
                     addedHands.Add(newHand);
                 }

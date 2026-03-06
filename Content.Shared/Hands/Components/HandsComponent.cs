@@ -37,13 +37,17 @@
 // SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 // SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2026 TheHolyAegis <76066612+TheHolyAegis@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2026 copilot-swe-agent[bot] <198982749+Copilot@users.noreply.github.com>
 //
 // SPDX-License-Identifier: MIT
 
 using Content.Shared.DisplacementMap;
 using Content.Shared.Hands.EntitySystems;
+using Content.Shared.Whitelist;
 using Robust.Shared.Containers;
 using Robust.Shared.GameStates;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 
 namespace Content.Shared.Hands.Components;
@@ -165,6 +169,27 @@ public sealed class Hand //TODO: This should definitely be a struct - Jezi
     public EntityUid? HeldEntity => Container?.ContainedEntity;
 
     public bool IsEmpty => HeldEntity == null;
+
+    /// <summary>
+    /// The label to be displayed for this hand when it does not contain an entity.
+    /// </summary>
+    public LocId? EmptyLabel;
+
+    /// <summary>
+    /// The prototype ID of a "representative" entity prototype for what this hand could hold, used in the UI.
+    /// It is not map-initted.
+    /// </summary>
+    public EntProtoId? EmptyRepresentative;
+
+    /// <summary>
+    /// What this hand is allowed to hold.
+    /// </summary>
+    public EntityWhitelist? Whitelist;
+
+    /// <summary>
+    /// What this hand is not allowed to hold.
+    /// </summary>
+    public EntityWhitelist? Blacklist;
 
     public Hand(string name, HandLocation location, ContainerSlot? container = null)
     {

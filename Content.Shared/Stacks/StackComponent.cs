@@ -22,6 +22,8 @@
 // SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2026 TheHolyAegis <76066612+TheHolyAegis@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2026 copilot-swe-agent[bot] <198982749+Copilot@users.noreply.github.com>
 //
 // SPDX-License-Identifier: MIT
 
@@ -60,13 +62,6 @@ namespace Content.Shared.Stacks
         [DataField("unlimited")]
         [ViewVariables(VVAccess.ReadOnly)]
         public bool Unlimited { get; set; }
-
-        /// <summary>
-        /// Lingering stacks will remain present even when there are no items.
-        /// Instead, they will become transparent.
-        /// </summary>
-        [DataField("lingering"), ViewVariables(VVAccess.ReadWrite)]
-        public bool Lingering;
 
         [DataField("throwIndividually"), ViewVariables(VVAccess.ReadWrite)]
         public bool ThrowIndividually { get; set; } = false;
@@ -113,13 +108,10 @@ namespace Content.Shared.Stacks
         public int Count { get; }
         public int? MaxCount { get; }
 
-        public bool Lingering;
-
-        public StackComponentState(int count, int? maxCount, bool lingering)
+        public StackComponentState(int count, int? maxCount)
         {
             Count = count;
             MaxCount = maxCount;
-            Lingering = lingering;
         }
     }
 }

@@ -5,6 +5,8 @@
 // SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 // SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2026 TheHolyAegis <76066612+TheHolyAegis@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2026 copilot-swe-agent[bot] <198982749+Copilot@users.noreply.github.com>
 //
 // SPDX-License-Identifier: MIT
 
@@ -29,14 +31,14 @@ public sealed partial class HotbarGui : UIWidget
         LayoutContainer.SetGrowVertical(this, LayoutContainer.GrowDirection.Begin);
     }
 
-    public void UpdatePanelEntityLeft(EntityUid? entity)
+    public void UpdatePanelEntityLeft(EntityUid? entity, string? noItemText = null)
     {
-        StatusPanelLeft.Update(entity);
+        StatusPanelLeft.Update(entity, noItemText);
     }
 
-    public void UpdatePanelEntityRight(EntityUid? entity)
+    public void UpdatePanelEntityRight(EntityUid? entity, string? noItemText = null)
     {
-        StatusPanelRight.Update(entity);
+        StatusPanelRight.Update(entity, noItemText);
     }
 
     public void SetHighlightHand(HandUILocation? hand)

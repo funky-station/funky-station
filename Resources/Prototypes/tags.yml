@@ -545,6 +545,12 @@
   id: ComputerTelevisionCircuitboard
 
 - type: Tag
+  id: ConstructionMaterial
+
+- type: Tag
+  id: MachinePart
+
+- type: Tag
   id: ConveyorAssembly
 
 - type: Tag

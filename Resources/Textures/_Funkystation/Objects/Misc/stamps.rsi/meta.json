@@ -1,7 +1,7 @@
 {
     "version": 1,
     "license": "CC-BY-SA-3.0",
-    "copyright": "By AraiMaia for Funky Station, centcomintern by TheHolyAegis for Funky Station",
+    "copyright": "By AraiMaia for Funky Station, centcomintern by TheHolyAegis for Funky Station, ert-lawyer and investigator by Sigma Draconis for Funky Station",
     "size": {
         "x": 32,
         "y": 32
@@ -18,6 +18,12 @@
         },
         {
             "name": "stamp-centcomintern"
+        },
+        {
+            "name": "stamp-ert-lawyer"
+        },
+        {
+            "name": "stamp-investigator"
         }
     ]
 }

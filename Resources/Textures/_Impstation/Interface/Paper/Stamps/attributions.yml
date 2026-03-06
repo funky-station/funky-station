@@ -55,3 +55,10 @@
   license: "CC-BY-SA-3.0"
   copyright: "Stamp icons by stabithar for FunkyStation"
   source: "https://funkystation.org/"
+
+- files:
+  - large_stamp-investigator.png
+  - large_stamp-ert-lawyer.png
+  license: "CC-BY-SA-3.0"
+  copyright: "Stamp icons by Sigma Draconis for FunkyStation"
+  source: "https://funkystation.org/"

@@ -165,6 +165,47 @@
       - id: AirGrenade
 
 - type: entity
+  id: LockerAtmosphericsFilledNoFireSuit # Funkystation - fire suit lockers without the fire suit, for more variety in atmospherics lockers
+  suffix: Filled
+  parent: LockerAtmospherics
+  components:
+  - type: StorageFill
+    contents:
+      - id: ClothingMaskGasAtmos
+      - id: ClothingOuterSuitAtmosFire
+      - id: ClothingHeadHelmetAtmosFire
+      - id: OxygenTankFilled
+      - id: NitrogenTankFilled
+      - id: MedkitOxygenFilled
+      - id: HolofanProjector
+      - id: DoorRemoteFirefight # Goobstation - re adding fire door remote
+      - id: ClothingBackpackFirefighterTank
+      - id: AirGrenade
+
+- type: entity
+  id: LockerEngineerFilledFireSuit # Funkystation - engineering lockers with the fire suit, for more variety in engineering lockers
+  suffix: Filled, Hardsuit
+  parent: LockerEngineer
+  components:
+  - type: StorageFill
+    contents:
+      - id: ClothingMaskGasAtmos
+      - id: ClothingOuterSuitAtmosFire
+      - id: ClothingHeadHelmetAtmosFire
+      - id: OxygenTankFilled
+      - id: NitrogenTankFilled
+      - id: ClothingHandsGlovesColorYellow
+      - id: HolotapeProjector #funky!
+      - id: ClothingMaskGas
+      - id: ClothingShoesBootsMag
+      - id: RCD
+      - id: RPD #funkystation
+      - id: RCDAmmo
+      - id: BoxInflatable # funky
+      - id: MaterialBag #funky!
+      - id: MetalFoamGrenade #funky!
+
+- type: entity
   id: LockerEngineerFilledHardsuit
   suffix: Filled, Hardsuit
   parent: LockerEngineer

@@ -1,0 +1,25 @@
+- type: entity
+  id: BriefcaseSyndieAnacondaBundleFilled
+  parent: BriefcaseBrown
+  suffix: Syndicate, Anaconda Bundle
+  components:
+  - type: Item
+    size: Ginormous
+  - type: Storage
+    maxItemSize: Huge
+    grid:
+    - 0,0,6,3
+  - type: StorageFill
+    contents:
+      - id: WeaponAnaconda
+      - id: SpeedLoaderAnaconda
+        amount: 2
+      - id: ClothingUniformJumpsuitSyndieFormal
+      - id: ClothingShoesColorWhite
+      - id: ClothingHandsGlovesLatex
+      - id: ClothingNeckTieRed
+      - id: ClothingMaskJackal
+#      - id: ClothingHeadHatCowboyRed
+#      - id: ClothingShoesBootsCowboyBlack
+#      - id: ClothingOuterBlackPoncho
+#      - id: ClothingUniformJumpsuitFlannel

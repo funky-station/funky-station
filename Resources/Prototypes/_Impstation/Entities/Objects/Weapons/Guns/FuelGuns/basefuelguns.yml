@@ -1,0 +1,222 @@
+# Flamethrowers that specifically want welding fuel and only want to refuel at Welding Fuel sources
+- type: entity
+  name: BaseWeaponFlamer
+  parent: [ BaseItem, BaseGunWieldable ]
+  id: BaseWeaponFlamer
+  abstract: true
+  description: A rooty tooty point and shooty.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Weapons/Guns/FuelGuns/xiuhcoatl.rsi
+    layers:
+      - state: base
+        map: ["enum.GunVisualLayers.Base"]
+      - state: mag-unshaded-4
+        map: ["enum.GunVisualLayers.MagUnshaded"]
+        shader: unshaded
+  - type: Clothing
+    sprite: _Impstation/Objects/Weapons/Guns/FuelGuns/xiuhcoatl.rsi
+    quickEquip: false
+    slots:
+    - Back
+    - backStorage
+  - type: Appearance
+  - type: AmmoCounter
+  - type: Item
+    sprite: _Impstation/Objects/Weapons/Guns/FuelGuns/xiuhcoatl.rsi
+    size: Ginormous
+  - type: Gun
+    projectileSpeed: 16
+    clumsyProof: false
+    cameraRecoilScalar: 0
+    fireRate: 10
+    selectedMode: FullAuto
+    availableModes:
+    - FullAuto
+    soundGunshot:
+      path: /Audio/_Impstation/Weapons/Guns/Gunshots/flamethrower.ogg
+  - type: GunRequiresWield
+  - type: StaticPrice
+    price: 100
+  - type: PhysicalComposition
+    materialComposition:
+      Plastic: 100
+      Steel: 400
+  - type: IgnitionSource
+    temperature: 700
+  - type: MeleeWeapon
+    range: 1.5
+    attackRate: 0.4 #slower, but hits harder; bigger object to shove with
+    damage:
+      types:
+        Blunt: 4
+        Heat: 12
+    wideAnimationRotation: -90
+    angle: 0
+    animation: WeaponArcThrust
+    soundHit:
+      path: /Audio/Weapons/Guns/Hits/energy_meat1.ogg
+      params:
+        variation: 0.250
+  - type: StaminaDamageOnHit
+    damage: 15 #slight stagger, but still like 7 hits to stun completely
+  - type: MeleeRequiresWield
+  - type: MeleeThrowOnHit
+    distance: 0.8
+    speed: 5
+  - type: DamageOtherOnHit #for throwing
+#    staminaCost: 15
+    damage:
+      types:
+        Blunt: 12
+        Heat: 4
+    soundHit:
+      path: /Audio/Effects/hit_kick.ogg
+
+# Echion weapons that specifically want to only use Echion and refuel from those sources
+- type: entity
+  name: BaseWeaponEchion
+  parent: BaseItem
+  id: BaseWeaponEchion
+  description: A rooty tooty point and shooty.
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Weapons/Guns/FuelGuns/adder.rsi
+  - type: Clothing
+    sprite: _Impstation/Objects/Weapons/Guns/FuelGuns/adder.rsi
+  - type: Appearance
+  - type: AmmoCounter
+  - type: MagazineVisuals
+    magState: mag
+    steps: 5
+    zeroVisible: true
+  - type: Item
+    sprite: _Impstation/Objects/Weapons/Guns/FuelGuns/adder.rsi
+    size: Small
+  - type: Gun
+    clumsyProof: false
+    cameraRecoilScalar: 1
+    fireRate: 4
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/_Impstation/Weapons/Guns/Gunshots/akurra.ogg
+  - type: SolutionContainerManager
+    solutions:
+      chamber:
+        reagents:
+        - ReagentId: Echion
+          Quantity: 15
+        maxVol: 15 #12 shots
+  - type: SolutionAmmoProvider
+    solutionId: chamber
+    proto: BulletPlasmaAdder
+    fireCost: 1.25
+  - type: SolutionItemStatus
+    solution: chamber
+  - type: SolutionRefuel
+    fuelSolutionName: chamber
+    fuelReagent: Echion
+  - type: ExaminableSolution
+    solution: chamber
+  - type: Tag
+    tags:
+    - EchionGun
+  - type: StaticPrice
+    price: 100
+  - type: MeleeWeapon
+    range: 0.8
+    attackRate: 0.8
+    damage:
+      types:
+        Blunt: 5
+    soundHit:
+      path: /Audio/Effects/hit_kick.ogg
+    soundSwing:
+      path: /Audio/_Impstation/Weapons/Guns/Melee/shove_foley.ogg
+    resetOnHandSelected: false
+    wideAnimationRotation: -80
+  - type: AltFireMelee
+    attackType: Heavy
+  - type: DamageOtherOnHit #for throwing
+#    staminaCost: 6
+    damage:
+      types:
+        Blunt: 5
+
+# Fuel guns that refuel by "eating" solid objects such as food
+- type: entity
+  name: BaseWeaponMuncherGun
+  parent: BaseItem
+  id: BaseWeaponMuncherGun
+  description: A rooty tooty point and shooty.
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Weapons/Guns/FuelGuns/ouroboros.rsi
+  - type: Clothing
+    sprite: _Impstation/Objects/Weapons/Guns/FuelGuns/ouroboros.rsi
+    quickEquip: false
+    slots:
+    - Back
+    - backStorage
+  - type: SolutionItemStatus
+    solution: chamber
+  - type: Item
+    sprite: _Impstation/Objects/Weapons/Guns/FuelGuns/ouroboros.rsi
+    size: Huge
+  - type: Gun
+    projectileSpeed: 19
+    fireRate: 4
+    selectedMode: SemiAuto
+    availableModes:
+      - SemiAuto
+    soundGunshot:
+      path: /Audio/_Impstation/Weapons/Guns/Gunshots/beecannon2.ogg
+  - type: SolutionContainerManager
+    solutions:
+      chamber:
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 32
+        maxVol: 24 #8 shots
+  - type: SolutionAmmoProvider
+    solutionId: chamber
+    proto: BulletOuroboros
+    fireCost: 3
+  - type: FoodReagentExtractor
+    solutionId: chamber
+    extractionReagents:
+    - Nutriment
+    extractSound: /Audio/_Impstation/Weapons/Guns/Cock/beecharge.ogg
+  - type: MagazineVisuals
+    magState: mag
+    steps: 7
+    zeroVisible: true
+  - type: Appearance
+  - type: MeleeWeapon
+    range: 0.8
+    attackRate: 0.5
+    damage:
+      types:
+        Blunt: 9
+    soundHit:
+      path: /Audio/Effects/hit_kick.ogg
+    soundSwing:
+      path: /Audio/_Impstation/Weapons/Guns/Melee/shove_foley.ogg
+    resetOnHandSelected: false
+  - type: AltFireMelee
+    attackType: Heavy
+  - type: DamageOtherOnHit #for throwing
+#    staminaCost: 15 #heavy
+    damage:
+      types:
+        Blunt: 12
+  - type: StaminaDamageOnHit
+    damage: 10 #slight stagger, but still like 10 hits to stun completely
+  - type: MeleeRequiresWield
+  - type: MeleeThrowOnHit
+    distance: 0.8
+    speed: 5

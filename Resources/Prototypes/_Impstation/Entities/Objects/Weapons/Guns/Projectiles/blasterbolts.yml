@@ -1,0 +1,74 @@
+- type: entity
+  name: adder plasma bolt
+  id: BulletPlasmaAdder
+  parent: BulletLaser
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Weapons/Projectiles/energybolts.rsi
+    layers:
+    - state: mediumpurp
+      shader: unshaded
+  - type: Ammo
+    muzzleFlash: MuzzleFlashEffectPurpLaser
+  - type: Projectile  # Funky change, damage spread from heat/pierce into heat/corrosive
+    impactEffect: BulletImpactEffectPurple
+    damage:
+      types:
+        Heat: 15
+        Caustic: 5
+    soundHit:
+      collection: WeakHit
+    forceSound: true
+
+- type: entity
+  name: akurra plasma bolt
+  id: BulletPlasmaAkurra
+  parent: BulletPlasmaAdder
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Weapons/Projectiles/energybolts.rsi
+    layers:
+    - state: lightpurp
+      shader: unshaded
+  - type: Projectile # Funky change, damage spread from heat/pierce into heat/corrosive
+    damage:
+      types:
+        Heat: 11.25
+        Caustic: 3.75
+
+- type: entity
+  parent: BaseBullet
+  id: EnergyCrossbowBolt
+  categories: [ HideSpawnMenu ]
+  name: energy bolt
+  description: This'll hurt.
+  components:
+  - type: Reflective
+    reflective:
+    - NonEnergy
+  - type: Ammo
+    muzzleFlash: null
+  - type: Sprite
+    sprite: _Funkystation/Objects/Weapons/Projectiles/energybolts.rsi
+    layers:
+    - state: syndcrossbolt
+      shader: unshaded
+  - type: Projectile
+    damage:
+      types:
+        Heat: 1
+        Piercing: 2
+  - type: StaminaDamageOnCollide
+    damage: 10
+  - type: SolutionContainerManager
+    solutions:
+      bolt:
+        maxVol: 5
+        reagents:
+        - ReagentId: Echion
+          Quantity: 5
+  - type: SolutionInjectOnProjectileHit
+    transferAmount: 5
+    solution: bolt

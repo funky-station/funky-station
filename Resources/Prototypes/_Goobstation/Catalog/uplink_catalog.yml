@@ -97,16 +97,16 @@
   - UplinkWeaponry
   saleLimit: 1
 
-- type: listing
-  id: UplinkMiniatureEnergyCrossbow
-  name: uplink-miniature-energy-crossbow-name
-  description: uplink-miniature-energy-crossbow-desc
-  icon: { sprite:  /Textures/_Goobstation/Objects/Weapons/Guns/Battery/miniature_ebow.rsi, state: icon }
-  productEntity: MiniatureEnergyCrossbow
-  cost:
-    Telecrystal: 30
-  categories:
-  - UplinkWeaponry
+#- type: listing
+#  id: UplinkMiniatureEnergyCrossbow
+#  name: uplink-miniature-energy-crossbow-name
+#  description: uplink-miniature-energy-crossbow-desc
+#  icon: { sprite:  /Textures/_Goobstation/Objects/Weapons/Guns/Battery/miniature_ebow.rsi, state: icon }
+#  productEntity: MiniatureEnergyCrossbow
+#  cost:
+#    Telecrystal: 30
+#  categories:
+#  - UplinkWeaponry
 
 #- type: listing
 #  id: UplinkBowHardlight

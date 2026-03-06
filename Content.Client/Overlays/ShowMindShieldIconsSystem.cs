@@ -5,11 +5,15 @@
 // SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 // SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2026 QueerCats <jansencheng3@gmail.com>
 //
 // SPDX-License-Identifier: MIT
 
+using Content.Shared.Access.Components;
+using Content.Shared.Access.Systems;
 using Content.Shared.Mindshield.Components;
 using Content.Shared.Overlays;
+using Content.Shared.PDA;
 using Content.Shared.StatusIcon;
 using Content.Shared.StatusIcon.Components;
 using Robust.Shared.Prototypes;
@@ -19,6 +23,10 @@ namespace Content.Client.Overlays;
 public sealed class ShowMindShieldIconsSystem : EquipmentHudSystem<ShowMindShieldIconsComponent>
 {
     [Dependency] private readonly IPrototypeManager _prototype = default!;
+    [Dependency] private readonly AccessReaderSystem _accessReader = default!;
+
+    [ValidatePrototypeId<JobIconPrototype>]
+    private const string JobIconForNoId = "JobIconNoId";
 
     public override void Initialize()
     {
@@ -41,6 +49,36 @@ public sealed class ShowMindShieldIconsSystem : EquipmentHudSystem<ShowMindShiel
     {
         if (!IsActive)
             return;
+
+        var iconId = JobIconForNoId;
+
+        if (_accessReader.FindAccessItemsInventory(uid, out var items))
+        {
+            foreach (var item in items)
+            {
+                // ID Card
+                if (TryComp<IdCardComponent>(item, out var id))
+                {
+                    iconId = "";
+                    break;
+                }
+
+                // PDA
+                if (TryComp<PdaComponent>(item, out var pda)
+                    && pda.ContainedId != null
+                    && TryComp(pda.ContainedId, out id))
+                {
+                    iconId = "";
+                    break;
+                }
+            }
+        }
+
+
+        if (_prototype.TryIndex<JobIconPrototype>(iconId, out var noJobIcon))
+            ev.StatusIcons.Add(noJobIcon);
+        else
+            Log.Error($"Invalid job icon prototype: {noJobIcon}");
 
         var statusIcon = component.MindShieldStatusIcon; // Goobstation - check if mindshield is broken
 

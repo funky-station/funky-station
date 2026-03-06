@@ -847,7 +847,15 @@ public sealed partial class SupermatterSystem
                 _paracusia.SetSounds(mob, paracusiaSounds, paracusia);
                 _paracusia.SetTime(mob, paracusiaMinTime, paracusiaMaxTime, paracusia);
                 _paracusia.SetDistance(mob, paracusiaDistance, paracusia);
+                _hallucinating.Add(mob);
             }
+        }
+
+        foreach (var mob in _hallucinating.Except(lookup).ToList())
+        {
+            // Mob left the hallucination area of the supermatter
+            RemComp<ParacusiaComponent>(mob);
+            _hallucinating.Remove(mob);
         }
 
         sm.PsyCoefficient = Math.Clamp(sm.PsyCoefficient + psyDiff, 0f, 1f);

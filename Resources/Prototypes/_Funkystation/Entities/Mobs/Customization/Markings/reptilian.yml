@@ -1,0 +1,469 @@
+# SPDX-FileCopyrightText: 2026 unknown <daniel.thomas.staal@gmail.com>
+# SPDX-FileCopyrightText: 2026 unknown <kit.ds.kat@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: marking
+  id: LizardBackSail
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [Reptilian]
+  sprites:
+  - sprite: _Funkystation/Mobs/Customization/Reptilian/reptilian_parts.rsi
+    state: back_sail
+
+- type: marking
+  id: LizardBackSpikes
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [Reptilian]
+  sprites:
+  - sprite: _Funkystation/Mobs/Customization/Reptilian/reptilian_parts.rsi
+    state: back_spikes
+
+- type: marking
+  id: LizardHeterochromia
+  bodyPart: Eyes
+  markingCategory: Head
+  speciesRestriction: [Reptilian]
+  followSkinColor: false
+  coloring:
+    default:
+      type:
+        !type:EyeColoring
+          negative: true
+  sprites:
+  - sprite: _Funkystation/Mobs/Customization/Reptilian/reptilian_parts.rsi
+    state: heterochromia
+
+- type: marking
+  id: LizardHornsBrokenLeft
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Reptilian]
+  sprites:
+  - sprite: _Funkystation/Mobs/Customization/Reptilian/reptilian_parts.rsi
+    state: horns_brokenleft
+
+- type: marking
+  id: LizardHornsBrokenRight
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Reptilian]
+  sprites:
+  - sprite: _Funkystation/Mobs/Customization/Reptilian/reptilian_parts.rsi
+    state: horns_brokenright
+
+- type: marking
+  id: LizardHornsCrest
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Reptilian]
+  sprites:
+  - sprite: _Funkystation/Mobs/Customization/Reptilian/reptilian_parts.rsi
+    state: horns_crest
+
+- type: marking
+  id: LizardHornsIndentedCrest
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Reptilian]
+  sprites:
+  - sprite: _Funkystation/Mobs/Customization/Reptilian/reptilian_parts.rsi
+    state: horns_indentedcrest
+
+- type: marking
+  id: LizardHornsParasaurolophus
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Reptilian]
+  sprites:
+  - sprite: _Funkystation/Mobs/Customization/Reptilian/reptilian_parts.rsi
+    state: horns_parasaurolophus
+
+- type: marking
+  id: LizardHornsPachycephalosaurus
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Reptilian]
+  sprites:
+  - sprite: _Funkystation/Mobs/Customization/Reptilian/reptilian_parts.rsi
+    state: horns_pachycephalosaurus
+
+- type: marking
+  id: LizardHornsSpikehawk
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Reptilian]
+  sprites:
+  - sprite: _Funkystation/Mobs/Customization/Reptilian/reptilian_parts.rsi
+    state: horns_spikehawk
+
+- type: marking
+  id: LizardHornsFrillhawk
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Reptilian]
+  sprites:
+  - sprite: _Funkystation/Mobs/Customization/Reptilian/reptilian_parts.rsi
+    state: horns_frillhawk
+
+- type: marking
+  id: LizardHornsFrill
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Reptilian]
+  sprites:
+  - sprite: _Funkystation/Mobs/Customization/Reptilian/reptilian_parts.rsi
+    state: horns_frill
+
+- type: marking
+  id: LizardHornsTriceratops
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Reptilian]
+  sprites:
+  - sprite: _Funkystation/Mobs/Customization/Reptilian/reptilian_parts.rsi
+    state: horns_triceratops
+
+- type: marking
+  id: LizardLargeEyeshadow
+  bodyPart: Eyes
+  markingCategory: Head
+  speciesRestriction: [Reptilian]
+  followSkinColor: false
+  sprites:
+  - sprite: _Funkystation/Mobs/Customization/Reptilian/reptilian_parts.rsi
+    state: large_eyeshadow
+
+- type: marking
+  id: LizardSmallEyeshadow
+  bodyPart: Eyes
+  markingCategory: Head
+  speciesRestriction: [Reptilian]
+  followSkinColor: false
+  sprites:
+  - sprite: _Funkystation/Mobs/Customization/Reptilian/reptilian_parts.rsi
+    state: small_eyeshadow
+
+- type: marking
+  id: LizardSmallEyes
+  bodyPart: Eyes
+  markingCategory: Head
+  speciesRestriction: [Reptilian]
+  followSkinColor: false
+  sprites:
+  - sprite: _Funkystation/Mobs/Customization/Reptilian/reptilian_parts.rsi
+    state: small_eyes
+
+- type: marking
+  id: LizardSnoutBeak
+  bodyPart: Snout
+  markingCategory: Snout
+  speciesRestriction: [Reptilian]
+  sprites:
+  - sprite: _Funkystation/Mobs/Customization/Reptilian/reptilian_parts.rsi
+    state: snout_beak_primary
+  - sprite: _Funkystation/Mobs/Customization/Reptilian/reptilian_parts.rsi
+    state: snout_beak_secondary
+  - sprite: _Funkystation/Mobs/Customization/Reptilian/reptilian_parts.rsi
+    state: snout_beak_tertiary
+
+- type: marking
+  id: LizardSnoutShortBeak
+  bodyPart: Snout
+  markingCategory: Snout
+  speciesRestriction: [Reptilian]
+  sprites:
+  - sprite: _Funkystation/Mobs/Customization/Reptilian/reptilian_parts.rsi
+    state: snout_shortbeak_primary
+  - sprite: _Funkystation/Mobs/Customization/Reptilian/reptilian_parts.rsi
+    state: snout_shortbeak_secondary
+
+- type: marking
+  id: LizardSoftEyes
+  bodyPart: Eyes
+  markingCategory: Head
+  speciesRestriction: [Reptilian]
+  followSkinColor: false
+  coloring:
+    default:
+      type:
+        !type:EyeColoring
+  sprites:
+  - sprite: _Funkystation/Mobs/Customization/Reptilian/reptilian_parts.rsi
+    state: soft_eyes
+
+- type: marking
+  id: LizardSoftHeterochromia
+  bodyPart: Eyes
+  markingCategory: Head
+  speciesRestriction: [Reptilian]
+  followSkinColor: false
+  coloring:
+    default:
+      type:
+        !type:EyeColoring
+          negative: true
+  sprites:
+  - sprite: _Funkystation/Mobs/Customization/Reptilian/reptilian_parts.rsi
+    state: soft_heterochromia
+
+- type: marking
+  id: LizardTailGirdled
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Reptilian]
+  sprites:
+  - sprite: _Funkystation/Mobs/Customization/Reptilian/reptilian_parts.rsi
+    state: tail_girdled
+
+- type: marking
+  id: LizardTailAxolotol
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Reptilian]
+  sprites:
+  - sprite: _Funkystation/Mobs/Customization/Reptilian/reptilian_parts.rsi
+    state: tail_axolotol_primary
+  - sprite: _Funkystation/Mobs/Customization/Reptilian/reptilian_parts.rsi
+    state: tail_axolotol_secondary
+
+- type: marking
+  id: LizardTailDropped
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Reptilian]
+  sprites:
+  - sprite: _Funkystation/Mobs/Customization/Reptilian/reptilian_parts.rsi
+    state: tail_dropped
+
+- type: marking
+  id: LizardTailChameleon
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Reptilian]
+  sprites:
+  - sprite: _Funkystation/Mobs/Customization/Reptilian/reptilian_parts.rsi
+    state: tail_chameleon_primary
+  - sprite: _Funkystation/Mobs/Customization/Reptilian/reptilian_parts.rsi
+    state: tail_chameleon_secondary
+
+- type: marking
+  id: LizardTailSailfin
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Reptilian]
+  sprites:
+  - sprite: _Funkystation/Mobs/Customization/Reptilian/reptilian_parts.rsi
+    state: tail_sailfin_primary
+  - sprite: _Funkystation/Mobs/Customization/Reptilian/reptilian_parts.rsi
+    state: tail_sailfin_secondary
+  - sprite: _Funkystation/Mobs/Customization/Reptilian/reptilian_parts.rsi
+    state: tail_sailfin_tertiary
+
+- type: marking
+  id: LizardTailShield
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Reptilian]
+  sprites:
+  - sprite: _Funkystation/Mobs/Customization/Reptilian/reptilian_parts.rsi
+    state: tail_shield_primary
+  - sprite: _Funkystation/Mobs/Customization/Reptilian/reptilian_parts.rsi
+    state: tail_shield_secondary
+
+- type: marking
+  id: LizardTailShingleback
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Reptilian]
+  sprites:
+  - sprite: _Funkystation/Mobs/Customization/Reptilian/reptilian_parts.rsi
+    state: tail_shingleback_primary
+  - sprite: _Funkystation/Mobs/Customization/Reptilian/reptilian_parts.rsi
+    state: tail_shingleback_secondary
+
+- type: marking
+  id: LizardTailSteggo
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Reptilian]
+  sprites:
+  - sprite: _Funkystation/Mobs/Customization/Reptilian/reptilian_parts.rsi
+    state: tail_steggo_primary
+  - sprite: _Funkystation/Mobs/Customization/Reptilian/reptilian_parts.rsi
+    state: tail_steggo_secondary
+  - sprite: _Funkystation/Mobs/Customization/Reptilian/reptilian_parts.rsi
+    state: tail_steggo_tertiary
+
+- type: marking
+  id: LizardTailThin
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Reptilian]
+  sprites:
+  - sprite: _Funkystation/Mobs/Customization/Reptilian/reptilian_parts.rsi
+    state: tail_thin_primary
+  - sprite: _Funkystation/Mobs/Customization/Reptilian/reptilian_parts.rsi
+    state: tail_thin_secondary
+
+- type: marking
+  id: LizardTiredEyes
+  bodyPart: Eyes
+  markingCategory: Head
+  speciesRestriction: [Reptilian]
+  followSkinColor: false
+  sprites:
+  - sprite: _Funkystation/Mobs/Customization/Reptilian/reptilian_parts.rsi
+    state: tired_eyes
+
+- type: marking
+  id: LizardTongueFlick
+  bodyPart: HeadSide
+  markingCategory: HeadSide
+  speciesRestriction: [Reptilian]
+  followSkinColor: false
+  sprites:
+  - sprite: _Funkystation/Mobs/Customization/Reptilian/reptilian_parts.rsi
+    state: tongue_flick
+
+- type: marking
+  id: LizardTongueWeh
+  bodyPart: HeadSide
+  markingCategory: HeadSide
+  speciesRestriction: [Reptilian]
+  followSkinColor: false
+  sprites:
+  - sprite: _Funkystation/Mobs/Customization/Reptilian/reptilian_parts.rsi
+    state: tongue_weh
+
+- type: marking
+  id: ProstehticLeftArmReptilian
+  bodyPart: LArm
+  markingCategory: Arms
+  speciesRestriction: [Reptilian]
+  followSkinColor: false
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#E4E4E4"
+  sprites:
+  - sprite: _Funkystation/Mobs/Customization/Reptilian/reptilian_parts.rsi
+    state: arm_l_prosthetic
+
+- type: marking
+  id: ProstethicRightArmReptilian
+  bodyPart: RArm
+  markingCategory: Arms
+  speciesRestriction: [Reptilian]
+  followSkinColor: false
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#E4E4E4"
+  sprites:
+  - sprite: _Funkystation/Mobs/Customization/Reptilian/reptilian_parts.rsi
+    state: arm_r_prosthetic
+
+- type: marking
+  id: ProsthethicLeftFootReptilian
+  bodyPart: LFoot
+  markingCategory: Legs
+  speciesRestriction: [Reptilian]
+  followSkinColor: false
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#E4E4E4"
+  sprites:
+  - sprite: _Funkystation/Mobs/Customization/Reptilian/reptilian_parts.rsi
+    state: foot_l_prosthetic
+
+- type: marking
+  id: ProsthethicRightFootReptilian
+  bodyPart: RFoot
+  markingCategory: Legs
+  speciesRestriction: [Reptilian]
+  followSkinColor: false
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#E4E4E4"
+  sprites:
+  - sprite: _Funkystation/Mobs/Customization/Reptilian/reptilian_parts.rsi
+    state: foot_r_prosthetic
+
+- type: marking
+  id: ProsthethicLeftHandReptilian
+  bodyPart: LHand
+  markingCategory: Arms
+  speciesRestriction: [Reptilian]
+  followSkinColor: false
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#E4E4E4"
+  sprites:
+  - sprite: _Funkystation/Mobs/Customization/Reptilian/reptilian_parts.rsi
+    state: hand_l_prosthetic
+
+- type: marking
+  id: ProsthethicRightHandReptilian
+  bodyPart: RHand
+  markingCategory: Arms
+  speciesRestriction: [Reptilian]
+  followSkinColor: false
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#E4E4E4"
+  sprites:
+  - sprite: _Funkystation/Mobs/Customization/Reptilian/reptilian_parts.rsi
+    state: hand_r_prosthetic
+
+- type: marking
+  id: ProsthethicLeftLegReptilian
+  bodyPart: LLeg
+  markingCategory: Legs
+  speciesRestriction: [Reptilian]
+  followSkinColor: false
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#E4E4E4"
+  sprites:
+  - sprite: _Funkystation/Mobs/Customization/Reptilian/reptilian_parts.rsi
+    state: leg_l_prosthetic
+
+- type: marking
+  id: ProsthethicRightLegReptilian
+  bodyPart: RLeg
+  markingCategory: Legs
+  speciesRestriction: [Reptilian]
+  followSkinColor: false
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#E4E4E4"
+  sprites:
+  - sprite: _Funkystation/Mobs/Customization/Reptilian/reptilian_parts.rsi
+    state: leg_r_prosthetic
+
+- type: marking
+  id: HijabReptilian
+  bodyPart: HeadSide
+  markingCategory: HeadSide
+  speciesRestriction: [Reptilian]
+  followSkinColor: false
+  sprites:
+  - sprite: _Funkystation/Mobs/Customization/Reptilian/reptilian_parts.rsi
+    state: hijabreptilian

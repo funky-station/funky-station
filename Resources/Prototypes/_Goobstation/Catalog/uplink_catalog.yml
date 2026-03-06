@@ -22,6 +22,7 @@
 # SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
 # SPDX-FileCopyrightText: 2025 starch <starchpersonal@gmail.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2026 TrixxedHeart <46364955+TrixxedBit@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -252,6 +253,23 @@
       blacklist:
         tags:
           - NukeOpsUplink # i guess we dont let nukies have this, they have to mutch TC
+  saleLimit: 1
+  
+- type: listing
+  id: UplinkMindcontrolImplanterNukie
+  name: uplink-mindcontrol-implant-name
+  description: uplink-mindcontrol-implant-desc
+  icon: { sprite: /Textures/Objects/Specific/Medical/syndi_implanter.rsi, state: implanter0 }
+  productEntity: MindcontrolImplanter
+  cost:
+    Telecrystal: 65
+  categories:
+    - UplinkImplants
+  conditions:
+    - !type:StoreWhitelistCondition
+        whitelist:
+            tags:
+            - NukeOpsUplink # _Funkystation - they can have it, as a treat
   saleLimit: 1
 
 - type: listing

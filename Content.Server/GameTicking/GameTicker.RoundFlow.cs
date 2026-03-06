@@ -53,16 +53,17 @@
 // SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 wrexbe <wrexbe@protonmail.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Quantum-cross <7065792+Quantum-cross@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 // SPDX-FileCopyrightText: 2025 Terkala <appleorange64@gmail.com>
 // SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2026 phmnsx <lynnwastinghertime@gmail.com>
 //
 // SPDX-License-Identifier: MIT
 
-using System.Linq;
-using System.Numerics;
+using Content.Server._Funkystation.Manifest;
 using Content.Server.Announcements;
 using Content.Server.Discord;
 using Content.Server.GameTicking.Events;
@@ -70,12 +71,19 @@ using Content.Server.Ghost;
 using Content.Server.Maps;
 using Content.Server.Roles;
 using Content.Shared.CCVar;
+using Content.Shared.Damage;
 using Content.Shared.Database;
+using Content.Shared.FixedPoint;
 using Content.Shared.GameTicking;
+using Content.Shared.HealthExaminable;
+using Content.Shared.IdentityManagement;
 using Content.Shared.Mind;
+using Content.Shared.Mobs;
+using Content.Shared.Mobs.Components;
 using Content.Shared.Players;
 using Content.Shared.Preferences;
 using JetBrains.Annotations;
+using Microsoft.Win32.SafeHandles;
 using Prometheus;
 using Robust.Shared.Asynchronous;
 using Robust.Shared.Audio;
@@ -87,6 +95,8 @@ using Robust.Shared.Network;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
+using System.Linq;
+using System.Numerics;
 
 namespace Content.Server.GameTicking
 {
@@ -615,7 +625,55 @@ namespace Content.Server.GameTicking
                 }
 
                 var roles = _roles.MindGetAllRoleInfo(mindId);
+                //funky begin
+                if (!TryComp<ManifestInfoComponent>(mindId, out var info))
+                {
+                    throw new Exception("Should be impossible");
+                }
+                var lastmessage = info.LastMessage ?? "...";
+                var lastentity = (info.LastEntity == null || info.LastEntity.Equals(0)) ? null : info.LastEntity;
+                //I dont know if having this kinda logic here is bad, i'm not sure where else i should've put it
+                //and i wanted it to be calculated ONLY at round end, since it could be weird otherwise.
+                //
+                var dmgMessage = string.Empty;
+                if (TryComp<HealthExaminableComponent>(info.LastEntity, out var health)
+                    && TryComp<DamageableComponent>(info.LastEntity, out var damage)
+                    && info.LastEntity != null)
+                {
+                    var dmgDict = damage.Damage.DamageDict.MaxBy(entry => entry.Value);
+                    var maxDmg = dmgDict.Value;
+                    if (maxDmg != FixedPoint2.Zero)
+                    {
+                        var typeMaxDmg = dmgDict.Key;
+                        foreach (var threshold in health.Thresholds.Order())
+                        {
+                            var str = $"health-examinable-{health.LocPrefix}-{typeMaxDmg}-{threshold}";
+                            var tempLocStr = Loc.GetString($"health-examinable-{health.LocPrefix}-{typeMaxDmg}-{threshold}",
+                                ("target", Identity.Entity((EntityUid) info.LastEntity, EntityManager)));
 
+                            if (tempLocStr == str)
+                                continue;
+
+                            if (maxDmg > threshold)
+                            {
+                                dmgMessage = tempLocStr;
+                            }
+                        }
+                    }
+                    else
+                        dmgMessage = string.Empty;
+                }
+                bool isdead = false;
+                bool isinvalid = true;
+                if (info.LastEntity != null)
+                {
+                    if (TryComp<MobStateComponent>(info.LastEntity, out var comp))
+                    {
+                        isdead = comp.CurrentState == MobState.Dead;
+                        isinvalid = comp.CurrentState == MobState.Invalid;
+                    }
+                }
+                //funky end
                 var playerEndRoundInfo = new RoundEndMessageEvent.RoundEndPlayerInfo()
                 {
                     // Note that contentPlayerData?.Name sticks around after the player is disconnected.
@@ -632,7 +690,14 @@ namespace Content.Server.GameTicking
                     JobPrototypes = roles.Where(role => !role.Antagonist).Select(role => role.Prototype).ToArray(),
                     AntagPrototypes = roles.Where(role => role.Antagonist).Select(role => role.Prototype).ToArray(),
                     Observer = observer,
-                    Connected = connected
+                    Connected = connected,
+                    //Funky modifications for the EOR manifest
+                    LastEntity = GetNetEntity(lastentity),
+                    LastMessage = lastmessage ?? "...",
+                    //Used to show how the person died, should work with other med systems.
+                    DamageMessage = dmgMessage ?? string.Empty,
+                    IsDead = isdead,
+                    IsInvalid = isinvalid,
                 };
                 listOfPlayerInfo.Add(playerEndRoundInfo);
             }

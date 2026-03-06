@@ -27,10 +27,8 @@
     - VisitorPhrase
     - CaptainPhrase
     - CentralCommandOfficialPhrase
-    - AdminAssistantPhrase
     - StationAIPhrase
     - ChiefEngineerPhrase
-    - AtmosTechPhrase
     - EngineerPhrase
     - TechAssistantPhrase
     - ResearchDirectorPhrase
@@ -41,7 +39,6 @@
     - QuartermasterPhrase
     - CargoTechnicianPhrase
     - SalvageSpecialistPhrase
-    - CourierPhrase
     - ChiefMedicalOfficerPhrase
     - ChemistPhrase
     - ParamedicPhrase
@@ -138,15 +135,9 @@
     - SpeciesMothPhrase
     - SpeciesReptilianPhrase
     - SpeciesSlimePersonPhrase
-    - SpeciesGrayPhrase
-    - SpeciesGastropoidPhrase
-    - SpeciesKodepiiaPhrase
     - SpeciesThavenPhrase
     - SpeciesSkeletonPhrase
     - SpeciesVoxPhrase
-    - SpeciesDecapoidPhrase
-    - SpeciesApidPhrase
-    - SpeciesGoblinPhrase
 # Engineering
     - AMEPhrase
     - APCPhrase
@@ -210,15 +201,21 @@
     - DamageBloodlossPhrase
     - DamageRadiationPhrase
 # Chems
-    - ChemDylovenePhrase
     - ChemArithrazinePhrase
-    - ChemBicaridinePhrase
-    - ChemDermalinePhrase
     - ChemDexalinPhrase
-    - ChemKelotanePhrase
     - ChemTricordrazinePhrase
     - ChemOmnizinePhrase
     - ChemPyrazinePhrase
+    - ChemAiuriPhrase
+    - ChemBruizinePhrase
+    - ChemInsuzinePhrase
+    - ChemLacerinolPhrase
+    - ChemLeporazinePhrase
+    - ChemLenturiPhrase
+    - ChemLibitalPhrase
+    - ChemMultiverPhrase
+    - ChemProbitalPhrase
+    - ChemPuncturasePhrase
 # Medical
     - TopicalPhrase
     - TopicalBrutePackPhrase
@@ -238,6 +235,15 @@
     - DeadPhrase
     - HealthyPhrase
     - MedicalChemicalsPhrase
+    - BoneGelPhrase
+    - CauteryPhrase
+    - HemostatPhrase
+    - SawPhrase
+    - RetractorPhrase
+    - ScalpelPhrase
+    - SurgeryPhrase
+    - CPRPhrase
+    - IntravenousPhrase
 # Tools
     - PenPhrase
     - PaperPhrase

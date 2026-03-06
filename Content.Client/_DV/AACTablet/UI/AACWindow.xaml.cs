@@ -16,6 +16,7 @@ using Robust.Shared.GameObjects;
 using Robust.Shared.Prototypes;
 using System.Linq;
 using System.Numerics;
+using Content.Server._DV.AACTablet;
 
 namespace Content.Client._DV.AACTablet.UI;
 

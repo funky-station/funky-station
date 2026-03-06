@@ -27,6 +27,16 @@ public sealed partial class ReplicatorArmActionEvent : InstantActionEvent
 {
 }
 
+[Serializable, NetSerializable]
+public sealed partial class ReplicatorArmDoAfterEvent : SimpleDoAfterEvent
+{
+}
+
 public sealed partial class ReplicatorAACActionEvent : InstantActionEvent
+{
+}
+
+[Serializable, NetSerializable]
+public sealed partial class ReplicatorAACDoAfterEvent : SimpleDoAfterEvent
 {
 }

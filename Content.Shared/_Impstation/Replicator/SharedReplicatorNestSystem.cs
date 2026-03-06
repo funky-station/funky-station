@@ -309,6 +309,9 @@ public abstract class SharedReplicatorNestSystem : EntitySystem
             var tool = Spawn("ReplicatorT3Weapon");
             _handsSystem.DoPickup(upgradedUid, hands.Hands["ReplicatorHand"], tool);
             EnsureComp<UnremoveableComponent>(tool);
+
+            _actions.AddAction(upgradedUid, "ReplicatorArmAction");
+            _actions.AddAction(upgradedUid, "ReplicatorAACAction");
         };
     }
 

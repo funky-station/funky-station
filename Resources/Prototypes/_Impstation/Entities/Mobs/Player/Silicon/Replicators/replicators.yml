@@ -250,7 +250,7 @@
     accent: silicon
   - type: Speech
     speechVerb: Robotic
-    speechSounds: Pai
+    speechSounds: Borg
 
 # Tier 3: These guys are tanks. Their job is to tear shit apart and kill things. They're slow, tanky, and have a weapon that does 25 blunt 30 struct.
 - type: entity
@@ -294,4 +294,4 @@
     accent: silicon
   - type: Speech
     speechVerb: Robotic
-    speechSounds: Pai
+    speechSounds: SyndieBorg

@@ -172,7 +172,7 @@
   - type: VoiceMask
   - type: Speech
     speechVerb: Robotic
-    speechSounds: Replicator
+    speechSounds: SyndieBorg
   - type: Sprite
     sprite: _Impstation/Mobs/Replicator/replicator_tablet.rsi
     state: aac_tablet

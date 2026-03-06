@@ -12,6 +12,7 @@
 # SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Kira Bridgeton <161087999+Verbalase@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 LankLTE <135308300+LankLTE@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Lyndomen <49795619+lyndomen@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Mary <mary@thughunt.ing>
 # SPDX-FileCopyrightText: 2024 Nim <128169402+Nimfar11@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
@@ -64,6 +65,7 @@
     PermaKillRandomPersonObjective: 0.5 # Goobstation - straight up kill someone with no maroons
     PermaKillRandomTraitorObjective: 0.3 # Goobstation - target traitor
     KillRandomHeadObjective: 0.2
+    TeachLessonRandomPersonObjective: 1 # DeltaV
 
 - type: weightedRandom
   id: TraitorObjectiveGroupState

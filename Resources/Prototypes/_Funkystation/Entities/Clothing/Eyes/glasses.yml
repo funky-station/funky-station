@@ -319,7 +319,7 @@
   - type: IdentityBlocker
     coverage: EYES
   - type: Construction
-    graph: jamjarGlassesCheapSun
+    graph: JamjarGlassesCheapSun
     node: cheapSunjarGlasses
   - type: Tag
     tags:
@@ -340,8 +340,8 @@
   - type: EyeProtection
     protectionTime: 5
   - type: Construction
-    graph: jamjarGlassesCheapSun
-    node: cheapSunjarGlasses
+    graph: JamjarGlassesSun
+    node: sunjarGlasses
   - type: Tag
     tags:
     - Sunglasses

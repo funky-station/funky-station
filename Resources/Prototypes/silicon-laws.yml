@@ -67,7 +67,7 @@
   - Corporate4
   obeysTo: laws-owner-station
 
-# NT Default
+# NT Default - Funky
 - type: siliconLaw
   id: NTDefault1
   order: 1
@@ -95,6 +95,38 @@
   - NTDefault2
   - NTDefault3
   - NTDefault4
+  obeysTo: laws-owner-crew
+
+
+# NT Default Classic
+# Funky: Shift to "classic"
+- type: siliconLaw
+  id: NTDefaultClassic1
+  order: 1
+  lawString: law-ntdefault-classic-1
+
+- type: siliconLaw
+  id: NTDefaultClassic2
+  order: 2
+  lawString: law-ntdefault-classic-2
+
+- type: siliconLaw
+  id: NTDefaultClassic3
+  order: 3
+  lawString: law-ntdefault-classic-3
+
+- type: siliconLaw
+  id: NTDefaultClassic4
+  order: 4
+  lawString: law-ntdefault-classic-4
+
+- type: siliconLawset
+  id: NTDefaultClassic
+  laws:
+  - NTDefaultClassic1
+  - NTDefaultClassic2
+  - NTDefaultClassic3
+  - NTDefaultClassic4
   obeysTo: laws-owner-crew
 
 #Drone

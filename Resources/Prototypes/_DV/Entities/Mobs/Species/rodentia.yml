@@ -53,18 +53,18 @@
     speechVerb: Rodentia
     speechSounds: Squeak
     allowedEmotes: ['Squeak']
-  - type: Fixtures
-    fixtures: # TODO: This needs a second fixture just for mob collisions.
-      fix1:
-        shape:
-          !type:PhysShapeCircle
-          radius: 0.28
-        density: 140
-        restitution: 0.0
-        mask:
-        - MobMask
-        layer:
-        - MobLayer
+  #- type: Fixtures # Funky - Removed to be consistent with full scaled rodentia
+    #fixtures: # TODO: This needs a second fixture just for mob collisions.
+      #fix1:
+        #shape:
+          #!type:PhysShapeCircle
+          #radius: 0.28
+        #density: 100
+        #restitution: 0.0
+        #mask:
+        #- MobMask
+        #layer:
+        #- MobLayer
   - type: Sprite
     #scale: 0.8, 0.8 - Funkystation hehehell naw
     layers:

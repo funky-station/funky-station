@@ -1,0 +1,37 @@
+- type: entity
+  parent: BaseItem
+  id: PokerChipBase
+  name: poker chips
+  description: Not worth real money but good for representing it in lieu of it.
+  components:
+    - type: Item
+      shape:
+      - 0,0,0,0
+    - type: Stack
+      stackType: PokerChipStack
+      baseLayer: base
+      layerStates:
+      - pokerchip
+      - pokerchip_5
+      - pokerchip_10
+      - pokerchip_25
+      - pokerchip_50
+      - pokerchip_100
+      - pokerchip_250
+      - pokerchip_500
+      - pokerchip_1000
+    - type: Sprite
+      sprite: Objects/Economy/cash.rsi
+      #sprite: _Funkystation/Objects/Misc/pokerchips.rsi
+    - type: Physics
+      bodyType: Dynamic
+    - type: Fixtures
+      fixtures:
+        fix1:
+          density: 30
+          shape:
+            !type:PhysShapeAabb
+            bounds: "-0.35,-0.2,0.25,0.1"
+          mask:
+          - ItemMask
+    - type: Appearance

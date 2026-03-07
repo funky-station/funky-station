@@ -9,6 +9,7 @@
 // SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
 // SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2026 chuga <98280110+chuga-git@users.noreply.github.com>
 //
 // SPDX-License-Identifier: MIT
 
@@ -17,6 +18,7 @@ using Content.Shared.Chemistry.Components;
 using Content.Shared.Weapons.Ranged.Events;
 using Content.Shared.Chemistry.EntitySystems;
 using System.Linq;
+using Content.Shared.FixedPoint;
 
 namespace Content.Server.Weapons.Ranged.Systems
 {
@@ -49,7 +51,7 @@ namespace Content.Server.Weapons.Ranged.Systems
             if (!projectileSolutionContainers.Any())
                 return;
 
-            var solutionPerProjectile = ammoSolution.Volume * (1 / projectileSolutionContainers.Count);
+            var solutionPerProjectile = ammoSolution.Volume * (FixedPoint2.New(1)/projectileSolutionContainers.Count);
 
             foreach (var (_, projectileSolution) in projectileSolutionContainers)
             {

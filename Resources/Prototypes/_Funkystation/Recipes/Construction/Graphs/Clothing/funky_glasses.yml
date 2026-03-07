@@ -1,6 +1,7 @@
 # SPDX-FileCopyrightText: 2025 AtlasHD <99688062+AtlasHDD@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Teasq <Xerithin@gmail.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2026 W.xyz() <84605679+pirakaplant@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -118,7 +119,7 @@
               doAfter: 5
     - node: engijarGlasses
       entity: ClothingEyesGlassesJamgog
-  
+
 - type: constructionGraph
   id: glassesSungar
   start: start
@@ -216,3 +217,49 @@
               doAfter: 5
     - node: medGlasses
       entity: ClothingEyesGlassesMed
+
+- type: constructionGraph
+  id: JamjarGlassesCheapSun
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: cheapSunjarGlasses
+      steps:
+      - tag: JamjarBase
+        name: jamjar glasses
+        icon:
+          sprite: Clothing/Eyes/Glasses/jamjar.rsi
+          state: icon
+        doAfter: 5
+      - tag: CheapSunglasses
+        name: cheap sunglasses
+        icon:
+          sprite: Clothing/Eyes/Glasses/sunglasses.rsi
+          state: icon
+        doAfter: 5
+  - node: cheapSunjarGlasses
+    entity: ClothingEyesGlassesCheapSunjar
+
+- type: constructionGraph
+  id: JamjarGlassesSun
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: sunjarGlasses
+      steps:
+      - tag: JamjarBase
+        name: jamjar glasses
+        icon:
+          sprite: Clothing/Eyes/Glasses/jamjar.rsi
+          state: icon
+        doAfter: 5
+      - tag: Sunglasses
+        name: sun glasses
+        icon:
+          sprite: Clothing/Eyes/Glasses/sunglasses.rsi
+          state: icon
+        doAfter: 5
+  - node: sunjarGlasses
+    entity: ClothingEyesGlassesSunjar

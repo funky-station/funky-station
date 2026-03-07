@@ -4,12 +4,13 @@
 # SPDX-FileCopyrightText: 2025 DESKTOP-0V0K4HQ\Rosy <rosysaturniidae@gmail.com>
 # SPDX-FileCopyrightText: 2025 MaiaArai <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 RosySaturniidae <rosysaturniidae@gmail.com>
-# SPDX-FileCopyrightText: 2025 SigmaTheDragon <162711378+SigmaTheDragon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Teasq <Xerithin@gmail.com>
 # SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 mkanke-real <mikekanke@gmail.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 tea <xerithin@gmail.com>
+# SPDX-FileCopyrightText: 2026 SigmaTheDragon <162711378+SigmaTheDragon@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2026 W.xyz() <84605679+pirakaplant@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -62,7 +63,7 @@
 - type: entity
   parent: ClothingEyesGlassesJamjar
   id: ClothingEyesGlassesChemjar
-  name: chemical analysis jamgogs
+  name: chemical analysis jamgoggles
   description: These retro goggles remind you of breaking SOP by making explosives.
   components:
   - type: Sprite
@@ -107,7 +108,7 @@
 - type: entity
   parent: [ClothingEyesGlassesJamjar, BaseEngineeringSalvageContraband]
   id: ClothingEyesGlassesJamgog
-  name: engineering jamgoggles
+  name: meson jamgoggles
   description: These retro glasses remind you of setting the tesla loose.
   components:
   - type: Sprite
@@ -303,3 +304,46 @@
     tags:
     - WhitelistChameleon
     - HudMedical
+
+- type: entity
+  parent: ClothingEyesGlassesJamjar
+  id: ClothingEyesGlassesCheapSunjar
+  name: cheap sunjar glasses
+  description: These retro glasses remind you of the time you thought you had flash protection, but actually didn't.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Eyes/Jamjars/sunjar.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Eyes/Jamjars/sunjar.rsi
+  - type: VisionCorrection
+  - type: IdentityBlocker
+    coverage: EYES
+  - type: Construction
+    graph: JamjarGlassesCheapSun
+    node: cheapSunjarGlasses
+  - type: Tag
+    tags:
+    - CheapSunglasses
+    - WhitelistChameleon
+
+- type: entity
+  parent: ClothingEyesGlassesCheapSunjar
+  id: ClothingEyesGlassesSunjar
+  name: sunjar glasses
+  description: These retro glasses remind you of dork chic.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Eyes/Jamjars/sunjar.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Eyes/Jamjars/sunjar.rsi
+  - type: FlashImmunity
+  - type: EyeProtection
+    protectionTime: 5
+  - type: Construction
+    graph: JamjarGlassesSun
+    node: sunjarGlasses
+  - type: Tag
+    tags:
+    - Sunglasses
+    - WhitelistChameleon
+

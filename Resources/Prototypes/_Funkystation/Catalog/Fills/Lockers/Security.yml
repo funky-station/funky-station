@@ -21,3 +21,13 @@
       amount: 4
     - id: EchionCanister
       amount: 12
+
+- type: entity
+  parent: [GunSafeBaseSecure, BaseSecurityContraband]
+  id: GunSafePistolRg2
+  name: RG-2 safe
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponEnergyGunEnergyPistol
+      amount: 4

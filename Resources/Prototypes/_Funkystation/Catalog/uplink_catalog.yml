@@ -223,7 +223,7 @@
   id: UplinkPinpointerUniversalSyndicate
   name: uplink-pinpointer-name
   description: uplink-pinpointer-desc
-  productEntity: PinpointerUniversalSyndicate
+  productEntity: PinpointerUniversalSyndicate #ideally, used for nukies for cohesion, for protect targets OR for steal items where you plant it somewhere
   cost:
     Telecrystal: 5
   categories:

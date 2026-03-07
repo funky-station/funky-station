@@ -29,6 +29,7 @@ fibers-rubber = rubber
 
 fibers-purple = purple
 fibers-red = red
+fibers-beige = beige
 fibers-black = black
 fibers-blue = blue
 fibers-teal = teal

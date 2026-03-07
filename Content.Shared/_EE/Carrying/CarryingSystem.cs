@@ -34,6 +34,7 @@ using System.Threading;
 // frontier:
 using Content.Shared._EE.CCVars;
 using Content.Shared._EE.Contests;
+using Content.Shared._Funkystation.Carrying;
 using Content.Shared.Movement.Pulling.Systems;
 using Robust.Shared.Configuration;
 using Robust.Shared.Network;
@@ -260,6 +261,14 @@ public sealed partial class CarryingSystem : EntitySystem
 
     private void StartCarryDoAfter(EntityUid carrier, Entity<CarriableComponent> carried)
     {
+        // Funky - Check for CarryDoAfterFactorComponent
+        float factor = 1.0f;
+
+        if (TryComp<CarryDoAfterFactorComponent>(carrier, out var carryDoAfterFactor))
+        {
+            factor = carryDoAfterFactor.Factor;
+        }
+
         // NF: change arbitrary doafter length cancel to a mass check
         if (!TryComp<PhysicsComponent>(carrier, out var carrierPhysics)
             || !TryComp<PhysicsComponent>(carried, out var carriedPhysics)
@@ -271,7 +280,8 @@ public sealed partial class CarryingSystem : EntitySystem
 
         var length = carried.Comp.PickupDuration //Frontier: removed outer TimeSpan.FromSeconds()
             * _contests.MassContest(carried.Owner, carrier, carried.Comp.PickupContestPotential)
-            * _contests.StaminaContest(carrier, carried.Owner); // Frontier: replace !HasComp<KnockedDownComponent> with IsDown
+            * _contests.StaminaContest(carrier, carried.Owner) // Frontier: replace !HasComp<KnockedDownComponent> with IsDown
+            * factor; // Funky
 
         if (_standingState.IsDown(carried.Owner))
             length *= carried.Comp.PickupKnockdownMultiplier;

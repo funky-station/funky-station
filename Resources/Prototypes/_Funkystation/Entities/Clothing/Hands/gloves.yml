@@ -85,3 +85,23 @@
   - type: Insulated
   - type: Fiber
     fiberMaterial: fibers-insulative
+
+# Firefighting gloves
+- type: entity
+  parent: ClothingHandsGlovesColorYellow
+  id: ClothingHandsGlovesFirefighting
+  name: firefighting gloves
+  description: These aramid gloves are not only resistant to heat and low voltage shocks, but they're also well suited to carrying people out of danger.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Hands/Gloves/firefightinggloves.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Hands/Gloves/firefightinggloves.rsi
+  - type: Insulated
+  - type: Fiber
+    fiberMaterial: fibers-insulative
+    fiberColor: fibres-beige
+  - type: ClothingGrantComponent
+    component:
+    - type: CarryDoAfterFactor
+      factor: 0.5

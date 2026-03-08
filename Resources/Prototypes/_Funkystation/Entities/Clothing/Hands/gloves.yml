@@ -90,7 +90,7 @@
 - type: entity
   parent: ClothingHandsGlovesColorYellow
   id: ClothingHandsGlovesFirefighting
-  name: firefighting gloves
+  name: engineer firefighting gloves
   description: These aramid gloves are not only resistant to heat and low voltage shocks, but they're also well suited to carrying people out of danger.
   components:
   - type: Sprite

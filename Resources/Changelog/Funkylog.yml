@@ -7870,3 +7870,9 @@ Entries:
       message: MK 58s, and accompanying .35 pistol magazines, have been resprited!
   id: 906
   time: '2026-03-08T01:33:49.0000000+00:00'
+- author: chuga-git
+  changes:
+    - type: Fix
+      message: Utility knife now shows its blade when toggled.
+  id: 907
+  time: '2026-03-08T01:35:36.0000000+00:00'

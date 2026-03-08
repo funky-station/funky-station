@@ -1973,8 +1973,7 @@
   id: SecurityCadetJumpsuit
   name: loadout-group-security-cadet-jumpsuit
   loadouts:
-  - RedJumpsuit
-  - RedJumpskirt
+  - CadetUniform
 
 - type: loadoutGroup
   id: SurvivalSecurity

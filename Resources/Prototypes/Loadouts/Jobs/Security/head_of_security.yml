@@ -21,40 +21,34 @@
 
 # Jumpsuit
 - type: loadout
-  id: HeadofSecurityJumpsuit
+  id: HeadofSecurityService
   equipment:
-    jumpsuit: ClothingUniformJumpsuitHoS
-  groupBy: "jumpsuit"
+    jumpsuit: ClothingUniformJumpsuitHosBase
+  groupBy: "service"
 
 - type: loadout
-  id: HeadofSecurityJumpskirt
+  id: HeadofSecurityDress
   equipment:
-    jumpsuit: ClothingUniformJumpskirtHoS
-  groupBy: "jumpskirt"
+    jumpsuit: ClothingUniformDressHosBase
+  groupBy: "dress"
 
 - type: loadout
-  id: HeadofSecurityTurtleneck
+  id: HeadofSecurityDressSkirt
   equipment:
-    jumpsuit: ClothingUniformJumpsuitHoSAlt
-  groupBy: "jumpsuit"
-
-- type: loadout
-  id: HeadofSecurityTurtleneckSkirt
-  equipment:
-    jumpsuit: ClothingUniformJumpskirtHoSAlt
-  groupBy: "jumpskirt"
+    jumpsuit: ClothingUniformHosDressSkirtBase
+  groupBy: "dress"
 
 - type: loadout
   id: HeadofSecurityFormalSuit
   equipment:
-    jumpsuit: ClothingUniformJumpsuitHosFormal
-  groupBy: "jumpsuit"
+    jumpsuit: ClothingUniformMessHosBase
+  groupBy: "formal"
 
 - type: loadout
-  id: HeadofSecurityFormalSkirt
+  id: HeadofSecurityFormalDress
   equipment:
-    jumpsuit: ClothingUniformJumpskirtHosFormal
-  groupBy: "jumpskirt"
+    jumpsuit: ClothingUniformMessHosDressBase
+  groupBy: "formal"
 
 # Head
 - type: loadout

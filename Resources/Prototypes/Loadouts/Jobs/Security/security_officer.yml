@@ -88,52 +88,52 @@
 
 # Jumpsuit
 - type: loadout
-  id: SecurityJumpsuit
+  id: SecurityFatigues
   equipment:
-    jumpsuit: ClothingUniformJumpsuitSec
-  groupBy: "jumpsuit"
+    jumpsuit: ClothingUniformJumpsuitSecBase
+  groupBy: "fatigues"
 
 - type: loadout
-  id: SecurityJumpskirt
+  id: SecurityDress
   equipment:
-    jumpsuit: ClothingUniformJumpskirtSec
-  groupBy: "jumpskirt"
+    jumpsuit: ClothingUniformSecurityDressBase
+  groupBy: "dress"
 
 - type: loadout
-  id: SecurityJumpsuitGrey
+  id: SecurityDressSkirt
   equipment:
-    jumpsuit: ClothingUniformJumpsuitSecGrey
-  groupBy: "jumpsuit"
+    jumpsuit: ClothingUniformSecurityDressSkirtBase
+  groupBy: "dress"
 
 - type: loadout
-  id: SecurityJumpskirtGrey
-  equipment:
-    jumpsuit: ClothingUniformJumpskirtSecGrey
-  groupBy: "jumpskirt"
-
-- type: loadout
-  id: TrooperUniform
-  equipment:
-    jumpsuit: ClothingUniformSecurityTrooper
-  groupBy: "jumpsuit"
-
-- type: loadout
-  id: SeniorOfficerJumpsuit
+  id: SecuritySeniorDress
   effects:
   - !type:GroupLoadoutEffect
     proto: SeniorOfficer
   equipment:
-    jumpsuit: ClothingUniformJumpsuitSeniorOfficer
-  groupBy: "jumpsuit"
+    jumpsuit: ClothingUniformSecurityDressSenior
+  groupBy: "dress"
 
 - type: loadout
-  id: SeniorOfficerJumpskirt
+  id: SecuritySeniorDressSkirt
   effects:
   - !type:GroupLoadoutEffect
     proto: SeniorOfficer
   equipment:
-    jumpsuit: ClothingUniformJumpskirtSeniorOfficer
-  groupBy: "jumpskirt"
+    jumpsuit: ClothingUniformSecurityDressSkirtSenior
+  groupBy: "dress"
+
+- type: loadout
+  id: SecurityMess
+  equipment:
+    jumpsuit: ClothingUniformSecurityMessBase
+  groupBy: "mess"
+
+- type: loadout
+  id: SecurityMessSkirt
+  equipment:
+    jumpsuit: ClothingUniformSecurityMessSkirtBase
+  groupBy: "mess"
 
 # Back
 - type: loadout
@@ -223,7 +223,7 @@
   storage:
     back:
     - WeaponEnergyGunEnergyPistol
-    
+
 - type: loadout
   id: SecurityOfficerPistol
   storage:

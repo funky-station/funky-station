@@ -1749,12 +1749,11 @@
   id: HeadofSecurityJumpsuit
   name: loadout-group-head-of-security-jumpsuit
   loadouts:
-  - HeadofSecurityJumpsuit
-  - HeadofSecurityJumpskirt
-  - HeadofSecurityTurtleneck
-  - HeadofSecurityTurtleneckSkirt
+  - HeadofSecurityService
+  - HeadofSecurityDress
+  - HeadofSecurityDressSkirt
   - HeadofSecurityFormalSuit
-  - HeadofSecurityFormalSkirt
+  - HeadofSecurityFormalDress
 
 - type: loadoutGroup
   id: HeadofSecurityNeck
@@ -1796,8 +1795,13 @@
   id: WardenJumpsuit
   name: loadout-group-warden-jumpsuit
   loadouts:
-  - WardenJumpsuit
-  - WardenJumpskirt
+  - SecurityFatigues
+  - SecurityDress
+  - SecurityDressSkirt
+  - SecuritySeniorDress
+  - SecuritySeniorDressSkirt
+  - SecurityMess
+  - SecurityMessSkirt
 
 - type: loadoutGroup
   id: WardenNeck
@@ -1844,13 +1848,13 @@
   id: SecurityJumpsuit
   name: loadout-group-security-jumpsuit
   loadouts:
-  - SecurityJumpsuit
-  - SecurityJumpskirt
-  - SecurityJumpsuitGrey
-  - SecurityJumpskirtGrey
-  - SeniorOfficerJumpsuit
-  - SeniorOfficerJumpskirt
-  - TrooperUniform
+  - SecurityFatigues
+  - SecurityDress
+  - SecurityDressSkirt
+  - SecuritySeniorDress
+  - SecuritySeniorDressSkirt
+  - SecurityMess
+  - SecurityMessSkirt
 
 - type: loadoutGroup
   id: SecurityBackpack
@@ -1888,6 +1892,7 @@
   name: loadout-group-security-gloves
   loadouts:
   - BlackGloves
+  - WhiteGloves
 
 - type: loadoutGroup
   id: SecurityShoes

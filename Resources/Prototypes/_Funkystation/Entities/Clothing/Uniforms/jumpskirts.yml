@@ -252,3 +252,60 @@
     sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/nanotrasen_representative_sweater.rsi
   - type: Clothing
     sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/nanotrasen_representative_sweater.rsi
+
+# Head of security uniforms (Tea)
+
+- type: entity
+  parent: [ClothingUniformBase, BaseSecurityContraband]
+  id: ClothingUniformSecurityDressSkirtBase
+  name: security dress uniform w/ skirt
+  description: A uniform made of strong material, for day to day wear.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/security_dress.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/security_dress.rsi
+
+- type: entity
+  parent: [ClothingUniformBase, BaseSecurityContraband]
+  id: ClothingUniformSecurityDressSkirtSenior
+  name: security senior dress uniform w/ skirt
+  description: A uniform made of strong material, for day to day wear. Awarded to senior officers so they feel better about their time spent on the force.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/security_dress_senior.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/security_dress_senior.rsi
+
+- type: entity
+  parent: [ClothingUniformBase, BaseSecurityContraband]
+  id: ClothingUniformSecurityMessSkirtBase
+  name: security mess uniform w/ skirt
+  description: A uniform made of strong material, for special occasions.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/security_mess.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/security_mess.rsi
+
+- type: entity
+  parent: [ClothingUniformBase, BaseSecurityContraband]
+  id: ClothingUniformHosDressSkirtBase
+  name: head of security's dress uniform w/ skirt
+  description: A uniform made of strong material, for day to day wear.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/hos_dress.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/hos_dress.rsi
+
+- type: entity
+  parent: [ClothingUniformBase, BaseSecurityContraband]
+  id: ClothingUniformMessHosDressBase
+  name: head of security's formal dress
+  description: The head of security's formal uniform, for special occasions
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/hos_mess.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/hos_mess.rsi

@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "By Frogoo, recoloured by AraiMaia for Funky Station",
+  "copyright": "By @Frogoo (GitHub), recoloured by @MaiaArai and @Ratsmageddon (both GitHub)",
   "size": {
     "x": 32,
     "y": 32
@@ -9,6 +9,9 @@
   "states": [
     {
       "name": "icon"
+    },
+    {
+      "name": "icon-unshaded"
     },
     {
       "name": "equipped-HAND",

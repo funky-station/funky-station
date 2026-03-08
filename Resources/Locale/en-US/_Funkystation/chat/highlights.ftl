@@ -1,0 +1,4 @@
+# Central Command
+highlights-magistrate = Magistrate, "Magi", "CCV", Central Command VIP, "CC", Central Command, Central, Judge, Arbitrator, Chief Adjudicator, Adjudicator, Judicial Administrator, Chief Legal Officer, "CLO"
+highlights-nanotrasen-representative = Nanotrasen Representative, Representative, "Rep", "NTR", "NTRep", "CCV", Central Command VIP, "CC", Central Command, Central, Liaison, Compliance Executive, "NCE", Advisor
+highlights-internal-affairs-agent = Internal Affairs Agent, "IAA", "IA", "CCV", Central Command VIP, "CC", Central Command, Central, Sapient Resources, Sapient Resources Agent, "SRA", Compliance Officer

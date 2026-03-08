@@ -156,6 +156,7 @@
       - id: ClothingMaskGasAtmos
       - id: ClothingOuterSuitAtmosFire
       - id: ClothingHeadHelmetAtmosFire
+      - id: ClothingHandsGlovesFirefighting # Funky
       - id: OxygenTankFilled
       - id: NitrogenTankFilled
       - id: MedkitOxygenFilled
